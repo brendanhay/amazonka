@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSAMLIdp' smart constructor.
 data SAMLIdp = SAMLIdp'
-  { metadataContent :: Lude.Text,
+  { -- | The Metadata of the SAML application in xml format.
+    metadataContent :: Lude.Text,
+    -- | The unique Entity ID of the application in SAML Identity Provider.
     entityId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SAMLIdp' with the minimum fields required to make a request.
 --
--- * 'entityId' - The unique Entity ID of the application in SAML Identity Provider.
 -- * 'metadataContent' - The Metadata of the SAML application in xml format.
+-- * 'entityId' - The unique Entity ID of the application in SAML Identity Provider.
 mkSAMLIdp ::
   -- | 'metadataContent'
   Lude.Text ->

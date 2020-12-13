@@ -34,35 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkFirewallPolicyDescription' smart constructor.
 data NetworkFirewallPolicyDescription = NetworkFirewallPolicyDescription'
-  { statefulRuleGroups ::
-      Lude.Maybe
-        [StatefulRuleGroup],
-    statelessRuleGroups ::
-      Lude.Maybe
-        [StatelessRuleGroup],
-    statelessFragmentDefaultActions ::
-      Lude.Maybe [Lude.Text],
-    statelessCustomActions ::
-      Lude.Maybe [Lude.Text],
-    statelessDefaultActions ::
-      Lude.Maybe [Lude.Text]
+  { -- | The stateful rule groups that are used in the Network Firewall firewall policy.
+    statefulRuleGroups :: Lude.Maybe [StatefulRuleGroup],
+    -- | The stateless rule groups that are used in the Network Firewall firewall policy.
+    statelessRuleGroups :: Lude.Maybe [StatelessRuleGroup],
+    -- | The actions to take on packet fragments that don't match any of the stateless rule groups.
+    statelessFragmentDefaultActions :: Lude.Maybe [Lude.Text],
+    -- | Names of custom actions that are available for use in the stateless default actions settings.
+    statelessCustomActions :: Lude.Maybe [Lude.Text],
+    -- | The actions to take on packets that don't match any of the stateless rule groups.
+    statelessDefaultActions :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkFirewallPolicyDescription' with the minimum fields required to make a request.
 --
 -- * 'statefulRuleGroups' - The stateful rule groups that are used in the Network Firewall firewall policy.
+-- * 'statelessRuleGroups' - The stateless rule groups that are used in the Network Firewall firewall policy.
+-- * 'statelessFragmentDefaultActions' - The actions to take on packet fragments that don't match any of the stateless rule groups.
 -- * 'statelessCustomActions' - Names of custom actions that are available for use in the stateless default actions settings.
 -- * 'statelessDefaultActions' - The actions to take on packets that don't match any of the stateless rule groups.
--- * 'statelessFragmentDefaultActions' - The actions to take on packet fragments that don't match any of the stateless rule groups.
--- * 'statelessRuleGroups' - The stateless rule groups that are used in the Network Firewall firewall policy.
 mkNetworkFirewallPolicyDescription ::
   NetworkFirewallPolicyDescription
 mkNetworkFirewallPolicyDescription =

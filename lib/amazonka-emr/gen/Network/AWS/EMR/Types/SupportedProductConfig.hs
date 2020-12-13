@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSupportedProductConfig' smart constructor.
 data SupportedProductConfig = SupportedProductConfig'
-  { args ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of user-supplied arguments.
+    args :: Lude.Maybe [Lude.Text],
+    -- | The name of the product configuration.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SupportedProductConfig' with the minimum fields required to make a request.

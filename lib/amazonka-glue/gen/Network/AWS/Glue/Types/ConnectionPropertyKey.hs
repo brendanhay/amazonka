@@ -13,27 +13,27 @@
 module Network.AWS.Glue.Types.ConnectionPropertyKey
   ( ConnectionPropertyKey
       ( ConnectionPropertyKey',
-        ConfigFiles,
-        ConnectionURL,
-        CustomJdbcCert,
-        CustomJdbcCertString,
-        EncryptedPassword,
         Host,
-        InstanceId,
-        JdbcConnectionURL,
-        JdbcDriverClassName,
+        Port,
+        Username,
+        Password,
+        EncryptedPassword,
         JdbcDriverJARURI,
-        JdbcEnforceSSL,
+        JdbcDriverClassName,
         JdbcEngine,
         JdbcEngineVersion,
-        KafkaBootstrapServers,
-        KafkaCustomCert,
-        KafkaSSLEnabled,
-        KafkaSkipCustomCertValidation,
-        Password,
-        Port,
+        ConfigFiles,
+        InstanceId,
+        JdbcConnectionURL,
+        JdbcEnforceSSL,
+        CustomJdbcCert,
         SkipCustomJdbcCertValidation,
-        Username
+        CustomJdbcCertString,
+        ConnectionURL,
+        KafkaBootstrapServers,
+        KafkaSSLEnabled,
+        KafkaCustomCert,
+        KafkaSkipCustomCertValidation
       ),
   )
 where
@@ -64,38 +64,26 @@ newtype ConnectionPropertyKey = ConnectionPropertyKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern ConfigFiles :: ConnectionPropertyKey
-pattern ConfigFiles = ConnectionPropertyKey' "CONFIG_FILES"
+pattern Host :: ConnectionPropertyKey
+pattern Host = ConnectionPropertyKey' "HOST"
 
-pattern ConnectionURL :: ConnectionPropertyKey
-pattern ConnectionURL = ConnectionPropertyKey' "CONNECTION_URL"
+pattern Port :: ConnectionPropertyKey
+pattern Port = ConnectionPropertyKey' "PORT"
 
-pattern CustomJdbcCert :: ConnectionPropertyKey
-pattern CustomJdbcCert = ConnectionPropertyKey' "CUSTOM_JDBC_CERT"
+pattern Username :: ConnectionPropertyKey
+pattern Username = ConnectionPropertyKey' "USERNAME"
 
-pattern CustomJdbcCertString :: ConnectionPropertyKey
-pattern CustomJdbcCertString = ConnectionPropertyKey' "CUSTOM_JDBC_CERT_STRING"
+pattern Password :: ConnectionPropertyKey
+pattern Password = ConnectionPropertyKey' "PASSWORD"
 
 pattern EncryptedPassword :: ConnectionPropertyKey
 pattern EncryptedPassword = ConnectionPropertyKey' "ENCRYPTED_PASSWORD"
 
-pattern Host :: ConnectionPropertyKey
-pattern Host = ConnectionPropertyKey' "HOST"
-
-pattern InstanceId :: ConnectionPropertyKey
-pattern InstanceId = ConnectionPropertyKey' "INSTANCE_ID"
-
-pattern JdbcConnectionURL :: ConnectionPropertyKey
-pattern JdbcConnectionURL = ConnectionPropertyKey' "JDBC_CONNECTION_URL"
-
-pattern JdbcDriverClassName :: ConnectionPropertyKey
-pattern JdbcDriverClassName = ConnectionPropertyKey' "JDBC_DRIVER_CLASS_NAME"
-
 pattern JdbcDriverJARURI :: ConnectionPropertyKey
 pattern JdbcDriverJARURI = ConnectionPropertyKey' "JDBC_DRIVER_JAR_URI"
 
-pattern JdbcEnforceSSL :: ConnectionPropertyKey
-pattern JdbcEnforceSSL = ConnectionPropertyKey' "JDBC_ENFORCE_SSL"
+pattern JdbcDriverClassName :: ConnectionPropertyKey
+pattern JdbcDriverClassName = ConnectionPropertyKey' "JDBC_DRIVER_CLASS_NAME"
 
 pattern JdbcEngine :: ConnectionPropertyKey
 pattern JdbcEngine = ConnectionPropertyKey' "JDBC_ENGINE"
@@ -103,51 +91,63 @@ pattern JdbcEngine = ConnectionPropertyKey' "JDBC_ENGINE"
 pattern JdbcEngineVersion :: ConnectionPropertyKey
 pattern JdbcEngineVersion = ConnectionPropertyKey' "JDBC_ENGINE_VERSION"
 
-pattern KafkaBootstrapServers :: ConnectionPropertyKey
-pattern KafkaBootstrapServers = ConnectionPropertyKey' "KAFKA_BOOTSTRAP_SERVERS"
+pattern ConfigFiles :: ConnectionPropertyKey
+pattern ConfigFiles = ConnectionPropertyKey' "CONFIG_FILES"
 
-pattern KafkaCustomCert :: ConnectionPropertyKey
-pattern KafkaCustomCert = ConnectionPropertyKey' "KAFKA_CUSTOM_CERT"
+pattern InstanceId :: ConnectionPropertyKey
+pattern InstanceId = ConnectionPropertyKey' "INSTANCE_ID"
 
-pattern KafkaSSLEnabled :: ConnectionPropertyKey
-pattern KafkaSSLEnabled = ConnectionPropertyKey' "KAFKA_SSL_ENABLED"
+pattern JdbcConnectionURL :: ConnectionPropertyKey
+pattern JdbcConnectionURL = ConnectionPropertyKey' "JDBC_CONNECTION_URL"
 
-pattern KafkaSkipCustomCertValidation :: ConnectionPropertyKey
-pattern KafkaSkipCustomCertValidation = ConnectionPropertyKey' "KAFKA_SKIP_CUSTOM_CERT_VALIDATION"
+pattern JdbcEnforceSSL :: ConnectionPropertyKey
+pattern JdbcEnforceSSL = ConnectionPropertyKey' "JDBC_ENFORCE_SSL"
 
-pattern Password :: ConnectionPropertyKey
-pattern Password = ConnectionPropertyKey' "PASSWORD"
-
-pattern Port :: ConnectionPropertyKey
-pattern Port = ConnectionPropertyKey' "PORT"
+pattern CustomJdbcCert :: ConnectionPropertyKey
+pattern CustomJdbcCert = ConnectionPropertyKey' "CUSTOM_JDBC_CERT"
 
 pattern SkipCustomJdbcCertValidation :: ConnectionPropertyKey
 pattern SkipCustomJdbcCertValidation = ConnectionPropertyKey' "SKIP_CUSTOM_JDBC_CERT_VALIDATION"
 
-pattern Username :: ConnectionPropertyKey
-pattern Username = ConnectionPropertyKey' "USERNAME"
+pattern CustomJdbcCertString :: ConnectionPropertyKey
+pattern CustomJdbcCertString = ConnectionPropertyKey' "CUSTOM_JDBC_CERT_STRING"
+
+pattern ConnectionURL :: ConnectionPropertyKey
+pattern ConnectionURL = ConnectionPropertyKey' "CONNECTION_URL"
+
+pattern KafkaBootstrapServers :: ConnectionPropertyKey
+pattern KafkaBootstrapServers = ConnectionPropertyKey' "KAFKA_BOOTSTRAP_SERVERS"
+
+pattern KafkaSSLEnabled :: ConnectionPropertyKey
+pattern KafkaSSLEnabled = ConnectionPropertyKey' "KAFKA_SSL_ENABLED"
+
+pattern KafkaCustomCert :: ConnectionPropertyKey
+pattern KafkaCustomCert = ConnectionPropertyKey' "KAFKA_CUSTOM_CERT"
+
+pattern KafkaSkipCustomCertValidation :: ConnectionPropertyKey
+pattern KafkaSkipCustomCertValidation = ConnectionPropertyKey' "KAFKA_SKIP_CUSTOM_CERT_VALIDATION"
 
 {-# COMPLETE
-  ConfigFiles,
-  ConnectionURL,
-  CustomJdbcCert,
-  CustomJdbcCertString,
-  EncryptedPassword,
   Host,
-  InstanceId,
-  JdbcConnectionURL,
-  JdbcDriverClassName,
+  Port,
+  Username,
+  Password,
+  EncryptedPassword,
   JdbcDriverJARURI,
-  JdbcEnforceSSL,
+  JdbcDriverClassName,
   JdbcEngine,
   JdbcEngineVersion,
-  KafkaBootstrapServers,
-  KafkaCustomCert,
-  KafkaSSLEnabled,
-  KafkaSkipCustomCertValidation,
-  Password,
-  Port,
+  ConfigFiles,
+  InstanceId,
+  JdbcConnectionURL,
+  JdbcEnforceSSL,
+  CustomJdbcCert,
   SkipCustomJdbcCertValidation,
-  Username,
+  CustomJdbcCertString,
+  ConnectionURL,
+  KafkaBootstrapServers,
+  KafkaSSLEnabled,
+  KafkaCustomCert,
+  KafkaSkipCustomCertValidation,
   ConnectionPropertyKey'
   #-}

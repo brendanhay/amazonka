@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssociationExecution' smart constructor.
 data AssociationExecution = AssociationExecution'
-  { associationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The association ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | Detailed status information about the execution.
     detailedStatus :: Lude.Maybe Lude.Text,
+    -- | The status of the association execution.
     status :: Lude.Maybe Lude.Text,
+    -- | The execution ID for the association.
     executionId :: Lude.Maybe Lude.Text,
+    -- | The time the execution started.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | An aggregate status of the resources in the execution based on the status type.
     resourceCountByStatus :: Lude.Maybe Lude.Text,
+    -- | The date of the last execution.
     lastExecutionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The association version.
     associationVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationExecution' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The association ID.
--- * 'associationVersion' - The association version.
--- * 'createdTime' - The time the execution started.
 -- * 'detailedStatus' - Detailed status information about the execution.
--- * 'executionId' - The execution ID for the association.
--- * 'lastExecutionDate' - The date of the last execution.
--- * 'resourceCountByStatus' - An aggregate status of the resources in the execution based on the status type.
 -- * 'status' - The status of the association execution.
+-- * 'executionId' - The execution ID for the association.
+-- * 'createdTime' - The time the execution started.
+-- * 'resourceCountByStatus' - An aggregate status of the resources in the execution based on the status type.
+-- * 'lastExecutionDate' - The date of the last execution.
+-- * 'associationVersion' - The association version.
 mkAssociationExecution ::
   AssociationExecution
 mkAssociationExecution =

@@ -35,18 +35,12 @@ import Network.AWS.SageMaker.Types.LabelingJobSNSDataSource
 --
 -- /See:/ 'mkLabelingJobDataSource' smart constructor.
 data LabelingJobDataSource = LabelingJobDataSource'
-  { s3DataSource ::
-      Lude.Maybe LabelingJobS3DataSource,
-    snsDataSource ::
-      Lude.Maybe LabelingJobSNSDataSource
+  { -- | The Amazon S3 location of the input data objects.
+    s3DataSource :: Lude.Maybe LabelingJobS3DataSource,
+    -- | An Amazon SNS data source used for streaming labeling jobs.
+    snsDataSource :: Lude.Maybe LabelingJobSNSDataSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobDataSource' with the minimum fields required to make a request.

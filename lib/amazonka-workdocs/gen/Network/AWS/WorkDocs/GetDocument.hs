@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkDocs.GetDocument
     mkGetDocument,
 
     -- ** Request lenses
+    gdDocumentId,
     gdAuthenticationToken,
     gdIncludeCustomMetadata,
-    gdDocumentId,
 
     -- * Destructuring the response
     GetDocumentResponse (..),
@@ -42,18 +43,20 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkGetDocument' smart constructor.
 data GetDocument = GetDocument'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    includeCustomMetadata :: Lude.Maybe Lude.Bool,
-    documentId :: Lude.Text
+  { -- | The ID of the document.
+    documentId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Set this to @TRUE@ to include custom metadata in the response.
+    includeCustomMetadata :: Lude.Maybe Lude.Bool
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'includeCustomMetadata' - Set this to @TRUE@ to include custom metadata in the response.
 mkGetDocument ::
   -- | 'documentId'
@@ -61,10 +64,17 @@ mkGetDocument ::
   GetDocument
 mkGetDocument pDocumentId_ =
   GetDocument'
-    { authenticationToken = Lude.Nothing,
-      includeCustomMetadata = Lude.Nothing,
-      documentId = pDocumentId_
+    { documentId = pDocumentId_,
+      authenticationToken = Lude.Nothing,
+      includeCustomMetadata = Lude.Nothing
     }
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDocumentId :: Lens.Lens' GetDocument Lude.Text
+gdDocumentId = Lens.lens (documentId :: GetDocument -> Lude.Text) (\s a -> s {documentId = a} :: GetDocument)
+{-# DEPRECATED gdDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -79,13 +89,6 @@ gdAuthenticationToken = Lens.lens (authenticationToken :: GetDocument -> Lude.Ma
 gdIncludeCustomMetadata :: Lens.Lens' GetDocument (Lude.Maybe Lude.Bool)
 gdIncludeCustomMetadata = Lens.lens (includeCustomMetadata :: GetDocument -> Lude.Maybe Lude.Bool) (\s a -> s {includeCustomMetadata = a} :: GetDocument)
 {-# DEPRECATED gdIncludeCustomMetadata "Use generic-lens or generic-optics with 'includeCustomMetadata' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDocumentId :: Lens.Lens' GetDocument Lude.Text
-gdDocumentId = Lens.lens (documentId :: GetDocument -> Lude.Text) (\s a -> s {documentId = a} :: GetDocument)
-{-# DEPRECATED gdDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 instance Lude.AWSRequest GetDocument where
   type Rs GetDocument = GetDocumentResponse
@@ -118,9 +121,11 @@ instance Lude.ToQuery GetDocument where
 
 -- | /See:/ 'mkGetDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { customMetadata ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The custom metadata on the document.
+    customMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The metadata details of the document.
     metadata :: Lude.Maybe DocumentMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

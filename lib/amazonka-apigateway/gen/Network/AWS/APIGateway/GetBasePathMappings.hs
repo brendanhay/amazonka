@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.APIGateway.GetBasePathMappings
     mkGetBasePathMappings,
 
     -- ** Request lenses
-    gLimit,
-    gPosition,
-    gDomainName,
+    gbpmDomainName,
+    gbpmLimit,
+    gbpmPosition,
 
     -- * Destructuring the response
     GetBasePathMappingsResponse (..),
@@ -47,18 +48,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetBasePathMappings' smart constructor.
 data GetBasePathMappings = GetBasePathMappings'
-  { limit ::
-      Lude.Maybe Lude.Int,
-    position :: Lude.Maybe Lude.Text,
-    domainName :: Lude.Text
+  { -- | [Required] The domain name of a 'BasePathMapping' resource.
+    domainName :: Lude.Text,
+    -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+    limit :: Lude.Maybe Lude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBasePathMappings' with the minimum fields required to make a request.
@@ -72,31 +69,31 @@ mkGetBasePathMappings ::
   GetBasePathMappings
 mkGetBasePathMappings pDomainName_ =
   GetBasePathMappings'
-    { limit = Lude.Nothing,
-      position = Lude.Nothing,
-      domainName = pDomainName_
+    { domainName = pDomainName_,
+      limit = Lude.Nothing,
+      position = Lude.Nothing
     }
-
--- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gLimit :: Lens.Lens' GetBasePathMappings (Lude.Maybe Lude.Int)
-gLimit = Lens.lens (limit :: GetBasePathMappings -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetBasePathMappings)
-{-# DEPRECATED gLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The current pagination position in the paged result set.
---
--- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gPosition :: Lens.Lens' GetBasePathMappings (Lude.Maybe Lude.Text)
-gPosition = Lens.lens (position :: GetBasePathMappings -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetBasePathMappings)
-{-# DEPRECATED gPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 -- | [Required] The domain name of a 'BasePathMapping' resource.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gDomainName :: Lens.Lens' GetBasePathMappings Lude.Text
-gDomainName = Lens.lens (domainName :: GetBasePathMappings -> Lude.Text) (\s a -> s {domainName = a} :: GetBasePathMappings)
-{-# DEPRECATED gDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+gbpmDomainName :: Lens.Lens' GetBasePathMappings Lude.Text
+gbpmDomainName = Lens.lens (domainName :: GetBasePathMappings -> Lude.Text) (\s a -> s {domainName = a} :: GetBasePathMappings)
+{-# DEPRECATED gbpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpmLimit :: Lens.Lens' GetBasePathMappings (Lude.Maybe Lude.Int)
+gbpmLimit = Lens.lens (limit :: GetBasePathMappings -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetBasePathMappings)
+{-# DEPRECATED gbpmLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The current pagination position in the paged result set.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpmPosition :: Lens.Lens' GetBasePathMappings (Lude.Maybe Lude.Text)
+gbpmPosition = Lens.lens (position :: GetBasePathMappings -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetBasePathMappings)
+{-# DEPRECATED gbpmPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 instance Page.AWSPager GetBasePathMappings where
   page rq rs
@@ -105,7 +102,7 @@ instance Page.AWSPager GetBasePathMappings where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gPosition Lens..~ rs Lens.^. gbpmrsPosition
+          Lude.& gbpmPosition Lens..~ rs Lens.^. gbpmrsPosition
 
 instance Lude.AWSRequest GetBasePathMappings where
   type Rs GetBasePathMappings = GetBasePathMappingsResponse
@@ -141,24 +138,19 @@ instance Lude.ToQuery GetBasePathMappings where
 --
 -- /See:/ 'mkGetBasePathMappingsResponse' smart constructor.
 data GetBasePathMappingsResponse = GetBasePathMappingsResponse'
-  { items ::
-      Lude.Maybe [BasePathMapping],
+  { -- | The current page of elements from this collection.
+    items :: Lude.Maybe [BasePathMapping],
     position :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBasePathMappingsResponse' with the minimum fields required to make a request.
 --
 -- * 'items' - The current page of elements from this collection.
--- * 'position' - Undocumented field.
+-- * 'position' -
 -- * 'responseStatus' - The response status code.
 mkGetBasePathMappingsResponse ::
   -- | 'responseStatus'

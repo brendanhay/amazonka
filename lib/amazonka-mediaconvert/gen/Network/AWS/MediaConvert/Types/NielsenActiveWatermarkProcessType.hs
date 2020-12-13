@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
   ( NielsenActiveWatermarkProcessType
       ( NielsenActiveWatermarkProcessType',
-        Cbet,
         NAES2AndNw,
+        Cbet,
         NAES2AndNwAndCbet
       ),
   )
@@ -47,18 +47,18 @@ newtype NielsenActiveWatermarkProcessType = NielsenActiveWatermarkProcessType' L
       Lude.ToHeader
     )
 
-pattern Cbet :: NielsenActiveWatermarkProcessType
-pattern Cbet = NielsenActiveWatermarkProcessType' "CBET"
-
 pattern NAES2AndNw :: NielsenActiveWatermarkProcessType
 pattern NAES2AndNw = NielsenActiveWatermarkProcessType' "NAES2_AND_NW"
+
+pattern Cbet :: NielsenActiveWatermarkProcessType
+pattern Cbet = NielsenActiveWatermarkProcessType' "CBET"
 
 pattern NAES2AndNwAndCbet :: NielsenActiveWatermarkProcessType
 pattern NAES2AndNwAndCbet = NielsenActiveWatermarkProcessType' "NAES2_AND_NW_AND_CBET"
 
 {-# COMPLETE
-  Cbet,
   NAES2AndNw,
+  Cbet,
   NAES2AndNwAndCbet,
   NielsenActiveWatermarkProcessType'
   #-}

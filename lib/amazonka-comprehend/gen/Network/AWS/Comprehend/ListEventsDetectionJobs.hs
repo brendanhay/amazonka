@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Comprehend.ListEventsDetectionJobs
     mkListEventsDetectionJobs,
 
     -- ** Request lenses
-    lNextToken,
-    lFilter,
-    lMaxResults,
+    ledjNextToken,
+    ledjFilter,
+    ledjMaxResults,
 
     -- * Destructuring the response
     ListEventsDetectionJobsResponse (..),
@@ -42,26 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEventsDetectionJobs' smart constructor.
 data ListEventsDetectionJobs = ListEventsDetectionJobs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe EventsDetectionJobFilter,
+  { -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
+    filter :: Lude.Maybe EventsDetectionJobFilter,
+    -- | The maximum number of results to return in each page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventsDetectionJobs' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Identifies the next page of results to return.
 -- * 'filter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
 -- * 'maxResults' - The maximum number of results to return in each page.
--- * 'nextToken' - Identifies the next page of results to return.
 mkListEventsDetectionJobs ::
   ListEventsDetectionJobs
 mkListEventsDetectionJobs =
@@ -74,23 +70,23 @@ mkListEventsDetectionJobs =
 -- | Identifies the next page of results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListEventsDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventsDetectionJobs)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ledjNextToken :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe Lude.Text)
+ledjNextToken = Lens.lens (nextToken :: ListEventsDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventsDetectionJobs)
+{-# DEPRECATED ledjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lFilter :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe EventsDetectionJobFilter)
-lFilter = Lens.lens (filter :: ListEventsDetectionJobs -> Lude.Maybe EventsDetectionJobFilter) (\s a -> s {filter = a} :: ListEventsDetectionJobs)
-{-# DEPRECATED lFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+ledjFilter :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe EventsDetectionJobFilter)
+ledjFilter = Lens.lens (filter :: ListEventsDetectionJobs -> Lude.Maybe EventsDetectionJobFilter) (\s a -> s {filter = a} :: ListEventsDetectionJobs)
+{-# DEPRECATED ledjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaxResults :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe Lude.Natural)
-lMaxResults = Lens.lens (maxResults :: ListEventsDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEventsDetectionJobs)
-{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+ledjMaxResults :: Lens.Lens' ListEventsDetectionJobs (Lude.Maybe Lude.Natural)
+ledjMaxResults = Lens.lens (maxResults :: ListEventsDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEventsDetectionJobs)
+{-# DEPRECATED ledjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListEventsDetectionJobs where
   type Rs ListEventsDetectionJobs = ListEventsDetectionJobsResponse
@@ -135,20 +131,14 @@ instance Lude.ToQuery ListEventsDetectionJobs where
 
 -- | /See:/ 'mkListEventsDetectionJobsResponse' smart constructor.
 data ListEventsDetectionJobsResponse = ListEventsDetectionJobsResponse'
-  { eventsDetectionJobPropertiesList ::
-      Lude.Maybe
-        [EventsDetectionJobProperties],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list containing the properties of each job that is returned.
+    eventsDetectionJobPropertiesList :: Lude.Maybe [EventsDetectionJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventsDetectionJobsResponse' with the minimum fields required to make a request.

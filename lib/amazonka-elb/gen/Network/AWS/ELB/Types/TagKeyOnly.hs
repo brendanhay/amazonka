@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The key of a tag.
 --
 -- /See:/ 'mkTagKeyOnly' smart constructor.
-newtype TagKeyOnly = TagKeyOnly' {key :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype TagKeyOnly = TagKeyOnly'
+  { -- | The name of the key.
+    key :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagKeyOnly' with the minimum fields required to make a request.

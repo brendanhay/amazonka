@@ -50,53 +50,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOTAUpdateInfo' smart constructor.
 data OTAUpdateInfo = OTAUpdateInfo'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
-    awsJobExecutionsRolloutConfig ::
-      Lude.Maybe AWSJobExecutionsRolloutConfig,
+  { -- | The date when the OTA update was last updated.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Configuration for the rollout of OTA updates.
+    awsJobExecutionsRolloutConfig :: Lude.Maybe AWSJobExecutionsRolloutConfig,
+    -- | The AWS IoT job ID associated with the OTA update.
     awsIotJobId :: Lude.Maybe Lude.Text,
+    -- | The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
     protocols :: Lude.Maybe (Lude.NonEmpty Protocol),
+    -- | Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
     awsJobPresignedURLConfig :: Lude.Maybe AWSJobPresignedURLConfig,
+    -- | A list of files associated with the OTA update.
     otaUpdateFiles :: Lude.Maybe (Lude.NonEmpty OTAUpdateFile),
+    -- | The status of the OTA update.
     otaUpdateStatus :: Lude.Maybe OTAUpdateStatus,
+    -- | The targets of the OTA update.
     targets :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The AWS IoT job ARN associated with the OTA update.
     awsIotJobARN :: Lude.Maybe Lude.Text,
+    -- | The date when the OTA update was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
-    additionalParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A collection of name/value pairs
+    additionalParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The OTA update ID.
     otaUpdateId :: Lude.Maybe Lude.Text,
+    -- | Error information associated with the OTA update.
     errorInfo :: Lude.Maybe ErrorInfo,
+    -- | The OTA update ARN.
     otaUpdateARN :: Lude.Maybe Lude.Text,
+    -- | A description of the OTA update.
     description :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group.
     targetSelection :: Lude.Maybe TargetSelection
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OTAUpdateInfo' with the minimum fields required to make a request.
 --
--- * 'additionalParameters' - A collection of name/value pairs
--- * 'awsIotJobARN' - The AWS IoT job ARN associated with the OTA update.
--- * 'awsIotJobId' - The AWS IoT job ID associated with the OTA update.
--- * 'awsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.
--- * 'awsJobPresignedURLConfig' - Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
--- * 'creationDate' - The date when the OTA update was created.
--- * 'description' - A description of the OTA update.
--- * 'errorInfo' - Error information associated with the OTA update.
 -- * 'lastModifiedDate' - The date when the OTA update was last updated.
--- * 'otaUpdateARN' - The OTA update ARN.
--- * 'otaUpdateFiles' - A list of files associated with the OTA update.
--- * 'otaUpdateId' - The OTA update ID.
--- * 'otaUpdateStatus' - The status of the OTA update.
+-- * 'awsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.
+-- * 'awsIotJobId' - The AWS IoT job ID associated with the OTA update.
 -- * 'protocols' - The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
--- * 'targetSelection' - Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group.
+-- * 'awsJobPresignedURLConfig' - Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
+-- * 'otaUpdateFiles' - A list of files associated with the OTA update.
+-- * 'otaUpdateStatus' - The status of the OTA update.
 -- * 'targets' - The targets of the OTA update.
+-- * 'awsIotJobARN' - The AWS IoT job ARN associated with the OTA update.
+-- * 'creationDate' - The date when the OTA update was created.
+-- * 'additionalParameters' - A collection of name/value pairs
+-- * 'otaUpdateId' - The OTA update ID.
+-- * 'errorInfo' - Error information associated with the OTA update.
+-- * 'otaUpdateARN' - The OTA update ARN.
+-- * 'description' - A description of the OTA update.
+-- * 'targetSelection' - Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group.
 mkOTAUpdateInfo ::
   OTAUpdateInfo
 mkOTAUpdateInfo =

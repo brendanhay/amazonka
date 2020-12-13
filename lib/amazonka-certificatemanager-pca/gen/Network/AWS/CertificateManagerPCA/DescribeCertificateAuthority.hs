@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,16 +61,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeCertificateAuthority' smart constructor.
 newtype DescribeCertificateAuthority = DescribeCertificateAuthority'
-  { certificateAuthorityARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) that was returned when you called <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> . This must be of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+    certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateAuthority' with the minimum fields required to make a request.
@@ -137,19 +134,12 @@ instance Lude.ToQuery DescribeCertificateAuthority where
 
 -- | /See:/ 'mkDescribeCertificateAuthorityResponse' smart constructor.
 data DescribeCertificateAuthorityResponse = DescribeCertificateAuthorityResponse'
-  { certificateAuthority ::
-      Lude.Maybe
-        CertificateAuthority,
-    responseStatus ::
-      Lude.Int
+  { -- | A <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority> structure that contains information about your private CA.
+    certificateAuthority :: Lude.Maybe CertificateAuthority,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateAuthorityResponse' with the minimum fields required to make a request.

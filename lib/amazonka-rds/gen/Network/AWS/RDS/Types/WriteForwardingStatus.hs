@@ -13,10 +13,10 @@
 module Network.AWS.RDS.Types.WriteForwardingStatus
   ( WriteForwardingStatus
       ( WriteForwardingStatus',
-        Disabled,
-        Disabling,
         Enabled,
+        Disabled,
         Enabling,
+        Disabling,
         Unknown
       ),
   )
@@ -48,26 +48,26 @@ newtype WriteForwardingStatus = WriteForwardingStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: WriteForwardingStatus
-pattern Disabled = WriteForwardingStatus' "disabled"
-
-pattern Disabling :: WriteForwardingStatus
-pattern Disabling = WriteForwardingStatus' "disabling"
-
 pattern Enabled :: WriteForwardingStatus
 pattern Enabled = WriteForwardingStatus' "enabled"
 
+pattern Disabled :: WriteForwardingStatus
+pattern Disabled = WriteForwardingStatus' "disabled"
+
 pattern Enabling :: WriteForwardingStatus
 pattern Enabling = WriteForwardingStatus' "enabling"
+
+pattern Disabling :: WriteForwardingStatus
+pattern Disabling = WriteForwardingStatus' "disabling"
 
 pattern Unknown :: WriteForwardingStatus
 pattern Unknown = WriteForwardingStatus' "unknown"
 
 {-# COMPLETE
-  Disabled,
-  Disabling,
   Enabled,
+  Disabled,
   Enabling,
+  Disabling,
   Unknown,
   WriteForwardingStatus'
   #-}

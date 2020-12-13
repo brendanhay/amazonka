@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGroupResources' smart constructor.
 data GroupResources = GroupResources'
-  { group :: Lude.Text,
+  { -- | The name or the ARN of the resource group to add resources to.
+    group :: Lude.Text,
+    -- | The list of ARNs for resources to be added to the group.
     resourceARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupResources' with the minimum fields required to make a request.
@@ -112,25 +109,21 @@ instance Lude.ToQuery GroupResources where
 
 -- | /See:/ 'mkGroupResourcesResponse' smart constructor.
 data GroupResourcesResponse = GroupResourcesResponse'
-  { succeeded ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The ARNs of the resources that were successfully added to the group by this operation.
+    succeeded :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The ARNs of the resources that failed to be added to the group by this operation.
     failed :: Lude.Maybe [FailedResource],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupResourcesResponse' with the minimum fields required to make a request.
 --
+-- * 'succeeded' - The ARNs of the resources that were successfully added to the group by this operation.
 -- * 'failed' - The ARNs of the resources that failed to be added to the group by this operation.
 -- * 'responseStatus' - The response status code.
--- * 'succeeded' - The ARNs of the resources that were successfully added to the group by this operation.
 mkGroupResourcesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,18 @@ import Network.AWS.SES.Types
 
 -- | /See:/ 'mkListTemplates' smart constructor.
 data ListTemplates = ListTemplates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token returned from a previous call to @ListTemplates@ to indicate the position in the list of email templates.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
     maxItems :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTemplates' with the minimum fields required to make a request.
 --
--- * 'maxItems' - The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
 -- * 'nextToken' - A token returned from a previous call to @ListTemplates@ to indicate the position in the list of email templates.
+-- * 'maxItems' - The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.
 mkListTemplates ::
   ListTemplates
 mkListTemplates =
@@ -123,25 +119,21 @@ instance Lude.ToQuery ListTemplates where
 
 -- | /See:/ 'mkListTemplatesResponse' smart constructor.
 data ListTemplatesResponse = ListTemplatesResponse'
-  { templatesMetadata ::
-      Lude.Maybe [TemplateMetadata],
+  { -- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
+    templatesMetadata :: Lude.Maybe [TemplateMetadata],
+    -- | A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 email templates.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTemplatesResponse' with the minimum fields required to make a request.
 --
+-- * 'templatesMetadata' - An array the contains the name and creation time stamp for each template in your Amazon SES account.
 -- * 'nextToken' - A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 email templates.
 -- * 'responseStatus' - The response status code.
--- * 'templatesMetadata' - An array the contains the name and creation time stamp for each template in your Amazon SES account.
 mkListTemplatesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

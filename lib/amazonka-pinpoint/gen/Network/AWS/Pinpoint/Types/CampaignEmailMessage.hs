@@ -31,19 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCampaignEmailMessage' smart constructor.
 data CampaignEmailMessage = CampaignEmailMessage'
-  { body ::
-      Lude.Maybe Lude.Text,
+  { -- | The body of the email for recipients whose email clients don't render HTML content.
+    body :: Lude.Maybe Lude.Text,
+    -- | The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.
     fromAddress :: Lude.Maybe Lude.Text,
+    -- | The body of the email, in HTML format, for recipients whose email clients render HTML content.
     htmlBody :: Lude.Maybe Lude.Text,
+    -- | The subject line, or title, of the email.
     title :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignEmailMessage' with the minimum fields required to make a request.

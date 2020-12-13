@@ -29,16 +29,10 @@ import Network.AWS.SWF.Types.CloseStatus
 --
 -- /See:/ 'mkCloseStatusFilter' smart constructor.
 newtype CloseStatusFilter = CloseStatusFilter'
-  { status ::
-      CloseStatus
+  { -- | The close status that must match the close status of an execution for it to meet the criteria of this filter.
+    status :: CloseStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloseStatusFilter' with the minimum fields required to make a request.

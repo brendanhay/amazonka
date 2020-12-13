@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryStatistics' smart constructor.
 data QueryStatistics = QueryStatistics'
-  { recordsScanned ::
-      Lude.Maybe Lude.Double,
+  { -- | The total number of log events scanned during the query.
+    recordsScanned :: Lude.Maybe Lude.Double,
+    -- | The total number of bytes in the log events scanned during the query.
     bytesScanned :: Lude.Maybe Lude.Double,
+    -- | The number of log events that matched the query string.
     recordsMatched :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryStatistics' with the minimum fields required to make a request.
 --
+-- * 'recordsScanned' - The total number of log events scanned during the query.
 -- * 'bytesScanned' - The total number of bytes in the log events scanned during the query.
 -- * 'recordsMatched' - The number of log events that matched the query string.
--- * 'recordsScanned' - The total number of log events scanned during the query.
 mkQueryStatistics ::
   QueryStatistics
 mkQueryStatistics =

@@ -30,22 +30,28 @@ import Network.AWS.Route53AutoNaming.Types.OperationStatus
 --
 -- /See:/ 'mkOperationSummary' smart constructor.
 data OperationSummary = OperationSummary'
-  { status ::
-      Lude.Maybe OperationStatus,
+  { -- | The status of the operation. Values include the following:
+    --
+    --
+    --     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
+    --
+    --
+    --     * __PENDING__ : AWS Cloud Map is performing the operation.
+    --
+    --
+    --     * __SUCCESS__ : The operation succeeded.
+    --
+    --
+    --     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+    status :: Lude.Maybe OperationStatus,
+    -- | The ID for an operation.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OperationSummary' with the minimum fields required to make a request.
 --
--- * 'id' - The ID for an operation.
 -- * 'status' - The status of the operation. Values include the following:
 --
 --
@@ -59,6 +65,9 @@ data OperationSummary = OperationSummary'
 --
 --
 --     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+--
+--
+-- * 'id' - The ID for an operation.
 mkOperationSummary ::
   OperationSummary
 mkOperationSummary =

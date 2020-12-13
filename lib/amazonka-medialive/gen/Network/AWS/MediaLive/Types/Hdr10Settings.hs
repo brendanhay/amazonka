@@ -29,29 +29,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHdr10Settings' smart constructor.
 data Hdr10Settings = Hdr10Settings'
-  { maxFall ::
-      Lude.Maybe Lude.Natural,
+  { -- | Maximum Frame Average Light Level
+    --
+    -- An integer metadata value defining the maximum average light level, in nits,
+    -- for any single frame within an encoded HDR video stream or file.
+    maxFall :: Lude.Maybe Lude.Natural,
+    -- | Maximum Content Light Level
+    --
+    -- An integer metadata value defining the maximum light level, in nits,
+    -- of any single pixel within an encoded HDR video stream or file.
     maxCll :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Hdr10Settings' with the minimum fields required to make a request.
 --
--- * 'maxCll' - Maximum Content Light Level
---
--- An integer metadata value defining the maximum light level, in nits,
--- of any single pixel within an encoded HDR video stream or file.
 -- * 'maxFall' - Maximum Frame Average Light Level
 --
 -- An integer metadata value defining the maximum average light level, in nits,
 -- for any single frame within an encoded HDR video stream or file.
+-- * 'maxCll' - Maximum Content Light Level
+--
+-- An integer metadata value defining the maximum light level, in nits,
+-- of any single pixel within an encoded HDR video stream or file.
 mkHdr10Settings ::
   Hdr10Settings
 mkHdr10Settings =

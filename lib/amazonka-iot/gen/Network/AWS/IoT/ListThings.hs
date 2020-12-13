@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,29 +50,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListThings' smart constructor.
 data ListThings = ListThings'
-  { attributeValue ::
-      Lude.Maybe Lude.Text,
+  { -- | The attribute value used to search for things.
+    attributeValue :: Lude.Maybe Lude.Text,
+    -- | The name of the thing type used to search for things.
     thingTypeName :: Lude.Maybe Lude.Text,
+    -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The attribute name used to search for things.
     attributeName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in this operation.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThings' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The attribute name used to search for things.
 -- * 'attributeValue' - The attribute value used to search for things.
--- * 'maxResults' - The maximum number of results to return in this operation.
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'thingTypeName' - The name of the thing type used to search for things.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'attributeName' - The attribute name used to search for things.
+-- * 'maxResults' - The maximum number of results to return in this operation.
 mkListThings ::
   ListThings
 mkListThings =
@@ -159,25 +158,21 @@ instance Lude.ToQuery ListThings where
 --
 -- /See:/ 'mkListThingsResponse' smart constructor.
 data ListThingsResponse = ListThingsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to get the next set of results. Will not be returned if operation has returned all results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The things.
     things :: Lude.Maybe [ThingAttribute],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to get the next set of results. Will not be returned if operation has returned all results.
--- * 'responseStatus' - The response status code.
 -- * 'things' - The things.
+-- * 'responseStatus' - The response status code.
 mkListThingsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

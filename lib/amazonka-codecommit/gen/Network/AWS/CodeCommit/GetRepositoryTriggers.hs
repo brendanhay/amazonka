@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetRepositoryTriggers' smart constructor.
 newtype GetRepositoryTriggers = GetRepositoryTriggers'
-  { repositoryName ::
-      Lude.Text
+  { -- | The name of the repository for which the trigger is configured.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryTriggers' with the minimum fields required to make a request.
@@ -111,26 +106,21 @@ instance Lude.ToQuery GetRepositoryTriggers where
 --
 -- /See:/ 'mkGetRepositoryTriggersResponse' smart constructor.
 data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
-  { configurationId ::
-      Lude.Maybe Lude.Text,
-    triggers ::
-      Lude.Maybe [RepositoryTrigger],
+  { -- | The system-generated unique ID for the trigger.
+    configurationId :: Lude.Maybe Lude.Text,
+    -- | The JSON block of configuration information for each trigger.
+    triggers :: Lude.Maybe [RepositoryTrigger],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryTriggersResponse' with the minimum fields required to make a request.
 --
 -- * 'configurationId' - The system-generated unique ID for the trigger.
--- * 'responseStatus' - The response status code.
 -- * 'triggers' - The JSON block of configuration information for each trigger.
+-- * 'responseStatus' - The response status code.
 mkGetRepositoryTriggersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSmsMFAConfigType' smart constructor.
 data SmsMFAConfigType = SmsMFAConfigType'
-  { smsAuthenticationMessage ::
-      Lude.Maybe Lude.Text,
+  { -- | The SMS authentication message that will be sent to users with the code they need to sign in. The message must contain the ‘{####}’ placeholder, which will be replaced with the code. If the message is not included, and default message will be used.
+    smsAuthenticationMessage :: Lude.Maybe Lude.Text,
+    -- | The SMS configuration.
     smsConfiguration :: Lude.Maybe SmsConfigurationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SmsMFAConfigType' with the minimum fields required to make a request.

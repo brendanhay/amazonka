@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCSecurityGroupMembership' smart constructor.
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
-  { status ::
-      Lude.Maybe Lude.Text,
-    vpcSecurityGroupId ::
-      Lude.Maybe Lude.Text
+  { -- | The status of the VPC security group.
+    status :: Lude.Maybe Lude.Text,
+    -- | The VPC security group ID.
+    vpcSecurityGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.

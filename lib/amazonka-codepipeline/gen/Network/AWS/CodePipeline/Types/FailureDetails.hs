@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { externalExecutionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The external ID of the run of the action that failed.
+    externalExecutionId :: Lude.Maybe Lude.Text,
+    -- | The type of the failure.
     type' :: FailureType,
+    -- | The message about the failure.
     message :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
 --
 -- * 'externalExecutionId' - The external ID of the run of the action that failed.
--- * 'message' - The message about the failure.
 -- * 'type'' - The type of the failure.
+-- * 'message' - The message about the failure.
 mkFailureDetails ::
   -- | 'type''
   FailureType ->

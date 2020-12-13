@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType
   ( WorkspaceDirectoryType
       ( WorkspaceDirectoryType',
-        AdConnector,
-        SimpleAd
+        SimpleAd,
+        AdConnector
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype WorkspaceDirectoryType = WorkspaceDirectoryType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AdConnector :: WorkspaceDirectoryType
-pattern AdConnector = WorkspaceDirectoryType' "AD_CONNECTOR"
-
 pattern SimpleAd :: WorkspaceDirectoryType
 pattern SimpleAd = WorkspaceDirectoryType' "SIMPLE_AD"
 
+pattern AdConnector :: WorkspaceDirectoryType
+pattern AdConnector = WorkspaceDirectoryType' "AD_CONNECTOR"
+
 {-# COMPLETE
-  AdConnector,
   SimpleAd,
+  AdConnector,
   WorkspaceDirectoryType'
   #-}

@@ -18,17 +18,17 @@ module Network.AWS.Pinpoint.Types.SegmentResponse
 
     -- * Lenses
     sLastModifiedDate,
+    sARN,
+    sSegmentType,
     sSegmentGroups,
+    sApplicationId,
     sName,
     sVersion,
+    sId,
+    sCreationDate,
     sImportDefinition,
     sDimensions,
     sTags,
-    sSegmentType,
-    sCreationDate,
-    sId,
-    sARN,
-    sApplicationId,
   )
 where
 
@@ -43,40 +43,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSegmentResponse' smart constructor.
 data SegmentResponse = SegmentResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Text,
-    segmentGroups :: Lude.Maybe SegmentGroupList,
-    name :: Lude.Maybe Lude.Text,
-    version :: Lude.Maybe Lude.Int,
-    importDefinition :: Lude.Maybe SegmentImportResource,
-    dimensions :: Lude.Maybe SegmentDimensions,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    segmentType :: SegmentType,
-    creationDate :: Lude.Text,
-    id :: Lude.Text,
+  { -- | The date and time when the segment was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the segment.
     arn :: Lude.Text,
-    applicationId :: Lude.Text
+    -- | The segment type. Valid values are:
+    --
+    --
+    --     * DIMENSIONAL - A dynamic segment, which is a segment that uses selection criteria that you specify and is based on endpoint data that's reported by your app. Dynamic segments can change over time.
+    --
+    --
+    --     * IMPORT - A static segment, which is a segment that uses selection criteria that you specify and is based on endpoint definitions that you import from a file. Imported segments are static; they don't change over time.
+    segmentType :: SegmentType,
+    -- | A list of one or more segment groups that apply to the segment. Each segment group consists of zero or more base segments and the dimensions that are applied to those base segments.
+    segmentGroups :: Lude.Maybe SegmentGroupList,
+    -- | The unique identifier for the application that the segment is associated with.
+    applicationId :: Lude.Text,
+    -- | The name of the segment.
+    name :: Lude.Maybe Lude.Text,
+    -- | The version number of the segment.
+    version :: Lude.Maybe Lude.Int,
+    -- | The unique identifier for the segment.
+    id :: Lude.Text,
+    -- | The date and time when the segment was created.
+    creationDate :: Lude.Text,
+    -- | The settings for the import job that's associated with the segment.
+    importDefinition :: Lude.Maybe SegmentImportResource,
+    -- | The dimension settings for the segment.
+    dimensions :: Lude.Maybe SegmentDimensions,
+    -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the segment. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the segment is associated with.
--- * 'arn' - The Amazon Resource Name (ARN) of the segment.
--- * 'creationDate' - The date and time when the segment was created.
--- * 'dimensions' - The dimension settings for the segment.
--- * 'id' - The unique identifier for the segment.
--- * 'importDefinition' - The settings for the import job that's associated with the segment.
 -- * 'lastModifiedDate' - The date and time when the segment was last modified.
--- * 'name' - The name of the segment.
--- * 'segmentGroups' - A list of one or more segment groups that apply to the segment. Each segment group consists of zero or more base segments and the dimensions that are applied to those base segments.
+-- * 'arn' - The Amazon Resource Name (ARN) of the segment.
 -- * 'segmentType' - The segment type. Valid values are:
 --
 --
@@ -86,39 +90,46 @@ data SegmentResponse = SegmentResponse'
 --     * IMPORT - A static segment, which is a segment that uses selection criteria that you specify and is based on endpoint definitions that you import from a file. Imported segments are static; they don't change over time.
 --
 --
--- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the segment. Each tag consists of a required tag key and an associated tag value.
+-- * 'segmentGroups' - A list of one or more segment groups that apply to the segment. Each segment group consists of zero or more base segments and the dimensions that are applied to those base segments.
+-- * 'applicationId' - The unique identifier for the application that the segment is associated with.
+-- * 'name' - The name of the segment.
 -- * 'version' - The version number of the segment.
+-- * 'id' - The unique identifier for the segment.
+-- * 'creationDate' - The date and time when the segment was created.
+-- * 'importDefinition' - The settings for the import job that's associated with the segment.
+-- * 'dimensions' - The dimension settings for the segment.
+-- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the segment. Each tag consists of a required tag key and an associated tag value.
 mkSegmentResponse ::
+  -- | 'arn'
+  Lude.Text ->
   -- | 'segmentType'
   SegmentType ->
-  -- | 'creationDate'
+  -- | 'applicationId'
   Lude.Text ->
   -- | 'id'
   Lude.Text ->
-  -- | 'arn'
-  Lude.Text ->
-  -- | 'applicationId'
+  -- | 'creationDate'
   Lude.Text ->
   SegmentResponse
 mkSegmentResponse
-  pSegmentType_
-  pCreationDate_
-  pId_
   pARN_
-  pApplicationId_ =
+  pSegmentType_
+  pApplicationId_
+  pId_
+  pCreationDate_ =
     SegmentResponse'
       { lastModifiedDate = Lude.Nothing,
+        arn = pARN_,
+        segmentType = pSegmentType_,
         segmentGroups = Lude.Nothing,
+        applicationId = pApplicationId_,
         name = Lude.Nothing,
         version = Lude.Nothing,
+        id = pId_,
+        creationDate = pCreationDate_,
         importDefinition = Lude.Nothing,
         dimensions = Lude.Nothing,
-        tags = Lude.Nothing,
-        segmentType = pSegmentType_,
-        creationDate = pCreationDate_,
-        id = pId_,
-        arn = pARN_,
-        applicationId = pApplicationId_
+        tags = Lude.Nothing
       }
 
 -- | The date and time when the segment was last modified.
@@ -128,12 +139,41 @@ sLastModifiedDate :: Lens.Lens' SegmentResponse (Lude.Maybe Lude.Text)
 sLastModifiedDate = Lens.lens (lastModifiedDate :: SegmentResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: SegmentResponse)
 {-# DEPRECATED sLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the segment.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sARN :: Lens.Lens' SegmentResponse Lude.Text
+sARN = Lens.lens (arn :: SegmentResponse -> Lude.Text) (\s a -> s {arn = a} :: SegmentResponse)
+{-# DEPRECATED sARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The segment type. Valid values are:
+--
+--
+--     * DIMENSIONAL - A dynamic segment, which is a segment that uses selection criteria that you specify and is based on endpoint data that's reported by your app. Dynamic segments can change over time.
+--
+--
+--     * IMPORT - A static segment, which is a segment that uses selection criteria that you specify and is based on endpoint definitions that you import from a file. Imported segments are static; they don't change over time.
+--
+--
+--
+-- /Note:/ Consider using 'segmentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSegmentType :: Lens.Lens' SegmentResponse SegmentType
+sSegmentType = Lens.lens (segmentType :: SegmentResponse -> SegmentType) (\s a -> s {segmentType = a} :: SegmentResponse)
+{-# DEPRECATED sSegmentType "Use generic-lens or generic-optics with 'segmentType' instead." #-}
+
 -- | A list of one or more segment groups that apply to the segment. Each segment group consists of zero or more base segments and the dimensions that are applied to those base segments.
 --
 -- /Note:/ Consider using 'segmentGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sSegmentGroups :: Lens.Lens' SegmentResponse (Lude.Maybe SegmentGroupList)
 sSegmentGroups = Lens.lens (segmentGroups :: SegmentResponse -> Lude.Maybe SegmentGroupList) (\s a -> s {segmentGroups = a} :: SegmentResponse)
 {-# DEPRECATED sSegmentGroups "Use generic-lens or generic-optics with 'segmentGroups' instead." #-}
+
+-- | The unique identifier for the application that the segment is associated with.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sApplicationId :: Lens.Lens' SegmentResponse Lude.Text
+sApplicationId = Lens.lens (applicationId :: SegmentResponse -> Lude.Text) (\s a -> s {applicationId = a} :: SegmentResponse)
+{-# DEPRECATED sApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The name of the segment.
 --
@@ -148,6 +188,20 @@ sName = Lens.lens (name :: SegmentResponse -> Lude.Maybe Lude.Text) (\s a -> s {
 sVersion :: Lens.Lens' SegmentResponse (Lude.Maybe Lude.Int)
 sVersion = Lens.lens (version :: SegmentResponse -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: SegmentResponse)
 {-# DEPRECATED sVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The unique identifier for the segment.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sId :: Lens.Lens' SegmentResponse Lude.Text
+sId = Lens.lens (id :: SegmentResponse -> Lude.Text) (\s a -> s {id = a} :: SegmentResponse)
+{-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The date and time when the segment was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCreationDate :: Lens.Lens' SegmentResponse Lude.Text
+sCreationDate = Lens.lens (creationDate :: SegmentResponse -> Lude.Text) (\s a -> s {creationDate = a} :: SegmentResponse)
+{-# DEPRECATED sCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The settings for the import job that's associated with the segment.
 --
@@ -170,49 +224,6 @@ sTags :: Lens.Lens' SegmentResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Te
 sTags = Lens.lens (tags :: SegmentResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: SegmentResponse)
 {-# DEPRECATED sTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The segment type. Valid values are:
---
---
---     * DIMENSIONAL - A dynamic segment, which is a segment that uses selection criteria that you specify and is based on endpoint data that's reported by your app. Dynamic segments can change over time.
---
---
---     * IMPORT - A static segment, which is a segment that uses selection criteria that you specify and is based on endpoint definitions that you import from a file. Imported segments are static; they don't change over time.
---
---
---
--- /Note:/ Consider using 'segmentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSegmentType :: Lens.Lens' SegmentResponse SegmentType
-sSegmentType = Lens.lens (segmentType :: SegmentResponse -> SegmentType) (\s a -> s {segmentType = a} :: SegmentResponse)
-{-# DEPRECATED sSegmentType "Use generic-lens or generic-optics with 'segmentType' instead." #-}
-
--- | The date and time when the segment was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCreationDate :: Lens.Lens' SegmentResponse Lude.Text
-sCreationDate = Lens.lens (creationDate :: SegmentResponse -> Lude.Text) (\s a -> s {creationDate = a} :: SegmentResponse)
-{-# DEPRECATED sCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The unique identifier for the segment.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sId :: Lens.Lens' SegmentResponse Lude.Text
-sId = Lens.lens (id :: SegmentResponse -> Lude.Text) (\s a -> s {id = a} :: SegmentResponse)
-{-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the segment.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sARN :: Lens.Lens' SegmentResponse Lude.Text
-sARN = Lens.lens (arn :: SegmentResponse -> Lude.Text) (\s a -> s {arn = a} :: SegmentResponse)
-{-# DEPRECATED sARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The unique identifier for the application that the segment is associated with.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sApplicationId :: Lens.Lens' SegmentResponse Lude.Text
-sApplicationId = Lens.lens (applicationId :: SegmentResponse -> Lude.Text) (\s a -> s {applicationId = a} :: SegmentResponse)
-{-# DEPRECATED sApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
 instance Lude.FromJSON SegmentResponse where
   parseJSON =
     Lude.withObject
@@ -220,15 +231,15 @@ instance Lude.FromJSON SegmentResponse where
       ( \x ->
           SegmentResponse'
             Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<*> (x Lude..: "Arn")
+            Lude.<*> (x Lude..: "SegmentType")
             Lude.<*> (x Lude..:? "SegmentGroups")
+            Lude.<*> (x Lude..: "ApplicationId")
             Lude.<*> (x Lude..:? "Name")
             Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..: "Id")
+            Lude.<*> (x Lude..: "CreationDate")
             Lude.<*> (x Lude..:? "ImportDefinition")
             Lude.<*> (x Lude..:? "Dimensions")
             Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "SegmentType")
-            Lude.<*> (x Lude..: "CreationDate")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..: "Arn")
-            Lude.<*> (x Lude..: "ApplicationId")
       )

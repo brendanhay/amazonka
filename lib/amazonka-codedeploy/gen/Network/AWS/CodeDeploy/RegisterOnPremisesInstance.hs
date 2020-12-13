@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 
     -- ** Request lenses
     ropiIamUserARN,
-    ropiIamSessionARN,
     ropiInstanceName,
+    ropiIamSessionARN,
 
     -- * Destructuring the response
     RegisterOnPremisesInstanceResponse (..),
@@ -39,25 +40,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRegisterOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
-  { iamUserARN ::
-      Lude.Maybe Lude.Text,
-    iamSessionARN :: Lude.Maybe Lude.Text,
-    instanceName :: Lude.Text
+  { -- | The ARN of the IAM user to associate with the on-premises instance.
+    iamUserARN :: Lude.Maybe Lude.Text,
+    -- | The name of the on-premises instance to register.
+    instanceName :: Lude.Text,
+    -- | The ARN of the IAM session to associate with the on-premises instance.
+    iamSessionARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterOnPremisesInstance' with the minimum fields required to make a request.
 --
--- * 'iamSessionARN' - The ARN of the IAM session to associate with the on-premises instance.
 -- * 'iamUserARN' - The ARN of the IAM user to associate with the on-premises instance.
 -- * 'instanceName' - The name of the on-premises instance to register.
+-- * 'iamSessionARN' - The ARN of the IAM session to associate with the on-premises instance.
 mkRegisterOnPremisesInstance ::
   -- | 'instanceName'
   Lude.Text ->
@@ -65,8 +62,8 @@ mkRegisterOnPremisesInstance ::
 mkRegisterOnPremisesInstance pInstanceName_ =
   RegisterOnPremisesInstance'
     { iamUserARN = Lude.Nothing,
-      iamSessionARN = Lude.Nothing,
-      instanceName = pInstanceName_
+      instanceName = pInstanceName_,
+      iamSessionARN = Lude.Nothing
     }
 
 -- | The ARN of the IAM user to associate with the on-premises instance.
@@ -76,19 +73,19 @@ ropiIamUserARN :: Lens.Lens' RegisterOnPremisesInstance (Lude.Maybe Lude.Text)
 ropiIamUserARN = Lens.lens (iamUserARN :: RegisterOnPremisesInstance -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: RegisterOnPremisesInstance)
 {-# DEPRECATED ropiIamUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
 
--- | The ARN of the IAM session to associate with the on-premises instance.
---
--- /Note:/ Consider using 'iamSessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ropiIamSessionARN :: Lens.Lens' RegisterOnPremisesInstance (Lude.Maybe Lude.Text)
-ropiIamSessionARN = Lens.lens (iamSessionARN :: RegisterOnPremisesInstance -> Lude.Maybe Lude.Text) (\s a -> s {iamSessionARN = a} :: RegisterOnPremisesInstance)
-{-# DEPRECATED ropiIamSessionARN "Use generic-lens or generic-optics with 'iamSessionARN' instead." #-}
-
 -- | The name of the on-premises instance to register.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ropiInstanceName :: Lens.Lens' RegisterOnPremisesInstance Lude.Text
 ropiInstanceName = Lens.lens (instanceName :: RegisterOnPremisesInstance -> Lude.Text) (\s a -> s {instanceName = a} :: RegisterOnPremisesInstance)
 {-# DEPRECATED ropiInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
+
+-- | The ARN of the IAM session to associate with the on-premises instance.
+--
+-- /Note:/ Consider using 'iamSessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ropiIamSessionARN :: Lens.Lens' RegisterOnPremisesInstance (Lude.Maybe Lude.Text)
+ropiIamSessionARN = Lens.lens (iamSessionARN :: RegisterOnPremisesInstance -> Lude.Maybe Lude.Text) (\s a -> s {iamSessionARN = a} :: RegisterOnPremisesInstance)
+{-# DEPRECATED ropiIamSessionARN "Use generic-lens or generic-optics with 'iamSessionARN' instead." #-}
 
 instance Lude.AWSRequest RegisterOnPremisesInstance where
   type
@@ -115,8 +112,8 @@ instance Lude.ToJSON RegisterOnPremisesInstance where
     Lude.object
       ( Lude.catMaybes
           [ ("iamUserArn" Lude..=) Lude.<$> iamUserARN,
-            ("iamSessionArn" Lude..=) Lude.<$> iamSessionARN,
-            Lude.Just ("instanceName" Lude..= instanceName)
+            Lude.Just ("instanceName" Lude..= instanceName),
+            ("iamSessionArn" Lude..=) Lude.<$> iamSessionARN
           ]
       )
 
@@ -128,13 +125,7 @@ instance Lude.ToQuery RegisterOnPremisesInstance where
 
 -- | /See:/ 'mkRegisterOnPremisesInstanceResponse' smart constructor.
 data RegisterOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterOnPremisesInstanceResponse' with the minimum fields required to make a request.

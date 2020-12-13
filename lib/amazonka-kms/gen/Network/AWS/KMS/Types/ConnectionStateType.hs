@@ -15,9 +15,9 @@ module Network.AWS.KMS.Types.ConnectionStateType
       ( ConnectionStateType',
         Connected,
         Connecting,
+        Failed,
         Disconnected,
-        Disconnecting,
-        Failed
+        Disconnecting
       ),
   )
 where
@@ -54,20 +54,20 @@ pattern Connected = ConnectionStateType' "CONNECTED"
 pattern Connecting :: ConnectionStateType
 pattern Connecting = ConnectionStateType' "CONNECTING"
 
+pattern Failed :: ConnectionStateType
+pattern Failed = ConnectionStateType' "FAILED"
+
 pattern Disconnected :: ConnectionStateType
 pattern Disconnected = ConnectionStateType' "DISCONNECTED"
 
 pattern Disconnecting :: ConnectionStateType
 pattern Disconnecting = ConnectionStateType' "DISCONNECTING"
 
-pattern Failed :: ConnectionStateType
-pattern Failed = ConnectionStateType' "FAILED"
-
 {-# COMPLETE
   Connected,
   Connecting,
+  Failed,
   Disconnected,
   Disconnecting,
-  Failed,
   ConnectionStateType'
   #-}

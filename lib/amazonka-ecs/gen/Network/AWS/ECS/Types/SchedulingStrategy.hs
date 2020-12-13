@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.SchedulingStrategy
   ( SchedulingStrategy
       ( SchedulingStrategy',
-        Daemon,
-        Replica
+        Replica,
+        Daemon
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SchedulingStrategy = SchedulingStrategy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Daemon :: SchedulingStrategy
-pattern Daemon = SchedulingStrategy' "DAEMON"
-
 pattern Replica :: SchedulingStrategy
 pattern Replica = SchedulingStrategy' "REPLICA"
 
+pattern Daemon :: SchedulingStrategy
+pattern Daemon = SchedulingStrategy' "DAEMON"
+
 {-# COMPLETE
-  Daemon,
   Replica,
+  Daemon,
   SchedulingStrategy'
   #-}

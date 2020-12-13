@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchLookupPolicyResponse' smart constructor.
 data BatchLookupPolicyResponse = BatchLookupPolicyResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    policyToPathList ::
-      Lude.Maybe [PolicyToPath]
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
+    policyToPathList :: Lude.Maybe [PolicyToPath]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchLookupPolicyResponse' with the minimum fields required to make a request.

@@ -17,8 +17,8 @@ module Network.AWS.Pinpoint.Types.RecencyDimension
     mkRecencyDimension,
 
     -- * Lenses
-    rdDuration,
     rdRecencyType,
+    rdDuration,
   )
 where
 
@@ -31,40 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecencyDimension' smart constructor.
 data RecencyDimension = RecencyDimension'
-  { duration :: Duration,
-    recencyType :: RecencyType
+  { -- | The type of recency dimension to use for the segment. Valid values are: ACTIVE, endpoints that were active within the specified duration are included in the segment; and, INACTIVE, endpoints that weren't active within the specified duration are included in the segment.
+    recencyType :: RecencyType,
+    -- | The duration to use when determining whether an endpoint is active or inactive.
+    duration :: Duration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecencyDimension' with the minimum fields required to make a request.
 --
--- * 'duration' - The duration to use when determining whether an endpoint is active or inactive.
 -- * 'recencyType' - The type of recency dimension to use for the segment. Valid values are: ACTIVE, endpoints that were active within the specified duration are included in the segment; and, INACTIVE, endpoints that weren't active within the specified duration are included in the segment.
+-- * 'duration' - The duration to use when determining whether an endpoint is active or inactive.
 mkRecencyDimension ::
-  -- | 'duration'
-  Duration ->
   -- | 'recencyType'
   RecencyType ->
+  -- | 'duration'
+  Duration ->
   RecencyDimension
-mkRecencyDimension pDuration_ pRecencyType_ =
+mkRecencyDimension pRecencyType_ pDuration_ =
   RecencyDimension'
-    { duration = pDuration_,
-      recencyType = pRecencyType_
+    { recencyType = pRecencyType_,
+      duration = pDuration_
     }
-
--- | The duration to use when determining whether an endpoint is active or inactive.
---
--- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdDuration :: Lens.Lens' RecencyDimension Duration
-rdDuration = Lens.lens (duration :: RecencyDimension -> Duration) (\s a -> s {duration = a} :: RecencyDimension)
-{-# DEPRECATED rdDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | The type of recency dimension to use for the segment. Valid values are: ACTIVE, endpoints that were active within the specified duration are included in the segment; and, INACTIVE, endpoints that weren't active within the specified duration are included in the segment.
 --
@@ -73,20 +62,27 @@ rdRecencyType :: Lens.Lens' RecencyDimension RecencyType
 rdRecencyType = Lens.lens (recencyType :: RecencyDimension -> RecencyType) (\s a -> s {recencyType = a} :: RecencyDimension)
 {-# DEPRECATED rdRecencyType "Use generic-lens or generic-optics with 'recencyType' instead." #-}
 
+-- | The duration to use when determining whether an endpoint is active or inactive.
+--
+-- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdDuration :: Lens.Lens' RecencyDimension Duration
+rdDuration = Lens.lens (duration :: RecencyDimension -> Duration) (\s a -> s {duration = a} :: RecencyDimension)
+{-# DEPRECATED rdDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
+
 instance Lude.FromJSON RecencyDimension where
   parseJSON =
     Lude.withObject
       "RecencyDimension"
       ( \x ->
           RecencyDimension'
-            Lude.<$> (x Lude..: "Duration") Lude.<*> (x Lude..: "RecencyType")
+            Lude.<$> (x Lude..: "RecencyType") Lude.<*> (x Lude..: "Duration")
       )
 
 instance Lude.ToJSON RecencyDimension where
   toJSON RecencyDimension' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Duration" Lude..= duration),
-            Lude.Just ("RecencyType" Lude..= recencyType)
+          [ Lude.Just ("RecencyType" Lude..= recencyType),
+            Lude.Just ("Duration" Lude..= duration)
           ]
       )

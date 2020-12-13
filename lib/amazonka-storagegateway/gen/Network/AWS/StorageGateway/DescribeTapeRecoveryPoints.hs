@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     mkDescribeTapeRecoveryPoints,
 
     -- ** Request lenses
+    dtrpGatewayARN,
     dtrpMarker,
     dtrpLimit,
-    dtrpGatewayARN,
 
     -- * Destructuring the response
     DescribeTapeRecoveryPointsResponse (..),
@@ -50,35 +51,37 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeTapeRecoveryPoints' smart constructor.
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    gatewayARN :: Lude.Text
+  { gatewayARN :: Lude.Text,
+    -- | An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTapeRecoveryPoints' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
--- * 'limit' - Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
+-- * 'gatewayARN' -
 -- * 'marker' - An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
+-- * 'limit' - Specifies that the number of virtual tape recovery points that are described be limited to the specified number.
 mkDescribeTapeRecoveryPoints ::
   -- | 'gatewayARN'
   Lude.Text ->
   DescribeTapeRecoveryPoints
 mkDescribeTapeRecoveryPoints pGatewayARN_ =
   DescribeTapeRecoveryPoints'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      gatewayARN = pGatewayARN_
+    { gatewayARN = pGatewayARN_,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrpGatewayARN :: Lens.Lens' DescribeTapeRecoveryPoints Lude.Text
+dtrpGatewayARN = Lens.lens (gatewayARN :: DescribeTapeRecoveryPoints -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeTapeRecoveryPoints)
+{-# DEPRECATED dtrpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An opaque string that indicates the position at which to begin describing the virtual tape recovery points.
 --
@@ -93,13 +96,6 @@ dtrpMarker = Lens.lens (marker :: DescribeTapeRecoveryPoints -> Lude.Maybe Lude.
 dtrpLimit :: Lens.Lens' DescribeTapeRecoveryPoints (Lude.Maybe Lude.Natural)
 dtrpLimit = Lens.lens (limit :: DescribeTapeRecoveryPoints -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeTapeRecoveryPoints)
 {-# DEPRECATED dtrpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrpGatewayARN :: Lens.Lens' DescribeTapeRecoveryPoints Lude.Text
-dtrpGatewayARN = Lens.lens (gatewayARN :: DescribeTapeRecoveryPoints -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeTapeRecoveryPoints)
-{-# DEPRECATED dtrpGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 instance Page.AWSPager DescribeTapeRecoveryPoints where
   page rq rs
@@ -143,9 +139,9 @@ instance Lude.ToJSON DescribeTapeRecoveryPoints where
   toJSON DescribeTapeRecoveryPoints' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("GatewayARN" Lude..= gatewayARN)
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -159,33 +155,27 @@ instance Lude.ToQuery DescribeTapeRecoveryPoints where
 --
 -- /See:/ 'mkDescribeTapeRecoveryPointsResponse' smart constructor.
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
-  { tapeRecoveryPointInfos ::
-      Lude.Maybe
-        [TapeRecoveryPointInfo],
-    gatewayARN ::
-      Lude.Maybe Lude.Text,
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of TapeRecoveryPointInfos that are available for the specified gateway.
+    tapeRecoveryPointInfos :: Lude.Maybe [TapeRecoveryPointInfo],
+    gatewayARN :: Lude.Maybe Lude.Text,
+    -- | An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.
+    --
+    -- Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTapeRecoveryPointsResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'tapeRecoveryPointInfos' - An array of TapeRecoveryPointInfos that are available for the specified gateway.
+-- * 'gatewayARN' -
 -- * 'marker' - An opaque string that indicates the position at which the virtual tape recovery points that were listed for description ended.
 --
 -- Use this marker in your next request to list the next set of virtual tape recovery points in the list. If there are no more recovery points to describe, this field does not appear in the response.
 -- * 'responseStatus' - The response status code.
--- * 'tapeRecoveryPointInfos' - An array of TapeRecoveryPointInfos that are available for the specified gateway.
 mkDescribeTapeRecoveryPointsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,7 +23,7 @@ module Network.AWS.OpsWorksCM.DeleteServer
     mkDeleteServer,
 
     -- ** Request lenses
-    dsServerName,
+    dServerName,
 
     -- * Destructuring the response
     DeleteServerResponse (..),
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteServer' smart constructor.
-newtype DeleteServer = DeleteServer' {serverName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteServer = DeleteServer'
+  { -- | The ID of the server to delete.
+    serverName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServer' with the minimum fields required to make a request.
@@ -63,9 +61,9 @@ mkDeleteServer pServerName_ =
 -- | The ID of the server to delete.
 --
 -- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsServerName :: Lens.Lens' DeleteServer Lude.Text
-dsServerName = Lens.lens (serverName :: DeleteServer -> Lude.Text) (\s a -> s {serverName = a} :: DeleteServer)
-{-# DEPRECATED dsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+dServerName :: Lens.Lens' DeleteServer Lude.Text
+dServerName = Lens.lens (serverName :: DeleteServer -> Lude.Text) (\s a -> s {serverName = a} :: DeleteServer)
+{-# DEPRECATED dServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 instance Lude.AWSRequest DeleteServer where
   type Rs DeleteServer = DeleteServerResponse
@@ -100,16 +98,10 @@ instance Lude.ToQuery DeleteServer where
 
 -- | /See:/ 'mkDeleteServerResponse' smart constructor.
 newtype DeleteServerResponse = DeleteServerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteServerResponse' with the minimum fields required to make a request.

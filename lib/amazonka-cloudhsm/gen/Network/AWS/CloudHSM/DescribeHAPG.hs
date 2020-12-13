@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,7 +23,7 @@ module Network.AWS.CloudHSM.DescribeHAPG
     mkDescribeHAPG,
 
     -- ** Request lenses
-    dhapgHAPGARN,
+    dhHAPGARN,
 
     -- * Destructuring the response
     DescribeHAPGResponse (..),
@@ -51,14 +52,11 @@ import qualified Network.AWS.Response as Res
 -- | Contains the inputs for the 'DescribeHapg' action.
 --
 -- /See:/ 'mkDescribeHAPG' smart constructor.
-newtype DescribeHAPG = DescribeHAPG' {hapgARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeHAPG = DescribeHAPG'
+  { -- | The ARN of the high-availability partition group to describe.
+    hapgARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHAPG' with the minimum fields required to make a request.
@@ -73,9 +71,9 @@ mkDescribeHAPG pHAPGARN_ = DescribeHAPG' {hapgARN = pHAPGARN_}
 -- | The ARN of the high-availability partition group to describe.
 --
 -- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhapgHAPGARN :: Lens.Lens' DescribeHAPG Lude.Text
-dhapgHAPGARN = Lens.lens (hapgARN :: DescribeHAPG -> Lude.Text) (\s a -> s {hapgARN = a} :: DescribeHAPG)
-{-# DEPRECATED dhapgHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
+dhHAPGARN :: Lens.Lens' DescribeHAPG Lude.Text
+dhHAPGARN = Lens.lens (hapgARN :: DescribeHAPG -> Lude.Text) (\s a -> s {hapgARN = a} :: DescribeHAPG)
+{-# DEPRECATED dhHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
 instance Lude.AWSRequest DescribeHAPG where
   type Rs DescribeHAPG = DescribeHAPGResponse
@@ -122,39 +120,42 @@ instance Lude.ToQuery DescribeHAPG where
 --
 -- /See:/ 'mkDescribeHAPGResponse' smart constructor.
 data DescribeHAPGResponse = DescribeHAPGResponse'
-  { state ::
-      Lude.Maybe CloudHSMObjectState,
+  { -- | The state of the high-availability partition group.
+    state :: Lude.Maybe CloudHSMObjectState,
+    -- | The date and time the high-availability partition group was last modified.
     lastModifiedTimestamp :: Lude.Maybe Lude.Text,
+    -- |
     hsmsPendingRegistration :: Lude.Maybe [Lude.Text],
+    -- |
     hsmsPendingDeletion :: Lude.Maybe [Lude.Text],
+    -- | The serial number of the high-availability partition group.
     hapgSerial :: Lude.Maybe Lude.Text,
+    -- |
     hsmsLastActionFailed :: Lude.Maybe [Lude.Text],
+    -- | The list of partition serial numbers that belong to the high-availability partition group.
     partitionSerialList :: Lude.Maybe [Lude.Text],
+    -- | The ARN of the high-availability partition group.
     hapgARN :: Lude.Maybe Lude.Text,
+    -- | The label for the high-availability partition group.
     label :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHAPGResponse' with the minimum fields required to make a request.
 --
--- * 'hapgARN' - The ARN of the high-availability partition group.
+-- * 'state' - The state of the high-availability partition group.
+-- * 'lastModifiedTimestamp' - The date and time the high-availability partition group was last modified.
+-- * 'hsmsPendingRegistration' -
+-- * 'hsmsPendingDeletion' -
 -- * 'hapgSerial' - The serial number of the high-availability partition group.
 -- * 'hsmsLastActionFailed' -
--- * 'hsmsPendingDeletion' -
--- * 'hsmsPendingRegistration' -
--- * 'label' - The label for the high-availability partition group.
--- * 'lastModifiedTimestamp' - The date and time the high-availability partition group was last modified.
 -- * 'partitionSerialList' - The list of partition serial numbers that belong to the high-availability partition group.
+-- * 'hapgARN' - The ARN of the high-availability partition group.
+-- * 'label' - The label for the high-availability partition group.
 -- * 'responseStatus' - The response status code.
--- * 'state' - The state of the high-availability partition group.
 mkDescribeHAPGResponse ::
   -- | 'responseStatus'
   Lude.Int ->

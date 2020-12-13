@@ -29,14 +29,11 @@ import qualified Network.AWS.Prelude as Lude
 -- For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
 --
 -- /See:/ 'mkOutpost' smart constructor.
-newtype Outpost = Outpost' {arn :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Outpost = Outpost'
+  { -- | The Amazon Resource Name (ARN) of the Outpost.
+    arn :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Outpost' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.IoT.CreateDomainConfiguration
     mkCreateDomainConfiguration,
 
     -- ** Request lenses
+    cdcDomainConfigurationName,
     cdcAuthorizerConfig,
     cdcServerCertificateARNs,
     cdcDomainName,
     cdcServiceType,
     cdcValidationCertificateARN,
     cdcTags,
-    cdcDomainConfigurationName,
 
     -- * Destructuring the response
     CreateDomainConfigurationResponse (..),
@@ -46,49 +47,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDomainConfiguration' smart constructor.
 data CreateDomainConfiguration = CreateDomainConfiguration'
-  { authorizerConfig ::
-      Lude.Maybe AuthorizerConfig,
-    serverCertificateARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The name of the domain configuration. This value must be unique to a region.
+    domainConfigurationName :: Lude.Text,
+    -- | An object that specifies the authorization service for a domain.
+    authorizerConfig :: Lude.Maybe AuthorizerConfig,
+    -- | The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS-managed domains.
+    serverCertificateARNs :: Lude.Maybe [Lude.Text],
+    -- | The name of the domain.
     domainName :: Lude.Maybe Lude.Text,
+    -- | The type of service delivered by the endpoint.
     serviceType :: Lude.Maybe ServiceType,
-    validationCertificateARN ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    domainConfigurationName :: Lude.Text
+    -- | The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS-managed domains.
+    validationCertificateARN :: Lude.Maybe Lude.Text,
+    -- | Metadata which can be used to manage the domain configuration.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainConfiguration' with the minimum fields required to make a request.
 --
--- * 'authorizerConfig' - An object that specifies the authorization service for a domain.
 -- * 'domainConfigurationName' - The name of the domain configuration. This value must be unique to a region.
--- * 'domainName' - The name of the domain.
+-- * 'authorizerConfig' - An object that specifies the authorization service for a domain.
 -- * 'serverCertificateARNs' - The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS-managed domains.
+-- * 'domainName' - The name of the domain.
 -- * 'serviceType' - The type of service delivered by the endpoint.
--- * 'tags' - Metadata which can be used to manage the domain configuration.
 -- * 'validationCertificateARN' - The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS-managed domains.
+-- * 'tags' - Metadata which can be used to manage the domain configuration.
 mkCreateDomainConfiguration ::
   -- | 'domainConfigurationName'
   Lude.Text ->
   CreateDomainConfiguration
 mkCreateDomainConfiguration pDomainConfigurationName_ =
   CreateDomainConfiguration'
-    { authorizerConfig = Lude.Nothing,
+    { domainConfigurationName =
+        pDomainConfigurationName_,
+      authorizerConfig = Lude.Nothing,
       serverCertificateARNs = Lude.Nothing,
       domainName = Lude.Nothing,
       serviceType = Lude.Nothing,
       validationCertificateARN = Lude.Nothing,
-      tags = Lude.Nothing,
-      domainConfigurationName = pDomainConfigurationName_
+      tags = Lude.Nothing
     }
+
+-- | The name of the domain configuration. This value must be unique to a region.
+--
+-- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcDomainConfigurationName :: Lens.Lens' CreateDomainConfiguration Lude.Text
+cdcDomainConfigurationName = Lens.lens (domainConfigurationName :: CreateDomainConfiguration -> Lude.Text) (\s a -> s {domainConfigurationName = a} :: CreateDomainConfiguration)
+{-# DEPRECATED cdcDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
 -- | An object that specifies the authorization service for a domain.
 --
@@ -132,13 +139,6 @@ cdcTags :: Lens.Lens' CreateDomainConfiguration (Lude.Maybe [Tag])
 cdcTags = Lens.lens (tags :: CreateDomainConfiguration -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDomainConfiguration)
 {-# DEPRECATED cdcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the domain configuration. This value must be unique to a region.
---
--- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcDomainConfigurationName :: Lens.Lens' CreateDomainConfiguration Lude.Text
-cdcDomainConfigurationName = Lens.lens (domainConfigurationName :: CreateDomainConfiguration -> Lude.Text) (\s a -> s {domainConfigurationName = a} :: CreateDomainConfiguration)
-{-# DEPRECATED cdcDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
-
 instance Lude.AWSRequest CreateDomainConfiguration where
   type
     Rs CreateDomainConfiguration =
@@ -180,26 +180,20 @@ instance Lude.ToQuery CreateDomainConfiguration where
 
 -- | /See:/ 'mkCreateDomainConfigurationResponse' smart constructor.
 data CreateDomainConfigurationResponse = CreateDomainConfigurationResponse'
-  { domainConfigurationName ::
-      Lude.Maybe Lude.Text,
-    domainConfigurationARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the domain configuration.
+    domainConfigurationName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the domain configuration.
+    domainConfigurationARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'domainConfigurationARN' - The ARN of the domain configuration.
 -- * 'domainConfigurationName' - The name of the domain configuration.
+-- * 'domainConfigurationARN' - The ARN of the domain configuration.
 -- * 'responseStatus' - The response status code.
 mkCreateDomainConfigurationResponse ::
   -- | 'responseStatus'

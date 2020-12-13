@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.SMS.UpdateReplicationJob
     urjLicenseType,
     urjRoleName,
     urjEncrypted,
+    urjReplicationJobId,
     urjNextReplicationRunStartTime,
     urjKmsKeyId,
     urjDescription,
-    urjReplicationJobId,
 
     -- * Destructuring the response
     UpdateReplicationJobResponse (..),
@@ -46,32 +47,52 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkUpdateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
-  { frequency ::
-      Lude.Maybe Lude.Int,
+  { -- | The time between consecutive replication runs, in hours.
+    frequency :: Lude.Maybe Lude.Int,
+    -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.
     numberOfRecentAMIsToKeep :: Lude.Maybe Lude.Int,
+    -- | The license type to be used for the AMI created by a successful replication run.
     licenseType :: Lude.Maybe LicenseType,
+    -- | The name of the IAM role to be used by AWS SMS.
     roleName :: Lude.Maybe Lude.Text,
+    -- | When true, the replication job produces encrypted AMIs. For more information, @KmsKeyId@ .
     encrypted :: Lude.Maybe Lude.Bool,
-    nextReplicationRunStartTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The ID of the replication job.
+    replicationJobId :: Lude.Text,
+    -- | The start time of the next replication run.
+    nextReplicationRunStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
+    --
+    --
+    --     * KMS key ID
+    --
+    --
+    --     * KMS key alias
+    --
+    --
+    --     * ARN referring to the KMS key ID
+    --
+    --
+    --     * ARN referring to the KMS key alias
+    --
+    --
+    -- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
     kmsKeyId :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    replicationJobId :: Lude.Text
+    -- | The description of the replication job.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReplicationJob' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the replication job.
--- * 'encrypted' - When true, the replication job produces encrypted AMIs. For more information, @KmsKeyId@ .
 -- * 'frequency' - The time between consecutive replication runs, in hours.
+-- * 'numberOfRecentAMIsToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.
+-- * 'licenseType' - The license type to be used for the AMI created by a successful replication run.
+-- * 'roleName' - The name of the IAM role to be used by AWS SMS.
+-- * 'encrypted' - When true, the replication job produces encrypted AMIs. For more information, @KmsKeyId@ .
+-- * 'replicationJobId' - The ID of the replication job.
+-- * 'nextReplicationRunStartTime' - The start time of the next replication run.
 -- * 'kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
 --
 --
@@ -88,11 +109,7 @@ data UpdateReplicationJob = UpdateReplicationJob'
 --
 --
 -- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
--- * 'licenseType' - The license type to be used for the AMI created by a successful replication run.
--- * 'nextReplicationRunStartTime' - The start time of the next replication run.
--- * 'numberOfRecentAMIsToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.
--- * 'replicationJobId' - The ID of the replication job.
--- * 'roleName' - The name of the IAM role to be used by AWS SMS.
+-- * 'description' - The description of the replication job.
 mkUpdateReplicationJob ::
   -- | 'replicationJobId'
   Lude.Text ->
@@ -104,10 +121,10 @@ mkUpdateReplicationJob pReplicationJobId_ =
       licenseType = Lude.Nothing,
       roleName = Lude.Nothing,
       encrypted = Lude.Nothing,
+      replicationJobId = pReplicationJobId_,
       nextReplicationRunStartTime = Lude.Nothing,
       kmsKeyId = Lude.Nothing,
-      description = Lude.Nothing,
-      replicationJobId = pReplicationJobId_
+      description = Lude.Nothing
     }
 
 -- | The time between consecutive replication runs, in hours.
@@ -145,6 +162,13 @@ urjEncrypted :: Lens.Lens' UpdateReplicationJob (Lude.Maybe Lude.Bool)
 urjEncrypted = Lens.lens (encrypted :: UpdateReplicationJob -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: UpdateReplicationJob)
 {-# DEPRECATED urjEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
+-- | The ID of the replication job.
+--
+-- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urjReplicationJobId :: Lens.Lens' UpdateReplicationJob Lude.Text
+urjReplicationJobId = Lens.lens (replicationJobId :: UpdateReplicationJob -> Lude.Text) (\s a -> s {replicationJobId = a} :: UpdateReplicationJob)
+{-# DEPRECATED urjReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
+
 -- | The start time of the next replication run.
 --
 -- /Note:/ Consider using 'nextReplicationRunStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -181,13 +205,6 @@ urjDescription :: Lens.Lens' UpdateReplicationJob (Lude.Maybe Lude.Text)
 urjDescription = Lens.lens (description :: UpdateReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateReplicationJob)
 {-# DEPRECATED urjDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The ID of the replication job.
---
--- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urjReplicationJobId :: Lens.Lens' UpdateReplicationJob Lude.Text
-urjReplicationJobId = Lens.lens (replicationJobId :: UpdateReplicationJob -> Lude.Text) (\s a -> s {replicationJobId = a} :: UpdateReplicationJob)
-{-# DEPRECATED urjReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
-
 instance Lude.AWSRequest UpdateReplicationJob where
   type Rs UpdateReplicationJob = UpdateReplicationJobResponse
   request = Req.postJSON smsService
@@ -221,11 +238,11 @@ instance Lude.ToJSON UpdateReplicationJob where
             ("licenseType" Lude..=) Lude.<$> licenseType,
             ("roleName" Lude..=) Lude.<$> roleName,
             ("encrypted" Lude..=) Lude.<$> encrypted,
+            Lude.Just ("replicationJobId" Lude..= replicationJobId),
             ("nextReplicationRunStartTime" Lude..=)
               Lude.<$> nextReplicationRunStartTime,
             ("kmsKeyId" Lude..=) Lude.<$> kmsKeyId,
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("replicationJobId" Lude..= replicationJobId)
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -237,16 +254,10 @@ instance Lude.ToQuery UpdateReplicationJob where
 
 -- | /See:/ 'mkUpdateReplicationJobResponse' smart constructor.
 newtype UpdateReplicationJobResponse = UpdateReplicationJobResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReplicationJobResponse' with the minimum fields required to make a request.

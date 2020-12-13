@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -62,37 +63,39 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListTrialComponents' smart constructor.
 data ListTrialComponents = ListTrialComponents'
-  { createdAfter ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A filter that returns only components created after the specified time.
+    createdAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only components that have the specified source Amazon Resource Name (ARN). If you specify @SourceArn@ , you can't filter by @ExperimentName@ or @TrialName@ .
     sourceARN :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only components that are part of the specified experiment. If you specify @ExperimentName@ , you can't filter by @SourceArn@ or @TrialName@ .
     experimentName :: Lude.Maybe Lude.Text,
+    -- | If the previous call to @ListTrialComponents@ didn't return the full set of components, the call returns a token for getting the next set of components.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order. The default value is @Descending@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | A filter that returns only components that are part of the specified trial. If you specify @TrialName@ , you can't filter by @ExperimentName@ or @SourceArn@ .
     trialName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of components to return in the response. The default value is 10.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | A filter that returns only components created before the specified time.
     createdBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The property used to sort results. The default value is @CreationTime@ .
     sortBy :: Lude.Maybe SortTrialComponentsBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrialComponents' with the minimum fields required to make a request.
 --
 -- * 'createdAfter' - A filter that returns only components created after the specified time.
--- * 'createdBefore' - A filter that returns only components created before the specified time.
--- * 'experimentName' - A filter that returns only components that are part of the specified experiment. If you specify @ExperimentName@ , you can't filter by @SourceArn@ or @TrialName@ .
--- * 'maxResults' - The maximum number of components to return in the response. The default value is 10.
--- * 'nextToken' - If the previous call to @ListTrialComponents@ didn't return the full set of components, the call returns a token for getting the next set of components.
--- * 'sortBy' - The property used to sort results. The default value is @CreationTime@ .
--- * 'sortOrder' - The sort order. The default value is @Descending@ .
 -- * 'sourceARN' - A filter that returns only components that have the specified source Amazon Resource Name (ARN). If you specify @SourceArn@ , you can't filter by @ExperimentName@ or @TrialName@ .
+-- * 'experimentName' - A filter that returns only components that are part of the specified experiment. If you specify @ExperimentName@ , you can't filter by @SourceArn@ or @TrialName@ .
+-- * 'nextToken' - If the previous call to @ListTrialComponents@ didn't return the full set of components, the call returns a token for getting the next set of components.
+-- * 'sortOrder' - The sort order. The default value is @Descending@ .
 -- * 'trialName' - A filter that returns only components that are part of the specified trial. If you specify @TrialName@ , you can't filter by @ExperimentName@ or @SourceArn@ .
+-- * 'maxResults' - The maximum number of components to return in the response. The default value is 10.
+-- * 'createdBefore' - A filter that returns only components created before the specified time.
+-- * 'sortBy' - The property used to sort results. The default value is @CreationTime@ .
 mkListTrialComponents ::
   ListTrialComponents
 mkListTrialComponents =
@@ -228,25 +231,21 @@ instance Lude.ToQuery ListTrialComponents where
 
 -- | /See:/ 'mkListTrialComponentsResponse' smart constructor.
 data ListTrialComponentsResponse = ListTrialComponentsResponse'
-  { trialComponentSummaries ::
-      Lude.Maybe [TrialComponentSummary],
+  { -- | A list of the summaries of your trial components.
+    trialComponentSummaries :: Lude.Maybe [TrialComponentSummary],
+    -- | A token for getting the next set of components, if there are any.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrialComponentsResponse' with the minimum fields required to make a request.
 --
+-- * 'trialComponentSummaries' - A list of the summaries of your trial components.
 -- * 'nextToken' - A token for getting the next set of components, if there are any.
 -- * 'responseStatus' - The response status code.
--- * 'trialComponentSummaries' - A list of the summaries of your trial components.
 mkListTrialComponentsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMapStateStartedEventDetails' smart constructor.
 newtype MapStateStartedEventDetails = MapStateStartedEventDetails'
-  { length ::
-      Lude.Maybe Lude.Natural
+  { -- | The size of the array for Map state iterations.
+    length :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MapStateStartedEventDetails' with the minimum fields required to make a request.

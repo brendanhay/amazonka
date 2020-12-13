@@ -17,11 +17,11 @@ module Network.AWS.SageMaker.Types.FlowDefinitionSummary
     mkFlowDefinitionSummary,
 
     -- * Lenses
-    fdsFailureReason,
-    fdsFlowDefinitionName,
-    fdsFlowDefinitionARN,
-    fdsFlowDefinitionStatus,
     fdsCreationTime,
+    fdsFailureReason,
+    fdsFlowDefinitionStatus,
+    fdsFlowDefinitionARN,
+    fdsFlowDefinitionName,
   )
 where
 
@@ -33,79 +33,49 @@ import Network.AWS.SageMaker.Types.FlowDefinitionStatus
 --
 -- /See:/ 'mkFlowDefinitionSummary' smart constructor.
 data FlowDefinitionSummary = FlowDefinitionSummary'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
-    flowDefinitionName :: Lude.Text,
-    flowDefinitionARN :: Lude.Text,
+  { -- | The timestamp when SageMaker created the flow definition.
+    creationTime :: Lude.Timestamp,
+    -- | The reason why the flow definition creation failed. A failure reason is returned only when the flow definition status is @Failed@ .
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The status of the flow definition. Valid values:
     flowDefinitionStatus :: FlowDefinitionStatus,
-    creationTime :: Lude.Timestamp
+    -- | The Amazon Resource Name (ARN) of the flow definition.
+    flowDefinitionARN :: Lude.Text,
+    -- | The name of the flow definition.
+    flowDefinitionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlowDefinitionSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The timestamp when SageMaker created the flow definition.
 -- * 'failureReason' - The reason why the flow definition creation failed. A failure reason is returned only when the flow definition status is @Failed@ .
+-- * 'flowDefinitionStatus' - The status of the flow definition. Valid values:
 -- * 'flowDefinitionARN' - The Amazon Resource Name (ARN) of the flow definition.
 -- * 'flowDefinitionName' - The name of the flow definition.
--- * 'flowDefinitionStatus' - The status of the flow definition. Valid values:
 mkFlowDefinitionSummary ::
-  -- | 'flowDefinitionName'
-  Lude.Text ->
-  -- | 'flowDefinitionARN'
-  Lude.Text ->
-  -- | 'flowDefinitionStatus'
-  FlowDefinitionStatus ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'flowDefinitionStatus'
+  FlowDefinitionStatus ->
+  -- | 'flowDefinitionARN'
+  Lude.Text ->
+  -- | 'flowDefinitionName'
+  Lude.Text ->
   FlowDefinitionSummary
 mkFlowDefinitionSummary
-  pFlowDefinitionName_
-  pFlowDefinitionARN_
+  pCreationTime_
   pFlowDefinitionStatus_
-  pCreationTime_ =
+  pFlowDefinitionARN_
+  pFlowDefinitionName_ =
     FlowDefinitionSummary'
-      { failureReason = Lude.Nothing,
-        flowDefinitionName = pFlowDefinitionName_,
-        flowDefinitionARN = pFlowDefinitionARN_,
+      { creationTime = pCreationTime_,
+        failureReason = Lude.Nothing,
         flowDefinitionStatus = pFlowDefinitionStatus_,
-        creationTime = pCreationTime_
+        flowDefinitionARN = pFlowDefinitionARN_,
+        flowDefinitionName = pFlowDefinitionName_
       }
-
--- | The reason why the flow definition creation failed. A failure reason is returned only when the flow definition status is @Failed@ .
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdsFailureReason :: Lens.Lens' FlowDefinitionSummary (Lude.Maybe Lude.Text)
-fdsFailureReason = Lens.lens (failureReason :: FlowDefinitionSummary -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: FlowDefinitionSummary)
-{-# DEPRECATED fdsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | The name of the flow definition.
---
--- /Note:/ Consider using 'flowDefinitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdsFlowDefinitionName :: Lens.Lens' FlowDefinitionSummary Lude.Text
-fdsFlowDefinitionName = Lens.lens (flowDefinitionName :: FlowDefinitionSummary -> Lude.Text) (\s a -> s {flowDefinitionName = a} :: FlowDefinitionSummary)
-{-# DEPRECATED fdsFlowDefinitionName "Use generic-lens or generic-optics with 'flowDefinitionName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the flow definition.
---
--- /Note:/ Consider using 'flowDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdsFlowDefinitionARN :: Lens.Lens' FlowDefinitionSummary Lude.Text
-fdsFlowDefinitionARN = Lens.lens (flowDefinitionARN :: FlowDefinitionSummary -> Lude.Text) (\s a -> s {flowDefinitionARN = a} :: FlowDefinitionSummary)
-{-# DEPRECATED fdsFlowDefinitionARN "Use generic-lens or generic-optics with 'flowDefinitionARN' instead." #-}
-
--- | The status of the flow definition. Valid values:
---
--- /Note:/ Consider using 'flowDefinitionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdsFlowDefinitionStatus :: Lens.Lens' FlowDefinitionSummary FlowDefinitionStatus
-fdsFlowDefinitionStatus = Lens.lens (flowDefinitionStatus :: FlowDefinitionSummary -> FlowDefinitionStatus) (\s a -> s {flowDefinitionStatus = a} :: FlowDefinitionSummary)
-{-# DEPRECATED fdsFlowDefinitionStatus "Use generic-lens or generic-optics with 'flowDefinitionStatus' instead." #-}
 
 -- | The timestamp when SageMaker created the flow definition.
 --
@@ -114,15 +84,43 @@ fdsCreationTime :: Lens.Lens' FlowDefinitionSummary Lude.Timestamp
 fdsCreationTime = Lens.lens (creationTime :: FlowDefinitionSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: FlowDefinitionSummary)
 {-# DEPRECATED fdsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
+-- | The reason why the flow definition creation failed. A failure reason is returned only when the flow definition status is @Failed@ .
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdsFailureReason :: Lens.Lens' FlowDefinitionSummary (Lude.Maybe Lude.Text)
+fdsFailureReason = Lens.lens (failureReason :: FlowDefinitionSummary -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: FlowDefinitionSummary)
+{-# DEPRECATED fdsFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+
+-- | The status of the flow definition. Valid values:
+--
+-- /Note:/ Consider using 'flowDefinitionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdsFlowDefinitionStatus :: Lens.Lens' FlowDefinitionSummary FlowDefinitionStatus
+fdsFlowDefinitionStatus = Lens.lens (flowDefinitionStatus :: FlowDefinitionSummary -> FlowDefinitionStatus) (\s a -> s {flowDefinitionStatus = a} :: FlowDefinitionSummary)
+{-# DEPRECATED fdsFlowDefinitionStatus "Use generic-lens or generic-optics with 'flowDefinitionStatus' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the flow definition.
+--
+-- /Note:/ Consider using 'flowDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdsFlowDefinitionARN :: Lens.Lens' FlowDefinitionSummary Lude.Text
+fdsFlowDefinitionARN = Lens.lens (flowDefinitionARN :: FlowDefinitionSummary -> Lude.Text) (\s a -> s {flowDefinitionARN = a} :: FlowDefinitionSummary)
+{-# DEPRECATED fdsFlowDefinitionARN "Use generic-lens or generic-optics with 'flowDefinitionARN' instead." #-}
+
+-- | The name of the flow definition.
+--
+-- /Note:/ Consider using 'flowDefinitionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdsFlowDefinitionName :: Lens.Lens' FlowDefinitionSummary Lude.Text
+fdsFlowDefinitionName = Lens.lens (flowDefinitionName :: FlowDefinitionSummary -> Lude.Text) (\s a -> s {flowDefinitionName = a} :: FlowDefinitionSummary)
+{-# DEPRECATED fdsFlowDefinitionName "Use generic-lens or generic-optics with 'flowDefinitionName' instead." #-}
+
 instance Lude.FromJSON FlowDefinitionSummary where
   parseJSON =
     Lude.withObject
       "FlowDefinitionSummary"
       ( \x ->
           FlowDefinitionSummary'
-            Lude.<$> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..: "FlowDefinitionName")
-            Lude.<*> (x Lude..: "FlowDefinitionArn")
+            Lude.<$> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..:? "FailureReason")
             Lude.<*> (x Lude..: "FlowDefinitionStatus")
-            Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "FlowDefinitionArn")
+            Lude.<*> (x Lude..: "FlowDefinitionName")
       )

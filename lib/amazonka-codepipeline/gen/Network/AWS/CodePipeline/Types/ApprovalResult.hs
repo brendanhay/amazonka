@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApprovalResult' smart constructor.
 data ApprovalResult = ApprovalResult'
-  { summary :: Lude.Text,
+  { -- | The summary of the current status of the approval request.
+    summary :: Lude.Text,
+    -- | The response submitted by a reviewer assigned to an approval action request.
     status :: ApprovalStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApprovalResult' with the minimum fields required to make a request.
 --
--- * 'status' - The response submitted by a reviewer assigned to an approval action request.
 -- * 'summary' - The summary of the current status of the approval request.
+-- * 'status' - The response submitted by a reviewer assigned to an approval action request.
 mkApprovalResult ::
   -- | 'summary'
   Lude.Text ->

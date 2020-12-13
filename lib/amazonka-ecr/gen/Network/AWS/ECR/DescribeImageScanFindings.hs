@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.ECR.DescribeImageScanFindings
     -- ** Request lenses
     disfRegistryId,
     disfNextToken,
-    disfMaxResults,
-    disfRepositoryName,
     disfImageId,
+    disfRepositoryName,
+    disfMaxResults,
 
     -- * Destructuring the response
     DescribeImageScanFindingsResponse (..),
@@ -51,42 +52,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeImageScanFindings' smart constructor.
 data DescribeImageScanFindings = DescribeImageScanFindings'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry that contains the repository in which to describe the image scan findings for. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The @nextToken@ value returned from a previous paginated @DescribeImageScanFindings@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+    imageId :: ImageIdentifier,
+    -- | The repository for the image for which to describe the scan findings.
     repositoryName :: Lude.Text,
-    imageId :: ImageIdentifier
+    -- | The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageScanFindings' with the minimum fields required to make a request.
 --
--- * 'imageId' - Undocumented field.
--- * 'maxResults' - The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
--- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeImageScanFindings@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
 -- * 'registryId' - The AWS account ID associated with the registry that contains the repository in which to describe the image scan findings for. If you do not specify a registry, the default registry is assumed.
+-- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeImageScanFindings@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
+-- * 'imageId' -
 -- * 'repositoryName' - The repository for the image for which to describe the scan findings.
+-- * 'maxResults' - The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
 mkDescribeImageScanFindings ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'imageId'
   ImageIdentifier ->
+  -- | 'repositoryName'
+  Lude.Text ->
   DescribeImageScanFindings
-mkDescribeImageScanFindings pRepositoryName_ pImageId_ =
+mkDescribeImageScanFindings pImageId_ pRepositoryName_ =
   DescribeImageScanFindings'
     { registryId = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
+      imageId = pImageId_,
       repositoryName = pRepositoryName_,
-      imageId = pImageId_
+      maxResults = Lude.Nothing
     }
 
 -- | The AWS account ID associated with the registry that contains the repository in which to describe the image scan findings for. If you do not specify a registry, the default registry is assumed.
@@ -103,12 +101,12 @@ disfNextToken :: Lens.Lens' DescribeImageScanFindings (Lude.Maybe Lude.Text)
 disfNextToken = Lens.lens (nextToken :: DescribeImageScanFindings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeImageScanFindings)
 {-# DEPRECATED disfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
+-- | Undocumented field.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disfMaxResults :: Lens.Lens' DescribeImageScanFindings (Lude.Maybe Lude.Natural)
-disfMaxResults = Lens.lens (maxResults :: DescribeImageScanFindings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeImageScanFindings)
-{-# DEPRECATED disfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfImageId :: Lens.Lens' DescribeImageScanFindings ImageIdentifier
+disfImageId = Lens.lens (imageId :: DescribeImageScanFindings -> ImageIdentifier) (\s a -> s {imageId = a} :: DescribeImageScanFindings)
+{-# DEPRECATED disfImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The repository for the image for which to describe the scan findings.
 --
@@ -117,12 +115,12 @@ disfRepositoryName :: Lens.Lens' DescribeImageScanFindings Lude.Text
 disfRepositoryName = Lens.lens (repositoryName :: DescribeImageScanFindings -> Lude.Text) (\s a -> s {repositoryName = a} :: DescribeImageScanFindings)
 {-# DEPRECATED disfRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
--- | Undocumented field.
+-- | The maximum number of image scan results returned by @DescribeImageScanFindings@ in paginated output. When this parameter is used, @DescribeImageScanFindings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeImageScanFindings@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this parameter is not used, then @DescribeImageScanFindings@ returns up to 100 results and a @nextToken@ value, if applicable.
 --
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disfImageId :: Lens.Lens' DescribeImageScanFindings ImageIdentifier
-disfImageId = Lens.lens (imageId :: DescribeImageScanFindings -> ImageIdentifier) (\s a -> s {imageId = a} :: DescribeImageScanFindings)
-{-# DEPRECATED disfImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disfMaxResults :: Lens.Lens' DescribeImageScanFindings (Lude.Maybe Lude.Natural)
+disfMaxResults = Lens.lens (maxResults :: DescribeImageScanFindings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeImageScanFindings)
+{-# DEPRECATED disfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeImageScanFindings where
   page rq rs
@@ -176,9 +174,9 @@ instance Lude.ToJSON DescribeImageScanFindings where
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("imageId" Lude..= imageId),
             Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("imageId" Lude..= imageId)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -190,40 +188,30 @@ instance Lude.ToQuery DescribeImageScanFindings where
 
 -- | /See:/ 'mkDescribeImageScanFindingsResponse' smart constructor.
 data DescribeImageScanFindingsResponse = DescribeImageScanFindingsResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    imageScanFindings ::
-      Lude.Maybe
-        ImageScanFindings,
-    imageScanStatus ::
-      Lude.Maybe
-        ImageScanStatus,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    imageId ::
-      Lude.Maybe
-        ImageIdentifier,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The information contained in the image scan findings.
+    imageScanFindings :: Lude.Maybe ImageScanFindings,
+    -- | The current state of the scan.
+    imageScanStatus :: Lude.Maybe ImageScanStatus,
+    -- | The @nextToken@ value to include in a future @DescribeImageScanFindings@ request. When the results of a @DescribeImageScanFindings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    imageId :: Lude.Maybe ImageIdentifier,
+    -- | The repository name associated with the request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImageScanFindingsResponse' with the minimum fields required to make a request.
 --
--- * 'imageId' - Undocumented field.
+-- * 'registryId' - The registry ID associated with the request.
 -- * 'imageScanFindings' - The information contained in the image scan findings.
 -- * 'imageScanStatus' - The current state of the scan.
 -- * 'nextToken' - The @nextToken@ value to include in a future @DescribeImageScanFindings@ request. When the results of a @DescribeImageScanFindings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
--- * 'registryId' - The registry ID associated with the request.
+-- * 'imageId' -
 -- * 'repositoryName' - The repository name associated with the request.
 -- * 'responseStatus' - The response status code.
 mkDescribeImageScanFindingsResponse ::

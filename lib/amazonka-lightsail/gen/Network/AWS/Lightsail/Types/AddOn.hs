@@ -31,23 +31,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddOn' smart constructor.
 data AddOn = AddOn'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The status of the add-on.
+    status :: Lude.Maybe Lude.Text,
+    -- | The next daily time an automatic snapshot will be created.
+    --
+    -- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
+    -- The snapshot is automatically created between the time shown and up to 45 minutes after.
     nextSnapshotTimeOfDay :: Lude.Maybe Lude.Text,
+    -- | The daily time when an automatic snapshot is created.
+    --
+    -- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
+    -- The snapshot is automatically created between the time shown and up to 45 minutes after.
     snapshotTimeOfDay :: Lude.Maybe Lude.Text,
+    -- | The name of the add-on.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddOn' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the add-on.
+-- * 'status' - The status of the add-on.
 -- * 'nextSnapshotTimeOfDay' - The next daily time an automatic snapshot will be created.
 --
 -- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
@@ -56,7 +60,7 @@ data AddOn = AddOn'
 --
 -- The time shown is in @HH:00@ format, and in Coordinated Universal Time (UTC).
 -- The snapshot is automatically created between the time shown and up to 45 minutes after.
--- * 'status' - The status of the add-on.
+-- * 'name' - The name of the add-on.
 mkAddOn ::
   AddOn
 mkAddOn =

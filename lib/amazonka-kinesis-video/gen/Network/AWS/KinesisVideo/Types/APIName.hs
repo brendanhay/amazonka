@@ -13,13 +13,13 @@
 module Network.AWS.KinesisVideo.Types.APIName
   ( APIName
       ( APIName',
-        GetClip,
-        GetDashStreamingSessionURL,
-        GetHlsStreamingSessionURL,
+        PutMedia,
         GetMedia,
-        GetMediaForFragmentList,
         ListFragments,
-        PutMedia
+        GetMediaForFragmentList,
+        GetHlsStreamingSessionURL,
+        GetDashStreamingSessionURL,
+        GetClip
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype APIName = APIName' Lude.Text
       Lude.ToHeader
     )
 
-pattern GetClip :: APIName
-pattern GetClip = APIName' "GET_CLIP"
-
-pattern GetDashStreamingSessionURL :: APIName
-pattern GetDashStreamingSessionURL = APIName' "GET_DASH_STREAMING_SESSION_URL"
-
-pattern GetHlsStreamingSessionURL :: APIName
-pattern GetHlsStreamingSessionURL = APIName' "GET_HLS_STREAMING_SESSION_URL"
+pattern PutMedia :: APIName
+pattern PutMedia = APIName' "PUT_MEDIA"
 
 pattern GetMedia :: APIName
 pattern GetMedia = APIName' "GET_MEDIA"
 
-pattern GetMediaForFragmentList :: APIName
-pattern GetMediaForFragmentList = APIName' "GET_MEDIA_FOR_FRAGMENT_LIST"
-
 pattern ListFragments :: APIName
 pattern ListFragments = APIName' "LIST_FRAGMENTS"
 
-pattern PutMedia :: APIName
-pattern PutMedia = APIName' "PUT_MEDIA"
+pattern GetMediaForFragmentList :: APIName
+pattern GetMediaForFragmentList = APIName' "GET_MEDIA_FOR_FRAGMENT_LIST"
+
+pattern GetHlsStreamingSessionURL :: APIName
+pattern GetHlsStreamingSessionURL = APIName' "GET_HLS_STREAMING_SESSION_URL"
+
+pattern GetDashStreamingSessionURL :: APIName
+pattern GetDashStreamingSessionURL = APIName' "GET_DASH_STREAMING_SESSION_URL"
+
+pattern GetClip :: APIName
+pattern GetClip = APIName' "GET_CLIP"
 
 {-# COMPLETE
-  GetClip,
-  GetDashStreamingSessionURL,
-  GetHlsStreamingSessionURL,
-  GetMedia,
-  GetMediaForFragmentList,
-  ListFragments,
   PutMedia,
+  GetMedia,
+  ListFragments,
+  GetMediaForFragmentList,
+  GetHlsStreamingSessionURL,
+  GetDashStreamingSessionURL,
+  GetClip,
   APIName'
   #-}

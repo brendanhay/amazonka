@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.WorkDocs.CreateUser
     mkCreateUser,
 
     -- ** Request lenses
+    cuGivenName,
     cuAuthenticationToken,
+    cuUsername,
+    cuPassword,
     cuStorageRule,
     cuEmailAddress,
+    cuSurname,
     cuTimeZoneId,
     cuOrganizationId,
-    cuUsername,
-    cuGivenName,
-    cuSurname,
-    cuPassword,
 
     -- * Destructuring the response
     CreateUserResponse (..),
@@ -47,53 +48,68 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    storageRule :: Lude.Maybe StorageRuleType,
-    emailAddress :: Lude.Maybe Lude.Text,
-    timeZoneId :: Lude.Maybe Lude.Text,
-    organizationId :: Lude.Maybe Lude.Text,
-    username :: Lude.Text,
+  { -- | The given name of the user.
     givenName :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The login name of the user.
+    username :: Lude.Text,
+    -- | The password of the user.
+    password :: Lude.Sensitive Lude.Text,
+    -- | The amount of storage for the user.
+    storageRule :: Lude.Maybe StorageRuleType,
+    -- | The email address of the user.
+    emailAddress :: Lude.Maybe Lude.Text,
+    -- | The surname of the user.
     surname :: Lude.Text,
-    password :: Lude.Sensitive Lude.Text
+    -- | The time zone ID of the user.
+    timeZoneId :: Lude.Maybe Lude.Text,
+    -- | The ID of the organization.
+    organizationId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'emailAddress' - The email address of the user.
 -- * 'givenName' - The given name of the user.
--- * 'organizationId' - The ID of the organization.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'username' - The login name of the user.
 -- * 'password' - The password of the user.
 -- * 'storageRule' - The amount of storage for the user.
+-- * 'emailAddress' - The email address of the user.
 -- * 'surname' - The surname of the user.
 -- * 'timeZoneId' - The time zone ID of the user.
--- * 'username' - The login name of the user.
+-- * 'organizationId' - The ID of the organization.
 mkCreateUser ::
-  -- | 'username'
-  Lude.Text ->
   -- | 'givenName'
   Lude.Text ->
-  -- | 'surname'
+  -- | 'username'
   Lude.Text ->
   -- | 'password'
   Lude.Sensitive Lude.Text ->
+  -- | 'surname'
+  Lude.Text ->
   CreateUser
-mkCreateUser pUsername_ pGivenName_ pSurname_ pPassword_ =
+mkCreateUser pGivenName_ pUsername_ pPassword_ pSurname_ =
   CreateUser'
-    { authenticationToken = Lude.Nothing,
+    { givenName = pGivenName_,
+      authenticationToken = Lude.Nothing,
+      username = pUsername_,
+      password = pPassword_,
       storageRule = Lude.Nothing,
       emailAddress = Lude.Nothing,
-      timeZoneId = Lude.Nothing,
-      organizationId = Lude.Nothing,
-      username = pUsername_,
-      givenName = pGivenName_,
       surname = pSurname_,
-      password = pPassword_
+      timeZoneId = Lude.Nothing,
+      organizationId = Lude.Nothing
     }
+
+-- | The given name of the user.
+--
+-- /Note:/ Consider using 'givenName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuGivenName :: Lens.Lens' CreateUser Lude.Text
+cuGivenName = Lens.lens (givenName :: CreateUser -> Lude.Text) (\s a -> s {givenName = a} :: CreateUser)
+{-# DEPRECATED cuGivenName "Use generic-lens or generic-optics with 'givenName' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -101,6 +117,20 @@ mkCreateUser pUsername_ pGivenName_ pSurname_ pPassword_ =
 cuAuthenticationToken :: Lens.Lens' CreateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
 cuAuthenticationToken = Lens.lens (authenticationToken :: CreateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: CreateUser)
 {-# DEPRECATED cuAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+
+-- | The login name of the user.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUsername :: Lens.Lens' CreateUser Lude.Text
+cuUsername = Lens.lens (username :: CreateUser -> Lude.Text) (\s a -> s {username = a} :: CreateUser)
+{-# DEPRECATED cuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+-- | The password of the user.
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuPassword :: Lens.Lens' CreateUser (Lude.Sensitive Lude.Text)
+cuPassword = Lens.lens (password :: CreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateUser)
+{-# DEPRECATED cuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | The amount of storage for the user.
 --
@@ -116,6 +146,13 @@ cuEmailAddress :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
 cuEmailAddress = Lens.lens (emailAddress :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {emailAddress = a} :: CreateUser)
 {-# DEPRECATED cuEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
+-- | The surname of the user.
+--
+-- /Note:/ Consider using 'surname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuSurname :: Lens.Lens' CreateUser Lude.Text
+cuSurname = Lens.lens (surname :: CreateUser -> Lude.Text) (\s a -> s {surname = a} :: CreateUser)
+{-# DEPRECATED cuSurname "Use generic-lens or generic-optics with 'surname' instead." #-}
+
 -- | The time zone ID of the user.
 --
 -- /Note:/ Consider using 'timeZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -129,34 +166,6 @@ cuTimeZoneId = Lens.lens (timeZoneId :: CreateUser -> Lude.Maybe Lude.Text) (\s 
 cuOrganizationId :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
 cuOrganizationId = Lens.lens (organizationId :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: CreateUser)
 {-# DEPRECATED cuOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The login name of the user.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuUsername :: Lens.Lens' CreateUser Lude.Text
-cuUsername = Lens.lens (username :: CreateUser -> Lude.Text) (\s a -> s {username = a} :: CreateUser)
-{-# DEPRECATED cuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
--- | The given name of the user.
---
--- /Note:/ Consider using 'givenName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuGivenName :: Lens.Lens' CreateUser Lude.Text
-cuGivenName = Lens.lens (givenName :: CreateUser -> Lude.Text) (\s a -> s {givenName = a} :: CreateUser)
-{-# DEPRECATED cuGivenName "Use generic-lens or generic-optics with 'givenName' instead." #-}
-
--- | The surname of the user.
---
--- /Note:/ Consider using 'surname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuSurname :: Lens.Lens' CreateUser Lude.Text
-cuSurname = Lens.lens (surname :: CreateUser -> Lude.Text) (\s a -> s {surname = a} :: CreateUser)
-{-# DEPRECATED cuSurname "Use generic-lens or generic-optics with 'surname' instead." #-}
-
--- | The password of the user.
---
--- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuPassword :: Lens.Lens' CreateUser (Lude.Sensitive Lude.Text)
-cuPassword = Lens.lens (password :: CreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateUser)
-{-# DEPRECATED cuPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 instance Lude.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
@@ -180,14 +189,14 @@ instance Lude.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("StorageRule" Lude..=) Lude.<$> storageRule,
-            ("EmailAddress" Lude..=) Lude.<$> emailAddress,
-            ("TimeZoneId" Lude..=) Lude.<$> timeZoneId,
-            ("OrganizationId" Lude..=) Lude.<$> organizationId,
+          [ Lude.Just ("GivenName" Lude..= givenName),
             Lude.Just ("Username" Lude..= username),
-            Lude.Just ("GivenName" Lude..= givenName),
+            Lude.Just ("Password" Lude..= password),
+            ("StorageRule" Lude..=) Lude.<$> storageRule,
+            ("EmailAddress" Lude..=) Lude.<$> emailAddress,
             Lude.Just ("Surname" Lude..= surname),
-            Lude.Just ("Password" Lude..= password)
+            ("TimeZoneId" Lude..=) Lude.<$> timeZoneId,
+            ("OrganizationId" Lude..=) Lude.<$> organizationId
           ]
       )
 
@@ -199,23 +208,18 @@ instance Lude.ToQuery CreateUser where
 
 -- | /See:/ 'mkCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { user ::
-      Lude.Maybe User,
+  { -- | The user information.
+    user :: Lude.Maybe User,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'user' - The user information.
+-- * 'responseStatus' - The response status code.
 mkCreateUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLDAPSSettingInfo' smart constructor.
 data LDAPSSettingInfo = LDAPSSettingInfo'
-  { lastUpdatedDateTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when the LDAPS settings were last updated.
+    lastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Describes a state change for LDAPS.
     lDAPSStatusReason :: Lude.Maybe Lude.Text,
+    -- | The state of the LDAPS settings.
     lDAPSStatus :: Lude.Maybe LDAPSStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LDAPSSettingInfo' with the minimum fields required to make a request.
 --
--- * 'lDAPSStatus' - The state of the LDAPS settings.
--- * 'lDAPSStatusReason' - Describes a state change for LDAPS.
 -- * 'lastUpdatedDateTime' - The date and time when the LDAPS settings were last updated.
+-- * 'lDAPSStatusReason' - Describes a state change for LDAPS.
+-- * 'lDAPSStatus' - The state of the LDAPS settings.
 mkLDAPSSettingInfo ::
   LDAPSSettingInfo
 mkLDAPSSettingInfo =

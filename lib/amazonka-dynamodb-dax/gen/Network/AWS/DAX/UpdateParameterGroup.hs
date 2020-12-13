@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DAX.UpdateParameterGroup
     mkUpdateParameterGroup,
 
     -- ** Request lenses
-    upgParameterGroupName,
     upgParameterNameValues,
+    upgParameterGroupName,
 
     -- * Destructuring the response
     UpdateParameterGroupResponse (..),
@@ -40,39 +41,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateParameterGroup' smart constructor.
 data UpdateParameterGroup = UpdateParameterGroup'
-  { parameterGroupName ::
-      Lude.Text,
-    parameterNameValues :: [ParameterNameValue]
+  { -- | An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
+    parameterNameValues :: [ParameterNameValue],
+    -- | The name of the parameter group.
+    parameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateParameterGroup' with the minimum fields required to make a request.
 --
--- * 'parameterGroupName' - The name of the parameter group.
 -- * 'parameterNameValues' - An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
+-- * 'parameterGroupName' - The name of the parameter group.
 mkUpdateParameterGroup ::
   -- | 'parameterGroupName'
   Lude.Text ->
   UpdateParameterGroup
 mkUpdateParameterGroup pParameterGroupName_ =
   UpdateParameterGroup'
-    { parameterGroupName = pParameterGroupName_,
-      parameterNameValues = Lude.mempty
+    { parameterNameValues = Lude.mempty,
+      parameterGroupName = pParameterGroupName_
     }
-
--- | The name of the parameter group.
---
--- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upgParameterGroupName :: Lens.Lens' UpdateParameterGroup Lude.Text
-upgParameterGroupName = Lens.lens (parameterGroupName :: UpdateParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: UpdateParameterGroup)
-{-# DEPRECATED upgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
 -- | An array of name-value pairs for the parameters in the group. Each element in the array represents a single parameter.
 --
@@ -80,6 +69,13 @@ upgParameterGroupName = Lens.lens (parameterGroupName :: UpdateParameterGroup ->
 upgParameterNameValues :: Lens.Lens' UpdateParameterGroup [ParameterNameValue]
 upgParameterNameValues = Lens.lens (parameterNameValues :: UpdateParameterGroup -> [ParameterNameValue]) (\s a -> s {parameterNameValues = a} :: UpdateParameterGroup)
 {-# DEPRECATED upgParameterNameValues "Use generic-lens or generic-optics with 'parameterNameValues' instead." #-}
+
+-- | The name of the parameter group.
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upgParameterGroupName :: Lens.Lens' UpdateParameterGroup Lude.Text
+upgParameterGroupName = Lens.lens (parameterGroupName :: UpdateParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: UpdateParameterGroup)
+{-# DEPRECATED upgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
 instance Lude.AWSRequest UpdateParameterGroup where
   type Rs UpdateParameterGroup = UpdateParameterGroupResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON UpdateParameterGroup where
   toJSON UpdateParameterGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ParameterGroupName" Lude..= parameterGroupName),
-            Lude.Just ("ParameterNameValues" Lude..= parameterNameValues)
+          [ Lude.Just ("ParameterNameValues" Lude..= parameterNameValues),
+            Lude.Just ("ParameterGroupName" Lude..= parameterGroupName)
           ]
       )
 
@@ -120,17 +116,12 @@ instance Lude.ToQuery UpdateParameterGroup where
 
 -- | /See:/ 'mkUpdateParameterGroupResponse' smart constructor.
 data UpdateParameterGroupResponse = UpdateParameterGroupResponse'
-  { parameterGroup ::
-      Lude.Maybe ParameterGroup,
+  { -- | The parameter group that has been modified.
+    parameterGroup :: Lude.Maybe ParameterGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateParameterGroupResponse' with the minimum fields required to make a request.

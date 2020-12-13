@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
   ( Eac3AtmosStereoDownmix
       ( Eac3AtmosStereoDownmix',
-        DPL2,
-        NotIndicated,
-        Stereo,
-        Surround
+        EASDNotIndicated,
+        EASDStereo,
+        EASDSurround,
+        EASDDPL2
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype Eac3AtmosStereoDownmix = Eac3AtmosStereoDownmix' Lude.Text
       Lude.ToHeader
     )
 
-pattern DPL2 :: Eac3AtmosStereoDownmix
-pattern DPL2 = Eac3AtmosStereoDownmix' "DPL2"
+pattern EASDNotIndicated :: Eac3AtmosStereoDownmix
+pattern EASDNotIndicated = Eac3AtmosStereoDownmix' "NOT_INDICATED"
 
-pattern NotIndicated :: Eac3AtmosStereoDownmix
-pattern NotIndicated = Eac3AtmosStereoDownmix' "NOT_INDICATED"
+pattern EASDStereo :: Eac3AtmosStereoDownmix
+pattern EASDStereo = Eac3AtmosStereoDownmix' "STEREO"
 
-pattern Stereo :: Eac3AtmosStereoDownmix
-pattern Stereo = Eac3AtmosStereoDownmix' "STEREO"
+pattern EASDSurround :: Eac3AtmosStereoDownmix
+pattern EASDSurround = Eac3AtmosStereoDownmix' "SURROUND"
 
-pattern Surround :: Eac3AtmosStereoDownmix
-pattern Surround = Eac3AtmosStereoDownmix' "SURROUND"
+pattern EASDDPL2 :: Eac3AtmosStereoDownmix
+pattern EASDDPL2 = Eac3AtmosStereoDownmix' "DPL2"
 
 {-# COMPLETE
-  DPL2,
-  NotIndicated,
-  Stereo,
-  Surround,
+  EASDNotIndicated,
+  EASDStereo,
+  EASDSurround,
+  EASDDPL2,
   Eac3AtmosStereoDownmix'
   #-}

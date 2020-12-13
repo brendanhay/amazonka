@@ -29,16 +29,10 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkRequestProgress' smart constructor.
 newtype RequestProgress = RequestProgress'
-  { enabled ::
-      Lude.Maybe Lude.Bool
+  { -- | Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.
+    enabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestProgress' with the minimum fields required to make a request.

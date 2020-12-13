@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.OpsWorks.RegisterInstance
     riHostname,
     riInstanceIdentity,
     riPublicIP,
+    riStackId,
     riRsaPublicKeyFingerprint,
     riRsaPublicKey,
-    riStackId,
 
     -- * Destructuring the response
     RegisterInstanceResponse (..),
@@ -48,33 +49,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterInstance' smart constructor.
 data RegisterInstance = RegisterInstance'
-  { privateIP ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance's private IP address.
+    privateIP :: Lude.Maybe Lude.Text,
+    -- | The instance's hostname.
     hostname :: Lude.Maybe Lude.Text,
+    -- | An InstanceIdentity object that contains the instance's identity.
     instanceIdentity :: Lude.Maybe InstanceIdentity,
+    -- | The instance's public IP address.
     publicIP :: Lude.Maybe Lude.Text,
+    -- | The ID of the stack that the instance is to be registered with.
+    stackId :: Lude.Text,
+    -- | The instances public RSA key fingerprint.
     rsaPublicKeyFingerprint :: Lude.Maybe Lude.Text,
-    rsaPublicKey :: Lude.Maybe Lude.Text,
-    stackId :: Lude.Text
+    -- | The instances public RSA key. This key is used to encrypt communication between the instance and the service.
+    rsaPublicKey :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterInstance' with the minimum fields required to make a request.
 --
+-- * 'privateIP' - The instance's private IP address.
 -- * 'hostname' - The instance's hostname.
 -- * 'instanceIdentity' - An InstanceIdentity object that contains the instance's identity.
--- * 'privateIP' - The instance's private IP address.
 -- * 'publicIP' - The instance's public IP address.
--- * 'rsaPublicKey' - The instances public RSA key. This key is used to encrypt communication between the instance and the service.
--- * 'rsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
 -- * 'stackId' - The ID of the stack that the instance is to be registered with.
+-- * 'rsaPublicKeyFingerprint' - The instances public RSA key fingerprint.
+-- * 'rsaPublicKey' - The instances public RSA key. This key is used to encrypt communication between the instance and the service.
 mkRegisterInstance ::
   -- | 'stackId'
   Lude.Text ->
@@ -85,9 +86,9 @@ mkRegisterInstance pStackId_ =
       hostname = Lude.Nothing,
       instanceIdentity = Lude.Nothing,
       publicIP = Lude.Nothing,
+      stackId = pStackId_,
       rsaPublicKeyFingerprint = Lude.Nothing,
-      rsaPublicKey = Lude.Nothing,
-      stackId = pStackId_
+      rsaPublicKey = Lude.Nothing
     }
 
 -- | The instance's private IP address.
@@ -118,6 +119,13 @@ riPublicIP :: Lens.Lens' RegisterInstance (Lude.Maybe Lude.Text)
 riPublicIP = Lens.lens (publicIP :: RegisterInstance -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: RegisterInstance)
 {-# DEPRECATED riPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
 
+-- | The ID of the stack that the instance is to be registered with.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riStackId :: Lens.Lens' RegisterInstance Lude.Text
+riStackId = Lens.lens (stackId :: RegisterInstance -> Lude.Text) (\s a -> s {stackId = a} :: RegisterInstance)
+{-# DEPRECATED riStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+
 -- | The instances public RSA key fingerprint.
 --
 -- /Note:/ Consider using 'rsaPublicKeyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -131,13 +139,6 @@ riRsaPublicKeyFingerprint = Lens.lens (rsaPublicKeyFingerprint :: RegisterInstan
 riRsaPublicKey :: Lens.Lens' RegisterInstance (Lude.Maybe Lude.Text)
 riRsaPublicKey = Lens.lens (rsaPublicKey :: RegisterInstance -> Lude.Maybe Lude.Text) (\s a -> s {rsaPublicKey = a} :: RegisterInstance)
 {-# DEPRECATED riRsaPublicKey "Use generic-lens or generic-optics with 'rsaPublicKey' instead." #-}
-
--- | The ID of the stack that the instance is to be registered with.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riStackId :: Lens.Lens' RegisterInstance Lude.Text
-riStackId = Lens.lens (stackId :: RegisterInstance -> Lude.Text) (\s a -> s {stackId = a} :: RegisterInstance)
-{-# DEPRECATED riStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 instance Lude.AWSRequest RegisterInstance where
   type Rs RegisterInstance = RegisterInstanceResponse
@@ -168,10 +169,10 @@ instance Lude.ToJSON RegisterInstance where
             ("Hostname" Lude..=) Lude.<$> hostname,
             ("InstanceIdentity" Lude..=) Lude.<$> instanceIdentity,
             ("PublicIp" Lude..=) Lude.<$> publicIP,
+            Lude.Just ("StackId" Lude..= stackId),
             ("RsaPublicKeyFingerprint" Lude..=)
               Lude.<$> rsaPublicKeyFingerprint,
-            ("RsaPublicKey" Lude..=) Lude.<$> rsaPublicKey,
-            Lude.Just ("StackId" Lude..= stackId)
+            ("RsaPublicKey" Lude..=) Lude.<$> rsaPublicKey
           ]
       )
 
@@ -185,17 +186,12 @@ instance Lude.ToQuery RegisterInstance where
 --
 -- /See:/ 'mkRegisterInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The registered instance's AWS OpsWorks Stacks ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterInstanceResponse' with the minimum fields required to make a request.

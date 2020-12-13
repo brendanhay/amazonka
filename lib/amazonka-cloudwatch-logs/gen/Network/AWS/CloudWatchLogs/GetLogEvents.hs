@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     -- ** Request lenses
     gleStartTime,
     gleStartFromHead,
+    gleLogGroupName,
     gleNextToken,
+    gleLogStreamName,
     gleEndTime,
     gleLimit,
-    gleLogGroupName,
-    gleLogStreamName,
 
     -- * Destructuring the response
     GetLogEventsResponse (..),
@@ -49,37 +50,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLogEvents' smart constructor.
 data GetLogEvents = GetLogEvents'
-  { startTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
+    startTime :: Lude.Maybe Lude.Natural,
+    -- | If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
+    --
+    -- If you are using @nextToken@ in this operation, you must specify @true@ for @startFromHead@ .
     startFromHead :: Lude.Maybe Lude.Bool,
-    nextToken :: Lude.Maybe Lude.Text,
-    endTime :: Lude.Maybe Lude.Natural,
-    limit :: Lude.Maybe Lude.Natural,
+    -- | The name of the log group.
     logGroupName :: Lude.Text,
-    logStreamName :: Lude.Text
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    --
+    -- Using this token works only when you specify @true@ for @startFromHead@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the log stream.
+    logStreamName :: Lude.Text,
+    -- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
+    endTime :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogEvents' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
--- * 'limit' - The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
--- * 'logGroupName' - The name of the log group.
--- * 'logStreamName' - The name of the log stream.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
---
--- Using this token works only when you specify @true@ for @startFromHead@ .
+-- * 'startTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
 -- * 'startFromHead' - If the value is true, the earliest log events are returned first. If the value is false, the latest log events are returned first. The default value is false.
 --
 -- If you are using @nextToken@ in this operation, you must specify @true@ for @startFromHead@ .
--- * 'startTime' - The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
+-- * 'logGroupName' - The name of the log group.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- Using this token works only when you specify @true@ for @startFromHead@ .
+-- * 'logStreamName' - The name of the log stream.
+-- * 'endTime' - The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
+-- * 'limit' - The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.
 mkGetLogEvents ::
   -- | 'logGroupName'
   Lude.Text ->
@@ -90,11 +95,11 @@ mkGetLogEvents pLogGroupName_ pLogStreamName_ =
   GetLogEvents'
     { startTime = Lude.Nothing,
       startFromHead = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      endTime = Lude.Nothing,
-      limit = Lude.Nothing,
       logGroupName = pLogGroupName_,
-      logStreamName = pLogStreamName_
+      nextToken = Lude.Nothing,
+      logStreamName = pLogStreamName_,
+      endTime = Lude.Nothing,
+      limit = Lude.Nothing
     }
 
 -- | The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time are included. Events with a timestamp earlier than this time are not included.
@@ -113,6 +118,13 @@ gleStartFromHead :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Bool)
 gleStartFromHead = Lens.lens (startFromHead :: GetLogEvents -> Lude.Maybe Lude.Bool) (\s a -> s {startFromHead = a} :: GetLogEvents)
 {-# DEPRECATED gleStartFromHead "Use generic-lens or generic-optics with 'startFromHead' instead." #-}
 
+-- | The name of the log group.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleLogGroupName :: Lens.Lens' GetLogEvents Lude.Text
+gleLogGroupName = Lens.lens (logGroupName :: GetLogEvents -> Lude.Text) (\s a -> s {logGroupName = a} :: GetLogEvents)
+{-# DEPRECATED gleLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
+
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
 -- Using this token works only when you specify @true@ for @startFromHead@ .
@@ -121,6 +133,13 @@ gleStartFromHead = Lens.lens (startFromHead :: GetLogEvents -> Lude.Maybe Lude.B
 gleNextToken :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Text)
 gleNextToken = Lens.lens (nextToken :: GetLogEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetLogEvents)
 {-# DEPRECATED gleNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The name of the log stream.
+--
+-- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleLogStreamName :: Lens.Lens' GetLogEvents Lude.Text
+gleLogStreamName = Lens.lens (logStreamName :: GetLogEvents -> Lude.Text) (\s a -> s {logStreamName = a} :: GetLogEvents)
+{-# DEPRECATED gleLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 -- | The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.
 --
@@ -135,20 +154,6 @@ gleEndTime = Lens.lens (endTime :: GetLogEvents -> Lude.Maybe Lude.Natural) (\s 
 gleLimit :: Lens.Lens' GetLogEvents (Lude.Maybe Lude.Natural)
 gleLimit = Lens.lens (limit :: GetLogEvents -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetLogEvents)
 {-# DEPRECATED gleLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The name of the log group.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleLogGroupName :: Lens.Lens' GetLogEvents Lude.Text
-gleLogGroupName = Lens.lens (logGroupName :: GetLogEvents -> Lude.Text) (\s a -> s {logGroupName = a} :: GetLogEvents)
-{-# DEPRECATED gleLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
-
--- | The name of the log stream.
---
--- /Note:/ Consider using 'logStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleLogStreamName :: Lens.Lens' GetLogEvents Lude.Text
-gleLogStreamName = Lens.lens (logStreamName :: GetLogEvents -> Lude.Text) (\s a -> s {logStreamName = a} :: GetLogEvents)
-{-# DEPRECATED gleLogStreamName "Use generic-lens or generic-optics with 'logStreamName' instead." #-}
 
 instance Lude.AWSRequest GetLogEvents where
   type Rs GetLogEvents = GetLogEventsResponse
@@ -180,11 +185,11 @@ instance Lude.ToJSON GetLogEvents where
       ( Lude.catMaybes
           [ ("startTime" Lude..=) Lude.<$> startTime,
             ("startFromHead" Lude..=) Lude.<$> startFromHead,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("endTime" Lude..=) Lude.<$> endTime,
-            ("limit" Lude..=) Lude.<$> limit,
             Lude.Just ("logGroupName" Lude..= logGroupName),
-            Lude.Just ("logStreamName" Lude..= logStreamName)
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("logStreamName" Lude..= logStreamName),
+            ("endTime" Lude..=) Lude.<$> endTime,
+            ("limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -196,26 +201,23 @@ instance Lude.ToQuery GetLogEvents where
 
 -- | /See:/ 'mkGetLogEventsResponse' smart constructor.
 data GetLogEventsResponse = GetLogEventsResponse'
-  { nextBackwardToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of items in the backward direction. The token expires after 24 hours. This token is never null. If you have reached the end of the stream, it returns the same token you passed in.
+    nextBackwardToken :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.
     nextForwardToken :: Lude.Maybe Lude.Text,
+    -- | The events.
     events :: Lude.Maybe [OutputLogEvent],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogEventsResponse' with the minimum fields required to make a request.
 --
--- * 'events' - The events.
 -- * 'nextBackwardToken' - The token for the next set of items in the backward direction. The token expires after 24 hours. This token is never null. If you have reached the end of the stream, it returns the same token you passed in.
 -- * 'nextForwardToken' - The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it returns the same token you passed in.
+-- * 'events' - The events.
 -- * 'responseStatus' - The response status code.
 mkGetLogEventsResponse ::
   -- | 'responseStatus'

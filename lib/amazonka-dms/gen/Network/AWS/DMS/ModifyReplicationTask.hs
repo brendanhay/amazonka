@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.DMS.ModifyReplicationTask
     mkModifyReplicationTask,
 
     -- ** Request lenses
-    mReplicationTaskSettings,
-    mReplicationTaskIdentifier,
-    mCdcStartPosition,
-    mTableMappings,
-    mMigrationType,
-    mTaskData,
-    mCdcStopPosition,
-    mCdcStartTime,
-    mReplicationTaskARN,
+    mrtReplicationTaskSettings,
+    mrtReplicationTaskIdentifier,
+    mrtCdcStartPosition,
+    mrtTableMappings,
+    mrtMigrationType,
+    mrtReplicationTaskARN,
+    mrtTaskData,
+    mrtCdcStopPosition,
+    mrtCdcStartTime,
 
     -- * Destructuring the response
     ModifyReplicationTaskResponse (..),
@@ -52,44 +53,51 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyReplicationTask' smart constructor.
 data ModifyReplicationTask = ModifyReplicationTask'
-  { replicationTaskSettings ::
-      Lude.Maybe Lude.Text,
-    replicationTaskIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | JSON file that contains settings for the task, such as task metadata settings.
+    replicationTaskSettings :: Lude.Maybe Lude.Text,
+    -- | The replication task identifier.
+    --
+    -- Constraints:
+    --
+    --     * Must contain 1-255 alphanumeric characters or hyphens.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens.
+    replicationTaskIdentifier :: Lude.Maybe Lude.Text,
+    -- | Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
+    --
+    -- The value can be in date, checkpoint, or LSN/SCN format.
+    -- Date Example: --cdc-start-position “2018-03-08T12:12:12”
+    -- Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+    -- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
     cdcStartPosition :: Lude.Maybe Lude.Text,
+    -- | When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with @file://@ . When working with the DMS API, provide the JSON as the parameter value, for example: @--table-mappings file://mappingfile.json@
     tableMappings :: Lude.Maybe Lude.Text,
+    -- | The migration type. Valid values: @full-load@ | @cdc@ | @full-load-and-cdc@
     migrationType :: Lude.Maybe MigrationTypeValue,
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskARN :: Lude.Text,
+    -- | Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings> in the /AWS Database Migration Service User Guide./
     taskData :: Lude.Maybe Lude.Text,
+    -- | Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
+    --
+    -- Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
+    -- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
     cdcStopPosition :: Lude.Maybe Lude.Text,
-    cdcStartTime :: Lude.Maybe Lude.Timestamp,
-    replicationTaskARN :: Lude.Text
+    -- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
+    --
+    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+    cdcStartTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationTask' with the minimum fields required to make a request.
 --
--- * 'cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
---
--- The value can be in date, checkpoint, or LSN/SCN format.
--- Date Example: --cdc-start-position “2018-03-08T12:12:12”
--- Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
--- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
--- * 'cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
---
--- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
--- * 'cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
---
--- Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
--- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
--- * 'migrationType' - The migration type. Valid values: @full-load@ | @cdc@ | @full-load-and-cdc@
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
+-- * 'replicationTaskSettings' - JSON file that contains settings for the task, such as task metadata settings.
 -- * 'replicationTaskIdentifier' - The replication task identifier.
 --
 -- Constraints:
@@ -103,9 +111,23 @@ data ModifyReplicationTask = ModifyReplicationTask'
 --     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
 --
--- * 'replicationTaskSettings' - JSON file that contains settings for the task, such as task metadata settings.
+-- * 'cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
+--
+-- The value can be in date, checkpoint, or LSN/SCN format.
+-- Date Example: --cdc-start-position “2018-03-08T12:12:12”
+-- Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
+-- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
 -- * 'tableMappings' - When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with @file://@ . When working with the DMS API, provide the JSON as the parameter value, for example: @--table-mappings file://mappingfile.json@
+-- * 'migrationType' - The migration type. Valid values: @full-load@ | @cdc@ | @full-load-and-cdc@
+-- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 -- * 'taskData' - Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings> in the /AWS Database Migration Service User Guide./
+-- * 'cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
+--
+-- Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
+-- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
+-- * 'cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
 mkModifyReplicationTask ::
   -- | 'replicationTaskARN'
   Lude.Text ->
@@ -117,18 +139,18 @@ mkModifyReplicationTask pReplicationTaskARN_ =
       cdcStartPosition = Lude.Nothing,
       tableMappings = Lude.Nothing,
       migrationType = Lude.Nothing,
+      replicationTaskARN = pReplicationTaskARN_,
       taskData = Lude.Nothing,
       cdcStopPosition = Lude.Nothing,
-      cdcStartTime = Lude.Nothing,
-      replicationTaskARN = pReplicationTaskARN_
+      cdcStartTime = Lude.Nothing
     }
 
 -- | JSON file that contains settings for the task, such as task metadata settings.
 --
 -- /Note:/ Consider using 'replicationTaskSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mReplicationTaskSettings :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
-mReplicationTaskSettings = Lens.lens (replicationTaskSettings :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskSettings = a} :: ModifyReplicationTask)
-{-# DEPRECATED mReplicationTaskSettings "Use generic-lens or generic-optics with 'replicationTaskSettings' instead." #-}
+mrtReplicationTaskSettings :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
+mrtReplicationTaskSettings = Lens.lens (replicationTaskSettings :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskSettings = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtReplicationTaskSettings "Use generic-lens or generic-optics with 'replicationTaskSettings' instead." #-}
 
 -- | The replication task identifier.
 --
@@ -145,9 +167,9 @@ mReplicationTaskSettings = Lens.lens (replicationTaskSettings :: ModifyReplicati
 --
 --
 -- /Note:/ Consider using 'replicationTaskIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mReplicationTaskIdentifier :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
-mReplicationTaskIdentifier = Lens.lens (replicationTaskIdentifier :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskIdentifier = a} :: ModifyReplicationTask)
-{-# DEPRECATED mReplicationTaskIdentifier "Use generic-lens or generic-optics with 'replicationTaskIdentifier' instead." #-}
+mrtReplicationTaskIdentifier :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
+mrtReplicationTaskIdentifier = Lens.lens (replicationTaskIdentifier :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {replicationTaskIdentifier = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtReplicationTaskIdentifier "Use generic-lens or generic-optics with 'replicationTaskIdentifier' instead." #-}
 
 -- | Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
 --
@@ -157,30 +179,37 @@ mReplicationTaskIdentifier = Lens.lens (replicationTaskIdentifier :: ModifyRepli
 -- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
 --
 -- /Note:/ Consider using 'cdcStartPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mCdcStartPosition :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
-mCdcStartPosition = Lens.lens (cdcStartPosition :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStartPosition = a} :: ModifyReplicationTask)
-{-# DEPRECATED mCdcStartPosition "Use generic-lens or generic-optics with 'cdcStartPosition' instead." #-}
+mrtCdcStartPosition :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
+mrtCdcStartPosition = Lens.lens (cdcStartPosition :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStartPosition = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtCdcStartPosition "Use generic-lens or generic-optics with 'cdcStartPosition' instead." #-}
 
 -- | When using the AWS CLI or boto3, provide the path of the JSON file that contains the table mappings. Precede the path with @file://@ . When working with the DMS API, provide the JSON as the parameter value, for example: @--table-mappings file://mappingfile.json@
 --
 -- /Note:/ Consider using 'tableMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTableMappings :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
-mTableMappings = Lens.lens (tableMappings :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {tableMappings = a} :: ModifyReplicationTask)
-{-# DEPRECATED mTableMappings "Use generic-lens or generic-optics with 'tableMappings' instead." #-}
+mrtTableMappings :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
+mrtTableMappings = Lens.lens (tableMappings :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {tableMappings = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtTableMappings "Use generic-lens or generic-optics with 'tableMappings' instead." #-}
 
 -- | The migration type. Valid values: @full-load@ | @cdc@ | @full-load-and-cdc@
 --
 -- /Note:/ Consider using 'migrationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMigrationType :: Lens.Lens' ModifyReplicationTask (Lude.Maybe MigrationTypeValue)
-mMigrationType = Lens.lens (migrationType :: ModifyReplicationTask -> Lude.Maybe MigrationTypeValue) (\s a -> s {migrationType = a} :: ModifyReplicationTask)
-{-# DEPRECATED mMigrationType "Use generic-lens or generic-optics with 'migrationType' instead." #-}
+mrtMigrationType :: Lens.Lens' ModifyReplicationTask (Lude.Maybe MigrationTypeValue)
+mrtMigrationType = Lens.lens (migrationType :: ModifyReplicationTask -> Lude.Maybe MigrationTypeValue) (\s a -> s {migrationType = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtMigrationType "Use generic-lens or generic-optics with 'migrationType' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the replication task.
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrtReplicationTaskARN :: Lens.Lens' ModifyReplicationTask Lude.Text
+mrtReplicationTaskARN = Lens.lens (replicationTaskARN :: ModifyReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | Supplemental information that the task requires to migrate the data for certain source and target endpoints. For more information, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings> in the /AWS Database Migration Service User Guide./
 --
 -- /Note:/ Consider using 'taskData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mTaskData :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
-mTaskData = Lens.lens (taskData :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {taskData = a} :: ModifyReplicationTask)
-{-# DEPRECATED mTaskData "Use generic-lens or generic-optics with 'taskData' instead." #-}
+mrtTaskData :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
+mrtTaskData = Lens.lens (taskData :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {taskData = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtTaskData "Use generic-lens or generic-optics with 'taskData' instead." #-}
 
 -- | Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
 --
@@ -188,25 +217,18 @@ mTaskData = Lens.lens (taskData :: ModifyReplicationTask -> Lude.Maybe Lude.Text
 -- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
 --
 -- /Note:/ Consider using 'cdcStopPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mCdcStopPosition :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
-mCdcStopPosition = Lens.lens (cdcStopPosition :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStopPosition = a} :: ModifyReplicationTask)
-{-# DEPRECATED mCdcStopPosition "Use generic-lens or generic-optics with 'cdcStopPosition' instead." #-}
+mrtCdcStopPosition :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Text)
+mrtCdcStopPosition = Lens.lens (cdcStopPosition :: ModifyReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStopPosition = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtCdcStopPosition "Use generic-lens or generic-optics with 'cdcStopPosition' instead." #-}
 
 -- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
 --
 -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
 --
 -- /Note:/ Consider using 'cdcStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mCdcStartTime :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Timestamp)
-mCdcStartTime = Lens.lens (cdcStartTime :: ModifyReplicationTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {cdcStartTime = a} :: ModifyReplicationTask)
-{-# DEPRECATED mCdcStartTime "Use generic-lens or generic-optics with 'cdcStartTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the replication task.
---
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mReplicationTaskARN :: Lens.Lens' ModifyReplicationTask Lude.Text
-mReplicationTaskARN = Lens.lens (replicationTaskARN :: ModifyReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: ModifyReplicationTask)
-{-# DEPRECATED mReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
+mrtCdcStartTime :: Lens.Lens' ModifyReplicationTask (Lude.Maybe Lude.Timestamp)
+mrtCdcStartTime = Lens.lens (cdcStartTime :: ModifyReplicationTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {cdcStartTime = a} :: ModifyReplicationTask)
+{-# DEPRECATED mrtCdcStartTime "Use generic-lens or generic-optics with 'cdcStartTime' instead." #-}
 
 instance Lude.AWSRequest ModifyReplicationTask where
   type Rs ModifyReplicationTask = ModifyReplicationTaskResponse
@@ -241,10 +263,10 @@ instance Lude.ToJSON ModifyReplicationTask where
             ("CdcStartPosition" Lude..=) Lude.<$> cdcStartPosition,
             ("TableMappings" Lude..=) Lude.<$> tableMappings,
             ("MigrationType" Lude..=) Lude.<$> migrationType,
+            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN),
             ("TaskData" Lude..=) Lude.<$> taskData,
             ("CdcStopPosition" Lude..=) Lude.<$> cdcStopPosition,
-            ("CdcStartTime" Lude..=) Lude.<$> cdcStartTime,
-            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)
+            ("CdcStartTime" Lude..=) Lude.<$> cdcStartTime
           ]
       )
 
@@ -258,17 +280,12 @@ instance Lude.ToQuery ModifyReplicationTask where
 --
 -- /See:/ 'mkModifyReplicationTaskResponse' smart constructor.
 data ModifyReplicationTaskResponse = ModifyReplicationTaskResponse'
-  { replicationTask ::
-      Lude.Maybe ReplicationTask,
+  { -- | The replication task that was modified.
+    replicationTask :: Lude.Maybe ReplicationTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationTaskResponse' with the minimum fields required to make a request.

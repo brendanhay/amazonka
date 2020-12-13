@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnsuccessfulItem' smart constructor.
 data UnsuccessfulItem = UnsuccessfulItem'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | Information about the error.
     error :: Lude.Maybe UnsuccessfulItemError
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnsuccessfulItem' with the minimum fields required to make a request.
 --
--- * 'error' - Information about the error.
 -- * 'resourceId' - The ID of the resource.
+-- * 'error' - Information about the error.
 mkUnsuccessfulItem ::
   UnsuccessfulItem
 mkUnsuccessfulItem =

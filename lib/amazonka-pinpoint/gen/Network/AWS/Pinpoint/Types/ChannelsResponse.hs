@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelsResponse' smart constructor.
 newtype ChannelsResponse = ChannelsResponse'
-  { channels ::
-      Lude.HashMap Lude.Text (ChannelResponse)
+  { -- | A map that contains a multipart response for each channel. For each item in this object, the ChannelType is the key and the Channel is the value.
+    channels :: Lude.HashMap Lude.Text (ChannelResponse)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,18 +38,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPCAttribute' smart constructor.
 data ModifyVPCAttribute = ModifyVPCAttribute'
-  { enableDNSHostnames ::
-      Lude.Maybe AttributeBooleanValue,
+  { -- | Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.
+    --
+    -- You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.
+    enableDNSHostnames :: Lude.Maybe AttributeBooleanValue,
+    -- | Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.
+    --
+    -- You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.
     enableDNSSupport :: Lude.Maybe AttributeBooleanValue,
+    -- | The ID of the VPC.
     vpcId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCAttribute' with the minimum fields required to make a request.
@@ -119,13 +120,7 @@ instance Lude.ToQuery ModifyVPCAttribute where
 
 -- | /See:/ 'mkModifyVPCAttributeResponse' smart constructor.
 data ModifyVPCAttributeResponse = ModifyVPCAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCAttributeResponse' with the minimum fields required to make a request.

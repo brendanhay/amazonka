@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.IoTAnalytics.CreateChannel
 
     -- ** Request lenses
     ccRetentionPeriod,
+    ccChannelName,
     ccChannelStorage,
     ccTags,
-    ccChannelName,
 
     -- * Destructuring the response
     CreateChannelResponse (..),
@@ -44,26 +45,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { retentionPeriod ::
-      Lude.Maybe RetentionPeriod,
+  { -- | How long, in days, message data is kept for the channel. When @customerManagedS3@ storage is selected, this parameter is ignored.
+    retentionPeriod :: Lude.Maybe RetentionPeriod,
+    -- | The name of the channel.
+    channelName :: Lude.Text,
+    -- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
     channelStorage :: Lude.Maybe ChannelStorage,
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
-    channelName :: Lude.Text
+    -- | Metadata which can be used to manage the channel.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannel' with the minimum fields required to make a request.
 --
+-- * 'retentionPeriod' - How long, in days, message data is kept for the channel. When @customerManagedS3@ storage is selected, this parameter is ignored.
 -- * 'channelName' - The name of the channel.
 -- * 'channelStorage' - Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
--- * 'retentionPeriod' - How long, in days, message data is kept for the channel. When @customerManagedS3@ storage is selected, this parameter is ignored.
 -- * 'tags' - Metadata which can be used to manage the channel.
 mkCreateChannel ::
   -- | 'channelName'
@@ -72,9 +70,9 @@ mkCreateChannel ::
 mkCreateChannel pChannelName_ =
   CreateChannel'
     { retentionPeriod = Lude.Nothing,
+      channelName = pChannelName_,
       channelStorage = Lude.Nothing,
-      tags = Lude.Nothing,
-      channelName = pChannelName_
+      tags = Lude.Nothing
     }
 
 -- | How long, in days, message data is kept for the channel. When @customerManagedS3@ storage is selected, this parameter is ignored.
@@ -83,6 +81,13 @@ mkCreateChannel pChannelName_ =
 ccRetentionPeriod :: Lens.Lens' CreateChannel (Lude.Maybe RetentionPeriod)
 ccRetentionPeriod = Lens.lens (retentionPeriod :: CreateChannel -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: CreateChannel)
 {-# DEPRECATED ccRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
+
+-- | The name of the channel.
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccChannelName :: Lens.Lens' CreateChannel Lude.Text
+ccChannelName = Lens.lens (channelName :: CreateChannel -> Lude.Text) (\s a -> s {channelName = a} :: CreateChannel)
+{-# DEPRECATED ccChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
 --
@@ -97,13 +102,6 @@ ccChannelStorage = Lens.lens (channelStorage :: CreateChannel -> Lude.Maybe Chan
 ccTags :: Lens.Lens' CreateChannel (Lude.Maybe (Lude.NonEmpty Tag))
 ccTags = Lens.lens (tags :: CreateChannel -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateChannel)
 {-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the channel.
---
--- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccChannelName :: Lens.Lens' CreateChannel Lude.Text
-ccChannelName = Lens.lens (channelName :: CreateChannel -> Lude.Text) (\s a -> s {channelName = a} :: CreateChannel)
-{-# DEPRECATED ccChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
 instance Lude.AWSRequest CreateChannel where
   type Rs CreateChannel = CreateChannelResponse
@@ -126,9 +124,9 @@ instance Lude.ToJSON CreateChannel where
     Lude.object
       ( Lude.catMaybes
           [ ("retentionPeriod" Lude..=) Lude.<$> retentionPeriod,
+            Lude.Just ("channelName" Lude..= channelName),
             ("channelStorage" Lude..=) Lude.<$> channelStorage,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("channelName" Lude..= channelName)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -140,27 +138,24 @@ instance Lude.ToQuery CreateChannel where
 
 -- | /See:/ 'mkCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { channelARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the channel.
+    channelARN :: Lude.Maybe Lude.Text,
+    -- | How long, in days, message data is kept for the channel.
     retentionPeriod :: Lude.Maybe RetentionPeriod,
+    -- | The name of the channel.
     channelName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannelResponse' with the minimum fields required to make a request.
 --
 -- * 'channelARN' - The ARN of the channel.
+-- * 'retentionPeriod' - How long, in days, message data is kept for the channel.
 -- * 'channelName' - The name of the channel.
 -- * 'responseStatus' - The response status code.
--- * 'retentionPeriod' - How long, in days, message data is kept for the channel.
 mkCreateChannelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

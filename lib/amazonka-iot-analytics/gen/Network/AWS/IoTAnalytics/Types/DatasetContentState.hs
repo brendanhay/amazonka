@@ -14,8 +14,8 @@ module Network.AWS.IoTAnalytics.Types.DatasetContentState
   ( DatasetContentState
       ( DatasetContentState',
         DCSCreating,
-        DCSFailed,
-        DCSSucceeded
+        DCSSucceeded,
+        DCSFailed
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype DatasetContentState = DatasetContentState' Lude.Text
 pattern DCSCreating :: DatasetContentState
 pattern DCSCreating = DatasetContentState' "CREATING"
 
-pattern DCSFailed :: DatasetContentState
-pattern DCSFailed = DatasetContentState' "FAILED"
-
 pattern DCSSucceeded :: DatasetContentState
 pattern DCSSucceeded = DatasetContentState' "SUCCEEDED"
 
+pattern DCSFailed :: DatasetContentState
+pattern DCSFailed = DatasetContentState' "FAILED"
+
 {-# COMPLETE
   DCSCreating,
-  DCSFailed,
   DCSSucceeded,
+  DCSFailed,
   DatasetContentState'
   #-}

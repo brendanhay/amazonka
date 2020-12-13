@@ -17,8 +17,8 @@ module Network.AWS.CognitoIdentityProvider.Types.EventFeedbackType
     mkEventFeedbackType,
 
     -- * Lenses
-    eftFeedbackDate,
     eftFeedbackValue,
+    eftFeedbackDate,
     eftProvider,
   )
 where
@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventFeedbackType' smart constructor.
 data EventFeedbackType = EventFeedbackType'
-  { feedbackDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The event feedback value.
     feedbackValue :: FeedbackValueType,
+    -- | The event feedback date.
+    feedbackDate :: Lude.Maybe Lude.Timestamp,
+    -- | The provider.
     provider :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventFeedbackType' with the minimum fields required to make a request.
 --
--- * 'feedbackDate' - The event feedback date.
 -- * 'feedbackValue' - The event feedback value.
+-- * 'feedbackDate' - The event feedback date.
 -- * 'provider' - The provider.
 mkEventFeedbackType ::
   -- | 'feedbackValue'
@@ -58,17 +54,10 @@ mkEventFeedbackType ::
   EventFeedbackType
 mkEventFeedbackType pFeedbackValue_ pProvider_ =
   EventFeedbackType'
-    { feedbackDate = Lude.Nothing,
-      feedbackValue = pFeedbackValue_,
+    { feedbackValue = pFeedbackValue_,
+      feedbackDate = Lude.Nothing,
       provider = pProvider_
     }
-
--- | The event feedback date.
---
--- /Note:/ Consider using 'feedbackDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eftFeedbackDate :: Lens.Lens' EventFeedbackType (Lude.Maybe Lude.Timestamp)
-eftFeedbackDate = Lens.lens (feedbackDate :: EventFeedbackType -> Lude.Maybe Lude.Timestamp) (\s a -> s {feedbackDate = a} :: EventFeedbackType)
-{-# DEPRECATED eftFeedbackDate "Use generic-lens or generic-optics with 'feedbackDate' instead." #-}
 
 -- | The event feedback value.
 --
@@ -76,6 +65,13 @@ eftFeedbackDate = Lens.lens (feedbackDate :: EventFeedbackType -> Lude.Maybe Lud
 eftFeedbackValue :: Lens.Lens' EventFeedbackType FeedbackValueType
 eftFeedbackValue = Lens.lens (feedbackValue :: EventFeedbackType -> FeedbackValueType) (\s a -> s {feedbackValue = a} :: EventFeedbackType)
 {-# DEPRECATED eftFeedbackValue "Use generic-lens or generic-optics with 'feedbackValue' instead." #-}
+
+-- | The event feedback date.
+--
+-- /Note:/ Consider using 'feedbackDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eftFeedbackDate :: Lens.Lens' EventFeedbackType (Lude.Maybe Lude.Timestamp)
+eftFeedbackDate = Lens.lens (feedbackDate :: EventFeedbackType -> Lude.Maybe Lude.Timestamp) (\s a -> s {feedbackDate = a} :: EventFeedbackType)
+{-# DEPRECATED eftFeedbackDate "Use generic-lens or generic-optics with 'feedbackDate' instead." #-}
 
 -- | The provider.
 --
@@ -90,7 +86,7 @@ instance Lude.FromJSON EventFeedbackType where
       "EventFeedbackType"
       ( \x ->
           EventFeedbackType'
-            Lude.<$> (x Lude..:? "FeedbackDate")
-            Lude.<*> (x Lude..: "FeedbackValue")
+            Lude.<$> (x Lude..: "FeedbackValue")
+            Lude.<*> (x Lude..:? "FeedbackDate")
             Lude.<*> (x Lude..: "Provider")
       )

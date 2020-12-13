@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrialComponentArtifact' smart constructor.
 data TrialComponentArtifact = TrialComponentArtifact'
-  { mediaType ::
-      Lude.Maybe Lude.Text,
+  { -- | The media type of the artifact, which indicates the type of data in the artifact file. The media type consists of a /type/ and a /subtype/ concatenated with a slash (/) character, for example, text/csv, image/jpeg, and s3/uri. The type specifies the category of the media. The subtype specifies the kind of data.
+    mediaType :: Lude.Maybe Lude.Text,
+    -- | The location of the artifact.
     value :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentArtifact' with the minimum fields required to make a request.

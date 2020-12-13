@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssetPropertyVariant' smart constructor.
 data AssetPropertyVariant = AssetPropertyVariant'
-  { integerValue ::
-      Lude.Maybe Lude.Text,
+  { -- | Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+    integerValue :: Lude.Maybe Lude.Text,
+    -- | Optional. A string that contains the double value of the value entry. Accepts substitution templates.
     doubleValue :: Lude.Maybe Lude.Text,
+    -- | Optional. The string value of the value entry. Accepts substitution templates.
     stringValue :: Lude.Maybe Lude.Text,
+    -- | Optional. A string that contains the boolean value (@true@ or @false@ ) of the value entry. Accepts substitution templates.
     booleanValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssetPropertyVariant' with the minimum fields required to make a request.
 --
--- * 'booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@ ) of the value entry. Accepts substitution templates.
--- * 'doubleValue' - Optional. A string that contains the double value of the value entry. Accepts substitution templates.
 -- * 'integerValue' - Optional. A string that contains the integer value of the value entry. Accepts substitution templates.
+-- * 'doubleValue' - Optional. A string that contains the double value of the value entry. Accepts substitution templates.
 -- * 'stringValue' - Optional. The string value of the value entry. Accepts substitution templates.
+-- * 'booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@ ) of the value entry. Accepts substitution templates.
 mkAssetPropertyVariant ::
   AssetPropertyVariant
 mkAssetPropertyVariant =

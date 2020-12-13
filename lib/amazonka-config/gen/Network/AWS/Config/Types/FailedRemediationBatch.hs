@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailedRemediationBatch' smart constructor.
 data FailedRemediationBatch = FailedRemediationBatch'
-  { failureMessage ::
-      Lude.Maybe Lude.Text,
-    failedItems ::
-      Lude.Maybe [RemediationConfiguration]
+  { -- | Returns a failure message. For example, the resource is already compliant.
+    failureMessage :: Lude.Maybe Lude.Text,
+    -- | Returns remediation configurations of the failed items.
+    failedItems :: Lude.Maybe [RemediationConfiguration]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedRemediationBatch' with the minimum fields required to make a request.
 --
--- * 'failedItems' - Returns remediation configurations of the failed items.
 -- * 'failureMessage' - Returns a failure message. For example, the resource is already compliant.
+-- * 'failedItems' - Returns remediation configurations of the failed items.
 mkFailedRemediationBatch ::
   FailedRemediationBatch
 mkFailedRemediationBatch =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.EC2.DescribeEgressOnlyInternetGateways
     mkDescribeEgressOnlyInternetGatewaysResponse,
 
     -- ** Response lenses
-    deoigrsEgressOnlyInternetGateways,
-    deoigrsNextToken,
-    deoigrsResponseStatus,
+    deoigsrsEgressOnlyInternetGateways,
+    deoigsrsNextToken,
+    deoigsrsResponseStatus,
   )
 where
 
@@ -47,31 +48,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEgressOnlyInternetGateways' smart constructor.
 data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
-  { egressOnlyInternetGatewayIds ::
-      Lude.Maybe
-        [Lude.Text],
-    filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | One or more egress-only internet gateway IDs.
+    egressOnlyInternetGatewayIds :: Lude.Maybe [Lude.Text],
+    -- | One or more filters.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEgressOnlyInternetGateways' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'egressOnlyInternetGatewayIds' - One or more egress-only internet gateway IDs.
 -- * 'filters' - One or more filters.
 --
@@ -82,8 +80,9 @@ data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
 --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeEgressOnlyInternetGateways ::
   DescribeEgressOnlyInternetGateways
 mkDescribeEgressOnlyInternetGateways =
@@ -141,13 +140,13 @@ deoigMaxResults = Lens.lens (maxResults :: DescribeEgressOnlyInternetGateways ->
 
 instance Page.AWSPager DescribeEgressOnlyInternetGateways where
   page rq rs
-    | Page.stop (rs Lens.^. deoigrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. deoigrsEgressOnlyInternetGateways) =
+    | Page.stop (rs Lens.^. deoigsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. deoigsrsEgressOnlyInternetGateways) =
       Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& deoigNextToken Lens..~ rs Lens.^. deoigrsNextToken
+          Lude.& deoigNextToken Lens..~ rs Lens.^. deoigsrsNextToken
 
 instance Lude.AWSRequest DescribeEgressOnlyInternetGateways where
   type
@@ -189,22 +188,14 @@ instance Lude.ToQuery DescribeEgressOnlyInternetGateways where
 
 -- | /See:/ 'mkDescribeEgressOnlyInternetGatewaysResponse' smart constructor.
 data DescribeEgressOnlyInternetGatewaysResponse = DescribeEgressOnlyInternetGatewaysResponse'
-  { egressOnlyInternetGateways ::
-      Lude.Maybe
-        [EgressOnlyInternetGateway],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the egress-only internet gateways.
+    egressOnlyInternetGateways :: Lude.Maybe [EgressOnlyInternetGateway],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEgressOnlyInternetGatewaysResponse' with the minimum fields required to make a request.
@@ -227,20 +218,20 @@ mkDescribeEgressOnlyInternetGatewaysResponse pResponseStatus_ =
 -- | Information about the egress-only internet gateways.
 --
 -- /Note:/ Consider using 'egressOnlyInternetGateways' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoigrsEgressOnlyInternetGateways :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Lude.Maybe [EgressOnlyInternetGateway])
-deoigrsEgressOnlyInternetGateways = Lens.lens (egressOnlyInternetGateways :: DescribeEgressOnlyInternetGatewaysResponse -> Lude.Maybe [EgressOnlyInternetGateway]) (\s a -> s {egressOnlyInternetGateways = a} :: DescribeEgressOnlyInternetGatewaysResponse)
-{-# DEPRECATED deoigrsEgressOnlyInternetGateways "Use generic-lens or generic-optics with 'egressOnlyInternetGateways' instead." #-}
+deoigsrsEgressOnlyInternetGateways :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Lude.Maybe [EgressOnlyInternetGateway])
+deoigsrsEgressOnlyInternetGateways = Lens.lens (egressOnlyInternetGateways :: DescribeEgressOnlyInternetGatewaysResponse -> Lude.Maybe [EgressOnlyInternetGateway]) (\s a -> s {egressOnlyInternetGateways = a} :: DescribeEgressOnlyInternetGatewaysResponse)
+{-# DEPRECATED deoigsrsEgressOnlyInternetGateways "Use generic-lens or generic-optics with 'egressOnlyInternetGateways' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoigrsNextToken :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Lude.Maybe Lude.Text)
-deoigrsNextToken = Lens.lens (nextToken :: DescribeEgressOnlyInternetGatewaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEgressOnlyInternetGatewaysResponse)
-{-# DEPRECATED deoigrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+deoigsrsNextToken :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Lude.Maybe Lude.Text)
+deoigsrsNextToken = Lens.lens (nextToken :: DescribeEgressOnlyInternetGatewaysResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEgressOnlyInternetGatewaysResponse)
+{-# DEPRECATED deoigsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoigrsResponseStatus :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse Lude.Int
-deoigrsResponseStatus = Lens.lens (responseStatus :: DescribeEgressOnlyInternetGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEgressOnlyInternetGatewaysResponse)
-{-# DEPRECATED deoigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+deoigsrsResponseStatus :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse Lude.Int
+deoigsrsResponseStatus = Lens.lens (responseStatus :: DescribeEgressOnlyInternetGatewaysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEgressOnlyInternetGatewaysResponse)
+{-# DEPRECATED deoigsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

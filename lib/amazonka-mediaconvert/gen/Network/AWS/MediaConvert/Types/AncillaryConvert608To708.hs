@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.AncillaryConvert608To708
   ( AncillaryConvert608To708
       ( AncillaryConvert608To708',
-        ACTDisabled,
-        ACTUpconvert
+        ACTUpconvert,
+        ACTDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype AncillaryConvert608To708 = AncillaryConvert608To708' Lude.Text
       Lude.ToHeader
     )
 
-pattern ACTDisabled :: AncillaryConvert608To708
-pattern ACTDisabled = AncillaryConvert608To708' "DISABLED"
-
 pattern ACTUpconvert :: AncillaryConvert608To708
 pattern ACTUpconvert = AncillaryConvert608To708' "UPCONVERT"
 
+pattern ACTDisabled :: AncillaryConvert608To708
+pattern ACTDisabled = AncillaryConvert608To708' "DISABLED"
+
 {-# COMPLETE
-  ACTDisabled,
   ACTUpconvert,
+  ACTDisabled,
   AncillaryConvert608To708'
   #-}

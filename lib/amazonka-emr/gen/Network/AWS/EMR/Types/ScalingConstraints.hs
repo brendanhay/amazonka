@@ -17,8 +17,8 @@ module Network.AWS.EMR.Types.ScalingConstraints
     mkScalingConstraints,
 
     -- * Lenses
-    scMinCapacity,
     scMaxCapacity,
+    scMinCapacity,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingConstraints' smart constructor.
 data ScalingConstraints = ScalingConstraints'
-  { minCapacity ::
-      Lude.Int,
-    maxCapacity :: Lude.Int
+  { -- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+    maxCapacity :: Lude.Int,
+    -- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+    minCapacity :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingConstraints' with the minimum fields required to make a request.
@@ -47,23 +42,16 @@ data ScalingConstraints = ScalingConstraints'
 -- * 'maxCapacity' - The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
 -- * 'minCapacity' - The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
 mkScalingConstraints ::
-  -- | 'minCapacity'
-  Lude.Int ->
   -- | 'maxCapacity'
   Lude.Int ->
+  -- | 'minCapacity'
+  Lude.Int ->
   ScalingConstraints
-mkScalingConstraints pMinCapacity_ pMaxCapacity_ =
+mkScalingConstraints pMaxCapacity_ pMinCapacity_ =
   ScalingConstraints'
-    { minCapacity = pMinCapacity_,
-      maxCapacity = pMaxCapacity_
+    { maxCapacity = pMaxCapacity_,
+      minCapacity = pMinCapacity_
     }
-
--- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
---
--- /Note:/ Consider using 'minCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scMinCapacity :: Lens.Lens' ScalingConstraints Lude.Int
-scMinCapacity = Lens.lens (minCapacity :: ScalingConstraints -> Lude.Int) (\s a -> s {minCapacity = a} :: ScalingConstraints)
-{-# DEPRECATED scMinCapacity "Use generic-lens or generic-optics with 'minCapacity' instead." #-}
 
 -- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
 --
@@ -72,20 +60,27 @@ scMaxCapacity :: Lens.Lens' ScalingConstraints Lude.Int
 scMaxCapacity = Lens.lens (maxCapacity :: ScalingConstraints -> Lude.Int) (\s a -> s {maxCapacity = a} :: ScalingConstraints)
 {-# DEPRECATED scMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
 
+-- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+--
+-- /Note:/ Consider using 'minCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scMinCapacity :: Lens.Lens' ScalingConstraints Lude.Int
+scMinCapacity = Lens.lens (minCapacity :: ScalingConstraints -> Lude.Int) (\s a -> s {minCapacity = a} :: ScalingConstraints)
+{-# DEPRECATED scMinCapacity "Use generic-lens or generic-optics with 'minCapacity' instead." #-}
+
 instance Lude.FromJSON ScalingConstraints where
   parseJSON =
     Lude.withObject
       "ScalingConstraints"
       ( \x ->
           ScalingConstraints'
-            Lude.<$> (x Lude..: "MinCapacity") Lude.<*> (x Lude..: "MaxCapacity")
+            Lude.<$> (x Lude..: "MaxCapacity") Lude.<*> (x Lude..: "MinCapacity")
       )
 
 instance Lude.ToJSON ScalingConstraints where
   toJSON ScalingConstraints' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("MinCapacity" Lude..= minCapacity),
-            Lude.Just ("MaxCapacity" Lude..= maxCapacity)
+          [ Lude.Just ("MaxCapacity" Lude..= maxCapacity),
+            Lude.Just ("MinCapacity" Lude..= minCapacity)
           ]
       )

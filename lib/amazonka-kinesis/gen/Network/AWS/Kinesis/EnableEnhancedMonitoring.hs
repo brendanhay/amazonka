@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Kinesis.EnableEnhancedMonitoring
     mkEnableEnhancedMonitoring,
 
     -- ** Request lenses
-    eemStreamName,
     eemShardLevelMetrics,
+    eemStreamName,
 
     -- * Destructuring the response
     EnhancedMonitoringOutput (..),
@@ -43,17 +44,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkEnableEnhancedMonitoring' smart constructor.
 data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
-  { streamName ::
-      Lude.Text,
-    shardLevelMetrics :: [MetricsName]
+  { -- | List of shard-level metrics to enable.
+    --
+    -- The following are the valid shard-level metrics. The value "@ALL@ " enables every metric.
+    --
+    --     * @IncomingBytes@
+    --
+    --
+    --     * @IncomingRecords@
+    --
+    --
+    --     * @OutgoingBytes@
+    --
+    --
+    --     * @OutgoingRecords@
+    --
+    --
+    --     * @WriteProvisionedThroughputExceeded@
+    --
+    --
+    --     * @ReadProvisionedThroughputExceeded@
+    --
+    --
+    --     * @IteratorAgeMilliseconds@
+    --
+    --
+    --     * @ALL@
+    --
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
+    shardLevelMetrics :: [MetricsName],
+    -- | The name of the stream for which to enable enhanced monitoring.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableEnhancedMonitoring' with the minimum fields required to make a request.
@@ -94,16 +118,9 @@ mkEnableEnhancedMonitoring ::
   EnableEnhancedMonitoring
 mkEnableEnhancedMonitoring pStreamName_ =
   EnableEnhancedMonitoring'
-    { streamName = pStreamName_,
-      shardLevelMetrics = Lude.mempty
+    { shardLevelMetrics = Lude.mempty,
+      streamName = pStreamName_
     }
-
--- | The name of the stream for which to enable enhanced monitoring.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eemStreamName :: Lens.Lens' EnableEnhancedMonitoring Lude.Text
-eemStreamName = Lens.lens (streamName :: EnableEnhancedMonitoring -> Lude.Text) (\s a -> s {streamName = a} :: EnableEnhancedMonitoring)
-{-# DEPRECATED eemStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | List of shard-level metrics to enable.
 --
@@ -140,6 +157,13 @@ eemShardLevelMetrics :: Lens.Lens' EnableEnhancedMonitoring [MetricsName]
 eemShardLevelMetrics = Lens.lens (shardLevelMetrics :: EnableEnhancedMonitoring -> [MetricsName]) (\s a -> s {shardLevelMetrics = a} :: EnableEnhancedMonitoring)
 {-# DEPRECATED eemShardLevelMetrics "Use generic-lens or generic-optics with 'shardLevelMetrics' instead." #-}
 
+-- | The name of the stream for which to enable enhanced monitoring.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eemStreamName :: Lens.Lens' EnableEnhancedMonitoring Lude.Text
+eemStreamName = Lens.lens (streamName :: EnableEnhancedMonitoring -> Lude.Text) (\s a -> s {streamName = a} :: EnableEnhancedMonitoring)
+{-# DEPRECATED eemStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+
 instance Lude.AWSRequest EnableEnhancedMonitoring where
   type Rs EnableEnhancedMonitoring = EnhancedMonitoringOutput
   request = Req.postJSON kinesisService
@@ -160,8 +184,8 @@ instance Lude.ToJSON EnableEnhancedMonitoring where
   toJSON EnableEnhancedMonitoring' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StreamName" Lude..= streamName),
-            Lude.Just ("ShardLevelMetrics" Lude..= shardLevelMetrics)
+          [ Lude.Just ("ShardLevelMetrics" Lude..= shardLevelMetrics),
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 

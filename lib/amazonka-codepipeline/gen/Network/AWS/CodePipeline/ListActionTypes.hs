@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.CodePipeline.ListActionTypes
 
     -- ** Response lenses
     latrsNextToken,
-    latrsResponseStatus,
     latrsActionTypes,
+    latrsResponseStatus,
   )
 where
 
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListActionTypes' smart constructor.
 data ListActionTypes = ListActionTypes'
-  { actionOwnerFilter ::
-      Lude.Maybe ActionOwner,
+  { -- | Filters the list of action types to those created by a specified entity.
+    actionOwnerFilter :: Lude.Maybe ActionOwner,
+    -- | An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.
     nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActionTypes' with the minimum fields required to make a request.
@@ -102,8 +98,8 @@ instance Lude.AWSRequest ListActionTypes where
       ( \s h x ->
           ListActionTypesResponse'
             Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "actionTypes" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListActionTypes where
@@ -136,24 +132,20 @@ instance Lude.ToQuery ListActionTypes where
 --
 -- /See:/ 'mkListActionTypesResponse' smart constructor.
 data ListActionTypesResponse = ListActionTypesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    actionTypes :: [ActionType]
+  { -- | If the amount of returned information is significantly large, an identifier is also returned. It can be used in a subsequent list action types call to return the next set of action types in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Provides details of the action types.
+    actionTypes :: [ActionType],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActionTypesResponse' with the minimum fields required to make a request.
 --
--- * 'actionTypes' - Provides details of the action types.
 -- * 'nextToken' - If the amount of returned information is significantly large, an identifier is also returned. It can be used in a subsequent list action types call to return the next set of action types in the list.
+-- * 'actionTypes' - Provides details of the action types.
 -- * 'responseStatus' - The response status code.
 mkListActionTypesResponse ::
   -- | 'responseStatus'
@@ -162,8 +154,8 @@ mkListActionTypesResponse ::
 mkListActionTypesResponse pResponseStatus_ =
   ListActionTypesResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      actionTypes = Lude.mempty
+      actionTypes = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the amount of returned information is significantly large, an identifier is also returned. It can be used in a subsequent list action types call to return the next set of action types in the list.
@@ -173,16 +165,16 @@ latrsNextToken :: Lens.Lens' ListActionTypesResponse (Lude.Maybe Lude.Text)
 latrsNextToken = Lens.lens (nextToken :: ListActionTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListActionTypesResponse)
 {-# DEPRECATED latrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-latrsResponseStatus :: Lens.Lens' ListActionTypesResponse Lude.Int
-latrsResponseStatus = Lens.lens (responseStatus :: ListActionTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListActionTypesResponse)
-{-# DEPRECATED latrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | Provides details of the action types.
 --
 -- /Note:/ Consider using 'actionTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 latrsActionTypes :: Lens.Lens' ListActionTypesResponse [ActionType]
 latrsActionTypes = Lens.lens (actionTypes :: ListActionTypesResponse -> [ActionType]) (\s a -> s {actionTypes = a} :: ListActionTypesResponse)
 {-# DEPRECATED latrsActionTypes "Use generic-lens or generic-optics with 'actionTypes' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+latrsResponseStatus :: Lens.Lens' ListActionTypesResponse Lude.Int
+latrsResponseStatus = Lens.lens (responseStatus :: ListActionTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListActionTypesResponse)
+{-# DEPRECATED latrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

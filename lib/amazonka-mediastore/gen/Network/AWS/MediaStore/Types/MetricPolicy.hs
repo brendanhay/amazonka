@@ -17,8 +17,8 @@ module Network.AWS.MediaStore.Types.MetricPolicy
     mkMetricPolicy,
 
     -- * Lenses
-    mpMetricPolicyRules,
     mpContainerLevelMetrics,
+    mpMetricPolicyRules,
   )
 where
 
@@ -33,17 +33,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricPolicy' smart constructor.
 data MetricPolicy = MetricPolicy'
-  { metricPolicyRules ::
-      Lude.Maybe (Lude.NonEmpty MetricPolicyRule),
-    containerLevelMetrics :: ContainerLevelMetrics
+  { -- | A setting to enable or disable metrics at the container level.
+    containerLevelMetrics :: ContainerLevelMetrics,
+    -- | A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase> to allow up to 300 rules per policy.
+    metricPolicyRules :: Lude.Maybe (Lude.NonEmpty MetricPolicyRule)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricPolicy' with the minimum fields required to make a request.
@@ -56,16 +51,9 @@ mkMetricPolicy ::
   MetricPolicy
 mkMetricPolicy pContainerLevelMetrics_ =
   MetricPolicy'
-    { metricPolicyRules = Lude.Nothing,
-      containerLevelMetrics = pContainerLevelMetrics_
+    { containerLevelMetrics = pContainerLevelMetrics_,
+      metricPolicyRules = Lude.Nothing
     }
-
--- | A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase> to allow up to 300 rules per policy.
---
--- /Note:/ Consider using 'metricPolicyRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpMetricPolicyRules :: Lens.Lens' MetricPolicy (Lude.Maybe (Lude.NonEmpty MetricPolicyRule))
-mpMetricPolicyRules = Lens.lens (metricPolicyRules :: MetricPolicy -> Lude.Maybe (Lude.NonEmpty MetricPolicyRule)) (\s a -> s {metricPolicyRules = a} :: MetricPolicy)
-{-# DEPRECATED mpMetricPolicyRules "Use generic-lens or generic-optics with 'metricPolicyRules' instead." #-}
 
 -- | A setting to enable or disable metrics at the container level.
 --
@@ -74,21 +62,28 @@ mpContainerLevelMetrics :: Lens.Lens' MetricPolicy ContainerLevelMetrics
 mpContainerLevelMetrics = Lens.lens (containerLevelMetrics :: MetricPolicy -> ContainerLevelMetrics) (\s a -> s {containerLevelMetrics = a} :: MetricPolicy)
 {-# DEPRECATED mpContainerLevelMetrics "Use generic-lens or generic-optics with 'containerLevelMetrics' instead." #-}
 
+-- | A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase> to allow up to 300 rules per policy.
+--
+-- /Note:/ Consider using 'metricPolicyRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpMetricPolicyRules :: Lens.Lens' MetricPolicy (Lude.Maybe (Lude.NonEmpty MetricPolicyRule))
+mpMetricPolicyRules = Lens.lens (metricPolicyRules :: MetricPolicy -> Lude.Maybe (Lude.NonEmpty MetricPolicyRule)) (\s a -> s {metricPolicyRules = a} :: MetricPolicy)
+{-# DEPRECATED mpMetricPolicyRules "Use generic-lens or generic-optics with 'metricPolicyRules' instead." #-}
+
 instance Lude.FromJSON MetricPolicy where
   parseJSON =
     Lude.withObject
       "MetricPolicy"
       ( \x ->
           MetricPolicy'
-            Lude.<$> (x Lude..:? "MetricPolicyRules")
-            Lude.<*> (x Lude..: "ContainerLevelMetrics")
+            Lude.<$> (x Lude..: "ContainerLevelMetrics")
+            Lude.<*> (x Lude..:? "MetricPolicyRules")
       )
 
 instance Lude.ToJSON MetricPolicy where
   toJSON MetricPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("MetricPolicyRules" Lude..=) Lude.<$> metricPolicyRules,
-            Lude.Just ("ContainerLevelMetrics" Lude..= containerLevelMetrics)
+          [ Lude.Just ("ContainerLevelMetrics" Lude..= containerLevelMetrics),
+            ("MetricPolicyRules" Lude..=) Lude.<$> metricPolicyRules
           ]
       )

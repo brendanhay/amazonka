@@ -40,36 +40,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalSecondaryIndexDescription' smart constructor.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
-  { backfilling ::
-      Lude.Maybe Lude.Bool,
-    indexSizeBytes ::
-      Lude.Maybe Lude.Integer,
-    indexStatus ::
-      Lude.Maybe IndexStatus,
-    provisionedThroughput ::
-      Lude.Maybe
-        ProvisionedThroughputDescription,
-    indexARN ::
-      Lude.Maybe Lude.Text,
-    keySchema ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            KeySchemaElement
-        ),
-    projection ::
-      Lude.Maybe Projection,
-    itemCount ::
-      Lude.Maybe Lude.Integer,
-    indexName ::
-      Lude.Maybe Lude.Text
+  { -- | Indicates whether the index is currently backfilling. /Backfilling/ is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and @Backfilling@ is false.
+    --
+    -- You can delete an index that is being created during the @Backfilling@ phase when @IndexStatus@ is set to CREATING and @Backfilling@ is true. You can't delete the index that is being created when @IndexStatus@ is set to CREATING and @Backfilling@ is false.
+    backfilling :: Lude.Maybe Lude.Bool,
+    -- | The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    indexSizeBytes :: Lude.Maybe Lude.Integer,
+    -- | The current state of the global secondary index:
+    --
+    --
+    --     * @CREATING@ - The index is being created.
+    --
+    --
+    --     * @UPDATING@ - The index is being updated.
+    --
+    --
+    --     * @DELETING@ - The index is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The index is ready for use.
+    indexStatus :: Lude.Maybe IndexStatus,
+    -- | Represents the provisioned throughput settings for the specified global secondary index.
+    --
+    -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+    provisionedThroughput :: Lude.Maybe ProvisionedThroughputDescription,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+    indexARN :: Lude.Maybe Lude.Text,
+    -- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+    --
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+    projection :: Lude.Maybe Projection,
+    -- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    itemCount :: Lude.Maybe Lude.Integer,
+    -- | The name of the global secondary index.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalSecondaryIndexDescription' with the minimum fields required to make a request.
@@ -77,8 +89,6 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 -- * 'backfilling' - Indicates whether the index is currently backfilling. /Backfilling/ is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and @Backfilling@ is false.
 --
 -- You can delete an index that is being created during the @Backfilling@ phase when @IndexStatus@ is set to CREATING and @Backfilling@ is true. You can't delete the index that is being created when @IndexStatus@ is set to CREATING and @Backfilling@ is false.
--- * 'indexARN' - The Amazon Resource Name (ARN) that uniquely identifies the index.
--- * 'indexName' - The name of the global secondary index.
 -- * 'indexSizeBytes' - The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 -- * 'indexStatus' - The current state of the global secondary index:
 --
@@ -95,7 +105,10 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 --     * @ACTIVE@ - The index is ready for use.
 --
 --
--- * 'itemCount' - The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+-- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
+--
+-- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'indexARN' - The Amazon Resource Name (ARN) that uniquely identifies the index.
 -- * 'keySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
 --
@@ -106,9 +119,8 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 --
 --
 -- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
--- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
---
--- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'itemCount' - The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+-- * 'indexName' - The name of the global secondary index.
 mkGlobalSecondaryIndexDescription ::
   GlobalSecondaryIndexDescription
 mkGlobalSecondaryIndexDescription =

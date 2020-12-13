@@ -14,9 +14,9 @@ module Network.AWS.Lightsail.Types.LoadBalancerState
   ( LoadBalancerState
       ( LoadBalancerState',
         LBSActive,
+        LBSProvisioning,
         LBSActiveImpaired,
         LBSFailed,
-        LBSProvisioning,
         LBSUnknown
       ),
   )
@@ -51,23 +51,23 @@ newtype LoadBalancerState = LoadBalancerState' Lude.Text
 pattern LBSActive :: LoadBalancerState
 pattern LBSActive = LoadBalancerState' "active"
 
+pattern LBSProvisioning :: LoadBalancerState
+pattern LBSProvisioning = LoadBalancerState' "provisioning"
+
 pattern LBSActiveImpaired :: LoadBalancerState
 pattern LBSActiveImpaired = LoadBalancerState' "active_impaired"
 
 pattern LBSFailed :: LoadBalancerState
 pattern LBSFailed = LoadBalancerState' "failed"
 
-pattern LBSProvisioning :: LoadBalancerState
-pattern LBSProvisioning = LoadBalancerState' "provisioning"
-
 pattern LBSUnknown :: LoadBalancerState
 pattern LBSUnknown = LoadBalancerState' "unknown"
 
 {-# COMPLETE
   LBSActive,
+  LBSProvisioning,
   LBSActiveImpaired,
   LBSFailed,
-  LBSProvisioning,
   LBSUnknown,
   LoadBalancerState'
   #-}

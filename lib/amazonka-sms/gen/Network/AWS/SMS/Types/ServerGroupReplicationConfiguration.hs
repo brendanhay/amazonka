@@ -30,20 +30,12 @@ import Network.AWS.SMS.Types.ServerReplicationConfiguration
 --
 -- /See:/ 'mkServerGroupReplicationConfiguration' smart constructor.
 data ServerGroupReplicationConfiguration = ServerGroupReplicationConfiguration'
-  { serverGroupId ::
-      Lude.Maybe
-        Lude.Text,
-    serverReplicationConfigurations ::
-      Lude.Maybe
-        [ServerReplicationConfiguration]
+  { -- | The ID of the server group with which this replication configuration is associated.
+    serverGroupId :: Lude.Maybe Lude.Text,
+    -- | The replication configuration for servers in the server group.
+    serverReplicationConfigurations :: Lude.Maybe [ServerReplicationConfiguration]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerGroupReplicationConfiguration' with the minimum fields required to make a request.

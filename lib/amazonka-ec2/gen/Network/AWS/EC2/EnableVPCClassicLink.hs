@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.EnableVPCClassicLink
     mkEnableVPCClassicLink,
 
     -- ** Request lenses
-    evclDryRun,
     evclVPCId,
+    evclDryRun,
 
     -- * Destructuring the response
     EnableVPCClassicLinkResponse (..),
@@ -40,36 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEnableVPCClassicLink' smart constructor.
 data EnableVPCClassicLink = EnableVPCClassicLink'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    vpcId :: Lude.Text
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableVPCClassicLink' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'vpcId' - The ID of the VPC.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkEnableVPCClassicLink ::
   -- | 'vpcId'
   Lude.Text ->
   EnableVPCClassicLink
 mkEnableVPCClassicLink pVPCId_ =
-  EnableVPCClassicLink' {dryRun = Lude.Nothing, vpcId = pVPCId_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evclDryRun :: Lens.Lens' EnableVPCClassicLink (Lude.Maybe Lude.Bool)
-evclDryRun = Lens.lens (dryRun :: EnableVPCClassicLink -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: EnableVPCClassicLink)
-{-# DEPRECATED evclDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  EnableVPCClassicLink' {vpcId = pVPCId_, dryRun = Lude.Nothing}
 
 -- | The ID of the VPC.
 --
@@ -77,6 +66,13 @@ evclDryRun = Lens.lens (dryRun :: EnableVPCClassicLink -> Lude.Maybe Lude.Bool) 
 evclVPCId :: Lens.Lens' EnableVPCClassicLink Lude.Text
 evclVPCId = Lens.lens (vpcId :: EnableVPCClassicLink -> Lude.Text) (\s a -> s {vpcId = a} :: EnableVPCClassicLink)
 {-# DEPRECATED evclVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evclDryRun :: Lens.Lens' EnableVPCClassicLink (Lude.Maybe Lude.Bool)
+evclDryRun = Lens.lens (dryRun :: EnableVPCClassicLink -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: EnableVPCClassicLink)
+{-# DEPRECATED evclDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest EnableVPCClassicLink where
   type Rs EnableVPCClassicLink = EnableVPCClassicLinkResponse
@@ -99,29 +95,24 @@ instance Lude.ToQuery EnableVPCClassicLink where
     Lude.mconcat
       [ "Action" Lude.=: ("EnableVpcClassicLink" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "VpcId" Lude.=: vpcId
+        "VpcId" Lude.=: vpcId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkEnableVPCClassicLinkResponse' smart constructor.
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableVPCClassicLinkResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkEnableVPCClassicLinkResponse ::
   -- | 'responseStatus'
   Lude.Int ->

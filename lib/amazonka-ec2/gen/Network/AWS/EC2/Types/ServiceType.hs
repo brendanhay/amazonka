@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.ServiceType
   ( ServiceType
       ( ServiceType',
+        Interface,
         Gateway,
-        GatewayLoadBalancer,
-        Interface
+        GatewayLoadBalancer
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ServiceType = ServiceType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Interface :: ServiceType
+pattern Interface = ServiceType' "Interface"
+
 pattern Gateway :: ServiceType
 pattern Gateway = ServiceType' "Gateway"
 
 pattern GatewayLoadBalancer :: ServiceType
 pattern GatewayLoadBalancer = ServiceType' "GatewayLoadBalancer"
 
-pattern Interface :: ServiceType
-pattern Interface = ServiceType' "Interface"
-
 {-# COMPLETE
+  Interface,
   Gateway,
   GatewayLoadBalancer,
-  Interface,
   ServiceType'
   #-}

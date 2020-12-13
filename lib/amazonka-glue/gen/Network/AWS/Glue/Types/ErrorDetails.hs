@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkErrorDetails' smart constructor.
 data ErrorDetails = ErrorDetails'
-  { errorCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The error code for an error.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message for an error.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.

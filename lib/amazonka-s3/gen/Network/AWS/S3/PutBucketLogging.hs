@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,10 +55,10 @@ module Network.AWS.S3.PutBucketLogging
     mkPutBucketLogging,
 
     -- ** Request lenses
-    pblContentMD5,
-    pblExpectedBucketOwner,
     pblBucket,
     pblBucketLoggingStatus,
+    pblContentMD5,
+    pblExpectedBucketOwner,
 
     -- * Destructuring the response
     PutBucketLoggingResponse (..),
@@ -73,19 +74,18 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketLogging' smart constructor.
 data PutBucketLogging = PutBucketLogging'
-  { contentMD5 ::
-      Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The name of the bucket for which to set the logging parameters.
     bucket :: BucketName,
-    bucketLoggingStatus :: BucketLoggingStatus
+    -- | Container for logging status information.
+    bucketLoggingStatus :: BucketLoggingStatus,
+    -- | The MD5 hash of the @PutBucketLogging@ request body.
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketLogging' with the minimum fields required to make a request.
@@ -104,11 +104,25 @@ mkPutBucketLogging ::
   PutBucketLogging
 mkPutBucketLogging pBucket_ pBucketLoggingStatus_ =
   PutBucketLogging'
-    { contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
-      bucketLoggingStatus = pBucketLoggingStatus_
+    { bucket = pBucket_,
+      bucketLoggingStatus = pBucketLoggingStatus_,
+      contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing
     }
+
+-- | The name of the bucket for which to set the logging parameters.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pblBucket :: Lens.Lens' PutBucketLogging BucketName
+pblBucket = Lens.lens (bucket :: PutBucketLogging -> BucketName) (\s a -> s {bucket = a} :: PutBucketLogging)
+{-# DEPRECATED pblBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Container for logging status information.
+--
+-- /Note:/ Consider using 'bucketLoggingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pblBucketLoggingStatus :: Lens.Lens' PutBucketLogging BucketLoggingStatus
+pblBucketLoggingStatus = Lens.lens (bucketLoggingStatus :: PutBucketLogging -> BucketLoggingStatus) (\s a -> s {bucketLoggingStatus = a} :: PutBucketLogging)
+{-# DEPRECATED pblBucketLoggingStatus "Use generic-lens or generic-optics with 'bucketLoggingStatus' instead." #-}
 
 -- | The MD5 hash of the @PutBucketLogging@ request body.
 --
@@ -125,20 +139,6 @@ pblContentMD5 = Lens.lens (contentMD5 :: PutBucketLogging -> Lude.Maybe Lude.Tex
 pblExpectedBucketOwner :: Lens.Lens' PutBucketLogging (Lude.Maybe Lude.Text)
 pblExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketLogging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketLogging)
 {-# DEPRECATED pblExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The name of the bucket for which to set the logging parameters.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pblBucket :: Lens.Lens' PutBucketLogging BucketName
-pblBucket = Lens.lens (bucket :: PutBucketLogging -> BucketName) (\s a -> s {bucket = a} :: PutBucketLogging)
-{-# DEPRECATED pblBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Container for logging status information.
---
--- /Note:/ Consider using 'bucketLoggingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pblBucketLoggingStatus :: Lens.Lens' PutBucketLogging BucketLoggingStatus
-pblBucketLoggingStatus = Lens.lens (bucketLoggingStatus :: PutBucketLogging -> BucketLoggingStatus) (\s a -> s {bucketLoggingStatus = a} :: PutBucketLogging)
-{-# DEPRECATED pblBucketLoggingStatus "Use generic-lens or generic-optics with 'bucketLoggingStatus' instead." #-}
 
 instance Lude.AWSRequest PutBucketLogging where
   type Rs PutBucketLogging = PutBucketLoggingResponse
@@ -166,13 +166,7 @@ instance Lude.ToQuery PutBucketLogging where
 
 -- | /See:/ 'mkPutBucketLoggingResponse' smart constructor.
 data PutBucketLoggingResponse = PutBucketLoggingResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketLoggingResponse' with the minimum fields required to make a request.

@@ -49,54 +49,60 @@ import Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType
 --
 -- /See:/ 'mkWorkspaceDirectory' smart constructor.
 data WorkspaceDirectory = WorkspaceDirectory'
-  { registrationCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
+    registrationCode :: Lude.Maybe Lude.Text,
+    -- | The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
     iamRoleId :: Lude.Maybe Lude.Text,
+    -- | The directory identifier.
     directoryId :: Lude.Maybe Lude.Text,
+    -- | The state of the directory's registration with Amazon WorkSpaces. After a directory is deregistered, the @DEREGISTERED@ state is returned very briefly before the directory metadata is cleaned up, so this state is rarely returned. To confirm that a directory is deregistered, check for the directory ID by using <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories> . If the directory ID isn't returned, then the directory has been successfully deregistered.
     state :: Lude.Maybe WorkspaceDirectoryState,
+    -- | The user name for the service account.
     customerUserName :: Lude.Maybe Lude.Text,
+    -- | The identifiers of the subnets used with the directory.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The identifiers of the IP access control groups associated with the directory.
     ipGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The directory alias.
     alias :: Lude.Maybe Lude.Text,
+    -- | The identifier of the security group that is assigned to new WorkSpaces.
     workspaceSecurityGroupId :: Lude.Maybe Lude.Text,
+    -- | The directory type.
     directoryType :: Lude.Maybe WorkspaceDirectoryType,
+    -- | Specifies whether the directory is dedicated or shared. To use Bring Your Own License (BYOL), this value must be set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
     tenancy :: Lude.Maybe Tenancy,
-    workspaceCreationProperties ::
-      Lude.Maybe DefaultWorkspaceCreationProperties,
+    -- | The default creation properties for all WorkSpaces in the directory.
+    workspaceCreationProperties :: Lude.Maybe DefaultWorkspaceCreationProperties,
+    -- | The IP addresses of the DNS servers for the directory.
     dnsIPAddresses :: Lude.Maybe [Lude.Text],
-    workspaceAccessProperties ::
-      Lude.Maybe WorkspaceAccessProperties,
+    -- | The devices and operating systems that users can use to access WorkSpaces.
+    workspaceAccessProperties :: Lude.Maybe WorkspaceAccessProperties,
+    -- | The name of the directory.
     directoryName :: Lude.Maybe Lude.Text,
-    selfservicePermissions ::
-      Lude.Maybe SelfservicePermissions
+    -- | The default self-service permissions for WorkSpaces in the directory.
+    selfservicePermissions :: Lude.Maybe SelfservicePermissions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceDirectory' with the minimum fields required to make a request.
 --
--- * 'alias' - The directory alias.
--- * 'customerUserName' - The user name for the service account.
--- * 'directoryId' - The directory identifier.
--- * 'directoryName' - The name of the directory.
--- * 'directoryType' - The directory type.
--- * 'dnsIPAddresses' - The IP addresses of the DNS servers for the directory.
--- * 'iamRoleId' - The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
--- * 'ipGroupIds' - The identifiers of the IP access control groups associated with the directory.
 -- * 'registrationCode' - The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
--- * 'selfservicePermissions' - The default self-service permissions for WorkSpaces in the directory.
+-- * 'iamRoleId' - The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
+-- * 'directoryId' - The directory identifier.
 -- * 'state' - The state of the directory's registration with Amazon WorkSpaces. After a directory is deregistered, the @DEREGISTERED@ state is returned very briefly before the directory metadata is cleaned up, so this state is rarely returned. To confirm that a directory is deregistered, check for the directory ID by using <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html DescribeWorkspaceDirectories> . If the directory ID isn't returned, then the directory has been successfully deregistered.
+-- * 'customerUserName' - The user name for the service account.
 -- * 'subnetIds' - The identifiers of the subnets used with the directory.
--- * 'tenancy' - Specifies whether the directory is dedicated or shared. To use Bring Your Own License (BYOL), this value must be set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
--- * 'workspaceAccessProperties' - The devices and operating systems that users can use to access WorkSpaces.
--- * 'workspaceCreationProperties' - The default creation properties for all WorkSpaces in the directory.
+-- * 'ipGroupIds' - The identifiers of the IP access control groups associated with the directory.
+-- * 'alias' - The directory alias.
 -- * 'workspaceSecurityGroupId' - The identifier of the security group that is assigned to new WorkSpaces.
+-- * 'directoryType' - The directory type.
+-- * 'tenancy' - Specifies whether the directory is dedicated or shared. To use Bring Your Own License (BYOL), this value must be set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+-- * 'workspaceCreationProperties' - The default creation properties for all WorkSpaces in the directory.
+-- * 'dnsIPAddresses' - The IP addresses of the DNS servers for the directory.
+-- * 'workspaceAccessProperties' - The devices and operating systems that users can use to access WorkSpaces.
+-- * 'directoryName' - The name of the directory.
+-- * 'selfservicePermissions' - The default self-service permissions for WorkSpaces in the directory.
 mkWorkspaceDirectory ::
   WorkspaceDirectory
 mkWorkspaceDirectory =

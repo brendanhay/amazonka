@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.MarketplaceMetering.RegisterUsage
     mkRegisterUsage,
 
     -- ** Request lenses
-    ruNonce,
-    ruProductCode,
     ruPublicKeyVersion,
+    ruProductCode,
+    ruNonce,
 
     -- * Destructuring the response
     RegisterUsageResponse (..),
@@ -48,43 +49,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterUsage' smart constructor.
 data RegisterUsage = RegisterUsage'
-  { nonce :: Lude.Maybe Lude.Text,
+  { -- | Public Key Version provided by AWS Marketplace
+    publicKeyVersion :: Lude.Natural,
+    -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
     productCode :: Lude.Text,
-    publicKeyVersion :: Lude.Natural
+    -- | (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
+    nonce :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterUsage' with the minimum fields required to make a request.
 --
--- * 'nonce' - (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
--- * 'productCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 -- * 'publicKeyVersion' - Public Key Version provided by AWS Marketplace
+-- * 'productCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
+-- * 'nonce' - (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
 mkRegisterUsage ::
-  -- | 'productCode'
-  Lude.Text ->
   -- | 'publicKeyVersion'
   Lude.Natural ->
+  -- | 'productCode'
+  Lude.Text ->
   RegisterUsage
-mkRegisterUsage pProductCode_ pPublicKeyVersion_ =
+mkRegisterUsage pPublicKeyVersion_ pProductCode_ =
   RegisterUsage'
-    { nonce = Lude.Nothing,
+    { publicKeyVersion = pPublicKeyVersion_,
       productCode = pProductCode_,
-      publicKeyVersion = pPublicKeyVersion_
+      nonce = Lude.Nothing
     }
 
--- | (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
+-- | Public Key Version provided by AWS Marketplace
 --
--- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruNonce :: Lens.Lens' RegisterUsage (Lude.Maybe Lude.Text)
-ruNonce = Lens.lens (nonce :: RegisterUsage -> Lude.Maybe Lude.Text) (\s a -> s {nonce = a} :: RegisterUsage)
-{-# DEPRECATED ruNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
+-- /Note:/ Consider using 'publicKeyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruPublicKeyVersion :: Lens.Lens' RegisterUsage Lude.Natural
+ruPublicKeyVersion = Lens.lens (publicKeyVersion :: RegisterUsage -> Lude.Natural) (\s a -> s {publicKeyVersion = a} :: RegisterUsage)
+{-# DEPRECATED ruPublicKeyVersion "Use generic-lens or generic-optics with 'publicKeyVersion' instead." #-}
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 --
@@ -93,12 +91,12 @@ ruProductCode :: Lens.Lens' RegisterUsage Lude.Text
 ruProductCode = Lens.lens (productCode :: RegisterUsage -> Lude.Text) (\s a -> s {productCode = a} :: RegisterUsage)
 {-# DEPRECATED ruProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
 
--- | Public Key Version provided by AWS Marketplace
+-- | (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
 --
--- /Note:/ Consider using 'publicKeyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruPublicKeyVersion :: Lens.Lens' RegisterUsage Lude.Natural
-ruPublicKeyVersion = Lens.lens (publicKeyVersion :: RegisterUsage -> Lude.Natural) (\s a -> s {publicKeyVersion = a} :: RegisterUsage)
-{-# DEPRECATED ruPublicKeyVersion "Use generic-lens or generic-optics with 'publicKeyVersion' instead." #-}
+-- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruNonce :: Lens.Lens' RegisterUsage (Lude.Maybe Lude.Text)
+ruNonce = Lens.lens (nonce :: RegisterUsage -> Lude.Maybe Lude.Text) (\s a -> s {nonce = a} :: RegisterUsage)
+{-# DEPRECATED ruNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
 
 instance Lude.AWSRequest RegisterUsage where
   type Rs RegisterUsage = RegisterUsageResponse
@@ -127,9 +125,9 @@ instance Lude.ToJSON RegisterUsage where
   toJSON RegisterUsage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Nonce" Lude..=) Lude.<$> nonce,
+          [ Lude.Just ("PublicKeyVersion" Lude..= publicKeyVersion),
             Lude.Just ("ProductCode" Lude..= productCode),
-            Lude.Just ("PublicKeyVersion" Lude..= publicKeyVersion)
+            ("Nonce" Lude..=) Lude.<$> nonce
           ]
       )
 
@@ -141,26 +139,21 @@ instance Lude.ToQuery RegisterUsage where
 
 -- | /See:/ 'mkRegisterUsageResponse' smart constructor.
 data RegisterUsageResponse = RegisterUsageResponse'
-  { signature ::
-      Lude.Maybe Lude.Text,
-    publicKeyRotationTimestamp ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | JWT Token
+    signature :: Lude.Maybe Lude.Text,
+    -- | (Optional) Only included when public key version has expired
+    publicKeyRotationTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterUsageResponse' with the minimum fields required to make a request.
 --
+-- * 'signature' - JWT Token
 -- * 'publicKeyRotationTimestamp' - (Optional) Only included when public key version has expired
 -- * 'responseStatus' - The response status code.
--- * 'signature' - JWT Token
 mkRegisterUsageResponse ::
   -- | 'responseStatus'
   Lude.Int ->

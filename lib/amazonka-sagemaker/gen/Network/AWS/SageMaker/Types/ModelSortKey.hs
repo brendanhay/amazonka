@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ModelSortKey
   ( ModelSortKey
       ( ModelSortKey',
-        MSKCreationTime,
-        MSKName
+        MSKName,
+        MSKCreationTime
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ModelSortKey = ModelSortKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSKCreationTime :: ModelSortKey
-pattern MSKCreationTime = ModelSortKey' "CreationTime"
-
 pattern MSKName :: ModelSortKey
 pattern MSKName = ModelSortKey' "Name"
 
+pattern MSKCreationTime :: ModelSortKey
+pattern MSKCreationTime = ModelSortKey' "CreationTime"
+
 {-# COMPLETE
-  MSKCreationTime,
   MSKName,
+  MSKCreationTime,
   ModelSortKey'
   #-}

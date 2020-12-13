@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.H265RateControlMode
   ( H265RateControlMode
       ( H265RateControlMode',
+        HRCMVbr,
         HRCMCbr,
-        HRCMQvbr,
-        HRCMVbr
+        HRCMQvbr
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype H265RateControlMode = H265RateControlMode' Lude.Text
       Lude.ToHeader
     )
 
+pattern HRCMVbr :: H265RateControlMode
+pattern HRCMVbr = H265RateControlMode' "VBR"
+
 pattern HRCMCbr :: H265RateControlMode
 pattern HRCMCbr = H265RateControlMode' "CBR"
 
 pattern HRCMQvbr :: H265RateControlMode
 pattern HRCMQvbr = H265RateControlMode' "QVBR"
 
-pattern HRCMVbr :: H265RateControlMode
-pattern HRCMVbr = H265RateControlMode' "VBR"
-
 {-# COMPLETE
+  HRCMVbr,
   HRCMCbr,
   HRCMQvbr,
-  HRCMVbr,
   H265RateControlMode'
   #-}

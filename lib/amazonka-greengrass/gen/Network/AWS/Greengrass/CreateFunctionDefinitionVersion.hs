@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Greengrass.CreateFunctionDefinitionVersion
     -- ** Request lenses
     cfdvAmznClientToken,
     cfdvDefaultConfig,
-    cfdvFunctions,
     cfdvFunctionDefinitionId,
+    cfdvFunctions,
 
     -- * Destructuring the response
     CreateFunctionDefinitionVersionResponse (..),
@@ -47,23 +48,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateFunctionDefinitionVersion' smart constructor.
 data CreateFunctionDefinitionVersion = CreateFunctionDefinitionVersion'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
-    defaultConfig ::
-      Lude.Maybe
-        FunctionDefaultConfig,
-    functions ::
-      Lude.Maybe [Function],
-    functionDefinitionId ::
-      Lude.Text
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+    defaultConfig :: Lude.Maybe FunctionDefaultConfig,
+    -- | The ID of the Lambda function definition.
+    functionDefinitionId :: Lude.Text,
+    -- | A list of Lambda functions in this function definition version.
+    functions :: Lude.Maybe [Function]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFunctionDefinitionVersion' with the minimum fields required to make a request.
@@ -80,8 +74,8 @@ mkCreateFunctionDefinitionVersion pFunctionDefinitionId_ =
   CreateFunctionDefinitionVersion'
     { amznClientToken = Lude.Nothing,
       defaultConfig = Lude.Nothing,
-      functions = Lude.Nothing,
-      functionDefinitionId = pFunctionDefinitionId_
+      functionDefinitionId = pFunctionDefinitionId_,
+      functions = Lude.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
@@ -98,19 +92,19 @@ cfdvDefaultConfig :: Lens.Lens' CreateFunctionDefinitionVersion (Lude.Maybe Func
 cfdvDefaultConfig = Lens.lens (defaultConfig :: CreateFunctionDefinitionVersion -> Lude.Maybe FunctionDefaultConfig) (\s a -> s {defaultConfig = a} :: CreateFunctionDefinitionVersion)
 {-# DEPRECATED cfdvDefaultConfig "Use generic-lens or generic-optics with 'defaultConfig' instead." #-}
 
--- | A list of Lambda functions in this function definition version.
---
--- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfdvFunctions :: Lens.Lens' CreateFunctionDefinitionVersion (Lude.Maybe [Function])
-cfdvFunctions = Lens.lens (functions :: CreateFunctionDefinitionVersion -> Lude.Maybe [Function]) (\s a -> s {functions = a} :: CreateFunctionDefinitionVersion)
-{-# DEPRECATED cfdvFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
-
 -- | The ID of the Lambda function definition.
 --
 -- /Note:/ Consider using 'functionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cfdvFunctionDefinitionId :: Lens.Lens' CreateFunctionDefinitionVersion Lude.Text
 cfdvFunctionDefinitionId = Lens.lens (functionDefinitionId :: CreateFunctionDefinitionVersion -> Lude.Text) (\s a -> s {functionDefinitionId = a} :: CreateFunctionDefinitionVersion)
 {-# DEPRECATED cfdvFunctionDefinitionId "Use generic-lens or generic-optics with 'functionDefinitionId' instead." #-}
+
+-- | A list of Lambda functions in this function definition version.
+--
+-- /Note:/ Consider using 'functions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfdvFunctions :: Lens.Lens' CreateFunctionDefinitionVersion (Lude.Maybe [Function])
+cfdvFunctions = Lens.lens (functions :: CreateFunctionDefinitionVersion -> Lude.Maybe [Function]) (\s a -> s {functions = a} :: CreateFunctionDefinitionVersion)
+{-# DEPRECATED cfdvFunctions "Use generic-lens or generic-optics with 'functions' instead." #-}
 
 instance Lude.AWSRequest CreateFunctionDefinitionVersion where
   type
@@ -158,37 +152,27 @@ instance Lude.ToQuery CreateFunctionDefinitionVersion where
 
 -- | /See:/ 'mkCreateFunctionDefinitionVersionResponse' smart constructor.
 data CreateFunctionDefinitionVersionResponse = CreateFunctionDefinitionVersionResponse'
-  { arn ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFunctionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'version' - The ID of the version.
 -- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the version.
 mkCreateFunctionDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

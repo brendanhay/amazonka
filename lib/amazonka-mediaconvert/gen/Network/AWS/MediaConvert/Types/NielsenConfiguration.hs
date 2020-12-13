@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNielsenConfiguration' smart constructor.
 data NielsenConfiguration = NielsenConfiguration'
-  { breakoutCode ::
-      Lude.Maybe Lude.Natural,
+  { -- | Nielsen has discontinued the use of breakout code functionality. If you must include this property, set the value to zero.
+    breakoutCode :: Lude.Maybe Lude.Natural,
+    -- | Use Distributor ID (DistributorID) to specify the distributor ID that is assigned to your organization by Neilsen.
     distributorId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NielsenConfiguration' with the minimum fields required to make a request.

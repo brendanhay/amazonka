@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMethodSnapshot' smart constructor.
 data MethodSnapshot = MethodSnapshot'
-  { authorizationType ::
-      Lude.Maybe Lude.Text,
+  { -- | The method's authorization type. Valid values are @NONE@ for open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user pool.
+    authorizationType :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the method requires a valid 'ApiKey' .
     apiKeyRequired :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MethodSnapshot' with the minimum fields required to make a request.
 --
--- * 'apiKeyRequired' - Specifies whether the method requires a valid 'ApiKey' .
 -- * 'authorizationType' - The method's authorization type. Valid values are @NONE@ for open access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user pool.
+-- * 'apiKeyRequired' - Specifies whether the method requires a valid 'ApiKey' .
 mkMethodSnapshot ::
   MethodSnapshot
 mkMethodSnapshot =

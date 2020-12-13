@@ -13,12 +13,12 @@
 module Network.AWS.CostExplorer.Types.NumericOperator
   ( NumericOperator
       ( NumericOperator',
-        Between,
         Equal,
-        GreaterThan,
         GreaterThanOrEqual,
+        LessThanOrEqual,
+        GreaterThan,
         LessThan,
-        LessThanOrEqual
+        Between
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype NumericOperator = NumericOperator' Lude.Text
       Lude.ToHeader
     )
 
-pattern Between :: NumericOperator
-pattern Between = NumericOperator' "BETWEEN"
-
 pattern Equal :: NumericOperator
 pattern Equal = NumericOperator' "EQUAL"
-
-pattern GreaterThan :: NumericOperator
-pattern GreaterThan = NumericOperator' "GREATER_THAN"
 
 pattern GreaterThanOrEqual :: NumericOperator
 pattern GreaterThanOrEqual = NumericOperator' "GREATER_THAN_OR_EQUAL"
 
-pattern LessThan :: NumericOperator
-pattern LessThan = NumericOperator' "LESS_THAN"
-
 pattern LessThanOrEqual :: NumericOperator
 pattern LessThanOrEqual = NumericOperator' "LESS_THAN_OR_EQUAL"
 
+pattern GreaterThan :: NumericOperator
+pattern GreaterThan = NumericOperator' "GREATER_THAN"
+
+pattern LessThan :: NumericOperator
+pattern LessThan = NumericOperator' "LESS_THAN"
+
+pattern Between :: NumericOperator
+pattern Between = NumericOperator' "BETWEEN"
+
 {-# COMPLETE
-  Between,
   Equal,
-  GreaterThan,
   GreaterThanOrEqual,
-  LessThan,
   LessThanOrEqual,
+  GreaterThan,
+  LessThan,
+  Between,
   NumericOperator'
   #-}

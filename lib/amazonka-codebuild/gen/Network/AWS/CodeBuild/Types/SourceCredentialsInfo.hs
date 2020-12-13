@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceCredentialsInfo' smart constructor.
 data SourceCredentialsInfo = SourceCredentialsInfo'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the token.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
     serverType :: Lude.Maybe ServerType,
+    -- | The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
     authType :: Lude.Maybe AuthType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceCredentialsInfo' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the token.
--- * 'authType' - The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
 -- * 'serverType' - The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or BITBUCKET.
+-- * 'authType' - The type of authentication used by the credentials. Valid options are OAUTH, BASIC_AUTH, or PERSONAL_ACCESS_TOKEN.
 mkSourceCredentialsInfo ::
   SourceCredentialsInfo
 mkSourceCredentialsInfo =

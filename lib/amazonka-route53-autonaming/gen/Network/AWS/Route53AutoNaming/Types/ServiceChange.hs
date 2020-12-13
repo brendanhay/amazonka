@@ -32,25 +32,20 @@ import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
 --
 -- /See:/ 'mkServiceChange' smart constructor.
 data ServiceChange = ServiceChange'
-  { healthCheckConfig ::
-      Lude.Maybe HealthCheckConfig,
+  { healthCheckConfig :: Lude.Maybe HealthCheckConfig,
+    -- | A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
     dnsConfig :: Lude.Maybe DNSConfigChange,
+    -- | A description for the service.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceChange' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the service.
+-- * 'healthCheckConfig' -
 -- * 'dnsConfig' - A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
--- * 'healthCheckConfig' - Undocumented field.
+-- * 'description' - A description for the service.
 mkServiceChange ::
   ServiceChange
 mkServiceChange =

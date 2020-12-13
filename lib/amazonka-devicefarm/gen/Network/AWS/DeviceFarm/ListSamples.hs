@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.DeviceFarm.ListSamples
     mkListSamples,
 
     -- ** Request lenses
-    lsNextToken,
     lsArn,
+    lsNextToken,
 
     -- * Destructuring the response
     ListSamplesResponse (..),
     mkListSamplesResponse,
 
     -- ** Response lenses
-    lssrsNextToken,
-    lssrsSamples,
-    lssrsResponseStatus,
+    lrsNextToken,
+    lrsSamples,
+    lrsResponseStatus,
   )
 where
 
@@ -46,16 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListSamples' smart constructor.
 data ListSamples = ListSamples'
-  { nextToken :: Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the job used to list samples.
+    arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSamples' with the minimum fields required to make a request.
@@ -67,14 +64,7 @@ mkListSamples ::
   Lude.Text ->
   ListSamples
 mkListSamples pArn_ =
-  ListSamples' {nextToken = Lude.Nothing, arn = pArn_}
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsNextToken :: Lens.Lens' ListSamples (Lude.Maybe Lude.Text)
-lsNextToken = Lens.lens (nextToken :: ListSamples -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSamples)
-{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListSamples' {arn = pArn_, nextToken = Lude.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the job used to list samples.
 --
@@ -83,14 +73,21 @@ lsArn :: Lens.Lens' ListSamples Lude.Text
 lsArn = Lens.lens (arn :: ListSamples -> Lude.Text) (\s a -> s {arn = a} :: ListSamples)
 {-# DEPRECATED lsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsNextToken :: Lens.Lens' ListSamples (Lude.Maybe Lude.Text)
+lsNextToken = Lens.lens (nextToken :: ListSamples -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSamples)
+{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
 instance Page.AWSPager ListSamples where
   page rq rs
-    | Page.stop (rs Lens.^. lssrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lssrsSamples) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lrsSamples) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lsNextToken Lens..~ rs Lens.^. lssrsNextToken
+          Lude.& lsNextToken Lens..~ rs Lens.^. lrsNextToken
 
 instance Lude.AWSRequest ListSamples where
   type Rs ListSamples = ListSamplesResponse
@@ -119,8 +116,8 @@ instance Lude.ToJSON ListSamples where
   toJSON ListSamples' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -134,25 +131,21 @@ instance Lude.ToQuery ListSamples where
 --
 -- /See:/ 'mkListSamplesResponse' smart constructor.
 data ListSamplesResponse = ListSamplesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the samples.
     samples :: Lude.Maybe [Sample],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSamplesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
 -- * 'samples' - Information about the samples.
+-- * 'responseStatus' - The response status code.
 mkListSamplesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -167,20 +160,20 @@ mkListSamplesResponse pResponseStatus_ =
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssrsNextToken :: Lens.Lens' ListSamplesResponse (Lude.Maybe Lude.Text)
-lssrsNextToken = Lens.lens (nextToken :: ListSamplesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSamplesResponse)
-{-# DEPRECATED lssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrsNextToken :: Lens.Lens' ListSamplesResponse (Lude.Maybe Lude.Text)
+lrsNextToken = Lens.lens (nextToken :: ListSamplesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSamplesResponse)
+{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the samples.
 --
 -- /Note:/ Consider using 'samples' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssrsSamples :: Lens.Lens' ListSamplesResponse (Lude.Maybe [Sample])
-lssrsSamples = Lens.lens (samples :: ListSamplesResponse -> Lude.Maybe [Sample]) (\s a -> s {samples = a} :: ListSamplesResponse)
-{-# DEPRECATED lssrsSamples "Use generic-lens or generic-optics with 'samples' instead." #-}
+lrsSamples :: Lens.Lens' ListSamplesResponse (Lude.Maybe [Sample])
+lrsSamples = Lens.lens (samples :: ListSamplesResponse -> Lude.Maybe [Sample]) (\s a -> s {samples = a} :: ListSamplesResponse)
+{-# DEPRECATED lrsSamples "Use generic-lens or generic-optics with 'samples' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssrsResponseStatus :: Lens.Lens' ListSamplesResponse Lude.Int
-lssrsResponseStatus = Lens.lens (responseStatus :: ListSamplesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSamplesResponse)
-{-# DEPRECATED lssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrsResponseStatus :: Lens.Lens' ListSamplesResponse Lude.Int
+lrsResponseStatus = Lens.lens (responseStatus :: ListSamplesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSamplesResponse)
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

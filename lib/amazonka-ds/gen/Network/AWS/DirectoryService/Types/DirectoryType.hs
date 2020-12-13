@@ -13,10 +13,10 @@
 module Network.AWS.DirectoryService.Types.DirectoryType
   ( DirectoryType
       ( DirectoryType',
+        SimpleAD,
         ADConnector,
         MicrosoftAD,
-        SharedMicrosoftAD,
-        SimpleAD
+        SharedMicrosoftAD
       ),
   )
 where
@@ -47,6 +47,9 @@ newtype DirectoryType = DirectoryType' Lude.Text
       Lude.ToHeader
     )
 
+pattern SimpleAD :: DirectoryType
+pattern SimpleAD = DirectoryType' "SimpleAD"
+
 pattern ADConnector :: DirectoryType
 pattern ADConnector = DirectoryType' "ADConnector"
 
@@ -56,13 +59,10 @@ pattern MicrosoftAD = DirectoryType' "MicrosoftAD"
 pattern SharedMicrosoftAD :: DirectoryType
 pattern SharedMicrosoftAD = DirectoryType' "SharedMicrosoftAD"
 
-pattern SimpleAD :: DirectoryType
-pattern SimpleAD = DirectoryType' "SimpleAD"
-
 {-# COMPLETE
+  SimpleAD,
   ADConnector,
   MicrosoftAD,
   SharedMicrosoftAD,
-  SimpleAD,
   DirectoryType'
   #-}

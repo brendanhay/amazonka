@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.DynamoDB.TransactGetItems
     mkTransactGetItems,
 
     -- ** Request lenses
-    tgiReturnConsumedCapacity,
     tgiTransactItems,
+    tgiReturnConsumedCapacity,
 
     -- * Destructuring the response
     TransactGetItemsResponse (..),
@@ -54,39 +55,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTransactGetItems' smart constructor.
 data TransactGetItems = TransactGetItems'
-  { returnConsumedCapacity ::
-      Lude.Maybe ReturnConsumedCapacity,
-    transactItems :: Lude.NonEmpty TransactGetItem
+  { -- | An ordered array of up to 25 @TransactGetItem@ objects, each of which contains a @Get@ structure.
+    transactItems :: Lude.NonEmpty TransactGetItem,
+    -- | A value of @TOTAL@ causes consumed capacity information to be returned, and a value of @NONE@ prevents that information from being returned. No other value is valid.
+    returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransactGetItems' with the minimum fields required to make a request.
 --
--- * 'returnConsumedCapacity' - A value of @TOTAL@ causes consumed capacity information to be returned, and a value of @NONE@ prevents that information from being returned. No other value is valid.
 -- * 'transactItems' - An ordered array of up to 25 @TransactGetItem@ objects, each of which contains a @Get@ structure.
+-- * 'returnConsumedCapacity' - A value of @TOTAL@ causes consumed capacity information to be returned, and a value of @NONE@ prevents that information from being returned. No other value is valid.
 mkTransactGetItems ::
   -- | 'transactItems'
   Lude.NonEmpty TransactGetItem ->
   TransactGetItems
 mkTransactGetItems pTransactItems_ =
   TransactGetItems'
-    { returnConsumedCapacity = Lude.Nothing,
-      transactItems = pTransactItems_
+    { transactItems = pTransactItems_,
+      returnConsumedCapacity = Lude.Nothing
     }
-
--- | A value of @TOTAL@ causes consumed capacity information to be returned, and a value of @NONE@ prevents that information from being returned. No other value is valid.
---
--- /Note:/ Consider using 'returnConsumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgiReturnConsumedCapacity :: Lens.Lens' TransactGetItems (Lude.Maybe ReturnConsumedCapacity)
-tgiReturnConsumedCapacity = Lens.lens (returnConsumedCapacity :: TransactGetItems -> Lude.Maybe ReturnConsumedCapacity) (\s a -> s {returnConsumedCapacity = a} :: TransactGetItems)
-{-# DEPRECATED tgiReturnConsumedCapacity "Use generic-lens or generic-optics with 'returnConsumedCapacity' instead." #-}
 
 -- | An ordered array of up to 25 @TransactGetItem@ objects, each of which contains a @Get@ structure.
 --
@@ -94,6 +83,13 @@ tgiReturnConsumedCapacity = Lens.lens (returnConsumedCapacity :: TransactGetItem
 tgiTransactItems :: Lens.Lens' TransactGetItems (Lude.NonEmpty TransactGetItem)
 tgiTransactItems = Lens.lens (transactItems :: TransactGetItems -> Lude.NonEmpty TransactGetItem) (\s a -> s {transactItems = a} :: TransactGetItems)
 {-# DEPRECATED tgiTransactItems "Use generic-lens or generic-optics with 'transactItems' instead." #-}
+
+-- | A value of @TOTAL@ causes consumed capacity information to be returned, and a value of @NONE@ prevents that information from being returned. No other value is valid.
+--
+-- /Note:/ Consider using 'returnConsumedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgiReturnConsumedCapacity :: Lens.Lens' TransactGetItems (Lude.Maybe ReturnConsumedCapacity)
+tgiReturnConsumedCapacity = Lens.lens (returnConsumedCapacity :: TransactGetItems -> Lude.Maybe ReturnConsumedCapacity) (\s a -> s {returnConsumedCapacity = a} :: TransactGetItems)
+{-# DEPRECATED tgiReturnConsumedCapacity "Use generic-lens or generic-optics with 'returnConsumedCapacity' instead." #-}
 
 instance Lude.AWSRequest TransactGetItems where
   type Rs TransactGetItems = TransactGetItemsResponse
@@ -122,9 +118,9 @@ instance Lude.ToJSON TransactGetItems where
   toJSON TransactGetItems' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ReturnConsumedCapacity" Lude..=)
-              Lude.<$> returnConsumedCapacity,
-            Lude.Just ("TransactItems" Lude..= transactItems)
+          [ Lude.Just ("TransactItems" Lude..= transactItems),
+            ("ReturnConsumedCapacity" Lude..=)
+              Lude.<$> returnConsumedCapacity
           ]
       )
 
@@ -136,28 +132,25 @@ instance Lude.ToQuery TransactGetItems where
 
 -- | /See:/ 'mkTransactGetItemsResponse' smart constructor.
 data TransactGetItemsResponse = TransactGetItemsResponse'
-  { responses ::
-      Lude.Maybe (Lude.NonEmpty ItemResponse),
-    consumedCapacity ::
-      Lude.Maybe [ConsumedCapacity],
+  { -- | An ordered array of up to 25 @ItemResponse@ objects, each of which corresponds to the @TransactGetItem@ object in the same position in the /TransactItems/ array. Each @ItemResponse@ object contains a Map of the name-value pairs that are the projected attributes of the requested item.
+    --
+    -- If a requested item could not be retrieved, the corresponding @ItemResponse@ object is Null, or if the requested item has no projected attributes, the corresponding @ItemResponse@ object is an empty Map.
+    responses :: Lude.Maybe (Lude.NonEmpty ItemResponse),
+    -- | If the /ReturnConsumedCapacity/ value was @TOTAL@ , this is an array of @ConsumedCapacity@ objects, one for each table addressed by @TransactGetItem@ objects in the /TransactItems/ parameter. These @ConsumedCapacity@ objects report the read-capacity units consumed by the @TransactGetItems@ call in that table.
+    consumedCapacity :: Lude.Maybe [ConsumedCapacity],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransactGetItemsResponse' with the minimum fields required to make a request.
 --
--- * 'consumedCapacity' - If the /ReturnConsumedCapacity/ value was @TOTAL@ , this is an array of @ConsumedCapacity@ objects, one for each table addressed by @TransactGetItem@ objects in the /TransactItems/ parameter. These @ConsumedCapacity@ objects report the read-capacity units consumed by the @TransactGetItems@ call in that table.
--- * 'responseStatus' - The response status code.
 -- * 'responses' - An ordered array of up to 25 @ItemResponse@ objects, each of which corresponds to the @TransactGetItem@ object in the same position in the /TransactItems/ array. Each @ItemResponse@ object contains a Map of the name-value pairs that are the projected attributes of the requested item.
 --
 -- If a requested item could not be retrieved, the corresponding @ItemResponse@ object is Null, or if the requested item has no projected attributes, the corresponding @ItemResponse@ object is an empty Map.
+-- * 'consumedCapacity' - If the /ReturnConsumedCapacity/ value was @TOTAL@ , this is an array of @ConsumedCapacity@ objects, one for each table addressed by @TransactGetItem@ objects in the /TransactItems/ parameter. These @ConsumedCapacity@ objects report the read-capacity units consumed by the @TransactGetItems@ call in that table.
+-- * 'responseStatus' - The response status code.
 mkTransactGetItemsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

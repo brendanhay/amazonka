@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,36 +49,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeConfigurationOptions' smart constructor.
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
-  { templateName ::
-      Lude.Maybe Lude.Text,
-    platformARN ::
-      Lude.Maybe Lude.Text,
-    environmentName ::
-      Lude.Maybe Lude.Text,
-    applicationName ::
-      Lude.Maybe Lude.Text,
-    solutionStackName ::
-      Lude.Maybe Lude.Text,
-    options ::
-      Lude.Maybe [OptionSpecification]
+  { -- | The name of the configuration template whose configuration options you want to describe.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the custom platform.
+    platformARN :: Lude.Maybe Lude.Text,
+    -- | The name of the environment whose configuration options you want to describe.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
+    applicationName :: Lude.Maybe Lude.Text,
+    -- | The name of the solution stack whose configuration options you want to describe.
+    solutionStackName :: Lude.Maybe Lude.Text,
+    -- | If specified, restricts the descriptions to only the specified options.
+    options :: Lude.Maybe [OptionSpecification]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationOptions' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
--- * 'environmentName' - The name of the environment whose configuration options you want to describe.
--- * 'options' - If specified, restricts the descriptions to only the specified options.
--- * 'platformARN' - The ARN of the custom platform.
--- * 'solutionStackName' - The name of the solution stack whose configuration options you want to describe.
 -- * 'templateName' - The name of the configuration template whose configuration options you want to describe.
+-- * 'platformARN' - The ARN of the custom platform.
+-- * 'environmentName' - The name of the environment whose configuration options you want to describe.
+-- * 'applicationName' - The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
+-- * 'solutionStackName' - The name of the solution stack whose configuration options you want to describe.
+-- * 'options' - If specified, restricts the descriptions to only the specified options.
 mkDescribeConfigurationOptions ::
   DescribeConfigurationOptions
 mkDescribeConfigurationOptions =
@@ -175,33 +170,24 @@ instance Lude.ToQuery DescribeConfigurationOptions where
 --
 -- /See:/ 'mkDescribeConfigurationOptionsResponse' smart constructor.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
-  { platformARN ::
-      Lude.Maybe
-        Lude.Text,
-    solutionStackName ::
-      Lude.Maybe
-        Lude.Text,
-    options ::
-      Lude.Maybe
-        [ConfigurationOptionDescription],
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the platform version.
+    platformARN :: Lude.Maybe Lude.Text,
+    -- | The name of the solution stack these configuration options belong to.
+    solutionStackName :: Lude.Maybe Lude.Text,
+    -- | A list of 'ConfigurationOptionDescription' .
+    options :: Lude.Maybe [ConfigurationOptionDescription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationOptionsResponse' with the minimum fields required to make a request.
 --
--- * 'options' - A list of 'ConfigurationOptionDescription' .
 -- * 'platformARN' - The ARN of the platform version.
--- * 'responseStatus' - The response status code.
 -- * 'solutionStackName' - The name of the solution stack these configuration options belong to.
+-- * 'options' - A list of 'ConfigurationOptionDescription' .
+-- * 'responseStatus' - The response status code.
 mkDescribeConfigurationOptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

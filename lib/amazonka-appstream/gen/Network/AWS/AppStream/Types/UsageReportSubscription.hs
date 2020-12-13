@@ -33,31 +33,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsageReportSubscription' smart constructor.
 data UsageReportSubscription = UsageReportSubscription'
-  { lastGeneratedReportDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time when the last usage report was generated.
+    lastGeneratedReportDate :: Lude.Maybe Lude.Timestamp,
+    -- | The schedule for generating usage reports.
     schedule :: Lude.Maybe UsageReportSchedule,
-    subscriptionErrors ::
-      Lude.Maybe
-        [LastReportGenerationExecutionError],
+    -- | The errors that were returned if usage reports couldn't be generated.
+    subscriptionErrors :: Lude.Maybe [LastReportGenerationExecutionError],
+    -- | The Amazon S3 bucket where generated reports are stored.
+    --
+    -- If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
     s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageReportSubscription' with the minimum fields required to make a request.
 --
 -- * 'lastGeneratedReportDate' - The time when the last usage report was generated.
+-- * 'schedule' - The schedule for generating usage reports.
+-- * 'subscriptionErrors' - The errors that were returned if usage reports couldn't be generated.
 -- * 's3BucketName' - The Amazon S3 bucket where generated reports are stored.
 --
 -- If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, AppStream 2.0 created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, AppStream 2.0 uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, AppStream 2.0 creates a new S3 bucket.
--- * 'schedule' - The schedule for generating usage reports.
--- * 'subscriptionErrors' - The errors that were returned if usage reports couldn't be generated.
 mkUsageReportSubscription ::
   UsageReportSubscription
 mkUsageReportSubscription =

@@ -13,9 +13,9 @@
 module Network.AWS.MediaLive.Types.ReservationResolution
   ( ReservationResolution
       ( ReservationResolution',
-        RRFhd,
-        RRHD,
         RRSD,
+        RRHD,
+        RRFhd,
         RRUhd
       ),
   )
@@ -48,22 +48,22 @@ newtype ReservationResolution = ReservationResolution' Lude.Text
       Lude.ToHeader
     )
 
-pattern RRFhd :: ReservationResolution
-pattern RRFhd = ReservationResolution' "FHD"
+pattern RRSD :: ReservationResolution
+pattern RRSD = ReservationResolution' "SD"
 
 pattern RRHD :: ReservationResolution
 pattern RRHD = ReservationResolution' "HD"
 
-pattern RRSD :: ReservationResolution
-pattern RRSD = ReservationResolution' "SD"
+pattern RRFhd :: ReservationResolution
+pattern RRFhd = ReservationResolution' "FHD"
 
 pattern RRUhd :: ReservationResolution
 pattern RRUhd = ReservationResolution' "UHD"
 
 {-# COMPLETE
-  RRFhd,
-  RRHD,
   RRSD,
+  RRHD,
+  RRFhd,
   RRUhd,
   ReservationResolution'
   #-}

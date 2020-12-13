@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.SES.CreateCustomVerificationEmailTemplate
     mkCreateCustomVerificationEmailTemplate,
 
     -- ** Request lenses
-    ccvetTemplateName,
     ccvetFromEmailAddress,
-    ccvetTemplateSubject,
-    ccvetTemplateContent,
-    ccvetSuccessRedirectionURL,
+    ccvetTemplateName,
     ccvetFailureRedirectionURL,
+    ccvetTemplateSubject,
+    ccvetSuccessRedirectionURL,
+    ccvetTemplateContent,
 
     -- * Destructuring the response
     CreateCustomVerificationEmailTemplateResponse (..),
@@ -45,73 +46,60 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkCreateCustomVerificationEmailTemplate' smart constructor.
 data CreateCustomVerificationEmailTemplate = CreateCustomVerificationEmailTemplate'
-  { templateName ::
-      Lude.Text,
-    fromEmailAddress ::
-      Lude.Text,
-    templateSubject ::
-      Lude.Text,
-    templateContent ::
-      Lude.Text,
-    successRedirectionURL ::
-      Lude.Text,
-    failureRedirectionURL ::
-      Lude.Text
+  { -- | The email address that the custom verification email is sent from.
+    fromEmailAddress :: Lude.Text,
+    -- | The name of the custom verification email template.
+    templateName :: Lude.Text,
+    -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+    failureRedirectionURL :: Lude.Text,
+    -- | The subject line of the custom verification email.
+    templateSubject :: Lude.Text,
+    -- | The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
+    successRedirectionURL :: Lude.Text,
+    -- | The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions> in the /Amazon SES Developer Guide/ .
+    templateContent :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomVerificationEmailTemplate' with the minimum fields required to make a request.
 --
--- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
 -- * 'fromEmailAddress' - The email address that the custom verification email is sent from.
+-- * 'templateName' - The name of the custom verification email template.
+-- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+-- * 'templateSubject' - The subject line of the custom verification email.
 -- * 'successRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 -- * 'templateContent' - The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions> in the /Amazon SES Developer Guide/ .
--- * 'templateName' - The name of the custom verification email template.
--- * 'templateSubject' - The subject line of the custom verification email.
 mkCreateCustomVerificationEmailTemplate ::
-  -- | 'templateName'
-  Lude.Text ->
   -- | 'fromEmailAddress'
   Lude.Text ->
-  -- | 'templateSubject'
-  Lude.Text ->
-  -- | 'templateContent'
-  Lude.Text ->
-  -- | 'successRedirectionURL'
+  -- | 'templateName'
   Lude.Text ->
   -- | 'failureRedirectionURL'
   Lude.Text ->
+  -- | 'templateSubject'
+  Lude.Text ->
+  -- | 'successRedirectionURL'
+  Lude.Text ->
+  -- | 'templateContent'
+  Lude.Text ->
   CreateCustomVerificationEmailTemplate
 mkCreateCustomVerificationEmailTemplate
-  pTemplateName_
   pFromEmailAddress_
+  pTemplateName_
+  pFailureRedirectionURL_
   pTemplateSubject_
-  pTemplateContent_
   pSuccessRedirectionURL_
-  pFailureRedirectionURL_ =
+  pTemplateContent_ =
     CreateCustomVerificationEmailTemplate'
-      { templateName =
-          pTemplateName_,
-        fromEmailAddress = pFromEmailAddress_,
+      { fromEmailAddress =
+          pFromEmailAddress_,
+        templateName = pTemplateName_,
+        failureRedirectionURL = pFailureRedirectionURL_,
         templateSubject = pTemplateSubject_,
-        templateContent = pTemplateContent_,
         successRedirectionURL = pSuccessRedirectionURL_,
-        failureRedirectionURL = pFailureRedirectionURL_
+        templateContent = pTemplateContent_
       }
-
--- | The name of the custom verification email template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccvetTemplateName :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.Text
-ccvetTemplateName = Lens.lens (templateName :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreateCustomVerificationEmailTemplate)
-{-# DEPRECATED ccvetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The email address that the custom verification email is sent from.
 --
@@ -120,19 +108,26 @@ ccvetFromEmailAddress :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.T
 ccvetFromEmailAddress = Lens.lens (fromEmailAddress :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {fromEmailAddress = a} :: CreateCustomVerificationEmailTemplate)
 {-# DEPRECATED ccvetFromEmailAddress "Use generic-lens or generic-optics with 'fromEmailAddress' instead." #-}
 
+-- | The name of the custom verification email template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvetTemplateName :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.Text
+ccvetTemplateName = Lens.lens (templateName :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: CreateCustomVerificationEmailTemplate)
+{-# DEPRECATED ccvetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+-- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+--
+-- /Note:/ Consider using 'failureRedirectionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvetFailureRedirectionURL :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.Text
+ccvetFailureRedirectionURL = Lens.lens (failureRedirectionURL :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {failureRedirectionURL = a} :: CreateCustomVerificationEmailTemplate)
+{-# DEPRECATED ccvetFailureRedirectionURL "Use generic-lens or generic-optics with 'failureRedirectionURL' instead." #-}
+
 -- | The subject line of the custom verification email.
 --
 -- /Note:/ Consider using 'templateSubject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccvetTemplateSubject :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.Text
 ccvetTemplateSubject = Lens.lens (templateSubject :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateSubject = a} :: CreateCustomVerificationEmailTemplate)
 {-# DEPRECATED ccvetTemplateSubject "Use generic-lens or generic-optics with 'templateSubject' instead." #-}
-
--- | The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions> in the /Amazon SES Developer Guide/ .
---
--- /Note:/ Consider using 'templateContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccvetTemplateContent :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.Text
-ccvetTemplateContent = Lens.lens (templateContent :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateContent = a} :: CreateCustomVerificationEmailTemplate)
-{-# DEPRECATED ccvetTemplateContent "Use generic-lens or generic-optics with 'templateContent' instead." #-}
 
 -- | The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 --
@@ -141,12 +136,12 @@ ccvetSuccessRedirectionURL :: Lens.Lens' CreateCustomVerificationEmailTemplate L
 ccvetSuccessRedirectionURL = Lens.lens (successRedirectionURL :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {successRedirectionURL = a} :: CreateCustomVerificationEmailTemplate)
 {-# DEPRECATED ccvetSuccessRedirectionURL "Use generic-lens or generic-optics with 'successRedirectionURL' instead." #-}
 
--- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+-- | The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions> in the /Amazon SES Developer Guide/ .
 --
--- /Note:/ Consider using 'failureRedirectionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccvetFailureRedirectionURL :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.Text
-ccvetFailureRedirectionURL = Lens.lens (failureRedirectionURL :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {failureRedirectionURL = a} :: CreateCustomVerificationEmailTemplate)
-{-# DEPRECATED ccvetFailureRedirectionURL "Use generic-lens or generic-optics with 'failureRedirectionURL' instead." #-}
+-- /Note:/ Consider using 'templateContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccvetTemplateContent :: Lens.Lens' CreateCustomVerificationEmailTemplate Lude.Text
+ccvetTemplateContent = Lens.lens (templateContent :: CreateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateContent = a} :: CreateCustomVerificationEmailTemplate)
+{-# DEPRECATED ccvetTemplateContent "Use generic-lens or generic-optics with 'templateContent' instead." #-}
 
 instance Lude.AWSRequest CreateCustomVerificationEmailTemplate where
   type
@@ -168,27 +163,18 @@ instance Lude.ToQuery CreateCustomVerificationEmailTemplate where
       [ "Action"
           Lude.=: ("CreateCustomVerificationEmailTemplate" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName,
         "FromEmailAddress" Lude.=: fromEmailAddress,
+        "TemplateName" Lude.=: templateName,
+        "FailureRedirectionURL" Lude.=: failureRedirectionURL,
         "TemplateSubject" Lude.=: templateSubject,
-        "TemplateContent" Lude.=: templateContent,
         "SuccessRedirectionURL" Lude.=: successRedirectionURL,
-        "FailureRedirectionURL" Lude.=: failureRedirectionURL
+        "TemplateContent" Lude.=: templateContent
       ]
 
 -- | /See:/ 'mkCreateCustomVerificationEmailTemplateResponse' smart constructor.
 data CreateCustomVerificationEmailTemplateResponse = CreateCustomVerificationEmailTemplateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCustomVerificationEmailTemplateResponse' with the minimum fields required to make a request.
 mkCreateCustomVerificationEmailTemplateResponse ::

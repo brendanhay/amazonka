@@ -14,11 +14,11 @@ module Network.AWS.Batch.Types.JQStatus
   ( JQStatus
       ( JQStatus',
         Creating,
-        Deleted,
-        Deleting,
-        Invalid,
         Updating,
-        Valid
+        Deleting,
+        Deleted,
+        Valid,
+        Invalid
       ),
   )
 where
@@ -52,27 +52,27 @@ newtype JQStatus = JQStatus' Lude.Text
 pattern Creating :: JQStatus
 pattern Creating = JQStatus' "CREATING"
 
-pattern Deleted :: JQStatus
-pattern Deleted = JQStatus' "DELETED"
+pattern Updating :: JQStatus
+pattern Updating = JQStatus' "UPDATING"
 
 pattern Deleting :: JQStatus
 pattern Deleting = JQStatus' "DELETING"
 
-pattern Invalid :: JQStatus
-pattern Invalid = JQStatus' "INVALID"
-
-pattern Updating :: JQStatus
-pattern Updating = JQStatus' "UPDATING"
+pattern Deleted :: JQStatus
+pattern Deleted = JQStatus' "DELETED"
 
 pattern Valid :: JQStatus
 pattern Valid = JQStatus' "VALID"
 
+pattern Invalid :: JQStatus
+pattern Invalid = JQStatus' "INVALID"
+
 {-# COMPLETE
   Creating,
-  Deleted,
-  Deleting,
-  Invalid,
   Updating,
+  Deleting,
+  Deleted,
   Valid,
+  Invalid,
   JQStatus'
   #-}

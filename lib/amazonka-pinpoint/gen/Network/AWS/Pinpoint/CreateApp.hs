@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.CreateApp
     mkCreateAppResponse,
 
     -- ** Response lenses
-    carsResponseStatus,
     carsApplicationResponse,
+    carsResponseStatus,
   )
 where
 
@@ -39,21 +40,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateApp' smart constructor.
 newtype CreateApp = CreateApp'
-  { createApplicationRequest ::
-      CreateApplicationRequest
+  { createApplicationRequest :: CreateApplicationRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
--- * 'createApplicationRequest' - Undocumented field.
+-- * 'createApplicationRequest' -
 mkCreateApp ::
   -- | 'createApplicationRequest'
   CreateApplicationRequest ->
@@ -75,7 +69,7 @@ instance Lude.AWSRequest CreateApp where
     Res.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateApp where
@@ -104,41 +98,28 @@ instance Lude.ToQuery CreateApp where
 
 -- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { responseStatus ::
-      Lude.Int,
-    applicationResponse :: ApplicationResponse
+  { applicationResponse :: ApplicationResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
 --
--- * 'applicationResponse' - Undocumented field.
+-- * 'applicationResponse' -
 -- * 'responseStatus' - The response status code.
 mkCreateAppResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'applicationResponse'
   ApplicationResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAppResponse
-mkCreateAppResponse pResponseStatus_ pApplicationResponse_ =
+mkCreateAppResponse pApplicationResponse_ pResponseStatus_ =
   CreateAppResponse'
-    { responseStatus = pResponseStatus_,
-      applicationResponse = pApplicationResponse_
+    { applicationResponse = pApplicationResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
-carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
-{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -146,3 +127,10 @@ carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int)
 carsApplicationResponse :: Lens.Lens' CreateAppResponse ApplicationResponse
 carsApplicationResponse = Lens.lens (applicationResponse :: CreateAppResponse -> ApplicationResponse) (\s a -> s {applicationResponse = a} :: CreateAppResponse)
 {-# DEPRECATED carsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

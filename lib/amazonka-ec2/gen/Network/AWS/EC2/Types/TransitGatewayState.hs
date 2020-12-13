@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.TransitGatewayState
   ( TransitGatewayState
       ( TransitGatewayState',
+        TGSPending,
         TGSAvailable,
-        TGSDeleted,
-        TGSDeleting,
         TGSModifying,
-        TGSPending
+        TGSDeleting,
+        TGSDeleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TransitGatewayState = TransitGatewayState' Lude.Text
       Lude.ToHeader
     )
 
+pattern TGSPending :: TransitGatewayState
+pattern TGSPending = TransitGatewayState' "pending"
+
 pattern TGSAvailable :: TransitGatewayState
 pattern TGSAvailable = TransitGatewayState' "available"
-
-pattern TGSDeleted :: TransitGatewayState
-pattern TGSDeleted = TransitGatewayState' "deleted"
-
-pattern TGSDeleting :: TransitGatewayState
-pattern TGSDeleting = TransitGatewayState' "deleting"
 
 pattern TGSModifying :: TransitGatewayState
 pattern TGSModifying = TransitGatewayState' "modifying"
 
-pattern TGSPending :: TransitGatewayState
-pattern TGSPending = TransitGatewayState' "pending"
+pattern TGSDeleting :: TransitGatewayState
+pattern TGSDeleting = TransitGatewayState' "deleting"
+
+pattern TGSDeleted :: TransitGatewayState
+pattern TGSDeleted = TransitGatewayState' "deleted"
 
 {-# COMPLETE
-  TGSAvailable,
-  TGSDeleted,
-  TGSDeleting,
-  TGSModifying,
   TGSPending,
+  TGSAvailable,
+  TGSModifying,
+  TGSDeleting,
+  TGSDeleted,
   TransitGatewayState'
   #-}

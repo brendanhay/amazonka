@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComplianceDetails' smart constructor.
 data ComplianceDetails = ComplianceDetails'
-  { keysWithNoncompliantValues ::
-      Lude.Maybe [Lude.Text],
+  { -- | These are keys defined in the effective policy that are on the resource with either incorrect case treatment or noncompliant values.
+    keysWithNoncompliantValues :: Lude.Maybe [Lude.Text],
+    -- | Whether a resource is compliant with the effective tag policy.
     complianceStatus :: Lude.Maybe Lude.Bool,
+    -- | These tag keys on the resource are noncompliant with the effective tag policy.
     noncompliantKeys :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceDetails' with the minimum fields required to make a request.
 --
--- * 'complianceStatus' - Whether a resource is compliant with the effective tag policy.
 -- * 'keysWithNoncompliantValues' - These are keys defined in the effective policy that are on the resource with either incorrect case treatment or noncompliant values.
+-- * 'complianceStatus' - Whether a resource is compliant with the effective tag policy.
 -- * 'noncompliantKeys' - These tag keys on the resource are noncompliant with the effective tag policy.
 mkComplianceDetails ::
   ComplianceDetails

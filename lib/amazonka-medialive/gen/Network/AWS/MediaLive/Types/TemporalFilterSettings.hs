@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemporalFilterSettings' smart constructor.
 data TemporalFilterSettings = TemporalFilterSettings'
-  { strength ::
-      Lude.Maybe TemporalFilterStrength,
-    postFilterSharpening ::
-      Lude.Maybe TemporalFilterPostFilterSharpening
+  { -- | Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+    strength :: Lude.Maybe TemporalFilterStrength,
+    -- | If you enable this filter, the results are the following:
+    --
+    -- - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
+    -- - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
+    postFilterSharpening :: Lude.Maybe TemporalFilterPostFilterSharpening
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemporalFilterSettings' with the minimum fields required to make a request.
 --
+-- * 'strength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
 -- * 'postFilterSharpening' - If you enable this filter, the results are the following:
 --
 -- - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
 -- - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
--- * 'strength' - Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
 mkTemporalFilterSettings ::
   TemporalFilterSettings
 mkTemporalFilterSettings =

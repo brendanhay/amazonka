@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,18 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFieldLevelEncryptionProfiles' smart constructor.
 data ListFieldLevelEncryptionProfiles = ListFieldLevelEncryptionProfiles'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxItems ::
-      Lude.Maybe Lude.Text
+  { -- | Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last profile on that page).
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of field-level encryption profiles you want in the response body.
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFieldLevelEncryptionProfiles' with the minimum fields required to make a request.
@@ -105,19 +100,12 @@ instance Lude.ToQuery ListFieldLevelEncryptionProfiles where
 
 -- | /See:/ 'mkListFieldLevelEncryptionProfilesResponse' smart constructor.
 data ListFieldLevelEncryptionProfilesResponse = ListFieldLevelEncryptionProfilesResponse'
-  { fieldLevelEncryptionProfileList ::
-      Lude.Maybe
-        FieldLevelEncryptionProfileList,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a list of the field-level encryption profiles that have been created in CloudFront for this account.
+    fieldLevelEncryptionProfileList :: Lude.Maybe FieldLevelEncryptionProfileList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFieldLevelEncryptionProfilesResponse' with the minimum fields required to make a request.

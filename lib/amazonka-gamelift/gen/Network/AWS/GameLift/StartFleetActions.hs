@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,15 +42,15 @@ module Network.AWS.GameLift.StartFleetActions
     mkStartFleetActions,
 
     -- ** Request lenses
-    sfaFleetId,
     sfaActions,
+    sfaFleetId,
 
     -- * Destructuring the response
     StartFleetActionsResponse (..),
     mkStartFleetActionsResponse,
 
     -- ** Response lenses
-    sfarsResponseStatus,
+    srsResponseStatus,
   )
 where
 
@@ -61,16 +62,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartFleetActions' smart constructor.
 data StartFleetActions = StartFleetActions'
-  { fleetId :: Lude.Text,
-    actions :: Lude.NonEmpty FleetAction
+  { -- | List of actions to restart on the fleet.
+    actions :: Lude.NonEmpty FleetAction,
+    -- | A unique identifier for a fleet to start actions on. You can use either the fleet ID or ARN value.
+    fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartFleetActions' with the minimum fields required to make a request.
@@ -78,20 +75,13 @@ data StartFleetActions = StartFleetActions'
 -- * 'actions' - List of actions to restart on the fleet.
 -- * 'fleetId' - A unique identifier for a fleet to start actions on. You can use either the fleet ID or ARN value.
 mkStartFleetActions ::
-  -- | 'fleetId'
-  Lude.Text ->
   -- | 'actions'
   Lude.NonEmpty FleetAction ->
+  -- | 'fleetId'
+  Lude.Text ->
   StartFleetActions
-mkStartFleetActions pFleetId_ pActions_ =
-  StartFleetActions' {fleetId = pFleetId_, actions = pActions_}
-
--- | A unique identifier for a fleet to start actions on. You can use either the fleet ID or ARN value.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfaFleetId :: Lens.Lens' StartFleetActions Lude.Text
-sfaFleetId = Lens.lens (fleetId :: StartFleetActions -> Lude.Text) (\s a -> s {fleetId = a} :: StartFleetActions)
-{-# DEPRECATED sfaFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+mkStartFleetActions pActions_ pFleetId_ =
+  StartFleetActions' {actions = pActions_, fleetId = pFleetId_}
 
 -- | List of actions to restart on the fleet.
 --
@@ -99,6 +89,13 @@ sfaFleetId = Lens.lens (fleetId :: StartFleetActions -> Lude.Text) (\s a -> s {f
 sfaActions :: Lens.Lens' StartFleetActions (Lude.NonEmpty FleetAction)
 sfaActions = Lens.lens (actions :: StartFleetActions -> Lude.NonEmpty FleetAction) (\s a -> s {actions = a} :: StartFleetActions)
 {-# DEPRECATED sfaActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+-- | A unique identifier for a fleet to start actions on. You can use either the fleet ID or ARN value.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfaFleetId :: Lens.Lens' StartFleetActions Lude.Text
+sfaFleetId = Lens.lens (fleetId :: StartFleetActions -> Lude.Text) (\s a -> s {fleetId = a} :: StartFleetActions)
+{-# DEPRECATED sfaFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 instance Lude.AWSRequest StartFleetActions where
   type Rs StartFleetActions = StartFleetActionsResponse
@@ -124,8 +121,8 @@ instance Lude.ToJSON StartFleetActions where
   toJSON StartFleetActions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("FleetId" Lude..= fleetId),
-            Lude.Just ("Actions" Lude..= actions)
+          [ Lude.Just ("Actions" Lude..= actions),
+            Lude.Just ("FleetId" Lude..= fleetId)
           ]
       )
 
@@ -137,16 +134,10 @@ instance Lude.ToQuery StartFleetActions where
 
 -- | /See:/ 'mkStartFleetActionsResponse' smart constructor.
 newtype StartFleetActionsResponse = StartFleetActionsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartFleetActionsResponse' with the minimum fields required to make a request.
@@ -162,6 +153,6 @@ mkStartFleetActionsResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfarsResponseStatus :: Lens.Lens' StartFleetActionsResponse Lude.Int
-sfarsResponseStatus = Lens.lens (responseStatus :: StartFleetActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartFleetActionsResponse)
-{-# DEPRECATED sfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartFleetActionsResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartFleetActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartFleetActionsResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

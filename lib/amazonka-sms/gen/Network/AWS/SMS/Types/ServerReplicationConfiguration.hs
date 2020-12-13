@@ -31,24 +31,18 @@ import Network.AWS.SMS.Types.ServerReplicationParameters
 --
 -- /See:/ 'mkServerReplicationConfiguration' smart constructor.
 data ServerReplicationConfiguration = ServerReplicationConfiguration'
-  { serverReplicationParameters ::
-      Lude.Maybe
-        ServerReplicationParameters,
+  { -- | The parameters for replicating the server.
+    serverReplicationParameters :: Lude.Maybe ServerReplicationParameters,
+    -- | The ID of the server with which this replication configuration is associated.
     server :: Lude.Maybe Server
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerReplicationConfiguration' with the minimum fields required to make a request.
 --
--- * 'server' - The ID of the server with which this replication configuration is associated.
 -- * 'serverReplicationParameters' - The parameters for replicating the server.
+-- * 'server' - The ID of the server with which this replication configuration is associated.
 mkServerReplicationConfiguration ::
   ServerReplicationConfiguration
 mkServerReplicationConfiguration =

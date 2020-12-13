@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.WorkDocs.GetDocumentPath
     mkGetDocumentPath,
 
     -- ** Request lenses
+    gdpDocumentId,
     gdpAuthenticationToken,
     gdpMarker,
     gdpLimit,
     gdpFields,
-    gdpDocumentId,
 
     -- * Destructuring the response
     GetDocumentPathResponse (..),
@@ -45,35 +46,46 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkGetDocumentPath' smart constructor.
 data GetDocumentPath = GetDocumentPath'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The ID of the document.
+    documentId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | This value is not supported.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of levels in the hierarchy to return.
     limit :: Lude.Maybe Lude.Natural,
-    fields :: Lude.Maybe Lude.Text,
-    documentId :: Lude.Text
+    -- | A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
+    fields :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentPath' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'documentId' - The ID of the document.
--- * 'fields' - A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
--- * 'limit' - The maximum number of levels in the hierarchy to return.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'marker' - This value is not supported.
+-- * 'limit' - The maximum number of levels in the hierarchy to return.
+-- * 'fields' - A comma-separated list of values. Specify @NAME@ to include the names of the parent folders.
 mkGetDocumentPath ::
   -- | 'documentId'
   Lude.Text ->
   GetDocumentPath
 mkGetDocumentPath pDocumentId_ =
   GetDocumentPath'
-    { authenticationToken = Lude.Nothing,
+    { documentId = pDocumentId_,
+      authenticationToken = Lude.Nothing,
       marker = Lude.Nothing,
       limit = Lude.Nothing,
-      fields = Lude.Nothing,
-      documentId = pDocumentId_
+      fields = Lude.Nothing
     }
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpDocumentId :: Lens.Lens' GetDocumentPath Lude.Text
+gdpDocumentId = Lens.lens (documentId :: GetDocumentPath -> Lude.Text) (\s a -> s {documentId = a} :: GetDocumentPath)
+{-# DEPRECATED gdpDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -102,13 +114,6 @@ gdpLimit = Lens.lens (limit :: GetDocumentPath -> Lude.Maybe Lude.Natural) (\s a
 gdpFields :: Lens.Lens' GetDocumentPath (Lude.Maybe Lude.Text)
 gdpFields = Lens.lens (fields :: GetDocumentPath -> Lude.Maybe Lude.Text) (\s a -> s {fields = a} :: GetDocumentPath)
 {-# DEPRECATED gdpFields "Use generic-lens or generic-optics with 'fields' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpDocumentId :: Lens.Lens' GetDocumentPath Lude.Text
-gdpDocumentId = Lens.lens (documentId :: GetDocumentPath -> Lude.Text) (\s a -> s {documentId = a} :: GetDocumentPath)
-{-# DEPRECATED gdpDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 instance Lude.AWSRequest GetDocumentPath where
   type Rs GetDocumentPath = GetDocumentPathResponse
@@ -143,17 +148,12 @@ instance Lude.ToQuery GetDocumentPath where
 
 -- | /See:/ 'mkGetDocumentPathResponse' smart constructor.
 data GetDocumentPathResponse = GetDocumentPathResponse'
-  { path ::
-      Lude.Maybe ResourcePath,
+  { -- | The path information.
+    path :: Lude.Maybe ResourcePath,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentPathResponse' with the minimum fields required to make a request.

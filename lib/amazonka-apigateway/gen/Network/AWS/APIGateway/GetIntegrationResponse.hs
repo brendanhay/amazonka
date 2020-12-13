@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +20,21 @@ module Network.AWS.APIGateway.GetIntegrationResponse
     mkGetIntegrationResponse,
 
     -- ** Request lenses
-    giiRestAPIId,
-    giiResourceId,
-    giiHttpMethod,
-    giiStatusCode,
+    giResourceId,
+    giHttpMethod,
+    giRestAPIId,
+    giStatusCode,
 
     -- * Destructuring the response
     IntegrationResponse (..),
     mkIntegrationResponse,
 
     -- ** Response lenses
-    intContentHandling,
-    intResponseTemplates,
-    intSelectionPattern,
-    intStatusCode,
-    intResponseParameters,
+    ifContentHandling,
+    ifResponseTemplates,
+    ifSelectionPattern,
+    ifStatusCode,
+    ifResponseParameters,
   )
 where
 
@@ -47,76 +48,73 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-  { restAPIId ::
-      Lude.Text,
+  { -- | [Required] Specifies a get integration response request's resource identifier.
     resourceId :: Lude.Text,
+    -- | [Required] Specifies a get integration response request's HTTP method.
     httpMethod :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] Specifies a get integration response request's status code.
     statusCode :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntegrationResponse' with the minimum fields required to make a request.
 --
--- * 'httpMethod' - [Required] Specifies a get integration response request's HTTP method.
 -- * 'resourceId' - [Required] Specifies a get integration response request's resource identifier.
+-- * 'httpMethod' - [Required] Specifies a get integration response request's HTTP method.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'statusCode' - [Required] Specifies a get integration response request's status code.
 mkGetIntegrationResponse ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'httpMethod'
+  Lude.Text ->
+  -- | 'restAPIId'
   Lude.Text ->
   -- | 'statusCode'
   Lude.Text ->
   GetIntegrationResponse
 mkGetIntegrationResponse
-  pRestAPIId_
   pResourceId_
   pHttpMethod_
+  pRestAPIId_
   pStatusCode_ =
     GetIntegrationResponse'
-      { restAPIId = pRestAPIId_,
-        resourceId = pResourceId_,
+      { resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
+        restAPIId = pRestAPIId_,
         statusCode = pStatusCode_
       }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giiRestAPIId :: Lens.Lens' GetIntegrationResponse Lude.Text
-giiRestAPIId = Lens.lens (restAPIId :: GetIntegrationResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: GetIntegrationResponse)
-{-# DEPRECATED giiRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies a get integration response request's resource identifier.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giiResourceId :: Lens.Lens' GetIntegrationResponse Lude.Text
-giiResourceId = Lens.lens (resourceId :: GetIntegrationResponse -> Lude.Text) (\s a -> s {resourceId = a} :: GetIntegrationResponse)
-{-# DEPRECATED giiResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+giResourceId :: Lens.Lens' GetIntegrationResponse Lude.Text
+giResourceId = Lens.lens (resourceId :: GetIntegrationResponse -> Lude.Text) (\s a -> s {resourceId = a} :: GetIntegrationResponse)
+{-# DEPRECATED giResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies a get integration response request's HTTP method.
 --
 -- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giiHttpMethod :: Lens.Lens' GetIntegrationResponse Lude.Text
-giiHttpMethod = Lens.lens (httpMethod :: GetIntegrationResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: GetIntegrationResponse)
-{-# DEPRECATED giiHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+giHttpMethod :: Lens.Lens' GetIntegrationResponse Lude.Text
+giHttpMethod = Lens.lens (httpMethod :: GetIntegrationResponse -> Lude.Text) (\s a -> s {httpMethod = a} :: GetIntegrationResponse)
+{-# DEPRECATED giHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giRestAPIId :: Lens.Lens' GetIntegrationResponse Lude.Text
+giRestAPIId = Lens.lens (restAPIId :: GetIntegrationResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: GetIntegrationResponse)
+{-# DEPRECATED giRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies a get integration response request's status code.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giiStatusCode :: Lens.Lens' GetIntegrationResponse Lude.Text
-giiStatusCode = Lens.lens (statusCode :: GetIntegrationResponse -> Lude.Text) (\s a -> s {statusCode = a} :: GetIntegrationResponse)
-{-# DEPRECATED giiStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
+giStatusCode :: Lens.Lens' GetIntegrationResponse Lude.Text
+giStatusCode = Lens.lens (statusCode :: GetIntegrationResponse -> Lude.Text) (\s a -> s {statusCode = a} :: GetIntegrationResponse)
+{-# DEPRECATED giStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
 instance Lude.AWSRequest GetIntegrationResponse where
   type Rs GetIntegrationResponse = IntegrationResponse

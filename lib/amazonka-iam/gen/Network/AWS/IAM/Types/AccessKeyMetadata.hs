@@ -34,27 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessKeyMetadata' smart constructor.
 data AccessKeyMetadata = AccessKeyMetadata'
-  { status ::
-      Lude.Maybe StatusType,
+  { -- | The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
+    status :: Lude.Maybe StatusType,
+    -- | The date when the access key was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The name of the IAM user that the key is associated with.
     userName :: Lude.Maybe Lude.Text,
+    -- | The ID for this access key.
     accessKeyId :: Lude.Maybe AccessKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessKeyMetadata' with the minimum fields required to make a request.
 --
--- * 'accessKeyId' - The ID for this access key.
--- * 'createDate' - The date when the access key was created.
 -- * 'status' - The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
+-- * 'createDate' - The date when the access key was created.
 -- * 'userName' - The name of the IAM user that the key is associated with.
+-- * 'accessKeyId' - The ID for this access key.
 mkAccessKeyMetadata ::
   AccessKeyMetadata
 mkAccessKeyMetadata =

@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.FileSystemAccessMode
   ( FileSystemAccessMode
       ( FileSystemAccessMode',
-        RO,
-        RW
+        RW,
+        RO
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FileSystemAccessMode = FileSystemAccessMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern RO :: FileSystemAccessMode
-pattern RO = FileSystemAccessMode' "ro"
-
 pattern RW :: FileSystemAccessMode
 pattern RW = FileSystemAccessMode' "rw"
 
+pattern RO :: FileSystemAccessMode
+pattern RO = FileSystemAccessMode' "ro"
+
 {-# COMPLETE
-  RO,
   RW,
+  RO,
   FileSystemAccessMode'
   #-}

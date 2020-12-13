@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.APIGateway.PutRestAPI
     mkPutRestAPI,
 
     -- ** Request lenses
+    praBody,
     praMode,
     praFailOnWarnings,
     praParameters,
     praRestAPIId,
-    praBody,
 
     -- * Destructuring the response
     RestAPI (..),
@@ -56,11 +57,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutRestAPI' smart constructor.
 data PutRestAPI = PutRestAPI'
-  { mode :: Lude.Maybe PutMode,
+  { -- | [Required] The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
+    body :: Lude.ByteString,
+    -- | The @mode@ query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default, the update mode is "merge".
+    mode :: Lude.Maybe PutMode,
+    -- | A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
     failOnWarnings :: Lude.Maybe Lude.Bool,
+    -- | Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ .
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    restAPIId :: Lude.Text,
-    body :: Lude.ByteString
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -68,24 +74,31 @@ data PutRestAPI = PutRestAPI'
 -- | Creates a value of 'PutRestAPI' with the minimum fields required to make a request.
 --
 -- * 'body' - [Required] The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
--- * 'failOnWarnings' - A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 -- * 'mode' - The @mode@ query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default, the update mode is "merge".
+-- * 'failOnWarnings' - A query parameter to indicate whether to rollback the API update (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 -- * 'parameters' - Custom header parameters as part of the request. For example, to exclude 'DocumentationParts' from an imported API, set @ignore=documentation@ as a @parameters@ value, as in the AWS CLI command of @aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ .
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkPutRestAPI ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'body'
   Lude.ByteString ->
+  -- | 'restAPIId'
+  Lude.Text ->
   PutRestAPI
-mkPutRestAPI pRestAPIId_ pBody_ =
+mkPutRestAPI pBody_ pRestAPIId_ =
   PutRestAPI'
-    { mode = Lude.Nothing,
+    { body = pBody_,
+      mode = Lude.Nothing,
       failOnWarnings = Lude.Nothing,
       parameters = Lude.Nothing,
-      restAPIId = pRestAPIId_,
-      body = pBody_
+      restAPIId = pRestAPIId_
     }
+
+-- | [Required] The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+praBody :: Lens.Lens' PutRestAPI Lude.ByteString
+praBody = Lens.lens (body :: PutRestAPI -> Lude.ByteString) (\s a -> s {body = a} :: PutRestAPI)
+{-# DEPRECATED praBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The @mode@ query parameter to specify the update mode. Valid values are "merge" and "overwrite". By default, the update mode is "merge".
 --
@@ -114,13 +127,6 @@ praParameters = Lens.lens (parameters :: PutRestAPI -> Lude.Maybe (Lude.HashMap 
 praRestAPIId :: Lens.Lens' PutRestAPI Lude.Text
 praRestAPIId = Lens.lens (restAPIId :: PutRestAPI -> Lude.Text) (\s a -> s {restAPIId = a} :: PutRestAPI)
 {-# DEPRECATED praRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
-
--- | [Required] The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-praBody :: Lens.Lens' PutRestAPI Lude.ByteString
-praBody = Lens.lens (body :: PutRestAPI -> Lude.ByteString) (\s a -> s {body = a} :: PutRestAPI)
-{-# DEPRECATED praBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 instance Lude.AWSRequest PutRestAPI where
   type Rs PutRestAPI = RestAPI

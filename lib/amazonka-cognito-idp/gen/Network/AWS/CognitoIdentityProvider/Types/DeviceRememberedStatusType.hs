@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.DeviceRememberedStatusType
   ( DeviceRememberedStatusType
       ( DeviceRememberedStatusType',
-        NotRemembered,
-        Remembered
+        Remembered,
+        NotRemembered
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DeviceRememberedStatusType = DeviceRememberedStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern NotRemembered :: DeviceRememberedStatusType
-pattern NotRemembered = DeviceRememberedStatusType' "not_remembered"
-
 pattern Remembered :: DeviceRememberedStatusType
 pattern Remembered = DeviceRememberedStatusType' "remembered"
 
+pattern NotRemembered :: DeviceRememberedStatusType
+pattern NotRemembered = DeviceRememberedStatusType' "not_remembered"
+
 {-# COMPLETE
-  NotRemembered,
   Remembered,
+  NotRemembered,
   DeviceRememberedStatusType'
   #-}

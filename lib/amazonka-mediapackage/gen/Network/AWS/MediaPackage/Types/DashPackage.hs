@@ -51,55 +51,65 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDashPackage' smart constructor.
 data DashPackage = DashPackage'
-  { adsOnDeliveryRestrictions ::
-      Lude.Maybe AdsOnDeliveryRestrictions,
+  { adsOnDeliveryRestrictions :: Lude.Maybe AdsOnDeliveryRestrictions,
+    -- | Minimum duration (in seconds) that a player will buffer media before starting the presentation.
     minBufferTimeSeconds :: Lude.Maybe Lude.Int,
+    -- | Determines the type of UTCTiming included in the Media Presentation Description (MPD)
     utcTiming :: Lude.Maybe UtcTiming,
+    -- | Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
     segmentTemplateFormat :: Lude.Maybe SegmentTemplateFormat,
+    -- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
     profile :: Lude.Maybe Profile,
+    -- | Duration (in seconds) of each segment. Actual segments will be
+    --
+    -- rounded to the nearest multiple of the source segment duration.
     segmentDurationSeconds :: Lude.Maybe Lude.Int,
+    -- | Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
     utcTimingURI :: Lude.Maybe Lude.Text,
     streamSelection :: Lude.Maybe StreamSelection,
     encryption :: Lude.Maybe DashEncryption,
+    -- | Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
     minUpdatePeriodSeconds :: Lude.Maybe Lude.Int,
+    -- | Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
     manifestLayout :: Lude.Maybe ManifestLayout,
+    -- | Duration (in seconds) to delay live content before presentation.
     suggestedPresentationDelaySeconds :: Lude.Maybe Lude.Int,
+    -- | Time window (in seconds) contained in each manifest.
     manifestWindowSeconds :: Lude.Maybe Lude.Int,
     adTriggers :: Lude.Maybe [AdTriggersElement],
+    -- | A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
+    --
+    -- Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
+    -- be partitioned into more than one period. If the list contains "ADS", new periods will be created where
+    -- the Channel source contains SCTE-35 ad markers.
     periodTriggers :: Lude.Maybe [PeriodTriggersElement]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DashPackage' with the minimum fields required to make a request.
 --
--- * 'adTriggers' - Undocumented field.
--- * 'adsOnDeliveryRestrictions' - Undocumented field.
--- * 'encryption' - Undocumented field.
--- * 'manifestLayout' - Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
--- * 'manifestWindowSeconds' - Time window (in seconds) contained in each manifest.
+-- * 'adsOnDeliveryRestrictions' -
 -- * 'minBufferTimeSeconds' - Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+-- * 'utcTiming' - Determines the type of UTCTiming included in the Media Presentation Description (MPD)
+-- * 'segmentTemplateFormat' - Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+-- * 'profile' - The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+-- * 'segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be
+--
+-- rounded to the nearest multiple of the source segment duration.
+-- * 'utcTimingURI' - Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
+-- * 'streamSelection' -
+-- * 'encryption' -
 -- * 'minUpdatePeriodSeconds' - Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
+-- * 'manifestLayout' - Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+-- * 'suggestedPresentationDelaySeconds' - Duration (in seconds) to delay live content before presentation.
+-- * 'manifestWindowSeconds' - Time window (in seconds) contained in each manifest.
+-- * 'adTriggers' -
 -- * 'periodTriggers' - A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH)
 --
 -- Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not
 -- be partitioned into more than one period. If the list contains "ADS", new periods will be created where
 -- the Channel source contains SCTE-35 ad markers.
--- * 'profile' - The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
--- * 'segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be
---
--- rounded to the nearest multiple of the source segment duration.
--- * 'segmentTemplateFormat' - Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
--- * 'streamSelection' - Undocumented field.
--- * 'suggestedPresentationDelaySeconds' - Duration (in seconds) to delay live content before presentation.
--- * 'utcTiming' - Determines the type of UTCTiming included in the Media Presentation Description (MPD)
--- * 'utcTimingURI' - Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
 mkDashPackage ::
   DashPackage
 mkDashPackage =

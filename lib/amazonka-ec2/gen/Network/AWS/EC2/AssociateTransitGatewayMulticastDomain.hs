@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,34 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateTransitGatewayMulticastDomain' smart constructor.
 data AssociateTransitGatewayMulticastDomain = AssociateTransitGatewayMulticastDomain'
-  { subnetIds ::
-      Lude.Maybe
-        [Lude.Text],
-    transitGatewayMulticastDomainId ::
-      Lude.Maybe
-        Lude.Text,
-    transitGatewayAttachmentId ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | The IDs of the subnets to associate with the transit gateway multicast domain.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway attachment to associate with the transit gateway multicast domain.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTransitGatewayMulticastDomain' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'subnetIds' - The IDs of the subnets to associate with the transit gateway multicast domain.
--- * 'transitGatewayAttachmentId' - The ID of the transit gateway attachment to associate with the transit gateway multicast domain.
 -- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+-- * 'transitGatewayAttachmentId' - The ID of the transit gateway attachment to associate with the transit gateway multicast domain.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkAssociateTransitGatewayMulticastDomain ::
   AssociateTransitGatewayMulticastDomain
 mkAssociateTransitGatewayMulticastDomain =
@@ -143,23 +134,13 @@ instance Lude.ToQuery AssociateTransitGatewayMulticastDomain where
 
 -- | /See:/ 'mkAssociateTransitGatewayMulticastDomainResponse' smart constructor.
 data AssociateTransitGatewayMulticastDomainResponse = AssociateTransitGatewayMulticastDomainResponse'
-  { associations ::
-      Lude.Maybe
-        TransitGatewayMulticastDomainAssociations,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the transit gateway multicast domain associations.
+    associations :: Lude.Maybe TransitGatewayMulticastDomainAssociations,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTransitGatewayMulticastDomainResponse' with the minimum fields required to make a request.
 --

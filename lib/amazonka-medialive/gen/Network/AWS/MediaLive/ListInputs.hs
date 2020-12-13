@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,19 +50,13 @@ data ListInputs = ListInputs'
   { nextToken :: Lude.Maybe Lude.Text,
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputs' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Undocumented field.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
+-- * 'maxResults' -
 mkListInputs ::
   ListInputs
 mkListInputs =
@@ -123,24 +118,18 @@ instance Lude.ToQuery ListInputs where
 --
 -- /See:/ 'mkListInputsResponse' smart constructor.
 data ListInputsResponse = ListInputsResponse'
-  { inputs ::
-      Lude.Maybe [Input],
+  { inputs :: Lude.Maybe [Input],
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputsResponse' with the minimum fields required to make a request.
 --
--- * 'inputs' - Undocumented field.
--- * 'nextToken' - Undocumented field.
+-- * 'inputs' -
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkListInputsResponse ::
   -- | 'responseStatus'

@@ -33,18 +33,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationVersionLifecycleConfig' smart constructor.
 data ApplicationVersionLifecycleConfig = ApplicationVersionLifecycleConfig'
-  { maxAgeRule ::
-      Lude.Maybe MaxAgeRule,
-    maxCountRule ::
-      Lude.Maybe MaxCountRule
+  { -- | Specify a max age rule to restrict the length of time that application versions are retained for an application.
+    maxAgeRule :: Lude.Maybe MaxAgeRule,
+    -- | Specify a max count rule to restrict the number of application versions that are retained for an application.
+    maxCountRule :: Lude.Maybe MaxCountRule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationVersionLifecycleConfig' with the minimum fields required to make a request.

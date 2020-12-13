@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,37 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterTransitGatewayMulticastGroupSources' smart constructor.
 data DeregisterTransitGatewayMulticastGroupSources = DeregisterTransitGatewayMulticastGroupSources'
-  { networkInterfaceIds ::
-      Lude.Maybe
-        [Lude.Text],
-    transitGatewayMulticastDomainId ::
-      Lude.Maybe
-        Lude.Text,
-    groupIPAddress ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | The IDs of the group sources' network interfaces.
+    networkInterfaceIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Lude.Maybe Lude.Text,
+    -- | The IP address assigned to the transit gateway multicast group.
+    groupIPAddress :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTransitGatewayMulticastGroupSources' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
 -- * 'networkInterfaceIds' - The IDs of the group sources' network interfaces.
 -- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+-- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeregisterTransitGatewayMulticastGroupSources ::
   DeregisterTransitGatewayMulticastGroupSources
 mkDeregisterTransitGatewayMulticastGroupSources =
@@ -157,23 +145,13 @@ instance Lude.ToQuery DeregisterTransitGatewayMulticastGroupSources where
 
 -- | /See:/ 'mkDeregisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.
 data DeregisterTransitGatewayMulticastGroupSourcesResponse = DeregisterTransitGatewayMulticastGroupSourcesResponse'
-  { deregisteredMulticastGroupSources ::
-      Lude.Maybe
-        TransitGatewayMulticastDeregisteredGroupSources,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the deregistered group sources.
+    deregisteredMulticastGroupSources :: Lude.Maybe TransitGatewayMulticastDeregisteredGroupSources,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTransitGatewayMulticastGroupSourcesResponse' with the minimum fields required to make a request.
 --

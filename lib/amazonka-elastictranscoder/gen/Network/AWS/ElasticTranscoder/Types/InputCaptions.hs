@@ -30,22 +30,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputCaptions' smart constructor.
 data InputCaptions = InputCaptions'
-  { mergePolicy ::
-      Lude.Maybe Lude.Text,
+  { -- | A policy that determines how Elastic Transcoder handles the existence of multiple captions.
+    --
+    --
+    --     * __MergeOverride:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded captions for that language.
+    --
+    --
+    --     * __MergeRetain:__ Elastic Transcoder transcodes both embedded and sidecar captions into outputs. If captions for a language are embedded in the input file and also appear in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar captions for that language. If @CaptionSources@ is empty, Elastic Transcoder omits all sidecar captions from the output files.
+    --
+    --
+    --     * __Override:__ Elastic Transcoder transcodes only the sidecar captions that you specify in @CaptionSources@ .
+    --
+    --
+    -- @MergePolicy@ cannot be null.
+    mergePolicy :: Lude.Maybe Lude.Text,
+    -- | Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
     captionSources :: Lude.Maybe [CaptionSource]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputCaptions' with the minimum fields required to make a request.
 --
--- * 'captionSources' - Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
 -- * 'mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of multiple captions.
 --
 --
@@ -59,6 +65,7 @@ data InputCaptions = InputCaptions'
 --
 --
 -- @MergePolicy@ cannot be null.
+-- * 'captionSources' - Source files for the input sidecar captions used during the transcoding process. To omit all sidecar captions, leave @CaptionSources@ blank.
 mkInputCaptions ::
   InputCaptions
 mkInputCaptions =

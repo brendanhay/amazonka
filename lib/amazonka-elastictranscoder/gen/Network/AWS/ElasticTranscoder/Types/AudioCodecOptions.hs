@@ -31,32 +31,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioCodecOptions' smart constructor.
 data AudioCodecOptions = AudioCodecOptions'
-  { signed ::
-      Lude.Maybe Lude.Text,
+  { -- | You can only choose whether an audio sample is signed when you specify @pcm@ for the value of Audio:Codec.
+    --
+    -- Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned).
+    -- The supported value is @Signed@ .
+    signed :: Lude.Maybe Lude.Text,
+    -- | You can only choose an audio bit depth when you specify @flac@ or @pcm@ for the value of Audio:Codec.
+    --
+    -- The bit depth of a sample is how many bits of information are included in the audio samples. The higher the bit depth, the better the audio, but the larger the file.
+    -- Valid values are @16@ and @24@ .
+    -- The most common bit depth is @24@ .
     bitDepth :: Lude.Maybe Lude.Text,
+    -- | You can only choose an audio profile when you specify AAC for the value of Audio:Codec.
+    --
+    -- Specify the AAC profile for the output file. Elastic Transcoder supports the following profiles:
+    --
+    --     * @auto@ : If you specify @auto@ , Elastic Transcoder selects the profile based on the bit rate selected for the output file.
+    --
+    --
+    --     * @AAC-LC@ : The most common AAC profile. Use for bit rates larger than 64 kbps.
+    --
+    --
+    --     * @HE-AAC@ : Not supported on some older players and devices. Use for bit rates between 40 and 80 kbps.
+    --
+    --
+    --     * @HE-AACv2@ : Not supported on some players and devices. Use for bit rates less than 48 kbps.
+    --
+    --
+    -- All outputs in a @Smooth@ playlist must have the same value for @Profile@ .
     profile :: Lude.Maybe Lude.Text,
+    -- | You can only choose an audio bit order when you specify @pcm@ for the value of Audio:Codec.
+    --
+    -- The order the bits of a PCM sample are stored in.
+    -- The supported value is @LittleEndian@ .
     bitOrder :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioCodecOptions' with the minimum fields required to make a request.
 --
+-- * 'signed' - You can only choose whether an audio sample is signed when you specify @pcm@ for the value of Audio:Codec.
+--
+-- Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned).
+-- The supported value is @Signed@ .
 -- * 'bitDepth' - You can only choose an audio bit depth when you specify @flac@ or @pcm@ for the value of Audio:Codec.
 --
 -- The bit depth of a sample is how many bits of information are included in the audio samples. The higher the bit depth, the better the audio, but the larger the file.
 -- Valid values are @16@ and @24@ .
 -- The most common bit depth is @24@ .
--- * 'bitOrder' - You can only choose an audio bit order when you specify @pcm@ for the value of Audio:Codec.
---
--- The order the bits of a PCM sample are stored in.
--- The supported value is @LittleEndian@ .
 -- * 'profile' - You can only choose an audio profile when you specify AAC for the value of Audio:Codec.
 --
 -- Specify the AAC profile for the output file. Elastic Transcoder supports the following profiles:
@@ -74,10 +97,10 @@ data AudioCodecOptions = AudioCodecOptions'
 --
 --
 -- All outputs in a @Smooth@ playlist must have the same value for @Profile@ .
--- * 'signed' - You can only choose whether an audio sample is signed when you specify @pcm@ for the value of Audio:Codec.
+-- * 'bitOrder' - You can only choose an audio bit order when you specify @pcm@ for the value of Audio:Codec.
 --
--- Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned).
--- The supported value is @Signed@ .
+-- The order the bits of a PCM sample are stored in.
+-- The supported value is @LittleEndian@ .
 mkAudioCodecOptions ::
   AudioCodecOptions
 mkAudioCodecOptions =

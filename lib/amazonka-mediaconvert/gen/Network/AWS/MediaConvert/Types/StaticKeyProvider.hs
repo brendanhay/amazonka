@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStaticKeyProvider' smart constructor.
 data StaticKeyProvider = StaticKeyProvider'
-  { staticKeyValue ::
-      Lude.Maybe Lude.Text,
+  { -- | Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
+    staticKeyValue :: Lude.Maybe Lude.Text,
+    -- | Relates to DRM implementation. The location of the license server used for protecting content.
     url :: Lude.Maybe Lude.Text,
+    -- | Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
     keyFormat :: Lude.Maybe Lude.Text,
+    -- | Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
     keyFormatVersions :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticKeyProvider' with the minimum fields required to make a request.
 --
--- * 'keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
--- * 'keyFormatVersions' - Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
 -- * 'staticKeyValue' - Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
 -- * 'url' - Relates to DRM implementation. The location of the license server used for protecting content.
+-- * 'keyFormat' - Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
+-- * 'keyFormatVersions' - Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
 mkStaticKeyProvider ::
   StaticKeyProvider
 mkStaticKeyProvider =

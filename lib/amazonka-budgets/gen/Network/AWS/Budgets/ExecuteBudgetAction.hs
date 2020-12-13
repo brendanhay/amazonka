@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +20,21 @@ module Network.AWS.Budgets.ExecuteBudgetAction
     mkExecuteBudgetAction,
 
     -- ** Request lenses
+    ebaExecutionType,
+    ebaActionId,
     ebaAccountId,
     ebaBudgetName,
-    ebaActionId,
-    ebaExecutionType,
 
     -- * Destructuring the response
     ExecuteBudgetActionResponse (..),
     mkExecuteBudgetActionResponse,
 
     -- ** Response lenses
-    ebarsResponseStatus,
+    ebarsExecutionType,
+    ebarsActionId,
     ebarsAccountId,
     ebarsBudgetName,
-    ebarsActionId,
-    ebarsExecutionType,
+    ebarsResponseStatus,
   )
 where
 
@@ -45,48 +46,57 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExecuteBudgetAction' smart constructor.
 data ExecuteBudgetAction = ExecuteBudgetAction'
-  { accountId ::
-      Lude.Text,
-    budgetName :: Lude.Text,
+  { -- | The type of execution.
+    executionType :: ExecutionType,
+    -- | A system-generated universally unique identifier (UUID) for the action.
     actionId :: Lude.Text,
-    executionType :: ExecutionType
+    accountId :: Lude.Text,
+    budgetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteBudgetAction' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
--- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
--- * 'budgetName' - Undocumented field.
 -- * 'executionType' - The type of execution.
+-- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
+-- * 'accountId' -
+-- * 'budgetName' -
 mkExecuteBudgetAction ::
+  -- | 'executionType'
+  ExecutionType ->
+  -- | 'actionId'
+  Lude.Text ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'actionId'
-  Lude.Text ->
-  -- | 'executionType'
-  ExecutionType ->
   ExecuteBudgetAction
 mkExecuteBudgetAction
-  pAccountId_
-  pBudgetName_
+  pExecutionType_
   pActionId_
-  pExecutionType_ =
+  pAccountId_
+  pBudgetName_ =
     ExecuteBudgetAction'
-      { accountId = pAccountId_,
-        budgetName = pBudgetName_,
+      { executionType = pExecutionType_,
         actionId = pActionId_,
-        executionType = pExecutionType_
+        accountId = pAccountId_,
+        budgetName = pBudgetName_
       }
+
+-- | The type of execution.
+--
+-- /Note:/ Consider using 'executionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebaExecutionType :: Lens.Lens' ExecuteBudgetAction ExecutionType
+ebaExecutionType = Lens.lens (executionType :: ExecuteBudgetAction -> ExecutionType) (\s a -> s {executionType = a} :: ExecuteBudgetAction)
+{-# DEPRECATED ebaExecutionType "Use generic-lens or generic-optics with 'executionType' instead." #-}
+
+-- | A system-generated universally unique identifier (UUID) for the action.
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebaActionId :: Lens.Lens' ExecuteBudgetAction Lude.Text
+ebaActionId = Lens.lens (actionId :: ExecuteBudgetAction -> Lude.Text) (\s a -> s {actionId = a} :: ExecuteBudgetAction)
+{-# DEPRECATED ebaActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -102,20 +112,6 @@ ebaBudgetName :: Lens.Lens' ExecuteBudgetAction Lude.Text
 ebaBudgetName = Lens.lens (budgetName :: ExecuteBudgetAction -> Lude.Text) (\s a -> s {budgetName = a} :: ExecuteBudgetAction)
 {-# DEPRECATED ebaBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
--- | A system-generated universally unique identifier (UUID) for the action.
---
--- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebaActionId :: Lens.Lens' ExecuteBudgetAction Lude.Text
-ebaActionId = Lens.lens (actionId :: ExecuteBudgetAction -> Lude.Text) (\s a -> s {actionId = a} :: ExecuteBudgetAction)
-{-# DEPRECATED ebaActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
-
--- | The type of execution.
---
--- /Note:/ Consider using 'executionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebaExecutionType :: Lens.Lens' ExecuteBudgetAction ExecutionType
-ebaExecutionType = Lens.lens (executionType :: ExecuteBudgetAction -> ExecutionType) (\s a -> s {executionType = a} :: ExecuteBudgetAction)
-{-# DEPRECATED ebaExecutionType "Use generic-lens or generic-optics with 'executionType' instead." #-}
-
 instance Lude.AWSRequest ExecuteBudgetAction where
   type Rs ExecuteBudgetAction = ExecuteBudgetActionResponse
   request = Req.postJSON budgetsService
@@ -123,11 +119,11 @@ instance Lude.AWSRequest ExecuteBudgetAction where
     Res.receiveJSON
       ( \s h x ->
           ExecuteBudgetActionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "ExecutionType")
+            Lude.<*> (x Lude..:> "ActionId")
             Lude.<*> (x Lude..:> "AccountId")
             Lude.<*> (x Lude..:> "BudgetName")
-            Lude.<*> (x Lude..:> "ActionId")
-            Lude.<*> (x Lude..:> "ExecutionType")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ExecuteBudgetAction where
@@ -145,10 +141,10 @@ instance Lude.ToJSON ExecuteBudgetAction where
   toJSON ExecuteBudgetAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName),
+          [ Lude.Just ("ExecutionType" Lude..= executionType),
             Lude.Just ("ActionId" Lude..= actionId),
-            Lude.Just ("ExecutionType" Lude..= executionType)
+            Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
@@ -160,61 +156,64 @@ instance Lude.ToQuery ExecuteBudgetAction where
 
 -- | /See:/ 'mkExecuteBudgetActionResponse' smart constructor.
 data ExecuteBudgetActionResponse = ExecuteBudgetActionResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | The type of execution.
+    executionType :: ExecutionType,
+    -- | A system-generated universally unique identifier (UUID) for the action.
+    actionId :: Lude.Text,
     accountId :: Lude.Text,
     budgetName :: Lude.Text,
-    actionId :: Lude.Text,
-    executionType :: ExecutionType
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteBudgetActionResponse' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
--- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
--- * 'budgetName' - Undocumented field.
 -- * 'executionType' - The type of execution.
+-- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
+-- * 'accountId' -
+-- * 'budgetName' -
 -- * 'responseStatus' - The response status code.
 mkExecuteBudgetActionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
+  -- | 'executionType'
+  ExecutionType ->
+  -- | 'actionId'
+  Lude.Text ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'actionId'
-  Lude.Text ->
-  -- | 'executionType'
-  ExecutionType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ExecuteBudgetActionResponse
 mkExecuteBudgetActionResponse
-  pResponseStatus_
+  pExecutionType_
+  pActionId_
   pAccountId_
   pBudgetName_
-  pActionId_
-  pExecutionType_ =
+  pResponseStatus_ =
     ExecuteBudgetActionResponse'
-      { responseStatus = pResponseStatus_,
+      { executionType = pExecutionType_,
+        actionId = pActionId_,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
-        actionId = pActionId_,
-        executionType = pExecutionType_
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | The type of execution.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebarsResponseStatus :: Lens.Lens' ExecuteBudgetActionResponse Lude.Int
-ebarsResponseStatus = Lens.lens (responseStatus :: ExecuteBudgetActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExecuteBudgetActionResponse)
-{-# DEPRECATED ebarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'executionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebarsExecutionType :: Lens.Lens' ExecuteBudgetActionResponse ExecutionType
+ebarsExecutionType = Lens.lens (executionType :: ExecuteBudgetActionResponse -> ExecutionType) (\s a -> s {executionType = a} :: ExecuteBudgetActionResponse)
+{-# DEPRECATED ebarsExecutionType "Use generic-lens or generic-optics with 'executionType' instead." #-}
+
+-- | A system-generated universally unique identifier (UUID) for the action.
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebarsActionId :: Lens.Lens' ExecuteBudgetActionResponse Lude.Text
+ebarsActionId = Lens.lens (actionId :: ExecuteBudgetActionResponse -> Lude.Text) (\s a -> s {actionId = a} :: ExecuteBudgetActionResponse)
+{-# DEPRECATED ebarsActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -230,16 +229,9 @@ ebarsBudgetName :: Lens.Lens' ExecuteBudgetActionResponse Lude.Text
 ebarsBudgetName = Lens.lens (budgetName :: ExecuteBudgetActionResponse -> Lude.Text) (\s a -> s {budgetName = a} :: ExecuteBudgetActionResponse)
 {-# DEPRECATED ebarsBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
--- | A system-generated universally unique identifier (UUID) for the action.
+-- | The response status code.
 --
--- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebarsActionId :: Lens.Lens' ExecuteBudgetActionResponse Lude.Text
-ebarsActionId = Lens.lens (actionId :: ExecuteBudgetActionResponse -> Lude.Text) (\s a -> s {actionId = a} :: ExecuteBudgetActionResponse)
-{-# DEPRECATED ebarsActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
-
--- | The type of execution.
---
--- /Note:/ Consider using 'executionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebarsExecutionType :: Lens.Lens' ExecuteBudgetActionResponse ExecutionType
-ebarsExecutionType = Lens.lens (executionType :: ExecuteBudgetActionResponse -> ExecutionType) (\s a -> s {executionType = a} :: ExecuteBudgetActionResponse)
-{-# DEPRECATED ebarsExecutionType "Use generic-lens or generic-optics with 'executionType' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebarsResponseStatus :: Lens.Lens' ExecuteBudgetActionResponse Lude.Int
+ebarsResponseStatus = Lens.lens (responseStatus :: ExecuteBudgetActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExecuteBudgetActionResponse)
+{-# DEPRECATED ebarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

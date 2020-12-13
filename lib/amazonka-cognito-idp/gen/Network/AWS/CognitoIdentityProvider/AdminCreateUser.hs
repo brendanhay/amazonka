@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,10 +31,10 @@ module Network.AWS.CognitoIdentityProvider.AdminCreateUser
     acuForceAliasCreation,
     acuDesiredDeliveryMediums,
     acuMessageAction,
-    acuUserAttributes,
-    acuValidationData,
     acuUserPoolId,
+    acuUserAttributes,
     acuUsername,
+    acuValidationData,
 
     -- * Destructuring the response
     AdminCreateUserResponse (..),
@@ -55,16 +56,46 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminCreateUser' smart constructor.
 data AdminCreateUser = AdminCreateUser'
-  { clientMetadata ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the /pre sign-up/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.
+    --
+    -- The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.
+    -- This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.
+    -- The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter.
     temporaryPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | This parameter is only used if the @phone_number_verified@ or @email_verified@ attribute is set to @True@ . Otherwise, it is ignored.
+    --
+    -- If this parameter is set to @True@ and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
+    -- If this parameter is set to @False@ , the API throws an @AliasExistsException@ error if the alias already exists. The default value is @False@ .
     forceAliasCreation :: Lude.Maybe Lude.Bool,
+    -- | Specify @"EMAIL"@ if email will be used to send the welcome message. Specify @"SMS"@ if the phone number will be used. The default value is @"SMS"@ . More than one value can be specified.
     desiredDeliveryMediums :: Lude.Maybe [DeliveryMediumType],
+    -- | Set to @"RESEND"@ to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to @"SUPPRESS"@ to suppress sending the message. Only one value can be specified.
     messageAction :: Lude.Maybe MessageActionType,
-    userAttributes :: Lude.Maybe [AttributeType],
-    validationData :: Lude.Maybe [AttributeType],
+    -- | The user pool ID for the user pool where the user will be created.
     userPoolId :: Lude.Text,
-    username :: Lude.Sensitive Lude.Text
+    -- | An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than @Username@ . However, any attributes that you specify as required (when creating a user pool or in the __Attributes__ tab of the console) must be supplied either by you (in your call to @AdminCreateUser@ ) or by the user (when he or she signs up in response to your welcome message).
+    --
+    -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
+    -- To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the __Users__ tab of the Amazon Cognito console for managing your user pools.
+    -- In your call to @AdminCreateUser@ , you can set the @email_verified@ attribute to @True@ , and you can set the @phone_number_verified@ attribute to @True@ . (You can also do this by calling <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html AdminUpdateUserAttributes> .)
+    --
+    --     * __email__ : The email address of the user to whom the message that contains the code and username will be sent. Required if the @email_verified@ attribute is set to @True@ , or if @"EMAIL"@ is specified in the @DesiredDeliveryMediums@ parameter.
+    --
+    --
+    --     * __phone_number__ : The phone number of the user to whom the message that contains the code and username will be sent. Required if the @phone_number_verified@ attribute is set to @True@ , or if @"SMS"@ is specified in the @DesiredDeliveryMediums@ parameter.
+    userAttributes :: Lude.Maybe [AttributeType],
+    -- | The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+    username :: Lude.Sensitive Lude.Text,
+    -- | The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
+    --
+    -- To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
+    -- The user's validation data is not persisted.
+    validationData :: Lude.Maybe [AttributeType]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -75,17 +106,18 @@ data AdminCreateUser = AdminCreateUser'
 --
 -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the /pre sign-up/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
--- * 'desiredDeliveryMediums' - Specify @"EMAIL"@ if email will be used to send the welcome message. Specify @"SMS"@ if the phone number will be used. The default value is @"SMS"@ . More than one value can be specified.
--- * 'forceAliasCreation' - This parameter is only used if the @phone_number_verified@ or @email_verified@ attribute is set to @True@ . Otherwise, it is ignored.
---
--- If this parameter is set to @True@ and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
--- If this parameter is set to @False@ , the API throws an @AliasExistsException@ error if the alias already exists. The default value is @False@ .
--- * 'messageAction' - Set to @"RESEND"@ to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to @"SUPPRESS"@ to suppress sending the message. Only one value can be specified.
 -- * 'temporaryPassword' - The user's temporary password. This password must conform to the password policy that you specified when you created the user pool.
 --
 -- The temporary password is valid only once. To complete the Admin Create User flow, the user must enter the temporary password in the sign-in page along with a new password to be used in all future sign-ins.
 -- This parameter is not required. If you do not specify a value, Amazon Cognito generates one for you.
 -- The temporary password can only be used until the user account expiration limit that you specified when you created the user pool. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter.
+-- * 'forceAliasCreation' - This parameter is only used if the @phone_number_verified@ or @email_verified@ attribute is set to @True@ . Otherwise, it is ignored.
+--
+-- If this parameter is set to @True@ and the phone number or email address specified in the UserAttributes parameter already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias.
+-- If this parameter is set to @False@ , the API throws an @AliasExistsException@ error if the alias already exists. The default value is @False@ .
+-- * 'desiredDeliveryMediums' - Specify @"EMAIL"@ if email will be used to send the welcome message. Specify @"SMS"@ if the phone number will be used. The default value is @"SMS"@ . More than one value can be specified.
+-- * 'messageAction' - Set to @"RESEND"@ to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to @"SUPPRESS"@ to suppress sending the message. Only one value can be specified.
+-- * 'userPoolId' - The user pool ID for the user pool where the user will be created.
 -- * 'userAttributes' - An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than @Username@ . However, any attributes that you specify as required (when creating a user pool or in the __Attributes__ tab of the console) must be supplied either by you (in your call to @AdminCreateUser@ ) or by the user (when he or she signs up in response to your welcome message).
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
@@ -98,7 +130,6 @@ data AdminCreateUser = AdminCreateUser'
 --     * __phone_number__ : The phone number of the user to whom the message that contains the code and username will be sent. Required if the @phone_number_verified@ attribute is set to @True@ , or if @"SMS"@ is specified in the @DesiredDeliveryMediums@ parameter.
 --
 --
--- * 'userPoolId' - The user pool ID for the user pool where the user will be created.
 -- * 'username' - The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
 -- * 'validationData' - The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
 --
@@ -117,10 +148,10 @@ mkAdminCreateUser pUserPoolId_ pUsername_ =
       forceAliasCreation = Lude.Nothing,
       desiredDeliveryMediums = Lude.Nothing,
       messageAction = Lude.Nothing,
-      userAttributes = Lude.Nothing,
-      validationData = Lude.Nothing,
       userPoolId = pUserPoolId_,
-      username = pUsername_
+      userAttributes = Lude.Nothing,
+      username = pUsername_,
+      validationData = Lude.Nothing
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
@@ -168,6 +199,13 @@ acuMessageAction :: Lens.Lens' AdminCreateUser (Lude.Maybe MessageActionType)
 acuMessageAction = Lens.lens (messageAction :: AdminCreateUser -> Lude.Maybe MessageActionType) (\s a -> s {messageAction = a} :: AdminCreateUser)
 {-# DEPRECATED acuMessageAction "Use generic-lens or generic-optics with 'messageAction' instead." #-}
 
+-- | The user pool ID for the user pool where the user will be created.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acuUserPoolId :: Lens.Lens' AdminCreateUser Lude.Text
+acuUserPoolId = Lens.lens (userPoolId :: AdminCreateUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminCreateUser)
+{-# DEPRECATED acuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
 -- | An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than @Username@ . However, any attributes that you specify as required (when creating a user pool or in the __Attributes__ tab of the console) must be supplied either by you (in your call to @AdminCreateUser@ ) or by the user (when he or she signs up in response to your welcome message).
 --
 -- For custom attributes, you must prepend the @custom:@ prefix to the attribute name.
@@ -186,6 +224,13 @@ acuUserAttributes :: Lens.Lens' AdminCreateUser (Lude.Maybe [AttributeType])
 acuUserAttributes = Lens.lens (userAttributes :: AdminCreateUser -> Lude.Maybe [AttributeType]) (\s a -> s {userAttributes = a} :: AdminCreateUser)
 {-# DEPRECATED acuUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
 
+-- | The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acuUsername :: Lens.Lens' AdminCreateUser (Lude.Sensitive Lude.Text)
+acuUsername = Lens.lens (username :: AdminCreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminCreateUser)
+{-# DEPRECATED acuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
 -- | The user's validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. For example, you might choose to allow or disallow user sign-up based on the user's domain.
 --
 -- To configure custom validation, you must create a Pre Sign-up Lambda trigger for the user pool as described in the Amazon Cognito Developer Guide. The Lambda trigger receives the validation data and uses it in the validation process.
@@ -195,20 +240,6 @@ acuUserAttributes = Lens.lens (userAttributes :: AdminCreateUser -> Lude.Maybe [
 acuValidationData :: Lens.Lens' AdminCreateUser (Lude.Maybe [AttributeType])
 acuValidationData = Lens.lens (validationData :: AdminCreateUser -> Lude.Maybe [AttributeType]) (\s a -> s {validationData = a} :: AdminCreateUser)
 {-# DEPRECATED acuValidationData "Use generic-lens or generic-optics with 'validationData' instead." #-}
-
--- | The user pool ID for the user pool where the user will be created.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acuUserPoolId :: Lens.Lens' AdminCreateUser Lude.Text
-acuUserPoolId = Lens.lens (userPoolId :: AdminCreateUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminCreateUser)
-{-# DEPRECATED acuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
-
--- | The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acuUsername :: Lens.Lens' AdminCreateUser (Lude.Sensitive Lude.Text)
-acuUsername = Lens.lens (username :: AdminCreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminCreateUser)
-{-# DEPRECATED acuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 instance Lude.AWSRequest AdminCreateUser where
   type Rs AdminCreateUser = AdminCreateUserResponse
@@ -242,10 +273,10 @@ instance Lude.ToJSON AdminCreateUser where
             ("ForceAliasCreation" Lude..=) Lude.<$> forceAliasCreation,
             ("DesiredDeliveryMediums" Lude..=) Lude.<$> desiredDeliveryMediums,
             ("MessageAction" Lude..=) Lude.<$> messageAction,
-            ("UserAttributes" Lude..=) Lude.<$> userAttributes,
-            ("ValidationData" Lude..=) Lude.<$> validationData,
             Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username)
+            ("UserAttributes" Lude..=) Lude.<$> userAttributes,
+            Lude.Just ("Username" Lude..= username),
+            ("ValidationData" Lude..=) Lude.<$> validationData
           ]
       )
 
@@ -259,8 +290,9 @@ instance Lude.ToQuery AdminCreateUser where
 --
 -- /See:/ 'mkAdminCreateUserResponse' smart constructor.
 data AdminCreateUserResponse = AdminCreateUserResponse'
-  { user ::
-      Lude.Maybe UserType,
+  { -- | The newly created user.
+    user :: Lude.Maybe UserType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -268,8 +300,8 @@ data AdminCreateUserResponse = AdminCreateUserResponse'
 
 -- | Creates a value of 'AdminCreateUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'user' - The newly created user.
+-- * 'responseStatus' - The response status code.
 mkAdminCreateUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

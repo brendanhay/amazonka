@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
     mkListConstraintsForPortfolio,
 
     -- ** Request lenses
+    lcfpPortfolioId,
     lcfpAcceptLanguage,
     lcfpPageToken,
     lcfpPageSize,
     lcfpProductId,
-    lcfpPortfolioId,
 
     -- * Destructuring the response
     ListConstraintsForPortfolioResponse (..),
@@ -47,24 +48,32 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListConstraintsForPortfolio' smart constructor.
 data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The portfolio identifier.
+    portfolioId :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural,
-    productId :: Lude.Maybe Lude.Text,
-    portfolioId :: Lude.Text
+    -- | The product identifier.
+    productId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConstraintsForPortfolio' with the minimum fields required to make a request.
 --
+-- * 'portfolioId' - The portfolio identifier.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -77,9 +86,8 @@ data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
 --     * @zh@ - Chinese
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'portfolioId' - The portfolio identifier.
+-- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'productId' - The product identifier.
 mkListConstraintsForPortfolio ::
   -- | 'portfolioId'
@@ -87,12 +95,19 @@ mkListConstraintsForPortfolio ::
   ListConstraintsForPortfolio
 mkListConstraintsForPortfolio pPortfolioId_ =
   ListConstraintsForPortfolio'
-    { acceptLanguage = Lude.Nothing,
+    { portfolioId = pPortfolioId_,
+      acceptLanguage = Lude.Nothing,
       pageToken = Lude.Nothing,
       pageSize = Lude.Nothing,
-      productId = Lude.Nothing,
-      portfolioId = pPortfolioId_
+      productId = Lude.Nothing
     }
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfpPortfolioId :: Lens.Lens' ListConstraintsForPortfolio Lude.Text
+lcfpPortfolioId = Lens.lens (portfolioId :: ListConstraintsForPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: ListConstraintsForPortfolio)
+{-# DEPRECATED lcfpPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The language code.
 --
@@ -132,13 +147,6 @@ lcfpPageSize = Lens.lens (pageSize :: ListConstraintsForPortfolio -> Lude.Maybe 
 lcfpProductId :: Lens.Lens' ListConstraintsForPortfolio (Lude.Maybe Lude.Text)
 lcfpProductId = Lens.lens (productId :: ListConstraintsForPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ListConstraintsForPortfolio)
 {-# DEPRECATED lcfpProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfpPortfolioId :: Lens.Lens' ListConstraintsForPortfolio Lude.Text
-lcfpPortfolioId = Lens.lens (portfolioId :: ListConstraintsForPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: ListConstraintsForPortfolio)
-{-# DEPRECATED lcfpPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 instance Page.AWSPager ListConstraintsForPortfolio where
   page rq rs
@@ -180,11 +188,11 @@ instance Lude.ToJSON ListConstraintsForPortfolio where
   toJSON ListConstraintsForPortfolio' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             ("PageToken" Lude..=) Lude.<$> pageToken,
             ("PageSize" Lude..=) Lude.<$> pageSize,
-            ("ProductId" Lude..=) Lude.<$> productId,
-            Lude.Just ("PortfolioId" Lude..= portfolioId)
+            ("ProductId" Lude..=) Lude.<$> productId
           ]
       )
 
@@ -196,28 +204,20 @@ instance Lude.ToQuery ListConstraintsForPortfolio where
 
 -- | /See:/ 'mkListConstraintsForPortfolioResponse' smart constructor.
 data ListConstraintsForPortfolioResponse = ListConstraintsForPortfolioResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    constraintDetails ::
-      Lude.Maybe
-        [ConstraintDetail],
-    responseStatus ::
-      Lude.Int
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the constraints.
+    constraintDetails :: Lude.Maybe [ConstraintDetail],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConstraintsForPortfolioResponse' with the minimum fields required to make a request.
 --
--- * 'constraintDetails' - Information about the constraints.
 -- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'constraintDetails' - Information about the constraints.
 -- * 'responseStatus' - The response status code.
 mkListConstraintsForPortfolioResponse ::
   -- | 'responseStatus'

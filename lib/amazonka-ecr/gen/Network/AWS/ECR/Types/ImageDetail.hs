@@ -39,39 +39,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImageDetail' smart constructor.
 data ImageDetail = ImageDetail'
-  { registryId :: Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry to which this image belongs.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The list of tags associated with this image.
     imageTags :: Lude.Maybe [Lude.Text],
+    -- | The current state of the scan.
     imageScanStatus :: Lude.Maybe ImageScanStatus,
+    -- | The media type of the image manifest.
     imageManifestMediaType :: Lude.Maybe Lude.Text,
+    -- | The size, in bytes, of the image in the repository.
+    --
+    -- If the image is a manifest list, this will be the max size of all manifests in the list.
     imageSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The @sha256@ digest of the image manifest.
     imageDigest :: Lude.Maybe Lude.Text,
+    -- | A summary of the last completed image scan.
     imageScanFindingsSummary :: Lude.Maybe ImageScanFindingsSummary,
+    -- | The artifact media type of the image.
     artifactMediaType :: Lude.Maybe Lude.Text,
+    -- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
     imagePushedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the repository to which this image belongs.
     repositoryName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageDetail' with the minimum fields required to make a request.
 --
--- * 'artifactMediaType' - The artifact media type of the image.
--- * 'imageDigest' - The @sha256@ digest of the image manifest.
--- * 'imageManifestMediaType' - The media type of the image manifest.
--- * 'imagePushedAt' - The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
--- * 'imageScanFindingsSummary' - A summary of the last completed image scan.
+-- * 'registryId' - The AWS account ID associated with the registry to which this image belongs.
+-- * 'imageTags' - The list of tags associated with this image.
 -- * 'imageScanStatus' - The current state of the scan.
+-- * 'imageManifestMediaType' - The media type of the image manifest.
 -- * 'imageSizeInBytes' - The size, in bytes, of the image in the repository.
 --
 -- If the image is a manifest list, this will be the max size of all manifests in the list.
--- * 'imageTags' - The list of tags associated with this image.
--- * 'registryId' - The AWS account ID associated with the registry to which this image belongs.
+-- * 'imageDigest' - The @sha256@ digest of the image manifest.
+-- * 'imageScanFindingsSummary' - A summary of the last completed image scan.
+-- * 'artifactMediaType' - The artifact media type of the image.
+-- * 'imagePushedAt' - The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
 -- * 'repositoryName' - The name of the repository to which this image belongs.
 mkImageDetail ::
   ImageDetail

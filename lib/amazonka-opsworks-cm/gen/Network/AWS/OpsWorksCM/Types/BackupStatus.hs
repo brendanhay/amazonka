@@ -13,10 +13,10 @@
 module Network.AWS.OpsWorksCM.Types.BackupStatus
   ( BackupStatus
       ( BackupStatus',
-        BSDeleting,
-        BSFailed,
         BSInProgress,
-        BSOK
+        BSOK,
+        BSFailed,
+        BSDeleting
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype BackupStatus = BackupStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern BSDeleting :: BackupStatus
-pattern BSDeleting = BackupStatus' "DELETING"
-
-pattern BSFailed :: BackupStatus
-pattern BSFailed = BackupStatus' "FAILED"
-
 pattern BSInProgress :: BackupStatus
 pattern BSInProgress = BackupStatus' "IN_PROGRESS"
 
 pattern BSOK :: BackupStatus
 pattern BSOK = BackupStatus' "OK"
 
+pattern BSFailed :: BackupStatus
+pattern BSFailed = BackupStatus' "FAILED"
+
+pattern BSDeleting :: BackupStatus
+pattern BSDeleting = BackupStatus' "DELETING"
+
 {-# COMPLETE
-  BSDeleting,
-  BSFailed,
   BSInProgress,
   BSOK,
+  BSFailed,
+  BSDeleting,
   BackupStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.IAM.GetRole
     mkGetRoleResponse,
 
     -- ** Response lenses
-    grrsResponseStatus,
     grrsRole,
+    grrsResponseStatus,
   )
 where
 
@@ -38,14 +39,13 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRole' smart constructor.
-newtype GetRole = GetRole' {roleName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetRole = GetRole'
+  { -- | The name of the IAM role to get information about.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRole' with the minimum fields required to make a request.
@@ -76,7 +76,7 @@ instance Lude.AWSRequest GetRole where
       "GetRoleResult"
       ( \s h x ->
           GetRoleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "Role")
+            Lude.<$> (x Lude..@ "Role") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetRole where
@@ -97,40 +97,29 @@ instance Lude.ToQuery GetRole where
 --
 -- /See:/ 'mkGetRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
-  { responseStatus :: Lude.Int,
-    role' :: Role
+  { -- | A structure containing details about the IAM role.
+    role' :: Role,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRoleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'role'' - A structure containing details about the IAM role.
+-- * 'responseStatus' - The response status code.
 mkGetRoleResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'role''
   Role ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRoleResponse
-mkGetRoleResponse pResponseStatus_ pRole_ =
+mkGetRoleResponse pRole_ pResponseStatus_ =
   GetRoleResponse'
-    { responseStatus = pResponseStatus_,
-      role' = pRole_
+    { role' = pRole_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsResponseStatus :: Lens.Lens' GetRoleResponse Lude.Int
-grrsResponseStatus = Lens.lens (responseStatus :: GetRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRoleResponse)
-{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the IAM role.
 --
@@ -138,3 +127,10 @@ grrsResponseStatus = Lens.lens (responseStatus :: GetRoleResponse -> Lude.Int) (
 grrsRole :: Lens.Lens' GetRoleResponse Role
 grrsRole = Lens.lens (role' :: GetRoleResponse -> Role) (\s a -> s {role' = a} :: GetRoleResponse)
 {-# DEPRECATED grrsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrsResponseStatus :: Lens.Lens' GetRoleResponse Lude.Int
+grrsResponseStatus = Lens.lens (responseStatus :: GetRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRoleResponse)
+{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

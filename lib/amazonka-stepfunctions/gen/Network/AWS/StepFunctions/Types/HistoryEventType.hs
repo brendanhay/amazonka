@@ -14,8 +14,8 @@ module Network.AWS.StepFunctions.Types.HistoryEventType
   ( HistoryEventType
       ( HistoryEventType',
         ActivityFailed,
-        ActivityScheduleFailed,
         ActivityScheduled,
+        ActivityScheduleFailed,
         ActivityStarted,
         ActivitySucceeded,
         ActivityTimedOut,
@@ -28,10 +28,10 @@ module Network.AWS.StepFunctions.Types.HistoryEventType
         ExecutionTimedOut,
         FailStateEntered,
         LambdaFunctionFailed,
-        LambdaFunctionScheduleFailed,
         LambdaFunctionScheduled,
-        LambdaFunctionStartFailed,
+        LambdaFunctionScheduleFailed,
         LambdaFunctionStarted,
+        LambdaFunctionStartFailed,
         LambdaFunctionSucceeded,
         LambdaFunctionTimedOut,
         MapIterationAborted,
@@ -56,8 +56,8 @@ module Network.AWS.StepFunctions.Types.HistoryEventType
         SucceedStateExited,
         TaskFailed,
         TaskScheduled,
-        TaskStartFailed,
         TaskStarted,
+        TaskStartFailed,
         TaskStateAborted,
         TaskStateEntered,
         TaskStateExited,
@@ -101,11 +101,11 @@ newtype HistoryEventType = HistoryEventType' Lude.Text
 pattern ActivityFailed :: HistoryEventType
 pattern ActivityFailed = HistoryEventType' "ActivityFailed"
 
-pattern ActivityScheduleFailed :: HistoryEventType
-pattern ActivityScheduleFailed = HistoryEventType' "ActivityScheduleFailed"
-
 pattern ActivityScheduled :: HistoryEventType
 pattern ActivityScheduled = HistoryEventType' "ActivityScheduled"
+
+pattern ActivityScheduleFailed :: HistoryEventType
+pattern ActivityScheduleFailed = HistoryEventType' "ActivityScheduleFailed"
 
 pattern ActivityStarted :: HistoryEventType
 pattern ActivityStarted = HistoryEventType' "ActivityStarted"
@@ -143,17 +143,17 @@ pattern FailStateEntered = HistoryEventType' "FailStateEntered"
 pattern LambdaFunctionFailed :: HistoryEventType
 pattern LambdaFunctionFailed = HistoryEventType' "LambdaFunctionFailed"
 
-pattern LambdaFunctionScheduleFailed :: HistoryEventType
-pattern LambdaFunctionScheduleFailed = HistoryEventType' "LambdaFunctionScheduleFailed"
-
 pattern LambdaFunctionScheduled :: HistoryEventType
 pattern LambdaFunctionScheduled = HistoryEventType' "LambdaFunctionScheduled"
 
-pattern LambdaFunctionStartFailed :: HistoryEventType
-pattern LambdaFunctionStartFailed = HistoryEventType' "LambdaFunctionStartFailed"
+pattern LambdaFunctionScheduleFailed :: HistoryEventType
+pattern LambdaFunctionScheduleFailed = HistoryEventType' "LambdaFunctionScheduleFailed"
 
 pattern LambdaFunctionStarted :: HistoryEventType
 pattern LambdaFunctionStarted = HistoryEventType' "LambdaFunctionStarted"
+
+pattern LambdaFunctionStartFailed :: HistoryEventType
+pattern LambdaFunctionStartFailed = HistoryEventType' "LambdaFunctionStartFailed"
 
 pattern LambdaFunctionSucceeded :: HistoryEventType
 pattern LambdaFunctionSucceeded = HistoryEventType' "LambdaFunctionSucceeded"
@@ -227,11 +227,11 @@ pattern TaskFailed = HistoryEventType' "TaskFailed"
 pattern TaskScheduled :: HistoryEventType
 pattern TaskScheduled = HistoryEventType' "TaskScheduled"
 
-pattern TaskStartFailed :: HistoryEventType
-pattern TaskStartFailed = HistoryEventType' "TaskStartFailed"
-
 pattern TaskStarted :: HistoryEventType
 pattern TaskStarted = HistoryEventType' "TaskStarted"
+
+pattern TaskStartFailed :: HistoryEventType
+pattern TaskStartFailed = HistoryEventType' "TaskStartFailed"
 
 pattern TaskStateAborted :: HistoryEventType
 pattern TaskStateAborted = HistoryEventType' "TaskStateAborted"
@@ -265,8 +265,8 @@ pattern WaitStateExited = HistoryEventType' "WaitStateExited"
 
 {-# COMPLETE
   ActivityFailed,
-  ActivityScheduleFailed,
   ActivityScheduled,
+  ActivityScheduleFailed,
   ActivityStarted,
   ActivitySucceeded,
   ActivityTimedOut,
@@ -279,10 +279,10 @@ pattern WaitStateExited = HistoryEventType' "WaitStateExited"
   ExecutionTimedOut,
   FailStateEntered,
   LambdaFunctionFailed,
-  LambdaFunctionScheduleFailed,
   LambdaFunctionScheduled,
-  LambdaFunctionStartFailed,
+  LambdaFunctionScheduleFailed,
   LambdaFunctionStarted,
+  LambdaFunctionStartFailed,
   LambdaFunctionSucceeded,
   LambdaFunctionTimedOut,
   MapIterationAborted,
@@ -307,8 +307,8 @@ pattern WaitStateExited = HistoryEventType' "WaitStateExited"
   SucceedStateExited,
   TaskFailed,
   TaskScheduled,
-  TaskStartFailed,
   TaskStarted,
+  TaskStartFailed,
   TaskStateAborted,
   TaskStateEntered,
   TaskStateExited,

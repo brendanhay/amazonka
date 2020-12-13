@@ -14,14 +14,14 @@ module Network.AWS.EC2.Types.ReportInstanceReasonCodes
   ( ReportInstanceReasonCodes
       ( ReportInstanceReasonCodes',
         InstanceStuckInState,
+        Unresponsive,
         NotAcceptingCredentials,
-        Other,
         PasswordNotAvailable,
-        PerformanceEBSVolume,
-        PerformanceInstanceStore,
         PerformanceNetwork,
+        PerformanceInstanceStore,
+        PerformanceEBSVolume,
         PerformanceOther,
-        Unresponsive
+        Other
       ),
   )
 where
@@ -55,39 +55,39 @@ newtype ReportInstanceReasonCodes = ReportInstanceReasonCodes' Lude.Text
 pattern InstanceStuckInState :: ReportInstanceReasonCodes
 pattern InstanceStuckInState = ReportInstanceReasonCodes' "instance-stuck-in-state"
 
+pattern Unresponsive :: ReportInstanceReasonCodes
+pattern Unresponsive = ReportInstanceReasonCodes' "unresponsive"
+
 pattern NotAcceptingCredentials :: ReportInstanceReasonCodes
 pattern NotAcceptingCredentials = ReportInstanceReasonCodes' "not-accepting-credentials"
-
-pattern Other :: ReportInstanceReasonCodes
-pattern Other = ReportInstanceReasonCodes' "other"
 
 pattern PasswordNotAvailable :: ReportInstanceReasonCodes
 pattern PasswordNotAvailable = ReportInstanceReasonCodes' "password-not-available"
 
-pattern PerformanceEBSVolume :: ReportInstanceReasonCodes
-pattern PerformanceEBSVolume = ReportInstanceReasonCodes' "performance-ebs-volume"
+pattern PerformanceNetwork :: ReportInstanceReasonCodes
+pattern PerformanceNetwork = ReportInstanceReasonCodes' "performance-network"
 
 pattern PerformanceInstanceStore :: ReportInstanceReasonCodes
 pattern PerformanceInstanceStore = ReportInstanceReasonCodes' "performance-instance-store"
 
-pattern PerformanceNetwork :: ReportInstanceReasonCodes
-pattern PerformanceNetwork = ReportInstanceReasonCodes' "performance-network"
+pattern PerformanceEBSVolume :: ReportInstanceReasonCodes
+pattern PerformanceEBSVolume = ReportInstanceReasonCodes' "performance-ebs-volume"
 
 pattern PerformanceOther :: ReportInstanceReasonCodes
 pattern PerformanceOther = ReportInstanceReasonCodes' "performance-other"
 
-pattern Unresponsive :: ReportInstanceReasonCodes
-pattern Unresponsive = ReportInstanceReasonCodes' "unresponsive"
+pattern Other :: ReportInstanceReasonCodes
+pattern Other = ReportInstanceReasonCodes' "other"
 
 {-# COMPLETE
   InstanceStuckInState,
-  NotAcceptingCredentials,
-  Other,
-  PasswordNotAvailable,
-  PerformanceEBSVolume,
-  PerformanceInstanceStore,
-  PerformanceNetwork,
-  PerformanceOther,
   Unresponsive,
+  NotAcceptingCredentials,
+  PasswordNotAvailable,
+  PerformanceNetwork,
+  PerformanceInstanceStore,
+  PerformanceEBSVolume,
+  PerformanceOther,
+  Other,
   ReportInstanceReasonCodes'
   #-}

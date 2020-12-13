@@ -29,29 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaFunctionStartFailedEventDetails' smart constructor.
 data LambdaFunctionStartFailedEventDetails = LambdaFunctionStartFailedEventDetails'
-  { error ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    cause ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        )
+  { -- | The error code of the failure.
+    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionStartFailedEventDetails' with the minimum fields required to make a request.
 --
--- * 'cause' - A more detailed explanation of the cause of the failure.
 -- * 'error' - The error code of the failure.
+-- * 'cause' - A more detailed explanation of the cause of the failure.
 mkLambdaFunctionStartFailedEventDetails ::
   LambdaFunctionStartFailedEventDetails
 mkLambdaFunctionStartFailedEventDetails =

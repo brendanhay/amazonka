@@ -13,13 +13,13 @@
 module Network.AWS.Pinpoint.Types.CampaignStatus
   ( CampaignStatus
       ( CampaignStatus',
-        Completed,
-        Deleted,
+        Scheduled,
         Executing,
-        Invalid,
-        Paused,
         PendingNextRun,
-        Scheduled
+        Completed,
+        Paused,
+        Deleted,
+        Invalid
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype CampaignStatus = CampaignStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Completed :: CampaignStatus
-pattern Completed = CampaignStatus' "COMPLETED"
-
-pattern Deleted :: CampaignStatus
-pattern Deleted = CampaignStatus' "DELETED"
+pattern Scheduled :: CampaignStatus
+pattern Scheduled = CampaignStatus' "SCHEDULED"
 
 pattern Executing :: CampaignStatus
 pattern Executing = CampaignStatus' "EXECUTING"
 
-pattern Invalid :: CampaignStatus
-pattern Invalid = CampaignStatus' "INVALID"
+pattern PendingNextRun :: CampaignStatus
+pattern PendingNextRun = CampaignStatus' "PENDING_NEXT_RUN"
+
+pattern Completed :: CampaignStatus
+pattern Completed = CampaignStatus' "COMPLETED"
 
 pattern Paused :: CampaignStatus
 pattern Paused = CampaignStatus' "PAUSED"
 
-pattern PendingNextRun :: CampaignStatus
-pattern PendingNextRun = CampaignStatus' "PENDING_NEXT_RUN"
+pattern Deleted :: CampaignStatus
+pattern Deleted = CampaignStatus' "DELETED"
 
-pattern Scheduled :: CampaignStatus
-pattern Scheduled = CampaignStatus' "SCHEDULED"
+pattern Invalid :: CampaignStatus
+pattern Invalid = CampaignStatus' "INVALID"
 
 {-# COMPLETE
-  Completed,
-  Deleted,
-  Executing,
-  Invalid,
-  Paused,
-  PendingNextRun,
   Scheduled,
+  Executing,
+  PendingNextRun,
+  Completed,
+  Paused,
+  Deleted,
+  Invalid,
   CampaignStatus'
   #-}

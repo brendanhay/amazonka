@@ -13,13 +13,13 @@
 module Network.AWS.EC2.Types.BatchState
   ( BatchState
       ( BatchState',
+        BSSubmitted,
         BSActive,
         BSCancelled,
+        BSFailed,
         BSCancelledRunning,
         BSCancelledTerminating,
-        BSFailed,
-        BSModifying,
-        BSSubmitted
+        BSModifying
       ),
   )
 where
@@ -50,11 +50,17 @@ newtype BatchState = BatchState' Lude.Text
       Lude.ToHeader
     )
 
+pattern BSSubmitted :: BatchState
+pattern BSSubmitted = BatchState' "submitted"
+
 pattern BSActive :: BatchState
 pattern BSActive = BatchState' "active"
 
 pattern BSCancelled :: BatchState
 pattern BSCancelled = BatchState' "cancelled"
+
+pattern BSFailed :: BatchState
+pattern BSFailed = BatchState' "failed"
 
 pattern BSCancelledRunning :: BatchState
 pattern BSCancelledRunning = BatchState' "cancelled_running"
@@ -62,22 +68,16 @@ pattern BSCancelledRunning = BatchState' "cancelled_running"
 pattern BSCancelledTerminating :: BatchState
 pattern BSCancelledTerminating = BatchState' "cancelled_terminating"
 
-pattern BSFailed :: BatchState
-pattern BSFailed = BatchState' "failed"
-
 pattern BSModifying :: BatchState
 pattern BSModifying = BatchState' "modifying"
 
-pattern BSSubmitted :: BatchState
-pattern BSSubmitted = BatchState' "submitted"
-
 {-# COMPLETE
+  BSSubmitted,
   BSActive,
   BSCancelled,
+  BSFailed,
   BSCancelledRunning,
   BSCancelledTerminating,
-  BSFailed,
   BSModifying,
-  BSSubmitted,
   BatchState'
   #-}

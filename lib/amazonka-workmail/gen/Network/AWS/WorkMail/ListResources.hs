@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,24 +46,20 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListResources' smart constructor.
 data ListResources = ListResources'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The identifier for the organization under which the resources exist.
     organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResources' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'organizationId' - The identifier for the organization under which the resources exist.
 mkListResources ::
   -- | 'organizationId'
@@ -146,24 +143,20 @@ instance Lude.ToQuery ListResources where
 
 -- | /See:/ 'mkListResourcesResponse' smart constructor.
 data ListResourcesResponse = ListResourcesResponse'
-  { resources ::
-      Lude.Maybe [Resource],
+  { -- | One page of the organization's resource representation.
+    resources :: Lude.Maybe [Resource],
+    -- | The token used to paginate through all the organization's resources. While results are still available, it has an associated value. When the last page is reached, the token is empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token used to paginate through all the organization's resources. While results are still available, it has an associated value. When the last page is reached, the token is empty.
 -- * 'resources' - One page of the organization's resource representation.
+-- * 'nextToken' - The token used to paginate through all the organization's resources. While results are still available, it has an associated value. When the last page is reached, the token is empty.
 -- * 'responseStatus' - The response status code.
 mkListResourcesResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeFleets' smart constructor.
 data DescribeFleets = DescribeFleets'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters.
+    --
+    --
+    --     * @activity-status@ - The progress of the EC2 Fleet ( @error@ | @pending-fulfillment@ | @pending-termination@ | @fulfilled@ ).
+    --
+    --
+    --     * @excess-capacity-termination-policy@ - Indicates whether to terminate running instances if the target capacity is decreased below the current EC2 Fleet size (@true@ | @false@ ).
+    --
+    --
+    --     * @fleet-state@ - The state of the EC2 Fleet (@submitted@ | @active@ | @deleted@ | @failed@ | @deleted-running@ | @deleted-terminating@ | @modifying@ ).
+    --
+    --
+    --     * @replace-unhealthy-instances@ - Indicates whether EC2 Fleet should replace unhealthy instances (@true@ | @false@ ).
+    --
+    --
+    --     * @type@ - The type of request (@instant@ | @request@ | @maintain@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the EC2 Fleets.
     fleetIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleets' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 --
 --
@@ -84,9 +97,10 @@ data DescribeFleets = DescribeFleets'
 --     * @type@ - The type of request (@instant@ | @request@ | @maintain@ ).
 --
 --
--- * 'fleetIds' - The ID of the EC2 Fleets.
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'fleetIds' - The ID of the EC2 Fleets.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeFleets ::
   DescribeFleets
 mkDescribeFleets =
@@ -193,24 +207,20 @@ instance Lude.ToQuery DescribeFleets where
 
 -- | /See:/ 'mkDescribeFleetsResponse' smart constructor.
 data DescribeFleetsResponse = DescribeFleetsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the EC2 Fleets.
     fleets :: Lude.Maybe [FleetData],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetsResponse' with the minimum fields required to make a request.
 --
--- * 'fleets' - Information about the EC2 Fleets.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'fleets' - Information about the EC2 Fleets.
 -- * 'responseStatus' - The response status code.
 mkDescribeFleetsResponse ::
   -- | 'responseStatus'

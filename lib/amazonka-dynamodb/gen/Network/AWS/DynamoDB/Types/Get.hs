@@ -32,26 +32,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGet' smart constructor.
 data Get = Get'
-  { projectionExpression :: Lude.Maybe Lude.Text,
-    expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.
+    projectionExpression :: Lude.Maybe Lude.Text,
+    -- | One or more substitution tokens for attribute names in the ProjectionExpression parameter.
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A map of attribute names to @AttributeValue@ objects that specifies the primary key of the item to retrieve.
     key :: Lude.HashMap Lude.Text (AttributeValue),
+    -- | The name of the table from which to retrieve the specified item.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Get' with the minimum fields required to make a request.
 --
+-- * 'projectionExpression' - A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in the ProjectionExpression parameter.
 -- * 'key' - A map of attribute names to @AttributeValue@ objects that specifies the primary key of the item to retrieve.
--- * 'projectionExpression' - A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.
 -- * 'tableName' - The name of the table from which to retrieve the specified item.
 mkGet ::
   -- | 'tableName'

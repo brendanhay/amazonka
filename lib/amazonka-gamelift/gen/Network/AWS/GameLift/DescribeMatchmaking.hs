@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -63,16 +64,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeMatchmaking' smart constructor.
 newtype DescribeMatchmaking = DescribeMatchmaking'
-  { ticketIds ::
-      [Lude.Text]
+  { -- | A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
+    ticketIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmaking' with the minimum fields required to make a request.
@@ -127,23 +122,18 @@ instance Lude.ToQuery DescribeMatchmaking where
 --
 -- /See:/ 'mkDescribeMatchmakingResponse' smart constructor.
 data DescribeMatchmakingResponse = DescribeMatchmakingResponse'
-  { ticketList ::
-      Lude.Maybe [MatchmakingTicket],
+  { -- | A collection of existing matchmaking ticket objects matching the request.
+    ticketList :: Lude.Maybe [MatchmakingTicket],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmakingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'ticketList' - A collection of existing matchmaking ticket objects matching the request.
+-- * 'responseStatus' - The response status code.
 mkDescribeMatchmakingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

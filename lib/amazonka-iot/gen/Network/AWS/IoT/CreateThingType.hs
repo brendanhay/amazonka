@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.IoT.CreateThingType
 
     -- ** Request lenses
     cttThingTypeProperties,
-    cttTags,
     cttThingTypeName,
+    cttTags,
 
     -- * Destructuring the response
     CreateThingTypeResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateThingType' smart constructor.
 data CreateThingType = CreateThingType'
-  { thingTypeProperties ::
-      Lude.Maybe ThingTypeProperties,
-    tags :: Lude.Maybe [Tag],
-    thingTypeName :: Lude.Text
+  { -- | The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
+    thingTypeProperties :: Lude.Maybe ThingTypeProperties,
+    -- | The name of the thing type.
+    thingTypeName :: Lude.Text,
+    -- | Metadata which can be used to manage the thing type.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingType' with the minimum fields required to make a request.
 --
--- * 'tags' - Metadata which can be used to manage the thing type.
--- * 'thingTypeName' - The name of the thing type.
 -- * 'thingTypeProperties' - The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
+-- * 'thingTypeName' - The name of the thing type.
+-- * 'tags' - Metadata which can be used to manage the thing type.
 mkCreateThingType ::
   -- | 'thingTypeName'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkCreateThingType ::
 mkCreateThingType pThingTypeName_ =
   CreateThingType'
     { thingTypeProperties = Lude.Nothing,
-      tags = Lude.Nothing,
-      thingTypeName = pThingTypeName_
+      thingTypeName = pThingTypeName_,
+      tags = Lude.Nothing
     }
 
 -- | The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.
@@ -82,19 +79,19 @@ cttThingTypeProperties :: Lens.Lens' CreateThingType (Lude.Maybe ThingTypeProper
 cttThingTypeProperties = Lens.lens (thingTypeProperties :: CreateThingType -> Lude.Maybe ThingTypeProperties) (\s a -> s {thingTypeProperties = a} :: CreateThingType)
 {-# DEPRECATED cttThingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead." #-}
 
--- | Metadata which can be used to manage the thing type.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cttTags :: Lens.Lens' CreateThingType (Lude.Maybe [Tag])
-cttTags = Lens.lens (tags :: CreateThingType -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateThingType)
-{-# DEPRECATED cttTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the thing type.
 --
 -- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cttThingTypeName :: Lens.Lens' CreateThingType Lude.Text
 cttThingTypeName = Lens.lens (thingTypeName :: CreateThingType -> Lude.Text) (\s a -> s {thingTypeName = a} :: CreateThingType)
 {-# DEPRECATED cttThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
+
+-- | Metadata which can be used to manage the thing type.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cttTags :: Lens.Lens' CreateThingType (Lude.Maybe [Tag])
+cttTags = Lens.lens (tags :: CreateThingType -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateThingType)
+{-# DEPRECATED cttTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateThingType where
   type Rs CreateThingType = CreateThingTypeResponse
@@ -132,27 +129,24 @@ instance Lude.ToQuery CreateThingType where
 --
 -- /See:/ 'mkCreateThingTypeResponse' smart constructor.
 data CreateThingTypeResponse = CreateThingTypeResponse'
-  { thingTypeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the thing type.
+    thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The thing type ID.
     thingTypeId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the thing type.
     thingTypeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingTypeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'thingTypeARN' - The Amazon Resource Name (ARN) of the thing type.
--- * 'thingTypeId' - The thing type ID.
 -- * 'thingTypeName' - The name of the thing type.
+-- * 'thingTypeId' - The thing type ID.
+-- * 'thingTypeARN' - The Amazon Resource Name (ARN) of the thing type.
+-- * 'responseStatus' - The response status code.
 mkCreateThingTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

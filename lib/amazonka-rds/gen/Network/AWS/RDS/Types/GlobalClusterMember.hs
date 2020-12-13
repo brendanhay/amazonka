@@ -32,28 +32,24 @@ import Network.AWS.RDS.Types.WriteForwardingStatus
 --
 -- /See:/ 'mkGlobalClusterMember' smart constructor.
 data GlobalClusterMember = GlobalClusterMember'
-  { readers ::
-      Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
+    readers :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) for each Aurora cluster.
     dbClusterARN :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
     isWriter :: Lude.Maybe Lude.Bool,
-    globalWriteForwardingStatus ::
-      Lude.Maybe WriteForwardingStatus
+    -- | Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
+    globalWriteForwardingStatus :: Lude.Maybe WriteForwardingStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalClusterMember' with the minimum fields required to make a request.
 --
--- * 'dbClusterARN' - The Amazon Resource Name (ARN) for each Aurora cluster.
--- * 'globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
--- * 'isWriter' - Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
 -- * 'readers' - The Amazon Resource Name (ARN) for each read-only secondary cluster associated with the Aurora global database.
+-- * 'dbClusterARN' - The Amazon Resource Name (ARN) for each Aurora cluster.
+-- * 'isWriter' - Specifies whether the Aurora cluster is the primary cluster (that is, has read-write capability) for the Aurora global database with which it is associated.
+-- * 'globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
 mkGlobalClusterMember ::
   GlobalClusterMember
 mkGlobalClusterMember =

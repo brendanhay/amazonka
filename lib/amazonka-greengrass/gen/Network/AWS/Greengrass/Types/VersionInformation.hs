@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVersionInformation' smart constructor.
 data VersionInformation = VersionInformation'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
     creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
     version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VersionInformation' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
--- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'version' - The ID of the version.
+-- * 'id' - The ID of the parent definition that the version is associated with.
 mkVersionInformation ::
   VersionInformation
 mkVersionInformation =

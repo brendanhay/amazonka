@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,24 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkListMedicalVocabularies' smart constructor.
 data ListMedicalVocabularies = ListMedicalVocabularies'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | Returns vocabularies whose names contain the specified string. The search is not case sensitive. @ListMedicalVocabularies@ returns both "@vocabularyname@ " and "@VocabularyName@ ".
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | If the result of your previous request to @ListMedicalVocabularies@ was truncated, include the @NextToken@ to fetch the next set of vocabularies.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | When specified, returns only vocabularies with the @VocabularyState@ equal to the specified vocabulary state. Use this field to see which vocabularies are ready for your medical transcription jobs.
     stateEquals :: Lude.Maybe VocabularyState,
+    -- | The maximum number of vocabularies to return in the response.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMedicalVocabularies' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of vocabularies to return in the response.
 -- * 'nameContains' - Returns vocabularies whose names contain the specified string. The search is not case sensitive. @ListMedicalVocabularies@ returns both "@vocabularyname@ " and "@VocabularyName@ ".
 -- * 'nextToken' - If the result of your previous request to @ListMedicalVocabularies@ was truncated, include the @NextToken@ to fetch the next set of vocabularies.
 -- * 'stateEquals' - When specified, returns only vocabularies with the @VocabularyState@ equal to the specified vocabulary state. Use this field to see which vocabularies are ready for your medical transcription jobs.
+-- * 'maxResults' - The maximum number of vocabularies to return in the response.
 mkListMedicalVocabularies ::
   ListMedicalVocabularies
 mkListMedicalVocabularies =
@@ -146,29 +144,24 @@ instance Lude.ToQuery ListMedicalVocabularies where
 
 -- | /See:/ 'mkListMedicalVocabulariesResponse' smart constructor.
 data ListMedicalVocabulariesResponse = ListMedicalVocabulariesResponse'
-  { vocabularies ::
-      Lude.Maybe [VocabularyInfo],
-    status ::
-      Lude.Maybe VocabularyState,
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of objects that describe the vocabularies that match your search criteria.
+    vocabularies :: Lude.Maybe [VocabularyInfo],
+    -- | The requested vocabulary state.
+    status :: Lude.Maybe VocabularyState,
+    -- | The @ListMedicalVocabularies@ operation returns a page of vocabularies at a time. You set the maximum number of vocabularies to return on a page with the @MaxResults@ parameter. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. To return the next page of vocabularies, include the token in the next request to the @ListMedicalVocabularies@ operation .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMedicalVocabulariesResponse' with the minimum fields required to make a request.
 --
+-- * 'vocabularies' - A list of objects that describe the vocabularies that match your search criteria.
+-- * 'status' - The requested vocabulary state.
 -- * 'nextToken' - The @ListMedicalVocabularies@ operation returns a page of vocabularies at a time. You set the maximum number of vocabularies to return on a page with the @MaxResults@ parameter. If there are more jobs in the list will fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. To return the next page of vocabularies, include the token in the next request to the @ListMedicalVocabularies@ operation .
 -- * 'responseStatus' - The response status code.
--- * 'status' - The requested vocabulary state.
--- * 'vocabularies' - A list of objects that describe the vocabularies that match your search criteria.
 mkListMedicalVocabulariesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

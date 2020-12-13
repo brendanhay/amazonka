@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Connect.UpdateInstanceAttribute
 
     -- ** Request lenses
     uiaInstanceId,
-    uiaAttributeType,
     uiaValue,
+    uiaAttributeType,
 
     -- * Destructuring the response
     UpdateInstanceAttributeResponse (..),
@@ -37,38 +38,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateInstanceAttribute' smart constructor.
 data UpdateInstanceAttribute = UpdateInstanceAttribute'
-  { instanceId ::
-      Lude.Text,
-    attributeType :: InstanceAttributeType,
-    value :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The value for the attribute. Maximum character limit is 100.
+    value :: Lude.Text,
+    -- | The type of attribute.
+    attributeType :: InstanceAttributeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeType' - The type of attribute.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'value' - The value for the attribute. Maximum character limit is 100.
+-- * 'attributeType' - The type of attribute.
 mkUpdateInstanceAttribute ::
   -- | 'instanceId'
   Lude.Text ->
-  -- | 'attributeType'
-  InstanceAttributeType ->
   -- | 'value'
   Lude.Text ->
+  -- | 'attributeType'
+  InstanceAttributeType ->
   UpdateInstanceAttribute
-mkUpdateInstanceAttribute pInstanceId_ pAttributeType_ pValue_ =
+mkUpdateInstanceAttribute pInstanceId_ pValue_ pAttributeType_ =
   UpdateInstanceAttribute'
     { instanceId = pInstanceId_,
-      attributeType = pAttributeType_,
-      value = pValue_
+      value = pValue_,
+      attributeType = pAttributeType_
     }
 
 -- | The identifier of the Amazon Connect instance.
@@ -78,19 +75,19 @@ uiaInstanceId :: Lens.Lens' UpdateInstanceAttribute Lude.Text
 uiaInstanceId = Lens.lens (instanceId :: UpdateInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateInstanceAttribute)
 {-# DEPRECATED uiaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
--- | The type of attribute.
---
--- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiaAttributeType :: Lens.Lens' UpdateInstanceAttribute InstanceAttributeType
-uiaAttributeType = Lens.lens (attributeType :: UpdateInstanceAttribute -> InstanceAttributeType) (\s a -> s {attributeType = a} :: UpdateInstanceAttribute)
-{-# DEPRECATED uiaAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
-
 -- | The value for the attribute. Maximum character limit is 100.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uiaValue :: Lens.Lens' UpdateInstanceAttribute Lude.Text
 uiaValue = Lens.lens (value :: UpdateInstanceAttribute -> Lude.Text) (\s a -> s {value = a} :: UpdateInstanceAttribute)
 {-# DEPRECATED uiaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+-- | The type of attribute.
+--
+-- /Note:/ Consider using 'attributeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiaAttributeType :: Lens.Lens' UpdateInstanceAttribute InstanceAttributeType
+uiaAttributeType = Lens.lens (attributeType :: UpdateInstanceAttribute -> InstanceAttributeType) (\s a -> s {attributeType = a} :: UpdateInstanceAttribute)
+{-# DEPRECATED uiaAttributeType "Use generic-lens or generic-optics with 'attributeType' instead." #-}
 
 instance Lude.AWSRequest UpdateInstanceAttribute where
   type Rs UpdateInstanceAttribute = UpdateInstanceAttributeResponse
@@ -124,13 +121,7 @@ instance Lude.ToQuery UpdateInstanceAttribute where
 
 -- | /See:/ 'mkUpdateInstanceAttributeResponse' smart constructor.
 data UpdateInstanceAttributeResponse = UpdateInstanceAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInstanceAttributeResponse' with the minimum fields required to make a request.

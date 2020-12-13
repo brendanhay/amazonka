@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,14 +42,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkGetParallelData' smart constructor.
-newtype GetParallelData = GetParallelData' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetParallelData = GetParallelData'
+  { -- | The name of the parallel data resource that is being retrieved.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParallelData' with the minimum fields required to make a request.
@@ -106,31 +104,26 @@ instance Lude.ToQuery GetParallelData where
 
 -- | /See:/ 'mkGetParallelDataResponse' smart constructor.
 data GetParallelDataResponse = GetParallelDataResponse'
-  { parallelDataProperties ::
-      Lude.Maybe ParallelDataProperties,
-    dataLocation ::
-      Lude.Maybe ParallelDataDataLocation,
-    auxiliaryDataLocation ::
-      Lude.Maybe ParallelDataDataLocation,
-    latestUpdateAttemptAuxiliaryDataLocation ::
-      Lude.Maybe ParallelDataDataLocation,
+  { -- | The properties of the parallel data resource that is being retrieved.
+    parallelDataProperties :: Lude.Maybe ParallelDataProperties,
+    -- | The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.
+    dataLocation :: Lude.Maybe ParallelDataDataLocation,
+    -- | The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
+    auxiliaryDataLocation :: Lude.Maybe ParallelDataDataLocation,
+    -- | The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
+    latestUpdateAttemptAuxiliaryDataLocation :: Lude.Maybe ParallelDataDataLocation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParallelDataResponse' with the minimum fields required to make a request.
 --
--- * 'auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
--- * 'dataLocation' - The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.
--- * 'latestUpdateAttemptAuxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
 -- * 'parallelDataProperties' - The properties of the parallel data resource that is being retrieved.
+-- * 'dataLocation' - The location of the most recent parallel data input file that was successfully imported into Amazon Translate. The location is returned as a presigned URL that has a 30 minute expiration.
+-- * 'auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to create a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
+-- * 'latestUpdateAttemptAuxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings that were produced by your input file. This file was created when Amazon Translate attempted to update a parallel data resource. The location is returned as a presigned URL to that has a 30 minute expiration.
 -- * 'responseStatus' - The response status code.
 mkGetParallelDataResponse ::
   -- | 'responseStatus'

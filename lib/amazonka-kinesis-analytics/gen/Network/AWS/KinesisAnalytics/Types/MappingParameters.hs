@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMappingParameters' smart constructor.
 data MappingParameters = MappingParameters'
-  { csvMappingParameters ::
-      Lude.Maybe CSVMappingParameters,
-    jsonMappingParameters ::
-      Lude.Maybe JSONMappingParameters
+  { -- | Provides additional mapping information when the record format uses delimiters (for example, CSV).
+    csvMappingParameters :: Lude.Maybe CSVMappingParameters,
+    -- | Provides additional mapping information when JSON is the record format on the streaming source.
+    jsonMappingParameters :: Lude.Maybe JSONMappingParameters
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MappingParameters' with the minimum fields required to make a request.

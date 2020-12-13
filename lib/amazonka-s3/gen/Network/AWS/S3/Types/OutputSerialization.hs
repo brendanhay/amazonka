@@ -32,23 +32,18 @@ import Network.AWS.S3.Types.JSONOutput
 --
 -- /See:/ 'mkOutputSerialization' smart constructor.
 data OutputSerialization = OutputSerialization'
-  { json ::
-      Lude.Maybe JSONOutput,
+  { -- | Specifies JSON as request's output serialization format.
+    json :: Lude.Maybe JSONOutput,
+    -- | Describes the serialization of CSV-encoded Select results.
     csv :: Lude.Maybe CSVOutput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputSerialization' with the minimum fields required to make a request.
 --
--- * 'csv' - Describes the serialization of CSV-encoded Select results.
 -- * 'json' - Specifies JSON as request's output serialization format.
+-- * 'csv' - Describes the serialization of CSV-encoded Select results.
 mkOutputSerialization ::
   OutputSerialization
 mkOutputSerialization =

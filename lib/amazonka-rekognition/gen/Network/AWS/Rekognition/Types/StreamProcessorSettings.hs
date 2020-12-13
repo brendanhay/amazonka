@@ -29,16 +29,10 @@ import Network.AWS.Rekognition.Types.FaceSearchSettings
 --
 -- /See:/ 'mkStreamProcessorSettings' smart constructor.
 newtype StreamProcessorSettings = StreamProcessorSettings'
-  { faceSearch ::
-      Lude.Maybe FaceSearchSettings
+  { -- | Face search settings to use on a streaming video.
+    faceSearch :: Lude.Maybe FaceSearchSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamProcessorSettings' with the minimum fields required to make a request.

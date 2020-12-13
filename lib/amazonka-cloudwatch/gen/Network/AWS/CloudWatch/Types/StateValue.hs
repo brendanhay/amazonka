@@ -13,9 +13,9 @@
 module Network.AWS.CloudWatch.Types.StateValue
   ( StateValue
       ( StateValue',
+        OK,
         Alarm,
-        InsufficientData,
-        OK
+        InsufficientData
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype StateValue = StateValue' Lude.Text
       Lude.ToHeader
     )
 
+pattern OK :: StateValue
+pattern OK = StateValue' "OK"
+
 pattern Alarm :: StateValue
 pattern Alarm = StateValue' "ALARM"
 
 pattern InsufficientData :: StateValue
 pattern InsufficientData = StateValue' "INSUFFICIENT_DATA"
 
-pattern OK :: StateValue
-pattern OK = StateValue' "OK"
-
 {-# COMPLETE
+  OK,
   Alarm,
   InsufficientData,
-  OK,
   StateValue'
   #-}

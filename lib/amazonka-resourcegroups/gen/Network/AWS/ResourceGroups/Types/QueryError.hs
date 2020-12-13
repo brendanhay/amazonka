@@ -30,17 +30,12 @@ import Network.AWS.ResourceGroups.Types.QueryErrorCode
 --
 -- /See:/ 'mkQueryError' smart constructor.
 data QueryError = QueryError'
-  { errorCode ::
-      Lude.Maybe QueryErrorCode,
+  { -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
+    errorCode :: Lude.Maybe QueryErrorCode,
+    -- | A message that explains the @ErrorCode@ value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For @CLOUDFORMATION_STACK_INACTIVE@ , the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as @CREATE_FAILED@ .
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryError' with the minimum fields required to make a request.

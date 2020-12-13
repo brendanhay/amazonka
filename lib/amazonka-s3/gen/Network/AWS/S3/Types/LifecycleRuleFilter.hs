@@ -33,25 +33,20 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkLifecycleRuleFilter' smart constructor.
 data LifecycleRuleFilter = LifecycleRuleFilter'
-  { tag ::
-      Lude.Maybe Tag,
+  { -- | This tag must exist in the object's tag set in order for the rule to apply.
+    tag :: Lude.Maybe Tag,
+    -- | Prefix identifying one or more objects to which the rule applies.
     prefix :: Lude.Maybe Lude.Text,
     and :: Lude.Maybe LifecycleRuleAndOperator
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecycleRuleFilter' with the minimum fields required to make a request.
 --
--- * 'and' - Undocumented field.
--- * 'prefix' - Prefix identifying one or more objects to which the rule applies.
 -- * 'tag' - This tag must exist in the object's tag set in order for the rule to apply.
+-- * 'prefix' - Prefix identifying one or more objects to which the rule applies.
+-- * 'and' -
 mkLifecycleRuleFilter ::
   LifecycleRuleFilter
 mkLifecycleRuleFilter =

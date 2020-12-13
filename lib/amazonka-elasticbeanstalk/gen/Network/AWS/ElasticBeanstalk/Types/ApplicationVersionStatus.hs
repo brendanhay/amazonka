@@ -13,11 +13,11 @@
 module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
   ( ApplicationVersionStatus
       ( ApplicationVersionStatus',
-        AVSBuilding,
-        AVSFailed,
         AVSProcessed,
+        AVSUnprocessed,
+        AVSFailed,
         AVSProcessing,
-        AVSUnprocessed
+        AVSBuilding
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ApplicationVersionStatus = ApplicationVersionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AVSBuilding :: ApplicationVersionStatus
-pattern AVSBuilding = ApplicationVersionStatus' "Building"
-
-pattern AVSFailed :: ApplicationVersionStatus
-pattern AVSFailed = ApplicationVersionStatus' "Failed"
-
 pattern AVSProcessed :: ApplicationVersionStatus
 pattern AVSProcessed = ApplicationVersionStatus' "Processed"
-
-pattern AVSProcessing :: ApplicationVersionStatus
-pattern AVSProcessing = ApplicationVersionStatus' "Processing"
 
 pattern AVSUnprocessed :: ApplicationVersionStatus
 pattern AVSUnprocessed = ApplicationVersionStatus' "Unprocessed"
 
+pattern AVSFailed :: ApplicationVersionStatus
+pattern AVSFailed = ApplicationVersionStatus' "Failed"
+
+pattern AVSProcessing :: ApplicationVersionStatus
+pattern AVSProcessing = ApplicationVersionStatus' "Processing"
+
+pattern AVSBuilding :: ApplicationVersionStatus
+pattern AVSBuilding = ApplicationVersionStatus' "Building"
+
 {-# COMPLETE
-  AVSBuilding,
-  AVSFailed,
   AVSProcessed,
-  AVSProcessing,
   AVSUnprocessed,
+  AVSFailed,
+  AVSProcessing,
+  AVSBuilding,
   ApplicationVersionStatus'
   #-}

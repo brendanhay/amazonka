@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.TopicRuleDestinationStatus
   ( TopicRuleDestinationStatus
       ( TopicRuleDestinationStatus',
-        TRDSDisabled,
         TRDSEnabled,
-        TRDSError,
-        TRDSInProgress
+        TRDSInProgress,
+        TRDSDisabled,
+        TRDSError
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TopicRuleDestinationStatus = TopicRuleDestinationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern TRDSDisabled :: TopicRuleDestinationStatus
-pattern TRDSDisabled = TopicRuleDestinationStatus' "DISABLED"
-
 pattern TRDSEnabled :: TopicRuleDestinationStatus
 pattern TRDSEnabled = TopicRuleDestinationStatus' "ENABLED"
-
-pattern TRDSError :: TopicRuleDestinationStatus
-pattern TRDSError = TopicRuleDestinationStatus' "ERROR"
 
 pattern TRDSInProgress :: TopicRuleDestinationStatus
 pattern TRDSInProgress = TopicRuleDestinationStatus' "IN_PROGRESS"
 
+pattern TRDSDisabled :: TopicRuleDestinationStatus
+pattern TRDSDisabled = TopicRuleDestinationStatus' "DISABLED"
+
+pattern TRDSError :: TopicRuleDestinationStatus
+pattern TRDSError = TopicRuleDestinationStatus' "ERROR"
+
 {-# COMPLETE
-  TRDSDisabled,
   TRDSEnabled,
-  TRDSError,
   TRDSInProgress,
+  TRDSDisabled,
+  TRDSError,
   TopicRuleDestinationStatus'
   #-}

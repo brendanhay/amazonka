@@ -32,23 +32,18 @@ import Network.AWS.S3.Types.Grantee
 --
 -- /See:/ 'mkTargetGrant' smart constructor.
 data TargetGrant = TargetGrant'
-  { permission ::
-      Lude.Maybe BucketLogsPermission,
+  { -- | Logging permissions assigned to the grantee for the bucket.
+    permission :: Lude.Maybe BucketLogsPermission,
+    -- | Container for the person being granted permissions.
     grantee :: Lude.Maybe Grantee
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGrant' with the minimum fields required to make a request.
 --
--- * 'grantee' - Container for the person being granted permissions.
 -- * 'permission' - Logging permissions assigned to the grantee for the bucket.
+-- * 'grantee' - Container for the person being granted permissions.
 mkTargetGrant ::
   TargetGrant
 mkTargetGrant =

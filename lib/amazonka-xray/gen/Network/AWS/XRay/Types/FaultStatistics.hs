@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFaultStatistics' smart constructor.
 data FaultStatistics = FaultStatistics'
-  { otherCount ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of requests that failed with untracked 5xx Server Error status codes.
+    otherCount :: Lude.Maybe Lude.Integer,
+    -- | The total number of requests that failed with a 5xx Server Error status code.
     totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaultStatistics' with the minimum fields required to make a request.

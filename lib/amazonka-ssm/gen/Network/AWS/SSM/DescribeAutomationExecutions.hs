@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,29 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeAutomationExecutions' smart constructor.
 data DescribeAutomationExecutions = DescribeAutomationExecutions'
-  { filters ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            AutomationExecutionFilter
-        ),
+  { -- | Filters used to limit the scope of executions that are requested.
+    filters :: Lude.Maybe (Lude.NonEmpty AutomationExecutionFilter),
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutomationExecutions' with the minimum fields required to make a request.
 --
 -- * 'filters' - Filters used to limit the scope of executions that are requested.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeAutomationExecutions ::
   DescribeAutomationExecutions
 mkDescribeAutomationExecutions =
@@ -151,28 +144,20 @@ instance Lude.ToQuery DescribeAutomationExecutions where
 
 -- | /See:/ 'mkDescribeAutomationExecutionsResponse' smart constructor.
 data DescribeAutomationExecutionsResponse = DescribeAutomationExecutionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    automationExecutionMetadataList ::
-      Lude.Maybe
-        [AutomationExecutionMetadata],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of details about each automation execution which has occurred which matches the filter specification, if any.
+    automationExecutionMetadataList :: Lude.Maybe [AutomationExecutionMetadata],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutomationExecutionsResponse' with the minimum fields required to make a request.
 --
--- * 'automationExecutionMetadataList' - The list of details about each automation execution which has occurred which matches the filter specification, if any.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'automationExecutionMetadataList' - The list of details about each automation execution which has occurred which matches the filter specification, if any.
 -- * 'responseStatus' - The response status code.
 mkDescribeAutomationExecutionsResponse ::
   -- | 'responseStatus'

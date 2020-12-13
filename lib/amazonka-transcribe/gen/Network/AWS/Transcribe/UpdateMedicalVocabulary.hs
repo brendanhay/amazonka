@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Transcribe.UpdateMedicalVocabulary
     mkUpdateMedicalVocabulary,
 
     -- ** Request lenses
+    umvLanguageCode,
     umvVocabularyFileURI,
     umvVocabularyName,
-    umvLanguageCode,
 
     -- * Destructuring the response
     UpdateMedicalVocabularyResponse (..),
@@ -44,18 +45,20 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkUpdateMedicalVocabulary' smart constructor.
 data UpdateMedicalVocabulary = UpdateMedicalVocabulary'
-  { vocabularyFileURI ::
-      Lude.Maybe Lude.Text,
-    vocabularyName :: Lude.Text,
-    languageCode :: LanguageCode
+  { -- | The language code of the language used for the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.
+    languageCode :: LanguageCode,
+    -- | The location in Amazon S3 of the text file that contains the you use for your custom vocabulary. The URI must be in the same AWS Region as the resource that you are calling. The following is the format for a URI:
+    --
+    -- @https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @
+    -- For example:
+    -- @https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt@
+    -- For more information about Amazon S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+    -- For more information about custom vocabularies in Amazon Transcribe Medical, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies> .
+    vocabularyFileURI :: Lude.Maybe Lude.Text,
+    -- | The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a @ConflictException@ error.
+    vocabularyName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMedicalVocabulary' with the minimum fields required to make a request.
@@ -70,17 +73,24 @@ data UpdateMedicalVocabulary = UpdateMedicalVocabulary'
 -- For more information about custom vocabularies in Amazon Transcribe Medical, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Medical Custom Vocabularies> .
 -- * 'vocabularyName' - The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a vocabulary you've already made, you get a @ConflictException@ error.
 mkUpdateMedicalVocabulary ::
-  -- | 'vocabularyName'
-  Lude.Text ->
   -- | 'languageCode'
   LanguageCode ->
+  -- | 'vocabularyName'
+  Lude.Text ->
   UpdateMedicalVocabulary
-mkUpdateMedicalVocabulary pVocabularyName_ pLanguageCode_ =
+mkUpdateMedicalVocabulary pLanguageCode_ pVocabularyName_ =
   UpdateMedicalVocabulary'
-    { vocabularyFileURI = Lude.Nothing,
-      vocabularyName = pVocabularyName_,
-      languageCode = pLanguageCode_
+    { languageCode = pLanguageCode_,
+      vocabularyFileURI = Lude.Nothing,
+      vocabularyName = pVocabularyName_
     }
+
+-- | The language code of the language used for the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umvLanguageCode :: Lens.Lens' UpdateMedicalVocabulary LanguageCode
+umvLanguageCode = Lens.lens (languageCode :: UpdateMedicalVocabulary -> LanguageCode) (\s a -> s {languageCode = a} :: UpdateMedicalVocabulary)
+{-# DEPRECATED umvLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The location in Amazon S3 of the text file that contains the you use for your custom vocabulary. The URI must be in the same AWS Region as the resource that you are calling. The following is the format for a URI:
 --
@@ -101,13 +111,6 @@ umvVocabularyFileURI = Lens.lens (vocabularyFileURI :: UpdateMedicalVocabulary -
 umvVocabularyName :: Lens.Lens' UpdateMedicalVocabulary Lude.Text
 umvVocabularyName = Lens.lens (vocabularyName :: UpdateMedicalVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: UpdateMedicalVocabulary)
 {-# DEPRECATED umvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
-
--- | The language code of the language used for the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umvLanguageCode :: Lens.Lens' UpdateMedicalVocabulary LanguageCode
-umvLanguageCode = Lens.lens (languageCode :: UpdateMedicalVocabulary -> LanguageCode) (\s a -> s {languageCode = a} :: UpdateMedicalVocabulary)
-{-# DEPRECATED umvLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 instance Lude.AWSRequest UpdateMedicalVocabulary where
   type Rs UpdateMedicalVocabulary = UpdateMedicalVocabularyResponse
@@ -138,9 +141,9 @@ instance Lude.ToJSON UpdateMedicalVocabulary where
   toJSON UpdateMedicalVocabulary' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("VocabularyFileUri" Lude..=) Lude.<$> vocabularyFileURI,
-            Lude.Just ("VocabularyName" Lude..= vocabularyName),
-            Lude.Just ("LanguageCode" Lude..= languageCode)
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            ("VocabularyFileUri" Lude..=) Lude.<$> vocabularyFileURI,
+            Lude.Just ("VocabularyName" Lude..= vocabularyName)
           ]
       )
 
@@ -152,32 +155,27 @@ instance Lude.ToQuery UpdateMedicalVocabulary where
 
 -- | /See:/ 'mkUpdateMedicalVocabularyResponse' smart constructor.
 data UpdateMedicalVocabularyResponse = UpdateMedicalVocabularyResponse'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
-    vocabularyName ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    vocabularyState ::
-      Lude.Maybe VocabularyState,
+  { -- | The language code for the language of the text file used to update the custom vocabulary. US English (en-US) is the only language supported in Amazon Transcribe Medical.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The name of the updated vocabulary.
+    vocabularyName :: Lude.Maybe Lude.Text,
+    -- | The date and time that the vocabulary was updated.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The processing state of the update to the vocabulary. When the @VocabularyState@ field is @READY@ , the vocabulary is ready to be used in a @StartMedicalTranscriptionJob@ request.
+    vocabularyState :: Lude.Maybe VocabularyState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMedicalVocabularyResponse' with the minimum fields required to make a request.
 --
 -- * 'languageCode' - The language code for the language of the text file used to update the custom vocabulary. US English (en-US) is the only language supported in Amazon Transcribe Medical.
--- * 'lastModifiedTime' - The date and time that the vocabulary was updated.
--- * 'responseStatus' - The response status code.
 -- * 'vocabularyName' - The name of the updated vocabulary.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was updated.
 -- * 'vocabularyState' - The processing state of the update to the vocabulary. When the @VocabularyState@ field is @READY@ , the vocabulary is ready to be used in a @StartMedicalTranscriptionJob@ request.
+-- * 'responseStatus' - The response status code.
 mkUpdateMedicalVocabularyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

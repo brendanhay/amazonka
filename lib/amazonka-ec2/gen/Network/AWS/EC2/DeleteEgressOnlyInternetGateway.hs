@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.EC2.DeleteEgressOnlyInternetGateway
     mkDeleteEgressOnlyInternetGateway,
 
     -- ** Request lenses
-    deoigeDryRun,
-    deoigeEgressOnlyInternetGatewayId,
+    deoigfEgressOnlyInternetGatewayId,
+    deoigfDryRun,
 
     -- * Destructuring the response
     DeleteEgressOnlyInternetGatewayResponse (..),
     mkDeleteEgressOnlyInternetGatewayResponse,
 
     -- ** Response lenses
-    deoigersReturnCode,
-    deoigersResponseStatus,
+    deoigrsReturnCode,
+    deoigrsResponseStatus,
   )
 where
 
@@ -40,47 +41,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteEgressOnlyInternetGateway' smart constructor.
 data DeleteEgressOnlyInternetGateway = DeleteEgressOnlyInternetGateway'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    egressOnlyInternetGatewayId ::
-      Lude.Text
+  { -- | The ID of the egress-only internet gateway.
+    egressOnlyInternetGatewayId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEgressOnlyInternetGateway' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'egressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteEgressOnlyInternetGateway ::
   -- | 'egressOnlyInternetGatewayId'
   Lude.Text ->
   DeleteEgressOnlyInternetGateway
 mkDeleteEgressOnlyInternetGateway pEgressOnlyInternetGatewayId_ =
   DeleteEgressOnlyInternetGateway'
-    { dryRun = Lude.Nothing,
-      egressOnlyInternetGatewayId = pEgressOnlyInternetGatewayId_
+    { egressOnlyInternetGatewayId =
+        pEgressOnlyInternetGatewayId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoigeDryRun :: Lens.Lens' DeleteEgressOnlyInternetGateway (Lude.Maybe Lude.Bool)
-deoigeDryRun = Lens.lens (dryRun :: DeleteEgressOnlyInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteEgressOnlyInternetGateway)
-{-# DEPRECATED deoigeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the egress-only internet gateway.
 --
 -- /Note:/ Consider using 'egressOnlyInternetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoigeEgressOnlyInternetGatewayId :: Lens.Lens' DeleteEgressOnlyInternetGateway Lude.Text
-deoigeEgressOnlyInternetGatewayId = Lens.lens (egressOnlyInternetGatewayId :: DeleteEgressOnlyInternetGateway -> Lude.Text) (\s a -> s {egressOnlyInternetGatewayId = a} :: DeleteEgressOnlyInternetGateway)
-{-# DEPRECATED deoigeEgressOnlyInternetGatewayId "Use generic-lens or generic-optics with 'egressOnlyInternetGatewayId' instead." #-}
+deoigfEgressOnlyInternetGatewayId :: Lens.Lens' DeleteEgressOnlyInternetGateway Lude.Text
+deoigfEgressOnlyInternetGatewayId = Lens.lens (egressOnlyInternetGatewayId :: DeleteEgressOnlyInternetGateway -> Lude.Text) (\s a -> s {egressOnlyInternetGatewayId = a} :: DeleteEgressOnlyInternetGateway)
+{-# DEPRECATED deoigfEgressOnlyInternetGatewayId "Use generic-lens or generic-optics with 'egressOnlyInternetGatewayId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deoigfDryRun :: Lens.Lens' DeleteEgressOnlyInternetGateway (Lude.Maybe Lude.Bool)
+deoigfDryRun = Lens.lens (dryRun :: DeleteEgressOnlyInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteEgressOnlyInternetGateway)
+{-# DEPRECATED deoigfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteEgressOnlyInternetGateway where
   type
@@ -106,31 +102,24 @@ instance Lude.ToQuery DeleteEgressOnlyInternetGateway where
       [ "Action"
           Lude.=: ("DeleteEgressOnlyInternetGateway" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "EgressOnlyInternetGatewayId" Lude.=: egressOnlyInternetGatewayId
+        "EgressOnlyInternetGatewayId" Lude.=: egressOnlyInternetGatewayId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteEgressOnlyInternetGatewayResponse' smart constructor.
 data DeleteEgressOnlyInternetGatewayResponse = DeleteEgressOnlyInternetGatewayResponse'
-  { returnCode ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    returnCode :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEgressOnlyInternetGatewayResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'returnCode' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkDeleteEgressOnlyInternetGatewayResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -145,13 +134,13 @@ mkDeleteEgressOnlyInternetGatewayResponse pResponseStatus_ =
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 --
 -- /Note:/ Consider using 'returnCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoigersReturnCode :: Lens.Lens' DeleteEgressOnlyInternetGatewayResponse (Lude.Maybe Lude.Bool)
-deoigersReturnCode = Lens.lens (returnCode :: DeleteEgressOnlyInternetGatewayResponse -> Lude.Maybe Lude.Bool) (\s a -> s {returnCode = a} :: DeleteEgressOnlyInternetGatewayResponse)
-{-# DEPRECATED deoigersReturnCode "Use generic-lens or generic-optics with 'returnCode' instead." #-}
+deoigrsReturnCode :: Lens.Lens' DeleteEgressOnlyInternetGatewayResponse (Lude.Maybe Lude.Bool)
+deoigrsReturnCode = Lens.lens (returnCode :: DeleteEgressOnlyInternetGatewayResponse -> Lude.Maybe Lude.Bool) (\s a -> s {returnCode = a} :: DeleteEgressOnlyInternetGatewayResponse)
+{-# DEPRECATED deoigrsReturnCode "Use generic-lens or generic-optics with 'returnCode' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deoigersResponseStatus :: Lens.Lens' DeleteEgressOnlyInternetGatewayResponse Lude.Int
-deoigersResponseStatus = Lens.lens (responseStatus :: DeleteEgressOnlyInternetGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEgressOnlyInternetGatewayResponse)
-{-# DEPRECATED deoigersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+deoigrsResponseStatus :: Lens.Lens' DeleteEgressOnlyInternetGatewayResponse Lude.Int
+deoigrsResponseStatus = Lens.lens (responseStatus :: DeleteEgressOnlyInternetGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEgressOnlyInternetGatewayResponse)
+{-# DEPRECATED deoigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

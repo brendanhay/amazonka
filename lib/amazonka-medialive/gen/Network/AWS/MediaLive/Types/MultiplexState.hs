@@ -13,15 +13,15 @@
 module Network.AWS.MediaLive.Types.MultiplexState
   ( MultiplexState
       ( MultiplexState',
-        MSCreateFailed,
         MSCreating,
-        MSDeleted,
-        MSDeleting,
+        MSCreateFailed,
         MSIdle,
-        MSRecovering,
-        MSRunning,
         MSStarting,
-        MSStopping
+        MSRunning,
+        MSRecovering,
+        MSStopping,
+        MSDeleting,
+        MSDeleted
       ),
   )
 where
@@ -53,42 +53,42 @@ newtype MultiplexState = MultiplexState' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSCreateFailed :: MultiplexState
-pattern MSCreateFailed = MultiplexState' "CREATE_FAILED"
-
 pattern MSCreating :: MultiplexState
 pattern MSCreating = MultiplexState' "CREATING"
 
-pattern MSDeleted :: MultiplexState
-pattern MSDeleted = MultiplexState' "DELETED"
-
-pattern MSDeleting :: MultiplexState
-pattern MSDeleting = MultiplexState' "DELETING"
+pattern MSCreateFailed :: MultiplexState
+pattern MSCreateFailed = MultiplexState' "CREATE_FAILED"
 
 pattern MSIdle :: MultiplexState
 pattern MSIdle = MultiplexState' "IDLE"
 
-pattern MSRecovering :: MultiplexState
-pattern MSRecovering = MultiplexState' "RECOVERING"
+pattern MSStarting :: MultiplexState
+pattern MSStarting = MultiplexState' "STARTING"
 
 pattern MSRunning :: MultiplexState
 pattern MSRunning = MultiplexState' "RUNNING"
 
-pattern MSStarting :: MultiplexState
-pattern MSStarting = MultiplexState' "STARTING"
+pattern MSRecovering :: MultiplexState
+pattern MSRecovering = MultiplexState' "RECOVERING"
 
 pattern MSStopping :: MultiplexState
 pattern MSStopping = MultiplexState' "STOPPING"
 
+pattern MSDeleting :: MultiplexState
+pattern MSDeleting = MultiplexState' "DELETING"
+
+pattern MSDeleted :: MultiplexState
+pattern MSDeleted = MultiplexState' "DELETED"
+
 {-# COMPLETE
-  MSCreateFailed,
   MSCreating,
-  MSDeleted,
-  MSDeleting,
+  MSCreateFailed,
   MSIdle,
-  MSRecovering,
-  MSRunning,
   MSStarting,
+  MSRunning,
+  MSRecovering,
   MSStopping,
+  MSDeleting,
+  MSDeleted,
   MultiplexState'
   #-}

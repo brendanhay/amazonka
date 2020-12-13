@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
     mkListAvailableManagementCidrRanges,
 
     -- ** Request lenses
+    lamcrManagementCidrRangeConstraint,
     lamcrNextToken,
     lamcrMaxResults,
-    lamcrManagementCidrRangeConstraint,
 
     -- * Destructuring the response
     ListAvailableManagementCidrRangesResponse (..),
@@ -48,38 +49,39 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkListAvailableManagementCidrRanges' smart constructor.
 data ListAvailableManagementCidrRanges = ListAvailableManagementCidrRanges'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    managementCidrRangeConstraint ::
-      Lude.Text
+  { -- | The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
+    managementCidrRangeConstraint :: Lude.Text,
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableManagementCidrRanges' with the minimum fields required to make a request.
 --
 -- * 'managementCidrRangeConstraint' - The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
--- * 'maxResults' - The maximum number of items to return.
 -- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+-- * 'maxResults' - The maximum number of items to return.
 mkListAvailableManagementCidrRanges ::
   -- | 'managementCidrRangeConstraint'
   Lude.Text ->
   ListAvailableManagementCidrRanges
 mkListAvailableManagementCidrRanges pManagementCidrRangeConstraint_ =
   ListAvailableManagementCidrRanges'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      managementCidrRangeConstraint =
-        pManagementCidrRangeConstraint_
+    { managementCidrRangeConstraint =
+        pManagementCidrRangeConstraint_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
+--
+-- /Note:/ Consider using 'managementCidrRangeConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrManagementCidrRangeConstraint :: Lens.Lens' ListAvailableManagementCidrRanges Lude.Text
+lamcrManagementCidrRangeConstraint = Lens.lens (managementCidrRangeConstraint :: ListAvailableManagementCidrRanges -> Lude.Text) (\s a -> s {managementCidrRangeConstraint = a} :: ListAvailableManagementCidrRanges)
+{-# DEPRECATED lamcrManagementCidrRangeConstraint "Use generic-lens or generic-optics with 'managementCidrRangeConstraint' instead." #-}
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 --
@@ -94,13 +96,6 @@ lamcrNextToken = Lens.lens (nextToken :: ListAvailableManagementCidrRanges -> Lu
 lamcrMaxResults :: Lens.Lens' ListAvailableManagementCidrRanges (Lude.Maybe Lude.Natural)
 lamcrMaxResults = Lens.lens (maxResults :: ListAvailableManagementCidrRanges -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAvailableManagementCidrRanges)
 {-# DEPRECATED lamcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
---
--- /Note:/ Consider using 'managementCidrRangeConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamcrManagementCidrRangeConstraint :: Lens.Lens' ListAvailableManagementCidrRanges Lude.Text
-lamcrManagementCidrRangeConstraint = Lens.lens (managementCidrRangeConstraint :: ListAvailableManagementCidrRanges -> Lude.Text) (\s a -> s {managementCidrRangeConstraint = a} :: ListAvailableManagementCidrRanges)
-{-# DEPRECATED lamcrManagementCidrRangeConstraint "Use generic-lens or generic-optics with 'managementCidrRangeConstraint' instead." #-}
 
 instance Page.AWSPager ListAvailableManagementCidrRanges where
   page rq rs
@@ -142,12 +137,12 @@ instance Lude.ToJSON ListAvailableManagementCidrRanges where
   toJSON ListAvailableManagementCidrRanges' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just
+          [ Lude.Just
               ( "ManagementCidrRangeConstraint"
                   Lude..= managementCidrRangeConstraint
-              )
+              ),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -159,22 +154,14 @@ instance Lude.ToQuery ListAvailableManagementCidrRanges where
 
 -- | /See:/ 'mkListAvailableManagementCidrRangesResponse' smart constructor.
 data ListAvailableManagementCidrRangesResponse = ListAvailableManagementCidrRangesResponse'
-  { managementCidrRanges ::
-      Lude.Maybe
-        [Lude.Text],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of available IP address ranges, specified as IPv4 CIDR blocks.
+    managementCidrRanges :: Lude.Maybe [Lude.Text],
+    -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableManagementCidrRangesResponse' with the minimum fields required to make a request.

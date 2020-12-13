@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Connect.ListApprovedOrigins
     mkListApprovedOrigins,
 
     -- ** Request lenses
+    laoInstanceId,
     laoNextToken,
     laoMaxResults,
-    laoInstanceId,
 
     -- * Destructuring the response
     ListApprovedOriginsResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListApprovedOrigins' smart constructor.
 data ListApprovedOrigins = ListApprovedOrigins'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApprovedOrigins' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListApprovedOrigins ::
   -- | 'instanceId'
   Lude.Text ->
   ListApprovedOrigins
 mkListApprovedOrigins pInstanceId_ =
   ListApprovedOrigins'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laoInstanceId :: Lens.Lens' ListApprovedOrigins Lude.Text
+laoInstanceId = Lens.lens (instanceId :: ListApprovedOrigins -> Lude.Text) (\s a -> s {instanceId = a} :: ListApprovedOrigins)
+{-# DEPRECATED laoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -88,13 +92,6 @@ laoNextToken = Lens.lens (nextToken :: ListApprovedOrigins -> Lude.Maybe Lude.Te
 laoMaxResults :: Lens.Lens' ListApprovedOrigins (Lude.Maybe Lude.Natural)
 laoMaxResults = Lens.lens (maxResults :: ListApprovedOrigins -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListApprovedOrigins)
 {-# DEPRECATED laoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laoInstanceId :: Lens.Lens' ListApprovedOrigins Lude.Text
-laoInstanceId = Lens.lens (instanceId :: ListApprovedOrigins -> Lude.Text) (\s a -> s {instanceId = a} :: ListApprovedOrigins)
-{-# DEPRECATED laoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListApprovedOrigins where
   page rq rs
@@ -138,18 +135,14 @@ instance Lude.ToQuery ListApprovedOrigins where
 
 -- | /See:/ 'mkListApprovedOriginsResponse' smart constructor.
 data ListApprovedOriginsResponse = ListApprovedOriginsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The approved origins.
     origins :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApprovedOriginsResponse' with the minimum fields required to make a request.

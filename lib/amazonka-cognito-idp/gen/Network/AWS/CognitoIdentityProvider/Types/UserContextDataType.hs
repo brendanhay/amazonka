@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserContextDataType' smart constructor.
 newtype UserContextDataType = UserContextDataType'
-  { encodedData ::
-      Lude.Maybe Lude.Text
+  { -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+    encodedData :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserContextDataType' with the minimum fields required to make a request.

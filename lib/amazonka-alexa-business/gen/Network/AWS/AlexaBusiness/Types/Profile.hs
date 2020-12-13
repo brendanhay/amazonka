@@ -45,46 +45,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProfile' smart constructor.
 data Profile = Profile'
-  { setupModeDisabled :: Lude.Maybe Lude.Bool,
+  { -- | The setup mode of a room profile.
+    setupModeDisabled :: Lude.Maybe Lude.Bool,
+    -- | The PSTN setting of a room profile.
     pSTNEnabled :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the address book.
     addressBookARN :: Lude.Maybe Lude.Text,
+    -- | The distance unit of a room profile.
     distanceUnit :: Lude.Maybe DistanceUnit,
+    -- | The locale of a room profile. (This is currently available only to a limited preview audience.)
     locale :: Lude.Maybe Lude.Text,
+    -- | The address of a room profile.
     address :: Lude.Maybe Lude.Text,
+    -- | The ARN of a room profile.
     profileARN :: Lude.Maybe Lude.Text,
+    -- | The wake word of a room profile.
     wakeWord :: Lude.Maybe WakeWord,
+    -- | Meeting room settings of a room profile.
     meetingRoomConfiguration :: Lude.Maybe MeetingRoomConfiguration,
+    -- | The name of a room profile.
     profileName :: Lude.Maybe Lude.Text,
+    -- | The temperature unit of a room profile.
     temperatureUnit :: Lude.Maybe TemperatureUnit,
+    -- | The time zone of a room profile.
     timezone :: Lude.Maybe Lude.Text,
+    -- | The max volume limit of a room profile.
     maxVolumeLimit :: Lude.Maybe Lude.Int,
+    -- | Retrieves if the profile is default or not.
     isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Profile' with the minimum fields required to make a request.
 --
--- * 'address' - The address of a room profile.
+-- * 'setupModeDisabled' - The setup mode of a room profile.
+-- * 'pSTNEnabled' - The PSTN setting of a room profile.
 -- * 'addressBookARN' - The ARN of the address book.
 -- * 'distanceUnit' - The distance unit of a room profile.
--- * 'isDefault' - Retrieves if the profile is default or not.
 -- * 'locale' - The locale of a room profile. (This is currently available only to a limited preview audience.)
--- * 'maxVolumeLimit' - The max volume limit of a room profile.
--- * 'meetingRoomConfiguration' - Meeting room settings of a room profile.
--- * 'pSTNEnabled' - The PSTN setting of a room profile.
+-- * 'address' - The address of a room profile.
 -- * 'profileARN' - The ARN of a room profile.
+-- * 'wakeWord' - The wake word of a room profile.
+-- * 'meetingRoomConfiguration' - Meeting room settings of a room profile.
 -- * 'profileName' - The name of a room profile.
--- * 'setupModeDisabled' - The setup mode of a room profile.
 -- * 'temperatureUnit' - The temperature unit of a room profile.
 -- * 'timezone' - The time zone of a room profile.
--- * 'wakeWord' - The wake word of a room profile.
+-- * 'maxVolumeLimit' - The max volume limit of a room profile.
+-- * 'isDefault' - Retrieves if the profile is default or not.
 mkProfile ::
   Profile
 mkProfile =

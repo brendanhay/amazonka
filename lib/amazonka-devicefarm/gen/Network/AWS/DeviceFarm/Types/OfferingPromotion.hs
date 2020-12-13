@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOfferingPromotion' smart constructor.
 data OfferingPromotion = OfferingPromotion'
-  { id ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the offering promotion.
+    id :: Lude.Maybe Lude.Text,
+    -- | A string that describes the offering promotion.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OfferingPromotion' with the minimum fields required to make a request.
 --
--- * 'description' - A string that describes the offering promotion.
 -- * 'id' - The ID of the offering promotion.
+-- * 'description' - A string that describes the offering promotion.
 mkOfferingPromotion ::
   OfferingPromotion
 mkOfferingPromotion =

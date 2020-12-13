@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,13 +42,7 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
@@ -95,28 +90,21 @@ instance Lude.ToQuery DescribeAccountAttributes where
 --
 -- /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { accountQuotas ::
-      Lude.Maybe
-        [AccountQuota],
-    uniqueAccountIdentifier ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Account quota information.
+    accountQuotas :: Lude.Maybe [AccountQuota],
+    -- | A unique AWS DMS identifier for an account in a particular AWS Region. The value of this identifier has the following format: @c99999999999@ . DMS uses this identifier to name artifacts. For example, DMS uses this identifier to name the default Amazon S3 bucket for storing task assessment reports in a given AWS Region. The format of this S3 bucket name is the following: @dms-/AccountNumber/ -/UniqueAccountIdentifier/ .@ Here is an example name for this default S3 bucket: @dms-111122223333-c44445555666@ .
+    uniqueAccountIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
 --
 -- * 'accountQuotas' - Account quota information.
--- * 'responseStatus' - The response status code.
 -- * 'uniqueAccountIdentifier' - A unique AWS DMS identifier for an account in a particular AWS Region. The value of this identifier has the following format: @c99999999999@ . DMS uses this identifier to name artifacts. For example, DMS uses this identifier to name the default Amazon S3 bucket for storing task assessment reports in a given AWS Region. The format of this S3 bucket name is the following: @dms-/AccountNumber/ -/UniqueAccountIdentifier/ .@ Here is an example name for this default S3 bucket: @dms-111122223333-c44445555666@ .
+-- * 'responseStatus' - The response status code.
 mkDescribeAccountAttributesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

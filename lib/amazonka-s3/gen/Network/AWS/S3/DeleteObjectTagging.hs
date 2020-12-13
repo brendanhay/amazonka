@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,9 +30,9 @@ module Network.AWS.S3.DeleteObjectTagging
 
     -- ** Request lenses
     dotVersionId,
-    dotExpectedBucketOwner,
     dotBucket,
     dotKey,
+    dotExpectedBucketOwner,
 
     -- * Destructuring the response
     DeleteObjectTaggingResponse (..),
@@ -51,30 +52,30 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeleteObjectTagging' smart constructor.
 data DeleteObjectTagging = DeleteObjectTagging'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The versionId of the object that the tag-set will be removed from.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The bucket name containing the objects from which to remove the tags.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
-    key :: ObjectKey
+    -- | Name of the object key.
+    key :: ObjectKey,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObjectTagging' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The versionId of the object that the tag-set will be removed from.
 -- * 'bucket' - The bucket name containing the objects from which to remove the tags.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'key' - Name of the object key.
--- * 'versionId' - The versionId of the object that the tag-set will be removed from.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkDeleteObjectTagging ::
   -- | 'bucket'
   BucketName ->
@@ -84,9 +85,9 @@ mkDeleteObjectTagging ::
 mkDeleteObjectTagging pBucket_ pKey_ =
   DeleteObjectTagging'
     { versionId = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
       bucket = pBucket_,
-      key = pKey_
+      key = pKey_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The versionId of the object that the tag-set will be removed from.
@@ -95,13 +96,6 @@ mkDeleteObjectTagging pBucket_ pKey_ =
 dotVersionId :: Lens.Lens' DeleteObjectTagging (Lude.Maybe ObjectVersionId)
 dotVersionId = Lens.lens (versionId :: DeleteObjectTagging -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: DeleteObjectTagging)
 {-# DEPRECATED dotVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dotExpectedBucketOwner :: Lens.Lens' DeleteObjectTagging (Lude.Maybe Lude.Text)
-dotExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteObjectTagging)
-{-# DEPRECATED dotExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name containing the objects from which to remove the tags.
 --
@@ -119,6 +113,13 @@ dotBucket = Lens.lens (bucket :: DeleteObjectTagging -> BucketName) (\s a -> s {
 dotKey :: Lens.Lens' DeleteObjectTagging ObjectKey
 dotKey = Lens.lens (key :: DeleteObjectTagging -> ObjectKey) (\s a -> s {key = a} :: DeleteObjectTagging)
 {-# DEPRECATED dotKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dotExpectedBucketOwner :: Lens.Lens' DeleteObjectTagging (Lude.Maybe Lude.Text)
+dotExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteObjectTagging)
+{-# DEPRECATED dotExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest DeleteObjectTagging where
   type Rs DeleteObjectTagging = DeleteObjectTaggingResponse
@@ -146,23 +147,18 @@ instance Lude.ToQuery DeleteObjectTagging where
 
 -- | /See:/ 'mkDeleteObjectTaggingResponse' smart constructor.
 data DeleteObjectTaggingResponse = DeleteObjectTaggingResponse'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
+  { -- | The versionId of the object the tag-set was removed from.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteObjectTaggingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'versionId' - The versionId of the object the tag-set was removed from.
+-- * 'responseStatus' - The response status code.
 mkDeleteObjectTaggingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

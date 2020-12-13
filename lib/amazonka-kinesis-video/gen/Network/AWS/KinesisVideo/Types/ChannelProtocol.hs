@@ -13,8 +13,8 @@
 module Network.AWS.KinesisVideo.Types.ChannelProtocol
   ( ChannelProtocol
       ( ChannelProtocol',
-        HTTPS,
-        Wss
+        Wss,
+        HTTPS
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ChannelProtocol = ChannelProtocol' Lude.Text
       Lude.ToHeader
     )
 
-pattern HTTPS :: ChannelProtocol
-pattern HTTPS = ChannelProtocol' "HTTPS"
-
 pattern Wss :: ChannelProtocol
 pattern Wss = ChannelProtocol' "WSS"
 
+pattern HTTPS :: ChannelProtocol
+pattern HTTPS = ChannelProtocol' "HTTPS"
+
 {-# COMPLETE
-  HTTPS,
   Wss,
+  HTTPS,
   ChannelProtocol'
   #-}

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryFilter' smart constructor.
 newtype QueryFilter = QueryFilter'
-  { deltaTime ::
-      Lude.Maybe DeltaTime
+  { -- | Used to limit data to that which has arrived since the last execution of the action.
+    deltaTime :: Lude.Maybe DeltaTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryFilter' with the minimum fields required to make a request.

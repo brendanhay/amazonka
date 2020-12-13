@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,9 +37,9 @@ module Network.AWS.SageMaker.ListCodeRepositories
     mkListCodeRepositoriesResponse,
 
     -- ** Response lenses
+    lcrrsCodeRepositorySummaryList,
     lcrrsNextToken,
     lcrrsResponseStatus,
-    lcrrsCodeRepositorySummaryList,
   )
 where
 
@@ -51,39 +52,39 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListCodeRepositories' smart constructor.
 data ListCodeRepositories = ListCodeRepositories'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTimeBefore ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only Git repositories that were last modified before the specified time.
+    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only Git repositories that were created after the specified time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Ascending@ .
     sortOrder :: Lude.Maybe CodeRepositorySortOrder,
-    lastModifiedTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only Git repositories that were last modified after the specified time.
+    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only Git repositories that were created before the specified time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of Git repositories to return in the response.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @Name@ .
     sortBy :: Lude.Maybe CodeRepositorySortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCodeRepositories' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only Git repositories that were created after the specified time.
--- * 'creationTimeBefore' - A filter that returns only Git repositories that were created before the specified time.
--- * 'lastModifiedTimeAfter' - A filter that returns only Git repositories that were last modified after the specified time.
--- * 'lastModifiedTimeBefore' - A filter that returns only Git repositories that were last modified before the specified time.
--- * 'maxResults' - The maximum number of Git repositories to return in the response.
 -- * 'nameContains' - A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only Git repositories that were last modified before the specified time.
+-- * 'creationTimeAfter' - A filter that returns only Git repositories that were created after the specified time.
 -- * 'nextToken' - If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
--- * 'sortBy' - The field to sort results by. The default is @Name@ .
 -- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns only Git repositories that were last modified after the specified time.
+-- * 'creationTimeBefore' - A filter that returns only Git repositories that were created before the specified time.
+-- * 'maxResults' - The maximum number of Git repositories to return in the response.
+-- * 'sortBy' - The field to sort results by. The default is @Name@ .
 mkListCodeRepositories ::
   ListCodeRepositories
 mkListCodeRepositories =
@@ -179,9 +180,9 @@ instance Lude.AWSRequest ListCodeRepositories where
     Res.receiveJSON
       ( \s h x ->
           ListCodeRepositoriesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "CodeRepositorySummaryList" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "CodeRepositorySummaryList" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListCodeRepositories where
@@ -219,19 +220,29 @@ instance Lude.ToQuery ListCodeRepositories where
 
 -- | /See:/ 'mkListCodeRepositoriesResponse' smart constructor.
 data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    codeRepositorySummaryList ::
-      [CodeRepositorySummary]
+  { -- | Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository:
+    --
+    --
+    --     * Name
+    --
+    --
+    --     * Amazon Resource Name (ARN)
+    --
+    --
+    --     * Creation time
+    --
+    --
+    --     * Last modified time
+    --
+    --
+    --     * Configuration information, including the URL location of the repository and the ARN of the AWS Secrets Manager secret that contains the credentials used to access the repository.
+    codeRepositorySummaryList :: [CodeRepositorySummary],
+    -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCodeRepositoriesResponse' with the minimum fields required to make a request.
@@ -262,24 +273,11 @@ mkListCodeRepositoriesResponse ::
   ListCodeRepositoriesResponse
 mkListCodeRepositoriesResponse pResponseStatus_ =
   ListCodeRepositoriesResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      codeRepositorySummaryList = Lude.mempty
+    { codeRepositorySummaryList =
+        Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
-
--- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrrsNextToken :: Lens.Lens' ListCodeRepositoriesResponse (Lude.Maybe Lude.Text)
-lcrrsNextToken = Lens.lens (nextToken :: ListCodeRepositoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCodeRepositoriesResponse)
-{-# DEPRECATED lcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrrsResponseStatus :: Lens.Lens' ListCodeRepositoriesResponse Lude.Int
-lcrrsResponseStatus = Lens.lens (responseStatus :: ListCodeRepositoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCodeRepositoriesResponse)
-{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository:
 --
@@ -304,3 +302,17 @@ lcrrsResponseStatus = Lens.lens (responseStatus :: ListCodeRepositoriesResponse 
 lcrrsCodeRepositorySummaryList :: Lens.Lens' ListCodeRepositoriesResponse [CodeRepositorySummary]
 lcrrsCodeRepositorySummaryList = Lens.lens (codeRepositorySummaryList :: ListCodeRepositoriesResponse -> [CodeRepositorySummary]) (\s a -> s {codeRepositorySummaryList = a} :: ListCodeRepositoriesResponse)
 {-# DEPRECATED lcrrsCodeRepositorySummaryList "Use generic-lens or generic-optics with 'codeRepositorySummaryList' instead." #-}
+
+-- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrrsNextToken :: Lens.Lens' ListCodeRepositoriesResponse (Lude.Maybe Lude.Text)
+lcrrsNextToken = Lens.lens (nextToken :: ListCodeRepositoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCodeRepositoriesResponse)
+{-# DEPRECATED lcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrrsResponseStatus :: Lens.Lens' ListCodeRepositoriesResponse Lude.Int
+lcrrsResponseStatus = Lens.lens (responseStatus :: ListCodeRepositoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCodeRepositoriesResponse)
+{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

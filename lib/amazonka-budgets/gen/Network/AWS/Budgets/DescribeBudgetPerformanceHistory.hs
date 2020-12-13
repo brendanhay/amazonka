@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.Budgets.DescribeBudgetPerformanceHistory
 
     -- ** Request lenses
     dbphTimePeriod,
-    dbphNextToken,
-    dbphMaxResults,
     dbphAccountId,
+    dbphNextToken,
     dbphBudgetName,
+    dbphMaxResults,
 
     -- * Destructuring the response
     DescribeBudgetPerformanceHistoryResponse (..),
@@ -47,31 +48,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBudgetPerformanceHistory' smart constructor.
 data DescribeBudgetPerformanceHistory = DescribeBudgetPerformanceHistory'
-  { timePeriod ::
-      Lude.Maybe TimePeriod,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
+  { -- | Retrieves how often the budget went into an @ALARM@ state for the specified time period.
+    timePeriod :: Lude.Maybe TimePeriod,
     accountId :: Lude.Text,
-    budgetName :: Lude.Text
+    nextToken :: Lude.Maybe Lude.Text,
+    budgetName :: Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetPerformanceHistory' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
--- * 'budgetName' - Undocumented field.
--- * 'maxResults' - Undocumented field.
--- * 'nextToken' - Undocumented field.
 -- * 'timePeriod' - Retrieves how often the budget went into an @ALARM@ state for the specified time period.
+-- * 'accountId' -
+-- * 'nextToken' -
+-- * 'budgetName' -
+-- * 'maxResults' -
 mkDescribeBudgetPerformanceHistory ::
   -- | 'accountId'
   Lude.Text ->
@@ -81,10 +74,10 @@ mkDescribeBudgetPerformanceHistory ::
 mkDescribeBudgetPerformanceHistory pAccountId_ pBudgetName_ =
   DescribeBudgetPerformanceHistory'
     { timePeriod = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
       accountId = pAccountId_,
-      budgetName = pBudgetName_
+      nextToken = Lude.Nothing,
+      budgetName = pBudgetName_,
+      maxResults = Lude.Nothing
     }
 
 -- | Retrieves how often the budget went into an @ALARM@ state for the specified time period.
@@ -96,20 +89,6 @@ dbphTimePeriod = Lens.lens (timePeriod :: DescribeBudgetPerformanceHistory -> Lu
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphNextToken :: Lens.Lens' DescribeBudgetPerformanceHistory (Lude.Maybe Lude.Text)
-dbphNextToken = Lens.lens (nextToken :: DescribeBudgetPerformanceHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetPerformanceHistory)
-{-# DEPRECATED dbphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbphMaxResults :: Lens.Lens' DescribeBudgetPerformanceHistory (Lude.Maybe Lude.Natural)
-dbphMaxResults = Lens.lens (maxResults :: DescribeBudgetPerformanceHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetPerformanceHistory)
-{-# DEPRECATED dbphMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dbphAccountId :: Lens.Lens' DescribeBudgetPerformanceHistory Lude.Text
 dbphAccountId = Lens.lens (accountId :: DescribeBudgetPerformanceHistory -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetPerformanceHistory)
@@ -117,10 +96,24 @@ dbphAccountId = Lens.lens (accountId :: DescribeBudgetPerformanceHistory -> Lude
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbphNextToken :: Lens.Lens' DescribeBudgetPerformanceHistory (Lude.Maybe Lude.Text)
+dbphNextToken = Lens.lens (nextToken :: DescribeBudgetPerformanceHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetPerformanceHistory)
+{-# DEPRECATED dbphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dbphBudgetName :: Lens.Lens' DescribeBudgetPerformanceHistory Lude.Text
 dbphBudgetName = Lens.lens (budgetName :: DescribeBudgetPerformanceHistory -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudgetPerformanceHistory)
 {-# DEPRECATED dbphBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbphMaxResults :: Lens.Lens' DescribeBudgetPerformanceHistory (Lude.Maybe Lude.Natural)
+dbphMaxResults = Lens.lens (maxResults :: DescribeBudgetPerformanceHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetPerformanceHistory)
+{-# DEPRECATED dbphMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeBudgetPerformanceHistory where
   page rq rs
@@ -164,10 +157,10 @@ instance Lude.ToJSON DescribeBudgetPerformanceHistory where
     Lude.object
       ( Lude.catMaybes
           [ ("TimePeriod" Lude..=) Lude.<$> timePeriod,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName)
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("BudgetName" Lude..= budgetName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -179,22 +172,15 @@ instance Lude.ToQuery DescribeBudgetPerformanceHistory where
 
 -- | /See:/ 'mkDescribeBudgetPerformanceHistoryResponse' smart constructor.
 data DescribeBudgetPerformanceHistoryResponse = DescribeBudgetPerformanceHistoryResponse'
-  { budgetPerformanceHistory ::
-      Lude.Maybe
-        BudgetPerformanceHistory,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The history of how often the budget has gone into an @ALARM@ state.
+    --
+    -- For @DAILY@ budgets, the history saves the state of the budget for the last 60 days. For @MONTHLY@ budgets, the history saves the state of the budget for the current month plus the last 12 months. For @QUARTERLY@ budgets, the history saves the state of the budget for the last four quarters.
+    budgetPerformanceHistory :: Lude.Maybe BudgetPerformanceHistory,
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetPerformanceHistoryResponse' with the minimum fields required to make a request.
@@ -202,7 +188,7 @@ data DescribeBudgetPerformanceHistoryResponse = DescribeBudgetPerformanceHistory
 -- * 'budgetPerformanceHistory' - The history of how often the budget has gone into an @ALARM@ state.
 --
 -- For @DAILY@ budgets, the history saves the state of the budget for the last 60 days. For @MONTHLY@ budgets, the history saves the state of the budget for the current month plus the last 12 months. For @QUARTERLY@ budgets, the history saves the state of the budget for the last four quarters.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkDescribeBudgetPerformanceHistoryResponse ::
   -- | 'responseStatus'

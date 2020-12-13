@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.DirectorySize
   ( DirectorySize
       ( DirectorySize',
-        Large,
-        Small
+        Small,
+        Large
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DirectorySize = DirectorySize' Lude.Text
       Lude.ToHeader
     )
 
-pattern Large :: DirectorySize
-pattern Large = DirectorySize' "Large"
-
 pattern Small :: DirectorySize
 pattern Small = DirectorySize' "Small"
 
+pattern Large :: DirectorySize
+pattern Large = DirectorySize' "Large"
+
 {-# COMPLETE
-  Large,
   Small,
+  Large,
   DirectorySize'
   #-}

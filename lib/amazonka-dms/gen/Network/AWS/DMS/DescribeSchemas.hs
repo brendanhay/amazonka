@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,28 +50,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSchemas' smart constructor.
 data DescribeSchemas = DescribeSchemas'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
     endpointARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSchemas' with the minimum fields required to make a request.
 --
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 mkDescribeSchemas ::
   -- | 'endpointARN'
   Lude.Text ->
@@ -156,25 +156,21 @@ instance Lude.ToQuery DescribeSchemas where
 --
 -- /See:/ 'mkDescribeSchemasResponse' smart constructor.
 data DescribeSchemasResponse = DescribeSchemasResponse'
-  { schemas ::
-      Lude.Maybe [Lude.Text],
+  { -- | The described schema.
+    schemas :: Lude.Maybe [Lude.Text],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSchemasResponse' with the minimum fields required to make a request.
 --
+-- * 'schemas' - The described schema.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
--- * 'schemas' - The described schema.
 mkDescribeSchemasResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -17,8 +17,8 @@ module Network.AWS.Config.Types.ResourceKey
     mkResourceKey,
 
     -- * Lenses
-    rkResourceType,
     rkResourceId,
+    rkResourceType,
   )
 where
 
@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceKey' smart constructor.
 data ResourceKey = ResourceKey'
-  { resourceType :: ResourceType,
-    resourceId :: Lude.Text
+  { -- | The ID of the resource (for example., sg-xxxxxx).
+    resourceId :: Lude.Text,
+    -- | The resource type.
+    resourceType :: ResourceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceKey' with the minimum fields required to make a request.
@@ -47,23 +43,16 @@ data ResourceKey = ResourceKey'
 -- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
 -- * 'resourceType' - The resource type.
 mkResourceKey ::
-  -- | 'resourceType'
-  ResourceType ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'resourceType'
+  ResourceType ->
   ResourceKey
-mkResourceKey pResourceType_ pResourceId_ =
+mkResourceKey pResourceId_ pResourceType_ =
   ResourceKey'
-    { resourceType = pResourceType_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      resourceType = pResourceType_
     }
-
--- | The resource type.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rkResourceType :: Lens.Lens' ResourceKey ResourceType
-rkResourceType = Lens.lens (resourceType :: ResourceKey -> ResourceType) (\s a -> s {resourceType = a} :: ResourceKey)
-{-# DEPRECATED rkResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the resource (for example., sg-xxxxxx).
 --
@@ -72,20 +61,27 @@ rkResourceId :: Lens.Lens' ResourceKey Lude.Text
 rkResourceId = Lens.lens (resourceId :: ResourceKey -> Lude.Text) (\s a -> s {resourceId = a} :: ResourceKey)
 {-# DEPRECATED rkResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
+-- | The resource type.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rkResourceType :: Lens.Lens' ResourceKey ResourceType
+rkResourceType = Lens.lens (resourceType :: ResourceKey -> ResourceType) (\s a -> s {resourceType = a} :: ResourceKey)
+{-# DEPRECATED rkResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
 instance Lude.FromJSON ResourceKey where
   parseJSON =
     Lude.withObject
       "ResourceKey"
       ( \x ->
           ResourceKey'
-            Lude.<$> (x Lude..: "resourceType") Lude.<*> (x Lude..: "resourceId")
+            Lude.<$> (x Lude..: "resourceId") Lude.<*> (x Lude..: "resourceType")
       )
 
 instance Lude.ToJSON ResourceKey where
   toJSON ResourceKey' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("resourceType" Lude..= resourceType),
-            Lude.Just ("resourceId" Lude..= resourceId)
+          [ Lude.Just ("resourceId" Lude..= resourceId),
+            Lude.Just ("resourceType" Lude..= resourceType)
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,15 +22,15 @@ module Network.AWS.DirectoryService.DeleteDirectory
     mkDeleteDirectory,
 
     -- ** Request lenses
-    dddDirectoryId,
+    ddfDirectoryId,
 
     -- * Destructuring the response
     DeleteDirectoryResponse (..),
     mkDeleteDirectoryResponse,
 
     -- ** Response lenses
-    delrsDirectoryId,
-    delrsResponseStatus,
+    ddfrsDirectoryId,
+    ddfrsResponseStatus,
   )
 where
 
@@ -43,16 +44,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDirectory' smart constructor.
 newtype DeleteDirectory = DeleteDirectory'
-  { directoryId ::
-      Lude.Text
+  { -- | The identifier of the directory to delete.
+    directoryId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectory' with the minimum fields required to make a request.
@@ -68,9 +63,9 @@ mkDeleteDirectory pDirectoryId_ =
 -- | The identifier of the directory to delete.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddDirectoryId :: Lens.Lens' DeleteDirectory Lude.Text
-dddDirectoryId = Lens.lens (directoryId :: DeleteDirectory -> Lude.Text) (\s a -> s {directoryId = a} :: DeleteDirectory)
-{-# DEPRECATED dddDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+ddfDirectoryId :: Lens.Lens' DeleteDirectory Lude.Text
+ddfDirectoryId = Lens.lens (directoryId :: DeleteDirectory -> Lude.Text) (\s a -> s {directoryId = a} :: DeleteDirectory)
+{-# DEPRECATED ddfDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 instance Lude.AWSRequest DeleteDirectory where
   type Rs DeleteDirectory = DeleteDirectoryResponse
@@ -108,17 +103,12 @@ instance Lude.ToQuery DeleteDirectory where
 --
 -- /See:/ 'mkDeleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The directory identifier.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
@@ -138,13 +128,13 @@ mkDeleteDirectoryResponse pResponseStatus_ =
 -- | The directory identifier.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsDirectoryId :: Lens.Lens' DeleteDirectoryResponse (Lude.Maybe Lude.Text)
-delrsDirectoryId = Lens.lens (directoryId :: DeleteDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DeleteDirectoryResponse)
-{-# DEPRECATED delrsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+ddfrsDirectoryId :: Lens.Lens' DeleteDirectoryResponse (Lude.Maybe Lude.Text)
+ddfrsDirectoryId = Lens.lens (directoryId :: DeleteDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DeleteDirectoryResponse)
+{-# DEPRECATED ddfrsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteDirectoryResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddfrsResponseStatus :: Lens.Lens' DeleteDirectoryResponse Lude.Int
+ddfrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryResponse)
+{-# DEPRECATED ddfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

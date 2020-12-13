@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExport' smart constructor.
 data Export = Export'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
+    value :: Lude.Maybe Lude.Text,
+    -- | The stack that contains the exported output name and value.
     exportingStackId :: Lude.Maybe Lude.Text,
+    -- | The name of exported output value. Use this name and the @Fn::ImportValue@ function to import the associated value into other stacks. The name is defined in the @Export@ field in the associated stack's @Outputs@ section.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Export' with the minimum fields required to make a request.
 --
+-- * 'value' - The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
 -- * 'exportingStackId' - The stack that contains the exported output name and value.
 -- * 'name' - The name of exported output value. Use this name and the @Fn::ImportValue@ function to import the associated value into other stacks. The name is defined in the @Export@ field in the associated stack's @Outputs@ section.
--- * 'value' - The value of the exported output, such as a resource physical ID. This value is defined in the @Export@ field in the associated stack's @Outputs@ section.
 mkExport ::
   Export
 mkExport =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkDescribeReturnShippingLabel' smart constructor.
 newtype DescribeReturnShippingLabel = DescribeReturnShippingLabel'
-  { jobId ::
-      Lude.Maybe Lude.Text
+  { -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+    jobId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReturnShippingLabel' with the minimum fields required to make a request.
@@ -106,29 +101,21 @@ instance Lude.ToQuery DescribeReturnShippingLabel where
 
 -- | /See:/ 'mkDescribeReturnShippingLabelResponse' smart constructor.
 data DescribeReturnShippingLabelResponse = DescribeReturnShippingLabelResponse'
-  { status ::
-      Lude.Maybe
-        ShippingLabelStatus,
-    expirationDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    responseStatus ::
-      Lude.Int
+  { -- | The status information of the task on a Snow device that is being returned to AWS.
+    status :: Lude.Maybe ShippingLabelStatus,
+    -- | The expiration date of the current return shipping label.
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReturnShippingLabelResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status information of the task on a Snow device that is being returned to AWS.
 -- * 'expirationDate' - The expiration date of the current return shipping label.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status information of the task on a Snow device that is being returned to AWS.
 mkDescribeReturnShippingLabelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

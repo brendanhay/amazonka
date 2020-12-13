@@ -13,8 +13,8 @@
 module Network.AWS.StepFunctions.Types.StateMachineType
   ( StateMachineType
       ( StateMachineType',
-        Express,
-        Standard
+        Standard,
+        Express
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StateMachineType = StateMachineType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Express :: StateMachineType
-pattern Express = StateMachineType' "EXPRESS"
-
 pattern Standard :: StateMachineType
 pattern Standard = StateMachineType' "STANDARD"
 
+pattern Express :: StateMachineType
+pattern Express = StateMachineType' "EXPRESS"
+
 {-# COMPLETE
-  Express,
   Standard,
+  Express,
   StateMachineType'
   #-}

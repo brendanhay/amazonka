@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,14 +57,13 @@ import qualified Network.AWS.Response as Res
 -- | The name of a trail about which you want the current status.
 --
 -- /See:/ 'mkGetTrailStatus' smart constructor.
-newtype GetTrailStatus = GetTrailStatus' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetTrailStatus = GetTrailStatus'
+  { -- | Specifies the name or the CloudTrail ARN of the trail for which you are requesting status. To get the status of a shadow trail (a replication of the trail in another region), you must specify its ARN. The format of a trail ARN is:
+    --
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrailStatus' with the minimum fields required to make a request.
@@ -140,66 +140,66 @@ instance Lude.ToQuery GetTrailStatus where
 --
 -- /See:/ 'mkGetTrailStatusResponse' smart constructor.
 data GetTrailStatusResponse = GetTrailStatusResponse'
-  { timeLoggingStopped ::
-      Lude.Maybe Lude.Text,
+  { -- | This field is no longer in use.
+    timeLoggingStopped :: Lude.Maybe Lude.Text,
+    -- | Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver log files to the designated bucket. For more information see the topic <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.
     latestDeliveryError :: Lude.Maybe Lude.Text,
-    latestDigestDeliveryTime ::
-      Lude.Maybe Lude.Timestamp,
-    latestNotificationAttemptSucceeded ::
-      Lude.Maybe Lude.Text,
+    -- | Specifies the date and time that CloudTrail last delivered a digest file to an account's Amazon S3 bucket.
+    latestDigestDeliveryTime :: Lude.Maybe Lude.Timestamp,
+    -- | This field is no longer in use.
+    latestNotificationAttemptSucceeded :: Lude.Maybe Lude.Text,
+    -- | Specifies the most recent date and time when CloudTrail started recording API calls for an AWS account.
     startLoggingTime :: Lude.Maybe Lude.Timestamp,
-    latestNotificationError ::
-      Lude.Maybe Lude.Text,
-    latestDeliveryAttemptSucceeded ::
-      Lude.Maybe Lude.Text,
+    -- | Displays any Amazon SNS error that CloudTrail encountered when attempting to send a notification. For more information about Amazon SNS errors, see the <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide> .
+    latestNotificationError :: Lude.Maybe Lude.Text,
+    -- | This field is no longer in use.
+    latestDeliveryAttemptSucceeded :: Lude.Maybe Lude.Text,
+    -- | Whether the CloudTrail is currently logging AWS API calls.
     isLogging :: Lude.Maybe Lude.Bool,
+    -- | This field is no longer in use.
     timeLoggingStarted :: Lude.Maybe Lude.Text,
-    latestDigestDeliveryError ::
-      Lude.Maybe Lude.Text,
-    latestDeliveryAttemptTime ::
-      Lude.Maybe Lude.Text,
-    latestDeliveryTime ::
-      Lude.Maybe Lude.Timestamp,
-    latestCloudWatchLogsDeliveryTime ::
-      Lude.Maybe Lude.Timestamp,
-    latestCloudWatchLogsDeliveryError ::
-      Lude.Maybe Lude.Text,
-    latestNotificationTime ::
-      Lude.Maybe Lude.Timestamp,
-    latestNotificationAttemptTime ::
-      Lude.Maybe Lude.Text,
+    -- | Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver a digest file to the designated bucket. For more information see the topic <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.
+    latestDigestDeliveryError :: Lude.Maybe Lude.Text,
+    -- | This field is no longer in use.
+    latestDeliveryAttemptTime :: Lude.Maybe Lude.Text,
+    -- | Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.
+    latestDeliveryTime :: Lude.Maybe Lude.Timestamp,
+    -- | Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.
+    latestCloudWatchLogsDeliveryTime :: Lude.Maybe Lude.Timestamp,
+    -- | Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.
+    latestCloudWatchLogsDeliveryError :: Lude.Maybe Lude.Text,
+    -- | Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account's Amazon S3 bucket.
+    latestNotificationTime :: Lude.Maybe Lude.Timestamp,
+    -- | This field is no longer in use.
+    latestNotificationAttemptTime :: Lude.Maybe Lude.Text,
+    -- | Specifies the most recent date and time when CloudTrail stopped recording API calls for an AWS account.
     stopLoggingTime :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrailStatusResponse' with the minimum fields required to make a request.
 --
--- * 'isLogging' - Whether the CloudTrail is currently logging AWS API calls.
--- * 'latestCloudWatchLogsDeliveryError' - Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.
--- * 'latestCloudWatchLogsDeliveryTime' - Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.
--- * 'latestDeliveryAttemptSucceeded' - This field is no longer in use.
--- * 'latestDeliveryAttemptTime' - This field is no longer in use.
+-- * 'timeLoggingStopped' - This field is no longer in use.
 -- * 'latestDeliveryError' - Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver log files to the designated bucket. For more information see the topic <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.
--- * 'latestDeliveryTime' - Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.
--- * 'latestDigestDeliveryError' - Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver a digest file to the designated bucket. For more information see the topic <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.
 -- * 'latestDigestDeliveryTime' - Specifies the date and time that CloudTrail last delivered a digest file to an account's Amazon S3 bucket.
 -- * 'latestNotificationAttemptSucceeded' - This field is no longer in use.
--- * 'latestNotificationAttemptTime' - This field is no longer in use.
--- * 'latestNotificationError' - Displays any Amazon SNS error that CloudTrail encountered when attempting to send a notification. For more information about Amazon SNS errors, see the <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide> .
--- * 'latestNotificationTime' - Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account's Amazon S3 bucket.
--- * 'responseStatus' - The response status code.
 -- * 'startLoggingTime' - Specifies the most recent date and time when CloudTrail started recording API calls for an AWS account.
--- * 'stopLoggingTime' - Specifies the most recent date and time when CloudTrail stopped recording API calls for an AWS account.
+-- * 'latestNotificationError' - Displays any Amazon SNS error that CloudTrail encountered when attempting to send a notification. For more information about Amazon SNS errors, see the <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide> .
+-- * 'latestDeliveryAttemptSucceeded' - This field is no longer in use.
+-- * 'isLogging' - Whether the CloudTrail is currently logging AWS API calls.
 -- * 'timeLoggingStarted' - This field is no longer in use.
--- * 'timeLoggingStopped' - This field is no longer in use.
+-- * 'latestDigestDeliveryError' - Displays any Amazon S3 error that CloudTrail encountered when attempting to deliver a digest file to the designated bucket. For more information see the topic <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses> in the Amazon S3 API Reference.
+-- * 'latestDeliveryAttemptTime' - This field is no longer in use.
+-- * 'latestDeliveryTime' - Specifies the date and time that CloudTrail last delivered log files to an account's Amazon S3 bucket.
+-- * 'latestCloudWatchLogsDeliveryTime' - Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.
+-- * 'latestCloudWatchLogsDeliveryError' - Displays any CloudWatch Logs error that CloudTrail encountered when attempting to deliver logs to CloudWatch Logs.
+-- * 'latestNotificationTime' - Specifies the date and time of the most recent Amazon SNS notification that CloudTrail has written a new log file to an account's Amazon S3 bucket.
+-- * 'latestNotificationAttemptTime' - This field is no longer in use.
+-- * 'stopLoggingTime' - Specifies the most recent date and time when CloudTrail stopped recording API calls for an AWS account.
+-- * 'responseStatus' - The response status code.
 mkGetTrailStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

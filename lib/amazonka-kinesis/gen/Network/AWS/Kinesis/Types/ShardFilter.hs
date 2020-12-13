@@ -17,9 +17,9 @@ module Network.AWS.Kinesis.Types.ShardFilter
     mkShardFilter,
 
     -- * Lenses
+    sfType,
     sfTimestamp,
     sfShardId,
-    sfType,
   )
 where
 
@@ -29,35 +29,35 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkShardFilter' smart constructor.
 data ShardFilter = ShardFilter'
-  { timestamp ::
-      Lude.Maybe Lude.Timestamp,
-    shardId :: Lude.Maybe Lude.Text,
-    type' :: ShardFilterType
+  { type' :: ShardFilterType,
+    timestamp :: Lude.Maybe Lude.Timestamp,
+    shardId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShardFilter' with the minimum fields required to make a request.
 --
--- * 'shardId' - Undocumented field.
--- * 'timestamp' - Undocumented field.
--- * 'type'' - Undocumented field.
+-- * 'type'' -
+-- * 'timestamp' -
+-- * 'shardId' -
 mkShardFilter ::
   -- | 'type''
   ShardFilterType ->
   ShardFilter
 mkShardFilter pType_ =
   ShardFilter'
-    { timestamp = Lude.Nothing,
-      shardId = Lude.Nothing,
-      type' = pType_
+    { type' = pType_,
+      timestamp = Lude.Nothing,
+      shardId = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfType :: Lens.Lens' ShardFilter ShardFilterType
+sfType = Lens.lens (type' :: ShardFilter -> ShardFilterType) (\s a -> s {type' = a} :: ShardFilter)
+{-# DEPRECATED sfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | Undocumented field.
 --
@@ -73,19 +73,12 @@ sfShardId :: Lens.Lens' ShardFilter (Lude.Maybe Lude.Text)
 sfShardId = Lens.lens (shardId :: ShardFilter -> Lude.Maybe Lude.Text) (\s a -> s {shardId = a} :: ShardFilter)
 {-# DEPRECATED sfShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfType :: Lens.Lens' ShardFilter ShardFilterType
-sfType = Lens.lens (type' :: ShardFilter -> ShardFilterType) (\s a -> s {type' = a} :: ShardFilter)
-{-# DEPRECATED sfType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
 instance Lude.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Timestamp" Lude..=) Lude.<$> timestamp,
-            ("ShardId" Lude..=) Lude.<$> shardId,
-            Lude.Just ("Type" Lude..= type')
+          [ Lude.Just ("Type" Lude..= type'),
+            ("Timestamp" Lude..=) Lude.<$> timestamp,
+            ("ShardId" Lude..=) Lude.<$> shardId
           ]
       )

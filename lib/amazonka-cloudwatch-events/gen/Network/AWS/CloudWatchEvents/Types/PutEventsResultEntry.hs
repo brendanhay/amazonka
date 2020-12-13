@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPutEventsResultEntry' smart constructor.
 data PutEventsResultEntry = PutEventsResultEntry'
-  { errorCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The error code that indicates why the event submission failed.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message that explains why the event submission failed.
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the event.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEventsResultEntry' with the minimum fields required to make a request.

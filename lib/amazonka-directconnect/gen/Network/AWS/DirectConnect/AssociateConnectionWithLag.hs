@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.DirectConnect.AssociateConnectionWithLag
     mkAssociateConnectionWithLag,
 
     -- ** Request lenses
-    acwlConnectionId,
     acwlLagId,
+    acwlConnectionId,
 
     -- * Destructuring the response
     Connection (..),
@@ -58,41 +59,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
-  { connectionId ::
-      Lude.Text,
-    lagId :: Lude.Text
+  { -- | The ID of the LAG with which to associate the connection.
+    lagId :: Lude.Text,
+    -- | The ID of the connection.
+    connectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateConnectionWithLag' with the minimum fields required to make a request.
 --
--- * 'connectionId' - The ID of the connection.
 -- * 'lagId' - The ID of the LAG with which to associate the connection.
+-- * 'connectionId' - The ID of the connection.
 mkAssociateConnectionWithLag ::
-  -- | 'connectionId'
-  Lude.Text ->
   -- | 'lagId'
   Lude.Text ->
+  -- | 'connectionId'
+  Lude.Text ->
   AssociateConnectionWithLag
-mkAssociateConnectionWithLag pConnectionId_ pLagId_ =
+mkAssociateConnectionWithLag pLagId_ pConnectionId_ =
   AssociateConnectionWithLag'
-    { connectionId = pConnectionId_,
-      lagId = pLagId_
+    { lagId = pLagId_,
+      connectionId = pConnectionId_
     }
-
--- | The ID of the connection.
---
--- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acwlConnectionId :: Lens.Lens' AssociateConnectionWithLag Lude.Text
-acwlConnectionId = Lens.lens (connectionId :: AssociateConnectionWithLag -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateConnectionWithLag)
-{-# DEPRECATED acwlConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the LAG with which to associate the connection.
 --
@@ -100,6 +89,13 @@ acwlConnectionId = Lens.lens (connectionId :: AssociateConnectionWithLag -> Lude
 acwlLagId :: Lens.Lens' AssociateConnectionWithLag Lude.Text
 acwlLagId = Lens.lens (lagId :: AssociateConnectionWithLag -> Lude.Text) (\s a -> s {lagId = a} :: AssociateConnectionWithLag)
 {-# DEPRECATED acwlLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
+
+-- | The ID of the connection.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acwlConnectionId :: Lens.Lens' AssociateConnectionWithLag Lude.Text
+acwlConnectionId = Lens.lens (connectionId :: AssociateConnectionWithLag -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateConnectionWithLag)
+{-# DEPRECATED acwlConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 instance Lude.AWSRequest AssociateConnectionWithLag where
   type Rs AssociateConnectionWithLag = Connection
@@ -121,8 +117,8 @@ instance Lude.ToJSON AssociateConnectionWithLag where
   toJSON AssociateConnectionWithLag' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just ("lagId" Lude..= lagId)
+          [ Lude.Just ("lagId" Lude..= lagId),
+            Lude.Just ("connectionId" Lude..= connectionId)
           ]
       )
 

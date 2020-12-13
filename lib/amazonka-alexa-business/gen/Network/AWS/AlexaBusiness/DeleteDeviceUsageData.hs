@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AlexaBusiness.DeleteDeviceUsageData
     mkDeleteDeviceUsageData,
 
     -- ** Request lenses
-    ddudDeviceARN,
     ddudDeviceUsageType,
+    ddudDeviceARN,
 
     -- * Destructuring the response
     DeleteDeviceUsageDataResponse (..),
@@ -39,41 +40,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDeviceUsageData' smart constructor.
 data DeleteDeviceUsageData = DeleteDeviceUsageData'
-  { deviceARN ::
-      Lude.Text,
-    deviceUsageType :: DeviceUsageType
+  { -- | The type of usage data to delete.
+    deviceUsageType :: DeviceUsageType,
+    -- | The ARN of the device.
+    deviceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeviceUsageData' with the minimum fields required to make a request.
 --
--- * 'deviceARN' - The ARN of the device.
 -- * 'deviceUsageType' - The type of usage data to delete.
+-- * 'deviceARN' - The ARN of the device.
 mkDeleteDeviceUsageData ::
-  -- | 'deviceARN'
-  Lude.Text ->
   -- | 'deviceUsageType'
   DeviceUsageType ->
+  -- | 'deviceARN'
+  Lude.Text ->
   DeleteDeviceUsageData
-mkDeleteDeviceUsageData pDeviceARN_ pDeviceUsageType_ =
+mkDeleteDeviceUsageData pDeviceUsageType_ pDeviceARN_ =
   DeleteDeviceUsageData'
-    { deviceARN = pDeviceARN_,
-      deviceUsageType = pDeviceUsageType_
+    { deviceUsageType = pDeviceUsageType_,
+      deviceARN = pDeviceARN_
     }
-
--- | The ARN of the device.
---
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddudDeviceARN :: Lens.Lens' DeleteDeviceUsageData Lude.Text
-ddudDeviceARN = Lens.lens (deviceARN :: DeleteDeviceUsageData -> Lude.Text) (\s a -> s {deviceARN = a} :: DeleteDeviceUsageData)
-{-# DEPRECATED ddudDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
 -- | The type of usage data to delete.
 --
@@ -81,6 +70,13 @@ ddudDeviceARN = Lens.lens (deviceARN :: DeleteDeviceUsageData -> Lude.Text) (\s 
 ddudDeviceUsageType :: Lens.Lens' DeleteDeviceUsageData DeviceUsageType
 ddudDeviceUsageType = Lens.lens (deviceUsageType :: DeleteDeviceUsageData -> DeviceUsageType) (\s a -> s {deviceUsageType = a} :: DeleteDeviceUsageData)
 {-# DEPRECATED ddudDeviceUsageType "Use generic-lens or generic-optics with 'deviceUsageType' instead." #-}
+
+-- | The ARN of the device.
+--
+-- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddudDeviceARN :: Lens.Lens' DeleteDeviceUsageData Lude.Text
+ddudDeviceARN = Lens.lens (deviceARN :: DeleteDeviceUsageData -> Lude.Text) (\s a -> s {deviceARN = a} :: DeleteDeviceUsageData)
+{-# DEPRECATED ddudDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
 instance Lude.AWSRequest DeleteDeviceUsageData where
   type Rs DeleteDeviceUsageData = DeleteDeviceUsageDataResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON DeleteDeviceUsageData where
   toJSON DeleteDeviceUsageData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DeviceArn" Lude..= deviceARN),
-            Lude.Just ("DeviceUsageType" Lude..= deviceUsageType)
+          [ Lude.Just ("DeviceUsageType" Lude..= deviceUsageType),
+            Lude.Just ("DeviceArn" Lude..= deviceARN)
           ]
       )
 
@@ -120,16 +116,10 @@ instance Lude.ToQuery DeleteDeviceUsageData where
 
 -- | /See:/ 'mkDeleteDeviceUsageDataResponse' smart constructor.
 newtype DeleteDeviceUsageDataResponse = DeleteDeviceUsageDataResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDeviceUsageDataResponse' with the minimum fields required to make a request.

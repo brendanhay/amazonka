@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,9 +30,9 @@ module Network.AWS.SSM.CreatePatchBaseline
     cpbApprovedPatchesEnableNonSecurity,
     cpbRejectedPatches,
     cpbSources,
+    cpbName,
     cpbDescription,
     cpbTags,
-    cpbName,
 
     -- * Destructuring the response
     CreatePatchBaselineResponse (..),
@@ -51,22 +52,48 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCreatePatchBaseline' smart constructor.
 data CreatePatchBaseline = CreatePatchBaseline'
-  { approvalRules ::
-      Lude.Maybe PatchRuleGroup,
+  { -- | A set of rules used to include patches in the baseline.
+    approvalRules :: Lude.Maybe PatchRuleGroup,
+    -- | User-provided idempotency token.
     clientToken :: Lude.Maybe Lude.Text,
+    -- | Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
     operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | A set of global filters used to include patches in the baseline.
     globalFilters :: Lude.Maybe PatchFilterGroup,
-    approvedPatchesComplianceLevel ::
-      Lude.Maybe PatchComplianceLevel,
+    -- | Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
+    approvedPatchesComplianceLevel :: Lude.Maybe PatchComplianceLevel,
+    -- | The action for Patch Manager to take on patches included in the RejectedPackages list.
+    --
+    --
+    --     * __ALLOW_AS_DEPENDENCY__ : A package in the Rejected patches list is installed only if it is a dependency of another package. It is considered compliant with the patch baseline, and its status is reported as /InstalledOther/ . This is the default action if no option is specified.
+    --
+    --
+    --     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
     rejectedPatchesAction :: Lude.Maybe PatchAction,
+    -- | A list of explicitly approved patches for the baseline.
+    --
+    -- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
     approvedPatches :: Lude.Maybe [Lude.Text],
-    approvedPatchesEnableNonSecurity ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+    approvedPatchesEnableNonSecurity :: Lude.Maybe Lude.Bool,
+    -- | A list of explicitly rejected patches for the baseline.
+    --
+    -- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
     rejectedPatches :: Lude.Maybe [Lude.Text],
+    -- | Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
     sources :: Lude.Maybe [PatchSource],
+    -- | The name of the patch baseline.
+    name :: Lude.Text,
+    -- | A description of the patch baseline.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text
+    -- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:
+    --
+    --
+    --     * @Key=PatchSeverity,Value=Critical@
+    --
+    --
+    --     * @Key=OS,Value=Windows@
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -74,19 +101,10 @@ data CreatePatchBaseline = CreatePatchBaseline'
 -- | Creates a value of 'CreatePatchBaseline' with the minimum fields required to make a request.
 --
 -- * 'approvalRules' - A set of rules used to include patches in the baseline.
--- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
---
--- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
--- * 'approvedPatchesComplianceLevel' - Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
--- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
 -- * 'clientToken' - User-provided idempotency token.
--- * 'description' - A description of the patch baseline.
--- * 'globalFilters' - A set of global filters used to include patches in the baseline.
--- * 'name' - The name of the patch baseline.
 -- * 'operatingSystem' - Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
--- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
---
--- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+-- * 'globalFilters' - A set of global filters used to include patches in the baseline.
+-- * 'approvedPatchesComplianceLevel' - Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
 -- * 'rejectedPatchesAction' - The action for Patch Manager to take on patches included in the RejectedPackages list.
 --
 --
@@ -96,7 +114,16 @@ data CreatePatchBaseline = CreatePatchBaseline'
 --     * __BLOCK__ : Packages in the RejectedPatches list, and packages that include them as dependencies, are not installed under any circumstances. If a package was installed before it was added to the Rejected patches list, it is considered non-compliant with the patch baseline, and its status is reported as /InstalledRejected/ .
 --
 --
+-- * 'approvedPatches' - A list of explicitly approved patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
+-- * 'approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
+-- * 'rejectedPatches' - A list of explicitly rejected patches for the baseline.
+--
+-- For information about accepted formats for lists of approved patches and rejected patches, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists> in the /AWS Systems Manager User Guide/ .
 -- * 'sources' - Information about the patches to use to update the instances, including target operating systems and source repositories. Applies to Linux instances only.
+-- * 'name' - The name of the patch baseline.
+-- * 'description' - A description of the patch baseline.
 -- * 'tags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a patch baseline to identify the severity level of patches it specifies and the operating system family it applies to. In this case, you could specify the following key name/value pairs:
 --
 --
@@ -120,9 +147,9 @@ mkCreatePatchBaseline pName_ =
       approvedPatchesEnableNonSecurity = Lude.Nothing,
       rejectedPatches = Lude.Nothing,
       sources = Lude.Nothing,
+      name = pName_,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | A set of rules used to include patches in the baseline.
@@ -207,6 +234,13 @@ cpbSources :: Lens.Lens' CreatePatchBaseline (Lude.Maybe [PatchSource])
 cpbSources = Lens.lens (sources :: CreatePatchBaseline -> Lude.Maybe [PatchSource]) (\s a -> s {sources = a} :: CreatePatchBaseline)
 {-# DEPRECATED cpbSources "Use generic-lens or generic-optics with 'sources' instead." #-}
 
+-- | The name of the patch baseline.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpbName :: Lens.Lens' CreatePatchBaseline Lude.Text
+cpbName = Lens.lens (name :: CreatePatchBaseline -> Lude.Text) (\s a -> s {name = a} :: CreatePatchBaseline)
+{-# DEPRECATED cpbName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | A description of the patch baseline.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -228,13 +262,6 @@ cpbDescription = Lens.lens (description :: CreatePatchBaseline -> Lude.Maybe Lud
 cpbTags :: Lens.Lens' CreatePatchBaseline (Lude.Maybe [Tag])
 cpbTags = Lens.lens (tags :: CreatePatchBaseline -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePatchBaseline)
 {-# DEPRECATED cpbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the patch baseline.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpbName :: Lens.Lens' CreatePatchBaseline Lude.Text
-cpbName = Lens.lens (name :: CreatePatchBaseline -> Lude.Text) (\s a -> s {name = a} :: CreatePatchBaseline)
-{-# DEPRECATED cpbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreatePatchBaseline where
   type Rs CreatePatchBaseline = CreatePatchBaselineResponse
@@ -273,9 +300,9 @@ instance Lude.ToJSON CreatePatchBaseline where
               Lude.<$> approvedPatchesEnableNonSecurity,
             ("RejectedPatches" Lude..=) Lude.<$> rejectedPatches,
             ("Sources" Lude..=) Lude.<$> sources,
+            Lude.Just ("Name" Lude..= name),
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -287,17 +314,12 @@ instance Lude.ToQuery CreatePatchBaseline where
 
 -- | /See:/ 'mkCreatePatchBaselineResponse' smart constructor.
 data CreatePatchBaselineResponse = CreatePatchBaselineResponse'
-  { baselineId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the created patch baseline.
+    baselineId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePatchBaselineResponse' with the minimum fields required to make a request.

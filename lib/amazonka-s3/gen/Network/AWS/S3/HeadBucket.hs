@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.S3.HeadBucket
     mkHeadBucket,
 
     -- ** Request lenses
-    hbExpectedBucketOwner,
     hbBucket,
+    hbExpectedBucketOwner,
 
     -- * Destructuring the response
     HeadBucketResponse (..),
@@ -38,17 +39,15 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkHeadBucket' smart constructor.
 data HeadBucket = HeadBucket'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The bucket name.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HeadBucket' with the minimum fields required to make a request.
@@ -64,16 +63,9 @@ mkHeadBucket ::
   HeadBucket
 mkHeadBucket pBucket_ =
   HeadBucket'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hbExpectedBucketOwner :: Lens.Lens' HeadBucket (Lude.Maybe Lude.Text)
-hbExpectedBucketOwner = Lens.lens (expectedBucketOwner :: HeadBucket -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: HeadBucket)
-{-# DEPRECATED hbExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name.
 --
@@ -84,6 +76,13 @@ hbExpectedBucketOwner = Lens.lens (expectedBucketOwner :: HeadBucket -> Lude.May
 hbBucket :: Lens.Lens' HeadBucket BucketName
 hbBucket = Lens.lens (bucket :: HeadBucket -> BucketName) (\s a -> s {bucket = a} :: HeadBucket)
 {-# DEPRECATED hbBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hbExpectedBucketOwner :: Lens.Lens' HeadBucket (Lude.Maybe Lude.Text)
+hbExpectedBucketOwner = Lens.lens (expectedBucketOwner :: HeadBucket -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: HeadBucket)
+{-# DEPRECATED hbExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest HeadBucket where
   type Rs HeadBucket = HeadBucketResponse
@@ -103,13 +102,7 @@ instance Lude.ToQuery HeadBucket where
 
 -- | /See:/ 'mkHeadBucketResponse' smart constructor.
 data HeadBucketResponse = HeadBucketResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HeadBucketResponse' with the minimum fields required to make a request.

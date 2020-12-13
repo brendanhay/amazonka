@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,27 +44,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEnvironmentManagedActions' smart constructor.
 data DescribeEnvironmentManagedActions = DescribeEnvironmentManagedActions'
-  { status ::
-      Lude.Maybe ActionStatus,
-    environmentName ::
-      Lude.Maybe Lude.Text,
-    environmentId ::
-      Lude.Maybe Lude.Text
+  { -- | To show only actions with a particular status, specify a status.
+    status :: Lude.Maybe ActionStatus,
+    -- | The name of the target environment.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The environment ID of the target environment.
+    environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentManagedActions' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The environment ID of the target environment.
--- * 'environmentName' - The name of the target environment.
 -- * 'status' - To show only actions with a particular status, specify a status.
+-- * 'environmentName' - The name of the target environment.
+-- * 'environmentId' - The environment ID of the target environment.
 mkDescribeEnvironmentManagedActions ::
   DescribeEnvironmentManagedActions
 mkDescribeEnvironmentManagedActions =
@@ -131,21 +126,12 @@ instance Lude.ToQuery DescribeEnvironmentManagedActions where
 --
 -- /See:/ 'mkDescribeEnvironmentManagedActionsResponse' smart constructor.
 data DescribeEnvironmentManagedActionsResponse = DescribeEnvironmentManagedActionsResponse'
-  { managedActions ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ManagedAction
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | A list of upcoming and in-progress managed actions.
+    managedActions :: Lude.Maybe (Lude.NonEmpty ManagedAction),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentManagedActionsResponse' with the minimum fields required to make a request.

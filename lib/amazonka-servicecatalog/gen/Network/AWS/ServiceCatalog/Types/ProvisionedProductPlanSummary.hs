@@ -34,36 +34,30 @@ import Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
 --
 -- /See:/ 'mkProvisionedProductPlanSummary' smart constructor.
 data ProvisionedProductPlanSummary = ProvisionedProductPlanSummary'
-  { provisionProductId ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactId ::
-      Lude.Maybe Lude.Text,
-    provisionProductName ::
-      Lude.Maybe Lude.Text,
+  { -- | The product identifier.
+    provisionProductId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | The user-friendly name of the provisioned product.
+    provisionProductName :: Lude.Maybe Lude.Text,
+    -- | The plan identifier.
     planId :: Lude.Maybe Lude.Text,
-    planName ::
-      Lude.Maybe Lude.Text,
-    planType ::
-      Lude.Maybe
-        ProvisionedProductPlanType
+    -- | The name of the plan.
+    planName :: Lude.Maybe Lude.Text,
+    -- | The plan type.
+    planType :: Lude.Maybe ProvisionedProductPlanType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedProductPlanSummary' with the minimum fields required to make a request.
 --
+-- * 'provisionProductId' - The product identifier.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'provisionProductName' - The user-friendly name of the provisioned product.
 -- * 'planId' - The plan identifier.
 -- * 'planName' - The name of the plan.
 -- * 'planType' - The plan type.
--- * 'provisionProductId' - The product identifier.
--- * 'provisionProductName' - The user-friendly name of the provisioned product.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
 mkProvisionedProductPlanSummary ::
   ProvisionedProductPlanSummary
 mkProvisionedProductPlanSummary =

@@ -13,11 +13,11 @@
 module Network.AWS.CloudFormation.Types.StackSetOperationResultStatus
   ( StackSetOperationResultStatus
       ( StackSetOperationResultStatus',
-        Cancelled,
-        Failed,
         Pending,
         Running,
-        Succeeded
+        Succeeded,
+        Failed,
+        Cancelled
       ),
   )
 where
@@ -48,12 +48,6 @@ newtype StackSetOperationResultStatus = StackSetOperationResultStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: StackSetOperationResultStatus
-pattern Cancelled = StackSetOperationResultStatus' "CANCELLED"
-
-pattern Failed :: StackSetOperationResultStatus
-pattern Failed = StackSetOperationResultStatus' "FAILED"
-
 pattern Pending :: StackSetOperationResultStatus
 pattern Pending = StackSetOperationResultStatus' "PENDING"
 
@@ -63,11 +57,17 @@ pattern Running = StackSetOperationResultStatus' "RUNNING"
 pattern Succeeded :: StackSetOperationResultStatus
 pattern Succeeded = StackSetOperationResultStatus' "SUCCEEDED"
 
+pattern Failed :: StackSetOperationResultStatus
+pattern Failed = StackSetOperationResultStatus' "FAILED"
+
+pattern Cancelled :: StackSetOperationResultStatus
+pattern Cancelled = StackSetOperationResultStatus' "CANCELLED"
+
 {-# COMPLETE
-  Cancelled,
-  Failed,
   Pending,
   Running,
   Succeeded,
+  Failed,
+  Cancelled,
   StackSetOperationResultStatus'
   #-}

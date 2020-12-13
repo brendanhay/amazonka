@@ -17,8 +17,8 @@ module Network.AWS.EMR.Types.BlockPublicAccessConfiguration
     mkBlockPublicAccessConfiguration,
 
     -- * Lenses
-    bpacPermittedPublicSecurityGroupRuleRanges,
     bpacBlockPublicSecurityGroupRules,
+    bpacPermittedPublicSecurityGroupRuleRanges,
   )
 where
 
@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlockPublicAccessConfiguration' smart constructor.
 data BlockPublicAccessConfiguration = BlockPublicAccessConfiguration'
-  { permittedPublicSecurityGroupRuleRanges ::
-      Lude.Maybe [PortRange],
-    blockPublicSecurityGroupRules ::
-      Lude.Bool
+  { -- | Indicates whether Amazon EMR block public access is enabled (@true@ ) or disabled (@false@ ). By default, the value is @false@ for accounts that have created EMR clusters before July 2019. For accounts created after this, the default is @true@ .
+    blockPublicSecurityGroupRules :: Lude.Bool,
+    -- | Specifies ports and port ranges that are permitted to have security group rules that allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is specified for @PermittedPublicSecurityGroupRuleRanges@ , Amazon EMR allows cluster creation if a security group associated with the cluster has a rule that allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.
+    --
+    -- By default, Port 22, which is used for SSH access to the cluster EC2 instances, is in the list of @PermittedPublicSecurityGroupRuleRanges@ .
+    permittedPublicSecurityGroupRuleRanges :: Lude.Maybe [PortRange]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockPublicAccessConfiguration' with the minimum fields required to make a request.
@@ -56,10 +52,17 @@ mkBlockPublicAccessConfiguration ::
   BlockPublicAccessConfiguration
 mkBlockPublicAccessConfiguration pBlockPublicSecurityGroupRules_ =
   BlockPublicAccessConfiguration'
-    { permittedPublicSecurityGroupRuleRanges =
-        Lude.Nothing,
-      blockPublicSecurityGroupRules = pBlockPublicSecurityGroupRules_
+    { blockPublicSecurityGroupRules =
+        pBlockPublicSecurityGroupRules_,
+      permittedPublicSecurityGroupRuleRanges = Lude.Nothing
     }
+
+-- | Indicates whether Amazon EMR block public access is enabled (@true@ ) or disabled (@false@ ). By default, the value is @false@ for accounts that have created EMR clusters before July 2019. For accounts created after this, the default is @true@ .
+--
+-- /Note:/ Consider using 'blockPublicSecurityGroupRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpacBlockPublicSecurityGroupRules :: Lens.Lens' BlockPublicAccessConfiguration Lude.Bool
+bpacBlockPublicSecurityGroupRules = Lens.lens (blockPublicSecurityGroupRules :: BlockPublicAccessConfiguration -> Lude.Bool) (\s a -> s {blockPublicSecurityGroupRules = a} :: BlockPublicAccessConfiguration)
+{-# DEPRECATED bpacBlockPublicSecurityGroupRules "Use generic-lens or generic-optics with 'blockPublicSecurityGroupRules' instead." #-}
 
 -- | Specifies ports and port ranges that are permitted to have security group rules that allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is specified for @PermittedPublicSecurityGroupRuleRanges@ , Amazon EMR allows cluster creation if a security group associated with the cluster has a rule that allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.
 --
@@ -70,34 +73,27 @@ bpacPermittedPublicSecurityGroupRuleRanges :: Lens.Lens' BlockPublicAccessConfig
 bpacPermittedPublicSecurityGroupRuleRanges = Lens.lens (permittedPublicSecurityGroupRuleRanges :: BlockPublicAccessConfiguration -> Lude.Maybe [PortRange]) (\s a -> s {permittedPublicSecurityGroupRuleRanges = a} :: BlockPublicAccessConfiguration)
 {-# DEPRECATED bpacPermittedPublicSecurityGroupRuleRanges "Use generic-lens or generic-optics with 'permittedPublicSecurityGroupRuleRanges' instead." #-}
 
--- | Indicates whether Amazon EMR block public access is enabled (@true@ ) or disabled (@false@ ). By default, the value is @false@ for accounts that have created EMR clusters before July 2019. For accounts created after this, the default is @true@ .
---
--- /Note:/ Consider using 'blockPublicSecurityGroupRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpacBlockPublicSecurityGroupRules :: Lens.Lens' BlockPublicAccessConfiguration Lude.Bool
-bpacBlockPublicSecurityGroupRules = Lens.lens (blockPublicSecurityGroupRules :: BlockPublicAccessConfiguration -> Lude.Bool) (\s a -> s {blockPublicSecurityGroupRules = a} :: BlockPublicAccessConfiguration)
-{-# DEPRECATED bpacBlockPublicSecurityGroupRules "Use generic-lens or generic-optics with 'blockPublicSecurityGroupRules' instead." #-}
-
 instance Lude.FromJSON BlockPublicAccessConfiguration where
   parseJSON =
     Lude.withObject
       "BlockPublicAccessConfiguration"
       ( \x ->
           BlockPublicAccessConfiguration'
-            Lude.<$> ( x Lude..:? "PermittedPublicSecurityGroupRuleRanges"
+            Lude.<$> (x Lude..: "BlockPublicSecurityGroupRules")
+            Lude.<*> ( x Lude..:? "PermittedPublicSecurityGroupRuleRanges"
                          Lude..!= Lude.mempty
                      )
-            Lude.<*> (x Lude..: "BlockPublicSecurityGroupRules")
       )
 
 instance Lude.ToJSON BlockPublicAccessConfiguration where
   toJSON BlockPublicAccessConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PermittedPublicSecurityGroupRuleRanges" Lude..=)
-              Lude.<$> permittedPublicSecurityGroupRuleRanges,
-            Lude.Just
+          [ Lude.Just
               ( "BlockPublicSecurityGroupRules"
                   Lude..= blockPublicSecurityGroupRules
-              )
+              ),
+            ("PermittedPublicSecurityGroupRuleRanges" Lude..=)
+              Lude.<$> permittedPublicSecurityGroupRuleRanges
           ]
       )

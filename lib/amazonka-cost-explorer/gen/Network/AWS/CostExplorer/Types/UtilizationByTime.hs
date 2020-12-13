@@ -33,18 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUtilizationByTime' smart constructor.
 data UtilizationByTime = UtilizationByTime'
-  { groups ::
-      Lude.Maybe [ReservationUtilizationGroup],
+  { -- | The groups that this utilization result uses.
+    groups :: Lude.Maybe [ReservationUtilizationGroup],
+    -- | The period of time that this utilization was used for.
     timePeriod :: Lude.Maybe DateInterval,
+    -- | The total number of reservation hours that were used.
     total :: Lude.Maybe ReservationAggregates
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UtilizationByTime' with the minimum fields required to make a request.

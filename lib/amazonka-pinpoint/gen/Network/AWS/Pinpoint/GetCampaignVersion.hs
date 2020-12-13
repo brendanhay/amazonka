@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.Pinpoint.GetCampaignVersion
     mkGetCampaignVersion,
 
     -- ** Request lenses
-    gcvcVersion,
-    gcvcApplicationId,
-    gcvcCampaignId,
+    gCampaignId,
+    gApplicationId,
+    gVersion,
 
     -- * Destructuring the response
     GetCampaignVersionResponse (..),
     mkGetCampaignVersionResponse,
 
     -- ** Response lenses
-    gcvcrsResponseStatus,
-    gcvcrsCampaignResponse,
+    gcvfrsCampaignResponse,
+    gcvfrsResponseStatus,
   )
 where
 
@@ -41,59 +42,56 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCampaignVersion' smart constructor.
 data GetCampaignVersion = GetCampaignVersion'
-  { version :: Lude.Text,
+  { -- | The unique identifier for the campaign.
+    campaignId :: Lude.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Lude.Text,
-    campaignId :: Lude.Text
+    -- | The unique version number (Version property) for the campaign version.
+    version :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaignVersion' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'campaignId' - The unique identifier for the campaign.
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'version' - The unique version number (Version property) for the campaign version.
 mkGetCampaignVersion ::
-  -- | 'version'
+  -- | 'campaignId'
   Lude.Text ->
   -- | 'applicationId'
   Lude.Text ->
-  -- | 'campaignId'
+  -- | 'version'
   Lude.Text ->
   GetCampaignVersion
-mkGetCampaignVersion pVersion_ pApplicationId_ pCampaignId_ =
+mkGetCampaignVersion pCampaignId_ pApplicationId_ pVersion_ =
   GetCampaignVersion'
-    { version = pVersion_,
+    { campaignId = pCampaignId_,
       applicationId = pApplicationId_,
-      campaignId = pCampaignId_
+      version = pVersion_
     }
-
--- | The unique version number (Version property) for the campaign version.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvcVersion :: Lens.Lens' GetCampaignVersion Lude.Text
-gcvcVersion = Lens.lens (version :: GetCampaignVersion -> Lude.Text) (\s a -> s {version = a} :: GetCampaignVersion)
-{-# DEPRECATED gcvcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvcApplicationId :: Lens.Lens' GetCampaignVersion Lude.Text
-gcvcApplicationId = Lens.lens (applicationId :: GetCampaignVersion -> Lude.Text) (\s a -> s {applicationId = a} :: GetCampaignVersion)
-{-# DEPRECATED gcvcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The unique identifier for the campaign.
 --
 -- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvcCampaignId :: Lens.Lens' GetCampaignVersion Lude.Text
-gcvcCampaignId = Lens.lens (campaignId :: GetCampaignVersion -> Lude.Text) (\s a -> s {campaignId = a} :: GetCampaignVersion)
-{-# DEPRECATED gcvcCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
+gCampaignId :: Lens.Lens' GetCampaignVersion Lude.Text
+gCampaignId = Lens.lens (campaignId :: GetCampaignVersion -> Lude.Text) (\s a -> s {campaignId = a} :: GetCampaignVersion)
+{-# DEPRECATED gCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
+
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gApplicationId :: Lens.Lens' GetCampaignVersion Lude.Text
+gApplicationId = Lens.lens (applicationId :: GetCampaignVersion -> Lude.Text) (\s a -> s {applicationId = a} :: GetCampaignVersion)
+{-# DEPRECATED gApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The unique version number (Version property) for the campaign version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gVersion :: Lens.Lens' GetCampaignVersion Lude.Text
+gVersion = Lens.lens (version :: GetCampaignVersion -> Lude.Text) (\s a -> s {version = a} :: GetCampaignVersion)
+{-# DEPRECATED gVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 instance Lude.AWSRequest GetCampaignVersion where
   type Rs GetCampaignVersion = GetCampaignVersionResponse
@@ -102,7 +100,7 @@ instance Lude.AWSRequest GetCampaignVersion where
     Res.receiveJSON
       ( \s h x ->
           GetCampaignVersionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetCampaignVersion where
@@ -130,45 +128,40 @@ instance Lude.ToQuery GetCampaignVersion where
 
 -- | /See:/ 'mkGetCampaignVersionResponse' smart constructor.
 data GetCampaignVersionResponse = GetCampaignVersionResponse'
-  { responseStatus ::
-      Lude.Int,
-    campaignResponse :: CampaignResponse
+  { campaignResponse :: CampaignResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaignVersionResponse' with the minimum fields required to make a request.
 --
--- * 'campaignResponse' - Undocumented field.
+-- * 'campaignResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetCampaignVersionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCampaignVersionResponse
-mkGetCampaignVersionResponse pResponseStatus_ pCampaignResponse_ =
+mkGetCampaignVersionResponse pCampaignResponse_ pResponseStatus_ =
   GetCampaignVersionResponse'
-    { responseStatus = pResponseStatus_,
-      campaignResponse = pCampaignResponse_
+    { campaignResponse =
+        pCampaignResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvcrsResponseStatus :: Lens.Lens' GetCampaignVersionResponse Lude.Int
-gcvcrsResponseStatus = Lens.lens (responseStatus :: GetCampaignVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignVersionResponse)
-{-# DEPRECATED gcvcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'campaignResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcvcrsCampaignResponse :: Lens.Lens' GetCampaignVersionResponse CampaignResponse
-gcvcrsCampaignResponse = Lens.lens (campaignResponse :: GetCampaignVersionResponse -> CampaignResponse) (\s a -> s {campaignResponse = a} :: GetCampaignVersionResponse)
-{-# DEPRECATED gcvcrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}
+gcvfrsCampaignResponse :: Lens.Lens' GetCampaignVersionResponse CampaignResponse
+gcvfrsCampaignResponse = Lens.lens (campaignResponse :: GetCampaignVersionResponse -> CampaignResponse) (\s a -> s {campaignResponse = a} :: GetCampaignVersionResponse)
+{-# DEPRECATED gcvfrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcvfrsResponseStatus :: Lens.Lens' GetCampaignVersionResponse Lude.Int
+gcvfrsResponseStatus = Lens.lens (responseStatus :: GetCampaignVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignVersionResponse)
+{-# DEPRECATED gcvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

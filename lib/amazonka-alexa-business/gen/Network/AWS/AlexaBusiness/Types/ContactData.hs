@@ -36,12 +36,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContactData' smart constructor.
 data ContactData = ContactData'
-  { lastName :: Lude.Maybe Lude.Text,
+  { -- | The last name of the contact, used to call the contact on the device.
+    lastName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the contact.
     contactARN :: Lude.Maybe Lude.Text,
+    -- | The list of phone numbers for the contact.
     phoneNumbers :: Lude.Maybe [PhoneNumber],
+    -- | The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
     phoneNumber :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The list of SIP addresses for the contact.
     sipAddresses :: Lude.Maybe [SipAddress],
+    -- | The first name of the contact, used to call the contact on the device.
     firstName :: Lude.Maybe Lude.Text,
+    -- | The name of the contact to display on the console.
     displayName :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -49,13 +56,13 @@ data ContactData = ContactData'
 
 -- | Creates a value of 'ContactData' with the minimum fields required to make a request.
 --
--- * 'contactARN' - The ARN of the contact.
--- * 'displayName' - The name of the contact to display on the console.
--- * 'firstName' - The first name of the contact, used to call the contact on the device.
 -- * 'lastName' - The last name of the contact, used to call the contact on the device.
--- * 'phoneNumber' - The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
+-- * 'contactARN' - The ARN of the contact.
 -- * 'phoneNumbers' - The list of phone numbers for the contact.
+-- * 'phoneNumber' - The phone number of the contact. The phone number type defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you specify the phone number type and multiple numbers.
 -- * 'sipAddresses' - The list of SIP addresses for the contact.
+-- * 'firstName' - The first name of the contact, used to call the contact on the device.
+-- * 'displayName' - The name of the contact to display on the console.
 mkContactData ::
   ContactData
 mkContactData =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteResourcesByExternalId' smart constructor.
 newtype DeleteResourcesByExternalId = DeleteResourcesByExternalId'
-  { externalId ::
-      Lude.Maybe Lude.Text
+  { -- | The unique ID of an external resource (for example, a CloudFormation stack ID) that is linked to one or more CodeDeploy resources.
+    externalId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcesByExternalId' with the minimum fields required to make a request.
@@ -103,16 +98,10 @@ instance Lude.ToQuery DeleteResourcesByExternalId where
 
 -- | /See:/ 'mkDeleteResourcesByExternalIdResponse' smart constructor.
 newtype DeleteResourcesByExternalIdResponse = DeleteResourcesByExternalIdResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourcesByExternalIdResponse' with the minimum fields required to make a request.

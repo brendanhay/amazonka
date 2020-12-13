@@ -19,8 +19,8 @@ module Network.AWS.IoT.Types.HTTPAction
     -- * Lenses
     httpaConfirmationURL,
     httpaAuth,
-    httpaHeaders,
     httpaUrl,
+    httpaHeaders,
   )
 where
 
@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPAction' smart constructor.
 data HTTPAction = HTTPAction'
-  { confirmationURL ::
-      Lude.Maybe Lude.Text,
+  { -- | The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
+    confirmationURL :: Lude.Maybe Lude.Text,
+    -- | The authentication method to use when sending data to an HTTPS endpoint.
     auth :: Lude.Maybe HTTPAuthorization,
-    headers :: Lude.Maybe [HTTPActionHeader],
-    url :: Lude.Text
+    -- | The endpoint URL. If substitution templates are used in the URL, you must also specify a @confirmationUrl@ . If this is a new destination, a new @TopicRuleDestination@ is created if possible.
+    url :: Lude.Text,
+    -- | The HTTP headers to send with the message data.
+    headers :: Lude.Maybe [HTTPActionHeader]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPAction' with the minimum fields required to make a request.
 --
--- * 'auth' - The authentication method to use when sending data to an HTTPS endpoint.
 -- * 'confirmationURL' - The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
--- * 'headers' - The HTTP headers to send with the message data.
+-- * 'auth' - The authentication method to use when sending data to an HTTPS endpoint.
 -- * 'url' - The endpoint URL. If substitution templates are used in the URL, you must also specify a @confirmationUrl@ . If this is a new destination, a new @TopicRuleDestination@ is created if possible.
+-- * 'headers' - The HTTP headers to send with the message data.
 mkHTTPAction ::
   -- | 'url'
   Lude.Text ->
@@ -62,8 +59,8 @@ mkHTTPAction pUrl_ =
   HTTPAction'
     { confirmationURL = Lude.Nothing,
       auth = Lude.Nothing,
-      headers = Lude.Nothing,
-      url = pUrl_
+      url = pUrl_,
+      headers = Lude.Nothing
     }
 
 -- | The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
@@ -80,19 +77,19 @@ httpaAuth :: Lens.Lens' HTTPAction (Lude.Maybe HTTPAuthorization)
 httpaAuth = Lens.lens (auth :: HTTPAction -> Lude.Maybe HTTPAuthorization) (\s a -> s {auth = a} :: HTTPAction)
 {-# DEPRECATED httpaAuth "Use generic-lens or generic-optics with 'auth' instead." #-}
 
--- | The HTTP headers to send with the message data.
---
--- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-httpaHeaders :: Lens.Lens' HTTPAction (Lude.Maybe [HTTPActionHeader])
-httpaHeaders = Lens.lens (headers :: HTTPAction -> Lude.Maybe [HTTPActionHeader]) (\s a -> s {headers = a} :: HTTPAction)
-{-# DEPRECATED httpaHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
-
 -- | The endpoint URL. If substitution templates are used in the URL, you must also specify a @confirmationUrl@ . If this is a new destination, a new @TopicRuleDestination@ is created if possible.
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 httpaUrl :: Lens.Lens' HTTPAction Lude.Text
 httpaUrl = Lens.lens (url :: HTTPAction -> Lude.Text) (\s a -> s {url = a} :: HTTPAction)
 {-# DEPRECATED httpaUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+-- | The HTTP headers to send with the message data.
+--
+-- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+httpaHeaders :: Lens.Lens' HTTPAction (Lude.Maybe [HTTPActionHeader])
+httpaHeaders = Lens.lens (headers :: HTTPAction -> Lude.Maybe [HTTPActionHeader]) (\s a -> s {headers = a} :: HTTPAction)
+{-# DEPRECATED httpaHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
 instance Lude.FromJSON HTTPAction where
   parseJSON =
@@ -102,8 +99,8 @@ instance Lude.FromJSON HTTPAction where
           HTTPAction'
             Lude.<$> (x Lude..:? "confirmationUrl")
             Lude.<*> (x Lude..:? "auth")
-            Lude.<*> (x Lude..:? "headers" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "url")
+            Lude.<*> (x Lude..:? "headers" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON HTTPAction where
@@ -112,7 +109,7 @@ instance Lude.ToJSON HTTPAction where
       ( Lude.catMaybes
           [ ("confirmationUrl" Lude..=) Lude.<$> confirmationURL,
             ("auth" Lude..=) Lude.<$> auth,
-            ("headers" Lude..=) Lude.<$> headers,
-            Lude.Just ("url" Lude..= url)
+            Lude.Just ("url" Lude..= url),
+            ("headers" Lude..=) Lude.<$> headers
           ]
       )

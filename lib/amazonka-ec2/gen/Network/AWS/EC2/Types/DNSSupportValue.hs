@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.DNSSupportValue
   ( DNSSupportValue
       ( DNSSupportValue',
-        DSVDisable,
-        DSVEnable
+        DSVEnable,
+        DSVDisable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DNSSupportValue = DNSSupportValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSVDisable :: DNSSupportValue
-pattern DSVDisable = DNSSupportValue' "disable"
-
 pattern DSVEnable :: DNSSupportValue
 pattern DSVEnable = DNSSupportValue' "enable"
 
+pattern DSVDisable :: DNSSupportValue
+pattern DSVDisable = DNSSupportValue' "disable"
+
 {-# COMPLETE
-  DSVDisable,
   DSVEnable,
+  DSVDisable,
   DNSSupportValue'
   #-}

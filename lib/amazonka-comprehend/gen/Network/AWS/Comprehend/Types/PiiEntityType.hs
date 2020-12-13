@@ -13,29 +13,29 @@
 module Network.AWS.Comprehend.Types.PiiEntityType
   ( PiiEntityType
       ( PiiEntityType',
-        AWSAccessKey,
-        AWSSecretKey,
-        Address,
-        Age,
-        All,
         BankAccountNumber,
         BankRouting,
+        CreditDebitNumber,
         CreditDebitCvv,
         CreditDebitExpiry,
-        CreditDebitNumber,
-        DateTime,
-        DriverId,
+        Pin,
         Email,
+        Address,
+        Name,
+        Phone,
+        Ssn,
+        DateTime,
+        PassportNumber,
+        DriverId,
+        URL,
+        Age,
+        Username,
+        Password,
+        AWSAccessKey,
+        AWSSecretKey,
         IPAddress,
         MACAddress,
-        Name,
-        PassportNumber,
-        Password,
-        Phone,
-        Pin,
-        Ssn,
-        URL,
-        Username
+        All
       ),
   )
 where
@@ -66,26 +66,14 @@ newtype PiiEntityType = PiiEntityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSAccessKey :: PiiEntityType
-pattern AWSAccessKey = PiiEntityType' "AWS_ACCESS_KEY"
-
-pattern AWSSecretKey :: PiiEntityType
-pattern AWSSecretKey = PiiEntityType' "AWS_SECRET_KEY"
-
-pattern Address :: PiiEntityType
-pattern Address = PiiEntityType' "ADDRESS"
-
-pattern Age :: PiiEntityType
-pattern Age = PiiEntityType' "AGE"
-
-pattern All :: PiiEntityType
-pattern All = PiiEntityType' "ALL"
-
 pattern BankAccountNumber :: PiiEntityType
 pattern BankAccountNumber = PiiEntityType' "BANK_ACCOUNT_NUMBER"
 
 pattern BankRouting :: PiiEntityType
 pattern BankRouting = PiiEntityType' "BANK_ROUTING"
+
+pattern CreditDebitNumber :: PiiEntityType
+pattern CreditDebitNumber = PiiEntityType' "CREDIT_DEBIT_NUMBER"
 
 pattern CreditDebitCvv :: PiiEntityType
 pattern CreditDebitCvv = PiiEntityType' "CREDIT_DEBIT_CVV"
@@ -93,17 +81,50 @@ pattern CreditDebitCvv = PiiEntityType' "CREDIT_DEBIT_CVV"
 pattern CreditDebitExpiry :: PiiEntityType
 pattern CreditDebitExpiry = PiiEntityType' "CREDIT_DEBIT_EXPIRY"
 
-pattern CreditDebitNumber :: PiiEntityType
-pattern CreditDebitNumber = PiiEntityType' "CREDIT_DEBIT_NUMBER"
+pattern Pin :: PiiEntityType
+pattern Pin = PiiEntityType' "PIN"
+
+pattern Email :: PiiEntityType
+pattern Email = PiiEntityType' "EMAIL"
+
+pattern Address :: PiiEntityType
+pattern Address = PiiEntityType' "ADDRESS"
+
+pattern Name :: PiiEntityType
+pattern Name = PiiEntityType' "NAME"
+
+pattern Phone :: PiiEntityType
+pattern Phone = PiiEntityType' "PHONE"
+
+pattern Ssn :: PiiEntityType
+pattern Ssn = PiiEntityType' "SSN"
 
 pattern DateTime :: PiiEntityType
 pattern DateTime = PiiEntityType' "DATE_TIME"
 
+pattern PassportNumber :: PiiEntityType
+pattern PassportNumber = PiiEntityType' "PASSPORT_NUMBER"
+
 pattern DriverId :: PiiEntityType
 pattern DriverId = PiiEntityType' "DRIVER_ID"
 
-pattern Email :: PiiEntityType
-pattern Email = PiiEntityType' "EMAIL"
+pattern URL :: PiiEntityType
+pattern URL = PiiEntityType' "URL"
+
+pattern Age :: PiiEntityType
+pattern Age = PiiEntityType' "AGE"
+
+pattern Username :: PiiEntityType
+pattern Username = PiiEntityType' "USERNAME"
+
+pattern Password :: PiiEntityType
+pattern Password = PiiEntityType' "PASSWORD"
+
+pattern AWSAccessKey :: PiiEntityType
+pattern AWSAccessKey = PiiEntityType' "AWS_ACCESS_KEY"
+
+pattern AWSSecretKey :: PiiEntityType
+pattern AWSSecretKey = PiiEntityType' "AWS_SECRET_KEY"
 
 pattern IPAddress :: PiiEntityType
 pattern IPAddress = PiiEntityType' "IP_ADDRESS"
@@ -111,53 +132,32 @@ pattern IPAddress = PiiEntityType' "IP_ADDRESS"
 pattern MACAddress :: PiiEntityType
 pattern MACAddress = PiiEntityType' "MAC_ADDRESS"
 
-pattern Name :: PiiEntityType
-pattern Name = PiiEntityType' "NAME"
-
-pattern PassportNumber :: PiiEntityType
-pattern PassportNumber = PiiEntityType' "PASSPORT_NUMBER"
-
-pattern Password :: PiiEntityType
-pattern Password = PiiEntityType' "PASSWORD"
-
-pattern Phone :: PiiEntityType
-pattern Phone = PiiEntityType' "PHONE"
-
-pattern Pin :: PiiEntityType
-pattern Pin = PiiEntityType' "PIN"
-
-pattern Ssn :: PiiEntityType
-pattern Ssn = PiiEntityType' "SSN"
-
-pattern URL :: PiiEntityType
-pattern URL = PiiEntityType' "URL"
-
-pattern Username :: PiiEntityType
-pattern Username = PiiEntityType' "USERNAME"
+pattern All :: PiiEntityType
+pattern All = PiiEntityType' "ALL"
 
 {-# COMPLETE
-  AWSAccessKey,
-  AWSSecretKey,
-  Address,
-  Age,
-  All,
   BankAccountNumber,
   BankRouting,
+  CreditDebitNumber,
   CreditDebitCvv,
   CreditDebitExpiry,
-  CreditDebitNumber,
-  DateTime,
-  DriverId,
+  Pin,
   Email,
+  Address,
+  Name,
+  Phone,
+  Ssn,
+  DateTime,
+  PassportNumber,
+  DriverId,
+  URL,
+  Age,
+  Username,
+  Password,
+  AWSAccessKey,
+  AWSSecretKey,
   IPAddress,
   MACAddress,
-  Name,
-  PassportNumber,
-  Password,
-  Phone,
-  Pin,
-  Ssn,
-  URL,
-  Username,
+  All,
   PiiEntityType'
   #-}

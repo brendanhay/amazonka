@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSJobAbortConfig' smart constructor.
 newtype AWSJobAbortConfig = AWSJobAbortConfig'
-  { abortCriteriaList ::
-      Lude.NonEmpty AWSJobAbortCriteria
+  { -- | The list of criteria that determine when and how to abort the job.
+    abortCriteriaList :: Lude.NonEmpty AWSJobAbortCriteria
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSJobAbortConfig' with the minimum fields required to make a request.

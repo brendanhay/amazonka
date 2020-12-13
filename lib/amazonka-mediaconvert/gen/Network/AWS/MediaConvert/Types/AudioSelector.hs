@@ -41,39 +41,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioSelector' smart constructor.
 data AudioSelector = AudioSelector'
-  { tracks ::
-      Lude.Maybe [Lude.Natural],
+  { -- | Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+    tracks :: Lude.Maybe [Lude.Natural],
+    -- | Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
     customLanguageCode :: Lude.Maybe Lude.Text,
+    -- | Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
     programSelection :: Lude.Maybe Lude.Natural,
+    -- | Selects a specific language code from within an audio source.
     languageCode :: Lude.Maybe LanguageCode,
+    -- | Specifies a time delta in milliseconds to offset the audio from the input video.
     offset :: Lude.Maybe Lude.Int,
+    -- | Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
     defaultSelection :: Lude.Maybe AudioDefaultSelection,
+    -- | Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
     pids :: Lude.Maybe [Lude.Natural],
+    -- | Specifies the type of the audio selector.
     selectorType :: Lude.Maybe AudioSelectorType,
+    -- | Specifies audio data from an external file source.
     externalAudioFileInput :: Lude.Maybe Lude.Text,
+    -- | Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other.
     remixSettings :: Lude.Maybe RemixSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioSelector' with the minimum fields required to make a request.
 --
+-- * 'tracks' - Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
 -- * 'customLanguageCode' - Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
--- * 'defaultSelection' - Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
--- * 'externalAudioFileInput' - Specifies audio data from an external file source.
+-- * 'programSelection' - Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
 -- * 'languageCode' - Selects a specific language code from within an audio source.
 -- * 'offset' - Specifies a time delta in milliseconds to offset the audio from the input video.
+-- * 'defaultSelection' - Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
 -- * 'pids' - Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
--- * 'programSelection' - Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
--- * 'remixSettings' - Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other.
 -- * 'selectorType' - Specifies the type of the audio selector.
--- * 'tracks' - Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+-- * 'externalAudioFileInput' - Specifies audio data from an external file source.
+-- * 'remixSettings' - Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other.
 mkAudioSelector ::
   AudioSelector
 mkAudioSelector =

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceTypeDetail' smart constructor.
 newtype ServiceTypeDetail = ServiceTypeDetail'
-  { serviceType ::
-      Lude.Maybe ServiceType
+  { -- | The type of service.
+    serviceType :: Lude.Maybe ServiceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceTypeDetail' with the minimum fields required to make a request.

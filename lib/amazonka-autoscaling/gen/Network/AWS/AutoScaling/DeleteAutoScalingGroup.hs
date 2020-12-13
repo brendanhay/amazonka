@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAutoScalingGroup' smart constructor.
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
-  { forceDelete ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
+    forceDelete :: Lude.Maybe Lude.Bool,
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAutoScalingGroup' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'forceDelete' - Specifies that the group is to be deleted along with all instances associated with the group, without waiting for all instances to be terminated. This parameter also deletes any lifecycle actions associated with the group.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkDeleteAutoScalingGroup ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -104,13 +100,7 @@ instance Lude.ToQuery DeleteAutoScalingGroup where
 
 -- | /See:/ 'mkDeleteAutoScalingGroupResponse' smart constructor.
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAutoScalingGroupResponse' with the minimum fields required to make a request.

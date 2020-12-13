@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileMetadata' smart constructor.
 data FileMetadata = FileMetadata'
-  { absolutePath ::
-      Lude.Maybe Lude.Text,
+  { -- | The full path to the file to be added or updated, including the name of the file.
+    absolutePath :: Lude.Maybe Lude.Text,
+    -- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
     fileMode :: Lude.Maybe FileModeTypeEnum,
+    -- | The blob ID that contains the file information.
     blobId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileMetadata' with the minimum fields required to make a request.
 --
 -- * 'absolutePath' - The full path to the file to be added or updated, including the name of the file.
--- * 'blobId' - The blob ID that contains the file information.
 -- * 'fileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+-- * 'blobId' - The blob ID that contains the file information.
 mkFileMetadata ::
   FileMetadata
 mkFileMetadata =

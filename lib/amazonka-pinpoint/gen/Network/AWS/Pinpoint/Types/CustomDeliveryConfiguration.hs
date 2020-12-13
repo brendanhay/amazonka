@@ -30,21 +30,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomDeliveryConfiguration' smart constructor.
 data CustomDeliveryConfiguration = CustomDeliveryConfiguration'
-  { endpointTypes ::
-      Lude.Maybe [EndpointTypesElement],
+  { -- | The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
+    endpointTypes :: Lude.Maybe [EndpointTypesElement],
+    -- | The destination to send the campaign or treatment to. This value can be one of the following:
+    --
+    --
+    --     * The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.
+    --
+    --
+    --     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
     deliveryURI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomDeliveryConfiguration' with the minimum fields required to make a request.
 --
+-- * 'endpointTypes' - The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
 -- * 'deliveryURI' - The destination to send the campaign or treatment to. This value can be one of the following:
 --
 --
@@ -52,9 +54,6 @@ data CustomDeliveryConfiguration = CustomDeliveryConfiguration'
 --
 --
 --     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
---
---
--- * 'endpointTypes' - The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
 mkCustomDeliveryConfiguration ::
   -- | 'deliveryURI'
   Lude.Text ->

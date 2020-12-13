@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.EmbeddedConvert608To708
   ( EmbeddedConvert608To708
       ( EmbeddedConvert608To708',
-        ECTDisabled,
-        ECTUpconvert
+        ECTUpconvert,
+        ECTDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype EmbeddedConvert608To708 = EmbeddedConvert608To708' Lude.Text
       Lude.ToHeader
     )
 
-pattern ECTDisabled :: EmbeddedConvert608To708
-pattern ECTDisabled = EmbeddedConvert608To708' "DISABLED"
-
 pattern ECTUpconvert :: EmbeddedConvert608To708
 pattern ECTUpconvert = EmbeddedConvert608To708' "UPCONVERT"
 
+pattern ECTDisabled :: EmbeddedConvert608To708
+pattern ECTDisabled = EmbeddedConvert608To708' "DISABLED"
+
 {-# COMPLETE
-  ECTDisabled,
   ECTUpconvert,
+  ECTDisabled,
   EmbeddedConvert608To708'
   #-}

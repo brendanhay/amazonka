@@ -17,11 +17,11 @@ module Network.AWS.Kinesis.Types.Record
     mkRecord,
 
     -- * Lenses
-    rEncryptionType,
-    rApproximateArrivalTimestamp,
     rSequenceNumber,
-    rData,
+    rEncryptionType,
     rPartitionKey,
+    rData,
+    rApproximateArrivalTimestamp,
   )
 where
 
@@ -33,29 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecord' smart constructor.
 data Record = Record'
-  { encryptionType :: Lude.Maybe EncryptionType,
-    approximateArrivalTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The unique identifier of the record within its shard.
     sequenceNumber :: Lude.Text,
+    -- | The encryption type used on the record. This parameter can be one of the following values:
+    --
+    --
+    --     * @NONE@ : Do not encrypt the records in the stream.
+    --
+    --
+    --     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.
+    encryptionType :: Lude.Maybe EncryptionType,
+    -- | Identifies which shard in the stream the data record is assigned to.
+    partitionKey :: Lude.Text,
+    -- | The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
     data' :: Lude.Base64,
-    partitionKey :: Lude.Text
+    -- | The approximate time that the record was inserted into the stream.
+    approximateArrivalTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
--- * 'approximateArrivalTimestamp' - The approximate time that the record was inserted into the stream.
--- * 'data'' - The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'sequenceNumber' - The unique identifier of the record within its shard.
 -- * 'encryptionType' - The encryption type used on the record. This parameter can be one of the following values:
 --
 --
@@ -66,23 +66,31 @@ data Record = Record'
 --
 --
 -- * 'partitionKey' - Identifies which shard in the stream the data record is assigned to.
--- * 'sequenceNumber' - The unique identifier of the record within its shard.
+-- * 'data'' - The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
+-- * 'approximateArrivalTimestamp' - The approximate time that the record was inserted into the stream.
 mkRecord ::
   -- | 'sequenceNumber'
   Lude.Text ->
-  -- | 'data''
-  Lude.Base64 ->
   -- | 'partitionKey'
   Lude.Text ->
+  -- | 'data''
+  Lude.Base64 ->
   Record
-mkRecord pSequenceNumber_ pData_ pPartitionKey_ =
+mkRecord pSequenceNumber_ pPartitionKey_ pData_ =
   Record'
-    { encryptionType = Lude.Nothing,
-      approximateArrivalTimestamp = Lude.Nothing,
-      sequenceNumber = pSequenceNumber_,
+    { sequenceNumber = pSequenceNumber_,
+      encryptionType = Lude.Nothing,
+      partitionKey = pPartitionKey_,
       data' = pData_,
-      partitionKey = pPartitionKey_
+      approximateArrivalTimestamp = Lude.Nothing
     }
+
+-- | The unique identifier of the record within its shard.
+--
+-- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rSequenceNumber :: Lens.Lens' Record Lude.Text
+rSequenceNumber = Lens.lens (sequenceNumber :: Record -> Lude.Text) (\s a -> s {sequenceNumber = a} :: Record)
+{-# DEPRECATED rSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
 
 -- | The encryption type used on the record. This parameter can be one of the following values:
 --
@@ -99,19 +107,12 @@ rEncryptionType :: Lens.Lens' Record (Lude.Maybe EncryptionType)
 rEncryptionType = Lens.lens (encryptionType :: Record -> Lude.Maybe EncryptionType) (\s a -> s {encryptionType = a} :: Record)
 {-# DEPRECATED rEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
--- | The approximate time that the record was inserted into the stream.
+-- | Identifies which shard in the stream the data record is assigned to.
 --
--- /Note:/ Consider using 'approximateArrivalTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rApproximateArrivalTimestamp :: Lens.Lens' Record (Lude.Maybe Lude.Timestamp)
-rApproximateArrivalTimestamp = Lens.lens (approximateArrivalTimestamp :: Record -> Lude.Maybe Lude.Timestamp) (\s a -> s {approximateArrivalTimestamp = a} :: Record)
-{-# DEPRECATED rApproximateArrivalTimestamp "Use generic-lens or generic-optics with 'approximateArrivalTimestamp' instead." #-}
-
--- | The unique identifier of the record within its shard.
---
--- /Note:/ Consider using 'sequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rSequenceNumber :: Lens.Lens' Record Lude.Text
-rSequenceNumber = Lens.lens (sequenceNumber :: Record -> Lude.Text) (\s a -> s {sequenceNumber = a} :: Record)
-{-# DEPRECATED rSequenceNumber "Use generic-lens or generic-optics with 'sequenceNumber' instead." #-}
+-- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPartitionKey :: Lens.Lens' Record Lude.Text
+rPartitionKey = Lens.lens (partitionKey :: Record -> Lude.Text) (\s a -> s {partitionKey = a} :: Record)
+{-# DEPRECATED rPartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
 
 -- | The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -124,12 +125,12 @@ rData :: Lens.Lens' Record Lude.Base64
 rData = Lens.lens (data' :: Record -> Lude.Base64) (\s a -> s {data' = a} :: Record)
 {-# DEPRECATED rData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
--- | Identifies which shard in the stream the data record is assigned to.
+-- | The approximate time that the record was inserted into the stream.
 --
--- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPartitionKey :: Lens.Lens' Record Lude.Text
-rPartitionKey = Lens.lens (partitionKey :: Record -> Lude.Text) (\s a -> s {partitionKey = a} :: Record)
-{-# DEPRECATED rPartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
+-- /Note:/ Consider using 'approximateArrivalTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rApproximateArrivalTimestamp :: Lens.Lens' Record (Lude.Maybe Lude.Timestamp)
+rApproximateArrivalTimestamp = Lens.lens (approximateArrivalTimestamp :: Record -> Lude.Maybe Lude.Timestamp) (\s a -> s {approximateArrivalTimestamp = a} :: Record)
+{-# DEPRECATED rApproximateArrivalTimestamp "Use generic-lens or generic-optics with 'approximateArrivalTimestamp' instead." #-}
 
 instance Lude.FromJSON Record where
   parseJSON =
@@ -137,9 +138,9 @@ instance Lude.FromJSON Record where
       "Record"
       ( \x ->
           Record'
-            Lude.<$> (x Lude..:? "EncryptionType")
-            Lude.<*> (x Lude..:? "ApproximateArrivalTimestamp")
-            Lude.<*> (x Lude..: "SequenceNumber")
-            Lude.<*> (x Lude..: "Data")
+            Lude.<$> (x Lude..: "SequenceNumber")
+            Lude.<*> (x Lude..:? "EncryptionType")
             Lude.<*> (x Lude..: "PartitionKey")
+            Lude.<*> (x Lude..: "Data")
+            Lude.<*> (x Lude..:? "ApproximateArrivalTimestamp")
       )

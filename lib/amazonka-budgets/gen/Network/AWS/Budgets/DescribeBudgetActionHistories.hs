@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,20 +23,20 @@ module Network.AWS.Budgets.DescribeBudgetActionHistories
 
     -- ** Request lenses
     dbahTimePeriod,
-    dbahNextToken,
-    dbahMaxResults,
-    dbahAccountId,
-    dbahBudgetName,
     dbahActionId,
+    dbahAccountId,
+    dbahNextToken,
+    dbahBudgetName,
+    dbahMaxResults,
 
     -- * Destructuring the response
     DescribeBudgetActionHistoriesResponse (..),
     mkDescribeBudgetActionHistoriesResponse,
 
     -- ** Response lenses
+    dbahrsActionHistories,
     dbahrsNextToken,
     dbahrsResponseStatus,
-    dbahrsActionHistories,
   )
 where
 
@@ -48,49 +49,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBudgetActionHistories' smart constructor.
 data DescribeBudgetActionHistories = DescribeBudgetActionHistories'
-  { timePeriod ::
-      Lude.Maybe TimePeriod,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
+  { timePeriod :: Lude.Maybe TimePeriod,
+    -- | A system-generated universally unique identifier (UUID) for the action.
+    actionId :: Lude.Text,
     accountId :: Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
     budgetName :: Lude.Text,
-    actionId :: Lude.Text
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetActionHistories' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
+-- * 'timePeriod' -
 -- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
--- * 'budgetName' - Undocumented field.
--- * 'maxResults' - Undocumented field.
--- * 'nextToken' - Undocumented field.
--- * 'timePeriod' - Undocumented field.
+-- * 'accountId' -
+-- * 'nextToken' -
+-- * 'budgetName' -
+-- * 'maxResults' -
 mkDescribeBudgetActionHistories ::
+  -- | 'actionId'
+  Lude.Text ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'actionId'
-  Lude.Text ->
   DescribeBudgetActionHistories
-mkDescribeBudgetActionHistories pAccountId_ pBudgetName_ pActionId_ =
+mkDescribeBudgetActionHistories pActionId_ pAccountId_ pBudgetName_ =
   DescribeBudgetActionHistories'
     { timePeriod = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
+      actionId = pActionId_,
       accountId = pAccountId_,
+      nextToken = Lude.Nothing,
       budgetName = pBudgetName_,
-      actionId = pActionId_
+      maxResults = Lude.Nothing
     }
 
 -- | Undocumented field.
@@ -100,19 +93,12 @@ dbahTimePeriod :: Lens.Lens' DescribeBudgetActionHistories (Lude.Maybe TimePerio
 dbahTimePeriod = Lens.lens (timePeriod :: DescribeBudgetActionHistories -> Lude.Maybe TimePeriod) (\s a -> s {timePeriod = a} :: DescribeBudgetActionHistories)
 {-# DEPRECATED dbahTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
--- | Undocumented field.
+-- | A system-generated universally unique identifier (UUID) for the action.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbahNextToken :: Lens.Lens' DescribeBudgetActionHistories (Lude.Maybe Lude.Text)
-dbahNextToken = Lens.lens (nextToken :: DescribeBudgetActionHistories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetActionHistories)
-{-# DEPRECATED dbahNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbahMaxResults :: Lens.Lens' DescribeBudgetActionHistories (Lude.Maybe Lude.Natural)
-dbahMaxResults = Lens.lens (maxResults :: DescribeBudgetActionHistories -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetActionHistories)
-{-# DEPRECATED dbahMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbahActionId :: Lens.Lens' DescribeBudgetActionHistories Lude.Text
+dbahActionId = Lens.lens (actionId :: DescribeBudgetActionHistories -> Lude.Text) (\s a -> s {actionId = a} :: DescribeBudgetActionHistories)
+{-# DEPRECATED dbahActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -123,17 +109,24 @@ dbahAccountId = Lens.lens (accountId :: DescribeBudgetActionHistories -> Lude.Te
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbahNextToken :: Lens.Lens' DescribeBudgetActionHistories (Lude.Maybe Lude.Text)
+dbahNextToken = Lens.lens (nextToken :: DescribeBudgetActionHistories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetActionHistories)
+{-# DEPRECATED dbahNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dbahBudgetName :: Lens.Lens' DescribeBudgetActionHistories Lude.Text
 dbahBudgetName = Lens.lens (budgetName :: DescribeBudgetActionHistories -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudgetActionHistories)
 {-# DEPRECATED dbahBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
--- | A system-generated universally unique identifier (UUID) for the action.
+-- | Undocumented field.
 --
--- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbahActionId :: Lens.Lens' DescribeBudgetActionHistories Lude.Text
-dbahActionId = Lens.lens (actionId :: DescribeBudgetActionHistories -> Lude.Text) (\s a -> s {actionId = a} :: DescribeBudgetActionHistories)
-{-# DEPRECATED dbahActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbahMaxResults :: Lens.Lens' DescribeBudgetActionHistories (Lude.Maybe Lude.Natural)
+dbahMaxResults = Lens.lens (maxResults :: DescribeBudgetActionHistories -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetActionHistories)
+{-# DEPRECATED dbahMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeBudgetActionHistories where
   page rq rs
@@ -153,9 +146,9 @@ instance Lude.AWSRequest DescribeBudgetActionHistories where
     Res.receiveJSON
       ( \s h x ->
           DescribeBudgetActionHistoriesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "ActionHistories" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "ActionHistories" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders DescribeBudgetActionHistories where
@@ -176,11 +169,11 @@ instance Lude.ToJSON DescribeBudgetActionHistories where
     Lude.object
       ( Lude.catMaybes
           [ ("TimePeriod" Lude..=) Lude.<$> timePeriod,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
+            Lude.Just ("ActionId" Lude..= actionId),
             Lude.Just ("AccountId" Lude..= accountId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("ActionId" Lude..= actionId)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -192,26 +185,19 @@ instance Lude.ToQuery DescribeBudgetActionHistories where
 
 -- | /See:/ 'mkDescribeBudgetActionHistoriesResponse' smart constructor.
 data DescribeBudgetActionHistoriesResponse = DescribeBudgetActionHistoriesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    actionHistories ::
-      [ActionHistory]
+  { -- | The historical record of the budget action resource.
+    actionHistories :: [ActionHistory],
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetActionHistoriesResponse' with the minimum fields required to make a request.
 --
 -- * 'actionHistories' - The historical record of the budget action resource.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkDescribeBudgetActionHistoriesResponse ::
   -- | 'responseStatus'
@@ -219,10 +205,18 @@ mkDescribeBudgetActionHistoriesResponse ::
   DescribeBudgetActionHistoriesResponse
 mkDescribeBudgetActionHistoriesResponse pResponseStatus_ =
   DescribeBudgetActionHistoriesResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      actionHistories = Lude.mempty
+    { actionHistories =
+        Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The historical record of the budget action resource.
+--
+-- /Note:/ Consider using 'actionHistories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbahrsActionHistories :: Lens.Lens' DescribeBudgetActionHistoriesResponse [ActionHistory]
+dbahrsActionHistories = Lens.lens (actionHistories :: DescribeBudgetActionHistoriesResponse -> [ActionHistory]) (\s a -> s {actionHistories = a} :: DescribeBudgetActionHistoriesResponse)
+{-# DEPRECATED dbahrsActionHistories "Use generic-lens or generic-optics with 'actionHistories' instead." #-}
 
 -- | Undocumented field.
 --
@@ -237,10 +231,3 @@ dbahrsNextToken = Lens.lens (nextToken :: DescribeBudgetActionHistoriesResponse 
 dbahrsResponseStatus :: Lens.Lens' DescribeBudgetActionHistoriesResponse Lude.Int
 dbahrsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetActionHistoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetActionHistoriesResponse)
 {-# DEPRECATED dbahrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The historical record of the budget action resource.
---
--- /Note:/ Consider using 'actionHistories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbahrsActionHistories :: Lens.Lens' DescribeBudgetActionHistoriesResponse [ActionHistory]
-dbahrsActionHistories = Lens.lens (actionHistories :: DescribeBudgetActionHistoriesResponse -> [ActionHistory]) (\s a -> s {actionHistories = a} :: DescribeBudgetActionHistoriesResponse)
-{-# DEPRECATED dbahrsActionHistories "Use generic-lens or generic-optics with 'actionHistories' instead." #-}

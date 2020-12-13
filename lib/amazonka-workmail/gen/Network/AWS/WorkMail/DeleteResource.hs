@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkMail.DeleteResource
     mkDeleteResource,
 
     -- ** Request lenses
-    dOrganizationId,
-    dResourceId,
+    drResourceId,
+    drOrganizationId,
 
     -- * Destructuring the response
     DeleteResourceResponse (..),
@@ -39,47 +40,43 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDeleteResource' smart constructor.
 data DeleteResource = DeleteResource'
-  { organizationId :: Lude.Text,
-    resourceId :: Lude.Text
+  { -- | The identifier of the resource to be deleted.
+    resourceId :: Lude.Text,
+    -- | The identifier associated with the organization from which the resource is deleted.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResource' with the minimum fields required to make a request.
 --
--- * 'organizationId' - The identifier associated with the organization from which the resource is deleted.
 -- * 'resourceId' - The identifier of the resource to be deleted.
+-- * 'organizationId' - The identifier associated with the organization from which the resource is deleted.
 mkDeleteResource ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   DeleteResource
-mkDeleteResource pOrganizationId_ pResourceId_ =
+mkDeleteResource pResourceId_ pOrganizationId_ =
   DeleteResource'
-    { organizationId = pOrganizationId_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      organizationId = pOrganizationId_
     }
-
--- | The identifier associated with the organization from which the resource is deleted.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOrganizationId :: Lens.Lens' DeleteResource Lude.Text
-dOrganizationId = Lens.lens (organizationId :: DeleteResource -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteResource)
-{-# DEPRECATED dOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the resource to be deleted.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dResourceId :: Lens.Lens' DeleteResource Lude.Text
-dResourceId = Lens.lens (resourceId :: DeleteResource -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteResource)
-{-# DEPRECATED dResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+drResourceId :: Lens.Lens' DeleteResource Lude.Text
+drResourceId = Lens.lens (resourceId :: DeleteResource -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteResource)
+{-# DEPRECATED drResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The identifier associated with the organization from which the resource is deleted.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drOrganizationId :: Lens.Lens' DeleteResource Lude.Text
+drOrganizationId = Lens.lens (organizationId :: DeleteResource -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteResource)
+{-# DEPRECATED drOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest DeleteResource where
   type Rs DeleteResource = DeleteResourceResponse
@@ -105,8 +102,8 @@ instance Lude.ToJSON DeleteResource where
   toJSON DeleteResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -118,16 +115,10 @@ instance Lude.ToQuery DeleteResource where
 
 -- | /See:/ 'mkDeleteResourceResponse' smart constructor.
 newtype DeleteResourceResponse = DeleteResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceResponse' with the minimum fields required to make a request.

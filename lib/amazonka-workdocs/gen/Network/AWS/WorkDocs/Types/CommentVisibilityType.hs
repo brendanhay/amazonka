@@ -13,8 +13,8 @@
 module Network.AWS.WorkDocs.Types.CommentVisibilityType
   ( CommentVisibilityType
       ( CommentVisibilityType',
-        Private,
-        Public
+        Public,
+        Private
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CommentVisibilityType = CommentVisibilityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Private :: CommentVisibilityType
-pattern Private = CommentVisibilityType' "PRIVATE"
-
 pattern Public :: CommentVisibilityType
 pattern Public = CommentVisibilityType' "PUBLIC"
 
+pattern Private :: CommentVisibilityType
+pattern Private = CommentVisibilityType' "PRIVATE"
+
 {-# COMPLETE
-  Private,
   Public,
+  Private,
   CommentVisibilityType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.S3.DeleteBucketCORS
     mkDeleteBucketCORS,
 
     -- ** Request lenses
-    dbcExpectedBucketOwner,
     dbcBucket,
+    dbcExpectedBucketOwner,
 
     -- * Destructuring the response
     DeleteBucketCORSResponse (..),
@@ -45,17 +46,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeleteBucketCORS' smart constructor.
 data DeleteBucketCORS = DeleteBucketCORS'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | Specifies the bucket whose @cors@ configuration is being deleted.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketCORS' with the minimum fields required to make a request.
@@ -68,16 +64,9 @@ mkDeleteBucketCORS ::
   DeleteBucketCORS
 mkDeleteBucketCORS pBucket_ =
   DeleteBucketCORS'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbcExpectedBucketOwner :: Lens.Lens' DeleteBucketCORS (Lude.Maybe Lude.Text)
-dbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketCORS)
-{-# DEPRECATED dbcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | Specifies the bucket whose @cors@ configuration is being deleted.
 --
@@ -85,6 +74,13 @@ dbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketCORS -> L
 dbcBucket :: Lens.Lens' DeleteBucketCORS BucketName
 dbcBucket = Lens.lens (bucket :: DeleteBucketCORS -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketCORS)
 {-# DEPRECATED dbcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcExpectedBucketOwner :: Lens.Lens' DeleteBucketCORS (Lude.Maybe Lude.Text)
+dbcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketCORS -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketCORS)
+{-# DEPRECATED dbcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest DeleteBucketCORS where
   type Rs DeleteBucketCORS = DeleteBucketCORSResponse
@@ -104,13 +100,7 @@ instance Lude.ToQuery DeleteBucketCORS where
 
 -- | /See:/ 'mkDeleteBucketCORSResponse' smart constructor.
 data DeleteBucketCORSResponse = DeleteBucketCORSResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketCORSResponse' with the minimum fields required to make a request.

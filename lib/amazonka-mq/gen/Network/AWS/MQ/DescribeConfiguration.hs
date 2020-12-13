@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,16 +49,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeConfiguration' smart constructor.
 newtype DescribeConfiguration = DescribeConfiguration'
-  { configurationId ::
-      Lude.Text
+  { -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfiguration' with the minimum fields required to make a request.
@@ -115,53 +110,45 @@ instance Lude.ToQuery DescribeConfiguration where
 
 -- | /See:/ 'mkDescribeConfigurationResponse' smart constructor.
 data DescribeConfigurationResponse = DescribeConfigurationResponse'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Required. The ARN of the configuration.
     arn :: Lude.Maybe Lude.Text,
-    latestRevision ::
-      Lude.Maybe
-        ConfigurationRevision,
-    created ::
-      Lude.Maybe Lude.Timestamp,
-    authenticationStrategy ::
-      Lude.Maybe
-        AuthenticationStrategy,
+    -- | Required. The latest revision of the configuration.
+    latestRevision :: Lude.Maybe ConfigurationRevision,
+    -- | Required. The date and time of the configuration revision.
+    created :: Lude.Maybe Lude.Timestamp,
+    -- | The authentication strategy associated with the configuration.
+    authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
     name :: Lude.Maybe Lude.Text,
+    -- | Required. The unique ID that Amazon MQ generates for the configuration.
     id :: Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text,
-    engineType ::
-      Lude.Maybe EngineType,
-    tags ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
+    -- | Required. The description of the configuration.
+    description :: Lude.Maybe Lude.Text,
+    -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+    engineType :: Lude.Maybe EngineType,
+    -- | The list of all tags associated with this configuration.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationResponse' with the minimum fields required to make a request.
 --
+-- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
 -- * 'arn' - Required. The ARN of the configuration.
--- * 'authenticationStrategy' - The authentication strategy associated with the configuration.
+-- * 'latestRevision' - Required. The latest revision of the configuration.
 -- * 'created' - Required. The date and time of the configuration revision.
+-- * 'authenticationStrategy' - The authentication strategy associated with the configuration.
+-- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+-- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
 -- * 'description' - Required. The description of the configuration.
 -- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
--- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
--- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
--- * 'latestRevision' - Required. The latest revision of the configuration.
--- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The list of all tags associated with this configuration.
+-- * 'responseStatus' - The response status code.
 mkDescribeConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

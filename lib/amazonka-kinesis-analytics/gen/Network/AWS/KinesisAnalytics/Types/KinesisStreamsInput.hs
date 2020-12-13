@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKinesisStreamsInput' smart constructor.
 data KinesisStreamsInput = KinesisStreamsInput'
-  { resourceARN ::
-      Lude.Text,
+  { -- | ARN of the input Amazon Kinesis stream to read.
+    resourceARN :: Lude.Text,
+    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamsInput' with the minimum fields required to make a request.

@@ -342,22 +342,22 @@ module Network.AWS.StorageGateway
     -- ** AutomaticTapeCreationRule
     AutomaticTapeCreationRule (..),
     mkAutomaticTapeCreationRule,
-    atcrWorm,
     atcrTapeBarcodePrefix,
-    atcrPoolId,
     atcrTapeSizeInBytes,
+    atcrPoolId,
+    atcrWorm,
     atcrMinimumNumTapes,
 
     -- ** BandwidthRateLimitInterval
     BandwidthRateLimitInterval (..),
     mkBandwidthRateLimitInterval,
-    brliAverageUploadRateLimitInBitsPerSec,
-    brliAverageDownloadRateLimitInBitsPerSec,
-    brliStartHourOfDay,
+    brliDaysOfWeek,
+    brliEndMinuteOfHour,
     brliStartMinuteOfHour,
     brliEndHourOfDay,
-    brliEndMinuteOfHour,
-    brliDaysOfWeek,
+    brliStartHourOfDay,
+    brliAverageUploadRateLimitInBitsPerSec,
+    brliAverageDownloadRateLimitInBitsPerSec,
 
     -- ** CacheAttributes
     CacheAttributes (..),
@@ -531,8 +531,8 @@ module Network.AWS.StorageGateway
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** Tape
     Tape (..),

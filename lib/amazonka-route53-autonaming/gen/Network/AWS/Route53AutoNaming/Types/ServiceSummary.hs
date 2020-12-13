@@ -39,37 +39,36 @@ import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
 --
 -- /See:/ 'mkServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
-  { instanceCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
+    instanceCount :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
     arn :: Lude.Maybe Lude.Text,
     healthCheckConfig :: Lude.Maybe HealthCheckConfig,
+    -- | The date and time that the service was created.
     createDate :: Lude.Maybe Lude.Timestamp,
     healthCheckCustomConfig :: Lude.Maybe HealthCheckCustomConfig,
+    -- | The name of the service.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID that AWS Cloud Map assigned to the service when you created it.
     id :: Lude.Maybe Lude.Text,
     dnsConfig :: Lude.Maybe DNSConfig,
+    -- | The description that you specify when you create the service.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceSummary' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
--- * 'createDate' - The date and time that the service was created.
--- * 'description' - The description that you specify when you create the service.
--- * 'dnsConfig' - Undocumented field.
--- * 'healthCheckConfig' - Undocumented field.
--- * 'healthCheckCustomConfig' - Undocumented field.
--- * 'id' - The ID that AWS Cloud Map assigned to the service when you created it.
 -- * 'instanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
+-- * 'arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
+-- * 'healthCheckConfig' -
+-- * 'createDate' - The date and time that the service was created.
+-- * 'healthCheckCustomConfig' -
 -- * 'name' - The name of the service.
+-- * 'id' - The ID that AWS Cloud Map assigned to the service when you created it.
+-- * 'dnsConfig' -
+-- * 'description' - The description that you specify when you create the service.
 mkServiceSummary ::
   ServiceSummary
 mkServiceSummary =

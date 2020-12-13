@@ -31,17 +31,12 @@ import Network.AWS.WAFRegional.Types.ChangeAction
 --
 -- /See:/ 'mkByteMatchSetUpdate' smart constructor.
 data ByteMatchSetUpdate = ByteMatchSetUpdate'
-  { action ::
-      ChangeAction,
+  { -- | Specifies whether to insert or delete a 'ByteMatchTuple' .
+    action :: ChangeAction,
+    -- | Information about the part of a web request that you want AWS WAF to inspect and the value that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @ByteMatchTuple@ values must exactly match the values in the @ByteMatchTuple@ that you want to delete from the @ByteMatchSet@ .
     byteMatchTuple :: ByteMatchTuple
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ByteMatchSetUpdate' with the minimum fields required to make a request.

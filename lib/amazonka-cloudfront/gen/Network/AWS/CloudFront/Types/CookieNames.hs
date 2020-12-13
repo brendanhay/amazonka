@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.CookieNames
     mkCookieNames,
 
     -- * Lenses
-    cnItems,
     cnQuantity,
+    cnItems,
   )
 where
 
@@ -29,35 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCookieNames' smart constructor.
 data CookieNames = CookieNames'
-  { items :: Lude.Maybe [Lude.Text],
-    quantity :: Lude.Int
+  { -- | The number of cookie names in the @Items@ list.
+    quantity :: Lude.Int,
+    -- | A list of cookie names.
+    items :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CookieNames' with the minimum fields required to make a request.
 --
--- * 'items' - A list of cookie names.
 -- * 'quantity' - The number of cookie names in the @Items@ list.
+-- * 'items' - A list of cookie names.
 mkCookieNames ::
   -- | 'quantity'
   Lude.Int ->
   CookieNames
 mkCookieNames pQuantity_ =
-  CookieNames' {items = Lude.Nothing, quantity = pQuantity_}
-
--- | A list of cookie names.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnItems :: Lens.Lens' CookieNames (Lude.Maybe [Lude.Text])
-cnItems = Lens.lens (items :: CookieNames -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: CookieNames)
-{-# DEPRECATED cnItems "Use generic-lens or generic-optics with 'items' instead." #-}
+  CookieNames' {quantity = pQuantity_, items = Lude.Nothing}
 
 -- | The number of cookie names in the @Items@ list.
 --
@@ -66,17 +55,24 @@ cnQuantity :: Lens.Lens' CookieNames Lude.Int
 cnQuantity = Lens.lens (quantity :: CookieNames -> Lude.Int) (\s a -> s {quantity = a} :: CookieNames)
 {-# DEPRECATED cnQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A list of cookie names.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnItems :: Lens.Lens' CookieNames (Lude.Maybe [Lude.Text])
+cnItems = Lens.lens (items :: CookieNames -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: CookieNames)
+{-# DEPRECATED cnItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML CookieNames where
   parseXML x =
     CookieNames'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "Name")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML CookieNames where
   toXML CookieNames' {..} =
     Lude.mconcat
-      [ "Items" Lude.@= Lude.toXML (Lude.toXMLList "Name" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXML (Lude.toXMLList "Name" Lude.<$> items)
       ]

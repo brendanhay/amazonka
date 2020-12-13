@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     mkDescribeIdentityPool,
 
     -- ** Request lenses
-    dipIdentityPoolId,
+    dIdentityPoolId,
 
     -- * Destructuring the response
     IdentityPool (..),
@@ -30,13 +31,13 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     -- ** Response lenses
     ipSamlProviderARNs,
     ipSupportedLoginProviders,
+    ipIdentityPoolId,
     ipAllowClassicFlow,
+    ipIdentityPoolName,
     ipDeveloperProviderName,
     ipIdentityPoolTags,
     ipOpenIdConnectProviderARNs,
     ipCognitoIdentityProviders,
-    ipIdentityPoolId,
-    ipIdentityPoolName,
     ipAllowUnauthenticatedIdentities,
   )
 where
@@ -51,16 +52,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeIdentityPool' smart constructor.
 newtype DescribeIdentityPool = DescribeIdentityPool'
-  { identityPoolId ::
-      Lude.Text
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityPool' with the minimum fields required to make a request.
@@ -76,9 +71,9 @@ mkDescribeIdentityPool pIdentityPoolId_ =
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipIdentityPoolId :: Lens.Lens' DescribeIdentityPool Lude.Text
-dipIdentityPoolId = Lens.lens (identityPoolId :: DescribeIdentityPool -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeIdentityPool)
-{-# DEPRECATED dipIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+dIdentityPoolId :: Lens.Lens' DescribeIdentityPool Lude.Text
+dIdentityPoolId = Lens.lens (identityPoolId :: DescribeIdentityPool -> Lude.Text) (\s a -> s {identityPoolId = a} :: DescribeIdentityPool)
+{-# DEPRECATED dIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 instance Lude.AWSRequest DescribeIdentityPool where
   type Rs DescribeIdentityPool = IdentityPool

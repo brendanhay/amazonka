@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSimpleEmail' smart constructor.
 data SimpleEmail = SimpleEmail'
-  { subject ::
-      Lude.Maybe SimpleEmailPart,
+  { -- | The subject line, or title, of the email.
+    subject :: Lude.Maybe SimpleEmailPart,
+    -- | The body of the email message, in plain text format. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
     textPart :: Lude.Maybe SimpleEmailPart,
+    -- | The body of the email message, in HTML format. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
     htmlPart :: Lude.Maybe SimpleEmailPart
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SimpleEmail' with the minimum fields required to make a request.
 --
--- * 'htmlPart' - The body of the email message, in HTML format. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
 -- * 'subject' - The subject line, or title, of the email.
 -- * 'textPart' - The body of the email message, in plain text format. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+-- * 'htmlPart' - The body of the email message, in HTML format. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
 mkSimpleEmail ::
   SimpleEmail
 mkSimpleEmail =

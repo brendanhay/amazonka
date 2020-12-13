@@ -13,8 +13,8 @@
 module Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
   ( LoadBalancerSchemeEnum
       ( LoadBalancerSchemeEnum',
-        Internal,
-        InternetFacing
+        InternetFacing,
+        Internal
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype LoadBalancerSchemeEnum = LoadBalancerSchemeEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Internal :: LoadBalancerSchemeEnum
-pattern Internal = LoadBalancerSchemeEnum' "internal"
-
 pattern InternetFacing :: LoadBalancerSchemeEnum
 pattern InternetFacing = LoadBalancerSchemeEnum' "internet-facing"
 
+pattern Internal :: LoadBalancerSchemeEnum
+pattern Internal = LoadBalancerSchemeEnum' "internal"
+
 {-# COMPLETE
-  Internal,
   InternetFacing,
+  Internal,
   LoadBalancerSchemeEnum'
   #-}

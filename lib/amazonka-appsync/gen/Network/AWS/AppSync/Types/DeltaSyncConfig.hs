@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeltaSyncConfig' smart constructor.
 data DeltaSyncConfig = DeltaSyncConfig'
-  { baseTableTTL ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of minutes an Item is stored in the datasource.
+    baseTableTTL :: Lude.Maybe Lude.Integer,
+    -- | The Delta Sync table name.
     deltaSyncTableName :: Lude.Maybe Lude.Text,
+    -- | The number of minutes a Delta Sync log entry is stored in the Delta Sync table.
     deltaSyncTableTTL :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeltaSyncConfig' with the minimum fields required to make a request.

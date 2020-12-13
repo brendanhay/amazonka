@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +20,21 @@ module Network.AWS.GuardDuty.GetFilter
     mkGetFilter,
 
     -- ** Request lenses
-    gDetectorId,
     gFilterName,
+    gDetectorId,
 
     -- * Destructuring the response
     GetFilterResponse (..),
     mkGetFilterResponse,
 
     -- ** Response lenses
+    gfrsFindingCriteria,
+    gfrsAction,
+    gfrsName,
     gfrsDescription,
     gfrsRank,
     gfrsTags,
     gfrsResponseStatus,
-    gfrsName,
-    gfrsAction,
-    gfrsFindingCriteria,
   )
 where
 
@@ -45,37 +46,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFilter' smart constructor.
 data GetFilter = GetFilter'
-  { detectorId :: Lude.Text,
-    filterName :: Lude.Text
+  { -- | The name of the filter you want to get.
+    filterName :: Lude.Text,
+    -- | The unique ID of the detector that the filter is associated with.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFilter' with the minimum fields required to make a request.
 --
--- * 'detectorId' - The unique ID of the detector that the filter is associated with.
 -- * 'filterName' - The name of the filter you want to get.
+-- * 'detectorId' - The unique ID of the detector that the filter is associated with.
 mkGetFilter ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'filterName'
   Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   GetFilter
-mkGetFilter pDetectorId_ pFilterName_ =
-  GetFilter' {detectorId = pDetectorId_, filterName = pFilterName_}
-
--- | The unique ID of the detector that the filter is associated with.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gDetectorId :: Lens.Lens' GetFilter Lude.Text
-gDetectorId = Lens.lens (detectorId :: GetFilter -> Lude.Text) (\s a -> s {detectorId = a} :: GetFilter)
-{-# DEPRECATED gDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+mkGetFilter pFilterName_ pDetectorId_ =
+  GetFilter' {filterName = pFilterName_, detectorId = pDetectorId_}
 
 -- | The name of the filter you want to get.
 --
@@ -84,6 +74,13 @@ gFilterName :: Lens.Lens' GetFilter Lude.Text
 gFilterName = Lens.lens (filterName :: GetFilter -> Lude.Text) (\s a -> s {filterName = a} :: GetFilter)
 {-# DEPRECATED gFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
 
+-- | The unique ID of the detector that the filter is associated with.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gDetectorId :: Lens.Lens' GetFilter Lude.Text
+gDetectorId = Lens.lens (detectorId :: GetFilter -> Lude.Text) (\s a -> s {detectorId = a} :: GetFilter)
+{-# DEPRECATED gDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+
 instance Lude.AWSRequest GetFilter where
   type Rs GetFilter = GetFilterResponse
   request = Req.get guardDutyService
@@ -91,13 +88,13 @@ instance Lude.AWSRequest GetFilter where
     Res.receiveJSON
       ( \s h x ->
           GetFilterResponse'
-            Lude.<$> (x Lude..?> "description")
+            Lude.<$> (x Lude..:> "findingCriteria")
+            Lude.<*> (x Lude..:> "action")
+            Lude.<*> (x Lude..:> "name")
+            Lude.<*> (x Lude..?> "description")
             Lude.<*> (x Lude..?> "rank")
             Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "name")
-            Lude.<*> (x Lude..:> "action")
-            Lude.<*> (x Lude..:> "findingCriteria")
       )
 
 instance Lude.ToHeaders GetFilter where
@@ -123,57 +120,78 @@ instance Lude.ToQuery GetFilter where
 
 -- | /See:/ 'mkGetFilterResponse' smart constructor.
 data GetFilterResponse = GetFilterResponse'
-  { description ::
-      Lude.Maybe Lude.Text,
-    rank :: Lude.Maybe Lude.Natural,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    responseStatus :: Lude.Int,
-    name :: Lude.Text,
+  { -- | Represents the criteria to be used in the filter for querying findings.
+    findingCriteria :: FindingCriteria,
+    -- | Specifies the action that is to be applied to the findings that match the filter.
     action :: FilterAction,
-    findingCriteria :: FindingCriteria
+    -- | The name of the filter.
+    name :: Lude.Text,
+    -- | The description of the filter.
+    description :: Lude.Maybe Lude.Text,
+    -- | Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
+    rank :: Lude.Maybe Lude.Natural,
+    -- | The tags of the filter resource.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFilterResponse' with the minimum fields required to make a request.
 --
--- * 'action' - Specifies the action that is to be applied to the findings that match the filter.
--- * 'description' - The description of the filter.
 -- * 'findingCriteria' - Represents the criteria to be used in the filter for querying findings.
+-- * 'action' - Specifies the action that is to be applied to the findings that match the filter.
 -- * 'name' - The name of the filter.
+-- * 'description' - The description of the filter.
 -- * 'rank' - Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags of the filter resource.
+-- * 'responseStatus' - The response status code.
 mkGetFilterResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'name'
-  Lude.Text ->
-  -- | 'action'
-  FilterAction ->
   -- | 'findingCriteria'
   FindingCriteria ->
+  -- | 'action'
+  FilterAction ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFilterResponse
 mkGetFilterResponse
-  pResponseStatus_
-  pName_
+  pFindingCriteria_
   pAction_
-  pFindingCriteria_ =
+  pName_
+  pResponseStatus_ =
     GetFilterResponse'
-      { description = Lude.Nothing,
+      { findingCriteria = pFindingCriteria_,
+        action = pAction_,
+        name = pName_,
+        description = Lude.Nothing,
         rank = Lude.Nothing,
         tags = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        name = pName_,
-        action = pAction_,
-        findingCriteria = pFindingCriteria_
+        responseStatus = pResponseStatus_
       }
+
+-- | Represents the criteria to be used in the filter for querying findings.
+--
+-- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsFindingCriteria :: Lens.Lens' GetFilterResponse FindingCriteria
+gfrsFindingCriteria = Lens.lens (findingCriteria :: GetFilterResponse -> FindingCriteria) (\s a -> s {findingCriteria = a} :: GetFilterResponse)
+{-# DEPRECATED gfrsFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}
+
+-- | Specifies the action that is to be applied to the findings that match the filter.
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsAction :: Lens.Lens' GetFilterResponse FilterAction
+gfrsAction = Lens.lens (action :: GetFilterResponse -> FilterAction) (\s a -> s {action = a} :: GetFilterResponse)
+{-# DEPRECATED gfrsAction "Use generic-lens or generic-optics with 'action' instead." #-}
+
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrsName :: Lens.Lens' GetFilterResponse Lude.Text
+gfrsName = Lens.lens (name :: GetFilterResponse -> Lude.Text) (\s a -> s {name = a} :: GetFilterResponse)
+{-# DEPRECATED gfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description of the filter.
 --
@@ -202,24 +220,3 @@ gfrsTags = Lens.lens (tags :: GetFilterResponse -> Lude.Maybe (Lude.HashMap Lude
 gfrsResponseStatus :: Lens.Lens' GetFilterResponse Lude.Int
 gfrsResponseStatus = Lens.lens (responseStatus :: GetFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFilterResponse)
 {-# DEPRECATED gfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The name of the filter.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsName :: Lens.Lens' GetFilterResponse Lude.Text
-gfrsName = Lens.lens (name :: GetFilterResponse -> Lude.Text) (\s a -> s {name = a} :: GetFilterResponse)
-{-# DEPRECATED gfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Specifies the action that is to be applied to the findings that match the filter.
---
--- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsAction :: Lens.Lens' GetFilterResponse FilterAction
-gfrsAction = Lens.lens (action :: GetFilterResponse -> FilterAction) (\s a -> s {action = a} :: GetFilterResponse)
-{-# DEPRECATED gfrsAction "Use generic-lens or generic-optics with 'action' instead." #-}
-
--- | Represents the criteria to be used in the filter for querying findings.
---
--- /Note:/ Consider using 'findingCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfrsFindingCriteria :: Lens.Lens' GetFilterResponse FindingCriteria
-gfrsFindingCriteria = Lens.lens (findingCriteria :: GetFilterResponse -> FindingCriteria) (\s a -> s {findingCriteria = a} :: GetFilterResponse)
-{-# DEPRECATED gfrsFindingCriteria "Use generic-lens or generic-optics with 'findingCriteria' instead." #-}

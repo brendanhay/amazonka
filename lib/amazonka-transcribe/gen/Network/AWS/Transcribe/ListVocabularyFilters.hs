@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkListVocabularyFilters' smart constructor.
 data ListVocabularyFilters = ListVocabularyFilters'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | Filters the response so that it only contains vocabulary filters whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | If the result of the previous request to @ListVocabularyFilters@ was truncated, include the @NextToken@ to fetch the next set of collections.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of filters to return in the response. If there are fewer results in the list, this response contains only the actual results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabularyFilters' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of filters to return in the response. If there are fewer results in the list, this response contains only the actual results.
 -- * 'nameContains' - Filters the response so that it only contains vocabulary filters whose name contains the specified string.
 -- * 'nextToken' - If the result of the previous request to @ListVocabularyFilters@ was truncated, include the @NextToken@ to fetch the next set of collections.
+-- * 'maxResults' - The maximum number of filters to return in the response. If there are fewer results in the list, this response contains only the actual results.
 mkListVocabularyFilters ::
   ListVocabularyFilters
 mkListVocabularyFilters =
@@ -132,27 +129,21 @@ instance Lude.ToQuery ListVocabularyFilters where
 
 -- | /See:/ 'mkListVocabularyFiltersResponse' smart constructor.
 data ListVocabularyFiltersResponse = ListVocabularyFiltersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    vocabularyFilters ::
-      Lude.Maybe
-        [VocabularyFilterInfo],
+  { -- | The @ListVocabularyFilters@ operation returns a page of collections at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListVocabularyFilters@ operation to return in the next page of jobs.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of vocabulary filters. It contains at most @MaxResults@ number of filters. If there are more filters, call the @ListVocabularyFilters@ operation again with the @NextToken@ parameter in the request set to the value of the @NextToken@ field in the response.
+    vocabularyFilters :: Lude.Maybe [VocabularyFilterInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabularyFiltersResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The @ListVocabularyFilters@ operation returns a page of collections at a time. The maximum size of the page is set by the @MaxResults@ parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the @ListVocabularyFilters@ operation to return in the next page of jobs.
--- * 'responseStatus' - The response status code.
 -- * 'vocabularyFilters' - The list of vocabulary filters. It contains at most @MaxResults@ number of filters. If there are more filters, call the @ListVocabularyFilters@ operation again with the @NextToken@ parameter in the request set to the value of the @NextToken@ field in the response.
+-- * 'responseStatus' - The response status code.
 mkListVocabularyFiltersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

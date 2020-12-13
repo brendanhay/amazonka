@@ -31,27 +31,21 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkDeferredMaintenanceWindow' smart constructor.
 data DeferredMaintenanceWindow = DeferredMaintenanceWindow'
-  { deferMaintenanceEndTime ::
-      Lude.Maybe Lude.DateTime,
-    deferMaintenanceStartTime ::
-      Lude.Maybe Lude.DateTime,
-    deferMaintenanceIdentifier ::
-      Lude.Maybe Lude.Text
+  { -- | A timestamp for the end of the time period when we defer maintenance.
+    deferMaintenanceEndTime :: Lude.Maybe Lude.DateTime,
+    -- | A timestamp for the beginning of the time period when we defer maintenance.
+    deferMaintenanceStartTime :: Lude.Maybe Lude.DateTime,
+    -- | A unique identifier for the maintenance window.
+    deferMaintenanceIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeferredMaintenanceWindow' with the minimum fields required to make a request.
 --
 -- * 'deferMaintenanceEndTime' - A timestamp for the end of the time period when we defer maintenance.
--- * 'deferMaintenanceIdentifier' - A unique identifier for the maintenance window.
 -- * 'deferMaintenanceStartTime' - A timestamp for the beginning of the time period when we defer maintenance.
+-- * 'deferMaintenanceIdentifier' - A unique identifier for the maintenance window.
 mkDeferredMaintenanceWindow ::
   DeferredMaintenanceWindow
 mkDeferredMaintenanceWindow =

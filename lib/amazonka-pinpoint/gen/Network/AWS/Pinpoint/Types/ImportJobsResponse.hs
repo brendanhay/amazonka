@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportJobsResponse' smart constructor.
 data ImportJobsResponse = ImportJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
     item :: [ImportJobResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportJobsResponse' with the minimum fields required to make a request.
 --
--- * 'item' - An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
 -- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+-- * 'item' - An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).
 mkImportJobsResponse ::
   ImportJobsResponse
 mkImportJobsResponse =

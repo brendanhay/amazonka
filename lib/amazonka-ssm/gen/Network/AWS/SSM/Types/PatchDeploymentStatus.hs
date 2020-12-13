@@ -14,9 +14,9 @@ module Network.AWS.SSM.Types.PatchDeploymentStatus
   ( PatchDeploymentStatus
       ( PatchDeploymentStatus',
         Approved,
+        PendingApproval,
         ExplicitApproved,
-        ExplicitRejected,
-        PendingApproval
+        ExplicitRejected
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype PatchDeploymentStatus = PatchDeploymentStatus' Lude.Text
 pattern Approved :: PatchDeploymentStatus
 pattern Approved = PatchDeploymentStatus' "APPROVED"
 
+pattern PendingApproval :: PatchDeploymentStatus
+pattern PendingApproval = PatchDeploymentStatus' "PENDING_APPROVAL"
+
 pattern ExplicitApproved :: PatchDeploymentStatus
 pattern ExplicitApproved = PatchDeploymentStatus' "EXPLICIT_APPROVED"
 
 pattern ExplicitRejected :: PatchDeploymentStatus
 pattern ExplicitRejected = PatchDeploymentStatus' "EXPLICIT_REJECTED"
 
-pattern PendingApproval :: PatchDeploymentStatus
-pattern PendingApproval = PatchDeploymentStatus' "PENDING_APPROVAL"
-
 {-# COMPLETE
   Approved,
+  PendingApproval,
   ExplicitApproved,
   ExplicitRejected,
-  PendingApproval,
   PatchDeploymentStatus'
   #-}

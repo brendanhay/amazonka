@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceHealthSummary' smart constructor.
 data InstanceHealthSummary = InstanceHealthSummary'
-  { ok ::
-      Lude.Maybe Lude.Int,
+  { -- | __Green.__ An instance is passing health checks and the health agent is not reporting any problems.
+    ok :: Lude.Maybe Lude.Int,
+    -- | __Grey.__ An operation is in progress on an instance within the command timeout.
     pending :: Lude.Maybe Lude.Int,
+    -- | __Red.__ The health agent is reporting a very high number of request failures or other issues for an instance or environment.
     severe :: Lude.Maybe Lude.Int,
+    -- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an insufficient amount of data on an instance.
     unknown :: Lude.Maybe Lude.Int,
+    -- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no data on an instance.
     noData :: Lude.Maybe Lude.Int,
+    -- | __Yellow.__ The health agent is reporting a moderate number of request failures or other issues for an instance or environment.
     warning :: Lude.Maybe Lude.Int,
+    -- | __Red.__ The health agent is reporting a high number of request failures or other issues for an instance or environment.
     degraded :: Lude.Maybe Lude.Int,
+    -- | __Green.__ An operation is in progress on an instance.
     info :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceHealthSummary' with the minimum fields required to make a request.
 --
--- * 'degraded' - __Red.__ The health agent is reporting a high number of request failures or other issues for an instance or environment.
--- * 'info' - __Green.__ An operation is in progress on an instance.
--- * 'noData' - __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no data on an instance.
 -- * 'ok' - __Green.__ An instance is passing health checks and the health agent is not reporting any problems.
 -- * 'pending' - __Grey.__ An operation is in progress on an instance within the command timeout.
 -- * 'severe' - __Red.__ The health agent is reporting a very high number of request failures or other issues for an instance or environment.
 -- * 'unknown' - __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an insufficient amount of data on an instance.
+-- * 'noData' - __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no data on an instance.
 -- * 'warning' - __Yellow.__ The health agent is reporting a moderate number of request failures or other issues for an instance or environment.
+-- * 'degraded' - __Red.__ The health agent is reporting a high number of request failures or other issues for an instance or environment.
+-- * 'info' - __Green.__ An operation is in progress on an instance.
 mkInstanceHealthSummary ::
   InstanceHealthSummary
 mkInstanceHealthSummary =

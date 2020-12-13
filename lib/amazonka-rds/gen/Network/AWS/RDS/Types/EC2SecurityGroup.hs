@@ -42,27 +42,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2SecurityGroup' smart constructor.
 data EC2SecurityGroup = EC2SecurityGroup'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".
+    status :: Lude.Maybe Lude.Text,
+    -- | Specifies the AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
     ec2SecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the EC2 security group.
     ec2SecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | Specifies the id of the EC2 security group.
     ec2SecurityGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
--- * 'ec2SecurityGroupId' - Specifies the id of the EC2 security group.
--- * 'ec2SecurityGroupName' - Specifies the name of the EC2 security group.
--- * 'ec2SecurityGroupOwnerId' - Specifies the AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
 -- * 'status' - Provides the status of the EC2 security group. Status can be "authorizing", "authorized", "revoking", and "revoked".
+-- * 'ec2SecurityGroupOwnerId' - Specifies the AWS ID of the owner of the EC2 security group specified in the @EC2SecurityGroupName@ field.
+-- * 'ec2SecurityGroupName' - Specifies the name of the EC2 security group.
+-- * 'ec2SecurityGroupId' - Specifies the id of the EC2 security group.
 mkEC2SecurityGroup ::
   EC2SecurityGroup
 mkEC2SecurityGroup =

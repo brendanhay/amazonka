@@ -34,37 +34,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeGroupConfiguration' smart constructor.
 data NodeGroupConfiguration = NodeGroupConfiguration'
-  { slots ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ .
+    --
+    -- Example: @"0-3999"@
+    slots :: Lude.Maybe Lude.Text,
+    -- | The outpost ARN of the node replicas.
     replicaOutpostARNs :: Lude.Maybe [Lude.Text],
+    -- | The number of read replica nodes in this node group (shard).
     replicaCount :: Lude.Maybe Lude.Int,
-    primaryAvailabilityZone ::
-      Lude.Maybe Lude.Text,
-    replicaAvailabilityZones ::
-      Lude.Maybe [Lude.Text],
+    -- | The Availability Zone where the primary node of this node group (shard) is launched.
+    primaryAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
+    replicaAvailabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The output ARN of the primary node.
     primaryOutpostARN :: Lude.Maybe Lude.Text,
+    -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
     nodeGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroupConfiguration' with the minimum fields required to make a request.
 --
--- * 'nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
--- * 'primaryAvailabilityZone' - The Availability Zone where the primary node of this node group (shard) is launched.
--- * 'primaryOutpostARN' - The output ARN of the primary node.
--- * 'replicaAvailabilityZones' - A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
--- * 'replicaCount' - The number of read replica nodes in this node group (shard).
--- * 'replicaOutpostARNs' - The outpost ARN of the node replicas.
 -- * 'slots' - A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format @startkey-endkey@ .
 --
 -- Example: @"0-3999"@
+-- * 'replicaOutpostARNs' - The outpost ARN of the node replicas.
+-- * 'replicaCount' - The number of read replica nodes in this node group (shard).
+-- * 'primaryAvailabilityZone' - The Availability Zone where the primary node of this node group (shard) is launched.
+-- * 'replicaAvailabilityZones' - A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of @ReplicaCount@ or @ReplicasPerNodeGroup@ if not specified.
+-- * 'primaryOutpostARN' - The output ARN of the primary node.
+-- * 'nodeGroupId' - Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
 mkNodeGroupConfiguration ::
   NodeGroupConfiguration
 mkNodeGroupConfiguration =

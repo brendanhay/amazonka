@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.ResetInstanceAttribute
     mkResetInstanceAttribute,
 
     -- ** Request lenses
-    riaDryRun,
-    riaAttribute,
-    riaInstanceId,
+    riafInstanceId,
+    riafAttribute,
+    riafDryRun,
 
     -- * Destructuring the response
     ResetInstanceAttributeResponse (..),
@@ -39,62 +40,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResetInstanceAttribute' smart constructor.
 data ResetInstanceAttribute = ResetInstanceAttribute'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Text,
+    -- | The attribute to reset.
+    --
+    -- /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
     attribute :: InstanceAttributeName,
-    instanceId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetInstanceAttribute' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The ID of the instance.
 -- * 'attribute' - The attribute to reset.
 --
 -- /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'instanceId' - The ID of the instance.
 mkResetInstanceAttribute ::
-  -- | 'attribute'
-  InstanceAttributeName ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'attribute'
+  InstanceAttributeName ->
   ResetInstanceAttribute
-mkResetInstanceAttribute pAttribute_ pInstanceId_ =
+mkResetInstanceAttribute pInstanceId_ pAttribute_ =
   ResetInstanceAttribute'
-    { dryRun = Lude.Nothing,
+    { instanceId = pInstanceId_,
       attribute = pAttribute_,
-      instanceId = pInstanceId_
+      dryRun = Lude.Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The ID of the instance.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riaDryRun :: Lens.Lens' ResetInstanceAttribute (Lude.Maybe Lude.Bool)
-riaDryRun = Lens.lens (dryRun :: ResetInstanceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetInstanceAttribute)
-{-# DEPRECATED riaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riafInstanceId :: Lens.Lens' ResetInstanceAttribute Lude.Text
+riafInstanceId = Lens.lens (instanceId :: ResetInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: ResetInstanceAttribute)
+{-# DEPRECATED riafInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The attribute to reset.
 --
 -- /Important:/ You can only reset the following attributes: @kernel@ | @ramdisk@ | @sourceDestCheck@ . To change an instance attribute, use 'ModifyInstanceAttribute' .
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riaAttribute :: Lens.Lens' ResetInstanceAttribute InstanceAttributeName
-riaAttribute = Lens.lens (attribute :: ResetInstanceAttribute -> InstanceAttributeName) (\s a -> s {attribute = a} :: ResetInstanceAttribute)
-{-# DEPRECATED riaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+riafAttribute :: Lens.Lens' ResetInstanceAttribute InstanceAttributeName
+riafAttribute = Lens.lens (attribute :: ResetInstanceAttribute -> InstanceAttributeName) (\s a -> s {attribute = a} :: ResetInstanceAttribute)
+{-# DEPRECATED riafAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
--- | The ID of the instance.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riaInstanceId :: Lens.Lens' ResetInstanceAttribute Lude.Text
-riaInstanceId = Lens.lens (instanceId :: ResetInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: ResetInstanceAttribute)
-{-# DEPRECATED riaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riafDryRun :: Lens.Lens' ResetInstanceAttribute (Lude.Maybe Lude.Bool)
+riafDryRun = Lens.lens (dryRun :: ResetInstanceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetInstanceAttribute)
+{-# DEPRECATED riafDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ResetInstanceAttribute where
   type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse
@@ -112,20 +111,14 @@ instance Lude.ToQuery ResetInstanceAttribute where
     Lude.mconcat
       [ "Action" Lude.=: ("ResetInstanceAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        "InstanceId" Lude.=: instanceId,
         "Attribute" Lude.=: attribute,
-        "InstanceId" Lude.=: instanceId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkResetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetInstanceAttributeResponse' with the minimum fields required to make a request.

@@ -17,9 +17,9 @@ module Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedEventAttributes
     mkScheduleLambdaFunctionFailedEventAttributes,
 
     -- * Lenses
-    slffeaId,
-    slffeaName,
     slffeaCause,
+    slffeaName,
+    slffeaId,
     slffeaDecisionTaskCompletedEventId,
   )
 where
@@ -32,59 +32,53 @@ import Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause
 --
 -- /See:/ 'mkScheduleLambdaFunctionFailedEventAttributes' smart constructor.
 data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedEventAttributes'
-  { id ::
-      Lude.Text,
-    name ::
-      Lude.Text,
-    cause ::
-      ScheduleLambdaFunctionFailedCause,
-    decisionTaskCompletedEventId ::
-      Lude.Integer
+  { -- | The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+    cause :: ScheduleLambdaFunctionFailedCause,
+    -- | The name of the Lambda function.
+    name :: Lude.Text,
+    -- | The ID provided in the @ScheduleLambdaFunction@ decision that failed.
+    id :: Lude.Text,
+    -- | The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleLambdaFunctionFailedEventAttributes' with the minimum fields required to make a request.
 --
 -- * 'cause' - The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
--- * 'decisionTaskCompletedEventId' - The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
--- * 'id' - The ID provided in the @ScheduleLambdaFunction@ decision that failed.
 -- * 'name' - The name of the Lambda function.
+-- * 'id' - The ID provided in the @ScheduleLambdaFunction@ decision that failed.
+-- * 'decisionTaskCompletedEventId' - The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 mkScheduleLambdaFunctionFailedEventAttributes ::
-  -- | 'id'
-  Lude.Text ->
-  -- | 'name'
-  Lude.Text ->
   -- | 'cause'
   ScheduleLambdaFunctionFailedCause ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   -- | 'decisionTaskCompletedEventId'
   Lude.Integer ->
   ScheduleLambdaFunctionFailedEventAttributes
 mkScheduleLambdaFunctionFailedEventAttributes
-  pId_
-  pName_
   pCause_
+  pName_
+  pId_
   pDecisionTaskCompletedEventId_ =
     ScheduleLambdaFunctionFailedEventAttributes'
-      { id = pId_,
+      { cause = pCause_,
         name = pName_,
-        cause = pCause_,
+        id = pId_,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
--- | The ID provided in the @ScheduleLambdaFunction@ decision that failed.
+-- | The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 --
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slffeaId :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Lude.Text
-slffeaId = Lens.lens (id :: ScheduleLambdaFunctionFailedEventAttributes -> Lude.Text) (\s a -> s {id = a} :: ScheduleLambdaFunctionFailedEventAttributes)
-{-# DEPRECATED slffeaId "Use generic-lens or generic-optics with 'id' instead." #-}
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slffeaCause :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes ScheduleLambdaFunctionFailedCause
+slffeaCause = Lens.lens (cause :: ScheduleLambdaFunctionFailedEventAttributes -> ScheduleLambdaFunctionFailedCause) (\s a -> s {cause = a} :: ScheduleLambdaFunctionFailedEventAttributes)
+{-# DEPRECATED slffeaCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -93,12 +87,12 @@ slffeaName :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Lude.Text
 slffeaName = Lens.lens (name :: ScheduleLambdaFunctionFailedEventAttributes -> Lude.Text) (\s a -> s {name = a} :: ScheduleLambdaFunctionFailedEventAttributes)
 {-# DEPRECATED slffeaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+-- | The ID provided in the @ScheduleLambdaFunction@ decision that failed.
 --
--- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slffeaCause :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes ScheduleLambdaFunctionFailedCause
-slffeaCause = Lens.lens (cause :: ScheduleLambdaFunctionFailedEventAttributes -> ScheduleLambdaFunctionFailedCause) (\s a -> s {cause = a} :: ScheduleLambdaFunctionFailedEventAttributes)
-{-# DEPRECATED slffeaCause "Use generic-lens or generic-optics with 'cause' instead." #-}
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slffeaId :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Lude.Text
+slffeaId = Lens.lens (id :: ScheduleLambdaFunctionFailedEventAttributes -> Lude.Text) (\s a -> s {id = a} :: ScheduleLambdaFunctionFailedEventAttributes)
+{-# DEPRECATED slffeaId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this Lambda task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 --
@@ -113,8 +107,8 @@ instance Lude.FromJSON ScheduleLambdaFunctionFailedEventAttributes where
       "ScheduleLambdaFunctionFailedEventAttributes"
       ( \x ->
           ScheduleLambdaFunctionFailedEventAttributes'
-            Lude.<$> (x Lude..: "id")
+            Lude.<$> (x Lude..: "cause")
             Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "cause")
+            Lude.<*> (x Lude..: "id")
             Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
       )

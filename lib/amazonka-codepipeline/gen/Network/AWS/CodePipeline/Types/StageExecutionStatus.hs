@@ -13,8 +13,8 @@
 module Network.AWS.CodePipeline.Types.StageExecutionStatus
   ( StageExecutionStatus
       ( StageExecutionStatus',
-        SESFailed,
         SESInProgress,
+        SESFailed,
         SESStopped,
         SESStopping,
         SESSucceeded
@@ -48,11 +48,11 @@ newtype StageExecutionStatus = StageExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SESFailed :: StageExecutionStatus
-pattern SESFailed = StageExecutionStatus' "Failed"
-
 pattern SESInProgress :: StageExecutionStatus
 pattern SESInProgress = StageExecutionStatus' "InProgress"
+
+pattern SESFailed :: StageExecutionStatus
+pattern SESFailed = StageExecutionStatus' "Failed"
 
 pattern SESStopped :: StageExecutionStatus
 pattern SESStopped = StageExecutionStatus' "Stopped"
@@ -64,8 +64,8 @@ pattern SESSucceeded :: StageExecutionStatus
 pattern SESSucceeded = StageExecutionStatus' "Succeeded"
 
 {-# COMPLETE
-  SESFailed,
   SESInProgress,
+  SESFailed,
   SESStopped,
   SESStopping,
   SESSucceeded,

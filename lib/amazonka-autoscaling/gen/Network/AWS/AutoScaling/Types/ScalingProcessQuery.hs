@@ -17,8 +17,8 @@ module Network.AWS.AutoScaling.Types.ScalingProcessQuery
     mkScalingProcessQuery,
 
     -- * Lenses
-    spqScalingProcesses,
     spqAutoScalingGroupName,
+    spqScalingProcesses,
   )
 where
 
@@ -27,17 +27,42 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkScalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
-  { scalingProcesses ::
-      Lude.Maybe [Lude.Text],
-    autoScalingGroupName :: Lude.Text
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | One or more of the following processes:
+    --
+    --
+    --     * @Launch@
+    --
+    --
+    --     * @Terminate@
+    --
+    --
+    --     * @AddToLoadBalancer@
+    --
+    --
+    --     * @AlarmNotification@
+    --
+    --
+    --     * @AZRebalance@
+    --
+    --
+    --     * @HealthCheck@
+    --
+    --
+    --     * @InstanceRefresh@
+    --
+    --
+    --     * @ReplaceUnhealthy@
+    --
+    --
+    --     * @ScheduledActions@
+    --
+    --
+    -- If you omit this parameter, all processes are specified.
+    scalingProcesses :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingProcessQuery' with the minimum fields required to make a request.
@@ -80,9 +105,17 @@ mkScalingProcessQuery ::
   ScalingProcessQuery
 mkScalingProcessQuery pAutoScalingGroupName_ =
   ScalingProcessQuery'
-    { scalingProcesses = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
+    { autoScalingGroupName =
+        pAutoScalingGroupName_,
+      scalingProcesses = Lude.Nothing
     }
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spqAutoScalingGroupName :: Lens.Lens' ScalingProcessQuery Lude.Text
+spqAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ScalingProcessQuery -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: ScalingProcessQuery)
+{-# DEPRECATED spqAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | One or more of the following processes:
 --
@@ -121,17 +154,10 @@ spqScalingProcesses :: Lens.Lens' ScalingProcessQuery (Lude.Maybe [Lude.Text])
 spqScalingProcesses = Lens.lens (scalingProcesses :: ScalingProcessQuery -> Lude.Maybe [Lude.Text]) (\s a -> s {scalingProcesses = a} :: ScalingProcessQuery)
 {-# DEPRECATED spqScalingProcesses "Use generic-lens or generic-optics with 'scalingProcesses' instead." #-}
 
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spqAutoScalingGroupName :: Lens.Lens' ScalingProcessQuery Lude.Text
-spqAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ScalingProcessQuery -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: ScalingProcessQuery)
-{-# DEPRECATED spqAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
 instance Lude.ToQuery ScalingProcessQuery where
   toQuery ScalingProcessQuery' {..} =
     Lude.mconcat
-      [ "ScalingProcesses"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> scalingProcesses),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
+      [ "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "ScalingProcesses"
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> scalingProcesses)
       ]

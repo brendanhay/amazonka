@@ -33,19 +33,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBParameterGroup' smart constructor.
 data DBParameterGroup = DBParameterGroup'
-  { dbParameterGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for the DB parameter group.
+    dbParameterGroupARN :: Lude.Maybe Lude.Text,
+    -- | The name of the DB parameter group family that this DB parameter group is compatible with.
     dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | The name of the DB parameter group.
     dbParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | Provides the customer-specified description for this DB parameter group.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBParameterGroup' with the minimum fields required to make a request.

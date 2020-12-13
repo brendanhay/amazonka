@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
-  { ingestionTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    ingestionTime :: Lude.Maybe Lude.Natural,
+    -- | The data contained in the log event.
     message :: Lude.Maybe Lude.Text,
+    -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     timestamp :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputLogEvent' with the minimum fields required to make a request.

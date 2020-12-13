@@ -29,8 +29,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEngineAttribute' smart constructor.
 data EngineAttribute = EngineAttribute'
-  { value ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The value of the engine attribute.
+    value :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the engine attribute.
     name :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -38,8 +39,8 @@ data EngineAttribute = EngineAttribute'
 
 -- | Creates a value of 'EngineAttribute' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the engine attribute.
 -- * 'value' - The value of the engine attribute.
+-- * 'name' - The name of the engine attribute.
 mkEngineAttribute ::
   EngineAttribute
 mkEngineAttribute =

@@ -13,15 +13,15 @@
 module Network.AWS.Rekognition.Types.ProjectVersionStatus
   ( ProjectVersionStatus
       ( ProjectVersionStatus',
-        Deleting,
-        Failed,
-        Running,
-        Starting,
-        Stopped,
-        Stopping,
+        TrainingInProgress,
         TrainingCompleted,
         TrainingFailed,
-        TrainingInProgress
+        Starting,
+        Running,
+        Failed,
+        Stopping,
+        Stopped,
+        Deleting
       ),
   )
 where
@@ -52,23 +52,8 @@ newtype ProjectVersionStatus = ProjectVersionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deleting :: ProjectVersionStatus
-pattern Deleting = ProjectVersionStatus' "DELETING"
-
-pattern Failed :: ProjectVersionStatus
-pattern Failed = ProjectVersionStatus' "FAILED"
-
-pattern Running :: ProjectVersionStatus
-pattern Running = ProjectVersionStatus' "RUNNING"
-
-pattern Starting :: ProjectVersionStatus
-pattern Starting = ProjectVersionStatus' "STARTING"
-
-pattern Stopped :: ProjectVersionStatus
-pattern Stopped = ProjectVersionStatus' "STOPPED"
-
-pattern Stopping :: ProjectVersionStatus
-pattern Stopping = ProjectVersionStatus' "STOPPING"
+pattern TrainingInProgress :: ProjectVersionStatus
+pattern TrainingInProgress = ProjectVersionStatus' "TRAINING_IN_PROGRESS"
 
 pattern TrainingCompleted :: ProjectVersionStatus
 pattern TrainingCompleted = ProjectVersionStatus' "TRAINING_COMPLETED"
@@ -76,18 +61,33 @@ pattern TrainingCompleted = ProjectVersionStatus' "TRAINING_COMPLETED"
 pattern TrainingFailed :: ProjectVersionStatus
 pattern TrainingFailed = ProjectVersionStatus' "TRAINING_FAILED"
 
-pattern TrainingInProgress :: ProjectVersionStatus
-pattern TrainingInProgress = ProjectVersionStatus' "TRAINING_IN_PROGRESS"
+pattern Starting :: ProjectVersionStatus
+pattern Starting = ProjectVersionStatus' "STARTING"
+
+pattern Running :: ProjectVersionStatus
+pattern Running = ProjectVersionStatus' "RUNNING"
+
+pattern Failed :: ProjectVersionStatus
+pattern Failed = ProjectVersionStatus' "FAILED"
+
+pattern Stopping :: ProjectVersionStatus
+pattern Stopping = ProjectVersionStatus' "STOPPING"
+
+pattern Stopped :: ProjectVersionStatus
+pattern Stopped = ProjectVersionStatus' "STOPPED"
+
+pattern Deleting :: ProjectVersionStatus
+pattern Deleting = ProjectVersionStatus' "DELETING"
 
 {-# COMPLETE
-  Deleting,
-  Failed,
-  Running,
-  Starting,
-  Stopped,
-  Stopping,
+  TrainingInProgress,
   TrainingCompleted,
   TrainingFailed,
-  TrainingInProgress,
+  Starting,
+  Running,
+  Failed,
+  Stopping,
+  Stopped,
+  Deleting,
   ProjectVersionStatus'
   #-}

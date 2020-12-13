@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,23 +59,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateCertificateFromCSR' smart constructor.
 data CreateCertificateFromCSR = CreateCertificateFromCSR'
-  { setAsActive ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the certificate is active.
+    setAsActive :: Lude.Maybe Lude.Bool,
+    -- | The certificate signing request (CSR).
     certificateSigningRequest :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificateFromCSR' with the minimum fields required to make a request.
 --
--- * 'certificateSigningRequest' - The certificate signing request (CSR).
 -- * 'setAsActive' - Specifies whether the certificate is active.
+-- * 'certificateSigningRequest' - The certificate signing request (CSR).
 mkCreateCertificateFromCSR ::
   -- | 'certificateSigningRequest'
   Lude.Text ->
@@ -135,29 +131,23 @@ instance Lude.ToQuery CreateCertificateFromCSR where
 --
 -- /See:/ 'mkCreateCertificateFromCSRResponse' smart constructor.
 data CreateCertificateFromCSRResponse = CreateCertificateFromCSRResponse'
-  { certificatePem ::
-      Lude.Maybe Lude.Text,
-    certificateARN ::
-      Lude.Maybe Lude.Text,
-    certificateId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The certificate data, in PEM format.
+    certificatePem :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the certificate. Certificate management operations only take a certificateId.
+    certificateId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificateFromCSRResponse' with the minimum fields required to make a request.
 --
+-- * 'certificatePem' - The certificate data, in PEM format.
 -- * 'certificateARN' - The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations.
 -- * 'certificateId' - The ID of the certificate. Certificate management operations only take a certificateId.
--- * 'certificatePem' - The certificate data, in PEM format.
 -- * 'responseStatus' - The response status code.
 mkCreateCertificateFromCSRResponse ::
   -- | 'responseStatus'

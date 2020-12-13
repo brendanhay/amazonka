@@ -31,24 +31,21 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkStats' smart constructor.
 data Stats = Stats'
-  { bytesReturned :: Lude.Maybe Lude.Integer,
+  { -- | The total number of bytes of records payload data returned.
+    bytesReturned :: Lude.Maybe Lude.Integer,
+    -- | The total number of object bytes scanned.
     bytesScanned :: Lude.Maybe Lude.Integer,
+    -- | The total number of uncompressed object bytes processed.
     bytesProcessed :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stats' with the minimum fields required to make a request.
 --
--- * 'bytesProcessed' - The total number of uncompressed object bytes processed.
 -- * 'bytesReturned' - The total number of bytes of records payload data returned.
 -- * 'bytesScanned' - The total number of object bytes scanned.
+-- * 'bytesProcessed' - The total number of uncompressed object bytes processed.
 mkStats ::
   Stats
 mkStats =

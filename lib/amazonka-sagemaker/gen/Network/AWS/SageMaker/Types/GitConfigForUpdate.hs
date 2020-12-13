@@ -28,16 +28,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGitConfigForUpdate' smart constructor.
 newtype GitConfigForUpdate = GitConfigForUpdate'
-  { secretARN ::
-      Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
+    --
+    -- @{"username": /UserName/ , "password": /Password/ }@
+    secretARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GitConfigForUpdate' with the minimum fields required to make a request.

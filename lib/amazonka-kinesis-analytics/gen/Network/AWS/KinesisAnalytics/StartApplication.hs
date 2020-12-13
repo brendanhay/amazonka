@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.KinesisAnalytics.StartApplication
     mkStartApplication,
 
     -- ** Request lenses
-    saApplicationName,
-    saInputConfigurations,
+    sApplicationName,
+    sInputConfigurations,
 
     -- * Destructuring the response
     StartApplicationResponse (..),
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStartApplication' smart constructor.
 data StartApplication = StartApplication'
-  { applicationName ::
-      Lude.Text,
+  { -- | Name of the application.
+    applicationName :: Lude.Text,
+    -- | Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.
     inputConfigurations :: [InputConfiguration]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartApplication' with the minimum fields required to make a request.
@@ -76,16 +72,16 @@ mkStartApplication pApplicationName_ =
 -- | Name of the application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saApplicationName :: Lens.Lens' StartApplication Lude.Text
-saApplicationName = Lens.lens (applicationName :: StartApplication -> Lude.Text) (\s a -> s {applicationName = a} :: StartApplication)
-{-# DEPRECATED saApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+sApplicationName :: Lens.Lens' StartApplication Lude.Text
+sApplicationName = Lens.lens (applicationName :: StartApplication -> Lude.Text) (\s a -> s {applicationName = a} :: StartApplication)
+{-# DEPRECATED sApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Identifies the specific input, by ID, that the application starts consuming. Amazon Kinesis Analytics starts reading the streaming source associated with the input. You can also specify where in the streaming source you want Amazon Kinesis Analytics to start reading.
 --
 -- /Note:/ Consider using 'inputConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saInputConfigurations :: Lens.Lens' StartApplication [InputConfiguration]
-saInputConfigurations = Lens.lens (inputConfigurations :: StartApplication -> [InputConfiguration]) (\s a -> s {inputConfigurations = a} :: StartApplication)
-{-# DEPRECATED saInputConfigurations "Use generic-lens or generic-optics with 'inputConfigurations' instead." #-}
+sInputConfigurations :: Lens.Lens' StartApplication [InputConfiguration]
+sInputConfigurations = Lens.lens (inputConfigurations :: StartApplication -> [InputConfiguration]) (\s a -> s {inputConfigurations = a} :: StartApplication)
+{-# DEPRECATED sInputConfigurations "Use generic-lens or generic-optics with 'inputConfigurations' instead." #-}
 
 instance Lude.AWSRequest StartApplication where
   type Rs StartApplication = StartApplicationResponse
@@ -126,16 +122,10 @@ instance Lude.ToQuery StartApplication where
 --
 -- /See:/ 'mkStartApplicationResponse' smart constructor.
 newtype StartApplicationResponse = StartApplicationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartApplicationResponse' with the minimum fields required to make a request.

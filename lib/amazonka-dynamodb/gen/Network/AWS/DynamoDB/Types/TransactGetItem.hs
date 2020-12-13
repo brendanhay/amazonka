@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Specifies an item to be retrieved as part of the transaction.
 --
 -- /See:/ 'mkTransactGetItem' smart constructor.
-newtype TransactGetItem = TransactGetItem' {get :: Get}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype TransactGetItem = TransactGetItem'
+  { -- | Contains the primary key that identifies the item to get, together with the name of the table that contains the item, and optionally the specific attributes of the item to retrieve.
+    get :: Get
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransactGetItem' with the minimum fields required to make a request.

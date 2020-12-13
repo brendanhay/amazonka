@@ -13,12 +13,12 @@
 module Network.AWS.ElastiCache.Types.NodeUpdateStatus
   ( NodeUpdateStatus
       ( NodeUpdateStatus',
-        NUSComplete,
-        NUSInProgress,
         NUSNotApplied,
-        NUSStopped,
+        NUSWaitingToStart,
+        NUSInProgress,
         NUSStopping,
-        NUSWaitingToStart
+        NUSStopped,
+        NUSComplete
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype NodeUpdateStatus = NodeUpdateStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern NUSComplete :: NodeUpdateStatus
-pattern NUSComplete = NodeUpdateStatus' "complete"
-
-pattern NUSInProgress :: NodeUpdateStatus
-pattern NUSInProgress = NodeUpdateStatus' "in-progress"
-
 pattern NUSNotApplied :: NodeUpdateStatus
 pattern NUSNotApplied = NodeUpdateStatus' "not-applied"
-
-pattern NUSStopped :: NodeUpdateStatus
-pattern NUSStopped = NodeUpdateStatus' "stopped"
-
-pattern NUSStopping :: NodeUpdateStatus
-pattern NUSStopping = NodeUpdateStatus' "stopping"
 
 pattern NUSWaitingToStart :: NodeUpdateStatus
 pattern NUSWaitingToStart = NodeUpdateStatus' "waiting-to-start"
 
+pattern NUSInProgress :: NodeUpdateStatus
+pattern NUSInProgress = NodeUpdateStatus' "in-progress"
+
+pattern NUSStopping :: NodeUpdateStatus
+pattern NUSStopping = NodeUpdateStatus' "stopping"
+
+pattern NUSStopped :: NodeUpdateStatus
+pattern NUSStopped = NodeUpdateStatus' "stopped"
+
+pattern NUSComplete :: NodeUpdateStatus
+pattern NUSComplete = NodeUpdateStatus' "complete"
+
 {-# COMPLETE
-  NUSComplete,
-  NUSInProgress,
   NUSNotApplied,
-  NUSStopped,
-  NUSStopping,
   NUSWaitingToStart,
+  NUSInProgress,
+  NUSStopping,
+  NUSStopped,
+  NUSComplete,
   NodeUpdateStatus'
   #-}

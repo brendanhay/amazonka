@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.SageMaker.DeleteModelPackage
     mkDeleteModelPackage,
 
     -- ** Request lenses
-    dmpModelPackageName,
+    dModelPackageName,
 
     -- * Destructuring the response
     DeleteModelPackageResponse (..),
@@ -37,16 +38,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteModelPackage' smart constructor.
 newtype DeleteModelPackage = DeleteModelPackage'
-  { modelPackageName ::
-      Lude.Text
+  { -- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+    modelPackageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModelPackage' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkDeleteModelPackage pModelPackageName_ =
 -- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
 --
 -- /Note:/ Consider using 'modelPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmpModelPackageName :: Lens.Lens' DeleteModelPackage Lude.Text
-dmpModelPackageName = Lens.lens (modelPackageName :: DeleteModelPackage -> Lude.Text) (\s a -> s {modelPackageName = a} :: DeleteModelPackage)
-{-# DEPRECATED dmpModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
+dModelPackageName :: Lens.Lens' DeleteModelPackage Lude.Text
+dModelPackageName = Lens.lens (modelPackageName :: DeleteModelPackage -> Lude.Text) (\s a -> s {modelPackageName = a} :: DeleteModelPackage)
+{-# DEPRECATED dModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
 
 instance Lude.AWSRequest DeleteModelPackage where
   type Rs DeleteModelPackage = DeleteModelPackageResponse
@@ -97,13 +92,7 @@ instance Lude.ToQuery DeleteModelPackage where
 
 -- | /See:/ 'mkDeleteModelPackageResponse' smart constructor.
 data DeleteModelPackageResponse = DeleteModelPackageResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteModelPackageResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.Firehose.Types.HECEndpointType
   ( HECEndpointType
       ( HECEndpointType',
-        Event,
-        Raw
+        Raw,
+        Event
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype HECEndpointType = HECEndpointType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Event :: HECEndpointType
-pattern Event = HECEndpointType' "Event"
-
 pattern Raw :: HECEndpointType
 pattern Raw = HECEndpointType' "Raw"
 
+pattern Event :: HECEndpointType
+pattern Event = HECEndpointType' "Event"
+
 {-# COMPLETE
-  Event,
   Raw,
+  Event,
   HECEndpointType'
   #-}

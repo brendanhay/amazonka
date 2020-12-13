@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.DeleteIntegration
     mkDeleteIntegration,
 
     -- ** Request lenses
-    delRestAPIId,
-    delResourceId,
-    delHttpMethod,
+    difResourceId,
+    difHttpMethod,
+    difRestAPIId,
 
     -- * Destructuring the response
     DeleteIntegrationResponse' (..),
@@ -39,59 +40,56 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteIntegration' smart constructor.
 data DeleteIntegration = DeleteIntegration'
-  { restAPIId :: Lude.Text,
+  { -- | [Required] Specifies a delete integration request's resource identifier.
     resourceId :: Lude.Text,
-    httpMethod :: Lude.Text
+    -- | [Required] Specifies a delete integration request's HTTP method.
+    httpMethod :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIntegration' with the minimum fields required to make a request.
 --
--- * 'httpMethod' - [Required] Specifies a delete integration request's HTTP method.
 -- * 'resourceId' - [Required] Specifies a delete integration request's resource identifier.
+-- * 'httpMethod' - [Required] Specifies a delete integration request's HTTP method.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteIntegration ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'httpMethod'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   DeleteIntegration
-mkDeleteIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkDeleteIntegration pResourceId_ pHttpMethod_ pRestAPIId_ =
   DeleteIntegration'
-    { restAPIId = pRestAPIId_,
-      resourceId = pResourceId_,
-      httpMethod = pHttpMethod_
+    { resourceId = pResourceId_,
+      httpMethod = pHttpMethod_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delRestAPIId :: Lens.Lens' DeleteIntegration Lude.Text
-delRestAPIId = Lens.lens (restAPIId :: DeleteIntegration -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteIntegration)
-{-# DEPRECATED delRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies a delete integration request's resource identifier.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delResourceId :: Lens.Lens' DeleteIntegration Lude.Text
-delResourceId = Lens.lens (resourceId :: DeleteIntegration -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteIntegration)
-{-# DEPRECATED delResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+difResourceId :: Lens.Lens' DeleteIntegration Lude.Text
+difResourceId = Lens.lens (resourceId :: DeleteIntegration -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteIntegration)
+{-# DEPRECATED difResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies a delete integration request's HTTP method.
 --
 -- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delHttpMethod :: Lens.Lens' DeleteIntegration Lude.Text
-delHttpMethod = Lens.lens (httpMethod :: DeleteIntegration -> Lude.Text) (\s a -> s {httpMethod = a} :: DeleteIntegration)
-{-# DEPRECATED delHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+difHttpMethod :: Lens.Lens' DeleteIntegration Lude.Text
+difHttpMethod = Lens.lens (httpMethod :: DeleteIntegration -> Lude.Text) (\s a -> s {httpMethod = a} :: DeleteIntegration)
+{-# DEPRECATED difHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+difRestAPIId :: Lens.Lens' DeleteIntegration Lude.Text
+difRestAPIId = Lens.lens (restAPIId :: DeleteIntegration -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteIntegration)
+{-# DEPRECATED difRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest DeleteIntegration where
   type Rs DeleteIntegration = DeleteIntegrationResponse'
@@ -122,13 +120,7 @@ instance Lude.ToQuery DeleteIntegration where
 
 -- | /See:/ 'mkDeleteIntegrationResponse'' smart constructor.
 data DeleteIntegrationResponse' = DeleteIntegrationResponse''
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIntegrationResponse'' with the minimum fields required to make a request.

@@ -33,33 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkGroupConfiguration' smart constructor.
 data WorkGroupConfiguration = WorkGroupConfiguration'
-  { requesterPaysEnabled ::
-      Lude.Maybe Lude.Bool,
-    resultConfiguration ::
-      Lude.Maybe ResultConfiguration,
-    bytesScannedCutoffPerQuery ::
-      Lude.Maybe Lude.Natural,
-    enforceWorkGroupConfiguration ::
-      Lude.Maybe Lude.Bool,
-    publishCloudWatchMetricsEnabled ::
-      Lude.Maybe Lude.Bool
+  { -- | If set to @true@ , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to @false@ , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is @false@ . For more information about Requester Pays buckets, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets> in the /Amazon Simple Storage Service Developer Guide/ .
+    requesterPaysEnabled :: Lude.Maybe Lude.Bool,
+    -- | The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. To run the query, you must specify the query results location using one of the ways: either in the workgroup using this setting, or for individual queries (client-side), using 'ResultConfiguration$OutputLocation' . If none of them is set, Athena issues an error that no output location is provided. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results> .
+    resultConfiguration :: Lude.Maybe ResultConfiguration,
+    -- | The upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
+    bytesScannedCutoffPerQuery :: Lude.Maybe Lude.Natural,
+    -- | If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+    enforceWorkGroupConfiguration :: Lude.Maybe Lude.Bool,
+    -- | Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
+    publishCloudWatchMetricsEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkGroupConfiguration' with the minimum fields required to make a request.
 --
+-- * 'requesterPaysEnabled' - If set to @true@ , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to @false@ , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is @false@ . For more information about Requester Pays buckets, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'resultConfiguration' - The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. To run the query, you must specify the query results location using one of the ways: either in the workgroup using this setting, or for individual queries (client-side), using 'ResultConfiguration$OutputLocation' . If none of them is set, Athena issues an error that no output location is provided. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results> .
 -- * 'bytesScannedCutoffPerQuery' - The upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
 -- * 'enforceWorkGroupConfiguration' - If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
 -- * 'publishCloudWatchMetricsEnabled' - Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
--- * 'requesterPaysEnabled' - If set to @true@ , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to @false@ , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is @false@ . For more information about Requester Pays buckets, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'resultConfiguration' - The configuration for the workgroup, which includes the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. To run the query, you must specify the query results location using one of the ways: either in the workgroup using this setting, or for individual queries (client-side), using 'ResultConfiguration$OutputLocation' . If none of them is set, Athena issues an error that no output location is provided. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results> .
 mkWorkGroupConfiguration ::
   WorkGroupConfiguration
 mkWorkGroupConfiguration =

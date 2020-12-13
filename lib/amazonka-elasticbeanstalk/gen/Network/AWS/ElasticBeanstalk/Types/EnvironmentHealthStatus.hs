@@ -13,15 +13,15 @@
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
   ( EnvironmentHealthStatus
       ( EnvironmentHealthStatus',
-        EHSDegraded,
-        EHSInfo,
         EHSNoData,
-        EHSOK,
-        EHSPending,
-        EHSSevere,
-        EHSSuspended,
         EHSUnknown,
-        EHSWarning
+        EHSPending,
+        EHSOK,
+        EHSInfo,
+        EHSWarning,
+        EHSDegraded,
+        EHSSevere,
+        EHSSuspended
       ),
   )
 where
@@ -52,20 +52,26 @@ newtype EnvironmentHealthStatus = EnvironmentHealthStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern EHSDegraded :: EnvironmentHealthStatus
-pattern EHSDegraded = EnvironmentHealthStatus' "Degraded"
-
-pattern EHSInfo :: EnvironmentHealthStatus
-pattern EHSInfo = EnvironmentHealthStatus' "Info"
-
 pattern EHSNoData :: EnvironmentHealthStatus
 pattern EHSNoData = EnvironmentHealthStatus' "NoData"
+
+pattern EHSUnknown :: EnvironmentHealthStatus
+pattern EHSUnknown = EnvironmentHealthStatus' "Unknown"
+
+pattern EHSPending :: EnvironmentHealthStatus
+pattern EHSPending = EnvironmentHealthStatus' "Pending"
 
 pattern EHSOK :: EnvironmentHealthStatus
 pattern EHSOK = EnvironmentHealthStatus' "Ok"
 
-pattern EHSPending :: EnvironmentHealthStatus
-pattern EHSPending = EnvironmentHealthStatus' "Pending"
+pattern EHSInfo :: EnvironmentHealthStatus
+pattern EHSInfo = EnvironmentHealthStatus' "Info"
+
+pattern EHSWarning :: EnvironmentHealthStatus
+pattern EHSWarning = EnvironmentHealthStatus' "Warning"
+
+pattern EHSDegraded :: EnvironmentHealthStatus
+pattern EHSDegraded = EnvironmentHealthStatus' "Degraded"
 
 pattern EHSSevere :: EnvironmentHealthStatus
 pattern EHSSevere = EnvironmentHealthStatus' "Severe"
@@ -73,21 +79,15 @@ pattern EHSSevere = EnvironmentHealthStatus' "Severe"
 pattern EHSSuspended :: EnvironmentHealthStatus
 pattern EHSSuspended = EnvironmentHealthStatus' "Suspended"
 
-pattern EHSUnknown :: EnvironmentHealthStatus
-pattern EHSUnknown = EnvironmentHealthStatus' "Unknown"
-
-pattern EHSWarning :: EnvironmentHealthStatus
-pattern EHSWarning = EnvironmentHealthStatus' "Warning"
-
 {-# COMPLETE
-  EHSDegraded,
-  EHSInfo,
   EHSNoData,
-  EHSOK,
+  EHSUnknown,
   EHSPending,
+  EHSOK,
+  EHSInfo,
+  EHSWarning,
+  EHSDegraded,
   EHSSevere,
   EHSSuspended,
-  EHSUnknown,
-  EHSWarning,
   EnvironmentHealthStatus'
   #-}

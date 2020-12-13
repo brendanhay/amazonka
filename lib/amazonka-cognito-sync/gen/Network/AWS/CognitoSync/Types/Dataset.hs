@@ -34,33 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataset' smart constructor.
 data Dataset = Dataset'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Date when the dataset was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Number of records in this dataset.
     numRecords :: Lude.Maybe Lude.Integer,
+    -- | Total size in bytes of the records in this dataset.
     dataStorage :: Lude.Maybe Lude.Integer,
+    -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
     datasetName :: Lude.Maybe Lude.Text,
+    -- | Date on which the dataset was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The device that made the last change to this dataset.
     lastModifiedBy :: Lude.Maybe Lude.Text,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
     identityId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Dataset' with the minimum fields required to make a request.
 --
--- * 'creationDate' - Date on which the dataset was created.
--- * 'dataStorage' - Total size in bytes of the records in this dataset.
--- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
--- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'lastModifiedBy' - The device that made the last change to this dataset.
 -- * 'lastModifiedDate' - Date when the dataset was last modified.
 -- * 'numRecords' - Number of records in this dataset.
+-- * 'dataStorage' - Total size in bytes of the records in this dataset.
+-- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+-- * 'creationDate' - Date on which the dataset was created.
+-- * 'lastModifiedBy' - The device that made the last change to this dataset.
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 mkDataset ::
   Dataset
 mkDataset =

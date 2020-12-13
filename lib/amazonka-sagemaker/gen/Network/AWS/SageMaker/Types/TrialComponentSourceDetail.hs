@@ -34,28 +34,23 @@ import Network.AWS.SageMaker.Types.TransformJob
 --
 -- /See:/ 'mkTrialComponentSourceDetail' smart constructor.
 data TrialComponentSourceDetail = TrialComponentSourceDetail'
-  { trainingJob ::
-      Lude.Maybe TrainingJob,
+  { -- | Information about a training job that's the source of a trial component.
+    trainingJob :: Lude.Maybe TrainingJob,
+    -- | The Amazon Resource Name (ARN) of the source.
     sourceARN :: Lude.Maybe Lude.Text,
-    processingJob ::
-      Lude.Maybe ProcessingJob,
-    transformJob ::
-      Lude.Maybe TransformJob
+    -- | Information about a processing job that's the source of a trial component.
+    processingJob :: Lude.Maybe ProcessingJob,
+    -- | Information about a transform job that's the source of a trial component.
+    transformJob :: Lude.Maybe TransformJob
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentSourceDetail' with the minimum fields required to make a request.
 --
--- * 'processingJob' - Information about a processing job that's the source of a trial component.
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
 -- * 'trainingJob' - Information about a training job that's the source of a trial component.
+-- * 'sourceARN' - The Amazon Resource Name (ARN) of the source.
+-- * 'processingJob' - Information about a processing job that's the source of a trial component.
 -- * 'transformJob' - Information about a transform job that's the source of a trial component.
 mkTrialComponentSourceDetail ::
   TrialComponentSourceDetail

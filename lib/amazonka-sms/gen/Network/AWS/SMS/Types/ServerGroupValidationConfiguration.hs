@@ -30,25 +30,18 @@ import Network.AWS.SMS.Types.ServerValidationConfiguration
 --
 -- /See:/ 'mkServerGroupValidationConfiguration' smart constructor.
 data ServerGroupValidationConfiguration = ServerGroupValidationConfiguration'
-  { serverValidationConfigurations ::
-      Lude.Maybe
-        [ServerValidationConfiguration],
-    serverGroupId ::
-      Lude.Maybe Lude.Text
+  { -- | The validation configuration.
+    serverValidationConfigurations :: Lude.Maybe [ServerValidationConfiguration],
+    -- | The ID of the server group.
+    serverGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerGroupValidationConfiguration' with the minimum fields required to make a request.
 --
--- * 'serverGroupId' - The ID of the server group.
 -- * 'serverValidationConfigurations' - The validation configuration.
+-- * 'serverGroupId' - The ID of the server group.
 mkServerGroupValidationConfiguration ::
   ServerGroupValidationConfiguration
 mkServerGroupValidationConfiguration =

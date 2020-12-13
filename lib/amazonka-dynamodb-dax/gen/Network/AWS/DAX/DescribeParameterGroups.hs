@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,28 +46,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeParameterGroups' smart constructor.
 data DescribeParameterGroups = DescribeParameterGroups'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    parameterGroupNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The names of the parameter groups.
+    parameterGroupNames :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+    --
+    -- The value for @MaxResults@ must be between 20 and 100.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeParameterGroups' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+-- * 'parameterGroupNames' - The names of the parameter groups.
 -- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
--- * 'parameterGroupNames' - The names of the parameter groups.
 mkDescribeParameterGroups ::
   DescribeParameterGroups
 mkDescribeParameterGroups =
@@ -149,19 +147,14 @@ instance Lude.ToQuery DescribeParameterGroups where
 
 -- | /See:/ 'mkDescribeParameterGroupsResponse' smart constructor.
 data DescribeParameterGroupsResponse = DescribeParameterGroupsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    parameterGroups ::
-      Lude.Maybe [ParameterGroup],
+  { -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of parameter groups. Each element in the array represents one parameter group.
+    parameterGroups :: Lude.Maybe [ParameterGroup],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeParameterGroupsResponse' with the minimum fields required to make a request.

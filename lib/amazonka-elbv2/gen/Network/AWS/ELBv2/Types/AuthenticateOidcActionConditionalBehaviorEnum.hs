@@ -13,9 +13,9 @@
 module Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
   ( AuthenticateOidcActionConditionalBehaviorEnum
       ( AuthenticateOidcActionConditionalBehaviorEnum',
+        AOACBEDeny,
         AOACBEAllow,
-        AOACBEAuthenticate,
-        AOACBEDeny
+        AOACBEAuthenticate
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AuthenticateOidcActionConditionalBehaviorEnum = AuthenticateOidcActionCo
       Lude.ToHeader
     )
 
+pattern AOACBEDeny :: AuthenticateOidcActionConditionalBehaviorEnum
+pattern AOACBEDeny = AuthenticateOidcActionConditionalBehaviorEnum' "deny"
+
 pattern AOACBEAllow :: AuthenticateOidcActionConditionalBehaviorEnum
 pattern AOACBEAllow = AuthenticateOidcActionConditionalBehaviorEnum' "allow"
 
 pattern AOACBEAuthenticate :: AuthenticateOidcActionConditionalBehaviorEnum
 pattern AOACBEAuthenticate = AuthenticateOidcActionConditionalBehaviorEnum' "authenticate"
 
-pattern AOACBEDeny :: AuthenticateOidcActionConditionalBehaviorEnum
-pattern AOACBEDeny = AuthenticateOidcActionConditionalBehaviorEnum' "deny"
-
 {-# COMPLETE
+  AOACBEDeny,
   AOACBEAllow,
   AOACBEAuthenticate,
-  AOACBEDeny,
   AuthenticateOidcActionConditionalBehaviorEnum'
   #-}

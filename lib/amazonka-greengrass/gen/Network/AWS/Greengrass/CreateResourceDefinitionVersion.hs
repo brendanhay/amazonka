@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Greengrass.CreateResourceDefinitionVersion
     mkCreateResourceDefinitionVersion,
 
     -- ** Request lenses
+    crdvResourceDefinitionId,
     crdvAmznClientToken,
     crdvResources,
-    crdvResourceDefinitionId,
 
     -- * Destructuring the response
     CreateResourceDefinitionVersionResponse (..),
@@ -44,26 +45,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateResourceDefinitionVersion' smart constructor.
 data CreateResourceDefinitionVersion = CreateResourceDefinitionVersion'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
-    resources ::
-      Lude.Maybe [Resource],
-    resourceDefinitionId ::
-      Lude.Text
+  { -- | The ID of the resource definition.
+    resourceDefinitionId :: Lude.Text,
+    -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | A list of resources.
+    resources :: Lude.Maybe [Resource]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDefinitionVersion' with the minimum fields required to make a request.
 --
--- * 'amznClientToken' - A client token used to correlate requests and responses.
 -- * 'resourceDefinitionId' - The ID of the resource definition.
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
 -- * 'resources' - A list of resources.
 mkCreateResourceDefinitionVersion ::
   -- | 'resourceDefinitionId'
@@ -71,10 +66,18 @@ mkCreateResourceDefinitionVersion ::
   CreateResourceDefinitionVersion
 mkCreateResourceDefinitionVersion pResourceDefinitionId_ =
   CreateResourceDefinitionVersion'
-    { amznClientToken = Lude.Nothing,
-      resources = Lude.Nothing,
-      resourceDefinitionId = pResourceDefinitionId_
+    { resourceDefinitionId =
+        pResourceDefinitionId_,
+      amznClientToken = Lude.Nothing,
+      resources = Lude.Nothing
     }
+
+-- | The ID of the resource definition.
+--
+-- /Note:/ Consider using 'resourceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdvResourceDefinitionId :: Lens.Lens' CreateResourceDefinitionVersion Lude.Text
+crdvResourceDefinitionId = Lens.lens (resourceDefinitionId :: CreateResourceDefinitionVersion -> Lude.Text) (\s a -> s {resourceDefinitionId = a} :: CreateResourceDefinitionVersion)
+{-# DEPRECATED crdvResourceDefinitionId "Use generic-lens or generic-optics with 'resourceDefinitionId' instead." #-}
 
 -- | A client token used to correlate requests and responses.
 --
@@ -89,13 +92,6 @@ crdvAmznClientToken = Lens.lens (amznClientToken :: CreateResourceDefinitionVers
 crdvResources :: Lens.Lens' CreateResourceDefinitionVersion (Lude.Maybe [Resource])
 crdvResources = Lens.lens (resources :: CreateResourceDefinitionVersion -> Lude.Maybe [Resource]) (\s a -> s {resources = a} :: CreateResourceDefinitionVersion)
 {-# DEPRECATED crdvResources "Use generic-lens or generic-optics with 'resources' instead." #-}
-
--- | The ID of the resource definition.
---
--- /Note:/ Consider using 'resourceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdvResourceDefinitionId :: Lens.Lens' CreateResourceDefinitionVersion Lude.Text
-crdvResourceDefinitionId = Lens.lens (resourceDefinitionId :: CreateResourceDefinitionVersion -> Lude.Text) (\s a -> s {resourceDefinitionId = a} :: CreateResourceDefinitionVersion)
-{-# DEPRECATED crdvResourceDefinitionId "Use generic-lens or generic-optics with 'resourceDefinitionId' instead." #-}
 
 instance Lude.AWSRequest CreateResourceDefinitionVersion where
   type
@@ -139,37 +135,27 @@ instance Lude.ToQuery CreateResourceDefinitionVersion where
 
 -- | /See:/ 'mkCreateResourceDefinitionVersionResponse' smart constructor.
 data CreateResourceDefinitionVersionResponse = CreateResourceDefinitionVersionResponse'
-  { arn ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDefinitionVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'version' - The ID of the version.
 -- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the version.
 mkCreateResourceDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

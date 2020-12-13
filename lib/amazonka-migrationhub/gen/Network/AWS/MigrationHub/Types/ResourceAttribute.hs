@@ -17,8 +17,8 @@ module Network.AWS.MigrationHub.Types.ResourceAttribute
     mkResourceAttribute,
 
     -- * Lenses
-    raType,
     raValue,
+    raType,
   )
 where
 
@@ -55,38 +55,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceAttribute' smart constructor.
 data ResourceAttribute = ResourceAttribute'
-  { type' ::
-      ResourceAttributeType,
-    value :: Lude.Text
+  { -- | Value of the resource type.
+    value :: Lude.Text,
+    -- | Type of resource.
+    type' :: ResourceAttributeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceAttribute' with the minimum fields required to make a request.
 --
--- * 'type'' - Type of resource.
 -- * 'value' - Value of the resource type.
+-- * 'type'' - Type of resource.
 mkResourceAttribute ::
-  -- | 'type''
-  ResourceAttributeType ->
   -- | 'value'
   Lude.Text ->
+  -- | 'type''
+  ResourceAttributeType ->
   ResourceAttribute
-mkResourceAttribute pType_ pValue_ =
-  ResourceAttribute' {type' = pType_, value = pValue_}
-
--- | Type of resource.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raType :: Lens.Lens' ResourceAttribute ResourceAttributeType
-raType = Lens.lens (type' :: ResourceAttribute -> ResourceAttributeType) (\s a -> s {type' = a} :: ResourceAttribute)
-{-# DEPRECATED raType "Use generic-lens or generic-optics with 'type'' instead." #-}
+mkResourceAttribute pValue_ pType_ =
+  ResourceAttribute' {value = pValue_, type' = pType_}
 
 -- | Value of the resource type.
 --
@@ -95,20 +83,27 @@ raValue :: Lens.Lens' ResourceAttribute Lude.Text
 raValue = Lens.lens (value :: ResourceAttribute -> Lude.Text) (\s a -> s {value = a} :: ResourceAttribute)
 {-# DEPRECATED raValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | Type of resource.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raType :: Lens.Lens' ResourceAttribute ResourceAttributeType
+raType = Lens.lens (type' :: ResourceAttribute -> ResourceAttributeType) (\s a -> s {type' = a} :: ResourceAttribute)
+{-# DEPRECATED raType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.FromJSON ResourceAttribute where
   parseJSON =
     Lude.withObject
       "ResourceAttribute"
       ( \x ->
           ResourceAttribute'
-            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Value")
+            Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Type")
       )
 
 instance Lude.ToJSON ResourceAttribute where
   toJSON ResourceAttribute' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("Value" Lude..= value)
+          [ Lude.Just ("Value" Lude..= value),
+            Lude.Just ("Type" Lude..= type')
           ]
       )

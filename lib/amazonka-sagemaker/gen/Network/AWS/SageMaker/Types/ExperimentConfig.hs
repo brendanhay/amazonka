@@ -41,24 +41,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExperimentConfig' smart constructor.
 data ExperimentConfig = ExperimentConfig'
-  { trialComponentDisplayName ::
-      Lude.Maybe Lude.Text,
+  { -- | The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+    trialComponentDisplayName :: Lude.Maybe Lude.Text,
+    -- | The name of an existing experiment to associate the trial component with.
     experimentName :: Lude.Maybe Lude.Text,
+    -- | The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
     trialName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExperimentConfig' with the minimum fields required to make a request.
 --
--- * 'experimentName' - The name of an existing experiment to associate the trial component with.
 -- * 'trialComponentDisplayName' - The display name for the trial component. If this key isn't specified, the display name is the trial component name.
+-- * 'experimentName' - The name of an existing experiment to associate the trial component with.
 -- * 'trialName' - The name of an existing trial to associate the trial component with. If not specified, a new trial is created.
 mkExperimentConfig ::
   ExperimentConfig

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.Connect.ListHoursOfOperations
     mkListHoursOfOperations,
 
     -- ** Request lenses
+    lhooInstanceId,
     lhooNextToken,
     lhooMaxResults,
-    lhooInstanceId,
 
     -- * Destructuring the response
     ListHoursOfOperationsResponse (..),
@@ -47,35 +48,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListHoursOfOperations' smart constructor.
 data ListHoursOfOperations = ListHoursOfOperations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHoursOfOperations' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListHoursOfOperations ::
   -- | 'instanceId'
   Lude.Text ->
   ListHoursOfOperations
 mkListHoursOfOperations pInstanceId_ =
   ListHoursOfOperations'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhooInstanceId :: Lens.Lens' ListHoursOfOperations Lude.Text
+lhooInstanceId = Lens.lens (instanceId :: ListHoursOfOperations -> Lude.Text) (\s a -> s {instanceId = a} :: ListHoursOfOperations)
+{-# DEPRECATED lhooInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -90,13 +94,6 @@ lhooNextToken = Lens.lens (nextToken :: ListHoursOfOperations -> Lude.Maybe Lude
 lhooMaxResults :: Lens.Lens' ListHoursOfOperations (Lude.Maybe Lude.Natural)
 lhooMaxResults = Lens.lens (maxResults :: ListHoursOfOperations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListHoursOfOperations)
 {-# DEPRECATED lhooMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhooInstanceId :: Lens.Lens' ListHoursOfOperations Lude.Text
-lhooInstanceId = Lens.lens (instanceId :: ListHoursOfOperations -> Lude.Text) (\s a -> s {instanceId = a} :: ListHoursOfOperations)
-{-# DEPRECATED lhooInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListHoursOfOperations where
   page rq rs
@@ -141,26 +138,20 @@ instance Lude.ToQuery ListHoursOfOperations where
 
 -- | /See:/ 'mkListHoursOfOperationsResponse' smart constructor.
 data ListHoursOfOperationsResponse = ListHoursOfOperationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    hoursOfOperationSummaryList ::
-      Lude.Maybe
-        [HoursOfOperationSummary],
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the hours of operation.
+    hoursOfOperationSummaryList :: Lude.Maybe [HoursOfOperationSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHoursOfOperationsResponse' with the minimum fields required to make a request.
 --
--- * 'hoursOfOperationSummaryList' - Information about the hours of operation.
 -- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'hoursOfOperationSummaryList' - Information about the hours of operation.
 -- * 'responseStatus' - The response status code.
 mkListHoursOfOperationsResponse ::
   -- | 'responseStatus'

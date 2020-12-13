@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.ParametersFilter
     mkParametersFilter,
 
     -- * Lenses
-    pKey,
     pValues,
+    pKey,
   )
 where
 
@@ -30,38 +30,26 @@ import Network.AWS.SSM.Types.ParametersFilterKey
 --
 -- /See:/ 'mkParametersFilter' smart constructor.
 data ParametersFilter = ParametersFilter'
-  { key ::
-      ParametersFilterKey,
-    values :: Lude.NonEmpty Lude.Text
+  { -- | The filter values.
+    values :: Lude.NonEmpty Lude.Text,
+    -- | The name of the filter.
+    key :: ParametersFilterKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParametersFilter' with the minimum fields required to make a request.
 --
--- * 'key' - The name of the filter.
 -- * 'values' - The filter values.
+-- * 'key' - The name of the filter.
 mkParametersFilter ::
-  -- | 'key'
-  ParametersFilterKey ->
   -- | 'values'
   Lude.NonEmpty Lude.Text ->
+  -- | 'key'
+  ParametersFilterKey ->
   ParametersFilter
-mkParametersFilter pKey_ pValues_ =
-  ParametersFilter' {key = pKey_, values = pValues_}
-
--- | The name of the filter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pKey :: Lens.Lens' ParametersFilter ParametersFilterKey
-pKey = Lens.lens (key :: ParametersFilter -> ParametersFilterKey) (\s a -> s {key = a} :: ParametersFilter)
-{-# DEPRECATED pKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkParametersFilter pValues_ pKey_ =
+  ParametersFilter' {values = pValues_, key = pKey_}
 
 -- | The filter values.
 --
@@ -70,11 +58,18 @@ pValues :: Lens.Lens' ParametersFilter (Lude.NonEmpty Lude.Text)
 pValues = Lens.lens (values :: ParametersFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: ParametersFilter)
 {-# DEPRECATED pValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pKey :: Lens.Lens' ParametersFilter ParametersFilterKey
+pKey = Lens.lens (key :: ParametersFilter -> ParametersFilterKey) (\s a -> s {key = a} :: ParametersFilter)
+{-# DEPRECATED pKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.ToJSON ParametersFilter where
   toJSON ParametersFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Values" Lude..= values)
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Key" Lude..= key)
           ]
       )

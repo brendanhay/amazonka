@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.IAM.GetPolicyVersion
     mkGetPolicyVersion,
 
     -- ** Request lenses
-    gpvPolicyARN,
     gpvVersionId,
+    gpvPolicyARN,
 
     -- * Destructuring the response
     GetPolicyVersionResponse (..),
@@ -45,46 +46,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPolicyVersion' smart constructor.
 data GetPolicyVersion = GetPolicyVersion'
-  { policyARN :: Lude.Text,
-    versionId :: Lude.Text
+  { -- | Identifies the policy version to retrieve.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
+    versionId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    policyARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyVersion' with the minimum fields required to make a request.
 --
--- * 'policyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 -- * 'versionId' - Identifies the policy version to retrieve.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consists of the lowercase letter 'v' followed by one or two digits, and optionally followed by a period '.' and a string of letters and digits.
-mkGetPolicyVersion ::
-  -- | 'policyARN'
-  Lude.Text ->
-  -- | 'versionId'
-  Lude.Text ->
-  GetPolicyVersion
-mkGetPolicyVersion pPolicyARN_ pVersionId_ =
-  GetPolicyVersion'
-    { policyARN = pPolicyARN_,
-      versionId = pVersionId_
-    }
-
--- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpvPolicyARN :: Lens.Lens' GetPolicyVersion Lude.Text
-gpvPolicyARN = Lens.lens (policyARN :: GetPolicyVersion -> Lude.Text) (\s a -> s {policyARN = a} :: GetPolicyVersion)
-{-# DEPRECATED gpvPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+mkGetPolicyVersion ::
+  -- | 'versionId'
+  Lude.Text ->
+  -- | 'policyARN'
+  Lude.Text ->
+  GetPolicyVersion
+mkGetPolicyVersion pVersionId_ pPolicyARN_ =
+  GetPolicyVersion'
+    { versionId = pVersionId_,
+      policyARN = pPolicyARN_
+    }
 
 -- | Identifies the policy version to retrieve.
 --
@@ -94,6 +86,15 @@ gpvPolicyARN = Lens.lens (policyARN :: GetPolicyVersion -> Lude.Text) (\s a -> s
 gpvVersionId :: Lens.Lens' GetPolicyVersion Lude.Text
 gpvVersionId = Lens.lens (versionId :: GetPolicyVersion -> Lude.Text) (\s a -> s {versionId = a} :: GetPolicyVersion)
 {-# DEPRECATED gpvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvPolicyARN :: Lens.Lens' GetPolicyVersion Lude.Text
+gpvPolicyARN = Lens.lens (policyARN :: GetPolicyVersion -> Lude.Text) (\s a -> s {policyARN = a} :: GetPolicyVersion)
+{-# DEPRECATED gpvPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
 instance Lude.AWSRequest GetPolicyVersion where
   type Rs GetPolicyVersion = GetPolicyVersionResponse
@@ -118,25 +119,20 @@ instance Lude.ToQuery GetPolicyVersion where
     Lude.mconcat
       [ "Action" Lude.=: ("GetPolicyVersion" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyArn" Lude.=: policyARN,
-        "VersionId" Lude.=: versionId
+        "VersionId" Lude.=: versionId,
+        "PolicyArn" Lude.=: policyARN
       ]
 
 -- | Contains the response to a successful 'GetPolicyVersion' request.
 --
 -- /See:/ 'mkGetPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-  { policyVersion ::
-      Lude.Maybe PolicyVersion,
+  { -- | A structure containing details about the policy version.
+    policyVersion :: Lude.Maybe PolicyVersion,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.

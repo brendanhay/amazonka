@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.EC2.DescribeIdentityIdFormat
     mkDescribeIdentityIdFormat,
 
     -- ** Request lenses
-    diifResource,
     diifPrincipalARN,
+    diifResource,
 
     -- * Destructuring the response
     DescribeIdentityIdFormatResponse (..),
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeIdentityIdFormat' smart constructor.
 data DescribeIdentityIdFormat = DescribeIdentityIdFormat'
-  { resource ::
-      Lude.Maybe Lude.Text,
-    principalARN :: Lude.Text
+  { -- | The ARN of the principal, which can be an IAM role, IAM user, or the root user.
+    principalARN :: Lude.Text,
+    -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
+    resource :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityIdFormat' with the minimum fields required to make a request.
@@ -66,16 +62,9 @@ mkDescribeIdentityIdFormat ::
   DescribeIdentityIdFormat
 mkDescribeIdentityIdFormat pPrincipalARN_ =
   DescribeIdentityIdFormat'
-    { resource = Lude.Nothing,
-      principalARN = pPrincipalARN_
+    { principalARN = pPrincipalARN_,
+      resource = Lude.Nothing
     }
-
--- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
---
--- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diifResource :: Lens.Lens' DescribeIdentityIdFormat (Lude.Maybe Lude.Text)
-diifResource = Lens.lens (resource :: DescribeIdentityIdFormat -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: DescribeIdentityIdFormat)
-{-# DEPRECATED diifResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 -- | The ARN of the principal, which can be an IAM role, IAM user, or the root user.
 --
@@ -83,6 +72,13 @@ diifResource = Lens.lens (resource :: DescribeIdentityIdFormat -> Lude.Maybe Lud
 diifPrincipalARN :: Lens.Lens' DescribeIdentityIdFormat Lude.Text
 diifPrincipalARN = Lens.lens (principalARN :: DescribeIdentityIdFormat -> Lude.Text) (\s a -> s {principalARN = a} :: DescribeIdentityIdFormat)
 {-# DEPRECATED diifPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
+
+-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
+--
+-- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diifResource :: Lens.Lens' DescribeIdentityIdFormat (Lude.Maybe Lude.Text)
+diifResource = Lens.lens (resource :: DescribeIdentityIdFormat -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: DescribeIdentityIdFormat)
+{-# DEPRECATED diifResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 instance Lude.AWSRequest DescribeIdentityIdFormat where
   type Rs DescribeIdentityIdFormat = DescribeIdentityIdFormatResponse
@@ -108,30 +104,24 @@ instance Lude.ToQuery DescribeIdentityIdFormat where
     Lude.mconcat
       [ "Action" Lude.=: ("DescribeIdentityIdFormat" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Resource" Lude.=: resource,
-        "PrincipalArn" Lude.=: principalARN
+        "PrincipalArn" Lude.=: principalARN,
+        "Resource" Lude.=: resource
       ]
 
 -- | /See:/ 'mkDescribeIdentityIdFormatResponse' smart constructor.
 data DescribeIdentityIdFormatResponse = DescribeIdentityIdFormatResponse'
-  { statuses ::
-      Lude.Maybe [IdFormat],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the ID format for the resources.
+    statuses :: Lude.Maybe [IdFormat],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityIdFormatResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'statuses' - Information about the ID format for the resources.
+-- * 'responseStatus' - The response status code.
 mkDescribeIdentityIdFormatResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.CreateUserImportJob
     mkCreateUserImportJob,
 
     -- ** Request lenses
-    cuijJobName,
     cuijUserPoolId,
+    cuijJobName,
     cuijCloudWatchLogsRoleARN,
 
     -- * Destructuring the response
@@ -43,49 +44,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateUserImportJob' smart constructor.
 data CreateUserImportJob = CreateUserImportJob'
-  { jobName ::
-      Lude.Text,
+  { -- | The user pool ID for the user pool that the users are being imported into.
     userPoolId :: Lude.Text,
+    -- | The job name for the user import job.
+    jobName :: Lude.Text,
+    -- | The role ARN for the Amazon CloudWatch Logging role for the user import job.
     cloudWatchLogsRoleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserImportJob' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job.
--- * 'jobName' - The job name for the user import job.
 -- * 'userPoolId' - The user pool ID for the user pool that the users are being imported into.
+-- * 'jobName' - The job name for the user import job.
+-- * 'cloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job.
 mkCreateUserImportJob ::
-  -- | 'jobName'
-  Lude.Text ->
   -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'jobName'
   Lude.Text ->
   -- | 'cloudWatchLogsRoleARN'
   Lude.Text ->
   CreateUserImportJob
 mkCreateUserImportJob
-  pJobName_
   pUserPoolId_
+  pJobName_
   pCloudWatchLogsRoleARN_ =
     CreateUserImportJob'
-      { jobName = pJobName_,
-        userPoolId = pUserPoolId_,
+      { userPoolId = pUserPoolId_,
+        jobName = pJobName_,
         cloudWatchLogsRoleARN = pCloudWatchLogsRoleARN_
       }
-
--- | The job name for the user import job.
---
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuijJobName :: Lens.Lens' CreateUserImportJob Lude.Text
-cuijJobName = Lens.lens (jobName :: CreateUserImportJob -> Lude.Text) (\s a -> s {jobName = a} :: CreateUserImportJob)
-{-# DEPRECATED cuijJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The user pool ID for the user pool that the users are being imported into.
 --
@@ -93,6 +83,13 @@ cuijJobName = Lens.lens (jobName :: CreateUserImportJob -> Lude.Text) (\s a -> s
 cuijUserPoolId :: Lens.Lens' CreateUserImportJob Lude.Text
 cuijUserPoolId = Lens.lens (userPoolId :: CreateUserImportJob -> Lude.Text) (\s a -> s {userPoolId = a} :: CreateUserImportJob)
 {-# DEPRECATED cuijUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | The job name for the user import job.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuijJobName :: Lens.Lens' CreateUserImportJob Lude.Text
+cuijJobName = Lens.lens (jobName :: CreateUserImportJob -> Lude.Text) (\s a -> s {jobName = a} :: CreateUserImportJob)
+{-# DEPRECATED cuijJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The role ARN for the Amazon CloudWatch Logging role for the user import job.
 --
@@ -129,8 +126,8 @@ instance Lude.ToJSON CreateUserImportJob where
   toJSON CreateUserImportJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("JobName" Lude..= jobName),
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("JobName" Lude..= jobName),
             Lude.Just ("CloudWatchLogsRoleArn" Lude..= cloudWatchLogsRoleARN)
           ]
       )
@@ -145,23 +142,18 @@ instance Lude.ToQuery CreateUserImportJob where
 --
 -- /See:/ 'mkCreateUserImportJobResponse' smart constructor.
 data CreateUserImportJobResponse = CreateUserImportJobResponse'
-  { userImportJob ::
-      Lude.Maybe UserImportJobType,
+  { -- | The job object that represents the user import job.
+    userImportJob :: Lude.Maybe UserImportJobType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserImportJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userImportJob' - The job object that represents the user import job.
+-- * 'responseStatus' - The response status code.
 mkCreateUserImportJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { bucketKey :: Lude.Maybe Lude.Text,
+  { -- | The Amazon S3 object key where the source code files provided with the project request are stored.
+    bucketKey :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 bucket name where the source code files provided with the project request are stored.
     bucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.

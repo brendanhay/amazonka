@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTeletextSourceSettings' smart constructor.
 newtype TeletextSourceSettings = TeletextSourceSettings'
-  { pageNumber ::
-      Lude.Maybe Lude.Text
+  { -- | Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no "0x" prefix.
+    pageNumber :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TeletextSourceSettings' with the minimum fields required to make a request.

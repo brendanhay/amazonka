@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteUsagePlan' smart constructor.
 newtype DeleteUsagePlan = DeleteUsagePlan'
-  { usagePlanId ::
-      Lude.Text
+  { -- | [Required] The Id of the to-be-deleted usage plan.
+    usagePlanId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsagePlan' with the minimum fields required to make a request.
@@ -87,13 +82,7 @@ instance Lude.ToQuery DeleteUsagePlan where
 
 -- | /See:/ 'mkDeleteUsagePlanResponse' smart constructor.
 data DeleteUsagePlanResponse = DeleteUsagePlanResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUsagePlanResponse' with the minimum fields required to make a request.

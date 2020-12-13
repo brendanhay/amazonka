@@ -19,9 +19,9 @@ module Network.AWS.ECS.Types.EFSVolumeConfiguration
     -- * Lenses
     efsvcRootDirectory,
     efsvcTransitEncryption,
+    efsvcFileSystemId,
     efsvcAuthorizationConfig,
     efsvcTransitEncryptionPort,
-    efsvcFileSystemId,
   )
 where
 
@@ -34,32 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEFSVolumeConfiguration' smart constructor.
 data EFSVolumeConfiguration = EFSVolumeConfiguration'
-  { rootDirectory ::
-      Lude.Maybe Lude.Text,
-    transitEncryption ::
-      Lude.Maybe EFSTransitEncryption,
-    authorizationConfig ::
-      Lude.Maybe EFSAuthorizationConfig,
-    transitEncryptionPort :: Lude.Maybe Lude.Int,
-    fileSystemId :: Lude.Text
+  { -- | The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying @/@ will have the same effect as omitting this parameter.
+    --
+    -- /Important:/ If an EFS access point is specified in the @authorizationConfig@ , the root directory parameter must either be omitted or set to @/@ which will enforce the path set on the EFS access point.
+    rootDirectory :: Lude.Maybe Lude.Text,
+    -- | Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of @DISABLED@ is used. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting Data in Transit> in the /Amazon Elastic File System User Guide/ .
+    transitEncryption :: Lude.Maybe EFSTransitEncryption,
+    -- | The Amazon EFS file system ID to use.
+    fileSystemId :: Lude.Text,
+    -- | The authorization configuration details for the Amazon EFS file system.
+    authorizationConfig :: Lude.Maybe EFSAuthorizationConfig,
+    -- | The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper> in the /Amazon Elastic File System User Guide/ .
+    transitEncryptionPort :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EFSVolumeConfiguration' with the minimum fields required to make a request.
 --
--- * 'authorizationConfig' - The authorization configuration details for the Amazon EFS file system.
--- * 'fileSystemId' - The Amazon EFS file system ID to use.
 -- * 'rootDirectory' - The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying @/@ will have the same effect as omitting this parameter.
 --
 -- /Important:/ If an EFS access point is specified in the @authorizationConfig@ , the root directory parameter must either be omitted or set to @/@ which will enforce the path set on the EFS access point.
 -- * 'transitEncryption' - Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of @DISABLED@ is used. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting Data in Transit> in the /Amazon Elastic File System User Guide/ .
+-- * 'fileSystemId' - The Amazon EFS file system ID to use.
+-- * 'authorizationConfig' - The authorization configuration details for the Amazon EFS file system.
 -- * 'transitEncryptionPort' - The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper> in the /Amazon Elastic File System User Guide/ .
 mkEFSVolumeConfiguration ::
   -- | 'fileSystemId'
@@ -69,9 +67,9 @@ mkEFSVolumeConfiguration pFileSystemId_ =
   EFSVolumeConfiguration'
     { rootDirectory = Lude.Nothing,
       transitEncryption = Lude.Nothing,
+      fileSystemId = pFileSystemId_,
       authorizationConfig = Lude.Nothing,
-      transitEncryptionPort = Lude.Nothing,
-      fileSystemId = pFileSystemId_
+      transitEncryptionPort = Lude.Nothing
     }
 
 -- | The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying @/@ will have the same effect as omitting this parameter.
@@ -90,6 +88,13 @@ efsvcTransitEncryption :: Lens.Lens' EFSVolumeConfiguration (Lude.Maybe EFSTrans
 efsvcTransitEncryption = Lens.lens (transitEncryption :: EFSVolumeConfiguration -> Lude.Maybe EFSTransitEncryption) (\s a -> s {transitEncryption = a} :: EFSVolumeConfiguration)
 {-# DEPRECATED efsvcTransitEncryption "Use generic-lens or generic-optics with 'transitEncryption' instead." #-}
 
+-- | The Amazon EFS file system ID to use.
+--
+-- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsvcFileSystemId :: Lens.Lens' EFSVolumeConfiguration Lude.Text
+efsvcFileSystemId = Lens.lens (fileSystemId :: EFSVolumeConfiguration -> Lude.Text) (\s a -> s {fileSystemId = a} :: EFSVolumeConfiguration)
+{-# DEPRECATED efsvcFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+
 -- | The authorization configuration details for the Amazon EFS file system.
 --
 -- /Note:/ Consider using 'authorizationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -104,13 +109,6 @@ efsvcTransitEncryptionPort :: Lens.Lens' EFSVolumeConfiguration (Lude.Maybe Lude
 efsvcTransitEncryptionPort = Lens.lens (transitEncryptionPort :: EFSVolumeConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {transitEncryptionPort = a} :: EFSVolumeConfiguration)
 {-# DEPRECATED efsvcTransitEncryptionPort "Use generic-lens or generic-optics with 'transitEncryptionPort' instead." #-}
 
--- | The Amazon EFS file system ID to use.
---
--- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsvcFileSystemId :: Lens.Lens' EFSVolumeConfiguration Lude.Text
-efsvcFileSystemId = Lens.lens (fileSystemId :: EFSVolumeConfiguration -> Lude.Text) (\s a -> s {fileSystemId = a} :: EFSVolumeConfiguration)
-{-# DEPRECATED efsvcFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
-
 instance Lude.FromJSON EFSVolumeConfiguration where
   parseJSON =
     Lude.withObject
@@ -119,9 +117,9 @@ instance Lude.FromJSON EFSVolumeConfiguration where
           EFSVolumeConfiguration'
             Lude.<$> (x Lude..:? "rootDirectory")
             Lude.<*> (x Lude..:? "transitEncryption")
+            Lude.<*> (x Lude..: "fileSystemId")
             Lude.<*> (x Lude..:? "authorizationConfig")
             Lude.<*> (x Lude..:? "transitEncryptionPort")
-            Lude.<*> (x Lude..: "fileSystemId")
       )
 
 instance Lude.ToJSON EFSVolumeConfiguration where
@@ -130,8 +128,8 @@ instance Lude.ToJSON EFSVolumeConfiguration where
       ( Lude.catMaybes
           [ ("rootDirectory" Lude..=) Lude.<$> rootDirectory,
             ("transitEncryption" Lude..=) Lude.<$> transitEncryption,
+            Lude.Just ("fileSystemId" Lude..= fileSystemId),
             ("authorizationConfig" Lude..=) Lude.<$> authorizationConfig,
-            ("transitEncryptionPort" Lude..=) Lude.<$> transitEncryptionPort,
-            Lude.Just ("fileSystemId" Lude..= fileSystemId)
+            ("transitEncryptionPort" Lude..=) Lude.<$> transitEncryptionPort
           ]
       )

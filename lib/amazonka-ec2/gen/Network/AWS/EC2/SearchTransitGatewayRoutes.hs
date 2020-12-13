@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.EC2.SearchTransitGatewayRoutes
     mkSearchTransitGatewayRoutes,
 
     -- ** Request lenses
-    stgrDryRun,
-    stgrMaxResults,
     stgrTransitGatewayRouteTableId,
     stgrFilters,
+    stgrDryRun,
+    stgrMaxResults,
 
     -- * Destructuring the response
     SearchTransitGatewayRoutesResponse (..),
@@ -43,25 +44,51 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchTransitGatewayRoutes' smart constructor.
 data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Natural,
-    transitGatewayRouteTableId ::
-      Lude.Text,
-    filters :: [Filter]
+  { -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Lude.Text,
+    -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.
+    --
+    --
+    --     * @attachment.resource-id@ - The resource id of the transit gateway attachment.
+    --
+    --
+    --     * @attachment.resource-type@ - The attachment resource type. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @peering@ .
+    --
+    --
+    --     * @prefix-list-id@ - The ID of the prefix list.
+    --
+    --
+    --     * @route-search.exact-match@ - The exact match of the specified filter.
+    --
+    --
+    --     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.
+    --
+    --
+    --     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.
+    --
+    --
+    --     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.
+    --
+    --
+    --     * @state@ - The state of the route (@active@ | @blackhole@ ).
+    --
+    --
+    --     * @type@ - The type of route (@propagated@ | @static@ ).
+    filters :: [Filter],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of routes to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTransitGatewayRoutes' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -95,33 +122,20 @@ data SearchTransitGatewayRoutes = SearchTransitGatewayRoutes'
 --     * @type@ - The type of route (@propagated@ | @static@ ).
 --
 --
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of routes to return.
--- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
 mkSearchTransitGatewayRoutes ::
   -- | 'transitGatewayRouteTableId'
   Lude.Text ->
   SearchTransitGatewayRoutes
 mkSearchTransitGatewayRoutes pTransitGatewayRouteTableId_ =
   SearchTransitGatewayRoutes'
-    { dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      transitGatewayRouteTableId = pTransitGatewayRouteTableId_,
-      filters = Lude.mempty
+    { transitGatewayRouteTableId =
+        pTransitGatewayRouteTableId_,
+      filters = Lude.mempty,
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stgrDryRun :: Lens.Lens' SearchTransitGatewayRoutes (Lude.Maybe Lude.Bool)
-stgrDryRun = Lens.lens (dryRun :: SearchTransitGatewayRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: SearchTransitGatewayRoutes)
-{-# DEPRECATED stgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of routes to return.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stgrMaxResults :: Lens.Lens' SearchTransitGatewayRoutes (Lude.Maybe Lude.Natural)
-stgrMaxResults = Lens.lens (maxResults :: SearchTransitGatewayRoutes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchTransitGatewayRoutes)
-{-# DEPRECATED stgrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ID of the transit gateway route table.
 --
@@ -169,6 +183,20 @@ stgrFilters :: Lens.Lens' SearchTransitGatewayRoutes [Filter]
 stgrFilters = Lens.lens (filters :: SearchTransitGatewayRoutes -> [Filter]) (\s a -> s {filters = a} :: SearchTransitGatewayRoutes)
 {-# DEPRECATED stgrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrDryRun :: Lens.Lens' SearchTransitGatewayRoutes (Lude.Maybe Lude.Bool)
+stgrDryRun = Lens.lens (dryRun :: SearchTransitGatewayRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: SearchTransitGatewayRoutes)
+{-# DEPRECATED stgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | The maximum number of routes to return.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stgrMaxResults :: Lens.Lens' SearchTransitGatewayRoutes (Lude.Maybe Lude.Natural)
+stgrMaxResults = Lens.lens (maxResults :: SearchTransitGatewayRoutes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchTransitGatewayRoutes)
+{-# DEPRECATED stgrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
 instance Lude.AWSRequest SearchTransitGatewayRoutes where
   type
     Rs SearchTransitGatewayRoutes =
@@ -197,36 +225,29 @@ instance Lude.ToQuery SearchTransitGatewayRoutes where
       [ "Action"
           Lude.=: ("SearchTransitGatewayRoutes" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
         "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
-        Lude.toQueryList "Filter" filters
+        Lude.toQueryList "Filter" filters,
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkSearchTransitGatewayRoutesResponse' smart constructor.
 data SearchTransitGatewayRoutesResponse = SearchTransitGatewayRoutesResponse'
-  { additionalRoutesAvailable ::
-      Lude.Maybe Lude.Bool,
-    routes ::
-      Lude.Maybe
-        [TransitGatewayRoute],
-    responseStatus ::
-      Lude.Int
+  { -- | Indicates whether there are additional routes available.
+    additionalRoutesAvailable :: Lude.Maybe Lude.Bool,
+    -- | Information about the routes.
+    routes :: Lude.Maybe [TransitGatewayRoute],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTransitGatewayRoutesResponse' with the minimum fields required to make a request.
 --
 -- * 'additionalRoutesAvailable' - Indicates whether there are additional routes available.
--- * 'responseStatus' - The response status code.
 -- * 'routes' - Information about the routes.
+-- * 'responseStatus' - The response status code.
 mkSearchTransitGatewayRoutesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

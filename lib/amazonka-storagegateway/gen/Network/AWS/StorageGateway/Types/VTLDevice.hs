@@ -33,29 +33,27 @@ import Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
 --
 -- /See:/ 'mkVTLDevice' smart constructor.
 data VTLDevice = VTLDevice'
-  { deviceiSCSIAttributes ::
-      Lude.Maybe DeviceiSCSIAttributes,
+  { -- | A list of iSCSI information about a VTL device.
+    deviceiSCSIAttributes :: Lude.Maybe DeviceiSCSIAttributes,
+    -- | Specifies the vendor of the device that the VTL device object emulates.
     vTLDeviceVendor :: Lude.Maybe Lude.Text,
+    -- | Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
     vTLDeviceARN :: Lude.Maybe Lude.Text,
+    -- | Specifies the type of device that the VTL device emulates.
     vTLDeviceType :: Lude.Maybe Lude.Text,
+    -- | Specifies the model number of device that the VTL device emulates.
     vTLDeviceProductIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VTLDevice' with the minimum fields required to make a request.
 --
 -- * 'deviceiSCSIAttributes' - A list of iSCSI information about a VTL device.
--- * 'vTLDeviceARN' - Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
--- * 'vTLDeviceProductIdentifier' - Specifies the model number of device that the VTL device emulates.
--- * 'vTLDeviceType' - Specifies the type of device that the VTL device emulates.
 -- * 'vTLDeviceVendor' - Specifies the vendor of the device that the VTL device object emulates.
+-- * 'vTLDeviceARN' - Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
+-- * 'vTLDeviceType' - Specifies the type of device that the VTL device emulates.
+-- * 'vTLDeviceProductIdentifier' - Specifies the model number of device that the VTL device emulates.
 mkVTLDevice ::
   VTLDevice
 mkVTLDevice =

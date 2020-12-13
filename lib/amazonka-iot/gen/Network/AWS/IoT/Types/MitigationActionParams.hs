@@ -39,36 +39,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMitigationActionParams' smart constructor.
 data MitigationActionParams = MitigationActionParams'
-  { enableIOTLoggingParams ::
-      Lude.Maybe EnableIOTLoggingParams,
-    addThingsToThingGroupParams ::
-      Lude.Maybe AddThingsToThingGroupParams,
-    updateCACertificateParams ::
-      Lude.Maybe UpdateCACertificateParams,
-    updateDeviceCertificateParams ::
-      Lude.Maybe UpdateDeviceCertificateParams,
-    replaceDefaultPolicyVersionParams ::
-      Lude.Maybe ReplaceDefaultPolicyVersionParams,
-    publishFindingToSNSParams ::
-      Lude.Maybe PublishFindingToSNSParams
+  { -- | Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
+    enableIOTLoggingParams :: Lude.Maybe EnableIOTLoggingParams,
+    -- | Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
+    addThingsToThingGroupParams :: Lude.Maybe AddThingsToThingGroupParams,
+    -- | Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+    updateCACertificateParams :: Lude.Maybe UpdateCACertificateParams,
+    -- | Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+    updateDeviceCertificateParams :: Lude.Maybe UpdateDeviceCertificateParams,
+    -- | Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+    replaceDefaultPolicyVersionParams :: Lude.Maybe ReplaceDefaultPolicyVersionParams,
+    -- | Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+    publishFindingToSNSParams :: Lude.Maybe PublishFindingToSNSParams
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MitigationActionParams' with the minimum fields required to make a request.
 --
--- * 'addThingsToThingGroupParams' - Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
 -- * 'enableIOTLoggingParams' - Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
--- * 'publishFindingToSNSParams' - Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
--- * 'replaceDefaultPolicyVersionParams' - Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+-- * 'addThingsToThingGroupParams' - Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
 -- * 'updateCACertificateParams' - Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 -- * 'updateDeviceCertificateParams' - Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+-- * 'replaceDefaultPolicyVersionParams' - Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+-- * 'publishFindingToSNSParams' - Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
 mkMitigationActionParams ::
   MitigationActionParams
 mkMitigationActionParams =

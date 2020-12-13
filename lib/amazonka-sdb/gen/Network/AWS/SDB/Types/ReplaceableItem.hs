@@ -17,8 +17,8 @@ module Network.AWS.SDB.Types.ReplaceableItem
     mkReplaceableItem,
 
     -- * Lenses
-    riName,
     riAttributes,
+    riName,
   )
 where
 
@@ -30,16 +30,12 @@ import Network.AWS.SDB.Types.ReplaceableAttribute
 --
 -- /See:/ 'mkReplaceableItem' smart constructor.
 data ReplaceableItem = ReplaceableItem'
-  { name :: Lude.Text,
-    attributes :: [ReplaceableAttribute]
+  { -- | The list of attributes for a replaceable item.
+    attributes :: [ReplaceableAttribute],
+    -- | The name of the replaceable item.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceableItem' with the minimum fields required to make a request.
@@ -51,14 +47,7 @@ mkReplaceableItem ::
   Lude.Text ->
   ReplaceableItem
 mkReplaceableItem pName_ =
-  ReplaceableItem' {name = pName_, attributes = Lude.mempty}
-
--- | The name of the replaceable item.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riName :: Lens.Lens' ReplaceableItem Lude.Text
-riName = Lens.lens (name :: ReplaceableItem -> Lude.Text) (\s a -> s {name = a} :: ReplaceableItem)
-{-# DEPRECATED riName "Use generic-lens or generic-optics with 'name' instead." #-}
+  ReplaceableItem' {attributes = Lude.mempty, name = pName_}
 
 -- | The list of attributes for a replaceable item.
 --
@@ -67,7 +56,14 @@ riAttributes :: Lens.Lens' ReplaceableItem [ReplaceableAttribute]
 riAttributes = Lens.lens (attributes :: ReplaceableItem -> [ReplaceableAttribute]) (\s a -> s {attributes = a} :: ReplaceableItem)
 {-# DEPRECATED riAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
+-- | The name of the replaceable item.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riName :: Lens.Lens' ReplaceableItem Lude.Text
+riName = Lens.lens (name :: ReplaceableItem -> Lude.Text) (\s a -> s {name = a} :: ReplaceableItem)
+{-# DEPRECATED riName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.ToQuery ReplaceableItem where
   toQuery ReplaceableItem' {..} =
     Lude.mconcat
-      ["ItemName" Lude.=: name, Lude.toQueryList "Attribute" attributes]
+      [Lude.toQueryList "Attribute" attributes, "ItemName" Lude.=: name]

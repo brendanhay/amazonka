@@ -14,8 +14,8 @@ module Network.AWS.S3.Types.ReplicationStatus
   ( ReplicationStatus
       ( ReplicationStatus',
         Completed,
-        Failed,
         Pending,
+        Failed,
         Replica
       ),
   )
@@ -51,19 +51,19 @@ newtype ReplicationStatus = ReplicationStatus' Lude.Text
 pattern Completed :: ReplicationStatus
 pattern Completed = ReplicationStatus' "COMPLETED"
 
-pattern Failed :: ReplicationStatus
-pattern Failed = ReplicationStatus' "FAILED"
-
 pattern Pending :: ReplicationStatus
 pattern Pending = ReplicationStatus' "PENDING"
+
+pattern Failed :: ReplicationStatus
+pattern Failed = ReplicationStatus' "FAILED"
 
 pattern Replica :: ReplicationStatus
 pattern Replica = ReplicationStatus' "REPLICA"
 
 {-# COMPLETE
   Completed,
-  Failed,
   Pending,
+  Failed,
   Replica,
   ReplicationStatus'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
   ( ESWarmPartitionInstanceType
       ( ESWarmPartitionInstanceType',
-        ESWPITULTRAWARM1_Large_Elasticsearch,
-        ESWPITULTRAWARM1_Medium_Elasticsearch
+        ESWPITULTRAWARM1_Medium_Elasticsearch,
+        ESWPITULTRAWARM1_Large_Elasticsearch
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ESWarmPartitionInstanceType = ESWarmPartitionInstanceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESWPITULTRAWARM1_Large_Elasticsearch :: ESWarmPartitionInstanceType
-pattern ESWPITULTRAWARM1_Large_Elasticsearch = ESWarmPartitionInstanceType' "ultrawarm1.large.elasticsearch"
-
 pattern ESWPITULTRAWARM1_Medium_Elasticsearch :: ESWarmPartitionInstanceType
 pattern ESWPITULTRAWARM1_Medium_Elasticsearch = ESWarmPartitionInstanceType' "ultrawarm1.medium.elasticsearch"
 
+pattern ESWPITULTRAWARM1_Large_Elasticsearch :: ESWarmPartitionInstanceType
+pattern ESWPITULTRAWARM1_Large_Elasticsearch = ESWarmPartitionInstanceType' "ultrawarm1.large.elasticsearch"
+
 {-# COMPLETE
-  ESWPITULTRAWARM1_Large_Elasticsearch,
   ESWPITULTRAWARM1_Medium_Elasticsearch,
+  ESWPITULTRAWARM1_Large_Elasticsearch,
   ESWarmPartitionInstanceType'
   #-}

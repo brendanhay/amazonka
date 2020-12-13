@@ -43,43 +43,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeModification' smart constructor.
 data VolumeModification = VolumeModification'
-  { progress ::
-      Lude.Maybe Lude.Integer,
+  { -- | The modification progress, from 0 to 100 percent complete.
+    progress :: Lude.Maybe Lude.Integer,
+    -- | The modification start time.
     startTime :: Lude.Maybe Lude.DateTime,
-    modificationState ::
-      Lude.Maybe VolumeModificationState,
+    -- | The current modification state. The modification state is null for unmodified volumes.
+    modificationState :: Lude.Maybe VolumeModificationState,
+    -- | The target EBS volume type of the volume.
     targetVolumeType :: Lude.Maybe VolumeType,
+    -- | The original EBS volume type of the volume.
     originalVolumeType :: Lude.Maybe VolumeType,
+    -- | The target size of the volume, in GiB.
     targetSize :: Lude.Maybe Lude.Int,
+    -- | The target IOPS rate of the volume.
     targetIOPS :: Lude.Maybe Lude.Int,
+    -- | The original size of the volume, in GiB.
     originalSize :: Lude.Maybe Lude.Int,
+    -- | The original IOPS rate of the volume.
     originalIOPS :: Lude.Maybe Lude.Int,
+    -- | A status message about the modification progress or failure.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The modification completion or failure time.
     endTime :: Lude.Maybe Lude.DateTime,
+    -- | The ID of the volume.
     volumeId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeModification' with the minimum fields required to make a request.
 --
--- * 'endTime' - The modification completion or failure time.
--- * 'modificationState' - The current modification state. The modification state is null for unmodified volumes.
--- * 'originalIOPS' - The original IOPS rate of the volume.
--- * 'originalSize' - The original size of the volume, in GiB.
--- * 'originalVolumeType' - The original EBS volume type of the volume.
 -- * 'progress' - The modification progress, from 0 to 100 percent complete.
 -- * 'startTime' - The modification start time.
--- * 'statusMessage' - A status message about the modification progress or failure.
--- * 'targetIOPS' - The target IOPS rate of the volume.
--- * 'targetSize' - The target size of the volume, in GiB.
+-- * 'modificationState' - The current modification state. The modification state is null for unmodified volumes.
 -- * 'targetVolumeType' - The target EBS volume type of the volume.
+-- * 'originalVolumeType' - The original EBS volume type of the volume.
+-- * 'targetSize' - The target size of the volume, in GiB.
+-- * 'targetIOPS' - The target IOPS rate of the volume.
+-- * 'originalSize' - The original size of the volume, in GiB.
+-- * 'originalIOPS' - The original IOPS rate of the volume.
+-- * 'statusMessage' - A status message about the modification progress or failure.
+-- * 'endTime' - The modification completion or failure time.
 -- * 'volumeId' - The ID of the volume.
 mkVolumeModification ::
   VolumeModification

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DirectoryService.ListIPRoutes
     mkListIPRoutes,
 
     -- ** Request lenses
+    lirDirectoryId,
     lirNextToken,
     lirLimit,
-    lirDirectoryId,
 
     -- * Destructuring the response
     ListIPRoutesResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListIPRoutes' smart constructor.
 data ListIPRoutes = ListIPRoutes'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    directoryId :: Lude.Text
+  { -- | Identifier (ID) of the directory for which you want to retrieve the IP addresses.
+    directoryId :: Lude.Text,
+    -- | The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPRoutes' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - Identifier (ID) of the directory for which you want to retrieve the IP addresses.
--- * 'limit' - Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
 -- * 'nextToken' - The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
+-- * 'limit' - Maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation.
 mkListIPRoutes ::
   -- | 'directoryId'
   Lude.Text ->
   ListIPRoutes
 mkListIPRoutes pDirectoryId_ =
   ListIPRoutes'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      directoryId = pDirectoryId_
+    { directoryId = pDirectoryId_,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | Identifier (ID) of the directory for which you want to retrieve the IP addresses.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirDirectoryId :: Lens.Lens' ListIPRoutes Lude.Text
+lirDirectoryId = Lens.lens (directoryId :: ListIPRoutes -> Lude.Text) (\s a -> s {directoryId = a} :: ListIPRoutes)
+{-# DEPRECATED lirDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The /ListIpRoutes.NextToken/ value from a previous call to 'ListIpRoutes' . Pass null if this is the first call.
 --
@@ -88,13 +92,6 @@ lirNextToken = Lens.lens (nextToken :: ListIPRoutes -> Lude.Maybe Lude.Text) (\s
 lirLimit :: Lens.Lens' ListIPRoutes (Lude.Maybe Lude.Natural)
 lirLimit = Lens.lens (limit :: ListIPRoutes -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListIPRoutes)
 {-# DEPRECATED lirLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | Identifier (ID) of the directory for which you want to retrieve the IP addresses.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirDirectoryId :: Lens.Lens' ListIPRoutes Lude.Text
-lirDirectoryId = Lens.lens (directoryId :: ListIPRoutes -> Lude.Text) (\s a -> s {directoryId = a} :: ListIPRoutes)
-{-# DEPRECATED lirDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 instance Page.AWSPager ListIPRoutes where
   page rq rs
@@ -132,9 +129,9 @@ instance Lude.ToJSON ListIPRoutes where
   toJSON ListIPRoutes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("DirectoryId" Lude..= directoryId)
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -146,18 +143,14 @@ instance Lude.ToQuery ListIPRoutes where
 
 -- | /See:/ 'mkListIPRoutesResponse' smart constructor.
 data ListIPRoutesResponse = ListIPRoutesResponse'
-  { ipRoutesInfo ::
-      Lude.Maybe [IPRouteInfo],
+  { -- | A list of 'IpRoute' s.
+    ipRoutesInfo :: Lude.Maybe [IPRouteInfo],
+    -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'ListIpRoutes' to retrieve the next set of items.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIPRoutesResponse' with the minimum fields required to make a request.

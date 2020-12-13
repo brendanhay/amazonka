@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceBlockDeviceMapping' smart constructor.
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
-  { ebs ::
-      Lude.Maybe EBSInstanceBlockDevice,
+  { -- | Parameters used to automatically set up EBS volumes when the instance is launched.
+    ebs :: Lude.Maybe EBSInstanceBlockDevice,
+    -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
     deviceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceBlockDeviceMapping' with the minimum fields required to make a request.
 --
--- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 -- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
+-- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 mkInstanceBlockDeviceMapping ::
   InstanceBlockDeviceMapping
 mkInstanceBlockDeviceMapping =

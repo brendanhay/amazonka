@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.S3.ListBucketAnalyticsConfigurations
 
     -- ** Request lenses
     lbacContinuationToken,
-    lbacExpectedBucketOwner,
     lbacBucket,
+    lbacExpectedBucketOwner,
 
     -- * Destructuring the response
     ListBucketAnalyticsConfigurationsResponse (..),
@@ -57,25 +58,20 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListBucketAnalyticsConfigurations' smart constructor.
 data ListBucketAnalyticsConfigurations = ListBucketAnalyticsConfigurations'
-  { continuationToken ::
-      Lude.Maybe Lude.Text,
-    expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The ContinuationToken that represents a placeholder from where this request should begin.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The name of the bucket from which analytics configurations are retrieved.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketAnalyticsConfigurations' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the bucket from which analytics configurations are retrieved.
 -- * 'continuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
+-- * 'bucket' - The name of the bucket from which analytics configurations are retrieved.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkListBucketAnalyticsConfigurations ::
   -- | 'bucket'
@@ -85,8 +81,8 @@ mkListBucketAnalyticsConfigurations pBucket_ =
   ListBucketAnalyticsConfigurations'
     { continuationToken =
         Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+      bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The ContinuationToken that represents a placeholder from where this request should begin.
@@ -96,19 +92,19 @@ lbacContinuationToken :: Lens.Lens' ListBucketAnalyticsConfigurations (Lude.Mayb
 lbacContinuationToken = Lens.lens (continuationToken :: ListBucketAnalyticsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {continuationToken = a} :: ListBucketAnalyticsConfigurations)
 {-# DEPRECATED lbacContinuationToken "Use generic-lens or generic-optics with 'continuationToken' instead." #-}
 
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbacExpectedBucketOwner :: Lens.Lens' ListBucketAnalyticsConfigurations (Lude.Maybe Lude.Text)
-lbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListBucketAnalyticsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListBucketAnalyticsConfigurations)
-{-# DEPRECATED lbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
 -- | The name of the bucket from which analytics configurations are retrieved.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lbacBucket :: Lens.Lens' ListBucketAnalyticsConfigurations BucketName
 lbacBucket = Lens.lens (bucket :: ListBucketAnalyticsConfigurations -> BucketName) (\s a -> s {bucket = a} :: ListBucketAnalyticsConfigurations)
 {-# DEPRECATED lbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbacExpectedBucketOwner :: Lens.Lens' ListBucketAnalyticsConfigurations (Lude.Maybe Lude.Text)
+lbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListBucketAnalyticsConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListBucketAnalyticsConfigurations)
+{-# DEPRECATED lbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest ListBucketAnalyticsConfigurations where
   type
@@ -142,36 +138,26 @@ instance Lude.ToQuery ListBucketAnalyticsConfigurations where
 
 -- | /See:/ 'mkListBucketAnalyticsConfigurationsResponse' smart constructor.
 data ListBucketAnalyticsConfigurationsResponse = ListBucketAnalyticsConfigurationsResponse'
-  { analyticsConfigurationList ::
-      Lude.Maybe
-        [AnalyticsConfiguration],
-    continuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    nextContinuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    isTruncated ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of analytics configurations for a bucket.
+    analyticsConfigurationList :: Lude.Maybe [AnalyticsConfiguration],
+    -- | The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which indicates that there are more analytics configurations to list. The next request must include this @NextContinuationToken@ . The token is obfuscated and is not a usable value.
+    nextContinuationToken :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
+    isTruncated :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketAnalyticsConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- * 'analyticsConfigurationList' - The list of analytics configurations for a bucket.
 -- * 'continuationToken' - The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.
--- * 'isTruncated' - Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
 -- * 'nextContinuationToken' - @NextContinuationToken@ is sent when @isTruncated@ is true, which indicates that there are more analytics configurations to list. The next request must include this @NextContinuationToken@ . The token is obfuscated and is not a usable value.
+-- * 'isTruncated' - Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
 -- * 'responseStatus' - The response status code.
 mkListBucketAnalyticsConfigurationsResponse ::
   -- | 'responseStatus'

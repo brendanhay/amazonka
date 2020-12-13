@@ -14,9 +14,9 @@ module Network.AWS.EC2.Types.FleetActivityStatus
   ( FleetActivityStatus
       ( FleetActivityStatus',
         Error,
-        Fulfilled,
         PendingFulfillment,
-        PendingTermination
+        PendingTermination,
+        Fulfilled
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype FleetActivityStatus = FleetActivityStatus' Lude.Text
 pattern Error :: FleetActivityStatus
 pattern Error = FleetActivityStatus' "error"
 
-pattern Fulfilled :: FleetActivityStatus
-pattern Fulfilled = FleetActivityStatus' "fulfilled"
-
 pattern PendingFulfillment :: FleetActivityStatus
 pattern PendingFulfillment = FleetActivityStatus' "pending_fulfillment"
 
 pattern PendingTermination :: FleetActivityStatus
 pattern PendingTermination = FleetActivityStatus' "pending_termination"
 
+pattern Fulfilled :: FleetActivityStatus
+pattern Fulfilled = FleetActivityStatus' "fulfilled"
+
 {-# COMPLETE
   Error,
-  Fulfilled,
   PendingFulfillment,
   PendingTermination,
+  Fulfilled,
   FleetActivityStatus'
   #-}

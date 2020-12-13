@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.PropagateTags
   ( PropagateTags
       ( PropagateTags',
-        Service,
-        TaskDefinition
+        TaskDefinition,
+        Service
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PropagateTags = PropagateTags' Lude.Text
       Lude.ToHeader
     )
 
-pattern Service :: PropagateTags
-pattern Service = PropagateTags' "SERVICE"
-
 pattern TaskDefinition :: PropagateTags
 pattern TaskDefinition = PropagateTags' "TASK_DEFINITION"
 
+pattern Service :: PropagateTags
+pattern Service = PropagateTags' "SERVICE"
+
 {-# COMPLETE
-  Service,
   TaskDefinition,
+  Service,
   PropagateTags'
   #-}

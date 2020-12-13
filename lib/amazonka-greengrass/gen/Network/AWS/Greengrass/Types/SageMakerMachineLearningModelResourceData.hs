@@ -31,30 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSageMakerMachineLearningModelResourceData' smart constructor.
 data SageMakerMachineLearningModelResourceData = SageMakerMachineLearningModelResourceData'
-  { ownerSetting ::
-      Lude.Maybe
-        ResourceDownloadOwnerSetting,
-    sageMakerJobARN ::
-      Lude.Maybe
-        Lude.Text,
-    destinationPath ::
-      Lude.Maybe
-        Lude.Text
+  { ownerSetting :: Lude.Maybe ResourceDownloadOwnerSetting,
+    -- | The ARN of the Amazon SageMaker training job that represents the source model.
+    sageMakerJobARN :: Lude.Maybe Lude.Text,
+    -- | The absolute local path of the resource inside the Lambda environment.
+    destinationPath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SageMakerMachineLearningModelResourceData' with the minimum fields required to make a request.
 --
--- * 'destinationPath' - The absolute local path of the resource inside the Lambda environment.
--- * 'ownerSetting' - Undocumented field.
+-- * 'ownerSetting' -
 -- * 'sageMakerJobARN' - The ARN of the Amazon SageMaker training job that represents the source model.
+-- * 'destinationPath' - The absolute local path of the resource inside the Lambda environment.
 mkSageMakerMachineLearningModelResourceData ::
   SageMakerMachineLearningModelResourceData
 mkSageMakerMachineLearningModelResourceData =

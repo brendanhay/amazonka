@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEventBuses' smart constructor.
 data ListEventBuses = ListEventBuses'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token returned by a previous call to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifying this limits the results to only those event buses with names that start with the specified prefix.
     namePrefix :: Lude.Maybe Lude.Text,
+    -- | Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventBuses' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
--- * 'namePrefix' - Specifying this limits the results to only those event buses with names that start with the specified prefix.
 -- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
+-- * 'namePrefix' - Specifying this limits the results to only those event buses with names that start with the specified prefix.
+-- * 'limit' - Specifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
 mkListEventBuses ::
   ListEventBuses
 mkListEventBuses =
@@ -132,18 +129,14 @@ instance Lude.ToQuery ListEventBuses where
 
 -- | /See:/ 'mkListEventBusesResponse' smart constructor.
 data ListEventBusesResponse = ListEventBusesResponse'
-  { eventBuses ::
-      Lude.Maybe [EventBus],
+  { -- | This list of event buses.
+    eventBuses :: Lude.Maybe [EventBus],
+    -- | A token you can use in a subsequent operation to retrieve the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventBusesResponse' with the minimum fields required to make a request.

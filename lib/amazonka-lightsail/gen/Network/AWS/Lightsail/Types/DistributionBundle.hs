@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDistributionBundle' smart constructor.
 data DistributionBundle = DistributionBundle'
-  { transferPerMonthInGb ::
-      Lude.Maybe Lude.Int,
+  { -- | The monthly network transfer quota of the bundle.
+    transferPerMonthInGb :: Lude.Maybe Lude.Int,
+    -- | The ID of the bundle.
     bundleId :: Lude.Maybe Lude.Text,
+    -- | The name of the distribution bundle.
     name :: Lude.Maybe Lude.Text,
+    -- | The monthly price, in US dollars, of the bundle.
     price :: Lude.Maybe Lude.Double,
+    -- | Indicates whether the bundle is active, and can be specified for a new distribution.
     isActive :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DistributionBundle' with the minimum fields required to make a request.
 --
+-- * 'transferPerMonthInGb' - The monthly network transfer quota of the bundle.
 -- * 'bundleId' - The ID of the bundle.
--- * 'isActive' - Indicates whether the bundle is active, and can be specified for a new distribution.
 -- * 'name' - The name of the distribution bundle.
 -- * 'price' - The monthly price, in US dollars, of the bundle.
--- * 'transferPerMonthInGb' - The monthly network transfer quota of the bundle.
+-- * 'isActive' - Indicates whether the bundle is active, and can be specified for a new distribution.
 mkDistributionBundle ::
   DistributionBundle
 mkDistributionBundle =

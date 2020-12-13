@@ -30,23 +30,18 @@ import Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus
 --
 -- /See:/ 'mkTrialComponentStatus' smart constructor.
 data TrialComponentStatus = TrialComponentStatus'
-  { primaryStatus ::
-      Lude.Maybe TrialComponentPrimaryStatus,
+  { -- | The status of the trial component.
+    primaryStatus :: Lude.Maybe TrialComponentPrimaryStatus,
+    -- | If the component failed, a message describing why.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentStatus' with the minimum fields required to make a request.
 --
--- * 'message' - If the component failed, a message describing why.
 -- * 'primaryStatus' - The status of the trial component.
+-- * 'message' - If the component failed, a message describing why.
 mkTrialComponentStatus ::
   TrialComponentStatus
 mkTrialComponentStatus =

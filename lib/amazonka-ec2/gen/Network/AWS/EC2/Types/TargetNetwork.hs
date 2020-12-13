@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetNetwork' smart constructor.
 data TargetNetwork = TargetNetwork'
-  { associationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the association.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The current state of the target network association.
     status :: Lude.Maybe AssociationStatus,
+    -- | The IDs of the security groups applied to the target network association.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The ID of the subnet specified as the target network.
     targetNetworkId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC in which the target network (subnet) is located.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Client VPN endpoint with which the target network is associated.
     clientVPNEndpointId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetNetwork' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The ID of the association.
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the target network is associated.
--- * 'securityGroups' - The IDs of the security groups applied to the target network association.
 -- * 'status' - The current state of the target network association.
+-- * 'securityGroups' - The IDs of the security groups applied to the target network association.
 -- * 'targetNetworkId' - The ID of the subnet specified as the target network.
 -- * 'vpcId' - The ID of the VPC in which the target network (subnet) is located.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the target network is associated.
 mkTargetNetwork ::
   TargetNetwork
 mkTargetNetwork =

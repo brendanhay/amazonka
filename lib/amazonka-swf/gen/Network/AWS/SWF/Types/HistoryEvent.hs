@@ -24,6 +24,7 @@ module Network.AWS.SWF.Types.HistoryEvent
     heDecisionTaskScheduledEventAttributes,
     heWorkflowExecutionCompletedEventAttributes,
     heStartTimerFailedEventAttributes,
+    heEventTimestamp,
     heActivityTaskScheduledEventAttributes,
     heScheduleActivityTaskFailedEventAttributes,
     heChildWorkflowExecutionCompletedEventAttributes,
@@ -38,6 +39,7 @@ module Network.AWS.SWF.Types.HistoryEvent
     heDecisionTaskTimedOutEventAttributes,
     heCancelTimerFailedEventAttributes,
     heChildWorkflowExecutionStartedEventAttributes,
+    heEventType,
     heActivityTaskCanceledEventAttributes,
     heActivityTaskTimedOutEventAttributes,
     heDecisionTaskStartedEventAttributes,
@@ -68,12 +70,10 @@ module Network.AWS.SWF.Types.HistoryEvent
     heContinueAsNewWorkflowExecutionFailedEventAttributes,
     heSignalExternalWorkflowExecutionInitiatedEventAttributes,
     heLambdaFunctionTimedOutEventAttributes,
+    heEventId,
     heWorkflowExecutionFailedEventAttributes,
     heWorkflowExecutionContinuedAsNewEventAttributes,
     heExternalWorkflowExecutionCancelRequestedEventAttributes,
-    heEventTimestamp,
-    heEventType,
-    heEventId,
   )
 where
 
@@ -285,189 +285,183 @@ import Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes
 --
 -- /See:/ 'mkHistoryEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
-  { workflowExecutionCancelRequestedEventAttributes ::
-      Lude.Maybe WorkflowExecutionCancelRequestedEventAttributes,
-    recordMarkerFailedEventAttributes ::
-      Lude.Maybe RecordMarkerFailedEventAttributes,
-    requestCancelExternalWorkflowExecutionInitiatedEventAttributes ::
-      Lude.Maybe
-        RequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
-    lambdaFunctionStartedEventAttributes ::
-      Lude.Maybe LambdaFunctionStartedEventAttributes,
-    decisionTaskScheduledEventAttributes ::
-      Lude.Maybe DecisionTaskScheduledEventAttributes,
-    workflowExecutionCompletedEventAttributes ::
-      Lude.Maybe WorkflowExecutionCompletedEventAttributes,
-    startTimerFailedEventAttributes ::
-      Lude.Maybe StartTimerFailedEventAttributes,
-    activityTaskScheduledEventAttributes ::
-      Lude.Maybe ActivityTaskScheduledEventAttributes,
-    scheduleActivityTaskFailedEventAttributes ::
-      Lude.Maybe ScheduleActivityTaskFailedEventAttributes,
-    childWorkflowExecutionCompletedEventAttributes ::
-      Lude.Maybe ChildWorkflowExecutionCompletedEventAttributes,
-    markerRecordedEventAttributes ::
-      Lude.Maybe MarkerRecordedEventAttributes,
-    scheduleLambdaFunctionFailedEventAttributes ::
-      Lude.Maybe ScheduleLambdaFunctionFailedEventAttributes,
-    completeWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe CompleteWorkflowExecutionFailedEventAttributes,
-    lambdaFunctionCompletedEventAttributes ::
-      Lude.Maybe LambdaFunctionCompletedEventAttributes,
-    requestCancelExternalWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe
-        RequestCancelExternalWorkflowExecutionFailedEventAttributes,
-    timerCanceledEventAttributes ::
-      Lude.Maybe TimerCanceledEventAttributes,
-    workflowExecutionStartedEventAttributes ::
-      Lude.Maybe WorkflowExecutionStartedEventAttributes,
-    activityTaskCompletedEventAttributes ::
-      Lude.Maybe ActivityTaskCompletedEventAttributes,
-    decisionTaskTimedOutEventAttributes ::
-      Lude.Maybe DecisionTaskTimedOutEventAttributes,
-    cancelTimerFailedEventAttributes ::
-      Lude.Maybe CancelTimerFailedEventAttributes,
-    childWorkflowExecutionStartedEventAttributes ::
-      Lude.Maybe ChildWorkflowExecutionStartedEventAttributes,
-    activityTaskCanceledEventAttributes ::
-      Lude.Maybe ActivityTaskCanceledEventAttributes,
-    activityTaskTimedOutEventAttributes ::
-      Lude.Maybe ActivityTaskTimedOutEventAttributes,
-    decisionTaskStartedEventAttributes ::
-      Lude.Maybe DecisionTaskStartedEventAttributes,
-    workflowExecutionTerminatedEventAttributes ::
-      Lude.Maybe WorkflowExecutionTerminatedEventAttributes,
-    childWorkflowExecutionCanceledEventAttributes ::
-      Lude.Maybe ChildWorkflowExecutionCanceledEventAttributes,
-    requestCancelActivityTaskFailedEventAttributes ::
-      Lude.Maybe RequestCancelActivityTaskFailedEventAttributes,
-    lambdaFunctionScheduledEventAttributes ::
-      Lude.Maybe LambdaFunctionScheduledEventAttributes,
-    childWorkflowExecutionTimedOutEventAttributes ::
-      Lude.Maybe ChildWorkflowExecutionTimedOutEventAttributes,
-    cancelWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe CancelWorkflowExecutionFailedEventAttributes,
-    startChildWorkflowExecutionInitiatedEventAttributes ::
-      Lude.Maybe StartChildWorkflowExecutionInitiatedEventAttributes,
-    signalExternalWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe SignalExternalWorkflowExecutionFailedEventAttributes,
-    activityTaskStartedEventAttributes ::
-      Lude.Maybe ActivityTaskStartedEventAttributes,
-    startLambdaFunctionFailedEventAttributes ::
-      Lude.Maybe StartLambdaFunctionFailedEventAttributes,
-    childWorkflowExecutionTerminatedEventAttributes ::
-      Lude.Maybe ChildWorkflowExecutionTerminatedEventAttributes,
-    lambdaFunctionFailedEventAttributes ::
-      Lude.Maybe LambdaFunctionFailedEventAttributes,
-    workflowExecutionCanceledEventAttributes ::
-      Lude.Maybe WorkflowExecutionCanceledEventAttributes,
-    timerStartedEventAttributes ::
-      Lude.Maybe TimerStartedEventAttributes,
-    activityTaskCancelRequestedEventAttributes ::
-      Lude.Maybe ActivityTaskCancelRequestedEventAttributes,
-    workflowExecutionTimedOutEventAttributes ::
-      Lude.Maybe WorkflowExecutionTimedOutEventAttributes,
-    workflowExecutionSignaledEventAttributes ::
-      Lude.Maybe WorkflowExecutionSignaledEventAttributes,
-    timerFiredEventAttributes :: Lude.Maybe TimerFiredEventAttributes,
-    activityTaskFailedEventAttributes ::
-      Lude.Maybe ActivityTaskFailedEventAttributes,
-    externalWorkflowExecutionSignaledEventAttributes ::
-      Lude.Maybe ExternalWorkflowExecutionSignaledEventAttributes,
-    decisionTaskCompletedEventAttributes ::
-      Lude.Maybe DecisionTaskCompletedEventAttributes,
-    startChildWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe StartChildWorkflowExecutionFailedEventAttributes,
-    childWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe ChildWorkflowExecutionFailedEventAttributes,
-    failWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe FailWorkflowExecutionFailedEventAttributes,
-    continueAsNewWorkflowExecutionFailedEventAttributes ::
-      Lude.Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes,
-    signalExternalWorkflowExecutionInitiatedEventAttributes ::
-      Lude.Maybe
-        SignalExternalWorkflowExecutionInitiatedEventAttributes,
-    lambdaFunctionTimedOutEventAttributes ::
-      Lude.Maybe LambdaFunctionTimedOutEventAttributes,
-    workflowExecutionFailedEventAttributes ::
-      Lude.Maybe WorkflowExecutionFailedEventAttributes,
-    workflowExecutionContinuedAsNewEventAttributes ::
-      Lude.Maybe WorkflowExecutionContinuedAsNewEventAttributes,
-    externalWorkflowExecutionCancelRequestedEventAttributes ::
-      Lude.Maybe
-        ExternalWorkflowExecutionCancelRequestedEventAttributes,
+  { -- | If the event is of type @WorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionCancelRequestedEventAttributes :: Lude.Maybe WorkflowExecutionCancelRequestedEventAttributes,
+    -- | If the event is of type @DecisionTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    recordMarkerFailedEventAttributes :: Lude.Maybe RecordMarkerFailedEventAttributes,
+    -- | If the event is of type @RequestCancelExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    requestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Lude.Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
+    -- | Provides the details of the @LambdaFunctionStarted@ event. It isn't set for other event types.
+    lambdaFunctionStartedEventAttributes :: Lude.Maybe LambdaFunctionStartedEventAttributes,
+    -- | If the event is of type @DecisionTaskScheduled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    decisionTaskScheduledEventAttributes :: Lude.Maybe DecisionTaskScheduledEventAttributes,
+    -- | If the event is of type @WorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionCompletedEventAttributes :: Lude.Maybe WorkflowExecutionCompletedEventAttributes,
+    -- | If the event is of type @StartTimerFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    startTimerFailedEventAttributes :: Lude.Maybe StartTimerFailedEventAttributes,
+    -- | The date and time when the event occurred.
     eventTimestamp :: Lude.Timestamp,
+    -- | If the event is of type @ActivityTaskScheduled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    activityTaskScheduledEventAttributes :: Lude.Maybe ActivityTaskScheduledEventAttributes,
+    -- | If the event is of type @ScheduleActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    scheduleActivityTaskFailedEventAttributes :: Lude.Maybe ScheduleActivityTaskFailedEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    childWorkflowExecutionCompletedEventAttributes :: Lude.Maybe ChildWorkflowExecutionCompletedEventAttributes,
+    -- | If the event is of type @MarkerRecorded@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    markerRecordedEventAttributes :: Lude.Maybe MarkerRecordedEventAttributes,
+    -- | Provides the details of the @ScheduleLambdaFunctionFailed@ event. It isn't set for other event types.
+    scheduleLambdaFunctionFailedEventAttributes :: Lude.Maybe ScheduleLambdaFunctionFailedEventAttributes,
+    -- | If the event is of type @CompleteWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    completeWorkflowExecutionFailedEventAttributes :: Lude.Maybe CompleteWorkflowExecutionFailedEventAttributes,
+    -- | Provides the details of the @LambdaFunctionCompleted@ event. It isn't set for other event types.
+    lambdaFunctionCompletedEventAttributes :: Lude.Maybe LambdaFunctionCompletedEventAttributes,
+    -- | If the event is of type @RequestCancelExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    requestCancelExternalWorkflowExecutionFailedEventAttributes :: Lude.Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @TimerCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    timerCanceledEventAttributes :: Lude.Maybe TimerCanceledEventAttributes,
+    -- | If the event is of type @WorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionStartedEventAttributes :: Lude.Maybe WorkflowExecutionStartedEventAttributes,
+    -- | If the event is of type @ActivityTaskCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    activityTaskCompletedEventAttributes :: Lude.Maybe ActivityTaskCompletedEventAttributes,
+    -- | If the event is of type @DecisionTaskTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    decisionTaskTimedOutEventAttributes :: Lude.Maybe DecisionTaskTimedOutEventAttributes,
+    -- | If the event is of type @CancelTimerFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    cancelTimerFailedEventAttributes :: Lude.Maybe CancelTimerFailedEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    childWorkflowExecutionStartedEventAttributes :: Lude.Maybe ChildWorkflowExecutionStartedEventAttributes,
+    -- | The type of the history event.
     eventType :: EventType,
-    eventId :: Lude.Integer
+    -- | If the event is of type @ActivityTaskCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    activityTaskCanceledEventAttributes :: Lude.Maybe ActivityTaskCanceledEventAttributes,
+    -- | If the event is of type @ActivityTaskTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    activityTaskTimedOutEventAttributes :: Lude.Maybe ActivityTaskTimedOutEventAttributes,
+    -- | If the event is of type @DecisionTaskStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    decisionTaskStartedEventAttributes :: Lude.Maybe DecisionTaskStartedEventAttributes,
+    -- | If the event is of type @WorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionTerminatedEventAttributes :: Lude.Maybe WorkflowExecutionTerminatedEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    childWorkflowExecutionCanceledEventAttributes :: Lude.Maybe ChildWorkflowExecutionCanceledEventAttributes,
+    -- | If the event is of type @RequestCancelActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    requestCancelActivityTaskFailedEventAttributes :: Lude.Maybe RequestCancelActivityTaskFailedEventAttributes,
+    -- | Provides the details of the @LambdaFunctionScheduled@ event. It isn't set for other event types.
+    lambdaFunctionScheduledEventAttributes :: Lude.Maybe LambdaFunctionScheduledEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    childWorkflowExecutionTimedOutEventAttributes :: Lude.Maybe ChildWorkflowExecutionTimedOutEventAttributes,
+    -- | If the event is of type @CancelWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    cancelWorkflowExecutionFailedEventAttributes :: Lude.Maybe CancelWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @StartChildWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    startChildWorkflowExecutionInitiatedEventAttributes :: Lude.Maybe StartChildWorkflowExecutionInitiatedEventAttributes,
+    -- | If the event is of type @SignalExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    signalExternalWorkflowExecutionFailedEventAttributes :: Lude.Maybe SignalExternalWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @ActivityTaskStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    activityTaskStartedEventAttributes :: Lude.Maybe ActivityTaskStartedEventAttributes,
+    -- | Provides the details of the @StartLambdaFunctionFailed@ event. It isn't set for other event types.
+    startLambdaFunctionFailedEventAttributes :: Lude.Maybe StartLambdaFunctionFailedEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    childWorkflowExecutionTerminatedEventAttributes :: Lude.Maybe ChildWorkflowExecutionTerminatedEventAttributes,
+    -- | Provides the details of the @LambdaFunctionFailed@ event. It isn't set for other event types.
+    lambdaFunctionFailedEventAttributes :: Lude.Maybe LambdaFunctionFailedEventAttributes,
+    -- | If the event is of type @WorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionCanceledEventAttributes :: Lude.Maybe WorkflowExecutionCanceledEventAttributes,
+    -- | If the event is of type @TimerStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    timerStartedEventAttributes :: Lude.Maybe TimerStartedEventAttributes,
+    -- | If the event is of type @ActivityTaskcancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    activityTaskCancelRequestedEventAttributes :: Lude.Maybe ActivityTaskCancelRequestedEventAttributes,
+    -- | If the event is of type @WorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionTimedOutEventAttributes :: Lude.Maybe WorkflowExecutionTimedOutEventAttributes,
+    -- | If the event is of type @WorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionSignaledEventAttributes :: Lude.Maybe WorkflowExecutionSignaledEventAttributes,
+    -- | If the event is of type @TimerFired@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    timerFiredEventAttributes :: Lude.Maybe TimerFiredEventAttributes,
+    -- | If the event is of type @ActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    activityTaskFailedEventAttributes :: Lude.Maybe ActivityTaskFailedEventAttributes,
+    -- | If the event is of type @ExternalWorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    externalWorkflowExecutionSignaledEventAttributes :: Lude.Maybe ExternalWorkflowExecutionSignaledEventAttributes,
+    -- | If the event is of type @DecisionTaskCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    decisionTaskCompletedEventAttributes :: Lude.Maybe DecisionTaskCompletedEventAttributes,
+    -- | If the event is of type @StartChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    startChildWorkflowExecutionFailedEventAttributes :: Lude.Maybe StartChildWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    childWorkflowExecutionFailedEventAttributes :: Lude.Maybe ChildWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @FailWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    failWorkflowExecutionFailedEventAttributes :: Lude.Maybe FailWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    continueAsNewWorkflowExecutionFailedEventAttributes :: Lude.Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @SignalExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    signalExternalWorkflowExecutionInitiatedEventAttributes :: Lude.Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes,
+    -- | Provides the details of the @LambdaFunctionTimedOut@ event. It isn't set for other event types.
+    lambdaFunctionTimedOutEventAttributes :: Lude.Maybe LambdaFunctionTimedOutEventAttributes,
+    -- | The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.
+    eventId :: Lude.Integer,
+    -- | If the event is of type @WorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionFailedEventAttributes :: Lude.Maybe WorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @WorkflowExecutionContinuedAsNew@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    workflowExecutionContinuedAsNewEventAttributes :: Lude.Maybe WorkflowExecutionContinuedAsNewEventAttributes,
+    -- | If the event is of type @ExternalWorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+    externalWorkflowExecutionCancelRequestedEventAttributes :: Lude.Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoryEvent' with the minimum fields required to make a request.
 --
--- * 'activityTaskCancelRequestedEventAttributes' - If the event is of type @ActivityTaskcancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'activityTaskCanceledEventAttributes' - If the event is of type @ActivityTaskCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'activityTaskCompletedEventAttributes' - If the event is of type @ActivityTaskCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'activityTaskFailedEventAttributes' - If the event is of type @ActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'activityTaskScheduledEventAttributes' - If the event is of type @ActivityTaskScheduled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'activityTaskStartedEventAttributes' - If the event is of type @ActivityTaskStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'activityTaskTimedOutEventAttributes' - If the event is of type @ActivityTaskTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'cancelTimerFailedEventAttributes' - If the event is of type @CancelTimerFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'cancelWorkflowExecutionFailedEventAttributes' - If the event is of type @CancelWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'childWorkflowExecutionCanceledEventAttributes' - If the event is of type @ChildWorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'childWorkflowExecutionCompletedEventAttributes' - If the event is of type @ChildWorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'childWorkflowExecutionFailedEventAttributes' - If the event is of type @ChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'childWorkflowExecutionStartedEventAttributes' - If the event is of type @ChildWorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'childWorkflowExecutionTerminatedEventAttributes' - If the event is of type @ChildWorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'childWorkflowExecutionTimedOutEventAttributes' - If the event is of type @ChildWorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'completeWorkflowExecutionFailedEventAttributes' - If the event is of type @CompleteWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'continueAsNewWorkflowExecutionFailedEventAttributes' - If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'decisionTaskCompletedEventAttributes' - If the event is of type @DecisionTaskCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'decisionTaskScheduledEventAttributes' - If the event is of type @DecisionTaskScheduled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'decisionTaskStartedEventAttributes' - If the event is of type @DecisionTaskStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'decisionTaskTimedOutEventAttributes' - If the event is of type @DecisionTaskTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'eventId' - The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.
--- * 'eventTimestamp' - The date and time when the event occurred.
--- * 'eventType' - The type of the history event.
--- * 'externalWorkflowExecutionCancelRequestedEventAttributes' - If the event is of type @ExternalWorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'externalWorkflowExecutionSignaledEventAttributes' - If the event is of type @ExternalWorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'failWorkflowExecutionFailedEventAttributes' - If the event is of type @FailWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'lambdaFunctionCompletedEventAttributes' - Provides the details of the @LambdaFunctionCompleted@ event. It isn't set for other event types.
--- * 'lambdaFunctionFailedEventAttributes' - Provides the details of the @LambdaFunctionFailed@ event. It isn't set for other event types.
--- * 'lambdaFunctionScheduledEventAttributes' - Provides the details of the @LambdaFunctionScheduled@ event. It isn't set for other event types.
--- * 'lambdaFunctionStartedEventAttributes' - Provides the details of the @LambdaFunctionStarted@ event. It isn't set for other event types.
--- * 'lambdaFunctionTimedOutEventAttributes' - Provides the details of the @LambdaFunctionTimedOut@ event. It isn't set for other event types.
--- * 'markerRecordedEventAttributes' - If the event is of type @MarkerRecorded@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'recordMarkerFailedEventAttributes' - If the event is of type @DecisionTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'requestCancelActivityTaskFailedEventAttributes' - If the event is of type @RequestCancelActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'requestCancelExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @RequestCancelExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'requestCancelExternalWorkflowExecutionInitiatedEventAttributes' - If the event is of type @RequestCancelExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'scheduleActivityTaskFailedEventAttributes' - If the event is of type @ScheduleActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'scheduleLambdaFunctionFailedEventAttributes' - Provides the details of the @ScheduleLambdaFunctionFailed@ event. It isn't set for other event types.
--- * 'signalExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'signalExternalWorkflowExecutionInitiatedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'startChildWorkflowExecutionFailedEventAttributes' - If the event is of type @StartChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'startChildWorkflowExecutionInitiatedEventAttributes' - If the event is of type @StartChildWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'startLambdaFunctionFailedEventAttributes' - Provides the details of the @StartLambdaFunctionFailed@ event. It isn't set for other event types.
--- * 'startTimerFailedEventAttributes' - If the event is of type @StartTimerFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'timerCanceledEventAttributes' - If the event is of type @TimerCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'timerFiredEventAttributes' - If the event is of type @TimerFired@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'timerStartedEventAttributes' - If the event is of type @TimerStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 -- * 'workflowExecutionCancelRequestedEventAttributes' - If the event is of type @WorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'workflowExecutionCanceledEventAttributes' - If the event is of type @WorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'recordMarkerFailedEventAttributes' - If the event is of type @DecisionTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'requestCancelExternalWorkflowExecutionInitiatedEventAttributes' - If the event is of type @RequestCancelExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'lambdaFunctionStartedEventAttributes' - Provides the details of the @LambdaFunctionStarted@ event. It isn't set for other event types.
+-- * 'decisionTaskScheduledEventAttributes' - If the event is of type @DecisionTaskScheduled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 -- * 'workflowExecutionCompletedEventAttributes' - If the event is of type @WorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'workflowExecutionContinuedAsNewEventAttributes' - If the event is of type @WorkflowExecutionContinuedAsNew@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'workflowExecutionFailedEventAttributes' - If the event is of type @WorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
--- * 'workflowExecutionSignaledEventAttributes' - If the event is of type @WorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'startTimerFailedEventAttributes' - If the event is of type @StartTimerFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'eventTimestamp' - The date and time when the event occurred.
+-- * 'activityTaskScheduledEventAttributes' - If the event is of type @ActivityTaskScheduled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'scheduleActivityTaskFailedEventAttributes' - If the event is of type @ScheduleActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'childWorkflowExecutionCompletedEventAttributes' - If the event is of type @ChildWorkflowExecutionCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'markerRecordedEventAttributes' - If the event is of type @MarkerRecorded@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'scheduleLambdaFunctionFailedEventAttributes' - Provides the details of the @ScheduleLambdaFunctionFailed@ event. It isn't set for other event types.
+-- * 'completeWorkflowExecutionFailedEventAttributes' - If the event is of type @CompleteWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'lambdaFunctionCompletedEventAttributes' - Provides the details of the @LambdaFunctionCompleted@ event. It isn't set for other event types.
+-- * 'requestCancelExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @RequestCancelExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'timerCanceledEventAttributes' - If the event is of type @TimerCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 -- * 'workflowExecutionStartedEventAttributes' - If the event is of type @WorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'activityTaskCompletedEventAttributes' - If the event is of type @ActivityTaskCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'decisionTaskTimedOutEventAttributes' - If the event is of type @DecisionTaskTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'cancelTimerFailedEventAttributes' - If the event is of type @CancelTimerFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'childWorkflowExecutionStartedEventAttributes' - If the event is of type @ChildWorkflowExecutionStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'eventType' - The type of the history event.
+-- * 'activityTaskCanceledEventAttributes' - If the event is of type @ActivityTaskCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'activityTaskTimedOutEventAttributes' - If the event is of type @ActivityTaskTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'decisionTaskStartedEventAttributes' - If the event is of type @DecisionTaskStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 -- * 'workflowExecutionTerminatedEventAttributes' - If the event is of type @WorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'childWorkflowExecutionCanceledEventAttributes' - If the event is of type @ChildWorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'requestCancelActivityTaskFailedEventAttributes' - If the event is of type @RequestCancelActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'lambdaFunctionScheduledEventAttributes' - Provides the details of the @LambdaFunctionScheduled@ event. It isn't set for other event types.
+-- * 'childWorkflowExecutionTimedOutEventAttributes' - If the event is of type @ChildWorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'cancelWorkflowExecutionFailedEventAttributes' - If the event is of type @CancelWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'startChildWorkflowExecutionInitiatedEventAttributes' - If the event is of type @StartChildWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'signalExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'activityTaskStartedEventAttributes' - If the event is of type @ActivityTaskStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'startLambdaFunctionFailedEventAttributes' - Provides the details of the @StartLambdaFunctionFailed@ event. It isn't set for other event types.
+-- * 'childWorkflowExecutionTerminatedEventAttributes' - If the event is of type @ChildWorkflowExecutionTerminated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'lambdaFunctionFailedEventAttributes' - Provides the details of the @LambdaFunctionFailed@ event. It isn't set for other event types.
+-- * 'workflowExecutionCanceledEventAttributes' - If the event is of type @WorkflowExecutionCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'timerStartedEventAttributes' - If the event is of type @TimerStarted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'activityTaskCancelRequestedEventAttributes' - If the event is of type @ActivityTaskcancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 -- * 'workflowExecutionTimedOutEventAttributes' - If the event is of type @WorkflowExecutionTimedOut@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'workflowExecutionSignaledEventAttributes' - If the event is of type @WorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'timerFiredEventAttributes' - If the event is of type @TimerFired@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'activityTaskFailedEventAttributes' - If the event is of type @ActivityTaskFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'externalWorkflowExecutionSignaledEventAttributes' - If the event is of type @ExternalWorkflowExecutionSignaled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'decisionTaskCompletedEventAttributes' - If the event is of type @DecisionTaskCompleted@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'startChildWorkflowExecutionFailedEventAttributes' - If the event is of type @StartChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'childWorkflowExecutionFailedEventAttributes' - If the event is of type @ChildWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'failWorkflowExecutionFailedEventAttributes' - If the event is of type @FailWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'continueAsNewWorkflowExecutionFailedEventAttributes' - If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'signalExternalWorkflowExecutionInitiatedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionInitiated@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'lambdaFunctionTimedOutEventAttributes' - Provides the details of the @LambdaFunctionTimedOut@ event. It isn't set for other event types.
+-- * 'eventId' - The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.
+-- * 'workflowExecutionFailedEventAttributes' - If the event is of type @WorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'workflowExecutionContinuedAsNewEventAttributes' - If the event is of type @WorkflowExecutionContinuedAsNew@ then this member is set and provides detailed information about the event. It isn't set for other event types.
+-- * 'externalWorkflowExecutionCancelRequestedEventAttributes' - If the event is of type @ExternalWorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 mkHistoryEvent ::
   -- | 'eventTimestamp'
   Lude.Timestamp ->
@@ -487,6 +481,7 @@ mkHistoryEvent pEventTimestamp_ pEventType_ pEventId_ =
       decisionTaskScheduledEventAttributes = Lude.Nothing,
       workflowExecutionCompletedEventAttributes = Lude.Nothing,
       startTimerFailedEventAttributes = Lude.Nothing,
+      eventTimestamp = pEventTimestamp_,
       activityTaskScheduledEventAttributes = Lude.Nothing,
       scheduleActivityTaskFailedEventAttributes = Lude.Nothing,
       childWorkflowExecutionCompletedEventAttributes = Lude.Nothing,
@@ -502,6 +497,7 @@ mkHistoryEvent pEventTimestamp_ pEventType_ pEventId_ =
       decisionTaskTimedOutEventAttributes = Lude.Nothing,
       cancelTimerFailedEventAttributes = Lude.Nothing,
       childWorkflowExecutionStartedEventAttributes = Lude.Nothing,
+      eventType = pEventType_,
       activityTaskCanceledEventAttributes = Lude.Nothing,
       activityTaskTimedOutEventAttributes = Lude.Nothing,
       decisionTaskStartedEventAttributes = Lude.Nothing,
@@ -534,13 +530,11 @@ mkHistoryEvent pEventTimestamp_ pEventType_ pEventId_ =
       signalExternalWorkflowExecutionInitiatedEventAttributes =
         Lude.Nothing,
       lambdaFunctionTimedOutEventAttributes = Lude.Nothing,
+      eventId = pEventId_,
       workflowExecutionFailedEventAttributes = Lude.Nothing,
       workflowExecutionContinuedAsNewEventAttributes = Lude.Nothing,
       externalWorkflowExecutionCancelRequestedEventAttributes =
-        Lude.Nothing,
-      eventTimestamp = pEventTimestamp_,
-      eventType = pEventType_,
-      eventId = pEventId_
+        Lude.Nothing
     }
 
 -- | If the event is of type @WorkflowExecutionCancelRequested@ then this member is set and provides detailed information about the event. It isn't set for other event types.
@@ -591,6 +585,13 @@ heWorkflowExecutionCompletedEventAttributes = Lens.lens (workflowExecutionComple
 heStartTimerFailedEventAttributes :: Lens.Lens' HistoryEvent (Lude.Maybe StartTimerFailedEventAttributes)
 heStartTimerFailedEventAttributes = Lens.lens (startTimerFailedEventAttributes :: HistoryEvent -> Lude.Maybe StartTimerFailedEventAttributes) (\s a -> s {startTimerFailedEventAttributes = a} :: HistoryEvent)
 {-# DEPRECATED heStartTimerFailedEventAttributes "Use generic-lens or generic-optics with 'startTimerFailedEventAttributes' instead." #-}
+
+-- | The date and time when the event occurred.
+--
+-- /Note:/ Consider using 'eventTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heEventTimestamp :: Lens.Lens' HistoryEvent Lude.Timestamp
+heEventTimestamp = Lens.lens (eventTimestamp :: HistoryEvent -> Lude.Timestamp) (\s a -> s {eventTimestamp = a} :: HistoryEvent)
+{-# DEPRECATED heEventTimestamp "Use generic-lens or generic-optics with 'eventTimestamp' instead." #-}
 
 -- | If the event is of type @ActivityTaskScheduled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 --
@@ -689,6 +690,13 @@ heCancelTimerFailedEventAttributes = Lens.lens (cancelTimerFailedEventAttributes
 heChildWorkflowExecutionStartedEventAttributes :: Lens.Lens' HistoryEvent (Lude.Maybe ChildWorkflowExecutionStartedEventAttributes)
 heChildWorkflowExecutionStartedEventAttributes = Lens.lens (childWorkflowExecutionStartedEventAttributes :: HistoryEvent -> Lude.Maybe ChildWorkflowExecutionStartedEventAttributes) (\s a -> s {childWorkflowExecutionStartedEventAttributes = a} :: HistoryEvent)
 {-# DEPRECATED heChildWorkflowExecutionStartedEventAttributes "Use generic-lens or generic-optics with 'childWorkflowExecutionStartedEventAttributes' instead." #-}
+
+-- | The type of the history event.
+--
+-- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heEventType :: Lens.Lens' HistoryEvent EventType
+heEventType = Lens.lens (eventType :: HistoryEvent -> EventType) (\s a -> s {eventType = a} :: HistoryEvent)
+{-# DEPRECATED heEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
 -- | If the event is of type @ActivityTaskCanceled@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 --
@@ -900,6 +908,13 @@ heLambdaFunctionTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Lude.Maybe L
 heLambdaFunctionTimedOutEventAttributes = Lens.lens (lambdaFunctionTimedOutEventAttributes :: HistoryEvent -> Lude.Maybe LambdaFunctionTimedOutEventAttributes) (\s a -> s {lambdaFunctionTimedOutEventAttributes = a} :: HistoryEvent)
 {-# DEPRECATED heLambdaFunctionTimedOutEventAttributes "Use generic-lens or generic-optics with 'lambdaFunctionTimedOutEventAttributes' instead." #-}
 
+-- | The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.
+--
+-- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heEventId :: Lens.Lens' HistoryEvent Lude.Integer
+heEventId = Lens.lens (eventId :: HistoryEvent -> Lude.Integer) (\s a -> s {eventId = a} :: HistoryEvent)
+{-# DEPRECATED heEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
+
 -- | If the event is of type @WorkflowExecutionFailed@ then this member is set and provides detailed information about the event. It isn't set for other event types.
 --
 -- /Note:/ Consider using 'workflowExecutionFailedEventAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -921,27 +936,6 @@ heExternalWorkflowExecutionCancelRequestedEventAttributes :: Lens.Lens' HistoryE
 heExternalWorkflowExecutionCancelRequestedEventAttributes = Lens.lens (externalWorkflowExecutionCancelRequestedEventAttributes :: HistoryEvent -> Lude.Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes) (\s a -> s {externalWorkflowExecutionCancelRequestedEventAttributes = a} :: HistoryEvent)
 {-# DEPRECATED heExternalWorkflowExecutionCancelRequestedEventAttributes "Use generic-lens or generic-optics with 'externalWorkflowExecutionCancelRequestedEventAttributes' instead." #-}
 
--- | The date and time when the event occurred.
---
--- /Note:/ Consider using 'eventTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heEventTimestamp :: Lens.Lens' HistoryEvent Lude.Timestamp
-heEventTimestamp = Lens.lens (eventTimestamp :: HistoryEvent -> Lude.Timestamp) (\s a -> s {eventTimestamp = a} :: HistoryEvent)
-{-# DEPRECATED heEventTimestamp "Use generic-lens or generic-optics with 'eventTimestamp' instead." #-}
-
--- | The type of the history event.
---
--- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heEventType :: Lens.Lens' HistoryEvent EventType
-heEventType = Lens.lens (eventType :: HistoryEvent -> EventType) (\s a -> s {eventType = a} :: HistoryEvent)
-{-# DEPRECATED heEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
-
--- | The system generated ID of the event. This ID uniquely identifies the event with in the workflow execution history.
---
--- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heEventId :: Lens.Lens' HistoryEvent Lude.Integer
-heEventId = Lens.lens (eventId :: HistoryEvent -> Lude.Integer) (\s a -> s {eventId = a} :: HistoryEvent)
-{-# DEPRECATED heEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
-
 instance Lude.FromJSON HistoryEvent where
   parseJSON =
     Lude.withObject
@@ -957,6 +951,7 @@ instance Lude.FromJSON HistoryEvent where
             Lude.<*> (x Lude..:? "decisionTaskScheduledEventAttributes")
             Lude.<*> (x Lude..:? "workflowExecutionCompletedEventAttributes")
             Lude.<*> (x Lude..:? "startTimerFailedEventAttributes")
+            Lude.<*> (x Lude..: "eventTimestamp")
             Lude.<*> (x Lude..:? "activityTaskScheduledEventAttributes")
             Lude.<*> (x Lude..:? "scheduleActivityTaskFailedEventAttributes")
             Lude.<*> (x Lude..:? "childWorkflowExecutionCompletedEventAttributes")
@@ -973,6 +968,7 @@ instance Lude.FromJSON HistoryEvent where
             Lude.<*> (x Lude..:? "decisionTaskTimedOutEventAttributes")
             Lude.<*> (x Lude..:? "cancelTimerFailedEventAttributes")
             Lude.<*> (x Lude..:? "childWorkflowExecutionStartedEventAttributes")
+            Lude.<*> (x Lude..: "eventType")
             Lude.<*> (x Lude..:? "activityTaskCanceledEventAttributes")
             Lude.<*> (x Lude..:? "activityTaskTimedOutEventAttributes")
             Lude.<*> (x Lude..:? "decisionTaskStartedEventAttributes")
@@ -1005,12 +1001,10 @@ instance Lude.FromJSON HistoryEvent where
                          Lude..:? "signalExternalWorkflowExecutionInitiatedEventAttributes"
                      )
             Lude.<*> (x Lude..:? "lambdaFunctionTimedOutEventAttributes")
+            Lude.<*> (x Lude..: "eventId")
             Lude.<*> (x Lude..:? "workflowExecutionFailedEventAttributes")
             Lude.<*> (x Lude..:? "workflowExecutionContinuedAsNewEventAttributes")
             Lude.<*> ( x
                          Lude..:? "externalWorkflowExecutionCancelRequestedEventAttributes"
                      )
-            Lude.<*> (x Lude..: "eventTimestamp")
-            Lude.<*> (x Lude..: "eventType")
-            Lude.<*> (x Lude..: "eventId")
       )

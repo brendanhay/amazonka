@@ -18,10 +18,10 @@ module Network.AWS.ELB.Types.Listener
 
     -- * Lenses
     lInstanceProtocol,
-    lSSLCertificateId,
-    lProtocol,
-    lLoadBalancerPort,
     lInstancePort,
+    lLoadBalancerPort,
+    lProtocol,
+    lSSLCertificateId,
   )
 where
 
@@ -35,47 +35,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkListener' smart constructor.
 data Listener = Listener'
-  { instanceProtocol :: Lude.Maybe Lude.Text,
-    sslCertificateId :: Lude.Maybe Lude.Text,
-    protocol :: Lude.Text,
+  { -- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
+    --
+    -- If the front-end protocol is TCP or SSL, the back-end protocol must be TCP or SSL. If the front-end protocol is HTTP or HTTPS, the back-end protocol must be HTTP or HTTPS.
+    -- If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is secure, (HTTPS or SSL), the listener's @InstanceProtocol@ must also be secure.
+    -- If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is HTTP or TCP, the listener's @InstanceProtocol@ must be HTTP or TCP.
+    instanceProtocol :: Lude.Maybe Lude.Text,
+    -- | The port on which the instance is listening.
+    instancePort :: Lude.Natural,
+    -- | The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
     loadBalancerPort :: Lude.Int,
-    instancePort :: Lude.Natural
+    -- | The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
+    protocol :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the server certificate.
+    sslCertificateId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Listener' with the minimum fields required to make a request.
 --
--- * 'instancePort' - The port on which the instance is listening.
 -- * 'instanceProtocol' - The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
 --
 -- If the front-end protocol is TCP or SSL, the back-end protocol must be TCP or SSL. If the front-end protocol is HTTP or HTTPS, the back-end protocol must be HTTP or HTTPS.
 -- If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is secure, (HTTPS or SSL), the listener's @InstanceProtocol@ must also be secure.
 -- If there is another listener with the same @InstancePort@ whose @InstanceProtocol@ is HTTP or TCP, the listener's @InstanceProtocol@ must be HTTP or TCP.
+-- * 'instancePort' - The port on which the instance is listening.
 -- * 'loadBalancerPort' - The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
 -- * 'protocol' - The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
 -- * 'sslCertificateId' - The Amazon Resource Name (ARN) of the server certificate.
 mkListener ::
-  -- | 'protocol'
-  Lude.Text ->
-  -- | 'loadBalancerPort'
-  Lude.Int ->
   -- | 'instancePort'
   Lude.Natural ->
+  -- | 'loadBalancerPort'
+  Lude.Int ->
+  -- | 'protocol'
+  Lude.Text ->
   Listener
-mkListener pProtocol_ pLoadBalancerPort_ pInstancePort_ =
+mkListener pInstancePort_ pLoadBalancerPort_ pProtocol_ =
   Listener'
     { instanceProtocol = Lude.Nothing,
-      sslCertificateId = Lude.Nothing,
-      protocol = pProtocol_,
+      instancePort = pInstancePort_,
       loadBalancerPort = pLoadBalancerPort_,
-      instancePort = pInstancePort_
+      protocol = pProtocol_,
+      sslCertificateId = Lude.Nothing
     }
 
 -- | The protocol to use for routing traffic to instances: HTTP, HTTPS, TCP, or SSL.
@@ -89,19 +92,12 @@ lInstanceProtocol :: Lens.Lens' Listener (Lude.Maybe Lude.Text)
 lInstanceProtocol = Lens.lens (instanceProtocol :: Listener -> Lude.Maybe Lude.Text) (\s a -> s {instanceProtocol = a} :: Listener)
 {-# DEPRECATED lInstanceProtocol "Use generic-lens or generic-optics with 'instanceProtocol' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the server certificate.
+-- | The port on which the instance is listening.
 --
--- /Note:/ Consider using 'sslCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lSSLCertificateId :: Lens.Lens' Listener (Lude.Maybe Lude.Text)
-lSSLCertificateId = Lens.lens (sslCertificateId :: Listener -> Lude.Maybe Lude.Text) (\s a -> s {sslCertificateId = a} :: Listener)
-{-# DEPRECATED lSSLCertificateId "Use generic-lens or generic-optics with 'sslCertificateId' instead." #-}
-
--- | The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lProtocol :: Lens.Lens' Listener Lude.Text
-lProtocol = Lens.lens (protocol :: Listener -> Lude.Text) (\s a -> s {protocol = a} :: Listener)
-{-# DEPRECATED lProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+-- /Note:/ Consider using 'instancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lInstancePort :: Lens.Lens' Listener Lude.Natural
+lInstancePort = Lens.lens (instancePort :: Listener -> Lude.Natural) (\s a -> s {instancePort = a} :: Listener)
+{-# DEPRECATED lInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
 
 -- | The port on which the load balancer is listening. On EC2-VPC, you can specify any port from the range 1-65535. On EC2-Classic, you can specify any port from the following list: 25, 80, 443, 465, 587, 1024-65535.
 --
@@ -110,28 +106,35 @@ lLoadBalancerPort :: Lens.Lens' Listener Lude.Int
 lLoadBalancerPort = Lens.lens (loadBalancerPort :: Listener -> Lude.Int) (\s a -> s {loadBalancerPort = a} :: Listener)
 {-# DEPRECATED lLoadBalancerPort "Use generic-lens or generic-optics with 'loadBalancerPort' instead." #-}
 
--- | The port on which the instance is listening.
+-- | The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.
 --
--- /Note:/ Consider using 'instancePort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lInstancePort :: Lens.Lens' Listener Lude.Natural
-lInstancePort = Lens.lens (instancePort :: Listener -> Lude.Natural) (\s a -> s {instancePort = a} :: Listener)
-{-# DEPRECATED lInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lProtocol :: Lens.Lens' Listener Lude.Text
+lProtocol = Lens.lens (protocol :: Listener -> Lude.Text) (\s a -> s {protocol = a} :: Listener)
+{-# DEPRECATED lProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the server certificate.
+--
+-- /Note:/ Consider using 'sslCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lSSLCertificateId :: Lens.Lens' Listener (Lude.Maybe Lude.Text)
+lSSLCertificateId = Lens.lens (sslCertificateId :: Listener -> Lude.Maybe Lude.Text) (\s a -> s {sslCertificateId = a} :: Listener)
+{-# DEPRECATED lSSLCertificateId "Use generic-lens or generic-optics with 'sslCertificateId' instead." #-}
 
 instance Lude.FromXML Listener where
   parseXML x =
     Listener'
       Lude.<$> (x Lude..@? "InstanceProtocol")
-      Lude.<*> (x Lude..@? "SSLCertificateId")
-      Lude.<*> (x Lude..@ "Protocol")
-      Lude.<*> (x Lude..@ "LoadBalancerPort")
       Lude.<*> (x Lude..@ "InstancePort")
+      Lude.<*> (x Lude..@ "LoadBalancerPort")
+      Lude.<*> (x Lude..@ "Protocol")
+      Lude.<*> (x Lude..@? "SSLCertificateId")
 
 instance Lude.ToQuery Listener where
   toQuery Listener' {..} =
     Lude.mconcat
       [ "InstanceProtocol" Lude.=: instanceProtocol,
-        "SSLCertificateId" Lude.=: sslCertificateId,
-        "Protocol" Lude.=: protocol,
+        "InstancePort" Lude.=: instancePort,
         "LoadBalancerPort" Lude.=: loadBalancerPort,
-        "InstancePort" Lude.=: instancePort
+        "Protocol" Lude.=: protocol,
+        "SSLCertificateId" Lude.=: sslCertificateId
       ]

@@ -13,9 +13,9 @@
 module Network.AWS.Rekognition.Types.TechnicalCueType
   ( TechnicalCueType
       ( TechnicalCueType',
-        BlackFrames,
         ColorBars,
-        EndCredits
+        EndCredits,
+        BlackFrames
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TechnicalCueType = TechnicalCueType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BlackFrames :: TechnicalCueType
-pattern BlackFrames = TechnicalCueType' "BlackFrames"
-
 pattern ColorBars :: TechnicalCueType
 pattern ColorBars = TechnicalCueType' "ColorBars"
 
 pattern EndCredits :: TechnicalCueType
 pattern EndCredits = TechnicalCueType' "EndCredits"
 
+pattern BlackFrames :: TechnicalCueType
+pattern BlackFrames = TechnicalCueType' "BlackFrames"
+
 {-# COMPLETE
-  BlackFrames,
   ColorBars,
   EndCredits,
+  BlackFrames,
   TechnicalCueType'
   #-}

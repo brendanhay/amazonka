@@ -29,21 +29,14 @@ import Network.AWS.Rekognition.Types.S3Object
 --
 -- /See:/ 'mkGroundTruthManifest' smart constructor.
 newtype GroundTruthManifest = GroundTruthManifest'
-  { s3Object ::
-      Lude.Maybe S3Object
+  { s3Object :: Lude.Maybe S3Object
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroundTruthManifest' with the minimum fields required to make a request.
 --
--- * 's3Object' - Undocumented field.
+-- * 's3Object' -
 mkGroundTruthManifest ::
   GroundTruthManifest
 mkGroundTruthManifest =

@@ -17,9 +17,9 @@ module Network.AWS.S3.Types.Object
     mkObject,
 
     -- * Lenses
-    oOwner,
     oETag,
     oSize,
+    oOwner,
     oKey,
     oStorageClass,
     oLastModified,
@@ -36,20 +36,29 @@ import Network.AWS.S3.Types.Owner
 --
 -- /See:/ 'mkObject' smart constructor.
 data Object = Object'
-  { owner :: Lude.Maybe Owner,
+  { -- | The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata. The ETag may or may not be an MD5 digest of the object data. Whether or not it is depends on how the object was created and how it is encrypted as described below:
+    --
+    --
+    --     * Objects created by the PUT Object, POST Object, or Copy operation, or through the AWS Management Console, and are encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest of their object data.
+    --
+    --
+    --     * Objects created by the PUT Object, POST Object, or Copy operation, or through the AWS Management Console, and are encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest of their object data.
+    --
+    --
+    --     * If an object is created by either the Multipart Upload or Part Copy operation, the ETag is not an MD5 digest, regardless of the method of encryption.
     eTag :: ETag,
+    -- | Size in bytes of the object
     size :: Lude.Int,
+    -- | The owner of the object
+    owner :: Lude.Maybe Owner,
+    -- | The name that you assign to an object. You use the object key to retrieve the object.
     key :: ObjectKey,
+    -- | The class of storage used to store the object.
     storageClass :: ObjectStorageClass,
+    -- | The date the Object was Last Modified
     lastModified :: Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Object' with the minimum fields required to make a request.
@@ -66,11 +75,11 @@ data Object = Object'
 --     * If an object is created by either the Multipart Upload or Part Copy operation, the ETag is not an MD5 digest, regardless of the method of encryption.
 --
 --
--- * 'key' - The name that you assign to an object. You use the object key to retrieve the object.
--- * 'lastModified' - The date the Object was Last Modified
--- * 'owner' - The owner of the object
 -- * 'size' - Size in bytes of the object
+-- * 'owner' - The owner of the object
+-- * 'key' - The name that you assign to an object. You use the object key to retrieve the object.
 -- * 'storageClass' - The class of storage used to store the object.
+-- * 'lastModified' - The date the Object was Last Modified
 mkObject ::
   -- | 'eTag'
   ETag ->
@@ -85,20 +94,13 @@ mkObject ::
   Object
 mkObject pETag_ pSize_ pKey_ pStorageClass_ pLastModified_ =
   Object'
-    { owner = Lude.Nothing,
-      eTag = pETag_,
+    { eTag = pETag_,
       size = pSize_,
+      owner = Lude.Nothing,
       key = pKey_,
       storageClass = pStorageClass_,
       lastModified = pLastModified_
     }
-
--- | The owner of the object
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oOwner :: Lens.Lens' Object (Lude.Maybe Owner)
-oOwner = Lens.lens (owner :: Object -> Lude.Maybe Owner) (\s a -> s {owner = a} :: Object)
-{-# DEPRECATED oOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata. The ETag may or may not be an MD5 digest of the object data. Whether or not it is depends on how the object was created and how it is encrypted as described below:
 --
@@ -125,6 +127,13 @@ oSize :: Lens.Lens' Object Lude.Int
 oSize = Lens.lens (size :: Object -> Lude.Int) (\s a -> s {size = a} :: Object)
 {-# DEPRECATED oSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
+-- | The owner of the object
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOwner :: Lens.Lens' Object (Lude.Maybe Owner)
+oOwner = Lens.lens (owner :: Object -> Lude.Maybe Owner) (\s a -> s {owner = a} :: Object)
+{-# DEPRECATED oOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
 -- | The name that you assign to an object. You use the object key to retrieve the object.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -149,9 +158,9 @@ oLastModified = Lens.lens (lastModified :: Object -> Lude.DateTime) (\s a -> s {
 instance Lude.FromXML Object where
   parseXML x =
     Object'
-      Lude.<$> (x Lude..@? "Owner")
-      Lude.<*> (x Lude..@ "ETag")
+      Lude.<$> (x Lude..@ "ETag")
       Lude.<*> (x Lude..@ "Size")
+      Lude.<*> (x Lude..@? "Owner")
       Lude.<*> (x Lude..@ "Key")
       Lude.<*> (x Lude..@ "StorageClass")
       Lude.<*> (x Lude..@ "LastModified")

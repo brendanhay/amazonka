@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchScheduleActionCreateResult' smart constructor.
 newtype BatchScheduleActionCreateResult = BatchScheduleActionCreateResult'
-  { scheduleActions ::
-      [ScheduleAction]
+  { -- | List of actions that have been created in the schedule.
+    scheduleActions :: [ScheduleAction]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchScheduleActionCreateResult' with the minimum fields required to make a request.

@@ -13,13 +13,13 @@
 module Network.AWS.DeviceFarm.Types.ExecutionResult
   ( ExecutionResult
       ( ExecutionResult',
-        ERErrored,
-        ERFailed,
-        ERPassed,
         ERPending,
+        ERPassed,
+        ERWarned,
+        ERFailed,
         ERSkipped,
-        ERStopped,
-        ERWarned
+        ERErrored,
+        ERStopped
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ExecutionResult = ExecutionResult' Lude.Text
       Lude.ToHeader
     )
 
-pattern ERErrored :: ExecutionResult
-pattern ERErrored = ExecutionResult' "ERRORED"
-
-pattern ERFailed :: ExecutionResult
-pattern ERFailed = ExecutionResult' "FAILED"
+pattern ERPending :: ExecutionResult
+pattern ERPending = ExecutionResult' "PENDING"
 
 pattern ERPassed :: ExecutionResult
 pattern ERPassed = ExecutionResult' "PASSED"
 
-pattern ERPending :: ExecutionResult
-pattern ERPending = ExecutionResult' "PENDING"
+pattern ERWarned :: ExecutionResult
+pattern ERWarned = ExecutionResult' "WARNED"
+
+pattern ERFailed :: ExecutionResult
+pattern ERFailed = ExecutionResult' "FAILED"
 
 pattern ERSkipped :: ExecutionResult
 pattern ERSkipped = ExecutionResult' "SKIPPED"
 
+pattern ERErrored :: ExecutionResult
+pattern ERErrored = ExecutionResult' "ERRORED"
+
 pattern ERStopped :: ExecutionResult
 pattern ERStopped = ExecutionResult' "STOPPED"
 
-pattern ERWarned :: ExecutionResult
-pattern ERWarned = ExecutionResult' "WARNED"
-
 {-# COMPLETE
-  ERErrored,
-  ERFailed,
-  ERPassed,
   ERPending,
-  ERSkipped,
-  ERStopped,
+  ERPassed,
   ERWarned,
+  ERFailed,
+  ERSkipped,
+  ERErrored,
+  ERStopped,
   ExecutionResult'
   #-}

@@ -35,24 +35,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStepStatus' smart constructor.
 data StepStatus = StepStatus'
-  { state :: Lude.Maybe StepState,
+  { -- | The execution state of the cluster step.
+    state :: Lude.Maybe StepState,
+    -- | The details for the step failure including reason, message, and log file path where the root cause was identified.
     failureDetails :: Lude.Maybe FailureDetails,
+    -- | The reason for the step execution status change.
     stateChangeReason :: Lude.Maybe StepStateChangeReason,
+    -- | The timeline of the cluster step status over time.
     timeline :: Lude.Maybe StepTimeline
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepStatus' with the minimum fields required to make a request.
 --
--- * 'failureDetails' - The details for the step failure including reason, message, and log file path where the root cause was identified.
 -- * 'state' - The execution state of the cluster step.
+-- * 'failureDetails' - The details for the step failure including reason, message, and log file path where the root cause was identified.
 -- * 'stateChangeReason' - The reason for the step execution status change.
 -- * 'timeline' - The timeline of the cluster step status over time.
 mkStepStatus ::

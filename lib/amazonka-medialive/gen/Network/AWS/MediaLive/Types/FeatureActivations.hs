@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFeatureActivations' smart constructor.
 newtype FeatureActivations = FeatureActivations'
-  { inputPrepareScheduleActions ::
-      Lude.Maybe
-        FeatureActivationsInputPrepareScheduleActions
+  { -- | Enables the Input Prepare feature. You can create Input Prepare actions in the schedule only if this feature is enabled.
+    --
+    -- If you disable the feature on an existing schedule, make sure that you first delete all input prepare actions from the schedule.
+    inputPrepareScheduleActions :: Lude.Maybe FeatureActivationsInputPrepareScheduleActions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FeatureActivations' with the minimum fields required to make a request.

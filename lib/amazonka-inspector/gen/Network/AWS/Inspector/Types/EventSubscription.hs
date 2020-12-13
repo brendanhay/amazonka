@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { event ::
-      InspectorEvent,
+  { -- | The event for which Amazon Simple Notification Service (SNS) notifications are sent.
+    event :: InspectorEvent,
+    -- | The time at which 'SubscribeToEvent' is called.
     subscribedAt :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.

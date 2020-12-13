@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,10 +45,13 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAdminSetUserPassword' smart constructor.
 data AdminSetUserPassword = AdminSetUserPassword'
-  { permanent ::
-      Lude.Maybe Lude.Bool,
+  { -- | @True@ if the password is permanent, @False@ if it is temporary.
+    permanent :: Lude.Maybe Lude.Bool,
+    -- | The user pool ID for the user pool where you want to set the user's password.
     userPoolId :: Lude.Text,
+    -- | The user name of the user whose password you wish to set.
     username :: Lude.Sensitive Lude.Text,
+    -- | The password for the user.
     password :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -55,10 +59,10 @@ data AdminSetUserPassword = AdminSetUserPassword'
 
 -- | Creates a value of 'AdminSetUserPassword' with the minimum fields required to make a request.
 --
--- * 'password' - The password for the user.
 -- * 'permanent' - @True@ if the password is permanent, @False@ if it is temporary.
 -- * 'userPoolId' - The user pool ID for the user pool where you want to set the user's password.
 -- * 'username' - The user name of the user whose password you wish to set.
+-- * 'password' - The password for the user.
 mkAdminSetUserPassword ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -145,16 +149,10 @@ instance Lude.ToQuery AdminSetUserPassword where
 
 -- | /See:/ 'mkAdminSetUserPasswordResponse' smart constructor.
 newtype AdminSetUserPasswordResponse = AdminSetUserPasswordResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminSetUserPasswordResponse' with the minimum fields required to make a request.

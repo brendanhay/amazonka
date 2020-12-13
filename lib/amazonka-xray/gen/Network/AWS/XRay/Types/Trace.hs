@@ -32,26 +32,24 @@ import Network.AWS.XRay.Types.Segment
 --
 -- /See:/ 'mkTrace' smart constructor.
 data Trace = Trace'
-  { limitExceeded :: Lude.Maybe Lude.Bool,
+  { -- | LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas> .
+    limitExceeded :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the request that generated the trace's segments and subsegments.
     id :: Lude.Maybe Lude.Text,
+    -- | Segment documents for the segments and subsegments that comprise the trace.
     segments :: Lude.Maybe [Segment],
+    -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
     duration :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Trace' with the minimum fields required to make a request.
 --
--- * 'duration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
--- * 'id' - The unique identifier for the request that generated the trace's segments and subsegments.
 -- * 'limitExceeded' - LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For more information about quotas, see <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas> .
+-- * 'id' - The unique identifier for the request that generated the trace's segments and subsegments.
 -- * 'segments' - Segment documents for the segments and subsegments that comprise the trace.
+-- * 'duration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
 mkTrace ::
   Trace
 mkTrace =

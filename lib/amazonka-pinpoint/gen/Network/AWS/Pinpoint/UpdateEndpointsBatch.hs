@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.UpdateEndpointsBatch
     mkUpdateEndpointsBatchResponse,
 
     -- ** Response lenses
-    uebrsResponseStatus,
     uebrsMessageBody,
+    uebrsResponseStatus,
   )
 where
 
@@ -40,23 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateEndpointsBatch' smart constructor.
 data UpdateEndpointsBatch = UpdateEndpointsBatch'
-  { applicationId ::
-      Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
     endpointBatchRequest :: EndpointBatchRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointsBatch' with the minimum fields required to make a request.
 --
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'endpointBatchRequest' - Undocumented field.
+-- * 'endpointBatchRequest' -
 mkUpdateEndpointsBatch ::
   -- | 'applicationId'
   Lude.Text ->
@@ -90,7 +85,7 @@ instance Lude.AWSRequest UpdateEndpointsBatch where
     Res.receiveJSON
       ( \s h x ->
           UpdateEndpointsBatchResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateEndpointsBatch where
@@ -118,41 +113,28 @@ instance Lude.ToQuery UpdateEndpointsBatch where
 
 -- | /See:/ 'mkUpdateEndpointsBatchResponse' smart constructor.
 data UpdateEndpointsBatchResponse = UpdateEndpointsBatchResponse'
-  { responseStatus ::
-      Lude.Int,
-    messageBody :: MessageBody
+  { messageBody :: MessageBody,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndpointsBatchResponse' with the minimum fields required to make a request.
 --
--- * 'messageBody' - Undocumented field.
+-- * 'messageBody' -
 -- * 'responseStatus' - The response status code.
 mkUpdateEndpointsBatchResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'messageBody'
   MessageBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateEndpointsBatchResponse
-mkUpdateEndpointsBatchResponse pResponseStatus_ pMessageBody_ =
+mkUpdateEndpointsBatchResponse pMessageBody_ pResponseStatus_ =
   UpdateEndpointsBatchResponse'
-    { responseStatus = pResponseStatus_,
-      messageBody = pMessageBody_
+    { messageBody = pMessageBody_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uebrsResponseStatus :: Lens.Lens' UpdateEndpointsBatchResponse Lude.Int
-uebrsResponseStatus = Lens.lens (responseStatus :: UpdateEndpointsBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEndpointsBatchResponse)
-{-# DEPRECATED uebrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -160,3 +142,10 @@ uebrsResponseStatus = Lens.lens (responseStatus :: UpdateEndpointsBatchResponse 
 uebrsMessageBody :: Lens.Lens' UpdateEndpointsBatchResponse MessageBody
 uebrsMessageBody = Lens.lens (messageBody :: UpdateEndpointsBatchResponse -> MessageBody) (\s a -> s {messageBody = a} :: UpdateEndpointsBatchResponse)
 {-# DEPRECATED uebrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uebrsResponseStatus :: Lens.Lens' UpdateEndpointsBatchResponse Lude.Int
+uebrsResponseStatus = Lens.lens (responseStatus :: UpdateEndpointsBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEndpointsBatchResponse)
+{-# DEPRECATED uebrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

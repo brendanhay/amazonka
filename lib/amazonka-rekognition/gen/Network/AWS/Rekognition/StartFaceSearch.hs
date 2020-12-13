@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.Rekognition.StartFaceSearch
     -- ** Request lenses
     sfsFaceMatchThreshold,
     sfsJobTag,
-    sfsNotificationChannel,
-    sfsClientRequestToken,
-    sfsVideo,
     sfsCollectionId,
+    sfsNotificationChannel,
+    sfsVideo,
+    sfsClientRequestToken,
 
     -- * Destructuring the response
     StartFaceSearchResponse (..),
@@ -46,45 +47,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartFaceSearch' smart constructor.
 data StartFaceSearch = StartFaceSearch'
-  { faceMatchThreshold ::
-      Lude.Maybe Lude.Double,
+  { -- | The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
+    faceMatchThreshold :: Lude.Maybe Lude.Double,
+    -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
     jobTag :: Lude.Maybe Lude.Text,
+    -- | ID of the collection that contains the faces you want to search for.
+    collectionId :: Lude.Text,
+    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search.
     notificationChannel :: Lude.Maybe NotificationChannel,
-    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The video you want to search. The video must be stored in an Amazon S3 bucket.
     video :: Video,
-    collectionId :: Lude.Text
+    -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartFaceSearch' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
--- * 'collectionId' - ID of the collection that contains the faces you want to search for.
 -- * 'faceMatchThreshold' - The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
 -- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+-- * 'collectionId' - ID of the collection that contains the faces you want to search for.
 -- * 'notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search.
 -- * 'video' - The video you want to search. The video must be stored in an Amazon S3 bucket.
+-- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 mkStartFaceSearch ::
-  -- | 'video'
-  Video ->
   -- | 'collectionId'
   Lude.Text ->
+  -- | 'video'
+  Video ->
   StartFaceSearch
-mkStartFaceSearch pVideo_ pCollectionId_ =
+mkStartFaceSearch pCollectionId_ pVideo_ =
   StartFaceSearch'
     { faceMatchThreshold = Lude.Nothing,
       jobTag = Lude.Nothing,
+      collectionId = pCollectionId_,
       notificationChannel = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
       video = pVideo_,
-      collectionId = pCollectionId_
+      clientRequestToken = Lude.Nothing
     }
 
 -- | The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.
@@ -101,19 +101,19 @@ sfsJobTag :: Lens.Lens' StartFaceSearch (Lude.Maybe Lude.Text)
 sfsJobTag = Lens.lens (jobTag :: StartFaceSearch -> Lude.Maybe Lude.Text) (\s a -> s {jobTag = a} :: StartFaceSearch)
 {-# DEPRECATED sfsJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
 
+-- | ID of the collection that contains the faces you want to search for.
+--
+-- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfsCollectionId :: Lens.Lens' StartFaceSearch Lude.Text
+sfsCollectionId = Lens.lens (collectionId :: StartFaceSearch -> Lude.Text) (\s a -> s {collectionId = a} :: StartFaceSearch)
+{-# DEPRECATED sfsCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
+
 -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search.
 --
 -- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sfsNotificationChannel :: Lens.Lens' StartFaceSearch (Lude.Maybe NotificationChannel)
 sfsNotificationChannel = Lens.lens (notificationChannel :: StartFaceSearch -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartFaceSearch)
 {-# DEPRECATED sfsNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
-
--- | Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfsClientRequestToken :: Lens.Lens' StartFaceSearch (Lude.Maybe Lude.Text)
-sfsClientRequestToken = Lens.lens (clientRequestToken :: StartFaceSearch -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartFaceSearch)
-{-# DEPRECATED sfsClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The video you want to search. The video must be stored in an Amazon S3 bucket.
 --
@@ -122,12 +122,12 @@ sfsVideo :: Lens.Lens' StartFaceSearch Video
 sfsVideo = Lens.lens (video :: StartFaceSearch -> Video) (\s a -> s {video = a} :: StartFaceSearch)
 {-# DEPRECATED sfsVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
--- | ID of the collection that contains the faces you want to search for.
+-- | Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
--- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfsCollectionId :: Lens.Lens' StartFaceSearch Lude.Text
-sfsCollectionId = Lens.lens (collectionId :: StartFaceSearch -> Lude.Text) (\s a -> s {collectionId = a} :: StartFaceSearch)
-{-# DEPRECATED sfsCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfsClientRequestToken :: Lens.Lens' StartFaceSearch (Lude.Maybe Lude.Text)
+sfsClientRequestToken = Lens.lens (clientRequestToken :: StartFaceSearch -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartFaceSearch)
+{-# DEPRECATED sfsClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest StartFaceSearch where
   type Rs StartFaceSearch = StartFaceSearchResponse
@@ -156,10 +156,10 @@ instance Lude.ToJSON StartFaceSearch where
       ( Lude.catMaybes
           [ ("FaceMatchThreshold" Lude..=) Lude.<$> faceMatchThreshold,
             ("JobTag" Lude..=) Lude.<$> jobTag,
+            Lude.Just ("CollectionId" Lude..= collectionId),
             ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
             Lude.Just ("Video" Lude..= video),
-            Lude.Just ("CollectionId" Lude..= collectionId)
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -171,17 +171,12 @@ instance Lude.ToQuery StartFaceSearch where
 
 -- | /See:/ 'mkStartFaceSearchResponse' smart constructor.
 data StartFaceSearchResponse = StartFaceSearchResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the search job. Use @JobId@ to identify the job in a subsequent call to @GetFaceSearch@ .
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartFaceSearchResponse' with the minimum fields required to make a request.

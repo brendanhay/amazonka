@@ -104,6 +104,7 @@ module Network.AWS.Route53Domains.Types.CountryCode
         HR,
         HT,
         HU,
+        Id,
         IE,
         IL,
         IM,
@@ -112,7 +113,6 @@ module Network.AWS.Route53Domains.Types.CountryCode
         IR,
         IS,
         IT,
-        Id,
         JM,
         JO,
         JP,
@@ -545,6 +545,9 @@ pattern HT = CountryCode' "HT"
 pattern HU :: CountryCode
 pattern HU = CountryCode' "HU"
 
+pattern Id :: CountryCode
+pattern Id = CountryCode' "ID"
+
 pattern IE :: CountryCode
 pattern IE = CountryCode' "IE"
 
@@ -568,9 +571,6 @@ pattern IS = CountryCode' "IS"
 
 pattern IT :: CountryCode
 pattern IT = CountryCode' "IT"
-
-pattern Id :: CountryCode
-pattern Id = CountryCode' "ID"
 
 pattern JM :: CountryCode
 pattern JM = CountryCode' "JM"
@@ -1051,6 +1051,7 @@ pattern ZW = CountryCode' "ZW"
   HR,
   HT,
   HU,
+  Id,
   IE,
   IL,
   IM,
@@ -1059,7 +1060,6 @@ pattern ZW = CountryCode' "ZW"
   IR,
   IS,
   IT,
-  Id,
   JM,
   JO,
   JP,

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCreateAccountStatus' smart constructor.
 data ListCreateAccountStatus = ListCreateAccountStatus'
-  { states ::
-      Lude.Maybe [CreateAccountState],
+  { -- | A list of one or more states that you want included in the response. If this parameter isn't present, all requests are included in the response.
+    states :: Lude.Maybe [CreateAccountState],
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCreateAccountStatus' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 -- * 'states' - A list of one or more states that you want included in the response. If this parameter isn't present, all requests are included in the response.
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+-- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 mkListCreateAccountStatus ::
   ListCreateAccountStatus
 mkListCreateAccountStatus =
@@ -148,11 +145,11 @@ instance Lude.ToQuery ListCreateAccountStatus where
 
 -- | /See:/ 'mkListCreateAccountStatusResponse' smart constructor.
 data ListCreateAccountStatusResponse = ListCreateAccountStatusResponse'
-  { createAccountStatuses ::
-      Lude.Maybe
-        [CreateAccountStatus],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of objects with details about the requests. Certain elements, such as the accountId number, are present in the output only after the account has been successfully created.
+    createAccountStatuses :: Lude.Maybe [CreateAccountStatus],
+    -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

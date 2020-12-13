@@ -39,36 +39,38 @@ import Network.AWS.SSM.Types.ComplianceStatus
 --
 -- /See:/ 'mkComplianceItem' smart constructor.
 data ComplianceItem = ComplianceItem'
-  { status ::
-      Lude.Maybe ComplianceStatus,
+  { -- | The status of the compliance item. An item is either COMPLIANT, NON_COMPLIANT, or an empty string (for Windows patches that aren't applicable).
+    status :: Lude.Maybe ComplianceStatus,
+    -- | An ID for the resource. For a managed instance, this is the instance ID.
     resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of resource. @ManagedInstance@ is currently the only supported resource type.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
     severity :: Lude.Maybe ComplianceSeverity,
+    -- | A summary for the compliance item. The summary includes an execution ID, the execution type (for example, command), and the execution time.
     executionSummary :: Lude.Maybe ComplianceExecutionSummary,
+    -- | A "Key": "Value" tag combination for the compliance item.
     details :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | An ID for the compliance item. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article; for example: KB4010320.
     id :: Lude.Maybe Lude.Text,
+    -- | The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valid compliance types.
     complianceType :: Lude.Maybe Lude.Text,
+    -- | A title for the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch; for example: Security Update for Active Directory Federation Services.
     title :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceItem' with the minimum fields required to make a request.
 --
--- * 'complianceType' - The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valid compliance types.
--- * 'details' - A "Key": "Value" tag combination for the compliance item.
--- * 'executionSummary' - A summary for the compliance item. The summary includes an execution ID, the execution type (for example, command), and the execution time.
--- * 'id' - An ID for the compliance item. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article; for example: KB4010320.
+-- * 'status' - The status of the compliance item. An item is either COMPLIANT, NON_COMPLIANT, or an empty string (for Windows patches that aren't applicable).
 -- * 'resourceId' - An ID for the resource. For a managed instance, this is the instance ID.
 -- * 'resourceType' - The type of resource. @ManagedInstance@ is currently the only supported resource type.
 -- * 'severity' - The severity of the compliance status. Severity can be one of the following: Critical, High, Medium, Low, Informational, Unspecified.
--- * 'status' - The status of the compliance item. An item is either COMPLIANT, NON_COMPLIANT, or an empty string (for Windows patches that aren't applicable).
+-- * 'executionSummary' - A summary for the compliance item. The summary includes an execution ID, the execution type (for example, command), and the execution time.
+-- * 'details' - A "Key": "Value" tag combination for the compliance item.
+-- * 'id' - An ID for the compliance item. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article; for example: KB4010320.
+-- * 'complianceType' - The compliance type. For example, Association (for a State Manager association), Patch, or Custom:@string@ are all valid compliance types.
 -- * 'title' - A title for the compliance item. For example, if the compliance item is a Windows patch, the title could be the title of the KB article for the patch; for example: Security Update for Active Directory Federation Services.
 mkComplianceItem ::
   ComplianceItem

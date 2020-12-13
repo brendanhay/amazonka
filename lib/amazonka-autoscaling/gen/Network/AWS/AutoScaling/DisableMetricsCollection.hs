@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,22 +37,58 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisableMetricsCollection' smart constructor.
 data DisableMetricsCollection = DisableMetricsCollection'
-  { metrics ::
-      Lude.Maybe [Lude.Text],
+  { -- | Specifies one or more of the following metrics:
+    --
+    --
+    --     * @GroupMinSize@
+    --
+    --
+    --     * @GroupMaxSize@
+    --
+    --
+    --     * @GroupDesiredCapacity@
+    --
+    --
+    --     * @GroupInServiceInstances@
+    --
+    --
+    --     * @GroupPendingInstances@
+    --
+    --
+    --     * @GroupStandbyInstances@
+    --
+    --
+    --     * @GroupTerminatingInstances@
+    --
+    --
+    --     * @GroupTotalInstances@
+    --
+    --
+    --     * @GroupInServiceCapacity@
+    --
+    --
+    --     * @GroupPendingCapacity@
+    --
+    --
+    --     * @GroupStandbyCapacity@
+    --
+    --
+    --     * @GroupTerminatingCapacity@
+    --
+    --
+    --     * @GroupTotalCapacity@
+    --
+    --
+    -- If you omit this parameter, all metrics are disabled.
+    metrics :: Lude.Maybe [Lude.Text],
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableMetricsCollection' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'metrics' - Specifies one or more of the following metrics:
 --
 --
@@ -95,6 +132,7 @@ data DisableMetricsCollection = DisableMetricsCollection'
 --
 --
 -- If you omit this parameter, all metrics are disabled.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkDisableMetricsCollection ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -184,13 +222,7 @@ instance Lude.ToQuery DisableMetricsCollection where
 
 -- | /See:/ 'mkDisableMetricsCollectionResponse' smart constructor.
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableMetricsCollectionResponse' with the minimum fields required to make a request.

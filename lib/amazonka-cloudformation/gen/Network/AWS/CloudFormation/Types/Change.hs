@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChange' smart constructor.
 data Change = Change'
-  { resourceChange :: Lude.Maybe ResourceChange,
+  { -- | A @ResourceChange@ structure that describes the resource and action that AWS CloudFormation will perform.
+    resourceChange :: Lude.Maybe ResourceChange,
+    -- | The type of entity that AWS CloudFormation changes. Currently, the only entity type is @Resource@ .
     type' :: Lude.Maybe ChangeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Change' with the minimum fields required to make a request.

@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Represents information about a stage to a job worker.
 --
 -- /See:/ 'mkStageContext' smart constructor.
-newtype StageContext = StageContext' {name :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StageContext = StageContext'
+  { -- | The name of the stage.
+    name :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StageContext' with the minimum fields required to make a request.

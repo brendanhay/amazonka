@@ -37,33 +37,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceDataContainer' smart constructor.
 data ResourceDataContainer = ResourceDataContainer'
-  { s3MachineLearningModelResourceData ::
-      Lude.Maybe S3MachineLearningModelResourceData,
-    sageMakerMachineLearningModelResourceData ::
-      Lude.Maybe
-        SageMakerMachineLearningModelResourceData,
-    localVolumeResourceData ::
-      Lude.Maybe LocalVolumeResourceData,
-    localDeviceResourceData ::
-      Lude.Maybe LocalDeviceResourceData,
-    secretsManagerSecretResourceData ::
-      Lude.Maybe SecretsManagerSecretResourceData
+  { -- | Attributes that define an Amazon S3 machine learning resource.
+    s3MachineLearningModelResourceData :: Lude.Maybe S3MachineLearningModelResourceData,
+    -- | Attributes that define an Amazon SageMaker machine learning resource.
+    sageMakerMachineLearningModelResourceData :: Lude.Maybe SageMakerMachineLearningModelResourceData,
+    -- | Attributes that define the local volume resource.
+    localVolumeResourceData :: Lude.Maybe LocalVolumeResourceData,
+    -- | Attributes that define the local device resource.
+    localDeviceResourceData :: Lude.Maybe LocalDeviceResourceData,
+    -- | Attributes that define a secret resource, which references a secret from AWS Secrets Manager.
+    secretsManagerSecretResourceData :: Lude.Maybe SecretsManagerSecretResourceData
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataContainer' with the minimum fields required to make a request.
 --
--- * 'localDeviceResourceData' - Attributes that define the local device resource.
--- * 'localVolumeResourceData' - Attributes that define the local volume resource.
 -- * 's3MachineLearningModelResourceData' - Attributes that define an Amazon S3 machine learning resource.
 -- * 'sageMakerMachineLearningModelResourceData' - Attributes that define an Amazon SageMaker machine learning resource.
+-- * 'localVolumeResourceData' - Attributes that define the local volume resource.
+-- * 'localDeviceResourceData' - Attributes that define the local device resource.
 -- * 'secretsManagerSecretResourceData' - Attributes that define a secret resource, which references a secret from AWS Secrets Manager.
 mkResourceDataContainer ::
   ResourceDataContainer

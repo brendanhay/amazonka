@@ -13,10 +13,10 @@
 module Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
   ( MappingRuleMatchType
       ( MappingRuleMatchType',
-        Contains,
         Equals,
-        NotEqual,
-        StartsWith
+        Contains,
+        StartsWith,
+        NotEqual
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype MappingRuleMatchType = MappingRuleMatchType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Contains :: MappingRuleMatchType
-pattern Contains = MappingRuleMatchType' "Contains"
-
 pattern Equals :: MappingRuleMatchType
 pattern Equals = MappingRuleMatchType' "Equals"
 
-pattern NotEqual :: MappingRuleMatchType
-pattern NotEqual = MappingRuleMatchType' "NotEqual"
+pattern Contains :: MappingRuleMatchType
+pattern Contains = MappingRuleMatchType' "Contains"
 
 pattern StartsWith :: MappingRuleMatchType
 pattern StartsWith = MappingRuleMatchType' "StartsWith"
 
+pattern NotEqual :: MappingRuleMatchType
+pattern NotEqual = MappingRuleMatchType' "NotEqual"
+
 {-# COMPLETE
-  Contains,
   Equals,
-  NotEqual,
+  Contains,
   StartsWith,
+  NotEqual,
   MappingRuleMatchType'
   #-}

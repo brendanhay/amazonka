@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPublicIPv4PoolRange' smart constructor.
 data PublicIPv4PoolRange = PublicIPv4PoolRange'
-  { availableAddressCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of available addresses in the range.
+    availableAddressCount :: Lude.Maybe Lude.Int,
+    -- | The last IP address in the range.
     lastAddress :: Lude.Maybe Lude.Text,
+    -- | The first IP address in the range.
     firstAddress :: Lude.Maybe Lude.Text,
+    -- | The number of addresses in the range.
     addressCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicIPv4PoolRange' with the minimum fields required to make a request.
 --
--- * 'addressCount' - The number of addresses in the range.
 -- * 'availableAddressCount' - The number of available addresses in the range.
--- * 'firstAddress' - The first IP address in the range.
 -- * 'lastAddress' - The last IP address in the range.
+-- * 'firstAddress' - The first IP address in the range.
+-- * 'addressCount' - The number of addresses in the range.
 mkPublicIPv4PoolRange ::
   PublicIPv4PoolRange
 mkPublicIPv4PoolRange =

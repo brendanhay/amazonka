@@ -13,13 +13,13 @@
 module Network.AWS.SSM.Types.PatchComplianceDataState
   ( PatchComplianceDataState
       ( PatchComplianceDataState',
-        Failed,
-        Installed,
-        InstalledOther,
-        InstalledPendingReboot,
-        InstalledRejected,
-        Missing,
-        NotApplicable
+        PCDSInstalled,
+        PCDSInstalledOther,
+        PCDSInstalledPendingReboot,
+        PCDSInstalledRejected,
+        PCDSMissing,
+        PCDSNotApplicable,
+        PCDSFailed
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype PatchComplianceDataState = PatchComplianceDataState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: PatchComplianceDataState
-pattern Failed = PatchComplianceDataState' "FAILED"
+pattern PCDSInstalled :: PatchComplianceDataState
+pattern PCDSInstalled = PatchComplianceDataState' "INSTALLED"
 
-pattern Installed :: PatchComplianceDataState
-pattern Installed = PatchComplianceDataState' "INSTALLED"
+pattern PCDSInstalledOther :: PatchComplianceDataState
+pattern PCDSInstalledOther = PatchComplianceDataState' "INSTALLED_OTHER"
 
-pattern InstalledOther :: PatchComplianceDataState
-pattern InstalledOther = PatchComplianceDataState' "INSTALLED_OTHER"
+pattern PCDSInstalledPendingReboot :: PatchComplianceDataState
+pattern PCDSInstalledPendingReboot = PatchComplianceDataState' "INSTALLED_PENDING_REBOOT"
 
-pattern InstalledPendingReboot :: PatchComplianceDataState
-pattern InstalledPendingReboot = PatchComplianceDataState' "INSTALLED_PENDING_REBOOT"
+pattern PCDSInstalledRejected :: PatchComplianceDataState
+pattern PCDSInstalledRejected = PatchComplianceDataState' "INSTALLED_REJECTED"
 
-pattern InstalledRejected :: PatchComplianceDataState
-pattern InstalledRejected = PatchComplianceDataState' "INSTALLED_REJECTED"
+pattern PCDSMissing :: PatchComplianceDataState
+pattern PCDSMissing = PatchComplianceDataState' "MISSING"
 
-pattern Missing :: PatchComplianceDataState
-pattern Missing = PatchComplianceDataState' "MISSING"
+pattern PCDSNotApplicable :: PatchComplianceDataState
+pattern PCDSNotApplicable = PatchComplianceDataState' "NOT_APPLICABLE"
 
-pattern NotApplicable :: PatchComplianceDataState
-pattern NotApplicable = PatchComplianceDataState' "NOT_APPLICABLE"
+pattern PCDSFailed :: PatchComplianceDataState
+pattern PCDSFailed = PatchComplianceDataState' "FAILED"
 
 {-# COMPLETE
-  Failed,
-  Installed,
-  InstalledOther,
-  InstalledPendingReboot,
-  InstalledRejected,
-  Missing,
-  NotApplicable,
+  PCDSInstalled,
+  PCDSInstalledOther,
+  PCDSInstalledPendingReboot,
+  PCDSInstalledRejected,
+  PCDSMissing,
+  PCDSNotApplicable,
+  PCDSFailed,
   PatchComplianceDataState'
   #-}

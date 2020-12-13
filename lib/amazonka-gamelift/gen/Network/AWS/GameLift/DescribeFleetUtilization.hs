@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -94,26 +95,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeFleetUtilization' smart constructor.
 data DescribeFleetUtilization = DescribeFleetUtilization'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
     limit :: Lude.Maybe Lude.Natural,
-    fleetIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text)
+    -- | A unique identifier for a fleet(s) to retrieve utilization data for. You can use either the fleet ID or ARN value. To retrieve attributes for all current fleets, do not include this parameter. If the list of fleet identifiers includes fleets that don't currently exist, the request succeeds but no attributes for that fleet are returned.
+    fleetIds :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetUtilization' with the minimum fields required to make a request.
 --
--- * 'fleetIds' - A unique identifier for a fleet(s) to retrieve utilization data for. You can use either the fleet ID or ARN value. To retrieve attributes for all current fleets, do not include this parameter. If the list of fleet identifiers includes fleets that don't currently exist, the request succeeds but no attributes for that fleet are returned.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 -- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- * 'fleetIds' - A unique identifier for a fleet(s) to retrieve utilization data for. You can use either the fleet ID or ARN value. To retrieve attributes for all current fleets, do not include this parameter. If the list of fleet identifiers includes fleets that don't currently exist, the request succeeds but no attributes for that fleet are returned.
 mkDescribeFleetUtilization ::
   DescribeFleetUtilization
 mkDescribeFleetUtilization =
@@ -196,27 +192,20 @@ instance Lude.ToQuery DescribeFleetUtilization where
 --
 -- /See:/ 'mkDescribeFleetUtilizationResponse' smart constructor.
 data DescribeFleetUtilizationResponse = DescribeFleetUtilizationResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    fleetUtilization ::
-      Lude.Maybe
-        [FleetUtilization],
-    responseStatus ::
-      Lude.Int
+  { -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A collection of objects containing utilization information for each requested fleet ID.
+    fleetUtilization :: Lude.Maybe [FleetUtilization],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetUtilizationResponse' with the minimum fields required to make a request.
 --
--- * 'fleetUtilization' - A collection of objects containing utilization information for each requested fleet ID.
 -- * 'nextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+-- * 'fleetUtilization' - A collection of objects containing utilization information for each requested fleet ID.
 -- * 'responseStatus' - The response status code.
 mkDescribeFleetUtilizationResponse ::
   -- | 'responseStatus'

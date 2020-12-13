@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MechanicalTurk.GetFileUploadURL
     mkGetFileUploadURL,
 
     -- ** Request lenses
-    gfuuAssignmentId,
     gfuuQuestionIdentifier,
+    gfuuAssignmentId,
 
     -- * Destructuring the response
     GetFileUploadURLResponse (..),
@@ -40,41 +41,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFileUploadURL' smart constructor.
 data GetFileUploadURL = GetFileUploadURL'
-  { assignmentId ::
-      Lude.Text,
-    questionIdentifier :: Lude.Text
+  { -- | The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
+    questionIdentifier :: Lude.Text,
+    -- | The ID of the assignment that contains the question with a FileUploadAnswer.
+    assignmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFileUploadURL' with the minimum fields required to make a request.
 --
--- * 'assignmentId' - The ID of the assignment that contains the question with a FileUploadAnswer.
 -- * 'questionIdentifier' - The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
+-- * 'assignmentId' - The ID of the assignment that contains the question with a FileUploadAnswer.
 mkGetFileUploadURL ::
-  -- | 'assignmentId'
-  Lude.Text ->
   -- | 'questionIdentifier'
   Lude.Text ->
+  -- | 'assignmentId'
+  Lude.Text ->
   GetFileUploadURL
-mkGetFileUploadURL pAssignmentId_ pQuestionIdentifier_ =
+mkGetFileUploadURL pQuestionIdentifier_ pAssignmentId_ =
   GetFileUploadURL'
-    { assignmentId = pAssignmentId_,
-      questionIdentifier = pQuestionIdentifier_
+    { questionIdentifier = pQuestionIdentifier_,
+      assignmentId = pAssignmentId_
     }
-
--- | The ID of the assignment that contains the question with a FileUploadAnswer.
---
--- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfuuAssignmentId :: Lens.Lens' GetFileUploadURL Lude.Text
-gfuuAssignmentId = Lens.lens (assignmentId :: GetFileUploadURL -> Lude.Text) (\s a -> s {assignmentId = a} :: GetFileUploadURL)
-{-# DEPRECATED gfuuAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 -- | The identifier of the question with a FileUploadAnswer, as specified in the QuestionForm of the HIT.
 --
@@ -82,6 +71,13 @@ gfuuAssignmentId = Lens.lens (assignmentId :: GetFileUploadURL -> Lude.Text) (\s
 gfuuQuestionIdentifier :: Lens.Lens' GetFileUploadURL Lude.Text
 gfuuQuestionIdentifier = Lens.lens (questionIdentifier :: GetFileUploadURL -> Lude.Text) (\s a -> s {questionIdentifier = a} :: GetFileUploadURL)
 {-# DEPRECATED gfuuQuestionIdentifier "Use generic-lens or generic-optics with 'questionIdentifier' instead." #-}
+
+-- | The ID of the assignment that contains the question with a FileUploadAnswer.
+--
+-- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfuuAssignmentId :: Lens.Lens' GetFileUploadURL Lude.Text
+gfuuAssignmentId = Lens.lens (assignmentId :: GetFileUploadURL -> Lude.Text) (\s a -> s {assignmentId = a} :: GetFileUploadURL)
+{-# DEPRECATED gfuuAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 instance Lude.AWSRequest GetFileUploadURL where
   type Rs GetFileUploadURL = GetFileUploadURLResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON GetFileUploadURL where
   toJSON GetFileUploadURL' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AssignmentId" Lude..= assignmentId),
-            Lude.Just ("QuestionIdentifier" Lude..= questionIdentifier)
+          [ Lude.Just ("QuestionIdentifier" Lude..= questionIdentifier),
+            Lude.Just ("AssignmentId" Lude..= assignmentId)
           ]
       )
 
@@ -124,17 +120,12 @@ instance Lude.ToQuery GetFileUploadURL where
 
 -- | /See:/ 'mkGetFileUploadURLResponse' smart constructor.
 data GetFileUploadURLResponse = GetFileUploadURLResponse'
-  { fileUploadURL ::
-      Lude.Maybe Lude.Text,
+  { -- | A temporary URL for the file that the Worker uploaded for the answer.
+    fileUploadURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFileUploadURLResponse' with the minimum fields required to make a request.

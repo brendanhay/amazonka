@@ -13,13 +13,13 @@
 module Network.AWS.DirectoryService.Types.DomainControllerStatus
   ( DomainControllerStatus
       ( DomainControllerStatus',
-        Active,
         Creating,
-        Deleted,
-        Deleting,
-        Failed,
+        Active,
         Impaired,
-        Restoring
+        Restoring,
+        Deleting,
+        Deleted,
+        Failed
       ),
   )
 where
@@ -50,20 +50,11 @@ newtype DomainControllerStatus = DomainControllerStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: DomainControllerStatus
-pattern Active = DomainControllerStatus' "Active"
-
 pattern Creating :: DomainControllerStatus
 pattern Creating = DomainControllerStatus' "Creating"
 
-pattern Deleted :: DomainControllerStatus
-pattern Deleted = DomainControllerStatus' "Deleted"
-
-pattern Deleting :: DomainControllerStatus
-pattern Deleting = DomainControllerStatus' "Deleting"
-
-pattern Failed :: DomainControllerStatus
-pattern Failed = DomainControllerStatus' "Failed"
+pattern Active :: DomainControllerStatus
+pattern Active = DomainControllerStatus' "Active"
 
 pattern Impaired :: DomainControllerStatus
 pattern Impaired = DomainControllerStatus' "Impaired"
@@ -71,13 +62,22 @@ pattern Impaired = DomainControllerStatus' "Impaired"
 pattern Restoring :: DomainControllerStatus
 pattern Restoring = DomainControllerStatus' "Restoring"
 
+pattern Deleting :: DomainControllerStatus
+pattern Deleting = DomainControllerStatus' "Deleting"
+
+pattern Deleted :: DomainControllerStatus
+pattern Deleted = DomainControllerStatus' "Deleted"
+
+pattern Failed :: DomainControllerStatus
+pattern Failed = DomainControllerStatus' "Failed"
+
 {-# COMPLETE
-  Active,
   Creating,
-  Deleted,
-  Deleting,
-  Failed,
+  Active,
   Impaired,
   Restoring,
+  Deleting,
+  Deleted,
+  Failed,
   DomainControllerStatus'
   #-}

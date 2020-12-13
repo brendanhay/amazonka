@@ -33,32 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityGroupRuleDescription' smart constructor.
 data SecurityGroupRuleDescription = SecurityGroupRuleDescription'
-  { fromPort ::
-      Lude.Maybe Lude.Natural,
+  { -- | The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
+    fromPort :: Lude.Maybe Lude.Natural,
+    -- | The IP protocol name (@tcp@ , @udp@ , @icmp@ , @icmpv6@ ) or number.
     protocol :: Lude.Maybe Lude.Text,
+    -- | The IPv4 ranges for the security group rule.
     ipV4Range :: Lude.Maybe Lude.Text,
-    prefixListId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the prefix list for the security group rule.
+    prefixListId :: Lude.Maybe Lude.Text,
+    -- | The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes.
     toPort :: Lude.Maybe Lude.Natural,
+    -- | The IPv6 ranges for the security group rule.
     ipV6Range :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupRuleDescription' with the minimum fields required to make a request.
 --
 -- * 'fromPort' - The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of @-1@ indicates all ICMP/ICMPv6 types.
--- * 'ipV4Range' - The IPv4 ranges for the security group rule.
--- * 'ipV6Range' - The IPv6 ranges for the security group rule.
--- * 'prefixListId' - The ID of the prefix list for the security group rule.
 -- * 'protocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ , @icmpv6@ ) or number.
+-- * 'ipV4Range' - The IPv4 ranges for the security group rule.
+-- * 'prefixListId' - The ID of the prefix list for the security group rule.
 -- * 'toPort' - The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of @-1@ indicates all ICMP/ICMPv6 codes.
+-- * 'ipV6Range' - The IPv6 ranges for the security group rule.
 mkSecurityGroupRuleDescription ::
   SecurityGroupRuleDescription
 mkSecurityGroupRuleDescription =

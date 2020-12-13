@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBulkDeployment' smart constructor.
 data BulkDeployment = BulkDeployment'
-  { bulkDeploymentARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the bulk deployment.
+    bulkDeploymentARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the bulk deployment.
     bulkDeploymentId :: Lude.Maybe Lude.Text,
+    -- | The time, in ISO format, when the deployment was created.
     createdAt :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BulkDeployment' with the minimum fields required to make a request.

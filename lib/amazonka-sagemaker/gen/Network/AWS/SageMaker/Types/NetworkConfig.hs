@@ -31,25 +31,20 @@ import Network.AWS.SageMaker.Types.VPCConfig
 --
 -- /See:/ 'mkNetworkConfig' smart constructor.
 data NetworkConfig = NetworkConfig'
-  { enableNetworkIsolation ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+    enableNetworkIsolation :: Lude.Maybe Lude.Bool,
     vpcConfig :: Lude.Maybe VPCConfig,
+    -- | Whether to encrypt all communications between distributed processing jobs. Choose @True@ to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
     enableInterContainerTrafficEncryption :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkConfig' with the minimum fields required to make a request.
 --
--- * 'enableInterContainerTrafficEncryption' - Whether to encrypt all communications between distributed processing jobs. Choose @True@ to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 -- * 'enableNetworkIsolation' - Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
--- * 'vpcConfig' - Undocumented field.
+-- * 'vpcConfig' -
+-- * 'enableInterContainerTrafficEncryption' - Whether to encrypt all communications between distributed processing jobs. Choose @True@ to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 mkNetworkConfig ::
   NetworkConfig
 mkNetworkConfig =

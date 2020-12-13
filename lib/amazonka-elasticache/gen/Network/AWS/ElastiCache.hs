@@ -433,9 +433,9 @@ module Network.AWS.ElastiCache
     ConfigureShard (..),
     mkConfigureShard,
     csPreferredAvailabilityZones,
-    csPreferredOutpostARNs,
-    csNodeGroupId,
     csNewReplicaCount,
+    csNodeGroupId,
+    csPreferredOutpostARNs,
 
     -- ** CustomerNodeEndpoint
     CustomerNodeEndpoint (..),
@@ -475,8 +475,8 @@ module Network.AWS.ElastiCache
     -- ** Filter
     Filter (..),
     mkFilter,
-    fName,
     fValues,
+    fName,
 
     -- ** GlobalNodeGroup
     GlobalNodeGroup (..),
@@ -628,9 +628,9 @@ module Network.AWS.ElastiCache
     -- ** RegionalConfiguration
     RegionalConfiguration (..),
     mkRegionalConfiguration,
-    rcReplicationGroupId,
-    rcReplicationGroupRegion,
     rcReshardingConfiguration,
+    rcReplicationGroupRegion,
+    rcReplicationGroupId,
 
     -- ** ReplicationGroup
     ReplicationGroup (..),

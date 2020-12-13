@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SageMaker.DeleteImageVersion
     mkDeleteImageVersion,
 
     -- ** Request lenses
-    divImageName,
     divVersion,
+    divImageName,
 
     -- * Destructuring the response
     DeleteImageVersionResponse (..),
@@ -39,38 +40,26 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteImageVersion' smart constructor.
 data DeleteImageVersion = DeleteImageVersion'
-  { imageName ::
-      Lude.Text,
-    version :: Lude.Natural
+  { -- | The version to delete.
+    version :: Lude.Natural,
+    -- | The name of the image.
+    imageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImageVersion' with the minimum fields required to make a request.
 --
--- * 'imageName' - The name of the image.
 -- * 'version' - The version to delete.
+-- * 'imageName' - The name of the image.
 mkDeleteImageVersion ::
-  -- | 'imageName'
-  Lude.Text ->
   -- | 'version'
   Lude.Natural ->
+  -- | 'imageName'
+  Lude.Text ->
   DeleteImageVersion
-mkDeleteImageVersion pImageName_ pVersion_ =
-  DeleteImageVersion' {imageName = pImageName_, version = pVersion_}
-
--- | The name of the image.
---
--- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-divImageName :: Lens.Lens' DeleteImageVersion Lude.Text
-divImageName = Lens.lens (imageName :: DeleteImageVersion -> Lude.Text) (\s a -> s {imageName = a} :: DeleteImageVersion)
-{-# DEPRECATED divImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+mkDeleteImageVersion pVersion_ pImageName_ =
+  DeleteImageVersion' {version = pVersion_, imageName = pImageName_}
 
 -- | The version to delete.
 --
@@ -78,6 +67,13 @@ divImageName = Lens.lens (imageName :: DeleteImageVersion -> Lude.Text) (\s a ->
 divVersion :: Lens.Lens' DeleteImageVersion Lude.Natural
 divVersion = Lens.lens (version :: DeleteImageVersion -> Lude.Natural) (\s a -> s {version = a} :: DeleteImageVersion)
 {-# DEPRECATED divVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The name of the image.
+--
+-- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+divImageName :: Lens.Lens' DeleteImageVersion Lude.Text
+divImageName = Lens.lens (imageName :: DeleteImageVersion -> Lude.Text) (\s a -> s {imageName = a} :: DeleteImageVersion)
+{-# DEPRECATED divImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 instance Lude.AWSRequest DeleteImageVersion where
   type Rs DeleteImageVersion = DeleteImageVersionResponse
@@ -103,8 +99,8 @@ instance Lude.ToJSON DeleteImageVersion where
   toJSON DeleteImageVersion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ImageName" Lude..= imageName),
-            Lude.Just ("Version" Lude..= version)
+          [ Lude.Just ("Version" Lude..= version),
+            Lude.Just ("ImageName" Lude..= imageName)
           ]
       )
 
@@ -116,16 +112,10 @@ instance Lude.ToQuery DeleteImageVersion where
 
 -- | /See:/ 'mkDeleteImageVersionResponse' smart constructor.
 newtype DeleteImageVersionResponse = DeleteImageVersionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImageVersionResponse' with the minimum fields required to make a request.

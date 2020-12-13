@@ -31,20 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocumentClassifierFilter' smart constructor.
 data DocumentClassifierFilter = DocumentClassifierFilter'
-  { status ::
-      Lude.Maybe ModelStatus,
-    submitTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
-    submitTimeBefore ::
-      Lude.Maybe Lude.Timestamp
+  { -- | Filters the list of classifiers based on status.
+    status :: Lude.Maybe ModelStatus,
+    -- | Filters the list of classifiers based on the time that the classifier was submitted for processing. Returns only classifiers submitted after the specified time. Classifiers are returned in descending order, newest to oldest.
+    submitTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Filters the list of classifiers based on the time that the classifier was submitted for processing. Returns only classifiers submitted before the specified time. Classifiers are returned in ascending order, oldest to newest.
+    submitTimeBefore :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentClassifierFilter' with the minimum fields required to make a request.

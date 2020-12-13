@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Transcribe.CreateMedicalVocabulary
     mkCreateMedicalVocabulary,
 
     -- ** Request lenses
-    cmvVocabularyName,
     cmvLanguageCode,
     cmvVocabularyFileURI,
+    cmvVocabularyName,
 
     -- * Destructuring the response
     CreateMedicalVocabularyResponse (..),
@@ -45,18 +46,20 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkCreateMedicalVocabulary' smart constructor.
 data CreateMedicalVocabulary = CreateMedicalVocabulary'
-  { vocabularyName ::
-      Lude.Text,
+  { -- | The language code for the language used for the entries in your custom vocabulary. The language code of your custom vocabulary must match the language code of your transcription job. US English (en-US) is the only language code available for Amazon Transcribe Medical.
     languageCode :: LanguageCode,
-    vocabularyFileURI :: Lude.Text
+    -- | The location in Amazon S3 of the text file you use to define your custom vocabulary. The URI must be in the same AWS Region as the resource that you're calling. Enter information about your @VocabularyFileUri@ in the following format:
+    --
+    -- @https://s3.<aws-region>.amazonaws.com/<bucket-name>/<keyprefix>/<objectkey> @
+    -- The following is an example URI for a vocabulary file that is stored in Amazon S3:
+    -- @https://s3.us-east-1.amazonaws.com/AWSDOC-EXAMPLE-BUCKET/vocab.txt@
+    -- For more information about Amazon S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+    -- For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies> .
+    vocabularyFileURI :: Lude.Text,
+    -- | The name of the custom vocabulary. This case-sensitive name must be unique within an AWS account. If you try to create a vocabulary with the same name as a previous vocabulary, you get a @ConflictException@ error.
+    vocabularyName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMedicalVocabulary' with the minimum fields required to make a request.
@@ -71,29 +74,22 @@ data CreateMedicalVocabulary = CreateMedicalVocabulary'
 -- For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med Medical Custom Vocabularies> .
 -- * 'vocabularyName' - The name of the custom vocabulary. This case-sensitive name must be unique within an AWS account. If you try to create a vocabulary with the same name as a previous vocabulary, you get a @ConflictException@ error.
 mkCreateMedicalVocabulary ::
-  -- | 'vocabularyName'
-  Lude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   -- | 'vocabularyFileURI'
   Lude.Text ->
+  -- | 'vocabularyName'
+  Lude.Text ->
   CreateMedicalVocabulary
 mkCreateMedicalVocabulary
-  pVocabularyName_
   pLanguageCode_
-  pVocabularyFileURI_ =
+  pVocabularyFileURI_
+  pVocabularyName_ =
     CreateMedicalVocabulary'
-      { vocabularyName = pVocabularyName_,
-        languageCode = pLanguageCode_,
-        vocabularyFileURI = pVocabularyFileURI_
+      { languageCode = pLanguageCode_,
+        vocabularyFileURI = pVocabularyFileURI_,
+        vocabularyName = pVocabularyName_
       }
-
--- | The name of the custom vocabulary. This case-sensitive name must be unique within an AWS account. If you try to create a vocabulary with the same name as a previous vocabulary, you get a @ConflictException@ error.
---
--- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvVocabularyName :: Lens.Lens' CreateMedicalVocabulary Lude.Text
-cmvVocabularyName = Lens.lens (vocabularyName :: CreateMedicalVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: CreateMedicalVocabulary)
-{-# DEPRECATED cmvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The language code for the language used for the entries in your custom vocabulary. The language code of your custom vocabulary must match the language code of your transcription job. US English (en-US) is the only language code available for Amazon Transcribe Medical.
 --
@@ -114,6 +110,13 @@ cmvLanguageCode = Lens.lens (languageCode :: CreateMedicalVocabulary -> Language
 cmvVocabularyFileURI :: Lens.Lens' CreateMedicalVocabulary Lude.Text
 cmvVocabularyFileURI = Lens.lens (vocabularyFileURI :: CreateMedicalVocabulary -> Lude.Text) (\s a -> s {vocabularyFileURI = a} :: CreateMedicalVocabulary)
 {-# DEPRECATED cmvVocabularyFileURI "Use generic-lens or generic-optics with 'vocabularyFileURI' instead." #-}
+
+-- | The name of the custom vocabulary. This case-sensitive name must be unique within an AWS account. If you try to create a vocabulary with the same name as a previous vocabulary, you get a @ConflictException@ error.
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmvVocabularyName :: Lens.Lens' CreateMedicalVocabulary Lude.Text
+cmvVocabularyName = Lens.lens (vocabularyName :: CreateMedicalVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: CreateMedicalVocabulary)
+{-# DEPRECATED cmvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 instance Lude.AWSRequest CreateMedicalVocabulary where
   type Rs CreateMedicalVocabulary = CreateMedicalVocabularyResponse
@@ -145,9 +148,9 @@ instance Lude.ToJSON CreateMedicalVocabulary where
   toJSON CreateMedicalVocabulary' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("VocabularyName" Lude..= vocabularyName),
-            Lude.Just ("LanguageCode" Lude..= languageCode),
-            Lude.Just ("VocabularyFileUri" Lude..= vocabularyFileURI)
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            Lude.Just ("VocabularyFileUri" Lude..= vocabularyFileURI),
+            Lude.Just ("VocabularyName" Lude..= vocabularyName)
           ]
       )
 
@@ -159,35 +162,30 @@ instance Lude.ToQuery CreateMedicalVocabulary where
 
 -- | /See:/ 'mkCreateMedicalVocabularyResponse' smart constructor.
 data CreateMedicalVocabularyResponse = CreateMedicalVocabularyResponse'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
-    languageCode ::
-      Lude.Maybe LanguageCode,
-    vocabularyName ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    vocabularyState ::
-      Lude.Maybe VocabularyState,
+  { -- | If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The language code for the entries in your custom vocabulary. US English (en-US) is the only valid language code for Amazon Transcribe Medical.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The name of the vocabulary. The name must be unique within an AWS account and is case sensitive.
+    vocabularyName :: Lude.Maybe Lude.Text,
+    -- | The date and time that you created the vocabulary.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The processing state of your custom vocabulary in Amazon Transcribe Medical. If the state is @READY@ , you can use the vocabulary in a @StartMedicalTranscriptionJob@ request.
+    vocabularyState :: Lude.Maybe VocabularyState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMedicalVocabularyResponse' with the minimum fields required to make a request.
 --
 -- * 'failureReason' - If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
 -- * 'languageCode' - The language code for the entries in your custom vocabulary. US English (en-US) is the only valid language code for Amazon Transcribe Medical.
--- * 'lastModifiedTime' - The date and time that you created the vocabulary.
--- * 'responseStatus' - The response status code.
 -- * 'vocabularyName' - The name of the vocabulary. The name must be unique within an AWS account and is case sensitive.
+-- * 'lastModifiedTime' - The date and time that you created the vocabulary.
 -- * 'vocabularyState' - The processing state of your custom vocabulary in Amazon Transcribe Medical. If the state is @READY@ , you can use the vocabulary in a @StartMedicalTranscriptionJob@ request.
+-- * 'responseStatus' - The response status code.
 mkCreateMedicalVocabularyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

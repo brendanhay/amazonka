@@ -32,19 +32,14 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkHSMClientCertificate' smart constructor.
 data HSMClientCertificate = HSMClientCertificate'
-  { hsmClientCertificateIdentifier ::
-      Lude.Maybe Lude.Text,
-    hsmClientCertificatePublicKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the HSM client certificate.
+    hsmClientCertificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
+    hsmClientCertificatePublicKey :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the HSM client certificate.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HSMClientCertificate' with the minimum fields required to make a request.

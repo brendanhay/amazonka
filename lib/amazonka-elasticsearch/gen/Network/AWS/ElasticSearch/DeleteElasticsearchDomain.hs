@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
     mkDeleteElasticsearchDomain,
 
     -- ** Request lenses
-    delDomainName,
+    dedfDomainName,
 
     -- * Destructuring the response
     DeleteElasticsearchDomainResponse (..),
     mkDeleteElasticsearchDomainResponse,
 
     -- ** Response lenses
-    dedersDomainStatus,
-    dedersResponseStatus,
+    dedfrsDomainStatus,
+    dedfrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteElasticsearchDomain' smart constructor.
 newtype DeleteElasticsearchDomain = DeleteElasticsearchDomain'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the Elasticsearch domain that you want to permanently delete.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteElasticsearchDomain' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDeleteElasticsearchDomain pDomainName_ =
 -- | The name of the Elasticsearch domain that you want to permanently delete.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delDomainName :: Lens.Lens' DeleteElasticsearchDomain Lude.Text
-delDomainName = Lens.lens (domainName :: DeleteElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteElasticsearchDomain)
-{-# DEPRECATED delDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+dedfDomainName :: Lens.Lens' DeleteElasticsearchDomain Lude.Text
+dedfDomainName = Lens.lens (domainName :: DeleteElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteElasticsearchDomain)
+{-# DEPRECATED dedfDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest DeleteElasticsearchDomain where
   type
@@ -96,19 +91,12 @@ instance Lude.ToQuery DeleteElasticsearchDomain where
 --
 -- /See:/ 'mkDeleteElasticsearchDomainResponse' smart constructor.
 data DeleteElasticsearchDomainResponse = DeleteElasticsearchDomainResponse'
-  { domainStatus ::
-      Lude.Maybe
-        ElasticsearchDomainStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the Elasticsearch domain being deleted.
+    domainStatus :: Lude.Maybe ElasticsearchDomainStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteElasticsearchDomainResponse' with the minimum fields required to make a request.
@@ -128,13 +116,13 @@ mkDeleteElasticsearchDomainResponse pResponseStatus_ =
 -- | The status of the Elasticsearch domain being deleted.
 --
 -- /Note:/ Consider using 'domainStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedersDomainStatus :: Lens.Lens' DeleteElasticsearchDomainResponse (Lude.Maybe ElasticsearchDomainStatus)
-dedersDomainStatus = Lens.lens (domainStatus :: DeleteElasticsearchDomainResponse -> Lude.Maybe ElasticsearchDomainStatus) (\s a -> s {domainStatus = a} :: DeleteElasticsearchDomainResponse)
-{-# DEPRECATED dedersDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
+dedfrsDomainStatus :: Lens.Lens' DeleteElasticsearchDomainResponse (Lude.Maybe ElasticsearchDomainStatus)
+dedfrsDomainStatus = Lens.lens (domainStatus :: DeleteElasticsearchDomainResponse -> Lude.Maybe ElasticsearchDomainStatus) (\s a -> s {domainStatus = a} :: DeleteElasticsearchDomainResponse)
+{-# DEPRECATED dedfrsDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedersResponseStatus :: Lens.Lens' DeleteElasticsearchDomainResponse Lude.Int
-dedersResponseStatus = Lens.lens (responseStatus :: DeleteElasticsearchDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteElasticsearchDomainResponse)
-{-# DEPRECATED dedersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dedfrsResponseStatus :: Lens.Lens' DeleteElasticsearchDomainResponse Lude.Int
+dedfrsResponseStatus = Lens.lens (responseStatus :: DeleteElasticsearchDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteElasticsearchDomainResponse)
+{-# DEPRECATED dedfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

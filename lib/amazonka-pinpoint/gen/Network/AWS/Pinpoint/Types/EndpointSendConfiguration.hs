@@ -32,37 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointSendConfiguration' smart constructor.
 data EndpointSendConfiguration = EndpointSendConfiguration'
-  { substitutions ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ),
+  { -- | A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The title or subject line of the message. If specified, this value overrides the default message title or subject line.
     titleOverride :: Lude.Maybe Lude.Text,
-    context ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A map of custom attributes to attach to the message for the address. Attribute names are case sensitive.
+    --
+    -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
+    context :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
     rawContent :: Lude.Maybe Lude.Text,
+    -- | The body of the message. If specified, this value overrides the default message body.
     bodyOverride :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointSendConfiguration' with the minimum fields required to make a request.
 --
--- * 'bodyOverride' - The body of the message. If specified, this value overrides the default message body.
+-- * 'substitutions' - A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
+-- * 'titleOverride' - The title or subject line of the message. If specified, this value overrides the default message title or subject line.
 -- * 'context' - A map of custom attributes to attach to the message for the address. Attribute names are case sensitive.
 --
 -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
 -- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
--- * 'substitutions' - A map of the message variables to merge with the variables specified for the default message (DefaultMessage.Substitutions). The variables specified in this map take precedence over all other variables.
--- * 'titleOverride' - The title or subject line of the message. If specified, this value overrides the default message title or subject line.
+-- * 'bodyOverride' - The body of the message. If specified, this value overrides the default message body.
 mkEndpointSendConfiguration ::
   EndpointSendConfiguration
 mkEndpointSendConfiguration =

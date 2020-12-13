@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,10 +59,10 @@ module Network.AWS.S3.PutBucketTagging
     mkPutBucketTagging,
 
     -- ** Request lenses
-    pbtContentMD5,
-    pbtExpectedBucketOwner,
     pbtBucket,
     pbtTagging,
+    pbtContentMD5,
+    pbtExpectedBucketOwner,
 
     -- * Destructuring the response
     PutBucketTaggingResponse (..),
@@ -77,29 +78,28 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketTagging' smart constructor.
 data PutBucketTagging = PutBucketTagging'
-  { contentMD5 ::
-      Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The bucket name.
     bucket :: BucketName,
-    tagging :: Tagging
+    -- | Container for the @TagSet@ and @Tag@ elements.
+    tagging :: Tagging,
+    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketTagging' with the minimum fields required to make a request.
 --
 -- * 'bucket' - The bucket name.
+-- * 'tagging' - Container for the @TagSet@ and @Tag@ elements.
 -- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'tagging' - Container for the @TagSet@ and @Tag@ elements.
 mkPutBucketTagging ::
   -- | 'bucket'
   BucketName ->
@@ -108,11 +108,25 @@ mkPutBucketTagging ::
   PutBucketTagging
 mkPutBucketTagging pBucket_ pTagging_ =
   PutBucketTagging'
-    { contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
-      tagging = pTagging_
+    { bucket = pBucket_,
+      tagging = pTagging_,
+      contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing
     }
+
+-- | The bucket name.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbtBucket :: Lens.Lens' PutBucketTagging BucketName
+pbtBucket = Lens.lens (bucket :: PutBucketTagging -> BucketName) (\s a -> s {bucket = a} :: PutBucketTagging)
+{-# DEPRECATED pbtBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Container for the @TagSet@ and @Tag@ elements.
+--
+-- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbtTagging :: Lens.Lens' PutBucketTagging Tagging
+pbtTagging = Lens.lens (tagging :: PutBucketTagging -> Tagging) (\s a -> s {tagging = a} :: PutBucketTagging)
+{-# DEPRECATED pbtTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
@@ -129,20 +143,6 @@ pbtContentMD5 = Lens.lens (contentMD5 :: PutBucketTagging -> Lude.Maybe Lude.Tex
 pbtExpectedBucketOwner :: Lens.Lens' PutBucketTagging (Lude.Maybe Lude.Text)
 pbtExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketTagging)
 {-# DEPRECATED pbtExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The bucket name.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbtBucket :: Lens.Lens' PutBucketTagging BucketName
-pbtBucket = Lens.lens (bucket :: PutBucketTagging -> BucketName) (\s a -> s {bucket = a} :: PutBucketTagging)
-{-# DEPRECATED pbtBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Container for the @TagSet@ and @Tag@ elements.
---
--- /Note:/ Consider using 'tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbtTagging :: Lens.Lens' PutBucketTagging Tagging
-pbtTagging = Lens.lens (tagging :: PutBucketTagging -> Tagging) (\s a -> s {tagging = a} :: PutBucketTagging)
-{-# DEPRECATED pbtTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
 
 instance Lude.AWSRequest PutBucketTagging where
   type Rs PutBucketTagging = PutBucketTaggingResponse
@@ -169,13 +169,7 @@ instance Lude.ToQuery PutBucketTagging where
 
 -- | /See:/ 'mkPutBucketTaggingResponse' smart constructor.
 data PutBucketTaggingResponse = PutBucketTaggingResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketTaggingResponse' with the minimum fields required to make a request.

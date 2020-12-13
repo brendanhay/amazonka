@@ -51,68 +51,72 @@ import Network.AWS.RDS.Types.RestoreWindow
 --
 -- /See:/ 'mkDBInstanceAutomatedBackup' smart constructor.
 data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
-  { restoreWindow ::
-      Lude.Maybe RestoreWindow,
+  { -- | Earliest and latest time an instance can be restored to.
+    restoreWindow :: Lude.Maybe RestoreWindow,
+    -- | The version of the database engine for the automated backup.
     engineVersion :: Lude.Maybe Lude.Text,
+    -- | Provides a list of status information for an automated backup:
+    --
+    --
+    --     * @active@ - automated backups for current instances
+    --
+    --
+    --     * @retained@ - automated backups for deleted instances
+    --
+    --
+    --     * @creating@ - automated backups that are waiting for the first automated snapshot to be available.
     status :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the automated backup.
     dbInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The license model of an automated backup.
     masterUsername :: Lude.Maybe Lude.Text,
-    iamDatabaseAuthenticationEnabled ::
-      Lude.Maybe Lude.Bool,
+    -- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+    iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
+    -- | The IOPS (I/O operations per second) value for the automated backup.
     iops :: Lude.Maybe Lude.Int,
+    -- | Provides the VPC ID associated with the DB instance
     vpcId :: Lude.Maybe Lude.Text,
-    instanceCreateTime ::
-      Lude.Maybe Lude.DateTime,
+    -- | Provides the date and time that the DB instance was created.
+    instanceCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | The name of the database engine for this automated backup.
     engine :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the automated backup is encrypted.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | License model information for the automated backup.
     licenseModel :: Lude.Maybe Lude.Text,
-    dbInstanceIdentifier ::
-      Lude.Maybe Lude.Text,
+    -- | The customer id of the instance that is/was associated with the automated backup.
+    dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The AWS KMS key ID for an automated backup. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
     kmsKeyId :: Lude.Maybe Lude.Text,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
+    -- | The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The AWS Region associated with the automated backup.
     region :: Lude.Maybe Lude.Text,
+    -- | Specifies the allocated storage size in gibibytes (GiB).
     allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
     dbiResourceId :: Lude.Maybe Lude.Text,
+    -- | The option group the automated backup is associated with. If omitted, the default option group for the engine specified is used.
     optionGroupName :: Lude.Maybe Lude.Text,
+    -- | The time zone of the automated backup. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
     timezone :: Lude.Maybe Lude.Text,
-    tdeCredentialARN ::
-      Lude.Maybe Lude.Text,
+    -- | The ARN from the key store with which the automated backup is associated for TDE encryption.
+    tdeCredentialARN :: Lude.Maybe Lude.Text,
+    -- | The port number that the automated backup used for connections.
+    --
+    -- Default: Inherits from the source DB instance
+    -- Valid Values: @1150-65535@
     port :: Lude.Maybe Lude.Int,
+    -- | Specifies the storage type associated with the automated backup.
     storageType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBInstanceAutomatedBackup' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
--- * 'availabilityZone' - The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
--- * 'dbInstanceARN' - The Amazon Resource Name (ARN) for the automated backup.
--- * 'dbInstanceIdentifier' - The customer id of the instance that is/was associated with the automated backup.
--- * 'dbiResourceId' - The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
--- * 'encrypted' - Specifies whether the automated backup is encrypted.
--- * 'engine' - The name of the database engine for this automated backup.
--- * 'engineVersion' - The version of the database engine for the automated backup.
--- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
--- * 'instanceCreateTime' - Provides the date and time that the DB instance was created.
--- * 'iops' - The IOPS (I/O operations per second) value for the automated backup.
--- * 'kmsKeyId' - The AWS KMS key ID for an automated backup. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
--- * 'licenseModel' - License model information for the automated backup.
--- * 'masterUsername' - The license model of an automated backup.
--- * 'optionGroupName' - The option group the automated backup is associated with. If omitted, the default option group for the engine specified is used.
--- * 'port' - The port number that the automated backup used for connections.
---
--- Default: Inherits from the source DB instance
--- Valid Values: @1150-65535@
--- * 'region' - The AWS Region associated with the automated backup.
 -- * 'restoreWindow' - Earliest and latest time an instance can be restored to.
+-- * 'engineVersion' - The version of the database engine for the automated backup.
 -- * 'status' - Provides a list of status information for an automated backup:
 --
 --
@@ -125,10 +129,29 @@ data DBInstanceAutomatedBackup = DBInstanceAutomatedBackup'
 --     * @creating@ - automated backups that are waiting for the first automated snapshot to be available.
 --
 --
--- * 'storageType' - Specifies the storage type associated with the automated backup.
--- * 'tdeCredentialARN' - The ARN from the key store with which the automated backup is associated for TDE encryption.
--- * 'timezone' - The time zone of the automated backup. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+-- * 'dbInstanceARN' - The Amazon Resource Name (ARN) for the automated backup.
+-- * 'masterUsername' - The license model of an automated backup.
+-- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+-- * 'iops' - The IOPS (I/O operations per second) value for the automated backup.
 -- * 'vpcId' - Provides the VPC ID associated with the DB instance
+-- * 'instanceCreateTime' - Provides the date and time that the DB instance was created.
+-- * 'engine' - The name of the database engine for this automated backup.
+-- * 'encrypted' - Specifies whether the automated backup is encrypted.
+-- * 'licenseModel' - License model information for the automated backup.
+-- * 'dbInstanceIdentifier' - The customer id of the instance that is/was associated with the automated backup.
+-- * 'kmsKeyId' - The AWS KMS key ID for an automated backup. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
+-- * 'availabilityZone' - The Availability Zone that the automated backup was created in. For information on AWS Regions and Availability Zones, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html Regions and Availability Zones> .
+-- * 'region' - The AWS Region associated with the automated backup.
+-- * 'allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
+-- * 'dbiResourceId' - The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
+-- * 'optionGroupName' - The option group the automated backup is associated with. If omitted, the default option group for the engine specified is used.
+-- * 'timezone' - The time zone of the automated backup. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for Microsoft SQL Server DB instances that were created with a time zone specified.
+-- * 'tdeCredentialARN' - The ARN from the key store with which the automated backup is associated for TDE encryption.
+-- * 'port' - The port number that the automated backup used for connections.
+--
+-- Default: Inherits from the source DB instance
+-- Valid Values: @1150-65535@
+-- * 'storageType' - Specifies the storage type associated with the automated backup.
 mkDBInstanceAutomatedBackup ::
   DBInstanceAutomatedBackup
 mkDBInstanceAutomatedBackup =

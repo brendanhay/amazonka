@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.APIGateway.UpdateMethod
     mkUpdateMethod,
 
     -- ** Request lenses
-    ummPatchOperations,
-    ummRestAPIId,
-    ummResourceId,
-    ummHttpMethod,
+    umfResourceId,
+    umfHttpMethod,
+    umfRestAPIId,
+    umfPatchOperations,
 
     -- * Destructuring the response
     Method (..),
@@ -53,70 +54,67 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateMethod' smart constructor.
 data UpdateMethod = UpdateMethod'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
-    restAPIId :: Lude.Text,
+  { -- | [Required] The 'Resource' identifier for the 'Method' resource.
     resourceId :: Lude.Text,
-    httpMethod :: Lude.Text
+    -- | [Required] The HTTP verb of the 'Method' resource.
+    httpMethod :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMethod' with the minimum fields required to make a request.
 --
--- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'resourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
+-- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateMethod ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'httpMethod'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateMethod
-mkUpdateMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkUpdateMethod pResourceId_ pHttpMethod_ pRestAPIId_ =
   UpdateMethod'
-    { patchOperations = Lude.Nothing,
+    { resourceId = pResourceId_,
+      httpMethod = pHttpMethod_,
       restAPIId = pRestAPIId_,
-      resourceId = pResourceId_,
-      httpMethod = pHttpMethod_
+      patchOperations = Lude.Nothing
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ummPatchOperations :: Lens.Lens' UpdateMethod (Lude.Maybe [PatchOperation])
-ummPatchOperations = Lens.lens (patchOperations :: UpdateMethod -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateMethod)
-{-# DEPRECATED ummPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ummRestAPIId :: Lens.Lens' UpdateMethod Lude.Text
-ummRestAPIId = Lens.lens (restAPIId :: UpdateMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateMethod)
-{-# DEPRECATED ummRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'Method' resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ummResourceId :: Lens.Lens' UpdateMethod Lude.Text
-ummResourceId = Lens.lens (resourceId :: UpdateMethod -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateMethod)
-{-# DEPRECATED ummResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+umfResourceId :: Lens.Lens' UpdateMethod Lude.Text
+umfResourceId = Lens.lens (resourceId :: UpdateMethod -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateMethod)
+{-# DEPRECATED umfResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] The HTTP verb of the 'Method' resource.
 --
 -- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ummHttpMethod :: Lens.Lens' UpdateMethod Lude.Text
-ummHttpMethod = Lens.lens (httpMethod :: UpdateMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: UpdateMethod)
-{-# DEPRECATED ummHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+umfHttpMethod :: Lens.Lens' UpdateMethod Lude.Text
+umfHttpMethod = Lens.lens (httpMethod :: UpdateMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: UpdateMethod)
+{-# DEPRECATED umfHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umfRestAPIId :: Lens.Lens' UpdateMethod Lude.Text
+umfRestAPIId = Lens.lens (restAPIId :: UpdateMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateMethod)
+{-# DEPRECATED umfRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umfPatchOperations :: Lens.Lens' UpdateMethod (Lude.Maybe [PatchOperation])
+umfPatchOperations = Lens.lens (patchOperations :: UpdateMethod -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateMethod)
+{-# DEPRECATED umfPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateMethod where
   type Rs UpdateMethod = Method

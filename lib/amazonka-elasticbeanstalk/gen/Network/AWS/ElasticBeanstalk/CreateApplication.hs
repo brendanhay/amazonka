@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     mkCreateApplication,
 
     -- ** Request lenses
+    caApplicationName,
     caResourceLifecycleConfig,
     caDescription,
     caTags,
-    caApplicationName,
 
     -- * Destructuring the response
     ApplicationDescriptionMessage (..),
@@ -43,26 +44,25 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { resourceLifecycleConfig ::
-      Lude.Maybe ApplicationResourceLifecycleConfig,
+  { -- | The name of the application. Must be unique within your account.
+    applicationName :: Lude.Text,
+    -- | Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+    resourceLifecycleConfig :: Lude.Maybe ApplicationResourceLifecycleConfig,
+    -- | Your description of the application.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    applicationName :: Lude.Text
+    -- | Specifies the tags applied to the application.
+    --
+    -- Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
 -- * 'applicationName' - The name of the application. Must be unique within your account.
--- * 'description' - Your description of the application.
 -- * 'resourceLifecycleConfig' - Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+-- * 'description' - Your description of the application.
 -- * 'tags' - Specifies the tags applied to the application.
 --
 -- Elastic Beanstalk applies these tags only to the application. Environments that you create in the application don't inherit the tags.
@@ -72,11 +72,18 @@ mkCreateApplication ::
   CreateApplication
 mkCreateApplication pApplicationName_ =
   CreateApplication'
-    { resourceLifecycleConfig = Lude.Nothing,
+    { applicationName = pApplicationName_,
+      resourceLifecycleConfig = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      applicationName = pApplicationName_
+      tags = Lude.Nothing
     }
+
+-- | The name of the application. Must be unique within your account.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caApplicationName :: Lens.Lens' CreateApplication Lude.Text
+caApplicationName = Lens.lens (applicationName :: CreateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplication)
+{-# DEPRECATED caApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
 --
@@ -101,13 +108,6 @@ caTags :: Lens.Lens' CreateApplication (Lude.Maybe [Tag])
 caTags = Lens.lens (tags :: CreateApplication -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApplication)
 {-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the application. Must be unique within your account.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caApplicationName :: Lens.Lens' CreateApplication Lude.Text
-caApplicationName = Lens.lens (applicationName :: CreateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplication)
-{-# DEPRECATED caApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
-
 instance Lude.AWSRequest CreateApplication where
   type Rs CreateApplication = ApplicationDescriptionMessage
   request = Req.postQuery elasticBeanstalkService
@@ -127,9 +127,9 @@ instance Lude.ToQuery CreateApplication where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateApplication" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ApplicationName" Lude.=: applicationName,
         "ResourceLifecycleConfig" Lude.=: resourceLifecycleConfig,
         "Description" Lude.=: description,
         "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "ApplicationName" Lude.=: applicationName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
       ]

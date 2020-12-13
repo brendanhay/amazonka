@@ -14,8 +14,8 @@ module Network.AWS.Route53.Types.InsufficientDataHealthStatus
   ( InsufficientDataHealthStatus
       ( InsufficientDataHealthStatus',
         Healthy,
-        LastKnownStatus,
-        Unhealthy
+        Unhealthy,
+        LastKnownStatus
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype InsufficientDataHealthStatus = InsufficientDataHealthStatus' Lude.Text
 pattern Healthy :: InsufficientDataHealthStatus
 pattern Healthy = InsufficientDataHealthStatus' "Healthy"
 
-pattern LastKnownStatus :: InsufficientDataHealthStatus
-pattern LastKnownStatus = InsufficientDataHealthStatus' "LastKnownStatus"
-
 pattern Unhealthy :: InsufficientDataHealthStatus
 pattern Unhealthy = InsufficientDataHealthStatus' "Unhealthy"
 
+pattern LastKnownStatus :: InsufficientDataHealthStatus
+pattern LastKnownStatus = InsufficientDataHealthStatus' "LastKnownStatus"
+
 {-# COMPLETE
   Healthy,
-  LastKnownStatus,
   Unhealthy,
+  LastKnownStatus,
   InsufficientDataHealthStatus'
   #-}

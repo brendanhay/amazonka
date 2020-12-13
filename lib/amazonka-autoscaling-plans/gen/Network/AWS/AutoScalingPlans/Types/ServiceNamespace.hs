@@ -14,10 +14,10 @@ module Network.AWS.AutoScalingPlans.Types.ServiceNamespace
   ( ServiceNamespace
       ( ServiceNamespace',
         Autoscaling,
-        Dynamodb,
-        EC2,
         Ecs,
-        RDS
+        EC2,
+        RDS,
+        Dynamodb
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype ServiceNamespace = ServiceNamespace' Lude.Text
 pattern Autoscaling :: ServiceNamespace
 pattern Autoscaling = ServiceNamespace' "autoscaling"
 
-pattern Dynamodb :: ServiceNamespace
-pattern Dynamodb = ServiceNamespace' "dynamodb"
+pattern Ecs :: ServiceNamespace
+pattern Ecs = ServiceNamespace' "ecs"
 
 pattern EC2 :: ServiceNamespace
 pattern EC2 = ServiceNamespace' "ec2"
 
-pattern Ecs :: ServiceNamespace
-pattern Ecs = ServiceNamespace' "ecs"
-
 pattern RDS :: ServiceNamespace
 pattern RDS = ServiceNamespace' "rds"
 
+pattern Dynamodb :: ServiceNamespace
+pattern Dynamodb = ServiceNamespace' "dynamodb"
+
 {-# COMPLETE
   Autoscaling,
-  Dynamodb,
-  EC2,
   Ecs,
+  EC2,
   RDS,
+  Dynamodb,
   ServiceNamespace'
   #-}

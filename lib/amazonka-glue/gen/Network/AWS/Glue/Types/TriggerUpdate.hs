@@ -34,28 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTriggerUpdate' smart constructor.
 data TriggerUpdate = TriggerUpdate'
-  { actions :: Lude.Maybe [Action],
+  { -- | The actions initiated by this trigger.
+    actions :: Lude.Maybe [Action],
+    -- | A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
     schedule :: Lude.Maybe Lude.Text,
+    -- | The predicate of this trigger, which defines when it will fire.
     predicate :: Lude.Maybe Predicate,
+    -- | Reserved for future use.
     name :: Lude.Maybe Lude.Text,
+    -- | A description of this trigger.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TriggerUpdate' with the minimum fields required to make a request.
 --
 -- * 'actions' - The actions initiated by this trigger.
--- * 'description' - A description of this trigger.
--- * 'name' - Reserved for future use.
--- * 'predicate' - The predicate of this trigger, which defines when it will fire.
 -- * 'schedule' - A @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+-- * 'predicate' - The predicate of this trigger, which defines when it will fire.
+-- * 'name' - Reserved for future use.
+-- * 'description' - A description of this trigger.
 mkTriggerUpdate ::
   TriggerUpdate
 mkTriggerUpdate =

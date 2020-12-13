@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEncryption' smart constructor.
 data Encryption = Encryption'
-  { encryptionType ::
-      Lude.Maybe EncryptionType,
+  { -- | The server-side encryption algorithm used when storing job results in Amazon S3, for example @AES256@ or @aws:kms@ .
+    encryptionType :: Lude.Maybe EncryptionType,
+    -- | The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | Optional. If the encryption type is @aws:kms@ , you can use this value to specify the encryption context for the job results.
     kmsContext :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Encryption' with the minimum fields required to make a request.
 --
 -- * 'encryptionType' - The server-side encryption algorithm used when storing job results in Amazon S3, for example @AES256@ or @aws:kms@ .
--- * 'kmsContext' - Optional. If the encryption type is @aws:kms@ , you can use this value to specify the encryption context for the job results.
 -- * 'kmsKeyId' - The AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or Signature Version 4.
+-- * 'kmsContext' - Optional. If the encryption type is @aws:kms@ , you can use this value to specify the encryption context for the job results.
 mkEncryption ::
   Encryption
 mkEncryption =

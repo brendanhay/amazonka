@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceStatusDetails' smart constructor.
 data InstanceStatusDetails = InstanceStatusDetails'
-  { status ::
-      Lude.Maybe StatusType,
+  { -- | The status.
+    status :: Lude.Maybe StatusType,
+    -- | The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
     impairedSince :: Lude.Maybe Lude.DateTime,
+    -- | The type of instance status.
     name :: Lude.Maybe StatusName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStatusDetails' with the minimum fields required to make a request.
 --
+-- * 'status' - The status.
 -- * 'impairedSince' - The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
 -- * 'name' - The type of instance status.
--- * 'status' - The status.
 mkInstanceStatusDetails ::
   InstanceStatusDetails
 mkInstanceStatusDetails =

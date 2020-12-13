@@ -13,9 +13,9 @@
 module Network.AWS.KMS.Types.AlgorithmSpec
   ( AlgorithmSpec
       ( AlgorithmSpec',
+        ASRsaesPKCS1V15,
         ASRsaesOaepSha1,
-        ASRsaesOaepSha256,
-        ASRsaesPKCS1V15
+        ASRsaesOaepSha256
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AlgorithmSpec = AlgorithmSpec' Lude.Text
       Lude.ToHeader
     )
 
+pattern ASRsaesPKCS1V15 :: AlgorithmSpec
+pattern ASRsaesPKCS1V15 = AlgorithmSpec' "RSAES_PKCS1_V1_5"
+
 pattern ASRsaesOaepSha1 :: AlgorithmSpec
 pattern ASRsaesOaepSha1 = AlgorithmSpec' "RSAES_OAEP_SHA_1"
 
 pattern ASRsaesOaepSha256 :: AlgorithmSpec
 pattern ASRsaesOaepSha256 = AlgorithmSpec' "RSAES_OAEP_SHA_256"
 
-pattern ASRsaesPKCS1V15 :: AlgorithmSpec
-pattern ASRsaesPKCS1V15 = AlgorithmSpec' "RSAES_PKCS1_V1_5"
-
 {-# COMPLETE
+  ASRsaesPKCS1V15,
   ASRsaesOaepSha1,
   ASRsaesOaepSha256,
-  ASRsaesPKCS1V15,
   AlgorithmSpec'
   #-}

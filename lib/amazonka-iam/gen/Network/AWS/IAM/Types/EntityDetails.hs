@@ -32,25 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityDetails' smart constructor.
 data EntityDetails = EntityDetails'
-  { lastAuthenticated ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.
+    --
+    -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+    lastAuthenticated :: Lude.Maybe Lude.DateTime,
+    -- | The @EntityInfo@ object that contains details about the entity (user or role).
     entityInfo :: EntityInfo
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityDetails' with the minimum fields required to make a request.
 --
--- * 'entityInfo' - The @EntityInfo@ object that contains details about the entity (user or role).
 -- * 'lastAuthenticated' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- * 'entityInfo' - The @EntityInfo@ object that contains details about the entity (user or role).
 mkEntityDetails ::
   -- | 'entityInfo'
   EntityInfo ->

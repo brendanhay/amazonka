@@ -29,16 +29,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheBehavior' smart constructor.
 newtype CacheBehavior = CacheBehavior'
-  { behavior ::
-      Lude.Maybe BehaviorEnum
+  { -- | The cache behavior of the distribution.
+    --
+    -- The following cache behaviors can be specified:
+    --
+    --     * __@cache@ __ - This option is best for static sites. When specified, your distribution caches and serves your entire website as static content. This behavior is ideal for websites with static content that doesn't change depending on who views it, or for websites that don't use cookies, headers, or query strings to personalize content.
+    --
+    --
+    --     * __@dont-cache@ __ - This option is best for sites that serve a mix of static and dynamic content. When specified, your distribution caches and serve only the content that is specified in the distribution's @CacheBehaviorPerPath@ parameter. This behavior is ideal for websites or web applications that use cookies, headers, and query strings to personalize content for individual users.
+    behavior :: Lude.Maybe BehaviorEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheBehavior' with the minimum fields required to make a request.

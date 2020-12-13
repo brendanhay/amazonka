@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkListener' smart constructor.
 data Listener = Listener'
-  { protocol :: Lude.Maybe Lude.Text,
+  { -- | The protocol that is used by the Listener.
+    protocol :: Lude.Maybe Lude.Text,
+    -- | The port that is used by the Listener.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Listener' with the minimum fields required to make a request.
 --
--- * 'port' - The port that is used by the Listener.
 -- * 'protocol' - The protocol that is used by the Listener.
+-- * 'port' - The port that is used by the Listener.
 mkListener ::
   Listener
 mkListener =

@@ -32,24 +32,30 @@ import Network.AWS.Snowball.Types.ShippingOption
 --
 -- /See:/ 'mkShippingDetails' smart constructor.
 data ShippingDetails = ShippingDetails'
-  { shippingOption ::
-      Lude.Maybe ShippingOption,
+  { -- | The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snow device from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
+    --
+    --
+    --     * In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.
+    --
+    --
+    --     * In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.
+    --
+    --
+    --     * In India, Snow device are delivered in one to seven days.
+    --
+    --
+    --     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
+    shippingOption :: Lude.Maybe ShippingOption,
+    -- | The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
     outboundShipment :: Lude.Maybe Shipment,
+    -- | The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
     inboundShipment :: Lude.Maybe Shipment
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShippingDetails' with the minimum fields required to make a request.
 --
--- * 'inboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
--- * 'outboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
 -- * 'shippingOption' - The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snow device from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
 --
 --
@@ -63,6 +69,10 @@ data ShippingDetails = ShippingDetails'
 --
 --
 --     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
+--
+--
+-- * 'outboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
+-- * 'inboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
 mkShippingDetails ::
   ShippingDetails
 mkShippingDetails =

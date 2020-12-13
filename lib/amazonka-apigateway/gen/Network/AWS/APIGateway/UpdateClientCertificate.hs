@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.UpdateClientCertificate
     mkUpdateClientCertificate,
 
     -- ** Request lenses
-    uccPatchOperations,
     uccClientCertificateId,
+    uccPatchOperations,
 
     -- * Destructuring the response
     ClientCertificate (..),
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateClientCertificate' smart constructor.
 data UpdateClientCertificate = UpdateClientCertificate'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
-    clientCertificateId :: Lude.Text
+  { -- | [Required] The identifier of the 'ClientCertificate' resource to be updated.
+    clientCertificateId :: Lude.Text,
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateClientCertificate' with the minimum fields required to make a request.
@@ -69,16 +65,10 @@ mkUpdateClientCertificate ::
   UpdateClientCertificate
 mkUpdateClientCertificate pClientCertificateId_ =
   UpdateClientCertificate'
-    { patchOperations = Lude.Nothing,
-      clientCertificateId = pClientCertificateId_
+    { clientCertificateId =
+        pClientCertificateId_,
+      patchOperations = Lude.Nothing
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccPatchOperations :: Lens.Lens' UpdateClientCertificate (Lude.Maybe [PatchOperation])
-uccPatchOperations = Lens.lens (patchOperations :: UpdateClientCertificate -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateClientCertificate)
-{-# DEPRECATED uccPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The identifier of the 'ClientCertificate' resource to be updated.
 --
@@ -86,6 +76,13 @@ uccPatchOperations = Lens.lens (patchOperations :: UpdateClientCertificate -> Lu
 uccClientCertificateId :: Lens.Lens' UpdateClientCertificate Lude.Text
 uccClientCertificateId = Lens.lens (clientCertificateId :: UpdateClientCertificate -> Lude.Text) (\s a -> s {clientCertificateId = a} :: UpdateClientCertificate)
 {-# DEPRECATED uccClientCertificateId "Use generic-lens or generic-optics with 'clientCertificateId' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccPatchOperations :: Lens.Lens' UpdateClientCertificate (Lude.Maybe [PatchOperation])
+uccPatchOperations = Lens.lens (patchOperations :: UpdateClientCertificate -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateClientCertificate)
+{-# DEPRECATED uccPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateClientCertificate where
   type Rs UpdateClientCertificate = ClientCertificate

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.MechanicalTurk.ListReviewPolicyResultsForHIT
     lrprfhitPolicyLevels,
     lrprfhitRetrieveActions,
     lrprfhitNextToken,
-    lrprfhitMaxResults,
     lrprfhitHITId,
+    lrprfhitMaxResults,
 
     -- * Destructuring the response
     ListReviewPolicyResultsForHITResponse (..),
@@ -49,35 +50,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListReviewPolicyResultsForHIT' smart constructor.
 data ListReviewPolicyResultsForHIT = ListReviewPolicyResultsForHIT'
-  { retrieveResults ::
-      Lude.Maybe Lude.Bool,
-    policyLevels ::
-      Lude.Maybe [ReviewPolicyLevel],
-    retrieveActions ::
-      Lude.Maybe Lude.Bool,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    hITId :: Lude.Text
+  { -- | Specify if the operation should retrieve a list of the results computed by the Review Policies.
+    retrieveResults :: Lude.Maybe Lude.Bool,
+    -- | The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
+    policyLevels :: Lude.Maybe [ReviewPolicyLevel],
+    -- | Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
+    retrieveActions :: Lude.Maybe Lude.Bool,
+    -- | Pagination token
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the HIT to retrieve review results for.
+    hITId :: Lude.Text,
+    -- | Limit the number of results returned.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewPolicyResultsForHIT' with the minimum fields required to make a request.
 --
--- * 'hITId' - The unique identifier of the HIT to retrieve review results for.
--- * 'maxResults' - Limit the number of results returned.
--- * 'nextToken' - Pagination token
+-- * 'retrieveResults' - Specify if the operation should retrieve a list of the results computed by the Review Policies.
 -- * 'policyLevels' - The Policy Level(s) to retrieve review results for - HIT or Assignment. If omitted, the default behavior is to retrieve all data for both policy levels. For a list of all the described policies, see Review Policies.
 -- * 'retrieveActions' - Specify if the operation should retrieve a list of the actions taken executing the Review Policies and their outcomes.
--- * 'retrieveResults' - Specify if the operation should retrieve a list of the results computed by the Review Policies.
+-- * 'nextToken' - Pagination token
+-- * 'hITId' - The unique identifier of the HIT to retrieve review results for.
+-- * 'maxResults' - Limit the number of results returned.
 mkListReviewPolicyResultsForHIT ::
   -- | 'hITId'
   Lude.Text ->
@@ -88,8 +84,8 @@ mkListReviewPolicyResultsForHIT pHITId_ =
       policyLevels = Lude.Nothing,
       retrieveActions = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      hITId = pHITId_
+      hITId = pHITId_,
+      maxResults = Lude.Nothing
     }
 
 -- | Specify if the operation should retrieve a list of the results computed by the Review Policies.
@@ -120,19 +116,19 @@ lrprfhitNextToken :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe Lude.T
 lrprfhitNextToken = Lens.lens (nextToken :: ListReviewPolicyResultsForHIT -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListReviewPolicyResultsForHIT)
 {-# DEPRECATED lrprfhitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Limit the number of results returned.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrprfhitMaxResults :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe Lude.Natural)
-lrprfhitMaxResults = Lens.lens (maxResults :: ListReviewPolicyResultsForHIT -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListReviewPolicyResultsForHIT)
-{-# DEPRECATED lrprfhitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The unique identifier of the HIT to retrieve review results for.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lrprfhitHITId :: Lens.Lens' ListReviewPolicyResultsForHIT Lude.Text
 lrprfhitHITId = Lens.lens (hITId :: ListReviewPolicyResultsForHIT -> Lude.Text) (\s a -> s {hITId = a} :: ListReviewPolicyResultsForHIT)
 {-# DEPRECATED lrprfhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
+
+-- | Limit the number of results returned.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrprfhitMaxResults :: Lens.Lens' ListReviewPolicyResultsForHIT (Lude.Maybe Lude.Natural)
+lrprfhitMaxResults = Lens.lens (maxResults :: ListReviewPolicyResultsForHIT -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListReviewPolicyResultsForHIT)
+{-# DEPRECATED lrprfhitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListReviewPolicyResultsForHIT where
   type
@@ -173,8 +169,8 @@ instance Lude.ToJSON ListReviewPolicyResultsForHIT where
             ("PolicyLevels" Lude..=) Lude.<$> policyLevels,
             ("RetrieveActions" Lude..=) Lude.<$> retrieveActions,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("HITId" Lude..= hITId)
+            Lude.Just ("HITId" Lude..= hITId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -186,44 +182,31 @@ instance Lude.ToQuery ListReviewPolicyResultsForHIT where
 
 -- | /See:/ 'mkListReviewPolicyResultsForHITResponse' smart constructor.
 data ListReviewPolicyResultsForHITResponse = ListReviewPolicyResultsForHITResponse'
-  { hITReviewPolicy ::
-      Lude.Maybe
-        ReviewPolicy,
-    hITReviewReport ::
-      Lude.Maybe
-        ReviewReport,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    assignmentReviewReport ::
-      Lude.Maybe
-        ReviewReport,
-    hITId ::
-      Lude.Maybe
-        Lude.Text,
-    assignmentReviewPolicy ::
-      Lude.Maybe
-        ReviewPolicy,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the HIT-level Review Policy. This contains only the PolicyName element.
+    hITReviewPolicy :: Lude.Maybe ReviewPolicy,
+    -- | Contains both ReviewResult and ReviewAction elements for a particular HIT.
+    hITReviewReport :: Lude.Maybe ReviewReport,
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Contains both ReviewResult and ReviewAction elements for an Assignment.
+    assignmentReviewReport :: Lude.Maybe ReviewReport,
+    -- | The HITId of the HIT for which results have been returned.
+    hITId :: Lude.Maybe Lude.Text,
+    -- | The name of the Assignment-level Review Policy. This contains only the PolicyName element.
+    assignmentReviewPolicy :: Lude.Maybe ReviewPolicy,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReviewPolicyResultsForHITResponse' with the minimum fields required to make a request.
 --
--- * 'assignmentReviewPolicy' - The name of the Assignment-level Review Policy. This contains only the PolicyName element.
--- * 'assignmentReviewReport' - Contains both ReviewResult and ReviewAction elements for an Assignment.
--- * 'hITId' - The HITId of the HIT for which results have been returned.
 -- * 'hITReviewPolicy' - The name of the HIT-level Review Policy. This contains only the PolicyName element.
 -- * 'hITReviewReport' - Contains both ReviewResult and ReviewAction elements for a particular HIT.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
+-- * 'assignmentReviewReport' - Contains both ReviewResult and ReviewAction elements for an Assignment.
+-- * 'hITId' - The HITId of the HIT for which results have been returned.
+-- * 'assignmentReviewPolicy' - The name of the Assignment-level Review Policy. This contains only the PolicyName element.
 -- * 'responseStatus' - The response status code.
 mkListReviewPolicyResultsForHITResponse ::
   -- | 'responseStatus'

@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssociatedTargetNetwork' smart constructor.
 data AssociatedTargetNetwork = AssociatedTargetNetwork'
-  { networkId ::
-      Lude.Maybe Lude.Text,
-    networkType ::
-      Lude.Maybe AssociatedNetworkType
+  { -- | The ID of the subnet.
+    networkId :: Lude.Maybe Lude.Text,
+    -- | The target network type.
+    networkType :: Lude.Maybe AssociatedNetworkType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociatedTargetNetwork' with the minimum fields required to make a request.

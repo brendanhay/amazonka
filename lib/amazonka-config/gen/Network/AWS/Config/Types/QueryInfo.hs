@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryInfo' smart constructor.
 newtype QueryInfo = QueryInfo'
-  { selectFields ::
-      Lude.Maybe [FieldInfo]
+  { -- | Returns a @FieldInfo@ object.
+    selectFields :: Lude.Maybe [FieldInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryInfo' with the minimum fields required to make a request.

@@ -13,22 +13,22 @@
 module Network.AWS.SMS.Types.AppReplicationStatus
   ( AppReplicationStatus
       ( AppReplicationStatus',
+        ARSReadyForConfiguration,
         ARSConfigurationInProgress,
         ARSConfigurationInvalid,
+        ARSReadyForReplication,
+        ARSValidationInProgress,
+        ARSReplicationPending,
+        ARSReplicationInProgress,
+        ARSReplicated,
+        ARSPartiallyReplicated,
+        ARSDeltaReplicationInProgress,
         ARSDeltaReplicated,
         ARSDeltaReplicationFailed,
-        ARSDeltaReplicationInProgress,
-        ARSPartiallyReplicated,
-        ARSReadyForConfiguration,
-        ARSReadyForReplication,
-        ARSReplicated,
         ARSReplicationFailed,
-        ARSReplicationInProgress,
-        ARSReplicationPending,
-        ARSReplicationStopFailed,
-        ARSReplicationStopped,
         ARSReplicationStopping,
-        ARSValidationInProgress
+        ARSReplicationStopFailed,
+        ARSReplicationStopped
       ),
   )
 where
@@ -59,11 +59,35 @@ newtype AppReplicationStatus = AppReplicationStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern ARSReadyForConfiguration :: AppReplicationStatus
+pattern ARSReadyForConfiguration = AppReplicationStatus' "READY_FOR_CONFIGURATION"
+
 pattern ARSConfigurationInProgress :: AppReplicationStatus
 pattern ARSConfigurationInProgress = AppReplicationStatus' "CONFIGURATION_IN_PROGRESS"
 
 pattern ARSConfigurationInvalid :: AppReplicationStatus
 pattern ARSConfigurationInvalid = AppReplicationStatus' "CONFIGURATION_INVALID"
+
+pattern ARSReadyForReplication :: AppReplicationStatus
+pattern ARSReadyForReplication = AppReplicationStatus' "READY_FOR_REPLICATION"
+
+pattern ARSValidationInProgress :: AppReplicationStatus
+pattern ARSValidationInProgress = AppReplicationStatus' "VALIDATION_IN_PROGRESS"
+
+pattern ARSReplicationPending :: AppReplicationStatus
+pattern ARSReplicationPending = AppReplicationStatus' "REPLICATION_PENDING"
+
+pattern ARSReplicationInProgress :: AppReplicationStatus
+pattern ARSReplicationInProgress = AppReplicationStatus' "REPLICATION_IN_PROGRESS"
+
+pattern ARSReplicated :: AppReplicationStatus
+pattern ARSReplicated = AppReplicationStatus' "REPLICATED"
+
+pattern ARSPartiallyReplicated :: AppReplicationStatus
+pattern ARSPartiallyReplicated = AppReplicationStatus' "PARTIALLY_REPLICATED"
+
+pattern ARSDeltaReplicationInProgress :: AppReplicationStatus
+pattern ARSDeltaReplicationInProgress = AppReplicationStatus' "DELTA_REPLICATION_IN_PROGRESS"
 
 pattern ARSDeltaReplicated :: AppReplicationStatus
 pattern ARSDeltaReplicated = AppReplicationStatus' "DELTA_REPLICATED"
@@ -71,29 +95,11 @@ pattern ARSDeltaReplicated = AppReplicationStatus' "DELTA_REPLICATED"
 pattern ARSDeltaReplicationFailed :: AppReplicationStatus
 pattern ARSDeltaReplicationFailed = AppReplicationStatus' "DELTA_REPLICATION_FAILED"
 
-pattern ARSDeltaReplicationInProgress :: AppReplicationStatus
-pattern ARSDeltaReplicationInProgress = AppReplicationStatus' "DELTA_REPLICATION_IN_PROGRESS"
-
-pattern ARSPartiallyReplicated :: AppReplicationStatus
-pattern ARSPartiallyReplicated = AppReplicationStatus' "PARTIALLY_REPLICATED"
-
-pattern ARSReadyForConfiguration :: AppReplicationStatus
-pattern ARSReadyForConfiguration = AppReplicationStatus' "READY_FOR_CONFIGURATION"
-
-pattern ARSReadyForReplication :: AppReplicationStatus
-pattern ARSReadyForReplication = AppReplicationStatus' "READY_FOR_REPLICATION"
-
-pattern ARSReplicated :: AppReplicationStatus
-pattern ARSReplicated = AppReplicationStatus' "REPLICATED"
-
 pattern ARSReplicationFailed :: AppReplicationStatus
 pattern ARSReplicationFailed = AppReplicationStatus' "REPLICATION_FAILED"
 
-pattern ARSReplicationInProgress :: AppReplicationStatus
-pattern ARSReplicationInProgress = AppReplicationStatus' "REPLICATION_IN_PROGRESS"
-
-pattern ARSReplicationPending :: AppReplicationStatus
-pattern ARSReplicationPending = AppReplicationStatus' "REPLICATION_PENDING"
+pattern ARSReplicationStopping :: AppReplicationStatus
+pattern ARSReplicationStopping = AppReplicationStatus' "REPLICATION_STOPPING"
 
 pattern ARSReplicationStopFailed :: AppReplicationStatus
 pattern ARSReplicationStopFailed = AppReplicationStatus' "REPLICATION_STOP_FAILED"
@@ -101,28 +107,22 @@ pattern ARSReplicationStopFailed = AppReplicationStatus' "REPLICATION_STOP_FAILE
 pattern ARSReplicationStopped :: AppReplicationStatus
 pattern ARSReplicationStopped = AppReplicationStatus' "REPLICATION_STOPPED"
 
-pattern ARSReplicationStopping :: AppReplicationStatus
-pattern ARSReplicationStopping = AppReplicationStatus' "REPLICATION_STOPPING"
-
-pattern ARSValidationInProgress :: AppReplicationStatus
-pattern ARSValidationInProgress = AppReplicationStatus' "VALIDATION_IN_PROGRESS"
-
 {-# COMPLETE
+  ARSReadyForConfiguration,
   ARSConfigurationInProgress,
   ARSConfigurationInvalid,
+  ARSReadyForReplication,
+  ARSValidationInProgress,
+  ARSReplicationPending,
+  ARSReplicationInProgress,
+  ARSReplicated,
+  ARSPartiallyReplicated,
+  ARSDeltaReplicationInProgress,
   ARSDeltaReplicated,
   ARSDeltaReplicationFailed,
-  ARSDeltaReplicationInProgress,
-  ARSPartiallyReplicated,
-  ARSReadyForConfiguration,
-  ARSReadyForReplication,
-  ARSReplicated,
   ARSReplicationFailed,
-  ARSReplicationInProgress,
-  ARSReplicationPending,
+  ARSReplicationStopping,
   ARSReplicationStopFailed,
   ARSReplicationStopped,
-  ARSReplicationStopping,
-  ARSValidationInProgress,
   AppReplicationStatus'
   #-}

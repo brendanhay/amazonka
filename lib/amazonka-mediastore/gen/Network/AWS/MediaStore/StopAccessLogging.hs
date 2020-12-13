@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.MediaStore.StopAccessLogging
     mkStopAccessLoggingResponse,
 
     -- ** Response lenses
-    salrsResponseStatus,
+    srsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopAccessLogging' smart constructor.
 newtype StopAccessLogging = StopAccessLogging'
-  { containerName ::
-      Lude.Text
+  { -- | The name of the container that you want to stop access logging on.
+    containerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAccessLogging' with the minimum fields required to make a request.
@@ -102,16 +97,10 @@ instance Lude.ToQuery StopAccessLogging where
 
 -- | /See:/ 'mkStopAccessLoggingResponse' smart constructor.
 newtype StopAccessLoggingResponse = StopAccessLoggingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopAccessLoggingResponse' with the minimum fields required to make a request.
@@ -127,6 +116,6 @@ mkStopAccessLoggingResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-salrsResponseStatus :: Lens.Lens' StopAccessLoggingResponse Lude.Int
-salrsResponseStatus = Lens.lens (responseStatus :: StopAccessLoggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopAccessLoggingResponse)
-{-# DEPRECATED salrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StopAccessLoggingResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopAccessLoggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopAccessLoggingResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

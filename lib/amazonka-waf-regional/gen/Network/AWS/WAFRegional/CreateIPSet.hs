@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,22 +58,18 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkCreateIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
-  { name :: Lude.Text,
+  { -- | A friendly name or description of the 'IPSet' . You can't change @Name@ after you create the @IPSet@ .
+    name :: Lude.Text,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'name' - A friendly name or description of the 'IPSet' . You can't change @Name@ after you create the @IPSet@ .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkCreateIPSet ::
   -- | 'name'
   Lude.Text ->
@@ -136,18 +133,14 @@ instance Lude.ToQuery CreateIPSet where
 
 -- | /See:/ 'mkCreateIPSetResponse' smart constructor.
 data CreateIPSetResponse = CreateIPSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The 'IPSet' returned in the @CreateIPSet@ response.
     ipSet :: Lude.Maybe IPSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPSetResponse' with the minimum fields required to make a request.

@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileSystemConfig' smart constructor.
 data FileSystemConfig = FileSystemConfig'
-  { arn :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+    arn :: Lude.Text,
+    -- | The path where the function can access the file system, starting with @/mnt/@ .
     localMountPath :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSystemConfig' with the minimum fields required to make a request.

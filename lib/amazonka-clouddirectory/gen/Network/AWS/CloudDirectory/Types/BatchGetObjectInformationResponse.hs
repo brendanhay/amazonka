@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchGetObjectInformationResponse' smart constructor.
 data BatchGetObjectInformationResponse = BatchGetObjectInformationResponse'
-  { objectIdentifier ::
-      Lude.Maybe Lude.Text,
-    schemaFacets ::
-      Lude.Maybe
-        [SchemaFacet]
+  { -- | The @ObjectIdentifier@ of the specified object.
+    objectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The facets attached to the specified object.
+    schemaFacets :: Lude.Maybe [SchemaFacet]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetObjectInformationResponse' with the minimum fields required to make a request.

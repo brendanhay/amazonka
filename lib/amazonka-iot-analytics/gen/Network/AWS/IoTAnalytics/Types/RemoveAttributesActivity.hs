@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemoveAttributesActivity' smart constructor.
 data RemoveAttributesActivity = RemoveAttributesActivity'
-  { next ::
-      Lude.Maybe Lude.Text,
+  { -- | The next activity in the pipeline.
+    next :: Lude.Maybe Lude.Text,
+    -- | The name of the @removeAttributes@ activity.
     name :: Lude.Text,
+    -- | A list of 1-50 attributes to remove from the message.
     attributes :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAttributesActivity' with the minimum fields required to make a request.
 --
--- * 'attributes' - A list of 1-50 attributes to remove from the message.
--- * 'name' - The name of the @removeAttributes@ activity.
 -- * 'next' - The next activity in the pipeline.
+-- * 'name' - The name of the @removeAttributes@ activity.
+-- * 'attributes' - A list of 1-50 attributes to remove from the message.
 mkRemoveAttributesActivity ::
   -- | 'name'
   Lude.Text ->

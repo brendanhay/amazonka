@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,24 +49,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBParameterGroups' smart constructor.
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
-  { filters ::
-      Lude.Maybe [Filter],
-    dbParameterGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | The name of a specific DB parameter group to return details for.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match the name of an existing DBClusterParameterGroup.
+    dbParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBParameterGroups' with the minimum fields required to make a request.
 --
+-- * 'filters' - This parameter isn't currently supported.
 -- * 'dbParameterGroupName' - The name of a specific DB parameter group to return details for.
 --
 -- Constraints:
@@ -73,7 +78,6 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
 --     * If supplied, must match the name of an existing DBClusterParameterGroup.
 --
 --
--- * 'filters' - This parameter isn't currently supported.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeDBParameterGroups@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
@@ -174,27 +178,20 @@ instance Lude.ToQuery DescribeDBParameterGroups where
 --
 -- /See:/ 'mkDescribeDBParameterGroupsResponse' smart constructor.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    dbParameterGroups ::
-      Lude.Maybe
-        [DBParameterGroup],
-    responseStatus ::
-      Lude.Int
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | A list of @DBParameterGroup@ instances.
+    dbParameterGroups :: Lude.Maybe [DBParameterGroup],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBParameterGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'dbParameterGroups' - A list of @DBParameterGroup@ instances.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'dbParameterGroups' - A list of @DBParameterGroup@ instances.
 -- * 'responseStatus' - The response status code.
 mkDescribeDBParameterGroupsResponse ::
   -- | 'responseStatus'

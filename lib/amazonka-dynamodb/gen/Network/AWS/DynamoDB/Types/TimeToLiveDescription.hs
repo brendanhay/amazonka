@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeToLiveDescription' smart constructor.
 data TimeToLiveDescription = TimeToLiveDescription'
-  { timeToLiveStatus ::
-      Lude.Maybe TimeToLiveStatus,
+  { -- | The TTL status for the table.
+    timeToLiveStatus :: Lude.Maybe TimeToLiveStatus,
+    -- | The name of the TTL attribute for items in the table.
     attributeName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeToLiveDescription' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the TTL attribute for items in the table.
 -- * 'timeToLiveStatus' - The TTL status for the table.
+-- * 'attributeName' - The name of the TTL attribute for items in the table.
 mkTimeToLiveDescription ::
   TimeToLiveDescription
 mkTimeToLiveDescription =

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleBackgroundColor
   ( BurninSubtitleBackgroundColor
       ( BurninSubtitleBackgroundColor',
-        BSBCBlack,
         BSBCNone,
+        BSBCBlack,
         BSBCWhite
       ),
   )
@@ -49,18 +49,18 @@ newtype BurninSubtitleBackgroundColor = BurninSubtitleBackgroundColor' Lude.Text
       Lude.ToHeader
     )
 
-pattern BSBCBlack :: BurninSubtitleBackgroundColor
-pattern BSBCBlack = BurninSubtitleBackgroundColor' "BLACK"
-
 pattern BSBCNone :: BurninSubtitleBackgroundColor
 pattern BSBCNone = BurninSubtitleBackgroundColor' "NONE"
+
+pattern BSBCBlack :: BurninSubtitleBackgroundColor
+pattern BSBCBlack = BurninSubtitleBackgroundColor' "BLACK"
 
 pattern BSBCWhite :: BurninSubtitleBackgroundColor
 pattern BSBCWhite = BurninSubtitleBackgroundColor' "WHITE"
 
 {-# COMPLETE
-  BSBCBlack,
   BSBCNone,
+  BSBCBlack,
   BSBCWhite,
   BurninSubtitleBackgroundColor'
   #-}

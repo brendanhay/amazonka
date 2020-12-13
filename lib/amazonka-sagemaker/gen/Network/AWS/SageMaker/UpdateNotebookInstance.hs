@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,6 +21,7 @@ module Network.AWS.SageMaker.UpdateNotebookInstance
 
     -- ** Request lenses
     uniAcceleratorTypes,
+    uniNotebookInstanceName,
     uniDisassociateAdditionalCodeRepositories,
     uniAdditionalCodeRepositories,
     uniLifecycleConfigName,
@@ -31,7 +33,6 @@ module Network.AWS.SageMaker.UpdateNotebookInstance
     uniRootAccess,
     uniDisassociateAcceleratorTypes,
     uniRoleARN,
-    uniNotebookInstanceName,
 
     -- * Destructuring the response
     UpdateNotebookInstanceResponse (..),
@@ -50,50 +51,51 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateNotebookInstance' smart constructor.
 data UpdateNotebookInstance = UpdateNotebookInstance'
-  { acceleratorTypes ::
-      Lude.Maybe [NotebookInstanceAcceleratorType],
-    disassociateAdditionalCodeRepositories ::
-      Lude.Maybe Lude.Bool,
-    additionalCodeRepositories ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of the Elastic Inference (EI) instance types to associate with this notebook instance. Currently only one EI instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
+    acceleratorTypes :: Lude.Maybe [NotebookInstanceAcceleratorType],
+    -- | The name of the notebook instance to update.
+    notebookInstanceName :: Lude.Text,
+    -- | A list of names or URLs of the default Git repositories to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.
+    disassociateAdditionalCodeRepositories :: Lude.Maybe Lude.Bool,
+    -- | An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+    additionalCodeRepositories :: Lude.Maybe [Lude.Text],
+    -- | The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
     lifecycleConfigName :: Lude.Maybe Lude.Text,
-    disassociateLifecycleConfig ::
-      Lude.Maybe Lude.Bool,
-    disassociateDefaultCodeRepository ::
-      Lude.Maybe Lude.Bool,
+    -- | Set to @true@ to remove the notebook instance lifecycle configuration currently associated with the notebook instance. This operation is idempotent. If you specify a lifecycle configuration that is not associated with the notebook instance when you call this method, it does not throw an error.
+    disassociateLifecycleConfig :: Lude.Maybe Lude.Bool,
+    -- | The name or URL of the default Git repository to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.
+    disassociateDefaultCodeRepository :: Lude.Maybe Lude.Bool,
+    -- | The Amazon ML compute instance type.
     instanceType :: Lude.Maybe InstanceType,
+    -- | The Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
     defaultCodeRepository :: Lude.Maybe Lude.Text,
+    -- | The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB. ML storage volumes are encrypted, so Amazon SageMaker can't determine the amount of available free space on the volume. Because of this, you can increase the volume size when you update a notebook instance, but you can't decrease the volume size. If you want to decrease the size of the ML storage volume in use, create a new notebook instance with the desired size.
     volumeSizeInGB :: Lude.Maybe Lude.Natural,
+    -- | Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
     rootAccess :: Lude.Maybe RootAccess,
-    disassociateAcceleratorTypes ::
-      Lude.Maybe Lude.Bool,
-    roleARN :: Lude.Maybe Lude.Text,
-    notebookInstanceName :: Lude.Text
+    -- | A list of the Elastic Inference (EI) instance types to remove from this notebook instance. This operation is idempotent. If you specify an accelerator type that is not associated with the notebook instance when you call this method, it does not throw an error.
+    disassociateAcceleratorTypes :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotebookInstance' with the minimum fields required to make a request.
 --
 -- * 'acceleratorTypes' - A list of the Elastic Inference (EI) instance types to associate with this notebook instance. Currently only one EI instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
--- * 'additionalCodeRepositories' - An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
--- * 'defaultCodeRepository' - The Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
--- * 'disassociateAcceleratorTypes' - A list of the Elastic Inference (EI) instance types to remove from this notebook instance. This operation is idempotent. If you specify an accelerator type that is not associated with the notebook instance when you call this method, it does not throw an error.
--- * 'disassociateAdditionalCodeRepositories' - A list of names or URLs of the default Git repositories to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.
--- * 'disassociateDefaultCodeRepository' - The name or URL of the default Git repository to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.
--- * 'disassociateLifecycleConfig' - Set to @true@ to remove the notebook instance lifecycle configuration currently associated with the notebook instance. This operation is idempotent. If you specify a lifecycle configuration that is not associated with the notebook instance when you call this method, it does not throw an error.
--- * 'instanceType' - The Amazon ML compute instance type.
--- * 'lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
 -- * 'notebookInstanceName' - The name of the notebook instance to update.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
--- * 'rootAccess' - Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
+-- * 'disassociateAdditionalCodeRepositories' - A list of names or URLs of the default Git repositories to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.
+-- * 'additionalCodeRepositories' - An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+-- * 'lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
+-- * 'disassociateLifecycleConfig' - Set to @true@ to remove the notebook instance lifecycle configuration currently associated with the notebook instance. This operation is idempotent. If you specify a lifecycle configuration that is not associated with the notebook instance when you call this method, it does not throw an error.
+-- * 'disassociateDefaultCodeRepository' - The name or URL of the default Git repository to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.
+-- * 'instanceType' - The Amazon ML compute instance type.
+-- * 'defaultCodeRepository' - The Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
 -- * 'volumeSizeInGB' - The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB. ML storage volumes are encrypted, so Amazon SageMaker can't determine the amount of available free space on the volume. Because of this, you can increase the volume size when you update a notebook instance, but you can't decrease the volume size. If you want to decrease the size of the ML storage volume in use, create a new notebook instance with the desired size.
+-- * 'rootAccess' - Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
+-- * 'disassociateAcceleratorTypes' - A list of the Elastic Inference (EI) instance types to remove from this notebook instance. This operation is idempotent. If you specify an accelerator type that is not associated with the notebook instance when you call this method, it does not throw an error.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access the notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
 mkUpdateNotebookInstance ::
   -- | 'notebookInstanceName'
   Lude.Text ->
@@ -101,6 +103,7 @@ mkUpdateNotebookInstance ::
 mkUpdateNotebookInstance pNotebookInstanceName_ =
   UpdateNotebookInstance'
     { acceleratorTypes = Lude.Nothing,
+      notebookInstanceName = pNotebookInstanceName_,
       disassociateAdditionalCodeRepositories = Lude.Nothing,
       additionalCodeRepositories = Lude.Nothing,
       lifecycleConfigName = Lude.Nothing,
@@ -111,8 +114,7 @@ mkUpdateNotebookInstance pNotebookInstanceName_ =
       volumeSizeInGB = Lude.Nothing,
       rootAccess = Lude.Nothing,
       disassociateAcceleratorTypes = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      notebookInstanceName = pNotebookInstanceName_
+      roleARN = Lude.Nothing
     }
 
 -- | A list of the Elastic Inference (EI) instance types to associate with this notebook instance. Currently only one EI instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
@@ -121,6 +123,13 @@ mkUpdateNotebookInstance pNotebookInstanceName_ =
 uniAcceleratorTypes :: Lens.Lens' UpdateNotebookInstance (Lude.Maybe [NotebookInstanceAcceleratorType])
 uniAcceleratorTypes = Lens.lens (acceleratorTypes :: UpdateNotebookInstance -> Lude.Maybe [NotebookInstanceAcceleratorType]) (\s a -> s {acceleratorTypes = a} :: UpdateNotebookInstance)
 {-# DEPRECATED uniAcceleratorTypes "Use generic-lens or generic-optics with 'acceleratorTypes' instead." #-}
+
+-- | The name of the notebook instance to update.
+--
+-- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uniNotebookInstanceName :: Lens.Lens' UpdateNotebookInstance Lude.Text
+uniNotebookInstanceName = Lens.lens (notebookInstanceName :: UpdateNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: UpdateNotebookInstance)
+{-# DEPRECATED uniNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
 
 -- | A list of names or URLs of the default Git repositories to remove from this notebook instance. This operation is idempotent. If you specify a Git repository that is not associated with the notebook instance when you call this method, it does not throw an error.
 --
@@ -199,13 +208,6 @@ uniRoleARN :: Lens.Lens' UpdateNotebookInstance (Lude.Maybe Lude.Text)
 uniRoleARN = Lens.lens (roleARN :: UpdateNotebookInstance -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateNotebookInstance)
 {-# DEPRECATED uniRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | The name of the notebook instance to update.
---
--- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uniNotebookInstanceName :: Lens.Lens' UpdateNotebookInstance Lude.Text
-uniNotebookInstanceName = Lens.lens (notebookInstanceName :: UpdateNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: UpdateNotebookInstance)
-{-# DEPRECATED uniNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
-
 instance Lude.AWSRequest UpdateNotebookInstance where
   type Rs UpdateNotebookInstance = UpdateNotebookInstanceResponse
   request = Req.postJSON sageMakerService
@@ -232,6 +234,7 @@ instance Lude.ToJSON UpdateNotebookInstance where
     Lude.object
       ( Lude.catMaybes
           [ ("AcceleratorTypes" Lude..=) Lude.<$> acceleratorTypes,
+            Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName),
             ("DisassociateAdditionalCodeRepositories" Lude..=)
               Lude.<$> disassociateAdditionalCodeRepositories,
             ("AdditionalCodeRepositories" Lude..=)
@@ -247,8 +250,7 @@ instance Lude.ToJSON UpdateNotebookInstance where
             ("RootAccess" Lude..=) Lude.<$> rootAccess,
             ("DisassociateAcceleratorTypes" Lude..=)
               Lude.<$> disassociateAcceleratorTypes,
-            ("RoleArn" Lude..=) Lude.<$> roleARN,
-            Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName)
+            ("RoleArn" Lude..=) Lude.<$> roleARN
           ]
       )
 
@@ -260,16 +262,10 @@ instance Lude.ToQuery UpdateNotebookInstance where
 
 -- | /See:/ 'mkUpdateNotebookInstanceResponse' smart constructor.
 newtype UpdateNotebookInstanceResponse = UpdateNotebookInstanceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotebookInstanceResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,13 +21,13 @@ module Network.AWS.CognitoIdentityProvider.ConfirmSignUp
 
     -- ** Request lenses
     csuClientMetadata,
+    csuClientId,
     csuForceAliasCreation,
+    csuConfirmationCode,
     csuAnalyticsMetadata,
     csuUserContextData,
-    csuSecretHash,
-    csuClientId,
     csuUsername,
-    csuConfirmationCode,
+    csuSecretHash,
 
     -- * Destructuring the response
     ConfirmSignUpResponse (..),
@@ -47,50 +48,60 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkConfirmSignUp' smart constructor.
 data ConfirmSignUp = ConfirmSignUp'
-  { clientMetadata ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    forceAliasCreation :: Lude.Maybe Lude.Bool,
-    analyticsMetadata :: Lude.Maybe AnalyticsMetadataType,
-    userContextData :: Lude.Maybe UserContextDataType,
-    secretHash :: Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmSignUp API action, Amazon Cognito invokes the function that is assigned to the /post confirmation/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmSignUp request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The ID of the app client associated with the user pool.
     clientId :: Lude.Sensitive Lude.Text,
+    -- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to @False@ . If this parameter is set to @True@ and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to @False@ , the API will throw an __AliasExistsException__ error.
+    forceAliasCreation :: Lude.Maybe Lude.Bool,
+    -- | The confirmation code sent by a user's request to confirm registration.
+    confirmationCode :: Lude.Text,
+    -- | The Amazon Pinpoint analytics metadata for collecting metrics for @ConfirmSignUp@ calls.
+    analyticsMetadata :: Lude.Maybe AnalyticsMetadataType,
+    -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+    userContextData :: Lude.Maybe UserContextDataType,
+    -- | The user name of the user whose registration you wish to confirm.
     username :: Lude.Sensitive Lude.Text,
-    confirmationCode :: Lude.Text
+    -- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
+    secretHash :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmSignUp' with the minimum fields required to make a request.
 --
--- * 'analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @ConfirmSignUp@ calls.
--- * 'clientId' - The ID of the app client associated with the user pool.
 -- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
 -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmSignUp API action, Amazon Cognito invokes the function that is assigned to the /post confirmation/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmSignUp request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
--- * 'confirmationCode' - The confirmation code sent by a user's request to confirm registration.
+-- * 'clientId' - The ID of the app client associated with the user pool.
 -- * 'forceAliasCreation' - Boolean to be specified to force user confirmation irrespective of existing alias. By default set to @False@ . If this parameter is set to @True@ and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to @False@ , the API will throw an __AliasExistsException__ error.
--- * 'secretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
+-- * 'confirmationCode' - The confirmation code sent by a user's request to confirm registration.
+-- * 'analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for @ConfirmSignUp@ calls.
 -- * 'userContextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
 -- * 'username' - The user name of the user whose registration you wish to confirm.
+-- * 'secretHash' - A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 mkConfirmSignUp ::
   -- | 'clientId'
   Lude.Sensitive Lude.Text ->
-  -- | 'username'
-  Lude.Sensitive Lude.Text ->
   -- | 'confirmationCode'
   Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   ConfirmSignUp
-mkConfirmSignUp pClientId_ pUsername_ pConfirmationCode_ =
+mkConfirmSignUp pClientId_ pConfirmationCode_ pUsername_ =
   ConfirmSignUp'
     { clientMetadata = Lude.Nothing,
+      clientId = pClientId_,
       forceAliasCreation = Lude.Nothing,
+      confirmationCode = pConfirmationCode_,
       analyticsMetadata = Lude.Nothing,
       userContextData = Lude.Nothing,
-      secretHash = Lude.Nothing,
-      clientId = pClientId_,
       username = pUsername_,
-      confirmationCode = pConfirmationCode_
+      secretHash = Lude.Nothing
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
@@ -103,12 +114,26 @@ csuClientMetadata :: Lens.Lens' ConfirmSignUp (Lude.Maybe (Lude.HashMap Lude.Tex
 csuClientMetadata = Lens.lens (clientMetadata :: ConfirmSignUp -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: ConfirmSignUp)
 {-# DEPRECATED csuClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
+-- | The ID of the app client associated with the user pool.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csuClientId :: Lens.Lens' ConfirmSignUp (Lude.Sensitive Lude.Text)
+csuClientId = Lens.lens (clientId :: ConfirmSignUp -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: ConfirmSignUp)
+{-# DEPRECATED csuClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
 -- | Boolean to be specified to force user confirmation irrespective of existing alias. By default set to @False@ . If this parameter is set to @True@ and the phone number/email used for sign up confirmation already exists as an alias with a different user, the API call will migrate the alias from the previous user to the newly created user being confirmed. If set to @False@ , the API will throw an __AliasExistsException__ error.
 --
 -- /Note:/ Consider using 'forceAliasCreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 csuForceAliasCreation :: Lens.Lens' ConfirmSignUp (Lude.Maybe Lude.Bool)
 csuForceAliasCreation = Lens.lens (forceAliasCreation :: ConfirmSignUp -> Lude.Maybe Lude.Bool) (\s a -> s {forceAliasCreation = a} :: ConfirmSignUp)
 {-# DEPRECATED csuForceAliasCreation "Use generic-lens or generic-optics with 'forceAliasCreation' instead." #-}
+
+-- | The confirmation code sent by a user's request to confirm registration.
+--
+-- /Note:/ Consider using 'confirmationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csuConfirmationCode :: Lens.Lens' ConfirmSignUp Lude.Text
+csuConfirmationCode = Lens.lens (confirmationCode :: ConfirmSignUp -> Lude.Text) (\s a -> s {confirmationCode = a} :: ConfirmSignUp)
+{-# DEPRECATED csuConfirmationCode "Use generic-lens or generic-optics with 'confirmationCode' instead." #-}
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for @ConfirmSignUp@ calls.
 --
@@ -124,20 +149,6 @@ csuUserContextData :: Lens.Lens' ConfirmSignUp (Lude.Maybe UserContextDataType)
 csuUserContextData = Lens.lens (userContextData :: ConfirmSignUp -> Lude.Maybe UserContextDataType) (\s a -> s {userContextData = a} :: ConfirmSignUp)
 {-# DEPRECATED csuUserContextData "Use generic-lens or generic-optics with 'userContextData' instead." #-}
 
--- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
---
--- /Note:/ Consider using 'secretHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuSecretHash :: Lens.Lens' ConfirmSignUp (Lude.Maybe (Lude.Sensitive Lude.Text))
-csuSecretHash = Lens.lens (secretHash :: ConfirmSignUp -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretHash = a} :: ConfirmSignUp)
-{-# DEPRECATED csuSecretHash "Use generic-lens or generic-optics with 'secretHash' instead." #-}
-
--- | The ID of the app client associated with the user pool.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuClientId :: Lens.Lens' ConfirmSignUp (Lude.Sensitive Lude.Text)
-csuClientId = Lens.lens (clientId :: ConfirmSignUp -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: ConfirmSignUp)
-{-# DEPRECATED csuClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
 -- | The user name of the user whose registration you wish to confirm.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -145,12 +156,12 @@ csuUsername :: Lens.Lens' ConfirmSignUp (Lude.Sensitive Lude.Text)
 csuUsername = Lens.lens (username :: ConfirmSignUp -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: ConfirmSignUp)
 {-# DEPRECATED csuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
--- | The confirmation code sent by a user's request to confirm registration.
+-- | A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.
 --
--- /Note:/ Consider using 'confirmationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuConfirmationCode :: Lens.Lens' ConfirmSignUp Lude.Text
-csuConfirmationCode = Lens.lens (confirmationCode :: ConfirmSignUp -> Lude.Text) (\s a -> s {confirmationCode = a} :: ConfirmSignUp)
-{-# DEPRECATED csuConfirmationCode "Use generic-lens or generic-optics with 'confirmationCode' instead." #-}
+-- /Note:/ Consider using 'secretHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csuSecretHash :: Lens.Lens' ConfirmSignUp (Lude.Maybe (Lude.Sensitive Lude.Text))
+csuSecretHash = Lens.lens (secretHash :: ConfirmSignUp -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretHash = a} :: ConfirmSignUp)
+{-# DEPRECATED csuSecretHash "Use generic-lens or generic-optics with 'secretHash' instead." #-}
 
 instance Lude.AWSRequest ConfirmSignUp where
   type Rs ConfirmSignUp = ConfirmSignUpResponse
@@ -179,13 +190,13 @@ instance Lude.ToJSON ConfirmSignUp where
     Lude.object
       ( Lude.catMaybes
           [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
+            Lude.Just ("ClientId" Lude..= clientId),
             ("ForceAliasCreation" Lude..=) Lude.<$> forceAliasCreation,
+            Lude.Just ("ConfirmationCode" Lude..= confirmationCode),
             ("AnalyticsMetadata" Lude..=) Lude.<$> analyticsMetadata,
             ("UserContextData" Lude..=) Lude.<$> userContextData,
-            ("SecretHash" Lude..=) Lude.<$> secretHash,
-            Lude.Just ("ClientId" Lude..= clientId),
             Lude.Just ("Username" Lude..= username),
-            Lude.Just ("ConfirmationCode" Lude..= confirmationCode)
+            ("SecretHash" Lude..=) Lude.<$> secretHash
           ]
       )
 
@@ -199,16 +210,10 @@ instance Lude.ToQuery ConfirmSignUp where
 --
 -- /See:/ 'mkConfirmSignUpResponse' smart constructor.
 newtype ConfirmSignUpResponse = ConfirmSignUpResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmSignUpResponse' with the minimum fields required to make a request.

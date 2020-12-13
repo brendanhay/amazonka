@@ -33,32 +33,33 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkUserGroup' smart constructor.
 data UserGroup = UserGroup'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+    status :: Lude.Maybe Lude.Text,
+    -- | The list of user IDs that belong to the user group.
     userIds :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the user group.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the user group.
     userGroupId :: Lude.Maybe Lude.Text,
+    -- | Must be Redis.
     engine :: Lude.Maybe Lude.Text,
+    -- | A list of updates being applied to the user groups.
     pendingChanges :: Lude.Maybe UserGroupPendingChanges,
+    -- | A list of replication groups that the user group can access.
     replicationGroups :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserGroup' with the minimum fields required to make a request.
 --
+-- * 'status' - Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+-- * 'userIds' - The list of user IDs that belong to the user group.
 -- * 'arn' - The Amazon Resource Name (ARN) of the user group.
+-- * 'userGroupId' - The ID of the user group.
 -- * 'engine' - Must be Redis.
 -- * 'pendingChanges' - A list of updates being applied to the user groups.
 -- * 'replicationGroups' - A list of replication groups that the user group can access.
--- * 'status' - Indicates user group status. Can be "creating", "active", "modifying", "deleting".
--- * 'userGroupId' - The ID of the user group.
--- * 'userIds' - The list of user IDs that belong to the user group.
 mkUserGroup ::
   UserGroup
 mkUserGroup =

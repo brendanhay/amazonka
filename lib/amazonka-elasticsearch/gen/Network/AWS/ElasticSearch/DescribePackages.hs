@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,25 +45,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribePackages' smart constructor.
 data DescribePackages = DescribePackages'
-  { filters ::
-      Lude.Maybe [DescribePackagesFilter],
+  { -- | Only returns packages that match the @DescribePackagesFilterList@ values.
+    filters :: Lude.Maybe [DescribePackagesFilter],
+    -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Limits results to a maximum number of packages.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePackages' with the minimum fields required to make a request.
 --
 -- * 'filters' - Only returns packages that match the @DescribePackagesFilterList@ values.
--- * 'maxResults' - Limits results to a maximum number of packages.
 -- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+-- * 'maxResults' - Limits results to a maximum number of packages.
 mkDescribePackages ::
   DescribePackages
 mkDescribePackages =
@@ -128,24 +125,19 @@ instance Lude.ToQuery DescribePackages where
 --
 -- /See:/ 'mkDescribePackagesResponse' smart constructor.
 data DescribePackagesResponse = DescribePackagesResponse'
-  { packageDetailsList ::
-      Lude.Maybe [PackageDetails],
+  { -- | List of @PackageDetails@ objects.
+    packageDetailsList :: Lude.Maybe [PackageDetails],
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePackagesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
 -- * 'packageDetailsList' - List of @PackageDetails@ objects.
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkDescribePackagesResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,37 +46,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListVirtualInterfaceTestHistory' smart constructor.
 data ListVirtualInterfaceTestHistory = ListVirtualInterfaceTestHistory'
-  { bgpPeers ::
-      Lude.Maybe [Lude.Text],
-    status ::
-      Lude.Maybe Lude.Text,
-    testId ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Int,
-    virtualInterfaceId ::
-      Lude.Maybe Lude.Text
+  { -- | The BGP peers that were placed in the DOWN state during the virtual interface failover test.
+    bgpPeers :: Lude.Maybe [Lude.Text],
+    -- | The status of the virtual interface failover test.
+    status :: Lude.Maybe Lude.Text,
+    -- | The ID of the virtual interface failover test.
+    testId :: Lude.Maybe Lude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    --
+    -- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+    maxResults :: Lude.Maybe Lude.Int,
+    -- | The ID of the virtual interface that was tested.
+    virtualInterfaceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVirtualInterfaceTestHistory' with the minimum fields required to make a request.
 --
 -- * 'bgpPeers' - The BGP peers that were placed in the DOWN state during the virtual interface failover test.
+-- * 'status' - The status of the virtual interface failover test.
+-- * 'testId' - The ID of the virtual interface failover test.
+-- * 'nextToken' - The token for the next page of results.
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
--- * 'nextToken' - The token for the next page of results.
--- * 'status' - The status of the virtual interface failover test.
--- * 'testId' - The ID of the virtual interface failover test.
 -- * 'virtualInterfaceId' - The ID of the virtual interface that was tested.
 mkListVirtualInterfaceTestHistory ::
   ListVirtualInterfaceTestHistory
@@ -181,29 +178,21 @@ instance Lude.ToQuery ListVirtualInterfaceTestHistory where
 
 -- | /See:/ 'mkListVirtualInterfaceTestHistoryResponse' smart constructor.
 data ListVirtualInterfaceTestHistoryResponse = ListVirtualInterfaceTestHistoryResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    virtualInterfaceTestHistory ::
-      Lude.Maybe
-        [VirtualInterfaceTestHistory],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the tested virtual interface.
+    virtualInterfaceTestHistory :: Lude.Maybe [VirtualInterfaceTestHistory],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVirtualInterfaceTestHistoryResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'virtualInterfaceTestHistory' - The ID of the tested virtual interface.
+-- * 'responseStatus' - The response status code.
 mkListVirtualInterfaceTestHistoryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -14,10 +14,10 @@ module Network.AWS.Config.Types.ConfigurationItemStatus
   ( ConfigurationItemStatus
       ( ConfigurationItemStatus',
         OK,
-        ResourceDeleted,
-        ResourceDeletedNotRecorded,
         ResourceDiscovered,
-        ResourceNotRecorded
+        ResourceNotRecorded,
+        ResourceDeleted,
+        ResourceDeletedNotRecorded
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype ConfigurationItemStatus = ConfigurationItemStatus' Lude.Text
 pattern OK :: ConfigurationItemStatus
 pattern OK = ConfigurationItemStatus' "OK"
 
-pattern ResourceDeleted :: ConfigurationItemStatus
-pattern ResourceDeleted = ConfigurationItemStatus' "ResourceDeleted"
-
-pattern ResourceDeletedNotRecorded :: ConfigurationItemStatus
-pattern ResourceDeletedNotRecorded = ConfigurationItemStatus' "ResourceDeletedNotRecorded"
-
 pattern ResourceDiscovered :: ConfigurationItemStatus
 pattern ResourceDiscovered = ConfigurationItemStatus' "ResourceDiscovered"
 
 pattern ResourceNotRecorded :: ConfigurationItemStatus
 pattern ResourceNotRecorded = ConfigurationItemStatus' "ResourceNotRecorded"
 
+pattern ResourceDeleted :: ConfigurationItemStatus
+pattern ResourceDeleted = ConfigurationItemStatus' "ResourceDeleted"
+
+pattern ResourceDeletedNotRecorded :: ConfigurationItemStatus
+pattern ResourceDeletedNotRecorded = ConfigurationItemStatus' "ResourceDeletedNotRecorded"
+
 {-# COMPLETE
   OK,
-  ResourceDeleted,
-  ResourceDeletedNotRecorded,
   ResourceDiscovered,
   ResourceNotRecorded,
+  ResourceDeleted,
+  ResourceDeletedNotRecorded,
   ConfigurationItemStatus'
   #-}

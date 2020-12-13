@@ -13,12 +13,12 @@
 module Network.AWS.CostExplorer.Types.PaymentOption
   ( PaymentOption
       ( PaymentOption',
+        NoUpfront,
+        PartialUpfront,
         AllUpfront,
-        HeavyUtilization,
         LightUtilization,
         MediumUtilization,
-        NoUpfront,
-        PartialUpfront
+        HeavyUtilization
       ),
   )
 where
@@ -49,11 +49,14 @@ newtype PaymentOption = PaymentOption' Lude.Text
       Lude.ToHeader
     )
 
+pattern NoUpfront :: PaymentOption
+pattern NoUpfront = PaymentOption' "NO_UPFRONT"
+
+pattern PartialUpfront :: PaymentOption
+pattern PartialUpfront = PaymentOption' "PARTIAL_UPFRONT"
+
 pattern AllUpfront :: PaymentOption
 pattern AllUpfront = PaymentOption' "ALL_UPFRONT"
-
-pattern HeavyUtilization :: PaymentOption
-pattern HeavyUtilization = PaymentOption' "HEAVY_UTILIZATION"
 
 pattern LightUtilization :: PaymentOption
 pattern LightUtilization = PaymentOption' "LIGHT_UTILIZATION"
@@ -61,18 +64,15 @@ pattern LightUtilization = PaymentOption' "LIGHT_UTILIZATION"
 pattern MediumUtilization :: PaymentOption
 pattern MediumUtilization = PaymentOption' "MEDIUM_UTILIZATION"
 
-pattern NoUpfront :: PaymentOption
-pattern NoUpfront = PaymentOption' "NO_UPFRONT"
-
-pattern PartialUpfront :: PaymentOption
-pattern PartialUpfront = PaymentOption' "PARTIAL_UPFRONT"
+pattern HeavyUtilization :: PaymentOption
+pattern HeavyUtilization = PaymentOption' "HEAVY_UTILIZATION"
 
 {-# COMPLETE
-  AllUpfront,
-  HeavyUtilization,
-  LightUtilization,
-  MediumUtilization,
   NoUpfront,
   PartialUpfront,
+  AllUpfront,
+  LightUtilization,
+  MediumUtilization,
+  HeavyUtilization,
   PaymentOption'
   #-}

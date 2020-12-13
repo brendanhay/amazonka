@@ -13,8 +13,8 @@
 module Network.AWS.IoT.Types.DynamoKeyType
   ( DynamoKeyType
       ( DynamoKeyType',
-        DKTNumber,
-        DKTString
+        DKTString,
+        DKTNumber
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DynamoKeyType = DynamoKeyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DKTNumber :: DynamoKeyType
-pattern DKTNumber = DynamoKeyType' "NUMBER"
-
 pattern DKTString :: DynamoKeyType
 pattern DKTString = DynamoKeyType' "STRING"
 
+pattern DKTNumber :: DynamoKeyType
+pattern DKTNumber = DynamoKeyType' "NUMBER"
+
 {-# COMPLETE
-  DKTNumber,
   DKTString,
+  DKTNumber,
   DynamoKeyType'
   #-}

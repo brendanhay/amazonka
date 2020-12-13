@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,23 +39,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateElasticIP' smart constructor.
 data AssociateElasticIP = AssociateElasticIP'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The Elastic IP address.
     elasticIP :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateElasticIP' with the minimum fields required to make a request.
 --
--- * 'elasticIP' - The Elastic IP address.
 -- * 'instanceId' - The instance ID.
+-- * 'elasticIP' - The Elastic IP address.
 mkAssociateElasticIP ::
   -- | 'elasticIP'
   Lude.Text ->
@@ -112,13 +108,7 @@ instance Lude.ToQuery AssociateElasticIP where
 
 -- | /See:/ 'mkAssociateElasticIPResponse' smart constructor.
 data AssociateElasticIPResponse = AssociateElasticIPResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateElasticIPResponse' with the minimum fields required to make a request.

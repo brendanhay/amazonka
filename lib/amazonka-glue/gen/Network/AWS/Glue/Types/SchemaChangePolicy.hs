@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaChangePolicy' smart constructor.
 data SchemaChangePolicy = SchemaChangePolicy'
-  { deleteBehavior ::
-      Lude.Maybe DeleteBehavior,
+  { -- | The deletion behavior when the crawler finds a deleted object.
+    deleteBehavior :: Lude.Maybe DeleteBehavior,
+    -- | The update behavior when the crawler finds a changed schema.
     updateBehavior :: Lude.Maybe UpdateBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaChangePolicy' with the minimum fields required to make a request.

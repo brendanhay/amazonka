@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.SMS.StartOnDemandReplicationRun
     mkStartOnDemandReplicationRun,
 
     -- ** Request lenses
-    sodrrDescription,
     sodrrReplicationJobId,
+    sodrrDescription,
 
     -- * Destructuring the response
     StartOnDemandReplicationRunResponse (..),
@@ -42,39 +43,28 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkStartOnDemandReplicationRun' smart constructor.
 data StartOnDemandReplicationRun = StartOnDemandReplicationRun'
-  { description ::
-      Lude.Maybe Lude.Text,
-    replicationJobId :: Lude.Text
+  { -- | The ID of the replication job.
+    replicationJobId :: Lude.Text,
+    -- | The description of the replication run.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandReplicationRun' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the replication run.
 -- * 'replicationJobId' - The ID of the replication job.
+-- * 'description' - The description of the replication run.
 mkStartOnDemandReplicationRun ::
   -- | 'replicationJobId'
   Lude.Text ->
   StartOnDemandReplicationRun
 mkStartOnDemandReplicationRun pReplicationJobId_ =
   StartOnDemandReplicationRun'
-    { description = Lude.Nothing,
-      replicationJobId = pReplicationJobId_
+    { replicationJobId =
+        pReplicationJobId_,
+      description = Lude.Nothing
     }
-
--- | The description of the replication run.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sodrrDescription :: Lens.Lens' StartOnDemandReplicationRun (Lude.Maybe Lude.Text)
-sodrrDescription = Lens.lens (description :: StartOnDemandReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartOnDemandReplicationRun)
-{-# DEPRECATED sodrrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the replication job.
 --
@@ -82,6 +72,13 @@ sodrrDescription = Lens.lens (description :: StartOnDemandReplicationRun -> Lude
 sodrrReplicationJobId :: Lens.Lens' StartOnDemandReplicationRun Lude.Text
 sodrrReplicationJobId = Lens.lens (replicationJobId :: StartOnDemandReplicationRun -> Lude.Text) (\s a -> s {replicationJobId = a} :: StartOnDemandReplicationRun)
 {-# DEPRECATED sodrrReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
+
+-- | The description of the replication run.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sodrrDescription :: Lens.Lens' StartOnDemandReplicationRun (Lude.Maybe Lude.Text)
+sodrrDescription = Lens.lens (description :: StartOnDemandReplicationRun -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: StartOnDemandReplicationRun)
+{-# DEPRECATED sodrrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest StartOnDemandReplicationRun where
   type
@@ -113,8 +110,8 @@ instance Lude.ToJSON StartOnDemandReplicationRun where
   toJSON StartOnDemandReplicationRun' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("replicationJobId" Lude..= replicationJobId)
+          [ Lude.Just ("replicationJobId" Lude..= replicationJobId),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -126,19 +123,12 @@ instance Lude.ToQuery StartOnDemandReplicationRun where
 
 -- | /See:/ 'mkStartOnDemandReplicationRunResponse' smart constructor.
 data StartOnDemandReplicationRunResponse = StartOnDemandReplicationRunResponse'
-  { replicationRunId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the replication run.
+    replicationRunId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOnDemandReplicationRunResponse' with the minimum fields required to make a request.

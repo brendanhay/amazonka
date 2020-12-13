@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,13 +43,7 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkDescribeActiveReceiptRuleSet' smart constructor.
 data DescribeActiveReceiptRuleSet = DescribeActiveReceiptRuleSet'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActiveReceiptRuleSet' with the minimum fields required to make a request.
@@ -93,29 +88,21 @@ instance Lude.ToQuery DescribeActiveReceiptRuleSet where
 --
 -- /See:/ 'mkDescribeActiveReceiptRuleSetResponse' smart constructor.
 data DescribeActiveReceiptRuleSetResponse = DescribeActiveReceiptRuleSetResponse'
-  { rules ::
-      Lude.Maybe
-        [ReceiptRule],
-    metadata ::
-      Lude.Maybe
-        ReceiptRuleSetMetadata,
-    responseStatus ::
-      Lude.Int
+  { -- | The receipt rules that belong to the active rule set.
+    rules :: Lude.Maybe [ReceiptRule],
+    -- | The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.
+    metadata :: Lude.Maybe ReceiptRuleSetMetadata,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActiveReceiptRuleSetResponse' with the minimum fields required to make a request.
 --
+-- * 'rules' - The receipt rules that belong to the active rule set.
 -- * 'metadata' - The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.
 -- * 'responseStatus' - The response status code.
--- * 'rules' - The receipt rules that belong to the active rule set.
 mkDescribeActiveReceiptRuleSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

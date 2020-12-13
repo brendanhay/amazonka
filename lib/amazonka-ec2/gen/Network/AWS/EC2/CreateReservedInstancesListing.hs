@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     mkCreateReservedInstancesListingResponse,
 
     -- ** Response lenses
-    crilrrsReservedInstancesListings,
-    crilrrsResponseStatus,
+    crilfrsReservedInstancesListings,
+    crilfrsResponseStatus,
   )
 where
 
@@ -48,21 +49,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateReservedInstancesListing' smart constructor.
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
-  { clientToken ::
-      Lude.Text,
+  { -- | Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Lude.Text,
+    -- | The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.
     instanceCount :: Lude.Int,
-    priceSchedules ::
-      [PriceScheduleSpecification],
-    reservedInstancesId ::
-      Lude.Text
+    -- | A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.
+    priceSchedules :: [PriceScheduleSpecification],
+    -- | The ID of the active Standard Reserved Instance.
+    reservedInstancesId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReservedInstancesListing' with the minimum fields required to make a request.
@@ -155,19 +151,12 @@ instance Lude.ToQuery CreateReservedInstancesListing where
 --
 -- /See:/ 'mkCreateReservedInstancesListingResponse' smart constructor.
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
-  { reservedInstancesListings ::
-      Lude.Maybe
-        [ReservedInstancesListing],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the Standard Reserved Instance listing.
+    reservedInstancesListings :: Lude.Maybe [ReservedInstancesListing],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReservedInstancesListingResponse' with the minimum fields required to make a request.
@@ -188,13 +177,13 @@ mkCreateReservedInstancesListingResponse pResponseStatus_ =
 -- | Information about the Standard Reserved Instance listing.
 --
 -- /Note:/ Consider using 'reservedInstancesListings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilrrsReservedInstancesListings :: Lens.Lens' CreateReservedInstancesListingResponse (Lude.Maybe [ReservedInstancesListing])
-crilrrsReservedInstancesListings = Lens.lens (reservedInstancesListings :: CreateReservedInstancesListingResponse -> Lude.Maybe [ReservedInstancesListing]) (\s a -> s {reservedInstancesListings = a} :: CreateReservedInstancesListingResponse)
-{-# DEPRECATED crilrrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
+crilfrsReservedInstancesListings :: Lens.Lens' CreateReservedInstancesListingResponse (Lude.Maybe [ReservedInstancesListing])
+crilfrsReservedInstancesListings = Lens.lens (reservedInstancesListings :: CreateReservedInstancesListingResponse -> Lude.Maybe [ReservedInstancesListing]) (\s a -> s {reservedInstancesListings = a} :: CreateReservedInstancesListingResponse)
+{-# DEPRECATED crilfrsReservedInstancesListings "Use generic-lens or generic-optics with 'reservedInstancesListings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crilrrsResponseStatus :: Lens.Lens' CreateReservedInstancesListingResponse Lude.Int
-crilrrsResponseStatus = Lens.lens (responseStatus :: CreateReservedInstancesListingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReservedInstancesListingResponse)
-{-# DEPRECATED crilrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crilfrsResponseStatus :: Lens.Lens' CreateReservedInstancesListingResponse Lude.Int
+crilfrsResponseStatus = Lens.lens (responseStatus :: CreateReservedInstancesListingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateReservedInstancesListingResponse)
+{-# DEPRECATED crilfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

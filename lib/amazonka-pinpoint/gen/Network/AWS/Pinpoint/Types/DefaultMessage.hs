@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDefaultMessage' smart constructor.
 data DefaultMessage = DefaultMessage'
-  { substitutions ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | The default message variables to use in the message. You can override these default variables with individual address variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The default body of the message.
     body :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultMessage' with the minimum fields required to make a request.
 --
--- * 'body' - The default body of the message.
 -- * 'substitutions' - The default message variables to use in the message. You can override these default variables with individual address variables.
+-- * 'body' - The default body of the message.
 mkDefaultMessage ::
   DefaultMessage
 mkDefaultMessage =

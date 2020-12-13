@@ -13,8 +13,8 @@
 module Network.AWS.Athena.Types.WorkGroupState
   ( WorkGroupState
       ( WorkGroupState',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype WorkGroupState = WorkGroupState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: WorkGroupState
-pattern Disabled = WorkGroupState' "DISABLED"
-
 pattern Enabled :: WorkGroupState
 pattern Enabled = WorkGroupState' "ENABLED"
 
+pattern Disabled :: WorkGroupState
+pattern Disabled = WorkGroupState' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   WorkGroupState'
   #-}

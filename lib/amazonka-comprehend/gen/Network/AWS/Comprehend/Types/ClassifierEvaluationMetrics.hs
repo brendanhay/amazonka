@@ -35,38 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClassifierEvaluationMetrics' smart constructor.
 data ClassifierEvaluationMetrics = ClassifierEvaluationMetrics'
-  { microPrecision ::
-      Lude.Maybe Lude.Double,
-    microF1Score ::
-      Lude.Maybe Lude.Double,
+  { -- | A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.
+    microPrecision :: Lude.Maybe Lude.Double,
+    -- | A measure of how accurate the classifier results are for the test data. It is a combination of the @Micro Precision@ and @Micro Recall@ values. The @Micro F1Score@ is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.
+    microF1Score :: Lude.Maybe Lude.Double,
+    -- | A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results.
     recall :: Lude.Maybe Lude.Double,
+    -- | A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.
     precision :: Lude.Maybe Lude.Double,
-    microRecall ::
-      Lude.Maybe Lude.Double,
+    -- | A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.
+    microRecall :: Lude.Maybe Lude.Double,
+    -- | A measure of how accurate the classifier results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
     f1Score :: Lude.Maybe Lude.Double,
-    hammingLoss ::
-      Lude.Maybe Lude.Double,
+    -- | Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the total number of labels. Scores closer to zero are better.
+    hammingLoss :: Lude.Maybe Lude.Double,
+    -- | The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.
     accuracy :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassifierEvaluationMetrics' with the minimum fields required to make a request.
 --
--- * 'accuracy' - The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.
+-- * 'microPrecision' - A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.
+-- * 'microF1Score' - A measure of how accurate the classifier results are for the test data. It is a combination of the @Micro Precision@ and @Micro Recall@ values. The @Micro F1Score@ is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.
+-- * 'recall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results.
+-- * 'precision' - A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.
+-- * 'microRecall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.
 -- * 'f1Score' - A measure of how accurate the classifier results are for the test data. It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is the harmonic average of the two scores. The highest score is 1, and the worst score is 0.
 -- * 'hammingLoss' - Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the total number of labels. Scores closer to zero are better.
--- * 'microF1Score' - A measure of how accurate the classifier results are for the test data. It is a combination of the @Micro Precision@ and @Micro Recall@ values. The @Micro F1Score@ is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.
--- * 'microPrecision' - A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.
--- * 'microRecall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.
--- * 'precision' - A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.
--- * 'recall' - A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results.
+-- * 'accuracy' - The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.
 mkClassifierEvaluationMetrics ::
   ClassifierEvaluationMetrics
 mkClassifierEvaluationMetrics =

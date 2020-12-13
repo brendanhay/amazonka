@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,23 +50,53 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReservedInstancesModifications' smart constructor.
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    reservedInstancesModificationIds ::
-      Lude.Maybe
-        [Lude.Text],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text
+  { -- | One or more filters.
+    --
+    --
+    --     * @client-token@ - The idempotency token for the modification request.
+    --
+    --
+    --     * @create-date@ - The time when the modification request was created.
+    --
+    --
+    --     * @effective-date@ - The time when the modification becomes effective.
+    --
+    --
+    --     * @modification-result.reserved-instances-id@ - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is @fulfilled@ .
+    --
+    --
+    --     * @modification-result.target-configuration.availability-zone@ - The Availability Zone for the new Reserved Instances.
+    --
+    --
+    --     * @modification-result.target-configuration.instance-count @ - The number of new Reserved Instances.
+    --
+    --
+    --     * @modification-result.target-configuration.instance-type@ - The instance type of the new Reserved Instances.
+    --
+    --
+    --     * @modification-result.target-configuration.platform@ - The network platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@ ).
+    --
+    --
+    --     * @reserved-instances-id@ - The ID of the Reserved Instances modified.
+    --
+    --
+    --     * @reserved-instances-modification-id@ - The ID of the modification request.
+    --
+    --
+    --     * @status@ - The status of the Reserved Instances modification request (@processing@ | @fulfilled@ | @failed@ ).
+    --
+    --
+    --     * @status-message@ - The reason for the status.
+    --
+    --
+    --     * @update-date@ - The time when the modification request was last updated.
+    filters :: Lude.Maybe [Filter],
+    -- | IDs for the submitted modification request.
+    reservedInstancesModificationIds :: Lude.Maybe [Lude.Text],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedInstancesModifications' with the minimum fields required to make a request.
@@ -112,8 +143,8 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 --     * @update-date@ - The time when the modification request was last updated.
 --
 --
--- * 'nextToken' - The token to retrieve the next page of results.
 -- * 'reservedInstancesModificationIds' - IDs for the submitted modification request.
+-- * 'nextToken' - The token to retrieve the next page of results.
 mkDescribeReservedInstancesModifications ::
   DescribeReservedInstancesModifications
 mkDescribeReservedInstancesModifications =
@@ -236,26 +267,15 @@ instance Lude.ToQuery DescribeReservedInstancesModifications where
 --
 -- /See:/ 'mkDescribeReservedInstancesModificationsResponse' smart constructor.
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    reservedInstancesModifications ::
-      Lude.Maybe
-        [ReservedInstancesModification],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Reserved Instance modification information.
+    reservedInstancesModifications :: Lude.Maybe [ReservedInstancesModification],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedInstancesModificationsResponse' with the minimum fields required to make a request.
 --

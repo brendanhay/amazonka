@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,11 +46,11 @@ module Network.AWS.Firehose.CreateDeliveryStream
     cdsExtendedS3DestinationConfiguration,
     cdsKinesisStreamSourceConfiguration,
     cdsHTTPEndpointDestinationConfiguration,
+    cdsDeliveryStreamName,
     cdsDeliveryStreamType,
     cdsSplunkDestinationConfiguration,
     cdsTags,
     cdsDeliveryStreamEncryptionConfigurationInput,
-    cdsDeliveryStreamName,
 
     -- * Destructuring the response
     CreateDeliveryStreamResponse (..),
@@ -69,34 +70,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDeliveryStream' smart constructor.
 data CreateDeliveryStream = CreateDeliveryStream'
-  { s3DestinationConfiguration ::
-      Lude.Maybe S3DestinationConfiguration,
-    redshiftDestinationConfiguration ::
-      Lude.Maybe RedshiftDestinationConfiguration,
-    elasticsearchDestinationConfiguration ::
-      Lude.Maybe ElasticsearchDestinationConfiguration,
-    extendedS3DestinationConfiguration ::
-      Lude.Maybe ExtendedS3DestinationConfiguration,
-    kinesisStreamSourceConfiguration ::
-      Lude.Maybe KinesisStreamSourceConfiguration,
-    hTTPEndpointDestinationConfiguration ::
-      Lude.Maybe HTTPEndpointDestinationConfiguration,
-    deliveryStreamType ::
-      Lude.Maybe DeliveryStreamType,
-    splunkDestinationConfiguration ::
-      Lude.Maybe SplunkDestinationConfiguration,
+  { -- | [Deprecated] The destination in Amazon S3. You can specify only one destination.
+    s3DestinationConfiguration :: Lude.Maybe S3DestinationConfiguration,
+    -- | The destination in Amazon Redshift. You can specify only one destination.
+    redshiftDestinationConfiguration :: Lude.Maybe RedshiftDestinationConfiguration,
+    -- | The destination in Amazon ES. You can specify only one destination.
+    elasticsearchDestinationConfiguration :: Lude.Maybe ElasticsearchDestinationConfiguration,
+    -- | The destination in Amazon S3. You can specify only one destination.
+    extendedS3DestinationConfiguration :: Lude.Maybe ExtendedS3DestinationConfiguration,
+    -- | When a Kinesis data stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.
+    kinesisStreamSourceConfiguration :: Lude.Maybe KinesisStreamSourceConfiguration,
+    -- | Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
+    hTTPEndpointDestinationConfiguration :: Lude.Maybe HTTPEndpointDestinationConfiguration,
+    -- | The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
+    deliveryStreamName :: Lude.Text,
+    -- | The delivery stream type. This parameter can be one of the following values:
+    --
+    --
+    --     * @DirectPut@ : Provider applications access the delivery stream directly.
+    --
+    --
+    --     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source.
+    deliveryStreamType :: Lude.Maybe DeliveryStreamType,
+    -- | The destination in Splunk. You can specify only one destination.
+    splunkDestinationConfiguration :: Lude.Maybe SplunkDestinationConfiguration,
+    -- | A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the AWS Billing and Cost Management User Guide.
+    --
+    -- You can specify up to 50 tags when creating a delivery stream.
     tags :: Lude.Maybe (Lude.NonEmpty Tag),
-    deliveryStreamEncryptionConfigurationInput ::
-      Lude.Maybe
-        DeliveryStreamEncryptionConfigurationInput,
-    deliveryStreamName :: Lude.Text
+    -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
+    deliveryStreamEncryptionConfigurationInput :: Lude.Maybe DeliveryStreamEncryptionConfigurationInput
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeliveryStream' with the minimum fields required to make a request.
 --
--- * 'deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
+-- * 's3DestinationConfiguration' - [Deprecated] The destination in Amazon S3. You can specify only one destination.
+-- * 'redshiftDestinationConfiguration' - The destination in Amazon Redshift. You can specify only one destination.
+-- * 'elasticsearchDestinationConfiguration' - The destination in Amazon ES. You can specify only one destination.
+-- * 'extendedS3DestinationConfiguration' - The destination in Amazon S3. You can specify only one destination.
+-- * 'kinesisStreamSourceConfiguration' - When a Kinesis data stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.
+-- * 'hTTPEndpointDestinationConfiguration' - Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
 -- * 'deliveryStreamName' - The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
 -- * 'deliveryStreamType' - The delivery stream type. This parameter can be one of the following values:
 --
@@ -107,16 +122,11 @@ data CreateDeliveryStream = CreateDeliveryStream'
 --     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source.
 --
 --
--- * 'elasticsearchDestinationConfiguration' - The destination in Amazon ES. You can specify only one destination.
--- * 'extendedS3DestinationConfiguration' - The destination in Amazon S3. You can specify only one destination.
--- * 'hTTPEndpointDestinationConfiguration' - Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
--- * 'kinesisStreamSourceConfiguration' - When a Kinesis data stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.
--- * 'redshiftDestinationConfiguration' - The destination in Amazon Redshift. You can specify only one destination.
--- * 's3DestinationConfiguration' - [Deprecated] The destination in Amazon S3. You can specify only one destination.
 -- * 'splunkDestinationConfiguration' - The destination in Splunk. You can specify only one destination.
 -- * 'tags' - A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the AWS Billing and Cost Management User Guide.
 --
 -- You can specify up to 50 tags when creating a delivery stream.
+-- * 'deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
 mkCreateDeliveryStream ::
   -- | 'deliveryStreamName'
   Lude.Text ->
@@ -129,11 +139,11 @@ mkCreateDeliveryStream pDeliveryStreamName_ =
       extendedS3DestinationConfiguration = Lude.Nothing,
       kinesisStreamSourceConfiguration = Lude.Nothing,
       hTTPEndpointDestinationConfiguration = Lude.Nothing,
+      deliveryStreamName = pDeliveryStreamName_,
       deliveryStreamType = Lude.Nothing,
       splunkDestinationConfiguration = Lude.Nothing,
       tags = Lude.Nothing,
-      deliveryStreamEncryptionConfigurationInput = Lude.Nothing,
-      deliveryStreamName = pDeliveryStreamName_
+      deliveryStreamEncryptionConfigurationInput = Lude.Nothing
     }
 
 -- | [Deprecated] The destination in Amazon S3. You can specify only one destination.
@@ -178,6 +188,13 @@ cdsHTTPEndpointDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Lude
 cdsHTTPEndpointDestinationConfiguration = Lens.lens (hTTPEndpointDestinationConfiguration :: CreateDeliveryStream -> Lude.Maybe HTTPEndpointDestinationConfiguration) (\s a -> s {hTTPEndpointDestinationConfiguration = a} :: CreateDeliveryStream)
 {-# DEPRECATED cdsHTTPEndpointDestinationConfiguration "Use generic-lens or generic-optics with 'hTTPEndpointDestinationConfiguration' instead." #-}
 
+-- | The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
+--
+-- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDeliveryStreamName :: Lens.Lens' CreateDeliveryStream Lude.Text
+cdsDeliveryStreamName = Lens.lens (deliveryStreamName :: CreateDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: CreateDeliveryStream)
+{-# DEPRECATED cdsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+
 -- | The delivery stream type. This parameter can be one of the following values:
 --
 --
@@ -215,13 +232,6 @@ cdsTags = Lens.lens (tags :: CreateDeliveryStream -> Lude.Maybe (Lude.NonEmpty T
 cdsDeliveryStreamEncryptionConfigurationInput :: Lens.Lens' CreateDeliveryStream (Lude.Maybe DeliveryStreamEncryptionConfigurationInput)
 cdsDeliveryStreamEncryptionConfigurationInput = Lens.lens (deliveryStreamEncryptionConfigurationInput :: CreateDeliveryStream -> Lude.Maybe DeliveryStreamEncryptionConfigurationInput) (\s a -> s {deliveryStreamEncryptionConfigurationInput = a} :: CreateDeliveryStream)
 {-# DEPRECATED cdsDeliveryStreamEncryptionConfigurationInput "Use generic-lens or generic-optics with 'deliveryStreamEncryptionConfigurationInput' instead." #-}
-
--- | The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
---
--- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsDeliveryStreamName :: Lens.Lens' CreateDeliveryStream Lude.Text
-cdsDeliveryStreamName = Lens.lens (deliveryStreamName :: CreateDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: CreateDeliveryStream)
-{-# DEPRECATED cdsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 instance Lude.AWSRequest CreateDeliveryStream where
   type Rs CreateDeliveryStream = CreateDeliveryStreamResponse
@@ -261,13 +271,13 @@ instance Lude.ToJSON CreateDeliveryStream where
               Lude.<$> kinesisStreamSourceConfiguration,
             ("HttpEndpointDestinationConfiguration" Lude..=)
               Lude.<$> hTTPEndpointDestinationConfiguration,
+            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
             ("DeliveryStreamType" Lude..=) Lude.<$> deliveryStreamType,
             ("SplunkDestinationConfiguration" Lude..=)
               Lude.<$> splunkDestinationConfiguration,
             ("Tags" Lude..=) Lude.<$> tags,
             ("DeliveryStreamEncryptionConfigurationInput" Lude..=)
-              Lude.<$> deliveryStreamEncryptionConfigurationInput,
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
+              Lude.<$> deliveryStreamEncryptionConfigurationInput
           ]
       )
 
@@ -279,17 +289,12 @@ instance Lude.ToQuery CreateDeliveryStream where
 
 -- | /See:/ 'mkCreateDeliveryStreamResponse' smart constructor.
 data CreateDeliveryStreamResponse = CreateDeliveryStreamResponse'
-  { deliveryStreamARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the delivery stream.
+    deliveryStreamARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeliveryStreamResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.CloudDirectory.LookupPolicy
     mkLookupPolicy,
 
     -- ** Request lenses
-    lpNextToken,
-    lpMaxResults,
     lpDirectoryARN,
+    lpNextToken,
     lpObjectReference,
+    lpMaxResults,
 
     -- * Destructuring the response
     LookupPolicyResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkLookupPolicy' smart constructor.
 data LookupPolicy = LookupPolicy'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
     directoryARN :: Lude.Text,
-    objectReference :: ObjectReference
+    -- | The token to request the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Reference that identifies the object whose policies will be looked up.
+    objectReference :: ObjectReference,
+    -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LookupPolicy' with the minimum fields required to make a request.
 --
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
--- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 -- * 'nextToken' - The token to request the next page of results.
 -- * 'objectReference' - Reference that identifies the object whose policies will be looked up.
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 mkLookupPolicy ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -75,25 +73,11 @@ mkLookupPolicy ::
   LookupPolicy
 mkLookupPolicy pDirectoryARN_ pObjectReference_ =
   LookupPolicy'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
-      objectReference = pObjectReference_
+    { directoryARN = pDirectoryARN_,
+      nextToken = Lude.Nothing,
+      objectReference = pObjectReference_,
+      maxResults = Lude.Nothing
     }
-
--- | The token to request the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpNextToken :: Lens.Lens' LookupPolicy (Lude.Maybe Lude.Text)
-lpNextToken = Lens.lens (nextToken :: LookupPolicy -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: LookupPolicy)
-{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpMaxResults :: Lens.Lens' LookupPolicy (Lude.Maybe Lude.Natural)
-lpMaxResults = Lens.lens (maxResults :: LookupPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: LookupPolicy)
-{-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 --
@@ -102,12 +86,26 @@ lpDirectoryARN :: Lens.Lens' LookupPolicy Lude.Text
 lpDirectoryARN = Lens.lens (directoryARN :: LookupPolicy -> Lude.Text) (\s a -> s {directoryARN = a} :: LookupPolicy)
 {-# DEPRECATED lpDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
+-- | The token to request the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' LookupPolicy (Lude.Maybe Lude.Text)
+lpNextToken = Lens.lens (nextToken :: LookupPolicy -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: LookupPolicy)
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
 -- | Reference that identifies the object whose policies will be looked up.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lpObjectReference :: Lens.Lens' LookupPolicy ObjectReference
 lpObjectReference = Lens.lens (objectReference :: LookupPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: LookupPolicy)
 {-# DEPRECATED lpObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpMaxResults :: Lens.Lens' LookupPolicy (Lude.Maybe Lude.Natural)
+lpMaxResults = Lens.lens (maxResults :: LookupPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: LookupPolicy)
+{-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager LookupPolicy where
   page rq rs
@@ -139,8 +137,8 @@ instance Lude.ToJSON LookupPolicy where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+            Lude.Just ("ObjectReference" Lude..= objectReference),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -153,18 +151,14 @@ instance Lude.ToQuery LookupPolicy where
 
 -- | /See:/ 'mkLookupPolicyResponse' smart constructor.
 data LookupPolicyResponse = LookupPolicyResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
     policyToPathList :: Lude.Maybe [PolicyToPath],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LookupPolicyResponse' with the minimum fields required to make a request.

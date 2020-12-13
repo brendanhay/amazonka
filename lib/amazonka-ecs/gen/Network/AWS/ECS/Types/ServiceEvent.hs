@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceEvent' smart constructor.
 data ServiceEvent = ServiceEvent'
-  { createdAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The Unix timestamp for when the event was triggered.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The ID string of the event.
     id :: Lude.Maybe Lude.Text,
+    -- | The event message.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceEvent' with the minimum fields required to make a request.

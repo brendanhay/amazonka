@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.EC2.CreateVPNGateway
     cvgAmazonSideASN,
     cvgTagSpecifications,
     cvgAvailabilityZone,
-    cvgDryRun,
     cvgType,
+    cvgDryRun,
 
     -- * Destructuring the response
     CreateVPNGatewayResponse (..),
@@ -47,20 +48,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateVPNGateway' smart constructor.
 data CreateVPNGateway = CreateVPNGateway'
-  { amazonSideASN ::
-      Lude.Maybe Lude.Integer,
+  { -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.
+    --
+    -- Default: 64512
+    amazonSideASN :: Lude.Maybe Lude.Integer,
+    -- | The tags to apply to the virtual private gateway.
     tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The Availability Zone for the virtual private gateway.
     availabilityZone :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    type' :: GatewayType
+    -- | The type of VPN connection this virtual private gateway supports.
+    type' :: GatewayType,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPNGateway' with the minimum fields required to make a request.
@@ -68,10 +69,10 @@ data CreateVPNGateway = CreateVPNGateway'
 -- * 'amazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.
 --
 -- Default: 64512
--- * 'availabilityZone' - The Availability Zone for the virtual private gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'tagSpecifications' - The tags to apply to the virtual private gateway.
+-- * 'availabilityZone' - The Availability Zone for the virtual private gateway.
 -- * 'type'' - The type of VPN connection this virtual private gateway supports.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateVPNGateway ::
   -- | 'type''
   GatewayType ->
@@ -81,8 +82,8 @@ mkCreateVPNGateway pType_ =
     { amazonSideASN = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
       availabilityZone = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      type' = pType_
+      type' = pType_,
+      dryRun = Lude.Nothing
     }
 
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.
@@ -108,19 +109,19 @@ cvgAvailabilityZone :: Lens.Lens' CreateVPNGateway (Lude.Maybe Lude.Text)
 cvgAvailabilityZone = Lens.lens (availabilityZone :: CreateVPNGateway -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: CreateVPNGateway)
 {-# DEPRECATED cvgAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvgDryRun :: Lens.Lens' CreateVPNGateway (Lude.Maybe Lude.Bool)
-cvgDryRun = Lens.lens (dryRun :: CreateVPNGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPNGateway)
-{-# DEPRECATED cvgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The type of VPN connection this virtual private gateway supports.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cvgType :: Lens.Lens' CreateVPNGateway GatewayType
 cvgType = Lens.lens (type' :: CreateVPNGateway -> GatewayType) (\s a -> s {type' = a} :: CreateVPNGateway)
 {-# DEPRECATED cvgType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvgDryRun :: Lens.Lens' CreateVPNGateway (Lude.Maybe Lude.Bool)
+cvgDryRun = Lens.lens (dryRun :: CreateVPNGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPNGateway)
+{-# DEPRECATED cvgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateVPNGateway where
   type Rs CreateVPNGateway = CreateVPNGatewayResponse
@@ -147,31 +148,26 @@ instance Lude.ToQuery CreateVPNGateway where
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
         "AvailabilityZone" Lude.=: availabilityZone,
-        "DryRun" Lude.=: dryRun,
-        "Type" Lude.=: type'
+        "Type" Lude.=: type',
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of CreateVpnGateway.
 --
 -- /See:/ 'mkCreateVPNGatewayResponse' smart constructor.
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
-  { vpnGateway ::
-      Lude.Maybe VPNGateway,
+  { -- | Information about the virtual private gateway.
+    vpnGateway :: Lude.Maybe VPNGateway,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPNGatewayResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpnGateway' - Information about the virtual private gateway.
+-- * 'responseStatus' - The response status code.
 mkCreateVPNGatewayResponse ::
   -- | 'responseStatus'
   Lude.Int ->

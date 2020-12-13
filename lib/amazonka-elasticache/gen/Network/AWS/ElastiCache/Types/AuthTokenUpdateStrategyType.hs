@@ -13,9 +13,9 @@
 module Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType
   ( AuthTokenUpdateStrategyType
       ( AuthTokenUpdateStrategyType',
-        Delete,
+        Set,
         Rotate,
-        Set
+        Delete
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AuthTokenUpdateStrategyType = AuthTokenUpdateStrategyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Delete :: AuthTokenUpdateStrategyType
-pattern Delete = AuthTokenUpdateStrategyType' "DELETE"
+pattern Set :: AuthTokenUpdateStrategyType
+pattern Set = AuthTokenUpdateStrategyType' "SET"
 
 pattern Rotate :: AuthTokenUpdateStrategyType
 pattern Rotate = AuthTokenUpdateStrategyType' "ROTATE"
 
-pattern Set :: AuthTokenUpdateStrategyType
-pattern Set = AuthTokenUpdateStrategyType' "SET"
+pattern Delete :: AuthTokenUpdateStrategyType
+pattern Delete = AuthTokenUpdateStrategyType' "DELETE"
 
 {-# COMPLETE
-  Delete,
-  Rotate,
   Set,
+  Rotate,
+  Delete,
   AuthTokenUpdateStrategyType'
   #-}

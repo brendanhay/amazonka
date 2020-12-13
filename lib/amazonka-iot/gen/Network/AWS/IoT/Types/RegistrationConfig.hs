@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
-  { templateBody ::
-      Lude.Maybe Lude.Text,
+  { -- | The template body.
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegistrationConfig' with the minimum fields required to make a request.
 --
--- * 'roleARN' - The ARN of the role.
 -- * 'templateBody' - The template body.
+-- * 'roleARN' - The ARN of the role.
 mkRegistrationConfig ::
   RegistrationConfig
 mkRegistrationConfig =

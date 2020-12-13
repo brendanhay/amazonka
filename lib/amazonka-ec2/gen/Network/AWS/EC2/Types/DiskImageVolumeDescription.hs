@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDiskImageVolumeDescription' smart constructor.
 data DiskImageVolumeDescription = DiskImageVolumeDescription'
-  { size ::
-      Lude.Maybe Lude.Integer,
+  { -- | The size of the volume, in GiB.
+    size :: Lude.Maybe Lude.Integer,
+    -- | The volume identifier.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskImageVolumeDescription' with the minimum fields required to make a request.
 --
--- * 'id' - The volume identifier.
 -- * 'size' - The size of the volume, in GiB.
+-- * 'id' - The volume identifier.
 mkDiskImageVolumeDescription ::
   DiskImageVolumeDescription
 mkDiskImageVolumeDescription =

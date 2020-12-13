@@ -13,10 +13,10 @@
 module Network.AWS.DAX.Types.SSEStatus
   ( SSEStatus
       ( SSEStatus',
-        Disabled,
-        Disabling,
+        Enabling,
         Enabled,
-        Enabling
+        Disabling,
+        Disabled
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype SSEStatus = SSEStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: SSEStatus
-pattern Disabled = SSEStatus' "DISABLED"
-
-pattern Disabling :: SSEStatus
-pattern Disabling = SSEStatus' "DISABLING"
+pattern Enabling :: SSEStatus
+pattern Enabling = SSEStatus' "ENABLING"
 
 pattern Enabled :: SSEStatus
 pattern Enabled = SSEStatus' "ENABLED"
 
-pattern Enabling :: SSEStatus
-pattern Enabling = SSEStatus' "ENABLING"
+pattern Disabling :: SSEStatus
+pattern Disabling = SSEStatus' "DISABLING"
+
+pattern Disabled :: SSEStatus
+pattern Disabled = SSEStatus' "DISABLED"
 
 {-# COMPLETE
-  Disabled,
-  Disabling,
-  Enabled,
   Enabling,
+  Enabled,
+  Disabling,
+  Disabled,
   SSEStatus'
   #-}

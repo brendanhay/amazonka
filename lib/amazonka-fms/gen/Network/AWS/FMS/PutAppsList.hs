@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.FMS.PutAppsList
     mkPutAppsList,
 
     -- ** Request lenses
-    palTagList,
     palAppsList,
+    palTagList,
 
     -- * Destructuring the response
     PutAppsListResponse (..),
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutAppsList' smart constructor.
 data PutAppsList = PutAppsList'
-  { tagList :: Lude.Maybe [Tag],
-    appsList :: AppsListData
+  { -- | The details of the AWS Firewall Manager applications list to be created.
+    appsList :: AppsListData,
+    -- | The tags associated with the resource.
+    tagList :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAppsList' with the minimum fields required to make a request.
@@ -62,14 +59,7 @@ mkPutAppsList ::
   AppsListData ->
   PutAppsList
 mkPutAppsList pAppsList_ =
-  PutAppsList' {tagList = Lude.Nothing, appsList = pAppsList_}
-
--- | The tags associated with the resource.
---
--- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-palTagList :: Lens.Lens' PutAppsList (Lude.Maybe [Tag])
-palTagList = Lens.lens (tagList :: PutAppsList -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: PutAppsList)
-{-# DEPRECATED palTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+  PutAppsList' {appsList = pAppsList_, tagList = Lude.Nothing}
 
 -- | The details of the AWS Firewall Manager applications list to be created.
 --
@@ -77,6 +67,13 @@ palTagList = Lens.lens (tagList :: PutAppsList -> Lude.Maybe [Tag]) (\s a -> s {
 palAppsList :: Lens.Lens' PutAppsList AppsListData
 palAppsList = Lens.lens (appsList :: PutAppsList -> AppsListData) (\s a -> s {appsList = a} :: PutAppsList)
 {-# DEPRECATED palAppsList "Use generic-lens or generic-optics with 'appsList' instead." #-}
+
+-- | The tags associated with the resource.
+--
+-- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+palTagList :: Lens.Lens' PutAppsList (Lude.Maybe [Tag])
+palTagList = Lens.lens (tagList :: PutAppsList -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: PutAppsList)
+{-# DEPRECATED palTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 instance Lude.AWSRequest PutAppsList where
   type Rs PutAppsList = PutAppsListResponse
@@ -105,8 +102,8 @@ instance Lude.ToJSON PutAppsList where
   toJSON PutAppsList' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TagList" Lude..=) Lude.<$> tagList,
-            Lude.Just ("AppsList" Lude..= appsList)
+          [ Lude.Just ("AppsList" Lude..= appsList),
+            ("TagList" Lude..=) Lude.<$> tagList
           ]
       )
 
@@ -118,24 +115,20 @@ instance Lude.ToQuery PutAppsList where
 
 -- | /See:/ 'mkPutAppsListResponse' smart constructor.
 data PutAppsListResponse = PutAppsListResponse'
-  { appsListARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the applications list.
+    appsListARN :: Lude.Maybe Lude.Text,
+    -- | The details of the AWS Firewall Manager applications list.
     appsList :: Lude.Maybe AppsListData,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAppsListResponse' with the minimum fields required to make a request.
 --
--- * 'appsList' - The details of the AWS Firewall Manager applications list.
 -- * 'appsListARN' - The Amazon Resource Name (ARN) of the applications list.
+-- * 'appsList' - The details of the AWS Firewall Manager applications list.
 -- * 'responseStatus' - The response status code.
 mkPutAppsListResponse ::
   -- | 'responseStatus'

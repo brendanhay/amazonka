@@ -28,16 +28,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagsModel' smart constructor.
 newtype TagsModel = TagsModel'
-  { tags ::
-      Lude.HashMap Lude.Text (Lude.Text)
+  { -- | A string-to-string map of key-value pairs that defines the tags for an application, campaign, message template, or segment. Each of these resources can have a maximum of 50 tags.
+    --
+    -- Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
+    tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagsModel' with the minimum fields required to make a request.

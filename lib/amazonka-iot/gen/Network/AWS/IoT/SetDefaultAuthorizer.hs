@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetDefaultAuthorizer' smart constructor.
 newtype SetDefaultAuthorizer = SetDefaultAuthorizer'
-  { authorizerName ::
-      Lude.Text
+  { -- | The authorizer name.
+    authorizerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultAuthorizer' with the minimum fields required to make a request.
@@ -99,25 +94,20 @@ instance Lude.ToQuery SetDefaultAuthorizer where
 
 -- | /See:/ 'mkSetDefaultAuthorizerResponse' smart constructor.
 data SetDefaultAuthorizerResponse = SetDefaultAuthorizerResponse'
-  { authorizerName ::
-      Lude.Maybe Lude.Text,
-    authorizerARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The authorizer name.
+    authorizerName :: Lude.Maybe Lude.Text,
+    -- | The authorizer ARN.
+    authorizerARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultAuthorizerResponse' with the minimum fields required to make a request.
 --
--- * 'authorizerARN' - The authorizer ARN.
 -- * 'authorizerName' - The authorizer name.
+-- * 'authorizerARN' - The authorizer ARN.
 -- * 'responseStatus' - The response status code.
 mkSetDefaultAuthorizerResponse ::
   -- | 'responseStatus'

@@ -13,9 +13,9 @@
 module Network.AWS.ECS.Types.NetworkMode
   ( NetworkMode
       ( NetworkMode',
-        AWSvpc,
         Bridge,
         Host,
+        AWSvpc,
         None
       ),
   )
@@ -47,22 +47,22 @@ newtype NetworkMode = NetworkMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSvpc :: NetworkMode
-pattern AWSvpc = NetworkMode' "awsvpc"
-
 pattern Bridge :: NetworkMode
 pattern Bridge = NetworkMode' "bridge"
 
 pattern Host :: NetworkMode
 pattern Host = NetworkMode' "host"
 
+pattern AWSvpc :: NetworkMode
+pattern AWSvpc = NetworkMode' "awsvpc"
+
 pattern None :: NetworkMode
 pattern None = NetworkMode' "none"
 
 {-# COMPLETE
-  AWSvpc,
   Bridge,
   Host,
+  AWSvpc,
   None,
   NetworkMode'
   #-}

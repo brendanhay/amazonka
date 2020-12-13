@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,26 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateFieldLevelEncryptionProfile' smart constructor.
 data UpdateFieldLevelEncryptionProfile = UpdateFieldLevelEncryptionProfile'
-  { ifMatch ::
-      Lude.Maybe Lude.Text,
-    fieldLevelEncryptionProfileConfig ::
-      FieldLevelEncryptionProfileConfig,
+  { -- | The value of the @ETag@ header that you received when retrieving the profile identity to update. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | Request to update a field-level encryption profile.
+    fieldLevelEncryptionProfileConfig :: FieldLevelEncryptionProfileConfig,
+    -- | The ID of the field-level encryption profile request.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFieldLevelEncryptionProfile' with the minimum fields required to make a request.
 --
+-- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the profile identity to update. For example: @E2QWRUHAPOMQZL@ .
 -- * 'fieldLevelEncryptionProfileConfig' - Request to update a field-level encryption profile.
 -- * 'id' - The ID of the field-level encryption profile request.
--- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the profile identity to update. For example: @E2QWRUHAPOMQZL@ .
 mkUpdateFieldLevelEncryptionProfile ::
   -- | 'fieldLevelEncryptionProfileConfig'
   FieldLevelEncryptionProfileConfig ->
@@ -136,22 +132,14 @@ instance Lude.ToQuery UpdateFieldLevelEncryptionProfile where
 
 -- | /See:/ 'mkUpdateFieldLevelEncryptionProfileResponse' smart constructor.
 data UpdateFieldLevelEncryptionProfileResponse = UpdateFieldLevelEncryptionProfileResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    fieldLevelEncryptionProfile ::
-      Lude.Maybe
-        FieldLevelEncryptionProfile,
-    responseStatus ::
-      Lude.Int
+  { -- | The result of the field-level encryption profile request.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | Return the results of updating the profile.
+    fieldLevelEncryptionProfile :: Lude.Maybe FieldLevelEncryptionProfile,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFieldLevelEncryptionProfileResponse' with the minimum fields required to make a request.

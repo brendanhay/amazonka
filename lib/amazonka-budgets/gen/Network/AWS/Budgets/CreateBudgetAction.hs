@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.Budgets.CreateBudgetAction
     mkCreateBudgetAction,
 
     -- ** Request lenses
+    cbaDefinition,
+    cbaExecutionRoleARN,
+    cbaActionThreshold,
     cbaAccountId,
     cbaBudgetName,
     cbaNotificationType,
-    cbaActionType,
-    cbaActionThreshold,
-    cbaDefinition,
-    cbaExecutionRoleARN,
     cbaApprovalModel,
+    cbaActionType,
     cbaSubscribers,
 
     -- * Destructuring the response
@@ -34,10 +35,10 @@ module Network.AWS.Budgets.CreateBudgetAction
     mkCreateBudgetActionResponse,
 
     -- ** Response lenses
-    cbarsResponseStatus,
+    cbarsActionId,
     cbarsAccountId,
     cbarsBudgetName,
-    cbarsActionId,
+    cbarsResponseStatus,
   )
 where
 
@@ -49,15 +50,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateBudgetAction' smart constructor.
 data CreateBudgetAction = CreateBudgetAction'
-  { accountId ::
-      Lude.Text,
+  { definition :: Definition,
+    -- | The role passed for action execution and reversion. Roles and actions must be in the same account.
+    executionRoleARN :: Lude.Text,
+    actionThreshold :: ActionThreshold,
+    accountId :: Lude.Text,
     budgetName :: Lude.Text,
     notificationType :: NotificationType,
-    actionType :: ActionType,
-    actionThreshold :: ActionThreshold,
-    definition :: Definition,
-    executionRoleARN :: Lude.Text,
+    -- | This specifies if the action needs manual or automatic approval.
     approvalModel :: ApprovalModel,
+    -- | The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+    actionType :: ActionType,
     subscribers :: Lude.NonEmpty Subscriber
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -65,56 +68,77 @@ data CreateBudgetAction = CreateBudgetAction'
 
 -- | Creates a value of 'CreateBudgetAction' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
--- * 'actionThreshold' - Undocumented field.
--- * 'actionType' - The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
--- * 'approvalModel' - This specifies if the action needs manual or automatic approval.
--- * 'budgetName' - Undocumented field.
--- * 'definition' - Undocumented field.
+-- * 'definition' -
 -- * 'executionRoleARN' - The role passed for action execution and reversion. Roles and actions must be in the same account.
--- * 'notificationType' - Undocumented field.
--- * 'subscribers' - Undocumented field.
+-- * 'actionThreshold' -
+-- * 'accountId' -
+-- * 'budgetName' -
+-- * 'notificationType' -
+-- * 'approvalModel' - This specifies if the action needs manual or automatic approval.
+-- * 'actionType' - The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+-- * 'subscribers' -
 mkCreateBudgetAction ::
+  -- | 'definition'
+  Definition ->
+  -- | 'executionRoleARN'
+  Lude.Text ->
+  -- | 'actionThreshold'
+  ActionThreshold ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
   -- | 'notificationType'
   NotificationType ->
-  -- | 'actionType'
-  ActionType ->
-  -- | 'actionThreshold'
-  ActionThreshold ->
-  -- | 'definition'
-  Definition ->
-  -- | 'executionRoleARN'
-  Lude.Text ->
   -- | 'approvalModel'
   ApprovalModel ->
+  -- | 'actionType'
+  ActionType ->
   -- | 'subscribers'
   Lude.NonEmpty Subscriber ->
   CreateBudgetAction
 mkCreateBudgetAction
+  pDefinition_
+  pExecutionRoleARN_
+  pActionThreshold_
   pAccountId_
   pBudgetName_
   pNotificationType_
-  pActionType_
-  pActionThreshold_
-  pDefinition_
-  pExecutionRoleARN_
   pApprovalModel_
+  pActionType_
   pSubscribers_ =
     CreateBudgetAction'
-      { accountId = pAccountId_,
+      { definition = pDefinition_,
+        executionRoleARN = pExecutionRoleARN_,
+        actionThreshold = pActionThreshold_,
+        accountId = pAccountId_,
         budgetName = pBudgetName_,
         notificationType = pNotificationType_,
-        actionType = pActionType_,
-        actionThreshold = pActionThreshold_,
-        definition = pDefinition_,
-        executionRoleARN = pExecutionRoleARN_,
         approvalModel = pApprovalModel_,
+        actionType = pActionType_,
         subscribers = pSubscribers_
       }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbaDefinition :: Lens.Lens' CreateBudgetAction Definition
+cbaDefinition = Lens.lens (definition :: CreateBudgetAction -> Definition) (\s a -> s {definition = a} :: CreateBudgetAction)
+{-# DEPRECATED cbaDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+
+-- | The role passed for action execution and reversion. Roles and actions must be in the same account.
+--
+-- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbaExecutionRoleARN :: Lens.Lens' CreateBudgetAction Lude.Text
+cbaExecutionRoleARN = Lens.lens (executionRoleARN :: CreateBudgetAction -> Lude.Text) (\s a -> s {executionRoleARN = a} :: CreateBudgetAction)
+{-# DEPRECATED cbaExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'actionThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbaActionThreshold :: Lens.Lens' CreateBudgetAction ActionThreshold
+cbaActionThreshold = Lens.lens (actionThreshold :: CreateBudgetAction -> ActionThreshold) (\s a -> s {actionThreshold = a} :: CreateBudgetAction)
+{-# DEPRECATED cbaActionThreshold "Use generic-lens or generic-optics with 'actionThreshold' instead." #-}
 
 -- | Undocumented field.
 --
@@ -137,40 +161,19 @@ cbaNotificationType :: Lens.Lens' CreateBudgetAction NotificationType
 cbaNotificationType = Lens.lens (notificationType :: CreateBudgetAction -> NotificationType) (\s a -> s {notificationType = a} :: CreateBudgetAction)
 {-# DEPRECATED cbaNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
 
--- | The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
---
--- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbaActionType :: Lens.Lens' CreateBudgetAction ActionType
-cbaActionType = Lens.lens (actionType :: CreateBudgetAction -> ActionType) (\s a -> s {actionType = a} :: CreateBudgetAction)
-{-# DEPRECATED cbaActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'actionThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbaActionThreshold :: Lens.Lens' CreateBudgetAction ActionThreshold
-cbaActionThreshold = Lens.lens (actionThreshold :: CreateBudgetAction -> ActionThreshold) (\s a -> s {actionThreshold = a} :: CreateBudgetAction)
-{-# DEPRECATED cbaActionThreshold "Use generic-lens or generic-optics with 'actionThreshold' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbaDefinition :: Lens.Lens' CreateBudgetAction Definition
-cbaDefinition = Lens.lens (definition :: CreateBudgetAction -> Definition) (\s a -> s {definition = a} :: CreateBudgetAction)
-{-# DEPRECATED cbaDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
-
--- | The role passed for action execution and reversion. Roles and actions must be in the same account.
---
--- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbaExecutionRoleARN :: Lens.Lens' CreateBudgetAction Lude.Text
-cbaExecutionRoleARN = Lens.lens (executionRoleARN :: CreateBudgetAction -> Lude.Text) (\s a -> s {executionRoleARN = a} :: CreateBudgetAction)
-{-# DEPRECATED cbaExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
-
 -- | This specifies if the action needs manual or automatic approval.
 --
 -- /Note:/ Consider using 'approvalModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbaApprovalModel :: Lens.Lens' CreateBudgetAction ApprovalModel
 cbaApprovalModel = Lens.lens (approvalModel :: CreateBudgetAction -> ApprovalModel) (\s a -> s {approvalModel = a} :: CreateBudgetAction)
 {-# DEPRECATED cbaApprovalModel "Use generic-lens or generic-optics with 'approvalModel' instead." #-}
+
+-- | The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
+--
+-- /Note:/ Consider using 'actionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbaActionType :: Lens.Lens' CreateBudgetAction ActionType
+cbaActionType = Lens.lens (actionType :: CreateBudgetAction -> ActionType) (\s a -> s {actionType = a} :: CreateBudgetAction)
+{-# DEPRECATED cbaActionType "Use generic-lens or generic-optics with 'actionType' instead." #-}
 
 -- | Undocumented field.
 --
@@ -186,10 +189,10 @@ instance Lude.AWSRequest CreateBudgetAction where
     Res.receiveJSON
       ( \s h x ->
           CreateBudgetActionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "ActionId")
             Lude.<*> (x Lude..:> "AccountId")
             Lude.<*> (x Lude..:> "BudgetName")
-            Lude.<*> (x Lude..:> "ActionId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateBudgetAction where
@@ -207,14 +210,14 @@ instance Lude.ToJSON CreateBudgetAction where
   toJSON CreateBudgetAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
+          [ Lude.Just ("Definition" Lude..= definition),
+            Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN),
+            Lude.Just ("ActionThreshold" Lude..= actionThreshold),
+            Lude.Just ("AccountId" Lude..= accountId),
             Lude.Just ("BudgetName" Lude..= budgetName),
             Lude.Just ("NotificationType" Lude..= notificationType),
-            Lude.Just ("ActionType" Lude..= actionType),
-            Lude.Just ("ActionThreshold" Lude..= actionThreshold),
-            Lude.Just ("Definition" Lude..= definition),
-            Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN),
             Lude.Just ("ApprovalModel" Lude..= approvalModel),
+            Lude.Just ("ActionType" Lude..= actionType),
             Lude.Just ("Subscribers" Lude..= subscribers)
           ]
       )
@@ -227,55 +230,50 @@ instance Lude.ToQuery CreateBudgetAction where
 
 -- | /See:/ 'mkCreateBudgetActionResponse' smart constructor.
 data CreateBudgetActionResponse = CreateBudgetActionResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | A system-generated universally unique identifier (UUID) for the action.
+    actionId :: Lude.Text,
     accountId :: Lude.Text,
     budgetName :: Lude.Text,
-    actionId :: Lude.Text
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBudgetActionResponse' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
 -- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
--- * 'budgetName' - Undocumented field.
+-- * 'accountId' -
+-- * 'budgetName' -
 -- * 'responseStatus' - The response status code.
 mkCreateBudgetActionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
+  -- | 'actionId'
+  Lude.Text ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'actionId'
-  Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateBudgetActionResponse
 mkCreateBudgetActionResponse
-  pResponseStatus_
+  pActionId_
   pAccountId_
   pBudgetName_
-  pActionId_ =
+  pResponseStatus_ =
     CreateBudgetActionResponse'
-      { responseStatus = pResponseStatus_,
+      { actionId = pActionId_,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
-        actionId = pActionId_
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | A system-generated universally unique identifier (UUID) for the action.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbarsResponseStatus :: Lens.Lens' CreateBudgetActionResponse Lude.Int
-cbarsResponseStatus = Lens.lens (responseStatus :: CreateBudgetActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBudgetActionResponse)
-{-# DEPRECATED cbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbarsActionId :: Lens.Lens' CreateBudgetActionResponse Lude.Text
+cbarsActionId = Lens.lens (actionId :: CreateBudgetActionResponse -> Lude.Text) (\s a -> s {actionId = a} :: CreateBudgetActionResponse)
+{-# DEPRECATED cbarsActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -291,9 +289,9 @@ cbarsBudgetName :: Lens.Lens' CreateBudgetActionResponse Lude.Text
 cbarsBudgetName = Lens.lens (budgetName :: CreateBudgetActionResponse -> Lude.Text) (\s a -> s {budgetName = a} :: CreateBudgetActionResponse)
 {-# DEPRECATED cbarsBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
--- | A system-generated universally unique identifier (UUID) for the action.
+-- | The response status code.
 --
--- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbarsActionId :: Lens.Lens' CreateBudgetActionResponse Lude.Text
-cbarsActionId = Lens.lens (actionId :: CreateBudgetActionResponse -> Lude.Text) (\s a -> s {actionId = a} :: CreateBudgetActionResponse)
-{-# DEPRECATED cbarsActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbarsResponseStatus :: Lens.Lens' CreateBudgetActionResponse Lude.Int
+cbarsResponseStatus = Lens.lens (responseStatus :: CreateBudgetActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBudgetActionResponse)
+{-# DEPRECATED cbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

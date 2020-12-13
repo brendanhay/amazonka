@@ -29,16 +29,10 @@ import Network.AWS.Rekognition.Types.KinesisDataStream
 --
 -- /See:/ 'mkStreamProcessorOutput' smart constructor.
 newtype StreamProcessorOutput = StreamProcessorOutput'
-  { kinesisDataStream ::
-      Lude.Maybe KinesisDataStream
+  { -- | The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results.
+    kinesisDataStream :: Lude.Maybe KinesisDataStream
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamProcessorOutput' with the minimum fields required to make a request.

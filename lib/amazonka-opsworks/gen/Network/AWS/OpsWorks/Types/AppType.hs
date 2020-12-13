@@ -15,11 +15,11 @@ module Network.AWS.OpsWorks.Types.AppType
       ( AppType',
         ATAWSFlowRuby,
         ATJava,
-        ATNodejs,
-        ATOther,
-        ATPHP,
         ATRails,
-        ATStatic
+        ATPHP,
+        ATNodejs,
+        ATStatic,
+        ATOther
       ),
   )
 where
@@ -56,28 +56,28 @@ pattern ATAWSFlowRuby = AppType' "aws-flow-ruby"
 pattern ATJava :: AppType
 pattern ATJava = AppType' "java"
 
-pattern ATNodejs :: AppType
-pattern ATNodejs = AppType' "nodejs"
-
-pattern ATOther :: AppType
-pattern ATOther = AppType' "other"
+pattern ATRails :: AppType
+pattern ATRails = AppType' "rails"
 
 pattern ATPHP :: AppType
 pattern ATPHP = AppType' "php"
 
-pattern ATRails :: AppType
-pattern ATRails = AppType' "rails"
+pattern ATNodejs :: AppType
+pattern ATNodejs = AppType' "nodejs"
 
 pattern ATStatic :: AppType
 pattern ATStatic = AppType' "static"
 
+pattern ATOther :: AppType
+pattern ATOther = AppType' "other"
+
 {-# COMPLETE
   ATAWSFlowRuby,
   ATJava,
-  ATNodejs,
-  ATOther,
-  ATPHP,
   ATRails,
+  ATPHP,
+  ATNodejs,
   ATStatic,
+  ATOther,
   AppType'
   #-}

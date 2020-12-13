@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,18 +44,14 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkStartSession' smart constructor.
 data StartSession = StartSession'
-  { documentName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the SSM document to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ . You can call the 'GetDocument' API to verify the document exists before attempting to start a session. If no document name is provided, a shell to the instance is launched by default.
+    documentName :: Lude.Maybe Lude.Text,
+    -- | Reserved for future use.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The instance to connect to for the session.
     target :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSession' with the minimum fields required to make a request.
@@ -136,30 +133,30 @@ instance Lude.ToQuery StartSession where
 
 -- | /See:/ 'mkStartSessionResponse' smart constructor.
 data StartSessionResponse = StartSessionResponse'
-  { streamURL ::
-      Lude.Maybe Lude.Text,
+  { -- | A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: @wss://ssmmessages.__region__ .amazonaws.com/v1/data-channel/__session-id__ ?stream=(input|output)@
+    --
+    -- __region__ represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio) Region. For a list of supported __region__ values, see the __Region__ column in <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints> in the /AWS General Reference/ .
+    -- __session-id__ represents the ID of a Session Manager session, such as @1a2b3c4dEXAMPLE@ .
+    streamURL :: Lude.Maybe Lude.Text,
+    -- | An encrypted token value containing session and caller information. Used to authenticate the connection to the instance.
     tokenValue :: Lude.Maybe Lude.Text,
+    -- | The ID of the session.
     sessionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSessionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'sessionId' - The ID of the session.
 -- * 'streamURL' - A URL back to SSM Agent on the instance that the Session Manager client uses to send commands and receive output from the instance. Format: @wss://ssmmessages.__region__ .amazonaws.com/v1/data-channel/__session-id__ ?stream=(input|output)@
 --
 -- __region__ represents the Region identifier for an AWS Region supported by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio) Region. For a list of supported __region__ values, see the __Region__ column in <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints> in the /AWS General Reference/ .
 -- __session-id__ represents the ID of a Session Manager session, such as @1a2b3c4dEXAMPLE@ .
 -- * 'tokenValue' - An encrypted token value containing session and caller information. Used to authenticate the connection to the instance.
+-- * 'sessionId' - The ID of the session.
+-- * 'responseStatus' - The response status code.
 mkStartSessionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

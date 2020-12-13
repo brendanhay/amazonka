@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,16 +47,10 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkGetOperationDetail' smart constructor.
 newtype GetOperationDetail = GetOperationDetail'
-  { operationId ::
-      Lude.Text
+  { -- | The identifier for the operation for which you want to get the status. Route 53 returned the identifier in the response to the original request.
+    operationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOperationDetail' with the minimum fields required to make a request.
@@ -117,34 +112,33 @@ instance Lude.ToQuery GetOperationDetail where
 --
 -- /See:/ 'mkGetOperationDetailResponse' smart constructor.
 data GetOperationDetailResponse = GetOperationDetailResponse'
-  { status ::
-      Lude.Maybe OperationStatus,
-    submittedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The current status of the requested operation in the system.
+    status :: Lude.Maybe OperationStatus,
+    -- | The date when the request was submitted.
+    submittedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of a domain.
     domainName :: Lude.Maybe Lude.Text,
+    -- | The identifier for the operation.
     operationId :: Lude.Maybe Lude.Text,
+    -- | The type of operation that was requested.
     type' :: Lude.Maybe OperationType,
+    -- | Detailed information on the status including possible errors.
     message :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOperationDetailResponse' with the minimum fields required to make a request.
 --
--- * 'domainName' - The name of a domain.
--- * 'message' - Detailed information on the status including possible errors.
--- * 'operationId' - The identifier for the operation.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The current status of the requested operation in the system.
 -- * 'submittedDate' - The date when the request was submitted.
+-- * 'domainName' - The name of a domain.
+-- * 'operationId' - The identifier for the operation.
 -- * 'type'' - The type of operation that was requested.
+-- * 'message' - Detailed information on the status including possible errors.
+-- * 'responseStatus' - The response status code.
 mkGetOperationDetailResponse ::
   -- | 'responseStatus'
   Lude.Int ->

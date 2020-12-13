@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,28 +38,28 @@ module Network.AWS.EFS.CreateFileSystem
     cfsEncrypted,
     cfsThroughputMode,
     cfsKMSKeyId,
-    cfsTags,
     cfsCreationToken,
+    cfsTags,
 
     -- * Destructuring the response
     FileSystemDescription (..),
     mkFileSystemDescription,
 
     -- ** Response lenses
+    fsdCreationTime,
+    fsdNumberOfMountTargets,
     fsdProvisionedThroughputInMibps,
+    fsdPerformanceMode,
+    fsdSizeInBytes,
+    fsdFileSystemId,
     fsdFileSystemARN,
     fsdEncrypted,
     fsdThroughputMode,
+    fsdOwnerId,
     fsdKMSKeyId,
     fsdName,
-    fsdOwnerId,
     fsdCreationToken,
-    fsdFileSystemId,
-    fsdCreationTime,
     fsdLifeCycleState,
-    fsdNumberOfMountTargets,
-    fsdSizeInBytes,
-    fsdPerformanceMode,
     fsdTags,
   )
 where
@@ -71,28 +72,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateFileSystem' smart constructor.
 data CreateFileSystem = CreateFileSystem'
-  { provisionedThroughputInMibps ::
-      Lude.Maybe Lude.Double,
+  { -- | The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. Valid values are 1-1024. Required if @ThroughputMode@ is set to @provisioned@ . The upper limit for throughput is 1024 MiB/s. You can get this limit increased by contacting AWS Support. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase> in the /Amazon EFS User Guide./
+    provisionedThroughputInMibps :: Lude.Maybe Lude.Double,
+    -- | The performance mode of the file system. We recommend @generalPurpose@ performance mode for most file systems. File systems using the @maxIO@ performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created.
     performanceMode :: Lude.Maybe PerformanceMode,
+    -- | A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying 'CreateFileSystemRequest$KmsKeyId' for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS, @/aws/elasticfilesystem@ , is used to protect the encrypted file system.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The throughput mode for the file system to be created. There are two throughput modes to choose from for your file system: @bursting@ and @provisioned@ . If you set @ThroughputMode@ to @provisioned@ , you must also set a value for @ProvisionedThroughPutInMibps@ . You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change. For more, see <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying Throughput with Provisioned Mode> in the /Amazon EFS User Guide./
     throughputMode :: Lude.Maybe ThroughputMode,
+    -- | The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required if you want to use a nondefault CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This ID can be in one of the following formats:
+    --
+    --
+    --     * Key ID - A unique identifier of the key, for example @1234abcd-12ab-34cd-56ef-1234567890ab@ .
+    --
+    --
+    --     * ARN - An Amazon Resource Name (ARN) for the key, for example @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@ .
+    --
+    --
+    --     * Key alias - A previously created display name for a key, for example @alias/projectKey1@ .
+    --
+    --
+    --     * Key alias ARN - An ARN for a key alias, for example @arn:aws:kms:us-west-2:444455556666:alias/projectKey1@ .
+    --
+    --
+    -- If @KmsKeyId@ is specified, the 'CreateFileSystemRequest$Encrypted' parameter must be set to true.
+    -- /Important:/ EFS accepts only symmetric CMKs. You cannot use asymmetric CMKs with EFS file systems.
     kmsKeyId :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    creationToken :: Lude.Text
+    -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.
+    creationToken :: Lude.Text,
+    -- | A value that specifies to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a @"Key":"Name","Value":"{value}"@ key-value pair.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFileSystem' with the minimum fields required to make a request.
 --
--- * 'creationToken' - A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.
+-- * 'provisionedThroughputInMibps' - The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. Valid values are 1-1024. Required if @ThroughputMode@ is set to @provisioned@ . The upper limit for throughput is 1024 MiB/s. You can get this limit increased by contacting AWS Support. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase> in the /Amazon EFS User Guide./
+-- * 'performanceMode' - The performance mode of the file system. We recommend @generalPurpose@ performance mode for most file systems. File systems using the @maxIO@ performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created.
 -- * 'encrypted' - A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying 'CreateFileSystemRequest$KmsKeyId' for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for Amazon EFS, @/aws/elasticfilesystem@ , is used to protect the encrypted file system.
+-- * 'throughputMode' - The throughput mode for the file system to be created. There are two throughput modes to choose from for your file system: @bursting@ and @provisioned@ . If you set @ThroughputMode@ to @provisioned@ , you must also set a value for @ProvisionedThroughPutInMibps@ . You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change. For more, see <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying Throughput with Provisioned Mode> in the /Amazon EFS User Guide./
 -- * 'kmsKeyId' - The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter is only required if you want to use a nondefault CMK. If this parameter is not specified, the default CMK for Amazon EFS is used. This ID can be in one of the following formats:
 --
 --
@@ -110,10 +129,8 @@ data CreateFileSystem = CreateFileSystem'
 --
 -- If @KmsKeyId@ is specified, the 'CreateFileSystemRequest$Encrypted' parameter must be set to true.
 -- /Important:/ EFS accepts only symmetric CMKs. You cannot use asymmetric CMKs with EFS file systems.
--- * 'performanceMode' - The performance mode of the file system. We recommend @generalPurpose@ performance mode for most file systems. File systems using the @maxIO@ performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created.
--- * 'provisionedThroughputInMibps' - The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. Valid values are 1-1024. Required if @ThroughputMode@ is set to @provisioned@ . The upper limit for throughput is 1024 MiB/s. You can get this limit increased by contacting AWS Support. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase> in the /Amazon EFS User Guide./
+-- * 'creationToken' - A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.
 -- * 'tags' - A value that specifies to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a @"Key":"Name","Value":"{value}"@ key-value pair.
--- * 'throughputMode' - The throughput mode for the file system to be created. There are two throughput modes to choose from for your file system: @bursting@ and @provisioned@ . If you set @ThroughputMode@ to @provisioned@ , you must also set a value for @ProvisionedThroughPutInMibps@ . You can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes as long as it’s been more than 24 hours since the last decrease or throughput mode change. For more, see <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying Throughput with Provisioned Mode> in the /Amazon EFS User Guide./
 mkCreateFileSystem ::
   -- | 'creationToken'
   Lude.Text ->
@@ -125,8 +142,8 @@ mkCreateFileSystem pCreationToken_ =
       encrypted = Lude.Nothing,
       throughputMode = Lude.Nothing,
       kmsKeyId = Lude.Nothing,
-      tags = Lude.Nothing,
-      creationToken = pCreationToken_
+      creationToken = pCreationToken_,
+      tags = Lude.Nothing
     }
 
 -- | The throughput, measured in MiB/s, that you want to provision for a file system that you're creating. Valid values are 1-1024. Required if @ThroughputMode@ is set to @provisioned@ . The upper limit for throughput is 1024 MiB/s. You can get this limit increased by contacting AWS Support. For more information, see <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase> in the /Amazon EFS User Guide./
@@ -180,19 +197,19 @@ cfsKMSKeyId :: Lens.Lens' CreateFileSystem (Lude.Maybe Lude.Text)
 cfsKMSKeyId = Lens.lens (kmsKeyId :: CreateFileSystem -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateFileSystem)
 {-# DEPRECATED cfsKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | A value that specifies to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a @"Key":"Name","Value":"{value}"@ key-value pair.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfsTags :: Lens.Lens' CreateFileSystem (Lude.Maybe [Tag])
-cfsTags = Lens.lens (tags :: CreateFileSystem -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateFileSystem)
-{-# DEPRECATED cfsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.
 --
 -- /Note:/ Consider using 'creationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cfsCreationToken :: Lens.Lens' CreateFileSystem Lude.Text
 cfsCreationToken = Lens.lens (creationToken :: CreateFileSystem -> Lude.Text) (\s a -> s {creationToken = a} :: CreateFileSystem)
 {-# DEPRECATED cfsCreationToken "Use generic-lens or generic-optics with 'creationToken' instead." #-}
+
+-- | A value that specifies to create one or more tags associated with the file system. Each tag is a user-defined key-value pair. Name your file system on creation by including a @"Key":"Name","Value":"{value}"@ key-value pair.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfsTags :: Lens.Lens' CreateFileSystem (Lude.Maybe [Tag])
+cfsTags = Lens.lens (tags :: CreateFileSystem -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateFileSystem)
+{-# DEPRECATED cfsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateFileSystem where
   type Rs CreateFileSystem = FileSystemDescription
@@ -212,8 +229,8 @@ instance Lude.ToJSON CreateFileSystem where
             ("Encrypted" Lude..=) Lude.<$> encrypted,
             ("ThroughputMode" Lude..=) Lude.<$> throughputMode,
             ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("CreationToken" Lude..= creationToken)
+            Lude.Just ("CreationToken" Lude..= creationToken),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 

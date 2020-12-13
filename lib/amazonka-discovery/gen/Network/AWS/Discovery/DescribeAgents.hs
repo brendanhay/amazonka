@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,19 +47,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAgents' smart constructor.
 data DescribeAgents = DescribeAgents'
-  { agentIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
+    agentIds :: Lude.Maybe [Lude.Text],
+    -- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:
+    --
+    -- @{"key": "collectionStatus", "value": "STARTED"}@
     filters :: Lude.Maybe [Filter],
+    -- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAgents' with the minimum fields required to make a request.
@@ -67,8 +67,8 @@ data DescribeAgents = DescribeAgents'
 -- * 'filters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:
 --
 -- @{"key": "collectionStatus", "value": "STARTED"}@
--- * 'maxResults' - The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
 -- * 'nextToken' - Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
+-- * 'maxResults' - The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
 mkDescribeAgents ::
   DescribeAgents
 mkDescribeAgents =
@@ -162,18 +162,14 @@ instance Lude.ToQuery DescribeAgents where
 
 -- | /See:/ 'mkDescribeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
-  { agentsInfo ::
-      Lude.Maybe [AgentInfo],
+  { -- | Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
+    agentsInfo :: Lude.Maybe [AgentInfo],
+    -- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAgentsResponse' with the minimum fields required to make a request.

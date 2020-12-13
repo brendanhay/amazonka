@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,18 +22,18 @@ module Network.AWS.Budgets.DescribeBudgetActionsForAccount
     mkDescribeBudgetActionsForAccount,
 
     -- ** Request lenses
+    dbafaAccountId,
     dbafaNextToken,
     dbafaMaxResults,
-    dbafaAccountId,
 
     -- * Destructuring the response
     DescribeBudgetActionsForAccountResponse (..),
     mkDescribeBudgetActionsForAccountResponse,
 
     -- ** Response lenses
+    dbafarsActions,
     dbafarsNextToken,
     dbafarsResponseStatus,
-    dbafarsActions,
   )
 where
 
@@ -45,36 +46,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBudgetActionsForAccount' smart constructor.
 data DescribeBudgetActionsForAccount = DescribeBudgetActionsForAccount'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    accountId :: Lude.Text
+  { accountId :: Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetActionsForAccount' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
--- * 'maxResults' - Undocumented field.
--- * 'nextToken' - Undocumented field.
+-- * 'accountId' -
+-- * 'nextToken' -
+-- * 'maxResults' -
 mkDescribeBudgetActionsForAccount ::
   -- | 'accountId'
   Lude.Text ->
   DescribeBudgetActionsForAccount
 mkDescribeBudgetActionsForAccount pAccountId_ =
   DescribeBudgetActionsForAccount'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      accountId = pAccountId_
+    { accountId = pAccountId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafaAccountId :: Lens.Lens' DescribeBudgetActionsForAccount Lude.Text
+dbafaAccountId = Lens.lens (accountId :: DescribeBudgetActionsForAccount -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetActionsForAccount)
+{-# DEPRECATED dbafaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -89,13 +89,6 @@ dbafaNextToken = Lens.lens (nextToken :: DescribeBudgetActionsForAccount -> Lude
 dbafaMaxResults :: Lens.Lens' DescribeBudgetActionsForAccount (Lude.Maybe Lude.Natural)
 dbafaMaxResults = Lens.lens (maxResults :: DescribeBudgetActionsForAccount -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetActionsForAccount)
 {-# DEPRECATED dbafaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafaAccountId :: Lens.Lens' DescribeBudgetActionsForAccount Lude.Text
-dbafaAccountId = Lens.lens (accountId :: DescribeBudgetActionsForAccount -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetActionsForAccount)
-{-# DEPRECATED dbafaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Page.AWSPager DescribeBudgetActionsForAccount where
   page rq rs
@@ -115,9 +108,9 @@ instance Lude.AWSRequest DescribeBudgetActionsForAccount where
     Res.receiveJSON
       ( \s h x ->
           DescribeBudgetActionsForAccountResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "Actions" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "Actions" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders DescribeBudgetActionsForAccount where
@@ -137,9 +130,9 @@ instance Lude.ToJSON DescribeBudgetActionsForAccount where
   toJSON DescribeBudgetActionsForAccount' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("AccountId" Lude..= accountId)
+          [ Lude.Just ("AccountId" Lude..= accountId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -151,26 +144,19 @@ instance Lude.ToQuery DescribeBudgetActionsForAccount where
 
 -- | /See:/ 'mkDescribeBudgetActionsForAccountResponse' smart constructor.
 data DescribeBudgetActionsForAccountResponse = DescribeBudgetActionsForAccountResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    actions ::
-      [Action]
+  { -- | A list of the budget action resources information.
+    actions :: [Action],
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetActionsForAccountResponse' with the minimum fields required to make a request.
 --
 -- * 'actions' - A list of the budget action resources information.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkDescribeBudgetActionsForAccountResponse ::
   -- | 'responseStatus'
@@ -178,11 +164,17 @@ mkDescribeBudgetActionsForAccountResponse ::
   DescribeBudgetActionsForAccountResponse
 mkDescribeBudgetActionsForAccountResponse pResponseStatus_ =
   DescribeBudgetActionsForAccountResponse'
-    { nextToken =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      actions = Lude.mempty
+    { actions = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of the budget action resources information.
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafarsActions :: Lens.Lens' DescribeBudgetActionsForAccountResponse [Action]
+dbafarsActions = Lens.lens (actions :: DescribeBudgetActionsForAccountResponse -> [Action]) (\s a -> s {actions = a} :: DescribeBudgetActionsForAccountResponse)
+{-# DEPRECATED dbafarsActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | Undocumented field.
 --
@@ -197,10 +189,3 @@ dbafarsNextToken = Lens.lens (nextToken :: DescribeBudgetActionsForAccountRespon
 dbafarsResponseStatus :: Lens.Lens' DescribeBudgetActionsForAccountResponse Lude.Int
 dbafarsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetActionsForAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetActionsForAccountResponse)
 {-# DEPRECATED dbafarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of the budget action resources information.
---
--- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafarsActions :: Lens.Lens' DescribeBudgetActionsForAccountResponse [Action]
-dbafarsActions = Lens.lens (actions :: DescribeBudgetActionsForAccountResponse -> [Action]) (\s a -> s {actions = a} :: DescribeBudgetActionsForAccountResponse)
-{-# DEPRECATED dbafarsActions "Use generic-lens or generic-optics with 'actions' instead." #-}

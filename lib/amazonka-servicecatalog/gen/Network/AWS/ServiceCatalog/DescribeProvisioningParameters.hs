@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,32 +53,39 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeProvisioningParameters' smart constructor.
 data DescribeProvisioningParameters = DescribeProvisioningParameters'
-  { productName ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactId ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactName ::
-      Lude.Maybe Lude.Text,
-    pathName ::
-      Lude.Maybe Lude.Text,
-    acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    pathId ::
-      Lude.Maybe Lude.Text,
-    productId ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the product. You must provide the name or ID, but not both.
+    productName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | The name of the provisioning artifact. You must provide the name or ID, but not both.
+    provisioningArtifactName :: Lude.Maybe Lude.Text,
+    -- | The name of the path. You must provide the name or ID, but not both.
+    pathName :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' . You must provide the name or ID, but not both.
+    pathId :: Lude.Maybe Lude.Text,
+    -- | The product identifier. You must provide the product name or ID, but not both.
+    productId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningParameters' with the minimum fields required to make a request.
 --
+-- * 'productName' - The name of the product. You must provide the name or ID, but not both.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+-- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
+-- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -91,11 +99,7 @@ data DescribeProvisioningParameters = DescribeProvisioningParameters'
 --
 --
 -- * 'pathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' . You must provide the name or ID, but not both.
--- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
 -- * 'productId' - The product identifier. You must provide the product name or ID, but not both.
--- * 'productName' - The name of the product. You must provide the name or ID, but not both.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name or ID, but not both.
--- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
 mkDescribeProvisioningParameters ::
   DescribeProvisioningParameters
 mkDescribeProvisioningParameters =
@@ -223,45 +227,33 @@ instance Lude.ToQuery DescribeProvisioningParameters where
 
 -- | /See:/ 'mkDescribeProvisioningParametersResponse' smart constructor.
 data DescribeProvisioningParametersResponse = DescribeProvisioningParametersResponse'
-  { provisioningArtifactPreferences ::
-      Lude.Maybe
-        ProvisioningArtifactPreferences,
-    provisioningArtifactParameters ::
-      Lude.Maybe
-        [ProvisioningArtifactParameter],
-    usageInstructions ::
-      Lude.Maybe
-        [UsageInstruction],
-    constraintSummaries ::
-      Lude.Maybe
-        [ConstraintSummary],
-    tagOptions ::
-      Lude.Maybe
-        [TagOptionSummary],
-    provisioningArtifactOutputs ::
-      Lude.Maybe
-        [ProvisioningArtifactOutput],
-    responseStatus ::
-      Lude.Int
+  { -- | An object that contains information about preferences, such as regions and accounts, for the provisioning artifact.
+    provisioningArtifactPreferences :: Lude.Maybe ProvisioningArtifactPreferences,
+    -- | Information about the parameters used to provision the product.
+    provisioningArtifactParameters :: Lude.Maybe [ProvisioningArtifactParameter],
+    -- | Any additional metadata specifically related to the provisioning of the product. For example, see the @Version@ field of the CloudFormation template.
+    usageInstructions :: Lude.Maybe [UsageInstruction],
+    -- | Information about the constraints used to provision the product.
+    constraintSummaries :: Lude.Maybe [ConstraintSummary],
+    -- | Information about the TagOptions associated with the resource.
+    tagOptions :: Lude.Maybe [TagOptionSummary],
+    -- | The output of the provisioning artifact.
+    provisioningArtifactOutputs :: Lude.Maybe [ProvisioningArtifactOutput],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningParametersResponse' with the minimum fields required to make a request.
 --
--- * 'constraintSummaries' - Information about the constraints used to provision the product.
--- * 'provisioningArtifactOutputs' - The output of the provisioning artifact.
--- * 'provisioningArtifactParameters' - Information about the parameters used to provision the product.
 -- * 'provisioningArtifactPreferences' - An object that contains information about preferences, such as regions and accounts, for the provisioning artifact.
--- * 'responseStatus' - The response status code.
--- * 'tagOptions' - Information about the TagOptions associated with the resource.
+-- * 'provisioningArtifactParameters' - Information about the parameters used to provision the product.
 -- * 'usageInstructions' - Any additional metadata specifically related to the provisioning of the product. For example, see the @Version@ field of the CloudFormation template.
+-- * 'constraintSummaries' - Information about the constraints used to provision the product.
+-- * 'tagOptions' - Information about the TagOptions associated with the resource.
+-- * 'provisioningArtifactOutputs' - The output of the provisioning artifact.
+-- * 'responseStatus' - The response status code.
 mkDescribeProvisioningParametersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

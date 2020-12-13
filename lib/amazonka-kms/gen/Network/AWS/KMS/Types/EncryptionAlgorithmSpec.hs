@@ -13,9 +13,9 @@
 module Network.AWS.KMS.Types.EncryptionAlgorithmSpec
   ( EncryptionAlgorithmSpec
       ( EncryptionAlgorithmSpec',
+        SymmetricDefault,
         RsaesOaepSha1,
-        RsaesOaepSha256,
-        SymmetricDefault
+        RsaesOaepSha256
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EncryptionAlgorithmSpec = EncryptionAlgorithmSpec' Lude.Text
       Lude.ToHeader
     )
 
+pattern SymmetricDefault :: EncryptionAlgorithmSpec
+pattern SymmetricDefault = EncryptionAlgorithmSpec' "SYMMETRIC_DEFAULT"
+
 pattern RsaesOaepSha1 :: EncryptionAlgorithmSpec
 pattern RsaesOaepSha1 = EncryptionAlgorithmSpec' "RSAES_OAEP_SHA_1"
 
 pattern RsaesOaepSha256 :: EncryptionAlgorithmSpec
 pattern RsaesOaepSha256 = EncryptionAlgorithmSpec' "RSAES_OAEP_SHA_256"
 
-pattern SymmetricDefault :: EncryptionAlgorithmSpec
-pattern SymmetricDefault = EncryptionAlgorithmSpec' "SYMMETRIC_DEFAULT"
-
 {-# COMPLETE
+  SymmetricDefault,
   RsaesOaepSha1,
   RsaesOaepSha256,
-  SymmetricDefault,
   EncryptionAlgorithmSpec'
   #-}

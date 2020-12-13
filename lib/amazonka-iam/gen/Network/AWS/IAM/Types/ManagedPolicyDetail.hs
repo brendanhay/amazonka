@@ -43,54 +43,67 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedPolicyDetail' smart constructor.
 data ManagedPolicyDetail = ManagedPolicyDetail'
-  { policyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The friendly name (not ARN) identifying the policy.
+    policyName :: Lude.Maybe Lude.Text,
     arn :: Lude.Maybe Lude.Text,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
+    --
+    -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
     updateDate :: Lude.Maybe Lude.DateTime,
+    -- | The stable and unique string identifying the policy.
+    --
+    -- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     policyId :: Lude.Maybe Lude.Text,
+    -- | The path to the policy.
+    --
+    -- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     path :: Lude.Maybe Lude.Text,
+    -- | A list containing information about the versions of the policy.
     policyVersionList :: Lude.Maybe [PolicyVersion],
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | Specifies whether the policy can be attached to an IAM user, group, or role.
     isAttachable :: Lude.Maybe Lude.Bool,
-    permissionsBoundaryUsageCount ::
-      Lude.Maybe Lude.Int,
+    -- | The number of entities (users and roles) for which the policy is used as the permissions boundary.
+    --
+    -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+    permissionsBoundaryUsageCount :: Lude.Maybe Lude.Int,
+    -- | The identifier for the version of the policy that is set as the default (operative) version.
+    --
+    -- For more information about policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
     defaultVersionId :: Lude.Maybe Lude.Text,
+    -- | The number of principal entities (users, groups, and roles) that the policy is attached to.
     attachmentCount :: Lude.Maybe Lude.Int,
+    -- | A friendly description of the policy.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedPolicyDetail' with the minimum fields required to make a request.
 --
--- * 'arn' - Undocumented field.
--- * 'attachmentCount' - The number of principal entities (users, groups, and roles) that the policy is attached to.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
--- * 'defaultVersionId' - The identifier for the version of the policy that is set as the default (operative) version.
---
--- For more information about policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
--- * 'description' - A friendly description of the policy.
--- * 'isAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
--- * 'path' - The path to the policy.
---
--- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'permissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used as the permissions boundary.
---
--- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'policyId' - The stable and unique string identifying the policy.
---
--- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 -- * 'policyName' - The friendly name (not ARN) identifying the policy.
--- * 'policyVersionList' - A list containing information about the versions of the policy.
+-- * 'arn' -
 -- * 'updateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
 --
 -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+-- * 'policyId' - The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'path' - The path to the policy.
+--
+-- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'policyVersionList' - A list containing information about the versions of the policy.
+-- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
+-- * 'isAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
+-- * 'permissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used as the permissions boundary.
+--
+-- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+-- * 'defaultVersionId' - The identifier for the version of the policy that is set as the default (operative) version.
+--
+-- For more information about policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+-- * 'attachmentCount' - The number of principal entities (users, groups, and roles) that the policy is attached to.
+-- * 'description' - A friendly description of the policy.
 mkManagedPolicyDetail ::
   ManagedPolicyDetail
 mkManagedPolicyDetail =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -71,16 +72,10 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkPutTraceSegments' smart constructor.
 newtype PutTraceSegments = PutTraceSegments'
-  { traceSegmentDocuments ::
-      [Lude.Text]
+  { -- | A string containing a JSON document defining one or more segments or subsegments.
+    traceSegmentDocuments :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTraceSegments' with the minimum fields required to make a request.
@@ -129,23 +124,18 @@ instance Lude.ToQuery PutTraceSegments where
 
 -- | /See:/ 'mkPutTraceSegmentsResponse' smart constructor.
 data PutTraceSegmentsResponse = PutTraceSegmentsResponse'
-  { unprocessedTraceSegments ::
-      Lude.Maybe [UnprocessedTraceSegment],
+  { -- | Segments that failed processing.
+    unprocessedTraceSegments :: Lude.Maybe [UnprocessedTraceSegment],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTraceSegmentsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedTraceSegments' - Segments that failed processing.
+-- * 'responseStatus' - The response status code.
 mkPutTraceSegmentsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

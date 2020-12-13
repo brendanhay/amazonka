@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.OpsWorks.UnassignInstance
     mkUnassignInstance,
 
     -- ** Request lenses
-    uInstanceId,
+    uiInstanceId,
 
     -- * Destructuring the response
     UnassignInstanceResponse (..),
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUnassignInstance' smart constructor.
 newtype UnassignInstance = UnassignInstance'
-  { instanceId ::
-      Lude.Text
+  { -- | The instance ID.
+    instanceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignInstance' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkUnassignInstance pInstanceId_ =
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uInstanceId :: Lens.Lens' UnassignInstance Lude.Text
-uInstanceId = Lens.lens (instanceId :: UnassignInstance -> Lude.Text) (\s a -> s {instanceId = a} :: UnassignInstance)
-{-# DEPRECATED uInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+uiInstanceId :: Lens.Lens' UnassignInstance Lude.Text
+uiInstanceId = Lens.lens (instanceId :: UnassignInstance -> Lude.Text) (\s a -> s {instanceId = a} :: UnassignInstance)
+{-# DEPRECATED uiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest UnassignInstance where
   type Rs UnassignInstance = UnassignInstanceResponse
@@ -95,13 +90,7 @@ instance Lude.ToQuery UnassignInstance where
 
 -- | /See:/ 'mkUnassignInstanceResponse' smart constructor.
 data UnassignInstanceResponse = UnassignInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnassignInstanceResponse' with the minimum fields required to make a request.

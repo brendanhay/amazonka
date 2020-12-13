@@ -33,26 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportSnapshotTask' smart constructor.
 data ImportSnapshotTask = ImportSnapshotTask'
-  { snapshotTaskDetail ::
-      Lude.Maybe SnapshotTaskDetail,
+  { -- | Describes an import snapshot task.
+    snapshotTaskDetail :: Lude.Maybe SnapshotTaskDetail,
+    -- | The ID of the import snapshot task.
     importTaskId :: Lude.Maybe Lude.Text,
+    -- | A description of the import snapshot task.
     description :: Lude.Maybe Lude.Text,
+    -- | The tags for the import snapshot task.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportSnapshotTask' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the import snapshot task.
--- * 'importTaskId' - The ID of the import snapshot task.
 -- * 'snapshotTaskDetail' - Describes an import snapshot task.
+-- * 'importTaskId' - The ID of the import snapshot task.
+-- * 'description' - A description of the import snapshot task.
 -- * 'tags' - The tags for the import snapshot task.
 mkImportSnapshotTask ::
   ImportSnapshotTask

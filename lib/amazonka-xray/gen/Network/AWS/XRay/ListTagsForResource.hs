@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A pagination token. If multiple pages of results are returned, use the @NextToken@ value returned with the current page of results as the value of this parameter to get the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.
     resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
@@ -114,25 +110,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A pagination token. If multiple pages of results are returned, use the @NextToken@ value returned with the current page of results to get the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A pagination token. If multiple pages of results are returned, use the @NextToken@ value returned with the current page of results to get the next page of results.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

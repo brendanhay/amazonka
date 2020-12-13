@@ -29,19 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountRecoverySettingType' smart constructor.
 newtype AccountRecoverySettingType = AccountRecoverySettingType'
-  { recoveryMechanisms ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            RecoveryOptionType
-        )
+  { -- | The list of @RecoveryOptionTypes@ .
+    recoveryMechanisms :: Lude.Maybe (Lude.NonEmpty RecoveryOptionType)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountRecoverySettingType' with the minimum fields required to make a request.

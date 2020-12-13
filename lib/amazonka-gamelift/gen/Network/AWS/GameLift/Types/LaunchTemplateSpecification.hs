@@ -32,25 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
-  { launchTemplateName ::
-      Lude.Maybe Lude.Text,
-    launchTemplateId ::
-      Lude.Maybe Lude.Text,
+  { -- | A readable identifier for an existing EC2 launch template.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for an existing EC2 launch template.
+    launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The version of the EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateSpecification' with the minimum fields required to make a request.
 --
--- * 'launchTemplateId' - A unique identifier for an existing EC2 launch template.
 -- * 'launchTemplateName' - A readable identifier for an existing EC2 launch template.
+-- * 'launchTemplateId' - A unique identifier for an existing EC2 launch template.
 -- * 'version' - The version of the EC2 launch template to use. If no version is specified, the default version will be used. With Amazon EC2, you can specify a default version for a launch template. If none is set, the default is the first version created.
 mkLaunchTemplateSpecification ::
   LaunchTemplateSpecification

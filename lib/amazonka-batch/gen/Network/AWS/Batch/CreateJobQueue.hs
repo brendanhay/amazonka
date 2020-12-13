@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,19 +23,19 @@ module Network.AWS.Batch.CreateJobQueue
 
     -- ** Request lenses
     cjqState,
-    cjqTags,
-    cjqJobQueueName,
     cjqPriority,
     cjqComputeEnvironmentOrder,
+    cjqJobQueueName,
+    cjqTags,
 
     -- * Destructuring the response
     CreateJobQueueResponse (..),
     mkCreateJobQueueResponse,
 
     -- ** Response lenses
-    cjqrsResponseStatus,
-    cjqrsJobQueueName,
     cjqrsJobQueueARN,
+    cjqrsJobQueueName,
+    cjqrsResponseStatus,
   )
 where
 
@@ -46,41 +47,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateJobQueue' smart constructor.
 data CreateJobQueue = CreateJobQueue'
-  { state :: Lude.Maybe JQState,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    jobQueueName :: Lude.Text,
+  { -- | The state of the job queue. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
+    state :: Lude.Maybe JQState,
+    -- | The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
     priority :: Lude.Int,
-    computeEnvironmentOrder :: [ComputeEnvironmentOrder]
+    -- | The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment should execute a given job. Compute environments must be in the @VALID@ state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+    computeEnvironmentOrder :: [ComputeEnvironmentOrder],
+    -- | The name of the job queue.
+    jobQueueName :: Lude.Text,
+    -- | The tags that you apply to the job queue to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in /AWS General Reference/ .
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobQueue' with the minimum fields required to make a request.
 --
+-- * 'state' - The state of the job queue. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
+-- * 'priority' - The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 -- * 'computeEnvironmentOrder' - The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment should execute a given job. Compute environments must be in the @VALID@ state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 -- * 'jobQueueName' - The name of the job queue.
--- * 'priority' - The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
--- * 'state' - The state of the job queue. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
 -- * 'tags' - The tags that you apply to the job queue to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in /AWS General Reference/ .
 mkCreateJobQueue ::
-  -- | 'jobQueueName'
-  Lude.Text ->
   -- | 'priority'
   Lude.Int ->
+  -- | 'jobQueueName'
+  Lude.Text ->
   CreateJobQueue
-mkCreateJobQueue pJobQueueName_ pPriority_ =
+mkCreateJobQueue pPriority_ pJobQueueName_ =
   CreateJobQueue'
     { state = Lude.Nothing,
-      tags = Lude.Nothing,
-      jobQueueName = pJobQueueName_,
       priority = pPriority_,
-      computeEnvironmentOrder = Lude.mempty
+      computeEnvironmentOrder = Lude.mempty,
+      jobQueueName = pJobQueueName_,
+      tags = Lude.Nothing
     }
 
 -- | The state of the job queue. If the job queue state is @ENABLED@ , it is able to accept jobs. If the job queue state is @DISABLED@ , new jobs cannot be added to the queue, but jobs already in the queue can finish.
@@ -89,20 +89,6 @@ mkCreateJobQueue pJobQueueName_ pPriority_ =
 cjqState :: Lens.Lens' CreateJobQueue (Lude.Maybe JQState)
 cjqState = Lens.lens (state :: CreateJobQueue -> Lude.Maybe JQState) (\s a -> s {state = a} :: CreateJobQueue)
 {-# DEPRECATED cjqState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The tags that you apply to the job queue to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in /AWS General Reference/ .
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjqTags :: Lens.Lens' CreateJobQueue (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cjqTags = Lens.lens (tags :: CreateJobQueue -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateJobQueue)
-{-# DEPRECATED cjqTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the job queue.
---
--- /Note:/ Consider using 'jobQueueName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjqJobQueueName :: Lens.Lens' CreateJobQueue Lude.Text
-cjqJobQueueName = Lens.lens (jobQueueName :: CreateJobQueue -> Lude.Text) (\s a -> s {jobQueueName = a} :: CreateJobQueue)
-{-# DEPRECATED cjqJobQueueName "Use generic-lens or generic-optics with 'jobQueueName' instead." #-}
 
 -- | The priority of the job queue. Job queues with a higher priority (or a higher integer value for the @priority@ parameter) are evaluated first when associated with the same compute environment. Priority is determined in descending order, for example, a job queue with a priority value of @10@ is given scheduling preference over a job queue with a priority value of @1@ .
 --
@@ -118,6 +104,20 @@ cjqComputeEnvironmentOrder :: Lens.Lens' CreateJobQueue [ComputeEnvironmentOrder
 cjqComputeEnvironmentOrder = Lens.lens (computeEnvironmentOrder :: CreateJobQueue -> [ComputeEnvironmentOrder]) (\s a -> s {computeEnvironmentOrder = a} :: CreateJobQueue)
 {-# DEPRECATED cjqComputeEnvironmentOrder "Use generic-lens or generic-optics with 'computeEnvironmentOrder' instead." #-}
 
+-- | The name of the job queue.
+--
+-- /Note:/ Consider using 'jobQueueName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjqJobQueueName :: Lens.Lens' CreateJobQueue Lude.Text
+cjqJobQueueName = Lens.lens (jobQueueName :: CreateJobQueue -> Lude.Text) (\s a -> s {jobQueueName = a} :: CreateJobQueue)
+{-# DEPRECATED cjqJobQueueName "Use generic-lens or generic-optics with 'jobQueueName' instead." #-}
+
+-- | The tags that you apply to the job queue to help you categorize and organize your resources. Each tag consists of a key and an optional value. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjqTags :: Lens.Lens' CreateJobQueue (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cjqTags = Lens.lens (tags :: CreateJobQueue -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateJobQueue)
+{-# DEPRECATED cjqTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
 instance Lude.AWSRequest CreateJobQueue where
   type Rs CreateJobQueue = CreateJobQueueResponse
   request = Req.postJSON batchService
@@ -125,9 +125,9 @@ instance Lude.AWSRequest CreateJobQueue where
     Res.receiveJSON
       ( \s h x ->
           CreateJobQueueResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "jobQueueArn")
             Lude.<*> (x Lude..:> "jobQueueName")
-            Lude.<*> (x Lude..:> "jobQueueArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateJobQueue where
@@ -144,11 +144,11 @@ instance Lude.ToJSON CreateJobQueue where
     Lude.object
       ( Lude.catMaybes
           [ ("state" Lude..=) Lude.<$> state,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("jobQueueName" Lude..= jobQueueName),
             Lude.Just ("priority" Lude..= priority),
             Lude.Just
-              ("computeEnvironmentOrder" Lude..= computeEnvironmentOrder)
+              ("computeEnvironmentOrder" Lude..= computeEnvironmentOrder),
+            Lude.Just ("jobQueueName" Lude..= jobQueueName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -160,18 +160,14 @@ instance Lude.ToQuery CreateJobQueue where
 
 -- | /See:/ 'mkCreateJobQueueResponse' smart constructor.
 data CreateJobQueueResponse = CreateJobQueueResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | The Amazon Resource Name (ARN) of the job queue.
+    jobQueueARN :: Lude.Text,
+    -- | The name of the job queue.
     jobQueueName :: Lude.Text,
-    jobQueueARN :: Lude.Text
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobQueueResponse' with the minimum fields required to make a request.
@@ -180,29 +176,29 @@ data CreateJobQueueResponse = CreateJobQueueResponse'
 -- * 'jobQueueName' - The name of the job queue.
 -- * 'responseStatus' - The response status code.
 mkCreateJobQueueResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'jobQueueName'
-  Lude.Text ->
   -- | 'jobQueueARN'
   Lude.Text ->
+  -- | 'jobQueueName'
+  Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateJobQueueResponse
 mkCreateJobQueueResponse
-  pResponseStatus_
+  pJobQueueARN_
   pJobQueueName_
-  pJobQueueARN_ =
+  pResponseStatus_ =
     CreateJobQueueResponse'
-      { responseStatus = pResponseStatus_,
+      { jobQueueARN = pJobQueueARN_,
         jobQueueName = pJobQueueName_,
-        jobQueueARN = pJobQueueARN_
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | The Amazon Resource Name (ARN) of the job queue.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjqrsResponseStatus :: Lens.Lens' CreateJobQueueResponse Lude.Int
-cjqrsResponseStatus = Lens.lens (responseStatus :: CreateJobQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateJobQueueResponse)
-{-# DEPRECATED cjqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'jobQueueARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjqrsJobQueueARN :: Lens.Lens' CreateJobQueueResponse Lude.Text
+cjqrsJobQueueARN = Lens.lens (jobQueueARN :: CreateJobQueueResponse -> Lude.Text) (\s a -> s {jobQueueARN = a} :: CreateJobQueueResponse)
+{-# DEPRECATED cjqrsJobQueueARN "Use generic-lens or generic-optics with 'jobQueueARN' instead." #-}
 
 -- | The name of the job queue.
 --
@@ -211,9 +207,9 @@ cjqrsJobQueueName :: Lens.Lens' CreateJobQueueResponse Lude.Text
 cjqrsJobQueueName = Lens.lens (jobQueueName :: CreateJobQueueResponse -> Lude.Text) (\s a -> s {jobQueueName = a} :: CreateJobQueueResponse)
 {-# DEPRECATED cjqrsJobQueueName "Use generic-lens or generic-optics with 'jobQueueName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the job queue.
+-- | The response status code.
 --
--- /Note:/ Consider using 'jobQueueARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjqrsJobQueueARN :: Lens.Lens' CreateJobQueueResponse Lude.Text
-cjqrsJobQueueARN = Lens.lens (jobQueueARN :: CreateJobQueueResponse -> Lude.Text) (\s a -> s {jobQueueARN = a} :: CreateJobQueueResponse)
-{-# DEPRECATED cjqrsJobQueueARN "Use generic-lens or generic-optics with 'jobQueueARN' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjqrsResponseStatus :: Lens.Lens' CreateJobQueueResponse Lude.Int
+cjqrsResponseStatus = Lens.lens (responseStatus :: CreateJobQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateJobQueueResponse)
+{-# DEPRECATED cjqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

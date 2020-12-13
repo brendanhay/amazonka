@@ -13,15 +13,15 @@
 module Network.AWS.MachineLearning.Types.MLModelFilterVariable
   ( MLModelFilterVariable
       ( MLModelFilterVariable',
-        MLMFVAlgorithm,
         MLMFVCreatedAt,
-        MLMFVIAMUser,
         MLMFVLastUpdatedAt,
-        MLMFVMLModelType,
-        MLMFVName,
-        MLMFVRealtimeEndpointStatus,
         MLMFVStatus,
+        MLMFVName,
+        MLMFVIAMUser,
         MLMFVTrainingDataSourceId,
+        MLMFVRealtimeEndpointStatus,
+        MLMFVMLModelType,
+        MLMFVAlgorithm,
         MLMFVTrainingDataURI
       ),
   )
@@ -53,46 +53,46 @@ newtype MLModelFilterVariable = MLModelFilterVariable' Lude.Text
       Lude.ToHeader
     )
 
-pattern MLMFVAlgorithm :: MLModelFilterVariable
-pattern MLMFVAlgorithm = MLModelFilterVariable' "Algorithm"
-
 pattern MLMFVCreatedAt :: MLModelFilterVariable
 pattern MLMFVCreatedAt = MLModelFilterVariable' "CreatedAt"
-
-pattern MLMFVIAMUser :: MLModelFilterVariable
-pattern MLMFVIAMUser = MLModelFilterVariable' "IAMUser"
 
 pattern MLMFVLastUpdatedAt :: MLModelFilterVariable
 pattern MLMFVLastUpdatedAt = MLModelFilterVariable' "LastUpdatedAt"
 
-pattern MLMFVMLModelType :: MLModelFilterVariable
-pattern MLMFVMLModelType = MLModelFilterVariable' "MLModelType"
+pattern MLMFVStatus :: MLModelFilterVariable
+pattern MLMFVStatus = MLModelFilterVariable' "Status"
 
 pattern MLMFVName :: MLModelFilterVariable
 pattern MLMFVName = MLModelFilterVariable' "Name"
 
-pattern MLMFVRealtimeEndpointStatus :: MLModelFilterVariable
-pattern MLMFVRealtimeEndpointStatus = MLModelFilterVariable' "RealtimeEndpointStatus"
-
-pattern MLMFVStatus :: MLModelFilterVariable
-pattern MLMFVStatus = MLModelFilterVariable' "Status"
+pattern MLMFVIAMUser :: MLModelFilterVariable
+pattern MLMFVIAMUser = MLModelFilterVariable' "IAMUser"
 
 pattern MLMFVTrainingDataSourceId :: MLModelFilterVariable
 pattern MLMFVTrainingDataSourceId = MLModelFilterVariable' "TrainingDataSourceId"
+
+pattern MLMFVRealtimeEndpointStatus :: MLModelFilterVariable
+pattern MLMFVRealtimeEndpointStatus = MLModelFilterVariable' "RealtimeEndpointStatus"
+
+pattern MLMFVMLModelType :: MLModelFilterVariable
+pattern MLMFVMLModelType = MLModelFilterVariable' "MLModelType"
+
+pattern MLMFVAlgorithm :: MLModelFilterVariable
+pattern MLMFVAlgorithm = MLModelFilterVariable' "Algorithm"
 
 pattern MLMFVTrainingDataURI :: MLModelFilterVariable
 pattern MLMFVTrainingDataURI = MLModelFilterVariable' "TrainingDataURI"
 
 {-# COMPLETE
-  MLMFVAlgorithm,
   MLMFVCreatedAt,
-  MLMFVIAMUser,
   MLMFVLastUpdatedAt,
-  MLMFVMLModelType,
-  MLMFVName,
-  MLMFVRealtimeEndpointStatus,
   MLMFVStatus,
+  MLMFVName,
+  MLMFVIAMUser,
   MLMFVTrainingDataSourceId,
+  MLMFVRealtimeEndpointStatus,
+  MLMFVMLModelType,
+  MLMFVAlgorithm,
   MLMFVTrainingDataURI,
   MLModelFilterVariable'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.CreateTopicRule
     mkCreateTopicRule,
 
     -- ** Request lenses
-    ctrTags,
     ctrRuleName,
+    ctrTags,
     ctrTopicRulePayload,
 
     -- * Destructuring the response
@@ -39,18 +40,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateTopicRule' smart constructor.
 data CreateTopicRule = CreateTopicRule'
-  { tags ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the rule.
     ruleName :: Lude.Text,
+    -- | Metadata which can be used to manage the topic rule.
+    tags :: Lude.Maybe Lude.Text,
+    -- | The rule payload.
     topicRulePayload :: TopicRulePayload
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTopicRule' with the minimum fields required to make a request.
@@ -66,17 +63,10 @@ mkCreateTopicRule ::
   CreateTopicRule
 mkCreateTopicRule pRuleName_ pTopicRulePayload_ =
   CreateTopicRule'
-    { tags = Lude.Nothing,
-      ruleName = pRuleName_,
+    { ruleName = pRuleName_,
+      tags = Lude.Nothing,
       topicRulePayload = pTopicRulePayload_
     }
-
--- | Metadata which can be used to manage the topic rule.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrTags :: Lens.Lens' CreateTopicRule (Lude.Maybe Lude.Text)
-ctrTags = Lens.lens (tags :: CreateTopicRule -> Lude.Maybe Lude.Text) (\s a -> s {tags = a} :: CreateTopicRule)
-{-# DEPRECATED ctrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the rule.
 --
@@ -84,6 +74,13 @@ ctrTags = Lens.lens (tags :: CreateTopicRule -> Lude.Maybe Lude.Text) (\s a -> s
 ctrRuleName :: Lens.Lens' CreateTopicRule Lude.Text
 ctrRuleName = Lens.lens (ruleName :: CreateTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: CreateTopicRule)
 {-# DEPRECATED ctrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+
+-- | Metadata which can be used to manage the topic rule.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrTags :: Lens.Lens' CreateTopicRule (Lude.Maybe Lude.Text)
+ctrTags = Lens.lens (tags :: CreateTopicRule -> Lude.Maybe Lude.Text) (\s a -> s {tags = a} :: CreateTopicRule)
+{-# DEPRECATED ctrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The rule payload.
 --
@@ -117,13 +114,7 @@ instance Lude.ToQuery CreateTopicRule where
 
 -- | /See:/ 'mkCreateTopicRuleResponse' smart constructor.
 data CreateTopicRuleResponse = CreateTopicRuleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTopicRuleResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +20,20 @@ module Network.AWS.IoT.CancelJob
     mkCancelJob,
 
     -- ** Request lenses
+    cJobId,
     cForce,
     cReasonCode,
     cComment,
-    cJobId,
 
     -- * Destructuring the response
     CancelJobResponse (..),
     mkCancelJobResponse,
 
     -- ** Response lenses
-    canrsJobId,
-    canrsJobARN,
-    canrsDescription,
-    canrsResponseStatus,
+    cjfrsJobId,
+    cjfrsJobARN,
+    cjfrsDescription,
+    cjfrsResponseStatus,
   )
 where
 
@@ -44,39 +45,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { force :: Lude.Maybe Lude.Bool,
+  { -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Lude.Text,
+    -- | (Optional) If @true@ job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is @false@ .
+    --
+    -- Canceling a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
+    force :: Lude.Maybe Lude.Bool,
+    -- | (Optional)A reason code string that explains why the job was canceled.
     reasonCode :: Lude.Maybe Lude.Text,
-    comment :: Lude.Maybe Lude.Text,
-    jobId :: Lude.Text
+    -- | An optional comment string describing why the job was canceled.
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
 --
--- * 'comment' - An optional comment string describing why the job was canceled.
+-- * 'jobId' - The unique identifier you assigned to this job when it was created.
 -- * 'force' - (Optional) If @true@ job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is @false@ .
 --
 -- Canceling a job which is "IN_PROGRESS", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.
--- * 'jobId' - The unique identifier you assigned to this job when it was created.
 -- * 'reasonCode' - (Optional)A reason code string that explains why the job was canceled.
+-- * 'comment' - An optional comment string describing why the job was canceled.
 mkCancelJob ::
   -- | 'jobId'
   Lude.Text ->
   CancelJob
 mkCancelJob pJobId_ =
   CancelJob'
-    { force = Lude.Nothing,
+    { jobId = pJobId_,
+      force = Lude.Nothing,
       reasonCode = Lude.Nothing,
-      comment = Lude.Nothing,
-      jobId = pJobId_
+      comment = Lude.Nothing
     }
+
+-- | The unique identifier you assigned to this job when it was created.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cJobId :: Lens.Lens' CancelJob Lude.Text
+cJobId = Lens.lens (jobId :: CancelJob -> Lude.Text) (\s a -> s {jobId = a} :: CancelJob)
+{-# DEPRECATED cJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | (Optional) If @true@ job executions with status "IN_PROGRESS" and "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled. The default is @false@ .
 --
@@ -100,13 +108,6 @@ cReasonCode = Lens.lens (reasonCode :: CancelJob -> Lude.Maybe Lude.Text) (\s a 
 cComment :: Lens.Lens' CancelJob (Lude.Maybe Lude.Text)
 cComment = Lens.lens (comment :: CancelJob -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: CancelJob)
 {-# DEPRECATED cComment "Use generic-lens or generic-optics with 'comment' instead." #-}
-
--- | The unique identifier you assigned to this job when it was created.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cJobId :: Lens.Lens' CancelJob Lude.Text
-cJobId = Lens.lens (jobId :: CancelJob -> Lude.Text) (\s a -> s {jobId = a} :: CancelJob)
-{-# DEPRECATED cJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest CancelJob where
   type Rs CancelJob = CancelJobResponse
@@ -142,26 +143,23 @@ instance Lude.ToQuery CancelJob where
 
 -- | /See:/ 'mkCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The job ARN.
     jobARN :: Lude.Maybe Lude.Text,
+    -- | A short text description of the job.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
 --
--- * 'description' - A short text description of the job.
--- * 'jobARN' - The job ARN.
 -- * 'jobId' - The unique identifier you assigned to this job when it was created.
+-- * 'jobARN' - The job ARN.
+-- * 'description' - A short text description of the job.
 -- * 'responseStatus' - The response status code.
 mkCancelJobResponse ::
   -- | 'responseStatus'
@@ -178,27 +176,27 @@ mkCancelJobResponse pResponseStatus_ =
 -- | The unique identifier you assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-canrsJobId :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
-canrsJobId = Lens.lens (jobId :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: CancelJobResponse)
-{-# DEPRECATED canrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+cjfrsJobId :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
+cjfrsJobId = Lens.lens (jobId :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: CancelJobResponse)
+{-# DEPRECATED cjfrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The job ARN.
 --
 -- /Note:/ Consider using 'jobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-canrsJobARN :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
-canrsJobARN = Lens.lens (jobARN :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobARN = a} :: CancelJobResponse)
-{-# DEPRECATED canrsJobARN "Use generic-lens or generic-optics with 'jobARN' instead." #-}
+cjfrsJobARN :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
+cjfrsJobARN = Lens.lens (jobARN :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobARN = a} :: CancelJobResponse)
+{-# DEPRECATED cjfrsJobARN "Use generic-lens or generic-optics with 'jobARN' instead." #-}
 
 -- | A short text description of the job.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-canrsDescription :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
-canrsDescription = Lens.lens (description :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CancelJobResponse)
-{-# DEPRECATED canrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+cjfrsDescription :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Text)
+cjfrsDescription = Lens.lens (description :: CancelJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CancelJobResponse)
+{-# DEPRECATED cjfrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-canrsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
-canrsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
-{-# DEPRECATED canrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cjfrsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
+cjfrsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
+{-# DEPRECATED cjfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,9 +20,9 @@ module Network.AWS.SES.Types.ReceiptRule
     rrScanEnabled,
     rrEnabled,
     rrActions,
+    rrName,
     rrRecipients,
     rrTLSPolicy,
-    rrName,
   )
 where
 
@@ -38,27 +38,36 @@ import Network.AWS.SES.Types.TLSPolicy
 --
 -- /See:/ 'mkReceiptRule' smart constructor.
 data ReceiptRule = ReceiptRule'
-  { scanEnabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
+    scanEnabled :: Lude.Maybe Lude.Bool,
+    -- | If @true@ , the receipt rule is active. The default value is @false@ .
     enabled :: Lude.Maybe Lude.Bool,
+    -- | An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
     actions :: Lude.Maybe [ReceiptAction],
+    -- | The name of the receipt rule. The name must:
+    --
+    --
+    --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+    --
+    --
+    --     * Start and end with a letter or number.
+    --
+    --
+    --     * Contain less than 64 characters.
+    name :: Lude.Text,
+    -- | The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
     recipients :: Lude.Maybe [Lude.Text],
-    tlsPolicy :: Lude.Maybe TLSPolicy,
-    name :: Lude.Text
+    -- | Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
+    tlsPolicy :: Lude.Maybe TLSPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReceiptRule' with the minimum fields required to make a request.
 --
--- * 'actions' - An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
+-- * 'scanEnabled' - If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
 -- * 'enabled' - If @true@ , the receipt rule is active. The default value is @false@ .
+-- * 'actions' - An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
 -- * 'name' - The name of the receipt rule. The name must:
 --
 --
@@ -72,7 +81,6 @@ data ReceiptRule = ReceiptRule'
 --
 --
 -- * 'recipients' - The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
--- * 'scanEnabled' - If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
 -- * 'tlsPolicy' - Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
 mkReceiptRule ::
   -- | 'name'
@@ -83,9 +91,9 @@ mkReceiptRule pName_ =
     { scanEnabled = Lude.Nothing,
       enabled = Lude.Nothing,
       actions = Lude.Nothing,
+      name = pName_,
       recipients = Lude.Nothing,
-      tlsPolicy = Lude.Nothing,
-      name = pName_
+      tlsPolicy = Lude.Nothing
     }
 
 -- | If @true@ , then messages that this receipt rule applies to are scanned for spam and viruses. The default value is @false@ .
@@ -109,20 +117,6 @@ rrActions :: Lens.Lens' ReceiptRule (Lude.Maybe [ReceiptAction])
 rrActions = Lens.lens (actions :: ReceiptRule -> Lude.Maybe [ReceiptAction]) (\s a -> s {actions = a} :: ReceiptRule)
 {-# DEPRECATED rrActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
--- | The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
---
--- /Note:/ Consider using 'recipients' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrRecipients :: Lens.Lens' ReceiptRule (Lude.Maybe [Lude.Text])
-rrRecipients = Lens.lens (recipients :: ReceiptRule -> Lude.Maybe [Lude.Text]) (\s a -> s {recipients = a} :: ReceiptRule)
-{-# DEPRECATED rrRecipients "Use generic-lens or generic-optics with 'recipients' instead." #-}
-
--- | Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
---
--- /Note:/ Consider using 'tlsPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrTLSPolicy :: Lens.Lens' ReceiptRule (Lude.Maybe TLSPolicy)
-rrTLSPolicy = Lens.lens (tlsPolicy :: ReceiptRule -> Lude.Maybe TLSPolicy) (\s a -> s {tlsPolicy = a} :: ReceiptRule)
-{-# DEPRECATED rrTLSPolicy "Use generic-lens or generic-optics with 'tlsPolicy' instead." #-}
-
 -- | The name of the receipt rule. The name must:
 --
 --
@@ -141,6 +135,20 @@ rrName :: Lens.Lens' ReceiptRule Lude.Text
 rrName = Lens.lens (name :: ReceiptRule -> Lude.Text) (\s a -> s {name = a} :: ReceiptRule)
 {-# DEPRECATED rrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.
+--
+-- /Note:/ Consider using 'recipients' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrRecipients :: Lens.Lens' ReceiptRule (Lude.Maybe [Lude.Text])
+rrRecipients = Lens.lens (recipients :: ReceiptRule -> Lude.Maybe [Lude.Text]) (\s a -> s {recipients = a} :: ReceiptRule)
+{-# DEPRECATED rrRecipients "Use generic-lens or generic-optics with 'recipients' instead." #-}
+
+-- | Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to @Require@ , Amazon SES will bounce emails that are not received over TLS. The default is @Optional@ .
+--
+-- /Note:/ Consider using 'tlsPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrTLSPolicy :: Lens.Lens' ReceiptRule (Lude.Maybe TLSPolicy)
+rrTLSPolicy = Lens.lens (tlsPolicy :: ReceiptRule -> Lude.Maybe TLSPolicy) (\s a -> s {tlsPolicy = a} :: ReceiptRule)
+{-# DEPRECATED rrTLSPolicy "Use generic-lens or generic-optics with 'tlsPolicy' instead." #-}
+
 instance Lude.FromXML ReceiptRule where
   parseXML x =
     ReceiptRule'
@@ -149,11 +157,11 @@ instance Lude.FromXML ReceiptRule where
       Lude.<*> ( x Lude..@? "Actions" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
+      Lude.<*> (x Lude..@ "Name")
       Lude.<*> ( x Lude..@? "Recipients" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
       Lude.<*> (x Lude..@? "TlsPolicy")
-      Lude.<*> (x Lude..@ "Name")
 
 instance Lude.ToQuery ReceiptRule where
   toQuery ReceiptRule' {..} =
@@ -162,8 +170,8 @@ instance Lude.ToQuery ReceiptRule where
         "Enabled" Lude.=: enabled,
         "Actions"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> actions),
+        "Name" Lude.=: name,
         "Recipients"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> recipients),
-        "TlsPolicy" Lude.=: tlsPolicy,
-        "Name" Lude.=: name
+        "TlsPolicy" Lude.=: tlsPolicy
       ]

@@ -38,35 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkConnectionAction' smart constructor.
 data NetworkConnectionAction = NetworkConnectionAction'
-  { remoteIPDetails ::
-      Lude.Maybe RemoteIPDetails,
+  { -- | The remote IP information of the connection.
+    remoteIPDetails :: Lude.Maybe RemoteIPDetails,
+    -- | The network connection protocol.
     protocol :: Lude.Maybe Lude.Text,
+    -- | The local IP information of the connection.
     localIPDetails :: Lude.Maybe LocalIPDetails,
-    remotePortDetails ::
-      Lude.Maybe RemotePortDetails,
+    -- | The remote port information of the connection.
+    remotePortDetails :: Lude.Maybe RemotePortDetails,
+    -- | Indicates whether EC2 blocked the network connection to your instance.
     blocked :: Lude.Maybe Lude.Bool,
+    -- | The network connection direction.
     connectionDirection :: Lude.Maybe Lude.Text,
-    localPortDetails ::
-      Lude.Maybe LocalPortDetails
+    -- | The local port information of the connection.
+    localPortDetails :: Lude.Maybe LocalPortDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkConnectionAction' with the minimum fields required to make a request.
 --
+-- * 'remoteIPDetails' - The remote IP information of the connection.
+-- * 'protocol' - The network connection protocol.
+-- * 'localIPDetails' - The local IP information of the connection.
+-- * 'remotePortDetails' - The remote port information of the connection.
 -- * 'blocked' - Indicates whether EC2 blocked the network connection to your instance.
 -- * 'connectionDirection' - The network connection direction.
--- * 'localIPDetails' - The local IP information of the connection.
 -- * 'localPortDetails' - The local port information of the connection.
--- * 'protocol' - The network connection protocol.
--- * 'remoteIPDetails' - The remote IP information of the connection.
--- * 'remotePortDetails' - The remote port information of the connection.
 mkNetworkConnectionAction ::
   NetworkConnectionAction
 mkNetworkConnectionAction =

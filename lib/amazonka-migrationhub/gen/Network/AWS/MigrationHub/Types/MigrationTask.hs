@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMigrationTask' smart constructor.
 data MigrationTask = MigrationTask'
-  { updateDateTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp when the task was gathered.
+    updateDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
     resourceAttributeList :: Lude.Maybe [ResourceAttribute],
+    -- | Task object encapsulating task information.
     task :: Lude.Maybe Task,
+    -- | A name that identifies the vendor of the migration tool being used.
     progressUpdateStream :: Lude.Maybe Lude.Text,
+    -- | Unique identifier that references the migration task. /Do not store personal data in this field./
     migrationTaskName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MigrationTask' with the minimum fields required to make a request.
 --
--- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
--- * 'progressUpdateStream' - A name that identifies the vendor of the migration tool being used.
+-- * 'updateDateTime' - The timestamp when the task was gathered.
 -- * 'resourceAttributeList' - Information about the resource that is being migrated. This data will be used to map the task to a resource in the Application Discovery Service repository.
 -- * 'task' - Task object encapsulating task information.
--- * 'updateDateTime' - The timestamp when the task was gathered.
+-- * 'progressUpdateStream' - A name that identifies the vendor of the migration tool being used.
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
 mkMigrationTask ::
   MigrationTask
 mkMigrationTask =

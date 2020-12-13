@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     mkUpdateSnapshotSchedule,
 
     -- ** Request lenses
+    ussStartAt,
+    ussVolumeARN,
+    ussRecurrenceInHours,
     ussDescription,
     ussTags,
-    ussVolumeARN,
-    ussStartAt,
-    ussRecurrenceInHours,
 
     -- * Destructuring the response
     UpdateSnapshotScheduleResponse (..),
@@ -62,45 +63,64 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkUpdateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    volumeARN :: Lude.Text,
+  { -- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
     startAt :: Lude.Natural,
-    recurrenceInHours :: Lude.Natural
+    -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+    volumeARN :: Lude.Text,
+    -- | Frequency of snapshots. Specify the number of hours between snapshots.
+    recurrenceInHours :: Lude.Natural,
+    -- | Optional description of the snapshot that overwrites the existing description.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSnapshotSchedule' with the minimum fields required to make a request.
 --
--- * 'description' - Optional description of the snapshot that overwrites the existing description.
--- * 'recurrenceInHours' - Frequency of snapshots. Specify the number of hours between snapshots.
 -- * 'startAt' - The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
--- * 'tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+-- * 'recurrenceInHours' - Frequency of snapshots. Specify the number of hours between snapshots.
+-- * 'description' - Optional description of the snapshot that overwrites the existing description.
+-- * 'tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
 mkUpdateSnapshotSchedule ::
-  -- | 'volumeARN'
-  Lude.Text ->
   -- | 'startAt'
   Lude.Natural ->
+  -- | 'volumeARN'
+  Lude.Text ->
   -- | 'recurrenceInHours'
   Lude.Natural ->
   UpdateSnapshotSchedule
-mkUpdateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
+mkUpdateSnapshotSchedule pStartAt_ pVolumeARN_ pRecurrenceInHours_ =
   UpdateSnapshotSchedule'
-    { description = Lude.Nothing,
-      tags = Lude.Nothing,
+    { startAt = pStartAt_,
       volumeARN = pVolumeARN_,
-      startAt = pStartAt_,
-      recurrenceInHours = pRecurrenceInHours_
+      recurrenceInHours = pRecurrenceInHours_,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
+--
+-- /Note:/ Consider using 'startAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ussStartAt :: Lens.Lens' UpdateSnapshotSchedule Lude.Natural
+ussStartAt = Lens.lens (startAt :: UpdateSnapshotSchedule -> Lude.Natural) (\s a -> s {startAt = a} :: UpdateSnapshotSchedule)
+{-# DEPRECATED ussStartAt "Use generic-lens or generic-optics with 'startAt' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ussVolumeARN :: Lens.Lens' UpdateSnapshotSchedule Lude.Text
+ussVolumeARN = Lens.lens (volumeARN :: UpdateSnapshotSchedule -> Lude.Text) (\s a -> s {volumeARN = a} :: UpdateSnapshotSchedule)
+{-# DEPRECATED ussVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+
+-- | Frequency of snapshots. Specify the number of hours between snapshots.
+--
+-- /Note:/ Consider using 'recurrenceInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ussRecurrenceInHours :: Lens.Lens' UpdateSnapshotSchedule Lude.Natural
+ussRecurrenceInHours = Lens.lens (recurrenceInHours :: UpdateSnapshotSchedule -> Lude.Natural) (\s a -> s {recurrenceInHours = a} :: UpdateSnapshotSchedule)
+{-# DEPRECATED ussRecurrenceInHours "Use generic-lens or generic-optics with 'recurrenceInHours' instead." #-}
 
 -- | Optional description of the snapshot that overwrites the existing description.
 --
@@ -115,27 +135,6 @@ ussDescription = Lens.lens (description :: UpdateSnapshotSchedule -> Lude.Maybe 
 ussTags :: Lens.Lens' UpdateSnapshotSchedule (Lude.Maybe [Tag])
 ussTags = Lens.lens (tags :: UpdateSnapshotSchedule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: UpdateSnapshotSchedule)
 {-# DEPRECATED ussTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
---
--- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ussVolumeARN :: Lens.Lens' UpdateSnapshotSchedule Lude.Text
-ussVolumeARN = Lens.lens (volumeARN :: UpdateSnapshotSchedule -> Lude.Text) (\s a -> s {volumeARN = a} :: UpdateSnapshotSchedule)
-{-# DEPRECATED ussVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
-
--- | The hour of the day at which the snapshot schedule begins represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
---
--- /Note:/ Consider using 'startAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ussStartAt :: Lens.Lens' UpdateSnapshotSchedule Lude.Natural
-ussStartAt = Lens.lens (startAt :: UpdateSnapshotSchedule -> Lude.Natural) (\s a -> s {startAt = a} :: UpdateSnapshotSchedule)
-{-# DEPRECATED ussStartAt "Use generic-lens or generic-optics with 'startAt' instead." #-}
-
--- | Frequency of snapshots. Specify the number of hours between snapshots.
---
--- /Note:/ Consider using 'recurrenceInHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ussRecurrenceInHours :: Lens.Lens' UpdateSnapshotSchedule Lude.Natural
-ussRecurrenceInHours = Lens.lens (recurrenceInHours :: UpdateSnapshotSchedule -> Lude.Natural) (\s a -> s {recurrenceInHours = a} :: UpdateSnapshotSchedule)
-{-# DEPRECATED ussRecurrenceInHours "Use generic-lens or generic-optics with 'recurrenceInHours' instead." #-}
 
 instance Lude.AWSRequest UpdateSnapshotSchedule where
   type Rs UpdateSnapshotSchedule = UpdateSnapshotScheduleResponse
@@ -164,11 +163,11 @@ instance Lude.ToJSON UpdateSnapshotSchedule where
   toJSON UpdateSnapshotSchedule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("StartAt" Lude..= startAt),
             Lude.Just ("VolumeARN" Lude..= volumeARN),
-            Lude.Just ("StartAt" Lude..= startAt),
-            Lude.Just ("RecurrenceInHours" Lude..= recurrenceInHours)
+            Lude.Just ("RecurrenceInHours" Lude..= recurrenceInHours),
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -182,23 +181,18 @@ instance Lude.ToQuery UpdateSnapshotSchedule where
 --
 -- /See:/ 'mkUpdateSnapshotScheduleResponse' smart constructor.
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
-  { volumeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+    volumeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+-- * 'responseStatus' - The response status code.
 mkUpdateSnapshotScheduleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

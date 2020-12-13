@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,9 +47,9 @@ module Network.AWS.WAFRegional.UpdateRegexMatchSet
     mkUpdateRegexMatchSet,
 
     -- ** Request lenses
-    urmsRegexMatchSetId,
     urmsUpdates,
     urmsChangeToken,
+    urmsRegexMatchSetId,
 
     -- * Destructuring the response
     UpdateRegexMatchSetResponse (..),
@@ -68,46 +69,35 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkUpdateRegexMatchSet' smart constructor.
 data UpdateRegexMatchSet = UpdateRegexMatchSet'
-  { regexMatchSetId ::
-      Lude.Text,
+  { -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
     updates :: Lude.NonEmpty RegexMatchSetUpdate,
-    changeToken :: Lude.Text
+    -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Lude.Text,
+    -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+    regexMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRegexMatchSet' with the minimum fields required to make a request.
 --
+-- * 'updates' - An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
 -- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'regexMatchSetId' - The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
--- * 'updates' - An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
 mkUpdateRegexMatchSet ::
-  -- | 'regexMatchSetId'
-  Lude.Text ->
   -- | 'updates'
   Lude.NonEmpty RegexMatchSetUpdate ->
   -- | 'changeToken'
   Lude.Text ->
+  -- | 'regexMatchSetId'
+  Lude.Text ->
   UpdateRegexMatchSet
-mkUpdateRegexMatchSet pRegexMatchSetId_ pUpdates_ pChangeToken_ =
+mkUpdateRegexMatchSet pUpdates_ pChangeToken_ pRegexMatchSetId_ =
   UpdateRegexMatchSet'
-    { regexMatchSetId = pRegexMatchSetId_,
-      updates = pUpdates_,
-      changeToken = pChangeToken_
+    { updates = pUpdates_,
+      changeToken = pChangeToken_,
+      regexMatchSetId = pRegexMatchSetId_
     }
-
--- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
---
--- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urmsRegexMatchSetId :: Lens.Lens' UpdateRegexMatchSet Lude.Text
-urmsRegexMatchSetId = Lens.lens (regexMatchSetId :: UpdateRegexMatchSet -> Lude.Text) (\s a -> s {regexMatchSetId = a} :: UpdateRegexMatchSet)
-{-# DEPRECATED urmsRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
 
 -- | An array of @RegexMatchSetUpdate@ objects that you want to insert into or delete from a 'RegexMatchSet' . For more information, see 'RegexMatchTuple' .
 --
@@ -122,6 +112,13 @@ urmsUpdates = Lens.lens (updates :: UpdateRegexMatchSet -> Lude.NonEmpty RegexMa
 urmsChangeToken :: Lens.Lens' UpdateRegexMatchSet Lude.Text
 urmsChangeToken = Lens.lens (changeToken :: UpdateRegexMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateRegexMatchSet)
 {-# DEPRECATED urmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to update. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+--
+-- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urmsRegexMatchSetId :: Lens.Lens' UpdateRegexMatchSet Lude.Text
+urmsRegexMatchSetId = Lens.lens (regexMatchSetId :: UpdateRegexMatchSet -> Lude.Text) (\s a -> s {regexMatchSetId = a} :: UpdateRegexMatchSet)
+{-# DEPRECATED urmsRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
 
 instance Lude.AWSRequest UpdateRegexMatchSet where
   type Rs UpdateRegexMatchSet = UpdateRegexMatchSetResponse
@@ -150,9 +147,9 @@ instance Lude.ToJSON UpdateRegexMatchSet where
   toJSON UpdateRegexMatchSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("RegexMatchSetId" Lude..= regexMatchSetId),
-            Lude.Just ("Updates" Lude..= updates),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
+          [ Lude.Just ("Updates" Lude..= updates),
+            Lude.Just ("ChangeToken" Lude..= changeToken),
+            Lude.Just ("RegexMatchSetId" Lude..= regexMatchSetId)
           ]
       )
 
@@ -164,17 +161,12 @@ instance Lude.ToQuery UpdateRegexMatchSet where
 
 -- | /See:/ 'mkUpdateRegexMatchSetResponse' smart constructor.
 data UpdateRegexMatchSetResponse = UpdateRegexMatchSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @UpdateRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRegexMatchSetResponse' with the minimum fields required to make a request.

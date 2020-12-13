@@ -13,15 +13,15 @@
 module Network.AWS.GameLift.Types.FleetStatus
   ( FleetStatus
       ( FleetStatus',
+        FSNew,
+        FSDownloading,
+        FSValidating,
+        FSBuilding,
         FSActivating,
         FSActive,
-        FSBuilding,
         FSDeleting,
-        FSDownloading,
         FSError,
-        FSNew,
-        FSTerminated,
-        FSValidating
+        FSTerminated
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype FleetStatus = FleetStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern FSNew :: FleetStatus
+pattern FSNew = FleetStatus' "NEW"
+
+pattern FSDownloading :: FleetStatus
+pattern FSDownloading = FleetStatus' "DOWNLOADING"
+
+pattern FSValidating :: FleetStatus
+pattern FSValidating = FleetStatus' "VALIDATING"
+
+pattern FSBuilding :: FleetStatus
+pattern FSBuilding = FleetStatus' "BUILDING"
+
 pattern FSActivating :: FleetStatus
 pattern FSActivating = FleetStatus' "ACTIVATING"
 
 pattern FSActive :: FleetStatus
 pattern FSActive = FleetStatus' "ACTIVE"
 
-pattern FSBuilding :: FleetStatus
-pattern FSBuilding = FleetStatus' "BUILDING"
-
 pattern FSDeleting :: FleetStatus
 pattern FSDeleting = FleetStatus' "DELETING"
-
-pattern FSDownloading :: FleetStatus
-pattern FSDownloading = FleetStatus' "DOWNLOADING"
 
 pattern FSError :: FleetStatus
 pattern FSError = FleetStatus' "ERROR"
 
-pattern FSNew :: FleetStatus
-pattern FSNew = FleetStatus' "NEW"
-
 pattern FSTerminated :: FleetStatus
 pattern FSTerminated = FleetStatus' "TERMINATED"
 
-pattern FSValidating :: FleetStatus
-pattern FSValidating = FleetStatus' "VALIDATING"
-
 {-# COMPLETE
+  FSNew,
+  FSDownloading,
+  FSValidating,
+  FSBuilding,
   FSActivating,
   FSActive,
-  FSBuilding,
   FSDeleting,
-  FSDownloading,
   FSError,
-  FSNew,
   FSTerminated,
-  FSValidating,
   FleetStatus'
   #-}

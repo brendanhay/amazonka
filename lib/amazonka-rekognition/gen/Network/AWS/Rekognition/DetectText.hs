@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Rekognition.DetectText
     mkDetectText,
 
     -- ** Request lenses
-    dtFilters,
     dtImage,
+    dtFilters,
 
     -- * Destructuring the response
     DetectTextResponse (..),
@@ -49,38 +50,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectText' smart constructor.
 data DetectText = DetectText'
-  { filters ::
-      Lude.Maybe DetectTextFilters,
-    image :: Image
+  { -- | The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
+    --
+    -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+    image :: Image,
+    -- | Optional parameters that let you set the criteria that the text must meet to be included in your response.
+    filters :: Lude.Maybe DetectTextFilters
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectText' with the minimum fields required to make a request.
 --
--- * 'filters' - Optional parameters that let you set the criteria that the text must meet to be included in your response.
 -- * 'image' - The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
 --
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+-- * 'filters' - Optional parameters that let you set the criteria that the text must meet to be included in your response.
 mkDetectText ::
   -- | 'image'
   Image ->
   DetectText
 mkDetectText pImage_ =
-  DetectText' {filters = Lude.Nothing, image = pImage_}
-
--- | Optional parameters that let you set the criteria that the text must meet to be included in your response.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtFilters :: Lens.Lens' DetectText (Lude.Maybe DetectTextFilters)
-dtFilters = Lens.lens (filters :: DetectText -> Lude.Maybe DetectTextFilters) (\s a -> s {filters = a} :: DetectText)
-{-# DEPRECATED dtFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+  DetectText' {image = pImage_, filters = Lude.Nothing}
 
 -- | The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes.
 --
@@ -90,6 +81,13 @@ dtFilters = Lens.lens (filters :: DetectText -> Lude.Maybe DetectTextFilters) (\
 dtImage :: Lens.Lens' DetectText Image
 dtImage = Lens.lens (image :: DetectText -> Image) (\s a -> s {image = a} :: DetectText)
 {-# DEPRECATED dtImage "Use generic-lens or generic-optics with 'image' instead." #-}
+
+-- | Optional parameters that let you set the criteria that the text must meet to be included in your response.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtFilters :: Lens.Lens' DetectText (Lude.Maybe DetectTextFilters)
+dtFilters = Lens.lens (filters :: DetectText -> Lude.Maybe DetectTextFilters) (\s a -> s {filters = a} :: DetectText)
+{-# DEPRECATED dtFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 instance Lude.AWSRequest DetectText where
   type Rs DetectText = DetectTextResponse
@@ -118,8 +116,8 @@ instance Lude.ToJSON DetectText where
   toJSON DetectText' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            Lude.Just ("Image" Lude..= image)
+          [ Lude.Just ("Image" Lude..= image),
+            ("Filters" Lude..=) Lude.<$> filters
           ]
       )
 
@@ -131,25 +129,21 @@ instance Lude.ToQuery DetectText where
 
 -- | /See:/ 'mkDetectTextResponse' smart constructor.
 data DetectTextResponse = DetectTextResponse'
-  { textDetections ::
-      Lude.Maybe [TextDetection],
+  { -- | An array of text that was detected in the input image.
+    textDetections :: Lude.Maybe [TextDetection],
+    -- | The model version used to detect text.
     textModelVersion :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectTextResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'textDetections' - An array of text that was detected in the input image.
 -- * 'textModelVersion' - The model version used to detect text.
+-- * 'responseStatus' - The response status code.
 mkDetectTextResponse ::
   -- | 'responseStatus'
   Lude.Int ->

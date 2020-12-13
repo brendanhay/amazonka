@@ -33,26 +33,29 @@ import Network.AWS.ServiceCatalog.Types.RequestStatus
 --
 -- /See:/ 'mkProductViewDetail' smart constructor.
 data ProductViewDetail = ProductViewDetail'
-  { status ::
-      Lude.Maybe RequestStatus,
+  { -- | The status of the product.
+    --
+    --
+    --     * @AVAILABLE@ - The product is ready for use.
+    --
+    --
+    --     * @CREATING@ - Product creation has started; the product is not ready for use.
+    --
+    --
+    --     * @FAILED@ - An action failed.
+    status :: Lude.Maybe RequestStatus,
+    -- | Summary information about the product view.
     productViewSummary :: Lude.Maybe ProductViewSummary,
+    -- | The UTC time stamp of the creation time.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the product.
     productARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductViewDetail' with the minimum fields required to make a request.
 --
--- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'productARN' - The ARN of the product.
--- * 'productViewSummary' - Summary information about the product view.
 -- * 'status' - The status of the product.
 --
 --
@@ -63,6 +66,11 @@ data ProductViewDetail = ProductViewDetail'
 --
 --
 --     * @FAILED@ - An action failed.
+--
+--
+-- * 'productViewSummary' - Summary information about the product view.
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'productARN' - The ARN of the product.
 mkProductViewDetail ::
   ProductViewDetail
 mkProductViewDetail =

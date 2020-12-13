@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DescribeSecurityGroupReferences
     mkDescribeSecurityGroupReferences,
 
     -- ** Request lenses
-    dsgrDryRun,
     dsgrGroupId,
+    dsgrDryRun,
 
     -- * Destructuring the response
     DescribeSecurityGroupReferencesResponse (..),
@@ -40,37 +41,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSecurityGroupReferences' smart constructor.
 data DescribeSecurityGroupReferences = DescribeSecurityGroupReferences'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    groupId :: [Lude.Text]
+  { -- | The IDs of the security groups in your account.
+    groupId :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityGroupReferences' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'groupId' - The IDs of the security groups in your account.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeSecurityGroupReferences ::
   DescribeSecurityGroupReferences
 mkDescribeSecurityGroupReferences =
   DescribeSecurityGroupReferences'
-    { dryRun = Lude.Nothing,
-      groupId = Lude.mempty
+    { groupId = Lude.mempty,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgrDryRun :: Lens.Lens' DescribeSecurityGroupReferences (Lude.Maybe Lude.Bool)
-dsgrDryRun = Lens.lens (dryRun :: DescribeSecurityGroupReferences -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSecurityGroupReferences)
-{-# DEPRECATED dsgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the security groups in your account.
 --
@@ -78,6 +67,13 @@ dsgrDryRun = Lens.lens (dryRun :: DescribeSecurityGroupReferences -> Lude.Maybe 
 dsgrGroupId :: Lens.Lens' DescribeSecurityGroupReferences [Lude.Text]
 dsgrGroupId = Lens.lens (groupId :: DescribeSecurityGroupReferences -> [Lude.Text]) (\s a -> s {groupId = a} :: DescribeSecurityGroupReferences)
 {-# DEPRECATED dsgrGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgrDryRun :: Lens.Lens' DescribeSecurityGroupReferences (Lude.Maybe Lude.Bool)
+dsgrDryRun = Lens.lens (dryRun :: DescribeSecurityGroupReferences -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSecurityGroupReferences)
+{-# DEPRECATED dsgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DescribeSecurityGroupReferences where
   type
@@ -106,31 +102,24 @@ instance Lude.ToQuery DescribeSecurityGroupReferences where
       [ "Action"
           Lude.=: ("DescribeSecurityGroupReferences" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "GroupId" groupId
+        Lude.toQueryList "GroupId" groupId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDescribeSecurityGroupReferencesResponse' smart constructor.
 data DescribeSecurityGroupReferencesResponse = DescribeSecurityGroupReferencesResponse'
-  { securityGroupReferenceSet ::
-      Lude.Maybe
-        [SecurityGroupReference],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the VPCs with the referencing security groups.
+    securityGroupReferenceSet :: Lude.Maybe [SecurityGroupReference],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityGroupReferencesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'securityGroupReferenceSet' - Information about the VPCs with the referencing security groups.
+-- * 'responseStatus' - The response status code.
 mkDescribeSecurityGroupReferencesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

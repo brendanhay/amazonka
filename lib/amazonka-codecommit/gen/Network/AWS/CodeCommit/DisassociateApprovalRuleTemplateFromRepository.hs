@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.DisassociateApprovalRuleTemplateFromRepository
     mkDisassociateApprovalRuleTemplateFromRepository,
 
     -- ** Request lenses
-    dartfrApprovalRuleTemplateName,
     dartfrRepositoryName,
+    dartfrApprovalRuleTemplateName,
 
     -- * Destructuring the response
     DisassociateApprovalRuleTemplateFromRepositoryResponse (..),
@@ -36,48 +37,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateApprovalRuleTemplateFromRepository' smart constructor.
 data DisassociateApprovalRuleTemplateFromRepository = DisassociateApprovalRuleTemplateFromRepository'
-  { approvalRuleTemplateName ::
-      Lude.Text,
-    repositoryName ::
-      Lude.Text
+  { -- | The name of the repository you want to disassociate from the template.
+    repositoryName :: Lude.Text,
+    -- | The name of the approval rule template to disassociate from a specified repository.
+    approvalRuleTemplateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateApprovalRuleTemplateFromRepository' with the minimum fields required to make a request.
 --
--- * 'approvalRuleTemplateName' - The name of the approval rule template to disassociate from a specified repository.
 -- * 'repositoryName' - The name of the repository you want to disassociate from the template.
+-- * 'approvalRuleTemplateName' - The name of the approval rule template to disassociate from a specified repository.
 mkDisassociateApprovalRuleTemplateFromRepository ::
-  -- | 'approvalRuleTemplateName'
-  Lude.Text ->
   -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'approvalRuleTemplateName'
   Lude.Text ->
   DisassociateApprovalRuleTemplateFromRepository
 mkDisassociateApprovalRuleTemplateFromRepository
-  pApprovalRuleTemplateName_
-  pRepositoryName_ =
+  pRepositoryName_
+  pApprovalRuleTemplateName_ =
     DisassociateApprovalRuleTemplateFromRepository'
-      { approvalRuleTemplateName =
-          pApprovalRuleTemplateName_,
-        repositoryName = pRepositoryName_
+      { repositoryName =
+          pRepositoryName_,
+        approvalRuleTemplateName =
+          pApprovalRuleTemplateName_
       }
-
--- | The name of the approval rule template to disassociate from a specified repository.
---
--- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dartfrApprovalRuleTemplateName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Lude.Text
-dartfrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: DisassociateApprovalRuleTemplateFromRepository -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: DisassociateApprovalRuleTemplateFromRepository)
-{-# DEPRECATED dartfrApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
 -- | The name of the repository you want to disassociate from the template.
 --
@@ -85,6 +71,13 @@ dartfrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: Disassoc
 dartfrRepositoryName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Lude.Text
 dartfrRepositoryName = Lens.lens (repositoryName :: DisassociateApprovalRuleTemplateFromRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: DisassociateApprovalRuleTemplateFromRepository)
 {-# DEPRECATED dartfrRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The name of the approval rule template to disassociate from a specified repository.
+--
+-- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dartfrApprovalRuleTemplateName :: Lens.Lens' DisassociateApprovalRuleTemplateFromRepository Lude.Text
+dartfrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: DisassociateApprovalRuleTemplateFromRepository -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: DisassociateApprovalRuleTemplateFromRepository)
+{-# DEPRECATED dartfrApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -118,9 +111,9 @@ instance Lude.ToJSON DisassociateApprovalRuleTemplateFromRepository where
   toJSON DisassociateApprovalRuleTemplateFromRepository' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
+          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just
+              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
           ]
       )
 
@@ -135,17 +128,8 @@ instance
 
 -- | /See:/ 'mkDisassociateApprovalRuleTemplateFromRepositoryResponse' smart constructor.
 data DisassociateApprovalRuleTemplateFromRepositoryResponse = DisassociateApprovalRuleTemplateFromRepositoryResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateApprovalRuleTemplateFromRepositoryResponse' with the minimum fields required to make a request.
 mkDisassociateApprovalRuleTemplateFromRepositoryResponse ::

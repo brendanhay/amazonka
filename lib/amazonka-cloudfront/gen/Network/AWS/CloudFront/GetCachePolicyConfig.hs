@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCachePolicyConfig' smart constructor.
 newtype GetCachePolicyConfig = GetCachePolicyConfig'
-  { id ::
-      Lude.Text
+  { -- | The unique identifier for the cache policy. If the cache policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the cache policy is not attached to a cache behavior, you can get the identifier using @ListCachePolicies@ .
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCachePolicyConfig' with the minimum fields required to make a request.
@@ -95,25 +90,20 @@ instance Lude.ToQuery GetCachePolicyConfig where
 
 -- | /See:/ 'mkGetCachePolicyConfigResponse' smart constructor.
 data GetCachePolicyConfigResponse = GetCachePolicyConfigResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
-    cachePolicyConfig ::
-      Lude.Maybe CachePolicyConfig,
+  { -- | The current version of the cache policy.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The cache policy configuration.
+    cachePolicyConfig :: Lude.Maybe CachePolicyConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCachePolicyConfigResponse' with the minimum fields required to make a request.
 --
--- * 'cachePolicyConfig' - The cache policy configuration.
 -- * 'eTag' - The current version of the cache policy.
+-- * 'cachePolicyConfig' - The cache policy configuration.
 -- * 'responseStatus' - The response status code.
 mkGetCachePolicyConfigResponse ::
   -- | 'responseStatus'

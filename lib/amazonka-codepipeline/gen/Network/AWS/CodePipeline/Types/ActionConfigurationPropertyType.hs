@@ -13,9 +13,9 @@
 module Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
   ( ActionConfigurationPropertyType
       ( ActionConfigurationPropertyType',
-        Boolean,
+        String,
         Number,
-        String
+        Boolean
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ActionConfigurationPropertyType = ActionConfigurationPropertyType' Lude.
       Lude.ToHeader
     )
 
-pattern Boolean :: ActionConfigurationPropertyType
-pattern Boolean = ActionConfigurationPropertyType' "Boolean"
+pattern String :: ActionConfigurationPropertyType
+pattern String = ActionConfigurationPropertyType' "String"
 
 pattern Number :: ActionConfigurationPropertyType
 pattern Number = ActionConfigurationPropertyType' "Number"
 
-pattern String :: ActionConfigurationPropertyType
-pattern String = ActionConfigurationPropertyType' "String"
+pattern Boolean :: ActionConfigurationPropertyType
+pattern Boolean = ActionConfigurationPropertyType' "Boolean"
 
 {-# COMPLETE
-  Boolean,
-  Number,
   String,
+  Number,
+  Boolean,
   ActionConfigurationPropertyType'
   #-}

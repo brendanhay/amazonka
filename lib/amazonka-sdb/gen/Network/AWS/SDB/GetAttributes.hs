@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.SDB.GetAttributes
     mkGetAttributes,
 
     -- ** Request lenses
-    gaConsistentRead,
-    gaAttributeNames,
-    gaDomainName,
     gaItemName,
+    gaConsistentRead,
+    gaDomainName,
+    gaAttributeNames,
 
     -- * Destructuring the response
     GetAttributesResponse (..),
@@ -44,40 +45,44 @@ import Network.AWS.SDB.Types
 
 -- | /See:/ 'mkGetAttributes' smart constructor.
 data GetAttributes = GetAttributes'
-  { consistentRead ::
-      Lude.Maybe Lude.Bool,
-    attributeNames :: Lude.Maybe [Lude.Text],
+  { -- | The name of the item.
+    itemName :: Lude.Text,
+    -- | @true@
+    consistentRead :: Lude.Maybe Lude.Bool,
+    -- | The name of the domain in which to perform the operation.
     domainName :: Lude.Text,
-    itemName :: Lude.Text
+    -- | The names of the attributes.
+    attributeNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributes' with the minimum fields required to make a request.
 --
--- * 'attributeNames' - The names of the attributes.
+-- * 'itemName' - The name of the item.
 -- * 'consistentRead' - @true@
 -- * 'domainName' - The name of the domain in which to perform the operation.
--- * 'itemName' - The name of the item.
+-- * 'attributeNames' - The names of the attributes.
 mkGetAttributes ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'itemName'
   Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
   GetAttributes
-mkGetAttributes pDomainName_ pItemName_ =
+mkGetAttributes pItemName_ pDomainName_ =
   GetAttributes'
-    { consistentRead = Lude.Nothing,
-      attributeNames = Lude.Nothing,
+    { itemName = pItemName_,
+      consistentRead = Lude.Nothing,
       domainName = pDomainName_,
-      itemName = pItemName_
+      attributeNames = Lude.Nothing
     }
+
+-- | The name of the item.
+--
+-- /Note:/ Consider using 'itemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaItemName :: Lens.Lens' GetAttributes Lude.Text
+gaItemName = Lens.lens (itemName :: GetAttributes -> Lude.Text) (\s a -> s {itemName = a} :: GetAttributes)
+{-# DEPRECATED gaItemName "Use generic-lens or generic-optics with 'itemName' instead." #-}
 
 -- | @true@
 --
@@ -86,13 +91,6 @@ gaConsistentRead :: Lens.Lens' GetAttributes (Lude.Maybe Lude.Bool)
 gaConsistentRead = Lens.lens (consistentRead :: GetAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {consistentRead = a} :: GetAttributes)
 {-# DEPRECATED gaConsistentRead "Use generic-lens or generic-optics with 'consistentRead' instead." #-}
 
--- | The names of the attributes.
---
--- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaAttributeNames :: Lens.Lens' GetAttributes (Lude.Maybe [Lude.Text])
-gaAttributeNames = Lens.lens (attributeNames :: GetAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {attributeNames = a} :: GetAttributes)
-{-# DEPRECATED gaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
-
 -- | The name of the domain in which to perform the operation.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -100,12 +98,12 @@ gaDomainName :: Lens.Lens' GetAttributes Lude.Text
 gaDomainName = Lens.lens (domainName :: GetAttributes -> Lude.Text) (\s a -> s {domainName = a} :: GetAttributes)
 {-# DEPRECATED gaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
--- | The name of the item.
+-- | The names of the attributes.
 --
--- /Note:/ Consider using 'itemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaItemName :: Lens.Lens' GetAttributes Lude.Text
-gaItemName = Lens.lens (itemName :: GetAttributes -> Lude.Text) (\s a -> s {itemName = a} :: GetAttributes)
-{-# DEPRECATED gaItemName "Use generic-lens or generic-optics with 'itemName' instead." #-}
+-- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaAttributeNames :: Lens.Lens' GetAttributes (Lude.Maybe [Lude.Text])
+gaAttributeNames = Lens.lens (attributeNames :: GetAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {attributeNames = a} :: GetAttributes)
+{-# DEPRECATED gaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 instance Lude.AWSRequest GetAttributes where
   type Rs GetAttributes = GetAttributesResponse
@@ -130,26 +128,21 @@ instance Lude.ToQuery GetAttributes where
     Lude.mconcat
       [ "Action" Lude.=: ("GetAttributes" :: Lude.ByteString),
         "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "ItemName" Lude.=: itemName,
         "ConsistentRead" Lude.=: consistentRead,
-        Lude.toQuery
-          (Lude.toQueryList "AttributeName" Lude.<$> attributeNames),
         "DomainName" Lude.=: domainName,
-        "ItemName" Lude.=: itemName
+        Lude.toQuery
+          (Lude.toQueryList "AttributeName" Lude.<$> attributeNames)
       ]
 
 -- | /See:/ 'mkGetAttributesResponse' smart constructor.
 data GetAttributesResponse = GetAttributesResponse'
-  { attributes ::
-      Lude.Maybe [Attribute],
+  { -- | The list of attributes returned by the operation.
+    attributes :: Lude.Maybe [Attribute],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributesResponse' with the minimum fields required to make a request.

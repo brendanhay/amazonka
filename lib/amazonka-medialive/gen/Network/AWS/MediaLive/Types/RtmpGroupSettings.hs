@@ -39,37 +39,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRtmpGroupSettings' smart constructor.
 data RtmpGroupSettings = RtmpGroupSettings'
-  { inputLossAction ::
-      Lude.Maybe InputLossActionForRtmpOut,
+  { -- | Controls the behavior of this RTMP group if input becomes unavailable.
+    --
+    --
+    -- - emitOutput: Emit a slate until input returns.
+    -- - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
+    inputLossAction :: Lude.Maybe InputLossActionForRtmpOut,
+    -- | Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
     captionData :: Lude.Maybe RtmpCaptionData,
+    -- | Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
     adMarkers :: Lude.Maybe [RtmpAdMarkers],
+    -- | If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
     restartDelay :: Lude.Maybe Lude.Natural,
+    -- | Authentication scheme to use when connecting with CDN
     authenticationScheme :: Lude.Maybe AuthenticationScheme,
+    -- | Cache length, in seconds, is used to calculate buffer size.
     cacheLength :: Lude.Maybe Lude.Natural,
+    -- | Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
     cacheFullBehavior :: Lude.Maybe RtmpCacheFullBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RtmpGroupSettings' with the minimum fields required to make a request.
 --
--- * 'adMarkers' - Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
--- * 'authenticationScheme' - Authentication scheme to use when connecting with CDN
--- * 'cacheFullBehavior' - Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
--- * 'cacheLength' - Cache length, in seconds, is used to calculate buffer size.
--- * 'captionData' - Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
 -- * 'inputLossAction' - Controls the behavior of this RTMP group if input becomes unavailable.
 --
 --
 -- - emitOutput: Emit a slate until input returns.
 -- - pauseOutput: Stop transmitting data until input returns. This does not close the underlying RTMP connection.
+-- * 'captionData' - Controls the types of data that passes to onCaptionInfo outputs.  If set to 'all' then 608 and 708 carried DTVCC data will be passed.  If set to 'field1AndField2608' then DTVCC data will be stripped out, but 608 data from both fields will be passed. If set to 'field1608' then only the data carried in 608 from field 1 video will be passed.
+-- * 'adMarkers' - Choose the ad marker type for this output group. MediaLive will create a message based on the content of each SCTE-35 message, format it for that marker type, and insert it in the datastream.
 -- * 'restartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+-- * 'authenticationScheme' - Authentication scheme to use when connecting with CDN
+-- * 'cacheLength' - Cache length, in seconds, is used to calculate buffer size.
+-- * 'cacheFullBehavior' - Controls behavior when content cache fills up. If remote origin server stalls the RTMP connection and does not accept content fast enough the 'Media Cache' will fill up. When the cache reaches the duration specified by cacheLength the cache will stop accepting new content. If set to disconnectImmediately, the RTMP output will force a disconnect. Clear the media cache, and reconnect after restartDelay seconds. If set to waitForServer, the RTMP output will wait up to 5 minutes to allow the origin server to begin accepting data again.
 mkRtmpGroupSettings ::
   RtmpGroupSettings
 mkRtmpGroupSettings =

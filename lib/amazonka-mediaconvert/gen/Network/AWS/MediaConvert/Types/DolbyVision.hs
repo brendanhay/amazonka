@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDolbyVision' smart constructor.
 data DolbyVision = DolbyVision'
-  { profile ::
-      Lude.Maybe DolbyVisionProfile,
+  { -- | In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.
+    profile :: Lude.Maybe DolbyVisionProfile,
+    -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
     l6Mode :: Lude.Maybe DolbyVisionLevel6Mode,
+    -- | Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
     l6Metadata :: Lude.Maybe DolbyVisionLevel6Metadata
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DolbyVision' with the minimum fields required to make a request.
 --
--- * 'l6Metadata' - Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
--- * 'l6Mode' - Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
 -- * 'profile' - In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.
+-- * 'l6Mode' - Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
+-- * 'l6Metadata' - Use these settings when you set DolbyVisionLevel6Mode to SPECIFY to override the MaxCLL and MaxFALL values in your input with new values.
 mkDolbyVision ::
   DolbyVision
 mkDolbyVision =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,14 +38,13 @@ import qualified Network.AWS.Response as Res
 -- | Container for the parameters to the @'AddTags' @ operation. Specify the tags that you want to attach to the Elasticsearch domain.
 --
 -- /See:/ 'mkAddTags' smart constructor.
-data AddTags = AddTags' {arn :: Lude.Text, tagList :: [Tag]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data AddTags = AddTags'
+  { -- | Specify the @ARN@ for which you want to add the tags.
+    arn :: Lude.Text,
+    -- | List of @Tag@ that need to be added for the Elasticsearch domain.
+    tagList :: [Tag]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
@@ -96,13 +96,7 @@ instance Lude.ToQuery AddTags where
 
 -- | /See:/ 'mkAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.

@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansDetails' smart constructor.
 data SavingsPlansDetails = SavingsPlansDetails'
-  { instanceFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | A group of instance types that Savings Plans applies to.
+    instanceFamily :: Lude.Maybe Lude.Text,
+    -- | The unique ID used to distinguish Savings Plans from one another.
     offeringId :: Lude.Maybe Lude.Text,
+    -- | A collection of AWS resources in a geographic area. Each AWS Region is isolated and independent of the other Regions.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansDetails' with the minimum fields required to make a request.

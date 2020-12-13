@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.WorkMail.GetAccessControlEffect
     mkGetAccessControlEffect,
 
     -- ** Request lenses
-    gaceOrganizationId,
     gaceIPAddress,
     gaceAction,
     gaceUserId,
+    gaceOrganizationId,
 
     -- * Destructuring the response
     GetAccessControlEffectResponse (..),
@@ -43,55 +44,45 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkGetAccessControlEffect' smart constructor.
 data GetAccessControlEffect = GetAccessControlEffect'
-  { organizationId ::
-      Lude.Text,
+  { -- | The IPv4 address.
     ipAddress :: Lude.Text,
+    -- | The access protocol action. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
     action :: Lude.Text,
-    userId :: Lude.Text
+    -- | The user ID.
+    userId :: Lude.Text,
+    -- | The identifier for the organization.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessControlEffect' with the minimum fields required to make a request.
 --
--- * 'action' - The access protocol action. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
 -- * 'ipAddress' - The IPv4 address.
--- * 'organizationId' - The identifier for the organization.
+-- * 'action' - The access protocol action. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
 -- * 'userId' - The user ID.
+-- * 'organizationId' - The identifier for the organization.
 mkGetAccessControlEffect ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'ipAddress'
   Lude.Text ->
   -- | 'action'
   Lude.Text ->
   -- | 'userId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   GetAccessControlEffect
 mkGetAccessControlEffect
-  pOrganizationId_
   pIPAddress_
   pAction_
-  pUserId_ =
+  pUserId_
+  pOrganizationId_ =
     GetAccessControlEffect'
-      { organizationId = pOrganizationId_,
-        ipAddress = pIPAddress_,
+      { ipAddress = pIPAddress_,
         action = pAction_,
-        userId = pUserId_
+        userId = pUserId_,
+        organizationId = pOrganizationId_
       }
-
--- | The identifier for the organization.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaceOrganizationId :: Lens.Lens' GetAccessControlEffect Lude.Text
-gaceOrganizationId = Lens.lens (organizationId :: GetAccessControlEffect -> Lude.Text) (\s a -> s {organizationId = a} :: GetAccessControlEffect)
-{-# DEPRECATED gaceOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The IPv4 address.
 --
@@ -113,6 +104,13 @@ gaceAction = Lens.lens (action :: GetAccessControlEffect -> Lude.Text) (\s a -> 
 gaceUserId :: Lens.Lens' GetAccessControlEffect Lude.Text
 gaceUserId = Lens.lens (userId :: GetAccessControlEffect -> Lude.Text) (\s a -> s {userId = a} :: GetAccessControlEffect)
 {-# DEPRECATED gaceUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+-- | The identifier for the organization.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaceOrganizationId :: Lens.Lens' GetAccessControlEffect Lude.Text
+gaceOrganizationId = Lens.lens (organizationId :: GetAccessControlEffect -> Lude.Text) (\s a -> s {organizationId = a} :: GetAccessControlEffect)
+{-# DEPRECATED gaceOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest GetAccessControlEffect where
   type Rs GetAccessControlEffect = GetAccessControlEffectResponse
@@ -141,10 +139,10 @@ instance Lude.ToJSON GetAccessControlEffect where
   toJSON GetAccessControlEffect' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("IpAddress" Lude..= ipAddress),
+          [ Lude.Just ("IpAddress" Lude..= ipAddress),
             Lude.Just ("Action" Lude..= action),
-            Lude.Just ("UserId" Lude..= userId)
+            Lude.Just ("UserId" Lude..= userId),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -156,20 +154,14 @@ instance Lude.ToQuery GetAccessControlEffect where
 
 -- | /See:/ 'mkGetAccessControlEffectResponse' smart constructor.
 data GetAccessControlEffectResponse = GetAccessControlEffectResponse'
-  { effect ::
-      Lude.Maybe
-        AccessControlRuleEffect,
-    matchedRules ::
-      Lude.Maybe [Lude.Text],
+  { -- | The rule effect.
+    effect :: Lude.Maybe AccessControlRuleEffect,
+    -- | The rules that match the given parameters, resulting in an effect.
+    matchedRules :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessControlEffectResponse' with the minimum fields required to make a request.

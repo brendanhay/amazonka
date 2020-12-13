@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.IAM.GenerateServiceLastAccessedDetails
     mkGenerateServiceLastAccessedDetails,
 
     -- ** Request lenses
-    gsladGranularity,
     gsladARN,
+    gsladGranularity,
 
     -- * Destructuring the response
     GenerateServiceLastAccessedDetailsResponse (..),
@@ -54,18 +55,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGenerateServiceLastAccessedDetails' smart constructor.
 data GenerateServiceLastAccessedDetails = GenerateServiceLastAccessedDetails'
-  { granularity ::
-      Lude.Maybe
-        AccessAdvisorUsageGranularityType,
-    arn :: Lude.Text
+  { -- | The ARN of the IAM resource (user, group, role, or managed policy) used to generate information about when the resource was last used in an attempt to access an AWS service.
+    arn :: Lude.Text,
+    -- | The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.
+    granularity :: Lude.Maybe AccessAdvisorUsageGranularityType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateServiceLastAccessedDetails' with the minimum fields required to make a request.
@@ -78,16 +73,9 @@ mkGenerateServiceLastAccessedDetails ::
   GenerateServiceLastAccessedDetails
 mkGenerateServiceLastAccessedDetails pARN_ =
   GenerateServiceLastAccessedDetails'
-    { granularity = Lude.Nothing,
-      arn = pARN_
+    { arn = pARN_,
+      granularity = Lude.Nothing
     }
-
--- | The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.
---
--- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladGranularity :: Lens.Lens' GenerateServiceLastAccessedDetails (Lude.Maybe AccessAdvisorUsageGranularityType)
-gsladGranularity = Lens.lens (granularity :: GenerateServiceLastAccessedDetails -> Lude.Maybe AccessAdvisorUsageGranularityType) (\s a -> s {granularity = a} :: GenerateServiceLastAccessedDetails)
-{-# DEPRECATED gsladGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
 -- | The ARN of the IAM resource (user, group, role, or managed policy) used to generate information about when the resource was last used in an attempt to access an AWS service.
 --
@@ -95,6 +83,13 @@ gsladGranularity = Lens.lens (granularity :: GenerateServiceLastAccessedDetails 
 gsladARN :: Lens.Lens' GenerateServiceLastAccessedDetails Lude.Text
 gsladARN = Lens.lens (arn :: GenerateServiceLastAccessedDetails -> Lude.Text) (\s a -> s {arn = a} :: GenerateServiceLastAccessedDetails)
 {-# DEPRECATED gsladARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsladGranularity :: Lens.Lens' GenerateServiceLastAccessedDetails (Lude.Maybe AccessAdvisorUsageGranularityType)
+gsladGranularity = Lens.lens (granularity :: GenerateServiceLastAccessedDetails -> Lude.Maybe AccessAdvisorUsageGranularityType) (\s a -> s {granularity = a} :: GenerateServiceLastAccessedDetails)
+{-# DEPRECATED gsladGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
 instance Lude.AWSRequest GenerateServiceLastAccessedDetails where
   type
@@ -121,25 +116,18 @@ instance Lude.ToQuery GenerateServiceLastAccessedDetails where
       [ "Action"
           Lude.=: ("GenerateServiceLastAccessedDetails" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "Granularity" Lude.=: granularity,
-        "Arn" Lude.=: arn
+        "Arn" Lude.=: arn,
+        "Granularity" Lude.=: granularity
       ]
 
 -- | /See:/ 'mkGenerateServiceLastAccessedDetailsResponse' smart constructor.
 data GenerateServiceLastAccessedDetailsResponse = GenerateServiceLastAccessedDetailsResponse'
-  { jobId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The @JobId@ that you can use in the 'GetServiceLastAccessedDetails' or 'GetServiceLastAccessedDetailsWithEntities' operations. The @JobId@ returned by @GenerateServiceLastAccessedDetail@ must be used by the same role within a session, or by the same user when used to call @GetServiceLastAccessedDetail@ .
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateServiceLastAccessedDetailsResponse' with the minimum fields required to make a request.

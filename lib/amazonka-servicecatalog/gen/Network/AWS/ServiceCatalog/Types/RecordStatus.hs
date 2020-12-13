@@ -14,10 +14,10 @@ module Network.AWS.ServiceCatalog.Types.RecordStatus
   ( RecordStatus
       ( RecordStatus',
         RSCreated,
-        RSFailed,
         RSInProgress,
         RSInProgressInError,
-        RSSucceeded
+        RSSucceeded,
+        RSFailed
       ),
   )
 where
@@ -51,9 +51,6 @@ newtype RecordStatus = RecordStatus' Lude.Text
 pattern RSCreated :: RecordStatus
 pattern RSCreated = RecordStatus' "CREATED"
 
-pattern RSFailed :: RecordStatus
-pattern RSFailed = RecordStatus' "FAILED"
-
 pattern RSInProgress :: RecordStatus
 pattern RSInProgress = RecordStatus' "IN_PROGRESS"
 
@@ -63,11 +60,14 @@ pattern RSInProgressInError = RecordStatus' "IN_PROGRESS_IN_ERROR"
 pattern RSSucceeded :: RecordStatus
 pattern RSSucceeded = RecordStatus' "SUCCEEDED"
 
+pattern RSFailed :: RecordStatus
+pattern RSFailed = RecordStatus' "FAILED"
+
 {-# COMPLETE
   RSCreated,
-  RSFailed,
   RSInProgress,
   RSInProgressInError,
   RSSucceeded,
+  RSFailed,
   RecordStatus'
   #-}

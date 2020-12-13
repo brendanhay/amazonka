@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingTypeDefinition' smart constructor.
 data ThingTypeDefinition = ThingTypeDefinition'
-  { thingTypeProperties ::
-      Lude.Maybe ThingTypeProperties,
+  { -- | The ThingTypeProperties for the thing type.
+    thingTypeProperties :: Lude.Maybe ThingTypeProperties,
+    -- | The name of the thing type.
     thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
     thingTypeMetadata :: Lude.Maybe ThingTypeMetadata,
+    -- | The thing type ARN.
     thingTypeARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingTypeDefinition' with the minimum fields required to make a request.
 --
--- * 'thingTypeARN' - The thing type ARN.
--- * 'thingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
--- * 'thingTypeName' - The name of the thing type.
 -- * 'thingTypeProperties' - The ThingTypeProperties for the thing type.
+-- * 'thingTypeName' - The name of the thing type.
+-- * 'thingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
+-- * 'thingTypeARN' - The thing type ARN.
 mkThingTypeDefinition ::
   ThingTypeDefinition
 mkThingTypeDefinition =

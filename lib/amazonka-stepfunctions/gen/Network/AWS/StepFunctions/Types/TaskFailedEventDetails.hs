@@ -17,9 +17,9 @@ module Network.AWS.StepFunctions.Types.TaskFailedEventDetails
     mkTaskFailedEventDetails,
 
     -- * Lenses
+    tfedResourceType,
     tfedError,
     tfedCause,
-    tfedResourceType,
     tfedResource,
   )
 where
@@ -31,11 +31,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskFailedEventDetails' smart constructor.
 data TaskFailedEventDetails = TaskFailedEventDetails'
-  { error ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    cause ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The action of the resource called by a task state.
     resourceType :: Lude.Text,
+    -- | The error code of the failure.
+    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The service name of the resource in a task state.
     resource :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -43,10 +45,10 @@ data TaskFailedEventDetails = TaskFailedEventDetails'
 
 -- | Creates a value of 'TaskFailedEventDetails' with the minimum fields required to make a request.
 --
--- * 'cause' - A more detailed explanation of the cause of the failure.
--- * 'error' - The error code of the failure.
--- * 'resource' - The service name of the resource in a task state.
 -- * 'resourceType' - The action of the resource called by a task state.
+-- * 'error' - The error code of the failure.
+-- * 'cause' - A more detailed explanation of the cause of the failure.
+-- * 'resource' - The service name of the resource in a task state.
 mkTaskFailedEventDetails ::
   -- | 'resourceType'
   Lude.Text ->
@@ -55,11 +57,18 @@ mkTaskFailedEventDetails ::
   TaskFailedEventDetails
 mkTaskFailedEventDetails pResourceType_ pResource_ =
   TaskFailedEventDetails'
-    { error = Lude.Nothing,
+    { resourceType = pResourceType_,
+      error = Lude.Nothing,
       cause = Lude.Nothing,
-      resourceType = pResourceType_,
       resource = pResource_
     }
+
+-- | The action of the resource called by a task state.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tfedResourceType :: Lens.Lens' TaskFailedEventDetails Lude.Text
+tfedResourceType = Lens.lens (resourceType :: TaskFailedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskFailedEventDetails)
+{-# DEPRECATED tfedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The error code of the failure.
 --
@@ -75,13 +84,6 @@ tfedCause :: Lens.Lens' TaskFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.
 tfedCause = Lens.lens (cause :: TaskFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: TaskFailedEventDetails)
 {-# DEPRECATED tfedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
--- | The action of the resource called by a task state.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tfedResourceType :: Lens.Lens' TaskFailedEventDetails Lude.Text
-tfedResourceType = Lens.lens (resourceType :: TaskFailedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskFailedEventDetails)
-{-# DEPRECATED tfedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
 -- | The service name of the resource in a task state.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -95,8 +97,8 @@ instance Lude.FromJSON TaskFailedEventDetails where
       "TaskFailedEventDetails"
       ( \x ->
           TaskFailedEventDetails'
-            Lude.<$> (x Lude..:? "error")
+            Lude.<$> (x Lude..: "resourceType")
+            Lude.<*> (x Lude..:? "error")
             Lude.<*> (x Lude..:? "cause")
-            Lude.<*> (x Lude..: "resourceType")
             Lude.<*> (x Lude..: "resource")
       )

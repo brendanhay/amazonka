@@ -13,14 +13,14 @@
 module Network.AWS.MediaConvert.Types.H265CodecProfile
   ( H265CodecProfile
       ( H265CodecProfile',
-        MAIN10High,
-        MAIN10Main,
-        Main42210BITHigh,
-        Main42210BITMain,
-        Main4228BITHigh,
-        Main4228BITMain,
+        MainMain,
         MainHigh,
-        MainMain
+        MAIN10Main,
+        MAIN10High,
+        Main4228BITMain,
+        Main4228BITHigh,
+        Main42210BITMain,
+        Main42210BITHigh
       ),
   )
 where
@@ -52,38 +52,38 @@ newtype H265CodecProfile = H265CodecProfile' Lude.Text
       Lude.ToHeader
     )
 
-pattern MAIN10High :: H265CodecProfile
-pattern MAIN10High = H265CodecProfile' "MAIN10_HIGH"
-
-pattern MAIN10Main :: H265CodecProfile
-pattern MAIN10Main = H265CodecProfile' "MAIN10_MAIN"
-
-pattern Main42210BITHigh :: H265CodecProfile
-pattern Main42210BITHigh = H265CodecProfile' "MAIN_422_10BIT_HIGH"
-
-pattern Main42210BITMain :: H265CodecProfile
-pattern Main42210BITMain = H265CodecProfile' "MAIN_422_10BIT_MAIN"
-
-pattern Main4228BITHigh :: H265CodecProfile
-pattern Main4228BITHigh = H265CodecProfile' "MAIN_422_8BIT_HIGH"
-
-pattern Main4228BITMain :: H265CodecProfile
-pattern Main4228BITMain = H265CodecProfile' "MAIN_422_8BIT_MAIN"
+pattern MainMain :: H265CodecProfile
+pattern MainMain = H265CodecProfile' "MAIN_MAIN"
 
 pattern MainHigh :: H265CodecProfile
 pattern MainHigh = H265CodecProfile' "MAIN_HIGH"
 
-pattern MainMain :: H265CodecProfile
-pattern MainMain = H265CodecProfile' "MAIN_MAIN"
+pattern MAIN10Main :: H265CodecProfile
+pattern MAIN10Main = H265CodecProfile' "MAIN10_MAIN"
+
+pattern MAIN10High :: H265CodecProfile
+pattern MAIN10High = H265CodecProfile' "MAIN10_HIGH"
+
+pattern Main4228BITMain :: H265CodecProfile
+pattern Main4228BITMain = H265CodecProfile' "MAIN_422_8BIT_MAIN"
+
+pattern Main4228BITHigh :: H265CodecProfile
+pattern Main4228BITHigh = H265CodecProfile' "MAIN_422_8BIT_HIGH"
+
+pattern Main42210BITMain :: H265CodecProfile
+pattern Main42210BITMain = H265CodecProfile' "MAIN_422_10BIT_MAIN"
+
+pattern Main42210BITHigh :: H265CodecProfile
+pattern Main42210BITHigh = H265CodecProfile' "MAIN_422_10BIT_HIGH"
 
 {-# COMPLETE
-  MAIN10High,
-  MAIN10Main,
-  Main42210BITHigh,
-  Main42210BITMain,
-  Main4228BITHigh,
-  Main4228BITMain,
-  MainHigh,
   MainMain,
+  MainHigh,
+  MAIN10Main,
+  MAIN10High,
+  Main4228BITMain,
+  Main4228BITHigh,
+  Main42210BITMain,
+  Main42210BITHigh,
   H265CodecProfile'
   #-}

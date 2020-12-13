@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.RDS.StopActivityStream
     mkStopActivityStream,
 
     -- ** Request lenses
-    sasApplyImmediately,
     sasResourceARN,
+    sasApplyImmediately,
 
     -- * Destructuring the response
     StopActivityStreamResponse (..),
@@ -44,39 +45,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopActivityStream' smart constructor.
 data StopActivityStream = StopActivityStream'
-  { applyImmediately ::
-      Lude.Maybe Lude.Bool,
-    resourceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
+    resourceARN :: Lude.Text,
+    -- | Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
+    applyImmediately :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopActivityStream' with the minimum fields required to make a request.
 --
--- * 'applyImmediately' - Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
+-- * 'applyImmediately' - Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
 mkStopActivityStream ::
   -- | 'resourceARN'
   Lude.Text ->
   StopActivityStream
 mkStopActivityStream pResourceARN_ =
   StopActivityStream'
-    { applyImmediately = Lude.Nothing,
-      resourceARN = pResourceARN_
+    { resourceARN = pResourceARN_,
+      applyImmediately = Lude.Nothing
     }
-
--- | Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
---
--- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasApplyImmediately :: Lens.Lens' StopActivityStream (Lude.Maybe Lude.Bool)
-sasApplyImmediately = Lens.lens (applyImmediately :: StopActivityStream -> Lude.Maybe Lude.Bool) (\s a -> s {applyImmediately = a} :: StopActivityStream)
-{-# DEPRECATED sasApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
 --
@@ -84,6 +73,13 @@ sasApplyImmediately = Lens.lens (applyImmediately :: StopActivityStream -> Lude.
 sasResourceARN :: Lens.Lens' StopActivityStream Lude.Text
 sasResourceARN = Lens.lens (resourceARN :: StopActivityStream -> Lude.Text) (\s a -> s {resourceARN = a} :: StopActivityStream)
 {-# DEPRECATED sasResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | Specifies whether or not the database activity stream is to stop as soon as possible, regardless of the maintenance window for the database.
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasApplyImmediately :: Lens.Lens' StopActivityStream (Lude.Maybe Lude.Bool)
+sasApplyImmediately = Lens.lens (applyImmediately :: StopActivityStream -> Lude.Maybe Lude.Bool) (\s a -> s {applyImmediately = a} :: StopActivityStream)
+{-# DEPRECATED sasApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
 instance Lude.AWSRequest StopActivityStream where
   type Rs StopActivityStream = StopActivityStreamResponse
@@ -110,34 +106,30 @@ instance Lude.ToQuery StopActivityStream where
     Lude.mconcat
       [ "Action" Lude.=: ("StopActivityStream" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "ApplyImmediately" Lude.=: applyImmediately,
-        "ResourceArn" Lude.=: resourceARN
+        "ResourceArn" Lude.=: resourceARN,
+        "ApplyImmediately" Lude.=: applyImmediately
       ]
 
 -- | /See:/ 'mkStopActivityStreamResponse' smart constructor.
 data StopActivityStreamResponse = StopActivityStreamResponse'
-  { status ::
-      Lude.Maybe ActivityStreamStatus,
-    kinesisStreamName ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the database activity stream.
+    status :: Lude.Maybe ActivityStreamStatus,
+    -- | The name of the Amazon Kinesis data stream used for the database activity stream.
+    kinesisStreamName :: Lude.Maybe Lude.Text,
+    -- | The AWS KMS key identifier used for encrypting messages in the database activity stream.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopActivityStreamResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the database activity stream.
 -- * 'kinesisStreamName' - The name of the Amazon Kinesis data stream used for the database activity stream.
 -- * 'kmsKeyId' - The AWS KMS key identifier used for encrypting messages in the database activity stream.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the database activity stream.
 mkStopActivityStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->

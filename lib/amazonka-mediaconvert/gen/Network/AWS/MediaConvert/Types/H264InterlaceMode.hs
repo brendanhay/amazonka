@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.H264InterlaceMode
   ( H264InterlaceMode
       ( H264InterlaceMode',
-        HIMBottomField,
-        HIMFollowBottomField,
-        HIMFollowTopField,
         HIMProgressive,
-        HIMTopField
+        HIMTopField,
+        HIMBottomField,
+        HIMFollowTopField,
+        HIMFollowBottomField
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype H264InterlaceMode = H264InterlaceMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern HIMBottomField :: H264InterlaceMode
-pattern HIMBottomField = H264InterlaceMode' "BOTTOM_FIELD"
-
-pattern HIMFollowBottomField :: H264InterlaceMode
-pattern HIMFollowBottomField = H264InterlaceMode' "FOLLOW_BOTTOM_FIELD"
-
-pattern HIMFollowTopField :: H264InterlaceMode
-pattern HIMFollowTopField = H264InterlaceMode' "FOLLOW_TOP_FIELD"
-
 pattern HIMProgressive :: H264InterlaceMode
 pattern HIMProgressive = H264InterlaceMode' "PROGRESSIVE"
 
 pattern HIMTopField :: H264InterlaceMode
 pattern HIMTopField = H264InterlaceMode' "TOP_FIELD"
 
+pattern HIMBottomField :: H264InterlaceMode
+pattern HIMBottomField = H264InterlaceMode' "BOTTOM_FIELD"
+
+pattern HIMFollowTopField :: H264InterlaceMode
+pattern HIMFollowTopField = H264InterlaceMode' "FOLLOW_TOP_FIELD"
+
+pattern HIMFollowBottomField :: H264InterlaceMode
+pattern HIMFollowBottomField = H264InterlaceMode' "FOLLOW_BOTTOM_FIELD"
+
 {-# COMPLETE
-  HIMBottomField,
-  HIMFollowBottomField,
-  HIMFollowTopField,
   HIMProgressive,
   HIMTopField,
+  HIMBottomField,
+  HIMFollowTopField,
+  HIMFollowBottomField,
   H264InterlaceMode'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264ParControl
   ( H264ParControl
       ( H264ParControl',
-        HInitializeFromSource,
-        HSpecified
+        HPCInitializeFromSource,
+        HPCSpecified
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264ParControl = H264ParControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern HInitializeFromSource :: H264ParControl
-pattern HInitializeFromSource = H264ParControl' "INITIALIZE_FROM_SOURCE"
+pattern HPCInitializeFromSource :: H264ParControl
+pattern HPCInitializeFromSource = H264ParControl' "INITIALIZE_FROM_SOURCE"
 
-pattern HSpecified :: H264ParControl
-pattern HSpecified = H264ParControl' "SPECIFIED"
+pattern HPCSpecified :: H264ParControl
+pattern HPCSpecified = H264ParControl' "SPECIFIED"
 
 {-# COMPLETE
-  HInitializeFromSource,
-  HSpecified,
+  HPCInitializeFromSource,
+  HPCSpecified,
   H264ParControl'
   #-}

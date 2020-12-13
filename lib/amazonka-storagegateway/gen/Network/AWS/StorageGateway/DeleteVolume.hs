@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.StorageGateway.DeleteVolume
     mkDeleteVolume,
 
     -- ** Request lenses
-    delVolumeARN,
+    dVolumeARN,
 
     -- * Destructuring the response
     DeleteVolumeResponse (..),
     mkDeleteVolumeResponse,
 
     -- ** Response lenses
-    dvvrsVolumeARN,
-    dvvrsResponseStatus,
+    dvfrsVolumeARN,
+    dvfrsResponseStatus,
   )
 where
 
@@ -43,14 +44,11 @@ import Network.AWS.StorageGateway.Types
 -- | A JSON object containing the 'DeleteVolumeInput$VolumeARN' to delete.
 --
 -- /See:/ 'mkDeleteVolume' smart constructor.
-newtype DeleteVolume = DeleteVolume' {volumeARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteVolume = DeleteVolume'
+  { -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
+    volumeARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
@@ -65,9 +63,9 @@ mkDeleteVolume pVolumeARN_ = DeleteVolume' {volumeARN = pVolumeARN_}
 -- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation to return a list of gateway volumes.
 --
 -- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delVolumeARN :: Lens.Lens' DeleteVolume Lude.Text
-delVolumeARN = Lens.lens (volumeARN :: DeleteVolume -> Lude.Text) (\s a -> s {volumeARN = a} :: DeleteVolume)
-{-# DEPRECATED delVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+dVolumeARN :: Lens.Lens' DeleteVolume Lude.Text
+dVolumeARN = Lens.lens (volumeARN :: DeleteVolume -> Lude.Text) (\s a -> s {volumeARN = a} :: DeleteVolume)
+{-# DEPRECATED dVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 instance Lude.AWSRequest DeleteVolume where
   type Rs DeleteVolume = DeleteVolumeResponse
@@ -105,23 +103,18 @@ instance Lude.ToQuery DeleteVolume where
 --
 -- /See:/ 'mkDeleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-  { volumeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.
+    volumeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.
+-- * 'responseStatus' - The response status code.
 mkDeleteVolumeResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -135,13 +128,13 @@ mkDeleteVolumeResponse pResponseStatus_ =
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.
 --
 -- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvvrsVolumeARN :: Lens.Lens' DeleteVolumeResponse (Lude.Maybe Lude.Text)
-dvvrsVolumeARN = Lens.lens (volumeARN :: DeleteVolumeResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: DeleteVolumeResponse)
-{-# DEPRECATED dvvrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+dvfrsVolumeARN :: Lens.Lens' DeleteVolumeResponse (Lude.Maybe Lude.Text)
+dvfrsVolumeARN = Lens.lens (volumeARN :: DeleteVolumeResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: DeleteVolumeResponse)
+{-# DEPRECATED dvfrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvvrsResponseStatus :: Lens.Lens' DeleteVolumeResponse Lude.Int
-dvvrsResponseStatus = Lens.lens (responseStatus :: DeleteVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVolumeResponse)
-{-# DEPRECATED dvvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvfrsResponseStatus :: Lens.Lens' DeleteVolumeResponse Lude.Int
+dvfrsResponseStatus = Lens.lens (responseStatus :: DeleteVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVolumeResponse)
+{-# DEPRECATED dvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

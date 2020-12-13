@@ -17,8 +17,8 @@ module Network.AWS.IoT.Types.ProvisioningHook
     mkProvisioningHook,
 
     -- * Lenses
-    phPayloadVersion,
     phTargetARN,
+    phPayloadVersion,
   )
 where
 
@@ -29,25 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisioningHook' smart constructor.
 data ProvisioningHook = ProvisioningHook'
-  { payloadVersion ::
-      Lude.Maybe Lude.Text,
-    targetARN :: Lude.Text
+  { -- | The ARN of the target function.
+    --
+    -- /Note:/ Only Lambda functions are currently supported.
+    targetARN :: Lude.Text,
+    -- | The payload that was sent to the target function.
+    --
+    -- /Note:/ Only Lambda functions are currently supported.
+    payloadVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningHook' with the minimum fields required to make a request.
 --
--- * 'payloadVersion' - The payload that was sent to the target function.
+-- * 'targetARN' - The ARN of the target function.
 --
 -- /Note:/ Only Lambda functions are currently supported.
--- * 'targetARN' - The ARN of the target function.
+-- * 'payloadVersion' - The payload that was sent to the target function.
 --
 -- /Note:/ Only Lambda functions are currently supported.
 mkProvisioningHook ::
@@ -56,18 +55,9 @@ mkProvisioningHook ::
   ProvisioningHook
 mkProvisioningHook pTargetARN_ =
   ProvisioningHook'
-    { payloadVersion = Lude.Nothing,
-      targetARN = pTargetARN_
+    { targetARN = pTargetARN_,
+      payloadVersion = Lude.Nothing
     }
-
--- | The payload that was sent to the target function.
---
--- /Note:/ Only Lambda functions are currently supported.
---
--- /Note:/ Consider using 'payloadVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-phPayloadVersion :: Lens.Lens' ProvisioningHook (Lude.Maybe Lude.Text)
-phPayloadVersion = Lens.lens (payloadVersion :: ProvisioningHook -> Lude.Maybe Lude.Text) (\s a -> s {payloadVersion = a} :: ProvisioningHook)
-{-# DEPRECATED phPayloadVersion "Use generic-lens or generic-optics with 'payloadVersion' instead." #-}
 
 -- | The ARN of the target function.
 --
@@ -78,20 +68,29 @@ phTargetARN :: Lens.Lens' ProvisioningHook Lude.Text
 phTargetARN = Lens.lens (targetARN :: ProvisioningHook -> Lude.Text) (\s a -> s {targetARN = a} :: ProvisioningHook)
 {-# DEPRECATED phTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
+-- | The payload that was sent to the target function.
+--
+-- /Note:/ Only Lambda functions are currently supported.
+--
+-- /Note:/ Consider using 'payloadVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+phPayloadVersion :: Lens.Lens' ProvisioningHook (Lude.Maybe Lude.Text)
+phPayloadVersion = Lens.lens (payloadVersion :: ProvisioningHook -> Lude.Maybe Lude.Text) (\s a -> s {payloadVersion = a} :: ProvisioningHook)
+{-# DEPRECATED phPayloadVersion "Use generic-lens or generic-optics with 'payloadVersion' instead." #-}
+
 instance Lude.FromJSON ProvisioningHook where
   parseJSON =
     Lude.withObject
       "ProvisioningHook"
       ( \x ->
           ProvisioningHook'
-            Lude.<$> (x Lude..:? "payloadVersion") Lude.<*> (x Lude..: "targetArn")
+            Lude.<$> (x Lude..: "targetArn") Lude.<*> (x Lude..:? "payloadVersion")
       )
 
 instance Lude.ToJSON ProvisioningHook where
   toJSON ProvisioningHook' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("payloadVersion" Lude..=) Lude.<$> payloadVersion,
-            Lude.Just ("targetArn" Lude..= targetARN)
+          [ Lude.Just ("targetArn" Lude..= targetARN),
+            ("payloadVersion" Lude..=) Lude.<$> payloadVersion
           ]
       )

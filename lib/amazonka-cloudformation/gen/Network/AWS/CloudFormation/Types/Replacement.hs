@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.Replacement
   ( Replacement
       ( Replacement',
-        Conditional,
+        True,
         False,
-        True
+        Conditional
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype Replacement = Replacement' Lude.Text
       Lude.ToHeader
     )
 
-pattern Conditional :: Replacement
-pattern Conditional = Replacement' "Conditional"
+pattern True :: Replacement
+pattern True = Replacement' "True"
 
 pattern False :: Replacement
 pattern False = Replacement' "False"
 
-pattern True :: Replacement
-pattern True = Replacement' "True"
+pattern Conditional :: Replacement
+pattern Conditional = Replacement' "Conditional"
 
 {-# COMPLETE
-  Conditional,
-  False,
   True,
+  False,
+  Conditional,
   Replacement'
   #-}

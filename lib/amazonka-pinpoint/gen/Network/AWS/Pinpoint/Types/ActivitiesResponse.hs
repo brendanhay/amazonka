@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActivitiesResponse' smart constructor.
 data ActivitiesResponse = ActivitiesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of responses, one for each activity that was performed by the campaign.
     item :: [ActivityResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivitiesResponse' with the minimum fields required to make a request.
 --
--- * 'item' - An array of responses, one for each activity that was performed by the campaign.
 -- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+-- * 'item' - An array of responses, one for each activity that was performed by the campaign.
 mkActivitiesResponse ::
   ActivitiesResponse
 mkActivitiesResponse =

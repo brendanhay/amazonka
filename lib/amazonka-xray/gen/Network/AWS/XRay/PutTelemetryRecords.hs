@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.XRay.PutTelemetryRecords
     -- ** Request lenses
     ptrHostname,
     ptrEC2InstanceId,
-    ptrResourceARN,
     ptrTelemetryRecords,
+    ptrResourceARN,
 
     -- * Destructuring the response
     PutTelemetryRecordsResponse (..),
@@ -41,35 +42,32 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { hostname ::
-      Lude.Maybe Lude.Text,
+  { -- |
+    hostname :: Lude.Maybe Lude.Text,
+    -- |
     ec2InstanceId :: Lude.Maybe Lude.Text,
-    resourceARN :: Lude.Maybe Lude.Text,
-    telemetryRecords :: [TelemetryRecord]
+    -- |
+    telemetryRecords :: [TelemetryRecord],
+    -- |
+    resourceARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTelemetryRecords' with the minimum fields required to make a request.
 --
--- * 'ec2InstanceId' -
 -- * 'hostname' -
--- * 'resourceARN' -
+-- * 'ec2InstanceId' -
 -- * 'telemetryRecords' -
+-- * 'resourceARN' -
 mkPutTelemetryRecords ::
   PutTelemetryRecords
 mkPutTelemetryRecords =
   PutTelemetryRecords'
     { hostname = Lude.Nothing,
       ec2InstanceId = Lude.Nothing,
-      resourceARN = Lude.Nothing,
-      telemetryRecords = Lude.mempty
+      telemetryRecords = Lude.mempty,
+      resourceARN = Lude.Nothing
     }
 
 -- |
@@ -88,17 +86,17 @@ ptrEC2InstanceId = Lens.lens (ec2InstanceId :: PutTelemetryRecords -> Lude.Maybe
 
 -- |
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptrResourceARN :: Lens.Lens' PutTelemetryRecords (Lude.Maybe Lude.Text)
-ptrResourceARN = Lens.lens (resourceARN :: PutTelemetryRecords -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: PutTelemetryRecords)
-{-# DEPRECATED ptrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
-
--- |
---
 -- /Note:/ Consider using 'telemetryRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ptrTelemetryRecords :: Lens.Lens' PutTelemetryRecords [TelemetryRecord]
 ptrTelemetryRecords = Lens.lens (telemetryRecords :: PutTelemetryRecords -> [TelemetryRecord]) (\s a -> s {telemetryRecords = a} :: PutTelemetryRecords)
 {-# DEPRECATED ptrTelemetryRecords "Use generic-lens or generic-optics with 'telemetryRecords' instead." #-}
+
+-- |
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptrResourceARN :: Lens.Lens' PutTelemetryRecords (Lude.Maybe Lude.Text)
+ptrResourceARN = Lens.lens (resourceARN :: PutTelemetryRecords -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: PutTelemetryRecords)
+{-# DEPRECATED ptrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest PutTelemetryRecords where
   type Rs PutTelemetryRecords = PutTelemetryRecordsResponse
@@ -119,8 +117,8 @@ instance Lude.ToJSON PutTelemetryRecords where
       ( Lude.catMaybes
           [ ("Hostname" Lude..=) Lude.<$> hostname,
             ("EC2InstanceId" Lude..=) Lude.<$> ec2InstanceId,
-            ("ResourceARN" Lude..=) Lude.<$> resourceARN,
-            Lude.Just ("TelemetryRecords" Lude..= telemetryRecords)
+            Lude.Just ("TelemetryRecords" Lude..= telemetryRecords),
+            ("ResourceARN" Lude..=) Lude.<$> resourceARN
           ]
       )
 
@@ -132,16 +130,10 @@ instance Lude.ToQuery PutTelemetryRecords where
 
 -- | /See:/ 'mkPutTelemetryRecordsResponse' smart constructor.
 newtype PutTelemetryRecordsResponse = PutTelemetryRecordsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTelemetryRecordsResponse' with the minimum fields required to make a request.

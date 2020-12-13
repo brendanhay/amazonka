@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.WorkDocs.DescribeGroups
 
     -- ** Request lenses
     dgAuthenticationToken,
+    dgSearchQuery,
     dgMarker,
     dgLimit,
     dgOrganizationId,
-    dgSearchQuery,
 
     -- * Destructuring the response
     DescribeGroupsResponse (..),
@@ -47,12 +48,16 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDescribeGroups' smart constructor.
 data DescribeGroups = DescribeGroups'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A query to describe groups by group name.
+    searchQuery :: Lude.Sensitive Lude.Text,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     limit :: Lude.Maybe Lude.Natural,
-    organizationId :: Lude.Maybe Lude.Text,
-    searchQuery :: Lude.Sensitive Lude.Text
+    -- | The ID of the organization.
+    organizationId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -60,10 +65,10 @@ data DescribeGroups = DescribeGroups'
 -- | Creates a value of 'DescribeGroups' with the minimum fields required to make a request.
 --
 -- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'limit' - The maximum number of items to return with this call.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'organizationId' - The ID of the organization.
 -- * 'searchQuery' - A query to describe groups by group name.
+-- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- * 'limit' - The maximum number of items to return with this call.
+-- * 'organizationId' - The ID of the organization.
 mkDescribeGroups ::
   -- | 'searchQuery'
   Lude.Sensitive Lude.Text ->
@@ -71,10 +76,10 @@ mkDescribeGroups ::
 mkDescribeGroups pSearchQuery_ =
   DescribeGroups'
     { authenticationToken = Lude.Nothing,
+      searchQuery = pSearchQuery_,
       marker = Lude.Nothing,
       limit = Lude.Nothing,
-      organizationId = Lude.Nothing,
-      searchQuery = pSearchQuery_
+      organizationId = Lude.Nothing
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
@@ -83,6 +88,13 @@ mkDescribeGroups pSearchQuery_ =
 dgAuthenticationToken :: Lens.Lens' DescribeGroups (Lude.Maybe (Lude.Sensitive Lude.Text))
 dgAuthenticationToken = Lens.lens (authenticationToken :: DescribeGroups -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DescribeGroups)
 {-# DEPRECATED dgAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+
+-- | A query to describe groups by group name.
+--
+-- /Note:/ Consider using 'searchQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgSearchQuery :: Lens.Lens' DescribeGroups (Lude.Sensitive Lude.Text)
+dgSearchQuery = Lens.lens (searchQuery :: DescribeGroups -> Lude.Sensitive Lude.Text) (\s a -> s {searchQuery = a} :: DescribeGroups)
+{-# DEPRECATED dgSearchQuery "Use generic-lens or generic-optics with 'searchQuery' instead." #-}
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 --
@@ -104,13 +116,6 @@ dgLimit = Lens.lens (limit :: DescribeGroups -> Lude.Maybe Lude.Natural) (\s a -
 dgOrganizationId :: Lens.Lens' DescribeGroups (Lude.Maybe Lude.Text)
 dgOrganizationId = Lens.lens (organizationId :: DescribeGroups -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: DescribeGroups)
 {-# DEPRECATED dgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | A query to describe groups by group name.
---
--- /Note:/ Consider using 'searchQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgSearchQuery :: Lens.Lens' DescribeGroups (Lude.Sensitive Lude.Text)
-dgSearchQuery = Lens.lens (searchQuery :: DescribeGroups -> Lude.Sensitive Lude.Text) (\s a -> s {searchQuery = a} :: DescribeGroups)
-{-# DEPRECATED dgSearchQuery "Use generic-lens or generic-optics with 'searchQuery' instead." #-}
 
 instance Page.AWSPager DescribeGroups where
   page rq rs
@@ -145,26 +150,22 @@ instance Lude.ToPath DescribeGroups where
 instance Lude.ToQuery DescribeGroups where
   toQuery DescribeGroups' {..} =
     Lude.mconcat
-      [ "marker" Lude.=: marker,
+      [ "searchQuery" Lude.=: searchQuery,
+        "marker" Lude.=: marker,
         "limit" Lude.=: limit,
-        "organizationId" Lude.=: organizationId,
-        "searchQuery" Lude.=: searchQuery
+        "organizationId" Lude.=: organizationId
       ]
 
 -- | /See:/ 'mkDescribeGroupsResponse' smart constructor.
 data DescribeGroupsResponse = DescribeGroupsResponse'
-  { groups ::
-      Lude.Maybe [GroupMetadata],
+  { -- | The list of groups.
+    groups :: Lude.Maybe [GroupMetadata],
+    -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGroupsResponse' with the minimum fields required to make a request.

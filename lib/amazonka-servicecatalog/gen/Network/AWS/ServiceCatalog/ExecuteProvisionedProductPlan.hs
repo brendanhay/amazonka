@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
     mkExecuteProvisionedProductPlan,
 
     -- ** Request lenses
-    epppAcceptLanguage,
-    epppPlanId,
     epppIdempotencyToken,
+    epppPlanId,
+    epppAcceptLanguage,
 
     -- * Destructuring the response
     ExecuteProvisionedProductPlanResponse (..),
@@ -41,22 +42,29 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkExecuteProvisionedProductPlan' smart constructor.
 data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Lude.Text,
+    -- | The plan identifier.
     planId :: Lude.Text,
-    idempotencyToken :: Lude.Text
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteProvisionedProductPlan' with the minimum fields required to make a request.
 --
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'planId' - The plan identifier.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -67,22 +75,33 @@ data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
 --
 --
 --     * @zh@ - Chinese
---
---
--- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
--- * 'planId' - The plan identifier.
 mkExecuteProvisionedProductPlan ::
-  -- | 'planId'
-  Lude.Text ->
   -- | 'idempotencyToken'
   Lude.Text ->
+  -- | 'planId'
+  Lude.Text ->
   ExecuteProvisionedProductPlan
-mkExecuteProvisionedProductPlan pPlanId_ pIdempotencyToken_ =
+mkExecuteProvisionedProductPlan pIdempotencyToken_ pPlanId_ =
   ExecuteProvisionedProductPlan'
-    { acceptLanguage = Lude.Nothing,
+    { idempotencyToken =
+        pIdempotencyToken_,
       planId = pPlanId_,
-      idempotencyToken = pIdempotencyToken_
+      acceptLanguage = Lude.Nothing
     }
+
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epppIdempotencyToken :: Lens.Lens' ExecuteProvisionedProductPlan Lude.Text
+epppIdempotencyToken = Lens.lens (idempotencyToken :: ExecuteProvisionedProductPlan -> Lude.Text) (\s a -> s {idempotencyToken = a} :: ExecuteProvisionedProductPlan)
+{-# DEPRECATED epppIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+
+-- | The plan identifier.
+--
+-- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epppPlanId :: Lens.Lens' ExecuteProvisionedProductPlan Lude.Text
+epppPlanId = Lens.lens (planId :: ExecuteProvisionedProductPlan -> Lude.Text) (\s a -> s {planId = a} :: ExecuteProvisionedProductPlan)
+{-# DEPRECATED epppPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
 
 -- | The language code.
 --
@@ -101,20 +120,6 @@ mkExecuteProvisionedProductPlan pPlanId_ pIdempotencyToken_ =
 epppAcceptLanguage :: Lens.Lens' ExecuteProvisionedProductPlan (Lude.Maybe Lude.Text)
 epppAcceptLanguage = Lens.lens (acceptLanguage :: ExecuteProvisionedProductPlan -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ExecuteProvisionedProductPlan)
 {-# DEPRECATED epppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The plan identifier.
---
--- /Note:/ Consider using 'planId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epppPlanId :: Lens.Lens' ExecuteProvisionedProductPlan Lude.Text
-epppPlanId = Lens.lens (planId :: ExecuteProvisionedProductPlan -> Lude.Text) (\s a -> s {planId = a} :: ExecuteProvisionedProductPlan)
-{-# DEPRECATED epppPlanId "Use generic-lens or generic-optics with 'planId' instead." #-}
-
--- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
---
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epppIdempotencyToken :: Lens.Lens' ExecuteProvisionedProductPlan Lude.Text
-epppIdempotencyToken = Lens.lens (idempotencyToken :: ExecuteProvisionedProductPlan -> Lude.Text) (\s a -> s {idempotencyToken = a} :: ExecuteProvisionedProductPlan)
-{-# DEPRECATED epppIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 instance Lude.AWSRequest ExecuteProvisionedProductPlan where
   type
@@ -145,9 +150,9 @@ instance Lude.ToJSON ExecuteProvisionedProductPlan where
   toJSON ExecuteProvisionedProductPlan' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+          [ Lude.Just ("IdempotencyToken" Lude..= idempotencyToken),
             Lude.Just ("PlanId" Lude..= planId),
-            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage
           ]
       )
 
@@ -159,19 +164,12 @@ instance Lude.ToQuery ExecuteProvisionedProductPlan where
 
 -- | /See:/ 'mkExecuteProvisionedProductPlanResponse' smart constructor.
 data ExecuteProvisionedProductPlanResponse = ExecuteProvisionedProductPlanResponse'
-  { recordDetail ::
-      Lude.Maybe
-        RecordDetail,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the result of provisioning the product.
+    recordDetail :: Lude.Maybe RecordDetail,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecuteProvisionedProductPlanResponse' with the minimum fields required to make a request.

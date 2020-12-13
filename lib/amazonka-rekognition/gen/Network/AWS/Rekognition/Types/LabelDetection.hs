@@ -30,16 +30,12 @@ import Network.AWS.Rekognition.Types.Label
 --
 -- /See:/ 'mkLabelDetection' smart constructor.
 data LabelDetection = LabelDetection'
-  { label :: Lude.Maybe Label,
+  { -- | Details about the detected label.
+    label :: Lude.Maybe Label,
+    -- | Time, in milliseconds from the start of the video, that the label was detected.
     timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelDetection' with the minimum fields required to make a request.

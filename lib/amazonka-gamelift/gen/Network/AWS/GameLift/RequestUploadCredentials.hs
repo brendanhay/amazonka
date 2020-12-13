@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -61,16 +62,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRequestUploadCredentials' smart constructor.
 newtype RequestUploadCredentials = RequestUploadCredentials'
-  { buildId ::
-      Lude.Text
+  { -- | A unique identifier for a build to get credentials for. You can use either the build ID or ARN value.
+    buildId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestUploadCredentials' with the minimum fields required to make a request.
@@ -128,27 +123,21 @@ instance Lude.ToQuery RequestUploadCredentials where
 --
 -- /See:/ 'mkRequestUploadCredentialsResponse' smart constructor.
 data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
-  { storageLocation ::
-      Lude.Maybe S3Location,
-    uploadCredentials ::
-      Lude.Maybe AWSCredentials,
-    responseStatus ::
-      Lude.Int
+  { -- | Amazon S3 path and key, identifying where the game build files are stored.
+    storageLocation :: Lude.Maybe S3Location,
+    -- | AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for.
+    uploadCredentials :: Lude.Maybe AWSCredentials,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestUploadCredentialsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'storageLocation' - Amazon S3 path and key, identifying where the game build files are stored.
 -- * 'uploadCredentials' - AWS credentials required when uploading a game build to the storage location. These credentials have a limited lifespan and are valid only for the build they were issued for.
+-- * 'responseStatus' - The response status code.
 mkRequestUploadCredentialsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -32,18 +32,14 @@ import Network.AWS.ResourceGroupsTagging.Types.Tag
 --
 -- /See:/ 'mkResourceTagMapping' smart constructor.
 data ResourceTagMapping = ResourceTagMapping'
-  { complianceDetails ::
-      Lude.Maybe ComplianceDetails,
+  { -- | Information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
+    complianceDetails :: Lude.Maybe ComplianceDetails,
+    -- | The ARN of the resource.
     resourceARN :: Lude.Maybe Lude.Text,
+    -- | The tags that have been applied to one or more AWS resources.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTagMapping' with the minimum fields required to make a request.

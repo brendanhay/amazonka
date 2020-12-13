@@ -29,19 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClassicLoadBalancersConfig' smart constructor.
 newtype ClassicLoadBalancersConfig = ClassicLoadBalancersConfig'
-  { classicLoadBalancers ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ClassicLoadBalancer
-        )
+  { -- | One or more Classic Load Balancers.
+    classicLoadBalancers :: Lude.Maybe (Lude.NonEmpty ClassicLoadBalancer)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassicLoadBalancersConfig' with the minimum fields required to make a request.

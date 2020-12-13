@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.TargetWorkspaceState
   ( TargetWorkspaceState
       ( TargetWorkspaceState',
-        AdminMaintenance,
-        Available
+        Available,
+        AdminMaintenance
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TargetWorkspaceState = TargetWorkspaceState' Lude.Text
       Lude.ToHeader
     )
 
-pattern AdminMaintenance :: TargetWorkspaceState
-pattern AdminMaintenance = TargetWorkspaceState' "ADMIN_MAINTENANCE"
-
 pattern Available :: TargetWorkspaceState
 pattern Available = TargetWorkspaceState' "AVAILABLE"
 
+pattern AdminMaintenance :: TargetWorkspaceState
+pattern AdminMaintenance = TargetWorkspaceState' "ADMIN_MAINTENANCE"
+
 {-# COMPLETE
-  AdminMaintenance,
   Available,
+  AdminMaintenance,
   TargetWorkspaceState'
   #-}

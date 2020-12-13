@@ -14,8 +14,8 @@ module Network.AWS.EMR.Types.InstanceState
   ( InstanceState
       ( InstanceState',
         ISAwaitingFulfillment,
-        ISBootstrapping,
         ISProvisioning,
+        ISBootstrapping,
         ISRunning,
         ISTerminated
       ),
@@ -51,11 +51,11 @@ newtype InstanceState = InstanceState' Lude.Text
 pattern ISAwaitingFulfillment :: InstanceState
 pattern ISAwaitingFulfillment = InstanceState' "AWAITING_FULFILLMENT"
 
-pattern ISBootstrapping :: InstanceState
-pattern ISBootstrapping = InstanceState' "BOOTSTRAPPING"
-
 pattern ISProvisioning :: InstanceState
 pattern ISProvisioning = InstanceState' "PROVISIONING"
+
+pattern ISBootstrapping :: InstanceState
+pattern ISBootstrapping = InstanceState' "BOOTSTRAPPING"
 
 pattern ISRunning :: InstanceState
 pattern ISRunning = InstanceState' "RUNNING"
@@ -65,8 +65,8 @@ pattern ISTerminated = InstanceState' "TERMINATED"
 
 {-# COMPLETE
   ISAwaitingFulfillment,
-  ISBootstrapping,
   ISProvisioning,
+  ISBootstrapping,
   ISRunning,
   ISTerminated,
   InstanceState'

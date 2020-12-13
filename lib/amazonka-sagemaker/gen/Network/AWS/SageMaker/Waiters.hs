@@ -75,7 +75,7 @@ mkEndpointDeleted =
           Wait.matchAll
             "Failed"
             Wait.AcceptFailure
-            (dersEndpointStatus Lude.. Lens.to Lude.toText)
+            (degrsEndpointStatus Lude.. Lens.to Lude.toText)
         ]
     }
 
@@ -90,11 +90,11 @@ mkEndpointInService =
         [ Wait.matchAll
             "InService"
             Wait.AcceptSuccess
-            (dersEndpointStatus Lude.. Lens.to Lude.toText),
+            (degrsEndpointStatus Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "Failed"
             Wait.AcceptFailure
-            (dersEndpointStatus Lude.. Lens.to Lude.toText),
+            (degrsEndpointStatus Lude.. Lens.to Lude.toText),
           Wait.matchError "ValidationException" Wait.AcceptFailure
         ]
     }
@@ -177,15 +177,15 @@ mkTrainingJobCompletedOrStopped =
         [ Wait.matchAll
             "Completed"
             Wait.AcceptSuccess
-            (dtjtrsTrainingJobStatus Lude.. Lens.to Lude.toText),
+            (dtjfrsTrainingJobStatus Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "Stopped"
             Wait.AcceptSuccess
-            (dtjtrsTrainingJobStatus Lude.. Lens.to Lude.toText),
+            (dtjfrsTrainingJobStatus Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "Failed"
             Wait.AcceptFailure
-            (dtjtrsTrainingJobStatus Lude.. Lens.to Lude.toText),
+            (dtjfrsTrainingJobStatus Lude.. Lens.to Lude.toText),
           Wait.matchError "ValidationException" Wait.AcceptFailure
         ]
     }

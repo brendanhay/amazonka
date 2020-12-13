@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.ReportType
   ( ReportType
       ( ReportType',
-        CodeCoverage,
-        Test
+        Test,
+        CodeCoverage
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReportType = ReportType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CodeCoverage :: ReportType
-pattern CodeCoverage = ReportType' "CODE_COVERAGE"
-
 pattern Test :: ReportType
 pattern Test = ReportType' "TEST"
 
+pattern CodeCoverage :: ReportType
+pattern CodeCoverage = ReportType' "CODE_COVERAGE"
+
 {-# COMPLETE
-  CodeCoverage,
   Test,
+  CodeCoverage,
   ReportType'
   #-}

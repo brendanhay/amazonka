@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeMetricFilters' smart constructor.
 data DescribeMetricFilters = DescribeMetricFilters'
-  { filterNamePrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix to match. CloudWatch Logs uses the value you set here only if you also include the @logGroupName@ parameter in your request.
+    filterNamePrefix :: Lude.Maybe Lude.Text,
+    -- | Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the @metricNamespace@ parameter.
     metricName :: Lude.Maybe Lude.Text,
+    -- | The name of the log group.
     logGroupName :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the @metricName@ parameter.
     metricNamespace :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMetricFilters' with the minimum fields required to make a request.
 --
 -- * 'filterNamePrefix' - The prefix to match. CloudWatch Logs uses the value you set here only if you also include the @logGroupName@ parameter in your request.
--- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
--- * 'logGroupName' - The name of the log group.
 -- * 'metricName' - Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the @metricNamespace@ parameter.
--- * 'metricNamespace' - Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the @metricName@ parameter.
+-- * 'logGroupName' - The name of the log group.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'metricNamespace' - Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the @metricName@ parameter.
+-- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 mkDescribeMetricFilters ::
   DescribeMetricFilters
 mkDescribeMetricFilters =
@@ -180,25 +180,19 @@ instance Lude.ToQuery DescribeMetricFilters where
 
 -- | /See:/ 'mkDescribeMetricFiltersResponse' smart constructor.
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    metricFilters ::
-      Lude.Maybe [MetricFilter],
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The metric filters.
+    metricFilters :: Lude.Maybe [MetricFilter],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMetricFiltersResponse' with the minimum fields required to make a request.
 --
+-- * 'nextToken' -
 -- * 'metricFilters' - The metric filters.
--- * 'nextToken' - Undocumented field.
 -- * 'responseStatus' - The response status code.
 mkDescribeMetricFiltersResponse ::
   -- | 'responseStatus'

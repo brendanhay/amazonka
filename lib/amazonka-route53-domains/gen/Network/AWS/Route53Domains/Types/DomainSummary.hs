@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainSummary' smart constructor.
 data DomainSummary = DomainSummary'
-  { expiry ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Expiration date of the domain in Unix time format and Coordinated Universal Time (UTC).
+    expiry :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether a domain is locked from unauthorized transfer to another party.
     transferLock :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether the domain is automatically renewed upon expiration.
     autoRenew :: Lude.Maybe Lude.Bool,
+    -- | The name of the domain that the summary information applies to.
     domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainSummary' with the minimum fields required to make a request.
 --
--- * 'autoRenew' - Indicates whether the domain is automatically renewed upon expiration.
--- * 'domainName' - The name of the domain that the summary information applies to.
 -- * 'expiry' - Expiration date of the domain in Unix time format and Coordinated Universal Time (UTC).
 -- * 'transferLock' - Indicates whether a domain is locked from unauthorized transfer to another party.
+-- * 'autoRenew' - Indicates whether the domain is automatically renewed upon expiration.
+-- * 'domainName' - The name of the domain that the summary information applies to.
 mkDomainSummary ::
   -- | 'domainName'
   Lude.Text ->

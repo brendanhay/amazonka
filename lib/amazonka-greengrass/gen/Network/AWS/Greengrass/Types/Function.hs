@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunction' smart constructor.
 data Function = Function'
-  { functionARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the Lambda function.
+    functionARN :: Lude.Maybe Lude.Text,
+    -- | The configuration of the Lambda function.
     functionConfiguration :: Lude.Maybe FunctionConfiguration,
+    -- | A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Function' with the minimum fields required to make a request.

@@ -39,37 +39,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainPackageDetails' smart constructor.
 data DomainPackageDetails = DomainPackageDetails'
-  { lastUpdated ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Timestamp of the most-recent update to the association status.
+    lastUpdated :: Lude.Maybe Lude.Timestamp,
+    -- | Internal ID of the package.
     packageId :: Lude.Maybe Lude.Text,
+    -- | Currently supports only TXT-DICTIONARY.
     packageType :: Lude.Maybe PackageType,
+    -- | User specified name of the package.
     packageName :: Lude.Maybe Lude.Text,
     packageVersion :: Lude.Maybe Lude.Text,
-    domainPackageStatus ::
-      Lude.Maybe DomainPackageStatus,
+    -- | State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
+    domainPackageStatus :: Lude.Maybe DomainPackageStatus,
+    -- | Name of the domain you've associated a package with.
     domainName :: Lude.Maybe Lude.Text,
+    -- | Additional information if the package is in an error state. Null otherwise.
     errorDetails :: Lude.Maybe ErrorDetails,
+    -- | The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
     referencePath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainPackageDetails' with the minimum fields required to make a request.
 --
--- * 'domainName' - Name of the domain you've associated a package with.
--- * 'domainPackageStatus' - State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
--- * 'errorDetails' - Additional information if the package is in an error state. Null otherwise.
 -- * 'lastUpdated' - Timestamp of the most-recent update to the association status.
 -- * 'packageId' - Internal ID of the package.
--- * 'packageName' - User specified name of the package.
 -- * 'packageType' - Currently supports only TXT-DICTIONARY.
--- * 'packageVersion' - Undocumented field.
+-- * 'packageName' - User specified name of the package.
+-- * 'packageVersion' -
+-- * 'domainPackageStatus' - State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
+-- * 'domainName' - Name of the domain you've associated a package with.
+-- * 'errorDetails' - Additional information if the package is in an error state. Null otherwise.
 -- * 'referencePath' - The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
 mkDomainPackageDetails ::
   DomainPackageDetails

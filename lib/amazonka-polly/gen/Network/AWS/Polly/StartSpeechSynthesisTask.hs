@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.Polly.StartSpeechSynthesisTask
     -- ** Request lenses
     ssstLanguageCode,
     ssstSNSTopicARN,
+    ssstText,
     ssstOutputS3KeyPrefix,
     ssstEngine,
     ssstSpeechMarkTypes,
     ssstSampleRate,
-    ssstTextType,
-    ssstLexiconNames,
     ssstOutputFormat,
-    ssstOutputS3BucketName,
-    ssstText,
+    ssstTextType,
     ssstVoiceId,
+    ssstLexiconNames,
+    ssstOutputS3BucketName,
 
     -- * Destructuring the response
     StartSpeechSynthesisTaskResponse (..),
@@ -50,77 +51,86 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartSpeechSynthesisTask' smart constructor.
 data StartSpeechSynthesisTask = StartSpeechSynthesisTask'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN).
+    --
+    -- If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices> operation for the @LanguageCode@ parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
     snsTopicARN :: Lude.Maybe Lude.Text,
-    outputS3KeyPrefix :: Lude.Maybe Lude.Text,
-    engine :: Lude.Maybe Engine,
-    speechMarkTypes ::
-      Lude.Maybe [SpeechMarkType],
-    sampleRate :: Lude.Maybe Lude.Text,
-    textType :: Lude.Maybe TextType,
-    lexiconNames :: Lude.Maybe [Lude.Text],
-    outputFormat :: OutputFormat,
-    outputS3BucketName :: Lude.Text,
+    -- | The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text.
     text :: Lude.Text,
-    voiceId :: VoiceId
+    -- | The Amazon S3 key prefix for the output speech file.
+    outputS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | Specifies the engine (@standard@ or @neural@ ) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.
+    engine :: Lude.Maybe Engine,
+    -- | The type of speech marks returned for the input text.
+    speechMarkTypes :: Lude.Maybe [SpeechMarkType],
+    -- | The audio frequency specified in Hz.
+    --
+    -- The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".
+    -- Valid values for pcm are "8000" and "16000" The default value is "16000".
+    sampleRate :: Lude.Maybe Lude.Text,
+    -- | The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
+    outputFormat :: OutputFormat,
+    -- | Specifies whether the input text is plain text or SSML. The default value is plain text.
+    textType :: Lude.Maybe TextType,
+    -- | Voice ID to use for the synthesis.
+    voiceId :: VoiceId,
+    -- | List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
+    lexiconNames :: Lude.Maybe [Lude.Text],
+    -- | Amazon S3 bucket name to which the output file will be saved.
+    outputS3BucketName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSpeechSynthesisTask' with the minimum fields required to make a request.
 --
--- * 'engine' - Specifies the engine (@standard@ or @neural@ ) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.
 -- * 'languageCode' - Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices> operation for the @LanguageCode@ parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.
--- * 'lexiconNames' - List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
--- * 'outputFormat' - The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
--- * 'outputS3BucketName' - Amazon S3 bucket name to which the output file will be saved.
+-- * 'snsTopicARN' - ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
+-- * 'text' - The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text.
 -- * 'outputS3KeyPrefix' - The Amazon S3 key prefix for the output speech file.
+-- * 'engine' - Specifies the engine (@standard@ or @neural@ ) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.
+-- * 'speechMarkTypes' - The type of speech marks returned for the input text.
 -- * 'sampleRate' - The audio frequency specified in Hz.
 --
 -- The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".
 -- Valid values for pcm are "8000" and "16000" The default value is "16000".
--- * 'snsTopicARN' - ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
--- * 'speechMarkTypes' - The type of speech marks returned for the input text.
--- * 'text' - The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text.
+-- * 'outputFormat' - The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
 -- * 'textType' - Specifies whether the input text is plain text or SSML. The default value is plain text.
 -- * 'voiceId' - Voice ID to use for the synthesis.
+-- * 'lexiconNames' - List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
+-- * 'outputS3BucketName' - Amazon S3 bucket name to which the output file will be saved.
 mkStartSpeechSynthesisTask ::
-  -- | 'outputFormat'
-  OutputFormat ->
-  -- | 'outputS3BucketName'
-  Lude.Text ->
   -- | 'text'
   Lude.Text ->
+  -- | 'outputFormat'
+  OutputFormat ->
   -- | 'voiceId'
   VoiceId ->
+  -- | 'outputS3BucketName'
+  Lude.Text ->
   StartSpeechSynthesisTask
 mkStartSpeechSynthesisTask
-  pOutputFormat_
-  pOutputS3BucketName_
   pText_
-  pVoiceId_ =
+  pOutputFormat_
+  pVoiceId_
+  pOutputS3BucketName_ =
     StartSpeechSynthesisTask'
       { languageCode = Lude.Nothing,
         snsTopicARN = Lude.Nothing,
+        text = pText_,
         outputS3KeyPrefix = Lude.Nothing,
         engine = Lude.Nothing,
         speechMarkTypes = Lude.Nothing,
         sampleRate = Lude.Nothing,
-        textType = Lude.Nothing,
-        lexiconNames = Lude.Nothing,
         outputFormat = pOutputFormat_,
-        outputS3BucketName = pOutputS3BucketName_,
-        text = pText_,
-        voiceId = pVoiceId_
+        textType = Lude.Nothing,
+        voiceId = pVoiceId_,
+        lexiconNames = Lude.Nothing,
+        outputS3BucketName = pOutputS3BucketName_
       }
 
 -- | Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN).
@@ -138,6 +148,13 @@ ssstLanguageCode = Lens.lens (languageCode :: StartSpeechSynthesisTask -> Lude.M
 ssstSNSTopicARN :: Lens.Lens' StartSpeechSynthesisTask (Lude.Maybe Lude.Text)
 ssstSNSTopicARN = Lens.lens (snsTopicARN :: StartSpeechSynthesisTask -> Lude.Maybe Lude.Text) (\s a -> s {snsTopicARN = a} :: StartSpeechSynthesisTask)
 {-# DEPRECATED ssstSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
+
+-- | The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text.
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssstText :: Lens.Lens' StartSpeechSynthesisTask Lude.Text
+ssstText = Lens.lens (text :: StartSpeechSynthesisTask -> Lude.Text) (\s a -> s {text = a} :: StartSpeechSynthesisTask)
+{-# DEPRECATED ssstText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 -- | The Amazon S3 key prefix for the output speech file.
 --
@@ -170,12 +187,26 @@ ssstSampleRate :: Lens.Lens' StartSpeechSynthesisTask (Lude.Maybe Lude.Text)
 ssstSampleRate = Lens.lens (sampleRate :: StartSpeechSynthesisTask -> Lude.Maybe Lude.Text) (\s a -> s {sampleRate = a} :: StartSpeechSynthesisTask)
 {-# DEPRECATED ssstSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
+-- | The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
+--
+-- /Note:/ Consider using 'outputFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssstOutputFormat :: Lens.Lens' StartSpeechSynthesisTask OutputFormat
+ssstOutputFormat = Lens.lens (outputFormat :: StartSpeechSynthesisTask -> OutputFormat) (\s a -> s {outputFormat = a} :: StartSpeechSynthesisTask)
+{-# DEPRECATED ssstOutputFormat "Use generic-lens or generic-optics with 'outputFormat' instead." #-}
+
 -- | Specifies whether the input text is plain text or SSML. The default value is plain text.
 --
 -- /Note:/ Consider using 'textType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ssstTextType :: Lens.Lens' StartSpeechSynthesisTask (Lude.Maybe TextType)
 ssstTextType = Lens.lens (textType :: StartSpeechSynthesisTask -> Lude.Maybe TextType) (\s a -> s {textType = a} :: StartSpeechSynthesisTask)
 {-# DEPRECATED ssstTextType "Use generic-lens or generic-optics with 'textType' instead." #-}
+
+-- | Voice ID to use for the synthesis.
+--
+-- /Note:/ Consider using 'voiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssstVoiceId :: Lens.Lens' StartSpeechSynthesisTask VoiceId
+ssstVoiceId = Lens.lens (voiceId :: StartSpeechSynthesisTask -> VoiceId) (\s a -> s {voiceId = a} :: StartSpeechSynthesisTask)
+{-# DEPRECATED ssstVoiceId "Use generic-lens or generic-optics with 'voiceId' instead." #-}
 
 -- | List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
 --
@@ -184,33 +215,12 @@ ssstLexiconNames :: Lens.Lens' StartSpeechSynthesisTask (Lude.Maybe [Lude.Text])
 ssstLexiconNames = Lens.lens (lexiconNames :: StartSpeechSynthesisTask -> Lude.Maybe [Lude.Text]) (\s a -> s {lexiconNames = a} :: StartSpeechSynthesisTask)
 {-# DEPRECATED ssstLexiconNames "Use generic-lens or generic-optics with 'lexiconNames' instead." #-}
 
--- | The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
---
--- /Note:/ Consider using 'outputFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssstOutputFormat :: Lens.Lens' StartSpeechSynthesisTask OutputFormat
-ssstOutputFormat = Lens.lens (outputFormat :: StartSpeechSynthesisTask -> OutputFormat) (\s a -> s {outputFormat = a} :: StartSpeechSynthesisTask)
-{-# DEPRECATED ssstOutputFormat "Use generic-lens or generic-optics with 'outputFormat' instead." #-}
-
 -- | Amazon S3 bucket name to which the output file will be saved.
 --
 -- /Note:/ Consider using 'outputS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ssstOutputS3BucketName :: Lens.Lens' StartSpeechSynthesisTask Lude.Text
 ssstOutputS3BucketName = Lens.lens (outputS3BucketName :: StartSpeechSynthesisTask -> Lude.Text) (\s a -> s {outputS3BucketName = a} :: StartSpeechSynthesisTask)
 {-# DEPRECATED ssstOutputS3BucketName "Use generic-lens or generic-optics with 'outputS3BucketName' instead." #-}
-
--- | The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text.
---
--- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssstText :: Lens.Lens' StartSpeechSynthesisTask Lude.Text
-ssstText = Lens.lens (text :: StartSpeechSynthesisTask -> Lude.Text) (\s a -> s {text = a} :: StartSpeechSynthesisTask)
-{-# DEPRECATED ssstText "Use generic-lens or generic-optics with 'text' instead." #-}
-
--- | Voice ID to use for the synthesis.
---
--- /Note:/ Consider using 'voiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssstVoiceId :: Lens.Lens' StartSpeechSynthesisTask VoiceId
-ssstVoiceId = Lens.lens (voiceId :: StartSpeechSynthesisTask -> VoiceId) (\s a -> s {voiceId = a} :: StartSpeechSynthesisTask)
-{-# DEPRECATED ssstVoiceId "Use generic-lens or generic-optics with 'voiceId' instead." #-}
 
 instance Lude.AWSRequest StartSpeechSynthesisTask where
   type Rs StartSpeechSynthesisTask = StartSpeechSynthesisTaskResponse
@@ -232,16 +242,16 @@ instance Lude.ToJSON StartSpeechSynthesisTask where
       ( Lude.catMaybes
           [ ("LanguageCode" Lude..=) Lude.<$> languageCode,
             ("SnsTopicArn" Lude..=) Lude.<$> snsTopicARN,
+            Lude.Just ("Text" Lude..= text),
             ("OutputS3KeyPrefix" Lude..=) Lude.<$> outputS3KeyPrefix,
             ("Engine" Lude..=) Lude.<$> engine,
             ("SpeechMarkTypes" Lude..=) Lude.<$> speechMarkTypes,
             ("SampleRate" Lude..=) Lude.<$> sampleRate,
-            ("TextType" Lude..=) Lude.<$> textType,
-            ("LexiconNames" Lude..=) Lude.<$> lexiconNames,
             Lude.Just ("OutputFormat" Lude..= outputFormat),
-            Lude.Just ("OutputS3BucketName" Lude..= outputS3BucketName),
-            Lude.Just ("Text" Lude..= text),
-            Lude.Just ("VoiceId" Lude..= voiceId)
+            ("TextType" Lude..=) Lude.<$> textType,
+            Lude.Just ("VoiceId" Lude..= voiceId),
+            ("LexiconNames" Lude..=) Lude.<$> lexiconNames,
+            Lude.Just ("OutputS3BucketName" Lude..= outputS3BucketName)
           ]
       )
 
@@ -253,24 +263,18 @@ instance Lude.ToQuery StartSpeechSynthesisTask where
 
 -- | /See:/ 'mkStartSpeechSynthesisTaskResponse' smart constructor.
 data StartSpeechSynthesisTaskResponse = StartSpeechSynthesisTaskResponse'
-  { synthesisTask ::
-      Lude.Maybe SynthesisTask,
-    responseStatus ::
-      Lude.Int
+  { -- | SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.
+    synthesisTask :: Lude.Maybe SynthesisTask,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSpeechSynthesisTaskResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'synthesisTask' - SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.
+-- * 'responseStatus' - The response status code.
 mkStartSpeechSynthesisTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

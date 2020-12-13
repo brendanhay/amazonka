@@ -18,12 +18,12 @@ module Network.AWS.Shield.Types.Subscription
 
     -- * Lenses
     sTimeCommitmentInSeconds,
+    sSubscriptionLimits,
     sStartTime,
     sLimits,
     sAutoRenew,
     sEndTime,
     sProactiveEngagementStatus,
-    sSubscriptionLimits,
   )
 where
 
@@ -38,38 +38,43 @@ import Network.AWS.Shield.Types.SubscriptionLimits
 --
 -- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { timeCommitmentInSeconds ::
-      Lude.Maybe Lude.Natural,
+  { -- | The length, in seconds, of the AWS Shield Advanced subscription for the account.
+    timeCommitmentInSeconds :: Lude.Maybe Lude.Natural,
+    -- | Limits settings for your subscription.
+    subscriptionLimits :: SubscriptionLimits,
+    -- | The start time of the subscription, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies how many protections of a given type you can create.
     limits :: Lude.Maybe [Limit],
+    -- | If @ENABLED@ , the subscription will be automatically renewed at the end of the existing subscription period.
+    --
+    -- When you initally create a subscription, @AutoRenew@ is set to @ENABLED@ . You can change this by submitting an @UpdateSubscription@ request. If the @UpdateSubscription@ request does not included a value for @AutoRenew@ , the existing value for @AutoRenew@ remains unchanged.
     autoRenew :: Lude.Maybe AutoRenew,
+    -- | The date and time your subscription will end.
     endTime :: Lude.Maybe Lude.Timestamp,
-    proactiveEngagementStatus :: Lude.Maybe ProactiveEngagementStatus,
-    subscriptionLimits :: SubscriptionLimits
+    -- | If @ENABLED@ , the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.
+    --
+    -- If @PENDING@ , you have requested proactive engagement and the request is pending. The status changes to @ENABLED@ when your request is fully processed.
+    -- If @DISABLED@ , the DRT will not proactively notify contacts about escalations or to initiate proactive customer support.
+    proactiveEngagementStatus :: Lude.Maybe ProactiveEngagementStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
+-- * 'timeCommitmentInSeconds' - The length, in seconds, of the AWS Shield Advanced subscription for the account.
+-- * 'subscriptionLimits' - Limits settings for your subscription.
+-- * 'startTime' - The start time of the subscription, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
+-- * 'limits' - Specifies how many protections of a given type you can create.
 -- * 'autoRenew' - If @ENABLED@ , the subscription will be automatically renewed at the end of the existing subscription period.
 --
 -- When you initally create a subscription, @AutoRenew@ is set to @ENABLED@ . You can change this by submitting an @UpdateSubscription@ request. If the @UpdateSubscription@ request does not included a value for @AutoRenew@ , the existing value for @AutoRenew@ remains unchanged.
 -- * 'endTime' - The date and time your subscription will end.
--- * 'limits' - Specifies how many protections of a given type you can create.
 -- * 'proactiveEngagementStatus' - If @ENABLED@ , the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.
 --
 -- If @PENDING@ , you have requested proactive engagement and the request is pending. The status changes to @ENABLED@ when your request is fully processed.
 -- If @DISABLED@ , the DRT will not proactively notify contacts about escalations or to initiate proactive customer support.
--- * 'startTime' - The start time of the subscription, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
--- * 'subscriptionLimits' - Limits settings for your subscription.
--- * 'timeCommitmentInSeconds' - The length, in seconds, of the AWS Shield Advanced subscription for the account.
 mkSubscription ::
   -- | 'subscriptionLimits'
   SubscriptionLimits ->
@@ -77,12 +82,12 @@ mkSubscription ::
 mkSubscription pSubscriptionLimits_ =
   Subscription'
     { timeCommitmentInSeconds = Lude.Nothing,
+      subscriptionLimits = pSubscriptionLimits_,
       startTime = Lude.Nothing,
       limits = Lude.Nothing,
       autoRenew = Lude.Nothing,
       endTime = Lude.Nothing,
-      proactiveEngagementStatus = Lude.Nothing,
-      subscriptionLimits = pSubscriptionLimits_
+      proactiveEngagementStatus = Lude.Nothing
     }
 
 -- | The length, in seconds, of the AWS Shield Advanced subscription for the account.
@@ -91,6 +96,13 @@ mkSubscription pSubscriptionLimits_ =
 sTimeCommitmentInSeconds :: Lens.Lens' Subscription (Lude.Maybe Lude.Natural)
 sTimeCommitmentInSeconds = Lens.lens (timeCommitmentInSeconds :: Subscription -> Lude.Maybe Lude.Natural) (\s a -> s {timeCommitmentInSeconds = a} :: Subscription)
 {-# DEPRECATED sTimeCommitmentInSeconds "Use generic-lens or generic-optics with 'timeCommitmentInSeconds' instead." #-}
+
+-- | Limits settings for your subscription.
+--
+-- /Note:/ Consider using 'subscriptionLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubscriptionLimits :: Lens.Lens' Subscription SubscriptionLimits
+sSubscriptionLimits = Lens.lens (subscriptionLimits :: Subscription -> SubscriptionLimits) (\s a -> s {subscriptionLimits = a} :: Subscription)
+{-# DEPRECATED sSubscriptionLimits "Use generic-lens or generic-optics with 'subscriptionLimits' instead." #-}
 
 -- | The start time of the subscription, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
 --
@@ -132,13 +144,6 @@ sProactiveEngagementStatus :: Lens.Lens' Subscription (Lude.Maybe ProactiveEngag
 sProactiveEngagementStatus = Lens.lens (proactiveEngagementStatus :: Subscription -> Lude.Maybe ProactiveEngagementStatus) (\s a -> s {proactiveEngagementStatus = a} :: Subscription)
 {-# DEPRECATED sProactiveEngagementStatus "Use generic-lens or generic-optics with 'proactiveEngagementStatus' instead." #-}
 
--- | Limits settings for your subscription.
---
--- /Note:/ Consider using 'subscriptionLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubscriptionLimits :: Lens.Lens' Subscription SubscriptionLimits
-sSubscriptionLimits = Lens.lens (subscriptionLimits :: Subscription -> SubscriptionLimits) (\s a -> s {subscriptionLimits = a} :: Subscription)
-{-# DEPRECATED sSubscriptionLimits "Use generic-lens or generic-optics with 'subscriptionLimits' instead." #-}
-
 instance Lude.FromJSON Subscription where
   parseJSON =
     Lude.withObject
@@ -146,10 +151,10 @@ instance Lude.FromJSON Subscription where
       ( \x ->
           Subscription'
             Lude.<$> (x Lude..:? "TimeCommitmentInSeconds")
+            Lude.<*> (x Lude..: "SubscriptionLimits")
             Lude.<*> (x Lude..:? "StartTime")
             Lude.<*> (x Lude..:? "Limits" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "AutoRenew")
             Lude.<*> (x Lude..:? "EndTime")
             Lude.<*> (x Lude..:? "ProactiveEngagementStatus")
-            Lude.<*> (x Lude..: "SubscriptionLimits")
       )

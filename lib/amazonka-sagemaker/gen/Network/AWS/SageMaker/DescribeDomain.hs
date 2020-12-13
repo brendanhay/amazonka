@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.SageMaker.DescribeDomain
     mkDescribeDomain,
 
     -- ** Request lenses
-    desDomainId,
+    dDomainId,
 
     -- * Destructuring the response
     DescribeDomainResponse (..),
@@ -54,14 +55,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeDomain' smart constructor.
-newtype DescribeDomain = DescribeDomain' {domainId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeDomain = DescribeDomain'
+  { -- | The domain ID.
+    domainId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomain' with the minimum fields required to make a request.
@@ -77,9 +75,9 @@ mkDescribeDomain pDomainId_ =
 -- | The domain ID.
 --
 -- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desDomainId :: Lens.Lens' DescribeDomain Lude.Text
-desDomainId = Lens.lens (domainId :: DescribeDomain -> Lude.Text) (\s a -> s {domainId = a} :: DescribeDomain)
-{-# DEPRECATED desDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
+dDomainId :: Lens.Lens' DescribeDomain Lude.Text
+dDomainId = Lens.lens (domainId :: DescribeDomain -> Lude.Text) (\s a -> s {domainId = a} :: DescribeDomain)
+{-# DEPRECATED dDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 instance Lude.AWSRequest DescribeDomain where
   type Rs DescribeDomain = DescribeDomainResponse
@@ -132,42 +130,70 @@ instance Lude.ToQuery DescribeDomain where
 
 -- | /See:/ 'mkDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status.
     status :: Lude.Maybe DomainStatus,
+    -- | The failure reason.
     failureReason :: Lude.Maybe Lude.Text,
-    defaultUserSettings ::
-      Lude.Maybe UserSettings,
-    subnetIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Settings which are applied to all UserProfiles in this domain, if settings are not explicitly specified in a given UserProfile.
+    defaultUserSettings :: Lude.Maybe UserSettings,
+    -- | The VPC subnets that Studio uses for communication.
+    subnetIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The domain's Amazon Resource Name (ARN).
     domainARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The domain's URL.
     url :: Lude.Maybe Lude.Text,
+    -- | The domain's authentication mode.
     authMode :: Lude.Maybe AuthMode,
-    homeEfsFileSystemKMSKeyId ::
-      Lude.Maybe Lude.Text,
-    singleSignOnManagedApplicationInstanceId ::
-      Lude.Maybe Lude.Text,
+    -- | This member is deprecated and replaced with @KmsKeyId@ .
+    homeEfsFileSystemKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The SSO managed application instance ID.
+    singleSignOnManagedApplicationInstanceId :: Lude.Maybe Lude.Text,
+    -- | The last modified time.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the Amazon Elastic File System (EFS) managed by this Domain.
     homeEfsFileSystemId :: Lude.Maybe Lude.Text,
+    -- | The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The domain name.
     domainName :: Lude.Maybe Lude.Text,
+    -- | The domain ID.
     domainId :: Lude.Maybe Lude.Text,
-    appNetworkAccessType ::
-      Lude.Maybe AppNetworkAccessType,
+    -- | Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .
+    --
+    --
+    --     * @PublicInternetOnly@ - Non-EFS traffic is through a VPC managed by Amazon SageMaker, which allows direct internet access
+    --
+    --
+    --     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
+    appNetworkAccessType :: Lude.Maybe AppNetworkAccessType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainResponse' with the minimum fields required to make a request.
 --
+-- * 'creationTime' - The creation time.
+-- * 'status' - The status.
+-- * 'failureReason' - The failure reason.
+-- * 'defaultUserSettings' - Settings which are applied to all UserProfiles in this domain, if settings are not explicitly specified in a given UserProfile.
+-- * 'subnetIds' - The VPC subnets that Studio uses for communication.
+-- * 'domainARN' - The domain's Amazon Resource Name (ARN).
+-- * 'vpcId' - The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+-- * 'url' - The domain's URL.
+-- * 'authMode' - The domain's authentication mode.
+-- * 'homeEfsFileSystemKMSKeyId' - This member is deprecated and replaced with @KmsKeyId@ .
+-- * 'singleSignOnManagedApplicationInstanceId' - The SSO managed application instance ID.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'homeEfsFileSystemId' - The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+-- * 'kmsKeyId' - The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+-- * 'domainName' - The domain name.
+-- * 'domainId' - The domain ID.
 -- * 'appNetworkAccessType' - Specifies the VPC used for non-EFS traffic. The default value is @PublicInternetOnly@ .
 --
 --
@@ -177,23 +203,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
 --     * @VpcOnly@ - All Studio traffic is through the specified VPC and subnets
 --
 --
--- * 'authMode' - The domain's authentication mode.
--- * 'creationTime' - The creation time.
--- * 'defaultUserSettings' - Settings which are applied to all UserProfiles in this domain, if settings are not explicitly specified in a given UserProfile.
--- * 'domainARN' - The domain's Amazon Resource Name (ARN).
--- * 'domainId' - The domain ID.
--- * 'domainName' - The domain name.
--- * 'failureReason' - The failure reason.
--- * 'homeEfsFileSystemId' - The ID of the Amazon Elastic File System (EFS) managed by this Domain.
--- * 'homeEfsFileSystemKMSKeyId' - This member is deprecated and replaced with @KmsKeyId@ .
--- * 'kmsKeyId' - The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
--- * 'lastModifiedTime' - The last modified time.
 -- * 'responseStatus' - The response status code.
--- * 'singleSignOnManagedApplicationInstanceId' - The SSO managed application instance ID.
--- * 'status' - The status.
--- * 'subnetIds' - The VPC subnets that Studio uses for communication.
--- * 'url' - The domain's URL.
--- * 'vpcId' - The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 mkDescribeDomainResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagSpecification' smart constructor.
 data TagSpecification = TagSpecification'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The type of resource to tag. Currently, the resource types that support tagging on creation are: @capacity-reservation@ | @carrier-gateway@ | @client-vpn-endpoint@ | @customer-gateway@ | @dedicated-host@ | @dhcp-options@ | @export-image-task@ | @export-instance-task@ | @fleet@ | @fpga-image@ | @host-reservation@ | @import-image-task@ | @import-snapshot-task@ | @instance@ | @internet-gateway@ | @ipv4pool-ec2@ | @ipv6pool-ec2@ | @key-pair@ | @launch-template@ | @placement-group@ | @prefix-list@ | @natgateway@ | @network-acl@ | @route-table@ | @security-group@ | @spot-fleet-request@ | @spot-instances-request@ | @snapshot@ | @subnet@ | @traffic-mirror-filter@ | @traffic-mirror-session@ | @traffic-mirror-target@ | @transit-gateway@ | @transit-gateway-attachment@ | @transit-gateway-route-table@ | @volume@ |@vpc@ | @vpc-peering-connection@ | @vpc-endpoint@ (for interface and gateway endpoints) | @vpc-endpoint-service@ (for AWS PrivateLink) | @vpc-flow-log@ | @vpn-connection@ | @vpn-gateway@ .
+    --
+    -- To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The tags to apply to the resource.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagSpecification' with the minimum fields required to make a request.

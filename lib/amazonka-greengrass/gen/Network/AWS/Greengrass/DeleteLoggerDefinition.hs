@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteLoggerDefinition' smart constructor.
 newtype DeleteLoggerDefinition = DeleteLoggerDefinition'
-  { loggerDefinitionId ::
-      Lude.Text
+  { -- | The ID of the logger definition.
+    loggerDefinitionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoggerDefinition' with the minimum fields required to make a request.
@@ -99,16 +94,10 @@ instance Lude.ToQuery DeleteLoggerDefinition where
 
 -- | /See:/ 'mkDeleteLoggerDefinitionResponse' smart constructor.
 newtype DeleteLoggerDefinitionResponse = DeleteLoggerDefinitionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLoggerDefinitionResponse' with the minimum fields required to make a request.

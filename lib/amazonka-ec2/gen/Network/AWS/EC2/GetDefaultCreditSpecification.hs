@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.GetDefaultCreditSpecification
     mkGetDefaultCreditSpecification,
 
     -- ** Request lenses
-    gdcsDryRun,
     gdcsInstanceFamily,
+    gdcsDryRun,
 
     -- * Destructuring the response
     GetDefaultCreditSpecificationResponse (..),
@@ -42,40 +43,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDefaultCreditSpecification' smart constructor.
 data GetDefaultCreditSpecification = GetDefaultCreditSpecification'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    instanceFamily ::
-      UnlimitedSupportedInstanceFamily
+  { -- | The instance family.
+    instanceFamily :: UnlimitedSupportedInstanceFamily,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultCreditSpecification' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceFamily' - The instance family.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkGetDefaultCreditSpecification ::
   -- | 'instanceFamily'
   UnlimitedSupportedInstanceFamily ->
   GetDefaultCreditSpecification
 mkGetDefaultCreditSpecification pInstanceFamily_ =
   GetDefaultCreditSpecification'
-    { dryRun = Lude.Nothing,
-      instanceFamily = pInstanceFamily_
+    { instanceFamily = pInstanceFamily_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcsDryRun :: Lens.Lens' GetDefaultCreditSpecification (Lude.Maybe Lude.Bool)
-gdcsDryRun = Lens.lens (dryRun :: GetDefaultCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetDefaultCreditSpecification)
-{-# DEPRECATED gdcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The instance family.
 --
@@ -83,6 +71,13 @@ gdcsDryRun = Lens.lens (dryRun :: GetDefaultCreditSpecification -> Lude.Maybe Lu
 gdcsInstanceFamily :: Lens.Lens' GetDefaultCreditSpecification UnlimitedSupportedInstanceFamily
 gdcsInstanceFamily = Lens.lens (instanceFamily :: GetDefaultCreditSpecification -> UnlimitedSupportedInstanceFamily) (\s a -> s {instanceFamily = a} :: GetDefaultCreditSpecification)
 {-# DEPRECATED gdcsInstanceFamily "Use generic-lens or generic-optics with 'instanceFamily' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdcsDryRun :: Lens.Lens' GetDefaultCreditSpecification (Lude.Maybe Lude.Bool)
+gdcsDryRun = Lens.lens (dryRun :: GetDefaultCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetDefaultCreditSpecification)
+{-# DEPRECATED gdcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest GetDefaultCreditSpecification where
   type
@@ -109,25 +104,18 @@ instance Lude.ToQuery GetDefaultCreditSpecification where
       [ "Action"
           Lude.=: ("GetDefaultCreditSpecification" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "InstanceFamily" Lude.=: instanceFamily
+        "InstanceFamily" Lude.=: instanceFamily,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkGetDefaultCreditSpecificationResponse' smart constructor.
 data GetDefaultCreditSpecificationResponse = GetDefaultCreditSpecificationResponse'
-  { instanceFamilyCreditSpecification ::
-      Lude.Maybe
-        InstanceFamilyCreditSpecification,
-    responseStatus ::
-      Lude.Int
+  { -- | The default credit option for CPU usage of the instance family.
+    instanceFamilyCreditSpecification :: Lude.Maybe InstanceFamilyCreditSpecification,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultCreditSpecificationResponse' with the minimum fields required to make a request.

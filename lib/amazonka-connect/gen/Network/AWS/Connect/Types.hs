@@ -79,8 +79,8 @@ module Network.AWS.Connect.Types
     -- * ChatMessage
     ChatMessage (..),
     mkChatMessage,
-    cmContentType,
     cmContent,
+    cmContentType,
 
     -- * ContactFlow
     ContactFlow (..),
@@ -348,25 +348,25 @@ module Network.AWS.Connect.Types
     -- * RoutingProfileQueueConfig
     RoutingProfileQueueConfig (..),
     mkRoutingProfileQueueConfig,
-    rpqcQueueReference,
     rpqcPriority,
+    rpqcQueueReference,
     rpqcDelay,
 
     -- * RoutingProfileQueueConfigSummary
     RoutingProfileQueueConfigSummary (..),
     mkRoutingProfileQueueConfigSummary,
-    rpqcsQueueId,
-    rpqcsQueueARN,
-    rpqcsQueueName,
     rpqcsPriority,
-    rpqcsDelay,
     rpqcsChannel,
+    rpqcsQueueName,
+    rpqcsQueueARN,
+    rpqcsQueueId,
+    rpqcsDelay,
 
     -- * RoutingProfileQueueReference
     RoutingProfileQueueReference (..),
     mkRoutingProfileQueueReference,
-    rpqrQueueId,
     rpqrChannel,
+    rpqrQueueId,
 
     -- * RoutingProfileSummary
     RoutingProfileSummary (..),
@@ -378,9 +378,9 @@ module Network.AWS.Connect.Types
     -- * S3Config
     S3Config (..),
     mkS3Config,
-    scEncryptionConfig,
-    scBucketName,
     scBucketPrefix,
+    scBucketName,
+    scEncryptionConfig,
 
     -- * SecurityKey
     SecurityKey (..),
@@ -428,8 +428,8 @@ module Network.AWS.Connect.Types
     mkUserPhoneConfig,
     upcAutoAccept,
     upcAfterContactWorkTimeLimit,
-    upcDeskPhoneNumber,
     upcPhoneType,
+    upcDeskPhoneNumber,
 
     -- * UserSummary
     UserSummary (..),

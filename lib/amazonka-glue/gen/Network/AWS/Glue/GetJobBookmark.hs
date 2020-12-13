@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.GetJobBookmark
     mkGetJobBookmark,
 
     -- ** Request lenses
-    gjbRunId,
     gjbJobName,
+    gjbRunId,
 
     -- * Destructuring the response
     GetJobBookmarkResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetJobBookmark' smart constructor.
 data GetJobBookmark = GetJobBookmark'
-  { runId ::
-      Lude.Maybe Lude.Text,
-    jobName :: Lude.Text
+  { -- | The name of the job in question.
+    jobName :: Lude.Text,
+    -- | The unique run identifier associated with this job run.
+    runId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobBookmark' with the minimum fields required to make a request.
@@ -62,14 +58,7 @@ mkGetJobBookmark ::
   Lude.Text ->
   GetJobBookmark
 mkGetJobBookmark pJobName_ =
-  GetJobBookmark' {runId = Lude.Nothing, jobName = pJobName_}
-
--- | The unique run identifier associated with this job run.
---
--- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjbRunId :: Lens.Lens' GetJobBookmark (Lude.Maybe Lude.Text)
-gjbRunId = Lens.lens (runId :: GetJobBookmark -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: GetJobBookmark)
-{-# DEPRECATED gjbRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+  GetJobBookmark' {jobName = pJobName_, runId = Lude.Nothing}
 
 -- | The name of the job in question.
 --
@@ -77,6 +66,13 @@ gjbRunId = Lens.lens (runId :: GetJobBookmark -> Lude.Maybe Lude.Text) (\s a -> 
 gjbJobName :: Lens.Lens' GetJobBookmark Lude.Text
 gjbJobName = Lens.lens (jobName :: GetJobBookmark -> Lude.Text) (\s a -> s {jobName = a} :: GetJobBookmark)
 {-# DEPRECATED gjbJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+
+-- | The unique run identifier associated with this job run.
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjbRunId :: Lens.Lens' GetJobBookmark (Lude.Maybe Lude.Text)
+gjbRunId = Lens.lens (runId :: GetJobBookmark -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: GetJobBookmark)
+{-# DEPRECATED gjbRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
 instance Lude.AWSRequest GetJobBookmark where
   type Rs GetJobBookmark = GetJobBookmarkResponse
@@ -104,8 +100,8 @@ instance Lude.ToJSON GetJobBookmark where
   toJSON GetJobBookmark' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RunId" Lude..=) Lude.<$> runId,
-            Lude.Just ("JobName" Lude..= jobName)
+          [ Lude.Just ("JobName" Lude..= jobName),
+            ("RunId" Lude..=) Lude.<$> runId
           ]
       )
 
@@ -117,17 +113,12 @@ instance Lude.ToQuery GetJobBookmark where
 
 -- | /See:/ 'mkGetJobBookmarkResponse' smart constructor.
 data GetJobBookmarkResponse = GetJobBookmarkResponse'
-  { jobBookmarkEntry ::
-      Lude.Maybe JobBookmarkEntry,
+  { -- | A structure that defines a point that a job can resume processing.
+    jobBookmarkEntry :: Lude.Maybe JobBookmarkEntry,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobBookmarkResponse' with the minimum fields required to make a request.

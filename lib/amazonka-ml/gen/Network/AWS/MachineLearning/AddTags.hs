@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MachineLearning.AddTags
     mkAddTags,
 
     -- ** Request lenses
-    atTags,
     atResourceId,
     atResourceType,
+    atTags,
 
     -- * Destructuring the response
     AddTagsResponse (..),
@@ -42,17 +43,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
-  { tags :: [Tag],
+  { -- | The ID of the ML object to tag. For example, @exampleModelId@ .
     resourceId :: Lude.Text,
-    resourceType :: TaggableResourceType
+    -- | The type of the ML object to tag.
+    resourceType :: TaggableResourceType,
+    -- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
+    tags :: [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
@@ -68,17 +66,10 @@ mkAddTags ::
   AddTags
 mkAddTags pResourceId_ pResourceType_ =
   AddTags'
-    { tags = Lude.mempty,
-      resourceId = pResourceId_,
-      resourceType = pResourceType_
+    { resourceId = pResourceId_,
+      resourceType = pResourceType_,
+      tags = Lude.mempty
     }
-
--- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTags :: Lens.Lens' AddTags [Tag]
-atTags = Lens.lens (tags :: AddTags -> [Tag]) (\s a -> s {tags = a} :: AddTags)
-{-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the ML object to tag. For example, @exampleModelId@ .
 --
@@ -93,6 +84,13 @@ atResourceId = Lens.lens (resourceId :: AddTags -> Lude.Text) (\s a -> s {resour
 atResourceType :: Lens.Lens' AddTags TaggableResourceType
 atResourceType = Lens.lens (resourceType :: AddTags -> TaggableResourceType) (\s a -> s {resourceType = a} :: AddTags)
 {-# DEPRECATED atResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTags :: Lens.Lens' AddTags [Tag]
+atTags = Lens.lens (tags :: AddTags -> [Tag]) (\s a -> s {tags = a} :: AddTags)
+{-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
@@ -121,9 +119,9 @@ instance Lude.ToJSON AddTags where
   toJSON AddTags' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Tags" Lude..= tags),
-            Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("ResourceType" Lude..= resourceType)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("ResourceType" Lude..= resourceType),
+            Lude.Just ("Tags" Lude..= tags)
           ]
       )
 
@@ -137,18 +135,14 @@ instance Lude.ToQuery AddTags where
 --
 -- /See:/ 'mkAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the ML object that was tagged.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of the ML object that was tagged.
     resourceType :: Lude.Maybe TaggableResourceType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.AppStream.Types.Permission
   ( Permission
       ( Permission',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Permission = Permission' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: Permission
-pattern Disabled = Permission' "DISABLED"
-
 pattern Enabled :: Permission
 pattern Enabled = Permission' "ENABLED"
 
+pattern Disabled :: Permission
+pattern Disabled = Permission' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   Permission'
   #-}

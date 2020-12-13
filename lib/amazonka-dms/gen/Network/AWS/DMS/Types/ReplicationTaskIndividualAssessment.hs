@@ -32,37 +32,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationTaskIndividualAssessment' smart constructor.
 data ReplicationTaskIndividualAssessment = ReplicationTaskIndividualAssessment'
-  { status ::
-      Lude.Maybe
-        Lude.Text,
-    replicationTaskIndividualAssessmentStartDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    individualAssessmentName ::
-      Lude.Maybe
-        Lude.Text,
-    replicationTaskIndividualAssessmentARN ::
-      Lude.Maybe
-        Lude.Text,
-    replicationTaskAssessmentRunARN ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Individual assessment status.
+    --
+    -- This status can have one of the following values:
+    --
+    --     * @"cancelled"@
+    --
+    --
+    --     * @"error"@
+    --
+    --
+    --     * @"failed"@
+    --
+    --
+    --     * @"passed"@
+    --
+    --
+    --     * @"pending"@
+    --
+    --
+    --     * @"running"@
+    status :: Lude.Maybe Lude.Text,
+    -- | Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
+    replicationTaskIndividualAssessmentStartDate :: Lude.Maybe Lude.Timestamp,
+    -- | Name of this individual assessment.
+    individualAssessmentName :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (ARN) of this individual assessment.
+    replicationTaskIndividualAssessmentARN :: Lude.Maybe Lude.Text,
+    -- | ARN of the premigration assessment run that is created to run this individual assessment.
+    replicationTaskAssessmentRunARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTaskIndividualAssessment' with the minimum fields required to make a request.
 --
--- * 'individualAssessmentName' - Name of this individual assessment.
--- * 'replicationTaskAssessmentRunARN' - ARN of the premigration assessment run that is created to run this individual assessment.
--- * 'replicationTaskIndividualAssessmentARN' - Amazon Resource Name (ARN) of this individual assessment.
--- * 'replicationTaskIndividualAssessmentStartDate' - Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
 -- * 'status' - Individual assessment status.
 --
 -- This status can have one of the following values:
@@ -83,6 +87,12 @@ data ReplicationTaskIndividualAssessment = ReplicationTaskIndividualAssessment'
 --
 --
 --     * @"running"@
+--
+--
+-- * 'replicationTaskIndividualAssessmentStartDate' - Date when this individual assessment was started as part of running the @StartReplicationTaskAssessmentRun@ operation.
+-- * 'individualAssessmentName' - Name of this individual assessment.
+-- * 'replicationTaskIndividualAssessmentARN' - Amazon Resource Name (ARN) of this individual assessment.
+-- * 'replicationTaskAssessmentRunARN' - ARN of the premigration assessment run that is created to run this individual assessment.
 mkReplicationTaskIndividualAssessment ::
   ReplicationTaskIndividualAssessment
 mkReplicationTaskIndividualAssessment =

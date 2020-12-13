@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeregisterInstanceEventNotificationAttributes
     mkDeregisterInstanceEventNotificationAttributes,
 
     -- ** Request lenses
-    dienaInstanceTagAttribute,
-    dienaDryRun,
+    dienasInstanceTagAttribute,
+    dienasDryRun,
 
     -- * Destructuring the response
     DeregisterInstanceEventNotificationAttributesResponse (..),
@@ -40,29 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterInstanceEventNotificationAttributes' smart constructor.
 data DeregisterInstanceEventNotificationAttributes = DeregisterInstanceEventNotificationAttributes'
-  { instanceTagAttribute ::
-      Lude.Maybe
-        DeregisterInstanceTagAttributeRequest,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | Information about the tag keys to deregister.
+    instanceTagAttribute :: Lude.Maybe DeregisterInstanceTagAttributeRequest,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstanceEventNotificationAttributes' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceTagAttribute' - Information about the tag keys to deregister.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeregisterInstanceEventNotificationAttributes ::
   DeregisterInstanceEventNotificationAttributes
 mkDeregisterInstanceEventNotificationAttributes =
@@ -75,16 +65,16 @@ mkDeregisterInstanceEventNotificationAttributes =
 -- | Information about the tag keys to deregister.
 --
 -- /Note:/ Consider using 'instanceTagAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dienaInstanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Lude.Maybe DeregisterInstanceTagAttributeRequest)
-dienaInstanceTagAttribute = Lens.lens (instanceTagAttribute :: DeregisterInstanceEventNotificationAttributes -> Lude.Maybe DeregisterInstanceTagAttributeRequest) (\s a -> s {instanceTagAttribute = a} :: DeregisterInstanceEventNotificationAttributes)
-{-# DEPRECATED dienaInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
+dienasInstanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Lude.Maybe DeregisterInstanceTagAttributeRequest)
+dienasInstanceTagAttribute = Lens.lens (instanceTagAttribute :: DeregisterInstanceEventNotificationAttributes -> Lude.Maybe DeregisterInstanceTagAttributeRequest) (\s a -> s {instanceTagAttribute = a} :: DeregisterInstanceEventNotificationAttributes)
+{-# DEPRECATED dienasInstanceTagAttribute "Use generic-lens or generic-optics with 'instanceTagAttribute' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dienaDryRun :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Lude.Maybe Lude.Bool)
-dienaDryRun = Lens.lens (dryRun :: DeregisterInstanceEventNotificationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeregisterInstanceEventNotificationAttributes)
-{-# DEPRECATED dienaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dienasDryRun :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Lude.Maybe Lude.Bool)
+dienasDryRun = Lens.lens (dryRun :: DeregisterInstanceEventNotificationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeregisterInstanceEventNotificationAttributes)
+{-# DEPRECATED dienasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -125,23 +115,13 @@ instance Lude.ToQuery DeregisterInstanceEventNotificationAttributes where
 
 -- | /See:/ 'mkDeregisterInstanceEventNotificationAttributesResponse' smart constructor.
 data DeregisterInstanceEventNotificationAttributesResponse = DeregisterInstanceEventNotificationAttributesResponse'
-  { instanceTagAttribute ::
-      Lude.Maybe
-        InstanceTagNotificationAttribute,
-    responseStatus ::
-      Lude.Int
+  { -- | The resulting set of tag keys.
+    instanceTagAttribute :: Lude.Maybe InstanceTagNotificationAttribute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstanceEventNotificationAttributesResponse' with the minimum fields required to make a request.
 --

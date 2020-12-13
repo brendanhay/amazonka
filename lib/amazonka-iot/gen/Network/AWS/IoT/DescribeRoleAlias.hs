@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoT.DescribeRoleAlias
     mkDescribeRoleAlias,
 
     -- ** Request lenses
-    draRoleAlias,
+    dRoleAlias,
 
     -- * Destructuring the response
     DescribeRoleAliasResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRoleAlias' smart constructor.
 newtype DescribeRoleAlias = DescribeRoleAlias'
-  { roleAlias ::
-      Lude.Text
+  { -- | The role alias to describe.
+    roleAlias :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoleAlias' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDescribeRoleAlias pRoleAlias_ =
 -- | The role alias to describe.
 --
 -- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-draRoleAlias :: Lens.Lens' DescribeRoleAlias Lude.Text
-draRoleAlias = Lens.lens (roleAlias :: DescribeRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: DescribeRoleAlias)
-{-# DEPRECATED draRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
+dRoleAlias :: Lens.Lens' DescribeRoleAlias Lude.Text
+dRoleAlias = Lens.lens (roleAlias :: DescribeRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: DescribeRoleAlias)
+{-# DEPRECATED dRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 instance Lude.AWSRequest DescribeRoleAlias where
   type Rs DescribeRoleAlias = DescribeRoleAliasResponse
@@ -91,23 +86,18 @@ instance Lude.ToQuery DescribeRoleAlias where
 
 -- | /See:/ 'mkDescribeRoleAliasResponse' smart constructor.
 data DescribeRoleAliasResponse = DescribeRoleAliasResponse'
-  { roleAliasDescription ::
-      Lude.Maybe RoleAliasDescription,
+  { -- | The role alias description.
+    roleAliasDescription :: Lude.Maybe RoleAliasDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoleAliasResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'roleAliasDescription' - The role alias description.
+-- * 'responseStatus' - The response status code.
 mkDescribeRoleAliasResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.IoTAnalytics.CreateDataset
     mkCreateDataset,
 
     -- ** Request lenses
-    creVersioningConfiguration,
-    creTriggers,
-    creRetentionPeriod,
-    creLateDataRules,
-    creContentDeliveryRules,
-    creTags,
-    creDatasetName,
-    creActions,
+    cdVersioningConfiguration,
+    cdActions,
+    cdTriggers,
+    cdRetentionPeriod,
+    cdLateDataRules,
+    cdDatasetName,
+    cdContentDeliveryRules,
+    cdTags,
 
     -- * Destructuring the response
     CreateDatasetResponse (..),
@@ -48,108 +49,109 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'
-  { versioningConfiguration ::
-      Lude.Maybe VersioningConfiguration,
+  { -- | Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
+    versioningConfiguration :: Lude.Maybe VersioningConfiguration,
+    -- | A list of actions that create the data set contents.
+    actions :: Lude.NonEmpty DatasetAction,
+    -- | A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when another data set's contents are created. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects.
     triggers :: Lude.Maybe [DatasetTrigger],
+    -- | Optional. How long, in days, versions of dataset contents are kept for the dataset. If not specified or set to @null@ , versions of dataset contents are retained for at most 90 days. The number of versions of dataset contents retained is determined by the @versioningConfiguration@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
     retentionPeriod :: Lude.Maybe RetentionPeriod,
+    -- | A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
     lateDataRules :: Lude.Maybe (Lude.NonEmpty LateDataRule),
-    contentDeliveryRules :: Lude.Maybe [DatasetContentDeliveryRule],
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    -- | The name of the data set.
     datasetName :: Lude.Text,
-    actions :: Lude.NonEmpty DatasetAction
+    -- | When dataset contents are created, they are delivered to destinations specified here.
+    contentDeliveryRules :: Lude.Maybe [DatasetContentDeliveryRule],
+    -- | Metadata which can be used to manage the data set.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDataset' with the minimum fields required to make a request.
 --
--- * 'actions' - A list of actions that create the data set contents.
--- * 'contentDeliveryRules' - When dataset contents are created, they are delivered to destinations specified here.
--- * 'datasetName' - The name of the data set.
--- * 'lateDataRules' - A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
--- * 'retentionPeriod' - Optional. How long, in days, versions of dataset contents are kept for the dataset. If not specified or set to @null@ , versions of dataset contents are retained for at most 90 days. The number of versions of dataset contents retained is determined by the @versioningConfiguration@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
--- * 'tags' - Metadata which can be used to manage the data set.
--- * 'triggers' - A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when another data set's contents are created. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects.
 -- * 'versioningConfiguration' - Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
+-- * 'actions' - A list of actions that create the data set contents.
+-- * 'triggers' - A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when another data set's contents are created. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects.
+-- * 'retentionPeriod' - Optional. How long, in days, versions of dataset contents are kept for the dataset. If not specified or set to @null@ , versions of dataset contents are retained for at most 90 days. The number of versions of dataset contents retained is determined by the @versioningConfiguration@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
+-- * 'lateDataRules' - A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
+-- * 'datasetName' - The name of the data set.
+-- * 'contentDeliveryRules' - When dataset contents are created, they are delivered to destinations specified here.
+-- * 'tags' - Metadata which can be used to manage the data set.
 mkCreateDataset ::
-  -- | 'datasetName'
-  Lude.Text ->
   -- | 'actions'
   Lude.NonEmpty DatasetAction ->
+  -- | 'datasetName'
+  Lude.Text ->
   CreateDataset
-mkCreateDataset pDatasetName_ pActions_ =
+mkCreateDataset pActions_ pDatasetName_ =
   CreateDataset'
     { versioningConfiguration = Lude.Nothing,
+      actions = pActions_,
       triggers = Lude.Nothing,
       retentionPeriod = Lude.Nothing,
       lateDataRules = Lude.Nothing,
-      contentDeliveryRules = Lude.Nothing,
-      tags = Lude.Nothing,
       datasetName = pDatasetName_,
-      actions = pActions_
+      contentDeliveryRules = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
 --
 -- /Note:/ Consider using 'versioningConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creVersioningConfiguration :: Lens.Lens' CreateDataset (Lude.Maybe VersioningConfiguration)
-creVersioningConfiguration = Lens.lens (versioningConfiguration :: CreateDataset -> Lude.Maybe VersioningConfiguration) (\s a -> s {versioningConfiguration = a} :: CreateDataset)
-{-# DEPRECATED creVersioningConfiguration "Use generic-lens or generic-optics with 'versioningConfiguration' instead." #-}
-
--- | A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when another data set's contents are created. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects.
---
--- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creTriggers :: Lens.Lens' CreateDataset (Lude.Maybe [DatasetTrigger])
-creTriggers = Lens.lens (triggers :: CreateDataset -> Lude.Maybe [DatasetTrigger]) (\s a -> s {triggers = a} :: CreateDataset)
-{-# DEPRECATED creTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
-
--- | Optional. How long, in days, versions of dataset contents are kept for the dataset. If not specified or set to @null@ , versions of dataset contents are retained for at most 90 days. The number of versions of dataset contents retained is determined by the @versioningConfiguration@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
---
--- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creRetentionPeriod :: Lens.Lens' CreateDataset (Lude.Maybe RetentionPeriod)
-creRetentionPeriod = Lens.lens (retentionPeriod :: CreateDataset -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: CreateDataset)
-{-# DEPRECATED creRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
-
--- | A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
---
--- /Note:/ Consider using 'lateDataRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creLateDataRules :: Lens.Lens' CreateDataset (Lude.Maybe (Lude.NonEmpty LateDataRule))
-creLateDataRules = Lens.lens (lateDataRules :: CreateDataset -> Lude.Maybe (Lude.NonEmpty LateDataRule)) (\s a -> s {lateDataRules = a} :: CreateDataset)
-{-# DEPRECATED creLateDataRules "Use generic-lens or generic-optics with 'lateDataRules' instead." #-}
-
--- | When dataset contents are created, they are delivered to destinations specified here.
---
--- /Note:/ Consider using 'contentDeliveryRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creContentDeliveryRules :: Lens.Lens' CreateDataset (Lude.Maybe [DatasetContentDeliveryRule])
-creContentDeliveryRules = Lens.lens (contentDeliveryRules :: CreateDataset -> Lude.Maybe [DatasetContentDeliveryRule]) (\s a -> s {contentDeliveryRules = a} :: CreateDataset)
-{-# DEPRECATED creContentDeliveryRules "Use generic-lens or generic-optics with 'contentDeliveryRules' instead." #-}
-
--- | Metadata which can be used to manage the data set.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creTags :: Lens.Lens' CreateDataset (Lude.Maybe (Lude.NonEmpty Tag))
-creTags = Lens.lens (tags :: CreateDataset -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateDataset)
-{-# DEPRECATED creTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the data set.
---
--- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creDatasetName :: Lens.Lens' CreateDataset Lude.Text
-creDatasetName = Lens.lens (datasetName :: CreateDataset -> Lude.Text) (\s a -> s {datasetName = a} :: CreateDataset)
-{-# DEPRECATED creDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+cdVersioningConfiguration :: Lens.Lens' CreateDataset (Lude.Maybe VersioningConfiguration)
+cdVersioningConfiguration = Lens.lens (versioningConfiguration :: CreateDataset -> Lude.Maybe VersioningConfiguration) (\s a -> s {versioningConfiguration = a} :: CreateDataset)
+{-# DEPRECATED cdVersioningConfiguration "Use generic-lens or generic-optics with 'versioningConfiguration' instead." #-}
 
 -- | A list of actions that create the data set contents.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creActions :: Lens.Lens' CreateDataset (Lude.NonEmpty DatasetAction)
-creActions = Lens.lens (actions :: CreateDataset -> Lude.NonEmpty DatasetAction) (\s a -> s {actions = a} :: CreateDataset)
-{-# DEPRECATED creActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+cdActions :: Lens.Lens' CreateDataset (Lude.NonEmpty DatasetAction)
+cdActions = Lens.lens (actions :: CreateDataset -> Lude.NonEmpty DatasetAction) (\s a -> s {actions = a} :: CreateDataset)
+{-# DEPRECATED cdActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+-- | A list of triggers. A trigger causes data set contents to be populated at a specified time interval or when another data set's contents are created. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects.
+--
+-- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTriggers :: Lens.Lens' CreateDataset (Lude.Maybe [DatasetTrigger])
+cdTriggers = Lens.lens (triggers :: CreateDataset -> Lude.Maybe [DatasetTrigger]) (\s a -> s {triggers = a} :: CreateDataset)
+{-# DEPRECATED cdTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
+
+-- | Optional. How long, in days, versions of dataset contents are kept for the dataset. If not specified or set to @null@ , versions of dataset contents are retained for at most 90 days. The number of versions of dataset contents retained is determined by the @versioningConfiguration@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRetentionPeriod :: Lens.Lens' CreateDataset (Lude.Maybe RetentionPeriod)
+cdRetentionPeriod = Lens.lens (retentionPeriod :: CreateDataset -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: CreateDataset)
+{-# DEPRECATED cdRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
+
+-- | A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
+--
+-- /Note:/ Consider using 'lateDataRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdLateDataRules :: Lens.Lens' CreateDataset (Lude.Maybe (Lude.NonEmpty LateDataRule))
+cdLateDataRules = Lens.lens (lateDataRules :: CreateDataset -> Lude.Maybe (Lude.NonEmpty LateDataRule)) (\s a -> s {lateDataRules = a} :: CreateDataset)
+{-# DEPRECATED cdLateDataRules "Use generic-lens or generic-optics with 'lateDataRules' instead." #-}
+
+-- | The name of the data set.
+--
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDatasetName :: Lens.Lens' CreateDataset Lude.Text
+cdDatasetName = Lens.lens (datasetName :: CreateDataset -> Lude.Text) (\s a -> s {datasetName = a} :: CreateDataset)
+{-# DEPRECATED cdDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+
+-- | When dataset contents are created, they are delivered to destinations specified here.
+--
+-- /Note:/ Consider using 'contentDeliveryRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdContentDeliveryRules :: Lens.Lens' CreateDataset (Lude.Maybe [DatasetContentDeliveryRule])
+cdContentDeliveryRules = Lens.lens (contentDeliveryRules :: CreateDataset -> Lude.Maybe [DatasetContentDeliveryRule]) (\s a -> s {contentDeliveryRules = a} :: CreateDataset)
+{-# DEPRECATED cdContentDeliveryRules "Use generic-lens or generic-optics with 'contentDeliveryRules' instead." #-}
+
+-- | Metadata which can be used to manage the data set.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTags :: Lens.Lens' CreateDataset (Lude.Maybe (Lude.NonEmpty Tag))
+cdTags = Lens.lens (tags :: CreateDataset -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateDataset)
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateDataset where
   type Rs CreateDataset = CreateDatasetResponse
@@ -173,13 +175,13 @@ instance Lude.ToJSON CreateDataset where
       ( Lude.catMaybes
           [ ("versioningConfiguration" Lude..=)
               Lude.<$> versioningConfiguration,
+            Lude.Just ("actions" Lude..= actions),
             ("triggers" Lude..=) Lude.<$> triggers,
             ("retentionPeriod" Lude..=) Lude.<$> retentionPeriod,
             ("lateDataRules" Lude..=) Lude.<$> lateDataRules,
-            ("contentDeliveryRules" Lude..=) Lude.<$> contentDeliveryRules,
-            ("tags" Lude..=) Lude.<$> tags,
             Lude.Just ("datasetName" Lude..= datasetName),
-            Lude.Just ("actions" Lude..= actions)
+            ("contentDeliveryRules" Lude..=) Lude.<$> contentDeliveryRules,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -191,27 +193,24 @@ instance Lude.ToQuery CreateDataset where
 
 -- | /See:/ 'mkCreateDatasetResponse' smart constructor.
 data CreateDatasetResponse = CreateDatasetResponse'
-  { datasetARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the dataset.
+    datasetARN :: Lude.Maybe Lude.Text,
+    -- | How long, in days, dataset contents are kept for the dataset.
     retentionPeriod :: Lude.Maybe RetentionPeriod,
+    -- | The name of the dataset.
     datasetName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDatasetResponse' with the minimum fields required to make a request.
 --
 -- * 'datasetARN' - The ARN of the dataset.
+-- * 'retentionPeriod' - How long, in days, dataset contents are kept for the dataset.
 -- * 'datasetName' - The name of the dataset.
 -- * 'responseStatus' - The response status code.
--- * 'retentionPeriod' - How long, in days, dataset contents are kept for the dataset.
 mkCreateDatasetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

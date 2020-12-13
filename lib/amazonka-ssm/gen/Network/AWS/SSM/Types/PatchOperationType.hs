@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.PatchOperationType
   ( PatchOperationType
       ( PatchOperationType',
-        Install,
-        Scan
+        Scan,
+        Install
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PatchOperationType = PatchOperationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Install :: PatchOperationType
-pattern Install = PatchOperationType' "Install"
-
 pattern Scan :: PatchOperationType
 pattern Scan = PatchOperationType' "Scan"
 
+pattern Install :: PatchOperationType
+pattern Install = PatchOperationType' "Install"
+
 {-# COMPLETE
-  Install,
   Scan,
+  Install,
   PatchOperationType'
   #-}

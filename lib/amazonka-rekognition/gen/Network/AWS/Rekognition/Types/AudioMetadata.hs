@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioMetadata' smart constructor.
 data AudioMetadata = AudioMetadata'
-  { codec :: Lude.Maybe Lude.Text,
+  { -- | The audio codec used to encode or decode the audio stream.
+    codec :: Lude.Maybe Lude.Text,
+    -- | The sample rate for the audio stream.
     sampleRate :: Lude.Maybe Lude.Natural,
+    -- | The number of audio channels in the segment.
     numberOfChannels :: Lude.Maybe Lude.Natural,
+    -- | The duration of the audio stream in milliseconds.
     durationMillis :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioMetadata' with the minimum fields required to make a request.
 --
 -- * 'codec' - The audio codec used to encode or decode the audio stream.
--- * 'durationMillis' - The duration of the audio stream in milliseconds.
--- * 'numberOfChannels' - The number of audio channels in the segment.
 -- * 'sampleRate' - The sample rate for the audio stream.
+-- * 'numberOfChannels' - The number of audio channels in the segment.
+-- * 'durationMillis' - The duration of the audio stream in milliseconds.
 mkAudioMetadata ::
   AudioMetadata
 mkAudioMetadata =

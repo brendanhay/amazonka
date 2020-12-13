@@ -31,30 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimerStartedEventAttributes' smart constructor.
 data TimerStartedEventAttributes = TimerStartedEventAttributes'
-  { control ::
-      Lude.Maybe Lude.Text,
+  { -- | Data attached to the event that can be used by the decider in subsequent workflow tasks.
+    control :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the timer that was started.
     timerId :: Lude.Text,
+    -- | The duration of time after which the timer fires.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ .
     startToFireTimeout :: Lude.Text,
-    decisionTaskCompletedEventId ::
-      Lude.Integer
+    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimerStartedEventAttributes' with the minimum fields required to make a request.
 --
 -- * 'control' - Data attached to the event that can be used by the decider in subsequent workflow tasks.
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- * 'timerId' - The unique ID of the timer that was started.
 -- * 'startToFireTimeout' - The duration of time after which the timer fires.
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ .
--- * 'timerId' - The unique ID of the timer that was started.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @StartTimer@ decision for this activity task. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkTimerStartedEventAttributes ::
   -- | 'timerId'
   Lude.Text ->

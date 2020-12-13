@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.EC2.ModifyEBSDefaultKMSKeyId
     mkModifyEBSDefaultKMSKeyId,
 
     -- ** Request lenses
-    medkkiDryRun,
     medkkiKMSKeyId,
+    medkkiDryRun,
 
     -- * Destructuring the response
     ModifyEBSDefaultKMSKeyIdResponse (..),
@@ -44,22 +45,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyEBSDefaultKMSKeyId' smart constructor.
 data ModifyEBSDefaultKMSKeyId = ModifyEBSDefaultKMSKeyId'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    kmsKeyId :: Lude.Text
+  { -- | The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
+    --
+    -- You can specify the CMK using any of the following:
+    --
+    --     * Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    --
+    --     * Key alias. For example, alias/ExampleAlias.
+    --
+    --
+    --     * Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    --
+    --     * Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+    --
+    --
+    -- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
+    -- Amazon EBS does not support asymmetric CMKs.
+    kmsKeyId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyEBSDefaultKMSKeyId' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'kmsKeyId' - The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
 --
 -- You can specify the CMK using any of the following:
@@ -78,22 +90,16 @@ data ModifyEBSDefaultKMSKeyId = ModifyEBSDefaultKMSKeyId'
 --
 -- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
 -- Amazon EBS does not support asymmetric CMKs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyEBSDefaultKMSKeyId ::
   -- | 'kmsKeyId'
   Lude.Text ->
   ModifyEBSDefaultKMSKeyId
 mkModifyEBSDefaultKMSKeyId pKMSKeyId_ =
   ModifyEBSDefaultKMSKeyId'
-    { dryRun = Lude.Nothing,
-      kmsKeyId = pKMSKeyId_
+    { kmsKeyId = pKMSKeyId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-medkkiDryRun :: Lens.Lens' ModifyEBSDefaultKMSKeyId (Lude.Maybe Lude.Bool)
-medkkiDryRun = Lens.lens (dryRun :: ModifyEBSDefaultKMSKeyId -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyEBSDefaultKMSKeyId)
-{-# DEPRECATED medkkiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
 --
@@ -119,6 +125,13 @@ medkkiKMSKeyId :: Lens.Lens' ModifyEBSDefaultKMSKeyId Lude.Text
 medkkiKMSKeyId = Lens.lens (kmsKeyId :: ModifyEBSDefaultKMSKeyId -> Lude.Text) (\s a -> s {kmsKeyId = a} :: ModifyEBSDefaultKMSKeyId)
 {-# DEPRECATED medkkiKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+medkkiDryRun :: Lens.Lens' ModifyEBSDefaultKMSKeyId (Lude.Maybe Lude.Bool)
+medkkiDryRun = Lens.lens (dryRun :: ModifyEBSDefaultKMSKeyId -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyEBSDefaultKMSKeyId)
+{-# DEPRECATED medkkiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
 instance Lude.AWSRequest ModifyEBSDefaultKMSKeyId where
   type Rs ModifyEBSDefaultKMSKeyId = ModifyEBSDefaultKMSKeyIdResponse
   request = Req.postQuery ec2Service
@@ -140,24 +153,18 @@ instance Lude.ToQuery ModifyEBSDefaultKMSKeyId where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyEbsDefaultKmsKeyId" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "KmsKeyId" Lude.=: kmsKeyId
+        "KmsKeyId" Lude.=: kmsKeyId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyEBSDefaultKMSKeyIdResponse' smart constructor.
 data ModifyEBSDefaultKMSKeyIdResponse = ModifyEBSDefaultKMSKeyIdResponse'
-  { kmsKeyId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Amazon Resource Name (ARN) of the default CMK for encryption by default.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyEBSDefaultKMSKeyIdResponse' with the minimum fields required to make a request.

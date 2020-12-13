@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.StatusType
   ( StatusType
       ( StatusType',
+        STPassed,
         STFailed,
-        STInitializing,
         STInsufficientData,
-        STPassed
+        STInitializing
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype StatusType = StatusType' Lude.Text
       Lude.ToHeader
     )
 
+pattern STPassed :: StatusType
+pattern STPassed = StatusType' "passed"
+
 pattern STFailed :: StatusType
 pattern STFailed = StatusType' "failed"
-
-pattern STInitializing :: StatusType
-pattern STInitializing = StatusType' "initializing"
 
 pattern STInsufficientData :: StatusType
 pattern STInsufficientData = StatusType' "insufficient-data"
 
-pattern STPassed :: StatusType
-pattern STPassed = StatusType' "passed"
+pattern STInitializing :: StatusType
+pattern STInitializing = StatusType' "initializing"
 
 {-# COMPLETE
-  STFailed,
-  STInitializing,
-  STInsufficientData,
   STPassed,
+  STFailed,
+  STInsufficientData,
+  STInitializing,
   StatusType'
   #-}

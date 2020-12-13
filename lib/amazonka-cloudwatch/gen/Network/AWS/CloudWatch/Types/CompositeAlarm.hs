@@ -41,46 +41,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCompositeAlarm' smart constructor.
 data CompositeAlarm = CompositeAlarm'
-  { alarmName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the alarm.
+    alarmName :: Lude.Maybe Lude.Text,
+    -- | The time stamp of the last update to the alarm state.
     stateUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | The description of the alarm.
     alarmDescription :: Lude.Maybe Lude.Text,
+    -- | The rule that this alarm uses to evaluate its alarm state.
     alarmRule :: Lude.Maybe Lude.Text,
+    -- | The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
     okActions :: Lude.Maybe [Lude.Text],
+    -- | The state value for the alarm.
     stateValue :: Lude.Maybe StateValue,
-    alarmConfigurationUpdatedTimestamp ::
-      Lude.Maybe Lude.DateTime,
+    -- | The time stamp of the last update to the alarm configuration.
+    alarmConfigurationUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether actions should be executed during any changes to the alarm state.
     actionsEnabled :: Lude.Maybe Lude.Bool,
+    -- | The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
     insufficientDataActions :: Lude.Maybe [Lude.Text],
+    -- | An explanation for the alarm state, in text format.
     stateReason :: Lude.Maybe Lude.Text,
+    -- | An explanation for the alarm state, in JSON format.
     stateReasonData :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the alarm.
     alarmARN :: Lude.Maybe Lude.Text,
+    -- | The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
     alarmActions :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompositeAlarm' with the minimum fields required to make a request.
 --
--- * 'actionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
--- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
--- * 'alarmActions' - The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
--- * 'alarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
--- * 'alarmDescription' - The description of the alarm.
 -- * 'alarmName' - The name of the alarm.
+-- * 'stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
+-- * 'alarmDescription' - The description of the alarm.
 -- * 'alarmRule' - The rule that this alarm uses to evaluate its alarm state.
--- * 'insufficientDataActions' - The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 -- * 'okActions' - The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'stateValue' - The state value for the alarm.
+-- * 'alarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
+-- * 'actionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
+-- * 'insufficientDataActions' - The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 -- * 'stateReason' - An explanation for the alarm state, in text format.
 -- * 'stateReasonData' - An explanation for the alarm state, in JSON format.
--- * 'stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
--- * 'stateValue' - The state value for the alarm.
+-- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
+-- * 'alarmActions' - The actions to execute when this alarm transitions to the ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 mkCompositeAlarm ::
   CompositeAlarm
 mkCompositeAlarm =

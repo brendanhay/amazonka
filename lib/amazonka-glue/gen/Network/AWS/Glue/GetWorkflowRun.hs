@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.Glue.GetWorkflowRun
     mkGetWorkflowRun,
 
     -- ** Request lenses
-    gwrwIncludeGraph,
-    gwrwName,
-    gwrwRunId,
+    gwrIncludeGraph,
+    gwrRunId,
+    gwrName,
 
     -- * Destructuring the response
     GetWorkflowRunResponse (..),
     mkGetWorkflowRunResponse,
 
     -- ** Response lenses
-    gwrwrsRun,
-    gwrwrsResponseStatus,
+    gwrfrsRun,
+    gwrfrsResponseStatus,
   )
 where
 
@@ -41,58 +42,54 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetWorkflowRun' smart constructor.
 data GetWorkflowRun = GetWorkflowRun'
-  { includeGraph ::
-      Lude.Maybe Lude.Bool,
-    name :: Lude.Text,
-    runId :: Lude.Text
+  { -- | Specifies whether to include the workflow graph in response or not.
+    includeGraph :: Lude.Maybe Lude.Bool,
+    -- | The ID of the workflow run.
+    runId :: Lude.Text,
+    -- | Name of the workflow being run.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkflowRun' with the minimum fields required to make a request.
 --
 -- * 'includeGraph' - Specifies whether to include the workflow graph in response or not.
--- * 'name' - Name of the workflow being run.
 -- * 'runId' - The ID of the workflow run.
+-- * 'name' - Name of the workflow being run.
 mkGetWorkflowRun ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'runId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GetWorkflowRun
-mkGetWorkflowRun pName_ pRunId_ =
+mkGetWorkflowRun pRunId_ pName_ =
   GetWorkflowRun'
     { includeGraph = Lude.Nothing,
-      name = pName_,
-      runId = pRunId_
+      runId = pRunId_,
+      name = pName_
     }
 
 -- | Specifies whether to include the workflow graph in response or not.
 --
 -- /Note:/ Consider using 'includeGraph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrwIncludeGraph :: Lens.Lens' GetWorkflowRun (Lude.Maybe Lude.Bool)
-gwrwIncludeGraph = Lens.lens (includeGraph :: GetWorkflowRun -> Lude.Maybe Lude.Bool) (\s a -> s {includeGraph = a} :: GetWorkflowRun)
-{-# DEPRECATED gwrwIncludeGraph "Use generic-lens or generic-optics with 'includeGraph' instead." #-}
-
--- | Name of the workflow being run.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrwName :: Lens.Lens' GetWorkflowRun Lude.Text
-gwrwName = Lens.lens (name :: GetWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: GetWorkflowRun)
-{-# DEPRECATED gwrwName "Use generic-lens or generic-optics with 'name' instead." #-}
+gwrIncludeGraph :: Lens.Lens' GetWorkflowRun (Lude.Maybe Lude.Bool)
+gwrIncludeGraph = Lens.lens (includeGraph :: GetWorkflowRun -> Lude.Maybe Lude.Bool) (\s a -> s {includeGraph = a} :: GetWorkflowRun)
+{-# DEPRECATED gwrIncludeGraph "Use generic-lens or generic-optics with 'includeGraph' instead." #-}
 
 -- | The ID of the workflow run.
 --
 -- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrwRunId :: Lens.Lens' GetWorkflowRun Lude.Text
-gwrwRunId = Lens.lens (runId :: GetWorkflowRun -> Lude.Text) (\s a -> s {runId = a} :: GetWorkflowRun)
-{-# DEPRECATED gwrwRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+gwrRunId :: Lens.Lens' GetWorkflowRun Lude.Text
+gwrRunId = Lens.lens (runId :: GetWorkflowRun -> Lude.Text) (\s a -> s {runId = a} :: GetWorkflowRun)
+{-# DEPRECATED gwrRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+
+-- | Name of the workflow being run.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gwrName :: Lens.Lens' GetWorkflowRun Lude.Text
+gwrName = Lens.lens (name :: GetWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: GetWorkflowRun)
+{-# DEPRECATED gwrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetWorkflowRun where
   type Rs GetWorkflowRun = GetWorkflowRunResponse
@@ -120,8 +117,8 @@ instance Lude.ToJSON GetWorkflowRun where
     Lude.object
       ( Lude.catMaybes
           [ ("IncludeGraph" Lude..=) Lude.<$> includeGraph,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("RunId" Lude..= runId)
+            Lude.Just ("RunId" Lude..= runId),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -133,23 +130,18 @@ instance Lude.ToQuery GetWorkflowRun where
 
 -- | /See:/ 'mkGetWorkflowRunResponse' smart constructor.
 data GetWorkflowRunResponse = GetWorkflowRunResponse'
-  { run ::
-      Lude.Maybe WorkflowRun,
+  { -- | The requested workflow run metadata.
+    run :: Lude.Maybe WorkflowRun,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWorkflowRunResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'run' - The requested workflow run metadata.
+-- * 'responseStatus' - The response status code.
 mkGetWorkflowRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -163,13 +155,13 @@ mkGetWorkflowRunResponse pResponseStatus_ =
 -- | The requested workflow run metadata.
 --
 -- /Note:/ Consider using 'run' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrwrsRun :: Lens.Lens' GetWorkflowRunResponse (Lude.Maybe WorkflowRun)
-gwrwrsRun = Lens.lens (run :: GetWorkflowRunResponse -> Lude.Maybe WorkflowRun) (\s a -> s {run = a} :: GetWorkflowRunResponse)
-{-# DEPRECATED gwrwrsRun "Use generic-lens or generic-optics with 'run' instead." #-}
+gwrfrsRun :: Lens.Lens' GetWorkflowRunResponse (Lude.Maybe WorkflowRun)
+gwrfrsRun = Lens.lens (run :: GetWorkflowRunResponse -> Lude.Maybe WorkflowRun) (\s a -> s {run = a} :: GetWorkflowRunResponse)
+{-# DEPRECATED gwrfrsRun "Use generic-lens or generic-optics with 'run' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gwrwrsResponseStatus :: Lens.Lens' GetWorkflowRunResponse Lude.Int
-gwrwrsResponseStatus = Lens.lens (responseStatus :: GetWorkflowRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWorkflowRunResponse)
-{-# DEPRECATED gwrwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gwrfrsResponseStatus :: Lens.Lens' GetWorkflowRunResponse Lude.Int
+gwrfrsResponseStatus = Lens.lens (responseStatus :: GetWorkflowRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetWorkflowRunResponse)
+{-# DEPRECATED gwrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

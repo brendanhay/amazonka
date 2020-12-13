@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,25 +50,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribePrefixLists' smart constructor.
 data DescribePrefixLists = DescribePrefixLists'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters.
+    --
+    --
+    --     * @prefix-list-id@ : The ID of a prefix list.
+    --
+    --
+    --     * @prefix-list-name@ : The name of a prefix list.
+    filters :: Lude.Maybe [Filter],
+    -- | One or more prefix list IDs.
     prefixListIds :: Lude.Maybe [Lude.Text],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePrefixLists' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -77,9 +81,10 @@ data DescribePrefixLists = DescribePrefixLists'
 --     * @prefix-list-name@ : The name of a prefix list.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'nextToken' - The token for the next page of results.
 -- * 'prefixListIds' - One or more prefix list IDs.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribePrefixLists ::
   DescribePrefixLists
 mkDescribePrefixLists =
@@ -178,19 +183,14 @@ instance Lude.ToQuery DescribePrefixLists where
 
 -- | /See:/ 'mkDescribePrefixListsResponse' smart constructor.
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    prefixLists ::
-      Lude.Maybe [PrefixList],
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | All available prefix lists.
+    prefixLists :: Lude.Maybe [PrefixList],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePrefixListsResponse' with the minimum fields required to make a request.

@@ -32,29 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCACertificate' smart constructor.
 data CACertificate = CACertificate'
-  { status ::
-      Lude.Maybe CACertificateStatus,
+  { -- | The status of the CA certificate.
+    --
+    -- The status value REGISTER_INACTIVE is deprecated and should not be used.
+    status :: Lude.Maybe CACertificateStatus,
+    -- | The ARN of the CA certificate.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the CA certificate.
     certificateId :: Lude.Maybe Lude.Text,
+    -- | The date the CA certificate was created.
     creationDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CACertificate' with the minimum fields required to make a request.
 --
--- * 'certificateARN' - The ARN of the CA certificate.
--- * 'certificateId' - The ID of the CA certificate.
--- * 'creationDate' - The date the CA certificate was created.
 -- * 'status' - The status of the CA certificate.
 --
 -- The status value REGISTER_INACTIVE is deprecated and should not be used.
+-- * 'certificateARN' - The ARN of the CA certificate.
+-- * 'certificateId' - The ID of the CA certificate.
+-- * 'creationDate' - The date the CA certificate was created.
 mkCACertificate ::
   CACertificate
 mkCACertificate =

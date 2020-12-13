@@ -28,20 +28,19 @@ import qualified Network.AWS.Prelude as Lude
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {value :: Lude.Maybe Lude.Text, key :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
+    value :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
 -- * 'value' - An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
+-- * 'key' - A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @
 mkTag ::
   -- | 'key'
   Lude.Text ->

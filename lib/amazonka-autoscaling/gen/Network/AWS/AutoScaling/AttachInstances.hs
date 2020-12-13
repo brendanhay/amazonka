@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachInstances' smart constructor.
 data AttachInstances = AttachInstances'
-  { instanceIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstances' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkAttachInstances ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -104,13 +100,7 @@ instance Lude.ToQuery AttachInstances where
 
 -- | /See:/ 'mkAttachInstancesResponse' smart constructor.
 data AttachInstancesResponse = AttachInstancesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstancesResponse' with the minimum fields required to make a request.

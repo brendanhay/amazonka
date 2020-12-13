@@ -13,11 +13,11 @@
 module Network.AWS.MediaLive.Types.ReservationCodec
   ( ReservationCodec
       ( ReservationCodec',
-        RCAudio,
+        RCMPEG2,
         RCAvc,
         RCHevc,
-        RCLink,
-        RCMPEG2
+        RCAudio,
+        RCLink
       ),
   )
 where
@@ -49,8 +49,8 @@ newtype ReservationCodec = ReservationCodec' Lude.Text
       Lude.ToHeader
     )
 
-pattern RCAudio :: ReservationCodec
-pattern RCAudio = ReservationCodec' "AUDIO"
+pattern RCMPEG2 :: ReservationCodec
+pattern RCMPEG2 = ReservationCodec' "MPEG2"
 
 pattern RCAvc :: ReservationCodec
 pattern RCAvc = ReservationCodec' "AVC"
@@ -58,17 +58,17 @@ pattern RCAvc = ReservationCodec' "AVC"
 pattern RCHevc :: ReservationCodec
 pattern RCHevc = ReservationCodec' "HEVC"
 
+pattern RCAudio :: ReservationCodec
+pattern RCAudio = ReservationCodec' "AUDIO"
+
 pattern RCLink :: ReservationCodec
 pattern RCLink = ReservationCodec' "LINK"
 
-pattern RCMPEG2 :: ReservationCodec
-pattern RCMPEG2 = ReservationCodec' "MPEG2"
-
 {-# COMPLETE
-  RCAudio,
+  RCMPEG2,
   RCAvc,
   RCHevc,
+  RCAudio,
   RCLink,
-  RCMPEG2,
   ReservationCodec'
   #-}

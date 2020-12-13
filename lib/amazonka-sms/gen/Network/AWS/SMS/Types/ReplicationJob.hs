@@ -50,40 +50,76 @@ import Network.AWS.SMS.Types.VMServer
 --
 -- /See:/ 'mkReplicationJob' smart constructor.
 data ReplicationJob = ReplicationJob'
-  { frequency ::
-      Lude.Maybe Lude.Int,
+  { -- | The time between consecutive replication runs, in hours.
+    frequency :: Lude.Maybe Lude.Int,
+    -- | The number of recent AMIs to keep in the customer's account for a replication job. By default, the value is set to zero, meaning that all AMIs are kept.
     numberOfRecentAMIsToKeep :: Lude.Maybe Lude.Int,
+    -- | The state of the replication job.
     state :: Lude.Maybe ReplicationJobState,
+    -- | The type of server.
     serverType :: Lude.Maybe ServerType,
+    -- | The ID of the server.
     serverId :: Lude.Maybe Lude.Text,
+    -- | The license type to be used for the AMI created by a successful replication run.
     licenseType :: Lude.Maybe LicenseType,
+    -- | The name of the IAM role to be used by AWS SMS.
     roleName :: Lude.Maybe Lude.Text,
+    -- | Information about the VM server.
     vmServer :: Lude.Maybe VMServer,
+    -- | Indicates whether the replication job should produce encrypted AMIs.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The ID of the replication job.
     replicationJobId :: Lude.Maybe Lude.Text,
+    -- | Information about the replication runs.
     replicationRunList :: Lude.Maybe [ReplicationRun],
+    -- | The start time of the next replication run.
     nextReplicationRunStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the current status of the replication job.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
+    --
+    --
+    --     * KMS key ID
+    --
+    --
+    --     * KMS key alias
+    --
+    --
+    --     * ARN referring to the KMS key ID
+    --
+    --
+    --     * ARN referring to the KMS key alias
+    --
+    --
+    -- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The ID of the latest Amazon Machine Image (AMI).
     latestAMIId :: Lude.Maybe Lude.Text,
+    -- | The seed replication time.
     seedReplicationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether to run the replication job one time.
     runOnce :: Lude.Maybe Lude.Bool,
+    -- | The description of the replication job.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationJob' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the replication job.
--- * 'encrypted' - Indicates whether the replication job should produce encrypted AMIs.
 -- * 'frequency' - The time between consecutive replication runs, in hours.
+-- * 'numberOfRecentAMIsToKeep' - The number of recent AMIs to keep in the customer's account for a replication job. By default, the value is set to zero, meaning that all AMIs are kept.
+-- * 'state' - The state of the replication job.
+-- * 'serverType' - The type of server.
+-- * 'serverId' - The ID of the server.
+-- * 'licenseType' - The license type to be used for the AMI created by a successful replication run.
+-- * 'roleName' - The name of the IAM role to be used by AWS SMS.
+-- * 'vmServer' - Information about the VM server.
+-- * 'encrypted' - Indicates whether the replication job should produce encrypted AMIs.
+-- * 'replicationJobId' - The ID of the replication job.
+-- * 'replicationRunList' - Information about the replication runs.
+-- * 'nextReplicationRunStartTime' - The start time of the next replication run.
+-- * 'statusMessage' - The description of the current status of the replication job.
 -- * 'kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
 --
 --
@@ -101,19 +137,9 @@ data ReplicationJob = ReplicationJob'
 --
 -- If encrypted is enabled but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
 -- * 'latestAMIId' - The ID of the latest Amazon Machine Image (AMI).
--- * 'licenseType' - The license type to be used for the AMI created by a successful replication run.
--- * 'nextReplicationRunStartTime' - The start time of the next replication run.
--- * 'numberOfRecentAMIsToKeep' - The number of recent AMIs to keep in the customer's account for a replication job. By default, the value is set to zero, meaning that all AMIs are kept.
--- * 'replicationJobId' - The ID of the replication job.
--- * 'replicationRunList' - Information about the replication runs.
--- * 'roleName' - The name of the IAM role to be used by AWS SMS.
--- * 'runOnce' - Indicates whether to run the replication job one time.
 -- * 'seedReplicationTime' - The seed replication time.
--- * 'serverId' - The ID of the server.
--- * 'serverType' - The type of server.
--- * 'state' - The state of the replication job.
--- * 'statusMessage' - The description of the current status of the replication job.
--- * 'vmServer' - Information about the VM server.
+-- * 'runOnce' - Indicates whether to run the replication job one time.
+-- * 'description' - The description of the replication job.
 mkReplicationJob ::
   ReplicationJob
 mkReplicationJob =

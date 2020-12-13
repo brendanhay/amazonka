@@ -13,8 +13,8 @@
 module Network.AWS.CodeDeploy.Types.MinimumHealthyHostsType
   ( MinimumHealthyHostsType
       ( MinimumHealthyHostsType',
-        FleetPercent,
-        HostCount
+        HostCount,
+        FleetPercent
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MinimumHealthyHostsType = MinimumHealthyHostsType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FleetPercent :: MinimumHealthyHostsType
-pattern FleetPercent = MinimumHealthyHostsType' "FLEET_PERCENT"
-
 pattern HostCount :: MinimumHealthyHostsType
 pattern HostCount = MinimumHealthyHostsType' "HOST_COUNT"
 
+pattern FleetPercent :: MinimumHealthyHostsType
+pattern FleetPercent = MinimumHealthyHostsType' "FLEET_PERCENT"
+
 {-# COMPLETE
-  FleetPercent,
   HostCount,
+  FleetPercent,
   MinimumHealthyHostsType'
   #-}

@@ -13,12 +13,12 @@
 module Network.AWS.Shield.Types.ProtectedResourceType
   ( ProtectedResourceType
       ( ProtectedResourceType',
-        ApplicationLoadBalancer,
-        ClassicLoadBalancer,
         CloudfrontDistribution,
+        Route53HostedZone,
         ElasticIPAllocation,
-        GlobalAccelerator,
-        Route53HostedZone
+        ClassicLoadBalancer,
+        ApplicationLoadBalancer,
+        GlobalAccelerator
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ProtectedResourceType = ProtectedResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ApplicationLoadBalancer :: ProtectedResourceType
-pattern ApplicationLoadBalancer = ProtectedResourceType' "APPLICATION_LOAD_BALANCER"
-
-pattern ClassicLoadBalancer :: ProtectedResourceType
-pattern ClassicLoadBalancer = ProtectedResourceType' "CLASSIC_LOAD_BALANCER"
-
 pattern CloudfrontDistribution :: ProtectedResourceType
 pattern CloudfrontDistribution = ProtectedResourceType' "CLOUDFRONT_DISTRIBUTION"
-
-pattern ElasticIPAllocation :: ProtectedResourceType
-pattern ElasticIPAllocation = ProtectedResourceType' "ELASTIC_IP_ALLOCATION"
-
-pattern GlobalAccelerator :: ProtectedResourceType
-pattern GlobalAccelerator = ProtectedResourceType' "GLOBAL_ACCELERATOR"
 
 pattern Route53HostedZone :: ProtectedResourceType
 pattern Route53HostedZone = ProtectedResourceType' "ROUTE_53_HOSTED_ZONE"
 
+pattern ElasticIPAllocation :: ProtectedResourceType
+pattern ElasticIPAllocation = ProtectedResourceType' "ELASTIC_IP_ALLOCATION"
+
+pattern ClassicLoadBalancer :: ProtectedResourceType
+pattern ClassicLoadBalancer = ProtectedResourceType' "CLASSIC_LOAD_BALANCER"
+
+pattern ApplicationLoadBalancer :: ProtectedResourceType
+pattern ApplicationLoadBalancer = ProtectedResourceType' "APPLICATION_LOAD_BALANCER"
+
+pattern GlobalAccelerator :: ProtectedResourceType
+pattern GlobalAccelerator = ProtectedResourceType' "GLOBAL_ACCELERATOR"
+
 {-# COMPLETE
-  ApplicationLoadBalancer,
-  ClassicLoadBalancer,
   CloudfrontDistribution,
-  ElasticIPAllocation,
-  GlobalAccelerator,
   Route53HostedZone,
+  ElasticIPAllocation,
+  ClassicLoadBalancer,
+  ApplicationLoadBalancer,
+  GlobalAccelerator,
   ProtectedResourceType'
   #-}

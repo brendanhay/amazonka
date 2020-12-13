@@ -13,8 +13,8 @@
 module Network.AWS.Glue.Types.CrawlerLineageSettings
   ( CrawlerLineageSettings
       ( CrawlerLineageSettings',
-        Disable,
-        Enable
+        Enable,
+        Disable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CrawlerLineageSettings = CrawlerLineageSettings' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disable :: CrawlerLineageSettings
-pattern Disable = CrawlerLineageSettings' "DISABLE"
-
 pattern Enable :: CrawlerLineageSettings
 pattern Enable = CrawlerLineageSettings' "ENABLE"
 
+pattern Disable :: CrawlerLineageSettings
+pattern Disable = CrawlerLineageSettings' "DISABLE"
+
 {-# COMPLETE
-  Disable,
   Enable,
+  Disable,
   CrawlerLineageSettings'
   #-}

@@ -51,55 +51,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
-  { healthCheckPath ::
-      Lude.Maybe Lude.Text,
+  { -- | The path you specified to perform your health checks. If no path is specified, the load balancer tries to make a request to the default (root) page.
+    healthCheckPath :: Lude.Maybe Lude.Text,
+    -- | The status of your load balancer. Valid values are below.
     state :: Lude.Maybe LoadBalancerState,
+    -- | The resource type (e.g., @LoadBalancer@ .
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the load balancer.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date when your load balancer was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS Region where your load balancer was created (e.g., @us-east-2a@ ). Lightsail automatically creates your load balancer across Availability Zones.
     location :: Lude.Maybe ResourceLocation,
+    -- | The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
     instancePort :: Lude.Maybe Lude.Int,
-    configurationOptions ::
-      Lude.Maybe (Lude.HashMap LoadBalancerAttributeName (Lude.Text)),
+    -- | A string to string map of the configuration options for your load balancer. Valid values are listed below.
+    configurationOptions :: Lude.Maybe (Lude.HashMap LoadBalancerAttributeName (Lude.Text)),
+    -- | The protocol you have enabled for your load balancer. Valid values are below.
+    --
+    -- You can't just have @HTTP_HTTPS@ , but you can have just @HTTP@ .
     protocol :: Lude.Maybe LoadBalancerProtocol,
-    tlsCertificateSummaries ::
-      Lude.Maybe [LoadBalancerTLSCertificateSummary],
+    -- | An array of LoadBalancerTlsCertificateSummary objects that provide additional information about the SSL/TLS certificates. For example, if @true@ , the certificate is attached to the load balancer.
+    tlsCertificateSummaries :: Lude.Maybe [LoadBalancerTLSCertificateSummary],
+    -- | The name of the load balancer (e.g., @my-load-balancer@ ).
     name :: Lude.Maybe Lude.Text,
+    -- | The support code. Include this code in your email to support when you have questions about your Lightsail load balancer. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | An array of public port settings for your load balancer. For HTTP, use port 80. For HTTPS, use port 443.
     publicPorts :: Lude.Maybe [Lude.Int],
+    -- | The DNS name of your Lightsail load balancer.
     dnsName :: Lude.Maybe Lude.Text,
+    -- | An array of InstanceHealthSummary objects describing the health of the load balancer.
     instanceHealthSummary :: Lude.Maybe [InstanceHealthSummary],
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the load balancer.
--- * 'configurationOptions' - A string to string map of the configuration options for your load balancer. Valid values are listed below.
--- * 'createdAt' - The date when your load balancer was created.
--- * 'dnsName' - The DNS name of your Lightsail load balancer.
 -- * 'healthCheckPath' - The path you specified to perform your health checks. If no path is specified, the load balancer tries to make a request to the default (root) page.
--- * 'instanceHealthSummary' - An array of InstanceHealthSummary objects describing the health of the load balancer.
--- * 'instancePort' - The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
+-- * 'state' - The status of your load balancer. Valid values are below.
+-- * 'resourceType' - The resource type (e.g., @LoadBalancer@ .
+-- * 'arn' - The Amazon Resource Name (ARN) of the load balancer.
+-- * 'createdAt' - The date when your load balancer was created.
 -- * 'location' - The AWS Region where your load balancer was created (e.g., @us-east-2a@ ). Lightsail automatically creates your load balancer across Availability Zones.
--- * 'name' - The name of the load balancer (e.g., @my-load-balancer@ ).
+-- * 'instancePort' - The port where the load balancer will direct traffic to your Lightsail instances. For HTTP traffic, it's port 80. For HTTPS traffic, it's port 443.
+-- * 'configurationOptions' - A string to string map of the configuration options for your load balancer. Valid values are listed below.
 -- * 'protocol' - The protocol you have enabled for your load balancer. Valid values are below.
 --
 -- You can't just have @HTTP_HTTPS@ , but you can have just @HTTP@ .
--- * 'publicPorts' - An array of public port settings for your load balancer. For HTTP, use port 80. For HTTPS, use port 443.
--- * 'resourceType' - The resource type (e.g., @LoadBalancer@ .
--- * 'state' - The status of your load balancer. Valid values are below.
--- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail load balancer. This code enables our support team to look up your Lightsail information more easily.
--- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 -- * 'tlsCertificateSummaries' - An array of LoadBalancerTlsCertificateSummary objects that provide additional information about the SSL/TLS certificates. For example, if @true@ , the certificate is attached to the load balancer.
+-- * 'name' - The name of the load balancer (e.g., @my-load-balancer@ ).
+-- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail load balancer. This code enables our support team to look up your Lightsail information more easily.
+-- * 'publicPorts' - An array of public port settings for your load balancer. For HTTP, use port 80. For HTTPS, use port 443.
+-- * 'dnsName' - The DNS name of your Lightsail load balancer.
+-- * 'instanceHealthSummary' - An array of InstanceHealthSummary objects describing the health of the load balancer.
+-- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkLoadBalancer ::
   LoadBalancer
 mkLoadBalancer =

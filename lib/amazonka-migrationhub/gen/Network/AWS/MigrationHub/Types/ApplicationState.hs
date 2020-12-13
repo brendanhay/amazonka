@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationState' smart constructor.
 data ApplicationState = ApplicationState'
-  { lastUpdatedTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp when the application status was last updated.
+    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The configurationId from the Application Discovery Service that uniquely identifies an application.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The current status of an application.
     applicationStatus :: Lude.Maybe ApplicationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationState' with the minimum fields required to make a request.
 --
+-- * 'lastUpdatedTime' - The timestamp when the application status was last updated.
 -- * 'applicationId' - The configurationId from the Application Discovery Service that uniquely identifies an application.
 -- * 'applicationStatus' - The current status of an application.
--- * 'lastUpdatedTime' - The timestamp when the application status was last updated.
 mkApplicationState ::
   ApplicationState
 mkApplicationState =

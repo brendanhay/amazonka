@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,28 +43,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-  { environmentName ::
-      Lude.Maybe Lude.Text,
-    environmentId ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the environment to retrieve AWS resource usage data.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The ID of the environment to retrieve AWS resource usage data.
+    --
+    -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentResources' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The ID of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 -- * 'environmentName' - The name of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'environmentId' - The ID of the environment to retrieve AWS resource usage data.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 mkDescribeEnvironmentResources ::
   DescribeEnvironmentResources
 mkDescribeEnvironmentResources =
@@ -124,19 +123,12 @@ instance Lude.ToQuery DescribeEnvironmentResources where
 --
 -- /See:/ 'mkDescribeEnvironmentResourcesResponse' smart constructor.
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
-  { environmentResources ::
-      Lude.Maybe
-        EnvironmentResourceDescription,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of 'EnvironmentResourceDescription' .
+    environmentResources :: Lude.Maybe EnvironmentResourceDescription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentResourcesResponse' with the minimum fields required to make a request.

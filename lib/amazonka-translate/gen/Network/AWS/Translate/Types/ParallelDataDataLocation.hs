@@ -17,8 +17,8 @@ module Network.AWS.Translate.Types.ParallelDataDataLocation
     mkParallelDataDataLocation,
 
     -- * Lenses
-    pddlRepositoryType,
     pddlLocation,
+    pddlRepositoryType,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParallelDataDataLocation' smart constructor.
 data ParallelDataDataLocation = ParallelDataDataLocation'
-  { repositoryType ::
-      Lude.Text,
-    location :: Lude.Text
+  { -- | The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
+    location :: Lude.Text,
+    -- | Describes the repository that contains the parallel data input file.
+    repositoryType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParallelDataDataLocation' with the minimum fields required to make a request.
@@ -47,23 +42,16 @@ data ParallelDataDataLocation = ParallelDataDataLocation'
 -- * 'location' - The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
 -- * 'repositoryType' - Describes the repository that contains the parallel data input file.
 mkParallelDataDataLocation ::
-  -- | 'repositoryType'
-  Lude.Text ->
   -- | 'location'
   Lude.Text ->
+  -- | 'repositoryType'
+  Lude.Text ->
   ParallelDataDataLocation
-mkParallelDataDataLocation pRepositoryType_ pLocation_ =
+mkParallelDataDataLocation pLocation_ pRepositoryType_ =
   ParallelDataDataLocation'
-    { repositoryType = pRepositoryType_,
-      location = pLocation_
+    { location = pLocation_,
+      repositoryType = pRepositoryType_
     }
-
--- | Describes the repository that contains the parallel data input file.
---
--- /Note:/ Consider using 'repositoryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pddlRepositoryType :: Lens.Lens' ParallelDataDataLocation Lude.Text
-pddlRepositoryType = Lens.lens (repositoryType :: ParallelDataDataLocation -> Lude.Text) (\s a -> s {repositoryType = a} :: ParallelDataDataLocation)
-{-# DEPRECATED pddlRepositoryType "Use generic-lens or generic-optics with 'repositoryType' instead." #-}
 
 -- | The Amazon S3 location of the parallel data input file. The location is returned as a presigned URL to that has a 30 minute expiration.
 --
@@ -72,11 +60,18 @@ pddlLocation :: Lens.Lens' ParallelDataDataLocation Lude.Text
 pddlLocation = Lens.lens (location :: ParallelDataDataLocation -> Lude.Text) (\s a -> s {location = a} :: ParallelDataDataLocation)
 {-# DEPRECATED pddlLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
+-- | Describes the repository that contains the parallel data input file.
+--
+-- /Note:/ Consider using 'repositoryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pddlRepositoryType :: Lens.Lens' ParallelDataDataLocation Lude.Text
+pddlRepositoryType = Lens.lens (repositoryType :: ParallelDataDataLocation -> Lude.Text) (\s a -> s {repositoryType = a} :: ParallelDataDataLocation)
+{-# DEPRECATED pddlRepositoryType "Use generic-lens or generic-optics with 'repositoryType' instead." #-}
+
 instance Lude.FromJSON ParallelDataDataLocation where
   parseJSON =
     Lude.withObject
       "ParallelDataDataLocation"
       ( \x ->
           ParallelDataDataLocation'
-            Lude.<$> (x Lude..: "RepositoryType") Lude.<*> (x Lude..: "Location")
+            Lude.<$> (x Lude..: "Location") Lude.<*> (x Lude..: "RepositoryType")
       )

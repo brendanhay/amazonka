@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemediationExceptionResourceKey' smart constructor.
 data RemediationExceptionResourceKey = RemediationExceptionResourceKey'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
-    resourceType ::
-      Lude.Maybe Lude.Text
+  { -- | The ID of the resource (for example., sg-xxxxxx).
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of a resource.
+    resourceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationExceptionResourceKey' with the minimum fields required to make a request.

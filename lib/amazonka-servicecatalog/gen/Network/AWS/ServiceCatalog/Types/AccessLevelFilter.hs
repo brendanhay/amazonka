@@ -30,21 +30,26 @@ import Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
 --
 -- /See:/ 'mkAccessLevelFilter' smart constructor.
 data AccessLevelFilter = AccessLevelFilter'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The user to which the access level applies. The only supported value is @Self@ .
+    value :: Lude.Maybe Lude.Text,
+    -- | The access level.
+    --
+    --
+    --     * @Account@ - Filter results based on the account.
+    --
+    --
+    --     * @Role@ - Filter results based on the federated role of the specified user.
+    --
+    --
+    --     * @User@ - Filter results based on the specified user.
     key :: Lude.Maybe AccessLevelFilterKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessLevelFilter' with the minimum fields required to make a request.
 --
+-- * 'value' - The user to which the access level applies. The only supported value is @Self@ .
 -- * 'key' - The access level.
 --
 --
@@ -55,9 +60,6 @@ data AccessLevelFilter = AccessLevelFilter'
 --
 --
 --     * @User@ - Filter results based on the specified user.
---
---
--- * 'value' - The user to which the access level applies. The only supported value is @Self@ .
 mkAccessLevelFilter ::
   AccessLevelFilter
 mkAccessLevelFilter =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.SageMaker.DeleteAlgorithm
     mkDeleteAlgorithm,
 
     -- ** Request lenses
-    daAlgorithmName,
+    dAlgorithmName,
 
     -- * Destructuring the response
     DeleteAlgorithmResponse (..),
@@ -35,16 +36,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteAlgorithm' smart constructor.
 newtype DeleteAlgorithm = DeleteAlgorithm'
-  { algorithmName ::
-      Lude.Text
+  { -- | The name of the algorithm to delete.
+    algorithmName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlgorithm' with the minimum fields required to make a request.
@@ -60,9 +55,9 @@ mkDeleteAlgorithm pAlgorithmName_ =
 -- | The name of the algorithm to delete.
 --
 -- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAlgorithmName :: Lens.Lens' DeleteAlgorithm Lude.Text
-daAlgorithmName = Lens.lens (algorithmName :: DeleteAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: DeleteAlgorithm)
-{-# DEPRECATED daAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
+dAlgorithmName :: Lens.Lens' DeleteAlgorithm Lude.Text
+dAlgorithmName = Lens.lens (algorithmName :: DeleteAlgorithm -> Lude.Text) (\s a -> s {algorithmName = a} :: DeleteAlgorithm)
+{-# DEPRECATED dAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
 
 instance Lude.AWSRequest DeleteAlgorithm where
   type Rs DeleteAlgorithm = DeleteAlgorithmResponse
@@ -95,13 +90,7 @@ instance Lude.ToQuery DeleteAlgorithm where
 
 -- | /See:/ 'mkDeleteAlgorithmResponse' smart constructor.
 data DeleteAlgorithmResponse = DeleteAlgorithmResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlgorithmResponse' with the minimum fields required to make a request.

@@ -32,28 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsCaptionLanguageMapping' smart constructor.
 data HlsCaptionLanguageMapping = HlsCaptionLanguageMapping'
-  { customLanguageCode ::
-      Lude.Maybe Lude.Text,
+  { -- | Specify the language for this captions channel, using the ISO 639-2 or ISO 639-3 three-letter language code
+    customLanguageCode :: Lude.Maybe Lude.Text,
+    -- | Specify the language, using the ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php.
     languageCode :: Lude.Maybe LanguageCode,
-    languageDescription ::
-      Lude.Maybe Lude.Text,
+    -- | Caption language description.
+    languageDescription :: Lude.Maybe Lude.Text,
+    -- | Caption channel.
     captionChannel :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsCaptionLanguageMapping' with the minimum fields required to make a request.
 --
--- * 'captionChannel' - Caption channel.
 -- * 'customLanguageCode' - Specify the language for this captions channel, using the ISO 639-2 or ISO 639-3 three-letter language code
 -- * 'languageCode' - Specify the language, using the ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php.
 -- * 'languageDescription' - Caption language description.
+-- * 'captionChannel' - Caption channel.
 mkHlsCaptionLanguageMapping ::
   HlsCaptionLanguageMapping
 mkHlsCaptionLanguageMapping =

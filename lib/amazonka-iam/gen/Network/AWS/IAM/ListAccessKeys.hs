@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.IAM.ListAccessKeys
     -- ** Response lenses
     lakrsMarker,
     lakrsIsTruncated,
-    lakrsResponseStatus,
     lakrsAccessKeyMetadata,
+    lakrsResponseStatus,
   )
 where
 
@@ -49,29 +50,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAccessKeys' smart constructor.
 data ListAccessKeys = ListAccessKeys'
-  { userName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the user.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text,
+    -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
     marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccessKeys' with the minimum fields required to make a request.
 --
+-- * 'userName' - The name of the user.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 -- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
--- * 'userName' - The name of the user.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkListAccessKeys ::
   ListAccessKeys
 mkListAccessKeys =
@@ -123,10 +124,10 @@ instance Lude.AWSRequest ListAccessKeys where
           ListAccessKeysResponse'
             Lude.<$> (x Lude..@? "Marker")
             Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "AccessKeyMetadata" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListAccessKeys where
@@ -149,26 +150,23 @@ instance Lude.ToQuery ListAccessKeys where
 --
 -- /See:/ 'mkListAccessKeysResponse' smart constructor.
 data ListAccessKeysResponse = ListAccessKeysResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
     isTruncated :: Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    accessKeyMetadata :: [AccessKeyMetadata]
+    -- | A list of objects containing metadata about the access keys.
+    accessKeyMetadata :: [AccessKeyMetadata],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccessKeysResponse' with the minimum fields required to make a request.
 --
--- * 'accessKeyMetadata' - A list of objects containing metadata about the access keys.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'accessKeyMetadata' - A list of objects containing metadata about the access keys.
 -- * 'responseStatus' - The response status code.
 mkListAccessKeysResponse ::
   -- | 'responseStatus'
@@ -178,8 +176,8 @@ mkListAccessKeysResponse pResponseStatus_ =
   ListAccessKeysResponse'
     { marker = Lude.Nothing,
       isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      accessKeyMetadata = Lude.mempty
+      accessKeyMetadata = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
@@ -196,16 +194,16 @@ lakrsIsTruncated :: Lens.Lens' ListAccessKeysResponse (Lude.Maybe Lude.Bool)
 lakrsIsTruncated = Lens.lens (isTruncated :: ListAccessKeysResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListAccessKeysResponse)
 {-# DEPRECATED lakrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lakrsResponseStatus :: Lens.Lens' ListAccessKeysResponse Lude.Int
-lakrsResponseStatus = Lens.lens (responseStatus :: ListAccessKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccessKeysResponse)
-{-# DEPRECATED lakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of objects containing metadata about the access keys.
 --
 -- /Note:/ Consider using 'accessKeyMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lakrsAccessKeyMetadata :: Lens.Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrsAccessKeyMetadata = Lens.lens (accessKeyMetadata :: ListAccessKeysResponse -> [AccessKeyMetadata]) (\s a -> s {accessKeyMetadata = a} :: ListAccessKeysResponse)
 {-# DEPRECATED lakrsAccessKeyMetadata "Use generic-lens or generic-optics with 'accessKeyMetadata' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lakrsResponseStatus :: Lens.Lens' ListAccessKeysResponse Lude.Int
+lakrsResponseStatus = Lens.lens (responseStatus :: ListAccessKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccessKeysResponse)
+{-# DEPRECATED lakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

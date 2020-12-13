@@ -17,10 +17,10 @@ module Network.AWS.CloudDirectory.Types.BatchListIndex
     mkBatchListIndex,
 
     -- * Lenses
-    batRangesOnIndexedValues,
-    batNextToken,
-    batMaxResults,
-    batIndexReference,
+    blifRangesOnIndexedValues,
+    blifIndexReference,
+    blifNextToken,
+    blifMaxResults,
   )
 where
 
@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListIndex' smart constructor.
 data BatchListIndex = BatchListIndex'
-  { rangesOnIndexedValues ::
-      Lude.Maybe [ObjectAttributeRange],
+  { -- | Specifies the ranges of indexed values that you want to query.
+    rangesOnIndexedValues :: Lude.Maybe [ObjectAttributeRange],
+    -- | The reference to the index to list.
+    indexReference :: ObjectReference,
+    -- | The pagination token.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    indexReference :: ObjectReference
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListIndex' with the minimum fields required to make a request.
 --
--- * 'indexReference' - The reference to the index to list.
--- * 'maxResults' - The maximum number of results to retrieve.
--- * 'nextToken' - The pagination token.
 -- * 'rangesOnIndexedValues' - Specifies the ranges of indexed values that you want to query.
+-- * 'indexReference' - The reference to the index to list.
+-- * 'nextToken' - The pagination token.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkBatchListIndex ::
   -- | 'indexReference'
   ObjectReference ->
@@ -61,46 +58,46 @@ mkBatchListIndex ::
 mkBatchListIndex pIndexReference_ =
   BatchListIndex'
     { rangesOnIndexedValues = Lude.Nothing,
+      indexReference = pIndexReference_,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      indexReference = pIndexReference_
+      maxResults = Lude.Nothing
     }
 
 -- | Specifies the ranges of indexed values that you want to query.
 --
 -- /Note:/ Consider using 'rangesOnIndexedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batRangesOnIndexedValues :: Lens.Lens' BatchListIndex (Lude.Maybe [ObjectAttributeRange])
-batRangesOnIndexedValues = Lens.lens (rangesOnIndexedValues :: BatchListIndex -> Lude.Maybe [ObjectAttributeRange]) (\s a -> s {rangesOnIndexedValues = a} :: BatchListIndex)
-{-# DEPRECATED batRangesOnIndexedValues "Use generic-lens or generic-optics with 'rangesOnIndexedValues' instead." #-}
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batNextToken :: Lens.Lens' BatchListIndex (Lude.Maybe Lude.Text)
-batNextToken = Lens.lens (nextToken :: BatchListIndex -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListIndex)
-{-# DEPRECATED batNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batMaxResults :: Lens.Lens' BatchListIndex (Lude.Maybe Lude.Natural)
-batMaxResults = Lens.lens (maxResults :: BatchListIndex -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListIndex)
-{-# DEPRECATED batMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+blifRangesOnIndexedValues :: Lens.Lens' BatchListIndex (Lude.Maybe [ObjectAttributeRange])
+blifRangesOnIndexedValues = Lens.lens (rangesOnIndexedValues :: BatchListIndex -> Lude.Maybe [ObjectAttributeRange]) (\s a -> s {rangesOnIndexedValues = a} :: BatchListIndex)
+{-# DEPRECATED blifRangesOnIndexedValues "Use generic-lens or generic-optics with 'rangesOnIndexedValues' instead." #-}
 
 -- | The reference to the index to list.
 --
 -- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-batIndexReference :: Lens.Lens' BatchListIndex ObjectReference
-batIndexReference = Lens.lens (indexReference :: BatchListIndex -> ObjectReference) (\s a -> s {indexReference = a} :: BatchListIndex)
-{-# DEPRECATED batIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
+blifIndexReference :: Lens.Lens' BatchListIndex ObjectReference
+blifIndexReference = Lens.lens (indexReference :: BatchListIndex -> ObjectReference) (\s a -> s {indexReference = a} :: BatchListIndex)
+{-# DEPRECATED blifIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
+
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blifNextToken :: Lens.Lens' BatchListIndex (Lude.Maybe Lude.Text)
+blifNextToken = Lens.lens (nextToken :: BatchListIndex -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListIndex)
+{-# DEPRECATED blifNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blifMaxResults :: Lens.Lens' BatchListIndex (Lude.Maybe Lude.Natural)
+blifMaxResults = Lens.lens (maxResults :: BatchListIndex -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListIndex)
+{-# DEPRECATED blifMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.ToJSON BatchListIndex where
   toJSON BatchListIndex' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("RangesOnIndexedValues" Lude..=) Lude.<$> rangesOnIndexedValues,
+            Lude.Just ("IndexReference" Lude..= indexReference),
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("IndexReference" Lude..= indexReference)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )

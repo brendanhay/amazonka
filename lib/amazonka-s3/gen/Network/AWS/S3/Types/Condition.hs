@@ -30,23 +30,18 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { keyPrefixEquals ::
-      Lude.Maybe Lude.Text,
+  { -- | The object key name prefix when the redirect is applied. For example, to redirect requests for @ExamplePage.html@ , the key prefix will be @ExamplePage.html@ . To redirect request for all pages with the prefix @docs/@ , the key prefix will be @/docs@ , which identifies all objects in the @docs/@ folder. Required when the parent element @Condition@ is specified and sibling @HttpErrorCodeReturnedEquals@ is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+    keyPrefixEquals :: Lude.Maybe Lude.Text,
+    -- | The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element @Condition@ is specified and sibling @KeyPrefixEquals@ is not specified. If both are specified, then both must be true for the redirect to be applied.
     hTTPErrorCodeReturnedEquals :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
--- * 'hTTPErrorCodeReturnedEquals' - The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element @Condition@ is specified and sibling @KeyPrefixEquals@ is not specified. If both are specified, then both must be true for the redirect to be applied.
 -- * 'keyPrefixEquals' - The object key name prefix when the redirect is applied. For example, to redirect requests for @ExamplePage.html@ , the key prefix will be @ExamplePage.html@ . To redirect request for all pages with the prefix @docs/@ , the key prefix will be @/docs@ , which identifies all objects in the @docs/@ folder. Required when the parent element @Condition@ is specified and sibling @HttpErrorCodeReturnedEquals@ is not specified. If both conditions are specified, both must be true for the redirect to be applied.
+-- * 'hTTPErrorCodeReturnedEquals' - The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element @Condition@ is specified and sibling @KeyPrefixEquals@ is not specified. If both are specified, then both must be true for the redirect to be applied.
 mkCondition ::
   Condition
 mkCondition =

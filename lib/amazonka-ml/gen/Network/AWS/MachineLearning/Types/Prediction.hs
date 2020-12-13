@@ -46,28 +46,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrediction' smart constructor.
 data Prediction = Prediction'
-  { predictedValue ::
-      Lude.Maybe Lude.Double,
+  { -- | The prediction value for @REGRESSION@ @MLModel@ .
+    predictedValue :: Lude.Maybe Lude.Double,
+    -- | The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
     predictedLabel :: Lude.Maybe Lude.Text,
-    predictedScores ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    predictedScores :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
     details :: Lude.Maybe (Lude.HashMap DetailsAttributes (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Prediction' with the minimum fields required to make a request.
 --
--- * 'details' - Undocumented field.
--- * 'predictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
--- * 'predictedScores' - Undocumented field.
 -- * 'predictedValue' - The prediction value for @REGRESSION@ @MLModel@ .
+-- * 'predictedLabel' - The prediction label for either a @BINARY@ or @MULTICLASS@ @MLModel@ .
+-- * 'predictedScores' -
+-- * 'details' -
 mkPrediction ::
   Prediction
 mkPrediction =

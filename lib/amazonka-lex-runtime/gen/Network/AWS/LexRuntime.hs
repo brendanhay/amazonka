@@ -63,8 +63,8 @@ module Network.AWS.LexRuntime
     -- ** ActiveContext
     ActiveContext (..),
     mkActiveContext,
-    acName,
     acTimeToLive,
+    acName,
     acParameters,
 
     -- ** ActiveContextTimeToLive
@@ -85,10 +85,10 @@ module Network.AWS.LexRuntime
     daSlots,
     daIntentName,
     daFulfillmentState,
+    daType,
     daMessageFormat,
     daMessage,
     daSlotToElicit,
-    daType,
 
     -- ** GenericAttachment
     GenericAttachment (..),
@@ -110,10 +110,10 @@ module Network.AWS.LexRuntime
     isCheckpointLabel,
     isSlots,
     isIntentName,
+    isDialogActionType,
     isFulfillmentState,
     isConfirmationStatus,
     isSlotToElicit,
-    isDialogActionType,
 
     -- ** PredictedIntent
     PredictedIntent (..),

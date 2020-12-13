@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,19 +21,19 @@ module Network.AWS.SageMaker.CreateHyperParameterTuningJob
 
     -- ** Request lenses
     chptjTrainingJobDefinition,
+    chptjHyperParameterTuningJobName,
+    chptjHyperParameterTuningJobConfig,
     chptjWarmStartConfig,
     chptjTags,
     chptjTrainingJobDefinitions,
-    chptjHyperParameterTuningJobName,
-    chptjHyperParameterTuningJobConfig,
 
     -- * Destructuring the response
     CreateHyperParameterTuningJobResponse (..),
     mkCreateHyperParameterTuningJobResponse,
 
     -- ** Response lenses
-    chptjrsResponseStatus,
     chptjrsHyperParameterTuningJobARN,
+    chptjrsResponseStatus,
   )
 where
 
@@ -44,44 +45,38 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateHyperParameterTuningJob' smart constructor.
 data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
-  { trainingJobDefinition ::
-      Lude.Maybe
-        HyperParameterTrainingJobDefinition,
-    warmStartConfig ::
-      Lude.Maybe
-        HyperParameterTuningJobWarmStartConfig,
+  { -- | The 'HyperParameterTrainingJobDefinition' object that describes the training jobs that this tuning job launches, including static hyperparameters, input data configuration, output data configuration, resource configuration, and stopping condition.
+    trainingJobDefinition :: Lude.Maybe HyperParameterTrainingJobDefinition,
+    -- | The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job launches. The name must be unique within the same AWS account and AWS Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
+    hyperParameterTuningJobName :: Lude.Text,
+    -- | The 'HyperParameterTuningJobConfig' object that describes the tuning job, including the search strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works> .
+    hyperParameterTuningJobConfig :: HyperParameterTuningJobConfig,
+    -- | Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
+    --
+    -- All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric. If you specify @IDENTICAL_DATA_AND_ALGORITHM@ as the @WarmStartType@ value for the warm start configuration, the training job that performs the best in the new tuning job is compared to the best training jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the objective metric is returned as the overall best training job.
+    warmStartConfig :: Lude.Maybe HyperParameterTuningJobWarmStartConfig,
+    -- | An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. For more information, see <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies> .
+    --
+    -- Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
     tags :: Lude.Maybe [Tag],
-    trainingJobDefinitions ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            HyperParameterTrainingJobDefinition
-        ),
-    hyperParameterTuningJobName ::
-      Lude.Text,
-    hyperParameterTuningJobConfig ::
-      HyperParameterTuningJobConfig
+    -- | A list of the 'HyperParameterTrainingJobDefinition' objects launched for this tuning job.
+    trainingJobDefinitions :: Lude.Maybe (Lude.NonEmpty HyperParameterTrainingJobDefinition)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHyperParameterTuningJob' with the minimum fields required to make a request.
 --
--- * 'hyperParameterTuningJobConfig' - The 'HyperParameterTuningJobConfig' object that describes the tuning job, including the search strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works> .
--- * 'hyperParameterTuningJobName' - The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job launches. The name must be unique within the same AWS account and AWS Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
--- * 'tags' - An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. For more information, see <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies> .
---
--- Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
 -- * 'trainingJobDefinition' - The 'HyperParameterTrainingJobDefinition' object that describes the training jobs that this tuning job launches, including static hyperparameters, input data configuration, output data configuration, resource configuration, and stopping condition.
--- * 'trainingJobDefinitions' - A list of the 'HyperParameterTrainingJobDefinition' objects launched for this tuning job.
+-- * 'hyperParameterTuningJobName' - The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job launches. The name must be unique within the same AWS account and AWS Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
+-- * 'hyperParameterTuningJobConfig' - The 'HyperParameterTuningJobConfig' object that describes the tuning job, including the search strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works> .
 -- * 'warmStartConfig' - Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
 --
 -- All training jobs launched by the new hyperparameter tuning job are evaluated by using the objective metric. If you specify @IDENTICAL_DATA_AND_ALGORITHM@ as the @WarmStartType@ value for the warm start configuration, the training job that performs the best in the new tuning job is compared to the best training jobs from the parent tuning jobs. From these, the training job that performs the best as measured by the objective metric is returned as the overall best training job.
+-- * 'tags' - An array of key-value pairs. You can use tags to categorize your AWS resources in different ways, for example, by purpose, owner, or environment. For more information, see <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies> .
+--
+-- Tags that you specify for the tuning job are also added to all training jobs that the tuning job launches.
+-- * 'trainingJobDefinitions' - A list of the 'HyperParameterTrainingJobDefinition' objects launched for this tuning job.
 mkCreateHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
   Lude.Text ->
@@ -94,11 +89,11 @@ mkCreateHyperParameterTuningJob
     CreateHyperParameterTuningJob'
       { trainingJobDefinition =
           Lude.Nothing,
+        hyperParameterTuningJobName = pHyperParameterTuningJobName_,
+        hyperParameterTuningJobConfig = pHyperParameterTuningJobConfig_,
         warmStartConfig = Lude.Nothing,
         tags = Lude.Nothing,
-        trainingJobDefinitions = Lude.Nothing,
-        hyperParameterTuningJobName = pHyperParameterTuningJobName_,
-        hyperParameterTuningJobConfig = pHyperParameterTuningJobConfig_
+        trainingJobDefinitions = Lude.Nothing
       }
 
 -- | The 'HyperParameterTrainingJobDefinition' object that describes the training jobs that this tuning job launches, including static hyperparameters, input data configuration, output data configuration, resource configuration, and stopping condition.
@@ -107,6 +102,20 @@ mkCreateHyperParameterTuningJob
 chptjTrainingJobDefinition :: Lens.Lens' CreateHyperParameterTuningJob (Lude.Maybe HyperParameterTrainingJobDefinition)
 chptjTrainingJobDefinition = Lens.lens (trainingJobDefinition :: CreateHyperParameterTuningJob -> Lude.Maybe HyperParameterTrainingJobDefinition) (\s a -> s {trainingJobDefinition = a} :: CreateHyperParameterTuningJob)
 {-# DEPRECATED chptjTrainingJobDefinition "Use generic-lens or generic-optics with 'trainingJobDefinition' instead." #-}
+
+-- | The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job launches. The name must be unique within the same AWS account and AWS Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chptjHyperParameterTuningJobName :: Lens.Lens' CreateHyperParameterTuningJob Lude.Text
+chptjHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: CreateHyperParameterTuningJob -> Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: CreateHyperParameterTuningJob)
+{-# DEPRECATED chptjHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
+
+-- | The 'HyperParameterTuningJobConfig' object that describes the tuning job, including the search strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works> .
+--
+-- /Note:/ Consider using 'hyperParameterTuningJobConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chptjHyperParameterTuningJobConfig :: Lens.Lens' CreateHyperParameterTuningJob HyperParameterTuningJobConfig
+chptjHyperParameterTuningJobConfig = Lens.lens (hyperParameterTuningJobConfig :: CreateHyperParameterTuningJob -> HyperParameterTuningJobConfig) (\s a -> s {hyperParameterTuningJobConfig = a} :: CreateHyperParameterTuningJob)
+{-# DEPRECATED chptjHyperParameterTuningJobConfig "Use generic-lens or generic-optics with 'hyperParameterTuningJobConfig' instead." #-}
 
 -- | Specifies the configuration for starting the hyperparameter tuning job using one or more previous tuning jobs as a starting point. The results of previous tuning jobs are used to inform which combinations of hyperparameters to search over in the new tuning job.
 --
@@ -133,20 +142,6 @@ chptjTrainingJobDefinitions :: Lens.Lens' CreateHyperParameterTuningJob (Lude.Ma
 chptjTrainingJobDefinitions = Lens.lens (trainingJobDefinitions :: CreateHyperParameterTuningJob -> Lude.Maybe (Lude.NonEmpty HyperParameterTrainingJobDefinition)) (\s a -> s {trainingJobDefinitions = a} :: CreateHyperParameterTuningJob)
 {-# DEPRECATED chptjTrainingJobDefinitions "Use generic-lens or generic-optics with 'trainingJobDefinitions' instead." #-}
 
--- | The name of the tuning job. This name is the prefix for the names of all training jobs that this tuning job launches. The name must be unique within the same AWS account and AWS Region. The name must have 1 to 32 characters. Valid characters are a-z, A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.
---
--- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chptjHyperParameterTuningJobName :: Lens.Lens' CreateHyperParameterTuningJob Lude.Text
-chptjHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: CreateHyperParameterTuningJob -> Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: CreateHyperParameterTuningJob)
-{-# DEPRECATED chptjHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
-
--- | The 'HyperParameterTuningJobConfig' object that describes the tuning job, including the search strategy, the objective metric used to evaluate training jobs, ranges of parameters to search, and resource limits for the tuning job. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works> .
---
--- /Note:/ Consider using 'hyperParameterTuningJobConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chptjHyperParameterTuningJobConfig :: Lens.Lens' CreateHyperParameterTuningJob HyperParameterTuningJobConfig
-chptjHyperParameterTuningJobConfig = Lens.lens (hyperParameterTuningJobConfig :: CreateHyperParameterTuningJob -> HyperParameterTuningJobConfig) (\s a -> s {hyperParameterTuningJobConfig = a} :: CreateHyperParameterTuningJob)
-{-# DEPRECATED chptjHyperParameterTuningJobConfig "Use generic-lens or generic-optics with 'hyperParameterTuningJobConfig' instead." #-}
-
 instance Lude.AWSRequest CreateHyperParameterTuningJob where
   type
     Rs CreateHyperParameterTuningJob =
@@ -156,8 +151,8 @@ instance Lude.AWSRequest CreateHyperParameterTuningJob where
     Res.receiveJSON
       ( \s h x ->
           CreateHyperParameterTuningJobResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "HyperParameterTuningJobArn")
+            Lude.<$> (x Lude..:> "HyperParameterTuningJobArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateHyperParameterTuningJob where
@@ -176,9 +171,6 @@ instance Lude.ToJSON CreateHyperParameterTuningJob where
     Lude.object
       ( Lude.catMaybes
           [ ("TrainingJobDefinition" Lude..=) Lude.<$> trainingJobDefinition,
-            ("WarmStartConfig" Lude..=) Lude.<$> warmStartConfig,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("TrainingJobDefinitions" Lude..=) Lude.<$> trainingJobDefinitions,
             Lude.Just
               ( "HyperParameterTuningJobName"
                   Lude..= hyperParameterTuningJobName
@@ -186,7 +178,11 @@ instance Lude.ToJSON CreateHyperParameterTuningJob where
             Lude.Just
               ( "HyperParameterTuningJobConfig"
                   Lude..= hyperParameterTuningJobConfig
-              )
+              ),
+            ("WarmStartConfig" Lude..=) Lude.<$> warmStartConfig,
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("TrainingJobDefinitions" Lude..=)
+              Lude.<$> trainingJobDefinitions
           ]
       )
 
@@ -198,18 +194,12 @@ instance Lude.ToQuery CreateHyperParameterTuningJob where
 
 -- | /See:/ 'mkCreateHyperParameterTuningJobResponse' smart constructor.
 data CreateHyperParameterTuningJobResponse = CreateHyperParameterTuningJobResponse'
-  { responseStatus ::
-      Lude.Int,
-    hyperParameterTuningJobARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker assigns an ARN to a hyperparameter tuning job when you create it.
+    hyperParameterTuningJobARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHyperParameterTuningJobResponse' with the minimum fields required to make a request.
@@ -217,27 +207,19 @@ data CreateHyperParameterTuningJobResponse = CreateHyperParameterTuningJobRespon
 -- * 'hyperParameterTuningJobARN' - The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker assigns an ARN to a hyperparameter tuning job when you create it.
 -- * 'responseStatus' - The response status code.
 mkCreateHyperParameterTuningJobResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hyperParameterTuningJobARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateHyperParameterTuningJobResponse
 mkCreateHyperParameterTuningJobResponse
-  pResponseStatus_
-  pHyperParameterTuningJobARN_ =
+  pHyperParameterTuningJobARN_
+  pResponseStatus_ =
     CreateHyperParameterTuningJobResponse'
-      { responseStatus =
-          pResponseStatus_,
-        hyperParameterTuningJobARN =
-          pHyperParameterTuningJobARN_
+      { hyperParameterTuningJobARN =
+          pHyperParameterTuningJobARN_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chptjrsResponseStatus :: Lens.Lens' CreateHyperParameterTuningJobResponse Lude.Int
-chptjrsResponseStatus = Lens.lens (responseStatus :: CreateHyperParameterTuningJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHyperParameterTuningJobResponse)
-{-# DEPRECATED chptjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker assigns an ARN to a hyperparameter tuning job when you create it.
 --
@@ -245,3 +227,10 @@ chptjrsResponseStatus = Lens.lens (responseStatus :: CreateHyperParameterTuningJ
 chptjrsHyperParameterTuningJobARN :: Lens.Lens' CreateHyperParameterTuningJobResponse Lude.Text
 chptjrsHyperParameterTuningJobARN = Lens.lens (hyperParameterTuningJobARN :: CreateHyperParameterTuningJobResponse -> Lude.Text) (\s a -> s {hyperParameterTuningJobARN = a} :: CreateHyperParameterTuningJobResponse)
 {-# DEPRECATED chptjrsHyperParameterTuningJobARN "Use generic-lens or generic-optics with 'hyperParameterTuningJobARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chptjrsResponseStatus :: Lens.Lens' CreateHyperParameterTuningJobResponse Lude.Int
+chptjrsResponseStatus = Lens.lens (responseStatus :: CreateHyperParameterTuningJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHyperParameterTuningJobResponse)
+{-# DEPRECATED chptjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

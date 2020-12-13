@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,9 +40,9 @@ module Network.AWS.S3.PutBucketAccelerateConfiguration
     mkPutBucketAccelerateConfiguration,
 
     -- ** Request lenses
-    pbacExpectedBucketOwner,
-    pbacBucket,
-    pbacAccelerateConfiguration,
+    pBucket,
+    pAccelerateConfiguration,
+    pExpectedBucketOwner,
 
     -- * Destructuring the response
     PutBucketAccelerateConfigurationResponse (..),
@@ -57,25 +58,20 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketAccelerateConfiguration' smart constructor.
 data PutBucketAccelerateConfiguration = PutBucketAccelerateConfiguration'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the bucket for which the accelerate configuration is set.
     bucket :: BucketName,
-    accelerateConfiguration ::
-      AccelerateConfiguration
+    -- | Container for setting the transfer acceleration state.
+    accelerateConfiguration :: AccelerateConfiguration,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketAccelerateConfiguration' with the minimum fields required to make a request.
 --
--- * 'accelerateConfiguration' - Container for setting the transfer acceleration state.
 -- * 'bucket' - The name of the bucket for which the accelerate configuration is set.
+-- * 'accelerateConfiguration' - Container for setting the transfer acceleration state.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkPutBucketAccelerateConfiguration ::
   -- | 'bucket'
@@ -87,32 +83,31 @@ mkPutBucketAccelerateConfiguration
   pBucket_
   pAccelerateConfiguration_ =
     PutBucketAccelerateConfiguration'
-      { expectedBucketOwner =
-          Lude.Nothing,
-        bucket = pBucket_,
-        accelerateConfiguration = pAccelerateConfiguration_
+      { bucket = pBucket_,
+        accelerateConfiguration = pAccelerateConfiguration_,
+        expectedBucketOwner = Lude.Nothing
       }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbacExpectedBucketOwner :: Lens.Lens' PutBucketAccelerateConfiguration (Lude.Maybe Lude.Text)
-pbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketAccelerateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketAccelerateConfiguration)
-{-# DEPRECATED pbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket for which the accelerate configuration is set.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbacBucket :: Lens.Lens' PutBucketAccelerateConfiguration BucketName
-pbacBucket = Lens.lens (bucket :: PutBucketAccelerateConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketAccelerateConfiguration)
-{-# DEPRECATED pbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+pBucket :: Lens.Lens' PutBucketAccelerateConfiguration BucketName
+pBucket = Lens.lens (bucket :: PutBucketAccelerateConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketAccelerateConfiguration)
+{-# DEPRECATED pBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Container for setting the transfer acceleration state.
 --
 -- /Note:/ Consider using 'accelerateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbacAccelerateConfiguration :: Lens.Lens' PutBucketAccelerateConfiguration AccelerateConfiguration
-pbacAccelerateConfiguration = Lens.lens (accelerateConfiguration :: PutBucketAccelerateConfiguration -> AccelerateConfiguration) (\s a -> s {accelerateConfiguration = a} :: PutBucketAccelerateConfiguration)
-{-# DEPRECATED pbacAccelerateConfiguration "Use generic-lens or generic-optics with 'accelerateConfiguration' instead." #-}
+pAccelerateConfiguration :: Lens.Lens' PutBucketAccelerateConfiguration AccelerateConfiguration
+pAccelerateConfiguration = Lens.lens (accelerateConfiguration :: PutBucketAccelerateConfiguration -> AccelerateConfiguration) (\s a -> s {accelerateConfiguration = a} :: PutBucketAccelerateConfiguration)
+{-# DEPRECATED pAccelerateConfiguration "Use generic-lens or generic-optics with 'accelerateConfiguration' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pExpectedBucketOwner :: Lens.Lens' PutBucketAccelerateConfiguration (Lude.Maybe Lude.Text)
+pExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketAccelerateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketAccelerateConfiguration)
+{-# DEPRECATED pExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest PutBucketAccelerateConfiguration where
   type
@@ -142,13 +137,7 @@ instance Lude.ToQuery PutBucketAccelerateConfiguration where
 
 -- | /See:/ 'mkPutBucketAccelerateConfigurationResponse' smart constructor.
 data PutBucketAccelerateConfigurationResponse = PutBucketAccelerateConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketAccelerateConfigurationResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.Config.ListAggregateDiscoveredResources
     mkListAggregateDiscoveredResources,
 
     -- ** Request lenses
+    ladrResourceType,
     ladrFilters,
     ladrNextToken,
     ladrLimit,
     ladrConfigurationAggregatorName,
-    ladrResourceType,
 
     -- * Destructuring the response
     ListAggregateDiscoveredResourcesResponse (..),
@@ -49,50 +50,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAggregateDiscoveredResources' smart constructor.
 data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
-  { filters ::
-      Lude.Maybe
-        ResourceFilters,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe Lude.Natural,
-    configurationAggregatorName ::
-      Lude.Text,
-    resourceType ::
-      ResourceType
+  { -- | The type of resources that you want AWS Config to list in the response.
+    resourceType :: ResourceType,
+    -- | Filters the results based on the @ResourceFilters@ object.
+    filters :: Lude.Maybe ResourceFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAggregateDiscoveredResources' with the minimum fields required to make a request.
 --
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
--- * 'filters' - Filters the results based on the @ResourceFilters@ object.
--- * 'limit' - The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'resourceType' - The type of resources that you want AWS Config to list in the response.
+-- * 'filters' - Filters the results based on the @ResourceFilters@ object.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
 mkListAggregateDiscoveredResources ::
-  -- | 'configurationAggregatorName'
-  Lude.Text ->
   -- | 'resourceType'
   ResourceType ->
+  -- | 'configurationAggregatorName'
+  Lude.Text ->
   ListAggregateDiscoveredResources
 mkListAggregateDiscoveredResources
-  pConfigurationAggregatorName_
-  pResourceType_ =
+  pResourceType_
+  pConfigurationAggregatorName_ =
     ListAggregateDiscoveredResources'
-      { filters = Lude.Nothing,
+      { resourceType = pResourceType_,
+        filters = Lude.Nothing,
         nextToken = Lude.Nothing,
         limit = Lude.Nothing,
-        configurationAggregatorName = pConfigurationAggregatorName_,
-        resourceType = pResourceType_
+        configurationAggregatorName = pConfigurationAggregatorName_
       }
+
+-- | The type of resources that you want AWS Config to list in the response.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladrResourceType :: Lens.Lens' ListAggregateDiscoveredResources ResourceType
+ladrResourceType = Lens.lens (resourceType :: ListAggregateDiscoveredResources -> ResourceType) (\s a -> s {resourceType = a} :: ListAggregateDiscoveredResources)
+{-# DEPRECATED ladrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Filters the results based on the @ResourceFilters@ object.
 --
@@ -121,13 +122,6 @@ ladrLimit = Lens.lens (limit :: ListAggregateDiscoveredResources -> Lude.Maybe L
 ladrConfigurationAggregatorName :: Lens.Lens' ListAggregateDiscoveredResources Lude.Text
 ladrConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: ListAggregateDiscoveredResources -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: ListAggregateDiscoveredResources)
 {-# DEPRECATED ladrConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
-
--- | The type of resources that you want AWS Config to list in the response.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrResourceType :: Lens.Lens' ListAggregateDiscoveredResources ResourceType
-ladrResourceType = Lens.lens (resourceType :: ListAggregateDiscoveredResources -> ResourceType) (\s a -> s {resourceType = a} :: ListAggregateDiscoveredResources)
-{-# DEPRECATED ladrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 instance Page.AWSPager ListAggregateDiscoveredResources where
   page rq rs
@@ -169,14 +163,14 @@ instance Lude.ToJSON ListAggregateDiscoveredResources where
   toJSON ListAggregateDiscoveredResources' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
+          [ Lude.Just ("ResourceType" Lude..= resourceType),
+            ("Filters" Lude..=) Lude.<$> filters,
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Limit" Lude..=) Lude.<$> limit,
             Lude.Just
               ( "ConfigurationAggregatorName"
                   Lude..= configurationAggregatorName
-              ),
-            Lude.Just ("ResourceType" Lude..= resourceType)
+              )
           ]
       )
 
@@ -188,22 +182,14 @@ instance Lude.ToQuery ListAggregateDiscoveredResources where
 
 -- | /See:/ 'mkListAggregateDiscoveredResourcesResponse' smart constructor.
 data ListAggregateDiscoveredResourcesResponse = ListAggregateDiscoveredResourcesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    resourceIdentifiers ::
-      Lude.Maybe
-        [AggregateResourceIdentifier],
-    responseStatus ::
-      Lude.Int
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns a list of @ResourceIdentifiers@ objects.
+    resourceIdentifiers :: Lude.Maybe [AggregateResourceIdentifier],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAggregateDiscoveredResourcesResponse' with the minimum fields required to make a request.

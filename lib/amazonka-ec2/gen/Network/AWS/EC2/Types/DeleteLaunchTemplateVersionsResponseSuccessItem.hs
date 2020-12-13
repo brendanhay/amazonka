@@ -30,32 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeleteLaunchTemplateVersionsResponseSuccessItem' smart constructor.
 data DeleteLaunchTemplateVersionsResponseSuccessItem = DeleteLaunchTemplateVersionsResponseSuccessItem'
-  { launchTemplateName ::
-      Lude.Maybe
-        Lude.Text,
-    launchTemplateId ::
-      Lude.Maybe
-        Lude.Text,
-    versionNumber ::
-      Lude.Maybe
-        Lude.Integer
+  { -- | The name of the launch template.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | The ID of the launch template.
+    launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The version number of the launch template.
+    versionNumber :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchTemplateVersionsResponseSuccessItem' with the minimum fields required to make a request.
 --
--- * 'launchTemplateId' - The ID of the launch template.
 -- * 'launchTemplateName' - The name of the launch template.
+-- * 'launchTemplateId' - The ID of the launch template.
 -- * 'versionNumber' - The version number of the launch template.
 mkDeleteLaunchTemplateVersionsResponseSuccessItem ::
   DeleteLaunchTemplateVersionsResponseSuccessItem

@@ -32,17 +32,12 @@ import Network.AWS.S3.Types.Owner
 --
 -- /See:/ 'mkAccessControlPolicy' smart constructor.
 data AccessControlPolicy = AccessControlPolicy'
-  { grants ::
-      Lude.Maybe [Grant],
+  { -- | A list of grants.
+    grants :: Lude.Maybe [Grant],
+    -- | Container for the bucket owner's display name and ID.
     owner :: Lude.Maybe Owner
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessControlPolicy' with the minimum fields required to make a request.

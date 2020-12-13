@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     mkRevokeSnapshotAccess,
 
     -- ** Request lenses
-    rsaSnapshotClusterIdentifier,
     rsaSnapshotIdentifier,
+    rsaSnapshotClusterIdentifier,
     rsaAccountWithRestoreAccess,
 
     -- * Destructuring the response
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRevokeSnapshotAccess' smart constructor.
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
-  { snapshotClusterIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the snapshot that the account can no longer access.
     snapshotIdentifier :: Lude.Text,
+    -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+    snapshotClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The identifier of the AWS customer account that can no longer restore the specified snapshot.
     accountWithRestoreAccess :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSnapshotAccess' with the minimum fields required to make a request.
 --
--- * 'accountWithRestoreAccess' - The identifier of the AWS customer account that can no longer restore the specified snapshot.
--- * 'snapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 -- * 'snapshotIdentifier' - The identifier of the snapshot that the account can no longer access.
+-- * 'snapshotClusterIdentifier' - The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+-- * 'accountWithRestoreAccess' - The identifier of the AWS customer account that can no longer restore the specified snapshot.
 mkRevokeSnapshotAccess ::
   -- | 'snapshotIdentifier'
   Lude.Text ->
@@ -74,17 +71,10 @@ mkRevokeSnapshotAccess
   pSnapshotIdentifier_
   pAccountWithRestoreAccess_ =
     RevokeSnapshotAccess'
-      { snapshotClusterIdentifier = Lude.Nothing,
-        snapshotIdentifier = pSnapshotIdentifier_,
+      { snapshotIdentifier = pSnapshotIdentifier_,
+        snapshotClusterIdentifier = Lude.Nothing,
         accountWithRestoreAccess = pAccountWithRestoreAccess_
       }
-
--- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
---
--- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsaSnapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Lude.Maybe Lude.Text)
-rsaSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: RevokeSnapshotAccess -> Lude.Maybe Lude.Text) (\s a -> s {snapshotClusterIdentifier = a} :: RevokeSnapshotAccess)
-{-# DEPRECATED rsaSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
 
 -- | The identifier of the snapshot that the account can no longer access.
 --
@@ -92,6 +82,13 @@ rsaSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: RevokeSna
 rsaSnapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess Lude.Text
 rsaSnapshotIdentifier = Lens.lens (snapshotIdentifier :: RevokeSnapshotAccess -> Lude.Text) (\s a -> s {snapshotIdentifier = a} :: RevokeSnapshotAccess)
 {-# DEPRECATED rsaSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
+
+-- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+--
+-- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsaSnapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Lude.Maybe Lude.Text)
+rsaSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: RevokeSnapshotAccess -> Lude.Maybe Lude.Text) (\s a -> s {snapshotClusterIdentifier = a} :: RevokeSnapshotAccess)
+{-# DEPRECATED rsaSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
 
 -- | The identifier of the AWS customer account that can no longer restore the specified snapshot.
 --
@@ -122,30 +119,24 @@ instance Lude.ToQuery RevokeSnapshotAccess where
     Lude.mconcat
       [ "Action" Lude.=: ("RevokeSnapshotAccess" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "SnapshotClusterIdentifier" Lude.=: snapshotClusterIdentifier,
         "SnapshotIdentifier" Lude.=: snapshotIdentifier,
+        "SnapshotClusterIdentifier" Lude.=: snapshotClusterIdentifier,
         "AccountWithRestoreAccess" Lude.=: accountWithRestoreAccess
       ]
 
 -- | /See:/ 'mkRevokeSnapshotAccessResponse' smart constructor.
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-  { snapshot ::
-      Lude.Maybe Snapshot,
+  { snapshot :: Lude.Maybe Snapshot,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSnapshotAccessResponse' with the minimum fields required to make a request.
 --
+-- * 'snapshot' -
 -- * 'responseStatus' - The response status code.
--- * 'snapshot' - Undocumented field.
 mkRevokeSnapshotAccessResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -29,24 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMatcher' smart constructor.
 data Matcher = Matcher'
-  { hTTPCode :: Lude.Maybe Lude.Text,
+  { -- | For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+    --
+    -- For Network Load Balancers and Gateway Load Balancers, this must be "200–399".
+    hTTPCode :: Lude.Maybe Lude.Text,
+    -- | You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
     grpcCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Matcher' with the minimum fields required to make a request.
 --
--- * 'grpcCode' - You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
 -- * 'hTTPCode' - For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
 --
 -- For Network Load Balancers and Gateway Load Balancers, this must be "200–399".
+-- * 'grpcCode' - You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
 mkMatcher ::
   Matcher
 mkMatcher =

@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDB.Types.ContributorInsightsStatus
   ( ContributorInsightsStatus
       ( ContributorInsightsStatus',
-        CISDisabled,
-        CISDisabling,
-        CISEnabled,
         CISEnabling,
+        CISEnabled,
+        CISDisabling,
+        CISDisabled,
         CISFailed
       ),
   )
@@ -48,26 +48,26 @@ newtype ContributorInsightsStatus = ContributorInsightsStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CISDisabled :: ContributorInsightsStatus
-pattern CISDisabled = ContributorInsightsStatus' "DISABLED"
-
-pattern CISDisabling :: ContributorInsightsStatus
-pattern CISDisabling = ContributorInsightsStatus' "DISABLING"
+pattern CISEnabling :: ContributorInsightsStatus
+pattern CISEnabling = ContributorInsightsStatus' "ENABLING"
 
 pattern CISEnabled :: ContributorInsightsStatus
 pattern CISEnabled = ContributorInsightsStatus' "ENABLED"
 
-pattern CISEnabling :: ContributorInsightsStatus
-pattern CISEnabling = ContributorInsightsStatus' "ENABLING"
+pattern CISDisabling :: ContributorInsightsStatus
+pattern CISDisabling = ContributorInsightsStatus' "DISABLING"
+
+pattern CISDisabled :: ContributorInsightsStatus
+pattern CISDisabled = ContributorInsightsStatus' "DISABLED"
 
 pattern CISFailed :: ContributorInsightsStatus
 pattern CISFailed = ContributorInsightsStatus' "FAILED"
 
 {-# COMPLETE
-  CISDisabled,
-  CISDisabling,
-  CISEnabled,
   CISEnabling,
+  CISEnabled,
+  CISDisabling,
+  CISDisabled,
   CISFailed,
   ContributorInsightsStatus'
   #-}

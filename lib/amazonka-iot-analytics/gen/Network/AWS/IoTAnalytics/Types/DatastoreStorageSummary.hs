@@ -31,26 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatastoreStorageSummary' smart constructor.
 data DatastoreStorageSummary = DatastoreStorageSummary'
-  { serviceManagedS3 ::
-      Lude.Maybe
-        ServiceManagedDatastoreS3StorageSummary,
-    customerManagedS3 ::
-      Lude.Maybe
-        CustomerManagedDatastoreS3StorageSummary
+  { -- | Used to store data store data in an S3 bucket managed by AWS IoT Analytics.
+    serviceManagedS3 :: Lude.Maybe ServiceManagedDatastoreS3StorageSummary,
+    -- | Used to store data store data in an S3 bucket that you manage.
+    customerManagedS3 :: Lude.Maybe CustomerManagedDatastoreS3StorageSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatastoreStorageSummary' with the minimum fields required to make a request.
 --
--- * 'customerManagedS3' - Used to store data store data in an S3 bucket that you manage.
 -- * 'serviceManagedS3' - Used to store data store data in an S3 bucket managed by AWS IoT Analytics.
+-- * 'customerManagedS3' - Used to store data store data in an S3 bucket that you manage.
 mkDatastoreStorageSummary ::
   DatastoreStorageSummary
 mkDatastoreStorageSummary =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,17 +58,17 @@ module Network.AWS.GameLift.CreateMatchmakingRuleSet
     mkCreateMatchmakingRuleSet,
 
     -- ** Request lenses
-    cmrsTags,
-    cmrsName,
     cmrsRuleSetBody,
+    cmrsName,
+    cmrsTags,
 
     -- * Destructuring the response
     CreateMatchmakingRuleSetResponse (..),
     mkCreateMatchmakingRuleSetResponse,
 
     -- ** Response lenses
-    cmrsrsResponseStatus,
     cmrsrsRuleSet,
+    cmrsrsResponseStatus,
   )
 where
 
@@ -81,51 +82,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateMatchmakingRuleSet' smart constructor.
 data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
+    ruleSetBody :: Lude.Text,
+    -- | A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
     name :: Lude.Text,
-    ruleSetBody :: Lude.Text
+    -- | A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMatchmakingRuleSet' with the minimum fields required to make a request.
 --
--- * 'name' - A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
 -- * 'ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
+-- * 'name' - A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
 -- * 'tags' - A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 mkCreateMatchmakingRuleSet ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'ruleSetBody'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateMatchmakingRuleSet
-mkCreateMatchmakingRuleSet pName_ pRuleSetBody_ =
+mkCreateMatchmakingRuleSet pRuleSetBody_ pName_ =
   CreateMatchmakingRuleSet'
-    { tags = Lude.Nothing,
+    { ruleSetBody = pRuleSetBody_,
       name = pName_,
-      ruleSetBody = pRuleSetBody_
+      tags = Lude.Nothing
     }
-
--- | A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsTags :: Lens.Lens' CreateMatchmakingRuleSet (Lude.Maybe [Tag])
-cmrsTags = Lens.lens (tags :: CreateMatchmakingRuleSet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateMatchmakingRuleSet)
-{-# DEPRECATED cmrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsName :: Lens.Lens' CreateMatchmakingRuleSet Lude.Text
-cmrsName = Lens.lens (name :: CreateMatchmakingRuleSet -> Lude.Text) (\s a -> s {name = a} :: CreateMatchmakingRuleSet)
-{-# DEPRECATED cmrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
 --
@@ -134,6 +117,20 @@ cmrsRuleSetBody :: Lens.Lens' CreateMatchmakingRuleSet Lude.Text
 cmrsRuleSetBody = Lens.lens (ruleSetBody :: CreateMatchmakingRuleSet -> Lude.Text) (\s a -> s {ruleSetBody = a} :: CreateMatchmakingRuleSet)
 {-# DEPRECATED cmrsRuleSetBody "Use generic-lens or generic-optics with 'ruleSetBody' instead." #-}
 
+-- | A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsName :: Lens.Lens' CreateMatchmakingRuleSet Lude.Text
+cmrsName = Lens.lens (name :: CreateMatchmakingRuleSet -> Lude.Text) (\s a -> s {name = a} :: CreateMatchmakingRuleSet)
+{-# DEPRECATED cmrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsTags :: Lens.Lens' CreateMatchmakingRuleSet (Lude.Maybe [Tag])
+cmrsTags = Lens.lens (tags :: CreateMatchmakingRuleSet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateMatchmakingRuleSet)
+{-# DEPRECATED cmrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
 instance Lude.AWSRequest CreateMatchmakingRuleSet where
   type Rs CreateMatchmakingRuleSet = CreateMatchmakingRuleSetResponse
   request = Req.postJSON gameLiftService
@@ -141,7 +138,7 @@ instance Lude.AWSRequest CreateMatchmakingRuleSet where
     Res.receiveJSON
       ( \s h x ->
           CreateMatchmakingRuleSetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "RuleSet")
+            Lude.<$> (x Lude..:> "RuleSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateMatchmakingRuleSet where
@@ -159,9 +156,9 @@ instance Lude.ToJSON CreateMatchmakingRuleSet where
   toJSON CreateMatchmakingRuleSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("RuleSetBody" Lude..= ruleSetBody),
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("RuleSetBody" Lude..= ruleSetBody)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -175,43 +172,29 @@ instance Lude.ToQuery CreateMatchmakingRuleSet where
 --
 -- /See:/ 'mkCreateMatchmakingRuleSetResponse' smart constructor.
 data CreateMatchmakingRuleSetResponse = CreateMatchmakingRuleSetResponse'
-  { responseStatus ::
-      Lude.Int,
-    ruleSet ::
-      MatchmakingRuleSet
+  { -- | The newly created matchmaking rule set.
+    ruleSet :: MatchmakingRuleSet,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMatchmakingRuleSetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'ruleSet' - The newly created matchmaking rule set.
+-- * 'responseStatus' - The response status code.
 mkCreateMatchmakingRuleSetResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'ruleSet'
   MatchmakingRuleSet ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateMatchmakingRuleSetResponse
-mkCreateMatchmakingRuleSetResponse pResponseStatus_ pRuleSet_ =
+mkCreateMatchmakingRuleSetResponse pRuleSet_ pResponseStatus_ =
   CreateMatchmakingRuleSetResponse'
-    { responseStatus =
-        pResponseStatus_,
-      ruleSet = pRuleSet_
+    { ruleSet = pRuleSet_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsrsResponseStatus :: Lens.Lens' CreateMatchmakingRuleSetResponse Lude.Int
-cmrsrsResponseStatus = Lens.lens (responseStatus :: CreateMatchmakingRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMatchmakingRuleSetResponse)
-{-# DEPRECATED cmrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The newly created matchmaking rule set.
 --
@@ -219,3 +202,10 @@ cmrsrsResponseStatus = Lens.lens (responseStatus :: CreateMatchmakingRuleSetResp
 cmrsrsRuleSet :: Lens.Lens' CreateMatchmakingRuleSetResponse MatchmakingRuleSet
 cmrsrsRuleSet = Lens.lens (ruleSet :: CreateMatchmakingRuleSetResponse -> MatchmakingRuleSet) (\s a -> s {ruleSet = a} :: CreateMatchmakingRuleSetResponse)
 {-# DEPRECATED cmrsrsRuleSet "Use generic-lens or generic-optics with 'ruleSet' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsrsResponseStatus :: Lens.Lens' CreateMatchmakingRuleSetResponse Lude.Int
+cmrsrsResponseStatus = Lens.lens (responseStatus :: CreateMatchmakingRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMatchmakingRuleSetResponse)
+{-# DEPRECATED cmrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.AutoScaling.ExitStandby
     mkExitStandbyResponse,
 
     -- ** Response lenses
-    esrsActivities,
-    esrsResponseStatus,
+    ersActivities,
+    ersResponseStatus,
   )
 where
 
@@ -43,23 +44,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExitStandby' smart constructor.
 data ExitStandby = ExitStandby'
-  { instanceIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExitStandby' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkExitStandby ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -116,17 +112,12 @@ instance Lude.ToQuery ExitStandby where
 
 -- | /See:/ 'mkExitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
-  { activities ::
-      Lude.Maybe [Activity],
+  { -- | The activities related to moving instances out of @Standby@ mode.
+    activities :: Lude.Maybe [Activity],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExitStandbyResponse' with the minimum fields required to make a request.
@@ -146,13 +137,13 @@ mkExitStandbyResponse pResponseStatus_ =
 -- | The activities related to moving instances out of @Standby@ mode.
 --
 -- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrsActivities :: Lens.Lens' ExitStandbyResponse (Lude.Maybe [Activity])
-esrsActivities = Lens.lens (activities :: ExitStandbyResponse -> Lude.Maybe [Activity]) (\s a -> s {activities = a} :: ExitStandbyResponse)
-{-# DEPRECATED esrsActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
+ersActivities :: Lens.Lens' ExitStandbyResponse (Lude.Maybe [Activity])
+ersActivities = Lens.lens (activities :: ExitStandbyResponse -> Lude.Maybe [Activity]) (\s a -> s {activities = a} :: ExitStandbyResponse)
+{-# DEPRECATED ersActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrsResponseStatus :: Lens.Lens' ExitStandbyResponse Lude.Int
-esrsResponseStatus = Lens.lens (responseStatus :: ExitStandbyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExitStandbyResponse)
-{-# DEPRECATED esrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ersResponseStatus :: Lens.Lens' ExitStandbyResponse Lude.Int
+ersResponseStatus = Lens.lens (responseStatus :: ExitStandbyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExitStandbyResponse)
+{-# DEPRECATED ersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

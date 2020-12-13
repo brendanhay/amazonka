@@ -41,43 +41,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCurrentInstance' smart constructor.
 data CurrentInstance = CurrentInstance'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | Resource ID of the current instance.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The currency code that AWS used to calculate the costs for this instance.
     currencyCode :: Lude.Maybe Lude.Text,
+    -- | Utilization information of the current instance during the lookback period.
     resourceUtilization :: Lude.Maybe ResourceUtilization,
+    -- | Details about the resource and utilization.
     resourceDetails :: Lude.Maybe ResourceDetails,
+    -- | The total number of hours the instance ran during the lookback period.
     totalRunningHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
-    reservationCoveredHoursInLookbackPeriod ::
-      Lude.Maybe Lude.Text,
+    -- | Number of hours during the lookback period covered by reservations.
+    reservationCoveredHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
+    -- | Number of hours during the lookback period billed at On-Demand rates.
     onDemandHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
+    -- | Current On-Demand cost of operating this instance on a monthly basis.
     monthlyCost :: Lude.Maybe Lude.Text,
+    -- | The name you've given an instance. This field will show as blank if you haven't given the instance a name.
     instanceName :: Lude.Maybe Lude.Text,
-    savingsPlansCoveredHoursInLookbackPeriod ::
-      Lude.Maybe Lude.Text,
+    -- | Number of hours during the lookback period covered by Savings Plans.
+    savingsPlansCoveredHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
+    -- | Cost allocation resource tags applied to the instance.
     tags :: Lude.Maybe [TagValues]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CurrentInstance' with the minimum fields required to make a request.
 --
--- * 'currencyCode' - The currency code that AWS used to calculate the costs for this instance.
--- * 'instanceName' - The name you've given an instance. This field will show as blank if you haven't given the instance a name.
--- * 'monthlyCost' - Current On-Demand cost of operating this instance on a monthly basis.
--- * 'onDemandHoursInLookbackPeriod' - Number of hours during the lookback period billed at On-Demand rates.
--- * 'reservationCoveredHoursInLookbackPeriod' - Number of hours during the lookback period covered by reservations.
--- * 'resourceDetails' - Details about the resource and utilization.
 -- * 'resourceId' - Resource ID of the current instance.
+-- * 'currencyCode' - The currency code that AWS used to calculate the costs for this instance.
 -- * 'resourceUtilization' - Utilization information of the current instance during the lookback period.
+-- * 'resourceDetails' - Details about the resource and utilization.
+-- * 'totalRunningHoursInLookbackPeriod' - The total number of hours the instance ran during the lookback period.
+-- * 'reservationCoveredHoursInLookbackPeriod' - Number of hours during the lookback period covered by reservations.
+-- * 'onDemandHoursInLookbackPeriod' - Number of hours during the lookback period billed at On-Demand rates.
+-- * 'monthlyCost' - Current On-Demand cost of operating this instance on a monthly basis.
+-- * 'instanceName' - The name you've given an instance. This field will show as blank if you haven't given the instance a name.
 -- * 'savingsPlansCoveredHoursInLookbackPeriod' - Number of hours during the lookback period covered by Savings Plans.
 -- * 'tags' - Cost allocation resource tags applied to the instance.
--- * 'totalRunningHoursInLookbackPeriod' - The total number of hours the instance ran during the lookback period.
 mkCurrentInstance ::
   CurrentInstance
 mkCurrentInstance =

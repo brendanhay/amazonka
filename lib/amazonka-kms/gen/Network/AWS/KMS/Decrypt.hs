@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,11 +42,11 @@ module Network.AWS.KMS.Decrypt
     mkDecrypt,
 
     -- ** Request lenses
-    decKeyId,
-    decEncryptionContext,
-    decGrantTokens,
-    decEncryptionAlgorithm,
-    decCiphertextBlob,
+    dfKeyId,
+    dfEncryptionContext,
+    dfGrantTokens,
+    dfEncryptionAlgorithm,
+    dfCiphertextBlob,
 
     -- * Destructuring the response
     DecryptResponse (..),
@@ -67,39 +68,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDecrypt' smart constructor.
 data Decrypt = Decrypt'
-  { keyId :: Lude.Maybe Lude.Text,
-    encryptionContext ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext. Enter a key ID of the CMK that was used to encrypt the ciphertext.
+    --
+    -- If you specify a @KeyId@ value, the @Decrypt@ operation succeeds only if the specified CMK was used to encrypt the ciphertext.
+    -- This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. Otherwise, AWS KMS uses the metadata that it adds to the ciphertext blob to determine which CMK was used to encrypt the ciphertext. However, you can use this parameter to ensure that a particular CMK (of any kind) is used to decrypt the ciphertext.
+    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ .
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Alias name: @alias/ExampleAlias@
+    --
+    --
+    --     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+    keyId :: Lude.Maybe Lude.Text,
+    -- | Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.
+    --
+    -- An /encryption context/ is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
+    encryptionContext :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A list of grant tokens.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
     grantTokens :: Lude.Maybe [Lude.Text],
+    -- | Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify the same algorithm that was used to encrypt the data. If you specify a different algorithm, the @Decrypt@ operation fails.
+    --
+    -- This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. The default value, @SYMMETRIC_DEFAULT@ , represents the only supported algorithm that is valid for symmetric CMKs.
     encryptionAlgorithm :: Lude.Maybe EncryptionAlgorithmSpec,
+    -- | Ciphertext to be decrypted. The blob includes metadata.
     ciphertextBlob :: Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Decrypt' with the minimum fields required to make a request.
 --
--- * 'ciphertextBlob' - Ciphertext to be decrypted. The blob includes metadata.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'encryptionAlgorithm' - Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify the same algorithm that was used to encrypt the data. If you specify a different algorithm, the @Decrypt@ operation fails.
---
--- This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. The default value, @SYMMETRIC_DEFAULT@ , represents the only supported algorithm that is valid for symmetric CMKs.
--- * 'encryptionContext' - Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.
---
--- An /encryption context/ is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 -- * 'keyId' - Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext. Enter a key ID of the CMK that was used to encrypt the ciphertext.
 --
 -- If you specify a @KeyId@ value, the @Decrypt@ operation succeeds only if the specified CMK was used to encrypt the ciphertext.
@@ -120,6 +130,17 @@ data Decrypt = Decrypt'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+-- * 'encryptionContext' - Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.
+--
+-- An /encryption context/ is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
+-- * 'grantTokens' - A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+-- * 'encryptionAlgorithm' - Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify the same algorithm that was used to encrypt the data. If you specify a different algorithm, the @Decrypt@ operation fails.
+--
+-- This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. The default value, @SYMMETRIC_DEFAULT@ , represents the only supported algorithm that is valid for symmetric CMKs.
+-- * 'ciphertextBlob' - Ciphertext to be decrypted. The blob includes metadata.
 mkDecrypt ::
   -- | 'ciphertextBlob'
   Lude.Base64 ->
@@ -155,9 +176,9 @@ mkDecrypt pCiphertextBlob_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decKeyId :: Lens.Lens' Decrypt (Lude.Maybe Lude.Text)
-decKeyId = Lens.lens (keyId :: Decrypt -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: Decrypt)
-{-# DEPRECATED decKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+dfKeyId :: Lens.Lens' Decrypt (Lude.Maybe Lude.Text)
+dfKeyId = Lens.lens (keyId :: Decrypt -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: Decrypt)
+{-# DEPRECATED dfKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | Specifies the encryption context to use when decrypting the data. An encryption context is valid only for <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.
 --
@@ -165,27 +186,27 @@ decKeyId = Lens.lens (keyId :: Decrypt -> Lude.Maybe Lude.Text) (\s a -> s {keyI
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'encryptionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decEncryptionContext :: Lens.Lens' Decrypt (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-decEncryptionContext = Lens.lens (encryptionContext :: Decrypt -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {encryptionContext = a} :: Decrypt)
-{-# DEPRECATED decEncryptionContext "Use generic-lens or generic-optics with 'encryptionContext' instead." #-}
+dfEncryptionContext :: Lens.Lens' Decrypt (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+dfEncryptionContext = Lens.lens (encryptionContext :: Decrypt -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {encryptionContext = a} :: Decrypt)
+{-# DEPRECATED dfEncryptionContext "Use generic-lens or generic-optics with 'encryptionContext' instead." #-}
 
 -- | A list of grant tokens.
 --
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decGrantTokens :: Lens.Lens' Decrypt (Lude.Maybe [Lude.Text])
-decGrantTokens = Lens.lens (grantTokens :: Decrypt -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: Decrypt)
-{-# DEPRECATED decGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+dfGrantTokens :: Lens.Lens' Decrypt (Lude.Maybe [Lude.Text])
+dfGrantTokens = Lens.lens (grantTokens :: Decrypt -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: Decrypt)
+{-# DEPRECATED dfGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
 
 -- | Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify the same algorithm that was used to encrypt the data. If you specify a different algorithm, the @Decrypt@ operation fails.
 --
 -- This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. The default value, @SYMMETRIC_DEFAULT@ , represents the only supported algorithm that is valid for symmetric CMKs.
 --
 -- /Note:/ Consider using 'encryptionAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decEncryptionAlgorithm :: Lens.Lens' Decrypt (Lude.Maybe EncryptionAlgorithmSpec)
-decEncryptionAlgorithm = Lens.lens (encryptionAlgorithm :: Decrypt -> Lude.Maybe EncryptionAlgorithmSpec) (\s a -> s {encryptionAlgorithm = a} :: Decrypt)
-{-# DEPRECATED decEncryptionAlgorithm "Use generic-lens or generic-optics with 'encryptionAlgorithm' instead." #-}
+dfEncryptionAlgorithm :: Lens.Lens' Decrypt (Lude.Maybe EncryptionAlgorithmSpec)
+dfEncryptionAlgorithm = Lens.lens (encryptionAlgorithm :: Decrypt -> Lude.Maybe EncryptionAlgorithmSpec) (\s a -> s {encryptionAlgorithm = a} :: Decrypt)
+{-# DEPRECATED dfEncryptionAlgorithm "Use generic-lens or generic-optics with 'encryptionAlgorithm' instead." #-}
 
 -- | Ciphertext to be decrypted. The blob includes metadata.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -194,9 +215,9 @@ decEncryptionAlgorithm = Lens.lens (encryptionAlgorithm :: Decrypt -> Lude.Maybe
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'ciphertextBlob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decCiphertextBlob :: Lens.Lens' Decrypt Lude.Base64
-decCiphertextBlob = Lens.lens (ciphertextBlob :: Decrypt -> Lude.Base64) (\s a -> s {ciphertextBlob = a} :: Decrypt)
-{-# DEPRECATED decCiphertextBlob "Use generic-lens or generic-optics with 'ciphertextBlob' instead." #-}
+dfCiphertextBlob :: Lens.Lens' Decrypt Lude.Base64
+dfCiphertextBlob = Lens.lens (ciphertextBlob :: Decrypt -> Lude.Base64) (\s a -> s {ciphertextBlob = a} :: Decrypt)
+{-# DEPRECATED dfCiphertextBlob "Use generic-lens or generic-optics with 'ciphertextBlob' instead." #-}
 
 instance Lude.AWSRequest Decrypt where
   type Rs Decrypt = DecryptResponse
@@ -242,10 +263,13 @@ instance Lude.ToQuery Decrypt where
 
 -- | /See:/ 'mkDecryptResponse' smart constructor.
 data DecryptResponse = DecryptResponse'
-  { keyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that was used to decrypt the ciphertext.
+    keyId :: Lude.Maybe Lude.Text,
+    -- | Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
     plaintext :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | The encryption algorithm that was used to decrypt the ciphertext.
     encryptionAlgorithm :: Lude.Maybe EncryptionAlgorithmSpec,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -253,13 +277,9 @@ data DecryptResponse = DecryptResponse'
 
 -- | Creates a value of 'DecryptResponse' with the minimum fields required to make a request.
 --
--- * 'encryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext.
 -- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK that was used to decrypt the ciphertext.
--- * 'plaintext' - Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'plaintext' - Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
+-- * 'encryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext.
 -- * 'responseStatus' - The response status code.
 mkDecryptResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.RejectVPCEndpointConnections
     mkRejectVPCEndpointConnections,
 
     -- ** Request lenses
-    rvecDryRun,
-    rvecServiceId,
     rvecVPCEndpointIds,
+    rvecServiceId,
+    rvecDryRun,
 
     -- * Destructuring the response
     RejectVPCEndpointConnectionsResponse (..),
@@ -41,42 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRejectVPCEndpointConnections' smart constructor.
 data RejectVPCEndpointConnections = RejectVPCEndpointConnections'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The IDs of one or more VPC endpoints.
+    vpcEndpointIds :: [Lude.Text],
+    -- | The ID of the service.
     serviceId :: Lude.Text,
-    vpcEndpointIds :: [Lude.Text]
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectVPCEndpointConnections' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'serviceId' - The ID of the service.
 -- * 'vpcEndpointIds' - The IDs of one or more VPC endpoints.
+-- * 'serviceId' - The ID of the service.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRejectVPCEndpointConnections ::
   -- | 'serviceId'
   Lude.Text ->
   RejectVPCEndpointConnections
 mkRejectVPCEndpointConnections pServiceId_ =
   RejectVPCEndpointConnections'
-    { dryRun = Lude.Nothing,
+    { vpcEndpointIds = Lude.mempty,
       serviceId = pServiceId_,
-      vpcEndpointIds = Lude.mempty
+      dryRun = Lude.Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The IDs of one or more VPC endpoints.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rvecDryRun :: Lens.Lens' RejectVPCEndpointConnections (Lude.Maybe Lude.Bool)
-rvecDryRun = Lens.lens (dryRun :: RejectVPCEndpointConnections -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RejectVPCEndpointConnections)
-{-# DEPRECATED rvecDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'vpcEndpointIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvecVPCEndpointIds :: Lens.Lens' RejectVPCEndpointConnections [Lude.Text]
+rvecVPCEndpointIds = Lens.lens (vpcEndpointIds :: RejectVPCEndpointConnections -> [Lude.Text]) (\s a -> s {vpcEndpointIds = a} :: RejectVPCEndpointConnections)
+{-# DEPRECATED rvecVPCEndpointIds "Use generic-lens or generic-optics with 'vpcEndpointIds' instead." #-}
 
 -- | The ID of the service.
 --
@@ -85,12 +82,12 @@ rvecServiceId :: Lens.Lens' RejectVPCEndpointConnections Lude.Text
 rvecServiceId = Lens.lens (serviceId :: RejectVPCEndpointConnections -> Lude.Text) (\s a -> s {serviceId = a} :: RejectVPCEndpointConnections)
 {-# DEPRECATED rvecServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
--- | The IDs of one or more VPC endpoints.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'vpcEndpointIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rvecVPCEndpointIds :: Lens.Lens' RejectVPCEndpointConnections [Lude.Text]
-rvecVPCEndpointIds = Lens.lens (vpcEndpointIds :: RejectVPCEndpointConnections -> [Lude.Text]) (\s a -> s {vpcEndpointIds = a} :: RejectVPCEndpointConnections)
-{-# DEPRECATED rvecVPCEndpointIds "Use generic-lens or generic-optics with 'vpcEndpointIds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rvecDryRun :: Lens.Lens' RejectVPCEndpointConnections (Lude.Maybe Lude.Bool)
+rvecDryRun = Lens.lens (dryRun :: RejectVPCEndpointConnections -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RejectVPCEndpointConnections)
+{-# DEPRECATED rvecDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest RejectVPCEndpointConnections where
   type
@@ -119,32 +116,25 @@ instance Lude.ToQuery RejectVPCEndpointConnections where
       [ "Action"
           Lude.=: ("RejectVpcEndpointConnections" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        Lude.toQueryList "VpcEndpointId" vpcEndpointIds,
         "ServiceId" Lude.=: serviceId,
-        Lude.toQueryList "VpcEndpointId" vpcEndpointIds
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkRejectVPCEndpointConnectionsResponse' smart constructor.
 data RejectVPCEndpointConnectionsResponse = RejectVPCEndpointConnectionsResponse'
-  { unsuccessful ::
-      Lude.Maybe
-        [UnsuccessfulItem],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the endpoints that were not rejected, if applicable.
+    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectVPCEndpointConnectionsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unsuccessful' - Information about the endpoints that were not rejected, if applicable.
+-- * 'responseStatus' - The response status code.
 mkRejectVPCEndpointConnectionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

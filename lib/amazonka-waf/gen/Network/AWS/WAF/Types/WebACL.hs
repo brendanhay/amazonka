@@ -17,12 +17,12 @@ module Network.AWS.WAF.Types.WebACL
     mkWebACL,
 
     -- * Lenses
-    waMetricName,
-    waName,
-    waWebACLARN,
-    waWebACLId,
-    waDefaultAction,
     waRules,
+    waMetricName,
+    waWebACLId,
+    waName,
+    waDefaultAction,
+    waWebACLARN,
   )
 where
 
@@ -35,32 +35,34 @@ import Network.AWS.WAF.Types.WafAction
 --
 -- /See:/ 'mkWebACL' smart constructor.
 data WebACL = WebACL'
-  { metricName :: Lude.Maybe Lude.Text,
-    name :: Lude.Maybe Lude.Text,
-    webACLARN :: Lude.Maybe Lude.Text,
+  { -- | An array that contains the action for each @Rule@ in a @WebACL@ , the priority of the @Rule@ , and the ID of the @Rule@ .
+    rules :: [ActivatedRule],
+    -- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
+    metricName :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a @WebACL@ . You use @WebACLId@ to get information about a @WebACL@ (see 'GetWebACL' ), update a @WebACL@ (see 'UpdateWebACL' ), and delete a @WebACL@ from AWS WAF (see 'DeleteWebACL' ).
+    --
+    -- @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
     webACLId :: Lude.Text,
+    -- | A friendly name or description of the @WebACL@ . You can't change the name of a @WebACL@ after you create it.
+    name :: Lude.Maybe Lude.Text,
+    -- | The action to perform if none of the @Rules@ contained in the @WebACL@ match. The action is specified by the 'WafAction' object.
     defaultAction :: WafAction,
-    rules :: [ActivatedRule]
+    -- | Tha Amazon Resource Name (ARN) of the web ACL.
+    webACLARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebACL' with the minimum fields required to make a request.
 --
--- * 'defaultAction' - The action to perform if none of the @Rules@ contained in the @WebACL@ match. The action is specified by the 'WafAction' object.
--- * 'metricName' - A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
--- * 'name' - A friendly name or description of the @WebACL@ . You can't change the name of a @WebACL@ after you create it.
 -- * 'rules' - An array that contains the action for each @Rule@ in a @WebACL@ , the priority of the @Rule@ , and the ID of the @Rule@ .
--- * 'webACLARN' - Tha Amazon Resource Name (ARN) of the web ACL.
+-- * 'metricName' - A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
 -- * 'webACLId' - A unique identifier for a @WebACL@ . You use @WebACLId@ to get information about a @WebACL@ (see 'GetWebACL' ), update a @WebACL@ (see 'UpdateWebACL' ), and delete a @WebACL@ from AWS WAF (see 'DeleteWebACL' ).
 --
 -- @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
+-- * 'name' - A friendly name or description of the @WebACL@ . You can't change the name of a @WebACL@ after you create it.
+-- * 'defaultAction' - The action to perform if none of the @Rules@ contained in the @WebACL@ match. The action is specified by the 'WafAction' object.
+-- * 'webACLARN' - Tha Amazon Resource Name (ARN) of the web ACL.
 mkWebACL ::
   -- | 'webACLId'
   Lude.Text ->
@@ -69,13 +71,20 @@ mkWebACL ::
   WebACL
 mkWebACL pWebACLId_ pDefaultAction_ =
   WebACL'
-    { metricName = Lude.Nothing,
-      name = Lude.Nothing,
-      webACLARN = Lude.Nothing,
+    { rules = Lude.mempty,
+      metricName = Lude.Nothing,
       webACLId = pWebACLId_,
+      name = Lude.Nothing,
       defaultAction = pDefaultAction_,
-      rules = Lude.mempty
+      webACLARN = Lude.Nothing
     }
+
+-- | An array that contains the action for each @Rule@ in a @WebACL@ , the priority of the @Rule@ , and the ID of the @Rule@ .
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+waRules :: Lens.Lens' WebACL [ActivatedRule]
+waRules = Lens.lens (rules :: WebACL -> [ActivatedRule]) (\s a -> s {rules = a} :: WebACL)
+{-# DEPRECATED waRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | A friendly name or description for the metrics for this @WebACL@ . The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including "All" and "Default_Action." You can't change @MetricName@ after you create the @WebACL@ .
 --
@@ -83,20 +92,6 @@ mkWebACL pWebACLId_ pDefaultAction_ =
 waMetricName :: Lens.Lens' WebACL (Lude.Maybe Lude.Text)
 waMetricName = Lens.lens (metricName :: WebACL -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: WebACL)
 {-# DEPRECATED waMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | A friendly name or description of the @WebACL@ . You can't change the name of a @WebACL@ after you create it.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-waName :: Lens.Lens' WebACL (Lude.Maybe Lude.Text)
-waName = Lens.lens (name :: WebACL -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WebACL)
-{-# DEPRECATED waName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Tha Amazon Resource Name (ARN) of the web ACL.
---
--- /Note:/ Consider using 'webACLARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-waWebACLARN :: Lens.Lens' WebACL (Lude.Maybe Lude.Text)
-waWebACLARN = Lens.lens (webACLARN :: WebACL -> Lude.Maybe Lude.Text) (\s a -> s {webACLARN = a} :: WebACL)
-{-# DEPRECATED waWebACLARN "Use generic-lens or generic-optics with 'webACLARN' instead." #-}
 
 -- | A unique identifier for a @WebACL@ . You use @WebACLId@ to get information about a @WebACL@ (see 'GetWebACL' ), update a @WebACL@ (see 'UpdateWebACL' ), and delete a @WebACL@ from AWS WAF (see 'DeleteWebACL' ).
 --
@@ -107,6 +102,13 @@ waWebACLId :: Lens.Lens' WebACL Lude.Text
 waWebACLId = Lens.lens (webACLId :: WebACL -> Lude.Text) (\s a -> s {webACLId = a} :: WebACL)
 {-# DEPRECATED waWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
+-- | A friendly name or description of the @WebACL@ . You can't change the name of a @WebACL@ after you create it.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+waName :: Lens.Lens' WebACL (Lude.Maybe Lude.Text)
+waName = Lens.lens (name :: WebACL -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WebACL)
+{-# DEPRECATED waName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The action to perform if none of the @Rules@ contained in the @WebACL@ match. The action is specified by the 'WafAction' object.
 --
 -- /Note:/ Consider using 'defaultAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -114,12 +116,12 @@ waDefaultAction :: Lens.Lens' WebACL WafAction
 waDefaultAction = Lens.lens (defaultAction :: WebACL -> WafAction) (\s a -> s {defaultAction = a} :: WebACL)
 {-# DEPRECATED waDefaultAction "Use generic-lens or generic-optics with 'defaultAction' instead." #-}
 
--- | An array that contains the action for each @Rule@ in a @WebACL@ , the priority of the @Rule@ , and the ID of the @Rule@ .
+-- | Tha Amazon Resource Name (ARN) of the web ACL.
 --
--- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-waRules :: Lens.Lens' WebACL [ActivatedRule]
-waRules = Lens.lens (rules :: WebACL -> [ActivatedRule]) (\s a -> s {rules = a} :: WebACL)
-{-# DEPRECATED waRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+-- /Note:/ Consider using 'webACLARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+waWebACLARN :: Lens.Lens' WebACL (Lude.Maybe Lude.Text)
+waWebACLARN = Lens.lens (webACLARN :: WebACL -> Lude.Maybe Lude.Text) (\s a -> s {webACLARN = a} :: WebACL)
+{-# DEPRECATED waWebACLARN "Use generic-lens or generic-optics with 'webACLARN' instead." #-}
 
 instance Lude.FromJSON WebACL where
   parseJSON =
@@ -127,10 +129,10 @@ instance Lude.FromJSON WebACL where
       "WebACL"
       ( \x ->
           WebACL'
-            Lude.<$> (x Lude..:? "MetricName")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "WebACLArn")
+            Lude.<$> (x Lude..:? "Rules" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "MetricName")
             Lude.<*> (x Lude..: "WebACLId")
+            Lude.<*> (x Lude..:? "Name")
             Lude.<*> (x Lude..: "DefaultAction")
-            Lude.<*> (x Lude..:? "Rules" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "WebACLArn")
       )

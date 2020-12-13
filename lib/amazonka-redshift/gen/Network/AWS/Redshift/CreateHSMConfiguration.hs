@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     mkCreateHSMConfiguration,
 
     -- ** Request lenses
-    chcTags,
+    chcHSMServerPublicCertificate,
     chcHSMConfigurationIdentifier,
-    chcDescription,
-    chcHSMIPAddress,
     chcHSMPartitionName,
     chcHSMPartitionPassword,
-    chcHSMServerPublicCertificate,
+    chcDescription,
+    chcTags,
+    chcHSMIPAddress,
 
     -- * Destructuring the response
     CreateHSMConfigurationResponse (..),
@@ -49,70 +50,71 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateHSMConfiguration' smart constructor.
 data CreateHSMConfiguration = CreateHSMConfiguration'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+    hsmServerPublicCertificate :: Lude.Text,
+    -- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
     hsmConfigurationIdentifier :: Lude.Text,
-    description :: Lude.Text,
-    hsmIPAddress :: Lude.Text,
+    -- | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
     hsmPartitionName :: Lude.Text,
+    -- | The password required to access the HSM partition.
     hsmPartitionPassword :: Lude.Text,
-    hsmServerPublicCertificate :: Lude.Text
+    -- | A text description of the HSM configuration to be created.
+    description :: Lude.Text,
+    -- | A list of tag instances.
+    tags :: Lude.Maybe [Tag],
+    -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
+    hsmIPAddress :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMConfiguration' with the minimum fields required to make a request.
 --
--- * 'description' - A text description of the HSM configuration to be created.
+-- * 'hsmServerPublicCertificate' - The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 -- * 'hsmConfigurationIdentifier' - The identifier to be assigned to the new Amazon Redshift HSM configuration.
--- * 'hsmIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
 -- * 'hsmPartitionName' - The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 -- * 'hsmPartitionPassword' - The password required to access the HSM partition.
--- * 'hsmServerPublicCertificate' - The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+-- * 'description' - A text description of the HSM configuration to be created.
 -- * 'tags' - A list of tag instances.
+-- * 'hsmIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
 mkCreateHSMConfiguration ::
+  -- | 'hsmServerPublicCertificate'
+  Lude.Text ->
   -- | 'hsmConfigurationIdentifier'
-  Lude.Text ->
-  -- | 'description'
-  Lude.Text ->
-  -- | 'hsmIPAddress'
   Lude.Text ->
   -- | 'hsmPartitionName'
   Lude.Text ->
   -- | 'hsmPartitionPassword'
   Lude.Text ->
-  -- | 'hsmServerPublicCertificate'
+  -- | 'description'
+  Lude.Text ->
+  -- | 'hsmIPAddress'
   Lude.Text ->
   CreateHSMConfiguration
 mkCreateHSMConfiguration
+  pHSMServerPublicCertificate_
   pHSMConfigurationIdentifier_
-  pDescription_
-  pHSMIPAddress_
   pHSMPartitionName_
   pHSMPartitionPassword_
-  pHSMServerPublicCertificate_ =
+  pDescription_
+  pHSMIPAddress_ =
     CreateHSMConfiguration'
-      { tags = Lude.Nothing,
+      { hsmServerPublicCertificate =
+          pHSMServerPublicCertificate_,
         hsmConfigurationIdentifier = pHSMConfigurationIdentifier_,
-        description = pDescription_,
-        hsmIPAddress = pHSMIPAddress_,
         hsmPartitionName = pHSMPartitionName_,
         hsmPartitionPassword = pHSMPartitionPassword_,
-        hsmServerPublicCertificate = pHSMServerPublicCertificate_
+        description = pDescription_,
+        tags = Lude.Nothing,
+        hsmIPAddress = pHSMIPAddress_
       }
 
--- | A list of tag instances.
+-- | The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcTags :: Lens.Lens' CreateHSMConfiguration (Lude.Maybe [Tag])
-chcTags = Lens.lens (tags :: CreateHSMConfiguration -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHSMConfiguration)
-{-# DEPRECATED chcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'hsmServerPublicCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcHSMServerPublicCertificate :: Lens.Lens' CreateHSMConfiguration Lude.Text
+chcHSMServerPublicCertificate = Lens.lens (hsmServerPublicCertificate :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {hsmServerPublicCertificate = a} :: CreateHSMConfiguration)
+{-# DEPRECATED chcHSMServerPublicCertificate "Use generic-lens or generic-optics with 'hsmServerPublicCertificate' instead." #-}
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM configuration.
 --
@@ -120,20 +122,6 @@ chcTags = Lens.lens (tags :: CreateHSMConfiguration -> Lude.Maybe [Tag]) (\s a -
 chcHSMConfigurationIdentifier :: Lens.Lens' CreateHSMConfiguration Lude.Text
 chcHSMConfigurationIdentifier = Lens.lens (hsmConfigurationIdentifier :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {hsmConfigurationIdentifier = a} :: CreateHSMConfiguration)
 {-# DEPRECATED chcHSMConfigurationIdentifier "Use generic-lens or generic-optics with 'hsmConfigurationIdentifier' instead." #-}
-
--- | A text description of the HSM configuration to be created.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcDescription :: Lens.Lens' CreateHSMConfiguration Lude.Text
-chcDescription = Lens.lens (description :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {description = a} :: CreateHSMConfiguration)
-{-# DEPRECATED chcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The IP address that the Amazon Redshift cluster must use to access the HSM.
---
--- /Note:/ Consider using 'hsmIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcHSMIPAddress :: Lens.Lens' CreateHSMConfiguration Lude.Text
-chcHSMIPAddress = Lens.lens (hsmIPAddress :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {hsmIPAddress = a} :: CreateHSMConfiguration)
-{-# DEPRECATED chcHSMIPAddress "Use generic-lens or generic-optics with 'hsmIPAddress' instead." #-}
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
 --
@@ -149,12 +137,26 @@ chcHSMPartitionPassword :: Lens.Lens' CreateHSMConfiguration Lude.Text
 chcHSMPartitionPassword = Lens.lens (hsmPartitionPassword :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {hsmPartitionPassword = a} :: CreateHSMConfiguration)
 {-# DEPRECATED chcHSMPartitionPassword "Use generic-lens or generic-optics with 'hsmPartitionPassword' instead." #-}
 
--- | The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
+-- | A text description of the HSM configuration to be created.
 --
--- /Note:/ Consider using 'hsmServerPublicCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcHSMServerPublicCertificate :: Lens.Lens' CreateHSMConfiguration Lude.Text
-chcHSMServerPublicCertificate = Lens.lens (hsmServerPublicCertificate :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {hsmServerPublicCertificate = a} :: CreateHSMConfiguration)
-{-# DEPRECATED chcHSMServerPublicCertificate "Use generic-lens or generic-optics with 'hsmServerPublicCertificate' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcDescription :: Lens.Lens' CreateHSMConfiguration Lude.Text
+chcDescription = Lens.lens (description :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {description = a} :: CreateHSMConfiguration)
+{-# DEPRECATED chcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | A list of tag instances.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcTags :: Lens.Lens' CreateHSMConfiguration (Lude.Maybe [Tag])
+chcTags = Lens.lens (tags :: CreateHSMConfiguration -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHSMConfiguration)
+{-# DEPRECATED chcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The IP address that the Amazon Redshift cluster must use to access the HSM.
+--
+-- /Note:/ Consider using 'hsmIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcHSMIPAddress :: Lens.Lens' CreateHSMConfiguration Lude.Text
+chcHSMIPAddress = Lens.lens (hsmIPAddress :: CreateHSMConfiguration -> Lude.Text) (\s a -> s {hsmIPAddress = a} :: CreateHSMConfiguration)
+{-# DEPRECATED chcHSMIPAddress "Use generic-lens or generic-optics with 'hsmIPAddress' instead." #-}
 
 instance Lude.AWSRequest CreateHSMConfiguration where
   type Rs CreateHSMConfiguration = CreateHSMConfigurationResponse
@@ -179,33 +181,27 @@ instance Lude.ToQuery CreateHSMConfiguration where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateHsmConfiguration" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "HsmServerPublicCertificate" Lude.=: hsmServerPublicCertificate,
         "HsmConfigurationIdentifier" Lude.=: hsmConfigurationIdentifier,
-        "Description" Lude.=: description,
-        "HsmIpAddress" Lude.=: hsmIPAddress,
         "HsmPartitionName" Lude.=: hsmPartitionName,
         "HsmPartitionPassword" Lude.=: hsmPartitionPassword,
-        "HsmServerPublicCertificate" Lude.=: hsmServerPublicCertificate
+        "Description" Lude.=: description,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
+        "HsmIpAddress" Lude.=: hsmIPAddress
       ]
 
 -- | /See:/ 'mkCreateHSMConfigurationResponse' smart constructor.
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
-  { hsmConfiguration ::
-      Lude.Maybe HSMConfiguration,
+  { hsmConfiguration :: Lude.Maybe HSMConfiguration,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'hsmConfiguration' - Undocumented field.
+-- * 'hsmConfiguration' -
 -- * 'responseStatus' - The response status code.
 mkCreateHSMConfigurationResponse ::
   -- | 'responseStatus'

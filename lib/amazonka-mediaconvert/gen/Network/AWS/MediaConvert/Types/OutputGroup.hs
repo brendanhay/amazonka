@@ -35,29 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputGroup' smart constructor.
 data OutputGroup = OutputGroup'
-  { outputGroupSettings ::
-      Lude.Maybe OutputGroupSettings,
+  { -- | Output Group settings, including type
+    outputGroupSettings :: Lude.Maybe OutputGroupSettings,
+    -- | This object holds groups of encoding settings, one group of settings per output.
     outputs :: Lude.Maybe [Output],
+    -- | Use Custom Group Name (CustomName) to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
     customName :: Lude.Maybe Lude.Text,
+    -- | Name of the output group
     name :: Lude.Maybe Lude.Text,
+    -- | Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
     automatedEncodingSettings :: Lude.Maybe AutomatedEncodingSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroup' with the minimum fields required to make a request.
 --
--- * 'automatedEncodingSettings' - Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
--- * 'customName' - Use Custom Group Name (CustomName) to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
--- * 'name' - Name of the output group
 -- * 'outputGroupSettings' - Output Group settings, including type
 -- * 'outputs' - This object holds groups of encoding settings, one group of settings per output.
+-- * 'customName' - Use Custom Group Name (CustomName) to specify a name for the output group. This value is displayed on the console and can make your job settings JSON more human-readable. It does not affect your outputs. Use up to twelve characters that are either letters, numbers, spaces, or underscores.
+-- * 'name' - Name of the output group
+-- * 'automatedEncodingSettings' - Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
 mkOutputGroup ::
   OutputGroup
 mkOutputGroup =

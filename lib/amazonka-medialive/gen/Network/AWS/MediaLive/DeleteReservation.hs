@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,16 +59,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteReservation' smart constructor.
 newtype DeleteReservation = DeleteReservation'
-  { reservationId ::
-      Lude.Text
+  { -- | Unique reservation ID, e.g. '1234567'
+    reservationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReservation' with the minimum fields required to make a request.
@@ -135,63 +130,69 @@ instance Lude.ToQuery DeleteReservation where
 --
 -- /See:/ 'mkDeleteReservationResponse' smart constructor.
 data DeleteReservationResponse = DeleteReservationResponse'
-  { state ::
-      Lude.Maybe ReservationState,
-    resourceSpecification ::
-      Lude.Maybe
-        ReservationResourceSpecification,
+  { -- | Current state of reservation, e.g. 'ACTIVE'
+    state :: Lude.Maybe ReservationState,
+    -- | Resource configuration details
+    resourceSpecification :: Lude.Maybe ReservationResourceSpecification,
+    -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
     currencyCode :: Lude.Maybe Lude.Text,
+    -- | Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
     arn :: Lude.Maybe Lude.Text,
+    -- | Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
     start :: Lude.Maybe Lude.Text,
+    -- | Number of reserved resources
     count :: Lude.Maybe Lude.Int,
+    -- | Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
     end :: Lude.Maybe Lude.Text,
+    -- | User specified reservation name
     name :: Lude.Maybe Lude.Text,
+    -- | Unique reservation ID, e.g. '1234567'
     reservationId :: Lude.Maybe Lude.Text,
+    -- | Unique offering ID, e.g. '87654321'
     offeringId :: Lude.Maybe Lude.Text,
+    -- | AWS region, e.g. 'us-west-2'
     region :: Lude.Maybe Lude.Text,
+    -- | Offering type, e.g. 'NO_UPFRONT'
     offeringType :: Lude.Maybe OfferingType,
+    -- | Recurring usage charge for each reserved resource, e.g. '157.0'
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
     fixedPrice :: Lude.Maybe Lude.Double,
-    durationUnits ::
-      Lude.Maybe OfferingDurationUnits,
-    offeringDescription ::
-      Lude.Maybe Lude.Text,
+    -- | Units for duration, e.g. 'MONTHS'
+    durationUnits :: Lude.Maybe OfferingDurationUnits,
+    -- | Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+    offeringDescription :: Lude.Maybe Lude.Text,
+    -- | Lease duration, e.g. '12'
     duration :: Lude.Maybe Lude.Int,
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A collection of key-value pairs
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReservationResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
--- * 'count' - Number of reserved resources
--- * 'currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
--- * 'duration' - Lease duration, e.g. '12'
--- * 'durationUnits' - Units for duration, e.g. 'MONTHS'
--- * 'end' - Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
--- * 'fixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
--- * 'name' - User specified reservation name
--- * 'offeringDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
--- * 'offeringId' - Unique offering ID, e.g. '87654321'
--- * 'offeringType' - Offering type, e.g. 'NO_UPFRONT'
--- * 'region' - AWS region, e.g. 'us-west-2'
--- * 'reservationId' - Unique reservation ID, e.g. '1234567'
--- * 'resourceSpecification' - Resource configuration details
--- * 'responseStatus' - The response status code.
--- * 'start' - Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
 -- * 'state' - Current state of reservation, e.g. 'ACTIVE'
--- * 'tags' - A collection of key-value pairs
+-- * 'resourceSpecification' - Resource configuration details
+-- * 'currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+-- * 'arn' - Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+-- * 'start' - Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+-- * 'count' - Number of reserved resources
+-- * 'end' - Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+-- * 'name' - User specified reservation name
+-- * 'reservationId' - Unique reservation ID, e.g. '1234567'
+-- * 'offeringId' - Unique offering ID, e.g. '87654321'
+-- * 'region' - AWS region, e.g. 'us-west-2'
+-- * 'offeringType' - Offering type, e.g. 'NO_UPFRONT'
 -- * 'usagePrice' - Recurring usage charge for each reserved resource, e.g. '157.0'
+-- * 'fixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+-- * 'durationUnits' - Units for duration, e.g. 'MONTHS'
+-- * 'offeringDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+-- * 'duration' - Lease duration, e.g. '12'
+-- * 'tags' - A collection of key-value pairs
+-- * 'responseStatus' - The response status code.
 mkDeleteReservationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,9 +13,9 @@
 module Network.AWS.RDS.Types.ActivityStreamStatus
   ( ActivityStreamStatus
       ( ActivityStreamStatus',
-        Started,
-        Starting,
         Stopped,
+        Starting,
+        Started,
         Stopping
       ),
   )
@@ -47,22 +47,22 @@ newtype ActivityStreamStatus = ActivityStreamStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Started :: ActivityStreamStatus
-pattern Started = ActivityStreamStatus' "started"
+pattern Stopped :: ActivityStreamStatus
+pattern Stopped = ActivityStreamStatus' "stopped"
 
 pattern Starting :: ActivityStreamStatus
 pattern Starting = ActivityStreamStatus' "starting"
 
-pattern Stopped :: ActivityStreamStatus
-pattern Stopped = ActivityStreamStatus' "stopped"
+pattern Started :: ActivityStreamStatus
+pattern Started = ActivityStreamStatus' "started"
 
 pattern Stopping :: ActivityStreamStatus
 pattern Stopping = ActivityStreamStatus' "stopping"
 
 {-# COMPLETE
-  Started,
-  Starting,
   Stopped,
+  Starting,
+  Started,
   Stopping,
   ActivityStreamStatus'
   #-}

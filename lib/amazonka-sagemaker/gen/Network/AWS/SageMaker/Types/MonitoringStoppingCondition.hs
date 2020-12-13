@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMonitoringStoppingCondition' smart constructor.
 newtype MonitoringStoppingCondition = MonitoringStoppingCondition'
-  { maxRuntimeInSeconds ::
-      Lude.Natural
+  { -- | The maximum runtime allowed in seconds.
+    maxRuntimeInSeconds :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringStoppingCondition' with the minimum fields required to make a request.

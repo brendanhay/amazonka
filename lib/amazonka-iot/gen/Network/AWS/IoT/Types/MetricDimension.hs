@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricDimension' smart constructor.
 data MetricDimension = MetricDimension'
-  { operator ::
-      Lude.Maybe DimensionValueOperator,
+  { -- | Defines how the @dimensionValues@ of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the @IN@ operator, a message will be counted only if its topic matches one of the topic filters. With @NOT_IN@ operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is @null@ ), it will be interpreted as @IN@ .
+    operator :: Lude.Maybe DimensionValueOperator,
+    -- | A unique identifier for the dimension.
     dimensionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDimension' with the minimum fields required to make a request.
 --
--- * 'dimensionName' - A unique identifier for the dimension.
 -- * 'operator' - Defines how the @dimensionValues@ of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the @IN@ operator, a message will be counted only if its topic matches one of the topic filters. With @NOT_IN@ operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is @null@ ), it will be interpreted as @IN@ .
+-- * 'dimensionName' - A unique identifier for the dimension.
 mkMetricDimension ::
   -- | 'dimensionName'
   Lude.Text ->

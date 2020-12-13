@@ -13,28 +13,28 @@
 module Network.AWS.CloudFormation.Types.StackStatus
   ( StackStatus
       ( StackStatus',
-        SSCreateComplete,
-        SSCreateFailed,
         SSCreateInProgress,
-        SSDeleteComplete,
-        SSDeleteFailed,
-        SSDeleteInProgress,
-        SSImportComplete,
-        SSImportInProgress,
-        SSImportRollbackComplete,
-        SSImportRollbackFailed,
-        SSImportRollbackInProgress,
-        SSReviewInProgress,
-        SSRollbackComplete,
-        SSRollbackFailed,
+        SSCreateFailed,
+        SSCreateComplete,
         SSRollbackInProgress,
-        SSUpdateComplete,
-        SSUpdateCompleteCleanupInProgress,
+        SSRollbackFailed,
+        SSRollbackComplete,
+        SSDeleteInProgress,
+        SSDeleteFailed,
+        SSDeleteComplete,
         SSUpdateInProgress,
-        SSUpdateRollbackComplete,
-        SSUpdateRollbackCompleteCleanupInProgress,
+        SSUpdateCompleteCleanupInProgress,
+        SSUpdateComplete,
+        SSUpdateRollbackInProgress,
         SSUpdateRollbackFailed,
-        SSUpdateRollbackInProgress
+        SSUpdateRollbackCompleteCleanupInProgress,
+        SSUpdateRollbackComplete,
+        SSReviewInProgress,
+        SSImportInProgress,
+        SSImportComplete,
+        SSImportRollbackInProgress,
+        SSImportRollbackFailed,
+        SSImportRollbackComplete
       ),
   )
 where
@@ -65,94 +65,94 @@ newtype StackStatus = StackStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSCreateComplete :: StackStatus
-pattern SSCreateComplete = StackStatus' "CREATE_COMPLETE"
+pattern SSCreateInProgress :: StackStatus
+pattern SSCreateInProgress = StackStatus' "CREATE_IN_PROGRESS"
 
 pattern SSCreateFailed :: StackStatus
 pattern SSCreateFailed = StackStatus' "CREATE_FAILED"
 
-pattern SSCreateInProgress :: StackStatus
-pattern SSCreateInProgress = StackStatus' "CREATE_IN_PROGRESS"
-
-pattern SSDeleteComplete :: StackStatus
-pattern SSDeleteComplete = StackStatus' "DELETE_COMPLETE"
-
-pattern SSDeleteFailed :: StackStatus
-pattern SSDeleteFailed = StackStatus' "DELETE_FAILED"
-
-pattern SSDeleteInProgress :: StackStatus
-pattern SSDeleteInProgress = StackStatus' "DELETE_IN_PROGRESS"
-
-pattern SSImportComplete :: StackStatus
-pattern SSImportComplete = StackStatus' "IMPORT_COMPLETE"
-
-pattern SSImportInProgress :: StackStatus
-pattern SSImportInProgress = StackStatus' "IMPORT_IN_PROGRESS"
-
-pattern SSImportRollbackComplete :: StackStatus
-pattern SSImportRollbackComplete = StackStatus' "IMPORT_ROLLBACK_COMPLETE"
-
-pattern SSImportRollbackFailed :: StackStatus
-pattern SSImportRollbackFailed = StackStatus' "IMPORT_ROLLBACK_FAILED"
-
-pattern SSImportRollbackInProgress :: StackStatus
-pattern SSImportRollbackInProgress = StackStatus' "IMPORT_ROLLBACK_IN_PROGRESS"
-
-pattern SSReviewInProgress :: StackStatus
-pattern SSReviewInProgress = StackStatus' "REVIEW_IN_PROGRESS"
-
-pattern SSRollbackComplete :: StackStatus
-pattern SSRollbackComplete = StackStatus' "ROLLBACK_COMPLETE"
-
-pattern SSRollbackFailed :: StackStatus
-pattern SSRollbackFailed = StackStatus' "ROLLBACK_FAILED"
+pattern SSCreateComplete :: StackStatus
+pattern SSCreateComplete = StackStatus' "CREATE_COMPLETE"
 
 pattern SSRollbackInProgress :: StackStatus
 pattern SSRollbackInProgress = StackStatus' "ROLLBACK_IN_PROGRESS"
 
-pattern SSUpdateComplete :: StackStatus
-pattern SSUpdateComplete = StackStatus' "UPDATE_COMPLETE"
+pattern SSRollbackFailed :: StackStatus
+pattern SSRollbackFailed = StackStatus' "ROLLBACK_FAILED"
 
-pattern SSUpdateCompleteCleanupInProgress :: StackStatus
-pattern SSUpdateCompleteCleanupInProgress = StackStatus' "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
+pattern SSRollbackComplete :: StackStatus
+pattern SSRollbackComplete = StackStatus' "ROLLBACK_COMPLETE"
+
+pattern SSDeleteInProgress :: StackStatus
+pattern SSDeleteInProgress = StackStatus' "DELETE_IN_PROGRESS"
+
+pattern SSDeleteFailed :: StackStatus
+pattern SSDeleteFailed = StackStatus' "DELETE_FAILED"
+
+pattern SSDeleteComplete :: StackStatus
+pattern SSDeleteComplete = StackStatus' "DELETE_COMPLETE"
 
 pattern SSUpdateInProgress :: StackStatus
 pattern SSUpdateInProgress = StackStatus' "UPDATE_IN_PROGRESS"
 
-pattern SSUpdateRollbackComplete :: StackStatus
-pattern SSUpdateRollbackComplete = StackStatus' "UPDATE_ROLLBACK_COMPLETE"
+pattern SSUpdateCompleteCleanupInProgress :: StackStatus
+pattern SSUpdateCompleteCleanupInProgress = StackStatus' "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
 
-pattern SSUpdateRollbackCompleteCleanupInProgress :: StackStatus
-pattern SSUpdateRollbackCompleteCleanupInProgress = StackStatus' "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
-
-pattern SSUpdateRollbackFailed :: StackStatus
-pattern SSUpdateRollbackFailed = StackStatus' "UPDATE_ROLLBACK_FAILED"
+pattern SSUpdateComplete :: StackStatus
+pattern SSUpdateComplete = StackStatus' "UPDATE_COMPLETE"
 
 pattern SSUpdateRollbackInProgress :: StackStatus
 pattern SSUpdateRollbackInProgress = StackStatus' "UPDATE_ROLLBACK_IN_PROGRESS"
 
+pattern SSUpdateRollbackFailed :: StackStatus
+pattern SSUpdateRollbackFailed = StackStatus' "UPDATE_ROLLBACK_FAILED"
+
+pattern SSUpdateRollbackCompleteCleanupInProgress :: StackStatus
+pattern SSUpdateRollbackCompleteCleanupInProgress = StackStatus' "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS"
+
+pattern SSUpdateRollbackComplete :: StackStatus
+pattern SSUpdateRollbackComplete = StackStatus' "UPDATE_ROLLBACK_COMPLETE"
+
+pattern SSReviewInProgress :: StackStatus
+pattern SSReviewInProgress = StackStatus' "REVIEW_IN_PROGRESS"
+
+pattern SSImportInProgress :: StackStatus
+pattern SSImportInProgress = StackStatus' "IMPORT_IN_PROGRESS"
+
+pattern SSImportComplete :: StackStatus
+pattern SSImportComplete = StackStatus' "IMPORT_COMPLETE"
+
+pattern SSImportRollbackInProgress :: StackStatus
+pattern SSImportRollbackInProgress = StackStatus' "IMPORT_ROLLBACK_IN_PROGRESS"
+
+pattern SSImportRollbackFailed :: StackStatus
+pattern SSImportRollbackFailed = StackStatus' "IMPORT_ROLLBACK_FAILED"
+
+pattern SSImportRollbackComplete :: StackStatus
+pattern SSImportRollbackComplete = StackStatus' "IMPORT_ROLLBACK_COMPLETE"
+
 {-# COMPLETE
-  SSCreateComplete,
-  SSCreateFailed,
   SSCreateInProgress,
-  SSDeleteComplete,
-  SSDeleteFailed,
-  SSDeleteInProgress,
-  SSImportComplete,
-  SSImportInProgress,
-  SSImportRollbackComplete,
-  SSImportRollbackFailed,
-  SSImportRollbackInProgress,
-  SSReviewInProgress,
-  SSRollbackComplete,
-  SSRollbackFailed,
+  SSCreateFailed,
+  SSCreateComplete,
   SSRollbackInProgress,
-  SSUpdateComplete,
-  SSUpdateCompleteCleanupInProgress,
+  SSRollbackFailed,
+  SSRollbackComplete,
+  SSDeleteInProgress,
+  SSDeleteFailed,
+  SSDeleteComplete,
   SSUpdateInProgress,
-  SSUpdateRollbackComplete,
-  SSUpdateRollbackCompleteCleanupInProgress,
-  SSUpdateRollbackFailed,
+  SSUpdateCompleteCleanupInProgress,
+  SSUpdateComplete,
   SSUpdateRollbackInProgress,
+  SSUpdateRollbackFailed,
+  SSUpdateRollbackCompleteCleanupInProgress,
+  SSUpdateRollbackComplete,
+  SSReviewInProgress,
+  SSImportInProgress,
+  SSImportComplete,
+  SSImportRollbackInProgress,
+  SSImportRollbackFailed,
+  SSImportRollbackComplete,
   StackStatus'
   #-}

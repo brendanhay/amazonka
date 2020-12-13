@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.OriginCustomHeader
     mkOriginCustomHeader,
 
     -- * Lenses
-    ochHeaderName,
     ochHeaderValue,
+    ochHeaderName,
   )
 where
 
@@ -29,41 +29,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginCustomHeader' smart constructor.
 data OriginCustomHeader = OriginCustomHeader'
-  { headerName ::
-      Lude.Text,
-    headerValue :: Lude.Text
+  { -- | The value for the header that you specified in the @HeaderName@ field.
+    headerValue :: Lude.Text,
+    -- | The name of a header that you want CloudFront to send to your origin. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Adding Custom Headers to Origin Requests> in the /Amazon CloudFront Developer Guide/ .
+    headerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginCustomHeader' with the minimum fields required to make a request.
 --
--- * 'headerName' - The name of a header that you want CloudFront to send to your origin. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Adding Custom Headers to Origin Requests> in the /Amazon CloudFront Developer Guide/ .
 -- * 'headerValue' - The value for the header that you specified in the @HeaderName@ field.
+-- * 'headerName' - The name of a header that you want CloudFront to send to your origin. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Adding Custom Headers to Origin Requests> in the /Amazon CloudFront Developer Guide/ .
 mkOriginCustomHeader ::
-  -- | 'headerName'
-  Lude.Text ->
   -- | 'headerValue'
   Lude.Text ->
+  -- | 'headerName'
+  Lude.Text ->
   OriginCustomHeader
-mkOriginCustomHeader pHeaderName_ pHeaderValue_ =
+mkOriginCustomHeader pHeaderValue_ pHeaderName_ =
   OriginCustomHeader'
-    { headerName = pHeaderName_,
-      headerValue = pHeaderValue_
+    { headerValue = pHeaderValue_,
+      headerName = pHeaderName_
     }
-
--- | The name of a header that you want CloudFront to send to your origin. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Adding Custom Headers to Origin Requests> in the /Amazon CloudFront Developer Guide/ .
---
--- /Note:/ Consider using 'headerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ochHeaderName :: Lens.Lens' OriginCustomHeader Lude.Text
-ochHeaderName = Lens.lens (headerName :: OriginCustomHeader -> Lude.Text) (\s a -> s {headerName = a} :: OriginCustomHeader)
-{-# DEPRECATED ochHeaderName "Use generic-lens or generic-optics with 'headerName' instead." #-}
 
 -- | The value for the header that you specified in the @HeaderName@ field.
 --
@@ -72,14 +60,21 @@ ochHeaderValue :: Lens.Lens' OriginCustomHeader Lude.Text
 ochHeaderValue = Lens.lens (headerValue :: OriginCustomHeader -> Lude.Text) (\s a -> s {headerValue = a} :: OriginCustomHeader)
 {-# DEPRECATED ochHeaderValue "Use generic-lens or generic-optics with 'headerValue' instead." #-}
 
+-- | The name of a header that you want CloudFront to send to your origin. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html Adding Custom Headers to Origin Requests> in the /Amazon CloudFront Developer Guide/ .
+--
+-- /Note:/ Consider using 'headerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ochHeaderName :: Lens.Lens' OriginCustomHeader Lude.Text
+ochHeaderName = Lens.lens (headerName :: OriginCustomHeader -> Lude.Text) (\s a -> s {headerName = a} :: OriginCustomHeader)
+{-# DEPRECATED ochHeaderName "Use generic-lens or generic-optics with 'headerName' instead." #-}
+
 instance Lude.FromXML OriginCustomHeader where
   parseXML x =
     OriginCustomHeader'
-      Lude.<$> (x Lude..@ "HeaderName") Lude.<*> (x Lude..@ "HeaderValue")
+      Lude.<$> (x Lude..@ "HeaderValue") Lude.<*> (x Lude..@ "HeaderName")
 
 instance Lude.ToXML OriginCustomHeader where
   toXML OriginCustomHeader' {..} =
     Lude.mconcat
-      [ "HeaderName" Lude.@= headerName,
-        "HeaderValue" Lude.@= headerValue
+      [ "HeaderValue" Lude.@= headerValue,
+        "HeaderName" Lude.@= headerName
       ]

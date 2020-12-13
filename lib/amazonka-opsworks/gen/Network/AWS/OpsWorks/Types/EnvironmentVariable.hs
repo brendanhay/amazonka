@@ -18,8 +18,8 @@ module Network.AWS.OpsWorks.Types.EnvironmentVariable
 
     -- * Lenses
     evSecure,
-    evKey,
     evValue,
+    evKey,
   )
 where
 
@@ -30,36 +30,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentVariable' smart constructor.
 data EnvironmentVariable = EnvironmentVariable'
-  { secure ::
-      Lude.Maybe Lude.Bool,
-    key :: Lude.Text,
-    value :: Lude.Text
+  { -- | (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
+    secure :: Lude.Maybe Lude.Bool,
+    -- | (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
+    value :: Lude.Text,
+    -- | (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
+    key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentVariable' with the minimum fields required to make a request.
 --
--- * 'key' - (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
 -- * 'secure' - (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
 -- * 'value' - (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
+-- * 'key' - (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
 mkEnvironmentVariable ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   EnvironmentVariable
-mkEnvironmentVariable pKey_ pValue_ =
+mkEnvironmentVariable pValue_ pKey_ =
   EnvironmentVariable'
     { secure = Lude.Nothing,
-      key = pKey_,
-      value = pValue_
+      value = pValue_,
+      key = pKey_
     }
 
 -- | (Optional) Whether the variable's value will be returned by the 'DescribeApps' action. To conceal an environment variable's value, set @Secure@ to @true@ . @DescribeApps@ then returns @*****FILTERED*****@ instead of the actual value. The default value for @Secure@ is @false@ .
@@ -69,19 +65,19 @@ evSecure :: Lens.Lens' EnvironmentVariable (Lude.Maybe Lude.Bool)
 evSecure = Lens.lens (secure :: EnvironmentVariable -> Lude.Maybe Lude.Bool) (\s a -> s {secure = a} :: EnvironmentVariable)
 {-# DEPRECATED evSecure "Use generic-lens or generic-optics with 'secure' instead." #-}
 
--- | (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evKey :: Lens.Lens' EnvironmentVariable Lude.Text
-evKey = Lens.lens (key :: EnvironmentVariable -> Lude.Text) (\s a -> s {key = a} :: EnvironmentVariable)
-{-# DEPRECATED evKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
 -- | (Optional) The environment variable's value, which can be left empty. If you specify a value, it can contain up to 256 characters, which must all be printable.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 evValue :: Lens.Lens' EnvironmentVariable Lude.Text
 evValue = Lens.lens (value :: EnvironmentVariable -> Lude.Text) (\s a -> s {value = a} :: EnvironmentVariable)
 {-# DEPRECATED evValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+-- | (Required) The environment variable's name, which can consist of up to 64 characters and must be specified. The name can contain upper- and lowercase letters, numbers, and underscores (_), but it must start with a letter or underscore.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+evKey :: Lens.Lens' EnvironmentVariable Lude.Text
+evKey = Lens.lens (key :: EnvironmentVariable -> Lude.Text) (\s a -> s {key = a} :: EnvironmentVariable)
+{-# DEPRECATED evKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 instance Lude.FromJSON EnvironmentVariable where
   parseJSON =
@@ -90,8 +86,8 @@ instance Lude.FromJSON EnvironmentVariable where
       ( \x ->
           EnvironmentVariable'
             Lude.<$> (x Lude..:? "Secure")
-            Lude.<*> (x Lude..: "Key")
             Lude.<*> (x Lude..: "Value")
+            Lude.<*> (x Lude..: "Key")
       )
 
 instance Lude.ToJSON EnvironmentVariable where
@@ -99,7 +95,7 @@ instance Lude.ToJSON EnvironmentVariable where
     Lude.object
       ( Lude.catMaybes
           [ ("Secure" Lude..=) Lude.<$> secure,
-            Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Value" Lude..= value)
+            Lude.Just ("Value" Lude..= value),
+            Lude.Just ("Key" Lude..= key)
           ]
       )

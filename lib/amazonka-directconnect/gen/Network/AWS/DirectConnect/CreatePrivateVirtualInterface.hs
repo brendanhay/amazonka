@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     mkCreatePrivateVirtualInterface,
 
     -- ** Request lenses
-    creConnectionId,
-    creNewPrivateVirtualInterface,
+    cpvifConnectionId,
+    cpvifNewPrivateVirtualInterface,
 
     -- * Destructuring the response
     VirtualInterface (..),
@@ -64,18 +65,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePrivateVirtualInterface' smart constructor.
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
-  { connectionId ::
-      Lude.Text,
-    newPrivateVirtualInterface ::
-      NewPrivateVirtualInterface
+  { -- | The ID of the connection.
+    connectionId :: Lude.Text,
+    -- | Information about the private virtual interface.
+    newPrivateVirtualInterface :: NewPrivateVirtualInterface
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePrivateVirtualInterface' with the minimum fields required to make a request.
@@ -99,16 +94,16 @@ mkCreatePrivateVirtualInterface
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creConnectionId :: Lens.Lens' CreatePrivateVirtualInterface Lude.Text
-creConnectionId = Lens.lens (connectionId :: CreatePrivateVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: CreatePrivateVirtualInterface)
-{-# DEPRECATED creConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
+cpvifConnectionId :: Lens.Lens' CreatePrivateVirtualInterface Lude.Text
+cpvifConnectionId = Lens.lens (connectionId :: CreatePrivateVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: CreatePrivateVirtualInterface)
+{-# DEPRECATED cpvifConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | Information about the private virtual interface.
 --
 -- /Note:/ Consider using 'newPrivateVirtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creNewPrivateVirtualInterface :: Lens.Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
-creNewPrivateVirtualInterface = Lens.lens (newPrivateVirtualInterface :: CreatePrivateVirtualInterface -> NewPrivateVirtualInterface) (\s a -> s {newPrivateVirtualInterface = a} :: CreatePrivateVirtualInterface)
-{-# DEPRECATED creNewPrivateVirtualInterface "Use generic-lens or generic-optics with 'newPrivateVirtualInterface' instead." #-}
+cpvifNewPrivateVirtualInterface :: Lens.Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
+cpvifNewPrivateVirtualInterface = Lens.lens (newPrivateVirtualInterface :: CreatePrivateVirtualInterface -> NewPrivateVirtualInterface) (\s a -> s {newPrivateVirtualInterface = a} :: CreatePrivateVirtualInterface)
+{-# DEPRECATED cpvifNewPrivateVirtualInterface "Use generic-lens or generic-optics with 'newPrivateVirtualInterface' instead." #-}
 
 instance Lude.AWSRequest CreatePrivateVirtualInterface where
   type Rs CreatePrivateVirtualInterface = VirtualInterface

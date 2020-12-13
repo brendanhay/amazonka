@@ -54,64 +54,73 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDevice' smart constructor.
 data Device = Device'
-  { carrier :: Lude.Maybe Lude.Text,
+  { -- | The device's carrier.
+    carrier :: Lude.Maybe Lude.Text,
+    -- | The device's image name.
     image :: Lude.Maybe Lude.Text,
+    -- | The device's manufacturer name.
     manufacturer :: Lude.Maybe Lude.Text,
+    -- | The device's platform.
+    --
+    -- Allowed values include:
+    --
+    --     * ANDROID
+    --
+    --
+    --     * IOS
     platform :: Lude.Maybe DevicePlatform,
+    -- | The device's model ID.
     modelId :: Lude.Maybe Lude.Text,
+    -- | Specifies whether remote access has been enabled for the specified device.
     remoteAccessEnabled :: Lude.Maybe Lude.Bool,
+    -- | The device's ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | The device's form factor.
+    --
+    -- Allowed values include:
+    --
+    --     * PHONE
+    --
+    --
+    --     * TABLET
     formFactor :: Lude.Maybe DeviceFormFactor,
+    -- | The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
     fleetType :: Lude.Maybe Lude.Text,
+    -- | The resolution of the device.
     resolution :: Lude.Maybe Resolution,
+    -- | Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
     availability :: Lude.Maybe DeviceAvailability,
+    -- | The device's total memory size, expressed in bytes.
     memory :: Lude.Maybe Lude.Integer,
+    -- | The device's radio.
     radio :: Lude.Maybe Lude.Text,
+    -- | The device's operating system type.
     os :: Lude.Maybe Lude.Text,
+    -- | The device's display name.
     name :: Lude.Maybe Lude.Text,
+    -- | The device's model name.
     model :: Lude.Maybe Lude.Text,
+    -- | The instances that belong to this device.
     instances :: Lude.Maybe [DeviceInstance],
+    -- | This flag is set to @true@ if remote debugging is enabled for the device.
+    --
+    -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
     remoteDebugEnabled :: Lude.Maybe Lude.Bool,
+    -- | Information about the device's CPU.
     cpu :: Lude.Maybe CPU,
+    -- | The device's heap size, expressed in bytes.
     heapSize :: Lude.Maybe Lude.Integer,
+    -- | The name of the fleet to which this device belongs.
     fleetName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
--- * 'arn' - The device's ARN.
--- * 'availability' - Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
 -- * 'carrier' - The device's carrier.
--- * 'cpu' - Information about the device's CPU.
--- * 'fleetName' - The name of the fleet to which this device belongs.
--- * 'fleetType' - The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
--- * 'formFactor' - The device's form factor.
---
--- Allowed values include:
---
---     * PHONE
---
---
---     * TABLET
---
---
--- * 'heapSize' - The device's heap size, expressed in bytes.
 -- * 'image' - The device's image name.
--- * 'instances' - The instances that belong to this device.
 -- * 'manufacturer' - The device's manufacturer name.
--- * 'memory' - The device's total memory size, expressed in bytes.
--- * 'model' - The device's model name.
--- * 'modelId' - The device's model ID.
--- * 'name' - The device's display name.
--- * 'os' - The device's operating system type.
 -- * 'platform' - The device's platform.
 --
 -- Allowed values include:
@@ -122,12 +131,34 @@ data Device = Device'
 --     * IOS
 --
 --
--- * 'radio' - The device's radio.
+-- * 'modelId' - The device's model ID.
 -- * 'remoteAccessEnabled' - Specifies whether remote access has been enabled for the specified device.
+-- * 'arn' - The device's ARN.
+-- * 'formFactor' - The device's form factor.
+--
+-- Allowed values include:
+--
+--     * PHONE
+--
+--
+--     * TABLET
+--
+--
+-- * 'fleetType' - The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
+-- * 'resolution' - The resolution of the device.
+-- * 'availability' - Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
+-- * 'memory' - The device's total memory size, expressed in bytes.
+-- * 'radio' - The device's radio.
+-- * 'os' - The device's operating system type.
+-- * 'name' - The device's display name.
+-- * 'model' - The device's model name.
+-- * 'instances' - The instances that belong to this device.
 -- * 'remoteDebugEnabled' - This flag is set to @true@ if remote debugging is enabled for the device.
 --
 -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
--- * 'resolution' - The resolution of the device.
+-- * 'cpu' - Information about the device's CPU.
+-- * 'heapSize' - The device's heap size, expressed in bytes.
+-- * 'fleetName' - The name of the fleet to which this device belongs.
 mkDevice ::
   Device
 mkDevice =

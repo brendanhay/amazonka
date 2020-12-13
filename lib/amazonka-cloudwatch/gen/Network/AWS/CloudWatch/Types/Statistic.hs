@@ -13,11 +13,11 @@
 module Network.AWS.CloudWatch.Types.Statistic
   ( Statistic
       ( Statistic',
-        Average,
-        Maximum,
-        Minimum,
         SampleCount,
-        Sum
+        Average,
+        Sum,
+        Minimum,
+        Maximum
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype Statistic = Statistic' Lude.Text
       Lude.ToHeader
     )
 
-pattern Average :: Statistic
-pattern Average = Statistic' "Average"
-
-pattern Maximum :: Statistic
-pattern Maximum = Statistic' "Maximum"
-
-pattern Minimum :: Statistic
-pattern Minimum = Statistic' "Minimum"
-
 pattern SampleCount :: Statistic
 pattern SampleCount = Statistic' "SampleCount"
+
+pattern Average :: Statistic
+pattern Average = Statistic' "Average"
 
 pattern Sum :: Statistic
 pattern Sum = Statistic' "Sum"
 
+pattern Minimum :: Statistic
+pattern Minimum = Statistic' "Minimum"
+
+pattern Maximum :: Statistic
+pattern Maximum = Statistic' "Maximum"
+
 {-# COMPLETE
-  Average,
-  Maximum,
-  Minimum,
   SampleCount,
+  Average,
   Sum,
+  Minimum,
+  Maximum,
   Statistic'
   #-}

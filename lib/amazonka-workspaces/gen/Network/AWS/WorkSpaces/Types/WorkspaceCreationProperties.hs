@@ -33,30 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkspaceCreationProperties' smart constructor.
 data WorkspaceCreationProperties = WorkspaceCreationProperties'
-  { customSecurityGroupId ::
-      Lude.Maybe Lude.Text,
-    userEnabledAsLocalAdministrator ::
-      Lude.Maybe Lude.Bool,
-    enableWorkDocs ::
-      Lude.Maybe Lude.Bool,
-    enableMaintenanceMode ::
-      Lude.Maybe Lude.Bool,
-    enableInternetAccess ::
-      Lude.Maybe Lude.Bool,
+  { -- | The identifier of your custom security group.
+    customSecurityGroupId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether users are local administrators of their WorkSpaces.
+    userEnabledAsLocalAdministrator :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.
+    enableWorkDocs :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance> .
+    enableMaintenanceMode :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether internet access is enabled for your WorkSpaces.
+    enableInternetAccess :: Lude.Maybe Lude.Bool,
+    -- | The default organizational unit (OU) for your WorkSpaces directories. This string must be the full Lightweight Directory Access Protocol (LDAP) distinguished name for the target domain and OU. It must be in the form @"OU=/value/ ,DC=/value/ ,DC=/value/ "@ , where /value/ is any string of characters, and the number of domain components (DCs) is two or more. For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@ .
+    --
+    -- /Important:/
+    --     * To avoid errors, certain characters in the distinguished name must be escaped. For more information, see <https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names Distinguished Names> in the Microsoft documentation.
+    --
+    --
+    --     * The API doesn't validate whether the OU exists.
     defaultOu :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceCreationProperties' with the minimum fields required to make a request.
 --
 -- * 'customSecurityGroupId' - The identifier of your custom security group.
+-- * 'userEnabledAsLocalAdministrator' - Indicates whether users are local administrators of their WorkSpaces.
+-- * 'enableWorkDocs' - Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.
+-- * 'enableMaintenanceMode' - Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance> .
+-- * 'enableInternetAccess' - Indicates whether internet access is enabled for your WorkSpaces.
 -- * 'defaultOu' - The default organizational unit (OU) for your WorkSpaces directories. This string must be the full Lightweight Directory Access Protocol (LDAP) distinguished name for the target domain and OU. It must be in the form @"OU=/value/ ,DC=/value/ ,DC=/value/ "@ , where /value/ is any string of characters, and the number of domain components (DCs) is two or more. For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@ .
 --
 -- /Important:/
@@ -64,12 +69,6 @@ data WorkspaceCreationProperties = WorkspaceCreationProperties'
 --
 --
 --     * The API doesn't validate whether the OU exists.
---
---
--- * 'enableInternetAccess' - Indicates whether internet access is enabled for your WorkSpaces.
--- * 'enableMaintenanceMode' - Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance> .
--- * 'enableWorkDocs' - Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.
--- * 'userEnabledAsLocalAdministrator' - Indicates whether users are local administrators of their WorkSpaces.
 mkWorkspaceCreationProperties ::
   WorkspaceCreationProperties
 mkWorkspaceCreationProperties =

@@ -43,57 +43,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrail' smart constructor.
 data Trail = Trail'
-  { logFileValidationEnabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether log file validation is enabled.
+    logFileValidationEnabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies the ARN of the trail. The format of a trail ARN is:
+    --
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
     trailARN :: Lude.Maybe Lude.Text,
+    -- | Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
     s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | Specifies whether a trail has insight types specified in an @InsightSelector@ list.
     hasInsightSelectors :: Lude.Maybe Lude.Bool,
+    -- | Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
+    --
+    -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
     snsTopicARN :: Lude.Maybe Lude.Text,
+    -- | This field is no longer in use. Use SnsTopicARN.
     snsTopicName :: Lude.Maybe Lude.Text,
+    -- | Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
     cloudWatchLogsLogGroupARN :: Lude.Maybe Lude.Text,
+    -- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:
+    --
+    -- @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The region in which the trail was created.
     homeRegion :: Lude.Maybe Lude.Text,
+    -- | Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
     name :: Lude.Maybe Lude.Text,
+    -- | Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
     includeGlobalServiceEvents :: Lude.Maybe Lude.Bool,
+    -- | Specifies if the trail has custom event selectors.
     hasCustomEventSelectors :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the trail is an organization trail.
     isOrganizationTrail :: Lude.Maybe Lude.Bool,
+    -- | Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
     cloudWatchLogsRoleARN :: Lude.Maybe Lude.Text,
+    -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
     s3BucketName :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the trail exists only in one region or exists in all regions.
     isMultiRegionTrail :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Trail' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogsLogGroupARN' - Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
--- * 'cloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
--- * 'hasCustomEventSelectors' - Specifies if the trail has custom event selectors.
--- * 'hasInsightSelectors' - Specifies whether a trail has insight types specified in an @InsightSelector@ list.
--- * 'homeRegion' - The region in which the trail was created.
--- * 'includeGlobalServiceEvents' - Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
--- * 'isMultiRegionTrail' - Specifies whether the trail exists only in one region or exists in all regions.
--- * 'isOrganizationTrail' - Specifies whether the trail is an organization trail.
--- * 'kmsKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:
---
--- @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
 -- * 'logFileValidationEnabled' - Specifies whether log file validation is enabled.
--- * 'name' - Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
--- * 's3BucketName' - Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
+-- * 'trailARN' - Specifies the ARN of the trail. The format of a trail ARN is:
+--
+-- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 -- * 's3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files> .The maximum length is 200 characters.
+-- * 'hasInsightSelectors' - Specifies whether a trail has insight types specified in an @InsightSelector@ list.
 -- * 'snsTopicARN' - Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send notifications when log files are delivered. The format of a topic ARN is:
 --
 -- @arn:aws:sns:us-east-2:123456789012:MyTopic@
 -- * 'snsTopicName' - This field is no longer in use. Use SnsTopicARN.
--- * 'trailARN' - Specifies the ARN of the trail. The format of a trail ARN is:
+-- * 'cloudWatchLogsLogGroupARN' - Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered.
+-- * 'kmsKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the format:
 --
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- @arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012@
+-- * 'homeRegion' - The region in which the trail was created.
+-- * 'name' - Name of the trail set by calling 'CreateTrail' . The maximum length is 128 characters.
+-- * 'includeGlobalServiceEvents' - Set to __True__ to include AWS API calls from AWS global services such as IAM. Otherwise, __False__ .
+-- * 'hasCustomEventSelectors' - Specifies if the trail has custom event selectors.
+-- * 'isOrganizationTrail' - Specifies whether the trail is an organization trail.
+-- * 'cloudWatchLogsRoleARN' - Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
+-- * 's3BucketName' - Name of the Amazon S3 bucket into which CloudTrail delivers your trail files. See <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html Amazon S3 Bucket Naming Requirements> .
+-- * 'isMultiRegionTrail' - Specifies whether the trail exists only in one region or exists in all regions.
 mkTrail ::
   Trail
 mkTrail =

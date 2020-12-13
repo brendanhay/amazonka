@@ -13,10 +13,10 @@
 module Network.AWS.Polly.Types.TaskStatus
   ( TaskStatus
       ( TaskStatus',
-        Completed,
-        Failed,
+        Scheduled,
         InProgress,
-        Scheduled
+        Completed,
+        Failed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TaskStatus = TaskStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Scheduled :: TaskStatus
+pattern Scheduled = TaskStatus' "scheduled"
+
+pattern InProgress :: TaskStatus
+pattern InProgress = TaskStatus' "inProgress"
+
 pattern Completed :: TaskStatus
 pattern Completed = TaskStatus' "completed"
 
 pattern Failed :: TaskStatus
 pattern Failed = TaskStatus' "failed"
 
-pattern InProgress :: TaskStatus
-pattern InProgress = TaskStatus' "inProgress"
-
-pattern Scheduled :: TaskStatus
-pattern Scheduled = TaskStatus' "scheduled"
-
 {-# COMPLETE
+  Scheduled,
+  InProgress,
   Completed,
   Failed,
-  InProgress,
-  Scheduled,
   TaskStatus'
   #-}

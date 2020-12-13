@@ -13,13 +13,13 @@
 module Network.AWS.Mobile.Types.Platform
   ( Platform
       ( Platform',
-        Android,
-        Javascript,
-        Linux,
         OSx,
+        Windows,
+        Linux,
         Objc,
         Swift,
-        Windows
+        Android,
+        Javascript
       ),
   )
 where
@@ -51,17 +51,14 @@ newtype Platform = Platform' Lude.Text
       Lude.ToHeader
     )
 
-pattern Android :: Platform
-pattern Android = Platform' "ANDROID"
+pattern OSx :: Platform
+pattern OSx = Platform' "OSX"
 
-pattern Javascript :: Platform
-pattern Javascript = Platform' "JAVASCRIPT"
+pattern Windows :: Platform
+pattern Windows = Platform' "WINDOWS"
 
 pattern Linux :: Platform
 pattern Linux = Platform' "LINUX"
-
-pattern OSx :: Platform
-pattern OSx = Platform' "OSX"
 
 pattern Objc :: Platform
 pattern Objc = Platform' "OBJC"
@@ -69,16 +66,19 @@ pattern Objc = Platform' "OBJC"
 pattern Swift :: Platform
 pattern Swift = Platform' "SWIFT"
 
-pattern Windows :: Platform
-pattern Windows = Platform' "WINDOWS"
+pattern Android :: Platform
+pattern Android = Platform' "ANDROID"
+
+pattern Javascript :: Platform
+pattern Javascript = Platform' "JAVASCRIPT"
 
 {-# COMPLETE
-  Android,
-  Javascript,
-  Linux,
   OSx,
+  Windows,
+  Linux,
   Objc,
   Swift,
-  Windows,
+  Android,
+  Javascript,
   Platform'
   #-}

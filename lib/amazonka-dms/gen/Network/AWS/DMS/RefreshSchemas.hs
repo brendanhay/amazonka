@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DMS.RefreshSchemas
     mkRefreshSchemas,
 
     -- ** Request lenses
-    rsEndpointARN,
     rsReplicationInstanceARN,
+    rsEndpointARN,
 
     -- * Destructuring the response
     RefreshSchemasResponse (..),
@@ -42,40 +43,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRefreshSchemas' smart constructor.
 data RefreshSchemas = RefreshSchemas'
-  { endpointARN :: Lude.Text,
-    replicationInstanceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+    endpointARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshSchemas' with the minimum fields required to make a request.
 --
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 -- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 mkRefreshSchemas ::
-  -- | 'endpointARN'
-  Lude.Text ->
   -- | 'replicationInstanceARN'
   Lude.Text ->
+  -- | 'endpointARN'
+  Lude.Text ->
   RefreshSchemas
-mkRefreshSchemas pEndpointARN_ pReplicationInstanceARN_ =
+mkRefreshSchemas pReplicationInstanceARN_ pEndpointARN_ =
   RefreshSchemas'
-    { endpointARN = pEndpointARN_,
-      replicationInstanceARN = pReplicationInstanceARN_
+    { replicationInstanceARN =
+        pReplicationInstanceARN_,
+      endpointARN = pEndpointARN_
     }
-
--- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
---
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsEndpointARN :: Lens.Lens' RefreshSchemas Lude.Text
-rsEndpointARN = Lens.lens (endpointARN :: RefreshSchemas -> Lude.Text) (\s a -> s {endpointARN = a} :: RefreshSchemas)
-{-# DEPRECATED rsEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 --
@@ -83,6 +74,13 @@ rsEndpointARN = Lens.lens (endpointARN :: RefreshSchemas -> Lude.Text) (\s a -> 
 rsReplicationInstanceARN :: Lens.Lens' RefreshSchemas Lude.Text
 rsReplicationInstanceARN = Lens.lens (replicationInstanceARN :: RefreshSchemas -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: RefreshSchemas)
 {-# DEPRECATED rsReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
+
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsEndpointARN :: Lens.Lens' RefreshSchemas Lude.Text
+rsEndpointARN = Lens.lens (endpointARN :: RefreshSchemas -> Lude.Text) (\s a -> s {endpointARN = a} :: RefreshSchemas)
+{-# DEPRECATED rsEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 instance Lude.AWSRequest RefreshSchemas where
   type Rs RefreshSchemas = RefreshSchemasResponse
@@ -110,9 +108,9 @@ instance Lude.ToJSON RefreshSchemas where
   toJSON RefreshSchemas' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("EndpointArn" Lude..= endpointARN),
-            Lude.Just
-              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
+          [ Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN),
+            Lude.Just ("EndpointArn" Lude..= endpointARN)
           ]
       )
 
@@ -126,17 +124,12 @@ instance Lude.ToQuery RefreshSchemas where
 --
 -- /See:/ 'mkRefreshSchemasResponse' smart constructor.
 data RefreshSchemasResponse = RefreshSchemasResponse'
-  { refreshSchemasStatus ::
-      Lude.Maybe RefreshSchemasStatus,
+  { -- | The status of the refreshed schema.
+    refreshSchemasStatus :: Lude.Maybe RefreshSchemasStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshSchemasResponse' with the minimum fields required to make a request.

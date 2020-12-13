@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Represents the settings used to enable server-side encryption.
 --
 -- /See:/ 'mkSSESpecification' smart constructor.
-newtype SSESpecification = SSESpecification' {enabled :: Lude.Bool}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype SSESpecification = SSESpecification'
+  { -- | Indicates whether server-side encryption is enabled (true) or disabled (false) on the cluster.
+    enabled :: Lude.Bool
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSESpecification' with the minimum fields required to make a request.

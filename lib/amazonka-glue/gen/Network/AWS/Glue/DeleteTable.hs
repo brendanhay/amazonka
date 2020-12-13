@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Glue.DeleteTable
     mkDeleteTable,
 
     -- ** Request lenses
-    dtCatalogId,
-    dtDatabaseName,
-    dtName,
+    dtfCatalogId,
+    dtfName,
+    dtfDatabaseName,
 
     -- * Destructuring the response
     DeleteTableResponse (..),
@@ -40,57 +41,54 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTable' smart constructor.
 data DeleteTable = DeleteTable'
-  { catalogId :: Lude.Maybe Lude.Text,
-    databaseName :: Lude.Text,
-    name :: Lude.Text
+  { -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the table to be deleted. For Hive compatibility, this name is entirely lowercase.
+    name :: Lude.Text,
+    -- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
+    databaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTable' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
 -- * 'name' - The name of the table to be deleted. For Hive compatibility, this name is entirely lowercase.
+-- * 'databaseName' - The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
 mkDeleteTable ::
-  -- | 'databaseName'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'databaseName'
+  Lude.Text ->
   DeleteTable
-mkDeleteTable pDatabaseName_ pName_ =
+mkDeleteTable pName_ pDatabaseName_ =
   DeleteTable'
     { catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      name = pName_
+      name = pName_,
+      databaseName = pDatabaseName_
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtCatalogId :: Lens.Lens' DeleteTable (Lude.Maybe Lude.Text)
-dtCatalogId = Lens.lens (catalogId :: DeleteTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeleteTable)
-{-# DEPRECATED dtCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
-
--- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
---
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtDatabaseName :: Lens.Lens' DeleteTable Lude.Text
-dtDatabaseName = Lens.lens (databaseName :: DeleteTable -> Lude.Text) (\s a -> s {databaseName = a} :: DeleteTable)
-{-# DEPRECATED dtDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+dtfCatalogId :: Lens.Lens' DeleteTable (Lude.Maybe Lude.Text)
+dtfCatalogId = Lens.lens (catalogId :: DeleteTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeleteTable)
+{-# DEPRECATED dtfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the table to be deleted. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtName :: Lens.Lens' DeleteTable Lude.Text
-dtName = Lens.lens (name :: DeleteTable -> Lude.Text) (\s a -> s {name = a} :: DeleteTable)
-{-# DEPRECATED dtName "Use generic-lens or generic-optics with 'name' instead." #-}
+dtfName :: Lens.Lens' DeleteTable Lude.Text
+dtfName = Lens.lens (name :: DeleteTable -> Lude.Text) (\s a -> s {name = a} :: DeleteTable)
+{-# DEPRECATED dtfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The name of the catalog database in which the table resides. For Hive compatibility, this name is entirely lowercase.
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfDatabaseName :: Lens.Lens' DeleteTable Lude.Text
+dtfDatabaseName = Lens.lens (databaseName :: DeleteTable -> Lude.Text) (\s a -> s {databaseName = a} :: DeleteTable)
+{-# DEPRECATED dtfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 instance Lude.AWSRequest DeleteTable where
   type Rs DeleteTable = DeleteTableResponse
@@ -116,8 +114,8 @@ instance Lude.ToJSON DeleteTable where
     Lude.object
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            Lude.Just ("DatabaseName" Lude..= databaseName)
           ]
       )
 
@@ -129,16 +127,10 @@ instance Lude.ToQuery DeleteTable where
 
 -- | /See:/ 'mkDeleteTableResponse' smart constructor.
 newtype DeleteTableResponse = DeleteTableResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTableResponse' with the minimum fields required to make a request.

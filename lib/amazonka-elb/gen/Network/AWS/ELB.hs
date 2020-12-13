@@ -136,9 +136,9 @@ module Network.AWS.ELB
     AccessLog (..),
     mkAccessLog,
     alEmitInterval,
+    alEnabled,
     alS3BucketPrefix,
     alS3BucketName,
-    alEnabled,
 
     -- ** AdditionalAttribute
     AdditionalAttribute (..),
@@ -161,8 +161,8 @@ module Network.AWS.ELB
     -- ** ConnectionDraining
     ConnectionDraining (..),
     mkConnectionDraining,
-    cdTimeout,
     cdEnabled,
+    cdTimeout,
 
     -- ** ConnectionSettings
     ConnectionSettings (..),
@@ -177,11 +177,11 @@ module Network.AWS.ELB
     -- ** HealthCheck
     HealthCheck (..),
     mkHealthCheck,
-    hcTarget,
+    hcHealthyThreshold,
     hcInterval,
     hcTimeout,
     hcUnhealthyThreshold,
-    hcHealthyThreshold,
+    hcTarget,
 
     -- ** Instance
     Instance (..),
@@ -212,10 +212,10 @@ module Network.AWS.ELB
     Listener (..),
     mkListener,
     lInstanceProtocol,
-    lSSLCertificateId,
-    lProtocol,
-    lLoadBalancerPort,
     lInstancePort,
+    lLoadBalancerPort,
+    lProtocol,
+    lSSLCertificateId,
 
     -- ** ListenerDescription
     ListenerDescription (..),

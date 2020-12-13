@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.TrustType
   ( TrustType
       ( TrustType',
-        External,
-        Forest
+        Forest,
+        External
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TrustType = TrustType' Lude.Text
       Lude.ToHeader
     )
 
-pattern External :: TrustType
-pattern External = TrustType' "External"
-
 pattern Forest :: TrustType
 pattern Forest = TrustType' "Forest"
 
+pattern External :: TrustType
+pattern External = TrustType' "External"
+
 {-# COMPLETE
-  External,
   Forest,
+  External,
   TrustType'
   #-}

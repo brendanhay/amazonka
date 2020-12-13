@@ -13,9 +13,9 @@
 module Network.AWS.Lambda.Types.InvocationType
   ( InvocationType
       ( InvocationType',
-        DryRun,
         Event,
-        RequestResponse
+        RequestResponse,
+        DryRun
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype InvocationType = InvocationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DryRun :: InvocationType
-pattern DryRun = InvocationType' "DryRun"
-
 pattern Event :: InvocationType
 pattern Event = InvocationType' "Event"
 
 pattern RequestResponse :: InvocationType
 pattern RequestResponse = InvocationType' "RequestResponse"
 
+pattern DryRun :: InvocationType
+pattern DryRun = InvocationType' "DryRun"
+
 {-# COMPLETE
-  DryRun,
   Event,
   RequestResponse,
+  DryRun,
   InvocationType'
   #-}

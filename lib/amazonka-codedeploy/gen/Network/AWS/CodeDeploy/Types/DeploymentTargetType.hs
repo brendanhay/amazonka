@@ -13,10 +13,10 @@
 module Network.AWS.CodeDeploy.Types.DeploymentTargetType
   ( DeploymentTargetType
       ( DeploymentTargetType',
-        CloudFormationTarget,
-        ECSTarget,
         InstanceTarget,
-        LambdaTarget
+        LambdaTarget,
+        ECSTarget,
+        CloudFormationTarget
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DeploymentTargetType = DeploymentTargetType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CloudFormationTarget :: DeploymentTargetType
-pattern CloudFormationTarget = DeploymentTargetType' "CloudFormationTarget"
-
-pattern ECSTarget :: DeploymentTargetType
-pattern ECSTarget = DeploymentTargetType' "ECSTarget"
-
 pattern InstanceTarget :: DeploymentTargetType
 pattern InstanceTarget = DeploymentTargetType' "InstanceTarget"
 
 pattern LambdaTarget :: DeploymentTargetType
 pattern LambdaTarget = DeploymentTargetType' "LambdaTarget"
 
+pattern ECSTarget :: DeploymentTargetType
+pattern ECSTarget = DeploymentTargetType' "ECSTarget"
+
+pattern CloudFormationTarget :: DeploymentTargetType
+pattern CloudFormationTarget = DeploymentTargetType' "CloudFormationTarget"
+
 {-# COMPLETE
-  CloudFormationTarget,
-  ECSTarget,
   InstanceTarget,
   LambdaTarget,
+  ECSTarget,
+  CloudFormationTarget,
   DeploymentTargetType'
   #-}

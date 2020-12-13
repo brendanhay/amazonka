@@ -30,16 +30,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetTrackingConfiguration' smart constructor.
 newtype TargetTrackingConfiguration = TargetTrackingConfiguration'
-  { targetValue ::
-      Lude.Double
+  { -- | Desired value to use with a game server group target-based scaling policy.
+    targetValue :: Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetTrackingConfiguration' with the minimum fields required to make a request.

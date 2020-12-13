@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetGeoMatchSet' smart constructor.
 newtype GetGeoMatchSet = GetGeoMatchSet'
-  { geoMatchSetId ::
-      Lude.Text
+  { -- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to get. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
+    geoMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGeoMatchSet' with the minimum fields required to make a request.
@@ -104,17 +99,12 @@ instance Lude.ToQuery GetGeoMatchSet where
 
 -- | /See:/ 'mkGetGeoMatchSetResponse' smart constructor.
 data GetGeoMatchSetResponse = GetGeoMatchSetResponse'
-  { geoMatchSet ::
-      Lude.Maybe GeoMatchSet,
+  { -- | Information about the 'GeoMatchSet' that you specified in the @GetGeoMatchSet@ request. This includes the @Type@ , which for a @GeoMatchContraint@ is always @Country@ , as well as the @Value@ , which is the identifier for a specific country.
+    geoMatchSet :: Lude.Maybe GeoMatchSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGeoMatchSetResponse' with the minimum fields required to make a request.

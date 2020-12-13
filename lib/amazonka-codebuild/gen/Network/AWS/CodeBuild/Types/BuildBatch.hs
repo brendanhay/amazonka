@@ -68,65 +68,103 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildBatch' smart constructor.
 data BuildBatch = BuildBatch'
-  { phases ::
-      Lude.Maybe [BuildBatchPhase],
+  { -- | An array of @BuildBatchPhase@ objects the specify the phases of the batch build.
+    phases :: Lude.Maybe [BuildBatchPhase],
+    -- | An array of @BuildArtifacts@ objects the define the build artifacts for this batch build.
     secondaryArtifacts :: Lude.Maybe [BuildArtifacts],
+    -- | Specifies the maximum amount of time, in minutes, that the build in a batch must be completed in.
     buildTimeoutInMinutes :: Lude.Maybe Lude.Int,
+    -- | The ARN of the batch build.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date and time that the batch build started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | A @BuildArtifacts@ object the defines the build artifacts for this batch build.
     artifacts :: Lude.Maybe BuildArtifacts,
     environment :: Lude.Maybe ProjectEnvironment,
+    -- | The entity that started the batch build. Valid values include:
+    --
+    --
+    --     * If AWS CodePipeline started the build, the pipeline's name (for example, @codepipeline/my-demo-pipeline@ ).
+    --
+    --
+    --     * If an AWS Identity and Access Management (IAM) user started the build, the user's name.
+    --
+    --
+    --     * If the Jenkins plugin for AWS CodeBuild started the build, the string @CodeBuild-Jenkins-Plugin@ .
     initiator :: Lude.Maybe Lude.Text,
+    -- | An array of @ProjectSourceVersion@ objects. Each @ProjectSourceVersion@ must be one of:
+    --
+    --
+    --     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+    --
+    --
+    --     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example, @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
     secondarySourceVersions :: Lude.Maybe [ProjectSourceVersion],
+    -- | The status of the batch build.
     buildBatchStatus :: Lude.Maybe StatusType,
+    -- | The current phase of the batch build.
     currentPhase :: Lude.Maybe Lude.Text,
+    -- | The number of the batch build. For each project, the @buildBatchNumber@ of its first batch build is @1@ . The @buildBatchNumber@ of each subsequent batch build is incremented by @1@ . If a batch build is deleted, the @buildBatchNumber@ of other batch builds does not change.
     buildBatchNumber :: Lude.Maybe Lude.Integer,
+    -- | Specifies the amount of time, in minutes, that the batch build is allowed to be queued before it times out.
     queuedTimeoutInMinutes :: Lude.Maybe Lude.Int,
     cache :: Lude.Maybe ProjectCache,
+    -- | An array of @ProjectSource@ objects that define the sources for the batch build.
     secondarySources :: Lude.Maybe [ProjectSource],
+    -- | The identifier of the version of the source code to be built.
     sourceVersion :: Lude.Maybe Lude.Text,
+    -- | The identifier of the resolved version of this batch build's source code.
+    --
+    --
+    --     * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.
+    --
+    --
+    --     * For AWS CodePipeline, the source revision provided by AWS CodePipeline.
+    --
+    --
+    --     * For Amazon Simple Storage Service (Amazon S3), this does not apply.
     resolvedSourceVersion :: Lude.Maybe Lude.Text,
     vpcConfig :: Lude.Maybe VPCConfig,
+    -- | The date and time that the batch build ended.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the batch build project.
     projectName :: Lude.Maybe Lude.Text,
+    -- | An array of @BuildGroup@ objects that define the build groups for the batch build.
     buildGroups :: Lude.Maybe [BuildGroup],
     source :: Lude.Maybe ProjectSource,
+    -- | The identifier of the batch build.
     id :: Lude.Maybe Lude.Text,
+    -- | An array of @ProjectFileSystemLocation@ objects for the batch build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
     fileSystemLocations :: Lude.Maybe [ProjectFileSystemLocation],
     buildBatchConfig :: Lude.Maybe ProjectBuildBatchConfig,
+    -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the batch build output artifacts.
+    --
+    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
     encryptionKey :: Lude.Maybe Lude.Text,
     logConfig :: Lude.Maybe LogsConfig,
+    -- | The name of a service role used for builds in the batch.
     serviceRole :: Lude.Maybe Lude.Text,
+    -- | Indicates if the batch build is complete.
     complete :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildBatch' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the batch build.
--- * 'artifacts' - A @BuildArtifacts@ object the defines the build artifacts for this batch build.
--- * 'buildBatchConfig' - Undocumented field.
--- * 'buildBatchNumber' - The number of the batch build. For each project, the @buildBatchNumber@ of its first batch build is @1@ . The @buildBatchNumber@ of each subsequent batch build is incremented by @1@ . If a batch build is deleted, the @buildBatchNumber@ of other batch builds does not change.
--- * 'buildBatchStatus' - The status of the batch build.
--- * 'buildGroups' - An array of @BuildGroup@ objects that define the build groups for the batch build.
+-- * 'phases' - An array of @BuildBatchPhase@ objects the specify the phases of the batch build.
+-- * 'secondaryArtifacts' - An array of @BuildArtifacts@ objects the define the build artifacts for this batch build.
 -- * 'buildTimeoutInMinutes' - Specifies the maximum amount of time, in minutes, that the build in a batch must be completed in.
--- * 'cache' - Undocumented field.
--- * 'complete' - Indicates if the batch build is complete.
--- * 'currentPhase' - The current phase of the batch build.
--- * 'encryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the batch build output artifacts.
---
--- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
--- * 'endTime' - The date and time that the batch build ended.
--- * 'environment' - Undocumented field.
--- * 'fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for the batch build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
--- * 'id' - The identifier of the batch build.
+-- * 'arn' - The ARN of the batch build.
+-- * 'startTime' - The date and time that the batch build started.
+-- * 'artifacts' - A @BuildArtifacts@ object the defines the build artifacts for this batch build.
+-- * 'environment' -
 -- * 'initiator' - The entity that started the batch build. Valid values include:
 --
 --
@@ -139,23 +177,6 @@ data BuildBatch = BuildBatch'
 --     * If the Jenkins plugin for AWS CodeBuild started the build, the string @CodeBuild-Jenkins-Plugin@ .
 --
 --
--- * 'logConfig' - Undocumented field.
--- * 'phases' - An array of @BuildBatchPhase@ objects the specify the phases of the batch build.
--- * 'projectName' - The name of the batch build project.
--- * 'queuedTimeoutInMinutes' - Specifies the amount of time, in minutes, that the batch build is allowed to be queued before it times out.
--- * 'resolvedSourceVersion' - The identifier of the resolved version of this batch build's source code.
---
---
---     * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.
---
---
---     * For AWS CodePipeline, the source revision provided by AWS CodePipeline.
---
---
---     * For Amazon Simple Storage Service (Amazon S3), this does not apply.
---
---
--- * 'secondaryArtifacts' - An array of @BuildArtifacts@ objects the define the build artifacts for this batch build.
 -- * 'secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. Each @ProjectSourceVersion@ must be one of:
 --
 --
@@ -171,12 +192,39 @@ data BuildBatch = BuildBatch'
 --     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
 --
 --
+-- * 'buildBatchStatus' - The status of the batch build.
+-- * 'currentPhase' - The current phase of the batch build.
+-- * 'buildBatchNumber' - The number of the batch build. For each project, the @buildBatchNumber@ of its first batch build is @1@ . The @buildBatchNumber@ of each subsequent batch build is incremented by @1@ . If a batch build is deleted, the @buildBatchNumber@ of other batch builds does not change.
+-- * 'queuedTimeoutInMinutes' - Specifies the amount of time, in minutes, that the batch build is allowed to be queued before it times out.
+-- * 'cache' -
 -- * 'secondarySources' - An array of @ProjectSource@ objects that define the sources for the batch build.
--- * 'serviceRole' - The name of a service role used for builds in the batch.
--- * 'source' - Undocumented field.
 -- * 'sourceVersion' - The identifier of the version of the source code to be built.
--- * 'startTime' - The date and time that the batch build started.
--- * 'vpcConfig' - Undocumented field.
+-- * 'resolvedSourceVersion' - The identifier of the resolved version of this batch build's source code.
+--
+--
+--     * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.
+--
+--
+--     * For AWS CodePipeline, the source revision provided by AWS CodePipeline.
+--
+--
+--     * For Amazon Simple Storage Service (Amazon S3), this does not apply.
+--
+--
+-- * 'vpcConfig' -
+-- * 'endTime' - The date and time that the batch build ended.
+-- * 'projectName' - The name of the batch build project.
+-- * 'buildGroups' - An array of @BuildGroup@ objects that define the build groups for the batch build.
+-- * 'source' -
+-- * 'id' - The identifier of the batch build.
+-- * 'fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for the batch build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
+-- * 'buildBatchConfig' -
+-- * 'encryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the batch build output artifacts.
+--
+-- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+-- * 'logConfig' -
+-- * 'serviceRole' - The name of a service role used for builds in the batch.
+-- * 'complete' - Indicates if the batch build is complete.
 mkBuildBatch ::
   BuildBatch
 mkBuildBatch =

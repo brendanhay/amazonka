@@ -29,18 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
-  { uploadURL ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    signedHeaders ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | The URL of the upload.
+    uploadURL :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The signed headers.
+    signedHeaders :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadMetadata' with the minimum fields required to make a request.
 --
--- * 'signedHeaders' - The signed headers.
 -- * 'uploadURL' - The URL of the upload.
+-- * 'signedHeaders' - The signed headers.
 mkUploadMetadata ::
   UploadMetadata
 mkUploadMetadata =

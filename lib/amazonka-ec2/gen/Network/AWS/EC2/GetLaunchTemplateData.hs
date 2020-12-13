@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.GetLaunchTemplateData
     mkGetLaunchTemplateData,
 
     -- ** Request lenses
-    gltdDryRun,
     gltdInstanceId,
+    gltdDryRun,
 
     -- * Destructuring the response
     GetLaunchTemplateDataResponse (..),
@@ -42,39 +43,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLaunchTemplateData' smart constructor.
 data GetLaunchTemplateData = GetLaunchTemplateData'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    instanceId :: Lude.Text
+  { -- | The ID of the instance.
+    instanceId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLaunchTemplateData' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceId' - The ID of the instance.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkGetLaunchTemplateData ::
   -- | 'instanceId'
   Lude.Text ->
   GetLaunchTemplateData
 mkGetLaunchTemplateData pInstanceId_ =
   GetLaunchTemplateData'
-    { dryRun = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gltdDryRun :: Lens.Lens' GetLaunchTemplateData (Lude.Maybe Lude.Bool)
-gltdDryRun = Lens.lens (dryRun :: GetLaunchTemplateData -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetLaunchTemplateData)
-{-# DEPRECATED gltdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the instance.
 --
@@ -82,6 +71,13 @@ gltdDryRun = Lens.lens (dryRun :: GetLaunchTemplateData -> Lude.Maybe Lude.Bool)
 gltdInstanceId :: Lens.Lens' GetLaunchTemplateData Lude.Text
 gltdInstanceId = Lens.lens (instanceId :: GetLaunchTemplateData -> Lude.Text) (\s a -> s {instanceId = a} :: GetLaunchTemplateData)
 {-# DEPRECATED gltdInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gltdDryRun :: Lens.Lens' GetLaunchTemplateData (Lude.Maybe Lude.Bool)
+gltdDryRun = Lens.lens (dryRun :: GetLaunchTemplateData -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetLaunchTemplateData)
+{-# DEPRECATED gltdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest GetLaunchTemplateData where
   type Rs GetLaunchTemplateData = GetLaunchTemplateDataResponse
@@ -105,24 +101,18 @@ instance Lude.ToQuery GetLaunchTemplateData where
     Lude.mconcat
       [ "Action" Lude.=: ("GetLaunchTemplateData" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "InstanceId" Lude.=: instanceId
+        "InstanceId" Lude.=: instanceId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkGetLaunchTemplateDataResponse' smart constructor.
 data GetLaunchTemplateDataResponse = GetLaunchTemplateDataResponse'
-  { launchTemplateData ::
-      Lude.Maybe
-        ResponseLaunchTemplateData,
+  { -- | The instance data.
+    launchTemplateData :: Lude.Maybe ResponseLaunchTemplateData,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLaunchTemplateDataResponse' with the minimum fields required to make a request.

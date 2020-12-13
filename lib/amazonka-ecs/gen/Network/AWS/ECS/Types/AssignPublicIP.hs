@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.AssignPublicIP
   ( AssignPublicIP
       ( AssignPublicIP',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AssignPublicIP = AssignPublicIP' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: AssignPublicIP
-pattern Disabled = AssignPublicIP' "DISABLED"
-
 pattern Enabled :: AssignPublicIP
 pattern Enabled = AssignPublicIP' "ENABLED"
 
+pattern Disabled :: AssignPublicIP
+pattern Disabled = AssignPublicIP' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   AssignPublicIP'
   #-}

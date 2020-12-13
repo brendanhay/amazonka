@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.M2tsScte35Source
   ( M2tsScte35Source
       ( M2tsScte35Source',
-        MSSNone,
-        MSSPassthrough
+        MSSPassthrough,
+        MSSNone
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M2tsScte35Source = M2tsScte35Source' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSSNone :: M2tsScte35Source
-pattern MSSNone = M2tsScte35Source' "NONE"
-
 pattern MSSPassthrough :: M2tsScte35Source
 pattern MSSPassthrough = M2tsScte35Source' "PASSTHROUGH"
 
+pattern MSSNone :: M2tsScte35Source
+pattern MSSNone = M2tsScte35Source' "NONE"
+
 {-# COMPLETE
-  MSSNone,
   MSSPassthrough,
+  MSSNone,
   M2tsScte35Source'
   #-}

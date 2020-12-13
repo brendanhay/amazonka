@@ -21,8 +21,8 @@ module Network.AWS.EMR.Types.InstanceTypeConfig
     itcBidPrice,
     itcWeightedCapacity,
     itcConfigurations,
-    itcBidPriceAsPercentageOfOnDemandPrice,
     itcInstanceType,
+    itcBidPriceAsPercentageOfOnDemandPrice,
   )
 where
 
@@ -35,32 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceTypeConfig' smart constructor.
 data InstanceTypeConfig = InstanceTypeConfig'
-  { ebsConfiguration ::
-      Lude.Maybe EBSConfiguration,
+  { -- | The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance as defined by @InstanceType@ .
+    ebsConfiguration :: Lude.Maybe EBSConfiguration,
+    -- | The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
     bidPrice :: Lude.Maybe Lude.Text,
+    -- | The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
     weightedCapacity :: Lude.Maybe Lude.Natural,
+    -- | A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
     configurations :: Lude.Maybe [Configuration],
-    bidPriceAsPercentageOfOnDemandPrice ::
-      Lude.Maybe Lude.Double,
-    instanceType :: Lude.Text
+    -- | An EC2 instance type, such as @m3.xlarge@ .
+    instanceType :: Lude.Text,
+    -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+    bidPriceAsPercentageOfOnDemandPrice :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTypeConfig' with the minimum fields required to make a request.
 --
--- * 'bidPrice' - The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
--- * 'bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
--- * 'configurations' - A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
 -- * 'ebsConfiguration' - The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance as defined by @InstanceType@ .
--- * 'instanceType' - An EC2 instance type, such as @m3.xlarge@ .
+-- * 'bidPrice' - The bid price for each EC2 Spot Instance type as defined by @InstanceType@ . Expressed in USD. If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 -- * 'weightedCapacity' - The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in 'InstanceFleetConfig' . This value is 1 for a master instance fleet, and must be 1 or greater for core and task instance fleets. Defaults to 1 if not specified.
+-- * 'configurations' - A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster.
+-- * 'instanceType' - An EC2 instance type, such as @m3.xlarge@ .
+-- * 'bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 mkInstanceTypeConfig ::
   -- | 'instanceType'
   Lude.Text ->
@@ -71,8 +69,8 @@ mkInstanceTypeConfig pInstanceType_ =
       bidPrice = Lude.Nothing,
       weightedCapacity = Lude.Nothing,
       configurations = Lude.Nothing,
-      bidPriceAsPercentageOfOnDemandPrice = Lude.Nothing,
-      instanceType = pInstanceType_
+      instanceType = pInstanceType_,
+      bidPriceAsPercentageOfOnDemandPrice = Lude.Nothing
     }
 
 -- | The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance as defined by @InstanceType@ .
@@ -103,19 +101,19 @@ itcConfigurations :: Lens.Lens' InstanceTypeConfig (Lude.Maybe [Configuration])
 itcConfigurations = Lens.lens (configurations :: InstanceTypeConfig -> Lude.Maybe [Configuration]) (\s a -> s {configurations = a} :: InstanceTypeConfig)
 {-# DEPRECATED itcConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
--- | The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
---
--- /Note:/ Consider using 'bidPriceAsPercentageOfOnDemandPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itcBidPriceAsPercentageOfOnDemandPrice :: Lens.Lens' InstanceTypeConfig (Lude.Maybe Lude.Double)
-itcBidPriceAsPercentageOfOnDemandPrice = Lens.lens (bidPriceAsPercentageOfOnDemandPrice :: InstanceTypeConfig -> Lude.Maybe Lude.Double) (\s a -> s {bidPriceAsPercentageOfOnDemandPrice = a} :: InstanceTypeConfig)
-{-# DEPRECATED itcBidPriceAsPercentageOfOnDemandPrice "Use generic-lens or generic-optics with 'bidPriceAsPercentageOfOnDemandPrice' instead." #-}
-
 -- | An EC2 instance type, such as @m3.xlarge@ .
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 itcInstanceType :: Lens.Lens' InstanceTypeConfig Lude.Text
 itcInstanceType = Lens.lens (instanceType :: InstanceTypeConfig -> Lude.Text) (\s a -> s {instanceType = a} :: InstanceTypeConfig)
 {-# DEPRECATED itcInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The bid price, as a percentage of On-Demand price, for each EC2 Spot Instance as defined by @InstanceType@ . Expressed as a number (for example, 20 specifies 20%). If neither @BidPrice@ nor @BidPriceAsPercentageOfOnDemandPrice@ is provided, @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
+--
+-- /Note:/ Consider using 'bidPriceAsPercentageOfOnDemandPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itcBidPriceAsPercentageOfOnDemandPrice :: Lens.Lens' InstanceTypeConfig (Lude.Maybe Lude.Double)
+itcBidPriceAsPercentageOfOnDemandPrice = Lens.lens (bidPriceAsPercentageOfOnDemandPrice :: InstanceTypeConfig -> Lude.Maybe Lude.Double) (\s a -> s {bidPriceAsPercentageOfOnDemandPrice = a} :: InstanceTypeConfig)
+{-# DEPRECATED itcBidPriceAsPercentageOfOnDemandPrice "Use generic-lens or generic-optics with 'bidPriceAsPercentageOfOnDemandPrice' instead." #-}
 
 instance Lude.ToJSON InstanceTypeConfig where
   toJSON InstanceTypeConfig' {..} =
@@ -125,8 +123,8 @@ instance Lude.ToJSON InstanceTypeConfig where
             ("BidPrice" Lude..=) Lude.<$> bidPrice,
             ("WeightedCapacity" Lude..=) Lude.<$> weightedCapacity,
             ("Configurations" Lude..=) Lude.<$> configurations,
+            Lude.Just ("InstanceType" Lude..= instanceType),
             ("BidPriceAsPercentageOfOnDemandPrice" Lude..=)
-              Lude.<$> bidPriceAsPercentageOfOnDemandPrice,
-            Lude.Just ("InstanceType" Lude..= instanceType)
+              Lude.<$> bidPriceAsPercentageOfOnDemandPrice
           ]
       )

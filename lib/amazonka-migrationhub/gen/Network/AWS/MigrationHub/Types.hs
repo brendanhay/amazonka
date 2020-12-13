@@ -32,14 +32,14 @@ module Network.AWS.MigrationHub.Types
     -- * CreatedArtifact
     CreatedArtifact (..),
     mkCreatedArtifact,
-    caDescription,
     caName,
+    caDescription,
 
     -- * DiscoveredResource
     DiscoveredResource (..),
     mkDiscoveredResource,
-    drDescription,
     drConfigurationId,
+    drDescription,
 
     -- * MigrationTask
     MigrationTask (..),
@@ -68,15 +68,15 @@ module Network.AWS.MigrationHub.Types
     -- * ResourceAttribute
     ResourceAttribute (..),
     mkResourceAttribute,
-    raType,
     raValue,
+    raType,
 
     -- * Task
     Task (..),
     mkTask,
+    tStatus,
     tProgressPercent,
     tStatusDetail,
-    tStatus,
   )
 where
 

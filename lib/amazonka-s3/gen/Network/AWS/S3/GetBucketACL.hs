@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.S3.GetBucketACL
     mkGetBucketACL,
 
     -- ** Request lenses
-    gbaExpectedBucketOwner,
     gbaBucket,
+    gbaExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketACLResponse (..),
@@ -45,17 +46,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketACL' smart constructor.
 data GetBucketACL = GetBucketACL'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | Specifies the S3 bucket whose ACL is being requested.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketACL' with the minimum fields required to make a request.
@@ -68,16 +64,9 @@ mkGetBucketACL ::
   GetBucketACL
 mkGetBucketACL pBucket_ =
   GetBucketACL'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbaExpectedBucketOwner :: Lens.Lens' GetBucketACL (Lude.Maybe Lude.Text)
-gbaExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketACL -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketACL)
-{-# DEPRECATED gbaExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | Specifies the S3 bucket whose ACL is being requested.
 --
@@ -85,6 +74,13 @@ gbaExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketACL -> Lude.
 gbaBucket :: Lens.Lens' GetBucketACL BucketName
 gbaBucket = Lens.lens (bucket :: GetBucketACL -> BucketName) (\s a -> s {bucket = a} :: GetBucketACL)
 {-# DEPRECATED gbaBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbaExpectedBucketOwner :: Lens.Lens' GetBucketACL (Lude.Maybe Lude.Text)
+gbaExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketACL -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketACL)
+{-# DEPRECATED gbaExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketACL where
   type Rs GetBucketACL = GetBucketACLResponse
@@ -113,18 +109,14 @@ instance Lude.ToQuery GetBucketACL where
 
 -- | /See:/ 'mkGetBucketACLResponse' smart constructor.
 data GetBucketACLResponse = GetBucketACLResponse'
-  { grants ::
-      Lude.Maybe [Grant],
+  { -- | A list of grants.
+    grants :: Lude.Maybe [Grant],
+    -- | Container for the bucket owner's display name and ID.
     owner :: Lude.Maybe Owner,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketACLResponse' with the minimum fields required to make a request.

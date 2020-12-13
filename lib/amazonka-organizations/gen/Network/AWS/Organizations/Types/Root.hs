@@ -32,18 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoot' smart constructor.
 data Root = Root'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the root.
+    --
+    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+    arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the root.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier (ID) for the root.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
     id :: Lude.Maybe Lude.Text,
+    -- | The types of policies that are currently enabled for the root and therefore can be attached to the root or to its OUs or accounts.
     policyTypes :: Lude.Maybe [PolicyTypeSummary]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Root' with the minimum fields required to make a request.
@@ -51,12 +55,12 @@ data Root = Root'
 -- * 'arn' - The Amazon Resource Name (ARN) of the root.
 --
 -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
--- * 'id' - The unique identifier (ID) for the root.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
 -- * 'name' - The friendly name of the root.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- * 'id' - The unique identifier (ID) for the root.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string requires "r-" followed by from 4 to 32 lowercase letters or digits.
 -- * 'policyTypes' - The types of policies that are currently enabled for the root and therefore can be attached to the root or to its OUs or accounts.
 mkRoot ::
   Root

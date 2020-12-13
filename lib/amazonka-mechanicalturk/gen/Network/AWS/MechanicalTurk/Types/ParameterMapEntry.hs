@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterMapEntry' smart constructor.
 data ParameterMapEntry = ParameterMapEntry'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterMapEntry' with the minimum fields required to make a request.
 --
--- * 'key' - The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
 -- * 'values' - The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
+-- * 'key' - The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
 mkParameterMapEntry ::
   ParameterMapEntry
 mkParameterMapEntry =

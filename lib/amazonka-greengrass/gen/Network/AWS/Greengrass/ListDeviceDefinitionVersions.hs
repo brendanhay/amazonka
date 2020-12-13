@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Greengrass.ListDeviceDefinitionVersions
 
     -- ** Request lenses
     lddvNextToken,
-    lddvMaxResults,
     lddvDeviceDefinitionId,
+    lddvMaxResults,
 
     -- * Destructuring the response
     ListDeviceDefinitionVersionsResponse (..),
@@ -45,26 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDeviceDefinitionVersions' smart constructor.
 data ListDeviceDefinitionVersions = ListDeviceDefinitionVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Text,
-    deviceDefinitionId :: Lude.Text
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the device definition.
+    deviceDefinitionId :: Lude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeviceDefinitionVersions' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'deviceDefinitionId' - The ID of the device definition.
 -- * 'maxResults' - The maximum number of results to be returned per request.
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 mkListDeviceDefinitionVersions ::
   -- | 'deviceDefinitionId'
   Lude.Text ->
@@ -72,8 +68,8 @@ mkListDeviceDefinitionVersions ::
 mkListDeviceDefinitionVersions pDeviceDefinitionId_ =
   ListDeviceDefinitionVersions'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      deviceDefinitionId = pDeviceDefinitionId_
+      deviceDefinitionId = pDeviceDefinitionId_,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
@@ -83,19 +79,19 @@ lddvNextToken :: Lens.Lens' ListDeviceDefinitionVersions (Lude.Maybe Lude.Text)
 lddvNextToken = Lens.lens (nextToken :: ListDeviceDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeviceDefinitionVersions)
 {-# DEPRECATED lddvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to be returned per request.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lddvMaxResults :: Lens.Lens' ListDeviceDefinitionVersions (Lude.Maybe Lude.Text)
-lddvMaxResults = Lens.lens (maxResults :: ListDeviceDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListDeviceDefinitionVersions)
-{-# DEPRECATED lddvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the device definition.
 --
 -- /Note:/ Consider using 'deviceDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lddvDeviceDefinitionId :: Lens.Lens' ListDeviceDefinitionVersions Lude.Text
 lddvDeviceDefinitionId = Lens.lens (deviceDefinitionId :: ListDeviceDefinitionVersions -> Lude.Text) (\s a -> s {deviceDefinitionId = a} :: ListDeviceDefinitionVersions)
 {-# DEPRECATED lddvDeviceDefinitionId "Use generic-lens or generic-optics with 'deviceDefinitionId' instead." #-}
+
+-- | The maximum number of results to be returned per request.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lddvMaxResults :: Lens.Lens' ListDeviceDefinitionVersions (Lude.Maybe Lude.Text)
+lddvMaxResults = Lens.lens (maxResults :: ListDeviceDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListDeviceDefinitionVersions)
+{-# DEPRECATED lddvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListDeviceDefinitionVersions where
   page rq rs
@@ -144,29 +140,21 @@ instance Lude.ToQuery ListDeviceDefinitionVersions where
 
 -- | /See:/ 'mkListDeviceDefinitionVersionsResponse' smart constructor.
 data ListDeviceDefinitionVersionsResponse = ListDeviceDefinitionVersionsResponse'
-  { versions ::
-      Lude.Maybe
-        [VersionInformation],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about a version.
+    versions :: Lude.Maybe [VersionInformation],
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeviceDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
+-- * 'versions' - Information about a version.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'versions' - Information about a version.
 mkListDeviceDefinitionVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

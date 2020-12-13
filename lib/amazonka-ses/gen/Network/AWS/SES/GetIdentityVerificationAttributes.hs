@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
     mkGetIdentityVerificationAttributesResponse,
 
     -- ** Response lenses
-    givarsResponseStatus,
     givarsVerificationAttributes,
+    givarsResponseStatus,
   )
 where
 
@@ -45,16 +46,10 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkGetIdentityVerificationAttributes' smart constructor.
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
-  { identities ::
-      [Lude.Text]
+  { -- | A list of identities.
+    identities :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityVerificationAttributes' with the minimum fields required to make a request.
@@ -82,10 +77,10 @@ instance Lude.AWSRequest GetIdentityVerificationAttributes where
       "GetIdentityVerificationAttributesResult"
       ( \s h x ->
           GetIdentityVerificationAttributesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "VerificationAttributes" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "VerificationAttributes" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLMap "entry" "key" "value"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetIdentityVerificationAttributes where
@@ -107,43 +102,28 @@ instance Lude.ToQuery GetIdentityVerificationAttributes where
 --
 -- /See:/ 'mkGetIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
-  { responseStatus ::
-      Lude.Int,
-    verificationAttributes ::
-      Lude.HashMap
-        Lude.Text
-        (IdentityVerificationAttributes)
+  { -- | A map of Identities to IdentityVerificationAttributes objects.
+    verificationAttributes :: Lude.HashMap Lude.Text (IdentityVerificationAttributes),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityVerificationAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'verificationAttributes' - A map of Identities to IdentityVerificationAttributes objects.
+-- * 'responseStatus' - The response status code.
 mkGetIdentityVerificationAttributesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   GetIdentityVerificationAttributesResponse
 mkGetIdentityVerificationAttributesResponse pResponseStatus_ =
   GetIdentityVerificationAttributesResponse'
-    { responseStatus =
-        pResponseStatus_,
-      verificationAttributes = Lude.mempty
+    { verificationAttributes =
+        Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-givarsResponseStatus :: Lens.Lens' GetIdentityVerificationAttributesResponse Lude.Int
-givarsResponseStatus = Lens.lens (responseStatus :: GetIdentityVerificationAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityVerificationAttributesResponse)
-{-# DEPRECATED givarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 --
@@ -151,3 +131,10 @@ givarsResponseStatus = Lens.lens (responseStatus :: GetIdentityVerificationAttri
 givarsVerificationAttributes :: Lens.Lens' GetIdentityVerificationAttributesResponse (Lude.HashMap Lude.Text (IdentityVerificationAttributes))
 givarsVerificationAttributes = Lens.lens (verificationAttributes :: GetIdentityVerificationAttributesResponse -> Lude.HashMap Lude.Text (IdentityVerificationAttributes)) (\s a -> s {verificationAttributes = a} :: GetIdentityVerificationAttributesResponse)
 {-# DEPRECATED givarsVerificationAttributes "Use generic-lens or generic-optics with 'verificationAttributes' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+givarsResponseStatus :: Lens.Lens' GetIdentityVerificationAttributesResponse Lude.Int
+givarsResponseStatus = Lens.lens (responseStatus :: GetIdentityVerificationAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityVerificationAttributesResponse)
+{-# DEPRECATED givarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

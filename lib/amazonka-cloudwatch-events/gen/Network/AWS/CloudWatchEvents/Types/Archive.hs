@@ -36,33 +36,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArchive' smart constructor.
 data Archive = Archive'
-  { creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The time stamp for the time that the archive was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The size of the archive, in bytes.
     sizeBytes :: Lude.Maybe Lude.Integer,
+    -- | The ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
     eventSourceARN :: Lude.Maybe Lude.Text,
+    -- | The current state of the archive.
     state :: Lude.Maybe ArchiveState,
+    -- | The number of events in the archive.
     eventCount :: Lude.Maybe Lude.Integer,
+    -- | The name of the archive.
     archiveName :: Lude.Maybe Lude.Text,
+    -- | The number of days to retain events in the archive before they are deleted.
     retentionDays :: Lude.Maybe Lude.Natural,
+    -- | A description for the reason that the archive is in the current state.
     stateReason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Archive' with the minimum fields required to make a request.
 --
--- * 'archiveName' - The name of the archive.
 -- * 'creationTime' - The time stamp for the time that the archive was created.
--- * 'eventCount' - The number of events in the archive.
--- * 'eventSourceARN' - The ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
--- * 'retentionDays' - The number of days to retain events in the archive before they are deleted.
 -- * 'sizeBytes' - The size of the archive, in bytes.
+-- * 'eventSourceARN' - The ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
 -- * 'state' - The current state of the archive.
+-- * 'eventCount' - The number of events in the archive.
+-- * 'archiveName' - The name of the archive.
+-- * 'retentionDays' - The number of days to retain events in the archive before they are deleted.
 -- * 'stateReason' - A description for the reason that the archive is in the current state.
 mkArchive ::
   Archive

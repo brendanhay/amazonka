@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,24 +41,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteOTAUpdate' smart constructor.
 data DeleteOTAUpdate = DeleteOTAUpdate'
-  { forceDeleteAWSJob ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.
+    forceDeleteAWSJob :: Lude.Maybe Lude.Bool,
+    -- | Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.
     deleteStream :: Lude.Maybe Lude.Bool,
+    -- | The ID of the OTA update to delete.
     otaUpdateId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOTAUpdate' with the minimum fields required to make a request.
 --
--- * 'deleteStream' - Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.
 -- * 'forceDeleteAWSJob' - Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.
+-- * 'deleteStream' - Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.
 -- * 'otaUpdateId' - The ID of the OTA update to delete.
 mkDeleteOTAUpdate ::
   -- | 'otaUpdateId'
@@ -116,16 +113,10 @@ instance Lude.ToQuery DeleteOTAUpdate where
 
 -- | /See:/ 'mkDeleteOTAUpdateResponse' smart constructor.
 newtype DeleteOTAUpdateResponse = DeleteOTAUpdateResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOTAUpdateResponse' with the minimum fields required to make a request.

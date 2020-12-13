@@ -17,10 +17,10 @@ module Network.AWS.SES.Types.Template
     mkTemplate,
 
     -- * Lenses
+    tTemplateName,
     tTextPart,
     tSubjectPart,
     tHTMLPart,
-    tTemplateName,
   )
 where
 
@@ -31,37 +31,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemplate' smart constructor.
 data Template = Template'
-  { textPart :: Lude.Maybe Lude.Text,
+  { -- | The name of the template. You will refer to this name when you send email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@ operations.
+    templateName :: Lude.Text,
+    -- | The email body that will be visible to recipients whose email clients do not display HTML.
+    textPart :: Lude.Maybe Lude.Text,
+    -- | The subject line of the email.
     subjectPart :: Lude.Maybe Lude.Text,
-    htmlPart :: Lude.Maybe Lude.Text,
-    templateName :: Lude.Text
+    -- | The HTML body of the email.
+    htmlPart :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Template' with the minimum fields required to make a request.
 --
--- * 'htmlPart' - The HTML body of the email.
--- * 'subjectPart' - The subject line of the email.
 -- * 'templateName' - The name of the template. You will refer to this name when you send email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@ operations.
 -- * 'textPart' - The email body that will be visible to recipients whose email clients do not display HTML.
+-- * 'subjectPart' - The subject line of the email.
+-- * 'htmlPart' - The HTML body of the email.
 mkTemplate ::
   -- | 'templateName'
   Lude.Text ->
   Template
 mkTemplate pTemplateName_ =
   Template'
-    { textPart = Lude.Nothing,
+    { templateName = pTemplateName_,
+      textPart = Lude.Nothing,
       subjectPart = Lude.Nothing,
-      htmlPart = Lude.Nothing,
-      templateName = pTemplateName_
+      htmlPart = Lude.Nothing
     }
+
+-- | The name of the template. You will refer to this name when you send email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@ operations.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTemplateName :: Lens.Lens' Template Lude.Text
+tTemplateName = Lens.lens (templateName :: Template -> Lude.Text) (\s a -> s {templateName = a} :: Template)
+{-# DEPRECATED tTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The email body that will be visible to recipients whose email clients do not display HTML.
 --
@@ -84,26 +89,19 @@ tHTMLPart :: Lens.Lens' Template (Lude.Maybe Lude.Text)
 tHTMLPart = Lens.lens (htmlPart :: Template -> Lude.Maybe Lude.Text) (\s a -> s {htmlPart = a} :: Template)
 {-# DEPRECATED tHTMLPart "Use generic-lens or generic-optics with 'htmlPart' instead." #-}
 
--- | The name of the template. You will refer to this name when you send email using the @SendTemplatedEmail@ or @SendBulkTemplatedEmail@ operations.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTemplateName :: Lens.Lens' Template Lude.Text
-tTemplateName = Lens.lens (templateName :: Template -> Lude.Text) (\s a -> s {templateName = a} :: Template)
-{-# DEPRECATED tTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
 instance Lude.FromXML Template where
   parseXML x =
     Template'
-      Lude.<$> (x Lude..@? "TextPart")
+      Lude.<$> (x Lude..@ "TemplateName")
+      Lude.<*> (x Lude..@? "TextPart")
       Lude.<*> (x Lude..@? "SubjectPart")
       Lude.<*> (x Lude..@? "HtmlPart")
-      Lude.<*> (x Lude..@ "TemplateName")
 
 instance Lude.ToQuery Template where
   toQuery Template' {..} =
     Lude.mconcat
-      [ "TextPart" Lude.=: textPart,
+      [ "TemplateName" Lude.=: templateName,
+        "TextPart" Lude.=: textPart,
         "SubjectPart" Lude.=: subjectPart,
-        "HtmlPart" Lude.=: htmlPart,
-        "TemplateName" Lude.=: templateName
+        "HtmlPart" Lude.=: htmlPart
       ]

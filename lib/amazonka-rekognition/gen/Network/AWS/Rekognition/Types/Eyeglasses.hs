@@ -17,8 +17,8 @@ module Network.AWS.Rekognition.Types.Eyeglasses
     mkEyeglasses,
 
     -- * Lenses
-    eyeValue,
-    eyeConfidence,
+    efValue,
+    efConfidence,
   )
 where
 
@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEyeglasses' smart constructor.
 data Eyeglasses = Eyeglasses'
-  { value :: Lude.Maybe Lude.Bool,
+  { -- | Boolean value that indicates whether the face is wearing eye glasses or not.
+    value :: Lude.Maybe Lude.Bool,
+    -- | Level of confidence in the determination.
     confidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Eyeglasses' with the minimum fields required to make a request.
 --
--- * 'confidence' - Level of confidence in the determination.
 -- * 'value' - Boolean value that indicates whether the face is wearing eye glasses or not.
+-- * 'confidence' - Level of confidence in the determination.
 mkEyeglasses ::
   Eyeglasses
 mkEyeglasses =
@@ -53,16 +49,16 @@ mkEyeglasses =
 -- | Boolean value that indicates whether the face is wearing eye glasses or not.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eyeValue :: Lens.Lens' Eyeglasses (Lude.Maybe Lude.Bool)
-eyeValue = Lens.lens (value :: Eyeglasses -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Eyeglasses)
-{-# DEPRECATED eyeValue "Use generic-lens or generic-optics with 'value' instead." #-}
+efValue :: Lens.Lens' Eyeglasses (Lude.Maybe Lude.Bool)
+efValue = Lens.lens (value :: Eyeglasses -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Eyeglasses)
+{-# DEPRECATED efValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Level of confidence in the determination.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eyeConfidence :: Lens.Lens' Eyeglasses (Lude.Maybe Lude.Double)
-eyeConfidence = Lens.lens (confidence :: Eyeglasses -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Eyeglasses)
-{-# DEPRECATED eyeConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
+efConfidence :: Lens.Lens' Eyeglasses (Lude.Maybe Lude.Double)
+efConfidence = Lens.lens (confidence :: Eyeglasses -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Eyeglasses)
+{-# DEPRECATED efConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
 instance Lude.FromJSON Eyeglasses where
   parseJSON =

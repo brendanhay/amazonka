@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.JobExecutionFailureType
   ( JobExecutionFailureType
       ( JobExecutionFailureType',
-        JEFTAll,
         JEFTFailed,
         JEFTRejected,
-        JEFTTimedOut
+        JEFTTimedOut,
+        JEFTAll
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype JobExecutionFailureType = JobExecutionFailureType' Lude.Text
       Lude.ToHeader
     )
 
-pattern JEFTAll :: JobExecutionFailureType
-pattern JEFTAll = JobExecutionFailureType' "ALL"
-
 pattern JEFTFailed :: JobExecutionFailureType
 pattern JEFTFailed = JobExecutionFailureType' "FAILED"
 
@@ -59,10 +56,13 @@ pattern JEFTRejected = JobExecutionFailureType' "REJECTED"
 pattern JEFTTimedOut :: JobExecutionFailureType
 pattern JEFTTimedOut = JobExecutionFailureType' "TIMED_OUT"
 
+pattern JEFTAll :: JobExecutionFailureType
+pattern JEFTAll = JobExecutionFailureType' "ALL"
+
 {-# COMPLETE
-  JEFTAll,
   JEFTFailed,
   JEFTRejected,
   JEFTTimedOut,
+  JEFTAll,
   JobExecutionFailureType'
   #-}

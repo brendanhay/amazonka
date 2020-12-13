@@ -13,10 +13,10 @@
 module Network.AWS.SageMaker.Types.ParameterType
   ( ParameterType
       ( ParameterType',
-        PTCategorical,
+        PTInteger,
         PTContinuous,
-        PTFreeText,
-        PTInteger
+        PTCategorical,
+        PTFreeText
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ParameterType = ParameterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PTCategorical :: ParameterType
-pattern PTCategorical = ParameterType' "Categorical"
+pattern PTInteger :: ParameterType
+pattern PTInteger = ParameterType' "Integer"
 
 pattern PTContinuous :: ParameterType
 pattern PTContinuous = ParameterType' "Continuous"
 
+pattern PTCategorical :: ParameterType
+pattern PTCategorical = ParameterType' "Categorical"
+
 pattern PTFreeText :: ParameterType
 pattern PTFreeText = ParameterType' "FreeText"
 
-pattern PTInteger :: ParameterType
-pattern PTInteger = ParameterType' "Integer"
-
 {-# COMPLETE
-  PTCategorical,
-  PTContinuous,
-  PTFreeText,
   PTInteger,
+  PTContinuous,
+  PTCategorical,
+  PTFreeText,
   ParameterType'
   #-}

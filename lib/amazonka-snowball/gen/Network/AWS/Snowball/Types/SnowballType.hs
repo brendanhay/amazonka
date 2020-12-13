@@ -13,12 +13,12 @@
 module Network.AWS.Snowball.Types.SnowballType
   ( SnowballType
       ( SnowballType',
+        Standard,
         Edge,
         EdgeC,
         EdgeCg,
         EdgeS,
-        SNC1Hdd,
-        Standard
+        SNC1Hdd
       ),
   )
 where
@@ -49,6 +49,9 @@ newtype SnowballType = SnowballType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Standard :: SnowballType
+pattern Standard = SnowballType' "STANDARD"
+
 pattern Edge :: SnowballType
 pattern Edge = SnowballType' "EDGE"
 
@@ -64,15 +67,12 @@ pattern EdgeS = SnowballType' "EDGE_S"
 pattern SNC1Hdd :: SnowballType
 pattern SNC1Hdd = SnowballType' "SNC1_HDD"
 
-pattern Standard :: SnowballType
-pattern Standard = SnowballType' "STANDARD"
-
 {-# COMPLETE
+  Standard,
   Edge,
   EdgeC,
   EdgeCg,
   EdgeS,
   SNC1Hdd,
-  Standard,
   SnowballType'
   #-}

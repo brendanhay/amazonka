@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,27 +51,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { clusterNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the DAX clusters being described.
+    clusterNames :: Lude.Maybe [Lude.Text],
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+    --
+    -- The value for @MaxResults@ must be between 20 and 100.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
 --
 -- * 'clusterNames' - The names of the DAX clusters being described.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 -- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 mkDescribeClusters ::
   DescribeClusters
 mkDescribeClusters =
@@ -153,24 +152,20 @@ instance Lude.ToQuery DescribeClusters where
 
 -- | /See:/ 'mkDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The descriptions of your DAX clusters, in response to a /DescribeClusters/ request.
     clusters :: Lude.Maybe [Cluster],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
 --
--- * 'clusters' - The descriptions of your DAX clusters, in response to a /DescribeClusters/ request.
 -- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
+-- * 'clusters' - The descriptions of your DAX clusters, in response to a /DescribeClusters/ request.
 -- * 'responseStatus' - The response status code.
 mkDescribeClustersResponse ::
   -- | 'responseStatus'

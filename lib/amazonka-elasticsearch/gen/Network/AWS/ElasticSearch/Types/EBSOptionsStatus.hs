@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.EBSOptionsStatus
     mkEBSOptionsStatus,
 
     -- * Lenses
-    eosOptions,
     eosStatus,
+    eosOptions,
   )
 where
 
@@ -31,37 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSOptionsStatus' smart constructor.
 data EBSOptionsStatus = EBSOptionsStatus'
-  { options :: EBSOptions,
-    status :: OptionStatus
+  { -- | Specifies the status of the EBS options for the specified Elasticsearch domain.
+    status :: OptionStatus,
+    -- | Specifies the EBS options for the specified Elasticsearch domain.
+    options :: EBSOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSOptionsStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Specifies the EBS options for the specified Elasticsearch domain.
 -- * 'status' - Specifies the status of the EBS options for the specified Elasticsearch domain.
+-- * 'options' - Specifies the EBS options for the specified Elasticsearch domain.
 mkEBSOptionsStatus ::
-  -- | 'options'
-  EBSOptions ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  EBSOptions ->
   EBSOptionsStatus
-mkEBSOptionsStatus pOptions_ pStatus_ =
-  EBSOptionsStatus' {options = pOptions_, status = pStatus_}
-
--- | Specifies the EBS options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eosOptions :: Lens.Lens' EBSOptionsStatus EBSOptions
-eosOptions = Lens.lens (options :: EBSOptionsStatus -> EBSOptions) (\s a -> s {options = a} :: EBSOptionsStatus)
-{-# DEPRECATED eosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkEBSOptionsStatus pStatus_ pOptions_ =
+  EBSOptionsStatus' {status = pStatus_, options = pOptions_}
 
 -- | Specifies the status of the EBS options for the specified Elasticsearch domain.
 --
@@ -70,11 +59,18 @@ eosStatus :: Lens.Lens' EBSOptionsStatus OptionStatus
 eosStatus = Lens.lens (status :: EBSOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: EBSOptionsStatus)
 {-# DEPRECATED eosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Specifies the EBS options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eosOptions :: Lens.Lens' EBSOptionsStatus EBSOptions
+eosOptions = Lens.lens (options :: EBSOptionsStatus -> EBSOptions) (\s a -> s {options = a} :: EBSOptionsStatus)
+{-# DEPRECATED eosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromJSON EBSOptionsStatus where
   parseJSON =
     Lude.withObject
       "EBSOptionsStatus"
       ( \x ->
           EBSOptionsStatus'
-            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
       )

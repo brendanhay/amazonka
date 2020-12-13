@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCurrentMetricResult' smart constructor.
 data CurrentMetricResult = CurrentMetricResult'
-  { collections ::
-      Lude.Maybe [CurrentMetricData],
+  { -- | The set of metrics.
+    collections :: Lude.Maybe [CurrentMetricData],
+    -- | The dimensions for the metrics.
     dimensions :: Lude.Maybe Dimensions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CurrentMetricResult' with the minimum fields required to make a request.

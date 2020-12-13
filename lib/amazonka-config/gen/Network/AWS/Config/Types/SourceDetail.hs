@@ -33,24 +33,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceDetail' smart constructor.
 data SourceDetail = SourceDetail'
-  { messageType ::
-      Lude.Maybe MessageType,
+  { -- | The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+    --
+    --
+    --     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+    --
+    --
+    --     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+    --
+    --
+    --     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .
+    --
+    --
+    --     * @ConfigurationSnapshotDeliveryCompleted@ - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
+    --
+    --
+    -- If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for @ConfigurationItemChangeNotification@ and one for @OversizedConfigurationItemChangeNotification@ .
+    messageType :: Lude.Maybe MessageType,
+    -- | The frequency at which you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
     maximumExecutionFrequency :: Lude.Maybe MaximumExecutionFrequency,
+    -- | The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
     eventSource :: Lude.Maybe EventSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceDetail' with the minimum fields required to make a request.
 --
--- * 'eventSource' - The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
--- * 'maximumExecutionFrequency' - The frequency at which you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
 -- * 'messageType' - The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
 --
 --
@@ -67,6 +76,8 @@ data SourceDetail = SourceDetail'
 --
 --
 -- If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for @ConfigurationItemChangeNotification@ and one for @OversizedConfigurationItemChangeNotification@ .
+-- * 'maximumExecutionFrequency' - The frequency at which you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for @MaximumExecutionFrequency@ , then @MessageType@ must use the @ScheduledNotification@ value.
+-- * 'eventSource' - The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources.
 mkSourceDetail ::
   SourceDetail
 mkSourceDetail =

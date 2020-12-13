@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,31 +52,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBClusterParameters' smart constructor.
 data DescribeDBClusterParameters = DescribeDBClusterParameters'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous @DescribeDBClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | A value that indicates to return only parameters for a specific source. Parameter sources can be @engine@ , @service@ , or @customer@ .
     source :: Lude.Maybe Lude.Text,
-    dbClusterParameterGroupName ::
-      Lude.Text
+    -- | The name of a specific DB cluster parameter group to return parameter details for.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match the name of an existing DBClusterParameterGroup.
+    dbClusterParameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterParameters' with the minimum fields required to make a request.
---
--- * 'dbClusterParameterGroupName' - The name of a specific DB cluster parameter group to return parameter details for.
---
--- Constraints:
---
---     * If supplied, must match the name of an existing DBClusterParameterGroup.
---
 --
 -- * 'filters' - This parameter isn't currently supported.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
@@ -84,6 +82,11 @@ data DescribeDBClusterParameters = DescribeDBClusterParameters'
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
 -- * 'source' - A value that indicates to return only parameters for a specific source. Parameter sources can be @engine@ , @service@ , or @customer@ .
+-- * 'dbClusterParameterGroupName' - The name of a specific DB cluster parameter group to return parameter details for.
+--
+-- Constraints:
+--
+--     * If supplied, must match the name of an existing DBClusterParameterGroup.
 mkDescribeDBClusterParameters ::
   -- | 'dbClusterParameterGroupName'
   Lude.Text ->
@@ -191,22 +194,14 @@ instance Lude.ToQuery DescribeDBClusterParameters where
 --
 -- /See:/ 'mkDescribeDBClusterParametersResponse' smart constructor.
 data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    parameters ::
-      Lude.Maybe
-        [Parameter],
-    responseStatus ::
-      Lude.Int
+  { -- | An optional pagination token provided by a previous DescribeDBClusterParameters request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | Provides a list of parameters for the DB cluster parameter group.
+    parameters :: Lude.Maybe [Parameter],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterParametersResponse' with the minimum fields required to make a request.

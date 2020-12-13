@@ -49,52 +49,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportDescription' smart constructor.
 data ExportDescription = ExportDescription'
-  { s3BucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS account that owns the bucket containing the export.
+    s3BucketOwner :: Lude.Maybe Lude.Text,
+    -- | The format of the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
     exportFormat :: Lude.Maybe ExportFormat,
+    -- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).
     s3SseKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The client token that was provided for the export task. A client token makes calls to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The time at which the export task began.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Status code for the result of the failed export.
     failureCode :: Lude.Maybe Lude.Text,
+    -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
     exportStatus :: Lude.Maybe ExportStatus,
+    -- | Export failure reason description.
     failureMessage :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the table that was exported.
     tableARN :: Lude.Maybe Lude.Text,
+    -- | The billable size of the table export.
     billedSizeBytes :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the table export.
     exportARN :: Lude.Maybe Lude.Text,
+    -- | Point in time from which table data was exported.
     exportTime :: Lude.Maybe Lude.Timestamp,
+    -- | Type of encryption used on the bucket where export data is stored. Valid values for @S3SseAlgorithm@ are:
+    --
+    --
+    --     * @AES256@ - server-side encryption with Amazon S3 managed keys
+    --
+    --
+    --     * @KMS@ - server-side encryption with AWS KMS managed keys
     s3SseAlgorithm :: Lude.Maybe S3SseAlgorithm,
+    -- | The time at which the export task completed.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.
     s3Prefix :: Lude.Maybe Lude.Text,
+    -- | The name of the manifest file for the export task.
     exportManifest :: Lude.Maybe Lude.Text,
+    -- | Unique ID of the table that was exported.
     tableId :: Lude.Maybe Lude.Text,
+    -- | The number of items exported.
     itemCount :: Lude.Maybe Lude.Natural,
+    -- | The name of the Amazon S3 bucket containing the export.
     s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportDescription' with the minimum fields required to make a request.
 --
--- * 'billedSizeBytes' - The billable size of the table export.
--- * 'clientToken' - The client token that was provided for the export task. A client token makes calls to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
--- * 'endTime' - The time at which the export task completed.
--- * 'exportARN' - The Amazon Resource Name (ARN) of the table export.
--- * 'exportFormat' - The format of the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
--- * 'exportManifest' - The name of the manifest file for the export task.
--- * 'exportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
--- * 'exportTime' - Point in time from which table data was exported.
--- * 'failureCode' - Status code for the result of the failed export.
--- * 'failureMessage' - Export failure reason description.
--- * 'itemCount' - The number of items exported.
--- * 's3Bucket' - The name of the Amazon S3 bucket containing the export.
 -- * 's3BucketOwner' - The ID of the AWS account that owns the bucket containing the export.
--- * 's3Prefix' - The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.
+-- * 'exportFormat' - The format of the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
+-- * 's3SseKMSKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).
+-- * 'clientToken' - The client token that was provided for the export task. A client token makes calls to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
+-- * 'startTime' - The time at which the export task began.
+-- * 'failureCode' - Status code for the result of the failed export.
+-- * 'exportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
+-- * 'failureMessage' - Export failure reason description.
+-- * 'tableARN' - The Amazon Resource Name (ARN) of the table that was exported.
+-- * 'billedSizeBytes' - The billable size of the table export.
+-- * 'exportARN' - The Amazon Resource Name (ARN) of the table export.
+-- * 'exportTime' - Point in time from which table data was exported.
 -- * 's3SseAlgorithm' - Type of encryption used on the bucket where export data is stored. Valid values for @S3SseAlgorithm@ are:
 --
 --
@@ -104,10 +120,12 @@ data ExportDescription = ExportDescription'
 --     * @KMS@ - server-side encryption with AWS KMS managed keys
 --
 --
--- * 's3SseKMSKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).
--- * 'startTime' - The time at which the export task began.
--- * 'tableARN' - The Amazon Resource Name (ARN) of the table that was exported.
+-- * 'endTime' - The time at which the export task completed.
+-- * 's3Prefix' - The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.
+-- * 'exportManifest' - The name of the manifest file for the export task.
 -- * 'tableId' - Unique ID of the table that was exported.
+-- * 'itemCount' - The number of items exported.
+-- * 's3Bucket' - The name of the Amazon S3 bucket containing the export.
 mkExportDescription ::
   ExportDescription
 mkExportDescription =

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLifecyclePolicyPreviewFilter' smart constructor.
 newtype LifecyclePolicyPreviewFilter = LifecyclePolicyPreviewFilter'
-  { tagStatus ::
-      Lude.Maybe TagStatus
+  { -- | The tag status of the image.
+    tagStatus :: Lude.Maybe TagStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecyclePolicyPreviewFilter' with the minimum fields required to make a request.

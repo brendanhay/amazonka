@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     mkSetLoadBalancerPoliciesOfListener,
 
     -- ** Request lenses
+    slbpolPolicyNames,
     slbpolLoadBalancerName,
     slbpolLoadBalancerPort,
-    slbpolPolicyNames,
 
     -- * Destructuring the response
     SetLoadBalancerPoliciesOfListenerResponse (..),
@@ -45,27 +46,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetLoadBalancerPoliciesOfListener' smart constructor.
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
-  { loadBalancerName ::
-      Lude.Text,
-    loadBalancerPort ::
-      Lude.Int,
-    policyNames ::
-      [Lude.Text]
+  { -- | The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
+    policyNames :: [Lude.Text],
+    -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The external port of the load balancer.
+    loadBalancerPort :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesOfListener' with the minimum fields required to make a request.
 --
+-- * 'policyNames' - The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
 -- * 'loadBalancerName' - The name of the load balancer.
 -- * 'loadBalancerPort' - The external port of the load balancer.
--- * 'policyNames' - The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
 mkSetLoadBalancerPoliciesOfListener ::
   -- | 'loadBalancerName'
   Lude.Text ->
@@ -76,11 +71,17 @@ mkSetLoadBalancerPoliciesOfListener
   pLoadBalancerName_
   pLoadBalancerPort_ =
     SetLoadBalancerPoliciesOfListener'
-      { loadBalancerName =
-          pLoadBalancerName_,
-        loadBalancerPort = pLoadBalancerPort_,
-        policyNames = Lude.mempty
+      { policyNames = Lude.mempty,
+        loadBalancerName = pLoadBalancerName_,
+        loadBalancerPort = pLoadBalancerPort_
       }
+
+-- | The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpolPolicyNames :: Lens.Lens' SetLoadBalancerPoliciesOfListener [Lude.Text]
+slbpolPolicyNames = Lens.lens (policyNames :: SetLoadBalancerPoliciesOfListener -> [Lude.Text]) (\s a -> s {policyNames = a} :: SetLoadBalancerPoliciesOfListener)
+{-# DEPRECATED slbpolPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The name of the load balancer.
 --
@@ -95,13 +96,6 @@ slbpolLoadBalancerName = Lens.lens (loadBalancerName :: SetLoadBalancerPoliciesO
 slbpolLoadBalancerPort :: Lens.Lens' SetLoadBalancerPoliciesOfListener Lude.Int
 slbpolLoadBalancerPort = Lens.lens (loadBalancerPort :: SetLoadBalancerPoliciesOfListener -> Lude.Int) (\s a -> s {loadBalancerPort = a} :: SetLoadBalancerPoliciesOfListener)
 {-# DEPRECATED slbpolLoadBalancerPort "Use generic-lens or generic-optics with 'loadBalancerPort' instead." #-}
-
--- | The names of the policies. This list must include all policies to be enabled. If you omit a policy that is currently enabled, it is disabled. If the list is empty, all current policies are disabled.
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slbpolPolicyNames :: Lens.Lens' SetLoadBalancerPoliciesOfListener [Lude.Text]
-slbpolPolicyNames = Lens.lens (policyNames :: SetLoadBalancerPoliciesOfListener -> [Lude.Text]) (\s a -> s {policyNames = a} :: SetLoadBalancerPoliciesOfListener)
-{-# DEPRECATED slbpolPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 instance Lude.AWSRequest SetLoadBalancerPoliciesOfListener where
   type
@@ -128,25 +122,19 @@ instance Lude.ToQuery SetLoadBalancerPoliciesOfListener where
       [ "Action"
           Lude.=: ("SetLoadBalancerPoliciesOfListener" :: Lude.ByteString),
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames,
         "LoadBalancerName" Lude.=: loadBalancerName,
-        "LoadBalancerPort" Lude.=: loadBalancerPort,
-        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames
+        "LoadBalancerPort" Lude.=: loadBalancerPort
       ]
 
 -- | Contains the output of SetLoadBalancePoliciesOfListener.
 --
 -- /See:/ 'mkSetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesOfListenerResponse' with the minimum fields required to make a request.

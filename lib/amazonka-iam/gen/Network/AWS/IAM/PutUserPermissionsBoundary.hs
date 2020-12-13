@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,23 +39,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutUserPermissionsBoundary' smart constructor.
 data PutUserPermissionsBoundary = PutUserPermissionsBoundary'
-  { userName ::
-      Lude.Text,
+  { -- | The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.
+    userName :: Lude.Text,
+    -- | The ARN of the policy that is used to set the permissions boundary for the user.
     permissionsBoundary :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutUserPermissionsBoundary' with the minimum fields required to make a request.
 --
--- * 'permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for the user.
 -- * 'userName' - The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.
+-- * 'permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for the user.
 mkPutUserPermissionsBoundary ::
   -- | 'userName'
   Lude.Text ->
@@ -106,13 +102,7 @@ instance Lude.ToQuery PutUserPermissionsBoundary where
 
 -- | /See:/ 'mkPutUserPermissionsBoundaryResponse' smart constructor.
 data PutUserPermissionsBoundaryResponse = PutUserPermissionsBoundaryResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutUserPermissionsBoundaryResponse' with the minimum fields required to make a request.

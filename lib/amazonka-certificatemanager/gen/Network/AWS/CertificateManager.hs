@@ -159,8 +159,8 @@ module Network.AWS.CertificateManager
     dvValidationMethod,
     dvResourceRecord,
     dvValidationStatus,
-    dvValidationDomain,
     dvDomainName,
+    dvValidationDomain,
 
     -- ** DomainValidationOption
     DomainValidationOption (..),
@@ -189,17 +189,17 @@ module Network.AWS.CertificateManager
     -- ** RenewalSummary
     RenewalSummary (..),
     mkRenewalSummary,
-    rsRenewalStatusReason,
     rsRenewalStatus,
-    rsDomainValidationOptions,
     rsUpdatedAt,
+    rsDomainValidationOptions,
+    rsRenewalStatusReason,
 
     -- ** ResourceRecord
     ResourceRecord (..),
     mkResourceRecord,
+    rrValue,
     rrName,
     rrType,
-    rrValue,
 
     -- ** Tag
     Tag (..),

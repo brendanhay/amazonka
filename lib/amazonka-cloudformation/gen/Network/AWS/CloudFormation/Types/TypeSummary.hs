@@ -34,33 +34,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypeSummary' smart constructor.
 data TypeSummary = TypeSummary'
-  { lastUpdated ::
-      Lude.Maybe Lude.DateTime,
+  { -- | When the current default version of the type was registered.
+    lastUpdated :: Lude.Maybe Lude.DateTime,
+    -- | The name of the type.
     typeName :: Lude.Maybe Lude.Text,
+    -- | The ID of the default version of the type. The default version is used when the type version is not specified.
+    --
+    -- To set the default version of a type, use @'SetTypeDefaultVersion' @ .
     defaultVersionId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the type.
     typeARN :: Lude.Maybe Lude.Text,
+    -- | The kind of type.
     type' :: Lude.Maybe RegistryType,
+    -- | The description of the type.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypeSummary' with the minimum fields required to make a request.
 --
+-- * 'lastUpdated' - When the current default version of the type was registered.
+-- * 'typeName' - The name of the type.
 -- * 'defaultVersionId' - The ID of the default version of the type. The default version is used when the type version is not specified.
 --
 -- To set the default version of a type, use @'SetTypeDefaultVersion' @ .
--- * 'description' - The description of the type.
--- * 'lastUpdated' - When the current default version of the type was registered.
--- * 'type'' - The kind of type.
 -- * 'typeARN' - The Amazon Resource Name (ARN) of the type.
--- * 'typeName' - The name of the type.
+-- * 'type'' - The kind of type.
+-- * 'description' - The description of the type.
 mkTypeSummary ::
   TypeSummary
 mkTypeSummary =

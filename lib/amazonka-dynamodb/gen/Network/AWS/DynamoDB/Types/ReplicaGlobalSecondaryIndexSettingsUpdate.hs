@@ -31,29 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data ReplicaGlobalSecondaryIndexSettingsUpdate = ReplicaGlobalSecondaryIndexSettingsUpdate'
-  { provisionedReadCapacityAutoScalingSettingsUpdate ::
-      Lude.Maybe
-        AutoScalingSettingsUpdate,
-    provisionedReadCapacityUnits ::
-      Lude.Maybe
-        Lude.Natural,
-    indexName ::
-      Lude.Text
+  { -- | Auto scaling settings for managing a global secondary index replica's read capacity units.
+    provisionedReadCapacityAutoScalingSettingsUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+    -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ .
+    provisionedReadCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
+    indexName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaGlobalSecondaryIndexSettingsUpdate' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
 -- * 'provisionedReadCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index replica's read capacity units.
 -- * 'provisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ .
+-- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
 mkReplicaGlobalSecondaryIndexSettingsUpdate ::
   -- | 'indexName'
   Lude.Text ->

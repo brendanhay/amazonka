@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWavSettings' smart constructor.
 data WavSettings = WavSettings'
-  { bitDepth :: Lude.Maybe Lude.Double,
+  { -- | Bits per sample.
+    bitDepth :: Lude.Maybe Lude.Double,
+    -- | The audio coding mode for the WAV audio. The mode determines the number of channels in the audio.
     codingMode :: Lude.Maybe WavCodingMode,
+    -- | Sample rate in Hz.
     sampleRate :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WavSettings' with the minimum fields required to make a request.

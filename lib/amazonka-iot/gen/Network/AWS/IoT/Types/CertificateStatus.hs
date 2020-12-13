@@ -15,10 +15,10 @@ module Network.AWS.IoT.Types.CertificateStatus
       ( CertificateStatus',
         CSActive,
         CSInactive,
-        CSPendingActivation,
+        CSRevoked,
         CSPendingTransfer,
         CSRegisterInactive,
-        CSRevoked
+        CSPendingActivation
       ),
   )
 where
@@ -55,8 +55,8 @@ pattern CSActive = CertificateStatus' "ACTIVE"
 pattern CSInactive :: CertificateStatus
 pattern CSInactive = CertificateStatus' "INACTIVE"
 
-pattern CSPendingActivation :: CertificateStatus
-pattern CSPendingActivation = CertificateStatus' "PENDING_ACTIVATION"
+pattern CSRevoked :: CertificateStatus
+pattern CSRevoked = CertificateStatus' "REVOKED"
 
 pattern CSPendingTransfer :: CertificateStatus
 pattern CSPendingTransfer = CertificateStatus' "PENDING_TRANSFER"
@@ -64,15 +64,15 @@ pattern CSPendingTransfer = CertificateStatus' "PENDING_TRANSFER"
 pattern CSRegisterInactive :: CertificateStatus
 pattern CSRegisterInactive = CertificateStatus' "REGISTER_INACTIVE"
 
-pattern CSRevoked :: CertificateStatus
-pattern CSRevoked = CertificateStatus' "REVOKED"
+pattern CSPendingActivation :: CertificateStatus
+pattern CSPendingActivation = CertificateStatus' "PENDING_ACTIVATION"
 
 {-# COMPLETE
   CSActive,
   CSInactive,
-  CSPendingActivation,
+  CSRevoked,
   CSPendingTransfer,
   CSRegisterInactive,
-  CSRevoked,
+  CSPendingActivation,
   CertificateStatus'
   #-}

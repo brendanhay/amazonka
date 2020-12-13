@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,12 +24,12 @@ module Network.AWS.CodeCommit.CreateCommit
     ccEmail,
     ccAuthorName,
     ccParentCommitId,
+    ccBranchName,
     ccDeleteFiles,
     ccPutFiles,
     ccCommitMessage,
-    ccKeepEmptyFolders,
     ccRepositoryName,
-    ccBranchName,
+    ccKeepEmptyFolders,
 
     -- * Destructuring the response
     CreateCommitResponse (..),
@@ -52,57 +53,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCommit' smart constructor.
 data CreateCommit = CreateCommit'
-  { setFileModes ::
-      Lude.Maybe [SetFileModeEntry],
+  { -- | The file modes to update for files in this commit.
+    setFileModes :: Lude.Maybe [SetFileModeEntry],
+    -- | The email address of the person who created the commit.
     email :: Lude.Maybe Lude.Text,
+    -- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
     authorName :: Lude.Maybe Lude.Text,
+    -- | The ID of the commit that is the parent of the commit you create. Not required if this is an empty repository.
     parentCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the branch where you create the commit.
+    branchName :: Lude.Text,
+    -- | The files to delete in this commit. These files still exist in earlier commits.
     deleteFiles :: Lude.Maybe [DeleteFileEntry],
+    -- | The files to add or update in this commit.
     putFiles :: Lude.Maybe [PutFileEntry],
+    -- | The commit message you want to include in the commit. Commit messages are limited to 256 KB. If no message is specified, a default message is used.
     commitMessage :: Lude.Maybe Lude.Text,
-    keepEmptyFolders :: Lude.Maybe Lude.Bool,
+    -- | The name of the repository where you create the commit.
     repositoryName :: Lude.Text,
-    branchName :: Lude.Text
+    -- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
+    keepEmptyFolders :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCommit' with the minimum fields required to make a request.
 --
--- * 'authorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
--- * 'branchName' - The name of the branch where you create the commit.
--- * 'commitMessage' - The commit message you want to include in the commit. Commit messages are limited to 256 KB. If no message is specified, a default message is used.
--- * 'deleteFiles' - The files to delete in this commit. These files still exist in earlier commits.
--- * 'email' - The email address of the person who created the commit.
--- * 'keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
--- * 'parentCommitId' - The ID of the commit that is the parent of the commit you create. Not required if this is an empty repository.
--- * 'putFiles' - The files to add or update in this commit.
--- * 'repositoryName' - The name of the repository where you create the commit.
 -- * 'setFileModes' - The file modes to update for files in this commit.
+-- * 'email' - The email address of the person who created the commit.
+-- * 'authorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
+-- * 'parentCommitId' - The ID of the commit that is the parent of the commit you create. Not required if this is an empty repository.
+-- * 'branchName' - The name of the branch where you create the commit.
+-- * 'deleteFiles' - The files to delete in this commit. These files still exist in earlier commits.
+-- * 'putFiles' - The files to add or update in this commit.
+-- * 'commitMessage' - The commit message you want to include in the commit. Commit messages are limited to 256 KB. If no message is specified, a default message is used.
+-- * 'repositoryName' - The name of the repository where you create the commit.
+-- * 'keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
 mkCreateCommit ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'branchName'
   Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   CreateCommit
-mkCreateCommit pRepositoryName_ pBranchName_ =
+mkCreateCommit pBranchName_ pRepositoryName_ =
   CreateCommit'
     { setFileModes = Lude.Nothing,
       email = Lude.Nothing,
       authorName = Lude.Nothing,
       parentCommitId = Lude.Nothing,
+      branchName = pBranchName_,
       deleteFiles = Lude.Nothing,
       putFiles = Lude.Nothing,
       commitMessage = Lude.Nothing,
-      keepEmptyFolders = Lude.Nothing,
       repositoryName = pRepositoryName_,
-      branchName = pBranchName_
+      keepEmptyFolders = Lude.Nothing
     }
 
 -- | The file modes to update for files in this commit.
@@ -133,6 +137,13 @@ ccParentCommitId :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Text)
 ccParentCommitId = Lens.lens (parentCommitId :: CreateCommit -> Lude.Maybe Lude.Text) (\s a -> s {parentCommitId = a} :: CreateCommit)
 {-# DEPRECATED ccParentCommitId "Use generic-lens or generic-optics with 'parentCommitId' instead." #-}
 
+-- | The name of the branch where you create the commit.
+--
+-- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccBranchName :: Lens.Lens' CreateCommit Lude.Text
+ccBranchName = Lens.lens (branchName :: CreateCommit -> Lude.Text) (\s a -> s {branchName = a} :: CreateCommit)
+{-# DEPRECATED ccBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
+
 -- | The files to delete in this commit. These files still exist in earlier commits.
 --
 -- /Note:/ Consider using 'deleteFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -154,13 +165,6 @@ ccCommitMessage :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Text)
 ccCommitMessage = Lens.lens (commitMessage :: CreateCommit -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: CreateCommit)
 {-# DEPRECATED ccCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
 
--- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
---
--- /Note:/ Consider using 'keepEmptyFolders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccKeepEmptyFolders :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Bool)
-ccKeepEmptyFolders = Lens.lens (keepEmptyFolders :: CreateCommit -> Lude.Maybe Lude.Bool) (\s a -> s {keepEmptyFolders = a} :: CreateCommit)
-{-# DEPRECATED ccKeepEmptyFolders "Use generic-lens or generic-optics with 'keepEmptyFolders' instead." #-}
-
 -- | The name of the repository where you create the commit.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -168,12 +172,12 @@ ccRepositoryName :: Lens.Lens' CreateCommit Lude.Text
 ccRepositoryName = Lens.lens (repositoryName :: CreateCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateCommit)
 {-# DEPRECATED ccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
--- | The name of the branch where you create the commit.
+-- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If true, a ..gitkeep file is created for empty folders. The default is false.
 --
--- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccBranchName :: Lens.Lens' CreateCommit Lude.Text
-ccBranchName = Lens.lens (branchName :: CreateCommit -> Lude.Text) (\s a -> s {branchName = a} :: CreateCommit)
-{-# DEPRECATED ccBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
+-- /Note:/ Consider using 'keepEmptyFolders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccKeepEmptyFolders :: Lens.Lens' CreateCommit (Lude.Maybe Lude.Bool)
+ccKeepEmptyFolders = Lens.lens (keepEmptyFolders :: CreateCommit -> Lude.Maybe Lude.Bool) (\s a -> s {keepEmptyFolders = a} :: CreateCommit)
+{-# DEPRECATED ccKeepEmptyFolders "Use generic-lens or generic-optics with 'keepEmptyFolders' instead." #-}
 
 instance Lude.AWSRequest CreateCommit where
   type Rs CreateCommit = CreateCommitResponse
@@ -209,12 +213,12 @@ instance Lude.ToJSON CreateCommit where
             ("email" Lude..=) Lude.<$> email,
             ("authorName" Lude..=) Lude.<$> authorName,
             ("parentCommitId" Lude..=) Lude.<$> parentCommitId,
+            Lude.Just ("branchName" Lude..= branchName),
             ("deleteFiles" Lude..=) Lude.<$> deleteFiles,
             ("putFiles" Lude..=) Lude.<$> putFiles,
             ("commitMessage" Lude..=) Lude.<$> commitMessage,
-            ("keepEmptyFolders" Lude..=) Lude.<$> keepEmptyFolders,
             Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("branchName" Lude..= branchName)
+            ("keepEmptyFolders" Lude..=) Lude.<$> keepEmptyFolders
           ]
       )
 
@@ -226,31 +230,30 @@ instance Lude.ToQuery CreateCommit where
 
 -- | /See:/ 'mkCreateCommitResponse' smart constructor.
 data CreateCommitResponse = CreateCommitResponse'
-  { commitId ::
-      Lude.Maybe Lude.Text,
+  { -- | The full commit ID of the commit that contains your committed file changes.
+    commitId :: Lude.Maybe Lude.Text,
+    -- | The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.
     treeId :: Lude.Maybe Lude.Text,
+    -- | The files added as part of the committed file changes.
     filesAdded :: Lude.Maybe [FileMetadata],
+    -- | The files updated as part of the commited file changes.
     filesUpdated :: Lude.Maybe [FileMetadata],
+    -- | The files deleted as part of the committed file changes.
     filesDeleted :: Lude.Maybe [FileMetadata],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCommitResponse' with the minimum fields required to make a request.
 --
 -- * 'commitId' - The full commit ID of the commit that contains your committed file changes.
--- * 'filesAdded' - The files added as part of the committed file changes.
--- * 'filesDeleted' - The files deleted as part of the committed file changes.
--- * 'filesUpdated' - The files updated as part of the commited file changes.
--- * 'responseStatus' - The response status code.
 -- * 'treeId' - The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.
+-- * 'filesAdded' - The files added as part of the committed file changes.
+-- * 'filesUpdated' - The files updated as part of the commited file changes.
+-- * 'filesDeleted' - The files deleted as part of the committed file changes.
+-- * 'responseStatus' - The response status code.
 mkCreateCommitResponse ::
   -- | 'responseStatus'
   Lude.Int ->

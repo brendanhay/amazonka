@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLogGroups' smart constructor.
 data DescribeLogGroups = DescribeLogGroups'
-  { logGroupNamePrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix to match.
+    logGroupNamePrefix :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLogGroups' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 -- * 'logGroupNamePrefix' - The prefix to match.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 mkDescribeLogGroups ::
   DescribeLogGroups
 mkDescribeLogGroups =
@@ -144,18 +141,15 @@ instance Lude.ToQuery DescribeLogGroups where
 
 -- | /See:/ 'mkDescribeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-  { logGroups ::
-      Lude.Maybe [LogGroup],
+  { -- | The log groups.
+    --
+    -- If the @retentionInDays@ value if not included for a log group, then that log group is set to have its events never expire.
+    logGroups :: Lude.Maybe [LogGroup],
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLogGroupsResponse' with the minimum fields required to make a request.
@@ -163,7 +157,7 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
 -- * 'logGroups' - The log groups.
 --
 -- If the @retentionInDays@ value if not included for a log group, then that log group is set to have its events never expire.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkDescribeLogGroupsResponse ::
   -- | 'responseStatus'

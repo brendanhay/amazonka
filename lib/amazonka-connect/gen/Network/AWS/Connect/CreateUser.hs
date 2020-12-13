@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.Connect.CreateUser
     mkCreateUser,
 
     -- ** Request lenses
+    cuInstanceId,
+    cuRoutingProfileId,
     cuDirectoryUserId,
     cuIdentityInfo,
+    cuSecurityProfileIds,
+    cuUsername,
     cuPassword,
     cuHierarchyGroupId,
-    cuTags,
-    cuUsername,
     cuPhoneConfig,
-    cuSecurityProfileIds,
-    cuRoutingProfileId,
-    cuInstanceId,
+    cuTags,
 
     -- * Destructuring the response
     CreateUserResponse (..),
@@ -51,71 +52,90 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { directoryUserId ::
-      Lude.Maybe Lude.Text,
-    identityInfo :: Lude.Maybe UserIdentityInfo,
-    password :: Lude.Maybe Lude.Text,
-    hierarchyGroupId :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    username :: Lude.Text,
-    phoneConfig :: UserPhoneConfig,
-    securityProfileIds :: Lude.NonEmpty Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the routing profile for the user.
     routingProfileId :: Lude.Text,
-    instanceId :: Lude.Text
+    -- | The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory.
+    --
+    -- This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
+    directoryUserId :: Lude.Maybe Lude.Text,
+    -- | The information about the identity of the user.
+    identityInfo :: Lude.Maybe UserIdentityInfo,
+    -- | The identifier of the security profile for the user.
+    securityProfileIds :: Lude.NonEmpty Lude.Text,
+    -- | The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
+    username :: Lude.Text,
+    -- | The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
+    password :: Lude.Maybe Lude.Text,
+    -- | The identifier of the hierarchy group for the user.
+    hierarchyGroupId :: Lude.Maybe Lude.Text,
+    -- | The phone settings for the user.
+    phoneConfig :: UserPhoneConfig,
+    -- | One or more tags.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'routingProfileId' - The identifier of the routing profile for the user.
 -- * 'directoryUserId' - The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory.
 --
 -- This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
--- * 'hierarchyGroupId' - The identifier of the hierarchy group for the user.
 -- * 'identityInfo' - The information about the identity of the user.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'password' - The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
--- * 'phoneConfig' - The phone settings for the user.
--- * 'routingProfileId' - The identifier of the routing profile for the user.
 -- * 'securityProfileIds' - The identifier of the security profile for the user.
--- * 'tags' - One or more tags.
 -- * 'username' - The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
+-- * 'password' - The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
+-- * 'hierarchyGroupId' - The identifier of the hierarchy group for the user.
+-- * 'phoneConfig' - The phone settings for the user.
+-- * 'tags' - One or more tags.
 mkCreateUser ::
+  -- | 'instanceId'
+  Lude.Text ->
+  -- | 'routingProfileId'
+  Lude.Text ->
+  -- | 'securityProfileIds'
+  Lude.NonEmpty Lude.Text ->
   -- | 'username'
   Lude.Text ->
   -- | 'phoneConfig'
   UserPhoneConfig ->
-  -- | 'securityProfileIds'
-  Lude.NonEmpty Lude.Text ->
-  -- | 'routingProfileId'
-  Lude.Text ->
-  -- | 'instanceId'
-  Lude.Text ->
   CreateUser
 mkCreateUser
-  pUsername_
-  pPhoneConfig_
-  pSecurityProfileIds_
+  pInstanceId_
   pRoutingProfileId_
-  pInstanceId_ =
+  pSecurityProfileIds_
+  pUsername_
+  pPhoneConfig_ =
     CreateUser'
-      { directoryUserId = Lude.Nothing,
+      { instanceId = pInstanceId_,
+        routingProfileId = pRoutingProfileId_,
+        directoryUserId = Lude.Nothing,
         identityInfo = Lude.Nothing,
+        securityProfileIds = pSecurityProfileIds_,
+        username = pUsername_,
         password = Lude.Nothing,
         hierarchyGroupId = Lude.Nothing,
-        tags = Lude.Nothing,
-        username = pUsername_,
         phoneConfig = pPhoneConfig_,
-        securityProfileIds = pSecurityProfileIds_,
-        routingProfileId = pRoutingProfileId_,
-        instanceId = pInstanceId_
+        tags = Lude.Nothing
       }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuInstanceId :: Lens.Lens' CreateUser Lude.Text
+cuInstanceId = Lens.lens (instanceId :: CreateUser -> Lude.Text) (\s a -> s {instanceId = a} :: CreateUser)
+{-# DEPRECATED cuInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The identifier of the routing profile for the user.
+--
+-- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuRoutingProfileId :: Lens.Lens' CreateUser Lude.Text
+cuRoutingProfileId = Lens.lens (routingProfileId :: CreateUser -> Lude.Text) (\s a -> s {routingProfileId = a} :: CreateUser)
+{-# DEPRECATED cuRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
 -- | The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory.
 --
@@ -133,6 +153,20 @@ cuIdentityInfo :: Lens.Lens' CreateUser (Lude.Maybe UserIdentityInfo)
 cuIdentityInfo = Lens.lens (identityInfo :: CreateUser -> Lude.Maybe UserIdentityInfo) (\s a -> s {identityInfo = a} :: CreateUser)
 {-# DEPRECATED cuIdentityInfo "Use generic-lens or generic-optics with 'identityInfo' instead." #-}
 
+-- | The identifier of the security profile for the user.
+--
+-- /Note:/ Consider using 'securityProfileIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuSecurityProfileIds :: Lens.Lens' CreateUser (Lude.NonEmpty Lude.Text)
+cuSecurityProfileIds = Lens.lens (securityProfileIds :: CreateUser -> Lude.NonEmpty Lude.Text) (\s a -> s {securityProfileIds = a} :: CreateUser)
+{-# DEPRECATED cuSecurityProfileIds "Use generic-lens or generic-optics with 'securityProfileIds' instead." #-}
+
+-- | The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUsername :: Lens.Lens' CreateUser Lude.Text
+cuUsername = Lens.lens (username :: CreateUser -> Lude.Text) (\s a -> s {username = a} :: CreateUser)
+{-# DEPRECATED cuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
 -- | The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -147,20 +181,6 @@ cuHierarchyGroupId :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
 cuHierarchyGroupId = Lens.lens (hierarchyGroupId :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {hierarchyGroupId = a} :: CreateUser)
 {-# DEPRECATED cuHierarchyGroupId "Use generic-lens or generic-optics with 'hierarchyGroupId' instead." #-}
 
--- | One or more tags.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuTags :: Lens.Lens' CreateUser (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cuTags = Lens.lens (tags :: CreateUser -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateUser)
-{-# DEPRECATED cuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuUsername :: Lens.Lens' CreateUser Lude.Text
-cuUsername = Lens.lens (username :: CreateUser -> Lude.Text) (\s a -> s {username = a} :: CreateUser)
-{-# DEPRECATED cuUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
 -- | The phone settings for the user.
 --
 -- /Note:/ Consider using 'phoneConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -168,26 +188,12 @@ cuPhoneConfig :: Lens.Lens' CreateUser UserPhoneConfig
 cuPhoneConfig = Lens.lens (phoneConfig :: CreateUser -> UserPhoneConfig) (\s a -> s {phoneConfig = a} :: CreateUser)
 {-# DEPRECATED cuPhoneConfig "Use generic-lens or generic-optics with 'phoneConfig' instead." #-}
 
--- | The identifier of the security profile for the user.
+-- | One or more tags.
 --
--- /Note:/ Consider using 'securityProfileIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuSecurityProfileIds :: Lens.Lens' CreateUser (Lude.NonEmpty Lude.Text)
-cuSecurityProfileIds = Lens.lens (securityProfileIds :: CreateUser -> Lude.NonEmpty Lude.Text) (\s a -> s {securityProfileIds = a} :: CreateUser)
-{-# DEPRECATED cuSecurityProfileIds "Use generic-lens or generic-optics with 'securityProfileIds' instead." #-}
-
--- | The identifier of the routing profile for the user.
---
--- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuRoutingProfileId :: Lens.Lens' CreateUser Lude.Text
-cuRoutingProfileId = Lens.lens (routingProfileId :: CreateUser -> Lude.Text) (\s a -> s {routingProfileId = a} :: CreateUser)
-{-# DEPRECATED cuRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuInstanceId :: Lens.Lens' CreateUser Lude.Text
-cuInstanceId = Lens.lens (instanceId :: CreateUser -> Lude.Text) (\s a -> s {instanceId = a} :: CreateUser)
-{-# DEPRECATED cuInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuTags :: Lens.Lens' CreateUser (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cuTags = Lens.lens (tags :: CreateUser -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateUser)
+{-# DEPRECATED cuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
@@ -214,15 +220,15 @@ instance Lude.ToJSON CreateUser where
   toJSON CreateUser' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DirectoryUserId" Lude..=) Lude.<$> directoryUserId,
+          [ Lude.Just ("RoutingProfileId" Lude..= routingProfileId),
+            ("DirectoryUserId" Lude..=) Lude.<$> directoryUserId,
             ("IdentityInfo" Lude..=) Lude.<$> identityInfo,
+            Lude.Just ("SecurityProfileIds" Lude..= securityProfileIds),
+            Lude.Just ("Username" Lude..= username),
             ("Password" Lude..=) Lude.<$> password,
             ("HierarchyGroupId" Lude..=) Lude.<$> hierarchyGroupId,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Username" Lude..= username),
             Lude.Just ("PhoneConfig" Lude..= phoneConfig),
-            Lude.Just ("SecurityProfileIds" Lude..= securityProfileIds),
-            Lude.Just ("RoutingProfileId" Lude..= routingProfileId)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -235,25 +241,21 @@ instance Lude.ToQuery CreateUser where
 
 -- | /See:/ 'mkCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { userId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the user account.
+    userId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the user account.
     userARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'userARN' - The Amazon Resource Name (ARN) of the user account.
 -- * 'userId' - The identifier of the user account.
+-- * 'userARN' - The Amazon Resource Name (ARN) of the user account.
+-- * 'responseStatus' - The response status code.
 mkCreateUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

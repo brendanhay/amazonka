@@ -30,17 +30,12 @@ import Network.AWS.Shield.Types.SummarizedCounter
 --
 -- /See:/ 'mkSummarizedAttackVector' smart constructor.
 data SummarizedAttackVector = SummarizedAttackVector'
-  { vectorCounters ::
-      Lude.Maybe [SummarizedCounter],
+  { -- | The list of counters that describe the details of the attack.
+    vectorCounters :: Lude.Maybe [SummarizedCounter],
+    -- | The attack type, for example, SNMP reflection or SYN flood.
     vectorType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SummarizedAttackVector' with the minimum fields required to make a request.

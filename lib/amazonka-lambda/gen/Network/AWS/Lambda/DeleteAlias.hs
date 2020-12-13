@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Lambda.DeleteAlias
     mkDeleteAlias,
 
     -- ** Request lenses
-    daFunctionName,
     daName,
+    daFunctionName,
 
     -- * Destructuring the response
     DeleteAliasResponse (..),
@@ -36,20 +37,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAlias' smart constructor.
 data DeleteAlias = DeleteAlias'
-  { functionName :: Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the alias.
+    name :: Lude.Text,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
 --
+-- * 'name' - The name of the alias.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -64,15 +75,21 @@ data DeleteAlias = DeleteAlias'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'name' - The name of the alias.
 mkDeleteAlias ::
-  -- | 'functionName'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'functionName'
+  Lude.Text ->
   DeleteAlias
-mkDeleteAlias pFunctionName_ pName_ =
-  DeleteAlias' {functionName = pFunctionName_, name = pName_}
+mkDeleteAlias pName_ pFunctionName_ =
+  DeleteAlias' {name = pName_, functionName = pFunctionName_}
+
+-- | The name of the alias.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daName :: Lens.Lens' DeleteAlias Lude.Text
+daName = Lens.lens (name :: DeleteAlias -> Lude.Text) (\s a -> s {name = a} :: DeleteAlias)
+{-# DEPRECATED daName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -93,13 +110,6 @@ mkDeleteAlias pFunctionName_ pName_ =
 daFunctionName :: Lens.Lens' DeleteAlias Lude.Text
 daFunctionName = Lens.lens (functionName :: DeleteAlias -> Lude.Text) (\s a -> s {functionName = a} :: DeleteAlias)
 {-# DEPRECATED daFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
-
--- | The name of the alias.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daName :: Lens.Lens' DeleteAlias Lude.Text
-daName = Lens.lens (name :: DeleteAlias -> Lude.Text) (\s a -> s {name = a} :: DeleteAlias)
-{-# DEPRECATED daName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeleteAlias where
   type Rs DeleteAlias = DeleteAliasResponse
@@ -123,13 +133,7 @@ instance Lude.ToQuery DeleteAlias where
 
 -- | /See:/ 'mkDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.

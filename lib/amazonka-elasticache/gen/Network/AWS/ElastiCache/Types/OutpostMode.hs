@@ -13,8 +13,8 @@
 module Network.AWS.ElastiCache.Types.OutpostMode
   ( OutpostMode
       ( OutpostMode',
-        CrossOutpost,
-        SingleOutpost
+        SingleOutpost,
+        CrossOutpost
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OutpostMode = OutpostMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern CrossOutpost :: OutpostMode
-pattern CrossOutpost = OutpostMode' "cross-outpost"
-
 pattern SingleOutpost :: OutpostMode
 pattern SingleOutpost = OutpostMode' "single-outpost"
 
+pattern CrossOutpost :: OutpostMode
+pattern CrossOutpost = OutpostMode' "cross-outpost"
+
 {-# COMPLETE
-  CrossOutpost,
   SingleOutpost,
+  CrossOutpost,
   OutpostMode'
   #-}

@@ -14,9 +14,9 @@ module Network.AWS.LexModels.Types.ChannelType
   ( ChannelType
       ( ChannelType',
         Facebook,
-        Kik,
         Slack,
-        TwilioSms
+        TwilioSms,
+        Kik
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ChannelType = ChannelType' Lude.Text
 pattern Facebook :: ChannelType
 pattern Facebook = ChannelType' "Facebook"
 
-pattern Kik :: ChannelType
-pattern Kik = ChannelType' "Kik"
-
 pattern Slack :: ChannelType
 pattern Slack = ChannelType' "Slack"
 
 pattern TwilioSms :: ChannelType
 pattern TwilioSms = ChannelType' "Twilio-Sms"
 
+pattern Kik :: ChannelType
+pattern Kik = ChannelType' "Kik"
+
 {-# COMPLETE
   Facebook,
-  Kik,
   Slack,
   TwilioSms,
+  Kik,
   ChannelType'
   #-}

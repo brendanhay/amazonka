@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.ElasticTranscoder.CancelJob
     mkCancelJobResponse,
 
     -- ** Response lenses
-    canrsResponseStatus,
+    cjfrsResponseStatus,
   )
 where
 
@@ -39,14 +40,13 @@ import qualified Network.AWS.Response as Res
 -- | The @CancelJobRequest@ structure.
 --
 -- /See:/ 'mkCancelJob' smart constructor.
-newtype CancelJob = CancelJob' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype CancelJob = CancelJob'
+  { -- | The identifier of the job that you want to cancel.
+    --
+    -- To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
@@ -92,16 +92,10 @@ instance Lude.ToQuery CancelJob where
 --
 -- /See:/ 'mkCancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
@@ -117,6 +111,6 @@ mkCancelJobResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-canrsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
-canrsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
-{-# DEPRECATED canrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cjfrsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
+cjfrsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
+{-# DEPRECATED cjfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,8 +13,8 @@
 module Network.AWS.Glue.Types.ScheduleState
   ( ScheduleState
       ( ScheduleState',
-        SSNotScheduled,
         SSScheduled,
+        SSNotScheduled,
         SSTransitioning
       ),
   )
@@ -46,18 +46,18 @@ newtype ScheduleState = ScheduleState' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSNotScheduled :: ScheduleState
-pattern SSNotScheduled = ScheduleState' "NOT_SCHEDULED"
-
 pattern SSScheduled :: ScheduleState
 pattern SSScheduled = ScheduleState' "SCHEDULED"
+
+pattern SSNotScheduled :: ScheduleState
+pattern SSNotScheduled = ScheduleState' "NOT_SCHEDULED"
 
 pattern SSTransitioning :: ScheduleState
 pattern SSTransitioning = ScheduleState' "TRANSITIONING"
 
 {-# COMPLETE
-  SSNotScheduled,
   SSScheduled,
+  SSNotScheduled,
   SSTransitioning,
   ScheduleState'
   #-}

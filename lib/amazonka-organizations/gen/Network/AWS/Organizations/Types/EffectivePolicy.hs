@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEffectivePolicy' smart constructor.
 data EffectivePolicy = EffectivePolicy'
-  { targetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The account ID of the policy target.
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The policy type.
     policyType :: Lude.Maybe EffectivePolicyType,
+    -- | The time of the last update to this policy.
     lastUpdatedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The text content of the policy.
     policyContent :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EffectivePolicy' with the minimum fields required to make a request.
 --
+-- * 'targetId' - The account ID of the policy target.
+-- * 'policyType' - The policy type.
 -- * 'lastUpdatedTimestamp' - The time of the last update to this policy.
 -- * 'policyContent' - The text content of the policy.
--- * 'policyType' - The policy type.
--- * 'targetId' - The account ID of the policy target.
 mkEffectivePolicy ::
   EffectivePolicy
 mkEffectivePolicy =

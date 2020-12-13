@@ -14,17 +14,17 @@ module Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
   ( DeviceFilterAttribute
       ( DeviceFilterAttribute',
         DFAARN,
+        DFAPlatform,
+        DFAOSVersion,
+        DFAModel,
         DFAAvailability,
-        DFAFleetType,
         DFAFormFactor,
+        DFAManufacturer,
+        DFARemoteAccessEnabled,
+        DFARemoteDebugEnabled,
         DFAInstanceARN,
         DFAInstanceLabels,
-        DFAManufacturer,
-        DFAModel,
-        DFAOSVersion,
-        DFAPlatform,
-        DFARemoteAccessEnabled,
-        DFARemoteDebugEnabled
+        DFAFleetType
       ),
   )
 where
@@ -58,32 +58,23 @@ newtype DeviceFilterAttribute = DeviceFilterAttribute' Lude.Text
 pattern DFAARN :: DeviceFilterAttribute
 pattern DFAARN = DeviceFilterAttribute' "ARN"
 
-pattern DFAAvailability :: DeviceFilterAttribute
-pattern DFAAvailability = DeviceFilterAttribute' "AVAILABILITY"
-
-pattern DFAFleetType :: DeviceFilterAttribute
-pattern DFAFleetType = DeviceFilterAttribute' "FLEET_TYPE"
-
-pattern DFAFormFactor :: DeviceFilterAttribute
-pattern DFAFormFactor = DeviceFilterAttribute' "FORM_FACTOR"
-
-pattern DFAInstanceARN :: DeviceFilterAttribute
-pattern DFAInstanceARN = DeviceFilterAttribute' "INSTANCE_ARN"
-
-pattern DFAInstanceLabels :: DeviceFilterAttribute
-pattern DFAInstanceLabels = DeviceFilterAttribute' "INSTANCE_LABELS"
-
-pattern DFAManufacturer :: DeviceFilterAttribute
-pattern DFAManufacturer = DeviceFilterAttribute' "MANUFACTURER"
-
-pattern DFAModel :: DeviceFilterAttribute
-pattern DFAModel = DeviceFilterAttribute' "MODEL"
+pattern DFAPlatform :: DeviceFilterAttribute
+pattern DFAPlatform = DeviceFilterAttribute' "PLATFORM"
 
 pattern DFAOSVersion :: DeviceFilterAttribute
 pattern DFAOSVersion = DeviceFilterAttribute' "OS_VERSION"
 
-pattern DFAPlatform :: DeviceFilterAttribute
-pattern DFAPlatform = DeviceFilterAttribute' "PLATFORM"
+pattern DFAModel :: DeviceFilterAttribute
+pattern DFAModel = DeviceFilterAttribute' "MODEL"
+
+pattern DFAAvailability :: DeviceFilterAttribute
+pattern DFAAvailability = DeviceFilterAttribute' "AVAILABILITY"
+
+pattern DFAFormFactor :: DeviceFilterAttribute
+pattern DFAFormFactor = DeviceFilterAttribute' "FORM_FACTOR"
+
+pattern DFAManufacturer :: DeviceFilterAttribute
+pattern DFAManufacturer = DeviceFilterAttribute' "MANUFACTURER"
 
 pattern DFARemoteAccessEnabled :: DeviceFilterAttribute
 pattern DFARemoteAccessEnabled = DeviceFilterAttribute' "REMOTE_ACCESS_ENABLED"
@@ -91,18 +82,27 @@ pattern DFARemoteAccessEnabled = DeviceFilterAttribute' "REMOTE_ACCESS_ENABLED"
 pattern DFARemoteDebugEnabled :: DeviceFilterAttribute
 pattern DFARemoteDebugEnabled = DeviceFilterAttribute' "REMOTE_DEBUG_ENABLED"
 
+pattern DFAInstanceARN :: DeviceFilterAttribute
+pattern DFAInstanceARN = DeviceFilterAttribute' "INSTANCE_ARN"
+
+pattern DFAInstanceLabels :: DeviceFilterAttribute
+pattern DFAInstanceLabels = DeviceFilterAttribute' "INSTANCE_LABELS"
+
+pattern DFAFleetType :: DeviceFilterAttribute
+pattern DFAFleetType = DeviceFilterAttribute' "FLEET_TYPE"
+
 {-# COMPLETE
   DFAARN,
-  DFAAvailability,
-  DFAFleetType,
-  DFAFormFactor,
-  DFAInstanceARN,
-  DFAInstanceLabels,
-  DFAManufacturer,
-  DFAModel,
-  DFAOSVersion,
   DFAPlatform,
+  DFAOSVersion,
+  DFAModel,
+  DFAAvailability,
+  DFAFormFactor,
+  DFAManufacturer,
   DFARemoteAccessEnabled,
   DFARemoteDebugEnabled,
+  DFAInstanceARN,
+  DFAInstanceLabels,
+  DFAFleetType,
   DeviceFilterAttribute'
   #-}

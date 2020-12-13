@@ -13,10 +13,10 @@
 module Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
   ( RadiusAuthenticationProtocol
       ( RadiusAuthenticationProtocol',
+        Pap,
         Chap,
         MsCHAPV1,
-        MsCHAPV2,
-        Pap
+        MsCHAPV2
       ),
   )
 where
@@ -47,6 +47,9 @@ newtype RadiusAuthenticationProtocol = RadiusAuthenticationProtocol' Lude.Text
       Lude.ToHeader
     )
 
+pattern Pap :: RadiusAuthenticationProtocol
+pattern Pap = RadiusAuthenticationProtocol' "PAP"
+
 pattern Chap :: RadiusAuthenticationProtocol
 pattern Chap = RadiusAuthenticationProtocol' "CHAP"
 
@@ -56,13 +59,10 @@ pattern MsCHAPV1 = RadiusAuthenticationProtocol' "MS-CHAPv1"
 pattern MsCHAPV2 :: RadiusAuthenticationProtocol
 pattern MsCHAPV2 = RadiusAuthenticationProtocol' "MS-CHAPv2"
 
-pattern Pap :: RadiusAuthenticationProtocol
-pattern Pap = RadiusAuthenticationProtocol' "PAP"
-
 {-# COMPLETE
+  Pap,
   Chap,
   MsCHAPV1,
   MsCHAPV2,
-  Pap,
   RadiusAuthenticationProtocol'
   #-}

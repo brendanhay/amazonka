@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineMetadata' smart constructor.
 data PipelineMetadata = PipelineMetadata'
-  { created ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the pipeline was created, in timestamp format.
+    created :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the pipeline.
     pipelineARN :: Lude.Maybe Lude.Text,
+    -- | The date and time the pipeline was last updated, in timestamp format.
     updated :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineMetadata' with the minimum fields required to make a request.

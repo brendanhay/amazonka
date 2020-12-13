@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MQ.ListConfigurationRevisions
     mkListConfigurationRevisions,
 
     -- ** Request lenses
+    lcrConfigurationId,
     lcrNextToken,
     lcrMaxResults,
-    lcrConfigurationId,
 
     -- * Destructuring the response
     ListConfigurationRevisionsResponse (..),
@@ -44,35 +45,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListConfigurationRevisions' smart constructor.
 data ListConfigurationRevisions = ListConfigurationRevisions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    configurationId :: Lude.Text
+  { -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Lude.Text,
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurationRevisions' with the minimum fields required to make a request.
 --
 -- * 'configurationId' - The unique ID that Amazon MQ generates for the configuration.
--- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 mkListConfigurationRevisions ::
   -- | 'configurationId'
   Lude.Text ->
   ListConfigurationRevisions
 mkListConfigurationRevisions pConfigurationId_ =
   ListConfigurationRevisions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      configurationId = pConfigurationId_
+    { configurationId = pConfigurationId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The unique ID that Amazon MQ generates for the configuration.
+--
+-- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrConfigurationId :: Lens.Lens' ListConfigurationRevisions Lude.Text
+lcrConfigurationId = Lens.lens (configurationId :: ListConfigurationRevisions -> Lude.Text) (\s a -> s {configurationId = a} :: ListConfigurationRevisions)
+{-# DEPRECATED lcrConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 --
@@ -87,13 +91,6 @@ lcrNextToken = Lens.lens (nextToken :: ListConfigurationRevisions -> Lude.Maybe 
 lcrMaxResults :: Lens.Lens' ListConfigurationRevisions (Lude.Maybe Lude.Natural)
 lcrMaxResults = Lens.lens (maxResults :: ListConfigurationRevisions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListConfigurationRevisions)
 {-# DEPRECATED lcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The unique ID that Amazon MQ generates for the configuration.
---
--- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrConfigurationId :: Lens.Lens' ListConfigurationRevisions Lude.Text
-lcrConfigurationId = Lens.lens (configurationId :: ListConfigurationRevisions -> Lude.Text) (\s a -> s {configurationId = a} :: ListConfigurationRevisions)
-{-# DEPRECATED lcrConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 instance Lude.AWSRequest ListConfigurationRevisions where
   type
@@ -132,34 +129,27 @@ instance Lude.ToQuery ListConfigurationRevisions where
 
 -- | /See:/ 'mkListConfigurationRevisionsResponse' smart constructor.
 data ListConfigurationRevisionsResponse = ListConfigurationRevisionsResponse'
-  { configurationId ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    revisions ::
-      Lude.Maybe
-        [ConfigurationRevision],
-    maxResults ::
-      Lude.Maybe Lude.Int,
-    responseStatus ::
-      Lude.Int
+  { -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Lude.Maybe Lude.Text,
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of all revisions for the specified configuration.
+    revisions :: Lude.Maybe [ConfigurationRevision],
+    -- | The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Lude.Maybe Lude.Int,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurationRevisionsResponse' with the minimum fields required to make a request.
 --
 -- * 'configurationId' - The unique ID that Amazon MQ generates for the configuration.
--- * 'maxResults' - The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
--- * 'responseStatus' - The response status code.
 -- * 'revisions' - The list of all revisions for the specified configuration.
+-- * 'maxResults' - The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+-- * 'responseStatus' - The response status code.
 mkListConfigurationRevisionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

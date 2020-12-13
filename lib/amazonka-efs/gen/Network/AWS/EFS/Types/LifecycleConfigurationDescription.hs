@@ -27,17 +27,10 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkLifecycleConfigurationDescription' smart constructor.
 newtype LifecycleConfigurationDescription = LifecycleConfigurationDescription'
-  { lifecyclePolicies ::
-      Lude.Maybe
-        [LifecyclePolicy]
+  { -- | An array of lifecycle management policies. Currently, EFS supports a maximum of one policy per file system.
+    lifecyclePolicies :: Lude.Maybe [LifecyclePolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecycleConfigurationDescription' with the minimum fields required to make a request.

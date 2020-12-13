@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CostExplorer.UpdateCostCategoryDefinition
     mkUpdateCostCategoryDefinition,
 
     -- ** Request lenses
-    uccdCostCategoryARN,
     uccdRuleVersion,
     uccdRules,
+    uccdCostCategoryARN,
 
     -- * Destructuring the response
     UpdateCostCategoryDefinitionResponse (..),
@@ -42,52 +43,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateCostCategoryDefinition' smart constructor.
 data UpdateCostCategoryDefinition = UpdateCostCategoryDefinition'
-  { costCategoryARN ::
-      Lude.Text,
-    ruleVersion ::
-      CostCategoryRuleVersion,
-    rules ::
-      Lude.NonEmpty CostCategoryRule
+  { ruleVersion :: CostCategoryRuleVersion,
+    -- | The @Expression@ object used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule > .
+    rules :: Lude.NonEmpty CostCategoryRule,
+    -- | The unique identifier for your Cost Category.
+    costCategoryARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCostCategoryDefinition' with the minimum fields required to make a request.
 --
--- * 'costCategoryARN' - The unique identifier for your Cost Category.
--- * 'ruleVersion' - Undocumented field.
+-- * 'ruleVersion' -
 -- * 'rules' - The @Expression@ object used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule > .
+-- * 'costCategoryARN' - The unique identifier for your Cost Category.
 mkUpdateCostCategoryDefinition ::
-  -- | 'costCategoryARN'
-  Lude.Text ->
   -- | 'ruleVersion'
   CostCategoryRuleVersion ->
   -- | 'rules'
   Lude.NonEmpty CostCategoryRule ->
+  -- | 'costCategoryARN'
+  Lude.Text ->
   UpdateCostCategoryDefinition
 mkUpdateCostCategoryDefinition
-  pCostCategoryARN_
   pRuleVersion_
-  pRules_ =
+  pRules_
+  pCostCategoryARN_ =
     UpdateCostCategoryDefinition'
-      { costCategoryARN =
-          pCostCategoryARN_,
-        ruleVersion = pRuleVersion_,
-        rules = pRules_
+      { ruleVersion = pRuleVersion_,
+        rules = pRules_,
+        costCategoryARN = pCostCategoryARN_
       }
-
--- | The unique identifier for your Cost Category.
---
--- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccdCostCategoryARN :: Lens.Lens' UpdateCostCategoryDefinition Lude.Text
-uccdCostCategoryARN = Lens.lens (costCategoryARN :: UpdateCostCategoryDefinition -> Lude.Text) (\s a -> s {costCategoryARN = a} :: UpdateCostCategoryDefinition)
-{-# DEPRECATED uccdCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
 
 -- | Undocumented field.
 --
@@ -102,6 +88,13 @@ uccdRuleVersion = Lens.lens (ruleVersion :: UpdateCostCategoryDefinition -> Cost
 uccdRules :: Lens.Lens' UpdateCostCategoryDefinition (Lude.NonEmpty CostCategoryRule)
 uccdRules = Lens.lens (rules :: UpdateCostCategoryDefinition -> Lude.NonEmpty CostCategoryRule) (\s a -> s {rules = a} :: UpdateCostCategoryDefinition)
 {-# DEPRECATED uccdRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+
+-- | The unique identifier for your Cost Category.
+--
+-- /Note:/ Consider using 'costCategoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccdCostCategoryARN :: Lens.Lens' UpdateCostCategoryDefinition Lude.Text
+uccdCostCategoryARN = Lens.lens (costCategoryARN :: UpdateCostCategoryDefinition -> Lude.Text) (\s a -> s {costCategoryARN = a} :: UpdateCostCategoryDefinition)
+{-# DEPRECATED uccdCostCategoryARN "Use generic-lens or generic-optics with 'costCategoryARN' instead." #-}
 
 instance Lude.AWSRequest UpdateCostCategoryDefinition where
   type
@@ -134,9 +127,9 @@ instance Lude.ToJSON UpdateCostCategoryDefinition where
   toJSON UpdateCostCategoryDefinition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("CostCategoryArn" Lude..= costCategoryARN),
-            Lude.Just ("RuleVersion" Lude..= ruleVersion),
-            Lude.Just ("Rules" Lude..= rules)
+          [ Lude.Just ("RuleVersion" Lude..= ruleVersion),
+            Lude.Just ("Rules" Lude..= rules),
+            Lude.Just ("CostCategoryArn" Lude..= costCategoryARN)
           ]
       )
 
@@ -148,28 +141,20 @@ instance Lude.ToQuery UpdateCostCategoryDefinition where
 
 -- | /See:/ 'mkUpdateCostCategoryDefinitionResponse' smart constructor.
 data UpdateCostCategoryDefinitionResponse = UpdateCostCategoryDefinitionResponse'
-  { effectiveStart ::
-      Lude.Maybe
-        Lude.Text,
-    costCategoryARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Cost Category's effective start date.
+    effectiveStart :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for your Cost Category.
+    costCategoryARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCostCategoryDefinitionResponse' with the minimum fields required to make a request.
 --
--- * 'costCategoryARN' - The unique identifier for your Cost Category.
 -- * 'effectiveStart' - The Cost Category's effective start date.
+-- * 'costCategoryARN' - The unique identifier for your Cost Category.
 -- * 'responseStatus' - The response status code.
 mkUpdateCostCategoryDefinitionResponse ::
   -- | 'responseStatus'

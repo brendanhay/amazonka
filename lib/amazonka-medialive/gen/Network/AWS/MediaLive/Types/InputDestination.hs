@@ -32,31 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputDestination' smart constructor.
 data InputDestination = InputDestination'
-  { url ::
-      Lude.Maybe Lude.Text,
+  { -- | This represents the endpoint that the customer stream will be
+    --
+    -- pushed to.
+    url :: Lude.Maybe Lude.Text,
+    -- | The system-generated static IP address of endpoint.
+    --
+    -- It remains fixed for the lifetime of the input.
     ip :: Lude.Maybe Lude.Text,
     vpc :: Lude.Maybe InputDestinationVPC,
+    -- | The port number for the input.
     port :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDestination' with the minimum fields required to make a request.
 --
--- * 'ip' - The system-generated static IP address of endpoint.
---
--- It remains fixed for the lifetime of the input.
--- * 'port' - The port number for the input.
 -- * 'url' - This represents the endpoint that the customer stream will be
 --
 -- pushed to.
--- * 'vpc' - Undocumented field.
+-- * 'ip' - The system-generated static IP address of endpoint.
+--
+-- It remains fixed for the lifetime of the input.
+-- * 'vpc' -
+-- * 'port' - The port number for the input.
 mkInputDestination ::
   InputDestination
 mkInputDestination =

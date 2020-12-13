@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.ECS.PutAccountSetting
     mkPutAccountSetting,
 
     -- ** Request lenses
-    pasPrincipalARN,
-    pasName,
     pasValue,
+    pasName,
+    pasPrincipalARN,
 
     -- * Destructuring the response
     PutAccountSettingResponse (..),
@@ -46,44 +47,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutAccountSetting' smart constructor.
 data PutAccountSetting = PutAccountSetting'
-  { principalARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
+    value :: Lude.Text,
+    -- | The Amazon ECS resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the elastic network interface (ENI) limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
     name :: SettingName,
-    value :: Lude.Text
+    -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
+    principalARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccountSetting' with the minimum fields required to make a request.
 --
+-- * 'value' - The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
 -- * 'name' - The Amazon ECS resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the elastic network interface (ENI) limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
 -- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
--- * 'value' - The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
 mkPutAccountSetting ::
-  -- | 'name'
-  SettingName ->
   -- | 'value'
   Lude.Text ->
+  -- | 'name'
+  SettingName ->
   PutAccountSetting
-mkPutAccountSetting pName_ pValue_ =
+mkPutAccountSetting pValue_ pName_ =
   PutAccountSetting'
-    { principalARN = Lude.Nothing,
+    { value = pValue_,
       name = pName_,
-      value = pValue_
+      principalARN = Lude.Nothing
     }
 
--- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
+-- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
 --
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasPrincipalARN :: Lens.Lens' PutAccountSetting (Lude.Maybe Lude.Text)
-pasPrincipalARN = Lens.lens (principalARN :: PutAccountSetting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: PutAccountSetting)
-{-# DEPRECATED pasPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasValue :: Lens.Lens' PutAccountSetting Lude.Text
+pasValue = Lens.lens (value :: PutAccountSetting -> Lude.Text) (\s a -> s {value = a} :: PutAccountSetting)
+{-# DEPRECATED pasValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The Amazon ECS resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the elastic network interface (ENI) limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
 --
@@ -92,12 +89,12 @@ pasName :: Lens.Lens' PutAccountSetting SettingName
 pasName = Lens.lens (name :: PutAccountSetting -> SettingName) (\s a -> s {name = a} :: PutAccountSetting)
 {-# DEPRECATED pasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
+-- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If you specify the root user, it modifies the account setting for all IAM users, IAM roles, and the root user of the account unless an IAM user or role explicitly overrides these settings. If this field is omitted, the setting is changed only for the authenticated user.
 --
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasValue :: Lens.Lens' PutAccountSetting Lude.Text
-pasValue = Lens.lens (value :: PutAccountSetting -> Lude.Text) (\s a -> s {value = a} :: PutAccountSetting)
-{-# DEPRECATED pasValue "Use generic-lens or generic-optics with 'value' instead." #-}
+-- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasPrincipalARN :: Lens.Lens' PutAccountSetting (Lude.Maybe Lude.Text)
+pasPrincipalARN = Lens.lens (principalARN :: PutAccountSetting -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: PutAccountSetting)
+{-# DEPRECATED pasPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
 instance Lude.AWSRequest PutAccountSetting where
   type Rs PutAccountSetting = PutAccountSettingResponse
@@ -126,9 +123,9 @@ instance Lude.ToJSON PutAccountSetting where
   toJSON PutAccountSetting' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("principalArn" Lude..=) Lude.<$> principalARN,
+          [ Lude.Just ("value" Lude..= value),
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("value" Lude..= value)
+            ("principalArn" Lude..=) Lude.<$> principalARN
           ]
       )
 
@@ -140,23 +137,18 @@ instance Lude.ToQuery PutAccountSetting where
 
 -- | /See:/ 'mkPutAccountSettingResponse' smart constructor.
 data PutAccountSettingResponse = PutAccountSettingResponse'
-  { setting ::
-      Lude.Maybe Setting,
+  { -- | The current account setting for a resource.
+    setting :: Lude.Maybe Setting,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccountSettingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'setting' - The current account setting for a resource.
+-- * 'responseStatus' - The response status code.
 mkPutAccountSettingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

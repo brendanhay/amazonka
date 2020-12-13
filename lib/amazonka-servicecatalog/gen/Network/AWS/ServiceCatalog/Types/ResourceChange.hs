@@ -38,33 +38,33 @@ import Network.AWS.ServiceCatalog.Types.ResourceChangeDetail
 --
 -- /See:/ 'mkResourceChange' smart constructor.
 data ResourceChange = ResourceChange'
-  { logicalResourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource, as defined in the CloudFormation template.
+    logicalResourceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the resource, if it was already created.
     physicalResourceId :: Lude.Maybe Lude.Text,
+    -- | The type of resource.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The change action.
     action :: Lude.Maybe ChangeAction,
+    -- | The change scope.
     scope :: Lude.Maybe [ResourceAttribute],
+    -- | Information about the resource changes.
     details :: Lude.Maybe [ResourceChangeDetail],
+    -- | If the change type is @Modify@ , indicates whether the existing resource is deleted and replaced with a new one.
     replacement :: Lude.Maybe Replacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceChange' with the minimum fields required to make a request.
 --
--- * 'action' - The change action.
--- * 'details' - Information about the resource changes.
 -- * 'logicalResourceId' - The ID of the resource, as defined in the CloudFormation template.
 -- * 'physicalResourceId' - The ID of the resource, if it was already created.
--- * 'replacement' - If the change type is @Modify@ , indicates whether the existing resource is deleted and replaced with a new one.
 -- * 'resourceType' - The type of resource.
+-- * 'action' - The change action.
 -- * 'scope' - The change scope.
+-- * 'details' - Information about the resource changes.
+-- * 'replacement' - If the change type is @Modify@ , indicates whether the existing resource is deleted and replaced with a new one.
 mkResourceChange ::
   ResourceChange
 mkResourceChange =

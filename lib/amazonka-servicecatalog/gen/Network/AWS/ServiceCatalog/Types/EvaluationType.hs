@@ -13,8 +13,8 @@
 module Network.AWS.ServiceCatalog.Types.EvaluationType
   ( EvaluationType
       ( EvaluationType',
-        Dynamic,
-        Static
+        Static,
+        Dynamic
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EvaluationType = EvaluationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Dynamic :: EvaluationType
-pattern Dynamic = EvaluationType' "DYNAMIC"
-
 pattern Static :: EvaluationType
 pattern Static = EvaluationType' "STATIC"
 
+pattern Dynamic :: EvaluationType
+pattern Dynamic = EvaluationType' "DYNAMIC"
+
 {-# COMPLETE
-  Dynamic,
   Static,
+  Dynamic,
   EvaluationType'
   #-}

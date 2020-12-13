@@ -67,21 +67,21 @@ module Network.AWS.Route53.Types
     -- * AccountLimit
     AccountLimit (..),
     mkAccountLimit,
-    alType,
     alValue,
+    alType,
 
     -- * AlarmIdentifier
     AlarmIdentifier (..),
     mkAlarmIdentifier,
-    aiRegion,
     aiName,
+    aiRegion,
 
     -- * AliasTarget
     AliasTarget (..),
     mkAliasTarget,
     atHostedZoneId,
-    atDNSName,
     atEvaluateTargetHealth,
+    atDNSName,
 
     -- * Change
     Change (..),
@@ -92,27 +92,27 @@ module Network.AWS.Route53.Types
     -- * ChangeBatch
     ChangeBatch (..),
     mkChangeBatch,
-    cbComment,
     cbChanges,
+    cbComment,
 
     -- * ChangeInfo
     ChangeInfo (..),
     mkChangeInfo,
-    ciComment,
-    ciId,
     ciStatus,
     ciSubmittedAt,
+    ciId,
+    ciComment,
 
     -- * CloudWatchAlarmConfiguration
     CloudWatchAlarmConfiguration (..),
     mkCloudWatchAlarmConfiguration,
-    cwacDimensions,
-    cwacEvaluationPeriods,
-    cwacThreshold,
-    cwacComparisonOperator,
     cwacPeriod,
+    cwacEvaluationPeriods,
     cwacMetricName,
     cwacNamespace,
+    cwacComparisonOperator,
+    cwacThreshold,
+    cwacDimensions,
     cwacStatistic,
 
     -- * DelegationSet
@@ -125,8 +125,8 @@ module Network.AWS.Route53.Types
     -- * Dimension
     Dimension (..),
     mkDimension,
-    dName,
     dValue,
+    dName,
 
     -- * GeoLocation
     GeoLocation (..),
@@ -149,11 +149,11 @@ module Network.AWS.Route53.Types
     HealthCheck (..),
     mkHealthCheck,
     hcLinkedService,
+    hcHealthCheckConfig,
     hcCloudWatchAlarmConfiguration,
     hcId,
-    hcCallerReference,
-    hcHealthCheckConfig,
     hcHealthCheckVersion,
+    hcCallerReference,
 
     -- * HealthCheckConfig
     HealthCheckConfig (..),
@@ -167,6 +167,7 @@ module Network.AWS.Route53.Types
     hccRegions,
     hccResourcePath,
     hccInsufficientDataHealthStatus,
+    hccType,
     hccAlarmIdentifier,
     hccMeasureLatency,
     hccInverted,
@@ -174,7 +175,6 @@ module Network.AWS.Route53.Types
     hccChildHealthChecks,
     hccRequestInterval,
     hccPort,
-    hccType,
 
     -- * HealthCheckObservation
     HealthCheckObservation (..),
@@ -188,9 +188,9 @@ module Network.AWS.Route53.Types
     mkHostedZone,
     hzLinkedService,
     hzConfig,
-    hzResourceRecordSetCount,
-    hzId,
     hzName,
+    hzId,
+    hzResourceRecordSetCount,
     hzCallerReference,
 
     -- * HostedZoneConfig
@@ -202,8 +202,8 @@ module Network.AWS.Route53.Types
     -- * HostedZoneLimit
     HostedZoneLimit (..),
     mkHostedZoneLimit,
-    hzlType,
     hzlValue,
+    hzlType,
 
     -- * HostedZoneOwner
     HostedZoneOwner (..),
@@ -215,8 +215,8 @@ module Network.AWS.Route53.Types
     HostedZoneSummary (..),
     mkHostedZoneSummary,
     hzsHostedZoneId,
-    hzsName,
     hzsOwner,
+    hzsName,
 
     -- * LinkedService
     LinkedService (..),
@@ -227,9 +227,9 @@ module Network.AWS.Route53.Types
     -- * QueryLoggingConfig
     QueryLoggingConfig (..),
     mkQueryLoggingConfig,
-    qlcId,
     qlcHostedZoneId,
     qlcCloudWatchLogsLogGroupARN,
+    qlcId,
 
     -- * ResourceRecord
     ResourceRecord (..),
@@ -246,12 +246,12 @@ module Network.AWS.Route53.Types
     rrsTrafficPolicyInstanceId,
     rrsSetIdentifier,
     rrsFailover,
+    rrsName,
     rrsHealthCheckId,
     rrsRegion,
+    rrsType,
     rrsGeoLocation,
     rrsMultiValueAnswer,
-    rrsName,
-    rrsType,
 
     -- * ResourceTagSet
     ResourceTagSet (..),
@@ -263,8 +263,8 @@ module Network.AWS.Route53.Types
     -- * ReusableDelegationSetLimit
     ReusableDelegationSetLimit (..),
     mkReusableDelegationSetLimit,
-    rdslType,
     rdslValue,
+    rdslType,
 
     -- * StatusReport
     StatusReport (..),
@@ -281,34 +281,34 @@ module Network.AWS.Route53.Types
     -- * TrafficPolicy
     TrafficPolicy (..),
     mkTrafficPolicy,
-    tpComment,
-    tpId,
-    tpVersion,
-    tpName,
-    tpType,
     tpDocument,
+    tpName,
+    tpVersion,
+    tpId,
+    tpType,
+    tpComment,
 
     -- * TrafficPolicyInstance
     TrafficPolicyInstance (..),
     mkTrafficPolicyInstance,
-    tpiId,
-    tpiHostedZoneId,
-    tpiName,
     tpiTTL,
     tpiState,
-    tpiMessage,
-    tpiTrafficPolicyId,
     tpiTrafficPolicyVersion,
+    tpiHostedZoneId,
+    tpiName,
+    tpiId,
     tpiTrafficPolicyType,
+    tpiTrafficPolicyId,
+    tpiMessage,
 
     -- * TrafficPolicySummary
     TrafficPolicySummary (..),
     mkTrafficPolicySummary,
-    tpsId,
+    tpsTrafficPolicyCount,
     tpsName,
+    tpsId,
     tpsType,
     tpsLatestVersion,
-    tpsTrafficPolicyCount,
 
     -- * VPC
     VPC (..),
@@ -397,8 +397,6 @@ route53Service =
           (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
         Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "request_limit_exceeded"
       | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
       | Lens.has
           (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
@@ -414,10 +412,6 @@ route53Service =
         Lude.Just "throughput_exceeded"
       | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
       | Lens.has
-          (Lude.hasCode "PriorRequestNotComplete" Lude.. Lude.hasStatus 400)
-          e =
-        Lude.Just "still_processing"
-      | Lens.has
           ( Lude.hasCode "RequestThrottledException"
               Lude.. Lude.hasStatus 400
           )
@@ -428,4 +422,10 @@ route53Service =
       | Lens.has (Lude.hasStatus 500) e =
         Lude.Just "general_server_error"
       | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
+        Lude.Just "request_limit_exceeded"
+      | Lens.has
+          (Lude.hasCode "PriorRequestNotComplete" Lude.. Lude.hasStatus 400)
+          e =
+        Lude.Just "still_processing"
       | Lude.otherwise = Lude.Nothing

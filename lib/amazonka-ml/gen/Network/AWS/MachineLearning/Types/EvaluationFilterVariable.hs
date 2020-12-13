@@ -14,13 +14,13 @@ module Network.AWS.MachineLearning.Types.EvaluationFilterVariable
   ( EvaluationFilterVariable
       ( EvaluationFilterVariable',
         EvalCreatedAt,
-        EvalDataSourceId,
-        EvalDataURI,
-        EvalIAMUser,
         EvalLastUpdatedAt,
-        EvalMLModelId,
+        EvalStatus,
         EvalName,
-        EvalStatus
+        EvalIAMUser,
+        EvalMLModelId,
+        EvalDataSourceId,
+        EvalDataURI
       ),
   )
 where
@@ -70,35 +70,35 @@ newtype EvaluationFilterVariable = EvaluationFilterVariable' Lude.Text
 pattern EvalCreatedAt :: EvaluationFilterVariable
 pattern EvalCreatedAt = EvaluationFilterVariable' "CreatedAt"
 
+pattern EvalLastUpdatedAt :: EvaluationFilterVariable
+pattern EvalLastUpdatedAt = EvaluationFilterVariable' "LastUpdatedAt"
+
+pattern EvalStatus :: EvaluationFilterVariable
+pattern EvalStatus = EvaluationFilterVariable' "Status"
+
+pattern EvalName :: EvaluationFilterVariable
+pattern EvalName = EvaluationFilterVariable' "Name"
+
+pattern EvalIAMUser :: EvaluationFilterVariable
+pattern EvalIAMUser = EvaluationFilterVariable' "IAMUser"
+
+pattern EvalMLModelId :: EvaluationFilterVariable
+pattern EvalMLModelId = EvaluationFilterVariable' "MLModelId"
+
 pattern EvalDataSourceId :: EvaluationFilterVariable
 pattern EvalDataSourceId = EvaluationFilterVariable' "DataSourceId"
 
 pattern EvalDataURI :: EvaluationFilterVariable
 pattern EvalDataURI = EvaluationFilterVariable' "DataURI"
 
-pattern EvalIAMUser :: EvaluationFilterVariable
-pattern EvalIAMUser = EvaluationFilterVariable' "IAMUser"
-
-pattern EvalLastUpdatedAt :: EvaluationFilterVariable
-pattern EvalLastUpdatedAt = EvaluationFilterVariable' "LastUpdatedAt"
-
-pattern EvalMLModelId :: EvaluationFilterVariable
-pattern EvalMLModelId = EvaluationFilterVariable' "MLModelId"
-
-pattern EvalName :: EvaluationFilterVariable
-pattern EvalName = EvaluationFilterVariable' "Name"
-
-pattern EvalStatus :: EvaluationFilterVariable
-pattern EvalStatus = EvaluationFilterVariable' "Status"
-
 {-# COMPLETE
   EvalCreatedAt,
+  EvalLastUpdatedAt,
+  EvalStatus,
+  EvalName,
+  EvalIAMUser,
+  EvalMLModelId,
   EvalDataSourceId,
   EvalDataURI,
-  EvalIAMUser,
-  EvalLastUpdatedAt,
-  EvalMLModelId,
-  EvalName,
-  EvalStatus,
   EvaluationFilterVariable'
   #-}

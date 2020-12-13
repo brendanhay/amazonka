@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.SageMaker.UpdateImage
     -- ** Request lenses
     uiDeleteProperties,
     uiDisplayName,
+    uiImageName,
     uiDescription,
     uiRoleARN,
-    uiImageName,
 
     -- * Destructuring the response
     UpdateImageResponse (..),
@@ -43,28 +44,26 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateImage' smart constructor.
 data UpdateImage = UpdateImage'
-  { deleteProperties ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of properties to delete. Only the @Description@ and @DisplayName@ properties can be deleted.
+    deleteProperties :: Lude.Maybe [Lude.Text],
+    -- | The new display name for the image.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The name of the image to update.
+    imageName :: Lude.Text,
+    -- | The new description for the image.
     description :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
-    imageName :: Lude.Text
+    -- | The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateImage' with the minimum fields required to make a request.
 --
 -- * 'deleteProperties' - A list of properties to delete. Only the @Description@ and @DisplayName@ properties can be deleted.
--- * 'description' - The new description for the image.
 -- * 'displayName' - The new display name for the image.
 -- * 'imageName' - The name of the image to update.
+-- * 'description' - The new description for the image.
 -- * 'roleARN' - The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.
 mkUpdateImage ::
   -- | 'imageName'
@@ -74,9 +73,9 @@ mkUpdateImage pImageName_ =
   UpdateImage'
     { deleteProperties = Lude.Nothing,
       displayName = Lude.Nothing,
+      imageName = pImageName_,
       description = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      imageName = pImageName_
+      roleARN = Lude.Nothing
     }
 
 -- | A list of properties to delete. Only the @Description@ and @DisplayName@ properties can be deleted.
@@ -93,6 +92,13 @@ uiDisplayName :: Lens.Lens' UpdateImage (Lude.Maybe Lude.Text)
 uiDisplayName = Lens.lens (displayName :: UpdateImage -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: UpdateImage)
 {-# DEPRECATED uiDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
+-- | The name of the image to update.
+--
+-- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiImageName :: Lens.Lens' UpdateImage Lude.Text
+uiImageName = Lens.lens (imageName :: UpdateImage -> Lude.Text) (\s a -> s {imageName = a} :: UpdateImage)
+{-# DEPRECATED uiImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+
 -- | The new description for the image.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -106,13 +112,6 @@ uiDescription = Lens.lens (description :: UpdateImage -> Lude.Maybe Lude.Text) (
 uiRoleARN :: Lens.Lens' UpdateImage (Lude.Maybe Lude.Text)
 uiRoleARN = Lens.lens (roleARN :: UpdateImage -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateImage)
 {-# DEPRECATED uiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The name of the image to update.
---
--- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiImageName :: Lens.Lens' UpdateImage Lude.Text
-uiImageName = Lens.lens (imageName :: UpdateImage -> Lude.Text) (\s a -> s {imageName = a} :: UpdateImage)
-{-# DEPRECATED uiImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 instance Lude.AWSRequest UpdateImage where
   type Rs UpdateImage = UpdateImageResponse
@@ -141,9 +140,9 @@ instance Lude.ToJSON UpdateImage where
       ( Lude.catMaybes
           [ ("DeleteProperties" Lude..=) Lude.<$> deleteProperties,
             ("DisplayName" Lude..=) Lude.<$> displayName,
+            Lude.Just ("ImageName" Lude..= imageName),
             ("Description" Lude..=) Lude.<$> description,
-            ("RoleArn" Lude..=) Lude.<$> roleARN,
-            Lude.Just ("ImageName" Lude..= imageName)
+            ("RoleArn" Lude..=) Lude.<$> roleARN
           ]
       )
 
@@ -155,17 +154,12 @@ instance Lude.ToQuery UpdateImage where
 
 -- | /See:/ 'mkUpdateImageResponse' smart constructor.
 data UpdateImageResponse = UpdateImageResponse'
-  { imageARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the image.
+    imageARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateImageResponse' with the minimum fields required to make a request.

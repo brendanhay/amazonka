@@ -53,27 +53,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRuntimeConfiguration' smart constructor.
 data RuntimeConfiguration = RuntimeConfiguration'
-  { gameSessionActivationTimeoutSeconds ::
-      Lude.Maybe Lude.Natural,
-    serverProcesses ::
-      Lude.Maybe (Lude.NonEmpty ServerProcess),
-    maxConcurrentGameSessionActivations ::
-      Lude.Maybe Lude.Natural
+  { -- | The maximum amount of time (in seconds) that a game session can remain in status @ACTIVATING@ . If the game session is not active before the timeout, activation is terminated and the game session status is changed to @TERMINATED@ .
+    gameSessionActivationTimeoutSeconds :: Lude.Maybe Lude.Natural,
+    -- | A collection of server process configurations that describe which server processes to run on each instance in a fleet.
+    serverProcesses :: Lude.Maybe (Lude.NonEmpty ServerProcess),
+    -- | The maximum number of game sessions with status @ACTIVATING@ to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
+    maxConcurrentGameSessionActivations :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuntimeConfiguration' with the minimum fields required to make a request.
 --
 -- * 'gameSessionActivationTimeoutSeconds' - The maximum amount of time (in seconds) that a game session can remain in status @ACTIVATING@ . If the game session is not active before the timeout, activation is terminated and the game session status is changed to @TERMINATED@ .
--- * 'maxConcurrentGameSessionActivations' - The maximum number of game sessions with status @ACTIVATING@ to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
 -- * 'serverProcesses' - A collection of server process configurations that describe which server processes to run on each instance in a fleet.
+-- * 'maxConcurrentGameSessionActivations' - The maximum number of game sessions with status @ACTIVATING@ to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
 mkRuntimeConfiguration ::
   RuntimeConfiguration
 mkRuntimeConfiguration =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DirectoryService.AddIPRoutes
     mkAddIPRoutes,
 
     -- ** Request lenses
-    airUpdateSecurityGroupForDirectoryControllers,
     airDirectoryId,
+    airUpdateSecurityGroupForDirectoryControllers,
     airIPRoutes,
 
     -- * Destructuring the response
@@ -42,24 +43,80 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddIPRoutes' smart constructor.
 data AddIPRoutes = AddIPRoutes'
-  { updateSecurityGroupForDirectoryControllers ::
-      Lude.Maybe Lude.Bool,
+  { -- | Identifier (ID) of the directory to which to add the address block.
     directoryId :: Lude.Text,
+    -- | If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for /directory ID/ directory controllers." Following are the new rules:
+    --
+    -- Inbound:
+    --
+    --     * Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0
+    --
+    --
+    --     * Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0
+    --
+    --
+    --
+    -- Outbound:
+    --
+    --     * Type: All traffic, Protocol: All, Range: All, Destination: 0.0.0.0/0
+    --
+    --
+    -- These security rules impact an internal network interface that is not exposed publicly.
+    updateSecurityGroupForDirectoryControllers :: Lude.Maybe Lude.Bool,
+    -- | IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your on-premises domain.
     ipRoutes :: [IPRoute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddIPRoutes' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - Identifier (ID) of the directory to which to add the address block.
--- * 'ipRoutes' - IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your on-premises domain.
 -- * 'updateSecurityGroupForDirectoryControllers' - If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for /directory ID/ directory controllers." Following are the new rules:
 --
 -- Inbound:
@@ -122,17 +179,24 @@ data AddIPRoutes = AddIPRoutes'
 --
 --
 -- These security rules impact an internal network interface that is not exposed publicly.
+-- * 'ipRoutes' - IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your on-premises domain.
 mkAddIPRoutes ::
   -- | 'directoryId'
   Lude.Text ->
   AddIPRoutes
 mkAddIPRoutes pDirectoryId_ =
   AddIPRoutes'
-    { updateSecurityGroupForDirectoryControllers =
-        Lude.Nothing,
-      directoryId = pDirectoryId_,
+    { directoryId = pDirectoryId_,
+      updateSecurityGroupForDirectoryControllers = Lude.Nothing,
       ipRoutes = Lude.mempty
     }
+
+-- | Identifier (ID) of the directory to which to add the address block.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+airDirectoryId :: Lens.Lens' AddIPRoutes Lude.Text
+airDirectoryId = Lens.lens (directoryId :: AddIPRoutes -> Lude.Text) (\s a -> s {directoryId = a} :: AddIPRoutes)
+{-# DEPRECATED airDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | If set to true, updates the inbound and outbound rules of the security group that has the description: "AWS created security group for /directory ID/ directory controllers." Following are the new rules:
 --
@@ -202,13 +266,6 @@ airUpdateSecurityGroupForDirectoryControllers :: Lens.Lens' AddIPRoutes (Lude.Ma
 airUpdateSecurityGroupForDirectoryControllers = Lens.lens (updateSecurityGroupForDirectoryControllers :: AddIPRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {updateSecurityGroupForDirectoryControllers = a} :: AddIPRoutes)
 {-# DEPRECATED airUpdateSecurityGroupForDirectoryControllers "Use generic-lens or generic-optics with 'updateSecurityGroupForDirectoryControllers' instead." #-}
 
--- | Identifier (ID) of the directory to which to add the address block.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-airDirectoryId :: Lens.Lens' AddIPRoutes Lude.Text
-airDirectoryId = Lens.lens (directoryId :: AddIPRoutes -> Lude.Text) (\s a -> s {directoryId = a} :: AddIPRoutes)
-{-# DEPRECATED airDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
 -- | IP address blocks, using CIDR format, of the traffic to route. This is often the IP address block of the DNS server used for your on-premises domain.
 --
 -- /Note:/ Consider using 'ipRoutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -240,9 +297,9 @@ instance Lude.ToJSON AddIPRoutes where
   toJSON AddIPRoutes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("UpdateSecurityGroupForDirectoryControllers" Lude..=)
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("UpdateSecurityGroupForDirectoryControllers" Lude..=)
               Lude.<$> updateSecurityGroupForDirectoryControllers,
-            Lude.Just ("DirectoryId" Lude..= directoryId),
             Lude.Just ("IpRoutes" Lude..= ipRoutes)
           ]
       )
@@ -255,16 +312,10 @@ instance Lude.ToQuery AddIPRoutes where
 
 -- | /See:/ 'mkAddIPRoutesResponse' smart constructor.
 newtype AddIPRoutesResponse = AddIPRoutesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddIPRoutesResponse' with the minimum fields required to make a request.

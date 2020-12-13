@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,32 +56,47 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSpotPriceHistory' smart constructor.
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-  { instanceTypes ::
-      Lude.Maybe [InstanceType],
+  { -- | Filters the results by the specified instance types.
+    instanceTypes :: Lude.Maybe [InstanceType],
+    -- | The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | One or more filters.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone for which prices should be returned.
+    --
+    --
+    --     * @instance-type@ - The type of instance (for example, @m3.medium@ ).
+    --
+    --
+    --     * @product-description@ - The product description for the Spot price (@Linux/UNIX@ | @Red Hat Enterprise Linux@ | @SUSE Linux@ | @Windows@ | @Linux/UNIX (Amazon VPC)@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@ | @Windows (Amazon VPC)@ ).
+    --
+    --
+    --     * @spot-price@ - The Spot price. The value must match exactly (or use wildcards; greater than or less than comparison is not supported).
+    --
+    --
+    --     * @timestamp@ - The time stamp of the Spot price history, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). You can use wildcards (* and ?). Greater than or less than comparison is not supported.
     filters :: Lude.Maybe [Filter],
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the results by the specified Availability Zone.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
     endTime :: Lude.Maybe Lude.DateTime,
-    productDescriptions ::
-      Lude.Maybe [Lude.Text],
+    -- | Filters the results by the specified basic product descriptions.
+    productDescriptions :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotPriceHistory' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - Filters the results by the specified Availability Zone.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'endTime' - The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'instanceTypes' - Filters the results by the specified instance types.
+-- * 'startTime' - The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 -- * 'filters' - One or more filters.
 --
 --
@@ -99,11 +115,12 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 --     * @timestamp@ - The time stamp of the Spot price history, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). You can use wildcards (* and ?). Greater than or less than comparison is not supported.
 --
 --
--- * 'instanceTypes' - Filters the results by the specified instance types.
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'availabilityZone' - Filters the results by the specified Availability Zone.
+-- * 'endTime' - The date and time, up to the current date, from which to stop retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 -- * 'productDescriptions' - Filters the results by the specified basic product descriptions.
--- * 'startTime' - The date and time, up to the past 90 days, from which to start retrieving the price history data, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeSpotPriceHistory ::
   DescribeSpotPriceHistory
 mkDescribeSpotPriceHistory =
@@ -252,27 +269,21 @@ instance Lude.ToQuery DescribeSpotPriceHistory where
 --
 -- /See:/ 'mkDescribeSpotPriceHistoryResponse' smart constructor.
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    spotPriceHistory ::
-      Lude.Maybe [SpotPrice],
-    responseStatus ::
-      Lude.Int
+  { -- | The token required to retrieve the next set of results. This value is null or an empty string when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The historical Spot prices.
+    spotPriceHistory :: Lude.Maybe [SpotPrice],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotPriceHistoryResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token required to retrieve the next set of results. This value is null or an empty string when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'spotPriceHistory' - The historical Spot prices.
+-- * 'responseStatus' - The response status code.
 mkDescribeSpotPriceHistoryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

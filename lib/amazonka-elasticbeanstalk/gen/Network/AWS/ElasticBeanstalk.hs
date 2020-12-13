@@ -303,11 +303,11 @@ module Network.AWS.ElasticBeanstalk
     -- ** BuildConfiguration
     BuildConfiguration (..),
     mkBuildConfiguration,
+    bcImage,
     bcArtifactName,
+    bcCodeBuildServiceRole,
     bcComputeType,
     bcTimeoutInMinutes,
-    bcCodeBuildServiceRole,
-    bcImage,
 
     -- ** Builder
     Builder (..),
@@ -541,8 +541,8 @@ module Network.AWS.ElasticBeanstalk
     MaxAgeRule (..),
     mkMaxAgeRule,
     marDeleteSourceFromS3,
-    marMaxAgeInDays,
     marEnabled,
+    marMaxAgeInDays,
 
     -- ** MaxCountRule
     MaxCountRule (..),

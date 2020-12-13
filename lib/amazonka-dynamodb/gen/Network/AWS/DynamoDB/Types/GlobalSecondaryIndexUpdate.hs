@@ -44,23 +44,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalSecondaryIndexUpdate' smart constructor.
 data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
-  { create ::
-      Lude.Maybe
-        CreateGlobalSecondaryIndexAction,
-    delete ::
-      Lude.Maybe
-        DeleteGlobalSecondaryIndexAction,
-    update ::
-      Lude.Maybe
-        UpdateGlobalSecondaryIndexAction
+  { -- | The parameters required for creating a global secondary index on an existing table:
+    --
+    --
+    --     * @IndexName @
+    --
+    --
+    --     * @KeySchema @
+    --
+    --
+    --     * @AttributeDefinitions @
+    --
+    --
+    --     * @Projection @
+    --
+    --
+    --     * @ProvisionedThroughput @
+    create :: Lude.Maybe CreateGlobalSecondaryIndexAction,
+    -- | The name of an existing global secondary index to be removed.
+    delete :: Lude.Maybe DeleteGlobalSecondaryIndexAction,
+    -- | The name of an existing global secondary index, along with new provisioned throughput settings to be applied to that index.
+    update :: Lude.Maybe UpdateGlobalSecondaryIndexAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalSecondaryIndexUpdate' with the minimum fields required to make a request.

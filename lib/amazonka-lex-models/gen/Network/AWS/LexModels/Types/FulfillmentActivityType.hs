@@ -13,8 +13,8 @@
 module Network.AWS.LexModels.Types.FulfillmentActivityType
   ( FulfillmentActivityType
       ( FulfillmentActivityType',
-        CodeHook,
-        ReturnIntent
+        ReturnIntent,
+        CodeHook
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FulfillmentActivityType = FulfillmentActivityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CodeHook :: FulfillmentActivityType
-pattern CodeHook = FulfillmentActivityType' "CodeHook"
-
 pattern ReturnIntent :: FulfillmentActivityType
 pattern ReturnIntent = FulfillmentActivityType' "ReturnIntent"
 
+pattern CodeHook :: FulfillmentActivityType
+pattern CodeHook = FulfillmentActivityType' "CodeHook"
+
 {-# COMPLETE
-  CodeHook,
   ReturnIntent,
+  CodeHook,
   FulfillmentActivityType'
   #-}

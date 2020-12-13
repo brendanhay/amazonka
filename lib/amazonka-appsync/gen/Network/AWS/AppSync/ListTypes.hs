@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.AppSync.ListTypes
     mkListTypes,
 
     -- ** Request lenses
-    ltNextToken,
-    ltMaxResults,
     ltApiId,
     ltFormat,
+    ltNextToken,
+    ltMaxResults,
 
     -- * Destructuring the response
     ListTypesResponse (..),
@@ -46,26 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTypes' smart constructor.
 data ListTypes = ListTypes'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The API ID.
     apiId :: Lude.Text,
-    format :: TypeDefinitionFormat
+    -- | The type format: SDL or JSON.
+    format :: TypeDefinitionFormat,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results you want the request to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypes' with the minimum fields required to make a request.
 --
 -- * 'apiId' - The API ID.
 -- * 'format' - The type format: SDL or JSON.
--- * 'maxResults' - The maximum number of results you want the request to return.
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'maxResults' - The maximum number of results you want the request to return.
 mkListTypes ::
   -- | 'apiId'
   Lude.Text ->
@@ -74,25 +73,11 @@ mkListTypes ::
   ListTypes
 mkListTypes pApiId_ pFormat_ =
   ListTypes'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      apiId = pApiId_,
-      format = pFormat_
+    { apiId = pApiId_,
+      format = pFormat_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltNextToken :: Lens.Lens' ListTypes (Lude.Maybe Lude.Text)
-ltNextToken = Lens.lens (nextToken :: ListTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypes)
-{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results you want the request to return.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltMaxResults :: Lens.Lens' ListTypes (Lude.Maybe Lude.Natural)
-ltMaxResults = Lens.lens (maxResults :: ListTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypes)
-{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The API ID.
 --
@@ -107,6 +92,20 @@ ltApiId = Lens.lens (apiId :: ListTypes -> Lude.Text) (\s a -> s {apiId = a} :: 
 ltFormat :: Lens.Lens' ListTypes TypeDefinitionFormat
 ltFormat = Lens.lens (format :: ListTypes -> TypeDefinitionFormat) (\s a -> s {format = a} :: ListTypes)
 {-# DEPRECATED ltFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTypes (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypes)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The maximum number of results you want the request to return.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTypes (Lude.Maybe Lude.Natural)
+ltMaxResults = Lens.lens (maxResults :: ListTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypes)
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListTypes where
   page rq rs
@@ -145,32 +144,28 @@ instance Lude.ToPath ListTypes where
 instance Lude.ToQuery ListTypes where
   toQuery ListTypes' {..} =
     Lude.mconcat
-      [ "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults,
-        "format" Lude.=: format
+      [ "format" Lude.=: format,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { types ::
-      Lude.Maybe [Type],
+  { -- | The @Type@ objects.
+    types :: Lude.Maybe [Type],
+    -- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypesResponse' with the minimum fields required to make a request.
 --
+-- * 'types' - The @Type@ objects.
 -- * 'nextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
 -- * 'responseStatus' - The response status code.
--- * 'types' - The @Type@ objects.
 mkListTypesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

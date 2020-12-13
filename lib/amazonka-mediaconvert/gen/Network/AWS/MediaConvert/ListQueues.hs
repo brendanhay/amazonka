@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { listBy :: Lude.Maybe QueueListBy,
+  { -- | Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
+    listBy :: Lude.Maybe QueueListBy,
+    -- | Use this string, provided with the response to a previous request, to request the next batch of queues.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
     order :: Lude.Maybe Order,
+    -- | Optional. Number of queues, up to twenty, that will be returned at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
 --
 -- * 'listBy' - Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
--- * 'maxResults' - Optional. Number of queues, up to twenty, that will be returned at one time.
 -- * 'nextToken' - Use this string, provided with the response to a previous request, to request the next batch of queues.
 -- * 'order' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+-- * 'maxResults' - Optional. Number of queues, up to twenty, that will be returned at one time.
 mkListQueues ::
   ListQueues
 mkListQueues =
@@ -148,24 +147,20 @@ instance Lude.ToQuery ListQueues where
 
 -- | /See:/ 'mkListQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-  { queues ::
-      Lude.Maybe [Queue],
+  { -- | List of queues.
+    queues :: Lude.Maybe [Queue],
+    -- | Use this string to request the next batch of queues.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Use this string to request the next batch of queues.
 -- * 'queues' - List of queues.
+-- * 'nextToken' - Use this string to request the next batch of queues.
 -- * 'responseStatus' - The response status code.
 mkListQueuesResponse ::
   -- | 'responseStatus'

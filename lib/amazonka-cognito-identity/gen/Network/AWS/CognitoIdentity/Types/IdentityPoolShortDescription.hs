@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIdentityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
-  { identityPoolId ::
-      Lude.Maybe Lude.Text,
-    identityPoolName ::
-      Lude.Maybe Lude.Text
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Maybe Lude.Text,
+    -- | A string that you provide.
+    identityPoolName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityPoolShortDescription' with the minimum fields required to make a request.

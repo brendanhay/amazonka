@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Redshift.DeleteEventSubscription
     mkDeleteEventSubscription,
 
     -- ** Request lenses
-    desSubscriptionName,
+    dSubscriptionName,
 
     -- * Destructuring the response
     DeleteEventSubscriptionResponse (..),
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteEventSubscription' smart constructor.
 newtype DeleteEventSubscription = DeleteEventSubscription'
-  { subscriptionName ::
-      Lude.Text
+  { -- | The name of the Amazon Redshift event notification subscription to be deleted.
+    subscriptionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventSubscription' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkDeleteEventSubscription pSubscriptionName_ =
 -- | The name of the Amazon Redshift event notification subscription to be deleted.
 --
 -- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desSubscriptionName :: Lens.Lens' DeleteEventSubscription Lude.Text
-desSubscriptionName = Lens.lens (subscriptionName :: DeleteEventSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: DeleteEventSubscription)
-{-# DEPRECATED desSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
+dSubscriptionName :: Lens.Lens' DeleteEventSubscription Lude.Text
+dSubscriptionName = Lens.lens (subscriptionName :: DeleteEventSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: DeleteEventSubscription)
+{-# DEPRECATED dSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
 instance Lude.AWSRequest DeleteEventSubscription where
   type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
@@ -87,13 +82,7 @@ instance Lude.ToQuery DeleteEventSubscription where
 
 -- | /See:/ 'mkDeleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.

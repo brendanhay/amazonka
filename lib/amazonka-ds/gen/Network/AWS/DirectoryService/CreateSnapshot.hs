@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DirectoryService.CreateSnapshot
     mkCreateSnapshot,
 
     -- ** Request lenses
-    csName,
     csDirectoryId,
+    csName,
 
     -- * Destructuring the response
     CreateSnapshotResponse (..),
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { name :: Lude.Maybe Lude.Text,
-    directoryId :: Lude.Text
+  { -- | The identifier of the directory of which to take a snapshot.
+    directoryId :: Lude.Text,
+    -- | The descriptive name to apply to the snapshot.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
@@ -63,14 +60,7 @@ mkCreateSnapshot ::
   Lude.Text ->
   CreateSnapshot
 mkCreateSnapshot pDirectoryId_ =
-  CreateSnapshot' {name = Lude.Nothing, directoryId = pDirectoryId_}
-
--- | The descriptive name to apply to the snapshot.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
-csName = Lens.lens (name :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateSnapshot)
-{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
+  CreateSnapshot' {directoryId = pDirectoryId_, name = Lude.Nothing}
 
 -- | The identifier of the directory of which to take a snapshot.
 --
@@ -78,6 +68,13 @@ csName = Lens.lens (name :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {
 csDirectoryId :: Lens.Lens' CreateSnapshot Lude.Text
 csDirectoryId = Lens.lens (directoryId :: CreateSnapshot -> Lude.Text) (\s a -> s {directoryId = a} :: CreateSnapshot)
 {-# DEPRECATED csDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+
+-- | The descriptive name to apply to the snapshot.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
+csName = Lens.lens (name :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateSnapshot)
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateSnapshot where
   type Rs CreateSnapshot = CreateSnapshotResponse
@@ -104,8 +101,8 @@ instance Lude.ToJSON CreateSnapshot where
   toJSON CreateSnapshot' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
-            Lude.Just ("DirectoryId" Lude..= directoryId)
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("Name" Lude..=) Lude.<$> name
           ]
       )
 
@@ -119,23 +116,18 @@ instance Lude.ToQuery CreateSnapshot where
 --
 -- /See:/ 'mkCreateSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-  { snapshotId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the snapshot that was created.
+    snapshotId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'snapshotId' - The identifier of the snapshot that was created.
+-- * 'responseStatus' - The response status code.
 mkCreateSnapshotResponse ::
   -- | 'responseStatus'
   Lude.Int ->

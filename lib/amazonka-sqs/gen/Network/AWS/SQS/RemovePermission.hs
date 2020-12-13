@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,24 +39,22 @@ import Network.AWS.SQS.Types
 --
 -- /See:/ 'mkRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { queueURL :: Lude.Text,
+  { -- | The URL of the Amazon SQS queue from which permissions are removed.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueURL :: Lude.Text,
+    -- | The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
     label :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
 --
--- * 'label' - The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
 -- * 'queueURL' - The URL of the Amazon SQS queue from which permissions are removed.
 --
 -- Queue URLs and names are case-sensitive.
+-- * 'label' - The identification of the permission to remove. This is the label added using the @'AddPermission' @ action.
 mkRemovePermission ::
   -- | 'queueURL'
   Lude.Text ->
@@ -103,13 +102,7 @@ instance Lude.ToQuery RemovePermission where
 
 -- | /See:/ 'mkRemovePermissionResponse' smart constructor.
 data RemovePermissionResponse = RemovePermissionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     mkDeleteEvaluationResponse,
 
     -- ** Response lenses
-    dersEvaluationId,
-    dersResponseStatus,
+    drsEvaluationId,
+    drsResponseStatus,
   )
 where
 
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteEvaluation' smart constructor.
 newtype DeleteEvaluation = DeleteEvaluation'
-  { evaluationId ::
-      Lude.Text
+  { -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
+    evaluationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEvaluation' with the minimum fields required to make a request.
@@ -111,17 +106,12 @@ instance Lude.ToQuery DeleteEvaluation where
 --
 -- /See:/ 'mkDeleteEvaluationResponse' smart constructor.
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
-  { evaluationId ::
-      Lude.Maybe Lude.Text,
+  { -- | A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
+    evaluationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEvaluationResponse' with the minimum fields required to make a request.
@@ -141,13 +131,13 @@ mkDeleteEvaluationResponse pResponseStatus_ =
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 --
 -- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersEvaluationId :: Lens.Lens' DeleteEvaluationResponse (Lude.Maybe Lude.Text)
-dersEvaluationId = Lens.lens (evaluationId :: DeleteEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {evaluationId = a} :: DeleteEvaluationResponse)
-{-# DEPRECATED dersEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
+drsEvaluationId :: Lens.Lens' DeleteEvaluationResponse (Lude.Maybe Lude.Text)
+drsEvaluationId = Lens.lens (evaluationId :: DeleteEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {evaluationId = a} :: DeleteEvaluationResponse)
+{-# DEPRECATED drsEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DeleteEvaluationResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DeleteEvaluationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEvaluationResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteEvaluationResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteEvaluationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEvaluationResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

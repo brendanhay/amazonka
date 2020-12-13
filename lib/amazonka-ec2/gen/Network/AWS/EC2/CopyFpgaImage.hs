@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,20 +20,20 @@ module Network.AWS.EC2.CopyFpgaImage
     mkCopyFpgaImage,
 
     -- ** Request lenses
-    cfiClientToken,
-    cfiName,
-    cfiDescription,
-    cfiDryRun,
-    cfiSourceFpgaImageId,
-    cfiSourceRegion,
+    cfifSourceFpgaImageId,
+    cfifClientToken,
+    cfifSourceRegion,
+    cfifName,
+    cfifDescription,
+    cfifDryRun,
 
     -- * Destructuring the response
     CopyFpgaImageResponse (..),
     mkCopyFpgaImageResponse,
 
     -- ** Response lenses
-    coprsFpgaImageId,
-    coprsResponseStatus,
+    cfifrsFpgaImageId,
+    cfifrsResponseStatus,
   )
 where
 
@@ -44,31 +45,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCopyFpgaImage' smart constructor.
 data CopyFpgaImage = CopyFpgaImage'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the source AFI.
     sourceFpgaImageId :: Lude.Text,
-    sourceRegion :: Lude.Text
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The Region that contains the source AFI.
+    sourceRegion :: Lude.Text,
+    -- | The name for the new AFI. The default is the name of the source AFI.
+    name :: Lude.Maybe Lude.Text,
+    -- | The description for the new AFI.
+    description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyFpgaImage' with the minimum fields required to make a request.
 --
+-- * 'sourceFpgaImageId' - The ID of the source AFI.
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'sourceRegion' - The Region that contains the source AFI.
+-- * 'name' - The name for the new AFI. The default is the name of the source AFI.
 -- * 'description' - The description for the new AFI.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'name' - The name for the new AFI. The default is the name of the source AFI.
--- * 'sourceFpgaImageId' - The ID of the source AFI.
--- * 'sourceRegion' - The Region that contains the source AFI.
 mkCopyFpgaImage ::
   -- | 'sourceFpgaImageId'
   Lude.Text ->
@@ -77,55 +77,55 @@ mkCopyFpgaImage ::
   CopyFpgaImage
 mkCopyFpgaImage pSourceFpgaImageId_ pSourceRegion_ =
   CopyFpgaImage'
-    { clientToken = Lude.Nothing,
+    { sourceFpgaImageId = pSourceFpgaImageId_,
+      clientToken = Lude.Nothing,
+      sourceRegion = pSourceRegion_,
       name = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      sourceFpgaImageId = pSourceFpgaImageId_,
-      sourceRegion = pSourceRegion_
+      dryRun = Lude.Nothing
     }
-
--- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiClientToken :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
-cfiClientToken = Lens.lens (clientToken :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CopyFpgaImage)
-{-# DEPRECATED cfiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The name for the new AFI. The default is the name of the source AFI.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiName :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
-cfiName = Lens.lens (name :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CopyFpgaImage)
-{-# DEPRECATED cfiName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The description for the new AFI.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiDescription :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
-cfiDescription = Lens.lens (description :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CopyFpgaImage)
-{-# DEPRECATED cfiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiDryRun :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Bool)
-cfiDryRun = Lens.lens (dryRun :: CopyFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CopyFpgaImage)
-{-# DEPRECATED cfiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the source AFI.
 --
 -- /Note:/ Consider using 'sourceFpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiSourceFpgaImageId :: Lens.Lens' CopyFpgaImage Lude.Text
-cfiSourceFpgaImageId = Lens.lens (sourceFpgaImageId :: CopyFpgaImage -> Lude.Text) (\s a -> s {sourceFpgaImageId = a} :: CopyFpgaImage)
-{-# DEPRECATED cfiSourceFpgaImageId "Use generic-lens or generic-optics with 'sourceFpgaImageId' instead." #-}
+cfifSourceFpgaImageId :: Lens.Lens' CopyFpgaImage Lude.Text
+cfifSourceFpgaImageId = Lens.lens (sourceFpgaImageId :: CopyFpgaImage -> Lude.Text) (\s a -> s {sourceFpgaImageId = a} :: CopyFpgaImage)
+{-# DEPRECATED cfifSourceFpgaImageId "Use generic-lens or generic-optics with 'sourceFpgaImageId' instead." #-}
+
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfifClientToken :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
+cfifClientToken = Lens.lens (clientToken :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CopyFpgaImage)
+{-# DEPRECATED cfifClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The Region that contains the source AFI.
 --
 -- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfiSourceRegion :: Lens.Lens' CopyFpgaImage Lude.Text
-cfiSourceRegion = Lens.lens (sourceRegion :: CopyFpgaImage -> Lude.Text) (\s a -> s {sourceRegion = a} :: CopyFpgaImage)
-{-# DEPRECATED cfiSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
+cfifSourceRegion :: Lens.Lens' CopyFpgaImage Lude.Text
+cfifSourceRegion = Lens.lens (sourceRegion :: CopyFpgaImage -> Lude.Text) (\s a -> s {sourceRegion = a} :: CopyFpgaImage)
+{-# DEPRECATED cfifSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
+
+-- | The name for the new AFI. The default is the name of the source AFI.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfifName :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
+cfifName = Lens.lens (name :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CopyFpgaImage)
+{-# DEPRECATED cfifName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The description for the new AFI.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfifDescription :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
+cfifDescription = Lens.lens (description :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CopyFpgaImage)
+{-# DEPRECATED cfifDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfifDryRun :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Bool)
+cfifDryRun = Lens.lens (dryRun :: CopyFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CopyFpgaImage)
+{-# DEPRECATED cfifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CopyFpgaImage where
   type Rs CopyFpgaImage = CopyFpgaImageResponse
@@ -148,27 +148,22 @@ instance Lude.ToQuery CopyFpgaImage where
     Lude.mconcat
       [ "Action" Lude.=: ("CopyFpgaImage" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "SourceFpgaImageId" Lude.=: sourceFpgaImageId,
         "ClientToken" Lude.=: clientToken,
+        "SourceRegion" Lude.=: sourceRegion,
         "Name" Lude.=: name,
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "SourceFpgaImageId" Lude.=: sourceFpgaImageId,
-        "SourceRegion" Lude.=: sourceRegion
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCopyFpgaImageResponse' smart constructor.
 data CopyFpgaImageResponse = CopyFpgaImageResponse'
-  { fpgaImageId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the new AFI.
+    fpgaImageId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyFpgaImageResponse' with the minimum fields required to make a request.
@@ -188,13 +183,13 @@ mkCopyFpgaImageResponse pResponseStatus_ =
 -- | The ID of the new AFI.
 --
 -- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coprsFpgaImageId :: Lens.Lens' CopyFpgaImageResponse (Lude.Maybe Lude.Text)
-coprsFpgaImageId = Lens.lens (fpgaImageId :: CopyFpgaImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageId = a} :: CopyFpgaImageResponse)
-{-# DEPRECATED coprsFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
+cfifrsFpgaImageId :: Lens.Lens' CopyFpgaImageResponse (Lude.Maybe Lude.Text)
+cfifrsFpgaImageId = Lens.lens (fpgaImageId :: CopyFpgaImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageId = a} :: CopyFpgaImageResponse)
+{-# DEPRECATED cfifrsFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coprsResponseStatus :: Lens.Lens' CopyFpgaImageResponse Lude.Int
-coprsResponseStatus = Lens.lens (responseStatus :: CopyFpgaImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyFpgaImageResponse)
-{-# DEPRECATED coprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cfifrsResponseStatus :: Lens.Lens' CopyFpgaImageResponse Lude.Int
+cfifrsResponseStatus = Lens.lens (responseStatus :: CopyFpgaImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyFpgaImageResponse)
+{-# DEPRECATED cfifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

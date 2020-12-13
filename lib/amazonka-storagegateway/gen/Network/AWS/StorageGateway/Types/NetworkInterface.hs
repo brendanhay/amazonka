@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { ipv6Address ::
-      Lude.Maybe Lude.Text,
+  { -- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
+    ipv6Address :: Lude.Maybe Lude.Text,
+    -- | The Media Access Control (MAC) address of the interface.
     mACAddress :: Lude.Maybe Lude.Text,
+    -- | The Internet Protocol version 4 (IPv4) address of the interface.
     ipv4Address :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- * 'ipv4Address' - The Internet Protocol version 4 (IPv4) address of the interface.
 -- * 'ipv6Address' - The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
 -- * 'mACAddress' - The Media Access Control (MAC) address of the interface.
+-- * 'ipv4Address' - The Internet Protocol version 4 (IPv4) address of the interface.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =

@@ -33,33 +33,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpgradeStepItem' smart constructor.
 data UpgradeStepItem = UpgradeStepItem'
-  { upgradeStepStatus ::
-      Lude.Maybe UpgradeStatus,
+  { -- | The status of a particular step during an upgrade. The status can take one of the following values:
+    --
+    --     * In Progress
+    --
+    --     * Succeeded
+    --
+    --     * Succeeded with Issues
+    --
+    --     * Failed
+    upgradeStepStatus :: Lude.Maybe UpgradeStatus,
+    -- | The Floating point value representing progress percentage of a particular step.
     progressPercent :: Lude.Maybe Lude.Double,
+    -- | A list of strings containing detailed information about the errors encountered in a particular step.
     issues :: Lude.Maybe [Lude.Text],
+    -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
+    --
+    --     * PreUpgradeCheck
+    --
+    --     * Snapshot
+    --
+    --     * Upgrade
     upgradeStep :: Lude.Maybe UpgradeStep
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeStepItem' with the minimum fields required to make a request.
---
--- * 'issues' - A list of strings containing detailed information about the errors encountered in a particular step.
--- * 'progressPercent' - The Floating point value representing progress percentage of a particular step.
--- * 'upgradeStep' - Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
---
---     * PreUpgradeCheck
---
---     * Snapshot
---
---     * Upgrade
---
 --
 -- * 'upgradeStepStatus' - The status of a particular step during an upgrade. The status can take one of the following values:
 --
@@ -70,6 +70,17 @@ data UpgradeStepItem = UpgradeStepItem'
 --     * Succeeded with Issues
 --
 --     * Failed
+--
+--
+-- * 'progressPercent' - The Floating point value representing progress percentage of a particular step.
+-- * 'issues' - A list of strings containing detailed information about the errors encountered in a particular step.
+-- * 'upgradeStep' - Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:
+--
+--     * PreUpgradeCheck
+--
+--     * Snapshot
+--
+--     * Upgrade
 mkUpgradeStepItem ::
   UpgradeStepItem
 mkUpgradeStepItem =

@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInputSettings' smart constructor.
 data NetworkInputSettings = NetworkInputSettings'
-  { hlsInputSettings ::
-      Lude.Maybe HlsInputSettings,
-    serverValidation ::
-      Lude.Maybe NetworkInputServerValidation
+  { -- | Specifies HLS input settings when the uri is for a HLS manifest.
+    hlsInputSettings :: Lude.Maybe HlsInputSettings,
+    -- | Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
+    serverValidation :: Lude.Maybe NetworkInputServerValidation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInputSettings' with the minimum fields required to make a request.

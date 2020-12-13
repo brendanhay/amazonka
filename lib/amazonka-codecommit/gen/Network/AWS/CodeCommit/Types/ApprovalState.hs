@@ -13,8 +13,8 @@
 module Network.AWS.CodeCommit.Types.ApprovalState
   ( ApprovalState
       ( ApprovalState',
-        ASApprove,
-        ASRevoke
+        Approve,
+        Revoke
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ApprovalState = ApprovalState' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASApprove :: ApprovalState
-pattern ASApprove = ApprovalState' "APPROVE"
+pattern Approve :: ApprovalState
+pattern Approve = ApprovalState' "APPROVE"
 
-pattern ASRevoke :: ApprovalState
-pattern ASRevoke = ApprovalState' "REVOKE"
+pattern Revoke :: ApprovalState
+pattern Revoke = ApprovalState' "REVOKE"
 
 {-# COMPLETE
-  ASApprove,
-  ASRevoke,
+  Approve,
+  Revoke,
   ApprovalState'
   #-}

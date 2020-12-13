@@ -52,59 +52,69 @@ import Network.AWS.SMS.Types.LaunchDetails
 --
 -- /See:/ 'mkAppSummary' smart constructor.
 data AppSummary = AppSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation time of the application.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The number of servers present in the application.
     totalServers :: Lude.Maybe Lude.Int,
+    -- | Status of the application.
     status :: Lude.Maybe AppStatus,
+    -- | Details about the latest launch of the application.
     launchDetails :: Lude.Maybe LaunchDetails,
+    -- | A message related to the launch status of the application.
     launchStatusMessage :: Lude.Maybe Lude.Text,
-    replicationConfigurationStatus ::
-      Lude.Maybe AppReplicationConfigurationStatus,
+    -- | Status of the replication configuration.
+    replicationConfigurationStatus :: Lude.Maybe AppReplicationConfigurationStatus,
+    -- | A message related to the replication status of the application.
     replicationStatusMessage :: Lude.Maybe Lude.Text,
+    -- | The number of server groups present in the application.
     totalServerGroups :: Lude.Maybe Lude.Int,
+    -- | The name of the service role in the customer's account used by AWS SMS.
     roleName :: Lude.Maybe Lude.Text,
-    launchConfigurationStatus ::
-      Lude.Maybe AppLaunchConfigurationStatus,
+    -- | Status of the launch configuration.
+    launchConfigurationStatus :: Lude.Maybe AppLaunchConfigurationStatus,
+    -- | The launch status of the application.
     launchStatus :: Lude.Maybe AppLaunchStatus,
+    -- | The unique ID of the application.
     appId :: Lude.Maybe Lude.Text,
+    -- | The name of the application.
     name :: Lude.Maybe Lude.Text,
+    -- | A message related to the status of the application
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The timestamp of the application's most recent successful replication.
     latestReplicationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the application.
     importedAppId :: Lude.Maybe Lude.Text,
+    -- | The replication status of the application.
     replicationStatus :: Lude.Maybe AppReplicationStatus,
+    -- | The last modified time of the application.
     lastModified :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the application.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppSummary' with the minimum fields required to make a request.
 --
--- * 'appId' - The unique ID of the application.
 -- * 'creationTime' - The creation time of the application.
--- * 'description' - The description of the application.
--- * 'importedAppId' - The ID of the application.
--- * 'lastModified' - The last modified time of the application.
--- * 'latestReplicationTime' - The timestamp of the application's most recent successful replication.
--- * 'launchConfigurationStatus' - Status of the launch configuration.
--- * 'launchDetails' - Details about the latest launch of the application.
--- * 'launchStatus' - The launch status of the application.
--- * 'launchStatusMessage' - A message related to the launch status of the application.
--- * 'name' - The name of the application.
--- * 'replicationConfigurationStatus' - Status of the replication configuration.
--- * 'replicationStatus' - The replication status of the application.
--- * 'replicationStatusMessage' - A message related to the replication status of the application.
--- * 'roleName' - The name of the service role in the customer's account used by AWS SMS.
--- * 'status' - Status of the application.
--- * 'statusMessage' - A message related to the status of the application
--- * 'totalServerGroups' - The number of server groups present in the application.
 -- * 'totalServers' - The number of servers present in the application.
+-- * 'status' - Status of the application.
+-- * 'launchDetails' - Details about the latest launch of the application.
+-- * 'launchStatusMessage' - A message related to the launch status of the application.
+-- * 'replicationConfigurationStatus' - Status of the replication configuration.
+-- * 'replicationStatusMessage' - A message related to the replication status of the application.
+-- * 'totalServerGroups' - The number of server groups present in the application.
+-- * 'roleName' - The name of the service role in the customer's account used by AWS SMS.
+-- * 'launchConfigurationStatus' - Status of the launch configuration.
+-- * 'launchStatus' - The launch status of the application.
+-- * 'appId' - The unique ID of the application.
+-- * 'name' - The name of the application.
+-- * 'statusMessage' - A message related to the status of the application
+-- * 'latestReplicationTime' - The timestamp of the application's most recent successful replication.
+-- * 'importedAppId' - The ID of the application.
+-- * 'replicationStatus' - The replication status of the application.
+-- * 'lastModified' - The last modified time of the application.
+-- * 'description' - The description of the application.
 mkAppSummary ::
   AppSummary
 mkAppSummary =

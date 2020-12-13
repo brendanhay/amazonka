@@ -13,8 +13,8 @@
 module Network.AWS.CostAndUsageReport.Types.TimeUnit
   ( TimeUnit
       ( TimeUnit',
-        Daily,
         Hourly,
+        Daily,
         Monthly
       ),
   )
@@ -47,18 +47,18 @@ newtype TimeUnit = TimeUnit' Lude.Text
       Lude.ToHeader
     )
 
-pattern Daily :: TimeUnit
-pattern Daily = TimeUnit' "DAILY"
-
 pattern Hourly :: TimeUnit
 pattern Hourly = TimeUnit' "HOURLY"
+
+pattern Daily :: TimeUnit
+pattern Daily = TimeUnit' "DAILY"
 
 pattern Monthly :: TimeUnit
 pattern Monthly = TimeUnit' "MONTHLY"
 
 {-# COMPLETE
-  Daily,
   Hourly,
+  Daily,
   Monthly,
   TimeUnit'
   #-}

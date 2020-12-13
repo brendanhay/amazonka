@@ -27,16 +27,12 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkIdentity' smart constructor.
 data Identity = Identity'
-  { sourceIP :: Lude.Text,
+  { -- | The source IP address of the TCP connection making the request to API Gateway.
+    sourceIP :: Lude.Text,
+    -- | The User Agent of the API caller.
     userAgent :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Identity' with the minimum fields required to make a request.

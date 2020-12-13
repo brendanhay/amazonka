@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetManagedScalingPolicy' smart constructor.
 newtype GetManagedScalingPolicy = GetManagedScalingPolicy'
-  { clusterId ::
-      Lude.Text
+  { -- | Specifies the ID of the cluster for which the managed scaling policy will be fetched.
+    clusterId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetManagedScalingPolicy' with the minimum fields required to make a request.
@@ -103,18 +98,12 @@ instance Lude.ToQuery GetManagedScalingPolicy where
 
 -- | /See:/ 'mkGetManagedScalingPolicyResponse' smart constructor.
 data GetManagedScalingPolicyResponse = GetManagedScalingPolicyResponse'
-  { managedScalingPolicy ::
-      Lude.Maybe
-        ManagedScalingPolicy,
+  { -- | Specifies the managed scaling policy that is attached to an Amazon EMR cluster.
+    managedScalingPolicy :: Lude.Maybe ManagedScalingPolicy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetManagedScalingPolicyResponse' with the minimum fields required to make a request.

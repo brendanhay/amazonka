@@ -37,42 +37,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificate' smart constructor.
 data Certificate = Certificate'
-  { certificateOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The owner of the certificate.
+    certificateOwner :: Lude.Maybe Lude.Text,
+    -- | The signing algorithm for the certificate.
     signingAlgorithm :: Lude.Maybe Lude.Text,
+    -- | The beginning date that the certificate is valid.
     validFromDate :: Lude.Maybe Lude.Timestamp,
+    -- | The contents of a @.pem@ file, which contains an X.509 certificate.
     certificatePem :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the certificate.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The date that the certificate was created.
     certificateCreationDate :: Lude.Maybe Lude.Timestamp,
+    -- | A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
     certificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | The location of an imported Oracle Wallet certificate for use with SSL.
     certificateWallet :: Lude.Maybe Lude.Base64,
+    -- | The key length of the cryptographic algorithm being used.
     keyLength :: Lude.Maybe Lude.Int,
+    -- | The final date that the certificate is valid.
     validToDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
+-- * 'certificateOwner' - The owner of the certificate.
+-- * 'signingAlgorithm' - The signing algorithm for the certificate.
+-- * 'validFromDate' - The beginning date that the certificate is valid.
+-- * 'certificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
 -- * 'certificateARN' - The Amazon Resource Name (ARN) for the certificate.
 -- * 'certificateCreationDate' - The date that the certificate was created.
 -- * 'certificateIdentifier' - A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
--- * 'certificateOwner' - The owner of the certificate.
--- * 'certificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
--- * 'certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.
 -- * 'keyLength' - The key length of the cryptographic algorithm being used.
--- * 'signingAlgorithm' - The signing algorithm for the certificate.
--- * 'validFromDate' - The beginning date that the certificate is valid.
 -- * 'validToDate' - The final date that the certificate is valid.
 mkCertificate ::
   Certificate

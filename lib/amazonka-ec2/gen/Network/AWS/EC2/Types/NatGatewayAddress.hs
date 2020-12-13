@@ -31,26 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNatGatewayAddress' smart constructor.
 data NatGatewayAddress = NatGatewayAddress'
-  { privateIP ::
-      Lude.Maybe Lude.Text,
+  { -- | The private IP address associated with the Elastic IP address.
+    privateIP :: Lude.Maybe Lude.Text,
+    -- | The allocation ID of the Elastic IP address that's associated with the NAT gateway.
     allocationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface associated with the NAT gateway.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The Elastic IP address associated with the NAT gateway.
     publicIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NatGatewayAddress' with the minimum fields required to make a request.
 --
+-- * 'privateIP' - The private IP address associated with the Elastic IP address.
 -- * 'allocationId' - The allocation ID of the Elastic IP address that's associated with the NAT gateway.
 -- * 'networkInterfaceId' - The ID of the network interface associated with the NAT gateway.
--- * 'privateIP' - The private IP address associated with the Elastic IP address.
 -- * 'publicIP' - The Elastic IP address associated with the NAT gateway.
 mkNatGatewayAddress ::
   NatGatewayAddress

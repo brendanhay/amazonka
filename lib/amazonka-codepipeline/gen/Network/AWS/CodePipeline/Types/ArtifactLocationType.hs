@@ -13,7 +13,7 @@
 module Network.AWS.CodePipeline.Types.ArtifactLocationType
   ( ArtifactLocationType
       ( ArtifactLocationType',
-        ALTS3
+        S3
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype ArtifactLocationType = ArtifactLocationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ALTS3 :: ArtifactLocationType
-pattern ALTS3 = ArtifactLocationType' "S3"
+pattern S3 :: ArtifactLocationType
+pattern S3 = ArtifactLocationType' "S3"
 
 {-# COMPLETE
-  ALTS3,
+  S3,
   ArtifactLocationType'
   #-}

@@ -32,25 +32,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3DestinationConfiguration' smart constructor.
 data S3DestinationConfiguration = S3DestinationConfiguration'
-  { glueConfiguration ::
-      Lude.Maybe GlueConfiguration,
+  { -- | Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
+    glueConfiguration :: Lude.Maybe GlueConfiguration,
+    -- | The name of the S3 bucket to which dataset contents are delivered.
     bucket :: Lude.Text,
+    -- | The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
+    --
+    -- You can create a unique key with the following options:
+    --
+    --     * Use @!{iotanalytics:scheduleTime}@ to insert the time of a scheduled SQL query run.
+    --
+    --
+    --     * Use @!{iotanalytics:versionId}@ to insert a unique hash that identifies a dataset content.
+    --
+    --
+    --     * Use @!{iotanalytics:creationTime}@ to insert the creation time of a dataset content.
+    --
+    --
+    -- The following example creates a unique key for a CSV file: @dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv@
     key :: Lude.Text,
+    -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3DestinationConfiguration' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the S3 bucket to which dataset contents are delivered.
 -- * 'glueConfiguration' - Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
+-- * 'bucket' - The name of the S3 bucket to which dataset contents are delivered.
 -- * 'key' - The key of the dataset contents object in an S3 bucket. Each object has a key that is a unique identifier. Each object has exactly one key.
 --
 -- You can create a unique key with the following options:

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrafficRoute' smart constructor.
 newtype TrafficRoute = TrafficRoute'
-  { listenerARNs ::
-      Lude.Maybe [Lude.Text]
+  { -- | The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
+    listenerARNs :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrafficRoute' with the minimum fields required to make a request.

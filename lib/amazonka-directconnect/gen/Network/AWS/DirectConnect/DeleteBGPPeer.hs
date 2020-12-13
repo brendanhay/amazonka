@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,26 +45,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteBGPPeer' smart constructor.
 data DeleteBGPPeer = DeleteBGPPeer'
-  { customerAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The IP address assigned to the customer interface.
+    customerAddress :: Lude.Maybe Lude.Text,
+    -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
     asn :: Lude.Maybe Lude.Int,
+    -- | The ID of the BGP peer.
     bgpPeerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the virtual interface.
     virtualInterfaceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBGPPeer' with the minimum fields required to make a request.
 --
+-- * 'customerAddress' - The IP address assigned to the customer interface.
 -- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 -- * 'bgpPeerId' - The ID of the BGP peer.
--- * 'customerAddress' - The IP address assigned to the customer interface.
 -- * 'virtualInterfaceId' - The ID of the virtual interface.
 mkDeleteBGPPeer ::
   DeleteBGPPeer
@@ -144,23 +142,18 @@ instance Lude.ToQuery DeleteBGPPeer where
 
 -- | /See:/ 'mkDeleteBGPPeerResponse' smart constructor.
 data DeleteBGPPeerResponse = DeleteBGPPeerResponse'
-  { virtualInterface ::
-      Lude.Maybe VirtualInterface,
+  { -- | The virtual interface.
+    virtualInterface :: Lude.Maybe VirtualInterface,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBGPPeerResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'virtualInterface' - The virtual interface.
+-- * 'responseStatus' - The response status code.
 mkDeleteBGPPeerResponse ::
   -- | 'responseStatus'
   Lude.Int ->

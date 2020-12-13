@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPool
     mkDescribeUserPool,
 
     -- ** Request lenses
-    dUserPoolId,
+    dupfUserPoolId,
 
     -- * Destructuring the response
     DescribeUserPoolResponse (..),
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeUserPool' smart constructor.
 newtype DescribeUserPool = DescribeUserPool'
-  { userPoolId ::
-      Lude.Text
+  { -- | The user pool ID for the user pool you want to describe.
+    userPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserPool' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDescribeUserPool pUserPoolId_ =
 -- | The user pool ID for the user pool you want to describe.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dUserPoolId :: Lens.Lens' DescribeUserPool Lude.Text
-dUserPoolId = Lens.lens (userPoolId :: DescribeUserPool -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeUserPool)
-{-# DEPRECATED dUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+dupfUserPoolId :: Lens.Lens' DescribeUserPool Lude.Text
+dupfUserPoolId = Lens.lens (userPoolId :: DescribeUserPool -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeUserPool)
+{-# DEPRECATED dupfUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest DescribeUserPool where
   type Rs DescribeUserPool = DescribeUserPoolResponse
@@ -108,23 +103,18 @@ instance Lude.ToQuery DescribeUserPool where
 --
 -- /See:/ 'mkDescribeUserPoolResponse' smart constructor.
 data DescribeUserPoolResponse = DescribeUserPoolResponse'
-  { userPool ::
-      Lude.Maybe UserPoolType,
+  { -- | The container of metadata returned by the server to describe the pool.
+    userPool :: Lude.Maybe UserPoolType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserPoolResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userPool' - The container of metadata returned by the server to describe the pool.
+-- * 'responseStatus' - The response status code.
 mkDescribeUserPoolResponse ::
   -- | 'responseStatus'
   Lude.Int ->

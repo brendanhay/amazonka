@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Glacier.AbortVaultLock
     mkAbortVaultLock,
 
     -- ** Request lenses
-    avlAccountId,
     avlVaultName,
+    avlAccountId,
 
     -- * Destructuring the response
     AbortVaultLockResponse (..),
@@ -41,37 +42,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAbortVaultLock' smart constructor.
 data AbortVaultLock = AbortVaultLock'
-  { accountId :: Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortVaultLock' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 mkAbortVaultLock ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   AbortVaultLock
-mkAbortVaultLock pAccountId_ pVaultName_ =
-  AbortVaultLock' {accountId = pAccountId_, vaultName = pVaultName_}
-
--- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avlAccountId :: Lens.Lens' AbortVaultLock Lude.Text
-avlAccountId = Lens.lens (accountId :: AbortVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: AbortVaultLock)
-{-# DEPRECATED avlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+mkAbortVaultLock pVaultName_ pAccountId_ =
+  AbortVaultLock' {vaultName = pVaultName_, accountId = pAccountId_}
 
 -- | The name of the vault.
 --
@@ -79,6 +69,13 @@ avlAccountId = Lens.lens (accountId :: AbortVaultLock -> Lude.Text) (\s a -> s {
 avlVaultName :: Lens.Lens' AbortVaultLock Lude.Text
 avlVaultName = Lens.lens (vaultName :: AbortVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: AbortVaultLock)
 {-# DEPRECATED avlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avlAccountId :: Lens.Lens' AbortVaultLock Lude.Text
+avlAccountId = Lens.lens (accountId :: AbortVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: AbortVaultLock)
+{-# DEPRECATED avlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest AbortVaultLock where
   type Rs AbortVaultLock = AbortVaultLockResponse
@@ -103,13 +100,7 @@ instance Lude.ToQuery AbortVaultLock where
 
 -- | /See:/ 'mkAbortVaultLockResponse' smart constructor.
 data AbortVaultLockResponse = AbortVaultLockResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortVaultLockResponse' with the minimum fields required to make a request.

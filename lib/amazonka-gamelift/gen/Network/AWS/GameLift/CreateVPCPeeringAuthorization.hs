@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,8 +42,8 @@ module Network.AWS.GameLift.CreateVPCPeeringAuthorization
     mkCreateVPCPeeringAuthorization,
 
     -- ** Request lenses
-    cvpaGameLiftAWSAccountId,
     cvpaPeerVPCId,
+    cvpaGameLiftAWSAccountId,
 
     -- * Destructuring the response
     CreateVPCPeeringAuthorizationResponse (..),
@@ -64,42 +65,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateVPCPeeringAuthorization' smart constructor.
 data CreateVPCPeeringAuthorization = CreateVPCPeeringAuthorization'
-  { gameLiftAWSAccountId ::
-      Lude.Text,
-    peerVPCId :: Lude.Text
+  { -- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+    peerVPCId :: Lude.Text,
+    -- | A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
+    gameLiftAWSAccountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringAuthorization' with the minimum fields required to make a request.
 --
--- * 'gameLiftAWSAccountId' - A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
 -- * 'peerVPCId' - A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+-- * 'gameLiftAWSAccountId' - A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
 mkCreateVPCPeeringAuthorization ::
-  -- | 'gameLiftAWSAccountId'
-  Lude.Text ->
   -- | 'peerVPCId'
   Lude.Text ->
+  -- | 'gameLiftAWSAccountId'
+  Lude.Text ->
   CreateVPCPeeringAuthorization
-mkCreateVPCPeeringAuthorization pGameLiftAWSAccountId_ pPeerVPCId_ =
+mkCreateVPCPeeringAuthorization pPeerVPCId_ pGameLiftAWSAccountId_ =
   CreateVPCPeeringAuthorization'
-    { gameLiftAWSAccountId =
-        pGameLiftAWSAccountId_,
-      peerVPCId = pPeerVPCId_
+    { peerVPCId = pPeerVPCId_,
+      gameLiftAWSAccountId = pGameLiftAWSAccountId_
     }
-
--- | A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
---
--- /Note:/ Consider using 'gameLiftAWSAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvpaGameLiftAWSAccountId :: Lens.Lens' CreateVPCPeeringAuthorization Lude.Text
-cvpaGameLiftAWSAccountId = Lens.lens (gameLiftAWSAccountId :: CreateVPCPeeringAuthorization -> Lude.Text) (\s a -> s {gameLiftAWSAccountId = a} :: CreateVPCPeeringAuthorization)
-{-# DEPRECATED cvpaGameLiftAWSAccountId "Use generic-lens or generic-optics with 'gameLiftAWSAccountId' instead." #-}
 
 -- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
 --
@@ -107,6 +95,13 @@ cvpaGameLiftAWSAccountId = Lens.lens (gameLiftAWSAccountId :: CreateVPCPeeringAu
 cvpaPeerVPCId :: Lens.Lens' CreateVPCPeeringAuthorization Lude.Text
 cvpaPeerVPCId = Lens.lens (peerVPCId :: CreateVPCPeeringAuthorization -> Lude.Text) (\s a -> s {peerVPCId = a} :: CreateVPCPeeringAuthorization)
 {-# DEPRECATED cvpaPeerVPCId "Use generic-lens or generic-optics with 'peerVPCId' instead." #-}
+
+-- | A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
+--
+-- /Note:/ Consider using 'gameLiftAWSAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpaGameLiftAWSAccountId :: Lens.Lens' CreateVPCPeeringAuthorization Lude.Text
+cvpaGameLiftAWSAccountId = Lens.lens (gameLiftAWSAccountId :: CreateVPCPeeringAuthorization -> Lude.Text) (\s a -> s {gameLiftAWSAccountId = a} :: CreateVPCPeeringAuthorization)
+{-# DEPRECATED cvpaGameLiftAWSAccountId "Use generic-lens or generic-optics with 'gameLiftAWSAccountId' instead." #-}
 
 instance Lude.AWSRequest CreateVPCPeeringAuthorization where
   type
@@ -136,8 +131,8 @@ instance Lude.ToJSON CreateVPCPeeringAuthorization where
   toJSON CreateVPCPeeringAuthorization' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GameLiftAwsAccountId" Lude..= gameLiftAWSAccountId),
-            Lude.Just ("PeerVpcId" Lude..= peerVPCId)
+          [ Lude.Just ("PeerVpcId" Lude..= peerVPCId),
+            Lude.Just ("GameLiftAwsAccountId" Lude..= gameLiftAWSAccountId)
           ]
       )
 
@@ -151,25 +146,18 @@ instance Lude.ToQuery CreateVPCPeeringAuthorization where
 --
 -- /See:/ 'mkCreateVPCPeeringAuthorizationResponse' smart constructor.
 data CreateVPCPeeringAuthorizationResponse = CreateVPCPeeringAuthorizationResponse'
-  { vpcPeeringAuthorization ::
-      Lude.Maybe
-        VPCPeeringAuthorization,
-    responseStatus ::
-      Lude.Int
+  { -- | Details on the requested VPC peering authorization, including expiration.
+    vpcPeeringAuthorization :: Lude.Maybe VPCPeeringAuthorization,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCPeeringAuthorizationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpcPeeringAuthorization' - Details on the requested VPC peering authorization, including expiration.
+-- * 'responseStatus' - The response status code.
 mkCreateVPCPeeringAuthorizationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

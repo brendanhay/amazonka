@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.SSM.DescribeInstanceAssociationsStatus
     mkDescribeInstanceAssociationsStatus,
 
     -- ** Request lenses
+    diasInstanceId,
     diasNextToken,
     diasMaxResults,
-    diasInstanceId,
 
     -- * Destructuring the response
     DescribeInstanceAssociationsStatusResponse (..),
@@ -45,38 +46,38 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeInstanceAssociationsStatus' smart constructor.
 data DescribeInstanceAssociationsStatus = DescribeInstanceAssociationsStatus'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    instanceId ::
-      Lude.Text
+  { -- | The instance IDs for which you want association status information.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceAssociationsStatus' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The instance IDs for which you want association status information.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeInstanceAssociationsStatus ::
   -- | 'instanceId'
   Lude.Text ->
   DescribeInstanceAssociationsStatus
 mkDescribeInstanceAssociationsStatus pInstanceId_ =
   DescribeInstanceAssociationsStatus'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The instance IDs for which you want association status information.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diasInstanceId :: Lens.Lens' DescribeInstanceAssociationsStatus Lude.Text
+diasInstanceId = Lens.lens (instanceId :: DescribeInstanceAssociationsStatus -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstanceAssociationsStatus)
+{-# DEPRECATED diasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -91,13 +92,6 @@ diasNextToken = Lens.lens (nextToken :: DescribeInstanceAssociationsStatus -> Lu
 diasMaxResults :: Lens.Lens' DescribeInstanceAssociationsStatus (Lude.Maybe Lude.Natural)
 diasMaxResults = Lens.lens (maxResults :: DescribeInstanceAssociationsStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstanceAssociationsStatus)
 {-# DEPRECATED diasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The instance IDs for which you want association status information.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diasInstanceId :: Lens.Lens' DescribeInstanceAssociationsStatus Lude.Text
-diasInstanceId = Lens.lens (instanceId :: DescribeInstanceAssociationsStatus -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstanceAssociationsStatus)
-{-# DEPRECATED diasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager DescribeInstanceAssociationsStatus where
   page rq rs
@@ -140,9 +134,9 @@ instance Lude.ToJSON DescribeInstanceAssociationsStatus where
   toJSON DescribeInstanceAssociationsStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -154,22 +148,14 @@ instance Lude.ToQuery DescribeInstanceAssociationsStatus where
 
 -- | /See:/ 'mkDescribeInstanceAssociationsStatusResponse' smart constructor.
 data DescribeInstanceAssociationsStatusResponse = DescribeInstanceAssociationsStatusResponse'
-  { instanceAssociationStatusInfos ::
-      Lude.Maybe
-        [InstanceAssociationStatusInfo],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Status information about the association.
+    instanceAssociationStatusInfos :: Lude.Maybe [InstanceAssociationStatusInfo],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceAssociationsStatusResponse' with the minimum fields required to make a request.

@@ -30,20 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKinesisStreamSourceDescription' smart constructor.
 data KinesisStreamSourceDescription = KinesisStreamSourceDescription'
-  { deliveryStartTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    kinesisStreamARN ::
-      Lude.Maybe Lude.Text,
-    roleARN ::
-      Lude.Maybe Lude.Text
+  { -- | Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this timestamp.
+    deliveryStartTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Kinesis Data Streams ARN Format> .
+    kinesisStreamARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role used by the source Kinesis data stream. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam AWS Identity and Access Management (IAM) ARN Format> .
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamSourceDescription' with the minimum fields required to make a request.

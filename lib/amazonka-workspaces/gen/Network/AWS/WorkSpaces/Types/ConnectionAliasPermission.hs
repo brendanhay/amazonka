@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectionAliasPermission' smart constructor.
 data ConnectionAliasPermission = ConnectionAliasPermission'
-  { sharedAccountId ::
-      Lude.Text,
+  { -- | The identifier of the AWS account that the connection alias is shared with.
+    sharedAccountId :: Lude.Text,
+    -- | Indicates whether the specified AWS account is allowed to associate the connection alias with a directory.
     allowAssociation :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionAliasPermission' with the minimum fields required to make a request.
 --
--- * 'allowAssociation' - Indicates whether the specified AWS account is allowed to associate the connection alias with a directory.
 -- * 'sharedAccountId' - The identifier of the AWS account that the connection alias is shared with.
+-- * 'allowAssociation' - Indicates whether the specified AWS account is allowed to associate the connection alias with a directory.
 mkConnectionAliasPermission ::
   -- | 'sharedAccountId'
   Lude.Text ->

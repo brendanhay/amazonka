@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-  { regionName :: Lude.Maybe Lude.Text,
+  { -- | The name of the Region.
+    regionName :: Lude.Maybe Lude.Text,
+    -- | The Region opt-in status. The possible values are @opt-in-not-required@ , @opted-in@ , and @not-opted-in@ .
     optInStatus :: Lude.Maybe Lude.Text,
+    -- | The Region service endpoint.
     endpoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionInfo' with the minimum fields required to make a request.
 --
--- * 'endpoint' - The Region service endpoint.
--- * 'optInStatus' - The Region opt-in status. The possible values are @opt-in-not-required@ , @opted-in@ , and @not-opted-in@ .
 -- * 'regionName' - The name of the Region.
+-- * 'optInStatus' - The Region opt-in status. The possible values are @opt-in-not-required@ , @opted-in@ , and @not-opted-in@ .
+-- * 'endpoint' - The Region service endpoint.
 mkRegionInfo ::
   RegionInfo
 mkRegionInfo =

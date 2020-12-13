@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.ElastiCache.CreateGlobalReplicationGroup
     mkCreateGlobalReplicationGroup,
 
     -- ** Request lenses
-    cgrgGlobalReplicationGroupDescription,
-    cgrgGlobalReplicationGroupIdSuffix,
     cgrgPrimaryReplicationGroupId,
+    cgrgGlobalReplicationGroupIdSuffix,
+    cgrgGlobalReplicationGroupDescription,
 
     -- * Destructuring the response
     CreateGlobalReplicationGroupResponse (..),
@@ -47,51 +48,47 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGlobalReplicationGroup' smart constructor.
 data CreateGlobalReplicationGroup = CreateGlobalReplicationGroup'
-  { globalReplicationGroupDescription ::
-      Lude.Maybe Lude.Text,
-    globalReplicationGroupIdSuffix ::
-      Lude.Text,
-    primaryReplicationGroupId ::
-      Lude.Text
+  { -- | The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
+    primaryReplicationGroupId :: Lude.Text,
+    -- | The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.
+    --
+    -- For a full list of AWS Regions and their respective Global Datastore iD prefixes, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html Using the AWS CLI with Global Datastores > .
+    globalReplicationGroupIdSuffix :: Lude.Text,
+    -- | Provides details of the Global Datastore
+    globalReplicationGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- * 'globalReplicationGroupDescription' - Provides details of the Global Datastore
+-- * 'primaryReplicationGroupId' - The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
 -- * 'globalReplicationGroupIdSuffix' - The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.
 --
 -- For a full list of AWS Regions and their respective Global Datastore iD prefixes, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Clusters-CLI.html Using the AWS CLI with Global Datastores > .
--- * 'primaryReplicationGroupId' - The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
+-- * 'globalReplicationGroupDescription' - Provides details of the Global Datastore
 mkCreateGlobalReplicationGroup ::
-  -- | 'globalReplicationGroupIdSuffix'
-  Lude.Text ->
   -- | 'primaryReplicationGroupId'
+  Lude.Text ->
+  -- | 'globalReplicationGroupIdSuffix'
   Lude.Text ->
   CreateGlobalReplicationGroup
 mkCreateGlobalReplicationGroup
-  pGlobalReplicationGroupIdSuffix_
-  pPrimaryReplicationGroupId_ =
+  pPrimaryReplicationGroupId_
+  pGlobalReplicationGroupIdSuffix_ =
     CreateGlobalReplicationGroup'
-      { globalReplicationGroupDescription =
-          Lude.Nothing,
+      { primaryReplicationGroupId =
+          pPrimaryReplicationGroupId_,
         globalReplicationGroupIdSuffix = pGlobalReplicationGroupIdSuffix_,
-        primaryReplicationGroupId = pPrimaryReplicationGroupId_
+        globalReplicationGroupDescription = Lude.Nothing
       }
 
--- | Provides details of the Global Datastore
+-- | The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
 --
--- /Note:/ Consider using 'globalReplicationGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrgGlobalReplicationGroupDescription :: Lens.Lens' CreateGlobalReplicationGroup (Lude.Maybe Lude.Text)
-cgrgGlobalReplicationGroupDescription = Lens.lens (globalReplicationGroupDescription :: CreateGlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupDescription = a} :: CreateGlobalReplicationGroup)
-{-# DEPRECATED cgrgGlobalReplicationGroupDescription "Use generic-lens or generic-optics with 'globalReplicationGroupDescription' instead." #-}
+-- /Note:/ Consider using 'primaryReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrgPrimaryReplicationGroupId :: Lens.Lens' CreateGlobalReplicationGroup Lude.Text
+cgrgPrimaryReplicationGroupId = Lens.lens (primaryReplicationGroupId :: CreateGlobalReplicationGroup -> Lude.Text) (\s a -> s {primaryReplicationGroupId = a} :: CreateGlobalReplicationGroup)
+{-# DEPRECATED cgrgPrimaryReplicationGroupId "Use generic-lens or generic-optics with 'primaryReplicationGroupId' instead." #-}
 
 -- | The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. For instance, a Global Datastore ID created in the US-West-1 region will begin with "dsdfu" along with the suffix name you provide. The suffix, combined with the auto-generated prefix, guarantees uniqueness of the Global Datastore name across multiple regions.
 --
@@ -102,12 +99,12 @@ cgrgGlobalReplicationGroupIdSuffix :: Lens.Lens' CreateGlobalReplicationGroup Lu
 cgrgGlobalReplicationGroupIdSuffix = Lens.lens (globalReplicationGroupIdSuffix :: CreateGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupIdSuffix = a} :: CreateGlobalReplicationGroup)
 {-# DEPRECATED cgrgGlobalReplicationGroupIdSuffix "Use generic-lens or generic-optics with 'globalReplicationGroupIdSuffix' instead." #-}
 
--- | The name of the primary cluster that accepts writes and will replicate updates to the secondary cluster.
+-- | Provides details of the Global Datastore
 --
--- /Note:/ Consider using 'primaryReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrgPrimaryReplicationGroupId :: Lens.Lens' CreateGlobalReplicationGroup Lude.Text
-cgrgPrimaryReplicationGroupId = Lens.lens (primaryReplicationGroupId :: CreateGlobalReplicationGroup -> Lude.Text) (\s a -> s {primaryReplicationGroupId = a} :: CreateGlobalReplicationGroup)
-{-# DEPRECATED cgrgPrimaryReplicationGroupId "Use generic-lens or generic-optics with 'primaryReplicationGroupId' instead." #-}
+-- /Note:/ Consider using 'globalReplicationGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgrgGlobalReplicationGroupDescription :: Lens.Lens' CreateGlobalReplicationGroup (Lude.Maybe Lude.Text)
+cgrgGlobalReplicationGroupDescription = Lens.lens (globalReplicationGroupDescription :: CreateGlobalReplicationGroup -> Lude.Maybe Lude.Text) (\s a -> s {globalReplicationGroupDescription = a} :: CreateGlobalReplicationGroup)
+{-# DEPRECATED cgrgGlobalReplicationGroupDescription "Use generic-lens or generic-optics with 'globalReplicationGroupDescription' instead." #-}
 
 instance Lude.AWSRequest CreateGlobalReplicationGroup where
   type
@@ -135,33 +132,25 @@ instance Lude.ToQuery CreateGlobalReplicationGroup where
       [ "Action"
           Lude.=: ("CreateGlobalReplicationGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "GlobalReplicationGroupDescription"
-          Lude.=: globalReplicationGroupDescription,
+        "PrimaryReplicationGroupId" Lude.=: primaryReplicationGroupId,
         "GlobalReplicationGroupIdSuffix"
           Lude.=: globalReplicationGroupIdSuffix,
-        "PrimaryReplicationGroupId" Lude.=: primaryReplicationGroupId
+        "GlobalReplicationGroupDescription"
+          Lude.=: globalReplicationGroupDescription
       ]
 
 -- | /See:/ 'mkCreateGlobalReplicationGroupResponse' smart constructor.
 data CreateGlobalReplicationGroupResponse = CreateGlobalReplicationGroupResponse'
-  { globalReplicationGroup ::
-      Lude.Maybe
-        GlobalReplicationGroup,
-    responseStatus ::
-      Lude.Int
+  { globalReplicationGroup :: Lude.Maybe GlobalReplicationGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- * 'globalReplicationGroup' - Undocumented field.
+-- * 'globalReplicationGroup' -
 -- * 'responseStatus' - The response status code.
 mkCreateGlobalReplicationGroupResponse ::
   -- | 'responseStatus'

@@ -40,36 +40,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportSnapshotRecord' smart constructor.
 data ExportSnapshotRecord = ExportSnapshotRecord'
-  { state ::
-      Lude.Maybe RecordState,
+  { -- | The state of the export snapshot record.
+    state :: Lude.Maybe RecordState,
+    -- | A list of objects describing the destination of the export snapshot record.
     destinationInfo :: Lude.Maybe DestinationInfo,
+    -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the export snapshot record.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date when the export snapshot record was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS Region and Availability Zone where the export snapshot record is located.
     location :: Lude.Maybe ResourceLocation,
+    -- | The export snapshot record name.
     name :: Lude.Maybe Lude.Text,
-    sourceInfo ::
-      Lude.Maybe ExportSnapshotRecordSourceInfo
+    -- | A list of objects describing the source of the export snapshot record.
+    sourceInfo :: Lude.Maybe ExportSnapshotRecordSourceInfo
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportSnapshotRecord' with the minimum fields required to make a request.
 --
+-- * 'state' - The state of the export snapshot record.
+-- * 'destinationInfo' - A list of objects describing the destination of the export snapshot record.
+-- * 'resourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
 -- * 'arn' - The Amazon Resource Name (ARN) of the export snapshot record.
 -- * 'createdAt' - The date when the export snapshot record was created.
--- * 'destinationInfo' - A list of objects describing the destination of the export snapshot record.
 -- * 'location' - The AWS Region and Availability Zone where the export snapshot record is located.
 -- * 'name' - The export snapshot record name.
--- * 'resourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
 -- * 'sourceInfo' - A list of objects describing the source of the export snapshot record.
--- * 'state' - The state of the export snapshot record.
 mkExportSnapshotRecord ::
   ExportSnapshotRecord
 mkExportSnapshotRecord =

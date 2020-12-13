@@ -35,26 +35,24 @@ import Network.AWS.Rekognition.Types.Parent
 --
 -- /See:/ 'mkLabel' smart constructor.
 data Label = Label'
-  { confidence :: Lude.Maybe Lude.Double,
+  { -- | Level of confidence.
+    confidence :: Lude.Maybe Lude.Double,
+    -- | The parent labels for a label. The response includes all ancestor labels.
     parents :: Lude.Maybe [Parent],
+    -- | The name (label) of the object or scene.
     name :: Lude.Maybe Lude.Text,
+    -- | If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
     instances :: Lude.Maybe [Instance]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Label' with the minimum fields required to make a request.
 --
 -- * 'confidence' - Level of confidence.
--- * 'instances' - If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
--- * 'name' - The name (label) of the object or scene.
 -- * 'parents' - The parent labels for a label. The response includes all ancestor labels.
+-- * 'name' - The name (label) of the object or scene.
+-- * 'instances' - If @Label@ represents an object, @Instances@ contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.
 mkLabel ::
   Label
 mkLabel =

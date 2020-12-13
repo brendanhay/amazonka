@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDataSource' smart constructor.
 data DeleteDataSource = DeleteDataSource'
-  { apiId :: Lude.Text,
+  { -- | The API ID.
+    apiId :: Lude.Text,
+    -- | The name of the data source.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataSource' with the minimum fields required to make a request.
@@ -106,16 +103,10 @@ instance Lude.ToQuery DeleteDataSource where
 
 -- | /See:/ 'mkDeleteDataSourceResponse' smart constructor.
 newtype DeleteDataSourceResponse = DeleteDataSourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataSourceResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
   ( BurninSubtitleShadowColor
       ( BurninSubtitleShadowColor',
-        BSSCBlack,
         BSSCNone,
+        BSSCBlack,
         BSSCWhite
       ),
   )
@@ -49,18 +49,18 @@ newtype BurninSubtitleShadowColor = BurninSubtitleShadowColor' Lude.Text
       Lude.ToHeader
     )
 
-pattern BSSCBlack :: BurninSubtitleShadowColor
-pattern BSSCBlack = BurninSubtitleShadowColor' "BLACK"
-
 pattern BSSCNone :: BurninSubtitleShadowColor
 pattern BSSCNone = BurninSubtitleShadowColor' "NONE"
+
+pattern BSSCBlack :: BurninSubtitleShadowColor
+pattern BSSCBlack = BurninSubtitleShadowColor' "BLACK"
 
 pattern BSSCWhite :: BurninSubtitleShadowColor
 pattern BSSCWhite = BurninSubtitleShadowColor' "WHITE"
 
 {-# COMPLETE
-  BSSCBlack,
   BSSCNone,
+  BSSCBlack,
   BSSCWhite,
   BurninSubtitleShadowColor'
   #-}

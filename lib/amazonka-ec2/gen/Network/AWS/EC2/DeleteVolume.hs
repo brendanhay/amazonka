@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.EC2.DeleteVolume
     mkDeleteVolume,
 
     -- ** Request lenses
-    dvvDryRun,
-    dvvVolumeId,
+    dvfVolumeId,
+    dvfDryRun,
 
     -- * Destructuring the response
     DeleteVolumeResponse (..),
@@ -39,42 +40,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
-  { dryRun :: Lude.Maybe Lude.Bool,
-    volumeId :: Lude.Text
+  { -- | The ID of the volume.
+    volumeId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'volumeId' - The ID of the volume.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteVolume ::
   -- | 'volumeId'
   Lude.Text ->
   DeleteVolume
 mkDeleteVolume pVolumeId_ =
-  DeleteVolume' {dryRun = Lude.Nothing, volumeId = pVolumeId_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvvDryRun :: Lens.Lens' DeleteVolume (Lude.Maybe Lude.Bool)
-dvvDryRun = Lens.lens (dryRun :: DeleteVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVolume)
-{-# DEPRECATED dvvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  DeleteVolume' {volumeId = pVolumeId_, dryRun = Lude.Nothing}
 
 -- | The ID of the volume.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvvVolumeId :: Lens.Lens' DeleteVolume Lude.Text
-dvvVolumeId = Lens.lens (volumeId :: DeleteVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DeleteVolume)
-{-# DEPRECATED dvvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+dvfVolumeId :: Lens.Lens' DeleteVolume Lude.Text
+dvfVolumeId = Lens.lens (volumeId :: DeleteVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DeleteVolume)
+{-# DEPRECATED dvfVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvfDryRun :: Lens.Lens' DeleteVolume (Lude.Maybe Lude.Bool)
+dvfDryRun = Lens.lens (dryRun :: DeleteVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVolume)
+{-# DEPRECATED dvfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteVolume where
   type Rs DeleteVolume = DeleteVolumeResponse
@@ -92,19 +89,13 @@ instance Lude.ToQuery DeleteVolume where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteVolume" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "VolumeId" Lude.=: volumeId
+        "VolumeId" Lude.=: volumeId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.

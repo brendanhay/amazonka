@@ -13,13 +13,13 @@
 module Network.AWS.EC2.Types.BundleTaskState
   ( BundleTaskState
       ( BundleTaskState',
+        BTSPending,
+        BTSWaitingForShutdown,
         BTSBundling,
+        BTSStoring,
         BTSCancelling,
         BTSComplete,
-        BTSFailed,
-        BTSPending,
-        BTSStoring,
-        BTSWaitingForShutdown
+        BTSFailed
       ),
   )
 where
@@ -50,8 +50,17 @@ newtype BundleTaskState = BundleTaskState' Lude.Text
       Lude.ToHeader
     )
 
+pattern BTSPending :: BundleTaskState
+pattern BTSPending = BundleTaskState' "pending"
+
+pattern BTSWaitingForShutdown :: BundleTaskState
+pattern BTSWaitingForShutdown = BundleTaskState' "waiting-for-shutdown"
+
 pattern BTSBundling :: BundleTaskState
 pattern BTSBundling = BundleTaskState' "bundling"
+
+pattern BTSStoring :: BundleTaskState
+pattern BTSStoring = BundleTaskState' "storing"
 
 pattern BTSCancelling :: BundleTaskState
 pattern BTSCancelling = BundleTaskState' "cancelling"
@@ -62,22 +71,13 @@ pattern BTSComplete = BundleTaskState' "complete"
 pattern BTSFailed :: BundleTaskState
 pattern BTSFailed = BundleTaskState' "failed"
 
-pattern BTSPending :: BundleTaskState
-pattern BTSPending = BundleTaskState' "pending"
-
-pattern BTSStoring :: BundleTaskState
-pattern BTSStoring = BundleTaskState' "storing"
-
-pattern BTSWaitingForShutdown :: BundleTaskState
-pattern BTSWaitingForShutdown = BundleTaskState' "waiting-for-shutdown"
-
 {-# COMPLETE
+  BTSPending,
+  BTSWaitingForShutdown,
   BTSBundling,
+  BTSStoring,
   BTSCancelling,
   BTSComplete,
   BTSFailed,
-  BTSPending,
-  BTSStoring,
-  BTSWaitingForShutdown,
   BundleTaskState'
   #-}

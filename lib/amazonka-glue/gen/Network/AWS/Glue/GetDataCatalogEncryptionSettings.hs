@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDataCatalogEncryptionSettings' smart constructor.
 newtype GetDataCatalogEncryptionSettings = GetDataCatalogEncryptionSettings'
-  { catalogId ::
-      Lude.Maybe Lude.Text
+  { -- | The ID of the Data Catalog to retrieve the security configuration for. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataCatalogEncryptionSettings' with the minimum fields required to make a request.
@@ -103,19 +98,12 @@ instance Lude.ToQuery GetDataCatalogEncryptionSettings where
 
 -- | /See:/ 'mkGetDataCatalogEncryptionSettingsResponse' smart constructor.
 data GetDataCatalogEncryptionSettingsResponse = GetDataCatalogEncryptionSettingsResponse'
-  { dataCatalogEncryptionSettings ::
-      Lude.Maybe
-        DataCatalogEncryptionSettings,
-    responseStatus ::
-      Lude.Int
+  { -- | The requested security configuration.
+    dataCatalogEncryptionSettings :: Lude.Maybe DataCatalogEncryptionSettings,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDataCatalogEncryptionSettingsResponse' with the minimum fields required to make a request.

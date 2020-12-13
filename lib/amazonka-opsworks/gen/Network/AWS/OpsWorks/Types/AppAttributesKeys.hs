@@ -13,10 +13,10 @@
 module Network.AWS.OpsWorks.Types.AppAttributesKeys
   ( AppAttributesKeys
       ( AppAttributesKeys',
-        AWSFlowRubySettings,
-        AutoBundleOnDeploy,
         DocumentRoot,
-        RailsEnv
+        RailsEnv,
+        AutoBundleOnDeploy,
+        AWSFlowRubySettings
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AppAttributesKeys = AppAttributesKeys' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSFlowRubySettings :: AppAttributesKeys
-pattern AWSFlowRubySettings = AppAttributesKeys' "AwsFlowRubySettings"
-
-pattern AutoBundleOnDeploy :: AppAttributesKeys
-pattern AutoBundleOnDeploy = AppAttributesKeys' "AutoBundleOnDeploy"
-
 pattern DocumentRoot :: AppAttributesKeys
 pattern DocumentRoot = AppAttributesKeys' "DocumentRoot"
 
 pattern RailsEnv :: AppAttributesKeys
 pattern RailsEnv = AppAttributesKeys' "RailsEnv"
 
+pattern AutoBundleOnDeploy :: AppAttributesKeys
+pattern AutoBundleOnDeploy = AppAttributesKeys' "AutoBundleOnDeploy"
+
+pattern AWSFlowRubySettings :: AppAttributesKeys
+pattern AWSFlowRubySettings = AppAttributesKeys' "AwsFlowRubySettings"
+
 {-# COMPLETE
-  AWSFlowRubySettings,
-  AutoBundleOnDeploy,
   DocumentRoot,
   RailsEnv,
+  AutoBundleOnDeploy,
+  AWSFlowRubySettings,
   AppAttributesKeys'
   #-}

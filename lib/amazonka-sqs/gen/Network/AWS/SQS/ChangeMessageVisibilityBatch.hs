@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,17 +25,17 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     mkChangeMessageVisibilityBatch,
 
     -- ** Request lenses
-    cmvbQueueURL,
     cmvbEntries,
+    cmvbQueueURL,
 
     -- * Destructuring the response
     ChangeMessageVisibilityBatchResponse (..),
     mkChangeMessageVisibilityBatchResponse,
 
     -- ** Response lenses
-    cmvbrsResponseStatus,
     cmvbrsSuccessful,
     cmvbrsFailed,
+    cmvbrsResponseStatus,
   )
 where
 
@@ -48,18 +49,14 @@ import Network.AWS.SQS.Types
 --
 -- /See:/ 'mkChangeMessageVisibilityBatch' smart constructor.
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
-  { queueURL ::
-      Lude.Text,
-    entries ::
-      [ChangeMessageVisibilityBatchRequestEntry]
+  { -- | A list of receipt handles of the messages for which the visibility timeout must be changed.
+    entries :: [ChangeMessageVisibilityBatchRequestEntry],
+    -- | The URL of the Amazon SQS queue whose messages' visibility is changed.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueURL :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeMessageVisibilityBatch' with the minimum fields required to make a request.
@@ -74,9 +71,16 @@ mkChangeMessageVisibilityBatch ::
   ChangeMessageVisibilityBatch
 mkChangeMessageVisibilityBatch pQueueURL_ =
   ChangeMessageVisibilityBatch'
-    { queueURL = pQueueURL_,
-      entries = Lude.mempty
+    { entries = Lude.mempty,
+      queueURL = pQueueURL_
     }
+
+-- | A list of receipt handles of the messages for which the visibility timeout must be changed.
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmvbEntries :: Lens.Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
+cmvbEntries = Lens.lens (entries :: ChangeMessageVisibilityBatch -> [ChangeMessageVisibilityBatchRequestEntry]) (\s a -> s {entries = a} :: ChangeMessageVisibilityBatch)
+{-# DEPRECATED cmvbEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
 -- | The URL of the Amazon SQS queue whose messages' visibility is changed.
 --
@@ -86,13 +90,6 @@ mkChangeMessageVisibilityBatch pQueueURL_ =
 cmvbQueueURL :: Lens.Lens' ChangeMessageVisibilityBatch Lude.Text
 cmvbQueueURL = Lens.lens (queueURL :: ChangeMessageVisibilityBatch -> Lude.Text) (\s a -> s {queueURL = a} :: ChangeMessageVisibilityBatch)
 {-# DEPRECATED cmvbQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
-
--- | A list of receipt handles of the messages for which the visibility timeout must be changed.
---
--- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvbEntries :: Lens.Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
-cmvbEntries = Lens.lens (entries :: ChangeMessageVisibilityBatch -> [ChangeMessageVisibilityBatchRequestEntry]) (\s a -> s {entries = a} :: ChangeMessageVisibilityBatch)
-{-# DEPRECATED cmvbEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
 instance Lude.AWSRequest ChangeMessageVisibilityBatch where
   type
@@ -104,9 +101,9 @@ instance Lude.AWSRequest ChangeMessageVisibilityBatch where
       "ChangeMessageVisibilityBatchResult"
       ( \s h x ->
           ChangeMessageVisibilityBatchResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.parseXMLList "ChangeMessageVisibilityBatchResultEntry" x)
+            Lude.<$> (Lude.parseXMLList "ChangeMessageVisibilityBatchResultEntry" x)
             Lude.<*> (Lude.parseXMLList "BatchResultErrorEntry" x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ChangeMessageVisibilityBatch where
@@ -121,55 +118,41 @@ instance Lude.ToQuery ChangeMessageVisibilityBatch where
       [ "Action"
           Lude.=: ("ChangeMessageVisibilityBatch" :: Lude.ByteString),
         "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "QueueUrl" Lude.=: queueURL,
         Lude.toQueryList
           "ChangeMessageVisibilityBatchRequestEntry"
-          entries
+          entries,
+        "QueueUrl" Lude.=: queueURL
       ]
 
 -- | For each message in the batch, the response contains a @'ChangeMessageVisibilityBatchResultEntry' @ tag if the message succeeds or a @'BatchResultErrorEntry' @ tag if the message fails.
 --
 -- /See:/ 'mkChangeMessageVisibilityBatchResponse' smart constructor.
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
-  { responseStatus ::
-      Lude.Int,
-    successful ::
-      [ChangeMessageVisibilityBatchResultEntry],
-    failed ::
-      [BatchResultErrorEntry]
+  { -- | A list of @'ChangeMessageVisibilityBatchResultEntry' @ items.
+    successful :: [ChangeMessageVisibilityBatchResultEntry],
+    -- | A list of @'BatchResultErrorEntry' @ items.
+    failed :: [BatchResultErrorEntry],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchResponse' with the minimum fields required to make a request.
 --
+-- * 'successful' - A list of @'ChangeMessageVisibilityBatchResultEntry' @ items.
 -- * 'failed' - A list of @'BatchResultErrorEntry' @ items.
 -- * 'responseStatus' - The response status code.
--- * 'successful' - A list of @'ChangeMessageVisibilityBatchResultEntry' @ items.
 mkChangeMessageVisibilityBatchResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   ChangeMessageVisibilityBatchResponse
 mkChangeMessageVisibilityBatchResponse pResponseStatus_ =
   ChangeMessageVisibilityBatchResponse'
-    { responseStatus =
-        pResponseStatus_,
-      successful = Lude.mempty,
-      failed = Lude.mempty
+    { successful = Lude.mempty,
+      failed = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvbrsResponseStatus :: Lens.Lens' ChangeMessageVisibilityBatchResponse Lude.Int
-cmvbrsResponseStatus = Lens.lens (responseStatus :: ChangeMessageVisibilityBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ChangeMessageVisibilityBatchResponse)
-{-# DEPRECATED cmvbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of @'ChangeMessageVisibilityBatchResultEntry' @ items.
 --
@@ -184,3 +167,10 @@ cmvbrsSuccessful = Lens.lens (successful :: ChangeMessageVisibilityBatchResponse
 cmvbrsFailed :: Lens.Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrsFailed = Lens.lens (failed :: ChangeMessageVisibilityBatchResponse -> [BatchResultErrorEntry]) (\s a -> s {failed = a} :: ChangeMessageVisibilityBatchResponse)
 {-# DEPRECATED cmvbrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmvbrsResponseStatus :: Lens.Lens' ChangeMessageVisibilityBatchResponse Lude.Int
+cmvbrsResponseStatus = Lens.lens (responseStatus :: ChangeMessageVisibilityBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ChangeMessageVisibilityBatchResponse)
+{-# DEPRECATED cmvbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

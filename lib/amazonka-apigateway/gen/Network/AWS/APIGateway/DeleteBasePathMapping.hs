@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.DeleteBasePathMapping
     mkDeleteBasePathMapping,
 
     -- ** Request lenses
-    dbpmDomainName,
     dbpmBasePath,
+    dbpmDomainName,
 
     -- * Destructuring the response
     DeleteBasePathMappingResponse (..),
@@ -38,17 +39,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteBasePathMapping' smart constructor.
 data DeleteBasePathMapping = DeleteBasePathMapping'
-  { domainName ::
-      Lude.Text,
-    basePath :: Lude.Text
+  { -- | [Required] The base path name of the 'BasePathMapping' resource to delete.
+    --
+    -- To specify an empty base path, set this parameter to @'(none)'@ .
+    basePath :: Lude.Text,
+    -- | [Required] The domain name of the 'BasePathMapping' resource to delete.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBasePathMapping' with the minimum fields required to make a request.
@@ -58,23 +56,16 @@ data DeleteBasePathMapping = DeleteBasePathMapping'
 -- To specify an empty base path, set this parameter to @'(none)'@ .
 -- * 'domainName' - [Required] The domain name of the 'BasePathMapping' resource to delete.
 mkDeleteBasePathMapping ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'basePath'
   Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
   DeleteBasePathMapping
-mkDeleteBasePathMapping pDomainName_ pBasePath_ =
+mkDeleteBasePathMapping pBasePath_ pDomainName_ =
   DeleteBasePathMapping'
-    { domainName = pDomainName_,
-      basePath = pBasePath_
+    { basePath = pBasePath_,
+      domainName = pDomainName_
     }
-
--- | [Required] The domain name of the 'BasePathMapping' resource to delete.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpmDomainName :: Lens.Lens' DeleteBasePathMapping Lude.Text
-dbpmDomainName = Lens.lens (domainName :: DeleteBasePathMapping -> Lude.Text) (\s a -> s {domainName = a} :: DeleteBasePathMapping)
-{-# DEPRECATED dbpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | [Required] The base path name of the 'BasePathMapping' resource to delete.
 --
@@ -84,6 +75,13 @@ dbpmDomainName = Lens.lens (domainName :: DeleteBasePathMapping -> Lude.Text) (\
 dbpmBasePath :: Lens.Lens' DeleteBasePathMapping Lude.Text
 dbpmBasePath = Lens.lens (basePath :: DeleteBasePathMapping -> Lude.Text) (\s a -> s {basePath = a} :: DeleteBasePathMapping)
 {-# DEPRECATED dbpmBasePath "Use generic-lens or generic-optics with 'basePath' instead." #-}
+
+-- | [Required] The domain name of the 'BasePathMapping' resource to delete.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpmDomainName :: Lens.Lens' DeleteBasePathMapping Lude.Text
+dbpmDomainName = Lens.lens (domainName :: DeleteBasePathMapping -> Lude.Text) (\s a -> s {domainName = a} :: DeleteBasePathMapping)
+{-# DEPRECATED dbpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest DeleteBasePathMapping where
   type Rs DeleteBasePathMapping = DeleteBasePathMappingResponse
@@ -111,13 +109,7 @@ instance Lude.ToQuery DeleteBasePathMapping where
 
 -- | /See:/ 'mkDeleteBasePathMappingResponse' smart constructor.
 data DeleteBasePathMappingResponse = DeleteBasePathMappingResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBasePathMappingResponse' with the minimum fields required to make a request.

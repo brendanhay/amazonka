@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSAMLProvider' smart constructor.
 newtype GetSAMLProvider = GetSAMLProvider'
-  { sAMLProviderARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the SAML provider resource object in IAM to get information about.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    sAMLProviderARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSAMLProvider' with the minimum fields required to make a request.
@@ -106,28 +103,24 @@ instance Lude.ToQuery GetSAMLProvider where
 --
 -- /See:/ 'mkGetSAMLProviderResponse' smart constructor.
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-  { createDate ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date and time when the SAML provider was created.
+    createDate :: Lude.Maybe Lude.DateTime,
+    -- | The expiration date and time for the SAML provider.
     validUntil :: Lude.Maybe Lude.DateTime,
-    sAMLMetadataDocument ::
-      Lude.Maybe Lude.Text,
+    -- | The XML metadata document that includes information about an identity provider.
+    sAMLMetadataDocument :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSAMLProviderResponse' with the minimum fields required to make a request.
 --
 -- * 'createDate' - The date and time when the SAML provider was created.
--- * 'responseStatus' - The response status code.
--- * 'sAMLMetadataDocument' - The XML metadata document that includes information about an identity provider.
 -- * 'validUntil' - The expiration date and time for the SAML provider.
+-- * 'sAMLMetadataDocument' - The XML metadata document that includes information about an identity provider.
+-- * 'responseStatus' - The response status code.
 mkGetSAMLProviderResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
     mkCreateRelationalDatabaseSnapshot,
 
     -- ** Request lenses
-    crdsTags,
-    crdsRelationalDatabaseName,
     crdsRelationalDatabaseSnapshotName,
+    crdsRelationalDatabaseName,
+    crdsTags,
 
     -- * Destructuring the response
     CreateRelationalDatabaseSnapshotResponse (..),
@@ -43,25 +44,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRelationalDatabaseSnapshot' smart constructor.
 data CreateRelationalDatabaseSnapshot = CreateRelationalDatabaseSnapshot'
-  { tags ::
-      Lude.Maybe [Tag],
-    relationalDatabaseName ::
-      Lude.Text,
-    relationalDatabaseSnapshotName ::
-      Lude.Text
+  { -- | The name for your new database snapshot.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 2 to 255 alphanumeric characters, or hyphens.
+    --
+    --
+    --     * The first and last character must be a letter or number.
+    relationalDatabaseSnapshotName :: Lude.Text,
+    -- | The name of the database on which to base your new snapshot.
+    relationalDatabaseName :: Lude.Text,
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRelationalDatabaseSnapshot' with the minimum fields required to make a request.
 --
--- * 'relationalDatabaseName' - The name of the database on which to base your new snapshot.
 -- * 'relationalDatabaseSnapshotName' - The name for your new database snapshot.
 --
 -- Constraints:
@@ -72,40 +75,25 @@ data CreateRelationalDatabaseSnapshot = CreateRelationalDatabaseSnapshot'
 --     * The first and last character must be a letter or number.
 --
 --
+-- * 'relationalDatabaseName' - The name of the database on which to base your new snapshot.
 -- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
 mkCreateRelationalDatabaseSnapshot ::
-  -- | 'relationalDatabaseName'
-  Lude.Text ->
   -- | 'relationalDatabaseSnapshotName'
+  Lude.Text ->
+  -- | 'relationalDatabaseName'
   Lude.Text ->
   CreateRelationalDatabaseSnapshot
 mkCreateRelationalDatabaseSnapshot
-  pRelationalDatabaseName_
-  pRelationalDatabaseSnapshotName_ =
+  pRelationalDatabaseSnapshotName_
+  pRelationalDatabaseName_ =
     CreateRelationalDatabaseSnapshot'
-      { tags = Lude.Nothing,
+      { relationalDatabaseSnapshotName =
+          pRelationalDatabaseSnapshotName_,
         relationalDatabaseName = pRelationalDatabaseName_,
-        relationalDatabaseSnapshotName =
-          pRelationalDatabaseSnapshotName_
+        tags = Lude.Nothing
       }
-
--- | The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsTags :: Lens.Lens' CreateRelationalDatabaseSnapshot (Lude.Maybe [Tag])
-crdsTags = Lens.lens (tags :: CreateRelationalDatabaseSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRelationalDatabaseSnapshot)
-{-# DEPRECATED crdsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the database on which to base your new snapshot.
---
--- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseSnapshot Lude.Text
-crdsRelationalDatabaseName = Lens.lens (relationalDatabaseName :: CreateRelationalDatabaseSnapshot -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: CreateRelationalDatabaseSnapshot)
-{-# DEPRECATED crdsRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 -- | The name for your new database snapshot.
 --
@@ -122,6 +110,22 @@ crdsRelationalDatabaseName = Lens.lens (relationalDatabaseName :: CreateRelation
 crdsRelationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseSnapshot Lude.Text
 crdsRelationalDatabaseSnapshotName = Lens.lens (relationalDatabaseSnapshotName :: CreateRelationalDatabaseSnapshot -> Lude.Text) (\s a -> s {relationalDatabaseSnapshotName = a} :: CreateRelationalDatabaseSnapshot)
 {-# DEPRECATED crdsRelationalDatabaseSnapshotName "Use generic-lens or generic-optics with 'relationalDatabaseSnapshotName' instead." #-}
+
+-- | The name of the database on which to base your new snapshot.
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdsRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseSnapshot Lude.Text
+crdsRelationalDatabaseName = Lens.lens (relationalDatabaseName :: CreateRelationalDatabaseSnapshot -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: CreateRelationalDatabaseSnapshot)
+{-# DEPRECATED crdsRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
+
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdsTags :: Lens.Lens' CreateRelationalDatabaseSnapshot (Lude.Maybe [Tag])
+crdsTags = Lens.lens (tags :: CreateRelationalDatabaseSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRelationalDatabaseSnapshot)
+{-# DEPRECATED crdsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateRelationalDatabaseSnapshot where
   type
@@ -153,13 +157,13 @@ instance Lude.ToJSON CreateRelationalDatabaseSnapshot where
   toJSON CreateRelationalDatabaseSnapshot' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName),
-            Lude.Just
+          [ Lude.Just
               ( "relationalDatabaseSnapshotName"
                   Lude..= relationalDatabaseSnapshotName
-              )
+              ),
+            Lude.Just
+              ("relationalDatabaseName" Lude..= relationalDatabaseName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -171,19 +175,12 @@ instance Lude.ToQuery CreateRelationalDatabaseSnapshot where
 
 -- | /See:/ 'mkCreateRelationalDatabaseSnapshotResponse' smart constructor.
 data CreateRelationalDatabaseSnapshotResponse = CreateRelationalDatabaseSnapshotResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRelationalDatabaseSnapshotResponse' with the minimum fields required to make a request.

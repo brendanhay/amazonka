@@ -18,12 +18,12 @@ module Network.AWS.IAM.Types.ServiceLastAccessed
 
     -- * Lenses
     slaLastAuthenticated,
+    slaServiceNamespace,
     slaTrackedActionsLastAccessed,
+    slaServiceName,
     slaLastAuthenticatedEntity,
     slaLastAuthenticatedRegion,
     slaTotalAuthenticatedEntities,
-    slaServiceName,
-    slaServiceNamespace,
   )
 where
 
@@ -37,23 +37,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceLastAccessed' smart constructor.
 data ServiceLastAccessed = ServiceLastAccessed'
-  { lastAuthenticated ::
-      Lude.Maybe Lude.DateTime,
-    trackedActionsLastAccessed ::
-      Lude.Maybe [TrackedActionLastAccessed],
-    lastAuthenticatedEntity :: Lude.Maybe Lude.Text,
-    lastAuthenticatedRegion :: Lude.Maybe Lude.Text,
-    totalAuthenticatedEntities :: Lude.Maybe Lude.Int,
+  { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the service. AWS does not report unauthenticated requests.
+    --
+    -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+    lastAuthenticated :: Lude.Maybe Lude.DateTime,
+    -- | The namespace of the service in which access was attempted.
+    --
+    -- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+    serviceNamespace :: Lude.Text,
+    -- | An object that contains details about the most recent attempt to access a tracked action within the service.
+    --
+    -- This field is null if there no tracked actions or if the principal did not use the tracked actions within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> . This field is also null if the report was generated at the service level and not the action level. For more information, see the @Granularity@ field in 'GenerateServiceLastAccessedDetails' .
+    trackedActionsLastAccessed :: Lude.Maybe [TrackedActionLastAccessed],
+    -- | The name of the service in which access was attempted.
     serviceName :: Lude.Text,
-    serviceNamespace :: Lude.Text
+    -- | The ARN of the authenticated entity (user or role) that last attempted to access the service. AWS does not report unauthenticated requests.
+    --
+    -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+    lastAuthenticatedEntity :: Lude.Maybe Lude.Text,
+    -- | The Region from which the authenticated entity (user or role) last attempted to access the service. AWS does not report unauthenticated requests.
+    --
+    -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+    lastAuthenticatedRegion :: Lude.Maybe Lude.Text,
+    -- | The total number of authenticated principals (root user, IAM users, or IAM roles) that have attempted to access the service.
+    --
+    -- This field is null if no principals attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+    totalAuthenticatedEntities :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceLastAccessed' with the minimum fields required to make a request.
@@ -61,37 +72,37 @@ data ServiceLastAccessed = ServiceLastAccessed'
 -- * 'lastAuthenticated' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the service. AWS does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+-- * 'serviceNamespace' - The namespace of the service in which access was attempted.
+--
+-- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+-- * 'trackedActionsLastAccessed' - An object that contains details about the most recent attempt to access a tracked action within the service.
+--
+-- This field is null if there no tracked actions or if the principal did not use the tracked actions within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> . This field is also null if the report was generated at the service level and not the action level. For more information, see the @Granularity@ field in 'GenerateServiceLastAccessedDetails' .
+-- * 'serviceName' - The name of the service in which access was attempted.
 -- * 'lastAuthenticatedEntity' - The ARN of the authenticated entity (user or role) that last attempted to access the service. AWS does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
 -- * 'lastAuthenticatedRegion' - The Region from which the authenticated entity (user or role) last attempted to access the service. AWS does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
--- * 'serviceName' - The name of the service in which access was attempted.
--- * 'serviceNamespace' - The namespace of the service in which access was attempted.
---
--- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
 -- * 'totalAuthenticatedEntities' - The total number of authenticated principals (root user, IAM users, or IAM roles) that have attempted to access the service.
 --
 -- This field is null if no principals attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
--- * 'trackedActionsLastAccessed' - An object that contains details about the most recent attempt to access a tracked action within the service.
---
--- This field is null if there no tracked actions or if the principal did not use the tracked actions within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> . This field is also null if the report was generated at the service level and not the action level. For more information, see the @Granularity@ field in 'GenerateServiceLastAccessedDetails' .
 mkServiceLastAccessed ::
-  -- | 'serviceName'
-  Lude.Text ->
   -- | 'serviceNamespace'
   Lude.Text ->
+  -- | 'serviceName'
+  Lude.Text ->
   ServiceLastAccessed
-mkServiceLastAccessed pServiceName_ pServiceNamespace_ =
+mkServiceLastAccessed pServiceNamespace_ pServiceName_ =
   ServiceLastAccessed'
     { lastAuthenticated = Lude.Nothing,
+      serviceNamespace = pServiceNamespace_,
       trackedActionsLastAccessed = Lude.Nothing,
+      serviceName = pServiceName_,
       lastAuthenticatedEntity = Lude.Nothing,
       lastAuthenticatedRegion = Lude.Nothing,
-      totalAuthenticatedEntities = Lude.Nothing,
-      serviceName = pServiceName_,
-      serviceNamespace = pServiceNamespace_
+      totalAuthenticatedEntities = Lude.Nothing
     }
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the service. AWS does not report unauthenticated requests.
@@ -103,6 +114,15 @@ slaLastAuthenticated :: Lens.Lens' ServiceLastAccessed (Lude.Maybe Lude.DateTime
 slaLastAuthenticated = Lens.lens (lastAuthenticated :: ServiceLastAccessed -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAuthenticated = a} :: ServiceLastAccessed)
 {-# DEPRECATED slaLastAuthenticated "Use generic-lens or generic-optics with 'lastAuthenticated' instead." #-}
 
+-- | The namespace of the service in which access was attempted.
+--
+-- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slaServiceNamespace :: Lens.Lens' ServiceLastAccessed Lude.Text
+slaServiceNamespace = Lens.lens (serviceNamespace :: ServiceLastAccessed -> Lude.Text) (\s a -> s {serviceNamespace = a} :: ServiceLastAccessed)
+{-# DEPRECATED slaServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
+
 -- | An object that contains details about the most recent attempt to access a tracked action within the service.
 --
 -- This field is null if there no tracked actions or if the principal did not use the tracked actions within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> . This field is also null if the report was generated at the service level and not the action level. For more information, see the @Granularity@ field in 'GenerateServiceLastAccessedDetails' .
@@ -111,6 +131,13 @@ slaLastAuthenticated = Lens.lens (lastAuthenticated :: ServiceLastAccessed -> Lu
 slaTrackedActionsLastAccessed :: Lens.Lens' ServiceLastAccessed (Lude.Maybe [TrackedActionLastAccessed])
 slaTrackedActionsLastAccessed = Lens.lens (trackedActionsLastAccessed :: ServiceLastAccessed -> Lude.Maybe [TrackedActionLastAccessed]) (\s a -> s {trackedActionsLastAccessed = a} :: ServiceLastAccessed)
 {-# DEPRECATED slaTrackedActionsLastAccessed "Use generic-lens or generic-optics with 'trackedActionsLastAccessed' instead." #-}
+
+-- | The name of the service in which access was attempted.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slaServiceName :: Lens.Lens' ServiceLastAccessed Lude.Text
+slaServiceName = Lens.lens (serviceName :: ServiceLastAccessed -> Lude.Text) (\s a -> s {serviceName = a} :: ServiceLastAccessed)
+{-# DEPRECATED slaServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The ARN of the authenticated entity (user or role) that last attempted to access the service. AWS does not report unauthenticated requests.
 --
@@ -139,31 +166,15 @@ slaTotalAuthenticatedEntities :: Lens.Lens' ServiceLastAccessed (Lude.Maybe Lude
 slaTotalAuthenticatedEntities = Lens.lens (totalAuthenticatedEntities :: ServiceLastAccessed -> Lude.Maybe Lude.Int) (\s a -> s {totalAuthenticatedEntities = a} :: ServiceLastAccessed)
 {-# DEPRECATED slaTotalAuthenticatedEntities "Use generic-lens or generic-optics with 'totalAuthenticatedEntities' instead." #-}
 
--- | The name of the service in which access was attempted.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slaServiceName :: Lens.Lens' ServiceLastAccessed Lude.Text
-slaServiceName = Lens.lens (serviceName :: ServiceLastAccessed -> Lude.Text) (\s a -> s {serviceName = a} :: ServiceLastAccessed)
-{-# DEPRECATED slaServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
-
--- | The namespace of the service in which access was attempted.
---
--- To learn the service namespace of a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'serviceNamespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slaServiceNamespace :: Lens.Lens' ServiceLastAccessed Lude.Text
-slaServiceNamespace = Lens.lens (serviceNamespace :: ServiceLastAccessed -> Lude.Text) (\s a -> s {serviceNamespace = a} :: ServiceLastAccessed)
-{-# DEPRECATED slaServiceNamespace "Use generic-lens or generic-optics with 'serviceNamespace' instead." #-}
-
 instance Lude.FromXML ServiceLastAccessed where
   parseXML x =
     ServiceLastAccessed'
       Lude.<$> (x Lude..@? "LastAuthenticated")
+      Lude.<*> (x Lude..@ "ServiceNamespace")
       Lude.<*> ( x Lude..@? "TrackedActionsLastAccessed" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
+      Lude.<*> (x Lude..@ "ServiceName")
       Lude.<*> (x Lude..@? "LastAuthenticatedEntity")
       Lude.<*> (x Lude..@? "LastAuthenticatedRegion")
       Lude.<*> (x Lude..@? "TotalAuthenticatedEntities")
-      Lude.<*> (x Lude..@ "ServiceName")
-      Lude.<*> (x Lude..@ "ServiceNamespace")

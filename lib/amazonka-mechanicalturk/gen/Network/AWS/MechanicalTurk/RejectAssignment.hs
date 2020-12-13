@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.MechanicalTurk.RejectAssignment
     mkRejectAssignment,
 
     -- ** Request lenses
-    raAssignmentId,
     raRequesterFeedback,
+    raAssignmentId,
 
     -- * Destructuring the response
     RejectAssignmentResponse (..),
@@ -42,41 +43,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRejectAssignment' smart constructor.
 data RejectAssignment = RejectAssignment'
-  { assignmentId ::
-      Lude.Text,
-    requesterFeedback :: Lude.Text
+  { -- | A message for the Worker, which the Worker can see in the Status section of the web site.
+    requesterFeedback :: Lude.Text,
+    -- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
+    assignmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectAssignment' with the minimum fields required to make a request.
 --
--- * 'assignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
 -- * 'requesterFeedback' - A message for the Worker, which the Worker can see in the Status section of the web site.
+-- * 'assignmentId' - The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
 mkRejectAssignment ::
-  -- | 'assignmentId'
-  Lude.Text ->
   -- | 'requesterFeedback'
   Lude.Text ->
+  -- | 'assignmentId'
+  Lude.Text ->
   RejectAssignment
-mkRejectAssignment pAssignmentId_ pRequesterFeedback_ =
+mkRejectAssignment pRequesterFeedback_ pAssignmentId_ =
   RejectAssignment'
-    { assignmentId = pAssignmentId_,
-      requesterFeedback = pRequesterFeedback_
+    { requesterFeedback = pRequesterFeedback_,
+      assignmentId = pAssignmentId_
     }
-
--- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
---
--- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raAssignmentId :: Lens.Lens' RejectAssignment Lude.Text
-raAssignmentId = Lens.lens (assignmentId :: RejectAssignment -> Lude.Text) (\s a -> s {assignmentId = a} :: RejectAssignment)
-{-# DEPRECATED raAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 -- | A message for the Worker, which the Worker can see in the Status section of the web site.
 --
@@ -84,6 +73,13 @@ raAssignmentId = Lens.lens (assignmentId :: RejectAssignment -> Lude.Text) (\s a
 raRequesterFeedback :: Lens.Lens' RejectAssignment Lude.Text
 raRequesterFeedback = Lens.lens (requesterFeedback :: RejectAssignment -> Lude.Text) (\s a -> s {requesterFeedback = a} :: RejectAssignment)
 {-# DEPRECATED raRequesterFeedback "Use generic-lens or generic-optics with 'requesterFeedback' instead." #-}
+
+-- | The ID of the assignment. The assignment must correspond to a HIT created by the Requester.
+--
+-- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raAssignmentId :: Lens.Lens' RejectAssignment Lude.Text
+raAssignmentId = Lens.lens (assignmentId :: RejectAssignment -> Lude.Text) (\s a -> s {assignmentId = a} :: RejectAssignment)
+{-# DEPRECATED raAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 instance Lude.AWSRequest RejectAssignment where
   type Rs RejectAssignment = RejectAssignmentResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON RejectAssignment where
   toJSON RejectAssignment' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AssignmentId" Lude..= assignmentId),
-            Lude.Just ("RequesterFeedback" Lude..= requesterFeedback)
+          [ Lude.Just ("RequesterFeedback" Lude..= requesterFeedback),
+            Lude.Just ("AssignmentId" Lude..= assignmentId)
           ]
       )
 
@@ -124,16 +120,10 @@ instance Lude.ToQuery RejectAssignment where
 
 -- | /See:/ 'mkRejectAssignmentResponse' smart constructor.
 newtype RejectAssignmentResponse = RejectAssignmentResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectAssignmentResponse' with the minimum fields required to make a request.

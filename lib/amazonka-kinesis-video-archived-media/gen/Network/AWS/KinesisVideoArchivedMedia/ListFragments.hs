@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.KinesisVideoArchivedMedia.ListFragments
     -- ** Request lenses
     lfFragmentSelector,
     lfNextToken,
-    lfMaxResults,
     lfStreamName,
+    lfMaxResults,
 
     -- * Destructuring the response
     ListFragmentsResponse (..),
@@ -58,27 +59,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFragments' smart constructor.
 data ListFragments = ListFragments'
-  { fragmentSelector ::
-      Lude.Maybe FragmentSelector,
+  { -- | Describes the timestamp range and timestamp origin for the range of fragments to return.
+    fragmentSelector :: Lude.Maybe FragmentSelector,
+    -- | A token to specify where to start paginating. This is the 'ListFragmentsOutput$NextToken' from a previously truncated response.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    streamName :: Lude.Text
+    -- | The name of the stream from which to retrieve a fragment list.
+    streamName :: Lude.Text,
+    -- | The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFragments' with the minimum fields required to make a request.
 --
 -- * 'fragmentSelector' - Describes the timestamp range and timestamp origin for the range of fragments to return.
--- * 'maxResults' - The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
 -- * 'nextToken' - A token to specify where to start paginating. This is the 'ListFragmentsOutput$NextToken' from a previously truncated response.
 -- * 'streamName' - The name of the stream from which to retrieve a fragment list.
+-- * 'maxResults' - The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
 mkListFragments ::
   -- | 'streamName'
   Lude.Text ->
@@ -87,8 +85,8 @@ mkListFragments pStreamName_ =
   ListFragments'
     { fragmentSelector = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      streamName = pStreamName_
+      streamName = pStreamName_,
+      maxResults = Lude.Nothing
     }
 
 -- | Describes the timestamp range and timestamp origin for the range of fragments to return.
@@ -105,19 +103,19 @@ lfNextToken :: Lens.Lens' ListFragments (Lude.Maybe Lude.Text)
 lfNextToken = Lens.lens (nextToken :: ListFragments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFragments)
 {-# DEPRECATED lfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfMaxResults :: Lens.Lens' ListFragments (Lude.Maybe Lude.Natural)
-lfMaxResults = Lens.lens (maxResults :: ListFragments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFragments)
-{-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the stream from which to retrieve a fragment list.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lfStreamName :: Lens.Lens' ListFragments Lude.Text
 lfStreamName = Lens.lens (streamName :: ListFragments -> Lude.Text) (\s a -> s {streamName = a} :: ListFragments)
 {-# DEPRECATED lfStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+
+-- | The total number of fragments to return. If the total number of fragments available is more than the value specified in @max-results@ , then a 'ListFragmentsOutput$NextToken' is provided in the output that you can use to resume pagination.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfMaxResults :: Lens.Lens' ListFragments (Lude.Maybe Lude.Natural)
+lfMaxResults = Lens.lens (maxResults :: ListFragments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFragments)
+{-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListFragments where
   page rq rs
@@ -149,8 +147,8 @@ instance Lude.ToJSON ListFragments where
       ( Lude.catMaybes
           [ ("FragmentSelector" Lude..=) Lude.<$> fragmentSelector,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("StreamName" Lude..= streamName)
+            Lude.Just ("StreamName" Lude..= streamName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -162,24 +160,20 @@ instance Lude.ToQuery ListFragments where
 
 -- | /See:/ 'mkListFragmentsResponse' smart constructor.
 data ListFragmentsResponse = ListFragmentsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the returned list is truncated, the operation returns this token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
     fragments :: Lude.Maybe [Fragment],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFragmentsResponse' with the minimum fields required to make a request.
 --
--- * 'fragments' - A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
 -- * 'nextToken' - If the returned list is truncated, the operation returns this token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'fragments' - A list of archived 'Fragment' objects from the stream that meet the selector criteria. Results are in no specific order, even across pages.
 -- * 'responseStatus' - The response status code.
 mkListFragmentsResponse ::
   -- | 'responseStatus'

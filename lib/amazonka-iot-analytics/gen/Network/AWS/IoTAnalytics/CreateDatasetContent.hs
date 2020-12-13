@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDatasetContent' smart constructor.
 data CreateDatasetContent = CreateDatasetContent'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The version ID of the dataset content. To specify @versionId@ for a dataset content, the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The name of the dataset.
     datasetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDatasetContent' with the minimum fields required to make a request.
 --
--- * 'datasetName' - The name of the dataset.
 -- * 'versionId' - The version ID of the dataset content. To specify @versionId@ for a dataset content, the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
+-- * 'datasetName' - The name of the dataset.
 mkCreateDatasetContent ::
   -- | 'datasetName'
   Lude.Text ->
@@ -108,23 +104,18 @@ instance Lude.ToQuery CreateDatasetContent where
 
 -- | /See:/ 'mkCreateDatasetContentResponse' smart constructor.
 data CreateDatasetContentResponse = CreateDatasetContentResponse'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The version ID of the dataset contents that are being created.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDatasetContentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'versionId' - The version ID of the dataset contents that are being created.
+-- * 'responseStatus' - The response status code.
 mkCreateDatasetContentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

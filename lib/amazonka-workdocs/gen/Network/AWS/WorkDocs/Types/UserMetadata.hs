@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserMetadata' smart constructor.
 data UserMetadata = UserMetadata'
-  { givenName ::
-      Lude.Maybe Lude.Text,
+  { -- | The given name of the user before a rename operation.
+    givenName :: Lude.Maybe Lude.Text,
+    -- | The name of the user.
     username :: Lude.Maybe Lude.Text,
+    -- | The email address of the user.
     emailAddress :: Lude.Maybe Lude.Text,
+    -- | The ID of the user.
     id :: Lude.Maybe Lude.Text,
+    -- | The surname of the user.
     surname :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserMetadata' with the minimum fields required to make a request.
 --
--- * 'emailAddress' - The email address of the user.
 -- * 'givenName' - The given name of the user before a rename operation.
+-- * 'username' - The name of the user.
+-- * 'emailAddress' - The email address of the user.
 -- * 'id' - The ID of the user.
 -- * 'surname' - The surname of the user.
--- * 'username' - The name of the user.
 mkUserMetadata ::
   UserMetadata
 mkUserMetadata =

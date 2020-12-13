@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.StorageGateway.DeleteTapeArchive
     mkDeleteTapeArchive,
 
     -- ** Request lenses
-    dtaBypassGovernanceRetention,
     dtaTapeARN,
+    dtaBypassGovernanceRetention,
 
     -- * Destructuring the response
     DeleteTapeArchiveResponse (..),
     mkDeleteTapeArchiveResponse,
 
     -- ** Response lenses
-    dtatrsTapeARN,
-    dtatrsResponseStatus,
+    dtarsTapeARN,
+    dtarsResponseStatus,
   )
 where
 
@@ -42,39 +43,27 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDeleteTapeArchive' smart constructor.
 data DeleteTapeArchive = DeleteTapeArchive'
-  { bypassGovernanceRetention ::
-      Lude.Maybe Lude.Bool,
-    tapeARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS).
+    tapeARN :: Lude.Text,
+    -- | Set to @TRUE@ to delete an archived tape that belongs to a custom pool with tape retention lock. Only archived tapes with tape retention lock set to @governance@ can be deleted. Archived tapes with tape retention lock set to @compliance@ can't be deleted.
+    bypassGovernanceRetention :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTapeArchive' with the minimum fields required to make a request.
 --
--- * 'bypassGovernanceRetention' - Set to @TRUE@ to delete an archived tape that belongs to a custom pool with tape retention lock. Only archived tapes with tape retention lock set to @governance@ can be deleted. Archived tapes with tape retention lock set to @compliance@ can't be deleted.
 -- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS).
+-- * 'bypassGovernanceRetention' - Set to @TRUE@ to delete an archived tape that belongs to a custom pool with tape retention lock. Only archived tapes with tape retention lock set to @governance@ can be deleted. Archived tapes with tape retention lock set to @compliance@ can't be deleted.
 mkDeleteTapeArchive ::
   -- | 'tapeARN'
   Lude.Text ->
   DeleteTapeArchive
 mkDeleteTapeArchive pTapeARN_ =
   DeleteTapeArchive'
-    { bypassGovernanceRetention = Lude.Nothing,
-      tapeARN = pTapeARN_
+    { tapeARN = pTapeARN_,
+      bypassGovernanceRetention = Lude.Nothing
     }
-
--- | Set to @TRUE@ to delete an archived tape that belongs to a custom pool with tape retention lock. Only archived tapes with tape retention lock set to @governance@ can be deleted. Archived tapes with tape retention lock set to @compliance@ can't be deleted.
---
--- /Note:/ Consider using 'bypassGovernanceRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtaBypassGovernanceRetention :: Lens.Lens' DeleteTapeArchive (Lude.Maybe Lude.Bool)
-dtaBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: DeleteTapeArchive -> Lude.Maybe Lude.Bool) (\s a -> s {bypassGovernanceRetention = a} :: DeleteTapeArchive)
-{-# DEPRECATED dtaBypassGovernanceRetention "Use generic-lens or generic-optics with 'bypassGovernanceRetention' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape shelf (VTS).
 --
@@ -82,6 +71,13 @@ dtaBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: DeleteTap
 dtaTapeARN :: Lens.Lens' DeleteTapeArchive Lude.Text
 dtaTapeARN = Lens.lens (tapeARN :: DeleteTapeArchive -> Lude.Text) (\s a -> s {tapeARN = a} :: DeleteTapeArchive)
 {-# DEPRECATED dtaTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
+
+-- | Set to @TRUE@ to delete an archived tape that belongs to a custom pool with tape retention lock. Only archived tapes with tape retention lock set to @governance@ can be deleted. Archived tapes with tape retention lock set to @compliance@ can't be deleted.
+--
+-- /Note:/ Consider using 'bypassGovernanceRetention' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtaBypassGovernanceRetention :: Lens.Lens' DeleteTapeArchive (Lude.Maybe Lude.Bool)
+dtaBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: DeleteTapeArchive -> Lude.Maybe Lude.Bool) (\s a -> s {bypassGovernanceRetention = a} :: DeleteTapeArchive)
+{-# DEPRECATED dtaBypassGovernanceRetention "Use generic-lens or generic-optics with 'bypassGovernanceRetention' instead." #-}
 
 instance Lude.AWSRequest DeleteTapeArchive where
   type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
@@ -108,9 +104,9 @@ instance Lude.ToJSON DeleteTapeArchive where
   toJSON DeleteTapeArchive' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("BypassGovernanceRetention" Lude..=)
-              Lude.<$> bypassGovernanceRetention,
-            Lude.Just ("TapeARN" Lude..= tapeARN)
+          [ Lude.Just ("TapeARN" Lude..= tapeARN),
+            ("BypassGovernanceRetention" Lude..=)
+              Lude.<$> bypassGovernanceRetention
           ]
       )
 
@@ -124,23 +120,18 @@ instance Lude.ToQuery DeleteTapeArchive where
 --
 -- /See:/ 'mkDeleteTapeArchiveResponse' smart constructor.
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
-  { tapeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS).
+    tapeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTapeArchiveResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS).
+-- * 'responseStatus' - The response status code.
 mkDeleteTapeArchiveResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -154,13 +145,13 @@ mkDeleteTapeArchiveResponse pResponseStatus_ =
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from the virtual tape shelf (VTS).
 --
 -- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtatrsTapeARN :: Lens.Lens' DeleteTapeArchiveResponse (Lude.Maybe Lude.Text)
-dtatrsTapeARN = Lens.lens (tapeARN :: DeleteTapeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: DeleteTapeArchiveResponse)
-{-# DEPRECATED dtatrsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
+dtarsTapeARN :: Lens.Lens' DeleteTapeArchiveResponse (Lude.Maybe Lude.Text)
+dtarsTapeARN = Lens.lens (tapeARN :: DeleteTapeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: DeleteTapeArchiveResponse)
+{-# DEPRECATED dtarsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtatrsResponseStatus :: Lens.Lens' DeleteTapeArchiveResponse Lude.Int
-dtatrsResponseStatus = Lens.lens (responseStatus :: DeleteTapeArchiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTapeArchiveResponse)
-{-# DEPRECATED dtatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtarsResponseStatus :: Lens.Lens' DeleteTapeArchiveResponse Lude.Int
+dtarsResponseStatus = Lens.lens (responseStatus :: DeleteTapeArchiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTapeArchiveResponse)
+{-# DEPRECATED dtarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

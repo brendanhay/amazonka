@@ -17,9 +17,9 @@ module Network.AWS.CloudFront.Types.AllowedMethods
     mkAllowedMethods,
 
     -- * Lenses
-    amCachedMethods,
     amQuantity,
     amItems,
+    amCachedMethods,
   )
 where
 
@@ -44,42 +44,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAllowedMethods' smart constructor.
 data AllowedMethods = AllowedMethods'
-  { cachedMethods ::
-      Lude.Maybe CachedMethods,
+  { -- | The number of HTTP methods that you want CloudFront to forward to your origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for @GET@ , @HEAD@ , and @OPTIONS@ requests) and 7 (for @GET, HEAD, OPTIONS, PUT, PATCH, POST@ , and @DELETE@ requests).
     quantity :: Lude.Int,
-    items :: [Method]
+    -- | A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.
+    items :: [Method],
+    cachedMethods :: Lude.Maybe CachedMethods
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllowedMethods' with the minimum fields required to make a request.
 --
--- * 'cachedMethods' - Undocumented field.
--- * 'items' - A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.
 -- * 'quantity' - The number of HTTP methods that you want CloudFront to forward to your origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for @GET@ , @HEAD@ , and @OPTIONS@ requests) and 7 (for @GET, HEAD, OPTIONS, PUT, PATCH, POST@ , and @DELETE@ requests).
+-- * 'items' - A complex type that contains the HTTP methods that you want CloudFront to process and forward to your origin.
+-- * 'cachedMethods' -
 mkAllowedMethods ::
   -- | 'quantity'
   Lude.Int ->
   AllowedMethods
 mkAllowedMethods pQuantity_ =
   AllowedMethods'
-    { cachedMethods = Lude.Nothing,
-      quantity = pQuantity_,
-      items = Lude.mempty
+    { quantity = pQuantity_,
+      items = Lude.mempty,
+      cachedMethods = Lude.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'cachedMethods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amCachedMethods :: Lens.Lens' AllowedMethods (Lude.Maybe CachedMethods)
-amCachedMethods = Lens.lens (cachedMethods :: AllowedMethods -> Lude.Maybe CachedMethods) (\s a -> s {cachedMethods = a} :: AllowedMethods)
-{-# DEPRECATED amCachedMethods "Use generic-lens or generic-optics with 'cachedMethods' instead." #-}
 
 -- | The number of HTTP methods that you want CloudFront to forward to your origin. Valid values are 2 (for @GET@ and @HEAD@ requests), 3 (for @GET@ , @HEAD@ , and @OPTIONS@ requests) and 7 (for @GET, HEAD, OPTIONS, PUT, PATCH, POST@ , and @DELETE@ requests).
 --
@@ -95,19 +83,26 @@ amItems :: Lens.Lens' AllowedMethods [Method]
 amItems = Lens.lens (items :: AllowedMethods -> [Method]) (\s a -> s {items = a} :: AllowedMethods)
 {-# DEPRECATED amItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cachedMethods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amCachedMethods :: Lens.Lens' AllowedMethods (Lude.Maybe CachedMethods)
+amCachedMethods = Lens.lens (cachedMethods :: AllowedMethods -> Lude.Maybe CachedMethods) (\s a -> s {cachedMethods = a} :: AllowedMethods)
+{-# DEPRECATED amCachedMethods "Use generic-lens or generic-optics with 'cachedMethods' instead." #-}
+
 instance Lude.FromXML AllowedMethods where
   parseXML x =
     AllowedMethods'
-      Lude.<$> (x Lude..@? "CachedMethods")
-      Lude.<*> (x Lude..@ "Quantity")
+      Lude.<$> (x Lude..@ "Quantity")
       Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.parseXMLList "Method"
                )
+      Lude.<*> (x Lude..@? "CachedMethods")
 
 instance Lude.ToXML AllowedMethods where
   toXML AllowedMethods' {..} =
     Lude.mconcat
-      [ "CachedMethods" Lude.@= cachedMethods,
-        "Quantity" Lude.@= quantity,
-        "Items" Lude.@= Lude.toXMLList "Method" items
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXMLList "Method" items,
+        "CachedMethods" Lude.@= cachedMethods
       ]

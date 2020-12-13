@@ -13,10 +13,10 @@
 module Network.AWS.Route53AutoNaming.Types.RecordType
   ( RecordType
       ( RecordType',
+        Srv,
         A,
         Aaaa,
-        Cname,
-        Srv
+        Cname
       ),
   )
 where
@@ -47,6 +47,9 @@ newtype RecordType = RecordType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Srv :: RecordType
+pattern Srv = RecordType' "SRV"
+
 pattern A :: RecordType
 pattern A = RecordType' "A"
 
@@ -56,13 +59,10 @@ pattern Aaaa = RecordType' "AAAA"
 pattern Cname :: RecordType
 pattern Cname = RecordType' "CNAME"
 
-pattern Srv :: RecordType
-pattern Srv = RecordType' "SRV"
-
 {-# COMPLETE
+  Srv,
   A,
   Aaaa,
   Cname,
-  Srv,
   RecordType'
   #-}

@@ -41,42 +41,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlueprint' smart constructor.
 data Blueprint = Blueprint'
-  { versionCode :: Lude.Maybe Lude.Text,
+  { -- | The version code.
+    versionCode :: Lude.Maybe Lude.Text,
+    -- | The operating system platform (either Linux/Unix-based or Windows Server-based) of the blueprint.
     platform :: Lude.Maybe InstancePlatform,
+    -- | The group name of the blueprint (e.g., @amazon-linux@ ).
     group :: Lude.Maybe Lude.Text,
+    -- | The minimum bundle power required to run this blueprint. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500. @0@ indicates that the blueprint runs on all instance sizes.
     minPower :: Lude.Maybe Lude.Int,
+    -- | The product URL to learn more about the image or blueprint.
     productURL :: Lude.Maybe Lude.Text,
+    -- | The end-user license agreement URL for the image or blueprint.
     licenseURL :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the blueprint (e.g., @Amazon Linux@ ).
     name :: Lude.Maybe Lude.Text,
+    -- | The version number of the operating system, application, or stack (e.g., @2016.03.0@ ).
     version :: Lude.Maybe Lude.Text,
+    -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ).
     blueprintId :: Lude.Maybe Lude.Text,
+    -- | The type of the blueprint (e.g., @os@ or @app@ ).
     type' :: Lude.Maybe BlueprintType,
+    -- | A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers with existing instances but are not necessarily available for launch of new instances. Blueprints are marked inactive when they become outdated due to operating system updates or new application releases.
     isActive :: Lude.Maybe Lude.Bool,
+    -- | The description of the blueprint.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Blueprint' with the minimum fields required to make a request.
 --
--- * 'blueprintId' - The ID for the virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ).
--- * 'description' - The description of the blueprint.
--- * 'group' - The group name of the blueprint (e.g., @amazon-linux@ ).
--- * 'isActive' - A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers with existing instances but are not necessarily available for launch of new instances. Blueprints are marked inactive when they become outdated due to operating system updates or new application releases.
--- * 'licenseURL' - The end-user license agreement URL for the image or blueprint.
--- * 'minPower' - The minimum bundle power required to run this blueprint. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500. @0@ indicates that the blueprint runs on all instance sizes.
--- * 'name' - The friendly name of the blueprint (e.g., @Amazon Linux@ ).
--- * 'platform' - The operating system platform (either Linux/Unix-based or Windows Server-based) of the blueprint.
--- * 'productURL' - The product URL to learn more about the image or blueprint.
--- * 'type'' - The type of the blueprint (e.g., @os@ or @app@ ).
--- * 'version' - The version number of the operating system, application, or stack (e.g., @2016.03.0@ ).
 -- * 'versionCode' - The version code.
+-- * 'platform' - The operating system platform (either Linux/Unix-based or Windows Server-based) of the blueprint.
+-- * 'group' - The group name of the blueprint (e.g., @amazon-linux@ ).
+-- * 'minPower' - The minimum bundle power required to run this blueprint. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500. @0@ indicates that the blueprint runs on all instance sizes.
+-- * 'productURL' - The product URL to learn more about the image or blueprint.
+-- * 'licenseURL' - The end-user license agreement URL for the image or blueprint.
+-- * 'name' - The friendly name of the blueprint (e.g., @Amazon Linux@ ).
+-- * 'version' - The version number of the operating system, application, or stack (e.g., @2016.03.0@ ).
+-- * 'blueprintId' - The ID for the virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ).
+-- * 'type'' - The type of the blueprint (e.g., @os@ or @app@ ).
+-- * 'isActive' - A Boolean value indicating whether the blueprint is active. Inactive blueprints are listed to support customers with existing instances but are not necessarily available for launch of new instances. Blueprints are marked inactive when they become outdated due to operating system updates or new application releases.
+-- * 'description' - The description of the blueprint.
 mkBlueprint ::
   Blueprint
 mkBlueprint =

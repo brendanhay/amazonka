@@ -35,36 +35,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTapeInfo' smart constructor.
 data TapeInfo = TapeInfo'
-  { tapeBarcode :: Lude.Maybe Lude.Text,
+  { -- | The barcode that identifies a specific virtual tape.
+    tapeBarcode :: Lude.Maybe Lude.Text,
+    -- | The status of the tape.
     tapeStatus :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of a virtual tape.
     tapeARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
     gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The size, in bytes, of a virtual tape.
     tapeSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+    --
+    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Lude.Maybe Lude.Text,
+    -- | The date that the tape entered the custom tape pool with tape retention lock enabled.
     poolEntryDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date that the tape became subject to tape retention lock.
     retentionStartDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TapeInfo' with the minimum fields required to make a request.
 --
+-- * 'tapeBarcode' - The barcode that identifies a specific virtual tape.
+-- * 'tapeStatus' - The status of the tape.
+-- * 'tapeARN' - The Amazon Resource Name (ARN) of a virtual tape.
 -- * 'gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
--- * 'poolEntryDate' - The date that the tape entered the custom tape pool with tape retention lock enabled.
+-- * 'tapeSizeInBytes' - The size, in bytes, of a virtual tape.
 -- * 'poolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+-- * 'poolEntryDate' - The date that the tape entered the custom tape pool with tape retention lock enabled.
 -- * 'retentionStartDate' - The date that the tape became subject to tape retention lock.
--- * 'tapeARN' - The Amazon Resource Name (ARN) of a virtual tape.
--- * 'tapeBarcode' - The barcode that identifies a specific virtual tape.
--- * 'tapeSizeInBytes' - The size, in bytes, of a virtual tape.
--- * 'tapeStatus' - The status of the tape.
 mkTapeInfo ::
   TapeInfo
 mkTapeInfo =

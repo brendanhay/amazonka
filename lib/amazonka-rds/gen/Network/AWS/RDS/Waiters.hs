@@ -133,7 +133,7 @@ mkDBSnapshotCompleted =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -153,14 +153,14 @@ mkDBSnapshotDeleted =
         [ Wait.matchEmpty
             Lude.True
             Wait.AcceptSuccess
-            (ddsrsDBSnapshots Lude.. Lens._Just),
+            (ddbsrsDBSnapshots Lude.. Lens._Just),
           Wait.matchError "DBSnapshotNotFound" Wait.AcceptSuccess,
           Wait.matchAny
             "creating"
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -171,7 +171,7 @@ mkDBSnapshotDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -182,7 +182,7 @@ mkDBSnapshotDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -193,7 +193,7 @@ mkDBSnapshotDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -345,7 +345,7 @@ mkDBSnapshotAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -356,7 +356,7 @@ mkDBSnapshotAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -367,7 +367,7 @@ mkDBSnapshotAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -378,7 +378,7 @@ mkDBSnapshotAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -389,7 +389,7 @@ mkDBSnapshotAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just
@@ -400,7 +400,7 @@ mkDBSnapshotAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (ddbsrsDBSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. dsStatus
                 Lude.. Lens._Just

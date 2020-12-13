@@ -37,34 +37,33 @@ import Network.AWS.SMS.Types.ValidationStatus
 --
 -- /See:/ 'mkValidationOutput' smart constructor.
 data ValidationOutput = ValidationOutput'
-  { status ::
-      Lude.Maybe ValidationStatus,
+  { -- | The status of the validation.
+    status :: Lude.Maybe ValidationStatus,
+    -- | The output from validating an application.
     appValidationOutput :: Lude.Maybe AppValidationOutput,
+    -- | The latest time that the validation was performed.
     latestValidationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the validation.
     name :: Lude.Maybe Lude.Text,
+    -- | The status message.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the validation.
     validationId :: Lude.Maybe Lude.Text,
-    serverValidationOutput ::
-      Lude.Maybe ServerValidationOutput
+    -- | The output from validation an instance.
+    serverValidationOutput :: Lude.Maybe ServerValidationOutput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationOutput' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the validation.
 -- * 'appValidationOutput' - The output from validating an application.
 -- * 'latestValidationTime' - The latest time that the validation was performed.
 -- * 'name' - The name of the validation.
--- * 'serverValidationOutput' - The output from validation an instance.
--- * 'status' - The status of the validation.
 -- * 'statusMessage' - The status message.
 -- * 'validationId' - The ID of the validation.
+-- * 'serverValidationOutput' - The output from validation an instance.
 mkValidationOutput ::
   ValidationOutput
 mkValidationOutput =

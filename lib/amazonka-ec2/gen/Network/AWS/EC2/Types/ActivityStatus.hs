@@ -14,9 +14,9 @@ module Network.AWS.EC2.Types.ActivityStatus
   ( ActivityStatus
       ( ActivityStatus',
         ASError,
-        ASFulfilled,
         ASPendingFulfillment,
-        ASPendingTermination
+        ASPendingTermination,
+        ASFulfilled
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ActivityStatus = ActivityStatus' Lude.Text
 pattern ASError :: ActivityStatus
 pattern ASError = ActivityStatus' "error"
 
-pattern ASFulfilled :: ActivityStatus
-pattern ASFulfilled = ActivityStatus' "fulfilled"
-
 pattern ASPendingFulfillment :: ActivityStatus
 pattern ASPendingFulfillment = ActivityStatus' "pending_fulfillment"
 
 pattern ASPendingTermination :: ActivityStatus
 pattern ASPendingTermination = ActivityStatus' "pending_termination"
 
+pattern ASFulfilled :: ActivityStatus
+pattern ASFulfilled = ActivityStatus' "fulfilled"
+
 {-# COMPLETE
   ASError,
-  ASFulfilled,
   ASPendingFulfillment,
   ASPendingTermination,
+  ASFulfilled,
   ActivityStatus'
   #-}

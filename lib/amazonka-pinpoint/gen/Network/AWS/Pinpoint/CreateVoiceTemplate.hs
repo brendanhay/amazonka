@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.CreateVoiceTemplate
     mkCreateVoiceTemplateResponse,
 
     -- ** Response lenses
-    cvtrsResponseStatus,
     cvtrsCreateTemplateMessageBody,
+    cvtrsResponseStatus,
   )
 where
 
@@ -40,23 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateVoiceTemplate' smart constructor.
 data CreateVoiceTemplate = CreateVoiceTemplate'
-  { templateName ::
-      Lude.Text,
+  { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+    templateName :: Lude.Text,
     voiceTemplateRequest :: VoiceTemplateRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVoiceTemplate' with the minimum fields required to make a request.
 --
 -- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
--- * 'voiceTemplateRequest' - Undocumented field.
+-- * 'voiceTemplateRequest' -
 mkCreateVoiceTemplate ::
   -- | 'templateName'
   Lude.Text ->
@@ -90,7 +85,7 @@ instance Lude.AWSRequest CreateVoiceTemplate where
     Res.receiveJSON
       ( \s h x ->
           CreateVoiceTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateVoiceTemplate where
@@ -118,44 +113,31 @@ instance Lude.ToQuery CreateVoiceTemplate where
 
 -- | /See:/ 'mkCreateVoiceTemplateResponse' smart constructor.
 data CreateVoiceTemplateResponse = CreateVoiceTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    createTemplateMessageBody ::
-      CreateTemplateMessageBody
+  { createTemplateMessageBody :: CreateTemplateMessageBody,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVoiceTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'createTemplateMessageBody' - Undocumented field.
+-- * 'createTemplateMessageBody' -
 -- * 'responseStatus' - The response status code.
 mkCreateVoiceTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'createTemplateMessageBody'
   CreateTemplateMessageBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVoiceTemplateResponse
 mkCreateVoiceTemplateResponse
-  pResponseStatus_
-  pCreateTemplateMessageBody_ =
+  pCreateTemplateMessageBody_
+  pResponseStatus_ =
     CreateVoiceTemplateResponse'
-      { responseStatus = pResponseStatus_,
-        createTemplateMessageBody = pCreateTemplateMessageBody_
+      { createTemplateMessageBody =
+          pCreateTemplateMessageBody_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvtrsResponseStatus :: Lens.Lens' CreateVoiceTemplateResponse Lude.Int
-cvtrsResponseStatus = Lens.lens (responseStatus :: CreateVoiceTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVoiceTemplateResponse)
-{-# DEPRECATED cvtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -163,3 +145,10 @@ cvtrsResponseStatus = Lens.lens (responseStatus :: CreateVoiceTemplateResponse -
 cvtrsCreateTemplateMessageBody :: Lens.Lens' CreateVoiceTemplateResponse CreateTemplateMessageBody
 cvtrsCreateTemplateMessageBody = Lens.lens (createTemplateMessageBody :: CreateVoiceTemplateResponse -> CreateTemplateMessageBody) (\s a -> s {createTemplateMessageBody = a} :: CreateVoiceTemplateResponse)
 {-# DEPRECATED cvtrsCreateTemplateMessageBody "Use generic-lens or generic-optics with 'createTemplateMessageBody' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvtrsResponseStatus :: Lens.Lens' CreateVoiceTemplateResponse Lude.Int
+cvtrsResponseStatus = Lens.lens (responseStatus :: CreateVoiceTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVoiceTemplateResponse)
+{-# DEPRECATED cvtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

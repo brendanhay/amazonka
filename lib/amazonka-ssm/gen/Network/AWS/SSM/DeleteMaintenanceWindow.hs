@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.SSM.DeleteMaintenanceWindow
     mkDeleteMaintenanceWindowResponse,
 
     -- ** Response lenses
-    dmwrsWindowId,
-    dmwrsResponseStatus,
+    dmwfrsWindowId,
+    dmwfrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDeleteMaintenanceWindow' smart constructor.
 newtype DeleteMaintenanceWindow = DeleteMaintenanceWindow'
-  { windowId ::
-      Lude.Text
+  { -- | The ID of the maintenance window to delete.
+    windowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMaintenanceWindow' with the minimum fields required to make a request.
@@ -102,23 +97,18 @@ instance Lude.ToQuery DeleteMaintenanceWindow where
 
 -- | /See:/ 'mkDeleteMaintenanceWindowResponse' smart constructor.
 data DeleteMaintenanceWindowResponse = DeleteMaintenanceWindowResponse'
-  { windowId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the deleted maintenance window.
+    windowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'windowId' - The ID of the deleted maintenance window.
+-- * 'responseStatus' - The response status code.
 mkDeleteMaintenanceWindowResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -132,13 +122,13 @@ mkDeleteMaintenanceWindowResponse pResponseStatus_ =
 -- | The ID of the deleted maintenance window.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwrsWindowId :: Lens.Lens' DeleteMaintenanceWindowResponse (Lude.Maybe Lude.Text)
-dmwrsWindowId = Lens.lens (windowId :: DeleteMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: DeleteMaintenanceWindowResponse)
-{-# DEPRECATED dmwrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
+dmwfrsWindowId :: Lens.Lens' DeleteMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+dmwfrsWindowId = Lens.lens (windowId :: DeleteMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: DeleteMaintenanceWindowResponse)
+{-# DEPRECATED dmwfrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwrsResponseStatus :: Lens.Lens' DeleteMaintenanceWindowResponse Lude.Int
-dmwrsResponseStatus = Lens.lens (responseStatus :: DeleteMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMaintenanceWindowResponse)
-{-# DEPRECATED dmwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmwfrsResponseStatus :: Lens.Lens' DeleteMaintenanceWindowResponse Lude.Int
+dmwfrsResponseStatus = Lens.lens (responseStatus :: DeleteMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMaintenanceWindowResponse)
+{-# DEPRECATED dmwfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,8 +17,8 @@ module Network.AWS.SWF.Types.MarkerRecordedEventAttributes
     mkMarkerRecordedEventAttributes,
 
     -- * Lenses
-    mreaDetails,
     mreaMarkerName,
+    mreaDetails,
     mreaDecisionTaskCompletedEventId,
   )
 where
@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMarkerRecordedEventAttributes' smart constructor.
 data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
-  { details ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the marker.
     markerName :: Lude.Text,
-    decisionTaskCompletedEventId ::
-      Lude.Integer
+    -- | The details of the marker.
+    details :: Lude.Maybe Lude.Text,
+    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MarkerRecordedEventAttributes' with the minimum fields required to make a request.
 --
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'details' - The details of the marker.
 -- * 'markerName' - The name of the marker.
+-- * 'details' - The details of the marker.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkMarkerRecordedEventAttributes ::
   -- | 'markerName'
   Lude.Text ->
@@ -60,17 +55,10 @@ mkMarkerRecordedEventAttributes
   pMarkerName_
   pDecisionTaskCompletedEventId_ =
     MarkerRecordedEventAttributes'
-      { details = Lude.Nothing,
-        markerName = pMarkerName_,
+      { markerName = pMarkerName_,
+        details = Lude.Nothing,
         decisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
       }
-
--- | The details of the marker.
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mreaDetails :: Lens.Lens' MarkerRecordedEventAttributes (Lude.Maybe Lude.Text)
-mreaDetails = Lens.lens (details :: MarkerRecordedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: MarkerRecordedEventAttributes)
-{-# DEPRECATED mreaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The name of the marker.
 --
@@ -78,6 +66,13 @@ mreaDetails = Lens.lens (details :: MarkerRecordedEventAttributes -> Lude.Maybe 
 mreaMarkerName :: Lens.Lens' MarkerRecordedEventAttributes Lude.Text
 mreaMarkerName = Lens.lens (markerName :: MarkerRecordedEventAttributes -> Lude.Text) (\s a -> s {markerName = a} :: MarkerRecordedEventAttributes)
 {-# DEPRECATED mreaMarkerName "Use generic-lens or generic-optics with 'markerName' instead." #-}
+
+-- | The details of the marker.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mreaDetails :: Lens.Lens' MarkerRecordedEventAttributes (Lude.Maybe Lude.Text)
+mreaDetails = Lens.lens (details :: MarkerRecordedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: MarkerRecordedEventAttributes)
+{-# DEPRECATED mreaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @RecordMarker@ decision that requested this marker. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
@@ -92,7 +87,7 @@ instance Lude.FromJSON MarkerRecordedEventAttributes where
       "MarkerRecordedEventAttributes"
       ( \x ->
           MarkerRecordedEventAttributes'
-            Lude.<$> (x Lude..:? "details")
-            Lude.<*> (x Lude..: "markerName")
+            Lude.<$> (x Lude..: "markerName")
+            Lude.<*> (x Lude..:? "details")
             Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
       )

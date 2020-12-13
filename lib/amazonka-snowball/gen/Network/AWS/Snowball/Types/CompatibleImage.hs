@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCompatibleImage' smart constructor.
 data CompatibleImage = CompatibleImage'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The optional name of a compatible image.
+    name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for an individual Snow device AMI.
     amiId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompatibleImage' with the minimum fields required to make a request.
 --
--- * 'amiId' - The unique identifier for an individual Snow device AMI.
 -- * 'name' - The optional name of a compatible image.
+-- * 'amiId' - The unique identifier for an individual Snow device AMI.
 mkCompatibleImage ::
   CompatibleImage
 mkCompatibleImage =

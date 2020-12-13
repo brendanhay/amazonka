@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRateIncreaseCriteria' smart constructor.
 data RateIncreaseCriteria = RateIncreaseCriteria'
-  { numberOfNotifiedThings ::
-      Lude.Maybe Lude.Natural,
-    numberOfSucceededThings ::
-      Lude.Maybe Lude.Natural
+  { -- | The threshold for number of notified things that will initiate the increase in rate of rollout.
+    numberOfNotifiedThings :: Lude.Maybe Lude.Natural,
+    -- | The threshold for number of succeeded things that will initiate the increase in rate of rollout.
+    numberOfSucceededThings :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RateIncreaseCriteria' with the minimum fields required to make a request.

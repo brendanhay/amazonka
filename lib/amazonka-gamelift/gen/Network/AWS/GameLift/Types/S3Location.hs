@@ -31,18 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { bucket :: Lude.Maybe Lude.Text,
+  { -- | An S3 bucket identifier. This is the name of the S3 bucket.
+    bucket :: Lude.Maybe Lude.Text,
+    -- | The name of the zip file that contains the build files or script files.
     key :: Lude.Maybe Lude.Text,
+    -- | The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from an S3 bucket that you own. Use this parameter to specify a specific version of the file. If not set, the latest version of the file is retrieved.
     objectVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access the S3 bucket.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.

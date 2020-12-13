@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkConfirmConnection' smart constructor.
 newtype ConfirmConnection = ConfirmConnection'
-  { connectionId ::
-      Lude.Text
+  { -- | The ID of the hosted connection.
+    connectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmConnection' with the minimum fields required to make a request.
@@ -105,17 +100,39 @@ instance Lude.ToQuery ConfirmConnection where
 
 -- | /See:/ 'mkConfirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
-  { connectionState ::
-      Lude.Maybe ConnectionState,
+  { -- | The state of the connection. The following are the possible values:
+    --
+    --
+    --     * @ordering@ : The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
+    --
+    --
+    --     * @requested@ : The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+    --
+    --
+    --     * @pending@ : The connection has been approved and is being initialized.
+    --
+    --
+    --     * @available@ : The network link is up and the connection is ready for use.
+    --
+    --
+    --     * @down@ : The network link is down.
+    --
+    --
+    --     * @deleting@ : The connection is being deleted.
+    --
+    --
+    --     * @deleted@ : The connection has been deleted.
+    --
+    --
+    --     * @rejected@ : A hosted connection in the @ordering@ state enters the @rejected@ state if it is deleted by the customer.
+    --
+    --
+    --     * @unknown@ : The state of the connection is not available.
+    connectionState :: Lude.Maybe ConnectionState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmConnectionResponse' with the minimum fields required to make a request.

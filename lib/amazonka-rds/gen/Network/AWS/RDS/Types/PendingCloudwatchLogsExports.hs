@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPendingCloudwatchLogsExports' smart constructor.
 data PendingCloudwatchLogsExports = PendingCloudwatchLogsExports'
-  { logTypesToEnable ::
-      Lude.Maybe [Lude.Text],
-    logTypesToDisable ::
-      Lude.Maybe [Lude.Text]
+  { -- | Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+    logTypesToEnable :: Lude.Maybe [Lude.Text],
+    -- | Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.
+    logTypesToDisable :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingCloudwatchLogsExports' with the minimum fields required to make a request.
 --
--- * 'logTypesToDisable' - Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.
 -- * 'logTypesToEnable' - Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.
+-- * 'logTypesToDisable' - Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.
 mkPendingCloudwatchLogsExports ::
   PendingCloudwatchLogsExports
 mkPendingCloudwatchLogsExports =

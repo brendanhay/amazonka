@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +21,10 @@ module Network.AWS.EC2.GetCoipPoolUsage
 
     -- ** Request lenses
     gcpuFilters,
+    gcpuPoolId,
     gcpuNextToken,
     gcpuDryRun,
     gcpuMaxResults,
-    gcpuPoolId,
 
     -- * Destructuring the response
     GetCoipPoolUsageResponse (..),
@@ -45,25 +46,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCoipPoolUsage' smart constructor.
 data GetCoipPoolUsage = GetCoipPoolUsage'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters. The following are the possible values:
+    --
+    --
+    --     * @coip-address-usage.allocation-id@
+    --
+    --
+    --
+    --     * @coip-address-usage.aws-account-id@
+    --
+    --
+    --
+    --     * @coip-address-usage.aws-service@
+    --
+    --
+    --
+    --     * @coip-address-usage.co-ip@
+    filters :: Lude.Maybe [Filter],
+    -- | The ID of the address pool.
+    poolId :: Lude.Text,
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Natural,
-    poolId :: Lude.Text
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCoipPoolUsage' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters. The following are the possible values:
 --
 --
@@ -82,9 +95,10 @@ data GetCoipPoolUsage = GetCoipPoolUsage'
 --     * @coip-address-usage.co-ip@
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'nextToken' - The token for the next page of results.
 -- * 'poolId' - The ID of the address pool.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkGetCoipPoolUsage ::
   -- | 'poolId'
   Lude.Text ->
@@ -92,10 +106,10 @@ mkGetCoipPoolUsage ::
 mkGetCoipPoolUsage pPoolId_ =
   GetCoipPoolUsage'
     { filters = Lude.Nothing,
+      poolId = pPoolId_,
       nextToken = Lude.Nothing,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      poolId = pPoolId_
+      maxResults = Lude.Nothing
     }
 
 -- | The filters. The following are the possible values:
@@ -122,6 +136,13 @@ gcpuFilters :: Lens.Lens' GetCoipPoolUsage (Lude.Maybe [Filter])
 gcpuFilters = Lens.lens (filters :: GetCoipPoolUsage -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: GetCoipPoolUsage)
 {-# DEPRECATED gcpuFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
+-- | The ID of the address pool.
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpuPoolId :: Lens.Lens' GetCoipPoolUsage Lude.Text
+gcpuPoolId = Lens.lens (poolId :: GetCoipPoolUsage -> Lude.Text) (\s a -> s {poolId = a} :: GetCoipPoolUsage)
+{-# DEPRECATED gcpuPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
+
 -- | The token for the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -142,13 +163,6 @@ gcpuDryRun = Lens.lens (dryRun :: GetCoipPoolUsage -> Lude.Maybe Lude.Bool) (\s 
 gcpuMaxResults :: Lens.Lens' GetCoipPoolUsage (Lude.Maybe Lude.Natural)
 gcpuMaxResults = Lens.lens (maxResults :: GetCoipPoolUsage -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCoipPoolUsage)
 {-# DEPRECATED gcpuMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the address pool.
---
--- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpuPoolId :: Lens.Lens' GetCoipPoolUsage Lude.Text
-gcpuPoolId = Lens.lens (poolId :: GetCoipPoolUsage -> Lude.Text) (\s a -> s {poolId = a} :: GetCoipPoolUsage)
-{-# DEPRECATED gcpuPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
 
 instance Lude.AWSRequest GetCoipPoolUsage where
   type Rs GetCoipPoolUsage = GetCoipPoolUsageResponse
@@ -177,28 +191,24 @@ instance Lude.ToQuery GetCoipPoolUsage where
       [ "Action" Lude.=: ("GetCoipPoolUsage" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "PoolId" Lude.=: poolId,
         "NextToken" Lude.=: nextToken,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "PoolId" Lude.=: poolId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkGetCoipPoolUsageResponse' smart constructor.
 data GetCoipPoolUsageResponse = GetCoipPoolUsageResponse'
-  { coipAddressUsages ::
-      Lude.Maybe [CoipAddressUsage],
+  { -- | Information about the address usage.
+    coipAddressUsages :: Lude.Maybe [CoipAddressUsage],
+    -- | The ID of the customer-owned address pool.
     coipPoolId :: Lude.Maybe Lude.Text,
-    localGatewayRouteTableId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCoipPoolUsageResponse' with the minimum fields required to make a request.

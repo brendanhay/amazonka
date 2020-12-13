@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.ContinuousParameterRangeSpecification
     mkContinuousParameterRangeSpecification,
 
     -- * Lenses
-    cprsMinValue,
     cprsMaxValue,
+    cprsMinValue,
   )
 where
 
@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContinuousParameterRangeSpecification' smart constructor.
 data ContinuousParameterRangeSpecification = ContinuousParameterRangeSpecification'
-  { minValue ::
-      Lude.Text,
-    maxValue ::
-      Lude.Text
+  { -- | The maximum floating-point value allowed.
+    maxValue :: Lude.Text,
+    -- | The minimum floating-point value allowed.
+    minValue :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContinuousParameterRangeSpecification' with the minimum fields required to make a request.
@@ -48,23 +42,16 @@ data ContinuousParameterRangeSpecification = ContinuousParameterRangeSpecificati
 -- * 'maxValue' - The maximum floating-point value allowed.
 -- * 'minValue' - The minimum floating-point value allowed.
 mkContinuousParameterRangeSpecification ::
-  -- | 'minValue'
-  Lude.Text ->
   -- | 'maxValue'
   Lude.Text ->
+  -- | 'minValue'
+  Lude.Text ->
   ContinuousParameterRangeSpecification
-mkContinuousParameterRangeSpecification pMinValue_ pMaxValue_ =
+mkContinuousParameterRangeSpecification pMaxValue_ pMinValue_ =
   ContinuousParameterRangeSpecification'
-    { minValue = pMinValue_,
-      maxValue = pMaxValue_
+    { maxValue = pMaxValue_,
+      minValue = pMinValue_
     }
-
--- | The minimum floating-point value allowed.
---
--- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsMinValue :: Lens.Lens' ContinuousParameterRangeSpecification Lude.Text
-cprsMinValue = Lens.lens (minValue :: ContinuousParameterRangeSpecification -> Lude.Text) (\s a -> s {minValue = a} :: ContinuousParameterRangeSpecification)
-{-# DEPRECATED cprsMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
 
 -- | The maximum floating-point value allowed.
 --
@@ -73,20 +60,27 @@ cprsMaxValue :: Lens.Lens' ContinuousParameterRangeSpecification Lude.Text
 cprsMaxValue = Lens.lens (maxValue :: ContinuousParameterRangeSpecification -> Lude.Text) (\s a -> s {maxValue = a} :: ContinuousParameterRangeSpecification)
 {-# DEPRECATED cprsMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
 
+-- | The minimum floating-point value allowed.
+--
+-- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsMinValue :: Lens.Lens' ContinuousParameterRangeSpecification Lude.Text
+cprsMinValue = Lens.lens (minValue :: ContinuousParameterRangeSpecification -> Lude.Text) (\s a -> s {minValue = a} :: ContinuousParameterRangeSpecification)
+{-# DEPRECATED cprsMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
+
 instance Lude.FromJSON ContinuousParameterRangeSpecification where
   parseJSON =
     Lude.withObject
       "ContinuousParameterRangeSpecification"
       ( \x ->
           ContinuousParameterRangeSpecification'
-            Lude.<$> (x Lude..: "MinValue") Lude.<*> (x Lude..: "MaxValue")
+            Lude.<$> (x Lude..: "MaxValue") Lude.<*> (x Lude..: "MinValue")
       )
 
 instance Lude.ToJSON ContinuousParameterRangeSpecification where
   toJSON ContinuousParameterRangeSpecification' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("MinValue" Lude..= minValue),
-            Lude.Just ("MaxValue" Lude..= maxValue)
+          [ Lude.Just ("MaxValue" Lude..= maxValue),
+            Lude.Just ("MinValue" Lude..= minValue)
           ]
       )

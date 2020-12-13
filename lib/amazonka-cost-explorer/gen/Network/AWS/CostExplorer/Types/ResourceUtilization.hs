@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceUtilization' smart constructor.
 newtype ResourceUtilization = ResourceUtilization'
-  { ec2ResourceUtilization ::
-      Lude.Maybe EC2ResourceUtilization
+  { -- | Utilization of current Amazon EC2 instance.
+    ec2ResourceUtilization :: Lude.Maybe EC2ResourceUtilization
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceUtilization' with the minimum fields required to make a request.

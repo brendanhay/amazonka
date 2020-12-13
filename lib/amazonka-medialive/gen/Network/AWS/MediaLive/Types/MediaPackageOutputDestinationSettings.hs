@@ -28,17 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMediaPackageOutputDestinationSettings' smart constructor.
 newtype MediaPackageOutputDestinationSettings = MediaPackageOutputDestinationSettings'
-  { channelId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region.
+    channelId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MediaPackageOutputDestinationSettings' with the minimum fields required to make a request.

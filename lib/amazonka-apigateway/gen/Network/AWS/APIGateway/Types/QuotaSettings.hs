@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQuotaSettings' smart constructor.
 data QuotaSettings = QuotaSettings'
-  { offset :: Lude.Maybe Lude.Int,
+  { -- | The number of requests subtracted from the given limit in the initial time period.
+    offset :: Lude.Maybe Lude.Int,
+    -- | The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
     period :: Lude.Maybe QuotaPeriodType,
+    -- | The maximum number of requests that can be made in a given time period.
     limit :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QuotaSettings' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of requests that can be made in a given time period.
 -- * 'offset' - The number of requests subtracted from the given limit in the initial time period.
 -- * 'period' - The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+-- * 'limit' - The maximum number of requests that can be made in a given time period.
 mkQuotaSettings ::
   QuotaSettings
 mkQuotaSettings =

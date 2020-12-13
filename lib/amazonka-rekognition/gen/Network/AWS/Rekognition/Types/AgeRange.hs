@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAgeRange' smart constructor.
 data AgeRange = AgeRange'
-  { low :: Lude.Maybe Lude.Natural,
+  { -- | The lowest estimated age.
+    low :: Lude.Maybe Lude.Natural,
+    -- | The highest estimated age.
     high :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AgeRange' with the minimum fields required to make a request.
 --
--- * 'high' - The highest estimated age.
 -- * 'low' - The lowest estimated age.
+-- * 'high' - The highest estimated age.
 mkAgeRange ::
   AgeRange
 mkAgeRange = AgeRange' {low = Lude.Nothing, high = Lude.Nothing}

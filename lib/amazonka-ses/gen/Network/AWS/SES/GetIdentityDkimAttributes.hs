@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,8 +41,8 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     mkGetIdentityDkimAttributesResponse,
 
     -- ** Response lenses
-    gidarsResponseStatus,
     gidarsDkimAttributes,
+    gidarsResponseStatus,
   )
 where
 
@@ -55,16 +56,10 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkGetIdentityDkimAttributes' smart constructor.
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
-  { identities ::
-      [Lude.Text]
+  { -- | A list of one or more verified identities - email addresses, domains, or both.
+    identities :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityDkimAttributes' with the minimum fields required to make a request.
@@ -92,10 +87,10 @@ instance Lude.AWSRequest GetIdentityDkimAttributes where
       "GetIdentityDkimAttributesResult"
       ( \s h x ->
           GetIdentityDkimAttributesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "DkimAttributes" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "DkimAttributes" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLMap "entry" "key" "value"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetIdentityDkimAttributes where
@@ -116,20 +111,12 @@ instance Lude.ToQuery GetIdentityDkimAttributes where
 --
 -- /See:/ 'mkGetIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-  { responseStatus ::
-      Lude.Int,
-    dkimAttributes ::
-      Lude.HashMap
-        Lude.Text
-        (IdentityDkimAttributes)
+  { -- | The DKIM attributes for an email address or a domain.
+    dkimAttributes :: Lude.HashMap Lude.Text (IdentityDkimAttributes),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityDkimAttributesResponse' with the minimum fields required to make a request.
@@ -142,17 +129,9 @@ mkGetIdentityDkimAttributesResponse ::
   GetIdentityDkimAttributesResponse
 mkGetIdentityDkimAttributesResponse pResponseStatus_ =
   GetIdentityDkimAttributesResponse'
-    { responseStatus =
-        pResponseStatus_,
-      dkimAttributes = Lude.mempty
+    { dkimAttributes = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gidarsResponseStatus :: Lens.Lens' GetIdentityDkimAttributesResponse Lude.Int
-gidarsResponseStatus = Lens.lens (responseStatus :: GetIdentityDkimAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityDkimAttributesResponse)
-{-# DEPRECATED gidarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The DKIM attributes for an email address or a domain.
 --
@@ -160,3 +139,10 @@ gidarsResponseStatus = Lens.lens (responseStatus :: GetIdentityDkimAttributesRes
 gidarsDkimAttributes :: Lens.Lens' GetIdentityDkimAttributesResponse (Lude.HashMap Lude.Text (IdentityDkimAttributes))
 gidarsDkimAttributes = Lens.lens (dkimAttributes :: GetIdentityDkimAttributesResponse -> Lude.HashMap Lude.Text (IdentityDkimAttributes)) (\s a -> s {dkimAttributes = a} :: GetIdentityDkimAttributesResponse)
 {-# DEPRECATED gidarsDkimAttributes "Use generic-lens or generic-optics with 'dkimAttributes' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gidarsResponseStatus :: Lens.Lens' GetIdentityDkimAttributesResponse Lude.Int
+gidarsResponseStatus = Lens.lens (responseStatus :: GetIdentityDkimAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityDkimAttributesResponse)
+{-# DEPRECATED gidarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

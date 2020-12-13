@@ -13,9 +13,9 @@
 module Network.AWS.CloudTrail.Types.ReadWriteType
   ( ReadWriteType
       ( ReadWriteType',
-        RWTAll,
         RWTReadOnly,
-        RWTWriteOnly
+        RWTWriteOnly,
+        RWTAll
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ReadWriteType = ReadWriteType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RWTAll :: ReadWriteType
-pattern RWTAll = ReadWriteType' "All"
-
 pattern RWTReadOnly :: ReadWriteType
 pattern RWTReadOnly = ReadWriteType' "ReadOnly"
 
 pattern RWTWriteOnly :: ReadWriteType
 pattern RWTWriteOnly = ReadWriteType' "WriteOnly"
 
+pattern RWTAll :: ReadWriteType
+pattern RWTAll = ReadWriteType' "All"
+
 {-# COMPLETE
-  RWTAll,
   RWTReadOnly,
   RWTWriteOnly,
+  RWTAll,
   ReadWriteType'
   #-}

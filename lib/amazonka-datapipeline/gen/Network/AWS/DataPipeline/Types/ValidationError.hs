@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkValidationError' smart constructor.
 data ValidationError = ValidationError'
-  { id :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the object that contains the validation error.
+    id :: Lude.Maybe Lude.Text,
+    -- | A description of the validation error.
     errors :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationError' with the minimum fields required to make a request.
 --
--- * 'errors' - A description of the validation error.
 -- * 'id' - The identifier of the object that contains the validation error.
+-- * 'errors' - A description of the validation error.
 mkValidationError ::
   ValidationError
 mkValidationError =

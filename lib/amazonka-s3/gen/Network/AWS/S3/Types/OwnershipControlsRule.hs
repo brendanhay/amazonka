@@ -30,21 +30,14 @@ import Network.AWS.S3.Types.ObjectOwnership
 --
 -- /See:/ 'mkOwnershipControlsRule' smart constructor.
 newtype OwnershipControlsRule = OwnershipControlsRule'
-  { objectOwnership ::
-      ObjectOwnership
+  { objectOwnership :: ObjectOwnership
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OwnershipControlsRule' with the minimum fields required to make a request.
 --
--- * 'objectOwnership' - Undocumented field.
+-- * 'objectOwnership' -
 mkOwnershipControlsRule ::
   -- | 'objectOwnership'
   ObjectOwnership ->

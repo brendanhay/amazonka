@@ -43,58 +43,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedElasticsearchInstance' smart constructor.
 data ReservedElasticsearchInstance = ReservedElasticsearchInstance'
-  { state ::
-      Lude.Maybe Lude.Text,
-    currencyCode ::
-      Lude.Maybe Lude.Text,
-    startTime ::
-      Lude.Maybe Lude.Timestamp,
-    reservedElasticsearchInstanceOfferingId ::
-      Lude.Maybe Lude.Text,
-    reservedElasticsearchInstanceId ::
-      Lude.Maybe Lude.Text,
-    elasticsearchInstanceCount ::
-      Lude.Maybe Lude.Int,
-    reservationName ::
-      Lude.Maybe Lude.Text,
-    elasticsearchInstanceType ::
-      Lude.Maybe
-        ESPartitionInstanceType,
-    recurringCharges ::
-      Lude.Maybe [RecurringCharge],
-    usagePrice ::
-      Lude.Maybe Lude.Double,
-    fixedPrice ::
-      Lude.Maybe Lude.Double,
+  { -- | The state of the reserved Elasticsearch instance.
+    state :: Lude.Maybe Lude.Text,
+    -- | The currency code for the reserved Elasticsearch instance offering.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | The time the reservation started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The offering identifier.
+    reservedElasticsearchInstanceOfferingId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the reservation.
+    reservedElasticsearchInstanceId :: Lude.Maybe Lude.Text,
+    -- | The number of Elasticsearch instances that have been reserved.
+    elasticsearchInstanceCount :: Lude.Maybe Lude.Int,
+    -- | The customer-specified identifier to track this reservation.
+    reservationName :: Lude.Maybe Lude.Text,
+    -- | The Elasticsearch instance type offered by the reserved instance offering.
+    elasticsearchInstanceType :: Lude.Maybe ESPartitionInstanceType,
+    -- | The charge to your account regardless of whether you are creating any domains using the instance offering.
+    recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The rate you are charged for each hour for the domain that is using this reserved instance.
+    usagePrice :: Lude.Maybe Lude.Double,
+    -- | The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering.
+    fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The duration, in seconds, for which the Elasticsearch instance is reserved.
     duration :: Lude.Maybe Lude.Int,
-    paymentOption ::
-      Lude.Maybe
-        ReservedElasticsearchInstancePaymentOption
+    -- | The payment option as defined in the reserved Elasticsearch instance offering.
+    paymentOption :: Lude.Maybe ReservedElasticsearchInstancePaymentOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedElasticsearchInstance' with the minimum fields required to make a request.
 --
--- * 'currencyCode' - The currency code for the reserved Elasticsearch instance offering.
--- * 'duration' - The duration, in seconds, for which the Elasticsearch instance is reserved.
--- * 'elasticsearchInstanceCount' - The number of Elasticsearch instances that have been reserved.
--- * 'elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance offering.
--- * 'fixedPrice' - The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering.
--- * 'paymentOption' - The payment option as defined in the reserved Elasticsearch instance offering.
--- * 'recurringCharges' - The charge to your account regardless of whether you are creating any domains using the instance offering.
--- * 'reservationName' - The customer-specified identifier to track this reservation.
--- * 'reservedElasticsearchInstanceId' - The unique identifier for the reservation.
--- * 'reservedElasticsearchInstanceOfferingId' - The offering identifier.
--- * 'startTime' - The time the reservation started.
 -- * 'state' - The state of the reserved Elasticsearch instance.
+-- * 'currencyCode' - The currency code for the reserved Elasticsearch instance offering.
+-- * 'startTime' - The time the reservation started.
+-- * 'reservedElasticsearchInstanceOfferingId' - The offering identifier.
+-- * 'reservedElasticsearchInstanceId' - The unique identifier for the reservation.
+-- * 'elasticsearchInstanceCount' - The number of Elasticsearch instances that have been reserved.
+-- * 'reservationName' - The customer-specified identifier to track this reservation.
+-- * 'elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance offering.
+-- * 'recurringCharges' - The charge to your account regardless of whether you are creating any domains using the instance offering.
 -- * 'usagePrice' - The rate you are charged for each hour for the domain that is using this reserved instance.
+-- * 'fixedPrice' - The upfront fixed charge you will paid to purchase the specific reserved Elasticsearch instance offering.
+-- * 'duration' - The duration, in seconds, for which the Elasticsearch instance is reserved.
+-- * 'paymentOption' - The payment option as defined in the reserved Elasticsearch instance offering.
 mkReservedElasticsearchInstance ::
   ReservedElasticsearchInstance
 mkReservedElasticsearchInstance =

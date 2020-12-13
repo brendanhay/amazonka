@@ -39,42 +39,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { eQ :: Lude.Maybe [Lude.Text],
+  { -- | Represents the /equal/ condition to be applied to a single field when querying for findings.
+    eQ :: Lude.Maybe [Lude.Text],
+    -- | Represents a /less than/ condition to be applied to a single field when querying for findings.
     lessThan :: Lude.Maybe Lude.Integer,
+    -- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
     lte :: Lude.Maybe Lude.Int,
+    -- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
     greaterThanOrEqual :: Lude.Maybe Lude.Integer,
+    -- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
     lessThanOrEqual :: Lude.Maybe Lude.Integer,
+    -- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
     gT :: Lude.Maybe Lude.Int,
+    -- | Represents an /equal/ ____ condition to be applied to a single field when querying for findings.
     equals :: Lude.Maybe [Lude.Text],
+    -- | Represents the /not equal/ condition to be applied to a single field when querying for findings.
     neq :: Lude.Maybe [Lude.Text],
+    -- | Represents a /not equal/ ____ condition to be applied to a single field when querying for findings.
     notEquals :: Lude.Maybe [Lude.Text],
+    -- | Represents a /less than/ condition to be applied to a single field when querying for findings.
     lT :: Lude.Maybe Lude.Int,
+    -- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
     gte :: Lude.Maybe Lude.Int,
+    -- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
     greaterThan :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
 -- * 'eQ' - Represents the /equal/ condition to be applied to a single field when querying for findings.
--- * 'equals' - Represents an /equal/ ____ condition to be applied to a single field when querying for findings.
--- * 'gT' - Represents a /greater than/ condition to be applied to a single field when querying for findings.
--- * 'greaterThan' - Represents a /greater than/ condition to be applied to a single field when querying for findings.
--- * 'greaterThanOrEqual' - Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
--- * 'gte' - Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
--- * 'lT' - Represents a /less than/ condition to be applied to a single field when querying for findings.
 -- * 'lessThan' - Represents a /less than/ condition to be applied to a single field when querying for findings.
--- * 'lessThanOrEqual' - Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
 -- * 'lte' - Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
+-- * 'greaterThanOrEqual' - Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
+-- * 'lessThanOrEqual' - Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
+-- * 'gT' - Represents a /greater than/ condition to be applied to a single field when querying for findings.
+-- * 'equals' - Represents an /equal/ ____ condition to be applied to a single field when querying for findings.
 -- * 'neq' - Represents the /not equal/ condition to be applied to a single field when querying for findings.
 -- * 'notEquals' - Represents a /not equal/ ____ condition to be applied to a single field when querying for findings.
+-- * 'lT' - Represents a /less than/ condition to be applied to a single field when querying for findings.
+-- * 'gte' - Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
+-- * 'greaterThan' - Represents a /greater than/ condition to be applied to a single field when querying for findings.
 mkCondition ::
   Condition
 mkCondition =

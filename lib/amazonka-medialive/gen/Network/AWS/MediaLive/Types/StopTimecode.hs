@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStopTimecode' smart constructor.
 data StopTimecode = StopTimecode'
-  { lastFrameClippingBehavior ::
-      Lude.Maybe LastFrameClippingBehavior,
+  { -- | If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
+    lastFrameClippingBehavior :: Lude.Maybe LastFrameClippingBehavior,
+    -- | The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
     timecode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTimecode' with the minimum fields required to make a request.

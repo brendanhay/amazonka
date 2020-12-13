@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,7 +24,7 @@ module Network.AWS.Comprehend.StopEntitiesDetectionJob
     mkStopEntitiesDetectionJob,
 
     -- ** Request lenses
-    sJobId,
+    sedjJobId,
 
     -- * Destructuring the response
     StopEntitiesDetectionJobResponse (..),
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopEntitiesDetectionJob' smart constructor.
 newtype StopEntitiesDetectionJob = StopEntitiesDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier of the entities detection job to stop.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopEntitiesDetectionJob' with the minimum fields required to make a request.
@@ -69,9 +64,9 @@ mkStopEntitiesDetectionJob pJobId_ =
 -- | The identifier of the entities detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sJobId :: Lens.Lens' StopEntitiesDetectionJob Lude.Text
-sJobId = Lens.lens (jobId :: StopEntitiesDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopEntitiesDetectionJob)
-{-# DEPRECATED sJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+sedjJobId :: Lens.Lens' StopEntitiesDetectionJob Lude.Text
+sedjJobId = Lens.lens (jobId :: StopEntitiesDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopEntitiesDetectionJob)
+{-# DEPRECATED sedjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest StopEntitiesDetectionJob where
   type Rs StopEntitiesDetectionJob = StopEntitiesDetectionJobResponse
@@ -110,20 +105,14 @@ instance Lude.ToQuery StopEntitiesDetectionJob where
 
 -- | /See:/ 'mkStopEntitiesDetectionJobResponse' smart constructor.
 data StopEntitiesDetectionJobResponse = StopEntitiesDetectionJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
-    jobStatus ::
-      Lude.Maybe JobStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier of the entities detection job to stop.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopEntitiesDetectionJob@ operation.
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopEntitiesDetectionJobResponse' with the minimum fields required to make a request.

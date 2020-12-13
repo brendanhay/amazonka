@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,17 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetBundles' smart constructor.
 data GetBundles = GetBundles'
-  { includeInactive ::
-      Lude.Maybe Lude.Bool,
+  { -- | A Boolean value that indicates whether to include inactive bundle results in your request.
+    includeInactive :: Lude.Maybe Lude.Bool,
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetBundles@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
     pageToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBundles' with the minimum fields required to make a request.
@@ -136,27 +134,26 @@ instance Lude.ToQuery GetBundles where
 
 -- | /See:/ 'mkGetBundlesResponse' smart constructor.
 data GetBundlesResponse = GetBundlesResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to display.
+    -- To get the next page of results, perform another @GetBundles@ request and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An array of key-value pairs that contains information about the available bundles.
     bundles :: Lude.Maybe [Bundle],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBundlesResponse' with the minimum fields required to make a request.
 --
--- * 'bundles' - An array of key-value pairs that contains information about the available bundles.
 -- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to display.
 -- To get the next page of results, perform another @GetBundles@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'bundles' - An array of key-value pairs that contains information about the available bundles.
 -- * 'responseStatus' - The response status code.
 mkGetBundlesResponse ::
   -- | 'responseStatus'

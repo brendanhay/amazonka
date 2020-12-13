@@ -37,32 +37,33 @@ import Network.AWS.Snowball.Types.SnowballType
 --
 -- /See:/ 'mkJobListEntry' smart constructor.
 data JobListEntry = JobListEntry'
-  { jobType :: Lude.Maybe JobType,
+  { -- | The type of job.
+    jobType :: Lude.Maybe JobType,
+    -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
     jobId :: Lude.Maybe Lude.Text,
+    -- | The current state of this job.
     jobState :: Lude.Maybe JobState,
+    -- | The type of device used with this job.
     snowballType :: Lude.Maybe SnowballType,
+    -- | The creation date for this job.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The optional description of this specific job, for example @Important Photos 2016-08-11@ .
     description :: Lude.Maybe Lude.Text,
+    -- | A value that indicates that this job is a main job. A main job represents a successful request to create an export job. Main jobs aren't associated with any Snowballs. Instead, each main job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular main job are listed, because they are created after the main job is created.
     isMaster :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobListEntry' with the minimum fields required to make a request.
 --
+-- * 'jobType' - The type of job.
+-- * 'jobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+-- * 'jobState' - The current state of this job.
+-- * 'snowballType' - The type of device used with this job.
 -- * 'creationDate' - The creation date for this job.
 -- * 'description' - The optional description of this specific job, for example @Important Photos 2016-08-11@ .
 -- * 'isMaster' - A value that indicates that this job is a main job. A main job represents a successful request to create an export job. Main jobs aren't associated with any Snowballs. Instead, each main job will have at least one job part, and each job part is associated with a Snowball. It might take some time before the job parts associated with a particular main job are listed, because they are created after the main job is created.
--- * 'jobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
--- * 'jobState' - The current state of this job.
--- * 'jobType' - The type of job.
--- * 'snowballType' - The type of device used with this job.
 mkJobListEntry ::
   JobListEntry
 mkJobListEntry =

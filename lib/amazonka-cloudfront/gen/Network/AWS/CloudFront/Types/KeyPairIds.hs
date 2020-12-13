@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.KeyPairIds
     mkKeyPairIds,
 
     -- * Lenses
-    kpiItems,
     kpiQuantity,
+    kpiItems,
   )
 where
 
@@ -29,35 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyPairIds' smart constructor.
 data KeyPairIds = KeyPairIds'
-  { items :: Lude.Maybe [Lude.Text],
-    quantity :: Lude.Int
+  { -- | The number of key pair identifiers in the list.
+    quantity :: Lude.Int,
+    -- | A list of CloudFront key pair identifiers.
+    items :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyPairIds' with the minimum fields required to make a request.
 --
--- * 'items' - A list of CloudFront key pair identifiers.
 -- * 'quantity' - The number of key pair identifiers in the list.
+-- * 'items' - A list of CloudFront key pair identifiers.
 mkKeyPairIds ::
   -- | 'quantity'
   Lude.Int ->
   KeyPairIds
 mkKeyPairIds pQuantity_ =
-  KeyPairIds' {items = Lude.Nothing, quantity = pQuantity_}
-
--- | A list of CloudFront key pair identifiers.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpiItems :: Lens.Lens' KeyPairIds (Lude.Maybe [Lude.Text])
-kpiItems = Lens.lens (items :: KeyPairIds -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: KeyPairIds)
-{-# DEPRECATED kpiItems "Use generic-lens or generic-optics with 'items' instead." #-}
+  KeyPairIds' {quantity = pQuantity_, items = Lude.Nothing}
 
 -- | The number of key pair identifiers in the list.
 --
@@ -66,10 +55,17 @@ kpiQuantity :: Lens.Lens' KeyPairIds Lude.Int
 kpiQuantity = Lens.lens (quantity :: KeyPairIds -> Lude.Int) (\s a -> s {quantity = a} :: KeyPairIds)
 {-# DEPRECATED kpiQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A list of CloudFront key pair identifiers.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kpiItems :: Lens.Lens' KeyPairIds (Lude.Maybe [Lude.Text])
+kpiItems = Lens.lens (items :: KeyPairIds -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: KeyPairIds)
+{-# DEPRECATED kpiItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML KeyPairIds where
   parseXML x =
     KeyPairIds'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "KeyPairId")
                )
-      Lude.<*> (x Lude..@ "Quantity")

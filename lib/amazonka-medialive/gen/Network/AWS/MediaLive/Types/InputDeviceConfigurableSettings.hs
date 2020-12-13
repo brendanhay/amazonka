@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputDeviceConfigurableSettings' smart constructor.
 data InputDeviceConfigurableSettings = InputDeviceConfigurableSettings'
-  { configuredInput ::
-      Lude.Maybe
-        InputDeviceConfiguredInput,
-    maxBitrate ::
-      Lude.Maybe Lude.Int
+  { -- | The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
+    configuredInput :: Lude.Maybe InputDeviceConfiguredInput,
+    -- | The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
+    maxBitrate :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDeviceConfigurableSettings' with the minimum fields required to make a request.

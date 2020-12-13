@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     mkDeleteVPCEndpoints,
 
     -- ** Request lenses
-    dveDryRun,
     dveVPCEndpointIds,
+    dveDryRun,
 
     -- * Destructuring the response
     DeleteVPCEndpointsResponse (..),
@@ -42,37 +43,25 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteVPCEndpoints' smart constructor.
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    vpcEndpointIds :: [Lude.Text]
+  { -- | One or more VPC endpoint IDs.
+    vpcEndpointIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpoints' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'vpcEndpointIds' - One or more VPC endpoint IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteVPCEndpoints ::
   DeleteVPCEndpoints
 mkDeleteVPCEndpoints =
   DeleteVPCEndpoints'
-    { dryRun = Lude.Nothing,
-      vpcEndpointIds = Lude.mempty
+    { vpcEndpointIds = Lude.mempty,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dveDryRun :: Lens.Lens' DeleteVPCEndpoints (Lude.Maybe Lude.Bool)
-dveDryRun = Lens.lens (dryRun :: DeleteVPCEndpoints -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpoints)
-{-# DEPRECATED dveDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more VPC endpoint IDs.
 --
@@ -80,6 +69,13 @@ dveDryRun = Lens.lens (dryRun :: DeleteVPCEndpoints -> Lude.Maybe Lude.Bool) (\s
 dveVPCEndpointIds :: Lens.Lens' DeleteVPCEndpoints [Lude.Text]
 dveVPCEndpointIds = Lens.lens (vpcEndpointIds :: DeleteVPCEndpoints -> [Lude.Text]) (\s a -> s {vpcEndpointIds = a} :: DeleteVPCEndpoints)
 {-# DEPRECATED dveVPCEndpointIds "Use generic-lens or generic-optics with 'vpcEndpointIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dveDryRun :: Lens.Lens' DeleteVPCEndpoints (Lude.Maybe Lude.Bool)
+dveDryRun = Lens.lens (dryRun :: DeleteVPCEndpoints -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpoints)
+{-# DEPRECATED dveDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteVPCEndpoints where
   type Rs DeleteVPCEndpoints = DeleteVPCEndpointsResponse
@@ -105,31 +101,26 @@ instance Lude.ToQuery DeleteVPCEndpoints where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteVpcEndpoints" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "VpcEndpointId" vpcEndpointIds
+        Lude.toQueryList "VpcEndpointId" vpcEndpointIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of DeleteVpcEndpoints.
 --
 -- /See:/ 'mkDeleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
-  { unsuccessful ::
-      Lude.Maybe [UnsuccessfulItem],
+  { -- | Information about the VPC endpoints that were not successfully deleted.
+    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpointsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unsuccessful' - Information about the VPC endpoints that were not successfully deleted.
+-- * 'responseStatus' - The response status code.
 mkDeleteVPCEndpointsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

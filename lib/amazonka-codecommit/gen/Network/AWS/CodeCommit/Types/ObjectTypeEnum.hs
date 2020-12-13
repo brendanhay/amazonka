@@ -13,8 +13,8 @@
 module Network.AWS.CodeCommit.Types.ObjectTypeEnum
   ( ObjectTypeEnum
       ( ObjectTypeEnum',
-        Directory,
         File,
+        Directory,
         GitLink,
         SymbolicLink
       ),
@@ -47,11 +47,11 @@ newtype ObjectTypeEnum = ObjectTypeEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Directory :: ObjectTypeEnum
-pattern Directory = ObjectTypeEnum' "DIRECTORY"
-
 pattern File :: ObjectTypeEnum
 pattern File = ObjectTypeEnum' "FILE"
+
+pattern Directory :: ObjectTypeEnum
+pattern Directory = ObjectTypeEnum' "DIRECTORY"
 
 pattern GitLink :: ObjectTypeEnum
 pattern GitLink = ObjectTypeEnum' "GIT_LINK"
@@ -60,8 +60,8 @@ pattern SymbolicLink :: ObjectTypeEnum
 pattern SymbolicLink = ObjectTypeEnum' "SYMBOLIC_LINK"
 
 {-# COMPLETE
-  Directory,
   File,
+  Directory,
   GitLink,
   SymbolicLink,
   ObjectTypeEnum'

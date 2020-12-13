@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUtteranceData' smart constructor.
 data UtteranceData = UtteranceData'
-  { firstUtteredDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date that the utterance was first recorded.
+    firstUtteredDate :: Lude.Maybe Lude.Timestamp,
+    -- | The number of times that the utterance was processed.
     count :: Lude.Maybe Lude.Int,
+    -- | The text that was entered by the user or the text representation of an audio clip.
     utteranceString :: Lude.Maybe Lude.Text,
+    -- | The date that the utterance was last recorded.
     lastUtteredDate :: Lude.Maybe Lude.Timestamp,
+    -- | The total number of individuals that used the utterance.
     distinctUsers :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UtteranceData' with the minimum fields required to make a request.
 --
--- * 'count' - The number of times that the utterance was processed.
--- * 'distinctUsers' - The total number of individuals that used the utterance.
 -- * 'firstUtteredDate' - The date that the utterance was first recorded.
--- * 'lastUtteredDate' - The date that the utterance was last recorded.
+-- * 'count' - The number of times that the utterance was processed.
 -- * 'utteranceString' - The text that was entered by the user or the text representation of an audio clip.
+-- * 'lastUtteredDate' - The date that the utterance was last recorded.
+-- * 'distinctUsers' - The total number of individuals that used the utterance.
 mkUtteranceData ::
   UtteranceData
 mkUtteranceData =

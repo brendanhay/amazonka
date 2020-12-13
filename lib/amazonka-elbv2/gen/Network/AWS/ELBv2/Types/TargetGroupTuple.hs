@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetGroupTuple' smart constructor.
 data TargetGroupTuple = TargetGroupTuple'
-  { weight ::
-      Lude.Maybe Lude.Int,
+  { -- | The weight. The range is 0 to 999.
+    weight :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the target group.
     targetGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroupTuple' with the minimum fields required to make a request.
 --
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 -- * 'weight' - The weight. The range is 0 to 999.
+-- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 mkTargetGroupTuple ::
   TargetGroupTuple
 mkTargetGroupTuple =

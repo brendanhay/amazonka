@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,25 +44,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLogGroupFields' smart constructor.
 data GetLogGroupFields = GetLogGroupFields'
-  { time ::
-      Lude.Maybe Lude.Natural,
+  { -- | The time to set as the center of the query. If you specify @time@ , the 8 minutes before and 8 minutes after this time are searched. If you omit @time@ , the past 15 minutes are queried.
+    --
+    -- The @time@ value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+    time :: Lude.Maybe Lude.Natural,
+    -- | The name of the log group to search.
     logGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogGroupFields' with the minimum fields required to make a request.
 --
--- * 'logGroupName' - The name of the log group to search.
 -- * 'time' - The time to set as the center of the query. If you specify @time@ , the 8 minutes before and 8 minutes after this time are searched. If you omit @time@ , the past 15 minutes are queried.
 --
 -- The @time@ value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+-- * 'logGroupName' - The name of the log group to search.
 mkGetLogGroupFields ::
   -- | 'logGroupName'
   Lude.Text ->
@@ -127,17 +125,12 @@ instance Lude.ToQuery GetLogGroupFields where
 
 -- | /See:/ 'mkGetLogGroupFieldsResponse' smart constructor.
 data GetLogGroupFieldsResponse = GetLogGroupFieldsResponse'
-  { logGroupFields ::
-      Lude.Maybe [LogGroupField],
+  { -- | The array of fields found in the query. Each object in the array contains the name of the field, along with the percentage of time it appeared in the log events that were queried.
+    logGroupFields :: Lude.Maybe [LogGroupField],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLogGroupFieldsResponse' with the minimum fields required to make a request.

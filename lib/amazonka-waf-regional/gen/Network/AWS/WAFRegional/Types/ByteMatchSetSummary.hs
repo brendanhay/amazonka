@@ -29,17 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkByteMatchSetSummary' smart constructor.
 data ByteMatchSetSummary = ByteMatchSetSummary'
-  { byteMatchSetId ::
-      Lude.Text,
+  { -- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF.
+    --
+    -- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
+    byteMatchSetId :: Lude.Text,
+    -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ByteMatchSetSummary' with the minimum fields required to make a request.

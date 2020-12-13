@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,9 +29,9 @@ module Network.AWS.Kinesis.ListTagsForStream
     mkListTagsForStreamResponse,
 
     -- ** Response lenses
-    ltfsrsResponseStatus,
-    ltfsrsTags,
     ltfsrsHasMoreTags,
+    ltfsrsTags,
+    ltfsrsResponseStatus,
   )
 where
 
@@ -44,24 +45,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListTagsForStream' smart constructor.
 data ListTagsForStream = ListTagsForStream'
-  { limit ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of tags to return. If this number is less than the total number of tags associated with the stream, @HasMoreTags@ is set to @true@ . To list additional tags, set @ExclusiveStartTagKey@ to the last key in the response.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The key to use as the starting point for the list of tags. If this parameter is set, @ListTagsForStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
     exclusiveStartTagKey :: Lude.Maybe Lude.Text,
+    -- | The name of the stream.
     streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForStream' with the minimum fields required to make a request.
 --
--- * 'exclusiveStartTagKey' - The key to use as the starting point for the list of tags. If this parameter is set, @ListTagsForStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
 -- * 'limit' - The number of tags to return. If this number is less than the total number of tags associated with the stream, @HasMoreTags@ is set to @true@ . To list additional tags, set @ExclusiveStartTagKey@ to the last key in the response.
+-- * 'exclusiveStartTagKey' - The key to use as the starting point for the list of tags. If this parameter is set, @ListTagsForStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
 -- * 'streamName' - The name of the stream.
 mkListTagsForStream ::
   -- | 'streamName'
@@ -102,9 +99,9 @@ instance Lude.AWSRequest ListTagsForStream where
     Res.receiveJSON
       ( \s h x ->
           ListTagsForStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "HasMoreTags")
             Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "HasMoreTags")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListTagsForStream where
@@ -138,44 +135,40 @@ instance Lude.ToQuery ListTagsForStream where
 --
 -- /See:/ 'mkListTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | If set to @true@ , more tags are available. To request additional tags, set @ExclusiveStartTagKey@ to the key of the last tag returned.
+    hasMoreTags :: Lude.Bool,
+    -- | A list of tags associated with @StreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
     tags :: [Tag],
-    hasMoreTags :: Lude.Bool
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForStreamResponse' with the minimum fields required to make a request.
 --
 -- * 'hasMoreTags' - If set to @true@ , more tags are available. To request additional tags, set @ExclusiveStartTagKey@ to the key of the last tag returned.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A list of tags associated with @StreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
+-- * 'responseStatus' - The response status code.
 mkListTagsForStreamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hasMoreTags'
   Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForStreamResponse
-mkListTagsForStreamResponse pResponseStatus_ pHasMoreTags_ =
+mkListTagsForStreamResponse pHasMoreTags_ pResponseStatus_ =
   ListTagsForStreamResponse'
-    { responseStatus = pResponseStatus_,
+    { hasMoreTags = pHasMoreTags_,
       tags = Lude.mempty,
-      hasMoreTags = pHasMoreTags_
+      responseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | If set to @true@ , more tags are available. To request additional tags, set @ExclusiveStartTagKey@ to the key of the last tag returned.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfsrsResponseStatus :: Lens.Lens' ListTagsForStreamResponse Lude.Int
-ltfsrsResponseStatus = Lens.lens (responseStatus :: ListTagsForStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForStreamResponse)
-{-# DEPRECATED ltfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'hasMoreTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsrsHasMoreTags :: Lens.Lens' ListTagsForStreamResponse Lude.Bool
+ltfsrsHasMoreTags = Lens.lens (hasMoreTags :: ListTagsForStreamResponse -> Lude.Bool) (\s a -> s {hasMoreTags = a} :: ListTagsForStreamResponse)
+{-# DEPRECATED ltfsrsHasMoreTags "Use generic-lens or generic-optics with 'hasMoreTags' instead." #-}
 
 -- | A list of tags associated with @StreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
 --
@@ -184,9 +177,9 @@ ltfsrsTags :: Lens.Lens' ListTagsForStreamResponse [Tag]
 ltfsrsTags = Lens.lens (tags :: ListTagsForStreamResponse -> [Tag]) (\s a -> s {tags = a} :: ListTagsForStreamResponse)
 {-# DEPRECATED ltfsrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | If set to @true@ , more tags are available. To request additional tags, set @ExclusiveStartTagKey@ to the key of the last tag returned.
+-- | The response status code.
 --
--- /Note:/ Consider using 'hasMoreTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfsrsHasMoreTags :: Lens.Lens' ListTagsForStreamResponse Lude.Bool
-ltfsrsHasMoreTags = Lens.lens (hasMoreTags :: ListTagsForStreamResponse -> Lude.Bool) (\s a -> s {hasMoreTags = a} :: ListTagsForStreamResponse)
-{-# DEPRECATED ltfsrsHasMoreTags "Use generic-lens or generic-optics with 'hasMoreTags' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfsrsResponseStatus :: Lens.Lens' ListTagsForStreamResponse Lude.Int
+ltfsrsResponseStatus = Lens.lens (responseStatus :: ListTagsForStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForStreamResponse)
+{-# DEPRECATED ltfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

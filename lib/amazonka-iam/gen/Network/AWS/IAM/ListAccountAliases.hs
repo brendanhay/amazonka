@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.IAM.ListAccountAliases
     -- ** Response lenses
     laarsMarker,
     laarsIsTruncated,
-    laarsResponseStatus,
     laarsAccountAliases,
+    laarsResponseStatus,
   )
 where
 
@@ -45,17 +46,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAccountAliases' smart constructor.
 data ListAccountAliases = ListAccountAliases'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccountAliases' with the minimum fields required to make a request.
@@ -105,10 +103,10 @@ instance Lude.AWSRequest ListAccountAliases where
           ListAccountAliasesResponse'
             Lude.<$> (x Lude..@? "Marker")
             Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "AccountAliases" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListAccountAliases where
@@ -130,26 +128,23 @@ instance Lude.ToQuery ListAccountAliases where
 --
 -- /See:/ 'mkListAccountAliasesResponse' smart constructor.
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
     isTruncated :: Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    accountAliases :: [Lude.Text]
+    -- | A list of aliases associated with the account. AWS supports only one alias per account.
+    accountAliases :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccountAliasesResponse' with the minimum fields required to make a request.
 --
--- * 'accountAliases' - A list of aliases associated with the account. AWS supports only one alias per account.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'accountAliases' - A list of aliases associated with the account. AWS supports only one alias per account.
 -- * 'responseStatus' - The response status code.
 mkListAccountAliasesResponse ::
   -- | 'responseStatus'
@@ -159,8 +154,8 @@ mkListAccountAliasesResponse pResponseStatus_ =
   ListAccountAliasesResponse'
     { marker = Lude.Nothing,
       isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      accountAliases = Lude.mempty
+      accountAliases = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
@@ -177,16 +172,16 @@ laarsIsTruncated :: Lens.Lens' ListAccountAliasesResponse (Lude.Maybe Lude.Bool)
 laarsIsTruncated = Lens.lens (isTruncated :: ListAccountAliasesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListAccountAliasesResponse)
 {-# DEPRECATED laarsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laarsResponseStatus :: Lens.Lens' ListAccountAliasesResponse Lude.Int
-laarsResponseStatus = Lens.lens (responseStatus :: ListAccountAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccountAliasesResponse)
-{-# DEPRECATED laarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of aliases associated with the account. AWS supports only one alias per account.
 --
 -- /Note:/ Consider using 'accountAliases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 laarsAccountAliases :: Lens.Lens' ListAccountAliasesResponse [Lude.Text]
 laarsAccountAliases = Lens.lens (accountAliases :: ListAccountAliasesResponse -> [Lude.Text]) (\s a -> s {accountAliases = a} :: ListAccountAliasesResponse)
 {-# DEPRECATED laarsAccountAliases "Use generic-lens or generic-optics with 'accountAliases' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laarsResponseStatus :: Lens.Lens' ListAccountAliasesResponse Lude.Int
+laarsResponseStatus = Lens.lens (responseStatus :: ListAccountAliasesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccountAliasesResponse)
+{-# DEPRECATED laarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

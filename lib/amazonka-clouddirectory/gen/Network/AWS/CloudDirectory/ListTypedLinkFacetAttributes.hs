@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
 
     -- ** Request lenses
     ltlfaNextToken,
-    ltlfaMaxResults,
     ltlfaSchemaARN,
     ltlfaName,
+    ltlfaMaxResults,
 
     -- * Destructuring the response
     ListTypedLinkFacetAttributesResponse (..),
@@ -46,28 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTypedLinkFacetAttributes' smart constructor.
 data ListTypedLinkFacetAttributes = ListTypedLinkFacetAttributes'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
     schemaARN :: Lude.Text,
-    name :: Lude.Text
+    -- | The unique name of the typed link facet.
+    name :: Lude.Text,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypedLinkFacetAttributes' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
--- * 'name' - The unique name of the typed link facet.
 -- * 'nextToken' - The pagination token.
 -- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+-- * 'name' - The unique name of the typed link facet.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkListTypedLinkFacetAttributes ::
   -- | 'schemaARN'
   Lude.Text ->
@@ -77,9 +74,9 @@ mkListTypedLinkFacetAttributes ::
 mkListTypedLinkFacetAttributes pSchemaARN_ pName_ =
   ListTypedLinkFacetAttributes'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
       schemaARN = pSchemaARN_,
-      name = pName_
+      name = pName_,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token.
@@ -88,13 +85,6 @@ mkListTypedLinkFacetAttributes pSchemaARN_ pName_ =
 ltlfaNextToken :: Lens.Lens' ListTypedLinkFacetAttributes (Lude.Maybe Lude.Text)
 ltlfaNextToken = Lens.lens (nextToken :: ListTypedLinkFacetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypedLinkFacetAttributes)
 {-# DEPRECATED ltlfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfaMaxResults :: Lens.Lens' ListTypedLinkFacetAttributes (Lude.Maybe Lude.Natural)
-ltlfaMaxResults = Lens.lens (maxResults :: ListTypedLinkFacetAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypedLinkFacetAttributes)
-{-# DEPRECATED ltlfaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 --
@@ -109,6 +99,13 @@ ltlfaSchemaARN = Lens.lens (schemaARN :: ListTypedLinkFacetAttributes -> Lude.Te
 ltlfaName :: Lens.Lens' ListTypedLinkFacetAttributes Lude.Text
 ltlfaName = Lens.lens (name :: ListTypedLinkFacetAttributes -> Lude.Text) (\s a -> s {name = a} :: ListTypedLinkFacetAttributes)
 {-# DEPRECATED ltlfaName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlfaMaxResults :: Lens.Lens' ListTypedLinkFacetAttributes (Lude.Maybe Lude.Natural)
+ltlfaMaxResults = Lens.lens (maxResults :: ListTypedLinkFacetAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypedLinkFacetAttributes)
+{-# DEPRECATED ltlfaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListTypedLinkFacetAttributes where
   page rq rs
@@ -142,8 +139,8 @@ instance Lude.ToJSON ListTypedLinkFacetAttributes where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -157,28 +154,20 @@ instance Lude.ToQuery ListTypedLinkFacetAttributes where
 
 -- | /See:/ 'mkListTypedLinkFacetAttributesResponse' smart constructor.
 data ListTypedLinkFacetAttributesResponse = ListTypedLinkFacetAttributesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    attributes ::
-      Lude.Maybe
-        [TypedLinkAttributeDefinition],
-    responseStatus ::
-      Lude.Int
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An ordered set of attributes associate with the typed link.
+    attributes :: Lude.Maybe [TypedLinkAttributeDefinition],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypedLinkFacetAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - An ordered set of attributes associate with the typed link.
 -- * 'nextToken' - The pagination token.
+-- * 'attributes' - An ordered set of attributes associate with the typed link.
 -- * 'responseStatus' - The response status code.
 mkListTypedLinkFacetAttributesResponse ::
   -- | 'responseStatus'

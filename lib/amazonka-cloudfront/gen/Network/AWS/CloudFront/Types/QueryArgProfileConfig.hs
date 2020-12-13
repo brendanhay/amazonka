@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.QueryArgProfileConfig
     mkQueryArgProfileConfig,
 
     -- * Lenses
-    qapcQueryArgProfiles,
     qapcForwardWhenQueryArgProfileIsUnknown,
+    qapcQueryArgProfiles,
   )
 where
 
@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryArgProfileConfig' smart constructor.
 data QueryArgProfileConfig = QueryArgProfileConfig'
-  { queryArgProfiles ::
-      Lude.Maybe QueryArgProfiles,
-    forwardWhenQueryArgProfileIsUnknown ::
-      Lude.Bool
+  { -- | Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+    forwardWhenQueryArgProfileIsUnknown :: Lude.Bool,
+    -- | Profiles specified for query argument-profile mapping for field-level encryption.
+    queryArgProfiles :: Lude.Maybe QueryArgProfiles
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryArgProfileConfig' with the minimum fields required to make a request.
@@ -54,17 +48,10 @@ mkQueryArgProfileConfig ::
   QueryArgProfileConfig
 mkQueryArgProfileConfig pForwardWhenQueryArgProfileIsUnknown_ =
   QueryArgProfileConfig'
-    { queryArgProfiles = Lude.Nothing,
-      forwardWhenQueryArgProfileIsUnknown =
-        pForwardWhenQueryArgProfileIsUnknown_
+    { forwardWhenQueryArgProfileIsUnknown =
+        pForwardWhenQueryArgProfileIsUnknown_,
+      queryArgProfiles = Lude.Nothing
     }
-
--- | Profiles specified for query argument-profile mapping for field-level encryption.
---
--- /Note:/ Consider using 'queryArgProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qapcQueryArgProfiles :: Lens.Lens' QueryArgProfileConfig (Lude.Maybe QueryArgProfiles)
-qapcQueryArgProfiles = Lens.lens (queryArgProfiles :: QueryArgProfileConfig -> Lude.Maybe QueryArgProfiles) (\s a -> s {queryArgProfiles = a} :: QueryArgProfileConfig)
-{-# DEPRECATED qapcQueryArgProfiles "Use generic-lens or generic-optics with 'queryArgProfiles' instead." #-}
 
 -- | Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
 --
@@ -73,16 +60,23 @@ qapcForwardWhenQueryArgProfileIsUnknown :: Lens.Lens' QueryArgProfileConfig Lude
 qapcForwardWhenQueryArgProfileIsUnknown = Lens.lens (forwardWhenQueryArgProfileIsUnknown :: QueryArgProfileConfig -> Lude.Bool) (\s a -> s {forwardWhenQueryArgProfileIsUnknown = a} :: QueryArgProfileConfig)
 {-# DEPRECATED qapcForwardWhenQueryArgProfileIsUnknown "Use generic-lens or generic-optics with 'forwardWhenQueryArgProfileIsUnknown' instead." #-}
 
+-- | Profiles specified for query argument-profile mapping for field-level encryption.
+--
+-- /Note:/ Consider using 'queryArgProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qapcQueryArgProfiles :: Lens.Lens' QueryArgProfileConfig (Lude.Maybe QueryArgProfiles)
+qapcQueryArgProfiles = Lens.lens (queryArgProfiles :: QueryArgProfileConfig -> Lude.Maybe QueryArgProfiles) (\s a -> s {queryArgProfiles = a} :: QueryArgProfileConfig)
+{-# DEPRECATED qapcQueryArgProfiles "Use generic-lens or generic-optics with 'queryArgProfiles' instead." #-}
+
 instance Lude.FromXML QueryArgProfileConfig where
   parseXML x =
     QueryArgProfileConfig'
-      Lude.<$> (x Lude..@? "QueryArgProfiles")
-      Lude.<*> (x Lude..@ "ForwardWhenQueryArgProfileIsUnknown")
+      Lude.<$> (x Lude..@ "ForwardWhenQueryArgProfileIsUnknown")
+      Lude.<*> (x Lude..@? "QueryArgProfiles")
 
 instance Lude.ToXML QueryArgProfileConfig where
   toXML QueryArgProfileConfig' {..} =
     Lude.mconcat
-      [ "QueryArgProfiles" Lude.@= queryArgProfiles,
-        "ForwardWhenQueryArgProfileIsUnknown"
-          Lude.@= forwardWhenQueryArgProfileIsUnknown
+      [ "ForwardWhenQueryArgProfileIsUnknown"
+          Lude.@= forwardWhenQueryArgProfileIsUnknown,
+        "QueryArgProfiles" Lude.@= queryArgProfiles
       ]

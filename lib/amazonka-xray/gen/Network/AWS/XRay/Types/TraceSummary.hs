@@ -57,59 +57,72 @@ import Network.AWS.XRay.Types.ValueWithServiceIds
 --
 -- /See:/ 'mkTraceSummary' smart constructor.
 data TraceSummary = TraceSummary'
-  { annotations ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([ValueWithServiceIds])),
+  { -- | Annotations from the trace's segment documents.
+    annotations :: Lude.Maybe (Lude.HashMap Lude.Text ([ValueWithServiceIds])),
+    -- | One or more of the segment documents has a 429 throttling error.
     hasThrottle :: Lude.Maybe Lude.Bool,
+    -- | Users from the trace's segment documents.
     users :: Lude.Maybe [TraceUser],
+    -- | The root of a trace.
     entryPoint :: Lude.Maybe ServiceId,
+    -- | The root segment document has a 500 series error.
     hasFault :: Lude.Maybe Lude.Bool,
+    -- | Service IDs from the trace's segment documents.
     serviceIds :: Lude.Maybe [ServiceId],
+    -- | The matched time stamp of a defined event.
     matchedEventTime :: Lude.Maybe Lude.Timestamp,
+    -- | One or more of the segment documents is in progress.
     isPartial :: Lude.Maybe Lude.Bool,
+    -- | A collection of ErrorRootCause structures corresponding to the trace segments.
     errorRootCauses :: Lude.Maybe [ErrorRootCause],
+    -- | A list of resource ARNs for any resource corresponding to the trace segments.
     resourceARNs :: Lude.Maybe [ResourceARNDetail],
+    -- | A list of Availability Zones for any zone corresponding to the trace segments.
     availabilityZones :: Lude.Maybe [AvailabilityZoneDetail],
+    -- | A list of EC2 instance IDs for any instance corresponding to the trace segments.
     instanceIds :: Lude.Maybe [InstanceIdDetail],
+    -- | A collection of ResponseTimeRootCause structures corresponding to the trace segments.
     responseTimeRootCauses :: Lude.Maybe [ResponseTimeRootCause],
+    -- | The root segment document has a 400 series error.
     hasError :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the request that generated the trace's segments and subsegments.
     id :: Lude.Maybe Lude.Text,
+    -- | Information about the HTTP request served by the trace.
     hTTP :: Lude.Maybe HTTP,
+    -- | The revision number of a trace.
     revision :: Lude.Maybe Lude.Int,
+    -- | The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
     duration :: Lude.Maybe Lude.Double,
+    -- | A collection of FaultRootCause structures corresponding to the trace segments.
     faultRootCauses :: Lude.Maybe [FaultRootCause],
+    -- | The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
     responseTime :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TraceSummary' with the minimum fields required to make a request.
 --
 -- * 'annotations' - Annotations from the trace's segment documents.
--- * 'availabilityZones' - A list of Availability Zones for any zone corresponding to the trace segments.
--- * 'duration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
--- * 'entryPoint' - The root of a trace.
--- * 'errorRootCauses' - A collection of ErrorRootCause structures corresponding to the trace segments.
--- * 'faultRootCauses' - A collection of FaultRootCause structures corresponding to the trace segments.
--- * 'hTTP' - Information about the HTTP request served by the trace.
--- * 'hasError' - The root segment document has a 400 series error.
--- * 'hasFault' - The root segment document has a 500 series error.
 -- * 'hasThrottle' - One or more of the segment documents has a 429 throttling error.
--- * 'id' - The unique identifier for the request that generated the trace's segments and subsegments.
--- * 'instanceIds' - A list of EC2 instance IDs for any instance corresponding to the trace segments.
--- * 'isPartial' - One or more of the segment documents is in progress.
--- * 'matchedEventTime' - The matched time stamp of a defined event.
--- * 'resourceARNs' - A list of resource ARNs for any resource corresponding to the trace segments.
--- * 'responseTime' - The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
--- * 'responseTimeRootCauses' - A collection of ResponseTimeRootCause structures corresponding to the trace segments.
--- * 'revision' - The revision number of a trace.
--- * 'serviceIds' - Service IDs from the trace's segment documents.
 -- * 'users' - Users from the trace's segment documents.
+-- * 'entryPoint' - The root of a trace.
+-- * 'hasFault' - The root segment document has a 500 series error.
+-- * 'serviceIds' - Service IDs from the trace's segment documents.
+-- * 'matchedEventTime' - The matched time stamp of a defined event.
+-- * 'isPartial' - One or more of the segment documents is in progress.
+-- * 'errorRootCauses' - A collection of ErrorRootCause structures corresponding to the trace segments.
+-- * 'resourceARNs' - A list of resource ARNs for any resource corresponding to the trace segments.
+-- * 'availabilityZones' - A list of Availability Zones for any zone corresponding to the trace segments.
+-- * 'instanceIds' - A list of EC2 instance IDs for any instance corresponding to the trace segments.
+-- * 'responseTimeRootCauses' - A collection of ResponseTimeRootCause structures corresponding to the trace segments.
+-- * 'hasError' - The root segment document has a 400 series error.
+-- * 'id' - The unique identifier for the request that generated the trace's segments and subsegments.
+-- * 'hTTP' - Information about the HTTP request served by the trace.
+-- * 'revision' - The revision number of a trace.
+-- * 'duration' - The length of time in seconds between the start time of the root segment and the end time of the last segment that completed.
+-- * 'faultRootCauses' - A collection of FaultRootCause structures corresponding to the trace segments.
+-- * 'responseTime' - The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes.
 mkTraceSummary ::
   TraceSummary
 mkTraceSummary =

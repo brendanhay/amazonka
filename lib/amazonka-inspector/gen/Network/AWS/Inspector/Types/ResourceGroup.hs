@@ -18,8 +18,8 @@ module Network.AWS.Inspector.Types.ResourceGroup
 
     -- * Lenses
     rgArn,
-    rgTags,
     rgCreatedAt,
+    rgTags,
   )
 where
 
@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceGroup' smart constructor.
 data ResourceGroup = ResourceGroup'
-  { arn :: Lude.Text,
-    tags :: Lude.NonEmpty ResourceGroupTag,
-    createdAt :: Lude.Timestamp
+  { -- | The ARN of the resource group.
+    arn :: Lude.Text,
+    -- | The time at which resource group is created.
+    createdAt :: Lude.Timestamp,
+    -- | The tags (key and value pairs) of the resource group. This data type property is used in the 'CreateResourceGroup' action.
+    tags :: Lude.NonEmpty ResourceGroupTag
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceGroup' with the minimum fields required to make a request.
@@ -52,16 +49,16 @@ data ResourceGroup = ResourceGroup'
 mkResourceGroup ::
   -- | 'arn'
   Lude.Text ->
-  -- | 'tags'
-  Lude.NonEmpty ResourceGroupTag ->
   -- | 'createdAt'
   Lude.Timestamp ->
+  -- | 'tags'
+  Lude.NonEmpty ResourceGroupTag ->
   ResourceGroup
-mkResourceGroup pArn_ pTags_ pCreatedAt_ =
+mkResourceGroup pArn_ pCreatedAt_ pTags_ =
   ResourceGroup'
     { arn = pArn_,
-      tags = pTags_,
-      createdAt = pCreatedAt_
+      createdAt = pCreatedAt_,
+      tags = pTags_
     }
 
 -- | The ARN of the resource group.
@@ -71,19 +68,19 @@ rgArn :: Lens.Lens' ResourceGroup Lude.Text
 rgArn = Lens.lens (arn :: ResourceGroup -> Lude.Text) (\s a -> s {arn = a} :: ResourceGroup)
 {-# DEPRECATED rgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The tags (key and value pairs) of the resource group. This data type property is used in the 'CreateResourceGroup' action.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgTags :: Lens.Lens' ResourceGroup (Lude.NonEmpty ResourceGroupTag)
-rgTags = Lens.lens (tags :: ResourceGroup -> Lude.NonEmpty ResourceGroupTag) (\s a -> s {tags = a} :: ResourceGroup)
-{-# DEPRECATED rgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The time at which resource group is created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rgCreatedAt :: Lens.Lens' ResourceGroup Lude.Timestamp
 rgCreatedAt = Lens.lens (createdAt :: ResourceGroup -> Lude.Timestamp) (\s a -> s {createdAt = a} :: ResourceGroup)
 {-# DEPRECATED rgCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The tags (key and value pairs) of the resource group. This data type property is used in the 'CreateResourceGroup' action.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgTags :: Lens.Lens' ResourceGroup (Lude.NonEmpty ResourceGroupTag)
+rgTags = Lens.lens (tags :: ResourceGroup -> Lude.NonEmpty ResourceGroupTag) (\s a -> s {tags = a} :: ResourceGroup)
+{-# DEPRECATED rgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.FromJSON ResourceGroup where
   parseJSON =
@@ -92,6 +89,6 @@ instance Lude.FromJSON ResourceGroup where
       ( \x ->
           ResourceGroup'
             Lude.<$> (x Lude..: "arn")
-            Lude.<*> (x Lude..: "tags")
             Lude.<*> (x Lude..: "createdAt")
+            Lude.<*> (x Lude..: "tags")
       )

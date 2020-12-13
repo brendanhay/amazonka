@@ -13,12 +13,12 @@
 module Network.AWS.SSM.Types.ResourceTypeForTagging
   ( ResourceTypeForTagging
       ( ResourceTypeForTagging',
-        RTFTDocument,
-        RTFTMaintenanceWindow,
-        RTFTManagedInstance,
-        RTFTOpsItem,
-        RTFTParameter,
-        RTFTPatchBaseline
+        Document,
+        ManagedInstance,
+        MaintenanceWindow,
+        Parameter,
+        PatchBaseline,
+        OpsItem
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype ResourceTypeForTagging = ResourceTypeForTagging' Lude.Text
       Lude.ToHeader
     )
 
-pattern RTFTDocument :: ResourceTypeForTagging
-pattern RTFTDocument = ResourceTypeForTagging' "Document"
+pattern Document :: ResourceTypeForTagging
+pattern Document = ResourceTypeForTagging' "Document"
 
-pattern RTFTMaintenanceWindow :: ResourceTypeForTagging
-pattern RTFTMaintenanceWindow = ResourceTypeForTagging' "MaintenanceWindow"
+pattern ManagedInstance :: ResourceTypeForTagging
+pattern ManagedInstance = ResourceTypeForTagging' "ManagedInstance"
 
-pattern RTFTManagedInstance :: ResourceTypeForTagging
-pattern RTFTManagedInstance = ResourceTypeForTagging' "ManagedInstance"
+pattern MaintenanceWindow :: ResourceTypeForTagging
+pattern MaintenanceWindow = ResourceTypeForTagging' "MaintenanceWindow"
 
-pattern RTFTOpsItem :: ResourceTypeForTagging
-pattern RTFTOpsItem = ResourceTypeForTagging' "OpsItem"
+pattern Parameter :: ResourceTypeForTagging
+pattern Parameter = ResourceTypeForTagging' "Parameter"
 
-pattern RTFTParameter :: ResourceTypeForTagging
-pattern RTFTParameter = ResourceTypeForTagging' "Parameter"
+pattern PatchBaseline :: ResourceTypeForTagging
+pattern PatchBaseline = ResourceTypeForTagging' "PatchBaseline"
 
-pattern RTFTPatchBaseline :: ResourceTypeForTagging
-pattern RTFTPatchBaseline = ResourceTypeForTagging' "PatchBaseline"
+pattern OpsItem :: ResourceTypeForTagging
+pattern OpsItem = ResourceTypeForTagging' "OpsItem"
 
 {-# COMPLETE
-  RTFTDocument,
-  RTFTMaintenanceWindow,
-  RTFTManagedInstance,
-  RTFTOpsItem,
-  RTFTParameter,
-  RTFTPatchBaseline,
+  Document,
+  ManagedInstance,
+  MaintenanceWindow,
+  Parameter,
+  PatchBaseline,
+  OpsItem,
   ResourceTypeForTagging'
   #-}

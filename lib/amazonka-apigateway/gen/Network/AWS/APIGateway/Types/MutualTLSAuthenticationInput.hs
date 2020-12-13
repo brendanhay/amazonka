@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMutualTLSAuthenticationInput' smart constructor.
 data MutualTLSAuthenticationInput = MutualTLSAuthenticationInput'
-  { truststoreURI ::
-      Lude.Maybe Lude.Text,
-    truststoreVersion ::
-      Lude.Maybe Lude.Text
+  { -- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS authentication, for example, @s3://bucket-name/key-name@ . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
+    truststoreURI :: Lude.Maybe Lude.Text,
+    -- | The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+    truststoreVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MutualTLSAuthenticationInput' with the minimum fields required to make a request.

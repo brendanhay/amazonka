@@ -33,11 +33,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceType' smart constructor.
 data DeviceType = DeviceType'
-  { deviceLastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The last modified date of the device.
+    deviceLastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The creation date of the device.
     deviceCreateDate :: Lude.Maybe Lude.Timestamp,
+    -- | The device attributes.
     deviceAttributes :: Lude.Maybe [AttributeType],
+    -- | The device key.
     deviceKey :: Lude.Maybe Lude.Text,
+    -- | The date in which the device was last authenticated.
     deviceLastAuthenticatedDate :: Lude.Maybe Lude.Timestamp
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -45,11 +49,11 @@ data DeviceType = DeviceType'
 
 -- | Creates a value of 'DeviceType' with the minimum fields required to make a request.
 --
--- * 'deviceAttributes' - The device attributes.
+-- * 'deviceLastModifiedDate' - The last modified date of the device.
 -- * 'deviceCreateDate' - The creation date of the device.
+-- * 'deviceAttributes' - The device attributes.
 -- * 'deviceKey' - The device key.
 -- * 'deviceLastAuthenticatedDate' - The date in which the device was last authenticated.
--- * 'deviceLastModifiedDate' - The last modified date of the device.
 mkDeviceType ::
   DeviceType
 mkDeviceType =

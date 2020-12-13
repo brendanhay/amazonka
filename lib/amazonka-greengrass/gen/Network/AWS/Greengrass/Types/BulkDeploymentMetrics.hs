@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBulkDeploymentMetrics' smart constructor.
 data BulkDeploymentMetrics = BulkDeploymentMetrics'
-  { recordsProcessed ::
-      Lude.Maybe Lude.Int,
+  { -- | The total number of group records from the input file that have been processed so far, or attempted.
+    recordsProcessed :: Lude.Maybe Lude.Int,
+    -- | The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
     retryAttempts :: Lude.Maybe Lude.Int,
+    -- | The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
     invalidInputRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BulkDeploymentMetrics' with the minimum fields required to make a request.
 --
--- * 'invalidInputRecords' - The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
 -- * 'recordsProcessed' - The total number of group records from the input file that have been processed so far, or attempted.
 -- * 'retryAttempts' - The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
+-- * 'invalidInputRecords' - The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
 mkBulkDeploymentMetrics ::
   BulkDeploymentMetrics
 mkBulkDeploymentMetrics =

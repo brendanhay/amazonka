@@ -60,77 +60,98 @@ import Network.AWS.RDS.Types.Tag
 --
 -- /See:/ 'mkDBSnapshot' smart constructor.
 data DBSnapshot = DBSnapshot'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the version of the database engine.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies the status of this DB snapshot.
     status :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the DB snapshot.
     dbSnapshotARN :: Lude.Maybe Lude.Text,
+    -- | Provides the master username for the DB snapshot.
     masterUsername :: Lude.Maybe Lude.Text,
+    -- | The AWS Region that the DB snapshot was created in or copied from.
     sourceRegion :: Lude.Maybe Lude.Text,
+    -- | True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
     iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
     iops :: Lude.Maybe Lude.Int,
+    -- | Provides the VPC ID associated with the DB snapshot.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from which the snapshot was taken, was created.
     instanceCreateTime :: Lude.Maybe Lude.DateTime,
     tagList :: Lude.Maybe [Tag],
+    -- | Specifies the name of the database engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the DB snapshot is encrypted.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | Specifies the identifier for the DB snapshot.
     dbSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance when the DB snapshot was created.
     processorFeatures :: Lude.Maybe [ProcessorFeature],
+    -- | License model information for the restored DB instance.
     licenseModel :: Lude.Maybe Lude.Text,
+    -- | The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.
     sourceDBSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | Provides the type of the DB snapshot.
     snapshotType :: Lude.Maybe Lude.Text,
+    -- | Specifies the DB instance identifier of the DB instance this DB snapshot was created from.
     dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | If @Encrypted@ is true, the AWS KMS key identifier for the encrypted DB snapshot.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | Specifies when the snapshot was taken in Coordinated Universal Time (UTC).
     snapshotCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | Specifies the allocated storage size in gibibytes (GiB).
     allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
     dbiResourceId :: Lude.Maybe Lude.Text,
+    -- | Provides the option group name for the DB snapshot.
     optionGroupName :: Lude.Maybe Lude.Text,
+    -- | The time zone of the DB snapshot. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for snapshots taken from Microsoft SQL Server DB instances that were created with a time zone specified.
     timezone :: Lude.Maybe Lude.Text,
+    -- | The ARN from the key store with which to associate the instance for TDE encryption.
     tdeCredentialARN :: Lude.Maybe Lude.Text,
+    -- | The percentage of the estimated data that has been transferred.
     percentProgress :: Lude.Maybe Lude.Int,
+    -- | Specifies the port that the database engine was listening on at the time of the snapshot.
     port :: Lude.Maybe Lude.Int,
+    -- | Specifies the storage type associated with DB snapshot.
     storageType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBSnapshot' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
--- * 'availabilityZone' - Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
--- * 'dbInstanceIdentifier' - Specifies the DB instance identifier of the DB instance this DB snapshot was created from.
--- * 'dbSnapshotARN' - The Amazon Resource Name (ARN) for the DB snapshot.
--- * 'dbSnapshotIdentifier' - Specifies the identifier for the DB snapshot.
--- * 'dbiResourceId' - The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
--- * 'encrypted' - Specifies whether the DB snapshot is encrypted.
--- * 'engine' - Specifies the name of the database engine.
 -- * 'engineVersion' - Specifies the version of the database engine.
--- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
--- * 'instanceCreateTime' - Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from which the snapshot was taken, was created.
--- * 'iops' - Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
--- * 'kmsKeyId' - If @Encrypted@ is true, the AWS KMS key identifier for the encrypted DB snapshot.
--- * 'licenseModel' - License model information for the restored DB instance.
+-- * 'status' - Specifies the status of this DB snapshot.
+-- * 'dbSnapshotARN' - The Amazon Resource Name (ARN) for the DB snapshot.
 -- * 'masterUsername' - Provides the master username for the DB snapshot.
+-- * 'sourceRegion' - The AWS Region that the DB snapshot was created in or copied from.
+-- * 'iamDatabaseAuthenticationEnabled' - True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
+-- * 'iops' - Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+-- * 'vpcId' - Provides the VPC ID associated with the DB snapshot.
+-- * 'instanceCreateTime' - Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from which the snapshot was taken, was created.
+-- * 'tagList' -
+-- * 'engine' - Specifies the name of the database engine.
+-- * 'encrypted' - Specifies whether the DB snapshot is encrypted.
+-- * 'dbSnapshotIdentifier' - Specifies the identifier for the DB snapshot.
+-- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance when the DB snapshot was created.
+-- * 'licenseModel' - License model information for the restored DB instance.
+-- * 'sourceDBSnapshotIdentifier' - The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.
+-- * 'snapshotType' - Provides the type of the DB snapshot.
+-- * 'dbInstanceIdentifier' - Specifies the DB instance identifier of the DB instance this DB snapshot was created from.
+-- * 'kmsKeyId' - If @Encrypted@ is true, the AWS KMS key identifier for the encrypted DB snapshot.
+-- * 'availabilityZone' - Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+-- * 'snapshotCreateTime' - Specifies when the snapshot was taken in Coordinated Universal Time (UTC).
+-- * 'allocatedStorage' - Specifies the allocated storage size in gibibytes (GiB).
+-- * 'dbiResourceId' - The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
 -- * 'optionGroupName' - Provides the option group name for the DB snapshot.
+-- * 'timezone' - The time zone of the DB snapshot. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for snapshots taken from Microsoft SQL Server DB instances that were created with a time zone specified.
+-- * 'tdeCredentialARN' - The ARN from the key store with which to associate the instance for TDE encryption.
 -- * 'percentProgress' - The percentage of the estimated data that has been transferred.
 -- * 'port' - Specifies the port that the database engine was listening on at the time of the snapshot.
--- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance when the DB snapshot was created.
--- * 'snapshotCreateTime' - Specifies when the snapshot was taken in Coordinated Universal Time (UTC).
--- * 'snapshotType' - Provides the type of the DB snapshot.
--- * 'sourceDBSnapshotIdentifier' - The DB snapshot Amazon Resource Name (ARN) that the DB snapshot was copied from. It only has value in case of cross-customer or cross-region copy.
--- * 'sourceRegion' - The AWS Region that the DB snapshot was created in or copied from.
--- * 'status' - Specifies the status of this DB snapshot.
 -- * 'storageType' - Specifies the storage type associated with DB snapshot.
--- * 'tagList' - Undocumented field.
--- * 'tdeCredentialARN' - The ARN from the key store with which to associate the instance for TDE encryption.
--- * 'timezone' - The time zone of the DB snapshot. In most cases, the @Timezone@ element is empty. @Timezone@ content appears only for snapshots taken from Microsoft SQL Server DB instances that were created with a time zone specified.
--- * 'vpcId' - Provides the VPC ID associated with the DB snapshot.
 mkDBSnapshot ::
   DBSnapshot
 mkDBSnapshot =

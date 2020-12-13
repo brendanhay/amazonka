@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaReference' smart constructor.
 data SchemaReference = SchemaReference'
-  { schemaVersionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
+    schemaVersionId :: Lude.Maybe Lude.Text,
+    -- | A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
     schemaId :: Lude.Maybe SchemaId,
+    -- | The version number of the schema.
     schemaVersionNumber :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaReference' with the minimum fields required to make a request.
 --
--- * 'schemaId' - A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
 -- * 'schemaVersionId' - The unique ID assigned to a version of the schema. Either this or the @SchemaId@ has to be provided.
+-- * 'schemaId' - A structure that contains schema identity fields. Either this or the @SchemaVersionId@ has to be provided.
 -- * 'schemaVersionNumber' - The version number of the schema.
 mkSchemaReference ::
   SchemaReference

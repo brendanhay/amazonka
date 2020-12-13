@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceLimits' smart constructor.
 data ResourceLimits = ResourceLimits'
-  { maxNumberOfTrainingJobs ::
-      Lude.Natural,
+  { -- | The maximum number of training jobs that a hyperparameter tuning job can launch.
+    maxNumberOfTrainingJobs :: Lude.Natural,
+    -- | The maximum number of concurrent training jobs that a hyperparameter tuning job can launch.
     maxParallelTrainingJobs :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceLimits' with the minimum fields required to make a request.

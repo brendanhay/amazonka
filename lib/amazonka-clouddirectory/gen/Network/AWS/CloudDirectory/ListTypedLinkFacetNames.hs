@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.CloudDirectory.ListTypedLinkFacetNames
 
     -- ** Request lenses
     ltlfnNextToken,
-    ltlfnMaxResults,
     ltlfnSchemaARN,
+    ltlfnMaxResults,
 
     -- * Destructuring the response
     ListTypedLinkFacetNamesResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTypedLinkFacetNames' smart constructor.
 data ListTypedLinkFacetNames = ListTypedLinkFacetNames'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    schemaARN :: Lude.Text
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+    schemaARN :: Lude.Text,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypedLinkFacetNames' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
 -- * 'nextToken' - The pagination token.
 -- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkListTypedLinkFacetNames ::
   -- | 'schemaARN'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListTypedLinkFacetNames ::
 mkListTypedLinkFacetNames pSchemaARN_ =
   ListTypedLinkFacetNames'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      schemaARN = pSchemaARN_
+      schemaARN = pSchemaARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token.
@@ -82,19 +79,19 @@ ltlfnNextToken :: Lens.Lens' ListTypedLinkFacetNames (Lude.Maybe Lude.Text)
 ltlfnNextToken = Lens.lens (nextToken :: ListTypedLinkFacetNames -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTypedLinkFacetNames)
 {-# DEPRECATED ltlfnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltlfnMaxResults :: Lens.Lens' ListTypedLinkFacetNames (Lude.Maybe Lude.Natural)
-ltlfnMaxResults = Lens.lens (maxResults :: ListTypedLinkFacetNames -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypedLinkFacetNames)
-{-# DEPRECATED ltlfnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 --
 -- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltlfnSchemaARN :: Lens.Lens' ListTypedLinkFacetNames Lude.Text
 ltlfnSchemaARN = Lens.lens (schemaARN :: ListTypedLinkFacetNames -> Lude.Text) (\s a -> s {schemaARN = a} :: ListTypedLinkFacetNames)
 {-# DEPRECATED ltlfnSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltlfnMaxResults :: Lens.Lens' ListTypedLinkFacetNames (Lude.Maybe Lude.Natural)
+ltlfnMaxResults = Lens.lens (maxResults :: ListTypedLinkFacetNames -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTypedLinkFacetNames)
+{-# DEPRECATED ltlfnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListTypedLinkFacetNames where
   page rq rs
@@ -140,25 +137,20 @@ instance Lude.ToQuery ListTypedLinkFacetNames where
 
 -- | /See:/ 'mkListTypedLinkFacetNamesResponse' smart constructor.
 data ListTypedLinkFacetNamesResponse = ListTypedLinkFacetNamesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    facetNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The names of typed link facets that exist within the schema.
+    facetNames :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypedLinkFacetNamesResponse' with the minimum fields required to make a request.
 --
--- * 'facetNames' - The names of typed link facets that exist within the schema.
 -- * 'nextToken' - The pagination token.
+-- * 'facetNames' - The names of typed link facets that exist within the schema.
 -- * 'responseStatus' - The response status code.
 mkListTypedLinkFacetNamesResponse ::
   -- | 'responseStatus'

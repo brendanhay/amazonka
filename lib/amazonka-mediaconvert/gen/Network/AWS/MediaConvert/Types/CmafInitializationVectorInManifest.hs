@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
   ( CmafInitializationVectorInManifest
       ( CmafInitializationVectorInManifest',
-        CIVIMExclude,
-        CIVIMInclude
+        Include,
+        Exclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmafInitializationVectorInManifest = CmafInitializationVectorInManifest'
       Lude.ToHeader
     )
 
-pattern CIVIMExclude :: CmafInitializationVectorInManifest
-pattern CIVIMExclude = CmafInitializationVectorInManifest' "EXCLUDE"
+pattern Include :: CmafInitializationVectorInManifest
+pattern Include = CmafInitializationVectorInManifest' "INCLUDE"
 
-pattern CIVIMInclude :: CmafInitializationVectorInManifest
-pattern CIVIMInclude = CmafInitializationVectorInManifest' "INCLUDE"
+pattern Exclude :: CmafInitializationVectorInManifest
+pattern Exclude = CmafInitializationVectorInManifest' "EXCLUDE"
 
 {-# COMPLETE
-  CIVIMExclude,
-  CIVIMInclude,
+  Include,
+  Exclude,
   CmafInitializationVectorInManifest'
   #-}

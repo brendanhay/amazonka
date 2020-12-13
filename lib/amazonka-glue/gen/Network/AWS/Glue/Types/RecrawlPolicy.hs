@@ -29,16 +29,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecrawlPolicy' smart constructor.
 newtype RecrawlPolicy = RecrawlPolicy'
-  { recrawlBehavior ::
-      Lude.Maybe RecrawlBehavior
+  { -- | Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.
+    --
+    -- A value of @CRAWL_EVERYTHING@ specifies crawling the entire dataset again.
+    -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that were added since the last crawler run.
+    recrawlBehavior :: Lude.Maybe RecrawlBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecrawlPolicy' with the minimum fields required to make a request.

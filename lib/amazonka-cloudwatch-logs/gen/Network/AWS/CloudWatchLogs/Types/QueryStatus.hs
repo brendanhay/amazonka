@@ -13,11 +13,11 @@
 module Network.AWS.CloudWatchLogs.Types.QueryStatus
   ( QueryStatus
       ( QueryStatus',
-        Cancelled,
+        Scheduled,
+        Running,
         Complete,
         Failed,
-        Running,
-        Scheduled
+        Cancelled
       ),
   )
 where
@@ -48,8 +48,11 @@ newtype QueryStatus = QueryStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: QueryStatus
-pattern Cancelled = QueryStatus' "Cancelled"
+pattern Scheduled :: QueryStatus
+pattern Scheduled = QueryStatus' "Scheduled"
+
+pattern Running :: QueryStatus
+pattern Running = QueryStatus' "Running"
 
 pattern Complete :: QueryStatus
 pattern Complete = QueryStatus' "Complete"
@@ -57,17 +60,14 @@ pattern Complete = QueryStatus' "Complete"
 pattern Failed :: QueryStatus
 pattern Failed = QueryStatus' "Failed"
 
-pattern Running :: QueryStatus
-pattern Running = QueryStatus' "Running"
-
-pattern Scheduled :: QueryStatus
-pattern Scheduled = QueryStatus' "Scheduled"
+pattern Cancelled :: QueryStatus
+pattern Cancelled = QueryStatus' "Cancelled"
 
 {-# COMPLETE
-  Cancelled,
+  Scheduled,
+  Running,
   Complete,
   Failed,
-  Running,
-  Scheduled,
+  Cancelled,
   QueryStatus'
   #-}

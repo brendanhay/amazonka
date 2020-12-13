@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.ElasticSearch.GetPackageVersionHistory
     mkGetPackageVersionHistory,
 
     -- ** Request lenses
+    gpvhPackageId,
     gpvhNextToken,
     gpvhMaxResults,
-    gpvhPackageId,
 
     -- * Destructuring the response
     GetPackageVersionHistoryResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetPackageVersionHistory' smart constructor.
 data GetPackageVersionHistory = GetPackageVersionHistory'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    packageId :: Lude.Text
+  { -- | Returns an audit history of versions of the package.
+    packageId :: Lude.Text,
+    -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Limits results to a maximum number of versions.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPackageVersionHistory' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Limits results to a maximum number of versions.
--- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
 -- * 'packageId' - Returns an audit history of versions of the package.
+-- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+-- * 'maxResults' - Limits results to a maximum number of versions.
 mkGetPackageVersionHistory ::
   -- | 'packageId'
   Lude.Text ->
   GetPackageVersionHistory
 mkGetPackageVersionHistory pPackageId_ =
   GetPackageVersionHistory'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      packageId = pPackageId_
+    { packageId = pPackageId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | Returns an audit history of versions of the package.
+--
+-- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpvhPackageId :: Lens.Lens' GetPackageVersionHistory Lude.Text
+gpvhPackageId = Lens.lens (packageId :: GetPackageVersionHistory -> Lude.Text) (\s a -> s {packageId = a} :: GetPackageVersionHistory)
+{-# DEPRECATED gpvhPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
 -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
 --
@@ -88,13 +92,6 @@ gpvhNextToken = Lens.lens (nextToken :: GetPackageVersionHistory -> Lude.Maybe L
 gpvhMaxResults :: Lens.Lens' GetPackageVersionHistory (Lude.Maybe Lude.Int)
 gpvhMaxResults = Lens.lens (maxResults :: GetPackageVersionHistory -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetPackageVersionHistory)
 {-# DEPRECATED gpvhMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Returns an audit history of versions of the package.
---
--- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpvhPackageId :: Lens.Lens' GetPackageVersionHistory Lude.Text
-gpvhPackageId = Lens.lens (packageId :: GetPackageVersionHistory -> Lude.Text) (\s a -> s {packageId = a} :: GetPackageVersionHistory)
-{-# DEPRECATED gpvhPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
 instance Lude.AWSRequest GetPackageVersionHistory where
   type Rs GetPackageVersionHistory = GetPackageVersionHistoryResponse
@@ -126,30 +123,21 @@ instance Lude.ToQuery GetPackageVersionHistory where
 --
 -- /See:/ 'mkGetPackageVersionHistoryResponse' smart constructor.
 data GetPackageVersionHistoryResponse = GetPackageVersionHistoryResponse'
-  { packageId ::
-      Lude.Maybe Lude.Text,
-    packageVersionHistoryList ::
-      Lude.Maybe
-        [PackageVersionHistory],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { packageId :: Lude.Maybe Lude.Text,
+    -- | List of @PackageVersionHistory@ objects.
+    packageVersionHistoryList :: Lude.Maybe [PackageVersionHistory],
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPackageVersionHistoryResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
--- * 'packageId' - Undocumented field.
+-- * 'packageId' -
 -- * 'packageVersionHistoryList' - List of @PackageVersionHistory@ objects.
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkGetPackageVersionHistoryResponse ::
   -- | 'responseStatus'

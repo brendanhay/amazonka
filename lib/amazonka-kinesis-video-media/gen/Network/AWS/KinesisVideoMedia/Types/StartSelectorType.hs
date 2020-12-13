@@ -13,12 +13,12 @@
 module Network.AWS.KinesisVideoMedia.Types.StartSelectorType
   ( StartSelectorType
       ( StartSelectorType',
-        ContinuationToken,
-        Earliest,
         FragmentNumber,
-        Now,
+        ServerTimestamp,
         ProducerTimestamp,
-        ServerTimestamp
+        Now,
+        Earliest,
+        ContinuationToken
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype StartSelectorType = StartSelectorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ContinuationToken :: StartSelectorType
-pattern ContinuationToken = StartSelectorType' "CONTINUATION_TOKEN"
-
-pattern Earliest :: StartSelectorType
-pattern Earliest = StartSelectorType' "EARLIEST"
-
 pattern FragmentNumber :: StartSelectorType
 pattern FragmentNumber = StartSelectorType' "FRAGMENT_NUMBER"
-
-pattern Now :: StartSelectorType
-pattern Now = StartSelectorType' "NOW"
-
-pattern ProducerTimestamp :: StartSelectorType
-pattern ProducerTimestamp = StartSelectorType' "PRODUCER_TIMESTAMP"
 
 pattern ServerTimestamp :: StartSelectorType
 pattern ServerTimestamp = StartSelectorType' "SERVER_TIMESTAMP"
 
+pattern ProducerTimestamp :: StartSelectorType
+pattern ProducerTimestamp = StartSelectorType' "PRODUCER_TIMESTAMP"
+
+pattern Now :: StartSelectorType
+pattern Now = StartSelectorType' "NOW"
+
+pattern Earliest :: StartSelectorType
+pattern Earliest = StartSelectorType' "EARLIEST"
+
+pattern ContinuationToken :: StartSelectorType
+pattern ContinuationToken = StartSelectorType' "CONTINUATION_TOKEN"
+
 {-# COMPLETE
-  ContinuationToken,
-  Earliest,
   FragmentNumber,
-  Now,
-  ProducerTimestamp,
   ServerTimestamp,
+  ProducerTimestamp,
+  Now,
+  Earliest,
+  ContinuationToken,
   StartSelectorType'
   #-}

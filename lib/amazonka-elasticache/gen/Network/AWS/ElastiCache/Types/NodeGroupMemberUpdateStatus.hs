@@ -38,44 +38,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeGroupMemberUpdateStatus' smart constructor.
 data NodeGroupMemberUpdateStatus = NodeGroupMemberUpdateStatus'
-  { nodeUpdateEndDate ::
-      Lude.Maybe Lude.DateTime,
-    nodeUpdateInitiatedBy ::
-      Lude.Maybe NodeUpdateInitiatedBy,
-    nodeUpdateStatusModifiedDate ::
-      Lude.Maybe Lude.DateTime,
-    cacheClusterId ::
-      Lude.Maybe Lude.Text,
+  { -- | The end date of the update for a node
+    nodeUpdateEndDate :: Lude.Maybe Lude.DateTime,
+    -- | Reflects whether the update was initiated by the customer or automatically applied
+    nodeUpdateInitiatedBy :: Lude.Maybe NodeUpdateInitiatedBy,
+    -- | The date when the NodeUpdateStatus was last modified
+    nodeUpdateStatusModifiedDate :: Lude.Maybe Lude.DateTime,
+    -- | The cache cluster ID
+    cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The node ID of the cache cluster
     cacheNodeId :: Lude.Maybe Lude.Text,
-    nodeUpdateInitiatedDate ::
-      Lude.Maybe Lude.DateTime,
-    nodeUpdateStartDate ::
-      Lude.Maybe Lude.DateTime,
-    nodeUpdateStatus ::
-      Lude.Maybe NodeUpdateStatus,
-    nodeDeletionDate ::
-      Lude.Maybe Lude.DateTime
+    -- | The date when the update is triggered
+    nodeUpdateInitiatedDate :: Lude.Maybe Lude.DateTime,
+    -- | The start date of the update for a node
+    nodeUpdateStartDate :: Lude.Maybe Lude.DateTime,
+    -- | The update status of the node
+    nodeUpdateStatus :: Lude.Maybe NodeUpdateStatus,
+    -- | The deletion date of the node
+    nodeDeletionDate :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroupMemberUpdateStatus' with the minimum fields required to make a request.
 --
--- * 'cacheClusterId' - The cache cluster ID
--- * 'cacheNodeId' - The node ID of the cache cluster
--- * 'nodeDeletionDate' - The deletion date of the node
 -- * 'nodeUpdateEndDate' - The end date of the update for a node
 -- * 'nodeUpdateInitiatedBy' - Reflects whether the update was initiated by the customer or automatically applied
+-- * 'nodeUpdateStatusModifiedDate' - The date when the NodeUpdateStatus was last modified
+-- * 'cacheClusterId' - The cache cluster ID
+-- * 'cacheNodeId' - The node ID of the cache cluster
 -- * 'nodeUpdateInitiatedDate' - The date when the update is triggered
 -- * 'nodeUpdateStartDate' - The start date of the update for a node
 -- * 'nodeUpdateStatus' - The update status of the node
--- * 'nodeUpdateStatusModifiedDate' - The date when the NodeUpdateStatus was last modified
+-- * 'nodeDeletionDate' - The deletion date of the node
 mkNodeGroupMemberUpdateStatus ::
   NodeGroupMemberUpdateStatus
 mkNodeGroupMemberUpdateStatus =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVolumes' smart constructor.
 data DescribeVolumes = DescribeVolumes'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
     volumeIds :: Lude.Maybe [Lude.Text],
+    -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
     raidArrayId :: Lude.Maybe Lude.Text,
+    -- | A stack ID. The action describes the stack's registered Amazon EBS volumes.
     stackId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumes' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The instance ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified instance.
+-- * 'volumeIds' - Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
 -- * 'raidArrayId' - The RAID array ID. If you use this parameter, @DescribeVolumes@ returns descriptions of the volumes associated with the specified RAID array.
 -- * 'stackId' - A stack ID. The action describes the stack's registered Amazon EBS volumes.
--- * 'volumeIds' - Am array of volume IDs. If you use this parameter, @DescribeVolumes@ returns descriptions of the specified volumes. Otherwise, it returns a description of every volume.
 mkDescribeVolumes ::
   DescribeVolumes
 mkDescribeVolumes =
@@ -146,23 +144,18 @@ instance Lude.ToQuery DescribeVolumes where
 --
 -- /See:/ 'mkDescribeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-  { volumes ::
-      Lude.Maybe [Volume],
+  { -- | An array of volume IDs.
+    volumes :: Lude.Maybe [Volume],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'volumes' - An array of volume IDs.
+-- * 'responseStatus' - The response status code.
 mkDescribeVolumesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

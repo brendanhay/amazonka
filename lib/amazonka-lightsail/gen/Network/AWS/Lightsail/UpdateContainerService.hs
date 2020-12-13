@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Lightsail.UpdateContainerService
     ucsScale,
     ucsPower,
     ucsIsDisabled,
-    ucsPublicDomainNames,
     ucsServiceName,
+    ucsPublicDomainNames,
 
     -- * Destructuring the response
     UpdateContainerServiceResponse (..),
@@ -43,41 +44,47 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateContainerService' smart constructor.
 data UpdateContainerService = UpdateContainerService'
-  { scale ::
-      Lude.Maybe Lude.Natural,
+  { -- | The scale for the container service.
+    --
+    -- The scale specifies the allocated compute nodes of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
+    scale :: Lude.Maybe Lude.Natural,
+    -- | The power for the container service.
+    --
+    -- The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
+    -- Use the @GetContainerServicePowers@ action to view the specifications of each power option.
     power :: Lude.Maybe ContainerServicePowerName,
+    -- | A Boolean value to indicate whether the container service is disabled.
     isDisabled :: Lude.Maybe Lude.Bool,
-    publicDomainNames ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text ([Lude.Text])),
-    serviceName :: Lude.Text
+    -- | The name of the container service to update.
+    serviceName :: Lude.Text,
+    -- | The public domain names to use with the container service, such as @example.com@ and @www.example.com@ .
+    --
+    -- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
+    -- If you don't specify public domain names, then you can use the default domain of the container service.
+    -- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
+    -- You can specify public domain names using a string to array map as shown in the example later on this page.
+    publicDomainNames :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerService' with the minimum fields required to make a request.
 --
--- * 'isDisabled' - A Boolean value to indicate whether the container service is disabled.
+-- * 'scale' - The scale for the container service.
+--
+-- The scale specifies the allocated compute nodes of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
 -- * 'power' - The power for the container service.
 --
 -- The power specifies the amount of memory, vCPUs, and base monthly cost of each node of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
 -- Use the @GetContainerServicePowers@ action to view the specifications of each power option.
+-- * 'isDisabled' - A Boolean value to indicate whether the container service is disabled.
+-- * 'serviceName' - The name of the container service to update.
 -- * 'publicDomainNames' - The public domain names to use with the container service, such as @example.com@ and @www.example.com@ .
 --
 -- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
 -- If you don't specify public domain names, then you can use the default domain of the container service.
 -- /Important:/ You must create and validate an SSL/TLS certificate before you can use public domain names with your container service. Use the @CreateCertificate@ action to create a certificate for the public domain names you want to use with your container service.
 -- You can specify public domain names using a string to array map as shown in the example later on this page.
--- * 'scale' - The scale for the container service.
---
--- The scale specifies the allocated compute nodes of the container service. The @power@ and @scale@ of a container service makes up its configured capacity. To determine the monthly price of your container service, multiply the base price of the @power@ with the @scale@ (the number of nodes) of the service.
--- * 'serviceName' - The name of the container service to update.
 mkUpdateContainerService ::
   -- | 'serviceName'
   Lude.Text ->
@@ -87,8 +94,8 @@ mkUpdateContainerService pServiceName_ =
     { scale = Lude.Nothing,
       power = Lude.Nothing,
       isDisabled = Lude.Nothing,
-      publicDomainNames = Lude.Nothing,
-      serviceName = pServiceName_
+      serviceName = pServiceName_,
+      publicDomainNames = Lude.Nothing
     }
 
 -- | The scale for the container service.
@@ -117,6 +124,13 @@ ucsIsDisabled :: Lens.Lens' UpdateContainerService (Lude.Maybe Lude.Bool)
 ucsIsDisabled = Lens.lens (isDisabled :: UpdateContainerService -> Lude.Maybe Lude.Bool) (\s a -> s {isDisabled = a} :: UpdateContainerService)
 {-# DEPRECATED ucsIsDisabled "Use generic-lens or generic-optics with 'isDisabled' instead." #-}
 
+-- | The name of the container service to update.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucsServiceName :: Lens.Lens' UpdateContainerService Lude.Text
+ucsServiceName = Lens.lens (serviceName :: UpdateContainerService -> Lude.Text) (\s a -> s {serviceName = a} :: UpdateContainerService)
+{-# DEPRECATED ucsServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+
 -- | The public domain names to use with the container service, such as @example.com@ and @www.example.com@ .
 --
 -- You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service.
@@ -128,13 +142,6 @@ ucsIsDisabled = Lens.lens (isDisabled :: UpdateContainerService -> Lude.Maybe Lu
 ucsPublicDomainNames :: Lens.Lens' UpdateContainerService (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
 ucsPublicDomainNames = Lens.lens (publicDomainNames :: UpdateContainerService -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {publicDomainNames = a} :: UpdateContainerService)
 {-# DEPRECATED ucsPublicDomainNames "Use generic-lens or generic-optics with 'publicDomainNames' instead." #-}
-
--- | The name of the container service to update.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsServiceName :: Lens.Lens' UpdateContainerService Lude.Text
-ucsServiceName = Lens.lens (serviceName :: UpdateContainerService -> Lude.Text) (\s a -> s {serviceName = a} :: UpdateContainerService)
-{-# DEPRECATED ucsServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 instance Lude.AWSRequest UpdateContainerService where
   type Rs UpdateContainerService = UpdateContainerServiceResponse
@@ -165,8 +172,8 @@ instance Lude.ToJSON UpdateContainerService where
           [ ("scale" Lude..=) Lude.<$> scale,
             ("power" Lude..=) Lude.<$> power,
             ("isDisabled" Lude..=) Lude.<$> isDisabled,
-            ("publicDomainNames" Lude..=) Lude.<$> publicDomainNames,
-            Lude.Just ("serviceName" Lude..= serviceName)
+            Lude.Just ("serviceName" Lude..= serviceName),
+            ("publicDomainNames" Lude..=) Lude.<$> publicDomainNames
           ]
       )
 
@@ -178,17 +185,12 @@ instance Lude.ToQuery UpdateContainerService where
 
 -- | /See:/ 'mkUpdateContainerServiceResponse' smart constructor.
 data UpdateContainerServiceResponse = UpdateContainerServiceResponse'
-  { containerService ::
-      Lude.Maybe ContainerService,
+  { -- | An object that describes a container service.
+    containerService :: Lude.Maybe ContainerService,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContainerServiceResponse' with the minimum fields required to make a request.

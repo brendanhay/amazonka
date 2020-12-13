@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.IdentityType
   ( IdentityType
       ( IdentityType',
-        Group,
-        User
+        User,
+        Group
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype IdentityType = IdentityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Group :: IdentityType
-pattern Group = IdentityType' "GROUP"
-
 pattern User :: IdentityType
 pattern User = IdentityType' "USER"
 
+pattern Group :: IdentityType
+pattern Group = IdentityType' "GROUP"
+
 {-# COMPLETE
-  Group,
   User,
+  Group,
   IdentityType'
   #-}

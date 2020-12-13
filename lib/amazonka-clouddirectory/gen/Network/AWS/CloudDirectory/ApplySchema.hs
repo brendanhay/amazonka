@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudDirectory.ApplySchema
     mkApplySchema,
 
     -- ** Request lenses
-    asPublishedSchemaARN,
     asDirectoryARN,
+    asPublishedSchemaARN,
 
     -- * Destructuring the response
     ApplySchemaResponse (..),
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkApplySchema' smart constructor.
 data ApplySchema = ApplySchema'
-  { publishedSchemaARN :: Lude.Text,
-    directoryARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
+    directoryARN :: Lude.Text,
+    -- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
+    publishedSchemaARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplySchema' with the minimum fields required to make a request.
@@ -58,23 +55,16 @@ data ApplySchema = ApplySchema'
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
 -- * 'publishedSchemaARN' - Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
 mkApplySchema ::
-  -- | 'publishedSchemaARN'
-  Lude.Text ->
   -- | 'directoryARN'
   Lude.Text ->
+  -- | 'publishedSchemaARN'
+  Lude.Text ->
   ApplySchema
-mkApplySchema pPublishedSchemaARN_ pDirectoryARN_ =
+mkApplySchema pDirectoryARN_ pPublishedSchemaARN_ =
   ApplySchema'
-    { publishedSchemaARN = pPublishedSchemaARN_,
-      directoryARN = pDirectoryARN_
+    { directoryARN = pDirectoryARN_,
+      publishedSchemaARN = pPublishedSchemaARN_
     }
-
--- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
---
--- /Note:/ Consider using 'publishedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asPublishedSchemaARN :: Lens.Lens' ApplySchema Lude.Text
-asPublishedSchemaARN = Lens.lens (publishedSchemaARN :: ApplySchema -> Lude.Text) (\s a -> s {publishedSchemaARN = a} :: ApplySchema)
-{-# DEPRECATED asPublishedSchemaARN "Use generic-lens or generic-optics with 'publishedSchemaARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
 --
@@ -82,6 +72,13 @@ asPublishedSchemaARN = Lens.lens (publishedSchemaARN :: ApplySchema -> Lude.Text
 asDirectoryARN :: Lens.Lens' ApplySchema Lude.Text
 asDirectoryARN = Lens.lens (directoryARN :: ApplySchema -> Lude.Text) (\s a -> s {directoryARN = a} :: ApplySchema)
 {-# DEPRECATED asDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+
+-- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
+--
+-- /Note:/ Consider using 'publishedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asPublishedSchemaARN :: Lens.Lens' ApplySchema Lude.Text
+asPublishedSchemaARN = Lens.lens (publishedSchemaARN :: ApplySchema -> Lude.Text) (\s a -> s {publishedSchemaARN = a} :: ApplySchema)
+{-# DEPRECATED asPublishedSchemaARN "Use generic-lens or generic-optics with 'publishedSchemaARN' instead." #-}
 
 instance Lude.AWSRequest ApplySchema where
   type Rs ApplySchema = ApplySchemaResponse
@@ -114,24 +111,20 @@ instance Lude.ToQuery ApplySchema where
 
 -- | /See:/ 'mkApplySchemaResponse' smart constructor.
 data ApplySchemaResponse = ApplySchemaResponse'
-  { directoryARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
+    directoryARN :: Lude.Maybe Lude.Text,
+    -- | The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
     appliedSchemaARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplySchemaResponse' with the minimum fields required to make a request.
 --
--- * 'appliedSchemaARN' - The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
 -- * 'directoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
+-- * 'appliedSchemaARN' - The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
 -- * 'responseStatus' - The response status code.
 mkApplySchemaResponse ::
   -- | 'responseStatus'

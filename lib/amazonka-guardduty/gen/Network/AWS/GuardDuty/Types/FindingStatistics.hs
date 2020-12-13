@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFindingStatistics' smart constructor.
 newtype FindingStatistics = FindingStatistics'
-  { countBySeverity ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
+  { -- | Represents a map of severity to count statistics for a set of findings.
+    countBySeverity :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FindingStatistics' with the minimum fields required to make a request.

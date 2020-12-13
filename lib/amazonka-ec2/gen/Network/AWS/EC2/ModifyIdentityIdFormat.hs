@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.EC2.ModifyIdentityIdFormat
     mkModifyIdentityIdFormat,
 
     -- ** Request lenses
+    miifUseLongIds,
     miifPrincipalARN,
     miifResource,
-    miifUseLongIds,
 
     -- * Destructuring the response
     ModifyIdentityIdFormatResponse (..),
@@ -42,41 +43,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyIdentityIdFormat' smart constructor.
 data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
-  { principalARN ::
-      Lude.Text,
-    resource :: Lude.Text,
-    useLongIds :: Lude.Bool
+  { -- | Indicates whether the resource should use longer IDs (17-character IDs)
+    useLongIds :: Lude.Bool,
+    -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
+    principalARN :: Lude.Text,
+    -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
+    --
+    -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
+    resource :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyIdentityIdFormat' with the minimum fields required to make a request.
 --
+-- * 'useLongIds' - Indicates whether the resource should use longer IDs (17-character IDs)
 -- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
 -- * 'resource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
 -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
--- * 'useLongIds' - Indicates whether the resource should use longer IDs (17-character IDs)
 mkModifyIdentityIdFormat ::
+  -- | 'useLongIds'
+  Lude.Bool ->
   -- | 'principalARN'
   Lude.Text ->
   -- | 'resource'
   Lude.Text ->
-  -- | 'useLongIds'
-  Lude.Bool ->
   ModifyIdentityIdFormat
-mkModifyIdentityIdFormat pPrincipalARN_ pResource_ pUseLongIds_ =
+mkModifyIdentityIdFormat pUseLongIds_ pPrincipalARN_ pResource_ =
   ModifyIdentityIdFormat'
-    { principalARN = pPrincipalARN_,
-      resource = pResource_,
-      useLongIds = pUseLongIds_
+    { useLongIds = pUseLongIds_,
+      principalARN = pPrincipalARN_,
+      resource = pResource_
     }
+
+-- | Indicates whether the resource should use longer IDs (17-character IDs)
+--
+-- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miifUseLongIds :: Lens.Lens' ModifyIdentityIdFormat Lude.Bool
+miifUseLongIds = Lens.lens (useLongIds :: ModifyIdentityIdFormat -> Lude.Bool) (\s a -> s {useLongIds = a} :: ModifyIdentityIdFormat)
+{-# DEPRECATED miifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
 
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. Specify @all@ to modify the ID format for all IAM users, IAM roles, and the root user of the account.
 --
@@ -94,13 +100,6 @@ miifResource :: Lens.Lens' ModifyIdentityIdFormat Lude.Text
 miifResource = Lens.lens (resource :: ModifyIdentityIdFormat -> Lude.Text) (\s a -> s {resource = a} :: ModifyIdentityIdFormat)
 {-# DEPRECATED miifResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
--- | Indicates whether the resource should use longer IDs (17-character IDs)
---
--- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miifUseLongIds :: Lens.Lens' ModifyIdentityIdFormat Lude.Bool
-miifUseLongIds = Lens.lens (useLongIds :: ModifyIdentityIdFormat -> Lude.Bool) (\s a -> s {useLongIds = a} :: ModifyIdentityIdFormat)
-{-# DEPRECATED miifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
-
 instance Lude.AWSRequest ModifyIdentityIdFormat where
   type Rs ModifyIdentityIdFormat = ModifyIdentityIdFormatResponse
   request = Req.postQuery ec2Service
@@ -117,20 +116,14 @@ instance Lude.ToQuery ModifyIdentityIdFormat where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyIdentityIdFormat" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "UseLongIds" Lude.=: useLongIds,
         "PrincipalArn" Lude.=: principalARN,
-        "Resource" Lude.=: resource,
-        "UseLongIds" Lude.=: useLongIds
+        "Resource" Lude.=: resource
       ]
 
 -- | /See:/ 'mkModifyIdentityIdFormatResponse' smart constructor.
 data ModifyIdentityIdFormatResponse = ModifyIdentityIdFormatResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyIdentityIdFormatResponse' with the minimum fields required to make a request.

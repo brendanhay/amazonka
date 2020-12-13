@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.EC2.ModifyTrafficMirrorFilterNetworkServices
     mkModifyTrafficMirrorFilterNetworkServices,
 
     -- ** Request lenses
+    mtmfnsTrafficMirrorFilterId,
     mtmfnsAddNetworkServices,
     mtmfnsRemoveNetworkServices,
     mtmfnsDryRun,
-    mtmfnsTrafficMirrorFilterId,
 
     -- * Destructuring the response
     ModifyTrafficMirrorFilterNetworkServicesResponse (..),
@@ -45,45 +46,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyTrafficMirrorFilterNetworkServices' smart constructor.
 data ModifyTrafficMirrorFilterNetworkServices = ModifyTrafficMirrorFilterNetworkServices'
-  { addNetworkServices ::
-      Lude.Maybe
-        [TrafficMirrorNetworkService],
-    removeNetworkServices ::
-      Lude.Maybe
-        [TrafficMirrorNetworkService],
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    trafficMirrorFilterId ::
-      Lude.Text
+  { -- | The ID of the Traffic Mirror filter.
+    trafficMirrorFilterId :: Lude.Text,
+    -- | The network service, for example Amazon DNS, that you want to mirror.
+    addNetworkServices :: Lude.Maybe [TrafficMirrorNetworkService],
+    -- | The network service, for example Amazon DNS, that you no longer want to mirror.
+    removeNetworkServices :: Lude.Maybe [TrafficMirrorNetworkService],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTrafficMirrorFilterNetworkServices' with the minimum fields required to make a request.
 --
--- * 'addNetworkServices' - The network service, for example Amazon DNS, that you want to mirror.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'removeNetworkServices' - The network service, for example Amazon DNS, that you no longer want to mirror.
 -- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
+-- * 'addNetworkServices' - The network service, for example Amazon DNS, that you want to mirror.
+-- * 'removeNetworkServices' - The network service, for example Amazon DNS, that you no longer want to mirror.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyTrafficMirrorFilterNetworkServices ::
   -- | 'trafficMirrorFilterId'
   Lude.Text ->
   ModifyTrafficMirrorFilterNetworkServices
 mkModifyTrafficMirrorFilterNetworkServices pTrafficMirrorFilterId_ =
   ModifyTrafficMirrorFilterNetworkServices'
-    { addNetworkServices =
-        Lude.Nothing,
+    { trafficMirrorFilterId =
+        pTrafficMirrorFilterId_,
+      addNetworkServices = Lude.Nothing,
       removeNetworkServices = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      trafficMirrorFilterId = pTrafficMirrorFilterId_
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the Traffic Mirror filter.
+--
+-- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtmfnsTrafficMirrorFilterId :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices Lude.Text
+mtmfnsTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: ModifyTrafficMirrorFilterNetworkServices -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: ModifyTrafficMirrorFilterNetworkServices)
+{-# DEPRECATED mtmfnsTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
 
 -- | The network service, for example Amazon DNS, that you want to mirror.
 --
@@ -105,13 +104,6 @@ mtmfnsRemoveNetworkServices = Lens.lens (removeNetworkServices :: ModifyTrafficM
 mtmfnsDryRun :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices (Lude.Maybe Lude.Bool)
 mtmfnsDryRun = Lens.lens (dryRun :: ModifyTrafficMirrorFilterNetworkServices -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyTrafficMirrorFilterNetworkServices)
 {-# DEPRECATED mtmfnsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the Traffic Mirror filter.
---
--- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtmfnsTrafficMirrorFilterId :: Lens.Lens' ModifyTrafficMirrorFilterNetworkServices Lude.Text
-mtmfnsTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: ModifyTrafficMirrorFilterNetworkServices -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: ModifyTrafficMirrorFilterNetworkServices)
-{-# DEPRECATED mtmfnsTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
 
 instance Lude.AWSRequest ModifyTrafficMirrorFilterNetworkServices where
   type
@@ -138,40 +130,30 @@ instance Lude.ToQuery ModifyTrafficMirrorFilterNetworkServices where
       [ "Action"
           Lude.=: ("ModifyTrafficMirrorFilterNetworkServices" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId,
         Lude.toQuery
           (Lude.toQueryList "AddNetworkService" Lude.<$> addNetworkServices),
         Lude.toQuery
           ( Lude.toQueryList "RemoveNetworkService"
               Lude.<$> removeNetworkServices
           ),
-        "DryRun" Lude.=: dryRun,
-        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyTrafficMirrorFilterNetworkServicesResponse' smart constructor.
 data ModifyTrafficMirrorFilterNetworkServicesResponse = ModifyTrafficMirrorFilterNetworkServicesResponse'
-  { trafficMirrorFilter ::
-      Lude.Maybe
-        TrafficMirrorFilter,
-    responseStatus ::
-      Lude.Int
+  { -- | The Traffic Mirror filter that the network service is associated with.
+    trafficMirrorFilter :: Lude.Maybe TrafficMirrorFilter,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTrafficMirrorFilterNetworkServicesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trafficMirrorFilter' - The Traffic Mirror filter that the network service is associated with.
+-- * 'responseStatus' - The response status code.
 mkModifyTrafficMirrorFilterNetworkServicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

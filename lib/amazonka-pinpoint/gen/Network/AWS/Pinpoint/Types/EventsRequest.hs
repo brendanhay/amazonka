@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventsRequest' smart constructor.
 newtype EventsRequest = EventsRequest'
-  { batchItem ::
-      Lude.HashMap Lude.Text (EventsBatch)
+  { -- | The batch of events to process. For each item in a batch, the endpoint ID acts as a key that has an EventsBatch object as its value.
+    batchItem :: Lude.HashMap Lude.Text (EventsBatch)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventsRequest' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.CodeDeploy.Types.InstanceAction
   ( InstanceAction
       ( InstanceAction',
-        KeepAlive,
-        Terminate
+        Terminate,
+        KeepAlive
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InstanceAction = InstanceAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern KeepAlive :: InstanceAction
-pattern KeepAlive = InstanceAction' "KEEP_ALIVE"
-
 pattern Terminate :: InstanceAction
 pattern Terminate = InstanceAction' "TERMINATE"
 
+pattern KeepAlive :: InstanceAction
+pattern KeepAlive = InstanceAction' "KEEP_ALIVE"
+
 {-# COMPLETE
-  KeepAlive,
   Terminate,
+  KeepAlive,
   InstanceAction'
   #-}

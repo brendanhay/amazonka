@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioChannelTaggingSettings' smart constructor.
 newtype AudioChannelTaggingSettings = AudioChannelTaggingSettings'
-  { channelTag ::
-      Lude.Maybe AudioChannelTag
+  { -- | You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
+    channelTag :: Lude.Maybe AudioChannelTag
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioChannelTaggingSettings' with the minimum fields required to make a request.

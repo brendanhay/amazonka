@@ -29,17 +29,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificateSummary' smart constructor.
 data CertificateSummary = CertificateSummary'
-  { certificateARN ::
-      Lude.Maybe Lude.Text,
+  { -- | Amazon Resource Name (ARN) of the certificate. This is of the form:
+    --
+    -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate.
     domainName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateSummary' with the minimum fields required to make a request.

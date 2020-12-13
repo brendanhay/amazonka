@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.RDS.ModifyDBClusterEndpoint
     -- ** Request lenses
     mdceStaticMembers,
     mdceEndpointType,
-    mdceExcludedMembers,
     mdceDBClusterEndpointIdentifier,
+    mdceExcludedMembers,
 
     -- * Destructuring the response
     DBClusterEndpoint (..),
@@ -50,27 +51,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyDBClusterEndpoint' smart constructor.
 data ModifyDBClusterEndpoint = ModifyDBClusterEndpoint'
-  { staticMembers ::
-      Lude.Maybe [Lude.Text],
+  { -- | List of DB instance identifiers that are part of the custom endpoint group.
+    staticMembers :: Lude.Maybe [Lude.Text],
+    -- | The type of the endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
     endpointType :: Lude.Maybe Lude.Text,
-    excludedMembers :: Lude.Maybe [Lude.Text],
-    dbClusterEndpointIdentifier :: Lude.Text
+    -- | The identifier of the endpoint to modify. This parameter is stored as a lowercase string.
+    dbClusterEndpointIdentifier :: Lude.Text,
+    -- | List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+    excludedMembers :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBClusterEndpoint' with the minimum fields required to make a request.
 --
--- * 'dbClusterEndpointIdentifier' - The identifier of the endpoint to modify. This parameter is stored as a lowercase string.
--- * 'endpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
--- * 'excludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 -- * 'staticMembers' - List of DB instance identifiers that are part of the custom endpoint group.
+-- * 'endpointType' - The type of the endpoint. One of: @READER@ , @WRITER@ , @ANY@ .
+-- * 'dbClusterEndpointIdentifier' - The identifier of the endpoint to modify. This parameter is stored as a lowercase string.
+-- * 'excludedMembers' - List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
 mkModifyDBClusterEndpoint ::
   -- | 'dbClusterEndpointIdentifier'
   Lude.Text ->
@@ -79,8 +77,8 @@ mkModifyDBClusterEndpoint pDBClusterEndpointIdentifier_ =
   ModifyDBClusterEndpoint'
     { staticMembers = Lude.Nothing,
       endpointType = Lude.Nothing,
-      excludedMembers = Lude.Nothing,
-      dbClusterEndpointIdentifier = pDBClusterEndpointIdentifier_
+      dbClusterEndpointIdentifier = pDBClusterEndpointIdentifier_,
+      excludedMembers = Lude.Nothing
     }
 
 -- | List of DB instance identifiers that are part of the custom endpoint group.
@@ -97,19 +95,19 @@ mdceEndpointType :: Lens.Lens' ModifyDBClusterEndpoint (Lude.Maybe Lude.Text)
 mdceEndpointType = Lens.lens (endpointType :: ModifyDBClusterEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {endpointType = a} :: ModifyDBClusterEndpoint)
 {-# DEPRECATED mdceEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
 
--- | List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
---
--- /Note:/ Consider using 'excludedMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdceExcludedMembers :: Lens.Lens' ModifyDBClusterEndpoint (Lude.Maybe [Lude.Text])
-mdceExcludedMembers = Lens.lens (excludedMembers :: ModifyDBClusterEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {excludedMembers = a} :: ModifyDBClusterEndpoint)
-{-# DEPRECATED mdceExcludedMembers "Use generic-lens or generic-optics with 'excludedMembers' instead." #-}
-
 -- | The identifier of the endpoint to modify. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'dbClusterEndpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mdceDBClusterEndpointIdentifier :: Lens.Lens' ModifyDBClusterEndpoint Lude.Text
 mdceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: ModifyDBClusterEndpoint -> Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: ModifyDBClusterEndpoint)
 {-# DEPRECATED mdceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
+
+-- | List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
+--
+-- /Note:/ Consider using 'excludedMembers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdceExcludedMembers :: Lens.Lens' ModifyDBClusterEndpoint (Lude.Maybe [Lude.Text])
+mdceExcludedMembers = Lens.lens (excludedMembers :: ModifyDBClusterEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {excludedMembers = a} :: ModifyDBClusterEndpoint)
+{-# DEPRECATED mdceExcludedMembers "Use generic-lens or generic-optics with 'excludedMembers' instead." #-}
 
 instance Lude.AWSRequest ModifyDBClusterEndpoint where
   type Rs ModifyDBClusterEndpoint = DBClusterEndpoint
@@ -133,7 +131,7 @@ instance Lude.ToQuery ModifyDBClusterEndpoint where
         "StaticMembers"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> staticMembers),
         "EndpointType" Lude.=: endpointType,
+        "DBClusterEndpointIdentifier" Lude.=: dbClusterEndpointIdentifier,
         "ExcludedMembers"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> excludedMembers),
-        "DBClusterEndpointIdentifier" Lude.=: dbClusterEndpointIdentifier
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> excludedMembers)
       ]

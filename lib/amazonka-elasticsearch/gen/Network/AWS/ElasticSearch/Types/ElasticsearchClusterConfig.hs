@@ -40,46 +40,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticsearchClusterConfig' smart constructor.
 data ElasticsearchClusterConfig = ElasticsearchClusterConfig'
-  { dedicatedMasterCount ::
-      Lude.Maybe Lude.Int,
-    dedicatedMasterType ::
-      Lude.Maybe ESPartitionInstanceType,
-    dedicatedMasterEnabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Total number of dedicated master nodes, active and on standby, for the cluster.
+    dedicatedMasterCount :: Lude.Maybe Lude.Int,
+    -- | The instance type for a dedicated master node.
+    dedicatedMasterType :: Lude.Maybe ESPartitionInstanceType,
+    -- | A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
+    dedicatedMasterEnabled :: Lude.Maybe Lude.Bool,
+    -- | The number of instances in the specified domain cluster.
     instanceCount :: Lude.Maybe Lude.Int,
-    zoneAwarenessEnabled ::
-      Lude.Maybe Lude.Bool,
-    instanceType ::
-      Lude.Maybe ESPartitionInstanceType,
+    -- | A boolean value to indicate whether zone awareness is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness> for more information.
+    zoneAwarenessEnabled :: Lude.Maybe Lude.Bool,
+    -- | The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+    instanceType :: Lude.Maybe ESPartitionInstanceType,
+    -- | True to enable warm storage.
     warmEnabled :: Lude.Maybe Lude.Bool,
-    zoneAwarenessConfig ::
-      Lude.Maybe ZoneAwarenessConfig,
+    -- | Specifies the zone awareness configuration for a domain when zone awareness is enabled.
+    zoneAwarenessConfig :: Lude.Maybe ZoneAwarenessConfig,
+    -- | The number of warm nodes in the cluster.
     warmCount :: Lude.Maybe Lude.Int,
-    warmType ::
-      Lude.Maybe
-        ESWarmPartitionInstanceType
+    -- | The instance type for the Elasticsearch cluster's warm nodes.
+    warmType :: Lude.Maybe ESWarmPartitionInstanceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchClusterConfig' with the minimum fields required to make a request.
 --
 -- * 'dedicatedMasterCount' - Total number of dedicated master nodes, active and on standby, for the cluster.
--- * 'dedicatedMasterEnabled' - A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
 -- * 'dedicatedMasterType' - The instance type for a dedicated master node.
+-- * 'dedicatedMasterEnabled' - A boolean value to indicate whether a dedicated master node is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes About Dedicated Master Nodes> for more information.
 -- * 'instanceCount' - The number of instances in the specified domain cluster.
--- * 'instanceType' - The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
--- * 'warmCount' - The number of warm nodes in the cluster.
--- * 'warmEnabled' - True to enable warm storage.
--- * 'warmType' - The instance type for the Elasticsearch cluster's warm nodes.
--- * 'zoneAwarenessConfig' - Specifies the zone awareness configuration for a domain when zone awareness is enabled.
 -- * 'zoneAwarenessEnabled' - A boolean value to indicate whether zone awareness is enabled. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness About Zone Awareness> for more information.
+-- * 'instanceType' - The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+-- * 'warmEnabled' - True to enable warm storage.
+-- * 'zoneAwarenessConfig' - Specifies the zone awareness configuration for a domain when zone awareness is enabled.
+-- * 'warmCount' - The number of warm nodes in the cluster.
+-- * 'warmType' - The instance type for the Elasticsearch cluster's warm nodes.
 mkElasticsearchClusterConfig ::
   ElasticsearchClusterConfig
 mkElasticsearchClusterConfig =

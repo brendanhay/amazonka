@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModelClientConfig' smart constructor.
 data ModelClientConfig = ModelClientConfig'
-  { invocationsTimeoutInSeconds ::
-      Lude.Maybe Lude.Natural,
+  { -- | The timeout value in seconds for an invocation request.
+    invocationsTimeoutInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of retries when invocation requests are failing.
     invocationsMaxRetries :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelClientConfig' with the minimum fields required to make a request.
 --
--- * 'invocationsMaxRetries' - The maximum number of retries when invocation requests are failing.
 -- * 'invocationsTimeoutInSeconds' - The timeout value in seconds for an invocation request.
+-- * 'invocationsMaxRetries' - The maximum number of retries when invocation requests are failing.
 mkModelClientConfig ::
   ModelClientConfig
 mkModelClientConfig =

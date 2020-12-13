@@ -13,8 +13,8 @@
 module Network.AWS.DMS.Types.MigrationTypeValue
   ( MigrationTypeValue
       ( MigrationTypeValue',
-        Cdc,
         FullLoad,
+        Cdc,
         FullLoadAndCdc
       ),
   )
@@ -46,18 +46,18 @@ newtype MigrationTypeValue = MigrationTypeValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cdc :: MigrationTypeValue
-pattern Cdc = MigrationTypeValue' "cdc"
-
 pattern FullLoad :: MigrationTypeValue
 pattern FullLoad = MigrationTypeValue' "full-load"
+
+pattern Cdc :: MigrationTypeValue
+pattern Cdc = MigrationTypeValue' "cdc"
 
 pattern FullLoadAndCdc :: MigrationTypeValue
 pattern FullLoadAndCdc = MigrationTypeValue' "full-load-and-cdc"
 
 {-# COMPLETE
-  Cdc,
   FullLoad,
+  Cdc,
   FullLoadAndCdc,
   MigrationTypeValue'
   #-}

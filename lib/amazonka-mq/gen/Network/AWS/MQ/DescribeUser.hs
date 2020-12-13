@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,22 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeUser' smart constructor.
 data DescribeUser = DescribeUser'
-  { username :: Lude.Text,
+  { -- | The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    username :: Lude.Text,
+    -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUser' with the minimum fields required to make a request.
 --
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
 -- * 'username' - The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
 mkDescribeUser ::
   -- | 'username'
   Lude.Text ->
@@ -117,31 +114,30 @@ instance Lude.ToQuery DescribeUser where
 
 -- | /See:/ 'mkDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { groups ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | The status of the changes pending for the ActiveMQ user.
     pending :: Lude.Maybe UserPendingChanges,
+    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
     consoleAccess :: Lude.Maybe Lude.Bool,
+    -- | Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
     username :: Lude.Maybe Lude.Text,
+    -- | Required. The unique ID that Amazon MQ generates for the broker.
     brokerId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserResponse' with the minimum fields required to make a request.
 --
--- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
--- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 -- * 'groups' - The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
 -- * 'pending' - The status of the changes pending for the ActiveMQ user.
--- * 'responseStatus' - The response status code.
+-- * 'consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 -- * 'username' - Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
+-- * 'responseStatus' - The response status code.
 mkDescribeUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

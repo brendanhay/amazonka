@@ -13,12 +13,12 @@
 module Network.AWS.SageMaker.Types.NotebookInstanceStatus
   ( NotebookInstanceStatus
       ( NotebookInstanceStatus',
-        NISDeleting,
-        NISFailed,
-        NISInService,
         NISPending,
-        NISStopped,
+        NISInService,
         NISStopping,
+        NISStopped,
+        NISFailed,
+        NISDeleting,
         NISUpdating
       ),
   )
@@ -50,34 +50,34 @@ newtype NotebookInstanceStatus = NotebookInstanceStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern NISDeleting :: NotebookInstanceStatus
-pattern NISDeleting = NotebookInstanceStatus' "Deleting"
-
-pattern NISFailed :: NotebookInstanceStatus
-pattern NISFailed = NotebookInstanceStatus' "Failed"
+pattern NISPending :: NotebookInstanceStatus
+pattern NISPending = NotebookInstanceStatus' "Pending"
 
 pattern NISInService :: NotebookInstanceStatus
 pattern NISInService = NotebookInstanceStatus' "InService"
 
-pattern NISPending :: NotebookInstanceStatus
-pattern NISPending = NotebookInstanceStatus' "Pending"
+pattern NISStopping :: NotebookInstanceStatus
+pattern NISStopping = NotebookInstanceStatus' "Stopping"
 
 pattern NISStopped :: NotebookInstanceStatus
 pattern NISStopped = NotebookInstanceStatus' "Stopped"
 
-pattern NISStopping :: NotebookInstanceStatus
-pattern NISStopping = NotebookInstanceStatus' "Stopping"
+pattern NISFailed :: NotebookInstanceStatus
+pattern NISFailed = NotebookInstanceStatus' "Failed"
+
+pattern NISDeleting :: NotebookInstanceStatus
+pattern NISDeleting = NotebookInstanceStatus' "Deleting"
 
 pattern NISUpdating :: NotebookInstanceStatus
 pattern NISUpdating = NotebookInstanceStatus' "Updating"
 
 {-# COMPLETE
-  NISDeleting,
-  NISFailed,
-  NISInService,
   NISPending,
-  NISStopped,
+  NISInService,
   NISStopping,
+  NISStopped,
+  NISFailed,
+  NISDeleting,
   NISUpdating,
   NotebookInstanceStatus'
   #-}

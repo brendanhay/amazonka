@@ -33,29 +33,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputDeviceNetworkSettings' smart constructor.
 data InputDeviceNetworkSettings = InputDeviceNetworkSettings'
-  { ipAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The IP address of the input device.
+    ipAddress :: Lude.Maybe Lude.Text,
+    -- | The network gateway IP address.
     gateway :: Lude.Maybe Lude.Text,
-    dnsAddresses ::
-      Lude.Maybe [Lude.Text],
-    ipScheme ::
-      Lude.Maybe InputDeviceIPScheme,
+    -- | The DNS addresses of the input device.
+    dnsAddresses :: Lude.Maybe [Lude.Text],
+    -- | Specifies whether the input device has been configured (outside of MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP address.
+    ipScheme :: Lude.Maybe InputDeviceIPScheme,
+    -- | The subnet mask of the input device.
     subnetMask :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDeviceNetworkSettings' with the minimum fields required to make a request.
 --
--- * 'dnsAddresses' - The DNS addresses of the input device.
--- * 'gateway' - The network gateway IP address.
 -- * 'ipAddress' - The IP address of the input device.
+-- * 'gateway' - The network gateway IP address.
+-- * 'dnsAddresses' - The DNS addresses of the input device.
 -- * 'ipScheme' - Specifies whether the input device has been configured (outside of MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP address.
 -- * 'subnetMask' - The subnet mask of the input device.
 mkInputDeviceNetworkSettings ::

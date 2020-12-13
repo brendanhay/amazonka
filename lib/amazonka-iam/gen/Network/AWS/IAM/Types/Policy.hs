@@ -41,50 +41,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicy' smart constructor.
 data Policy = Policy'
-  { policyName :: Lude.Maybe Lude.Text,
+  { -- | The friendly name (not ARN) identifying the policy.
+    policyName :: Lude.Maybe Lude.Text,
     arn :: Lude.Maybe Lude.Text,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
+    --
+    -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
     updateDate :: Lude.Maybe Lude.DateTime,
+    -- | The stable and unique string identifying the policy.
+    --
+    -- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     policyId :: Lude.Maybe Lude.Text,
+    -- | The path to the policy.
+    --
+    -- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     path :: Lude.Maybe Lude.Text,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | Specifies whether the policy can be attached to an IAM user, group, or role.
     isAttachable :: Lude.Maybe Lude.Bool,
+    -- | The number of entities (users and roles) for which the policy is used to set the permissions boundary.
+    --
+    -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
     permissionsBoundaryUsageCount :: Lude.Maybe Lude.Int,
+    -- | The identifier for the version of the policy that is set as the default version.
     defaultVersionId :: Lude.Maybe Lude.Text,
+    -- | The number of entities (users, groups, and roles) that the policy is attached to.
     attachmentCount :: Lude.Maybe Lude.Int,
+    -- | A friendly description of the policy.
+    --
+    -- This element is included in the response to the 'GetPolicy' operation. It is not included in the response to the 'ListPolicies' operation.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Policy' with the minimum fields required to make a request.
 --
--- * 'arn' - Undocumented field.
--- * 'attachmentCount' - The number of entities (users, groups, and roles) that the policy is attached to.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
--- * 'defaultVersionId' - The identifier for the version of the policy that is set as the default version.
--- * 'description' - A friendly description of the policy.
---
--- This element is included in the response to the 'GetPolicy' operation. It is not included in the response to the 'ListPolicies' operation.
--- * 'isAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
--- * 'path' - The path to the policy.
---
--- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'permissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used to set the permissions boundary.
---
--- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'policyId' - The stable and unique string identifying the policy.
---
--- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 -- * 'policyName' - The friendly name (not ARN) identifying the policy.
+-- * 'arn' -
 -- * 'updateDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was last updated.
 --
 -- When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.
+-- * 'policyId' - The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'path' - The path to the policy.
+--
+-- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy was created.
+-- * 'isAttachable' - Specifies whether the policy can be attached to an IAM user, group, or role.
+-- * 'permissionsBoundaryUsageCount' - The number of entities (users and roles) for which the policy is used to set the permissions boundary.
+--
+-- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
+-- * 'defaultVersionId' - The identifier for the version of the policy that is set as the default version.
+-- * 'attachmentCount' - The number of entities (users, groups, and roles) that the policy is attached to.
+-- * 'description' - A friendly description of the policy.
+--
+-- This element is included in the response to the 'GetPolicy' operation. It is not included in the response to the 'ListPolicies' operation.
 mkPolicy ::
   Policy
 mkPolicy =

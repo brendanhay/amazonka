@@ -30,23 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubModule' smart constructor.
 data SubModule = SubModule'
-  { commitId :: Lude.Maybe Lude.Text,
+  { -- | The commit ID that contains the reference to the submodule.
+    commitId :: Lude.Maybe Lude.Text,
+    -- | The fully qualified path to the folder that contains the reference to the submodule.
     absolutePath :: Lude.Maybe Lude.Text,
+    -- | The relative path of the submodule from the folder where the query originated.
     relativePath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubModule' with the minimum fields required to make a request.
 --
--- * 'absolutePath' - The fully qualified path to the folder that contains the reference to the submodule.
 -- * 'commitId' - The commit ID that contains the reference to the submodule.
+-- * 'absolutePath' - The fully qualified path to the folder that contains the reference to the submodule.
 -- * 'relativePath' - The relative path of the submodule from the folder where the query originated.
 mkSubModule ::
   SubModule

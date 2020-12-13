@@ -25,10 +25,10 @@ module Network.AWS.SQS.Types
     -- * BatchResultErrorEntry
     BatchResultErrorEntry (..),
     mkBatchResultErrorEntry,
-    breeMessage,
-    breeId,
     breeSenderFault,
+    breeId,
     breeCode,
+    breeMessage,
 
     -- * ChangeMessageVisibilityBatchRequestEntry
     ChangeMessageVisibilityBatchRequestEntry (..),
@@ -88,20 +88,20 @@ module Network.AWS.SQS.Types
     sMessageAttributes,
     sDelaySeconds,
     sMessageSystemAttributes,
-    sMessageDeduplicationId,
-    sMessageGroupId,
     sId,
+    sMessageDeduplicationId,
     sMessageBody,
+    sMessageGroupId,
 
     -- * SendMessageBatchResultEntry
     SendMessageBatchResultEntry (..),
     mkSendMessageBatchResultEntry,
     smbreSequenceNumber,
     smbreMD5OfMessageSystemAttributes,
-    smbreMD5OfMessageAttributes,
     smbreId,
     smbreMessageId,
     smbreMD5OfMessageBody,
+    smbreMD5OfMessageAttributes,
   )
 where
 
@@ -149,10 +149,6 @@ sqsService =
           (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
         Lude.Just "throttled_exception"
-      | Lens.has
-          (Lude.hasCode "RequestThrottled" Lude.. Lude.hasStatus 403)
-          e =
-        Lude.Just "request_limit_exceeded"
       | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
       | Lens.has
           (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
@@ -178,4 +174,8 @@ sqsService =
       | Lens.has (Lude.hasStatus 500) e =
         Lude.Just "general_server_error"
       | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lens.has
+          (Lude.hasCode "RequestThrottled" Lude.. Lude.hasStatus 403)
+          e =
+        Lude.Just "request_limit_exceeded"
       | Lude.otherwise = Lude.Nothing

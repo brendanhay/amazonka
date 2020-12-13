@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.AccountGateStatus
   ( AccountGateStatus
       ( AccountGateStatus',
+        AGSSucceeded,
         AGSFailed,
-        AGSSkipped,
-        AGSSucceeded
+        AGSSkipped
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AccountGateStatus = AccountGateStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern AGSSucceeded :: AccountGateStatus
+pattern AGSSucceeded = AccountGateStatus' "SUCCEEDED"
+
 pattern AGSFailed :: AccountGateStatus
 pattern AGSFailed = AccountGateStatus' "FAILED"
 
 pattern AGSSkipped :: AccountGateStatus
 pattern AGSSkipped = AccountGateStatus' "SKIPPED"
 
-pattern AGSSucceeded :: AccountGateStatus
-pattern AGSSucceeded = AccountGateStatus' "SUCCEEDED"
-
 {-# COMPLETE
+  AGSSucceeded,
   AGSFailed,
   AGSSkipped,
-  AGSSucceeded,
   AccountGateStatus'
   #-}

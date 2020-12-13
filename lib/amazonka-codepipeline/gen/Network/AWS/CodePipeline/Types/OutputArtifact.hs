@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Lude
 -- | Represents information about the output of an action.
 --
 -- /See:/ 'mkOutputArtifact' smart constructor.
-newtype OutputArtifact = OutputArtifact' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype OutputArtifact = OutputArtifact'
+  { -- | The name of the output of an artifact, such as "My App".
+    --
+    -- The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
+    -- Output artifact names must be unique within a pipeline.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputArtifact' with the minimum fields required to make a request.

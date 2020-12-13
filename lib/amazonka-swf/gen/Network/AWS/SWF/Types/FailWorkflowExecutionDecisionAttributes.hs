@@ -43,26 +43,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailWorkflowExecutionDecisionAttributes' smart constructor.
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes'
-  { reason ::
-      Lude.Maybe
-        Lude.Text,
-    details ::
-      Lude.Maybe
-        Lude.Text
+  { -- | A descriptive reason for the failure that may help in diagnostics.
+    reason :: Lude.Maybe Lude.Text,
+    -- | Details of the failure.
+    details :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
 --
--- * 'details' - Details of the failure.
 -- * 'reason' - A descriptive reason for the failure that may help in diagnostics.
+-- * 'details' - Details of the failure.
 mkFailWorkflowExecutionDecisionAttributes ::
   FailWorkflowExecutionDecisionAttributes
 mkFailWorkflowExecutionDecisionAttributes =

@@ -37,33 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkACL' smart constructor.
 data NetworkACL = NetworkACL'
-  { entries ::
-      Lude.Maybe [NetworkACLEntry],
+  { -- | One or more entries (rules) in the network ACL.
+    entries :: Lude.Maybe [NetworkACLEntry],
+    -- | The ID of the network ACL.
     networkACLId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC for the network ACL.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the network ACL.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | Any associations between the network ACL and one or more subnets
     associations :: Lude.Maybe [NetworkACLAssociation],
+    -- | Any tags assigned to the network ACL.
     tags :: Lude.Maybe [Tag],
+    -- | Indicates whether this is the default network ACL for the VPC.
     isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkACL' with the minimum fields required to make a request.
 --
--- * 'associations' - Any associations between the network ACL and one or more subnets
 -- * 'entries' - One or more entries (rules) in the network ACL.
--- * 'isDefault' - Indicates whether this is the default network ACL for the VPC.
 -- * 'networkACLId' - The ID of the network ACL.
--- * 'ownerId' - The ID of the AWS account that owns the network ACL.
--- * 'tags' - Any tags assigned to the network ACL.
 -- * 'vpcId' - The ID of the VPC for the network ACL.
+-- * 'ownerId' - The ID of the AWS account that owns the network ACL.
+-- * 'associations' - Any associations between the network ACL and one or more subnets
+-- * 'tags' - Any tags assigned to the network ACL.
+-- * 'isDefault' - Indicates whether this is the default network ACL for the VPC.
 mkNetworkACL ::
   NetworkACL
 mkNetworkACL =

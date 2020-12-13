@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.Scope
   ( Scope
       ( Scope',
-        Shared,
-        Task
+        Task,
+        Shared
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Scope = Scope' Lude.Text
       Lude.ToHeader
     )
 
-pattern Shared :: Scope
-pattern Shared = Scope' "shared"
-
 pattern Task :: Scope
 pattern Task = Scope' "task"
 
+pattern Shared :: Scope
+pattern Shared = Scope' "shared"
+
 {-# COMPLETE
-  Shared,
   Task,
+  Shared,
   Scope'
   #-}

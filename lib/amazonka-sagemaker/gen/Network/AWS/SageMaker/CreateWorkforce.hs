@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,19 +24,19 @@ module Network.AWS.SageMaker.CreateWorkforce
     mkCreateWorkforce,
 
     -- ** Request lenses
-    creSourceIPConfig,
-    creCognitoConfig,
-    creOidcConfig,
-    creTags,
-    creWorkforceName,
+    cSourceIPConfig,
+    cCognitoConfig,
+    cOidcConfig,
+    cWorkforceName,
+    cTags,
 
     -- * Destructuring the response
     CreateWorkforceResponse (..),
     mkCreateWorkforceResponse,
 
     -- ** Response lenses
-    cwrsResponseStatus,
     cwrsWorkforceARN,
+    cwrsResponseStatus,
   )
 where
 
@@ -47,27 +48,34 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateWorkforce' smart constructor.
 data CreateWorkforce = CreateWorkforce'
-  { sourceIPConfig ::
-      Lude.Maybe SourceIPConfig,
+  { sourceIPConfig :: Lude.Maybe SourceIPConfig,
+    -- | Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
+    --
+    -- Do not use @OidcConfig@ if you specify values for @CognitoConfig@ .
     cognitoConfig :: Lude.Maybe CognitoConfig,
+    -- | Use this parameter to configure a private workforce using your own OIDC Identity Provider.
+    --
+    -- Do not use @CognitoConfig@ if you specify values for @OidcConfig@ .
     oidcConfig :: Lude.Maybe OidcConfig,
-    tags :: Lude.Maybe [Tag],
-    workforceName :: Lude.Text
+    -- | The name of the private workforce.
+    workforceName :: Lude.Text,
+    -- | An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkforce' with the minimum fields required to make a request.
 --
+-- * 'sourceIPConfig' -
 -- * 'cognitoConfig' - Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
 --
 -- Do not use @OidcConfig@ if you specify values for @CognitoConfig@ .
 -- * 'oidcConfig' - Use this parameter to configure a private workforce using your own OIDC Identity Provider.
 --
 -- Do not use @CognitoConfig@ if you specify values for @OidcConfig@ .
--- * 'sourceIPConfig' - Undocumented field.
--- * 'tags' - An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.
 -- * 'workforceName' - The name of the private workforce.
+-- * 'tags' - An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.
 mkCreateWorkforce ::
   -- | 'workforceName'
   Lude.Text ->
@@ -77,48 +85,48 @@ mkCreateWorkforce pWorkforceName_ =
     { sourceIPConfig = Lude.Nothing,
       cognitoConfig = Lude.Nothing,
       oidcConfig = Lude.Nothing,
-      tags = Lude.Nothing,
-      workforceName = pWorkforceName_
+      workforceName = pWorkforceName_,
+      tags = Lude.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'sourceIPConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creSourceIPConfig :: Lens.Lens' CreateWorkforce (Lude.Maybe SourceIPConfig)
-creSourceIPConfig = Lens.lens (sourceIPConfig :: CreateWorkforce -> Lude.Maybe SourceIPConfig) (\s a -> s {sourceIPConfig = a} :: CreateWorkforce)
-{-# DEPRECATED creSourceIPConfig "Use generic-lens or generic-optics with 'sourceIPConfig' instead." #-}
+cSourceIPConfig :: Lens.Lens' CreateWorkforce (Lude.Maybe SourceIPConfig)
+cSourceIPConfig = Lens.lens (sourceIPConfig :: CreateWorkforce -> Lude.Maybe SourceIPConfig) (\s a -> s {sourceIPConfig = a} :: CreateWorkforce)
+{-# DEPRECATED cSourceIPConfig "Use generic-lens or generic-optics with 'sourceIPConfig' instead." #-}
 
 -- | Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito user pool> .
 --
 -- Do not use @OidcConfig@ if you specify values for @CognitoConfig@ .
 --
 -- /Note:/ Consider using 'cognitoConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creCognitoConfig :: Lens.Lens' CreateWorkforce (Lude.Maybe CognitoConfig)
-creCognitoConfig = Lens.lens (cognitoConfig :: CreateWorkforce -> Lude.Maybe CognitoConfig) (\s a -> s {cognitoConfig = a} :: CreateWorkforce)
-{-# DEPRECATED creCognitoConfig "Use generic-lens or generic-optics with 'cognitoConfig' instead." #-}
+cCognitoConfig :: Lens.Lens' CreateWorkforce (Lude.Maybe CognitoConfig)
+cCognitoConfig = Lens.lens (cognitoConfig :: CreateWorkforce -> Lude.Maybe CognitoConfig) (\s a -> s {cognitoConfig = a} :: CreateWorkforce)
+{-# DEPRECATED cCognitoConfig "Use generic-lens or generic-optics with 'cognitoConfig' instead." #-}
 
 -- | Use this parameter to configure a private workforce using your own OIDC Identity Provider.
 --
 -- Do not use @CognitoConfig@ if you specify values for @OidcConfig@ .
 --
 -- /Note:/ Consider using 'oidcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creOidcConfig :: Lens.Lens' CreateWorkforce (Lude.Maybe OidcConfig)
-creOidcConfig = Lens.lens (oidcConfig :: CreateWorkforce -> Lude.Maybe OidcConfig) (\s a -> s {oidcConfig = a} :: CreateWorkforce)
-{-# DEPRECATED creOidcConfig "Use generic-lens or generic-optics with 'oidcConfig' instead." #-}
-
--- | An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creTags :: Lens.Lens' CreateWorkforce (Lude.Maybe [Tag])
-creTags = Lens.lens (tags :: CreateWorkforce -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateWorkforce)
-{-# DEPRECATED creTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cOidcConfig :: Lens.Lens' CreateWorkforce (Lude.Maybe OidcConfig)
+cOidcConfig = Lens.lens (oidcConfig :: CreateWorkforce -> Lude.Maybe OidcConfig) (\s a -> s {oidcConfig = a} :: CreateWorkforce)
+{-# DEPRECATED cOidcConfig "Use generic-lens or generic-optics with 'oidcConfig' instead." #-}
 
 -- | The name of the private workforce.
 --
 -- /Note:/ Consider using 'workforceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creWorkforceName :: Lens.Lens' CreateWorkforce Lude.Text
-creWorkforceName = Lens.lens (workforceName :: CreateWorkforce -> Lude.Text) (\s a -> s {workforceName = a} :: CreateWorkforce)
-{-# DEPRECATED creWorkforceName "Use generic-lens or generic-optics with 'workforceName' instead." #-}
+cWorkforceName :: Lens.Lens' CreateWorkforce Lude.Text
+cWorkforceName = Lens.lens (workforceName :: CreateWorkforce -> Lude.Text) (\s a -> s {workforceName = a} :: CreateWorkforce)
+{-# DEPRECATED cWorkforceName "Use generic-lens or generic-optics with 'workforceName' instead." #-}
+
+-- | An array of key-value pairs that contain metadata to help you categorize and organize our workforce. Each tag consists of a key and a value, both of which you define.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cTags :: Lens.Lens' CreateWorkforce (Lude.Maybe [Tag])
+cTags = Lens.lens (tags :: CreateWorkforce -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateWorkforce)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateWorkforce where
   type Rs CreateWorkforce = CreateWorkforceResponse
@@ -127,7 +135,7 @@ instance Lude.AWSRequest CreateWorkforce where
     Res.receiveJSON
       ( \s h x ->
           CreateWorkforceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "WorkforceArn")
+            Lude.<$> (x Lude..:> "WorkforceArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateWorkforce where
@@ -148,8 +156,8 @@ instance Lude.ToJSON CreateWorkforce where
           [ ("SourceIpConfig" Lude..=) Lude.<$> sourceIPConfig,
             ("CognitoConfig" Lude..=) Lude.<$> cognitoConfig,
             ("OidcConfig" Lude..=) Lude.<$> oidcConfig,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("WorkforceName" Lude..= workforceName)
+            Lude.Just ("WorkforceName" Lude..= workforceName),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -161,41 +169,29 @@ instance Lude.ToQuery CreateWorkforce where
 
 -- | /See:/ 'mkCreateWorkforceResponse' smart constructor.
 data CreateWorkforceResponse = CreateWorkforceResponse'
-  { responseStatus ::
-      Lude.Int,
-    workforceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the workforce.
+    workforceARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkforceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'workforceARN' - The Amazon Resource Name (ARN) of the workforce.
+-- * 'responseStatus' - The response status code.
 mkCreateWorkforceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'workforceARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateWorkforceResponse
-mkCreateWorkforceResponse pResponseStatus_ pWorkforceARN_ =
+mkCreateWorkforceResponse pWorkforceARN_ pResponseStatus_ =
   CreateWorkforceResponse'
-    { responseStatus = pResponseStatus_,
-      workforceARN = pWorkforceARN_
+    { workforceARN = pWorkforceARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwrsResponseStatus :: Lens.Lens' CreateWorkforceResponse Lude.Int
-cwrsResponseStatus = Lens.lens (responseStatus :: CreateWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateWorkforceResponse)
-{-# DEPRECATED cwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the workforce.
 --
@@ -203,3 +199,10 @@ cwrsResponseStatus = Lens.lens (responseStatus :: CreateWorkforceResponse -> Lud
 cwrsWorkforceARN :: Lens.Lens' CreateWorkforceResponse Lude.Text
 cwrsWorkforceARN = Lens.lens (workforceARN :: CreateWorkforceResponse -> Lude.Text) (\s a -> s {workforceARN = a} :: CreateWorkforceResponse)
 {-# DEPRECATED cwrsWorkforceARN "Use generic-lens or generic-optics with 'workforceARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwrsResponseStatus :: Lens.Lens' CreateWorkforceResponse Lude.Int
+cwrsResponseStatus = Lens.lens (responseStatus :: CreateWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateWorkforceResponse)
+{-# DEPRECATED cwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

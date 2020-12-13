@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.DefaultRouteTablePropagationValue
   ( DefaultRouteTablePropagationValue
       ( DefaultRouteTablePropagationValue',
-        DRTPVDisable,
-        DRTPVEnable
+        DRTPVEnable,
+        DRTPVDisable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DefaultRouteTablePropagationValue = DefaultRouteTablePropagationValue' L
       Lude.ToHeader
     )
 
-pattern DRTPVDisable :: DefaultRouteTablePropagationValue
-pattern DRTPVDisable = DefaultRouteTablePropagationValue' "disable"
-
 pattern DRTPVEnable :: DefaultRouteTablePropagationValue
 pattern DRTPVEnable = DefaultRouteTablePropagationValue' "enable"
 
+pattern DRTPVDisable :: DefaultRouteTablePropagationValue
+pattern DRTPVDisable = DefaultRouteTablePropagationValue' "disable"
+
 {-# COMPLETE
-  DRTPVDisable,
   DRTPVEnable,
+  DRTPVDisable,
   DefaultRouteTablePropagationValue'
   #-}

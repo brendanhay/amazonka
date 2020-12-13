@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.AlexaBusiness.UpdateConferenceProvider
     mkUpdateConferenceProvider,
 
     -- ** Request lenses
-    ucpPSTNDialIn,
-    ucpIPDialIn,
-    ucpConferenceProviderARN,
-    ucpConferenceProviderType,
     ucpMeetingSetting,
+    ucpPSTNDialIn,
+    ucpConferenceProviderType,
+    ucpConferenceProviderARN,
+    ucpIPDialIn,
 
     -- * Destructuring the response
     UpdateConferenceProviderResponse (..),
@@ -42,49 +43,53 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateConferenceProvider' smart constructor.
 data UpdateConferenceProvider = UpdateConferenceProvider'
-  { pSTNDialIn ::
-      Lude.Maybe PSTNDialIn,
-    ipDialIn :: Lude.Maybe IPDialIn,
+  { -- | The meeting settings for the conference provider.
+    meetingSetting :: MeetingSetting,
+    -- | The information for PSTN conferencing.
+    pSTNDialIn :: Lude.Maybe PSTNDialIn,
+    -- | The type of the conference provider.
+    conferenceProviderType :: ConferenceProviderType,
+    -- | The ARN of the conference provider.
     conferenceProviderARN :: Lude.Text,
-    conferenceProviderType ::
-      ConferenceProviderType,
-    meetingSetting :: MeetingSetting
+    -- | The IP endpoint and protocol for calling.
+    ipDialIn :: Lude.Maybe IPDialIn
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConferenceProvider' with the minimum fields required to make a request.
 --
--- * 'conferenceProviderARN' - The ARN of the conference provider.
--- * 'conferenceProviderType' - The type of the conference provider.
--- * 'ipDialIn' - The IP endpoint and protocol for calling.
 -- * 'meetingSetting' - The meeting settings for the conference provider.
 -- * 'pSTNDialIn' - The information for PSTN conferencing.
+-- * 'conferenceProviderType' - The type of the conference provider.
+-- * 'conferenceProviderARN' - The ARN of the conference provider.
+-- * 'ipDialIn' - The IP endpoint and protocol for calling.
 mkUpdateConferenceProvider ::
-  -- | 'conferenceProviderARN'
-  Lude.Text ->
-  -- | 'conferenceProviderType'
-  ConferenceProviderType ->
   -- | 'meetingSetting'
   MeetingSetting ->
+  -- | 'conferenceProviderType'
+  ConferenceProviderType ->
+  -- | 'conferenceProviderARN'
+  Lude.Text ->
   UpdateConferenceProvider
 mkUpdateConferenceProvider
-  pConferenceProviderARN_
+  pMeetingSetting_
   pConferenceProviderType_
-  pMeetingSetting_ =
+  pConferenceProviderARN_ =
     UpdateConferenceProvider'
-      { pSTNDialIn = Lude.Nothing,
-        ipDialIn = Lude.Nothing,
-        conferenceProviderARN = pConferenceProviderARN_,
+      { meetingSetting = pMeetingSetting_,
+        pSTNDialIn = Lude.Nothing,
         conferenceProviderType = pConferenceProviderType_,
-        meetingSetting = pMeetingSetting_
+        conferenceProviderARN = pConferenceProviderARN_,
+        ipDialIn = Lude.Nothing
       }
+
+-- | The meeting settings for the conference provider.
+--
+-- /Note:/ Consider using 'meetingSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucpMeetingSetting :: Lens.Lens' UpdateConferenceProvider MeetingSetting
+ucpMeetingSetting = Lens.lens (meetingSetting :: UpdateConferenceProvider -> MeetingSetting) (\s a -> s {meetingSetting = a} :: UpdateConferenceProvider)
+{-# DEPRECATED ucpMeetingSetting "Use generic-lens or generic-optics with 'meetingSetting' instead." #-}
 
 -- | The information for PSTN conferencing.
 --
@@ -93,12 +98,12 @@ ucpPSTNDialIn :: Lens.Lens' UpdateConferenceProvider (Lude.Maybe PSTNDialIn)
 ucpPSTNDialIn = Lens.lens (pSTNDialIn :: UpdateConferenceProvider -> Lude.Maybe PSTNDialIn) (\s a -> s {pSTNDialIn = a} :: UpdateConferenceProvider)
 {-# DEPRECATED ucpPSTNDialIn "Use generic-lens or generic-optics with 'pSTNDialIn' instead." #-}
 
--- | The IP endpoint and protocol for calling.
+-- | The type of the conference provider.
 --
--- /Note:/ Consider using 'ipDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucpIPDialIn :: Lens.Lens' UpdateConferenceProvider (Lude.Maybe IPDialIn)
-ucpIPDialIn = Lens.lens (ipDialIn :: UpdateConferenceProvider -> Lude.Maybe IPDialIn) (\s a -> s {ipDialIn = a} :: UpdateConferenceProvider)
-{-# DEPRECATED ucpIPDialIn "Use generic-lens or generic-optics with 'ipDialIn' instead." #-}
+-- /Note:/ Consider using 'conferenceProviderType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucpConferenceProviderType :: Lens.Lens' UpdateConferenceProvider ConferenceProviderType
+ucpConferenceProviderType = Lens.lens (conferenceProviderType :: UpdateConferenceProvider -> ConferenceProviderType) (\s a -> s {conferenceProviderType = a} :: UpdateConferenceProvider)
+{-# DEPRECATED ucpConferenceProviderType "Use generic-lens or generic-optics with 'conferenceProviderType' instead." #-}
 
 -- | The ARN of the conference provider.
 --
@@ -107,19 +112,12 @@ ucpConferenceProviderARN :: Lens.Lens' UpdateConferenceProvider Lude.Text
 ucpConferenceProviderARN = Lens.lens (conferenceProviderARN :: UpdateConferenceProvider -> Lude.Text) (\s a -> s {conferenceProviderARN = a} :: UpdateConferenceProvider)
 {-# DEPRECATED ucpConferenceProviderARN "Use generic-lens or generic-optics with 'conferenceProviderARN' instead." #-}
 
--- | The type of the conference provider.
+-- | The IP endpoint and protocol for calling.
 --
--- /Note:/ Consider using 'conferenceProviderType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucpConferenceProviderType :: Lens.Lens' UpdateConferenceProvider ConferenceProviderType
-ucpConferenceProviderType = Lens.lens (conferenceProviderType :: UpdateConferenceProvider -> ConferenceProviderType) (\s a -> s {conferenceProviderType = a} :: UpdateConferenceProvider)
-{-# DEPRECATED ucpConferenceProviderType "Use generic-lens or generic-optics with 'conferenceProviderType' instead." #-}
-
--- | The meeting settings for the conference provider.
---
--- /Note:/ Consider using 'meetingSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucpMeetingSetting :: Lens.Lens' UpdateConferenceProvider MeetingSetting
-ucpMeetingSetting = Lens.lens (meetingSetting :: UpdateConferenceProvider -> MeetingSetting) (\s a -> s {meetingSetting = a} :: UpdateConferenceProvider)
-{-# DEPRECATED ucpMeetingSetting "Use generic-lens or generic-optics with 'meetingSetting' instead." #-}
+-- /Note:/ Consider using 'ipDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucpIPDialIn :: Lens.Lens' UpdateConferenceProvider (Lude.Maybe IPDialIn)
+ucpIPDialIn = Lens.lens (ipDialIn :: UpdateConferenceProvider -> Lude.Maybe IPDialIn) (\s a -> s {ipDialIn = a} :: UpdateConferenceProvider)
+{-# DEPRECATED ucpIPDialIn "Use generic-lens or generic-optics with 'ipDialIn' instead." #-}
 
 instance Lude.AWSRequest UpdateConferenceProvider where
   type Rs UpdateConferenceProvider = UpdateConferenceProviderResponse
@@ -146,12 +144,12 @@ instance Lude.ToJSON UpdateConferenceProvider where
   toJSON UpdateConferenceProvider' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PSTNDialIn" Lude..=) Lude.<$> pSTNDialIn,
-            ("IPDialIn" Lude..=) Lude.<$> ipDialIn,
-            Lude.Just ("ConferenceProviderArn" Lude..= conferenceProviderARN),
+          [ Lude.Just ("MeetingSetting" Lude..= meetingSetting),
+            ("PSTNDialIn" Lude..=) Lude.<$> pSTNDialIn,
             Lude.Just
               ("ConferenceProviderType" Lude..= conferenceProviderType),
-            Lude.Just ("MeetingSetting" Lude..= meetingSetting)
+            Lude.Just ("ConferenceProviderArn" Lude..= conferenceProviderARN),
+            ("IPDialIn" Lude..=) Lude.<$> ipDialIn
           ]
       )
 
@@ -163,16 +161,10 @@ instance Lude.ToQuery UpdateConferenceProvider where
 
 -- | /See:/ 'mkUpdateConferenceProviderResponse' smart constructor.
 newtype UpdateConferenceProviderResponse = UpdateConferenceProviderResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConferenceProviderResponse' with the minimum fields required to make a request.

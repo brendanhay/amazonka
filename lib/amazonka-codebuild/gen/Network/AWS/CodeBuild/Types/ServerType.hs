@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.ServerType
   ( ServerType
       ( ServerType',
-        Bitbucket,
         Github,
+        Bitbucket,
         GithubEnterprise
       ),
   )
@@ -46,18 +46,18 @@ newtype ServerType = ServerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Bitbucket :: ServerType
-pattern Bitbucket = ServerType' "BITBUCKET"
-
 pattern Github :: ServerType
 pattern Github = ServerType' "GITHUB"
+
+pattern Bitbucket :: ServerType
+pattern Bitbucket = ServerType' "BITBUCKET"
 
 pattern GithubEnterprise :: ServerType
 pattern GithubEnterprise = ServerType' "GITHUB_ENTERPRISE"
 
 {-# COMPLETE
-  Bitbucket,
   Github,
+  Bitbucket,
   GithubEnterprise,
   ServerType'
   #-}

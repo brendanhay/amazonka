@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.ElasticTranscoder.ReadJob
     mkReadJobResponse,
 
     -- ** Response lenses
-    rjrsResponseStatus,
     rjrsJob,
+    rjrsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | The @ReadJobRequest@ structure.
 --
 -- /See:/ 'mkReadJob' smart constructor.
-newtype ReadJob = ReadJob' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ReadJob = ReadJob'
+  { -- | The identifier of the job for which you want to get detailed information.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadJob' with the minimum fields required to make a request.
@@ -73,7 +71,7 @@ instance Lude.AWSRequest ReadJob where
     Res.receiveJSON
       ( \s h x ->
           ReadJobResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Job")
+            Lude.<$> (x Lude..:> "Job") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ReadJob where
@@ -90,16 +88,12 @@ instance Lude.ToQuery ReadJob where
 --
 -- /See:/ 'mkReadJobResponse' smart constructor.
 data ReadJobResponse = ReadJobResponse'
-  { responseStatus :: Lude.Int,
-    job :: Job'
+  { -- | A section of the response body that provides information about the job.
+    job :: Job',
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadJobResponse' with the minimum fields required to make a request.
@@ -107,20 +101,13 @@ data ReadJobResponse = ReadJobResponse'
 -- * 'job' - A section of the response body that provides information about the job.
 -- * 'responseStatus' - The response status code.
 mkReadJobResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'job'
   Job' ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ReadJobResponse
-mkReadJobResponse pResponseStatus_ pJob_ =
-  ReadJobResponse' {responseStatus = pResponseStatus_, job = pJob_}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rjrsResponseStatus :: Lens.Lens' ReadJobResponse Lude.Int
-rjrsResponseStatus = Lens.lens (responseStatus :: ReadJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReadJobResponse)
-{-# DEPRECATED rjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mkReadJobResponse pJob_ pResponseStatus_ =
+  ReadJobResponse' {job = pJob_, responseStatus = pResponseStatus_}
 
 -- | A section of the response body that provides information about the job.
 --
@@ -128,3 +115,10 @@ rjrsResponseStatus = Lens.lens (responseStatus :: ReadJobResponse -> Lude.Int) (
 rjrsJob :: Lens.Lens' ReadJobResponse Job'
 rjrsJob = Lens.lens (job :: ReadJobResponse -> Job') (\s a -> s {job = a} :: ReadJobResponse)
 {-# DEPRECATED rjrsJob "Use generic-lens or generic-optics with 'job' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjrsResponseStatus :: Lens.Lens' ReadJobResponse Lude.Int
+rjrsResponseStatus = Lens.lens (responseStatus :: ReadJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReadJobResponse)
+{-# DEPRECATED rjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

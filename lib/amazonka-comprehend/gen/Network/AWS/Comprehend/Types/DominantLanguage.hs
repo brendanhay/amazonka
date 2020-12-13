@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDominantLanguage' smart constructor.
 data DominantLanguage = DominantLanguage'
-  { languageCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+    languageCode :: Lude.Maybe Lude.Text,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of the detection.
     score :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DominantLanguage' with the minimum fields required to make a request.

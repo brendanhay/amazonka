@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
     mkCreateCertificateAuthorityAuditReport,
 
     -- ** Request lenses
-    ccaarCertificateAuthorityARN,
-    ccaarS3BucketName,
     ccaarAuditReportResponseFormat,
+    ccaarS3BucketName,
+    ccaarCertificateAuthorityARN,
 
     -- * Destructuring the response
     CreateCertificateAuthorityAuditReportResponse (..),
@@ -44,47 +45,57 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCertificateAuthorityAuditReport' smart constructor.
 data CreateCertificateAuthorityAuditReport = CreateCertificateAuthorityAuditReport'
-  { certificateAuthorityARN ::
-      Lude.Text,
-    s3BucketName ::
-      Lude.Text,
-    auditReportResponseFormat ::
-      AuditReportResponseFormat
+  { -- | The format in which to create the report. This can be either __JSON__ or __CSV__ .
+    auditReportResponseFormat :: AuditReportResponseFormat,
+    -- | The name of the S3 bucket that will contain the audit report.
+    s3BucketName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+    certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificateAuthorityAuditReport' with the minimum fields required to make a request.
 --
 -- * 'auditReportResponseFormat' - The format in which to create the report. This can be either __JSON__ or __CSV__ .
+-- * 's3BucketName' - The name of the S3 bucket that will contain the audit report.
 -- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
--- * 's3BucketName' - The name of the S3 bucket that will contain the audit report.
 mkCreateCertificateAuthorityAuditReport ::
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
-  -- | 's3BucketName'
-  Lude.Text ->
   -- | 'auditReportResponseFormat'
   AuditReportResponseFormat ->
+  -- | 's3BucketName'
+  Lude.Text ->
+  -- | 'certificateAuthorityARN'
+  Lude.Text ->
   CreateCertificateAuthorityAuditReport
 mkCreateCertificateAuthorityAuditReport
-  pCertificateAuthorityARN_
+  pAuditReportResponseFormat_
   pS3BucketName_
-  pAuditReportResponseFormat_ =
+  pCertificateAuthorityARN_ =
     CreateCertificateAuthorityAuditReport'
-      { certificateAuthorityARN =
-          pCertificateAuthorityARN_,
+      { auditReportResponseFormat =
+          pAuditReportResponseFormat_,
         s3BucketName = pS3BucketName_,
-        auditReportResponseFormat = pAuditReportResponseFormat_
+        certificateAuthorityARN = pCertificateAuthorityARN_
       }
+
+-- | The format in which to create the report. This can be either __JSON__ or __CSV__ .
+--
+-- /Note:/ Consider using 'auditReportResponseFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccaarAuditReportResponseFormat :: Lens.Lens' CreateCertificateAuthorityAuditReport AuditReportResponseFormat
+ccaarAuditReportResponseFormat = Lens.lens (auditReportResponseFormat :: CreateCertificateAuthorityAuditReport -> AuditReportResponseFormat) (\s a -> s {auditReportResponseFormat = a} :: CreateCertificateAuthorityAuditReport)
+{-# DEPRECATED ccaarAuditReportResponseFormat "Use generic-lens or generic-optics with 'auditReportResponseFormat' instead." #-}
+
+-- | The name of the S3 bucket that will contain the audit report.
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccaarS3BucketName :: Lens.Lens' CreateCertificateAuthorityAuditReport Lude.Text
+ccaarS3BucketName = Lens.lens (s3BucketName :: CreateCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {s3BucketName = a} :: CreateCertificateAuthorityAuditReport)
+{-# DEPRECATED ccaarS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the CA to be audited. This is of the form:
 --
@@ -94,20 +105,6 @@ mkCreateCertificateAuthorityAuditReport
 ccaarCertificateAuthorityARN :: Lens.Lens' CreateCertificateAuthorityAuditReport Lude.Text
 ccaarCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: CreateCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: CreateCertificateAuthorityAuditReport)
 {-# DEPRECATED ccaarCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
-
--- | The name of the S3 bucket that will contain the audit report.
---
--- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaarS3BucketName :: Lens.Lens' CreateCertificateAuthorityAuditReport Lude.Text
-ccaarS3BucketName = Lens.lens (s3BucketName :: CreateCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {s3BucketName = a} :: CreateCertificateAuthorityAuditReport)
-{-# DEPRECATED ccaarS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
-
--- | The format in which to create the report. This can be either __JSON__ or __CSV__ .
---
--- /Note:/ Consider using 'auditReportResponseFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaarAuditReportResponseFormat :: Lens.Lens' CreateCertificateAuthorityAuditReport AuditReportResponseFormat
-ccaarAuditReportResponseFormat = Lens.lens (auditReportResponseFormat :: CreateCertificateAuthorityAuditReport -> AuditReportResponseFormat) (\s a -> s {auditReportResponseFormat = a} :: CreateCertificateAuthorityAuditReport)
-{-# DEPRECATED ccaarAuditReportResponseFormat "Use generic-lens or generic-optics with 'auditReportResponseFormat' instead." #-}
 
 instance Lude.AWSRequest CreateCertificateAuthorityAuditReport where
   type
@@ -141,10 +138,10 @@ instance Lude.ToJSON CreateCertificateAuthorityAuditReport where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN),
+              ("AuditReportResponseFormat" Lude..= auditReportResponseFormat),
             Lude.Just ("S3BucketName" Lude..= s3BucketName),
             Lude.Just
-              ("AuditReportResponseFormat" Lude..= auditReportResponseFormat)
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
           ]
       )
 
@@ -156,32 +153,21 @@ instance Lude.ToQuery CreateCertificateAuthorityAuditReport where
 
 -- | /See:/ 'mkCreateCertificateAuthorityAuditReportResponse' smart constructor.
 data CreateCertificateAuthorityAuditReportResponse = CreateCertificateAuthorityAuditReportResponse'
-  { s3Key ::
-      Lude.Maybe
-        Lude.Text,
-    auditReportId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The __key__ that uniquely identifies the report file in your S3 bucket.
+    s3Key :: Lude.Maybe Lude.Text,
+    -- | An alphanumeric string that contains a report identifier.
+    auditReportId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificateAuthorityAuditReportResponse' with the minimum fields required to make a request.
 --
+-- * 's3Key' - The __key__ that uniquely identifies the report file in your S3 bucket.
 -- * 'auditReportId' - An alphanumeric string that contains a report identifier.
 -- * 'responseStatus' - The response status code.
--- * 's3Key' - The __key__ that uniquely identifies the report file in your S3 bucket.
 mkCreateCertificateAuthorityAuditReportResponse ::
   -- | 'responseStatus'
   Lude.Int ->

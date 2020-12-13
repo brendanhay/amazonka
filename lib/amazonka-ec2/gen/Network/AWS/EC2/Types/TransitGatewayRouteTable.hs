@@ -36,37 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayRouteTable' smart constructor.
 data TransitGatewayRouteTable = TransitGatewayRouteTable'
-  { creationTime ::
-      Lude.Maybe Lude.DateTime,
-    state ::
-      Lude.Maybe TransitGatewayRouteTableState,
-    defaultPropagationRouteTable ::
-      Lude.Maybe Lude.Bool,
-    transitGatewayRouteTableId ::
-      Lude.Maybe Lude.Text,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.DateTime,
+    -- | The state of the transit gateway route table.
+    state :: Lude.Maybe TransitGatewayRouteTableState,
+    -- | Indicates whether this is the default propagation route table for the transit gateway.
+    defaultPropagationRouteTable :: Lude.Maybe Lude.Bool,
+    -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway.
     transitGatewayId :: Lude.Maybe Lude.Text,
-    defaultAssociationRouteTable ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether this is the default association route table for the transit gateway.
+    defaultAssociationRouteTable :: Lude.Maybe Lude.Bool,
+    -- | Any tags assigned to the route table.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayRouteTable' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time.
--- * 'defaultAssociationRouteTable' - Indicates whether this is the default association route table for the transit gateway.
--- * 'defaultPropagationRouteTable' - Indicates whether this is the default propagation route table for the transit gateway.
 -- * 'state' - The state of the transit gateway route table.
--- * 'tags' - Any tags assigned to the route table.
--- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'defaultPropagationRouteTable' - Indicates whether this is the default propagation route table for the transit gateway.
 -- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'defaultAssociationRouteTable' - Indicates whether this is the default association route table for the transit gateway.
+-- * 'tags' - Any tags assigned to the route table.
 mkTransitGatewayRouteTable ::
   TransitGatewayRouteTable
 mkTransitGatewayRouteTable =

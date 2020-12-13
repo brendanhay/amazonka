@@ -41,43 +41,62 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserImportJobType' smart constructor.
 data UserImportJobType = UserImportJobType'
-  { status ::
-      Lude.Maybe UserImportJobStatusType,
+  { -- | The status of the user import job. One of the following:
+    --
+    --
+    --     * @Created@ - The job was created but not started.
+    --
+    --
+    --     * @Pending@ - A transition state. You have started the job, but it has not begun importing users yet.
+    --
+    --
+    --     * @InProgress@ - The job has started, and users are being imported.
+    --
+    --
+    --     * @Stopping@ - You have stopped the job, but the job has not stopped importing users yet.
+    --
+    --
+    --     * @Stopped@ - You have stopped the job, and the job has stopped importing users.
+    --
+    --
+    --     * @Succeeded@ - The job has completed successfully.
+    --
+    --
+    --     * @Failed@ - The job has stopped due to an error.
+    --
+    --
+    --     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
+    status :: Lude.Maybe UserImportJobStatusType,
+    -- | The number of users that were skipped.
     skippedUsers :: Lude.Maybe Lude.Integer,
+    -- | The job ID for the user import job.
     jobId :: Lude.Maybe Lude.Text,
+    -- | The user pool ID for the user pool that the users are being imported into.
     userPoolId :: Lude.Maybe Lude.Text,
+    -- | The job name for the user import job.
     jobName :: Lude.Maybe Lude.Text,
+    -- | The pre-signed URL to be used to upload the @.csv@ file.
     preSignedURL :: Lude.Maybe Lude.Text,
+    -- | The number of users that could not be imported.
     failedUsers :: Lude.Maybe Lude.Integer,
+    -- | The date when the user import job was started.
     startDate :: Lude.Maybe Lude.Timestamp,
+    -- | The message returned when the user import job is completed.
     completionMessage :: Lude.Maybe Lude.Text,
+    -- | The date the user import job was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date when the user import job was completed.
     completionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
     cloudWatchLogsRoleARN :: Lude.Maybe Lude.Text,
+    -- | The number of users that were successfully imported.
     importedUsers :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserImportJobType' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
--- * 'completionDate' - The date when the user import job was completed.
--- * 'completionMessage' - The message returned when the user import job is completed.
--- * 'creationDate' - The date the user import job was created.
--- * 'failedUsers' - The number of users that could not be imported.
--- * 'importedUsers' - The number of users that were successfully imported.
--- * 'jobId' - The job ID for the user import job.
--- * 'jobName' - The job name for the user import job.
--- * 'preSignedURL' - The pre-signed URL to be used to upload the @.csv@ file.
--- * 'skippedUsers' - The number of users that were skipped.
--- * 'startDate' - The date when the user import job was started.
 -- * 'status' - The status of the user import job. One of the following:
 --
 --
@@ -105,7 +124,18 @@ data UserImportJobType = UserImportJobType'
 --     * @Expired@ - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.
 --
 --
+-- * 'skippedUsers' - The number of users that were skipped.
+-- * 'jobId' - The job ID for the user import job.
 -- * 'userPoolId' - The user pool ID for the user pool that the users are being imported into.
+-- * 'jobName' - The job name for the user import job.
+-- * 'preSignedURL' - The pre-signed URL to be used to upload the @.csv@ file.
+-- * 'failedUsers' - The number of users that could not be imported.
+-- * 'startDate' - The date when the user import job was started.
+-- * 'completionMessage' - The message returned when the user import job is completed.
+-- * 'creationDate' - The date the user import job was created.
+-- * 'completionDate' - The date when the user import job was completed.
+-- * 'cloudWatchLogsRoleARN' - The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see "Creating the CloudWatch Logs IAM Role" in the Amazon Cognito Developer Guide.
+-- * 'importedUsers' - The number of users that were successfully imported.
 mkUserImportJobType ::
   UserImportJobType
 mkUserImportJobType =

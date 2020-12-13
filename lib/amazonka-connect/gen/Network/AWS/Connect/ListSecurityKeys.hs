@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Connect.ListSecurityKeys
     mkListSecurityKeys,
 
     -- ** Request lenses
+    lskInstanceId,
     lskNextToken,
     lskMaxResults,
-    lskInstanceId,
 
     -- * Destructuring the response
     ListSecurityKeysResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSecurityKeys' smart constructor.
 data ListSecurityKeys = ListSecurityKeys'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityKeys' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListSecurityKeys ::
   -- | 'instanceId'
   Lude.Text ->
   ListSecurityKeys
 mkListSecurityKeys pInstanceId_ =
   ListSecurityKeys'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lskInstanceId :: Lens.Lens' ListSecurityKeys Lude.Text
+lskInstanceId = Lens.lens (instanceId :: ListSecurityKeys -> Lude.Text) (\s a -> s {instanceId = a} :: ListSecurityKeys)
+{-# DEPRECATED lskInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -88,13 +92,6 @@ lskNextToken = Lens.lens (nextToken :: ListSecurityKeys -> Lude.Maybe Lude.Text)
 lskMaxResults :: Lens.Lens' ListSecurityKeys (Lude.Maybe Lude.Natural)
 lskMaxResults = Lens.lens (maxResults :: ListSecurityKeys -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSecurityKeys)
 {-# DEPRECATED lskMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lskInstanceId :: Lens.Lens' ListSecurityKeys Lude.Text
-lskInstanceId = Lens.lens (instanceId :: ListSecurityKeys -> Lude.Text) (\s a -> s {instanceId = a} :: ListSecurityKeys)
-{-# DEPRECATED lskInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListSecurityKeys where
   page rq rs
@@ -138,25 +135,21 @@ instance Lude.ToQuery ListSecurityKeys where
 
 -- | /See:/ 'mkListSecurityKeysResponse' smart constructor.
 data ListSecurityKeysResponse = ListSecurityKeysResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The security keys.
     securityKeys :: Lude.Maybe [SecurityKey],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityKeysResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'responseStatus' - The response status code.
 -- * 'securityKeys' - The security keys.
+-- * 'responseStatus' - The response status code.
 mkListSecurityKeysResponse ::
   -- | 'responseStatus'
   Lude.Int ->

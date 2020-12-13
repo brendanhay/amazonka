@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,16 +52,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeInputDevice' smart constructor.
 newtype DescribeInputDevice = DescribeInputDevice'
-  { inputDeviceId ::
-      Lude.Text
+  { -- | The unique ID of this input device. For example, hd-123456789abcdef.
+    inputDeviceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputDevice' with the minimum fields required to make a request.
@@ -121,51 +116,48 @@ instance Lude.ToQuery DescribeInputDevice where
 --
 -- /See:/ 'mkDescribeInputDeviceResponse' smart constructor.
 data DescribeInputDeviceResponse = DescribeInputDeviceResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ARN of the input device.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The network MAC address of the input device.
     mACAddress :: Lude.Maybe Lude.Text,
-    hdDeviceSettings ::
-      Lude.Maybe InputDeviceHdSettings,
+    -- | Settings that describe an input device that is type HD.
+    hdDeviceSettings :: Lude.Maybe InputDeviceHdSettings,
+    -- | A name that you specify for the input device.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the input device.
     id :: Lude.Maybe Lude.Text,
-    deviceUpdateStatus ::
-      Lude.Maybe DeviceUpdateStatus,
-    deviceSettingsSyncState ::
-      Lude.Maybe DeviceSettingsSyncState,
+    -- | The status of software on the input device.
+    deviceUpdateStatus :: Lude.Maybe DeviceUpdateStatus,
+    -- | The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+    deviceSettingsSyncState :: Lude.Maybe DeviceSettingsSyncState,
+    -- | The type of the input device.
     type' :: Lude.Maybe InputDeviceType,
-    serialNumber ::
-      Lude.Maybe Lude.Text,
-    networkSettings ::
-      Lude.Maybe
-        InputDeviceNetworkSettings,
-    connectionState ::
-      Lude.Maybe
-        InputDeviceConnectionState,
+    -- | The unique serial number of the input device.
+    serialNumber :: Lude.Maybe Lude.Text,
+    -- | The network settings for the input device.
+    networkSettings :: Lude.Maybe InputDeviceNetworkSettings,
+    -- | The state of the connection between the input device and AWS.
+    connectionState :: Lude.Maybe InputDeviceConnectionState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInputDeviceResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The unique ARN of the input device.
--- * 'connectionState' - The state of the connection between the input device and AWS.
--- * 'deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
--- * 'deviceUpdateStatus' - The status of software on the input device.
--- * 'hdDeviceSettings' - Settings that describe an input device that is type HD.
--- * 'id' - The unique ID of the input device.
 -- * 'mACAddress' - The network MAC address of the input device.
+-- * 'hdDeviceSettings' - Settings that describe an input device that is type HD.
 -- * 'name' - A name that you specify for the input device.
--- * 'networkSettings' - The network settings for the input device.
--- * 'responseStatus' - The response status code.
--- * 'serialNumber' - The unique serial number of the input device.
+-- * 'id' - The unique ID of the input device.
+-- * 'deviceUpdateStatus' - The status of software on the input device.
+-- * 'deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
 -- * 'type'' - The type of the input device.
+-- * 'serialNumber' - The unique serial number of the input device.
+-- * 'networkSettings' - The network settings for the input device.
+-- * 'connectionState' - The state of the connection between the input device and AWS.
+-- * 'responseStatus' - The response status code.
 mkDescribeInputDeviceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

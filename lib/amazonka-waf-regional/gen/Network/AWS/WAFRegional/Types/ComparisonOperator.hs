@@ -14,11 +14,11 @@ module Network.AWS.WAFRegional.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
         EQ,
-        GE,
-        GT,
+        NE,
         LE,
         LT,
-        NE
+        GE,
+        GT
       ),
   )
 where
@@ -52,11 +52,8 @@ newtype ComparisonOperator = ComparisonOperator' Lude.Text
 pattern EQ :: ComparisonOperator
 pattern EQ = ComparisonOperator' "EQ"
 
-pattern GE :: ComparisonOperator
-pattern GE = ComparisonOperator' "GE"
-
-pattern GT :: ComparisonOperator
-pattern GT = ComparisonOperator' "GT"
+pattern NE :: ComparisonOperator
+pattern NE = ComparisonOperator' "NE"
 
 pattern LE :: ComparisonOperator
 pattern LE = ComparisonOperator' "LE"
@@ -64,15 +61,18 @@ pattern LE = ComparisonOperator' "LE"
 pattern LT :: ComparisonOperator
 pattern LT = ComparisonOperator' "LT"
 
-pattern NE :: ComparisonOperator
-pattern NE = ComparisonOperator' "NE"
+pattern GE :: ComparisonOperator
+pattern GE = ComparisonOperator' "GE"
+
+pattern GT :: ComparisonOperator
+pattern GT = ComparisonOperator' "GT"
 
 {-# COMPLETE
   EQ,
-  GE,
-  GT,
+  NE,
   LE,
   LT,
-  NE,
+  GE,
+  GT,
   ComparisonOperator'
   #-}

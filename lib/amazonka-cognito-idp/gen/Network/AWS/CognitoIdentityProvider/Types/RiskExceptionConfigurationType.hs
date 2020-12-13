@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRiskExceptionConfigurationType' smart constructor.
 data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
-  { skippedIPRangeList ::
-      Lude.Maybe [Lude.Text],
-    blockedIPRangeList ::
-      Lude.Maybe [Lude.Text]
+  { -- | Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
+    skippedIPRangeList :: Lude.Maybe [Lude.Text],
+    -- | Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
+    blockedIPRangeList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RiskExceptionConfigurationType' with the minimum fields required to make a request.
 --
--- * 'blockedIPRangeList' - Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
 -- * 'skippedIPRangeList' - Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
+-- * 'blockedIPRangeList' - Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
 mkRiskExceptionConfigurationType ::
   RiskExceptionConfigurationType
 mkRiskExceptionConfigurationType =

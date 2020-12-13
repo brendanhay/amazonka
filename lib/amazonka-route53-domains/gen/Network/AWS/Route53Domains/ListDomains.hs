@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.Route53Domains.ListDomains
 
     -- ** Response lenses
     ldrsNextPageMarker,
-    ldrsResponseStatus,
     ldrsDomains,
+    ldrsResponseStatus,
   )
 where
 
@@ -46,16 +47,16 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { marker :: Lude.Maybe Lude.Text,
+  { -- | For an initial request for a list of domains, omit this element. If the number of domains that are associated with the current AWS account is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional domains. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
+    --
+    -- Constraints: The marker must match the value specified in the previous request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Number of domains to be returned.
+    --
+    -- Default: 20
     maxItems :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
@@ -106,8 +107,8 @@ instance Lude.AWSRequest ListDomains where
       ( \s h x ->
           ListDomainsResponse'
             Lude.<$> (x Lude..?> "NextPageMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "Domains" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListDomains where
@@ -140,24 +141,20 @@ instance Lude.ToQuery ListDomains where
 --
 -- /See:/ 'mkListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { nextPageMarker ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    domains :: [DomainSummary]
+  { -- | If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
+    nextPageMarker :: Lude.Maybe Lude.Text,
+    -- | A summary of domains.
+    domains :: [DomainSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
 --
--- * 'domains' - A summary of domains.
 -- * 'nextPageMarker' - If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
+-- * 'domains' - A summary of domains.
 -- * 'responseStatus' - The response status code.
 mkListDomainsResponse ::
   -- | 'responseStatus'
@@ -166,8 +163,8 @@ mkListDomainsResponse ::
 mkListDomainsResponse pResponseStatus_ =
   ListDomainsResponse'
     { nextPageMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      domains = Lude.mempty
+      domains = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If there are more domains than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
@@ -177,16 +174,16 @@ ldrsNextPageMarker :: Lens.Lens' ListDomainsResponse (Lude.Maybe Lude.Text)
 ldrsNextPageMarker = Lens.lens (nextPageMarker :: ListDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageMarker = a} :: ListDomainsResponse)
 {-# DEPRECATED ldrsNextPageMarker "Use generic-lens or generic-optics with 'nextPageMarker' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDomainsResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A summary of domains.
 --
 -- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldrsDomains :: Lens.Lens' ListDomainsResponse [DomainSummary]
 ldrsDomains = Lens.lens (domains :: ListDomainsResponse -> [DomainSummary]) (\s a -> s {domains = a} :: ListDomainsResponse)
 {-# DEPRECATED ldrsDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDomainsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

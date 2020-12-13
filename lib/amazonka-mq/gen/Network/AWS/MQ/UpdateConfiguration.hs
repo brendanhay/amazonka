@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MQ.UpdateConfiguration
     mkUpdateConfiguration,
 
     -- ** Request lenses
+    ucConfigurationId,
     ucData,
     ucDescription,
-    ucConfigurationId,
 
     -- * Destructuring the response
     UpdateConfigurationResponse (..),
@@ -48,18 +49,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateConfiguration' smart constructor.
 data UpdateConfiguration = UpdateConfiguration'
-  { data' ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    configurationId :: Lude.Text
+  { -- | The unique ID that Amazon MQ generates for the configuration.
+    configurationId :: Lude.Text,
+    -- | Required. The base64-encoded XML configuration.
+    data' :: Lude.Maybe Lude.Text,
+    -- | The description of the configuration.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfiguration' with the minimum fields required to make a request.
@@ -73,10 +70,17 @@ mkUpdateConfiguration ::
   UpdateConfiguration
 mkUpdateConfiguration pConfigurationId_ =
   UpdateConfiguration'
-    { data' = Lude.Nothing,
-      description = Lude.Nothing,
-      configurationId = pConfigurationId_
+    { configurationId = pConfigurationId_,
+      data' = Lude.Nothing,
+      description = Lude.Nothing
     }
+
+-- | The unique ID that Amazon MQ generates for the configuration.
+--
+-- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucConfigurationId :: Lens.Lens' UpdateConfiguration Lude.Text
+ucConfigurationId = Lens.lens (configurationId :: UpdateConfiguration -> Lude.Text) (\s a -> s {configurationId = a} :: UpdateConfiguration)
+{-# DEPRECATED ucConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | Required. The base64-encoded XML configuration.
 --
@@ -91,13 +95,6 @@ ucData = Lens.lens (data' :: UpdateConfiguration -> Lude.Maybe Lude.Text) (\s a 
 ucDescription :: Lens.Lens' UpdateConfiguration (Lude.Maybe Lude.Text)
 ucDescription = Lens.lens (description :: UpdateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateConfiguration)
 {-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The unique ID that Amazon MQ generates for the configuration.
---
--- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucConfigurationId :: Lens.Lens' UpdateConfiguration Lude.Text
-ucConfigurationId = Lens.lens (configurationId :: UpdateConfiguration -> Lude.Text) (\s a -> s {configurationId = a} :: UpdateConfiguration)
-{-# DEPRECATED ucConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 instance Lude.AWSRequest UpdateConfiguration where
   type Rs UpdateConfiguration = UpdateConfigurationResponse
@@ -142,36 +139,33 @@ instance Lude.ToQuery UpdateConfiguration where
 
 -- | /See:/ 'mkUpdateConfigurationResponse' smart constructor.
 data UpdateConfigurationResponse = UpdateConfigurationResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
-    latestRevision ::
-      Lude.Maybe ConfigurationRevision,
-    created ::
-      Lude.Maybe Lude.Timestamp,
-    warnings ::
-      Lude.Maybe [SanitizationWarning],
+  { -- | Required. The Amazon Resource Name (ARN) of the configuration.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The latest revision of the configuration.
+    latestRevision :: Lude.Maybe ConfigurationRevision,
+    -- | Required. The date and time of the configuration.
+    created :: Lude.Maybe Lude.Timestamp,
+    -- | The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
+    warnings :: Lude.Maybe [SanitizationWarning],
+    -- | Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
     name :: Lude.Maybe Lude.Text,
+    -- | Required. The unique ID that Amazon MQ generates for the configuration.
     id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfigurationResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - Required. The Amazon Resource Name (ARN) of the configuration.
--- * 'created' - Required. The date and time of the configuration.
--- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
 -- * 'latestRevision' - The latest revision of the configuration.
--- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
--- * 'responseStatus' - The response status code.
+-- * 'created' - Required. The date and time of the configuration.
 -- * 'warnings' - The list of the first 20 warnings about the configuration XML elements or attributes that were sanitized.
+-- * 'name' - Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.
+-- * 'id' - Required. The unique ID that Amazon MQ generates for the configuration.
+-- * 'responseStatus' - The response status code.
 mkUpdateConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

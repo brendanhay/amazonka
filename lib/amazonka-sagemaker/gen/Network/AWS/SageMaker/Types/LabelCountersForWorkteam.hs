@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLabelCountersForWorkteam' smart constructor.
 data LabelCountersForWorkteam = LabelCountersForWorkteam'
-  { pendingHuman ::
-      Lude.Maybe Lude.Natural,
+  { -- | The total number of data objects that need to be labeled by a human worker.
+    pendingHuman :: Lude.Maybe Lude.Natural,
+    -- | The total number of tasks in the labeling job.
     total :: Lude.Maybe Lude.Natural,
+    -- | The total number of data objects labeled by a human worker.
     humanLabeled :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelCountersForWorkteam' with the minimum fields required to make a request.
 --
--- * 'humanLabeled' - The total number of data objects labeled by a human worker.
 -- * 'pendingHuman' - The total number of data objects that need to be labeled by a human worker.
 -- * 'total' - The total number of tasks in the labeling job.
+-- * 'humanLabeled' - The total number of data objects labeled by a human worker.
 mkLabelCountersForWorkteam ::
   LabelCountersForWorkteam
 mkLabelCountersForWorkteam =

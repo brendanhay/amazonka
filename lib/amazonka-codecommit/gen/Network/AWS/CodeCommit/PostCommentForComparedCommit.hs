@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,11 +21,11 @@ module Network.AWS.CodeCommit.PostCommentForComparedCommit
 
     -- ** Request lenses
     pcfccLocation,
-    pcfccBeforeCommitId,
-    pcfccClientRequestToken,
-    pcfccRepositoryName,
     pcfccAfterCommitId,
     pcfccContent,
+    pcfccBeforeCommitId,
+    pcfccRepositoryName,
+    pcfccClientRequestToken,
 
     -- * Destructuring the response
     PostCommentForComparedCommitResponse (..),
@@ -50,52 +51,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPostCommentForComparedCommit' smart constructor.
 data PostCommentForComparedCommit = PostCommentForComparedCommit'
-  { location ::
-      Lude.Maybe Location,
-    beforeCommitId ::
-      Lude.Maybe Lude.Text,
-    clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    repositoryName :: Lude.Text,
+  { -- | The location of the comparison where you want to comment.
+    location :: Lude.Maybe Location,
+    -- | To establish the directionality of the comparison, the full commit ID of the after commit.
     afterCommitId :: Lude.Text,
-    content :: Lude.Text
+    -- | The content of the comment you want to make.
+    content :: Lude.Text,
+    -- | To establish the directionality of the comparison, the full commit ID of the before commit. Required for commenting on any commit unless that commit is the initial commit.
+    beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where you want to post a comment on the comparison between commits.
+    repositoryName :: Lude.Text,
+    -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentForComparedCommit' with the minimum fields required to make a request.
 --
--- * 'afterCommitId' - To establish the directionality of the comparison, the full commit ID of the after commit.
--- * 'beforeCommitId' - To establish the directionality of the comparison, the full commit ID of the before commit. Required for commenting on any commit unless that commit is the initial commit.
--- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
--- * 'content' - The content of the comment you want to make.
 -- * 'location' - The location of the comparison where you want to comment.
+-- * 'afterCommitId' - To establish the directionality of the comparison, the full commit ID of the after commit.
+-- * 'content' - The content of the comment you want to make.
+-- * 'beforeCommitId' - To establish the directionality of the comparison, the full commit ID of the before commit. Required for commenting on any commit unless that commit is the initial commit.
 -- * 'repositoryName' - The name of the repository where you want to post a comment on the comparison between commits.
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
 mkPostCommentForComparedCommit ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'afterCommitId'
   Lude.Text ->
   -- | 'content'
   Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   PostCommentForComparedCommit
 mkPostCommentForComparedCommit
-  pRepositoryName_
   pAfterCommitId_
-  pContent_ =
+  pContent_
+  pRepositoryName_ =
     PostCommentForComparedCommit'
       { location = Lude.Nothing,
-        beforeCommitId = Lude.Nothing,
-        clientRequestToken = Lude.Nothing,
-        repositoryName = pRepositoryName_,
         afterCommitId = pAfterCommitId_,
-        content = pContent_
+        content = pContent_,
+        beforeCommitId = Lude.Nothing,
+        repositoryName = pRepositoryName_,
+        clientRequestToken = Lude.Nothing
       }
 
 -- | The location of the comparison where you want to comment.
@@ -104,27 +102,6 @@ mkPostCommentForComparedCommit
 pcfccLocation :: Lens.Lens' PostCommentForComparedCommit (Lude.Maybe Location)
 pcfccLocation = Lens.lens (location :: PostCommentForComparedCommit -> Lude.Maybe Location) (\s a -> s {location = a} :: PostCommentForComparedCommit)
 {-# DEPRECATED pcfccLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | To establish the directionality of the comparison, the full commit ID of the before commit. Required for commenting on any commit unless that commit is the initial commit.
---
--- /Note:/ Consider using 'beforeCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcfccBeforeCommitId :: Lens.Lens' PostCommentForComparedCommit (Lude.Maybe Lude.Text)
-pcfccBeforeCommitId = Lens.lens (beforeCommitId :: PostCommentForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitId = a} :: PostCommentForComparedCommit)
-{-# DEPRECATED pcfccBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
-
--- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcfccClientRequestToken :: Lens.Lens' PostCommentForComparedCommit (Lude.Maybe Lude.Text)
-pcfccClientRequestToken = Lens.lens (clientRequestToken :: PostCommentForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: PostCommentForComparedCommit)
-{-# DEPRECATED pcfccClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | The name of the repository where you want to post a comment on the comparison between commits.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcfccRepositoryName :: Lens.Lens' PostCommentForComparedCommit Lude.Text
-pcfccRepositoryName = Lens.lens (repositoryName :: PostCommentForComparedCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: PostCommentForComparedCommit)
-{-# DEPRECATED pcfccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | To establish the directionality of the comparison, the full commit ID of the after commit.
 --
@@ -139,6 +116,27 @@ pcfccAfterCommitId = Lens.lens (afterCommitId :: PostCommentForComparedCommit ->
 pcfccContent :: Lens.Lens' PostCommentForComparedCommit Lude.Text
 pcfccContent = Lens.lens (content :: PostCommentForComparedCommit -> Lude.Text) (\s a -> s {content = a} :: PostCommentForComparedCommit)
 {-# DEPRECATED pcfccContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+-- | To establish the directionality of the comparison, the full commit ID of the before commit. Required for commenting on any commit unless that commit is the initial commit.
+--
+-- /Note:/ Consider using 'beforeCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcfccBeforeCommitId :: Lens.Lens' PostCommentForComparedCommit (Lude.Maybe Lude.Text)
+pcfccBeforeCommitId = Lens.lens (beforeCommitId :: PostCommentForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitId = a} :: PostCommentForComparedCommit)
+{-# DEPRECATED pcfccBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
+
+-- | The name of the repository where you want to post a comment on the comparison between commits.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcfccRepositoryName :: Lens.Lens' PostCommentForComparedCommit Lude.Text
+pcfccRepositoryName = Lens.lens (repositoryName :: PostCommentForComparedCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: PostCommentForComparedCommit)
+{-# DEPRECATED pcfccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcfccClientRequestToken :: Lens.Lens' PostCommentForComparedCommit (Lude.Maybe Lude.Text)
+pcfccClientRequestToken = Lens.lens (clientRequestToken :: PostCommentForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: PostCommentForComparedCommit)
+{-# DEPRECATED pcfccClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest PostCommentForComparedCommit where
   type
@@ -177,11 +175,11 @@ instance Lude.ToJSON PostCommentForComparedCommit where
     Lude.object
       ( Lude.catMaybes
           [ ("location" Lude..=) Lude.<$> location,
-            ("beforeCommitId" Lude..=) Lude.<$> beforeCommitId,
-            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
             Lude.Just ("afterCommitId" Lude..= afterCommitId),
-            Lude.Just ("content" Lude..= content)
+            Lude.Just ("content" Lude..= content),
+            ("beforeCommitId" Lude..=) Lude.<$> beforeCommitId,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -193,48 +191,35 @@ instance Lude.ToQuery PostCommentForComparedCommit where
 
 -- | /See:/ 'mkPostCommentForComparedCommitResponse' smart constructor.
 data PostCommentForComparedCommitResponse = PostCommentForComparedCommitResponse'
-  { beforeBlobId ::
-      Lude.Maybe
-        Lude.Text,
-    location ::
-      Lude.Maybe
-        Location,
-    afterCommitId ::
-      Lude.Maybe
-        Lude.Text,
-    afterBlobId ::
-      Lude.Maybe
-        Lude.Text,
-    beforeCommitId ::
-      Lude.Maybe
-        Lude.Text,
-    repositoryName ::
-      Lude.Maybe
-        Lude.Text,
-    comment ::
-      Lude.Maybe
-        Comment,
-    responseStatus ::
-      Lude.Int
+  { -- | In the directionality you established, the blob ID of the before blob.
+    beforeBlobId :: Lude.Maybe Lude.Text,
+    -- | The location of the comment in the comparison between the two commits.
+    location :: Lude.Maybe Location,
+    -- | In the directionality you established, the full commit ID of the after commit.
+    afterCommitId :: Lude.Maybe Lude.Text,
+    -- | In the directionality you established, the blob ID of the after blob.
+    afterBlobId :: Lude.Maybe Lude.Text,
+    -- | In the directionality you established, the full commit ID of the before commit.
+    beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where you posted a comment on the comparison between commits.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The content of the comment you posted.
+    comment :: Lude.Maybe Comment,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentForComparedCommitResponse' with the minimum fields required to make a request.
 --
--- * 'afterBlobId' - In the directionality you established, the blob ID of the after blob.
--- * 'afterCommitId' - In the directionality you established, the full commit ID of the after commit.
 -- * 'beforeBlobId' - In the directionality you established, the blob ID of the before blob.
--- * 'beforeCommitId' - In the directionality you established, the full commit ID of the before commit.
--- * 'comment' - The content of the comment you posted.
 -- * 'location' - The location of the comment in the comparison between the two commits.
+-- * 'afterCommitId' - In the directionality you established, the full commit ID of the after commit.
+-- * 'afterBlobId' - In the directionality you established, the blob ID of the after blob.
+-- * 'beforeCommitId' - In the directionality you established, the full commit ID of the before commit.
 -- * 'repositoryName' - The name of the repository where you posted a comment on the comparison between commits.
+-- * 'comment' - The content of the comment you posted.
 -- * 'responseStatus' - The response status code.
 mkPostCommentForComparedCommitResponse ::
   -- | 'responseStatus'

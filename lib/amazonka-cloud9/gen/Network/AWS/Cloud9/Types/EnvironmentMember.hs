@@ -33,26 +33,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentMember' smart constructor.
 data EnvironmentMember = EnvironmentMember'
-  { lastAccess ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time, expressed in epoch time format, when the environment member last opened the environment.
+    lastAccess :: Lude.Maybe Lude.Timestamp,
+    -- | The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
     userId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the environment member.
     userARN :: Lude.Maybe Lude.Text,
+    -- | The type of environment member permissions associated with this environment member. Available values include:
+    --
+    --
+    --     * @owner@ : Owns the environment.
+    --
+    --
+    --     * @read-only@ : Has read-only access to the environment.
+    --
+    --
+    --     * @read-write@ : Has read-write access to the environment.
     permissions :: Lude.Maybe Permissions,
+    -- | The ID of the environment for the environment member.
     environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentMember' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The ID of the environment for the environment member.
 -- * 'lastAccess' - The time, expressed in epoch time format, when the environment member last opened the environment.
+-- * 'userId' - The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+-- * 'userARN' - The Amazon Resource Name (ARN) of the environment member.
 -- * 'permissions' - The type of environment member permissions associated with this environment member. Available values include:
 --
 --
@@ -65,8 +73,7 @@ data EnvironmentMember = EnvironmentMember'
 --     * @read-write@ : Has read-write access to the environment.
 --
 --
--- * 'userARN' - The Amazon Resource Name (ARN) of the environment member.
--- * 'userId' - The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+-- * 'environmentId' - The ID of the environment for the environment member.
 mkEnvironmentMember ::
   EnvironmentMember
 mkEnvironmentMember =

@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSmartHomeAppliance' smart constructor.
 data SmartHomeAppliance = SmartHomeAppliance'
-  { friendlyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The friendly name of the smart home appliance.
+    friendlyName :: Lude.Maybe Lude.Text,
+    -- | The name of the manufacturer of the smart home appliance.
     manufacturerName :: Lude.Maybe Lude.Text,
+    -- | The description of the smart home appliance.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SmartHomeAppliance' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the smart home appliance.
 -- * 'friendlyName' - The friendly name of the smart home appliance.
 -- * 'manufacturerName' - The name of the manufacturer of the smart home appliance.
+-- * 'description' - The description of the smart home appliance.
 mkSmartHomeAppliance ::
   SmartHomeAppliance
 mkSmartHomeAppliance =

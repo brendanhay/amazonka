@@ -13,8 +13,8 @@
 module Network.AWS.ResourceGroups.Types.GroupFilterName
   ( GroupFilterName
       ( GroupFilterName',
-        GFNConfigurationType,
-        GFNResourceType
+        GFNResourceType,
+        GFNConfigurationType
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype GroupFilterName = GroupFilterName' Lude.Text
       Lude.ToHeader
     )
 
-pattern GFNConfigurationType :: GroupFilterName
-pattern GFNConfigurationType = GroupFilterName' "configuration-type"
-
 pattern GFNResourceType :: GroupFilterName
 pattern GFNResourceType = GroupFilterName' "resource-type"
 
+pattern GFNConfigurationType :: GroupFilterName
+pattern GFNConfigurationType = GroupFilterName' "configuration-type"
+
 {-# COMPLETE
-  GFNConfigurationType,
   GFNResourceType,
+  GFNConfigurationType,
   GroupFilterName'
   #-}

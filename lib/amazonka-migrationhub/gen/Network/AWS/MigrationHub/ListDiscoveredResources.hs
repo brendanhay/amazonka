@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.MigrationHub.ListDiscoveredResources
 
     -- ** Request lenses
     ldrNextToken,
-    ldrMaxResults,
     ldrProgressUpdateStream,
     ldrMigrationTaskName,
+    ldrMaxResults,
 
     -- * Destructuring the response
     ListDiscoveredResourcesResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDiscoveredResources' smart constructor.
 data ListDiscoveredResources = ListDiscoveredResources'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the ProgressUpdateStream.
     progressUpdateStream :: Lude.Text,
-    migrationTaskName :: Lude.Text
+    -- | The name of the MigrationTask. /Do not store personal data in this field./
+    migrationTaskName :: Lude.Text,
+    -- | The maximum number of results returned per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDiscoveredResources' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results returned per page.
--- * 'migrationTaskName' - The name of the MigrationTask. /Do not store personal data in this field./
 -- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 -- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+-- * 'migrationTaskName' - The name of the MigrationTask. /Do not store personal data in this field./
+-- * 'maxResults' - The maximum number of results returned per page.
 mkListDiscoveredResources ::
   -- | 'progressUpdateStream'
   Lude.Text ->
@@ -78,9 +76,9 @@ mkListDiscoveredResources
   pMigrationTaskName_ =
     ListDiscoveredResources'
       { nextToken = Lude.Nothing,
-        maxResults = Lude.Nothing,
         progressUpdateStream = pProgressUpdateStream_,
-        migrationTaskName = pMigrationTaskName_
+        migrationTaskName = pMigrationTaskName_,
+        maxResults = Lude.Nothing
       }
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
@@ -89,13 +87,6 @@ mkListDiscoveredResources
 ldrNextToken :: Lens.Lens' ListDiscoveredResources (Lude.Maybe Lude.Text)
 ldrNextToken = Lens.lens (nextToken :: ListDiscoveredResources -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDiscoveredResources)
 {-# DEPRECATED ldrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results returned per page.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrMaxResults :: Lens.Lens' ListDiscoveredResources (Lude.Maybe Lude.Natural)
-ldrMaxResults = Lens.lens (maxResults :: ListDiscoveredResources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDiscoveredResources)
-{-# DEPRECATED ldrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
 --
@@ -110,6 +101,13 @@ ldrProgressUpdateStream = Lens.lens (progressUpdateStream :: ListDiscoveredResou
 ldrMigrationTaskName :: Lens.Lens' ListDiscoveredResources Lude.Text
 ldrMigrationTaskName = Lens.lens (migrationTaskName :: ListDiscoveredResources -> Lude.Text) (\s a -> s {migrationTaskName = a} :: ListDiscoveredResources)
 {-# DEPRECATED ldrMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
+
+-- | The maximum number of results returned per page.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrMaxResults :: Lens.Lens' ListDiscoveredResources (Lude.Maybe Lude.Natural)
+ldrMaxResults = Lens.lens (maxResults :: ListDiscoveredResources -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDiscoveredResources)
+{-# DEPRECATED ldrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListDiscoveredResources where
   page rq rs
@@ -148,9 +146,9 @@ instance Lude.ToJSON ListDiscoveredResources where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
-            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName)
+            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -162,20 +160,14 @@ instance Lude.ToQuery ListDiscoveredResources where
 
 -- | /See:/ 'mkListDiscoveredResourcesResponse' smart constructor.
 data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
-  { discoveredResourceList ::
-      Lude.Maybe
-        [DiscoveredResource],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Returned list of discovered resources associated with the given MigrationTask.
+    discoveredResourceList :: Lude.Maybe [DiscoveredResource],
+    -- | If there are more discovered resources than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDiscoveredResourcesResponse' with the minimum fields required to make a request.

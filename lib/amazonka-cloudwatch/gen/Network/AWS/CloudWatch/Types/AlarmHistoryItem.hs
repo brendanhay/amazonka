@@ -35,29 +35,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlarmHistoryItem' smart constructor.
 data AlarmHistoryItem = AlarmHistoryItem'
-  { alarmName ::
-      Lude.Maybe Lude.Text,
+  { -- | The descriptive name for the alarm.
+    alarmName :: Lude.Maybe Lude.Text,
+    -- | The type of alarm history item.
     historyItemType :: Lude.Maybe HistoryItemType,
+    -- | Data about the alarm, in JSON format.
     historyData :: Lude.Maybe Lude.Text,
+    -- | The type of alarm, either metric alarm or composite alarm.
     alarmType :: Lude.Maybe AlarmType,
+    -- | A summary of the alarm history, in text format.
     historySummary :: Lude.Maybe Lude.Text,
+    -- | The time stamp for the alarm history item.
     timestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlarmHistoryItem' with the minimum fields required to make a request.
 --
 -- * 'alarmName' - The descriptive name for the alarm.
--- * 'alarmType' - The type of alarm, either metric alarm or composite alarm.
--- * 'historyData' - Data about the alarm, in JSON format.
 -- * 'historyItemType' - The type of alarm history item.
+-- * 'historyData' - Data about the alarm, in JSON format.
+-- * 'alarmType' - The type of alarm, either metric alarm or composite alarm.
 -- * 'historySummary' - A summary of the alarm history, in text format.
 -- * 'timestamp' - The time stamp for the alarm history item.
 mkAlarmHistoryItem ::

@@ -13,8 +13,8 @@
 module Network.AWS.RDS.Types.ActivityStreamMode
   ( ActivityStreamMode
       ( ActivityStreamMode',
-        Async,
-        Sync
+        Sync,
+        Async
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ActivityStreamMode = ActivityStreamMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Async :: ActivityStreamMode
-pattern Async = ActivityStreamMode' "async"
-
 pattern Sync :: ActivityStreamMode
 pattern Sync = ActivityStreamMode' "sync"
 
+pattern Async :: ActivityStreamMode
+pattern Async = ActivityStreamMode' "async"
+
 {-# COMPLETE
-  Async,
   Sync,
+  Async,
   ActivityStreamMode'
   #-}

@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Contains input values for a task.
 --
 -- /See:/ 'mkRenderableTask' smart constructor.
-newtype RenderableTask = RenderableTask' {input :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype RenderableTask = RenderableTask'
+  { -- | A JSON object that contains values for the variables defined in the template. It is made available to the template under the substitution variable @task.input@ . For example, if you define a variable @task.input.text@ in your template, you can supply the variable in the JSON object as @"text": "sample text"@ .
+    input :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenderableTask' with the minimum fields required to make a request.

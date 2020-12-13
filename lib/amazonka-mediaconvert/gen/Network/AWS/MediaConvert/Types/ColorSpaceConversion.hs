@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.ColorSpaceConversion
   ( ColorSpaceConversion
       ( ColorSpaceConversion',
+        CSCNone,
         CSCForce601,
         CSCForce709,
         CSCForceHDR10,
-        CSCForceHlg2020,
-        CSCNone
+        CSCForceHlg2020
       ),
   )
 where
@@ -49,6 +49,9 @@ newtype ColorSpaceConversion = ColorSpaceConversion' Lude.Text
       Lude.ToHeader
     )
 
+pattern CSCNone :: ColorSpaceConversion
+pattern CSCNone = ColorSpaceConversion' "NONE"
+
 pattern CSCForce601 :: ColorSpaceConversion
 pattern CSCForce601 = ColorSpaceConversion' "FORCE_601"
 
@@ -61,14 +64,11 @@ pattern CSCForceHDR10 = ColorSpaceConversion' "FORCE_HDR10"
 pattern CSCForceHlg2020 :: ColorSpaceConversion
 pattern CSCForceHlg2020 = ColorSpaceConversion' "FORCE_HLG_2020"
 
-pattern CSCNone :: ColorSpaceConversion
-pattern CSCNone = ColorSpaceConversion' "NONE"
-
 {-# COMPLETE
+  CSCNone,
   CSCForce601,
   CSCForce709,
   CSCForceHDR10,
   CSCForceHlg2020,
-  CSCNone,
   ColorSpaceConversion'
   #-}

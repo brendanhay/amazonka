@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     mkListJobsByPipeline,
 
     -- ** Request lenses
+    ljbpPipelineId,
     ljbpAscending,
     ljbpPageToken,
-    ljbpPipelineId,
 
     -- * Destructuring the response
     ListJobsByPipelineResponse (..),
@@ -49,35 +50,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListJobsByPipeline' smart constructor.
 data ListJobsByPipeline = ListJobsByPipeline'
-  { ascending ::
-      Lude.Maybe Lude.Text,
-    pageToken :: Lude.Maybe Lude.Text,
-    pipelineId :: Lude.Text
+  { -- | The ID of the pipeline for which you want to get job information.
+    pipelineId :: Lude.Text,
+    -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
+    ascending :: Lude.Maybe Lude.Text,
+    -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsByPipeline' with the minimum fields required to make a request.
 --
+-- * 'pipelineId' - The ID of the pipeline for which you want to get job information.
 -- * 'ascending' - To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
 -- * 'pageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
--- * 'pipelineId' - The ID of the pipeline for which you want to get job information.
 mkListJobsByPipeline ::
   -- | 'pipelineId'
   Lude.Text ->
   ListJobsByPipeline
 mkListJobsByPipeline pPipelineId_ =
   ListJobsByPipeline'
-    { ascending = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      pipelineId = pPipelineId_
+    { pipelineId = pPipelineId_,
+      ascending = Lude.Nothing,
+      pageToken = Lude.Nothing
     }
+
+-- | The ID of the pipeline for which you want to get job information.
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljbpPipelineId :: Lens.Lens' ListJobsByPipeline Lude.Text
+ljbpPipelineId = Lens.lens (pipelineId :: ListJobsByPipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: ListJobsByPipeline)
+{-# DEPRECATED ljbpPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
 --
@@ -92,13 +96,6 @@ ljbpAscending = Lens.lens (ascending :: ListJobsByPipeline -> Lude.Maybe Lude.Te
 ljbpPageToken :: Lens.Lens' ListJobsByPipeline (Lude.Maybe Lude.Text)
 ljbpPageToken = Lens.lens (pageToken :: ListJobsByPipeline -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListJobsByPipeline)
 {-# DEPRECATED ljbpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
-
--- | The ID of the pipeline for which you want to get job information.
---
--- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbpPipelineId :: Lens.Lens' ListJobsByPipeline Lude.Text
-ljbpPipelineId = Lens.lens (pipelineId :: ListJobsByPipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: ListJobsByPipeline)
-{-# DEPRECATED ljbpPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 instance Page.AWSPager ListJobsByPipeline where
   page rq rs
@@ -138,24 +135,20 @@ instance Lude.ToQuery ListJobsByPipeline where
 --
 -- /See:/ 'mkListJobsByPipelineResponse' smart constructor.
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An array of @Job@ objects that are in the specified pipeline.
     jobs :: Lude.Maybe [Job'],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsByPipelineResponse' with the minimum fields required to make a request.
 --
--- * 'jobs' - An array of @Job@ objects that are in the specified pipeline.
 -- * 'nextPageToken' - A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
+-- * 'jobs' - An array of @Job@ objects that are in the specified pipeline.
 -- * 'responseStatus' - The response status code.
 mkListJobsByPipelineResponse ::
   -- | 'responseStatus'

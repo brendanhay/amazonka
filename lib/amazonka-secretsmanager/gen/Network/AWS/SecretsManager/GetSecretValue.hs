@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,8 +37,8 @@ module Network.AWS.SecretsManager.GetSecretValue
 
     -- ** Request lenses
     gsvVersionId,
-    gsvVersionStage,
     gsvSecretId,
+    gsvVersionStage,
 
     -- * Destructuring the response
     GetSecretValueResponse (..),
@@ -63,26 +64,26 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkGetSecretValue' smart constructor.
 data GetSecretValue = GetSecretValue'
-  { versionId ::
-      Lude.Maybe Lude.Text,
-    versionStage :: Lude.Maybe Lude.Text,
-    secretId :: Lude.Text
+  { -- | Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @VersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
+    --
+    -- This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text,
+    -- | Specifies the secret version that you want to retrieve by the staging label attached to the version.
+    --
+    -- Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @VersionId@ . If you don't specify either a @VersionStage@ or @VersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
+    versionStage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSecretValue' with the minimum fields required to make a request.
 --
--- * 'secretId' - Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 -- * 'versionId' - Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @VersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
 --
 -- This value is typically a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value with 32 hexadecimal digits.
+-- * 'secretId' - Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 -- * 'versionStage' - Specifies the secret version that you want to retrieve by the staging label attached to the version.
 --
 -- Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @VersionId@ . If you don't specify either a @VersionStage@ or @VersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
@@ -93,8 +94,8 @@ mkGetSecretValue ::
 mkGetSecretValue pSecretId_ =
   GetSecretValue'
     { versionId = Lude.Nothing,
-      versionStage = Lude.Nothing,
-      secretId = pSecretId_
+      secretId = pSecretId_,
+      versionStage = Lude.Nothing
     }
 
 -- | Specifies the unique identifier of the version of the secret that you want to retrieve. If you specify this parameter then don't specify @VersionStage@ . If you don't specify either a @VersionStage@ or @VersionId@ then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
@@ -106,6 +107,13 @@ gsvVersionId :: Lens.Lens' GetSecretValue (Lude.Maybe Lude.Text)
 gsvVersionId = Lens.lens (versionId :: GetSecretValue -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: GetSecretValue)
 {-# DEPRECATED gsvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
+-- | Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsvSecretId :: Lens.Lens' GetSecretValue Lude.Text
+gsvSecretId = Lens.lens (secretId :: GetSecretValue -> Lude.Text) (\s a -> s {secretId = a} :: GetSecretValue)
+{-# DEPRECATED gsvSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
+
 -- | Specifies the secret version that you want to retrieve by the staging label attached to the version.
 --
 -- Staging labels are used to keep track of different versions during the rotation process. If you use this parameter then don't specify @VersionId@ . If you don't specify either a @VersionStage@ or @VersionId@ , then the default is to perform the operation on the version with the @VersionStage@ value of @AWSCURRENT@ .
@@ -114,13 +122,6 @@ gsvVersionId = Lens.lens (versionId :: GetSecretValue -> Lude.Maybe Lude.Text) (
 gsvVersionStage :: Lens.Lens' GetSecretValue (Lude.Maybe Lude.Text)
 gsvVersionStage = Lens.lens (versionStage :: GetSecretValue -> Lude.Maybe Lude.Text) (\s a -> s {versionStage = a} :: GetSecretValue)
 {-# DEPRECATED gsvVersionStage "Use generic-lens or generic-optics with 'versionStage' instead." #-}
-
--- | Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
---
--- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsvSecretId :: Lens.Lens' GetSecretValue Lude.Text
-gsvSecretId = Lens.lens (secretId :: GetSecretValue -> Lude.Text) (\s a -> s {secretId = a} :: GetSecretValue)
-{-# DEPRECATED gsvSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 instance Lude.AWSRequest GetSecretValue where
   type Rs GetSecretValue = GetSecretValueResponse
@@ -155,8 +156,8 @@ instance Lude.ToJSON GetSecretValue where
     Lude.object
       ( Lude.catMaybes
           [ ("VersionId" Lude..=) Lude.<$> versionId,
-            ("VersionStage" Lude..=) Lude.<$> versionStage,
-            Lude.Just ("SecretId" Lude..= secretId)
+            Lude.Just ("SecretId" Lude..= secretId),
+            ("VersionStage" Lude..=) Lude.<$> versionStage
           ]
       )
 
@@ -168,17 +169,27 @@ instance Lude.ToQuery GetSecretValue where
 
 -- | /See:/ 'mkGetSecretValueResponse' smart constructor.
 data GetSecretValueResponse = GetSecretValueResponse'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier of this version of the secret.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the secret.
     arn :: Lude.Maybe Lude.Text,
-    versionStages ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    secretBinary ::
-      Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | A list of all of the staging labels currently attached to this version of the secret.
+    versionStages :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The decrypted part of the protected secret information that was originally provided as binary data in the form of a byte array. The response parameter represents the binary data as a <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
+    --
+    -- This parameter is not used if the secret is created by the Secrets Manager console.
+    -- If you store custom information in this field of the secret, then you must code your Lambda rotation function to parse and interpret whatever you store in the @SecretString@ or @SecretBinary@ fields.
+    secretBinary :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | The date and time that this version of the secret was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The friendly name of the secret.
     name :: Lude.Maybe Lude.Text,
-    secretString ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The decrypted part of the protected secret information that was originally provided as a string.
+    --
+    -- If you create this secret by using the Secrets Manager console then only the @SecretString@ parameter contains data. Secrets Manager stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.
+    -- If you store custom information in the secret by using the 'CreateSecret' , 'UpdateSecret' , or 'PutSecretValue' API operations instead of the Secrets Manager console, or by using the __Other secret type__ in the console, then you must code your Lambda rotation function to parse and interpret those values.
+    secretString :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -186,24 +197,20 @@ data GetSecretValueResponse = GetSecretValueResponse'
 
 -- | Creates a value of 'GetSecretValueResponse' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The unique identifier of this version of the secret.
 -- * 'arn' - The ARN of the secret.
--- * 'createdDate' - The date and time that this version of the secret was created.
--- * 'name' - The friendly name of the secret.
--- * 'responseStatus' - The response status code.
+-- * 'versionStages' - A list of all of the staging labels currently attached to this version of the secret.
 -- * 'secretBinary' - The decrypted part of the protected secret information that was originally provided as binary data in the form of a byte array. The response parameter represents the binary data as a <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
 --
 -- This parameter is not used if the secret is created by the Secrets Manager console.
--- If you store custom information in this field of the secret, then you must code your Lambda rotation function to parse and interpret whatever you store in the @SecretString@ or @SecretBinary@ fields.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- If you store custom information in this field of the secret, then you must code your Lambda rotation function to parse and interpret whatever you store in the @SecretString@ or @SecretBinary@ fields.
+-- * 'createdDate' - The date and time that this version of the secret was created.
+-- * 'name' - The friendly name of the secret.
 -- * 'secretString' - The decrypted part of the protected secret information that was originally provided as a string.
 --
 -- If you create this secret by using the Secrets Manager console then only the @SecretString@ parameter contains data. Secrets Manager stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.
 -- If you store custom information in the secret by using the 'CreateSecret' , 'UpdateSecret' , or 'PutSecretValue' API operations instead of the Secrets Manager console, or by using the __Other secret type__ in the console, then you must code your Lambda rotation function to parse and interpret those values.
--- * 'versionId' - The unique identifier of this version of the secret.
--- * 'versionStages' - A list of all of the staging labels currently attached to this version of the secret.
+-- * 'responseStatus' - The response status code.
 mkGetSecretValueResponse ::
   -- | 'responseStatus'
   Lude.Int ->

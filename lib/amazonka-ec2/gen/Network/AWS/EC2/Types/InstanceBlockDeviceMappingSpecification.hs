@@ -32,34 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceBlockDeviceMappingSpecification' smart constructor.
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
-  { virtualName ::
-      Lude.Maybe
-        Lude.Text,
-    noDevice ::
-      Lude.Maybe
-        Lude.Text,
-    ebs ::
-      Lude.Maybe
-        EBSInstanceBlockDeviceSpecification,
-    deviceName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The virtual device name.
+    virtualName :: Lude.Maybe Lude.Text,
+    -- | suppress the specified device included in the block device mapping.
+    noDevice :: Lude.Maybe Lude.Text,
+    -- | Parameters used to automatically set up EBS volumes when the instance is launched.
+    ebs :: Lude.Maybe EBSInstanceBlockDeviceSpecification,
+    -- | The device name (for example, @/dev/sdh@ or @xvdh@ ).
+    deviceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceBlockDeviceMappingSpecification' with the minimum fields required to make a request.
 --
--- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
--- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
--- * 'noDevice' - suppress the specified device included in the block device mapping.
 -- * 'virtualName' - The virtual device name.
+-- * 'noDevice' - suppress the specified device included in the block device mapping.
+-- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
+-- * 'deviceName' - The device name (for example, @/dev/sdh@ or @xvdh@ ).
 mkInstanceBlockDeviceMappingSpecification ::
   InstanceBlockDeviceMappingSpecification
 mkInstanceBlockDeviceMappingSpecification =

@@ -29,25 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowExecutionCanceledEventAttributes' smart constructor.
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes'
-  { details ::
-      Lude.Maybe
-        Lude.Text,
-    decisionTaskCompletedEventId ::
-      Lude.Integer
+  { -- | The details of the cancellation.
+    details :: Lude.Maybe Lude.Text,
+    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionCanceledEventAttributes' with the minimum fields required to make a request.
 --
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 -- * 'details' - The details of the cancellation.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CancelWorkflowExecution@ decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkWorkflowExecutionCanceledEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
   Lude.Integer ->

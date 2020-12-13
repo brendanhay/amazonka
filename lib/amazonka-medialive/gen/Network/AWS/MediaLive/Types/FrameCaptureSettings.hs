@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFrameCaptureSettings' smart constructor.
 data FrameCaptureSettings = FrameCaptureSettings'
-  { captureIntervalUnits ::
-      Lude.Maybe FrameCaptureIntervalUnit,
+  { -- | Unit for the frame capture interval.
+    captureIntervalUnits :: Lude.Maybe FrameCaptureIntervalUnit,
+    -- | The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
     captureInterval :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FrameCaptureSettings' with the minimum fields required to make a request.
 --
--- * 'captureInterval' - The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
 -- * 'captureIntervalUnits' - Unit for the frame capture interval.
+-- * 'captureInterval' - The frequency at which to capture frames for inclusion in the output. May be specified in either seconds or milliseconds, as specified by captureIntervalUnits.
 mkFrameCaptureSettings ::
   -- | 'captureInterval'
   Lude.Natural ->

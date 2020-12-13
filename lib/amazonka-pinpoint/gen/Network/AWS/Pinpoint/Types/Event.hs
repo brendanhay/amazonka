@@ -21,12 +21,12 @@ module Network.AWS.Pinpoint.Types.Event
     eMetrics,
     eAppVersionCode,
     eAppTitle,
+    eEventType,
     eAppPackageName,
     eAttributes,
     eSDKName,
-    eSession,
-    eEventType,
     eTimestamp,
+    eSession,
   )
 where
 
@@ -38,38 +38,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { clientSDKVersion :: Lude.Maybe Lude.Text,
+  { -- | The version of the SDK that's running on the client device.
+    clientSDKVersion :: Lude.Maybe Lude.Text,
+    -- | One or more custom metrics that are associated with the event.
     metrics :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    -- | The version number of the app that's recording the event.
     appVersionCode :: Lude.Maybe Lude.Text,
+    -- | The title of the app that's recording the event.
     appTitle :: Lude.Maybe Lude.Text,
-    appPackageName :: Lude.Maybe Lude.Text,
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    sdkName :: Lude.Maybe Lude.Text,
-    session :: Lude.Maybe Session,
+    -- | The name of the event.
     eventType :: Lude.Text,
-    timestamp :: Lude.Text
+    -- | The package name of the app that's recording the event.
+    appPackageName :: Lude.Maybe Lude.Text,
+    -- | One or more custom attributes that are associated with the event.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the SDK that's being used to record the event.
+    sdkName :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO 8601 format, when the event occurred.
+    timestamp :: Lude.Text,
+    -- | Information about the session in which the event occurred.
+    session :: Lude.Maybe Session
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- * 'appPackageName' - The package name of the app that's recording the event.
--- * 'appTitle' - The title of the app that's recording the event.
--- * 'appVersionCode' - The version number of the app that's recording the event.
--- * 'attributes' - One or more custom attributes that are associated with the event.
 -- * 'clientSDKVersion' - The version of the SDK that's running on the client device.
--- * 'eventType' - The name of the event.
 -- * 'metrics' - One or more custom metrics that are associated with the event.
+-- * 'appVersionCode' - The version number of the app that's recording the event.
+-- * 'appTitle' - The title of the app that's recording the event.
+-- * 'eventType' - The name of the event.
+-- * 'appPackageName' - The package name of the app that's recording the event.
+-- * 'attributes' - One or more custom attributes that are associated with the event.
 -- * 'sdkName' - The name of the SDK that's being used to record the event.
--- * 'session' - Information about the session in which the event occurred.
 -- * 'timestamp' - The date and time, in ISO 8601 format, when the event occurred.
+-- * 'session' - Information about the session in which the event occurred.
 mkEvent ::
   -- | 'eventType'
   Lude.Text ->
@@ -82,12 +86,12 @@ mkEvent pEventType_ pTimestamp_ =
       metrics = Lude.Nothing,
       appVersionCode = Lude.Nothing,
       appTitle = Lude.Nothing,
+      eventType = pEventType_,
       appPackageName = Lude.Nothing,
       attributes = Lude.Nothing,
       sdkName = Lude.Nothing,
-      session = Lude.Nothing,
-      eventType = pEventType_,
-      timestamp = pTimestamp_
+      timestamp = pTimestamp_,
+      session = Lude.Nothing
     }
 
 -- | The version of the SDK that's running on the client device.
@@ -118,6 +122,13 @@ eAppTitle :: Lens.Lens' Event (Lude.Maybe Lude.Text)
 eAppTitle = Lens.lens (appTitle :: Event -> Lude.Maybe Lude.Text) (\s a -> s {appTitle = a} :: Event)
 {-# DEPRECATED eAppTitle "Use generic-lens or generic-optics with 'appTitle' instead." #-}
 
+-- | The name of the event.
+--
+-- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEventType :: Lens.Lens' Event Lude.Text
+eEventType = Lens.lens (eventType :: Event -> Lude.Text) (\s a -> s {eventType = a} :: Event)
+{-# DEPRECATED eEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
+
 -- | The package name of the app that's recording the event.
 --
 -- /Note:/ Consider using 'appPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -139,26 +150,19 @@ eSDKName :: Lens.Lens' Event (Lude.Maybe Lude.Text)
 eSDKName = Lens.lens (sdkName :: Event -> Lude.Maybe Lude.Text) (\s a -> s {sdkName = a} :: Event)
 {-# DEPRECATED eSDKName "Use generic-lens or generic-optics with 'sdkName' instead." #-}
 
--- | Information about the session in which the event occurred.
---
--- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSession :: Lens.Lens' Event (Lude.Maybe Session)
-eSession = Lens.lens (session :: Event -> Lude.Maybe Session) (\s a -> s {session = a} :: Event)
-{-# DEPRECATED eSession "Use generic-lens or generic-optics with 'session' instead." #-}
-
--- | The name of the event.
---
--- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEventType :: Lens.Lens' Event Lude.Text
-eEventType = Lens.lens (eventType :: Event -> Lude.Text) (\s a -> s {eventType = a} :: Event)
-{-# DEPRECATED eEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
-
 -- | The date and time, in ISO 8601 format, when the event occurred.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 eTimestamp :: Lens.Lens' Event Lude.Text
 eTimestamp = Lens.lens (timestamp :: Event -> Lude.Text) (\s a -> s {timestamp = a} :: Event)
 {-# DEPRECATED eTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+
+-- | Information about the session in which the event occurred.
+--
+-- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSession :: Lens.Lens' Event (Lude.Maybe Session)
+eSession = Lens.lens (session :: Event -> Lude.Maybe Session) (\s a -> s {session = a} :: Event)
+{-# DEPRECATED eSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
 instance Lude.ToJSON Event where
   toJSON Event' {..} =
@@ -168,11 +172,11 @@ instance Lude.ToJSON Event where
             ("Metrics" Lude..=) Lude.<$> metrics,
             ("AppVersionCode" Lude..=) Lude.<$> appVersionCode,
             ("AppTitle" Lude..=) Lude.<$> appTitle,
+            Lude.Just ("EventType" Lude..= eventType),
             ("AppPackageName" Lude..=) Lude.<$> appPackageName,
             ("Attributes" Lude..=) Lude.<$> attributes,
             ("SdkName" Lude..=) Lude.<$> sdkName,
-            ("Session" Lude..=) Lude.<$> session,
-            Lude.Just ("EventType" Lude..= eventType),
-            Lude.Just ("Timestamp" Lude..= timestamp)
+            Lude.Just ("Timestamp" Lude..= timestamp),
+            ("Session" Lude..=) Lude.<$> session
           ]
       )

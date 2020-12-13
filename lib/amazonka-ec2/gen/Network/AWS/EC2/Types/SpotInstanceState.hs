@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.SpotInstanceState
   ( SpotInstanceState
       ( SpotInstanceState',
+        SISOpen,
         SISActive,
-        SISCancelled,
         SISClosed,
-        SISFailed,
-        SISOpen
+        SISCancelled,
+        SISFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype SpotInstanceState = SpotInstanceState' Lude.Text
       Lude.ToHeader
     )
 
+pattern SISOpen :: SpotInstanceState
+pattern SISOpen = SpotInstanceState' "open"
+
 pattern SISActive :: SpotInstanceState
 pattern SISActive = SpotInstanceState' "active"
-
-pattern SISCancelled :: SpotInstanceState
-pattern SISCancelled = SpotInstanceState' "cancelled"
 
 pattern SISClosed :: SpotInstanceState
 pattern SISClosed = SpotInstanceState' "closed"
 
+pattern SISCancelled :: SpotInstanceState
+pattern SISCancelled = SpotInstanceState' "cancelled"
+
 pattern SISFailed :: SpotInstanceState
 pattern SISFailed = SpotInstanceState' "failed"
 
-pattern SISOpen :: SpotInstanceState
-pattern SISOpen = SpotInstanceState' "open"
-
 {-# COMPLETE
-  SISActive,
-  SISCancelled,
-  SISClosed,
-  SISFailed,
   SISOpen,
+  SISActive,
+  SISClosed,
+  SISCancelled,
+  SISFailed,
   SpotInstanceState'
   #-}

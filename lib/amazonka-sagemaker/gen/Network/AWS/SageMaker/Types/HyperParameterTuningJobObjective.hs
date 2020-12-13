@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective
     mkHyperParameterTuningJobObjective,
 
     -- * Lenses
-    hptjoType,
     hptjoMetricName,
+    hptjoType,
   )
 where
 
@@ -30,17 +30,12 @@ import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType
 --
 -- /See:/ 'mkHyperParameterTuningJobObjective' smart constructor.
 data HyperParameterTuningJobObjective = HyperParameterTuningJobObjective'
-  { type' ::
-      HyperParameterTuningJobObjectiveType,
-    metricName :: Lude.Text
+  { -- | The name of the metric to use for the objective metric.
+    metricName :: Lude.Text,
+    -- | Whether to minimize or maximize the objective metric.
+    type' :: HyperParameterTuningJobObjectiveType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HyperParameterTuningJobObjective' with the minimum fields required to make a request.
@@ -48,23 +43,16 @@ data HyperParameterTuningJobObjective = HyperParameterTuningJobObjective'
 -- * 'metricName' - The name of the metric to use for the objective metric.
 -- * 'type'' - Whether to minimize or maximize the objective metric.
 mkHyperParameterTuningJobObjective ::
-  -- | 'type''
-  HyperParameterTuningJobObjectiveType ->
   -- | 'metricName'
   Lude.Text ->
+  -- | 'type''
+  HyperParameterTuningJobObjectiveType ->
   HyperParameterTuningJobObjective
-mkHyperParameterTuningJobObjective pType_ pMetricName_ =
+mkHyperParameterTuningJobObjective pMetricName_ pType_ =
   HyperParameterTuningJobObjective'
-    { type' = pType_,
-      metricName = pMetricName_
+    { metricName = pMetricName_,
+      type' = pType_
     }
-
--- | Whether to minimize or maximize the objective metric.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hptjoType :: Lens.Lens' HyperParameterTuningJobObjective HyperParameterTuningJobObjectiveType
-hptjoType = Lens.lens (type' :: HyperParameterTuningJobObjective -> HyperParameterTuningJobObjectiveType) (\s a -> s {type' = a} :: HyperParameterTuningJobObjective)
-{-# DEPRECATED hptjoType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The name of the metric to use for the objective metric.
 --
@@ -73,20 +61,27 @@ hptjoMetricName :: Lens.Lens' HyperParameterTuningJobObjective Lude.Text
 hptjoMetricName = Lens.lens (metricName :: HyperParameterTuningJobObjective -> Lude.Text) (\s a -> s {metricName = a} :: HyperParameterTuningJobObjective)
 {-# DEPRECATED hptjoMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
+-- | Whether to minimize or maximize the objective metric.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hptjoType :: Lens.Lens' HyperParameterTuningJobObjective HyperParameterTuningJobObjectiveType
+hptjoType = Lens.lens (type' :: HyperParameterTuningJobObjective -> HyperParameterTuningJobObjectiveType) (\s a -> s {type' = a} :: HyperParameterTuningJobObjective)
+{-# DEPRECATED hptjoType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.FromJSON HyperParameterTuningJobObjective where
   parseJSON =
     Lude.withObject
       "HyperParameterTuningJobObjective"
       ( \x ->
           HyperParameterTuningJobObjective'
-            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "MetricName")
+            Lude.<$> (x Lude..: "MetricName") Lude.<*> (x Lude..: "Type")
       )
 
 instance Lude.ToJSON HyperParameterTuningJobObjective where
   toJSON HyperParameterTuningJobObjective' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("MetricName" Lude..= metricName)
+          [ Lude.Just ("MetricName" Lude..= metricName),
+            Lude.Just ("Type" Lude..= type')
           ]
       )

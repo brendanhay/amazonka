@@ -172,38 +172,38 @@ module Network.AWS.Support
     -- ** TrustedAdvisorCheckDescription
     TrustedAdvisorCheckDescription (..),
     mkTrustedAdvisorCheckDescription,
-    tacdId,
-    tacdName,
-    tacdDescription,
     tacdCategory,
+    tacdName,
     tacdMetadata,
+    tacdId,
+    tacdDescription,
 
     -- ** TrustedAdvisorCheckRefreshStatus
     TrustedAdvisorCheckRefreshStatus (..),
     mkTrustedAdvisorCheckRefreshStatus,
-    tacrsCheckId,
-    tacrsStatus,
     tacrsMillisUntilNextRefreshable,
+    tacrsStatus,
+    tacrsCheckId,
 
     -- ** TrustedAdvisorCheckResult
     TrustedAdvisorCheckResult (..),
     mkTrustedAdvisorCheckResult,
-    tacrCheckId,
-    tacrTimestamp,
-    tacrStatus,
-    tacrResourcesSummary,
     tacrCategorySpecificSummary,
+    tacrStatus,
+    tacrCheckId,
     tacrFlaggedResources,
+    tacrResourcesSummary,
+    tacrTimestamp,
 
     -- ** TrustedAdvisorCheckSummary
     TrustedAdvisorCheckSummary (..),
     mkTrustedAdvisorCheckSummary,
-    tacsHasFlaggedResources,
-    tacsCheckId,
-    tacsTimestamp,
-    tacsStatus,
-    tacsResourcesSummary,
     tacsCategorySpecificSummary,
+    tacsStatus,
+    tacsCheckId,
+    tacsResourcesSummary,
+    tacsTimestamp,
+    tacsHasFlaggedResources,
 
     -- ** TrustedAdvisorCostOptimizingSummary
     TrustedAdvisorCostOptimizingSummary (..),
@@ -214,18 +214,18 @@ module Network.AWS.Support
     -- ** TrustedAdvisorResourceDetail
     TrustedAdvisorResourceDetail (..),
     mkTrustedAdvisorResourceDetail,
-    tardIsSuppressed,
-    tardRegion,
     tardStatus,
     tardResourceId,
+    tardIsSuppressed,
     tardMetadata,
+    tardRegion,
 
     -- ** TrustedAdvisorResourcesSummary
     TrustedAdvisorResourcesSummary (..),
     mkTrustedAdvisorResourcesSummary,
+    tarsResourcesIgnored,
     tarsResourcesProcessed,
     tarsResourcesFlagged,
-    tarsResourcesIgnored,
     tarsResourcesSuppressed,
 
     -- * Serialization types

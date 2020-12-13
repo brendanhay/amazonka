@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.EncryptionEntities
     mkEncryptionEntities,
 
     -- * Lenses
-    eeItems,
     eeQuantity,
+    eeItems,
   )
 where
 
@@ -30,36 +30,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEncryptionEntities' smart constructor.
 data EncryptionEntities = EncryptionEntities'
-  { items ::
-      Lude.Maybe [EncryptionEntity],
-    quantity :: Lude.Int
+  { -- | Number of field pattern items in a field-level encryption content type-profile mapping.
+    quantity :: Lude.Int,
+    -- | An array of field patterns in a field-level encryption content type-profile mapping.
+    items :: Lude.Maybe [EncryptionEntity]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionEntities' with the minimum fields required to make a request.
 --
--- * 'items' - An array of field patterns in a field-level encryption content type-profile mapping.
 -- * 'quantity' - Number of field pattern items in a field-level encryption content type-profile mapping.
+-- * 'items' - An array of field patterns in a field-level encryption content type-profile mapping.
 mkEncryptionEntities ::
   -- | 'quantity'
   Lude.Int ->
   EncryptionEntities
 mkEncryptionEntities pQuantity_ =
-  EncryptionEntities' {items = Lude.Nothing, quantity = pQuantity_}
-
--- | An array of field patterns in a field-level encryption content type-profile mapping.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eeItems :: Lens.Lens' EncryptionEntities (Lude.Maybe [EncryptionEntity])
-eeItems = Lens.lens (items :: EncryptionEntities -> Lude.Maybe [EncryptionEntity]) (\s a -> s {items = a} :: EncryptionEntities)
-{-# DEPRECATED eeItems "Use generic-lens or generic-optics with 'items' instead." #-}
+  EncryptionEntities' {quantity = pQuantity_, items = Lude.Nothing}
 
 -- | Number of field pattern items in a field-level encryption content type-profile mapping.
 --
@@ -68,18 +56,25 @@ eeQuantity :: Lens.Lens' EncryptionEntities Lude.Int
 eeQuantity = Lens.lens (quantity :: EncryptionEntities -> Lude.Int) (\s a -> s {quantity = a} :: EncryptionEntities)
 {-# DEPRECATED eeQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | An array of field patterns in a field-level encryption content type-profile mapping.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eeItems :: Lens.Lens' EncryptionEntities (Lude.Maybe [EncryptionEntity])
+eeItems = Lens.lens (items :: EncryptionEntities -> Lude.Maybe [EncryptionEntity]) (\s a -> s {items = a} :: EncryptionEntities)
+{-# DEPRECATED eeItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML EncryptionEntities where
   parseXML x =
     EncryptionEntities'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "EncryptionEntity")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML EncryptionEntities where
   toXML EncryptionEntities' {..} =
     Lude.mconcat
-      [ "Items"
-          Lude.@= Lude.toXML (Lude.toXMLList "EncryptionEntity" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "EncryptionEntity" Lude.<$> items)
       ]

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.DynamoDB.UpdateContinuousBackups
     mkUpdateContinuousBackups,
 
     -- ** Request lenses
-    ucbTableName,
     ucbPointInTimeRecoverySpecification,
+    ucbTableName,
 
     -- * Destructuring the response
     UpdateContinuousBackupsResponse (..),
@@ -43,18 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateContinuousBackups' smart constructor.
 data UpdateContinuousBackups = UpdateContinuousBackups'
-  { tableName ::
-      Lude.Text,
-    pointInTimeRecoverySpecification ::
-      PointInTimeRecoverySpecification
+  { -- | Represents the settings used to enable point in time recovery.
+    pointInTimeRecoverySpecification :: PointInTimeRecoverySpecification,
+    -- | The name of the table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContinuousBackups' with the minimum fields required to make a request.
@@ -62,26 +57,19 @@ data UpdateContinuousBackups = UpdateContinuousBackups'
 -- * 'pointInTimeRecoverySpecification' - Represents the settings used to enable point in time recovery.
 -- * 'tableName' - The name of the table.
 mkUpdateContinuousBackups ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'pointInTimeRecoverySpecification'
   PointInTimeRecoverySpecification ->
+  -- | 'tableName'
+  Lude.Text ->
   UpdateContinuousBackups
 mkUpdateContinuousBackups
-  pTableName_
-  pPointInTimeRecoverySpecification_ =
+  pPointInTimeRecoverySpecification_
+  pTableName_ =
     UpdateContinuousBackups'
-      { tableName = pTableName_,
-        pointInTimeRecoverySpecification =
-          pPointInTimeRecoverySpecification_
+      { pointInTimeRecoverySpecification =
+          pPointInTimeRecoverySpecification_,
+        tableName = pTableName_
       }
-
--- | The name of the table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucbTableName :: Lens.Lens' UpdateContinuousBackups Lude.Text
-ucbTableName = Lens.lens (tableName :: UpdateContinuousBackups -> Lude.Text) (\s a -> s {tableName = a} :: UpdateContinuousBackups)
-{-# DEPRECATED ucbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | Represents the settings used to enable point in time recovery.
 --
@@ -89,6 +77,13 @@ ucbTableName = Lens.lens (tableName :: UpdateContinuousBackups -> Lude.Text) (\s
 ucbPointInTimeRecoverySpecification :: Lens.Lens' UpdateContinuousBackups PointInTimeRecoverySpecification
 ucbPointInTimeRecoverySpecification = Lens.lens (pointInTimeRecoverySpecification :: UpdateContinuousBackups -> PointInTimeRecoverySpecification) (\s a -> s {pointInTimeRecoverySpecification = a} :: UpdateContinuousBackups)
 {-# DEPRECATED ucbPointInTimeRecoverySpecification "Use generic-lens or generic-optics with 'pointInTimeRecoverySpecification' instead." #-}
+
+-- | The name of the table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucbTableName :: Lens.Lens' UpdateContinuousBackups Lude.Text
+ucbTableName = Lens.lens (tableName :: UpdateContinuousBackups -> Lude.Text) (\s a -> s {tableName = a} :: UpdateContinuousBackups)
+{-# DEPRECATED ucbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest UpdateContinuousBackups where
   type Rs UpdateContinuousBackups = UpdateContinuousBackupsResponse
@@ -116,11 +111,11 @@ instance Lude.ToJSON UpdateContinuousBackups where
   toJSON UpdateContinuousBackups' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just
+          [ Lude.Just
               ( "PointInTimeRecoverySpecification"
                   Lude..= pointInTimeRecoverySpecification
-              )
+              ),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -132,18 +127,12 @@ instance Lude.ToQuery UpdateContinuousBackups where
 
 -- | /See:/ 'mkUpdateContinuousBackupsResponse' smart constructor.
 data UpdateContinuousBackupsResponse = UpdateContinuousBackupsResponse'
-  { continuousBackupsDescription ::
-      Lude.Maybe
-        ContinuousBackupsDescription,
+  { -- | Represents the continuous backups and point in time recovery settings on the table.
+    continuousBackupsDescription :: Lude.Maybe ContinuousBackupsDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContinuousBackupsResponse' with the minimum fields required to make a request.

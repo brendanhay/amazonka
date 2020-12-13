@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.AutoScaling.EnterStandby
     mkEnterStandbyResponse,
 
     -- ** Response lenses
-    ersActivities,
-    ersResponseStatus,
+    esrsActivities,
+    esrsResponseStatus,
   )
 where
 
@@ -45,24 +46,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEnterStandby' smart constructor.
 data EnterStandby = EnterStandby'
-  { instanceIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text,
+    -- | Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to @Standby@ mode.
     shouldDecrementDesiredCapacity :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnterStandby' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'shouldDecrementDesiredCapacity' - Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of instances moved to @Standby@ mode.
 mkEnterStandby ::
   -- | 'autoScalingGroupName'
@@ -134,17 +131,12 @@ instance Lude.ToQuery EnterStandby where
 
 -- | /See:/ 'mkEnterStandbyResponse' smart constructor.
 data EnterStandbyResponse = EnterStandbyResponse'
-  { activities ::
-      Lude.Maybe [Activity],
+  { -- | The activities related to moving instances into @Standby@ mode.
+    activities :: Lude.Maybe [Activity],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnterStandbyResponse' with the minimum fields required to make a request.
@@ -164,13 +156,13 @@ mkEnterStandbyResponse pResponseStatus_ =
 -- | The activities related to moving instances into @Standby@ mode.
 --
 -- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ersActivities :: Lens.Lens' EnterStandbyResponse (Lude.Maybe [Activity])
-ersActivities = Lens.lens (activities :: EnterStandbyResponse -> Lude.Maybe [Activity]) (\s a -> s {activities = a} :: EnterStandbyResponse)
-{-# DEPRECATED ersActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
+esrsActivities :: Lens.Lens' EnterStandbyResponse (Lude.Maybe [Activity])
+esrsActivities = Lens.lens (activities :: EnterStandbyResponse -> Lude.Maybe [Activity]) (\s a -> s {activities = a} :: EnterStandbyResponse)
+{-# DEPRECATED esrsActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ersResponseStatus :: Lens.Lens' EnterStandbyResponse Lude.Int
-ersResponseStatus = Lens.lens (responseStatus :: EnterStandbyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnterStandbyResponse)
-{-# DEPRECATED ersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+esrsResponseStatus :: Lens.Lens' EnterStandbyResponse Lude.Int
+esrsResponseStatus = Lens.lens (responseStatus :: EnterStandbyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnterStandbyResponse)
+{-# DEPRECATED esrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

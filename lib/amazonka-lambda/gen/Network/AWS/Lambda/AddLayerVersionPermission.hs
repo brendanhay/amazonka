@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.Lambda.AddLayerVersionPermission
     mkAddLayerVersionPermission,
 
     -- ** Request lenses
+    alvpLayerName,
+    alvpAction,
+    alvpVersionNumber,
+    alvpPrincipal,
+    alvpStatementId,
     alvpRevisionId,
     alvpOrganizationId,
-    alvpLayerName,
-    alvpVersionNumber,
-    alvpStatementId,
-    alvpAction,
-    alvpPrincipal,
 
     -- * Destructuring the response
     AddLayerVersionPermissionResponse (..),
@@ -48,60 +49,95 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddLayerVersionPermission' smart constructor.
 data AddLayerVersionPermission = AddLayerVersionPermission'
-  { revisionId ::
-      Lude.Maybe Lude.Text,
-    organizationId :: Lude.Maybe Lude.Text,
+  { -- | The name or Amazon Resource Name (ARN) of the layer.
     layerName :: Lude.Text,
-    versionNumber :: Lude.Integer,
-    statementId :: Lude.Text,
+    -- | The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
     action :: Lude.Text,
-    principal :: Lude.Text
+    -- | The version number.
+    versionNumber :: Lude.Integer,
+    -- | An account ID, or @*@ to grant permission to all AWS accounts.
+    principal :: Lude.Text,
+    -- | An identifier that distinguishes the policy from others on the same layer version.
+    statementId :: Lude.Text,
+    -- | Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
+    revisionId :: Lude.Maybe Lude.Text,
+    -- | With the principal set to @*@ , grant permission to all accounts in the specified organization.
+    organizationId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddLayerVersionPermission' with the minimum fields required to make a request.
 --
--- * 'action' - The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
 -- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
--- * 'organizationId' - With the principal set to @*@ , grant permission to all accounts in the specified organization.
--- * 'principal' - An account ID, or @*@ to grant permission to all AWS accounts.
--- * 'revisionId' - Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
--- * 'statementId' - An identifier that distinguishes the policy from others on the same layer version.
+-- * 'action' - The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
 -- * 'versionNumber' - The version number.
+-- * 'principal' - An account ID, or @*@ to grant permission to all AWS accounts.
+-- * 'statementId' - An identifier that distinguishes the policy from others on the same layer version.
+-- * 'revisionId' - Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
+-- * 'organizationId' - With the principal set to @*@ , grant permission to all accounts in the specified organization.
 mkAddLayerVersionPermission ::
   -- | 'layerName'
   Lude.Text ->
-  -- | 'versionNumber'
-  Lude.Integer ->
-  -- | 'statementId'
-  Lude.Text ->
   -- | 'action'
   Lude.Text ->
+  -- | 'versionNumber'
+  Lude.Integer ->
   -- | 'principal'
+  Lude.Text ->
+  -- | 'statementId'
   Lude.Text ->
   AddLayerVersionPermission
 mkAddLayerVersionPermission
   pLayerName_
-  pVersionNumber_
-  pStatementId_
   pAction_
-  pPrincipal_ =
+  pVersionNumber_
+  pPrincipal_
+  pStatementId_ =
     AddLayerVersionPermission'
-      { revisionId = Lude.Nothing,
-        organizationId = Lude.Nothing,
-        layerName = pLayerName_,
-        versionNumber = pVersionNumber_,
-        statementId = pStatementId_,
+      { layerName = pLayerName_,
         action = pAction_,
-        principal = pPrincipal_
+        versionNumber = pVersionNumber_,
+        principal = pPrincipal_,
+        statementId = pStatementId_,
+        revisionId = Lude.Nothing,
+        organizationId = Lude.Nothing
       }
+
+-- | The name or Amazon Resource Name (ARN) of the layer.
+--
+-- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alvpLayerName :: Lens.Lens' AddLayerVersionPermission Lude.Text
+alvpLayerName = Lens.lens (layerName :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {layerName = a} :: AddLayerVersionPermission)
+{-# DEPRECATED alvpLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
+
+-- | The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alvpAction :: Lens.Lens' AddLayerVersionPermission Lude.Text
+alvpAction = Lens.lens (action :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {action = a} :: AddLayerVersionPermission)
+{-# DEPRECATED alvpAction "Use generic-lens or generic-optics with 'action' instead." #-}
+
+-- | The version number.
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alvpVersionNumber :: Lens.Lens' AddLayerVersionPermission Lude.Integer
+alvpVersionNumber = Lens.lens (versionNumber :: AddLayerVersionPermission -> Lude.Integer) (\s a -> s {versionNumber = a} :: AddLayerVersionPermission)
+{-# DEPRECATED alvpVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
+
+-- | An account ID, or @*@ to grant permission to all AWS accounts.
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alvpPrincipal :: Lens.Lens' AddLayerVersionPermission Lude.Text
+alvpPrincipal = Lens.lens (principal :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {principal = a} :: AddLayerVersionPermission)
+{-# DEPRECATED alvpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+
+-- | An identifier that distinguishes the policy from others on the same layer version.
+--
+-- /Note:/ Consider using 'statementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alvpStatementId :: Lens.Lens' AddLayerVersionPermission Lude.Text
+alvpStatementId = Lens.lens (statementId :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {statementId = a} :: AddLayerVersionPermission)
+{-# DEPRECATED alvpStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
 
 -- | Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
 --
@@ -116,41 +152,6 @@ alvpRevisionId = Lens.lens (revisionId :: AddLayerVersionPermission -> Lude.Mayb
 alvpOrganizationId :: Lens.Lens' AddLayerVersionPermission (Lude.Maybe Lude.Text)
 alvpOrganizationId = Lens.lens (organizationId :: AddLayerVersionPermission -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: AddLayerVersionPermission)
 {-# DEPRECATED alvpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The name or Amazon Resource Name (ARN) of the layer.
---
--- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvpLayerName :: Lens.Lens' AddLayerVersionPermission Lude.Text
-alvpLayerName = Lens.lens (layerName :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {layerName = a} :: AddLayerVersionPermission)
-{-# DEPRECATED alvpLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
-
--- | The version number.
---
--- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvpVersionNumber :: Lens.Lens' AddLayerVersionPermission Lude.Integer
-alvpVersionNumber = Lens.lens (versionNumber :: AddLayerVersionPermission -> Lude.Integer) (\s a -> s {versionNumber = a} :: AddLayerVersionPermission)
-{-# DEPRECATED alvpVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
-
--- | An identifier that distinguishes the policy from others on the same layer version.
---
--- /Note:/ Consider using 'statementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvpStatementId :: Lens.Lens' AddLayerVersionPermission Lude.Text
-alvpStatementId = Lens.lens (statementId :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {statementId = a} :: AddLayerVersionPermission)
-{-# DEPRECATED alvpStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
-
--- | The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
---
--- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvpAction :: Lens.Lens' AddLayerVersionPermission Lude.Text
-alvpAction = Lens.lens (action :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {action = a} :: AddLayerVersionPermission)
-{-# DEPRECATED alvpAction "Use generic-lens or generic-optics with 'action' instead." #-}
-
--- | An account ID, or @*@ to grant permission to all AWS accounts.
---
--- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvpPrincipal :: Lens.Lens' AddLayerVersionPermission Lude.Text
-alvpPrincipal = Lens.lens (principal :: AddLayerVersionPermission -> Lude.Text) (\s a -> s {principal = a} :: AddLayerVersionPermission)
-{-# DEPRECATED alvpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
 instance Lude.AWSRequest AddLayerVersionPermission where
   type
@@ -173,10 +174,10 @@ instance Lude.ToJSON AddLayerVersionPermission where
   toJSON AddLayerVersionPermission' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("OrganizationId" Lude..=) Lude.<$> organizationId,
+          [ Lude.Just ("Action" Lude..= action),
+            Lude.Just ("Principal" Lude..= principal),
             Lude.Just ("StatementId" Lude..= statementId),
-            Lude.Just ("Action" Lude..= action),
-            Lude.Just ("Principal" Lude..= principal)
+            ("OrganizationId" Lude..=) Lude.<$> organizationId
           ]
       )
 
@@ -196,27 +197,21 @@ instance Lude.ToQuery AddLayerVersionPermission where
 
 -- | /See:/ 'mkAddLayerVersionPermissionResponse' smart constructor.
 data AddLayerVersionPermissionResponse = AddLayerVersionPermissionResponse'
-  { statement ::
-      Lude.Maybe Lude.Text,
-    revisionId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The permission statement.
+    statement :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the current revision of the policy.
+    revisionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddLayerVersionPermissionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'revisionId' - A unique identifier for the current revision of the policy.
 -- * 'statement' - The permission statement.
+-- * 'revisionId' - A unique identifier for the current revision of the policy.
+-- * 'responseStatus' - The response status code.
 mkAddLayerVersionPermissionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.EC2.ImportInstance
     mkImportInstance,
 
     -- ** Request lenses
+    iiPlatform,
     iiLaunchSpecification,
     iiDiskImages,
     iiDescription,
     iiDryRun,
-    iiPlatform,
 
     -- * Destructuring the response
     ImportInstanceResponse (..),
@@ -45,41 +46,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkImportInstance' smart constructor.
 data ImportInstance = ImportInstance'
-  { launchSpecification ::
-      Lude.Maybe ImportInstanceLaunchSpecification,
+  { -- | The instance operating system.
+    platform :: PlatformValues,
+    -- | The launch specification.
+    launchSpecification :: Lude.Maybe ImportInstanceLaunchSpecification,
+    -- | The disk image.
     diskImages :: Lude.Maybe [DiskImage],
+    -- | A description for the instance being imported.
     description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    platform :: PlatformValues
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportInstance' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the instance being imported.
--- * 'diskImages' - The disk image.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'launchSpecification' - The launch specification.
 -- * 'platform' - The instance operating system.
+-- * 'launchSpecification' - The launch specification.
+-- * 'diskImages' - The disk image.
+-- * 'description' - A description for the instance being imported.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkImportInstance ::
   -- | 'platform'
   PlatformValues ->
   ImportInstance
 mkImportInstance pPlatform_ =
   ImportInstance'
-    { launchSpecification = Lude.Nothing,
+    { platform = pPlatform_,
+      launchSpecification = Lude.Nothing,
       diskImages = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      platform = pPlatform_
+      dryRun = Lude.Nothing
     }
+
+-- | The instance operating system.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iiPlatform :: Lens.Lens' ImportInstance PlatformValues
+iiPlatform = Lens.lens (platform :: ImportInstance -> PlatformValues) (\s a -> s {platform = a} :: ImportInstance)
+{-# DEPRECATED iiPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The launch specification.
 --
@@ -109,13 +115,6 @@ iiDryRun :: Lens.Lens' ImportInstance (Lude.Maybe Lude.Bool)
 iiDryRun = Lens.lens (dryRun :: ImportInstance -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportInstance)
 {-# DEPRECATED iiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The instance operating system.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiPlatform :: Lens.Lens' ImportInstance PlatformValues
-iiPlatform = Lens.lens (platform :: ImportInstance -> PlatformValues) (\s a -> s {platform = a} :: ImportInstance)
-{-# DEPRECATED iiPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
 instance Lude.AWSRequest ImportInstance where
   type Rs ImportInstance = ImportInstanceResponse
   request = Req.postQuery ec2Service
@@ -138,26 +137,21 @@ instance Lude.ToQuery ImportInstance where
     Lude.mconcat
       [ "Action" Lude.=: ("ImportInstance" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "Platform" Lude.=: platform,
         "LaunchSpecification" Lude.=: launchSpecification,
         Lude.toQuery (Lude.toQueryList "DiskImage" Lude.<$> diskImages),
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "Platform" Lude.=: platform
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkImportInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
-  { conversionTask ::
-      Lude.Maybe ConversionTask,
+  { -- | Information about the conversion task.
+    conversionTask :: Lude.Maybe ConversionTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportInstanceResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.APIGateway.PutGatewayResponse
     mkPutGatewayResponse,
 
     -- ** Request lenses
+    pgRestAPIId,
     pgResponseTemplates,
+    pgResponseType,
     pgStatusCode,
     pgResponseParameters,
-    pgRestAPIId,
-    pgResponseType,
 
     -- * Destructuring the response
     GatewayResponse (..),
@@ -48,28 +49,63 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutGatewayResponse' smart constructor.
 data PutGatewayResponse = PutGatewayResponse'
-  { responseTemplates ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    statusCode :: Lude.Maybe Lude.Text,
-    responseParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    responseType :: GatewayResponseType
+    -- | Response templates of the 'GatewayResponse' as a string-to-string map of key-value pairs.
+    responseTemplates :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
+    --
+    --     * ACCESS_DENIED
+    --
+    --     * API_CONFIGURATION_ERROR
+    --
+    --     * AUTHORIZER_FAILURE
+    --
+    --     * AUTHORIZER_CONFIGURATION_ERROR
+    --
+    --     * BAD_REQUEST_PARAMETERS
+    --
+    --     * BAD_REQUEST_BODY
+    --
+    --     * DEFAULT_4XX
+    --
+    --     * DEFAULT_5XX
+    --
+    --     * EXPIRED_TOKEN
+    --
+    --     * INVALID_SIGNATURE
+    --
+    --     * INTEGRATION_FAILURE
+    --
+    --     * INTEGRATION_TIMEOUT
+    --
+    --     * INVALID_API_KEY
+    --
+    --     * MISSING_AUTHENTICATION_TOKEN
+    --
+    --     * QUOTA_EXCEEDED
+    --
+    --     * REQUEST_TOO_LARGE
+    --
+    --     * RESOURCE_NOT_FOUND
+    --
+    --     * THROTTLED
+    --
+    --     * UNAUTHORIZED
+    --
+    --     * UNSUPPORTED_MEDIA_TYPE
+    responseType :: GatewayResponseType,
+    -- | 'GatewayResponse'
+    statusCode :: Lude.Maybe Lude.Text,
+    -- | Response parameters (paths, query strings and headers) of the 'GatewayResponse' as a string-to-string map of key-value pairs.
+    responseParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutGatewayResponse' with the minimum fields required to make a request.
 --
--- * 'responseParameters' - Response parameters (paths, query strings and headers) of the 'GatewayResponse' as a string-to-string map of key-value pairs.
---
---
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'responseTemplates' - Response templates of the 'GatewayResponse' as a string-to-string map of key-value pairs.
 --
 --
@@ -117,8 +153,8 @@ data PutGatewayResponse = PutGatewayResponse'
 --
 --
 --
--- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'statusCode' - 'GatewayResponse'
+-- * 'responseParameters' - Response parameters (paths, query strings and headers) of the 'GatewayResponse' as a string-to-string map of key-value pairs.
 mkPutGatewayResponse ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -127,12 +163,19 @@ mkPutGatewayResponse ::
   PutGatewayResponse
 mkPutGatewayResponse pRestAPIId_ pResponseType_ =
   PutGatewayResponse'
-    { responseTemplates = Lude.Nothing,
+    { restAPIId = pRestAPIId_,
+      responseTemplates = Lude.Nothing,
+      responseType = pResponseType_,
       statusCode = Lude.Nothing,
-      responseParameters = Lude.Nothing,
-      restAPIId = pRestAPIId_,
-      responseType = pResponseType_
+      responseParameters = Lude.Nothing
     }
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgRestAPIId :: Lens.Lens' PutGatewayResponse Lude.Text
+pgRestAPIId = Lens.lens (restAPIId :: PutGatewayResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: PutGatewayResponse)
+{-# DEPRECATED pgRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | Response templates of the 'GatewayResponse' as a string-to-string map of key-value pairs.
 --
@@ -142,29 +185,6 @@ mkPutGatewayResponse pRestAPIId_ pResponseType_ =
 pgResponseTemplates :: Lens.Lens' PutGatewayResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 pgResponseTemplates = Lens.lens (responseTemplates :: PutGatewayResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {responseTemplates = a} :: PutGatewayResponse)
 {-# DEPRECATED pgResponseTemplates "Use generic-lens or generic-optics with 'responseTemplates' instead." #-}
-
--- | 'GatewayResponse'
---
--- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgStatusCode :: Lens.Lens' PutGatewayResponse (Lude.Maybe Lude.Text)
-pgStatusCode = Lens.lens (statusCode :: PutGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusCode = a} :: PutGatewayResponse)
-{-# DEPRECATED pgStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
-
--- | Response parameters (paths, query strings and headers) of the 'GatewayResponse' as a string-to-string map of key-value pairs.
---
---
---
--- /Note:/ Consider using 'responseParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgResponseParameters :: Lens.Lens' PutGatewayResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-pgResponseParameters = Lens.lens (responseParameters :: PutGatewayResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {responseParameters = a} :: PutGatewayResponse)
-{-# DEPRECATED pgResponseParameters "Use generic-lens or generic-optics with 'responseParameters' instead." #-}
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgRestAPIId :: Lens.Lens' PutGatewayResponse Lude.Text
-pgRestAPIId = Lens.lens (restAPIId :: PutGatewayResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: PutGatewayResponse)
-{-# DEPRECATED pgRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
 --
@@ -215,6 +235,22 @@ pgRestAPIId = Lens.lens (restAPIId :: PutGatewayResponse -> Lude.Text) (\s a -> 
 pgResponseType :: Lens.Lens' PutGatewayResponse GatewayResponseType
 pgResponseType = Lens.lens (responseType :: PutGatewayResponse -> GatewayResponseType) (\s a -> s {responseType = a} :: PutGatewayResponse)
 {-# DEPRECATED pgResponseType "Use generic-lens or generic-optics with 'responseType' instead." #-}
+
+-- | 'GatewayResponse'
+--
+-- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgStatusCode :: Lens.Lens' PutGatewayResponse (Lude.Maybe Lude.Text)
+pgStatusCode = Lens.lens (statusCode :: PutGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusCode = a} :: PutGatewayResponse)
+{-# DEPRECATED pgStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
+
+-- | Response parameters (paths, query strings and headers) of the 'GatewayResponse' as a string-to-string map of key-value pairs.
+--
+--
+--
+-- /Note:/ Consider using 'responseParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgResponseParameters :: Lens.Lens' PutGatewayResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+pgResponseParameters = Lens.lens (responseParameters :: PutGatewayResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {responseParameters = a} :: PutGatewayResponse)
+{-# DEPRECATED pgResponseParameters "Use generic-lens or generic-optics with 'responseParameters' instead." #-}
 
 instance Lude.AWSRequest PutGatewayResponse where
   type Rs PutGatewayResponse = GatewayResponse

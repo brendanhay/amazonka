@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodePipeline.GetPipeline
     mkGetPipeline,
 
     -- ** Request lenses
-    gpVersion,
     gpName,
+    gpVersion,
 
     -- * Destructuring the response
     GetPipelineResponse (..),
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetPipeline' smart constructor.
 data GetPipeline = GetPipeline'
-  { version :: Lude.Maybe Lude.Natural,
-    name :: Lude.Text
+  { -- | The name of the pipeline for which you want to get information. Pipeline names must be unique under an AWS user account.
+    name :: Lude.Text,
+    -- | The version number of the pipeline. If you do not specify a version, defaults to the current version.
+    version :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipeline' with the minimum fields required to make a request.
@@ -64,14 +61,7 @@ mkGetPipeline ::
   Lude.Text ->
   GetPipeline
 mkGetPipeline pName_ =
-  GetPipeline' {version = Lude.Nothing, name = pName_}
-
--- | The version number of the pipeline. If you do not specify a version, defaults to the current version.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpVersion :: Lens.Lens' GetPipeline (Lude.Maybe Lude.Natural)
-gpVersion = Lens.lens (version :: GetPipeline -> Lude.Maybe Lude.Natural) (\s a -> s {version = a} :: GetPipeline)
-{-# DEPRECATED gpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+  GetPipeline' {name = pName_, version = Lude.Nothing}
 
 -- | The name of the pipeline for which you want to get information. Pipeline names must be unique under an AWS user account.
 --
@@ -79,6 +69,13 @@ gpVersion = Lens.lens (version :: GetPipeline -> Lude.Maybe Lude.Natural) (\s a 
 gpName :: Lens.Lens' GetPipeline Lude.Text
 gpName = Lens.lens (name :: GetPipeline -> Lude.Text) (\s a -> s {name = a} :: GetPipeline)
 {-# DEPRECATED gpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The version number of the pipeline. If you do not specify a version, defaults to the current version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpVersion :: Lens.Lens' GetPipeline (Lude.Maybe Lude.Natural)
+gpVersion = Lens.lens (version :: GetPipeline -> Lude.Maybe Lude.Natural) (\s a -> s {version = a} :: GetPipeline)
+{-# DEPRECATED gpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 instance Lude.AWSRequest GetPipeline where
   type Rs GetPipeline = GetPipelineResponse
@@ -107,8 +104,8 @@ instance Lude.ToJSON GetPipeline where
   toJSON GetPipeline' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("version" Lude..=) Lude.<$> version,
-            Lude.Just ("name" Lude..= name)
+          [ Lude.Just ("name" Lude..= name),
+            ("version" Lude..=) Lude.<$> version
           ]
       )
 
@@ -122,24 +119,20 @@ instance Lude.ToQuery GetPipeline where
 --
 -- /See:/ 'mkGetPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
-  { pipeline ::
-      Lude.Maybe PipelineDeclaration,
+  { -- | Represents the structure of actions and stages to be performed in the pipeline.
+    pipeline :: Lude.Maybe PipelineDeclaration,
+    -- | Represents the pipeline metadata information returned as part of the output of a @GetPipeline@ action.
     metadata :: Lude.Maybe PipelineMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPipelineResponse' with the minimum fields required to make a request.
 --
--- * 'metadata' - Represents the pipeline metadata information returned as part of the output of a @GetPipeline@ action.
 -- * 'pipeline' - Represents the structure of actions and stages to be performed in the pipeline.
+-- * 'metadata' - Represents the pipeline metadata information returned as part of the output of a @GetPipeline@ action.
 -- * 'responseStatus' - The response status code.
 mkGetPipelineResponse ::
   -- | 'responseStatus'

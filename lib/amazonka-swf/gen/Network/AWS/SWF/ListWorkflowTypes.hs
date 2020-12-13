@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,11 +37,11 @@ module Network.AWS.SWF.ListWorkflowTypes
 
     -- ** Request lenses
     lwtNextPageToken,
+    lwtDomain,
     lwtReverseOrder,
     lwtName,
-    lwtMaximumPageSize,
-    lwtDomain,
     lwtRegistrationStatus,
+    lwtMaximumPageSize,
 
     -- * Destructuring the response
     ListWorkflowTypesResponse (..),
@@ -48,8 +49,8 @@ module Network.AWS.SWF.ListWorkflowTypes
 
     -- ** Response lenses
     lwtrsNextPageToken,
-    lwtrsResponseStatus,
     lwtrsTypeInfos,
+    lwtrsResponseStatus,
   )
 where
 
@@ -62,33 +63,34 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkListWorkflowTypes' smart constructor.
 data ListWorkflowTypes = ListWorkflowTypes'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    reverseOrder :: Lude.Maybe Lude.Bool,
-    name :: Lude.Maybe Lude.Text,
-    maximumPageSize :: Lude.Maybe Lude.Natural,
+  { -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
+    --
+    -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The name of the domain in which the workflow types have been registered.
     domain :: Lude.Text,
-    registrationStatus :: RegistrationStatus
+    -- | When set to @true@ , returns the results in reverse order. By default the results are returned in ascending alphabetical order of the @name@ of the workflow types.
+    reverseOrder :: Lude.Maybe Lude.Bool,
+    -- | If specified, lists the workflow type with this name.
+    name :: Lude.Maybe Lude.Text,
+    -- | Specifies the registration status of the workflow types to list.
+    registrationStatus :: RegistrationStatus,
+    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkflowTypes' with the minimum fields required to make a request.
 --
--- * 'domain' - The name of the domain in which the workflow types have been registered.
--- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
--- * 'name' - If specified, lists the workflow type with this name.
 -- * 'nextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
--- * 'registrationStatus' - Specifies the registration status of the workflow types to list.
+-- * 'domain' - The name of the domain in which the workflow types have been registered.
 -- * 'reverseOrder' - When set to @true@ , returns the results in reverse order. By default the results are returned in ascending alphabetical order of the @name@ of the workflow types.
+-- * 'name' - If specified, lists the workflow type with this name.
+-- * 'registrationStatus' - Specifies the registration status of the workflow types to list.
+-- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
 mkListWorkflowTypes ::
   -- | 'domain'
   Lude.Text ->
@@ -98,11 +100,11 @@ mkListWorkflowTypes ::
 mkListWorkflowTypes pDomain_ pRegistrationStatus_ =
   ListWorkflowTypes'
     { nextPageToken = Lude.Nothing,
+      domain = pDomain_,
       reverseOrder = Lude.Nothing,
       name = Lude.Nothing,
-      maximumPageSize = Lude.Nothing,
-      domain = pDomain_,
-      registrationStatus = pRegistrationStatus_
+      registrationStatus = pRegistrationStatus_,
+      maximumPageSize = Lude.Nothing
     }
 
 -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
@@ -113,6 +115,13 @@ mkListWorkflowTypes pDomain_ pRegistrationStatus_ =
 lwtNextPageToken :: Lens.Lens' ListWorkflowTypes (Lude.Maybe Lude.Text)
 lwtNextPageToken = Lens.lens (nextPageToken :: ListWorkflowTypes -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListWorkflowTypes)
 {-# DEPRECATED lwtNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+
+-- | The name of the domain in which the workflow types have been registered.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwtDomain :: Lens.Lens' ListWorkflowTypes Lude.Text
+lwtDomain = Lens.lens (domain :: ListWorkflowTypes -> Lude.Text) (\s a -> s {domain = a} :: ListWorkflowTypes)
+{-# DEPRECATED lwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | When set to @true@ , returns the results in reverse order. By default the results are returned in ascending alphabetical order of the @name@ of the workflow types.
 --
@@ -128,26 +137,19 @@ lwtName :: Lens.Lens' ListWorkflowTypes (Lude.Maybe Lude.Text)
 lwtName = Lens.lens (name :: ListWorkflowTypes -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ListWorkflowTypes)
 {-# DEPRECATED lwtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
---
--- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwtMaximumPageSize :: Lens.Lens' ListWorkflowTypes (Lude.Maybe Lude.Natural)
-lwtMaximumPageSize = Lens.lens (maximumPageSize :: ListWorkflowTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: ListWorkflowTypes)
-{-# DEPRECATED lwtMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
-
--- | The name of the domain in which the workflow types have been registered.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwtDomain :: Lens.Lens' ListWorkflowTypes Lude.Text
-lwtDomain = Lens.lens (domain :: ListWorkflowTypes -> Lude.Text) (\s a -> s {domain = a} :: ListWorkflowTypes)
-{-# DEPRECATED lwtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
 -- | Specifies the registration status of the workflow types to list.
 --
 -- /Note:/ Consider using 'registrationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lwtRegistrationStatus :: Lens.Lens' ListWorkflowTypes RegistrationStatus
 lwtRegistrationStatus = Lens.lens (registrationStatus :: ListWorkflowTypes -> RegistrationStatus) (\s a -> s {registrationStatus = a} :: ListWorkflowTypes)
 {-# DEPRECATED lwtRegistrationStatus "Use generic-lens or generic-optics with 'registrationStatus' instead." #-}
+
+-- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+--
+-- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwtMaximumPageSize :: Lens.Lens' ListWorkflowTypes (Lude.Maybe Lude.Natural)
+lwtMaximumPageSize = Lens.lens (maximumPageSize :: ListWorkflowTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: ListWorkflowTypes)
+{-# DEPRECATED lwtMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
 
 instance Page.AWSPager ListWorkflowTypes where
   page rq rs
@@ -166,8 +168,8 @@ instance Lude.AWSRequest ListWorkflowTypes where
       ( \s h x ->
           ListWorkflowTypesResponse'
             Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "typeInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListWorkflowTypes where
@@ -186,11 +188,11 @@ instance Lude.ToJSON ListWorkflowTypes where
     Lude.object
       ( Lude.catMaybes
           [ ("nextPageToken" Lude..=) Lude.<$> nextPageToken,
+            Lude.Just ("domain" Lude..= domain),
             ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
             ("name" Lude..=) Lude.<$> name,
-            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize,
-            Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("registrationStatus" Lude..= registrationStatus)
+            Lude.Just ("registrationStatus" Lude..= registrationStatus),
+            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize
           ]
       )
 
@@ -204,18 +206,16 @@ instance Lude.ToQuery ListWorkflowTypes where
 --
 -- /See:/ 'mkListWorkflowTypesResponse' smart constructor.
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    typeInfos :: [WorkflowTypeInfo]
+  { -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
+    --
+    -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The list of workflow type information.
+    typeInfos :: [WorkflowTypeInfo],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkflowTypesResponse' with the minimum fields required to make a request.
@@ -223,8 +223,8 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
 -- * 'nextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
--- * 'responseStatus' - The response status code.
 -- * 'typeInfos' - The list of workflow type information.
+-- * 'responseStatus' - The response status code.
 mkListWorkflowTypesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -232,8 +232,8 @@ mkListWorkflowTypesResponse ::
 mkListWorkflowTypesResponse pResponseStatus_ =
   ListWorkflowTypesResponse'
     { nextPageToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      typeInfos = Lude.mempty
+      typeInfos = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
@@ -245,16 +245,16 @@ lwtrsNextPageToken :: Lens.Lens' ListWorkflowTypesResponse (Lude.Maybe Lude.Text
 lwtrsNextPageToken = Lens.lens (nextPageToken :: ListWorkflowTypesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListWorkflowTypesResponse)
 {-# DEPRECATED lwtrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwtrsResponseStatus :: Lens.Lens' ListWorkflowTypesResponse Lude.Int
-lwtrsResponseStatus = Lens.lens (responseStatus :: ListWorkflowTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkflowTypesResponse)
-{-# DEPRECATED lwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The list of workflow type information.
 --
 -- /Note:/ Consider using 'typeInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lwtrsTypeInfos :: Lens.Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
 lwtrsTypeInfos = Lens.lens (typeInfos :: ListWorkflowTypesResponse -> [WorkflowTypeInfo]) (\s a -> s {typeInfos = a} :: ListWorkflowTypesResponse)
 {-# DEPRECATED lwtrsTypeInfos "Use generic-lens or generic-optics with 'typeInfos' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwtrsResponseStatus :: Lens.Lens' ListWorkflowTypesResponse Lude.Int
+lwtrsResponseStatus = Lens.lens (responseStatus :: ListWorkflowTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkflowTypesResponse)
+{-# DEPRECATED lwtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

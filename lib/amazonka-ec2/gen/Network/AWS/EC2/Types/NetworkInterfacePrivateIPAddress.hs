@@ -32,31 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterfacePrivateIPAddress' smart constructor.
 data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
-  { primary ::
-      Lude.Maybe Lude.Bool,
-    privateIPAddress ::
-      Lude.Maybe Lude.Text,
-    privateDNSName ::
-      Lude.Maybe Lude.Text,
-    association ::
-      Lude.Maybe
-        NetworkInterfaceAssociation
+  { -- | Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.
+    primary :: Lude.Maybe Lude.Bool,
+    -- | The private IPv4 address.
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The private DNS name.
+    privateDNSName :: Lude.Maybe Lude.Text,
+    -- | The association information for an Elastic IP address (IPv4) associated with the network interface.
+    association :: Lude.Maybe NetworkInterfaceAssociation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfacePrivateIPAddress' with the minimum fields required to make a request.
 --
--- * 'association' - The association information for an Elastic IP address (IPv4) associated with the network interface.
 -- * 'primary' - Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.
--- * 'privateDNSName' - The private DNS name.
 -- * 'privateIPAddress' - The private IPv4 address.
+-- * 'privateDNSName' - The private DNS name.
+-- * 'association' - The association information for an Elastic IP address (IPv4) associated with the network interface.
 mkNetworkInterfacePrivateIPAddress ::
   NetworkInterfacePrivateIPAddress
 mkNetworkInterfacePrivateIPAddress =

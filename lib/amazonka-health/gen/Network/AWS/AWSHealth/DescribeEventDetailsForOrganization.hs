@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,20 +53,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEventDetailsForOrganization' smart constructor.
 data DescribeEventDetailsForOrganization = DescribeEventDetailsForOrganization'
-  { locale ::
-      Lude.Maybe
-        Lude.Text,
-    organizationEventDetailFilters ::
-      Lude.NonEmpty
-        EventAccountFilter
+  { -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Lude.Maybe Lude.Text,
+    -- | A set of JSON elements that includes the @awsAccountId@ and the @eventArn@ .
+    organizationEventDetailFilters :: Lude.NonEmpty EventAccountFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventDetailsForOrganization' with the minimum fields required to make a request.
@@ -145,29 +138,21 @@ instance Lude.ToQuery DescribeEventDetailsForOrganization where
 
 -- | /See:/ 'mkDescribeEventDetailsForOrganizationResponse' smart constructor.
 data DescribeEventDetailsForOrganizationResponse = DescribeEventDetailsForOrganizationResponse'
-  { successfulSet ::
-      Lude.Maybe
-        [OrganizationEventDetails],
-    failedSet ::
-      Lude.Maybe
-        [OrganizationEventDetailsErrorItem],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the events that could be retrieved.
+    successfulSet :: Lude.Maybe [OrganizationEventDetails],
+    -- | Error messages for any events that could not be retrieved.
+    failedSet :: Lude.Maybe [OrganizationEventDetailsErrorItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventDetailsForOrganizationResponse' with the minimum fields required to make a request.
 --
+-- * 'successfulSet' - Information about the events that could be retrieved.
 -- * 'failedSet' - Error messages for any events that could not be retrieved.
 -- * 'responseStatus' - The response status code.
--- * 'successfulSet' - Information about the events that could be retrieved.
 mkDescribeEventDetailsForOrganizationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input of a get repository operation.
 --
 -- /See:/ 'mkGetRepository' smart constructor.
-newtype GetRepository = GetRepository' {repositoryName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetRepository = GetRepository'
+  { -- | The name of the repository to get information about.
+    repositoryName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepository' with the minimum fields required to make a request.
@@ -106,17 +104,12 @@ instance Lude.ToQuery GetRepository where
 --
 -- /See:/ 'mkGetRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
-  { repositoryMetadata ::
-      Lude.Maybe RepositoryMetadata,
+  { -- | Information about the repository.
+    repositoryMetadata :: Lude.Maybe RepositoryMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRepositoryResponse' with the minimum fields required to make a request.

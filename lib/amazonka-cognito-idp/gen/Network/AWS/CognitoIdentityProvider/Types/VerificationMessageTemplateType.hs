@@ -34,37 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVerificationMessageTemplateType' smart constructor.
 data VerificationMessageTemplateType = VerificationMessageTemplateType'
-  { defaultEmailOption ::
-      Lude.Maybe
-        DefaultEmailOptionType,
-    emailSubject ::
-      Lude.Maybe Lude.Text,
-    emailSubjectByLink ::
-      Lude.Maybe Lude.Text,
-    smsMessage ::
-      Lude.Maybe Lude.Text,
-    emailMessageByLink ::
-      Lude.Maybe Lude.Text,
-    emailMessage ::
-      Lude.Maybe Lude.Text
+  { -- | The default email option.
+    defaultEmailOption :: Lude.Maybe DefaultEmailOptionType,
+    -- | The subject line for the email message template. EmailSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+    emailSubject :: Lude.Maybe Lude.Text,
+    -- | The subject line for the email message template for sending a confirmation link to the user. EmailSubjectByLink is allowed only <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+    emailSubjectByLink :: Lude.Maybe Lude.Text,
+    -- | The SMS message template.
+    smsMessage :: Lude.Maybe Lude.Text,
+    -- | The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+    emailMessageByLink :: Lude.Maybe Lude.Text,
+    -- | The email message template. EmailMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+    emailMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerificationMessageTemplateType' with the minimum fields required to make a request.
 --
 -- * 'defaultEmailOption' - The default email option.
--- * 'emailMessage' - The email message template. EmailMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
--- * 'emailMessageByLink' - The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
 -- * 'emailSubject' - The subject line for the email message template. EmailSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
 -- * 'emailSubjectByLink' - The subject line for the email message template for sending a confirmation link to the user. EmailSubjectByLink is allowed only <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
 -- * 'smsMessage' - The SMS message template.
+-- * 'emailMessageByLink' - The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+-- * 'emailMessage' - The email message template. EmailMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
 mkVerificationMessageTemplateType ::
   VerificationMessageTemplateType
 mkVerificationMessageTemplateType =

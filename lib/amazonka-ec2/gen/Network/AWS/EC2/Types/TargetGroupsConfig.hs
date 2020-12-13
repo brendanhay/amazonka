@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetGroupsConfig' smart constructor.
 newtype TargetGroupsConfig = TargetGroupsConfig'
-  { targetGroups ::
-      Lude.Maybe (Lude.NonEmpty TargetGroup)
+  { -- | One or more target groups.
+    targetGroups :: Lude.Maybe (Lude.NonEmpty TargetGroup)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroupsConfig' with the minimum fields required to make a request.

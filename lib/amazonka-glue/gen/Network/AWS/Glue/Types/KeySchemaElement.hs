@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-  { name :: Lude.Text,
+  { -- | The name of a partition key.
+    name :: Lude.Text,
+    -- | The type of a partition key.
     type' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.

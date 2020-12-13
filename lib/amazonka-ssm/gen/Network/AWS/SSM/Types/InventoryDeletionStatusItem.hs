@@ -36,38 +36,33 @@ import Network.AWS.SSM.Types.InventoryDeletionSummary
 --
 -- /See:/ 'mkInventoryDeletionStatusItem' smart constructor.
 data InventoryDeletionStatusItem = InventoryDeletionStatusItem'
-  { typeName ::
-      Lude.Maybe Lude.Text,
-    lastStatusUpdateTime ::
-      Lude.Maybe Lude.Timestamp,
-    lastStatusMessage ::
-      Lude.Maybe Lude.Text,
-    deletionSummary ::
-      Lude.Maybe InventoryDeletionSummary,
-    lastStatus ::
-      Lude.Maybe InventoryDeletionStatus,
-    deletionStartTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The name of the inventory data type.
+    typeName :: Lude.Maybe Lude.Text,
+    -- | The UTC timestamp of when the last status report.
+    lastStatusUpdateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Information about the status.
+    lastStatusMessage :: Lude.Maybe Lude.Text,
+    -- | Information about the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete Understanding the delete inventory summary> in the /AWS Systems Manager User Guide/ .
+    deletionSummary :: Lude.Maybe InventoryDeletionSummary,
+    -- | The status of the operation. Possible values are InProgress and Complete.
+    lastStatus :: Lude.Maybe InventoryDeletionStatus,
+    -- | The UTC timestamp when the delete operation started.
+    deletionStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The deletion ID returned by the @DeleteInventory@ action.
     deletionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryDeletionStatusItem' with the minimum fields required to make a request.
 --
--- * 'deletionId' - The deletion ID returned by the @DeleteInventory@ action.
--- * 'deletionStartTime' - The UTC timestamp when the delete operation started.
+-- * 'typeName' - The name of the inventory data type.
+-- * 'lastStatusUpdateTime' - The UTC timestamp of when the last status report.
+-- * 'lastStatusMessage' - Information about the status.
 -- * 'deletionSummary' - Information about the delete operation. For more information about this summary, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete Understanding the delete inventory summary> in the /AWS Systems Manager User Guide/ .
 -- * 'lastStatus' - The status of the operation. Possible values are InProgress and Complete.
--- * 'lastStatusMessage' - Information about the status.
--- * 'lastStatusUpdateTime' - The UTC timestamp of when the last status report.
--- * 'typeName' - The name of the inventory data type.
+-- * 'deletionStartTime' - The UTC timestamp when the delete operation started.
+-- * 'deletionId' - The deletion ID returned by the @DeleteInventory@ action.
 mkInventoryDeletionStatusItem ::
   InventoryDeletionStatusItem
 mkInventoryDeletionStatusItem =

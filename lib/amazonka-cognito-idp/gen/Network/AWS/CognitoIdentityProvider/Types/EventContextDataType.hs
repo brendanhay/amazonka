@@ -32,28 +32,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventContextDataType' smart constructor.
 data EventContextDataType = EventContextDataType'
-  { ipAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The user's IP address.
+    ipAddress :: Lude.Maybe Lude.Text,
+    -- | The user's country.
     country :: Lude.Maybe Lude.Text,
+    -- | The user's city.
     city :: Lude.Maybe Lude.Text,
+    -- | The user's device name.
     deviceName :: Lude.Maybe Lude.Text,
+    -- | The user's time zone.
     timezone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventContextDataType' with the minimum fields required to make a request.
 --
--- * 'city' - The user's city.
--- * 'country' - The user's country.
--- * 'deviceName' - The user's device name.
 -- * 'ipAddress' - The user's IP address.
+-- * 'country' - The user's country.
+-- * 'city' - The user's city.
+-- * 'deviceName' - The user's device name.
 -- * 'timezone' - The user's time zone.
 mkEventContextDataType ::
   EventContextDataType

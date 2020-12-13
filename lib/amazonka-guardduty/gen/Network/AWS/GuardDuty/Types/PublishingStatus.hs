@@ -15,8 +15,8 @@ module Network.AWS.GuardDuty.Types.PublishingStatus
       ( PublishingStatus',
         PendingVerification,
         Publishing,
-        Stopped,
-        UnableToPublishFixDestinationProperty
+        UnableToPublishFixDestinationProperty,
+        Stopped
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern PendingVerification = PublishingStatus' "PENDING_VERIFICATION"
 pattern Publishing :: PublishingStatus
 pattern Publishing = PublishingStatus' "PUBLISHING"
 
-pattern Stopped :: PublishingStatus
-pattern Stopped = PublishingStatus' "STOPPED"
-
 pattern UnableToPublishFixDestinationProperty :: PublishingStatus
 pattern UnableToPublishFixDestinationProperty = PublishingStatus' "UNABLE_TO_PUBLISH_FIX_DESTINATION_PROPERTY"
+
+pattern Stopped :: PublishingStatus
+pattern Stopped = PublishingStatus' "STOPPED"
 
 {-# COMPLETE
   PendingVerification,
   Publishing,
-  Stopped,
   UnableToPublishFixDestinationProperty,
+  Stopped,
   PublishingStatus'
   #-}

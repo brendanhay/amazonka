@@ -44,32 +44,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRestAPI' smart constructor.
 data RestAPI = RestAPI'
-  { minimumCompressionSize ::
-      Lude.Maybe Lude.Int,
+  { -- | A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+    minimumCompressionSize :: Lude.Maybe Lude.Int,
+    -- | Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
     disableExecuteAPIEndpoint :: Lude.Maybe Lude.Bool,
+    -- | The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
     binaryMediaTypes :: Lude.Maybe [Lude.Text],
+    -- | The warning messages reported when @failonwarnings@ is turned on during API import.
     warnings :: Lude.Maybe [Lude.Text],
+    -- | The timestamp when the API was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The API's name.
     name :: Lude.Maybe Lude.Text,
+    -- | A version identifier for the API.
     version :: Lude.Maybe Lude.Text,
+    -- | The source of the API key for metering requests according to a usage plan. Valid values are:
+    --
+    --     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.
+    --
+    --     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
     apiKeySource :: Lude.Maybe APIKeySourceType,
+    -- | The API's identifier. This identifier is unique across all of your APIs in API Gateway.
     id :: Lude.Maybe Lude.Text,
+    -- | A stringified JSON policy document that applies to this RestApi regardless of the caller and 'Method' configuration.
     policy :: Lude.Maybe Lude.Text,
+    -- | The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
     endpointConfiguration :: Lude.Maybe EndpointConfiguration,
+    -- | The API's description.
     description :: Lude.Maybe Lude.Text,
+    -- | The collection of tags. Each tag element is associated with a given resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestAPI' with the minimum fields required to make a request.
 --
+-- * 'minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+-- * 'disableExecuteAPIEndpoint' - Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+-- * 'binaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
+-- * 'warnings' - The warning messages reported when @failonwarnings@ is turned on during API import.
+-- * 'createdDate' - The timestamp when the API was created.
+-- * 'name' - The API's name.
+-- * 'version' - A version identifier for the API.
 -- * 'apiKeySource' - The source of the API key for metering requests according to a usage plan. Valid values are:
 --
 --     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.
@@ -77,18 +94,11 @@ data RestAPI = RestAPI'
 --     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
 --
 --
--- * 'binaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
--- * 'createdDate' - The timestamp when the API was created.
--- * 'description' - The API's description.
--- * 'disableExecuteAPIEndpoint' - Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
--- * 'endpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
 -- * 'id' - The API's identifier. This identifier is unique across all of your APIs in API Gateway.
--- * 'minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
--- * 'name' - The API's name.
 -- * 'policy' - A stringified JSON policy document that applies to this RestApi regardless of the caller and 'Method' configuration.
+-- * 'endpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
+-- * 'description' - The API's description.
 -- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
--- * 'version' - A version identifier for the API.
--- * 'warnings' - The warning messages reported when @failonwarnings@ is turned on during API import.
 mkRestAPI ::
   RestAPI
 mkRestAPI =

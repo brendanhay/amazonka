@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.Glue.BatchGetPartition
 
     -- ** Request lenses
     bgpCatalogId,
+    bgpPartitionsToGet,
     bgpDatabaseName,
     bgpTableName,
-    bgpPartitionsToGet,
 
     -- * Destructuring the response
     BatchGetPartitionResponse (..),
@@ -43,26 +44,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetPartition' smart constructor.
 data BatchGetPartition = BatchGetPartition'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | A list of partition values identifying the partitions to retrieve.
+    partitionsToGet :: [PartitionValueList],
+    -- | The name of the catalog database where the partitions reside.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    partitionsToGet :: [PartitionValueList]
+    -- | The name of the partitions' table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetPartition' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database where the partitions reside.
 -- * 'partitionsToGet' - A list of partition values identifying the partitions to retrieve.
+-- * 'databaseName' - The name of the catalog database where the partitions reside.
 -- * 'tableName' - The name of the partitions' table.
 mkBatchGetPartition ::
   -- | 'databaseName'
@@ -73,9 +71,9 @@ mkBatchGetPartition ::
 mkBatchGetPartition pDatabaseName_ pTableName_ =
   BatchGetPartition'
     { catalogId = Lude.Nothing,
+      partitionsToGet = Lude.mempty,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      partitionsToGet = Lude.mempty
+      tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
@@ -84,6 +82,13 @@ mkBatchGetPartition pDatabaseName_ pTableName_ =
 bgpCatalogId :: Lens.Lens' BatchGetPartition (Lude.Maybe Lude.Text)
 bgpCatalogId = Lens.lens (catalogId :: BatchGetPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchGetPartition)
 {-# DEPRECATED bgpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+-- | A list of partition values identifying the partitions to retrieve.
+--
+-- /Note:/ Consider using 'partitionsToGet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgpPartitionsToGet :: Lens.Lens' BatchGetPartition [PartitionValueList]
+bgpPartitionsToGet = Lens.lens (partitionsToGet :: BatchGetPartition -> [PartitionValueList]) (\s a -> s {partitionsToGet = a} :: BatchGetPartition)
+{-# DEPRECATED bgpPartitionsToGet "Use generic-lens or generic-optics with 'partitionsToGet' instead." #-}
 
 -- | The name of the catalog database where the partitions reside.
 --
@@ -98,13 +103,6 @@ bgpDatabaseName = Lens.lens (databaseName :: BatchGetPartition -> Lude.Text) (\s
 bgpTableName :: Lens.Lens' BatchGetPartition Lude.Text
 bgpTableName = Lens.lens (tableName :: BatchGetPartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchGetPartition)
 {-# DEPRECATED bgpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | A list of partition values identifying the partitions to retrieve.
---
--- /Note:/ Consider using 'partitionsToGet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgpPartitionsToGet :: Lens.Lens' BatchGetPartition [PartitionValueList]
-bgpPartitionsToGet = Lens.lens (partitionsToGet :: BatchGetPartition -> [PartitionValueList]) (\s a -> s {partitionsToGet = a} :: BatchGetPartition)
-{-# DEPRECATED bgpPartitionsToGet "Use generic-lens or generic-optics with 'partitionsToGet' instead." #-}
 
 instance Lude.AWSRequest BatchGetPartition where
   type Rs BatchGetPartition = BatchGetPartitionResponse
@@ -134,9 +132,9 @@ instance Lude.ToJSON BatchGetPartition where
     Lude.object
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("PartitionsToGet" Lude..= partitionsToGet),
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("PartitionsToGet" Lude..= partitionsToGet)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -148,25 +146,21 @@ instance Lude.ToQuery BatchGetPartition where
 
 -- | /See:/ 'mkBatchGetPartitionResponse' smart constructor.
 data BatchGetPartitionResponse = BatchGetPartitionResponse'
-  { unprocessedKeys ::
-      Lude.Maybe [PartitionValueList],
+  { -- | A list of the partition values in the request for which partitions were not returned.
+    unprocessedKeys :: Lude.Maybe [PartitionValueList],
+    -- | A list of the requested partitions.
     partitions :: Lude.Maybe [Partition],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetPartitionResponse' with the minimum fields required to make a request.
 --
+-- * 'unprocessedKeys' - A list of the partition values in the request for which partitions were not returned.
 -- * 'partitions' - A list of the requested partitions.
 -- * 'responseStatus' - The response status code.
--- * 'unprocessedKeys' - A list of the partition values in the request for which partitions were not returned.
 mkBatchGetPartitionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -32,29 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-  { binaryValue ::
-      Lude.Maybe Lude.Base64,
+  { -- | Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.
+    binaryValue :: Lude.Maybe Lude.Base64,
+    -- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
     stringValue :: Lude.Maybe Lude.Text,
+    -- | Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
     dataType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageAttributeValue' with the minimum fields required to make a request.
 --
--- * 'binaryValue' - Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'dataType' - Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
+-- * 'binaryValue' - Binary type attributes can store any binary data, for example, compressed data, encrypted data, or images.
 -- * 'stringValue' - Strings are Unicode with UTF8 binary encoding. For a list of code values, see <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
+-- * 'dataType' - Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types> .
 mkMessageAttributeValue ::
   -- | 'dataType'
   Lude.Text ->

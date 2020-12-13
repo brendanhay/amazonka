@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.SubnetState
   ( SubnetState
       ( SubnetState',
-        SubAvailable,
-        SubPending
+        SSPending,
+        SSAvailable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SubnetState = SubnetState' Lude.Text
       Lude.ToHeader
     )
 
-pattern SubAvailable :: SubnetState
-pattern SubAvailable = SubnetState' "available"
+pattern SSPending :: SubnetState
+pattern SSPending = SubnetState' "pending"
 
-pattern SubPending :: SubnetState
-pattern SubPending = SubnetState' "pending"
+pattern SSAvailable :: SubnetState
+pattern SSAvailable = SubnetState' "available"
 
 {-# COMPLETE
-  SubAvailable,
-  SubPending,
+  SSPending,
+  SSAvailable,
   SubnetState'
   #-}

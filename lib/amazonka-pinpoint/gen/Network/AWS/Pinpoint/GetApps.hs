@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.GetApps
     mkGetAppsResponse,
 
     -- ** Response lenses
-    gasrsResponseStatus,
     gasrsApplicationsResponse,
+    gasrsResponseStatus,
   )
 where
 
@@ -40,22 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetApps' smart constructor.
 data GetApps = GetApps'
-  { token :: Lude.Maybe Lude.Text,
+  { -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
     pageSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApps' with the minimum fields required to make a request.
 --
--- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 -- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 mkGetApps ::
   GetApps
 mkGetApps = GetApps' {token = Lude.Nothing, pageSize = Lude.Nothing}
@@ -81,7 +78,7 @@ instance Lude.AWSRequest GetApps where
     Res.receiveJSON
       ( \s h x ->
           GetAppsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetApps where
@@ -103,40 +100,28 @@ instance Lude.ToQuery GetApps where
 
 -- | /See:/ 'mkGetAppsResponse' smart constructor.
 data GetAppsResponse = GetAppsResponse'
-  { responseStatus :: Lude.Int,
-    applicationsResponse :: ApplicationsResponse
+  { applicationsResponse :: ApplicationsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppsResponse' with the minimum fields required to make a request.
 --
--- * 'applicationsResponse' - Undocumented field.
+-- * 'applicationsResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetAppsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'applicationsResponse'
   ApplicationsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAppsResponse
-mkGetAppsResponse pResponseStatus_ pApplicationsResponse_ =
+mkGetAppsResponse pApplicationsResponse_ pResponseStatus_ =
   GetAppsResponse'
-    { responseStatus = pResponseStatus_,
-      applicationsResponse = pApplicationsResponse_
+    { applicationsResponse = pApplicationsResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasrsResponseStatus :: Lens.Lens' GetAppsResponse Lude.Int
-gasrsResponseStatus = Lens.lens (responseStatus :: GetAppsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppsResponse)
-{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -144,3 +129,10 @@ gasrsResponseStatus = Lens.lens (responseStatus :: GetAppsResponse -> Lude.Int) 
 gasrsApplicationsResponse :: Lens.Lens' GetAppsResponse ApplicationsResponse
 gasrsApplicationsResponse = Lens.lens (applicationsResponse :: GetAppsResponse -> ApplicationsResponse) (\s a -> s {applicationsResponse = a} :: GetAppsResponse)
 {-# DEPRECATED gasrsApplicationsResponse "Use generic-lens or generic-optics with 'applicationsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResponseStatus :: Lens.Lens' GetAppsResponse Lude.Int
+gasrsResponseStatus = Lens.lens (responseStatus :: GetAppsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppsResponse)
+{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

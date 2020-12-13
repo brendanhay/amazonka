@@ -34,28 +34,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMeetingRoomConfiguration' smart constructor.
 data MeetingRoomConfiguration = MeetingRoomConfiguration'
-  { instantBooking ::
-      Lude.Maybe InstantBooking,
-    endOfMeetingReminder ::
-      Lude.Maybe EndOfMeetingReminder,
-    requireCheckIn ::
-      Lude.Maybe RequireCheckIn,
-    roomUtilizationMetricsEnabled ::
-      Lude.Maybe Lude.Bool
+  { -- | Settings to automatically book the room if available for a configured duration when joining a meeting with Alexa.
+    instantBooking :: Lude.Maybe InstantBooking,
+    -- | Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending.
+    endOfMeetingReminder :: Lude.Maybe EndOfMeetingReminder,
+    -- | Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into. This makes the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”
+    requireCheckIn :: Lude.Maybe RequireCheckIn,
+    -- | Whether room utilization metrics are enabled or not.
+    roomUtilizationMetricsEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MeetingRoomConfiguration' with the minimum fields required to make a request.
 --
--- * 'endOfMeetingReminder' - Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending.
 -- * 'instantBooking' - Settings to automatically book the room if available for a configured duration when joining a meeting with Alexa.
+-- * 'endOfMeetingReminder' - Settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending.
 -- * 'requireCheckIn' - Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into. This makes the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”
 -- * 'roomUtilizationMetricsEnabled' - Whether room utilization metrics are enabled or not.
 mkMeetingRoomConfiguration ::

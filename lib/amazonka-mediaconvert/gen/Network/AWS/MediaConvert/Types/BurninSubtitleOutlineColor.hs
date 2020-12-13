@@ -14,11 +14,11 @@ module Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
   ( BurninSubtitleOutlineColor
       ( BurninSubtitleOutlineColor',
         BSOCBlack,
-        BSOCBlue,
-        BSOCGreen,
-        BSOCRed,
         BSOCWhite,
-        BSOCYellow
+        BSOCYellow,
+        BSOCRed,
+        BSOCGreen,
+        BSOCBlue
       ),
   )
 where
@@ -53,27 +53,27 @@ newtype BurninSubtitleOutlineColor = BurninSubtitleOutlineColor' Lude.Text
 pattern BSOCBlack :: BurninSubtitleOutlineColor
 pattern BSOCBlack = BurninSubtitleOutlineColor' "BLACK"
 
-pattern BSOCBlue :: BurninSubtitleOutlineColor
-pattern BSOCBlue = BurninSubtitleOutlineColor' "BLUE"
-
-pattern BSOCGreen :: BurninSubtitleOutlineColor
-pattern BSOCGreen = BurninSubtitleOutlineColor' "GREEN"
-
-pattern BSOCRed :: BurninSubtitleOutlineColor
-pattern BSOCRed = BurninSubtitleOutlineColor' "RED"
-
 pattern BSOCWhite :: BurninSubtitleOutlineColor
 pattern BSOCWhite = BurninSubtitleOutlineColor' "WHITE"
 
 pattern BSOCYellow :: BurninSubtitleOutlineColor
 pattern BSOCYellow = BurninSubtitleOutlineColor' "YELLOW"
 
+pattern BSOCRed :: BurninSubtitleOutlineColor
+pattern BSOCRed = BurninSubtitleOutlineColor' "RED"
+
+pattern BSOCGreen :: BurninSubtitleOutlineColor
+pattern BSOCGreen = BurninSubtitleOutlineColor' "GREEN"
+
+pattern BSOCBlue :: BurninSubtitleOutlineColor
+pattern BSOCBlue = BurninSubtitleOutlineColor' "BLUE"
+
 {-# COMPLETE
   BSOCBlack,
-  BSOCBlue,
-  BSOCGreen,
-  BSOCRed,
   BSOCWhite,
   BSOCYellow,
+  BSOCRed,
+  BSOCGreen,
+  BSOCBlue,
   BurninSubtitleOutlineColor'
   #-}

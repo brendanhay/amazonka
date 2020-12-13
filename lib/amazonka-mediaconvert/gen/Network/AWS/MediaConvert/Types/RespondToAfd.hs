@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.RespondToAfd
   ( RespondToAfd
       ( RespondToAfd',
         RTANone,
-        RTAPassthrough,
-        RTARespond
+        RTARespond,
+        RTAPassthrough
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype RespondToAfd = RespondToAfd' Lude.Text
 pattern RTANone :: RespondToAfd
 pattern RTANone = RespondToAfd' "NONE"
 
-pattern RTAPassthrough :: RespondToAfd
-pattern RTAPassthrough = RespondToAfd' "PASSTHROUGH"
-
 pattern RTARespond :: RespondToAfd
 pattern RTARespond = RespondToAfd' "RESPOND"
 
+pattern RTAPassthrough :: RespondToAfd
+pattern RTAPassthrough = RespondToAfd' "PASSTHROUGH"
+
 {-# COMPLETE
   RTANone,
-  RTAPassthrough,
   RTARespond,
+  RTAPassthrough,
   RespondToAfd'
   #-}

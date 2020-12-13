@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentTargets' smart constructor.
 data DeploymentTargets = DeploymentTargets'
-  { accounts ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of one or more AWS accounts for which you want to deploy stack set updates.
+    accounts :: Lude.Maybe [Lude.Text],
+    -- | The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
     organizationalUnitIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentTargets' with the minimum fields required to make a request.

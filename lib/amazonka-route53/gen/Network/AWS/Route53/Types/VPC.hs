@@ -31,22 +31,17 @@ import Network.AWS.Route53.Types.VPCRegion
 --
 -- /See:/ 'mkVPC' smart constructor.
 data VPC = VPC'
-  { vpcRegion :: Lude.Maybe VPCRegion,
+  { -- | (Private hosted zones only) The region that an Amazon VPC was created in.
+    vpcRegion :: Lude.Maybe VPCRegion,
     vpcId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPC' with the minimum fields required to make a request.
 --
--- * 'vpcId' - Undocumented field.
 -- * 'vpcRegion' - (Private hosted zones only) The region that an Amazon VPC was created in.
+-- * 'vpcId' -
 mkVPC ::
   VPC
 mkVPC = VPC' {vpcRegion = Lude.Nothing, vpcId = Lude.Nothing}

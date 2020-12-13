@@ -13,8 +13,8 @@
 module Network.AWS.SWF.Types.RegistrationStatus
   ( RegistrationStatus
       ( RegistrationStatus',
-        Deprecated,
-        Registered
+        Registered,
+        Deprecated
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RegistrationStatus = RegistrationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deprecated :: RegistrationStatus
-pattern Deprecated = RegistrationStatus' "DEPRECATED"
-
 pattern Registered :: RegistrationStatus
 pattern Registered = RegistrationStatus' "REGISTERED"
 
+pattern Deprecated :: RegistrationStatus
+pattern Deprecated = RegistrationStatus' "DEPRECATED"
+
 {-# COMPLETE
-  Deprecated,
   Registered,
+  Deprecated,
   RegistrationStatus'
   #-}

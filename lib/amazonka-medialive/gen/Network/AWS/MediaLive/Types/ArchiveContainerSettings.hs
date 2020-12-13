@@ -31,23 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArchiveContainerSettings' smart constructor.
 data ArchiveContainerSettings = ArchiveContainerSettings'
-  { m2tsSettings ::
-      Lude.Maybe M2tsSettings,
+  { m2tsSettings :: Lude.Maybe M2tsSettings,
     rawSettings :: Lude.Maybe RawSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveContainerSettings' with the minimum fields required to make a request.
 --
--- * 'm2tsSettings' - Undocumented field.
--- * 'rawSettings' - Undocumented field.
+-- * 'm2tsSettings' -
+-- * 'rawSettings' -
 mkArchiveContainerSettings ::
   ArchiveContainerSettings
 mkArchiveContainerSettings =

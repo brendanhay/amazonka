@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkCreateWorkspaces' smart constructor.
 newtype CreateWorkspaces = CreateWorkspaces'
-  { workspaces ::
-      Lude.NonEmpty WorkspaceRequest
+  { -- | The WorkSpaces to create. You can specify up to 25 WorkSpaces.
+    workspaces :: Lude.NonEmpty WorkspaceRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkspaces' with the minimum fields required to make a request.
@@ -107,18 +102,16 @@ instance Lude.ToQuery CreateWorkspaces where
 
 -- | /See:/ 'mkCreateWorkspacesResponse' smart constructor.
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
-  { failedRequests ::
-      Lude.Maybe [FailedCreateWorkspaceRequest],
+  { -- | Information about the WorkSpaces that could not be created.
+    failedRequests :: Lude.Maybe [FailedCreateWorkspaceRequest],
+    -- | Information about the WorkSpaces that were created.
+    --
+    -- Because this operation is asynchronous, the identifier returned is not immediately available for use with other operations. For example, if you call 'DescribeWorkspaces' before the WorkSpace is created, the information returned can be incomplete.
     pendingRequests :: Lude.Maybe [Workspace],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWorkspacesResponse' with the minimum fields required to make a request.

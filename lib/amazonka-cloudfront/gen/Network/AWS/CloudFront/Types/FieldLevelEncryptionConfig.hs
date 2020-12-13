@@ -33,28 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFieldLevelEncryptionConfig' smart constructor.
 data FieldLevelEncryptionConfig = FieldLevelEncryptionConfig'
-  { queryArgProfileConfig ::
-      Lude.Maybe QueryArgProfileConfig,
-    contentTypeProfileConfig ::
-      Lude.Maybe ContentTypeProfileConfig,
+  { -- | A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+    queryArgProfileConfig :: Lude.Maybe QueryArgProfileConfig,
+    -- | A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+    contentTypeProfileConfig :: Lude.Maybe ContentTypeProfileConfig,
+    -- | An optional comment about the configuration.
     comment :: Lude.Maybe Lude.Text,
+    -- | A unique number that ensures the request can't be replayed.
     callerReference :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldLevelEncryptionConfig' with the minimum fields required to make a request.
 --
--- * 'callerReference' - A unique number that ensures the request can't be replayed.
--- * 'comment' - An optional comment about the configuration.
--- * 'contentTypeProfileConfig' - A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
 -- * 'queryArgProfileConfig' - A complex data type that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+-- * 'contentTypeProfileConfig' - A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+-- * 'comment' - An optional comment about the configuration.
+-- * 'callerReference' - A unique number that ensures the request can't be replayed.
 mkFieldLevelEncryptionConfig ::
   -- | 'callerReference'
   Lude.Text ->

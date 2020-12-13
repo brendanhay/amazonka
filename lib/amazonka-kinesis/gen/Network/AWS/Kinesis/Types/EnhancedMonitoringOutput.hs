@@ -31,25 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnhancedMonitoringOutput' smart constructor.
 data EnhancedMonitoringOutput = EnhancedMonitoringOutput'
-  { desiredShardLevelMetrics ::
-      Lude.Maybe [MetricsName],
-    currentShardLevelMetrics ::
-      Lude.Maybe [MetricsName],
+  { -- | Represents the list of all the metrics that would be in the enhanced state after the operation.
+    desiredShardLevelMetrics :: Lude.Maybe [MetricsName],
+    -- | Represents the current state of the metrics that are in the enhanced state before the operation.
+    currentShardLevelMetrics :: Lude.Maybe [MetricsName],
+    -- | The name of the Kinesis data stream.
     streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnhancedMonitoringOutput' with the minimum fields required to make a request.
 --
--- * 'currentShardLevelMetrics' - Represents the current state of the metrics that are in the enhanced state before the operation.
 -- * 'desiredShardLevelMetrics' - Represents the list of all the metrics that would be in the enhanced state after the operation.
+-- * 'currentShardLevelMetrics' - Represents the current state of the metrics that are in the enhanced state before the operation.
 -- * 'streamName' - The name of the Kinesis data stream.
 mkEnhancedMonitoringOutput ::
   EnhancedMonitoringOutput

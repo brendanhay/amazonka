@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,12 +20,12 @@ module Network.AWS.EC2.CreateLaunchTemplate
     mkCreateLaunchTemplate,
 
     -- ** Request lenses
+    cltLaunchTemplateName,
     cltClientToken,
     cltVersionDescription,
     cltTagSpecifications,
-    cltDryRun,
-    cltLaunchTemplateName,
     cltLaunchTemplateData,
+    cltDryRun,
 
     -- * Destructuring the response
     CreateLaunchTemplateResponse (..),
@@ -45,34 +46,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateLaunchTemplate' smart constructor.
 data CreateLaunchTemplate = CreateLaunchTemplate'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    versionDescription :: Lude.Maybe Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | A name for the launch template.
     launchTemplateName :: Lude.Text,
-    launchTemplateData :: RequestLaunchTemplateData
+    -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    --
+    -- Constraint: Maximum 128 ASCII characters.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | A description for the first version of the launch template.
+    versionDescription :: Lude.Maybe Lude.Text,
+    -- | The tags to apply to the launch template during creation.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The information for the launch template.
+    launchTemplateData :: RequestLaunchTemplateData,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchTemplate' with the minimum fields required to make a request.
 --
+-- * 'launchTemplateName' - A name for the launch template.
 -- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- Constraint: Maximum 128 ASCII characters.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'launchTemplateData' - The information for the launch template.
--- * 'launchTemplateName' - A name for the launch template.
--- * 'tagSpecifications' - The tags to apply to the launch template during creation.
 -- * 'versionDescription' - A description for the first version of the launch template.
+-- * 'tagSpecifications' - The tags to apply to the launch template during creation.
+-- * 'launchTemplateData' - The information for the launch template.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateLaunchTemplate ::
   -- | 'launchTemplateName'
   Lude.Text ->
@@ -81,13 +82,20 @@ mkCreateLaunchTemplate ::
   CreateLaunchTemplate
 mkCreateLaunchTemplate pLaunchTemplateName_ pLaunchTemplateData_ =
   CreateLaunchTemplate'
-    { clientToken = Lude.Nothing,
+    { launchTemplateName = pLaunchTemplateName_,
+      clientToken = Lude.Nothing,
       versionDescription = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      launchTemplateName = pLaunchTemplateName_,
-      launchTemplateData = pLaunchTemplateData_
+      launchTemplateData = pLaunchTemplateData_,
+      dryRun = Lude.Nothing
     }
+
+-- | A name for the launch template.
+--
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltLaunchTemplateName :: Lens.Lens' CreateLaunchTemplate Lude.Text
+cltLaunchTemplateName = Lens.lens (launchTemplateName :: CreateLaunchTemplate -> Lude.Text) (\s a -> s {launchTemplateName = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
@@ -112,26 +120,19 @@ cltTagSpecifications :: Lens.Lens' CreateLaunchTemplate (Lude.Maybe [TagSpecific
 cltTagSpecifications = Lens.lens (tagSpecifications :: CreateLaunchTemplate -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateLaunchTemplate)
 {-# DEPRECATED cltTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cltDryRun :: Lens.Lens' CreateLaunchTemplate (Lude.Maybe Lude.Bool)
-cltDryRun = Lens.lens (dryRun :: CreateLaunchTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateLaunchTemplate)
-{-# DEPRECATED cltDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | A name for the launch template.
---
--- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cltLaunchTemplateName :: Lens.Lens' CreateLaunchTemplate Lude.Text
-cltLaunchTemplateName = Lens.lens (launchTemplateName :: CreateLaunchTemplate -> Lude.Text) (\s a -> s {launchTemplateName = a} :: CreateLaunchTemplate)
-{-# DEPRECATED cltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
-
 -- | The information for the launch template.
 --
 -- /Note:/ Consider using 'launchTemplateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cltLaunchTemplateData :: Lens.Lens' CreateLaunchTemplate RequestLaunchTemplateData
 cltLaunchTemplateData = Lens.lens (launchTemplateData :: CreateLaunchTemplate -> RequestLaunchTemplateData) (\s a -> s {launchTemplateData = a} :: CreateLaunchTemplate)
 {-# DEPRECATED cltLaunchTemplateData "Use generic-lens or generic-optics with 'launchTemplateData' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltDryRun :: Lens.Lens' CreateLaunchTemplate (Lude.Maybe Lude.Bool)
+cltDryRun = Lens.lens (dryRun :: CreateLaunchTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateLaunchTemplate)
+{-# DEPRECATED cltDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateLaunchTemplate where
   type Rs CreateLaunchTemplate = CreateLaunchTemplateResponse
@@ -156,37 +157,32 @@ instance Lude.ToQuery CreateLaunchTemplate where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateLaunchTemplate" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "LaunchTemplateName" Lude.=: launchTemplateName,
         "ClientToken" Lude.=: clientToken,
         "VersionDescription" Lude.=: versionDescription,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        "LaunchTemplateName" Lude.=: launchTemplateName,
-        "LaunchTemplateData" Lude.=: launchTemplateData
+        "LaunchTemplateData" Lude.=: launchTemplateData,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateLaunchTemplateResponse' smart constructor.
 data CreateLaunchTemplateResponse = CreateLaunchTemplateResponse'
-  { warning ::
-      Lude.Maybe ValidationWarning,
-    launchTemplate ::
-      Lude.Maybe LaunchTemplate,
+  { -- | If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
+    warning :: Lude.Maybe ValidationWarning,
+    -- | Information about the launch template.
+    launchTemplate :: Lude.Maybe LaunchTemplate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchTemplateResponse' with the minimum fields required to make a request.
 --
+-- * 'warning' - If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
 -- * 'launchTemplate' - Information about the launch template.
 -- * 'responseStatus' - The response status code.
--- * 'warning' - If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
 mkCreateLaunchTemplateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

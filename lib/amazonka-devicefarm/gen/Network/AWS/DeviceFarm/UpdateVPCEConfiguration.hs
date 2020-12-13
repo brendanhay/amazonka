@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +21,10 @@ module Network.AWS.DeviceFarm.UpdateVPCEConfiguration
 
     -- ** Request lenses
     uvecVpceServiceName,
+    uvecArn,
     uvecVpceConfigurationName,
     uvecServiceDNSName,
     uvecVpceConfigurationDescription,
-    uvecArn,
 
     -- * Destructuring the response
     UpdateVPCEConfigurationResponse (..),
@@ -43,31 +44,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateVPCEConfiguration' smart constructor.
 data UpdateVPCEConfiguration = UpdateVPCEConfiguration'
-  { vpceServiceName ::
-      Lude.Maybe Lude.Text,
-    vpceConfigurationName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
+    vpceServiceName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to update.
+    arn :: Lude.Text,
+    -- | The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
+    vpceConfigurationName :: Lude.Maybe Lude.Text,
+    -- | The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already be in use on the internet.
     serviceDNSName :: Lude.Maybe Lude.Text,
-    vpceConfigurationDescription ::
-      Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+    -- | An optional description that provides details about your VPC endpoint configuration.
+    vpceConfigurationDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVPCEConfiguration' with the minimum fields required to make a request.
 --
+-- * 'vpceServiceName' - The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
 -- * 'arn' - The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to update.
+-- * 'vpceConfigurationName' - The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
 -- * 'serviceDNSName' - The DNS (domain) name used to connect to your private service in your VPC. The DNS name must not already be in use on the internet.
 -- * 'vpceConfigurationDescription' - An optional description that provides details about your VPC endpoint configuration.
--- * 'vpceConfigurationName' - The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
--- * 'vpceServiceName' - The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
 mkUpdateVPCEConfiguration ::
   -- | 'arn'
   Lude.Text ->
@@ -75,10 +72,10 @@ mkUpdateVPCEConfiguration ::
 mkUpdateVPCEConfiguration pArn_ =
   UpdateVPCEConfiguration'
     { vpceServiceName = Lude.Nothing,
+      arn = pArn_,
       vpceConfigurationName = Lude.Nothing,
       serviceDNSName = Lude.Nothing,
-      vpceConfigurationDescription = Lude.Nothing,
-      arn = pArn_
+      vpceConfigurationDescription = Lude.Nothing
     }
 
 -- | The name of the VPC endpoint service running in your AWS account that you want Device Farm to test.
@@ -87,6 +84,13 @@ mkUpdateVPCEConfiguration pArn_ =
 uvecVpceServiceName :: Lens.Lens' UpdateVPCEConfiguration (Lude.Maybe Lude.Text)
 uvecVpceServiceName = Lens.lens (vpceServiceName :: UpdateVPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {vpceServiceName = a} :: UpdateVPCEConfiguration)
 {-# DEPRECATED uvecVpceServiceName "Use generic-lens or generic-optics with 'vpceServiceName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to update.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvecArn :: Lens.Lens' UpdateVPCEConfiguration Lude.Text
+uvecArn = Lens.lens (arn :: UpdateVPCEConfiguration -> Lude.Text) (\s a -> s {arn = a} :: UpdateVPCEConfiguration)
+{-# DEPRECATED uvecArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
 --
@@ -108,13 +112,6 @@ uvecServiceDNSName = Lens.lens (serviceDNSName :: UpdateVPCEConfiguration -> Lud
 uvecVpceConfigurationDescription :: Lens.Lens' UpdateVPCEConfiguration (Lude.Maybe Lude.Text)
 uvecVpceConfigurationDescription = Lens.lens (vpceConfigurationDescription :: UpdateVPCEConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {vpceConfigurationDescription = a} :: UpdateVPCEConfiguration)
 {-# DEPRECATED uvecVpceConfigurationDescription "Use generic-lens or generic-optics with 'vpceConfigurationDescription' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you want to update.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvecArn :: Lens.Lens' UpdateVPCEConfiguration Lude.Text
-uvecArn = Lens.lens (arn :: UpdateVPCEConfiguration -> Lude.Text) (\s a -> s {arn = a} :: UpdateVPCEConfiguration)
-{-# DEPRECATED uvecArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Lude.AWSRequest UpdateVPCEConfiguration where
   type Rs UpdateVPCEConfiguration = UpdateVPCEConfigurationResponse
@@ -143,11 +140,11 @@ instance Lude.ToJSON UpdateVPCEConfiguration where
     Lude.object
       ( Lude.catMaybes
           [ ("vpceServiceName" Lude..=) Lude.<$> vpceServiceName,
+            Lude.Just ("arn" Lude..= arn),
             ("vpceConfigurationName" Lude..=) Lude.<$> vpceConfigurationName,
             ("serviceDnsName" Lude..=) Lude.<$> serviceDNSName,
             ("vpceConfigurationDescription" Lude..=)
-              Lude.<$> vpceConfigurationDescription,
-            Lude.Just ("arn" Lude..= arn)
+              Lude.<$> vpceConfigurationDescription
           ]
       )
 
@@ -159,24 +156,18 @@ instance Lude.ToQuery UpdateVPCEConfiguration where
 
 -- | /See:/ 'mkUpdateVPCEConfigurationResponse' smart constructor.
 data UpdateVPCEConfigurationResponse = UpdateVPCEConfigurationResponse'
-  { vpceConfiguration ::
-      Lude.Maybe
-        VPCEConfiguration,
+  { -- | An object that contains information about your VPC endpoint configuration.
+    vpceConfiguration :: Lude.Maybe VPCEConfiguration,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVPCEConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpceConfiguration' - An object that contains information about your VPC endpoint configuration.
+-- * 'responseStatus' - The response status code.
 mkUpdateVPCEConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

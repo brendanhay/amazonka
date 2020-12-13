@@ -13,8 +13,8 @@
 module Network.AWS.Pinpoint.Types.FilterType
   ( FilterType
       ( FilterType',
-        Endpoint,
-        System
+        System,
+        Endpoint
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FilterType = FilterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Endpoint :: FilterType
-pattern Endpoint = FilterType' "ENDPOINT"
-
 pattern System :: FilterType
 pattern System = FilterType' "SYSTEM"
 
+pattern Endpoint :: FilterType
+pattern Endpoint = FilterType' "ENDPOINT"
+
 {-# COMPLETE
-  Endpoint,
   System,
+  Endpoint,
   FilterType'
   #-}

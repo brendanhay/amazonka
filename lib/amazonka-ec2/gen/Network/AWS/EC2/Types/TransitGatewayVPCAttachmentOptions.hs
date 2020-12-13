@@ -33,30 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayVPCAttachmentOptions' smart constructor.
 data TransitGatewayVPCAttachmentOptions = TransitGatewayVPCAttachmentOptions'
-  { ipv6Support ::
-      Lude.Maybe
-        IPv6SupportValue,
-    applianceModeSupport ::
-      Lude.Maybe
-        ApplianceModeSupportValue,
-    dnsSupport ::
-      Lude.Maybe
-        DNSSupportValue
+  { -- | Indicates whether IPv6 support is disabled.
+    ipv6Support :: Lude.Maybe IPv6SupportValue,
+    -- | Indicates whether appliance mode support is enabled.
+    applianceModeSupport :: Lude.Maybe ApplianceModeSupportValue,
+    -- | Indicates whether DNS support is enabled.
+    dnsSupport :: Lude.Maybe DNSSupportValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayVPCAttachmentOptions' with the minimum fields required to make a request.
 --
+-- * 'ipv6Support' - Indicates whether IPv6 support is disabled.
 -- * 'applianceModeSupport' - Indicates whether appliance mode support is enabled.
 -- * 'dnsSupport' - Indicates whether DNS support is enabled.
--- * 'ipv6Support' - Indicates whether IPv6 support is disabled.
 mkTransitGatewayVPCAttachmentOptions ::
   TransitGatewayVPCAttachmentOptions
 mkTransitGatewayVPCAttachmentOptions =

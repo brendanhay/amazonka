@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyRange' smart constructor.
 data KeyRange = KeyRange'
-  { endMarker :: Lude.Maybe Lude.Text,
+  { -- | The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
+    endMarker :: Lude.Maybe Lude.Text,
+    -- | The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
     beginMarker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyRange' with the minimum fields required to make a request.
 --
--- * 'beginMarker' - The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 -- * 'endMarker' - The key that ends an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
+-- * 'beginMarker' - The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.
 mkKeyRange ::
   KeyRange
 mkKeyRange =

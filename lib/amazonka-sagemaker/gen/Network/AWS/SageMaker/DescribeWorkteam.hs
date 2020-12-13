@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.SageMaker.DescribeWorkteam
     mkDescribeWorkteamResponse,
 
     -- ** Response lenses
-    dwwrsResponseStatus,
-    dwwrsWorkteam,
+    dwgrsWorkteam,
+    dwgrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeWorkteam' smart constructor.
 newtype DescribeWorkteam = DescribeWorkteam'
-  { workteamName ::
-      Lude.Text
+  { -- | The name of the work team to return a description of.
+    workteamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkteam' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DescribeWorkteam where
     Res.receiveJSON
       ( \s h x ->
           DescribeWorkteamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Workteam")
+            Lude.<$> (x Lude..:> "Workteam") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeWorkteam where
@@ -102,45 +97,40 @@ instance Lude.ToQuery DescribeWorkteam where
 
 -- | /See:/ 'mkDescribeWorkteamResponse' smart constructor.
 data DescribeWorkteamResponse = DescribeWorkteamResponse'
-  { responseStatus ::
-      Lude.Int,
-    workteam :: Workteam
+  { -- | A @Workteam@ instance that contains information about the work team.
+    workteam :: Workteam,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkteamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'workteam' - A @Workteam@ instance that contains information about the work team.
+-- * 'responseStatus' - The response status code.
 mkDescribeWorkteamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'workteam'
   Workteam ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeWorkteamResponse
-mkDescribeWorkteamResponse pResponseStatus_ pWorkteam_ =
+mkDescribeWorkteamResponse pWorkteam_ pResponseStatus_ =
   DescribeWorkteamResponse'
-    { responseStatus = pResponseStatus_,
-      workteam = pWorkteam_
+    { workteam = pWorkteam_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwwrsResponseStatus :: Lens.Lens' DescribeWorkteamResponse Lude.Int
-dwwrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkteamResponse)
-{-# DEPRECATED dwwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A @Workteam@ instance that contains information about the work team.
 --
 -- /Note:/ Consider using 'workteam' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwwrsWorkteam :: Lens.Lens' DescribeWorkteamResponse Workteam
-dwwrsWorkteam = Lens.lens (workteam :: DescribeWorkteamResponse -> Workteam) (\s a -> s {workteam = a} :: DescribeWorkteamResponse)
-{-# DEPRECATED dwwrsWorkteam "Use generic-lens or generic-optics with 'workteam' instead." #-}
+dwgrsWorkteam :: Lens.Lens' DescribeWorkteamResponse Workteam
+dwgrsWorkteam = Lens.lens (workteam :: DescribeWorkteamResponse -> Workteam) (\s a -> s {workteam = a} :: DescribeWorkteamResponse)
+{-# DEPRECATED dwgrsWorkteam "Use generic-lens or generic-optics with 'workteam' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwgrsResponseStatus :: Lens.Lens' DescribeWorkteamResponse Lude.Int
+dwgrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkteamResponse)
+{-# DEPRECATED dwgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

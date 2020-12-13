@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Eac3BitstreamMode
   ( Eac3BitstreamMode
       ( Eac3BitstreamMode',
-        EBMCommentary,
         EBMCompleteMain,
+        EBMCommentary,
         EBMEmergency,
         EBMHearingImpaired,
         EBMVisuallyImpaired
@@ -49,11 +49,11 @@ newtype Eac3BitstreamMode = Eac3BitstreamMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern EBMCommentary :: Eac3BitstreamMode
-pattern EBMCommentary = Eac3BitstreamMode' "COMMENTARY"
-
 pattern EBMCompleteMain :: Eac3BitstreamMode
 pattern EBMCompleteMain = Eac3BitstreamMode' "COMPLETE_MAIN"
+
+pattern EBMCommentary :: Eac3BitstreamMode
+pattern EBMCommentary = Eac3BitstreamMode' "COMMENTARY"
 
 pattern EBMEmergency :: Eac3BitstreamMode
 pattern EBMEmergency = Eac3BitstreamMode' "EMERGENCY"
@@ -65,8 +65,8 @@ pattern EBMVisuallyImpaired :: Eac3BitstreamMode
 pattern EBMVisuallyImpaired = Eac3BitstreamMode' "VISUALLY_IMPAIRED"
 
 {-# COMPLETE
-  EBMCommentary,
   EBMCompleteMain,
+  EBMCommentary,
   EBMEmergency,
   EBMHearingImpaired,
   EBMVisuallyImpaired,

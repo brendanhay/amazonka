@@ -17,8 +17,8 @@ module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfi
     mkCompromisedCredentialsRiskConfigurationType,
 
     -- * Lenses
-    ccrctEventFilter,
     ccrctActions,
+    ccrctEventFilter,
   )
 where
 
@@ -31,19 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCompromisedCredentialsRiskConfigurationType' smart constructor.
 data CompromisedCredentialsRiskConfigurationType = CompromisedCredentialsRiskConfigurationType'
-  { eventFilter ::
-      Lude.Maybe
-        [EventFilterType],
-    actions ::
-      CompromisedCredentialsActionsType
+  { -- | The compromised credentials risk configuration actions.
+    actions :: CompromisedCredentialsActionsType,
+    -- | Perform the action for these events. The default is to perform all events if no event filter is specified.
+    eventFilter :: Lude.Maybe [EventFilterType]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompromisedCredentialsRiskConfigurationType' with the minimum fields required to make a request.
@@ -56,17 +49,9 @@ mkCompromisedCredentialsRiskConfigurationType ::
   CompromisedCredentialsRiskConfigurationType
 mkCompromisedCredentialsRiskConfigurationType pActions_ =
   CompromisedCredentialsRiskConfigurationType'
-    { eventFilter =
-        Lude.Nothing,
-      actions = pActions_
+    { actions = pActions_,
+      eventFilter = Lude.Nothing
     }
-
--- | Perform the action for these events. The default is to perform all events if no event filter is specified.
---
--- /Note:/ Consider using 'eventFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrctEventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Lude.Maybe [EventFilterType])
-ccrctEventFilter = Lens.lens (eventFilter :: CompromisedCredentialsRiskConfigurationType -> Lude.Maybe [EventFilterType]) (\s a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType)
-{-# DEPRECATED ccrctEventFilter "Use generic-lens or generic-optics with 'eventFilter' instead." #-}
 
 -- | The compromised credentials risk configuration actions.
 --
@@ -75,21 +60,28 @@ ccrctActions :: Lens.Lens' CompromisedCredentialsRiskConfigurationType Compromis
 ccrctActions = Lens.lens (actions :: CompromisedCredentialsRiskConfigurationType -> CompromisedCredentialsActionsType) (\s a -> s {actions = a} :: CompromisedCredentialsRiskConfigurationType)
 {-# DEPRECATED ccrctActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
+-- | Perform the action for these events. The default is to perform all events if no event filter is specified.
+--
+-- /Note:/ Consider using 'eventFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrctEventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Lude.Maybe [EventFilterType])
+ccrctEventFilter = Lens.lens (eventFilter :: CompromisedCredentialsRiskConfigurationType -> Lude.Maybe [EventFilterType]) (\s a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType)
+{-# DEPRECATED ccrctEventFilter "Use generic-lens or generic-optics with 'eventFilter' instead." #-}
+
 instance Lude.FromJSON CompromisedCredentialsRiskConfigurationType where
   parseJSON =
     Lude.withObject
       "CompromisedCredentialsRiskConfigurationType"
       ( \x ->
           CompromisedCredentialsRiskConfigurationType'
-            Lude.<$> (x Lude..:? "EventFilter" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Actions")
+            Lude.<$> (x Lude..: "Actions")
+            Lude.<*> (x Lude..:? "EventFilter" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON CompromisedCredentialsRiskConfigurationType where
   toJSON CompromisedCredentialsRiskConfigurationType' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EventFilter" Lude..=) Lude.<$> eventFilter,
-            Lude.Just ("Actions" Lude..= actions)
+          [ Lude.Just ("Actions" Lude..= actions),
+            ("EventFilter" Lude..=) Lude.<$> eventFilter
           ]
       )

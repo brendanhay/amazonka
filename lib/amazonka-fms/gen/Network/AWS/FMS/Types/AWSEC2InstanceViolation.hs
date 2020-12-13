@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSEC2InstanceViolation' smart constructor.
 data AWSEC2InstanceViolation = AWSEC2InstanceViolation'
-  { violationTarget ::
-      Lude.Maybe Lude.Text,
-    awsEC2NetworkInterfaceViolations ::
-      Lude.Maybe
-        [AWSEC2NetworkInterfaceViolation]
+  { -- | The resource ID of the EC2 instance.
+    violationTarget :: Lude.Maybe Lude.Text,
+    -- | Violations for network interfaces associated with the EC2 instance.
+    awsEC2NetworkInterfaceViolations :: Lude.Maybe [AWSEC2NetworkInterfaceViolation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSEC2InstanceViolation' with the minimum fields required to make a request.
 --
--- * 'awsEC2NetworkInterfaceViolations' - Violations for network interfaces associated with the EC2 instance.
 -- * 'violationTarget' - The resource ID of the EC2 instance.
+-- * 'awsEC2NetworkInterfaceViolations' - Violations for network interfaces associated with the EC2 instance.
 mkAWSEC2InstanceViolation ::
   AWSEC2InstanceViolation
 mkAWSEC2InstanceViolation =

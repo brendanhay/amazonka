@@ -33,30 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEmbeddedSourceSettings' smart constructor.
 data EmbeddedSourceSettings = EmbeddedSourceSettings'
-  { convert608To708 ::
-      Lude.Maybe EmbeddedConvert608To708,
-    terminateCaptions ::
-      Lude.Maybe EmbeddedTerminateCaptions,
-    source608TrackNumber ::
-      Lude.Maybe Lude.Natural,
-    source608ChannelNumber ::
-      Lude.Maybe Lude.Natural
+  { -- | Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
+    convert608To708 :: Lude.Maybe EmbeddedConvert608To708,
+    -- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
+    terminateCaptions :: Lude.Maybe EmbeddedTerminateCaptions,
+    -- | Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
+    source608TrackNumber :: Lude.Maybe Lude.Natural,
+    -- | Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+    source608ChannelNumber :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmbeddedSourceSettings' with the minimum fields required to make a request.
 --
 -- * 'convert608To708' - Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
--- * 'source608ChannelNumber' - Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
--- * 'source608TrackNumber' - Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
 -- * 'terminateCaptions' - By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
+-- * 'source608TrackNumber' - Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
+-- * 'source608ChannelNumber' - Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
 mkEmbeddedSourceSettings ::
   EmbeddedSourceSettings
 mkEmbeddedSourceSettings =

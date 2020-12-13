@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
-        GreaterThan,
         GreaterThanOrEqual,
+        GreaterThan,
         LessThan,
         LessThanOrEqual
       ),
@@ -47,11 +47,11 @@ newtype ComparisonOperator = ComparisonOperator' Lude.Text
       Lude.ToHeader
     )
 
-pattern GreaterThan :: ComparisonOperator
-pattern GreaterThan = ComparisonOperator' "GREATER_THAN"
-
 pattern GreaterThanOrEqual :: ComparisonOperator
 pattern GreaterThanOrEqual = ComparisonOperator' "GREATER_THAN_OR_EQUAL"
+
+pattern GreaterThan :: ComparisonOperator
+pattern GreaterThan = ComparisonOperator' "GREATER_THAN"
 
 pattern LessThan :: ComparisonOperator
 pattern LessThan = ComparisonOperator' "LESS_THAN"
@@ -60,8 +60,8 @@ pattern LessThanOrEqual :: ComparisonOperator
 pattern LessThanOrEqual = ComparisonOperator' "LESS_THAN_OR_EQUAL"
 
 {-# COMPLETE
-  GreaterThan,
   GreaterThanOrEqual,
+  GreaterThan,
   LessThan,
   LessThanOrEqual,
   ComparisonOperator'

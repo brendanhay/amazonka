@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkGetReplicationJobs' smart constructor.
 data GetReplicationJobs = GetReplicationJobs'
-  { replicationJobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the replication job.
+    replicationJobId :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReplicationJobs' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
--- * 'nextToken' - The token for the next set of results.
 -- * 'replicationJobId' - The ID of the replication job.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkGetReplicationJobs ::
   GetReplicationJobs
 mkGetReplicationJobs =
@@ -146,24 +143,20 @@ instance Lude.ToQuery GetReplicationJobs where
 
 -- | /See:/ 'mkGetReplicationJobsResponse' smart constructor.
 data GetReplicationJobsResponse = GetReplicationJobsResponse'
-  { replicationJobList ::
-      Lude.Maybe [ReplicationJob],
+  { -- | Information about the replication jobs.
+    replicationJobList :: Lude.Maybe [ReplicationJob],
+    -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReplicationJobsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
 -- * 'replicationJobList' - Information about the replication jobs.
+-- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
 -- * 'responseStatus' - The response status code.
 mkGetReplicationJobsResponse ::
   -- | 'responseStatus'

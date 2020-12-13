@@ -17,8 +17,8 @@ module Network.AWS.WAFRegional.Types.RegexPatternSetSummary
     mkRegexPatternSetSummary,
 
     -- * Lenses
-    rpssRegexPatternSetId,
     rpssName,
+    rpssRegexPatternSetId,
   )
 where
 
@@ -29,17 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegexPatternSetSummary' smart constructor.
 data RegexPatternSetSummary = RegexPatternSetSummary'
-  { regexPatternSetId ::
-      Lude.Text,
-    name :: Lude.Text
+  { -- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+    name :: Lude.Text,
+    -- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF.
+    --
+    -- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+    regexPatternSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegexPatternSetSummary' with the minimum fields required to make a request.
@@ -49,16 +46,23 @@ data RegexPatternSetSummary = RegexPatternSetSummary'
 --
 -- @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
 mkRegexPatternSetSummary ::
-  -- | 'regexPatternSetId'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'regexPatternSetId'
+  Lude.Text ->
   RegexPatternSetSummary
-mkRegexPatternSetSummary pRegexPatternSetId_ pName_ =
+mkRegexPatternSetSummary pName_ pRegexPatternSetId_ =
   RegexPatternSetSummary'
-    { regexPatternSetId = pRegexPatternSetId_,
-      name = pName_
+    { name = pName_,
+      regexPatternSetId = pRegexPatternSetId_
     }
+
+-- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpssName :: Lens.Lens' RegexPatternSetSummary Lude.Text
+rpssName = Lens.lens (name :: RegexPatternSetSummary -> Lude.Text) (\s a -> s {name = a} :: RegexPatternSetSummary)
+{-# DEPRECATED rpssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The @RegexPatternSetId@ for a @RegexPatternSet@ . You use @RegexPatternSetId@ to get information about a @RegexPatternSet@ , update a @RegexPatternSet@ , remove a @RegexPatternSet@ from a @RegexMatchSet@ , and delete a @RegexPatternSet@ from AWS WAF.
 --
@@ -69,18 +73,11 @@ rpssRegexPatternSetId :: Lens.Lens' RegexPatternSetSummary Lude.Text
 rpssRegexPatternSetId = Lens.lens (regexPatternSetId :: RegexPatternSetSummary -> Lude.Text) (\s a -> s {regexPatternSetId = a} :: RegexPatternSetSummary)
 {-# DEPRECATED rpssRegexPatternSetId "Use generic-lens or generic-optics with 'regexPatternSetId' instead." #-}
 
--- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpssName :: Lens.Lens' RegexPatternSetSummary Lude.Text
-rpssName = Lens.lens (name :: RegexPatternSetSummary -> Lude.Text) (\s a -> s {name = a} :: RegexPatternSetSummary)
-{-# DEPRECATED rpssName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON RegexPatternSetSummary where
   parseJSON =
     Lude.withObject
       "RegexPatternSetSummary"
       ( \x ->
           RegexPatternSetSummary'
-            Lude.<$> (x Lude..: "RegexPatternSetId") Lude.<*> (x Lude..: "Name")
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "RegexPatternSetId")
       )

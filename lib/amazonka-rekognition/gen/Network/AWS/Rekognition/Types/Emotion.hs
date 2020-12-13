@@ -30,16 +30,12 @@ import Network.AWS.Rekognition.Types.EmotionName
 --
 -- /See:/ 'mkEmotion' smart constructor.
 data Emotion = Emotion'
-  { confidence :: Lude.Maybe Lude.Double,
+  { -- | Level of confidence in the determination.
+    confidence :: Lude.Maybe Lude.Double,
+    -- | Type of emotion detected.
     type' :: Lude.Maybe EmotionName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Emotion' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.AlgorithmSortBy
   ( AlgorithmSortBy
       ( AlgorithmSortBy',
-        ASBCreationTime,
-        ASBName
+        ASBName,
+        ASBCreationTime
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AlgorithmSortBy = AlgorithmSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASBCreationTime :: AlgorithmSortBy
-pattern ASBCreationTime = AlgorithmSortBy' "CreationTime"
-
 pattern ASBName :: AlgorithmSortBy
 pattern ASBName = AlgorithmSortBy' "Name"
 
+pattern ASBCreationTime :: AlgorithmSortBy
+pattern ASBCreationTime = AlgorithmSortBy' "CreationTime"
+
 {-# COMPLETE
-  ASBCreationTime,
   ASBName,
+  ASBCreationTime,
   AlgorithmSortBy'
   #-}

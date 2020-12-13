@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CloudWatchEvents.ListPartnerEventSources
 
     -- ** Request lenses
     lpesNextToken,
-    lpesLimit,
     lpesNamePrefix,
+    lpesLimit,
 
     -- * Destructuring the response
     ListPartnerEventSourcesResponse (..),
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListPartnerEventSources' smart constructor.
 data ListPartnerEventSources = ListPartnerEventSources'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    namePrefix :: Lude.Text
+  { -- | The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | If you specify this, the results are limited to only those partner event sources that start with the string you specify.
+    namePrefix :: Lude.Text,
+    -- | pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPartnerEventSources' with the minimum fields required to make a request.
 --
--- * 'limit' - pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
--- * 'namePrefix' - If you specify this, the results are limited to only those partner event sources that start with the string you specify.
 -- * 'nextToken' - The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
+-- * 'namePrefix' - If you specify this, the results are limited to only those partner event sources that start with the string you specify.
+-- * 'limit' - pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
 mkListPartnerEventSources ::
   -- | 'namePrefix'
   Lude.Text ->
@@ -68,8 +65,8 @@ mkListPartnerEventSources ::
 mkListPartnerEventSources pNamePrefix_ =
   ListPartnerEventSources'
     { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      namePrefix = pNamePrefix_
+      namePrefix = pNamePrefix_,
+      limit = Lude.Nothing
     }
 
 -- | The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
@@ -79,19 +76,19 @@ lpesNextToken :: Lens.Lens' ListPartnerEventSources (Lude.Maybe Lude.Text)
 lpesNextToken = Lens.lens (nextToken :: ListPartnerEventSources -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPartnerEventSources)
 {-# DEPRECATED lpesNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpesLimit :: Lens.Lens' ListPartnerEventSources (Lude.Maybe Lude.Natural)
-lpesLimit = Lens.lens (limit :: ListPartnerEventSources -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListPartnerEventSources)
-{-# DEPRECATED lpesLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
 -- | If you specify this, the results are limited to only those partner event sources that start with the string you specify.
 --
 -- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lpesNamePrefix :: Lens.Lens' ListPartnerEventSources Lude.Text
 lpesNamePrefix = Lens.lens (namePrefix :: ListPartnerEventSources -> Lude.Text) (\s a -> s {namePrefix = a} :: ListPartnerEventSources)
 {-# DEPRECATED lpesNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
+
+-- | pecifying this limits the number of results returned by this operation. The operation also returns a NextToken which you can use in a subsequent operation to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpesLimit :: Lens.Lens' ListPartnerEventSources (Lude.Maybe Lude.Natural)
+lpesLimit = Lens.lens (limit :: ListPartnerEventSources -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListPartnerEventSources)
+{-# DEPRECATED lpesLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Lude.AWSRequest ListPartnerEventSources where
   type Rs ListPartnerEventSources = ListPartnerEventSourcesResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON ListPartnerEventSources where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("NamePrefix" Lude..= namePrefix)
+            Lude.Just ("NamePrefix" Lude..= namePrefix),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -134,26 +131,20 @@ instance Lude.ToQuery ListPartnerEventSources where
 
 -- | /See:/ 'mkListPartnerEventSourcesResponse' smart constructor.
 data ListPartnerEventSourcesResponse = ListPartnerEventSourcesResponse'
-  { partnerEventSources ::
-      Lude.Maybe
-        [PartnerEventSource],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The list of partner event sources returned by the operation.
+    partnerEventSources :: Lude.Maybe [PartnerEventSource],
+    -- | A token you can use in a subsequent operation to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPartnerEventSourcesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - A token you can use in a subsequent operation to retrieve the next set of results.
 -- * 'partnerEventSources' - The list of partner event sources returned by the operation.
+-- * 'nextToken' - A token you can use in a subsequent operation to retrieve the next set of results.
 -- * 'responseStatus' - The response status code.
 mkListPartnerEventSourcesResponse ::
   -- | 'responseStatus'

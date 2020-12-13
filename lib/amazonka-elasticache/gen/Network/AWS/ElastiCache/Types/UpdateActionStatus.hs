@@ -13,15 +13,15 @@
 module Network.AWS.ElastiCache.Types.UpdateActionStatus
   ( UpdateActionStatus
       ( UpdateActionStatus',
-        Complete,
-        InProgress,
-        NotApplicable,
         NotApplied,
-        Scheduled,
-        Scheduling,
-        Stopped,
+        WaitingToStart,
+        InProgress,
         Stopping,
-        WaitingToStart
+        Stopped,
+        Complete,
+        Scheduling,
+        Scheduled,
+        NotApplicable
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype UpdateActionStatus = UpdateActionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Complete :: UpdateActionStatus
-pattern Complete = UpdateActionStatus' "complete"
-
-pattern InProgress :: UpdateActionStatus
-pattern InProgress = UpdateActionStatus' "in-progress"
-
-pattern NotApplicable :: UpdateActionStatus
-pattern NotApplicable = UpdateActionStatus' "not-applicable"
-
 pattern NotApplied :: UpdateActionStatus
 pattern NotApplied = UpdateActionStatus' "not-applied"
-
-pattern Scheduled :: UpdateActionStatus
-pattern Scheduled = UpdateActionStatus' "scheduled"
-
-pattern Scheduling :: UpdateActionStatus
-pattern Scheduling = UpdateActionStatus' "scheduling"
-
-pattern Stopped :: UpdateActionStatus
-pattern Stopped = UpdateActionStatus' "stopped"
-
-pattern Stopping :: UpdateActionStatus
-pattern Stopping = UpdateActionStatus' "stopping"
 
 pattern WaitingToStart :: UpdateActionStatus
 pattern WaitingToStart = UpdateActionStatus' "waiting-to-start"
 
+pattern InProgress :: UpdateActionStatus
+pattern InProgress = UpdateActionStatus' "in-progress"
+
+pattern Stopping :: UpdateActionStatus
+pattern Stopping = UpdateActionStatus' "stopping"
+
+pattern Stopped :: UpdateActionStatus
+pattern Stopped = UpdateActionStatus' "stopped"
+
+pattern Complete :: UpdateActionStatus
+pattern Complete = UpdateActionStatus' "complete"
+
+pattern Scheduling :: UpdateActionStatus
+pattern Scheduling = UpdateActionStatus' "scheduling"
+
+pattern Scheduled :: UpdateActionStatus
+pattern Scheduled = UpdateActionStatus' "scheduled"
+
+pattern NotApplicable :: UpdateActionStatus
+pattern NotApplicable = UpdateActionStatus' "not-applicable"
+
 {-# COMPLETE
-  Complete,
-  InProgress,
-  NotApplicable,
   NotApplied,
-  Scheduled,
-  Scheduling,
-  Stopped,
-  Stopping,
   WaitingToStart,
+  InProgress,
+  Stopping,
+  Stopped,
+  Complete,
+  Scheduling,
+  Scheduled,
+  NotApplicable,
   UpdateActionStatus'
   #-}

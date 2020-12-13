@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,29 +45,24 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkListMedicalTranscriptionJobs' smart constructor.
 data ListMedicalTranscriptionJobs = ListMedicalTranscriptionJobs'
-  { status ::
-      Lude.Maybe TranscriptionJobStatus,
+  { -- | When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
+    status :: Lude.Maybe TranscriptionJobStatus,
+    -- | If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
     nextToken :: Lude.Maybe Lude.Text,
-    jobNameContains ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
+    jobNameContains :: Lude.Maybe Lude.Text,
+    -- | The maximum number of medical transcription jobs to return in the response. IF there are fewer results in the list, this response contains only the actual results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMedicalTranscriptionJobs' with the minimum fields required to make a request.
 --
+-- * 'status' - When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
+-- * 'nextToken' - If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
 -- * 'jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.
 -- * 'maxResults' - The maximum number of medical transcription jobs to return in the response. IF there are fewer results in the list, this response contains only the actual results.
--- * 'nextToken' - If you a receive a truncated result in the previous request of @ListMedicalTranscriptionJobs@ , include @NextToken@ to fetch the next set of jobs.
--- * 'status' - When specified, returns only medical transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don't specify a status, Amazon Transcribe Medical returns all transcription jobs ordered by creation date.
 mkListMedicalTranscriptionJobs ::
   ListMedicalTranscriptionJobs
 mkListMedicalTranscriptionJobs =
@@ -152,33 +148,24 @@ instance Lude.ToQuery ListMedicalTranscriptionJobs where
 
 -- | /See:/ 'mkListMedicalTranscriptionJobsResponse' smart constructor.
 data ListMedicalTranscriptionJobsResponse = ListMedicalTranscriptionJobsResponse'
-  { status ::
-      Lude.Maybe
-        TranscriptionJobStatus,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    medicalTranscriptionJobSummaries ::
-      Lude.Maybe
-        [MedicalTranscriptionJobSummary],
-    responseStatus ::
-      Lude.Int
+  { -- | The requested status of the medical transcription jobs returned.
+    status :: Lude.Maybe TranscriptionJobStatus,
+    -- | The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If the number of jobs exceeds what can fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. Include the token in the next request to the @ListMedicalTranscriptionJobs@ operation to return in the next page of jobs.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of objects containing summary information for a transcription job.
+    medicalTranscriptionJobSummaries :: Lude.Maybe [MedicalTranscriptionJobSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMedicalTranscriptionJobsResponse' with the minimum fields required to make a request.
 --
--- * 'medicalTranscriptionJobSummaries' - A list of objects containing summary information for a transcription job.
--- * 'nextToken' - The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If the number of jobs exceeds what can fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. Include the token in the next request to the @ListMedicalTranscriptionJobs@ operation to return in the next page of jobs.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The requested status of the medical transcription jobs returned.
+-- * 'nextToken' - The @ListMedicalTranscriptionJobs@ operation returns a page of jobs at a time. The maximum size of the page is set by the @MaxResults@ parameter. If the number of jobs exceeds what can fit on a page, Amazon Transcribe Medical returns the @NextPage@ token. Include the token in the next request to the @ListMedicalTranscriptionJobs@ operation to return in the next page of jobs.
+-- * 'medicalTranscriptionJobSummaries' - A list of objects containing summary information for a transcription job.
+-- * 'responseStatus' - The response status code.
 mkListMedicalTranscriptionJobsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

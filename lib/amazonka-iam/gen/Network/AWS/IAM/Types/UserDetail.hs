@@ -43,40 +43,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserDetail' smart constructor.
 data UserDetail = UserDetail'
-  { groupList :: Lude.Maybe [Lude.Text],
+  { -- | A list of IAM groups that the user is in.
+    groupList :: Lude.Maybe [Lude.Text],
     arn :: Lude.Maybe Lude.Text,
+    -- | The path to the user. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     path :: Lude.Maybe Lude.Text,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The friendly name identifying the user.
     userName :: Lude.Maybe Lude.Text,
+    -- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     userId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the policy used to set the permissions boundary for the user.
+    --
+    -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
     permissionsBoundary :: Lude.Maybe AttachedPermissionsBoundary,
+    -- | A list of the inline policies embedded in the user.
     userPolicyList :: Lude.Maybe [PolicyDetail],
+    -- | A list of tags that are associated with the specified user. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
     tags :: Lude.Maybe [Tag],
+    -- | A list of the managed policies attached to the user.
     attachedManagedPolicies :: Lude.Maybe [AttachedPolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserDetail' with the minimum fields required to make a request.
 --
--- * 'arn' - Undocumented field.
--- * 'attachedManagedPolicies' - A list of the managed policies attached to the user.
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
 -- * 'groupList' - A list of IAM groups that the user is in.
+-- * 'arn' -
 -- * 'path' - The path to the user. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the user was created.
+-- * 'userName' - The friendly name identifying the user.
+-- * 'userId' - The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 -- * 'permissionsBoundary' - The ARN of the policy used to set the permissions boundary for the user.
 --
 -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
--- * 'tags' - A list of tags that are associated with the specified user. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
--- * 'userId' - The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'userName' - The friendly name identifying the user.
 -- * 'userPolicyList' - A list of the inline policies embedded in the user.
+-- * 'tags' - A list of tags that are associated with the specified user. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+-- * 'attachedManagedPolicies' - A list of the managed policies attached to the user.
 mkUserDetail ::
   UserDetail
 mkUserDetail =

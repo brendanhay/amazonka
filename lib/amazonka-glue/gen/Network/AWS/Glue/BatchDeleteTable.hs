@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Glue.BatchDeleteTable
     mkBatchDeleteTable,
 
     -- ** Request lenses
+    bdtTablesToDelete,
     bdtCatalogId,
     bdtDatabaseName,
-    bdtTablesToDelete,
 
     -- * Destructuring the response
     BatchDeleteTableResponse (..),
@@ -41,35 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchDeleteTable' smart constructor.
 data BatchDeleteTable = BatchDeleteTable'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
-    databaseName :: Lude.Text,
-    tablesToDelete :: [Lude.Text]
+  { -- | A list of the table to delete.
+    tablesToDelete :: [Lude.Text],
+    -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
+    databaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteTable' with the minimum fields required to make a request.
 --
+-- * 'tablesToDelete' - A list of the table to delete.
 -- * 'catalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
 -- * 'databaseName' - The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
--- * 'tablesToDelete' - A list of the table to delete.
 mkBatchDeleteTable ::
   -- | 'databaseName'
   Lude.Text ->
   BatchDeleteTable
 mkBatchDeleteTable pDatabaseName_ =
   BatchDeleteTable'
-    { catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      tablesToDelete = Lude.mempty
+    { tablesToDelete = Lude.mempty,
+      catalogId = Lude.Nothing,
+      databaseName = pDatabaseName_
     }
+
+-- | A list of the table to delete.
+--
+-- /Note:/ Consider using 'tablesToDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtTablesToDelete :: Lens.Lens' BatchDeleteTable [Lude.Text]
+bdtTablesToDelete = Lens.lens (tablesToDelete :: BatchDeleteTable -> [Lude.Text]) (\s a -> s {tablesToDelete = a} :: BatchDeleteTable)
+{-# DEPRECATED bdtTablesToDelete "Use generic-lens or generic-optics with 'tablesToDelete' instead." #-}
 
 -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
 --
@@ -84,13 +88,6 @@ bdtCatalogId = Lens.lens (catalogId :: BatchDeleteTable -> Lude.Maybe Lude.Text)
 bdtDatabaseName :: Lens.Lens' BatchDeleteTable Lude.Text
 bdtDatabaseName = Lens.lens (databaseName :: BatchDeleteTable -> Lude.Text) (\s a -> s {databaseName = a} :: BatchDeleteTable)
 {-# DEPRECATED bdtDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
-
--- | A list of the table to delete.
---
--- /Note:/ Consider using 'tablesToDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdtTablesToDelete :: Lens.Lens' BatchDeleteTable [Lude.Text]
-bdtTablesToDelete = Lens.lens (tablesToDelete :: BatchDeleteTable -> [Lude.Text]) (\s a -> s {tablesToDelete = a} :: BatchDeleteTable)
-{-# DEPRECATED bdtTablesToDelete "Use generic-lens or generic-optics with 'tablesToDelete' instead." #-}
 
 instance Lude.AWSRequest BatchDeleteTable where
   type Rs BatchDeleteTable = BatchDeleteTableResponse
@@ -118,9 +115,9 @@ instance Lude.ToJSON BatchDeleteTable where
   toJSON BatchDeleteTable' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TablesToDelete" Lude..= tablesToDelete)
+          [ Lude.Just ("TablesToDelete" Lude..= tablesToDelete),
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("DatabaseName" Lude..= databaseName)
           ]
       )
 
@@ -132,17 +129,12 @@ instance Lude.ToQuery BatchDeleteTable where
 
 -- | /See:/ 'mkBatchDeleteTableResponse' smart constructor.
 data BatchDeleteTableResponse = BatchDeleteTableResponse'
-  { errors ::
-      Lude.Maybe [TableError],
+  { -- | A list of errors encountered in attempting to delete the specified tables.
+    errors :: Lude.Maybe [TableError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteTableResponse' with the minimum fields required to make a request.

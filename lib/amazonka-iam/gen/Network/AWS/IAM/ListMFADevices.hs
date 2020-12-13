@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.IAM.ListMFADevices
     -- ** Response lenses
     lmdrsMarker,
     lmdrsIsTruncated,
-    lmdrsResponseStatus,
     lmdrsMFADevices,
+    lmdrsResponseStatus,
   )
 where
 
@@ -48,29 +49,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListMFADevices' smart constructor.
 data ListMFADevices = ListMFADevices'
-  { userName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the user whose MFA devices you want to list.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text,
+    -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
     marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMFADevices' with the minimum fields required to make a request.
 --
+-- * 'userName' - The name of the user whose MFA devices you want to list.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 -- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
--- * 'userName' - The name of the user whose MFA devices you want to list.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkListMFADevices ::
   ListMFADevices
 mkListMFADevices =
@@ -122,10 +123,10 @@ instance Lude.AWSRequest ListMFADevices where
           ListMFADevicesResponse'
             Lude.<$> (x Lude..@? "Marker")
             Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "MFADevices" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListMFADevices where
@@ -148,25 +149,22 @@ instance Lude.ToQuery ListMFADevices where
 --
 -- /See:/ 'mkListMFADevicesResponse' smart constructor.
 data ListMFADevicesResponse = ListMFADevicesResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
     isTruncated :: Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    mfaDevices :: [MFADevice]
+    -- | A list of MFA devices.
+    mfaDevices :: [MFADevice],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMFADevicesResponse' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'mfaDevices' - A list of MFA devices.
 -- * 'responseStatus' - The response status code.
 mkListMFADevicesResponse ::
@@ -177,8 +175,8 @@ mkListMFADevicesResponse pResponseStatus_ =
   ListMFADevicesResponse'
     { marker = Lude.Nothing,
       isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      mfaDevices = Lude.mempty
+      mfaDevices = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
@@ -195,16 +193,16 @@ lmdrsIsTruncated :: Lens.Lens' ListMFADevicesResponse (Lude.Maybe Lude.Bool)
 lmdrsIsTruncated = Lens.lens (isTruncated :: ListMFADevicesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListMFADevicesResponse)
 {-# DEPRECATED lmdrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmdrsResponseStatus :: Lens.Lens' ListMFADevicesResponse Lude.Int
-lmdrsResponseStatus = Lens.lens (responseStatus :: ListMFADevicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMFADevicesResponse)
-{-# DEPRECATED lmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of MFA devices.
 --
 -- /Note:/ Consider using 'mfaDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lmdrsMFADevices :: Lens.Lens' ListMFADevicesResponse [MFADevice]
 lmdrsMFADevices = Lens.lens (mfaDevices :: ListMFADevicesResponse -> [MFADevice]) (\s a -> s {mfaDevices = a} :: ListMFADevicesResponse)
 {-# DEPRECATED lmdrsMFADevices "Use generic-lens or generic-optics with 'mfaDevices' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmdrsResponseStatus :: Lens.Lens' ListMFADevicesResponse Lude.Int
+lmdrsResponseStatus = Lens.lens (responseStatus :: ListMFADevicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMFADevicesResponse)
+{-# DEPRECATED lmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +20,18 @@ module Network.AWS.DataPipeline.CreatePipeline
     mkCreatePipeline,
 
     -- ** Request lenses
+    cpUniqueId,
+    cpName,
     cpDescription,
     cpTags,
-    cpName,
-    cpUniqueId,
 
     -- * Destructuring the response
     CreatePipelineResponse (..),
     mkCreatePipelineResponse,
 
     -- ** Response lenses
-    cprsResponseStatus,
     cprsPipelineId,
+    cprsResponseStatus,
   )
 where
 
@@ -44,40 +45,51 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { description ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to @CreatePipeline@ . For example, if the first call to @CreatePipeline@ does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to @CreatePipeline@ . @CreatePipeline@ ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
+    uniqueId :: Lude.Text,
+    -- | The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
     name :: Lude.Text,
-    uniqueId :: Lude.Text
+    -- | The description for the pipeline.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
 --
--- * 'description' - The description for the pipeline.
--- * 'name' - The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
--- * 'tags' - A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 -- * 'uniqueId' - A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to @CreatePipeline@ . For example, if the first call to @CreatePipeline@ does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to @CreatePipeline@ . @CreatePipeline@ ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
+-- * 'name' - The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
+-- * 'description' - The description for the pipeline.
+-- * 'tags' - A list of tags to associate with the pipeline at creation. Tags let you control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/ .
 mkCreatePipeline ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'uniqueId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreatePipeline
-mkCreatePipeline pName_ pUniqueId_ =
+mkCreatePipeline pUniqueId_ pName_ =
   CreatePipeline'
-    { description = Lude.Nothing,
-      tags = Lude.Nothing,
+    { uniqueId = pUniqueId_,
       name = pName_,
-      uniqueId = pUniqueId_
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to @CreatePipeline@ . For example, if the first call to @CreatePipeline@ does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to @CreatePipeline@ . @CreatePipeline@ ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
+--
+-- /Note:/ Consider using 'uniqueId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpUniqueId :: Lens.Lens' CreatePipeline Lude.Text
+cpUniqueId = Lens.lens (uniqueId :: CreatePipeline -> Lude.Text) (\s a -> s {uniqueId = a} :: CreatePipeline)
+{-# DEPRECATED cpUniqueId "Use generic-lens or generic-optics with 'uniqueId' instead." #-}
+
+-- | The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreatePipeline Lude.Text
+cpName = Lens.lens (name :: CreatePipeline -> Lude.Text) (\s a -> s {name = a} :: CreatePipeline)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description for the pipeline.
 --
@@ -93,20 +105,6 @@ cpTags :: Lens.Lens' CreatePipeline (Lude.Maybe [Tag])
 cpTags = Lens.lens (tags :: CreatePipeline -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePipeline)
 {-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpName :: Lens.Lens' CreatePipeline Lude.Text
-cpName = Lens.lens (name :: CreatePipeline -> Lude.Text) (\s a -> s {name = a} :: CreatePipeline)
-{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A unique identifier. This identifier is not the same as the pipeline identifier assigned by AWS Data Pipeline. You are responsible for defining the format and ensuring the uniqueness of this identifier. You use this parameter to ensure idempotency during repeated calls to @CreatePipeline@ . For example, if the first call to @CreatePipeline@ does not succeed, you can pass in the same unique identifier and pipeline name combination on a subsequent call to @CreatePipeline@ . @CreatePipeline@ ensures that if a pipeline already exists with the same name and unique identifier, a new pipeline is not created. Instead, you'll receive the pipeline identifier from the previous attempt. The uniqueness of the name and unique identifier combination is scoped to the AWS account or IAM user credentials.
---
--- /Note:/ Consider using 'uniqueId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpUniqueId :: Lens.Lens' CreatePipeline Lude.Text
-cpUniqueId = Lens.lens (uniqueId :: CreatePipeline -> Lude.Text) (\s a -> s {uniqueId = a} :: CreatePipeline)
-{-# DEPRECATED cpUniqueId "Use generic-lens or generic-optics with 'uniqueId' instead." #-}
-
 instance Lude.AWSRequest CreatePipeline where
   type Rs CreatePipeline = CreatePipelineResponse
   request = Req.postJSON dataPipelineService
@@ -114,7 +112,7 @@ instance Lude.AWSRequest CreatePipeline where
     Res.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "pipelineId")
+            Lude.<$> (x Lude..:> "pipelineId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreatePipeline where
@@ -132,10 +130,10 @@ instance Lude.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("uniqueId" Lude..= uniqueId),
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("uniqueId" Lude..= uniqueId)
+            ("description" Lude..=) Lude.<$> description,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -149,17 +147,12 @@ instance Lude.ToQuery CreatePipeline where
 --
 -- /See:/ 'mkCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { responseStatus ::
-      Lude.Int,
-    pipelineId :: Lude.Text
+  { -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For example, @df-06372391ZG65EXAMPLE@ .
+    pipelineId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
@@ -167,23 +160,16 @@ data CreatePipelineResponse = CreatePipelineResponse'
 -- * 'pipelineId' - The ID that AWS Data Pipeline assigns the newly created pipeline. For example, @df-06372391ZG65EXAMPLE@ .
 -- * 'responseStatus' - The response status code.
 mkCreatePipelineResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'pipelineId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePipelineResponse
-mkCreatePipelineResponse pResponseStatus_ pPipelineId_ =
+mkCreatePipelineResponse pPipelineId_ pResponseStatus_ =
   CreatePipelineResponse'
-    { responseStatus = pResponseStatus_,
-      pipelineId = pPipelineId_
+    { pipelineId = pPipelineId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsResponseStatus :: Lens.Lens' CreatePipelineResponse Lude.Int
-cprsResponseStatus = Lens.lens (responseStatus :: CreatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePipelineResponse)
-{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For example, @df-06372391ZG65EXAMPLE@ .
 --
@@ -191,3 +177,10 @@ cprsResponseStatus = Lens.lens (responseStatus :: CreatePipelineResponse -> Lude
 cprsPipelineId :: Lens.Lens' CreatePipelineResponse Lude.Text
 cprsPipelineId = Lens.lens (pipelineId :: CreatePipelineResponse -> Lude.Text) (\s a -> s {pipelineId = a} :: CreatePipelineResponse)
 {-# DEPRECATED cprsPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprsResponseStatus :: Lens.Lens' CreatePipelineResponse Lude.Int
+cprsResponseStatus = Lens.lens (responseStatus :: CreatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePipelineResponse)
+{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

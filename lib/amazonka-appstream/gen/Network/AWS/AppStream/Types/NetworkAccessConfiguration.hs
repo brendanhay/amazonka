@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkAccessConfiguration' smart constructor.
 data NetworkAccessConfiguration = NetworkAccessConfiguration'
-  { eniId ::
-      Lude.Maybe Lude.Text,
-    eniPrivateIPAddress ::
-      Lude.Maybe Lude.Text
+  { -- | The resource identifier of the elastic network interface that is attached to instances in your VPC. All network interfaces have the eni-xxxxxxxx resource identifier.
+    eniId :: Lude.Maybe Lude.Text,
+    -- | The private IP address of the elastic network interface that is attached to instances in your VPC.
+    eniPrivateIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkAccessConfiguration' with the minimum fields required to make a request.

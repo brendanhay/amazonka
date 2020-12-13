@@ -13,11 +13,11 @@
 module Network.AWS.Snowball.Types.ClusterState
   ( ClusterState
       ( ClusterState',
-        AwaitingQuorum,
-        Cancelled,
-        Complete,
-        InUse,
-        Pending
+        CSAwaitingQuorum,
+        CSPending,
+        CSInUse,
+        CSComplete,
+        CSCancelled
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ClusterState = ClusterState' Lude.Text
       Lude.ToHeader
     )
 
-pattern AwaitingQuorum :: ClusterState
-pattern AwaitingQuorum = ClusterState' "AwaitingQuorum"
+pattern CSAwaitingQuorum :: ClusterState
+pattern CSAwaitingQuorum = ClusterState' "AwaitingQuorum"
 
-pattern Cancelled :: ClusterState
-pattern Cancelled = ClusterState' "Cancelled"
+pattern CSPending :: ClusterState
+pattern CSPending = ClusterState' "Pending"
 
-pattern Complete :: ClusterState
-pattern Complete = ClusterState' "Complete"
+pattern CSInUse :: ClusterState
+pattern CSInUse = ClusterState' "InUse"
 
-pattern InUse :: ClusterState
-pattern InUse = ClusterState' "InUse"
+pattern CSComplete :: ClusterState
+pattern CSComplete = ClusterState' "Complete"
 
-pattern Pending :: ClusterState
-pattern Pending = ClusterState' "Pending"
+pattern CSCancelled :: ClusterState
+pattern CSCancelled = ClusterState' "Cancelled"
 
 {-# COMPLETE
-  AwaitingQuorum,
-  Cancelled,
-  Complete,
-  InUse,
-  Pending,
+  CSAwaitingQuorum,
+  CSPending,
+  CSInUse,
+  CSComplete,
+  CSCancelled,
   ClusterState'
   #-}

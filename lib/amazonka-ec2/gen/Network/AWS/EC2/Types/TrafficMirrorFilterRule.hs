@@ -41,48 +41,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrafficMirrorFilterRule' smart constructor.
 data TrafficMirrorFilterRule = TrafficMirrorFilterRule'
-  { ruleNumber ::
-      Lude.Maybe Lude.Int,
-    trafficDirection ::
-      Lude.Maybe TrafficDirection,
-    ruleAction ::
-      Lude.Maybe TrafficMirrorRuleAction,
+  { -- | The rule number of the Traffic Mirror rule.
+    ruleNumber :: Lude.Maybe Lude.Int,
+    -- | The traffic direction assigned to the Traffic Mirror rule.
+    trafficDirection :: Lude.Maybe TrafficDirection,
+    -- | The action assigned to the Traffic Mirror rule.
+    ruleAction :: Lude.Maybe TrafficMirrorRuleAction,
+    -- | The protocol assigned to the Traffic Mirror rule.
     protocol :: Lude.Maybe Lude.Int,
-    trafficMirrorFilterId ::
-      Lude.Maybe Lude.Text,
-    trafficMirrorFilterRuleId ::
-      Lude.Maybe Lude.Text,
-    destinationPortRange ::
-      Lude.Maybe TrafficMirrorPortRange,
+    -- | The ID of the Traffic Mirror filter that the rule is associated with.
+    trafficMirrorFilterId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Traffic Mirror rule.
+    trafficMirrorFilterRuleId :: Lude.Maybe Lude.Text,
+    -- | The destination port range assigned to the Traffic Mirror rule.
+    destinationPortRange :: Lude.Maybe TrafficMirrorPortRange,
+    -- | The source CIDR block assigned to the Traffic Mirror rule.
     sourceCidrBlock :: Lude.Maybe Lude.Text,
-    sourcePortRange ::
-      Lude.Maybe TrafficMirrorPortRange,
+    -- | The source port range assigned to the Traffic Mirror rule.
+    sourcePortRange :: Lude.Maybe TrafficMirrorPortRange,
+    -- | The description of the Traffic Mirror rule.
     description :: Lude.Maybe Lude.Text,
-    destinationCidrBlock ::
-      Lude.Maybe Lude.Text
+    -- | The destination CIDR block assigned to the Traffic Mirror rule.
+    destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrafficMirrorFilterRule' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the Traffic Mirror rule.
--- * 'destinationCidrBlock' - The destination CIDR block assigned to the Traffic Mirror rule.
--- * 'destinationPortRange' - The destination port range assigned to the Traffic Mirror rule.
--- * 'protocol' - The protocol assigned to the Traffic Mirror rule.
--- * 'ruleAction' - The action assigned to the Traffic Mirror rule.
 -- * 'ruleNumber' - The rule number of the Traffic Mirror rule.
--- * 'sourceCidrBlock' - The source CIDR block assigned to the Traffic Mirror rule.
--- * 'sourcePortRange' - The source port range assigned to the Traffic Mirror rule.
 -- * 'trafficDirection' - The traffic direction assigned to the Traffic Mirror rule.
+-- * 'ruleAction' - The action assigned to the Traffic Mirror rule.
+-- * 'protocol' - The protocol assigned to the Traffic Mirror rule.
 -- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter that the rule is associated with.
 -- * 'trafficMirrorFilterRuleId' - The ID of the Traffic Mirror rule.
+-- * 'destinationPortRange' - The destination port range assigned to the Traffic Mirror rule.
+-- * 'sourceCidrBlock' - The source CIDR block assigned to the Traffic Mirror rule.
+-- * 'sourcePortRange' - The source port range assigned to the Traffic Mirror rule.
+-- * 'description' - The description of the Traffic Mirror rule.
+-- * 'destinationCidrBlock' - The destination CIDR block assigned to the Traffic Mirror rule.
 mkTrafficMirrorFilterRule ::
   TrafficMirrorFilterRule
 mkTrafficMirrorFilterRule =

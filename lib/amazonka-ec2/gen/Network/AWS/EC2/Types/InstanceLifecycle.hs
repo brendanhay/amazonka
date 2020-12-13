@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.InstanceLifecycle
   ( InstanceLifecycle
       ( InstanceLifecycle',
-        ILOnDemand,
-        ILSpot
+        ILSpot,
+        ILOnDemand
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InstanceLifecycle = InstanceLifecycle' Lude.Text
       Lude.ToHeader
     )
 
-pattern ILOnDemand :: InstanceLifecycle
-pattern ILOnDemand = InstanceLifecycle' "on-demand"
-
 pattern ILSpot :: InstanceLifecycle
 pattern ILSpot = InstanceLifecycle' "spot"
 
+pattern ILOnDemand :: InstanceLifecycle
+pattern ILOnDemand = InstanceLifecycle' "on-demand"
+
 {-# COMPLETE
-  ILOnDemand,
   ILSpot,
+  ILOnDemand,
   InstanceLifecycle'
   #-}

@@ -13,17 +13,17 @@
 module Network.AWS.MediaConvert.Types.AudioCodec
   ( AudioCodec
       ( AudioCodec',
-        ACAC3,
         ACAac,
-        ACAiff,
-        ACEAC3,
-        ACEAC3Atmos,
         ACMP2,
         ACMP3,
-        ACOpus,
-        ACPassthrough,
+        ACWav,
+        ACAiff,
+        ACAC3,
+        ACEAC3,
+        ACEAC3Atmos,
         ACVorbis,
-        ACWav
+        ACOpus,
+        ACPassthrough
       ),
   )
 where
@@ -55,20 +55,8 @@ newtype AudioCodec = AudioCodec' Lude.Text
       Lude.ToHeader
     )
 
-pattern ACAC3 :: AudioCodec
-pattern ACAC3 = AudioCodec' "AC3"
-
 pattern ACAac :: AudioCodec
 pattern ACAac = AudioCodec' "AAC"
-
-pattern ACAiff :: AudioCodec
-pattern ACAiff = AudioCodec' "AIFF"
-
-pattern ACEAC3 :: AudioCodec
-pattern ACEAC3 = AudioCodec' "EAC3"
-
-pattern ACEAC3Atmos :: AudioCodec
-pattern ACEAC3Atmos = AudioCodec' "EAC3_ATMOS"
 
 pattern ACMP2 :: AudioCodec
 pattern ACMP2 = AudioCodec' "MP2"
@@ -76,29 +64,41 @@ pattern ACMP2 = AudioCodec' "MP2"
 pattern ACMP3 :: AudioCodec
 pattern ACMP3 = AudioCodec' "MP3"
 
+pattern ACWav :: AudioCodec
+pattern ACWav = AudioCodec' "WAV"
+
+pattern ACAiff :: AudioCodec
+pattern ACAiff = AudioCodec' "AIFF"
+
+pattern ACAC3 :: AudioCodec
+pattern ACAC3 = AudioCodec' "AC3"
+
+pattern ACEAC3 :: AudioCodec
+pattern ACEAC3 = AudioCodec' "EAC3"
+
+pattern ACEAC3Atmos :: AudioCodec
+pattern ACEAC3Atmos = AudioCodec' "EAC3_ATMOS"
+
+pattern ACVorbis :: AudioCodec
+pattern ACVorbis = AudioCodec' "VORBIS"
+
 pattern ACOpus :: AudioCodec
 pattern ACOpus = AudioCodec' "OPUS"
 
 pattern ACPassthrough :: AudioCodec
 pattern ACPassthrough = AudioCodec' "PASSTHROUGH"
 
-pattern ACVorbis :: AudioCodec
-pattern ACVorbis = AudioCodec' "VORBIS"
-
-pattern ACWav :: AudioCodec
-pattern ACWav = AudioCodec' "WAV"
-
 {-# COMPLETE
-  ACAC3,
   ACAac,
-  ACAiff,
-  ACEAC3,
-  ACEAC3Atmos,
   ACMP2,
   ACMP3,
+  ACWav,
+  ACAiff,
+  ACAC3,
+  ACEAC3,
+  ACEAC3Atmos,
+  ACVorbis,
   ACOpus,
   ACPassthrough,
-  ACVorbis,
-  ACWav,
   AudioCodec'
   #-}

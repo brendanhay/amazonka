@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFpgaImageAttribute' smart constructor.
 data FpgaImageAttribute = FpgaImageAttribute'
-  { fpgaImageId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AFI.
+    fpgaImageId :: Lude.Maybe Lude.Text,
+    -- | The name of the AFI.
     name :: Lude.Maybe Lude.Text,
+    -- | The product codes.
     productCodes :: Lude.Maybe [ProductCode],
+    -- | The description of the AFI.
     description :: Lude.Maybe Lude.Text,
+    -- | The load permissions.
     loadPermissions :: Lude.Maybe [LoadPermission]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaImageAttribute' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the AFI.
 -- * 'fpgaImageId' - The ID of the AFI.
--- * 'loadPermissions' - The load permissions.
 -- * 'name' - The name of the AFI.
 -- * 'productCodes' - The product codes.
+-- * 'description' - The description of the AFI.
+-- * 'loadPermissions' - The load permissions.
 mkFpgaImageAttribute ::
   FpgaImageAttribute
 mkFpgaImageAttribute =

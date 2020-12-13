@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCatalogImportStatus' smart constructor.
 data CatalogImportStatus = CatalogImportStatus'
-  { importedBy ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the person who initiated the migration.
+    importedBy :: Lude.Maybe Lude.Text,
+    -- | The time that the migration was started.
     importTime :: Lude.Maybe Lude.Timestamp,
+    -- | @True@ if the migration has completed, or @False@ otherwise.
     importCompleted :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CatalogImportStatus' with the minimum fields required to make a request.
 --
--- * 'importCompleted' - @True@ if the migration has completed, or @False@ otherwise.
--- * 'importTime' - The time that the migration was started.
 -- * 'importedBy' - The name of the person who initiated the migration.
+-- * 'importTime' - The time that the migration was started.
+-- * 'importCompleted' - @True@ if the migration has completed, or @False@ otherwise.
 mkCatalogImportStatus ::
   CatalogImportStatus
 mkCatalogImportStatus =

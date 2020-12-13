@@ -20,9 +20,9 @@ module Network.AWS.SageMaker.Types.ProductionVariantSummary
     pvsDesiredInstanceCount,
     pvsDesiredWeight,
     pvsCurrentWeight,
+    pvsVariantName,
     pvsCurrentInstanceCount,
     pvsDeployedImages,
-    pvsVariantName,
   )
 where
 
@@ -34,33 +34,30 @@ import Network.AWS.SageMaker.Types.DeployedImage
 --
 -- /See:/ 'mkProductionVariantSummary' smart constructor.
 data ProductionVariantSummary = ProductionVariantSummary'
-  { desiredInstanceCount ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of instances requested in the @UpdateEndpointWeightsAndCapacities@ request.
+    desiredInstanceCount :: Lude.Maybe Lude.Natural,
+    -- | The requested weight, as specified in the @UpdateEndpointWeightsAndCapacities@ request.
     desiredWeight :: Lude.Maybe Lude.Double,
+    -- | The weight associated with the variant.
     currentWeight :: Lude.Maybe Lude.Double,
-    currentInstanceCount ::
-      Lude.Maybe Lude.Natural,
-    deployedImages ::
-      Lude.Maybe [DeployedImage],
-    variantName :: Lude.Text
+    -- | The name of the variant.
+    variantName :: Lude.Text,
+    -- | The number of instances associated with the variant.
+    currentInstanceCount :: Lude.Maybe Lude.Natural,
+    -- | An array of @DeployedImage@ objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this @ProductionVariant@ .
+    deployedImages :: Lude.Maybe [DeployedImage]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductionVariantSummary' with the minimum fields required to make a request.
 --
--- * 'currentInstanceCount' - The number of instances associated with the variant.
--- * 'currentWeight' - The weight associated with the variant.
--- * 'deployedImages' - An array of @DeployedImage@ objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this @ProductionVariant@ .
 -- * 'desiredInstanceCount' - The number of instances requested in the @UpdateEndpointWeightsAndCapacities@ request.
 -- * 'desiredWeight' - The requested weight, as specified in the @UpdateEndpointWeightsAndCapacities@ request.
+-- * 'currentWeight' - The weight associated with the variant.
 -- * 'variantName' - The name of the variant.
+-- * 'currentInstanceCount' - The number of instances associated with the variant.
+-- * 'deployedImages' - An array of @DeployedImage@ objects that specify the Amazon EC2 Container Registry paths of the inference images deployed on instances of this @ProductionVariant@ .
 mkProductionVariantSummary ::
   -- | 'variantName'
   Lude.Text ->
@@ -70,9 +67,9 @@ mkProductionVariantSummary pVariantName_ =
     { desiredInstanceCount = Lude.Nothing,
       desiredWeight = Lude.Nothing,
       currentWeight = Lude.Nothing,
+      variantName = pVariantName_,
       currentInstanceCount = Lude.Nothing,
-      deployedImages = Lude.Nothing,
-      variantName = pVariantName_
+      deployedImages = Lude.Nothing
     }
 
 -- | The number of instances requested in the @UpdateEndpointWeightsAndCapacities@ request.
@@ -96,6 +93,13 @@ pvsCurrentWeight :: Lens.Lens' ProductionVariantSummary (Lude.Maybe Lude.Double)
 pvsCurrentWeight = Lens.lens (currentWeight :: ProductionVariantSummary -> Lude.Maybe Lude.Double) (\s a -> s {currentWeight = a} :: ProductionVariantSummary)
 {-# DEPRECATED pvsCurrentWeight "Use generic-lens or generic-optics with 'currentWeight' instead." #-}
 
+-- | The name of the variant.
+--
+-- /Note:/ Consider using 'variantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvsVariantName :: Lens.Lens' ProductionVariantSummary Lude.Text
+pvsVariantName = Lens.lens (variantName :: ProductionVariantSummary -> Lude.Text) (\s a -> s {variantName = a} :: ProductionVariantSummary)
+{-# DEPRECATED pvsVariantName "Use generic-lens or generic-optics with 'variantName' instead." #-}
+
 -- | The number of instances associated with the variant.
 --
 -- /Note:/ Consider using 'currentInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -110,13 +114,6 @@ pvsDeployedImages :: Lens.Lens' ProductionVariantSummary (Lude.Maybe [DeployedIm
 pvsDeployedImages = Lens.lens (deployedImages :: ProductionVariantSummary -> Lude.Maybe [DeployedImage]) (\s a -> s {deployedImages = a} :: ProductionVariantSummary)
 {-# DEPRECATED pvsDeployedImages "Use generic-lens or generic-optics with 'deployedImages' instead." #-}
 
--- | The name of the variant.
---
--- /Note:/ Consider using 'variantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvsVariantName :: Lens.Lens' ProductionVariantSummary Lude.Text
-pvsVariantName = Lens.lens (variantName :: ProductionVariantSummary -> Lude.Text) (\s a -> s {variantName = a} :: ProductionVariantSummary)
-{-# DEPRECATED pvsVariantName "Use generic-lens or generic-optics with 'variantName' instead." #-}
-
 instance Lude.FromJSON ProductionVariantSummary where
   parseJSON =
     Lude.withObject
@@ -126,7 +123,7 @@ instance Lude.FromJSON ProductionVariantSummary where
             Lude.<$> (x Lude..:? "DesiredInstanceCount")
             Lude.<*> (x Lude..:? "DesiredWeight")
             Lude.<*> (x Lude..:? "CurrentWeight")
+            Lude.<*> (x Lude..: "VariantName")
             Lude.<*> (x Lude..:? "CurrentInstanceCount")
             Lude.<*> (x Lude..:? "DeployedImages" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "VariantName")
       )

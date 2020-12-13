@@ -35,31 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSAPICallAction' smart constructor.
 data AWSAPICallAction = AWSAPICallAction'
-  { remoteIPDetails ::
-      Lude.Maybe RemoteIPDetails,
+  { -- | The remote IP information of the connection that initiated the AWS API call.
+    remoteIPDetails :: Lude.Maybe RemoteIPDetails,
+    -- | The AWS API caller type.
     callerType :: Lude.Maybe Lude.Text,
+    -- | The domain information for the AWS API call.
     domainDetails :: Lude.Maybe DomainDetails,
+    -- | The AWS service name whose API was invoked.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | The error code of the failed AWS API action.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The AWS API name.
     api :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSAPICallAction' with the minimum fields required to make a request.
 --
--- * 'api' - The AWS API name.
+-- * 'remoteIPDetails' - The remote IP information of the connection that initiated the AWS API call.
 -- * 'callerType' - The AWS API caller type.
 -- * 'domainDetails' - The domain information for the AWS API call.
--- * 'errorCode' - The error code of the failed AWS API action.
--- * 'remoteIPDetails' - The remote IP information of the connection that initiated the AWS API call.
 -- * 'serviceName' - The AWS service name whose API was invoked.
+-- * 'errorCode' - The error code of the failed AWS API action.
+-- * 'api' - The AWS API name.
 mkAWSAPICallAction ::
   AWSAPICallAction
 mkAWSAPICallAction =

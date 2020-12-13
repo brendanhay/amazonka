@@ -29,17 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVirtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
-  { virtualGatewayId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the virtual private gateway.
+    virtualGatewayId :: Lude.Maybe Lude.Text,
+    -- | The state of the virtual private gateway. The following are the possible values:
+    --
+    --
+    --     * @pending@ : Initial state after creating the virtual private gateway.
+    --
+    --
+    --     * @available@ : Ready for use by a private virtual interface.
+    --
+    --
+    --     * @deleting@ : Initial state after deleting the virtual private gateway.
+    --
+    --
+    --     * @deleted@ : The virtual private gateway is deleted. The private virtual interface is unable to send traffic over this gateway.
     virtualGatewayState :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VirtualGateway' with the minimum fields required to make a request.

@@ -28,25 +28,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeSigningSignature' smart constructor.
 newtype CodeSigningSignature = CodeSigningSignature'
-  { inlineDocument ::
-      Lude.Maybe Lude.Base64
+  { -- | A base64 encoded binary representation of the code signing signature.
+    inlineDocument :: Lude.Maybe Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigningSignature' with the minimum fields required to make a request.
 --
--- * 'inlineDocument' - A base64 encoded binary representation of the code signing signature.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'inlineDocument' - A base64 encoded binary representation of the code signing signature.
 mkCodeSigningSignature ::
   CodeSigningSignature
 mkCodeSigningSignature =

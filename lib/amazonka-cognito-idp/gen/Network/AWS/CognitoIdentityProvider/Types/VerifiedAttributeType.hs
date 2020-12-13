@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType
   ( VerifiedAttributeType
       ( VerifiedAttributeType',
-        Email,
-        PhoneNumber
+        VATPhoneNumber,
+        VATEmail
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype VerifiedAttributeType = VerifiedAttributeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Email :: VerifiedAttributeType
-pattern Email = VerifiedAttributeType' "email"
+pattern VATPhoneNumber :: VerifiedAttributeType
+pattern VATPhoneNumber = VerifiedAttributeType' "phone_number"
 
-pattern PhoneNumber :: VerifiedAttributeType
-pattern PhoneNumber = VerifiedAttributeType' "phone_number"
+pattern VATEmail :: VerifiedAttributeType
+pattern VATEmail = VerifiedAttributeType' "email"
 
 {-# COMPLETE
-  Email,
-  PhoneNumber,
+  VATPhoneNumber,
+  VATEmail,
   VerifiedAttributeType'
   #-}

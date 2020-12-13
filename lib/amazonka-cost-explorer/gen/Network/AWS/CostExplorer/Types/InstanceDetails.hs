@@ -37,30 +37,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceDetails' smart constructor.
 data InstanceDetails = InstanceDetails'
-  { eSInstanceDetails ::
-      Lude.Maybe ESInstanceDetails,
+  { -- | The Amazon ES instances that AWS recommends that you purchase.
+    eSInstanceDetails :: Lude.Maybe ESInstanceDetails,
+    -- | The Amazon RDS instances that AWS recommends that you purchase.
     rdsInstanceDetails :: Lude.Maybe RDSInstanceDetails,
-    elastiCacheInstanceDetails ::
-      Lude.Maybe ElastiCacheInstanceDetails,
+    -- | The ElastiCache instances that AWS recommends that you purchase.
+    elastiCacheInstanceDetails :: Lude.Maybe ElastiCacheInstanceDetails,
+    -- | The Amazon EC2 instances that AWS recommends that you purchase.
     ec2InstanceDetails :: Lude.Maybe EC2InstanceDetails,
-    redshiftInstanceDetails ::
-      Lude.Maybe RedshiftInstanceDetails
+    -- | The Amazon Redshift instances that AWS recommends that you purchase.
+    redshiftInstanceDetails :: Lude.Maybe RedshiftInstanceDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceDetails' with the minimum fields required to make a request.
 --
 -- * 'eSInstanceDetails' - The Amazon ES instances that AWS recommends that you purchase.
--- * 'ec2InstanceDetails' - The Amazon EC2 instances that AWS recommends that you purchase.
--- * 'elastiCacheInstanceDetails' - The ElastiCache instances that AWS recommends that you purchase.
 -- * 'rdsInstanceDetails' - The Amazon RDS instances that AWS recommends that you purchase.
+-- * 'elastiCacheInstanceDetails' - The ElastiCache instances that AWS recommends that you purchase.
+-- * 'ec2InstanceDetails' - The Amazon EC2 instances that AWS recommends that you purchase.
 -- * 'redshiftInstanceDetails' - The Amazon Redshift instances that AWS recommends that you purchase.
 mkInstanceDetails ::
   InstanceDetails

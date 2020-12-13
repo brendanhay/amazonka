@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,27 +48,25 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeWorkspaceBundles' smart constructor.
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
-  { bundleIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The identifiers of the bundles. You cannot combine this parameter with any other filter.
+    bundleIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The owner of the bundles. You cannot combine this parameter with any other filter.
+    --
+    -- Specify @AMAZON@ to describe the bundles provided by AWS or null to describe the bundles that belong to your account.
     owner :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceBundles' with the minimum fields required to make a request.
 --
 -- * 'bundleIds' - The identifiers of the bundles. You cannot combine this parameter with any other filter.
--- * 'nextToken' - The token for the next set of results. (You received this token from a previous call.)
 -- * 'owner' - The owner of the bundles. You cannot combine this parameter with any other filter.
 --
 -- Specify @AMAZON@ to describe the bundles provided by AWS or null to describe the bundles that belong to your account.
+-- * 'nextToken' - The token for the next set of results. (You received this token from a previous call.)
 mkDescribeWorkspaceBundles ::
   DescribeWorkspaceBundles
 mkDescribeWorkspaceBundles =
@@ -150,21 +149,14 @@ instance Lude.ToQuery DescribeWorkspaceBundles where
 
 -- | /See:/ 'mkDescribeWorkspaceBundlesResponse' smart constructor.
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
-  { bundles ::
-      Lude.Maybe
-        [WorkspaceBundle],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the bundles.
+    bundles :: Lude.Maybe [WorkspaceBundle],
+    -- | The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceBundlesResponse' with the minimum fields required to make a request.

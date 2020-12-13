@@ -44,52 +44,59 @@ import Network.AWS.RDS.Types.ProcessorFeature
 --
 -- /See:/ 'mkPendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Indicates the database engine version.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Contains the pending or currently-in-progress change of the master credentials for the DB instance.
     masterUserPassword :: Lude.Maybe Lude.Text,
+    -- | The new DB subnet group for the DB instance.
     dbSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
     iops :: Lude.Maybe Lude.Int,
-    processorFeatures ::
-      Lude.Maybe [ProcessorFeature],
+    -- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+    processorFeatures :: Lude.Maybe [ProcessorFeature],
+    -- | Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
     dbInstanceClass :: Lude.Maybe Lude.Text,
+    -- | The license model for the DB instance.
+    --
+    -- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
     licenseModel :: Lude.Maybe Lude.Text,
+    -- | Specifies the identifier of the CA certificate for the DB instance.
     cACertificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
     dbInstanceIdentifier :: Lude.Maybe Lude.Text,
-    pendingCloudwatchLogsExports ::
-      Lude.Maybe PendingCloudwatchLogsExports,
+    pendingCloudwatchLogsExports :: Lude.Maybe PendingCloudwatchLogsExports,
+    -- | Specifies the pending number of days for which automated backups are retained.
     backupRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
     multiAZ :: Lude.Maybe Lude.Bool,
+    -- | Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
     allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | Specifies the pending port for the DB instance.
     port :: Lude.Maybe Lude.Int,
+    -- | Specifies the storage type to be associated with the DB instance.
     storageType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
--- * 'backupRetentionPeriod' - Specifies the pending number of days for which automated backups are retained.
--- * 'cACertificateIdentifier' - Specifies the identifier of the CA certificate for the DB instance.
--- * 'dbInstanceClass' - Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
--- * 'dbInstanceIdentifier' - Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
--- * 'dbSubnetGroupName' - The new DB subnet group for the DB instance.
 -- * 'engineVersion' - Indicates the database engine version.
+-- * 'masterUserPassword' - Contains the pending or currently-in-progress change of the master credentials for the DB instance.
+-- * 'dbSubnetGroupName' - The new DB subnet group for the DB instance.
 -- * 'iops' - Specifies the new Provisioned IOPS value for the DB instance that will be applied or is currently being applied.
+-- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+-- * 'dbInstanceClass' - Contains the new @DBInstanceClass@ for the DB instance that will be applied or is currently being applied.
 -- * 'licenseModel' - The license model for the DB instance.
 --
 -- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
--- * 'masterUserPassword' - Contains the pending or currently-in-progress change of the master credentials for the DB instance.
+-- * 'cACertificateIdentifier' - Specifies the identifier of the CA certificate for the DB instance.
+-- * 'dbInstanceIdentifier' - Contains the new @DBInstanceIdentifier@ for the DB instance that will be applied or is currently being applied.
+-- * 'pendingCloudwatchLogsExports' -
+-- * 'backupRetentionPeriod' - Specifies the pending number of days for which automated backups are retained.
 -- * 'multiAZ' - Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.
--- * 'pendingCloudwatchLogsExports' - Undocumented field.
+-- * 'allocatedStorage' - Contains the new @AllocatedStorage@ size for the DB instance that will be applied or is currently being applied.
 -- * 'port' - Specifies the pending port for the DB instance.
--- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
 -- * 'storageType' - Specifies the storage type to be associated with the DB instance.
 mkPendingModifiedValues ::
   PendingModifiedValues

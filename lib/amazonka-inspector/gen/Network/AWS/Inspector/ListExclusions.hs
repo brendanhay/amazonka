@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,17 +23,17 @@ module Network.AWS.Inspector.ListExclusions
 
     -- ** Request lenses
     leNextToken,
-    leMaxResults,
     leAssessmentRunARN,
+    leMaxResults,
 
     -- * Destructuring the response
     ListExclusionsResponse (..),
     mkListExclusionsResponse,
 
     -- ** Response lenses
+    lersExclusionARNs,
     lersNextToken,
     lersResponseStatus,
-    lersExclusionARNs,
   )
 where
 
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListExclusions' smart constructor.
 data ListExclusions = ListExclusions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    assessmentRunARN :: Lude.Text
+  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListExclusionsRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of the assessment run that generated the exclusions that you want to list.
+    assessmentRunARN :: Lude.Text,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExclusions' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListExclusionsRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
 -- * 'assessmentRunARN' - The ARN of the assessment run that generated the exclusions that you want to list.
 -- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListExclusionsRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
 mkListExclusions ::
   -- | 'assessmentRunARN'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListExclusions ::
 mkListExclusions pAssessmentRunARN_ =
   ListExclusions'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      assessmentRunARN = pAssessmentRunARN_
+      assessmentRunARN = pAssessmentRunARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListExclusionsRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
@@ -82,19 +79,19 @@ leNextToken :: Lens.Lens' ListExclusions (Lude.Maybe Lude.Text)
 leNextToken = Lens.lens (nextToken :: ListExclusions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExclusions)
 {-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leMaxResults :: Lens.Lens' ListExclusions (Lude.Maybe Lude.Int)
-leMaxResults = Lens.lens (maxResults :: ListExclusions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListExclusions)
-{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ARN of the assessment run that generated the exclusions that you want to list.
 --
 -- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 leAssessmentRunARN :: Lens.Lens' ListExclusions Lude.Text
 leAssessmentRunARN = Lens.lens (assessmentRunARN :: ListExclusions -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: ListExclusions)
 {-# DEPRECATED leAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
+
+-- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leMaxResults :: Lens.Lens' ListExclusions (Lude.Maybe Lude.Int)
+leMaxResults = Lens.lens (maxResults :: ListExclusions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListExclusions)
+{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListExclusions where
   page rq rs
@@ -112,9 +109,9 @@ instance Lude.AWSRequest ListExclusions where
     Res.receiveJSON
       ( \s h x ->
           ListExclusionsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "exclusionArns" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "exclusionArns" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListExclusions where
@@ -133,8 +130,8 @@ instance Lude.ToJSON ListExclusions where
     Lude.object
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("assessmentRunArn" Lude..= assessmentRunARN)
+            Lude.Just ("assessmentRunArn" Lude..= assessmentRunARN),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -146,18 +143,14 @@ instance Lude.ToQuery ListExclusions where
 
 -- | /See:/ 'mkListExclusionsResponse' smart constructor.
 data ListExclusionsResponse = ListExclusionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    exclusionARNs :: [Lude.Text]
+  { -- | A list of exclusions' ARNs returned by the action.
+    exclusionARNs :: [Lude.Text],
+    -- | When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListExclusionsResponse' with the minimum fields required to make a request.
@@ -171,10 +164,17 @@ mkListExclusionsResponse ::
   ListExclusionsResponse
 mkListExclusionsResponse pResponseStatus_ =
   ListExclusionsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      exclusionARNs = Lude.mempty
+    { exclusionARNs = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of exclusions' ARNs returned by the action.
+--
+-- /Note:/ Consider using 'exclusionARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lersExclusionARNs :: Lens.Lens' ListExclusionsResponse [Lude.Text]
+lersExclusionARNs = Lens.lens (exclusionARNs :: ListExclusionsResponse -> [Lude.Text]) (\s a -> s {exclusionARNs = a} :: ListExclusionsResponse)
+{-# DEPRECATED lersExclusionARNs "Use generic-lens or generic-optics with 'exclusionARNs' instead." #-}
 
 -- | When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
@@ -189,10 +189,3 @@ lersNextToken = Lens.lens (nextToken :: ListExclusionsResponse -> Lude.Maybe Lud
 lersResponseStatus :: Lens.Lens' ListExclusionsResponse Lude.Int
 lersResponseStatus = Lens.lens (responseStatus :: ListExclusionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListExclusionsResponse)
 {-# DEPRECATED lersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of exclusions' ARNs returned by the action.
---
--- /Note:/ Consider using 'exclusionARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lersExclusionARNs :: Lens.Lens' ListExclusionsResponse [Lude.Text]
-lersExclusionARNs = Lens.lens (exclusionARNs :: ListExclusionsResponse -> [Lude.Text]) (\s a -> s {exclusionARNs = a} :: ListExclusionsResponse)
-{-# DEPRECATED lersExclusionARNs "Use generic-lens or generic-optics with 'exclusionARNs' instead." #-}

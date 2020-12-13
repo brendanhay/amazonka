@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,8 +45,8 @@ module Network.AWS.EC2.ModifyVPNConnection
     mvcVPNGatewayId,
     mvcCustomerGatewayId,
     mvcTransitGatewayId,
-    mvcDryRun,
     mvcVPNConnectionId,
+    mvcDryRun,
 
     -- * Destructuring the response
     ModifyVPNConnectionResponse (..),
@@ -65,29 +66,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPNConnection' smart constructor.
 data ModifyVPNConnection = ModifyVPNConnection'
-  { vpnGatewayId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the virtual private gateway at the AWS side of the VPN connection.
+    vpnGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the customer gateway at your end of the VPN connection.
     customerGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway.
     transitGatewayId :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    vpnConnectionId :: Lude.Text
+    -- | The ID of the VPN connection.
+    vpnConnectionId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNConnection' with the minimum fields required to make a request.
 --
+-- * 'vpnGatewayId' - The ID of the virtual private gateway at the AWS side of the VPN connection.
 -- * 'customerGatewayId' - The ID of the customer gateway at your end of the VPN connection.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'transitGatewayId' - The ID of the transit gateway.
 -- * 'vpnConnectionId' - The ID of the VPN connection.
--- * 'vpnGatewayId' - The ID of the virtual private gateway at the AWS side of the VPN connection.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyVPNConnection ::
   -- | 'vpnConnectionId'
   Lude.Text ->
@@ -97,8 +96,8 @@ mkModifyVPNConnection pVPNConnectionId_ =
     { vpnGatewayId = Lude.Nothing,
       customerGatewayId = Lude.Nothing,
       transitGatewayId = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      vpnConnectionId = pVPNConnectionId_
+      vpnConnectionId = pVPNConnectionId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The ID of the virtual private gateway at the AWS side of the VPN connection.
@@ -122,19 +121,19 @@ mvcTransitGatewayId :: Lens.Lens' ModifyVPNConnection (Lude.Maybe Lude.Text)
 mvcTransitGatewayId = Lens.lens (transitGatewayId :: ModifyVPNConnection -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: ModifyVPNConnection)
 {-# DEPRECATED mvcTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvcDryRun :: Lens.Lens' ModifyVPNConnection (Lude.Maybe Lude.Bool)
-mvcDryRun = Lens.lens (dryRun :: ModifyVPNConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPNConnection)
-{-# DEPRECATED mvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the VPN connection.
 --
 -- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mvcVPNConnectionId :: Lens.Lens' ModifyVPNConnection Lude.Text
 mvcVPNConnectionId = Lens.lens (vpnConnectionId :: ModifyVPNConnection -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: ModifyVPNConnection)
 {-# DEPRECATED mvcVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcDryRun :: Lens.Lens' ModifyVPNConnection (Lude.Maybe Lude.Bool)
+mvcDryRun = Lens.lens (dryRun :: ModifyVPNConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPNConnection)
+{-# DEPRECATED mvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyVPNConnection where
   type Rs ModifyVPNConnection = ModifyVPNConnectionResponse
@@ -161,29 +160,23 @@ instance Lude.ToQuery ModifyVPNConnection where
         "VpnGatewayId" Lude.=: vpnGatewayId,
         "CustomerGatewayId" Lude.=: customerGatewayId,
         "TransitGatewayId" Lude.=: transitGatewayId,
-        "DryRun" Lude.=: dryRun,
-        "VpnConnectionId" Lude.=: vpnConnectionId
+        "VpnConnectionId" Lude.=: vpnConnectionId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyVPNConnectionResponse' smart constructor.
 data ModifyVPNConnectionResponse = ModifyVPNConnectionResponse'
-  { vpnConnection ::
-      Lude.Maybe VPNConnection,
+  { vpnConnection :: Lude.Maybe VPNConnection,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNConnectionResponse' with the minimum fields required to make a request.
 --
+-- * 'vpnConnection' -
 -- * 'responseStatus' - The response status code.
--- * 'vpnConnection' - Undocumented field.
 mkModifyVPNConnectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

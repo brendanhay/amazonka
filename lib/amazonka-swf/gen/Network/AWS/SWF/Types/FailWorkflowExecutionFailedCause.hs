@@ -13,8 +13,8 @@
 module Network.AWS.SWF.Types.FailWorkflowExecutionFailedCause
   ( FailWorkflowExecutionFailedCause
       ( FailWorkflowExecutionFailedCause',
-        FWEFCOperationNotPermitted,
-        FWEFCUnhandledDecision
+        FWEFCUnhandledDecision,
+        FWEFCOperationNotPermitted
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FailWorkflowExecutionFailedCause = FailWorkflowExecutionFailedCause' Lud
       Lude.ToHeader
     )
 
-pattern FWEFCOperationNotPermitted :: FailWorkflowExecutionFailedCause
-pattern FWEFCOperationNotPermitted = FailWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
-
 pattern FWEFCUnhandledDecision :: FailWorkflowExecutionFailedCause
 pattern FWEFCUnhandledDecision = FailWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
+pattern FWEFCOperationNotPermitted :: FailWorkflowExecutionFailedCause
+pattern FWEFCOperationNotPermitted = FailWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+
 {-# COMPLETE
-  FWEFCOperationNotPermitted,
   FWEFCUnhandledDecision,
+  FWEFCOperationNotPermitted,
   FailWorkflowExecutionFailedCause'
   #-}

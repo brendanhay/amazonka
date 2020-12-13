@@ -31,17 +31,12 @@ import Network.AWS.WAF.Types.RegexMatchTuple
 --
 -- /See:/ 'mkRegexMatchSetUpdate' smart constructor.
 data RegexMatchSetUpdate = RegexMatchSetUpdate'
-  { action ::
-      ChangeAction,
+  { -- | Specifies whether to insert or delete a 'RegexMatchTuple' .
+    action :: ChangeAction,
+    -- | Information about the part of a web request that you want AWS WAF to inspect and the identifier of the regular expression (regex) pattern that you want AWS WAF to search for. If you specify @DELETE@ for the value of @Action@ , the @RegexMatchTuple@ values must exactly match the values in the @RegexMatchTuple@ that you want to delete from the @RegexMatchSet@ .
     regexMatchTuple :: RegexMatchTuple
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegexMatchSetUpdate' with the minimum fields required to make a request.

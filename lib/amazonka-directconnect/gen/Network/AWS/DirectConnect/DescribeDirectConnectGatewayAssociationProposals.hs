@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,43 +45,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDirectConnectGatewayAssociationProposals' smart constructor.
 data DescribeDirectConnectGatewayAssociationProposals = DescribeDirectConnectGatewayAssociationProposals'
-  { associatedGatewayId ::
-      Lude.Maybe
-        Lude.Text,
-    directConnectGatewayId ::
-      Lude.Maybe
-        Lude.Text,
-    proposalId ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int
+  { -- | The ID of the associated gateway.
+    associatedGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the proposal.
+    proposalId :: Lude.Maybe Lude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    --
+    -- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectConnectGatewayAssociationProposals' with the minimum fields required to make a request.
 --
 -- * 'associatedGatewayId' - The ID of the associated gateway.
 -- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'proposalId' - The ID of the proposal.
+-- * 'nextToken' - The token for the next page of results.
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
--- * 'nextToken' - The token for the next page of results.
--- * 'proposalId' - The ID of the proposal.
 mkDescribeDirectConnectGatewayAssociationProposals ::
   DescribeDirectConnectGatewayAssociationProposals
 mkDescribeDirectConnectGatewayAssociationProposals =
@@ -194,26 +183,15 @@ instance
 
 -- | /See:/ 'mkDescribeDirectConnectGatewayAssociationProposalsResponse' smart constructor.
 data DescribeDirectConnectGatewayAssociationProposalsResponse = DescribeDirectConnectGatewayAssociationProposalsResponse'
-  { directConnectGatewayAssociationProposals ::
-      Lude.Maybe
-        [DirectConnectGatewayAssociationProposal],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Describes the Direct Connect gateway association proposals.
+    directConnectGatewayAssociationProposals :: Lude.Maybe [DirectConnectGatewayAssociationProposal],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectConnectGatewayAssociationProposalsResponse' with the minimum fields required to make a request.
 --

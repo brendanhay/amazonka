@@ -35,32 +35,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemediationExecutionStatus' smart constructor.
 data RemediationExecutionStatus = RemediationExecutionStatus'
-  { state ::
-      Lude.Maybe RemediationExecutionState,
-    lastUpdatedTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | ENUM of the values.
+    state :: Lude.Maybe RemediationExecutionState,
+    -- | The time when the remediation execution was last updated.
+    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
     resourceKey :: Lude.Maybe ResourceKey,
-    stepDetails ::
-      Lude.Maybe [RemediationExecutionStep],
-    invocationTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | Details of every step.
+    stepDetails :: Lude.Maybe [RemediationExecutionStep],
+    -- | Start time when the remediation was executed.
+    invocationTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationExecutionStatus' with the minimum fields required to make a request.
 --
--- * 'invocationTime' - Start time when the remediation was executed.
--- * 'lastUpdatedTime' - The time when the remediation execution was last updated.
--- * 'resourceKey' - Undocumented field.
 -- * 'state' - ENUM of the values.
+-- * 'lastUpdatedTime' - The time when the remediation execution was last updated.
+-- * 'resourceKey' -
 -- * 'stepDetails' - Details of every step.
+-- * 'invocationTime' - Start time when the remediation was executed.
 mkRemediationExecutionStatus ::
   RemediationExecutionStatus
 mkRemediationExecutionStatus =

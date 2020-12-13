@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence
   ( Eac3AtmosDialogueIntelligence
       ( Eac3AtmosDialogueIntelligence',
-        EADIDisabled,
-        EADIEnabled
+        EADIEnabled,
+        EADIDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Eac3AtmosDialogueIntelligence = Eac3AtmosDialogueIntelligence' Lude.Text
       Lude.ToHeader
     )
 
-pattern EADIDisabled :: Eac3AtmosDialogueIntelligence
-pattern EADIDisabled = Eac3AtmosDialogueIntelligence' "DISABLED"
-
 pattern EADIEnabled :: Eac3AtmosDialogueIntelligence
 pattern EADIEnabled = Eac3AtmosDialogueIntelligence' "ENABLED"
 
+pattern EADIDisabled :: Eac3AtmosDialogueIntelligence
+pattern EADIDisabled = Eac3AtmosDialogueIntelligence' "DISABLED"
+
 {-# COMPLETE
-  EADIDisabled,
   EADIEnabled,
+  EADIDisabled,
   Eac3AtmosDialogueIntelligence'
   #-}

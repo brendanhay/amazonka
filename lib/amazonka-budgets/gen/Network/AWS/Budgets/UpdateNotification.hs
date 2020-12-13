@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Budgets.UpdateNotification
     mkUpdateNotification,
 
     -- ** Request lenses
+    unOldNotification,
     unAccountId,
     unBudgetName,
-    unOldNotification,
     unNewNotification,
 
     -- * Destructuring the response
@@ -43,48 +44,52 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateNotification' smart constructor.
 data UpdateNotification = UpdateNotification'
-  { accountId ::
-      Lude.Text,
-    budgetName :: Lude.Text,
+  { -- | The previous notification that is associated with a budget.
     oldNotification :: Notification,
+    -- | The @accountId@ that is associated with the budget whose notification you want to update.
+    accountId :: Lude.Text,
+    -- | The name of the budget whose notification you want to update.
+    budgetName :: Lude.Text,
+    -- | The updated notification to be associated with a budget.
     newNotification :: Notification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotification' with the minimum fields required to make a request.
 --
+-- * 'oldNotification' - The previous notification that is associated with a budget.
 -- * 'accountId' - The @accountId@ that is associated with the budget whose notification you want to update.
 -- * 'budgetName' - The name of the budget whose notification you want to update.
 -- * 'newNotification' - The updated notification to be associated with a budget.
--- * 'oldNotification' - The previous notification that is associated with a budget.
 mkUpdateNotification ::
+  -- | 'oldNotification'
+  Notification ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'oldNotification'
-  Notification ->
   -- | 'newNotification'
   Notification ->
   UpdateNotification
 mkUpdateNotification
+  pOldNotification_
   pAccountId_
   pBudgetName_
-  pOldNotification_
   pNewNotification_ =
     UpdateNotification'
-      { accountId = pAccountId_,
+      { oldNotification = pOldNotification_,
+        accountId = pAccountId_,
         budgetName = pBudgetName_,
-        oldNotification = pOldNotification_,
         newNotification = pNewNotification_
       }
+
+-- | The previous notification that is associated with a budget.
+--
+-- /Note:/ Consider using 'oldNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unOldNotification :: Lens.Lens' UpdateNotification Notification
+unOldNotification = Lens.lens (oldNotification :: UpdateNotification -> Notification) (\s a -> s {oldNotification = a} :: UpdateNotification)
+{-# DEPRECATED unOldNotification "Use generic-lens or generic-optics with 'oldNotification' instead." #-}
 
 -- | The @accountId@ that is associated with the budget whose notification you want to update.
 --
@@ -99,13 +104,6 @@ unAccountId = Lens.lens (accountId :: UpdateNotification -> Lude.Text) (\s a -> 
 unBudgetName :: Lens.Lens' UpdateNotification Lude.Text
 unBudgetName = Lens.lens (budgetName :: UpdateNotification -> Lude.Text) (\s a -> s {budgetName = a} :: UpdateNotification)
 {-# DEPRECATED unBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
-
--- | The previous notification that is associated with a budget.
---
--- /Note:/ Consider using 'oldNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unOldNotification :: Lens.Lens' UpdateNotification Notification
-unOldNotification = Lens.lens (oldNotification :: UpdateNotification -> Notification) (\s a -> s {oldNotification = a} :: UpdateNotification)
-{-# DEPRECATED unOldNotification "Use generic-lens or generic-optics with 'oldNotification' instead." #-}
 
 -- | The updated notification to be associated with a budget.
 --
@@ -138,9 +136,9 @@ instance Lude.ToJSON UpdateNotification where
   toJSON UpdateNotification' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
+          [ Lude.Just ("OldNotification" Lude..= oldNotification),
+            Lude.Just ("AccountId" Lude..= accountId),
             Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("OldNotification" Lude..= oldNotification),
             Lude.Just ("NewNotification" Lude..= newNotification)
           ]
       )
@@ -155,16 +153,10 @@ instance Lude.ToQuery UpdateNotification where
 --
 -- /See:/ 'mkUpdateNotificationResponse' smart constructor.
 newtype UpdateNotificationResponse = UpdateNotificationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotificationResponse' with the minimum fields required to make a request.

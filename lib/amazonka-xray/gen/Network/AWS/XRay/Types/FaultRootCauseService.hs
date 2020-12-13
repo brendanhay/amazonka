@@ -34,30 +34,29 @@ import Network.AWS.XRay.Types.FaultRootCauseEntity
 --
 -- /See:/ 'mkFaultRootCauseService' smart constructor.
 data FaultRootCauseService = FaultRootCauseService'
-  { entityPath ::
-      Lude.Maybe [FaultRootCauseEntity],
+  { -- | The path of root cause entities found on the service.
+    entityPath :: Lude.Maybe [FaultRootCauseEntity],
+    -- | The account ID associated to the service.
     accountId :: Lude.Maybe Lude.Text,
+    -- | A collection of associated service names.
     names :: Lude.Maybe [Lude.Text],
+    -- | The service name.
     name :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating if the service is inferred from the trace.
     inferred :: Lude.Maybe Lude.Bool,
+    -- | The type associated to the service.
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaultRootCauseService' with the minimum fields required to make a request.
 --
--- * 'accountId' - The account ID associated to the service.
 -- * 'entityPath' - The path of root cause entities found on the service.
--- * 'inferred' - A Boolean value indicating if the service is inferred from the trace.
--- * 'name' - The service name.
+-- * 'accountId' - The account ID associated to the service.
 -- * 'names' - A collection of associated service names.
+-- * 'name' - The service name.
+-- * 'inferred' - A Boolean value indicating if the service is inferred from the trace.
 -- * 'type'' - The type associated to the service.
 mkFaultRootCauseService ::
   FaultRootCauseService

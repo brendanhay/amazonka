@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSpeechSynthesisTasks' smart constructor.
 data ListSpeechSynthesisTasks = ListSpeechSynthesisTasks'
-  { status ::
-      Lude.Maybe TaskStatus,
+  { -- | Status of the speech synthesis tasks returned in a List operation
+    status :: Lude.Maybe TaskStatus,
+    -- | The pagination token to use in the next request to continue the listing of speech synthesis tasks.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of speech synthesis tasks returned in a List operation.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSpeechSynthesisTasks' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of speech synthesis tasks returned in a List operation.
--- * 'nextToken' - The pagination token to use in the next request to continue the listing of speech synthesis tasks.
 -- * 'status' - Status of the speech synthesis tasks returned in a List operation
+-- * 'nextToken' - The pagination token to use in the next request to continue the listing of speech synthesis tasks.
+-- * 'maxResults' - Maximum number of speech synthesis tasks returned in a List operation.
 mkListSpeechSynthesisTasks ::
   ListSpeechSynthesisTasks
 mkListSpeechSynthesisTasks =
@@ -131,28 +128,21 @@ instance Lude.ToQuery ListSpeechSynthesisTasks where
 
 -- | /See:/ 'mkListSpeechSynthesisTasksResponse' smart constructor.
 data ListSpeechSynthesisTasksResponse = ListSpeechSynthesisTasksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    synthesisTasks ::
-      Lude.Maybe
-        [SynthesisTask],
-    responseStatus ::
-      Lude.Int
+  { -- | An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.
+    synthesisTasks :: Lude.Maybe [SynthesisTask],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSpeechSynthesisTasksResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.
--- * 'responseStatus' - The response status code.
 -- * 'synthesisTasks' - List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.
+-- * 'responseStatus' - The response status code.
 mkListSpeechSynthesisTasksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

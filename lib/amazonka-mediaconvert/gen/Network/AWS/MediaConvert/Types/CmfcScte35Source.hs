@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmfcScte35Source
   ( CmfcScte35Source
       ( CmfcScte35Source',
-        CSSNone,
-        CSSPassthrough
+        CSSPassthrough,
+        CSSNone
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmfcScte35Source = CmfcScte35Source' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSSNone :: CmfcScte35Source
-pattern CSSNone = CmfcScte35Source' "NONE"
-
 pattern CSSPassthrough :: CmfcScte35Source
 pattern CSSPassthrough = CmfcScte35Source' "PASSTHROUGH"
 
+pattern CSSNone :: CmfcScte35Source
+pattern CSSNone = CmfcScte35Source' "NONE"
+
 {-# COMPLETE
-  CSSNone,
   CSSPassthrough,
+  CSSNone,
   CmfcScte35Source'
   #-}

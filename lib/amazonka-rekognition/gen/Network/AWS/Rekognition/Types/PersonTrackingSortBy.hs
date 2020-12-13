@@ -13,8 +13,8 @@
 module Network.AWS.Rekognition.Types.PersonTrackingSortBy
   ( PersonTrackingSortBy
       ( PersonTrackingSortBy',
-        Index,
-        Timestamp
+        PTSBIndex,
+        PTSBTimestamp
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PersonTrackingSortBy = PersonTrackingSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Index :: PersonTrackingSortBy
-pattern Index = PersonTrackingSortBy' "INDEX"
+pattern PTSBIndex :: PersonTrackingSortBy
+pattern PTSBIndex = PersonTrackingSortBy' "INDEX"
 
-pattern Timestamp :: PersonTrackingSortBy
-pattern Timestamp = PersonTrackingSortBy' "TIMESTAMP"
+pattern PTSBTimestamp :: PersonTrackingSortBy
+pattern PTSBTimestamp = PersonTrackingSortBy' "TIMESTAMP"
 
 {-# COMPLETE
-  Index,
-  Timestamp,
+  PTSBIndex,
+  PTSBTimestamp,
   PersonTrackingSortBy'
   #-}

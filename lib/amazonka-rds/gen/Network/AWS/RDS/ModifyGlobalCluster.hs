@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,18 +42,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyGlobalCluster' smart constructor.
 data ModifyGlobalCluster = ModifyGlobalCluster'
-  { deletionProtection ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates if the global database cluster has deletion protection enabled. The global database cluster can't be deleted when deletion protection is enabled.
+    deletionProtection :: Lude.Maybe Lude.Bool,
+    -- | The DB cluster identifier for the global cluster being modified. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing global database cluster.
     globalClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The new cluster identifier for the global database cluster when modifying a global database cluster. This value is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 1 to 63 letters, numbers, or hyphens
+    --
+    --
+    --     * The first character must be a letter
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens
+    --
+    --
+    -- Example: @my-cluster2@
     newGlobalClusterIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyGlobalCluster' with the minimum fields required to make a request.
@@ -158,22 +172,16 @@ instance Lude.ToQuery ModifyGlobalCluster where
 
 -- | /See:/ 'mkModifyGlobalClusterResponse' smart constructor.
 data ModifyGlobalClusterResponse = ModifyGlobalClusterResponse'
-  { globalCluster ::
-      Lude.Maybe GlobalCluster,
+  { globalCluster :: Lude.Maybe GlobalCluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyGlobalClusterResponse' with the minimum fields required to make a request.
 --
--- * 'globalCluster' - Undocumented field.
+-- * 'globalCluster' -
 -- * 'responseStatus' - The response status code.
 mkModifyGlobalClusterResponse ::
   -- | 'responseStatus'

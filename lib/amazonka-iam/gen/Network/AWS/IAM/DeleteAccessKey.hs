@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,27 +39,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAccessKey' smart constructor.
 data DeleteAccessKey = DeleteAccessKey'
-  { userName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the user whose access key pair you want to delete.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text,
+    -- | The access key ID for the access key ID and secret access key you want to delete.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
     accessKeyId :: AccessKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessKey' with the minimum fields required to make a request.
 --
--- * 'accessKeyId' - The access key ID for the access key ID and secret access key you want to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 -- * 'userName' - The name of the user whose access key pair you want to delete.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'accessKeyId' - The access key ID for the access key ID and secret access key you want to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 mkDeleteAccessKey ::
   -- | 'accessKeyId'
   AccessKey ->
@@ -109,13 +109,7 @@ instance Lude.ToQuery DeleteAccessKey where
 
 -- | /See:/ 'mkDeleteAccessKeyResponse' smart constructor.
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAccessKeyResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.APIGateway.GetGatewayResponses
 
     -- ** Request lenses
     ggrLimit,
-    ggrPosition,
     ggrRestAPIId,
+    ggrPosition,
 
     -- * Destructuring the response
     GetGatewayResponsesResponse (..),
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetGatewayResponses' smart constructor.
 data GetGatewayResponses = GetGatewayResponses'
-  { limit ::
-      Lude.Maybe Lude.Int,
-    position :: Lude.Maybe Lude.Text,
-    restAPIId :: Lude.Text
+  { -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
+    limit :: Lude.Maybe Lude.Int,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayResponses' with the minimum fields required to make a request.
 --
 -- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
--- * 'position' - The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'position' - The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
 mkGetGatewayResponses ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -73,8 +70,8 @@ mkGetGatewayResponses ::
 mkGetGatewayResponses pRestAPIId_ =
   GetGatewayResponses'
     { limit = Lude.Nothing,
-      position = Lude.Nothing,
-      restAPIId = pRestAPIId_
+      restAPIId = pRestAPIId_,
+      position = Lude.Nothing
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The 'GatewayResponses' collection does not support pagination and the limit does not apply here.
@@ -84,19 +81,19 @@ ggrLimit :: Lens.Lens' GetGatewayResponses (Lude.Maybe Lude.Int)
 ggrLimit = Lens.lens (limit :: GetGatewayResponses -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetGatewayResponses)
 {-# DEPRECATED ggrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
---
--- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrPosition :: Lens.Lens' GetGatewayResponses (Lude.Maybe Lude.Text)
-ggrPosition = Lens.lens (position :: GetGatewayResponses -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetGatewayResponses)
-{-# DEPRECATED ggrPosition "Use generic-lens or generic-optics with 'position' instead." #-}
-
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ggrRestAPIId :: Lens.Lens' GetGatewayResponses Lude.Text
 ggrRestAPIId = Lens.lens (restAPIId :: GetGatewayResponses -> Lude.Text) (\s a -> s {restAPIId = a} :: GetGatewayResponses)
 {-# DEPRECATED ggrRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | The current pagination position in the paged result set. The 'GatewayResponse' collection does not support pagination and the position does not apply here.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrPosition :: Lens.Lens' GetGatewayResponses (Lude.Maybe Lude.Text)
+ggrPosition = Lens.lens (position :: GetGatewayResponses -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetGatewayResponses)
+{-# DEPRECATED ggrPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 instance Page.AWSPager GetGatewayResponses where
   page rq rs
@@ -148,24 +145,19 @@ instance Lude.ToQuery GetGatewayResponses where
 --
 -- /See:/ 'mkGetGatewayResponsesResponse' smart constructor.
 data GetGatewayResponsesResponse = GetGatewayResponsesResponse'
-  { items ::
-      Lude.Maybe [GatewayResponse],
+  { -- | Returns the entire collection, because of no pagination support.
+    items :: Lude.Maybe [GatewayResponse],
     position :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayResponsesResponse' with the minimum fields required to make a request.
 --
 -- * 'items' - Returns the entire collection, because of no pagination support.
--- * 'position' - Undocumented field.
+-- * 'position' -
 -- * 'responseStatus' - The response status code.
 mkGetGatewayResponsesResponse ::
   -- | 'responseStatus'

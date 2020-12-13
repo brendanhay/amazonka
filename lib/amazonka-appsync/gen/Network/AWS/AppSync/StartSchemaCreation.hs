@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,26 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartSchemaCreation' smart constructor.
 data StartSchemaCreation = StartSchemaCreation'
-  { apiId :: Lude.Text,
+  { -- | The API ID.
+    apiId :: Lude.Text,
+    -- | The schema definition, in GraphQL schema language format.
     definition :: Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaCreation' with the minimum fields required to make a request.
 --
 -- * 'apiId' - The API ID.
--- * 'definition' - The schema definition, in GraphQL schema language format.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'definition' - The schema definition, in GraphQL schema language format.
 mkStartSchemaCreation ::
   -- | 'apiId'
   Lude.Text ->
@@ -122,23 +115,18 @@ instance Lude.ToQuery StartSchemaCreation where
 
 -- | /See:/ 'mkStartSchemaCreationResponse' smart constructor.
 data StartSchemaCreationResponse = StartSchemaCreationResponse'
-  { status ::
-      Lude.Maybe SchemaStatus,
+  { -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
+    status :: Lude.Maybe SchemaStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaCreationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
+-- * 'responseStatus' - The response status code.
 mkStartSchemaCreationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -37,29 +37,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCrawlerTargets' smart constructor.
 data CrawlerTargets = CrawlerTargets'
-  { dynamoDBTargets ::
-      Lude.Maybe [DynamoDBTarget],
+  { -- | Specifies Amazon DynamoDB targets.
+    dynamoDBTargets :: Lude.Maybe [DynamoDBTarget],
+    -- | Specifies Amazon Simple Storage Service (Amazon S3) targets.
     s3Targets :: Lude.Maybe [S3Target],
+    -- | Specifies Amazon DocumentDB or MongoDB targets.
     mongoDBTargets :: Lude.Maybe [MongoDBTarget],
+    -- | Specifies AWS Glue Data Catalog targets.
     catalogTargets :: Lude.Maybe [CatalogTarget],
+    -- | Specifies JDBC targets.
     jdbcTargets :: Lude.Maybe [JdbcTarget]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CrawlerTargets' with the minimum fields required to make a request.
 --
--- * 'catalogTargets' - Specifies AWS Glue Data Catalog targets.
 -- * 'dynamoDBTargets' - Specifies Amazon DynamoDB targets.
--- * 'jdbcTargets' - Specifies JDBC targets.
--- * 'mongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.
 -- * 's3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.
+-- * 'mongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.
+-- * 'catalogTargets' - Specifies AWS Glue Data Catalog targets.
+-- * 'jdbcTargets' - Specifies JDBC targets.
 mkCrawlerTargets ::
   CrawlerTargets
 mkCrawlerTargets =

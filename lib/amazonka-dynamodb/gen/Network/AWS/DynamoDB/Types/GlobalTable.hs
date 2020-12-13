@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalTable' smart constructor.
 data GlobalTable = GlobalTable'
-  { globalTableName ::
-      Lude.Maybe Lude.Text,
+  { -- | The global table name.
+    globalTableName :: Lude.Maybe Lude.Text,
+    -- | The Regions where the global table has replicas.
     replicationGroup :: Lude.Maybe [Replica]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalTable' with the minimum fields required to make a request.

@@ -34,26 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResultByTime' smart constructor.
 data ResultByTime = ResultByTime'
-  { groups :: Lude.Maybe [Group],
+  { -- | The groups that this time period includes.
+    groups :: Lude.Maybe [Group],
+    -- | The time period that the result covers.
     timePeriod :: Lude.Maybe DateInterval,
+    -- | The total amount of cost or usage accrued during the time period.
     total :: Lude.Maybe (Lude.HashMap Lude.Text (MetricValue)),
+    -- | Whether the result is estimated.
     estimated :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultByTime' with the minimum fields required to make a request.
 --
--- * 'estimated' - Whether the result is estimated.
 -- * 'groups' - The groups that this time period includes.
 -- * 'timePeriod' - The time period that the result covers.
 -- * 'total' - The total amount of cost or usage accrued during the time period.
+-- * 'estimated' - Whether the result is estimated.
 mkResultByTime ::
   ResultByTime
 mkResultByTime =

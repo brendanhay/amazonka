@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate
 
     -- ** Request lenses
     lrfartNextToken,
-    lrfartMaxResults,
     lrfartApprovalRuleTemplateName,
+    lrfartMaxResults,
 
     -- * Destructuring the response
     ListRepositoriesForApprovalRuleTemplateResponse (..),
@@ -42,29 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListRepositoriesForApprovalRuleTemplate' smart constructor.
 data ListRepositoriesForApprovalRuleTemplate = ListRepositoriesForApprovalRuleTemplate'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int,
-    approvalRuleTemplateName ::
-      Lude.Text
+  { -- | An enumeration token that, when provided in a request, returns the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the approval rule template for which you want to list repositories that are associated with that template.
+    approvalRuleTemplateName :: Lude.Text,
+    -- | A non-zero, non-negative integer used to limit the number of returned results.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRepositoriesForApprovalRuleTemplate' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
 -- * 'approvalRuleTemplateName' - The name of the approval rule template for which you want to list repositories that are associated with that template.
 -- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results.
--- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
 mkListRepositoriesForApprovalRuleTemplate ::
   -- | 'approvalRuleTemplateName'
   Lude.Text ->
@@ -74,8 +67,8 @@ mkListRepositoriesForApprovalRuleTemplate
     ListRepositoriesForApprovalRuleTemplate'
       { nextToken =
           Lude.Nothing,
-        maxResults = Lude.Nothing,
-        approvalRuleTemplateName = pApprovalRuleTemplateName_
+        approvalRuleTemplateName = pApprovalRuleTemplateName_,
+        maxResults = Lude.Nothing
       }
 
 -- | An enumeration token that, when provided in a request, returns the next batch of the results.
@@ -85,19 +78,19 @@ lrfartNextToken :: Lens.Lens' ListRepositoriesForApprovalRuleTemplate (Lude.Mayb
 lrfartNextToken = Lens.lens (nextToken :: ListRepositoriesForApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRepositoriesForApprovalRuleTemplate)
 {-# DEPRECATED lrfartNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | A non-zero, non-negative integer used to limit the number of returned results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrfartMaxResults :: Lens.Lens' ListRepositoriesForApprovalRuleTemplate (Lude.Maybe Lude.Int)
-lrfartMaxResults = Lens.lens (maxResults :: ListRepositoriesForApprovalRuleTemplate -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListRepositoriesForApprovalRuleTemplate)
-{-# DEPRECATED lrfartMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the approval rule template for which you want to list repositories that are associated with that template.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lrfartApprovalRuleTemplateName :: Lens.Lens' ListRepositoriesForApprovalRuleTemplate Lude.Text
 lrfartApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: ListRepositoriesForApprovalRuleTemplate -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: ListRepositoriesForApprovalRuleTemplate)
 {-# DEPRECATED lrfartApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
+
+-- | A non-zero, non-negative integer used to limit the number of returned results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfartMaxResults :: Lens.Lens' ListRepositoriesForApprovalRuleTemplate (Lude.Maybe Lude.Int)
+lrfartMaxResults = Lens.lens (maxResults :: ListRepositoriesForApprovalRuleTemplate -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListRepositoriesForApprovalRuleTemplate)
+{-# DEPRECATED lrfartMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListRepositoriesForApprovalRuleTemplate where
   type
@@ -131,9 +124,9 @@ instance Lude.ToJSON ListRepositoriesForApprovalRuleTemplate where
     Lude.object
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just
-              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
+              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -145,31 +138,20 @@ instance Lude.ToQuery ListRepositoriesForApprovalRuleTemplate where
 
 -- | /See:/ 'mkListRepositoriesForApprovalRuleTemplateResponse' smart constructor.
 data ListRepositoriesForApprovalRuleTemplateResponse = ListRepositoriesForApprovalRuleTemplateResponse'
-  { repositoryNames ::
-      Lude.Maybe
-        [Lude.Text],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of repository names that are associated with the specified approval rule template.
+    repositoryNames :: Lude.Maybe [Lude.Text],
+    -- | An enumeration token that allows the operation to batch the next results of the operation.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRepositoriesForApprovalRuleTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - An enumeration token that allows the operation to batch the next results of the operation.
 -- * 'repositoryNames' - A list of repository names that are associated with the specified approval rule template.
+-- * 'nextToken' - An enumeration token that allows the operation to batch the next results of the operation.
 -- * 'responseStatus' - The response status code.
 mkListRepositoriesForApprovalRuleTemplateResponse ::
   -- | 'responseStatus'

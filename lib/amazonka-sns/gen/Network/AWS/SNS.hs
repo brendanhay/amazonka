@@ -161,8 +161,8 @@ module Network.AWS.SNS
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** Topic
     Topic (..),

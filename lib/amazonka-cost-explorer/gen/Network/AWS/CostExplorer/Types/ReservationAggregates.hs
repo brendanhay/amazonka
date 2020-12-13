@@ -41,49 +41,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationAggregates' smart constructor.
 data ReservationAggregates = ReservationAggregates'
-  { purchasedHours ::
-      Lude.Maybe Lude.Text,
+  { -- | How many reservation hours that you purchased.
+    purchasedHours :: Lude.Maybe Lude.Text,
+    -- | The total number of reservation hours that you used.
     totalActualHours :: Lude.Maybe Lude.Text,
+    -- | The percentage of reservation time that you used.
     utilizationPercentage :: Lude.Maybe Lude.Text,
+    -- | The total cost of your reservation, amortized over the reservation period.
     totalAmortizedFee :: Lude.Maybe Lude.Text,
+    -- | The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
     unusedUnits :: Lude.Maybe Lude.Text,
+    -- | The number of reservation hours that you didn't use.
     unusedHours :: Lude.Maybe Lude.Text,
+    -- | How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
     purchasedUnits :: Lude.Maybe Lude.Text,
+    -- | The upfront cost of your reservation, amortized over the reservation period.
     amortizedUpfrontFee :: Lude.Maybe Lude.Text,
+    -- | The monthly cost of your reservation, amortized over the reservation period.
     amortizedRecurringFee :: Lude.Maybe Lude.Text,
-    utilizationPercentageInUnits ::
-      Lude.Maybe Lude.Text,
+    -- | The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+    utilizationPercentageInUnits :: Lude.Maybe Lude.Text,
+    -- | How much you saved due to purchasing and utilizing reservation. AWS calculates this by subtracting @TotalAmortizedFee@ from @OnDemandCostOfRIHoursUsed@ .
     netRISavings :: Lude.Maybe Lude.Text,
-    onDemandCostOfRIHoursUsed ::
-      Lude.Maybe Lude.Text,
+    -- | How much your reservation would cost if charged On-Demand rates.
+    onDemandCostOfRIHoursUsed :: Lude.Maybe Lude.Text,
+    -- | How much you could save if you use your entire reservation.
     totalPotentialRISavings :: Lude.Maybe Lude.Text,
+    -- | The total number of Amazon EC2 reservation hours that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
     totalActualUnits :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationAggregates' with the minimum fields required to make a request.
 --
--- * 'amortizedRecurringFee' - The monthly cost of your reservation, amortized over the reservation period.
+-- * 'purchasedHours' - How many reservation hours that you purchased.
+-- * 'totalActualHours' - The total number of reservation hours that you used.
+-- * 'utilizationPercentage' - The percentage of reservation time that you used.
+-- * 'totalAmortizedFee' - The total cost of your reservation, amortized over the reservation period.
+-- * 'unusedUnits' - The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+-- * 'unusedHours' - The number of reservation hours that you didn't use.
+-- * 'purchasedUnits' - How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
 -- * 'amortizedUpfrontFee' - The upfront cost of your reservation, amortized over the reservation period.
+-- * 'amortizedRecurringFee' - The monthly cost of your reservation, amortized over the reservation period.
+-- * 'utilizationPercentageInUnits' - The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
 -- * 'netRISavings' - How much you saved due to purchasing and utilizing reservation. AWS calculates this by subtracting @TotalAmortizedFee@ from @OnDemandCostOfRIHoursUsed@ .
 -- * 'onDemandCostOfRIHoursUsed' - How much your reservation would cost if charged On-Demand rates.
--- * 'purchasedHours' - How many reservation hours that you purchased.
--- * 'purchasedUnits' - How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
--- * 'totalActualHours' - The total number of reservation hours that you used.
--- * 'totalActualUnits' - The total number of Amazon EC2 reservation hours that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
--- * 'totalAmortizedFee' - The total cost of your reservation, amortized over the reservation period.
 -- * 'totalPotentialRISavings' - How much you could save if you use your entire reservation.
--- * 'unusedHours' - The number of reservation hours that you didn't use.
--- * 'unusedUnits' - The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
--- * 'utilizationPercentage' - The percentage of reservation time that you used.
--- * 'utilizationPercentageInUnits' - The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+-- * 'totalActualUnits' - The total number of Amazon EC2 reservation hours that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
 mkReservationAggregates ::
   ReservationAggregates
 mkReservationAggregates =

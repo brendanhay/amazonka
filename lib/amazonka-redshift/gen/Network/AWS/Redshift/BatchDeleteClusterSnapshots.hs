@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchDeleteClusterSnapshots' smart constructor.
 newtype BatchDeleteClusterSnapshots = BatchDeleteClusterSnapshots'
-  { identifiers ::
-      [DeleteClusterSnapshotMessage]
+  { -- | A list of identifiers for the snapshots that you want to delete.
+    identifiers :: [DeleteClusterSnapshotMessage]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteClusterSnapshots' with the minimum fields required to make a request.
@@ -104,28 +99,20 @@ instance Lude.ToQuery BatchDeleteClusterSnapshots where
 
 -- | /See:/ 'mkBatchDeleteClusterSnapshotsResponse' smart constructor.
 data BatchDeleteClusterSnapshotsResponse = BatchDeleteClusterSnapshotsResponse'
-  { resources ::
-      Lude.Maybe
-        [Lude.Text],
-    errors ::
-      Lude.Maybe
-        [SnapshotErrorMessage],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of the snapshot identifiers that were deleted.
+    resources :: Lude.Maybe [Lude.Text],
+    -- | A list of any errors returned.
+    errors :: Lude.Maybe [SnapshotErrorMessage],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteClusterSnapshotsResponse' with the minimum fields required to make a request.
 --
--- * 'errors' - A list of any errors returned.
 -- * 'resources' - A list of the snapshot identifiers that were deleted.
+-- * 'errors' - A list of any errors returned.
 -- * 'responseStatus' - The response status code.
 mkBatchDeleteClusterSnapshotsResponse ::
   -- | 'responseStatus'

@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocation' smart constructor.
 data Location = Location'
-  { relativeFileVersion ::
-      Lude.Maybe RelativeFileVersionEnum,
+  { -- | In a comparison of commits or a pull request, whether the change is in the before or after of that comparison.
+    relativeFileVersion :: Lude.Maybe RelativeFileVersionEnum,
+    -- | The name of the file being compared, including its extension and subdirectory, if any.
     filePath :: Lude.Maybe Lude.Text,
+    -- | The position of a change in a compared file, in line number format.
     filePosition :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Location' with the minimum fields required to make a request.
 --
+-- * 'relativeFileVersion' - In a comparison of commits or a pull request, whether the change is in the before or after of that comparison.
 -- * 'filePath' - The name of the file being compared, including its extension and subdirectory, if any.
 -- * 'filePosition' - The position of a change in a compared file, in line number format.
--- * 'relativeFileVersion' - In a comparison of commits or a pull request, whether the change is in the before or after of that comparison.
 mkLocation ::
   Location
 mkLocation =

@@ -36,23 +36,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogPublishingOption' smart constructor.
 data LogPublishingOption = LogPublishingOption'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether given log publishing option is enabled or not.
+    enabled :: Lude.Maybe Lude.Bool,
     cloudWatchLogsLogGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogPublishingOption' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogsLogGroupARN' - Undocumented field.
 -- * 'enabled' - Specifies whether given log publishing option is enabled or not.
+-- * 'cloudWatchLogsLogGroupARN' -
 mkLogPublishingOption ::
   LogPublishingOption
 mkLogPublishingOption =

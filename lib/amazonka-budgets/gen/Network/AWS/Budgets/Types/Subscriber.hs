@@ -39,7 +39,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubscriber' smart constructor.
 data Subscriber = Subscriber'
-  { subscriptionType :: SubscriptionType,
+  { -- | The type of notification that AWS sends to a subscriber.
+    subscriptionType :: SubscriptionType,
+    -- | The address that AWS sends budget notifications to, either an SNS topic or an email.
+    --
+    -- When you create a subscriber, the value of @Address@ can't contain line breaks.
     address :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -47,10 +51,10 @@ data Subscriber = Subscriber'
 
 -- | Creates a value of 'Subscriber' with the minimum fields required to make a request.
 --
+-- * 'subscriptionType' - The type of notification that AWS sends to a subscriber.
 -- * 'address' - The address that AWS sends budget notifications to, either an SNS topic or an email.
 --
 -- When you create a subscriber, the value of @Address@ can't contain line breaks.
--- * 'subscriptionType' - The type of notification that AWS sends to a subscriber.
 mkSubscriber ::
   -- | 'subscriptionType'
   SubscriptionType ->

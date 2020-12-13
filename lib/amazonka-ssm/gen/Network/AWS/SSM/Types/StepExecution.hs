@@ -53,64 +53,78 @@ import Network.AWS.SSM.Types.TargetLocation
 --
 -- /See:/ 'mkStepExecution' smart constructor.
 data StepExecution = StepExecution'
-  { failureDetails ::
-      Lude.Maybe FailureDetails,
+  { -- | Information about the Automation failure.
+    failureDetails :: Lude.Maybe FailureDetails,
+    -- | The flag which can be used to end automation no matter whether the step succeeds or fails.
     isEnd :: Lude.Maybe Lude.Bool,
+    -- | Fully-resolved values passed into the step before execution.
     inputs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of this execution step.
     stepName :: Lude.Maybe Lude.Text,
+    -- | If a step has finished execution, this contains the time the execution ended. If the step has not yet concluded, this field is not populated.
     executionEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | If a step failed, this message explains why the execution failed.
     failureMessage :: Lude.Maybe Lude.Text,
+    -- | A message associated with the response code for an execution.
     response :: Lude.Maybe Lude.Text,
+    -- | The action this step performs. The action determines the behavior of the step.
     action :: Lude.Maybe Lude.Text,
+    -- | The response code returned by the execution of the step.
     responseCode :: Lude.Maybe Lude.Text,
+    -- | The execution status for this step.
     stepStatus :: Lude.Maybe AutomationExecutionStatus,
+    -- | The combination of AWS Regions and accounts targeted by the current Automation execution.
     targetLocation :: Lude.Maybe TargetLocation,
-    overriddenParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | A user-specified list of parameters to override when running a step.
+    overriddenParameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | Returned values from the execution of the step.
     outputs :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
     executionStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of tries to run the action of the step. The default value is 1.
     maxAttempts :: Lude.Maybe Lude.Int,
+    -- | The targets for the step execution.
     targets :: Lude.Maybe [Target],
+    -- | The next step after the step succeeds.
     nextStep :: Lude.Maybe Lude.Text,
+    -- | The unique ID of a step execution.
     stepExecutionId :: Lude.Maybe Lude.Text,
+    -- | Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to run the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
     validNextSteps :: Lude.Maybe [Lude.Text],
+    -- | The timeout seconds of the step.
     timeoutSeconds :: Lude.Maybe Lude.Integer,
+    -- | The action to take if the step fails. The default value is Abort.
     onFailure :: Lude.Maybe Lude.Text,
+    -- | The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
     isCritical :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepExecution' with the minimum fields required to make a request.
 --
--- * 'action' - The action this step performs. The action determines the behavior of the step.
--- * 'executionEndTime' - If a step has finished execution, this contains the time the execution ended. If the step has not yet concluded, this field is not populated.
--- * 'executionStartTime' - If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
 -- * 'failureDetails' - Information about the Automation failure.
--- * 'failureMessage' - If a step failed, this message explains why the execution failed.
--- * 'inputs' - Fully-resolved values passed into the step before execution.
--- * 'isCritical' - The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
 -- * 'isEnd' - The flag which can be used to end automation no matter whether the step succeeds or fails.
--- * 'maxAttempts' - The maximum number of tries to run the action of the step. The default value is 1.
--- * 'nextStep' - The next step after the step succeeds.
--- * 'onFailure' - The action to take if the step fails. The default value is Abort.
--- * 'outputs' - Returned values from the execution of the step.
--- * 'overriddenParameters' - A user-specified list of parameters to override when running a step.
--- * 'response' - A message associated with the response code for an execution.
--- * 'responseCode' - The response code returned by the execution of the step.
--- * 'stepExecutionId' - The unique ID of a step execution.
+-- * 'inputs' - Fully-resolved values passed into the step before execution.
 -- * 'stepName' - The name of this execution step.
+-- * 'executionEndTime' - If a step has finished execution, this contains the time the execution ended. If the step has not yet concluded, this field is not populated.
+-- * 'failureMessage' - If a step failed, this message explains why the execution failed.
+-- * 'response' - A message associated with the response code for an execution.
+-- * 'action' - The action this step performs. The action determines the behavior of the step.
+-- * 'responseCode' - The response code returned by the execution of the step.
 -- * 'stepStatus' - The execution status for this step.
 -- * 'targetLocation' - The combination of AWS Regions and accounts targeted by the current Automation execution.
+-- * 'overriddenParameters' - A user-specified list of parameters to override when running a step.
+-- * 'outputs' - Returned values from the execution of the step.
+-- * 'executionStartTime' - If a step has begun execution, this contains the time the step started. If the step is in Pending status, this field is not populated.
+-- * 'maxAttempts' - The maximum number of tries to run the action of the step. The default value is 1.
 -- * 'targets' - The targets for the step execution.
--- * 'timeoutSeconds' - The timeout seconds of the step.
+-- * 'nextStep' - The next step after the step succeeds.
+-- * 'stepExecutionId' - The unique ID of a step execution.
 -- * 'validNextSteps' - Strategies used when step fails, we support Continue and Abort. Abort will fail the automation when the step fails. Continue will ignore the failure of current step and allow automation to run the next step. With conditional branching, we add step:stepName to support the automation to go to another specific step.
+-- * 'timeoutSeconds' - The timeout seconds of the step.
+-- * 'onFailure' - The action to take if the step fails. The default value is Abort.
+-- * 'isCritical' - The flag which can be used to help decide whether the failure of current step leads to the Automation failure.
 mkStepExecution ::
   StepExecution
 mkStepExecution =

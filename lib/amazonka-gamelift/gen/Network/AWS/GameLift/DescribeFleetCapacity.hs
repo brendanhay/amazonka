@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -94,26 +95,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeFleetCapacity' smart constructor.
 data DescribeFleetCapacity = DescribeFleetCapacity'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
     limit :: Lude.Maybe Lude.Natural,
-    fleetIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text)
+    -- | A unique identifier for a fleet(s) to retrieve capacity information for. You can use either the fleet ID or ARN value.
+    fleetIds :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetCapacity' with the minimum fields required to make a request.
 --
--- * 'fleetIds' - A unique identifier for a fleet(s) to retrieve capacity information for. You can use either the fleet ID or ARN value.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
 -- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is ignored when the request specifies one or a list of fleet IDs.
+-- * 'fleetIds' - A unique identifier for a fleet(s) to retrieve capacity information for. You can use either the fleet ID or ARN value.
 mkDescribeFleetCapacity ::
   DescribeFleetCapacity
 mkDescribeFleetCapacity =
@@ -196,25 +192,20 @@ instance Lude.ToQuery DescribeFleetCapacity where
 --
 -- /See:/ 'mkDescribeFleetCapacityResponse' smart constructor.
 data DescribeFleetCapacityResponse = DescribeFleetCapacityResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    fleetCapacity ::
-      Lude.Maybe [FleetCapacity],
+  { -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
+    fleetCapacity :: Lude.Maybe [FleetCapacity],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetCapacityResponse' with the minimum fields required to make a request.
 --
--- * 'fleetCapacity' - A collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
 -- * 'nextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+-- * 'fleetCapacity' - A collection of objects containing capacity information for each requested fleet ID. Leave this parameter empty to retrieve capacity information for all fleets.
 -- * 'responseStatus' - The response status code.
 mkDescribeFleetCapacityResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.EC2.ModifyInstanceCreditSpecification
 
     -- ** Request lenses
     micsClientToken,
-    micsDryRun,
     micsInstanceCreditSpecifications,
+    micsDryRun,
 
     -- * Destructuring the response
     ModifyInstanceCreditSpecificationResponse (..),
@@ -44,34 +45,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyInstanceCreditSpecification' smart constructor.
 data ModifyInstanceCreditSpecification = ModifyInstanceCreditSpecification'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    instanceCreditSpecifications ::
-      [InstanceCreditSpecificationRequest]
+  { -- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | Information about the credit option for CPU usage.
+    instanceCreditSpecifications :: [InstanceCreditSpecificationRequest],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceCreditSpecification' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceCreditSpecifications' - Information about the credit option for CPU usage.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyInstanceCreditSpecification ::
   ModifyInstanceCreditSpecification
 mkModifyInstanceCreditSpecification =
   ModifyInstanceCreditSpecification'
     { clientToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceCreditSpecifications = Lude.mempty
+      instanceCreditSpecifications = Lude.mempty,
+      dryRun = Lude.Nothing
     }
 
 -- | A unique, case-sensitive token that you provide to ensure idempotency of your modification request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
@@ -81,19 +76,19 @@ micsClientToken :: Lens.Lens' ModifyInstanceCreditSpecification (Lude.Maybe Lude
 micsClientToken = Lens.lens (clientToken :: ModifyInstanceCreditSpecification -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ModifyInstanceCreditSpecification)
 {-# DEPRECATED micsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-micsDryRun :: Lens.Lens' ModifyInstanceCreditSpecification (Lude.Maybe Lude.Bool)
-micsDryRun = Lens.lens (dryRun :: ModifyInstanceCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyInstanceCreditSpecification)
-{-# DEPRECATED micsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | Information about the credit option for CPU usage.
 --
 -- /Note:/ Consider using 'instanceCreditSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 micsInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecification [InstanceCreditSpecificationRequest]
 micsInstanceCreditSpecifications = Lens.lens (instanceCreditSpecifications :: ModifyInstanceCreditSpecification -> [InstanceCreditSpecificationRequest]) (\s a -> s {instanceCreditSpecifications = a} :: ModifyInstanceCreditSpecification)
 {-# DEPRECATED micsInstanceCreditSpecifications "Use generic-lens or generic-optics with 'instanceCreditSpecifications' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+micsDryRun :: Lens.Lens' ModifyInstanceCreditSpecification (Lude.Maybe Lude.Bool)
+micsDryRun = Lens.lens (dryRun :: ModifyInstanceCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyInstanceCreditSpecification)
+{-# DEPRECATED micsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyInstanceCreditSpecification where
   type
@@ -128,37 +123,29 @@ instance Lude.ToQuery ModifyInstanceCreditSpecification where
           Lude.=: ("ModifyInstanceCreditSpecification" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ClientToken" Lude.=: clientToken,
-        "DryRun" Lude.=: dryRun,
         Lude.toQueryList
           "InstanceCreditSpecification"
-          instanceCreditSpecifications
+          instanceCreditSpecifications,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyInstanceCreditSpecificationResponse' smart constructor.
 data ModifyInstanceCreditSpecificationResponse = ModifyInstanceCreditSpecificationResponse'
-  { unsuccessfulInstanceCreditSpecifications ::
-      Lude.Maybe
-        [UnsuccessfulInstanceCreditSpecificationItem],
-    successfulInstanceCreditSpecifications ::
-      Lude.Maybe
-        [SuccessfulInstanceCreditSpecificationItem],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the instances whose credit option for CPU usage was not modified.
+    unsuccessfulInstanceCreditSpecifications :: Lude.Maybe [UnsuccessfulInstanceCreditSpecificationItem],
+    -- | Information about the instances whose credit option for CPU usage was successfully modified.
+    successfulInstanceCreditSpecifications :: Lude.Maybe [SuccessfulInstanceCreditSpecificationItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceCreditSpecificationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was successfully modified.
 -- * 'unsuccessfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was not modified.
+-- * 'successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was successfully modified.
+-- * 'responseStatus' - The response status code.
 mkModifyInstanceCreditSpecificationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

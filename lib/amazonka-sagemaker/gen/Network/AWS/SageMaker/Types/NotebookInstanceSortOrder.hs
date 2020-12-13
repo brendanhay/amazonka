@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.NotebookInstanceSortOrder
   ( NotebookInstanceSortOrder
       ( NotebookInstanceSortOrder',
-        Ascending,
-        Descending
+        NISOAscending,
+        NISODescending
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype NotebookInstanceSortOrder = NotebookInstanceSortOrder' Lude.Text
       Lude.ToHeader
     )
 
-pattern Ascending :: NotebookInstanceSortOrder
-pattern Ascending = NotebookInstanceSortOrder' "Ascending"
+pattern NISOAscending :: NotebookInstanceSortOrder
+pattern NISOAscending = NotebookInstanceSortOrder' "Ascending"
 
-pattern Descending :: NotebookInstanceSortOrder
-pattern Descending = NotebookInstanceSortOrder' "Descending"
+pattern NISODescending :: NotebookInstanceSortOrder
+pattern NISODescending = NotebookInstanceSortOrder' "Descending"
 
 {-# COMPLETE
-  Ascending,
-  Descending,
+  NISOAscending,
+  NISODescending,
   NotebookInstanceSortOrder'
   #-}

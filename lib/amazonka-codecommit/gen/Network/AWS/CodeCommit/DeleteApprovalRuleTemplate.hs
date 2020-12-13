@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CodeCommit.DeleteApprovalRuleTemplate
     mkDeleteApprovalRuleTemplateResponse,
 
     -- ** Response lenses
-    dartrsResponseStatus,
     dartrsApprovalRuleTemplateId,
+    dartrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteApprovalRuleTemplate' smart constructor.
 newtype DeleteApprovalRuleTemplate = DeleteApprovalRuleTemplate'
-  { approvalRuleTemplateName ::
-      Lude.Text
+  { -- | The name of the approval rule template to delete.
+    approvalRuleTemplateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApprovalRuleTemplate' with the minimum fields required to make a request.
@@ -80,8 +75,8 @@ instance Lude.AWSRequest DeleteApprovalRuleTemplate where
     Res.receiveJSON
       ( \s h x ->
           DeleteApprovalRuleTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "approvalRuleTemplateId")
+            Lude.<$> (x Lude..:> "approvalRuleTemplateId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteApprovalRuleTemplate where
@@ -114,18 +109,12 @@ instance Lude.ToQuery DeleteApprovalRuleTemplate where
 
 -- | /See:/ 'mkDeleteApprovalRuleTemplateResponse' smart constructor.
 data DeleteApprovalRuleTemplateResponse = DeleteApprovalRuleTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    approvalRuleTemplateId ::
-      Lude.Text
+  { -- | The system-generated ID of the deleted approval rule template. If the template has been previously deleted, the only response is a 200 OK.
+    approvalRuleTemplateId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteApprovalRuleTemplateResponse' with the minimum fields required to make a request.
@@ -133,26 +122,19 @@ data DeleteApprovalRuleTemplateResponse = DeleteApprovalRuleTemplateResponse'
 -- * 'approvalRuleTemplateId' - The system-generated ID of the deleted approval rule template. If the template has been previously deleted, the only response is a 200 OK.
 -- * 'responseStatus' - The response status code.
 mkDeleteApprovalRuleTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'approvalRuleTemplateId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteApprovalRuleTemplateResponse
 mkDeleteApprovalRuleTemplateResponse
-  pResponseStatus_
-  pApprovalRuleTemplateId_ =
+  pApprovalRuleTemplateId_
+  pResponseStatus_ =
     DeleteApprovalRuleTemplateResponse'
-      { responseStatus =
-          pResponseStatus_,
-        approvalRuleTemplateId = pApprovalRuleTemplateId_
+      { approvalRuleTemplateId =
+          pApprovalRuleTemplateId_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dartrsResponseStatus :: Lens.Lens' DeleteApprovalRuleTemplateResponse Lude.Int
-dartrsResponseStatus = Lens.lens (responseStatus :: DeleteApprovalRuleTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteApprovalRuleTemplateResponse)
-{-# DEPRECATED dartrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The system-generated ID of the deleted approval rule template. If the template has been previously deleted, the only response is a 200 OK.
 --
@@ -160,3 +142,10 @@ dartrsResponseStatus = Lens.lens (responseStatus :: DeleteApprovalRuleTemplateRe
 dartrsApprovalRuleTemplateId :: Lens.Lens' DeleteApprovalRuleTemplateResponse Lude.Text
 dartrsApprovalRuleTemplateId = Lens.lens (approvalRuleTemplateId :: DeleteApprovalRuleTemplateResponse -> Lude.Text) (\s a -> s {approvalRuleTemplateId = a} :: DeleteApprovalRuleTemplateResponse)
 {-# DEPRECATED dartrsApprovalRuleTemplateId "Use generic-lens or generic-optics with 'approvalRuleTemplateId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dartrsResponseStatus :: Lens.Lens' DeleteApprovalRuleTemplateResponse Lude.Int
+dartrsResponseStatus = Lens.lens (responseStatus :: DeleteApprovalRuleTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteApprovalRuleTemplateResponse)
+{-# DEPRECATED dartrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

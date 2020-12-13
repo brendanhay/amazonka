@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.CognitoSync.ListRecords
     mkListRecords,
 
     -- ** Request lenses
+    lrIdentityPoolId,
     lrLastSyncCount,
     lrNextToken,
     lrSyncSessionToken,
-    lrMaxResults,
-    lrIdentityPoolId,
-    lrIdentityId,
     lrDatasetName,
+    lrIdentityId,
+    lrMaxResults,
 
     -- * Destructuring the response
     ListRecordsResponse (..),
@@ -57,51 +58,58 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListRecords' smart constructor.
 data ListRecords = ListRecords'
-  { lastSyncCount ::
-      Lude.Maybe Lude.Integer,
-    nextToken :: Lude.Maybe Lude.Text,
-    syncSessionToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
     identityPoolId :: Lude.Text,
+    -- | The last server sync count for this record.
+    lastSyncCount :: Lude.Maybe Lude.Integer,
+    -- | A pagination token for obtaining the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A token containing a session ID, identity ID, and expiration.
+    syncSessionToken :: Lude.Maybe Lude.Text,
+    -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+    datasetName :: Lude.Text,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
     identityId :: Lude.Text,
-    datasetName :: Lude.Text
+    -- | The maximum number of results to be returned.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecords' with the minimum fields required to make a request.
 --
--- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
--- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'lastSyncCount' - The last server sync count for this record.
--- * 'maxResults' - The maximum number of results to be returned.
 -- * 'nextToken' - A pagination token for obtaining the next page of results.
 -- * 'syncSessionToken' - A token containing a session ID, identity ID, and expiration.
+-- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'maxResults' - The maximum number of results to be returned.
 mkListRecords ::
   -- | 'identityPoolId'
   Lude.Text ->
-  -- | 'identityId'
-  Lude.Text ->
   -- | 'datasetName'
   Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
   ListRecords
-mkListRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+mkListRecords pIdentityPoolId_ pDatasetName_ pIdentityId_ =
   ListRecords'
-    { lastSyncCount = Lude.Nothing,
+    { identityPoolId = pIdentityPoolId_,
+      lastSyncCount = Lude.Nothing,
       nextToken = Lude.Nothing,
       syncSessionToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      identityPoolId = pIdentityPoolId_,
+      datasetName = pDatasetName_,
       identityId = pIdentityId_,
-      datasetName = pDatasetName_
+      maxResults = Lude.Nothing
     }
+
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrIdentityPoolId :: Lens.Lens' ListRecords Lude.Text
+lrIdentityPoolId = Lens.lens (identityPoolId :: ListRecords -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListRecords)
+{-# DEPRECATED lrIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | The last server sync count for this record.
 --
@@ -124,19 +132,12 @@ lrSyncSessionToken :: Lens.Lens' ListRecords (Lude.Maybe Lude.Text)
 lrSyncSessionToken = Lens.lens (syncSessionToken :: ListRecords -> Lude.Maybe Lude.Text) (\s a -> s {syncSessionToken = a} :: ListRecords)
 {-# DEPRECATED lrSyncSessionToken "Use generic-lens or generic-optics with 'syncSessionToken' instead." #-}
 
--- | The maximum number of results to be returned.
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrMaxResults :: Lens.Lens' ListRecords (Lude.Maybe Lude.Int)
-lrMaxResults = Lens.lens (maxResults :: ListRecords -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListRecords)
-{-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrIdentityPoolId :: Lens.Lens' ListRecords Lude.Text
-lrIdentityPoolId = Lens.lens (identityPoolId :: ListRecords -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListRecords)
-{-# DEPRECATED lrIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+-- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrDatasetName :: Lens.Lens' ListRecords Lude.Text
+lrDatasetName = Lens.lens (datasetName :: ListRecords -> Lude.Text) (\s a -> s {datasetName = a} :: ListRecords)
+{-# DEPRECATED lrDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
@@ -145,12 +146,12 @@ lrIdentityId :: Lens.Lens' ListRecords Lude.Text
 lrIdentityId = Lens.lens (identityId :: ListRecords -> Lude.Text) (\s a -> s {identityId = a} :: ListRecords)
 {-# DEPRECATED lrIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+-- | The maximum number of results to be returned.
 --
--- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrDatasetName :: Lens.Lens' ListRecords Lude.Text
-lrDatasetName = Lens.lens (datasetName :: ListRecords -> Lude.Text) (\s a -> s {datasetName = a} :: ListRecords)
-{-# DEPRECATED lrDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrMaxResults :: Lens.Lens' ListRecords (Lude.Maybe Lude.Int)
+lrMaxResults = Lens.lens (maxResults :: ListRecords -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListRecords)
+{-# DEPRECATED lrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListRecords where
   type Rs ListRecords = ListRecordsResponse
@@ -205,39 +206,42 @@ instance Lude.ToQuery ListRecords where
 --
 -- /See:/ 'mkListRecordsResponse' smart constructor.
 data ListRecordsResponse = ListRecordsResponse'
-  { datasetDeletedAfterRequestedSyncCount ::
-      Lude.Maybe Lude.Bool,
+  { -- | A boolean value specifying whether to delete the dataset locally.
+    datasetDeletedAfterRequestedSyncCount :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether the dataset exists.
     datasetExists :: Lude.Maybe Lude.Bool,
+    -- | Total number of records.
     count :: Lude.Maybe Lude.Int,
+    -- | A list of all records.
     records :: Lude.Maybe [Record],
+    -- | A pagination token for obtaining the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Names of merged datasets.
     mergedDatasetNames :: Lude.Maybe [Lude.Text],
+    -- | A token containing a session ID, identity ID, and expiration.
     syncSessionToken :: Lude.Maybe Lude.Text,
+    -- | The user/device that made the last change to this record.
     lastModifiedBy :: Lude.Maybe Lude.Text,
+    -- | Server sync count for this dataset.
     datasetSyncCount :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecordsResponse' with the minimum fields required to make a request.
 --
--- * 'count' - Total number of records.
 -- * 'datasetDeletedAfterRequestedSyncCount' - A boolean value specifying whether to delete the dataset locally.
 -- * 'datasetExists' - Indicates whether the dataset exists.
--- * 'datasetSyncCount' - Server sync count for this dataset.
--- * 'lastModifiedBy' - The user/device that made the last change to this record.
--- * 'mergedDatasetNames' - Names of merged datasets.
--- * 'nextToken' - A pagination token for obtaining the next page of results.
+-- * 'count' - Total number of records.
 -- * 'records' - A list of all records.
--- * 'responseStatus' - The response status code.
+-- * 'nextToken' - A pagination token for obtaining the next page of results.
+-- * 'mergedDatasetNames' - Names of merged datasets.
 -- * 'syncSessionToken' - A token containing a session ID, identity ID, and expiration.
+-- * 'lastModifiedBy' - The user/device that made the last change to this record.
+-- * 'datasetSyncCount' - Server sync count for this dataset.
+-- * 'responseStatus' - The response status code.
 mkListRecordsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

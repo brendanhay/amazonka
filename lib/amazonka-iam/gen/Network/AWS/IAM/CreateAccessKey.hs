@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.IAM.CreateAccessKey
     mkCreateAccessKeyResponse,
 
     -- ** Response lenses
-    cakrsResponseStatus,
     cakrsAccessKey,
+    cakrsResponseStatus,
   )
 where
 
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAccessKey' smart constructor.
 newtype CreateAccessKey = CreateAccessKey'
-  { userName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the IAM user that the new key will belong to.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAccessKey' with the minimum fields required to make a request.
@@ -81,7 +78,7 @@ instance Lude.AWSRequest CreateAccessKey where
       "CreateAccessKeyResult"
       ( \s h x ->
           CreateAccessKeyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "AccessKey")
+            Lude.<$> (x Lude..@ "AccessKey") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateAccessKey where
@@ -102,9 +99,10 @@ instance Lude.ToQuery CreateAccessKey where
 --
 -- /See:/ 'mkCreateAccessKeyResponse' smart constructor.
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-  { responseStatus ::
-      Lude.Int,
-    accessKey :: AccessKeyInfo
+  { -- | A structure with details about the access key.
+    accessKey :: AccessKeyInfo,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -114,23 +112,16 @@ data CreateAccessKeyResponse = CreateAccessKeyResponse'
 -- * 'accessKey' - A structure with details about the access key.
 -- * 'responseStatus' - The response status code.
 mkCreateAccessKeyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'accessKey'
   AccessKeyInfo ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAccessKeyResponse
-mkCreateAccessKeyResponse pResponseStatus_ pAccessKey_ =
+mkCreateAccessKeyResponse pAccessKey_ pResponseStatus_ =
   CreateAccessKeyResponse'
-    { responseStatus = pResponseStatus_,
-      accessKey = pAccessKey_
+    { accessKey = pAccessKey_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cakrsResponseStatus :: Lens.Lens' CreateAccessKeyResponse Lude.Int
-cakrsResponseStatus = Lens.lens (responseStatus :: CreateAccessKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAccessKeyResponse)
-{-# DEPRECATED cakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure with details about the access key.
 --
@@ -138,3 +129,10 @@ cakrsResponseStatus = Lens.lens (responseStatus :: CreateAccessKeyResponse -> Lu
 cakrsAccessKey :: Lens.Lens' CreateAccessKeyResponse AccessKeyInfo
 cakrsAccessKey = Lens.lens (accessKey :: CreateAccessKeyResponse -> AccessKeyInfo) (\s a -> s {accessKey = a} :: CreateAccessKeyResponse)
 {-# DEPRECATED cakrsAccessKey "Use generic-lens or generic-optics with 'accessKey' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cakrsResponseStatus :: Lens.Lens' CreateAccessKeyResponse Lude.Int
+cakrsResponseStatus = Lens.lens (responseStatus :: CreateAccessKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAccessKeyResponse)
+{-# DEPRECATED cakrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,16 +48,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribePatchGroupState' smart constructor.
 newtype DescribePatchGroupState = DescribePatchGroupState'
-  { patchGroup ::
-      Lude.Text
+  { -- | The name of the patch group whose patch snapshot should be retrieved.
+    patchGroup :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchGroupState' with the minimum fields required to make a request.
@@ -119,46 +114,41 @@ instance Lude.ToQuery DescribePatchGroupState where
 
 -- | /See:/ 'mkDescribePatchGroupStateResponse' smart constructor.
 data DescribePatchGroupStateResponse = DescribePatchGroupStateResponse'
-  { instancesWithMissingPatches ::
-      Lude.Maybe Lude.Int,
-    instancesWithInstalledOtherPatches ::
-      Lude.Maybe Lude.Int,
-    instancesWithNotApplicablePatches ::
-      Lude.Maybe Lude.Int,
-    instancesWithInstalledPatches ::
-      Lude.Maybe Lude.Int,
-    instancesWithInstalledRejectedPatches ::
-      Lude.Maybe Lude.Int,
-    instancesWithInstalledPendingRebootPatches ::
-      Lude.Maybe Lude.Int,
-    instancesWithUnreportedNotApplicablePatches ::
-      Lude.Maybe Lude.Int,
-    instances ::
-      Lude.Maybe Lude.Int,
-    instancesWithFailedPatches ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances with missing patches from the patch baseline.
+    instancesWithMissingPatches :: Lude.Maybe Lude.Int,
+    -- | The number of instances with patches installed that aren't defined in the patch baseline.
+    instancesWithInstalledOtherPatches :: Lude.Maybe Lude.Int,
+    -- | The number of instances with patches that aren't applicable.
+    instancesWithNotApplicablePatches :: Lude.Maybe Lude.Int,
+    -- | The number of instances with installed patches.
+    instancesWithInstalledPatches :: Lude.Maybe Lude.Int,
+    -- | The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
+    instancesWithInstalledRejectedPatches :: Lude.Maybe Lude.Int,
+    -- | The number of instances with patches installed by Patch Manager that have not been rebooted after the patch installation. The status of these instances is NON_COMPLIANT.
+    instancesWithInstalledPendingRebootPatches :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @NotApplicable@ patches beyond the supported limit, which are not reported by name to Systems Manager Inventory.
+    instancesWithUnreportedNotApplicablePatches :: Lude.Maybe Lude.Int,
+    -- | The number of instances in the patch group.
+    instances :: Lude.Maybe Lude.Int,
+    -- | The number of instances with patches from the patch baseline that failed to install.
+    instancesWithFailedPatches :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchGroupStateResponse' with the minimum fields required to make a request.
 --
+-- * 'instancesWithMissingPatches' - The number of instances with missing patches from the patch baseline.
+-- * 'instancesWithInstalledOtherPatches' - The number of instances with patches installed that aren't defined in the patch baseline.
+-- * 'instancesWithNotApplicablePatches' - The number of instances with patches that aren't applicable.
+-- * 'instancesWithInstalledPatches' - The number of instances with installed patches.
+-- * 'instancesWithInstalledRejectedPatches' - The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
+-- * 'instancesWithInstalledPendingRebootPatches' - The number of instances with patches installed by Patch Manager that have not been rebooted after the patch installation. The status of these instances is NON_COMPLIANT.
+-- * 'instancesWithUnreportedNotApplicablePatches' - The number of instances with @NotApplicable@ patches beyond the supported limit, which are not reported by name to Systems Manager Inventory.
 -- * 'instances' - The number of instances in the patch group.
 -- * 'instancesWithFailedPatches' - The number of instances with patches from the patch baseline that failed to install.
--- * 'instancesWithInstalledOtherPatches' - The number of instances with patches installed that aren't defined in the patch baseline.
--- * 'instancesWithInstalledPatches' - The number of instances with installed patches.
--- * 'instancesWithInstalledPendingRebootPatches' - The number of instances with patches installed by Patch Manager that have not been rebooted after the patch installation. The status of these instances is NON_COMPLIANT.
--- * 'instancesWithInstalledRejectedPatches' - The number of instances with patches installed that are specified in a RejectedPatches list. Patches with a status of /INSTALLED_REJECTED/ were typically installed before they were added to a RejectedPatches list.
--- * 'instancesWithMissingPatches' - The number of instances with missing patches from the patch baseline.
--- * 'instancesWithNotApplicablePatches' - The number of instances with patches that aren't applicable.
--- * 'instancesWithUnreportedNotApplicablePatches' - The number of instances with @NotApplicable@ patches beyond the supported limit, which are not reported by name to Systems Manager Inventory.
 -- * 'responseStatus' - The response status code.
 mkDescribePatchGroupStateResponse ::
   -- | 'responseStatus'

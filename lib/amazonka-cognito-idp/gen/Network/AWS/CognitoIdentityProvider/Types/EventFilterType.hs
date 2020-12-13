@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.EventFilterType
   ( EventFilterType
       ( EventFilterType',
-        PasswordChange,
         SignIn,
+        PasswordChange,
         SignUp
       ),
   )
@@ -46,18 +46,18 @@ newtype EventFilterType = EventFilterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PasswordChange :: EventFilterType
-pattern PasswordChange = EventFilterType' "PASSWORD_CHANGE"
-
 pattern SignIn :: EventFilterType
 pattern SignIn = EventFilterType' "SIGN_IN"
+
+pattern PasswordChange :: EventFilterType
+pattern PasswordChange = EventFilterType' "PASSWORD_CHANGE"
 
 pattern SignUp :: EventFilterType
 pattern SignUp = EventFilterType' "SIGN_UP"
 
 {-# COMPLETE
-  PasswordChange,
   SignIn,
+  PasswordChange,
   SignUp,
   EventFilterType'
   #-}

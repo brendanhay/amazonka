@@ -32,25 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAppsListDataSummary' smart constructor.
 data AppsListDataSummary = AppsListDataSummary'
-  { listARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the applications list.
+    listARN :: Lude.Maybe Lude.Text,
+    -- | An array of @App@ objects in the AWS Firewall Manager applications list.
     appsList :: Lude.Maybe [App],
+    -- | The ID of the applications list.
     listId :: Lude.Maybe Lude.Text,
+    -- | The name of the applications list.
     listName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppsListDataSummary' with the minimum fields required to make a request.
 --
--- * 'appsList' - An array of @App@ objects in the AWS Firewall Manager applications list.
 -- * 'listARN' - The Amazon Resource Name (ARN) of the applications list.
+-- * 'appsList' - An array of @App@ objects in the AWS Firewall Manager applications list.
 -- * 'listId' - The ID of the applications list.
 -- * 'listName' - The name of the applications list.
 mkAppsListDataSummary ::

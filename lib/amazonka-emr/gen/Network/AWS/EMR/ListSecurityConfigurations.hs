@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSecurityConfigurations' smart constructor.
 newtype ListSecurityConfigurations = ListSecurityConfigurations'
-  { marker ::
-      Lude.Maybe Lude.Text
+  { -- | The pagination token that indicates the set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityConfigurations' with the minimum fields required to make a request.
@@ -114,28 +109,21 @@ instance Lude.ToQuery ListSecurityConfigurations where
 
 -- | /See:/ 'mkListSecurityConfigurationsResponse' smart constructor.
 data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
-  { securityConfigurations ::
-      Lude.Maybe
-        [SecurityConfigurationSummary],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The creation date and time, and name, of each security configuration.
+    securityConfigurations :: Lude.Maybe [SecurityConfigurationSummary],
+    -- | A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityConfigurationsResponse' with the minimum fields required to make a request.
 --
+-- * 'securityConfigurations' - The creation date and time, and name, of each security configuration.
 -- * 'marker' - A pagination token that indicates the next set of results to retrieve. Include the marker in the next ListSecurityConfiguration call to retrieve the next page of results, if required.
 -- * 'responseStatus' - The response status code.
--- * 'securityConfigurations' - The creation date and time, and name, of each security configuration.
 mkListSecurityConfigurationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

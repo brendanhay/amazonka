@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     mkDescribeChapCredentials,
 
     -- ** Request lenses
-    dccTargetARN,
+    dTargetARN,
 
     -- * Destructuring the response
     DescribeChapCredentialsResponse (..),
     mkDescribeChapCredentialsResponse,
 
     -- ** Response lenses
-    dccrsChapCredentials,
-    dccrsResponseStatus,
+    dccsrsChapCredentials,
+    dccsrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeChapCredentials' smart constructor.
 newtype DescribeChapCredentials = DescribeChapCredentials'
-  { targetARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+    targetARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeChapCredentials' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDescribeChapCredentials pTargetARN_ =
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 --
 -- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccTargetARN :: Lens.Lens' DescribeChapCredentials Lude.Text
-dccTargetARN = Lens.lens (targetARN :: DescribeChapCredentials -> Lude.Text) (\s a -> s {targetARN = a} :: DescribeChapCredentials)
-{-# DEPRECATED dccTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
+dTargetARN :: Lens.Lens' DescribeChapCredentials Lude.Text
+dTargetARN = Lens.lens (targetARN :: DescribeChapCredentials -> Lude.Text) (\s a -> s {targetARN = a} :: DescribeChapCredentials)
+{-# DEPRECATED dTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 instance Lude.AWSRequest DescribeChapCredentials where
   type Rs DescribeChapCredentials = DescribeChapCredentialsResponse
@@ -109,8 +104,21 @@ instance Lude.ToQuery DescribeChapCredentials where
 --
 -- /See:/ 'mkDescribeChapCredentialsResponse' smart constructor.
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
-  { chapCredentials ::
-      Lude.Maybe [ChapInfo],
+  { -- | An array of 'ChapInfo' objects that represent CHAP credentials. Each object in the array contains CHAP credential information for one target-initiator pair. If no CHAP credentials are set, an empty array is returned. CHAP credential information is provided in a JSON object with the following fields:
+    --
+    --
+    --     * __InitiatorName__ : The iSCSI initiator that connects to the target.
+    --
+    --
+    --     * __SecretToAuthenticateInitiator__ : The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
+    --
+    --
+    --     * __SecretToAuthenticateTarget__ : The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
+    --
+    --
+    --     * __TargetARN__ : The Amazon Resource Name (ARN) of the storage volume.
+    chapCredentials :: Lude.Maybe [ChapInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -161,13 +169,13 @@ mkDescribeChapCredentialsResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'chapCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsChapCredentials :: Lens.Lens' DescribeChapCredentialsResponse (Lude.Maybe [ChapInfo])
-dccrsChapCredentials = Lens.lens (chapCredentials :: DescribeChapCredentialsResponse -> Lude.Maybe [ChapInfo]) (\s a -> s {chapCredentials = a} :: DescribeChapCredentialsResponse)
-{-# DEPRECATED dccrsChapCredentials "Use generic-lens or generic-optics with 'chapCredentials' instead." #-}
+dccsrsChapCredentials :: Lens.Lens' DescribeChapCredentialsResponse (Lude.Maybe [ChapInfo])
+dccsrsChapCredentials = Lens.lens (chapCredentials :: DescribeChapCredentialsResponse -> Lude.Maybe [ChapInfo]) (\s a -> s {chapCredentials = a} :: DescribeChapCredentialsResponse)
+{-# DEPRECATED dccsrsChapCredentials "Use generic-lens or generic-optics with 'chapCredentials' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsResponseStatus :: Lens.Lens' DescribeChapCredentialsResponse Lude.Int
-dccrsResponseStatus = Lens.lens (responseStatus :: DescribeChapCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeChapCredentialsResponse)
-{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dccsrsResponseStatus :: Lens.Lens' DescribeChapCredentialsResponse Lude.Int
+dccsrsResponseStatus = Lens.lens (responseStatus :: DescribeChapCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeChapCredentialsResponse)
+{-# DEPRECATED dccsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

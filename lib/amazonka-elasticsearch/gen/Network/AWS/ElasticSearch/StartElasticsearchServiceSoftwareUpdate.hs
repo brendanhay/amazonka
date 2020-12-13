@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStartElasticsearchServiceSoftwareUpdate' smart constructor.
 newtype StartElasticsearchServiceSoftwareUpdate = StartElasticsearchServiceSoftwareUpdate'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the domain that you want to update to the latest service software.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartElasticsearchServiceSoftwareUpdate' with the minimum fields required to make a request.
@@ -104,28 +99,18 @@ instance Lude.ToQuery StartElasticsearchServiceSoftwareUpdate where
 --
 -- /See:/ 'mkStartElasticsearchServiceSoftwareUpdateResponse' smart constructor.
 data StartElasticsearchServiceSoftwareUpdateResponse = StartElasticsearchServiceSoftwareUpdateResponse'
-  { serviceSoftwareOptions ::
-      Lude.Maybe
-        ServiceSoftwareOptions,
-    responseStatus ::
-      Lude.Int
+  { -- | The current status of the Elasticsearch service software update.
+    serviceSoftwareOptions :: Lude.Maybe ServiceSoftwareOptions,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartElasticsearchServiceSoftwareUpdateResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'serviceSoftwareOptions' - The current status of the Elasticsearch service software update.
+-- * 'responseStatus' - The response status code.
 mkStartElasticsearchServiceSoftwareUpdateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

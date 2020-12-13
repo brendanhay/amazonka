@@ -13,8 +13,8 @@
 module Network.AWS.MediaPackage.Types.PlaylistType
   ( PlaylistType
       ( PlaylistType',
-        PTEvent,
         PTNone,
+        PTEvent,
         PTVod
       ),
   )
@@ -46,18 +46,18 @@ newtype PlaylistType = PlaylistType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PTEvent :: PlaylistType
-pattern PTEvent = PlaylistType' "EVENT"
-
 pattern PTNone :: PlaylistType
 pattern PTNone = PlaylistType' "NONE"
+
+pattern PTEvent :: PlaylistType
+pattern PTEvent = PlaylistType' "EVENT"
 
 pattern PTVod :: PlaylistType
 pattern PTVod = PlaylistType' "VOD"
 
 {-# COMPLETE
-  PTEvent,
   PTNone,
+  PTEvent,
   PTVod,
   PlaylistType'
   #-}

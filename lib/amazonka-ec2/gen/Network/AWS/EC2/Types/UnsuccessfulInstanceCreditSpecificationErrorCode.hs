@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationErrorCode
   ( UnsuccessfulInstanceCreditSpecificationErrorCode
       ( UnsuccessfulInstanceCreditSpecificationErrorCode',
-        IncorrectInstanceState,
-        InstanceCreditSpecification_NotSupported,
         InvalidInstanceId_Malformed,
-        InvalidInstanceId_NotFound
+        InvalidInstanceId_NotFound,
+        IncorrectInstanceState,
+        InstanceCreditSpecification_NotSupported
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype UnsuccessfulInstanceCreditSpecificationErrorCode = UnsuccessfulInstanceC
       Lude.ToHeader
     )
 
-pattern IncorrectInstanceState :: UnsuccessfulInstanceCreditSpecificationErrorCode
-pattern IncorrectInstanceState = UnsuccessfulInstanceCreditSpecificationErrorCode' "IncorrectInstanceState"
-
-pattern InstanceCreditSpecification_NotSupported :: UnsuccessfulInstanceCreditSpecificationErrorCode
-pattern InstanceCreditSpecification_NotSupported = UnsuccessfulInstanceCreditSpecificationErrorCode' "InstanceCreditSpecification.NotSupported"
-
 pattern InvalidInstanceId_Malformed :: UnsuccessfulInstanceCreditSpecificationErrorCode
 pattern InvalidInstanceId_Malformed = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.Malformed"
 
 pattern InvalidInstanceId_NotFound :: UnsuccessfulInstanceCreditSpecificationErrorCode
 pattern InvalidInstanceId_NotFound = UnsuccessfulInstanceCreditSpecificationErrorCode' "InvalidInstanceID.NotFound"
 
+pattern IncorrectInstanceState :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern IncorrectInstanceState = UnsuccessfulInstanceCreditSpecificationErrorCode' "IncorrectInstanceState"
+
+pattern InstanceCreditSpecification_NotSupported :: UnsuccessfulInstanceCreditSpecificationErrorCode
+pattern InstanceCreditSpecification_NotSupported = UnsuccessfulInstanceCreditSpecificationErrorCode' "InstanceCreditSpecification.NotSupported"
+
 {-# COMPLETE
-  IncorrectInstanceState,
-  InstanceCreditSpecification_NotSupported,
   InvalidInstanceId_Malformed,
   InvalidInstanceId_NotFound,
+  IncorrectInstanceState,
+  InstanceCreditSpecification_NotSupported,
   UnsuccessfulInstanceCreditSpecificationErrorCode'
   #-}

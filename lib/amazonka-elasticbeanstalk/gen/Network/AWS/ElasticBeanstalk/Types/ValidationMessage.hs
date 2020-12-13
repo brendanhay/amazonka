@@ -32,25 +32,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkValidationMessage' smart constructor.
 data ValidationMessage = ValidationMessage'
-  { optionName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the option.
+    optionName :: Lude.Maybe Lude.Text,
+    -- | An indication of the severity of this message:
+    --
+    --
+    --     * @error@ : This message indicates that this is not a valid setting for an option.
+    --
+    --
+    --     * @warning@ : This message is providing information you should take into account.
     severity :: Lude.Maybe ValidationSeverity,
+    -- | The namespace to which the option belongs.
     namespace :: Lude.Maybe Lude.Text,
+    -- | A message describing the error or warning.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationMessage' with the minimum fields required to make a request.
 --
--- * 'message' - A message describing the error or warning.
--- * 'namespace' - The namespace to which the option belongs.
 -- * 'optionName' - The name of the option.
 -- * 'severity' - An indication of the severity of this message:
 --
@@ -59,6 +60,10 @@ data ValidationMessage = ValidationMessage'
 --
 --
 --     * @warning@ : This message is providing information you should take into account.
+--
+--
+-- * 'namespace' - The namespace to which the option belongs.
+-- * 'message' - A message describing the error or warning.
 mkValidationMessage ::
   ValidationMessage
 mkValidationMessage =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,6 +24,7 @@ module Network.AWS.APIGateway.CreateDomainName
     cdnRegionalCertificateARN,
     cdnCertificateARN,
     cdnSecurityPolicy,
+    cdnDomainName,
     cdnMutualTLSAuthentication,
     cdnCertificatePrivateKey,
     cdnRegionalCertificateName,
@@ -30,7 +32,6 @@ module Network.AWS.APIGateway.CreateDomainName
     cdnCertificateChain,
     cdnEndpointConfiguration,
     cdnTags,
-    cdnDomainName,
 
     -- * Destructuring the response
     DomainName (..),
@@ -66,43 +67,46 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateDomainName' smart constructor.
 data CreateDomainName = CreateDomainName'
-  { certificateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
+    certificateName :: Lude.Maybe Lude.Text,
+    -- | The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
     regionalCertificateARN :: Lude.Maybe Lude.Text,
+    -- | The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
     securityPolicy :: Lude.Maybe SecurityPolicy,
-    mutualTLSAuthentication ::
-      Lude.Maybe MutualTLSAuthenticationInput,
+    -- | [Required] The name of the 'DomainName' resource.
+    domainName :: Lude.Text,
+    mutualTLSAuthentication :: Lude.Maybe MutualTLSAuthenticationInput,
+    -- | [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
     certificatePrivateKey :: Lude.Maybe Lude.Text,
+    -- | The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
     regionalCertificateName :: Lude.Maybe Lude.Text,
+    -- | [Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.
     certificateBody :: Lude.Maybe Lude.Text,
+    -- | [Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
     certificateChain :: Lude.Maybe Lude.Text,
+    -- | The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
     endpointConfiguration :: Lude.Maybe EndpointConfiguration,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    domainName :: Lude.Text
+    -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainName' with the minimum fields required to make a request.
 --
+-- * 'certificateName' - The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
+-- * 'regionalCertificateARN' - The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
 -- * 'certificateARN' - The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+-- * 'securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
+-- * 'domainName' - [Required] The name of the 'DomainName' resource.
+-- * 'mutualTLSAuthentication' -
+-- * 'certificatePrivateKey' - [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
+-- * 'regionalCertificateName' - The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
 -- * 'certificateBody' - [Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.
 -- * 'certificateChain' - [Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.
--- * 'certificateName' - The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
--- * 'certificatePrivateKey' - [Deprecated] Your edge-optimized endpoint's domain name certificate's private key.
--- * 'domainName' - [Required] The name of the 'DomainName' resource.
 -- * 'endpointConfiguration' - The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
--- * 'mutualTLSAuthentication' - Undocumented field.
--- * 'regionalCertificateARN' - The reference to an AWS-managed certificate that will be used by regional endpoint for this domain name. AWS Certificate Manager is the only supported source.
--- * 'regionalCertificateName' - The user-friendly name of the certificate that will be used by regional endpoint for this domain name.
--- * 'securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
 -- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
 mkCreateDomainName ::
   -- | 'domainName'
@@ -114,14 +118,14 @@ mkCreateDomainName pDomainName_ =
       regionalCertificateARN = Lude.Nothing,
       certificateARN = Lude.Nothing,
       securityPolicy = Lude.Nothing,
+      domainName = pDomainName_,
       mutualTLSAuthentication = Lude.Nothing,
       certificatePrivateKey = Lude.Nothing,
       regionalCertificateName = Lude.Nothing,
       certificateBody = Lude.Nothing,
       certificateChain = Lude.Nothing,
       endpointConfiguration = Lude.Nothing,
-      tags = Lude.Nothing,
-      domainName = pDomainName_
+      tags = Lude.Nothing
     }
 
 -- | The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.
@@ -151,6 +155,13 @@ cdnCertificateARN = Lens.lens (certificateARN :: CreateDomainName -> Lude.Maybe 
 cdnSecurityPolicy :: Lens.Lens' CreateDomainName (Lude.Maybe SecurityPolicy)
 cdnSecurityPolicy = Lens.lens (securityPolicy :: CreateDomainName -> Lude.Maybe SecurityPolicy) (\s a -> s {securityPolicy = a} :: CreateDomainName)
 {-# DEPRECATED cdnSecurityPolicy "Use generic-lens or generic-optics with 'securityPolicy' instead." #-}
+
+-- | [Required] The name of the 'DomainName' resource.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdnDomainName :: Lens.Lens' CreateDomainName Lude.Text
+cdnDomainName = Lens.lens (domainName :: CreateDomainName -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomainName)
+{-# DEPRECATED cdnDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -201,13 +212,6 @@ cdnTags :: Lens.Lens' CreateDomainName (Lude.Maybe (Lude.HashMap Lude.Text (Lude
 cdnTags = Lens.lens (tags :: CreateDomainName -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateDomainName)
 {-# DEPRECATED cdnTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | [Required] The name of the 'DomainName' resource.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdnDomainName :: Lens.Lens' CreateDomainName Lude.Text
-cdnDomainName = Lens.lens (domainName :: CreateDomainName -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomainName)
-{-# DEPRECATED cdnDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
 instance Lude.AWSRequest CreateDomainName where
   type Rs CreateDomainName = DomainName
   request = Req.postJSON apiGatewayService
@@ -228,6 +232,7 @@ instance Lude.ToJSON CreateDomainName where
             ("regionalCertificateArn" Lude..=) Lude.<$> regionalCertificateARN,
             ("certificateArn" Lude..=) Lude.<$> certificateARN,
             ("securityPolicy" Lude..=) Lude.<$> securityPolicy,
+            Lude.Just ("domainName" Lude..= domainName),
             ("mutualTlsAuthentication" Lude..=)
               Lude.<$> mutualTLSAuthentication,
             ("certificatePrivateKey" Lude..=) Lude.<$> certificatePrivateKey,
@@ -236,8 +241,7 @@ instance Lude.ToJSON CreateDomainName where
             ("certificateBody" Lude..=) Lude.<$> certificateBody,
             ("certificateChain" Lude..=) Lude.<$> certificateChain,
             ("endpointConfiguration" Lude..=) Lude.<$> endpointConfiguration,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("domainName" Lude..= domainName)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 

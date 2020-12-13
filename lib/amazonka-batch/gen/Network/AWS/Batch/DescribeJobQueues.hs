@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeJobQueues' smart constructor.
 data DescribeJobQueues = DescribeJobQueues'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.
     jobQueues :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results returned by @DescribeJobQueues@ in paginated output. When this parameter is used, @DescribeJobQueues@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobQueues@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobQueues@ returns up to 100 results and a @nextToken@ value if applicable.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobQueues' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 -- * 'jobQueues' - A list of up to 100 queue names or full queue Amazon Resource Name (ARN) entries.
 -- * 'maxResults' - The maximum number of results returned by @DescribeJobQueues@ in paginated output. When this parameter is used, @DescribeJobQueues@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobQueues@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobQueues@ returns up to 100 results and a @nextToken@ value if applicable.
--- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeJobQueues@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
 mkDescribeJobQueues ::
   DescribeJobQueues
 mkDescribeJobQueues =
@@ -142,25 +139,20 @@ instance Lude.ToQuery DescribeJobQueues where
 
 -- | /See:/ 'mkDescribeJobQueuesResponse' smart constructor.
 data DescribeJobQueuesResponse = DescribeJobQueuesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    jobQueues ::
-      Lude.Maybe [JobQueueDetail],
+  { -- | The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of job queues.
+    jobQueues :: Lude.Maybe [JobQueueDetail],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobQueuesResponse' with the minimum fields required to make a request.
 --
--- * 'jobQueues' - The list of job queues.
 -- * 'nextToken' - The @nextToken@ value to include in a future @DescribeJobQueues@ request. When the results of a @DescribeJobQueues@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'jobQueues' - The list of job queues.
 -- * 'responseStatus' - The response status code.
 mkDescribeJobQueuesResponse ::
   -- | 'responseStatus'

@@ -31,23 +31,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionFormat' smart constructor.
 data CaptionFormat = CaptionFormat'
-  { pattern' ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix for caption filenames, in the form /description/ -@{language}@ , where:
+    --
+    --
+    --     * /description/ is a description of the video.
+    --
+    --
+    --     * @{language}@ is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names.
+    --
+    --
+    -- If you don't include @{language}@ in the file name pattern, Elastic Transcoder automatically appends "@{language}@ " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
+    -- For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
+    pattern' :: Lude.Maybe Lude.Text,
+    -- | The format you specify determines whether Elastic Transcoder generates an embedded or sidecar caption for this output.
+    --
+    --
+    --     * __Valid Embedded Caption Formats:__
+    --
+    --     * __for FLAC__ : None
+    --
+    --
+    --     * __For MP3__ : None
+    --
+    --
+    --     * __For MP4__ : mov-text
+    --
+    --
+    --     * __For MPEG-TS__ : None
+    --
+    --
+    --     * __For ogg__ : None
+    --
+    --
+    --     * __For webm__ : None
+    --
+    --
+    --
+    --
+    --     * __Valid Sidecar Caption Formats:__ Elastic Transcoder supports dfxp (first div element only), scc, srt, and webvtt. If you want ttml or smpte-tt compatible captions, specify dfxp as your output format.
+    --
+    --     * __For FMP4__ : dfxp
+    --
+    --
+    --     * __Non-FMP4 outputs__ : All sidecar types
+    --
+    --
+    -- @fmp4@ captions have an extension of @.ismt@
     format :: Lude.Maybe Lude.Text,
+    -- | The encryption settings, if any, that you want Elastic Transcoder to apply to your caption formats.
     encryption :: Lude.Maybe Encryption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionFormat' with the minimum fields required to make a request.
 --
--- * 'encryption' - The encryption settings, if any, that you want Elastic Transcoder to apply to your caption formats.
+-- * 'pattern'' - The prefix for caption filenames, in the form /description/ -@{language}@ , where:
+--
+--
+--     * /description/ is a description of the video.
+--
+--
+--     * @{language}@ is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names.
+--
+--
+-- If you don't include @{language}@ in the file name pattern, Elastic Transcoder automatically appends "@{language}@ " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
+-- For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
 -- * 'format' - The format you specify determines whether Elastic Transcoder generates an embedded or sidecar caption for this output.
 --
 --
@@ -84,17 +133,7 @@ data CaptionFormat = CaptionFormat'
 -- @fmp4@ captions have an extension of @.ismt@
 --
 --
--- * 'pattern'' - The prefix for caption filenames, in the form /description/ -@{language}@ , where:
---
---
---     * /description/ is a description of the video.
---
---
---     * @{language}@ is a literal value that Elastic Transcoder replaces with the two- or three-letter code for the language of the caption in the output file names.
---
---
--- If you don't include @{language}@ in the file name pattern, Elastic Transcoder automatically appends "@{language}@ " to the value that you specify for the description. In addition, Elastic Transcoder automatically appends the count to the end of the segment files.
--- For example, suppose you're transcoding into srt format. When you enter "Sydney-{language}-sunrise", and the language of the captions is English (en), the name of the first caption file is be Sydney-en-sunrise00000.srt.
+-- * 'encryption' - The encryption settings, if any, that you want Elastic Transcoder to apply to your caption formats.
 mkCaptionFormat ::
   CaptionFormat
 mkCaptionFormat =

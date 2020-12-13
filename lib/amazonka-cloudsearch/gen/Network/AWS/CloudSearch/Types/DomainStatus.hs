@@ -24,12 +24,12 @@ module Network.AWS.CloudSearch.Types.DomainStatus
     dsCreated,
     dsSearchService,
     dsLimits,
+    dsRequiresIndexDocuments,
+    dsDomainName,
     dsSearchPartitionCount,
     dsDeleted,
-    dsProcessing,
     dsDomainId,
-    dsDomainName,
-    dsRequiresIndexDocuments,
+    dsProcessing,
   )
 where
 
@@ -42,54 +42,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainStatus' smart constructor.
 data DomainStatus = DomainStatus'
-  { searchInstanceCount ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of search instances that are available to process search requests.
+    searchInstanceCount :: Lude.Maybe Lude.Natural,
+    -- | The instance type that is being used to process search requests.
     searchInstanceType :: Lude.Maybe Lude.Text,
+    -- | The service endpoint for updating documents in a search domain.
     docService :: Lude.Maybe ServiceEndpoint,
     arn :: Lude.Maybe Lude.Text,
+    -- | True if the search domain is created. It can take several minutes to initialize a domain when 'CreateDomain' is called. Newly created search domains are returned from 'DescribeDomains' with a false value for Created until domain creation is complete.
     created :: Lude.Maybe Lude.Bool,
+    -- | The service endpoint for requesting search results from a search domain.
     searchService :: Lude.Maybe ServiceEndpoint,
     limits :: Lude.Maybe Limits,
-    searchPartitionCount :: Lude.Maybe Lude.Natural,
-    deleted :: Lude.Maybe Lude.Bool,
-    processing :: Lude.Maybe Lude.Bool,
-    domainId :: Lude.Text,
+    -- | True if 'IndexDocuments' needs to be called to activate the current domain configuration.
+    requiresIndexDocuments :: Lude.Bool,
     domainName :: Lude.Text,
-    requiresIndexDocuments :: Lude.Bool
+    -- | The number of partitions across which the search index is spread.
+    searchPartitionCount :: Lude.Maybe Lude.Natural,
+    -- | True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when 'DeleteDomain' is called. Newly deleted search domains are returned from 'DescribeDomains' with a true value for IsDeleted for several minutes until resource cleanup is complete.
+    deleted :: Lude.Maybe Lude.Bool,
+    domainId :: Lude.Text,
+    -- | True if processing is being done to activate the current domain configuration.
+    processing :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainStatus' with the minimum fields required to make a request.
 --
--- * 'arn' - Undocumented field.
--- * 'created' - True if the search domain is created. It can take several minutes to initialize a domain when 'CreateDomain' is called. Newly created search domains are returned from 'DescribeDomains' with a false value for Created until domain creation is complete.
--- * 'deleted' - True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when 'DeleteDomain' is called. Newly deleted search domains are returned from 'DescribeDomains' with a true value for IsDeleted for several minutes until resource cleanup is complete.
--- * 'docService' - The service endpoint for updating documents in a search domain.
--- * 'domainId' - Undocumented field.
--- * 'domainName' - Undocumented field.
--- * 'limits' - Undocumented field.
--- * 'processing' - True if processing is being done to activate the current domain configuration.
--- * 'requiresIndexDocuments' - True if 'IndexDocuments' needs to be called to activate the current domain configuration.
 -- * 'searchInstanceCount' - The number of search instances that are available to process search requests.
 -- * 'searchInstanceType' - The instance type that is being used to process search requests.
--- * 'searchPartitionCount' - The number of partitions across which the search index is spread.
+-- * 'docService' - The service endpoint for updating documents in a search domain.
+-- * 'arn' -
+-- * 'created' - True if the search domain is created. It can take several minutes to initialize a domain when 'CreateDomain' is called. Newly created search domains are returned from 'DescribeDomains' with a false value for Created until domain creation is complete.
 -- * 'searchService' - The service endpoint for requesting search results from a search domain.
+-- * 'limits' -
+-- * 'requiresIndexDocuments' - True if 'IndexDocuments' needs to be called to activate the current domain configuration.
+-- * 'domainName' -
+-- * 'searchPartitionCount' - The number of partitions across which the search index is spread.
+-- * 'deleted' - True if the search domain has been deleted. The system must clean up resources dedicated to the search domain when 'DeleteDomain' is called. Newly deleted search domains are returned from 'DescribeDomains' with a true value for IsDeleted for several minutes until resource cleanup is complete.
+-- * 'domainId' -
+-- * 'processing' - True if processing is being done to activate the current domain configuration.
 mkDomainStatus ::
-  -- | 'domainId'
-  Lude.Text ->
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'requiresIndexDocuments'
   Lude.Bool ->
+  -- | 'domainName'
+  Lude.Text ->
+  -- | 'domainId'
+  Lude.Text ->
   DomainStatus
-mkDomainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ =
+mkDomainStatus pRequiresIndexDocuments_ pDomainName_ pDomainId_ =
   DomainStatus'
     { searchInstanceCount = Lude.Nothing,
       searchInstanceType = Lude.Nothing,
@@ -98,12 +100,12 @@ mkDomainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ =
       created = Lude.Nothing,
       searchService = Lude.Nothing,
       limits = Lude.Nothing,
+      requiresIndexDocuments = pRequiresIndexDocuments_,
+      domainName = pDomainName_,
       searchPartitionCount = Lude.Nothing,
       deleted = Lude.Nothing,
-      processing = Lude.Nothing,
       domainId = pDomainId_,
-      domainName = pDomainName_,
-      requiresIndexDocuments = pRequiresIndexDocuments_
+      processing = Lude.Nothing
     }
 
 -- | The number of search instances that are available to process search requests.
@@ -155,6 +157,20 @@ dsLimits :: Lens.Lens' DomainStatus (Lude.Maybe Limits)
 dsLimits = Lens.lens (limits :: DomainStatus -> Lude.Maybe Limits) (\s a -> s {limits = a} :: DomainStatus)
 {-# DEPRECATED dsLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
 
+-- | True if 'IndexDocuments' needs to be called to activate the current domain configuration.
+--
+-- /Note:/ Consider using 'requiresIndexDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsRequiresIndexDocuments :: Lens.Lens' DomainStatus Lude.Bool
+dsRequiresIndexDocuments = Lens.lens (requiresIndexDocuments :: DomainStatus -> Lude.Bool) (\s a -> s {requiresIndexDocuments = a} :: DomainStatus)
+{-# DEPRECATED dsRequiresIndexDocuments "Use generic-lens or generic-optics with 'requiresIndexDocuments' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsDomainName :: Lens.Lens' DomainStatus Lude.Text
+dsDomainName = Lens.lens (domainName :: DomainStatus -> Lude.Text) (\s a -> s {domainName = a} :: DomainStatus)
+{-# DEPRECATED dsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
 -- | The number of partitions across which the search index is spread.
 --
 -- /Note:/ Consider using 'searchPartitionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -169,13 +185,6 @@ dsDeleted :: Lens.Lens' DomainStatus (Lude.Maybe Lude.Bool)
 dsDeleted = Lens.lens (deleted :: DomainStatus -> Lude.Maybe Lude.Bool) (\s a -> s {deleted = a} :: DomainStatus)
 {-# DEPRECATED dsDeleted "Use generic-lens or generic-optics with 'deleted' instead." #-}
 
--- | True if processing is being done to activate the current domain configuration.
---
--- /Note:/ Consider using 'processing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsProcessing :: Lens.Lens' DomainStatus (Lude.Maybe Lude.Bool)
-dsProcessing = Lens.lens (processing :: DomainStatus -> Lude.Maybe Lude.Bool) (\s a -> s {processing = a} :: DomainStatus)
-{-# DEPRECATED dsProcessing "Use generic-lens or generic-optics with 'processing' instead." #-}
-
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -183,19 +192,12 @@ dsDomainId :: Lens.Lens' DomainStatus Lude.Text
 dsDomainId = Lens.lens (domainId :: DomainStatus -> Lude.Text) (\s a -> s {domainId = a} :: DomainStatus)
 {-# DEPRECATED dsDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
--- | Undocumented field.
+-- | True if processing is being done to activate the current domain configuration.
 --
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsDomainName :: Lens.Lens' DomainStatus Lude.Text
-dsDomainName = Lens.lens (domainName :: DomainStatus -> Lude.Text) (\s a -> s {domainName = a} :: DomainStatus)
-{-# DEPRECATED dsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
--- | True if 'IndexDocuments' needs to be called to activate the current domain configuration.
---
--- /Note:/ Consider using 'requiresIndexDocuments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsRequiresIndexDocuments :: Lens.Lens' DomainStatus Lude.Bool
-dsRequiresIndexDocuments = Lens.lens (requiresIndexDocuments :: DomainStatus -> Lude.Bool) (\s a -> s {requiresIndexDocuments = a} :: DomainStatus)
-{-# DEPRECATED dsRequiresIndexDocuments "Use generic-lens or generic-optics with 'requiresIndexDocuments' instead." #-}
+-- /Note:/ Consider using 'processing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsProcessing :: Lens.Lens' DomainStatus (Lude.Maybe Lude.Bool)
+dsProcessing = Lens.lens (processing :: DomainStatus -> Lude.Maybe Lude.Bool) (\s a -> s {processing = a} :: DomainStatus)
+{-# DEPRECATED dsProcessing "Use generic-lens or generic-optics with 'processing' instead." #-}
 
 instance Lude.FromXML DomainStatus where
   parseXML x =
@@ -207,9 +209,9 @@ instance Lude.FromXML DomainStatus where
       Lude.<*> (x Lude..@? "Created")
       Lude.<*> (x Lude..@? "SearchService")
       Lude.<*> (x Lude..@? "Limits")
+      Lude.<*> (x Lude..@ "RequiresIndexDocuments")
+      Lude.<*> (x Lude..@ "DomainName")
       Lude.<*> (x Lude..@? "SearchPartitionCount")
       Lude.<*> (x Lude..@? "Deleted")
-      Lude.<*> (x Lude..@? "Processing")
       Lude.<*> (x Lude..@ "DomainId")
-      Lude.<*> (x Lude..@ "DomainName")
-      Lude.<*> (x Lude..@ "RequiresIndexDocuments")
+      Lude.<*> (x Lude..@? "Processing")

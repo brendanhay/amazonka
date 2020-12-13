@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.ELBv2.DescribeRules
     mkDescribeRulesResponse,
 
     -- ** Response lenses
-    drsrsRules,
-    drsrsNextMarker,
-    drsrsResponseStatus,
+    drrsRules,
+    drrsNextMarker,
+    drrsResponseStatus,
   )
 where
 
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRules' smart constructor.
 data DescribeRules = DescribeRules'
-  { listenerARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the listener.
+    listenerARN :: Lude.Maybe Lude.Text,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
     marker :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Names (ARN) of the rules.
     ruleARNs :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRules' with the minimum fields required to make a request.
 --
 -- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
 -- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'pageSize' - The maximum number of results to return with this call.
 -- * 'ruleARNs' - The Amazon Resource Names (ARN) of the rules.
+-- * 'pageSize' - The maximum number of results to return with this call.
 mkDescribeRules ::
   DescribeRules
 mkDescribeRules =
@@ -107,12 +105,12 @@ drPageSize = Lens.lens (pageSize :: DescribeRules -> Lude.Maybe Lude.Natural) (\
 
 instance Page.AWSPager DescribeRules where
   page rq rs
-    | Page.stop (rs Lens.^. drsrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. drsrsRules) = Lude.Nothing
+    | Page.stop (rs Lens.^. drrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. drrsRules) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& drMarker Lens..~ rs Lens.^. drsrsNextMarker
+          Lude.& drMarker Lens..~ rs Lens.^. drrsNextMarker
 
 instance Lude.AWSRequest DescribeRules where
   type Rs DescribeRules = DescribeRulesResponse
@@ -149,25 +147,21 @@ instance Lude.ToQuery DescribeRules where
 
 -- | /See:/ 'mkDescribeRulesResponse' smart constructor.
 data DescribeRulesResponse = DescribeRulesResponse'
-  { rules ::
-      Lude.Maybe [Rule],
+  { -- | Information about the rules.
+    rules :: Lude.Maybe [Rule],
+    -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRulesResponse' with the minimum fields required to make a request.
 --
+-- * 'rules' - Information about the rules.
 -- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 -- * 'responseStatus' - The response status code.
--- * 'rules' - Information about the rules.
 mkDescribeRulesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -182,20 +176,20 @@ mkDescribeRulesResponse pResponseStatus_ =
 -- | Information about the rules.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsrsRules :: Lens.Lens' DescribeRulesResponse (Lude.Maybe [Rule])
-drsrsRules = Lens.lens (rules :: DescribeRulesResponse -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: DescribeRulesResponse)
-{-# DEPRECATED drsrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+drrsRules :: Lens.Lens' DescribeRulesResponse (Lude.Maybe [Rule])
+drrsRules = Lens.lens (rules :: DescribeRulesResponse -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: DescribeRulesResponse)
+{-# DEPRECATED drrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsrsNextMarker :: Lens.Lens' DescribeRulesResponse (Lude.Maybe Lude.Text)
-drsrsNextMarker = Lens.lens (nextMarker :: DescribeRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeRulesResponse)
-{-# DEPRECATED drsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+drrsNextMarker :: Lens.Lens' DescribeRulesResponse (Lude.Maybe Lude.Text)
+drrsNextMarker = Lens.lens (nextMarker :: DescribeRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeRulesResponse)
+{-# DEPRECATED drrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsrsResponseStatus :: Lens.Lens' DescribeRulesResponse Lude.Int
-drsrsResponseStatus = Lens.lens (responseStatus :: DescribeRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRulesResponse)
-{-# DEPRECATED drsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrsResponseStatus :: Lens.Lens' DescribeRulesResponse Lude.Int
+drrsResponseStatus = Lens.lens (responseStatus :: DescribeRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRulesResponse)
+{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

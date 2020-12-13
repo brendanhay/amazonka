@@ -36,26 +36,82 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedCacheNodesOffering' smart constructor.
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
-  { cacheNodeType ::
-      Lude.Maybe Lude.Text,
-    productDescription ::
-      Lude.Maybe Lude.Text,
-    recurringCharges ::
-      Lude.Maybe [RecurringCharge],
+  { -- | The cache node type for the reserved cache node.
+    --
+    -- The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
+    --
+    --     * General purpose:
+    --
+    --     * Current generation:
+    -- __M6g node types__ (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).
+    -- @cache.m6g.large@ , @cache.m6g.xlarge@ , @cache.m6g.2xlarge@ , @cache.m6g.4xlarge@ , @cache.m6g.8xlarge@ , @cache.m6g.12xlarge@ , @cache.m6g.16xlarge@
+    -- __M5 node types:__ @cache.m5.large@ , @cache.m5.xlarge@ , @cache.m5.2xlarge@ , @cache.m5.4xlarge@ , @cache.m5.12xlarge@ , @cache.m5.24xlarge@
+    -- __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@
+    -- __T3 node types:__ @cache.t3.micro@ , @cache.t3.small@ , @cache.t3.medium@
+    -- __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@
+    --
+    --
+    --     * Previous generation: (not recommended)
+    -- __T1 node types:__ @cache.t1.micro@
+    -- __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@
+    -- __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@
+    --
+    --
+    --
+    --
+    --     * Compute optimized:
+    --
+    --     * Previous generation: (not recommended)
+    -- __C1 node types:__ @cache.c1.xlarge@
+    --
+    --
+    --
+    --
+    --     * Memory optimized:
+    --
+    --     * Current generation:
+    -- __R6g node types__ (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).
+    -- @cache.r6g.large@ , @cache.r6g.xlarge@ , @cache.r6g.2xlarge@ , @cache.r6g.4xlarge@ , @cache.r6g.8xlarge@ , @cache.r6g.12xlarge@ , @cache.r6g.16xlarge@
+    -- __R5 node types:__ @cache.r5.large@ , @cache.r5.xlarge@ , @cache.r5.2xlarge@ , @cache.r5.4xlarge@ , @cache.r5.12xlarge@ , @cache.r5.24xlarge@
+    -- __R4 node types:__ @cache.r4.large@ , @cache.r4.xlarge@ , @cache.r4.2xlarge@ , @cache.r4.4xlarge@ , @cache.r4.8xlarge@ , @cache.r4.16xlarge@
+    --
+    --
+    --     * Previous generation: (not recommended)
+    -- __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@
+    -- __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@
+    --
+    --
+    --
+    --
+    -- __Additional node type info__
+    --
+    --     * All current generation instance types are created in Amazon VPC by default.
+    --
+    --
+    --     * Redis append-only files (AOF) are not supported for T1 or T2 instances.
+    --
+    --
+    --     * Redis Multi-AZ with automatic failover is not supported on T1 instances.
+    --
+    --
+    --     * Redis configuration variables @appendonly@ and @appendfsync@ are not supported on Redis version 2.8.22 and later.
+    cacheNodeType :: Lude.Maybe Lude.Text,
+    -- | The cache engine used by the offering.
+    productDescription :: Lude.Maybe Lude.Text,
+    -- | The recurring price charged to run this reserved cache node.
+    recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The offering type.
     offeringType :: Lude.Maybe Lude.Text,
+    -- | The hourly price charged for this offering.
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | The fixed price charged for this offering.
     fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The duration of the offering. in seconds.
     duration :: Lude.Maybe Lude.Int,
-    reservedCacheNodesOfferingId ::
-      Lude.Maybe Lude.Text
+    -- | A unique identifier for the reserved cache node offering.
+    reservedCacheNodesOfferingId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedCacheNodesOffering' with the minimum fields required to make a request.
@@ -121,13 +177,13 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
 --     * Redis configuration variables @appendonly@ and @appendfsync@ are not supported on Redis version 2.8.22 and later.
 --
 --
--- * 'duration' - The duration of the offering. in seconds.
--- * 'fixedPrice' - The fixed price charged for this offering.
--- * 'offeringType' - The offering type.
 -- * 'productDescription' - The cache engine used by the offering.
 -- * 'recurringCharges' - The recurring price charged to run this reserved cache node.
--- * 'reservedCacheNodesOfferingId' - A unique identifier for the reserved cache node offering.
+-- * 'offeringType' - The offering type.
 -- * 'usagePrice' - The hourly price charged for this offering.
+-- * 'fixedPrice' - The fixed price charged for this offering.
+-- * 'duration' - The duration of the offering. in seconds.
+-- * 'reservedCacheNodesOfferingId' - A unique identifier for the reserved cache node offering.
 mkReservedCacheNodesOffering ::
   ReservedCacheNodesOffering
 mkReservedCacheNodesOffering =

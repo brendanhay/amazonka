@@ -35,14 +35,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIBMDB2Settings' smart constructor.
 data IBMDB2Settings = IBMDB2Settings'
-  { serverName ::
-      Lude.Maybe Lude.Text,
+  { -- | Fully qualified domain name of the endpoint.
+    serverName :: Lude.Maybe Lude.Text,
+    -- | For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
     currentLsn :: Lude.Maybe Lude.Text,
+    -- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
     setDataCaptureChanges :: Lude.Maybe Lude.Bool,
+    -- | Endpoint connection user name.
     username :: Lude.Maybe Lude.Text,
+    -- | Endpoint connection password.
     password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Database name for the endpoint.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
     maxKBytesPerRead :: Lude.Maybe Lude.Int,
+    -- | Endpoint TCP port.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -50,14 +57,14 @@ data IBMDB2Settings = IBMDB2Settings'
 
 -- | Creates a value of 'IBMDB2Settings' with the minimum fields required to make a request.
 --
--- * 'currentLsn' - For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
--- * 'databaseName' - Database name for the endpoint.
--- * 'maxKBytesPerRead' - Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
--- * 'password' - Endpoint connection password.
--- * 'port' - Endpoint TCP port.
 -- * 'serverName' - Fully qualified domain name of the endpoint.
+-- * 'currentLsn' - For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN) where you want the replication to start.
 -- * 'setDataCaptureChanges' - Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.
 -- * 'username' - Endpoint connection user name.
+-- * 'password' - Endpoint connection password.
+-- * 'databaseName' - Database name for the endpoint.
+-- * 'maxKBytesPerRead' - Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.
+-- * 'port' - Endpoint TCP port.
 mkIBMDB2Settings ::
   IBMDB2Settings
 mkIBMDB2Settings =

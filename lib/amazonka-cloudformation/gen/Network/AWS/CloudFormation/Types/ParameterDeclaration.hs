@@ -34,32 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterDeclaration' smart constructor.
 data ParameterDeclaration = ParameterDeclaration'
-  { parameterKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The name that is associated with the parameter.
+    parameterKey :: Lude.Maybe Lude.Text,
+    -- | The type of parameter.
     parameterType :: Lude.Maybe Lude.Text,
-    parameterConstraints ::
-      Lude.Maybe ParameterConstraints,
+    -- | The criteria that AWS CloudFormation uses to validate parameter values.
+    parameterConstraints :: Lude.Maybe ParameterConstraints,
+    -- | The default value of the parameter.
     defaultValue :: Lude.Maybe Lude.Text,
+    -- | Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
     noEcho :: Lude.Maybe Lude.Bool,
+    -- | The description that is associate with the parameter.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterDeclaration' with the minimum fields required to make a request.
 --
--- * 'defaultValue' - The default value of the parameter.
--- * 'description' - The description that is associate with the parameter.
--- * 'noEcho' - Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
--- * 'parameterConstraints' - The criteria that AWS CloudFormation uses to validate parameter values.
 -- * 'parameterKey' - The name that is associated with the parameter.
 -- * 'parameterType' - The type of parameter.
+-- * 'parameterConstraints' - The criteria that AWS CloudFormation uses to validate parameter values.
+-- * 'defaultValue' - The default value of the parameter.
+-- * 'noEcho' - Flag that indicates whether the parameter value is shown as plain text in logs and in the AWS Management Console.
+-- * 'description' - The description that is associate with the parameter.
 mkParameterDeclaration ::
   ParameterDeclaration
 mkParameterDeclaration =

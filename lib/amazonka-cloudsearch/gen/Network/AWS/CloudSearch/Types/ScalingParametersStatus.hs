@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.ScalingParametersStatus
     mkScalingParametersStatus,
 
     -- * Lenses
-    spsOptions,
     spsStatus,
+    spsOptions,
   )
 where
 
@@ -31,38 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingParametersStatus' smart constructor.
 data ScalingParametersStatus = ScalingParametersStatus'
-  { options ::
-      ScalingParameters,
-    status :: OptionStatus
+  { status :: OptionStatus,
+    options :: ScalingParameters
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingParametersStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Undocumented field.
--- * 'status' - Undocumented field.
+-- * 'status' -
+-- * 'options' -
 mkScalingParametersStatus ::
-  -- | 'options'
-  ScalingParameters ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  ScalingParameters ->
   ScalingParametersStatus
-mkScalingParametersStatus pOptions_ pStatus_ =
-  ScalingParametersStatus' {options = pOptions_, status = pStatus_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spsOptions :: Lens.Lens' ScalingParametersStatus ScalingParameters
-spsOptions = Lens.lens (options :: ScalingParametersStatus -> ScalingParameters) (\s a -> s {options = a} :: ScalingParametersStatus)
-{-# DEPRECATED spsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkScalingParametersStatus pStatus_ pOptions_ =
+  ScalingParametersStatus' {status = pStatus_, options = pOptions_}
 
 -- | Undocumented field.
 --
@@ -71,7 +57,14 @@ spsStatus :: Lens.Lens' ScalingParametersStatus OptionStatus
 spsStatus = Lens.lens (status :: ScalingParametersStatus -> OptionStatus) (\s a -> s {status = a} :: ScalingParametersStatus)
 {-# DEPRECATED spsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spsOptions :: Lens.Lens' ScalingParametersStatus ScalingParameters
+spsOptions = Lens.lens (options :: ScalingParametersStatus -> ScalingParameters) (\s a -> s {options = a} :: ScalingParametersStatus)
+{-# DEPRECATED spsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromXML ScalingParametersStatus where
   parseXML x =
     ScalingParametersStatus'
-      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")

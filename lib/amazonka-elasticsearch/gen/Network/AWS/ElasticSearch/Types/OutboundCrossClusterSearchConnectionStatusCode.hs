@@ -13,14 +13,14 @@
 module Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
   ( OutboundCrossClusterSearchConnectionStatusCode
       ( OutboundCrossClusterSearchConnectionStatusCode',
-        OCCSCSCActive,
-        OCCSCSCDeleted,
-        OCCSCSCDeleting,
         OCCSCSCPendingAcceptance,
-        OCCSCSCProvisioning,
-        OCCSCSCRejected,
         OCCSCSCValidating,
-        OCCSCSCValidationFailed
+        OCCSCSCValidationFailed,
+        OCCSCSCProvisioning,
+        OCCSCSCActive,
+        OCCSCSCRejected,
+        OCCSCSCDeleting,
+        OCCSCSCDeleted
       ),
   )
 where
@@ -51,23 +51,8 @@ newtype OutboundCrossClusterSearchConnectionStatusCode = OutboundCrossClusterSea
       Lude.ToHeader
     )
 
-pattern OCCSCSCActive :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCActive = OutboundCrossClusterSearchConnectionStatusCode' "ACTIVE"
-
-pattern OCCSCSCDeleted :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCDeleted = OutboundCrossClusterSearchConnectionStatusCode' "DELETED"
-
-pattern OCCSCSCDeleting :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCDeleting = OutboundCrossClusterSearchConnectionStatusCode' "DELETING"
-
 pattern OCCSCSCPendingAcceptance :: OutboundCrossClusterSearchConnectionStatusCode
 pattern OCCSCSCPendingAcceptance = OutboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
-
-pattern OCCSCSCProvisioning :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCProvisioning = OutboundCrossClusterSearchConnectionStatusCode' "PROVISIONING"
-
-pattern OCCSCSCRejected :: OutboundCrossClusterSearchConnectionStatusCode
-pattern OCCSCSCRejected = OutboundCrossClusterSearchConnectionStatusCode' "REJECTED"
 
 pattern OCCSCSCValidating :: OutboundCrossClusterSearchConnectionStatusCode
 pattern OCCSCSCValidating = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATING"
@@ -75,14 +60,29 @@ pattern OCCSCSCValidating = OutboundCrossClusterSearchConnectionStatusCode' "VAL
 pattern OCCSCSCValidationFailed :: OutboundCrossClusterSearchConnectionStatusCode
 pattern OCCSCSCValidationFailed = OutboundCrossClusterSearchConnectionStatusCode' "VALIDATION_FAILED"
 
+pattern OCCSCSCProvisioning :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCProvisioning = OutboundCrossClusterSearchConnectionStatusCode' "PROVISIONING"
+
+pattern OCCSCSCActive :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCActive = OutboundCrossClusterSearchConnectionStatusCode' "ACTIVE"
+
+pattern OCCSCSCRejected :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCRejected = OutboundCrossClusterSearchConnectionStatusCode' "REJECTED"
+
+pattern OCCSCSCDeleting :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCDeleting = OutboundCrossClusterSearchConnectionStatusCode' "DELETING"
+
+pattern OCCSCSCDeleted :: OutboundCrossClusterSearchConnectionStatusCode
+pattern OCCSCSCDeleted = OutboundCrossClusterSearchConnectionStatusCode' "DELETED"
+
 {-# COMPLETE
-  OCCSCSCActive,
-  OCCSCSCDeleted,
-  OCCSCSCDeleting,
   OCCSCSCPendingAcceptance,
-  OCCSCSCProvisioning,
-  OCCSCSCRejected,
   OCCSCSCValidating,
   OCCSCSCValidationFailed,
+  OCCSCSCProvisioning,
+  OCCSCSCActive,
+  OCCSCSCRejected,
+  OCCSCSCDeleting,
+  OCCSCSCDeleted,
   OutboundCrossClusterSearchConnectionStatusCode'
   #-}

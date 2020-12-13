@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,9 +35,9 @@ module Network.AWS.SecretsManager.DeleteSecret
     mkDeleteSecret,
 
     -- ** Request lenses
-    dsRecoveryWindowInDays,
-    dsForceDeleteWithoutRecovery,
-    dsSecretId,
+    dSecretId,
+    dRecoveryWindowInDays,
+    dForceDeleteWithoutRecovery,
 
     -- * Destructuring the response
     DeleteSecretResponse (..),
@@ -58,49 +59,57 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkDeleteSecret' smart constructor.
 data DeleteSecret = DeleteSecret'
-  { recoveryWindowInDays ::
-      Lude.Maybe Lude.Integer,
-    forceDeleteWithoutRecovery :: Lude.Maybe Lude.Bool,
-    secretId :: Lude.Text
+  { -- | Specifies the secret that you want to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text,
+    -- | (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can't use both this parameter and the @ForceDeleteWithoutRecovery@ parameter in the same API call.
+    --
+    -- This value can range from 7 to 30 days. The default value is 30.
+    recoveryWindowInDays :: Lude.Maybe Lude.Integer,
+    -- | (Optional) Specifies that the secret is to be deleted without any recovery window. You can't use both this parameter and the @RecoveryWindowInDays@ parameter in the same API call.
+    --
+    -- An asynchronous background process performs the actual deletion, so there can be a short delay before the operation completes. If you write code to delete and then immediately recreate a secret with the same name, ensure that your code includes appropriate back off and retry logic.
+    -- /Important:/ Use this parameter with caution. This parameter causes the operation to skip the normal waiting period before the permanent deletion that AWS would normally impose with the @RecoveryWindowInDays@ parameter. If you delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you have no opportunity to recover the secret. It is permanently lost.
+    forceDeleteWithoutRecovery :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecret' with the minimum fields required to make a request.
 --
+-- * 'secretId' - Specifies the secret that you want to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+-- * 'recoveryWindowInDays' - (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can't use both this parameter and the @ForceDeleteWithoutRecovery@ parameter in the same API call.
+--
+-- This value can range from 7 to 30 days. The default value is 30.
 -- * 'forceDeleteWithoutRecovery' - (Optional) Specifies that the secret is to be deleted without any recovery window. You can't use both this parameter and the @RecoveryWindowInDays@ parameter in the same API call.
 --
 -- An asynchronous background process performs the actual deletion, so there can be a short delay before the operation completes. If you write code to delete and then immediately recreate a secret with the same name, ensure that your code includes appropriate back off and retry logic.
 -- /Important:/ Use this parameter with caution. This parameter causes the operation to skip the normal waiting period before the permanent deletion that AWS would normally impose with the @RecoveryWindowInDays@ parameter. If you delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you have no opportunity to recover the secret. It is permanently lost.
--- * 'recoveryWindowInDays' - (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can't use both this parameter and the @ForceDeleteWithoutRecovery@ parameter in the same API call.
---
--- This value can range from 7 to 30 days. The default value is 30.
--- * 'secretId' - Specifies the secret that you want to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 mkDeleteSecret ::
   -- | 'secretId'
   Lude.Text ->
   DeleteSecret
 mkDeleteSecret pSecretId_ =
   DeleteSecret'
-    { recoveryWindowInDays = Lude.Nothing,
-      forceDeleteWithoutRecovery = Lude.Nothing,
-      secretId = pSecretId_
+    { secretId = pSecretId_,
+      recoveryWindowInDays = Lude.Nothing,
+      forceDeleteWithoutRecovery = Lude.Nothing
     }
+
+-- | Specifies the secret that you want to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSecretId :: Lens.Lens' DeleteSecret Lude.Text
+dSecretId = Lens.lens (secretId :: DeleteSecret -> Lude.Text) (\s a -> s {secretId = a} :: DeleteSecret)
+{-# DEPRECATED dSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 -- | (Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret. You can't use both this parameter and the @ForceDeleteWithoutRecovery@ parameter in the same API call.
 --
 -- This value can range from 7 to 30 days. The default value is 30.
 --
 -- /Note:/ Consider using 'recoveryWindowInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsRecoveryWindowInDays :: Lens.Lens' DeleteSecret (Lude.Maybe Lude.Integer)
-dsRecoveryWindowInDays = Lens.lens (recoveryWindowInDays :: DeleteSecret -> Lude.Maybe Lude.Integer) (\s a -> s {recoveryWindowInDays = a} :: DeleteSecret)
-{-# DEPRECATED dsRecoveryWindowInDays "Use generic-lens or generic-optics with 'recoveryWindowInDays' instead." #-}
+dRecoveryWindowInDays :: Lens.Lens' DeleteSecret (Lude.Maybe Lude.Integer)
+dRecoveryWindowInDays = Lens.lens (recoveryWindowInDays :: DeleteSecret -> Lude.Maybe Lude.Integer) (\s a -> s {recoveryWindowInDays = a} :: DeleteSecret)
+{-# DEPRECATED dRecoveryWindowInDays "Use generic-lens or generic-optics with 'recoveryWindowInDays' instead." #-}
 
 -- | (Optional) Specifies that the secret is to be deleted without any recovery window. You can't use both this parameter and the @RecoveryWindowInDays@ parameter in the same API call.
 --
@@ -108,16 +117,9 @@ dsRecoveryWindowInDays = Lens.lens (recoveryWindowInDays :: DeleteSecret -> Lude
 -- /Important:/ Use this parameter with caution. This parameter causes the operation to skip the normal waiting period before the permanent deletion that AWS would normally impose with the @RecoveryWindowInDays@ parameter. If you delete a secret with the @ForceDeleteWithouRecovery@ parameter, then you have no opportunity to recover the secret. It is permanently lost.
 --
 -- /Note:/ Consider using 'forceDeleteWithoutRecovery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsForceDeleteWithoutRecovery :: Lens.Lens' DeleteSecret (Lude.Maybe Lude.Bool)
-dsForceDeleteWithoutRecovery = Lens.lens (forceDeleteWithoutRecovery :: DeleteSecret -> Lude.Maybe Lude.Bool) (\s a -> s {forceDeleteWithoutRecovery = a} :: DeleteSecret)
-{-# DEPRECATED dsForceDeleteWithoutRecovery "Use generic-lens or generic-optics with 'forceDeleteWithoutRecovery' instead." #-}
-
--- | Specifies the secret that you want to delete. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
---
--- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsSecretId :: Lens.Lens' DeleteSecret Lude.Text
-dsSecretId = Lens.lens (secretId :: DeleteSecret -> Lude.Text) (\s a -> s {secretId = a} :: DeleteSecret)
-{-# DEPRECATED dsSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
+dForceDeleteWithoutRecovery :: Lens.Lens' DeleteSecret (Lude.Maybe Lude.Bool)
+dForceDeleteWithoutRecovery = Lens.lens (forceDeleteWithoutRecovery :: DeleteSecret -> Lude.Maybe Lude.Bool) (\s a -> s {forceDeleteWithoutRecovery = a} :: DeleteSecret)
+{-# DEPRECATED dForceDeleteWithoutRecovery "Use generic-lens or generic-optics with 'forceDeleteWithoutRecovery' instead." #-}
 
 instance Lude.AWSRequest DeleteSecret where
   type Rs DeleteSecret = DeleteSecretResponse
@@ -147,10 +149,10 @@ instance Lude.ToJSON DeleteSecret where
   toJSON DeleteSecret' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RecoveryWindowInDays" Lude..=) Lude.<$> recoveryWindowInDays,
+          [ Lude.Just ("SecretId" Lude..= secretId),
+            ("RecoveryWindowInDays" Lude..=) Lude.<$> recoveryWindowInDays,
             ("ForceDeleteWithoutRecovery" Lude..=)
-              Lude.<$> forceDeleteWithoutRecovery,
-            Lude.Just ("SecretId" Lude..= secretId)
+              Lude.<$> forceDeleteWithoutRecovery
           ]
       )
 
@@ -162,26 +164,23 @@ instance Lude.ToQuery DeleteSecret where
 
 -- | /See:/ 'mkDeleteSecretResponse' smart constructor.
 data DeleteSecretResponse = DeleteSecretResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the secret that is now scheduled for deletion.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret that is now scheduled for deletion.
     name :: Lude.Maybe Lude.Text,
+    -- | The date and time after which this secret can be deleted by Secrets Manager and can no longer be restored. This value is the date and time of the delete request plus the number of days specified in @RecoveryWindowInDays@ .
     deletionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSecretResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the secret that is now scheduled for deletion.
--- * 'deletionDate' - The date and time after which this secret can be deleted by Secrets Manager and can no longer be restored. This value is the date and time of the delete request plus the number of days specified in @RecoveryWindowInDays@ .
 -- * 'name' - The friendly name of the secret that is now scheduled for deletion.
+-- * 'deletionDate' - The date and time after which this secret can be deleted by Secrets Manager and can no longer be restored. This value is the date and time of the delete request plus the number of days specified in @RecoveryWindowInDays@ .
 -- * 'responseStatus' - The response status code.
 mkDeleteSecretResponse ::
   -- | 'responseStatus'

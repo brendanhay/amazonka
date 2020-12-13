@@ -17,9 +17,9 @@ module Network.AWS.CloudFront.Types.OriginGroup
     mkOriginGroup,
 
     -- * Lenses
-    ogId,
     ogFailoverCriteria,
     ogMembers,
+    ogId,
   )
 where
 
@@ -32,45 +32,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginGroup' smart constructor.
 data OriginGroup = OriginGroup'
-  { id :: Lude.Text,
+  { -- | A complex type that contains information about the failover criteria for an origin group.
     failoverCriteria :: OriginGroupFailoverCriteria,
-    members :: OriginGroupMembers
+    -- | A complex type that contains information about the origins in an origin group.
+    members :: OriginGroupMembers,
+    -- | The origin group's ID.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginGroup' with the minimum fields required to make a request.
 --
 -- * 'failoverCriteria' - A complex type that contains information about the failover criteria for an origin group.
--- * 'id' - The origin group's ID.
 -- * 'members' - A complex type that contains information about the origins in an origin group.
+-- * 'id' - The origin group's ID.
 mkOriginGroup ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'failoverCriteria'
   OriginGroupFailoverCriteria ->
   -- | 'members'
   OriginGroupMembers ->
+  -- | 'id'
+  Lude.Text ->
   OriginGroup
-mkOriginGroup pId_ pFailoverCriteria_ pMembers_ =
+mkOriginGroup pFailoverCriteria_ pMembers_ pId_ =
   OriginGroup'
-    { id = pId_,
-      failoverCriteria = pFailoverCriteria_,
-      members = pMembers_
+    { failoverCriteria = pFailoverCriteria_,
+      members = pMembers_,
+      id = pId_
     }
-
--- | The origin group's ID.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogId :: Lens.Lens' OriginGroup Lude.Text
-ogId = Lens.lens (id :: OriginGroup -> Lude.Text) (\s a -> s {id = a} :: OriginGroup)
-{-# DEPRECATED ogId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A complex type that contains information about the failover criteria for an origin group.
 --
@@ -86,17 +76,24 @@ ogMembers :: Lens.Lens' OriginGroup OriginGroupMembers
 ogMembers = Lens.lens (members :: OriginGroup -> OriginGroupMembers) (\s a -> s {members = a} :: OriginGroup)
 {-# DEPRECATED ogMembers "Use generic-lens or generic-optics with 'members' instead." #-}
 
+-- | The origin group's ID.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogId :: Lens.Lens' OriginGroup Lude.Text
+ogId = Lens.lens (id :: OriginGroup -> Lude.Text) (\s a -> s {id = a} :: OriginGroup)
+{-# DEPRECATED ogId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 instance Lude.FromXML OriginGroup where
   parseXML x =
     OriginGroup'
-      Lude.<$> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "FailoverCriteria")
+      Lude.<$> (x Lude..@ "FailoverCriteria")
       Lude.<*> (x Lude..@ "Members")
+      Lude.<*> (x Lude..@ "Id")
 
 instance Lude.ToXML OriginGroup where
   toXML OriginGroup' {..} =
     Lude.mconcat
-      [ "Id" Lude.@= id,
-        "FailoverCriteria" Lude.@= failoverCriteria,
-        "Members" Lude.@= members
+      [ "FailoverCriteria" Lude.@= failoverCriteria,
+        "Members" Lude.@= members,
+        "Id" Lude.@= id
       ]

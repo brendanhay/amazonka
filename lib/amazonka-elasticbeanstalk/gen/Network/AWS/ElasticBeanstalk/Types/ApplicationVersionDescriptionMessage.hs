@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationVersionDescriptionMessage' smart constructor.
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
-  { applicationVersion ::
-      Lude.Maybe
-        ApplicationVersionDescription
+  { -- | The 'ApplicationVersionDescription' of the application version.
+    applicationVersion :: Lude.Maybe ApplicationVersionDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationVersionDescriptionMessage' with the minimum fields required to make a request.

@@ -35,28 +35,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeliveryChannelStatus' smart constructor.
 data DeliveryChannelStatus = DeliveryChannelStatus'
-  { configSnapshotDeliveryInfo ::
-      Lude.Maybe ConfigExportDeliveryInfo,
-    configStreamDeliveryInfo ::
-      Lude.Maybe ConfigStreamDeliveryInfo,
-    configHistoryDeliveryInfo ::
-      Lude.Maybe ConfigExportDeliveryInfo,
+  { -- | A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
+    configSnapshotDeliveryInfo :: Lude.Maybe ConfigExportDeliveryInfo,
+    -- | A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
+    configStreamDeliveryInfo :: Lude.Maybe ConfigStreamDeliveryInfo,
+    -- | A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
+    configHistoryDeliveryInfo :: Lude.Maybe ConfigExportDeliveryInfo,
+    -- | The name of the delivery channel.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryChannelStatus' with the minimum fields required to make a request.
 --
--- * 'configHistoryDeliveryInfo' - A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
 -- * 'configSnapshotDeliveryInfo' - A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.
 -- * 'configStreamDeliveryInfo' - A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.
+-- * 'configHistoryDeliveryInfo' - A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.
 -- * 'name' - The name of the delivery channel.
 mkDeliveryChannelStatus ::
   DeliveryChannelStatus

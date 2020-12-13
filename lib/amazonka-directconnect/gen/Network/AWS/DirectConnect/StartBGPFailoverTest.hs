@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.DirectConnect.StartBGPFailoverTest
     mkStartBGPFailoverTest,
 
     -- ** Request lenses
-    sbftBgpPeers,
-    sbftTestDurationInMinutes,
-    sbftVirtualInterfaceId,
+    sbgpftBgpPeers,
+    sbgpftTestDurationInMinutes,
+    sbgpftVirtualInterfaceId,
 
     -- * Destructuring the response
     StartBGPFailoverTestResponse (..),
@@ -45,18 +46,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartBGPFailoverTest' smart constructor.
 data StartBGPFailoverTest = StartBGPFailoverTest'
-  { bgpPeers ::
-      Lude.Maybe [Lude.Text],
+  { -- | The BGP peers to place in the DOWN state.
+    bgpPeers :: Lude.Maybe [Lude.Text],
+    -- | The time in minutes that the virtual interface failover test will last.
+    --
+    -- Maximum value: 180 minutes (3 hours).
+    -- Default: 180 minutes (3 hours).
     testDurationInMinutes :: Lude.Maybe Lude.Int,
+    -- | The ID of the virtual interface you want to test.
     virtualInterfaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBGPFailoverTest' with the minimum fields required to make a request.
@@ -81,9 +81,9 @@ mkStartBGPFailoverTest pVirtualInterfaceId_ =
 -- | The BGP peers to place in the DOWN state.
 --
 -- /Note:/ Consider using 'bgpPeers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbftBgpPeers :: Lens.Lens' StartBGPFailoverTest (Lude.Maybe [Lude.Text])
-sbftBgpPeers = Lens.lens (bgpPeers :: StartBGPFailoverTest -> Lude.Maybe [Lude.Text]) (\s a -> s {bgpPeers = a} :: StartBGPFailoverTest)
-{-# DEPRECATED sbftBgpPeers "Use generic-lens or generic-optics with 'bgpPeers' instead." #-}
+sbgpftBgpPeers :: Lens.Lens' StartBGPFailoverTest (Lude.Maybe [Lude.Text])
+sbgpftBgpPeers = Lens.lens (bgpPeers :: StartBGPFailoverTest -> Lude.Maybe [Lude.Text]) (\s a -> s {bgpPeers = a} :: StartBGPFailoverTest)
+{-# DEPRECATED sbgpftBgpPeers "Use generic-lens or generic-optics with 'bgpPeers' instead." #-}
 
 -- | The time in minutes that the virtual interface failover test will last.
 --
@@ -91,16 +91,16 @@ sbftBgpPeers = Lens.lens (bgpPeers :: StartBGPFailoverTest -> Lude.Maybe [Lude.T
 -- Default: 180 minutes (3 hours).
 --
 -- /Note:/ Consider using 'testDurationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbftTestDurationInMinutes :: Lens.Lens' StartBGPFailoverTest (Lude.Maybe Lude.Int)
-sbftTestDurationInMinutes = Lens.lens (testDurationInMinutes :: StartBGPFailoverTest -> Lude.Maybe Lude.Int) (\s a -> s {testDurationInMinutes = a} :: StartBGPFailoverTest)
-{-# DEPRECATED sbftTestDurationInMinutes "Use generic-lens or generic-optics with 'testDurationInMinutes' instead." #-}
+sbgpftTestDurationInMinutes :: Lens.Lens' StartBGPFailoverTest (Lude.Maybe Lude.Int)
+sbgpftTestDurationInMinutes = Lens.lens (testDurationInMinutes :: StartBGPFailoverTest -> Lude.Maybe Lude.Int) (\s a -> s {testDurationInMinutes = a} :: StartBGPFailoverTest)
+{-# DEPRECATED sbgpftTestDurationInMinutes "Use generic-lens or generic-optics with 'testDurationInMinutes' instead." #-}
 
 -- | The ID of the virtual interface you want to test.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbftVirtualInterfaceId :: Lens.Lens' StartBGPFailoverTest Lude.Text
-sbftVirtualInterfaceId = Lens.lens (virtualInterfaceId :: StartBGPFailoverTest -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: StartBGPFailoverTest)
-{-# DEPRECATED sbftVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
+sbgpftVirtualInterfaceId :: Lens.Lens' StartBGPFailoverTest Lude.Text
+sbgpftVirtualInterfaceId = Lens.lens (virtualInterfaceId :: StartBGPFailoverTest -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: StartBGPFailoverTest)
+{-# DEPRECATED sbgpftVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
 instance Lude.AWSRequest StartBGPFailoverTest where
   type Rs StartBGPFailoverTest = StartBGPFailoverTestResponse
@@ -142,24 +142,18 @@ instance Lude.ToQuery StartBGPFailoverTest where
 
 -- | /See:/ 'mkStartBGPFailoverTestResponse' smart constructor.
 data StartBGPFailoverTestResponse = StartBGPFailoverTestResponse'
-  { virtualInterfaceTest ::
-      Lude.Maybe
-        VirtualInterfaceTestHistory,
+  { -- | Information about the virtual interface failover test.
+    virtualInterfaceTest :: Lude.Maybe VirtualInterfaceTestHistory,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBGPFailoverTestResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'virtualInterfaceTest' - Information about the virtual interface failover test.
+-- * 'responseStatus' - The response status code.
 mkStartBGPFailoverTestResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,16 +47,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateKeysAndCertificate' smart constructor.
 newtype CreateKeysAndCertificate = CreateKeysAndCertificate'
-  { setAsActive ::
-      Lude.Maybe Lude.Bool
+  { -- | Specifies whether the certificate is active.
+    setAsActive :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateKeysAndCertificate' with the minimum fields required to make a request.
@@ -104,31 +99,26 @@ instance Lude.ToQuery CreateKeysAndCertificate where
 --
 -- /See:/ 'mkCreateKeysAndCertificateResponse' smart constructor.
 data CreateKeysAndCertificateResponse = CreateKeysAndCertificateResponse'
-  { keyPair ::
-      Lude.Maybe KeyPair,
-    certificatePem ::
-      Lude.Maybe Lude.Text,
-    certificateARN ::
-      Lude.Maybe Lude.Text,
-    certificateId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The generated key pair.
+    keyPair :: Lude.Maybe KeyPair,
+    -- | The certificate data, in PEM format.
+    certificatePem :: Lude.Maybe Lude.Text,
+    -- | The ARN of the certificate.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).
+    certificateId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateKeysAndCertificateResponse' with the minimum fields required to make a request.
 --
+-- * 'keyPair' - The generated key pair.
+-- * 'certificatePem' - The certificate data, in PEM format.
 -- * 'certificateARN' - The ARN of the certificate.
 -- * 'certificateId' - The ID of the certificate. AWS IoT issues a default subject name for the certificate (for example, AWS IoT Certificate).
--- * 'certificatePem' - The certificate data, in PEM format.
--- * 'keyPair' - The generated key pair.
 -- * 'responseStatus' - The response status code.
 mkCreateKeysAndCertificateResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,18 +22,18 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     mkDescribeEvents,
 
     -- ** Request lenses
-    deRequestId,
-    deTemplateName,
-    deStartTime,
-    deSeverity,
-    deNextToken,
-    deVersionLabel,
-    dePlatformARN,
-    deEnvironmentName,
-    deMaxRecords,
-    deEndTime,
-    deApplicationName,
-    deEnvironmentId,
+    desRequestId,
+    desTemplateName,
+    desStartTime,
+    desSeverity,
+    desNextToken,
+    desVersionLabel,
+    desPlatformARN,
+    desEnvironmentName,
+    desMaxRecords,
+    desEndTime,
+    desApplicationName,
+    desEnvironmentId,
 
     -- * Destructuring the response
     DescribeEventsResponse (..),
@@ -56,43 +57,48 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { requestId ::
-      Lude.Maybe Lude.Text,
+  { -- | If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that are associated with this environment configuration.
     templateName :: Lude.Maybe Lude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time.
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | If specified, limits the events returned from this call to include only those with the specified severity or higher.
     severity :: Lude.Maybe EventSeverity,
+    -- | Pagination token. If specified, the events return the next batch of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.
     versionLabel :: Lude.Maybe Lude.Text,
+    -- | The ARN of a custom platform version. If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this custom platform version.
     platformARN :: Lude.Maybe Lude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
     environmentName :: Lude.Maybe Lude.Text,
+    -- | Specifies the maximum number of events that can be returned, beginning with the most recent event.
     maxRecords :: Lude.Maybe Lude.Natural,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the @EndTime@ .
     endTime :: Lude.Maybe Lude.DateTime,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
     environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- * 'applicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application.
--- * 'endTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the @EndTime@ .
--- * 'environmentId' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
+-- * 'requestId' - If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID.
+-- * 'templateName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that are associated with this environment configuration.
+-- * 'startTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time.
+-- * 'severity' - If specified, limits the events returned from this call to include only those with the specified severity or higher.
+-- * 'nextToken' - Pagination token. If specified, the events return the next batch of results.
+-- * 'versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.
+-- * 'platformARN' - The ARN of a custom platform version. If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this custom platform version.
 -- * 'environmentName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 -- * 'maxRecords' - Specifies the maximum number of events that can be returned, beginning with the most recent event.
--- * 'nextToken' - Pagination token. If specified, the events return the next batch of results.
--- * 'platformARN' - The ARN of a custom platform version. If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this custom platform version.
--- * 'requestId' - If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID.
--- * 'severity' - If specified, limits the events returned from this call to include only those with the specified severity or higher.
--- * 'startTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time.
--- * 'templateName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that are associated with this environment configuration.
--- * 'versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.
+-- * 'endTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the @EndTime@ .
+-- * 'applicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application.
+-- * 'environmentId' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 mkDescribeEvents ::
   DescribeEvents
 mkDescribeEvents =
@@ -114,86 +120,86 @@ mkDescribeEvents =
 -- | If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID.
 --
 -- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deRequestId :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deRequestId = Lens.lens (requestId :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: DescribeEvents)
-{-# DEPRECATED deRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
+desRequestId :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desRequestId = Lens.lens (requestId :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: DescribeEvents)
+{-# DEPRECATED desRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that are associated with this environment configuration.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deTemplateName :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deTemplateName = Lens.lens (templateName :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: DescribeEvents)
-{-# DEPRECATED deTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+desTemplateName :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desTemplateName = Lens.lens (templateName :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: DescribeEvents)
+{-# DEPRECATED desTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
-deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeEvents)
-{-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+desStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
+desStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeEvents)
+{-# DEPRECATED desStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | If specified, limits the events returned from this call to include only those with the specified severity or higher.
 --
 -- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSeverity :: Lens.Lens' DescribeEvents (Lude.Maybe EventSeverity)
-deSeverity = Lens.lens (severity :: DescribeEvents -> Lude.Maybe EventSeverity) (\s a -> s {severity = a} :: DescribeEvents)
-{-# DEPRECATED deSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
+desSeverity :: Lens.Lens' DescribeEvents (Lude.Maybe EventSeverity)
+desSeverity = Lens.lens (severity :: DescribeEvents -> Lude.Maybe EventSeverity) (\s a -> s {severity = a} :: DescribeEvents)
+{-# DEPRECATED desSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
 -- | Pagination token. If specified, the events return the next batch of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deNextToken :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deNextToken = Lens.lens (nextToken :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEvents)
-{-# DEPRECATED deNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+desNextToken :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desNextToken = Lens.lens (nextToken :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEvents)
+{-# DEPRECATED desNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.
 --
 -- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deVersionLabel :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deVersionLabel = Lens.lens (versionLabel :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: DescribeEvents)
-{-# DEPRECATED deVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
+desVersionLabel :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desVersionLabel = Lens.lens (versionLabel :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: DescribeEvents)
+{-# DEPRECATED desVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 -- | The ARN of a custom platform version. If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this custom platform version.
 --
 -- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dePlatformARN :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-dePlatformARN = Lens.lens (platformARN :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: DescribeEvents)
-{-# DEPRECATED dePlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
+desPlatformARN :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desPlatformARN = Lens.lens (platformARN :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: DescribeEvents)
+{-# DEPRECATED desPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEnvironmentName :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deEnvironmentName = Lens.lens (environmentName :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeEvents)
-{-# DEPRECATED deEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+desEnvironmentName :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desEnvironmentName = Lens.lens (environmentName :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeEvents)
+{-# DEPRECATED desEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | Specifies the maximum number of events that can be returned, beginning with the most recent event.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deMaxRecords :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Natural)
-deMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeEvents)
-{-# DEPRECATED deMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+desMaxRecords :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Natural)
+desMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeEvents)
+{-# DEPRECATED desMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the @EndTime@ .
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
-deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeEvents)
-{-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+desEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.DateTime)
+desEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeEvents)
+{-# DEPRECATED desEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deApplicationName :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deApplicationName = Lens.lens (applicationName :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: DescribeEvents)
-{-# DEPRECATED deApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+desApplicationName :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desApplicationName = Lens.lens (applicationName :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: DescribeEvents)
+{-# DEPRECATED desApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEnvironmentId :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deEnvironmentId = Lens.lens (environmentId :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: DescribeEvents)
-{-# DEPRECATED deEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+desEnvironmentId :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+desEnvironmentId = Lens.lens (environmentId :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: DescribeEvents)
+{-# DEPRECATED desEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 instance Page.AWSPager DescribeEvents where
   page rq rs
@@ -202,7 +208,7 @@ instance Page.AWSPager DescribeEvents where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& deNextToken Lens..~ rs Lens.^. dersNextToken
+          Lude.& desNextToken Lens..~ rs Lens.^. dersNextToken
 
 instance Lude.AWSRequest DescribeEvents where
   type Rs DescribeEvents = DescribeEventsResponse
@@ -248,24 +254,20 @@ instance Lude.ToQuery DescribeEvents where
 --
 -- /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If returned, this indicates that there are more results to obtain. Use this token in the next 'DescribeEvents' call to get the next batch of events.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of 'EventDescription' .
     events :: Lude.Maybe [EventDescription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
--- * 'events' - A list of 'EventDescription' .
 -- * 'nextToken' - If returned, this indicates that there are more results to obtain. Use this token in the next 'DescribeEvents' call to get the next batch of events.
+-- * 'events' - A list of 'EventDescription' .
 -- * 'responseStatus' - The response status code.
 mkDescribeEventsResponse ::
   -- | 'responseStatus'

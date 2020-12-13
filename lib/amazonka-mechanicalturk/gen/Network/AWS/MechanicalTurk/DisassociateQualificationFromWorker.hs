@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.MechanicalTurk.DisassociateQualificationFromWorker
 
     -- ** Request lenses
     dqfwReason,
-    dqfwWorkerId,
     dqfwQualificationTypeId,
+    dqfwWorkerId,
 
     -- * Destructuring the response
     DisassociateQualificationFromWorkerResponse (..),
@@ -42,41 +43,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateQualificationFromWorker' smart constructor.
 data DisassociateQualificationFromWorker = DisassociateQualificationFromWorker'
-  { reason ::
-      Lude.Maybe
-        Lude.Text,
-    workerId ::
-      Lude.Text,
-    qualificationTypeId ::
-      Lude.Text
+  { -- | A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The ID of the Qualification type of the Qualification to be revoked.
+    qualificationTypeId :: Lude.Text,
+    -- | The ID of the Worker who possesses the Qualification to be revoked.
+    workerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateQualificationFromWorker' with the minimum fields required to make a request.
 --
--- * 'qualificationTypeId' - The ID of the Qualification type of the Qualification to be revoked.
 -- * 'reason' - A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
+-- * 'qualificationTypeId' - The ID of the Qualification type of the Qualification to be revoked.
 -- * 'workerId' - The ID of the Worker who possesses the Qualification to be revoked.
 mkDisassociateQualificationFromWorker ::
-  -- | 'workerId'
-  Lude.Text ->
   -- | 'qualificationTypeId'
+  Lude.Text ->
+  -- | 'workerId'
   Lude.Text ->
   DisassociateQualificationFromWorker
 mkDisassociateQualificationFromWorker
-  pWorkerId_
-  pQualificationTypeId_ =
+  pQualificationTypeId_
+  pWorkerId_ =
     DisassociateQualificationFromWorker'
       { reason = Lude.Nothing,
-        workerId = pWorkerId_,
-        qualificationTypeId = pQualificationTypeId_
+        qualificationTypeId = pQualificationTypeId_,
+        workerId = pWorkerId_
       }
 
 -- | A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.
@@ -86,19 +80,19 @@ dqfwReason :: Lens.Lens' DisassociateQualificationFromWorker (Lude.Maybe Lude.Te
 dqfwReason = Lens.lens (reason :: DisassociateQualificationFromWorker -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: DisassociateQualificationFromWorker)
 {-# DEPRECATED dqfwReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
--- | The ID of the Worker who possesses the Qualification to be revoked.
---
--- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqfwWorkerId :: Lens.Lens' DisassociateQualificationFromWorker Lude.Text
-dqfwWorkerId = Lens.lens (workerId :: DisassociateQualificationFromWorker -> Lude.Text) (\s a -> s {workerId = a} :: DisassociateQualificationFromWorker)
-{-# DEPRECATED dqfwWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
-
 -- | The ID of the Qualification type of the Qualification to be revoked.
 --
 -- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dqfwQualificationTypeId :: Lens.Lens' DisassociateQualificationFromWorker Lude.Text
 dqfwQualificationTypeId = Lens.lens (qualificationTypeId :: DisassociateQualificationFromWorker -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: DisassociateQualificationFromWorker)
 {-# DEPRECATED dqfwQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
+
+-- | The ID of the Worker who possesses the Qualification to be revoked.
+--
+-- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqfwWorkerId :: Lens.Lens' DisassociateQualificationFromWorker Lude.Text
+dqfwWorkerId = Lens.lens (workerId :: DisassociateQualificationFromWorker -> Lude.Text) (\s a -> s {workerId = a} :: DisassociateQualificationFromWorker)
+{-# DEPRECATED dqfwWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
 instance Lude.AWSRequest DisassociateQualificationFromWorker where
   type
@@ -130,8 +124,8 @@ instance Lude.ToJSON DisassociateQualificationFromWorker where
     Lude.object
       ( Lude.catMaybes
           [ ("Reason" Lude..=) Lude.<$> reason,
-            Lude.Just ("WorkerId" Lude..= workerId),
-            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId)
+            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
+            Lude.Just ("WorkerId" Lude..= workerId)
           ]
       )
 
@@ -143,20 +137,11 @@ instance Lude.ToQuery DisassociateQualificationFromWorker where
 
 -- | /See:/ 'mkDisassociateQualificationFromWorkerResponse' smart constructor.
 newtype DisassociateQualificationFromWorkerResponse = DisassociateQualificationFromWorkerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateQualificationFromWorkerResponse' with the minimum fields required to make a request.
 --

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkGetVocabularyFilter' smart constructor.
 newtype GetVocabularyFilter = GetVocabularyFilter'
-  { vocabularyFilterName ::
-      Lude.Text
+  { -- | The name of the vocabulary filter for which to return information.
+    vocabularyFilterName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVocabularyFilter' with the minimum fields required to make a request.
@@ -114,31 +109,27 @@ instance Lude.ToQuery GetVocabularyFilter where
 
 -- | /See:/ 'mkGetVocabularyFilterResponse' smart constructor.
 data GetVocabularyFilterResponse = GetVocabularyFilterResponse'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | The language code of the words in the vocabulary filter.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The URI of the list of words in the vocabulary filter. You can use this URI to get the list of words.
     downloadURI :: Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    vocabularyFilterName ::
-      Lude.Maybe Lude.Text,
+    -- | The date and time that the contents of the vocabulary filter were updated.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the vocabulary filter.
+    vocabularyFilterName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVocabularyFilterResponse' with the minimum fields required to make a request.
 --
--- * 'downloadURI' - The URI of the list of words in the vocabulary filter. You can use this URI to get the list of words.
 -- * 'languageCode' - The language code of the words in the vocabulary filter.
+-- * 'downloadURI' - The URI of the list of words in the vocabulary filter. You can use this URI to get the list of words.
 -- * 'lastModifiedTime' - The date and time that the contents of the vocabulary filter were updated.
--- * 'responseStatus' - The response status code.
 -- * 'vocabularyFilterName' - The name of the vocabulary filter.
+-- * 'responseStatus' - The response status code.
 mkGetVocabularyFilterResponse ::
   -- | 'responseStatus'
   Lude.Int ->

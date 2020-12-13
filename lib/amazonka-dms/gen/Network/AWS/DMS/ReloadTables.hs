@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DMS.ReloadTables
     mkReloadTables,
 
     -- ** Request lenses
-    rtReloadOption,
-    rtReplicationTaskARN,
-    rtTablesToReload,
+    rtsTablesToReload,
+    rtsReloadOption,
+    rtsReplicationTaskARN,
 
     -- * Destructuring the response
     ReloadTablesResponse (..),
@@ -41,38 +42,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkReloadTables' smart constructor.
 data ReloadTables = ReloadTables'
-  { reloadOption ::
-      Lude.Maybe ReloadOptionValue,
-    replicationTaskARN :: Lude.Text,
-    tablesToReload :: [TableToReload]
+  { -- | The name and schema of the table to be reloaded.
+    tablesToReload :: [TableToReload],
+    -- | Options for reload. Specify @data-reload@ to reload the data and re-validate it if validation is enabled. Specify @validate-only@ to re-validate the table. This option applies only when validation is enabled for the task.
+    --
+    -- Valid values: data-reload, validate-only
+    -- Default value is data-reload.
+    reloadOption :: Lude.Maybe ReloadOptionValue,
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReloadTables' with the minimum fields required to make a request.
 --
+-- * 'tablesToReload' - The name and schema of the table to be reloaded.
 -- * 'reloadOption' - Options for reload. Specify @data-reload@ to reload the data and re-validate it if validation is enabled. Specify @validate-only@ to re-validate the table. This option applies only when validation is enabled for the task.
 --
 -- Valid values: data-reload, validate-only
 -- Default value is data-reload.
 -- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
--- * 'tablesToReload' - The name and schema of the table to be reloaded.
 mkReloadTables ::
   -- | 'replicationTaskARN'
   Lude.Text ->
   ReloadTables
 mkReloadTables pReplicationTaskARN_ =
   ReloadTables'
-    { reloadOption = Lude.Nothing,
-      replicationTaskARN = pReplicationTaskARN_,
-      tablesToReload = Lude.mempty
+    { tablesToReload = Lude.mempty,
+      reloadOption = Lude.Nothing,
+      replicationTaskARN = pReplicationTaskARN_
     }
+
+-- | The name and schema of the table to be reloaded.
+--
+-- /Note:/ Consider using 'tablesToReload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtsTablesToReload :: Lens.Lens' ReloadTables [TableToReload]
+rtsTablesToReload = Lens.lens (tablesToReload :: ReloadTables -> [TableToReload]) (\s a -> s {tablesToReload = a} :: ReloadTables)
+{-# DEPRECATED rtsTablesToReload "Use generic-lens or generic-optics with 'tablesToReload' instead." #-}
 
 -- | Options for reload. Specify @data-reload@ to reload the data and re-validate it if validation is enabled. Specify @validate-only@ to re-validate the table. This option applies only when validation is enabled for the task.
 --
@@ -80,23 +87,16 @@ mkReloadTables pReplicationTaskARN_ =
 -- Default value is data-reload.
 --
 -- /Note:/ Consider using 'reloadOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtReloadOption :: Lens.Lens' ReloadTables (Lude.Maybe ReloadOptionValue)
-rtReloadOption = Lens.lens (reloadOption :: ReloadTables -> Lude.Maybe ReloadOptionValue) (\s a -> s {reloadOption = a} :: ReloadTables)
-{-# DEPRECATED rtReloadOption "Use generic-lens or generic-optics with 'reloadOption' instead." #-}
+rtsReloadOption :: Lens.Lens' ReloadTables (Lude.Maybe ReloadOptionValue)
+rtsReloadOption = Lens.lens (reloadOption :: ReloadTables -> Lude.Maybe ReloadOptionValue) (\s a -> s {reloadOption = a} :: ReloadTables)
+{-# DEPRECATED rtsReloadOption "Use generic-lens or generic-optics with 'reloadOption' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 --
 -- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtReplicationTaskARN :: Lens.Lens' ReloadTables Lude.Text
-rtReplicationTaskARN = Lens.lens (replicationTaskARN :: ReloadTables -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: ReloadTables)
-{-# DEPRECATED rtReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
-
--- | The name and schema of the table to be reloaded.
---
--- /Note:/ Consider using 'tablesToReload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTablesToReload :: Lens.Lens' ReloadTables [TableToReload]
-rtTablesToReload = Lens.lens (tablesToReload :: ReloadTables -> [TableToReload]) (\s a -> s {tablesToReload = a} :: ReloadTables)
-{-# DEPRECATED rtTablesToReload "Use generic-lens or generic-optics with 'tablesToReload' instead." #-}
+rtsReplicationTaskARN :: Lens.Lens' ReloadTables Lude.Text
+rtsReplicationTaskARN = Lens.lens (replicationTaskARN :: ReloadTables -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: ReloadTables)
+{-# DEPRECATED rtsReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 instance Lude.AWSRequest ReloadTables where
   type Rs ReloadTables = ReloadTablesResponse
@@ -124,9 +124,9 @@ instance Lude.ToJSON ReloadTables where
   toJSON ReloadTables' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ReloadOption" Lude..=) Lude.<$> reloadOption,
-            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN),
-            Lude.Just ("TablesToReload" Lude..= tablesToReload)
+          [ Lude.Just ("TablesToReload" Lude..= tablesToReload),
+            ("ReloadOption" Lude..=) Lude.<$> reloadOption,
+            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)
           ]
       )
 
@@ -138,17 +138,12 @@ instance Lude.ToQuery ReloadTables where
 
 -- | /See:/ 'mkReloadTablesResponse' smart constructor.
 data ReloadTablesResponse = ReloadTablesResponse'
-  { replicationTaskARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReloadTablesResponse' with the minimum fields required to make a request.

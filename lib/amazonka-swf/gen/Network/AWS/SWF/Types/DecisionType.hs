@@ -13,19 +13,19 @@
 module Network.AWS.SWF.Types.DecisionType
   ( DecisionType
       ( DecisionType',
-        CancelTimer,
-        CancelWorkflowExecution,
-        CompleteWorkflowExecution,
-        ContinueAsNewWorkflowExecution,
-        FailWorkflowExecution,
-        RecordMarker,
-        RequestCancelActivityTask,
-        RequestCancelExternalWorkflowExecution,
         ScheduleActivityTask,
-        ScheduleLambdaFunction,
+        RequestCancelActivityTask,
+        CompleteWorkflowExecution,
+        FailWorkflowExecution,
+        CancelWorkflowExecution,
+        ContinueAsNewWorkflowExecution,
+        RecordMarker,
+        StartTimer,
+        CancelTimer,
         SignalExternalWorkflowExecution,
+        RequestCancelExternalWorkflowExecution,
         StartChildWorkflowExecution,
-        StartTimer
+        ScheduleLambdaFunction
       ),
   )
 where
@@ -56,58 +56,58 @@ newtype DecisionType = DecisionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CancelTimer :: DecisionType
-pattern CancelTimer = DecisionType' "CancelTimer"
-
-pattern CancelWorkflowExecution :: DecisionType
-pattern CancelWorkflowExecution = DecisionType' "CancelWorkflowExecution"
-
-pattern CompleteWorkflowExecution :: DecisionType
-pattern CompleteWorkflowExecution = DecisionType' "CompleteWorkflowExecution"
-
-pattern ContinueAsNewWorkflowExecution :: DecisionType
-pattern ContinueAsNewWorkflowExecution = DecisionType' "ContinueAsNewWorkflowExecution"
-
-pattern FailWorkflowExecution :: DecisionType
-pattern FailWorkflowExecution = DecisionType' "FailWorkflowExecution"
-
-pattern RecordMarker :: DecisionType
-pattern RecordMarker = DecisionType' "RecordMarker"
+pattern ScheduleActivityTask :: DecisionType
+pattern ScheduleActivityTask = DecisionType' "ScheduleActivityTask"
 
 pattern RequestCancelActivityTask :: DecisionType
 pattern RequestCancelActivityTask = DecisionType' "RequestCancelActivityTask"
 
-pattern RequestCancelExternalWorkflowExecution :: DecisionType
-pattern RequestCancelExternalWorkflowExecution = DecisionType' "RequestCancelExternalWorkflowExecution"
+pattern CompleteWorkflowExecution :: DecisionType
+pattern CompleteWorkflowExecution = DecisionType' "CompleteWorkflowExecution"
 
-pattern ScheduleActivityTask :: DecisionType
-pattern ScheduleActivityTask = DecisionType' "ScheduleActivityTask"
+pattern FailWorkflowExecution :: DecisionType
+pattern FailWorkflowExecution = DecisionType' "FailWorkflowExecution"
 
-pattern ScheduleLambdaFunction :: DecisionType
-pattern ScheduleLambdaFunction = DecisionType' "ScheduleLambdaFunction"
+pattern CancelWorkflowExecution :: DecisionType
+pattern CancelWorkflowExecution = DecisionType' "CancelWorkflowExecution"
 
-pattern SignalExternalWorkflowExecution :: DecisionType
-pattern SignalExternalWorkflowExecution = DecisionType' "SignalExternalWorkflowExecution"
+pattern ContinueAsNewWorkflowExecution :: DecisionType
+pattern ContinueAsNewWorkflowExecution = DecisionType' "ContinueAsNewWorkflowExecution"
 
-pattern StartChildWorkflowExecution :: DecisionType
-pattern StartChildWorkflowExecution = DecisionType' "StartChildWorkflowExecution"
+pattern RecordMarker :: DecisionType
+pattern RecordMarker = DecisionType' "RecordMarker"
 
 pattern StartTimer :: DecisionType
 pattern StartTimer = DecisionType' "StartTimer"
 
+pattern CancelTimer :: DecisionType
+pattern CancelTimer = DecisionType' "CancelTimer"
+
+pattern SignalExternalWorkflowExecution :: DecisionType
+pattern SignalExternalWorkflowExecution = DecisionType' "SignalExternalWorkflowExecution"
+
+pattern RequestCancelExternalWorkflowExecution :: DecisionType
+pattern RequestCancelExternalWorkflowExecution = DecisionType' "RequestCancelExternalWorkflowExecution"
+
+pattern StartChildWorkflowExecution :: DecisionType
+pattern StartChildWorkflowExecution = DecisionType' "StartChildWorkflowExecution"
+
+pattern ScheduleLambdaFunction :: DecisionType
+pattern ScheduleLambdaFunction = DecisionType' "ScheduleLambdaFunction"
+
 {-# COMPLETE
-  CancelTimer,
-  CancelWorkflowExecution,
-  CompleteWorkflowExecution,
-  ContinueAsNewWorkflowExecution,
-  FailWorkflowExecution,
-  RecordMarker,
-  RequestCancelActivityTask,
-  RequestCancelExternalWorkflowExecution,
   ScheduleActivityTask,
-  ScheduleLambdaFunction,
-  SignalExternalWorkflowExecution,
-  StartChildWorkflowExecution,
+  RequestCancelActivityTask,
+  CompleteWorkflowExecution,
+  FailWorkflowExecution,
+  CancelWorkflowExecution,
+  ContinueAsNewWorkflowExecution,
+  RecordMarker,
   StartTimer,
+  CancelTimer,
+  SignalExternalWorkflowExecution,
+  RequestCancelExternalWorkflowExecution,
+  StartChildWorkflowExecution,
+  ScheduleLambdaFunction,
   DecisionType'
   #-}

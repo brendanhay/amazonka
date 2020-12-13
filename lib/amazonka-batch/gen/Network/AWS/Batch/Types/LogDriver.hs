@@ -13,13 +13,13 @@
 module Network.AWS.Batch.Types.LogDriver
   ( LogDriver
       ( LogDriver',
-        AWSlogs,
-        Fluentd,
-        Gelf,
         JSONFile,
+        Syslog,
         Journald,
-        Splunk,
-        Syslog
+        Gelf,
+        Fluentd,
+        AWSlogs,
+        Splunk
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype LogDriver = LogDriver' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSlogs :: LogDriver
-pattern AWSlogs = LogDriver' "awslogs"
-
-pattern Fluentd :: LogDriver
-pattern Fluentd = LogDriver' "fluentd"
-
-pattern Gelf :: LogDriver
-pattern Gelf = LogDriver' "gelf"
-
 pattern JSONFile :: LogDriver
 pattern JSONFile = LogDriver' "json-file"
-
-pattern Journald :: LogDriver
-pattern Journald = LogDriver' "journald"
-
-pattern Splunk :: LogDriver
-pattern Splunk = LogDriver' "splunk"
 
 pattern Syslog :: LogDriver
 pattern Syslog = LogDriver' "syslog"
 
+pattern Journald :: LogDriver
+pattern Journald = LogDriver' "journald"
+
+pattern Gelf :: LogDriver
+pattern Gelf = LogDriver' "gelf"
+
+pattern Fluentd :: LogDriver
+pattern Fluentd = LogDriver' "fluentd"
+
+pattern AWSlogs :: LogDriver
+pattern AWSlogs = LogDriver' "awslogs"
+
+pattern Splunk :: LogDriver
+pattern Splunk = LogDriver' "splunk"
+
 {-# COMPLETE
-  AWSlogs,
-  Fluentd,
-  Gelf,
   JSONFile,
-  Journald,
-  Splunk,
   Syslog,
+  Journald,
+  Gelf,
+  Fluentd,
+  AWSlogs,
+  Splunk,
   LogDriver'
   #-}

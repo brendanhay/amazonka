@@ -19,23 +19,23 @@ module Network.AWS.MarketplaceMetering.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * UsageAllocation
     UsageAllocation (..),
     mkUsageAllocation,
-    uaTags,
     uaAllocatedUsageQuantity,
+    uaTags,
 
     -- * UsageRecord
     UsageRecord (..),
     mkUsageRecord,
+    urDimension,
     urQuantity,
+    urCustomerIdentifier,
     urUsageAllocations,
     urTimestamp,
-    urCustomerIdentifier,
-    urDimension,
 
     -- * UsageRecordResult
     UsageRecordResult (..),

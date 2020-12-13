@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,13 +41,7 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
@@ -89,19 +84,12 @@ instance Lude.ToQuery DescribeAccountAttributes where
 --
 -- /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { accountQuotas ::
-      Lude.Maybe
-        [AccountQuota],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @AccountQuota@ objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.
+    accountQuotas :: Lude.Maybe [AccountQuota],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.

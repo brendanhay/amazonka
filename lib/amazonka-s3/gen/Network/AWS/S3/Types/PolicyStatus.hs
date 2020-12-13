@@ -29,16 +29,10 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkPolicyStatus' smart constructor.
 newtype PolicyStatus = PolicyStatus'
-  { isPublic ::
-      Lude.Maybe Lude.Bool
+  { -- | The policy status for this bucket. @TRUE@ indicates that this bucket is public. @FALSE@ indicates that the bucket is not public.
+    isPublic :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyStatus' with the minimum fields required to make a request.

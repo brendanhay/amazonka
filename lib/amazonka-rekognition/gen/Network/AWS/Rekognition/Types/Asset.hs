@@ -29,21 +29,14 @@ import Network.AWS.Rekognition.Types.GroundTruthManifest
 --
 -- /See:/ 'mkAsset' smart constructor.
 newtype Asset = Asset'
-  { groundTruthManifest ::
-      Lude.Maybe GroundTruthManifest
+  { groundTruthManifest :: Lude.Maybe GroundTruthManifest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Asset' with the minimum fields required to make a request.
 --
--- * 'groundTruthManifest' - Undocumented field.
+-- * 'groundTruthManifest' -
 mkAsset ::
   Asset
 mkAsset = Asset' {groundTruthManifest = Lude.Nothing}

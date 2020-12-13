@@ -67,59 +67,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { cloudwatchMetric ::
-      Lude.Maybe CloudwatchMetricAction,
+  { -- | Capture a CloudWatch metric.
+    cloudwatchMetric :: Lude.Maybe CloudwatchMetricAction,
+    -- | Send data to CloudWatch Logs.
     cloudwatchLogs :: Lude.Maybe CloudwatchLogsAction,
+    -- | Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
     dynamoDBv2 :: Lude.Maybe DynamoDBv2Action,
+    -- | Starts execution of a Step Functions state machine.
     stepFunctions :: Lude.Maybe StepFunctionsAction,
+    -- | Change the state of a CloudWatch alarm.
     cloudwatchAlarm :: Lude.Maybe CloudwatchAlarmAction,
+    -- | Publish to an Amazon SNS topic.
     sns :: Lude.Maybe SNSAction,
+    -- | Write to a DynamoDB table.
     dynamoDB :: Lude.Maybe DynamoDBAction,
+    -- | Write to an Amazon Kinesis Firehose stream.
     firehose :: Lude.Maybe FirehoseAction,
+    -- | The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream> topic rule action documentation.
     timestream :: Lude.Maybe TimestreamAction,
+    -- | Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
     iotSiteWise :: Lude.Maybe IotSiteWiseAction,
+    -- | Sends message data to an AWS IoT Analytics channel.
     iotAnalytics :: Lude.Maybe IotAnalyticsAction,
+    -- | Invoke a Lambda function.
     lambda :: Lude.Maybe LambdaAction,
+    -- | Sends an input to an AWS IoT Events detector.
     iotEvents :: Lude.Maybe IotEventsAction,
+    -- | Send a message to a Salesforce IoT Cloud Input Stream.
     salesforce :: Lude.Maybe SalesforceAction,
+    -- | Write data to an Amazon Kinesis stream.
     kinesis :: Lude.Maybe KinesisAction,
+    -- | Write to an Amazon S3 bucket.
     s3 :: Lude.Maybe S3Action,
+    -- | Send data to an HTTPS endpoint.
     http :: Lude.Maybe HTTPAction,
+    -- | Write data to an Amazon Elasticsearch Service domain.
     elasticsearch :: Lude.Maybe ElasticsearchAction,
+    -- | Publish to another MQTT topic.
     republish :: Lude.Maybe RepublishAction,
+    -- | Publish to an Amazon SQS queue.
     sqs :: Lude.Maybe SqsAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
--- * 'cloudwatchAlarm' - Change the state of a CloudWatch alarm.
--- * 'cloudwatchLogs' - Send data to CloudWatch Logs.
 -- * 'cloudwatchMetric' - Capture a CloudWatch metric.
--- * 'dynamoDB' - Write to a DynamoDB table.
+-- * 'cloudwatchLogs' - Send data to CloudWatch Logs.
 -- * 'dynamoDBv2' - Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
--- * 'elasticsearch' - Write data to an Amazon Elasticsearch Service domain.
--- * 'firehose' - Write to an Amazon Kinesis Firehose stream.
--- * 'http' - Send data to an HTTPS endpoint.
--- * 'iotAnalytics' - Sends message data to an AWS IoT Analytics channel.
--- * 'iotEvents' - Sends an input to an AWS IoT Events detector.
--- * 'iotSiteWise' - Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
--- * 'kinesis' - Write data to an Amazon Kinesis stream.
--- * 'lambda' - Invoke a Lambda function.
--- * 'republish' - Publish to another MQTT topic.
--- * 's3' - Write to an Amazon S3 bucket.
--- * 'salesforce' - Send a message to a Salesforce IoT Cloud Input Stream.
--- * 'sns' - Publish to an Amazon SNS topic.
--- * 'sqs' - Publish to an Amazon SQS queue.
 -- * 'stepFunctions' - Starts execution of a Step Functions state machine.
+-- * 'cloudwatchAlarm' - Change the state of a CloudWatch alarm.
+-- * 'sns' - Publish to an Amazon SNS topic.
+-- * 'dynamoDB' - Write to a DynamoDB table.
+-- * 'firehose' - Write to an Amazon Kinesis Firehose stream.
 -- * 'timestream' - The Timestream rule action writes attributes (measures) from an MQTT message into an Amazon Timestream table. For more information, see the <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream> topic rule action documentation.
+-- * 'iotSiteWise' - Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+-- * 'iotAnalytics' - Sends message data to an AWS IoT Analytics channel.
+-- * 'lambda' - Invoke a Lambda function.
+-- * 'iotEvents' - Sends an input to an AWS IoT Events detector.
+-- * 'salesforce' - Send a message to a Salesforce IoT Cloud Input Stream.
+-- * 'kinesis' - Write data to an Amazon Kinesis stream.
+-- * 's3' - Write to an Amazon S3 bucket.
+-- * 'http' - Send data to an HTTPS endpoint.
+-- * 'elasticsearch' - Write data to an Amazon Elasticsearch Service domain.
+-- * 'republish' - Publish to another MQTT topic.
+-- * 'sqs' - Publish to an Amazon SQS queue.
 mkAction ::
   Action
 mkAction =

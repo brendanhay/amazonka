@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkDescribeAttachment' smart constructor.
 newtype DescribeAttachment = DescribeAttachment'
-  { attachmentId ::
-      Lude.Text
+  { -- | The ID of the attachment to return. Attachment IDs are returned by the 'DescribeCommunications' operation.
+    attachmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttachment' with the minimum fields required to make a request.
@@ -104,17 +99,14 @@ instance Lude.ToQuery DescribeAttachment where
 --
 -- /See:/ 'mkDescribeAttachmentResponse' smart constructor.
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
-  { attachment ::
-      Lude.Maybe Attachment,
+  { -- | This object includes the attachment content and file name.
+    --
+    -- In the previous response syntax, the value for the @data@ parameter appears as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
+    attachment :: Lude.Maybe Attachment,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAttachmentResponse' with the minimum fields required to make a request.

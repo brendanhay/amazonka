@@ -14,8 +14,8 @@ module Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
   ( LoadBalancerTypeEnum
       ( LoadBalancerTypeEnum',
         Application,
-        Gateway,
-        Network
+        Network,
+        Gateway
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype LoadBalancerTypeEnum = LoadBalancerTypeEnum' Lude.Text
 pattern Application :: LoadBalancerTypeEnum
 pattern Application = LoadBalancerTypeEnum' "application"
 
-pattern Gateway :: LoadBalancerTypeEnum
-pattern Gateway = LoadBalancerTypeEnum' "gateway"
-
 pattern Network :: LoadBalancerTypeEnum
 pattern Network = LoadBalancerTypeEnum' "network"
 
+pattern Gateway :: LoadBalancerTypeEnum
+pattern Gateway = LoadBalancerTypeEnum' "gateway"
+
 {-# COMPLETE
   Application,
-  Gateway,
   Network,
+  Gateway,
   LoadBalancerTypeEnum'
   #-}

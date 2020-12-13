@@ -58,89 +58,97 @@ import Network.AWS.RDS.Types.AvailableProcessorFeature
 --
 -- /See:/ 'mkOrderableDBInstanceOption' smart constructor.
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The engine version of a DB instance.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Minimum provisioned IOPS per GiB for a DB instance.
     minIOPSPerGib :: Lude.Maybe Lude.Double,
-    supportsIAMDatabaseAuthentication ::
-      Lude.Maybe Lude.Bool,
-    minIOPSPerDBInstance ::
-      Lude.Maybe Lude.Int,
+    -- | Indicates whether a DB instance supports IAM database authentication.
+    supportsIAMDatabaseAuthentication :: Lude.Maybe Lude.Bool,
+    -- | Minimum total provisioned IOPS for a DB instance.
+    minIOPSPerDBInstance :: Lude.Maybe Lude.Int,
+    -- | Indicates whether a DB instance is Multi-AZ capable.
     multiAZCapable :: Lude.Maybe Lude.Bool,
+    -- | Maximum storage size for a DB instance.
     maxStorageSize :: Lude.Maybe Lude.Int,
-    supportedEngineModes ::
-      Lude.Maybe [Lude.Text],
-    availabilityZoneGroup ::
-      Lude.Maybe Lude.Text,
-    availableProcessorFeatures ::
-      Lude.Maybe [AvailableProcessorFeature],
+    -- | A list of the supported DB engine modes.
+    supportedEngineModes :: Lude.Maybe [Lude.Text],
+    -- | The Availability Zone group for a DB instance.
+    availabilityZoneGroup :: Lude.Maybe Lude.Text,
+    -- | A list of the available processor features for the DB instance class of a DB instance.
+    availableProcessorFeatures :: Lude.Maybe [AvailableProcessorFeature],
+    -- | The engine type of a DB instance.
     engine :: Lude.Maybe Lude.Text,
+    -- | Minimum storage size for a DB instance.
     minStorageSize :: Lude.Maybe Lude.Int,
+    -- | Whether a DB instance supports RDS on Outposts.
+    --
+    -- For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
     outpostCapable :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether a DB instance supports provisioned IOPS.
     supportsIOPS :: Lude.Maybe Lude.Bool,
-    supportsKerberosAuthentication ::
-      Lude.Maybe Lude.Bool,
-    supportsPerformanceInsights ::
-      Lude.Maybe Lude.Bool,
+    -- | Whether a DB instance supports Kerberos Authentication.
+    supportsKerberosAuthentication :: Lude.Maybe Lude.Bool,
+    -- | True if a DB instance supports Performance Insights, otherwise false.
+    supportsPerformanceInsights :: Lude.Maybe Lude.Bool,
+    -- | The DB instance class for a DB instance.
     dbInstanceClass :: Lude.Maybe Lude.Text,
-    supportsGlobalDatabases ::
-      Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.
+    supportsGlobalDatabases :: Lude.Maybe Lude.Bool,
+    -- | The license model for a DB instance.
     licenseModel :: Lude.Maybe Lude.Text,
-    availabilityZones ::
-      Lude.Maybe [AvailabilityZone],
-    supportsStorageAutoscaling ::
-      Lude.Maybe Lude.Bool,
-    supportsStorageEncryption ::
-      Lude.Maybe Lude.Bool,
-    readReplicaCapable ::
-      Lude.Maybe Lude.Bool,
+    -- | A list of Availability Zones for a DB instance.
+    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    -- | Whether Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+    supportsStorageAutoscaling :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether a DB instance supports encrypted storage.
+    supportsStorageEncryption :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether a DB instance can have a read replica.
+    readReplicaCapable :: Lude.Maybe Lude.Bool,
+    -- | Maximum provisioned IOPS per GiB for a DB instance.
     maxIOPSPerGib :: Lude.Maybe Lude.Double,
+    -- | Indicates whether a DB instance is in a VPC.
     vpc :: Lude.Maybe Lude.Bool,
-    supportsEnhancedMonitoring ::
-      Lude.Maybe Lude.Bool,
-    maxIOPSPerDBInstance ::
-      Lude.Maybe Lude.Int,
+    -- | Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+    supportsEnhancedMonitoring :: Lude.Maybe Lude.Bool,
+    -- | Maximum total provisioned IOPS for a DB instance.
+    maxIOPSPerDBInstance :: Lude.Maybe Lude.Int,
+    -- | Indicates the storage type for a DB instance.
     storageType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrderableDBInstanceOption' with the minimum fields required to make a request.
 --
--- * 'availabilityZoneGroup' - The Availability Zone group for a DB instance.
--- * 'availabilityZones' - A list of Availability Zones for a DB instance.
--- * 'availableProcessorFeatures' - A list of the available processor features for the DB instance class of a DB instance.
--- * 'dbInstanceClass' - The DB instance class for a DB instance.
--- * 'engine' - The engine type of a DB instance.
 -- * 'engineVersion' - The engine version of a DB instance.
--- * 'licenseModel' - The license model for a DB instance.
--- * 'maxIOPSPerDBInstance' - Maximum total provisioned IOPS for a DB instance.
--- * 'maxIOPSPerGib' - Maximum provisioned IOPS per GiB for a DB instance.
--- * 'maxStorageSize' - Maximum storage size for a DB instance.
--- * 'minIOPSPerDBInstance' - Minimum total provisioned IOPS for a DB instance.
 -- * 'minIOPSPerGib' - Minimum provisioned IOPS per GiB for a DB instance.
--- * 'minStorageSize' - Minimum storage size for a DB instance.
+-- * 'supportsIAMDatabaseAuthentication' - Indicates whether a DB instance supports IAM database authentication.
+-- * 'minIOPSPerDBInstance' - Minimum total provisioned IOPS for a DB instance.
 -- * 'multiAZCapable' - Indicates whether a DB instance is Multi-AZ capable.
+-- * 'maxStorageSize' - Maximum storage size for a DB instance.
+-- * 'supportedEngineModes' - A list of the supported DB engine modes.
+-- * 'availabilityZoneGroup' - The Availability Zone group for a DB instance.
+-- * 'availableProcessorFeatures' - A list of the available processor features for the DB instance class of a DB instance.
+-- * 'engine' - The engine type of a DB instance.
+-- * 'minStorageSize' - Minimum storage size for a DB instance.
 -- * 'outpostCapable' - Whether a DB instance supports RDS on Outposts.
 --
 -- For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
--- * 'readReplicaCapable' - Indicates whether a DB instance can have a read replica.
--- * 'storageType' - Indicates the storage type for a DB instance.
--- * 'supportedEngineModes' - A list of the supported DB engine modes.
--- * 'supportsEnhancedMonitoring' - Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
--- * 'supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.
--- * 'supportsIAMDatabaseAuthentication' - Indicates whether a DB instance supports IAM database authentication.
 -- * 'supportsIOPS' - Indicates whether a DB instance supports provisioned IOPS.
 -- * 'supportsKerberosAuthentication' - Whether a DB instance supports Kerberos Authentication.
 -- * 'supportsPerformanceInsights' - True if a DB instance supports Performance Insights, otherwise false.
+-- * 'dbInstanceClass' - The DB instance class for a DB instance.
+-- * 'supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with a specific combination of other DB engine attributes.
+-- * 'licenseModel' - The license model for a DB instance.
+-- * 'availabilityZones' - A list of Availability Zones for a DB instance.
 -- * 'supportsStorageAutoscaling' - Whether Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
 -- * 'supportsStorageEncryption' - Indicates whether a DB instance supports encrypted storage.
+-- * 'readReplicaCapable' - Indicates whether a DB instance can have a read replica.
+-- * 'maxIOPSPerGib' - Maximum provisioned IOPS per GiB for a DB instance.
 -- * 'vpc' - Indicates whether a DB instance is in a VPC.
+-- * 'supportsEnhancedMonitoring' - Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+-- * 'maxIOPSPerDBInstance' - Maximum total provisioned IOPS for a DB instance.
+-- * 'storageType' - Indicates the storage type for a DB instance.
 mkOrderableDBInstanceOption ::
   OrderableDBInstanceOption
 mkOrderableDBInstanceOption =

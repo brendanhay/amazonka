@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,16 +37,16 @@ module Network.AWS.S3.GetBucketTagging
     mkGetBucketTagging,
 
     -- ** Request lenses
-    gbtExpectedBucketOwner,
     gbtBucket,
+    gbtExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketTaggingResponse (..),
     mkGetBucketTaggingResponse,
 
     -- ** Response lenses
-    gbtrsResponseStatus,
     gbtrsTagSet,
+    gbtrsResponseStatus,
   )
 where
 
@@ -57,17 +58,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketTagging' smart constructor.
 data GetBucketTagging = GetBucketTagging'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The name of the bucket for which to get the tagging information.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketTagging' with the minimum fields required to make a request.
@@ -80,16 +76,9 @@ mkGetBucketTagging ::
   GetBucketTagging
 mkGetBucketTagging pBucket_ =
   GetBucketTagging'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbtExpectedBucketOwner :: Lens.Lens' GetBucketTagging (Lude.Maybe Lude.Text)
-gbtExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketTagging)
-{-# DEPRECATED gbtExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket for which to get the tagging information.
 --
@@ -98,6 +87,13 @@ gbtBucket :: Lens.Lens' GetBucketTagging BucketName
 gbtBucket = Lens.lens (bucket :: GetBucketTagging -> BucketName) (\s a -> s {bucket = a} :: GetBucketTagging)
 {-# DEPRECATED gbtBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbtExpectedBucketOwner :: Lens.Lens' GetBucketTagging (Lude.Maybe Lude.Text)
+gbtExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketTagging)
+{-# DEPRECATED gbtExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+
 instance Lude.AWSRequest GetBucketTagging where
   type Rs GetBucketTagging = GetBucketTaggingResponse
   request = Req.get s3Service
@@ -105,10 +101,10 @@ instance Lude.AWSRequest GetBucketTagging where
     Res.receiveXML
       ( \s h x ->
           GetBucketTaggingResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "TagSet" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "TagSet" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "Tag"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetBucketTagging where
@@ -124,39 +120,27 @@ instance Lude.ToQuery GetBucketTagging where
 
 -- | /See:/ 'mkGetBucketTaggingResponse' smart constructor.
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-  { responseStatus ::
-      Lude.Int,
-    tagSet :: [Tag]
+  { -- | Contains the tag set.
+    tagSet :: [Tag],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketTaggingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagSet' - Contains the tag set.
+-- * 'responseStatus' - The response status code.
 mkGetBucketTaggingResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   GetBucketTaggingResponse
 mkGetBucketTaggingResponse pResponseStatus_ =
   GetBucketTaggingResponse'
-    { responseStatus = pResponseStatus_,
-      tagSet = Lude.mempty
+    { tagSet = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbtrsResponseStatus :: Lens.Lens' GetBucketTaggingResponse Lude.Int
-gbtrsResponseStatus = Lens.lens (responseStatus :: GetBucketTaggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketTaggingResponse)
-{-# DEPRECATED gbtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Contains the tag set.
 --
@@ -164,3 +148,10 @@ gbtrsResponseStatus = Lens.lens (responseStatus :: GetBucketTaggingResponse -> L
 gbtrsTagSet :: Lens.Lens' GetBucketTaggingResponse [Tag]
 gbtrsTagSet = Lens.lens (tagSet :: GetBucketTaggingResponse -> [Tag]) (\s a -> s {tagSet = a} :: GetBucketTaggingResponse)
 {-# DEPRECATED gbtrsTagSet "Use generic-lens or generic-optics with 'tagSet' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbtrsResponseStatus :: Lens.Lens' GetBucketTaggingResponse Lude.Int
+gbtrsResponseStatus = Lens.lens (responseStatus :: GetBucketTaggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketTaggingResponse)
+{-# DEPRECATED gbtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

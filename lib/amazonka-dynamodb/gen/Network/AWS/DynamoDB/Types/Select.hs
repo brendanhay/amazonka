@@ -15,8 +15,8 @@ module Network.AWS.DynamoDB.Types.Select
       ( Select',
         AllAttributes,
         AllProjectedAttributes,
-        Count,
-        SpecificAttributes
+        SpecificAttributes,
+        Count
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern AllAttributes = Select' "ALL_ATTRIBUTES"
 pattern AllProjectedAttributes :: Select
 pattern AllProjectedAttributes = Select' "ALL_PROJECTED_ATTRIBUTES"
 
-pattern Count :: Select
-pattern Count = Select' "COUNT"
-
 pattern SpecificAttributes :: Select
 pattern SpecificAttributes = Select' "SPECIFIC_ATTRIBUTES"
+
+pattern Count :: Select
+pattern Count = Select' "COUNT"
 
 {-# COMPLETE
   AllAttributes,
   AllProjectedAttributes,
-  Count,
   SpecificAttributes,
+  Count,
   Select'
   #-}

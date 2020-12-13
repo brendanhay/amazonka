@@ -14,8 +14,8 @@ module Network.AWS.CodePipeline.Types.ActionOwner
   ( ActionOwner
       ( ActionOwner',
         AWS,
-        Custom,
-        ThirdParty
+        ThirdParty,
+        Custom
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ActionOwner = ActionOwner' Lude.Text
 pattern AWS :: ActionOwner
 pattern AWS = ActionOwner' "AWS"
 
-pattern Custom :: ActionOwner
-pattern Custom = ActionOwner' "Custom"
-
 pattern ThirdParty :: ActionOwner
 pattern ThirdParty = ActionOwner' "ThirdParty"
 
+pattern Custom :: ActionOwner
+pattern Custom = ActionOwner' "Custom"
+
 {-# COMPLETE
   AWS,
-  Custom,
   ThirdParty,
+  Custom,
   ActionOwner'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     mkDeleteOptionGroup,
 
     -- ** Request lenses
-    dOptionGroupName,
+    dogOptionGroupName,
 
     -- * Destructuring the response
     DeleteOptionGroupResponse (..),
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteOptionGroup' smart constructor.
 newtype DeleteOptionGroup = DeleteOptionGroup'
-  { optionGroupName ::
-      Lude.Text
+  { -- | The name of the option group to be deleted.
+    optionGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOptionGroup' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkDeleteOptionGroup pOptionGroupName_ =
 -- | The name of the option group to be deleted.
 --
 -- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOptionGroupName :: Lens.Lens' DeleteOptionGroup Lude.Text
-dOptionGroupName = Lens.lens (optionGroupName :: DeleteOptionGroup -> Lude.Text) (\s a -> s {optionGroupName = a} :: DeleteOptionGroup)
-{-# DEPRECATED dOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
+dogOptionGroupName :: Lens.Lens' DeleteOptionGroup Lude.Text
+dogOptionGroupName = Lens.lens (optionGroupName :: DeleteOptionGroup -> Lude.Text) (\s a -> s {optionGroupName = a} :: DeleteOptionGroup)
+{-# DEPRECATED dogOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
 instance Lude.AWSRequest DeleteOptionGroup where
   type Rs DeleteOptionGroup = DeleteOptionGroupResponse
@@ -87,13 +82,7 @@ instance Lude.ToQuery DeleteOptionGroup where
 
 -- | /See:/ 'mkDeleteOptionGroupResponse' smart constructor.
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOptionGroupResponse' with the minimum fields required to make a request.

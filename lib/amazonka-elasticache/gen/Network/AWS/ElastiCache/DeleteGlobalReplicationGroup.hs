@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,16 +30,16 @@ module Network.AWS.ElastiCache.DeleteGlobalReplicationGroup
     mkDeleteGlobalReplicationGroup,
 
     -- ** Request lenses
-    dGlobalReplicationGroupId,
     dRetainPrimaryReplicationGroup,
+    dGlobalReplicationGroupId,
 
     -- * Destructuring the response
     DeleteGlobalReplicationGroupResponse (..),
     mkDeleteGlobalReplicationGroupResponse,
 
     -- ** Response lenses
-    dgrggrsGlobalReplicationGroup,
-    dgrggrsResponseStatus,
+    dgrgfrsGlobalReplicationGroup,
+    dgrgfrsResponseStatus,
   )
 where
 
@@ -50,45 +51,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteGlobalReplicationGroup' smart constructor.
 data DeleteGlobalReplicationGroup = DeleteGlobalReplicationGroup'
-  { globalReplicationGroupId ::
-      Lude.Text,
-    retainPrimaryReplicationGroup ::
-      Lude.Bool
+  { -- | The primary replication group is retained as a standalone replication group.
+    retainPrimaryReplicationGroup :: Lude.Bool,
+    -- | The name of the Global Datastore
+    globalReplicationGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- * 'globalReplicationGroupId' - The name of the Global Datastore
 -- * 'retainPrimaryReplicationGroup' - The primary replication group is retained as a standalone replication group.
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
 mkDeleteGlobalReplicationGroup ::
-  -- | 'globalReplicationGroupId'
-  Lude.Text ->
   -- | 'retainPrimaryReplicationGroup'
   Lude.Bool ->
+  -- | 'globalReplicationGroupId'
+  Lude.Text ->
   DeleteGlobalReplicationGroup
 mkDeleteGlobalReplicationGroup
-  pGlobalReplicationGroupId_
-  pRetainPrimaryReplicationGroup_ =
+  pRetainPrimaryReplicationGroup_
+  pGlobalReplicationGroupId_ =
     DeleteGlobalReplicationGroup'
-      { globalReplicationGroupId =
-          pGlobalReplicationGroupId_,
-        retainPrimaryReplicationGroup = pRetainPrimaryReplicationGroup_
+      { retainPrimaryReplicationGroup =
+          pRetainPrimaryReplicationGroup_,
+        globalReplicationGroupId = pGlobalReplicationGroupId_
       }
-
--- | The name of the Global Datastore
---
--- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGlobalReplicationGroupId :: Lens.Lens' DeleteGlobalReplicationGroup Lude.Text
-dGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: DeleteGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: DeleteGlobalReplicationGroup)
-{-# DEPRECATED dGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 -- | The primary replication group is retained as a standalone replication group.
 --
@@ -96,6 +84,13 @@ dGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: DeleteGlobalR
 dRetainPrimaryReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroup Lude.Bool
 dRetainPrimaryReplicationGroup = Lens.lens (retainPrimaryReplicationGroup :: DeleteGlobalReplicationGroup -> Lude.Bool) (\s a -> s {retainPrimaryReplicationGroup = a} :: DeleteGlobalReplicationGroup)
 {-# DEPRECATED dRetainPrimaryReplicationGroup "Use generic-lens or generic-optics with 'retainPrimaryReplicationGroup' instead." #-}
+
+-- | The name of the Global Datastore
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dGlobalReplicationGroupId :: Lens.Lens' DeleteGlobalReplicationGroup Lude.Text
+dGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: DeleteGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: DeleteGlobalReplicationGroup)
+{-# DEPRECATED dGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 instance Lude.AWSRequest DeleteGlobalReplicationGroup where
   type
@@ -123,31 +118,23 @@ instance Lude.ToQuery DeleteGlobalReplicationGroup where
       [ "Action"
           Lude.=: ("DeleteGlobalReplicationGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
         "RetainPrimaryReplicationGroup"
-          Lude.=: retainPrimaryReplicationGroup
+          Lude.=: retainPrimaryReplicationGroup,
+        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId
       ]
 
 -- | /See:/ 'mkDeleteGlobalReplicationGroupResponse' smart constructor.
 data DeleteGlobalReplicationGroupResponse = DeleteGlobalReplicationGroupResponse'
-  { globalReplicationGroup ::
-      Lude.Maybe
-        GlobalReplicationGroup,
-    responseStatus ::
-      Lude.Int
+  { globalReplicationGroup :: Lude.Maybe GlobalReplicationGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- * 'globalReplicationGroup' - Undocumented field.
+-- * 'globalReplicationGroup' -
 -- * 'responseStatus' - The response status code.
 mkDeleteGlobalReplicationGroupResponse ::
   -- | 'responseStatus'
@@ -163,13 +150,13 @@ mkDeleteGlobalReplicationGroupResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'globalReplicationGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrggrsGlobalReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
-dgrggrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: DeleteGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: DeleteGlobalReplicationGroupResponse)
-{-# DEPRECATED dgrggrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
+dgrgfrsGlobalReplicationGroup :: Lens.Lens' DeleteGlobalReplicationGroupResponse (Lude.Maybe GlobalReplicationGroup)
+dgrgfrsGlobalReplicationGroup = Lens.lens (globalReplicationGroup :: DeleteGlobalReplicationGroupResponse -> Lude.Maybe GlobalReplicationGroup) (\s a -> s {globalReplicationGroup = a} :: DeleteGlobalReplicationGroupResponse)
+{-# DEPRECATED dgrgfrsGlobalReplicationGroup "Use generic-lens or generic-optics with 'globalReplicationGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrggrsResponseStatus :: Lens.Lens' DeleteGlobalReplicationGroupResponse Lude.Int
-dgrggrsResponseStatus = Lens.lens (responseStatus :: DeleteGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGlobalReplicationGroupResponse)
-{-# DEPRECATED dgrggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgrgfrsResponseStatus :: Lens.Lens' DeleteGlobalReplicationGroupResponse Lude.Int
+dgrgfrsResponseStatus = Lens.lens (responseStatus :: DeleteGlobalReplicationGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGlobalReplicationGroupResponse)
+{-# DEPRECATED dgrgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

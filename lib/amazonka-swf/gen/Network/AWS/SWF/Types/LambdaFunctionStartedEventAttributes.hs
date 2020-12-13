@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaFunctionStartedEventAttributes' smart constructor.
 newtype LambdaFunctionStartedEventAttributes = LambdaFunctionStartedEventAttributes'
-  { scheduledEventId ::
-      Lude.Integer
+  { -- | The ID of the @LambdaFunctionScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+    scheduledEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionStartedEventAttributes' with the minimum fields required to make a request.

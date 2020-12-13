@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.GetDeployment
     mkGetDeployment,
 
     -- ** Request lenses
-    gEmbed,
-    gRestAPIId,
-    gDeploymentId,
+    gdfDeploymentId,
+    gdfEmbed,
+    gdfRestAPIId,
 
     -- * Destructuring the response
     Deployment (..),
@@ -45,18 +46,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetDeployment' smart constructor.
 data GetDeployment = GetDeployment'
-  { embed ::
-      Lude.Maybe [Lude.Text],
-    restAPIId :: Lude.Text,
-    deploymentId :: Lude.Text
+  { -- | [Required] The identifier of the 'Deployment' resource to get information about.
+    deploymentId :: Lude.Text,
+    -- | A query parameter to retrieve the specified embedded resources of the returned 'Deployment' resource in the response. In a REST API call, this @embed@ parameter value is a list of comma-separated strings, as in @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2@ . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the @"apisummary"@ string. For example, @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary@ .
+    embed :: Lude.Maybe [Lude.Text],
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeployment' with the minimum fields required to make a request.
@@ -65,38 +62,38 @@ data GetDeployment = GetDeployment'
 -- * 'embed' - A query parameter to retrieve the specified embedded resources of the returned 'Deployment' resource in the response. In a REST API call, this @embed@ parameter value is a list of comma-separated strings, as in @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2@ . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the @"apisummary"@ string. For example, @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary@ .
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetDeployment ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'deploymentId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetDeployment
-mkGetDeployment pRestAPIId_ pDeploymentId_ =
+mkGetDeployment pDeploymentId_ pRestAPIId_ =
   GetDeployment'
-    { embed = Lude.Nothing,
-      restAPIId = pRestAPIId_,
-      deploymentId = pDeploymentId_
+    { deploymentId = pDeploymentId_,
+      embed = Lude.Nothing,
+      restAPIId = pRestAPIId_
     }
-
--- | A query parameter to retrieve the specified embedded resources of the returned 'Deployment' resource in the response. In a REST API call, this @embed@ parameter value is a list of comma-separated strings, as in @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2@ . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the @"apisummary"@ string. For example, @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary@ .
---
--- /Note:/ Consider using 'embed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gEmbed :: Lens.Lens' GetDeployment (Lude.Maybe [Lude.Text])
-gEmbed = Lens.lens (embed :: GetDeployment -> Lude.Maybe [Lude.Text]) (\s a -> s {embed = a} :: GetDeployment)
-{-# DEPRECATED gEmbed "Use generic-lens or generic-optics with 'embed' instead." #-}
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gRestAPIId :: Lens.Lens' GetDeployment Lude.Text
-gRestAPIId = Lens.lens (restAPIId :: GetDeployment -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDeployment)
-{-# DEPRECATED gRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Deployment' resource to get information about.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gDeploymentId :: Lens.Lens' GetDeployment Lude.Text
-gDeploymentId = Lens.lens (deploymentId :: GetDeployment -> Lude.Text) (\s a -> s {deploymentId = a} :: GetDeployment)
-{-# DEPRECATED gDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+gdfDeploymentId :: Lens.Lens' GetDeployment Lude.Text
+gdfDeploymentId = Lens.lens (deploymentId :: GetDeployment -> Lude.Text) (\s a -> s {deploymentId = a} :: GetDeployment)
+{-# DEPRECATED gdfDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+
+-- | A query parameter to retrieve the specified embedded resources of the returned 'Deployment' resource in the response. In a REST API call, this @embed@ parameter value is a list of comma-separated strings, as in @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=var1,var2@ . The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the @"apisummary"@ string. For example, @GET /restapis/{restapi_id}/deployments/{deployment_id}?embed=apisummary@ .
+--
+-- /Note:/ Consider using 'embed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdfEmbed :: Lens.Lens' GetDeployment (Lude.Maybe [Lude.Text])
+gdfEmbed = Lens.lens (embed :: GetDeployment -> Lude.Maybe [Lude.Text]) (\s a -> s {embed = a} :: GetDeployment)
+{-# DEPRECATED gdfEmbed "Use generic-lens or generic-optics with 'embed' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdfRestAPIId :: Lens.Lens' GetDeployment Lude.Text
+gdfRestAPIId = Lens.lens (restAPIId :: GetDeployment -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDeployment)
+{-# DEPRECATED gdfRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetDeployment where
   type Rs GetDeployment = Deployment

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.DeleteRolePolicy
     mkDeleteRolePolicy,
 
     -- ** Request lenses
-    delRoleName,
-    delPolicyName,
+    dPolicyName,
+    dRoleName,
 
     -- * Destructuring the response
     DeleteRolePolicyResponse (..),
@@ -38,16 +39,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRolePolicy' smart constructor.
 data DeleteRolePolicy = DeleteRolePolicy'
-  { roleName :: Lude.Text,
-    policyName :: Lude.Text
+  { -- | The name of the inline policy to delete from the specified IAM role.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    policyName :: Lude.Text,
+    -- | The name (friendly name, not ARN) identifying the role that the policy is embedded in.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRolePolicy' with the minimum fields required to make a request.
@@ -59,34 +60,34 @@ data DeleteRolePolicy = DeleteRolePolicy'
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkDeleteRolePolicy ::
-  -- | 'roleName'
-  Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
+  -- | 'roleName'
+  Lude.Text ->
   DeleteRolePolicy
-mkDeleteRolePolicy pRoleName_ pPolicyName_ =
+mkDeleteRolePolicy pPolicyName_ pRoleName_ =
   DeleteRolePolicy'
-    { roleName = pRoleName_,
-      policyName = pPolicyName_
+    { policyName = pPolicyName_,
+      roleName = pRoleName_
     }
-
--- | The name (friendly name, not ARN) identifying the role that the policy is embedded in.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delRoleName :: Lens.Lens' DeleteRolePolicy Lude.Text
-delRoleName = Lens.lens (roleName :: DeleteRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: DeleteRolePolicy)
-{-# DEPRECATED delRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The name of the inline policy to delete from the specified IAM role.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delPolicyName :: Lens.Lens' DeleteRolePolicy Lude.Text
-delPolicyName = Lens.lens (policyName :: DeleteRolePolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteRolePolicy)
-{-# DEPRECATED delPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+dPolicyName :: Lens.Lens' DeleteRolePolicy Lude.Text
+dPolicyName = Lens.lens (policyName :: DeleteRolePolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteRolePolicy)
+{-# DEPRECATED dPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The name (friendly name, not ARN) identifying the role that the policy is embedded in.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRoleName :: Lens.Lens' DeleteRolePolicy Lude.Text
+dRoleName = Lens.lens (roleName :: DeleteRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: DeleteRolePolicy)
+{-# DEPRECATED dRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 instance Lude.AWSRequest DeleteRolePolicy where
   type Rs DeleteRolePolicy = DeleteRolePolicyResponse
@@ -104,19 +105,13 @@ instance Lude.ToQuery DeleteRolePolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteRolePolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "PolicyName" Lude.=: policyName
+        "PolicyName" Lude.=: policyName,
+        "RoleName" Lude.=: roleName
       ]
 
 -- | /See:/ 'mkDeleteRolePolicyResponse' smart constructor.
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRolePolicyResponse' with the minimum fields required to make a request.

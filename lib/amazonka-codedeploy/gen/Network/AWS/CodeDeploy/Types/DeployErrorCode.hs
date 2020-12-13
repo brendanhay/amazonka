@@ -16,10 +16,9 @@ module Network.AWS.CodeDeploy.Types.DeployErrorCode
         AgentIssue,
         AlarmActive,
         ApplicationMissing,
+        AutoscalingValidationError,
         AutoScalingConfiguration,
         AutoScalingIAMRolePermissions,
-        AutoscalingValidationError,
-        CloudformationStackFailure,
         CodedeployResourceCannotBeFound,
         CustomerApplicationUnhealthy,
         DeploymentGroupMissing,
@@ -46,7 +45,8 @@ module Network.AWS.CodeDeploy.Types.DeployErrorCode
         ResourceLimitExceeded,
         RevisionMissing,
         Throttled,
-        Timeout
+        Timeout,
+        CloudformationStackFailure
       ),
   )
 where
@@ -86,17 +86,14 @@ pattern AlarmActive = DeployErrorCode' "ALARM_ACTIVE"
 pattern ApplicationMissing :: DeployErrorCode
 pattern ApplicationMissing = DeployErrorCode' "APPLICATION_MISSING"
 
+pattern AutoscalingValidationError :: DeployErrorCode
+pattern AutoscalingValidationError = DeployErrorCode' "AUTOSCALING_VALIDATION_ERROR"
+
 pattern AutoScalingConfiguration :: DeployErrorCode
 pattern AutoScalingConfiguration = DeployErrorCode' "AUTO_SCALING_CONFIGURATION"
 
 pattern AutoScalingIAMRolePermissions :: DeployErrorCode
 pattern AutoScalingIAMRolePermissions = DeployErrorCode' "AUTO_SCALING_IAM_ROLE_PERMISSIONS"
-
-pattern AutoscalingValidationError :: DeployErrorCode
-pattern AutoscalingValidationError = DeployErrorCode' "AUTOSCALING_VALIDATION_ERROR"
-
-pattern CloudformationStackFailure :: DeployErrorCode
-pattern CloudformationStackFailure = DeployErrorCode' "CLOUDFORMATION_STACK_FAILURE"
 
 pattern CodedeployResourceCannotBeFound :: DeployErrorCode
 pattern CodedeployResourceCannotBeFound = DeployErrorCode' "CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND"
@@ -179,14 +176,16 @@ pattern Throttled = DeployErrorCode' "THROTTLED"
 pattern Timeout :: DeployErrorCode
 pattern Timeout = DeployErrorCode' "TIMEOUT"
 
+pattern CloudformationStackFailure :: DeployErrorCode
+pattern CloudformationStackFailure = DeployErrorCode' "CLOUDFORMATION_STACK_FAILURE"
+
 {-# COMPLETE
   AgentIssue,
   AlarmActive,
   ApplicationMissing,
+  AutoscalingValidationError,
   AutoScalingConfiguration,
   AutoScalingIAMRolePermissions,
-  AutoscalingValidationError,
-  CloudformationStackFailure,
   CodedeployResourceCannotBeFound,
   CustomerApplicationUnhealthy,
   DeploymentGroupMissing,
@@ -214,5 +213,6 @@ pattern Timeout = DeployErrorCode' "TIMEOUT"
   RevisionMissing,
   Throttled,
   Timeout,
+  CloudformationStackFailure,
   DeployErrorCode'
   #-}

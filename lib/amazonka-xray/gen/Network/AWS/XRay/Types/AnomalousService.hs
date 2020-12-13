@@ -29,21 +29,14 @@ import Network.AWS.XRay.Types.ServiceId
 --
 -- /See:/ 'mkAnomalousService' smart constructor.
 newtype AnomalousService = AnomalousService'
-  { serviceId ::
-      Lude.Maybe ServiceId
+  { serviceId :: Lude.Maybe ServiceId
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnomalousService' with the minimum fields required to make a request.
 --
--- * 'serviceId' - Undocumented field.
+-- * 'serviceId' -
 mkAnomalousService ::
   AnomalousService
 mkAnomalousService = AnomalousService' {serviceId = Lude.Nothing}

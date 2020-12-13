@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegionsInfo' smart constructor.
 data RegionsInfo = RegionsInfo'
-  { primaryRegion ::
-      Lude.Maybe Lude.Text,
+  { -- | The Region from where the AWS Managed Microsoft AD directory was originally created.
+    primaryRegion :: Lude.Maybe Lude.Text,
+    -- | Lists the Regions where the directory has been replicated, excluding the primary Region.
     additionalRegions :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionsInfo' with the minimum fields required to make a request.
 --
--- * 'additionalRegions' - Lists the Regions where the directory has been replicated, excluding the primary Region.
 -- * 'primaryRegion' - The Region from where the AWS Managed Microsoft AD directory was originally created.
+-- * 'additionalRegions' - Lists the Regions where the directory has been replicated, excluding the primary Region.
 mkRegionsInfo ::
   RegionsInfo
 mkRegionsInfo =

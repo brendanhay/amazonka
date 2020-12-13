@@ -13,10 +13,10 @@
 module Network.AWS.SSM.Types.MaintenanceWindowTaskType
   ( MaintenanceWindowTaskType
       ( MaintenanceWindowTaskType',
-        Automation,
-        Lambda,
         RunCommand,
-        StepFunctions
+        Automation,
+        StepFunctions,
+        Lambda
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype MaintenanceWindowTaskType = MaintenanceWindowTaskType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Automation :: MaintenanceWindowTaskType
-pattern Automation = MaintenanceWindowTaskType' "AUTOMATION"
-
-pattern Lambda :: MaintenanceWindowTaskType
-pattern Lambda = MaintenanceWindowTaskType' "LAMBDA"
-
 pattern RunCommand :: MaintenanceWindowTaskType
 pattern RunCommand = MaintenanceWindowTaskType' "RUN_COMMAND"
+
+pattern Automation :: MaintenanceWindowTaskType
+pattern Automation = MaintenanceWindowTaskType' "AUTOMATION"
 
 pattern StepFunctions :: MaintenanceWindowTaskType
 pattern StepFunctions = MaintenanceWindowTaskType' "STEP_FUNCTIONS"
 
+pattern Lambda :: MaintenanceWindowTaskType
+pattern Lambda = MaintenanceWindowTaskType' "LAMBDA"
+
 {-# COMPLETE
-  Automation,
-  Lambda,
   RunCommand,
+  Automation,
   StepFunctions,
+  Lambda,
   MaintenanceWindowTaskType'
   #-}

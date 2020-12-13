@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayerFailure' smart constructor.
 data LayerFailure = LayerFailure'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
+  { -- | The reason for the failure.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The failure code associated with the failure.
     failureCode :: Lude.Maybe LayerFailureCode,
+    -- | The layer digest associated with the failure.
     layerDigest :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LayerFailure' with the minimum fields required to make a request.
 --
--- * 'failureCode' - The failure code associated with the failure.
 -- * 'failureReason' - The reason for the failure.
+-- * 'failureCode' - The failure code associated with the failure.
 -- * 'layerDigest' - The layer digest associated with the failure.
 mkLayerFailure ::
   LayerFailure

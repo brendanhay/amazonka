@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-  { concurrentExecutions ::
-      Lude.Maybe Lude.Int,
+  { -- | The maximum number of simultaneous function executions.
+    concurrentExecutions :: Lude.Maybe Lude.Int,
+    -- | The amount of storage space that you can use for all deployment packages and layer archives.
     totalCodeSize :: Lude.Maybe Lude.Integer,
+    -- | The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with 'PutFunctionConcurrency' .
     unreservedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | The maximum size of a function's deployment package and layers when they're extracted.
     codeSizeUnzipped :: Lude.Maybe Lude.Integer,
+    -- | The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.
     codeSizeZipped :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountLimit' with the minimum fields required to make a request.
 --
--- * 'codeSizeUnzipped' - The maximum size of a function's deployment package and layers when they're extracted.
--- * 'codeSizeZipped' - The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.
 -- * 'concurrentExecutions' - The maximum number of simultaneous function executions.
 -- * 'totalCodeSize' - The amount of storage space that you can use for all deployment packages and layer archives.
 -- * 'unreservedConcurrentExecutions' - The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with 'PutFunctionConcurrency' .
+-- * 'codeSizeUnzipped' - The maximum size of a function's deployment package and layers when they're extracted.
+-- * 'codeSizeZipped' - The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.
 mkAccountLimit ::
   AccountLimit
 mkAccountLimit =

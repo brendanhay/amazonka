@@ -13,33 +13,33 @@
 module Network.AWS.CloudWatch.Types.StandardUnit
   ( StandardUnit
       ( StandardUnit',
-        Bits,
-        BitsSecond,
-        Bytes,
-        BytesSecond,
-        Count,
-        CountSecond,
-        Gigabits,
-        GigabitsSecond,
-        Gigabytes,
-        GigabytesSecond,
-        Kilobits,
-        KilobitsSecond,
-        Kilobytes,
-        KilobytesSecond,
-        Megabits,
-        MegabitsSecond,
-        Megabytes,
-        MegabytesSecond,
+        Seconds,
         Microseconds,
         Milliseconds,
-        None,
-        Percent,
-        Seconds,
-        Terabits,
-        TerabitsSecond,
+        Bytes,
+        Kilobytes,
+        Megabytes,
+        Gigabytes,
         Terabytes,
-        TerabytesSecond
+        Bits,
+        Kilobits,
+        Megabits,
+        Gigabits,
+        Terabits,
+        Percent,
+        Count,
+        BytesSecond,
+        KilobytesSecond,
+        MegabytesSecond,
+        GigabytesSecond,
+        TerabytesSecond,
+        BitsSecond,
+        KilobitsSecond,
+        MegabitsSecond,
+        GigabitsSecond,
+        TerabitsSecond,
+        CountSecond,
+        None
       ),
   )
 where
@@ -70,59 +70,8 @@ newtype StandardUnit = StandardUnit' Lude.Text
       Lude.ToHeader
     )
 
-pattern Bits :: StandardUnit
-pattern Bits = StandardUnit' "Bits"
-
-pattern BitsSecond :: StandardUnit
-pattern BitsSecond = StandardUnit' "Bits/Second"
-
-pattern Bytes :: StandardUnit
-pattern Bytes = StandardUnit' "Bytes"
-
-pattern BytesSecond :: StandardUnit
-pattern BytesSecond = StandardUnit' "Bytes/Second"
-
-pattern Count :: StandardUnit
-pattern Count = StandardUnit' "Count"
-
-pattern CountSecond :: StandardUnit
-pattern CountSecond = StandardUnit' "Count/Second"
-
-pattern Gigabits :: StandardUnit
-pattern Gigabits = StandardUnit' "Gigabits"
-
-pattern GigabitsSecond :: StandardUnit
-pattern GigabitsSecond = StandardUnit' "Gigabits/Second"
-
-pattern Gigabytes :: StandardUnit
-pattern Gigabytes = StandardUnit' "Gigabytes"
-
-pattern GigabytesSecond :: StandardUnit
-pattern GigabytesSecond = StandardUnit' "Gigabytes/Second"
-
-pattern Kilobits :: StandardUnit
-pattern Kilobits = StandardUnit' "Kilobits"
-
-pattern KilobitsSecond :: StandardUnit
-pattern KilobitsSecond = StandardUnit' "Kilobits/Second"
-
-pattern Kilobytes :: StandardUnit
-pattern Kilobytes = StandardUnit' "Kilobytes"
-
-pattern KilobytesSecond :: StandardUnit
-pattern KilobytesSecond = StandardUnit' "Kilobytes/Second"
-
-pattern Megabits :: StandardUnit
-pattern Megabits = StandardUnit' "Megabits"
-
-pattern MegabitsSecond :: StandardUnit
-pattern MegabitsSecond = StandardUnit' "Megabits/Second"
-
-pattern Megabytes :: StandardUnit
-pattern Megabytes = StandardUnit' "Megabytes"
-
-pattern MegabytesSecond :: StandardUnit
-pattern MegabytesSecond = StandardUnit' "Megabytes/Second"
+pattern Seconds :: StandardUnit
+pattern Seconds = StandardUnit' "Seconds"
 
 pattern Microseconds :: StandardUnit
 pattern Microseconds = StandardUnit' "Microseconds"
@@ -130,54 +79,105 @@ pattern Microseconds = StandardUnit' "Microseconds"
 pattern Milliseconds :: StandardUnit
 pattern Milliseconds = StandardUnit' "Milliseconds"
 
-pattern None :: StandardUnit
-pattern None = StandardUnit' "None"
+pattern Bytes :: StandardUnit
+pattern Bytes = StandardUnit' "Bytes"
 
-pattern Percent :: StandardUnit
-pattern Percent = StandardUnit' "Percent"
+pattern Kilobytes :: StandardUnit
+pattern Kilobytes = StandardUnit' "Kilobytes"
 
-pattern Seconds :: StandardUnit
-pattern Seconds = StandardUnit' "Seconds"
+pattern Megabytes :: StandardUnit
+pattern Megabytes = StandardUnit' "Megabytes"
 
-pattern Terabits :: StandardUnit
-pattern Terabits = StandardUnit' "Terabits"
-
-pattern TerabitsSecond :: StandardUnit
-pattern TerabitsSecond = StandardUnit' "Terabits/Second"
+pattern Gigabytes :: StandardUnit
+pattern Gigabytes = StandardUnit' "Gigabytes"
 
 pattern Terabytes :: StandardUnit
 pattern Terabytes = StandardUnit' "Terabytes"
 
+pattern Bits :: StandardUnit
+pattern Bits = StandardUnit' "Bits"
+
+pattern Kilobits :: StandardUnit
+pattern Kilobits = StandardUnit' "Kilobits"
+
+pattern Megabits :: StandardUnit
+pattern Megabits = StandardUnit' "Megabits"
+
+pattern Gigabits :: StandardUnit
+pattern Gigabits = StandardUnit' "Gigabits"
+
+pattern Terabits :: StandardUnit
+pattern Terabits = StandardUnit' "Terabits"
+
+pattern Percent :: StandardUnit
+pattern Percent = StandardUnit' "Percent"
+
+pattern Count :: StandardUnit
+pattern Count = StandardUnit' "Count"
+
+pattern BytesSecond :: StandardUnit
+pattern BytesSecond = StandardUnit' "Bytes/Second"
+
+pattern KilobytesSecond :: StandardUnit
+pattern KilobytesSecond = StandardUnit' "Kilobytes/Second"
+
+pattern MegabytesSecond :: StandardUnit
+pattern MegabytesSecond = StandardUnit' "Megabytes/Second"
+
+pattern GigabytesSecond :: StandardUnit
+pattern GigabytesSecond = StandardUnit' "Gigabytes/Second"
+
 pattern TerabytesSecond :: StandardUnit
 pattern TerabytesSecond = StandardUnit' "Terabytes/Second"
 
+pattern BitsSecond :: StandardUnit
+pattern BitsSecond = StandardUnit' "Bits/Second"
+
+pattern KilobitsSecond :: StandardUnit
+pattern KilobitsSecond = StandardUnit' "Kilobits/Second"
+
+pattern MegabitsSecond :: StandardUnit
+pattern MegabitsSecond = StandardUnit' "Megabits/Second"
+
+pattern GigabitsSecond :: StandardUnit
+pattern GigabitsSecond = StandardUnit' "Gigabits/Second"
+
+pattern TerabitsSecond :: StandardUnit
+pattern TerabitsSecond = StandardUnit' "Terabits/Second"
+
+pattern CountSecond :: StandardUnit
+pattern CountSecond = StandardUnit' "Count/Second"
+
+pattern None :: StandardUnit
+pattern None = StandardUnit' "None"
+
 {-# COMPLETE
-  Bits,
-  BitsSecond,
-  Bytes,
-  BytesSecond,
-  Count,
-  CountSecond,
-  Gigabits,
-  GigabitsSecond,
-  Gigabytes,
-  GigabytesSecond,
-  Kilobits,
-  KilobitsSecond,
-  Kilobytes,
-  KilobytesSecond,
-  Megabits,
-  MegabitsSecond,
-  Megabytes,
-  MegabytesSecond,
+  Seconds,
   Microseconds,
   Milliseconds,
-  None,
-  Percent,
-  Seconds,
-  Terabits,
-  TerabitsSecond,
+  Bytes,
+  Kilobytes,
+  Megabytes,
+  Gigabytes,
   Terabytes,
+  Bits,
+  Kilobits,
+  Megabits,
+  Gigabits,
+  Terabits,
+  Percent,
+  Count,
+  BytesSecond,
+  KilobytesSecond,
+  MegabytesSecond,
+  GigabytesSecond,
   TerabytesSecond,
+  BitsSecond,
+  KilobitsSecond,
+  MegabitsSecond,
+  GigabitsSecond,
+  TerabitsSecond,
+  CountSecond,
+  None,
   StandardUnit'
   #-}

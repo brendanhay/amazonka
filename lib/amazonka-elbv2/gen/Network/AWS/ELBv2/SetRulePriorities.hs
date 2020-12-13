@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetRulePriorities' smart constructor.
 newtype SetRulePriorities = SetRulePriorities'
-  { rulePriorities ::
-      [RulePriorityPair]
+  { -- | The rule priorities.
+    rulePriorities :: [RulePriorityPair]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetRulePriorities' with the minimum fields required to make a request.
@@ -98,23 +93,18 @@ instance Lude.ToQuery SetRulePriorities where
 
 -- | /See:/ 'mkSetRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
-  { rules ::
-      Lude.Maybe [Rule],
+  { -- | Information about the rules.
+    rules :: Lude.Maybe [Rule],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetRulePrioritiesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'rules' - Information about the rules.
+-- * 'responseStatus' - The response status code.
 mkSetRulePrioritiesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

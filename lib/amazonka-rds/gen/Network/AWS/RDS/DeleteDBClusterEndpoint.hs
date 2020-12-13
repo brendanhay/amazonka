@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.RDS.DeleteDBClusterEndpoint
     mkDeleteDBClusterEndpoint,
 
     -- ** Request lenses
-    ddceDBClusterEndpointIdentifier,
+    ddbceDBClusterEndpointIdentifier,
 
     -- * Destructuring the response
     DBClusterEndpoint (..),
@@ -47,16 +48,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDBClusterEndpoint' smart constructor.
 newtype DeleteDBClusterEndpoint = DeleteDBClusterEndpoint'
-  { dbClusterEndpointIdentifier ::
-      Lude.Text
+  { -- | The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.
+    dbClusterEndpointIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBClusterEndpoint' with the minimum fields required to make a request.
@@ -75,9 +70,9 @@ mkDeleteDBClusterEndpoint pDBClusterEndpointIdentifier_ =
 -- | The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'dbClusterEndpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddceDBClusterEndpointIdentifier :: Lens.Lens' DeleteDBClusterEndpoint Lude.Text
-ddceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: DeleteDBClusterEndpoint -> Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: DeleteDBClusterEndpoint)
-{-# DEPRECATED ddceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
+ddbceDBClusterEndpointIdentifier :: Lens.Lens' DeleteDBClusterEndpoint Lude.Text
+ddbceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: DeleteDBClusterEndpoint -> Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: DeleteDBClusterEndpoint)
+{-# DEPRECATED ddbceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
 
 instance Lude.AWSRequest DeleteDBClusterEndpoint where
   type Rs DeleteDBClusterEndpoint = DBClusterEndpoint

@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFollowUpPrompt' smart constructor.
 data FollowUpPrompt = FollowUpPrompt'
-  { prompt :: Prompt,
+  { -- | Prompts for information from the user.
+    prompt :: Prompt,
+    -- | If the user answers "no" to the question defined in the @prompt@ field, Amazon Lex responds with this statement to acknowledge that the intent was canceled.
     rejectionStatement :: Statement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FollowUpPrompt' with the minimum fields required to make a request.

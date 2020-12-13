@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,30 +45,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateContainerServiceDeployment' smart constructor.
 data CreateContainerServiceDeployment = CreateContainerServiceDeployment'
-  { publicEndpoint ::
-      Lude.Maybe
-        EndpointRequest,
-    containers ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Container)
-        ),
+  { -- | An object that describes the settings of the public endpoint for the container service.
+    publicEndpoint :: Lude.Maybe EndpointRequest,
+    -- | An object that describes the settings of the containers that will be launched on the container service.
+    containers :: Lude.Maybe (Lude.HashMap Lude.Text (Container)),
+    -- | The name of the container service for which to create the deployment.
     serviceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContainerServiceDeployment' with the minimum fields required to make a request.
 --
--- * 'containers' - An object that describes the settings of the containers that will be launched on the container service.
 -- * 'publicEndpoint' - An object that describes the settings of the public endpoint for the container service.
+-- * 'containers' - An object that describes the settings of the containers that will be launched on the container service.
 -- * 'serviceName' - The name of the container service for which to create the deployment.
 mkCreateContainerServiceDeployment ::
   -- | 'serviceName'
@@ -145,19 +136,12 @@ instance Lude.ToQuery CreateContainerServiceDeployment where
 
 -- | /See:/ 'mkCreateContainerServiceDeploymentResponse' smart constructor.
 data CreateContainerServiceDeploymentResponse = CreateContainerServiceDeploymentResponse'
-  { containerService ::
-      Lude.Maybe
-        ContainerService,
-    responseStatus ::
-      Lude.Int
+  { -- | An object that describes a container service.
+    containerService :: Lude.Maybe ContainerService,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateContainerServiceDeploymentResponse' with the minimum fields required to make a request.

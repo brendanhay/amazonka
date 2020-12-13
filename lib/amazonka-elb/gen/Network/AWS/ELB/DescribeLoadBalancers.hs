@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with this call (a number from 1 to 400). The default is 400.
     pageSize :: Lude.Maybe Lude.Natural,
+    -- | The names of the load balancers.
     loadBalancerNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
 --
--- * 'loadBalancerNames' - The names of the load balancers.
 -- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
 -- * 'pageSize' - The maximum number of results to return with this call (a number from 1 to 400). The default is 400.
+-- * 'loadBalancerNames' - The names of the load balancers.
 mkDescribeLoadBalancers ::
   DescribeLoadBalancers
 mkDescribeLoadBalancers =
@@ -143,20 +140,14 @@ instance Lude.ToQuery DescribeLoadBalancers where
 --
 -- /See:/ 'mkDescribeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-  { loadBalancerDescriptions ::
-      Lude.Maybe
-        [LoadBalancerDescription],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the load balancers.
+    loadBalancerDescriptions :: Lude.Maybe [LoadBalancerDescription],
+    -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.

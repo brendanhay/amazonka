@@ -35,35 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateEBSBlockDevice' smart constructor.
 data LaunchTemplateEBSBlockDevice = LaunchTemplateEBSBlockDevice'
-  { deleteOnTermination ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the EBS volume is deleted on instance termination.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The size of the volume, in GiB.
     volumeSize :: Lude.Maybe Lude.Int,
+    -- | The number of I/O operations per second (IOPS) that the volume supports.
     iops :: Lude.Maybe Lude.Int,
+    -- | Indicates whether the EBS volume is encrypted.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
     kmsKeyId :: Lude.Maybe Lude.Text,
-    volumeType ::
-      Lude.Maybe VolumeType,
-    snapshotId ::
-      Lude.Maybe Lude.Text
+    -- | The volume type.
+    volumeType :: Lude.Maybe VolumeType,
+    -- | The ID of the snapshot.
+    snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateEBSBlockDevice' with the minimum fields required to make a request.
 --
 -- * 'deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination.
--- * 'encrypted' - Indicates whether the EBS volume is encrypted.
--- * 'iops' - The number of I/O operations per second (IOPS) that the volume supports.
--- * 'kmsKeyId' - The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
--- * 'snapshotId' - The ID of the snapshot.
 -- * 'volumeSize' - The size of the volume, in GiB.
+-- * 'iops' - The number of I/O operations per second (IOPS) that the volume supports.
+-- * 'encrypted' - Indicates whether the EBS volume is encrypted.
+-- * 'kmsKeyId' - The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.
 -- * 'volumeType' - The volume type.
+-- * 'snapshotId' - The ID of the snapshot.
 mkLaunchTemplateEBSBlockDevice ::
   LaunchTemplateEBSBlockDevice
 mkLaunchTemplateEBSBlockDevice =

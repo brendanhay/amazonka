@@ -30,16 +30,12 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkOwner' smart constructor.
 data Owner = Owner'
-  { displayName :: Lude.Maybe Lude.Text,
+  { -- | Container for the display name of the owner.
+    displayName :: Lude.Maybe Lude.Text,
+    -- | Container for the ID of the owner.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Owner' with the minimum fields required to make a request.

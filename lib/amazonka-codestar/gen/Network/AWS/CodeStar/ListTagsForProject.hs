@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CodeStar.ListTagsForProject
 
     -- ** Request lenses
     ltfpNextToken,
-    ltfpMaxResults,
     ltfpId,
+    ltfpMaxResults,
 
     -- * Destructuring the response
     ListTagsForProjectResponse (..),
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForProject' smart constructor.
 data ListTagsForProject = ListTagsForProject'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    id :: Lude.Text
+  { -- | Reserved for future use.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the project to get tags for.
+    id :: Lude.Text,
+    -- | Reserved for future use.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForProject' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Reserved for future use.
 -- * 'id' - The ID of the project to get tags for.
 -- * 'maxResults' - Reserved for future use.
--- * 'nextToken' - Reserved for future use.
 mkListTagsForProject ::
   -- | 'id'
   Lude.Text ->
@@ -68,8 +65,8 @@ mkListTagsForProject ::
 mkListTagsForProject pId_ =
   ListTagsForProject'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      id = pId_
+      id = pId_,
+      maxResults = Lude.Nothing
     }
 
 -- | Reserved for future use.
@@ -79,19 +76,19 @@ ltfpNextToken :: Lens.Lens' ListTagsForProject (Lude.Maybe Lude.Text)
 ltfpNextToken = Lens.lens (nextToken :: ListTagsForProject -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForProject)
 {-# DEPRECATED ltfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Reserved for future use.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpMaxResults :: Lens.Lens' ListTagsForProject (Lude.Maybe Lude.Natural)
-ltfpMaxResults = Lens.lens (maxResults :: ListTagsForProject -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTagsForProject)
-{-# DEPRECATED ltfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the project to get tags for.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfpId :: Lens.Lens' ListTagsForProject Lude.Text
 ltfpId = Lens.lens (id :: ListTagsForProject -> Lude.Text) (\s a -> s {id = a} :: ListTagsForProject)
 {-# DEPRECATED ltfpId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Reserved for future use.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpMaxResults :: Lens.Lens' ListTagsForProject (Lude.Maybe Lude.Natural)
+ltfpMaxResults = Lens.lens (maxResults :: ListTagsForProject -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTagsForProject)
+{-# DEPRECATED ltfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListTagsForProject where
   type Rs ListTagsForProject = ListTagsForProjectResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON ListTagsForProject where
     Lude.object
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("id" Lude..= id)
+            Lude.Just ("id" Lude..= id),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -134,30 +131,21 @@ instance Lude.ToQuery ListTagsForProject where
 
 -- | /See:/ 'mkListTagsForProjectResponse' smart constructor.
 data ListTagsForProjectResponse = ListTagsForProjectResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
+  { -- | Reserved for future use.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The tags for the project.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForProjectResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Reserved for future use.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags for the project.
+-- * 'responseStatus' - The response status code.
 mkListTagsForProjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

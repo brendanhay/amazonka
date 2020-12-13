@@ -13,9 +13,9 @@
 module Network.AWS.LexModels.Types.ImportStatus
   ( ImportStatus
       ( ImportStatus',
+        ISInProgress,
         ISComplete,
-        ISFailed,
-        ISInProgress
+        ISFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ImportStatus = ImportStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern ISInProgress :: ImportStatus
+pattern ISInProgress = ImportStatus' "IN_PROGRESS"
+
 pattern ISComplete :: ImportStatus
 pattern ISComplete = ImportStatus' "COMPLETE"
 
 pattern ISFailed :: ImportStatus
 pattern ISFailed = ImportStatus' "FAILED"
 
-pattern ISInProgress :: ImportStatus
-pattern ISInProgress = ImportStatus' "IN_PROGRESS"
-
 {-# COMPLETE
+  ISInProgress,
   ISComplete,
   ISFailed,
-  ISInProgress,
   ImportStatus'
   #-}

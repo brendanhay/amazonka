@@ -40,44 +40,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectConnectGatewayAssociation' smart constructor.
 data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
-  { virtualGatewayId ::
-      Lude.Maybe Lude.Text,
-    associationId ::
-      Lude.Maybe Lude.Text,
-    directConnectGatewayId ::
-      Lude.Maybe Lude.Text,
-    virtualGatewayOwnerAccount ::
-      Lude.Maybe Lude.Text,
-    stateChangeError ::
-      Lude.Maybe Lude.Text,
-    virtualGatewayRegion ::
-      Lude.Maybe Lude.Text,
-    associatedGateway ::
-      Lude.Maybe
-        AssociatedGateway,
-    directConnectGatewayOwnerAccount ::
-      Lude.Maybe Lude.Text,
-    allowedPrefixesToDirectConnectGateway ::
-      Lude.Maybe
-        [RouteFilterPrefix],
-    associationState ::
-      Lude.Maybe
-        DirectConnectGatewayAssociationState
+  { -- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
+    virtualGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Direct Connect gateway association.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the virtual private gateway.
+    virtualGatewayOwnerAccount :: Lude.Maybe Lude.Text,
+    -- | The error message if the state of an object failed to advance.
+    stateChangeError :: Lude.Maybe Lude.Text,
+    -- | The AWS Region where the virtual private gateway is located.
+    virtualGatewayRegion :: Lude.Maybe Lude.Text,
+    -- | Information about the associated gateway.
+    associatedGateway :: Lude.Maybe AssociatedGateway,
+    -- | The ID of the AWS account that owns the associated gateway.
+    directConnectGatewayOwnerAccount :: Lude.Maybe Lude.Text,
+    -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+    allowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix],
+    -- | The state of the association. The following are the possible values:
+    --
+    --
+    --     * @associating@ : The initial state after calling 'CreateDirectConnectGatewayAssociation' .
+    --
+    --
+    --     * @associated@ : The Direct Connect gateway and virtual private gateway or transit gateway are successfully associated and ready to pass traffic.
+    --
+    --
+    --     * @disassociating@ : The initial state after calling 'DeleteDirectConnectGatewayAssociation' .
+    --
+    --
+    --     * @disassociated@ : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.
+    associationState :: Lude.Maybe DirectConnectGatewayAssociationState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectConnectGatewayAssociation' with the minimum fields required to make a request.
 --
--- * 'allowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
--- * 'associatedGateway' - Information about the associated gateway.
+-- * 'virtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
 -- * 'associationId' - The ID of the Direct Connect gateway association.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'virtualGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway.
+-- * 'stateChangeError' - The error message if the state of an object failed to advance.
+-- * 'virtualGatewayRegion' - The AWS Region where the virtual private gateway is located.
+-- * 'associatedGateway' - Information about the associated gateway.
+-- * 'directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the associated gateway.
+-- * 'allowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 -- * 'associationState' - The state of the association. The following are the possible values:
 --
 --
@@ -91,14 +100,6 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
 --
 --
 --     * @disassociated@ : The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.
---
---
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
--- * 'directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the associated gateway.
--- * 'stateChangeError' - The error message if the state of an object failed to advance.
--- * 'virtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
--- * 'virtualGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway.
--- * 'virtualGatewayRegion' - The AWS Region where the virtual private gateway is located.
 mkDirectConnectGatewayAssociation ::
   DirectConnectGatewayAssociation
 mkDirectConnectGatewayAssociation =

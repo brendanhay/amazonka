@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSamplingStatisticSummary' smart constructor.
 data SamplingStatisticSummary = SamplingStatisticSummary'
-  { requestCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of requests that matched the rule.
+    requestCount :: Lude.Maybe Lude.Int,
+    -- | The number of requests recorded with borrowed reservoir quota.
     borrowCount :: Lude.Maybe Lude.Int,
+    -- | The name of the sampling rule.
     ruleName :: Lude.Maybe Lude.Text,
+    -- | The start time of the reporting window.
     timestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The number of requests recorded.
     sampledCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingStatisticSummary' with the minimum fields required to make a request.
 --
--- * 'borrowCount' - The number of requests recorded with borrowed reservoir quota.
 -- * 'requestCount' - The number of requests that matched the rule.
+-- * 'borrowCount' - The number of requests recorded with borrowed reservoir quota.
 -- * 'ruleName' - The name of the sampling rule.
--- * 'sampledCount' - The number of requests recorded.
 -- * 'timestamp' - The start time of the reporting window.
+-- * 'sampledCount' - The number of requests recorded.
 mkSamplingStatisticSummary ::
   SamplingStatisticSummary
 mkSamplingStatisticSummary =

@@ -13,9 +13,9 @@
 module Network.AWS.ElastiCache.Types.SlaMet
   ( SlaMet
       ( SlaMet',
+        Yes,
         NO,
-        Na,
-        Yes
+        Na
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SlaMet = SlaMet' Lude.Text
       Lude.ToHeader
     )
 
+pattern Yes :: SlaMet
+pattern Yes = SlaMet' "yes"
+
 pattern NO :: SlaMet
 pattern NO = SlaMet' "no"
 
 pattern Na :: SlaMet
 pattern Na = SlaMet' "n/a"
 
-pattern Yes :: SlaMet
-pattern Yes = SlaMet' "yes"
-
 {-# COMPLETE
+  Yes,
   NO,
   Na,
-  Yes,
   SlaMet'
   #-}

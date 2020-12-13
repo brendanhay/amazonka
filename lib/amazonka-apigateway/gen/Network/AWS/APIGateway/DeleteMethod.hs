@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.DeleteMethod
     mkDeleteMethod,
 
     -- ** Request lenses
-    dmmRestAPIId,
-    dmmResourceId,
-    dmmHttpMethod,
+    dmfResourceId,
+    dmfHttpMethod,
+    dmfRestAPIId,
 
     -- * Destructuring the response
     DeleteMethodResponse' (..),
@@ -39,59 +40,56 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
-  { restAPIId :: Lude.Text,
+  { -- | [Required] The 'Resource' identifier for the 'Method' resource.
     resourceId :: Lude.Text,
-    httpMethod :: Lude.Text
+    -- | [Required] The HTTP verb of the 'Method' resource.
+    httpMethod :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMethod' with the minimum fields required to make a request.
 --
--- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
 -- * 'resourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
+-- * 'httpMethod' - [Required] The HTTP verb of the 'Method' resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteMethod ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'httpMethod'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   DeleteMethod
-mkDeleteMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkDeleteMethod pResourceId_ pHttpMethod_ pRestAPIId_ =
   DeleteMethod'
-    { restAPIId = pRestAPIId_,
-      resourceId = pResourceId_,
-      httpMethod = pHttpMethod_
+    { resourceId = pResourceId_,
+      httpMethod = pHttpMethod_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmmRestAPIId :: Lens.Lens' DeleteMethod Lude.Text
-dmmRestAPIId = Lens.lens (restAPIId :: DeleteMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteMethod)
-{-# DEPRECATED dmmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'Method' resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmmResourceId :: Lens.Lens' DeleteMethod Lude.Text
-dmmResourceId = Lens.lens (resourceId :: DeleteMethod -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteMethod)
-{-# DEPRECATED dmmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+dmfResourceId :: Lens.Lens' DeleteMethod Lude.Text
+dmfResourceId = Lens.lens (resourceId :: DeleteMethod -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteMethod)
+{-# DEPRECATED dmfResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] The HTTP verb of the 'Method' resource.
 --
 -- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmmHttpMethod :: Lens.Lens' DeleteMethod Lude.Text
-dmmHttpMethod = Lens.lens (httpMethod :: DeleteMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: DeleteMethod)
-{-# DEPRECATED dmmHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+dmfHttpMethod :: Lens.Lens' DeleteMethod Lude.Text
+dmfHttpMethod = Lens.lens (httpMethod :: DeleteMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: DeleteMethod)
+{-# DEPRECATED dmfHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmfRestAPIId :: Lens.Lens' DeleteMethod Lude.Text
+dmfRestAPIId = Lens.lens (restAPIId :: DeleteMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteMethod)
+{-# DEPRECATED dmfRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest DeleteMethod where
   type Rs DeleteMethod = DeleteMethodResponse'
@@ -121,13 +119,7 @@ instance Lude.ToQuery DeleteMethod where
 
 -- | /See:/ 'mkDeleteMethodResponse'' smart constructor.
 data DeleteMethodResponse' = DeleteMethodResponse''
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMethodResponse'' with the minimum fields required to make a request.

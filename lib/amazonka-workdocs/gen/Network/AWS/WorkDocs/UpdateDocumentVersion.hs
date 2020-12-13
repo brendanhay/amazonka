@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.WorkDocs.UpdateDocumentVersion
     mkUpdateDocumentVersion,
 
     -- ** Request lenses
+    udvVersionId,
+    udvDocumentId,
     udvAuthenticationToken,
     udvVersionStatus,
-    udvDocumentId,
-    udvVersionId,
 
     -- * Destructuring the response
     UpdateDocumentVersionResponse (..),
@@ -40,35 +41,51 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkUpdateDocumentVersion' smart constructor.
 data UpdateDocumentVersion = UpdateDocumentVersion'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    versionStatus ::
-      Lude.Maybe DocumentVersionStatus,
+  { -- | The version ID of the document.
+    versionId :: Lude.Text,
+    -- | The ID of the document.
     documentId :: Lude.Text,
-    versionId :: Lude.Text
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The status of the version.
+    versionStatus :: Lude.Maybe DocumentVersionStatus
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentVersion' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'documentId' - The ID of the document.
 -- * 'versionId' - The version ID of the document.
+-- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'versionStatus' - The status of the version.
 mkUpdateDocumentVersion ::
-  -- | 'documentId'
-  Lude.Text ->
   -- | 'versionId'
   Lude.Text ->
+  -- | 'documentId'
+  Lude.Text ->
   UpdateDocumentVersion
-mkUpdateDocumentVersion pDocumentId_ pVersionId_ =
+mkUpdateDocumentVersion pVersionId_ pDocumentId_ =
   UpdateDocumentVersion'
-    { authenticationToken = Lude.Nothing,
-      versionStatus = Lude.Nothing,
+    { versionId = pVersionId_,
       documentId = pDocumentId_,
-      versionId = pVersionId_
+      authenticationToken = Lude.Nothing,
+      versionStatus = Lude.Nothing
     }
+
+-- | The version ID of the document.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvVersionId :: Lens.Lens' UpdateDocumentVersion Lude.Text
+udvVersionId = Lens.lens (versionId :: UpdateDocumentVersion -> Lude.Text) (\s a -> s {versionId = a} :: UpdateDocumentVersion)
+{-# DEPRECATED udvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvDocumentId :: Lens.Lens' UpdateDocumentVersion Lude.Text
+udvDocumentId = Lens.lens (documentId :: UpdateDocumentVersion -> Lude.Text) (\s a -> s {documentId = a} :: UpdateDocumentVersion)
+{-# DEPRECATED udvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -83,20 +100,6 @@ udvAuthenticationToken = Lens.lens (authenticationToken :: UpdateDocumentVersion
 udvVersionStatus :: Lens.Lens' UpdateDocumentVersion (Lude.Maybe DocumentVersionStatus)
 udvVersionStatus = Lens.lens (versionStatus :: UpdateDocumentVersion -> Lude.Maybe DocumentVersionStatus) (\s a -> s {versionStatus = a} :: UpdateDocumentVersion)
 {-# DEPRECATED udvVersionStatus "Use generic-lens or generic-optics with 'versionStatus' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvDocumentId :: Lens.Lens' UpdateDocumentVersion Lude.Text
-udvDocumentId = Lens.lens (documentId :: UpdateDocumentVersion -> Lude.Text) (\s a -> s {documentId = a} :: UpdateDocumentVersion)
-{-# DEPRECATED udvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
-
--- | The version ID of the document.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvVersionId :: Lens.Lens' UpdateDocumentVersion Lude.Text
-udvVersionId = Lens.lens (versionId :: UpdateDocumentVersion -> Lude.Text) (\s a -> s {versionId = a} :: UpdateDocumentVersion)
-{-# DEPRECATED udvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 instance Lude.AWSRequest UpdateDocumentVersion where
   type Rs UpdateDocumentVersion = UpdateDocumentVersionResponse
@@ -130,13 +133,7 @@ instance Lude.ToQuery UpdateDocumentVersion where
 
 -- | /See:/ 'mkUpdateDocumentVersionResponse' smart constructor.
 data UpdateDocumentVersionResponse = UpdateDocumentVersionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentVersionResponse' with the minimum fields required to make a request.

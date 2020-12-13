@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.FleetEventType
   ( FleetEventType
       ( FleetEventType',
-        FETFleetChange,
         FETInstanceChange,
+        FETFleetChange,
         FETServiceError
       ),
   )
@@ -46,18 +46,18 @@ newtype FleetEventType = FleetEventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FETFleetChange :: FleetEventType
-pattern FETFleetChange = FleetEventType' "fleet-change"
-
 pattern FETInstanceChange :: FleetEventType
 pattern FETInstanceChange = FleetEventType' "instance-change"
+
+pattern FETFleetChange :: FleetEventType
+pattern FETFleetChange = FleetEventType' "fleet-change"
 
 pattern FETServiceError :: FleetEventType
 pattern FETServiceError = FleetEventType' "service-error"
 
 {-# COMPLETE
-  FETFleetChange,
   FETInstanceChange,
+  FETFleetChange,
   FETServiceError,
   FleetEventType'
   #-}

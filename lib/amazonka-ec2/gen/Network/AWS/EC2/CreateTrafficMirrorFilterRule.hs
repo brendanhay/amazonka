@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,17 +24,17 @@ module Network.AWS.EC2.CreateTrafficMirrorFilterRule
 
     -- ** Request lenses
     ctmfrClientToken,
+    ctmfrRuleNumber,
+    ctmfrTrafficDirection,
+    ctmfrRuleAction,
     ctmfrProtocol,
+    ctmfrTrafficMirrorFilterId,
     ctmfrDestinationPortRange,
+    ctmfrSourceCidrBlock,
     ctmfrSourcePortRange,
     ctmfrDescription,
     ctmfrDryRun,
-    ctmfrTrafficMirrorFilterId,
-    ctmfrTrafficDirection,
-    ctmfrRuleNumber,
-    ctmfrRuleAction,
     ctmfrDestinationCidrBlock,
-    ctmfrSourceCidrBlock,
 
     -- * Destructuring the response
     CreateTrafficMirrorFilterRuleResponse (..),
@@ -54,88 +55,86 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTrafficMirrorFilterRule' smart constructor.
 data CreateTrafficMirrorFilterRule = CreateTrafficMirrorFilterRule'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    protocol :: Lude.Maybe Lude.Int,
-    destinationPortRange ::
-      Lude.Maybe
-        TrafficMirrorPortRangeRequest,
-    sourcePortRange ::
-      Lude.Maybe
-        TrafficMirrorPortRangeRequest,
-    description ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    trafficMirrorFilterId ::
-      Lude.Text,
-    trafficDirection ::
-      TrafficDirection,
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
     ruleNumber :: Lude.Int,
-    ruleAction ::
-      TrafficMirrorRuleAction,
-    destinationCidrBlock ::
-      Lude.Text,
-    sourceCidrBlock :: Lude.Text
+    -- | The type of traffic (@ingress@ | @egress@ ).
+    trafficDirection :: TrafficDirection,
+    -- | The action to take (@accept@ | @reject@ ) on the filtered traffic.
+    ruleAction :: TrafficMirrorRuleAction,
+    -- | The protocol, for example UDP, to assign to the Traffic Mirror rule.
+    --
+    -- For information about the protocol value, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> on the Internet Assigned Numbers Authority (IANA) website.
+    protocol :: Lude.Maybe Lude.Int,
+    -- | The ID of the filter that this rule is associated with.
+    trafficMirrorFilterId :: Lude.Text,
+    -- | The destination port range.
+    destinationPortRange :: Lude.Maybe TrafficMirrorPortRangeRequest,
+    -- | The source CIDR block to assign to the Traffic Mirror rule.
+    sourceCidrBlock :: Lude.Text,
+    -- | The source port range.
+    sourcePortRange :: Lude.Maybe TrafficMirrorPortRangeRequest,
+    -- | The description of the Traffic Mirror rule.
+    description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The destination CIDR block to assign to the Traffic Mirror rule.
+    destinationCidrBlock :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficMirrorFilterRule' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'description' - The description of the Traffic Mirror rule.
--- * 'destinationCidrBlock' - The destination CIDR block to assign to the Traffic Mirror rule.
--- * 'destinationPortRange' - The destination port range.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'ruleNumber' - The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+-- * 'trafficDirection' - The type of traffic (@ingress@ | @egress@ ).
+-- * 'ruleAction' - The action to take (@accept@ | @reject@ ) on the filtered traffic.
 -- * 'protocol' - The protocol, for example UDP, to assign to the Traffic Mirror rule.
 --
 -- For information about the protocol value, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> on the Internet Assigned Numbers Authority (IANA) website.
--- * 'ruleAction' - The action to take (@accept@ | @reject@ ) on the filtered traffic.
--- * 'ruleNumber' - The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+-- * 'trafficMirrorFilterId' - The ID of the filter that this rule is associated with.
+-- * 'destinationPortRange' - The destination port range.
 -- * 'sourceCidrBlock' - The source CIDR block to assign to the Traffic Mirror rule.
 -- * 'sourcePortRange' - The source port range.
--- * 'trafficDirection' - The type of traffic (@ingress@ | @egress@ ).
--- * 'trafficMirrorFilterId' - The ID of the filter that this rule is associated with.
+-- * 'description' - The description of the Traffic Mirror rule.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'destinationCidrBlock' - The destination CIDR block to assign to the Traffic Mirror rule.
 mkCreateTrafficMirrorFilterRule ::
-  -- | 'trafficMirrorFilterId'
-  Lude.Text ->
-  -- | 'trafficDirection'
-  TrafficDirection ->
   -- | 'ruleNumber'
   Lude.Int ->
+  -- | 'trafficDirection'
+  TrafficDirection ->
   -- | 'ruleAction'
   TrafficMirrorRuleAction ->
-  -- | 'destinationCidrBlock'
+  -- | 'trafficMirrorFilterId'
   Lude.Text ->
   -- | 'sourceCidrBlock'
   Lude.Text ->
+  -- | 'destinationCidrBlock'
+  Lude.Text ->
   CreateTrafficMirrorFilterRule
 mkCreateTrafficMirrorFilterRule
-  pTrafficMirrorFilterId_
-  pTrafficDirection_
   pRuleNumber_
+  pTrafficDirection_
   pRuleAction_
-  pDestinationCidrBlock_
-  pSourceCidrBlock_ =
+  pTrafficMirrorFilterId_
+  pSourceCidrBlock_
+  pDestinationCidrBlock_ =
     CreateTrafficMirrorFilterRule'
       { clientToken = Lude.Nothing,
+        ruleNumber = pRuleNumber_,
+        trafficDirection = pTrafficDirection_,
+        ruleAction = pRuleAction_,
         protocol = Lude.Nothing,
+        trafficMirrorFilterId = pTrafficMirrorFilterId_,
         destinationPortRange = Lude.Nothing,
+        sourceCidrBlock = pSourceCidrBlock_,
         sourcePortRange = Lude.Nothing,
         description = Lude.Nothing,
         dryRun = Lude.Nothing,
-        trafficMirrorFilterId = pTrafficMirrorFilterId_,
-        trafficDirection = pTrafficDirection_,
-        ruleNumber = pRuleNumber_,
-        ruleAction = pRuleAction_,
-        destinationCidrBlock = pDestinationCidrBlock_,
-        sourceCidrBlock = pSourceCidrBlock_
+        destinationCidrBlock = pDestinationCidrBlock_
       }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
@@ -144,6 +143,27 @@ mkCreateTrafficMirrorFilterRule
 ctmfrClientToken :: Lens.Lens' CreateTrafficMirrorFilterRule (Lude.Maybe Lude.Text)
 ctmfrClientToken = Lens.lens (clientToken :: CreateTrafficMirrorFilterRule -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateTrafficMirrorFilterRule)
 {-# DEPRECATED ctmfrClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
+--
+-- /Note:/ Consider using 'ruleNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmfrRuleNumber :: Lens.Lens' CreateTrafficMirrorFilterRule Lude.Int
+ctmfrRuleNumber = Lens.lens (ruleNumber :: CreateTrafficMirrorFilterRule -> Lude.Int) (\s a -> s {ruleNumber = a} :: CreateTrafficMirrorFilterRule)
+{-# DEPRECATED ctmfrRuleNumber "Use generic-lens or generic-optics with 'ruleNumber' instead." #-}
+
+-- | The type of traffic (@ingress@ | @egress@ ).
+--
+-- /Note:/ Consider using 'trafficDirection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmfrTrafficDirection :: Lens.Lens' CreateTrafficMirrorFilterRule TrafficDirection
+ctmfrTrafficDirection = Lens.lens (trafficDirection :: CreateTrafficMirrorFilterRule -> TrafficDirection) (\s a -> s {trafficDirection = a} :: CreateTrafficMirrorFilterRule)
+{-# DEPRECATED ctmfrTrafficDirection "Use generic-lens or generic-optics with 'trafficDirection' instead." #-}
+
+-- | The action to take (@accept@ | @reject@ ) on the filtered traffic.
+--
+-- /Note:/ Consider using 'ruleAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmfrRuleAction :: Lens.Lens' CreateTrafficMirrorFilterRule TrafficMirrorRuleAction
+ctmfrRuleAction = Lens.lens (ruleAction :: CreateTrafficMirrorFilterRule -> TrafficMirrorRuleAction) (\s a -> s {ruleAction = a} :: CreateTrafficMirrorFilterRule)
+{-# DEPRECATED ctmfrRuleAction "Use generic-lens or generic-optics with 'ruleAction' instead." #-}
 
 -- | The protocol, for example UDP, to assign to the Traffic Mirror rule.
 --
@@ -154,12 +174,26 @@ ctmfrProtocol :: Lens.Lens' CreateTrafficMirrorFilterRule (Lude.Maybe Lude.Int)
 ctmfrProtocol = Lens.lens (protocol :: CreateTrafficMirrorFilterRule -> Lude.Maybe Lude.Int) (\s a -> s {protocol = a} :: CreateTrafficMirrorFilterRule)
 {-# DEPRECATED ctmfrProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
+-- | The ID of the filter that this rule is associated with.
+--
+-- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmfrTrafficMirrorFilterId :: Lens.Lens' CreateTrafficMirrorFilterRule Lude.Text
+ctmfrTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: CreateTrafficMirrorFilterRule -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: CreateTrafficMirrorFilterRule)
+{-# DEPRECATED ctmfrTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
+
 -- | The destination port range.
 --
 -- /Note:/ Consider using 'destinationPortRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctmfrDestinationPortRange :: Lens.Lens' CreateTrafficMirrorFilterRule (Lude.Maybe TrafficMirrorPortRangeRequest)
 ctmfrDestinationPortRange = Lens.lens (destinationPortRange :: CreateTrafficMirrorFilterRule -> Lude.Maybe TrafficMirrorPortRangeRequest) (\s a -> s {destinationPortRange = a} :: CreateTrafficMirrorFilterRule)
 {-# DEPRECATED ctmfrDestinationPortRange "Use generic-lens or generic-optics with 'destinationPortRange' instead." #-}
+
+-- | The source CIDR block to assign to the Traffic Mirror rule.
+--
+-- /Note:/ Consider using 'sourceCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmfrSourceCidrBlock :: Lens.Lens' CreateTrafficMirrorFilterRule Lude.Text
+ctmfrSourceCidrBlock = Lens.lens (sourceCidrBlock :: CreateTrafficMirrorFilterRule -> Lude.Text) (\s a -> s {sourceCidrBlock = a} :: CreateTrafficMirrorFilterRule)
+{-# DEPRECATED ctmfrSourceCidrBlock "Use generic-lens or generic-optics with 'sourceCidrBlock' instead." #-}
 
 -- | The source port range.
 --
@@ -182,47 +216,12 @@ ctmfrDryRun :: Lens.Lens' CreateTrafficMirrorFilterRule (Lude.Maybe Lude.Bool)
 ctmfrDryRun = Lens.lens (dryRun :: CreateTrafficMirrorFilterRule -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTrafficMirrorFilterRule)
 {-# DEPRECATED ctmfrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the filter that this rule is associated with.
---
--- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrTrafficMirrorFilterId :: Lens.Lens' CreateTrafficMirrorFilterRule Lude.Text
-ctmfrTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: CreateTrafficMirrorFilterRule -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: CreateTrafficMirrorFilterRule)
-{-# DEPRECATED ctmfrTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
-
--- | The type of traffic (@ingress@ | @egress@ ).
---
--- /Note:/ Consider using 'trafficDirection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrTrafficDirection :: Lens.Lens' CreateTrafficMirrorFilterRule TrafficDirection
-ctmfrTrafficDirection = Lens.lens (trafficDirection :: CreateTrafficMirrorFilterRule -> TrafficDirection) (\s a -> s {trafficDirection = a} :: CreateTrafficMirrorFilterRule)
-{-# DEPRECATED ctmfrTrafficDirection "Use generic-lens or generic-optics with 'trafficDirection' instead." #-}
-
--- | The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
---
--- /Note:/ Consider using 'ruleNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrRuleNumber :: Lens.Lens' CreateTrafficMirrorFilterRule Lude.Int
-ctmfrRuleNumber = Lens.lens (ruleNumber :: CreateTrafficMirrorFilterRule -> Lude.Int) (\s a -> s {ruleNumber = a} :: CreateTrafficMirrorFilterRule)
-{-# DEPRECATED ctmfrRuleNumber "Use generic-lens or generic-optics with 'ruleNumber' instead." #-}
-
--- | The action to take (@accept@ | @reject@ ) on the filtered traffic.
---
--- /Note:/ Consider using 'ruleAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrRuleAction :: Lens.Lens' CreateTrafficMirrorFilterRule TrafficMirrorRuleAction
-ctmfrRuleAction = Lens.lens (ruleAction :: CreateTrafficMirrorFilterRule -> TrafficMirrorRuleAction) (\s a -> s {ruleAction = a} :: CreateTrafficMirrorFilterRule)
-{-# DEPRECATED ctmfrRuleAction "Use generic-lens or generic-optics with 'ruleAction' instead." #-}
-
 -- | The destination CIDR block to assign to the Traffic Mirror rule.
 --
 -- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctmfrDestinationCidrBlock :: Lens.Lens' CreateTrafficMirrorFilterRule Lude.Text
 ctmfrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateTrafficMirrorFilterRule -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateTrafficMirrorFilterRule)
 {-# DEPRECATED ctmfrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
-
--- | The source CIDR block to assign to the Traffic Mirror rule.
---
--- /Note:/ Consider using 'sourceCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmfrSourceCidrBlock :: Lens.Lens' CreateTrafficMirrorFilterRule Lude.Text
-ctmfrSourceCidrBlock = Lens.lens (sourceCidrBlock :: CreateTrafficMirrorFilterRule -> Lude.Text) (\s a -> s {sourceCidrBlock = a} :: CreateTrafficMirrorFilterRule)
-{-# DEPRECATED ctmfrSourceCidrBlock "Use generic-lens or generic-optics with 'sourceCidrBlock' instead." #-}
 
 instance Lude.AWSRequest CreateTrafficMirrorFilterRule where
   type
@@ -251,44 +250,36 @@ instance Lude.ToQuery CreateTrafficMirrorFilterRule where
           Lude.=: ("CreateTrafficMirrorFilterRule" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ClientToken" Lude.=: clientToken,
+        "RuleNumber" Lude.=: ruleNumber,
+        "TrafficDirection" Lude.=: trafficDirection,
+        "RuleAction" Lude.=: ruleAction,
         "Protocol" Lude.=: protocol,
+        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId,
         "DestinationPortRange" Lude.=: destinationPortRange,
+        "SourceCidrBlock" Lude.=: sourceCidrBlock,
         "SourcePortRange" Lude.=: sourcePortRange,
         "Description" Lude.=: description,
         "DryRun" Lude.=: dryRun,
-        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId,
-        "TrafficDirection" Lude.=: trafficDirection,
-        "RuleNumber" Lude.=: ruleNumber,
-        "RuleAction" Lude.=: ruleAction,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
-        "SourceCidrBlock" Lude.=: sourceCidrBlock
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock
       ]
 
 -- | /See:/ 'mkCreateTrafficMirrorFilterRuleResponse' smart constructor.
 data CreateTrafficMirrorFilterRuleResponse = CreateTrafficMirrorFilterRuleResponse'
-  { trafficMirrorFilterRule ::
-      Lude.Maybe
-        TrafficMirrorFilterRule,
-    clientToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Traffic Mirror rule.
+    trafficMirrorFilterRule :: Lude.Maybe TrafficMirrorFilterRule,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficMirrorFilterRuleResponse' with the minimum fields required to make a request.
 --
+-- * 'trafficMirrorFilterRule' - The Traffic Mirror rule.
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'responseStatus' - The response status code.
--- * 'trafficMirrorFilterRule' - The Traffic Mirror rule.
 mkCreateTrafficMirrorFilterRuleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

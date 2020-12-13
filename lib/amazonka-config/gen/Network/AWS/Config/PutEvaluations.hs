@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Config.PutEvaluations
     mkPutEvaluations,
 
     -- ** Request lenses
+    peResultToken,
     peEvaluations,
     peTestMode,
-    peResultToken,
 
     -- * Destructuring the response
     PutEvaluationsResponse (..),
@@ -43,24 +44,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutEvaluations' smart constructor.
 data PutEvaluations = PutEvaluations'
-  { evaluations ::
-      Lude.Maybe [Evaluation],
-    testMode :: Lude.Maybe Lude.Bool,
-    resultToken :: Lude.Text
+  { -- | An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation.
+    resultToken :: Lude.Text,
+    -- | The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
+    evaluations :: Lude.Maybe [Evaluation],
+    -- | Use this parameter to specify a test run for @PutEvaluations@ . You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.
+    testMode :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEvaluations' with the minimum fields required to make a request.
 --
--- * 'evaluations' - The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 -- * 'resultToken' - An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation.
+-- * 'evaluations' - The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 -- * 'testMode' - Use this parameter to specify a test run for @PutEvaluations@ . You can verify whether your AWS Lambda function will deliver evaluation results to AWS Config. No updates occur to your existing evaluations, and evaluation results are not sent to AWS Config.
 mkPutEvaluations ::
   -- | 'resultToken'
@@ -68,10 +65,17 @@ mkPutEvaluations ::
   PutEvaluations
 mkPutEvaluations pResultToken_ =
   PutEvaluations'
-    { evaluations = Lude.Nothing,
-      testMode = Lude.Nothing,
-      resultToken = pResultToken_
+    { resultToken = pResultToken_,
+      evaluations = Lude.Nothing,
+      testMode = Lude.Nothing
     }
+
+-- | An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation.
+--
+-- /Note:/ Consider using 'resultToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peResultToken :: Lens.Lens' PutEvaluations Lude.Text
+peResultToken = Lens.lens (resultToken :: PutEvaluations -> Lude.Text) (\s a -> s {resultToken = a} :: PutEvaluations)
+{-# DEPRECATED peResultToken "Use generic-lens or generic-optics with 'resultToken' instead." #-}
 
 -- | The assessments that the AWS Lambda function performs. Each evaluation identifies an AWS resource and indicates whether it complies with the AWS Config rule that invokes the AWS Lambda function.
 --
@@ -86,13 +90,6 @@ peEvaluations = Lens.lens (evaluations :: PutEvaluations -> Lude.Maybe [Evaluati
 peTestMode :: Lens.Lens' PutEvaluations (Lude.Maybe Lude.Bool)
 peTestMode = Lens.lens (testMode :: PutEvaluations -> Lude.Maybe Lude.Bool) (\s a -> s {testMode = a} :: PutEvaluations)
 {-# DEPRECATED peTestMode "Use generic-lens or generic-optics with 'testMode' instead." #-}
-
--- | An encrypted token that associates an evaluation with an AWS Config rule. Identifies the rule and the event that triggered the evaluation.
---
--- /Note:/ Consider using 'resultToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peResultToken :: Lens.Lens' PutEvaluations Lude.Text
-peResultToken = Lens.lens (resultToken :: PutEvaluations -> Lude.Text) (\s a -> s {resultToken = a} :: PutEvaluations)
-{-# DEPRECATED peResultToken "Use generic-lens or generic-optics with 'resultToken' instead." #-}
 
 instance Lude.AWSRequest PutEvaluations where
   type Rs PutEvaluations = PutEvaluationsResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON PutEvaluations where
   toJSON PutEvaluations' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Evaluations" Lude..=) Lude.<$> evaluations,
-            ("TestMode" Lude..=) Lude.<$> testMode,
-            Lude.Just ("ResultToken" Lude..= resultToken)
+          [ Lude.Just ("ResultToken" Lude..= resultToken),
+            ("Evaluations" Lude..=) Lude.<$> evaluations,
+            ("TestMode" Lude..=) Lude.<$> testMode
           ]
       )
 
@@ -136,17 +133,12 @@ instance Lude.ToQuery PutEvaluations where
 --
 -- /See:/ 'mkPutEvaluationsResponse' smart constructor.
 data PutEvaluationsResponse = PutEvaluationsResponse'
-  { failedEvaluations ::
-      Lude.Maybe [Evaluation],
+  { -- | Requests that failed because of a client or server error.
+    failedEvaluations :: Lude.Maybe [Evaluation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEvaluationsResponse' with the minimum fields required to make a request.

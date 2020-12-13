@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionLanguageMapping' smart constructor.
 data CaptionLanguageMapping = CaptionLanguageMapping'
-  { languageCode ::
-      Lude.Text,
+  { -- | Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
+    languageCode :: Lude.Text,
+    -- | Textual description of language
     languageDescription :: Lude.Text,
+    -- | The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
     captionChannel :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionLanguageMapping' with the minimum fields required to make a request.
 --
--- * 'captionChannel' - The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
 -- * 'languageCode' - Three character ISO 639-2 language code (see http://www.loc.gov/standards/iso639-2)
 -- * 'languageDescription' - Textual description of language
+-- * 'captionChannel' - The closed caption channel being described by this CaptionLanguageMapping.  Each channel mapping must have a unique channel number (maximum of 4)
 mkCaptionLanguageMapping ::
   -- | 'languageCode'
   Lude.Text ->

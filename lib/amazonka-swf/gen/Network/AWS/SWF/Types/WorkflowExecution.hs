@@ -17,8 +17,8 @@ module Network.AWS.SWF.Types.WorkflowExecution
     mkWorkflowExecution,
 
     -- * Lenses
-    weWorkflowId,
     weRunId,
+    weWorkflowId,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowExecution' smart constructor.
 data WorkflowExecution = WorkflowExecution'
-  { workflowId ::
-      Lude.Text,
-    runId :: Lude.Text
+  { -- | A system-generated unique identifier for the workflow execution.
+    runId :: Lude.Text,
+    -- | The user defined identifier associated with the workflow execution.
+    workflowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecution' with the minimum fields required to make a request.
@@ -47,20 +42,13 @@ data WorkflowExecution = WorkflowExecution'
 -- * 'runId' - A system-generated unique identifier for the workflow execution.
 -- * 'workflowId' - The user defined identifier associated with the workflow execution.
 mkWorkflowExecution ::
-  -- | 'workflowId'
-  Lude.Text ->
   -- | 'runId'
   Lude.Text ->
+  -- | 'workflowId'
+  Lude.Text ->
   WorkflowExecution
-mkWorkflowExecution pWorkflowId_ pRunId_ =
-  WorkflowExecution' {workflowId = pWorkflowId_, runId = pRunId_}
-
--- | The user defined identifier associated with the workflow execution.
---
--- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weWorkflowId :: Lens.Lens' WorkflowExecution Lude.Text
-weWorkflowId = Lens.lens (workflowId :: WorkflowExecution -> Lude.Text) (\s a -> s {workflowId = a} :: WorkflowExecution)
-{-# DEPRECATED weWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
+mkWorkflowExecution pRunId_ pWorkflowId_ =
+  WorkflowExecution' {runId = pRunId_, workflowId = pWorkflowId_}
 
 -- | A system-generated unique identifier for the workflow execution.
 --
@@ -69,20 +57,27 @@ weRunId :: Lens.Lens' WorkflowExecution Lude.Text
 weRunId = Lens.lens (runId :: WorkflowExecution -> Lude.Text) (\s a -> s {runId = a} :: WorkflowExecution)
 {-# DEPRECATED weRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
+-- | The user defined identifier associated with the workflow execution.
+--
+-- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weWorkflowId :: Lens.Lens' WorkflowExecution Lude.Text
+weWorkflowId = Lens.lens (workflowId :: WorkflowExecution -> Lude.Text) (\s a -> s {workflowId = a} :: WorkflowExecution)
+{-# DEPRECATED weWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
+
 instance Lude.FromJSON WorkflowExecution where
   parseJSON =
     Lude.withObject
       "WorkflowExecution"
       ( \x ->
           WorkflowExecution'
-            Lude.<$> (x Lude..: "workflowId") Lude.<*> (x Lude..: "runId")
+            Lude.<$> (x Lude..: "runId") Lude.<*> (x Lude..: "workflowId")
       )
 
 instance Lude.ToJSON WorkflowExecution where
   toJSON WorkflowExecution' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("workflowId" Lude..= workflowId),
-            Lude.Just ("runId" Lude..= runId)
+          [ Lude.Just ("runId" Lude..= runId),
+            Lude.Just ("workflowId" Lude..= workflowId)
           ]
       )

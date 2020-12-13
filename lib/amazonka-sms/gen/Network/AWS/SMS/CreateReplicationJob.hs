@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,14 +22,14 @@ module Network.AWS.SMS.CreateReplicationJob
     -- ** Request lenses
     crjFrequency,
     crjNumberOfRecentAMIsToKeep,
+    crjServerId,
     crjLicenseType,
     crjRoleName,
     crjEncrypted,
     crjKmsKeyId,
+    crjSeedReplicationTime,
     crjRunOnce,
     crjDescription,
-    crjServerId,
-    crjSeedReplicationTime,
 
     -- * Destructuring the response
     CreateReplicationJobResponse (..),
@@ -48,32 +49,53 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkCreateReplicationJob' smart constructor.
 data CreateReplicationJob = CreateReplicationJob'
-  { frequency ::
-      Lude.Maybe Lude.Int,
+  { -- | The time between consecutive replication runs, in hours.
+    frequency :: Lude.Maybe Lude.Int,
+    -- | The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.
     numberOfRecentAMIsToKeep :: Lude.Maybe Lude.Int,
-    licenseType :: Lude.Maybe LicenseType,
-    roleName :: Lude.Maybe Lude.Text,
-    encrypted :: Lude.Maybe Lude.Bool,
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    runOnce :: Lude.Maybe Lude.Bool,
-    description :: Lude.Maybe Lude.Text,
+    -- | The ID of the server.
     serverId :: Lude.Text,
-    seedReplicationTime :: Lude.Timestamp
+    -- | The license type to be used for the AMI created by a successful replication run.
+    licenseType :: Lude.Maybe LicenseType,
+    -- | The name of the IAM role to be used by the AWS SMS.
+    roleName :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the replication job produces encrypted AMIs.
+    encrypted :: Lude.Maybe Lude.Bool,
+    -- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
+    --
+    --
+    --     * KMS key ID
+    --
+    --
+    --     * KMS key alias
+    --
+    --
+    --     * ARN referring to the KMS key ID
+    --
+    --
+    --     * ARN referring to the KMS key alias
+    --
+    --
+    -- If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The seed replication time.
+    seedReplicationTime :: Lude.Timestamp,
+    -- | Indicates whether to run the replication job one time.
+    runOnce :: Lude.Maybe Lude.Bool,
+    -- | The description of the replication job.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationJob' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the replication job.
--- * 'encrypted' - Indicates whether the replication job produces encrypted AMIs.
 -- * 'frequency' - The time between consecutive replication runs, in hours.
+-- * 'numberOfRecentAMIsToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.
+-- * 'serverId' - The ID of the server.
+-- * 'licenseType' - The license type to be used for the AMI created by a successful replication run.
+-- * 'roleName' - The name of the IAM role to be used by the AWS SMS.
+-- * 'encrypted' - Indicates whether the replication job produces encrypted AMIs.
 -- * 'kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
 --
 --
@@ -90,12 +112,9 @@ data CreateReplicationJob = CreateReplicationJob'
 --
 --
 -- If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
--- * 'licenseType' - The license type to be used for the AMI created by a successful replication run.
--- * 'numberOfRecentAMIsToKeep' - The maximum number of SMS-created AMIs to retain. The oldest is deleted after the maximum number is reached and a new AMI is created.
--- * 'roleName' - The name of the IAM role to be used by the AWS SMS.
--- * 'runOnce' - Indicates whether to run the replication job one time.
 -- * 'seedReplicationTime' - The seed replication time.
--- * 'serverId' - The ID of the server.
+-- * 'runOnce' - Indicates whether to run the replication job one time.
+-- * 'description' - The description of the replication job.
 mkCreateReplicationJob ::
   -- | 'serverId'
   Lude.Text ->
@@ -106,14 +125,14 @@ mkCreateReplicationJob pServerId_ pSeedReplicationTime_ =
   CreateReplicationJob'
     { frequency = Lude.Nothing,
       numberOfRecentAMIsToKeep = Lude.Nothing,
+      serverId = pServerId_,
       licenseType = Lude.Nothing,
       roleName = Lude.Nothing,
       encrypted = Lude.Nothing,
       kmsKeyId = Lude.Nothing,
+      seedReplicationTime = pSeedReplicationTime_,
       runOnce = Lude.Nothing,
-      description = Lude.Nothing,
-      serverId = pServerId_,
-      seedReplicationTime = pSeedReplicationTime_
+      description = Lude.Nothing
     }
 
 -- | The time between consecutive replication runs, in hours.
@@ -129,6 +148,13 @@ crjFrequency = Lens.lens (frequency :: CreateReplicationJob -> Lude.Maybe Lude.I
 crjNumberOfRecentAMIsToKeep :: Lens.Lens' CreateReplicationJob (Lude.Maybe Lude.Int)
 crjNumberOfRecentAMIsToKeep = Lens.lens (numberOfRecentAMIsToKeep :: CreateReplicationJob -> Lude.Maybe Lude.Int) (\s a -> s {numberOfRecentAMIsToKeep = a} :: CreateReplicationJob)
 {-# DEPRECATED crjNumberOfRecentAMIsToKeep "Use generic-lens or generic-optics with 'numberOfRecentAMIsToKeep' instead." #-}
+
+-- | The ID of the server.
+--
+-- /Note:/ Consider using 'serverId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crjServerId :: Lens.Lens' CreateReplicationJob Lude.Text
+crjServerId = Lens.lens (serverId :: CreateReplicationJob -> Lude.Text) (\s a -> s {serverId = a} :: CreateReplicationJob)
+{-# DEPRECATED crjServerId "Use generic-lens or generic-optics with 'serverId' instead." #-}
 
 -- | The license type to be used for the AMI created by a successful replication run.
 --
@@ -173,6 +199,13 @@ crjKmsKeyId :: Lens.Lens' CreateReplicationJob (Lude.Maybe Lude.Text)
 crjKmsKeyId = Lens.lens (kmsKeyId :: CreateReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateReplicationJob)
 {-# DEPRECATED crjKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
+-- | The seed replication time.
+--
+-- /Note:/ Consider using 'seedReplicationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crjSeedReplicationTime :: Lens.Lens' CreateReplicationJob Lude.Timestamp
+crjSeedReplicationTime = Lens.lens (seedReplicationTime :: CreateReplicationJob -> Lude.Timestamp) (\s a -> s {seedReplicationTime = a} :: CreateReplicationJob)
+{-# DEPRECATED crjSeedReplicationTime "Use generic-lens or generic-optics with 'seedReplicationTime' instead." #-}
+
 -- | Indicates whether to run the replication job one time.
 --
 -- /Note:/ Consider using 'runOnce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -186,20 +219,6 @@ crjRunOnce = Lens.lens (runOnce :: CreateReplicationJob -> Lude.Maybe Lude.Bool)
 crjDescription :: Lens.Lens' CreateReplicationJob (Lude.Maybe Lude.Text)
 crjDescription = Lens.lens (description :: CreateReplicationJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateReplicationJob)
 {-# DEPRECATED crjDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The ID of the server.
---
--- /Note:/ Consider using 'serverId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crjServerId :: Lens.Lens' CreateReplicationJob Lude.Text
-crjServerId = Lens.lens (serverId :: CreateReplicationJob -> Lude.Text) (\s a -> s {serverId = a} :: CreateReplicationJob)
-{-# DEPRECATED crjServerId "Use generic-lens or generic-optics with 'serverId' instead." #-}
-
--- | The seed replication time.
---
--- /Note:/ Consider using 'seedReplicationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crjSeedReplicationTime :: Lens.Lens' CreateReplicationJob Lude.Timestamp
-crjSeedReplicationTime = Lens.lens (seedReplicationTime :: CreateReplicationJob -> Lude.Timestamp) (\s a -> s {seedReplicationTime = a} :: CreateReplicationJob)
-{-# DEPRECATED crjSeedReplicationTime "Use generic-lens or generic-optics with 'seedReplicationTime' instead." #-}
 
 instance Lude.AWSRequest CreateReplicationJob where
   type Rs CreateReplicationJob = CreateReplicationJobResponse
@@ -232,14 +251,14 @@ instance Lude.ToJSON CreateReplicationJob where
           [ ("frequency" Lude..=) Lude.<$> frequency,
             ("numberOfRecentAmisToKeep" Lude..=)
               Lude.<$> numberOfRecentAMIsToKeep,
+            Lude.Just ("serverId" Lude..= serverId),
             ("licenseType" Lude..=) Lude.<$> licenseType,
             ("roleName" Lude..=) Lude.<$> roleName,
             ("encrypted" Lude..=) Lude.<$> encrypted,
             ("kmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            Lude.Just ("seedReplicationTime" Lude..= seedReplicationTime),
             ("runOnce" Lude..=) Lude.<$> runOnce,
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("serverId" Lude..= serverId),
-            Lude.Just ("seedReplicationTime" Lude..= seedReplicationTime)
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -251,17 +270,12 @@ instance Lude.ToQuery CreateReplicationJob where
 
 -- | /See:/ 'mkCreateReplicationJobResponse' smart constructor.
 data CreateReplicationJobResponse = CreateReplicationJobResponse'
-  { replicationJobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier of the replication job.
+    replicationJobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReplicationJobResponse' with the minimum fields required to make a request.

@@ -35,31 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetInstance' smart constructor.
 data TargetInstance = TargetInstance'
-  { currencyCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The currency code that AWS used to calculate the costs for this instance.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | Details on the target instance type.
     resourceDetails :: Lude.Maybe ResourceDetails,
+    -- | Indicates whether this recommendation is the defaulted AWS recommendation.
     defaultTargetInstance :: Lude.Maybe Lude.Bool,
+    -- | Expected cost to operate this instance type on a monthly basis.
     estimatedMonthlyCost :: Lude.Maybe Lude.Text,
+    -- | Estimated savings resulting from modification, on a monthly basis.
     estimatedMonthlySavings :: Lude.Maybe Lude.Text,
+    -- | Expected utilization metrics for target instance type.
     expectedResourceUtilization :: Lude.Maybe ResourceUtilization
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetInstance' with the minimum fields required to make a request.
 --
 -- * 'currencyCode' - The currency code that AWS used to calculate the costs for this instance.
+-- * 'resourceDetails' - Details on the target instance type.
 -- * 'defaultTargetInstance' - Indicates whether this recommendation is the defaulted AWS recommendation.
 -- * 'estimatedMonthlyCost' - Expected cost to operate this instance type on a monthly basis.
 -- * 'estimatedMonthlySavings' - Estimated savings resulting from modification, on a monthly basis.
 -- * 'expectedResourceUtilization' - Expected utilization metrics for target instance type.
--- * 'resourceDetails' - Details on the target instance type.
 mkTargetInstance ::
   TargetInstance
 mkTargetInstance =

@@ -31,16 +31,12 @@ import Network.AWS.Rekognition.Types.Point
 --
 -- /See:/ 'mkGeometry' smart constructor.
 data Geometry = Geometry'
-  { boundingBox :: Lude.Maybe BoundingBox,
+  { -- | An axis-aligned coarse representation of the detected item's location on the image.
+    boundingBox :: Lude.Maybe BoundingBox,
+    -- | Within the bounding box, a fine-grained polygon around the detected item.
     polygon :: Lude.Maybe [Point]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Geometry' with the minimum fields required to make a request.

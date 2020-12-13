@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.S3.GetBucketPolicyStatus
     mkGetBucketPolicyStatus,
 
     -- ** Request lenses
-    gbpsExpectedBucketOwner,
     gbpsBucket,
+    gbpsExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketPolicyStatusResponse (..),
@@ -54,17 +55,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketPolicyStatus' smart constructor.
 data GetBucketPolicyStatus = GetBucketPolicyStatus'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The name of the Amazon S3 bucket whose policy status you want to retrieve.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketPolicyStatus' with the minimum fields required to make a request.
@@ -77,16 +73,9 @@ mkGetBucketPolicyStatus ::
   GetBucketPolicyStatus
 mkGetBucketPolicyStatus pBucket_ =
   GetBucketPolicyStatus'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbpsExpectedBucketOwner :: Lens.Lens' GetBucketPolicyStatus (Lude.Maybe Lude.Text)
-gbpsExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketPolicyStatus -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketPolicyStatus)
-{-# DEPRECATED gbpsExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the Amazon S3 bucket whose policy status you want to retrieve.
 --
@@ -94,6 +83,13 @@ gbpsExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketPolicyStatu
 gbpsBucket :: Lens.Lens' GetBucketPolicyStatus BucketName
 gbpsBucket = Lens.lens (bucket :: GetBucketPolicyStatus -> BucketName) (\s a -> s {bucket = a} :: GetBucketPolicyStatus)
 {-# DEPRECATED gbpsBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbpsExpectedBucketOwner :: Lens.Lens' GetBucketPolicyStatus (Lude.Maybe Lude.Text)
+gbpsExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketPolicyStatus -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketPolicyStatus)
+{-# DEPRECATED gbpsExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetBucketPolicyStatus where
   type Rs GetBucketPolicyStatus = GetBucketPolicyStatusResponse
@@ -119,17 +115,12 @@ instance Lude.ToQuery GetBucketPolicyStatus where
 
 -- | /See:/ 'mkGetBucketPolicyStatusResponse' smart constructor.
 data GetBucketPolicyStatusResponse = GetBucketPolicyStatusResponse'
-  { policyStatus ::
-      Lude.Maybe PolicyStatus,
+  { -- | The policy status for the specified bucket.
+    policyStatus :: Lude.Maybe PolicyStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketPolicyStatusResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkListLoggingConfigurations' smart constructor.
 data ListLoggingConfigurations = ListLoggingConfigurations'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | If you specify a value for @Limit@ and you have more @LoggingConfigurations@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @LoggingConfigurations@ . For the second and subsequent @ListLoggingConfigurations@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ListLoggingConfigurations@ .
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of @LoggingConfigurations@ that you want AWS WAF to return for this request. If you have more @LoggingConfigurations@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @LoggingConfigurations@ .
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLoggingConfigurations' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies the number of @LoggingConfigurations@ that you want AWS WAF to return for this request. If you have more @LoggingConfigurations@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @LoggingConfigurations@ .
 -- * 'nextMarker' - If you specify a value for @Limit@ and you have more @LoggingConfigurations@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @LoggingConfigurations@ . For the second and subsequent @ListLoggingConfigurations@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ListLoggingConfigurations@ .
+-- * 'limit' - Specifies the number of @LoggingConfigurations@ that you want AWS WAF to return for this request. If you have more @LoggingConfigurations@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @LoggingConfigurations@ .
 mkListLoggingConfigurations ::
   ListLoggingConfigurations
 mkListLoggingConfigurations =
@@ -134,27 +130,20 @@ instance Lude.ToQuery ListLoggingConfigurations where
 
 -- | /See:/ 'mkListLoggingConfigurationsResponse' smart constructor.
 data ListLoggingConfigurationsResponse = ListLoggingConfigurationsResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
-    loggingConfigurations ::
-      Lude.Maybe
-        [LoggingConfiguration],
-    responseStatus ::
-      Lude.Int
+  { -- | If you have more @LoggingConfigurations@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @LoggingConfigurations@ , submit another @ListLoggingConfigurations@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | An array of 'LoggingConfiguration' objects.
+    loggingConfigurations :: Lude.Maybe [LoggingConfiguration],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLoggingConfigurationsResponse' with the minimum fields required to make a request.
 --
--- * 'loggingConfigurations' - An array of 'LoggingConfiguration' objects.
 -- * 'nextMarker' - If you have more @LoggingConfigurations@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @LoggingConfigurations@ , submit another @ListLoggingConfigurations@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+-- * 'loggingConfigurations' - An array of 'LoggingConfiguration' objects.
 -- * 'responseStatus' - The response status code.
 mkListLoggingConfigurationsResponse ::
   -- | 'responseStatus'

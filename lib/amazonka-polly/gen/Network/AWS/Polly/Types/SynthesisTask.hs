@@ -49,54 +49,67 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSynthesisTask' smart constructor.
 data SynthesisTask = SynthesisTask'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Timestamp for the time the synthesis task was started.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN).
+    --
+    -- If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices> operation for the @LanguageCode@ parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.
     languageCode :: Lude.Maybe LanguageCode,
+    -- | ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
     snsTopicARN :: Lude.Maybe Lude.Text,
+    -- | Reason for the current status of a specific speech synthesis task, including errors if the task has failed.
     taskStatusReason :: Lude.Maybe Lude.Text,
+    -- | The Amazon Polly generated identifier for a speech synthesis task.
     taskId :: Lude.Maybe Lude.Text,
+    -- | Number of billable characters synthesized.
     requestCharacters :: Lude.Maybe Lude.Int,
+    -- | Specifies the engine (@standard@ or @neural@ ) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.
     engine :: Lude.Maybe Engine,
+    -- | The type of speech marks returned for the input text.
     speechMarkTypes :: Lude.Maybe [SpeechMarkType],
+    -- | The audio frequency specified in Hz.
+    --
+    -- The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".
+    -- Valid values for pcm are "8000" and "16000" The default value is "16000".
     sampleRate :: Lude.Maybe Lude.Text,
+    -- | The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
     outputFormat :: Lude.Maybe OutputFormat,
+    -- | Specifies whether the input text is plain text or SSML. The default value is plain text.
     textType :: Lude.Maybe TextType,
+    -- | Voice ID to use for the synthesis.
     voiceId :: Lude.Maybe VoiceId,
+    -- | List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
     lexiconNames :: Lude.Maybe [Lude.Text],
+    -- | Current status of the individual speech synthesis task.
     taskStatus :: Lude.Maybe TaskStatus,
+    -- | Pathway for the output speech file.
     outputURI :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SynthesisTask' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - Timestamp for the time the synthesis task was started.
--- * 'engine' - Specifies the engine (@standard@ or @neural@ ) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.
 -- * 'languageCode' - Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN).
 --
 -- If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html DescribeVoices> operation for the @LanguageCode@ parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.
--- * 'lexiconNames' - List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
--- * 'outputFormat' - The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
--- * 'outputURI' - Pathway for the output speech file.
+-- * 'snsTopicARN' - ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
+-- * 'taskStatusReason' - Reason for the current status of a specific speech synthesis task, including errors if the task has failed.
+-- * 'taskId' - The Amazon Polly generated identifier for a speech synthesis task.
 -- * 'requestCharacters' - Number of billable characters synthesized.
+-- * 'engine' - Specifies the engine (@standard@ or @neural@ ) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.
+-- * 'speechMarkTypes' - The type of speech marks returned for the input text.
 -- * 'sampleRate' - The audio frequency specified in Hz.
 --
 -- The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for standard voices is "22050". The default value for neural voices is "24000".
 -- Valid values for pcm are "8000" and "16000" The default value is "16000".
--- * 'snsTopicARN' - ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.
--- * 'speechMarkTypes' - The type of speech marks returned for the input text.
--- * 'taskId' - The Amazon Polly generated identifier for a speech synthesis task.
--- * 'taskStatus' - Current status of the individual speech synthesis task.
--- * 'taskStatusReason' - Reason for the current status of a specific speech synthesis task, including errors if the task has failed.
+-- * 'outputFormat' - The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json.
 -- * 'textType' - Specifies whether the input text is plain text or SSML. The default value is plain text.
 -- * 'voiceId' - Voice ID to use for the synthesis.
+-- * 'lexiconNames' - List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice.
+-- * 'taskStatus' - Current status of the individual speech synthesis task.
+-- * 'outputURI' - Pathway for the output speech file.
 mkSynthesisTask ::
   SynthesisTask
 mkSynthesisTask =

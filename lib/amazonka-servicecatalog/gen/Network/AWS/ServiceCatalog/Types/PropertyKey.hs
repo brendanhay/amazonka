@@ -13,8 +13,8 @@
 module Network.AWS.ServiceCatalog.Types.PropertyKey
   ( PropertyKey
       ( PropertyKey',
-        LaunchRole,
-        Owner
+        Owner,
+        LaunchRole
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PropertyKey = PropertyKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern LaunchRole :: PropertyKey
-pattern LaunchRole = PropertyKey' "LAUNCH_ROLE"
-
 pattern Owner :: PropertyKey
 pattern Owner = PropertyKey' "OWNER"
 
+pattern LaunchRole :: PropertyKey
+pattern LaunchRole = PropertyKey' "LAUNCH_ROLE"
+
 {-# COMPLETE
-  LaunchRole,
   Owner,
+  LaunchRole,
   PropertyKey'
   #-}

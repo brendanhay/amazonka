@@ -44,47 +44,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceDetail' smart constructor.
 data ServiceDetail = ServiceDetail'
-  { privateDNSNameVerificationState ::
-      Lude.Maybe DNSNameState,
+  { -- | The verification state of the VPC endpoint service.
+    --
+    -- Consumers of the endpoint service cannot use the private name when the state is not @verified@ .
+    privateDNSNameVerificationState :: Lude.Maybe DNSNameState,
+    -- | Indicates whether the service supports endpoint policies.
     vpcEndpointPolicySupported :: Lude.Maybe Lude.Bool,
+    -- | The DNS names for the service.
     baseEndpointDNSNames :: Lude.Maybe [Lude.Text],
+    -- | The AWS account ID of the service owner.
     owner :: Lude.Maybe Lude.Text,
+    -- | The Availability Zones in which the service is available.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
     managesVPCEndpoints :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the service.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | The type of service.
     serviceType :: Lude.Maybe [ServiceTypeDetail],
+    -- | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
     acceptanceRequired :: Lude.Maybe Lude.Bool,
+    -- | The private DNS names assigned to the VPC endpoint service.
     privateDNSNames :: Lude.Maybe [PrivateDNSDetails],
+    -- | The ID of the endpoint service.
     serviceId :: Lude.Maybe Lude.Text,
+    -- | The private DNS name for the service.
     privateDNSName :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the service.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceDetail' with the minimum fields required to make a request.
 --
--- * 'acceptanceRequired' - Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
--- * 'availabilityZones' - The Availability Zones in which the service is available.
--- * 'baseEndpointDNSNames' - The DNS names for the service.
--- * 'managesVPCEndpoints' - Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
--- * 'owner' - The AWS account ID of the service owner.
--- * 'privateDNSName' - The private DNS name for the service.
 -- * 'privateDNSNameVerificationState' - The verification state of the VPC endpoint service.
 --
 -- Consumers of the endpoint service cannot use the private name when the state is not @verified@ .
--- * 'privateDNSNames' - The private DNS names assigned to the VPC endpoint service.
--- * 'serviceId' - The ID of the endpoint service.
+-- * 'vpcEndpointPolicySupported' - Indicates whether the service supports endpoint policies.
+-- * 'baseEndpointDNSNames' - The DNS names for the service.
+-- * 'owner' - The AWS account ID of the service owner.
+-- * 'availabilityZones' - The Availability Zones in which the service is available.
+-- * 'managesVPCEndpoints' - Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
 -- * 'serviceName' - The Amazon Resource Name (ARN) of the service.
 -- * 'serviceType' - The type of service.
+-- * 'acceptanceRequired' - Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
+-- * 'privateDNSNames' - The private DNS names assigned to the VPC endpoint service.
+-- * 'serviceId' - The ID of the endpoint service.
+-- * 'privateDNSName' - The private DNS name for the service.
 -- * 'tags' - Any tags assigned to the service.
--- * 'vpcEndpointPolicySupported' - Indicates whether the service supports endpoint policies.
 mkServiceDetail ::
   ServiceDetail
 mkServiceDetail =

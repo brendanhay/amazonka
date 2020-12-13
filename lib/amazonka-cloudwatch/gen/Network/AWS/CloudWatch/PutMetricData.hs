@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,24 +50,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutMetricData' smart constructor.
 data PutMetricData = PutMetricData'
-  { namespace :: Lude.Text,
+  { -- | The namespace for the metric data.
+    --
+    -- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@
+    namespace :: Lude.Text,
+    -- | The data for the metric. The array can include no more than 20 metrics per call.
     metricData :: [MetricDatum]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricData' with the minimum fields required to make a request.
 --
--- * 'metricData' - The data for the metric. The array can include no more than 20 metrics per call.
 -- * 'namespace' - The namespace for the metric data.
 --
 -- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@
+-- * 'metricData' - The data for the metric. The array can include no more than 20 metrics per call.
 mkPutMetricData ::
   -- | 'namespace'
   Lude.Text ->
@@ -112,13 +111,7 @@ instance Lude.ToQuery PutMetricData where
 
 -- | /See:/ 'mkPutMetricDataResponse' smart constructor.
 data PutMetricDataResponse = PutMetricDataResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricDataResponse' with the minimum fields required to make a request.

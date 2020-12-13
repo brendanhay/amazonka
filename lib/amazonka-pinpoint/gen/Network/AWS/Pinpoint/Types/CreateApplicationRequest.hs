@@ -17,8 +17,8 @@ module Network.AWS.Pinpoint.Types.CreateApplicationRequest
     mkCreateApplicationRequest,
 
     -- * Lenses
-    carTags,
     carName,
+    carTags,
   )
 where
 
@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateApplicationRequest' smart constructor.
 data CreateApplicationRequest = CreateApplicationRequest'
-  { tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    name :: Lude.Text
+  { -- | The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
+    name :: Lude.Text,
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationRequest' with the minimum fields required to make a request.
@@ -52,14 +46,7 @@ mkCreateApplicationRequest ::
   Lude.Text ->
   CreateApplicationRequest
 mkCreateApplicationRequest pName_ =
-  CreateApplicationRequest' {tags = Lude.Nothing, name = pName_}
-
--- | A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carTags :: Lens.Lens' CreateApplicationRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-carTags = Lens.lens (tags :: CreateApplicationRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateApplicationRequest)
-{-# DEPRECATED carTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+  CreateApplicationRequest' {name = pName_, tags = Lude.Nothing}
 
 -- | The display name of the application. This name is displayed as the __Project name__ on the Amazon Pinpoint console.
 --
@@ -68,9 +55,16 @@ carName :: Lens.Lens' CreateApplicationRequest Lude.Text
 carName = Lens.lens (name :: CreateApplicationRequest -> Lude.Text) (\s a -> s {name = a} :: CreateApplicationRequest)
 {-# DEPRECATED carName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carTags :: Lens.Lens' CreateApplicationRequest (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+carTags = Lens.lens (tags :: CreateApplicationRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateApplicationRequest)
+{-# DEPRECATED carTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
 instance Lude.ToJSON CreateApplicationRequest where
   toJSON CreateApplicationRequest' {..} =
     Lude.object
       ( Lude.catMaybes
-          [("tags" Lude..=) Lude.<$> tags, Lude.Just ("Name" Lude..= name)]
+          [Lude.Just ("Name" Lude..= name), ("tags" Lude..=) Lude.<$> tags]
       )

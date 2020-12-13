@@ -39,16 +39,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkProfile' smart constructor.
 data NetworkProfile = NetworkProfile'
-  { networkProfileName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the network profile associated with a device.
+    networkProfileName :: Lude.Maybe Lude.Text,
+    -- | The SSID of the Wi-Fi network.
     ssid :: Lude.Maybe Lude.Text,
+    -- | The ARN of the network profile associated with a device.
     networkProfileARN :: Lude.Maybe Lude.Text,
+    -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
     securityType :: Lude.Maybe NetworkSecurityType,
+    -- | The current password of the Wi-Fi network.
     currentPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
     nextPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
     eapMethod :: Lude.Maybe NetworkEapMethod,
+    -- | Detailed information about a device's network profile.
     description :: Lude.Maybe Lude.Text,
+    -- | The root certificates of your authentication server, which is installed on your devices and used to trust your authentication server during EAP negotiation.
     trustAnchors :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
     certificateAuthorityARN :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -56,16 +65,16 @@ data NetworkProfile = NetworkProfile'
 
 -- | Creates a value of 'NetworkProfile' with the minimum fields required to make a request.
 --
--- * 'certificateAuthorityARN' - The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
--- * 'currentPassword' - The current password of the Wi-Fi network.
--- * 'description' - Detailed information about a device's network profile.
--- * 'eapMethod' - The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
--- * 'networkProfileARN' - The ARN of the network profile associated with a device.
 -- * 'networkProfileName' - The name of the network profile associated with a device.
--- * 'nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
--- * 'securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
 -- * 'ssid' - The SSID of the Wi-Fi network.
+-- * 'networkProfileARN' - The ARN of the network profile associated with a device.
+-- * 'securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
+-- * 'currentPassword' - The current password of the Wi-Fi network.
+-- * 'nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
+-- * 'eapMethod' - The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
+-- * 'description' - Detailed information about a device's network profile.
 -- * 'trustAnchors' - The root certificates of your authentication server, which is installed on your devices and used to trust your authentication server during EAP negotiation.
+-- * 'certificateAuthorityARN' - The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
 mkNetworkProfile ::
   NetworkProfile
 mkNetworkProfile =

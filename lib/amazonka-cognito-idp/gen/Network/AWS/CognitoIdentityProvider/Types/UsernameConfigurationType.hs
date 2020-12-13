@@ -28,16 +28,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsernameConfigurationType' smart constructor.
 newtype UsernameConfigurationType = UsernameConfigurationType'
-  { caseSensitive ::
-      Lude.Bool
+  { -- | Specifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+    --
+    -- Valid values include:
+    --
+    --     * __@True@ __ : Enables case sensitivity for all username input. When this option is set to @True@ , users must sign in using the exact capitalization of their given username. For example, “UserName”. This is the default value.
+    --
+    --
+    --     * __@False@ __ : Enables case insensitivity for all username input. For example, when this option is set to @False@ , users will be able to sign in using either "username" or "Username". This option also enables both @preferred_username@ and @email@ alias to be case insensitive, in addition to the @username@ attribute.
+    caseSensitive :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsernameConfigurationType' with the minimum fields required to make a request.

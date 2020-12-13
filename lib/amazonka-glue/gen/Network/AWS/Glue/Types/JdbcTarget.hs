@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path of the JDBC target.
+    path :: Lude.Maybe Lude.Text,
+    -- | The name of the connection to use to connect to the JDBC target.
     connectionName :: Lude.Maybe Lude.Text,
+    -- | A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
     exclusions :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JdbcTarget' with the minimum fields required to make a request.
 --
+-- * 'path' - The path of the JDBC target.
 -- * 'connectionName' - The name of the connection to use to connect to the JDBC target.
 -- * 'exclusions' - A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
--- * 'path' - The path of the JDBC target.
 mkJdbcTarget ::
   JdbcTarget
 mkJdbcTarget =

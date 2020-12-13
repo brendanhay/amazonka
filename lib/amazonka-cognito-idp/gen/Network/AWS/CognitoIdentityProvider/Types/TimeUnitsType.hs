@@ -13,10 +13,10 @@
 module Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType
   ( TimeUnitsType
       ( TimeUnitsType',
-        Days,
-        Hours,
+        Seconds,
         Minutes,
-        Seconds
+        Hours,
+        Days
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TimeUnitsType = TimeUnitsType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Days :: TimeUnitsType
-pattern Days = TimeUnitsType' "days"
-
-pattern Hours :: TimeUnitsType
-pattern Hours = TimeUnitsType' "hours"
+pattern Seconds :: TimeUnitsType
+pattern Seconds = TimeUnitsType' "seconds"
 
 pattern Minutes :: TimeUnitsType
 pattern Minutes = TimeUnitsType' "minutes"
 
-pattern Seconds :: TimeUnitsType
-pattern Seconds = TimeUnitsType' "seconds"
+pattern Hours :: TimeUnitsType
+pattern Hours = TimeUnitsType' "hours"
+
+pattern Days :: TimeUnitsType
+pattern Days = TimeUnitsType' "days"
 
 {-# COMPLETE
-  Days,
-  Hours,
-  Minutes,
   Seconds,
+  Minutes,
+  Hours,
+  Days,
   TimeUnitsType'
   #-}

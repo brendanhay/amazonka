@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDvbNitSettings' smart constructor.
 data DvbNitSettings = DvbNitSettings'
-  { networkId ::
-      Lude.Maybe Lude.Natural,
+  { -- | The numeric value placed in the Network Information Table (NIT).
+    networkId :: Lude.Maybe Lude.Natural,
+    -- | The network name text placed in the network_name_descriptor inside the Network Information Table. Maximum length is 256 characters.
     networkName :: Lude.Maybe Lude.Text,
+    -- | The number of milliseconds between instances of this table in the output transport stream.
     nitInterval :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DvbNitSettings' with the minimum fields required to make a request.

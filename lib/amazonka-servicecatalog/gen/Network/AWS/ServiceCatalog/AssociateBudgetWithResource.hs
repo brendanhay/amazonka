@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ServiceCatalog.AssociateBudgetWithResource
     mkAssociateBudgetWithResource,
 
     -- ** Request lenses
-    abwrBudgetName,
     abwrResourceId,
+    abwrBudgetName,
 
     -- * Destructuring the response
     AssociateBudgetWithResourceResponse (..),
@@ -39,41 +40,29 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkAssociateBudgetWithResource' smart constructor.
 data AssociateBudgetWithResource = AssociateBudgetWithResource'
-  { budgetName ::
-      Lude.Text,
-    resourceId :: Lude.Text
+  { -- | The resource identifier. Either a portfolio-id or a product-id.
+    resourceId :: Lude.Text,
+    -- | The name of the budget you want to associate.
+    budgetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateBudgetWithResource' with the minimum fields required to make a request.
 --
--- * 'budgetName' - The name of the budget you want to associate.
 -- * 'resourceId' - The resource identifier. Either a portfolio-id or a product-id.
+-- * 'budgetName' - The name of the budget you want to associate.
 mkAssociateBudgetWithResource ::
-  -- | 'budgetName'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
   AssociateBudgetWithResource
-mkAssociateBudgetWithResource pBudgetName_ pResourceId_ =
+mkAssociateBudgetWithResource pResourceId_ pBudgetName_ =
   AssociateBudgetWithResource'
-    { budgetName = pBudgetName_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      budgetName = pBudgetName_
     }
-
--- | The name of the budget you want to associate.
---
--- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abwrBudgetName :: Lens.Lens' AssociateBudgetWithResource Lude.Text
-abwrBudgetName = Lens.lens (budgetName :: AssociateBudgetWithResource -> Lude.Text) (\s a -> s {budgetName = a} :: AssociateBudgetWithResource)
-{-# DEPRECATED abwrBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | The resource identifier. Either a portfolio-id or a product-id.
 --
@@ -81,6 +70,13 @@ abwrBudgetName = Lens.lens (budgetName :: AssociateBudgetWithResource -> Lude.Te
 abwrResourceId :: Lens.Lens' AssociateBudgetWithResource Lude.Text
 abwrResourceId = Lens.lens (resourceId :: AssociateBudgetWithResource -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateBudgetWithResource)
 {-# DEPRECATED abwrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The name of the budget you want to associate.
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+abwrBudgetName :: Lens.Lens' AssociateBudgetWithResource Lude.Text
+abwrBudgetName = Lens.lens (budgetName :: AssociateBudgetWithResource -> Lude.Text) (\s a -> s {budgetName = a} :: AssociateBudgetWithResource)
+{-# DEPRECATED abwrBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 instance Lude.AWSRequest AssociateBudgetWithResource where
   type
@@ -111,8 +107,8 @@ instance Lude.ToJSON AssociateBudgetWithResource where
   toJSON AssociateBudgetWithResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
@@ -124,16 +120,10 @@ instance Lude.ToQuery AssociateBudgetWithResource where
 
 -- | /See:/ 'mkAssociateBudgetWithResourceResponse' smart constructor.
 newtype AssociateBudgetWithResourceResponse = AssociateBudgetWithResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateBudgetWithResourceResponse' with the minimum fields required to make a request.

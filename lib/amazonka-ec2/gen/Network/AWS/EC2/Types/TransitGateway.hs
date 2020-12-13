@@ -38,35 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGateway' smart constructor.
 data TransitGateway = TransitGateway'
-  { creationTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.DateTime,
+    -- | The state of the transit gateway.
     state :: Lude.Maybe TransitGatewayState,
+    -- | The ID of the AWS account ID that owns the transit gateway.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the transit gateway.
     transitGatewayARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway.
     transitGatewayId :: Lude.Maybe Lude.Text,
+    -- | The transit gateway options.
     options :: Lude.Maybe TransitGatewayOptions,
+    -- | The description of the transit gateway.
     description :: Lude.Maybe Lude.Text,
+    -- | The tags for the transit gateway.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGateway' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time.
--- * 'description' - The description of the transit gateway.
--- * 'options' - The transit gateway options.
--- * 'ownerId' - The ID of the AWS account ID that owns the transit gateway.
 -- * 'state' - The state of the transit gateway.
--- * 'tags' - The tags for the transit gateway.
+-- * 'ownerId' - The ID of the AWS account ID that owns the transit gateway.
 -- * 'transitGatewayARN' - The Amazon Resource Name (ARN) of the transit gateway.
 -- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'options' - The transit gateway options.
+-- * 'description' - The description of the transit gateway.
+-- * 'tags' - The tags for the transit gateway.
 mkTransitGateway ::
   TransitGateway
 mkTransitGateway =

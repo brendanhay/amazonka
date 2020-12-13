@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.CSVHeaderOption
   ( CSVHeaderOption
       ( CSVHeaderOption',
-        Absent,
+        Unknown,
         Present,
-        Unknown
+        Absent
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CSVHeaderOption = CSVHeaderOption' Lude.Text
       Lude.ToHeader
     )
 
-pattern Absent :: CSVHeaderOption
-pattern Absent = CSVHeaderOption' "ABSENT"
+pattern Unknown :: CSVHeaderOption
+pattern Unknown = CSVHeaderOption' "UNKNOWN"
 
 pattern Present :: CSVHeaderOption
 pattern Present = CSVHeaderOption' "PRESENT"
 
-pattern Unknown :: CSVHeaderOption
-pattern Unknown = CSVHeaderOption' "UNKNOWN"
+pattern Absent :: CSVHeaderOption
+pattern Absent = CSVHeaderOption' "ABSENT"
 
 {-# COMPLETE
-  Absent,
-  Present,
   Unknown,
+  Present,
+  Absent,
   CSVHeaderOption'
   #-}

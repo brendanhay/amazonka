@@ -21,8 +21,8 @@ module Network.AWS.KinesisAnalytics.Types.Input
     iInputProcessingConfiguration,
     iKinesisStreamsInput,
     iKinesisFirehoseInput,
-    iNamePrefix,
     iInputSchema,
+    iNamePrefix,
   )
 where
 
@@ -38,22 +38,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInput' smart constructor.
 data Input = Input'
-  { inputParallelism ::
-      Lude.Maybe InputParallelism,
-    inputProcessingConfiguration ::
-      Lude.Maybe InputProcessingConfiguration,
+  { -- | Describes the number of in-application streams to create.
+    --
+    -- Data from your source is routed to these in-application input streams.
+    -- (see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
+    inputParallelism :: Lude.Maybe InputParallelism,
+    -- | The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
+    inputProcessingConfiguration :: Lude.Maybe InputProcessingConfiguration,
+    -- | If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+    --
+    -- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
     kinesisStreamsInput :: Lude.Maybe KinesisStreamsInput,
+    -- | If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+    --
+    -- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
     kinesisFirehoseInput :: Lude.Maybe KinesisFirehoseInput,
-    namePrefix :: Lude.Text,
-    inputSchema :: SourceSchema
+    -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+    --
+    -- Also used to describe the format of the reference data source.
+    inputSchema :: SourceSchema,
+    -- | Name prefix to use when creating an in-application stream. Suppose that you specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on.
+    namePrefix :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Input' with the minimum fields required to make a request.
@@ -63,30 +70,30 @@ data Input = Input'
 -- Data from your source is routed to these in-application input streams.
 -- (see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html Configuring Application Input> .
 -- * 'inputProcessingConfiguration' - The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor> .
--- * 'inputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
---
--- Also used to describe the format of the reference data source.
--- * 'kinesisFirehoseInput' - If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
---
--- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
 -- * 'kinesisStreamsInput' - If the streaming source is an Amazon Kinesis stream, identifies the stream's Amazon Resource Name (ARN) and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
 --
 -- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
+-- * 'kinesisFirehoseInput' - If the streaming source is an Amazon Kinesis Firehose delivery stream, identifies the delivery stream's ARN and an IAM role that enables Amazon Kinesis Analytics to access the stream on your behalf.
+--
+-- Note: Either @KinesisStreamsInput@ or @KinesisFirehoseInput@ is required.
+-- * 'inputSchema' - Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+--
+-- Also used to describe the format of the reference data source.
 -- * 'namePrefix' - Name prefix to use when creating an in-application stream. Suppose that you specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on.
 mkInput ::
-  -- | 'namePrefix'
-  Lude.Text ->
   -- | 'inputSchema'
   SourceSchema ->
+  -- | 'namePrefix'
+  Lude.Text ->
   Input
-mkInput pNamePrefix_ pInputSchema_ =
+mkInput pInputSchema_ pNamePrefix_ =
   Input'
     { inputParallelism = Lude.Nothing,
       inputProcessingConfiguration = Lude.Nothing,
       kinesisStreamsInput = Lude.Nothing,
       kinesisFirehoseInput = Lude.Nothing,
-      namePrefix = pNamePrefix_,
-      inputSchema = pInputSchema_
+      inputSchema = pInputSchema_,
+      namePrefix = pNamePrefix_
     }
 
 -- | Describes the number of in-application streams to create.
@@ -124,13 +131,6 @@ iKinesisFirehoseInput :: Lens.Lens' Input (Lude.Maybe KinesisFirehoseInput)
 iKinesisFirehoseInput = Lens.lens (kinesisFirehoseInput :: Input -> Lude.Maybe KinesisFirehoseInput) (\s a -> s {kinesisFirehoseInput = a} :: Input)
 {-# DEPRECATED iKinesisFirehoseInput "Use generic-lens or generic-optics with 'kinesisFirehoseInput' instead." #-}
 
--- | Name prefix to use when creating an in-application stream. Suppose that you specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on.
---
--- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iNamePrefix :: Lens.Lens' Input Lude.Text
-iNamePrefix = Lens.lens (namePrefix :: Input -> Lude.Text) (\s a -> s {namePrefix = a} :: Input)
-{-# DEPRECATED iNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
-
 -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
 --
 -- Also used to describe the format of the reference data source.
@@ -139,6 +139,13 @@ iNamePrefix = Lens.lens (namePrefix :: Input -> Lude.Text) (\s a -> s {namePrefi
 iInputSchema :: Lens.Lens' Input SourceSchema
 iInputSchema = Lens.lens (inputSchema :: Input -> SourceSchema) (\s a -> s {inputSchema = a} :: Input)
 {-# DEPRECATED iInputSchema "Use generic-lens or generic-optics with 'inputSchema' instead." #-}
+
+-- | Name prefix to use when creating an in-application stream. Suppose that you specify a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more (as per the @InputParallelism@ count you specified) in-application streams with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on.
+--
+-- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iNamePrefix :: Lens.Lens' Input Lude.Text
+iNamePrefix = Lens.lens (namePrefix :: Input -> Lude.Text) (\s a -> s {namePrefix = a} :: Input)
+{-# DEPRECATED iNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
 
 instance Lude.ToJSON Input where
   toJSON Input' {..} =
@@ -149,7 +156,7 @@ instance Lude.ToJSON Input where
               Lude.<$> inputProcessingConfiguration,
             ("KinesisStreamsInput" Lude..=) Lude.<$> kinesisStreamsInput,
             ("KinesisFirehoseInput" Lude..=) Lude.<$> kinesisFirehoseInput,
-            Lude.Just ("NamePrefix" Lude..= namePrefix),
-            Lude.Just ("InputSchema" Lude..= inputSchema)
+            Lude.Just ("InputSchema" Lude..= inputSchema),
+            Lude.Just ("NamePrefix" Lude..= namePrefix)
           ]
       )

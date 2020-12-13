@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
     mkRegisterTargetWithMaintenanceWindow,
 
     -- ** Request lenses
+    rResourceType,
     rClientToken,
     rOwnerInformation,
     rName,
+    rTargets,
     rDescription,
     rWindowId,
-    rResourceType,
-    rTargets,
 
     -- * Destructuring the response
     RegisterTargetWithMaintenanceWindowResponse (..),
@@ -45,43 +46,43 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkRegisterTargetWithMaintenanceWindow' smart constructor.
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
-  { clientToken ::
-      Lude.Maybe
-        Lude.Text,
-    ownerInformation ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    name ::
-      Lude.Maybe
-        Lude.Text,
-    description ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    windowId ::
-      Lude.Text,
-    resourceType ::
-      MaintenanceWindowResourceType,
-    targets :: [Target]
+  { -- | The type of target being registered with the maintenance window.
+    resourceType :: MaintenanceWindowResourceType,
+    -- | User-provided idempotency token.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this maintenance window.
+    ownerInformation :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | An optional name for the target.
+    name :: Lude.Maybe Lude.Text,
+    -- | The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs.
+    --
+    -- You can specify targets using instance IDs, resource group names, or tags that have been applied to instances.
+    -- __Example 1__ : Specify instance IDs
+    -- @Key=InstanceIds,Values=/instance-id-1/ ,/instance-id-2/ ,/instance-id-3/ @
+    -- __Example 2__ : Use tag key-pairs applied to instances
+    -- @Key=tag:/my-tag-key/ ,Values=/my-tag-value-1/ ,/my-tag-value-2/ @
+    -- __Example 3__ : Use tag-keys applied to instances
+    -- @Key=tag-key,Values=/my-tag-key-1/ ,/my-tag-key-2/ @
+    -- __Example 4__ : Use resource group names
+    -- @Key=resource-groups:Name,Values=/resource-group-name/ @
+    -- __Example 5__ : Use filters for resource group types
+    -- @Key=resource-groups:ResourceTypeFilters,Values=/resource-type-1/ ,/resource-type-2/ @
+    -- For more information about these examples formats, including the best use case for each one, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window> in the /AWS Systems Manager User Guide/ .
+    targets :: [Target],
+    -- | An optional description for the target.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the maintenance window the target should be registered with.
+    windowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterTargetWithMaintenanceWindow' with the minimum fields required to make a request.
 --
--- * 'clientToken' - User-provided idempotency token.
--- * 'description' - An optional description for the target.
--- * 'name' - An optional name for the target.
--- * 'ownerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this maintenance window.
 -- * 'resourceType' - The type of target being registered with the maintenance window.
+-- * 'clientToken' - User-provided idempotency token.
+-- * 'ownerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this maintenance window.
+-- * 'name' - An optional name for the target.
 -- * 'targets' - The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs.
 --
 -- You can specify targets using instance IDs, resource group names, or tags that have been applied to instances.
@@ -96,23 +97,32 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 -- __Example 5__ : Use filters for resource group types
 -- @Key=resource-groups:ResourceTypeFilters,Values=/resource-type-1/ ,/resource-type-2/ @
 -- For more information about these examples formats, including the best use case for each one, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window> in the /AWS Systems Manager User Guide/ .
+-- * 'description' - An optional description for the target.
 -- * 'windowId' - The ID of the maintenance window the target should be registered with.
 mkRegisterTargetWithMaintenanceWindow ::
-  -- | 'windowId'
-  Lude.Text ->
   -- | 'resourceType'
   MaintenanceWindowResourceType ->
+  -- | 'windowId'
+  Lude.Text ->
   RegisterTargetWithMaintenanceWindow
-mkRegisterTargetWithMaintenanceWindow pWindowId_ pResourceType_ =
+mkRegisterTargetWithMaintenanceWindow pResourceType_ pWindowId_ =
   RegisterTargetWithMaintenanceWindow'
-    { clientToken = Lude.Nothing,
+    { resourceType =
+        pResourceType_,
+      clientToken = Lude.Nothing,
       ownerInformation = Lude.Nothing,
       name = Lude.Nothing,
+      targets = Lude.mempty,
       description = Lude.Nothing,
-      windowId = pWindowId_,
-      resourceType = pResourceType_,
-      targets = Lude.mempty
+      windowId = pWindowId_
     }
+
+-- | The type of target being registered with the maintenance window.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rResourceType :: Lens.Lens' RegisterTargetWithMaintenanceWindow MaintenanceWindowResourceType
+rResourceType = Lens.lens (resourceType :: RegisterTargetWithMaintenanceWindow -> MaintenanceWindowResourceType) (\s a -> s {resourceType = a} :: RegisterTargetWithMaintenanceWindow)
+{-# DEPRECATED rResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | User-provided idempotency token.
 --
@@ -135,27 +145,6 @@ rName :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Lude.Maybe Lude.Text)
 rName = Lens.lens (name :: RegisterTargetWithMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RegisterTargetWithMaintenanceWindow)
 {-# DEPRECATED rName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | An optional description for the target.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDescription :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Lude.Maybe (Lude.Sensitive Lude.Text))
-rDescription = Lens.lens (description :: RegisterTargetWithMaintenanceWindow -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: RegisterTargetWithMaintenanceWindow)
-{-# DEPRECATED rDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The ID of the maintenance window the target should be registered with.
---
--- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rWindowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Lude.Text
-rWindowId = Lens.lens (windowId :: RegisterTargetWithMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: RegisterTargetWithMaintenanceWindow)
-{-# DEPRECATED rWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
-
--- | The type of target being registered with the maintenance window.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResourceType :: Lens.Lens' RegisterTargetWithMaintenanceWindow MaintenanceWindowResourceType
-rResourceType = Lens.lens (resourceType :: RegisterTargetWithMaintenanceWindow -> MaintenanceWindowResourceType) (\s a -> s {resourceType = a} :: RegisterTargetWithMaintenanceWindow)
-{-# DEPRECATED rResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
 -- | The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs.
 --
 -- You can specify targets using instance IDs, resource group names, or tags that have been applied to instances.
@@ -175,6 +164,20 @@ rResourceType = Lens.lens (resourceType :: RegisterTargetWithMaintenanceWindow -
 rTargets :: Lens.Lens' RegisterTargetWithMaintenanceWindow [Target]
 rTargets = Lens.lens (targets :: RegisterTargetWithMaintenanceWindow -> [Target]) (\s a -> s {targets = a} :: RegisterTargetWithMaintenanceWindow)
 {-# DEPRECATED rTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
+
+-- | An optional description for the target.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDescription :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Lude.Maybe (Lude.Sensitive Lude.Text))
+rDescription = Lens.lens (description :: RegisterTargetWithMaintenanceWindow -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: RegisterTargetWithMaintenanceWindow)
+{-# DEPRECATED rDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The ID of the maintenance window the target should be registered with.
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rWindowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Lude.Text
+rWindowId = Lens.lens (windowId :: RegisterTargetWithMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: RegisterTargetWithMaintenanceWindow)
+{-# DEPRECATED rWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 instance Lude.AWSRequest RegisterTargetWithMaintenanceWindow where
   type
@@ -206,13 +209,13 @@ instance Lude.ToJSON RegisterTargetWithMaintenanceWindow where
   toJSON RegisterTargetWithMaintenanceWindow' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ClientToken" Lude..=) Lude.<$> clientToken,
+          [ Lude.Just ("ResourceType" Lude..= resourceType),
+            ("ClientToken" Lude..=) Lude.<$> clientToken,
             ("OwnerInformation" Lude..=) Lude.<$> ownerInformation,
             ("Name" Lude..=) Lude.<$> name,
+            Lude.Just ("Targets" Lude..= targets),
             ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("WindowId" Lude..= windowId),
-            Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("Targets" Lude..= targets)
+            Lude.Just ("WindowId" Lude..= windowId)
           ]
       )
 
@@ -224,25 +227,18 @@ instance Lude.ToQuery RegisterTargetWithMaintenanceWindow where
 
 -- | /See:/ 'mkRegisterTargetWithMaintenanceWindowResponse' smart constructor.
 data RegisterTargetWithMaintenanceWindowResponse = RegisterTargetWithMaintenanceWindowResponse'
-  { windowTargetId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the target definition in this maintenance window.
+    windowTargetId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterTargetWithMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'windowTargetId' - The ID of the target definition in this maintenance window.
+-- * 'responseStatus' - The response status code.
 mkRegisterTargetWithMaintenanceWindowResponse ::
   -- | 'responseStatus'
   Lude.Int ->

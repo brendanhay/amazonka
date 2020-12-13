@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.LexModels.PutBotAlias
 
     -- ** Request lenses
     pbaChecksum,
+    pbaBotVersion,
+    pbaBotName,
+    pbaName,
     pbaConversationLogs,
     pbaDescription,
     pbaTags,
-    pbaName,
-    pbaBotVersion,
-    pbaBotName,
 
     -- * Destructuring the response
     PutBotAliasResponse (..),
@@ -55,52 +56,56 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutBotAlias' smart constructor.
 data PutBotAlias = PutBotAlias'
-  { checksum :: Lude.Maybe Lude.Text,
-    conversationLogs :: Lude.Maybe ConversationLogsRequest,
-    description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text,
+  { -- | Identifies a specific revision of the @> LATEST@ version.
+    --
+    -- When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
+    -- When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The version of the bot.
     botVersion :: Lude.Text,
-    botName :: Lude.Text
+    -- | The name of the bot.
+    botName :: Lude.Text,
+    -- | The name of the alias. The name is /not/ case sensitive.
+    name :: Lude.Text,
+    -- | Settings for conversation logs for the alias.
+    conversationLogs :: Lude.Maybe ConversationLogsRequest,
+    -- | A description of the alias.
+    description :: Lude.Maybe Lude.Text,
+    -- | A list of tags to add to the bot alias. You can only add tags when you create an alias, you can't use the @PutBotAlias@ operation to update the tags on a bot alias. To update tags, use the @TagResource@ operation.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBotAlias' with the minimum fields required to make a request.
 --
--- * 'botName' - The name of the bot.
--- * 'botVersion' - The version of the bot.
 -- * 'checksum' - Identifies a specific revision of the @> LATEST@ version.
 --
 -- When you create a new bot alias, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
 -- When you want to update a bot alias, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
+-- * 'botVersion' - The version of the bot.
+-- * 'botName' - The name of the bot.
+-- * 'name' - The name of the alias. The name is /not/ case sensitive.
 -- * 'conversationLogs' - Settings for conversation logs for the alias.
 -- * 'description' - A description of the alias.
--- * 'name' - The name of the alias. The name is /not/ case sensitive.
 -- * 'tags' - A list of tags to add to the bot alias. You can only add tags when you create an alias, you can't use the @PutBotAlias@ operation to update the tags on a bot alias. To update tags, use the @TagResource@ operation.
 mkPutBotAlias ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'botVersion'
   Lude.Text ->
   -- | 'botName'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   PutBotAlias
-mkPutBotAlias pName_ pBotVersion_ pBotName_ =
+mkPutBotAlias pBotVersion_ pBotName_ pName_ =
   PutBotAlias'
     { checksum = Lude.Nothing,
+      botVersion = pBotVersion_,
+      botName = pBotName_,
+      name = pName_,
       conversationLogs = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_,
-      botVersion = pBotVersion_,
-      botName = pBotName_
+      tags = Lude.Nothing
     }
 
 -- | Identifies a specific revision of the @> LATEST@ version.
@@ -112,6 +117,27 @@ mkPutBotAlias pName_ pBotVersion_ pBotName_ =
 pbaChecksum :: Lens.Lens' PutBotAlias (Lude.Maybe Lude.Text)
 pbaChecksum = Lens.lens (checksum :: PutBotAlias -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: PutBotAlias)
 {-# DEPRECATED pbaChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
+
+-- | The version of the bot.
+--
+-- /Note:/ Consider using 'botVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaBotVersion :: Lens.Lens' PutBotAlias Lude.Text
+pbaBotVersion = Lens.lens (botVersion :: PutBotAlias -> Lude.Text) (\s a -> s {botVersion = a} :: PutBotAlias)
+{-# DEPRECATED pbaBotVersion "Use generic-lens or generic-optics with 'botVersion' instead." #-}
+
+-- | The name of the bot.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaBotName :: Lens.Lens' PutBotAlias Lude.Text
+pbaBotName = Lens.lens (botName :: PutBotAlias -> Lude.Text) (\s a -> s {botName = a} :: PutBotAlias)
+{-# DEPRECATED pbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+
+-- | The name of the alias. The name is /not/ case sensitive.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaName :: Lens.Lens' PutBotAlias Lude.Text
+pbaName = Lens.lens (name :: PutBotAlias -> Lude.Text) (\s a -> s {name = a} :: PutBotAlias)
+{-# DEPRECATED pbaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Settings for conversation logs for the alias.
 --
@@ -133,27 +159,6 @@ pbaDescription = Lens.lens (description :: PutBotAlias -> Lude.Maybe Lude.Text) 
 pbaTags :: Lens.Lens' PutBotAlias (Lude.Maybe [Tag])
 pbaTags = Lens.lens (tags :: PutBotAlias -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutBotAlias)
 {-# DEPRECATED pbaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the alias. The name is /not/ case sensitive.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbaName :: Lens.Lens' PutBotAlias Lude.Text
-pbaName = Lens.lens (name :: PutBotAlias -> Lude.Text) (\s a -> s {name = a} :: PutBotAlias)
-{-# DEPRECATED pbaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The version of the bot.
---
--- /Note:/ Consider using 'botVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbaBotVersion :: Lens.Lens' PutBotAlias Lude.Text
-pbaBotVersion = Lens.lens (botVersion :: PutBotAlias -> Lude.Text) (\s a -> s {botVersion = a} :: PutBotAlias)
-{-# DEPRECATED pbaBotVersion "Use generic-lens or generic-optics with 'botVersion' instead." #-}
-
--- | The name of the bot.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbaBotName :: Lens.Lens' PutBotAlias Lude.Text
-pbaBotName = Lens.lens (botName :: PutBotAlias -> Lude.Text) (\s a -> s {botName = a} :: PutBotAlias)
-{-# DEPRECATED pbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 instance Lude.AWSRequest PutBotAlias where
   type Rs PutBotAlias = PutBotAliasResponse
@@ -188,10 +193,10 @@ instance Lude.ToJSON PutBotAlias where
     Lude.object
       ( Lude.catMaybes
           [ ("checksum" Lude..=) Lude.<$> checksum,
+            Lude.Just ("botVersion" Lude..= botVersion),
             ("conversationLogs" Lude..=) Lude.<$> conversationLogs,
             ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("botVersion" Lude..= botVersion)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -205,40 +210,42 @@ instance Lude.ToQuery PutBotAlias where
 
 -- | /See:/ 'mkPutBotAliasResponse' smart constructor.
 data PutBotAliasResponse = PutBotAliasResponse'
-  { checksum ::
-      Lude.Maybe Lude.Text,
+  { -- | The checksum for the current version of the alias.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The version of the bot that the alias points to.
     botVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the bot that the alias points to.
     botName :: Lude.Maybe Lude.Text,
+    -- | The date that the bot alias was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the alias.
     name :: Lude.Maybe Lude.Text,
-    conversationLogs ::
-      Lude.Maybe ConversationLogsResponse,
+    -- | The settings that determine how Amazon Lex uses conversation logs for the alias.
+    conversationLogs :: Lude.Maybe ConversationLogsResponse,
+    -- | The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the alias.
     description :: Lude.Maybe Lude.Text,
+    -- | A list of tags associated with a bot.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBotAliasResponse' with the minimum fields required to make a request.
 --
--- * 'botName' - The name of the bot that the alias points to.
--- * 'botVersion' - The version of the bot that the alias points to.
 -- * 'checksum' - The checksum for the current version of the alias.
--- * 'conversationLogs' - The settings that determine how Amazon Lex uses conversation logs for the alias.
+-- * 'botVersion' - The version of the bot that the alias points to.
+-- * 'botName' - The name of the bot that the alias points to.
 -- * 'createdDate' - The date that the bot alias was created.
--- * 'description' - A description of the alias.
--- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 -- * 'name' - The name of the alias.
--- * 'responseStatus' - The response status code.
+-- * 'conversationLogs' - The settings that determine how Amazon Lex uses conversation logs for the alias.
+-- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+-- * 'description' - A description of the alias.
 -- * 'tags' - A list of tags associated with a bot.
+-- * 'responseStatus' - The response status code.
 mkPutBotAliasResponse ::
   -- | 'responseStatus'
   Lude.Int ->

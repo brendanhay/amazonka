@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceFamilyCreditSpecification' smart constructor.
 data InstanceFamilyCreditSpecification = InstanceFamilyCreditSpecification'
-  { instanceFamily ::
-      Lude.Maybe
-        UnlimitedSupportedInstanceFamily,
-    cpuCredits ::
-      Lude.Maybe Lude.Text
+  { -- | The instance family.
+    instanceFamily :: Lude.Maybe UnlimitedSupportedInstanceFamily,
+    -- | The default credit option for CPU usage of the instance family. Valid values are @standard@ and @unlimited@ .
+    cpuCredits :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceFamilyCreditSpecification' with the minimum fields required to make a request.
 --
--- * 'cpuCredits' - The default credit option for CPU usage of the instance family. Valid values are @standard@ and @unlimited@ .
 -- * 'instanceFamily' - The instance family.
+-- * 'cpuCredits' - The default credit option for CPU usage of the instance family. Valid values are @standard@ and @unlimited@ .
 mkInstanceFamilyCreditSpecification ::
   InstanceFamilyCreditSpecification
 mkInstanceFamilyCreditSpecification =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CloudWatchEvents.DescribeRule
     mkDescribeRule,
 
     -- ** Request lenses
-    desEventBusName,
-    desName,
+    drEventBusName,
+    drName,
 
     -- * Destructuring the response
     DescribeRuleResponse (..),
@@ -51,17 +52,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRule' smart constructor.
 data DescribeRule = DescribeRule'
-  { eventBusName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+    eventBusName :: Lude.Maybe Lude.Text,
+    -- | The name of the rule.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRule' with the minimum fields required to make a request.
@@ -78,16 +74,16 @@ mkDescribeRule pName_ =
 -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 --
 -- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desEventBusName :: Lens.Lens' DescribeRule (Lude.Maybe Lude.Text)
-desEventBusName = Lens.lens (eventBusName :: DescribeRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DescribeRule)
-{-# DEPRECATED desEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
+drEventBusName :: Lens.Lens' DescribeRule (Lude.Maybe Lude.Text)
+drEventBusName = Lens.lens (eventBusName :: DescribeRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DescribeRule)
+{-# DEPRECATED drEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desName :: Lens.Lens' DescribeRule Lude.Text
-desName = Lens.lens (name :: DescribeRule -> Lude.Text) (\s a -> s {name = a} :: DescribeRule)
-{-# DEPRECATED desName "Use generic-lens or generic-optics with 'name' instead." #-}
+drName :: Lens.Lens' DescribeRule Lude.Text
+drName = Lens.lens (name :: DescribeRule -> Lude.Text) (\s a -> s {name = a} :: DescribeRule)
+{-# DEPRECATED drName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DescribeRule where
   type Rs DescribeRule = DescribeRuleResponse
@@ -137,41 +133,45 @@ instance Lude.ToQuery DescribeRule where
 
 -- | /See:/ 'mkDescribeRuleResponse' smart constructor.
 data DescribeRuleResponse = DescribeRuleResponse'
-  { eventPattern ::
-      Lude.Maybe Lude.Text,
+  { -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+    eventPattern :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the rule is enabled or disabled.
     state :: Lude.Maybe RuleState,
+    -- | The Amazon Resource Name (ARN) of the rule.
     arn :: Lude.Maybe Lude.Text,
+    -- | The account ID of the user that created the rule. If you use @PutRule@ to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account. However, the value for @CreatedBy@ is the account ID as the account that created the rule in the other account.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The name of the event bus associated with the rule.
     eventBusName :: Lude.Maybe Lude.Text,
+    -- | The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
     scheduleExpression :: Lude.Maybe Lude.Text,
+    -- | The name of the rule.
     name :: Lude.Maybe Lude.Text,
+    -- | The description of the rule.
     description :: Lude.Maybe Lude.Text,
+    -- | If this is a managed rule, created by an AWS service on your behalf, this field displays the principal name of the AWS service that created the rule.
     managedBy :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRuleResponse' with the minimum fields required to make a request.
 --
+-- * 'eventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+-- * 'state' - Specifies whether the rule is enabled or disabled.
 -- * 'arn' - The Amazon Resource Name (ARN) of the rule.
 -- * 'createdBy' - The account ID of the user that created the rule. If you use @PutRule@ to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account. However, the value for @CreatedBy@ is the account ID as the account that created the rule in the other account.
--- * 'description' - The description of the rule.
 -- * 'eventBusName' - The name of the event bus associated with the rule.
--- * 'eventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
--- * 'managedBy' - If this is a managed rule, created by an AWS service on your behalf, this field displays the principal name of the AWS service that created the rule.
--- * 'name' - The name of the rule.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 -- * 'scheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".
--- * 'state' - Specifies whether the rule is enabled or disabled.
+-- * 'name' - The name of the rule.
+-- * 'description' - The description of the rule.
+-- * 'managedBy' - If this is a managed rule, created by an AWS service on your behalf, this field displays the principal name of the AWS service that created the rule.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+-- * 'responseStatus' - The response status code.
 mkDescribeRuleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

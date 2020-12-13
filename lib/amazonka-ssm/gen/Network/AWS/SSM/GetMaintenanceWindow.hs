@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,16 +54,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetMaintenanceWindow' smart constructor.
 newtype GetMaintenanceWindow = GetMaintenanceWindow'
-  { windowId ::
-      Lude.Text
+  { -- | The ID of the maintenance window for which you want to retrieve information.
+    windowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindow' with the minimum fields required to make a request.
@@ -131,31 +126,37 @@ instance Lude.ToQuery GetMaintenanceWindow where
 
 -- | /See:/ 'mkGetMaintenanceWindowResponse' smart constructor.
 data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the maintenance window is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The schedule of the maintenance window in the form of a cron or rate expression.
     schedule :: Lude.Maybe Lude.Text,
-    nextExecutionTime ::
-      Lude.Maybe Lude.Text,
-    scheduleOffset ::
-      Lude.Maybe Lude.Natural,
+    -- | The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
+    nextExecutionTime :: Lude.Maybe Lude.Text,
+    -- | The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
+    scheduleOffset :: Lude.Maybe Lude.Natural,
+    -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
     endDate :: Lude.Maybe Lude.Text,
-    scheduleTimezone ::
-      Lude.Maybe Lude.Text,
+    -- | The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
+    scheduleTimezone :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
     startDate :: Lude.Maybe Lude.Text,
-    createdDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date the maintenance window was created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the maintenance window.
     name :: Lude.Maybe Lude.Text,
-    modifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date the maintenance window was last modified.
+    modifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
     cutoff :: Lude.Maybe Lude.Natural,
-    allowUnassociatedTargets ::
-      Lude.Maybe Lude.Bool,
-    description ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    duration ::
-      Lude.Maybe Lude.Natural,
+    -- | Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
+    allowUnassociatedTargets :: Lude.Maybe Lude.Bool,
+    -- | The description of the maintenance window.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The duration of the maintenance window in hours.
+    duration :: Lude.Maybe Lude.Natural,
+    -- | The ID of the created maintenance window.
     windowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -163,22 +164,22 @@ data GetMaintenanceWindowResponse = GetMaintenanceWindowResponse'
 
 -- | Creates a value of 'GetMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- * 'allowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
--- * 'createdDate' - The date the maintenance window was created.
--- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
--- * 'description' - The description of the maintenance window.
--- * 'duration' - The duration of the maintenance window in hours.
 -- * 'enabled' - Indicates whether the maintenance window is enabled.
--- * 'endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
--- * 'modifiedDate' - The date the maintenance window was last modified.
--- * 'name' - The name of the maintenance window.
--- * 'nextExecutionTime' - The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
--- * 'responseStatus' - The response status code.
 -- * 'schedule' - The schedule of the maintenance window in the form of a cron or rate expression.
+-- * 'nextExecutionTime' - The next time the maintenance window will actually run, taking into account any specified times for the maintenance window to become active or inactive.
 -- * 'scheduleOffset' - The number of days to wait to run a maintenance window after the scheduled CRON expression date and time.
+-- * 'endDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive. The maintenance window will not run after this specified time.
 -- * 'scheduleTimezone' - The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "etc/UTC", or "Asia/Seoul". For more information, see the <https://www.iana.org/time-zones Time Zone Database> on the IANA website.
 -- * 'startDate' - The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. The maintenance window will not run before this specified time.
+-- * 'createdDate' - The date the maintenance window was created.
+-- * 'name' - The name of the maintenance window.
+-- * 'modifiedDate' - The date the maintenance window was last modified.
+-- * 'cutoff' - The number of hours before the end of the maintenance window that Systems Manager stops scheduling new tasks for execution.
+-- * 'allowUnassociatedTargets' - Whether targets must be registered with the maintenance window before tasks can be defined for those targets.
+-- * 'description' - The description of the maintenance window.
+-- * 'duration' - The duration of the maintenance window in hours.
 -- * 'windowId' - The ID of the created maintenance window.
+-- * 'responseStatus' - The response status code.
 mkGetMaintenanceWindowResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -119,8 +119,8 @@ module Network.AWS.DynamoDB.Types
     -- * AttributeDefinition
     AttributeDefinition (..),
     mkAttributeDefinition,
-    adAttributeName,
     adAttributeType,
+    adAttributeName,
 
     -- * AttributeValue
     AttributeValue (..),
@@ -175,18 +175,18 @@ module Network.AWS.DynamoDB.Types
     -- * AutoScalingTargetTrackingScalingPolicyConfigurationDescription
     AutoScalingTargetTrackingScalingPolicyConfigurationDescription (..),
     mkAutoScalingTargetTrackingScalingPolicyConfigurationDescription,
+    asttspcdTargetValue,
     asttspcdScaleInCooldown,
     asttspcdDisableScaleIn,
     asttspcdScaleOutCooldown,
-    asttspcdTargetValue,
 
     -- * AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (..),
     mkAutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+    asttspcuTargetValue,
     asttspcuScaleInCooldown,
     asttspcuDisableScaleIn,
     asttspcuScaleOutCooldown,
-    asttspcuTargetValue,
 
     -- * BackupDescription
     BackupDescription (..),
@@ -199,12 +199,12 @@ module Network.AWS.DynamoDB.Types
     BackupDetails (..),
     mkBackupDetails,
     bdBackupExpiryDateTime,
-    bdBackupSizeBytes,
-    bdBackupARN,
     bdBackupName,
     bdBackupStatus,
-    bdBackupType,
+    bdBackupSizeBytes,
+    bdBackupARN,
     bdBackupCreationDateTime,
+    bdBackupType,
 
     -- * BackupSummary
     BackupSummary (..),
@@ -230,8 +230,8 @@ module Network.AWS.DynamoDB.Types
     BatchStatementRequest (..),
     mkBatchStatementRequest,
     bsrConsistentRead,
-    bsrParameters,
     bsrStatement,
+    bsrParameters,
 
     -- * BatchStatementResponse
     BatchStatementResponse (..),
@@ -249,9 +249,9 @@ module Network.AWS.DynamoDB.Types
     -- * Capacity
     Capacity (..),
     mkCapacity,
-    capReadCapacityUnits,
-    capCapacityUnits,
-    capWriteCapacityUnits,
+    cfReadCapacityUnits,
+    cfCapacityUnits,
+    cfWriteCapacityUnits,
 
     -- * Condition
     Condition (..),
@@ -265,9 +265,9 @@ module Network.AWS.DynamoDB.Types
     ccExpressionAttributeNames,
     ccExpressionAttributeValues,
     ccReturnValuesOnConditionCheckFailure,
+    ccConditionExpression,
     ccKey,
     ccTableName,
-    ccConditionExpression,
 
     -- * ConsumedCapacity
     ConsumedCapacity (..),
@@ -283,8 +283,8 @@ module Network.AWS.DynamoDB.Types
     -- * ContinuousBackupsDescription
     ContinuousBackupsDescription (..),
     mkContinuousBackupsDescription,
-    cbdPointInTimeRecoveryDescription,
     cbdContinuousBackupsStatus,
+    cbdPointInTimeRecoveryDescription,
 
     -- * ContributorInsightsSummary
     ContributorInsightsSummary (..),
@@ -297,9 +297,9 @@ module Network.AWS.DynamoDB.Types
     CreateGlobalSecondaryIndexAction (..),
     mkCreateGlobalSecondaryIndexAction,
     cgsiaProvisionedThroughput,
-    cgsiaIndexName,
     cgsiaKeySchema,
     cgsiaProjection,
+    cgsiaIndexName,
 
     -- * CreateReplicaAction
     CreateReplicaAction (..),
@@ -309,10 +309,10 @@ module Network.AWS.DynamoDB.Types
     -- * CreateReplicationGroupMemberAction
     CreateReplicationGroupMemberAction (..),
     mkCreateReplicationGroupMemberAction,
+    crgmaRegionName,
     crgmaKMSMasterKeyId,
     crgmaProvisionedThroughputOverride,
     crgmaGlobalSecondaryIndexes,
-    crgmaRegionName,
 
     -- * Delete
     Delete (..),
@@ -405,9 +405,9 @@ module Network.AWS.DynamoDB.Types
     GlobalSecondaryIndex (..),
     mkGlobalSecondaryIndex,
     gsiProvisionedThroughput,
-    gsiIndexName,
     gsiKeySchema,
     gsiProjection,
+    gsiIndexName,
 
     -- * GlobalSecondaryIndexAutoScalingUpdate
     GlobalSecondaryIndexAutoScalingUpdate (..),
@@ -479,8 +479,8 @@ module Network.AWS.DynamoDB.Types
     -- * KeySchemaElement
     KeySchemaElement (..),
     mkKeySchemaElement,
-    kseAttributeName,
     kseKeyType,
+    kseAttributeName,
 
     -- * KeysAndAttributes
     KeysAndAttributes (..),
@@ -501,8 +501,8 @@ module Network.AWS.DynamoDB.Types
     -- * KinesisStreamingDestinationInput
     KinesisStreamingDestinationInput (..),
     mkKinesisStreamingDestinationInput,
-    ksdiTableName,
     ksdiStreamARN,
+    ksdiTableName,
 
     -- * KinesisStreamingDestinationOutput
     KinesisStreamingDestinationOutput (..),
@@ -514,9 +514,9 @@ module Network.AWS.DynamoDB.Types
     -- * LocalSecondaryIndex
     LocalSecondaryIndex (..),
     mkLocalSecondaryIndex,
-    lsiIndexName,
     lsiKeySchema,
     lsiProjection,
+    lsiIndexName,
 
     -- * LocalSecondaryIndexDescription
     LocalSecondaryIndexDescription (..),
@@ -538,8 +538,8 @@ module Network.AWS.DynamoDB.Types
     -- * ParameterizedStatement
     ParameterizedStatement (..),
     mkParameterizedStatement,
-    psParameters,
     psStatement,
+    psParameters,
 
     -- * PointInTimeRecoveryDescription
     PointInTimeRecoveryDescription (..),
@@ -611,9 +611,9 @@ module Network.AWS.DynamoDB.Types
     -- * ReplicaAutoScalingUpdate
     ReplicaAutoScalingUpdate (..),
     mkReplicaAutoScalingUpdate,
+    rasuRegionName,
     rasuReplicaProvisionedReadCapacityAutoScalingUpdate,
     rasuReplicaGlobalSecondaryIndexUpdates,
-    rasuRegionName,
 
     -- * ReplicaDescription
     ReplicaDescription (..),
@@ -674,21 +674,21 @@ module Network.AWS.DynamoDB.Types
     ReplicaSettingsDescription (..),
     mkReplicaSettingsDescription,
     rsdReplicaStatus,
+    rsdRegionName,
     rsdReplicaProvisionedReadCapacityUnits,
     rsdReplicaProvisionedWriteCapacityUnits,
     rsdReplicaBillingModeSummary,
     rsdReplicaGlobalSecondaryIndexSettings,
     rsdReplicaProvisionedWriteCapacityAutoScalingSettings,
     rsdReplicaProvisionedReadCapacityAutoScalingSettings,
-    rsdRegionName,
 
     -- * ReplicaSettingsUpdate
     ReplicaSettingsUpdate (..),
     mkReplicaSettingsUpdate,
+    rsuRegionName,
     rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
     rsuReplicaProvisionedReadCapacityUnits,
     rsuReplicaGlobalSecondaryIndexSettingsUpdate,
-    rsuRegionName,
 
     -- * ReplicaUpdate
     ReplicaUpdate (..),
@@ -708,8 +708,8 @@ module Network.AWS.DynamoDB.Types
     mkRestoreSummary,
     rsSourceTableARN,
     rsSourceBackupARN,
-    rsRestoreDateTime,
     rsRestoreInProgress,
+    rsRestoreDateTime,
 
     -- * SSEDescription
     SSEDescription (..),
@@ -730,14 +730,14 @@ module Network.AWS.DynamoDB.Types
     SourceTableDetails (..),
     mkSourceTableDetails,
     stdTableSizeBytes,
+    stdProvisionedThroughput,
     stdTableARN,
-    stdBillingMode,
-    stdItemCount,
-    stdTableName,
-    stdTableId,
     stdKeySchema,
     stdTableCreationDateTime,
-    stdProvisionedThroughput,
+    stdBillingMode,
+    stdTableId,
+    stdItemCount,
+    stdTableName,
 
     -- * SourceTableFeatureDetails
     SourceTableFeatureDetails (..),
@@ -789,8 +789,8 @@ module Network.AWS.DynamoDB.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TimeToLiveDescription
     TimeToLiveDescription (..),
@@ -821,26 +821,26 @@ module Network.AWS.DynamoDB.Types
     Update (..),
     mkUpdate,
     uExpressionAttributeNames,
+    uUpdateExpression,
     uExpressionAttributeValues,
     uReturnValuesOnConditionCheckFailure,
     uConditionExpression,
     uKey,
-    uUpdateExpression,
     uTableName,
 
     -- * UpdateGlobalSecondaryIndexAction
     UpdateGlobalSecondaryIndexAction (..),
     mkUpdateGlobalSecondaryIndexAction,
-    ugsiaIndexName,
     ugsiaProvisionedThroughput,
+    ugsiaIndexName,
 
     -- * UpdateReplicationGroupMemberAction
     UpdateReplicationGroupMemberAction (..),
     mkUpdateReplicationGroupMemberAction,
+    urgmaRegionName,
     urgmaKMSMasterKeyId,
     urgmaProvisionedThroughputOverride,
     urgmaGlobalSecondaryIndexes,
-    urgmaRegionName,
 
     -- * WriteRequest
     WriteRequest (..),
@@ -1023,12 +1023,6 @@ dynamoDBService =
         Lude.Just "throughput_exceeded"
       | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "TransactionInProgressException"
-              Lude.. Lude.hasStatus 400
-          )
-          e =
-        Lude.Just "still_processing"
-      | Lens.has
           ( Lude.hasCode "RequestThrottledException"
               Lude.. Lude.hasStatus 400
           )
@@ -1039,4 +1033,10 @@ dynamoDBService =
       | Lens.has (Lude.hasStatus 500) e =
         Lude.Just "general_server_error"
       | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lens.has
+          ( Lude.hasCode "TransactionInProgressException"
+              Lude.. Lude.hasStatus 400
+          )
+          e =
+        Lude.Just "still_processing"
       | Lude.otherwise = Lude.Nothing

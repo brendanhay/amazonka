@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,25 +52,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListBackups' smart constructor.
 data ListBackups = ListBackups'
-  { timeRangeUpperBound ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
+    timeRangeUpperBound :: Lude.Maybe Lude.Timestamp,
+    -- | Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
     timeRangeLowerBound :: Lude.Maybe Lude.Timestamp,
+    -- | Maximum number of backups to return at once.
     limit :: Lude.Maybe Lude.Natural,
+    -- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
     exclusiveStartBackupARN :: Lude.Maybe Lude.Text,
+    -- | The backups from the table specified by @BackupType@ are listed.
+    --
+    -- Where @BackupType@ can be:
+    --
+    --     * @USER@ - On-demand backup created by you.
+    --
+    --
+    --     * @SYSTEM@ - On-demand backup automatically created by DynamoDB.
+    --
+    --
+    --     * @ALL@ - All types of on-demand backups (USER and SYSTEM).
     backupType :: Lude.Maybe BackupTypeFilter,
+    -- | The backups from the table specified by @TableName@ are listed.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBackups' with the minimum fields required to make a request.
 --
+-- * 'timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
+-- * 'timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
+-- * 'limit' - Maximum number of backups to return at once.
+-- * 'exclusiveStartBackupARN' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
 -- * 'backupType' - The backups from the table specified by @BackupType@ are listed.
 --
 -- Where @BackupType@ can be:
@@ -83,11 +97,7 @@ data ListBackups = ListBackups'
 --     * @ALL@ - All types of on-demand backups (USER and SYSTEM).
 --
 --
--- * 'exclusiveStartBackupARN' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
--- * 'limit' - Maximum number of backups to return at once.
 -- * 'tableName' - The backups from the table specified by @TableName@ are listed.
--- * 'timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@ is inclusive.
--- * 'timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@ is exclusive.
 mkListBackups ::
   ListBackups
 mkListBackups =
@@ -209,18 +219,17 @@ instance Lude.ToQuery ListBackups where
 
 -- | /See:/ 'mkListBackupsResponse' smart constructor.
 data ListBackupsResponse = ListBackupsResponse'
-  { backupSummaries ::
-      Lude.Maybe [BackupSummary],
+  { -- | List of @BackupSummary@ objects.
+    backupSummaries :: Lude.Maybe [BackupSummary],
+    -- | The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to fetch the next page of results.
+    --
+    -- If @LastEvaluatedBackupArn@ is empty, then the last page of results has been processed and there are no more results to be retrieved.
+    -- If @LastEvaluatedBackupArn@ is not empty, this may or may not indicate that there is more data to be returned. All results are guaranteed to have been returned if and only if no value for @LastEvaluatedBackupArn@ is returned.
     lastEvaluatedBackupARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBackupsResponse' with the minimum fields required to make a request.

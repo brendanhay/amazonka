@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceFilters' smart constructor.
 data ResourceFilters = ResourceFilters'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The name of the resource.
     resourceName :: Lude.Maybe Lude.Text,
+    -- | The 12-digit source account ID.
     accountId :: Lude.Maybe Lude.Text,
+    -- | The source region.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceFilters' with the minimum fields required to make a request.
 --
--- * 'accountId' - The 12-digit source account ID.
--- * 'region' - The source region.
 -- * 'resourceId' - The ID of the resource.
 -- * 'resourceName' - The name of the resource.
+-- * 'accountId' - The 12-digit source account ID.
+-- * 'region' - The source region.
 mkResourceFilters ::
   ResourceFilters
 mkResourceFilters =

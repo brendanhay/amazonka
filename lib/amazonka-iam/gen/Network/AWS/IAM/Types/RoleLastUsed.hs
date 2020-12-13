@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoleLastUsed' smart constructor.
 data RoleLastUsed = RoleLastUsed'
-  { lastUsedDate ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> that the role was last used.
+    --
+    -- This field is null if the role has not been used within the IAM tracking period. For more information about the tracking period, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions Where Data Is Tracked> in the /IAM User Guide/ .
+    lastUsedDate :: Lude.Maybe Lude.DateTime,
+    -- | The name of the AWS Region in which the role was last used.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoleLastUsed' with the minimum fields required to make a request.

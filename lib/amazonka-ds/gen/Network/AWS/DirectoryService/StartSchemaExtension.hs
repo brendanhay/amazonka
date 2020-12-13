@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartSchemaExtension' smart constructor.
 data StartSchemaExtension = StartSchemaExtension'
-  { directoryId ::
-      Lude.Text,
+  { -- | The identifier of the directory for which the schema extension will be applied to.
+    directoryId :: Lude.Text,
+    -- | If true, creates a snapshot of the directory before applying the schema extension.
     createSnapshotBeforeSchemaExtension :: Lude.Bool,
+    -- | The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
     ldifContent :: Lude.Text,
+    -- | A description of the schema extension.
     description :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaExtension' with the minimum fields required to make a request.
 --
--- * 'createSnapshotBeforeSchemaExtension' - If true, creates a snapshot of the directory before applying the schema extension.
--- * 'description' - A description of the schema extension.
 -- * 'directoryId' - The identifier of the directory for which the schema extension will be applied to.
+-- * 'createSnapshotBeforeSchemaExtension' - If true, creates a snapshot of the directory before applying the schema extension.
 -- * 'ldifContent' - The LDIF file represented as a string. To construct the LdifContent string, precede each line as it would be formatted in an ldif file with \n. See the example request below for more details. The file size can be no larger than 1MB.
+-- * 'description' - A description of the schema extension.
 mkStartSchemaExtension ::
   -- | 'directoryId'
   Lude.Text ->
@@ -160,23 +158,18 @@ instance Lude.ToQuery StartSchemaExtension where
 
 -- | /See:/ 'mkStartSchemaExtensionResponse' smart constructor.
 data StartSchemaExtensionResponse = StartSchemaExtensionResponse'
-  { schemaExtensionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the schema extension that will be applied.
+    schemaExtensionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSchemaExtensionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'schemaExtensionId' - The identifier of the schema extension that will be applied.
+-- * 'responseStatus' - The response status code.
 mkStartSchemaExtensionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

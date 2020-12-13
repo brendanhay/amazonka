@@ -17,9 +17,9 @@ module Network.AWS.Pinpoint.Types.AttributesResource
     mkAttributesResource,
 
     -- * Lenses
-    arAttributes,
     arAttributeType,
     arApplicationId,
+    arAttributes,
   )
 where
 
@@ -30,23 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributesResource' smart constructor.
 data AttributesResource = AttributesResource'
-  { attributes ::
-      Lude.Maybe [Lude.Text],
+  { -- | The type of attribute or attributes that were removed from the endpoints. Valid values are:
+    --
+    --
+    --     * endpoint-custom-attributes - Custom attributes that describe endpoints.
+    --
+    --
+    --     * endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.
+    --
+    --
+    --     * endpoint-user-attributes - Custom attributes that describe users.
     attributeType :: Lude.Text,
-    applicationId :: Lude.Text
+    -- | The unique identifier for the application.
+    applicationId :: Lude.Text,
+    -- | An array that specifies the names of the attributes that were removed from the endpoints.
+    attributes :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributesResource' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application.
 -- * 'attributeType' - The type of attribute or attributes that were removed from the endpoints. Valid values are:
 --
 --
@@ -59,6 +63,7 @@ data AttributesResource = AttributesResource'
 --     * endpoint-user-attributes - Custom attributes that describe users.
 --
 --
+-- * 'applicationId' - The unique identifier for the application.
 -- * 'attributes' - An array that specifies the names of the attributes that were removed from the endpoints.
 mkAttributesResource ::
   -- | 'attributeType'
@@ -68,17 +73,10 @@ mkAttributesResource ::
   AttributesResource
 mkAttributesResource pAttributeType_ pApplicationId_ =
   AttributesResource'
-    { attributes = Lude.Nothing,
-      attributeType = pAttributeType_,
-      applicationId = pApplicationId_
+    { attributeType = pAttributeType_,
+      applicationId = pApplicationId_,
+      attributes = Lude.Nothing
     }
-
--- | An array that specifies the names of the attributes that were removed from the endpoints.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arAttributes :: Lens.Lens' AttributesResource (Lude.Maybe [Lude.Text])
-arAttributes = Lens.lens (attributes :: AttributesResource -> Lude.Maybe [Lude.Text]) (\s a -> s {attributes = a} :: AttributesResource)
-{-# DEPRECATED arAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The type of attribute or attributes that were removed from the endpoints. Valid values are:
 --
@@ -105,13 +103,20 @@ arApplicationId :: Lens.Lens' AttributesResource Lude.Text
 arApplicationId = Lens.lens (applicationId :: AttributesResource -> Lude.Text) (\s a -> s {applicationId = a} :: AttributesResource)
 {-# DEPRECATED arApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
+-- | An array that specifies the names of the attributes that were removed from the endpoints.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAttributes :: Lens.Lens' AttributesResource (Lude.Maybe [Lude.Text])
+arAttributes = Lens.lens (attributes :: AttributesResource -> Lude.Maybe [Lude.Text]) (\s a -> s {attributes = a} :: AttributesResource)
+{-# DEPRECATED arAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
 instance Lude.FromJSON AttributesResource where
   parseJSON =
     Lude.withObject
       "AttributesResource"
       ( \x ->
           AttributesResource'
-            Lude.<$> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "AttributeType")
+            Lude.<$> (x Lude..: "AttributeType")
             Lude.<*> (x Lude..: "ApplicationId")
+            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
       )

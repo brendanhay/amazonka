@@ -34,28 +34,27 @@ import Network.AWS.SMS.Types.VMServer
 --
 -- /See:/ 'mkServer' smart constructor.
 data Server = Server'
-  { serverType :: Lude.Maybe ServerType,
+  { -- | The type of server.
+    serverType :: Lude.Maybe ServerType,
+    -- | The ID of the server.
     serverId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the replication job is deleted or failed.
     replicationJobTerminated :: Lude.Maybe Lude.Bool,
+    -- | Information about the VM server.
     vmServer :: Lude.Maybe VMServer,
+    -- | The ID of the replication job.
     replicationJobId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Server' with the minimum fields required to make a request.
 --
--- * 'replicationJobId' - The ID of the replication job.
--- * 'replicationJobTerminated' - Indicates whether the replication job is deleted or failed.
--- * 'serverId' - The ID of the server.
 -- * 'serverType' - The type of server.
+-- * 'serverId' - The ID of the server.
+-- * 'replicationJobTerminated' - Indicates whether the replication job is deleted or failed.
 -- * 'vmServer' - Information about the VM server.
+-- * 'replicationJobId' - The ID of the replication job.
 mkServer ::
   Server
 mkServer =

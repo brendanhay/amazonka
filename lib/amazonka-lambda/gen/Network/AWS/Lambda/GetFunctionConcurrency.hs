@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Lambda.GetFunctionConcurrency
     mkGetFunctionConcurrency,
 
     -- ** Request lenses
-    gFunctionName,
+    gfcFunctionName,
 
     -- * Destructuring the response
     GetFunctionConcurrencyResponse (..),
@@ -39,16 +40,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFunctionConcurrency' smart constructor.
 newtype GetFunctionConcurrency = GetFunctionConcurrency'
-  { functionName ::
-      Lude.Text
+  { -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionConcurrency' with the minimum fields required to make a request.
@@ -90,9 +98,9 @@ mkGetFunctionConcurrency pFunctionName_ =
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gFunctionName :: Lens.Lens' GetFunctionConcurrency Lude.Text
-gFunctionName = Lens.lens (functionName :: GetFunctionConcurrency -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionConcurrency)
-{-# DEPRECATED gFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+gfcFunctionName :: Lens.Lens' GetFunctionConcurrency Lude.Text
+gfcFunctionName = Lens.lens (functionName :: GetFunctionConcurrency -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionConcurrency)
+{-# DEPRECATED gfcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 instance Lude.AWSRequest GetFunctionConcurrency where
   type Rs GetFunctionConcurrency = GetFunctionConcurrencyResponse
@@ -118,17 +126,12 @@ instance Lude.ToQuery GetFunctionConcurrency where
 
 -- | /See:/ 'mkGetFunctionConcurrencyResponse' smart constructor.
 data GetFunctionConcurrencyResponse = GetFunctionConcurrencyResponse'
-  { reservedConcurrentExecutions ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of simultaneous executions that are reserved for the function.
+    reservedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionConcurrencyResponse' with the minimum fields required to make a request.

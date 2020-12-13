@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDesiredWeightAndCapacity' smart constructor.
 data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
-  { desiredInstanceCount ::
-      Lude.Maybe Lude.Natural,
+  { -- | The variant's capacity.
+    desiredInstanceCount :: Lude.Maybe Lude.Natural,
+    -- | The variant's weight.
     desiredWeight :: Lude.Maybe Lude.Double,
+    -- | The name of the variant to update.
     variantName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DesiredWeightAndCapacity' with the minimum fields required to make a request.

@@ -35,34 +35,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDisk' smart constructor.
 data Disk = Disk'
-  { diskAllocationResource :: Lude.Maybe Lude.Text,
+  { -- | The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the local disk is not defined as an iSCSI target. The format of this field is /targetIqn::LUNNumber::region-volumeId/ .
+    diskAllocationResource :: Lude.Maybe Lude.Text,
     diskAllocationType :: Lude.Maybe Lude.Text,
+    -- | The device node of a local disk as assigned by the virtualization environment.
     diskNode :: Lude.Maybe Lude.Text,
+    -- | The path of a local disk in the gateway virtual machine (VM).
     diskPath :: Lude.Maybe Lude.Text,
+    -- | The local disk size in bytes.
     diskSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | A value that represents the status of a local disk.
     diskStatus :: Lude.Maybe Lude.Text,
+    -- | The unique device ID or other distinguishing data that identifies a local disk.
     diskId :: Lude.Maybe Lude.Text,
     diskAttributeList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Disk' with the minimum fields required to make a request.
 --
 -- * 'diskAllocationResource' - The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the local disk is not defined as an iSCSI target. The format of this field is /targetIqn::LUNNumber::region-volumeId/ .
--- * 'diskAllocationType' - Undocumented field.
--- * 'diskAttributeList' - Undocumented field.
--- * 'diskId' - The unique device ID or other distinguishing data that identifies a local disk.
+-- * 'diskAllocationType' -
 -- * 'diskNode' - The device node of a local disk as assigned by the virtualization environment.
 -- * 'diskPath' - The path of a local disk in the gateway virtual machine (VM).
 -- * 'diskSizeInBytes' - The local disk size in bytes.
 -- * 'diskStatus' - A value that represents the status of a local disk.
+-- * 'diskId' - The unique device ID or other distinguishing data that identifies a local disk.
+-- * 'diskAttributeList' -
 mkDisk ::
   Disk
 mkDisk =

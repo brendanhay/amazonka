@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.WorkSpaces.DeleteConnectionAlias
     mkDeleteConnectionAlias,
 
     -- ** Request lenses
-    dAliasId,
+    dcaAliasId,
 
     -- * Destructuring the response
     DeleteConnectionAliasResponse (..),
@@ -40,16 +41,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDeleteConnectionAlias' smart constructor.
 newtype DeleteConnectionAlias = DeleteConnectionAlias'
-  { aliasId ::
-      Lude.Text
+  { -- | The identifier of the connection alias to delete.
+    aliasId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnectionAlias' with the minimum fields required to make a request.
@@ -65,9 +60,9 @@ mkDeleteConnectionAlias pAliasId_ =
 -- | The identifier of the connection alias to delete.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAliasId :: Lens.Lens' DeleteConnectionAlias Lude.Text
-dAliasId = Lens.lens (aliasId :: DeleteConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteConnectionAlias)
-{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
+dcaAliasId :: Lens.Lens' DeleteConnectionAlias Lude.Text
+dcaAliasId = Lens.lens (aliasId :: DeleteConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteConnectionAlias)
+{-# DEPRECATED dcaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 instance Lude.AWSRequest DeleteConnectionAlias where
   type Rs DeleteConnectionAlias = DeleteConnectionAliasResponse
@@ -103,16 +98,10 @@ instance Lude.ToQuery DeleteConnectionAlias where
 
 -- | /See:/ 'mkDeleteConnectionAliasResponse' smart constructor.
 newtype DeleteConnectionAliasResponse = DeleteConnectionAliasResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnectionAliasResponse' with the minimum fields required to make a request.

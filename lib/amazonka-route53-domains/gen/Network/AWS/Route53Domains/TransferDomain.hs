@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,23 +38,23 @@ module Network.AWS.Route53Domains.TransferDomain
     tdPrivacyProtectTechContact,
     tdPrivacyProtectRegistrantContact,
     tdAutoRenew,
+    tdRegistrantContact,
+    tdDomainName,
+    tdAdminContact,
     tdPrivacyProtectAdminContact,
     tdIDNLangCode,
+    tdTechContact,
+    tdDurationInYears,
     tdAuthCode,
     tdNameservers,
-    tdDomainName,
-    tdDurationInYears,
-    tdAdminContact,
-    tdRegistrantContact,
-    tdTechContact,
 
     -- * Destructuring the response
     TransferDomainResponse (..),
     mkTransferDomainResponse,
 
     -- ** Response lenses
-    tdrsResponseStatus,
     tdrsOperationId,
+    tdrsResponseStatus,
   )
 where
 
@@ -67,30 +68,69 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkTransferDomain' smart constructor.
 data TransferDomain = TransferDomain'
-  { privacyProtectTechContact ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+    --
+    -- Default: @true@
+    privacyProtectTechContact :: Lude.Maybe Lude.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+    --
+    -- Default: @true@
     privacyProtectRegistrantContact :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether the domain will be automatically renewed (true) or not (false). Autorenewal only takes effect after the account is charged.
+    --
+    -- Default: true
     autoRenew :: Lude.Maybe Lude.Bool,
-    privacyProtectAdminContact :: Lude.Maybe Lude.Bool,
-    idNLangCode :: Lude.Maybe Lude.Text,
-    authCode :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    nameservers :: Lude.Maybe [Nameserver],
-    domainName :: Lude.Text,
-    durationInYears :: Lude.Natural,
-    adminContact :: ContactDetail,
+    -- | Provides detailed contact information.
     registrantContact :: ContactDetail,
-    techContact :: ContactDetail
+    -- | The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
+    --
+    -- The domain name can contain only the following characters:
+    --
+    --     * Letters a through z. Domain names are not case sensitive.
+    --
+    --
+    --     * Numbers 0 through 9.
+    --
+    --
+    --     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.
+    --
+    --
+    --     * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
+    domainName :: Lude.Text,
+    -- | Provides detailed contact information.
+    adminContact :: ContactDetail,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
+    --
+    -- Default: @true@
+    privacyProtectAdminContact :: Lude.Maybe Lude.Bool,
+    -- | Reserved for future use.
+    idNLangCode :: Lude.Maybe Lude.Text,
+    -- | Provides detailed contact information.
+    techContact :: ContactDetail,
+    -- | The number of years that you want to register the domain for. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.
+    --
+    -- Default: 1
+    durationInYears :: Lude.Natural,
+    -- | The authorization code for the domain. You get this value from the current registrar.
+    authCode :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Contains details for the host and glue IP addresses.
+    nameservers :: Lude.Maybe [Nameserver]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransferDomain' with the minimum fields required to make a request.
 --
--- * 'adminContact' - Provides detailed contact information.
--- * 'authCode' - The authorization code for the domain. You get this value from the current registrar.
+-- * 'privacyProtectTechContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+--
+-- Default: @true@
+-- * 'privacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+--
+-- Default: @true@
 -- * 'autoRenew' - Indicates whether the domain will be automatically renewed (true) or not (false). Autorenewal only takes effect after the account is charged.
 --
 -- Default: true
+-- * 'registrantContact' - Provides detailed contact information.
 -- * 'domainName' - The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
 -- The domain name can contain only the following characters:
@@ -107,53 +147,48 @@ data TransferDomain = TransferDomain'
 --     * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
 --
 --
--- * 'durationInYears' - The number of years that you want to register the domain for. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.
---
--- Default: 1
--- * 'idNLangCode' - Reserved for future use.
--- * 'nameservers' - Contains details for the host and glue IP addresses.
+-- * 'adminContact' - Provides detailed contact information.
 -- * 'privacyProtectAdminContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
 --
 -- Default: @true@
--- * 'privacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
---
--- Default: @true@
--- * 'privacyProtectTechContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
---
--- Default: @true@
--- * 'registrantContact' - Provides detailed contact information.
+-- * 'idNLangCode' - Reserved for future use.
 -- * 'techContact' - Provides detailed contact information.
+-- * 'durationInYears' - The number of years that you want to register the domain for. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.
+--
+-- Default: 1
+-- * 'authCode' - The authorization code for the domain. You get this value from the current registrar.
+-- * 'nameservers' - Contains details for the host and glue IP addresses.
 mkTransferDomain ::
+  -- | 'registrantContact'
+  ContactDetail ->
   -- | 'domainName'
   Lude.Text ->
-  -- | 'durationInYears'
-  Lude.Natural ->
   -- | 'adminContact'
-  ContactDetail ->
-  -- | 'registrantContact'
   ContactDetail ->
   -- | 'techContact'
   ContactDetail ->
+  -- | 'durationInYears'
+  Lude.Natural ->
   TransferDomain
 mkTransferDomain
-  pDomainName_
-  pDurationInYears_
-  pAdminContact_
   pRegistrantContact_
-  pTechContact_ =
+  pDomainName_
+  pAdminContact_
+  pTechContact_
+  pDurationInYears_ =
     TransferDomain'
       { privacyProtectTechContact = Lude.Nothing,
         privacyProtectRegistrantContact = Lude.Nothing,
         autoRenew = Lude.Nothing,
+        registrantContact = pRegistrantContact_,
+        domainName = pDomainName_,
+        adminContact = pAdminContact_,
         privacyProtectAdminContact = Lude.Nothing,
         idNLangCode = Lude.Nothing,
-        authCode = Lude.Nothing,
-        nameservers = Lude.Nothing,
-        domainName = pDomainName_,
+        techContact = pTechContact_,
         durationInYears = pDurationInYears_,
-        adminContact = pAdminContact_,
-        registrantContact = pRegistrantContact_,
-        techContact = pTechContact_
+        authCode = Lude.Nothing,
+        nameservers = Lude.Nothing
       }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
@@ -183,35 +218,12 @@ tdAutoRenew :: Lens.Lens' TransferDomain (Lude.Maybe Lude.Bool)
 tdAutoRenew = Lens.lens (autoRenew :: TransferDomain -> Lude.Maybe Lude.Bool) (\s a -> s {autoRenew = a} :: TransferDomain)
 {-# DEPRECATED tdAutoRenew "Use generic-lens or generic-optics with 'autoRenew' instead." #-}
 
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
+-- | Provides detailed contact information.
 --
--- Default: @true@
---
--- /Note:/ Consider using 'privacyProtectAdminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdPrivacyProtectAdminContact :: Lens.Lens' TransferDomain (Lude.Maybe Lude.Bool)
-tdPrivacyProtectAdminContact = Lens.lens (privacyProtectAdminContact :: TransferDomain -> Lude.Maybe Lude.Bool) (\s a -> s {privacyProtectAdminContact = a} :: TransferDomain)
-{-# DEPRECATED tdPrivacyProtectAdminContact "Use generic-lens or generic-optics with 'privacyProtectAdminContact' instead." #-}
-
--- | Reserved for future use.
---
--- /Note:/ Consider using 'idNLangCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdIDNLangCode :: Lens.Lens' TransferDomain (Lude.Maybe Lude.Text)
-tdIDNLangCode = Lens.lens (idNLangCode :: TransferDomain -> Lude.Maybe Lude.Text) (\s a -> s {idNLangCode = a} :: TransferDomain)
-{-# DEPRECATED tdIDNLangCode "Use generic-lens or generic-optics with 'idNLangCode' instead." #-}
-
--- | The authorization code for the domain. You get this value from the current registrar.
---
--- /Note:/ Consider using 'authCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdAuthCode :: Lens.Lens' TransferDomain (Lude.Maybe (Lude.Sensitive Lude.Text))
-tdAuthCode = Lens.lens (authCode :: TransferDomain -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authCode = a} :: TransferDomain)
-{-# DEPRECATED tdAuthCode "Use generic-lens or generic-optics with 'authCode' instead." #-}
-
--- | Contains details for the host and glue IP addresses.
---
--- /Note:/ Consider using 'nameservers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdNameservers :: Lens.Lens' TransferDomain (Lude.Maybe [Nameserver])
-tdNameservers = Lens.lens (nameservers :: TransferDomain -> Lude.Maybe [Nameserver]) (\s a -> s {nameservers = a} :: TransferDomain)
-{-# DEPRECATED tdNameservers "Use generic-lens or generic-optics with 'nameservers' instead." #-}
+-- /Note:/ Consider using 'registrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdRegistrantContact :: Lens.Lens' TransferDomain ContactDetail
+tdRegistrantContact = Lens.lens (registrantContact :: TransferDomain -> ContactDetail) (\s a -> s {registrantContact = a} :: TransferDomain)
+{-# DEPRECATED tdRegistrantContact "Use generic-lens or generic-optics with 'registrantContact' instead." #-}
 
 -- | The name of the domain that you want to transfer to Route 53. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
@@ -235,6 +247,36 @@ tdDomainName :: Lens.Lens' TransferDomain Lude.Text
 tdDomainName = Lens.lens (domainName :: TransferDomain -> Lude.Text) (\s a -> s {domainName = a} :: TransferDomain)
 {-# DEPRECATED tdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
+-- | Provides detailed contact information.
+--
+-- /Note:/ Consider using 'adminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdAdminContact :: Lens.Lens' TransferDomain ContactDetail
+tdAdminContact = Lens.lens (adminContact :: TransferDomain -> ContactDetail) (\s a -> s {adminContact = a} :: TransferDomain)
+{-# DEPRECATED tdAdminContact "Use generic-lens or generic-optics with 'adminContact' instead." #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
+--
+-- Default: @true@
+--
+-- /Note:/ Consider using 'privacyProtectAdminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdPrivacyProtectAdminContact :: Lens.Lens' TransferDomain (Lude.Maybe Lude.Bool)
+tdPrivacyProtectAdminContact = Lens.lens (privacyProtectAdminContact :: TransferDomain -> Lude.Maybe Lude.Bool) (\s a -> s {privacyProtectAdminContact = a} :: TransferDomain)
+{-# DEPRECATED tdPrivacyProtectAdminContact "Use generic-lens or generic-optics with 'privacyProtectAdminContact' instead." #-}
+
+-- | Reserved for future use.
+--
+-- /Note:/ Consider using 'idNLangCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdIDNLangCode :: Lens.Lens' TransferDomain (Lude.Maybe Lude.Text)
+tdIDNLangCode = Lens.lens (idNLangCode :: TransferDomain -> Lude.Maybe Lude.Text) (\s a -> s {idNLangCode = a} :: TransferDomain)
+{-# DEPRECATED tdIDNLangCode "Use generic-lens or generic-optics with 'idNLangCode' instead." #-}
+
+-- | Provides detailed contact information.
+--
+-- /Note:/ Consider using 'techContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTechContact :: Lens.Lens' TransferDomain ContactDetail
+tdTechContact = Lens.lens (techContact :: TransferDomain -> ContactDetail) (\s a -> s {techContact = a} :: TransferDomain)
+{-# DEPRECATED tdTechContact "Use generic-lens or generic-optics with 'techContact' instead." #-}
+
 -- | The number of years that you want to register the domain for. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain.
 --
 -- Default: 1
@@ -244,26 +286,19 @@ tdDurationInYears :: Lens.Lens' TransferDomain Lude.Natural
 tdDurationInYears = Lens.lens (durationInYears :: TransferDomain -> Lude.Natural) (\s a -> s {durationInYears = a} :: TransferDomain)
 {-# DEPRECATED tdDurationInYears "Use generic-lens or generic-optics with 'durationInYears' instead." #-}
 
--- | Provides detailed contact information.
+-- | The authorization code for the domain. You get this value from the current registrar.
 --
--- /Note:/ Consider using 'adminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdAdminContact :: Lens.Lens' TransferDomain ContactDetail
-tdAdminContact = Lens.lens (adminContact :: TransferDomain -> ContactDetail) (\s a -> s {adminContact = a} :: TransferDomain)
-{-# DEPRECATED tdAdminContact "Use generic-lens or generic-optics with 'adminContact' instead." #-}
+-- /Note:/ Consider using 'authCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdAuthCode :: Lens.Lens' TransferDomain (Lude.Maybe (Lude.Sensitive Lude.Text))
+tdAuthCode = Lens.lens (authCode :: TransferDomain -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authCode = a} :: TransferDomain)
+{-# DEPRECATED tdAuthCode "Use generic-lens or generic-optics with 'authCode' instead." #-}
 
--- | Provides detailed contact information.
+-- | Contains details for the host and glue IP addresses.
 --
--- /Note:/ Consider using 'registrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdRegistrantContact :: Lens.Lens' TransferDomain ContactDetail
-tdRegistrantContact = Lens.lens (registrantContact :: TransferDomain -> ContactDetail) (\s a -> s {registrantContact = a} :: TransferDomain)
-{-# DEPRECATED tdRegistrantContact "Use generic-lens or generic-optics with 'registrantContact' instead." #-}
-
--- | Provides detailed contact information.
---
--- /Note:/ Consider using 'techContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTechContact :: Lens.Lens' TransferDomain ContactDetail
-tdTechContact = Lens.lens (techContact :: TransferDomain -> ContactDetail) (\s a -> s {techContact = a} :: TransferDomain)
-{-# DEPRECATED tdTechContact "Use generic-lens or generic-optics with 'techContact' instead." #-}
+-- /Note:/ Consider using 'nameservers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdNameservers :: Lens.Lens' TransferDomain (Lude.Maybe [Nameserver])
+tdNameservers = Lens.lens (nameservers :: TransferDomain -> Lude.Maybe [Nameserver]) (\s a -> s {nameservers = a} :: TransferDomain)
+{-# DEPRECATED tdNameservers "Use generic-lens or generic-optics with 'nameservers' instead." #-}
 
 instance Lude.AWSRequest TransferDomain where
   type Rs TransferDomain = TransferDomainResponse
@@ -272,7 +307,7 @@ instance Lude.AWSRequest TransferDomain where
     Res.receiveJSON
       ( \s h x ->
           TransferDomainResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
+            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders TransferDomain where
@@ -295,16 +330,16 @@ instance Lude.ToJSON TransferDomain where
             ("PrivacyProtectRegistrantContact" Lude..=)
               Lude.<$> privacyProtectRegistrantContact,
             ("AutoRenew" Lude..=) Lude.<$> autoRenew,
+            Lude.Just ("RegistrantContact" Lude..= registrantContact),
+            Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("AdminContact" Lude..= adminContact),
             ("PrivacyProtectAdminContact" Lude..=)
               Lude.<$> privacyProtectAdminContact,
             ("IdnLangCode" Lude..=) Lude.<$> idNLangCode,
-            ("AuthCode" Lude..=) Lude.<$> authCode,
-            ("Nameservers" Lude..=) Lude.<$> nameservers,
-            Lude.Just ("DomainName" Lude..= domainName),
+            Lude.Just ("TechContact" Lude..= techContact),
             Lude.Just ("DurationInYears" Lude..= durationInYears),
-            Lude.Just ("AdminContact" Lude..= adminContact),
-            Lude.Just ("RegistrantContact" Lude..= registrantContact),
-            Lude.Just ("TechContact" Lude..= techContact)
+            ("AuthCode" Lude..=) Lude.<$> authCode,
+            ("Nameservers" Lude..=) Lude.<$> nameservers
           ]
       )
 
@@ -318,17 +353,12 @@ instance Lude.ToQuery TransferDomain where
 --
 -- /See:/ 'mkTransferDomainResponse' smart constructor.
 data TransferDomainResponse = TransferDomainResponse'
-  { responseStatus ::
-      Lude.Int,
-    operationId :: Lude.Text
+  { -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+    operationId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransferDomainResponse' with the minimum fields required to make a request.
@@ -336,23 +366,16 @@ data TransferDomainResponse = TransferDomainResponse'
 -- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 -- * 'responseStatus' - The response status code.
 mkTransferDomainResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   TransferDomainResponse
-mkTransferDomainResponse pResponseStatus_ pOperationId_ =
+mkTransferDomainResponse pOperationId_ pResponseStatus_ =
   TransferDomainResponse'
-    { responseStatus = pResponseStatus_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdrsResponseStatus :: Lens.Lens' TransferDomainResponse Lude.Int
-tdrsResponseStatus = Lens.lens (responseStatus :: TransferDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TransferDomainResponse)
-{-# DEPRECATED tdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 --
@@ -360,3 +383,10 @@ tdrsResponseStatus = Lens.lens (responseStatus :: TransferDomainResponse -> Lude
 tdrsOperationId :: Lens.Lens' TransferDomainResponse Lude.Text
 tdrsOperationId = Lens.lens (operationId :: TransferDomainResponse -> Lude.Text) (\s a -> s {operationId = a} :: TransferDomainResponse)
 {-# DEPRECATED tdrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdrsResponseStatus :: Lens.Lens' TransferDomainResponse Lude.Int
+tdrsResponseStatus = Lens.lens (responseStatus :: TransferDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TransferDomainResponse)
+{-# DEPRECATED tdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

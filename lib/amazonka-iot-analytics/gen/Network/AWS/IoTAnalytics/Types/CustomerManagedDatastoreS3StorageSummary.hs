@@ -30,23 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomerManagedDatastoreS3StorageSummary' smart constructor.
 data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3StorageSummary'
-  { bucket ::
-      Lude.Maybe
-        Lude.Text,
-    keyPrefix ::
-      Lude.Maybe
-        Lude.Text,
-    roleARN ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The name of the S3 bucket in which data store data is stored.
+    bucket :: Lude.Maybe Lude.Text,
+    -- | Optional. The prefix used to create the keys of the data store data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+    keyPrefix :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomerManagedDatastoreS3StorageSummary' with the minimum fields required to make a request.

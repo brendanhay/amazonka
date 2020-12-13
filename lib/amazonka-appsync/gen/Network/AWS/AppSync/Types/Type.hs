@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkType' smart constructor.
 data Type = Type'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The type ARN.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The type definition.
     definition :: Lude.Maybe Lude.Text,
+    -- | The type format: SDL or JSON.
     format :: Lude.Maybe TypeDefinitionFormat,
+    -- | The type name.
     name :: Lude.Maybe Lude.Text,
+    -- | The type description.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Type' with the minimum fields required to make a request.
 --
 -- * 'arn' - The type ARN.
 -- * 'definition' - The type definition.
--- * 'description' - The type description.
 -- * 'format' - The type format: SDL or JSON.
 -- * 'name' - The type name.
+-- * 'description' - The type description.
 mkType ::
   Type
 mkType =

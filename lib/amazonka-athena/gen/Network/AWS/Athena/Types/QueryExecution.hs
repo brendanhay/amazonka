@@ -40,34 +40,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryExecution' smart constructor.
 data QueryExecution = QueryExecution'
-  { status ::
-      Lude.Maybe QueryExecutionStatus,
+  { -- | The completion date, current state, submission time, and state change reason (if applicable) for the query execution.
+    status :: Lude.Maybe QueryExecutionStatus,
+    -- | The database in which the query execution occurred.
     queryExecutionContext :: Lude.Maybe QueryExecutionContext,
+    -- | The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup.
     resultConfiguration :: Lude.Maybe ResultConfiguration,
+    -- | The SQL query statements which the query execution ran.
     query :: Lude.Maybe Lude.Text,
+    -- | The type of query statement that was run. @DDL@ indicates DDL query statements. @DML@ indicates DML (Data Manipulation Language) query statements, such as @CREATE TABLE AS SELECT@ . @UTILITY@ indicates query statements other than DDL and DML, such as @SHOW CREATE TABLE@ , or @DESCRIBE <table>@ .
     statementType :: Lude.Maybe StatementType,
+    -- | Query execution statistics, such as the amount of data scanned, the amount of time that the query took to process, and the type of statement that was run.
     statistics :: Lude.Maybe QueryExecutionStatistics,
+    -- | The unique identifier for each query execution.
     queryExecutionId :: Lude.Maybe Lude.Text,
+    -- | The name of the workgroup in which the query ran.
     workGroup :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryExecution' with the minimum fields required to make a request.
 --
--- * 'query' - The SQL query statements which the query execution ran.
+-- * 'status' - The completion date, current state, submission time, and state change reason (if applicable) for the query execution.
 -- * 'queryExecutionContext' - The database in which the query execution occurred.
--- * 'queryExecutionId' - The unique identifier for each query execution.
 -- * 'resultConfiguration' - The location in Amazon S3 where query results were stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup.
+-- * 'query' - The SQL query statements which the query execution ran.
 -- * 'statementType' - The type of query statement that was run. @DDL@ indicates DDL query statements. @DML@ indicates DML (Data Manipulation Language) query statements, such as @CREATE TABLE AS SELECT@ . @UTILITY@ indicates query statements other than DDL and DML, such as @SHOW CREATE TABLE@ , or @DESCRIBE <table>@ .
 -- * 'statistics' - Query execution statistics, such as the amount of data scanned, the amount of time that the query took to process, and the type of statement that was run.
--- * 'status' - The completion date, current state, submission time, and state change reason (if applicable) for the query execution.
+-- * 'queryExecutionId' - The unique identifier for each query execution.
 -- * 'workGroup' - The name of the workgroup in which the query ran.
 mkQueryExecution ::
   QueryExecution

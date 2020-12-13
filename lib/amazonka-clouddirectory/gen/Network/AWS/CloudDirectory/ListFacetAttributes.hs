@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.CloudDirectory.ListFacetAttributes
 
     -- ** Request lenses
     lfaNextToken,
-    lfaMaxResults,
     lfaSchemaARN,
     lfaName,
+    lfaMaxResults,
 
     -- * Destructuring the response
     ListFacetAttributesResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFacetAttributes' smart constructor.
 data ListFacetAttributes = ListFacetAttributes'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of the schema where the facet resides.
     schemaARN :: Lude.Text,
-    name :: Lude.Text
+    -- | The name of the facet whose attributes will be retrieved.
+    name :: Lude.Text,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFacetAttributes' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
--- * 'name' - The name of the facet whose attributes will be retrieved.
 -- * 'nextToken' - The pagination token.
 -- * 'schemaARN' - The ARN of the schema where the facet resides.
+-- * 'name' - The name of the facet whose attributes will be retrieved.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkListFacetAttributes ::
   -- | 'schemaARN'
   Lude.Text ->
@@ -76,9 +74,9 @@ mkListFacetAttributes ::
 mkListFacetAttributes pSchemaARN_ pName_ =
   ListFacetAttributes'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
       schemaARN = pSchemaARN_,
-      name = pName_
+      name = pName_,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token.
@@ -87,13 +85,6 @@ mkListFacetAttributes pSchemaARN_ pName_ =
 lfaNextToken :: Lens.Lens' ListFacetAttributes (Lude.Maybe Lude.Text)
 lfaNextToken = Lens.lens (nextToken :: ListFacetAttributes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListFacetAttributes)
 {-# DEPRECATED lfaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfaMaxResults :: Lens.Lens' ListFacetAttributes (Lude.Maybe Lude.Natural)
-lfaMaxResults = Lens.lens (maxResults :: ListFacetAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFacetAttributes)
-{-# DEPRECATED lfaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The ARN of the schema where the facet resides.
 --
@@ -108,6 +99,13 @@ lfaSchemaARN = Lens.lens (schemaARN :: ListFacetAttributes -> Lude.Text) (\s a -
 lfaName :: Lens.Lens' ListFacetAttributes Lude.Text
 lfaName = Lens.lens (name :: ListFacetAttributes -> Lude.Text) (\s a -> s {name = a} :: ListFacetAttributes)
 {-# DEPRECATED lfaName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfaMaxResults :: Lens.Lens' ListFacetAttributes (Lude.Maybe Lude.Natural)
+lfaMaxResults = Lens.lens (maxResults :: ListFacetAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFacetAttributes)
+{-# DEPRECATED lfaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListFacetAttributes where
   page rq rs
@@ -139,8 +137,8 @@ instance Lude.ToJSON ListFacetAttributes where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -153,25 +151,20 @@ instance Lude.ToQuery ListFacetAttributes where
 
 -- | /See:/ 'mkListFacetAttributesResponse' smart constructor.
 data ListFacetAttributesResponse = ListFacetAttributesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe [FacetAttribute],
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The attributes attached to the facet.
+    attributes :: Lude.Maybe [FacetAttribute],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFacetAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attributes attached to the facet.
 -- * 'nextToken' - The pagination token.
+-- * 'attributes' - The attributes attached to the facet.
 -- * 'responseStatus' - The response status code.
 mkListFacetAttributesResponse ::
   -- | 'responseStatus'

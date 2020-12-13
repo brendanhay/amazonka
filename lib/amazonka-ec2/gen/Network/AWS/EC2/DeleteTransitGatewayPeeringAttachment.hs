@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteTransitGatewayPeeringAttachment
     mkDeleteTransitGatewayPeeringAttachment,
 
     -- ** Request lenses
-    dtgpatDryRun,
-    dtgpatTransitGatewayAttachmentId,
+    dtgpafTransitGatewayAttachmentId,
+    dtgpafDryRun,
 
     -- * Destructuring the response
     DeleteTransitGatewayPeeringAttachmentResponse (..),
@@ -40,25 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTransitGatewayPeeringAttachment' smart constructor.
 data DeleteTransitGatewayPeeringAttachment = DeleteTransitGatewayPeeringAttachment'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    transitGatewayAttachmentId ::
-      Lude.Text
+  { -- | The ID of the transit gateway peering attachment.
+    transitGatewayAttachmentId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayPeeringAttachment' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'transitGatewayAttachmentId' - The ID of the transit gateway peering attachment.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteTransitGatewayPeeringAttachment ::
   -- | 'transitGatewayAttachmentId'
   Lude.Text ->
@@ -66,24 +60,24 @@ mkDeleteTransitGatewayPeeringAttachment ::
 mkDeleteTransitGatewayPeeringAttachment
   pTransitGatewayAttachmentId_ =
     DeleteTransitGatewayPeeringAttachment'
-      { dryRun = Lude.Nothing,
-        transitGatewayAttachmentId =
-          pTransitGatewayAttachmentId_
+      { transitGatewayAttachmentId =
+          pTransitGatewayAttachmentId_,
+        dryRun = Lude.Nothing
       }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgpatDryRun :: Lens.Lens' DeleteTransitGatewayPeeringAttachment (Lude.Maybe Lude.Bool)
-dtgpatDryRun = Lens.lens (dryRun :: DeleteTransitGatewayPeeringAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayPeeringAttachment)
-{-# DEPRECATED dtgpatDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the transit gateway peering attachment.
 --
 -- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgpatTransitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayPeeringAttachment Lude.Text
-dtgpatTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: DeleteTransitGatewayPeeringAttachment -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: DeleteTransitGatewayPeeringAttachment)
-{-# DEPRECATED dtgpatTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+dtgpafTransitGatewayAttachmentId :: Lens.Lens' DeleteTransitGatewayPeeringAttachment Lude.Text
+dtgpafTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: DeleteTransitGatewayPeeringAttachment -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: DeleteTransitGatewayPeeringAttachment)
+{-# DEPRECATED dtgpafTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgpafDryRun :: Lens.Lens' DeleteTransitGatewayPeeringAttachment (Lude.Maybe Lude.Bool)
+dtgpafDryRun = Lens.lens (dryRun :: DeleteTransitGatewayPeeringAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayPeeringAttachment)
+{-# DEPRECATED dtgpafDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteTransitGatewayPeeringAttachment where
   type
@@ -110,34 +104,24 @@ instance Lude.ToQuery DeleteTransitGatewayPeeringAttachment where
       [ "Action"
           Lude.=: ("DeleteTransitGatewayPeeringAttachment" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteTransitGatewayPeeringAttachmentResponse' smart constructor.
 data DeleteTransitGatewayPeeringAttachmentResponse = DeleteTransitGatewayPeeringAttachmentResponse'
-  { transitGatewayPeeringAttachment ::
-      Lude.Maybe
-        TransitGatewayPeeringAttachment,
-    responseStatus ::
-      Lude.Int
+  { -- | The transit gateway peering attachment.
+    transitGatewayPeeringAttachment :: Lude.Maybe TransitGatewayPeeringAttachment,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayPeeringAttachmentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayPeeringAttachment' - The transit gateway peering attachment.
+-- * 'responseStatus' - The response status code.
 mkDeleteTransitGatewayPeeringAttachmentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

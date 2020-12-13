@@ -17,8 +17,8 @@ module Network.AWS.S3.Types.Bucket
     mkBucket,
 
     -- * Lenses
-    bCreationDate,
     bName,
+    bCreationDate,
   )
 where
 
@@ -30,37 +30,26 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkBucket' smart constructor.
 data Bucket = Bucket'
-  { creationDate :: Lude.DateTime,
-    name :: BucketName
+  { -- | The name of the bucket.
+    name :: BucketName,
+    -- | Date the bucket was created.
+    creationDate :: Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Bucket' with the minimum fields required to make a request.
 --
--- * 'creationDate' - Date the bucket was created.
 -- * 'name' - The name of the bucket.
+-- * 'creationDate' - Date the bucket was created.
 mkBucket ::
-  -- | 'creationDate'
-  Lude.DateTime ->
   -- | 'name'
   BucketName ->
+  -- | 'creationDate'
+  Lude.DateTime ->
   Bucket
-mkBucket pCreationDate_ pName_ =
-  Bucket' {creationDate = pCreationDate_, name = pName_}
-
--- | Date the bucket was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bCreationDate :: Lens.Lens' Bucket Lude.DateTime
-bCreationDate = Lens.lens (creationDate :: Bucket -> Lude.DateTime) (\s a -> s {creationDate = a} :: Bucket)
-{-# DEPRECATED bCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+mkBucket pName_ pCreationDate_ =
+  Bucket' {name = pName_, creationDate = pCreationDate_}
 
 -- | The name of the bucket.
 --
@@ -69,7 +58,14 @@ bName :: Lens.Lens' Bucket BucketName
 bName = Lens.lens (name :: Bucket -> BucketName) (\s a -> s {name = a} :: Bucket)
 {-# DEPRECATED bName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | Date the bucket was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bCreationDate :: Lens.Lens' Bucket Lude.DateTime
+bCreationDate = Lens.lens (creationDate :: Bucket -> Lude.DateTime) (\s a -> s {creationDate = a} :: Bucket)
+{-# DEPRECATED bCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
 instance Lude.FromXML Bucket where
   parseXML x =
     Bucket'
-      Lude.<$> (x Lude..@ "CreationDate") Lude.<*> (x Lude..@ "Name")
+      Lude.<$> (x Lude..@ "Name") Lude.<*> (x Lude..@ "CreationDate")

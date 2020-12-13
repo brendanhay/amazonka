@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Connect.UpdateUserSecurityProfiles
     mkUpdateUserSecurityProfiles,
 
     -- ** Request lenses
+    uuspInstanceId,
     uuspSecurityProfileIds,
     uuspUserId,
-    uuspInstanceId,
 
     -- * Destructuring the response
     UpdateUserSecurityProfilesResponse (..),
@@ -37,18 +38,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateUserSecurityProfiles' smart constructor.
 data UpdateUserSecurityProfiles = UpdateUserSecurityProfiles'
-  { securityProfileIds ::
-      Lude.NonEmpty Lude.Text,
-    userId :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifiers of the security profiles for the user.
+    securityProfileIds :: Lude.NonEmpty Lude.Text,
+    -- | The identifier of the user account.
+    userId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserSecurityProfiles' with the minimum fields required to make a request.
@@ -57,23 +54,29 @@ data UpdateUserSecurityProfiles = UpdateUserSecurityProfiles'
 -- * 'securityProfileIds' - The identifiers of the security profiles for the user.
 -- * 'userId' - The identifier of the user account.
 mkUpdateUserSecurityProfiles ::
+  -- | 'instanceId'
+  Lude.Text ->
   -- | 'securityProfileIds'
   Lude.NonEmpty Lude.Text ->
   -- | 'userId'
   Lude.Text ->
-  -- | 'instanceId'
-  Lude.Text ->
   UpdateUserSecurityProfiles
 mkUpdateUserSecurityProfiles
+  pInstanceId_
   pSecurityProfileIds_
-  pUserId_
-  pInstanceId_ =
+  pUserId_ =
     UpdateUserSecurityProfiles'
-      { securityProfileIds =
-          pSecurityProfileIds_,
-        userId = pUserId_,
-        instanceId = pInstanceId_
+      { instanceId = pInstanceId_,
+        securityProfileIds = pSecurityProfileIds_,
+        userId = pUserId_
       }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuspInstanceId :: Lens.Lens' UpdateUserSecurityProfiles Lude.Text
+uuspInstanceId = Lens.lens (instanceId :: UpdateUserSecurityProfiles -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserSecurityProfiles)
+{-# DEPRECATED uuspInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifiers of the security profiles for the user.
 --
@@ -88,13 +91,6 @@ uuspSecurityProfileIds = Lens.lens (securityProfileIds :: UpdateUserSecurityProf
 uuspUserId :: Lens.Lens' UpdateUserSecurityProfiles Lude.Text
 uuspUserId = Lens.lens (userId :: UpdateUserSecurityProfiles -> Lude.Text) (\s a -> s {userId = a} :: UpdateUserSecurityProfiles)
 {-# DEPRECATED uuspUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuspInstanceId :: Lens.Lens' UpdateUserSecurityProfiles Lude.Text
-uuspInstanceId = Lens.lens (instanceId :: UpdateUserSecurityProfiles -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserSecurityProfiles)
-{-# DEPRECATED uuspInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest UpdateUserSecurityProfiles where
   type
@@ -134,13 +130,7 @@ instance Lude.ToQuery UpdateUserSecurityProfiles where
 
 -- | /See:/ 'mkUpdateUserSecurityProfilesResponse' smart constructor.
 data UpdateUserSecurityProfilesResponse = UpdateUserSecurityProfilesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserSecurityProfilesResponse' with the minimum fields required to make a request.

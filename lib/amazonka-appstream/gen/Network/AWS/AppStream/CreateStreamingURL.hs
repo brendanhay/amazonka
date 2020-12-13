@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,11 +21,11 @@ module Network.AWS.AppStream.CreateStreamingURL
 
     -- ** Request lenses
     csuSessionContext,
+    csuUserId,
     csuApplicationId,
     csuValidity,
-    csuStackName,
     csuFleetName,
-    csuUserId,
+    csuStackName,
 
     -- * Destructuring the response
     CreateStreamingURLResponse (..),
@@ -45,47 +46,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateStreamingURL' smart constructor.
 data CreateStreamingURL = CreateStreamingURL'
-  { sessionContext ::
-      Lude.Maybe Lude.Text,
+  { -- | The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
+    sessionContext :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user.
+    userId :: Lude.Text,
+    -- | The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
     validity :: Lude.Maybe Lude.Integer,
-    stackName :: Lude.Text,
+    -- | The name of the fleet.
     fleetName :: Lude.Text,
-    userId :: Lude.Text
+    -- | The name of the stack.
+    stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingURL' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
--- * 'fleetName' - The name of the fleet.
 -- * 'sessionContext' - The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
--- * 'stackName' - The name of the stack.
 -- * 'userId' - The identifier of the user.
+-- * 'applicationId' - The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
 -- * 'validity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
+-- * 'fleetName' - The name of the fleet.
+-- * 'stackName' - The name of the stack.
 mkCreateStreamingURL ::
-  -- | 'stackName'
+  -- | 'userId'
   Lude.Text ->
   -- | 'fleetName'
   Lude.Text ->
-  -- | 'userId'
+  -- | 'stackName'
   Lude.Text ->
   CreateStreamingURL
-mkCreateStreamingURL pStackName_ pFleetName_ pUserId_ =
+mkCreateStreamingURL pUserId_ pFleetName_ pStackName_ =
   CreateStreamingURL'
     { sessionContext = Lude.Nothing,
+      userId = pUserId_,
       applicationId = Lude.Nothing,
       validity = Lude.Nothing,
-      stackName = pStackName_,
       fleetName = pFleetName_,
-      userId = pUserId_
+      stackName = pStackName_
     }
 
 -- | The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
@@ -94,6 +94,13 @@ mkCreateStreamingURL pStackName_ pFleetName_ pUserId_ =
 csuSessionContext :: Lens.Lens' CreateStreamingURL (Lude.Maybe Lude.Text)
 csuSessionContext = Lens.lens (sessionContext :: CreateStreamingURL -> Lude.Maybe Lude.Text) (\s a -> s {sessionContext = a} :: CreateStreamingURL)
 {-# DEPRECATED csuSessionContext "Use generic-lens or generic-optics with 'sessionContext' instead." #-}
+
+-- | The identifier of the user.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csuUserId :: Lens.Lens' CreateStreamingURL Lude.Text
+csuUserId = Lens.lens (userId :: CreateStreamingURL -> Lude.Text) (\s a -> s {userId = a} :: CreateStreamingURL)
+{-# DEPRECATED csuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
 --
@@ -109,13 +116,6 @@ csuValidity :: Lens.Lens' CreateStreamingURL (Lude.Maybe Lude.Integer)
 csuValidity = Lens.lens (validity :: CreateStreamingURL -> Lude.Maybe Lude.Integer) (\s a -> s {validity = a} :: CreateStreamingURL)
 {-# DEPRECATED csuValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
 
--- | The name of the stack.
---
--- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuStackName :: Lens.Lens' CreateStreamingURL Lude.Text
-csuStackName = Lens.lens (stackName :: CreateStreamingURL -> Lude.Text) (\s a -> s {stackName = a} :: CreateStreamingURL)
-{-# DEPRECATED csuStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
-
 -- | The name of the fleet.
 --
 -- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -123,12 +123,12 @@ csuFleetName :: Lens.Lens' CreateStreamingURL Lude.Text
 csuFleetName = Lens.lens (fleetName :: CreateStreamingURL -> Lude.Text) (\s a -> s {fleetName = a} :: CreateStreamingURL)
 {-# DEPRECATED csuFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
 
--- | The identifier of the user.
+-- | The name of the stack.
 --
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuUserId :: Lens.Lens' CreateStreamingURL Lude.Text
-csuUserId = Lens.lens (userId :: CreateStreamingURL -> Lude.Text) (\s a -> s {userId = a} :: CreateStreamingURL)
-{-# DEPRECATED csuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csuStackName :: Lens.Lens' CreateStreamingURL Lude.Text
+csuStackName = Lens.lens (stackName :: CreateStreamingURL -> Lude.Text) (\s a -> s {stackName = a} :: CreateStreamingURL)
+{-# DEPRECATED csuStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 instance Lude.AWSRequest CreateStreamingURL where
   type Rs CreateStreamingURL = CreateStreamingURLResponse
@@ -158,11 +158,11 @@ instance Lude.ToJSON CreateStreamingURL where
     Lude.object
       ( Lude.catMaybes
           [ ("SessionContext" Lude..=) Lude.<$> sessionContext,
+            Lude.Just ("UserId" Lude..= userId),
             ("ApplicationId" Lude..=) Lude.<$> applicationId,
             ("Validity" Lude..=) Lude.<$> validity,
-            Lude.Just ("StackName" Lude..= stackName),
             Lude.Just ("FleetName" Lude..= fleetName),
-            Lude.Just ("UserId" Lude..= userId)
+            Lude.Just ("StackName" Lude..= stackName)
           ]
       )
 
@@ -174,25 +174,21 @@ instance Lude.ToQuery CreateStreamingURL where
 
 -- | /See:/ 'mkCreateStreamingURLResponse' smart constructor.
 data CreateStreamingURLResponse = CreateStreamingURLResponse'
-  { streamingURL ::
-      Lude.Maybe Lude.Text,
+  { -- | The URL to start the AppStream 2.0 streaming session.
+    streamingURL :: Lude.Maybe Lude.Text,
+    -- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
     expires :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamingURLResponse' with the minimum fields required to make a request.
 --
+-- * 'streamingURL' - The URL to start the AppStream 2.0 streaming session.
 -- * 'expires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
 -- * 'responseStatus' - The response status code.
--- * 'streamingURL' - The URL to start the AppStream 2.0 streaming session.
 mkCreateStreamingURLResponse ::
   -- | 'responseStatus'
   Lude.Int ->

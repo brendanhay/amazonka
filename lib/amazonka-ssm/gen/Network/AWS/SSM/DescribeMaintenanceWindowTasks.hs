@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,29 +47,23 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeMaintenanceWindowTasks' smart constructor.
 data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
-  { filters ::
-      Lude.Maybe
-        [MaintenanceWindowFilter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
+  { -- | Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
+    filters :: Lude.Maybe [MaintenanceWindowFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The ID of the maintenance window whose tasks should be retrieved.
     windowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowTasks' with the minimum fields required to make a request.
 --
 -- * 'filters' - Optional filters used to narrow down the scope of the returned tasks. The supported filter keys are WindowTaskId, TaskArn, Priority, and TaskType.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'windowId' - The ID of the maintenance window whose tasks should be retrieved.
 mkDescribeMaintenanceWindowTasks ::
   -- | 'windowId'
@@ -163,28 +158,21 @@ instance Lude.ToQuery DescribeMaintenanceWindowTasks where
 
 -- | /See:/ 'mkDescribeMaintenanceWindowTasksResponse' smart constructor.
 data DescribeMaintenanceWindowTasksResponse = DescribeMaintenanceWindowTasksResponse'
-  { tasks ::
-      Lude.Maybe
-        [MaintenanceWindowTask],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the tasks in the maintenance window.
+    tasks :: Lude.Maybe [MaintenanceWindowTask],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowTasksResponse' with the minimum fields required to make a request.
 --
+-- * 'tasks' - Information about the tasks in the maintenance window.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'responseStatus' - The response status code.
--- * 'tasks' - Information about the tasks in the maintenance window.
 mkDescribeMaintenanceWindowTasksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,22 +40,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateHITReviewStatus' smart constructor.
 data UpdateHITReviewStatus = UpdateHITReviewStatus'
-  { revert ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies how to update the HIT status. Default is @False@ .
+    --
+    --
+    --     * Setting this to false will only transition a HIT from @Reviewable@ to @Reviewing@
+    --
+    --
+    --     * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
+    revert :: Lude.Maybe Lude.Bool,
+    -- | The ID of the HIT to update.
     hITId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHITReviewStatus' with the minimum fields required to make a request.
 --
--- * 'hITId' - The ID of the HIT to update.
 -- * 'revert' - Specifies how to update the HIT status. Default is @False@ .
 --
 --
@@ -62,6 +63,9 @@ data UpdateHITReviewStatus = UpdateHITReviewStatus'
 --
 --
 --     * Setting this to true will only transition a HIT from @Reviewing@ to @Reviewable@
+--
+--
+-- * 'hITId' - The ID of the HIT to update.
 mkUpdateHITReviewStatus ::
   -- | 'hITId'
   Lude.Text ->
@@ -131,16 +135,10 @@ instance Lude.ToQuery UpdateHITReviewStatus where
 
 -- | /See:/ 'mkUpdateHITReviewStatusResponse' smart constructor.
 newtype UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateHITReviewStatusResponse' with the minimum fields required to make a request.

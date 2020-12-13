@@ -20,10 +20,10 @@ module Network.AWS.Glue.Types.CreateCSVClassifierRequest
     cccrQuoteSymbol,
     cccrContainsHeader,
     cccrDisableValueTrimming,
+    cccrName,
     cccrHeader,
     cccrAllowSingleColumn,
     cccrDelimiter,
-    cccrName,
   )
 where
 
@@ -35,36 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateCSVClassifierRequest' smart constructor.
 data CreateCSVClassifierRequest = CreateCSVClassifierRequest'
-  { quoteSymbol ::
-      Lude.Maybe Lude.Text,
-    containsHeader ::
-      Lude.Maybe CSVHeaderOption,
-    disableValueTrimming ::
-      Lude.Maybe Lude.Bool,
+  { -- | A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
+    quoteSymbol :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the CSV file contains a header.
+    containsHeader :: Lude.Maybe CSVHeaderOption,
+    -- | Specifies not to trim values before identifying the type of column values. The default value is true.
+    disableValueTrimming :: Lude.Maybe Lude.Bool,
+    -- | The name of the classifier.
+    name :: Lude.Text,
+    -- | A list of strings representing column names.
     header :: Lude.Maybe [Lude.Text],
-    allowSingleColumn ::
-      Lude.Maybe Lude.Bool,
-    delimiter :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | Enables the processing of files that contain only one column.
+    allowSingleColumn :: Lude.Maybe Lude.Bool,
+    -- | A custom symbol to denote what separates each column entry in the row.
+    delimiter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCSVClassifierRequest' with the minimum fields required to make a request.
 --
--- * 'allowSingleColumn' - Enables the processing of files that contain only one column.
--- * 'containsHeader' - Indicates whether the CSV file contains a header.
--- * 'delimiter' - A custom symbol to denote what separates each column entry in the row.
--- * 'disableValueTrimming' - Specifies not to trim values before identifying the type of column values. The default value is true.
--- * 'header' - A list of strings representing column names.
--- * 'name' - The name of the classifier.
 -- * 'quoteSymbol' - A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
+-- * 'containsHeader' - Indicates whether the CSV file contains a header.
+-- * 'disableValueTrimming' - Specifies not to trim values before identifying the type of column values. The default value is true.
+-- * 'name' - The name of the classifier.
+-- * 'header' - A list of strings representing column names.
+-- * 'allowSingleColumn' - Enables the processing of files that contain only one column.
+-- * 'delimiter' - A custom symbol to denote what separates each column entry in the row.
 mkCreateCSVClassifierRequest ::
   -- | 'name'
   Lude.Text ->
@@ -74,10 +71,10 @@ mkCreateCSVClassifierRequest pName_ =
     { quoteSymbol = Lude.Nothing,
       containsHeader = Lude.Nothing,
       disableValueTrimming = Lude.Nothing,
+      name = pName_,
       header = Lude.Nothing,
       allowSingleColumn = Lude.Nothing,
-      delimiter = Lude.Nothing,
-      name = pName_
+      delimiter = Lude.Nothing
     }
 
 -- | A custom symbol to denote what combines content into a single column value. Must be different from the column delimiter.
@@ -101,6 +98,13 @@ cccrDisableValueTrimming :: Lens.Lens' CreateCSVClassifierRequest (Lude.Maybe Lu
 cccrDisableValueTrimming = Lens.lens (disableValueTrimming :: CreateCSVClassifierRequest -> Lude.Maybe Lude.Bool) (\s a -> s {disableValueTrimming = a} :: CreateCSVClassifierRequest)
 {-# DEPRECATED cccrDisableValueTrimming "Use generic-lens or generic-optics with 'disableValueTrimming' instead." #-}
 
+-- | The name of the classifier.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccrName :: Lens.Lens' CreateCSVClassifierRequest Lude.Text
+cccrName = Lens.lens (name :: CreateCSVClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: CreateCSVClassifierRequest)
+{-# DEPRECATED cccrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | A list of strings representing column names.
 --
 -- /Note:/ Consider using 'header' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -122,13 +126,6 @@ cccrDelimiter :: Lens.Lens' CreateCSVClassifierRequest (Lude.Maybe Lude.Text)
 cccrDelimiter = Lens.lens (delimiter :: CreateCSVClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {delimiter = a} :: CreateCSVClassifierRequest)
 {-# DEPRECATED cccrDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
 
--- | The name of the classifier.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cccrName :: Lens.Lens' CreateCSVClassifierRequest Lude.Text
-cccrName = Lens.lens (name :: CreateCSVClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: CreateCSVClassifierRequest)
-{-# DEPRECATED cccrName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.ToJSON CreateCSVClassifierRequest where
   toJSON CreateCSVClassifierRequest' {..} =
     Lude.object
@@ -136,9 +133,9 @@ instance Lude.ToJSON CreateCSVClassifierRequest where
           [ ("QuoteSymbol" Lude..=) Lude.<$> quoteSymbol,
             ("ContainsHeader" Lude..=) Lude.<$> containsHeader,
             ("DisableValueTrimming" Lude..=) Lude.<$> disableValueTrimming,
+            Lude.Just ("Name" Lude..= name),
             ("Header" Lude..=) Lude.<$> header,
             ("AllowSingleColumn" Lude..=) Lude.<$> allowSingleColumn,
-            ("Delimiter" Lude..=) Lude.<$> delimiter,
-            Lude.Just ("Name" Lude..= name)
+            ("Delimiter" Lude..=) Lude.<$> delimiter
           ]
       )

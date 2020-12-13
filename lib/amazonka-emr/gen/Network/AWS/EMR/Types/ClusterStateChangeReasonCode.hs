@@ -13,14 +13,14 @@
 module Network.AWS.EMR.Types.ClusterStateChangeReasonCode
   ( ClusterStateChangeReasonCode
       ( ClusterStateChangeReasonCode',
-        CSCRCAllStepsCompleted,
-        CSCRCBootstrapFailure,
+        CSCRCInternalError,
+        CSCRCValidationError,
         CSCRCInstanceFailure,
         CSCRCInstanceFleetTimeout,
-        CSCRCInternalError,
-        CSCRCStepFailure,
+        CSCRCBootstrapFailure,
         CSCRCUserRequest,
-        CSCRCValidationError
+        CSCRCStepFailure,
+        CSCRCAllStepsCompleted
       ),
   )
 where
@@ -51,11 +51,11 @@ newtype ClusterStateChangeReasonCode = ClusterStateChangeReasonCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSCRCAllStepsCompleted :: ClusterStateChangeReasonCode
-pattern CSCRCAllStepsCompleted = ClusterStateChangeReasonCode' "ALL_STEPS_COMPLETED"
+pattern CSCRCInternalError :: ClusterStateChangeReasonCode
+pattern CSCRCInternalError = ClusterStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern CSCRCBootstrapFailure :: ClusterStateChangeReasonCode
-pattern CSCRCBootstrapFailure = ClusterStateChangeReasonCode' "BOOTSTRAP_FAILURE"
+pattern CSCRCValidationError :: ClusterStateChangeReasonCode
+pattern CSCRCValidationError = ClusterStateChangeReasonCode' "VALIDATION_ERROR"
 
 pattern CSCRCInstanceFailure :: ClusterStateChangeReasonCode
 pattern CSCRCInstanceFailure = ClusterStateChangeReasonCode' "INSTANCE_FAILURE"
@@ -63,26 +63,26 @@ pattern CSCRCInstanceFailure = ClusterStateChangeReasonCode' "INSTANCE_FAILURE"
 pattern CSCRCInstanceFleetTimeout :: ClusterStateChangeReasonCode
 pattern CSCRCInstanceFleetTimeout = ClusterStateChangeReasonCode' "INSTANCE_FLEET_TIMEOUT"
 
-pattern CSCRCInternalError :: ClusterStateChangeReasonCode
-pattern CSCRCInternalError = ClusterStateChangeReasonCode' "INTERNAL_ERROR"
-
-pattern CSCRCStepFailure :: ClusterStateChangeReasonCode
-pattern CSCRCStepFailure = ClusterStateChangeReasonCode' "STEP_FAILURE"
+pattern CSCRCBootstrapFailure :: ClusterStateChangeReasonCode
+pattern CSCRCBootstrapFailure = ClusterStateChangeReasonCode' "BOOTSTRAP_FAILURE"
 
 pattern CSCRCUserRequest :: ClusterStateChangeReasonCode
 pattern CSCRCUserRequest = ClusterStateChangeReasonCode' "USER_REQUEST"
 
-pattern CSCRCValidationError :: ClusterStateChangeReasonCode
-pattern CSCRCValidationError = ClusterStateChangeReasonCode' "VALIDATION_ERROR"
+pattern CSCRCStepFailure :: ClusterStateChangeReasonCode
+pattern CSCRCStepFailure = ClusterStateChangeReasonCode' "STEP_FAILURE"
+
+pattern CSCRCAllStepsCompleted :: ClusterStateChangeReasonCode
+pattern CSCRCAllStepsCompleted = ClusterStateChangeReasonCode' "ALL_STEPS_COMPLETED"
 
 {-# COMPLETE
-  CSCRCAllStepsCompleted,
-  CSCRCBootstrapFailure,
+  CSCRCInternalError,
+  CSCRCValidationError,
   CSCRCInstanceFailure,
   CSCRCInstanceFleetTimeout,
-  CSCRCInternalError,
-  CSCRCStepFailure,
+  CSCRCBootstrapFailure,
   CSCRCUserRequest,
-  CSCRCValidationError,
+  CSCRCStepFailure,
+  CSCRCAllStepsCompleted,
   ClusterStateChangeReasonCode'
   #-}

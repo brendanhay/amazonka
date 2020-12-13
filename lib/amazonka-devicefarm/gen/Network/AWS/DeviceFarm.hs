@@ -454,12 +454,12 @@ module Network.AWS.DeviceFarm
     -- ** DevicePool
     DevicePool (..),
     mkDevicePool,
-    devArn,
-    devRules,
-    devName,
-    devMaxDevices,
-    devType,
-    devDescription,
+    dpArn,
+    dpRules,
+    dpName,
+    dpMaxDevices,
+    dpType,
+    dpDescription,
 
     -- ** DevicePoolCompatibilityResult
     DevicePoolCompatibilityResult (..),
@@ -700,9 +700,9 @@ module Network.AWS.DeviceFarm
     -- ** Sample
     Sample (..),
     mkSample,
-    samArn,
-    samUrl,
-    samType,
+    sfArn,
+    sfUrl,
+    sfType,
 
     -- ** ScheduleRunConfiguration
     ScheduleRunConfiguration (..),
@@ -744,8 +744,8 @@ module Network.AWS.DeviceFarm
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** Test
     Test (..),

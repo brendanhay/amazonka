@@ -13,9 +13,9 @@
 module Network.AWS.Redshift.Types.ScheduleState
   ( ScheduleState
       ( ScheduleState',
-        Active,
-        Failed,
-        Modifying
+        SSModifying,
+        SSActive,
+        SSFailed
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype ScheduleState = ScheduleState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: ScheduleState
-pattern Active = ScheduleState' "ACTIVE"
+pattern SSModifying :: ScheduleState
+pattern SSModifying = ScheduleState' "MODIFYING"
 
-pattern Failed :: ScheduleState
-pattern Failed = ScheduleState' "FAILED"
+pattern SSActive :: ScheduleState
+pattern SSActive = ScheduleState' "ACTIVE"
 
-pattern Modifying :: ScheduleState
-pattern Modifying = ScheduleState' "MODIFYING"
+pattern SSFailed :: ScheduleState
+pattern SSFailed = ScheduleState' "FAILED"
 
 {-# COMPLETE
-  Active,
-  Failed,
-  Modifying,
+  SSModifying,
+  SSActive,
+  SSFailed,
   ScheduleState'
   #-}

@@ -28,21 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexMediaConnectOutputDestinationSettings' smart constructor.
 newtype MultiplexMediaConnectOutputDestinationSettings = MultiplexMediaConnectOutputDestinationSettings'
-  { entitlementARN ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The MediaConnect entitlement ARN available as a Flow source.
+    entitlementARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexMediaConnectOutputDestinationSettings' with the minimum fields required to make a request.
 --

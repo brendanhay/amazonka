@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -154,11 +155,11 @@ module Network.AWS.S3.RestoreObject
 
     -- ** Request lenses
     roVersionId,
+    roBucket,
     roRequestPayer,
+    roKey,
     roExpectedBucketOwner,
     roRestoreRequest,
-    roBucket,
-    roKey,
 
     -- * Destructuring the response
     RestoreObjectResponse (..),
@@ -179,28 +180,34 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkRestoreObject' smart constructor.
 data RestoreObject = RestoreObject'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
-    requestPayer :: Lude.Maybe RequestPayer,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    restoreRequest :: Lude.Maybe RestoreRequest,
+  { -- | VersionId used to reference a specific version of the object.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The bucket name containing the object to restore.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
-    key :: ObjectKey
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | Object key for which the operation was initiated.
+    key :: ObjectKey,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    restoreRequest :: Lude.Maybe RestoreRequest
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreObject' with the minimum fields required to make a request.
 --
+-- * 'versionId' - VersionId used to reference a specific version of the object.
 -- * 'bucket' - The bucket name containing the object to restore.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'requestPayer' -
 -- * 'key' - Object key for which the operation was initiated.
--- * 'requestPayer' - Undocumented field.
--- * 'restoreRequest' - Undocumented field.
--- * 'versionId' - VersionId used to reference a specific version of the object.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'restoreRequest' -
 mkRestoreObject ::
   -- | 'bucket'
   BucketName ->
@@ -210,11 +217,11 @@ mkRestoreObject ::
 mkRestoreObject pBucket_ pKey_ =
   RestoreObject'
     { versionId = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      restoreRequest = Lude.Nothing,
       bucket = pBucket_,
-      key = pKey_
+      requestPayer = Lude.Nothing,
+      key = pKey_,
+      expectedBucketOwner = Lude.Nothing,
+      restoreRequest = Lude.Nothing
     }
 
 -- | VersionId used to reference a specific version of the object.
@@ -224,12 +231,29 @@ roVersionId :: Lens.Lens' RestoreObject (Lude.Maybe ObjectVersionId)
 roVersionId = Lens.lens (versionId :: RestoreObject -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: RestoreObject)
 {-# DEPRECATED roVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
+-- | The bucket name containing the object to restore.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roBucket :: Lens.Lens' RestoreObject BucketName
+roBucket = Lens.lens (bucket :: RestoreObject -> BucketName) (\s a -> s {bucket = a} :: RestoreObject)
+{-# DEPRECATED roBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 roRequestPayer :: Lens.Lens' RestoreObject (Lude.Maybe RequestPayer)
 roRequestPayer = Lens.lens (requestPayer :: RestoreObject -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: RestoreObject)
 {-# DEPRECATED roRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
+-- | Object key for which the operation was initiated.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roKey :: Lens.Lens' RestoreObject ObjectKey
+roKey = Lens.lens (key :: RestoreObject -> ObjectKey) (\s a -> s {key = a} :: RestoreObject)
+{-# DEPRECATED roKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
@@ -244,23 +268,6 @@ roExpectedBucketOwner = Lens.lens (expectedBucketOwner :: RestoreObject -> Lude.
 roRestoreRequest :: Lens.Lens' RestoreObject (Lude.Maybe RestoreRequest)
 roRestoreRequest = Lens.lens (restoreRequest :: RestoreObject -> Lude.Maybe RestoreRequest) (\s a -> s {restoreRequest = a} :: RestoreObject)
 {-# DEPRECATED roRestoreRequest "Use generic-lens or generic-optics with 'restoreRequest' instead." #-}
-
--- | The bucket name containing the object to restore.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roBucket :: Lens.Lens' RestoreObject BucketName
-roBucket = Lens.lens (bucket :: RestoreObject -> BucketName) (\s a -> s {bucket = a} :: RestoreObject)
-{-# DEPRECATED roBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Object key for which the operation was initiated.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roKey :: Lens.Lens' RestoreObject ObjectKey
-roKey = Lens.lens (key :: RestoreObject -> ObjectKey) (\s a -> s {key = a} :: RestoreObject)
-{-# DEPRECATED roKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 instance Lude.AWSRequest RestoreObject where
   type Rs RestoreObject = RestoreObjectResponse
@@ -297,25 +304,20 @@ instance Lude.ToQuery RestoreObject where
 
 -- | /See:/ 'mkRestoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | Indicates the path in the provided S3 output location where Select results will be restored to.
     restoreOutputPath :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreObjectResponse' with the minimum fields required to make a request.
 --
--- * 'requestCharged' - Undocumented field.
--- * 'responseStatus' - The response status code.
+-- * 'requestCharged' -
 -- * 'restoreOutputPath' - Indicates the path in the provided S3 output location where Select results will be restored to.
+-- * 'responseStatus' - The response status code.
 mkRestoreObjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

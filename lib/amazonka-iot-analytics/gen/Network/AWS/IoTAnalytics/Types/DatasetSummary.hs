@@ -17,12 +17,12 @@ module Network.AWS.IoTAnalytics.Types.DatasetSummary
     mkDatasetSummary,
 
     -- * Lenses
-    dssCreationTime,
-    dssStatus,
-    dssActions,
-    dssTriggers,
-    dssDatasetName,
-    dssLastUpdateTime,
+    dsfCreationTime,
+    dsfStatus,
+    dsfActions,
+    dsfTriggers,
+    dsfDatasetName,
+    dsfLastUpdateTime,
   )
 where
 
@@ -36,31 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatasetSummary' smart constructor.
 data DatasetSummary = DatasetSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time the data set was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the data set.
     status :: Lude.Maybe DatasetStatus,
+    -- | A list of @DataActionSummary@ objects.
     actions :: Lude.Maybe (Lude.NonEmpty DatasetActionSummary),
+    -- | A list of triggers. A trigger causes data set content to be populated at a specified time interval or when another data set is populated. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects
     triggers :: Lude.Maybe [DatasetTrigger],
+    -- | The name of the data set.
     datasetName :: Lude.Maybe Lude.Text,
+    -- | The last time the data set was updated.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetSummary' with the minimum fields required to make a request.
 --
--- * 'actions' - A list of @DataActionSummary@ objects.
 -- * 'creationTime' - The time the data set was created.
+-- * 'status' - The status of the data set.
+-- * 'actions' - A list of @DataActionSummary@ objects.
+-- * 'triggers' - A list of triggers. A trigger causes data set content to be populated at a specified time interval or when another data set is populated. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects
 -- * 'datasetName' - The name of the data set.
 -- * 'lastUpdateTime' - The last time the data set was updated.
--- * 'status' - The status of the data set.
--- * 'triggers' - A list of triggers. A trigger causes data set content to be populated at a specified time interval or when another data set is populated. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects
 mkDatasetSummary ::
   DatasetSummary
 mkDatasetSummary =
@@ -76,44 +75,44 @@ mkDatasetSummary =
 -- | The time the data set was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssCreationTime :: Lens.Lens' DatasetSummary (Lude.Maybe Lude.Timestamp)
-dssCreationTime = Lens.lens (creationTime :: DatasetSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DatasetSummary)
-{-# DEPRECATED dssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+dsfCreationTime :: Lens.Lens' DatasetSummary (Lude.Maybe Lude.Timestamp)
+dsfCreationTime = Lens.lens (creationTime :: DatasetSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DatasetSummary)
+{-# DEPRECATED dsfCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The status of the data set.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssStatus :: Lens.Lens' DatasetSummary (Lude.Maybe DatasetStatus)
-dssStatus = Lens.lens (status :: DatasetSummary -> Lude.Maybe DatasetStatus) (\s a -> s {status = a} :: DatasetSummary)
-{-# DEPRECATED dssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dsfStatus :: Lens.Lens' DatasetSummary (Lude.Maybe DatasetStatus)
+dsfStatus = Lens.lens (status :: DatasetSummary -> Lude.Maybe DatasetStatus) (\s a -> s {status = a} :: DatasetSummary)
+{-# DEPRECATED dsfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A list of @DataActionSummary@ objects.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssActions :: Lens.Lens' DatasetSummary (Lude.Maybe (Lude.NonEmpty DatasetActionSummary))
-dssActions = Lens.lens (actions :: DatasetSummary -> Lude.Maybe (Lude.NonEmpty DatasetActionSummary)) (\s a -> s {actions = a} :: DatasetSummary)
-{-# DEPRECATED dssActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+dsfActions :: Lens.Lens' DatasetSummary (Lude.Maybe (Lude.NonEmpty DatasetActionSummary))
+dsfActions = Lens.lens (actions :: DatasetSummary -> Lude.Maybe (Lude.NonEmpty DatasetActionSummary)) (\s a -> s {actions = a} :: DatasetSummary)
+{-# DEPRECATED dsfActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | A list of triggers. A trigger causes data set content to be populated at a specified time interval or when another data set is populated. The list of triggers can be empty or contain up to five @DataSetTrigger@ objects
 --
 -- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssTriggers :: Lens.Lens' DatasetSummary (Lude.Maybe [DatasetTrigger])
-dssTriggers = Lens.lens (triggers :: DatasetSummary -> Lude.Maybe [DatasetTrigger]) (\s a -> s {triggers = a} :: DatasetSummary)
-{-# DEPRECATED dssTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
+dsfTriggers :: Lens.Lens' DatasetSummary (Lude.Maybe [DatasetTrigger])
+dsfTriggers = Lens.lens (triggers :: DatasetSummary -> Lude.Maybe [DatasetTrigger]) (\s a -> s {triggers = a} :: DatasetSummary)
+{-# DEPRECATED dsfTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
 
 -- | The name of the data set.
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssDatasetName :: Lens.Lens' DatasetSummary (Lude.Maybe Lude.Text)
-dssDatasetName = Lens.lens (datasetName :: DatasetSummary -> Lude.Maybe Lude.Text) (\s a -> s {datasetName = a} :: DatasetSummary)
-{-# DEPRECATED dssDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+dsfDatasetName :: Lens.Lens' DatasetSummary (Lude.Maybe Lude.Text)
+dsfDatasetName = Lens.lens (datasetName :: DatasetSummary -> Lude.Maybe Lude.Text) (\s a -> s {datasetName = a} :: DatasetSummary)
+{-# DEPRECATED dsfDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
 -- | The last time the data set was updated.
 --
 -- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssLastUpdateTime :: Lens.Lens' DatasetSummary (Lude.Maybe Lude.Timestamp)
-dssLastUpdateTime = Lens.lens (lastUpdateTime :: DatasetSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: DatasetSummary)
-{-# DEPRECATED dssLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
+dsfLastUpdateTime :: Lens.Lens' DatasetSummary (Lude.Maybe Lude.Timestamp)
+dsfLastUpdateTime = Lens.lens (lastUpdateTime :: DatasetSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: DatasetSummary)
+{-# DEPRECATED dsfLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
 instance Lude.FromJSON DatasetSummary where
   parseJSON =

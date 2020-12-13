@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkSpaces.AssociateConnectionAlias
     mkAssociateConnectionAlias,
 
     -- ** Request lenses
-    acaAliasId,
     acaResourceId,
+    acaAliasId,
 
     -- * Destructuring the response
     AssociateConnectionAliasResponse (..),
@@ -40,41 +41,29 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkAssociateConnectionAlias' smart constructor.
 data AssociateConnectionAlias = AssociateConnectionAlias'
-  { aliasId ::
-      Lude.Text,
-    resourceId :: Lude.Text
+  { -- | The identifier of the directory to associate the connection alias with.
+    resourceId :: Lude.Text,
+    -- | The identifier of the connection alias.
+    aliasId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateConnectionAlias' with the minimum fields required to make a request.
 --
--- * 'aliasId' - The identifier of the connection alias.
 -- * 'resourceId' - The identifier of the directory to associate the connection alias with.
+-- * 'aliasId' - The identifier of the connection alias.
 mkAssociateConnectionAlias ::
-  -- | 'aliasId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'aliasId'
+  Lude.Text ->
   AssociateConnectionAlias
-mkAssociateConnectionAlias pAliasId_ pResourceId_ =
+mkAssociateConnectionAlias pResourceId_ pAliasId_ =
   AssociateConnectionAlias'
-    { aliasId = pAliasId_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      aliasId = pAliasId_
     }
-
--- | The identifier of the connection alias.
---
--- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acaAliasId :: Lens.Lens' AssociateConnectionAlias Lude.Text
-acaAliasId = Lens.lens (aliasId :: AssociateConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: AssociateConnectionAlias)
-{-# DEPRECATED acaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 -- | The identifier of the directory to associate the connection alias with.
 --
@@ -82,6 +71,13 @@ acaAliasId = Lens.lens (aliasId :: AssociateConnectionAlias -> Lude.Text) (\s a 
 acaResourceId :: Lens.Lens' AssociateConnectionAlias Lude.Text
 acaResourceId = Lens.lens (resourceId :: AssociateConnectionAlias -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateConnectionAlias)
 {-# DEPRECATED acaResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The identifier of the connection alias.
+--
+-- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acaAliasId :: Lens.Lens' AssociateConnectionAlias Lude.Text
+acaAliasId = Lens.lens (aliasId :: AssociateConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: AssociateConnectionAlias)
+{-# DEPRECATED acaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 instance Lude.AWSRequest AssociateConnectionAlias where
   type Rs AssociateConnectionAlias = AssociateConnectionAliasResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON AssociateConnectionAlias where
   toJSON AssociateConnectionAlias' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AliasId" Lude..= aliasId),
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("AliasId" Lude..= aliasId)
           ]
       )
 
@@ -122,18 +118,12 @@ instance Lude.ToQuery AssociateConnectionAlias where
 
 -- | /See:/ 'mkAssociateConnectionAliasResponse' smart constructor.
 data AssociateConnectionAliasResponse = AssociateConnectionAliasResponse'
-  { connectionIdentifier ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier of the connection alias association. You use the connection identifier in the DNS TXT record when you're configuring your DNS routing policies.
+    connectionIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateConnectionAliasResponse' with the minimum fields required to make a request.

@@ -41,31 +41,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResolver' smart constructor.
 data Resolver = Resolver'
-  { typeName :: Lude.Maybe Lude.Text,
+  { -- | The resolver type name.
+    typeName :: Lude.Maybe Lude.Text,
+    -- | The resolver data source name.
     dataSourceName :: Lude.Maybe Lude.Text,
+    -- | The request mapping template.
     requestMappingTemplate :: Lude.Maybe Lude.Text,
+    -- | The resolver type.
+    --
+    --
+    --     * __UNIT__ : A UNIT resolver type. A UNIT resolver is the default resolver type. A UNIT resolver enables you to execute a GraphQL query against a single data source.
+    --
+    --
+    --     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
     kind :: Lude.Maybe ResolverKind,
+    -- | The resolver ARN.
     resolverARN :: Lude.Maybe Lude.Text,
+    -- | The caching configuration for the resolver.
     cachingConfig :: Lude.Maybe CachingConfig,
+    -- | The response mapping template.
     responseMappingTemplate :: Lude.Maybe Lude.Text,
+    -- | The resolver field name.
     fieldName :: Lude.Maybe Lude.Text,
+    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
     syncConfig :: Lude.Maybe SyncConfig,
+    -- | The @PipelineConfig@ .
     pipelineConfig :: Lude.Maybe PipelineConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resolver' with the minimum fields required to make a request.
 --
--- * 'cachingConfig' - The caching configuration for the resolver.
+-- * 'typeName' - The resolver type name.
 -- * 'dataSourceName' - The resolver data source name.
--- * 'fieldName' - The resolver field name.
+-- * 'requestMappingTemplate' - The request mapping template.
 -- * 'kind' - The resolver type.
 --
 --
@@ -75,12 +85,12 @@ data Resolver = Resolver'
 --     * __PIPELINE__ : A PIPELINE resolver type. A PIPELINE resolver enables you to execute a series of @Function@ in a serial manner. You can use a pipeline resolver to execute a GraphQL query against multiple data sources.
 --
 --
--- * 'pipelineConfig' - The @PipelineConfig@ .
--- * 'requestMappingTemplate' - The request mapping template.
 -- * 'resolverARN' - The resolver ARN.
+-- * 'cachingConfig' - The caching configuration for the resolver.
 -- * 'responseMappingTemplate' - The response mapping template.
+-- * 'fieldName' - The resolver field name.
 -- * 'syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
--- * 'typeName' - The resolver type name.
+-- * 'pipelineConfig' - The @PipelineConfig@ .
 mkResolver ::
   Resolver
 mkResolver =

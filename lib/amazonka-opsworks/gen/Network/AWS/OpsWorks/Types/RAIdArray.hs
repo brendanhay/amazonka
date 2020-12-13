@@ -40,44 +40,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRAIDArray' smart constructor.
 data RAIDArray = RAIDArray'
-  { instanceId :: Lude.Maybe Lude.Text,
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The array's size.
     size :: Lude.Maybe Lude.Int,
+    -- | For PIOPS volumes, the IOPS per disk.
     iops :: Lude.Maybe Lude.Int,
+    -- | When the RAID array was created.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
     raidLevel :: Lude.Maybe Lude.Int,
+    -- | The array's Linux device. For example /dev/mdadm0.
     device :: Lude.Maybe Lude.Text,
+    -- | The number of disks in the array.
     numberOfDisks :: Lude.Maybe Lude.Int,
+    -- | The array's Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The array name.
     name :: Lude.Maybe Lude.Text,
+    -- | The array ID.
     raidArrayId :: Lude.Maybe Lude.Text,
+    -- | The volume type, standard or PIOPS.
     volumeType :: Lude.Maybe Lude.Text,
+    -- | The stack ID.
     stackId :: Lude.Maybe Lude.Text,
+    -- | The array's mount point.
     mountPoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RAIDArray' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The array's Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'createdAt' - When the RAID array was created.
--- * 'device' - The array's Linux device. For example /dev/mdadm0.
 -- * 'instanceId' - The instance ID.
--- * 'iops' - For PIOPS volumes, the IOPS per disk.
--- * 'mountPoint' - The array's mount point.
--- * 'name' - The array name.
--- * 'numberOfDisks' - The number of disks in the array.
--- * 'raidArrayId' - The array ID.
--- * 'raidLevel' - The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
 -- * 'size' - The array's size.
--- * 'stackId' - The stack ID.
+-- * 'iops' - For PIOPS volumes, the IOPS per disk.
+-- * 'createdAt' - When the RAID array was created.
+-- * 'raidLevel' - The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level> .
+-- * 'device' - The array's Linux device. For example /dev/mdadm0.
+-- * 'numberOfDisks' - The number of disks in the array.
+-- * 'availabilityZone' - The array's Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+-- * 'name' - The array name.
+-- * 'raidArrayId' - The array ID.
 -- * 'volumeType' - The volume type, standard or PIOPS.
+-- * 'stackId' - The stack ID.
+-- * 'mountPoint' - The array's mount point.
 mkRAIDArray ::
   RAIDArray
 mkRAIDArray =

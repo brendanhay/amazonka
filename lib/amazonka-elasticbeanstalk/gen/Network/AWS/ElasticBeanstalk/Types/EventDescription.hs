@@ -37,37 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventDescription' smart constructor.
 data EventDescription = EventDescription'
-  { requestId ::
-      Lude.Maybe Lude.Text,
+  { -- | The web service request ID for the activity of this event.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | The name of the configuration associated with this event.
     templateName :: Lude.Maybe Lude.Text,
+    -- | The severity level of this event.
     severity :: Lude.Maybe EventSeverity,
+    -- | The release label for the application version associated with this event.
     versionLabel :: Lude.Maybe Lude.Text,
+    -- | The ARN of the platform version.
     platformARN :: Lude.Maybe Lude.Text,
+    -- | The name of the environment associated with this event.
     environmentName :: Lude.Maybe Lude.Text,
+    -- | The application associated with the event.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | The date when the event occurred.
     eventDate :: Lude.Maybe Lude.DateTime,
+    -- | The event message.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventDescription' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The application associated with the event.
+-- * 'requestId' - The web service request ID for the activity of this event.
+-- * 'templateName' - The name of the configuration associated with this event.
+-- * 'severity' - The severity level of this event.
+-- * 'versionLabel' - The release label for the application version associated with this event.
+-- * 'platformARN' - The ARN of the platform version.
 -- * 'environmentName' - The name of the environment associated with this event.
+-- * 'applicationName' - The application associated with the event.
 -- * 'eventDate' - The date when the event occurred.
 -- * 'message' - The event message.
--- * 'platformARN' - The ARN of the platform version.
--- * 'requestId' - The web service request ID for the activity of this event.
--- * 'severity' - The severity level of this event.
--- * 'templateName' - The name of the configuration associated with this event.
--- * 'versionLabel' - The release label for the application version associated with this event.
 mkEventDescription ::
   EventDescription
 mkEventDescription =

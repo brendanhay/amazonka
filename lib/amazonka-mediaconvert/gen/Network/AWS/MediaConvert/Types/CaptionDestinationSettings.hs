@@ -43,44 +43,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionDestinationSettings' smart constructor.
 data CaptionDestinationSettings = CaptionDestinationSettings'
-  { teletextDestinationSettings ::
-      Lude.Maybe
-        TeletextDestinationSettings,
-    dvbSubDestinationSettings ::
-      Lude.Maybe DvbSubDestinationSettings,
-    ttmlDestinationSettings ::
-      Lude.Maybe TtmlDestinationSettings,
-    destinationType ::
-      Lude.Maybe CaptionDestinationType,
-    embeddedDestinationSettings ::
-      Lude.Maybe
-        EmbeddedDestinationSettings,
-    sccDestinationSettings ::
-      Lude.Maybe SccDestinationSettings,
-    burninDestinationSettings ::
-      Lude.Maybe BurninDestinationSettings,
-    imscDestinationSettings ::
-      Lude.Maybe ImscDestinationSettings
+  { -- | Settings for Teletext caption output
+    teletextDestinationSettings :: Lude.Maybe TeletextDestinationSettings,
+    -- | DVB-Sub Destination Settings
+    dvbSubDestinationSettings :: Lude.Maybe DvbSubDestinationSettings,
+    -- | Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
+    ttmlDestinationSettings :: Lude.Maybe TtmlDestinationSettings,
+    -- | Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
+    destinationType :: Lude.Maybe CaptionDestinationType,
+    -- | Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
+    embeddedDestinationSettings :: Lude.Maybe EmbeddedDestinationSettings,
+    -- | Settings for SCC caption output.
+    sccDestinationSettings :: Lude.Maybe SccDestinationSettings,
+    -- | Burn-In Destination Settings.
+    burninDestinationSettings :: Lude.Maybe BurninDestinationSettings,
+    -- | Settings specific to IMSC caption outputs.
+    imscDestinationSettings :: Lude.Maybe ImscDestinationSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionDestinationSettings' with the minimum fields required to make a request.
 --
--- * 'burninDestinationSettings' - Burn-In Destination Settings.
--- * 'destinationType' - Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
--- * 'dvbSubDestinationSettings' - DVB-Sub Destination Settings
--- * 'embeddedDestinationSettings' - Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
--- * 'imscDestinationSettings' - Settings specific to IMSC caption outputs.
--- * 'sccDestinationSettings' - Settings for SCC caption output.
 -- * 'teletextDestinationSettings' - Settings for Teletext caption output
+-- * 'dvbSubDestinationSettings' - DVB-Sub Destination Settings
 -- * 'ttmlDestinationSettings' - Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
+-- * 'destinationType' - Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
+-- * 'embeddedDestinationSettings' - Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
+-- * 'sccDestinationSettings' - Settings for SCC caption output.
+-- * 'burninDestinationSettings' - Burn-In Destination Settings.
+-- * 'imscDestinationSettings' - Settings specific to IMSC caption outputs.
 mkCaptionDestinationSettings ::
   CaptionDestinationSettings
 mkCaptionDestinationSettings =

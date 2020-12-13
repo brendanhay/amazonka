@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.Inspector.ListEventSubscriptions
 
     -- ** Response lenses
     lesrsNextToken,
-    lesrsResponseStatus,
     lesrsSubscriptions,
+    lesrsResponseStatus,
   )
 where
 
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEventSubscriptions' smart constructor.
 data ListEventSubscriptions = ListEventSubscriptions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of the assessment template for which you want to list the existing event subscriptions.
     resourceARN :: Lude.Maybe Lude.Text,
+    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventSubscriptions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 -- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
 -- * 'resourceARN' - The ARN of the assessment template for which you want to list the existing event subscriptions.
+-- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 mkListEventSubscriptions ::
   ListEventSubscriptions
 mkListEventSubscriptions =
@@ -111,8 +108,8 @@ instance Lude.AWSRequest ListEventSubscriptions where
       ( \s h x ->
           ListEventSubscriptionsResponse'
             Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "subscriptions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListEventSubscriptions where
@@ -144,26 +141,21 @@ instance Lude.ToQuery ListEventSubscriptions where
 
 -- | /See:/ 'mkListEventSubscriptionsResponse' smart constructor.
 data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    subscriptions ::
-      [Subscription]
+  { -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Details of the returned event subscriptions.
+    subscriptions :: [Subscription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEventSubscriptionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
--- * 'responseStatus' - The response status code.
 -- * 'subscriptions' - Details of the returned event subscriptions.
+-- * 'responseStatus' - The response status code.
 mkListEventSubscriptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -171,8 +163,8 @@ mkListEventSubscriptionsResponse ::
 mkListEventSubscriptionsResponse pResponseStatus_ =
   ListEventSubscriptionsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      subscriptions = Lude.mempty
+      subscriptions = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
@@ -182,16 +174,16 @@ lesrsNextToken :: Lens.Lens' ListEventSubscriptionsResponse (Lude.Maybe Lude.Tex
 lesrsNextToken = Lens.lens (nextToken :: ListEventSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventSubscriptionsResponse)
 {-# DEPRECATED lesrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesrsResponseStatus :: Lens.Lens' ListEventSubscriptionsResponse Lude.Int
-lesrsResponseStatus = Lens.lens (responseStatus :: ListEventSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEventSubscriptionsResponse)
-{-# DEPRECATED lesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | Details of the returned event subscriptions.
 --
 -- /Note:/ Consider using 'subscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lesrsSubscriptions :: Lens.Lens' ListEventSubscriptionsResponse [Subscription]
 lesrsSubscriptions = Lens.lens (subscriptions :: ListEventSubscriptionsResponse -> [Subscription]) (\s a -> s {subscriptions = a} :: ListEventSubscriptionsResponse)
 {-# DEPRECATED lesrsSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesrsResponseStatus :: Lens.Lens' ListEventSubscriptionsResponse Lude.Int
+lesrsResponseStatus = Lens.lens (responseStatus :: ListEventSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEventSubscriptionsResponse)
+{-# DEPRECATED lesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

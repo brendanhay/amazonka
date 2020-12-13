@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.APIGateway.ImportDocumentationParts
     mkImportDocumentationParts,
 
     -- ** Request lenses
+    idpBody,
     idpMode,
     idpFailOnWarnings,
     idpRestAPIId,
-    idpBody,
 
     -- * Destructuring the response
     ImportDocumentationPartsResponse (..),
@@ -45,11 +46,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkImportDocumentationParts' smart constructor.
 data ImportDocumentationParts = ImportDocumentationParts'
-  { mode ::
-      Lude.Maybe PutMode,
+  { -- | [Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.
+    body :: Lude.ByteString,
+    -- | A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
+    mode :: Lude.Maybe PutMode,
+    -- | A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
     failOnWarnings :: Lude.Maybe Lude.Bool,
-    restAPIId :: Lude.Text,
-    body :: Lude.ByteString
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -57,22 +61,29 @@ data ImportDocumentationParts = ImportDocumentationParts'
 -- | Creates a value of 'ImportDocumentationParts' with the minimum fields required to make a request.
 --
 -- * 'body' - [Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.
--- * 'failOnWarnings' - A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 -- * 'mode' - A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
+-- * 'failOnWarnings' - A query parameter to specify whether to rollback the documentation importation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkImportDocumentationParts ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'body'
   Lude.ByteString ->
+  -- | 'restAPIId'
+  Lude.Text ->
   ImportDocumentationParts
-mkImportDocumentationParts pRestAPIId_ pBody_ =
+mkImportDocumentationParts pBody_ pRestAPIId_ =
   ImportDocumentationParts'
-    { mode = Lude.Nothing,
+    { body = pBody_,
+      mode = Lude.Nothing,
       failOnWarnings = Lude.Nothing,
-      restAPIId = pRestAPIId_,
-      body = pBody_
+      restAPIId = pRestAPIId_
     }
+
+-- | [Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idpBody :: Lens.Lens' ImportDocumentationParts Lude.ByteString
+idpBody = Lens.lens (body :: ImportDocumentationParts -> Lude.ByteString) (\s a -> s {body = a} :: ImportDocumentationParts)
+{-# DEPRECATED idpBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | A query parameter to indicate whether to overwrite (@OVERWRITE@ ) any existing 'DocumentationParts' definition or to merge (@MERGE@ ) the new definition into the existing one. The default value is @MERGE@ .
 --
@@ -94,13 +105,6 @@ idpFailOnWarnings = Lens.lens (failOnWarnings :: ImportDocumentationParts -> Lud
 idpRestAPIId :: Lens.Lens' ImportDocumentationParts Lude.Text
 idpRestAPIId = Lens.lens (restAPIId :: ImportDocumentationParts -> Lude.Text) (\s a -> s {restAPIId = a} :: ImportDocumentationParts)
 {-# DEPRECATED idpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
-
--- | [Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idpBody :: Lens.Lens' ImportDocumentationParts Lude.ByteString
-idpBody = Lens.lens (body :: ImportDocumentationParts -> Lude.ByteString) (\s a -> s {body = a} :: ImportDocumentationParts)
-{-# DEPRECATED idpBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 instance Lude.AWSRequest ImportDocumentationParts where
   type Rs ImportDocumentationParts = ImportDocumentationPartsResponse
@@ -140,27 +144,21 @@ instance Lude.ToQuery ImportDocumentationParts where
 --
 -- /See:/ 'mkImportDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
-  { ids ::
-      Lude.Maybe [Lude.Text],
-    warnings ::
-      Lude.Maybe [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of the returned documentation part identifiers.
+    ids :: Lude.Maybe [Lude.Text],
+    -- | A list of warning messages reported during import of documentation parts.
+    warnings :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportDocumentationPartsResponse' with the minimum fields required to make a request.
 --
 -- * 'ids' - A list of the returned documentation part identifiers.
--- * 'responseStatus' - The response status code.
 -- * 'warnings' - A list of warning messages reported during import of documentation parts.
+-- * 'responseStatus' - The response status code.
 mkImportDocumentationPartsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,26 +31,21 @@ import Network.AWS.SageMaker.Types.VPCConfig
 --
 -- /See:/ 'mkAutoMLSecurityConfig' smart constructor.
 data AutoMLSecurityConfig = AutoMLSecurityConfig'
-  { vpcConfig ::
-      Lude.Maybe VPCConfig,
+  { -- | VPC configuration.
+    vpcConfig :: Lude.Maybe VPCConfig,
+    -- | The key used to encrypt stored data.
     volumeKMSKeyId :: Lude.Maybe Lude.Text,
-    enableInterContainerTrafficEncryption ::
-      Lude.Maybe Lude.Bool
+    -- | Whether to use traffic encryption between the container layers.
+    enableInterContainerTrafficEncryption :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLSecurityConfig' with the minimum fields required to make a request.
 --
--- * 'enableInterContainerTrafficEncryption' - Whether to use traffic encryption between the container layers.
--- * 'volumeKMSKeyId' - The key used to encrypt stored data.
 -- * 'vpcConfig' - VPC configuration.
+-- * 'volumeKMSKeyId' - The key used to encrypt stored data.
+-- * 'enableInterContainerTrafficEncryption' - Whether to use traffic encryption between the container layers.
 mkAutoMLSecurityConfig ::
   AutoMLSecurityConfig
 mkAutoMLSecurityConfig =

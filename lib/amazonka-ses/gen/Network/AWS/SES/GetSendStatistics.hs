@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import Network.AWS.SES.Types
 
 -- | /See:/ 'mkGetSendStatistics' smart constructor.
 data GetSendStatistics = GetSendStatistics'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSendStatistics' with the minimum fields required to make a request.
@@ -85,23 +80,18 @@ instance Lude.ToQuery GetSendStatistics where
 --
 -- /See:/ 'mkGetSendStatisticsResponse' smart constructor.
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
-  { sendDataPoints ::
-      Lude.Maybe [SendDataPoint],
+  { -- | A list of data points, each of which represents 15 minutes of activity.
+    sendDataPoints :: Lude.Maybe [SendDataPoint],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSendStatisticsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sendDataPoints' - A list of data points, each of which represents 15 minutes of activity.
+-- * 'responseStatus' - The response status code.
 mkGetSendStatisticsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Transcribe.UpdateVocabulary
     mkUpdateVocabulary,
 
     -- ** Request lenses
-    uvVocabularyFileURI,
-    uvPhrases,
-    uvVocabularyName,
     uvLanguageCode,
+    uvVocabularyFileURI,
+    uvVocabularyName,
+    uvPhrases,
 
     -- * Destructuring the response
     UpdateVocabularyResponse (..),
@@ -45,44 +46,52 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkUpdateVocabulary' smart constructor.
 data UpdateVocabulary = UpdateVocabulary'
-  { vocabularyFileURI ::
-      Lude.Maybe Lude.Text,
-    phrases :: Lude.Maybe [Lude.Text],
+  { -- | The language code of the vocabulary entries.
+    languageCode :: LanguageCode,
+    -- | The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is
+    --
+    -- For example:
+    -- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+    -- For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies> .
+    vocabularyFileURI :: Lude.Maybe Lude.Text,
+    -- | The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a @ConflictException@ error.
     vocabularyName :: Lude.Text,
-    languageCode :: LanguageCode
+    -- | An array of strings containing the vocabulary entries.
+    phrases :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVocabulary' with the minimum fields required to make a request.
 --
 -- * 'languageCode' - The language code of the vocabulary entries.
--- * 'phrases' - An array of strings containing the vocabulary entries.
 -- * 'vocabularyFileURI' - The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is
 --
 -- For example:
 -- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
 -- For more information about custom vocabularies, see <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies> .
 -- * 'vocabularyName' - The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a @ConflictException@ error.
+-- * 'phrases' - An array of strings containing the vocabulary entries.
 mkUpdateVocabulary ::
-  -- | 'vocabularyName'
-  Lude.Text ->
   -- | 'languageCode'
   LanguageCode ->
+  -- | 'vocabularyName'
+  Lude.Text ->
   UpdateVocabulary
-mkUpdateVocabulary pVocabularyName_ pLanguageCode_ =
+mkUpdateVocabulary pLanguageCode_ pVocabularyName_ =
   UpdateVocabulary'
-    { vocabularyFileURI = Lude.Nothing,
-      phrases = Lude.Nothing,
+    { languageCode = pLanguageCode_,
+      vocabularyFileURI = Lude.Nothing,
       vocabularyName = pVocabularyName_,
-      languageCode = pLanguageCode_
+      phrases = Lude.Nothing
     }
+
+-- | The language code of the vocabulary entries.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvLanguageCode :: Lens.Lens' UpdateVocabulary LanguageCode
+uvLanguageCode = Lens.lens (languageCode :: UpdateVocabulary -> LanguageCode) (\s a -> s {languageCode = a} :: UpdateVocabulary)
+{-# DEPRECATED uvLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is
 --
@@ -95,13 +104,6 @@ uvVocabularyFileURI :: Lens.Lens' UpdateVocabulary (Lude.Maybe Lude.Text)
 uvVocabularyFileURI = Lens.lens (vocabularyFileURI :: UpdateVocabulary -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyFileURI = a} :: UpdateVocabulary)
 {-# DEPRECATED uvVocabularyFileURI "Use generic-lens or generic-optics with 'vocabularyFileURI' instead." #-}
 
--- | An array of strings containing the vocabulary entries.
---
--- /Note:/ Consider using 'phrases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvPhrases :: Lens.Lens' UpdateVocabulary (Lude.Maybe [Lude.Text])
-uvPhrases = Lens.lens (phrases :: UpdateVocabulary -> Lude.Maybe [Lude.Text]) (\s a -> s {phrases = a} :: UpdateVocabulary)
-{-# DEPRECATED uvPhrases "Use generic-lens or generic-optics with 'phrases' instead." #-}
-
 -- | The name of the vocabulary to update. The name is case sensitive. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a @ConflictException@ error.
 --
 -- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -109,12 +111,12 @@ uvVocabularyName :: Lens.Lens' UpdateVocabulary Lude.Text
 uvVocabularyName = Lens.lens (vocabularyName :: UpdateVocabulary -> Lude.Text) (\s a -> s {vocabularyName = a} :: UpdateVocabulary)
 {-# DEPRECATED uvVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
--- | The language code of the vocabulary entries.
+-- | An array of strings containing the vocabulary entries.
 --
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvLanguageCode :: Lens.Lens' UpdateVocabulary LanguageCode
-uvLanguageCode = Lens.lens (languageCode :: UpdateVocabulary -> LanguageCode) (\s a -> s {languageCode = a} :: UpdateVocabulary)
-{-# DEPRECATED uvLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+-- /Note:/ Consider using 'phrases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvPhrases :: Lens.Lens' UpdateVocabulary (Lude.Maybe [Lude.Text])
+uvPhrases = Lens.lens (phrases :: UpdateVocabulary -> Lude.Maybe [Lude.Text]) (\s a -> s {phrases = a} :: UpdateVocabulary)
+{-# DEPRECATED uvPhrases "Use generic-lens or generic-optics with 'phrases' instead." #-}
 
 instance Lude.AWSRequest UpdateVocabulary where
   type Rs UpdateVocabulary = UpdateVocabularyResponse
@@ -145,10 +147,10 @@ instance Lude.ToJSON UpdateVocabulary where
   toJSON UpdateVocabulary' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("VocabularyFileUri" Lude..=) Lude.<$> vocabularyFileURI,
-            ("Phrases" Lude..=) Lude.<$> phrases,
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            ("VocabularyFileUri" Lude..=) Lude.<$> vocabularyFileURI,
             Lude.Just ("VocabularyName" Lude..= vocabularyName),
-            Lude.Just ("LanguageCode" Lude..= languageCode)
+            ("Phrases" Lude..=) Lude.<$> phrases
           ]
       )
 
@@ -160,31 +162,27 @@ instance Lude.ToQuery UpdateVocabulary where
 
 -- | /See:/ 'mkUpdateVocabularyResponse' smart constructor.
 data UpdateVocabularyResponse = UpdateVocabularyResponse'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | The language code of the vocabulary entries.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The name of the vocabulary that was updated.
     vocabularyName :: Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    vocabularyState ::
-      Lude.Maybe VocabularyState,
+    -- | The date and time that the vocabulary was updated.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The processing state of the vocabulary. When the @VocabularyState@ field contains @READY@ the vocabulary is ready to be used in a @StartTranscriptionJob@ request.
+    vocabularyState :: Lude.Maybe VocabularyState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVocabularyResponse' with the minimum fields required to make a request.
 --
 -- * 'languageCode' - The language code of the vocabulary entries.
--- * 'lastModifiedTime' - The date and time that the vocabulary was updated.
--- * 'responseStatus' - The response status code.
 -- * 'vocabularyName' - The name of the vocabulary that was updated.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was updated.
 -- * 'vocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field contains @READY@ the vocabulary is ready to be used in a @StartTranscriptionJob@ request.
+-- * 'responseStatus' - The response status code.
 mkUpdateVocabularyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEntityRecognizers' smart constructor.
 data ListEntityRecognizers = ListEntityRecognizers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the list of entities returned. You can filter on @Status@ , @SubmitTimeBefore@ , or @SubmitTimeAfter@ . You can only set one filter at a time.
     filter :: Lude.Maybe EntityRecognizerFilter,
+    -- | The maximum number of results to return on each page. The default is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEntityRecognizers' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Identifies the next page of results to return.
 -- * 'filter' - Filters the list of entities returned. You can filter on @Status@ , @SubmitTimeBefore@ , or @SubmitTimeAfter@ . You can only set one filter at a time.
 -- * 'maxResults' - The maximum number of results to return on each page. The default is 100.
--- * 'nextToken' - Identifies the next page of results to return.
 mkListEntityRecognizers ::
   ListEntityRecognizers
 mkListEntityRecognizers =
@@ -147,26 +144,20 @@ instance Lude.ToQuery ListEntityRecognizers where
 
 -- | /See:/ 'mkListEntityRecognizersResponse' smart constructor.
 data ListEntityRecognizersResponse = ListEntityRecognizersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    entityRecognizerPropertiesList ::
-      Lude.Maybe
-        [EntityRecognizerProperties],
+  { -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of properties of an entity recognizer.
+    entityRecognizerPropertiesList :: Lude.Maybe [EntityRecognizerProperties],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEntityRecognizersResponse' with the minimum fields required to make a request.
 --
--- * 'entityRecognizerPropertiesList' - The list of properties of an entity recognizer.
 -- * 'nextToken' - Identifies the next page of results to return.
+-- * 'entityRecognizerPropertiesList' - The list of properties of an entity recognizer.
 -- * 'responseStatus' - The response status code.
 mkListEntityRecognizersResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.ECR.CreateRepository
     -- ** Request lenses
     crImageScanningConfiguration,
     crEncryptionConfiguration,
+    crRepositoryName,
     crImageTagMutability,
     crTags,
-    crRepositoryName,
 
     -- * Destructuring the response
     CreateRepositoryResponse (..),
@@ -43,29 +44,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { imageScanningConfiguration ::
-      Lude.Maybe ImageScanningConfiguration,
-    encryptionConfiguration ::
-      Lude.Maybe EncryptionConfiguration,
+  { -- | The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+    imageScanningConfiguration :: Lude.Maybe ImageScanningConfiguration,
+    -- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
+    -- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
+    repositoryName :: Lude.Text,
+    -- | The tag mutability setting for the repository. If this parameter is omitted, the default setting of @MUTABLE@ will be used which will allow image tags to be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
     imageTagMutability :: Lude.Maybe ImageTagMutability,
-    tags :: Lude.Maybe [Tag],
-    repositoryName :: Lude.Text
+    -- | The metadata that you apply to the repository to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRepository' with the minimum fields required to make a request.
 --
--- * 'encryptionConfiguration' - The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 -- * 'imageScanningConfiguration' - The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
--- * 'imageTagMutability' - The tag mutability setting for the repository. If this parameter is omitted, the default setting of @MUTABLE@ will be used which will allow image tags to be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
+-- * 'encryptionConfiguration' - The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 -- * 'repositoryName' - The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
+-- * 'imageTagMutability' - The tag mutability setting for the repository. If this parameter is omitted, the default setting of @MUTABLE@ will be used which will allow image tags to be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 -- * 'tags' - The metadata that you apply to the repository to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 mkCreateRepository ::
   -- | 'repositoryName'
@@ -75,9 +73,9 @@ mkCreateRepository pRepositoryName_ =
   CreateRepository'
     { imageScanningConfiguration = Lude.Nothing,
       encryptionConfiguration = Lude.Nothing,
+      repositoryName = pRepositoryName_,
       imageTagMutability = Lude.Nothing,
-      tags = Lude.Nothing,
-      repositoryName = pRepositoryName_
+      tags = Lude.Nothing
     }
 
 -- | The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
@@ -94,6 +92,13 @@ crEncryptionConfiguration :: Lens.Lens' CreateRepository (Lude.Maybe EncryptionC
 crEncryptionConfiguration = Lens.lens (encryptionConfiguration :: CreateRepository -> Lude.Maybe EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: CreateRepository)
 {-# DEPRECATED crEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
 
+-- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRepositoryName :: Lens.Lens' CreateRepository Lude.Text
+crRepositoryName = Lens.lens (repositoryName :: CreateRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateRepository)
+{-# DEPRECATED crRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
 -- | The tag mutability setting for the repository. If this parameter is omitted, the default setting of @MUTABLE@ will be used which will allow image tags to be overwritten. If @IMMUTABLE@ is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
 --
 -- /Note:/ Consider using 'imageTagMutability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -107,13 +112,6 @@ crImageTagMutability = Lens.lens (imageTagMutability :: CreateRepository -> Lude
 crTags :: Lens.Lens' CreateRepository (Lude.Maybe [Tag])
 crTags = Lens.lens (tags :: CreateRepository -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRepository)
 {-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name to use for the repository. The repository name may be specified on its own (such as @nginx-web-app@ ) or it can be prepended with a namespace to group the repository into a category (such as @project-a/nginx-web-app@ ).
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRepositoryName :: Lens.Lens' CreateRepository Lude.Text
-crRepositoryName = Lens.lens (repositoryName :: CreateRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateRepository)
-{-# DEPRECATED crRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest CreateRepository where
   type Rs CreateRepository = CreateRepositoryResponse
@@ -146,9 +144,9 @@ instance Lude.ToJSON CreateRepository where
               Lude.<$> imageScanningConfiguration,
             ("encryptionConfiguration" Lude..=)
               Lude.<$> encryptionConfiguration,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
             ("imageTagMutability" Lude..=) Lude.<$> imageTagMutability,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("repositoryName" Lude..= repositoryName)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -160,17 +158,12 @@ instance Lude.ToQuery CreateRepository where
 
 -- | /See:/ 'mkCreateRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
-  { repository ::
-      Lude.Maybe Repository,
+  { -- | The repository that was created.
+    repository :: Lude.Maybe Repository,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRepositoryResponse' with the minimum fields required to make a request.

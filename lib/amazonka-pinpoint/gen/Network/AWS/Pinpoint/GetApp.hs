@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.GetApp
     mkGetAppResponse,
 
     -- ** Response lenses
-    garsResponseStatus,
     garsApplicationResponse,
+    garsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetApp' smart constructor.
-newtype GetApp = GetApp' {applicationId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetApp = GetApp'
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApp' with the minimum fields required to make a request.
@@ -71,7 +69,7 @@ instance Lude.AWSRequest GetApp where
     Res.receiveJSON
       ( \s h x ->
           GetAppResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetApp where
@@ -92,40 +90,28 @@ instance Lude.ToQuery GetApp where
 
 -- | /See:/ 'mkGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
-  { responseStatus :: Lude.Int,
-    applicationResponse :: ApplicationResponse
+  { applicationResponse :: ApplicationResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppResponse' with the minimum fields required to make a request.
 --
--- * 'applicationResponse' - Undocumented field.
+-- * 'applicationResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetAppResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'applicationResponse'
   ApplicationResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAppResponse
-mkGetAppResponse pResponseStatus_ pApplicationResponse_ =
+mkGetAppResponse pApplicationResponse_ pResponseStatus_ =
   GetAppResponse'
-    { responseStatus = pResponseStatus_,
-      applicationResponse = pApplicationResponse_
+    { applicationResponse = pApplicationResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsResponseStatus :: Lens.Lens' GetAppResponse Lude.Int
-garsResponseStatus = Lens.lens (responseStatus :: GetAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppResponse)
-{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -133,3 +119,10 @@ garsResponseStatus = Lens.lens (responseStatus :: GetAppResponse -> Lude.Int) (\
 garsApplicationResponse :: Lens.Lens' GetAppResponse ApplicationResponse
 garsApplicationResponse = Lens.lens (applicationResponse :: GetAppResponse -> ApplicationResponse) (\s a -> s {applicationResponse = a} :: GetAppResponse)
 {-# DEPRECATED garsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garsResponseStatus :: Lens.Lens' GetAppResponse Lude.Int
+garsResponseStatus = Lens.lens (responseStatus :: GetAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppResponse)
+{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

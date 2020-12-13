@@ -40,53 +40,48 @@ import Network.AWS.SSM.Types.InstanceAssociationOutputURL
 --
 -- /See:/ 'mkInstanceAssociationStatusInfo' smart constructor.
 data InstanceAssociationStatusInfo = InstanceAssociationStatusInfo'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    instanceId ::
-      Lude.Maybe Lude.Text,
-    detailedStatus ::
-      Lude.Maybe Lude.Text,
+  { -- | The association ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The instance ID where the association was created.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Detailed status information about the instance association.
+    detailedStatus :: Lude.Maybe Lude.Text,
+    -- | Status information about the instance association.
     status :: Lude.Maybe Lude.Text,
-    outputURL ::
-      Lude.Maybe
-        InstanceAssociationOutputURL,
-    executionSummary ::
-      Lude.Maybe Lude.Text,
+    -- | A URL for an S3 bucket where you want to store the results of this request.
+    outputURL :: Lude.Maybe InstanceAssociationOutputURL,
+    -- | Summary information about association execution.
+    executionSummary :: Lude.Maybe Lude.Text,
+    -- | The name of the association.
     name :: Lude.Maybe Lude.Text,
-    errorCode ::
-      Lude.Maybe Lude.Text,
-    documentVersion ::
-      Lude.Maybe Lude.Text,
-    associationVersion ::
-      Lude.Maybe Lude.Text,
-    executionDate ::
-      Lude.Maybe Lude.Timestamp,
-    associationName ::
-      Lude.Maybe Lude.Text
+    -- | An error code returned by the request to create the association.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The association document versions.
+    documentVersion :: Lude.Maybe Lude.Text,
+    -- | The version of the association applied to the instance.
+    associationVersion :: Lude.Maybe Lude.Text,
+    -- | The date the instance association ran.
+    executionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the association applied to the instance.
+    associationName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAssociationStatusInfo' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The association ID.
--- * 'associationName' - The name of the association applied to the instance.
--- * 'associationVersion' - The version of the association applied to the instance.
--- * 'detailedStatus' - Detailed status information about the instance association.
--- * 'documentVersion' - The association document versions.
--- * 'errorCode' - An error code returned by the request to create the association.
--- * 'executionDate' - The date the instance association ran.
--- * 'executionSummary' - Summary information about association execution.
 -- * 'instanceId' - The instance ID where the association was created.
--- * 'name' - The name of the association.
--- * 'outputURL' - A URL for an S3 bucket where you want to store the results of this request.
+-- * 'detailedStatus' - Detailed status information about the instance association.
 -- * 'status' - Status information about the instance association.
+-- * 'outputURL' - A URL for an S3 bucket where you want to store the results of this request.
+-- * 'executionSummary' - Summary information about association execution.
+-- * 'name' - The name of the association.
+-- * 'errorCode' - An error code returned by the request to create the association.
+-- * 'documentVersion' - The association document versions.
+-- * 'associationVersion' - The version of the association applied to the instance.
+-- * 'executionDate' - The date the instance association ran.
+-- * 'associationName' - The name of the association applied to the instance.
 mkInstanceAssociationStatusInfo ::
   InstanceAssociationStatusInfo
 mkInstanceAssociationStatusInfo =

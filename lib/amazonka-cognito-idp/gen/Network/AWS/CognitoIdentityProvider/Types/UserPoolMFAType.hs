@@ -13,9 +13,9 @@
 module Network.AWS.CognitoIdentityProvider.Types.UserPoolMFAType
   ( UserPoolMFAType
       ( UserPoolMFAType',
-        UPMTON,
-        UPMTOff,
-        UPMTOptional
+        Off,
+        ON,
+        Optional
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype UserPoolMFAType = UserPoolMFAType' Lude.Text
       Lude.ToHeader
     )
 
-pattern UPMTON :: UserPoolMFAType
-pattern UPMTON = UserPoolMFAType' "ON"
+pattern Off :: UserPoolMFAType
+pattern Off = UserPoolMFAType' "OFF"
 
-pattern UPMTOff :: UserPoolMFAType
-pattern UPMTOff = UserPoolMFAType' "OFF"
+pattern ON :: UserPoolMFAType
+pattern ON = UserPoolMFAType' "ON"
 
-pattern UPMTOptional :: UserPoolMFAType
-pattern UPMTOptional = UserPoolMFAType' "OPTIONAL"
+pattern Optional :: UserPoolMFAType
+pattern Optional = UserPoolMFAType' "OPTIONAL"
 
 {-# COMPLETE
-  UPMTON,
-  UPMTOff,
-  UPMTOptional,
+  Off,
+  ON,
+  Optional,
   UserPoolMFAType'
   #-}

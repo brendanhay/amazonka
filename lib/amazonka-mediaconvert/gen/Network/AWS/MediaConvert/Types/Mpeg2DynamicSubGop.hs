@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Mpeg2DynamicSubGop
   ( Mpeg2DynamicSubGop
       ( Mpeg2DynamicSubGop',
-        MDSGAdaptive,
-        MDSGStatic
+        Adaptive,
+        Static
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mpeg2DynamicSubGop = Mpeg2DynamicSubGop' Lude.Text
       Lude.ToHeader
     )
 
-pattern MDSGAdaptive :: Mpeg2DynamicSubGop
-pattern MDSGAdaptive = Mpeg2DynamicSubGop' "ADAPTIVE"
+pattern Adaptive :: Mpeg2DynamicSubGop
+pattern Adaptive = Mpeg2DynamicSubGop' "ADAPTIVE"
 
-pattern MDSGStatic :: Mpeg2DynamicSubGop
-pattern MDSGStatic = Mpeg2DynamicSubGop' "STATIC"
+pattern Static :: Mpeg2DynamicSubGop
+pattern Static = Mpeg2DynamicSubGop' "STATIC"
 
 {-# COMPLETE
-  MDSGAdaptive,
-  MDSGStatic,
+  Adaptive,
+  Static,
   Mpeg2DynamicSubGop'
   #-}

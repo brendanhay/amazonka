@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     mkAddRoleToInstanceProfile,
 
     -- ** Request lenses
-    artipInstanceProfileName,
     artipRoleName,
+    artipInstanceProfileName,
 
     -- * Destructuring the response
     AddRoleToInstanceProfileResponse (..),
@@ -38,48 +39,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddRoleToInstanceProfile' smart constructor.
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
-  { instanceProfileName ::
-      Lude.Text,
-    roleName :: Lude.Text
+  { -- | The name of the role to add.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Lude.Text,
+    -- | The name of the instance profile to update.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    instanceProfileName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRoleToInstanceProfile' with the minimum fields required to make a request.
 --
--- * 'instanceProfileName' - The name of the instance profile to update.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'roleName' - The name of the role to add.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-mkAddRoleToInstanceProfile ::
-  -- | 'instanceProfileName'
-  Lude.Text ->
-  -- | 'roleName'
-  Lude.Text ->
-  AddRoleToInstanceProfile
-mkAddRoleToInstanceProfile pInstanceProfileName_ pRoleName_ =
-  AddRoleToInstanceProfile'
-    { instanceProfileName =
-        pInstanceProfileName_,
-      roleName = pRoleName_
-    }
-
--- | The name of the instance profile to update.
+-- * 'instanceProfileName' - The name of the instance profile to update.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'instanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artipInstanceProfileName :: Lens.Lens' AddRoleToInstanceProfile Lude.Text
-artipInstanceProfileName = Lens.lens (instanceProfileName :: AddRoleToInstanceProfile -> Lude.Text) (\s a -> s {instanceProfileName = a} :: AddRoleToInstanceProfile)
-{-# DEPRECATED artipInstanceProfileName "Use generic-lens or generic-optics with 'instanceProfileName' instead." #-}
+mkAddRoleToInstanceProfile ::
+  -- | 'roleName'
+  Lude.Text ->
+  -- | 'instanceProfileName'
+  Lude.Text ->
+  AddRoleToInstanceProfile
+mkAddRoleToInstanceProfile pRoleName_ pInstanceProfileName_ =
+  AddRoleToInstanceProfile'
+    { roleName = pRoleName_,
+      instanceProfileName = pInstanceProfileName_
+    }
 
 -- | The name of the role to add.
 --
@@ -89,6 +79,15 @@ artipInstanceProfileName = Lens.lens (instanceProfileName :: AddRoleToInstancePr
 artipRoleName :: Lens.Lens' AddRoleToInstanceProfile Lude.Text
 artipRoleName = Lens.lens (roleName :: AddRoleToInstanceProfile -> Lude.Text) (\s a -> s {roleName = a} :: AddRoleToInstanceProfile)
 {-# DEPRECATED artipRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+-- | The name of the instance profile to update.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'instanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artipInstanceProfileName :: Lens.Lens' AddRoleToInstanceProfile Lude.Text
+artipInstanceProfileName = Lens.lens (instanceProfileName :: AddRoleToInstanceProfile -> Lude.Text) (\s a -> s {instanceProfileName = a} :: AddRoleToInstanceProfile)
+{-# DEPRECATED artipInstanceProfileName "Use generic-lens or generic-optics with 'instanceProfileName' instead." #-}
 
 instance Lude.AWSRequest AddRoleToInstanceProfile where
   type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
@@ -106,19 +105,13 @@ instance Lude.ToQuery AddRoleToInstanceProfile where
     Lude.mconcat
       [ "Action" Lude.=: ("AddRoleToInstanceProfile" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "InstanceProfileName" Lude.=: instanceProfileName,
-        "RoleName" Lude.=: roleName
+        "RoleName" Lude.=: roleName,
+        "InstanceProfileName" Lude.=: instanceProfileName
       ]
 
 -- | /See:/ 'mkAddRoleToInstanceProfileResponse' smart constructor.
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRoleToInstanceProfileResponse' with the minimum fields required to make a request.

@@ -45,47 +45,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificateAuthority' smart constructor.
 data CertificateAuthority = CertificateAuthority'
-  { status ::
-      Lude.Maybe CertificateAuthorityStatus,
+  { -- | Status of your private CA.
+    status :: Lude.Maybe CertificateAuthorityStatus,
+    -- | Reason the request to create your private CA failed.
     failureReason :: Lude.Maybe FailureReason,
-    certificateAuthorityConfiguration ::
-      Lude.Maybe CertificateAuthorityConfiguration,
+    -- | Your private CA configuration.
+    certificateAuthorityConfiguration :: Lude.Maybe CertificateAuthorityConfiguration,
+    -- | Amazon Resource Name (ARN) for your private certificate authority (CA). The format is @/12345678-1234-1234-1234-123456789012/ @ .
     arn :: Lude.Maybe Lude.Text,
+    -- | Date and time at which your private CA was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | Serial number of your private CA.
     serial :: Lude.Maybe Lude.Text,
+    -- | Date and time before which your private CA certificate is not valid.
     notBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
     restorableUntil :: Lude.Maybe Lude.Timestamp,
+    -- | Type of your private CA.
     type' :: Lude.Maybe CertificateAuthorityType,
+    -- | The AWS account ID that owns the certificate authority.
     ownerAccount :: Lude.Maybe Lude.Text,
-    revocationConfiguration ::
-      Lude.Maybe RevocationConfiguration,
+    -- | Information about the certificate revocation list (CRL) created and maintained by your private CA.
+    revocationConfiguration :: Lude.Maybe RevocationConfiguration,
+    -- | Date and time at which your private CA was last updated.
     lastStateChangeAt :: Lude.Maybe Lude.Timestamp,
+    -- | Date and time after which your private CA certificate is not valid.
     notAfter :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateAuthority' with the minimum fields required to make a request.
 --
--- * 'arn' - Amazon Resource Name (ARN) for your private certificate authority (CA). The format is @/12345678-1234-1234-1234-123456789012/ @ .
--- * 'certificateAuthorityConfiguration' - Your private CA configuration.
--- * 'createdAt' - Date and time at which your private CA was created.
+-- * 'status' - Status of your private CA.
 -- * 'failureReason' - Reason the request to create your private CA failed.
+-- * 'certificateAuthorityConfiguration' - Your private CA configuration.
+-- * 'arn' - Amazon Resource Name (ARN) for your private certificate authority (CA). The format is @/12345678-1234-1234-1234-123456789012/ @ .
+-- * 'createdAt' - Date and time at which your private CA was created.
+-- * 'serial' - Serial number of your private CA.
+-- * 'notBefore' - Date and time before which your private CA certificate is not valid.
+-- * 'restorableUntil' - The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
+-- * 'type'' - Type of your private CA.
+-- * 'ownerAccount' - The AWS account ID that owns the certificate authority.
+-- * 'revocationConfiguration' - Information about the certificate revocation list (CRL) created and maintained by your private CA.
 -- * 'lastStateChangeAt' - Date and time at which your private CA was last updated.
 -- * 'notAfter' - Date and time after which your private CA certificate is not valid.
--- * 'notBefore' - Date and time before which your private CA certificate is not valid.
--- * 'ownerAccount' - The AWS account ID that owns the certificate authority.
--- * 'restorableUntil' - The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
--- * 'revocationConfiguration' - Information about the certificate revocation list (CRL) created and maintained by your private CA.
--- * 'serial' - Serial number of your private CA.
--- * 'status' - Status of your private CA.
--- * 'type'' - Type of your private CA.
 mkCertificateAuthority ::
   CertificateAuthority
 mkCertificateAuthority =

@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamSummary' smart constructor.
 data StreamSummary = StreamSummary'
-  { streamVersion ::
-      Lude.Maybe Lude.Natural,
+  { -- | The stream version.
+    streamVersion :: Lude.Maybe Lude.Natural,
+    -- | The stream ARN.
     streamARN :: Lude.Maybe Lude.Text,
+    -- | A description of the stream.
     description :: Lude.Maybe Lude.Text,
+    -- | The stream ID.
     streamId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamSummary' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the stream.
--- * 'streamARN' - The stream ARN.
--- * 'streamId' - The stream ID.
 -- * 'streamVersion' - The stream version.
+-- * 'streamARN' - The stream ARN.
+-- * 'description' - A description of the stream.
+-- * 'streamId' - The stream ID.
 mkStreamSummary ::
   StreamSummary
 mkStreamSummary =

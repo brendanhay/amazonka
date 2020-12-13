@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkMail.UpdateMailboxQuota
     mkUpdateMailboxQuota,
 
     -- ** Request lenses
-    umqOrganizationId,
-    umqUserId,
     umqMailboxQuota,
+    umqUserId,
+    umqOrganizationId,
 
     -- * Destructuring the response
     UpdateMailboxQuotaResponse (..),
@@ -40,46 +41,42 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkUpdateMailboxQuota' smart constructor.
 data UpdateMailboxQuota = UpdateMailboxQuota'
-  { organizationId ::
-      Lude.Text,
+  { -- | The updated mailbox quota, in MB, for the specified user.
+    mailboxQuota :: Lude.Natural,
+    -- | The identifer for the user for whom to update the mailbox quota.
     userId :: Lude.Text,
-    mailboxQuota :: Lude.Natural
+    -- | The identifier for the organization that contains the user for whom to update the mailbox quota.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMailboxQuota' with the minimum fields required to make a request.
 --
 -- * 'mailboxQuota' - The updated mailbox quota, in MB, for the specified user.
--- * 'organizationId' - The identifier for the organization that contains the user for whom to update the mailbox quota.
 -- * 'userId' - The identifer for the user for whom to update the mailbox quota.
+-- * 'organizationId' - The identifier for the organization that contains the user for whom to update the mailbox quota.
 mkUpdateMailboxQuota ::
-  -- | 'organizationId'
-  Lude.Text ->
-  -- | 'userId'
-  Lude.Text ->
   -- | 'mailboxQuota'
   Lude.Natural ->
+  -- | 'userId'
+  Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   UpdateMailboxQuota
-mkUpdateMailboxQuota pOrganizationId_ pUserId_ pMailboxQuota_ =
+mkUpdateMailboxQuota pMailboxQuota_ pUserId_ pOrganizationId_ =
   UpdateMailboxQuota'
-    { organizationId = pOrganizationId_,
+    { mailboxQuota = pMailboxQuota_,
       userId = pUserId_,
-      mailboxQuota = pMailboxQuota_
+      organizationId = pOrganizationId_
     }
 
--- | The identifier for the organization that contains the user for whom to update the mailbox quota.
+-- | The updated mailbox quota, in MB, for the specified user.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umqOrganizationId :: Lens.Lens' UpdateMailboxQuota Lude.Text
-umqOrganizationId = Lens.lens (organizationId :: UpdateMailboxQuota -> Lude.Text) (\s a -> s {organizationId = a} :: UpdateMailboxQuota)
-{-# DEPRECATED umqOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'mailboxQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umqMailboxQuota :: Lens.Lens' UpdateMailboxQuota Lude.Natural
+umqMailboxQuota = Lens.lens (mailboxQuota :: UpdateMailboxQuota -> Lude.Natural) (\s a -> s {mailboxQuota = a} :: UpdateMailboxQuota)
+{-# DEPRECATED umqMailboxQuota "Use generic-lens or generic-optics with 'mailboxQuota' instead." #-}
 
 -- | The identifer for the user for whom to update the mailbox quota.
 --
@@ -88,12 +85,12 @@ umqUserId :: Lens.Lens' UpdateMailboxQuota Lude.Text
 umqUserId = Lens.lens (userId :: UpdateMailboxQuota -> Lude.Text) (\s a -> s {userId = a} :: UpdateMailboxQuota)
 {-# DEPRECATED umqUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
--- | The updated mailbox quota, in MB, for the specified user.
+-- | The identifier for the organization that contains the user for whom to update the mailbox quota.
 --
--- /Note:/ Consider using 'mailboxQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umqMailboxQuota :: Lens.Lens' UpdateMailboxQuota Lude.Natural
-umqMailboxQuota = Lens.lens (mailboxQuota :: UpdateMailboxQuota -> Lude.Natural) (\s a -> s {mailboxQuota = a} :: UpdateMailboxQuota)
-{-# DEPRECATED umqMailboxQuota "Use generic-lens or generic-optics with 'mailboxQuota' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umqOrganizationId :: Lens.Lens' UpdateMailboxQuota Lude.Text
+umqOrganizationId = Lens.lens (organizationId :: UpdateMailboxQuota -> Lude.Text) (\s a -> s {organizationId = a} :: UpdateMailboxQuota)
+{-# DEPRECATED umqOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest UpdateMailboxQuota where
   type Rs UpdateMailboxQuota = UpdateMailboxQuotaResponse
@@ -119,9 +116,9 @@ instance Lude.ToJSON UpdateMailboxQuota where
   toJSON UpdateMailboxQuota' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+          [ Lude.Just ("MailboxQuota" Lude..= mailboxQuota),
             Lude.Just ("UserId" Lude..= userId),
-            Lude.Just ("MailboxQuota" Lude..= mailboxQuota)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -133,16 +130,10 @@ instance Lude.ToQuery UpdateMailboxQuota where
 
 -- | /See:/ 'mkUpdateMailboxQuotaResponse' smart constructor.
 newtype UpdateMailboxQuotaResponse = UpdateMailboxQuotaResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMailboxQuotaResponse' with the minimum fields required to make a request.

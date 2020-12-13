@@ -38,43 +38,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHarvestJob' smart constructor.
 data HarvestJob = HarvestJob'
-  { status :: Lude.Maybe Status,
+  { -- | The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
+    --
+    -- HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
+    -- include an explanation of why the HarvestJob failed.
+    status :: Lude.Maybe Status,
+    -- | The ID of the OriginEndpoint that the HarvestJob will harvest from.
+    --
+    -- This cannot be changed after the HarvestJob is submitted.
     originEndpointId :: Lude.Maybe Lude.Text,
+    -- | The start of the time-window which will be harvested.
     startTime :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time the HarvestJob was submitted
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The ID of the Channel that the HarvestJob will harvest from.
     channelId :: Lude.Maybe Lude.Text,
     s3Destination :: Lude.Maybe S3Destination,
+    -- | The end of the time-window which will be harvested.
     endTime :: Lude.Maybe Lude.Text,
+    -- | The ID of the HarvestJob. The ID must be unique within the region
+    --
+    -- and it cannot be changed after the HarvestJob is submitted.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HarvestJob' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) assigned to the HarvestJob.
--- * 'channelId' - The ID of the Channel that the HarvestJob will harvest from.
--- * 'createdAt' - The time the HarvestJob was submitted
--- * 'endTime' - The end of the time-window which will be harvested.
--- * 'id' - The ID of the HarvestJob. The ID must be unique within the region
---
--- and it cannot be changed after the HarvestJob is submitted.
--- * 'originEndpointId' - The ID of the OriginEndpoint that the HarvestJob will harvest from.
---
--- This cannot be changed after the HarvestJob is submitted.
--- * 's3Destination' - Undocumented field.
--- * 'startTime' - The start of the time-window which will be harvested.
 -- * 'status' - The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
 --
 -- HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
 -- include an explanation of why the HarvestJob failed.
+-- * 'originEndpointId' - The ID of the OriginEndpoint that the HarvestJob will harvest from.
+--
+-- This cannot be changed after the HarvestJob is submitted.
+-- * 'startTime' - The start of the time-window which will be harvested.
+-- * 'arn' - The Amazon Resource Name (ARN) assigned to the HarvestJob.
+-- * 'createdAt' - The time the HarvestJob was submitted
+-- * 'channelId' - The ID of the Channel that the HarvestJob will harvest from.
+-- * 's3Destination' -
+-- * 'endTime' - The end of the time-window which will be harvested.
+-- * 'id' - The ID of the HarvestJob. The ID must be unique within the region
+--
+-- and it cannot be changed after the HarvestJob is submitted.
 mkHarvestJob ::
   HarvestJob
 mkHarvestJob =

@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTableError' smart constructor.
 data TableError = TableError'
-  { tableName :: Lude.Maybe Lude.Text,
+  { -- | The name of the table. For Hive compatibility, this must be entirely lowercase.
+    tableName :: Lude.Maybe Lude.Text,
+    -- | The details about the error.
     errorDetail :: Lude.Maybe ErrorDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableError' with the minimum fields required to make a request.
 --
--- * 'errorDetail' - The details about the error.
 -- * 'tableName' - The name of the table. For Hive compatibility, this must be entirely lowercase.
+-- * 'errorDetail' - The details about the error.
 mkTableError ::
   TableError
 mkTableError =

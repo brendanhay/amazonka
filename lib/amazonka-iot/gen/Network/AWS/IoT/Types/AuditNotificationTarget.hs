@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditNotificationTarget' smart constructor.
 data AuditNotificationTarget = AuditNotificationTarget'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the target (SNS topic) to which audit notifications are sent.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | True if notifications to the target are enabled.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the role that grants permission to send notifications to the target.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditNotificationTarget' with the minimum fields required to make a request.
 --
+-- * 'targetARN' - The ARN of the target (SNS topic) to which audit notifications are sent.
 -- * 'enabled' - True if notifications to the target are enabled.
 -- * 'roleARN' - The ARN of the role that grants permission to send notifications to the target.
--- * 'targetARN' - The ARN of the target (SNS topic) to which audit notifications are sent.
 mkAuditNotificationTarget ::
   AuditNotificationTarget
 mkAuditNotificationTarget =

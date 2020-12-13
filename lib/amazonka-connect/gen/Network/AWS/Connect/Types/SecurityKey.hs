@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityKey' smart constructor.
 data SecurityKey = SecurityKey'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the security key was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     associationId :: Lude.Maybe Lude.Text,
+    -- | The key of the security key.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityKey' with the minimum fields required to make a request.
 --
--- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 -- * 'creationTime' - When the security key was created.
+-- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 -- * 'key' - The key of the security key.
 mkSecurityKey ::
   SecurityKey

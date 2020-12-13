@@ -36,38 +36,36 @@ import Network.AWS.RDS.Types.MinimumEngineVersionPerAllowedValue
 --
 -- /See:/ 'mkOptionGroupOptionSetting' smart constructor.
 data OptionGroupOptionSetting = OptionGroupOptionSetting'
-  { applyType ::
-      Lude.Maybe Lude.Text,
-    minimumEngineVersionPerAllowedValue ::
-      Lude.Maybe
-        [MinimumEngineVersionPerAllowedValue],
+  { -- | The DB engine specific parameter type for the option group option.
+    applyType :: Lude.Maybe Lude.Text,
+    -- | The minimum DB engine version required for the corresponding allowed value for this option setting.
+    minimumEngineVersionPerAllowedValue :: Lude.Maybe [MinimumEngineVersionPerAllowedValue],
+    -- | The name of the option group option.
     settingName :: Lude.Maybe Lude.Text,
+    -- | The default value for the option group option.
     defaultValue :: Lude.Maybe Lude.Text,
+    -- | Boolean value where true indicates that this option group option can be changed from the default value.
     isModifiable :: Lude.Maybe Lude.Bool,
-    settingDescription ::
-      Lude.Maybe Lude.Text,
+    -- | The description of the option group option.
+    settingDescription :: Lude.Maybe Lude.Text,
+    -- | Indicates the acceptable values for the option group option.
     allowedValues :: Lude.Maybe Lude.Text,
+    -- | Boolean value where true indicates that a value must be specified for this option setting of the option group option.
     isRequired :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionGroupOptionSetting' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - Indicates the acceptable values for the option group option.
 -- * 'applyType' - The DB engine specific parameter type for the option group option.
+-- * 'minimumEngineVersionPerAllowedValue' - The minimum DB engine version required for the corresponding allowed value for this option setting.
+-- * 'settingName' - The name of the option group option.
 -- * 'defaultValue' - The default value for the option group option.
 -- * 'isModifiable' - Boolean value where true indicates that this option group option can be changed from the default value.
--- * 'isRequired' - Boolean value where true indicates that a value must be specified for this option setting of the option group option.
--- * 'minimumEngineVersionPerAllowedValue' - The minimum DB engine version required for the corresponding allowed value for this option setting.
 -- * 'settingDescription' - The description of the option group option.
--- * 'settingName' - The name of the option group option.
+-- * 'allowedValues' - Indicates the acceptable values for the option group option.
+-- * 'isRequired' - Boolean value where true indicates that a value must be specified for this option setting of the option group option.
 mkOptionGroupOptionSetting ::
   OptionGroupOptionSetting
 mkOptionGroupOptionSetting =

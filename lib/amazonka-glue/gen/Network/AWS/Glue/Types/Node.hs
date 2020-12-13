@@ -37,30 +37,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNode' smart constructor.
 data Node = Node'
-  { triggerDetails :: Lude.Maybe TriggerNodeDetails,
+  { -- | Details of the Trigger when the node represents a Trigger.
+    triggerDetails :: Lude.Maybe TriggerNodeDetails,
+    -- | The unique Id assigned to the node within the workflow.
     uniqueId :: Lude.Maybe Lude.Text,
+    -- | Details of the crawler when the node represents a crawler.
     crawlerDetails :: Lude.Maybe CrawlerNodeDetails,
+    -- | The name of the AWS Glue component represented by the node.
     name :: Lude.Maybe Lude.Text,
+    -- | Details of the Job when the node represents a Job.
     jobDetails :: Lude.Maybe JobNodeDetails,
+    -- | The type of AWS Glue component represented by the node.
     type' :: Lude.Maybe NodeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Node' with the minimum fields required to make a request.
 --
--- * 'crawlerDetails' - Details of the crawler when the node represents a crawler.
--- * 'jobDetails' - Details of the Job when the node represents a Job.
--- * 'name' - The name of the AWS Glue component represented by the node.
 -- * 'triggerDetails' - Details of the Trigger when the node represents a Trigger.
--- * 'type'' - The type of AWS Glue component represented by the node.
 -- * 'uniqueId' - The unique Id assigned to the node within the workflow.
+-- * 'crawlerDetails' - Details of the crawler when the node represents a crawler.
+-- * 'name' - The name of the AWS Glue component represented by the node.
+-- * 'jobDetails' - Details of the Job when the node represents a Job.
+-- * 'type'' - The type of AWS Glue component represented by the node.
 mkNode ::
   Node
 mkNode =

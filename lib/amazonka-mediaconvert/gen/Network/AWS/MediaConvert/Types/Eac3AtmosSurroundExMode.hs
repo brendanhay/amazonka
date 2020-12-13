@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosSurroundExMode
   ( Eac3AtmosSurroundExMode
       ( Eac3AtmosSurroundExMode',
-        EASEMDisabled,
+        EASEMNotIndicated,
         EASEMEnabled,
-        EASEMNotIndicated
+        EASEMDisabled
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype Eac3AtmosSurroundExMode = Eac3AtmosSurroundExMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern EASEMDisabled :: Eac3AtmosSurroundExMode
-pattern EASEMDisabled = Eac3AtmosSurroundExMode' "DISABLED"
+pattern EASEMNotIndicated :: Eac3AtmosSurroundExMode
+pattern EASEMNotIndicated = Eac3AtmosSurroundExMode' "NOT_INDICATED"
 
 pattern EASEMEnabled :: Eac3AtmosSurroundExMode
 pattern EASEMEnabled = Eac3AtmosSurroundExMode' "ENABLED"
 
-pattern EASEMNotIndicated :: Eac3AtmosSurroundExMode
-pattern EASEMNotIndicated = Eac3AtmosSurroundExMode' "NOT_INDICATED"
+pattern EASEMDisabled :: Eac3AtmosSurroundExMode
+pattern EASEMDisabled = Eac3AtmosSurroundExMode' "DISABLED"
 
 {-# COMPLETE
-  EASEMDisabled,
-  EASEMEnabled,
   EASEMNotIndicated,
+  EASEMEnabled,
+  EASEMDisabled,
   Eac3AtmosSurroundExMode'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,28 +20,28 @@ module Network.AWS.CodeCommit.DescribeMergeConflicts
     mkDescribeMergeConflicts,
 
     -- ** Request lenses
+    dmcFilePath,
+    dmcMergeOption,
     dmcConflictDetailLevel,
     dmcNextToken,
     dmcMaxMergeHunks,
-    dmcConflictResolutionStrategy,
     dmcRepositoryName,
-    dmcDestinationCommitSpecifier,
     dmcSourceCommitSpecifier,
-    dmcMergeOption,
-    dmcFilePath,
+    dmcConflictResolutionStrategy,
+    dmcDestinationCommitSpecifier,
 
     -- * Destructuring the response
     DescribeMergeConflictsResponse (..),
     mkDescribeMergeConflictsResponse,
 
     -- ** Response lenses
+    dmcrsDestinationCommitId,
     dmcrsBaseCommitId,
     dmcrsNextToken,
-    dmcrsResponseStatus,
-    dmcrsConflictMetadata,
     dmcrsMergeHunks,
-    dmcrsDestinationCommitId,
+    dmcrsConflictMetadata,
     dmcrsSourceCommitId,
+    dmcrsResponseStatus,
   )
 where
 
@@ -52,67 +53,82 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeMergeConflicts' smart constructor.
 data DescribeMergeConflicts = DescribeMergeConflicts'
-  { conflictDetailLevel ::
-      Lude.Maybe ConflictDetailLevelTypeEnum,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxMergeHunks :: Lude.Maybe Lude.Int,
-    conflictResolutionStrategy ::
-      Lude.Maybe ConflictResolutionStrategyTypeEnum,
-    repositoryName :: Lude.Text,
-    destinationCommitSpecifier :: Lude.Text,
-    sourceCommitSpecifier :: Lude.Text,
+  { -- | The path of the target files used to describe the conflicts.
+    filePath :: Lude.Text,
+    -- | The merge option or strategy you want to use to merge the code.
     mergeOption :: MergeOptionTypeEnum,
-    filePath :: Lude.Text
+    -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+    conflictDetailLevel :: Lude.Maybe ConflictDetailLevelTypeEnum,
+    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of merge hunks to include in the output.
+    maxMergeHunks :: Lude.Maybe Lude.Int,
+    -- | The name of the repository where you want to get information about a merge conflict.
+    repositoryName :: Lude.Text,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+    sourceCommitSpecifier :: Lude.Text,
+    -- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
+    conflictResolutionStrategy :: Lude.Maybe ConflictResolutionStrategyTypeEnum,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+    destinationCommitSpecifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMergeConflicts' with the minimum fields required to make a request.
 --
--- * 'conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
--- * 'conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
--- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 -- * 'filePath' - The path of the target files used to describe the conflicts.
--- * 'maxMergeHunks' - The maximum number of merge hunks to include in the output.
 -- * 'mergeOption' - The merge option or strategy you want to use to merge the code.
+-- * 'conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
 -- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
+-- * 'maxMergeHunks' - The maximum number of merge hunks to include in the output.
 -- * 'repositoryName' - The name of the repository where you want to get information about a merge conflict.
 -- * 'sourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+-- * 'conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
+-- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 mkDescribeMergeConflicts ::
-  -- | 'repositoryName'
-  Lude.Text ->
-  -- | 'destinationCommitSpecifier'
-  Lude.Text ->
-  -- | 'sourceCommitSpecifier'
+  -- | 'filePath'
   Lude.Text ->
   -- | 'mergeOption'
   MergeOptionTypeEnum ->
-  -- | 'filePath'
+  -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'sourceCommitSpecifier'
+  Lude.Text ->
+  -- | 'destinationCommitSpecifier'
   Lude.Text ->
   DescribeMergeConflicts
 mkDescribeMergeConflicts
-  pRepositoryName_
-  pDestinationCommitSpecifier_
-  pSourceCommitSpecifier_
+  pFilePath_
   pMergeOption_
-  pFilePath_ =
+  pRepositoryName_
+  pSourceCommitSpecifier_
+  pDestinationCommitSpecifier_ =
     DescribeMergeConflicts'
-      { conflictDetailLevel = Lude.Nothing,
+      { filePath = pFilePath_,
+        mergeOption = pMergeOption_,
+        conflictDetailLevel = Lude.Nothing,
         nextToken = Lude.Nothing,
         maxMergeHunks = Lude.Nothing,
-        conflictResolutionStrategy = Lude.Nothing,
         repositoryName = pRepositoryName_,
-        destinationCommitSpecifier = pDestinationCommitSpecifier_,
         sourceCommitSpecifier = pSourceCommitSpecifier_,
-        mergeOption = pMergeOption_,
-        filePath = pFilePath_
+        conflictResolutionStrategy = Lude.Nothing,
+        destinationCommitSpecifier = pDestinationCommitSpecifier_
       }
+
+-- | The path of the target files used to describe the conflicts.
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcFilePath :: Lens.Lens' DescribeMergeConflicts Lude.Text
+dmcFilePath = Lens.lens (filePath :: DescribeMergeConflicts -> Lude.Text) (\s a -> s {filePath = a} :: DescribeMergeConflicts)
+{-# DEPRECATED dmcFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
+
+-- | The merge option or strategy you want to use to merge the code.
+--
+-- /Note:/ Consider using 'mergeOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcMergeOption :: Lens.Lens' DescribeMergeConflicts MergeOptionTypeEnum
+dmcMergeOption = Lens.lens (mergeOption :: DescribeMergeConflicts -> MergeOptionTypeEnum) (\s a -> s {mergeOption = a} :: DescribeMergeConflicts)
+{-# DEPRECATED dmcMergeOption "Use generic-lens or generic-optics with 'mergeOption' instead." #-}
 
 -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
 --
@@ -135,13 +151,6 @@ dmcMaxMergeHunks :: Lens.Lens' DescribeMergeConflicts (Lude.Maybe Lude.Int)
 dmcMaxMergeHunks = Lens.lens (maxMergeHunks :: DescribeMergeConflicts -> Lude.Maybe Lude.Int) (\s a -> s {maxMergeHunks = a} :: DescribeMergeConflicts)
 {-# DEPRECATED dmcMaxMergeHunks "Use generic-lens or generic-optics with 'maxMergeHunks' instead." #-}
 
--- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
---
--- /Note:/ Consider using 'conflictResolutionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcConflictResolutionStrategy :: Lens.Lens' DescribeMergeConflicts (Lude.Maybe ConflictResolutionStrategyTypeEnum)
-dmcConflictResolutionStrategy = Lens.lens (conflictResolutionStrategy :: DescribeMergeConflicts -> Lude.Maybe ConflictResolutionStrategyTypeEnum) (\s a -> s {conflictResolutionStrategy = a} :: DescribeMergeConflicts)
-{-# DEPRECATED dmcConflictResolutionStrategy "Use generic-lens or generic-optics with 'conflictResolutionStrategy' instead." #-}
-
 -- | The name of the repository where you want to get information about a merge conflict.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -151,31 +160,24 @@ dmcRepositoryName = Lens.lens (repositoryName :: DescribeMergeConflicts -> Lude.
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 --
--- /Note:/ Consider using 'destinationCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcDestinationCommitSpecifier :: Lens.Lens' DescribeMergeConflicts Lude.Text
-dmcDestinationCommitSpecifier = Lens.lens (destinationCommitSpecifier :: DescribeMergeConflicts -> Lude.Text) (\s a -> s {destinationCommitSpecifier = a} :: DescribeMergeConflicts)
-{-# DEPRECATED dmcDestinationCommitSpecifier "Use generic-lens or generic-optics with 'destinationCommitSpecifier' instead." #-}
-
--- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
---
 -- /Note:/ Consider using 'sourceCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmcSourceCommitSpecifier :: Lens.Lens' DescribeMergeConflicts Lude.Text
 dmcSourceCommitSpecifier = Lens.lens (sourceCommitSpecifier :: DescribeMergeConflicts -> Lude.Text) (\s a -> s {sourceCommitSpecifier = a} :: DescribeMergeConflicts)
 {-# DEPRECATED dmcSourceCommitSpecifier "Use generic-lens or generic-optics with 'sourceCommitSpecifier' instead." #-}
 
--- | The merge option or strategy you want to use to merge the code.
+-- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
 --
--- /Note:/ Consider using 'mergeOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcMergeOption :: Lens.Lens' DescribeMergeConflicts MergeOptionTypeEnum
-dmcMergeOption = Lens.lens (mergeOption :: DescribeMergeConflicts -> MergeOptionTypeEnum) (\s a -> s {mergeOption = a} :: DescribeMergeConflicts)
-{-# DEPRECATED dmcMergeOption "Use generic-lens or generic-optics with 'mergeOption' instead." #-}
+-- /Note:/ Consider using 'conflictResolutionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcConflictResolutionStrategy :: Lens.Lens' DescribeMergeConflicts (Lude.Maybe ConflictResolutionStrategyTypeEnum)
+dmcConflictResolutionStrategy = Lens.lens (conflictResolutionStrategy :: DescribeMergeConflicts -> Lude.Maybe ConflictResolutionStrategyTypeEnum) (\s a -> s {conflictResolutionStrategy = a} :: DescribeMergeConflicts)
+{-# DEPRECATED dmcConflictResolutionStrategy "Use generic-lens or generic-optics with 'conflictResolutionStrategy' instead." #-}
 
--- | The path of the target files used to describe the conflicts.
+-- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 --
--- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcFilePath :: Lens.Lens' DescribeMergeConflicts Lude.Text
-dmcFilePath = Lens.lens (filePath :: DescribeMergeConflicts -> Lude.Text) (\s a -> s {filePath = a} :: DescribeMergeConflicts)
-{-# DEPRECATED dmcFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
+-- /Note:/ Consider using 'destinationCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcDestinationCommitSpecifier :: Lens.Lens' DescribeMergeConflicts Lude.Text
+dmcDestinationCommitSpecifier = Lens.lens (destinationCommitSpecifier :: DescribeMergeConflicts -> Lude.Text) (\s a -> s {destinationCommitSpecifier = a} :: DescribeMergeConflicts)
+{-# DEPRECATED dmcDestinationCommitSpecifier "Use generic-lens or generic-optics with 'destinationCommitSpecifier' instead." #-}
 
 instance Lude.AWSRequest DescribeMergeConflicts where
   type Rs DescribeMergeConflicts = DescribeMergeConflictsResponse
@@ -184,13 +186,13 @@ instance Lude.AWSRequest DescribeMergeConflicts where
     Res.receiveJSON
       ( \s h x ->
           DescribeMergeConflictsResponse'
-            Lude.<$> (x Lude..?> "baseCommitId")
+            Lude.<$> (x Lude..:> "destinationCommitId")
+            Lude.<*> (x Lude..?> "baseCommitId")
             Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "conflictMetadata")
             Lude.<*> (x Lude..?> "mergeHunks" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "destinationCommitId")
+            Lude.<*> (x Lude..:> "conflictMetadata")
             Lude.<*> (x Lude..:> "sourceCommitId")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeMergeConflicts where
@@ -208,17 +210,17 @@ instance Lude.ToJSON DescribeMergeConflicts where
   toJSON DescribeMergeConflicts' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("conflictDetailLevel" Lude..=) Lude.<$> conflictDetailLevel,
+          [ Lude.Just ("filePath" Lude..= filePath),
+            Lude.Just ("mergeOption" Lude..= mergeOption),
+            ("conflictDetailLevel" Lude..=) Lude.<$> conflictDetailLevel,
             ("nextToken" Lude..=) Lude.<$> nextToken,
             ("maxMergeHunks" Lude..=) Lude.<$> maxMergeHunks,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("sourceCommitSpecifier" Lude..= sourceCommitSpecifier),
             ("conflictResolutionStrategy" Lude..=)
               Lude.<$> conflictResolutionStrategy,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
             Lude.Just
-              ("destinationCommitSpecifier" Lude..= destinationCommitSpecifier),
-            Lude.Just ("sourceCommitSpecifier" Lude..= sourceCommitSpecifier),
-            Lude.Just ("mergeOption" Lude..= mergeOption),
-            Lude.Just ("filePath" Lude..= filePath)
+              ("destinationCommitSpecifier" Lude..= destinationCommitSpecifier)
           ]
       )
 
@@ -230,60 +232,65 @@ instance Lude.ToQuery DescribeMergeConflicts where
 
 -- | /See:/ 'mkDescribeMergeConflictsResponse' smart constructor.
 data DescribeMergeConflictsResponse = DescribeMergeConflictsResponse'
-  { baseCommitId ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    conflictMetadata ::
-      ConflictMetadata,
+  { -- | The commit ID of the destination commit specifier that was used in the merge evaluation.
+    destinationCommitId :: Lude.Text,
+    -- | The commit ID of the merge base.
+    baseCommitId :: Lude.Maybe Lude.Text,
+    -- | An enumeration token that can be used in a request to return the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of merge hunks of the differences between the files or lines.
     mergeHunks :: [MergeHunk],
-    destinationCommitId ::
-      Lude.Text,
-    sourceCommitId :: Lude.Text
+    -- | Contains metadata about the conflicts found in the merge.
+    conflictMetadata :: ConflictMetadata,
+    -- | The commit ID of the source commit specifier that was used in the merge evaluation.
+    sourceCommitId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMergeConflictsResponse' with the minimum fields required to make a request.
 --
--- * 'baseCommitId' - The commit ID of the merge base.
--- * 'conflictMetadata' - Contains metadata about the conflicts found in the merge.
 -- * 'destinationCommitId' - The commit ID of the destination commit specifier that was used in the merge evaluation.
--- * 'mergeHunks' - A list of merge hunks of the differences between the files or lines.
+-- * 'baseCommitId' - The commit ID of the merge base.
 -- * 'nextToken' - An enumeration token that can be used in a request to return the next batch of the results.
--- * 'responseStatus' - The response status code.
+-- * 'mergeHunks' - A list of merge hunks of the differences between the files or lines.
+-- * 'conflictMetadata' - Contains metadata about the conflicts found in the merge.
 -- * 'sourceCommitId' - The commit ID of the source commit specifier that was used in the merge evaluation.
+-- * 'responseStatus' - The response status code.
 mkDescribeMergeConflictsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'conflictMetadata'
-  ConflictMetadata ->
   -- | 'destinationCommitId'
   Lude.Text ->
+  -- | 'conflictMetadata'
+  ConflictMetadata ->
   -- | 'sourceCommitId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeMergeConflictsResponse
 mkDescribeMergeConflictsResponse
-  pResponseStatus_
-  pConflictMetadata_
   pDestinationCommitId_
-  pSourceCommitId_ =
+  pConflictMetadata_
+  pSourceCommitId_
+  pResponseStatus_ =
     DescribeMergeConflictsResponse'
-      { baseCommitId = Lude.Nothing,
+      { destinationCommitId =
+          pDestinationCommitId_,
+        baseCommitId = Lude.Nothing,
         nextToken = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        conflictMetadata = pConflictMetadata_,
         mergeHunks = Lude.mempty,
-        destinationCommitId = pDestinationCommitId_,
-        sourceCommitId = pSourceCommitId_
+        conflictMetadata = pConflictMetadata_,
+        sourceCommitId = pSourceCommitId_,
+        responseStatus = pResponseStatus_
       }
+
+-- | The commit ID of the destination commit specifier that was used in the merge evaluation.
+--
+-- /Note:/ Consider using 'destinationCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcrsDestinationCommitId :: Lens.Lens' DescribeMergeConflictsResponse Lude.Text
+dmcrsDestinationCommitId = Lens.lens (destinationCommitId :: DescribeMergeConflictsResponse -> Lude.Text) (\s a -> s {destinationCommitId = a} :: DescribeMergeConflictsResponse)
+{-# DEPRECATED dmcrsDestinationCommitId "Use generic-lens or generic-optics with 'destinationCommitId' instead." #-}
 
 -- | The commit ID of the merge base.
 --
@@ -299,12 +306,12 @@ dmcrsNextToken :: Lens.Lens' DescribeMergeConflictsResponse (Lude.Maybe Lude.Tex
 dmcrsNextToken = Lens.lens (nextToken :: DescribeMergeConflictsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMergeConflictsResponse)
 {-# DEPRECATED dmcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
+-- | A list of merge hunks of the differences between the files or lines.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcrsResponseStatus :: Lens.Lens' DescribeMergeConflictsResponse Lude.Int
-dmcrsResponseStatus = Lens.lens (responseStatus :: DescribeMergeConflictsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMergeConflictsResponse)
-{-# DEPRECATED dmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'mergeHunks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcrsMergeHunks :: Lens.Lens' DescribeMergeConflictsResponse [MergeHunk]
+dmcrsMergeHunks = Lens.lens (mergeHunks :: DescribeMergeConflictsResponse -> [MergeHunk]) (\s a -> s {mergeHunks = a} :: DescribeMergeConflictsResponse)
+{-# DEPRECATED dmcrsMergeHunks "Use generic-lens or generic-optics with 'mergeHunks' instead." #-}
 
 -- | Contains metadata about the conflicts found in the merge.
 --
@@ -313,23 +320,16 @@ dmcrsConflictMetadata :: Lens.Lens' DescribeMergeConflictsResponse ConflictMetad
 dmcrsConflictMetadata = Lens.lens (conflictMetadata :: DescribeMergeConflictsResponse -> ConflictMetadata) (\s a -> s {conflictMetadata = a} :: DescribeMergeConflictsResponse)
 {-# DEPRECATED dmcrsConflictMetadata "Use generic-lens or generic-optics with 'conflictMetadata' instead." #-}
 
--- | A list of merge hunks of the differences between the files or lines.
---
--- /Note:/ Consider using 'mergeHunks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcrsMergeHunks :: Lens.Lens' DescribeMergeConflictsResponse [MergeHunk]
-dmcrsMergeHunks = Lens.lens (mergeHunks :: DescribeMergeConflictsResponse -> [MergeHunk]) (\s a -> s {mergeHunks = a} :: DescribeMergeConflictsResponse)
-{-# DEPRECATED dmcrsMergeHunks "Use generic-lens or generic-optics with 'mergeHunks' instead." #-}
-
--- | The commit ID of the destination commit specifier that was used in the merge evaluation.
---
--- /Note:/ Consider using 'destinationCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcrsDestinationCommitId :: Lens.Lens' DescribeMergeConflictsResponse Lude.Text
-dmcrsDestinationCommitId = Lens.lens (destinationCommitId :: DescribeMergeConflictsResponse -> Lude.Text) (\s a -> s {destinationCommitId = a} :: DescribeMergeConflictsResponse)
-{-# DEPRECATED dmcrsDestinationCommitId "Use generic-lens or generic-optics with 'destinationCommitId' instead." #-}
-
 -- | The commit ID of the source commit specifier that was used in the merge evaluation.
 --
 -- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmcrsSourceCommitId :: Lens.Lens' DescribeMergeConflictsResponse Lude.Text
 dmcrsSourceCommitId = Lens.lens (sourceCommitId :: DescribeMergeConflictsResponse -> Lude.Text) (\s a -> s {sourceCommitId = a} :: DescribeMergeConflictsResponse)
 {-# DEPRECATED dmcrsSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmcrsResponseStatus :: Lens.Lens' DescribeMergeConflictsResponse Lude.Int
+dmcrsResponseStatus = Lens.lens (responseStatus :: DescribeMergeConflictsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMergeConflictsResponse)
+{-# DEPRECATED dmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

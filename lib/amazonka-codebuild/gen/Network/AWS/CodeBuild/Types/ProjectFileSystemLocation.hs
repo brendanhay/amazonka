@@ -33,33 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProjectFileSystemLocation' smart constructor.
 data ProjectFileSystemLocation = ProjectFileSystemLocation'
-  { location ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that specifies the location of the file system created by Amazon EFS. Its format is @efs-dns-name:/directory-path@ . You can find the DNS name of file system when you view it in the AWS EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is @fs-abcd1234.efs.us-west-2.amazonaws.com@ , and its mount directory is @my-efs-mount-directory@ , then the @location@ is @fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory@ .
+    --
+    -- The directory path in the format @efs-dns-name:/directory-path@ is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+    location :: Lude.Maybe Lude.Text,
+    -- | The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the @identifier@ in all capital letters to @CODEBUILD_@ . For example, if you specify @my_efs@ for @identifier@ , a new environment variable is create named @CODEBUILD_MY_EFS@ .
+    --
+    -- The @identifier@ is used to mount your file system.
     identifier :: Lude.Maybe Lude.Text,
+    -- | The mount options for a file system created by AWS EFS. The default mount options used by CodeBuild are @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options> .
     mountOptions :: Lude.Maybe Lude.Text,
+    -- | The type of the file system. The one supported type is @EFS@ .
     type' :: Lude.Maybe FileSystemType,
+    -- | The location in the container where you mount the file system.
     mountPoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectFileSystemLocation' with the minimum fields required to make a request.
 --
--- * 'identifier' - The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the @identifier@ in all capital letters to @CODEBUILD_@ . For example, if you specify @my_efs@ for @identifier@ , a new environment variable is create named @CODEBUILD_MY_EFS@ .
---
--- The @identifier@ is used to mount your file system.
 -- * 'location' - A string that specifies the location of the file system created by Amazon EFS. Its format is @efs-dns-name:/directory-path@ . You can find the DNS name of file system when you view it in the AWS EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is @fs-abcd1234.efs.us-west-2.amazonaws.com@ , and its mount directory is @my-efs-mount-directory@ , then the @location@ is @fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory@ .
 --
 -- The directory path in the format @efs-dns-name:/directory-path@ is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+-- * 'identifier' - The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the @identifier@ in all capital letters to @CODEBUILD_@ . For example, if you specify @my_efs@ for @identifier@ , a new environment variable is create named @CODEBUILD_MY_EFS@ .
+--
+-- The @identifier@ is used to mount your file system.
 -- * 'mountOptions' - The mount options for a file system created by AWS EFS. The default mount options used by CodeBuild are @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options> .
--- * 'mountPoint' - The location in the container where you mount the file system.
 -- * 'type'' - The type of the file system. The one supported type is @EFS@ .
+-- * 'mountPoint' - The location in the container where you mount the file system.
 mkProjectFileSystemLocation ::
   ProjectFileSystemLocation
 mkProjectFileSystemLocation =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,9 +55,9 @@ module Network.AWS.WAF.UpdateWebACL
     mkUpdateWebACL,
 
     -- ** Request lenses
+    uwaWebACLId,
     uwaUpdates,
     uwaDefaultAction,
-    uwaWebACLId,
     uwaChangeToken,
 
     -- * Destructuring the response
@@ -77,25 +78,31 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkUpdateWebACL' smart constructor.
 data UpdateWebACL = UpdateWebACL'
-  { updates ::
-      Lude.Maybe [WebACLUpdate],
-    defaultAction :: Lude.Maybe WafAction,
+  { -- | The @WebACLId@ of the 'WebACL' that you want to update. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
     webACLId :: Lude.Text,
+    -- | An array of updates to make to the 'WebACL' .
+    --
+    -- An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:
+    --
+    --     * 'WebACLUpdate' : Contains @Action@ and @ActivatedRule@
+    --
+    --
+    --     * 'ActivatedRule' : Contains @Action@ , @OverrideAction@ , @Priority@ , @RuleId@ , and @Type@ . @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case, you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .
+    --
+    --
+    --     * 'WafAction' : Contains @Type@
+    updates :: Lude.Maybe [WebACLUpdate],
+    -- | A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
+    defaultAction :: Lude.Maybe WafAction,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWebACL' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
--- * 'defaultAction' - A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
+-- * 'webACLId' - The @WebACLId@ of the 'WebACL' that you want to update. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 -- * 'updates' - An array of updates to make to the 'WebACL' .
 --
 -- An array of @WebACLUpdate@ objects that you want to insert into or delete from a 'WebACL' . For more information, see the applicable data types:
@@ -109,7 +116,8 @@ data UpdateWebACL = UpdateWebACL'
 --     * 'WafAction' : Contains @Type@
 --
 --
--- * 'webACLId' - The @WebACLId@ of the 'WebACL' that you want to update. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
+-- * 'defaultAction' - A default action for the web ACL, either ALLOW or BLOCK. AWS WAF performs the default action if a request doesn't match the criteria in any of the rules in a web ACL.
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkUpdateWebACL ::
   -- | 'webACLId'
   Lude.Text ->
@@ -118,11 +126,18 @@ mkUpdateWebACL ::
   UpdateWebACL
 mkUpdateWebACL pWebACLId_ pChangeToken_ =
   UpdateWebACL'
-    { updates = Lude.Nothing,
+    { webACLId = pWebACLId_,
+      updates = Lude.Nothing,
       defaultAction = Lude.Nothing,
-      webACLId = pWebACLId_,
       changeToken = pChangeToken_
     }
+
+-- | The @WebACLId@ of the 'WebACL' that you want to update. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
+--
+-- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwaWebACLId :: Lens.Lens' UpdateWebACL Lude.Text
+uwaWebACLId = Lens.lens (webACLId :: UpdateWebACL -> Lude.Text) (\s a -> s {webACLId = a} :: UpdateWebACL)
+{-# DEPRECATED uwaWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | An array of updates to make to the 'WebACL' .
 --
@@ -149,13 +164,6 @@ uwaUpdates = Lens.lens (updates :: UpdateWebACL -> Lude.Maybe [WebACLUpdate]) (\
 uwaDefaultAction :: Lens.Lens' UpdateWebACL (Lude.Maybe WafAction)
 uwaDefaultAction = Lens.lens (defaultAction :: UpdateWebACL -> Lude.Maybe WafAction) (\s a -> s {defaultAction = a} :: UpdateWebACL)
 {-# DEPRECATED uwaDefaultAction "Use generic-lens or generic-optics with 'defaultAction' instead." #-}
-
--- | The @WebACLId@ of the 'WebACL' that you want to update. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
---
--- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uwaWebACLId :: Lens.Lens' UpdateWebACL Lude.Text
-uwaWebACLId = Lens.lens (webACLId :: UpdateWebACL -> Lude.Text) (\s a -> s {webACLId = a} :: UpdateWebACL)
-{-# DEPRECATED uwaWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
@@ -189,9 +197,9 @@ instance Lude.ToJSON UpdateWebACL where
   toJSON UpdateWebACL' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Updates" Lude..=) Lude.<$> updates,
+          [ Lude.Just ("WebACLId" Lude..= webACLId),
+            ("Updates" Lude..=) Lude.<$> updates,
             ("DefaultAction" Lude..=) Lude.<$> defaultAction,
-            Lude.Just ("WebACLId" Lude..= webACLId),
             Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
@@ -204,17 +212,12 @@ instance Lude.ToQuery UpdateWebACL where
 
 -- | /See:/ 'mkUpdateWebACLResponse' smart constructor.
 data UpdateWebACLResponse = UpdateWebACLResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @UpdateWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWebACLResponse' with the minimum fields required to make a request.

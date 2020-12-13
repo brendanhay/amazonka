@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetIdentityPoolConfiguration' smart constructor.
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
-  { identityPoolId ::
-      Lude.Text
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool for which to return a configuration.
+    identityPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoolConfiguration' with the minimum fields required to make a request.
@@ -110,31 +105,22 @@ instance Lude.ToQuery GetIdentityPoolConfiguration where
 --
 -- /See:/ 'mkGetIdentityPoolConfigurationResponse' smart constructor.
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
-  { identityPoolId ::
-      Lude.Maybe
-        Lude.Text,
-    cognitoStreams ::
-      Lude.Maybe
-        CognitoStreams,
-    pushSync ::
-      Lude.Maybe
-        PushSync,
-    responseStatus ::
-      Lude.Int
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    identityPoolId :: Lude.Maybe Lude.Text,
+    -- | Options to apply to this identity pool for Amazon Cognito streams.
+    cognitoStreams :: Lude.Maybe CognitoStreams,
+    -- | Options to apply to this identity pool for push synchronization.
+    pushSync :: Lude.Maybe PushSync,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 -- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- * 'cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 -- * 'pushSync' - Options to apply to this identity pool for push synchronization.
 -- * 'responseStatus' - The response status code.
 mkGetIdentityPoolConfigurationResponse ::

@@ -44,51 +44,60 @@ import Network.AWS.RDS.Types.RecurringCharge
 --
 -- /See:/ 'mkReservedDBInstance' smart constructor.
 data ReservedDBInstance = ReservedDBInstance'
-  { dbInstanceCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of reserved DB instances.
+    dbInstanceCount :: Lude.Maybe Lude.Int,
+    -- | The state of the reserved DB instance.
     state :: Lude.Maybe Lude.Text,
+    -- | The currency code for the reserved DB instance.
     currencyCode :: Lude.Maybe Lude.Text,
+    -- | The time the reservation started.
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | The description of the reserved DB instance.
     productDescription :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the lease associated with the reserved DB instance.
     leaseId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the reservation.
     reservedDBInstanceId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the reserved DB instance.
     reservedDBInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The DB instance class for the reserved DB instance.
     dbInstanceClass :: Lude.Maybe Lude.Text,
+    -- | Indicates if the reservation applies to Multi-AZ deployments.
     multiAZ :: Lude.Maybe Lude.Bool,
+    -- | The offering identifier.
     reservedDBInstancesOfferingId :: Lude.Maybe Lude.Text,
+    -- | The recurring price charged to run this reserved DB instance.
     recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The offering type of this reserved DB instance.
     offeringType :: Lude.Maybe Lude.Text,
+    -- | The hourly price charged for this reserved DB instance.
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | The fixed price charged for this reserved DB instance.
     fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The duration of the reservation in seconds.
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedDBInstance' with the minimum fields required to make a request.
 --
--- * 'currencyCode' - The currency code for the reserved DB instance.
--- * 'dbInstanceClass' - The DB instance class for the reserved DB instance.
 -- * 'dbInstanceCount' - The number of reserved DB instances.
--- * 'duration' - The duration of the reservation in seconds.
--- * 'fixedPrice' - The fixed price charged for this reserved DB instance.
--- * 'leaseId' - The unique identifier for the lease associated with the reserved DB instance.
--- * 'multiAZ' - Indicates if the reservation applies to Multi-AZ deployments.
--- * 'offeringType' - The offering type of this reserved DB instance.
--- * 'productDescription' - The description of the reserved DB instance.
--- * 'recurringCharges' - The recurring price charged to run this reserved DB instance.
--- * 'reservedDBInstanceARN' - The Amazon Resource Name (ARN) for the reserved DB instance.
--- * 'reservedDBInstanceId' - The unique identifier for the reservation.
--- * 'reservedDBInstancesOfferingId' - The offering identifier.
--- * 'startTime' - The time the reservation started.
 -- * 'state' - The state of the reserved DB instance.
+-- * 'currencyCode' - The currency code for the reserved DB instance.
+-- * 'startTime' - The time the reservation started.
+-- * 'productDescription' - The description of the reserved DB instance.
+-- * 'leaseId' - The unique identifier for the lease associated with the reserved DB instance.
+-- * 'reservedDBInstanceId' - The unique identifier for the reservation.
+-- * 'reservedDBInstanceARN' - The Amazon Resource Name (ARN) for the reserved DB instance.
+-- * 'dbInstanceClass' - The DB instance class for the reserved DB instance.
+-- * 'multiAZ' - Indicates if the reservation applies to Multi-AZ deployments.
+-- * 'reservedDBInstancesOfferingId' - The offering identifier.
+-- * 'recurringCharges' - The recurring price charged to run this reserved DB instance.
+-- * 'offeringType' - The offering type of this reserved DB instance.
 -- * 'usagePrice' - The hourly price charged for this reserved DB instance.
+-- * 'fixedPrice' - The fixed price charged for this reserved DB instance.
+-- * 'duration' - The duration of the reservation in seconds.
 mkReservedDBInstance ::
   ReservedDBInstance
 mkReservedDBInstance =

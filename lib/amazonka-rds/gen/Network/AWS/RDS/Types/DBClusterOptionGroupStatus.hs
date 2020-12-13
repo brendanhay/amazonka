@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBClusterOptionGroupStatus' smart constructor.
 data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
-  { status ::
-      Lude.Maybe Lude.Text,
-    dbClusterOptionGroupName ::
-      Lude.Maybe Lude.Text
+  { -- | Specifies the status of the DB cluster option group.
+    status :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the DB cluster option group.
+    dbClusterOptionGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterOptionGroupStatus' with the minimum fields required to make a request.
 --
--- * 'dbClusterOptionGroupName' - Specifies the name of the DB cluster option group.
 -- * 'status' - Specifies the status of the DB cluster option group.
+-- * 'dbClusterOptionGroupName' - Specifies the name of the DB cluster option group.
 mkDBClusterOptionGroupStatus ::
   DBClusterOptionGroupStatus
 mkDBClusterOptionGroupStatus =

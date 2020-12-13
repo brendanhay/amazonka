@@ -17,9 +17,9 @@ module Network.AWS.CloudWatchEvents.Types.Condition
     mkCondition,
 
     -- * Lenses
-    cType,
-    cKey,
     cValue,
+    cKey,
+    cType,
   )
 where
 
@@ -32,48 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { type' :: Lude.Text,
+  { -- | Specifies the value for the key. Currently, this must be the ID of the organization.
+    value :: Lude.Text,
+    -- | Specifies the key for the condition. Currently the only supported key is @aws:PrincipalOrgID@ .
     key :: Lude.Text,
-    value :: Lude.Text
+    -- | Specifies the type of condition. Currently the only supported value is @StringEquals@ .
+    type' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
+-- * 'value' - Specifies the value for the key. Currently, this must be the ID of the organization.
 -- * 'key' - Specifies the key for the condition. Currently the only supported key is @aws:PrincipalOrgID@ .
 -- * 'type'' - Specifies the type of condition. Currently the only supported value is @StringEquals@ .
--- * 'value' - Specifies the value for the key. Currently, this must be the ID of the organization.
 mkCondition ::
-  -- | 'type''
+  -- | 'value'
   Lude.Text ->
   -- | 'key'
   Lude.Text ->
-  -- | 'value'
+  -- | 'type''
   Lude.Text ->
   Condition
-mkCondition pType_ pKey_ pValue_ =
-  Condition' {type' = pType_, key = pKey_, value = pValue_}
-
--- | Specifies the type of condition. Currently the only supported value is @StringEquals@ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cType :: Lens.Lens' Condition Lude.Text
-cType = Lens.lens (type' :: Condition -> Lude.Text) (\s a -> s {type' = a} :: Condition)
-{-# DEPRECATED cType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | Specifies the key for the condition. Currently the only supported key is @aws:PrincipalOrgID@ .
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cKey :: Lens.Lens' Condition Lude.Text
-cKey = Lens.lens (key :: Condition -> Lude.Text) (\s a -> s {key = a} :: Condition)
-{-# DEPRECATED cKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkCondition pValue_ pKey_ pType_ =
+  Condition' {value = pValue_, key = pKey_, type' = pType_}
 
 -- | Specifies the value for the key. Currently, this must be the ID of the organization.
 --
@@ -82,12 +65,26 @@ cValue :: Lens.Lens' Condition Lude.Text
 cValue = Lens.lens (value :: Condition -> Lude.Text) (\s a -> s {value = a} :: Condition)
 {-# DEPRECATED cValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | Specifies the key for the condition. Currently the only supported key is @aws:PrincipalOrgID@ .
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cKey :: Lens.Lens' Condition Lude.Text
+cKey = Lens.lens (key :: Condition -> Lude.Text) (\s a -> s {key = a} :: Condition)
+{-# DEPRECATED cKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | Specifies the type of condition. Currently the only supported value is @StringEquals@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cType :: Lens.Lens' Condition Lude.Text
+cType = Lens.lens (type' :: Condition -> Lude.Text) (\s a -> s {type' = a} :: Condition)
+{-# DEPRECATED cType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.ToJSON Condition where
   toJSON Condition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Type" Lude..= type'),
+          [ Lude.Just ("Value" Lude..= value),
             Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Value" Lude..= value)
+            Lude.Just ("Type" Lude..= type')
           ]
       )

@@ -30,9 +30,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPoolClientDescription' smart constructor.
 data UserPoolClientDescription = UserPoolClientDescription'
-  { clientId ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The ID of the client associated with the user pool.
+    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The user pool ID for the user pool where you want to describe the user pool client.
     userPoolId :: Lude.Maybe Lude.Text,
+    -- | The client name from the user pool client description.
     clientName :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -41,8 +43,8 @@ data UserPoolClientDescription = UserPoolClientDescription'
 -- | Creates a value of 'UserPoolClientDescription' with the minimum fields required to make a request.
 --
 -- * 'clientId' - The ID of the client associated with the user pool.
--- * 'clientName' - The client name from the user pool client description.
 -- * 'userPoolId' - The user pool ID for the user pool where you want to describe the user pool client.
+-- * 'clientName' - The client name from the user pool client description.
 mkUserPoolClientDescription ::
   UserPoolClientDescription
 mkUserPoolClientDescription =

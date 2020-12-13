@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Connect.StopContactRecording
     mkStopContactRecording,
 
     -- ** Request lenses
-    stoInstanceId,
-    stoContactId,
-    stoInitialContactId,
+    scrfInstanceId,
+    scrfContactId,
+    scrfInitialContactId,
 
     -- * Destructuring the response
     StopContactRecordingResponse (..),
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopContactRecording' smart constructor.
 data StopContactRecording = StopContactRecording'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the contact.
     contactId :: Lude.Text,
+    -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
     initialContactId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopContactRecording' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'contactId' - The identifier of the contact.
 -- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
 mkStopContactRecording ::
   -- | 'instanceId'
   Lude.Text ->
@@ -79,23 +76,23 @@ mkStopContactRecording pInstanceId_ pContactId_ pInitialContactId_ =
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stoInstanceId :: Lens.Lens' StopContactRecording Lude.Text
-stoInstanceId = Lens.lens (instanceId :: StopContactRecording -> Lude.Text) (\s a -> s {instanceId = a} :: StopContactRecording)
-{-# DEPRECATED stoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+scrfInstanceId :: Lens.Lens' StopContactRecording Lude.Text
+scrfInstanceId = Lens.lens (instanceId :: StopContactRecording -> Lude.Text) (\s a -> s {instanceId = a} :: StopContactRecording)
+{-# DEPRECATED scrfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the contact.
 --
 -- /Note:/ Consider using 'contactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stoContactId :: Lens.Lens' StopContactRecording Lude.Text
-stoContactId = Lens.lens (contactId :: StopContactRecording -> Lude.Text) (\s a -> s {contactId = a} :: StopContactRecording)
-{-# DEPRECATED stoContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
+scrfContactId :: Lens.Lens' StopContactRecording Lude.Text
+scrfContactId = Lens.lens (contactId :: StopContactRecording -> Lude.Text) (\s a -> s {contactId = a} :: StopContactRecording)
+{-# DEPRECATED scrfContactId "Use generic-lens or generic-optics with 'contactId' instead." #-}
 
 -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
 --
 -- /Note:/ Consider using 'initialContactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stoInitialContactId :: Lens.Lens' StopContactRecording Lude.Text
-stoInitialContactId = Lens.lens (initialContactId :: StopContactRecording -> Lude.Text) (\s a -> s {initialContactId = a} :: StopContactRecording)
-{-# DEPRECATED stoInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
+scrfInitialContactId :: Lens.Lens' StopContactRecording Lude.Text
+scrfInitialContactId = Lens.lens (initialContactId :: StopContactRecording -> Lude.Text) (\s a -> s {initialContactId = a} :: StopContactRecording)
+{-# DEPRECATED scrfInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
 
 instance Lude.AWSRequest StopContactRecording where
   type Rs StopContactRecording = StopContactRecordingResponse
@@ -134,16 +131,10 @@ instance Lude.ToQuery StopContactRecording where
 
 -- | /See:/ 'mkStopContactRecordingResponse' smart constructor.
 newtype StopContactRecordingResponse = StopContactRecordingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopContactRecordingResponse' with the minimum fields required to make a request.

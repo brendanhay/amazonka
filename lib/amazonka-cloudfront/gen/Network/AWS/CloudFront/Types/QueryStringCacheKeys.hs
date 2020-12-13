@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.QueryStringCacheKeys
     mkQueryStringCacheKeys,
 
     -- * Lenses
-    qsckItems,
     qsckQuantity,
+    qsckItems,
   )
 where
 
@@ -33,39 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryStringCacheKeys' smart constructor.
 data QueryStringCacheKeys = QueryStringCacheKeys'
-  { items ::
-      Lude.Maybe [Lude.Text],
-    quantity :: Lude.Int
+  { -- | The number of @whitelisted@ query string parameters for a cache behavior.
+    quantity :: Lude.Int,
+    -- | A list that contains the query string parameters that you want CloudFront to use as a basis for caching for a cache behavior. If @Quantity@ is 0, you can omit @Items@ .
+    items :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryStringCacheKeys' with the minimum fields required to make a request.
 --
--- * 'items' - A list that contains the query string parameters that you want CloudFront to use as a basis for caching for a cache behavior. If @Quantity@ is 0, you can omit @Items@ .
 -- * 'quantity' - The number of @whitelisted@ query string parameters for a cache behavior.
+-- * 'items' - A list that contains the query string parameters that you want CloudFront to use as a basis for caching for a cache behavior. If @Quantity@ is 0, you can omit @Items@ .
 mkQueryStringCacheKeys ::
   -- | 'quantity'
   Lude.Int ->
   QueryStringCacheKeys
 mkQueryStringCacheKeys pQuantity_ =
   QueryStringCacheKeys'
-    { items = Lude.Nothing,
-      quantity = pQuantity_
+    { quantity = pQuantity_,
+      items = Lude.Nothing
     }
-
--- | A list that contains the query string parameters that you want CloudFront to use as a basis for caching for a cache behavior. If @Quantity@ is 0, you can omit @Items@ .
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qsckItems :: Lens.Lens' QueryStringCacheKeys (Lude.Maybe [Lude.Text])
-qsckItems = Lens.lens (items :: QueryStringCacheKeys -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: QueryStringCacheKeys)
-{-# DEPRECATED qsckItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The number of @whitelisted@ query string parameters for a cache behavior.
 --
@@ -74,17 +62,24 @@ qsckQuantity :: Lens.Lens' QueryStringCacheKeys Lude.Int
 qsckQuantity = Lens.lens (quantity :: QueryStringCacheKeys -> Lude.Int) (\s a -> s {quantity = a} :: QueryStringCacheKeys)
 {-# DEPRECATED qsckQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A list that contains the query string parameters that you want CloudFront to use as a basis for caching for a cache behavior. If @Quantity@ is 0, you can omit @Items@ .
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qsckItems :: Lens.Lens' QueryStringCacheKeys (Lude.Maybe [Lude.Text])
+qsckItems = Lens.lens (items :: QueryStringCacheKeys -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: QueryStringCacheKeys)
+{-# DEPRECATED qsckItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML QueryStringCacheKeys where
   parseXML x =
     QueryStringCacheKeys'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "Name")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML QueryStringCacheKeys where
   toXML QueryStringCacheKeys' {..} =
     Lude.mconcat
-      [ "Items" Lude.@= Lude.toXML (Lude.toXMLList "Name" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXML (Lude.toXMLList "Name" Lude.<$> items)
       ]

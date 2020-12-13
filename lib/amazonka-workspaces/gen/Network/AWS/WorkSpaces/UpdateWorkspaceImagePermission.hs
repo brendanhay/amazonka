@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
     mkUpdateWorkspaceImagePermission,
 
     -- ** Request lenses
-    uwipImageId,
-    uwipAllowCopyImage,
     uwipSharedAccountId,
+    uwipAllowCopyImage,
+    uwipImageId,
 
     -- * Destructuring the response
     UpdateWorkspaceImagePermissionResponse (..),
@@ -40,58 +41,43 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkUpdateWorkspaceImagePermission' smart constructor.
 data UpdateWorkspaceImagePermission = UpdateWorkspaceImagePermission'
-  { imageId ::
-      Lude.Text,
+  { -- | The identifier of the AWS account to share or unshare the image with.
+    --
+    -- /Important:/ Before sharing the image, confirm that you are sharing to the correct AWS account ID.
+    sharedAccountId :: Lude.Text,
+    -- | The permission to copy the image. This permission can be revoked only after an image has been shared.
     allowCopyImage :: Lude.Bool,
-    sharedAccountId :: Lude.Text
+    -- | The identifier of the image.
+    imageId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWorkspaceImagePermission' with the minimum fields required to make a request.
 --
--- * 'allowCopyImage' - The permission to copy the image. This permission can be revoked only after an image has been shared.
--- * 'imageId' - The identifier of the image.
 -- * 'sharedAccountId' - The identifier of the AWS account to share or unshare the image with.
 --
 -- /Important:/ Before sharing the image, confirm that you are sharing to the correct AWS account ID.
+-- * 'allowCopyImage' - The permission to copy the image. This permission can be revoked only after an image has been shared.
+-- * 'imageId' - The identifier of the image.
 mkUpdateWorkspaceImagePermission ::
-  -- | 'imageId'
+  -- | 'sharedAccountId'
   Lude.Text ->
   -- | 'allowCopyImage'
   Lude.Bool ->
-  -- | 'sharedAccountId'
+  -- | 'imageId'
   Lude.Text ->
   UpdateWorkspaceImagePermission
 mkUpdateWorkspaceImagePermission
-  pImageId_
+  pSharedAccountId_
   pAllowCopyImage_
-  pSharedAccountId_ =
+  pImageId_ =
     UpdateWorkspaceImagePermission'
-      { imageId = pImageId_,
+      { sharedAccountId =
+          pSharedAccountId_,
         allowCopyImage = pAllowCopyImage_,
-        sharedAccountId = pSharedAccountId_
+        imageId = pImageId_
       }
-
--- | The identifier of the image.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uwipImageId :: Lens.Lens' UpdateWorkspaceImagePermission Lude.Text
-uwipImageId = Lens.lens (imageId :: UpdateWorkspaceImagePermission -> Lude.Text) (\s a -> s {imageId = a} :: UpdateWorkspaceImagePermission)
-{-# DEPRECATED uwipImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
-
--- | The permission to copy the image. This permission can be revoked only after an image has been shared.
---
--- /Note:/ Consider using 'allowCopyImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uwipAllowCopyImage :: Lens.Lens' UpdateWorkspaceImagePermission Lude.Bool
-uwipAllowCopyImage = Lens.lens (allowCopyImage :: UpdateWorkspaceImagePermission -> Lude.Bool) (\s a -> s {allowCopyImage = a} :: UpdateWorkspaceImagePermission)
-{-# DEPRECATED uwipAllowCopyImage "Use generic-lens or generic-optics with 'allowCopyImage' instead." #-}
 
 -- | The identifier of the AWS account to share or unshare the image with.
 --
@@ -101,6 +87,20 @@ uwipAllowCopyImage = Lens.lens (allowCopyImage :: UpdateWorkspaceImagePermission
 uwipSharedAccountId :: Lens.Lens' UpdateWorkspaceImagePermission Lude.Text
 uwipSharedAccountId = Lens.lens (sharedAccountId :: UpdateWorkspaceImagePermission -> Lude.Text) (\s a -> s {sharedAccountId = a} :: UpdateWorkspaceImagePermission)
 {-# DEPRECATED uwipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
+
+-- | The permission to copy the image. This permission can be revoked only after an image has been shared.
+--
+-- /Note:/ Consider using 'allowCopyImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwipAllowCopyImage :: Lens.Lens' UpdateWorkspaceImagePermission Lude.Bool
+uwipAllowCopyImage = Lens.lens (allowCopyImage :: UpdateWorkspaceImagePermission -> Lude.Bool) (\s a -> s {allowCopyImage = a} :: UpdateWorkspaceImagePermission)
+{-# DEPRECATED uwipAllowCopyImage "Use generic-lens or generic-optics with 'allowCopyImage' instead." #-}
+
+-- | The identifier of the image.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwipImageId :: Lens.Lens' UpdateWorkspaceImagePermission Lude.Text
+uwipImageId = Lens.lens (imageId :: UpdateWorkspaceImagePermission -> Lude.Text) (\s a -> s {imageId = a} :: UpdateWorkspaceImagePermission)
+{-# DEPRECATED uwipImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 instance Lude.AWSRequest UpdateWorkspaceImagePermission where
   type
@@ -131,9 +131,9 @@ instance Lude.ToJSON UpdateWorkspaceImagePermission where
   toJSON UpdateWorkspaceImagePermission' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ImageId" Lude..= imageId),
+          [ Lude.Just ("SharedAccountId" Lude..= sharedAccountId),
             Lude.Just ("AllowCopyImage" Lude..= allowCopyImage),
-            Lude.Just ("SharedAccountId" Lude..= sharedAccountId)
+            Lude.Just ("ImageId" Lude..= imageId)
           ]
       )
 
@@ -145,16 +145,10 @@ instance Lude.ToQuery UpdateWorkspaceImagePermission where
 
 -- | /See:/ 'mkUpdateWorkspaceImagePermissionResponse' smart constructor.
 newtype UpdateWorkspaceImagePermissionResponse = UpdateWorkspaceImagePermissionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWorkspaceImagePermissionResponse' with the minimum fields required to make a request.

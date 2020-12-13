@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionDefinitionVersion' smart constructor.
 data FunctionDefinitionVersion = FunctionDefinitionVersion'
-  { defaultConfig ::
-      Lude.Maybe FunctionDefaultConfig,
+  { -- | The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.
+    defaultConfig :: Lude.Maybe FunctionDefaultConfig,
+    -- | A list of Lambda functions in this function definition version.
     functions :: Lude.Maybe [Function]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionDefinitionVersion' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import Network.AWS.STS.Types
 
 -- | /See:/ 'mkGetCallerIdentity' smart constructor.
 data GetCallerIdentity = GetCallerIdentity'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCallerIdentity' with the minimum fields required to make a request.
@@ -85,27 +80,24 @@ instance Lude.ToQuery GetCallerIdentity where
 --
 -- /See:/ 'mkGetCallerIdentityResponse' smart constructor.
 data GetCallerIdentityResponse = GetCallerIdentityResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS ARN associated with the calling entity.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID number of the account that owns or contains the calling entity.
     account :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the __aws:userid__ column in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
     userId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCallerIdentityResponse' with the minimum fields required to make a request.
 --
--- * 'account' - The AWS account ID number of the account that owns or contains the calling entity.
 -- * 'arn' - The AWS ARN associated with the calling entity.
--- * 'responseStatus' - The response status code.
+-- * 'account' - The AWS account ID number of the account that owns or contains the calling entity.
 -- * 'userId' - The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the __aws:userid__ column in the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable Principal table> found on the __Policy Variables__ reference page in the /IAM User Guide/ .
+-- * 'responseStatus' - The response status code.
 mkGetCallerIdentityResponse ::
   -- | 'responseStatus'
   Lude.Int ->

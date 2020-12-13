@@ -34,32 +34,25 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'mkTrialComponentSimpleSummary' smart constructor.
 data TrialComponentSimpleSummary = TrialComponentSimpleSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the component was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
     createdBy :: Lude.Maybe UserContext,
-    trialComponentName ::
-      Lude.Maybe Lude.Text,
-    trialComponentARN ::
-      Lude.Maybe Lude.Text,
-    trialComponentSource ::
-      Lude.Maybe TrialComponentSource
+    -- | The name of the trial component.
+    trialComponentName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the trial component.
+    trialComponentARN :: Lude.Maybe Lude.Text,
+    trialComponentSource :: Lude.Maybe TrialComponentSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialComponentSimpleSummary' with the minimum fields required to make a request.
 --
--- * 'createdBy' - Undocumented field.
 -- * 'creationTime' - When the component was created.
--- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'createdBy' -
 -- * 'trialComponentName' - The name of the trial component.
--- * 'trialComponentSource' - Undocumented field.
+-- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'trialComponentSource' -
 mkTrialComponentSimpleSummary ::
   TrialComponentSimpleSummary
 mkTrialComponentSimpleSummary =

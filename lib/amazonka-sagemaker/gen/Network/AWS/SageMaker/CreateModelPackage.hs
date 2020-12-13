@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.SageMaker.CreateModelPackage
     mkCreateModelPackageResponse,
 
     -- ** Response lenses
-    cmprsResponseStatus,
     cmprsModelPackageARN,
+    cmprsResponseStatus,
   )
 where
 
@@ -46,28 +47,37 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateModelPackage' smart constructor.
 data CreateModelPackage = CreateModelPackage'
-  { sourceAlgorithmSpecification ::
-      Lude.Maybe SourceAlgorithmSpecification,
+  { -- | Details about the algorithm that was used to create the model package.
+    sourceAlgorithmSpecification :: Lude.Maybe SourceAlgorithmSpecification,
+    -- | The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
     modelPackageName :: Lude.Maybe Lude.Text,
+    -- | A description of the model package.
     modelPackageDescription :: Lude.Maybe Lude.Text,
-    validationSpecification ::
-      Lude.Maybe ModelPackageValidationSpecification,
-    inferenceSpecification ::
-      Lude.Maybe InferenceSpecification,
+    -- | Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+    validationSpecification :: Lude.Maybe ModelPackageValidationSpecification,
+    -- | Specifies details about inference jobs that can be run with models based on this model package, including the following:
+    --
+    --
+    --     * The Amazon ECR paths of containers that contain the inference code and model artifacts.
+    --
+    --
+    --     * The instance types that the model package supports for transform jobs and real-time endpoints used for inference.
+    --
+    --
+    --     * The input and output content formats that the model package supports for inference.
+    inferenceSpecification :: Lude.Maybe InferenceSpecification,
+    -- | Whether to certify the model package for listing on AWS Marketplace.
     certifyForMarketplace :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateModelPackage' with the minimum fields required to make a request.
 --
--- * 'certifyForMarketplace' - Whether to certify the model package for listing on AWS Marketplace.
+-- * 'sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
+-- * 'modelPackageName' - The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+-- * 'modelPackageDescription' - A description of the model package.
+-- * 'validationSpecification' - Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
 -- * 'inferenceSpecification' - Specifies details about inference jobs that can be run with models based on this model package, including the following:
 --
 --
@@ -80,10 +90,7 @@ data CreateModelPackage = CreateModelPackage'
 --     * The input and output content formats that the model package supports for inference.
 --
 --
--- * 'modelPackageDescription' - A description of the model package.
--- * 'modelPackageName' - The name of the model package. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
--- * 'sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
--- * 'validationSpecification' - Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+-- * 'certifyForMarketplace' - Whether to certify the model package for listing on AWS Marketplace.
 mkCreateModelPackage ::
   CreateModelPackage
 mkCreateModelPackage =
@@ -156,8 +163,8 @@ instance Lude.AWSRequest CreateModelPackage where
     Res.receiveJSON
       ( \s h x ->
           CreateModelPackageResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ModelPackageArn")
+            Lude.<$> (x Lude..:> "ModelPackageArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateModelPackage where
@@ -195,17 +202,12 @@ instance Lude.ToQuery CreateModelPackage where
 
 -- | /See:/ 'mkCreateModelPackageResponse' smart constructor.
 data CreateModelPackageResponse = CreateModelPackageResponse'
-  { responseStatus ::
-      Lude.Int,
-    modelPackageARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the new model package.
+    modelPackageARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateModelPackageResponse' with the minimum fields required to make a request.
@@ -213,23 +215,16 @@ data CreateModelPackageResponse = CreateModelPackageResponse'
 -- * 'modelPackageARN' - The Amazon Resource Name (ARN) of the new model package.
 -- * 'responseStatus' - The response status code.
 mkCreateModelPackageResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'modelPackageARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateModelPackageResponse
-mkCreateModelPackageResponse pResponseStatus_ pModelPackageARN_ =
+mkCreateModelPackageResponse pModelPackageARN_ pResponseStatus_ =
   CreateModelPackageResponse'
-    { responseStatus = pResponseStatus_,
-      modelPackageARN = pModelPackageARN_
+    { modelPackageARN = pModelPackageARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmprsResponseStatus :: Lens.Lens' CreateModelPackageResponse Lude.Int
-cmprsResponseStatus = Lens.lens (responseStatus :: CreateModelPackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateModelPackageResponse)
-{-# DEPRECATED cmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the new model package.
 --
@@ -237,3 +232,10 @@ cmprsResponseStatus = Lens.lens (responseStatus :: CreateModelPackageResponse ->
 cmprsModelPackageARN :: Lens.Lens' CreateModelPackageResponse Lude.Text
 cmprsModelPackageARN = Lens.lens (modelPackageARN :: CreateModelPackageResponse -> Lude.Text) (\s a -> s {modelPackageARN = a} :: CreateModelPackageResponse)
 {-# DEPRECATED cmprsModelPackageARN "Use generic-lens or generic-optics with 'modelPackageARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmprsResponseStatus :: Lens.Lens' CreateModelPackageResponse Lude.Int
+cmprsResponseStatus = Lens.lens (responseStatus :: CreateModelPackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateModelPackageResponse)
+{-# DEPRECATED cmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

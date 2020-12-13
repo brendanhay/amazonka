@@ -40,17 +40,12 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkReplicationRuleAndOperator' smart constructor.
 data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
-  { prefix ::
-      Lude.Maybe Lude.Text,
+  { -- | An object key name prefix that identifies the subset of objects to which the rule applies.
+    prefix :: Lude.Maybe Lude.Text,
+    -- | An array of tags containing key and value pairs.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRuleAndOperator' with the minimum fields required to make a request.

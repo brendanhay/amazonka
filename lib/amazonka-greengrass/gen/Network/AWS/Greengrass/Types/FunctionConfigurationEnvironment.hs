@@ -33,36 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionConfigurationEnvironment' smart constructor.
 data FunctionConfigurationEnvironment = FunctionConfigurationEnvironment'
-  { variables ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    execution ::
-      Lude.Maybe
-        FunctionExecutionConfig,
-    resourceAccessPolicies ::
-      Lude.Maybe
-        [ResourceAccessPolicy],
-    accessSysfs ::
-      Lude.Maybe Lude.Bool
+  { -- | Environment variables for the Lambda function's configuration.
+    variables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Configuration related to executing the Lambda function
+    execution :: Lude.Maybe FunctionExecutionConfig,
+    -- | A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
+    resourceAccessPolicies :: Lude.Maybe [ResourceAccessPolicy],
+    -- | If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
+    accessSysfs :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionConfigurationEnvironment' with the minimum fields required to make a request.
 --
--- * 'accessSysfs' - If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
+-- * 'variables' - Environment variables for the Lambda function's configuration.
 -- * 'execution' - Configuration related to executing the Lambda function
 -- * 'resourceAccessPolicies' - A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.
--- * 'variables' - Environment variables for the Lambda function's configuration.
+-- * 'accessSysfs' - If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.
 mkFunctionConfigurationEnvironment ::
   FunctionConfigurationEnvironment
 mkFunctionConfigurationEnvironment =

@@ -13,9 +13,9 @@
 module Network.AWS.WorkDocs.Types.CommentStatusType
   ( CommentStatusType
       ( CommentStatusType',
-        Deleted,
         Draft,
-        Published
+        Published,
+        Deleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CommentStatusType = CommentStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deleted :: CommentStatusType
-pattern Deleted = CommentStatusType' "DELETED"
-
 pattern Draft :: CommentStatusType
 pattern Draft = CommentStatusType' "DRAFT"
 
 pattern Published :: CommentStatusType
 pattern Published = CommentStatusType' "PUBLISHED"
 
+pattern Deleted :: CommentStatusType
+pattern Deleted = CommentStatusType' "DELETED"
+
 {-# COMPLETE
-  Deleted,
   Draft,
   Published,
+  Deleted,
   CommentStatusType'
   #-}

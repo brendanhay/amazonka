@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,24 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSecurityConfiguration' smart constructor.
 data CreateSecurityConfiguration = CreateSecurityConfiguration'
-  { name ::
-      Lude.Text,
-    encryptionConfiguration ::
-      EncryptionConfiguration
+  { -- | The name for the new security configuration.
+    name :: Lude.Text,
+    -- | The encryption configuration for the new security configuration.
+    encryptionConfiguration :: EncryptionConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityConfiguration' with the minimum fields required to make a request.
 --
--- * 'encryptionConfiguration' - The encryption configuration for the new security configuration.
 -- * 'name' - The name for the new security configuration.
+-- * 'encryptionConfiguration' - The encryption configuration for the new security configuration.
 mkCreateSecurityConfiguration ::
   -- | 'name'
   Lude.Text ->
@@ -128,28 +123,20 @@ instance Lude.ToQuery CreateSecurityConfiguration where
 
 -- | /See:/ 'mkCreateSecurityConfigurationResponse' smart constructor.
 data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
-  { name ::
-      Lude.Maybe
-        Lude.Text,
-    createdTimestamp ::
-      Lude.Maybe
-        Lude.Timestamp,
-    responseStatus ::
-      Lude.Int
+  { -- | The name assigned to the new security configuration.
+    name :: Lude.Maybe Lude.Text,
+    -- | The time at which the new security configuration was created.
+    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'createdTimestamp' - The time at which the new security configuration was created.
 -- * 'name' - The name assigned to the new security configuration.
+-- * 'createdTimestamp' - The time at which the new security configuration was created.
 -- * 'responseStatus' - The response status code.
 mkCreateSecurityConfigurationResponse ::
   -- | 'responseStatus'

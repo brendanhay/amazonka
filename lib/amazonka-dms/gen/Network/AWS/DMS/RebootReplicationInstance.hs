@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DMS.RebootReplicationInstance
     mkRebootReplicationInstance,
 
     -- ** Request lenses
-    rriForceFailover,
     rriReplicationInstanceARN,
+    rriForceFailover,
 
     -- * Destructuring the response
     RebootReplicationInstanceResponse (..),
@@ -40,39 +41,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRebootReplicationInstance' smart constructor.
 data RebootReplicationInstance = RebootReplicationInstance'
-  { forceFailover ::
-      Lude.Maybe Lude.Bool,
-    replicationInstanceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Text,
+    -- | If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
+    forceFailover :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootReplicationInstance' with the minimum fields required to make a request.
 --
--- * 'forceFailover' - If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
 -- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'forceFailover' - If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
 mkRebootReplicationInstance ::
   -- | 'replicationInstanceARN'
   Lude.Text ->
   RebootReplicationInstance
 mkRebootReplicationInstance pReplicationInstanceARN_ =
   RebootReplicationInstance'
-    { forceFailover = Lude.Nothing,
-      replicationInstanceARN = pReplicationInstanceARN_
+    { replicationInstanceARN =
+        pReplicationInstanceARN_,
+      forceFailover = Lude.Nothing
     }
-
--- | If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
---
--- /Note:/ Consider using 'forceFailover' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rriForceFailover :: Lens.Lens' RebootReplicationInstance (Lude.Maybe Lude.Bool)
-rriForceFailover = Lens.lens (forceFailover :: RebootReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {forceFailover = a} :: RebootReplicationInstance)
-{-# DEPRECATED rriForceFailover "Use generic-lens or generic-optics with 'forceFailover' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 --
@@ -80,6 +70,13 @@ rriForceFailover = Lens.lens (forceFailover :: RebootReplicationInstance -> Lude
 rriReplicationInstanceARN :: Lens.Lens' RebootReplicationInstance Lude.Text
 rriReplicationInstanceARN = Lens.lens (replicationInstanceARN :: RebootReplicationInstance -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: RebootReplicationInstance)
 {-# DEPRECATED rriReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
+
+-- | If this parameter is @true@ , the reboot is conducted through a Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you can't specify @true@ .)
+--
+-- /Note:/ Consider using 'forceFailover' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rriForceFailover :: Lens.Lens' RebootReplicationInstance (Lude.Maybe Lude.Bool)
+rriForceFailover = Lens.lens (forceFailover :: RebootReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {forceFailover = a} :: RebootReplicationInstance)
+{-# DEPRECATED rriForceFailover "Use generic-lens or generic-optics with 'forceFailover' instead." #-}
 
 instance Lude.AWSRequest RebootReplicationInstance where
   type
@@ -111,9 +108,9 @@ instance Lude.ToJSON RebootReplicationInstance where
   toJSON RebootReplicationInstance' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ForceFailover" Lude..=) Lude.<$> forceFailover,
-            Lude.Just
-              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
+          [ Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN),
+            ("ForceFailover" Lude..=) Lude.<$> forceFailover
           ]
       )
 
@@ -125,19 +122,12 @@ instance Lude.ToQuery RebootReplicationInstance where
 
 -- | /See:/ 'mkRebootReplicationInstanceResponse' smart constructor.
 data RebootReplicationInstanceResponse = RebootReplicationInstanceResponse'
-  { replicationInstance ::
-      Lude.Maybe
-        ReplicationInstance,
-    responseStatus ::
-      Lude.Int
+  { -- | The replication instance that is being rebooted.
+    replicationInstance :: Lude.Maybe ReplicationInstance,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootReplicationInstanceResponse' with the minimum fields required to make a request.

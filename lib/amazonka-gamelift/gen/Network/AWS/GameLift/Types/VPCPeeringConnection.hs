@@ -55,33 +55,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCPeeringConnection' smart constructor.
 data VPCPeeringConnection = VPCPeeringConnection'
-  { vpcPeeringConnectionId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier that is automatically assigned to the connection record. This ID is referenced in VPC peering connection events, and is used when deleting a connection with 'DeleteVpcPeeringConnection' .
+    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+    -- | The status information about the connection. Status indicates if a connection is pending, successful, or failed.
     status :: Lude.Maybe VPCPeeringConnectionStatus,
+    -- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
     peerVPCId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet resource for this connection.
     fleetARN :: Lude.Maybe Lude.Text,
+    -- | CIDR block of IPv4 addresses assigned to the VPC peering connection for the GameLift VPC. The peered VPC also has an IPv4 CIDR block associated with it; these blocks cannot overlap or the peering connection cannot be created.
     ipV4CidrBlock :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the VPC that contains the Amazon GameLift fleet for this connection. This VPC is managed by Amazon GameLift and does not appear in your AWS account.
     gameLiftVPCId :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a fleet. This ID determines the ID of the Amazon GameLift VPC for your fleet.
     fleetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCPeeringConnection' with the minimum fields required to make a request.
 --
--- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet resource for this connection.
--- * 'fleetId' - A unique identifier for a fleet. This ID determines the ID of the Amazon GameLift VPC for your fleet.
--- * 'gameLiftVPCId' - A unique identifier for the VPC that contains the Amazon GameLift fleet for this connection. This VPC is managed by Amazon GameLift and does not appear in your AWS account.
--- * 'ipV4CidrBlock' - CIDR block of IPv4 addresses assigned to the VPC peering connection for the GameLift VPC. The peered VPC also has an IPv4 CIDR block associated with it; these blocks cannot overlap or the peering connection cannot be created.
--- * 'peerVPCId' - A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
--- * 'status' - The status information about the connection. Status indicates if a connection is pending, successful, or failed.
 -- * 'vpcPeeringConnectionId' - A unique identifier that is automatically assigned to the connection record. This ID is referenced in VPC peering connection events, and is used when deleting a connection with 'DeleteVpcPeeringConnection' .
+-- * 'status' - The status information about the connection. Status indicates if a connection is pending, successful, or failed.
+-- * 'peerVPCId' - A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+-- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet resource for this connection.
+-- * 'ipV4CidrBlock' - CIDR block of IPv4 addresses assigned to the VPC peering connection for the GameLift VPC. The peered VPC also has an IPv4 CIDR block associated with it; these blocks cannot overlap or the peering connection cannot be created.
+-- * 'gameLiftVPCId' - A unique identifier for the VPC that contains the Amazon GameLift fleet for this connection. This VPC is managed by Amazon GameLift and does not appear in your AWS account.
+-- * 'fleetId' - A unique identifier for a fleet. This ID determines the ID of the Amazon GameLift VPC for your fleet.
 mkVPCPeeringConnection ::
   VPCPeeringConnection
 mkVPCPeeringConnection =

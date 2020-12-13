@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkGetApp' smart constructor.
-newtype GetApp = GetApp' {appId :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetApp = GetApp'
+  { -- | The ID of the application.
+    appId :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApp' with the minimum fields required to make a request.
@@ -102,27 +100,24 @@ instance Lude.ToQuery GetApp where
 
 -- | /See:/ 'mkGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
-  { appSummary ::
-      Lude.Maybe AppSummary,
+  { -- | Information about the application.
+    appSummary :: Lude.Maybe AppSummary,
+    -- | The server groups that belong to the application.
     serverGroups :: Lude.Maybe [ServerGroup],
+    -- | The tags associated with the application.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAppResponse' with the minimum fields required to make a request.
 --
 -- * 'appSummary' - Information about the application.
--- * 'responseStatus' - The response status code.
 -- * 'serverGroups' - The server groups that belong to the application.
 -- * 'tags' - The tags associated with the application.
+-- * 'responseStatus' - The response status code.
 mkGetAppResponse ::
   -- | 'responseStatus'
   Lude.Int ->

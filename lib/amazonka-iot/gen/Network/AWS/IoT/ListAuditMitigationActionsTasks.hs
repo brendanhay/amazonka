@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.IoT.ListAuditMitigationActionsTasks
     mkListAuditMitigationActionsTasks,
 
     -- ** Request lenses
+    lamatStartTime,
     lamatAuditTaskId,
     lamatNextToken,
+    lamatEndTime,
     lamatFindingId,
     lamatMaxResults,
     lamatTaskStatus,
-    lamatStartTime,
-    lamatEndTime,
 
     -- * Destructuring the response
     ListAuditMitigationActionsTasksResponse (..),
@@ -49,37 +50,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAuditMitigationActionsTasks' smart constructor.
 data ListAuditMitigationActionsTasks = ListAuditMitigationActionsTasks'
-  { auditTaskId ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    findingId ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    taskStatus ::
-      Lude.Maybe
-        AuditMitigationActionsTaskStatus,
+  { -- | Specify this filter to limit results to tasks that began on or after a specific date and time.
     startTime :: Lude.Timestamp,
-    endTime :: Lude.Timestamp
+    -- | Specify this filter to limit results to tasks that were applied to results for a specific audit.
+    auditTaskId :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
+    endTime :: Lude.Timestamp,
+    -- | Specify this filter to limit results to tasks that were applied to a specific audit finding.
+    findingId :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | Specify this filter to limit results to tasks that are in a specific state.
+    taskStatus :: Lude.Maybe AuditMitigationActionsTaskStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditMitigationActionsTasks' with the minimum fields required to make a request.
 --
+-- * 'startTime' - Specify this filter to limit results to tasks that began on or after a specific date and time.
 -- * 'auditTaskId' - Specify this filter to limit results to tasks that were applied to results for a specific audit.
+-- * 'nextToken' - The token for the next set of results.
 -- * 'endTime' - Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
 -- * 'findingId' - Specify this filter to limit results to tasks that were applied to a specific audit finding.
 -- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
--- * 'nextToken' - The token for the next set of results.
--- * 'startTime' - Specify this filter to limit results to tasks that began on or after a specific date and time.
 -- * 'taskStatus' - Specify this filter to limit results to tasks that are in a specific state.
 mkListAuditMitigationActionsTasks ::
   -- | 'startTime'
@@ -89,14 +85,21 @@ mkListAuditMitigationActionsTasks ::
   ListAuditMitigationActionsTasks
 mkListAuditMitigationActionsTasks pStartTime_ pEndTime_ =
   ListAuditMitigationActionsTasks'
-    { auditTaskId = Lude.Nothing,
+    { startTime = pStartTime_,
+      auditTaskId = Lude.Nothing,
       nextToken = Lude.Nothing,
+      endTime = pEndTime_,
       findingId = Lude.Nothing,
       maxResults = Lude.Nothing,
-      taskStatus = Lude.Nothing,
-      startTime = pStartTime_,
-      endTime = pEndTime_
+      taskStatus = Lude.Nothing
     }
+
+-- | Specify this filter to limit results to tasks that began on or after a specific date and time.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamatStartTime :: Lens.Lens' ListAuditMitigationActionsTasks Lude.Timestamp
+lamatStartTime = Lens.lens (startTime :: ListAuditMitigationActionsTasks -> Lude.Timestamp) (\s a -> s {startTime = a} :: ListAuditMitigationActionsTasks)
+{-# DEPRECATED lamatStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Specify this filter to limit results to tasks that were applied to results for a specific audit.
 --
@@ -111,6 +114,13 @@ lamatAuditTaskId = Lens.lens (auditTaskId :: ListAuditMitigationActionsTasks -> 
 lamatNextToken :: Lens.Lens' ListAuditMitigationActionsTasks (Lude.Maybe Lude.Text)
 lamatNextToken = Lens.lens (nextToken :: ListAuditMitigationActionsTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAuditMitigationActionsTasks)
 {-# DEPRECATED lamatNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamatEndTime :: Lens.Lens' ListAuditMitigationActionsTasks Lude.Timestamp
+lamatEndTime = Lens.lens (endTime :: ListAuditMitigationActionsTasks -> Lude.Timestamp) (\s a -> s {endTime = a} :: ListAuditMitigationActionsTasks)
+{-# DEPRECATED lamatEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | Specify this filter to limit results to tasks that were applied to a specific audit finding.
 --
@@ -132,20 +142,6 @@ lamatMaxResults = Lens.lens (maxResults :: ListAuditMitigationActionsTasks -> Lu
 lamatTaskStatus :: Lens.Lens' ListAuditMitigationActionsTasks (Lude.Maybe AuditMitigationActionsTaskStatus)
 lamatTaskStatus = Lens.lens (taskStatus :: ListAuditMitigationActionsTasks -> Lude.Maybe AuditMitigationActionsTaskStatus) (\s a -> s {taskStatus = a} :: ListAuditMitigationActionsTasks)
 {-# DEPRECATED lamatTaskStatus "Use generic-lens or generic-optics with 'taskStatus' instead." #-}
-
--- | Specify this filter to limit results to tasks that began on or after a specific date and time.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatStartTime :: Lens.Lens' ListAuditMitigationActionsTasks Lude.Timestamp
-lamatStartTime = Lens.lens (startTime :: ListAuditMitigationActionsTasks -> Lude.Timestamp) (\s a -> s {startTime = a} :: ListAuditMitigationActionsTasks)
-{-# DEPRECATED lamatStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamatEndTime :: Lens.Lens' ListAuditMitigationActionsTasks Lude.Timestamp
-lamatEndTime = Lens.lens (endTime :: ListAuditMitigationActionsTasks -> Lude.Timestamp) (\s a -> s {endTime = a} :: ListAuditMitigationActionsTasks)
-{-# DEPRECATED lamatEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Page.AWSPager ListAuditMitigationActionsTasks where
   page rq rs
@@ -179,40 +175,32 @@ instance Lude.ToPath ListAuditMitigationActionsTasks where
 instance Lude.ToQuery ListAuditMitigationActionsTasks where
   toQuery ListAuditMitigationActionsTasks' {..} =
     Lude.mconcat
-      [ "auditTaskId" Lude.=: auditTaskId,
+      [ "startTime" Lude.=: startTime,
+        "auditTaskId" Lude.=: auditTaskId,
         "nextToken" Lude.=: nextToken,
+        "endTime" Lude.=: endTime,
         "findingId" Lude.=: findingId,
         "maxResults" Lude.=: maxResults,
-        "taskStatus" Lude.=: taskStatus,
-        "startTime" Lude.=: startTime,
-        "endTime" Lude.=: endTime
+        "taskStatus" Lude.=: taskStatus
       ]
 
 -- | /See:/ 'mkListAuditMitigationActionsTasksResponse' smart constructor.
 data ListAuditMitigationActionsTasksResponse = ListAuditMitigationActionsTasksResponse'
-  { tasks ::
-      Lude.Maybe
-        [AuditMitigationActionsTaskMetadata],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The collection of audit mitigation tasks that matched the filter criteria.
+    tasks :: Lude.Maybe [AuditMitigationActionsTaskMetadata],
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditMitigationActionsTasksResponse' with the minimum fields required to make a request.
 --
+-- * 'tasks' - The collection of audit mitigation tasks that matched the filter criteria.
 -- * 'nextToken' - The token for the next set of results.
 -- * 'responseStatus' - The response status code.
--- * 'tasks' - The collection of audit mitigation tasks that matched the filter criteria.
 mkListAuditMitigationActionsTasksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

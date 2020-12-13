@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Lightsail.AttachLoadBalancerTLSCertificate
     mkAttachLoadBalancerTLSCertificate,
 
     -- ** Request lenses
-    albtcLoadBalancerName,
     albtcCertificateName,
+    albtcLoadBalancerName,
 
     -- * Destructuring the response
     AttachLoadBalancerTLSCertificateResponse (..),
@@ -43,18 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachLoadBalancerTLSCertificate' smart constructor.
 data AttachLoadBalancerTLSCertificate = AttachLoadBalancerTLSCertificate'
-  { loadBalancerName ::
-      Lude.Text,
-    certificateName ::
-      Lude.Text
+  { -- | The name of your SSL/TLS certificate.
+    certificateName :: Lude.Text,
+    -- | The name of the load balancer to which you want to associate the SSL/TLS certificate.
+    loadBalancerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachLoadBalancerTLSCertificate' with the minimum fields required to make a request.
@@ -62,26 +57,19 @@ data AttachLoadBalancerTLSCertificate = AttachLoadBalancerTLSCertificate'
 -- * 'certificateName' - The name of your SSL/TLS certificate.
 -- * 'loadBalancerName' - The name of the load balancer to which you want to associate the SSL/TLS certificate.
 mkAttachLoadBalancerTLSCertificate ::
-  -- | 'loadBalancerName'
-  Lude.Text ->
   -- | 'certificateName'
+  Lude.Text ->
+  -- | 'loadBalancerName'
   Lude.Text ->
   AttachLoadBalancerTLSCertificate
 mkAttachLoadBalancerTLSCertificate
-  pLoadBalancerName_
-  pCertificateName_ =
+  pCertificateName_
+  pLoadBalancerName_ =
     AttachLoadBalancerTLSCertificate'
-      { loadBalancerName =
-          pLoadBalancerName_,
-        certificateName = pCertificateName_
+      { certificateName =
+          pCertificateName_,
+        loadBalancerName = pLoadBalancerName_
       }
-
--- | The name of the load balancer to which you want to associate the SSL/TLS certificate.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-albtcLoadBalancerName :: Lens.Lens' AttachLoadBalancerTLSCertificate Lude.Text
-albtcLoadBalancerName = Lens.lens (loadBalancerName :: AttachLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {loadBalancerName = a} :: AttachLoadBalancerTLSCertificate)
-{-# DEPRECATED albtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of your SSL/TLS certificate.
 --
@@ -89,6 +77,13 @@ albtcLoadBalancerName = Lens.lens (loadBalancerName :: AttachLoadBalancerTLSCert
 albtcCertificateName :: Lens.Lens' AttachLoadBalancerTLSCertificate Lude.Text
 albtcCertificateName = Lens.lens (certificateName :: AttachLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {certificateName = a} :: AttachLoadBalancerTLSCertificate)
 {-# DEPRECATED albtcCertificateName "Use generic-lens or generic-optics with 'certificateName' instead." #-}
+
+-- | The name of the load balancer to which you want to associate the SSL/TLS certificate.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+albtcLoadBalancerName :: Lens.Lens' AttachLoadBalancerTLSCertificate Lude.Text
+albtcLoadBalancerName = Lens.lens (loadBalancerName :: AttachLoadBalancerTLSCertificate -> Lude.Text) (\s a -> s {loadBalancerName = a} :: AttachLoadBalancerTLSCertificate)
+{-# DEPRECATED albtcLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 instance Lude.AWSRequest AttachLoadBalancerTLSCertificate where
   type
@@ -120,8 +115,8 @@ instance Lude.ToJSON AttachLoadBalancerTLSCertificate where
   toJSON AttachLoadBalancerTLSCertificate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("loadBalancerName" Lude..= loadBalancerName),
-            Lude.Just ("certificateName" Lude..= certificateName)
+          [ Lude.Just ("certificateName" Lude..= certificateName),
+            Lude.Just ("loadBalancerName" Lude..= loadBalancerName)
           ]
       )
 
@@ -133,19 +128,14 @@ instance Lude.ToQuery AttachLoadBalancerTLSCertificate where
 
 -- | /See:/ 'mkAttachLoadBalancerTLSCertificateResponse' smart constructor.
 data AttachLoadBalancerTLSCertificateResponse = AttachLoadBalancerTLSCertificateResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    --
+    -- These SSL/TLS certificates are only usable by Lightsail load balancers. You can't get the certificate and use it for another purpose.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachLoadBalancerTLSCertificateResponse' with the minimum fields required to make a request.

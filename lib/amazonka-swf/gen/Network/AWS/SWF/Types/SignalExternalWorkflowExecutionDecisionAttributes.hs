@@ -46,39 +46,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSignalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowExecutionDecisionAttributes'
-  { control ::
-      Lude.Maybe
-        Lude.Text,
-    input ::
-      Lude.Maybe
-        Lude.Text,
-    runId ::
-      Lude.Maybe
-        Lude.Text,
-    workflowId ::
-      Lude.Text,
-    signalName ::
-      Lude.Text
+  { -- | The data attached to the event that can be used by the decider in subsequent decision tasks.
+    control :: Lude.Maybe Lude.Text,
+    -- | The input data to be provided with the signal. The target workflow execution uses the signal name and input data to process the signal.
+    input :: Lude.Maybe Lude.Text,
+    -- | The @runId@ of the workflow execution to be signaled.
+    runId :: Lude.Maybe Lude.Text,
+    -- | The @workflowId@ of the workflow execution to be signaled.
+    workflowId :: Lude.Text,
+    -- | The name of the signal.The target workflow execution uses the signal name and input to process the signal.
+    signalName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SignalExternalWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
 --
 -- * 'control' - The data attached to the event that can be used by the decider in subsequent decision tasks.
 -- * 'input' - The input data to be provided with the signal. The target workflow execution uses the signal name and input data to process the signal.
 -- * 'runId' - The @runId@ of the workflow execution to be signaled.
--- * 'signalName' - The name of the signal.The target workflow execution uses the signal name and input to process the signal.
 -- * 'workflowId' - The @workflowId@ of the workflow execution to be signaled.
+-- * 'signalName' - The name of the signal.The target workflow execution uses the signal name and input to process the signal.
 mkSignalExternalWorkflowExecutionDecisionAttributes ::
   -- | 'workflowId'
   Lude.Text ->

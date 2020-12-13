@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchSuccessfulResultModel' smart constructor.
 data BatchSuccessfulResultModel = BatchSuccessfulResultModel'
-  { state ::
-      Lude.Maybe Lude.Text,
+  { -- | Current state of the resource
+    state :: Lude.Maybe Lude.Text,
+    -- | ARN of the resource
     arn :: Lude.Maybe Lude.Text,
+    -- | ID of the resource
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchSuccessfulResultModel' with the minimum fields required to make a request.
 --
+-- * 'state' - Current state of the resource
 -- * 'arn' - ARN of the resource
 -- * 'id' - ID of the resource
--- * 'state' - Current state of the resource
 mkBatchSuccessfulResultModel ::
   BatchSuccessfulResultModel
 mkBatchSuccessfulResultModel =

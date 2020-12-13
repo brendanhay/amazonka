@@ -13,10 +13,10 @@
 module Network.AWS.CodeBuild.Types.EnvironmentType
   ( EnvironmentType
       ( EnvironmentType',
-        ArmContainer,
+        WindowsContainer,
         LinuxContainer,
         LinuxGpuContainer,
-        WindowsContainer,
+        ArmContainer,
         WindowsServer2019Container
       ),
   )
@@ -48,8 +48,8 @@ newtype EnvironmentType = EnvironmentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ArmContainer :: EnvironmentType
-pattern ArmContainer = EnvironmentType' "ARM_CONTAINER"
+pattern WindowsContainer :: EnvironmentType
+pattern WindowsContainer = EnvironmentType' "WINDOWS_CONTAINER"
 
 pattern LinuxContainer :: EnvironmentType
 pattern LinuxContainer = EnvironmentType' "LINUX_CONTAINER"
@@ -57,17 +57,17 @@ pattern LinuxContainer = EnvironmentType' "LINUX_CONTAINER"
 pattern LinuxGpuContainer :: EnvironmentType
 pattern LinuxGpuContainer = EnvironmentType' "LINUX_GPU_CONTAINER"
 
-pattern WindowsContainer :: EnvironmentType
-pattern WindowsContainer = EnvironmentType' "WINDOWS_CONTAINER"
+pattern ArmContainer :: EnvironmentType
+pattern ArmContainer = EnvironmentType' "ARM_CONTAINER"
 
 pattern WindowsServer2019Container :: EnvironmentType
 pattern WindowsServer2019Container = EnvironmentType' "WINDOWS_SERVER_2019_CONTAINER"
 
 {-# COMPLETE
-  ArmContainer,
+  WindowsContainer,
   LinuxContainer,
   LinuxGpuContainer,
-  WindowsContainer,
+  ArmContainer,
   WindowsServer2019Container,
   EnvironmentType'
   #-}

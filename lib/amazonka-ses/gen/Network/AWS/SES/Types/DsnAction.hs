@@ -13,11 +13,11 @@
 module Network.AWS.SES.Types.DsnAction
   ( DsnAction
       ( DsnAction',
+        DAFailed,
         DADelayed,
         DADelivered,
-        DAExpanded,
-        DAFailed,
-        DARelayed
+        DARelayed,
+        DAExpanded
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype DsnAction = DsnAction' Lude.Text
       Lude.ToHeader
     )
 
+pattern DAFailed :: DsnAction
+pattern DAFailed = DsnAction' "failed"
+
 pattern DADelayed :: DsnAction
 pattern DADelayed = DsnAction' "delayed"
 
 pattern DADelivered :: DsnAction
 pattern DADelivered = DsnAction' "delivered"
 
-pattern DAExpanded :: DsnAction
-pattern DAExpanded = DsnAction' "expanded"
-
-pattern DAFailed :: DsnAction
-pattern DAFailed = DsnAction' "failed"
-
 pattern DARelayed :: DsnAction
 pattern DARelayed = DsnAction' "relayed"
 
+pattern DAExpanded :: DsnAction
+pattern DAExpanded = DsnAction' "expanded"
+
 {-# COMPLETE
+  DAFailed,
   DADelayed,
   DADelivered,
-  DAExpanded,
-  DAFailed,
   DARelayed,
+  DAExpanded,
   DsnAction'
   #-}

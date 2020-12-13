@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointLocation' smart constructor.
 data EndpointLocation = EndpointLocation'
-  { postalCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The postal or ZIP code for the area where the endpoint is located.
+    postalCode :: Lude.Maybe Lude.Text,
+    -- | The latitude coordinate of the endpoint location, rounded to one decimal place.
     latitude :: Lude.Maybe Lude.Double,
+    -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.
     country :: Lude.Maybe Lude.Text,
+    -- | The name of the city where the endpoint is located.
     city :: Lude.Maybe Lude.Text,
+    -- | The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.
     region :: Lude.Maybe Lude.Text,
+    -- | The longitude coordinate of the endpoint location, rounded to one decimal place.
     longitude :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointLocation' with the minimum fields required to make a request.
 --
--- * 'city' - The name of the city where the endpoint is located.
--- * 'country' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.
--- * 'latitude' - The latitude coordinate of the endpoint location, rounded to one decimal place.
--- * 'longitude' - The longitude coordinate of the endpoint location, rounded to one decimal place.
 -- * 'postalCode' - The postal or ZIP code for the area where the endpoint is located.
+-- * 'latitude' - The latitude coordinate of the endpoint location, rounded to one decimal place.
+-- * 'country' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.
+-- * 'city' - The name of the city where the endpoint is located.
 -- * 'region' - The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.
+-- * 'longitude' - The longitude coordinate of the endpoint location, rounded to one decimal place.
 mkEndpointLocation ::
   EndpointLocation
 mkEndpointLocation =

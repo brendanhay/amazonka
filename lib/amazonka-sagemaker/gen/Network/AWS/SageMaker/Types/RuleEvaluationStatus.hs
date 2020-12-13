@@ -13,12 +13,12 @@
 module Network.AWS.SageMaker.Types.RuleEvaluationStatus
   ( RuleEvaluationStatus
       ( RuleEvaluationStatus',
-        Error,
         InProgress,
-        IssuesFound,
         NoIssuesFound,
-        Stopped,
-        Stopping
+        IssuesFound,
+        Error,
+        Stopping,
+        Stopped
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype RuleEvaluationStatus = RuleEvaluationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Error :: RuleEvaluationStatus
-pattern Error = RuleEvaluationStatus' "Error"
-
 pattern InProgress :: RuleEvaluationStatus
 pattern InProgress = RuleEvaluationStatus' "InProgress"
-
-pattern IssuesFound :: RuleEvaluationStatus
-pattern IssuesFound = RuleEvaluationStatus' "IssuesFound"
 
 pattern NoIssuesFound :: RuleEvaluationStatus
 pattern NoIssuesFound = RuleEvaluationStatus' "NoIssuesFound"
 
-pattern Stopped :: RuleEvaluationStatus
-pattern Stopped = RuleEvaluationStatus' "Stopped"
+pattern IssuesFound :: RuleEvaluationStatus
+pattern IssuesFound = RuleEvaluationStatus' "IssuesFound"
+
+pattern Error :: RuleEvaluationStatus
+pattern Error = RuleEvaluationStatus' "Error"
 
 pattern Stopping :: RuleEvaluationStatus
 pattern Stopping = RuleEvaluationStatus' "Stopping"
 
+pattern Stopped :: RuleEvaluationStatus
+pattern Stopped = RuleEvaluationStatus' "Stopped"
+
 {-# COMPLETE
-  Error,
   InProgress,
-  IssuesFound,
   NoIssuesFound,
-  Stopped,
+  IssuesFound,
+  Error,
   Stopping,
+  Stopped,
   RuleEvaluationStatus'
   #-}

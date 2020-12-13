@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetDevEndpoints' smart constructor.
 newtype BatchGetDevEndpoints = BatchGetDevEndpoints'
-  { devEndpointNames ::
-      Lude.NonEmpty Lude.Text
+  { -- | The list of @DevEndpoint@ names, which might be the names returned from the @ListDevEndpoint@ operation.
+    devEndpointNames :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDevEndpoints' with the minimum fields required to make a request.
@@ -107,26 +102,20 @@ instance Lude.ToQuery BatchGetDevEndpoints where
 
 -- | /See:/ 'mkBatchGetDevEndpointsResponse' smart constructor.
 data BatchGetDevEndpointsResponse = BatchGetDevEndpointsResponse'
-  { devEndpointsNotFound ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
-    devEndpoints ::
-      Lude.Maybe [DevEndpoint],
+  { -- | A list of @DevEndpoints@ not found.
+    devEndpointsNotFound :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of @DevEndpoint@ definitions.
+    devEndpoints :: Lude.Maybe [DevEndpoint],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDevEndpointsResponse' with the minimum fields required to make a request.
 --
--- * 'devEndpoints' - A list of @DevEndpoint@ definitions.
 -- * 'devEndpointsNotFound' - A list of @DevEndpoints@ not found.
+-- * 'devEndpoints' - A list of @DevEndpoint@ definitions.
 -- * 'responseStatus' - The response status code.
 mkBatchGetDevEndpointsResponse ::
   -- | 'responseStatus'

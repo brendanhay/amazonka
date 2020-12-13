@@ -40,38 +40,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDevice' smart constructor.
 data Device = Device'
-  { deviceStatus :: Lude.Maybe DeviceStatus,
+  { -- | The status of a device. If the status is not READY, check the DeviceStatusInfo value for details.
+    deviceStatus :: Lude.Maybe DeviceStatus,
+    -- | Detailed information about a device's status.
     deviceStatusInfo :: Lude.Maybe DeviceStatusInfo,
+    -- | The ARN of a device.
     deviceARN :: Lude.Maybe Lude.Text,
+    -- | The MAC address of a device.
     mACAddress :: Lude.Maybe Lude.Text,
+    -- | The name of a device.
     deviceName :: Lude.Maybe Lude.Text,
+    -- | The room ARN of a device.
     roomARN :: Lude.Maybe Lude.Text,
+    -- | The software version of a device.
     softwareVersion :: Lude.Maybe Lude.Text,
+    -- | The type of a device.
     deviceType :: Lude.Maybe Lude.Text,
+    -- | Detailed information about a device's network profile.
     networkProfileInfo :: Lude.Maybe DeviceNetworkProfileInfo,
+    -- | The serial number of a device.
     deviceSerialNumber :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
--- * 'deviceARN' - The ARN of a device.
--- * 'deviceName' - The name of a device.
--- * 'deviceSerialNumber' - The serial number of a device.
 -- * 'deviceStatus' - The status of a device. If the status is not READY, check the DeviceStatusInfo value for details.
 -- * 'deviceStatusInfo' - Detailed information about a device's status.
--- * 'deviceType' - The type of a device.
+-- * 'deviceARN' - The ARN of a device.
 -- * 'mACAddress' - The MAC address of a device.
--- * 'networkProfileInfo' - Detailed information about a device's network profile.
+-- * 'deviceName' - The name of a device.
 -- * 'roomARN' - The room ARN of a device.
 -- * 'softwareVersion' - The software version of a device.
+-- * 'deviceType' - The type of a device.
+-- * 'networkProfileInfo' - Detailed information about a device's network profile.
+-- * 'deviceSerialNumber' - The serial number of a device.
 mkDevice ::
   Device
 mkDevice =

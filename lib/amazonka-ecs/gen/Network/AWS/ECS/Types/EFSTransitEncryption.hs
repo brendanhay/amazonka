@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.EFSTransitEncryption
   ( EFSTransitEncryption
       ( EFSTransitEncryption',
-        EFSTEDisabled,
-        EFSTEEnabled
+        EFSTEEnabled,
+        EFSTEDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EFSTransitEncryption = EFSTransitEncryption' Lude.Text
       Lude.ToHeader
     )
 
-pattern EFSTEDisabled :: EFSTransitEncryption
-pattern EFSTEDisabled = EFSTransitEncryption' "DISABLED"
-
 pattern EFSTEEnabled :: EFSTransitEncryption
 pattern EFSTEEnabled = EFSTransitEncryption' "ENABLED"
 
+pattern EFSTEDisabled :: EFSTransitEncryption
+pattern EFSTEDisabled = EFSTransitEncryption' "DISABLED"
+
 {-# COMPLETE
-  EFSTEDisabled,
   EFSTEEnabled,
+  EFSTEDisabled,
   EFSTransitEncryption'
   #-}

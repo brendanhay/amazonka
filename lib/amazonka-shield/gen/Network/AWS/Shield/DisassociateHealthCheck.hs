@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Shield.DisassociateHealthCheck
     mkDisassociateHealthCheck,
 
     -- ** Request lenses
-    dhcProtectionId,
     dhcHealthCheckARN,
+    dhcProtectionId,
 
     -- * Destructuring the response
     DisassociateHealthCheckResponse (..),
@@ -41,17 +42,12 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDisassociateHealthCheck' smart constructor.
 data DisassociateHealthCheck = DisassociateHealthCheck'
-  { protectionId ::
-      Lude.Text,
-    healthCheckARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the health check that is associated with the protection.
+    healthCheckARN :: Lude.Text,
+    -- | The unique identifier (ID) for the 'Protection' object to remove the health check association from.
+    protectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateHealthCheck' with the minimum fields required to make a request.
@@ -59,23 +55,16 @@ data DisassociateHealthCheck = DisassociateHealthCheck'
 -- * 'healthCheckARN' - The Amazon Resource Name (ARN) of the health check that is associated with the protection.
 -- * 'protectionId' - The unique identifier (ID) for the 'Protection' object to remove the health check association from.
 mkDisassociateHealthCheck ::
-  -- | 'protectionId'
-  Lude.Text ->
   -- | 'healthCheckARN'
   Lude.Text ->
+  -- | 'protectionId'
+  Lude.Text ->
   DisassociateHealthCheck
-mkDisassociateHealthCheck pProtectionId_ pHealthCheckARN_ =
+mkDisassociateHealthCheck pHealthCheckARN_ pProtectionId_ =
   DisassociateHealthCheck'
-    { protectionId = pProtectionId_,
-      healthCheckARN = pHealthCheckARN_
+    { healthCheckARN = pHealthCheckARN_,
+      protectionId = pProtectionId_
     }
-
--- | The unique identifier (ID) for the 'Protection' object to remove the health check association from.
---
--- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhcProtectionId :: Lens.Lens' DisassociateHealthCheck Lude.Text
-dhcProtectionId = Lens.lens (protectionId :: DisassociateHealthCheck -> Lude.Text) (\s a -> s {protectionId = a} :: DisassociateHealthCheck)
-{-# DEPRECATED dhcProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the health check that is associated with the protection.
 --
@@ -83,6 +72,13 @@ dhcProtectionId = Lens.lens (protectionId :: DisassociateHealthCheck -> Lude.Tex
 dhcHealthCheckARN :: Lens.Lens' DisassociateHealthCheck Lude.Text
 dhcHealthCheckARN = Lens.lens (healthCheckARN :: DisassociateHealthCheck -> Lude.Text) (\s a -> s {healthCheckARN = a} :: DisassociateHealthCheck)
 {-# DEPRECATED dhcHealthCheckARN "Use generic-lens or generic-optics with 'healthCheckARN' instead." #-}
+
+-- | The unique identifier (ID) for the 'Protection' object to remove the health check association from.
+--
+-- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhcProtectionId :: Lens.Lens' DisassociateHealthCheck Lude.Text
+dhcProtectionId = Lens.lens (protectionId :: DisassociateHealthCheck -> Lude.Text) (\s a -> s {protectionId = a} :: DisassociateHealthCheck)
+{-# DEPRECATED dhcProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
 instance Lude.AWSRequest DisassociateHealthCheck where
   type Rs DisassociateHealthCheck = DisassociateHealthCheckResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON DisassociateHealthCheck where
   toJSON DisassociateHealthCheck' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ProtectionId" Lude..= protectionId),
-            Lude.Just ("HealthCheckArn" Lude..= healthCheckARN)
+          [ Lude.Just ("HealthCheckArn" Lude..= healthCheckARN),
+            Lude.Just ("ProtectionId" Lude..= protectionId)
           ]
       )
 
@@ -122,16 +118,10 @@ instance Lude.ToQuery DisassociateHealthCheck where
 
 -- | /See:/ 'mkDisassociateHealthCheckResponse' smart constructor.
 newtype DisassociateHealthCheckResponse = DisassociateHealthCheckResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateHealthCheckResponse' with the minimum fields required to make a request.

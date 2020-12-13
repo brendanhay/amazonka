@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.EndpointSortKey
   ( EndpointSortKey
       ( EndpointSortKey',
-        ESKCreationTime,
         ESKName,
+        ESKCreationTime,
         ESKStatus
       ),
   )
@@ -46,18 +46,18 @@ newtype EndpointSortKey = EndpointSortKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESKCreationTime :: EndpointSortKey
-pattern ESKCreationTime = EndpointSortKey' "CreationTime"
-
 pattern ESKName :: EndpointSortKey
 pattern ESKName = EndpointSortKey' "Name"
+
+pattern ESKCreationTime :: EndpointSortKey
+pattern ESKCreationTime = EndpointSortKey' "CreationTime"
 
 pattern ESKStatus :: EndpointSortKey
 pattern ESKStatus = EndpointSortKey' "Status"
 
 {-# COMPLETE
-  ESKCreationTime,
   ESKName,
+  ESKCreationTime,
   ESKStatus,
   EndpointSortKey'
   #-}

@@ -32,17 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventDetails' smart constructor.
 data EventDetails = EventDetails'
-  { event :: Lude.Maybe Event,
+  { -- | Summary information about the event.
+    event :: Lude.Maybe Event,
+    -- | The most recent description of the event.
     eventDescription :: Lude.Maybe EventDescription,
+    -- | Additional metadata about the event.
     eventMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventDetails' with the minimum fields required to make a request.

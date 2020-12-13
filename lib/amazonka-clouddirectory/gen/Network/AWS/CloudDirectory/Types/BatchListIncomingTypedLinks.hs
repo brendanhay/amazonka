@@ -20,8 +20,8 @@ module Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinks
     blitlsFilterAttributeRanges,
     blitlsNextToken,
     blitlsFilterTypedLink,
-    blitlsMaxResults,
     blitlsObjectReference,
+    blitlsMaxResults,
   )
 where
 
@@ -35,33 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListIncomingTypedLinks' smart constructor.
 data BatchListIncomingTypedLinks = BatchListIncomingTypedLinks'
-  { filterAttributeRanges ::
-      Lude.Maybe
-        [TypedLinkAttributeRange],
+  { -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
+    filterAttributeRanges :: Lude.Maybe [TypedLinkAttributeRange],
+    -- | The pagination token.
     nextToken :: Lude.Maybe Lude.Text,
-    filterTypedLink ::
-      Lude.Maybe
-        TypedLinkSchemaAndFacetName,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    objectReference :: ObjectReference
+    -- | Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
+    filterTypedLink :: Lude.Maybe TypedLinkSchemaAndFacetName,
+    -- | The reference that identifies the object whose attributes will be listed.
+    objectReference :: ObjectReference,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListIncomingTypedLinks' with the minimum fields required to make a request.
 --
 -- * 'filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
--- * 'filterTypedLink' - Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
--- * 'maxResults' - The maximum number of results to retrieve.
 -- * 'nextToken' - The pagination token.
+-- * 'filterTypedLink' - Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
 -- * 'objectReference' - The reference that identifies the object whose attributes will be listed.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkBatchListIncomingTypedLinks ::
   -- | 'objectReference'
   ObjectReference ->
@@ -72,8 +66,8 @@ mkBatchListIncomingTypedLinks pObjectReference_ =
         Lude.Nothing,
       nextToken = Lude.Nothing,
       filterTypedLink = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      objectReference = pObjectReference_
+      objectReference = pObjectReference_,
+      maxResults = Lude.Nothing
     }
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
@@ -97,19 +91,19 @@ blitlsFilterTypedLink :: Lens.Lens' BatchListIncomingTypedLinks (Lude.Maybe Type
 blitlsFilterTypedLink = Lens.lens (filterTypedLink :: BatchListIncomingTypedLinks -> Lude.Maybe TypedLinkSchemaAndFacetName) (\s a -> s {filterTypedLink = a} :: BatchListIncomingTypedLinks)
 {-# DEPRECATED blitlsFilterTypedLink "Use generic-lens or generic-optics with 'filterTypedLink' instead." #-}
 
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blitlsMaxResults :: Lens.Lens' BatchListIncomingTypedLinks (Lude.Maybe Lude.Natural)
-blitlsMaxResults = Lens.lens (maxResults :: BatchListIncomingTypedLinks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListIncomingTypedLinks)
-{-# DEPRECATED blitlsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The reference that identifies the object whose attributes will be listed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 blitlsObjectReference :: Lens.Lens' BatchListIncomingTypedLinks ObjectReference
 blitlsObjectReference = Lens.lens (objectReference :: BatchListIncomingTypedLinks -> ObjectReference) (\s a -> s {objectReference = a} :: BatchListIncomingTypedLinks)
 {-# DEPRECATED blitlsObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blitlsMaxResults :: Lens.Lens' BatchListIncomingTypedLinks (Lude.Maybe Lude.Natural)
+blitlsMaxResults = Lens.lens (maxResults :: BatchListIncomingTypedLinks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListIncomingTypedLinks)
+{-# DEPRECATED blitlsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.ToJSON BatchListIncomingTypedLinks where
   toJSON BatchListIncomingTypedLinks' {..} =
@@ -118,7 +112,7 @@ instance Lude.ToJSON BatchListIncomingTypedLinks where
           [ ("FilterAttributeRanges" Lude..=) Lude.<$> filterAttributeRanges,
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("FilterTypedLink" Lude..=) Lude.<$> filterTypedLink,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+            Lude.Just ("ObjectReference" Lude..= objectReference),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )

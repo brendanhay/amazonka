@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.Config.PutConformancePack
 
     -- ** Request lenses
     pcpDeliveryS3Bucket,
+    pcpConformancePackName,
     pcpDeliveryS3KeyPrefix,
     pcpTemplateS3URI,
     pcpConformancePackInputParameters,
     pcpTemplateBody,
-    pcpConformancePackName,
 
     -- * Destructuring the response
     PutConformancePackResponse (..),
@@ -46,32 +47,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutConformancePack' smart constructor.
 data PutConformancePack = PutConformancePack'
-  { deliveryS3Bucket ::
-      Lude.Maybe Lude.Text,
+  { -- | AWS Config stores intermediate files while processing conformance pack template.
+    deliveryS3Bucket :: Lude.Maybe Lude.Text,
+    -- | Name of the conformance pack you want to create.
+    conformancePackName :: Lude.Text,
+    -- | The prefix for the Amazon S3 bucket.
     deliveryS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | Location of file containing the template body (@s3://bucketname/prefix@ ). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack.
     templateS3URI :: Lude.Maybe Lude.Text,
-    conformancePackInputParameters ::
-      Lude.Maybe [ConformancePackInputParameter],
-    templateBody :: Lude.Maybe Lude.Text,
-    conformancePackName :: Lude.Text
+    -- | A list of @ConformancePackInputParameter@ objects.
+    conformancePackInputParameters :: Lude.Maybe [ConformancePackInputParameter],
+    -- | A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+    templateBody :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConformancePack' with the minimum fields required to make a request.
 --
--- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
--- * 'conformancePackName' - Name of the conformance pack you want to create.
 -- * 'deliveryS3Bucket' - AWS Config stores intermediate files while processing conformance pack template.
+-- * 'conformancePackName' - Name of the conformance pack you want to create.
 -- * 'deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
--- * 'templateBody' - A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 -- * 'templateS3URI' - Location of file containing the template body (@s3://bucketname/prefix@ ). The uri must point to the conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same region as the conformance pack.
+-- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
+-- * 'templateBody' - A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 mkPutConformancePack ::
   -- | 'conformancePackName'
   Lude.Text ->
@@ -79,11 +78,11 @@ mkPutConformancePack ::
 mkPutConformancePack pConformancePackName_ =
   PutConformancePack'
     { deliveryS3Bucket = Lude.Nothing,
+      conformancePackName = pConformancePackName_,
       deliveryS3KeyPrefix = Lude.Nothing,
       templateS3URI = Lude.Nothing,
       conformancePackInputParameters = Lude.Nothing,
-      templateBody = Lude.Nothing,
-      conformancePackName = pConformancePackName_
+      templateBody = Lude.Nothing
     }
 
 -- | AWS Config stores intermediate files while processing conformance pack template.
@@ -92,6 +91,13 @@ mkPutConformancePack pConformancePackName_ =
 pcpDeliveryS3Bucket :: Lens.Lens' PutConformancePack (Lude.Maybe Lude.Text)
 pcpDeliveryS3Bucket = Lens.lens (deliveryS3Bucket :: PutConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3Bucket = a} :: PutConformancePack)
 {-# DEPRECATED pcpDeliveryS3Bucket "Use generic-lens or generic-optics with 'deliveryS3Bucket' instead." #-}
+
+-- | Name of the conformance pack you want to create.
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcpConformancePackName :: Lens.Lens' PutConformancePack Lude.Text
+pcpConformancePackName = Lens.lens (conformancePackName :: PutConformancePack -> Lude.Text) (\s a -> s {conformancePackName = a} :: PutConformancePack)
+{-# DEPRECATED pcpConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | The prefix for the Amazon S3 bucket.
 --
@@ -121,13 +127,6 @@ pcpTemplateBody :: Lens.Lens' PutConformancePack (Lude.Maybe Lude.Text)
 pcpTemplateBody = Lens.lens (templateBody :: PutConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: PutConformancePack)
 {-# DEPRECATED pcpTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
--- | Name of the conformance pack you want to create.
---
--- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcpConformancePackName :: Lens.Lens' PutConformancePack Lude.Text
-pcpConformancePackName = Lens.lens (conformancePackName :: PutConformancePack -> Lude.Text) (\s a -> s {conformancePackName = a} :: PutConformancePack)
-{-# DEPRECATED pcpConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
-
 instance Lude.AWSRequest PutConformancePack where
   type Rs PutConformancePack = PutConformancePackResponse
   request = Req.postJSON configService
@@ -155,12 +154,12 @@ instance Lude.ToJSON PutConformancePack where
     Lude.object
       ( Lude.catMaybes
           [ ("DeliveryS3Bucket" Lude..=) Lude.<$> deliveryS3Bucket,
+            Lude.Just ("ConformancePackName" Lude..= conformancePackName),
             ("DeliveryS3KeyPrefix" Lude..=) Lude.<$> deliveryS3KeyPrefix,
             ("TemplateS3Uri" Lude..=) Lude.<$> templateS3URI,
             ("ConformancePackInputParameters" Lude..=)
               Lude.<$> conformancePackInputParameters,
-            ("TemplateBody" Lude..=) Lude.<$> templateBody,
-            Lude.Just ("ConformancePackName" Lude..= conformancePackName)
+            ("TemplateBody" Lude..=) Lude.<$> templateBody
           ]
       )
 
@@ -172,17 +171,12 @@ instance Lude.ToQuery PutConformancePack where
 
 -- | /See:/ 'mkPutConformancePackResponse' smart constructor.
 data PutConformancePackResponse = PutConformancePackResponse'
-  { conformancePackARN ::
-      Lude.Maybe Lude.Text,
+  { -- | ARN of the conformance pack.
+    conformancePackARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConformancePackResponse' with the minimum fields required to make a request.

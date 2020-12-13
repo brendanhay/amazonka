@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource
     mkResourceDataSyncAWSOrganizationsSource,
 
     -- * Lenses
-    rdsaosOrganizationalUnits,
     rdsaosOrganizationSourceType,
+    rdsaosOrganizationalUnits,
   )
 where
 
@@ -30,21 +30,12 @@ import Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit
 --
 -- /See:/ 'mkResourceDataSyncAWSOrganizationsSource' smart constructor.
 data ResourceDataSyncAWSOrganizationsSource = ResourceDataSyncAWSOrganizationsSource'
-  { organizationalUnits ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ResourceDataSyncOrganizationalUnit
-        ),
-    organizationSourceType ::
-      Lude.Text
+  { -- | If an AWS Organization is present, this is either @OrganizationalUnits@ or @EntireOrganization@ . For @OrganizationalUnits@ , the data is aggregated from a set of organization units. For @EntireOrganization@ , the data is aggregated from the entire AWS Organization.
+    organizationSourceType :: Lude.Text,
+    -- | The AWS Organizations organization units included in the sync.
+    organizationalUnits :: Lude.Maybe (Lude.NonEmpty ResourceDataSyncOrganizationalUnit)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataSyncAWSOrganizationsSource' with the minimum fields required to make a request.
@@ -57,17 +48,10 @@ mkResourceDataSyncAWSOrganizationsSource ::
   ResourceDataSyncAWSOrganizationsSource
 mkResourceDataSyncAWSOrganizationsSource pOrganizationSourceType_ =
   ResourceDataSyncAWSOrganizationsSource'
-    { organizationalUnits =
-        Lude.Nothing,
-      organizationSourceType = pOrganizationSourceType_
+    { organizationSourceType =
+        pOrganizationSourceType_,
+      organizationalUnits = Lude.Nothing
     }
-
--- | The AWS Organizations organization units included in the sync.
---
--- /Note:/ Consider using 'organizationalUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsaosOrganizationalUnits :: Lens.Lens' ResourceDataSyncAWSOrganizationsSource (Lude.Maybe (Lude.NonEmpty ResourceDataSyncOrganizationalUnit))
-rdsaosOrganizationalUnits = Lens.lens (organizationalUnits :: ResourceDataSyncAWSOrganizationsSource -> Lude.Maybe (Lude.NonEmpty ResourceDataSyncOrganizationalUnit)) (\s a -> s {organizationalUnits = a} :: ResourceDataSyncAWSOrganizationsSource)
-{-# DEPRECATED rdsaosOrganizationalUnits "Use generic-lens or generic-optics with 'organizationalUnits' instead." #-}
 
 -- | If an AWS Organization is present, this is either @OrganizationalUnits@ or @EntireOrganization@ . For @OrganizationalUnits@ , the data is aggregated from a set of organization units. For @EntireOrganization@ , the data is aggregated from the entire AWS Organization.
 --
@@ -76,22 +60,29 @@ rdsaosOrganizationSourceType :: Lens.Lens' ResourceDataSyncAWSOrganizationsSourc
 rdsaosOrganizationSourceType = Lens.lens (organizationSourceType :: ResourceDataSyncAWSOrganizationsSource -> Lude.Text) (\s a -> s {organizationSourceType = a} :: ResourceDataSyncAWSOrganizationsSource)
 {-# DEPRECATED rdsaosOrganizationSourceType "Use generic-lens or generic-optics with 'organizationSourceType' instead." #-}
 
+-- | The AWS Organizations organization units included in the sync.
+--
+-- /Note:/ Consider using 'organizationalUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsaosOrganizationalUnits :: Lens.Lens' ResourceDataSyncAWSOrganizationsSource (Lude.Maybe (Lude.NonEmpty ResourceDataSyncOrganizationalUnit))
+rdsaosOrganizationalUnits = Lens.lens (organizationalUnits :: ResourceDataSyncAWSOrganizationsSource -> Lude.Maybe (Lude.NonEmpty ResourceDataSyncOrganizationalUnit)) (\s a -> s {organizationalUnits = a} :: ResourceDataSyncAWSOrganizationsSource)
+{-# DEPRECATED rdsaosOrganizationalUnits "Use generic-lens or generic-optics with 'organizationalUnits' instead." #-}
+
 instance Lude.FromJSON ResourceDataSyncAWSOrganizationsSource where
   parseJSON =
     Lude.withObject
       "ResourceDataSyncAWSOrganizationsSource"
       ( \x ->
           ResourceDataSyncAWSOrganizationsSource'
-            Lude.<$> (x Lude..:? "OrganizationalUnits")
-            Lude.<*> (x Lude..: "OrganizationSourceType")
+            Lude.<$> (x Lude..: "OrganizationSourceType")
+            Lude.<*> (x Lude..:? "OrganizationalUnits")
       )
 
 instance Lude.ToJSON ResourceDataSyncAWSOrganizationsSource where
   toJSON ResourceDataSyncAWSOrganizationsSource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("OrganizationalUnits" Lude..=) Lude.<$> organizationalUnits,
-            Lude.Just
-              ("OrganizationSourceType" Lude..= organizationSourceType)
+          [ Lude.Just
+              ("OrganizationSourceType" Lude..= organizationSourceType),
+            ("OrganizationalUnits" Lude..=) Lude.<$> organizationalUnits
           ]
       )

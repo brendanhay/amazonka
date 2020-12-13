@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Glue.GetTableVersion
     mkGetTableVersion,
 
     -- ** Request lenses
-    gtvVersionId,
-    gtvCatalogId,
-    gtvDatabaseName,
-    gtvTableName,
+    gtvfVersionId,
+    gtvfCatalogId,
+    gtvfDatabaseName,
+    gtvfTableName,
 
     -- * Destructuring the response
     GetTableVersionResponse (..),
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTableVersion' smart constructor.
 data GetTableVersion = GetTableVersion'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID value of the table version to be retrieved. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
     databaseName :: Lude.Text,
+    -- | The name of the table. For Hive compatibility, this name is entirely lowercase.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableVersion' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The ID value of the table version to be retrieved. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
 -- * 'catalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
 -- * 'databaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
 -- * 'tableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
--- * 'versionId' - The ID value of the table version to be retrieved. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
 mkGetTableVersion ::
   -- | 'databaseName'
   Lude.Text ->
@@ -80,30 +78,30 @@ mkGetTableVersion pDatabaseName_ pTableName_ =
 -- | The ID value of the table version to be retrieved. A @VersionID@ is a string representation of an integer. Each version is incremented by 1.
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvVersionId :: Lens.Lens' GetTableVersion (Lude.Maybe Lude.Text)
-gtvVersionId = Lens.lens (versionId :: GetTableVersion -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: GetTableVersion)
-{-# DEPRECATED gtvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+gtvfVersionId :: Lens.Lens' GetTableVersion (Lude.Maybe Lude.Text)
+gtvfVersionId = Lens.lens (versionId :: GetTableVersion -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: GetTableVersion)
+{-# DEPRECATED gtvfVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvCatalogId :: Lens.Lens' GetTableVersion (Lude.Maybe Lude.Text)
-gtvCatalogId = Lens.lens (catalogId :: GetTableVersion -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTableVersion)
-{-# DEPRECATED gtvCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+gtvfCatalogId :: Lens.Lens' GetTableVersion (Lude.Maybe Lude.Text)
+gtvfCatalogId = Lens.lens (catalogId :: GetTableVersion -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTableVersion)
+{-# DEPRECATED gtvfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvDatabaseName :: Lens.Lens' GetTableVersion Lude.Text
-gtvDatabaseName = Lens.lens (databaseName :: GetTableVersion -> Lude.Text) (\s a -> s {databaseName = a} :: GetTableVersion)
-{-# DEPRECATED gtvDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+gtvfDatabaseName :: Lens.Lens' GetTableVersion Lude.Text
+gtvfDatabaseName = Lens.lens (databaseName :: GetTableVersion -> Lude.Text) (\s a -> s {databaseName = a} :: GetTableVersion)
+{-# DEPRECATED gtvfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the table. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvTableName :: Lens.Lens' GetTableVersion Lude.Text
-gtvTableName = Lens.lens (tableName :: GetTableVersion -> Lude.Text) (\s a -> s {tableName = a} :: GetTableVersion)
-{-# DEPRECATED gtvTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+gtvfTableName :: Lens.Lens' GetTableVersion Lude.Text
+gtvfTableName = Lens.lens (tableName :: GetTableVersion -> Lude.Text) (\s a -> s {tableName = a} :: GetTableVersion)
+{-# DEPRECATED gtvfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest GetTableVersion where
   type Rs GetTableVersion = GetTableVersionResponse
@@ -145,23 +143,18 @@ instance Lude.ToQuery GetTableVersion where
 
 -- | /See:/ 'mkGetTableVersionResponse' smart constructor.
 data GetTableVersionResponse = GetTableVersionResponse'
-  { tableVersion ::
-      Lude.Maybe TableVersion,
+  { -- | The requested table version.
+    tableVersion :: Lude.Maybe TableVersion,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableVersionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tableVersion' - The requested table version.
+-- * 'responseStatus' - The response status code.
 mkGetTableVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

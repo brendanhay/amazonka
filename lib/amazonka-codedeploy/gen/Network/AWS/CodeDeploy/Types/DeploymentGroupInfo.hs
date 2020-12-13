@@ -63,66 +63,75 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentGroupInfo' smart constructor.
 data DeploymentGroupInfo = DeploymentGroupInfo'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy> in the /AWS CodeDeploy User Guide/ .
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all of the tag groups. Cannot be used in the same call as ec2TagFilters.
     ec2TagSet :: Lude.Maybe EC2TagSet,
+    -- | The deployment configuration name.
     deploymentConfigName :: Lude.Maybe Lude.Text,
-    lastAttemptedDeployment ::
-      Lude.Maybe LastDeploymentInfo,
+    -- | Information about the most recent attempted deployment to the deployment group.
+    lastAttemptedDeployment :: Lude.Maybe LastDeploymentInfo,
+    -- | Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
     onPremisesTagSet :: Lude.Maybe OnPremisesTagSet,
+    -- | The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
     computePlatform :: Lude.Maybe ComputePlatform,
+    -- | Information about the deployment group's target revision, including type and location.
     targetRevision :: Lude.Maybe RevisionLocation,
+    -- | The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
     ec2TagFilters :: Lude.Maybe [EC2TagFilter],
+    -- | The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
     ecsServices :: Lude.Maybe [ECSService],
-    blueGreenDeploymentConfiguration ::
-      Lude.Maybe BlueGreenDeploymentConfiguration,
+    -- | Information about blue/green deployment options for a deployment group.
+    blueGreenDeploymentConfiguration :: Lude.Maybe BlueGreenDeploymentConfiguration,
+    -- | Information about the load balancer to use in a deployment.
     loadBalancerInfo :: Lude.Maybe LoadBalancerInfo,
-    onPremisesInstanceTagFilters ::
-      Lude.Maybe [TagFilter],
-    lastSuccessfulDeployment ::
-      Lude.Maybe LastDeploymentInfo,
+    -- | The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
+    onPremisesInstanceTagFilters :: Lude.Maybe [TagFilter],
+    -- | Information about the most recent successful deployment to the deployment group.
+    lastSuccessfulDeployment :: Lude.Maybe LastDeploymentInfo,
+    -- | The application name.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | A list of alarms associated with the deployment group.
     alarmConfiguration :: Lude.Maybe AlarmConfiguration,
+    -- | Information about triggers associated with the deployment group.
     triggerConfigurations :: Lude.Maybe [TriggerConfig],
+    -- | The deployment group ID.
     deploymentGroupId :: Lude.Maybe Lude.Text,
+    -- | A list of associated Auto Scaling groups.
     autoScalingGroups :: Lude.Maybe [AutoScalingGroup],
+    -- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
     deploymentStyle :: Lude.Maybe DeploymentStyle,
-    autoRollbackConfiguration ::
-      Lude.Maybe AutoRollbackConfiguration,
+    -- | Information about the automatic rollback configuration associated with the deployment group.
+    autoRollbackConfiguration :: Lude.Maybe AutoRollbackConfiguration,
+    -- | The deployment group name.
     deploymentGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentGroupInfo' with the minimum fields required to make a request.
 --
--- * 'alarmConfiguration' - A list of alarms associated with the deployment group.
--- * 'applicationName' - The application name.
--- * 'autoRollbackConfiguration' - Information about the automatic rollback configuration associated with the deployment group.
--- * 'autoScalingGroups' - A list of associated Auto Scaling groups.
--- * 'blueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
--- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
--- * 'deploymentConfigName' - The deployment configuration name.
--- * 'deploymentGroupId' - The deployment group ID.
--- * 'deploymentGroupName' - The deployment group name.
--- * 'deploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
--- * 'ec2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
+-- * 'serviceRoleARN' - A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy> in the /AWS CodeDeploy User Guide/ .
 -- * 'ec2TagSet' - Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all of the tag groups. Cannot be used in the same call as ec2TagFilters.
--- * 'ecsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
+-- * 'deploymentConfigName' - The deployment configuration name.
 -- * 'lastAttemptedDeployment' - Information about the most recent attempted deployment to the deployment group.
--- * 'lastSuccessfulDeployment' - Information about the most recent successful deployment to the deployment group.
+-- * 'onPremisesTagSet' - Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
+-- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
+-- * 'targetRevision' - Information about the deployment group's target revision, including type and location.
+-- * 'ec2TagFilters' - The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags.
+-- * 'ecsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
+-- * 'blueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
 -- * 'loadBalancerInfo' - Information about the load balancer to use in a deployment.
 -- * 'onPremisesInstanceTagFilters' - The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags.
--- * 'onPremisesTagSet' - Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters.
--- * 'serviceRoleARN' - A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html Create a Service Role for AWS CodeDeploy> in the /AWS CodeDeploy User Guide/ .
--- * 'targetRevision' - Information about the deployment group's target revision, including type and location.
+-- * 'lastSuccessfulDeployment' - Information about the most recent successful deployment to the deployment group.
+-- * 'applicationName' - The application name.
+-- * 'alarmConfiguration' - A list of alarms associated with the deployment group.
 -- * 'triggerConfigurations' - Information about triggers associated with the deployment group.
+-- * 'deploymentGroupId' - The deployment group ID.
+-- * 'autoScalingGroups' - A list of associated Auto Scaling groups.
+-- * 'deploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'autoRollbackConfiguration' - Information about the automatic rollback configuration associated with the deployment group.
+-- * 'deploymentGroupName' - The deployment group name.
 mkDeploymentGroupInfo ::
   DeploymentGroupInfo
 mkDeploymentGroupInfo =

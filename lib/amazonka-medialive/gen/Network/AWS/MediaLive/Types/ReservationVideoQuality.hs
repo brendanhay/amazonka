@@ -13,9 +13,9 @@
 module Network.AWS.MediaLive.Types.ReservationVideoQuality
   ( ReservationVideoQuality
       ( ReservationVideoQuality',
+        Standard,
         Enhanced,
-        Premium,
-        Standard
+        Premium
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype ReservationVideoQuality = ReservationVideoQuality' Lude.Text
       Lude.ToHeader
     )
 
+pattern Standard :: ReservationVideoQuality
+pattern Standard = ReservationVideoQuality' "STANDARD"
+
 pattern Enhanced :: ReservationVideoQuality
 pattern Enhanced = ReservationVideoQuality' "ENHANCED"
 
 pattern Premium :: ReservationVideoQuality
 pattern Premium = ReservationVideoQuality' "PREMIUM"
 
-pattern Standard :: ReservationVideoQuality
-pattern Standard = ReservationVideoQuality' "STANDARD"
-
 {-# COMPLETE
+  Standard,
   Enhanced,
   Premium,
-  Standard,
   ReservationVideoQuality'
   #-}

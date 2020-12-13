@@ -19,12 +19,12 @@ module Network.AWS.EC2.Types.SecurityGroup
     -- * Lenses
     sgVPCId,
     sgIPPermissions,
-    sgIPPermissionsEgress,
-    sgTags,
     sgOwnerId,
+    sgIPPermissionsEgress,
     sgGroupId,
     sgGroupName,
     sgDescription,
+    sgTags,
   )
 where
 
@@ -37,34 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityGroup' smart constructor.
 data SecurityGroup = SecurityGroup'
-  { vpcId :: Lude.Maybe Lude.Text,
+  { -- | [VPC only] The ID of the VPC for the security group.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | The inbound rules associated with the security group.
     ipPermissions :: Lude.Maybe [IPPermission],
-    ipPermissionsEgress :: Lude.Maybe [IPPermission],
-    tags :: Lude.Maybe [Tag],
+    -- | The AWS account ID of the owner of the security group.
     ownerId :: Lude.Text,
+    -- | [VPC only] The outbound rules associated with the security group.
+    ipPermissionsEgress :: Lude.Maybe [IPPermission],
+    -- | The ID of the security group.
     groupId :: Lude.Text,
+    -- | The name of the security group.
     groupName :: Lude.Text,
-    description :: Lude.Text
+    -- | A description of the security group.
+    description :: Lude.Text,
+    -- | Any tags assigned to the security group.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroup' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the security group.
+-- * 'vpcId' - [VPC only] The ID of the VPC for the security group.
+-- * 'ipPermissions' - The inbound rules associated with the security group.
+-- * 'ownerId' - The AWS account ID of the owner of the security group.
+-- * 'ipPermissionsEgress' - [VPC only] The outbound rules associated with the security group.
 -- * 'groupId' - The ID of the security group.
 -- * 'groupName' - The name of the security group.
--- * 'ipPermissions' - The inbound rules associated with the security group.
--- * 'ipPermissionsEgress' - [VPC only] The outbound rules associated with the security group.
--- * 'ownerId' - The AWS account ID of the owner of the security group.
+-- * 'description' - A description of the security group.
 -- * 'tags' - Any tags assigned to the security group.
--- * 'vpcId' - [VPC only] The ID of the VPC for the security group.
 mkSecurityGroup ::
   -- | 'ownerId'
   Lude.Text ->
@@ -79,12 +81,12 @@ mkSecurityGroup pOwnerId_ pGroupId_ pGroupName_ pDescription_ =
   SecurityGroup'
     { vpcId = Lude.Nothing,
       ipPermissions = Lude.Nothing,
-      ipPermissionsEgress = Lude.Nothing,
-      tags = Lude.Nothing,
       ownerId = pOwnerId_,
+      ipPermissionsEgress = Lude.Nothing,
       groupId = pGroupId_,
       groupName = pGroupName_,
-      description = pDescription_
+      description = pDescription_,
+      tags = Lude.Nothing
     }
 
 -- | [VPC only] The ID of the VPC for the security group.
@@ -101,26 +103,19 @@ sgIPPermissions :: Lens.Lens' SecurityGroup (Lude.Maybe [IPPermission])
 sgIPPermissions = Lens.lens (ipPermissions :: SecurityGroup -> Lude.Maybe [IPPermission]) (\s a -> s {ipPermissions = a} :: SecurityGroup)
 {-# DEPRECATED sgIPPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
 
--- | [VPC only] The outbound rules associated with the security group.
---
--- /Note:/ Consider using 'ipPermissionsEgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgIPPermissionsEgress :: Lens.Lens' SecurityGroup (Lude.Maybe [IPPermission])
-sgIPPermissionsEgress = Lens.lens (ipPermissionsEgress :: SecurityGroup -> Lude.Maybe [IPPermission]) (\s a -> s {ipPermissionsEgress = a} :: SecurityGroup)
-{-# DEPRECATED sgIPPermissionsEgress "Use generic-lens or generic-optics with 'ipPermissionsEgress' instead." #-}
-
--- | Any tags assigned to the security group.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgTags :: Lens.Lens' SecurityGroup (Lude.Maybe [Tag])
-sgTags = Lens.lens (tags :: SecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SecurityGroup)
-{-# DEPRECATED sgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The AWS account ID of the owner of the security group.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sgOwnerId :: Lens.Lens' SecurityGroup Lude.Text
 sgOwnerId = Lens.lens (ownerId :: SecurityGroup -> Lude.Text) (\s a -> s {ownerId = a} :: SecurityGroup)
 {-# DEPRECATED sgOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | [VPC only] The outbound rules associated with the security group.
+--
+-- /Note:/ Consider using 'ipPermissionsEgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgIPPermissionsEgress :: Lens.Lens' SecurityGroup (Lude.Maybe [IPPermission])
+sgIPPermissionsEgress = Lens.lens (ipPermissionsEgress :: SecurityGroup -> Lude.Maybe [IPPermission]) (\s a -> s {ipPermissionsEgress = a} :: SecurityGroup)
+{-# DEPRECATED sgIPPermissionsEgress "Use generic-lens or generic-optics with 'ipPermissionsEgress' instead." #-}
 
 -- | The ID of the security group.
 --
@@ -143,6 +138,13 @@ sgDescription :: Lens.Lens' SecurityGroup Lude.Text
 sgDescription = Lens.lens (description :: SecurityGroup -> Lude.Text) (\s a -> s {description = a} :: SecurityGroup)
 {-# DEPRECATED sgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
+-- | Any tags assigned to the security group.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgTags :: Lens.Lens' SecurityGroup (Lude.Maybe [Tag])
+sgTags = Lens.lens (tags :: SecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SecurityGroup)
+{-# DEPRECATED sgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
 instance Lude.FromXML SecurityGroup where
   parseXML x =
     SecurityGroup'
@@ -150,13 +152,13 @@ instance Lude.FromXML SecurityGroup where
       Lude.<*> ( x Lude..@? "ipPermissions" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
+      Lude.<*> (x Lude..@ "ownerId")
       Lude.<*> ( x Lude..@? "ipPermissionsEgress" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@ "ownerId")
       Lude.<*> (x Lude..@ "groupId")
       Lude.<*> (x Lude..@ "groupName")
       Lude.<*> (x Lude..@ "groupDescription")
+      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+               )

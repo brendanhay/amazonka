@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -68,11 +69,11 @@ module Network.AWS.Organizations.CreateGovCloudAccount
     mkCreateGovCloudAccount,
 
     -- ** Request lenses
+    cgcaEmail,
     cgcaIAMUserAccessToBilling,
     cgcaRoleName,
-    cgcaTags,
-    cgcaEmail,
     cgcaAccountName,
+    cgcaTags,
 
     -- * Destructuring the response
     CreateGovCloudAccountResponse (..),
@@ -92,19 +93,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGovCloudAccount' smart constructor.
 data CreateGovCloudAccount = CreateGovCloudAccount'
-  { iamUserAccessToBilling ::
-      Lude.Maybe IAMUserAccessToBilling,
-    roleName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | The email address of the owner to assign to the new member account in the commercial Region. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address. Like all request parameters for @CreateGovCloudAccount@ , the request for the email address for the AWS GovCloud (US) account originates from the commercial Region, not from the AWS GovCloud (US) Region.
     email :: Lude.Sensitive Lude.Text,
-    accountName :: Lude.Sensitive Lude.Text
+    -- | If set to @ALLOW@ , the new linked account in the commercial Region enables IAM users to access account billing information /if/ they have the required permissions. If set to @DENY@ , only the root user of the new account can access account billing information. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide./
+    --
+    -- If you don't specify this parameter, the value defaults to @ALLOW@ , and IAM users and roles with the required permissions can access billing information for the new account.
+    iamUserAccessToBilling :: Lude.Maybe IAMUserAccessToBilling,
+    -- | (Optional)
+    --
+    -- The name of an IAM role that AWS Organizations automatically preconfigures in the new member accounts in both the AWS GovCloud (US) Region and in the commercial Region. This role trusts the management account, allowing users in the management account to assume the role, as permitted by the management account administrator. The role has administrator permissions in the new member account.
+    -- If you don't specify this parameter, the role name defaults to @OrganizationAccountAccessRole@ .
+    -- For more information about how to use this role to access the member account, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role Accessing and Administering the Member Accounts in Your Organization> in the /AWS Organizations User Guide/ and steps 2 and 3 in <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across AWS Accounts Using IAM Roles> in the /IAM User Guide./
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter. The pattern can include uppercase letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-
+    roleName :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the member account.
+    accountName :: Lude.Sensitive Lude.Text,
+    -- | A list of tags that you want to attach to the newly created account. These tags are attached to the commercial account associated with the GovCloud account, and not to the GovCloud account itself. To add tags to the actual GovCloud account, call the 'TagResource' operation in the GovCloud region after the new GovCloud account exists.
+    --
+    -- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGovCloudAccount' with the minimum fields required to make a request.
 --
--- * 'accountName' - The friendly name of the member account.
 -- * 'email' - The email address of the owner to assign to the new member account in the commercial Region. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address. Like all request parameters for @CreateGovCloudAccount@ , the request for the email address for the AWS GovCloud (US) account originates from the commercial Region, not from the AWS GovCloud (US) Region.
 -- * 'iamUserAccessToBilling' - If set to @ALLOW@ , the new linked account in the commercial Region enables IAM users to access account billing information /if/ they have the required permissions. If set to @DENY@ , only the root user of the new account can access account billing information. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide./
 --
@@ -115,6 +128,7 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
 -- If you don't specify this parameter, the role name defaults to @OrganizationAccountAccessRole@ .
 -- For more information about how to use this role to access the member account, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role Accessing and Administering the Member Accounts in Your Organization> in the /AWS Organizations User Guide/ and steps 2 and 3 in <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across AWS Accounts Using IAM Roles> in the /IAM User Guide./
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter. The pattern can include uppercase letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-
+-- * 'accountName' - The friendly name of the member account.
 -- * 'tags' - A list of tags that you want to attach to the newly created account. These tags are attached to the commercial account associated with the GovCloud account, and not to the GovCloud account itself. To add tags to the actual GovCloud account, call the 'TagResource' operation in the GovCloud region after the new GovCloud account exists.
 --
 -- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
@@ -126,12 +140,19 @@ mkCreateGovCloudAccount ::
   CreateGovCloudAccount
 mkCreateGovCloudAccount pEmail_ pAccountName_ =
   CreateGovCloudAccount'
-    { iamUserAccessToBilling = Lude.Nothing,
+    { email = pEmail_,
+      iamUserAccessToBilling = Lude.Nothing,
       roleName = Lude.Nothing,
-      tags = Lude.Nothing,
-      email = pEmail_,
-      accountName = pAccountName_
+      accountName = pAccountName_,
+      tags = Lude.Nothing
     }
+
+-- | The email address of the owner to assign to the new member account in the commercial Region. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address. Like all request parameters for @CreateGovCloudAccount@ , the request for the email address for the AWS GovCloud (US) account originates from the commercial Region, not from the AWS GovCloud (US) Region.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcaEmail :: Lens.Lens' CreateGovCloudAccount (Lude.Sensitive Lude.Text)
+cgcaEmail = Lens.lens (email :: CreateGovCloudAccount -> Lude.Sensitive Lude.Text) (\s a -> s {email = a} :: CreateGovCloudAccount)
+{-# DEPRECATED cgcaEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | If set to @ALLOW@ , the new linked account in the commercial Region enables IAM users to access account billing information /if/ they have the required permissions. If set to @DENY@ , only the root user of the new account can access account billing information. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide./
 --
@@ -154,6 +175,13 @@ cgcaRoleName :: Lens.Lens' CreateGovCloudAccount (Lude.Maybe Lude.Text)
 cgcaRoleName = Lens.lens (roleName :: CreateGovCloudAccount -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: CreateGovCloudAccount)
 {-# DEPRECATED cgcaRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
+-- | The friendly name of the member account.
+--
+-- /Note:/ Consider using 'accountName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcaAccountName :: Lens.Lens' CreateGovCloudAccount (Lude.Sensitive Lude.Text)
+cgcaAccountName = Lens.lens (accountName :: CreateGovCloudAccount -> Lude.Sensitive Lude.Text) (\s a -> s {accountName = a} :: CreateGovCloudAccount)
+{-# DEPRECATED cgcaAccountName "Use generic-lens or generic-optics with 'accountName' instead." #-}
+
 -- | A list of tags that you want to attach to the newly created account. These tags are attached to the commercial account associated with the GovCloud account, and not to the GovCloud account itself. To add tags to the actual GovCloud account, call the 'TagResource' operation in the GovCloud region after the new GovCloud account exists.
 --
 -- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ . For more information about tagging, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources> in the AWS Organizations User Guide.
@@ -162,20 +190,6 @@ cgcaRoleName = Lens.lens (roleName :: CreateGovCloudAccount -> Lude.Maybe Lude.T
 cgcaTags :: Lens.Lens' CreateGovCloudAccount (Lude.Maybe [Tag])
 cgcaTags = Lens.lens (tags :: CreateGovCloudAccount -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateGovCloudAccount)
 {-# DEPRECATED cgcaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The email address of the owner to assign to the new member account in the commercial Region. This email address must not already be associated with another AWS account. You must use a valid email address to complete account creation. You can't access the root user of the account or remove an account that was created with an invalid email address. Like all request parameters for @CreateGovCloudAccount@ , the request for the email address for the AWS GovCloud (US) account originates from the commercial Region, not from the AWS GovCloud (US) Region.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcaEmail :: Lens.Lens' CreateGovCloudAccount (Lude.Sensitive Lude.Text)
-cgcaEmail = Lens.lens (email :: CreateGovCloudAccount -> Lude.Sensitive Lude.Text) (\s a -> s {email = a} :: CreateGovCloudAccount)
-{-# DEPRECATED cgcaEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
--- | The friendly name of the member account.
---
--- /Note:/ Consider using 'accountName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcaAccountName :: Lens.Lens' CreateGovCloudAccount (Lude.Sensitive Lude.Text)
-cgcaAccountName = Lens.lens (accountName :: CreateGovCloudAccount -> Lude.Sensitive Lude.Text) (\s a -> s {accountName = a} :: CreateGovCloudAccount)
-{-# DEPRECATED cgcaAccountName "Use generic-lens or generic-optics with 'accountName' instead." #-}
 
 instance Lude.AWSRequest CreateGovCloudAccount where
   type Rs CreateGovCloudAccount = CreateGovCloudAccountResponse
@@ -205,12 +219,11 @@ instance Lude.ToJSON CreateGovCloudAccount where
   toJSON CreateGovCloudAccount' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("IamUserAccessToBilling" Lude..=)
-              Lude.<$> iamUserAccessToBilling,
+          [ Lude.Just ("Email" Lude..= email),
+            ("IamUserAccessToBilling" Lude..=) Lude.<$> iamUserAccessToBilling,
             ("RoleName" Lude..=) Lude.<$> roleName,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Email" Lude..= email),
-            Lude.Just ("AccountName" Lude..= accountName)
+            Lude.Just ("AccountName" Lude..= accountName),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -222,8 +235,8 @@ instance Lude.ToQuery CreateGovCloudAccount where
 
 -- | /See:/ 'mkCreateGovCloudAccountResponse' smart constructor.
 data CreateGovCloudAccountResponse = CreateGovCloudAccountResponse'
-  { createAccountStatus ::
-      Lude.Maybe CreateAccountStatus,
+  { createAccountStatus :: Lude.Maybe CreateAccountStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -231,7 +244,7 @@ data CreateGovCloudAccountResponse = CreateGovCloudAccountResponse'
 
 -- | Creates a value of 'CreateGovCloudAccountResponse' with the minimum fields required to make a request.
 --
--- * 'createAccountStatus' - Undocumented field.
+-- * 'createAccountStatus' -
 -- * 'responseStatus' - The response status code.
 mkCreateGovCloudAccountResponse ::
   -- | 'responseStatus'

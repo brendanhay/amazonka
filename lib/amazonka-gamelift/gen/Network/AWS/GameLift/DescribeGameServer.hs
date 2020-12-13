@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,8 +51,8 @@ module Network.AWS.GameLift.DescribeGameServer
     mkDescribeGameServerResponse,
 
     -- ** Response lenses
-    ddrsGameServer,
-    ddrsResponseStatus,
+    dgsrsGameServer,
+    dgsrsResponseStatus,
   )
 where
 
@@ -63,17 +64,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeGameServer' smart constructor.
 data DescribeGameServer = DescribeGameServer'
-  { gameServerGroupName ::
-      Lude.Text,
+  { -- | A unique identifier for the game server group where the game server is running. Use either the 'GameServerGroup' name or ARN value.
+    gameServerGroupName :: Lude.Text,
+    -- | A custom string that uniquely identifies the game server information to be retrieved.
     gameServerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServer' with the minimum fields required to make a request.
@@ -144,17 +140,12 @@ instance Lude.ToQuery DescribeGameServer where
 
 -- | /See:/ 'mkDescribeGameServerResponse' smart constructor.
 data DescribeGameServerResponse = DescribeGameServerResponse'
-  { gameServer ::
-      Lude.Maybe GameServer,
+  { -- | Object that describes the requested game server.
+    gameServer :: Lude.Maybe GameServer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServerResponse' with the minimum fields required to make a request.
@@ -174,13 +165,13 @@ mkDescribeGameServerResponse pResponseStatus_ =
 -- | Object that describes the requested game server.
 --
 -- /Note:/ Consider using 'gameServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsGameServer :: Lens.Lens' DescribeGameServerResponse (Lude.Maybe GameServer)
-ddrsGameServer = Lens.lens (gameServer :: DescribeGameServerResponse -> Lude.Maybe GameServer) (\s a -> s {gameServer = a} :: DescribeGameServerResponse)
-{-# DEPRECATED ddrsGameServer "Use generic-lens or generic-optics with 'gameServer' instead." #-}
+dgsrsGameServer :: Lens.Lens' DescribeGameServerResponse (Lude.Maybe GameServer)
+dgsrsGameServer = Lens.lens (gameServer :: DescribeGameServerResponse -> Lude.Maybe GameServer) (\s a -> s {gameServer = a} :: DescribeGameServerResponse)
+{-# DEPRECATED dgsrsGameServer "Use generic-lens or generic-optics with 'gameServer' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DescribeGameServerResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DescribeGameServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameServerResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgsrsResponseStatus :: Lens.Lens' DescribeGameServerResponse Lude.Int
+dgsrsResponseStatus = Lens.lens (responseStatus :: DescribeGameServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameServerResponse)
+{-# DEPRECATED dgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

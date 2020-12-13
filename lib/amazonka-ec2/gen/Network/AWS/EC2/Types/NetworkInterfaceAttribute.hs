@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.NetworkInterfaceAttribute
   ( NetworkInterfaceAttribute
       ( NetworkInterfaceAttribute',
-        NIAAttachment,
         NIADescription,
         NIAGroupSet,
-        NIASourceDestCheck
+        NIASourceDestCheck,
+        NIAAttachment
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype NetworkInterfaceAttribute = NetworkInterfaceAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern NIAAttachment :: NetworkInterfaceAttribute
-pattern NIAAttachment = NetworkInterfaceAttribute' "attachment"
-
 pattern NIADescription :: NetworkInterfaceAttribute
 pattern NIADescription = NetworkInterfaceAttribute' "description"
 
@@ -59,10 +56,13 @@ pattern NIAGroupSet = NetworkInterfaceAttribute' "groupSet"
 pattern NIASourceDestCheck :: NetworkInterfaceAttribute
 pattern NIASourceDestCheck = NetworkInterfaceAttribute' "sourceDestCheck"
 
+pattern NIAAttachment :: NetworkInterfaceAttribute
+pattern NIAAttachment = NetworkInterfaceAttribute' "attachment"
+
 {-# COMPLETE
-  NIAAttachment,
   NIADescription,
   NIAGroupSet,
   NIASourceDestCheck,
+  NIAAttachment,
   NetworkInterfaceAttribute'
   #-}

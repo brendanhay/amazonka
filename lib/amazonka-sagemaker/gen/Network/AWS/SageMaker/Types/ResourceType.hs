@@ -13,10 +13,10 @@
 module Network.AWS.SageMaker.Types.ResourceType
   ( ResourceType
       ( ResourceType',
+        TrainingJob,
         Experiment,
         ExperimentTrial,
-        ExperimentTrialComponent,
-        TrainingJob
+        ExperimentTrialComponent
       ),
   )
 where
@@ -47,6 +47,9 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
+pattern TrainingJob :: ResourceType
+pattern TrainingJob = ResourceType' "TrainingJob"
+
 pattern Experiment :: ResourceType
 pattern Experiment = ResourceType' "Experiment"
 
@@ -56,13 +59,10 @@ pattern ExperimentTrial = ResourceType' "ExperimentTrial"
 pattern ExperimentTrialComponent :: ResourceType
 pattern ExperimentTrialComponent = ResourceType' "ExperimentTrialComponent"
 
-pattern TrainingJob :: ResourceType
-pattern TrainingJob = ResourceType' "TrainingJob"
-
 {-# COMPLETE
+  TrainingJob,
   Experiment,
   ExperimentTrial,
   ExperimentTrialComponent,
-  TrainingJob,
   ResourceType'
   #-}

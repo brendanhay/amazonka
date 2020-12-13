@@ -32,19 +32,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyPairInfo' smart constructor.
 data KeyPairInfo = KeyPairInfo'
-  { keyFingerprint ::
-      Lude.Maybe Lude.Text,
+  { -- | If you used 'CreateKeyPair' to create the key pair, this is the SHA-1 digest of the DER encoded private key. If you used 'ImportKeyPair' to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.
+    keyFingerprint :: Lude.Maybe Lude.Text,
+    -- | The name of the key pair.
     keyName :: Lude.Maybe Lude.Text,
+    -- | The ID of the key pair.
     keyPairId :: Lude.Maybe Lude.Text,
+    -- | Any tags applied to the key pair.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyPairInfo' with the minimum fields required to make a request.

@@ -13,10 +13,10 @@
 module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateRenewalStatus
   ( LoadBalancerTLSCertificateRenewalStatus
       ( LoadBalancerTLSCertificateRenewalStatus',
-        LBTCRSFailed,
         LBTCRSPendingAutoRenewal,
         LBTCRSPendingValidation,
-        LBTCRSSuccess
+        LBTCRSSuccess,
+        LBTCRSFailed
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype LoadBalancerTLSCertificateRenewalStatus = LoadBalancerTLSCertificateRene
       Lude.ToHeader
     )
 
-pattern LBTCRSFailed :: LoadBalancerTLSCertificateRenewalStatus
-pattern LBTCRSFailed = LoadBalancerTLSCertificateRenewalStatus' "FAILED"
-
 pattern LBTCRSPendingAutoRenewal :: LoadBalancerTLSCertificateRenewalStatus
 pattern LBTCRSPendingAutoRenewal = LoadBalancerTLSCertificateRenewalStatus' "PENDING_AUTO_RENEWAL"
 
@@ -59,10 +56,13 @@ pattern LBTCRSPendingValidation = LoadBalancerTLSCertificateRenewalStatus' "PEND
 pattern LBTCRSSuccess :: LoadBalancerTLSCertificateRenewalStatus
 pattern LBTCRSSuccess = LoadBalancerTLSCertificateRenewalStatus' "SUCCESS"
 
+pattern LBTCRSFailed :: LoadBalancerTLSCertificateRenewalStatus
+pattern LBTCRSFailed = LoadBalancerTLSCertificateRenewalStatus' "FAILED"
+
 {-# COMPLETE
-  LBTCRSFailed,
   LBTCRSPendingAutoRenewal,
   LBTCRSPendingValidation,
   LBTCRSSuccess,
+  LBTCRSFailed,
   LoadBalancerTLSCertificateRenewalStatus'
   #-}

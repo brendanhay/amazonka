@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRelationalDatabaseSnapshot' smart constructor.
 newtype DeleteRelationalDatabaseSnapshot = DeleteRelationalDatabaseSnapshot'
-  { relationalDatabaseSnapshotName ::
-      Lude.Text
+  { -- | The name of the database snapshot that you are deleting.
+    relationalDatabaseSnapshotName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRelationalDatabaseSnapshot' with the minimum fields required to make a request.
@@ -118,19 +113,12 @@ instance Lude.ToQuery DeleteRelationalDatabaseSnapshot where
 
 -- | /See:/ 'mkDeleteRelationalDatabaseSnapshotResponse' smart constructor.
 data DeleteRelationalDatabaseSnapshotResponse = DeleteRelationalDatabaseSnapshotResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRelationalDatabaseSnapshotResponse' with the minimum fields required to make a request.

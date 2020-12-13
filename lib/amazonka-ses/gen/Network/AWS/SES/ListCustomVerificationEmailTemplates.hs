@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,26 +52,18 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkListCustomVerificationEmailTemplates' smart constructor.
 data ListCustomVerificationEmailTemplates = ListCustomVerificationEmailTemplates'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | An array the contains the name and creation time stamp for each template in your Amazon SES account.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCustomVerificationEmailTemplates' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
 -- * 'nextToken' - An array the contains the name and creation time stamp for each template in your Amazon SES account.
+-- * 'maxResults' - The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.
 mkListCustomVerificationEmailTemplates ::
   ListCustomVerificationEmailTemplates
 mkListCustomVerificationEmailTemplates =
@@ -140,28 +133,20 @@ instance Lude.ToQuery ListCustomVerificationEmailTemplates where
 --
 -- /See:/ 'mkListCustomVerificationEmailTemplatesResponse' smart constructor.
 data ListCustomVerificationEmailTemplatesResponse = ListCustomVerificationEmailTemplatesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    customVerificationEmailTemplates ::
-      Lude.Maybe
-        [CustomVerificationEmailTemplate],
-    responseStatus ::
-      Lude.Int
+  { -- | A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 custom verification email templates.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of the custom verification email templates that exist in your account.
+    customVerificationEmailTemplates :: Lude.Maybe [CustomVerificationEmailTemplate],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCustomVerificationEmailTemplatesResponse' with the minimum fields required to make a request.
 --
--- * 'customVerificationEmailTemplates' - A list of the custom verification email templates that exist in your account.
 -- * 'nextToken' - A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to @ListTemplates@ to retrieve the next 50 custom verification email templates.
+-- * 'customVerificationEmailTemplates' - A list of the custom verification email templates that exist in your account.
 -- * 'responseStatus' - The response status code.
 mkListCustomVerificationEmailTemplatesResponse ::
   -- | 'responseStatus'

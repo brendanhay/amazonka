@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,27 +52,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the directory for which to retrieve snapshot information.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to 'DescribeSnapshots' . Pass null if this is the first call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of identifiers of the snapshots to obtain the information for. If this member is null or empty, all snapshots are returned using the /Limit/ and /NextToken/ members.
     snapshotIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of objects to return.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshots' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The identifier of the directory for which to retrieve snapshot information.
--- * 'limit' - The maximum number of objects to return.
 -- * 'nextToken' - The /DescribeSnapshotsResult.NextToken/ value from a previous call to 'DescribeSnapshots' . Pass null if this is the first call.
 -- * 'snapshotIds' - A list of identifiers of the snapshots to obtain the information for. If this member is null or empty, all snapshots are returned using the /Limit/ and /NextToken/ members.
+-- * 'limit' - The maximum number of objects to return.
 mkDescribeSnapshots ::
   DescribeSnapshots
 mkDescribeSnapshots =
@@ -163,27 +161,25 @@ instance Lude.ToQuery DescribeSnapshots where
 --
 -- /See:/ 'mkDescribeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If not null, more results are available. Pass this value in the /NextToken/ member of a subsequent call to 'DescribeSnapshots' .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of 'Snapshot' objects that were retrieved.
+    --
+    -- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
     snapshots :: Lude.Maybe [Snapshot],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If not null, more results are available. Pass this value in the /NextToken/ member of a subsequent call to 'DescribeSnapshots' .
--- * 'responseStatus' - The response status code.
 -- * 'snapshots' - The list of 'Snapshot' objects that were retrieved.
 --
 -- It is possible that this list contains less than the number of items specified in the /Limit/ member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.
+-- * 'responseStatus' - The response status code.
 mkDescribeSnapshotsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

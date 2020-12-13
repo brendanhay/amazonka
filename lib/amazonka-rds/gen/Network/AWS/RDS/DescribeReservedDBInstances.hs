@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,52 +56,59 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReservedDBInstances' smart constructor.
 data DescribeReservedDBInstances = DescribeReservedDBInstances'
-  { productDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
+    productDescription :: Lude.Maybe Lude.Text,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter],
+    -- | The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.
     leaseId :: Lude.Maybe Lude.Text,
-    reservedDBInstanceId ::
-      Lude.Maybe Lude.Text,
-    dbInstanceClass ::
-      Lude.Maybe Lude.Text,
+    -- | The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
+    reservedDBInstanceId :: Lude.Maybe Lude.Text,
+    -- | The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
+    dbInstanceClass :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | A value that indicates whether to show only those reservations that support Multi-AZ.
     multiAZ :: Lude.Maybe Lude.Bool,
-    reservedDBInstancesOfferingId ::
-      Lude.Maybe Lude.Text,
-    offeringType ::
-      Lude.Maybe Lude.Text,
+    -- | The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
+    reservedDBInstancesOfferingId :: Lude.Maybe Lude.Text,
+    -- | The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
+    --
+    -- Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
+    offeringType :: Lude.Maybe Lude.Text,
+    -- | The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
+    --
+    -- Valid Values: @1 | 3 | 31536000 | 94608000@
     duration :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedDBInstances' with the minimum fields required to make a request.
 --
--- * 'dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
--- * 'duration' - The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
---
--- Valid Values: @1 | 3 | 31536000 | 94608000@
+-- * 'productDescription' - The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
 -- * 'filters' - This parameter isn't currently supported.
 -- * 'leaseId' - The lease identifier filter value. Specify this parameter to show only the reservation that matches the specified lease ID.
+-- * 'reservedDBInstanceId' - The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
+-- * 'dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only those reservations matching the specified DB instances class.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
 -- * 'multiAZ' - A value that indicates whether to show only those reservations that support Multi-AZ.
+-- * 'reservedDBInstancesOfferingId' - The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
 -- * 'offeringType' - The offering type filter value. Specify this parameter to show only the available offerings matching the specified offering type.
 --
 -- Valid Values: @"Partial Upfront" | "All Upfront" | "No Upfront" @
--- * 'productDescription' - The product description filter value. Specify this parameter to show only those reservations matching the specified product description.
--- * 'reservedDBInstanceId' - The reserved DB instance identifier filter value. Specify this parameter to show only the reservation that matches the specified reservation ID.
--- * 'reservedDBInstancesOfferingId' - The offering identifier filter value. Specify this parameter to show only purchased reservations matching the specified offering identifier.
+-- * 'duration' - The duration filter value, specified in years or seconds. Specify this parameter to show only reservations for this duration.
+--
+-- Valid Values: @1 | 3 | 31536000 | 94608000@
 mkDescribeReservedDBInstances ::
   DescribeReservedDBInstances
 mkDescribeReservedDBInstances =
@@ -259,28 +267,20 @@ instance Lude.ToQuery DescribeReservedDBInstances where
 --
 -- /See:/ 'mkDescribeReservedDBInstancesResponse' smart constructor.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
-  { reservedDBInstances ::
-      Lude.Maybe
-        [ReservedDBInstance],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of reserved DB instances.
+    reservedDBInstances :: Lude.Maybe [ReservedDBInstance],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedDBInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'reservedDBInstances' - A list of reserved DB instances.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
 mkDescribeReservedDBInstancesResponse ::
   -- | 'responseStatus'

@@ -14,8 +14,8 @@ module Network.AWS.CloudFormation.Types.DifferenceType
   ( DifferenceType
       ( DifferenceType',
         DTAdd,
-        DTNotEqual,
-        DTRemove
+        DTRemove,
+        DTNotEqual
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype DifferenceType = DifferenceType' Lude.Text
 pattern DTAdd :: DifferenceType
 pattern DTAdd = DifferenceType' "ADD"
 
-pattern DTNotEqual :: DifferenceType
-pattern DTNotEqual = DifferenceType' "NOT_EQUAL"
-
 pattern DTRemove :: DifferenceType
 pattern DTRemove = DifferenceType' "REMOVE"
 
+pattern DTNotEqual :: DifferenceType
+pattern DTNotEqual = DifferenceType' "NOT_EQUAL"
+
 {-# COMPLETE
   DTAdd,
-  DTNotEqual,
   DTRemove,
+  DTNotEqual,
   DifferenceType'
   #-}

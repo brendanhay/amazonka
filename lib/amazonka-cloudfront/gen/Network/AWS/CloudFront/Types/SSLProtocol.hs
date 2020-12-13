@@ -13,10 +13,10 @@
 module Network.AWS.CloudFront.Types.SSLProtocol
   ( SSLProtocol
       ( SSLProtocol',
-        SSLV3,
-        TLSV1,
-        TLSV1_1,
-        TLSV1_2
+        SPSSLV3,
+        SPTLSV1,
+        SPTLSV1_1,
+        SPTLSV1_2
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype SSLProtocol = SSLProtocol' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSLV3 :: SSLProtocol
-pattern SSLV3 = SSLProtocol' "SSLv3"
+pattern SPSSLV3 :: SSLProtocol
+pattern SPSSLV3 = SSLProtocol' "SSLv3"
 
-pattern TLSV1 :: SSLProtocol
-pattern TLSV1 = SSLProtocol' "TLSv1"
+pattern SPTLSV1 :: SSLProtocol
+pattern SPTLSV1 = SSLProtocol' "TLSv1"
 
-pattern TLSV1_1 :: SSLProtocol
-pattern TLSV1_1 = SSLProtocol' "TLSv1.1"
+pattern SPTLSV1_1 :: SSLProtocol
+pattern SPTLSV1_1 = SSLProtocol' "TLSv1.1"
 
-pattern TLSV1_2 :: SSLProtocol
-pattern TLSV1_2 = SSLProtocol' "TLSv1.2"
+pattern SPTLSV1_2 :: SSLProtocol
+pattern SPTLSV1_2 = SSLProtocol' "TLSv1.2"
 
 {-# COMPLETE
-  SSLV3,
-  TLSV1,
-  TLSV1_1,
-  TLSV1_2,
+  SPSSLV3,
+  SPTLSV1,
+  SPTLSV1_1,
+  SPTLSV1_2,
   SSLProtocol'
   #-}

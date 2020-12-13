@@ -14,8 +14,8 @@ module Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode
   ( BusinessReportFailureCode
       ( BusinessReportFailureCode',
         AccessDenied,
-        InternalFailure,
-        NoSuchBucket
+        NoSuchBucket,
+        InternalFailure
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype BusinessReportFailureCode = BusinessReportFailureCode' Lude.Text
 pattern AccessDenied :: BusinessReportFailureCode
 pattern AccessDenied = BusinessReportFailureCode' "ACCESS_DENIED"
 
-pattern InternalFailure :: BusinessReportFailureCode
-pattern InternalFailure = BusinessReportFailureCode' "INTERNAL_FAILURE"
-
 pattern NoSuchBucket :: BusinessReportFailureCode
 pattern NoSuchBucket = BusinessReportFailureCode' "NO_SUCH_BUCKET"
 
+pattern InternalFailure :: BusinessReportFailureCode
+pattern InternalFailure = BusinessReportFailureCode' "INTERNAL_FAILURE"
+
 {-# COMPLETE
   AccessDenied,
-  InternalFailure,
   NoSuchBucket,
+  InternalFailure,
   BusinessReportFailureCode'
   #-}

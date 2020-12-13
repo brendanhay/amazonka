@@ -13,13 +13,13 @@
 module Network.AWS.DynamoDB.Types.TableStatus
   ( TableStatus
       ( TableStatus',
-        TSActive,
-        TSArchived,
-        TSArchiving,
         TSCreating,
+        TSUpdating,
         TSDeleting,
+        TSActive,
         TSInaccessibleEncryptionCredentials,
-        TSUpdating
+        TSArchiving,
+        TSArchived
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype TableStatus = TableStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern TSActive :: TableStatus
-pattern TSActive = TableStatus' "ACTIVE"
-
-pattern TSArchived :: TableStatus
-pattern TSArchived = TableStatus' "ARCHIVED"
-
-pattern TSArchiving :: TableStatus
-pattern TSArchiving = TableStatus' "ARCHIVING"
-
 pattern TSCreating :: TableStatus
 pattern TSCreating = TableStatus' "CREATING"
-
-pattern TSDeleting :: TableStatus
-pattern TSDeleting = TableStatus' "DELETING"
-
-pattern TSInaccessibleEncryptionCredentials :: TableStatus
-pattern TSInaccessibleEncryptionCredentials = TableStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
 
 pattern TSUpdating :: TableStatus
 pattern TSUpdating = TableStatus' "UPDATING"
 
+pattern TSDeleting :: TableStatus
+pattern TSDeleting = TableStatus' "DELETING"
+
+pattern TSActive :: TableStatus
+pattern TSActive = TableStatus' "ACTIVE"
+
+pattern TSInaccessibleEncryptionCredentials :: TableStatus
+pattern TSInaccessibleEncryptionCredentials = TableStatus' "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+
+pattern TSArchiving :: TableStatus
+pattern TSArchiving = TableStatus' "ARCHIVING"
+
+pattern TSArchived :: TableStatus
+pattern TSArchived = TableStatus' "ARCHIVED"
+
 {-# COMPLETE
-  TSActive,
-  TSArchived,
-  TSArchiving,
   TSCreating,
-  TSDeleting,
-  TSInaccessibleEncryptionCredentials,
   TSUpdating,
+  TSDeleting,
+  TSActive,
+  TSInaccessibleEncryptionCredentials,
+  TSArchiving,
+  TSArchived,
   TableStatus'
   #-}

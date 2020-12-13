@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Discovery.CreateApplication
     mkCreateApplication,
 
     -- ** Request lenses
-    caDescription,
     caName,
+    caDescription,
 
     -- * Destructuring the response
     CreateApplicationResponse (..),
@@ -40,36 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { description ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | Name of the application to be created.
+    name :: Lude.Text,
+    -- | Description of the application to be created.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- * 'description' - Description of the application to be created.
 -- * 'name' - Name of the application to be created.
+-- * 'description' - Description of the application to be created.
 mkCreateApplication ::
   -- | 'name'
   Lude.Text ->
   CreateApplication
 mkCreateApplication pName_ =
-  CreateApplication' {description = Lude.Nothing, name = pName_}
-
--- | Description of the application to be created.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDescription :: Lens.Lens' CreateApplication (Lude.Maybe Lude.Text)
-caDescription = Lens.lens (description :: CreateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApplication)
-{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+  CreateApplication' {name = pName_, description = Lude.Nothing}
 
 -- | Name of the application to be created.
 --
@@ -77,6 +66,13 @@ caDescription = Lens.lens (description :: CreateApplication -> Lude.Maybe Lude.T
 caName :: Lens.Lens' CreateApplication Lude.Text
 caName = Lens.lens (name :: CreateApplication -> Lude.Text) (\s a -> s {name = a} :: CreateApplication)
 {-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Description of the application to be created.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateApplication (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApplication)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest CreateApplication where
   type Rs CreateApplication = CreateApplicationResponse
@@ -106,8 +102,8 @@ instance Lude.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("name" Lude..= name)
+          [ Lude.Just ("name" Lude..= name),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -119,17 +115,12 @@ instance Lude.ToQuery CreateApplication where
 
 -- | /See:/ 'mkCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { configurationId ::
-      Lude.Maybe Lude.Text,
+  { -- | Configuration ID of an application to be created.
+    configurationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.

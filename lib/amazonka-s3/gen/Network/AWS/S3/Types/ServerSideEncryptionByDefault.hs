@@ -17,8 +17,8 @@ module Network.AWS.S3.Types.ServerSideEncryptionByDefault
     mkServerSideEncryptionByDefault,
 
     -- * Lenses
-    ssebdKMSMasterKeyId,
     ssebdSSEAlgorithm,
+    ssebdKMSMasterKeyId,
   )
 where
 
@@ -31,17 +31,28 @@ import Network.AWS.S3.Types.ServerSideEncryption
 --
 -- /See:/ 'mkServerSideEncryptionByDefault' smart constructor.
 data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
-  { kmsMasterKeyId ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    sSEAlgorithm ::
-      ServerSideEncryption
+  { -- | Server-side encryption algorithm to use for the default encryption.
+    sSEAlgorithm :: ServerSideEncryption,
+    -- | AWS Key Management Service (KMS) customer master key ID to use for the default encryption. This parameter is allowed if and only if @SSEAlgorithm@ is set to @aws:kms@ .
+    --
+    -- You can specify the key ID or the Amazon Resource Name (ARN) of the CMK. However, if you are using encryption with cross-account operations, you must use a fully qualified CMK ARN. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations> .
+    -- __For example:__
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    -- /Important:/ Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys> in the /AWS Key Management Service Developer Guide/ .
+    kmsMasterKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerSideEncryptionByDefault' with the minimum fields required to make a request.
 --
+-- * 'sSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
 -- * 'kmsMasterKeyId' - AWS Key Management Service (KMS) customer master key ID to use for the default encryption. This parameter is allowed if and only if @SSEAlgorithm@ is set to @aws:kms@ .
 --
 -- You can specify the key ID or the Amazon Resource Name (ARN) of the CMK. However, if you are using encryption with cross-account operations, you must use a fully qualified CMK ARN. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations> .
@@ -54,16 +65,22 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
 --
 --
 -- /Important:/ Amazon S3 only supports symmetric CMKs and not asymmetric CMKs. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys> in the /AWS Key Management Service Developer Guide/ .
--- * 'sSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
 mkServerSideEncryptionByDefault ::
   -- | 'sSEAlgorithm'
   ServerSideEncryption ->
   ServerSideEncryptionByDefault
 mkServerSideEncryptionByDefault pSSEAlgorithm_ =
   ServerSideEncryptionByDefault'
-    { kmsMasterKeyId = Lude.Nothing,
-      sSEAlgorithm = pSSEAlgorithm_
+    { sSEAlgorithm = pSSEAlgorithm_,
+      kmsMasterKeyId = Lude.Nothing
     }
+
+-- | Server-side encryption algorithm to use for the default encryption.
+--
+-- /Note:/ Consider using 'sSEAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssebdSSEAlgorithm :: Lens.Lens' ServerSideEncryptionByDefault ServerSideEncryption
+ssebdSSEAlgorithm = Lens.lens (sSEAlgorithm :: ServerSideEncryptionByDefault -> ServerSideEncryption) (\s a -> s {sSEAlgorithm = a} :: ServerSideEncryptionByDefault)
+{-# DEPRECATED ssebdSSEAlgorithm "Use generic-lens or generic-optics with 'sSEAlgorithm' instead." #-}
 
 -- | AWS Key Management Service (KMS) customer master key ID to use for the default encryption. This parameter is allowed if and only if @SSEAlgorithm@ is set to @aws:kms@ .
 --
@@ -83,21 +100,14 @@ ssebdKMSMasterKeyId :: Lens.Lens' ServerSideEncryptionByDefault (Lude.Maybe (Lud
 ssebdKMSMasterKeyId = Lens.lens (kmsMasterKeyId :: ServerSideEncryptionByDefault -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {kmsMasterKeyId = a} :: ServerSideEncryptionByDefault)
 {-# DEPRECATED ssebdKMSMasterKeyId "Use generic-lens or generic-optics with 'kmsMasterKeyId' instead." #-}
 
--- | Server-side encryption algorithm to use for the default encryption.
---
--- /Note:/ Consider using 'sSEAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssebdSSEAlgorithm :: Lens.Lens' ServerSideEncryptionByDefault ServerSideEncryption
-ssebdSSEAlgorithm = Lens.lens (sSEAlgorithm :: ServerSideEncryptionByDefault -> ServerSideEncryption) (\s a -> s {sSEAlgorithm = a} :: ServerSideEncryptionByDefault)
-{-# DEPRECATED ssebdSSEAlgorithm "Use generic-lens or generic-optics with 'sSEAlgorithm' instead." #-}
-
 instance Lude.FromXML ServerSideEncryptionByDefault where
   parseXML x =
     ServerSideEncryptionByDefault'
-      Lude.<$> (x Lude..@? "KMSMasterKeyID") Lude.<*> (x Lude..@ "SSEAlgorithm")
+      Lude.<$> (x Lude..@ "SSEAlgorithm") Lude.<*> (x Lude..@? "KMSMasterKeyID")
 
 instance Lude.ToXML ServerSideEncryptionByDefault where
   toXML ServerSideEncryptionByDefault' {..} =
     Lude.mconcat
-      [ "KMSMasterKeyID" Lude.@= kmsMasterKeyId,
-        "SSEAlgorithm" Lude.@= sSEAlgorithm
+      [ "SSEAlgorithm" Lude.@= sSEAlgorithm,
+        "KMSMasterKeyID" Lude.@= kmsMasterKeyId
       ]

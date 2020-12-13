@@ -14,9 +14,9 @@ module Network.AWS.Pinpoint.Types.TemplateType
   ( TemplateType
       ( TemplateType',
         TTEmail,
-        TTPush,
         TTSms,
-        TTVoice
+        TTVoice,
+        TTPush
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype TemplateType = TemplateType' Lude.Text
 pattern TTEmail :: TemplateType
 pattern TTEmail = TemplateType' "EMAIL"
 
-pattern TTPush :: TemplateType
-pattern TTPush = TemplateType' "PUSH"
-
 pattern TTSms :: TemplateType
 pattern TTSms = TemplateType' "SMS"
 
 pattern TTVoice :: TemplateType
 pattern TTVoice = TemplateType' "VOICE"
 
+pattern TTPush :: TemplateType
+pattern TTPush = TemplateType' "PUSH"
+
 {-# COMPLETE
   TTEmail,
-  TTPush,
   TTSms,
   TTVoice,
+  TTPush,
   TemplateType'
   #-}

@@ -35,36 +35,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDefaultPushNotificationMessage' smart constructor.
 data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
-  { substitutions ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ),
-    silentPush ::
-      Lude.Maybe Lude.Bool,
-    data' ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
+  { -- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
+    silentPush :: Lude.Maybe Lude.Bool,
+    -- | The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+    data' :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The default body of the notification message.
     body :: Lude.Maybe Lude.Text,
+    -- | The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
     url :: Lude.Maybe Lude.Text,
+    -- | The default action to occur if a recipient taps the push notification. Valid values are:
+    --
+    --
+    --     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+    --
+    --
+    --     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.
+    --
+    --
+    --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
     action :: Lude.Maybe Action,
+    -- | The default title to display above the notification message on a recipient's device.
     title :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultPushNotificationMessage' with the minimum fields required to make a request.
 --
+-- * 'substitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
+-- * 'silentPush' - Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
+-- * 'data'' - The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+-- * 'body' - The default body of the notification message.
+-- * 'url' - The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
 -- * 'action' - The default action to occur if a recipient taps the push notification. Valid values are:
 --
 --
@@ -77,12 +81,7 @@ data DefaultPushNotificationMessage = DefaultPushNotificationMessage'
 --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
 --
 --
--- * 'body' - The default body of the notification message.
--- * 'data'' - The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
--- * 'silentPush' - Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.
--- * 'substitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
 -- * 'title' - The default title to display above the notification message on a recipient's device.
--- * 'url' - The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
 mkDefaultPushNotificationMessage ::
   DefaultPushNotificationMessage
 mkDefaultPushNotificationMessage =

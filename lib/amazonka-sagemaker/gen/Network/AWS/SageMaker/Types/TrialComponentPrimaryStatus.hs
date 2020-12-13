@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus
   ( TrialComponentPrimaryStatus
       ( TrialComponentPrimaryStatus',
+        TCPSInProgress,
         TCPSCompleted,
         TCPSFailed,
-        TCPSInProgress,
-        TCPSStopped,
-        TCPSStopping
+        TCPSStopping,
+        TCPSStopped
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TrialComponentPrimaryStatus = TrialComponentPrimaryStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern TCPSInProgress :: TrialComponentPrimaryStatus
+pattern TCPSInProgress = TrialComponentPrimaryStatus' "InProgress"
+
 pattern TCPSCompleted :: TrialComponentPrimaryStatus
 pattern TCPSCompleted = TrialComponentPrimaryStatus' "Completed"
 
 pattern TCPSFailed :: TrialComponentPrimaryStatus
 pattern TCPSFailed = TrialComponentPrimaryStatus' "Failed"
 
-pattern TCPSInProgress :: TrialComponentPrimaryStatus
-pattern TCPSInProgress = TrialComponentPrimaryStatus' "InProgress"
+pattern TCPSStopping :: TrialComponentPrimaryStatus
+pattern TCPSStopping = TrialComponentPrimaryStatus' "Stopping"
 
 pattern TCPSStopped :: TrialComponentPrimaryStatus
 pattern TCPSStopped = TrialComponentPrimaryStatus' "Stopped"
 
-pattern TCPSStopping :: TrialComponentPrimaryStatus
-pattern TCPSStopping = TrialComponentPrimaryStatus' "Stopping"
-
 {-# COMPLETE
+  TCPSInProgress,
   TCPSCompleted,
   TCPSFailed,
-  TCPSInProgress,
-  TCPSStopped,
   TCPSStopping,
+  TCPSStopped,
   TrialComponentPrimaryStatus'
   #-}

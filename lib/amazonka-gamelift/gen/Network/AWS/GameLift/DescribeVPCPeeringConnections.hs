@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,8 +46,8 @@ module Network.AWS.GameLift.DescribeVPCPeeringConnections
     mkDescribeVPCPeeringConnectionsResponse,
 
     -- ** Response lenses
-    dvpcpcrsVPCPeeringConnections,
-    dvpcpcrsResponseStatus,
+    dvpcrsVPCPeeringConnections,
+    dvpcrsResponseStatus,
   )
 where
 
@@ -60,16 +61,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeVPCPeeringConnections' smart constructor.
 newtype DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
-  { fleetId ::
-      Lude.Maybe Lude.Text
+  { -- | A unique identifier for a fleet. You can use either the fleet ID or ARN value.
+    fleetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringConnections' with the minimum fields required to make a request.
@@ -126,25 +121,18 @@ instance Lude.ToQuery DescribeVPCPeeringConnections where
 --
 -- /See:/ 'mkDescribeVPCPeeringConnectionsResponse' smart constructor.
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
-  { vpcPeeringConnections ::
-      Lude.Maybe
-        [VPCPeeringConnection],
-    responseStatus ::
-      Lude.Int
+  { -- | A collection of VPC peering connection records that match the request.
+    vpcPeeringConnections :: Lude.Maybe [VPCPeeringConnection],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringConnectionsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpcPeeringConnections' - A collection of VPC peering connection records that match the request.
+-- * 'responseStatus' - The response status code.
 mkDescribeVPCPeeringConnectionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -159,13 +147,13 @@ mkDescribeVPCPeeringConnectionsResponse pResponseStatus_ =
 -- | A collection of VPC peering connection records that match the request.
 --
 -- /Note:/ Consider using 'vpcPeeringConnections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvpcpcrsVPCPeeringConnections :: Lens.Lens' DescribeVPCPeeringConnectionsResponse (Lude.Maybe [VPCPeeringConnection])
-dvpcpcrsVPCPeeringConnections = Lens.lens (vpcPeeringConnections :: DescribeVPCPeeringConnectionsResponse -> Lude.Maybe [VPCPeeringConnection]) (\s a -> s {vpcPeeringConnections = a} :: DescribeVPCPeeringConnectionsResponse)
-{-# DEPRECATED dvpcpcrsVPCPeeringConnections "Use generic-lens or generic-optics with 'vpcPeeringConnections' instead." #-}
+dvpcrsVPCPeeringConnections :: Lens.Lens' DescribeVPCPeeringConnectionsResponse (Lude.Maybe [VPCPeeringConnection])
+dvpcrsVPCPeeringConnections = Lens.lens (vpcPeeringConnections :: DescribeVPCPeeringConnectionsResponse -> Lude.Maybe [VPCPeeringConnection]) (\s a -> s {vpcPeeringConnections = a} :: DescribeVPCPeeringConnectionsResponse)
+{-# DEPRECATED dvpcrsVPCPeeringConnections "Use generic-lens or generic-optics with 'vpcPeeringConnections' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvpcpcrsResponseStatus :: Lens.Lens' DescribeVPCPeeringConnectionsResponse Lude.Int
-dvpcpcrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCPeeringConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCPeeringConnectionsResponse)
-{-# DEPRECATED dvpcpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvpcrsResponseStatus :: Lens.Lens' DescribeVPCPeeringConnectionsResponse Lude.Int
+dvpcrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCPeeringConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCPeeringConnectionsResponse)
+{-# DEPRECATED dvpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

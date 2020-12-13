@@ -36,28 +36,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemoteIPDetails' smart constructor.
 data RemoteIPDetails = RemoteIPDetails'
-  { country ::
-      Lude.Maybe Country,
+  { -- | The country code of the remote IP address.
+    country :: Lude.Maybe Country,
+    -- | The city information of the remote IP address.
     city :: Lude.Maybe City,
+    -- | The IPv4 remote address of the connection.
     ipAddressV4 :: Lude.Maybe Lude.Text,
+    -- | The location information of the remote IP address.
     geoLocation :: Lude.Maybe GeoLocation,
+    -- | The ISP organization information of the remote IP address.
     organization :: Lude.Maybe Organization
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoteIPDetails' with the minimum fields required to make a request.
 --
--- * 'city' - The city information of the remote IP address.
 -- * 'country' - The country code of the remote IP address.
--- * 'geoLocation' - The location information of the remote IP address.
+-- * 'city' - The city information of the remote IP address.
 -- * 'ipAddressV4' - The IPv4 remote address of the connection.
+-- * 'geoLocation' - The location information of the remote IP address.
 -- * 'organization' - The ISP organization information of the remote IP address.
 mkRemoteIPDetails ::
   RemoteIPDetails

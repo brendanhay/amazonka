@@ -30,17 +30,12 @@ import Network.AWS.Snowball.Types.EventTriggerDefinition
 --
 -- /See:/ 'mkLambdaResource' smart constructor.
 data LambdaResource = LambdaResource'
-  { eventTriggers ::
-      Lude.Maybe [EventTriggerDefinition],
+  { -- | The array of ARNs for 'S3Resource' objects to trigger the 'LambdaResource' objects associated with this job.
+    eventTriggers :: Lude.Maybe [EventTriggerDefinition],
+    -- | An Amazon Resource Name (ARN) that represents an AWS Lambda function to be triggered by PUT object actions on the associated local Amazon S3 resource.
     lambdaARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaResource' with the minimum fields required to make a request.

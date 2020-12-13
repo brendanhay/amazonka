@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshot' smart constructor.
 newtype Snapshot = Snapshot'
-  { snapshotTime ::
-      Lude.Maybe Lude.Timestamp
+  { -- | The time when the snapshot was created.
+    snapshotTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.

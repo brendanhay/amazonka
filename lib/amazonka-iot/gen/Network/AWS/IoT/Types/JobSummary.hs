@@ -37,34 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobSummary' smart constructor.
 data JobSummary = JobSummary'
-  { status :: Lude.Maybe JobStatus,
+  { -- | The job summary status.
+    status :: Lude.Maybe JobStatus,
+    -- | The unique identifier you assigned to this job when it was created.
     jobId :: Lude.Maybe Lude.Text,
+    -- | The time, in seconds since the epoch, when the job was last updated.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The job ARN.
     jobARN :: Lude.Maybe Lude.Text,
+    -- | The time, in seconds since the epoch, when the job was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the thing group.
     thingGroupId :: Lude.Maybe Lude.Text,
+    -- | The time, in seconds since the epoch, when the job completed.
     completedAt :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
     targetSelection :: Lude.Maybe TargetSelection
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobSummary' with the minimum fields required to make a request.
 --
--- * 'completedAt' - The time, in seconds since the epoch, when the job completed.
--- * 'createdAt' - The time, in seconds since the epoch, when the job was created.
--- * 'jobARN' - The job ARN.
+-- * 'status' - The job summary status.
 -- * 'jobId' - The unique identifier you assigned to this job when it was created.
 -- * 'lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
--- * 'status' - The job summary status.
--- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
+-- * 'jobARN' - The job ARN.
+-- * 'createdAt' - The time, in seconds since the epoch, when the job was created.
 -- * 'thingGroupId' - The ID of the thing group.
+-- * 'completedAt' - The time, in seconds since the epoch, when the job completed.
+-- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
 mkJobSummary ::
   JobSummary
 mkJobSummary =

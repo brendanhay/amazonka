@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrincipalPermissions' smart constructor.
 data PrincipalPermissions = PrincipalPermissions'
-  { principal ::
-      Lude.Maybe DataLakePrincipal,
+  { -- | The principal who is granted permissions.
+    principal :: Lude.Maybe DataLakePrincipal,
+    -- | The permissions that are granted to the principal.
     permissions :: Lude.Maybe [Permission]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrincipalPermissions' with the minimum fields required to make a request.
 --
--- * 'permissions' - The permissions that are granted to the principal.
 -- * 'principal' - The principal who is granted permissions.
+-- * 'permissions' - The permissions that are granted to the principal.
 mkPrincipalPermissions ::
   PrincipalPermissions
 mkPrincipalPermissions =

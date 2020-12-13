@@ -34,30 +34,30 @@ import Network.AWS.ResourceGroupsTagging.Types.TargetIdType
 --
 -- /See:/ 'mkSummary' smart constructor.
 data Summary = Summary'
-  { targetId :: Lude.Maybe Lude.Text,
+  { -- | The account identifier or the root identifier of the organization. If you don't know the root ID, you can call the AWS Organizations <http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html ListRoots> API.
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The timestamp that shows when this summary was generated in this Region.
     lastUpdated :: Lude.Maybe Lude.Text,
+    -- | The AWS resource type.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The count of noncompliant resources.
     nonCompliantResources :: Lude.Maybe Lude.Integer,
+    -- | Whether the target is an account, an OU, or the organization root.
     targetIdType :: Lude.Maybe TargetIdType,
+    -- | The AWS Region that the summary applies to.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Summary' with the minimum fields required to make a request.
 --
--- * 'lastUpdated' - The timestamp that shows when this summary was generated in this Region.
--- * 'nonCompliantResources' - The count of noncompliant resources.
--- * 'region' - The AWS Region that the summary applies to.
--- * 'resourceType' - The AWS resource type.
 -- * 'targetId' - The account identifier or the root identifier of the organization. If you don't know the root ID, you can call the AWS Organizations <http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html ListRoots> API.
+-- * 'lastUpdated' - The timestamp that shows when this summary was generated in this Region.
+-- * 'resourceType' - The AWS resource type.
+-- * 'nonCompliantResources' - The count of noncompliant resources.
 -- * 'targetIdType' - Whether the target is an account, an OU, or the organization root.
+-- * 'region' - The AWS Region that the summary applies to.
 mkSummary ::
   Summary
 mkSummary =

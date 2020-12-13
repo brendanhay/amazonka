@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLexiconAttributes' smart constructor.
 data LexiconAttributes = LexiconAttributes'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | Total size of the lexicon, in characters.
     size :: Lude.Maybe Lude.Int,
+    -- | Number of lexemes in the lexicon.
     lexemesCount :: Lude.Maybe Lude.Int,
+    -- | Amazon Resource Name (ARN) of the lexicon.
     lexiconARN :: Lude.Maybe Lude.Text,
+    -- | Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
     alphabet :: Lude.Maybe Lude.Text,
+    -- | Date lexicon was last modified (a timestamp value).
     lastModified :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LexiconAttributes' with the minimum fields required to make a request.
 --
--- * 'alphabet' - Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
 -- * 'languageCode' - Language code that the lexicon applies to. A lexicon with a language code such as "en" would be applied to all English languages (en-GB, en-US, en-AUS, en-WLS, and so on.
--- * 'lastModified' - Date lexicon was last modified (a timestamp value).
+-- * 'size' - Total size of the lexicon, in characters.
 -- * 'lexemesCount' - Number of lexemes in the lexicon.
 -- * 'lexiconARN' - Amazon Resource Name (ARN) of the lexicon.
--- * 'size' - Total size of the lexicon, in characters.
+-- * 'alphabet' - Phonetic alphabet used in the lexicon. Valid values are @ipa@ and @x-sampa@ .
+-- * 'lastModified' - Date lexicon was last modified (a timestamp value).
 mkLexiconAttributes ::
   LexiconAttributes
 mkLexiconAttributes =

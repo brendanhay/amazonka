@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,25 +50,21 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkGetServers' smart constructor.
 data GetServers = GetServers'
-  { vmServerAddressList ::
-      Lude.Maybe [VMServerAddress],
+  { -- | The server addresses.
+    vmServerAddressList :: Lude.Maybe [VMServerAddress],
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
--- * 'nextToken' - The token for the next set of results.
 -- * 'vmServerAddressList' - The server addresses.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkGetServers ::
   GetServers
 mkGetServers =
@@ -152,29 +149,27 @@ instance Lude.ToQuery GetServers where
 
 -- | /See:/ 'mkGetServersResponse' smart constructor.
 data GetServersResponse = GetServersResponse'
-  { serverCatalogStatus ::
-      Lude.Maybe ServerCatalogStatus,
+  { -- | The status of the server catalog.
+    serverCatalogStatus :: Lude.Maybe ServerCatalogStatus,
+    -- | The time when the server was last modified.
     lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the servers.
     serverList :: Lude.Maybe [Server],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServersResponse' with the minimum fields required to make a request.
 --
+-- * 'serverCatalogStatus' - The status of the server catalog.
 -- * 'lastModifiedOn' - The time when the server was last modified.
 -- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
--- * 'responseStatus' - The response status code.
--- * 'serverCatalogStatus' - The status of the server catalog.
 -- * 'serverList' - Information about the servers.
+-- * 'responseStatus' - The response status code.
 mkGetServersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

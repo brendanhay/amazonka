@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeQueries' smart constructor.
 data DescribeQueries = DescribeQueries'
-  { status ::
-      Lude.Maybe QueryStatus,
+  { -- | Limits the returned queries to only those that have the specified status. Valid values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , and @Scheduled@ .
+    status :: Lude.Maybe QueryStatus,
+    -- | Limits the returned queries to only those for the specified log group.
     logGroupName :: Lude.Maybe Lude.Text,
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Limits the number of returned queries to the specified number.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeQueries' with the minimum fields required to make a request.
 --
--- * 'logGroupName' - Limits the returned queries to only those for the specified log group.
--- * 'maxResults' - Limits the number of returned queries to the specified number.
--- * 'nextToken' - Undocumented field.
 -- * 'status' - Limits the returned queries to only those that have the specified status. Valid values are @Cancelled@ , @Complete@ , @Failed@ , @Running@ , and @Scheduled@ .
+-- * 'logGroupName' - Limits the returned queries to only those for the specified log group.
+-- * 'nextToken' -
+-- * 'maxResults' - Limits the number of returned queries to the specified number.
 mkDescribeQueries ::
   DescribeQueries
 mkDescribeQueries =
@@ -156,24 +153,19 @@ instance Lude.ToQuery DescribeQueries where
 
 -- | /See:/ 'mkDescribeQueriesResponse' smart constructor.
 data DescribeQueriesResponse = DescribeQueriesResponse'
-  { queries ::
-      Lude.Maybe [QueryInfo],
+  { -- | The list of queries that match the request.
+    queries :: Lude.Maybe [QueryInfo],
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeQueriesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
 -- * 'queries' - The list of queries that match the request.
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkDescribeQueriesResponse ::
   -- | 'responseStatus'

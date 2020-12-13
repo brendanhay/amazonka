@@ -33,19 +33,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOfferingStatus' smart constructor.
 data OfferingStatus = OfferingStatus'
-  { effectiveOn ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date on which the offering is effective.
+    effectiveOn :: Lude.Maybe Lude.Timestamp,
+    -- | Represents the metadata of an offering status.
     offering :: Lude.Maybe Offering,
+    -- | The number of available devices in the offering.
     quantity :: Lude.Maybe Lude.Int,
+    -- | The type specified for the offering status.
     type' :: Lude.Maybe OfferingTransactionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OfferingStatus' with the minimum fields required to make a request.

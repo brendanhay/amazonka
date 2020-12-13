@@ -13,12 +13,12 @@
 module Network.AWS.SSM.Types.StepExecutionFilterKey
   ( StepExecutionFilterKey
       ( StepExecutionFilterKey',
-        Action,
-        StartTimeAfter,
         StartTimeBefore,
-        StepExecutionId,
+        StartTimeAfter,
         StepExecutionStatus,
-        StepName
+        StepExecutionId,
+        StepName,
+        Action
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype StepExecutionFilterKey = StepExecutionFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern Action :: StepExecutionFilterKey
-pattern Action = StepExecutionFilterKey' "Action"
+pattern StartTimeBefore :: StepExecutionFilterKey
+pattern StartTimeBefore = StepExecutionFilterKey' "StartTimeBefore"
 
 pattern StartTimeAfter :: StepExecutionFilterKey
 pattern StartTimeAfter = StepExecutionFilterKey' "StartTimeAfter"
 
-pattern StartTimeBefore :: StepExecutionFilterKey
-pattern StartTimeBefore = StepExecutionFilterKey' "StartTimeBefore"
+pattern StepExecutionStatus :: StepExecutionFilterKey
+pattern StepExecutionStatus = StepExecutionFilterKey' "StepExecutionStatus"
 
 pattern StepExecutionId :: StepExecutionFilterKey
 pattern StepExecutionId = StepExecutionFilterKey' "StepExecutionId"
 
-pattern StepExecutionStatus :: StepExecutionFilterKey
-pattern StepExecutionStatus = StepExecutionFilterKey' "StepExecutionStatus"
-
 pattern StepName :: StepExecutionFilterKey
 pattern StepName = StepExecutionFilterKey' "StepName"
 
+pattern Action :: StepExecutionFilterKey
+pattern Action = StepExecutionFilterKey' "Action"
+
 {-# COMPLETE
-  Action,
-  StartTimeAfter,
   StartTimeBefore,
-  StepExecutionId,
+  StartTimeAfter,
   StepExecutionStatus,
+  StepExecutionId,
   StepName,
+  Action,
   StepExecutionFilterKey'
   #-}

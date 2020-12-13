@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResultConfiguration' smart constructor.
 data ResultConfiguration = ResultConfiguration'
-  { encryptionConfiguration ::
-      Lude.Maybe EncryptionConfiguration,
+  { -- | If query results are encrypted in Amazon S3, indicates the encryption option used (for example, @SSE-KMS@ or @CSE-KMS@ ) and key information. This is a client-side setting. If workgroup settings override client-side settings, then the query uses the encryption configuration that is specified for the workgroup, and also uses the location for storing query results specified in the workgroup. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' and <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
+    -- | The location in Amazon S3 where your query results are stored, such as @s3://path/to/query/bucket/@ . To run the query, you must specify the query results location using one of the ways: either for individual queries using either this setting (client-side), or in the workgroup, using 'WorkGroupConfiguration' . If none of them is set, Athena issues an error that no output location is provided. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results> . If workgroup settings override client-side settings, then the query uses the settings specified for the workgroup. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
     outputLocation :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultConfiguration' with the minimum fields required to make a request.

@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Target' smart constructor.
 data S3Target = S3Target'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path to the Amazon S3 target.
+    path :: Lude.Maybe Lude.Text,
+    -- | The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
     connectionName :: Lude.Maybe Lude.Text,
+    -- | A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
     exclusions :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Target' with the minimum fields required to make a request.
 --
+-- * 'path' - The path to the Amazon S3 target.
 -- * 'connectionName' - The name of a connection which allows a job or crawler to access data in Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon VPC).
 -- * 'exclusions' - A list of glob patterns used to exclude from the crawl. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler> .
--- * 'path' - The path to the Amazon S3 target.
 mkS3Target ::
   S3Target
 mkS3Target =

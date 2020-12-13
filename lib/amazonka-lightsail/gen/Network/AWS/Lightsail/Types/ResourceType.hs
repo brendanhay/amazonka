@@ -13,25 +13,25 @@
 module Network.AWS.Lightsail.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        RTAlarm,
-        RTCertificate,
-        RTCloudFormationStackRecord,
-        RTContactMethod,
         RTContainerService,
-        RTDisk,
-        RTDiskSnapshot,
-        RTDistribution,
-        RTDomain,
-        RTExportSnapshotRecord,
         RTInstance,
-        RTInstanceSnapshot,
+        RTStaticIP,
         RTKeyPair,
+        RTInstanceSnapshot,
+        RTDomain,
+        RTPeeredVPC,
         RTLoadBalancer,
         RTLoadBalancerTLSCertificate,
-        RTPeeredVPC,
+        RTDisk,
+        RTDiskSnapshot,
         RTRelationalDatabase,
         RTRelationalDatabaseSnapshot,
-        RTStaticIP
+        RTExportSnapshotRecord,
+        RTCloudFormationStackRecord,
+        RTAlarm,
+        RTContactMethod,
+        RTDistribution,
+        RTCertificate
       ),
   )
 where
@@ -62,44 +62,26 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RTAlarm :: ResourceType
-pattern RTAlarm = ResourceType' "Alarm"
-
-pattern RTCertificate :: ResourceType
-pattern RTCertificate = ResourceType' "Certificate"
-
-pattern RTCloudFormationStackRecord :: ResourceType
-pattern RTCloudFormationStackRecord = ResourceType' "CloudFormationStackRecord"
-
-pattern RTContactMethod :: ResourceType
-pattern RTContactMethod = ResourceType' "ContactMethod"
-
 pattern RTContainerService :: ResourceType
 pattern RTContainerService = ResourceType' "ContainerService"
-
-pattern RTDisk :: ResourceType
-pattern RTDisk = ResourceType' "Disk"
-
-pattern RTDiskSnapshot :: ResourceType
-pattern RTDiskSnapshot = ResourceType' "DiskSnapshot"
-
-pattern RTDistribution :: ResourceType
-pattern RTDistribution = ResourceType' "Distribution"
-
-pattern RTDomain :: ResourceType
-pattern RTDomain = ResourceType' "Domain"
-
-pattern RTExportSnapshotRecord :: ResourceType
-pattern RTExportSnapshotRecord = ResourceType' "ExportSnapshotRecord"
 
 pattern RTInstance :: ResourceType
 pattern RTInstance = ResourceType' "Instance"
 
-pattern RTInstanceSnapshot :: ResourceType
-pattern RTInstanceSnapshot = ResourceType' "InstanceSnapshot"
+pattern RTStaticIP :: ResourceType
+pattern RTStaticIP = ResourceType' "StaticIp"
 
 pattern RTKeyPair :: ResourceType
 pattern RTKeyPair = ResourceType' "KeyPair"
+
+pattern RTInstanceSnapshot :: ResourceType
+pattern RTInstanceSnapshot = ResourceType' "InstanceSnapshot"
+
+pattern RTDomain :: ResourceType
+pattern RTDomain = ResourceType' "Domain"
+
+pattern RTPeeredVPC :: ResourceType
+pattern RTPeeredVPC = ResourceType' "PeeredVpc"
 
 pattern RTLoadBalancer :: ResourceType
 pattern RTLoadBalancer = ResourceType' "LoadBalancer"
@@ -107,8 +89,11 @@ pattern RTLoadBalancer = ResourceType' "LoadBalancer"
 pattern RTLoadBalancerTLSCertificate :: ResourceType
 pattern RTLoadBalancerTLSCertificate = ResourceType' "LoadBalancerTlsCertificate"
 
-pattern RTPeeredVPC :: ResourceType
-pattern RTPeeredVPC = ResourceType' "PeeredVpc"
+pattern RTDisk :: ResourceType
+pattern RTDisk = ResourceType' "Disk"
+
+pattern RTDiskSnapshot :: ResourceType
+pattern RTDiskSnapshot = ResourceType' "DiskSnapshot"
 
 pattern RTRelationalDatabase :: ResourceType
 pattern RTRelationalDatabase = ResourceType' "RelationalDatabase"
@@ -116,28 +101,43 @@ pattern RTRelationalDatabase = ResourceType' "RelationalDatabase"
 pattern RTRelationalDatabaseSnapshot :: ResourceType
 pattern RTRelationalDatabaseSnapshot = ResourceType' "RelationalDatabaseSnapshot"
 
-pattern RTStaticIP :: ResourceType
-pattern RTStaticIP = ResourceType' "StaticIp"
+pattern RTExportSnapshotRecord :: ResourceType
+pattern RTExportSnapshotRecord = ResourceType' "ExportSnapshotRecord"
+
+pattern RTCloudFormationStackRecord :: ResourceType
+pattern RTCloudFormationStackRecord = ResourceType' "CloudFormationStackRecord"
+
+pattern RTAlarm :: ResourceType
+pattern RTAlarm = ResourceType' "Alarm"
+
+pattern RTContactMethod :: ResourceType
+pattern RTContactMethod = ResourceType' "ContactMethod"
+
+pattern RTDistribution :: ResourceType
+pattern RTDistribution = ResourceType' "Distribution"
+
+pattern RTCertificate :: ResourceType
+pattern RTCertificate = ResourceType' "Certificate"
 
 {-# COMPLETE
-  RTAlarm,
-  RTCertificate,
-  RTCloudFormationStackRecord,
-  RTContactMethod,
   RTContainerService,
-  RTDisk,
-  RTDiskSnapshot,
-  RTDistribution,
-  RTDomain,
-  RTExportSnapshotRecord,
   RTInstance,
-  RTInstanceSnapshot,
+  RTStaticIP,
   RTKeyPair,
+  RTInstanceSnapshot,
+  RTDomain,
+  RTPeeredVPC,
   RTLoadBalancer,
   RTLoadBalancerTLSCertificate,
-  RTPeeredVPC,
+  RTDisk,
+  RTDiskSnapshot,
   RTRelationalDatabase,
   RTRelationalDatabaseSnapshot,
-  RTStaticIP,
+  RTExportSnapshotRecord,
+  RTCloudFormationStackRecord,
+  RTAlarm,
+  RTContactMethod,
+  RTDistribution,
+  RTCertificate,
   ResourceType'
   #-}

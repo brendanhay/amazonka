@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,12 +25,12 @@ module Network.AWS.Lightsail.CreateInstances
     ciCustomImageName,
     ciAddOns,
     ciUserData,
-    ciKeyPairName,
-    ciTags,
-    ciInstanceNames,
-    ciAvailabilityZone,
-    ciBlueprintId,
     ciBundleId,
+    ciAvailabilityZone,
+    ciKeyPairName,
+    ciBlueprintId,
+    ciInstanceNames,
+    ciTags,
 
     -- * Destructuring the response
     CreateInstancesResponse (..),
@@ -49,58 +50,62 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateInstances' smart constructor.
 data CreateInstances = CreateInstances'
-  { customImageName ::
-      Lude.Maybe Lude.Text,
+  { -- | (Deprecated) The name for your custom image.
+    customImageName :: Lude.Maybe Lude.Text,
+    -- | An array of objects representing the add-ons to enable for the new instance.
     addOns :: Lude.Maybe [AddOnRequest],
+    -- | A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get -y update@ .
     userData :: Lude.Maybe Lude.Text,
-    keyPairName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    instanceNames :: [Lude.Text],
+    -- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
+    bundleId :: Lude.Text,
+    -- | The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
     availabilityZone :: Lude.Text,
+    -- | The name of your key pair.
+    keyPairName :: Lude.Maybe Lude.Text,
+    -- | The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the @get blueprints@ operation to return a list of available images (or /blueprints/ ).
     blueprintId :: Lude.Text,
-    bundleId :: Lude.Text
+    -- | The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
+    instanceNames :: [Lude.Text],
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstances' with the minimum fields required to make a request.
 --
--- * 'addOns' - An array of objects representing the add-ons to enable for the new instance.
--- * 'availabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
--- * 'blueprintId' - The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the @get blueprints@ operation to return a list of available images (or /blueprints/ ).
--- * 'bundleId' - The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
 -- * 'customImageName' - (Deprecated) The name for your custom image.
--- * 'instanceNames' - The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
+-- * 'addOns' - An array of objects representing the add-ons to enable for the new instance.
+-- * 'userData' - A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get -y update@ .
+-- * 'bundleId' - The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
+-- * 'availabilityZone' - The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
 -- * 'keyPairName' - The name of your key pair.
+-- * 'blueprintId' - The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the @get blueprints@ operation to return a list of available images (or /blueprints/ ).
+-- * 'instanceNames' - The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
 -- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
--- * 'userData' - A launch script you can create that configures a server with additional user data. For example, you might want to run @apt-get -y update@ .
 mkCreateInstances ::
+  -- | 'bundleId'
+  Lude.Text ->
   -- | 'availabilityZone'
   Lude.Text ->
   -- | 'blueprintId'
   Lude.Text ->
-  -- | 'bundleId'
-  Lude.Text ->
   CreateInstances
-mkCreateInstances pAvailabilityZone_ pBlueprintId_ pBundleId_ =
+mkCreateInstances pBundleId_ pAvailabilityZone_ pBlueprintId_ =
   CreateInstances'
     { customImageName = Lude.Nothing,
       addOns = Lude.Nothing,
       userData = Lude.Nothing,
-      keyPairName = Lude.Nothing,
-      tags = Lude.Nothing,
-      instanceNames = Lude.mempty,
+      bundleId = pBundleId_,
       availabilityZone = pAvailabilityZone_,
+      keyPairName = Lude.Nothing,
       blueprintId = pBlueprintId_,
-      bundleId = pBundleId_
+      instanceNames = Lude.mempty,
+      tags = Lude.Nothing
     }
 
 -- | (Deprecated) The name for your custom image.
@@ -124,12 +129,40 @@ ciUserData :: Lens.Lens' CreateInstances (Lude.Maybe Lude.Text)
 ciUserData = Lens.lens (userData :: CreateInstances -> Lude.Maybe Lude.Text) (\s a -> s {userData = a} :: CreateInstances)
 {-# DEPRECATED ciUserData "Use generic-lens or generic-optics with 'userData' instead." #-}
 
+-- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciBundleId :: Lens.Lens' CreateInstances Lude.Text
+ciBundleId = Lens.lens (bundleId :: CreateInstances -> Lude.Text) (\s a -> s {bundleId = a} :: CreateInstances)
+{-# DEPRECATED ciBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciAvailabilityZone :: Lens.Lens' CreateInstances Lude.Text
+ciAvailabilityZone = Lens.lens (availabilityZone :: CreateInstances -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateInstances)
+{-# DEPRECATED ciAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
 -- | The name of your key pair.
 --
 -- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ciKeyPairName :: Lens.Lens' CreateInstances (Lude.Maybe Lude.Text)
 ciKeyPairName = Lens.lens (keyPairName :: CreateInstances -> Lude.Maybe Lude.Text) (\s a -> s {keyPairName = a} :: CreateInstances)
 {-# DEPRECATED ciKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
+
+-- | The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the @get blueprints@ operation to return a list of available images (or /blueprints/ ).
+--
+-- /Note:/ Consider using 'blueprintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciBlueprintId :: Lens.Lens' CreateInstances Lude.Text
+ciBlueprintId = Lens.lens (blueprintId :: CreateInstances -> Lude.Text) (\s a -> s {blueprintId = a} :: CreateInstances)
+{-# DEPRECATED ciBlueprintId "Use generic-lens or generic-optics with 'blueprintId' instead." #-}
+
+-- | The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
+--
+-- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciInstanceNames :: Lens.Lens' CreateInstances [Lude.Text]
+ciInstanceNames = Lens.lens (instanceNames :: CreateInstances -> [Lude.Text]) (\s a -> s {instanceNames = a} :: CreateInstances)
+{-# DEPRECATED ciInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
 -- | The tag keys and optional values to add to the resource during create.
 --
@@ -139,34 +172,6 @@ ciKeyPairName = Lens.lens (keyPairName :: CreateInstances -> Lude.Maybe Lude.Tex
 ciTags :: Lens.Lens' CreateInstances (Lude.Maybe [Tag])
 ciTags = Lens.lens (tags :: CreateInstances -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateInstances)
 {-# DEPRECATED ciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The names to use for your new Lightsail instances. Separate multiple values using quotation marks and commas, for example: @["MyFirstInstance","MySecondInstance"]@
---
--- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciInstanceNames :: Lens.Lens' CreateInstances [Lude.Text]
-ciInstanceNames = Lens.lens (instanceNames :: CreateInstances -> [Lude.Text]) (\s a -> s {instanceNames = a} :: CreateInstances)
-{-# DEPRECATED ciInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
-
--- | The Availability Zone in which to create your instance. Use the following format: @us-east-2a@ (case sensitive). You can get a list of Availability Zones by using the <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions> operation. Be sure to add the @include Availability Zones@ parameter to your request.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciAvailabilityZone :: Lens.Lens' CreateInstances Lude.Text
-ciAvailabilityZone = Lens.lens (availabilityZone :: CreateInstances -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateInstances)
-{-# DEPRECATED ciAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or @app_lamp_7_0@ ). Use the @get blueprints@ operation to return a list of available images (or /blueprints/ ).
---
--- /Note:/ Consider using 'blueprintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciBlueprintId :: Lens.Lens' CreateInstances Lude.Text
-ciBlueprintId = Lens.lens (blueprintId :: CreateInstances -> Lude.Text) (\s a -> s {blueprintId = a} :: CreateInstances)
-{-# DEPRECATED ciBlueprintId "Use generic-lens or generic-optics with 'blueprintId' instead." #-}
-
--- | The bundle of specification information for your virtual private server (or /instance/ ), including the pricing plan (e.g., @micro_1_0@ ).
---
--- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciBundleId :: Lens.Lens' CreateInstances Lude.Text
-ciBundleId = Lens.lens (bundleId :: CreateInstances -> Lude.Text) (\s a -> s {bundleId = a} :: CreateInstances)
-{-# DEPRECATED ciBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 instance Lude.AWSRequest CreateInstances where
   type Rs CreateInstances = CreateInstancesResponse
@@ -197,12 +202,12 @@ instance Lude.ToJSON CreateInstances where
           [ ("customImageName" Lude..=) Lude.<$> customImageName,
             ("addOns" Lude..=) Lude.<$> addOns,
             ("userData" Lude..=) Lude.<$> userData,
-            ("keyPairName" Lude..=) Lude.<$> keyPairName,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("instanceNames" Lude..= instanceNames),
+            Lude.Just ("bundleId" Lude..= bundleId),
             Lude.Just ("availabilityZone" Lude..= availabilityZone),
+            ("keyPairName" Lude..=) Lude.<$> keyPairName,
             Lude.Just ("blueprintId" Lude..= blueprintId),
-            Lude.Just ("bundleId" Lude..= bundleId)
+            Lude.Just ("instanceNames" Lude..= instanceNames),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -214,17 +219,12 @@ instance Lude.ToQuery CreateInstances where
 
 -- | /See:/ 'mkCreateInstancesResponse' smart constructor.
 data CreateInstancesResponse = CreateInstancesResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstancesResponse' with the minimum fields required to make a request.

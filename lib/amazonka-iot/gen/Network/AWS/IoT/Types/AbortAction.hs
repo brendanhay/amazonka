@@ -13,7 +13,7 @@
 module Network.AWS.IoT.Types.AbortAction
   ( AbortAction
       ( AbortAction',
-        AACancel
+        Cancel
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype AbortAction = AbortAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern AACancel :: AbortAction
-pattern AACancel = AbortAction' "CANCEL"
+pattern Cancel :: AbortAction
+pattern Cancel = AbortAction' "CANCEL"
 
 {-# COMPLETE
-  AACancel,
+  Cancel,
   AbortAction'
   #-}

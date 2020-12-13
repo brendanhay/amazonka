@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,28 +51,36 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeScheduledInstances' smart constructor.
 data DescribeScheduledInstances = DescribeScheduledInstances'
-  { filters ::
-      Lude.Maybe [Filter],
-    slotStartTimeRange ::
-      Lude.Maybe SlotStartTimeRangeRequest,
+  { -- | The filters.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone (for example, @us-west-2a@ ).
+    --
+    --
+    --     * @instance-type@ - The instance type (for example, @c4.large@ ).
+    --
+    --
+    --     * @network-platform@ - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
+    --
+    --
+    --     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The time period for the first schedule to start.
+    slotStartTimeRange :: Lude.Maybe SlotStartTimeRangeRequest,
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
-    scheduledInstanceIds ::
-      Lude.Maybe [Lude.Text],
+    -- | The Scheduled Instance IDs.
+    scheduledInstanceIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledInstances' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 --
 --
@@ -87,10 +96,11 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
 --     * @platform@ - The platform (@Linux/UNIX@ or @Windows@ ).
 --
 --
--- * 'maxResults' - The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+-- * 'slotStartTimeRange' - The time period for the first schedule to start.
 -- * 'nextToken' - The token for the next set of results.
 -- * 'scheduledInstanceIds' - The Scheduled Instance IDs.
--- * 'slotStartTimeRange' - The time period for the first schedule to start.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. This value can be between 5 and 300. The default value is 100. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeScheduledInstances ::
   DescribeScheduledInstances
 mkDescribeScheduledInstances =
@@ -211,28 +221,21 @@ instance Lude.ToQuery DescribeScheduledInstances where
 --
 -- /See:/ 'mkDescribeScheduledInstancesResponse' smart constructor.
 data DescribeScheduledInstancesResponse = DescribeScheduledInstancesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    scheduledInstanceSet ::
-      Lude.Maybe
-        [ScheduledInstance],
-    responseStatus ::
-      Lude.Int
+  { -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the Scheduled Instances.
+    scheduledInstanceSet :: Lude.Maybe [ScheduledInstance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScheduledInstancesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'scheduledInstanceSet' - Information about the Scheduled Instances.
+-- * 'responseStatus' - The response status code.
 mkDescribeScheduledInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

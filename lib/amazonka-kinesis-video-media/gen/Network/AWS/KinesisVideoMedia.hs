@@ -36,8 +36,8 @@ module Network.AWS.KinesisVideoMedia
     mkStartSelector,
     ssContinuationToken,
     ssAfterFragmentNumber,
-    ssStartTimestamp,
     ssStartSelectorType,
+    ssStartTimestamp,
 
     -- * Serialization types
     Lude.Base64 (..),

@@ -36,13 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The status of the user in the user pool. The status can be one of the following:
+    --
+    --
+    --     * UNCONFIRMED – The user is created but not confirmed.
+    --
+    --
+    --     * CONFIRMED – The user is confirmed.
+    --
+    --
+    --     * ARCHIVED – The user is no longer active.
+    --
+    --
+    --     * COMPROMISED – The user is disabled because of a potential security threat.
+    --
+    --
+    --     * UNKNOWN – The user status is not known.
+    status :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the user in the user pool is enabled.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The last name, or surname, of the user.
     lastName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ARN of the user.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date and time the user was created in the user pool.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The email address of the user.
     userName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The first name, or given name, of the user.
     firstName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The authentication type for the user.
     authenticationType :: AuthenticationType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -50,12 +73,6 @@ data User = User'
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the user.
--- * 'authenticationType' - The authentication type for the user.
--- * 'createdTime' - The date and time the user was created in the user pool.
--- * 'enabled' - Specifies whether the user in the user pool is enabled.
--- * 'firstName' - The first name, or given name, of the user.
--- * 'lastName' - The last name, or surname, of the user.
 -- * 'status' - The status of the user in the user pool. The status can be one of the following:
 --
 --
@@ -74,7 +91,13 @@ data User = User'
 --     * UNKNOWN – The user status is not known.
 --
 --
+-- * 'enabled' - Specifies whether the user in the user pool is enabled.
+-- * 'lastName' - The last name, or surname, of the user.
+-- * 'arn' - The ARN of the user.
+-- * 'createdTime' - The date and time the user was created in the user pool.
 -- * 'userName' - The email address of the user.
+-- * 'firstName' - The first name, or given name, of the user.
+-- * 'authenticationType' - The authentication type for the user.
 mkUser ::
   -- | 'authenticationType'
   AuthenticationType ->

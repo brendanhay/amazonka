@@ -40,44 +40,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The deployment ID.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The deployment status:
+    --
+    --
+    --     * running
+    --
+    --
+    --     * successful
+    --
+    --
+    --     * failed
     status :: Lude.Maybe Lude.Text,
+    -- | Used to specify a stack or deployment command.
     command :: Lude.Maybe DeploymentCommand,
+    -- | Date when the deployment was created.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
+    --
+    -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+    -- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
     customJSON :: Lude.Maybe Lude.Text,
+    -- | The user's IAM ARN.
     iamUserARN :: Lude.Maybe Lude.Text,
+    -- | The app ID.
     appId :: Lude.Maybe Lude.Text,
+    -- | The IDs of the target instances.
     instanceIds :: Lude.Maybe [Lude.Text],
+    -- | Date when the deployment completed.
     completedAt :: Lude.Maybe Lude.Text,
+    -- | The stack ID.
     stackId :: Lude.Maybe Lude.Text,
+    -- | A user-defined comment.
     comment :: Lude.Maybe Lude.Text,
+    -- | The deployment duration.
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
--- * 'appId' - The app ID.
--- * 'command' - Used to specify a stack or deployment command.
--- * 'comment' - A user-defined comment.
--- * 'completedAt' - Date when the deployment completed.
--- * 'createdAt' - Date when the deployment was created.
--- * 'customJSON' - A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
---
--- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
--- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 -- * 'deploymentId' - The deployment ID.
--- * 'duration' - The deployment duration.
--- * 'iamUserARN' - The user's IAM ARN.
--- * 'instanceIds' - The IDs of the target instances.
--- * 'stackId' - The stack ID.
 -- * 'status' - The deployment status:
 --
 --
@@ -88,6 +93,21 @@ data Deployment = Deployment'
 --
 --
 --     * failed
+--
+--
+-- * 'command' - Used to specify a stack or deployment command.
+-- * 'createdAt' - Date when the deployment was created.
+-- * 'customJSON' - A string that contains user-defined custom JSON. It can be used to override the corresponding default stack configuration attribute values for stack or to pass data to recipes. The string should be in the following format:
+--
+-- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+-- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
+-- * 'iamUserARN' - The user's IAM ARN.
+-- * 'appId' - The app ID.
+-- * 'instanceIds' - The IDs of the target instances.
+-- * 'completedAt' - Date when the deployment completed.
+-- * 'stackId' - The stack ID.
+-- * 'comment' - A user-defined comment.
+-- * 'duration' - The deployment duration.
 mkDeployment ::
   Deployment
 mkDeployment =

@@ -13,10 +13,10 @@
 module Network.AWS.DeviceFarm.Types.UploadStatus
   ( UploadStatus
       ( UploadStatus',
-        USFailed,
-        USInitialized,
-        USProcessing,
-        USSucceeded
+        Initialized,
+        Processing,
+        Succeeded,
+        Failed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype UploadStatus = UploadStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern USFailed :: UploadStatus
-pattern USFailed = UploadStatus' "FAILED"
+pattern Initialized :: UploadStatus
+pattern Initialized = UploadStatus' "INITIALIZED"
 
-pattern USInitialized :: UploadStatus
-pattern USInitialized = UploadStatus' "INITIALIZED"
+pattern Processing :: UploadStatus
+pattern Processing = UploadStatus' "PROCESSING"
 
-pattern USProcessing :: UploadStatus
-pattern USProcessing = UploadStatus' "PROCESSING"
+pattern Succeeded :: UploadStatus
+pattern Succeeded = UploadStatus' "SUCCEEDED"
 
-pattern USSucceeded :: UploadStatus
-pattern USSucceeded = UploadStatus' "SUCCEEDED"
+pattern Failed :: UploadStatus
+pattern Failed = UploadStatus' "FAILED"
 
 {-# COMPLETE
-  USFailed,
-  USInitialized,
-  USProcessing,
-  USSucceeded,
+  Initialized,
+  Processing,
+  Succeeded,
+  Failed,
   UploadStatus'
   #-}

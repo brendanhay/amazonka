@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.OfferingClassType
   ( OfferingClassType
       ( OfferingClassType',
-        OCTConvertible,
-        OCTStandard
+        OCTStandard,
+        OCTConvertible
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OfferingClassType = OfferingClassType' Lude.Text
       Lude.ToHeader
     )
 
-pattern OCTConvertible :: OfferingClassType
-pattern OCTConvertible = OfferingClassType' "convertible"
-
 pattern OCTStandard :: OfferingClassType
 pattern OCTStandard = OfferingClassType' "standard"
 
+pattern OCTConvertible :: OfferingClassType
+pattern OCTConvertible = OfferingClassType' "convertible"
+
 {-# COMPLETE
-  OCTConvertible,
   OCTStandard,
+  OCTConvertible,
   OfferingClassType'
   #-}

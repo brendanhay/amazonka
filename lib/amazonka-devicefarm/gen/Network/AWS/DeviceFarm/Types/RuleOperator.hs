@@ -13,14 +13,14 @@
 module Network.AWS.DeviceFarm.Types.RuleOperator
   ( RuleOperator
       ( RuleOperator',
-        Contains,
         Equals,
+        LessThan,
+        LessThanOrEquals,
         GreaterThan,
         GreaterThanOrEquals,
         IN,
-        LessThan,
-        LessThanOrEquals,
-        NotIn
+        NotIn,
+        Contains
       ),
   )
 where
@@ -51,11 +51,14 @@ newtype RuleOperator = RuleOperator' Lude.Text
       Lude.ToHeader
     )
 
-pattern Contains :: RuleOperator
-pattern Contains = RuleOperator' "CONTAINS"
-
 pattern Equals :: RuleOperator
 pattern Equals = RuleOperator' "EQUALS"
+
+pattern LessThan :: RuleOperator
+pattern LessThan = RuleOperator' "LESS_THAN"
+
+pattern LessThanOrEquals :: RuleOperator
+pattern LessThanOrEquals = RuleOperator' "LESS_THAN_OR_EQUALS"
 
 pattern GreaterThan :: RuleOperator
 pattern GreaterThan = RuleOperator' "GREATER_THAN"
@@ -66,23 +69,20 @@ pattern GreaterThanOrEquals = RuleOperator' "GREATER_THAN_OR_EQUALS"
 pattern IN :: RuleOperator
 pattern IN = RuleOperator' "IN"
 
-pattern LessThan :: RuleOperator
-pattern LessThan = RuleOperator' "LESS_THAN"
-
-pattern LessThanOrEquals :: RuleOperator
-pattern LessThanOrEquals = RuleOperator' "LESS_THAN_OR_EQUALS"
-
 pattern NotIn :: RuleOperator
 pattern NotIn = RuleOperator' "NOT_IN"
 
+pattern Contains :: RuleOperator
+pattern Contains = RuleOperator' "CONTAINS"
+
 {-# COMPLETE
-  Contains,
   Equals,
+  LessThan,
+  LessThanOrEquals,
   GreaterThan,
   GreaterThanOrEquals,
   IN,
-  LessThan,
-  LessThanOrEquals,
   NotIn,
+  Contains,
   RuleOperator'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.DeleteEventStream
     mkDeleteEventStreamResponse,
 
     -- ** Response lenses
-    desrsResponseStatus,
     desrsEventStream,
+    desrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteEventStream' smart constructor.
 newtype DeleteEventStream = DeleteEventStream'
-  { applicationId ::
-      Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventStream' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DeleteEventStream where
     Res.receiveJSON
       ( \s h x ->
           DeleteEventStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteEventStream where
@@ -97,41 +92,28 @@ instance Lude.ToQuery DeleteEventStream where
 
 -- | /See:/ 'mkDeleteEventStreamResponse' smart constructor.
 data DeleteEventStreamResponse = DeleteEventStreamResponse'
-  { responseStatus ::
-      Lude.Int,
-    eventStream :: EventStream
+  { eventStream :: EventStream,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEventStreamResponse' with the minimum fields required to make a request.
 --
--- * 'eventStream' - Undocumented field.
+-- * 'eventStream' -
 -- * 'responseStatus' - The response status code.
 mkDeleteEventStreamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'eventStream'
   EventStream ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteEventStreamResponse
-mkDeleteEventStreamResponse pResponseStatus_ pEventStream_ =
+mkDeleteEventStreamResponse pEventStream_ pResponseStatus_ =
   DeleteEventStreamResponse'
-    { responseStatus = pResponseStatus_,
-      eventStream = pEventStream_
+    { eventStream = pEventStream_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DeleteEventStreamResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DeleteEventStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEventStreamResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -139,3 +121,10 @@ desrsResponseStatus = Lens.lens (responseStatus :: DeleteEventStreamResponse -> 
 desrsEventStream :: Lens.Lens' DeleteEventStreamResponse EventStream
 desrsEventStream = Lens.lens (eventStream :: DeleteEventStreamResponse -> EventStream) (\s a -> s {eventStream = a} :: DeleteEventStreamResponse)
 {-# DEPRECATED desrsEventStream "Use generic-lens or generic-optics with 'eventStream' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+desrsResponseStatus :: Lens.Lens' DeleteEventStreamResponse Lude.Int
+desrsResponseStatus = Lens.lens (responseStatus :: DeleteEventStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEventStreamResponse)
+{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

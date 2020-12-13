@@ -39,39 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { privateIPAddresses ::
-      Lude.Maybe [PrivateIP],
+  { -- | A list of the private IP addresses associated with the network interface. Includes the privateDnsName and privateIpAddress.
+    privateIPAddresses :: Lude.Maybe [PrivateIP],
+    -- | The name of a public DNS associated with the network interface.
     publicDNSName :: Lude.Maybe Lude.Text,
+    -- | A list of the security groups associated with the network interface. Includes the groupId and groupName.
     securityGroups :: Lude.Maybe [SecurityGroup],
+    -- | The ID of a VPC associated with the network interface.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of a subnet associated with the network interface.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The private IP address associated with the network interface.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The public IP address from which the network interface is reachable.
     publicIP :: Lude.Maybe Lude.Text,
+    -- | The name of a private DNS associated with the network interface.
     privateDNSName :: Lude.Maybe Lude.Text,
+    -- | The IP addresses associated with the network interface.
     ipv6Addresses :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- * 'ipv6Addresses' - The IP addresses associated with the network interface.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'privateDNSName' - The name of a private DNS associated with the network interface.
--- * 'privateIPAddress' - The private IP address associated with the network interface.
 -- * 'privateIPAddresses' - A list of the private IP addresses associated with the network interface. Includes the privateDnsName and privateIpAddress.
 -- * 'publicDNSName' - The name of a public DNS associated with the network interface.
--- * 'publicIP' - The public IP address from which the network interface is reachable.
 -- * 'securityGroups' - A list of the security groups associated with the network interface. Includes the groupId and groupName.
--- * 'subnetId' - The ID of a subnet associated with the network interface.
 -- * 'vpcId' - The ID of a VPC associated with the network interface.
+-- * 'subnetId' - The ID of a subnet associated with the network interface.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'privateIPAddress' - The private IP address associated with the network interface.
+-- * 'publicIP' - The public IP address from which the network interface is reachable.
+-- * 'privateDNSName' - The name of a private DNS associated with the network interface.
+-- * 'ipv6Addresses' - The IP addresses associated with the network interface.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =

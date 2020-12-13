@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.DAX.UpdateSubnetGroup
 
     -- ** Request lenses
     usgSubnetIds,
-    usgDescription,
     usgSubnetGroupName,
+    usgDescription,
 
     -- * Destructuring the response
     UpdateSubnetGroupResponse (..),
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateSubnetGroup' smart constructor.
 data UpdateSubnetGroup = UpdateSubnetGroup'
-  { subnetIds ::
-      Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
-    subnetGroupName :: Lude.Text
+  { -- | A list of subnet IDs in the subnet group.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the subnet group.
+    subnetGroupName :: Lude.Text,
+    -- | A description of the subnet group.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubnetGroup' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the subnet group.
--- * 'subnetGroupName' - The name of the subnet group.
 -- * 'subnetIds' - A list of subnet IDs in the subnet group.
+-- * 'subnetGroupName' - The name of the subnet group.
+-- * 'description' - A description of the subnet group.
 mkUpdateSubnetGroup ::
   -- | 'subnetGroupName'
   Lude.Text ->
@@ -67,8 +64,8 @@ mkUpdateSubnetGroup ::
 mkUpdateSubnetGroup pSubnetGroupName_ =
   UpdateSubnetGroup'
     { subnetIds = Lude.Nothing,
-      description = Lude.Nothing,
-      subnetGroupName = pSubnetGroupName_
+      subnetGroupName = pSubnetGroupName_,
+      description = Lude.Nothing
     }
 
 -- | A list of subnet IDs in the subnet group.
@@ -78,19 +75,19 @@ usgSubnetIds :: Lens.Lens' UpdateSubnetGroup (Lude.Maybe [Lude.Text])
 usgSubnetIds = Lens.lens (subnetIds :: UpdateSubnetGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: UpdateSubnetGroup)
 {-# DEPRECATED usgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
--- | A description of the subnet group.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgDescription :: Lens.Lens' UpdateSubnetGroup (Lude.Maybe Lude.Text)
-usgDescription = Lens.lens (description :: UpdateSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateSubnetGroup)
-{-# DEPRECATED usgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The name of the subnet group.
 --
 -- /Note:/ Consider using 'subnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 usgSubnetGroupName :: Lens.Lens' UpdateSubnetGroup Lude.Text
 usgSubnetGroupName = Lens.lens (subnetGroupName :: UpdateSubnetGroup -> Lude.Text) (\s a -> s {subnetGroupName = a} :: UpdateSubnetGroup)
 {-# DEPRECATED usgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
+
+-- | A description of the subnet group.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgDescription :: Lens.Lens' UpdateSubnetGroup (Lude.Maybe Lude.Text)
+usgDescription = Lens.lens (description :: UpdateSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateSubnetGroup)
+{-# DEPRECATED usgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateSubnetGroup where
   type Rs UpdateSubnetGroup = UpdateSubnetGroupResponse
@@ -118,8 +115,8 @@ instance Lude.ToJSON UpdateSubnetGroup where
     Lude.object
       ( Lude.catMaybes
           [ ("SubnetIds" Lude..=) Lude.<$> subnetIds,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("SubnetGroupName" Lude..= subnetGroupName)
+            Lude.Just ("SubnetGroupName" Lude..= subnetGroupName),
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -131,23 +128,18 @@ instance Lude.ToQuery UpdateSubnetGroup where
 
 -- | /See:/ 'mkUpdateSubnetGroupResponse' smart constructor.
 data UpdateSubnetGroupResponse = UpdateSubnetGroupResponse'
-  { subnetGroup ::
-      Lude.Maybe SubnetGroup,
+  { -- | The subnet group that has been modified.
+    subnetGroup :: Lude.Maybe SubnetGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'subnetGroup' - The subnet group that has been modified.
+-- * 'responseStatus' - The response status code.
 mkUpdateSubnetGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

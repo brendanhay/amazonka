@@ -30,18 +30,12 @@ import Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
 --
 -- /See:/ 'mkProtectionGroupLimits' smart constructor.
 data ProtectionGroupLimits = ProtectionGroupLimits'
-  { maxProtectionGroups ::
-      Lude.Integer,
-    patternTypeLimits ::
-      ProtectionGroupPatternTypeLimits
+  { -- | The maximum number of protection groups that you can have at one time.
+    maxProtectionGroups :: Lude.Integer,
+    -- | Limits settings by pattern type in the protection groups for your subscription.
+    patternTypeLimits :: ProtectionGroupPatternTypeLimits
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectionGroupLimits' with the minimum fields required to make a request.

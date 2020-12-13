@@ -13,11 +13,11 @@
 module Network.AWS.EFS.Types.LifeCycleState
   ( LifeCycleState
       ( LifeCycleState',
-        Available,
         Creating,
-        Deleted,
+        Available,
+        Updating,
         Deleting,
-        Updating
+        Deleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype LifeCycleState = LifeCycleState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Available :: LifeCycleState
-pattern Available = LifeCycleState' "available"
-
 pattern Creating :: LifeCycleState
 pattern Creating = LifeCycleState' "creating"
 
-pattern Deleted :: LifeCycleState
-pattern Deleted = LifeCycleState' "deleted"
-
-pattern Deleting :: LifeCycleState
-pattern Deleting = LifeCycleState' "deleting"
+pattern Available :: LifeCycleState
+pattern Available = LifeCycleState' "available"
 
 pattern Updating :: LifeCycleState
 pattern Updating = LifeCycleState' "updating"
 
+pattern Deleting :: LifeCycleState
+pattern Deleting = LifeCycleState' "deleting"
+
+pattern Deleted :: LifeCycleState
+pattern Deleted = LifeCycleState' "deleted"
+
 {-# COMPLETE
-  Available,
   Creating,
-  Deleted,
-  Deleting,
+  Available,
   Updating,
+  Deleting,
+  Deleted,
   LifeCycleState'
   #-}

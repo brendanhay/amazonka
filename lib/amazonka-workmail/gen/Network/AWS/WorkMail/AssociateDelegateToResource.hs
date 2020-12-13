@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkMail.AssociateDelegateToResource
     mkAssociateDelegateToResource,
 
     -- ** Request lenses
-    adtrOrganizationId,
     adtrResourceId,
     adtrEntityId,
+    adtrOrganizationId,
 
     -- * Destructuring the response
     AssociateDelegateToResourceResponse (..),
@@ -40,49 +41,38 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkAssociateDelegateToResource' smart constructor.
 data AssociateDelegateToResource = AssociateDelegateToResource'
-  { organizationId ::
-      Lude.Text,
+  { -- | The resource for which members (users or groups) are associated.
     resourceId :: Lude.Text,
-    entityId :: Lude.Text
+    -- | The member (user or group) to associate to the resource.
+    entityId :: Lude.Text,
+    -- | The organization under which the resource exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDelegateToResource' with the minimum fields required to make a request.
 --
+-- * 'resourceId' - The resource for which members (users or groups) are associated.
 -- * 'entityId' - The member (user or group) to associate to the resource.
 -- * 'organizationId' - The organization under which the resource exists.
--- * 'resourceId' - The resource for which members (users or groups) are associated.
 mkAssociateDelegateToResource ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'entityId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   AssociateDelegateToResource
 mkAssociateDelegateToResource
-  pOrganizationId_
   pResourceId_
-  pEntityId_ =
+  pEntityId_
+  pOrganizationId_ =
     AssociateDelegateToResource'
-      { organizationId = pOrganizationId_,
-        resourceId = pResourceId_,
-        entityId = pEntityId_
+      { resourceId = pResourceId_,
+        entityId = pEntityId_,
+        organizationId = pOrganizationId_
       }
-
--- | The organization under which the resource exists.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adtrOrganizationId :: Lens.Lens' AssociateDelegateToResource Lude.Text
-adtrOrganizationId = Lens.lens (organizationId :: AssociateDelegateToResource -> Lude.Text) (\s a -> s {organizationId = a} :: AssociateDelegateToResource)
-{-# DEPRECATED adtrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The resource for which members (users or groups) are associated.
 --
@@ -97,6 +87,13 @@ adtrResourceId = Lens.lens (resourceId :: AssociateDelegateToResource -> Lude.Te
 adtrEntityId :: Lens.Lens' AssociateDelegateToResource Lude.Text
 adtrEntityId = Lens.lens (entityId :: AssociateDelegateToResource -> Lude.Text) (\s a -> s {entityId = a} :: AssociateDelegateToResource)
 {-# DEPRECATED adtrEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+
+-- | The organization under which the resource exists.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adtrOrganizationId :: Lens.Lens' AssociateDelegateToResource Lude.Text
+adtrOrganizationId = Lens.lens (organizationId :: AssociateDelegateToResource -> Lude.Text) (\s a -> s {organizationId = a} :: AssociateDelegateToResource)
+{-# DEPRECATED adtrOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest AssociateDelegateToResource where
   type
@@ -125,9 +122,9 @@ instance Lude.ToJSON AssociateDelegateToResource where
   toJSON AssociateDelegateToResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("EntityId" Lude..= entityId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("EntityId" Lude..= entityId),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -139,16 +136,10 @@ instance Lude.ToQuery AssociateDelegateToResource where
 
 -- | /See:/ 'mkAssociateDelegateToResourceResponse' smart constructor.
 newtype AssociateDelegateToResourceResponse = AssociateDelegateToResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDelegateToResourceResponse' with the minimum fields required to make a request.

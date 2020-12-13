@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,7 +29,7 @@ module Network.AWS.WorkSpaces.DeleteIPGroup
     mkDeleteIPGroupResponse,
 
     -- ** Response lenses
-    dipgrsResponseStatus,
+    digrsResponseStatus,
   )
 where
 
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDeleteIPGroup' smart constructor.
-newtype DeleteIPGroup = DeleteIPGroup' {groupId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteIPGroup = DeleteIPGroup'
+  { -- | The identifier of the IP access control group.
+    groupId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIPGroup' with the minimum fields required to make a request.
@@ -98,16 +96,10 @@ instance Lude.ToQuery DeleteIPGroup where
 
 -- | /See:/ 'mkDeleteIPGroupResponse' smart constructor.
 newtype DeleteIPGroupResponse = DeleteIPGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIPGroupResponse' with the minimum fields required to make a request.
@@ -123,6 +115,6 @@ mkDeleteIPGroupResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipgrsResponseStatus :: Lens.Lens' DeleteIPGroupResponse Lude.Int
-dipgrsResponseStatus = Lens.lens (responseStatus :: DeleteIPGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIPGroupResponse)
-{-# DEPRECATED dipgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+digrsResponseStatus :: Lens.Lens' DeleteIPGroupResponse Lude.Int
+digrsResponseStatus = Lens.lens (responseStatus :: DeleteIPGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIPGroupResponse)
+{-# DEPRECATED digrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

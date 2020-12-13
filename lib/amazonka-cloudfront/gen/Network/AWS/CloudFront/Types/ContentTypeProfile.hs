@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.ContentTypeProfile
     mkContentTypeProfile,
 
     -- * Lenses
-    ctpProfileId,
     ctpFormat,
+    ctpProfileId,
     ctpContentType,
   )
 where
@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContentTypeProfile' smart constructor.
 data ContentTypeProfile = ContentTypeProfile'
-  { profileId ::
-      Lude.Maybe Lude.Text,
+  { -- | The format for a field-level encryption content type-profile mapping.
     format :: Format,
+    -- | The profile ID for a field-level encryption content type-profile mapping.
+    profileId :: Lude.Maybe Lude.Text,
+    -- | The content type for a field-level encryption content type-profile mapping.
     contentType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContentTypeProfile' with the minimum fields required to make a request.
 --
--- * 'contentType' - The content type for a field-level encryption content type-profile mapping.
 -- * 'format' - The format for a field-level encryption content type-profile mapping.
 -- * 'profileId' - The profile ID for a field-level encryption content type-profile mapping.
+-- * 'contentType' - The content type for a field-level encryption content type-profile mapping.
 mkContentTypeProfile ::
   -- | 'format'
   Format ->
@@ -58,17 +54,10 @@ mkContentTypeProfile ::
   ContentTypeProfile
 mkContentTypeProfile pFormat_ pContentType_ =
   ContentTypeProfile'
-    { profileId = Lude.Nothing,
-      format = pFormat_,
+    { format = pFormat_,
+      profileId = Lude.Nothing,
       contentType = pContentType_
     }
-
--- | The profile ID for a field-level encryption content type-profile mapping.
---
--- /Note:/ Consider using 'profileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpProfileId :: Lens.Lens' ContentTypeProfile (Lude.Maybe Lude.Text)
-ctpProfileId = Lens.lens (profileId :: ContentTypeProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileId = a} :: ContentTypeProfile)
-{-# DEPRECATED ctpProfileId "Use generic-lens or generic-optics with 'profileId' instead." #-}
 
 -- | The format for a field-level encryption content type-profile mapping.
 --
@@ -76,6 +65,13 @@ ctpProfileId = Lens.lens (profileId :: ContentTypeProfile -> Lude.Maybe Lude.Tex
 ctpFormat :: Lens.Lens' ContentTypeProfile Format
 ctpFormat = Lens.lens (format :: ContentTypeProfile -> Format) (\s a -> s {format = a} :: ContentTypeProfile)
 {-# DEPRECATED ctpFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+
+-- | The profile ID for a field-level encryption content type-profile mapping.
+--
+-- /Note:/ Consider using 'profileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpProfileId :: Lens.Lens' ContentTypeProfile (Lude.Maybe Lude.Text)
+ctpProfileId = Lens.lens (profileId :: ContentTypeProfile -> Lude.Maybe Lude.Text) (\s a -> s {profileId = a} :: ContentTypeProfile)
+{-# DEPRECATED ctpProfileId "Use generic-lens or generic-optics with 'profileId' instead." #-}
 
 -- | The content type for a field-level encryption content type-profile mapping.
 --
@@ -87,14 +83,14 @@ ctpContentType = Lens.lens (contentType :: ContentTypeProfile -> Lude.Text) (\s 
 instance Lude.FromXML ContentTypeProfile where
   parseXML x =
     ContentTypeProfile'
-      Lude.<$> (x Lude..@? "ProfileId")
-      Lude.<*> (x Lude..@ "Format")
+      Lude.<$> (x Lude..@ "Format")
+      Lude.<*> (x Lude..@? "ProfileId")
       Lude.<*> (x Lude..@ "ContentType")
 
 instance Lude.ToXML ContentTypeProfile where
   toXML ContentTypeProfile' {..} =
     Lude.mconcat
-      [ "ProfileId" Lude.@= profileId,
-        "Format" Lude.@= format,
+      [ "Format" Lude.@= format,
+        "ProfileId" Lude.@= profileId,
         "ContentType" Lude.@= contentType
       ]

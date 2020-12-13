@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,23 +49,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeCertificates' smart constructor.
 data DescribeCertificates = DescribeCertificates'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * Must match an existing CertificateIdentifier.
     certificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificates' with the minimum fields required to make a request.
 --
+-- * 'filters' - This parameter isn't currently supported.
 -- * 'certificateIdentifier' - The user-supplied certificate identifier. If this parameter is specified, information for only the identified certificate is returned. This parameter isn't case-sensitive.
 --
 -- Constraints:
@@ -72,7 +78,6 @@ data DescribeCertificates = DescribeCertificates'
 --     * Must match an existing CertificateIdentifier.
 --
 --
--- * 'filters' - This parameter isn't currently supported.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -169,18 +174,14 @@ instance Lude.ToQuery DescribeCertificates where
 --
 -- /See:/ 'mkDescribeCertificatesResponse' smart constructor.
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
-  { certificates ::
-      Lude.Maybe [Certificate],
+  { -- | The list of @Certificate@ objects for the AWS account.
+    certificates :: Lude.Maybe [Certificate],
+    -- | An optional pagination token provided by a previous @DescribeCertificates@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificatesResponse' with the minimum fields required to make a request.

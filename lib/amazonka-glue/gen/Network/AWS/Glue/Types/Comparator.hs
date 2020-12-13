@@ -15,8 +15,8 @@ module Network.AWS.Glue.Types.Comparator
       ( Comparator',
         CEquals,
         CGreaterThan,
-        CGreaterThanEquals,
         CLessThan,
+        CGreaterThanEquals,
         CLessThanEquals
       ),
   )
@@ -54,11 +54,11 @@ pattern CEquals = Comparator' "EQUALS"
 pattern CGreaterThan :: Comparator
 pattern CGreaterThan = Comparator' "GREATER_THAN"
 
-pattern CGreaterThanEquals :: Comparator
-pattern CGreaterThanEquals = Comparator' "GREATER_THAN_EQUALS"
-
 pattern CLessThan :: Comparator
 pattern CLessThan = Comparator' "LESS_THAN"
+
+pattern CGreaterThanEquals :: Comparator
+pattern CGreaterThanEquals = Comparator' "GREATER_THAN_EQUALS"
 
 pattern CLessThanEquals :: Comparator
 pattern CLessThanEquals = Comparator' "LESS_THAN_EQUALS"
@@ -66,8 +66,8 @@ pattern CLessThanEquals = Comparator' "LESS_THAN_EQUALS"
 {-# COMPLETE
   CEquals,
   CGreaterThan,
-  CGreaterThanEquals,
   CLessThan,
+  CGreaterThanEquals,
   CLessThanEquals,
   Comparator'
   #-}

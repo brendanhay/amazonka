@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetCloudFrontOriginAccessIdentity' smart constructor.
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
-  { id ::
-      Lude.Text
+  { -- | The identity's ID.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
@@ -100,28 +95,20 @@ instance Lude.ToQuery GetCloudFrontOriginAccessIdentity where
 --
 -- /See:/ 'mkGetCloudFrontOriginAccessIdentityResponse' smart constructor.
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    cloudFrontOriginAccessIdentity ::
-      Lude.Maybe
-        CloudFrontOriginAccessIdentity,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the origin access identity's information. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The origin access identity's information.
+    cloudFrontOriginAccessIdentity :: Lude.Maybe CloudFrontOriginAccessIdentity,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
--- * 'cloudFrontOriginAccessIdentity' - The origin access identity's information.
 -- * 'eTag' - The current version of the origin access identity's information. For example: @E2QWRUHAPOMQZL@ .
+-- * 'cloudFrontOriginAccessIdentity' - The origin access identity's information.
 -- * 'responseStatus' - The response status code.
 mkGetCloudFrontOriginAccessIdentityResponse ::
   -- | 'responseStatus'

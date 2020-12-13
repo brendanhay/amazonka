@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.XRay.GetInsightEvents
     mkGetInsightEvents,
 
     -- ** Request lenses
+    gieInsightId,
     gieNextToken,
     gieMaxResults,
-    gieInsightId,
 
     -- * Destructuring the response
     GetInsightEventsResponse (..),
@@ -42,35 +43,38 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetInsightEvents' smart constructor.
 data GetInsightEvents = GetInsightEvents'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    insightId :: Lude.Text
+  { -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
+    insightId :: Lude.Text,
+    -- | Specify the pagination token returned by a previous request to retrieve the next page of events.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Used to retrieve at most the specified value of events.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightEvents' with the minimum fields required to make a request.
 --
 -- * 'insightId' - The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
--- * 'maxResults' - Used to retrieve at most the specified value of events.
 -- * 'nextToken' - Specify the pagination token returned by a previous request to retrieve the next page of events.
+-- * 'maxResults' - Used to retrieve at most the specified value of events.
 mkGetInsightEvents ::
   -- | 'insightId'
   Lude.Text ->
   GetInsightEvents
 mkGetInsightEvents pInsightId_ =
   GetInsightEvents'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      insightId = pInsightId_
+    { insightId = pInsightId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
+--
+-- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gieInsightId :: Lens.Lens' GetInsightEvents Lude.Text
+gieInsightId = Lens.lens (insightId :: GetInsightEvents -> Lude.Text) (\s a -> s {insightId = a} :: GetInsightEvents)
+{-# DEPRECATED gieInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
 
 -- | Specify the pagination token returned by a previous request to retrieve the next page of events.
 --
@@ -85,13 +89,6 @@ gieNextToken = Lens.lens (nextToken :: GetInsightEvents -> Lude.Maybe Lude.Text)
 gieMaxResults :: Lens.Lens' GetInsightEvents (Lude.Maybe Lude.Natural)
 gieMaxResults = Lens.lens (maxResults :: GetInsightEvents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInsightEvents)
 {-# DEPRECATED gieMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
---
--- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gieInsightId :: Lens.Lens' GetInsightEvents Lude.Text
-gieInsightId = Lens.lens (insightId :: GetInsightEvents -> Lude.Text) (\s a -> s {insightId = a} :: GetInsightEvents)
-{-# DEPRECATED gieInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
 
 instance Lude.AWSRequest GetInsightEvents where
   type Rs GetInsightEvents = GetInsightEventsResponse
@@ -112,9 +109,9 @@ instance Lude.ToJSON GetInsightEvents where
   toJSON GetInsightEvents' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("InsightId" Lude..= insightId)
+          [ Lude.Just ("InsightId" Lude..= insightId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -126,18 +123,14 @@ instance Lude.ToQuery GetInsightEvents where
 
 -- | /See:/ 'mkGetInsightEventsResponse' smart constructor.
 data GetInsightEventsResponse = GetInsightEventsResponse'
-  { insightEvents ::
-      Lude.Maybe [InsightEvent],
+  { -- | A detailed description of the event. This includes the time of the event, client and root cause impact statistics, and the top anomalous service at the time of the event.
+    insightEvents :: Lude.Maybe [InsightEvent],
+    -- | Use this token to retrieve the next page of insight events.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightEventsResponse' with the minimum fields required to make a request.

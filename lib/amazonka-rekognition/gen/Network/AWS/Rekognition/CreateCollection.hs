@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCollection' smart constructor.
 newtype CreateCollection = CreateCollection'
-  { collectionId ::
-      Lude.Text
+  { -- | ID for the collection that you are creating.
+    collectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCollection' with the minimum fields required to make a request.
@@ -111,27 +106,24 @@ instance Lude.ToQuery CreateCollection where
 
 -- | /See:/ 'mkCreateCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
-  { faceModelVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Version number of the face detection model associated with the collection you are creating.
+    faceModelVersion :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
     collectionARN :: Lude.Maybe Lude.Text,
+    -- | HTTP status code indicating the result of the operation.
     statusCode :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCollectionResponse' with the minimum fields required to make a request.
 --
--- * 'collectionARN' - Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
 -- * 'faceModelVersion' - Version number of the face detection model associated with the collection you are creating.
--- * 'responseStatus' - The response status code.
+-- * 'collectionARN' - Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
 -- * 'statusCode' - HTTP status code indicating the result of the operation.
+-- * 'responseStatus' - The response status code.
 mkCreateCollectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

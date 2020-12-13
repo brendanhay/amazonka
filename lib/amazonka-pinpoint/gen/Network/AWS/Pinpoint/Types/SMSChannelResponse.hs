@@ -17,6 +17,7 @@ module Network.AWS.Pinpoint.Types.SMSChannelResponse
     mkSMSChannelResponse,
 
     -- * Lenses
+    smscPlatform,
     smscShortCode,
     smscLastModifiedDate,
     smscEnabled,
@@ -30,7 +31,6 @@ module Network.AWS.Pinpoint.Types.SMSChannelResponse
     smscCreationDate,
     smscLastModifiedBy,
     smscHasCredential,
-    smscPlatform,
   )
 where
 
@@ -41,54 +41,62 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSMSChannelResponse' smart constructor.
 data SMSChannelResponse = SMSChannelResponse'
-  { shortCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.
+    platform :: Lude.Text,
+    -- | The registered short code to use when you send messages through the SMS channel.
+    shortCode :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO 8601 format, when the SMS channel was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the SMS channel is enabled for the application.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The identity that displays on recipients' devices when they receive messages from the SMS channel.
     senderId :: Lude.Maybe Lude.Text,
+    -- | The maximum number of transactional messages that you can send through the SMS channel each second.
     transactionalMessagesPerSecond :: Lude.Maybe Lude.Int,
+    -- | The maximum number of promotional messages that you can send through the SMS channel each second.
     promotionalMessagesPerSecond :: Lude.Maybe Lude.Int,
+    -- | Specifies whether the SMS channel is archived.
     isArchived :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the application that the SMS channel applies to.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The current version of the SMS channel.
     version :: Lude.Maybe Lude.Int,
+    -- | (Deprecated) An identifier for the SMS channel. This property is retained only for backward compatibility.
     id :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO 8601 format, when the SMS channel was enabled.
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The user who last modified the SMS channel.
     lastModifiedBy :: Lude.Maybe Lude.Text,
-    hasCredential :: Lude.Maybe Lude.Bool,
-    platform :: Lude.Text
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SMSChannelResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the SMS channel applies to.
--- * 'creationDate' - The date and time, in ISO 8601 format, when the SMS channel was enabled.
--- * 'enabled' - Specifies whether the SMS channel is enabled for the application.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
--- * 'id' - (Deprecated) An identifier for the SMS channel. This property is retained only for backward compatibility.
--- * 'isArchived' - Specifies whether the SMS channel is archived.
--- * 'lastModifiedBy' - The user who last modified the SMS channel.
--- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the SMS channel was last modified.
 -- * 'platform' - The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.
--- * 'promotionalMessagesPerSecond' - The maximum number of promotional messages that you can send through the SMS channel each second.
--- * 'senderId' - The identity that displays on recipients' devices when they receive messages from the SMS channel.
 -- * 'shortCode' - The registered short code to use when you send messages through the SMS channel.
+-- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the SMS channel was last modified.
+-- * 'enabled' - Specifies whether the SMS channel is enabled for the application.
+-- * 'senderId' - The identity that displays on recipients' devices when they receive messages from the SMS channel.
 -- * 'transactionalMessagesPerSecond' - The maximum number of transactional messages that you can send through the SMS channel each second.
+-- * 'promotionalMessagesPerSecond' - The maximum number of promotional messages that you can send through the SMS channel each second.
+-- * 'isArchived' - Specifies whether the SMS channel is archived.
+-- * 'applicationId' - The unique identifier for the application that the SMS channel applies to.
 -- * 'version' - The current version of the SMS channel.
+-- * 'id' - (Deprecated) An identifier for the SMS channel. This property is retained only for backward compatibility.
+-- * 'creationDate' - The date and time, in ISO 8601 format, when the SMS channel was enabled.
+-- * 'lastModifiedBy' - The user who last modified the SMS channel.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
 mkSMSChannelResponse ::
   -- | 'platform'
   Lude.Text ->
   SMSChannelResponse
 mkSMSChannelResponse pPlatform_ =
   SMSChannelResponse'
-    { shortCode = Lude.Nothing,
+    { platform = pPlatform_,
+      shortCode = Lude.Nothing,
       lastModifiedDate = Lude.Nothing,
       enabled = Lude.Nothing,
       senderId = Lude.Nothing,
@@ -100,9 +108,15 @@ mkSMSChannelResponse pPlatform_ =
       id = Lude.Nothing,
       creationDate = Lude.Nothing,
       lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing,
-      platform = pPlatform_
+      hasCredential = Lude.Nothing
     }
+
+-- | The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smscPlatform :: Lens.Lens' SMSChannelResponse Lude.Text
+smscPlatform = Lens.lens (platform :: SMSChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: SMSChannelResponse)
+{-# DEPRECATED smscPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The registered short code to use when you send messages through the SMS channel.
 --
@@ -195,20 +209,14 @@ smscHasCredential :: Lens.Lens' SMSChannelResponse (Lude.Maybe Lude.Bool)
 smscHasCredential = Lens.lens (hasCredential :: SMSChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: SMSChannelResponse)
 {-# DEPRECATED smscHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
--- | The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smscPlatform :: Lens.Lens' SMSChannelResponse Lude.Text
-smscPlatform = Lens.lens (platform :: SMSChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: SMSChannelResponse)
-{-# DEPRECATED smscPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
 instance Lude.FromJSON SMSChannelResponse where
   parseJSON =
     Lude.withObject
       "SMSChannelResponse"
       ( \x ->
           SMSChannelResponse'
-            Lude.<$> (x Lude..:? "ShortCode")
+            Lude.<$> (x Lude..: "Platform")
+            Lude.<*> (x Lude..:? "ShortCode")
             Lude.<*> (x Lude..:? "LastModifiedDate")
             Lude.<*> (x Lude..:? "Enabled")
             Lude.<*> (x Lude..:? "SenderId")
@@ -221,5 +229,4 @@ instance Lude.FromJSON SMSChannelResponse where
             Lude.<*> (x Lude..:? "CreationDate")
             Lude.<*> (x Lude..:? "LastModifiedBy")
             Lude.<*> (x Lude..:? "HasCredential")
-            Lude.<*> (x Lude..: "Platform")
       )

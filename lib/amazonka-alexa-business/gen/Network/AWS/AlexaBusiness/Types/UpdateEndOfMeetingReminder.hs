@@ -31,20 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdateEndOfMeetingReminder' smart constructor.
 data UpdateEndOfMeetingReminder = UpdateEndOfMeetingReminder'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    reminderAtMinutes ::
-      Lude.Maybe (Lude.NonEmpty Lude.Int),
-    reminderType ::
-      Lude.Maybe EndOfMeetingReminderType
+  { -- | Whether an end of meeting reminder is enabled or not.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | Updates settings for the end of meeting reminder feature that are applied to a room profile. The end of meeting reminder enables Alexa to remind users when a meeting is ending.
+    reminderAtMinutes :: Lude.Maybe (Lude.NonEmpty Lude.Int),
+    -- | The type of sound that users hear during the end of meeting reminder.
+    reminderType :: Lude.Maybe EndOfMeetingReminderType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEndOfMeetingReminder' with the minimum fields required to make a request.

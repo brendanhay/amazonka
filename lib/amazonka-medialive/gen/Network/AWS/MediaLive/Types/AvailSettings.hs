@@ -31,23 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailSettings' smart constructor.
 data AvailSettings = AvailSettings'
-  { scte35SpliceInsert ::
-      Lude.Maybe Scte35SpliceInsert,
+  { scte35SpliceInsert :: Lude.Maybe Scte35SpliceInsert,
     scte35TimeSignalApos :: Lude.Maybe Scte35TimeSignalApos
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailSettings' with the minimum fields required to make a request.
 --
--- * 'scte35SpliceInsert' - Undocumented field.
--- * 'scte35TimeSignalApos' - Undocumented field.
+-- * 'scte35SpliceInsert' -
+-- * 'scte35TimeSignalApos' -
 mkAvailSettings ::
   AvailSettings
 mkAvailSettings =

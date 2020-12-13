@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.InventoryGroup
     mkInventoryGroup,
 
     -- * Lenses
-    igName,
     igFilters,
+    igName,
   )
 where
 
@@ -30,16 +30,12 @@ import Network.AWS.SSM.Types.InventoryFilter
 --
 -- /See:/ 'mkInventoryGroup' smart constructor.
 data InventoryGroup = InventoryGroup'
-  { name :: Lude.Text,
-    filters :: Lude.NonEmpty InventoryFilter
+  { -- | Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
+    filters :: Lude.NonEmpty InventoryFilter,
+    -- | The name of the group.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryGroup' with the minimum fields required to make a request.
@@ -47,20 +43,13 @@ data InventoryGroup = InventoryGroup'
 -- * 'filters' - Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
 -- * 'name' - The name of the group.
 mkInventoryGroup ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'filters'
   Lude.NonEmpty InventoryFilter ->
+  -- | 'name'
+  Lude.Text ->
   InventoryGroup
-mkInventoryGroup pName_ pFilters_ =
-  InventoryGroup' {name = pName_, filters = pFilters_}
-
--- | The name of the group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igName :: Lens.Lens' InventoryGroup Lude.Text
-igName = Lens.lens (name :: InventoryGroup -> Lude.Text) (\s a -> s {name = a} :: InventoryGroup)
-{-# DEPRECATED igName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkInventoryGroup pFilters_ pName_ =
+  InventoryGroup' {filters = pFilters_, name = pName_}
 
 -- | Filters define the criteria for the group. The @matchingCount@ field displays the number of resources that match the criteria. The @notMatchingCount@ field displays the number of resources that don't match the criteria.
 --
@@ -69,11 +58,18 @@ igFilters :: Lens.Lens' InventoryGroup (Lude.NonEmpty InventoryFilter)
 igFilters = Lens.lens (filters :: InventoryGroup -> Lude.NonEmpty InventoryFilter) (\s a -> s {filters = a} :: InventoryGroup)
 {-# DEPRECATED igFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
+-- | The name of the group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+igName :: Lens.Lens' InventoryGroup Lude.Text
+igName = Lens.lens (name :: InventoryGroup -> Lude.Text) (\s a -> s {name = a} :: InventoryGroup)
+{-# DEPRECATED igName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.ToJSON InventoryGroup where
   toJSON InventoryGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Filters" Lude..= filters)
+          [ Lude.Just ("Filters" Lude..= filters),
+            Lude.Just ("Name" Lude..= name)
           ]
       )

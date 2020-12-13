@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodeCommit.UpdatePullRequestApprovalState
     mkUpdatePullRequestApprovalState,
 
     -- ** Request lenses
+    uprasApprovalState,
     uprasPullRequestId,
     uprasRevisionId,
-    uprasApprovalState,
 
     -- * Destructuring the response
     UpdatePullRequestApprovalStateResponse (..),
@@ -37,19 +38,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdatePullRequestApprovalState' smart constructor.
 data UpdatePullRequestApprovalState = UpdatePullRequestApprovalState'
-  { pullRequestId ::
-      Lude.Text,
-    revisionId :: Lude.Text,
-    approvalState ::
-      ApprovalState
+  { -- | The approval state to associate with the user on the pull request.
+    approvalState :: ApprovalState,
+    -- | The system-generated ID of the pull request.
+    pullRequestId :: Lude.Text,
+    -- | The system-generated ID of the revision.
+    revisionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePullRequestApprovalState' with the minimum fields required to make a request.
@@ -58,22 +54,29 @@ data UpdatePullRequestApprovalState = UpdatePullRequestApprovalState'
 -- * 'pullRequestId' - The system-generated ID of the pull request.
 -- * 'revisionId' - The system-generated ID of the revision.
 mkUpdatePullRequestApprovalState ::
+  -- | 'approvalState'
+  ApprovalState ->
   -- | 'pullRequestId'
   Lude.Text ->
   -- | 'revisionId'
   Lude.Text ->
-  -- | 'approvalState'
-  ApprovalState ->
   UpdatePullRequestApprovalState
 mkUpdatePullRequestApprovalState
+  pApprovalState_
   pPullRequestId_
-  pRevisionId_
-  pApprovalState_ =
+  pRevisionId_ =
     UpdatePullRequestApprovalState'
-      { pullRequestId = pPullRequestId_,
-        revisionId = pRevisionId_,
-        approvalState = pApprovalState_
+      { approvalState = pApprovalState_,
+        pullRequestId = pPullRequestId_,
+        revisionId = pRevisionId_
       }
+
+-- | The approval state to associate with the user on the pull request.
+--
+-- /Note:/ Consider using 'approvalState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprasApprovalState :: Lens.Lens' UpdatePullRequestApprovalState ApprovalState
+uprasApprovalState = Lens.lens (approvalState :: UpdatePullRequestApprovalState -> ApprovalState) (\s a -> s {approvalState = a} :: UpdatePullRequestApprovalState)
+{-# DEPRECATED uprasApprovalState "Use generic-lens or generic-optics with 'approvalState' instead." #-}
 
 -- | The system-generated ID of the pull request.
 --
@@ -88,13 +91,6 @@ uprasPullRequestId = Lens.lens (pullRequestId :: UpdatePullRequestApprovalState 
 uprasRevisionId :: Lens.Lens' UpdatePullRequestApprovalState Lude.Text
 uprasRevisionId = Lens.lens (revisionId :: UpdatePullRequestApprovalState -> Lude.Text) (\s a -> s {revisionId = a} :: UpdatePullRequestApprovalState)
 {-# DEPRECATED uprasRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
-
--- | The approval state to associate with the user on the pull request.
---
--- /Note:/ Consider using 'approvalState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprasApprovalState :: Lens.Lens' UpdatePullRequestApprovalState ApprovalState
-uprasApprovalState = Lens.lens (approvalState :: UpdatePullRequestApprovalState -> ApprovalState) (\s a -> s {approvalState = a} :: UpdatePullRequestApprovalState)
-{-# DEPRECATED uprasApprovalState "Use generic-lens or generic-optics with 'approvalState' instead." #-}
 
 instance Lude.AWSRequest UpdatePullRequestApprovalState where
   type
@@ -120,9 +116,9 @@ instance Lude.ToJSON UpdatePullRequestApprovalState where
   toJSON UpdatePullRequestApprovalState' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
-            Lude.Just ("revisionId" Lude..= revisionId),
-            Lude.Just ("approvalState" Lude..= approvalState)
+          [ Lude.Just ("approvalState" Lude..= approvalState),
+            Lude.Just ("pullRequestId" Lude..= pullRequestId),
+            Lude.Just ("revisionId" Lude..= revisionId)
           ]
       )
 
@@ -134,13 +130,7 @@ instance Lude.ToQuery UpdatePullRequestApprovalState where
 
 -- | /See:/ 'mkUpdatePullRequestApprovalStateResponse' smart constructor.
 data UpdatePullRequestApprovalStateResponse = UpdatePullRequestApprovalStateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePullRequestApprovalStateResponse' with the minimum fields required to make a request.

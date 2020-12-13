@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceIdentifierSummary' smart constructor.
 data ResourceIdentifierSummary = ResourceIdentifierSummary'
-  { resourceType ::
-      Lude.Maybe Lude.Text,
-    logicalResourceIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    resourceIdentifiers ::
-      Lude.Maybe [Lude.Text]
+  { -- | The template resource type of the target resources, such as @AWS::S3::Bucket@ .
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | The logical IDs of the target resources of the specified @ResourceType@ , as defined in the import template.
+    logicalResourceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The resource properties you can provide during the import to identify your target resources. For example, @BucketName@ is a possible identifier property for @AWS::S3::Bucket@ resources.
+    resourceIdentifiers :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceIdentifierSummary' with the minimum fields required to make a request.
 --
+-- * 'resourceType' - The template resource type of the target resources, such as @AWS::S3::Bucket@ .
 -- * 'logicalResourceIds' - The logical IDs of the target resources of the specified @ResourceType@ , as defined in the import template.
 -- * 'resourceIdentifiers' - The resource properties you can provide during the import to identify your target resources. For example, @BucketName@ is a possible identifier property for @AWS::S3::Bucket@ resources.
--- * 'resourceType' - The template resource type of the target resources, such as @AWS::S3::Bucket@ .
 mkResourceIdentifierSummary ::
   ResourceIdentifierSummary
 mkResourceIdentifierSummary =

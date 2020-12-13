@@ -30,16 +30,12 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkCopyObjectResult' smart constructor.
 data CopyObjectResult = CopyObjectResult'
-  { eTag :: Lude.Maybe ETag,
+  { -- | Returns the ETag of the new object. The ETag reflects only changes to the contents of an object, not its metadata. The source and destination ETag is identical for a successfully copied object.
+    eTag :: Lude.Maybe ETag,
+    -- | Returns the date that the object was last modified.
     lastModified :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyObjectResult' with the minimum fields required to make a request.

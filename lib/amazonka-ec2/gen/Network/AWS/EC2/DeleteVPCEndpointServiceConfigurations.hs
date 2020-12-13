@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteVPCEndpointServiceConfigurations
     mkDeleteVPCEndpointServiceConfigurations,
 
     -- ** Request lenses
-    dvpcescDryRun,
     dvpcescServiceIds,
+    dvpcescDryRun,
 
     -- * Destructuring the response
     DeleteVPCEndpointServiceConfigurationsResponse (..),
@@ -40,39 +41,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteVPCEndpointServiceConfigurations' smart constructor.
 data DeleteVPCEndpointServiceConfigurations = DeleteVPCEndpointServiceConfigurations'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    serviceIds ::
-      [Lude.Text]
+  { -- | The IDs of one or more services.
+    serviceIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpointServiceConfigurations' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'serviceIds' - The IDs of one or more services.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteVPCEndpointServiceConfigurations ::
   DeleteVPCEndpointServiceConfigurations
 mkDeleteVPCEndpointServiceConfigurations =
   DeleteVPCEndpointServiceConfigurations'
-    { dryRun = Lude.Nothing,
-      serviceIds = Lude.mempty
+    { serviceIds = Lude.mempty,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvpcescDryRun :: Lens.Lens' DeleteVPCEndpointServiceConfigurations (Lude.Maybe Lude.Bool)
-dvpcescDryRun = Lens.lens (dryRun :: DeleteVPCEndpointServiceConfigurations -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpointServiceConfigurations)
-{-# DEPRECATED dvpcescDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of one or more services.
 --
@@ -80,6 +67,13 @@ dvpcescDryRun = Lens.lens (dryRun :: DeleteVPCEndpointServiceConfigurations -> L
 dvpcescServiceIds :: Lens.Lens' DeleteVPCEndpointServiceConfigurations [Lude.Text]
 dvpcescServiceIds = Lens.lens (serviceIds :: DeleteVPCEndpointServiceConfigurations -> [Lude.Text]) (\s a -> s {serviceIds = a} :: DeleteVPCEndpointServiceConfigurations)
 {-# DEPRECATED dvpcescServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcescDryRun :: Lens.Lens' DeleteVPCEndpointServiceConfigurations (Lude.Maybe Lude.Bool)
+dvpcescDryRun = Lens.lens (dryRun :: DeleteVPCEndpointServiceConfigurations -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpointServiceConfigurations)
+{-# DEPRECATED dvpcescDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteVPCEndpointServiceConfigurations where
   type
@@ -108,34 +102,24 @@ instance Lude.ToQuery DeleteVPCEndpointServiceConfigurations where
       [ "Action"
           Lude.=: ("DeleteVpcEndpointServiceConfigurations" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "ServiceId" serviceIds
+        Lude.toQueryList "ServiceId" serviceIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteVPCEndpointServiceConfigurationsResponse' smart constructor.
 data DeleteVPCEndpointServiceConfigurationsResponse = DeleteVPCEndpointServiceConfigurationsResponse'
-  { unsuccessful ::
-      Lude.Maybe
-        [UnsuccessfulItem],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the service configurations that were not deleted, if applicable.
+    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpointServiceConfigurationsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unsuccessful' - Information about the service configurations that were not deleted, if applicable.
+-- * 'responseStatus' - The response status code.
 mkDeleteVPCEndpointServiceConfigurationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

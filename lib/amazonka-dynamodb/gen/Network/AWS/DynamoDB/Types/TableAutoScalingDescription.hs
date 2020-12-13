@@ -32,26 +32,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTableAutoScalingDescription' smart constructor.
 data TableAutoScalingDescription = TableAutoScalingDescription'
-  { tableStatus ::
-      Lude.Maybe TableStatus,
-    replicas ::
-      Lude.Maybe
-        [ReplicaAutoScalingDescription],
+  { -- | The current state of the table:
+    --
+    --
+    --     * @CREATING@ - The table is being created.
+    --
+    --
+    --     * @UPDATING@ - The table is being updated.
+    --
+    --
+    --     * @DELETING@ - The table is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The table is ready for use.
+    tableStatus :: Lude.Maybe TableStatus,
+    -- | Represents replicas of the global table.
+    replicas :: Lude.Maybe [ReplicaAutoScalingDescription],
+    -- | The name of the table.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableAutoScalingDescription' with the minimum fields required to make a request.
 --
--- * 'replicas' - Represents replicas of the global table.
--- * 'tableName' - The name of the table.
 -- * 'tableStatus' - The current state of the table:
 --
 --
@@ -65,6 +69,10 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
 --
 --
 --     * @ACTIVE@ - The table is ready for use.
+--
+--
+-- * 'replicas' - Represents replicas of the global table.
+-- * 'tableName' - The name of the table.
 mkTableAutoScalingDescription ::
   TableAutoScalingDescription
 mkTableAutoScalingDescription =

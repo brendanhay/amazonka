@@ -32,22 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeWindow' smart constructor.
 data TimeWindow = TimeWindow'
-  { startTime :: Lude.Timestamp,
+  { -- | The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
+    startTime :: Lude.Timestamp,
+    -- | The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
     endTime :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeWindow' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 -- * 'startTime' - The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
+-- * 'endTime' - The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 mkTimeWindow ::
   -- | 'startTime'
   Lude.Timestamp ->

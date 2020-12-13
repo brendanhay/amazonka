@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.CreateThing
     -- ** Request lenses
     ctThingTypeName,
     ctAttributePayload,
-    ctBillingGroupName,
     ctThingName,
+    ctBillingGroupName,
 
     -- * Destructuring the response
     CreateThingResponse (..),
@@ -46,31 +47,32 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateThing' smart constructor.
 data CreateThing = CreateThing'
-  { thingTypeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the thing type associated with the new thing.
+    thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:
+    --
+    -- @{\"attributes\":{\"string1\":\"string2\"}}@
     attributePayload :: Lude.Maybe AttributePayload,
-    billingGroupName :: Lude.Maybe Lude.Text,
-    thingName :: Lude.Text
+    -- | The name of the thing to create.
+    --
+    -- You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+    thingName :: Lude.Text,
+    -- | The name of the billing group the thing will be added to.
+    billingGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThing' with the minimum fields required to make a request.
 --
+-- * 'thingTypeName' - The name of the thing type associated with the new thing.
 -- * 'attributePayload' - The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:
 --
 -- @{\"attributes\":{\"string1\":\"string2\"}}@
--- * 'billingGroupName' - The name of the billing group the thing will be added to.
 -- * 'thingName' - The name of the thing to create.
 --
 -- You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
--- * 'thingTypeName' - The name of the thing type associated with the new thing.
+-- * 'billingGroupName' - The name of the billing group the thing will be added to.
 mkCreateThing ::
   -- | 'thingName'
   Lude.Text ->
@@ -79,8 +81,8 @@ mkCreateThing pThingName_ =
   CreateThing'
     { thingTypeName = Lude.Nothing,
       attributePayload = Lude.Nothing,
-      billingGroupName = Lude.Nothing,
-      thingName = pThingName_
+      thingName = pThingName_,
+      billingGroupName = Lude.Nothing
     }
 
 -- | The name of the thing type associated with the new thing.
@@ -99,13 +101,6 @@ ctAttributePayload :: Lens.Lens' CreateThing (Lude.Maybe AttributePayload)
 ctAttributePayload = Lens.lens (attributePayload :: CreateThing -> Lude.Maybe AttributePayload) (\s a -> s {attributePayload = a} :: CreateThing)
 {-# DEPRECATED ctAttributePayload "Use generic-lens or generic-optics with 'attributePayload' instead." #-}
 
--- | The name of the billing group the thing will be added to.
---
--- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctBillingGroupName :: Lens.Lens' CreateThing (Lude.Maybe Lude.Text)
-ctBillingGroupName = Lens.lens (billingGroupName :: CreateThing -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: CreateThing)
-{-# DEPRECATED ctBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
-
 -- | The name of the thing to create.
 --
 -- You can't change a thing's name after you create it. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
@@ -114,6 +109,13 @@ ctBillingGroupName = Lens.lens (billingGroupName :: CreateThing -> Lude.Maybe Lu
 ctThingName :: Lens.Lens' CreateThing Lude.Text
 ctThingName = Lens.lens (thingName :: CreateThing -> Lude.Text) (\s a -> s {thingName = a} :: CreateThing)
 {-# DEPRECATED ctThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+
+-- | The name of the billing group the thing will be added to.
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctBillingGroupName :: Lens.Lens' CreateThing (Lude.Maybe Lude.Text)
+ctBillingGroupName = Lens.lens (billingGroupName :: CreateThing -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: CreateThing)
+{-# DEPRECATED ctBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
 instance Lude.AWSRequest CreateThing where
   type Rs CreateThing = CreateThingResponse
@@ -152,27 +154,24 @@ instance Lude.ToQuery CreateThing where
 --
 -- /See:/ 'mkCreateThingResponse' smart constructor.
 data CreateThingResponse = CreateThingResponse'
-  { thingARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the new thing.
+    thingARN :: Lude.Maybe Lude.Text,
+    -- | The name of the new thing.
     thingName :: Lude.Maybe Lude.Text,
+    -- | The thing ID.
     thingId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'thingARN' - The ARN of the new thing.
--- * 'thingId' - The thing ID.
 -- * 'thingName' - The name of the new thing.
+-- * 'thingId' - The thing ID.
+-- * 'responseStatus' - The response status code.
 mkCreateThingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

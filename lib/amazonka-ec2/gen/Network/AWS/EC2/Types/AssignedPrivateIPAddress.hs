@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssignedPrivateIPAddress' smart constructor.
 newtype AssignedPrivateIPAddress = AssignedPrivateIPAddress'
-  { privateIPAddress ::
-      Lude.Maybe Lude.Text
+  { -- | The private IP address assigned to the network interface.
+    privateIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignedPrivateIPAddress' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchNetworkProfiles' smart constructor.
 data SearchNetworkProfiles = SearchNetworkProfiles'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters to use to list a specified set of network profiles. Valid filters are NetworkProfileName, Ssid, and SecurityType.
+    filters :: Lude.Maybe [Filter],
+    -- | The sort order to use to list the specified set of network profiles. Valid sort criteria includes NetworkProfileName, Ssid, and SecurityType.
     sortCriteria :: Lude.Maybe [Sort],
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchNetworkProfiles' with the minimum fields required to make a request.
 --
 -- * 'filters' - The filters to use to list a specified set of network profiles. Valid filters are NetworkProfileName, Ssid, and SecurityType.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
 -- * 'sortCriteria' - The sort order to use to list the specified set of network profiles. Valid sort criteria includes NetworkProfileName, Ssid, and SecurityType.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
 mkSearchNetworkProfiles ::
   SearchNetworkProfiles
 mkSearchNetworkProfiles =
@@ -146,29 +144,24 @@ instance Lude.ToQuery SearchNetworkProfiles where
 
 -- | /See:/ 'mkSearchNetworkProfilesResponse' smart constructor.
 data SearchNetworkProfilesResponse = SearchNetworkProfilesResponse'
-  { networkProfiles ::
-      Lude.Maybe [NetworkProfileData],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    totalCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The network profiles that meet the specified set of filter criteria, in sort order. It is a list of NetworkProfileData objects.
+    networkProfiles :: Lude.Maybe [NetworkProfileData],
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of network profiles returned.
+    totalCount :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchNetworkProfilesResponse' with the minimum fields required to make a request.
 --
 -- * 'networkProfiles' - The network profiles that meet the specified set of filter criteria, in sort order. It is a list of NetworkProfileData objects.
 -- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.
--- * 'responseStatus' - The response status code.
 -- * 'totalCount' - The total number of network profiles returned.
+-- * 'responseStatus' - The response status code.
 mkSearchNetworkProfilesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

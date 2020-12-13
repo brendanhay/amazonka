@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteDHCPOptions
     mkDeleteDHCPOptions,
 
     -- ** Request lenses
-    ddhcpoDryRun,
-    ddhcpoDHCPOptionsId,
+    ddoDHCPOptionsId,
+    ddoDryRun,
 
     -- * Destructuring the response
     DeleteDHCPOptionsResponse (..),
@@ -36,17 +37,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDHCPOptions' smart constructor.
 data DeleteDHCPOptions = DeleteDHCPOptions'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    dhcpOptionsId :: Lude.Text
+  { -- | The ID of the DHCP options set.
+    dhcpOptionsId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDHCPOptions' with the minimum fields required to make a request.
@@ -59,23 +55,23 @@ mkDeleteDHCPOptions ::
   DeleteDHCPOptions
 mkDeleteDHCPOptions pDHCPOptionsId_ =
   DeleteDHCPOptions'
-    { dryRun = Lude.Nothing,
-      dhcpOptionsId = pDHCPOptionsId_
+    { dhcpOptionsId = pDHCPOptionsId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddhcpoDryRun :: Lens.Lens' DeleteDHCPOptions (Lude.Maybe Lude.Bool)
-ddhcpoDryRun = Lens.lens (dryRun :: DeleteDHCPOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteDHCPOptions)
-{-# DEPRECATED ddhcpoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the DHCP options set.
 --
 -- /Note:/ Consider using 'dhcpOptionsId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddhcpoDHCPOptionsId :: Lens.Lens' DeleteDHCPOptions Lude.Text
-ddhcpoDHCPOptionsId = Lens.lens (dhcpOptionsId :: DeleteDHCPOptions -> Lude.Text) (\s a -> s {dhcpOptionsId = a} :: DeleteDHCPOptions)
-{-# DEPRECATED ddhcpoDHCPOptionsId "Use generic-lens or generic-optics with 'dhcpOptionsId' instead." #-}
+ddoDHCPOptionsId :: Lens.Lens' DeleteDHCPOptions Lude.Text
+ddoDHCPOptionsId = Lens.lens (dhcpOptionsId :: DeleteDHCPOptions -> Lude.Text) (\s a -> s {dhcpOptionsId = a} :: DeleteDHCPOptions)
+{-# DEPRECATED ddoDHCPOptionsId "Use generic-lens or generic-optics with 'dhcpOptionsId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddoDryRun :: Lens.Lens' DeleteDHCPOptions (Lude.Maybe Lude.Bool)
+ddoDryRun = Lens.lens (dryRun :: DeleteDHCPOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteDHCPOptions)
+{-# DEPRECATED ddoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteDHCPOptions where
   type Rs DeleteDHCPOptions = DeleteDHCPOptionsResponse
@@ -93,19 +89,13 @@ instance Lude.ToQuery DeleteDHCPOptions where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteDhcpOptions" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "DhcpOptionsId" Lude.=: dhcpOptionsId
+        "DhcpOptionsId" Lude.=: dhcpOptionsId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteDHCPOptionsResponse' smart constructor.
 data DeleteDHCPOptionsResponse = DeleteDHCPOptionsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDHCPOptionsResponse' with the minimum fields required to make a request.

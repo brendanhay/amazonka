@@ -38,39 +38,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshotDetail' smart constructor.
 data SnapshotDetail = SnapshotDetail'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | A brief status of the snapshot creation.
+    status :: Lude.Maybe Lude.Text,
+    -- | The percentage of progress for the task.
     progress :: Lude.Maybe Lude.Text,
+    -- | The format of the disk image from which the snapshot is created.
     format :: Lude.Maybe Lude.Text,
+    -- | The URL used to access the disk image.
     url :: Lude.Maybe Lude.Text,
+    -- | The block device mapping for the snapshot.
     deviceName :: Lude.Maybe Lude.Text,
+    -- | A detailed status message for the snapshot creation.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 bucket for the disk image.
     userBucket :: Lude.Maybe UserBucketDetails,
+    -- | The size of the disk in the snapshot, in GiB.
     diskImageSize :: Lude.Maybe Lude.Double,
+    -- | A description for the snapshot.
     description :: Lude.Maybe Lude.Text,
+    -- | The snapshot ID of the disk being imported.
     snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotDetail' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the snapshot.
--- * 'deviceName' - The block device mapping for the snapshot.
--- * 'diskImageSize' - The size of the disk in the snapshot, in GiB.
--- * 'format' - The format of the disk image from which the snapshot is created.
--- * 'progress' - The percentage of progress for the task.
--- * 'snapshotId' - The snapshot ID of the disk being imported.
 -- * 'status' - A brief status of the snapshot creation.
--- * 'statusMessage' - A detailed status message for the snapshot creation.
+-- * 'progress' - The percentage of progress for the task.
+-- * 'format' - The format of the disk image from which the snapshot is created.
 -- * 'url' - The URL used to access the disk image.
+-- * 'deviceName' - The block device mapping for the snapshot.
+-- * 'statusMessage' - A detailed status message for the snapshot creation.
 -- * 'userBucket' - The Amazon S3 bucket for the disk image.
+-- * 'diskImageSize' - The size of the disk in the snapshot, in GiB.
+-- * 'description' - A description for the snapshot.
+-- * 'snapshotId' - The snapshot ID of the disk being imported.
 mkSnapshotDetail ::
   SnapshotDetail
 mkSnapshotDetail =

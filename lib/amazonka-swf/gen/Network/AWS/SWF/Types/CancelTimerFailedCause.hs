@@ -13,8 +13,8 @@
 module Network.AWS.SWF.Types.CancelTimerFailedCause
   ( CancelTimerFailedCause
       ( CancelTimerFailedCause',
-        CTFCOperationNotPermitted,
-        CTFCTimerIdUnknown
+        CTFCTimerIdUnknown,
+        CTFCOperationNotPermitted
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CancelTimerFailedCause = CancelTimerFailedCause' Lude.Text
       Lude.ToHeader
     )
 
-pattern CTFCOperationNotPermitted :: CancelTimerFailedCause
-pattern CTFCOperationNotPermitted = CancelTimerFailedCause' "OPERATION_NOT_PERMITTED"
-
 pattern CTFCTimerIdUnknown :: CancelTimerFailedCause
 pattern CTFCTimerIdUnknown = CancelTimerFailedCause' "TIMER_ID_UNKNOWN"
 
+pattern CTFCOperationNotPermitted :: CancelTimerFailedCause
+pattern CTFCOperationNotPermitted = CancelTimerFailedCause' "OPERATION_NOT_PERMITTED"
+
 {-# COMPLETE
-  CTFCOperationNotPermitted,
   CTFCTimerIdUnknown,
+  CTFCOperationNotPermitted,
   CancelTimerFailedCause'
   #-}

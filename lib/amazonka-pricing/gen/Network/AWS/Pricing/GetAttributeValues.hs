@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.Pricing.GetAttributeValues
 
     -- ** Request lenses
     gavNextToken,
-    gavMaxResults,
     gavServiceCode,
     gavAttributeName,
+    gavMaxResults,
 
     -- * Destructuring the response
     GetAttributeValuesResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAttributeValues' smart constructor.
 data GetAttributeValues = GetAttributeValues'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The pagination token that indicates the next set of results that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@ .
     serviceCode :: Lude.Text,
-    attributeName :: Lude.Text
+    -- | The name of the attribute that you want to retrieve the values for, such as @volumeType@ .
+    attributeName :: Lude.Text,
+    -- | The maximum number of results to return in response.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributeValues' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the attribute that you want to retrieve the values for, such as @volumeType@ .
--- * 'maxResults' - The maximum number of results to return in response.
 -- * 'nextToken' - The pagination token that indicates the next set of results that you want to retrieve.
 -- * 'serviceCode' - The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@ .
+-- * 'attributeName' - The name of the attribute that you want to retrieve the values for, such as @volumeType@ .
+-- * 'maxResults' - The maximum number of results to return in response.
 mkGetAttributeValues ::
   -- | 'serviceCode'
   Lude.Text ->
@@ -76,9 +74,9 @@ mkGetAttributeValues ::
 mkGetAttributeValues pServiceCode_ pAttributeName_ =
   GetAttributeValues'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
       serviceCode = pServiceCode_,
-      attributeName = pAttributeName_
+      attributeName = pAttributeName_,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token that indicates the next set of results that you want to retrieve.
@@ -87,13 +85,6 @@ mkGetAttributeValues pServiceCode_ pAttributeName_ =
 gavNextToken :: Lens.Lens' GetAttributeValues (Lude.Maybe Lude.Text)
 gavNextToken = Lens.lens (nextToken :: GetAttributeValues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetAttributeValues)
 {-# DEPRECATED gavNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results to return in response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gavMaxResults :: Lens.Lens' GetAttributeValues (Lude.Maybe Lude.Natural)
-gavMaxResults = Lens.lens (maxResults :: GetAttributeValues -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetAttributeValues)
-{-# DEPRECATED gavMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use @AmazonEC2@ .
 --
@@ -108,6 +99,13 @@ gavServiceCode = Lens.lens (serviceCode :: GetAttributeValues -> Lude.Text) (\s 
 gavAttributeName :: Lens.Lens' GetAttributeValues Lude.Text
 gavAttributeName = Lens.lens (attributeName :: GetAttributeValues -> Lude.Text) (\s a -> s {attributeName = a} :: GetAttributeValues)
 {-# DEPRECATED gavAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
+
+-- | The maximum number of results to return in response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gavMaxResults :: Lens.Lens' GetAttributeValues (Lude.Maybe Lude.Natural)
+gavMaxResults = Lens.lens (maxResults :: GetAttributeValues -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetAttributeValues)
+{-# DEPRECATED gavMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetAttributeValues where
   page rq rs
@@ -146,9 +144,9 @@ instance Lude.ToJSON GetAttributeValues where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("ServiceCode" Lude..= serviceCode),
-            Lude.Just ("AttributeName" Lude..= attributeName)
+            Lude.Just ("AttributeName" Lude..= attributeName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -160,18 +158,14 @@ instance Lude.ToQuery GetAttributeValues where
 
 -- | /See:/ 'mkGetAttributeValuesResponse' smart constructor.
 data GetAttributeValuesResponse = GetAttributeValuesResponse'
-  { attributeValues ::
-      Lude.Maybe [AttributeValue],
+  { -- | The list of values for an attribute. For example, @Throughput Optimized HDD@ and @Provisioned IOPS@ are two available values for the @AmazonEC2@ @volumeType@ .
+    attributeValues :: Lude.Maybe [AttributeValue],
+    -- | The pagination token that indicates the next set of results to retrieve.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAttributeValuesResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Greengrass.GetGroupVersion
     mkGetGroupVersion,
 
     -- ** Request lenses
-    ggvGroupVersionId,
     ggvGroupId,
+    ggvGroupVersionId,
 
     -- * Destructuring the response
     GetGroupVersionResponse (..),
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetGroupVersion' smart constructor.
 data GetGroupVersion = GetGroupVersion'
-  { groupVersionId ::
-      Lude.Text,
-    groupId :: Lude.Text
+  { -- | The ID of the Greengrass group.
+    groupId :: Lude.Text,
+    -- | The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
+    groupVersionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupVersion' with the minimum fields required to make a request.
@@ -62,23 +58,16 @@ data GetGroupVersion = GetGroupVersion'
 -- * 'groupId' - The ID of the Greengrass group.
 -- * 'groupVersionId' - The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
 mkGetGroupVersion ::
-  -- | 'groupVersionId'
-  Lude.Text ->
   -- | 'groupId'
   Lude.Text ->
+  -- | 'groupVersionId'
+  Lude.Text ->
   GetGroupVersion
-mkGetGroupVersion pGroupVersionId_ pGroupId_ =
+mkGetGroupVersion pGroupId_ pGroupVersionId_ =
   GetGroupVersion'
-    { groupVersionId = pGroupVersionId_,
-      groupId = pGroupId_
+    { groupId = pGroupId_,
+      groupVersionId = pGroupVersionId_
     }
-
--- | The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
---
--- /Note:/ Consider using 'groupVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggvGroupVersionId :: Lens.Lens' GetGroupVersion Lude.Text
-ggvGroupVersionId = Lens.lens (groupVersionId :: GetGroupVersion -> Lude.Text) (\s a -> s {groupVersionId = a} :: GetGroupVersion)
-{-# DEPRECATED ggvGroupVersionId "Use generic-lens or generic-optics with 'groupVersionId' instead." #-}
 
 -- | The ID of the Greengrass group.
 --
@@ -86,6 +75,13 @@ ggvGroupVersionId = Lens.lens (groupVersionId :: GetGroupVersion -> Lude.Text) (
 ggvGroupId :: Lens.Lens' GetGroupVersion Lude.Text
 ggvGroupId = Lens.lens (groupId :: GetGroupVersion -> Lude.Text) (\s a -> s {groupId = a} :: GetGroupVersion)
 {-# DEPRECATED ggvGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+
+-- | The ID of the group version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListGroupVersions'' requests. If the version is the last one that was associated with a group, the value also maps to the ''LatestVersion'' property of the corresponding ''GroupInformation'' object.
+--
+-- /Note:/ Consider using 'groupVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggvGroupVersionId :: Lens.Lens' GetGroupVersion Lude.Text
+ggvGroupVersionId = Lens.lens (groupVersionId :: GetGroupVersion -> Lude.Text) (\s a -> s {groupVersionId = a} :: GetGroupVersion)
+{-# DEPRECATED ggvGroupVersionId "Use generic-lens or generic-optics with 'groupVersionId' instead." #-}
 
 instance Lude.AWSRequest GetGroupVersion where
   type Rs GetGroupVersion = GetGroupVersionResponse
@@ -125,31 +121,30 @@ instance Lude.ToQuery GetGroupVersion where
 
 -- | /See:/ 'mkGetGroupVersionResponse' smart constructor.
 data GetGroupVersionResponse = GetGroupVersionResponse'
-  { definition ::
-      Lude.Maybe GroupVersion,
+  { -- | Information about the group version definition.
+    definition :: Lude.Maybe GroupVersion,
+    -- | The ARN of the group version.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the group version was created.
     creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the group version.
     version :: Lude.Maybe Lude.Text,
+    -- | The ID of the group that the version is associated with.
     id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'definition' - Information about the group version definition.
 -- * 'arn' - The ARN of the group version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the group version was created.
--- * 'definition' - Information about the group version definition.
+-- * 'version' - The ID of the group version.
 -- * 'id' - The ID of the group that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the group version.
 mkGetGroupVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

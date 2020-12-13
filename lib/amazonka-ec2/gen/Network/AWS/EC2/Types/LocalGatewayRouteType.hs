@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.LocalGatewayRouteType
   ( LocalGatewayRouteType
       ( LocalGatewayRouteType',
-        LGRTPropagated,
-        LGRTStatic
+        Static,
+        Propagated
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype LocalGatewayRouteType = LocalGatewayRouteType' Lude.Text
       Lude.ToHeader
     )
 
-pattern LGRTPropagated :: LocalGatewayRouteType
-pattern LGRTPropagated = LocalGatewayRouteType' "propagated"
+pattern Static :: LocalGatewayRouteType
+pattern Static = LocalGatewayRouteType' "static"
 
-pattern LGRTStatic :: LocalGatewayRouteType
-pattern LGRTStatic = LocalGatewayRouteType' "static"
+pattern Propagated :: LocalGatewayRouteType
+pattern Propagated = LocalGatewayRouteType' "propagated"
 
 {-# COMPLETE
-  LGRTPropagated,
-  LGRTStatic,
+  Static,
+  Propagated,
   LocalGatewayRouteType'
   #-}

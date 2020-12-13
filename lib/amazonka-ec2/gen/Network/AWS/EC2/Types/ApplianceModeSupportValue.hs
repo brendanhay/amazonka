@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ApplianceModeSupportValue
   ( ApplianceModeSupportValue
       ( ApplianceModeSupportValue',
-        AMSVDisable,
-        AMSVEnable
+        AMSVEnable,
+        AMSVDisable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ApplianceModeSupportValue = ApplianceModeSupportValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern AMSVDisable :: ApplianceModeSupportValue
-pattern AMSVDisable = ApplianceModeSupportValue' "disable"
-
 pattern AMSVEnable :: ApplianceModeSupportValue
 pattern AMSVEnable = ApplianceModeSupportValue' "enable"
 
+pattern AMSVDisable :: ApplianceModeSupportValue
+pattern AMSVDisable = ApplianceModeSupportValue' "disable"
+
 {-# COMPLETE
-  AMSVDisable,
   AMSVEnable,
+  AMSVDisable,
   ApplianceModeSupportValue'
   #-}

@@ -56,9 +56,9 @@ module Network.AWS.Pricing
     -- ** Filter
     Filter (..),
     mkFilter,
-    fType,
     fField,
     fValue,
+    fType,
 
     -- ** PricingService
     PricingService (..),

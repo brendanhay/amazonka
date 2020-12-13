@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -62,9 +63,9 @@ module Network.AWS.GameLift.DescribeMatchmakingConfigurations
     mkDescribeMatchmakingConfigurationsResponse,
 
     -- ** Response lenses
-    dmcsrsConfigurations,
-    dmcsrsNextToken,
-    dmcsrsResponseStatus,
+    drsConfigurations,
+    drsNextToken,
+    drsResponseStatus,
   )
 where
 
@@ -79,30 +80,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeMatchmakingConfigurations' smart constructor.
 data DescribeMatchmakingConfigurations = DescribeMatchmakingConfigurations'
-  { ruleSetName ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    names ::
-      Lude.Maybe [Lude.Text],
-    limit ::
-      Lude.Maybe Lude.Natural
+  { -- | A unique identifier for a matchmaking rule set. You can use either the rule set name or ARN value. Use this parameter to retrieve all matchmaking configurations that use this rule set.
+    ruleSetName :: Lude.Maybe Lude.Text,
+    -- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a matchmaking configuration(s) to retrieve. You can use either the configuration name or ARN value. To request all existing configurations, leave this parameter empty.
+    names :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is limited to 10.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmakingConfigurations' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is limited to 10.
--- * 'names' - A unique identifier for a matchmaking configuration(s) to retrieve. You can use either the configuration name or ARN value. To request all existing configurations, leave this parameter empty.
--- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 -- * 'ruleSetName' - A unique identifier for a matchmaking rule set. You can use either the rule set name or ARN value. Use this parameter to retrieve all matchmaking configurations that use this rule set.
+-- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+-- * 'names' - A unique identifier for a matchmaking configuration(s) to retrieve. You can use either the configuration name or ARN value. To request all existing configurations, leave this parameter empty.
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. This parameter is limited to 10.
 mkDescribeMatchmakingConfigurations ::
   DescribeMatchmakingConfigurations
 mkDescribeMatchmakingConfigurations =
@@ -143,12 +138,12 @@ dmcLimit = Lens.lens (limit :: DescribeMatchmakingConfigurations -> Lude.Maybe L
 
 instance Page.AWSPager DescribeMatchmakingConfigurations where
   page rq rs
-    | Page.stop (rs Lens.^. dmcsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dmcsrsConfigurations) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. drsConfigurations) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dmcNextToken Lens..~ rs Lens.^. dmcsrsNextToken
+          Lude.& dmcNextToken Lens..~ rs Lens.^. drsNextToken
 
 instance Lude.AWSRequest DescribeMatchmakingConfigurations where
   type
@@ -196,22 +191,14 @@ instance Lude.ToQuery DescribeMatchmakingConfigurations where
 --
 -- /See:/ 'mkDescribeMatchmakingConfigurationsResponse' smart constructor.
 data DescribeMatchmakingConfigurationsResponse = DescribeMatchmakingConfigurationsResponse'
-  { configurations ::
-      Lude.Maybe
-        [MatchmakingConfiguration],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A collection of requested matchmaking configurations.
+    configurations :: Lude.Maybe [MatchmakingConfiguration],
+    -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMatchmakingConfigurationsResponse' with the minimum fields required to make a request.
@@ -234,20 +221,20 @@ mkDescribeMatchmakingConfigurationsResponse pResponseStatus_ =
 -- | A collection of requested matchmaking configurations.
 --
 -- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcsrsConfigurations :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Lude.Maybe [MatchmakingConfiguration])
-dmcsrsConfigurations = Lens.lens (configurations :: DescribeMatchmakingConfigurationsResponse -> Lude.Maybe [MatchmakingConfiguration]) (\s a -> s {configurations = a} :: DescribeMatchmakingConfigurationsResponse)
-{-# DEPRECATED dmcsrsConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
+drsConfigurations :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Lude.Maybe [MatchmakingConfiguration])
+drsConfigurations = Lens.lens (configurations :: DescribeMatchmakingConfigurationsResponse -> Lude.Maybe [MatchmakingConfiguration]) (\s a -> s {configurations = a} :: DescribeMatchmakingConfigurationsResponse)
+{-# DEPRECATED drsConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
 -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcsrsNextToken :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Lude.Maybe Lude.Text)
-dmcsrsNextToken = Lens.lens (nextToken :: DescribeMatchmakingConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMatchmakingConfigurationsResponse)
-{-# DEPRECATED dmcsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+drsNextToken :: Lens.Lens' DescribeMatchmakingConfigurationsResponse (Lude.Maybe Lude.Text)
+drsNextToken = Lens.lens (nextToken :: DescribeMatchmakingConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMatchmakingConfigurationsResponse)
+{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmcsrsResponseStatus :: Lens.Lens' DescribeMatchmakingConfigurationsResponse Lude.Int
-dmcsrsResponseStatus = Lens.lens (responseStatus :: DescribeMatchmakingConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMatchmakingConfigurationsResponse)
-{-# DEPRECATED dmcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeMatchmakingConfigurationsResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeMatchmakingConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMatchmakingConfigurationsResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

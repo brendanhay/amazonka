@@ -17,8 +17,8 @@ module Network.AWS.WAF.Types.SqlInjectionMatchSetSummary
     mkSqlInjectionMatchSetSummary,
 
     -- * Lenses
-    simssSqlInjectionMatchSetId,
     simssName,
+    simssSqlInjectionMatchSetId,
   )
 where
 
@@ -29,17 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSqlInjectionMatchSetSummary' smart constructor.
 data SqlInjectionMatchSetSummary = SqlInjectionMatchSetSummary'
-  { sqlInjectionMatchSetId ::
-      Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the @SqlInjectionMatchSet@ , if any, specified by @Id@ .
+    name :: Lude.Text,
+    -- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
+    --
+    -- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
+    sqlInjectionMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SqlInjectionMatchSetSummary' with the minimum fields required to make a request.
@@ -49,17 +46,23 @@ data SqlInjectionMatchSetSummary = SqlInjectionMatchSetSummary'
 --
 -- @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 mkSqlInjectionMatchSetSummary ::
-  -- | 'sqlInjectionMatchSetId'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'sqlInjectionMatchSetId'
+  Lude.Text ->
   SqlInjectionMatchSetSummary
-mkSqlInjectionMatchSetSummary pSqlInjectionMatchSetId_ pName_ =
+mkSqlInjectionMatchSetSummary pName_ pSqlInjectionMatchSetId_ =
   SqlInjectionMatchSetSummary'
-    { sqlInjectionMatchSetId =
-        pSqlInjectionMatchSetId_,
-      name = pName_
+    { name = pName_,
+      sqlInjectionMatchSetId = pSqlInjectionMatchSetId_
     }
+
+-- | The name of the @SqlInjectionMatchSet@ , if any, specified by @Id@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+simssName :: Lens.Lens' SqlInjectionMatchSetSummary Lude.Text
+simssName = Lens.lens (name :: SqlInjectionMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: SqlInjectionMatchSetSummary)
+{-# DEPRECATED simssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for a @SqlInjectionMatchSet@ . You use @SqlInjectionMatchSetId@ to get information about a @SqlInjectionMatchSet@ (see 'GetSqlInjectionMatchSet' ), update a @SqlInjectionMatchSet@ (see 'UpdateSqlInjectionMatchSet' ), insert a @SqlInjectionMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SqlInjectionMatchSet@ from AWS WAF (see 'DeleteSqlInjectionMatchSet' ).
 --
@@ -70,18 +73,11 @@ simssSqlInjectionMatchSetId :: Lens.Lens' SqlInjectionMatchSetSummary Lude.Text
 simssSqlInjectionMatchSetId = Lens.lens (sqlInjectionMatchSetId :: SqlInjectionMatchSetSummary -> Lude.Text) (\s a -> s {sqlInjectionMatchSetId = a} :: SqlInjectionMatchSetSummary)
 {-# DEPRECATED simssSqlInjectionMatchSetId "Use generic-lens or generic-optics with 'sqlInjectionMatchSetId' instead." #-}
 
--- | The name of the @SqlInjectionMatchSet@ , if any, specified by @Id@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-simssName :: Lens.Lens' SqlInjectionMatchSetSummary Lude.Text
-simssName = Lens.lens (name :: SqlInjectionMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: SqlInjectionMatchSetSummary)
-{-# DEPRECATED simssName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON SqlInjectionMatchSetSummary where
   parseJSON =
     Lude.withObject
       "SqlInjectionMatchSetSummary"
       ( \x ->
           SqlInjectionMatchSetSummary'
-            Lude.<$> (x Lude..: "SqlInjectionMatchSetId") Lude.<*> (x Lude..: "Name")
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "SqlInjectionMatchSetId")
       )

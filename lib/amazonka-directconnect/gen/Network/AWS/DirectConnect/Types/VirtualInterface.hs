@@ -56,66 +56,98 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVirtualInterface' smart constructor.
 data VirtualInterface = VirtualInterface'
-  { bgpPeers ::
-      Lude.Maybe [BGPPeer],
+  { -- | The BGP peers configured on this virtual interface.
+    bgpPeers :: Lude.Maybe [BGPPeer],
+    -- | The ID of the virtual private gateway. Applies only to private virtual interfaces.
     virtualGatewayId :: Lude.Maybe Lude.Text,
+    -- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
     mtu :: Lude.Maybe Lude.Int,
+    -- | The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
     routeFilterPrefixes :: Lude.Maybe [RouteFilterPrefix],
+    -- | The IP address assigned to the customer interface.
     customerAddress :: Lude.Maybe Lude.Text,
+    -- | The ID of the VLAN.
     vlan :: Lude.Maybe Lude.Int,
+    -- | The location of the connection.
     location :: Lude.Maybe Lude.Text,
+    -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Lude.Maybe Lude.Text,
+    -- | The address family for the BGP peer.
     addressFamily :: Lude.Maybe AddressFamily,
+    -- | The state of the virtual interface. The following are the possible values:
+    --
+    --
+    --     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+    --
+    --
+    --     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+    --
+    --
+    --     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+    --
+    --
+    --     * @available@ : A virtual interface that is able to forward traffic.
+    --
+    --
+    --     * @down@ : A virtual interface that is BGP down.
+    --
+    --
+    --     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.
+    --
+    --
+    --     * @deleted@ : A virtual interface that cannot forward traffic.
+    --
+    --
+    --     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.
+    --
+    --
+    --     * @unknown@ : The state of the virtual interface is not available.
     virtualInterfaceState :: Lude.Maybe VirtualInterfaceState,
+    -- | The ID of the connection.
     connectionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Lude.Maybe Lude.Text,
+    -- | The autonomous system number (ASN) for the Amazon side of the connection.
     amazonSideASN :: Lude.Maybe Lude.Integer,
+    -- | The type of virtual interface. The possible values are @private@ and @public@ .
     virtualInterfaceType :: Lude.Maybe Lude.Text,
+    -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+    --
+    -- The valid values are 1-2147483647.
     asn :: Lude.Maybe Lude.Int,
+    -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
     authKey :: Lude.Maybe Lude.Text,
+    -- | Indicates whether jumbo frames (9001 MTU) are supported.
     jumboFrameCapable :: Lude.Maybe Lude.Bool,
+    -- | The customer router configuration.
     customerRouterConfig :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the virtual interface.
     ownerAccount :: Lude.Maybe Lude.Text,
+    -- | The AWS Region where the virtual interface is located.
     region :: Lude.Maybe Lude.Text,
+    -- | The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
     virtualInterfaceName :: Lude.Maybe Lude.Text,
+    -- | The Direct Connect endpoint on which the virtual interface terminates.
     awsDeviceV2 :: Lude.Maybe Lude.Text,
+    -- | The ID of the virtual interface.
     virtualInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The tags associated with the virtual interface.
     tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VirtualInterface' with the minimum fields required to make a request.
 --
--- * 'addressFamily' - The address family for the BGP peer.
--- * 'amazonAddress' - The IP address assigned to the Amazon interface.
--- * 'amazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
--- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
---
--- The valid values are 1-2147483647.
--- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
--- * 'awsDeviceV2' - The Direct Connect endpoint on which the virtual interface terminates.
 -- * 'bgpPeers' - The BGP peers configured on this virtual interface.
--- * 'connectionId' - The ID of the connection.
--- * 'customerAddress' - The IP address assigned to the customer interface.
--- * 'customerRouterConfig' - The customer router configuration.
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
--- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
--- * 'location' - The location of the connection.
--- * 'mtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
--- * 'ownerAccount' - The ID of the AWS account that owns the virtual interface.
--- * 'region' - The AWS Region where the virtual interface is located.
--- * 'routeFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
--- * 'tags' - The tags associated with the virtual interface.
 -- * 'virtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual interfaces.
--- * 'virtualInterfaceId' - The ID of the virtual interface.
--- * 'virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+-- * 'mtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+-- * 'routeFilterPrefixes' - The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
+-- * 'vlan' - The ID of the VLAN.
+-- * 'location' - The location of the connection.
+-- * 'amazonAddress' - The IP address assigned to the Amazon interface.
+-- * 'addressFamily' - The address family for the BGP peer.
 -- * 'virtualInterfaceState' - The state of the virtual interface. The following are the possible values:
 --
 --
@@ -146,8 +178,22 @@ data VirtualInterface = VirtualInterface'
 --     * @unknown@ : The state of the virtual interface is not available.
 --
 --
+-- * 'connectionId' - The ID of the connection.
+-- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'amazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
 -- * 'virtualInterfaceType' - The type of virtual interface. The possible values are @private@ and @public@ .
--- * 'vlan' - The ID of the VLAN.
+-- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+--
+-- The valid values are 1-2147483647.
+-- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+-- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- * 'customerRouterConfig' - The customer router configuration.
+-- * 'ownerAccount' - The ID of the AWS account that owns the virtual interface.
+-- * 'region' - The AWS Region where the virtual interface is located.
+-- * 'virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+-- * 'awsDeviceV2' - The Direct Connect endpoint on which the virtual interface terminates.
+-- * 'virtualInterfaceId' - The ID of the virtual interface.
+-- * 'tags' - The tags associated with the virtual interface.
 mkVirtualInterface ::
   VirtualInterface
 mkVirtualInterface =

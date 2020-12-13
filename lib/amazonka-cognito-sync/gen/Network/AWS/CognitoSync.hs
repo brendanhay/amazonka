@@ -148,11 +148,11 @@ module Network.AWS.CognitoSync
     -- ** RecordPatch
     RecordPatch (..),
     mkRecordPatch,
-    rpDeviceLastModifiedDate,
-    rpValue,
-    rpOp,
-    rpKey,
     rpSyncCount,
+    rpDeviceLastModifiedDate,
+    rpOp,
+    rpValue,
+    rpKey,
 
     -- * Serialization types
     Lude.Base64 (..),

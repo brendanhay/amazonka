@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,26 +43,27 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { filterExpression ::
-      Lude.Maybe Lude.Text,
+  { -- | The updated filter expression defining criteria by which to group traces.
+    filterExpression :: Lude.Maybe Lude.Text,
+    -- | The structure containing configurations related to insights.
+    --
+    --
+    --     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+    --
+    --
+    --     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.
     insightsConfiguration :: Lude.Maybe InsightsConfiguration,
+    -- | The ARN that was generated upon creation.
     groupARN :: Lude.Maybe Lude.Text,
+    -- | The case-sensitive name of the group.
     groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
 -- * 'filterExpression' - The updated filter expression defining criteria by which to group traces.
--- * 'groupARN' - The ARN that was generated upon creation.
--- * 'groupName' - The case-sensitive name of the group.
 -- * 'insightsConfiguration' - The structure containing configurations related to insights.
 --
 --
@@ -69,6 +71,10 @@ data UpdateGroup = UpdateGroup'
 --
 --
 --     * The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group. Notifications can only be enabled on a group with InsightsEnabled set to true.
+--
+--
+-- * 'groupARN' - The ARN that was generated upon creation.
+-- * 'groupName' - The case-sensitive name of the group.
 mkUpdateGroup ::
   UpdateGroup
 mkUpdateGroup =
@@ -147,17 +153,12 @@ instance Lude.ToQuery UpdateGroup where
 
 -- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { group ::
-      Lude.Maybe Group,
+  { -- | The group that was updated. Contains the name of the group that was updated, the ARN of the group that was updated, the updated filter expression, and the updated insight configuration assigned to the group.
+    group :: Lude.Maybe Group,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.

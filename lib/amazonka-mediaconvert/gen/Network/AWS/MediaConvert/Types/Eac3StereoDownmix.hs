@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.Eac3StereoDownmix
   ( Eac3StereoDownmix
       ( Eac3StereoDownmix',
-        ESDDPL2,
+        ESDNotIndicated,
         ESDLoRo,
         ESDLtRt,
-        ESDNotIndicated
+        ESDDPL2
       ),
   )
 where
@@ -48,8 +48,8 @@ newtype Eac3StereoDownmix = Eac3StereoDownmix' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESDDPL2 :: Eac3StereoDownmix
-pattern ESDDPL2 = Eac3StereoDownmix' "DPL2"
+pattern ESDNotIndicated :: Eac3StereoDownmix
+pattern ESDNotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
 
 pattern ESDLoRo :: Eac3StereoDownmix
 pattern ESDLoRo = Eac3StereoDownmix' "LO_RO"
@@ -57,13 +57,13 @@ pattern ESDLoRo = Eac3StereoDownmix' "LO_RO"
 pattern ESDLtRt :: Eac3StereoDownmix
 pattern ESDLtRt = Eac3StereoDownmix' "LT_RT"
 
-pattern ESDNotIndicated :: Eac3StereoDownmix
-pattern ESDNotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
+pattern ESDDPL2 :: Eac3StereoDownmix
+pattern ESDDPL2 = Eac3StereoDownmix' "DPL2"
 
 {-# COMPLETE
-  ESDDPL2,
+  ESDNotIndicated,
   ESDLoRo,
   ESDLtRt,
-  ESDNotIndicated,
+  ESDDPL2,
   Eac3StereoDownmix'
   #-}

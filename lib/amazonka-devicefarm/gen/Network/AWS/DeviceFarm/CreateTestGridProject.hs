@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DeviceFarm.CreateTestGridProject
     mkCreateTestGridProject,
 
     -- ** Request lenses
-    ctgpDescription,
     ctgpName,
+    ctgpDescription,
 
     -- * Destructuring the response
     CreateTestGridProjectResponse (..),
@@ -40,36 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTestGridProject' smart constructor.
 data CreateTestGridProject = CreateTestGridProject'
-  { description ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | Human-readable name of the Selenium testing project.
+    name :: Lude.Text,
+    -- | Human-readable description of the project.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridProject' with the minimum fields required to make a request.
 --
--- * 'description' - Human-readable description of the project.
 -- * 'name' - Human-readable name of the Selenium testing project.
+-- * 'description' - Human-readable description of the project.
 mkCreateTestGridProject ::
   -- | 'name'
   Lude.Text ->
   CreateTestGridProject
 mkCreateTestGridProject pName_ =
-  CreateTestGridProject' {description = Lude.Nothing, name = pName_}
-
--- | Human-readable description of the project.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpDescription :: Lens.Lens' CreateTestGridProject (Lude.Maybe Lude.Text)
-ctgpDescription = Lens.lens (description :: CreateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTestGridProject)
-{-# DEPRECATED ctgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+  CreateTestGridProject' {name = pName_, description = Lude.Nothing}
 
 -- | Human-readable name of the Selenium testing project.
 --
@@ -77,6 +66,13 @@ ctgpDescription = Lens.lens (description :: CreateTestGridProject -> Lude.Maybe 
 ctgpName :: Lens.Lens' CreateTestGridProject Lude.Text
 ctgpName = Lens.lens (name :: CreateTestGridProject -> Lude.Text) (\s a -> s {name = a} :: CreateTestGridProject)
 {-# DEPRECATED ctgpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Human-readable description of the project.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgpDescription :: Lens.Lens' CreateTestGridProject (Lude.Maybe Lude.Text)
+ctgpDescription = Lens.lens (description :: CreateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTestGridProject)
+{-# DEPRECATED ctgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest CreateTestGridProject where
   type Rs CreateTestGridProject = CreateTestGridProjectResponse
@@ -104,8 +100,8 @@ instance Lude.ToJSON CreateTestGridProject where
   toJSON CreateTestGridProject' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("name" Lude..= name)
+          [ Lude.Just ("name" Lude..= name),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -117,23 +113,18 @@ instance Lude.ToQuery CreateTestGridProject where
 
 -- | /See:/ 'mkCreateTestGridProjectResponse' smart constructor.
 data CreateTestGridProjectResponse = CreateTestGridProjectResponse'
-  { testGridProject ::
-      Lude.Maybe TestGridProject,
+  { -- | ARN of the Selenium testing project that was created.
+    testGridProject :: Lude.Maybe TestGridProject,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridProjectResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'testGridProject' - ARN of the Selenium testing project that was created.
+-- * 'responseStatus' - The response status code.
 mkCreateTestGridProjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

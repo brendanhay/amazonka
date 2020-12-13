@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     mkAddClientIdToOpenIdConnectProvider,
 
     -- ** Request lenses
-    acitoicpOpenIdConnectProviderARN,
     acitoicpClientId,
+    acitoicpOpenIdConnectProviderARN,
 
     -- * Destructuring the response
     AddClientIdToOpenIdConnectProviderResponse (..),
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddClientIdToOpenIdConnectProvider' smart constructor.
 data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
-  { openIdConnectProviderARN ::
-      Lude.Text,
-    clientId :: Lude.Text
+  { -- | The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
+    clientId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
+    openIdConnectProviderARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddClientIdToOpenIdConnectProvider' with the minimum fields required to make a request.
@@ -56,26 +52,18 @@ data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
 -- * 'clientId' - The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
 -- * 'openIdConnectProviderARN' - The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
 mkAddClientIdToOpenIdConnectProvider ::
-  -- | 'openIdConnectProviderARN'
-  Lude.Text ->
   -- | 'clientId'
+  Lude.Text ->
+  -- | 'openIdConnectProviderARN'
   Lude.Text ->
   AddClientIdToOpenIdConnectProvider
 mkAddClientIdToOpenIdConnectProvider
-  pOpenIdConnectProviderARN_
-  pClientId_ =
+  pClientId_
+  pOpenIdConnectProviderARN_ =
     AddClientIdToOpenIdConnectProvider'
-      { openIdConnectProviderARN =
-          pOpenIdConnectProviderARN_,
-        clientId = pClientId_
+      { clientId = pClientId_,
+        openIdConnectProviderARN = pOpenIdConnectProviderARN_
       }
-
--- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
---
--- /Note:/ Consider using 'openIdConnectProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acitoicpOpenIdConnectProviderARN :: Lens.Lens' AddClientIdToOpenIdConnectProvider Lude.Text
-acitoicpOpenIdConnectProviderARN = Lens.lens (openIdConnectProviderARN :: AddClientIdToOpenIdConnectProvider -> Lude.Text) (\s a -> s {openIdConnectProviderARN = a} :: AddClientIdToOpenIdConnectProvider)
-{-# DEPRECATED acitoicpOpenIdConnectProviderARN "Use generic-lens or generic-optics with 'openIdConnectProviderARN' instead." #-}
 
 -- | The client ID (also known as audience) to add to the IAM OpenID Connect provider resource.
 --
@@ -83,6 +71,13 @@ acitoicpOpenIdConnectProviderARN = Lens.lens (openIdConnectProviderARN :: AddCli
 acitoicpClientId :: Lens.Lens' AddClientIdToOpenIdConnectProvider Lude.Text
 acitoicpClientId = Lens.lens (clientId :: AddClientIdToOpenIdConnectProvider -> Lude.Text) (\s a -> s {clientId = a} :: AddClientIdToOpenIdConnectProvider)
 {-# DEPRECATED acitoicpClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider resource to add the client ID to. You can get a list of OIDC provider ARNs by using the 'ListOpenIDConnectProviders' operation.
+--
+-- /Note:/ Consider using 'openIdConnectProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acitoicpOpenIdConnectProviderARN :: Lens.Lens' AddClientIdToOpenIdConnectProvider Lude.Text
+acitoicpOpenIdConnectProviderARN = Lens.lens (openIdConnectProviderARN :: AddClientIdToOpenIdConnectProvider -> Lude.Text) (\s a -> s {openIdConnectProviderARN = a} :: AddClientIdToOpenIdConnectProvider)
+{-# DEPRECATED acitoicpOpenIdConnectProviderARN "Use generic-lens or generic-optics with 'openIdConnectProviderARN' instead." #-}
 
 instance Lude.AWSRequest AddClientIdToOpenIdConnectProvider where
   type
@@ -104,19 +99,13 @@ instance Lude.ToQuery AddClientIdToOpenIdConnectProvider where
       [ "Action"
           Lude.=: ("AddClientIDToOpenIDConnectProvider" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "OpenIDConnectProviderArn" Lude.=: openIdConnectProviderARN,
-        "ClientID" Lude.=: clientId
+        "ClientID" Lude.=: clientId,
+        "OpenIDConnectProviderArn" Lude.=: openIdConnectProviderARN
       ]
 
 -- | /See:/ 'mkAddClientIdToOpenIdConnectProviderResponse' smart constructor.
 data AddClientIdToOpenIdConnectProviderResponse = AddClientIdToOpenIdConnectProviderResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddClientIdToOpenIdConnectProviderResponse' with the minimum fields required to make a request.

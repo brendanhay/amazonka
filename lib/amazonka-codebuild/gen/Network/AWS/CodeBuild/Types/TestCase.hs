@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTestCase' smart constructor.
 data TestCase = TestCase'
-  { durationInNanoSeconds ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of nanoseconds it took to run this test case.
+    durationInNanoSeconds :: Lude.Maybe Lude.Integer,
+    -- | The status returned by the test case after it was run. Valid statuses are @SUCCEEDED@ , @FAILED@ , @ERROR@ , @SKIPPED@ , and @UNKNOWN@ .
     status :: Lude.Maybe Lude.Text,
+    -- | The date and time a test case expires. A test case expires 30 days after it is created. An expired test case is not available to view in CodeBuild.
     expired :: Lude.Maybe Lude.Timestamp,
+    -- | A string that is applied to a series of related test cases. CodeBuild generates the prefix. The prefix depends on the framework used to generate the tests.
     prefix :: Lude.Maybe Lude.Text,
+    -- | The name of the test case.
     name :: Lude.Maybe Lude.Text,
+    -- | The path to the raw data file that contains the test result.
     testRawDataPath :: Lude.Maybe Lude.Text,
+    -- | A message associated with a test case. For example, an error message or stack trace.
     message :: Lude.Maybe Lude.Text,
+    -- | The ARN of the report to which the test case belongs.
     reportARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestCase' with the minimum fields required to make a request.
 --
 -- * 'durationInNanoSeconds' - The number of nanoseconds it took to run this test case.
--- * 'expired' - The date and time a test case expires. A test case expires 30 days after it is created. An expired test case is not available to view in CodeBuild.
--- * 'message' - A message associated with a test case. For example, an error message or stack trace.
--- * 'name' - The name of the test case.
--- * 'prefix' - A string that is applied to a series of related test cases. CodeBuild generates the prefix. The prefix depends on the framework used to generate the tests.
--- * 'reportARN' - The ARN of the report to which the test case belongs.
 -- * 'status' - The status returned by the test case after it was run. Valid statuses are @SUCCEEDED@ , @FAILED@ , @ERROR@ , @SKIPPED@ , and @UNKNOWN@ .
+-- * 'expired' - The date and time a test case expires. A test case expires 30 days after it is created. An expired test case is not available to view in CodeBuild.
+-- * 'prefix' - A string that is applied to a series of related test cases. CodeBuild generates the prefix. The prefix depends on the framework used to generate the tests.
+-- * 'name' - The name of the test case.
 -- * 'testRawDataPath' - The path to the raw data file that contains the test result.
+-- * 'message' - A message associated with a test case. For example, an error message or stack trace.
+-- * 'reportARN' - The ARN of the report to which the test case belongs.
 mkTestCase ::
   TestCase
 mkTestCase =

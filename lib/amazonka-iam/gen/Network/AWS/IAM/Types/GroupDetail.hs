@@ -39,31 +39,31 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkGroupDetail' smart constructor.
 data GroupDetail = GroupDetail'
   { arn :: Lude.Maybe Lude.Text,
+    -- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     path :: Lude.Maybe Lude.Text,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
     groupId :: Lude.Maybe Lude.Text,
+    -- | A list of the inline policies embedded in the group.
     groupPolicyList :: Lude.Maybe [PolicyDetail],
+    -- | The friendly name that identifies the group.
     groupName :: Lude.Maybe Lude.Text,
+    -- | A list of the managed policies attached to the group.
     attachedManagedPolicies :: Lude.Maybe [AttachedPolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupDetail' with the minimum fields required to make a request.
 --
--- * 'arn' - Undocumented field.
--- * 'attachedManagedPolicies' - A list of the managed policies attached to the group.
+-- * 'arn' -
+-- * 'path' - The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 -- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 -- * 'groupId' - The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- * 'groupName' - The friendly name that identifies the group.
 -- * 'groupPolicyList' - A list of the inline policies embedded in the group.
--- * 'path' - The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- * 'groupName' - The friendly name that identifies the group.
+-- * 'attachedManagedPolicies' - A list of the managed policies attached to the group.
 mkGroupDetail ::
   GroupDetail
 mkGroupDetail =

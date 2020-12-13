@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeTrails' smart constructor.
 data DescribeTrails = DescribeTrails'
-  { includeShadowTrails ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether to include shadow trails in the response. A shadow trail is the replication in a region of a trail that was created in a different region, or in the case of an organization trail, the replication of an organization trail in member accounts. If you do not include shadow trails, organization trails in a member account and region replication trails will not be returned. The default is true.
+    includeShadowTrails :: Lude.Maybe Lude.Bool,
+    -- | Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The format of a trail ARN is:
+    --
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+    -- If an empty list is specified, information for the trail in the current region is returned.
+    --
+    --     * If an empty list is specified and @IncludeShadowTrails@ is false, then information for all trails in the current region is returned.
+    --
+    --
+    --     * If an empty list is specified and IncludeShadowTrails is null or true, then information for all trails in the current region and any associated shadow trails in other regions is returned.
     trailNameList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrails' with the minimum fields required to make a request.
@@ -142,23 +146,18 @@ instance Lude.ToQuery DescribeTrails where
 --
 -- /See:/ 'mkDescribeTrailsResponse' smart constructor.
 data DescribeTrailsResponse = DescribeTrailsResponse'
-  { trailList ::
-      Lude.Maybe [Trail],
+  { -- | The list of trail objects. Trail objects with string values are only returned if values for the objects exist in a trail's configuration. For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in results if a trail is configured to send SNS notifications. Similarly, @KMSKeyId@ only appears in results if a trail's log files are encrypted with AWS KMS-managed keys.
+    trailList :: Lude.Maybe [Trail],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrailsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trailList' - The list of trail objects. Trail objects with string values are only returned if values for the objects exist in a trail's configuration. For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in results if a trail is configured to send SNS notifications. Similarly, @KMSKeyId@ only appears in results if a trail's log files are encrypted with AWS KMS-managed keys.
+-- * 'responseStatus' - The response status code.
 mkDescribeTrailsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

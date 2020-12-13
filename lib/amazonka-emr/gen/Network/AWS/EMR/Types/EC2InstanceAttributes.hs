@@ -38,47 +38,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2InstanceAttributes' smart constructor.
 data EC2InstanceAttributes = EC2InstanceAttributes'
-  { ec2KeyName ::
-      Lude.Maybe Lude.Text,
-    emrManagedSlaveSecurityGroup ::
-      Lude.Maybe Lude.Text,
-    additionalSlaveSecurityGroups ::
-      Lude.Maybe [Lude.Text],
+  { -- | The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named "hadoop".
+    ec2KeyName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the Amazon EC2 security group for the core and task nodes.
+    emrManagedSlaveSecurityGroup :: Lude.Maybe Lude.Text,
+    -- | A list of additional Amazon EC2 security group IDs for the core and task nodes.
+    additionalSlaveSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Subnets must exist within the same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among the list of @RequestedEc2SubnetIds@ , and then launches all cluster instances within that Subnet. If this value is not specified, and the account and Region support EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic is not supported, and no Subnet is specified, Amazon EMR chooses the subnet for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
     requestedEC2SubnetIds :: Lude.Maybe [Lude.Text],
-    additionalMasterSecurityGroups ::
-      Lude.Maybe [Lude.Text],
+    -- | A list of additional Amazon EC2 security group IDs for the master node.
+    additionalMasterSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | The IAM role that was specified when the cluster was launched. The EC2 instances of the cluster assume this role.
     iamInstanceProfile :: Lude.Maybe Lude.Text,
-    emrManagedMasterSecurityGroup ::
-      Lude.Maybe Lude.Text,
+    -- | The identifier of the Amazon EC2 security group for the master node.
+    emrManagedMasterSecurityGroup :: Lude.Maybe Lude.Text,
+    -- | Set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, and your account supports EC2-Classic, the cluster launches in EC2-Classic.
     ec2SubnetId :: Lude.Maybe Lude.Text,
-    requestedEC2AvailabilityZones ::
-      Lude.Maybe [Lude.Text],
-    serviceAccessSecurityGroup ::
-      Lude.Maybe Lude.Text,
+    -- | Applies to clusters configured with the instance fleets option. Specifies one or more Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from among the list of @RequestedEc2AvailabilityZones@ , and then launches all cluster instances within that Availability Zone. If you do not specify this value, Amazon EMR chooses the Availability Zone for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
+    requestedEC2AvailabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+    serviceAccessSecurityGroup :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone in which the cluster will run.
     ec2AvailabilityZone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2InstanceAttributes' with the minimum fields required to make a request.
 --
--- * 'additionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
--- * 'additionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the core and task nodes.
--- * 'ec2AvailabilityZone' - The Availability Zone in which the cluster will run.
 -- * 'ec2KeyName' - The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named "hadoop".
--- * 'ec2SubnetId' - Set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, and your account supports EC2-Classic, the cluster launches in EC2-Classic.
--- * 'emrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
 -- * 'emrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the core and task nodes.
--- * 'iamInstanceProfile' - The IAM role that was specified when the cluster was launched. The EC2 instances of the cluster assume this role.
--- * 'requestedEC2AvailabilityZones' - Applies to clusters configured with the instance fleets option. Specifies one or more Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from among the list of @RequestedEc2AvailabilityZones@ , and then launches all cluster instances within that Availability Zone. If you do not specify this value, Amazon EMR chooses the Availability Zone for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
+-- * 'additionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the core and task nodes.
 -- * 'requestedEC2SubnetIds' - Applies to clusters configured with the instance fleets option. Specifies the unique identifier of one or more Amazon EC2 subnets in which to launch EC2 cluster instances. Subnets must exist within the same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among the list of @RequestedEc2SubnetIds@ , and then launches all cluster instances within that Subnet. If this value is not specified, and the account and Region support EC2-Classic networks, the cluster launches instances in the EC2-Classic network and uses @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic is not supported, and no Subnet is specified, Amazon EMR chooses the subnet for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
+-- * 'additionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
+-- * 'iamInstanceProfile' - The IAM role that was specified when the cluster was launched. The EC2 instances of the cluster assume this role.
+-- * 'emrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
+-- * 'ec2SubnetId' - Set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value, and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+-- * 'requestedEC2AvailabilityZones' - Applies to clusters configured with the instance fleets option. Specifies one or more Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from among the list of @RequestedEc2AvailabilityZones@ , and then launches all cluster instances within that Availability Zone. If you do not specify this value, Amazon EMR chooses the Availability Zone for you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be specified together.
 -- * 'serviceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+-- * 'ec2AvailabilityZone' - The Availability Zone in which the cluster will run.
 mkEC2InstanceAttributes ::
   EC2InstanceAttributes
 mkEC2InstanceAttributes =

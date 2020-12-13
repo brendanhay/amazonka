@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig
 --
 -- /See:/ 'mkHumanLoopActivationConfig' smart constructor.
 newtype HumanLoopActivationConfig = HumanLoopActivationConfig'
-  { humanLoopActivationConditionsConfig ::
-      HumanLoopActivationConditionsConfig
+  { -- | Container structure for defining under what conditions SageMaker creates a human loop.
+    humanLoopActivationConditionsConfig :: HumanLoopActivationConditionsConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopActivationConfig' with the minimum fields required to make a request.

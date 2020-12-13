@@ -13,10 +13,10 @@
 module Network.AWS.Connect.Types.StorageType
   ( StorageType
       ( StorageType',
-        KinesisFirehose,
-        KinesisStream,
+        S3,
         KinesisVideoStream,
-        S3
+        KinesisStream,
+        KinesisFirehose
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype StorageType = StorageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern KinesisFirehose :: StorageType
-pattern KinesisFirehose = StorageType' "KINESIS_FIREHOSE"
-
-pattern KinesisStream :: StorageType
-pattern KinesisStream = StorageType' "KINESIS_STREAM"
+pattern S3 :: StorageType
+pattern S3 = StorageType' "S3"
 
 pattern KinesisVideoStream :: StorageType
 pattern KinesisVideoStream = StorageType' "KINESIS_VIDEO_STREAM"
 
-pattern S3 :: StorageType
-pattern S3 = StorageType' "S3"
+pattern KinesisStream :: StorageType
+pattern KinesisStream = StorageType' "KINESIS_STREAM"
+
+pattern KinesisFirehose :: StorageType
+pattern KinesisFirehose = StorageType' "KINESIS_FIREHOSE"
 
 {-# COMPLETE
-  KinesisFirehose,
-  KinesisStream,
-  KinesisVideoStream,
   S3,
+  KinesisVideoStream,
+  KinesisStream,
+  KinesisFirehose,
   StorageType'
   #-}

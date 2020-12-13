@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.Rekognition.DeleteProjectVersion
     mkDeleteProjectVersionResponse,
 
     -- ** Response lenses
-    delrsStatus,
-    delrsResponseStatus,
+    dpvfrsStatus,
+    dpvfrsResponseStatus,
   )
 where
 
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteProjectVersion' smart constructor.
 newtype DeleteProjectVersion = DeleteProjectVersion'
-  { projectVersionARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the model version that you want to delete.
+    projectVersionARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProjectVersion' with the minimum fields required to make a request.
@@ -107,23 +102,18 @@ instance Lude.ToQuery DeleteProjectVersion where
 
 -- | /See:/ 'mkDeleteProjectVersionResponse' smart constructor.
 data DeleteProjectVersionResponse = DeleteProjectVersionResponse'
-  { status ::
-      Lude.Maybe ProjectVersionStatus,
+  { -- | The status of the deletion operation.
+    status :: Lude.Maybe ProjectVersionStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProjectVersionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the deletion operation.
+-- * 'responseStatus' - The response status code.
 mkDeleteProjectVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -137,13 +127,13 @@ mkDeleteProjectVersionResponse pResponseStatus_ =
 -- | The status of the deletion operation.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsStatus :: Lens.Lens' DeleteProjectVersionResponse (Lude.Maybe ProjectVersionStatus)
-delrsStatus = Lens.lens (status :: DeleteProjectVersionResponse -> Lude.Maybe ProjectVersionStatus) (\s a -> s {status = a} :: DeleteProjectVersionResponse)
-{-# DEPRECATED delrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dpvfrsStatus :: Lens.Lens' DeleteProjectVersionResponse (Lude.Maybe ProjectVersionStatus)
+dpvfrsStatus = Lens.lens (status :: DeleteProjectVersionResponse -> Lude.Maybe ProjectVersionStatus) (\s a -> s {status = a} :: DeleteProjectVersionResponse)
+{-# DEPRECATED dpvfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteProjectVersionResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteProjectVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProjectVersionResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpvfrsResponseStatus :: Lens.Lens' DeleteProjectVersionResponse Lude.Int
+dpvfrsResponseStatus = Lens.lens (responseStatus :: DeleteProjectVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProjectVersionResponse)
+{-# DEPRECATED dpvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

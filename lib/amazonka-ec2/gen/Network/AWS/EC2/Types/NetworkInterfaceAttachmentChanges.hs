@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterfaceAttachmentChanges' smart constructor.
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
-  { deleteOnTermination ::
-      Lude.Maybe Lude.Bool,
-    attachmentId ::
-      Lude.Maybe Lude.Text
+  { -- | Indicates whether the network interface is deleted when the instance is terminated.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The ID of the network interface attachment.
+    attachmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfaceAttachmentChanges' with the minimum fields required to make a request.
 --
--- * 'attachmentId' - The ID of the network interface attachment.
 -- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
+-- * 'attachmentId' - The ID of the network interface attachment.
 mkNetworkInterfaceAttachmentChanges ::
   NetworkInterfaceAttachmentChanges
 mkNetworkInterfaceAttachmentChanges =

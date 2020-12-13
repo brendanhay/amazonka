@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,28 +46,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListItems' smart constructor.
 data ListItems = ListItems'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path in the container from which to retrieve items. Format: <folder name>/<folder name>/<file name>
+    path :: Lude.Maybe Lude.Text,
+    -- | The token that identifies which batch of results that you want to see. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value. To see the next batch of results, you can submit the @ListItems@ request a second time and specify the @NextToken@ value.
+    --
+    -- Tokens expire after 15 minutes.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return per API request. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. Although 2,000 items match your request, the service returns no more than the first 500 items. (The service also returns a @NextToken@ value that you can use to fetch the next batch of results.) The service might return fewer results than the @MaxResults@ value.
+    --
+    -- If @MaxResults@ is not included in the request, the service defaults to pagination with a maximum of 1,000 results per page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListItems' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return per API request. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. Although 2,000 items match your request, the service returns no more than the first 500 items. (The service also returns a @NextToken@ value that you can use to fetch the next batch of results.) The service might return fewer results than the @MaxResults@ value.
---
--- If @MaxResults@ is not included in the request, the service defaults to pagination with a maximum of 1,000 results per page.
+-- * 'path' - The path in the container from which to retrieve items. Format: <folder name>/<folder name>/<file name>
 -- * 'nextToken' - The token that identifies which batch of results that you want to see. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value. To see the next batch of results, you can submit the @ListItems@ request a second time and specify the @NextToken@ value.
 --
 -- Tokens expire after 15 minutes.
--- * 'path' - The path in the container from which to retrieve items. Format: <folder name>/<folder name>/<file name>
+-- * 'maxResults' - The maximum number of results to return per API request. For example, you submit a @ListItems@ request with @MaxResults@ set at 500. Although 2,000 items match your request, the service returns no more than the first 500 items. (The service also returns a @NextToken@ value that you can use to fetch the next batch of results.) The service might return fewer results than the @MaxResults@ value.
+--
+-- If @MaxResults@ is not included in the request, the service defaults to pagination with a maximum of 1,000 results per page.
 mkListItems ::
   ListItems
 mkListItems =
@@ -138,18 +140,14 @@ instance Lude.ToQuery ListItems where
 
 -- | /See:/ 'mkListItemsResponse' smart constructor.
 data ListItemsResponse = ListItemsResponse'
-  { items ::
-      Lude.Maybe [Item],
+  { -- | The metadata entries for the folders and objects at the requested path.
+    items :: Lude.Maybe [Item],
+    -- | The token that can be used in a request to view the next set of results. For example, you submit a @ListItems@ request that matches 2,000 items with @MaxResults@ set at 500. The service returns the first batch of results (up to 500) and a @NextToken@ value that can be used to fetch the next batch of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListItemsResponse' with the minimum fields required to make a request.

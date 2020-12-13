@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     mkRemoveTagsFromStream,
 
     -- ** Request lenses
-    rtfsStreamName,
     rtfsTagKeys,
+    rtfsStreamName,
 
     -- * Destructuring the response
     RemoveTagsFromStreamResponse (..),
@@ -41,41 +42,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRemoveTagsFromStream' smart constructor.
 data RemoveTagsFromStream = RemoveTagsFromStream'
-  { streamName ::
-      Lude.Text,
-    tagKeys :: Lude.NonEmpty Lude.Text
+  { -- | A list of tag keys. Each corresponding tag is removed from the stream.
+    tagKeys :: Lude.NonEmpty Lude.Text,
+    -- | The name of the stream.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromStream' with the minimum fields required to make a request.
 --
--- * 'streamName' - The name of the stream.
 -- * 'tagKeys' - A list of tag keys. Each corresponding tag is removed from the stream.
+-- * 'streamName' - The name of the stream.
 mkRemoveTagsFromStream ::
-  -- | 'streamName'
-  Lude.Text ->
   -- | 'tagKeys'
   Lude.NonEmpty Lude.Text ->
+  -- | 'streamName'
+  Lude.Text ->
   RemoveTagsFromStream
-mkRemoveTagsFromStream pStreamName_ pTagKeys_ =
+mkRemoveTagsFromStream pTagKeys_ pStreamName_ =
   RemoveTagsFromStream'
-    { streamName = pStreamName_,
-      tagKeys = pTagKeys_
+    { tagKeys = pTagKeys_,
+      streamName = pStreamName_
     }
-
--- | The name of the stream.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfsStreamName :: Lens.Lens' RemoveTagsFromStream Lude.Text
-rtfsStreamName = Lens.lens (streamName :: RemoveTagsFromStream -> Lude.Text) (\s a -> s {streamName = a} :: RemoveTagsFromStream)
-{-# DEPRECATED rtfsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
 --
@@ -83,6 +72,13 @@ rtfsStreamName = Lens.lens (streamName :: RemoveTagsFromStream -> Lude.Text) (\s
 rtfsTagKeys :: Lens.Lens' RemoveTagsFromStream (Lude.NonEmpty Lude.Text)
 rtfsTagKeys = Lens.lens (tagKeys :: RemoveTagsFromStream -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: RemoveTagsFromStream)
 {-# DEPRECATED rtfsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | The name of the stream.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfsStreamName :: Lens.Lens' RemoveTagsFromStream Lude.Text
+rtfsStreamName = Lens.lens (streamName :: RemoveTagsFromStream -> Lude.Text) (\s a -> s {streamName = a} :: RemoveTagsFromStream)
+{-# DEPRECATED rtfsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Lude.AWSRequest RemoveTagsFromStream where
   type Rs RemoveTagsFromStream = RemoveTagsFromStreamResponse
@@ -104,8 +100,8 @@ instance Lude.ToJSON RemoveTagsFromStream where
   toJSON RemoveTagsFromStream' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StreamName" Lude..= streamName),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
+          [ Lude.Just ("TagKeys" Lude..= tagKeys),
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
@@ -117,13 +113,7 @@ instance Lude.ToQuery RemoveTagsFromStream where
 
 -- | /See:/ 'mkRemoveTagsFromStreamResponse' smart constructor.
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromStreamResponse' with the minimum fields required to make a request.

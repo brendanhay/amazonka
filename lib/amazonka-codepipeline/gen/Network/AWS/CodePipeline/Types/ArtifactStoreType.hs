@@ -13,7 +13,7 @@
 module Network.AWS.CodePipeline.Types.ArtifactStoreType
   ( ArtifactStoreType
       ( ArtifactStoreType',
-        S3
+        ASTS3
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype ArtifactStoreType = ArtifactStoreType' Lude.Text
       Lude.ToHeader
     )
 
-pattern S3 :: ArtifactStoreType
-pattern S3 = ArtifactStoreType' "S3"
+pattern ASTS3 :: ArtifactStoreType
+pattern ASTS3 = ArtifactStoreType' "S3"
 
 {-# COMPLETE
-  S3,
+  ASTS3,
   ArtifactStoreType'
   #-}

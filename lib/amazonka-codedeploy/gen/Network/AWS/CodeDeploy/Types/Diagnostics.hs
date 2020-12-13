@@ -32,22 +32,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDiagnostics' smart constructor.
 data Diagnostics = Diagnostics'
-  { logTail :: Lude.Maybe Lude.Text,
+  { -- | The last portion of the diagnostic log.
+    --
+    -- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
+    logTail :: Lude.Maybe Lude.Text,
+    -- | The associated error code:
+    --
+    --
+    --     * Success: The specified script ran.
+    --
+    --
+    --     * ScriptMissing: The specified script was not found in the specified location.
+    --
+    --
+    --     * ScriptNotExecutable: The specified script is not a recognized executable file type.
+    --
+    --
+    --     * ScriptTimedOut: The specified script did not finish running in the specified time period.
+    --
+    --
+    --     * ScriptFailed: The specified script failed to run as expected.
+    --
+    --
+    --     * UnknownError: The specified script did not run for an unknown reason.
     errorCode :: Lude.Maybe LifecycleErrorCode,
+    -- | The name of the script.
     scriptName :: Lude.Maybe Lude.Text,
+    -- | The message associated with the error.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Diagnostics' with the minimum fields required to make a request.
 --
+-- * 'logTail' - The last portion of the diagnostic log.
+--
+-- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
 -- * 'errorCode' - The associated error code:
 --
 --
@@ -69,11 +90,8 @@ data Diagnostics = Diagnostics'
 --     * UnknownError: The specified script did not run for an unknown reason.
 --
 --
--- * 'logTail' - The last portion of the diagnostic log.
---
--- If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.
--- * 'message' - The message associated with the error.
 -- * 'scriptName' - The name of the script.
+-- * 'message' - The message associated with the error.
 mkDiagnostics ::
   Diagnostics
 mkDiagnostics =

@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemplateConfiguration' smart constructor.
 data TemplateConfiguration = TemplateConfiguration'
-  { sMSTemplate ::
-      Lude.Maybe Template,
+  { -- | The SMS template to use for the message.
+    sMSTemplate :: Lude.Maybe Template,
+    -- | The voice template to use for the message. This object isn't supported for campaigns.
     voiceTemplate :: Lude.Maybe Template,
+    -- | The push notification template to use for the message.
     pushTemplate :: Lude.Maybe Template,
+    -- | The email template to use for the message.
     emailTemplate :: Lude.Maybe Template
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplateConfiguration' with the minimum fields required to make a request.
 --
--- * 'emailTemplate' - The email template to use for the message.
--- * 'pushTemplate' - The push notification template to use for the message.
 -- * 'sMSTemplate' - The SMS template to use for the message.
 -- * 'voiceTemplate' - The voice template to use for the message. This object isn't supported for campaigns.
+-- * 'pushTemplate' - The push notification template to use for the message.
+-- * 'emailTemplate' - The email template to use for the message.
 mkTemplateConfiguration ::
   TemplateConfiguration
 mkTemplateConfiguration =

@@ -35,36 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDefinitionInformation' smart constructor.
 data DefinitionInformation = DefinitionInformation'
-  { latestVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the latest version associated with the definition.
+    latestVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the definition.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name of the definition.
     name :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was created.
     creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the definition.
     id :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Tag(s) attached to the resource arn.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The ID of the latest version associated with the definition.
     latestVersion :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was last updated.
     lastUpdatedTimestamp :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefinitionInformation' with the minimum fields required to make a request.
 --
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
 -- * 'arn' - The ARN of the definition.
+-- * 'name' - The name of the definition.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 -- * 'id' - The ID of the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
--- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'name' - The name of the definition.
 -- * 'tags' - Tag(s) attached to the resource arn.
+-- * 'latestVersion' - The ID of the latest version associated with the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 mkDefinitionInformation ::
   DefinitionInformation
 mkDefinitionInformation =

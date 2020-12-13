@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.UpdateResource
     mkUpdateResource,
 
     -- ** Request lenses
-    urPatchOperations,
-    urRestAPIId,
     urResourceId,
+    urRestAPIId,
+    urPatchOperations,
 
     -- * Destructuring the response
     Resource (..),
@@ -46,44 +47,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The identifier of the 'Resource' resource.
+    resourceId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    resourceId :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResource' with the minimum fields required to make a request.
 --
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'resourceId' - [Required] The identifier of the 'Resource' resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateResource ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateResource
-mkUpdateResource pRestAPIId_ pResourceId_ =
+mkUpdateResource pResourceId_ pRestAPIId_ =
   UpdateResource'
-    { patchOperations = Lude.Nothing,
+    { resourceId = pResourceId_,
       restAPIId = pRestAPIId_,
-      resourceId = pResourceId_
+      patchOperations = Lude.Nothing
     }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- | [Required] The identifier of the 'Resource' resource.
 --
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urPatchOperations :: Lens.Lens' UpdateResource (Lude.Maybe [PatchOperation])
-urPatchOperations = Lens.lens (patchOperations :: UpdateResource -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateResource)
-{-# DEPRECATED urPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceId :: Lens.Lens' UpdateResource Lude.Text
+urResourceId = Lens.lens (resourceId :: UpdateResource -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateResource)
+{-# DEPRECATED urResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -92,12 +89,12 @@ urRestAPIId :: Lens.Lens' UpdateResource Lude.Text
 urRestAPIId = Lens.lens (restAPIId :: UpdateResource -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateResource)
 {-# DEPRECATED urRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | [Required] The identifier of the 'Resource' resource.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceId :: Lens.Lens' UpdateResource Lude.Text
-urResourceId = Lens.lens (resourceId :: UpdateResource -> Lude.Text) (\s a -> s {resourceId = a} :: UpdateResource)
-{-# DEPRECATED urResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urPatchOperations :: Lens.Lens' UpdateResource (Lude.Maybe [PatchOperation])
+urPatchOperations = Lens.lens (patchOperations :: UpdateResource -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateResource)
+{-# DEPRECATED urPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateResource where
   type Rs UpdateResource = Resource

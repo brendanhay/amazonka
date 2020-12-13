@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.CapacityReservationTenancy
   ( CapacityReservationTenancy
       ( CapacityReservationTenancy',
-        CRTDedicated,
-        CRTDefault
+        CRTDefault,
+        CRTDedicated
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CapacityReservationTenancy = CapacityReservationTenancy' Lude.Text
       Lude.ToHeader
     )
 
-pattern CRTDedicated :: CapacityReservationTenancy
-pattern CRTDedicated = CapacityReservationTenancy' "dedicated"
-
 pattern CRTDefault :: CapacityReservationTenancy
 pattern CRTDefault = CapacityReservationTenancy' "default"
 
+pattern CRTDedicated :: CapacityReservationTenancy
+pattern CRTDedicated = CapacityReservationTenancy' "dedicated"
+
 {-# COMPLETE
-  CRTDedicated,
   CRTDefault,
+  CRTDedicated,
   CapacityReservationTenancy'
   #-}

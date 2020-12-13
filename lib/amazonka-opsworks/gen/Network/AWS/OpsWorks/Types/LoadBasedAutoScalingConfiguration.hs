@@ -32,32 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBasedAutoScalingConfiguration' smart constructor.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
-  { upScaling ::
-      Lude.Maybe
-        AutoScalingThresholds,
-    enable ::
-      Lude.Maybe Lude.Bool,
-    downScaling ::
-      Lude.Maybe
-        AutoScalingThresholds,
-    layerId ::
-      Lude.Maybe Lude.Text
+  { -- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
+    upScaling :: Lude.Maybe AutoScalingThresholds,
+    -- | Whether load-based auto scaling is enabled for the layer.
+    enable :: Lude.Maybe Lude.Bool,
+    -- | An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
+    downScaling :: Lude.Maybe AutoScalingThresholds,
+    -- | The layer ID.
+    layerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBasedAutoScalingConfiguration' with the minimum fields required to make a request.
 --
--- * 'downScaling' - An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
--- * 'enable' - Whether load-based auto scaling is enabled for the layer.
--- * 'layerId' - The layer ID.
 -- * 'upScaling' - An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
+-- * 'enable' - Whether load-based auto scaling is enabled for the layer.
+-- * 'downScaling' - An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
+-- * 'layerId' - The layer ID.
 mkLoadBasedAutoScalingConfiguration ::
   LoadBasedAutoScalingConfiguration
 mkLoadBasedAutoScalingConfiguration =

@@ -14,9 +14,9 @@ module Network.AWS.EC2.Types.ListingState
   ( ListingState
       ( ListingState',
         LAvailable,
+        LSold,
         LCancelled,
-        LPending,
-        LSold
+        LPending
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ListingState = ListingState' Lude.Text
 pattern LAvailable :: ListingState
 pattern LAvailable = ListingState' "available"
 
+pattern LSold :: ListingState
+pattern LSold = ListingState' "sold"
+
 pattern LCancelled :: ListingState
 pattern LCancelled = ListingState' "cancelled"
 
 pattern LPending :: ListingState
 pattern LPending = ListingState' "pending"
 
-pattern LSold :: ListingState
-pattern LSold = ListingState' "sold"
-
 {-# COMPLETE
   LAvailable,
+  LSold,
   LCancelled,
   LPending,
-  LSold,
   ListingState'
   #-}

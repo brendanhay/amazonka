@@ -55,8 +55,8 @@ module Network.AWS.MediaPackage.Types
     -- * Authorization
     Authorization (..),
     mkAuthorization,
-    aSecretsRoleARN,
     aCdnIdentifierSecret,
+    aSecretsRoleARN,
 
     -- * Channel
     Channel (..),
@@ -142,8 +142,8 @@ module Network.AWS.MediaPackage.Types
     heEncryptionMethod,
     heKeyRotationIntervalSeconds,
     heConstantInitializationVector,
-    heRepeatExtXKey,
     heSpekeKeyProvider,
+    heRepeatExtXKey,
 
     -- * HlsIngest
     HlsIngest (..),
@@ -158,9 +158,9 @@ module Network.AWS.MediaPackage.Types
     hmPlaylistType,
     hmProgramDateTimeIntervalSeconds,
     hmAdMarkers,
+    hmId,
     hmIncludeIframeOnlyStream,
     hmPlaylistWindowSeconds,
-    hmId,
 
     -- * HlsManifestCreateOrUpdateParameters
     HlsManifestCreateOrUpdateParameters (..),
@@ -170,10 +170,10 @@ module Network.AWS.MediaPackage.Types
     hmcoupPlaylistType,
     hmcoupProgramDateTimeIntervalSeconds,
     hmcoupAdMarkers,
+    hmcoupId,
     hmcoupIncludeIframeOnlyStream,
     hmcoupAdTriggers,
     hmcoupPlaylistWindowSeconds,
-    hmcoupId,
 
     -- * HlsPackage
     HlsPackage (..),
@@ -239,17 +239,17 @@ module Network.AWS.MediaPackage.Types
     -- * S3Destination
     S3Destination (..),
     mkS3Destination,
-    sdManifestKey,
     sdBucketName,
+    sdManifestKey,
     sdRoleARN,
 
     -- * SpekeKeyProvider
     SpekeKeyProvider (..),
     mkSpekeKeyProvider,
-    skpCertificateARN,
     skpResourceId,
-    skpSystemIds,
+    skpCertificateARN,
     skpURL,
+    skpSystemIds,
     skpRoleARN,
 
     -- * StreamSelection

@@ -13,8 +13,8 @@
 module Network.AWS.Rekognition.Types.Attribute
   ( Attribute
       ( Attribute',
-        All,
-        Default
+        Default,
+        All
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Attribute = Attribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: Attribute
-pattern All = Attribute' "ALL"
-
 pattern Default :: Attribute
 pattern Default = Attribute' "DEFAULT"
 
+pattern All :: Attribute
+pattern All = Attribute' "ALL"
+
 {-# COMPLETE
-  All,
   Default,
+  All,
   Attribute'
   #-}

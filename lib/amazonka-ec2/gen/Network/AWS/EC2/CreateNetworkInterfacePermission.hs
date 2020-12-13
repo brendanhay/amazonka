@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.EC2.CreateNetworkInterfacePermission
     mkCreateNetworkInterfacePermission,
 
     -- ** Request lenses
+    cnipNetworkInterfaceId,
     cnipAWSAccountId,
     cnipAWSService,
-    cnipDryRun,
-    cnipNetworkInterfaceId,
     cnipPermission,
+    cnipDryRun,
 
     -- * Destructuring the response
     CreateNetworkInterfacePermissionResponse (..),
@@ -47,33 +48,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateNetworkInterfacePermission' smart constructor.
 data CreateNetworkInterfacePermission = CreateNetworkInterfacePermission'
-  { awsAccountId ::
-      Lude.Maybe Lude.Text,
-    awsService ::
-      Lude.Maybe Lude.Text,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    networkInterfaceId ::
-      Lude.Text,
-    permission ::
-      InterfacePermissionType
+  { -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Text,
+    -- | The AWS account ID.
+    awsAccountId :: Lude.Maybe Lude.Text,
+    -- | The AWS service. Currently not supported.
+    awsService :: Lude.Maybe Lude.Text,
+    -- | The type of permission to grant.
+    permission :: InterfacePermissionType,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkInterfacePermission' with the minimum fields required to make a request.
 --
+-- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'awsAccountId' - The AWS account ID.
 -- * 'awsService' - The AWS service. Currently not supported.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'permission' - The type of permission to grant.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateNetworkInterfacePermission ::
   -- | 'networkInterfaceId'
   Lude.Text ->
@@ -84,12 +79,20 @@ mkCreateNetworkInterfacePermission
   pNetworkInterfaceId_
   pPermission_ =
     CreateNetworkInterfacePermission'
-      { awsAccountId = Lude.Nothing,
+      { networkInterfaceId =
+          pNetworkInterfaceId_,
+        awsAccountId = Lude.Nothing,
         awsService = Lude.Nothing,
-        dryRun = Lude.Nothing,
-        networkInterfaceId = pNetworkInterfaceId_,
-        permission = pPermission_
+        permission = pPermission_,
+        dryRun = Lude.Nothing
       }
+
+-- | The ID of the network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnipNetworkInterfaceId :: Lens.Lens' CreateNetworkInterfacePermission Lude.Text
+cnipNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateNetworkInterfacePermission -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateNetworkInterfacePermission)
+{-# DEPRECATED cnipNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The AWS account ID.
 --
@@ -105,26 +108,19 @@ cnipAWSService :: Lens.Lens' CreateNetworkInterfacePermission (Lude.Maybe Lude.T
 cnipAWSService = Lens.lens (awsService :: CreateNetworkInterfacePermission -> Lude.Maybe Lude.Text) (\s a -> s {awsService = a} :: CreateNetworkInterfacePermission)
 {-# DEPRECATED cnipAWSService "Use generic-lens or generic-optics with 'awsService' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnipDryRun :: Lens.Lens' CreateNetworkInterfacePermission (Lude.Maybe Lude.Bool)
-cnipDryRun = Lens.lens (dryRun :: CreateNetworkInterfacePermission -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNetworkInterfacePermission)
-{-# DEPRECATED cnipDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnipNetworkInterfaceId :: Lens.Lens' CreateNetworkInterfacePermission Lude.Text
-cnipNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateNetworkInterfacePermission -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateNetworkInterfacePermission)
-{-# DEPRECATED cnipNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
 -- | The type of permission to grant.
 --
 -- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cnipPermission :: Lens.Lens' CreateNetworkInterfacePermission InterfacePermissionType
 cnipPermission = Lens.lens (permission :: CreateNetworkInterfacePermission -> InterfacePermissionType) (\s a -> s {permission = a} :: CreateNetworkInterfacePermission)
 {-# DEPRECATED cnipPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnipDryRun :: Lens.Lens' CreateNetworkInterfacePermission (Lude.Maybe Lude.Bool)
+cnipDryRun = Lens.lens (dryRun :: CreateNetworkInterfacePermission -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNetworkInterfacePermission)
+{-# DEPRECATED cnipDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateNetworkInterfacePermission where
   type
@@ -151,30 +147,23 @@ instance Lude.ToQuery CreateNetworkInterfacePermission where
       [ "Action"
           Lude.=: ("CreateNetworkInterfacePermission" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
         "AwsAccountId" Lude.=: awsAccountId,
         "AwsService" Lude.=: awsService,
-        "DryRun" Lude.=: dryRun,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "Permission" Lude.=: permission
+        "Permission" Lude.=: permission,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of CreateNetworkInterfacePermission.
 --
 -- /See:/ 'mkCreateNetworkInterfacePermissionResponse' smart constructor.
 data CreateNetworkInterfacePermissionResponse = CreateNetworkInterfacePermissionResponse'
-  { interfacePermission ::
-      Lude.Maybe
-        NetworkInterfacePermission,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the permission for the network interface.
+    interfacePermission :: Lude.Maybe NetworkInterfacePermission,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkInterfacePermissionResponse' with the minimum fields required to make a request.

@@ -32,30 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2ResourceUtilization' smart constructor.
 data EC2ResourceUtilization = EC2ResourceUtilization'
-  { maxCPUUtilizationPercentage ::
-      Lude.Maybe Lude.Text,
-    ebsResourceUtilization ::
-      Lude.Maybe EBSResourceUtilization,
-    maxStorageUtilizationPercentage ::
-      Lude.Maybe Lude.Text,
-    maxMemoryUtilizationPercentage ::
-      Lude.Maybe Lude.Text
+  { -- | Maximum observed or expected CPU utilization of the instance.
+    maxCPUUtilizationPercentage :: Lude.Maybe Lude.Text,
+    -- | The EBS field that contains a list of EBS metrics associated with the current instance.
+    ebsResourceUtilization :: Lude.Maybe EBSResourceUtilization,
+    -- | Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
+    maxStorageUtilizationPercentage :: Lude.Maybe Lude.Text,
+    -- | Maximum observed or expected memory utilization of the instance.
+    maxMemoryUtilizationPercentage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2ResourceUtilization' with the minimum fields required to make a request.
 --
--- * 'ebsResourceUtilization' - The EBS field that contains a list of EBS metrics associated with the current instance.
 -- * 'maxCPUUtilizationPercentage' - Maximum observed or expected CPU utilization of the instance.
--- * 'maxMemoryUtilizationPercentage' - Maximum observed or expected memory utilization of the instance.
+-- * 'ebsResourceUtilization' - The EBS field that contains a list of EBS metrics associated with the current instance.
 -- * 'maxStorageUtilizationPercentage' - Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
+-- * 'maxMemoryUtilizationPercentage' - Maximum observed or expected memory utilization of the instance.
 mkEC2ResourceUtilization ::
   EC2ResourceUtilization
 mkEC2ResourceUtilization =

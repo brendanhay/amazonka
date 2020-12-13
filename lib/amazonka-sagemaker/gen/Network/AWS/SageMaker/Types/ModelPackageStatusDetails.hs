@@ -30,18 +30,12 @@ import Network.AWS.SageMaker.Types.ModelPackageStatusItem
 --
 -- /See:/ 'mkModelPackageStatusDetails' smart constructor.
 data ModelPackageStatusDetails = ModelPackageStatusDetails'
-  { imageScanStatuses ::
-      Lude.Maybe [ModelPackageStatusItem],
-    validationStatuses ::
-      [ModelPackageStatusItem]
+  { -- | The status of the scan of the Docker image container for the model package.
+    imageScanStatuses :: Lude.Maybe [ModelPackageStatusItem],
+    -- | The validation status of the model package.
+    validationStatuses :: [ModelPackageStatusItem]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelPackageStatusDetails' with the minimum fields required to make a request.

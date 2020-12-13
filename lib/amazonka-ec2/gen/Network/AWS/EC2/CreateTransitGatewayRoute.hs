@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.EC2.CreateTransitGatewayRoute
     mkCreateTransitGatewayRoute,
 
     -- ** Request lenses
+    ctgrTransitGatewayRouteTableId,
     ctgrBlackhole,
     ctgrTransitGatewayAttachmentId,
     ctgrDryRun,
     ctgrDestinationCidrBlock,
-    ctgrTransitGatewayRouteTableId,
 
     -- * Destructuring the response
     CreateTransitGatewayRouteResponse (..),
@@ -43,46 +44,51 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTransitGatewayRoute' smart constructor.
 data CreateTransitGatewayRoute = CreateTransitGatewayRoute'
-  { blackhole ::
-      Lude.Maybe Lude.Bool,
-    transitGatewayAttachmentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Lude.Text,
+    -- | Indicates whether to drop traffic that matches this route.
+    blackhole :: Lude.Maybe Lude.Bool,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    destinationCidrBlock :: Lude.Text,
-    transitGatewayRouteTableId :: Lude.Text
+    -- | The CIDR range used for destination matches. Routing decisions are based on the most specific match.
+    destinationCidrBlock :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayRoute' with the minimum fields required to make a request.
 --
--- * 'blackhole' - Indicates whether to drop traffic that matches this route.
--- * 'destinationCidrBlock' - The CIDR range used for destination matches. Routing decisions are based on the most specific match.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
 -- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- * 'blackhole' - Indicates whether to drop traffic that matches this route.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'destinationCidrBlock' - The CIDR range used for destination matches. Routing decisions are based on the most specific match.
 mkCreateTransitGatewayRoute ::
-  -- | 'destinationCidrBlock'
-  Lude.Text ->
   -- | 'transitGatewayRouteTableId'
+  Lude.Text ->
+  -- | 'destinationCidrBlock'
   Lude.Text ->
   CreateTransitGatewayRoute
 mkCreateTransitGatewayRoute
-  pDestinationCidrBlock_
-  pTransitGatewayRouteTableId_ =
+  pTransitGatewayRouteTableId_
+  pDestinationCidrBlock_ =
     CreateTransitGatewayRoute'
-      { blackhole = Lude.Nothing,
+      { transitGatewayRouteTableId =
+          pTransitGatewayRouteTableId_,
+        blackhole = Lude.Nothing,
         transitGatewayAttachmentId = Lude.Nothing,
         dryRun = Lude.Nothing,
-        destinationCidrBlock = pDestinationCidrBlock_,
-        transitGatewayRouteTableId = pTransitGatewayRouteTableId_
+        destinationCidrBlock = pDestinationCidrBlock_
       }
+
+-- | The ID of the transit gateway route table.
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrTransitGatewayRouteTableId :: Lens.Lens' CreateTransitGatewayRoute Lude.Text
+ctgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: CreateTransitGatewayRoute -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: CreateTransitGatewayRoute)
+{-# DEPRECATED ctgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | Indicates whether to drop traffic that matches this route.
 --
@@ -112,13 +118,6 @@ ctgrDestinationCidrBlock :: Lens.Lens' CreateTransitGatewayRoute Lude.Text
 ctgrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateTransitGatewayRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateTransitGatewayRoute)
 {-# DEPRECATED ctgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
--- | The ID of the transit gateway route table.
---
--- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrTransitGatewayRouteTableId :: Lens.Lens' CreateTransitGatewayRoute Lude.Text
-ctgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: CreateTransitGatewayRoute -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: CreateTransitGatewayRoute)
-{-# DEPRECATED ctgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
-
 instance Lude.AWSRequest CreateTransitGatewayRoute where
   type
     Rs CreateTransitGatewayRoute =
@@ -142,34 +141,27 @@ instance Lude.ToQuery CreateTransitGatewayRoute where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateTransitGatewayRoute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
         "Blackhole" Lude.=: blackhole,
         "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
         "DryRun" Lude.=: dryRun,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
-        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock
       ]
 
 -- | /See:/ 'mkCreateTransitGatewayRouteResponse' smart constructor.
 data CreateTransitGatewayRouteResponse = CreateTransitGatewayRouteResponse'
-  { route ::
-      Lude.Maybe
-        TransitGatewayRoute,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the route.
+    route :: Lude.Maybe TransitGatewayRoute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayRouteResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'route' - Information about the route.
+-- * 'responseStatus' - The response status code.
 mkCreateTransitGatewayRouteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

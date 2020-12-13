@@ -13,31 +13,31 @@
 module Network.AWS.OpsWorks.Types.LayerAttributesKeys
   ( LayerAttributesKeys
       ( LayerAttributesKeys',
-        BundlerVersion,
         EcsClusterARN,
         EnableHaproxyStats,
-        GangliaPassword,
-        GangliaURL,
-        GangliaUser,
-        HaproxyHealthCheckMethod,
-        HaproxyHealthCheckURL,
-        HaproxyStatsPassword,
         HaproxyStatsURL,
         HaproxyStatsUser,
-        JVM,
-        JVMOptions,
-        JVMVersion,
-        JavaAppServer,
-        JavaAppServerVersion,
-        ManageBundler,
-        MemcachedMemory,
+        HaproxyStatsPassword,
+        HaproxyHealthCheckURL,
+        HaproxyHealthCheckMethod,
         MysqlRootPassword,
         MysqlRootPasswordUbiquitous,
+        GangliaURL,
+        GangliaUser,
+        GangliaPassword,
+        MemcachedMemory,
         NodejsVersion,
-        PassengerVersion,
-        RailsStack,
         RubyVersion,
-        RubygemsVersion
+        RubygemsVersion,
+        ManageBundler,
+        BundlerVersion,
+        RailsStack,
+        PassengerVersion,
+        JVM,
+        JVMVersion,
+        JVMOptions,
+        JavaAppServer,
+        JavaAppServerVersion
       ),
   )
 where
@@ -68,32 +68,11 @@ newtype LayerAttributesKeys = LayerAttributesKeys' Lude.Text
       Lude.ToHeader
     )
 
-pattern BundlerVersion :: LayerAttributesKeys
-pattern BundlerVersion = LayerAttributesKeys' "BundlerVersion"
-
 pattern EcsClusterARN :: LayerAttributesKeys
 pattern EcsClusterARN = LayerAttributesKeys' "EcsClusterArn"
 
 pattern EnableHaproxyStats :: LayerAttributesKeys
 pattern EnableHaproxyStats = LayerAttributesKeys' "EnableHaproxyStats"
-
-pattern GangliaPassword :: LayerAttributesKeys
-pattern GangliaPassword = LayerAttributesKeys' "GangliaPassword"
-
-pattern GangliaURL :: LayerAttributesKeys
-pattern GangliaURL = LayerAttributesKeys' "GangliaUrl"
-
-pattern GangliaUser :: LayerAttributesKeys
-pattern GangliaUser = LayerAttributesKeys' "GangliaUser"
-
-pattern HaproxyHealthCheckMethod :: LayerAttributesKeys
-pattern HaproxyHealthCheckMethod = LayerAttributesKeys' "HaproxyHealthCheckMethod"
-
-pattern HaproxyHealthCheckURL :: LayerAttributesKeys
-pattern HaproxyHealthCheckURL = LayerAttributesKeys' "HaproxyHealthCheckUrl"
-
-pattern HaproxyStatsPassword :: LayerAttributesKeys
-pattern HaproxyStatsPassword = LayerAttributesKeys' "HaproxyStatsPassword"
 
 pattern HaproxyStatsURL :: LayerAttributesKeys
 pattern HaproxyStatsURL = LayerAttributesKeys' "HaproxyStatsUrl"
@@ -101,26 +80,14 @@ pattern HaproxyStatsURL = LayerAttributesKeys' "HaproxyStatsUrl"
 pattern HaproxyStatsUser :: LayerAttributesKeys
 pattern HaproxyStatsUser = LayerAttributesKeys' "HaproxyStatsUser"
 
-pattern JVM :: LayerAttributesKeys
-pattern JVM = LayerAttributesKeys' "Jvm"
+pattern HaproxyStatsPassword :: LayerAttributesKeys
+pattern HaproxyStatsPassword = LayerAttributesKeys' "HaproxyStatsPassword"
 
-pattern JVMOptions :: LayerAttributesKeys
-pattern JVMOptions = LayerAttributesKeys' "JvmOptions"
+pattern HaproxyHealthCheckURL :: LayerAttributesKeys
+pattern HaproxyHealthCheckURL = LayerAttributesKeys' "HaproxyHealthCheckUrl"
 
-pattern JVMVersion :: LayerAttributesKeys
-pattern JVMVersion = LayerAttributesKeys' "JvmVersion"
-
-pattern JavaAppServer :: LayerAttributesKeys
-pattern JavaAppServer = LayerAttributesKeys' "JavaAppServer"
-
-pattern JavaAppServerVersion :: LayerAttributesKeys
-pattern JavaAppServerVersion = LayerAttributesKeys' "JavaAppServerVersion"
-
-pattern ManageBundler :: LayerAttributesKeys
-pattern ManageBundler = LayerAttributesKeys' "ManageBundler"
-
-pattern MemcachedMemory :: LayerAttributesKeys
-pattern MemcachedMemory = LayerAttributesKeys' "MemcachedMemory"
+pattern HaproxyHealthCheckMethod :: LayerAttributesKeys
+pattern HaproxyHealthCheckMethod = LayerAttributesKeys' "HaproxyHealthCheckMethod"
 
 pattern MysqlRootPassword :: LayerAttributesKeys
 pattern MysqlRootPassword = LayerAttributesKeys' "MysqlRootPassword"
@@ -128,14 +95,20 @@ pattern MysqlRootPassword = LayerAttributesKeys' "MysqlRootPassword"
 pattern MysqlRootPasswordUbiquitous :: LayerAttributesKeys
 pattern MysqlRootPasswordUbiquitous = LayerAttributesKeys' "MysqlRootPasswordUbiquitous"
 
+pattern GangliaURL :: LayerAttributesKeys
+pattern GangliaURL = LayerAttributesKeys' "GangliaUrl"
+
+pattern GangliaUser :: LayerAttributesKeys
+pattern GangliaUser = LayerAttributesKeys' "GangliaUser"
+
+pattern GangliaPassword :: LayerAttributesKeys
+pattern GangliaPassword = LayerAttributesKeys' "GangliaPassword"
+
+pattern MemcachedMemory :: LayerAttributesKeys
+pattern MemcachedMemory = LayerAttributesKeys' "MemcachedMemory"
+
 pattern NodejsVersion :: LayerAttributesKeys
 pattern NodejsVersion = LayerAttributesKeys' "NodejsVersion"
-
-pattern PassengerVersion :: LayerAttributesKeys
-pattern PassengerVersion = LayerAttributesKeys' "PassengerVersion"
-
-pattern RailsStack :: LayerAttributesKeys
-pattern RailsStack = LayerAttributesKeys' "RailsStack"
 
 pattern RubyVersion :: LayerAttributesKeys
 pattern RubyVersion = LayerAttributesKeys' "RubyVersion"
@@ -143,31 +116,58 @@ pattern RubyVersion = LayerAttributesKeys' "RubyVersion"
 pattern RubygemsVersion :: LayerAttributesKeys
 pattern RubygemsVersion = LayerAttributesKeys' "RubygemsVersion"
 
+pattern ManageBundler :: LayerAttributesKeys
+pattern ManageBundler = LayerAttributesKeys' "ManageBundler"
+
+pattern BundlerVersion :: LayerAttributesKeys
+pattern BundlerVersion = LayerAttributesKeys' "BundlerVersion"
+
+pattern RailsStack :: LayerAttributesKeys
+pattern RailsStack = LayerAttributesKeys' "RailsStack"
+
+pattern PassengerVersion :: LayerAttributesKeys
+pattern PassengerVersion = LayerAttributesKeys' "PassengerVersion"
+
+pattern JVM :: LayerAttributesKeys
+pattern JVM = LayerAttributesKeys' "Jvm"
+
+pattern JVMVersion :: LayerAttributesKeys
+pattern JVMVersion = LayerAttributesKeys' "JvmVersion"
+
+pattern JVMOptions :: LayerAttributesKeys
+pattern JVMOptions = LayerAttributesKeys' "JvmOptions"
+
+pattern JavaAppServer :: LayerAttributesKeys
+pattern JavaAppServer = LayerAttributesKeys' "JavaAppServer"
+
+pattern JavaAppServerVersion :: LayerAttributesKeys
+pattern JavaAppServerVersion = LayerAttributesKeys' "JavaAppServerVersion"
+
 {-# COMPLETE
-  BundlerVersion,
   EcsClusterARN,
   EnableHaproxyStats,
-  GangliaPassword,
-  GangliaURL,
-  GangliaUser,
-  HaproxyHealthCheckMethod,
-  HaproxyHealthCheckURL,
-  HaproxyStatsPassword,
   HaproxyStatsURL,
   HaproxyStatsUser,
-  JVM,
-  JVMOptions,
-  JVMVersion,
-  JavaAppServer,
-  JavaAppServerVersion,
-  ManageBundler,
-  MemcachedMemory,
+  HaproxyStatsPassword,
+  HaproxyHealthCheckURL,
+  HaproxyHealthCheckMethod,
   MysqlRootPassword,
   MysqlRootPasswordUbiquitous,
+  GangliaURL,
+  GangliaUser,
+  GangliaPassword,
+  MemcachedMemory,
   NodejsVersion,
-  PassengerVersion,
-  RailsStack,
   RubyVersion,
   RubygemsVersion,
+  ManageBundler,
+  BundlerVersion,
+  RailsStack,
+  PassengerVersion,
+  JVM,
+  JVMVersion,
+  JVMOptions,
+  JavaAppServer,
+  JavaAppServerVersion,
   LayerAttributesKeys'
   #-}

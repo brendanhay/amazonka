@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.Glue.ListMLTransforms
 
     -- ** Response lenses
     lmltrsNextToken,
-    lmltrsResponseStatus,
     lmltrsTransformIds,
+    lmltrsResponseStatus,
   )
 where
 
@@ -44,28 +45,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListMLTransforms' smart constructor.
 data ListMLTransforms = ListMLTransforms'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if this is a continuation request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A @TransformSortCriteria@ used to sort the machine learning transforms.
     sort :: Lude.Maybe TransformSortCriteria,
+    -- | A @TransformFilterCriteria@ used to filter the machine learning transforms.
     filter :: Lude.Maybe TransformFilterCriteria,
+    -- | The maximum size of a list to return.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | Specifies to return only these tagged resources.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMLTransforms' with the minimum fields required to make a request.
 --
--- * 'filter' - A @TransformFilterCriteria@ used to filter the machine learning transforms.
--- * 'maxResults' - The maximum size of a list to return.
 -- * 'nextToken' - A continuation token, if this is a continuation request.
 -- * 'sort' - A @TransformSortCriteria@ used to sort the machine learning transforms.
+-- * 'filter' - A @TransformFilterCriteria@ used to filter the machine learning transforms.
+-- * 'maxResults' - The maximum size of a list to return.
 -- * 'tags' - Specifies to return only these tagged resources.
 mkListMLTransforms ::
   ListMLTransforms
@@ -121,8 +120,8 @@ instance Lude.AWSRequest ListMLTransforms where
       ( \s h x ->
           ListMLTransformsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "TransformIds" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListMLTransforms where
@@ -156,25 +155,21 @@ instance Lude.ToQuery ListMLTransforms where
 
 -- | /See:/ 'mkListMLTransformsResponse' smart constructor.
 data ListMLTransformsResponse = ListMLTransformsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    transformIds :: [Lude.Text]
+  { -- | A continuation token, if the returned list does not contain the last metric available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.
+    transformIds :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMLTransformsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A continuation token, if the returned list does not contain the last metric available.
--- * 'responseStatus' - The response status code.
 -- * 'transformIds' - The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.
+-- * 'responseStatus' - The response status code.
 mkListMLTransformsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -182,8 +177,8 @@ mkListMLTransformsResponse ::
 mkListMLTransformsResponse pResponseStatus_ =
   ListMLTransformsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      transformIds = Lude.mempty
+      transformIds = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | A continuation token, if the returned list does not contain the last metric available.
@@ -193,16 +188,16 @@ lmltrsNextToken :: Lens.Lens' ListMLTransformsResponse (Lude.Maybe Lude.Text)
 lmltrsNextToken = Lens.lens (nextToken :: ListMLTransformsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMLTransformsResponse)
 {-# DEPRECATED lmltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmltrsResponseStatus :: Lens.Lens' ListMLTransformsResponse Lude.Int
-lmltrsResponseStatus = Lens.lens (responseStatus :: ListMLTransformsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMLTransformsResponse)
-{-# DEPRECATED lmltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.
 --
 -- /Note:/ Consider using 'transformIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lmltrsTransformIds :: Lens.Lens' ListMLTransformsResponse [Lude.Text]
 lmltrsTransformIds = Lens.lens (transformIds :: ListMLTransformsResponse -> [Lude.Text]) (\s a -> s {transformIds = a} :: ListMLTransformsResponse)
 {-# DEPRECATED lmltrsTransformIds "Use generic-lens or generic-optics with 'transformIds' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmltrsResponseStatus :: Lens.Lens' ListMLTransformsResponse Lude.Int
+lmltrsResponseStatus = Lens.lens (responseStatus :: ListMLTransformsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMLTransformsResponse)
+{-# DEPRECATED lmltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

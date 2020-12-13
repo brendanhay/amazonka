@@ -13,13 +13,13 @@
 module Network.AWS.ELBv2.Types.ProtocolEnum
   ( ProtocolEnum
       ( ProtocolEnum',
-        Geneve,
         HTTP,
         HTTPS,
         TCP,
-        TCPUdp,
         TLS,
-        Udp
+        Udp,
+        TCPUdp,
+        Geneve
       ),
   )
 where
@@ -50,9 +50,6 @@ newtype ProtocolEnum = ProtocolEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Geneve :: ProtocolEnum
-pattern Geneve = ProtocolEnum' "GENEVE"
-
 pattern HTTP :: ProtocolEnum
 pattern HTTP = ProtocolEnum' "HTTP"
 
@@ -62,22 +59,25 @@ pattern HTTPS = ProtocolEnum' "HTTPS"
 pattern TCP :: ProtocolEnum
 pattern TCP = ProtocolEnum' "TCP"
 
-pattern TCPUdp :: ProtocolEnum
-pattern TCPUdp = ProtocolEnum' "TCP_UDP"
-
 pattern TLS :: ProtocolEnum
 pattern TLS = ProtocolEnum' "TLS"
 
 pattern Udp :: ProtocolEnum
 pattern Udp = ProtocolEnum' "UDP"
 
+pattern TCPUdp :: ProtocolEnum
+pattern TCPUdp = ProtocolEnum' "TCP_UDP"
+
+pattern Geneve :: ProtocolEnum
+pattern Geneve = ProtocolEnum' "GENEVE"
+
 {-# COMPLETE
-  Geneve,
   HTTP,
   HTTPS,
   TCP,
-  TCPUdp,
   TLS,
   Udp,
+  TCPUdp,
+  Geneve,
   ProtocolEnum'
   #-}

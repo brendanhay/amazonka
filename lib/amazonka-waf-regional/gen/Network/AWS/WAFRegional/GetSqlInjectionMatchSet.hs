@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.WAFRegional.Types
 --
 -- /See:/ 'mkGetSqlInjectionMatchSet' smart constructor.
 newtype GetSqlInjectionMatchSet = GetSqlInjectionMatchSet'
-  { sqlInjectionMatchSetId ::
-      Lude.Text
+  { -- | The @SqlInjectionMatchSetId@ of the 'SqlInjectionMatchSet' that you want to get. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
+    sqlInjectionMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSqlInjectionMatchSet' with the minimum fields required to make a request.
@@ -116,23 +111,25 @@ instance Lude.ToQuery GetSqlInjectionMatchSet where
 --
 -- /See:/ 'mkGetSqlInjectionMatchSetResponse' smart constructor.
 data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
-  { sqlInjectionMatchSet ::
-      Lude.Maybe
-        SqlInjectionMatchSet,
+  { -- | Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:
+    --
+    --
+    --     * 'SqlInjectionMatchSet' : Contains @Name@ , @SqlInjectionMatchSetId@ , and an array of @SqlInjectionMatchTuple@ objects
+    --
+    --
+    --     * 'SqlInjectionMatchTuple' : Each @SqlInjectionMatchTuple@ object contains @FieldToMatch@ and @TextTransformation@
+    --
+    --
+    --     * 'FieldToMatch' : Contains @Data@ and @Type@
+    sqlInjectionMatchSet :: Lude.Maybe SqlInjectionMatchSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSqlInjectionMatchSetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sqlInjectionMatchSet' - Information about the 'SqlInjectionMatchSet' that you specified in the @GetSqlInjectionMatchSet@ request. For more information, see the following topics:
 --
 --
@@ -143,6 +140,9 @@ data GetSqlInjectionMatchSetResponse = GetSqlInjectionMatchSetResponse'
 --
 --
 --     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+-- * 'responseStatus' - The response status code.
 mkGetSqlInjectionMatchSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

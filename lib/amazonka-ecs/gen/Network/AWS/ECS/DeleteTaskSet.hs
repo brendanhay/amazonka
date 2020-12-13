@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.ECS.DeleteTaskSet
     mkDeleteTaskSet,
 
     -- ** Request lenses
-    dtsForce,
+    dtsTaskSet,
     dtsCluster,
     dtsService,
-    dtsTaskSet,
+    dtsForce,
 
     -- * Destructuring the response
     DeleteTaskSetResponse (..),
@@ -42,48 +43,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTaskSet' smart constructor.
 data DeleteTaskSet = DeleteTaskSet'
-  { force :: Lude.Maybe Lude.Bool,
+  { -- | The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
+    taskSet :: Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
     cluster :: Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
     service :: Lude.Text,
-    taskSet :: Lude.Text
+    -- | If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
+    force :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTaskSet' with the minimum fields required to make a request.
 --
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
--- * 'force' - If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
--- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
 -- * 'taskSet' - The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
+-- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
+-- * 'force' - If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
 mkDeleteTaskSet ::
+  -- | 'taskSet'
+  Lude.Text ->
   -- | 'cluster'
   Lude.Text ->
   -- | 'service'
   Lude.Text ->
-  -- | 'taskSet'
-  Lude.Text ->
   DeleteTaskSet
-mkDeleteTaskSet pCluster_ pService_ pTaskSet_ =
+mkDeleteTaskSet pTaskSet_ pCluster_ pService_ =
   DeleteTaskSet'
-    { force = Lude.Nothing,
+    { taskSet = pTaskSet_,
       cluster = pCluster_,
       service = pService_,
-      taskSet = pTaskSet_
+      force = Lude.Nothing
     }
 
--- | If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
+-- | The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
 --
--- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsForce :: Lens.Lens' DeleteTaskSet (Lude.Maybe Lude.Bool)
-dtsForce = Lens.lens (force :: DeleteTaskSet -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteTaskSet)
-{-# DEPRECATED dtsForce "Use generic-lens or generic-optics with 'force' instead." #-}
+-- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsTaskSet :: Lens.Lens' DeleteTaskSet Lude.Text
+dtsTaskSet = Lens.lens (taskSet :: DeleteTaskSet -> Lude.Text) (\s a -> s {taskSet = a} :: DeleteTaskSet)
+{-# DEPRECATED dtsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
 --
@@ -99,12 +98,12 @@ dtsService :: Lens.Lens' DeleteTaskSet Lude.Text
 dtsService = Lens.lens (service :: DeleteTaskSet -> Lude.Text) (\s a -> s {service = a} :: DeleteTaskSet)
 {-# DEPRECATED dtsService "Use generic-lens or generic-optics with 'service' instead." #-}
 
--- | The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
+-- | If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
 --
--- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsTaskSet :: Lens.Lens' DeleteTaskSet Lude.Text
-dtsTaskSet = Lens.lens (taskSet :: DeleteTaskSet -> Lude.Text) (\s a -> s {taskSet = a} :: DeleteTaskSet)
-{-# DEPRECATED dtsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsForce :: Lens.Lens' DeleteTaskSet (Lude.Maybe Lude.Bool)
+dtsForce = Lens.lens (force :: DeleteTaskSet -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteTaskSet)
+{-# DEPRECATED dtsForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 instance Lude.AWSRequest DeleteTaskSet where
   type Rs DeleteTaskSet = DeleteTaskSetResponse
@@ -133,10 +132,10 @@ instance Lude.ToJSON DeleteTaskSet where
   toJSON DeleteTaskSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("force" Lude..=) Lude.<$> force,
+          [ Lude.Just ("taskSet" Lude..= taskSet),
             Lude.Just ("cluster" Lude..= cluster),
             Lude.Just ("service" Lude..= service),
-            Lude.Just ("taskSet" Lude..= taskSet)
+            ("force" Lude..=) Lude.<$> force
           ]
       )
 
@@ -148,23 +147,17 @@ instance Lude.ToQuery DeleteTaskSet where
 
 -- | /See:/ 'mkDeleteTaskSetResponse' smart constructor.
 data DeleteTaskSetResponse = DeleteTaskSetResponse'
-  { taskSet ::
-      Lude.Maybe TaskSet,
+  { taskSet :: Lude.Maybe TaskSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTaskSetResponse' with the minimum fields required to make a request.
 --
+-- * 'taskSet' -
 -- * 'responseStatus' - The response status code.
--- * 'taskSet' - Undocumented field.
 mkDeleteTaskSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

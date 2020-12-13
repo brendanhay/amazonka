@@ -31,16 +31,12 @@ import Network.AWS.WAFRegional.Types.ChangeAction
 --
 -- /See:/ 'mkRuleGroupUpdate' smart constructor.
 data RuleGroupUpdate = RuleGroupUpdate'
-  { action :: ChangeAction,
+  { -- | Specify @INSERT@ to add an @ActivatedRule@ to a @RuleGroup@ . Use @DELETE@ to remove an @ActivatedRule@ from a @RuleGroup@ .
+    action :: ChangeAction,
+    -- | The @ActivatedRule@ object specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
     activatedRule :: ActivatedRule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleGroupUpdate' with the minimum fields required to make a request.

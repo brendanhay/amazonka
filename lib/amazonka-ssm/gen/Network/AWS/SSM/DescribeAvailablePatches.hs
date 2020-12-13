@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeAvailablePatches' smart constructor.
 data DescribeAvailablePatches = DescribeAvailablePatches'
-  { filters ::
-      Lude.Maybe [PatchOrchestratorFilter],
+  { -- | Filters used to scope down the returned patches.
+    filters :: Lude.Maybe [PatchOrchestratorFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of patches to return (per page).
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAvailablePatches' with the minimum fields required to make a request.
 --
 -- * 'filters' - Filters used to scope down the returned patches.
--- * 'maxResults' - The maximum number of patches to return (per page).
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of patches to return (per page).
 mkDescribeAvailablePatches ::
   DescribeAvailablePatches
 mkDescribeAvailablePatches =
@@ -144,26 +141,20 @@ instance Lude.ToQuery DescribeAvailablePatches where
 
 -- | /See:/ 'mkDescribeAvailablePatchesResponse' smart constructor.
 data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
-  { patches ::
-      Lude.Maybe [Patch],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of patches. Each entry in the array is a patch structure.
+    patches :: Lude.Maybe [Patch],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAvailablePatchesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'patches' - An array of patches. Each entry in the array is a patch structure.
+-- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'responseStatus' - The response status code.
 mkDescribeAvailablePatchesResponse ::
   -- | 'responseStatus'

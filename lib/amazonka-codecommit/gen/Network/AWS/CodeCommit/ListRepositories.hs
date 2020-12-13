@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,18 +48,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListRepositories' smart constructor.
 data ListRepositories = ListRepositories'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The order in which to sort the results of a list repositories operation.
     order :: Lude.Maybe OrderEnum,
+    -- | The criteria used to sort the results of a list repositories operation.
     sortBy :: Lude.Maybe SortByEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRepositories' with the minimum fields required to make a request.
@@ -148,24 +145,20 @@ instance Lude.ToQuery ListRepositories where
 --
 -- /See:/ 'mkListRepositoriesResponse' smart constructor.
 data ListRepositoriesResponse = ListRepositoriesResponse'
-  { repositories ::
-      Lude.Maybe [RepositoryNameIdPair],
+  { -- | Lists the repositories called by the list repositories operation.
+    repositories :: Lude.Maybe [RepositoryNameIdPair],
+    -- | An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRepositoriesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 -- * 'repositories' - Lists the repositories called by the list repositories operation.
+-- * 'nextToken' - An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to AWS CodeCommit, another page of 1,000 records is retrieved.
 -- * 'responseStatus' - The response status code.
 mkListRepositoriesResponse ::
   -- | 'responseStatus'

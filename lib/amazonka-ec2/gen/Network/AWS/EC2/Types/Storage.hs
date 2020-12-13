@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes the storage location for an instance store-backed AMI.
 --
 -- /See:/ 'mkStorage' smart constructor.
-newtype Storage = Storage' {s3 :: Lude.Maybe S3Storage}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Storage = Storage'
+  { -- | An Amazon S3 storage location.
+    s3 :: Lude.Maybe S3Storage
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Storage' with the minimum fields required to make a request.

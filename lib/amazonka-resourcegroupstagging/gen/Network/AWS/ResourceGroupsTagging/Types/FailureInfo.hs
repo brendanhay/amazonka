@@ -41,18 +41,14 @@ import Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
 --
 -- /See:/ 'mkFailureInfo' smart constructor.
 data FailureInfo = FailureInfo'
-  { errorCode ::
-      Lude.Maybe ResourceErrorCode,
+  { -- | The code of the common error. Valid values include @InternalServiceException@ , @InvalidParameterException@ , and any valid error code returned by the AWS service that hosts the resource that you want to tag.
+    errorCode :: Lude.Maybe ResourceErrorCode,
+    -- | The message of the common error.
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The HTTP status code of the common error.
     statusCode :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureInfo' with the minimum fields required to make a request.

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKinesisVideoStream' smart constructor.
 newtype KinesisVideoStream = KinesisVideoStream'
-  { arn ::
-      Lude.Maybe Lude.Text
+  { -- | ARN of the Kinesis video stream stream that streams the source video.
+    arn :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisVideoStream' with the minimum fields required to make a request.

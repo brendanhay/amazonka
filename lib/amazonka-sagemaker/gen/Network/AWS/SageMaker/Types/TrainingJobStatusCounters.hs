@@ -32,31 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrainingJobStatusCounters' smart constructor.
 data TrainingJobStatusCounters = TrainingJobStatusCounters'
-  { stopped ::
-      Lude.Maybe Lude.Natural,
-    retryableError ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of training jobs launched by a hyperparameter tuning job that were manually stopped.
+    stopped :: Lude.Maybe Lude.Natural,
+    -- | The number of training jobs that failed, but can be retried. A failed training job can be retried only if it failed because an internal service error occurred.
+    retryableError :: Lude.Maybe Lude.Natural,
+    -- | The number of in-progress training jobs launched by a hyperparameter tuning job.
     inProgress :: Lude.Maybe Lude.Natural,
-    nonRetryableError ::
-      Lude.Maybe Lude.Natural,
+    -- | The number of training jobs that failed and can't be retried. A failed training job can't be retried if it failed because a client error occurred.
+    nonRetryableError :: Lude.Maybe Lude.Natural,
+    -- | The number of completed training jobs launched by the hyperparameter tuning job.
     completed :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrainingJobStatusCounters' with the minimum fields required to make a request.
 --
--- * 'completed' - The number of completed training jobs launched by the hyperparameter tuning job.
+-- * 'stopped' - The number of training jobs launched by a hyperparameter tuning job that were manually stopped.
+-- * 'retryableError' - The number of training jobs that failed, but can be retried. A failed training job can be retried only if it failed because an internal service error occurred.
 -- * 'inProgress' - The number of in-progress training jobs launched by a hyperparameter tuning job.
 -- * 'nonRetryableError' - The number of training jobs that failed and can't be retried. A failed training job can't be retried if it failed because a client error occurred.
--- * 'retryableError' - The number of training jobs that failed, but can be retried. A failed training job can be retried only if it failed because an internal service error occurred.
--- * 'stopped' - The number of training jobs launched by a hyperparameter tuning job that were manually stopped.
+-- * 'completed' - The number of completed training jobs launched by the hyperparameter tuning job.
 mkTrainingJobStatusCounters ::
   TrainingJobStatusCounters
 mkTrainingJobStatusCounters =

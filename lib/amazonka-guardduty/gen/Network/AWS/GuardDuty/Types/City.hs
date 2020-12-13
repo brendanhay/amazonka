@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Contains information about the city associated with the IP address.
 --
 -- /See:/ 'mkCity' smart constructor.
-newtype City = City' {cityName :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype City = City'
+  { -- | The city name of the remote IP address.
+    cityName :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'City' with the minimum fields required to make a request.

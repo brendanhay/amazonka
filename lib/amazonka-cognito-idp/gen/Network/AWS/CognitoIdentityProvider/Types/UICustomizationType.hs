@@ -34,13 +34,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUICustomizationType' smart constructor.
 data UICustomizationType = UICustomizationType'
-  { clientId ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The client ID for the client app.
+    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The last-modified date for the UI customization.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The user pool ID for the user pool.
     userPoolId :: Lude.Maybe Lude.Text,
+    -- | The CSS values in the UI customization.
     cSS :: Lude.Maybe Lude.Text,
+    -- | The CSS version number.
     cSSVersion :: Lude.Maybe Lude.Text,
+    -- | The logo image for the UI customization.
     imageURL :: Lude.Maybe Lude.Text,
+    -- | The creation date for the UI customization.
     creationDate :: Lude.Maybe Lude.Timestamp
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -48,13 +54,13 @@ data UICustomizationType = UICustomizationType'
 
 -- | Creates a value of 'UICustomizationType' with the minimum fields required to make a request.
 --
--- * 'cSS' - The CSS values in the UI customization.
--- * 'cSSVersion' - The CSS version number.
 -- * 'clientId' - The client ID for the client app.
--- * 'creationDate' - The creation date for the UI customization.
--- * 'imageURL' - The logo image for the UI customization.
 -- * 'lastModifiedDate' - The last-modified date for the UI customization.
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'cSS' - The CSS values in the UI customization.
+-- * 'cSSVersion' - The CSS version number.
+-- * 'imageURL' - The logo image for the UI customization.
+-- * 'creationDate' - The creation date for the UI customization.
 mkUICustomizationType ::
   UICustomizationType
 mkUICustomizationType =

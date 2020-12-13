@@ -13,9 +13,9 @@
 module Network.AWS.ServiceCatalog.Types.ProductViewSortBy
   ( ProductViewSortBy
       ( ProductViewSortBy',
-        CreationDate,
         Title,
-        VersionCount
+        VersionCount,
+        CreationDate
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ProductViewSortBy = ProductViewSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreationDate :: ProductViewSortBy
-pattern CreationDate = ProductViewSortBy' "CreationDate"
-
 pattern Title :: ProductViewSortBy
 pattern Title = ProductViewSortBy' "Title"
 
 pattern VersionCount :: ProductViewSortBy
 pattern VersionCount = ProductViewSortBy' "VersionCount"
 
+pattern CreationDate :: ProductViewSortBy
+pattern CreationDate = ProductViewSortBy' "CreationDate"
+
 {-# COMPLETE
-  CreationDate,
   Title,
   VersionCount,
+  CreationDate,
   ProductViewSortBy'
   #-}

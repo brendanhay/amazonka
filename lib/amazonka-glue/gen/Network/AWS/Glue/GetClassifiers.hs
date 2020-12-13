@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Glue.GetClassifiers
     mkGetClassifiers,
 
     -- ** Request lenses
-    gcNextToken,
-    gcMaxResults,
+    gcfNextToken,
+    gcfMaxResults,
 
     -- * Destructuring the response
     GetClassifiersResponse (..),
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetClassifiers' smart constructor.
 data GetClassifiers = GetClassifiers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An optional continuation token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The size of the list to return (optional).
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifiers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The size of the list to return (optional).
 -- * 'nextToken' - An optional continuation token.
+-- * 'maxResults' - The size of the list to return (optional).
 mkGetClassifiers ::
   GetClassifiers
 mkGetClassifiers =
@@ -72,16 +68,16 @@ mkGetClassifiers =
 -- | An optional continuation token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcNextToken :: Lens.Lens' GetClassifiers (Lude.Maybe Lude.Text)
-gcNextToken = Lens.lens (nextToken :: GetClassifiers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetClassifiers)
-{-# DEPRECATED gcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gcfNextToken :: Lens.Lens' GetClassifiers (Lude.Maybe Lude.Text)
+gcfNextToken = Lens.lens (nextToken :: GetClassifiers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetClassifiers)
+{-# DEPRECATED gcfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The size of the list to return (optional).
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcMaxResults :: Lens.Lens' GetClassifiers (Lude.Maybe Lude.Natural)
-gcMaxResults = Lens.lens (maxResults :: GetClassifiers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetClassifiers)
-{-# DEPRECATED gcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+gcfMaxResults :: Lens.Lens' GetClassifiers (Lude.Maybe Lude.Natural)
+gcfMaxResults = Lens.lens (maxResults :: GetClassifiers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetClassifiers)
+{-# DEPRECATED gcfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetClassifiers where
   page rq rs
@@ -90,7 +86,7 @@ instance Page.AWSPager GetClassifiers where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gcNextToken Lens..~ rs Lens.^. gcsrsNextToken
+          Lude.& gcfNextToken Lens..~ rs Lens.^. gcsrsNextToken
 
 instance Lude.AWSRequest GetClassifiers where
   type Rs GetClassifiers = GetClassifiersResponse
@@ -132,24 +128,20 @@ instance Lude.ToQuery GetClassifiers where
 
 -- | /See:/ 'mkGetClassifiersResponse' smart constructor.
 data GetClassifiersResponse = GetClassifiersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The requested list of classifier objects.
     classifiers :: Lude.Maybe [Classifier],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifiersResponse' with the minimum fields required to make a request.
 --
--- * 'classifiers' - The requested list of classifier objects.
 -- * 'nextToken' - A continuation token.
+-- * 'classifiers' - The requested list of classifier objects.
 -- * 'responseStatus' - The response status code.
 mkGetClassifiersResponse ::
   -- | 'responseStatus'

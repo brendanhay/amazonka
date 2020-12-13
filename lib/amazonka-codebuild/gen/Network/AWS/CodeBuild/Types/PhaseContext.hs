@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhaseContext' smart constructor.
 data PhaseContext = PhaseContext'
-  { message :: Lude.Maybe Lude.Text,
+  { -- | An explanation of the build phase's context. This might include a command ID and an exit code.
+    message :: Lude.Maybe Lude.Text,
+    -- | The status code for the context of the build phase.
     statusCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhaseContext' with the minimum fields required to make a request.

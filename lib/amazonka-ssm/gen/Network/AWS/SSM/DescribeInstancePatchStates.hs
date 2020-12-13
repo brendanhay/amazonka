@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.SSM.DescribeInstancePatchStates
 
     -- ** Request lenses
     dipsNextToken,
-    dipsMaxResults,
     dipsInstanceIds,
+    dipsMaxResults,
 
     -- * Destructuring the response
     DescribeInstancePatchStatesResponse (..),
@@ -45,33 +46,28 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeInstancePatchStates' smart constructor.
 data DescribeInstancePatchStates = DescribeInstancePatchStates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    instanceIds :: [Lude.Text]
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the instance whose patch state information should be retrieved.
+    instanceIds :: [Lude.Text],
+    -- | The maximum number of instances to return (per page).
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatchStates' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'instanceIds' - The ID of the instance whose patch state information should be retrieved.
 -- * 'maxResults' - The maximum number of instances to return (per page).
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 mkDescribeInstancePatchStates ::
   DescribeInstancePatchStates
 mkDescribeInstancePatchStates =
   DescribeInstancePatchStates'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceIds = Lude.mempty
+      instanceIds = Lude.mempty,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
@@ -81,19 +77,19 @@ dipsNextToken :: Lens.Lens' DescribeInstancePatchStates (Lude.Maybe Lude.Text)
 dipsNextToken = Lens.lens (nextToken :: DescribeInstancePatchStates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstancePatchStates)
 {-# DEPRECATED dipsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of instances to return (per page).
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipsMaxResults :: Lens.Lens' DescribeInstancePatchStates (Lude.Maybe Lude.Natural)
-dipsMaxResults = Lens.lens (maxResults :: DescribeInstancePatchStates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstancePatchStates)
-{-# DEPRECATED dipsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the instance whose patch state information should be retrieved.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dipsInstanceIds :: Lens.Lens' DescribeInstancePatchStates [Lude.Text]
 dipsInstanceIds = Lens.lens (instanceIds :: DescribeInstancePatchStates -> [Lude.Text]) (\s a -> s {instanceIds = a} :: DescribeInstancePatchStates)
 {-# DEPRECATED dipsInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+-- | The maximum number of instances to return (per page).
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipsMaxResults :: Lens.Lens' DescribeInstancePatchStates (Lude.Maybe Lude.Natural)
+dipsMaxResults = Lens.lens (maxResults :: DescribeInstancePatchStates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstancePatchStates)
+{-# DEPRECATED dipsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeInstancePatchStates where
   page rq rs
@@ -134,8 +130,8 @@ instance Lude.ToJSON DescribeInstancePatchStates where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("InstanceIds" Lude..= instanceIds)
+            Lude.Just ("InstanceIds" Lude..= instanceIds),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -147,27 +143,20 @@ instance Lude.ToQuery DescribeInstancePatchStates where
 
 -- | /See:/ 'mkDescribeInstancePatchStatesResponse' smart constructor.
 data DescribeInstancePatchStatesResponse = DescribeInstancePatchStatesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    instancePatchStates ::
-      Lude.Maybe
-        [InstancePatchState],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The high-level patch state for the requested instances.
+    instancePatchStates :: Lude.Maybe [InstancePatchState],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstancePatchStatesResponse' with the minimum fields required to make a request.
 --
--- * 'instancePatchStates' - The high-level patch state for the requested instances.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'instancePatchStates' - The high-level patch state for the requested instances.
 -- * 'responseStatus' - The response status code.
 mkDescribeInstancePatchStatesResponse ::
   -- | 'responseStatus'

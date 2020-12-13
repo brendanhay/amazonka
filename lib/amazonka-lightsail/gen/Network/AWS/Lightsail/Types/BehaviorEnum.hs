@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.BehaviorEnum
   ( BehaviorEnum
       ( BehaviorEnum',
-        Cache,
-        DontCache
+        DontCache,
+        Cache
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype BehaviorEnum = BehaviorEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cache :: BehaviorEnum
-pattern Cache = BehaviorEnum' "cache"
-
 pattern DontCache :: BehaviorEnum
 pattern DontCache = BehaviorEnum' "dont-cache"
 
+pattern Cache :: BehaviorEnum
+pattern Cache = BehaviorEnum' "cache"
+
 {-# COMPLETE
-  Cache,
   DontCache,
+  Cache,
   BehaviorEnum'
   #-}

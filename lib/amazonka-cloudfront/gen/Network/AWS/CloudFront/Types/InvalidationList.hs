@@ -17,12 +17,12 @@ module Network.AWS.CloudFront.Types.InvalidationList
     mkInvalidationList,
 
     -- * Lenses
+    ilQuantity,
     ilItems,
-    ilNextMarker,
     ilMarker,
     ilMaxItems,
+    ilNextMarker,
     ilIsTruncated,
-    ilQuantity,
   )
 where
 
@@ -34,50 +34,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInvalidationList' smart constructor.
 data InvalidationList = InvalidationList'
-  { items ::
-      Lude.Maybe [InvalidationSummary],
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | The number of invalidation batches that were created by the current AWS account.
+    quantity :: Lude.Int,
+    -- | A complex type that contains one @InvalidationSummary@ element for each invalidation batch created by the current AWS account.
+    items :: Lude.Maybe [InvalidationSummary],
+    -- | The value that you provided for the @Marker@ request parameter.
     marker :: Lude.Text,
+    -- | The value that you provided for the @MaxItems@ request parameter.
     maxItems :: Lude.Int,
-    isTruncated :: Lude.Bool,
-    quantity :: Lude.Int
+    -- | If @IsTruncated@ is @true@ , this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your invalidation batches where they left off.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether more invalidation batch requests remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more invalidation batches in the list.
+    isTruncated :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvalidationList' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - A flag that indicates whether more invalidation batch requests remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more invalidation batches in the list.
+-- * 'quantity' - The number of invalidation batches that were created by the current AWS account.
 -- * 'items' - A complex type that contains one @InvalidationSummary@ element for each invalidation batch created by the current AWS account.
 -- * 'marker' - The value that you provided for the @Marker@ request parameter.
 -- * 'maxItems' - The value that you provided for the @MaxItems@ request parameter.
 -- * 'nextMarker' - If @IsTruncated@ is @true@ , this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your invalidation batches where they left off.
--- * 'quantity' - The number of invalidation batches that were created by the current AWS account.
+-- * 'isTruncated' - A flag that indicates whether more invalidation batch requests remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more invalidation batches in the list.
 mkInvalidationList ::
+  -- | 'quantity'
+  Lude.Int ->
   -- | 'marker'
   Lude.Text ->
   -- | 'maxItems'
   Lude.Int ->
   -- | 'isTruncated'
   Lude.Bool ->
-  -- | 'quantity'
-  Lude.Int ->
   InvalidationList
-mkInvalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
+mkInvalidationList pQuantity_ pMarker_ pMaxItems_ pIsTruncated_ =
   InvalidationList'
-    { items = Lude.Nothing,
-      nextMarker = Lude.Nothing,
+    { quantity = pQuantity_,
+      items = Lude.Nothing,
       marker = pMarker_,
       maxItems = pMaxItems_,
-      isTruncated = pIsTruncated_,
-      quantity = pQuantity_
+      nextMarker = Lude.Nothing,
+      isTruncated = pIsTruncated_
     }
+
+-- | The number of invalidation batches that were created by the current AWS account.
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilQuantity :: Lens.Lens' InvalidationList Lude.Int
+ilQuantity = Lens.lens (quantity :: InvalidationList -> Lude.Int) (\s a -> s {quantity = a} :: InvalidationList)
+{-# DEPRECATED ilQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A complex type that contains one @InvalidationSummary@ element for each invalidation batch created by the current AWS account.
 --
@@ -85,13 +91,6 @@ mkInvalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
 ilItems :: Lens.Lens' InvalidationList (Lude.Maybe [InvalidationSummary])
 ilItems = Lens.lens (items :: InvalidationList -> Lude.Maybe [InvalidationSummary]) (\s a -> s {items = a} :: InvalidationList)
 {-# DEPRECATED ilItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | If @IsTruncated@ is @true@ , this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your invalidation batches where they left off.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilNextMarker :: Lens.Lens' InvalidationList (Lude.Maybe Lude.Text)
-ilNextMarker = Lens.lens (nextMarker :: InvalidationList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: InvalidationList)
-{-# DEPRECATED ilNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The value that you provided for the @Marker@ request parameter.
 --
@@ -107,6 +106,13 @@ ilMaxItems :: Lens.Lens' InvalidationList Lude.Int
 ilMaxItems = Lens.lens (maxItems :: InvalidationList -> Lude.Int) (\s a -> s {maxItems = a} :: InvalidationList)
 {-# DEPRECATED ilMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
+-- | If @IsTruncated@ is @true@ , this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your invalidation batches where they left off.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ilNextMarker :: Lens.Lens' InvalidationList (Lude.Maybe Lude.Text)
+ilNextMarker = Lens.lens (nextMarker :: InvalidationList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: InvalidationList)
+{-# DEPRECATED ilNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
 -- | A flag that indicates whether more invalidation batch requests remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more invalidation batches in the list.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -114,21 +120,14 @@ ilIsTruncated :: Lens.Lens' InvalidationList Lude.Bool
 ilIsTruncated = Lens.lens (isTruncated :: InvalidationList -> Lude.Bool) (\s a -> s {isTruncated = a} :: InvalidationList)
 {-# DEPRECATED ilIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | The number of invalidation batches that were created by the current AWS account.
---
--- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ilQuantity :: Lens.Lens' InvalidationList Lude.Int
-ilQuantity = Lens.lens (quantity :: InvalidationList -> Lude.Int) (\s a -> s {quantity = a} :: InvalidationList)
-{-# DEPRECATED ilQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
-
 instance Lude.FromXML InvalidationList where
   parseXML x =
     InvalidationList'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "InvalidationSummary")
                )
-      Lude.<*> (x Lude..@? "NextMarker")
       Lude.<*> (x Lude..@ "Marker")
       Lude.<*> (x Lude..@ "MaxItems")
+      Lude.<*> (x Lude..@? "NextMarker")
       Lude.<*> (x Lude..@ "IsTruncated")
-      Lude.<*> (x Lude..@ "Quantity")

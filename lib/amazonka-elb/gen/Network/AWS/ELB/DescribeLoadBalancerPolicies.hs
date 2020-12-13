@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     mkDescribeLoadBalancerPoliciesResponse,
 
     -- ** Response lenses
-    dlbprsPolicyDescriptions,
-    dlbprsResponseStatus,
+    drsPolicyDescriptions,
+    drsResponseStatus,
   )
 where
 
@@ -44,24 +45,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeLoadBalancerPolicies' smart constructor.
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-  { policyNames ::
-      Lude.Maybe [Lude.Text],
-    loadBalancerName ::
-      Lude.Maybe Lude.Text
+  { -- | The names of the policies.
+    policyNames :: Lude.Maybe [Lude.Text],
+    -- | The name of the load balancer.
+    loadBalancerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerPolicies' with the minimum fields required to make a request.
 --
--- * 'loadBalancerName' - The name of the load balancer.
 -- * 'policyNames' - The names of the policies.
+-- * 'loadBalancerName' - The name of the load balancer.
 mkDescribeLoadBalancerPolicies ::
   DescribeLoadBalancerPolicies
 mkDescribeLoadBalancerPolicies =
@@ -121,19 +116,12 @@ instance Lude.ToQuery DescribeLoadBalancerPolicies where
 --
 -- /See:/ 'mkDescribeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
-  { policyDescriptions ::
-      Lude.Maybe
-        [PolicyDescription],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the policies.
+    policyDescriptions :: Lude.Maybe [PolicyDescription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerPoliciesResponse' with the minimum fields required to make a request.
@@ -154,13 +142,13 @@ mkDescribeLoadBalancerPoliciesResponse pResponseStatus_ =
 -- | Information about the policies.
 --
 -- /Note:/ Consider using 'policyDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbprsPolicyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Lude.Maybe [PolicyDescription])
-dlbprsPolicyDescriptions = Lens.lens (policyDescriptions :: DescribeLoadBalancerPoliciesResponse -> Lude.Maybe [PolicyDescription]) (\s a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse)
-{-# DEPRECATED dlbprsPolicyDescriptions "Use generic-lens or generic-optics with 'policyDescriptions' instead." #-}
+drsPolicyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Lude.Maybe [PolicyDescription])
+drsPolicyDescriptions = Lens.lens (policyDescriptions :: DescribeLoadBalancerPoliciesResponse -> Lude.Maybe [PolicyDescription]) (\s a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse)
+{-# DEPRECATED drsPolicyDescriptions "Use generic-lens or generic-optics with 'policyDescriptions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbprsResponseStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Lude.Int
-dlbprsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancerPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancerPoliciesResponse)
-{-# DEPRECATED dlbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancerPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancerPoliciesResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

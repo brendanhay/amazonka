@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSkillsStoreCategories' smart constructor.
 data ListSkillsStoreCategories = ListSkillsStoreCategories'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The tokens used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of categories returned, per paginated calls.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSkillsStoreCategories' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of categories returned, per paginated calls.
 -- * 'nextToken' - The tokens used for pagination.
+-- * 'maxResults' - The maximum number of categories returned, per paginated calls.
 mkListSkillsStoreCategories ::
   ListSkillsStoreCategories
 mkListSkillsStoreCategories =
@@ -134,20 +130,14 @@ instance Lude.ToQuery ListSkillsStoreCategories where
 
 -- | /See:/ 'mkListSkillsStoreCategoriesResponse' smart constructor.
 data ListSkillsStoreCategoriesResponse = ListSkillsStoreCategoriesResponse'
-  { categoryList ::
-      Lude.Maybe [Category],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of categories.
+    categoryList :: Lude.Maybe [Category],
+    -- | The tokens used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSkillsStoreCategoriesResponse' with the minimum fields required to make a request.

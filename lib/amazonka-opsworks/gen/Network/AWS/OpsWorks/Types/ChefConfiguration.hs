@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChefConfiguration' smart constructor.
 data ChefConfiguration = ChefConfiguration'
-  { berkshelfVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The Berkshelf version.
+    berkshelfVersion :: Lude.Maybe Lude.Text,
+    -- | Whether to enable Berkshelf.
     manageBerkshelf :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChefConfiguration' with the minimum fields required to make a request.

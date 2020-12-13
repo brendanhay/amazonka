@@ -37,35 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBulkDeploymentResult' smart constructor.
 data BulkDeploymentResult = BulkDeploymentResult'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the group deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the group deployment.
     deploymentARN :: Lude.Maybe Lude.Text,
+    -- | The time, in ISO format, when the deployment was created.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The type of the deployment.
     deploymentType :: Lude.Maybe DeploymentType,
+    -- | Details about the error.
     errorDetails :: Lude.Maybe [ErrorDetail],
+    -- | The ARN of the Greengrass group.
     groupARN :: Lude.Maybe Lude.Text,
+    -- | The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
     deploymentStatus :: Lude.Maybe Lude.Text,
+    -- | The error message for a failed deployment
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BulkDeploymentResult' with the minimum fields required to make a request.
 --
--- * 'createdAt' - The time, in ISO format, when the deployment was created.
--- * 'deploymentARN' - The ARN of the group deployment.
 -- * 'deploymentId' - The ID of the group deployment.
--- * 'deploymentStatus' - The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
+-- * 'deploymentARN' - The ARN of the group deployment.
+-- * 'createdAt' - The time, in ISO format, when the deployment was created.
 -- * 'deploymentType' - The type of the deployment.
 -- * 'errorDetails' - Details about the error.
--- * 'errorMessage' - The error message for a failed deployment
 -- * 'groupARN' - The ARN of the Greengrass group.
+-- * 'deploymentStatus' - The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
+-- * 'errorMessage' - The error message for a failed deployment
 mkBulkDeploymentResult ::
   BulkDeploymentResult
 mkBulkDeploymentResult =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.SendMessages
     mkSendMessagesResponse,
 
     -- ** Response lenses
-    smrsResponseStatus,
     smrsMessageResponse,
+    smrsResponseStatus,
   )
 where
 
@@ -40,22 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSendMessages' smart constructor.
 data SendMessages = SendMessages'
-  { applicationId :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
     messageRequest :: MessageRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendMessages' with the minimum fields required to make a request.
 --
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'messageRequest' - Undocumented field.
+-- * 'messageRequest' -
 mkSendMessages ::
   -- | 'applicationId'
   Lude.Text ->
@@ -89,7 +85,7 @@ instance Lude.AWSRequest SendMessages where
     Res.receiveJSON
       ( \s h x ->
           SendMessagesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders SendMessages where
@@ -117,41 +113,28 @@ instance Lude.ToQuery SendMessages where
 
 -- | /See:/ 'mkSendMessagesResponse' smart constructor.
 data SendMessagesResponse = SendMessagesResponse'
-  { responseStatus ::
-      Lude.Int,
-    messageResponse :: MessageResponse
+  { messageResponse :: MessageResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendMessagesResponse' with the minimum fields required to make a request.
 --
--- * 'messageResponse' - Undocumented field.
+-- * 'messageResponse' -
 -- * 'responseStatus' - The response status code.
 mkSendMessagesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'messageResponse'
   MessageResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   SendMessagesResponse
-mkSendMessagesResponse pResponseStatus_ pMessageResponse_ =
+mkSendMessagesResponse pMessageResponse_ pResponseStatus_ =
   SendMessagesResponse'
-    { responseStatus = pResponseStatus_,
-      messageResponse = pMessageResponse_
+    { messageResponse = pMessageResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smrsResponseStatus :: Lens.Lens' SendMessagesResponse Lude.Int
-smrsResponseStatus = Lens.lens (responseStatus :: SendMessagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendMessagesResponse)
-{-# DEPRECATED smrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -159,3 +142,10 @@ smrsResponseStatus = Lens.lens (responseStatus :: SendMessagesResponse -> Lude.I
 smrsMessageResponse :: Lens.Lens' SendMessagesResponse MessageResponse
 smrsMessageResponse = Lens.lens (messageResponse :: SendMessagesResponse -> MessageResponse) (\s a -> s {messageResponse = a} :: SendMessagesResponse)
 {-# DEPRECATED smrsMessageResponse "Use generic-lens or generic-optics with 'messageResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smrsResponseStatus :: Lens.Lens' SendMessagesResponse Lude.Int
+smrsResponseStatus = Lens.lens (responseStatus :: SendMessagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendMessagesResponse)
+{-# DEPRECATED smrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

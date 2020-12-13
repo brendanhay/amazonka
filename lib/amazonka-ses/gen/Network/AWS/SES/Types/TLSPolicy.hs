@@ -13,8 +13,8 @@
 module Network.AWS.SES.Types.TLSPolicy
   ( TLSPolicy
       ( TLSPolicy',
-        Optional,
-        Require
+        Require,
+        Optional
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TLSPolicy = TLSPolicy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Optional :: TLSPolicy
-pattern Optional = TLSPolicy' "Optional"
-
 pattern Require :: TLSPolicy
 pattern Require = TLSPolicy' "Require"
 
+pattern Optional :: TLSPolicy
+pattern Optional = TLSPolicy' "Optional"
+
 {-# COMPLETE
-  Optional,
   Require,
+  Optional,
   TLSPolicy'
   #-}

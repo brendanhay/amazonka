@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIntentMetadata' smart constructor.
 data IntentMetadata = IntentMetadata'
-  { createdDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date that the intent was created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the intent.
     name :: Lude.Maybe Lude.Text,
+    -- | The version of the intent.
     version :: Lude.Maybe Lude.Text,
+    -- | The date that the intent was updated. When you create an intent, the creation date and last updated date are the same.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the intent.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntentMetadata' with the minimum fields required to make a request.
 --
 -- * 'createdDate' - The date that the intent was created.
--- * 'description' - A description of the intent.
--- * 'lastUpdatedDate' - The date that the intent was updated. When you create an intent, the creation date and last updated date are the same.
 -- * 'name' - The name of the intent.
 -- * 'version' - The version of the intent.
+-- * 'lastUpdatedDate' - The date that the intent was updated. When you create an intent, the creation date and last updated date are the same.
+-- * 'description' - A description of the intent.
 mkIntentMetadata ::
   IntentMetadata
 mkIntentMetadata =

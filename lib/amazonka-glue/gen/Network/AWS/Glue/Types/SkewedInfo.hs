@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSkewedInfo' smart constructor.
 data SkewedInfo = SkewedInfo'
-  { skewedColumnValueLocationMaps ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A mapping of skewed values to the columns that contain them.
+    skewedColumnValueLocationMaps :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A list of values that appear so frequently as to be considered skewed.
     skewedColumnValues :: Lude.Maybe [Lude.Text],
+    -- | A list of names of columns that contain skewed values.
     skewedColumnNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SkewedInfo' with the minimum fields required to make a request.
 --
--- * 'skewedColumnNames' - A list of names of columns that contain skewed values.
 -- * 'skewedColumnValueLocationMaps' - A mapping of skewed values to the columns that contain them.
 -- * 'skewedColumnValues' - A list of values that appear so frequently as to be considered skewed.
+-- * 'skewedColumnNames' - A list of names of columns that contain skewed values.
 mkSkewedInfo ::
   SkewedInfo
 mkSkewedInfo =

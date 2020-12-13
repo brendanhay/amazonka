@@ -13,18 +13,18 @@
 module Network.AWS.Pinpoint.Types.ChannelType
   ( ChannelType
       ( ChannelType',
-        CTADM,
-        CTAPNS,
-        CTAPNSSandbox,
-        CTAPNSVoip,
-        CTAPNSVoipSandbox,
-        CTBaidu,
-        CTCustom,
-        CTEmail,
-        CTGCM,
-        CTPush,
-        CTSms,
-        CTVoice
+        Push,
+        GCM,
+        APNS,
+        APNSSandbox,
+        APNSVoip,
+        APNSVoipSandbox,
+        ADM,
+        Sms,
+        Voice,
+        Email,
+        Baidu,
+        Custom
       ),
   )
 where
@@ -55,54 +55,54 @@ newtype ChannelType = ChannelType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CTADM :: ChannelType
-pattern CTADM = ChannelType' "ADM"
+pattern Push :: ChannelType
+pattern Push = ChannelType' "PUSH"
 
-pattern CTAPNS :: ChannelType
-pattern CTAPNS = ChannelType' "APNS"
+pattern GCM :: ChannelType
+pattern GCM = ChannelType' "GCM"
 
-pattern CTAPNSSandbox :: ChannelType
-pattern CTAPNSSandbox = ChannelType' "APNS_SANDBOX"
+pattern APNS :: ChannelType
+pattern APNS = ChannelType' "APNS"
 
-pattern CTAPNSVoip :: ChannelType
-pattern CTAPNSVoip = ChannelType' "APNS_VOIP"
+pattern APNSSandbox :: ChannelType
+pattern APNSSandbox = ChannelType' "APNS_SANDBOX"
 
-pattern CTAPNSVoipSandbox :: ChannelType
-pattern CTAPNSVoipSandbox = ChannelType' "APNS_VOIP_SANDBOX"
+pattern APNSVoip :: ChannelType
+pattern APNSVoip = ChannelType' "APNS_VOIP"
 
-pattern CTBaidu :: ChannelType
-pattern CTBaidu = ChannelType' "BAIDU"
+pattern APNSVoipSandbox :: ChannelType
+pattern APNSVoipSandbox = ChannelType' "APNS_VOIP_SANDBOX"
 
-pattern CTCustom :: ChannelType
-pattern CTCustom = ChannelType' "CUSTOM"
+pattern ADM :: ChannelType
+pattern ADM = ChannelType' "ADM"
 
-pattern CTEmail :: ChannelType
-pattern CTEmail = ChannelType' "EMAIL"
+pattern Sms :: ChannelType
+pattern Sms = ChannelType' "SMS"
 
-pattern CTGCM :: ChannelType
-pattern CTGCM = ChannelType' "GCM"
+pattern Voice :: ChannelType
+pattern Voice = ChannelType' "VOICE"
 
-pattern CTPush :: ChannelType
-pattern CTPush = ChannelType' "PUSH"
+pattern Email :: ChannelType
+pattern Email = ChannelType' "EMAIL"
 
-pattern CTSms :: ChannelType
-pattern CTSms = ChannelType' "SMS"
+pattern Baidu :: ChannelType
+pattern Baidu = ChannelType' "BAIDU"
 
-pattern CTVoice :: ChannelType
-pattern CTVoice = ChannelType' "VOICE"
+pattern Custom :: ChannelType
+pattern Custom = ChannelType' "CUSTOM"
 
 {-# COMPLETE
-  CTADM,
-  CTAPNS,
-  CTAPNSSandbox,
-  CTAPNSVoip,
-  CTAPNSVoipSandbox,
-  CTBaidu,
-  CTCustom,
-  CTEmail,
-  CTGCM,
-  CTPush,
-  CTSms,
-  CTVoice,
+  Push,
+  GCM,
+  APNS,
+  APNSSandbox,
+  APNSVoip,
+  APNSVoipSandbox,
+  ADM,
+  Sms,
+  Voice,
+  Email,
+  Baidu,
+  Custom,
   ChannelType'
   #-}

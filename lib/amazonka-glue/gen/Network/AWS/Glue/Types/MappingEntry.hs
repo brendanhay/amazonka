@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMappingEntry' smart constructor.
 data MappingEntry = MappingEntry'
-  { targetTable ::
-      Lude.Maybe Lude.Text,
+  { -- | The target table.
+    targetTable :: Lude.Maybe Lude.Text,
+    -- | The source type.
     sourceType :: Lude.Maybe Lude.Text,
+    -- | The name of the source table.
     sourceTable :: Lude.Maybe Lude.Text,
+    -- | The target type.
     targetType :: Lude.Maybe Lude.Text,
+    -- | The target path.
     targetPath :: Lude.Maybe Lude.Text,
+    -- | The source path.
     sourcePath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MappingEntry' with the minimum fields required to make a request.
 --
--- * 'sourcePath' - The source path.
--- * 'sourceTable' - The name of the source table.
--- * 'sourceType' - The source type.
--- * 'targetPath' - The target path.
 -- * 'targetTable' - The target table.
+-- * 'sourceType' - The source type.
+-- * 'sourceTable' - The name of the source table.
 -- * 'targetType' - The target type.
+-- * 'targetPath' - The target path.
+-- * 'sourcePath' - The source path.
 mkMappingEntry ::
   MappingEntry
 mkMappingEntry =

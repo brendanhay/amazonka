@@ -296,6 +296,7 @@ module Network.AWS.KMS
     kmOrigin,
     kmExpirationModel,
     kmKeyManager,
+    kmKeyId,
     kmCustomerMasterKeySpec,
     kmEnabled,
     kmValidTo,
@@ -310,7 +311,6 @@ module Network.AWS.KMS
     kmCloudHSMClusterId,
     kmDescription,
     kmCustomKeyStoreId,
-    kmKeyId,
 
     -- ** ListGrantsResponse
     ListGrantsResponse (..),
@@ -322,8 +322,8 @@ module Network.AWS.KMS
     -- ** Tag
     Tag (..),
     mkTag,
-    tTagKey,
     tTagValue,
+    tTagKey,
 
     -- * Serialization types
     Lude.Base64 (..),

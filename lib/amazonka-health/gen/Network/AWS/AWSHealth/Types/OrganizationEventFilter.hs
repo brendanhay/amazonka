@@ -41,50 +41,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationEventFilter' smart constructor.
 data OrganizationEventFilter = OrganizationEventFilter'
-  { lastUpdatedTime ::
-      Lude.Maybe DateTimeRange,
-    awsAccountIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    eventTypeCategories ::
-      Lude.Maybe
-        (Lude.NonEmpty EventTypeCategory),
-    eventTypeCodes ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { lastUpdatedTime :: Lude.Maybe DateTimeRange,
+    -- | A list of 12-digit AWS account numbers that contains the affected entities.
+    awsAccountIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of event type category codes (issue, scheduledChange, or accountNotification).
+    eventTypeCategories :: Lude.Maybe (Lude.NonEmpty EventTypeCategory),
+    -- | A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
+    eventTypeCodes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
     startTime :: Lude.Maybe DateTimeRange,
-    regions ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    eventStatusCodes ::
-      Lude.Maybe (Lude.NonEmpty EventStatusCode),
+    -- | A list of AWS Regions.
+    regions :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of event status codes.
+    eventStatusCodes :: Lude.Maybe (Lude.NonEmpty EventStatusCode),
     endTime :: Lude.Maybe DateTimeRange,
-    entityARNs ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    entityValues ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    services ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text)
+    -- | A list of entity ARNs (unique identifiers).
+    entityARNs :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).
+    entityValues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
+    services :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationEventFilter' with the minimum fields required to make a request.
 --
+-- * 'lastUpdatedTime' -
 -- * 'awsAccountIds' - A list of 12-digit AWS account numbers that contains the affected entities.
--- * 'endTime' - Undocumented field.
--- * 'entityARNs' - A list of entity ARNs (unique identifiers).
--- * 'entityValues' - A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).
--- * 'eventStatusCodes' - A list of event status codes.
 -- * 'eventTypeCategories' - A list of event type category codes (issue, scheduledChange, or accountNotification).
 -- * 'eventTypeCodes' - A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
--- * 'lastUpdatedTime' - Undocumented field.
+-- * 'startTime' -
 -- * 'regions' - A list of AWS Regions.
+-- * 'eventStatusCodes' - A list of event status codes.
+-- * 'endTime' -
+-- * 'entityARNs' - A list of entity ARNs (unique identifiers).
+-- * 'entityValues' - A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).
 -- * 'services' - The AWS services associated with the event. For example, @EC2@ , @RDS@ .
--- * 'startTime' - Undocumented field.
 mkOrganizationEventFilter ::
   OrganizationEventFilter
 mkOrganizationEventFilter =

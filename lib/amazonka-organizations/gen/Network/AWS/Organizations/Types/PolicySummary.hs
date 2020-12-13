@@ -34,20 +34,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicySummary' smart constructor.
 data PolicySummary = PolicySummary'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the policy.
+    --
+    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+    arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier (ID) of the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
     id :: Lude.Maybe Lude.Text,
+    -- | A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
     awsManaged :: Lude.Maybe Lude.Bool,
+    -- | The type of policy.
     type' :: Lude.Maybe PolicyType,
+    -- | The description of the policy.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicySummary' with the minimum fields required to make a request.
@@ -55,15 +61,15 @@ data PolicySummary = PolicySummary'
 -- * 'arn' - The Amazon Resource Name (ARN) of the policy.
 --
 -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
--- * 'awsManaged' - A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
--- * 'description' - The description of the policy.
--- * 'id' - The unique identifier (ID) of the policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
 -- * 'name' - The friendly name of the policy.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- * 'id' - The unique identifier (ID) of the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+-- * 'awsManaged' - A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it.
 -- * 'type'' - The type of policy.
+-- * 'description' - The description of the policy.
 mkPolicySummary ::
   PolicySummary
 mkPolicySummary =

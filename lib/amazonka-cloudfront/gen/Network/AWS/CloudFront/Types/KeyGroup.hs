@@ -17,9 +17,9 @@ module Network.AWS.CloudFront.Types.KeyGroup
     mkKeyGroup,
 
     -- * Lenses
-    kgId,
-    kgLastModifiedTime,
     kgKeyGroupConfig,
+    kgLastModifiedTime,
+    kgId,
   )
 where
 
@@ -33,52 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyGroup' smart constructor.
 data KeyGroup = KeyGroup'
-  { id :: Lude.Text,
+  { -- | The key group configuration.
+    keyGroupConfig :: KeyGroupConfig,
+    -- | The date and time when the key group was last modified.
     lastModifiedTime :: Lude.DateTime,
-    keyGroupConfig :: KeyGroupConfig
+    -- | The identifier for the key group.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyGroup' with the minimum fields required to make a request.
 --
--- * 'id' - The identifier for the key group.
 -- * 'keyGroupConfig' - The key group configuration.
 -- * 'lastModifiedTime' - The date and time when the key group was last modified.
+-- * 'id' - The identifier for the key group.
 mkKeyGroup ::
-  -- | 'id'
-  Lude.Text ->
-  -- | 'lastModifiedTime'
-  Lude.DateTime ->
   -- | 'keyGroupConfig'
   KeyGroupConfig ->
+  -- | 'lastModifiedTime'
+  Lude.DateTime ->
+  -- | 'id'
+  Lude.Text ->
   KeyGroup
-mkKeyGroup pId_ pLastModifiedTime_ pKeyGroupConfig_ =
+mkKeyGroup pKeyGroupConfig_ pLastModifiedTime_ pId_ =
   KeyGroup'
-    { id = pId_,
+    { keyGroupConfig = pKeyGroupConfig_,
       lastModifiedTime = pLastModifiedTime_,
-      keyGroupConfig = pKeyGroupConfig_
+      id = pId_
     }
-
--- | The identifier for the key group.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgId :: Lens.Lens' KeyGroup Lude.Text
-kgId = Lens.lens (id :: KeyGroup -> Lude.Text) (\s a -> s {id = a} :: KeyGroup)
-{-# DEPRECATED kgId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The date and time when the key group was last modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgLastModifiedTime :: Lens.Lens' KeyGroup Lude.DateTime
-kgLastModifiedTime = Lens.lens (lastModifiedTime :: KeyGroup -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: KeyGroup)
-{-# DEPRECATED kgLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The key group configuration.
 --
@@ -87,9 +70,23 @@ kgKeyGroupConfig :: Lens.Lens' KeyGroup KeyGroupConfig
 kgKeyGroupConfig = Lens.lens (keyGroupConfig :: KeyGroup -> KeyGroupConfig) (\s a -> s {keyGroupConfig = a} :: KeyGroup)
 {-# DEPRECATED kgKeyGroupConfig "Use generic-lens or generic-optics with 'keyGroupConfig' instead." #-}
 
+-- | The date and time when the key group was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgLastModifiedTime :: Lens.Lens' KeyGroup Lude.DateTime
+kgLastModifiedTime = Lens.lens (lastModifiedTime :: KeyGroup -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: KeyGroup)
+{-# DEPRECATED kgLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The identifier for the key group.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgId :: Lens.Lens' KeyGroup Lude.Text
+kgId = Lens.lens (id :: KeyGroup -> Lude.Text) (\s a -> s {id = a} :: KeyGroup)
+{-# DEPRECATED kgId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 instance Lude.FromXML KeyGroup where
   parseXML x =
     KeyGroup'
-      Lude.<$> (x Lude..@ "Id")
+      Lude.<$> (x Lude..@ "KeyGroupConfig")
       Lude.<*> (x Lude..@ "LastModifiedTime")
-      Lude.<*> (x Lude..@ "KeyGroupConfig")
+      Lude.<*> (x Lude..@ "Id")

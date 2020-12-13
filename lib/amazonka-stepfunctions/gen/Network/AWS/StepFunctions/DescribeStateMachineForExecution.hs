@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,14 +29,14 @@ module Network.AWS.StepFunctions.DescribeStateMachineForExecution
     mkDescribeStateMachineForExecutionResponse,
 
     -- ** Response lenses
-    dsmfersTracingConfiguration,
-    dsmfersLoggingConfiguration,
-    dsmfersResponseStatus,
-    dsmfersStateMachineARN,
-    dsmfersName,
-    dsmfersDefinition,
-    dsmfersRoleARN,
     dsmfersUpdateDate,
+    dsmfersDefinition,
+    dsmfersTracingConfiguration,
+    dsmfersName,
+    dsmfersStateMachineARN,
+    dsmfersLoggingConfiguration,
+    dsmfersRoleARN,
+    dsmfersResponseStatus,
   )
 where
 
@@ -47,16 +48,10 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'mkDescribeStateMachineForExecution' smart constructor.
 newtype DescribeStateMachineForExecution = DescribeStateMachineForExecution'
-  { executionARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the execution you want state machine information for.
+    executionARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStateMachineForExecution' with the minimum fields required to make a request.
@@ -85,14 +80,14 @@ instance Lude.AWSRequest DescribeStateMachineForExecution where
     Res.receiveJSON
       ( \s h x ->
           DescribeStateMachineForExecutionResponse'
-            Lude.<$> (x Lude..?> "tracingConfiguration")
-            Lude.<*> (x Lude..?> "loggingConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "stateMachineArn")
-            Lude.<*> (x Lude..:> "name")
+            Lude.<$> (x Lude..:> "updateDate")
             Lude.<*> (x Lude..:> "definition")
+            Lude.<*> (x Lude..?> "tracingConfiguration")
+            Lude.<*> (x Lude..:> "name")
+            Lude.<*> (x Lude..:> "stateMachineArn")
+            Lude.<*> (x Lude..?> "loggingConfiguration")
             Lude.<*> (x Lude..:> "roleArn")
-            Lude.<*> (x Lude..:> "updateDate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeStateMachineForExecution where
@@ -121,111 +116,74 @@ instance Lude.ToQuery DescribeStateMachineForExecution where
 
 -- | /See:/ 'mkDescribeStateMachineForExecutionResponse' smart constructor.
 data DescribeStateMachineForExecutionResponse = DescribeStateMachineForExecutionResponse'
-  { tracingConfiguration ::
-      Lude.Maybe
-        TracingConfiguration,
-    loggingConfiguration ::
-      Lude.Maybe
-        LoggingConfiguration,
-    responseStatus ::
-      Lude.Int,
-    stateMachineARN ::
-      Lude.Text,
-    name ::
-      Lude.Text,
-    definition ::
-      Lude.Sensitive
-        Lude.Text,
-    roleARN ::
-      Lude.Text,
-    updateDate ::
-      Lude.Timestamp
+  { -- | The date and time the state machine associated with an execution was updated. For a newly created state machine, this is the creation date.
+    updateDate :: Lude.Timestamp,
+    -- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
+    definition :: Lude.Sensitive Lude.Text,
+    -- | Selects whether AWS X-Ray tracing is enabled.
+    tracingConfiguration :: Lude.Maybe TracingConfiguration,
+    -- | The name of the state machine associated with the execution.
+    name :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the state machine associated with the execution.
+    stateMachineARN :: Lude.Text,
+    loggingConfiguration :: Lude.Maybe LoggingConfiguration,
+    -- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution.
+    roleARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStateMachineForExecutionResponse' with the minimum fields required to make a request.
 --
--- * 'definition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
--- * 'loggingConfiguration' - Undocumented field.
--- * 'name' - The name of the state machine associated with the execution.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution.
--- * 'stateMachineARN' - The Amazon Resource Name (ARN) of the state machine associated with the execution.
--- * 'tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
 -- * 'updateDate' - The date and time the state machine associated with an execution was updated. For a newly created state machine, this is the creation date.
+-- * 'definition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
+-- * 'tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
+-- * 'name' - The name of the state machine associated with the execution.
+-- * 'stateMachineARN' - The Amazon Resource Name (ARN) of the state machine associated with the execution.
+-- * 'loggingConfiguration' -
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution.
+-- * 'responseStatus' - The response status code.
 mkDescribeStateMachineForExecutionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'stateMachineARN'
-  Lude.Text ->
-  -- | 'name'
-  Lude.Text ->
-  -- | 'definition'
-  Lude.Sensitive Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'updateDate'
   Lude.Timestamp ->
+  -- | 'definition'
+  Lude.Sensitive Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'stateMachineARN'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStateMachineForExecutionResponse
 mkDescribeStateMachineForExecutionResponse
-  pResponseStatus_
-  pStateMachineARN_
-  pName_
+  pUpdateDate_
   pDefinition_
+  pName_
+  pStateMachineARN_
   pRoleARN_
-  pUpdateDate_ =
+  pResponseStatus_ =
     DescribeStateMachineForExecutionResponse'
-      { tracingConfiguration =
-          Lude.Nothing,
-        loggingConfiguration = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        stateMachineARN = pStateMachineARN_,
-        name = pName_,
+      { updateDate =
+          pUpdateDate_,
         definition = pDefinition_,
+        tracingConfiguration = Lude.Nothing,
+        name = pName_,
+        stateMachineARN = pStateMachineARN_,
+        loggingConfiguration = Lude.Nothing,
         roleARN = pRoleARN_,
-        updateDate = pUpdateDate_
+        responseStatus = pResponseStatus_
       }
 
--- | Selects whether AWS X-Ray tracing is enabled.
+-- | The date and time the state machine associated with an execution was updated. For a newly created state machine, this is the creation date.
 --
--- /Note:/ Consider using 'tracingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmfersTracingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Lude.Maybe TracingConfiguration)
-dsmfersTracingConfiguration = Lens.lens (tracingConfiguration :: DescribeStateMachineForExecutionResponse -> Lude.Maybe TracingConfiguration) (\s a -> s {tracingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
-{-# DEPRECATED dsmfersTracingConfiguration "Use generic-lens or generic-optics with 'tracingConfiguration' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmfersLoggingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Lude.Maybe LoggingConfiguration)
-dsmfersLoggingConfiguration = Lens.lens (loggingConfiguration :: DescribeStateMachineForExecutionResponse -> Lude.Maybe LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
-{-# DEPRECATED dsmfersLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmfersResponseStatus :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Int
-dsmfersResponseStatus = Lens.lens (responseStatus :: DescribeStateMachineForExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStateMachineForExecutionResponse)
-{-# DEPRECATED dsmfersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the state machine associated with the execution.
---
--- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmfersStateMachineARN :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Text
-dsmfersStateMachineARN = Lens.lens (stateMachineARN :: DescribeStateMachineForExecutionResponse -> Lude.Text) (\s a -> s {stateMachineARN = a} :: DescribeStateMachineForExecutionResponse)
-{-# DEPRECATED dsmfersStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
-
--- | The name of the state machine associated with the execution.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmfersName :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Text
-dsmfersName = Lens.lens (name :: DescribeStateMachineForExecutionResponse -> Lude.Text) (\s a -> s {name = a} :: DescribeStateMachineForExecutionResponse)
-{-# DEPRECATED dsmfersName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmfersUpdateDate :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Timestamp
+dsmfersUpdateDate = Lens.lens (updateDate :: DescribeStateMachineForExecutionResponse -> Lude.Timestamp) (\s a -> s {updateDate = a} :: DescribeStateMachineForExecutionResponse)
+{-# DEPRECATED dsmfersUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 --
@@ -234,6 +192,34 @@ dsmfersDefinition :: Lens.Lens' DescribeStateMachineForExecutionResponse (Lude.S
 dsmfersDefinition = Lens.lens (definition :: DescribeStateMachineForExecutionResponse -> Lude.Sensitive Lude.Text) (\s a -> s {definition = a} :: DescribeStateMachineForExecutionResponse)
 {-# DEPRECATED dsmfersDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
+-- | Selects whether AWS X-Ray tracing is enabled.
+--
+-- /Note:/ Consider using 'tracingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmfersTracingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Lude.Maybe TracingConfiguration)
+dsmfersTracingConfiguration = Lens.lens (tracingConfiguration :: DescribeStateMachineForExecutionResponse -> Lude.Maybe TracingConfiguration) (\s a -> s {tracingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
+{-# DEPRECATED dsmfersTracingConfiguration "Use generic-lens or generic-optics with 'tracingConfiguration' instead." #-}
+
+-- | The name of the state machine associated with the execution.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmfersName :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Text
+dsmfersName = Lens.lens (name :: DescribeStateMachineForExecutionResponse -> Lude.Text) (\s a -> s {name = a} :: DescribeStateMachineForExecutionResponse)
+{-# DEPRECATED dsmfersName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the state machine associated with the execution.
+--
+-- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmfersStateMachineARN :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Text
+dsmfersStateMachineARN = Lens.lens (stateMachineARN :: DescribeStateMachineForExecutionResponse -> Lude.Text) (\s a -> s {stateMachineARN = a} :: DescribeStateMachineForExecutionResponse)
+{-# DEPRECATED dsmfersStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmfersLoggingConfiguration :: Lens.Lens' DescribeStateMachineForExecutionResponse (Lude.Maybe LoggingConfiguration)
+dsmfersLoggingConfiguration = Lens.lens (loggingConfiguration :: DescribeStateMachineForExecutionResponse -> Lude.Maybe LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: DescribeStateMachineForExecutionResponse)
+{-# DEPRECATED dsmfersLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
+
 -- | The Amazon Resource Name (ARN) of the IAM role of the State Machine for the execution.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -241,9 +227,9 @@ dsmfersRoleARN :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Text
 dsmfersRoleARN = Lens.lens (roleARN :: DescribeStateMachineForExecutionResponse -> Lude.Text) (\s a -> s {roleARN = a} :: DescribeStateMachineForExecutionResponse)
 {-# DEPRECATED dsmfersRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | The date and time the state machine associated with an execution was updated. For a newly created state machine, this is the creation date.
+-- | The response status code.
 --
--- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsmfersUpdateDate :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Timestamp
-dsmfersUpdateDate = Lens.lens (updateDate :: DescribeStateMachineForExecutionResponse -> Lude.Timestamp) (\s a -> s {updateDate = a} :: DescribeStateMachineForExecutionResponse)
-{-# DEPRECATED dsmfersUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsmfersResponseStatus :: Lens.Lens' DescribeStateMachineForExecutionResponse Lude.Int
+dsmfersResponseStatus = Lens.lens (responseStatus :: DescribeStateMachineForExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStateMachineForExecutionResponse)
+{-# DEPRECATED dsmfersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

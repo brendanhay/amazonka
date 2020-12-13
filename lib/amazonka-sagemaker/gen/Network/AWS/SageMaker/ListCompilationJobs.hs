@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,9 +40,9 @@ module Network.AWS.SageMaker.ListCompilationJobs
     mkListCompilationJobsResponse,
 
     -- ** Response lenses
+    lcjrsCompilationJobSummaries,
     lcjrsNextToken,
     lcjrsResponseStatus,
-    lcjrsCompilationJobSummaries,
   )
 where
 
@@ -54,39 +55,42 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListCompilationJobs' smart constructor.
 data ListCompilationJobs = ListCompilationJobs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A filter that returns the model compilation jobs whose name contains a specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns the model compilation jobs that were modified before a specified time.
     lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns the model compilation jobs that were created after a specified time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of the previous @ListCompilationJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of model compilation jobs, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Ascending@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | A filter that returns the model compilation jobs that were modified after a specified time.
     lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns the model compilation jobs that were created before a specified time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that retrieves model compilation jobs with a specific 'DescribeCompilationJobResponse$CompilationJobStatus' status.
     statusEquals :: Lude.Maybe CompilationJobStatus,
+    -- | The maximum number of model compilation jobs to return in the response.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field by which to sort results. The default is @CreationTime@ .
     sortBy :: Lude.Maybe ListCompilationJobsSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCompilationJobs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns the model compilation jobs that were created after a specified time.
--- * 'creationTimeBefore' - A filter that returns the model compilation jobs that were created before a specified time.
--- * 'lastModifiedTimeAfter' - A filter that returns the model compilation jobs that were modified after a specified time.
--- * 'lastModifiedTimeBefore' - A filter that returns the model compilation jobs that were modified before a specified time.
--- * 'maxResults' - The maximum number of model compilation jobs to return in the response.
 -- * 'nameContains' - A filter that returns the model compilation jobs whose name contains a specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns the model compilation jobs that were modified before a specified time.
+-- * 'creationTimeAfter' - A filter that returns the model compilation jobs that were created after a specified time.
 -- * 'nextToken' - If the result of the previous @ListCompilationJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of model compilation jobs, use the token in the next request.
--- * 'sortBy' - The field by which to sort results. The default is @CreationTime@ .
 -- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns the model compilation jobs that were modified after a specified time.
+-- * 'creationTimeBefore' - A filter that returns the model compilation jobs that were created before a specified time.
 -- * 'statusEquals' - A filter that retrieves model compilation jobs with a specific 'DescribeCompilationJobResponse$CompilationJobStatus' status.
+-- * 'maxResults' - The maximum number of model compilation jobs to return in the response.
+-- * 'sortBy' - The field by which to sort results. The default is @CreationTime@ .
 mkListCompilationJobs ::
   ListCompilationJobs
 mkListCompilationJobs =
@@ -190,9 +194,9 @@ instance Lude.AWSRequest ListCompilationJobs where
     Res.receiveJSON
       ( \s h x ->
           ListCompilationJobsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "CompilationJobSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "CompilationJobSummaries" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListCompilationJobs where
@@ -231,19 +235,14 @@ instance Lude.ToQuery ListCompilationJobs where
 
 -- | /See:/ 'mkListCompilationJobsResponse' smart constructor.
 data ListCompilationJobsResponse = ListCompilationJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    compilationJobSummaries ::
-      [CompilationJobSummary]
+  { -- | An array of 'CompilationJobSummary' objects, each describing a model compilation job.
+    compilationJobSummaries :: [CompilationJobSummary],
+    -- | If the response is truncated, Amazon SageMaker returns this @NextToken@ . To retrieve the next set of model compilation jobs, use this token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCompilationJobsResponse' with the minimum fields required to make a request.
@@ -257,10 +256,18 @@ mkListCompilationJobsResponse ::
   ListCompilationJobsResponse
 mkListCompilationJobsResponse pResponseStatus_ =
   ListCompilationJobsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      compilationJobSummaries = Lude.mempty
+    { compilationJobSummaries =
+        Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | An array of 'CompilationJobSummary' objects, each describing a model compilation job.
+--
+-- /Note:/ Consider using 'compilationJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjrsCompilationJobSummaries :: Lens.Lens' ListCompilationJobsResponse [CompilationJobSummary]
+lcjrsCompilationJobSummaries = Lens.lens (compilationJobSummaries :: ListCompilationJobsResponse -> [CompilationJobSummary]) (\s a -> s {compilationJobSummaries = a} :: ListCompilationJobsResponse)
+{-# DEPRECATED lcjrsCompilationJobSummaries "Use generic-lens or generic-optics with 'compilationJobSummaries' instead." #-}
 
 -- | If the response is truncated, Amazon SageMaker returns this @NextToken@ . To retrieve the next set of model compilation jobs, use this token in the next request.
 --
@@ -275,10 +282,3 @@ lcjrsNextToken = Lens.lens (nextToken :: ListCompilationJobsResponse -> Lude.May
 lcjrsResponseStatus :: Lens.Lens' ListCompilationJobsResponse Lude.Int
 lcjrsResponseStatus = Lens.lens (responseStatus :: ListCompilationJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCompilationJobsResponse)
 {-# DEPRECATED lcjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | An array of 'CompilationJobSummary' objects, each describing a model compilation job.
---
--- /Note:/ Consider using 'compilationJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcjrsCompilationJobSummaries :: Lens.Lens' ListCompilationJobsResponse [CompilationJobSummary]
-lcjrsCompilationJobSummaries = Lens.lens (compilationJobSummaries :: ListCompilationJobsResponse -> [CompilationJobSummary]) (\s a -> s {compilationJobSummaries = a} :: ListCompilationJobsResponse)
-{-# DEPRECATED lcjrsCompilationJobSummaries "Use generic-lens or generic-optics with 'compilationJobSummaries' instead." #-}

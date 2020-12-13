@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.ECS.DescribeServices
     mkDescribeServices,
 
     -- ** Request lenses
-    dInclude,
-    dCluster,
-    dServices,
+    dsInclude,
+    dsCluster,
+    dsServices,
 
     -- * Destructuring the response
     DescribeServicesResponse (..),
@@ -42,24 +43,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { include ::
-      Lude.Maybe [ServiceField],
+  { -- | Specifies whether you want to see the resource tags for the service. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+    include :: Lude.Maybe [ServiceField],
+    -- | The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the service or services you are describing were launched in any cluster other than the default cluster.
     cluster :: Lude.Maybe Lude.Text,
+    -- | A list of services to describe. You may specify up to 10 services to describe in a single operation.
     services :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
 --
--- * 'cluster' - The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the service or services you are describing were launched in any cluster other than the default cluster.
 -- * 'include' - Specifies whether you want to see the resource tags for the service. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the service or services you are describing were launched in any cluster other than the default cluster.
 -- * 'services' - A list of services to describe. You may specify up to 10 services to describe in a single operation.
 mkDescribeServices ::
   DescribeServices
@@ -73,23 +70,23 @@ mkDescribeServices =
 -- | Specifies whether you want to see the resource tags for the service. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
 --
 -- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInclude :: Lens.Lens' DescribeServices (Lude.Maybe [ServiceField])
-dInclude = Lens.lens (include :: DescribeServices -> Lude.Maybe [ServiceField]) (\s a -> s {include = a} :: DescribeServices)
-{-# DEPRECATED dInclude "Use generic-lens or generic-optics with 'include' instead." #-}
+dsInclude :: Lens.Lens' DescribeServices (Lude.Maybe [ServiceField])
+dsInclude = Lens.lens (include :: DescribeServices -> Lude.Maybe [ServiceField]) (\s a -> s {include = a} :: DescribeServices)
+{-# DEPRECATED dsInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN)the cluster that hosts the service to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the service or services you are describing were launched in any cluster other than the default cluster.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCluster :: Lens.Lens' DescribeServices (Lude.Maybe Lude.Text)
-dCluster = Lens.lens (cluster :: DescribeServices -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DescribeServices)
-{-# DEPRECATED dCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+dsCluster :: Lens.Lens' DescribeServices (Lude.Maybe Lude.Text)
+dsCluster = Lens.lens (cluster :: DescribeServices -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DescribeServices)
+{-# DEPRECATED dsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | A list of services to describe. You may specify up to 10 services to describe in a single operation.
 --
 -- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dServices :: Lens.Lens' DescribeServices [Lude.Text]
-dServices = Lens.lens (services :: DescribeServices -> [Lude.Text]) (\s a -> s {services = a} :: DescribeServices)
-{-# DEPRECATED dServices "Use generic-lens or generic-optics with 'services' instead." #-}
+dsServices :: Lens.Lens' DescribeServices [Lude.Text]
+dsServices = Lens.lens (services :: DescribeServices -> [Lude.Text]) (\s a -> s {services = a} :: DescribeServices)
+{-# DEPRECATED dsServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
 instance Lude.AWSRequest DescribeServices where
   type Rs DescribeServices = DescribeServicesResponse
@@ -134,25 +131,21 @@ instance Lude.ToQuery DescribeServices where
 
 -- | /See:/ 'mkDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { failures ::
-      Lude.Maybe [Failure],
+  { -- | Any failures associated with the call.
+    failures :: Lude.Maybe [Failure],
+    -- | The list of services described.
     services :: Lude.Maybe [ContainerService],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
 --
 -- * 'failures' - Any failures associated with the call.
--- * 'responseStatus' - The response status code.
 -- * 'services' - The list of services described.
+-- * 'responseStatus' - The response status code.
 mkDescribeServicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

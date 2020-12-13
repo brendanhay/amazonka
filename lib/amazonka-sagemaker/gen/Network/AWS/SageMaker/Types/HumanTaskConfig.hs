@@ -17,18 +17,18 @@ module Network.AWS.SageMaker.Types.HumanTaskConfig
     mkHumanTaskConfig,
 
     -- * Lenses
-    htcTaskKeywords,
-    htcPublicWorkforceTaskPrice,
-    htcTaskAvailabilityLifetimeInSeconds,
-    htcMaxConcurrentTaskCount,
-    htcWorkteamARN,
-    htcUiConfig,
     htcPreHumanTaskLambdaARN,
-    htcTaskTitle,
-    htcTaskDescription,
+    htcTaskKeywords,
     htcNumberOfHumanWorkersPerDataObject,
+    htcPublicWorkforceTaskPrice,
+    htcTaskDescription,
+    htcUiConfig,
+    htcWorkteamARN,
     htcTaskTimeLimitInSeconds,
     htcAnnotationConsolidationConfig,
+    htcTaskTitle,
+    htcTaskAvailabilityLifetimeInSeconds,
+    htcMaxConcurrentTaskCount,
   )
 where
 
@@ -42,37 +42,876 @@ import Network.AWS.SageMaker.Types.UiConfig
 --
 -- /See:/ 'mkHumanTaskConfig' smart constructor.
 data HumanTaskConfig = HumanTaskConfig'
-  { taskKeywords ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    publicWorkforceTaskPrice ::
-      Lude.Maybe PublicWorkforceTaskPrice,
-    taskAvailabilityLifetimeInSeconds ::
-      Lude.Maybe Lude.Natural,
-    maxConcurrentTaskCount :: Lude.Maybe Lude.Natural,
-    workteamARN :: Lude.Text,
-    uiConfig :: UiConfig,
+  { -- | The Amazon Resource Name (ARN) of a Lambda function that is run before a data object is sent to a human worker. Use this function to provide input to a custom labeling job.
+    --
+    -- For <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types> , use one of the following Amazon SageMaker Ground Truth Lambda function ARNs for @PreHumanTaskLambdaArn@ . For custom labeling workflows, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-prelambda Pre-annotation Lambda> .
+    -- __Bounding box__ - Finds the most similar boxes from different workers based on the Jaccard index of the boxes.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox@
+    --
+    --
+    -- __Image classification__ - Uses a variant of the Expectation Maximization approach to estimate the true class of an image based on annotations from individual workers.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClass@
+    --
+    --
+    -- __Multi-label image classification__ - Uses a variant of the Expectation Maximization approach to estimate the true classes of an image based on annotations from individual workers.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClassMultiLabel@
+    --
+    --
+    -- __Semantic segmentation__ - Treats each pixel in an image as a multi-class classification and treats pixel annotations from workers as "votes" for the correct label.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation@
+    --
+    --
+    -- __Text classification__ - Uses a variant of the Expectation Maximization approach to estimate the true class of text based on annotations from individual workers.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass@
+    --
+    --
+    -- __Multi-label text classification__ - Uses a variant of the Expectation Maximization approach to estimate the true classes of text based on annotations from individual workers.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClassMultiLabel@
+    --
+    --
+    -- __Named entity recognition__ - Groups similar selections and calculates aggregate boundaries, resolving to most-assigned label.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition@
+    --
+    --
+    -- __Video Classification__ - Use this task type when you need workers to classify videos using predefined labels that you specify. Workers are shown videos and are asked to choose one label for each video.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoMultiClass@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoMultiClass@
+    --
+    --
+    -- __Video Frame Object Detection__ - Use this task type to have workers identify and locate objects in a sequence of video frames (images extracted from a video) using bounding boxes. For example, you can use this task to ask workers to identify and localize various objects in a series of video frames, such as cars, bikes, and pedestrians.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectDetection@
+    --
+    --
+    -- __Video Frame Object Tracking__ - Use this task type to have workers track the movement of objects in a sequence of video frames (images extracted from a video) using bounding boxes. For example, you can use this task to ask workers to track the movement of objects, such as cars, bikes, and pedestrians.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectTracking@
+    --
+    --
+    -- __3D Point Cloud Modalities__
+    -- Use the following pre-annotation lambdas for 3D point cloud labeling modality tasks. See <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-task-types.html 3D Point Cloud Task types > to learn more.
+    -- __3D Point Cloud Object Detection__ - Use this task type when you want workers to classify objects in a 3D point cloud by drawing 3D cuboids around objects. For example, you can use this task type to ask workers to identify different types of objects in a point cloud, such as cars, bikes, and pedestrians.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectDetection@
+    --
+    --
+    -- __3D Point Cloud Object Tracking__ - Use this task type when you want workers to draw 3D cuboids around objects that appear in a sequence of 3D point cloud frames. For example, you can use this task type to ask workers to track the movement of vehicles across multiple point cloud frames.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectTracking@
+    --
+    --
+    -- __3D Point Cloud Semantic Segmentation__ - Use this task type when you want workers to create a point-level semantic segmentation masks by painting objects in a 3D point cloud using different colors where each color is assigned to one of the classes you specify.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudSemanticSegmentation@
+    --
+    --
+    -- __Use the following ARNs for Label Verification and Adjustment Jobs__
+    -- Use label verification and adjustment jobs to review and adjust labels. To learn more, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html Verify and Adjust Labels > .
+    -- __Bounding box verification__ - Uses a variant of the Expectation Maximization approach to estimate the true class of verification judgement for bounding box labels based on annotations from individual workers.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    -- __Bounding box adjustment__ - Finds the most similar boxes from different workers based on the Jaccard index of the adjusted annotations.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox@
+    --
+    --
+    -- __Semantic segmentation verification__ - Uses a variant of the Expectation Maximization approach to estimate the true class of verification judgment for semantic segmentation labels based on annotations from individual workers.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation@
+    --
+    --
+    -- __Semantic segmentation adjustment__ - Treats each pixel in an image as a multi-class classification and treats pixel adjusted annotations from workers as "votes" for the correct label.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation@
+    --
+    --
+    -- __Video Frame Object Detection Adjustment__ - Use this task type when you want workers to adjust bounding boxes that workers have added to video frames to classify and localize objects in a sequence of video frames.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectDetection@
+    --
+    --
+    -- __Video Frame Object Tracking Adjustment__ - Use this task type when you want workers to adjust bounding boxes that workers have added to video frames to track object movement across a sequence of video frames.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectTracking@
+    --
+    --
+    -- __3D point cloud object detection adjustment__ - Adjust 3D cuboids in a point cloud frame.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectDetection@
+    --
+    --
+    -- __3D point cloud object tracking adjustment__ - Adjust 3D cuboids across a sequence of point cloud frames.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectTracking@
+    --
+    --
+    -- __3D point cloud semantic segmentation adjustment__ - Adjust semantic segmentation masks in a 3D point cloud.
+    --
+    --     * @arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
+    --
+    --
+    --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
     preHumanTaskLambdaARN :: Lude.Text,
-    taskTitle :: Lude.Text,
-    taskDescription :: Lude.Text,
+    -- | Keywords used to describe the task so that workers on Amazon Mechanical Turk can discover the task.
+    taskKeywords :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The number of human workers that will label an object.
     numberOfHumanWorkersPerDataObject :: Lude.Natural,
+    -- | The price that you pay for each task performed by an Amazon Mechanical Turk worker.
+    publicWorkforceTaskPrice :: Lude.Maybe PublicWorkforceTaskPrice,
+    -- | A description of the task for your human workers.
+    taskDescription :: Lude.Text,
+    -- | Information about the user interface that workers use to complete the labeling task.
+    uiConfig :: UiConfig,
+    -- | The Amazon Resource Name (ARN) of the work team assigned to complete the tasks.
+    workteamARN :: Lude.Text,
+    -- | The amount of time that a worker has to complete a task.
     taskTimeLimitInSeconds :: Lude.Natural,
-    annotationConsolidationConfig ::
-      AnnotationConsolidationConfig
+    -- | Configures how labels are consolidated across human workers.
+    annotationConsolidationConfig :: AnnotationConsolidationConfig,
+    -- | A title for the task for your human workers.
+    taskTitle :: Lude.Text,
+    -- | The length of time that a task remains available for labeling by human workers. __If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43200)__ . The default value is 864000 seconds (10 days). For private and vendor workforces, the maximum is as listed.
+    taskAvailabilityLifetimeInSeconds :: Lude.Maybe Lude.Natural,
+    -- | Defines the maximum number of data objects that can be labeled by human workers at the same time. Also referred to as batch size. Each object may have more than one worker at one time. The default value is 1000 objects.
+    maxConcurrentTaskCount :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanTaskConfig' with the minimum fields required to make a request.
 --
--- * 'annotationConsolidationConfig' - Configures how labels are consolidated across human workers.
--- * 'maxConcurrentTaskCount' - Defines the maximum number of data objects that can be labeled by human workers at the same time. Also referred to as batch size. Each object may have more than one worker at one time. The default value is 1000 objects.
--- * 'numberOfHumanWorkersPerDataObject' - The number of human workers that will label an object.
 -- * 'preHumanTaskLambdaARN' - The Amazon Resource Name (ARN) of a Lambda function that is run before a data object is sent to a human worker. Use this function to provide input to a custom labeling job.
 --
 -- For <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html built-in task types> , use one of the following Amazon SageMaker Ground Truth Lambda function ARNs for @PreHumanTaskLambdaArn@ . For custom labeling workflows, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-prelambda Pre-annotation Lambda> .
@@ -916,98 +1755,59 @@ data HumanTaskConfig = HumanTaskConfig'
 --     * @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
 --
 --
--- * 'publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical Turk worker.
--- * 'taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for labeling by human workers. __If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43200)__ . The default value is 864000 seconds (10 days). For private and vendor workforces, the maximum is as listed.
--- * 'taskDescription' - A description of the task for your human workers.
 -- * 'taskKeywords' - Keywords used to describe the task so that workers on Amazon Mechanical Turk can discover the task.
--- * 'taskTimeLimitInSeconds' - The amount of time that a worker has to complete a task.
--- * 'taskTitle' - A title for the task for your human workers.
+-- * 'numberOfHumanWorkersPerDataObject' - The number of human workers that will label an object.
+-- * 'publicWorkforceTaskPrice' - The price that you pay for each task performed by an Amazon Mechanical Turk worker.
+-- * 'taskDescription' - A description of the task for your human workers.
 -- * 'uiConfig' - Information about the user interface that workers use to complete the labeling task.
 -- * 'workteamARN' - The Amazon Resource Name (ARN) of the work team assigned to complete the tasks.
+-- * 'taskTimeLimitInSeconds' - The amount of time that a worker has to complete a task.
+-- * 'annotationConsolidationConfig' - Configures how labels are consolidated across human workers.
+-- * 'taskTitle' - A title for the task for your human workers.
+-- * 'taskAvailabilityLifetimeInSeconds' - The length of time that a task remains available for labeling by human workers. __If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43200)__ . The default value is 864000 seconds (10 days). For private and vendor workforces, the maximum is as listed.
+-- * 'maxConcurrentTaskCount' - Defines the maximum number of data objects that can be labeled by human workers at the same time. Also referred to as batch size. Each object may have more than one worker at one time. The default value is 1000 objects.
 mkHumanTaskConfig ::
-  -- | 'workteamARN'
-  Lude.Text ->
-  -- | 'uiConfig'
-  UiConfig ->
   -- | 'preHumanTaskLambdaARN'
-  Lude.Text ->
-  -- | 'taskTitle'
-  Lude.Text ->
-  -- | 'taskDescription'
   Lude.Text ->
   -- | 'numberOfHumanWorkersPerDataObject'
   Lude.Natural ->
+  -- | 'taskDescription'
+  Lude.Text ->
+  -- | 'uiConfig'
+  UiConfig ->
+  -- | 'workteamARN'
+  Lude.Text ->
   -- | 'taskTimeLimitInSeconds'
   Lude.Natural ->
   -- | 'annotationConsolidationConfig'
   AnnotationConsolidationConfig ->
+  -- | 'taskTitle'
+  Lude.Text ->
   HumanTaskConfig
 mkHumanTaskConfig
-  pWorkteamARN_
-  pUiConfig_
   pPreHumanTaskLambdaARN_
-  pTaskTitle_
-  pTaskDescription_
   pNumberOfHumanWorkersPerDataObject_
+  pTaskDescription_
+  pUiConfig_
+  pWorkteamARN_
   pTaskTimeLimitInSeconds_
-  pAnnotationConsolidationConfig_ =
+  pAnnotationConsolidationConfig_
+  pTaskTitle_ =
     HumanTaskConfig'
-      { taskKeywords = Lude.Nothing,
-        publicWorkforceTaskPrice = Lude.Nothing,
-        taskAvailabilityLifetimeInSeconds = Lude.Nothing,
-        maxConcurrentTaskCount = Lude.Nothing,
-        workteamARN = pWorkteamARN_,
-        uiConfig = pUiConfig_,
-        preHumanTaskLambdaARN = pPreHumanTaskLambdaARN_,
-        taskTitle = pTaskTitle_,
-        taskDescription = pTaskDescription_,
+      { preHumanTaskLambdaARN = pPreHumanTaskLambdaARN_,
+        taskKeywords = Lude.Nothing,
         numberOfHumanWorkersPerDataObject =
           pNumberOfHumanWorkersPerDataObject_,
+        publicWorkforceTaskPrice = Lude.Nothing,
+        taskDescription = pTaskDescription_,
+        uiConfig = pUiConfig_,
+        workteamARN = pWorkteamARN_,
         taskTimeLimitInSeconds = pTaskTimeLimitInSeconds_,
-        annotationConsolidationConfig = pAnnotationConsolidationConfig_
+        annotationConsolidationConfig = pAnnotationConsolidationConfig_,
+        taskTitle = pTaskTitle_,
+        taskAvailabilityLifetimeInSeconds = Lude.Nothing,
+        maxConcurrentTaskCount = Lude.Nothing
       }
-
--- | Keywords used to describe the task so that workers on Amazon Mechanical Turk can discover the task.
---
--- /Note:/ Consider using 'taskKeywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcTaskKeywords :: Lens.Lens' HumanTaskConfig (Lude.Maybe (Lude.NonEmpty Lude.Text))
-htcTaskKeywords = Lens.lens (taskKeywords :: HumanTaskConfig -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {taskKeywords = a} :: HumanTaskConfig)
-{-# DEPRECATED htcTaskKeywords "Use generic-lens or generic-optics with 'taskKeywords' instead." #-}
-
--- | The price that you pay for each task performed by an Amazon Mechanical Turk worker.
---
--- /Note:/ Consider using 'publicWorkforceTaskPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcPublicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Lude.Maybe PublicWorkforceTaskPrice)
-htcPublicWorkforceTaskPrice = Lens.lens (publicWorkforceTaskPrice :: HumanTaskConfig -> Lude.Maybe PublicWorkforceTaskPrice) (\s a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
-{-# DEPRECATED htcPublicWorkforceTaskPrice "Use generic-lens or generic-optics with 'publicWorkforceTaskPrice' instead." #-}
-
--- | The length of time that a task remains available for labeling by human workers. __If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43200)__ . The default value is 864000 seconds (10 days). For private and vendor workforces, the maximum is as listed.
---
--- /Note:/ Consider using 'taskAvailabilityLifetimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcTaskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Lude.Maybe Lude.Natural)
-htcTaskAvailabilityLifetimeInSeconds = Lens.lens (taskAvailabilityLifetimeInSeconds :: HumanTaskConfig -> Lude.Maybe Lude.Natural) (\s a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
-{-# DEPRECATED htcTaskAvailabilityLifetimeInSeconds "Use generic-lens or generic-optics with 'taskAvailabilityLifetimeInSeconds' instead." #-}
-
--- | Defines the maximum number of data objects that can be labeled by human workers at the same time. Also referred to as batch size. Each object may have more than one worker at one time. The default value is 1000 objects.
---
--- /Note:/ Consider using 'maxConcurrentTaskCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcMaxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Lude.Maybe Lude.Natural)
-htcMaxConcurrentTaskCount = Lens.lens (maxConcurrentTaskCount :: HumanTaskConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
-{-# DEPRECATED htcMaxConcurrentTaskCount "Use generic-lens or generic-optics with 'maxConcurrentTaskCount' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the work team assigned to complete the tasks.
---
--- /Note:/ Consider using 'workteamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcWorkteamARN :: Lens.Lens' HumanTaskConfig Lude.Text
-htcWorkteamARN = Lens.lens (workteamARN :: HumanTaskConfig -> Lude.Text) (\s a -> s {workteamARN = a} :: HumanTaskConfig)
-{-# DEPRECATED htcWorkteamARN "Use generic-lens or generic-optics with 'workteamARN' instead." #-}
-
--- | Information about the user interface that workers use to complete the labeling task.
---
--- /Note:/ Consider using 'uiConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcUiConfig :: Lens.Lens' HumanTaskConfig UiConfig
-htcUiConfig = Lens.lens (uiConfig :: HumanTaskConfig -> UiConfig) (\s a -> s {uiConfig = a} :: HumanTaskConfig)
-{-# DEPRECATED htcUiConfig "Use generic-lens or generic-optics with 'uiConfig' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a Lambda function that is run before a data object is sent to a human worker. Use this function to provide input to a custom labeling job.
 --
@@ -1858,12 +2658,26 @@ htcPreHumanTaskLambdaARN :: Lens.Lens' HumanTaskConfig Lude.Text
 htcPreHumanTaskLambdaARN = Lens.lens (preHumanTaskLambdaARN :: HumanTaskConfig -> Lude.Text) (\s a -> s {preHumanTaskLambdaARN = a} :: HumanTaskConfig)
 {-# DEPRECATED htcPreHumanTaskLambdaARN "Use generic-lens or generic-optics with 'preHumanTaskLambdaARN' instead." #-}
 
--- | A title for the task for your human workers.
+-- | Keywords used to describe the task so that workers on Amazon Mechanical Turk can discover the task.
 --
--- /Note:/ Consider using 'taskTitle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcTaskTitle :: Lens.Lens' HumanTaskConfig Lude.Text
-htcTaskTitle = Lens.lens (taskTitle :: HumanTaskConfig -> Lude.Text) (\s a -> s {taskTitle = a} :: HumanTaskConfig)
-{-# DEPRECATED htcTaskTitle "Use generic-lens or generic-optics with 'taskTitle' instead." #-}
+-- /Note:/ Consider using 'taskKeywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcTaskKeywords :: Lens.Lens' HumanTaskConfig (Lude.Maybe (Lude.NonEmpty Lude.Text))
+htcTaskKeywords = Lens.lens (taskKeywords :: HumanTaskConfig -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {taskKeywords = a} :: HumanTaskConfig)
+{-# DEPRECATED htcTaskKeywords "Use generic-lens or generic-optics with 'taskKeywords' instead." #-}
+
+-- | The number of human workers that will label an object.
+--
+-- /Note:/ Consider using 'numberOfHumanWorkersPerDataObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcNumberOfHumanWorkersPerDataObject :: Lens.Lens' HumanTaskConfig Lude.Natural
+htcNumberOfHumanWorkersPerDataObject = Lens.lens (numberOfHumanWorkersPerDataObject :: HumanTaskConfig -> Lude.Natural) (\s a -> s {numberOfHumanWorkersPerDataObject = a} :: HumanTaskConfig)
+{-# DEPRECATED htcNumberOfHumanWorkersPerDataObject "Use generic-lens or generic-optics with 'numberOfHumanWorkersPerDataObject' instead." #-}
+
+-- | The price that you pay for each task performed by an Amazon Mechanical Turk worker.
+--
+-- /Note:/ Consider using 'publicWorkforceTaskPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcPublicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Lude.Maybe PublicWorkforceTaskPrice)
+htcPublicWorkforceTaskPrice = Lens.lens (publicWorkforceTaskPrice :: HumanTaskConfig -> Lude.Maybe PublicWorkforceTaskPrice) (\s a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
+{-# DEPRECATED htcPublicWorkforceTaskPrice "Use generic-lens or generic-optics with 'publicWorkforceTaskPrice' instead." #-}
 
 -- | A description of the task for your human workers.
 --
@@ -1872,12 +2686,19 @@ htcTaskDescription :: Lens.Lens' HumanTaskConfig Lude.Text
 htcTaskDescription = Lens.lens (taskDescription :: HumanTaskConfig -> Lude.Text) (\s a -> s {taskDescription = a} :: HumanTaskConfig)
 {-# DEPRECATED htcTaskDescription "Use generic-lens or generic-optics with 'taskDescription' instead." #-}
 
--- | The number of human workers that will label an object.
+-- | Information about the user interface that workers use to complete the labeling task.
 --
--- /Note:/ Consider using 'numberOfHumanWorkersPerDataObject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htcNumberOfHumanWorkersPerDataObject :: Lens.Lens' HumanTaskConfig Lude.Natural
-htcNumberOfHumanWorkersPerDataObject = Lens.lens (numberOfHumanWorkersPerDataObject :: HumanTaskConfig -> Lude.Natural) (\s a -> s {numberOfHumanWorkersPerDataObject = a} :: HumanTaskConfig)
-{-# DEPRECATED htcNumberOfHumanWorkersPerDataObject "Use generic-lens or generic-optics with 'numberOfHumanWorkersPerDataObject' instead." #-}
+-- /Note:/ Consider using 'uiConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcUiConfig :: Lens.Lens' HumanTaskConfig UiConfig
+htcUiConfig = Lens.lens (uiConfig :: HumanTaskConfig -> UiConfig) (\s a -> s {uiConfig = a} :: HumanTaskConfig)
+{-# DEPRECATED htcUiConfig "Use generic-lens or generic-optics with 'uiConfig' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the work team assigned to complete the tasks.
+--
+-- /Note:/ Consider using 'workteamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcWorkteamARN :: Lens.Lens' HumanTaskConfig Lude.Text
+htcWorkteamARN = Lens.lens (workteamARN :: HumanTaskConfig -> Lude.Text) (\s a -> s {workteamARN = a} :: HumanTaskConfig)
+{-# DEPRECATED htcWorkteamARN "Use generic-lens or generic-optics with 'workteamARN' instead." #-}
 
 -- | The amount of time that a worker has to complete a task.
 --
@@ -1893,50 +2714,72 @@ htcAnnotationConsolidationConfig :: Lens.Lens' HumanTaskConfig AnnotationConsoli
 htcAnnotationConsolidationConfig = Lens.lens (annotationConsolidationConfig :: HumanTaskConfig -> AnnotationConsolidationConfig) (\s a -> s {annotationConsolidationConfig = a} :: HumanTaskConfig)
 {-# DEPRECATED htcAnnotationConsolidationConfig "Use generic-lens or generic-optics with 'annotationConsolidationConfig' instead." #-}
 
+-- | A title for the task for your human workers.
+--
+-- /Note:/ Consider using 'taskTitle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcTaskTitle :: Lens.Lens' HumanTaskConfig Lude.Text
+htcTaskTitle = Lens.lens (taskTitle :: HumanTaskConfig -> Lude.Text) (\s a -> s {taskTitle = a} :: HumanTaskConfig)
+{-# DEPRECATED htcTaskTitle "Use generic-lens or generic-optics with 'taskTitle' instead." #-}
+
+-- | The length of time that a task remains available for labeling by human workers. __If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43200)__ . The default value is 864000 seconds (10 days). For private and vendor workforces, the maximum is as listed.
+--
+-- /Note:/ Consider using 'taskAvailabilityLifetimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcTaskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Lude.Maybe Lude.Natural)
+htcTaskAvailabilityLifetimeInSeconds = Lens.lens (taskAvailabilityLifetimeInSeconds :: HumanTaskConfig -> Lude.Maybe Lude.Natural) (\s a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
+{-# DEPRECATED htcTaskAvailabilityLifetimeInSeconds "Use generic-lens or generic-optics with 'taskAvailabilityLifetimeInSeconds' instead." #-}
+
+-- | Defines the maximum number of data objects that can be labeled by human workers at the same time. Also referred to as batch size. Each object may have more than one worker at one time. The default value is 1000 objects.
+--
+-- /Note:/ Consider using 'maxConcurrentTaskCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htcMaxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Lude.Maybe Lude.Natural)
+htcMaxConcurrentTaskCount = Lens.lens (maxConcurrentTaskCount :: HumanTaskConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
+{-# DEPRECATED htcMaxConcurrentTaskCount "Use generic-lens or generic-optics with 'maxConcurrentTaskCount' instead." #-}
+
 instance Lude.FromJSON HumanTaskConfig where
   parseJSON =
     Lude.withObject
       "HumanTaskConfig"
       ( \x ->
           HumanTaskConfig'
-            Lude.<$> (x Lude..:? "TaskKeywords")
-            Lude.<*> (x Lude..:? "PublicWorkforceTaskPrice")
-            Lude.<*> (x Lude..:? "TaskAvailabilityLifetimeInSeconds")
-            Lude.<*> (x Lude..:? "MaxConcurrentTaskCount")
-            Lude.<*> (x Lude..: "WorkteamArn")
-            Lude.<*> (x Lude..: "UiConfig")
-            Lude.<*> (x Lude..: "PreHumanTaskLambdaArn")
-            Lude.<*> (x Lude..: "TaskTitle")
-            Lude.<*> (x Lude..: "TaskDescription")
+            Lude.<$> (x Lude..: "PreHumanTaskLambdaArn")
+            Lude.<*> (x Lude..:? "TaskKeywords")
             Lude.<*> (x Lude..: "NumberOfHumanWorkersPerDataObject")
+            Lude.<*> (x Lude..:? "PublicWorkforceTaskPrice")
+            Lude.<*> (x Lude..: "TaskDescription")
+            Lude.<*> (x Lude..: "UiConfig")
+            Lude.<*> (x Lude..: "WorkteamArn")
             Lude.<*> (x Lude..: "TaskTimeLimitInSeconds")
             Lude.<*> (x Lude..: "AnnotationConsolidationConfig")
+            Lude.<*> (x Lude..: "TaskTitle")
+            Lude.<*> (x Lude..:? "TaskAvailabilityLifetimeInSeconds")
+            Lude.<*> (x Lude..:? "MaxConcurrentTaskCount")
       )
 
 instance Lude.ToJSON HumanTaskConfig where
   toJSON HumanTaskConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TaskKeywords" Lude..=) Lude.<$> taskKeywords,
-            ("PublicWorkforceTaskPrice" Lude..=)
-              Lude.<$> publicWorkforceTaskPrice,
-            ("TaskAvailabilityLifetimeInSeconds" Lude..=)
-              Lude.<$> taskAvailabilityLifetimeInSeconds,
-            ("MaxConcurrentTaskCount" Lude..=) Lude.<$> maxConcurrentTaskCount,
-            Lude.Just ("WorkteamArn" Lude..= workteamARN),
-            Lude.Just ("UiConfig" Lude..= uiConfig),
-            Lude.Just ("PreHumanTaskLambdaArn" Lude..= preHumanTaskLambdaARN),
-            Lude.Just ("TaskTitle" Lude..= taskTitle),
-            Lude.Just ("TaskDescription" Lude..= taskDescription),
+          [ Lude.Just ("PreHumanTaskLambdaArn" Lude..= preHumanTaskLambdaARN),
+            ("TaskKeywords" Lude..=) Lude.<$> taskKeywords,
             Lude.Just
               ( "NumberOfHumanWorkersPerDataObject"
                   Lude..= numberOfHumanWorkersPerDataObject
               ),
+            ("PublicWorkforceTaskPrice" Lude..=)
+              Lude.<$> publicWorkforceTaskPrice,
+            Lude.Just ("TaskDescription" Lude..= taskDescription),
+            Lude.Just ("UiConfig" Lude..= uiConfig),
+            Lude.Just ("WorkteamArn" Lude..= workteamARN),
             Lude.Just
               ("TaskTimeLimitInSeconds" Lude..= taskTimeLimitInSeconds),
             Lude.Just
               ( "AnnotationConsolidationConfig"
                   Lude..= annotationConsolidationConfig
-              )
+              ),
+            Lude.Just ("TaskTitle" Lude..= taskTitle),
+            ("TaskAvailabilityLifetimeInSeconds" Lude..=)
+              Lude.<$> taskAvailabilityLifetimeInSeconds,
+            ("MaxConcurrentTaskCount" Lude..=)
+              Lude.<$> maxConcurrentTaskCount
           ]
       )

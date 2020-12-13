@@ -38,36 +38,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBotChannelAssociation' smart constructor.
 data BotChannelAssociation = BotChannelAssociation'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
+  { -- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The status of the bot channel.
+    --
+    --
+    --     * @CREATED@ - The channel has been created and is ready for use.
+    --
+    --
+    --     * @IN_PROGRESS@ - Channel creation is in progress.
+    --
+    --
+    --     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
     status :: Lude.Maybe ChannelStatus,
+    -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
     botAlias :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon Lex bot to which this association is being made.
     botName :: Lude.Maybe Lude.Text,
-    botConfiguration ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Provides information necessary to communicate with the messaging platform.
+    botConfiguration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The date that the association between the Amazon Lex bot and the channel was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the association between the bot and the channel.
     name :: Lude.Maybe Lude.Text,
+    -- | Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.
     type' :: Lude.Maybe ChannelType,
+    -- | A text description of the association you are creating.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BotChannelAssociation' with the minimum fields required to make a request.
 --
--- * 'botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
--- * 'botConfiguration' - Provides information necessary to communicate with the messaging platform.
--- * 'botName' - The name of the Amazon Lex bot to which this association is being made.
--- * 'createdDate' - The date that the association between the Amazon Lex bot and the channel was created.
--- * 'description' - A text description of the association you are creating.
 -- * 'failureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
--- * 'name' - The name of the association between the bot and the channel.
 -- * 'status' - The status of the bot channel.
 --
 --
@@ -80,7 +84,13 @@ data BotChannelAssociation = BotChannelAssociation'
 --     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
 --
 --
+-- * 'botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+-- * 'botName' - The name of the Amazon Lex bot to which this association is being made.
+-- * 'botConfiguration' - Provides information necessary to communicate with the messaging platform.
+-- * 'createdDate' - The date that the association between the Amazon Lex bot and the channel was created.
+-- * 'name' - The name of the association between the bot and the channel.
 -- * 'type'' - Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.
+-- * 'description' - A text description of the association you are creating.
 mkBotChannelAssociation ::
   BotChannelAssociation
 mkBotChannelAssociation =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Rekognition.StartProjectVersion
     mkStartProjectVersion,
 
     -- ** Request lenses
-    spvProjectVersionARN,
-    spvMinInferenceUnits,
+    sMinInferenceUnits,
+    sProjectVersionARN,
 
     -- * Destructuring the response
     StartProjectVersionResponse (..),
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartProjectVersion' smart constructor.
 data StartProjectVersion = StartProjectVersion'
-  { projectVersionARN ::
-      Lude.Text,
-    minInferenceUnits :: Lude.Natural
+  { -- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
+    minInferenceUnits :: Lude.Natural,
+    -- | The Amazon Resource Name(ARN) of the model version that you want to start.
+    projectVersionARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartProjectVersion' with the minimum fields required to make a request.
@@ -61,30 +57,30 @@ data StartProjectVersion = StartProjectVersion'
 -- * 'minInferenceUnits' - The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
 -- * 'projectVersionARN' - The Amazon Resource Name(ARN) of the model version that you want to start.
 mkStartProjectVersion ::
-  -- | 'projectVersionARN'
-  Lude.Text ->
   -- | 'minInferenceUnits'
   Lude.Natural ->
+  -- | 'projectVersionARN'
+  Lude.Text ->
   StartProjectVersion
-mkStartProjectVersion pProjectVersionARN_ pMinInferenceUnits_ =
+mkStartProjectVersion pMinInferenceUnits_ pProjectVersionARN_ =
   StartProjectVersion'
-    { projectVersionARN = pProjectVersionARN_,
-      minInferenceUnits = pMinInferenceUnits_
+    { minInferenceUnits = pMinInferenceUnits_,
+      projectVersionARN = pProjectVersionARN_
     }
-
--- | The Amazon Resource Name(ARN) of the model version that you want to start.
---
--- /Note:/ Consider using 'projectVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spvProjectVersionARN :: Lens.Lens' StartProjectVersion Lude.Text
-spvProjectVersionARN = Lens.lens (projectVersionARN :: StartProjectVersion -> Lude.Text) (\s a -> s {projectVersionARN = a} :: StartProjectVersion)
-{-# DEPRECATED spvProjectVersionARN "Use generic-lens or generic-optics with 'projectVersionARN' instead." #-}
 
 -- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
 --
 -- /Note:/ Consider using 'minInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spvMinInferenceUnits :: Lens.Lens' StartProjectVersion Lude.Natural
-spvMinInferenceUnits = Lens.lens (minInferenceUnits :: StartProjectVersion -> Lude.Natural) (\s a -> s {minInferenceUnits = a} :: StartProjectVersion)
-{-# DEPRECATED spvMinInferenceUnits "Use generic-lens or generic-optics with 'minInferenceUnits' instead." #-}
+sMinInferenceUnits :: Lens.Lens' StartProjectVersion Lude.Natural
+sMinInferenceUnits = Lens.lens (minInferenceUnits :: StartProjectVersion -> Lude.Natural) (\s a -> s {minInferenceUnits = a} :: StartProjectVersion)
+{-# DEPRECATED sMinInferenceUnits "Use generic-lens or generic-optics with 'minInferenceUnits' instead." #-}
+
+-- | The Amazon Resource Name(ARN) of the model version that you want to start.
+--
+-- /Note:/ Consider using 'projectVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sProjectVersionARN :: Lens.Lens' StartProjectVersion Lude.Text
+sProjectVersionARN = Lens.lens (projectVersionARN :: StartProjectVersion -> Lude.Text) (\s a -> s {projectVersionARN = a} :: StartProjectVersion)
+{-# DEPRECATED sProjectVersionARN "Use generic-lens or generic-optics with 'projectVersionARN' instead." #-}
 
 instance Lude.AWSRequest StartProjectVersion where
   type Rs StartProjectVersion = StartProjectVersionResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON StartProjectVersion where
   toJSON StartProjectVersion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ProjectVersionArn" Lude..= projectVersionARN),
-            Lude.Just ("MinInferenceUnits" Lude..= minInferenceUnits)
+          [ Lude.Just ("MinInferenceUnits" Lude..= minInferenceUnits),
+            Lude.Just ("ProjectVersionArn" Lude..= projectVersionARN)
           ]
       )
 
@@ -124,23 +120,18 @@ instance Lude.ToQuery StartProjectVersion where
 
 -- | /See:/ 'mkStartProjectVersionResponse' smart constructor.
 data StartProjectVersionResponse = StartProjectVersionResponse'
-  { status ::
-      Lude.Maybe ProjectVersionStatus,
+  { -- | The current running status of the model.
+    status :: Lude.Maybe ProjectVersionStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartProjectVersionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The current running status of the model.
+-- * 'responseStatus' - The response status code.
 mkStartProjectVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     mkUpdateChapCredentials,
 
     -- ** Request lenses
-    uccSecretToAuthenticateTarget,
     uccTargetARN,
     uccSecretToAuthenticateInitiator,
     uccInitiatorName,
+    uccSecretToAuthenticateTarget,
 
     -- * Destructuring the response
     UpdateChapCredentialsResponse (..),
@@ -61,24 +62,28 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkUpdateChapCredentials' smart constructor.
 data UpdateChapCredentials = UpdateChapCredentials'
-  { secretToAuthenticateTarget ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.
     targetARN :: Lude.Text,
-    secretToAuthenticateInitiator ::
-      Lude.Sensitive Lude.Text,
-    initiatorName :: Lude.Text
+    -- | The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
+    secretToAuthenticateInitiator :: Lude.Sensitive Lude.Text,
+    -- | The iSCSI initiator that connects to the target.
+    initiatorName :: Lude.Text,
+    -- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
+    --
+    -- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
+    secretToAuthenticateTarget :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChapCredentials' with the minimum fields required to make a request.
 --
--- * 'initiatorName' - The iSCSI initiator that connects to the target.
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.
 -- * 'secretToAuthenticateInitiator' - The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target.
+-- * 'initiatorName' - The iSCSI initiator that connects to the target.
 -- * 'secretToAuthenticateTarget' - The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
 --
 -- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
--- * 'targetARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.
 mkUpdateChapCredentials ::
   -- | 'targetARN'
   Lude.Text ->
@@ -92,20 +97,11 @@ mkUpdateChapCredentials
   pSecretToAuthenticateInitiator_
   pInitiatorName_ =
     UpdateChapCredentials'
-      { secretToAuthenticateTarget = Lude.Nothing,
-        targetARN = pTargetARN_,
+      { targetARN = pTargetARN_,
         secretToAuthenticateInitiator = pSecretToAuthenticateInitiator_,
-        initiatorName = pInitiatorName_
+        initiatorName = pInitiatorName_,
+        secretToAuthenticateTarget = Lude.Nothing
       }
-
--- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
---
--- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
---
--- /Note:/ Consider using 'secretToAuthenticateTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uccSecretToAuthenticateTarget :: Lens.Lens' UpdateChapCredentials (Lude.Maybe (Lude.Sensitive Lude.Text))
-uccSecretToAuthenticateTarget = Lens.lens (secretToAuthenticateTarget :: UpdateChapCredentials -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretToAuthenticateTarget = a} :: UpdateChapCredentials)
-{-# DEPRECATED uccSecretToAuthenticateTarget "Use generic-lens or generic-optics with 'secretToAuthenticateTarget' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return the TargetARN for specified VolumeARN.
 --
@@ -127,6 +123,15 @@ uccSecretToAuthenticateInitiator = Lens.lens (secretToAuthenticateInitiator :: U
 uccInitiatorName :: Lens.Lens' UpdateChapCredentials Lude.Text
 uccInitiatorName = Lens.lens (initiatorName :: UpdateChapCredentials -> Lude.Text) (\s a -> s {initiatorName = a} :: UpdateChapCredentials)
 {-# DEPRECATED uccInitiatorName "Use generic-lens or generic-optics with 'initiatorName' instead." #-}
+
+-- | The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g. Windows client).
+--
+-- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
+--
+-- /Note:/ Consider using 'secretToAuthenticateTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uccSecretToAuthenticateTarget :: Lens.Lens' UpdateChapCredentials (Lude.Maybe (Lude.Sensitive Lude.Text))
+uccSecretToAuthenticateTarget = Lens.lens (secretToAuthenticateTarget :: UpdateChapCredentials -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {secretToAuthenticateTarget = a} :: UpdateChapCredentials)
+{-# DEPRECATED uccSecretToAuthenticateTarget "Use generic-lens or generic-optics with 'secretToAuthenticateTarget' instead." #-}
 
 instance Lude.AWSRequest UpdateChapCredentials where
   type Rs UpdateChapCredentials = UpdateChapCredentialsResponse
@@ -157,14 +162,14 @@ instance Lude.ToJSON UpdateChapCredentials where
   toJSON UpdateChapCredentials' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SecretToAuthenticateTarget" Lude..=)
-              Lude.<$> secretToAuthenticateTarget,
-            Lude.Just ("TargetARN" Lude..= targetARN),
+          [ Lude.Just ("TargetARN" Lude..= targetARN),
             Lude.Just
               ( "SecretToAuthenticateInitiator"
                   Lude..= secretToAuthenticateInitiator
               ),
-            Lude.Just ("InitiatorName" Lude..= initiatorName)
+            Lude.Just ("InitiatorName" Lude..= initiatorName),
+            ("SecretToAuthenticateTarget" Lude..=)
+              Lude.<$> secretToAuthenticateTarget
           ]
       )
 
@@ -178,26 +183,21 @@ instance Lude.ToQuery UpdateChapCredentials where
 --
 -- /See:/ 'mkUpdateChapCredentialsResponse' smart constructor.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
-    initiatorName ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the target. This is the same target specified in the request.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The iSCSI initiator that connects to the target. This is the same initiator name specified in the request.
+    initiatorName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChapCredentialsResponse' with the minimum fields required to make a request.
 --
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the target. This is the same target specified in the request.
 -- * 'initiatorName' - The iSCSI initiator that connects to the target. This is the same initiator name specified in the request.
 -- * 'responseStatus' - The response status code.
--- * 'targetARN' - The Amazon Resource Name (ARN) of the target. This is the same target specified in the request.
 mkUpdateChapCredentialsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

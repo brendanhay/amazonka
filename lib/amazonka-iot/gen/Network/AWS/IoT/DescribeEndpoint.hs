@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEndpoint' smart constructor.
 newtype DescribeEndpoint = DescribeEndpoint'
-  { endpointType ::
-      Lude.Maybe Lude.Text
+  { -- | The endpoint type. Valid endpoint types include:
+    --
+    --
+    --     * @iot:Data@ - Returns a VeriSign signed data endpoint.
+    --
+    --
+    --
+    --     * @iot:Data-ATS@ - Returns an ATS signed data endpoint.
+    --
+    --
+    --
+    --     * @iot:CredentialProvider@ - Returns an AWS IoT credentials provider API endpoint.
+    --
+    --
+    --
+    --     * @iot:Jobs@ - Returns an AWS IoT device management Jobs API endpoint.
+    --
+    --
+    -- We strongly recommend that customers use the newer @iot:Data-ATS@ endpoint type to avoid issues related to the widespread distrust of Symantec certificate authorities.
+    endpointType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoint' with the minimum fields required to make a request.
@@ -128,17 +141,12 @@ instance Lude.ToQuery DescribeEndpoint where
 --
 -- /See:/ 'mkDescribeEndpointResponse' smart constructor.
 data DescribeEndpointResponse = DescribeEndpointResponse'
-  { endpointAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The endpoint. The format of the endpoint is as follows: /identifier/ .iot./region/ .amazonaws.com.
+    endpointAddress :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointResponse' with the minimum fields required to make a request.

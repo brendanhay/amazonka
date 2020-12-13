@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkConfirmPublicVirtualInterface' smart constructor.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
-  { virtualInterfaceId ::
-      Lude.Text
+  { -- | The ID of the virtual interface.
+    virtualInterfaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmPublicVirtualInterface' with the minimum fields required to make a request.
@@ -114,24 +109,43 @@ instance Lude.ToQuery ConfirmPublicVirtualInterface where
 
 -- | /See:/ 'mkConfirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
-  { virtualInterfaceState ::
-      Lude.Maybe
-        VirtualInterfaceState,
-    responseStatus ::
-      Lude.Int
+  { -- | The state of the virtual interface. The following are the possible values:
+    --
+    --
+    --     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+    --
+    --
+    --     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+    --
+    --
+    --     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+    --
+    --
+    --     * @available@ : A virtual interface that is able to forward traffic.
+    --
+    --
+    --     * @down@ : A virtual interface that is BGP down.
+    --
+    --
+    --     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.
+    --
+    --
+    --     * @deleted@ : A virtual interface that cannot forward traffic.
+    --
+    --
+    --     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.
+    --
+    --
+    --     * @unknown@ : The state of the virtual interface is not available.
+    virtualInterfaceState :: Lude.Maybe VirtualInterfaceState,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmPublicVirtualInterfaceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'virtualInterfaceState' - The state of the virtual interface. The following are the possible values:
 --
 --
@@ -160,6 +174,9 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 --
 --
 --     * @unknown@ : The state of the virtual interface is not available.
+--
+--
+-- * 'responseStatus' - The response status code.
 mkConfirmPublicVirtualInterfaceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

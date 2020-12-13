@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,7 +31,7 @@ module Network.AWS.WorkSpaces.RestoreWorkspace
     mkRestoreWorkspaceResponse,
 
     -- ** Response lenses
-    resrsResponseStatus,
+    rwrsResponseStatus,
   )
 where
 
@@ -42,16 +43,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkRestoreWorkspace' smart constructor.
 newtype RestoreWorkspace = RestoreWorkspace'
-  { workspaceId ::
-      Lude.Text
+  { -- | The identifier of the WorkSpace.
+    workspaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreWorkspace' with the minimum fields required to make a request.
@@ -104,16 +99,10 @@ instance Lude.ToQuery RestoreWorkspace where
 
 -- | /See:/ 'mkRestoreWorkspaceResponse' smart constructor.
 newtype RestoreWorkspaceResponse = RestoreWorkspaceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreWorkspaceResponse' with the minimum fields required to make a request.
@@ -129,6 +118,6 @@ mkRestoreWorkspaceResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resrsResponseStatus :: Lens.Lens' RestoreWorkspaceResponse Lude.Int
-resrsResponseStatus = Lens.lens (responseStatus :: RestoreWorkspaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreWorkspaceResponse)
-{-# DEPRECATED resrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rwrsResponseStatus :: Lens.Lens' RestoreWorkspaceResponse Lude.Int
+rwrsResponseStatus = Lens.lens (responseStatus :: RestoreWorkspaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreWorkspaceResponse)
+{-# DEPRECATED rwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

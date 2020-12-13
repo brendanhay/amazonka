@@ -67,39 +67,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { memorySize ::
-      Lude.Maybe Lude.Natural,
+  { -- | The memory that's allocated to the function.
+    memorySize :: Lude.Maybe Lude.Natural,
+    -- | The runtime environment for the Lambda function.
     runtime :: Lude.Maybe Runtime,
+    -- | The current state of the function. When the state is @Inactive@ , you can reactivate the function by invoking it.
     state :: Lude.Maybe State,
-    signingProfileVersionARN ::
-      Lude.Maybe Lude.Text,
+    -- | The ARN of the signing profile version.
+    signingProfileVersionARN :: Lude.Maybe Lude.Text,
+    -- | The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
     lastUpdateStatus :: Lude.Maybe LastUpdateStatus,
+    -- | The function's Amazon Resource Name (ARN).
     functionARN :: Lude.Maybe Lude.Text,
+    -- | The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
     kmsKeyARN :: Lude.Maybe Lude.Text,
-    fileSystemConfigs ::
-      Lude.Maybe [FileSystemConfig],
+    -- | Connection settings for an Amazon EFS file system.
+    fileSystemConfigs :: Lude.Maybe [FileSystemConfig],
+    -- | The function's environment variables.
     environment :: Lude.Maybe EnvironmentResponse,
+    -- | The function's dead letter queue.
     deadLetterConfig :: Lude.Maybe DeadLetterConfig,
+    -- | The ARN of the signing job.
     signingJobARN :: Lude.Maybe Lude.Text,
+    -- | The function's execution role.
     role' :: Lude.Maybe Lude.Text,
+    -- | The function's networking configuration.
     vpcConfig :: Lude.Maybe VPCConfigResponse,
+    -- | The version of the Lambda function.
     version :: Lude.Maybe Lude.Text,
+    -- | The name of the function.
     functionName :: Lude.Maybe Lude.Text,
+    -- | The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
     layers :: Lude.Maybe [Layer],
+    -- | The size of the function's deployment package, in bytes.
     codeSize :: Lude.Maybe Lude.Integer,
+    -- | The function that Lambda calls to begin executing your function.
     handler :: Lude.Maybe Lude.Text,
+    -- | The amount of time in seconds that Lambda allows a function to run before stopping it.
     timeout :: Lude.Maybe Lude.Natural,
+    -- | The reason for the last update that was performed on the function.
     lastUpdateStatusReason :: Lude.Maybe Lude.Text,
+    -- | The reason for the function's current state.
     stateReason :: Lude.Maybe Lude.Text,
+    -- | The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
     lastModified :: Lude.Maybe Lude.Text,
+    -- | The SHA256 hash of the function's deployment package.
     codeSha256 :: Lude.Maybe Lude.Text,
-    tracingConfig ::
-      Lude.Maybe TracingConfigResponse,
+    -- | The function's AWS X-Ray tracing configuration.
+    tracingConfig :: Lude.Maybe TracingConfigResponse,
+    -- | The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
     stateReasonCode :: Lude.Maybe StateReasonCode,
+    -- | The function's description.
     description :: Lude.Maybe Lude.Text,
-    lastUpdateStatusReasonCode ::
-      Lude.Maybe LastUpdateStatusReasonCode,
+    -- | The reason code for the last update that was performed on the function.
+    lastUpdateStatusReasonCode :: Lude.Maybe LastUpdateStatusReasonCode,
+    -- | The latest updated revision of the function or alias.
     revisionId :: Lude.Maybe Lude.Text,
+    -- | For Lambda@Edge functions, the ARN of the master function.
     masterARN :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -107,35 +131,35 @@ data FunctionConfiguration = FunctionConfiguration'
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --
--- * 'codeSha256' - The SHA256 hash of the function's deployment package.
--- * 'codeSize' - The size of the function's deployment package, in bytes.
--- * 'deadLetterConfig' - The function's dead letter queue.
--- * 'description' - The function's description.
--- * 'environment' - The function's environment variables.
--- * 'fileSystemConfigs' - Connection settings for an Amazon EFS file system.
--- * 'functionARN' - The function's Amazon Resource Name (ARN).
--- * 'functionName' - The name of the function.
--- * 'handler' - The function that Lambda calls to begin executing your function.
--- * 'kmsKeyARN' - The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
--- * 'lastModified' - The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
--- * 'lastUpdateStatus' - The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
--- * 'lastUpdateStatusReason' - The reason for the last update that was performed on the function.
--- * 'lastUpdateStatusReasonCode' - The reason code for the last update that was performed on the function.
--- * 'layers' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
--- * 'masterARN' - For Lambda@Edge functions, the ARN of the master function.
 -- * 'memorySize' - The memory that's allocated to the function.
--- * 'revisionId' - The latest updated revision of the function or alias.
--- * 'role'' - The function's execution role.
 -- * 'runtime' - The runtime environment for the Lambda function.
--- * 'signingJobARN' - The ARN of the signing job.
--- * 'signingProfileVersionARN' - The ARN of the signing profile version.
 -- * 'state' - The current state of the function. When the state is @Inactive@ , you can reactivate the function by invoking it.
--- * 'stateReason' - The reason for the function's current state.
--- * 'stateReasonCode' - The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
--- * 'timeout' - The amount of time in seconds that Lambda allows a function to run before stopping it.
--- * 'tracingConfig' - The function's AWS X-Ray tracing configuration.
--- * 'version' - The version of the Lambda function.
+-- * 'signingProfileVersionARN' - The ARN of the signing profile version.
+-- * 'lastUpdateStatus' - The status of the last update that was performed on the function. This is first set to @Successful@ after function creation completes.
+-- * 'functionARN' - The function's Amazon Resource Name (ARN).
+-- * 'kmsKeyARN' - The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.
+-- * 'fileSystemConfigs' - Connection settings for an Amazon EFS file system.
+-- * 'environment' - The function's environment variables.
+-- * 'deadLetterConfig' - The function's dead letter queue.
+-- * 'signingJobARN' - The ARN of the signing job.
+-- * 'role'' - The function's execution role.
 -- * 'vpcConfig' - The function's networking configuration.
+-- * 'version' - The version of the Lambda function.
+-- * 'functionName' - The name of the function.
+-- * 'layers' - The function's <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html layers> .
+-- * 'codeSize' - The size of the function's deployment package, in bytes.
+-- * 'handler' - The function that Lambda calls to begin executing your function.
+-- * 'timeout' - The amount of time in seconds that Lambda allows a function to run before stopping it.
+-- * 'lastUpdateStatusReason' - The reason for the last update that was performed on the function.
+-- * 'stateReason' - The reason for the function's current state.
+-- * 'lastModified' - The date and time that the function was last updated, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
+-- * 'codeSha256' - The SHA256 hash of the function's deployment package.
+-- * 'tracingConfig' - The function's AWS X-Ray tracing configuration.
+-- * 'stateReasonCode' - The reason code for the function's current state. When the code is @Creating@ , you can't invoke or modify the function.
+-- * 'description' - The function's description.
+-- * 'lastUpdateStatusReasonCode' - The reason code for the last update that was performed on the function.
+-- * 'revisionId' - The latest updated revision of the function or alias.
+-- * 'masterARN' - For Lambda@Edge functions, the ARN of the master function.
 mkFunctionConfiguration ::
   FunctionConfiguration
 mkFunctionConfiguration =

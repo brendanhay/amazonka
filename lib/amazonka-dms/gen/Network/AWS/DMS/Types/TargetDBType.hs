@@ -13,8 +13,8 @@
 module Network.AWS.DMS.Types.TargetDBType
   ( TargetDBType
       ( TargetDBType',
-        MultipleDatabases,
-        SpecificDatabase
+        SpecificDatabase,
+        MultipleDatabases
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TargetDBType = TargetDBType' Lude.Text
       Lude.ToHeader
     )
 
-pattern MultipleDatabases :: TargetDBType
-pattern MultipleDatabases = TargetDBType' "multiple-databases"
-
 pattern SpecificDatabase :: TargetDBType
 pattern SpecificDatabase = TargetDBType' "specific-database"
 
+pattern MultipleDatabases :: TargetDBType
+pattern MultipleDatabases = TargetDBType' "multiple-databases"
+
 {-# COMPLETE
-  MultipleDatabases,
   SpecificDatabase,
+  MultipleDatabases,
   TargetDBType'
   #-}

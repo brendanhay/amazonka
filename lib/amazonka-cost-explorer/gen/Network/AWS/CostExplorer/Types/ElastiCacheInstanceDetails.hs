@@ -33,33 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElastiCacheInstanceDetails' smart constructor.
 data ElastiCacheInstanceDetails = ElastiCacheInstanceDetails'
-  { currentGeneration ::
-      Lude.Maybe Lude.Bool,
-    productDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | Whether the recommendation is for a current generation instance.
+    currentGeneration :: Lude.Maybe Lude.Bool,
+    -- | The description of the recommended reservation.
+    productDescription :: Lude.Maybe Lude.Text,
+    -- | The instance family of the recommended reservation.
     family :: Lude.Maybe Lude.Text,
-    sizeFlexEligible ::
-      Lude.Maybe Lude.Bool,
+    -- | Whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Lude.Maybe Lude.Bool,
+    -- | The AWS Region of the recommended reservation.
     region :: Lude.Maybe Lude.Text,
+    -- | The type of node that AWS recommends.
     nodeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElastiCacheInstanceDetails' with the minimum fields required to make a request.
 --
 -- * 'currentGeneration' - Whether the recommendation is for a current generation instance.
--- * 'family' - The instance family of the recommended reservation.
--- * 'nodeType' - The type of node that AWS recommends.
 -- * 'productDescription' - The description of the recommended reservation.
--- * 'region' - The AWS Region of the recommended reservation.
+-- * 'family' - The instance family of the recommended reservation.
 -- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
+-- * 'region' - The AWS Region of the recommended reservation.
+-- * 'nodeType' - The type of node that AWS recommends.
 mkElastiCacheInstanceDetails ::
   ElastiCacheInstanceDetails
 mkElastiCacheInstanceDetails =

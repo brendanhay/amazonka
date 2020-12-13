@@ -43,39 +43,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputGroupSettings' smart constructor.
 data OutputGroupSettings = OutputGroupSettings'
-  { mediaPackageGroupSettings ::
-      Lude.Maybe MediaPackageGroupSettings,
-    msSmoothGroupSettings ::
-      Lude.Maybe MsSmoothGroupSettings,
+  { mediaPackageGroupSettings :: Lude.Maybe MediaPackageGroupSettings,
+    msSmoothGroupSettings :: Lude.Maybe MsSmoothGroupSettings,
     rtmpGroupSettings :: Lude.Maybe RtmpGroupSettings,
-    multiplexGroupSettings ::
-      Lude.Maybe MultiplexGroupSettings,
+    multiplexGroupSettings :: Lude.Maybe MultiplexGroupSettings,
     hlsGroupSettings :: Lude.Maybe HlsGroupSettings,
-    archiveGroupSettings ::
-      Lude.Maybe ArchiveGroupSettings,
+    archiveGroupSettings :: Lude.Maybe ArchiveGroupSettings,
     udpGroupSettings :: Lude.Maybe UdpGroupSettings,
-    frameCaptureGroupSettings ::
-      Lude.Maybe FrameCaptureGroupSettings
+    frameCaptureGroupSettings :: Lude.Maybe FrameCaptureGroupSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputGroupSettings' with the minimum fields required to make a request.
 --
--- * 'archiveGroupSettings' - Undocumented field.
--- * 'frameCaptureGroupSettings' - Undocumented field.
--- * 'hlsGroupSettings' - Undocumented field.
--- * 'mediaPackageGroupSettings' - Undocumented field.
--- * 'msSmoothGroupSettings' - Undocumented field.
--- * 'multiplexGroupSettings' - Undocumented field.
--- * 'rtmpGroupSettings' - Undocumented field.
--- * 'udpGroupSettings' - Undocumented field.
+-- * 'mediaPackageGroupSettings' -
+-- * 'msSmoothGroupSettings' -
+-- * 'rtmpGroupSettings' -
+-- * 'multiplexGroupSettings' -
+-- * 'hlsGroupSettings' -
+-- * 'archiveGroupSettings' -
+-- * 'udpGroupSettings' -
+-- * 'frameCaptureGroupSettings' -
 mkOutputGroupSettings ::
   OutputGroupSettings
 mkOutputGroupSettings =

@@ -30,33 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayMulticastRegisteredGroupSources' smart constructor.
 data TransitGatewayMulticastRegisteredGroupSources = TransitGatewayMulticastRegisteredGroupSources'
-  { transitGatewayMulticastDomainId ::
-      Lude.Maybe
-        Lude.Text,
-    registeredNetworkInterfaceIds ::
-      Lude.Maybe
-        [Lude.Text],
-    groupIPAddress ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Lude.Maybe Lude.Text,
+    -- | The IDs of the network interfaces members registered with the transit gateway multicast group.
+    registeredNetworkInterfaceIds :: Lude.Maybe [Lude.Text],
+    -- | The IP address assigned to the transit gateway multicast group.
+    groupIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayMulticastRegisteredGroupSources' with the minimum fields required to make a request.
 --
--- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
--- * 'registeredNetworkInterfaceIds' - The IDs of the network interfaces members registered with the transit gateway multicast group.
 -- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+-- * 'registeredNetworkInterfaceIds' - The IDs of the network interfaces members registered with the transit gateway multicast group.
+-- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
 mkTransitGatewayMulticastRegisteredGroupSources ::
   TransitGatewayMulticastRegisteredGroupSources
 mkTransitGatewayMulticastRegisteredGroupSources =

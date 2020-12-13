@@ -505,8 +505,8 @@ module Network.AWS.ResourceGroupsTagging
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** TagFilter
     TagFilter (..),

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.UpdateVPCLink
     mkUpdateVPCLink,
 
     -- ** Request lenses
-    uvlPatchOperations,
     uvlVpcLinkId,
+    uvlPatchOperations,
 
     -- * Destructuring the response
     VPCLink (..),
@@ -47,39 +48,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateVPCLink' smart constructor.
 data UpdateVPCLink = UpdateVPCLink'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
-    vpcLinkId :: Lude.Text
+  { -- | [Required] The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
+    vpcLinkId :: Lude.Text,
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateVPCLink' with the minimum fields required to make a request.
 --
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'vpcLinkId' - [Required] The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateVPCLink ::
   -- | 'vpcLinkId'
   Lude.Text ->
   UpdateVPCLink
 mkUpdateVPCLink pVpcLinkId_ =
   UpdateVPCLink'
-    { patchOperations = Lude.Nothing,
-      vpcLinkId = pVpcLinkId_
+    { vpcLinkId = pVpcLinkId_,
+      patchOperations = Lude.Nothing
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvlPatchOperations :: Lens.Lens' UpdateVPCLink (Lude.Maybe [PatchOperation])
-uvlPatchOperations = Lens.lens (patchOperations :: UpdateVPCLink -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateVPCLink)
-{-# DEPRECATED uvlPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 -- | [Required] The identifier of the 'VpcLink' . It is used in an 'Integration' to reference this 'VpcLink' .
 --
@@ -87,6 +76,13 @@ uvlPatchOperations = Lens.lens (patchOperations :: UpdateVPCLink -> Lude.Maybe [
 uvlVpcLinkId :: Lens.Lens' UpdateVPCLink Lude.Text
 uvlVpcLinkId = Lens.lens (vpcLinkId :: UpdateVPCLink -> Lude.Text) (\s a -> s {vpcLinkId = a} :: UpdateVPCLink)
 {-# DEPRECATED uvlVpcLinkId "Use generic-lens or generic-optics with 'vpcLinkId' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvlPatchOperations :: Lens.Lens' UpdateVPCLink (Lude.Maybe [PatchOperation])
+uvlPatchOperations = Lens.lens (patchOperations :: UpdateVPCLink -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateVPCLink)
+{-# DEPRECATED uvlPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateVPCLink where
   type Rs UpdateVPCLink = VPCLink

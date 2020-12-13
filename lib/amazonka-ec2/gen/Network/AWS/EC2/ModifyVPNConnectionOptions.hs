@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.EC2.ModifyVPNConnectionOptions
     mvcoRemoteIPv4NetworkCidr,
     mvcoLocalIPv4NetworkCidr,
     mvcoRemoteIPv6NetworkCidr,
+    mvcoVPNConnectionId,
     mvcoLocalIPv6NetworkCidr,
     mvcoDryRun,
-    mvcoVPNConnectionId,
 
     -- * Destructuring the response
     ModifyVPNConnectionOptionsResponse (..),
@@ -46,42 +47,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPNConnectionOptions' smart constructor.
 data ModifyVPNConnectionOptions = ModifyVPNConnectionOptions'
-  { remoteIPv4NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    localIPv4NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    remoteIPv6NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    localIPv6NetworkCidr ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    vpnConnectionId :: Lude.Text
+  { -- | The IPv4 CIDR on the AWS side of the VPN connection.
+    --
+    -- Default: @0.0.0.0/0@
+    remoteIPv4NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+    --
+    -- Default: @0.0.0.0/0@
+    localIPv4NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | The IPv6 CIDR on the AWS side of the VPN connection.
+    --
+    -- Default: @::/0@
+    remoteIPv6NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | The ID of the Site-to-Site VPN connection.
+    vpnConnectionId :: Lude.Text,
+    -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+    --
+    -- Default: @::/0@
+    localIPv6NetworkCidr :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNConnectionOptions' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'localIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+-- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
 --
 -- Default: @0.0.0.0/0@
--- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
---
--- Default: @::/0@
--- * 'remoteIPv4NetworkCidr' - The IPv4 CIDR on the AWS side of the VPN connection.
+-- * 'localIPv4NetworkCidr' - The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
 -- Default: @0.0.0.0/0@
 -- * 'remoteIPv6NetworkCidr' - The IPv6 CIDR on the AWS side of the VPN connection.
 --
 -- Default: @::/0@
 -- * 'vpnConnectionId' - The ID of the Site-to-Site VPN connection.
+-- * 'localIPv6NetworkCidr' - The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+--
+-- Default: @::/0@
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyVPNConnectionOptions ::
   -- | 'vpnConnectionId'
   Lude.Text ->
@@ -91,9 +96,9 @@ mkModifyVPNConnectionOptions pVPNConnectionId_ =
     { remoteIPv4NetworkCidr = Lude.Nothing,
       localIPv4NetworkCidr = Lude.Nothing,
       remoteIPv6NetworkCidr = Lude.Nothing,
+      vpnConnectionId = pVPNConnectionId_,
       localIPv6NetworkCidr = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      vpnConnectionId = pVPNConnectionId_
+      dryRun = Lude.Nothing
     }
 
 -- | The IPv4 CIDR on the AWS side of the VPN connection.
@@ -123,6 +128,13 @@ mvcoRemoteIPv6NetworkCidr :: Lens.Lens' ModifyVPNConnectionOptions (Lude.Maybe L
 mvcoRemoteIPv6NetworkCidr = Lens.lens (remoteIPv6NetworkCidr :: ModifyVPNConnectionOptions -> Lude.Maybe Lude.Text) (\s a -> s {remoteIPv6NetworkCidr = a} :: ModifyVPNConnectionOptions)
 {-# DEPRECATED mvcoRemoteIPv6NetworkCidr "Use generic-lens or generic-optics with 'remoteIPv6NetworkCidr' instead." #-}
 
+-- | The ID of the Site-to-Site VPN connection.
+--
+-- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvcoVPNConnectionId :: Lens.Lens' ModifyVPNConnectionOptions Lude.Text
+mvcoVPNConnectionId = Lens.lens (vpnConnectionId :: ModifyVPNConnectionOptions -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: ModifyVPNConnectionOptions)
+{-# DEPRECATED mvcoVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
+
 -- | The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 --
 -- Default: @::/0@
@@ -138,13 +150,6 @@ mvcoLocalIPv6NetworkCidr = Lens.lens (localIPv6NetworkCidr :: ModifyVPNConnectio
 mvcoDryRun :: Lens.Lens' ModifyVPNConnectionOptions (Lude.Maybe Lude.Bool)
 mvcoDryRun = Lens.lens (dryRun :: ModifyVPNConnectionOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPNConnectionOptions)
 {-# DEPRECATED mvcoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the Site-to-Site VPN connection.
---
--- /Note:/ Consider using 'vpnConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvcoVPNConnectionId :: Lens.Lens' ModifyVPNConnectionOptions Lude.Text
-mvcoVPNConnectionId = Lens.lens (vpnConnectionId :: ModifyVPNConnectionOptions -> Lude.Text) (\s a -> s {vpnConnectionId = a} :: ModifyVPNConnectionOptions)
-{-# DEPRECATED mvcoVPNConnectionId "Use generic-lens or generic-optics with 'vpnConnectionId' instead." #-}
 
 instance Lude.AWSRequest ModifyVPNConnectionOptions where
   type
@@ -174,32 +179,24 @@ instance Lude.ToQuery ModifyVPNConnectionOptions where
         "RemoteIpv4NetworkCidr" Lude.=: remoteIPv4NetworkCidr,
         "LocalIpv4NetworkCidr" Lude.=: localIPv4NetworkCidr,
         "RemoteIpv6NetworkCidr" Lude.=: remoteIPv6NetworkCidr,
+        "VpnConnectionId" Lude.=: vpnConnectionId,
         "LocalIpv6NetworkCidr" Lude.=: localIPv6NetworkCidr,
-        "DryRun" Lude.=: dryRun,
-        "VpnConnectionId" Lude.=: vpnConnectionId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyVPNConnectionOptionsResponse' smart constructor.
 data ModifyVPNConnectionOptionsResponse = ModifyVPNConnectionOptionsResponse'
-  { vpnConnection ::
-      Lude.Maybe
-        VPNConnection,
-    responseStatus ::
-      Lude.Int
+  { vpnConnection :: Lude.Maybe VPNConnection,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPNConnectionOptionsResponse' with the minimum fields required to make a request.
 --
+-- * 'vpnConnection' -
 -- * 'responseStatus' - The response status code.
--- * 'vpnConnection' - Undocumented field.
 mkModifyVPNConnectionOptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

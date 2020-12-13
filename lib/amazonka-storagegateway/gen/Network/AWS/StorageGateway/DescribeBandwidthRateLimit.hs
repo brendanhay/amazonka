@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     mkDescribeBandwidthRateLimit,
 
     -- ** Request lenses
-    dbrlGatewayARN,
+    dbrlfGatewayARN,
 
     -- * Destructuring the response
     DescribeBandwidthRateLimitResponse (..),
@@ -45,21 +46,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeBandwidthRateLimit' smart constructor.
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBandwidthRateLimit' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeBandwidthRateLimit ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -70,9 +64,9 @@ mkDescribeBandwidthRateLimit pGatewayARN_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlGatewayARN :: Lens.Lens' DescribeBandwidthRateLimit Lude.Text
-dbrlGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimit -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimit)
-{-# DEPRECATED dbrlGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+dbrlfGatewayARN :: Lens.Lens' DescribeBandwidthRateLimit Lude.Text
+dbrlfGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimit -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimit)
+{-# DEPRECATED dbrlfGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 instance Lude.AWSRequest DescribeBandwidthRateLimit where
   type
@@ -117,31 +111,22 @@ instance Lude.ToQuery DescribeBandwidthRateLimit where
 --
 -- /See:/ 'mkDescribeBandwidthRateLimitResponse' smart constructor.
 data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
-    averageUploadRateLimitInBitsPerSec ::
-      Lude.Maybe
-        Lude.Natural,
-    averageDownloadRateLimitInBitsPerSec ::
-      Lude.Maybe
-        Lude.Natural,
-    responseStatus ::
-      Lude.Int
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
+    averageUploadRateLimitInBitsPerSec :: Lude.Maybe Lude.Natural,
+    -- | The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
+    averageDownloadRateLimitInBitsPerSec :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBandwidthRateLimitResponse' with the minimum fields required to make a request.
 --
--- * 'averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
+-- * 'gatewayARN' -
 -- * 'averageUploadRateLimitInBitsPerSec' - The average upload bandwidth rate limit in bits per second. This field does not appear in the response if the upload rate limit is not set.
--- * 'gatewayARN' - Undocumented field.
+-- * 'averageDownloadRateLimitInBitsPerSec' - The average download bandwidth rate limit in bits per second. This field does not appear in the response if the download rate limit is not set.
 -- * 'responseStatus' - The response status code.
 mkDescribeBandwidthRateLimitResponse ::
   -- | 'responseStatus'

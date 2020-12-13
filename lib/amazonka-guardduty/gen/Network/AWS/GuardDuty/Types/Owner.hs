@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Contains information on the owner of the bucket.
 --
 -- /See:/ 'mkOwner' smart constructor.
-newtype Owner = Owner' {id :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Owner = Owner'
+  { -- | The canonical user ID of the bucket owner. For information about locating your canonical user ID see <https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.>
+    id :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Owner' with the minimum fields required to make a request.

@@ -44,61 +44,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticsearchDestinationUpdate' smart constructor.
 data ElasticsearchDestinationUpdate = ElasticsearchDestinationUpdate'
-  { indexRotationPeriod ::
-      Lude.Maybe
-        ElasticsearchIndexRotationPeriod,
-    typeName ::
-      Lude.Maybe Lude.Text,
-    domainARN ::
-      Lude.Maybe Lude.Text,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe
-        CloudWatchLoggingOptions,
-    s3Update ::
-      Lude.Maybe
-        S3DestinationUpdate,
-    bufferingHints ::
-      Lude.Maybe
-        ElasticsearchBufferingHints,
-    retryOptions ::
-      Lude.Maybe
-        ElasticsearchRetryOptions,
-    processingConfiguration ::
-      Lude.Maybe
-        ProcessingConfiguration,
-    roleARN ::
-      Lude.Maybe Lude.Text,
-    clusterEndpoint ::
-      Lude.Maybe Lude.Text,
-    indexName ::
-      Lude.Maybe Lude.Text
+  { -- | The Elasticsearch index rotation period. Index rotation appends a timestamp to @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . Default value is @OneDay@ .
+    indexRotationPeriod :: Lude.Maybe ElasticsearchIndexRotationPeriod,
+    -- | The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during runtime.
+    --
+    -- If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream, Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type name. If you want to update your delivery stream with a new index name, provide an empty string for @TypeName@ .
+    typeName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in @RoleARN@ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    --
+    -- Specify either @ClusterEndpoint@ or @DomainARN@ .
+    domainARN :: Lude.Maybe Lude.Text,
+    -- | The CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    -- | The Amazon S3 destination.
+    s3Update :: Lude.Maybe S3DestinationUpdate,
+    -- | The buffering options. If no value is specified, @ElasticsearchBufferingHints@ object default values are used.
+    bufferingHints :: Lude.Maybe ElasticsearchBufferingHints,
+    -- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
+    retryOptions :: Lude.Maybe ElasticsearchRetryOptions,
+    -- | The data processing configuration.
+    processingConfiguration :: Lude.Maybe ProcessingConfiguration,
+    -- | The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
+    clusterEndpoint :: Lude.Maybe Lude.Text,
+    -- | The Elasticsearch index name.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDestinationUpdate' with the minimum fields required to make a request.
 --
--- * 'bufferingHints' - The buffering options. If no value is specified, @ElasticsearchBufferingHints@ object default values are used.
--- * 'cloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
--- * 'clusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
--- * 'domainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in @RoleARN@ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- Specify either @ClusterEndpoint@ or @DomainARN@ .
--- * 'indexName' - The Elasticsearch index name.
 -- * 'indexRotationPeriod' - The Elasticsearch index rotation period. Index rotation appends a timestamp to @IndexName@ to facilitate the expiration of old data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation Index Rotation for the Amazon ES Destination> . Default value is @OneDay@ .
--- * 'processingConfiguration' - The data processing configuration.
--- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 's3Update' - The Amazon S3 destination.
 -- * 'typeName' - The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during runtime.
 --
 -- If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream, Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type name. If you want to update your delivery stream with a new index name, provide an empty string for @TypeName@ .
+-- * 'domainARN' - The ARN of the Amazon ES domain. The IAM role must have permissions for @DescribeElasticsearchDomain@ , @DescribeElasticsearchDomains@ , and @DescribeElasticsearchDomainConfig@ after assuming the IAM role specified in @RoleARN@ . For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- Specify either @ClusterEndpoint@ or @DomainARN@ .
+-- * 'cloudWatchLoggingOptions' - The CloudWatch logging options for your delivery stream.
+-- * 's3Update' - The Amazon S3 destination.
+-- * 'bufferingHints' - The buffering options. If no value is specified, @ElasticsearchBufferingHints@ object default values are used.
+-- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).
+-- * 'processingConfiguration' - The data processing configuration.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> and <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'clusterEndpoint' - The endpoint to use when communicating with the cluster. Specify either this @ClusterEndpoint@ or the @DomainARN@ field.
+-- * 'indexName' - The Elasticsearch index name.
 mkElasticsearchDestinationUpdate ::
   ElasticsearchDestinationUpdate
 mkElasticsearchDestinationUpdate =

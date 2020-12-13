@@ -13,8 +13,8 @@
 module Network.AWS.SES.Types.SNSActionEncoding
   ( SNSActionEncoding
       ( SNSActionEncoding',
-        BASE64,
-        Utf8
+        Utf8,
+        BASE64
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SNSActionEncoding = SNSActionEncoding' Lude.Text
       Lude.ToHeader
     )
 
-pattern BASE64 :: SNSActionEncoding
-pattern BASE64 = SNSActionEncoding' "Base64"
-
 pattern Utf8 :: SNSActionEncoding
 pattern Utf8 = SNSActionEncoding' "UTF-8"
 
+pattern BASE64 :: SNSActionEncoding
+pattern BASE64 = SNSActionEncoding' "Base64"
+
 {-# COMPLETE
-  BASE64,
   Utf8,
+  BASE64,
   SNSActionEncoding'
   #-}

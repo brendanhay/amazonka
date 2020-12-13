@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlacementGroupInfo' smart constructor.
 newtype PlacementGroupInfo = PlacementGroupInfo'
-  { supportedStrategies ::
-      Lude.Maybe [PlacementGroupStrategy]
+  { -- | The supported placement group types.
+    supportedStrategies :: Lude.Maybe [PlacementGroupStrategy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlacementGroupInfo' with the minimum fields required to make a request.

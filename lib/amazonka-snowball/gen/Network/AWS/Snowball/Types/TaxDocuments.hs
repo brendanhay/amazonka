@@ -29,21 +29,14 @@ import Network.AWS.Snowball.Types.INDTaxDocuments
 --
 -- /See:/ 'mkTaxDocuments' smart constructor.
 newtype TaxDocuments = TaxDocuments'
-  { iND ::
-      Lude.Maybe INDTaxDocuments
+  { iND :: Lude.Maybe INDTaxDocuments
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaxDocuments' with the minimum fields required to make a request.
 --
--- * 'iND' - Undocumented field.
+-- * 'iND' -
 mkTaxDocuments ::
   TaxDocuments
 mkTaxDocuments = TaxDocuments' {iND = Lude.Nothing}

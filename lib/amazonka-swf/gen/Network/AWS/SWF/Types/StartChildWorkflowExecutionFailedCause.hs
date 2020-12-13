@@ -13,17 +13,17 @@
 module Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause
   ( StartChildWorkflowExecutionFailedCause
       ( StartChildWorkflowExecutionFailedCause',
+        SCWEFCWorkflowTypeDoesNotExist,
+        SCWEFCWorkflowTypeDeprecated,
+        SCWEFCOpenChildrenLimitExceeded,
+        SCWEFCOpenWorkflowsLimitExceeded,
         SCWEFCChildCreationRateExceeded,
-        SCWEFCDefaultChildPolicyUndefined,
+        SCWEFCWorkflowAlreadyRunning,
         SCWEFCDefaultExecutionStartToCloseTimeoutUndefined,
         SCWEFCDefaultTaskListUndefined,
         SCWEFCDefaultTaskStartToCloseTimeoutUndefined,
-        SCWEFCOpenChildrenLimitExceeded,
-        SCWEFCOpenWorkflowsLimitExceeded,
-        SCWEFCOperationNotPermitted,
-        SCWEFCWorkflowAlreadyRunning,
-        SCWEFCWorkflowTypeDeprecated,
-        SCWEFCWorkflowTypeDoesNotExist
+        SCWEFCDefaultChildPolicyUndefined,
+        SCWEFCOperationNotPermitted
       ),
   )
 where
@@ -54,11 +54,23 @@ newtype StartChildWorkflowExecutionFailedCause = StartChildWorkflowExecutionFail
       Lude.ToHeader
     )
 
+pattern SCWEFCWorkflowTypeDoesNotExist :: StartChildWorkflowExecutionFailedCause
+pattern SCWEFCWorkflowTypeDoesNotExist = StartChildWorkflowExecutionFailedCause' "WORKFLOW_TYPE_DOES_NOT_EXIST"
+
+pattern SCWEFCWorkflowTypeDeprecated :: StartChildWorkflowExecutionFailedCause
+pattern SCWEFCWorkflowTypeDeprecated = StartChildWorkflowExecutionFailedCause' "WORKFLOW_TYPE_DEPRECATED"
+
+pattern SCWEFCOpenChildrenLimitExceeded :: StartChildWorkflowExecutionFailedCause
+pattern SCWEFCOpenChildrenLimitExceeded = StartChildWorkflowExecutionFailedCause' "OPEN_CHILDREN_LIMIT_EXCEEDED"
+
+pattern SCWEFCOpenWorkflowsLimitExceeded :: StartChildWorkflowExecutionFailedCause
+pattern SCWEFCOpenWorkflowsLimitExceeded = StartChildWorkflowExecutionFailedCause' "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
+
 pattern SCWEFCChildCreationRateExceeded :: StartChildWorkflowExecutionFailedCause
 pattern SCWEFCChildCreationRateExceeded = StartChildWorkflowExecutionFailedCause' "CHILD_CREATION_RATE_EXCEEDED"
 
-pattern SCWEFCDefaultChildPolicyUndefined :: StartChildWorkflowExecutionFailedCause
-pattern SCWEFCDefaultChildPolicyUndefined = StartChildWorkflowExecutionFailedCause' "DEFAULT_CHILD_POLICY_UNDEFINED"
+pattern SCWEFCWorkflowAlreadyRunning :: StartChildWorkflowExecutionFailedCause
+pattern SCWEFCWorkflowAlreadyRunning = StartChildWorkflowExecutionFailedCause' "WORKFLOW_ALREADY_RUNNING"
 
 pattern SCWEFCDefaultExecutionStartToCloseTimeoutUndefined :: StartChildWorkflowExecutionFailedCause
 pattern SCWEFCDefaultExecutionStartToCloseTimeoutUndefined = StartChildWorkflowExecutionFailedCause' "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
@@ -69,35 +81,23 @@ pattern SCWEFCDefaultTaskListUndefined = StartChildWorkflowExecutionFailedCause'
 pattern SCWEFCDefaultTaskStartToCloseTimeoutUndefined :: StartChildWorkflowExecutionFailedCause
 pattern SCWEFCDefaultTaskStartToCloseTimeoutUndefined = StartChildWorkflowExecutionFailedCause' "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
 
-pattern SCWEFCOpenChildrenLimitExceeded :: StartChildWorkflowExecutionFailedCause
-pattern SCWEFCOpenChildrenLimitExceeded = StartChildWorkflowExecutionFailedCause' "OPEN_CHILDREN_LIMIT_EXCEEDED"
-
-pattern SCWEFCOpenWorkflowsLimitExceeded :: StartChildWorkflowExecutionFailedCause
-pattern SCWEFCOpenWorkflowsLimitExceeded = StartChildWorkflowExecutionFailedCause' "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
+pattern SCWEFCDefaultChildPolicyUndefined :: StartChildWorkflowExecutionFailedCause
+pattern SCWEFCDefaultChildPolicyUndefined = StartChildWorkflowExecutionFailedCause' "DEFAULT_CHILD_POLICY_UNDEFINED"
 
 pattern SCWEFCOperationNotPermitted :: StartChildWorkflowExecutionFailedCause
 pattern SCWEFCOperationNotPermitted = StartChildWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
-pattern SCWEFCWorkflowAlreadyRunning :: StartChildWorkflowExecutionFailedCause
-pattern SCWEFCWorkflowAlreadyRunning = StartChildWorkflowExecutionFailedCause' "WORKFLOW_ALREADY_RUNNING"
-
-pattern SCWEFCWorkflowTypeDeprecated :: StartChildWorkflowExecutionFailedCause
-pattern SCWEFCWorkflowTypeDeprecated = StartChildWorkflowExecutionFailedCause' "WORKFLOW_TYPE_DEPRECATED"
-
-pattern SCWEFCWorkflowTypeDoesNotExist :: StartChildWorkflowExecutionFailedCause
-pattern SCWEFCWorkflowTypeDoesNotExist = StartChildWorkflowExecutionFailedCause' "WORKFLOW_TYPE_DOES_NOT_EXIST"
-
 {-# COMPLETE
+  SCWEFCWorkflowTypeDoesNotExist,
+  SCWEFCWorkflowTypeDeprecated,
+  SCWEFCOpenChildrenLimitExceeded,
+  SCWEFCOpenWorkflowsLimitExceeded,
   SCWEFCChildCreationRateExceeded,
-  SCWEFCDefaultChildPolicyUndefined,
+  SCWEFCWorkflowAlreadyRunning,
   SCWEFCDefaultExecutionStartToCloseTimeoutUndefined,
   SCWEFCDefaultTaskListUndefined,
   SCWEFCDefaultTaskStartToCloseTimeoutUndefined,
-  SCWEFCOpenChildrenLimitExceeded,
-  SCWEFCOpenWorkflowsLimitExceeded,
+  SCWEFCDefaultChildPolicyUndefined,
   SCWEFCOperationNotPermitted,
-  SCWEFCWorkflowAlreadyRunning,
-  SCWEFCWorkflowTypeDeprecated,
-  SCWEFCWorkflowTypeDoesNotExist,
   StartChildWorkflowExecutionFailedCause'
   #-}

@@ -30,25 +30,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
-  { launchTemplateName ::
-      Lude.Maybe Lude.Text,
-    launchTemplateId ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the launch template.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | The ID of the launch template.
+    launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | The version number of the launch template, @> Latest@ , or @> Default@ .
+    --
+    -- If the value is @> Latest@ , the latest version of the launch template is used. If the value is @> Default@ , the default version of the launch template is used.
+    -- Default: @> Default@ .
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateSpecification' with the minimum fields required to make a request.
 --
--- * 'launchTemplateId' - The ID of the launch template.
 -- * 'launchTemplateName' - The name of the launch template.
+-- * 'launchTemplateId' - The ID of the launch template.
 -- * 'version' - The version number of the launch template, @> Latest@ , or @> Default@ .
 --
 -- If the value is @> Latest@ , the latest version of the launch template is used. If the value is @> Default@ , the default version of the launch template is used.

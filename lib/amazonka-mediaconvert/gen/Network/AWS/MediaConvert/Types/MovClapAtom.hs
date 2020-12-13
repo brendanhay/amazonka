@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MovClapAtom
   ( MovClapAtom
       ( MovClapAtom',
-        MExclude,
-        MInclude
+        MInclude,
+        MExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MovClapAtom = MovClapAtom' Lude.Text
       Lude.ToHeader
     )
 
-pattern MExclude :: MovClapAtom
-pattern MExclude = MovClapAtom' "EXCLUDE"
-
 pattern MInclude :: MovClapAtom
 pattern MInclude = MovClapAtom' "INCLUDE"
 
+pattern MExclude :: MovClapAtom
+pattern MExclude = MovClapAtom' "EXCLUDE"
+
 {-# COMPLETE
-  MExclude,
   MInclude,
+  MExclude,
   MovClapAtom'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.CloudWatchEvents.Types.RuleState
   ( RuleState
       ( RuleState',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RuleState = RuleState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: RuleState
-pattern Disabled = RuleState' "DISABLED"
-
 pattern Enabled :: RuleState
 pattern Enabled = RuleState' "ENABLED"
 
+pattern Disabled :: RuleState
+pattern Disabled = RuleState' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   RuleState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,19 +48,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { formatVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The format version that you want the response to be in.
+    --
+    -- Valid values are: @aws_v1@
+    formatVersion :: Lude.Maybe Lude.Text,
+    -- | The pagination token that indicates the next set of results that you want to retrieve.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The code for the service whose information you want to retrieve, such as @AmazonEC2@ . You can use the @ServiceCode@ to filter the results in a @GetProducts@ call. To retrieve a list of all services, leave this blank.
     serviceCode :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results that you want returned in the response.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
@@ -67,9 +67,9 @@ data DescribeServices = DescribeServices'
 -- * 'formatVersion' - The format version that you want the response to be in.
 --
 -- Valid values are: @aws_v1@
--- * 'maxResults' - The maximum number of results that you want returned in the response.
 -- * 'nextToken' - The pagination token that indicates the next set of results that you want to retrieve.
 -- * 'serviceCode' - The code for the service whose information you want to retrieve, such as @AmazonEC2@ . You can use the @ServiceCode@ to filter the results in a @GetProducts@ call. To retrieve a list of all services, leave this blank.
+-- * 'maxResults' - The maximum number of results that you want returned in the response.
 mkDescribeServices ::
   DescribeServices
 mkDescribeServices =
@@ -162,27 +162,24 @@ instance Lude.ToQuery DescribeServices where
 
 -- | /See:/ 'mkDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { formatVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The format version of the response. For example, @aws_v1@ .
+    formatVersion :: Lude.Maybe Lude.Text,
+    -- | The pagination token for the next set of retreivable results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The service metadata for the service or services in the response.
     services :: Lude.Maybe [PricingService],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
 --
 -- * 'formatVersion' - The format version of the response. For example, @aws_v1@ .
 -- * 'nextToken' - The pagination token for the next set of retreivable results.
--- * 'responseStatus' - The response status code.
 -- * 'services' - The service metadata for the service or services in the response.
+-- * 'responseStatus' - The response status code.
 mkDescribeServicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

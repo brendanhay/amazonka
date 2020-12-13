@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.WavFormat
   ( WavFormat
       ( WavFormat',
-        RF64,
-        Riff
+        Riff,
+        RF64
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype WavFormat = WavFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern RF64 :: WavFormat
-pattern RF64 = WavFormat' "RF64"
-
 pattern Riff :: WavFormat
 pattern Riff = WavFormat' "RIFF"
 
+pattern RF64 :: WavFormat
+pattern RF64 = WavFormat' "RF64"
+
 {-# COMPLETE
-  RF64,
   Riff,
+  RF64,
   WavFormat'
   #-}

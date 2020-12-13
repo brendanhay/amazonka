@@ -13,14 +13,14 @@
 module Network.AWS.Route53.Types.HealthCheckRegion
   ( HealthCheckRegion
       ( HealthCheckRegion',
-        HCRApNortheast1,
-        HCRApSoutheast1,
-        HCRApSoutheast2,
-        HCREuWest1,
-        HCRSaEast1,
-        HCRUsEast1,
-        HCRUsWest1,
-        HCRUsWest2
+        UsEast1,
+        UsWest1,
+        UsWest2,
+        EuWest1,
+        ApSoutheast1,
+        ApSoutheast2,
+        ApNortheast1,
+        SaEast1
       ),
   )
 where
@@ -52,38 +52,38 @@ newtype HealthCheckRegion = HealthCheckRegion' Lude.Text
       Lude.ToHeader
     )
 
-pattern HCRApNortheast1 :: HealthCheckRegion
-pattern HCRApNortheast1 = HealthCheckRegion' "ap-northeast-1"
+pattern UsEast1 :: HealthCheckRegion
+pattern UsEast1 = HealthCheckRegion' "us-east-1"
 
-pattern HCRApSoutheast1 :: HealthCheckRegion
-pattern HCRApSoutheast1 = HealthCheckRegion' "ap-southeast-1"
+pattern UsWest1 :: HealthCheckRegion
+pattern UsWest1 = HealthCheckRegion' "us-west-1"
 
-pattern HCRApSoutheast2 :: HealthCheckRegion
-pattern HCRApSoutheast2 = HealthCheckRegion' "ap-southeast-2"
+pattern UsWest2 :: HealthCheckRegion
+pattern UsWest2 = HealthCheckRegion' "us-west-2"
 
-pattern HCREuWest1 :: HealthCheckRegion
-pattern HCREuWest1 = HealthCheckRegion' "eu-west-1"
+pattern EuWest1 :: HealthCheckRegion
+pattern EuWest1 = HealthCheckRegion' "eu-west-1"
 
-pattern HCRSaEast1 :: HealthCheckRegion
-pattern HCRSaEast1 = HealthCheckRegion' "sa-east-1"
+pattern ApSoutheast1 :: HealthCheckRegion
+pattern ApSoutheast1 = HealthCheckRegion' "ap-southeast-1"
 
-pattern HCRUsEast1 :: HealthCheckRegion
-pattern HCRUsEast1 = HealthCheckRegion' "us-east-1"
+pattern ApSoutheast2 :: HealthCheckRegion
+pattern ApSoutheast2 = HealthCheckRegion' "ap-southeast-2"
 
-pattern HCRUsWest1 :: HealthCheckRegion
-pattern HCRUsWest1 = HealthCheckRegion' "us-west-1"
+pattern ApNortheast1 :: HealthCheckRegion
+pattern ApNortheast1 = HealthCheckRegion' "ap-northeast-1"
 
-pattern HCRUsWest2 :: HealthCheckRegion
-pattern HCRUsWest2 = HealthCheckRegion' "us-west-2"
+pattern SaEast1 :: HealthCheckRegion
+pattern SaEast1 = HealthCheckRegion' "sa-east-1"
 
 {-# COMPLETE
-  HCRApNortheast1,
-  HCRApSoutheast1,
-  HCRApSoutheast2,
-  HCREuWest1,
-  HCRSaEast1,
-  HCRUsEast1,
-  HCRUsWest1,
-  HCRUsWest2,
+  UsEast1,
+  UsWest1,
+  UsWest2,
+  EuWest1,
+  ApSoutheast1,
+  ApSoutheast2,
+  ApNortheast1,
+  SaEast1,
   HealthCheckRegion'
   #-}

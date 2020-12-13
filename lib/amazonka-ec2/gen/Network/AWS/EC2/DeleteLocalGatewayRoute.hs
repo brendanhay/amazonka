@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.DeleteLocalGatewayRoute
     mkDeleteLocalGatewayRoute,
 
     -- ** Request lenses
+    dlgrLocalGatewayRouteTableId,
     dlgrDryRun,
     dlgrDestinationCidrBlock,
-    dlgrLocalGatewayRouteTableId,
 
     -- * Destructuring the response
     DeleteLocalGatewayRouteResponse (..),
@@ -41,39 +42,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteLocalGatewayRoute' smart constructor.
 data DeleteLocalGatewayRoute = DeleteLocalGatewayRoute'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    destinationCidrBlock :: Lude.Text,
-    localGatewayRouteTableId :: Lude.Text
+  { -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The CIDR range for the route. This must match the CIDR for the route exactly.
+    destinationCidrBlock :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLocalGatewayRoute' with the minimum fields required to make a request.
 --
--- * 'destinationCidrBlock' - The CIDR range for the route. This must match the CIDR for the route exactly.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'destinationCidrBlock' - The CIDR range for the route. This must match the CIDR for the route exactly.
 mkDeleteLocalGatewayRoute ::
-  -- | 'destinationCidrBlock'
-  Lude.Text ->
   -- | 'localGatewayRouteTableId'
+  Lude.Text ->
+  -- | 'destinationCidrBlock'
   Lude.Text ->
   DeleteLocalGatewayRoute
 mkDeleteLocalGatewayRoute
-  pDestinationCidrBlock_
-  pLocalGatewayRouteTableId_ =
+  pLocalGatewayRouteTableId_
+  pDestinationCidrBlock_ =
     DeleteLocalGatewayRoute'
-      { dryRun = Lude.Nothing,
-        destinationCidrBlock = pDestinationCidrBlock_,
-        localGatewayRouteTableId = pLocalGatewayRouteTableId_
+      { localGatewayRouteTableId =
+          pLocalGatewayRouteTableId_,
+        dryRun = Lude.Nothing,
+        destinationCidrBlock = pDestinationCidrBlock_
       }
+
+-- | The ID of the local gateway route table.
+--
+-- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlgrLocalGatewayRouteTableId :: Lens.Lens' DeleteLocalGatewayRoute Lude.Text
+dlgrLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: DeleteLocalGatewayRoute -> Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: DeleteLocalGatewayRoute)
+{-# DEPRECATED dlgrLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -88,13 +93,6 @@ dlgrDryRun = Lens.lens (dryRun :: DeleteLocalGatewayRoute -> Lude.Maybe Lude.Boo
 dlgrDestinationCidrBlock :: Lens.Lens' DeleteLocalGatewayRoute Lude.Text
 dlgrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: DeleteLocalGatewayRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: DeleteLocalGatewayRoute)
 {-# DEPRECATED dlgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
-
--- | The ID of the local gateway route table.
---
--- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlgrLocalGatewayRouteTableId :: Lens.Lens' DeleteLocalGatewayRoute Lude.Text
-dlgrLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: DeleteLocalGatewayRoute -> Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: DeleteLocalGatewayRoute)
-{-# DEPRECATED dlgrLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
 
 instance Lude.AWSRequest DeleteLocalGatewayRoute where
   type Rs DeleteLocalGatewayRoute = DeleteLocalGatewayRouteResponse
@@ -117,31 +115,25 @@ instance Lude.ToQuery DeleteLocalGatewayRoute where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteLocalGatewayRoute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "LocalGatewayRouteTableId" Lude.=: localGatewayRouteTableId,
         "DryRun" Lude.=: dryRun,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock,
-        "LocalGatewayRouteTableId" Lude.=: localGatewayRouteTableId
+        "DestinationCidrBlock" Lude.=: destinationCidrBlock
       ]
 
 -- | /See:/ 'mkDeleteLocalGatewayRouteResponse' smart constructor.
 data DeleteLocalGatewayRouteResponse = DeleteLocalGatewayRouteResponse'
-  { route ::
-      Lude.Maybe
-        LocalGatewayRoute,
+  { -- | Information about the route.
+    route :: Lude.Maybe LocalGatewayRoute,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLocalGatewayRouteResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'route' - Information about the route.
+-- * 'responseStatus' - The response status code.
 mkDeleteLocalGatewayRouteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

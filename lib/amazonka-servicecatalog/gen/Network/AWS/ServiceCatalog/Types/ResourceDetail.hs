@@ -32,28 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceDetail' smart constructor.
 data ResourceDetail = ResourceDetail'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the resource.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The creation time of the resource.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the resource.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the resource.
     id :: Lude.Maybe Lude.Text,
+    -- | The description of the resource.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDetail' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the resource.
 -- * 'createdTime' - The creation time of the resource.
--- * 'description' - The description of the resource.
--- * 'id' - The identifier of the resource.
 -- * 'name' - The name of the resource.
+-- * 'id' - The identifier of the resource.
+-- * 'description' - The description of the resource.
 mkResourceDetail ::
   ResourceDetail
 mkResourceDetail =

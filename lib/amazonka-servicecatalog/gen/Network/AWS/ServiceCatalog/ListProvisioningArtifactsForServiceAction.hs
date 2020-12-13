@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,25 +47,25 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListProvisioningArtifactsForServiceAction' smart constructor.
 data ListProvisioningArtifactsForServiceAction = ListProvisioningArtifactsForServiceAction'
-  { acceptLanguage ::
-      Lude.Maybe
-        Lude.Text,
-    pageToken ::
-      Lude.Maybe
-        Lude.Text,
-    pageSize ::
-      Lude.Maybe
-        Lude.Natural,
-    serviceActionId ::
-      Lude.Text
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural,
+    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+    serviceActionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProvisioningArtifactsForServiceAction' with the minimum fields required to make a request.
@@ -81,8 +82,8 @@ data ListProvisioningArtifactsForServiceAction = ListProvisioningArtifactsForSer
 --     * @zh@ - Chinese
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
 mkListProvisioningArtifactsForServiceAction ::
   -- | 'serviceActionId'
@@ -192,26 +193,15 @@ instance Lude.ToQuery ListProvisioningArtifactsForServiceAction where
 
 -- | /See:/ 'mkListProvisioningArtifactsForServiceActionResponse' smart constructor.
 data ListProvisioningArtifactsForServiceActionResponse = ListProvisioningArtifactsForServiceActionResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    provisioningArtifactViews ::
-      Lude.Maybe
-        [ProvisioningArtifactView],
-    responseStatus ::
-      Lude.Int
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An array of objects with information about product views and provisioning artifacts.
+    provisioningArtifactViews :: Lude.Maybe [ProvisioningArtifactView],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProvisioningArtifactsForServiceActionResponse' with the minimum fields required to make a request.
 --

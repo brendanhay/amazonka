@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { arn :: Lude.Text,
+  { -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to delete the specified tags.
+    arn :: Lude.Text,
+    -- | Specifies the @TagKey@ list which you want to remove from the Elasticsearch domain.
     tagKeys :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
@@ -100,13 +97,7 @@ instance Lude.ToQuery RemoveTags where
 
 -- | /See:/ 'mkRemoveTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.

@@ -30,33 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError' smart constructor.
 data BatchDisassociateApprovalRuleTemplateFromRepositoriesError = BatchDisassociateApprovalRuleTemplateFromRepositoriesError'
-  { errorCode ::
-      Lude.Maybe
-        Lude.Text,
-    repositoryName ::
-      Lude.Maybe
-        Lude.Text,
-    errorMessage ::
-      Lude.Maybe
-        Lude.Text
+  { -- | An error code that specifies whether the repository name was not valid or not found.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where the association with the template was not able to be removed.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | An error message that provides details about why the repository name was either not found or not valid.
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDisassociateApprovalRuleTemplateFromRepositoriesError' with the minimum fields required to make a request.
 --
 -- * 'errorCode' - An error code that specifies whether the repository name was not valid or not found.
--- * 'errorMessage' - An error message that provides details about why the repository name was either not found or not valid.
 -- * 'repositoryName' - The name of the repository where the association with the template was not able to be removed.
+-- * 'errorMessage' - An error message that provides details about why the repository name was either not found or not valid.
 mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError ::
   BatchDisassociateApprovalRuleTemplateFromRepositoriesError
 mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError =

@@ -13,11 +13,11 @@
 module Network.AWS.SMS.Types.ServerCatalogStatus
   ( ServerCatalogStatus
       ( ServerCatalogStatus',
+        SCSNotImported,
+        SCSImporting,
         SCSAvailable,
         SCSDeleted,
-        SCSExpired,
-        SCSImporting,
-        SCSNotImported
+        SCSExpired
       ),
   )
 where
@@ -48,6 +48,12 @@ newtype ServerCatalogStatus = ServerCatalogStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern SCSNotImported :: ServerCatalogStatus
+pattern SCSNotImported = ServerCatalogStatus' "NOT_IMPORTED"
+
+pattern SCSImporting :: ServerCatalogStatus
+pattern SCSImporting = ServerCatalogStatus' "IMPORTING"
+
 pattern SCSAvailable :: ServerCatalogStatus
 pattern SCSAvailable = ServerCatalogStatus' "AVAILABLE"
 
@@ -57,17 +63,11 @@ pattern SCSDeleted = ServerCatalogStatus' "DELETED"
 pattern SCSExpired :: ServerCatalogStatus
 pattern SCSExpired = ServerCatalogStatus' "EXPIRED"
 
-pattern SCSImporting :: ServerCatalogStatus
-pattern SCSImporting = ServerCatalogStatus' "IMPORTING"
-
-pattern SCSNotImported :: ServerCatalogStatus
-pattern SCSNotImported = ServerCatalogStatus' "NOT_IMPORTED"
-
 {-# COMPLETE
+  SCSNotImported,
+  SCSImporting,
   SCSAvailable,
   SCSDeleted,
   SCSExpired,
-  SCSImporting,
-  SCSNotImported,
   ServerCatalogStatus'
   #-}

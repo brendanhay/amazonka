@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRDSHTTPEndpointConfig' smart constructor.
 data RDSHTTPEndpointConfig = RDSHTTPEndpointConfig'
-  { dbClusterIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | Amazon RDS cluster ARN.
+    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | Logical schema name.
     schema :: Lude.Maybe Lude.Text,
+    -- | Logical database name.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | AWS Region for RDS HTTP endpoint.
     awsRegion :: Lude.Maybe Lude.Text,
+    -- | AWS secret store ARN for database credentials.
     awsSecretStoreARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSHTTPEndpointConfig' with the minimum fields required to make a request.
 --
--- * 'awsRegion' - AWS Region for RDS HTTP endpoint.
--- * 'awsSecretStoreARN' - AWS secret store ARN for database credentials.
--- * 'databaseName' - Logical database name.
 -- * 'dbClusterIdentifier' - Amazon RDS cluster ARN.
 -- * 'schema' - Logical schema name.
+-- * 'databaseName' - Logical database name.
+-- * 'awsRegion' - AWS Region for RDS HTTP endpoint.
+-- * 'awsSecretStoreARN' - AWS secret store ARN for database credentials.
 mkRDSHTTPEndpointConfig ::
   RDSHTTPEndpointConfig
 mkRDSHTTPEndpointConfig =

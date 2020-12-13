@@ -14,13 +14,13 @@ module Network.AWS.CognitoIdentityProvider.Types.ExplicitAuthFlowsType
   ( ExplicitAuthFlowsType
       ( ExplicitAuthFlowsType',
         EAFTAdminNoSrpAuth,
+        EAFTCustomAuthFlowOnly,
+        EAFTUserPasswordAuth,
         EAFTAllowAdminUserPasswordAuth,
         EAFTAllowCustomAuth,
-        EAFTAllowRefreshTokenAuth,
         EAFTAllowUserPasswordAuth,
         EAFTAllowUserSrpAuth,
-        EAFTCustomAuthFlowOnly,
-        EAFTUserPasswordAuth
+        EAFTAllowRefreshTokenAuth
       ),
   )
 where
@@ -54,14 +54,17 @@ newtype ExplicitAuthFlowsType = ExplicitAuthFlowsType' Lude.Text
 pattern EAFTAdminNoSrpAuth :: ExplicitAuthFlowsType
 pattern EAFTAdminNoSrpAuth = ExplicitAuthFlowsType' "ADMIN_NO_SRP_AUTH"
 
+pattern EAFTCustomAuthFlowOnly :: ExplicitAuthFlowsType
+pattern EAFTCustomAuthFlowOnly = ExplicitAuthFlowsType' "CUSTOM_AUTH_FLOW_ONLY"
+
+pattern EAFTUserPasswordAuth :: ExplicitAuthFlowsType
+pattern EAFTUserPasswordAuth = ExplicitAuthFlowsType' "USER_PASSWORD_AUTH"
+
 pattern EAFTAllowAdminUserPasswordAuth :: ExplicitAuthFlowsType
 pattern EAFTAllowAdminUserPasswordAuth = ExplicitAuthFlowsType' "ALLOW_ADMIN_USER_PASSWORD_AUTH"
 
 pattern EAFTAllowCustomAuth :: ExplicitAuthFlowsType
 pattern EAFTAllowCustomAuth = ExplicitAuthFlowsType' "ALLOW_CUSTOM_AUTH"
-
-pattern EAFTAllowRefreshTokenAuth :: ExplicitAuthFlowsType
-pattern EAFTAllowRefreshTokenAuth = ExplicitAuthFlowsType' "ALLOW_REFRESH_TOKEN_AUTH"
 
 pattern EAFTAllowUserPasswordAuth :: ExplicitAuthFlowsType
 pattern EAFTAllowUserPasswordAuth = ExplicitAuthFlowsType' "ALLOW_USER_PASSWORD_AUTH"
@@ -69,20 +72,17 @@ pattern EAFTAllowUserPasswordAuth = ExplicitAuthFlowsType' "ALLOW_USER_PASSWORD_
 pattern EAFTAllowUserSrpAuth :: ExplicitAuthFlowsType
 pattern EAFTAllowUserSrpAuth = ExplicitAuthFlowsType' "ALLOW_USER_SRP_AUTH"
 
-pattern EAFTCustomAuthFlowOnly :: ExplicitAuthFlowsType
-pattern EAFTCustomAuthFlowOnly = ExplicitAuthFlowsType' "CUSTOM_AUTH_FLOW_ONLY"
-
-pattern EAFTUserPasswordAuth :: ExplicitAuthFlowsType
-pattern EAFTUserPasswordAuth = ExplicitAuthFlowsType' "USER_PASSWORD_AUTH"
+pattern EAFTAllowRefreshTokenAuth :: ExplicitAuthFlowsType
+pattern EAFTAllowRefreshTokenAuth = ExplicitAuthFlowsType' "ALLOW_REFRESH_TOKEN_AUTH"
 
 {-# COMPLETE
   EAFTAdminNoSrpAuth,
-  EAFTAllowAdminUserPasswordAuth,
-  EAFTAllowCustomAuth,
-  EAFTAllowRefreshTokenAuth,
-  EAFTAllowUserPasswordAuth,
-  EAFTAllowUserSrpAuth,
   EAFTCustomAuthFlowOnly,
   EAFTUserPasswordAuth,
+  EAFTAllowAdminUserPasswordAuth,
+  EAFTAllowCustomAuth,
+  EAFTAllowUserPasswordAuth,
+  EAFTAllowUserSrpAuth,
+  EAFTAllowRefreshTokenAuth,
   ExplicitAuthFlowsType'
   #-}

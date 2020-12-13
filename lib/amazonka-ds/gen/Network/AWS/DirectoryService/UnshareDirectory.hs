@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUnshareDirectory' smart constructor.
 data UnshareDirectory = UnshareDirectory'
-  { directoryId :: Lude.Text,
+  { -- | The identifier of the AWS Managed Microsoft AD directory that you want to stop sharing.
+    directoryId :: Lude.Text,
+    -- | Identifier for the directory consumer account with whom the directory has to be unshared.
     unshareTarget :: UnshareTarget
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareDirectory' with the minimum fields required to make a request.
@@ -121,23 +118,18 @@ instance Lude.ToQuery UnshareDirectory where
 
 -- | /See:/ 'mkUnshareDirectoryResponse' smart constructor.
 data UnshareDirectoryResponse = UnshareDirectoryResponse'
-  { sharedDirectoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | Identifier of the directory stored in the directory consumer account that is to be unshared from the specified directory (@DirectoryId@ ).
+    sharedDirectoryId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareDirectoryResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sharedDirectoryId' - Identifier of the directory stored in the directory consumer account that is to be unshared from the specified directory (@DirectoryId@ ).
+-- * 'responseStatus' - The response status code.
 mkUnshareDirectoryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.ConfirmProductInstance
     mkConfirmProductInstance,
 
     -- ** Request lenses
-    cpiDryRun,
     cpiInstanceId,
     cpiProductCode,
+    cpiDryRun,
 
     -- * Destructuring the response
     ConfirmProductInstanceResponse (..),
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkConfirmProductInstance' smart constructor.
 data ConfirmProductInstance = ConfirmProductInstance'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the instance.
     instanceId :: Lude.Text,
-    productCode :: Lude.Text
+    -- | The product code. This must be a product code that you own.
+    productCode :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmProductInstance' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceId' - The ID of the instance.
 -- * 'productCode' - The product code. This must be a product code that you own.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkConfirmProductInstance ::
   -- | 'instanceId'
   Lude.Text ->
@@ -69,17 +66,10 @@ mkConfirmProductInstance ::
   ConfirmProductInstance
 mkConfirmProductInstance pInstanceId_ pProductCode_ =
   ConfirmProductInstance'
-    { dryRun = Lude.Nothing,
-      instanceId = pInstanceId_,
-      productCode = pProductCode_
+    { instanceId = pInstanceId_,
+      productCode = pProductCode_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpiDryRun :: Lens.Lens' ConfirmProductInstance (Lude.Maybe Lude.Bool)
-cpiDryRun = Lens.lens (dryRun :: ConfirmProductInstance -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ConfirmProductInstance)
-{-# DEPRECATED cpiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the instance.
 --
@@ -94,6 +84,13 @@ cpiInstanceId = Lens.lens (instanceId :: ConfirmProductInstance -> Lude.Text) (\
 cpiProductCode :: Lens.Lens' ConfirmProductInstance Lude.Text
 cpiProductCode = Lens.lens (productCode :: ConfirmProductInstance -> Lude.Text) (\s a -> s {productCode = a} :: ConfirmProductInstance)
 {-# DEPRECATED cpiProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpiDryRun :: Lens.Lens' ConfirmProductInstance (Lude.Maybe Lude.Bool)
+cpiDryRun = Lens.lens (dryRun :: ConfirmProductInstance -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ConfirmProductInstance)
+{-# DEPRECATED cpiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ConfirmProductInstance where
   type Rs ConfirmProductInstance = ConfirmProductInstanceResponse
@@ -118,33 +115,28 @@ instance Lude.ToQuery ConfirmProductInstance where
     Lude.mconcat
       [ "Action" Lude.=: ("ConfirmProductInstance" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "InstanceId" Lude.=: instanceId,
-        "ProductCode" Lude.=: productCode
+        "ProductCode" Lude.=: productCode,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkConfirmProductInstanceResponse' smart constructor.
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
-    ownerId ::
-      Lude.Maybe Lude.Text,
+  { -- | The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmProductInstanceResponse' with the minimum fields required to make a request.
 --
+-- * 'return' - The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
 -- * 'ownerId' - The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
 -- * 'responseStatus' - The response status code.
--- * 'return' - The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
 mkConfirmProductInstanceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

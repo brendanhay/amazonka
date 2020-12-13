@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,21 +27,21 @@ module Network.AWS.SageMaker.CreateModel
     mkCreateModel,
 
     -- ** Request lenses
+    cmModelName,
     cmPrimaryContainer,
+    cmExecutionRoleARN,
     cmEnableNetworkIsolation,
     cmContainers,
     cmVPCConfig,
     cmTags,
-    cmModelName,
-    cmExecutionRoleARN,
 
     -- * Destructuring the response
     CreateModelResponse (..),
     mkCreateModelResponse,
 
     -- ** Response lenses
-    cmrsResponseStatus,
     cmrsModelARN,
+    cmrsResponseStatus,
   )
 where
 
@@ -52,33 +53,33 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateModel' smart constructor.
 data CreateModel = CreateModel'
-  { primaryContainer ::
-      Lude.Maybe ContainerDefinition,
-    enableNetworkIsolation :: Lude.Maybe Lude.Bool,
-    containers :: Lude.Maybe [ContainerDefinition],
-    vpcConfig :: Lude.Maybe VPCConfig,
-    tags :: Lude.Maybe [Tag],
+  { -- | The name of the new model.
     modelName :: Lude.Text,
-    executionRoleARN :: Lude.Text
+    -- | The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
+    primaryContainer :: Lude.Maybe ContainerDefinition,
+    -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+    executionRoleARN :: Lude.Text,
+    -- | Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+    enableNetworkIsolation :: Lude.Maybe Lude.Bool,
+    -- | Specifies the containers in the inference pipeline.
+    containers :: Lude.Maybe [ContainerDefinition],
+    -- | A 'VpcConfig' object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. @VpcConfig@ is used in hosting services and in batch transform. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud> and <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud> .
+    vpcConfig :: Lude.Maybe VPCConfig,
+    -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateModel' with the minimum fields required to make a request.
 --
--- * 'containers' - Specifies the containers in the inference pipeline.
--- * 'enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
--- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
 -- * 'modelName' - The name of the new model.
 -- * 'primaryContainer' - The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
--- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- * 'executionRoleARN' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+-- * 'enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+-- * 'containers' - Specifies the containers in the inference pipeline.
 -- * 'vpcConfig' - A 'VpcConfig' object that specifies the VPC that you want your model to connect to. Control access to and from your model container by configuring the VPC. @VpcConfig@ is used in hosting services and in batch transform. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud> and <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud> .
+-- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 mkCreateModel ::
   -- | 'modelName'
   Lude.Text ->
@@ -87,14 +88,21 @@ mkCreateModel ::
   CreateModel
 mkCreateModel pModelName_ pExecutionRoleARN_ =
   CreateModel'
-    { primaryContainer = Lude.Nothing,
+    { modelName = pModelName_,
+      primaryContainer = Lude.Nothing,
+      executionRoleARN = pExecutionRoleARN_,
       enableNetworkIsolation = Lude.Nothing,
       containers = Lude.Nothing,
       vpcConfig = Lude.Nothing,
-      tags = Lude.Nothing,
-      modelName = pModelName_,
-      executionRoleARN = pExecutionRoleARN_
+      tags = Lude.Nothing
     }
+
+-- | The name of the new model.
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmModelName :: Lens.Lens' CreateModel Lude.Text
+cmModelName = Lens.lens (modelName :: CreateModel -> Lude.Text) (\s a -> s {modelName = a} :: CreateModel)
+{-# DEPRECATED cmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
 
 -- | The location of the primary docker image containing inference code, associated artifacts, and custom environment map that the inference code uses when the model is deployed for predictions.
 --
@@ -102,6 +110,13 @@ mkCreateModel pModelName_ pExecutionRoleARN_ =
 cmPrimaryContainer :: Lens.Lens' CreateModel (Lude.Maybe ContainerDefinition)
 cmPrimaryContainer = Lens.lens (primaryContainer :: CreateModel -> Lude.Maybe ContainerDefinition) (\s a -> s {primaryContainer = a} :: CreateModel)
 {-# DEPRECATED cmPrimaryContainer "Use generic-lens or generic-optics with 'primaryContainer' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+--
+-- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmExecutionRoleARN :: Lens.Lens' CreateModel Lude.Text
+cmExecutionRoleARN = Lens.lens (executionRoleARN :: CreateModel -> Lude.Text) (\s a -> s {executionRoleARN = a} :: CreateModel)
+{-# DEPRECATED cmExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
 
 -- | Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
 --
@@ -131,20 +146,6 @@ cmTags :: Lens.Lens' CreateModel (Lude.Maybe [Tag])
 cmTags = Lens.lens (tags :: CreateModel -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateModel)
 {-# DEPRECATED cmTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the new model.
---
--- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmModelName :: Lens.Lens' CreateModel Lude.Text
-cmModelName = Lens.lens (modelName :: CreateModel -> Lude.Text) (\s a -> s {modelName = a} :: CreateModel)
-{-# DEPRECATED cmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model artifacts and docker image for deployment on ML compute instances or for batch transform jobs. Deploying on ML compute instances is part of model hosting. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
---
--- /Note:/ Consider using 'executionRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmExecutionRoleARN :: Lens.Lens' CreateModel Lude.Text
-cmExecutionRoleARN = Lens.lens (executionRoleARN :: CreateModel -> Lude.Text) (\s a -> s {executionRoleARN = a} :: CreateModel)
-{-# DEPRECATED cmExecutionRoleARN "Use generic-lens or generic-optics with 'executionRoleARN' instead." #-}
-
 instance Lude.AWSRequest CreateModel where
   type Rs CreateModel = CreateModelResponse
   request = Req.postJSON sageMakerService
@@ -152,7 +153,7 @@ instance Lude.AWSRequest CreateModel where
     Res.receiveJSON
       ( \s h x ->
           CreateModelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "ModelArn")
+            Lude.<$> (x Lude..:> "ModelArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateModel where
@@ -170,13 +171,13 @@ instance Lude.ToJSON CreateModel where
   toJSON CreateModel' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PrimaryContainer" Lude..=) Lude.<$> primaryContainer,
+          [ Lude.Just ("ModelName" Lude..= modelName),
+            ("PrimaryContainer" Lude..=) Lude.<$> primaryContainer,
+            Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN),
             ("EnableNetworkIsolation" Lude..=) Lude.<$> enableNetworkIsolation,
             ("Containers" Lude..=) Lude.<$> containers,
             ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("ModelName" Lude..= modelName),
-            Lude.Just ("ExecutionRoleArn" Lude..= executionRoleARN)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -188,17 +189,12 @@ instance Lude.ToQuery CreateModel where
 
 -- | /See:/ 'mkCreateModelResponse' smart constructor.
 data CreateModelResponse = CreateModelResponse'
-  { responseStatus ::
-      Lude.Int,
-    modelARN :: Lude.Text
+  { -- | The ARN of the model created in Amazon SageMaker.
+    modelARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateModelResponse' with the minimum fields required to make a request.
@@ -206,23 +202,16 @@ data CreateModelResponse = CreateModelResponse'
 -- * 'modelARN' - The ARN of the model created in Amazon SageMaker.
 -- * 'responseStatus' - The response status code.
 mkCreateModelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'modelARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateModelResponse
-mkCreateModelResponse pResponseStatus_ pModelARN_ =
+mkCreateModelResponse pModelARN_ pResponseStatus_ =
   CreateModelResponse'
-    { responseStatus = pResponseStatus_,
-      modelARN = pModelARN_
+    { modelARN = pModelARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsResponseStatus :: Lens.Lens' CreateModelResponse Lude.Int
-cmrsResponseStatus = Lens.lens (responseStatus :: CreateModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateModelResponse)
-{-# DEPRECATED cmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN of the model created in Amazon SageMaker.
 --
@@ -230,3 +219,10 @@ cmrsResponseStatus = Lens.lens (responseStatus :: CreateModelResponse -> Lude.In
 cmrsModelARN :: Lens.Lens' CreateModelResponse Lude.Text
 cmrsModelARN = Lens.lens (modelARN :: CreateModelResponse -> Lude.Text) (\s a -> s {modelARN = a} :: CreateModelResponse)
 {-# DEPRECATED cmrsModelARN "Use generic-lens or generic-optics with 'modelARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsResponseStatus :: Lens.Lens' CreateModelResponse Lude.Int
+cmrsResponseStatus = Lens.lens (responseStatus :: CreateModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateModelResponse)
+{-# DEPRECATED cmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,9 +61,9 @@ module Network.AWS.WAFRegional.UpdateIPSet
     mkUpdateIPSet,
 
     -- ** Request lenses
-    uisIPSetId,
-    uisChangeToken,
     uisUpdates,
+    uisChangeToken,
+    uisIPSetId,
 
     -- * Destructuring the response
     UpdateIPSetResponse (..),
@@ -82,23 +83,27 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkUpdateIPSet' smart constructor.
 data UpdateIPSet = UpdateIPSet'
-  { ipSetId :: Lude.Text,
+  { -- | An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:
+    --
+    --
+    --     * 'IPSetUpdate' : Contains @Action@ and @IPSetDescriptor@
+    --
+    --
+    --     * 'IPSetDescriptor' : Contains @Type@ and @Value@
+    --
+    --
+    -- You can insert a maximum of 1000 addresses in a single request.
+    updates :: Lude.NonEmpty IPSetUpdate,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text,
-    updates :: Lude.NonEmpty IPSetUpdate
+    -- | The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
+    ipSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateIPSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
--- * 'ipSetId' - The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 -- * 'updates' - An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:
 --
 --
@@ -109,34 +114,22 @@ data UpdateIPSet = UpdateIPSet'
 --
 --
 -- You can insert a maximum of 1000 addresses in a single request.
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'ipSetId' - The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 mkUpdateIPSet ::
-  -- | 'ipSetId'
-  Lude.Text ->
-  -- | 'changeToken'
-  Lude.Text ->
   -- | 'updates'
   Lude.NonEmpty IPSetUpdate ->
+  -- | 'changeToken'
+  Lude.Text ->
+  -- | 'ipSetId'
+  Lude.Text ->
   UpdateIPSet
-mkUpdateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
+mkUpdateIPSet pUpdates_ pChangeToken_ pIPSetId_ =
   UpdateIPSet'
-    { ipSetId = pIPSetId_,
+    { updates = pUpdates_,
       changeToken = pChangeToken_,
-      updates = pUpdates_
+      ipSetId = pIPSetId_
     }
-
--- | The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
---
--- /Note:/ Consider using 'ipSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisIPSetId :: Lens.Lens' UpdateIPSet Lude.Text
-uisIPSetId = Lens.lens (ipSetId :: UpdateIPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: UpdateIPSet)
-{-# DEPRECATED uisIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
-
--- | The value returned by the most recent call to 'GetChangeToken' .
---
--- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisChangeToken :: Lens.Lens' UpdateIPSet Lude.Text
-uisChangeToken = Lens.lens (changeToken :: UpdateIPSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateIPSet)
-{-# DEPRECATED uisChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @IPSetUpdate@ objects that you want to insert into or delete from an 'IPSet' . For more information, see the applicable data types:
 --
@@ -153,6 +146,20 @@ uisChangeToken = Lens.lens (changeToken :: UpdateIPSet -> Lude.Text) (\s a -> s 
 uisUpdates :: Lens.Lens' UpdateIPSet (Lude.NonEmpty IPSetUpdate)
 uisUpdates = Lens.lens (updates :: UpdateIPSet -> Lude.NonEmpty IPSetUpdate) (\s a -> s {updates = a} :: UpdateIPSet)
 {-# DEPRECATED uisUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
+
+-- | The value returned by the most recent call to 'GetChangeToken' .
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisChangeToken :: Lens.Lens' UpdateIPSet Lude.Text
+uisChangeToken = Lens.lens (changeToken :: UpdateIPSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateIPSet)
+{-# DEPRECATED uisChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | The @IPSetId@ of the 'IPSet' that you want to update. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
+--
+-- /Note:/ Consider using 'ipSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uisIPSetId :: Lens.Lens' UpdateIPSet Lude.Text
+uisIPSetId = Lens.lens (ipSetId :: UpdateIPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: UpdateIPSet)
+{-# DEPRECATED uisIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
 
 instance Lude.AWSRequest UpdateIPSet where
   type Rs UpdateIPSet = UpdateIPSetResponse
@@ -179,9 +186,9 @@ instance Lude.ToJSON UpdateIPSet where
   toJSON UpdateIPSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("IPSetId" Lude..= ipSetId),
+          [ Lude.Just ("Updates" Lude..= updates),
             Lude.Just ("ChangeToken" Lude..= changeToken),
-            Lude.Just ("Updates" Lude..= updates)
+            Lude.Just ("IPSetId" Lude..= ipSetId)
           ]
       )
 
@@ -193,17 +200,12 @@ instance Lude.ToQuery UpdateIPSet where
 
 -- | /See:/ 'mkUpdateIPSetResponse' smart constructor.
 data UpdateIPSetResponse = UpdateIPSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @UpdateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateIPSetResponse' with the minimum fields required to make a request.

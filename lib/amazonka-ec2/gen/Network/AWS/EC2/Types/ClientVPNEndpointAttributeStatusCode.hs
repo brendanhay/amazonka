@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ClientVPNEndpointAttributeStatusCode
   ( ClientVPNEndpointAttributeStatusCode
       ( ClientVPNEndpointAttributeStatusCode',
-        Applied,
-        Applying
+        Applying,
+        Applied
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ClientVPNEndpointAttributeStatusCode = ClientVPNEndpointAttributeStatusC
       Lude.ToHeader
     )
 
-pattern Applied :: ClientVPNEndpointAttributeStatusCode
-pattern Applied = ClientVPNEndpointAttributeStatusCode' "applied"
-
 pattern Applying :: ClientVPNEndpointAttributeStatusCode
 pattern Applying = ClientVPNEndpointAttributeStatusCode' "applying"
 
+pattern Applied :: ClientVPNEndpointAttributeStatusCode
+pattern Applied = ClientVPNEndpointAttributeStatusCode' "applied"
+
 {-# COMPLETE
-  Applied,
   Applying,
+  Applied,
   ClientVPNEndpointAttributeStatusCode'
   #-}

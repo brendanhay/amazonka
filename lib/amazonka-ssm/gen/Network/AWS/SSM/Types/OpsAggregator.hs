@@ -34,31 +34,30 @@ import Network.AWS.SSM.Types.OpsFilter
 --
 -- /See:/ 'mkOpsAggregator' smart constructor.
 data OpsAggregator = OpsAggregator'
-  { typeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The data type name to use for viewing counts of OpsItems.
+    typeName :: Lude.Maybe Lude.Text,
+    -- | A nested aggregator for viewing counts of OpsItems.
     aggregators :: Lude.Maybe (Lude.NonEmpty OpsAggregator),
+    -- | The aggregator value.
     values :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The aggregator filters.
     filters :: Lude.Maybe (Lude.NonEmpty OpsFilter),
+    -- | The name of an OpsItem attribute on which to limit the count of OpsItems.
     attributeName :: Lude.Maybe Lude.Text,
+    -- | Either a Range or Count aggregator for limiting an OpsItem summary.
     aggregatorType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsAggregator' with the minimum fields required to make a request.
 --
--- * 'aggregatorType' - Either a Range or Count aggregator for limiting an OpsItem summary.
--- * 'aggregators' - A nested aggregator for viewing counts of OpsItems.
--- * 'attributeName' - The name of an OpsItem attribute on which to limit the count of OpsItems.
--- * 'filters' - The aggregator filters.
 -- * 'typeName' - The data type name to use for viewing counts of OpsItems.
+-- * 'aggregators' - A nested aggregator for viewing counts of OpsItems.
 -- * 'values' - The aggregator value.
+-- * 'filters' - The aggregator filters.
+-- * 'attributeName' - The name of an OpsItem attribute on which to limit the count of OpsItems.
+-- * 'aggregatorType' - Either a Range or Count aggregator for limiting an OpsItem summary.
 mkOpsAggregator ::
   OpsAggregator
 mkOpsAggregator =

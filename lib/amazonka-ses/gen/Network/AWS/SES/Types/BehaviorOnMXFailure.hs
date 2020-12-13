@@ -13,8 +13,8 @@
 module Network.AWS.SES.Types.BehaviorOnMXFailure
   ( BehaviorOnMXFailure
       ( BehaviorOnMXFailure',
-        RejectMessage,
-        UseDefaultValue
+        UseDefaultValue,
+        RejectMessage
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype BehaviorOnMXFailure = BehaviorOnMXFailure' Lude.Text
       Lude.ToHeader
     )
 
-pattern RejectMessage :: BehaviorOnMXFailure
-pattern RejectMessage = BehaviorOnMXFailure' "RejectMessage"
-
 pattern UseDefaultValue :: BehaviorOnMXFailure
 pattern UseDefaultValue = BehaviorOnMXFailure' "UseDefaultValue"
 
+pattern RejectMessage :: BehaviorOnMXFailure
+pattern RejectMessage = BehaviorOnMXFailure' "RejectMessage"
+
 {-# COMPLETE
-  RejectMessage,
   UseDefaultValue,
+  RejectMessage,
   BehaviorOnMXFailure'
   #-}

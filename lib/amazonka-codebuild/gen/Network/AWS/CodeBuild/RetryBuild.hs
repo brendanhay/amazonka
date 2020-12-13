@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRetryBuild' smart constructor.
 data RetryBuild = RetryBuild'
-  { idempotencyToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuild@ request. The token is included in the @RetryBuild@ request and is valid for five minutes. If you repeat the @RetryBuild@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+    idempotencyToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the identifier of the build to restart.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryBuild' with the minimum fields required to make a request.
 --
--- * 'id' - Specifies the identifier of the build to restart.
 -- * 'idempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuild@ request. The token is included in the @RetryBuild@ request and is valid for five minutes. If you repeat the @RetryBuild@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+-- * 'id' - Specifies the identifier of the build to restart.
 mkRetryBuild ::
   RetryBuild
 mkRetryBuild =
@@ -114,22 +110,16 @@ instance Lude.ToQuery RetryBuild where
 
 -- | /See:/ 'mkRetryBuildResponse' smart constructor.
 data RetryBuildResponse = RetryBuildResponse'
-  { build ::
-      Lude.Maybe Build,
+  { build :: Lude.Maybe Build,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryBuildResponse' with the minimum fields required to make a request.
 --
--- * 'build' - Undocumented field.
+-- * 'build' -
 -- * 'responseStatus' - The response status code.
 mkRetryBuildResponse ::
   -- | 'responseStatus'

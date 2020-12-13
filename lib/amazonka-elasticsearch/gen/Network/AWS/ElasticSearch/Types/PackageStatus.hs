@@ -13,14 +13,14 @@
 module Network.AWS.ElasticSearch.Types.PackageStatus
   ( PackageStatus
       ( PackageStatus',
-        PSAvailable,
-        PSCopyFailed,
         PSCopying,
-        PSDeleteFailed,
-        PSDeleted,
-        PSDeleting,
+        PSCopyFailed,
         PSValidating,
-        PSValidationFailed
+        PSValidationFailed,
+        PSAvailable,
+        PSDeleting,
+        PSDeleted,
+        PSDeleteFailed
       ),
   )
 where
@@ -51,23 +51,11 @@ newtype PackageStatus = PackageStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern PSAvailable :: PackageStatus
-pattern PSAvailable = PackageStatus' "AVAILABLE"
-
-pattern PSCopyFailed :: PackageStatus
-pattern PSCopyFailed = PackageStatus' "COPY_FAILED"
-
 pattern PSCopying :: PackageStatus
 pattern PSCopying = PackageStatus' "COPYING"
 
-pattern PSDeleteFailed :: PackageStatus
-pattern PSDeleteFailed = PackageStatus' "DELETE_FAILED"
-
-pattern PSDeleted :: PackageStatus
-pattern PSDeleted = PackageStatus' "DELETED"
-
-pattern PSDeleting :: PackageStatus
-pattern PSDeleting = PackageStatus' "DELETING"
+pattern PSCopyFailed :: PackageStatus
+pattern PSCopyFailed = PackageStatus' "COPY_FAILED"
 
 pattern PSValidating :: PackageStatus
 pattern PSValidating = PackageStatus' "VALIDATING"
@@ -75,14 +63,26 @@ pattern PSValidating = PackageStatus' "VALIDATING"
 pattern PSValidationFailed :: PackageStatus
 pattern PSValidationFailed = PackageStatus' "VALIDATION_FAILED"
 
+pattern PSAvailable :: PackageStatus
+pattern PSAvailable = PackageStatus' "AVAILABLE"
+
+pattern PSDeleting :: PackageStatus
+pattern PSDeleting = PackageStatus' "DELETING"
+
+pattern PSDeleted :: PackageStatus
+pattern PSDeleted = PackageStatus' "DELETED"
+
+pattern PSDeleteFailed :: PackageStatus
+pattern PSDeleteFailed = PackageStatus' "DELETE_FAILED"
+
 {-# COMPLETE
-  PSAvailable,
-  PSCopyFailed,
   PSCopying,
-  PSDeleteFailed,
-  PSDeleted,
-  PSDeleting,
+  PSCopyFailed,
   PSValidating,
   PSValidationFailed,
+  PSAvailable,
+  PSDeleting,
+  PSDeleted,
+  PSDeleteFailed,
   PackageStatus'
   #-}

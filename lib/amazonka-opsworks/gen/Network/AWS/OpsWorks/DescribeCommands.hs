@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeCommands' smart constructor.
 data DescribeCommands = DescribeCommands'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The deployment ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The instance ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified instance.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | An array of command IDs. If you include this parameter, @DescribeCommands@ returns a description of the specified commands. Otherwise, it returns a description of every command.
     commandIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCommands' with the minimum fields required to make a request.
 --
--- * 'commandIds' - An array of command IDs. If you include this parameter, @DescribeCommands@ returns a description of the specified commands. Otherwise, it returns a description of every command.
 -- * 'deploymentId' - The deployment ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified deployment.
 -- * 'instanceId' - The instance ID. If you include this parameter, @DescribeCommands@ returns a description of the commands associated with the specified instance.
+-- * 'commandIds' - An array of command IDs. If you include this parameter, @DescribeCommands@ returns a description of the specified commands. Otherwise, it returns a description of every command.
 mkDescribeCommands ::
   DescribeCommands
 mkDescribeCommands =
@@ -134,17 +131,12 @@ instance Lude.ToQuery DescribeCommands where
 --
 -- /See:/ 'mkDescribeCommandsResponse' smart constructor.
 data DescribeCommandsResponse = DescribeCommandsResponse'
-  { commands ::
-      Lude.Maybe [Command],
+  { -- | An array of @Command@ objects that describe each of the specified commands.
+    commands :: Lude.Maybe [Command],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCommandsResponse' with the minimum fields required to make a request.

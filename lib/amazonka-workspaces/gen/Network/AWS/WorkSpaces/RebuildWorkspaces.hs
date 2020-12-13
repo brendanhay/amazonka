@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
     mkRebuildWorkspacesResponse,
 
     -- ** Response lenses
-    rwrsFailedRequests,
-    rwrsResponseStatus,
+    rwsrsFailedRequests,
+    rwsrsResponseStatus,
   )
 where
 
@@ -43,16 +44,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkRebuildWorkspaces' smart constructor.
 newtype RebuildWorkspaces = RebuildWorkspaces'
-  { rebuildWorkspaceRequests ::
-      Lude.NonEmpty RebuildRequest
+  { -- | The WorkSpace to rebuild. You can specify a single WorkSpace.
+    rebuildWorkspaceRequests :: Lude.NonEmpty RebuildRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebuildWorkspaces' with the minimum fields required to make a request.
@@ -114,18 +109,12 @@ instance Lude.ToQuery RebuildWorkspaces where
 
 -- | /See:/ 'mkRebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
-  { failedRequests ::
-      Lude.Maybe
-        [FailedWorkspaceChangeRequest],
+  { -- | Information about the WorkSpace that could not be rebuilt.
+    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebuildWorkspacesResponse' with the minimum fields required to make a request.
@@ -145,13 +134,13 @@ mkRebuildWorkspacesResponse pResponseStatus_ =
 -- | Information about the WorkSpace that could not be rebuilt.
 --
 -- /Note:/ Consider using 'failedRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwrsFailedRequests :: Lens.Lens' RebuildWorkspacesResponse (Lude.Maybe [FailedWorkspaceChangeRequest])
-rwrsFailedRequests = Lens.lens (failedRequests :: RebuildWorkspacesResponse -> Lude.Maybe [FailedWorkspaceChangeRequest]) (\s a -> s {failedRequests = a} :: RebuildWorkspacesResponse)
-{-# DEPRECATED rwrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
+rwsrsFailedRequests :: Lens.Lens' RebuildWorkspacesResponse (Lude.Maybe [FailedWorkspaceChangeRequest])
+rwsrsFailedRequests = Lens.lens (failedRequests :: RebuildWorkspacesResponse -> Lude.Maybe [FailedWorkspaceChangeRequest]) (\s a -> s {failedRequests = a} :: RebuildWorkspacesResponse)
+{-# DEPRECATED rwsrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwrsResponseStatus :: Lens.Lens' RebuildWorkspacesResponse Lude.Int
-rwrsResponseStatus = Lens.lens (responseStatus :: RebuildWorkspacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebuildWorkspacesResponse)
-{-# DEPRECATED rwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rwsrsResponseStatus :: Lens.Lens' RebuildWorkspacesResponse Lude.Int
+rwsrsResponseStatus = Lens.lens (responseStatus :: RebuildWorkspacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebuildWorkspacesResponse)
+{-# DEPRECATED rwsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

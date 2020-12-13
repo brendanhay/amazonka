@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,8 +42,8 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkGetCurrentUser' smart constructor.
 newtype GetCurrentUser = GetCurrentUser'
-  { authenticationToken ::
-      Lude.Sensitive Lude.Text
+  { -- | Amazon WorkDocs authentication token.
+    authenticationToken :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
@@ -90,23 +91,18 @@ instance Lude.ToQuery GetCurrentUser where
 
 -- | /See:/ 'mkGetCurrentUserResponse' smart constructor.
 data GetCurrentUserResponse = GetCurrentUserResponse'
-  { user ::
-      Lude.Maybe User,
+  { -- | Metadata of the user.
+    user :: Lude.Maybe User,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCurrentUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'user' - Metadata of the user.
+-- * 'responseStatus' - The response status code.
 mkGetCurrentUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

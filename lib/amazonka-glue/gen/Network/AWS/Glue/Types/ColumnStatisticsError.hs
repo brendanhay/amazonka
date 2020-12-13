@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkColumnStatisticsError' smart constructor.
 data ColumnStatisticsError = ColumnStatisticsError'
-  { error ::
-      Lude.Maybe ErrorDetail,
+  { -- | An error message with the reason for the failure of an operation.
+    error :: Lude.Maybe ErrorDetail,
+    -- | The @ColumnStatistics@ of the column.
     columnStatistics :: Lude.Maybe ColumnStatistics
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ColumnStatisticsError' with the minimum fields required to make a request.
 --
--- * 'columnStatistics' - The @ColumnStatistics@ of the column.
 -- * 'error' - An error message with the reason for the failure of an operation.
+-- * 'columnStatistics' - The @ColumnStatistics@ of the column.
 mkColumnStatisticsError ::
   ColumnStatisticsError
 mkColumnStatisticsError =

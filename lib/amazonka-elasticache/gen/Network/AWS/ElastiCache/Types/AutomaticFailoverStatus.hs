@@ -13,10 +13,10 @@
 module Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
   ( AutomaticFailoverStatus
       ( AutomaticFailoverStatus',
-        AFSDisabled,
-        AFSDisabling,
-        AFSEnabled,
-        AFSEnabling
+        Enabled,
+        Disabled,
+        Enabling,
+        Disabling
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AutomaticFailoverStatus = AutomaticFailoverStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AFSDisabled :: AutomaticFailoverStatus
-pattern AFSDisabled = AutomaticFailoverStatus' "disabled"
+pattern Enabled :: AutomaticFailoverStatus
+pattern Enabled = AutomaticFailoverStatus' "enabled"
 
-pattern AFSDisabling :: AutomaticFailoverStatus
-pattern AFSDisabling = AutomaticFailoverStatus' "disabling"
+pattern Disabled :: AutomaticFailoverStatus
+pattern Disabled = AutomaticFailoverStatus' "disabled"
 
-pattern AFSEnabled :: AutomaticFailoverStatus
-pattern AFSEnabled = AutomaticFailoverStatus' "enabled"
+pattern Enabling :: AutomaticFailoverStatus
+pattern Enabling = AutomaticFailoverStatus' "enabling"
 
-pattern AFSEnabling :: AutomaticFailoverStatus
-pattern AFSEnabling = AutomaticFailoverStatus' "enabling"
+pattern Disabling :: AutomaticFailoverStatus
+pattern Disabling = AutomaticFailoverStatus' "disabling"
 
 {-# COMPLETE
-  AFSDisabled,
-  AFSDisabling,
-  AFSEnabled,
-  AFSEnabling,
+  Enabled,
+  Disabled,
+  Enabling,
+  Disabling,
   AutomaticFailoverStatus'
   #-}

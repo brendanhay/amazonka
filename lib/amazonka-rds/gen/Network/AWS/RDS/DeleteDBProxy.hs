@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.RDS.DeleteDBProxy
     mkDeleteDBProxyResponse,
 
     -- ** Response lenses
-    ddbprsDBProxy,
-    ddbprsResponseStatus,
+    ddprsDBProxy,
+    ddprsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDBProxy' smart constructor.
-newtype DeleteDBProxy = DeleteDBProxy' {dbProxyName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteDBProxy = DeleteDBProxy'
+  { -- | The name of the DB proxy to delete.
+    dbProxyName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBProxy' with the minimum fields required to make a request.
@@ -92,17 +90,12 @@ instance Lude.ToQuery DeleteDBProxy where
 
 -- | /See:/ 'mkDeleteDBProxyResponse' smart constructor.
 data DeleteDBProxyResponse = DeleteDBProxyResponse'
-  { dbProxy ::
-      Lude.Maybe DBProxy,
+  { -- | The data structure representing the details of the DB proxy that you delete.
+    dbProxy :: Lude.Maybe DBProxy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBProxyResponse' with the minimum fields required to make a request.
@@ -122,13 +115,13 @@ mkDeleteDBProxyResponse pResponseStatus_ =
 -- | The data structure representing the details of the DB proxy that you delete.
 --
 -- /Note:/ Consider using 'dbProxy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbprsDBProxy :: Lens.Lens' DeleteDBProxyResponse (Lude.Maybe DBProxy)
-ddbprsDBProxy = Lens.lens (dbProxy :: DeleteDBProxyResponse -> Lude.Maybe DBProxy) (\s a -> s {dbProxy = a} :: DeleteDBProxyResponse)
-{-# DEPRECATED ddbprsDBProxy "Use generic-lens or generic-optics with 'dbProxy' instead." #-}
+ddprsDBProxy :: Lens.Lens' DeleteDBProxyResponse (Lude.Maybe DBProxy)
+ddprsDBProxy = Lens.lens (dbProxy :: DeleteDBProxyResponse -> Lude.Maybe DBProxy) (\s a -> s {dbProxy = a} :: DeleteDBProxyResponse)
+{-# DEPRECATED ddprsDBProxy "Use generic-lens or generic-optics with 'dbProxy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbprsResponseStatus :: Lens.Lens' DeleteDBProxyResponse Lude.Int
-ddbprsResponseStatus = Lens.lens (responseStatus :: DeleteDBProxyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDBProxyResponse)
-{-# DEPRECATED ddbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddprsResponseStatus :: Lens.Lens' DeleteDBProxyResponse Lude.Int
+ddprsResponseStatus = Lens.lens (responseStatus :: DeleteDBProxyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDBProxyResponse)
+{-# DEPRECATED ddprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.Rekognition.DetectFaces
     mkDetectFaces,
 
     -- ** Request lenses
-    dfAttributes,
     dfImage,
+    dfAttributes,
 
     -- * Destructuring the response
     DetectFacesResponse (..),
@@ -46,42 +47,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectFaces' smart constructor.
 data DetectFaces = DetectFaces'
-  { attributes ::
-      Lude.Maybe [Attribute],
-    image :: Image
+  { -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+    --
+    -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+    image :: Image,
+    -- | An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
+    --
+    -- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
+    attributes :: Lude.Maybe [Attribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectFaces' with the minimum fields required to make a request.
 --
--- * 'attributes' - An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
---
--- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 -- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 --
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+-- * 'attributes' - An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
+--
+-- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 mkDetectFaces ::
   -- | 'image'
   Image ->
   DetectFaces
 mkDetectFaces pImage_ =
-  DetectFaces' {attributes = Lude.Nothing, image = pImage_}
-
--- | An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
---
--- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfAttributes :: Lens.Lens' DetectFaces (Lude.Maybe [Attribute])
-dfAttributes = Lens.lens (attributes :: DetectFaces -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: DetectFaces)
-{-# DEPRECATED dfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+  DetectFaces' {image = pImage_, attributes = Lude.Nothing}
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
 --
@@ -91,6 +82,15 @@ dfAttributes = Lens.lens (attributes :: DetectFaces -> Lude.Maybe [Attribute]) (
 dfImage :: Lens.Lens' DetectFaces Image
 dfImage = Lens.lens (image :: DetectFaces -> Image) (\s a -> s {image = a} :: DetectFaces)
 {-# DEPRECATED dfImage "Use generic-lens or generic-optics with 'image' instead." #-}
+
+-- | An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
+--
+-- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfAttributes :: Lens.Lens' DetectFaces (Lude.Maybe [Attribute])
+dfAttributes = Lens.lens (attributes :: DetectFaces -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: DetectFaces)
+{-# DEPRECATED dfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 instance Lude.AWSRequest DetectFaces where
   type Rs DetectFaces = DetectFacesResponse
@@ -119,8 +119,8 @@ instance Lude.ToJSON DetectFaces where
   toJSON DetectFaces' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Attributes" Lude..=) Lude.<$> attributes,
-            Lude.Just ("Image" Lude..= image)
+          [ Lude.Just ("Image" Lude..= image),
+            ("Attributes" Lude..=) Lude.<$> attributes
           ]
       )
 
@@ -132,27 +132,26 @@ instance Lude.ToQuery DetectFaces where
 
 -- | /See:/ 'mkDetectFacesResponse' smart constructor.
 data DetectFacesResponse = DetectFacesResponse'
-  { orientationCorrection ::
-      Lude.Maybe OrientationCorrection,
+  { -- | The value of @OrientationCorrection@ is always null.
+    --
+    -- If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
+    -- Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
+    orientationCorrection :: Lude.Maybe OrientationCorrection,
+    -- | Details of each face found in the image.
     faceDetails :: Lude.Maybe [FaceDetail],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectFacesResponse' with the minimum fields required to make a request.
 --
--- * 'faceDetails' - Details of each face found in the image.
 -- * 'orientationCorrection' - The value of @OrientationCorrection@ is always null.
 --
 -- If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
 -- Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
+-- * 'faceDetails' - Details of each face found in the image.
 -- * 'responseStatus' - The response status code.
 mkDetectFacesResponse ::
   -- | 'responseStatus'

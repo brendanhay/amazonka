@@ -33,25 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttachedPermissionsBoundary' smart constructor.
 data AttachedPermissionsBoundary = AttachedPermissionsBoundary'
-  { permissionsBoundaryType ::
-      Lude.Maybe
-        PermissionsBoundaryAttachmentType,
-    permissionsBoundaryARN ::
-      Lude.Maybe Lude.Text
+  { -- | The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of @Policy@ .
+    permissionsBoundaryType :: Lude.Maybe PermissionsBoundaryAttachmentType,
+    -- | The ARN of the policy used to set the permissions boundary for the user or role.
+    permissionsBoundaryARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachedPermissionsBoundary' with the minimum fields required to make a request.
 --
--- * 'permissionsBoundaryARN' - The ARN of the policy used to set the permissions boundary for the user or role.
 -- * 'permissionsBoundaryType' - The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of @Policy@ .
+-- * 'permissionsBoundaryARN' - The ARN of the policy used to set the permissions boundary for the user or role.
 mkAttachedPermissionsBoundary ::
   AttachedPermissionsBoundary
 mkAttachedPermissionsBoundary =

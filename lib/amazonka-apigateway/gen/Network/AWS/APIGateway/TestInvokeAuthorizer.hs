@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.APIGateway.TestInvokeAuthorizer
     tiaAdditionalContext,
     tiaStageVariables,
     tiaHeaders,
-    tiaMultiValueHeaders,
-    tiaRestAPIId,
     tiaAuthorizerId,
+    tiaRestAPIId,
+    tiaMultiValueHeaders,
 
     -- * Destructuring the response
     TestInvokeAuthorizerResponse (..),
@@ -56,55 +57,52 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkTestInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
-  { pathWithQueryString ::
-      Lude.Maybe Lude.Text,
+  { -- | [Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
+    pathWithQueryString :: Lude.Maybe Lude.Text,
+    -- | [Optional] The simulated request body of an incoming invocation request.
     body :: Lude.Maybe Lude.Text,
-    additionalContext ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    stageVariables ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    headers ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    multiValueHeaders ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | [Optional] A key-value map of additional context variables.
+    additionalContext :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A key-value map of stage variables to simulate an invocation on a deployed 'Stage' .
+    stageVariables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | [Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.
+    headers :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | [Required] Specifies a test invoke authorizer request's 'Authorizer' ID.
+    authorizerId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    authorizerId :: Lude.Text
+    -- | [Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.
+    multiValueHeaders :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestInvokeAuthorizer' with the minimum fields required to make a request.
 --
--- * 'additionalContext' - [Optional] A key-value map of additional context variables.
--- * 'authorizerId' - [Required] Specifies a test invoke authorizer request's 'Authorizer' ID.
--- * 'body' - [Optional] The simulated request body of an incoming invocation request.
--- * 'headers' - [Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.
--- * 'multiValueHeaders' - [Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.
 -- * 'pathWithQueryString' - [Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
--- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'body' - [Optional] The simulated request body of an incoming invocation request.
+-- * 'additionalContext' - [Optional] A key-value map of additional context variables.
 -- * 'stageVariables' - A key-value map of stage variables to simulate an invocation on a deployed 'Stage' .
+-- * 'headers' - [Required] A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.
+-- * 'authorizerId' - [Required] Specifies a test invoke authorizer request's 'Authorizer' ID.
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'multiValueHeaders' - [Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.
 mkTestInvokeAuthorizer ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'authorizerId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   TestInvokeAuthorizer
-mkTestInvokeAuthorizer pRestAPIId_ pAuthorizerId_ =
+mkTestInvokeAuthorizer pAuthorizerId_ pRestAPIId_ =
   TestInvokeAuthorizer'
     { pathWithQueryString = Lude.Nothing,
       body = Lude.Nothing,
       additionalContext = Lude.Nothing,
       stageVariables = Lude.Nothing,
       headers = Lude.Nothing,
-      multiValueHeaders = Lude.Nothing,
+      authorizerId = pAuthorizerId_,
       restAPIId = pRestAPIId_,
-      authorizerId = pAuthorizerId_
+      multiValueHeaders = Lude.Nothing
     }
 
 -- | [Optional] The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.
@@ -142,12 +140,12 @@ tiaHeaders :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe (Lude.HashMap Lude.Tex
 tiaHeaders = Lens.lens (headers :: TestInvokeAuthorizer -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {headers = a} :: TestInvokeAuthorizer)
 {-# DEPRECATED tiaHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
--- | [Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.
+-- | [Required] Specifies a test invoke authorizer request's 'Authorizer' ID.
 --
--- /Note:/ Consider using 'multiValueHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaMultiValueHeaders :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-tiaMultiValueHeaders = Lens.lens (multiValueHeaders :: TestInvokeAuthorizer -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {multiValueHeaders = a} :: TestInvokeAuthorizer)
-{-# DEPRECATED tiaMultiValueHeaders "Use generic-lens or generic-optics with 'multiValueHeaders' instead." #-}
+-- /Note:/ Consider using 'authorizerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiaAuthorizerId :: Lens.Lens' TestInvokeAuthorizer Lude.Text
+tiaAuthorizerId = Lens.lens (authorizerId :: TestInvokeAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: TestInvokeAuthorizer)
+{-# DEPRECATED tiaAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -156,12 +154,12 @@ tiaRestAPIId :: Lens.Lens' TestInvokeAuthorizer Lude.Text
 tiaRestAPIId = Lens.lens (restAPIId :: TestInvokeAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: TestInvokeAuthorizer)
 {-# DEPRECATED tiaRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | [Required] Specifies a test invoke authorizer request's 'Authorizer' ID.
+-- | [Optional] The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.
 --
--- /Note:/ Consider using 'authorizerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiaAuthorizerId :: Lens.Lens' TestInvokeAuthorizer Lude.Text
-tiaAuthorizerId = Lens.lens (authorizerId :: TestInvokeAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: TestInvokeAuthorizer)
-{-# DEPRECATED tiaAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
+-- /Note:/ Consider using 'multiValueHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiaMultiValueHeaders :: Lens.Lens' TestInvokeAuthorizer (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
+tiaMultiValueHeaders = Lens.lens (multiValueHeaders :: TestInvokeAuthorizer -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {multiValueHeaders = a} :: TestInvokeAuthorizer)
+{-# DEPRECATED tiaMultiValueHeaders "Use generic-lens or generic-optics with 'multiValueHeaders' instead." #-}
 
 instance Lude.AWSRequest TestInvokeAuthorizer where
   type Rs TestInvokeAuthorizer = TestInvokeAuthorizerResponse
@@ -216,47 +214,34 @@ instance Lude.ToQuery TestInvokeAuthorizer where
 --
 -- /See:/ 'mkTestInvokeAuthorizerResponse' smart constructor.
 data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
-  { log ::
-      Lude.Maybe Lude.Text,
-    principalId ::
-      Lude.Maybe Lude.Text,
-    latency ::
-      Lude.Maybe Lude.Integer,
-    authorization ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ),
-    claims ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    clientStatus ::
-      Lude.Maybe Lude.Int,
+  { -- | The API Gateway execution log for the test authorizer request.
+    log :: Lude.Maybe Lude.Text,
+    -- | The principal identity returned by the 'Authorizer'
+    principalId :: Lude.Maybe Lude.Text,
+    -- | The execution latency of the test authorizer request.
+    latency :: Lude.Maybe Lude.Integer,
+    authorization :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The <https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims> , with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.
+    claims :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.
+    clientStatus :: Lude.Maybe Lude.Int,
+    -- | The JSON policy document returned by the 'Authorizer'
     policy :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestInvokeAuthorizerResponse' with the minimum fields required to make a request.
 --
--- * 'authorization' - Undocumented field.
+-- * 'log' - The API Gateway execution log for the test authorizer request.
+-- * 'principalId' - The principal identity returned by the 'Authorizer'
+-- * 'latency' - The execution latency of the test authorizer request.
+-- * 'authorization' -
 -- * 'claims' - The <https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims> , with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.
 -- * 'clientStatus' - The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.
--- * 'latency' - The execution latency of the test authorizer request.
--- * 'log' - The API Gateway execution log for the test authorizer request.
 -- * 'policy' - The JSON policy document returned by the 'Authorizer'
--- * 'principalId' - The principal identity returned by the 'Authorizer'
 -- * 'responseStatus' - The response status code.
 mkTestInvokeAuthorizerResponse ::
   -- | 'responseStatus'

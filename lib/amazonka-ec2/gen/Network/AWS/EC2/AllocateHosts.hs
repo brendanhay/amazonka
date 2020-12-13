@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.EC2.AllocateHosts
     -- ** Request lenses
     ahInstanceFamily,
     ahClientToken,
+    ahQuantity,
     ahInstanceType,
     ahTagSpecifications,
+    ahAvailabilityZone,
     ahHostRecovery,
     ahAutoPlacement,
-    ahAvailabilityZone,
-    ahQuantity,
 
     -- * Destructuring the response
     AllocateHostsResponse (..),
@@ -46,59 +47,68 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAllocateHosts' smart constructor.
 data AllocateHosts = AllocateHosts'
-  { instanceFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
+    --
+    -- If you want the Dedicated Hosts to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
+    instanceFamily :: Lude.Maybe Lude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The number of Dedicated Hosts to allocate to your account with these parameters.
+    quantity :: Lude.Int,
+    -- | Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+    --
+    -- If you want the Dedicated Hosts to support multiple instance types in a specific instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The tags to apply to the Dedicated Host during creation.
     tagSpecifications :: Lude.Maybe [TagSpecification],
-    hostRecovery :: Lude.Maybe HostRecovery,
-    autoPlacement :: Lude.Maybe AutoPlacement,
+    -- | The Availability Zone in which to allocate the Dedicated Host.
     availabilityZone :: Lude.Text,
-    quantity :: Lude.Int
+    -- | Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
+    --
+    -- Default: @off@
+    hostRecovery :: Lude.Maybe HostRecovery,
+    -- | Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding Understanding Instance Placement and Host Affinity> in the /Amazon EC2 User Guide for Linux Instances/ .
+    --
+    -- Default: @on@
+    autoPlacement :: Lude.Maybe AutoPlacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateHosts' with the minimum fields required to make a request.
 --
--- * 'autoPlacement' - Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding Understanding Instance Placement and Host Affinity> in the /Amazon EC2 User Guide for Linux Instances/ .
---
--- Default: @on@
--- * 'availabilityZone' - The Availability Zone in which to allocate the Dedicated Host.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- Default: @off@
 -- * 'instanceFamily' - Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
 --
 -- If you want the Dedicated Hosts to support a specific instance type only, omit this parameter and specify __InstanceType__ instead. You cannot specify __InstanceFamily__ and __InstanceType__ in the same request.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'quantity' - The number of Dedicated Hosts to allocate to your account with these parameters.
 -- * 'instanceType' - Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
 --
 -- If you want the Dedicated Hosts to support multiple instance types in a specific instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
--- * 'quantity' - The number of Dedicated Hosts to allocate to your account with these parameters.
 -- * 'tagSpecifications' - The tags to apply to the Dedicated Host during creation.
+-- * 'availabilityZone' - The Availability Zone in which to allocate the Dedicated Host.
+-- * 'hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- Default: @off@
+-- * 'autoPlacement' - Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding Understanding Instance Placement and Host Affinity> in the /Amazon EC2 User Guide for Linux Instances/ .
+--
+-- Default: @on@
 mkAllocateHosts ::
-  -- | 'availabilityZone'
-  Lude.Text ->
   -- | 'quantity'
   Lude.Int ->
+  -- | 'availabilityZone'
+  Lude.Text ->
   AllocateHosts
-mkAllocateHosts pAvailabilityZone_ pQuantity_ =
+mkAllocateHosts pQuantity_ pAvailabilityZone_ =
   AllocateHosts'
     { instanceFamily = Lude.Nothing,
       clientToken = Lude.Nothing,
+      quantity = pQuantity_,
       instanceType = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
-      hostRecovery = Lude.Nothing,
-      autoPlacement = Lude.Nothing,
       availabilityZone = pAvailabilityZone_,
-      quantity = pQuantity_
+      hostRecovery = Lude.Nothing,
+      autoPlacement = Lude.Nothing
     }
 
 -- | Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
@@ -117,6 +127,13 @@ ahClientToken :: Lens.Lens' AllocateHosts (Lude.Maybe Lude.Text)
 ahClientToken = Lens.lens (clientToken :: AllocateHosts -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: AllocateHosts)
 {-# DEPRECATED ahClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
+-- | The number of Dedicated Hosts to allocate to your account with these parameters.
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahQuantity :: Lens.Lens' AllocateHosts Lude.Int
+ahQuantity = Lens.lens (quantity :: AllocateHosts -> Lude.Int) (\s a -> s {quantity = a} :: AllocateHosts)
+{-# DEPRECATED ahQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
+
 -- | Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
 --
 -- If you want the Dedicated Hosts to support multiple instance types in a specific instance family, omit this parameter and specify __InstanceFamily__ instead. You cannot specify __InstanceType__ and __InstanceFamily__ in the same request.
@@ -132,6 +149,13 @@ ahInstanceType = Lens.lens (instanceType :: AllocateHosts -> Lude.Maybe Lude.Tex
 ahTagSpecifications :: Lens.Lens' AllocateHosts (Lude.Maybe [TagSpecification])
 ahTagSpecifications = Lens.lens (tagSpecifications :: AllocateHosts -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: AllocateHosts)
 {-# DEPRECATED ahTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+-- | The Availability Zone in which to allocate the Dedicated Host.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahAvailabilityZone :: Lens.Lens' AllocateHosts Lude.Text
+ahAvailabilityZone = Lens.lens (availabilityZone :: AllocateHosts -> Lude.Text) (\s a -> s {availabilityZone = a} :: AllocateHosts)
+{-# DEPRECATED ahAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host Recovery> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
@@ -150,20 +174,6 @@ ahHostRecovery = Lens.lens (hostRecovery :: AllocateHosts -> Lude.Maybe HostReco
 ahAutoPlacement :: Lens.Lens' AllocateHosts (Lude.Maybe AutoPlacement)
 ahAutoPlacement = Lens.lens (autoPlacement :: AllocateHosts -> Lude.Maybe AutoPlacement) (\s a -> s {autoPlacement = a} :: AllocateHosts)
 {-# DEPRECATED ahAutoPlacement "Use generic-lens or generic-optics with 'autoPlacement' instead." #-}
-
--- | The Availability Zone in which to allocate the Dedicated Host.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahAvailabilityZone :: Lens.Lens' AllocateHosts Lude.Text
-ahAvailabilityZone = Lens.lens (availabilityZone :: AllocateHosts -> Lude.Text) (\s a -> s {availabilityZone = a} :: AllocateHosts)
-{-# DEPRECATED ahAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The number of Dedicated Hosts to allocate to your account with these parameters.
---
--- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahQuantity :: Lens.Lens' AllocateHosts Lude.Int
-ahQuantity = Lens.lens (quantity :: AllocateHosts -> Lude.Int) (\s a -> s {quantity = a} :: AllocateHosts)
-{-# DEPRECATED ahQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 instance Lude.AWSRequest AllocateHosts where
   type Rs AllocateHosts = AllocateHostsResponse
@@ -191,30 +201,25 @@ instance Lude.ToQuery AllocateHosts where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "InstanceFamily" Lude.=: instanceFamily,
         "ClientToken" Lude.=: clientToken,
+        "Quantity" Lude.=: quantity,
         "InstanceType" Lude.=: instanceType,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "HostRecovery" Lude.=: hostRecovery,
-        "AutoPlacement" Lude.=: autoPlacement,
         "AvailabilityZone" Lude.=: availabilityZone,
-        "Quantity" Lude.=: quantity
+        "HostRecovery" Lude.=: hostRecovery,
+        "AutoPlacement" Lude.=: autoPlacement
       ]
 
 -- | Contains the output of AllocateHosts.
 --
 -- /See:/ 'mkAllocateHostsResponse' smart constructor.
 data AllocateHostsResponse = AllocateHostsResponse'
-  { hostIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The ID of the allocated Dedicated Host. This is used to launch an instance onto a specific host.
+    hostIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateHostsResponse' with the minimum fields required to make a request.

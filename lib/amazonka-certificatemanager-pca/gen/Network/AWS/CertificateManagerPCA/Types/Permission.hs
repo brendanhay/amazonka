@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPermission' smart constructor.
 data Permission = Permission'
-  { sourceAccount ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the account that assigned the permission.
+    sourceAccount :: Lude.Maybe Lude.Text,
+    -- | The private CA actions that can be performed by the designated AWS service.
     actions :: Lude.Maybe (Lude.NonEmpty ActionType),
+    -- | The time at which the permission was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
     principal :: Lude.Maybe Lude.Text,
+    -- | The name of the policy that is associated with the permission.
     policy :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
     certificateAuthorityARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Permission' with the minimum fields required to make a request.
 --
--- * 'actions' - The private CA actions that can be performed by the designated AWS service.
--- * 'certificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
--- * 'createdAt' - The time at which the permission was created.
--- * 'policy' - The name of the policy that is associated with the permission.
--- * 'principal' - The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
 -- * 'sourceAccount' - The ID of the account that assigned the permission.
+-- * 'actions' - The private CA actions that can be performed by the designated AWS service.
+-- * 'createdAt' - The time at which the permission was created.
+-- * 'principal' - The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
+-- * 'policy' - The name of the policy that is associated with the permission.
+-- * 'certificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
 mkPermission ::
   Permission
 mkPermission =

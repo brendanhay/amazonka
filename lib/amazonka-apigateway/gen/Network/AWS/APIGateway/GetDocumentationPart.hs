@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.GetDocumentationPart
     mkGetDocumentationPart,
 
     -- ** Request lenses
-    getRestAPIId,
-    getDocumentationPartId,
+    gdpDocumentationPartId,
+    gdpRestAPIId,
 
     -- * Destructuring the response
     DocumentationPart (..),
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetDocumentationPart' smart constructor.
 data GetDocumentationPart = GetDocumentationPart'
-  { restAPIId ::
-      Lude.Text,
-    documentationPartId :: Lude.Text
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    documentationPartId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationPart' with the minimum fields required to make a request.
@@ -61,30 +57,31 @@ data GetDocumentationPart = GetDocumentationPart'
 -- * 'documentationPartId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetDocumentationPart ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'documentationPartId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetDocumentationPart
-mkGetDocumentationPart pRestAPIId_ pDocumentationPartId_ =
+mkGetDocumentationPart pDocumentationPartId_ pRestAPIId_ =
   GetDocumentationPart'
-    { restAPIId = pRestAPIId_,
-      documentationPartId = pDocumentationPartId_
+    { documentationPartId =
+        pDocumentationPartId_,
+      restAPIId = pRestAPIId_
     }
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getRestAPIId :: Lens.Lens' GetDocumentationPart Lude.Text
-getRestAPIId = Lens.lens (restAPIId :: GetDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDocumentationPart)
-{-# DEPRECATED getRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+-- /Note:/ Consider using 'documentationPartId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpDocumentationPartId :: Lens.Lens' GetDocumentationPart Lude.Text
+gdpDocumentationPartId = Lens.lens (documentationPartId :: GetDocumentationPart -> Lude.Text) (\s a -> s {documentationPartId = a} :: GetDocumentationPart)
+{-# DEPRECATED gdpDocumentationPartId "Use generic-lens or generic-optics with 'documentationPartId' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
--- /Note:/ Consider using 'documentationPartId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getDocumentationPartId :: Lens.Lens' GetDocumentationPart Lude.Text
-getDocumentationPartId = Lens.lens (documentationPartId :: GetDocumentationPart -> Lude.Text) (\s a -> s {documentationPartId = a} :: GetDocumentationPart)
-{-# DEPRECATED getDocumentationPartId "Use generic-lens or generic-optics with 'documentationPartId' instead." #-}
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpRestAPIId :: Lens.Lens' GetDocumentationPart Lude.Text
+gdpRestAPIId = Lens.lens (restAPIId :: GetDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDocumentationPart)
+{-# DEPRECATED gdpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetDocumentationPart where
   type Rs GetDocumentationPart = DocumentationPart

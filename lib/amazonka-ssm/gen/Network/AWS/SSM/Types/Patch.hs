@@ -17,29 +17,29 @@ module Network.AWS.SSM.Types.Patch
     mkPatch,
 
     -- * Lenses
-    patBugzillaIds,
-    patVendor,
-    patMsrcSeverity,
-    patRepository,
-    patProductFamily,
-    patSeverity,
-    patAdvisoryIds,
-    patCVEIds,
-    patClassification,
-    patRelease,
-    patMsrcNumber,
-    patName,
-    patVersion,
-    patLanguage,
-    patKbNumber,
-    patContentURL,
-    patId,
-    patReleaseDate,
-    patTitle,
-    patArch,
-    patProduct,
-    patDescription,
-    patEpoch,
+    pfBugzillaIds,
+    pfVendor,
+    pfMsrcSeverity,
+    pfRepository,
+    pfProductFamily,
+    pfSeverity,
+    pfAdvisoryIds,
+    pfCVEIds,
+    pfClassification,
+    pfRelease,
+    pfMsrcNumber,
+    pfName,
+    pfVersion,
+    pfLanguage,
+    pfKbNumber,
+    pfContentURL,
+    pfId,
+    pfReleaseDate,
+    pfTitle,
+    pfArch,
+    pfProduct,
+    pfDescription,
+    pfEpoch,
   )
 where
 
@@ -50,64 +50,81 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPatch' smart constructor.
 data Patch = Patch'
-  { bugzillaIds :: Lude.Maybe [Lude.Text],
+  { -- | The Bugzilla ID of the patch. For example, @1600646@ . Applies to Linux-based instances only.
+    bugzillaIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the vendor providing the patch.
     vendor :: Lude.Maybe Lude.Text,
+    -- | The severity of the patch, such as @Critical@ , @Important@ , or @Moderate@ . Applies to Windows patches only.
     msrcSeverity :: Lude.Maybe Lude.Text,
+    -- | The source patch repository for the operating system and version, such as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@ for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
     repository :: Lude.Maybe Lude.Text,
+    -- | The product family the patch is applicable for. For example, @Windows@ or @Amazon Linux 2@ .
     productFamily :: Lude.Maybe Lude.Text,
+    -- | The severity level of the patch. For example, @CRITICAL@ or @MODERATE@ .
     severity :: Lude.Maybe Lude.Text,
+    -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@ . Applies to Linux-based instances only.
     advisoryIds :: Lude.Maybe [Lude.Text],
+    -- | The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example, @CVE-1999-0067@ . Applies to Linux-based instances only.
     cVEIds :: Lude.Maybe [Lude.Text],
+    -- | The classification of the patch. For example, @SecurityUpdates@ , @Updates@ , or @CriticalUpdates@ .
     classification :: Lude.Maybe Lude.Text,
+    -- | The particular release of a patch. For example, in @pkg-example-EE-20180914-2.2.amzn1.noarch@ , the release is @2.amaz1@ . Applies to Linux-based instances only.
     release :: Lude.Maybe Lude.Text,
+    -- | The ID of the Microsoft Security Response Center (MSRC) bulletin the patch is related to. For example, @MS14-045@ . Applies to Windows patches only.
     msrcNumber :: Lude.Maybe Lude.Text,
+    -- | The name of the patch. Applies to Linux-based instances only.
     name :: Lude.Maybe Lude.Text,
+    -- | The version number of the patch. For example, in @example-pkg-1.710.10-2.7.abcd.x86_64@ , the version number is indicated by @-1@ . Applies to Linux-based instances only.
     version :: Lude.Maybe Lude.Text,
+    -- | The language of the patch if it's language-specific.
     language :: Lude.Maybe Lude.Text,
+    -- | The Microsoft Knowledge Base ID of the patch. Applies to Windows patches only.
     kbNumber :: Lude.Maybe Lude.Text,
+    -- | The URL where more information can be obtained about the patch.
     contentURL :: Lude.Maybe Lude.Text,
+    -- | The ID of the patch. Applies to Windows patches only.
     id :: Lude.Maybe Lude.Text,
+    -- | The date the patch was released.
     releaseDate :: Lude.Maybe Lude.Timestamp,
+    -- | The title of the patch.
     title :: Lude.Maybe Lude.Text,
+    -- | The architecture of the patch. For example, in @example-pkg-0.710.10-2.7.abcd.x86_64@ , the architecture is indicated by @x86_64@ . Applies to Linux-based instances only.
     arch :: Lude.Maybe Lude.Text,
+    -- | The specific product the patch is applicable for. For example, @WindowsServer2016@ or @AmazonLinux2018.03@ .
     product :: Lude.Maybe Lude.Text,
+    -- | The description of the patch.
     description :: Lude.Maybe Lude.Text,
+    -- | The epoch of the patch. For example in @pkg-example-EE-20180914-2.2.amzn1.noarch@ , the epoch value is @20180914-2@ . Applies to Linux-based instances only.
     epoch :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Patch' with the minimum fields required to make a request.
 --
--- * 'advisoryIds' - The Advisory ID of the patch. For example, @RHSA-2020:3779@ . Applies to Linux-based instances only.
--- * 'arch' - The architecture of the patch. For example, in @example-pkg-0.710.10-2.7.abcd.x86_64@ , the architecture is indicated by @x86_64@ . Applies to Linux-based instances only.
 -- * 'bugzillaIds' - The Bugzilla ID of the patch. For example, @1600646@ . Applies to Linux-based instances only.
+-- * 'vendor' - The name of the vendor providing the patch.
+-- * 'msrcSeverity' - The severity of the patch, such as @Critical@ , @Important@ , or @Moderate@ . Applies to Windows patches only.
+-- * 'repository' - The source patch repository for the operating system and version, such as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@ for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
+-- * 'productFamily' - The product family the patch is applicable for. For example, @Windows@ or @Amazon Linux 2@ .
+-- * 'severity' - The severity level of the patch. For example, @CRITICAL@ or @MODERATE@ .
+-- * 'advisoryIds' - The Advisory ID of the patch. For example, @RHSA-2020:3779@ . Applies to Linux-based instances only.
 -- * 'cVEIds' - The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example, @CVE-1999-0067@ . Applies to Linux-based instances only.
 -- * 'classification' - The classification of the patch. For example, @SecurityUpdates@ , @Updates@ , or @CriticalUpdates@ .
+-- * 'release' - The particular release of a patch. For example, in @pkg-example-EE-20180914-2.2.amzn1.noarch@ , the release is @2.amaz1@ . Applies to Linux-based instances only.
+-- * 'msrcNumber' - The ID of the Microsoft Security Response Center (MSRC) bulletin the patch is related to. For example, @MS14-045@ . Applies to Windows patches only.
+-- * 'name' - The name of the patch. Applies to Linux-based instances only.
+-- * 'version' - The version number of the patch. For example, in @example-pkg-1.710.10-2.7.abcd.x86_64@ , the version number is indicated by @-1@ . Applies to Linux-based instances only.
+-- * 'language' - The language of the patch if it's language-specific.
+-- * 'kbNumber' - The Microsoft Knowledge Base ID of the patch. Applies to Windows patches only.
 -- * 'contentURL' - The URL where more information can be obtained about the patch.
+-- * 'id' - The ID of the patch. Applies to Windows patches only.
+-- * 'releaseDate' - The date the patch was released.
+-- * 'title' - The title of the patch.
+-- * 'arch' - The architecture of the patch. For example, in @example-pkg-0.710.10-2.7.abcd.x86_64@ , the architecture is indicated by @x86_64@ . Applies to Linux-based instances only.
+-- * 'product' - The specific product the patch is applicable for. For example, @WindowsServer2016@ or @AmazonLinux2018.03@ .
 -- * 'description' - The description of the patch.
 -- * 'epoch' - The epoch of the patch. For example in @pkg-example-EE-20180914-2.2.amzn1.noarch@ , the epoch value is @20180914-2@ . Applies to Linux-based instances only.
--- * 'id' - The ID of the patch. Applies to Windows patches only.
--- * 'kbNumber' - The Microsoft Knowledge Base ID of the patch. Applies to Windows patches only.
--- * 'language' - The language of the patch if it's language-specific.
--- * 'msrcNumber' - The ID of the Microsoft Security Response Center (MSRC) bulletin the patch is related to. For example, @MS14-045@ . Applies to Windows patches only.
--- * 'msrcSeverity' - The severity of the patch, such as @Critical@ , @Important@ , or @Moderate@ . Applies to Windows patches only.
--- * 'name' - The name of the patch. Applies to Linux-based instances only.
--- * 'product' - The specific product the patch is applicable for. For example, @WindowsServer2016@ or @AmazonLinux2018.03@ .
--- * 'productFamily' - The product family the patch is applicable for. For example, @Windows@ or @Amazon Linux 2@ .
--- * 'release' - The particular release of a patch. For example, in @pkg-example-EE-20180914-2.2.amzn1.noarch@ , the release is @2.amaz1@ . Applies to Linux-based instances only.
--- * 'releaseDate' - The date the patch was released.
--- * 'repository' - The source patch repository for the operating system and version, such as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@ for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
--- * 'severity' - The severity level of the patch. For example, @CRITICAL@ or @MODERATE@ .
--- * 'title' - The title of the patch.
--- * 'vendor' - The name of the vendor providing the patch.
--- * 'version' - The version number of the patch. For example, in @example-pkg-1.710.10-2.7.abcd.x86_64@ , the version number is indicated by @-1@ . Applies to Linux-based instances only.
 mkPatch ::
   Patch
 mkPatch =
@@ -140,163 +157,163 @@ mkPatch =
 -- | The Bugzilla ID of the patch. For example, @1600646@ . Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'bugzillaIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patBugzillaIds :: Lens.Lens' Patch (Lude.Maybe [Lude.Text])
-patBugzillaIds = Lens.lens (bugzillaIds :: Patch -> Lude.Maybe [Lude.Text]) (\s a -> s {bugzillaIds = a} :: Patch)
-{-# DEPRECATED patBugzillaIds "Use generic-lens or generic-optics with 'bugzillaIds' instead." #-}
+pfBugzillaIds :: Lens.Lens' Patch (Lude.Maybe [Lude.Text])
+pfBugzillaIds = Lens.lens (bugzillaIds :: Patch -> Lude.Maybe [Lude.Text]) (\s a -> s {bugzillaIds = a} :: Patch)
+{-# DEPRECATED pfBugzillaIds "Use generic-lens or generic-optics with 'bugzillaIds' instead." #-}
 
 -- | The name of the vendor providing the patch.
 --
 -- /Note:/ Consider using 'vendor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patVendor :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patVendor = Lens.lens (vendor :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {vendor = a} :: Patch)
-{-# DEPRECATED patVendor "Use generic-lens or generic-optics with 'vendor' instead." #-}
+pfVendor :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfVendor = Lens.lens (vendor :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {vendor = a} :: Patch)
+{-# DEPRECATED pfVendor "Use generic-lens or generic-optics with 'vendor' instead." #-}
 
 -- | The severity of the patch, such as @Critical@ , @Important@ , or @Moderate@ . Applies to Windows patches only.
 --
 -- /Note:/ Consider using 'msrcSeverity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patMsrcSeverity :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patMsrcSeverity = Lens.lens (msrcSeverity :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {msrcSeverity = a} :: Patch)
-{-# DEPRECATED patMsrcSeverity "Use generic-lens or generic-optics with 'msrcSeverity' instead." #-}
+pfMsrcSeverity :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfMsrcSeverity = Lens.lens (msrcSeverity :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {msrcSeverity = a} :: Patch)
+{-# DEPRECATED pfMsrcSeverity "Use generic-lens or generic-optics with 'msrcSeverity' instead." #-}
 
 -- | The source patch repository for the operating system and version, such as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@ for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'repository' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patRepository :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patRepository = Lens.lens (repository :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {repository = a} :: Patch)
-{-# DEPRECATED patRepository "Use generic-lens or generic-optics with 'repository' instead." #-}
+pfRepository :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfRepository = Lens.lens (repository :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {repository = a} :: Patch)
+{-# DEPRECATED pfRepository "Use generic-lens or generic-optics with 'repository' instead." #-}
 
 -- | The product family the patch is applicable for. For example, @Windows@ or @Amazon Linux 2@ .
 --
 -- /Note:/ Consider using 'productFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patProductFamily :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patProductFamily = Lens.lens (productFamily :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {productFamily = a} :: Patch)
-{-# DEPRECATED patProductFamily "Use generic-lens or generic-optics with 'productFamily' instead." #-}
+pfProductFamily :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfProductFamily = Lens.lens (productFamily :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {productFamily = a} :: Patch)
+{-# DEPRECATED pfProductFamily "Use generic-lens or generic-optics with 'productFamily' instead." #-}
 
 -- | The severity level of the patch. For example, @CRITICAL@ or @MODERATE@ .
 --
 -- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patSeverity :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patSeverity = Lens.lens (severity :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {severity = a} :: Patch)
-{-# DEPRECATED patSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
+pfSeverity :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfSeverity = Lens.lens (severity :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {severity = a} :: Patch)
+{-# DEPRECATED pfSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
 -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@ . Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'advisoryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patAdvisoryIds :: Lens.Lens' Patch (Lude.Maybe [Lude.Text])
-patAdvisoryIds = Lens.lens (advisoryIds :: Patch -> Lude.Maybe [Lude.Text]) (\s a -> s {advisoryIds = a} :: Patch)
-{-# DEPRECATED patAdvisoryIds "Use generic-lens or generic-optics with 'advisoryIds' instead." #-}
+pfAdvisoryIds :: Lens.Lens' Patch (Lude.Maybe [Lude.Text])
+pfAdvisoryIds = Lens.lens (advisoryIds :: Patch -> Lude.Maybe [Lude.Text]) (\s a -> s {advisoryIds = a} :: Patch)
+{-# DEPRECATED pfAdvisoryIds "Use generic-lens or generic-optics with 'advisoryIds' instead." #-}
 
 -- | The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example, @CVE-1999-0067@ . Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'cVEIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patCVEIds :: Lens.Lens' Patch (Lude.Maybe [Lude.Text])
-patCVEIds = Lens.lens (cVEIds :: Patch -> Lude.Maybe [Lude.Text]) (\s a -> s {cVEIds = a} :: Patch)
-{-# DEPRECATED patCVEIds "Use generic-lens or generic-optics with 'cVEIds' instead." #-}
+pfCVEIds :: Lens.Lens' Patch (Lude.Maybe [Lude.Text])
+pfCVEIds = Lens.lens (cVEIds :: Patch -> Lude.Maybe [Lude.Text]) (\s a -> s {cVEIds = a} :: Patch)
+{-# DEPRECATED pfCVEIds "Use generic-lens or generic-optics with 'cVEIds' instead." #-}
 
 -- | The classification of the patch. For example, @SecurityUpdates@ , @Updates@ , or @CriticalUpdates@ .
 --
 -- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patClassification :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patClassification = Lens.lens (classification :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {classification = a} :: Patch)
-{-# DEPRECATED patClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
+pfClassification :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfClassification = Lens.lens (classification :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {classification = a} :: Patch)
+{-# DEPRECATED pfClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | The particular release of a patch. For example, in @pkg-example-EE-20180914-2.2.amzn1.noarch@ , the release is @2.amaz1@ . Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'release' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patRelease :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patRelease = Lens.lens (release :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {release = a} :: Patch)
-{-# DEPRECATED patRelease "Use generic-lens or generic-optics with 'release' instead." #-}
+pfRelease :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfRelease = Lens.lens (release :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {release = a} :: Patch)
+{-# DEPRECATED pfRelease "Use generic-lens or generic-optics with 'release' instead." #-}
 
 -- | The ID of the Microsoft Security Response Center (MSRC) bulletin the patch is related to. For example, @MS14-045@ . Applies to Windows patches only.
 --
 -- /Note:/ Consider using 'msrcNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patMsrcNumber :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patMsrcNumber = Lens.lens (msrcNumber :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {msrcNumber = a} :: Patch)
-{-# DEPRECATED patMsrcNumber "Use generic-lens or generic-optics with 'msrcNumber' instead." #-}
+pfMsrcNumber :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfMsrcNumber = Lens.lens (msrcNumber :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {msrcNumber = a} :: Patch)
+{-# DEPRECATED pfMsrcNumber "Use generic-lens or generic-optics with 'msrcNumber' instead." #-}
 
 -- | The name of the patch. Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patName :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patName = Lens.lens (name :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Patch)
-{-# DEPRECATED patName "Use generic-lens or generic-optics with 'name' instead." #-}
+pfName :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfName = Lens.lens (name :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Patch)
+{-# DEPRECATED pfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version number of the patch. For example, in @example-pkg-1.710.10-2.7.abcd.x86_64@ , the version number is indicated by @-1@ . Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patVersion :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patVersion = Lens.lens (version :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: Patch)
-{-# DEPRECATED patVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+pfVersion :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfVersion = Lens.lens (version :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: Patch)
+{-# DEPRECATED pfVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The language of the patch if it's language-specific.
 --
 -- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patLanguage :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patLanguage = Lens.lens (language :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: Patch)
-{-# DEPRECATED patLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
+pfLanguage :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfLanguage = Lens.lens (language :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: Patch)
+{-# DEPRECATED pfLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 -- | The Microsoft Knowledge Base ID of the patch. Applies to Windows patches only.
 --
 -- /Note:/ Consider using 'kbNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patKbNumber :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patKbNumber = Lens.lens (kbNumber :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {kbNumber = a} :: Patch)
-{-# DEPRECATED patKbNumber "Use generic-lens or generic-optics with 'kbNumber' instead." #-}
+pfKbNumber :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfKbNumber = Lens.lens (kbNumber :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {kbNumber = a} :: Patch)
+{-# DEPRECATED pfKbNumber "Use generic-lens or generic-optics with 'kbNumber' instead." #-}
 
 -- | The URL where more information can be obtained about the patch.
 --
 -- /Note:/ Consider using 'contentURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patContentURL :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patContentURL = Lens.lens (contentURL :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {contentURL = a} :: Patch)
-{-# DEPRECATED patContentURL "Use generic-lens or generic-optics with 'contentURL' instead." #-}
+pfContentURL :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfContentURL = Lens.lens (contentURL :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {contentURL = a} :: Patch)
+{-# DEPRECATED pfContentURL "Use generic-lens or generic-optics with 'contentURL' instead." #-}
 
 -- | The ID of the patch. Applies to Windows patches only.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patId :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patId = Lens.lens (id :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Patch)
-{-# DEPRECATED patId "Use generic-lens or generic-optics with 'id' instead." #-}
+pfId :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfId = Lens.lens (id :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Patch)
+{-# DEPRECATED pfId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date the patch was released.
 --
 -- /Note:/ Consider using 'releaseDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patReleaseDate :: Lens.Lens' Patch (Lude.Maybe Lude.Timestamp)
-patReleaseDate = Lens.lens (releaseDate :: Patch -> Lude.Maybe Lude.Timestamp) (\s a -> s {releaseDate = a} :: Patch)
-{-# DEPRECATED patReleaseDate "Use generic-lens or generic-optics with 'releaseDate' instead." #-}
+pfReleaseDate :: Lens.Lens' Patch (Lude.Maybe Lude.Timestamp)
+pfReleaseDate = Lens.lens (releaseDate :: Patch -> Lude.Maybe Lude.Timestamp) (\s a -> s {releaseDate = a} :: Patch)
+{-# DEPRECATED pfReleaseDate "Use generic-lens or generic-optics with 'releaseDate' instead." #-}
 
 -- | The title of the patch.
 --
 -- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patTitle :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patTitle = Lens.lens (title :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: Patch)
-{-# DEPRECATED patTitle "Use generic-lens or generic-optics with 'title' instead." #-}
+pfTitle :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfTitle = Lens.lens (title :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: Patch)
+{-# DEPRECATED pfTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | The architecture of the patch. For example, in @example-pkg-0.710.10-2.7.abcd.x86_64@ , the architecture is indicated by @x86_64@ . Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'arch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patArch :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patArch = Lens.lens (arch :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {arch = a} :: Patch)
-{-# DEPRECATED patArch "Use generic-lens or generic-optics with 'arch' instead." #-}
+pfArch :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfArch = Lens.lens (arch :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {arch = a} :: Patch)
+{-# DEPRECATED pfArch "Use generic-lens or generic-optics with 'arch' instead." #-}
 
 -- | The specific product the patch is applicable for. For example, @WindowsServer2016@ or @AmazonLinux2018.03@ .
 --
 -- /Note:/ Consider using 'product' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patProduct :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patProduct = Lens.lens (product :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {product = a} :: Patch)
-{-# DEPRECATED patProduct "Use generic-lens or generic-optics with 'product' instead." #-}
+pfProduct :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfProduct = Lens.lens (product :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {product = a} :: Patch)
+{-# DEPRECATED pfProduct "Use generic-lens or generic-optics with 'product' instead." #-}
 
 -- | The description of the patch.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patDescription :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
-patDescription = Lens.lens (description :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Patch)
-{-# DEPRECATED patDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+pfDescription :: Lens.Lens' Patch (Lude.Maybe Lude.Text)
+pfDescription = Lens.lens (description :: Patch -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Patch)
+{-# DEPRECATED pfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The epoch of the patch. For example in @pkg-example-EE-20180914-2.2.amzn1.noarch@ , the epoch value is @20180914-2@ . Applies to Linux-based instances only.
 --
 -- /Note:/ Consider using 'epoch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-patEpoch :: Lens.Lens' Patch (Lude.Maybe Lude.Int)
-patEpoch = Lens.lens (epoch :: Patch -> Lude.Maybe Lude.Int) (\s a -> s {epoch = a} :: Patch)
-{-# DEPRECATED patEpoch "Use generic-lens or generic-optics with 'epoch' instead." #-}
+pfEpoch :: Lens.Lens' Patch (Lude.Maybe Lude.Int)
+pfEpoch = Lens.lens (epoch :: Patch -> Lude.Maybe Lude.Int) (\s a -> s {epoch = a} :: Patch)
+{-# DEPRECATED pfEpoch "Use generic-lens or generic-optics with 'epoch' instead." #-}
 
 instance Lude.FromJSON Patch where
   parseJSON =

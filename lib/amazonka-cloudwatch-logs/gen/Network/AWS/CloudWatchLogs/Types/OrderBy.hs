@@ -13,8 +13,8 @@
 module Network.AWS.CloudWatchLogs.Types.OrderBy
   ( OrderBy
       ( OrderBy',
-        LastEventTime,
-        LogStreamName
+        LogStreamName,
+        LastEventTime
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OrderBy = OrderBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern LastEventTime :: OrderBy
-pattern LastEventTime = OrderBy' "LastEventTime"
-
 pattern LogStreamName :: OrderBy
 pattern LogStreamName = OrderBy' "LogStreamName"
 
+pattern LastEventTime :: OrderBy
+pattern LastEventTime = OrderBy' "LastEventTime"
+
 {-# COMPLETE
-  LastEventTime,
   LogStreamName,
+  LastEventTime,
   OrderBy'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,23 +23,23 @@ module Network.AWS.EC2.DetachVolume
     mkDetachVolume,
 
     -- ** Request lenses
-    dvInstanceId,
-    dvForce,
-    dvDevice,
-    dvDryRun,
-    dvVolumeId,
+    dvhInstanceId,
+    dvhForce,
+    dvhDevice,
+    dvhVolumeId,
+    dvhDryRun,
 
     -- * Destructuring the response
     VolumeAttachment (..),
     mkVolumeAttachment,
 
     -- ** Response lenses
-    volInstanceId,
-    volDeleteOnTermination,
-    volState,
-    volDevice,
-    volVolumeId,
-    volAttachTime,
+    vafInstanceId,
+    vafDeleteOnTermination,
+    vafState,
+    vafDevice,
+    vafVolumeId,
+    vafAttachTime,
   )
 where
 
@@ -50,29 +51,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachVolume' smart constructor.
 data DetachVolume = DetachVolume'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
     force :: Lude.Maybe Lude.Bool,
+    -- | The device name.
     device :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    volumeId :: Lude.Text
+    -- | The ID of the volume.
+    volumeId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachVolume' with the minimum fields required to make a request.
 --
--- * 'device' - The device name.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'force' - Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
 -- * 'instanceId' - The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.
+-- * 'force' - Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
+-- * 'device' - The device name.
 -- * 'volumeId' - The ID of the volume.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDetachVolume ::
   -- | 'volumeId'
   Lude.Text ->
@@ -82,44 +81,44 @@ mkDetachVolume pVolumeId_ =
     { instanceId = Lude.Nothing,
       force = Lude.Nothing,
       device = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      volumeId = pVolumeId_
+      volumeId = pVolumeId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvInstanceId :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Text)
-dvInstanceId = Lens.lens (instanceId :: DetachVolume -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DetachVolume)
-{-# DEPRECATED dvInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+dvhInstanceId :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Text)
+dvhInstanceId = Lens.lens (instanceId :: DetachVolume -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DetachVolume)
+{-# DEPRECATED dvhInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Forces detachment if the previous detachment attempt did not occur cleanly (for example, logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvForce :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Bool)
-dvForce = Lens.lens (force :: DetachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DetachVolume)
-{-# DEPRECATED dvForce "Use generic-lens or generic-optics with 'force' instead." #-}
+dvhForce :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Bool)
+dvhForce = Lens.lens (force :: DetachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DetachVolume)
+{-# DEPRECATED dvhForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The device name.
 --
 -- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvDevice :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Text)
-dvDevice = Lens.lens (device :: DetachVolume -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: DetachVolume)
-{-# DEPRECATED dvDevice "Use generic-lens or generic-optics with 'device' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvDryRun :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Bool)
-dvDryRun = Lens.lens (dryRun :: DetachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachVolume)
-{-# DEPRECATED dvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dvhDevice :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Text)
+dvhDevice = Lens.lens (device :: DetachVolume -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: DetachVolume)
+{-# DEPRECATED dvhDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | The ID of the volume.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvVolumeId :: Lens.Lens' DetachVolume Lude.Text
-dvVolumeId = Lens.lens (volumeId :: DetachVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DetachVolume)
-{-# DEPRECATED dvVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+dvhVolumeId :: Lens.Lens' DetachVolume Lude.Text
+dvhVolumeId = Lens.lens (volumeId :: DetachVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DetachVolume)
+{-# DEPRECATED dvhVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvhDryRun :: Lens.Lens' DetachVolume (Lude.Maybe Lude.Bool)
+dvhDryRun = Lens.lens (dryRun :: DetachVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachVolume)
+{-# DEPRECATED dvhDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DetachVolume where
   type Rs DetachVolume = VolumeAttachment
@@ -140,6 +139,6 @@ instance Lude.ToQuery DetachVolume where
         "InstanceId" Lude.=: instanceId,
         "Force" Lude.=: force,
         "Device" Lude.=: device,
-        "DryRun" Lude.=: dryRun,
-        "VolumeId" Lude.=: volumeId
+        "VolumeId" Lude.=: volumeId,
+        "DryRun" Lude.=: dryRun
       ]

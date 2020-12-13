@@ -13,10 +13,10 @@
 module Network.AWS.CodePipeline.Types.ActionExecutionStatus
   ( ActionExecutionStatus
       ( ActionExecutionStatus',
-        AESAbandoned,
-        AESFailed,
         AESInProgress,
-        AESSucceeded
+        AESAbandoned,
+        AESSucceeded,
+        AESFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ActionExecutionStatus = ActionExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AESAbandoned :: ActionExecutionStatus
-pattern AESAbandoned = ActionExecutionStatus' "Abandoned"
-
-pattern AESFailed :: ActionExecutionStatus
-pattern AESFailed = ActionExecutionStatus' "Failed"
-
 pattern AESInProgress :: ActionExecutionStatus
 pattern AESInProgress = ActionExecutionStatus' "InProgress"
+
+pattern AESAbandoned :: ActionExecutionStatus
+pattern AESAbandoned = ActionExecutionStatus' "Abandoned"
 
 pattern AESSucceeded :: ActionExecutionStatus
 pattern AESSucceeded = ActionExecutionStatus' "Succeeded"
 
+pattern AESFailed :: ActionExecutionStatus
+pattern AESFailed = ActionExecutionStatus' "Failed"
+
 {-# COMPLETE
-  AESAbandoned,
-  AESFailed,
   AESInProgress,
+  AESAbandoned,
   AESSucceeded,
+  AESFailed,
   ActionExecutionStatus'
   #-}

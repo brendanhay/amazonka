@@ -36,39 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyComplianceDetail' smart constructor.
 data PolicyComplianceDetail = PolicyComplianceDetail'
-  { expiredAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A timestamp that indicates when the returned information should be considered out of date.
+    expiredAt :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the AWS Firewall Manager policy.
     policyId :: Lude.Maybe Lude.Text,
+    -- | An array of resources that aren't protected by the AWS WAF or Shield Advanced policy or that aren't in compliance with the security group policy.
     violators :: Lude.Maybe [ComplianceViolator],
-    evaluationLimitExceeded ::
-      Lude.Maybe Lude.Bool,
-    issueInfoMap ::
-      Lude.Maybe
-        ( Lude.HashMap
-            DependentServiceName
-            (Lude.Text)
-        ),
+    -- | Indicates if over 100 resources are noncompliant with the AWS Firewall Manager policy.
+    evaluationLimitExceeded :: Lude.Maybe Lude.Bool,
+    -- | Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
+    issueInfoMap :: Lude.Maybe (Lude.HashMap DependentServiceName (Lude.Text)),
+    -- | The AWS account that created the AWS Firewall Manager policy.
     policyOwner :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID.
     memberAccount :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyComplianceDetail' with the minimum fields required to make a request.
 --
--- * 'evaluationLimitExceeded' - Indicates if over 100 resources are noncompliant with the AWS Firewall Manager policy.
 -- * 'expiredAt' - A timestamp that indicates when the returned information should be considered out of date.
--- * 'issueInfoMap' - Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
--- * 'memberAccount' - The AWS account ID.
 -- * 'policyId' - The ID of the AWS Firewall Manager policy.
--- * 'policyOwner' - The AWS account that created the AWS Firewall Manager policy.
 -- * 'violators' - An array of resources that aren't protected by the AWS WAF or Shield Advanced policy or that aren't in compliance with the security group policy.
+-- * 'evaluationLimitExceeded' - Indicates if over 100 resources are noncompliant with the AWS Firewall Manager policy.
+-- * 'issueInfoMap' - Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service.
+-- * 'policyOwner' - The AWS account that created the AWS Firewall Manager policy.
+-- * 'memberAccount' - The AWS account ID.
 mkPolicyComplianceDetail ::
   PolicyComplianceDetail
 mkPolicyComplianceDetail =

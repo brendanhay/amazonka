@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPRuleItem' smart constructor.
 data IPRuleItem = IPRuleItem'
-  { ruleDesc :: Lude.Maybe Lude.Text,
+  { -- | The description.
+    ruleDesc :: Lude.Maybe Lude.Text,
+    -- | The IP address range, in CIDR notation.
     ipRule :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRuleItem' with the minimum fields required to make a request.
 --
--- * 'ipRule' - The IP address range, in CIDR notation.
 -- * 'ruleDesc' - The description.
+-- * 'ipRule' - The IP address range, in CIDR notation.
 mkIPRuleItem ::
   IPRuleItem
 mkIPRuleItem =

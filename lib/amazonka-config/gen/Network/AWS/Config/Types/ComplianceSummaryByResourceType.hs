@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComplianceSummaryByResourceType' smart constructor.
 data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
-  { resourceType ::
-      Lude.Maybe Lude.Text,
-    complianceSummary ::
-      Lude.Maybe
-        ComplianceSummary
+  { -- | The type of AWS resource.
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each.
+    complianceSummary :: Lude.Maybe ComplianceSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceSummaryByResourceType' with the minimum fields required to make a request.
 --
--- * 'complianceSummary' - The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each.
 -- * 'resourceType' - The type of AWS resource.
+-- * 'complianceSummary' - The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each.
 mkComplianceSummaryByResourceType ::
   ComplianceSummaryByResourceType
 mkComplianceSummaryByResourceType =

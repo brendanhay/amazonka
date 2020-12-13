@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeGroupUpdateStatus' smart constructor.
 data NodeGroupUpdateStatus = NodeGroupUpdateStatus'
-  { nodeGroupMemberUpdateStatus ::
-      Lude.Maybe [NodeGroupMemberUpdateStatus],
+  { -- | The status of the service update on the node group member
+    nodeGroupMemberUpdateStatus :: Lude.Maybe [NodeGroupMemberUpdateStatus],
+    -- | The ID of the node group
     nodeGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroupUpdateStatus' with the minimum fields required to make a request.
 --
--- * 'nodeGroupId' - The ID of the node group
 -- * 'nodeGroupMemberUpdateStatus' - The status of the service update on the node group member
+-- * 'nodeGroupId' - The ID of the node group
 mkNodeGroupUpdateStatus ::
   NodeGroupUpdateStatus
 mkNodeGroupUpdateStatus =

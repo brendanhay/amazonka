@@ -13,10 +13,10 @@
 module Network.AWS.CloudDirectory.Types.ObjectType
   ( ObjectType
       ( ObjectType',
-        Index,
-        LeafNode,
         Node,
-        Policy
+        LeafNode,
+        Policy,
+        Index
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ObjectType = ObjectType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Index :: ObjectType
-pattern Index = ObjectType' "INDEX"
+pattern Node :: ObjectType
+pattern Node = ObjectType' "NODE"
 
 pattern LeafNode :: ObjectType
 pattern LeafNode = ObjectType' "LEAF_NODE"
 
-pattern Node :: ObjectType
-pattern Node = ObjectType' "NODE"
-
 pattern Policy :: ObjectType
 pattern Policy = ObjectType' "POLICY"
 
+pattern Index :: ObjectType
+pattern Index = ObjectType' "INDEX"
+
 {-# COMPLETE
-  Index,
-  LeafNode,
   Node,
+  LeafNode,
   Policy,
+  Index,
   ObjectType'
   #-}

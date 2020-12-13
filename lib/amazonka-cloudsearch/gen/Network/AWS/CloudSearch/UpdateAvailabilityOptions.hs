@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,22 +43,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateAvailabilityOptions' smart constructor.
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
-  { domainName ::
-      Lude.Text,
+  { domainName :: Lude.Text,
+    -- | You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to @false@ .
     multiAZ :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAvailabilityOptions' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
+-- * 'domainName' -
 -- * 'multiAZ' - You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to @false@ .
 mkUpdateAvailabilityOptions ::
   -- | 'domainName'
@@ -118,19 +113,12 @@ instance Lude.ToQuery UpdateAvailabilityOptions where
 --
 -- /See:/ 'mkUpdateAvailabilityOptionsResponse' smart constructor.
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
-  { availabilityOptions ::
-      Lude.Maybe
-        AvailabilityOptionsStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The newly-configured availability options. Indicates whether Multi-AZ is enabled for the domain.
+    availabilityOptions :: Lude.Maybe AvailabilityOptionsStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAvailabilityOptionsResponse' with the minimum fields required to make a request.

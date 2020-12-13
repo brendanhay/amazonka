@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeAppImageConfig' smart constructor.
 newtype DescribeAppImageConfig = DescribeAppImageConfig'
-  { appImageConfigName ::
-      Lude.Text
+  { -- | The name of the AppImageConfig to describe.
+    appImageConfigName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAppImageConfig' with the minimum fields required to make a request.
@@ -116,35 +111,29 @@ instance Lude.ToQuery DescribeAppImageConfig where
 
 -- | /See:/ 'mkDescribeAppImageConfigResponse' smart constructor.
 data DescribeAppImageConfigResponse = DescribeAppImageConfigResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
-    appImageConfigName ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    kernelGatewayImageConfig ::
-      Lude.Maybe
-        KernelGatewayImageConfig,
-    appImageConfigARN ::
-      Lude.Maybe Lude.Text,
+  { -- | When the AppImageConfig was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the AppImageConfig.
+    appImageConfigName :: Lude.Maybe Lude.Text,
+    -- | When the AppImageConfig was last modified.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The configuration of a KernelGateway app.
+    kernelGatewayImageConfig :: Lude.Maybe KernelGatewayImageConfig,
+    -- | The Amazon Resource Name (ARN) of the AppImageConfig.
+    appImageConfigARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAppImageConfigResponse' with the minimum fields required to make a request.
 --
--- * 'appImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
--- * 'appImageConfigName' - The name of the AppImageConfig.
 -- * 'creationTime' - When the AppImageConfig was created.
--- * 'kernelGatewayImageConfig' - The configuration of a KernelGateway app.
+-- * 'appImageConfigName' - The name of the AppImageConfig.
 -- * 'lastModifiedTime' - When the AppImageConfig was last modified.
+-- * 'kernelGatewayImageConfig' - The configuration of a KernelGateway app.
+-- * 'appImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
 -- * 'responseStatus' - The response status code.
 mkDescribeAppImageConfigResponse ::
   -- | 'responseStatus'

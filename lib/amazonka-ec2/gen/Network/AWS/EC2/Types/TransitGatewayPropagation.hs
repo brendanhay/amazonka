@@ -34,34 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayPropagation' smart constructor.
 data TransitGatewayPropagation = TransitGatewayPropagation'
-  { state ::
-      Lude.Maybe
-        TransitGatewayPropagationState,
+  { -- | The state.
+    state :: Lude.Maybe TransitGatewayPropagationState,
+    -- | The ID of the resource.
     resourceId :: Lude.Maybe Lude.Text,
-    resourceType ::
-      Lude.Maybe
-        TransitGatewayAttachmentResourceType,
-    transitGatewayRouteTableId ::
-      Lude.Maybe Lude.Text,
-    transitGatewayAttachmentId ::
-      Lude.Maybe Lude.Text
+    -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
+    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayPropagation' with the minimum fields required to make a request.
 --
+-- * 'state' - The state.
 -- * 'resourceId' - The ID of the resource.
 -- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
--- * 'state' - The state.
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
 -- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
 mkTransitGatewayPropagation ::
   TransitGatewayPropagation
 mkTransitGatewayPropagation =

@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.VolumeAttachmentState
   ( VolumeAttachmentState
       ( VolumeAttachmentState',
-        VAttached,
         VAttaching,
-        VBusy,
+        VAttached,
+        VDetaching,
         VDetached,
-        VDetaching
+        VBusy
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype VolumeAttachmentState = VolumeAttachmentState' Lude.Text
       Lude.ToHeader
     )
 
-pattern VAttached :: VolumeAttachmentState
-pattern VAttached = VolumeAttachmentState' "attached"
-
 pattern VAttaching :: VolumeAttachmentState
 pattern VAttaching = VolumeAttachmentState' "attaching"
 
-pattern VBusy :: VolumeAttachmentState
-pattern VBusy = VolumeAttachmentState' "busy"
-
-pattern VDetached :: VolumeAttachmentState
-pattern VDetached = VolumeAttachmentState' "detached"
+pattern VAttached :: VolumeAttachmentState
+pattern VAttached = VolumeAttachmentState' "attached"
 
 pattern VDetaching :: VolumeAttachmentState
 pattern VDetaching = VolumeAttachmentState' "detaching"
 
+pattern VDetached :: VolumeAttachmentState
+pattern VDetached = VolumeAttachmentState' "detached"
+
+pattern VBusy :: VolumeAttachmentState
+pattern VBusy = VolumeAttachmentState' "busy"
+
 {-# COMPLETE
-  VAttached,
   VAttaching,
-  VBusy,
-  VDetached,
+  VAttached,
   VDetaching,
+  VDetached,
+  VBusy,
   VolumeAttachmentState'
   #-}

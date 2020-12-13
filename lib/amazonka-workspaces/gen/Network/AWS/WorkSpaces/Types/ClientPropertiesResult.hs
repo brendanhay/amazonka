@@ -30,24 +30,18 @@ import Network.AWS.WorkSpaces.Types.ClientProperties
 --
 -- /See:/ 'mkClientPropertiesResult' smart constructor.
 data ClientPropertiesResult = ClientPropertiesResult'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
-    clientProperties ::
-      Lude.Maybe ClientProperties
+  { -- | The resource identifier, in the form of a directory ID.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | Information about the Amazon WorkSpaces client.
+    clientProperties :: Lude.Maybe ClientProperties
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientPropertiesResult' with the minimum fields required to make a request.
 --
--- * 'clientProperties' - Information about the Amazon WorkSpaces client.
 -- * 'resourceId' - The resource identifier, in the form of a directory ID.
+-- * 'clientProperties' - Information about the Amazon WorkSpaces client.
 mkClientPropertiesResult ::
   ClientPropertiesResult
 mkClientPropertiesResult =

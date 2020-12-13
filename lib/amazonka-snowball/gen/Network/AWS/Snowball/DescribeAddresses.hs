@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,9 +30,9 @@ module Network.AWS.Snowball.DescribeAddresses
     mkDescribeAddressesResponse,
 
     -- ** Response lenses
-    drsAddresses,
-    drsNextToken,
-    drsResponseStatus,
+    darsAddresses,
+    darsNextToken,
+    darsResponseStatus,
   )
 where
 
@@ -44,23 +45,18 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of @ADDRESS@ objects to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The number of @ADDRESS@ objects to return.
 -- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
+-- * 'maxResults' - The number of @ADDRESS@ objects to return.
 mkDescribeAddresses ::
   DescribeAddresses
 mkDescribeAddresses =
@@ -85,12 +81,12 @@ daMaxResults = Lens.lens (maxResults :: DescribeAddresses -> Lude.Maybe Lude.Nat
 
 instance Page.AWSPager DescribeAddresses where
   page rq rs
-    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. drsAddresses) = Lude.Nothing
+    | Page.stop (rs Lens.^. darsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. darsAddresses) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& daNextToken Lens..~ rs Lens.^. drsNextToken
+          Lude.& daNextToken Lens..~ rs Lens.^. darsNextToken
 
 instance Lude.AWSRequest DescribeAddresses where
   type Rs DescribeAddresses = DescribeAddressesResponse
@@ -134,18 +130,14 @@ instance Lude.ToQuery DescribeAddresses where
 
 -- | /See:/ 'mkDescribeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-  { addresses ::
-      Lude.Maybe [Address],
+  { -- | The Snow device shipping addresses that were created for this account.
+    addresses :: Lude.Maybe [Address],
+    -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @DescribeAddresses@ call, your list of returned addresses will start from this point in the array.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.
@@ -167,20 +159,20 @@ mkDescribeAddressesResponse pResponseStatus_ =
 -- | The Snow device shipping addresses that were created for this account.
 --
 -- /Note:/ Consider using 'addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsAddresses :: Lens.Lens' DescribeAddressesResponse (Lude.Maybe [Address])
-drsAddresses = Lens.lens (addresses :: DescribeAddressesResponse -> Lude.Maybe [Address]) (\s a -> s {addresses = a} :: DescribeAddressesResponse)
-{-# DEPRECATED drsAddresses "Use generic-lens or generic-optics with 'addresses' instead." #-}
+darsAddresses :: Lens.Lens' DescribeAddressesResponse (Lude.Maybe [Address])
+darsAddresses = Lens.lens (addresses :: DescribeAddressesResponse -> Lude.Maybe [Address]) (\s a -> s {addresses = a} :: DescribeAddressesResponse)
+{-# DEPRECATED darsAddresses "Use generic-lens or generic-optics with 'addresses' instead." #-}
 
 -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @DescribeAddresses@ call, your list of returned addresses will start from this point in the array.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsNextToken :: Lens.Lens' DescribeAddressesResponse (Lude.Maybe Lude.Text)
-drsNextToken = Lens.lens (nextToken :: DescribeAddressesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAddressesResponse)
-{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+darsNextToken :: Lens.Lens' DescribeAddressesResponse (Lude.Maybe Lude.Text)
+darsNextToken = Lens.lens (nextToken :: DescribeAddressesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAddressesResponse)
+{-# DEPRECATED darsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeAddressesResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeAddressesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAddressesResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darsResponseStatus :: Lens.Lens' DescribeAddressesResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeAddressesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAddressesResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

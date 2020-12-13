@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,21 +42,23 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeServiceActionExecutionParameters' smart constructor.
 data DescribeServiceActionExecutionParameters = DescribeServiceActionExecutionParameters'
-  { acceptLanguage ::
-      Lude.Maybe
-        Lude.Text,
-    provisionedProductId ::
-      Lude.Text,
-    serviceActionId ::
-      Lude.Text
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioned product.
+    provisionedProductId :: Lude.Text,
+    -- | The self-service action identifier.
+    serviceActionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceActionExecutionParameters' with the minimum fields required to make a request.
@@ -166,28 +169,18 @@ instance Lude.ToQuery DescribeServiceActionExecutionParameters where
 
 -- | /See:/ 'mkDescribeServiceActionExecutionParametersResponse' smart constructor.
 data DescribeServiceActionExecutionParametersResponse = DescribeServiceActionExecutionParametersResponse'
-  { serviceActionParameters ::
-      Lude.Maybe
-        [ExecutionParameter],
-    responseStatus ::
-      Lude.Int
+  { -- | The parameters of the self-service action.
+    serviceActionParameters :: Lude.Maybe [ExecutionParameter],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceActionExecutionParametersResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'serviceActionParameters' - The parameters of the self-service action.
+-- * 'responseStatus' - The response status code.
 mkDescribeServiceActionExecutionParametersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

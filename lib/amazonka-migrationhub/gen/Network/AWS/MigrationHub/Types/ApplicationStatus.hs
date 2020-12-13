@@ -13,9 +13,9 @@
 module Network.AWS.MigrationHub.Types.ApplicationStatus
   ( ApplicationStatus
       ( ApplicationStatus',
-        Completed,
-        InProgress,
-        NotStarted
+        ASNotStarted,
+        ASInProgress,
+        ASCompleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ApplicationStatus = ApplicationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Completed :: ApplicationStatus
-pattern Completed = ApplicationStatus' "COMPLETED"
+pattern ASNotStarted :: ApplicationStatus
+pattern ASNotStarted = ApplicationStatus' "NOT_STARTED"
 
-pattern InProgress :: ApplicationStatus
-pattern InProgress = ApplicationStatus' "IN_PROGRESS"
+pattern ASInProgress :: ApplicationStatus
+pattern ASInProgress = ApplicationStatus' "IN_PROGRESS"
 
-pattern NotStarted :: ApplicationStatus
-pattern NotStarted = ApplicationStatus' "NOT_STARTED"
+pattern ASCompleted :: ApplicationStatus
+pattern ASCompleted = ApplicationStatus' "COMPLETED"
 
 {-# COMPLETE
-  Completed,
-  InProgress,
-  NotStarted,
+  ASNotStarted,
+  ASInProgress,
+  ASCompleted,
   ApplicationStatus'
   #-}

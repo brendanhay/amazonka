@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-  { cluster ::
-      Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete attributes. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | The attributes to delete from your resource. You can specify up to 10 attributes per request. For custom attributes, specify the attribute name and target ID, but do not specify the value. If you specify the target ID using the short form, you must also specify the target type.
     attributes :: [Attribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attributes to delete from your resource. You can specify up to 10 attributes per request. For custom attributes, specify the attribute name and target ID, but do not specify the value. If you specify the target ID using the short form, you must also specify the target type.
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to delete attributes. If you do not specify a cluster, the default cluster is assumed.
+-- * 'attributes' - The attributes to delete from your resource. You can specify up to 10 attributes per request. For custom attributes, specify the attribute name and target ID, but do not specify the value. If you specify the target ID using the short form, you must also specify the target type.
 mkDeleteAttributes ::
   DeleteAttributes
 mkDeleteAttributes =
@@ -120,17 +116,12 @@ instance Lude.ToQuery DeleteAttributes where
 
 -- | /See:/ 'mkDeleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse = DeleteAttributesResponse'
-  { attributes ::
-      Lude.Maybe [Attribute],
+  { -- | A list of attribute objects that were successfully deleted from your resource.
+    attributes :: Lude.Maybe [Attribute],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.

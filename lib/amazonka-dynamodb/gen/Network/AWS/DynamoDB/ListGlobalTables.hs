@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,27 +43,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGlobalTables' smart constructor.
 data ListGlobalTables = ListGlobalTables'
-  { regionName ::
-      Lude.Maybe Lude.Text,
+  { -- | Lists the global tables in a specific Region.
+    regionName :: Lude.Maybe Lude.Text,
+    -- | The first global table name that this operation will evaluate.
     exclusiveStartGlobalTableName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.
+    --
+    -- If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the @LastEvaluatedGlobalTableName@ to apply in a subsequent operation to the @ExclusiveStartGlobalTableName@ parameter.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGlobalTables' with the minimum fields required to make a request.
 --
+-- * 'regionName' - Lists the global tables in a specific Region.
 -- * 'exclusiveStartGlobalTableName' - The first global table name that this operation will evaluate.
 -- * 'limit' - The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.
 --
 -- If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the @LastEvaluatedGlobalTableName@ to apply in a subsequent operation to the @ExclusiveStartGlobalTableName@ parameter.
--- * 'regionName' - Lists the global tables in a specific Region.
 mkListGlobalTables ::
   ListGlobalTables
 mkListGlobalTables =
@@ -137,24 +136,20 @@ instance Lude.ToQuery ListGlobalTables where
 
 -- | /See:/ 'mkListGlobalTablesResponse' smart constructor.
 data ListGlobalTablesResponse = ListGlobalTablesResponse'
-  { lastEvaluatedGlobalTableName ::
-      Lude.Maybe Lude.Text,
+  { -- | Last evaluated global table name.
+    lastEvaluatedGlobalTableName :: Lude.Maybe Lude.Text,
+    -- | List of global table names.
     globalTables :: Lude.Maybe [GlobalTable],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGlobalTablesResponse' with the minimum fields required to make a request.
 --
--- * 'globalTables' - List of global table names.
 -- * 'lastEvaluatedGlobalTableName' - Last evaluated global table name.
+-- * 'globalTables' - List of global table names.
 -- * 'responseStatus' - The response status code.
 mkListGlobalTablesResponse ::
   -- | 'responseStatus'

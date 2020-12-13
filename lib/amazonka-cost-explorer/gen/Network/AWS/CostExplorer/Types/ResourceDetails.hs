@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceDetails' smart constructor.
 newtype ResourceDetails = ResourceDetails'
-  { ec2ResourceDetails ::
-      Lude.Maybe EC2ResourceDetails
+  { -- | Details on the Amazon EC2 resource.
+    ec2ResourceDetails :: Lude.Maybe EC2ResourceDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDetails' with the minimum fields required to make a request.

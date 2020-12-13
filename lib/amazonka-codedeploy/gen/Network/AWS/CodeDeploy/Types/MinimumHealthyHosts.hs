@@ -30,21 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMinimumHealthyHosts' smart constructor.
 data MinimumHealthyHosts = MinimumHealthyHosts'
-  { value ::
-      Lude.Maybe Lude.Int,
+  { -- | The minimum healthy instance value.
+    value :: Lude.Maybe Lude.Int,
+    -- | The minimum healthy instance type:
+    --
+    --
+    --     * @HOST_COUNT@ : The minimum number of healthy instances as an absolute value.
+    --
+    --
+    --     * @FLEET_PERCENT@ : The minimum number of healthy instances as a percentage of the total number of instances in the deployment.
+    --
+    --
+    -- In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instances at a time. The deployment is successful if four or more instances are deployed to successfully. Otherwise, the deployment fails.
+    -- For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
     type' :: Lude.Maybe MinimumHealthyHostsType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MinimumHealthyHosts' with the minimum fields required to make a request.
 --
+-- * 'value' - The minimum healthy instance value.
 -- * 'type'' - The minimum healthy instance type:
 --
 --
@@ -56,7 +62,6 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
 --
 -- In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instances at a time. The deployment is successful if four or more instances are deployed to successfully. Otherwise, the deployment fails.
 -- For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
--- * 'value' - The minimum healthy instance value.
 mkMinimumHealthyHosts ::
   MinimumHealthyHosts
 mkMinimumHealthyHosts =

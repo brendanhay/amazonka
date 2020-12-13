@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Pinpoint.UpdateJourneyState
     mkUpdateJourneyState,
 
     -- ** Request lenses
-    ujsJourneyId,
     ujsApplicationId,
+    ujsJourneyId,
     ujsJourneyStateRequest,
 
     -- * Destructuring the response
@@ -28,8 +29,8 @@ module Network.AWS.Pinpoint.UpdateJourneyState
     mkUpdateJourneyStateResponse,
 
     -- ** Response lenses
-    ujsrsResponseStatus,
     ujsrsJourneyResponse,
+    ujsrsResponseStatus,
   )
 where
 
@@ -41,49 +42,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateJourneyState' smart constructor.
 data UpdateJourneyState = UpdateJourneyState'
-  { journeyId ::
-      Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Lude.Text,
+    -- | The unique identifier for the journey.
+    journeyId :: Lude.Text,
     journeyStateRequest :: JourneyStateRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJourneyState' with the minimum fields required to make a request.
 --
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'journeyId' - The unique identifier for the journey.
--- * 'journeyStateRequest' - Undocumented field.
+-- * 'journeyStateRequest' -
 mkUpdateJourneyState ::
-  -- | 'journeyId'
-  Lude.Text ->
   -- | 'applicationId'
+  Lude.Text ->
+  -- | 'journeyId'
   Lude.Text ->
   -- | 'journeyStateRequest'
   JourneyStateRequest ->
   UpdateJourneyState
 mkUpdateJourneyState
-  pJourneyId_
   pApplicationId_
+  pJourneyId_
   pJourneyStateRequest_ =
     UpdateJourneyState'
-      { journeyId = pJourneyId_,
-        applicationId = pApplicationId_,
+      { applicationId = pApplicationId_,
+        journeyId = pJourneyId_,
         journeyStateRequest = pJourneyStateRequest_
       }
-
--- | The unique identifier for the journey.
---
--- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujsJourneyId :: Lens.Lens' UpdateJourneyState Lude.Text
-ujsJourneyId = Lens.lens (journeyId :: UpdateJourneyState -> Lude.Text) (\s a -> s {journeyId = a} :: UpdateJourneyState)
-{-# DEPRECATED ujsJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
@@ -91,6 +80,13 @@ ujsJourneyId = Lens.lens (journeyId :: UpdateJourneyState -> Lude.Text) (\s a ->
 ujsApplicationId :: Lens.Lens' UpdateJourneyState Lude.Text
 ujsApplicationId = Lens.lens (applicationId :: UpdateJourneyState -> Lude.Text) (\s a -> s {applicationId = a} :: UpdateJourneyState)
 {-# DEPRECATED ujsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The unique identifier for the journey.
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujsJourneyId :: Lens.Lens' UpdateJourneyState Lude.Text
+ujsJourneyId = Lens.lens (journeyId :: UpdateJourneyState -> Lude.Text) (\s a -> s {journeyId = a} :: UpdateJourneyState)
+{-# DEPRECATED ujsJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -106,7 +102,7 @@ instance Lude.AWSRequest UpdateJourneyState where
     Res.receiveJSON
       ( \s h x ->
           UpdateJourneyStateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateJourneyState where
@@ -140,41 +136,28 @@ instance Lude.ToQuery UpdateJourneyState where
 
 -- | /See:/ 'mkUpdateJourneyStateResponse' smart constructor.
 data UpdateJourneyStateResponse = UpdateJourneyStateResponse'
-  { responseStatus ::
-      Lude.Int,
-    journeyResponse :: JourneyResponse
+  { journeyResponse :: JourneyResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJourneyStateResponse' with the minimum fields required to make a request.
 --
--- * 'journeyResponse' - Undocumented field.
+-- * 'journeyResponse' -
 -- * 'responseStatus' - The response status code.
 mkUpdateJourneyStateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'journeyResponse'
   JourneyResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateJourneyStateResponse
-mkUpdateJourneyStateResponse pResponseStatus_ pJourneyResponse_ =
+mkUpdateJourneyStateResponse pJourneyResponse_ pResponseStatus_ =
   UpdateJourneyStateResponse'
-    { responseStatus = pResponseStatus_,
-      journeyResponse = pJourneyResponse_
+    { journeyResponse = pJourneyResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujsrsResponseStatus :: Lens.Lens' UpdateJourneyStateResponse Lude.Int
-ujsrsResponseStatus = Lens.lens (responseStatus :: UpdateJourneyStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateJourneyStateResponse)
-{-# DEPRECATED ujsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -182,3 +165,10 @@ ujsrsResponseStatus = Lens.lens (responseStatus :: UpdateJourneyStateResponse ->
 ujsrsJourneyResponse :: Lens.Lens' UpdateJourneyStateResponse JourneyResponse
 ujsrsJourneyResponse = Lens.lens (journeyResponse :: UpdateJourneyStateResponse -> JourneyResponse) (\s a -> s {journeyResponse = a} :: UpdateJourneyStateResponse)
 {-# DEPRECATED ujsrsJourneyResponse "Use generic-lens or generic-optics with 'journeyResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujsrsResponseStatus :: Lens.Lens' UpdateJourneyStateResponse Lude.Int
+ujsrsResponseStatus = Lens.lens (responseStatus :: UpdateJourneyStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateJourneyStateResponse)
+{-# DEPRECATED ujsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

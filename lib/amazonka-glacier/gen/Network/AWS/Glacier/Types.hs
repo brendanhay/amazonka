@@ -330,11 +330,11 @@ glacierService =
         Lude.Just "request_throttled_exception"
       | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
       | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
+      | Lens.has (Lude.hasStatus 500) e =
+        Lude.Just "general_server_error"
+      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
       | Lens.has
           (Lude.hasCode "RequestTimeoutException" Lude.. Lude.hasStatus 408)
           e =
         Lude.Just "timeouts"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
       | Lude.otherwise = Lude.Nothing

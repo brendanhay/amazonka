@@ -13,9 +13,9 @@
 module Network.AWS.Athena.Types.DataCatalogType
   ( DataCatalogType
       ( DataCatalogType',
+        Lambda,
         Glue,
-        Hive,
-        Lambda
+        Hive
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DataCatalogType = DataCatalogType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Lambda :: DataCatalogType
+pattern Lambda = DataCatalogType' "LAMBDA"
+
 pattern Glue :: DataCatalogType
 pattern Glue = DataCatalogType' "GLUE"
 
 pattern Hive :: DataCatalogType
 pattern Hive = DataCatalogType' "HIVE"
 
-pattern Lambda :: DataCatalogType
-pattern Lambda = DataCatalogType' "LAMBDA"
-
 {-# COMPLETE
+  Lambda,
   Glue,
   Hive,
-  Lambda,
   DataCatalogType'
   #-}

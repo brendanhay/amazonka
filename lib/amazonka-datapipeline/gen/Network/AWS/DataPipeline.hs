@@ -115,28 +115,28 @@ module Network.AWS.DataPipeline
     -- ** ParameterAttribute
     ParameterAttribute (..),
     mkParameterAttribute,
-    paKey,
     paStringValue,
+    paKey,
 
     -- ** ParameterObject
     ParameterObject (..),
     mkParameterObject,
-    poId,
     poAttributes,
+    poId,
 
     -- ** ParameterValue
     ParameterValue (..),
     mkParameterValue,
-    pvId,
     pvStringValue,
+    pvId,
 
     -- ** PipelineDescription
     PipelineDescription (..),
     mkPipelineDescription,
-    pdDescription,
-    pdTags,
     pdPipelineId,
     pdName,
+    pdDescription,
+    pdTags,
     pdFields,
 
     -- ** PipelineIdName
@@ -148,8 +148,8 @@ module Network.AWS.DataPipeline
     -- ** PipelineObject
     PipelineObject (..),
     mkPipelineObject,
-    pId,
     pName,
+    pId,
     pFields,
 
     -- ** Query
@@ -166,8 +166,8 @@ module Network.AWS.DataPipeline
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** TaskObject
     TaskObject (..),

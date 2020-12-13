@@ -36,31 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAnomalyDetector' smart constructor.
 data AnomalyDetector = AnomalyDetector'
-  { metricName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the metric associated with the anomaly detection model.
+    metricName :: Lude.Maybe Lude.Text,
+    -- | The namespace of the metric associated with the anomaly detection model.
     namespace :: Lude.Maybe Lude.Text,
+    -- | The current status of the anomaly detector's training. The possible values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@
     stateValue :: Lude.Maybe AnomalyDetectorStateValue,
+    -- | The statistic associated with the anomaly detection model.
     stat :: Lude.Maybe Lude.Text,
+    -- | The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model, and the time zone to use for the metric.
     configuration :: Lude.Maybe AnomalyDetectorConfiguration,
+    -- | The metric dimensions associated with the anomaly detection model.
     dimensions :: Lude.Maybe [Dimension]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnomalyDetector' with the minimum fields required to make a request.
 --
--- * 'configuration' - The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model, and the time zone to use for the metric.
--- * 'dimensions' - The metric dimensions associated with the anomaly detection model.
 -- * 'metricName' - The name of the metric associated with the anomaly detection model.
 -- * 'namespace' - The namespace of the metric associated with the anomaly detection model.
--- * 'stat' - The statistic associated with the anomaly detection model.
 -- * 'stateValue' - The current status of the anomaly detector's training. The possible values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@
+-- * 'stat' - The statistic associated with the anomaly detection model.
+-- * 'configuration' - The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model, and the time zone to use for the metric.
+-- * 'dimensions' - The metric dimensions associated with the anomaly detection model.
 mkAnomalyDetector ::
   AnomalyDetector
 mkAnomalyDetector =

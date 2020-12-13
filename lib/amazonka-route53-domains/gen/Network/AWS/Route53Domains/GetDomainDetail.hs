@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,17 +38,17 @@ module Network.AWS.Route53Domains.GetDomainDetail
     gddrsAbuseContactPhone,
     gddrsRegistrarURL,
     gddrsAbuseContactEmail,
+    gddrsRegistrantContact,
     gddrsExpirationDate,
+    gddrsDomainName,
+    gddrsAdminContact,
+    gddrsTechContact,
     gddrsCreationDate,
     gddrsRegistrarName,
     gddrsReseller,
     gddrsStatusList,
-    gddrsResponseStatus,
-    gddrsDomainName,
     gddrsNameservers,
-    gddrsAdminContact,
-    gddrsRegistrantContact,
-    gddrsTechContact,
+    gddrsResponseStatus,
   )
 where
 
@@ -60,14 +61,11 @@ import Network.AWS.Route53Domains.Types
 -- | The GetDomainDetail request includes the following element.
 --
 -- /See:/ 'mkGetDomainDetail' smart constructor.
-newtype GetDomainDetail = GetDomainDetail' {domainName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDomainDetail = GetDomainDetail'
+  { -- | The name of the domain that you want to get detailed information about.
+    domainName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainDetail' with the minimum fields required to make a request.
@@ -105,17 +103,17 @@ instance Lude.AWSRequest GetDomainDetail where
             Lude.<*> (x Lude..?> "AbuseContactPhone")
             Lude.<*> (x Lude..?> "RegistrarUrl")
             Lude.<*> (x Lude..?> "AbuseContactEmail")
+            Lude.<*> (x Lude..:> "RegistrantContact")
             Lude.<*> (x Lude..?> "ExpirationDate")
+            Lude.<*> (x Lude..:> "DomainName")
+            Lude.<*> (x Lude..:> "AdminContact")
+            Lude.<*> (x Lude..:> "TechContact")
             Lude.<*> (x Lude..?> "CreationDate")
             Lude.<*> (x Lude..?> "RegistrarName")
             Lude.<*> (x Lude..?> "Reseller")
             Lude.<*> (x Lude..?> "StatusList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "DomainName")
             Lude.<*> (x Lude..?> "Nameservers" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "AdminContact")
-            Lude.<*> (x Lude..:> "RegistrantContact")
-            Lude.<*> (x Lude..:> "TechContact")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetDomainDetail where
@@ -144,84 +142,102 @@ instance Lude.ToQuery GetDomainDetail where
 --
 -- /See:/ 'mkGetDomainDetailResponse' smart constructor.
 data GetDomainDetailResponse = GetDomainDetailResponse'
-  { techPrivacy ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the technical contact.
+    techPrivacy :: Lude.Maybe Lude.Bool,
+    -- | Reserved for future use.
     dnsSec :: Lude.Maybe Lude.Text,
+    -- | The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
     whoIsServer :: Lude.Maybe Lude.Text,
+    -- | Reserved for future use.
     registryDomainId :: Lude.Maybe Lude.Text,
+    -- | Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
     registrantPrivacy :: Lude.Maybe Lude.Bool,
+    -- | The last updated date of the domain as found in the response to a WHOIS query. The date and time is in Unix time format and Coordinated Universal time (UTC).
     updatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the admin contact.
     adminPrivacy :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the domain registration is set to renew automatically.
     autoRenew :: Lude.Maybe Lude.Bool,
+    -- | Phone number for reporting abuse.
     abuseContactPhone :: Lude.Maybe Lude.Text,
+    -- | Web address of the registrar.
     registrarURL :: Lude.Maybe Lude.Text,
+    -- | Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
     abuseContactEmail :: Lude.Maybe Lude.Text,
-    expirationDate :: Lude.Maybe Lude.Timestamp,
-    creationDate :: Lude.Maybe Lude.Timestamp,
-    registrarName :: Lude.Maybe Lude.Text,
-    reseller :: Lude.Maybe Lude.Text,
-    statusList :: Lude.Maybe [Lude.Text],
-    responseStatus :: Lude.Int,
-    domainName :: Lude.Text,
-    nameservers :: [Nameserver],
-    adminContact :: ContactDetail,
+    -- | Provides details about the domain registrant.
     registrantContact :: ContactDetail,
-    techContact :: ContactDetail
+    -- | The date when the registration for the domain is set to expire. The date and time is in Unix time format and Coordinated Universal time (UTC).
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of a domain.
+    domainName :: Lude.Text,
+    -- | Provides details about the domain administrative contact.
+    adminContact :: ContactDetail,
+    -- | Provides details about the domain technical contact.
+    techContact :: ContactDetail,
+    -- | The date when the domain was created as found in the response to a WHOIS query. The date and time is in Unix time format and Coordinated Universal time (UTC).
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by Gandi is @"GANDI SAS"@ .
+    registrarName :: Lude.Maybe Lude.Text,
+    -- | Reseller of the domain. Domains registered or transferred using Route 53 domains will have @"Amazon"@ as the reseller.
+    reseller :: Lude.Maybe Lude.Text,
+    -- | An array of domain name status codes, also known as Extensible Provisioning Protocol (EPP) status codes.
+    --
+    -- ICANN, the organization that maintains a central database of domain names, has developed a set of domain name status codes that tell you the status of a variety of operations on a domain name, for example, registering a domain name, transferring a domain name to another registrar, renewing the registration for a domain name, and so on. All registrars use this same set of status codes.
+    -- For a current list of domain name status codes and an explanation of what each code means, go to the <https://www.icann.org/ ICANN website> and search for @epp status codes@ . (Search on the ICANN website; web searches sometimes return an old version of the document.)
+    statusList :: Lude.Maybe [Lude.Text],
+    -- | The name of the domain.
+    nameservers :: [Nameserver],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainDetailResponse' with the minimum fields required to make a request.
 --
--- * 'abuseContactEmail' - Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
--- * 'abuseContactPhone' - Phone number for reporting abuse.
--- * 'adminContact' - Provides details about the domain administrative contact.
+-- * 'techPrivacy' - Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the technical contact.
+-- * 'dnsSec' - Reserved for future use.
+-- * 'whoIsServer' - The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
+-- * 'registryDomainId' - Reserved for future use.
+-- * 'registrantPrivacy' - Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+-- * 'updatedDate' - The last updated date of the domain as found in the response to a WHOIS query. The date and time is in Unix time format and Coordinated Universal time (UTC).
 -- * 'adminPrivacy' - Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the admin contact.
 -- * 'autoRenew' - Specifies whether the domain registration is set to renew automatically.
--- * 'creationDate' - The date when the domain was created as found in the response to a WHOIS query. The date and time is in Unix time format and Coordinated Universal time (UTC).
--- * 'dnsSec' - Reserved for future use.
--- * 'domainName' - The name of a domain.
--- * 'expirationDate' - The date when the registration for the domain is set to expire. The date and time is in Unix time format and Coordinated Universal time (UTC).
--- * 'nameservers' - The name of the domain.
--- * 'registrantContact' - Provides details about the domain registrant.
--- * 'registrantPrivacy' - Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
--- * 'registrarName' - Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by Gandi is @"GANDI SAS"@ .
+-- * 'abuseContactPhone' - Phone number for reporting abuse.
 -- * 'registrarURL' - Web address of the registrar.
--- * 'registryDomainId' - Reserved for future use.
+-- * 'abuseContactEmail' - Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
+-- * 'registrantContact' - Provides details about the domain registrant.
+-- * 'expirationDate' - The date when the registration for the domain is set to expire. The date and time is in Unix time format and Coordinated Universal time (UTC).
+-- * 'domainName' - The name of a domain.
+-- * 'adminContact' - Provides details about the domain administrative contact.
+-- * 'techContact' - Provides details about the domain technical contact.
+-- * 'creationDate' - The date when the domain was created as found in the response to a WHOIS query. The date and time is in Unix time format and Coordinated Universal time (UTC).
+-- * 'registrarName' - Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by Gandi is @"GANDI SAS"@ .
 -- * 'reseller' - Reseller of the domain. Domains registered or transferred using Route 53 domains will have @"Amazon"@ as the reseller.
--- * 'responseStatus' - The response status code.
 -- * 'statusList' - An array of domain name status codes, also known as Extensible Provisioning Protocol (EPP) status codes.
 --
 -- ICANN, the organization that maintains a central database of domain names, has developed a set of domain name status codes that tell you the status of a variety of operations on a domain name, for example, registering a domain name, transferring a domain name to another registrar, renewing the registration for a domain name, and so on. All registrars use this same set of status codes.
 -- For a current list of domain name status codes and an explanation of what each code means, go to the <https://www.icann.org/ ICANN website> and search for @epp status codes@ . (Search on the ICANN website; web searches sometimes return an old version of the document.)
--- * 'techContact' - Provides details about the domain technical contact.
--- * 'techPrivacy' - Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the technical contact.
--- * 'updatedDate' - The last updated date of the domain as found in the response to a WHOIS query. The date and time is in Unix time format and Coordinated Universal time (UTC).
--- * 'whoIsServer' - The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
+-- * 'nameservers' - The name of the domain.
+-- * 'responseStatus' - The response status code.
 mkGetDomainDetailResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
+  -- | 'registrantContact'
+  ContactDetail ->
   -- | 'domainName'
   Lude.Text ->
   -- | 'adminContact'
   ContactDetail ->
-  -- | 'registrantContact'
-  ContactDetail ->
   -- | 'techContact'
   ContactDetail ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDomainDetailResponse
 mkGetDomainDetailResponse
-  pResponseStatus_
+  pRegistrantContact_
   pDomainName_
   pAdminContact_
-  pRegistrantContact_
-  pTechContact_ =
+  pTechContact_
+  pResponseStatus_ =
     GetDomainDetailResponse'
       { techPrivacy = Lude.Nothing,
         dnsSec = Lude.Nothing,
@@ -234,17 +250,17 @@ mkGetDomainDetailResponse
         abuseContactPhone = Lude.Nothing,
         registrarURL = Lude.Nothing,
         abuseContactEmail = Lude.Nothing,
+        registrantContact = pRegistrantContact_,
         expirationDate = Lude.Nothing,
+        domainName = pDomainName_,
+        adminContact = pAdminContact_,
+        techContact = pTechContact_,
         creationDate = Lude.Nothing,
         registrarName = Lude.Nothing,
         reseller = Lude.Nothing,
         statusList = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        domainName = pDomainName_,
         nameservers = Lude.mempty,
-        adminContact = pAdminContact_,
-        registrantContact = pRegistrantContact_,
-        techContact = pTechContact_
+        responseStatus = pResponseStatus_
       }
 
 -- | Specifies whether contact information is concealed from WHOIS queries. If the value is @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If the value is @false@ , WHOIS queries return the information that you entered for the technical contact.
@@ -324,12 +340,40 @@ gddrsAbuseContactEmail :: Lens.Lens' GetDomainDetailResponse (Lude.Maybe Lude.Te
 gddrsAbuseContactEmail = Lens.lens (abuseContactEmail :: GetDomainDetailResponse -> Lude.Maybe Lude.Text) (\s a -> s {abuseContactEmail = a} :: GetDomainDetailResponse)
 {-# DEPRECATED gddrsAbuseContactEmail "Use generic-lens or generic-optics with 'abuseContactEmail' instead." #-}
 
+-- | Provides details about the domain registrant.
+--
+-- /Note:/ Consider using 'registrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddrsRegistrantContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
+gddrsRegistrantContact = Lens.lens (registrantContact :: GetDomainDetailResponse -> ContactDetail) (\s a -> s {registrantContact = a} :: GetDomainDetailResponse)
+{-# DEPRECATED gddrsRegistrantContact "Use generic-lens or generic-optics with 'registrantContact' instead." #-}
+
 -- | The date when the registration for the domain is set to expire. The date and time is in Unix time format and Coordinated Universal time (UTC).
 --
 -- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gddrsExpirationDate :: Lens.Lens' GetDomainDetailResponse (Lude.Maybe Lude.Timestamp)
 gddrsExpirationDate = Lens.lens (expirationDate :: GetDomainDetailResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationDate = a} :: GetDomainDetailResponse)
 {-# DEPRECATED gddrsExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
+
+-- | The name of a domain.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddrsDomainName :: Lens.Lens' GetDomainDetailResponse Lude.Text
+gddrsDomainName = Lens.lens (domainName :: GetDomainDetailResponse -> Lude.Text) (\s a -> s {domainName = a} :: GetDomainDetailResponse)
+{-# DEPRECATED gddrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | Provides details about the domain administrative contact.
+--
+-- /Note:/ Consider using 'adminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddrsAdminContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
+gddrsAdminContact = Lens.lens (adminContact :: GetDomainDetailResponse -> ContactDetail) (\s a -> s {adminContact = a} :: GetDomainDetailResponse)
+{-# DEPRECATED gddrsAdminContact "Use generic-lens or generic-optics with 'adminContact' instead." #-}
+
+-- | Provides details about the domain technical contact.
+--
+-- /Note:/ Consider using 'techContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddrsTechContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
+gddrsTechContact = Lens.lens (techContact :: GetDomainDetailResponse -> ContactDetail) (\s a -> s {techContact = a} :: GetDomainDetailResponse)
+{-# DEPRECATED gddrsTechContact "Use generic-lens or generic-optics with 'techContact' instead." #-}
 
 -- | The date when the domain was created as found in the response to a WHOIS query. The date and time is in Unix time format and Coordinated Universal time (UTC).
 --
@@ -362,20 +406,6 @@ gddrsStatusList :: Lens.Lens' GetDomainDetailResponse (Lude.Maybe [Lude.Text])
 gddrsStatusList = Lens.lens (statusList :: GetDomainDetailResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {statusList = a} :: GetDomainDetailResponse)
 {-# DEPRECATED gddrsStatusList "Use generic-lens or generic-optics with 'statusList' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddrsResponseStatus :: Lens.Lens' GetDomainDetailResponse Lude.Int
-gddrsResponseStatus = Lens.lens (responseStatus :: GetDomainDetailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainDetailResponse)
-{-# DEPRECATED gddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The name of a domain.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddrsDomainName :: Lens.Lens' GetDomainDetailResponse Lude.Text
-gddrsDomainName = Lens.lens (domainName :: GetDomainDetailResponse -> Lude.Text) (\s a -> s {domainName = a} :: GetDomainDetailResponse)
-{-# DEPRECATED gddrsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
 -- | The name of the domain.
 --
 -- /Note:/ Consider using 'nameservers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -383,23 +413,9 @@ gddrsNameservers :: Lens.Lens' GetDomainDetailResponse [Nameserver]
 gddrsNameservers = Lens.lens (nameservers :: GetDomainDetailResponse -> [Nameserver]) (\s a -> s {nameservers = a} :: GetDomainDetailResponse)
 {-# DEPRECATED gddrsNameservers "Use generic-lens or generic-optics with 'nameservers' instead." #-}
 
--- | Provides details about the domain administrative contact.
+-- | The response status code.
 --
--- /Note:/ Consider using 'adminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddrsAdminContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
-gddrsAdminContact = Lens.lens (adminContact :: GetDomainDetailResponse -> ContactDetail) (\s a -> s {adminContact = a} :: GetDomainDetailResponse)
-{-# DEPRECATED gddrsAdminContact "Use generic-lens or generic-optics with 'adminContact' instead." #-}
-
--- | Provides details about the domain registrant.
---
--- /Note:/ Consider using 'registrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddrsRegistrantContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
-gddrsRegistrantContact = Lens.lens (registrantContact :: GetDomainDetailResponse -> ContactDetail) (\s a -> s {registrantContact = a} :: GetDomainDetailResponse)
-{-# DEPRECATED gddrsRegistrantContact "Use generic-lens or generic-optics with 'registrantContact' instead." #-}
-
--- | Provides details about the domain technical contact.
---
--- /Note:/ Consider using 'techContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddrsTechContact :: Lens.Lens' GetDomainDetailResponse ContactDetail
-gddrsTechContact = Lens.lens (techContact :: GetDomainDetailResponse -> ContactDetail) (\s a -> s {techContact = a} :: GetDomainDetailResponse)
-{-# DEPRECATED gddrsTechContact "Use generic-lens or generic-optics with 'techContact' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gddrsResponseStatus :: Lens.Lens' GetDomainDetailResponse Lude.Int
+gddrsResponseStatus = Lens.lens (responseStatus :: GetDomainDetailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainDetailResponse)
+{-# DEPRECATED gddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

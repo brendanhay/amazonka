@@ -13,12 +13,12 @@
 module Network.AWS.RDS.Types.SourceType
   ( SourceType
       ( SourceType',
-        DBCluster,
-        DBClusterSnapshot,
         DBInstance,
         DBParameterGroup,
         DBSecurityGroup,
-        DBSnapshot
+        DBSnapshot,
+        DBCluster,
+        DBClusterSnapshot
       ),
   )
 where
@@ -49,12 +49,6 @@ newtype SourceType = SourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DBCluster :: SourceType
-pattern DBCluster = SourceType' "db-cluster"
-
-pattern DBClusterSnapshot :: SourceType
-pattern DBClusterSnapshot = SourceType' "db-cluster-snapshot"
-
 pattern DBInstance :: SourceType
 pattern DBInstance = SourceType' "db-instance"
 
@@ -67,12 +61,18 @@ pattern DBSecurityGroup = SourceType' "db-security-group"
 pattern DBSnapshot :: SourceType
 pattern DBSnapshot = SourceType' "db-snapshot"
 
+pattern DBCluster :: SourceType
+pattern DBCluster = SourceType' "db-cluster"
+
+pattern DBClusterSnapshot :: SourceType
+pattern DBClusterSnapshot = SourceType' "db-cluster-snapshot"
+
 {-# COMPLETE
-  DBCluster,
-  DBClusterSnapshot,
   DBInstance,
   DBParameterGroup,
   DBSecurityGroup,
   DBSnapshot,
+  DBCluster,
+  DBClusterSnapshot,
   SourceType'
   #-}

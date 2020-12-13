@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemotePortDetails' smart constructor.
 data RemotePortDetails = RemotePortDetails'
-  { portName ::
-      Lude.Maybe Lude.Text,
+  { -- | The port name of the remote connection.
+    portName :: Lude.Maybe Lude.Text,
+    -- | The port number of the remote connection.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemotePortDetails' with the minimum fields required to make a request.
 --
--- * 'port' - The port number of the remote connection.
 -- * 'portName' - The port name of the remote connection.
+-- * 'port' - The port number of the remote connection.
 mkRemotePortDetails ::
   RemotePortDetails
 mkRemotePortDetails =

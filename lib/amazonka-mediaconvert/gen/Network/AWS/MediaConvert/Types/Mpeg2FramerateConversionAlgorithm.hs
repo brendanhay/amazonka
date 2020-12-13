@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.Mpeg2FramerateConversionAlgorithm
   ( Mpeg2FramerateConversionAlgorithm
       ( Mpeg2FramerateConversionAlgorithm',
         MFCADuplicateDrop,
-        MFCAFrameformer,
-        MFCAInterpolate
+        MFCAInterpolate,
+        MFCAFrameformer
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype Mpeg2FramerateConversionAlgorithm = Mpeg2FramerateConversionAlgorithm' L
 pattern MFCADuplicateDrop :: Mpeg2FramerateConversionAlgorithm
 pattern MFCADuplicateDrop = Mpeg2FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern MFCAFrameformer :: Mpeg2FramerateConversionAlgorithm
-pattern MFCAFrameformer = Mpeg2FramerateConversionAlgorithm' "FRAMEFORMER"
-
 pattern MFCAInterpolate :: Mpeg2FramerateConversionAlgorithm
 pattern MFCAInterpolate = Mpeg2FramerateConversionAlgorithm' "INTERPOLATE"
 
+pattern MFCAFrameformer :: Mpeg2FramerateConversionAlgorithm
+pattern MFCAFrameformer = Mpeg2FramerateConversionAlgorithm' "FRAMEFORMER"
+
 {-# COMPLETE
   MFCADuplicateDrop,
-  MFCAFrameformer,
   MFCAInterpolate,
+  MFCAFrameformer,
   Mpeg2FramerateConversionAlgorithm'
   #-}

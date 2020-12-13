@@ -13,8 +13,8 @@
 module Network.AWS.CloudFormation.Types.EvaluationType
   ( EvaluationType
       ( EvaluationType',
-        ETDynamic,
-        ETStatic
+        ETStatic,
+        ETDynamic
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EvaluationType = EvaluationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ETDynamic :: EvaluationType
-pattern ETDynamic = EvaluationType' "Dynamic"
-
 pattern ETStatic :: EvaluationType
 pattern ETStatic = EvaluationType' "Static"
 
+pattern ETDynamic :: EvaluationType
+pattern ETDynamic = EvaluationType' "Dynamic"
+
 {-# COMPLETE
-  ETDynamic,
   ETStatic,
+  ETDynamic,
   EvaluationType'
   #-}

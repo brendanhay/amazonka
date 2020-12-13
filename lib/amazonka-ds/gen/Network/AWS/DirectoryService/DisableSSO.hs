@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DirectoryService.DisableSSO
     mkDisableSSO,
 
     -- ** Request lenses
+    dssoDirectoryId,
     dssoUserName,
     dssoPassword,
-    dssoDirectoryId,
 
     -- * Destructuring the response
     DisableSSOResponse (..),
@@ -42,9 +43,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDisableSSO' smart constructor.
 data DisableSSO = DisableSSO'
-  { userName :: Lude.Maybe Lude.Text,
-    password :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    directoryId :: Lude.Text
+  { -- | The identifier of the directory for which to disable single-sign on.
+    directoryId :: Lude.Text,
+    -- | The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.
+    --
+    -- If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
+    userName :: Lude.Maybe Lude.Text,
+    -- | The password of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
+    password :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -52,20 +58,27 @@ data DisableSSO = DisableSSO'
 -- | Creates a value of 'DisableSSO' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The identifier of the directory for which to disable single-sign on.
--- * 'password' - The password of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
 -- * 'userName' - The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.
 --
 -- If the AD Connector service account does not have privileges to remove a service principal name, you can specify an alternate account with the /UserName/ and /Password/ parameters. These credentials are only used to disable single sign-on and are not stored by the service. The AD Connector service account is not changed.
+-- * 'password' - The password of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. For more information, see the /UserName/ parameter.
 mkDisableSSO ::
   -- | 'directoryId'
   Lude.Text ->
   DisableSSO
 mkDisableSSO pDirectoryId_ =
   DisableSSO'
-    { userName = Lude.Nothing,
-      password = Lude.Nothing,
-      directoryId = pDirectoryId_
+    { directoryId = pDirectoryId_,
+      userName = Lude.Nothing,
+      password = Lude.Nothing
     }
+
+-- | The identifier of the directory for which to disable single-sign on.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssoDirectoryId :: Lens.Lens' DisableSSO Lude.Text
+dssoDirectoryId = Lens.lens (directoryId :: DisableSSO -> Lude.Text) (\s a -> s {directoryId = a} :: DisableSSO)
+{-# DEPRECATED dssoDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The username of an alternate account to use to disable single-sign on. This is only used for AD Connector directories. This account must have privileges to remove a service principal name.
 --
@@ -82,13 +95,6 @@ dssoUserName = Lens.lens (userName :: DisableSSO -> Lude.Maybe Lude.Text) (\s a 
 dssoPassword :: Lens.Lens' DisableSSO (Lude.Maybe (Lude.Sensitive Lude.Text))
 dssoPassword = Lens.lens (password :: DisableSSO -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {password = a} :: DisableSSO)
 {-# DEPRECATED dssoPassword "Use generic-lens or generic-optics with 'password' instead." #-}
-
--- | The identifier of the directory for which to disable single-sign on.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssoDirectoryId :: Lens.Lens' DisableSSO Lude.Text
-dssoDirectoryId = Lens.lens (directoryId :: DisableSSO -> Lude.Text) (\s a -> s {directoryId = a} :: DisableSSO)
-{-# DEPRECATED dssoDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 instance Lude.AWSRequest DisableSSO where
   type Rs DisableSSO = DisableSSOResponse
@@ -114,9 +120,9 @@ instance Lude.ToJSON DisableSSO where
   toJSON DisableSSO' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("UserName" Lude..=) Lude.<$> userName,
-            ("Password" Lude..=) Lude.<$> password,
-            Lude.Just ("DirectoryId" Lude..= directoryId)
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("UserName" Lude..=) Lude.<$> userName,
+            ("Password" Lude..=) Lude.<$> password
           ]
       )
 
@@ -130,16 +136,10 @@ instance Lude.ToQuery DisableSSO where
 --
 -- /See:/ 'mkDisableSSOResponse' smart constructor.
 newtype DisableSSOResponse = DisableSSOResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableSSOResponse' with the minimum fields required to make a request.

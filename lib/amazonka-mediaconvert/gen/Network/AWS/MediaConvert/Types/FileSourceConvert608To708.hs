@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.FileSourceConvert608To708
   ( FileSourceConvert608To708
       ( FileSourceConvert608To708',
-        FSCTDisabled,
-        FSCTUpconvert
+        FSCTUpconvert,
+        FSCTDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype FileSourceConvert608To708 = FileSourceConvert608To708' Lude.Text
       Lude.ToHeader
     )
 
-pattern FSCTDisabled :: FileSourceConvert608To708
-pattern FSCTDisabled = FileSourceConvert608To708' "DISABLED"
-
 pattern FSCTUpconvert :: FileSourceConvert608To708
 pattern FSCTUpconvert = FileSourceConvert608To708' "UPCONVERT"
 
+pattern FSCTDisabled :: FileSourceConvert608To708
+pattern FSCTDisabled = FileSourceConvert608To708' "DISABLED"
+
 {-# COMPLETE
-  FSCTDisabled,
   FSCTUpconvert,
+  FSCTDisabled,
   FileSourceConvert608To708'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeStar.DisassociateTeamMember
     mkDisassociateTeamMember,
 
     -- ** Request lenses
-    dtmProjectId,
     dtmUserARN,
+    dtmProjectId,
 
     -- * Destructuring the response
     DisassociateTeamMemberResponse (..),
@@ -39,41 +40,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateTeamMember' smart constructor.
 data DisassociateTeamMember = DisassociateTeamMember'
-  { projectId ::
-      Lude.Text,
-    userARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
+    userARN :: Lude.Text,
+    -- | The ID of the AWS CodeStar project from which you want to remove a team member.
+    projectId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTeamMember' with the minimum fields required to make a request.
 --
--- * 'projectId' - The ID of the AWS CodeStar project from which you want to remove a team member.
 -- * 'userARN' - The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
+-- * 'projectId' - The ID of the AWS CodeStar project from which you want to remove a team member.
 mkDisassociateTeamMember ::
-  -- | 'projectId'
-  Lude.Text ->
   -- | 'userARN'
   Lude.Text ->
+  -- | 'projectId'
+  Lude.Text ->
   DisassociateTeamMember
-mkDisassociateTeamMember pProjectId_ pUserARN_ =
+mkDisassociateTeamMember pUserARN_ pProjectId_ =
   DisassociateTeamMember'
-    { projectId = pProjectId_,
-      userARN = pUserARN_
+    { userARN = pUserARN_,
+      projectId = pProjectId_
     }
-
--- | The ID of the AWS CodeStar project from which you want to remove a team member.
---
--- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmProjectId :: Lens.Lens' DisassociateTeamMember Lude.Text
-dtmProjectId = Lens.lens (projectId :: DisassociateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: DisassociateTeamMember)
-{-# DEPRECATED dtmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
 --
@@ -81,6 +70,13 @@ dtmProjectId = Lens.lens (projectId :: DisassociateTeamMember -> Lude.Text) (\s 
 dtmUserARN :: Lens.Lens' DisassociateTeamMember Lude.Text
 dtmUserARN = Lens.lens (userARN :: DisassociateTeamMember -> Lude.Text) (\s a -> s {userARN = a} :: DisassociateTeamMember)
 {-# DEPRECATED dtmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+
+-- | The ID of the AWS CodeStar project from which you want to remove a team member.
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmProjectId :: Lens.Lens' DisassociateTeamMember Lude.Text
+dtmProjectId = Lens.lens (projectId :: DisassociateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: DisassociateTeamMember)
+{-# DEPRECATED dtmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 instance Lude.AWSRequest DisassociateTeamMember where
   type Rs DisassociateTeamMember = DisassociateTeamMemberResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON DisassociateTeamMember where
   toJSON DisassociateTeamMember' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("projectId" Lude..= projectId),
-            Lude.Just ("userArn" Lude..= userARN)
+          [ Lude.Just ("userArn" Lude..= userARN),
+            Lude.Just ("projectId" Lude..= projectId)
           ]
       )
 
@@ -120,16 +116,10 @@ instance Lude.ToQuery DisassociateTeamMember where
 
 -- | /See:/ 'mkDisassociateTeamMemberResponse' smart constructor.
 newtype DisassociateTeamMemberResponse = DisassociateTeamMemberResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTeamMemberResponse' with the minimum fields required to make a request.

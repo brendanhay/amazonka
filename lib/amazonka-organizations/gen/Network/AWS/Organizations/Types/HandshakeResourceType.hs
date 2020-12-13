@@ -14,12 +14,12 @@ module Network.AWS.Organizations.Types.HandshakeResourceType
   ( HandshakeResourceType
       ( HandshakeResourceType',
         Account,
+        Organization,
+        OrganizationFeatureSet,
         Email,
         MasterEmail,
         MasterName,
         Notes,
-        Organization,
-        OrganizationFeatureSet,
         ParentHandshake
       ),
   )
@@ -54,6 +54,12 @@ newtype HandshakeResourceType = HandshakeResourceType' Lude.Text
 pattern Account :: HandshakeResourceType
 pattern Account = HandshakeResourceType' "ACCOUNT"
 
+pattern Organization :: HandshakeResourceType
+pattern Organization = HandshakeResourceType' "ORGANIZATION"
+
+pattern OrganizationFeatureSet :: HandshakeResourceType
+pattern OrganizationFeatureSet = HandshakeResourceType' "ORGANIZATION_FEATURE_SET"
+
 pattern Email :: HandshakeResourceType
 pattern Email = HandshakeResourceType' "EMAIL"
 
@@ -66,23 +72,17 @@ pattern MasterName = HandshakeResourceType' "MASTER_NAME"
 pattern Notes :: HandshakeResourceType
 pattern Notes = HandshakeResourceType' "NOTES"
 
-pattern Organization :: HandshakeResourceType
-pattern Organization = HandshakeResourceType' "ORGANIZATION"
-
-pattern OrganizationFeatureSet :: HandshakeResourceType
-pattern OrganizationFeatureSet = HandshakeResourceType' "ORGANIZATION_FEATURE_SET"
-
 pattern ParentHandshake :: HandshakeResourceType
 pattern ParentHandshake = HandshakeResourceType' "PARENT_HANDSHAKE"
 
 {-# COMPLETE
   Account,
+  Organization,
+  OrganizationFeatureSet,
   Email,
   MasterEmail,
   MasterName,
   Notes,
-  Organization,
-  OrganizationFeatureSet,
   ParentHandshake,
   HandshakeResourceType'
   #-}

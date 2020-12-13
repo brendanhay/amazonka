@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,26 +53,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateOriginRequestPolicy' smart constructor.
 data UpdateOriginRequestPolicy = UpdateOriginRequestPolicy'
-  { ifMatch ::
-      Lude.Maybe Lude.Text,
-    originRequestPolicyConfig ::
-      OriginRequestPolicyConfig,
+  { -- | The version of the origin request policy that you are updating. The version is returned in the origin request policy’s @ETag@ field in the response to @GetOriginRequestPolicyConfig@ .
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | An origin request policy configuration.
+    originRequestPolicyConfig :: OriginRequestPolicyConfig,
+    -- | The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior’s @OriginRequestPolicyId@ field in the response to @GetDistributionConfig@ .
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOriginRequestPolicy' with the minimum fields required to make a request.
 --
--- * 'id' - The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior’s @OriginRequestPolicyId@ field in the response to @GetDistributionConfig@ .
 -- * 'ifMatch' - The version of the origin request policy that you are updating. The version is returned in the origin request policy’s @ETag@ field in the response to @GetOriginRequestPolicyConfig@ .
 -- * 'originRequestPolicyConfig' - An origin request policy configuration.
+-- * 'id' - The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior’s @OriginRequestPolicyId@ field in the response to @GetDistributionConfig@ .
 mkUpdateOriginRequestPolicy ::
   -- | 'originRequestPolicyConfig'
   OriginRequestPolicyConfig ->
@@ -139,21 +135,14 @@ instance Lude.ToQuery UpdateOriginRequestPolicy where
 
 -- | /See:/ 'mkUpdateOriginRequestPolicyResponse' smart constructor.
 data UpdateOriginRequestPolicyResponse = UpdateOriginRequestPolicyResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
-    originRequestPolicy ::
-      Lude.Maybe
-        OriginRequestPolicy,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the origin request policy.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | An origin request policy.
+    originRequestPolicy :: Lude.Maybe OriginRequestPolicy,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOriginRequestPolicyResponse' with the minimum fields required to make a request.

@@ -36,34 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrafficMirrorFilter' smart constructor.
 data TrafficMirrorFilter = TrafficMirrorFilter'
-  { trafficMirrorFilterId ::
-      Lude.Maybe Lude.Text,
-    ingressFilterRules ::
-      Lude.Maybe [TrafficMirrorFilterRule],
-    networkServices ::
-      Lude.Maybe [TrafficMirrorNetworkService],
-    egressFilterRules ::
-      Lude.Maybe [TrafficMirrorFilterRule],
+  { -- | The ID of the Traffic Mirror filter.
+    trafficMirrorFilterId :: Lude.Maybe Lude.Text,
+    -- | Information about the ingress rules that are associated with the Traffic Mirror filter.
+    ingressFilterRules :: Lude.Maybe [TrafficMirrorFilterRule],
+    -- | The network service traffic that is associated with the Traffic Mirror filter.
+    networkServices :: Lude.Maybe [TrafficMirrorNetworkService],
+    -- | Information about the egress rules that are associated with the Traffic Mirror filter.
+    egressFilterRules :: Lude.Maybe [TrafficMirrorFilterRule],
+    -- | The description of the Traffic Mirror filter.
     description :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the Traffic Mirror filter.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrafficMirrorFilter' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the Traffic Mirror filter.
--- * 'egressFilterRules' - Information about the egress rules that are associated with the Traffic Mirror filter.
+-- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
 -- * 'ingressFilterRules' - Information about the ingress rules that are associated with the Traffic Mirror filter.
 -- * 'networkServices' - The network service traffic that is associated with the Traffic Mirror filter.
+-- * 'egressFilterRules' - Information about the egress rules that are associated with the Traffic Mirror filter.
+-- * 'description' - The description of the Traffic Mirror filter.
 -- * 'tags' - The tags assigned to the Traffic Mirror filter.
--- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
 mkTrafficMirrorFilter ::
   TrafficMirrorFilter
 mkTrafficMirrorFilter =

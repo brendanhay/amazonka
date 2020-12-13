@@ -30,30 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansPurchaseRecommendationMetadata' smart constructor.
 data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommendationMetadata'
-  { recommendationId ::
-      Lude.Maybe
-        Lude.Text,
-    generationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    additionalMetadata ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The unique identifier for the recommendation set.
+    recommendationId :: Lude.Maybe Lude.Text,
+    -- | The timestamp showing when the recommendations were generated.
+    generationTimestamp :: Lude.Maybe Lude.Text,
+    -- | Additional metadata that may be applicable to the recommendation.
+    additionalMetadata :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansPurchaseRecommendationMetadata' with the minimum fields required to make a request.
 --
--- * 'additionalMetadata' - Additional metadata that may be applicable to the recommendation.
--- * 'generationTimestamp' - The timestamp showing when the recommendations were generated.
 -- * 'recommendationId' - The unique identifier for the recommendation set.
+-- * 'generationTimestamp' - The timestamp showing when the recommendations were generated.
+-- * 'additionalMetadata' - Additional metadata that may be applicable to the recommendation.
 mkSavingsPlansPurchaseRecommendationMetadata ::
   SavingsPlansPurchaseRecommendationMetadata
 mkSavingsPlansPurchaseRecommendationMetadata =

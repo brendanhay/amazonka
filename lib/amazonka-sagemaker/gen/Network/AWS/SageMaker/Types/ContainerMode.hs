@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ContainerMode
   ( ContainerMode
       ( ContainerMode',
-        MultiModel,
-        SingleModel
+        SingleModel,
+        MultiModel
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ContainerMode = ContainerMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern MultiModel :: ContainerMode
-pattern MultiModel = ContainerMode' "MultiModel"
-
 pattern SingleModel :: ContainerMode
 pattern SingleModel = ContainerMode' "SingleModel"
 
+pattern MultiModel :: ContainerMode
+pattern MultiModel = ContainerMode' "MultiModel"
+
 {-# COMPLETE
-  MultiModel,
   SingleModel,
+  MultiModel,
   ContainerMode'
   #-}

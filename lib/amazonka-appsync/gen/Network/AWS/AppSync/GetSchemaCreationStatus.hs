@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSchemaCreationStatus' smart constructor.
 newtype GetSchemaCreationStatus = GetSchemaCreationStatus'
-  { apiId ::
-      Lude.Text
+  { -- | The API ID.
+    apiId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaCreationStatus' with the minimum fields required to make a request.
@@ -99,26 +94,21 @@ instance Lude.ToQuery GetSchemaCreationStatus where
 
 -- | /See:/ 'mkGetSchemaCreationStatusResponse' smart constructor.
 data GetSchemaCreationStatusResponse = GetSchemaCreationStatusResponse'
-  { status ::
-      Lude.Maybe SchemaStatus,
-    details ::
-      Lude.Maybe Lude.Text,
+  { -- | The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
+    status :: Lude.Maybe SchemaStatus,
+    -- | Detailed information about the status of the schema creation operation.
+    details :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaCreationStatusResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
 -- * 'details' - Detailed information about the status of the schema creation operation.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.
 mkGetSchemaCreationStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

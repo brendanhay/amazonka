@@ -50,55 +50,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWriteCampaignRequest' smart constructor.
 data WriteCampaignRequest = WriteCampaignRequest'
-  { customDeliveryConfiguration ::
-      Lude.Maybe CustomDeliveryConfiguration,
+  { -- | The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.
+    customDeliveryConfiguration :: Lude.Maybe CustomDeliveryConfiguration,
+    -- | The schedule settings for the campaign.
     schedule :: Lude.Maybe Schedule,
-    templateConfiguration ::
-      Lude.Maybe TemplateConfiguration,
+    -- | The message template to use for the campaign.
+    templateConfiguration :: Lude.Maybe TemplateConfiguration,
+    -- | The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
     hook :: Lude.Maybe CampaignHook,
+    -- | A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
     treatmentName :: Lude.Maybe Lude.Text,
+    -- | The messaging limits for the campaign.
     limits :: Lude.Maybe CampaignLimits,
+    -- | Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
     isPaused :: Lude.Maybe Lude.Bool,
+    -- | A custom name for the campaign.
     name :: Lude.Maybe Lude.Text,
+    -- | The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
     holdoutPercent :: Lude.Maybe Lude.Int,
+    -- | A custom description of the default treatment for the campaign.
     treatmentDescription :: Lude.Maybe Lude.Text,
-    messageConfiguration ::
-      Lude.Maybe MessageConfiguration,
+    -- | The message configuration settings for the campaign.
+    messageConfiguration :: Lude.Maybe MessageConfiguration,
+    -- | A custom description of the campaign.
     description :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the segment to associate with the campaign.
     segmentId :: Lude.Maybe Lude.Text,
-    additionalTreatments ::
-      Lude.Maybe [WriteTreatmentResource],
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
+    additionalTreatments :: Lude.Maybe [WriteTreatmentResource],
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The version of the segment to associate with the campaign.
     segmentVersion :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteCampaignRequest' with the minimum fields required to make a request.
 --
--- * 'additionalTreatments' - An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
 -- * 'customDeliveryConfiguration' - The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.
--- * 'description' - A custom description of the campaign.
--- * 'holdoutPercent' - The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
--- * 'hook' - The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
--- * 'isPaused' - Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
--- * 'limits' - The messaging limits for the campaign.
--- * 'messageConfiguration' - The message configuration settings for the campaign.
--- * 'name' - A custom name for the campaign.
 -- * 'schedule' - The schedule settings for the campaign.
--- * 'segmentId' - The unique identifier for the segment to associate with the campaign.
--- * 'segmentVersion' - The version of the segment to associate with the campaign.
--- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
 -- * 'templateConfiguration' - The message template to use for the campaign.
--- * 'treatmentDescription' - A custom description of the default treatment for the campaign.
+-- * 'hook' - The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.
 -- * 'treatmentName' - A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A /treatment/ is a variation of a campaign that's used for A/B testing.
+-- * 'limits' - The messaging limits for the campaign.
+-- * 'isPaused' - Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.
+-- * 'name' - A custom name for the campaign.
+-- * 'holdoutPercent' - The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.
+-- * 'treatmentDescription' - A custom description of the default treatment for the campaign.
+-- * 'messageConfiguration' - The message configuration settings for the campaign.
+-- * 'description' - A custom description of the campaign.
+-- * 'segmentId' - The unique identifier for the segment to associate with the campaign.
+-- * 'additionalTreatments' - An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.
+-- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.
+-- * 'segmentVersion' - The version of the segment to associate with the campaign.
 mkWriteCampaignRequest ::
   WriteCampaignRequest
 mkWriteCampaignRequest =

@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetGroupPairInfo' smart constructor.
 data TargetGroupPairInfo = TargetGroupPairInfo'
-  { prodTrafficRoute ::
-      Lude.Maybe TrafficRoute,
+  { -- | The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
+    prodTrafficRoute :: Lude.Maybe TrafficRoute,
+    -- | An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
     testTrafficRoute :: Lude.Maybe TrafficRoute,
+    -- | One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
     targetGroups :: Lude.Maybe [TargetGroupInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroupPairInfo' with the minimum fields required to make a request.
 --
 -- * 'prodTrafficRoute' - The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
--- * 'targetGroups' - One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
 -- * 'testTrafficRoute' - An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
+-- * 'targetGroups' - One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
 mkTargetGroupPairInfo ::
   TargetGroupPairInfo
 mkTargetGroupPairInfo =

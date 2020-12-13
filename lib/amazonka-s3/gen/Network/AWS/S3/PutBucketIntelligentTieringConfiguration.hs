@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.S3.PutBucketIntelligentTieringConfiguration
     mkPutBucketIntelligentTieringConfiguration,
 
     -- ** Request lenses
+    pbitcIntelligentTieringConfiguration,
     pbitcBucket,
     pbitcId,
-    pbitcIntelligentTieringConfiguration,
 
     -- * Destructuring the response
     PutBucketIntelligentTieringConfigurationResponse (..),
@@ -50,45 +51,46 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketIntelligentTieringConfiguration' smart constructor.
 data PutBucketIntelligentTieringConfiguration = PutBucketIntelligentTieringConfiguration'
-  { bucket ::
-      BucketName,
-    id ::
-      Lude.Text,
-    intelligentTieringConfiguration ::
-      IntelligentTieringConfiguration
+  { -- | Container for S3 Intelligent-Tiering configuration.
+    intelligentTieringConfiguration :: IntelligentTieringConfiguration,
+    -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
+    bucket :: BucketName,
+    -- | The ID used to identify the S3 Intelligent-Tiering configuration.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketIntelligentTieringConfiguration' with the minimum fields required to make a request.
 --
+-- * 'intelligentTieringConfiguration' - Container for S3 Intelligent-Tiering configuration.
 -- * 'bucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
 -- * 'id' - The ID used to identify the S3 Intelligent-Tiering configuration.
--- * 'intelligentTieringConfiguration' - Container for S3 Intelligent-Tiering configuration.
 mkPutBucketIntelligentTieringConfiguration ::
+  -- | 'intelligentTieringConfiguration'
+  IntelligentTieringConfiguration ->
   -- | 'bucket'
   BucketName ->
   -- | 'id'
   Lude.Text ->
-  -- | 'intelligentTieringConfiguration'
-  IntelligentTieringConfiguration ->
   PutBucketIntelligentTieringConfiguration
 mkPutBucketIntelligentTieringConfiguration
+  pIntelligentTieringConfiguration_
   pBucket_
-  pId_
-  pIntelligentTieringConfiguration_ =
+  pId_ =
     PutBucketIntelligentTieringConfiguration'
-      { bucket = pBucket_,
-        id = pId_,
-        intelligentTieringConfiguration =
-          pIntelligentTieringConfiguration_
+      { intelligentTieringConfiguration =
+          pIntelligentTieringConfiguration_,
+        bucket = pBucket_,
+        id = pId_
       }
+
+-- | Container for S3 Intelligent-Tiering configuration.
+--
+-- /Note:/ Consider using 'intelligentTieringConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbitcIntelligentTieringConfiguration :: Lens.Lens' PutBucketIntelligentTieringConfiguration IntelligentTieringConfiguration
+pbitcIntelligentTieringConfiguration = Lens.lens (intelligentTieringConfiguration :: PutBucketIntelligentTieringConfiguration -> IntelligentTieringConfiguration) (\s a -> s {intelligentTieringConfiguration = a} :: PutBucketIntelligentTieringConfiguration)
+{-# DEPRECATED pbitcIntelligentTieringConfiguration "Use generic-lens or generic-optics with 'intelligentTieringConfiguration' instead." #-}
 
 -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
 --
@@ -103,13 +105,6 @@ pbitcBucket = Lens.lens (bucket :: PutBucketIntelligentTieringConfiguration -> B
 pbitcId :: Lens.Lens' PutBucketIntelligentTieringConfiguration Lude.Text
 pbitcId = Lens.lens (id :: PutBucketIntelligentTieringConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketIntelligentTieringConfiguration)
 {-# DEPRECATED pbitcId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | Container for S3 Intelligent-Tiering configuration.
---
--- /Note:/ Consider using 'intelligentTieringConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbitcIntelligentTieringConfiguration :: Lens.Lens' PutBucketIntelligentTieringConfiguration IntelligentTieringConfiguration
-pbitcIntelligentTieringConfiguration = Lens.lens (intelligentTieringConfiguration :: PutBucketIntelligentTieringConfiguration -> IntelligentTieringConfiguration) (\s a -> s {intelligentTieringConfiguration = a} :: PutBucketIntelligentTieringConfiguration)
-{-# DEPRECATED pbitcIntelligentTieringConfiguration "Use generic-lens or generic-optics with 'intelligentTieringConfiguration' instead." #-}
 
 instance Lude.AWSRequest PutBucketIntelligentTieringConfiguration where
   type
@@ -138,17 +133,8 @@ instance Lude.ToQuery PutBucketIntelligentTieringConfiguration where
 
 -- | /See:/ 'mkPutBucketIntelligentTieringConfigurationResponse' smart constructor.
 data PutBucketIntelligentTieringConfigurationResponse = PutBucketIntelligentTieringConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketIntelligentTieringConfigurationResponse' with the minimum fields required to make a request.
 mkPutBucketIntelligentTieringConfigurationResponse ::

@@ -17,8 +17,8 @@ module Network.AWS.Connect.Types.ChatMessage
     mkChatMessage,
 
     -- * Lenses
-    cmContentType,
     cmContent,
+    cmContentType,
   )
 where
 
@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChatMessage' smart constructor.
 data ChatMessage = ChatMessage'
-  { contentType :: Lude.Text,
-    content :: Lude.Text
+  { -- | The content of the chat message.
+    content :: Lude.Text,
+    -- | The type of the content. Supported types are text/plain.
+    contentType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChatMessage' with the minimum fields required to make a request.
@@ -46,20 +42,13 @@ data ChatMessage = ChatMessage'
 -- * 'content' - The content of the chat message.
 -- * 'contentType' - The type of the content. Supported types are text/plain.
 mkChatMessage ::
-  -- | 'contentType'
-  Lude.Text ->
   -- | 'content'
   Lude.Text ->
+  -- | 'contentType'
+  Lude.Text ->
   ChatMessage
-mkChatMessage pContentType_ pContent_ =
-  ChatMessage' {contentType = pContentType_, content = pContent_}
-
--- | The type of the content. Supported types are text/plain.
---
--- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmContentType :: Lens.Lens' ChatMessage Lude.Text
-cmContentType = Lens.lens (contentType :: ChatMessage -> Lude.Text) (\s a -> s {contentType = a} :: ChatMessage)
-{-# DEPRECATED cmContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+mkChatMessage pContent_ pContentType_ =
+  ChatMessage' {content = pContent_, contentType = pContentType_}
 
 -- | The content of the chat message.
 --
@@ -68,11 +57,18 @@ cmContent :: Lens.Lens' ChatMessage Lude.Text
 cmContent = Lens.lens (content :: ChatMessage -> Lude.Text) (\s a -> s {content = a} :: ChatMessage)
 {-# DEPRECATED cmContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
+-- | The type of the content. Supported types are text/plain.
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmContentType :: Lens.Lens' ChatMessage Lude.Text
+cmContentType = Lens.lens (contentType :: ChatMessage -> Lude.Text) (\s a -> s {contentType = a} :: ChatMessage)
+{-# DEPRECATED cmContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
 instance Lude.ToJSON ChatMessage where
   toJSON ChatMessage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ContentType" Lude..= contentType),
-            Lude.Just ("Content" Lude..= content)
+          [ Lude.Just ("Content" Lude..= content),
+            Lude.Just ("ContentType" Lude..= contentType)
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Lightsail.RegisterContainerImage
 
     -- ** Request lenses
     rciServiceName,
-    rciLabel,
     rciDigest,
+    rciLabel,
 
     -- * Destructuring the response
     RegisterContainerImageResponse (..),
@@ -41,22 +42,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterContainerImage' smart constructor.
 data RegisterContainerImage = RegisterContainerImage'
-  { serviceName ::
-      Lude.Text,
-    label :: Lude.Text,
-    digest :: Lude.Text
+  { -- | The name of the container service for which to register a container image.
+    serviceName :: Lude.Text,
+    -- | The digest of the container image to be registered.
+    digest :: Lude.Text,
+    -- | The label for the container image when it's registered to the container service.
+    --
+    -- Use a descriptive label that you can use to track the different versions of your registered container images.
+    -- Use the @GetContainerImages@ action to return the container images registered to a Lightsail container service. The label is the @<imagelabel>@ portion of the following image name example:
+    --
+    --     * @:container-service-1.<imagelabel>.1@
+    --
+    --
+    -- If the name of your container service is @mycontainerservice@ , and the label that you specify is @mystaticwebsite@ , then the name of the registered container image will be @:mycontainerservice.mystaticwebsite.1@ .
+    -- The number at the end of these image name examples represents the version of the registered container image. If you push and register another container image to the same Lightsail container service, with the same label, then the version number for the new registered container image will be @2@ . If you push and register another container image, the version number will be @3@ , and so on.
+    label :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterContainerImage' with the minimum fields required to make a request.
 --
+-- * 'serviceName' - The name of the container service for which to register a container image.
 -- * 'digest' - The digest of the container image to be registered.
 -- * 'label' - The label for the container image when it's registered to the container service.
 --
@@ -68,20 +75,19 @@ data RegisterContainerImage = RegisterContainerImage'
 --
 -- If the name of your container service is @mycontainerservice@ , and the label that you specify is @mystaticwebsite@ , then the name of the registered container image will be @:mycontainerservice.mystaticwebsite.1@ .
 -- The number at the end of these image name examples represents the version of the registered container image. If you push and register another container image to the same Lightsail container service, with the same label, then the version number for the new registered container image will be @2@ . If you push and register another container image, the version number will be @3@ , and so on.
--- * 'serviceName' - The name of the container service for which to register a container image.
 mkRegisterContainerImage ::
   -- | 'serviceName'
   Lude.Text ->
-  -- | 'label'
-  Lude.Text ->
   -- | 'digest'
   Lude.Text ->
+  -- | 'label'
+  Lude.Text ->
   RegisterContainerImage
-mkRegisterContainerImage pServiceName_ pLabel_ pDigest_ =
+mkRegisterContainerImage pServiceName_ pDigest_ pLabel_ =
   RegisterContainerImage'
     { serviceName = pServiceName_,
-      label = pLabel_,
-      digest = pDigest_
+      digest = pDigest_,
+      label = pLabel_
     }
 
 -- | The name of the container service for which to register a container image.
@@ -90,6 +96,13 @@ mkRegisterContainerImage pServiceName_ pLabel_ pDigest_ =
 rciServiceName :: Lens.Lens' RegisterContainerImage Lude.Text
 rciServiceName = Lens.lens (serviceName :: RegisterContainerImage -> Lude.Text) (\s a -> s {serviceName = a} :: RegisterContainerImage)
 {-# DEPRECATED rciServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+
+-- | The digest of the container image to be registered.
+--
+-- /Note:/ Consider using 'digest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rciDigest :: Lens.Lens' RegisterContainerImage Lude.Text
+rciDigest = Lens.lens (digest :: RegisterContainerImage -> Lude.Text) (\s a -> s {digest = a} :: RegisterContainerImage)
+{-# DEPRECATED rciDigest "Use generic-lens or generic-optics with 'digest' instead." #-}
 
 -- | The label for the container image when it's registered to the container service.
 --
@@ -106,13 +119,6 @@ rciServiceName = Lens.lens (serviceName :: RegisterContainerImage -> Lude.Text) 
 rciLabel :: Lens.Lens' RegisterContainerImage Lude.Text
 rciLabel = Lens.lens (label :: RegisterContainerImage -> Lude.Text) (\s a -> s {label = a} :: RegisterContainerImage)
 {-# DEPRECATED rciLabel "Use generic-lens or generic-optics with 'label' instead." #-}
-
--- | The digest of the container image to be registered.
---
--- /Note:/ Consider using 'digest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rciDigest :: Lens.Lens' RegisterContainerImage Lude.Text
-rciDigest = Lens.lens (digest :: RegisterContainerImage -> Lude.Text) (\s a -> s {digest = a} :: RegisterContainerImage)
-{-# DEPRECATED rciDigest "Use generic-lens or generic-optics with 'digest' instead." #-}
 
 instance Lude.AWSRequest RegisterContainerImage where
   type Rs RegisterContainerImage = RegisterContainerImageResponse
@@ -141,8 +147,8 @@ instance Lude.ToJSON RegisterContainerImage where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("serviceName" Lude..= serviceName),
-            Lude.Just ("label" Lude..= label),
-            Lude.Just ("digest" Lude..= digest)
+            Lude.Just ("digest" Lude..= digest),
+            Lude.Just ("label" Lude..= label)
           ]
       )
 
@@ -154,22 +160,16 @@ instance Lude.ToQuery RegisterContainerImage where
 
 -- | /See:/ 'mkRegisterContainerImageResponse' smart constructor.
 data RegisterContainerImageResponse = RegisterContainerImageResponse'
-  { containerImage ::
-      Lude.Maybe ContainerImage,
+  { containerImage :: Lude.Maybe ContainerImage,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterContainerImageResponse' with the minimum fields required to make a request.
 --
--- * 'containerImage' - Undocumented field.
+-- * 'containerImage' -
 -- * 'responseStatus' - The response status code.
 mkRegisterContainerImageResponse ::
   -- | 'responseStatus'

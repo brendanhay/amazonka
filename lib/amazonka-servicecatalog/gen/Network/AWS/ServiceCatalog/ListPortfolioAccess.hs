@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.ServiceCatalog.ListPortfolioAccess
     mkListPortfolioAccess,
 
     -- ** Request lenses
-    lOrganizationParentId,
-    lAcceptLanguage,
-    lPageToken,
-    lPageSize,
-    lPortfolioId,
+    lpaPortfolioId,
+    lpaOrganizationParentId,
+    lpaAcceptLanguage,
+    lpaPageToken,
+    lpaPageSize,
 
     -- * Destructuring the response
     ListPortfolioAccessResponse (..),
@@ -46,24 +47,33 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListPortfolioAccess' smart constructor.
 data ListPortfolioAccess = ListPortfolioAccess'
-  { organizationParentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The portfolio identifier.
+    portfolioId :: Lude.Text,
+    -- | The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.
+    organizationParentId :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Natural,
-    portfolioId :: Lude.Text
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPortfolioAccess' with the minimum fields required to make a request.
 --
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'organizationParentId' - The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -76,29 +86,34 @@ data ListPortfolioAccess = ListPortfolioAccess'
 --     * @zh@ - Chinese
 --
 --
--- * 'organizationParentId' - The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'portfolioId' - The portfolio identifier.
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkListPortfolioAccess ::
   -- | 'portfolioId'
   Lude.Text ->
   ListPortfolioAccess
 mkListPortfolioAccess pPortfolioId_ =
   ListPortfolioAccess'
-    { organizationParentId = Lude.Nothing,
+    { portfolioId = pPortfolioId_,
+      organizationParentId = Lude.Nothing,
       acceptLanguage = Lude.Nothing,
       pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      portfolioId = pPortfolioId_
+      pageSize = Lude.Nothing
     }
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpaPortfolioId :: Lens.Lens' ListPortfolioAccess Lude.Text
+lpaPortfolioId = Lens.lens (portfolioId :: ListPortfolioAccess -> Lude.Text) (\s a -> s {portfolioId = a} :: ListPortfolioAccess)
+{-# DEPRECATED lpaPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.
 --
 -- /Note:/ Consider using 'organizationParentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lOrganizationParentId :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Text)
-lOrganizationParentId = Lens.lens (organizationParentId :: ListPortfolioAccess -> Lude.Maybe Lude.Text) (\s a -> s {organizationParentId = a} :: ListPortfolioAccess)
-{-# DEPRECATED lOrganizationParentId "Use generic-lens or generic-optics with 'organizationParentId' instead." #-}
+lpaOrganizationParentId :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Text)
+lpaOrganizationParentId = Lens.lens (organizationParentId :: ListPortfolioAccess -> Lude.Maybe Lude.Text) (\s a -> s {organizationParentId = a} :: ListPortfolioAccess)
+{-# DEPRECATED lpaOrganizationParentId "Use generic-lens or generic-optics with 'organizationParentId' instead." #-}
 
 -- | The language code.
 --
@@ -114,30 +129,23 @@ lOrganizationParentId = Lens.lens (organizationParentId :: ListPortfolioAccess -
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAcceptLanguage :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Text)
-lAcceptLanguage = Lens.lens (acceptLanguage :: ListPortfolioAccess -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListPortfolioAccess)
-{-# DEPRECATED lAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+lpaAcceptLanguage :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Text)
+lpaAcceptLanguage = Lens.lens (acceptLanguage :: ListPortfolioAccess -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListPortfolioAccess)
+{-# DEPRECATED lpaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The page token for the next set of results. To retrieve the first set of results, use null.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lPageToken :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Text)
-lPageToken = Lens.lens (pageToken :: ListPortfolioAccess -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListPortfolioAccess)
-{-# DEPRECATED lPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
+lpaPageToken :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Text)
+lpaPageToken = Lens.lens (pageToken :: ListPortfolioAccess -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListPortfolioAccess)
+{-# DEPRECATED lpaPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lPageSize :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Natural)
-lPageSize = Lens.lens (pageSize :: ListPortfolioAccess -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListPortfolioAccess)
-{-# DEPRECATED lPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lPortfolioId :: Lens.Lens' ListPortfolioAccess Lude.Text
-lPortfolioId = Lens.lens (portfolioId :: ListPortfolioAccess -> Lude.Text) (\s a -> s {portfolioId = a} :: ListPortfolioAccess)
-{-# DEPRECATED lPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+lpaPageSize :: Lens.Lens' ListPortfolioAccess (Lude.Maybe Lude.Natural)
+lpaPageSize = Lens.lens (pageSize :: ListPortfolioAccess -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListPortfolioAccess)
+{-# DEPRECATED lpaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 instance Lude.AWSRequest ListPortfolioAccess where
   type Rs ListPortfolioAccess = ListPortfolioAccessResponse
@@ -168,11 +176,11 @@ instance Lude.ToJSON ListPortfolioAccess where
   toJSON ListPortfolioAccess' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("OrganizationParentId" Lude..=) Lude.<$> organizationParentId,
+          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
+            ("OrganizationParentId" Lude..=) Lude.<$> organizationParentId,
             ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("PortfolioId" Lude..= portfolioId)
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
@@ -184,25 +192,20 @@ instance Lude.ToQuery ListPortfolioAccess where
 
 -- | /See:/ 'mkListPortfolioAccessResponse' smart constructor.
 data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    accountIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the AWS accounts with access to the portfolio.
+    accountIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPortfolioAccessResponse' with the minimum fields required to make a request.
 --
--- * 'accountIds' - Information about the AWS accounts with access to the portfolio.
 -- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'accountIds' - Information about the AWS accounts with access to the portfolio.
 -- * 'responseStatus' - The response status code.
 mkListPortfolioAccessResponse ::
   -- | 'responseStatus'

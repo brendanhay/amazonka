@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -76,29 +77,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateBuild' smart constructor.
 data CreateBuild = CreateBuild'
-  { storageLocation ::
-      Lude.Maybe S3Location,
+  { -- | The location where your game build files are stored. Use this parameter only when creating a build using files that are stored in an S3 bucket that you own. Identify an S3 bucket name and key, which must in the same Region where you're creating a build. This parameter must also specify the ARN for an IAM role that you've set up to give Amazon GameLift access your S3 bucket. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
+    storageLocation :: Lude.Maybe S3Location,
+    -- | The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
     operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | A descriptive label that is associated with a build. Build names do not need to be unique. You can use 'UpdateBuild' to change this value later.
     name :: Lude.Maybe Lude.Text,
+    -- | Version information that is associated with a build or script. Version strings do not need to be unique. You can use 'UpdateBuild' to change this value later.
     version :: Lude.Maybe Lude.Text,
+    -- | A list of labels to assign to the new build resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBuild' with the minimum fields required to make a request.
 --
--- * 'name' - A descriptive label that is associated with a build. Build names do not need to be unique. You can use 'UpdateBuild' to change this value later.
--- * 'operatingSystem' - The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
 -- * 'storageLocation' - The location where your game build files are stored. Use this parameter only when creating a build using files that are stored in an S3 bucket that you own. Identify an S3 bucket name and key, which must in the same Region where you're creating a build. This parameter must also specify the ARN for an IAM role that you've set up to give Amazon GameLift access your S3 bucket. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
--- * 'tags' - A list of labels to assign to the new build resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+-- * 'operatingSystem' - The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+-- * 'name' - A descriptive label that is associated with a build. Build names do not need to be unique. You can use 'UpdateBuild' to change this value later.
 -- * 'version' - Version information that is associated with a build or script. Version strings do not need to be unique. You can use 'UpdateBuild' to change this value later.
+-- * 'tags' - A list of labels to assign to the new build resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 mkCreateBuild ::
   CreateBuild
 mkCreateBuild =
@@ -191,27 +190,24 @@ instance Lude.ToQuery CreateBuild where
 --
 -- /See:/ 'mkCreateBuildResponse' smart constructor.
 data CreateBuildResponse = CreateBuildResponse'
-  { storageLocation ::
-      Lude.Maybe S3Location,
+  { -- | Amazon S3 location for your game build file, including bucket name and key.
+    storageLocation :: Lude.Maybe S3Location,
+    -- | This element is returned only when the operation is called without a storage location. It contains credentials to use when you are uploading a build file to an S3 bucket that is owned by Amazon GameLift. Credentials have a limited life span. To refresh these credentials, call 'RequestUploadCredentials' .
     uploadCredentials :: Lude.Maybe AWSCredentials,
+    -- | The newly created build resource, including a unique build IDs and status.
     build :: Lude.Maybe Build,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBuildResponse' with the minimum fields required to make a request.
 --
--- * 'build' - The newly created build resource, including a unique build IDs and status.
--- * 'responseStatus' - The response status code.
 -- * 'storageLocation' - Amazon S3 location for your game build file, including bucket name and key.
 -- * 'uploadCredentials' - This element is returned only when the operation is called without a storage location. It contains credentials to use when you are uploading a build file to an S3 bucket that is owned by Amazon GameLift. Credentials have a limited life span. To refresh these credentials, call 'RequestUploadCredentials' .
+-- * 'build' - The newly created build resource, including a unique build IDs and status.
+-- * 'responseStatus' - The response status code.
 mkCreateBuildResponse ::
   -- | 'responseStatus'
   Lude.Int ->

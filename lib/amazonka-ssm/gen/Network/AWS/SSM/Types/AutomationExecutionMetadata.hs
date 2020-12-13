@@ -54,87 +54,78 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'mkAutomationExecutionMetadata' smart constructor.
 data AutomationExecutionMetadata = AutomationExecutionMetadata'
-  { currentStepName ::
-      Lude.Maybe Lude.Text,
-    targetParameterName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the step that is currently running.
+    currentStepName :: Lude.Maybe Lude.Text,
+    -- | The list of execution outputs as defined in the Automation document.
+    targetParameterName :: Lude.Maybe Lude.Text,
+    -- | An S3 bucket where execution information is stored.
     logFile :: Lude.Maybe Lude.Text,
+    -- | The IAM role ARN of the user who ran the Automation.
     executedBy :: Lude.Maybe Lude.Text,
-    documentName ::
-      Lude.Maybe Lude.Text,
-    executionEndTime ::
-      Lude.Maybe Lude.Timestamp,
-    failureMessage ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the Automation document used during execution.
+    documentName :: Lude.Maybe Lude.Text,
+    -- | The time the execution finished. This is not populated if the execution is still in progress.
+    executionEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | The list of execution outputs as defined in the Automation document.
+    failureMessage :: Lude.Maybe Lude.Text,
+    -- | The Automation execution mode.
     mode :: Lude.Maybe ExecutionMode,
-    targetMaps ::
-      Lude.Maybe
-        [ Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ],
-    automationExecutionStatus ::
-      Lude.Maybe
-        AutomationExecutionStatus,
-    parentAutomationExecutionId ::
-      Lude.Maybe Lude.Text,
-    outputs ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ),
+    -- | The specified key-value mapping of document parameters to target resources.
+    targetMaps :: Lude.Maybe [Lude.HashMap Lude.Text ([Lude.Text])],
+    -- | The status of the execution.
+    automationExecutionStatus :: Lude.Maybe AutomationExecutionStatus,
+    -- | The ExecutionId of the parent Automation.
+    parentAutomationExecutionId :: Lude.Maybe Lude.Text,
+    -- | The list of execution outputs as defined in the Automation document.
+    outputs :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The MaxErrors value specified by the user when starting the Automation.
     maxErrors :: Lude.Maybe Lude.Text,
-    executionStartTime ::
-      Lude.Maybe Lude.Timestamp,
-    automationType ::
-      Lude.Maybe AutomationType,
-    currentAction ::
-      Lude.Maybe Lude.Text,
+    -- | The time the execution started.
+    executionStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | Use this filter with 'DescribeAutomationExecutions' . Specify either Local or CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
+    automationType :: Lude.Maybe AutomationType,
+    -- | The action of the step that is currently running.
+    currentAction :: Lude.Maybe Lude.Text,
+    -- | The targets defined by the user when starting the Automation.
     targets :: Lude.Maybe [Target],
-    resolvedTargets ::
-      Lude.Maybe ResolvedTargets,
-    documentVersion ::
-      Lude.Maybe Lude.Text,
-    automationExecutionId ::
-      Lude.Maybe Lude.Text,
-    maxConcurrency ::
-      Lude.Maybe Lude.Text,
+    -- | A list of targets that resolved during the execution.
+    resolvedTargets :: Lude.Maybe ResolvedTargets,
+    -- | The document version used during the execution.
+    documentVersion :: Lude.Maybe Lude.Text,
+    -- | The execution ID.
+    automationExecutionId :: Lude.Maybe Lude.Text,
+    -- | The MaxConcurrency value specified by the user when starting the Automation.
+    maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The list of execution outputs as defined in the Automation document.
     target :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomationExecutionMetadata' with the minimum fields required to make a request.
 --
--- * 'automationExecutionId' - The execution ID.
+-- * 'currentStepName' - The name of the step that is currently running.
+-- * 'targetParameterName' - The list of execution outputs as defined in the Automation document.
+-- * 'logFile' - An S3 bucket where execution information is stored.
+-- * 'executedBy' - The IAM role ARN of the user who ran the Automation.
+-- * 'documentName' - The name of the Automation document used during execution.
+-- * 'executionEndTime' - The time the execution finished. This is not populated if the execution is still in progress.
+-- * 'failureMessage' - The list of execution outputs as defined in the Automation document.
+-- * 'mode' - The Automation execution mode.
+-- * 'targetMaps' - The specified key-value mapping of document parameters to target resources.
 -- * 'automationExecutionStatus' - The status of the execution.
+-- * 'parentAutomationExecutionId' - The ExecutionId of the parent Automation.
+-- * 'outputs' - The list of execution outputs as defined in the Automation document.
+-- * 'maxErrors' - The MaxErrors value specified by the user when starting the Automation.
+-- * 'executionStartTime' - The time the execution started.
 -- * 'automationType' - Use this filter with 'DescribeAutomationExecutions' . Specify either Local or CrossAccount. CrossAccount is an Automation that runs in multiple AWS Regions and accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
 -- * 'currentAction' - The action of the step that is currently running.
--- * 'currentStepName' - The name of the step that is currently running.
--- * 'documentName' - The name of the Automation document used during execution.
--- * 'documentVersion' - The document version used during the execution.
--- * 'executedBy' - The IAM role ARN of the user who ran the Automation.
--- * 'executionEndTime' - The time the execution finished. This is not populated if the execution is still in progress.
--- * 'executionStartTime' - The time the execution started.
--- * 'failureMessage' - The list of execution outputs as defined in the Automation document.
--- * 'logFile' - An S3 bucket where execution information is stored.
--- * 'maxConcurrency' - The MaxConcurrency value specified by the user when starting the Automation.
--- * 'maxErrors' - The MaxErrors value specified by the user when starting the Automation.
--- * 'mode' - The Automation execution mode.
--- * 'outputs' - The list of execution outputs as defined in the Automation document.
--- * 'parentAutomationExecutionId' - The ExecutionId of the parent Automation.
--- * 'resolvedTargets' - A list of targets that resolved during the execution.
--- * 'target' - The list of execution outputs as defined in the Automation document.
--- * 'targetMaps' - The specified key-value mapping of document parameters to target resources.
--- * 'targetParameterName' - The list of execution outputs as defined in the Automation document.
 -- * 'targets' - The targets defined by the user when starting the Automation.
+-- * 'resolvedTargets' - A list of targets that resolved during the execution.
+-- * 'documentVersion' - The document version used during the execution.
+-- * 'automationExecutionId' - The execution ID.
+-- * 'maxConcurrency' - The MaxConcurrency value specified by the user when starting the Automation.
+-- * 'target' - The list of execution outputs as defined in the Automation document.
 mkAutomationExecutionMetadata ::
   AutomationExecutionMetadata
 mkAutomationExecutionMetadata =

@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The name of a context that must be active for an intent to be selected by Amazon Lex.
 --
 -- /See:/ 'mkInputContext' smart constructor.
-newtype InputContext = InputContext' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype InputContext = InputContext'
+  { -- | The name of the context.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputContext' with the minimum fields required to make a request.

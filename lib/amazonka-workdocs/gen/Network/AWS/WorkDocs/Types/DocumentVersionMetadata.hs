@@ -43,32 +43,31 @@ import Network.AWS.WorkDocs.Types.DocumentThumbnailType
 --
 -- /See:/ 'mkDocumentVersionMetadata' smart constructor.
 data DocumentVersionMetadata = DocumentVersionMetadata'
-  { thumbnail ::
-      Lude.Maybe
-        ( Lude.HashMap
-            DocumentThumbnailType
-            (Lude.Sensitive Lude.Text)
-        ),
+  { -- | The thumbnail of the document.
+    thumbnail :: Lude.Maybe (Lude.HashMap DocumentThumbnailType (Lude.Sensitive Lude.Text)),
+    -- | The status of the document.
     status :: Lude.Maybe DocumentStatusType,
+    -- | The signature of the document.
     signature :: Lude.Maybe Lude.Text,
-    contentCreatedTimestamp ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The timestamp when the content of the document was originally created.
+    contentCreatedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The size of the document, in bytes.
     size :: Lude.Maybe Lude.Integer,
+    -- | The name of the version.
     name :: Lude.Maybe Lude.Text,
-    modifiedTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    source ::
-      Lude.Maybe
-        ( Lude.HashMap
-            DocumentSourceType
-            (Lude.Sensitive Lude.Text)
-        ),
+    -- | The timestamp when the document was last uploaded.
+    modifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The source of the document.
+    source :: Lude.Maybe (Lude.HashMap DocumentSourceType (Lude.Sensitive Lude.Text)),
+    -- | The ID of the version.
     id :: Lude.Maybe Lude.Text,
-    createdTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    contentModifiedTimestamp ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The timestamp when the document was first uploaded.
+    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The timestamp when the content of the document was modified.
+    contentModifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the creator.
     creatorId :: Lude.Maybe Lude.Text,
+    -- | The content type of the document.
     contentType :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -76,19 +75,19 @@ data DocumentVersionMetadata = DocumentVersionMetadata'
 
 -- | Creates a value of 'DocumentVersionMetadata' with the minimum fields required to make a request.
 --
--- * 'contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
--- * 'contentModifiedTimestamp' - The timestamp when the content of the document was modified.
--- * 'contentType' - The content type of the document.
--- * 'createdTimestamp' - The timestamp when the document was first uploaded.
--- * 'creatorId' - The ID of the creator.
--- * 'id' - The ID of the version.
--- * 'modifiedTimestamp' - The timestamp when the document was last uploaded.
--- * 'name' - The name of the version.
--- * 'signature' - The signature of the document.
--- * 'size' - The size of the document, in bytes.
--- * 'source' - The source of the document.
--- * 'status' - The status of the document.
 -- * 'thumbnail' - The thumbnail of the document.
+-- * 'status' - The status of the document.
+-- * 'signature' - The signature of the document.
+-- * 'contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
+-- * 'size' - The size of the document, in bytes.
+-- * 'name' - The name of the version.
+-- * 'modifiedTimestamp' - The timestamp when the document was last uploaded.
+-- * 'source' - The source of the document.
+-- * 'id' - The ID of the version.
+-- * 'createdTimestamp' - The timestamp when the document was first uploaded.
+-- * 'contentModifiedTimestamp' - The timestamp when the content of the document was modified.
+-- * 'creatorId' - The ID of the creator.
+-- * 'contentType' - The content type of the document.
 mkDocumentVersionMetadata ::
   DocumentVersionMetadata
 mkDocumentVersionMetadata =

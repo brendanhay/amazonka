@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,35 +47,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSubmitContainerStateChange' smart constructor.
 data SubmitContainerStateChange = SubmitContainerStateChange'
-  { networkBindings ::
-      Lude.Maybe [NetworkBinding],
+  { -- | The network bindings of the container.
+    networkBindings :: Lude.Maybe [NetworkBinding],
+    -- | The status of the state change request.
     status :: Lude.Maybe Lude.Text,
+    -- | The short name or full ARN of the cluster that hosts the container.
     cluster :: Lude.Maybe Lude.Text,
+    -- | The name of the container.
     containerName :: Lude.Maybe Lude.Text,
+    -- | The reason for the state change request.
     reason :: Lude.Maybe Lude.Text,
+    -- | The exit code returned for the state change request.
     exitCode :: Lude.Maybe Lude.Int,
+    -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
     task :: Lude.Maybe Lude.Text,
+    -- | The ID of the Docker container.
     runtimeId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubmitContainerStateChange' with the minimum fields required to make a request.
 --
+-- * 'networkBindings' - The network bindings of the container.
+-- * 'status' - The status of the state change request.
 -- * 'cluster' - The short name or full ARN of the cluster that hosts the container.
 -- * 'containerName' - The name of the container.
--- * 'exitCode' - The exit code returned for the state change request.
--- * 'networkBindings' - The network bindings of the container.
 -- * 'reason' - The reason for the state change request.
--- * 'runtimeId' - The ID of the Docker container.
--- * 'status' - The status of the state change request.
+-- * 'exitCode' - The exit code returned for the state change request.
 -- * 'task' - The task ID or full Amazon Resource Name (ARN) of the task that hosts the container.
+-- * 'runtimeId' - The ID of the Docker container.
 mkSubmitContainerStateChange ::
   SubmitContainerStateChange
 mkSubmitContainerStateChange =
@@ -194,18 +196,12 @@ instance Lude.ToQuery SubmitContainerStateChange where
 
 -- | /See:/ 'mkSubmitContainerStateChangeResponse' smart constructor.
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
-  { acknowledgment ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Acknowledgement of the state change.
+    acknowledgment :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubmitContainerStateChangeResponse' with the minimum fields required to make a request.

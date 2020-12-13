@@ -45,48 +45,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStorageDescriptor' smart constructor.
 data StorageDescriptor = StorageDescriptor'
-  { sortColumns ::
-      Lude.Maybe [Order],
+  { -- | A list specifying the sort order of each bucket in the table.
+    sortColumns :: Lude.Maybe [Order],
+    -- | @True@ if the data in the table is compressed, or @False@ if not.
     compressed :: Lude.Maybe Lude.Bool,
+    -- | The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
     location :: Lude.Maybe Lude.Text,
+    -- | A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
     bucketColumns :: Lude.Maybe [Lude.Text],
+    -- | The serialization/deserialization (SerDe) information.
     serdeInfo :: Lude.Maybe SerDeInfo,
+    -- | The output format: @SequenceFileOutputFormat@ (binary), or @IgnoreKeyTextOutputFormat@ , or a custom format.
     outputFormat :: Lude.Maybe Lude.Text,
+    -- | Must be specified if the table contains any dimension columns.
     numberOfBuckets :: Lude.Maybe Lude.Int,
+    -- | An object that references a schema stored in the AWS Glue Schema Registry.
+    --
+    -- When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.
     schemaReference :: Lude.Maybe SchemaReference,
+    -- | @True@ if the table data is stored in subdirectories, or @False@ if not.
     storedAsSubDirectories :: Lude.Maybe Lude.Bool,
-    parameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The user-supplied properties in key-value form.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The input format: @SequenceFileInputFormat@ (binary), or @TextInputFormat@ , or a custom format.
     inputFormat :: Lude.Maybe Lude.Text,
+    -- | The information about values that appear frequently in a column (skewed values).
     skewedInfo :: Lude.Maybe SkewedInfo,
+    -- | A list of the @Columns@ in the table.
     columns :: Lude.Maybe [Column]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageDescriptor' with the minimum fields required to make a request.
 --
--- * 'bucketColumns' - A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
--- * 'columns' - A list of the @Columns@ in the table.
+-- * 'sortColumns' - A list specifying the sort order of each bucket in the table.
 -- * 'compressed' - @True@ if the data in the table is compressed, or @False@ if not.
--- * 'inputFormat' - The input format: @SequenceFileInputFormat@ (binary), or @TextInputFormat@ , or a custom format.
 -- * 'location' - The physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
--- * 'numberOfBuckets' - Must be specified if the table contains any dimension columns.
+-- * 'bucketColumns' - A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+-- * 'serdeInfo' - The serialization/deserialization (SerDe) information.
 -- * 'outputFormat' - The output format: @SequenceFileOutputFormat@ (binary), or @IgnoreKeyTextOutputFormat@ , or a custom format.
--- * 'parameters' - The user-supplied properties in key-value form.
+-- * 'numberOfBuckets' - Must be specified if the table contains any dimension columns.
 -- * 'schemaReference' - An object that references a schema stored in the AWS Glue Schema Registry.
 --
 -- When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.
--- * 'serdeInfo' - The serialization/deserialization (SerDe) information.
--- * 'skewedInfo' - The information about values that appear frequently in a column (skewed values).
--- * 'sortColumns' - A list specifying the sort order of each bucket in the table.
 -- * 'storedAsSubDirectories' - @True@ if the table data is stored in subdirectories, or @False@ if not.
+-- * 'parameters' - The user-supplied properties in key-value form.
+-- * 'inputFormat' - The input format: @SequenceFileInputFormat@ (binary), or @TextInputFormat@ , or a custom format.
+-- * 'skewedInfo' - The information about values that appear frequently in a column (skewed values).
+-- * 'columns' - A list of the @Columns@ in the table.
 mkStorageDescriptor ::
   StorageDescriptor
 mkStorageDescriptor =

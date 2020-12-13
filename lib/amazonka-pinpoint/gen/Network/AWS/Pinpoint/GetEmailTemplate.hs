@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.GetEmailTemplate
     mkGetEmailTemplate,
 
     -- ** Request lenses
-    getVersion,
     getTemplateName,
+    getVersion,
 
     -- * Destructuring the response
     GetEmailTemplateResponse (..),
     mkGetEmailTemplateResponse,
 
     -- ** Response lenses
-    getrsResponseStatus,
     getrsEmailTemplateResponse,
+    getrsResponseStatus,
   )
 where
 
@@ -40,17 +41,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetEmailTemplate' smart constructor.
 data GetEmailTemplate = GetEmailTemplate'
-  { version ::
-      Lude.Maybe Lude.Text,
-    templateName :: Lude.Text
+  { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+    templateName :: Lude.Text,
+    -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
+    --
+    -- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
+    -- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
+    --
+    --     * For a get operation, retrieves information about the active version of the template.
+    --
+    --
+    --     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
+    --
+    --
+    --     * For a delete operation, deletes the template, including all versions of the template.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEmailTemplate' with the minimum fields required to make a request.
@@ -74,9 +81,16 @@ mkGetEmailTemplate ::
   GetEmailTemplate
 mkGetEmailTemplate pTemplateName_ =
   GetEmailTemplate'
-    { version = Lude.Nothing,
-      templateName = pTemplateName_
+    { templateName = pTemplateName_,
+      version = Lude.Nothing
     }
+
+-- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getTemplateName :: Lens.Lens' GetEmailTemplate Lude.Text
+getTemplateName = Lens.lens (templateName :: GetEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetEmailTemplate)
+{-# DEPRECATED getTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
@@ -98,13 +112,6 @@ getVersion :: Lens.Lens' GetEmailTemplate (Lude.Maybe Lude.Text)
 getVersion = Lens.lens (version :: GetEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetEmailTemplate)
 {-# DEPRECATED getVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getTemplateName :: Lens.Lens' GetEmailTemplate Lude.Text
-getTemplateName = Lens.lens (templateName :: GetEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetEmailTemplate)
-{-# DEPRECATED getTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
 instance Lude.AWSRequest GetEmailTemplate where
   type Rs GetEmailTemplate = GetEmailTemplateResponse
   request = Req.get pinpointService
@@ -112,7 +119,7 @@ instance Lude.AWSRequest GetEmailTemplate where
     Res.receiveJSON
       ( \s h x ->
           GetEmailTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetEmailTemplate where
@@ -134,42 +141,29 @@ instance Lude.ToQuery GetEmailTemplate where
 
 -- | /See:/ 'mkGetEmailTemplateResponse' smart constructor.
 data GetEmailTemplateResponse = GetEmailTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    emailTemplateResponse ::
-      EmailTemplateResponse
+  { emailTemplateResponse :: EmailTemplateResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEmailTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'emailTemplateResponse' - Undocumented field.
+-- * 'emailTemplateResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetEmailTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'emailTemplateResponse'
   EmailTemplateResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetEmailTemplateResponse
-mkGetEmailTemplateResponse pResponseStatus_ pEmailTemplateResponse_ =
+mkGetEmailTemplateResponse pEmailTemplateResponse_ pResponseStatus_ =
   GetEmailTemplateResponse'
-    { responseStatus = pResponseStatus_,
-      emailTemplateResponse = pEmailTemplateResponse_
+    { emailTemplateResponse =
+        pEmailTemplateResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getrsResponseStatus :: Lens.Lens' GetEmailTemplateResponse Lude.Int
-getrsResponseStatus = Lens.lens (responseStatus :: GetEmailTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEmailTemplateResponse)
-{-# DEPRECATED getrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -177,3 +171,10 @@ getrsResponseStatus = Lens.lens (responseStatus :: GetEmailTemplateResponse -> L
 getrsEmailTemplateResponse :: Lens.Lens' GetEmailTemplateResponse EmailTemplateResponse
 getrsEmailTemplateResponse = Lens.lens (emailTemplateResponse :: GetEmailTemplateResponse -> EmailTemplateResponse) (\s a -> s {emailTemplateResponse = a} :: GetEmailTemplateResponse)
 {-# DEPRECATED getrsEmailTemplateResponse "Use generic-lens or generic-optics with 'emailTemplateResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+getrsResponseStatus :: Lens.Lens' GetEmailTemplateResponse Lude.Int
+getrsResponseStatus = Lens.lens (responseStatus :: GetEmailTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEmailTemplateResponse)
+{-# DEPRECATED getrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

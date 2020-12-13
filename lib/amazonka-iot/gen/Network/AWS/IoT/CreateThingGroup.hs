@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.IoT.CreateThingGroup
 
     -- ** Request lenses
     ctgParentGroupName,
+    ctgThingGroupName,
     ctgThingGroupProperties,
     ctgTags,
-    ctgThingGroupName,
 
     -- * Destructuring the response
     CreateThingGroupResponse (..),
@@ -44,27 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateThingGroup' smart constructor.
 data CreateThingGroup = CreateThingGroup'
-  { parentGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the parent thing group.
+    parentGroupName :: Lude.Maybe Lude.Text,
+    -- | The thing group name to create.
+    thingGroupName :: Lude.Text,
+    -- | The thing group properties.
     thingGroupProperties :: Lude.Maybe ThingGroupProperties,
-    tags :: Lude.Maybe [Tag],
-    thingGroupName :: Lude.Text
+    -- | Metadata which can be used to manage the thing group.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingGroup' with the minimum fields required to make a request.
 --
 -- * 'parentGroupName' - The name of the parent thing group.
--- * 'tags' - Metadata which can be used to manage the thing group.
 -- * 'thingGroupName' - The thing group name to create.
 -- * 'thingGroupProperties' - The thing group properties.
+-- * 'tags' - Metadata which can be used to manage the thing group.
 mkCreateThingGroup ::
   -- | 'thingGroupName'
   Lude.Text ->
@@ -72,9 +70,9 @@ mkCreateThingGroup ::
 mkCreateThingGroup pThingGroupName_ =
   CreateThingGroup'
     { parentGroupName = Lude.Nothing,
+      thingGroupName = pThingGroupName_,
       thingGroupProperties = Lude.Nothing,
-      tags = Lude.Nothing,
-      thingGroupName = pThingGroupName_
+      tags = Lude.Nothing
     }
 
 -- | The name of the parent thing group.
@@ -83,6 +81,13 @@ mkCreateThingGroup pThingGroupName_ =
 ctgParentGroupName :: Lens.Lens' CreateThingGroup (Lude.Maybe Lude.Text)
 ctgParentGroupName = Lens.lens (parentGroupName :: CreateThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {parentGroupName = a} :: CreateThingGroup)
 {-# DEPRECATED ctgParentGroupName "Use generic-lens or generic-optics with 'parentGroupName' instead." #-}
+
+-- | The thing group name to create.
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgThingGroupName :: Lens.Lens' CreateThingGroup Lude.Text
+ctgThingGroupName = Lens.lens (thingGroupName :: CreateThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: CreateThingGroup)
+{-# DEPRECATED ctgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The thing group properties.
 --
@@ -97,13 +102,6 @@ ctgThingGroupProperties = Lens.lens (thingGroupProperties :: CreateThingGroup ->
 ctgTags :: Lens.Lens' CreateThingGroup (Lude.Maybe [Tag])
 ctgTags = Lens.lens (tags :: CreateThingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateThingGroup)
 {-# DEPRECATED ctgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The thing group name to create.
---
--- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgThingGroupName :: Lens.Lens' CreateThingGroup Lude.Text
-ctgThingGroupName = Lens.lens (thingGroupName :: CreateThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: CreateThingGroup)
-{-# DEPRECATED ctgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 instance Lude.AWSRequest CreateThingGroup where
   type Rs CreateThingGroup = CreateThingGroupResponse
@@ -140,27 +138,24 @@ instance Lude.ToQuery CreateThingGroup where
 
 -- | /See:/ 'mkCreateThingGroupResponse' smart constructor.
 data CreateThingGroupResponse = CreateThingGroupResponse'
-  { thingGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The thing group ARN.
+    thingGroupARN :: Lude.Maybe Lude.Text,
+    -- | The thing group ID.
     thingGroupId :: Lude.Maybe Lude.Text,
+    -- | The thing group name.
     thingGroupName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateThingGroupResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'thingGroupARN' - The thing group ARN.
 -- * 'thingGroupId' - The thing group ID.
 -- * 'thingGroupName' - The thing group name.
+-- * 'responseStatus' - The response status code.
 mkCreateThingGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

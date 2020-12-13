@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.CreatePullRequestApprovalRule
     mkCreatePullRequestApprovalRule,
 
     -- ** Request lenses
-    cprarPullRequestId,
     cprarApprovalRuleName,
+    cprarPullRequestId,
     cprarApprovalRuleContent,
 
     -- * Destructuring the response
@@ -28,8 +29,8 @@ module Network.AWS.CodeCommit.CreatePullRequestApprovalRule
     mkCreatePullRequestApprovalRuleResponse,
 
     -- ** Response lenses
-    cprarrsResponseStatus,
     cprarrsApprovalRule,
+    cprarrsResponseStatus,
   )
 where
 
@@ -41,50 +42,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePullRequestApprovalRule' smart constructor.
 data CreatePullRequestApprovalRule = CreatePullRequestApprovalRule'
-  { pullRequestId ::
-      Lude.Text,
+  { -- | The name for the approval rule.
     approvalRuleName :: Lude.Text,
-    approvalRuleContent ::
-      Lude.Text
+    -- | The system-generated ID of the pull request for which you want to create the approval rule.
+    pullRequestId :: Lude.Text,
+    -- | The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information about approval pools, see the AWS CodeCommit User Guide.
+    approvalRuleContent :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePullRequestApprovalRule' with the minimum fields required to make a request.
 --
--- * 'approvalRuleContent' - The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information about approval pools, see the AWS CodeCommit User Guide.
 -- * 'approvalRuleName' - The name for the approval rule.
 -- * 'pullRequestId' - The system-generated ID of the pull request for which you want to create the approval rule.
+-- * 'approvalRuleContent' - The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information about approval pools, see the AWS CodeCommit User Guide.
 mkCreatePullRequestApprovalRule ::
-  -- | 'pullRequestId'
-  Lude.Text ->
   -- | 'approvalRuleName'
+  Lude.Text ->
+  -- | 'pullRequestId'
   Lude.Text ->
   -- | 'approvalRuleContent'
   Lude.Text ->
   CreatePullRequestApprovalRule
 mkCreatePullRequestApprovalRule
-  pPullRequestId_
   pApprovalRuleName_
+  pPullRequestId_
   pApprovalRuleContent_ =
     CreatePullRequestApprovalRule'
-      { pullRequestId = pPullRequestId_,
-        approvalRuleName = pApprovalRuleName_,
+      { approvalRuleName =
+          pApprovalRuleName_,
+        pullRequestId = pPullRequestId_,
         approvalRuleContent = pApprovalRuleContent_
       }
-
--- | The system-generated ID of the pull request for which you want to create the approval rule.
---
--- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprarPullRequestId :: Lens.Lens' CreatePullRequestApprovalRule Lude.Text
-cprarPullRequestId = Lens.lens (pullRequestId :: CreatePullRequestApprovalRule -> Lude.Text) (\s a -> s {pullRequestId = a} :: CreatePullRequestApprovalRule)
-{-# DEPRECATED cprarPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The name for the approval rule.
 --
@@ -92,6 +82,13 @@ cprarPullRequestId = Lens.lens (pullRequestId :: CreatePullRequestApprovalRule -
 cprarApprovalRuleName :: Lens.Lens' CreatePullRequestApprovalRule Lude.Text
 cprarApprovalRuleName = Lens.lens (approvalRuleName :: CreatePullRequestApprovalRule -> Lude.Text) (\s a -> s {approvalRuleName = a} :: CreatePullRequestApprovalRule)
 {-# DEPRECATED cprarApprovalRuleName "Use generic-lens or generic-optics with 'approvalRuleName' instead." #-}
+
+-- | The system-generated ID of the pull request for which you want to create the approval rule.
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprarPullRequestId :: Lens.Lens' CreatePullRequestApprovalRule Lude.Text
+cprarPullRequestId = Lens.lens (pullRequestId :: CreatePullRequestApprovalRule -> Lude.Text) (\s a -> s {pullRequestId = a} :: CreatePullRequestApprovalRule)
+{-# DEPRECATED cprarPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | The content of the approval rule, including the number of approvals needed and the structure of an approval pool defined for approvals, if any. For more information about approval pools, see the AWS CodeCommit User Guide.
 --
@@ -109,7 +106,7 @@ instance Lude.AWSRequest CreatePullRequestApprovalRule where
     Res.receiveJSON
       ( \s h x ->
           CreatePullRequestApprovalRuleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "approvalRule")
+            Lude.<$> (x Lude..:> "approvalRule") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreatePullRequestApprovalRule where
@@ -129,8 +126,8 @@ instance Lude.ToJSON CreatePullRequestApprovalRule where
   toJSON CreatePullRequestApprovalRule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("pullRequestId" Lude..= pullRequestId),
-            Lude.Just ("approvalRuleName" Lude..= approvalRuleName),
+          [ Lude.Just ("approvalRuleName" Lude..= approvalRuleName),
+            Lude.Just ("pullRequestId" Lude..= pullRequestId),
             Lude.Just ("approvalRuleContent" Lude..= approvalRuleContent)
           ]
       )
@@ -143,18 +140,12 @@ instance Lude.ToQuery CreatePullRequestApprovalRule where
 
 -- | /See:/ 'mkCreatePullRequestApprovalRuleResponse' smart constructor.
 data CreatePullRequestApprovalRuleResponse = CreatePullRequestApprovalRuleResponse'
-  { responseStatus ::
-      Lude.Int,
-    approvalRule ::
-      ApprovalRule
+  { -- | Information about the created approval rule.
+    approvalRule :: ApprovalRule,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePullRequestApprovalRuleResponse' with the minimum fields required to make a request.
@@ -162,26 +153,19 @@ data CreatePullRequestApprovalRuleResponse = CreatePullRequestApprovalRuleRespon
 -- * 'approvalRule' - Information about the created approval rule.
 -- * 'responseStatus' - The response status code.
 mkCreatePullRequestApprovalRuleResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'approvalRule'
   ApprovalRule ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreatePullRequestApprovalRuleResponse
 mkCreatePullRequestApprovalRuleResponse
-  pResponseStatus_
-  pApprovalRule_ =
+  pApprovalRule_
+  pResponseStatus_ =
     CreatePullRequestApprovalRuleResponse'
-      { responseStatus =
-          pResponseStatus_,
-        approvalRule = pApprovalRule_
+      { approvalRule =
+          pApprovalRule_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprarrsResponseStatus :: Lens.Lens' CreatePullRequestApprovalRuleResponse Lude.Int
-cprarrsResponseStatus = Lens.lens (responseStatus :: CreatePullRequestApprovalRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePullRequestApprovalRuleResponse)
-{-# DEPRECATED cprarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the created approval rule.
 --
@@ -189,3 +173,10 @@ cprarrsResponseStatus = Lens.lens (responseStatus :: CreatePullRequestApprovalRu
 cprarrsApprovalRule :: Lens.Lens' CreatePullRequestApprovalRuleResponse ApprovalRule
 cprarrsApprovalRule = Lens.lens (approvalRule :: CreatePullRequestApprovalRuleResponse -> ApprovalRule) (\s a -> s {approvalRule = a} :: CreatePullRequestApprovalRuleResponse)
 {-# DEPRECATED cprarrsApprovalRule "Use generic-lens or generic-optics with 'approvalRule' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprarrsResponseStatus :: Lens.Lens' CreatePullRequestApprovalRuleResponse Lude.Int
+cprarrsResponseStatus = Lens.lens (responseStatus :: CreatePullRequestApprovalRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePullRequestApprovalRuleResponse)
+{-# DEPRECATED cprarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

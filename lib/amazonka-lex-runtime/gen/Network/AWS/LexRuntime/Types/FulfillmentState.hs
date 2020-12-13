@@ -13,8 +13,8 @@
 module Network.AWS.LexRuntime.Types.FulfillmentState
   ( FulfillmentState
       ( FulfillmentState',
-        FSFailed,
         FSFulfilled,
+        FSFailed,
         FSReadyForFulfillment
       ),
   )
@@ -46,18 +46,18 @@ newtype FulfillmentState = FulfillmentState' Lude.Text
       Lude.ToHeader
     )
 
-pattern FSFailed :: FulfillmentState
-pattern FSFailed = FulfillmentState' "Failed"
-
 pattern FSFulfilled :: FulfillmentState
 pattern FSFulfilled = FulfillmentState' "Fulfilled"
+
+pattern FSFailed :: FulfillmentState
+pattern FSFailed = FulfillmentState' "Failed"
 
 pattern FSReadyForFulfillment :: FulfillmentState
 pattern FSReadyForFulfillment = FulfillmentState' "ReadyForFulfillment"
 
 {-# COMPLETE
-  FSFailed,
   FSFulfilled,
+  FSFailed,
   FSReadyForFulfillment,
   FulfillmentState'
   #-}

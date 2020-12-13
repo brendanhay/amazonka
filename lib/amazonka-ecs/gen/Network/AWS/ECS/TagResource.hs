@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { resourceARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the supported resources are Amazon ECS capacity providers, tasks, services, task definitions, clusters, and container instances.
+    resourceARN :: Lude.Text,
+    -- | The tags to add to the resource. A tag is an array of key-value pairs.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
     tags :: [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
@@ -161,16 +180,10 @@ instance Lude.ToQuery TagResource where
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.

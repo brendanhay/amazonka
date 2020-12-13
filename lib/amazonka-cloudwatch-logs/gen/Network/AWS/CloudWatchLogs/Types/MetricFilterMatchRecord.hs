@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
-  { extractedValues ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The values extracted from the event data by the filter.
+    extractedValues :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The event number.
     eventNumber :: Lude.Maybe Lude.Integer,
+    -- | The raw event data.
     eventMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricFilterMatchRecord' with the minimum fields required to make a request.
 --
--- * 'eventMessage' - The raw event data.
--- * 'eventNumber' - The event number.
 -- * 'extractedValues' - The values extracted from the event data by the filter.
+-- * 'eventNumber' - The event number.
+-- * 'eventMessage' - The raw event data.
 mkMetricFilterMatchRecord ::
   MetricFilterMatchRecord
 mkMetricFilterMatchRecord =

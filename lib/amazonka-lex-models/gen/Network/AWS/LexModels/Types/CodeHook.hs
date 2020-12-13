@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeHook' smart constructor.
 data CodeHook = CodeHook'
-  { uri :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the Lambda function.
+    uri :: Lude.Text,
+    -- | The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
     messageVersion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeHook' with the minimum fields required to make a request.
 --
--- * 'messageVersion' - The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
 -- * 'uri' - The Amazon Resource Name (ARN) of the Lambda function.
+-- * 'messageVersion' - The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
 mkCodeHook ::
   -- | 'uri'
   Lude.Text ->

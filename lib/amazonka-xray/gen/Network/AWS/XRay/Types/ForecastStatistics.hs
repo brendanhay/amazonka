@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkForecastStatistics' smart constructor.
 data ForecastStatistics = ForecastStatistics'
-  { faultCountLow ::
-      Lude.Maybe Lude.Integer,
+  { -- | The lower limit of fault counts for a service.
+    faultCountLow :: Lude.Maybe Lude.Integer,
+    -- | The upper limit of fault counts for a service.
     faultCountHigh :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForecastStatistics' with the minimum fields required to make a request.
 --
--- * 'faultCountHigh' - The upper limit of fault counts for a service.
 -- * 'faultCountLow' - The lower limit of fault counts for a service.
+-- * 'faultCountHigh' - The upper limit of fault counts for a service.
 mkForecastStatistics ::
   ForecastStatistics
 mkForecastStatistics =

@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDiskMap' smart constructor.
 data DiskMap = DiskMap'
-  { newDiskName :: Lude.Maybe Lude.Text,
+  { -- | The new disk name (e.g., @my-new-disk@ ).
+    newDiskName :: Lude.Maybe Lude.Text,
+    -- | The original disk path exposed to the instance (for example, @/dev/sdh@ ).
     originalDiskPath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskMap' with the minimum fields required to make a request.

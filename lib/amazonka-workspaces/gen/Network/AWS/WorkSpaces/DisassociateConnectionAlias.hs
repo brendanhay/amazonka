@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.WorkSpaces.DisassociateConnectionAlias
     mkDisassociateConnectionAlias,
 
     -- ** Request lenses
-    dcaAliasId,
+    dAliasId,
 
     -- * Destructuring the response
     DisassociateConnectionAliasResponse (..),
@@ -38,16 +39,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDisassociateConnectionAlias' smart constructor.
 newtype DisassociateConnectionAlias = DisassociateConnectionAlias'
-  { aliasId ::
-      Lude.Text
+  { -- | The identifier of the connection alias to disassociate.
+    aliasId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateConnectionAlias' with the minimum fields required to make a request.
@@ -63,9 +58,9 @@ mkDisassociateConnectionAlias pAliasId_ =
 -- | The identifier of the connection alias to disassociate.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaAliasId :: Lens.Lens' DisassociateConnectionAlias Lude.Text
-dcaAliasId = Lens.lens (aliasId :: DisassociateConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DisassociateConnectionAlias)
-{-# DEPRECATED dcaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
+dAliasId :: Lens.Lens' DisassociateConnectionAlias Lude.Text
+dAliasId = Lens.lens (aliasId :: DisassociateConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DisassociateConnectionAlias)
+{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 instance Lude.AWSRequest DisassociateConnectionAlias where
   type
@@ -105,16 +100,10 @@ instance Lude.ToQuery DisassociateConnectionAlias where
 
 -- | /See:/ 'mkDisassociateConnectionAliasResponse' smart constructor.
 newtype DisassociateConnectionAliasResponse = DisassociateConnectionAliasResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateConnectionAliasResponse' with the minimum fields required to make a request.

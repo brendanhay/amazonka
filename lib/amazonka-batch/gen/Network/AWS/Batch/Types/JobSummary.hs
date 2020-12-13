@@ -19,15 +19,15 @@ module Network.AWS.Batch.Types.JobSummary
     -- * Lenses
     jsStoppedAt,
     jsStatus,
+    jsJobId,
     jsJobARN,
     jsCreatedAt,
+    jsJobName,
     jsStartedAt,
     jsContainer,
     jsStatusReason,
     jsArrayProperties,
     jsNodeProperties,
-    jsJobId,
-    jsJobName,
   )
 where
 
@@ -42,40 +42,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobSummary' smart constructor.
 data JobSummary = JobSummary'
-  { stoppedAt :: Lude.Maybe Lude.Integer,
+  { -- | The Unix timestamp for when the job was stopped (when the job transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
+    stoppedAt :: Lude.Maybe Lude.Integer,
+    -- | The current status for the job.
     status :: Lude.Maybe JobStatus,
-    jobARN :: Lude.Maybe Lude.Text,
-    createdAt :: Lude.Maybe Lude.Integer,
-    startedAt :: Lude.Maybe Lude.Integer,
-    container :: Lude.Maybe ContainerSummary,
-    statusReason :: Lude.Maybe Lude.Text,
-    arrayProperties :: Lude.Maybe ArrayPropertiesSummary,
-    nodeProperties :: Lude.Maybe NodePropertiesSummary,
+    -- | The ID of the job.
     jobId :: Lude.Text,
-    jobName :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the job.
+    jobARN :: Lude.Maybe Lude.Text,
+    -- | The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the @SUBMITTED@ state (at the time 'SubmitJob' was called). For array child jobs, this is when the child job was spawned by its parent and entered the @PENDING@ state.
+    createdAt :: Lude.Maybe Lude.Integer,
+    -- | The name of the job.
+    jobName :: Lude.Text,
+    -- | The Unix timestamp for when the job was started (when the job transitioned from the @STARTING@ state to the @RUNNING@ state).
+    startedAt :: Lude.Maybe Lude.Integer,
+    -- | An object representing the details of the container that is associated with the job.
+    container :: Lude.Maybe ContainerSummary,
+    -- | A short, human-readable string to provide additional details about the current status of the job.
+    statusReason :: Lude.Maybe Lude.Text,
+    -- | The array properties of the job, if it is an array job.
+    arrayProperties :: Lude.Maybe ArrayPropertiesSummary,
+    -- | The node properties for a single node in a job summary list.
+    nodeProperties :: Lude.Maybe NodePropertiesSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobSummary' with the minimum fields required to make a request.
 --
--- * 'arrayProperties' - The array properties of the job, if it is an array job.
--- * 'container' - An object representing the details of the container that is associated with the job.
--- * 'createdAt' - The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the @SUBMITTED@ state (at the time 'SubmitJob' was called). For array child jobs, this is when the child job was spawned by its parent and entered the @PENDING@ state.
--- * 'jobARN' - The Amazon Resource Name (ARN) of the job.
--- * 'jobId' - The ID of the job.
--- * 'jobName' - The name of the job.
--- * 'nodeProperties' - The node properties for a single node in a job summary list.
--- * 'startedAt' - The Unix timestamp for when the job was started (when the job transitioned from the @STARTING@ state to the @RUNNING@ state).
--- * 'status' - The current status for the job.
--- * 'statusReason' - A short, human-readable string to provide additional details about the current status of the job.
 -- * 'stoppedAt' - The Unix timestamp for when the job was stopped (when the job transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
+-- * 'status' - The current status for the job.
+-- * 'jobId' - The ID of the job.
+-- * 'jobARN' - The Amazon Resource Name (ARN) of the job.
+-- * 'createdAt' - The Unix timestamp for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the @SUBMITTED@ state (at the time 'SubmitJob' was called). For array child jobs, this is when the child job was spawned by its parent and entered the @PENDING@ state.
+-- * 'jobName' - The name of the job.
+-- * 'startedAt' - The Unix timestamp for when the job was started (when the job transitioned from the @STARTING@ state to the @RUNNING@ state).
+-- * 'container' - An object representing the details of the container that is associated with the job.
+-- * 'statusReason' - A short, human-readable string to provide additional details about the current status of the job.
+-- * 'arrayProperties' - The array properties of the job, if it is an array job.
+-- * 'nodeProperties' - The node properties for a single node in a job summary list.
 mkJobSummary ::
   -- | 'jobId'
   Lude.Text ->
@@ -86,15 +91,15 @@ mkJobSummary pJobId_ pJobName_ =
   JobSummary'
     { stoppedAt = Lude.Nothing,
       status = Lude.Nothing,
+      jobId = pJobId_,
       jobARN = Lude.Nothing,
       createdAt = Lude.Nothing,
+      jobName = pJobName_,
       startedAt = Lude.Nothing,
       container = Lude.Nothing,
       statusReason = Lude.Nothing,
       arrayProperties = Lude.Nothing,
-      nodeProperties = Lude.Nothing,
-      jobId = pJobId_,
-      jobName = pJobName_
+      nodeProperties = Lude.Nothing
     }
 
 -- | The Unix timestamp for when the job was stopped (when the job transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
@@ -111,6 +116,13 @@ jsStatus :: Lens.Lens' JobSummary (Lude.Maybe JobStatus)
 jsStatus = Lens.lens (status :: JobSummary -> Lude.Maybe JobStatus) (\s a -> s {status = a} :: JobSummary)
 {-# DEPRECATED jsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | The ID of the job.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsJobId :: Lens.Lens' JobSummary Lude.Text
+jsJobId = Lens.lens (jobId :: JobSummary -> Lude.Text) (\s a -> s {jobId = a} :: JobSummary)
+{-# DEPRECATED jsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
 -- | The Amazon Resource Name (ARN) of the job.
 --
 -- /Note:/ Consider using 'jobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -124,6 +136,13 @@ jsJobARN = Lens.lens (jobARN :: JobSummary -> Lude.Maybe Lude.Text) (\s a -> s {
 jsCreatedAt :: Lens.Lens' JobSummary (Lude.Maybe Lude.Integer)
 jsCreatedAt = Lens.lens (createdAt :: JobSummary -> Lude.Maybe Lude.Integer) (\s a -> s {createdAt = a} :: JobSummary)
 {-# DEPRECATED jsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The name of the job.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jsJobName :: Lens.Lens' JobSummary Lude.Text
+jsJobName = Lens.lens (jobName :: JobSummary -> Lude.Text) (\s a -> s {jobName = a} :: JobSummary)
+{-# DEPRECATED jsJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The Unix timestamp for when the job was started (when the job transitioned from the @STARTING@ state to the @RUNNING@ state).
 --
@@ -160,20 +179,6 @@ jsNodeProperties :: Lens.Lens' JobSummary (Lude.Maybe NodePropertiesSummary)
 jsNodeProperties = Lens.lens (nodeProperties :: JobSummary -> Lude.Maybe NodePropertiesSummary) (\s a -> s {nodeProperties = a} :: JobSummary)
 {-# DEPRECATED jsNodeProperties "Use generic-lens or generic-optics with 'nodeProperties' instead." #-}
 
--- | The ID of the job.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsJobId :: Lens.Lens' JobSummary Lude.Text
-jsJobId = Lens.lens (jobId :: JobSummary -> Lude.Text) (\s a -> s {jobId = a} :: JobSummary)
-{-# DEPRECATED jsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | The name of the job.
---
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jsJobName :: Lens.Lens' JobSummary Lude.Text
-jsJobName = Lens.lens (jobName :: JobSummary -> Lude.Text) (\s a -> s {jobName = a} :: JobSummary)
-{-# DEPRECATED jsJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
-
 instance Lude.FromJSON JobSummary where
   parseJSON =
     Lude.withObject
@@ -182,13 +187,13 @@ instance Lude.FromJSON JobSummary where
           JobSummary'
             Lude.<$> (x Lude..:? "stoppedAt")
             Lude.<*> (x Lude..:? "status")
+            Lude.<*> (x Lude..: "jobId")
             Lude.<*> (x Lude..:? "jobArn")
             Lude.<*> (x Lude..:? "createdAt")
+            Lude.<*> (x Lude..: "jobName")
             Lude.<*> (x Lude..:? "startedAt")
             Lude.<*> (x Lude..:? "container")
             Lude.<*> (x Lude..:? "statusReason")
             Lude.<*> (x Lude..:? "arrayProperties")
             Lude.<*> (x Lude..:? "nodeProperties")
-            Lude.<*> (x Lude..: "jobId")
-            Lude.<*> (x Lude..: "jobName")
       )

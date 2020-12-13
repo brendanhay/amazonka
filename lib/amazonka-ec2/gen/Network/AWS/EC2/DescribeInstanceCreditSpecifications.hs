@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,46 +54,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstanceCreditSpecifications' smart constructor.
 data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    instanceIds ::
-      Lude.Maybe
-        [Lude.Text],
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | The filters.
+    --
+    --
+    --     * @instance-id@ - The ID of the instance.
+    filters :: Lude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The instance IDs.
+    --
+    -- Default: Describes all your instances.
+    -- Constraints: Maximum 1000 explicitly specified instance IDs.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceCreditSpecifications' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 --
 --
 --     * @instance-id@ - The ID of the instance.
 --
 --
+-- * 'nextToken' - The token to retrieve the next page of results.
 -- * 'instanceIds' - The instance IDs.
 --
 -- Default: Describes all your instances.
 -- Constraints: Maximum 1000 explicitly specified instance IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
--- * 'nextToken' - The token to retrieve the next page of results.
 mkDescribeInstanceCreditSpecifications ::
   DescribeInstanceCreditSpecifications
 mkDescribeInstanceCreditSpecifications =
@@ -194,28 +190,20 @@ instance Lude.ToQuery DescribeInstanceCreditSpecifications where
 
 -- | /See:/ 'mkDescribeInstanceCreditSpecificationsResponse' smart constructor.
 data DescribeInstanceCreditSpecificationsResponse = DescribeInstanceCreditSpecificationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    instanceCreditSpecifications ::
-      Lude.Maybe
-        [InstanceCreditSpecification],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the credit option for CPU usage of an instance.
+    instanceCreditSpecifications :: Lude.Maybe [InstanceCreditSpecification],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceCreditSpecificationsResponse' with the minimum fields required to make a request.
 --
--- * 'instanceCreditSpecifications' - Information about the credit option for CPU usage of an instance.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'instanceCreditSpecifications' - Information about the credit option for CPU usage of an instance.
 -- * 'responseStatus' - The response status code.
 mkDescribeInstanceCreditSpecificationsResponse ::
   -- | 'responseStatus'

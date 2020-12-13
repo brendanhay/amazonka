@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatelessRuleGroup' smart constructor.
 data StatelessRuleGroup = StatelessRuleGroup'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The resource ID of the rule group.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting.
     priority :: Lude.Maybe Lude.Natural,
+    -- | The name of the rule group.
     ruleGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatelessRuleGroup' with the minimum fields required to make a request.
 --
--- * 'priority' - The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting.
 -- * 'resourceId' - The resource ID of the rule group.
+-- * 'priority' - The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting.
 -- * 'ruleGroupName' - The name of the rule group.
 mkStatelessRuleGroup ::
   StatelessRuleGroup

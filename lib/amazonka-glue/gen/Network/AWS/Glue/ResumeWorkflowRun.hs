@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Glue.ResumeWorkflowRun
     mkResumeWorkflowRun,
 
     -- ** Request lenses
-    rwrName,
-    rwrRunId,
     rwrNodeIds,
+    rwrRunId,
+    rwrName,
 
     -- * Destructuring the response
     ResumeWorkflowRunResponse (..),
@@ -42,43 +43,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResumeWorkflowRun' smart constructor.
 data ResumeWorkflowRun = ResumeWorkflowRun'
-  { name :: Lude.Text,
+  { -- | A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.
+    nodeIds :: [Lude.Text],
+    -- | The ID of the workflow run to resume.
     runId :: Lude.Text,
-    nodeIds :: [Lude.Text]
+    -- | The name of the workflow to resume.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeWorkflowRun' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the workflow to resume.
 -- * 'nodeIds' - A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.
 -- * 'runId' - The ID of the workflow run to resume.
+-- * 'name' - The name of the workflow to resume.
 mkResumeWorkflowRun ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'runId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   ResumeWorkflowRun
-mkResumeWorkflowRun pName_ pRunId_ =
+mkResumeWorkflowRun pRunId_ pName_ =
   ResumeWorkflowRun'
-    { name = pName_,
+    { nodeIds = Lude.mempty,
       runId = pRunId_,
-      nodeIds = Lude.mempty
+      name = pName_
     }
 
--- | The name of the workflow to resume.
+-- | A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwrName :: Lens.Lens' ResumeWorkflowRun Lude.Text
-rwrName = Lens.lens (name :: ResumeWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: ResumeWorkflowRun)
-{-# DEPRECATED rwrName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'nodeIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrNodeIds :: Lens.Lens' ResumeWorkflowRun [Lude.Text]
+rwrNodeIds = Lens.lens (nodeIds :: ResumeWorkflowRun -> [Lude.Text]) (\s a -> s {nodeIds = a} :: ResumeWorkflowRun)
+{-# DEPRECATED rwrNodeIds "Use generic-lens or generic-optics with 'nodeIds' instead." #-}
 
 -- | The ID of the workflow run to resume.
 --
@@ -87,12 +85,12 @@ rwrRunId :: Lens.Lens' ResumeWorkflowRun Lude.Text
 rwrRunId = Lens.lens (runId :: ResumeWorkflowRun -> Lude.Text) (\s a -> s {runId = a} :: ResumeWorkflowRun)
 {-# DEPRECATED rwrRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
--- | A list of the node IDs for the nodes you want to restart. The nodes that are to be restarted must have a run attempt in the original run.
+-- | The name of the workflow to resume.
 --
--- /Note:/ Consider using 'nodeIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwrNodeIds :: Lens.Lens' ResumeWorkflowRun [Lude.Text]
-rwrNodeIds = Lens.lens (nodeIds :: ResumeWorkflowRun -> [Lude.Text]) (\s a -> s {nodeIds = a} :: ResumeWorkflowRun)
-{-# DEPRECATED rwrNodeIds "Use generic-lens or generic-optics with 'nodeIds' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rwrName :: Lens.Lens' ResumeWorkflowRun Lude.Text
+rwrName = Lens.lens (name :: ResumeWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: ResumeWorkflowRun)
+{-# DEPRECATED rwrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest ResumeWorkflowRun where
   type Rs ResumeWorkflowRun = ResumeWorkflowRunResponse
@@ -121,9 +119,9 @@ instance Lude.ToJSON ResumeWorkflowRun where
   toJSON ResumeWorkflowRun' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
+          [ Lude.Just ("NodeIds" Lude..= nodeIds),
             Lude.Just ("RunId" Lude..= runId),
-            Lude.Just ("NodeIds" Lude..= nodeIds)
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -135,25 +133,21 @@ instance Lude.ToQuery ResumeWorkflowRun where
 
 -- | /See:/ 'mkResumeWorkflowRunResponse' smart constructor.
 data ResumeWorkflowRunResponse = ResumeWorkflowRunResponse'
-  { nodeIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of the node IDs for the nodes that were actually restarted.
+    nodeIds :: Lude.Maybe [Lude.Text],
+    -- | The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.
     runId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeWorkflowRunResponse' with the minimum fields required to make a request.
 --
 -- * 'nodeIds' - A list of the node IDs for the nodes that were actually restarted.
--- * 'responseStatus' - The response status code.
 -- * 'runId' - The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.
+-- * 'responseStatus' - The response status code.
 mkResumeWorkflowRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

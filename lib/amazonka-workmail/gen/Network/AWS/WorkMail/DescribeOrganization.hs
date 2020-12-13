@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.WorkMail.DescribeOrganization
     mkDescribeOrganization,
 
     -- ** Request lenses
-    desOrganizationId,
+    doOrganizationId,
 
     -- * Destructuring the response
     DescribeOrganizationResponse (..),
@@ -47,16 +48,10 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDescribeOrganization' smart constructor.
 newtype DescribeOrganization = DescribeOrganization'
-  { organizationId ::
-      Lude.Text
+  { -- | The identifier for the organization to be described.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganization' with the minimum fields required to make a request.
@@ -72,9 +67,9 @@ mkDescribeOrganization pOrganizationId_ =
 -- | The identifier for the organization to be described.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desOrganizationId :: Lens.Lens' DescribeOrganization Lude.Text
-desOrganizationId = Lens.lens (organizationId :: DescribeOrganization -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeOrganization)
-{-# DEPRECATED desOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+doOrganizationId :: Lens.Lens' DescribeOrganization Lude.Text
+doOrganizationId = Lens.lens (organizationId :: DescribeOrganization -> Lude.Text) (\s a -> s {organizationId = a} :: DescribeOrganization)
+{-# DEPRECATED doOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest DescribeOrganization where
   type Rs DescribeOrganization = DescribeOrganizationResponse
@@ -121,44 +116,42 @@ instance Lude.ToQuery DescribeOrganization where
 
 -- | /See:/ 'mkDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the directory associated with an Amazon WorkMail organization.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The state of an organization.
     state :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the organization.
     arn :: Lude.Maybe Lude.Text,
+    -- | The alias for an organization.
     alias :: Lude.Maybe Lude.Text,
-    completedDate ::
-      Lude.Maybe Lude.Timestamp,
-    directoryType ::
-      Lude.Maybe Lude.Text,
-    defaultMailDomain ::
-      Lude.Maybe Lude.Text,
-    errorMessage ::
-      Lude.Maybe Lude.Text,
-    organizationId ::
-      Lude.Maybe Lude.Text,
+    -- | The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
+    completedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The type of directory associated with the WorkMail organization.
+    directoryType :: Lude.Maybe Lude.Text,
+    -- | The default mail domain associated with the organization.
+    defaultMailDomain :: Lude.Maybe Lude.Text,
+    -- | (Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.
+    errorMessage :: Lude.Maybe Lude.Text,
+    -- | The identifier of an organization.
+    organizationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationResponse' with the minimum fields required to make a request.
 --
--- * 'alias' - The alias for an organization.
--- * 'arn' - The Amazon Resource Name (ARN) of the organization.
--- * 'completedDate' - The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
--- * 'defaultMailDomain' - The default mail domain associated with the organization.
 -- * 'directoryId' - The identifier for the directory associated with an Amazon WorkMail organization.
+-- * 'state' - The state of an organization.
+-- * 'arn' - The Amazon Resource Name (ARN) of the organization.
+-- * 'alias' - The alias for an organization.
+-- * 'completedDate' - The date at which the organization became usable in the WorkMail context, in UNIX epoch time format.
 -- * 'directoryType' - The type of directory associated with the WorkMail organization.
+-- * 'defaultMailDomain' - The default mail domain associated with the organization.
 -- * 'errorMessage' - (Optional) The error message indicating if unexpected behavior was encountered with regards to the organization.
 -- * 'organizationId' - The identifier of an organization.
 -- * 'responseStatus' - The response status code.
--- * 'state' - The state of an organization.
 mkDescribeOrganizationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

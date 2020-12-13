@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntitlement' smart constructor.
 data Entitlement = Entitlement'
-  { dimension :: Lude.Maybe Lude.Text,
+  { -- | The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
+    dimension :: Lude.Maybe Lude.Text,
+    -- | The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
     value :: Lude.Maybe EntitlementValue,
+    -- | The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.
     expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.
     customerIdentifier :: Lude.Maybe Lude.Text,
+    -- | The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.
     productCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Entitlement' with the minimum fields required to make a request.
 --
--- * 'customerIdentifier' - The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.
 -- * 'dimension' - The dimension for which the given entitlement applies. Dimensions represent categories of capacity in a product and are specified when the product is listed in AWS Marketplace.
--- * 'expirationDate' - The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.
--- * 'productCode' - The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.
 -- * 'value' - The EntitlementValue represents the amount of capacity that the customer is entitled to for the product.
+-- * 'expirationDate' - The expiration date represents the minimum date through which this entitlement is expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date is the date at which the customer will renew or cancel their contract. Customers who are opting to renew their contract will still have entitlements with an expiration date.
+-- * 'customerIdentifier' - The customer identifier is a handle to each unique customer in an application. Customer identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering Service.
+-- * 'productCode' - The product code for which the given entitlement applies. Product codes are provided by AWS Marketplace when the product listing is created.
 mkEntitlement ::
   Entitlement
 mkEntitlement =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,22 +49,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSourceRegions' smart constructor.
 data DescribeSourceRegions = DescribeSourceRegions'
-  { regionName ::
-      Lude.Maybe Lude.Text,
+  { -- | The source AWS Region name. For example, @us-east-1@ .
+    --
+    -- Constraints:
+    --
+    --     * Must specify a valid AWS Region name.
+    regionName :: Lude.Maybe Lude.Text,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous @DescribeSourceRegions@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSourceRegions' with the minimum fields required to make a request.
+--
+-- * 'regionName' - The source AWS Region name. For example, @us-east-1@ .
+--
+-- Constraints:
+--
+--     * Must specify a valid AWS Region name.
+--
 --
 -- * 'filters' - This parameter isn't currently supported.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeSourceRegions@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
@@ -71,11 +83,6 @@ data DescribeSourceRegions = DescribeSourceRegions'
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
--- * 'regionName' - The source AWS Region name. For example, @us-east-1@ .
---
--- Constraints:
---
---     * Must specify a valid AWS Region name.
 mkDescribeSourceRegions ::
   DescribeSourceRegions
 mkDescribeSourceRegions =
@@ -167,26 +174,21 @@ instance Lude.ToQuery DescribeSourceRegions where
 --
 -- /See:/ 'mkDescribeSourceRegionsResponse' smart constructor.
 data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    sourceRegions ::
-      Lude.Maybe [SourceRegion],
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a read replica or a DB snapshot from.
+    sourceRegions :: Lude.Maybe [SourceRegion],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSourceRegionsResponse' with the minimum fields required to make a request.
 --
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
 -- * 'sourceRegions' - A list of SourceRegion instances that contains each source AWS Region that the current AWS Region can get a read replica or a DB snapshot from.
+-- * 'responseStatus' - The response status code.
 mkDescribeSourceRegionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

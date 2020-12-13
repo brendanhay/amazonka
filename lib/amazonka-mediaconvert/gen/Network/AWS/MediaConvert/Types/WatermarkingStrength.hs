@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.WatermarkingStrength
   ( WatermarkingStrength
       ( WatermarkingStrength',
-        WSDefault,
-        WSLighter,
         WSLightest,
+        WSLighter,
+        WSDefault,
         WSStronger,
         WSStrongest
       ),
@@ -49,14 +49,14 @@ newtype WatermarkingStrength = WatermarkingStrength' Lude.Text
       Lude.ToHeader
     )
 
-pattern WSDefault :: WatermarkingStrength
-pattern WSDefault = WatermarkingStrength' "DEFAULT"
+pattern WSLightest :: WatermarkingStrength
+pattern WSLightest = WatermarkingStrength' "LIGHTEST"
 
 pattern WSLighter :: WatermarkingStrength
 pattern WSLighter = WatermarkingStrength' "LIGHTER"
 
-pattern WSLightest :: WatermarkingStrength
-pattern WSLightest = WatermarkingStrength' "LIGHTEST"
+pattern WSDefault :: WatermarkingStrength
+pattern WSDefault = WatermarkingStrength' "DEFAULT"
 
 pattern WSStronger :: WatermarkingStrength
 pattern WSStronger = WatermarkingStrength' "STRONGER"
@@ -65,9 +65,9 @@ pattern WSStrongest :: WatermarkingStrength
 pattern WSStrongest = WatermarkingStrength' "STRONGEST"
 
 {-# COMPLETE
-  WSDefault,
-  WSLighter,
   WSLightest,
+  WSLighter,
+  WSDefault,
   WSStronger,
   WSStrongest,
   WatermarkingStrength'

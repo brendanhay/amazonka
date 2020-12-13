@@ -39,39 +39,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransformFilterCriteria' smart constructor.
 data TransformFilterCriteria = TransformFilterCriteria'
-  { createdAfter ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time and date after which the transforms were created.
+    createdAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".
     status :: Lude.Maybe TransformStatusType,
-    lastModifiedAfter ::
-      Lude.Maybe Lude.Timestamp,
-    lastModifiedBefore ::
-      Lude.Maybe Lude.Timestamp,
+    -- | Filter on transforms last modified after this date.
+    lastModifiedAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Filter on transforms last modified before this date.
+    lastModifiedBefore :: Lude.Maybe Lude.Timestamp,
+    -- | This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
     glueVersion :: Lude.Maybe Lude.Text,
+    -- | Filters on datasets with a specific schema. The @Map<Column, Type>@ object is an array of key-value pairs representing the schema this transform accepts, where @Column@ is the name of a column, and @Type@ is the type of the data such as an integer or string. Has an upper bound of 100 columns.
     schema :: Lude.Maybe [SchemaColumn],
+    -- | The type of machine learning transform that is used to filter the machine learning transforms.
     transformType :: Lude.Maybe TransformType,
+    -- | A unique transform name that is used to filter the machine learning transforms.
     name :: Lude.Maybe Lude.Text,
+    -- | The time and date before which the transforms were created.
     createdBefore :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformFilterCriteria' with the minimum fields required to make a request.
 --
 -- * 'createdAfter' - The time and date after which the transforms were created.
--- * 'createdBefore' - The time and date before which the transforms were created.
--- * 'glueVersion' - This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
+-- * 'status' - Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".
 -- * 'lastModifiedAfter' - Filter on transforms last modified after this date.
 -- * 'lastModifiedBefore' - Filter on transforms last modified before this date.
--- * 'name' - A unique transform name that is used to filter the machine learning transforms.
+-- * 'glueVersion' - This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9. For more information, see <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions> in the developer guide.
 -- * 'schema' - Filters on datasets with a specific schema. The @Map<Column, Type>@ object is an array of key-value pairs representing the schema this transform accepts, where @Column@ is the name of a column, and @Type@ is the type of the data such as an integer or string. Has an upper bound of 100 columns.
--- * 'status' - Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".
 -- * 'transformType' - The type of machine learning transform that is used to filter the machine learning transforms.
+-- * 'name' - A unique transform name that is used to filter the machine learning transforms.
+-- * 'createdBefore' - The time and date before which the transforms were created.
 mkTransformFilterCriteria ::
   TransformFilterCriteria
 mkTransformFilterCriteria =

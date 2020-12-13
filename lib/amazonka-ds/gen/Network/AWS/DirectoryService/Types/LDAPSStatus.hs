@@ -13,10 +13,10 @@
 module Network.AWS.DirectoryService.Types.LDAPSStatus
   ( LDAPSStatus
       ( LDAPSStatus',
-        LDAPSSDisabled,
-        LDAPSSEnableFailed,
+        LDAPSSEnabling,
         LDAPSSEnabled,
-        LDAPSSEnabling
+        LDAPSSEnableFailed,
+        LDAPSSDisabled
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype LDAPSStatus = LDAPSStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern LDAPSSDisabled :: LDAPSStatus
-pattern LDAPSSDisabled = LDAPSStatus' "Disabled"
-
-pattern LDAPSSEnableFailed :: LDAPSStatus
-pattern LDAPSSEnableFailed = LDAPSStatus' "EnableFailed"
+pattern LDAPSSEnabling :: LDAPSStatus
+pattern LDAPSSEnabling = LDAPSStatus' "Enabling"
 
 pattern LDAPSSEnabled :: LDAPSStatus
 pattern LDAPSSEnabled = LDAPSStatus' "Enabled"
 
-pattern LDAPSSEnabling :: LDAPSStatus
-pattern LDAPSSEnabling = LDAPSStatus' "Enabling"
+pattern LDAPSSEnableFailed :: LDAPSStatus
+pattern LDAPSSEnableFailed = LDAPSStatus' "EnableFailed"
+
+pattern LDAPSSDisabled :: LDAPSStatus
+pattern LDAPSSDisabled = LDAPSStatus' "Disabled"
 
 {-# COMPLETE
-  LDAPSSDisabled,
-  LDAPSSEnableFailed,
-  LDAPSSEnabled,
   LDAPSSEnabling,
+  LDAPSSEnabled,
+  LDAPSSEnableFailed,
+  LDAPSSDisabled,
   LDAPSStatus'
   #-}

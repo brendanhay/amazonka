@@ -14,8 +14,8 @@ module Network.AWS.SageMaker.Types.CandidateSortBy
   ( CandidateSortBy
       ( CandidateSortBy',
         CSBCreationTime,
-        CSBFinalObjectiveMetricValue,
-        CSBStatus
+        CSBStatus,
+        CSBFinalObjectiveMetricValue
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype CandidateSortBy = CandidateSortBy' Lude.Text
 pattern CSBCreationTime :: CandidateSortBy
 pattern CSBCreationTime = CandidateSortBy' "CreationTime"
 
-pattern CSBFinalObjectiveMetricValue :: CandidateSortBy
-pattern CSBFinalObjectiveMetricValue = CandidateSortBy' "FinalObjectiveMetricValue"
-
 pattern CSBStatus :: CandidateSortBy
 pattern CSBStatus = CandidateSortBy' "Status"
 
+pattern CSBFinalObjectiveMetricValue :: CandidateSortBy
+pattern CSBFinalObjectiveMetricValue = CandidateSortBy' "FinalObjectiveMetricValue"
+
 {-# COMPLETE
   CSBCreationTime,
-  CSBFinalObjectiveMetricValue,
   CSBStatus,
+  CSBFinalObjectiveMetricValue,
   CandidateSortBy'
   #-}

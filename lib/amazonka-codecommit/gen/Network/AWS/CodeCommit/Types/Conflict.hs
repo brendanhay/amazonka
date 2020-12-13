@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConflict' smart constructor.
 data Conflict = Conflict'
-  { mergeHunks :: Lude.Maybe [MergeHunk],
+  { -- | A list of hunks that contain the differences between files or lines causing the conflict.
+    mergeHunks :: Lude.Maybe [MergeHunk],
+    -- | Metadata about a conflict in a merge operation.
     conflictMetadata :: Lude.Maybe ConflictMetadata
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Conflict' with the minimum fields required to make a request.
 --
--- * 'conflictMetadata' - Metadata about a conflict in a merge operation.
 -- * 'mergeHunks' - A list of hunks that contain the differences between files or lines causing the conflict.
+-- * 'conflictMetadata' - Metadata about a conflict in a merge operation.
 mkConflict ::
   Conflict
 mkConflict =

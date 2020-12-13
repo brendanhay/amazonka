@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,32 +47,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
-  { strategy ::
-      Lude.Maybe PlacementStrategy,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+  { -- | The placement strategy.
+    strategy :: Lude.Maybe PlacementStrategy,
+    -- | The tags to apply to the new placement group.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | A name for the placement group. Must be unique within the scope of your account for the Region.
+    --
+    -- Constraints: Up to 255 ASCII characters
     groupName :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The number of partitions. Valid only when __Strategy__ is set to @partition@ .
     partitionCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlacementGroup' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'strategy' - The placement strategy.
+-- * 'tagSpecifications' - The tags to apply to the new placement group.
 -- * 'groupName' - A name for the placement group. Must be unique within the scope of your account for the Region.
 --
 -- Constraints: Up to 255 ASCII characters
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'partitionCount' - The number of partitions. Valid only when __Strategy__ is set to @partition@ .
--- * 'strategy' - The placement strategy.
--- * 'tagSpecifications' - The tags to apply to the new placement group.
 mkCreatePlacementGroup ::
   CreatePlacementGroup
 mkCreatePlacementGroup =
@@ -152,22 +152,16 @@ instance Lude.ToQuery CreatePlacementGroup where
 
 -- | /See:/ 'mkCreatePlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse'
-  { placementGroup ::
-      Lude.Maybe PlacementGroup,
+  { placementGroup :: Lude.Maybe PlacementGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlacementGroupResponse' with the minimum fields required to make a request.
 --
--- * 'placementGroup' - Undocumented field.
+-- * 'placementGroup' -
 -- * 'responseStatus' - The response status code.
 mkCreatePlacementGroupResponse ::
   -- | 'responseStatus'

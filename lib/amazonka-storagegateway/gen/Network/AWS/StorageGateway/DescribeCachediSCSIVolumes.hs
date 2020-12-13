@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkDescribeCachediSCSIVolumes' smart constructor.
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
-  { volumeARNs ::
-      [Lude.Text]
+  { -- | An array of strings where each string represents the Amazon Resource Name (ARN) of a cached volume. All of the specified cached volumes must be from the same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
+    volumeARNs :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCachediSCSIVolumes' with the minimum fields required to make a request.
@@ -109,19 +104,12 @@ instance Lude.ToQuery DescribeCachediSCSIVolumes where
 --
 -- /See:/ 'mkDescribeCachediSCSIVolumesResponse' smart constructor.
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
-  { cachediSCSIVolumes ::
-      Lude.Maybe
-        [CachediSCSIVolume],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects where each object contains metadata about one cached volume.
+    cachediSCSIVolumes :: Lude.Maybe [CachediSCSIVolume],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCachediSCSIVolumesResponse' with the minimum fields required to make a request.

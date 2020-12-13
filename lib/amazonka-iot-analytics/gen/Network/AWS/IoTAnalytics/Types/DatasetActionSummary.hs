@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatasetActionSummary' smart constructor.
 data DatasetActionSummary = DatasetActionSummary'
-  { actionName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the action that automatically creates the dataset's contents.
+    actionName :: Lude.Maybe Lude.Text,
+    -- | The type of action by which the dataset's contents are automatically created.
     actionType :: Lude.Maybe DatasetActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetActionSummary' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.S3.DeletePublicAccessBlock
     mkDeletePublicAccessBlock,
 
     -- ** Request lenses
-    dpabExpectedBucketOwner,
     dpabBucket,
+    dpabExpectedBucketOwner,
 
     -- * Destructuring the response
     DeletePublicAccessBlockResponse (..),
@@ -49,17 +50,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeletePublicAccessBlock' smart constructor.
 data DeletePublicAccessBlock = DeletePublicAccessBlock'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to delete.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePublicAccessBlock' with the minimum fields required to make a request.
@@ -72,16 +68,9 @@ mkDeletePublicAccessBlock ::
   DeletePublicAccessBlock
 mkDeletePublicAccessBlock pBucket_ =
   DeletePublicAccessBlock'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpabExpectedBucketOwner :: Lens.Lens' DeletePublicAccessBlock (Lude.Maybe Lude.Text)
-dpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeletePublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeletePublicAccessBlock)
-{-# DEPRECATED dpabExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to delete.
 --
@@ -89,6 +78,13 @@ dpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeletePublicAccessBl
 dpabBucket :: Lens.Lens' DeletePublicAccessBlock BucketName
 dpabBucket = Lens.lens (bucket :: DeletePublicAccessBlock -> BucketName) (\s a -> s {bucket = a} :: DeletePublicAccessBlock)
 {-# DEPRECATED dpabBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpabExpectedBucketOwner :: Lens.Lens' DeletePublicAccessBlock (Lude.Maybe Lude.Text)
+dpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeletePublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeletePublicAccessBlock)
+{-# DEPRECATED dpabExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest DeletePublicAccessBlock where
   type Rs DeletePublicAccessBlock = DeletePublicAccessBlockResponse
@@ -109,13 +105,7 @@ instance Lude.ToQuery DeletePublicAccessBlock where
 
 -- | /See:/ 'mkDeletePublicAccessBlockResponse' smart constructor.
 data DeletePublicAccessBlockResponse = DeletePublicAccessBlockResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePublicAccessBlockResponse' with the minimum fields required to make a request.

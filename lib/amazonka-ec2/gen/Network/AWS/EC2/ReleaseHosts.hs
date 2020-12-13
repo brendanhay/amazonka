@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,14 +43,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkReleaseHosts' smart constructor.
-newtype ReleaseHosts = ReleaseHosts' {hostIds :: [Lude.Text]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ReleaseHosts = ReleaseHosts'
+  { -- | The IDs of the Dedicated Hosts to release.
+    hostIds :: [Lude.Text]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseHosts' with the minimum fields required to make a request.
@@ -98,25 +96,21 @@ instance Lude.ToQuery ReleaseHosts where
 
 -- | /See:/ 'mkReleaseHostsResponse' smart constructor.
 data ReleaseHostsResponse = ReleaseHostsResponse'
-  { unsuccessful ::
-      Lude.Maybe [UnsuccessfulItem],
+  { -- | The IDs of the Dedicated Hosts that could not be released, including an error message.
+    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    -- | The IDs of the Dedicated Hosts that were successfully released.
     successful :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReleaseHostsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'successful' - The IDs of the Dedicated Hosts that were successfully released.
 -- * 'unsuccessful' - The IDs of the Dedicated Hosts that could not be released, including an error message.
+-- * 'successful' - The IDs of the Dedicated Hosts that were successfully released.
+-- * 'responseStatus' - The response status code.
 mkReleaseHostsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

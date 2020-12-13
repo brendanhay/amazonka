@@ -32,30 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKerberosAttributes' smart constructor.
 data KerberosAttributes = KerberosAttributes'
-  { kdcAdminPassword ::
-      Lude.Maybe Lude.Text,
+  { -- | The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
+    kdcAdminPassword :: Lude.Maybe Lude.Text,
+    -- | The name of the Kerberos realm to which all nodes in a cluster belong. For example, @EC2.INTERNAL@ .
     realm :: Lude.Maybe Lude.Text,
+    -- | The Active Directory password for @ADDomainJoinUser@ .
     aDDomainJoinPassword :: Lude.Maybe Lude.Text,
-    crossRealmTrustPrincipalPassword ::
-      Lude.Maybe Lude.Text,
+    -- | Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+    crossRealmTrustPrincipalPassword :: Lude.Maybe Lude.Text,
+    -- | Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
     aDDomainJoinUser :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KerberosAttributes' with the minimum fields required to make a request.
 --
--- * 'aDDomainJoinPassword' - The Active Directory password for @ADDomainJoinUser@ .
--- * 'aDDomainJoinUser' - Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
--- * 'crossRealmTrustPrincipalPassword' - Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
 -- * 'kdcAdminPassword' - The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
 -- * 'realm' - The name of the Kerberos realm to which all nodes in a cluster belong. For example, @EC2.INTERNAL@ .
+-- * 'aDDomainJoinPassword' - The Active Directory password for @ADDomainJoinUser@ .
+-- * 'crossRealmTrustPrincipalPassword' - Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms.
+-- * 'aDDomainJoinUser' - Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain.
 mkKerberosAttributes ::
   KerberosAttributes
 mkKerberosAttributes =

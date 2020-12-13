@@ -13,9 +13,9 @@
 module Network.AWS.DirectConnect.Types.HasLogicalRedundancy
   ( HasLogicalRedundancy
       ( HasLogicalRedundancy',
-        HLRNO,
         HLRUnknown,
-        HLRYes
+        HLRYes,
+        HLRNO
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype HasLogicalRedundancy = HasLogicalRedundancy' Lude.Text
       Lude.ToHeader
     )
 
-pattern HLRNO :: HasLogicalRedundancy
-pattern HLRNO = HasLogicalRedundancy' "no"
-
 pattern HLRUnknown :: HasLogicalRedundancy
 pattern HLRUnknown = HasLogicalRedundancy' "unknown"
 
 pattern HLRYes :: HasLogicalRedundancy
 pattern HLRYes = HasLogicalRedundancy' "yes"
 
+pattern HLRNO :: HasLogicalRedundancy
+pattern HLRNO = HasLogicalRedundancy' "no"
+
 {-# COMPLETE
-  HLRNO,
   HLRUnknown,
   HLRYes,
+  HLRNO,
   HasLogicalRedundancy'
   #-}

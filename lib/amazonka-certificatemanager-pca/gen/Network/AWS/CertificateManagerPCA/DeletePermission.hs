@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.CertificateManagerPCA.DeletePermission
 
     -- ** Request lenses
     dpSourceAccount,
-    dpCertificateAuthorityARN,
     dpPrincipal,
+    dpCertificateAuthorityARN,
 
     -- * Destructuring the response
     DeletePermissionResponse (..),
@@ -49,38 +50,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePermission' smart constructor.
 data DeletePermission = DeletePermission'
-  { sourceAccount ::
-      Lude.Maybe Lude.Text,
-    certificateAuthorityARN :: Lude.Text,
-    principal :: Lude.Text
+  { -- | The AWS account that calls this action.
+    sourceAccount :: Lude.Maybe Lude.Text,
+    -- | The AWS service or identity that will have its CA permissions revoked. At this time, the only valid service principal is @acm.amazonaws.com@
+    principal :: Lude.Text,
+    -- | The Amazon Resource Number (ARN) of the private CA that issued the permissions. You can find the CA's ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must have the following form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+    certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePermission' with the minimum fields required to make a request.
 --
+-- * 'sourceAccount' - The AWS account that calls this action.
+-- * 'principal' - The AWS service or identity that will have its CA permissions revoked. At this time, the only valid service principal is @acm.amazonaws.com@
 -- * 'certificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA that issued the permissions. You can find the CA's ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must have the following form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
--- * 'principal' - The AWS service or identity that will have its CA permissions revoked. At this time, the only valid service principal is @acm.amazonaws.com@
--- * 'sourceAccount' - The AWS account that calls this action.
 mkDeletePermission ::
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
   -- | 'principal'
   Lude.Text ->
+  -- | 'certificateAuthorityARN'
+  Lude.Text ->
   DeletePermission
-mkDeletePermission pCertificateAuthorityARN_ pPrincipal_ =
+mkDeletePermission pPrincipal_ pCertificateAuthorityARN_ =
   DeletePermission'
     { sourceAccount = Lude.Nothing,
-      certificateAuthorityARN = pCertificateAuthorityARN_,
-      principal = pPrincipal_
+      principal = pPrincipal_,
+      certificateAuthorityARN = pCertificateAuthorityARN_
     }
 
 -- | The AWS account that calls this action.
@@ -90,6 +89,13 @@ dpSourceAccount :: Lens.Lens' DeletePermission (Lude.Maybe Lude.Text)
 dpSourceAccount = Lens.lens (sourceAccount :: DeletePermission -> Lude.Maybe Lude.Text) (\s a -> s {sourceAccount = a} :: DeletePermission)
 {-# DEPRECATED dpSourceAccount "Use generic-lens or generic-optics with 'sourceAccount' instead." #-}
 
+-- | The AWS service or identity that will have its CA permissions revoked. At this time, the only valid service principal is @acm.amazonaws.com@
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPrincipal :: Lens.Lens' DeletePermission Lude.Text
+dpPrincipal = Lens.lens (principal :: DeletePermission -> Lude.Text) (\s a -> s {principal = a} :: DeletePermission)
+{-# DEPRECATED dpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+
 -- | The Amazon Resource Number (ARN) of the private CA that issued the permissions. You can find the CA's ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must have the following form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
@@ -98,13 +104,6 @@ dpSourceAccount = Lens.lens (sourceAccount :: DeletePermission -> Lude.Maybe Lud
 dpCertificateAuthorityARN :: Lens.Lens' DeletePermission Lude.Text
 dpCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: DeletePermission -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: DeletePermission)
 {-# DEPRECATED dpCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
-
--- | The AWS service or identity that will have its CA permissions revoked. At this time, the only valid service principal is @acm.amazonaws.com@
---
--- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpPrincipal :: Lens.Lens' DeletePermission Lude.Text
-dpPrincipal = Lens.lens (principal :: DeletePermission -> Lude.Text) (\s a -> s {principal = a} :: DeletePermission)
-{-# DEPRECATED dpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
 instance Lude.AWSRequest DeletePermission where
   type Rs DeletePermission = DeletePermissionResponse
@@ -127,9 +126,9 @@ instance Lude.ToJSON DeletePermission where
     Lude.object
       ( Lude.catMaybes
           [ ("SourceAccount" Lude..=) Lude.<$> sourceAccount,
+            Lude.Just ("Principal" Lude..= principal),
             Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN),
-            Lude.Just ("Principal" Lude..= principal)
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
           ]
       )
 
@@ -141,13 +140,7 @@ instance Lude.ToQuery DeletePermission where
 
 -- | /See:/ 'mkDeletePermissionResponse' smart constructor.
 data DeletePermissionResponse = DeletePermissionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePermissionResponse' with the minimum fields required to make a request.

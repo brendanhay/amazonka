@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,28 +31,28 @@ module Network.AWS.CloudHSM.DescribeHSM
     mkDescribeHSMResponse,
 
     -- ** Response lenses
-    desrsStatus,
-    desrsIAMRoleARN,
-    desrsEniId,
-    desrsVPCId,
-    desrsSSHKeyLastUpdated,
-    desrsSubscriptionEndDate,
-    desrsServerCertURI,
-    desrsSubscriptionType,
-    desrsSSHPublicKey,
-    desrsSubnetId,
-    desrsStatusDetails,
-    desrsPartitions,
-    desrsSubscriptionStartDate,
-    desrsAvailabilityZone,
-    desrsServerCertLastUpdated,
-    desrsSoftwareVersion,
-    desrsVendorName,
-    desrsSerialNumber,
-    desrsHSMARN,
-    desrsEniIP,
-    desrsHSMType,
-    desrsResponseStatus,
+    dhfrsStatus,
+    dhfrsIAMRoleARN,
+    dhfrsEniId,
+    dhfrsVPCId,
+    dhfrsSSHKeyLastUpdated,
+    dhfrsSubscriptionEndDate,
+    dhfrsServerCertURI,
+    dhfrsSubscriptionType,
+    dhfrsSSHPublicKey,
+    dhfrsSubnetId,
+    dhfrsStatusDetails,
+    dhfrsPartitions,
+    dhfrsSubscriptionStartDate,
+    dhfrsAvailabilityZone,
+    dhfrsServerCertLastUpdated,
+    dhfrsSoftwareVersion,
+    dhfrsVendorName,
+    dhfrsSerialNumber,
+    dhfrsHSMARN,
+    dhfrsEniIP,
+    dhfrsHSMType,
+    dhfrsResponseStatus,
   )
 where
 
@@ -65,23 +66,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeHSM' smart constructor.
 data DescribeHSM = DescribeHSM'
-  { hsmSerialNumber ::
-      Lude.Maybe Lude.Text,
+  { -- | The serial number of the HSM. Either the @HsmArn@ or the @HsmSerialNumber@ parameter must be specified.
+    hsmSerialNumber :: Lude.Maybe Lude.Text,
+    -- | The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter must be specified.
     hsmARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHSM' with the minimum fields required to make a request.
 --
--- * 'hsmARN' - The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter must be specified.
 -- * 'hsmSerialNumber' - The serial number of the HSM. Either the @HsmArn@ or the @HsmSerialNumber@ parameter must be specified.
+-- * 'hsmARN' - The ARN of the HSM. Either the @HsmArn@ or the @SerialNumber@ parameter must be specified.
 mkDescribeHSM ::
   DescribeHSM
 mkDescribeHSM =
@@ -165,63 +161,77 @@ instance Lude.ToQuery DescribeHSM where
 --
 -- /See:/ 'mkDescribeHSMResponse' smart constructor.
 data DescribeHSMResponse = DescribeHSMResponse'
-  { status ::
-      Lude.Maybe HSMStatus,
+  { -- | The status of the HSM.
+    status :: Lude.Maybe HSMStatus,
+    -- | The ARN of the IAM role assigned to the HSM.
     iamRoleARN :: Lude.Maybe Lude.Text,
+    -- | The identifier of the elastic network interface (ENI) attached to the HSM.
     eniId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the VPC that the HSM is in.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The date and time that the SSH key was last updated.
     sshKeyLastUpdated :: Lude.Maybe Lude.Text,
+    -- | The subscription end date.
     subscriptionEndDate :: Lude.Maybe Lude.Text,
+    -- | The URI of the certificate server.
     serverCertURI :: Lude.Maybe Lude.Text,
     subscriptionType :: Lude.Maybe SubscriptionType,
+    -- | The public SSH key.
     sshPublicKey :: Lude.Maybe Lude.Text,
+    -- | The identifier of the subnet that the HSM is in.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | Contains additional information about the status of the HSM.
     statusDetails :: Lude.Maybe Lude.Text,
+    -- | The list of partitions on the HSM.
     partitions :: Lude.Maybe [Lude.Text],
+    -- | The subscription start date.
     subscriptionStartDate :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone that the HSM is in.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The date and time that the server certificate was last updated.
     serverCertLastUpdated :: Lude.Maybe Lude.Text,
+    -- | The HSM software version.
     softwareVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the HSM vendor.
     vendorName :: Lude.Maybe Lude.Text,
+    -- | The serial number of the HSM.
     serialNumber :: Lude.Maybe Lude.Text,
+    -- | The ARN of the HSM.
     hsmARN :: Lude.Maybe Lude.Text,
+    -- | The IP address assigned to the HSM's ENI.
     eniIP :: Lude.Maybe Lude.Text,
+    -- | The HSM model type.
     hsmType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHSMResponse' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone that the HSM is in.
--- * 'eniIP' - The IP address assigned to the HSM's ENI.
--- * 'eniId' - The identifier of the elastic network interface (ENI) attached to the HSM.
--- * 'hsmARN' - The ARN of the HSM.
--- * 'hsmType' - The HSM model type.
--- * 'iamRoleARN' - The ARN of the IAM role assigned to the HSM.
--- * 'partitions' - The list of partitions on the HSM.
--- * 'responseStatus' - The response status code.
--- * 'serialNumber' - The serial number of the HSM.
--- * 'serverCertLastUpdated' - The date and time that the server certificate was last updated.
--- * 'serverCertURI' - The URI of the certificate server.
--- * 'softwareVersion' - The HSM software version.
--- * 'sshKeyLastUpdated' - The date and time that the SSH key was last updated.
--- * 'sshPublicKey' - The public SSH key.
 -- * 'status' - The status of the HSM.
--- * 'statusDetails' - Contains additional information about the status of the HSM.
--- * 'subnetId' - The identifier of the subnet that the HSM is in.
--- * 'subscriptionEndDate' - The subscription end date.
--- * 'subscriptionStartDate' - The subscription start date.
--- * 'subscriptionType' - Undocumented field.
--- * 'vendorName' - The name of the HSM vendor.
+-- * 'iamRoleARN' - The ARN of the IAM role assigned to the HSM.
+-- * 'eniId' - The identifier of the elastic network interface (ENI) attached to the HSM.
 -- * 'vpcId' - The identifier of the VPC that the HSM is in.
+-- * 'sshKeyLastUpdated' - The date and time that the SSH key was last updated.
+-- * 'subscriptionEndDate' - The subscription end date.
+-- * 'serverCertURI' - The URI of the certificate server.
+-- * 'subscriptionType' -
+-- * 'sshPublicKey' - The public SSH key.
+-- * 'subnetId' - The identifier of the subnet that the HSM is in.
+-- * 'statusDetails' - Contains additional information about the status of the HSM.
+-- * 'partitions' - The list of partitions on the HSM.
+-- * 'subscriptionStartDate' - The subscription start date.
+-- * 'availabilityZone' - The Availability Zone that the HSM is in.
+-- * 'serverCertLastUpdated' - The date and time that the server certificate was last updated.
+-- * 'softwareVersion' - The HSM software version.
+-- * 'vendorName' - The name of the HSM vendor.
+-- * 'serialNumber' - The serial number of the HSM.
+-- * 'hsmARN' - The ARN of the HSM.
+-- * 'eniIP' - The IP address assigned to the HSM's ENI.
+-- * 'hsmType' - The HSM model type.
+-- * 'responseStatus' - The response status code.
 mkDescribeHSMResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -255,153 +265,153 @@ mkDescribeHSMResponse pResponseStatus_ =
 -- | The status of the HSM.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsStatus :: Lens.Lens' DescribeHSMResponse (Lude.Maybe HSMStatus)
-desrsStatus = Lens.lens (status :: DescribeHSMResponse -> Lude.Maybe HSMStatus) (\s a -> s {status = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dhfrsStatus :: Lens.Lens' DescribeHSMResponse (Lude.Maybe HSMStatus)
+dhfrsStatus = Lens.lens (status :: DescribeHSMResponse -> Lude.Maybe HSMStatus) (\s a -> s {status = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ARN of the IAM role assigned to the HSM.
 --
 -- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsIAMRoleARN :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsIAMRoleARN = Lens.lens (iamRoleARN :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {iamRoleARN = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
+dhfrsIAMRoleARN :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsIAMRoleARN = Lens.lens (iamRoleARN :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {iamRoleARN = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
 
 -- | The identifier of the elastic network interface (ENI) attached to the HSM.
 --
 -- /Note:/ Consider using 'eniId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsEniId :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsEniId = Lens.lens (eniId :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {eniId = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsEniId "Use generic-lens or generic-optics with 'eniId' instead." #-}
+dhfrsEniId :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsEniId = Lens.lens (eniId :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {eniId = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsEniId "Use generic-lens or generic-optics with 'eniId' instead." #-}
 
 -- | The identifier of the VPC that the HSM is in.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsVPCId :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsVPCId = Lens.lens (vpcId :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+dhfrsVPCId :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsVPCId = Lens.lens (vpcId :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The date and time that the SSH key was last updated.
 --
 -- /Note:/ Consider using 'sshKeyLastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSSHKeyLastUpdated :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsSSHKeyLastUpdated = Lens.lens (sshKeyLastUpdated :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {sshKeyLastUpdated = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSSHKeyLastUpdated "Use generic-lens or generic-optics with 'sshKeyLastUpdated' instead." #-}
+dhfrsSSHKeyLastUpdated :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsSSHKeyLastUpdated = Lens.lens (sshKeyLastUpdated :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {sshKeyLastUpdated = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSSHKeyLastUpdated "Use generic-lens or generic-optics with 'sshKeyLastUpdated' instead." #-}
 
 -- | The subscription end date.
 --
 -- /Note:/ Consider using 'subscriptionEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSubscriptionEndDate :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsSubscriptionEndDate = Lens.lens (subscriptionEndDate :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionEndDate = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSubscriptionEndDate "Use generic-lens or generic-optics with 'subscriptionEndDate' instead." #-}
+dhfrsSubscriptionEndDate :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsSubscriptionEndDate = Lens.lens (subscriptionEndDate :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionEndDate = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSubscriptionEndDate "Use generic-lens or generic-optics with 'subscriptionEndDate' instead." #-}
 
 -- | The URI of the certificate server.
 --
 -- /Note:/ Consider using 'serverCertURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsServerCertURI :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsServerCertURI = Lens.lens (serverCertURI :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {serverCertURI = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsServerCertURI "Use generic-lens or generic-optics with 'serverCertURI' instead." #-}
+dhfrsServerCertURI :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsServerCertURI = Lens.lens (serverCertURI :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {serverCertURI = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsServerCertURI "Use generic-lens or generic-optics with 'serverCertURI' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'subscriptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSubscriptionType :: Lens.Lens' DescribeHSMResponse (Lude.Maybe SubscriptionType)
-desrsSubscriptionType = Lens.lens (subscriptionType :: DescribeHSMResponse -> Lude.Maybe SubscriptionType) (\s a -> s {subscriptionType = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSubscriptionType "Use generic-lens or generic-optics with 'subscriptionType' instead." #-}
+dhfrsSubscriptionType :: Lens.Lens' DescribeHSMResponse (Lude.Maybe SubscriptionType)
+dhfrsSubscriptionType = Lens.lens (subscriptionType :: DescribeHSMResponse -> Lude.Maybe SubscriptionType) (\s a -> s {subscriptionType = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSubscriptionType "Use generic-lens or generic-optics with 'subscriptionType' instead." #-}
 
 -- | The public SSH key.
 --
 -- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSSHPublicKey :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsSSHPublicKey = Lens.lens (sshPublicKey :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
+dhfrsSSHPublicKey :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsSSHPublicKey = Lens.lens (sshPublicKey :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The identifier of the subnet that the HSM is in.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSubnetId :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsSubnetId = Lens.lens (subnetId :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+dhfrsSubnetId :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsSubnetId = Lens.lens (subnetId :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | Contains additional information about the status of the HSM.
 --
 -- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsStatusDetails :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsStatusDetails = Lens.lens (statusDetails :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
+dhfrsStatusDetails :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsStatusDetails = Lens.lens (statusDetails :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | The list of partitions on the HSM.
 --
 -- /Note:/ Consider using 'partitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsPartitions :: Lens.Lens' DescribeHSMResponse (Lude.Maybe [Lude.Text])
-desrsPartitions = Lens.lens (partitions :: DescribeHSMResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {partitions = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsPartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
+dhfrsPartitions :: Lens.Lens' DescribeHSMResponse (Lude.Maybe [Lude.Text])
+dhfrsPartitions = Lens.lens (partitions :: DescribeHSMResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {partitions = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsPartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
 
 -- | The subscription start date.
 --
 -- /Note:/ Consider using 'subscriptionStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSubscriptionStartDate :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsSubscriptionStartDate = Lens.lens (subscriptionStartDate :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionStartDate = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSubscriptionStartDate "Use generic-lens or generic-optics with 'subscriptionStartDate' instead." #-}
+dhfrsSubscriptionStartDate :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsSubscriptionStartDate = Lens.lens (subscriptionStartDate :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionStartDate = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSubscriptionStartDate "Use generic-lens or generic-optics with 'subscriptionStartDate' instead." #-}
 
 -- | The Availability Zone that the HSM is in.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsAvailabilityZone :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsAvailabilityZone = Lens.lens (availabilityZone :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+dhfrsAvailabilityZone :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsAvailabilityZone = Lens.lens (availabilityZone :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The date and time that the server certificate was last updated.
 --
 -- /Note:/ Consider using 'serverCertLastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsServerCertLastUpdated :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsServerCertLastUpdated = Lens.lens (serverCertLastUpdated :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {serverCertLastUpdated = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsServerCertLastUpdated "Use generic-lens or generic-optics with 'serverCertLastUpdated' instead." #-}
+dhfrsServerCertLastUpdated :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsServerCertLastUpdated = Lens.lens (serverCertLastUpdated :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {serverCertLastUpdated = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsServerCertLastUpdated "Use generic-lens or generic-optics with 'serverCertLastUpdated' instead." #-}
 
 -- | The HSM software version.
 --
 -- /Note:/ Consider using 'softwareVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSoftwareVersion :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsSoftwareVersion = Lens.lens (softwareVersion :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {softwareVersion = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSoftwareVersion "Use generic-lens or generic-optics with 'softwareVersion' instead." #-}
+dhfrsSoftwareVersion :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsSoftwareVersion = Lens.lens (softwareVersion :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {softwareVersion = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSoftwareVersion "Use generic-lens or generic-optics with 'softwareVersion' instead." #-}
 
 -- | The name of the HSM vendor.
 --
 -- /Note:/ Consider using 'vendorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsVendorName :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsVendorName = Lens.lens (vendorName :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {vendorName = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsVendorName "Use generic-lens or generic-optics with 'vendorName' instead." #-}
+dhfrsVendorName :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsVendorName = Lens.lens (vendorName :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {vendorName = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsVendorName "Use generic-lens or generic-optics with 'vendorName' instead." #-}
 
 -- | The serial number of the HSM.
 --
 -- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsSerialNumber :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsSerialNumber = Lens.lens (serialNumber :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {serialNumber = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
+dhfrsSerialNumber :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsSerialNumber = Lens.lens (serialNumber :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {serialNumber = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
 -- | The ARN of the HSM.
 --
 -- /Note:/ Consider using 'hsmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsHSMARN :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsHSMARN = Lens.lens (hsmARN :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmARN = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
+dhfrsHSMARN :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsHSMARN = Lens.lens (hsmARN :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmARN = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
 
 -- | The IP address assigned to the HSM's ENI.
 --
 -- /Note:/ Consider using 'eniIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsEniIP :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsEniIP = Lens.lens (eniIP :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {eniIP = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsEniIP "Use generic-lens or generic-optics with 'eniIP' instead." #-}
+dhfrsEniIP :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsEniIP = Lens.lens (eniIP :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {eniIP = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsEniIP "Use generic-lens or generic-optics with 'eniIP' instead." #-}
 
 -- | The HSM model type.
 --
 -- /Note:/ Consider using 'hsmType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsHSMType :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
-desrsHSMType = Lens.lens (hsmType :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmType = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsHSMType "Use generic-lens or generic-optics with 'hsmType' instead." #-}
+dhfrsHSMType :: Lens.Lens' DescribeHSMResponse (Lude.Maybe Lude.Text)
+dhfrsHSMType = Lens.lens (hsmType :: DescribeHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmType = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsHSMType "Use generic-lens or generic-optics with 'hsmType' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeHSMResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHSMResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhfrsResponseStatus :: Lens.Lens' DescribeHSMResponse Lude.Int
+dhfrsResponseStatus = Lens.lens (responseStatus :: DescribeHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHSMResponse)
+{-# DEPRECATED dhfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceType
   ( ExportSnapshotRecordSourceType
       ( ExportSnapshotRecordSourceType',
-        DiskSnapshot,
-        InstanceSnapshot
+        InstanceSnapshot,
+        DiskSnapshot
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ExportSnapshotRecordSourceType = ExportSnapshotRecordSourceType' Lude.Te
       Lude.ToHeader
     )
 
-pattern DiskSnapshot :: ExportSnapshotRecordSourceType
-pattern DiskSnapshot = ExportSnapshotRecordSourceType' "DiskSnapshot"
-
 pattern InstanceSnapshot :: ExportSnapshotRecordSourceType
 pattern InstanceSnapshot = ExportSnapshotRecordSourceType' "InstanceSnapshot"
 
+pattern DiskSnapshot :: ExportSnapshotRecordSourceType
+pattern DiskSnapshot = ExportSnapshotRecordSourceType' "DiskSnapshot"
+
 {-# COMPLETE
-  DiskSnapshot,
   InstanceSnapshot,
+  DiskSnapshot,
   ExportSnapshotRecordSourceType'
   #-}

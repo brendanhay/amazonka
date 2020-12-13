@@ -17,8 +17,8 @@ module Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
     mkBlockPublicAccessConfigurationMetadata,
 
     -- * Lenses
-    bpacmCreationDateTime,
     bpacmCreatedByARN,
+    bpacmCreationDateTime,
   )
 where
 
@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlockPublicAccessConfigurationMetadata' smart constructor.
 data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMetadata'
-  { creationDateTime ::
-      Lude.Timestamp,
-    createdByARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name that created or last modified the configuration.
+    createdByARN :: Lude.Text,
+    -- | The date and time that the configuration was created.
+    creationDateTime :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockPublicAccessConfigurationMetadata' with the minimum fields required to make a request.
@@ -48,26 +42,19 @@ data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMeta
 -- * 'createdByARN' - The Amazon Resource Name that created or last modified the configuration.
 -- * 'creationDateTime' - The date and time that the configuration was created.
 mkBlockPublicAccessConfigurationMetadata ::
-  -- | 'creationDateTime'
-  Lude.Timestamp ->
   -- | 'createdByARN'
   Lude.Text ->
+  -- | 'creationDateTime'
+  Lude.Timestamp ->
   BlockPublicAccessConfigurationMetadata
 mkBlockPublicAccessConfigurationMetadata
-  pCreationDateTime_
-  pCreatedByARN_ =
+  pCreatedByARN_
+  pCreationDateTime_ =
     BlockPublicAccessConfigurationMetadata'
-      { creationDateTime =
-          pCreationDateTime_,
-        createdByARN = pCreatedByARN_
+      { createdByARN =
+          pCreatedByARN_,
+        creationDateTime = pCreationDateTime_
       }
-
--- | The date and time that the configuration was created.
---
--- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpacmCreationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Lude.Timestamp
-bpacmCreationDateTime = Lens.lens (creationDateTime :: BlockPublicAccessConfigurationMetadata -> Lude.Timestamp) (\s a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata)
-{-# DEPRECATED bpacmCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The Amazon Resource Name that created or last modified the configuration.
 --
@@ -76,11 +63,18 @@ bpacmCreatedByARN :: Lens.Lens' BlockPublicAccessConfigurationMetadata Lude.Text
 bpacmCreatedByARN = Lens.lens (createdByARN :: BlockPublicAccessConfigurationMetadata -> Lude.Text) (\s a -> s {createdByARN = a} :: BlockPublicAccessConfigurationMetadata)
 {-# DEPRECATED bpacmCreatedByARN "Use generic-lens or generic-optics with 'createdByARN' instead." #-}
 
+-- | The date and time that the configuration was created.
+--
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpacmCreationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Lude.Timestamp
+bpacmCreationDateTime = Lens.lens (creationDateTime :: BlockPublicAccessConfigurationMetadata -> Lude.Timestamp) (\s a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata)
+{-# DEPRECATED bpacmCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
+
 instance Lude.FromJSON BlockPublicAccessConfigurationMetadata where
   parseJSON =
     Lude.withObject
       "BlockPublicAccessConfigurationMetadata"
       ( \x ->
           BlockPublicAccessConfigurationMetadata'
-            Lude.<$> (x Lude..: "CreationDateTime") Lude.<*> (x Lude..: "CreatedByArn")
+            Lude.<$> (x Lude..: "CreatedByArn") Lude.<*> (x Lude..: "CreationDateTime")
       )

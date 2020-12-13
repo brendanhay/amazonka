@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.GetModel
     mkGetModel,
 
     -- ** Request lenses
-    ggFlatten,
-    ggRestAPIId,
-    ggModelName,
+    gmModelName,
+    gmRestAPIId,
+    gmFlatten,
 
     -- * Destructuring the response
     Model (..),
@@ -46,57 +47,54 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetModel' smart constructor.
 data GetModel = GetModel'
-  { flatten :: Lude.Maybe Lude.Bool,
+  { -- | [Required] The name of the model as an identifier.
+    modelName :: Lude.Text,
+    -- | [Required] The 'RestApi' identifier under which the 'Model' exists.
     restAPIId :: Lude.Text,
-    modelName :: Lude.Text
+    -- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
+    flatten :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModel' with the minimum fields required to make a request.
 --
--- * 'flatten' - A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 -- * 'modelName' - [Required] The name of the model as an identifier.
 -- * 'restAPIId' - [Required] The 'RestApi' identifier under which the 'Model' exists.
+-- * 'flatten' - A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
 mkGetModel ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'modelName'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetModel
-mkGetModel pRestAPIId_ pModelName_ =
+mkGetModel pModelName_ pRestAPIId_ =
   GetModel'
-    { flatten = Lude.Nothing,
+    { modelName = pModelName_,
       restAPIId = pRestAPIId_,
-      modelName = pModelName_
+      flatten = Lude.Nothing
     }
-
--- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
---
--- /Note:/ Consider using 'flatten' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggFlatten :: Lens.Lens' GetModel (Lude.Maybe Lude.Bool)
-ggFlatten = Lens.lens (flatten :: GetModel -> Lude.Maybe Lude.Bool) (\s a -> s {flatten = a} :: GetModel)
-{-# DEPRECATED ggFlatten "Use generic-lens or generic-optics with 'flatten' instead." #-}
-
--- | [Required] The 'RestApi' identifier under which the 'Model' exists.
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggRestAPIId :: Lens.Lens' GetModel Lude.Text
-ggRestAPIId = Lens.lens (restAPIId :: GetModel -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModel)
-{-# DEPRECATED ggRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the model as an identifier.
 --
 -- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggModelName :: Lens.Lens' GetModel Lude.Text
-ggModelName = Lens.lens (modelName :: GetModel -> Lude.Text) (\s a -> s {modelName = a} :: GetModel)
-{-# DEPRECATED ggModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+gmModelName :: Lens.Lens' GetModel Lude.Text
+gmModelName = Lens.lens (modelName :: GetModel -> Lude.Text) (\s a -> s {modelName = a} :: GetModel)
+{-# DEPRECATED gmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+
+-- | [Required] The 'RestApi' identifier under which the 'Model' exists.
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmRestAPIId :: Lens.Lens' GetModel Lude.Text
+gmRestAPIId = Lens.lens (restAPIId :: GetModel -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModel)
+{-# DEPRECATED gmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | A query parameter of a Boolean value to resolve (@true@ ) all external model references and returns a flattened model schema or not (@false@ ) The default is @false@ .
+--
+-- /Note:/ Consider using 'flatten' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmFlatten :: Lens.Lens' GetModel (Lude.Maybe Lude.Bool)
+gmFlatten = Lens.lens (flatten :: GetModel -> Lude.Maybe Lude.Bool) (\s a -> s {flatten = a} :: GetModel)
+{-# DEPRECATED gmFlatten "Use generic-lens or generic-optics with 'flatten' instead." #-}
 
 instance Lude.AWSRequest GetModel where
   type Rs GetModel = Model

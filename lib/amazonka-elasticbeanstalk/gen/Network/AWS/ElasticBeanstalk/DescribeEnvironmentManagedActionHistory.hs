@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,34 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEnvironmentManagedActionHistory' smart constructor.
 data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionHistory'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    environmentName ::
-      Lude.Maybe
-        Lude.Text,
-    maxItems ::
-      Lude.Maybe
-        Lude.Natural,
-    environmentId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The pagination token returned by a previous request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the target environment.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for a single request.
+    maxItems :: Lude.Maybe Lude.Natural,
+    -- | The environment ID of the target environment.
+    environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentManagedActionHistory' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The environment ID of the target environment.
+-- * 'nextToken' - The pagination token returned by a previous request.
 -- * 'environmentName' - The name of the target environment.
 -- * 'maxItems' - The maximum number of items to return for a single request.
--- * 'nextToken' - The pagination token returned by a previous request.
+-- * 'environmentId' - The environment ID of the target environment.
 mkDescribeEnvironmentManagedActionHistory ::
   DescribeEnvironmentManagedActionHistory
 mkDescribeEnvironmentManagedActionHistory =
@@ -164,28 +155,15 @@ instance Lude.ToQuery DescribeEnvironmentManagedActionHistory where
 --
 -- /See:/ 'mkDescribeEnvironmentManagedActionHistoryResponse' smart constructor.
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
-  { managedActionHistoryItems ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ManagedActionHistoryItem
-        ),
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of completed and failed managed actions.
+    managedActionHistoryItems :: Lude.Maybe (Lude.NonEmpty ManagedActionHistoryItem),
+    -- | A pagination token that you pass to 'DescribeEnvironmentManagedActionHistory' to get the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentManagedActionHistoryResponse' with the minimum fields required to make a request.
 --

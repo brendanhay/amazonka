@@ -33,29 +33,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricFilter' smart constructor.
 data MetricFilter = MetricFilter'
-  { creationTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    creationTime :: Lude.Maybe Lude.Natural,
+    -- | The name of the metric filter.
     filterName :: Lude.Maybe Lude.Text,
+    -- | The name of the log group.
     logGroupName :: Lude.Maybe Lude.Text,
     filterPattern :: Lude.Maybe Lude.Text,
-    metricTransformations ::
-      Lude.Maybe (Lude.NonEmpty MetricTransformation)
+    -- | The metric transformations.
+    metricTransformations :: Lude.Maybe (Lude.NonEmpty MetricTransformation)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricFilter' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 -- * 'filterName' - The name of the metric filter.
--- * 'filterPattern' - Undocumented field.
 -- * 'logGroupName' - The name of the log group.
+-- * 'filterPattern' -
 -- * 'metricTransformations' - The metric transformations.
 mkMetricFilter ::
   MetricFilter

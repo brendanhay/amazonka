@@ -13,13 +13,13 @@
 module Network.AWS.Snowball.Types.SnowballCapacity
   ( SnowballCapacity
       ( SnowballCapacity',
-        NoPreference,
+        T50,
+        T80,
         T100,
         T42,
-        T50,
+        T98,
         T8,
-        T80,
-        T98
+        NoPreference
       ),
   )
 where
@@ -50,8 +50,11 @@ newtype SnowballCapacity = SnowballCapacity' Lude.Text
       Lude.ToHeader
     )
 
-pattern NoPreference :: SnowballCapacity
-pattern NoPreference = SnowballCapacity' "NoPreference"
+pattern T50 :: SnowballCapacity
+pattern T50 = SnowballCapacity' "T50"
+
+pattern T80 :: SnowballCapacity
+pattern T80 = SnowballCapacity' "T80"
 
 pattern T100 :: SnowballCapacity
 pattern T100 = SnowballCapacity' "T100"
@@ -59,25 +62,22 @@ pattern T100 = SnowballCapacity' "T100"
 pattern T42 :: SnowballCapacity
 pattern T42 = SnowballCapacity' "T42"
 
-pattern T50 :: SnowballCapacity
-pattern T50 = SnowballCapacity' "T50"
+pattern T98 :: SnowballCapacity
+pattern T98 = SnowballCapacity' "T98"
 
 pattern T8 :: SnowballCapacity
 pattern T8 = SnowballCapacity' "T8"
 
-pattern T80 :: SnowballCapacity
-pattern T80 = SnowballCapacity' "T80"
-
-pattern T98 :: SnowballCapacity
-pattern T98 = SnowballCapacity' "T98"
+pattern NoPreference :: SnowballCapacity
+pattern NoPreference = SnowballCapacity' "NoPreference"
 
 {-# COMPLETE
-  NoPreference,
+  T50,
+  T80,
   T100,
   T42,
-  T50,
-  T8,
-  T80,
   T98,
+  T8,
+  NoPreference,
   SnowballCapacity'
   #-}

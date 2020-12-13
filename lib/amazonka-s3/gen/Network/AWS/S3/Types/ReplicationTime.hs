@@ -32,17 +32,12 @@ import Network.AWS.S3.Types.ReplicationTimeValue
 --
 -- /See:/ 'mkReplicationTime' smart constructor.
 data ReplicationTime = ReplicationTime'
-  { status ::
-      ReplicationTimeStatus,
+  { -- | Specifies whether the replication time is enabled.
+    status :: ReplicationTimeStatus,
+    -- | A container specifying the time by which replication should be complete for all objects and operations on objects.
     time :: ReplicationTimeValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTime' with the minimum fields required to make a request.

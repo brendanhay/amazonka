@@ -17,6 +17,7 @@ module Network.AWS.Pinpoint.Types.APNSVoipSandboxChannelResponse
     mkAPNSVoipSandboxChannelResponse,
 
     -- * Lenses
+    avscPlatform,
     avscLastModifiedDate,
     avscEnabled,
     avscHasTokenKey,
@@ -28,7 +29,6 @@ module Network.AWS.Pinpoint.Types.APNSVoipSandboxChannelResponse
     avscCreationDate,
     avscLastModifiedBy,
     avscHasCredential,
-    avscPlatform,
   )
 where
 
@@ -39,59 +39,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAPNSVoipSandboxChannelResponse' smart constructor.
 data APNSVoipSandboxChannelResponse = APNSVoipSandboxChannelResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Text,
-    enabled ::
-      Lude.Maybe Lude.Bool,
-    hasTokenKey ::
-      Lude.Maybe Lude.Bool,
-    defaultAuthenticationMethod ::
-      Lude.Maybe Lude.Text,
-    isArchived ::
-      Lude.Maybe Lude.Bool,
-    applicationId ::
-      Lude.Maybe Lude.Text,
-    version ::
-      Lude.Maybe Lude.Int,
+  { -- | The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
+    platform :: Lude.Text,
+    -- | The date and time when the APNs VoIP sandbox channel was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the APNs VoIP sandbox channel is enabled for the application.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
+    hasTokenKey :: Lude.Maybe Lude.Bool,
+    -- | The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
+    defaultAuthenticationMethod :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the APNs VoIP sandbox channel is archived.
+    isArchived :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the application that the APNs VoIP sandbox channel applies to.
+    applicationId :: Lude.Maybe Lude.Text,
+    -- | The current version of the APNs VoIP sandbox channel.
+    version :: Lude.Maybe Lude.Int,
+    -- | (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
     id :: Lude.Maybe Lude.Text,
-    creationDate ::
-      Lude.Maybe Lude.Text,
-    lastModifiedBy ::
-      Lude.Maybe Lude.Text,
-    hasCredential ::
-      Lude.Maybe Lude.Bool,
-    platform :: Lude.Text
+    -- | The date and time when the APNs VoIP sandbox channel was enabled.
+    creationDate :: Lude.Maybe Lude.Text,
+    -- | The user who last modified the APNs VoIP sandbox channel.
+    lastModifiedBy :: Lude.Maybe Lude.Text,
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APNSVoipSandboxChannelResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the APNs VoIP sandbox channel applies to.
--- * 'creationDate' - The date and time when the APNs VoIP sandbox channel was enabled.
--- * 'defaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
--- * 'enabled' - Specifies whether the APNs VoIP sandbox channel is enabled for the application.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
--- * 'hasTokenKey' - Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
--- * 'id' - (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
--- * 'isArchived' - Specifies whether the APNs VoIP sandbox channel is archived.
--- * 'lastModifiedBy' - The user who last modified the APNs VoIP sandbox channel.
--- * 'lastModifiedDate' - The date and time when the APNs VoIP sandbox channel was last modified.
 -- * 'platform' - The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
+-- * 'lastModifiedDate' - The date and time when the APNs VoIP sandbox channel was last modified.
+-- * 'enabled' - Specifies whether the APNs VoIP sandbox channel is enabled for the application.
+-- * 'hasTokenKey' - Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.
+-- * 'defaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.
+-- * 'isArchived' - Specifies whether the APNs VoIP sandbox channel is archived.
+-- * 'applicationId' - The unique identifier for the application that the APNs VoIP sandbox channel applies to.
 -- * 'version' - The current version of the APNs VoIP sandbox channel.
+-- * 'id' - (Deprecated) An identifier for the APNs VoIP sandbox channel. This property is retained only for backward compatibility.
+-- * 'creationDate' - The date and time when the APNs VoIP sandbox channel was enabled.
+-- * 'lastModifiedBy' - The user who last modified the APNs VoIP sandbox channel.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
 mkAPNSVoipSandboxChannelResponse ::
   -- | 'platform'
   Lude.Text ->
   APNSVoipSandboxChannelResponse
 mkAPNSVoipSandboxChannelResponse pPlatform_ =
   APNSVoipSandboxChannelResponse'
-    { lastModifiedDate = Lude.Nothing,
+    { platform = pPlatform_,
+      lastModifiedDate = Lude.Nothing,
       enabled = Lude.Nothing,
       hasTokenKey = Lude.Nothing,
       defaultAuthenticationMethod = Lude.Nothing,
@@ -101,9 +98,15 @@ mkAPNSVoipSandboxChannelResponse pPlatform_ =
       id = Lude.Nothing,
       creationDate = Lude.Nothing,
       lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing,
-      platform = pPlatform_
+      hasCredential = Lude.Nothing
     }
+
+-- | The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avscPlatform :: Lens.Lens' APNSVoipSandboxChannelResponse Lude.Text
+avscPlatform = Lens.lens (platform :: APNSVoipSandboxChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: APNSVoipSandboxChannelResponse)
+{-# DEPRECATED avscPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The date and time when the APNs VoIP sandbox channel was last modified.
 --
@@ -182,20 +185,14 @@ avscHasCredential :: Lens.Lens' APNSVoipSandboxChannelResponse (Lude.Maybe Lude.
 avscHasCredential = Lens.lens (hasCredential :: APNSVoipSandboxChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: APNSVoipSandboxChannelResponse)
 {-# DEPRECATED avscHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
--- | The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avscPlatform :: Lens.Lens' APNSVoipSandboxChannelResponse Lude.Text
-avscPlatform = Lens.lens (platform :: APNSVoipSandboxChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: APNSVoipSandboxChannelResponse)
-{-# DEPRECATED avscPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
 instance Lude.FromJSON APNSVoipSandboxChannelResponse where
   parseJSON =
     Lude.withObject
       "APNSVoipSandboxChannelResponse"
       ( \x ->
           APNSVoipSandboxChannelResponse'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<$> (x Lude..: "Platform")
+            Lude.<*> (x Lude..:? "LastModifiedDate")
             Lude.<*> (x Lude..:? "Enabled")
             Lude.<*> (x Lude..:? "HasTokenKey")
             Lude.<*> (x Lude..:? "DefaultAuthenticationMethod")
@@ -206,5 +203,4 @@ instance Lude.FromJSON APNSVoipSandboxChannelResponse where
             Lude.<*> (x Lude..:? "CreationDate")
             Lude.<*> (x Lude..:? "LastModifiedBy")
             Lude.<*> (x Lude..:? "HasCredential")
-            Lude.<*> (x Lude..: "Platform")
       )

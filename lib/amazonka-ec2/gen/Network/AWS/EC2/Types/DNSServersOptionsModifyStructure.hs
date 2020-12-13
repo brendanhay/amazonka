@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDNSServersOptionsModifyStructure' smart constructor.
 data DNSServersOptionsModifyStructure = DNSServersOptionsModifyStructure'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    customDNSServers ::
-      Lude.Maybe [Lude.Text]
+  { -- | Indicates whether DNS servers should be used. Specify @False@ to delete the existing DNS servers.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values overwrite the existing values.
+    customDNSServers :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DNSServersOptionsModifyStructure' with the minimum fields required to make a request.
 --
--- * 'customDNSServers' - The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values overwrite the existing values.
 -- * 'enabled' - Indicates whether DNS servers should be used. Specify @False@ to delete the existing DNS servers.
+-- * 'customDNSServers' - The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values overwrite the existing values.
 mkDNSServersOptionsModifyStructure ::
   DNSServersOptionsModifyStructure
 mkDNSServersOptionsModifyStructure =

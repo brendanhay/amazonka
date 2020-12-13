@@ -33,27 +33,21 @@ import Network.AWS.SageMaker.Types.IntegerParameterRange
 --
 -- /See:/ 'mkParameterRanges' smart constructor.
 data ParameterRanges = ParameterRanges'
-  { categoricalParameterRanges ::
-      Lude.Maybe [CategoricalParameterRange],
-    integerParameterRanges ::
-      Lude.Maybe [IntegerParameterRange],
-    continuousParameterRanges ::
-      Lude.Maybe [ContinuousParameterRange]
+  { -- | The array of 'CategoricalParameterRange' objects that specify ranges of categorical hyperparameters that a hyperparameter tuning job searches.
+    categoricalParameterRanges :: Lude.Maybe [CategoricalParameterRange],
+    -- | The array of 'IntegerParameterRange' objects that specify ranges of integer hyperparameters that a hyperparameter tuning job searches.
+    integerParameterRanges :: Lude.Maybe [IntegerParameterRange],
+    -- | The array of 'ContinuousParameterRange' objects that specify ranges of continuous hyperparameters that a hyperparameter tuning job searches.
+    continuousParameterRanges :: Lude.Maybe [ContinuousParameterRange]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterRanges' with the minimum fields required to make a request.
 --
 -- * 'categoricalParameterRanges' - The array of 'CategoricalParameterRange' objects that specify ranges of categorical hyperparameters that a hyperparameter tuning job searches.
--- * 'continuousParameterRanges' - The array of 'ContinuousParameterRange' objects that specify ranges of continuous hyperparameters that a hyperparameter tuning job searches.
 -- * 'integerParameterRanges' - The array of 'IntegerParameterRange' objects that specify ranges of integer hyperparameters that a hyperparameter tuning job searches.
+-- * 'continuousParameterRanges' - The array of 'ContinuousParameterRange' objects that specify ranges of continuous hyperparameters that a hyperparameter tuning job searches.
 mkParameterRanges ::
   ParameterRanges
 mkParameterRanges =

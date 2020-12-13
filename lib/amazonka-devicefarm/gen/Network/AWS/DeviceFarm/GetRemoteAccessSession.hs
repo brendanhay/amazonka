@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetRemoteAccessSession' smart constructor.
 newtype GetRemoteAccessSession = GetRemoteAccessSession'
-  { arn ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
+    arn :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRemoteAccessSession' with the minimum fields required to make a request.
@@ -106,18 +101,12 @@ instance Lude.ToQuery GetRemoteAccessSession where
 --
 -- /See:/ 'mkGetRemoteAccessSessionResponse' smart constructor.
 data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
-  { remoteAccessSession ::
-      Lude.Maybe
-        RemoteAccessSession,
+  { -- | A container that lists detailed information about the remote access session.
+    remoteAccessSession :: Lude.Maybe RemoteAccessSession,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRemoteAccessSessionResponse' with the minimum fields required to make a request.

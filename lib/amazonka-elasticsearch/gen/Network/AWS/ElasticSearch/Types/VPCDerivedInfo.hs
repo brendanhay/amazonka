@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCDerivedInfo' smart constructor.
 data VPCDerivedInfo = VPCDerivedInfo'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | Specifies the security groups for VPC endpoint.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Specifies the subnets for VPC endpoint.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
     availabilityZones :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCDerivedInfo' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
 -- * 'securityGroupIds' - Specifies the security groups for VPC endpoint.
 -- * 'subnetIds' - Specifies the subnets for VPC endpoint.
 -- * 'vpcId' - The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+-- * 'availabilityZones' - The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
 mkVPCDerivedInfo ::
   VPCDerivedInfo
 mkVPCDerivedInfo =

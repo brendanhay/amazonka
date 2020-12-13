@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPathToObjectIdentifiers' smart constructor.
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
-  { objectIdentifiers ::
-      Lude.Maybe [Lude.Text],
+  { -- | Lists @ObjectIdentifiers@ starting from directory root to the object in the request.
+    objectIdentifiers :: Lude.Maybe [Lude.Text],
+    -- | The path that is used to identify the object starting from directory root.
     path :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PathToObjectIdentifiers' with the minimum fields required to make a request.

@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchDetails' smart constructor.
 data LaunchDetails = LaunchDetails'
-  { stackId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the latest stack launched for this application.
+    stackId :: Lude.Maybe Lude.Text,
+    -- | The latest time that this application was launched successfully.
     latestLaunchTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the latest stack launched for this application.
     stackName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchDetails' with the minimum fields required to make a request.
 --
--- * 'latestLaunchTime' - The latest time that this application was launched successfully.
 -- * 'stackId' - The ID of the latest stack launched for this application.
+-- * 'latestLaunchTime' - The latest time that this application was launched successfully.
 -- * 'stackName' - The name of the latest stack launched for this application.
 mkLaunchDetails ::
   LaunchDetails

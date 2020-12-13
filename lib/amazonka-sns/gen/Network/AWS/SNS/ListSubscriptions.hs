@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,16 +48,10 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkListSubscriptions' smart constructor.
 newtype ListSubscriptions = ListSubscriptions'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | Token returned by the previous @ListSubscriptions@ request.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptions' with the minimum fields required to make a request.
@@ -115,26 +110,21 @@ instance Lude.ToQuery ListSubscriptions where
 --
 -- /See:/ 'mkListSubscriptionsResponse' smart constructor.
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    subscriptions ::
-      Lude.Maybe [Subscription],
+  { -- | Token to pass along to the next @ListSubscriptions@ request. This element is returned if there are more subscriptions to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of subscriptions.
+    subscriptions :: Lude.Maybe [Subscription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Token to pass along to the next @ListSubscriptions@ request. This element is returned if there are more subscriptions to retrieve.
--- * 'responseStatus' - The response status code.
 -- * 'subscriptions' - A list of subscriptions.
+-- * 'responseStatus' - The response status code.
 mkListSubscriptionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

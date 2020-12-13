@@ -42,43 +42,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayOptions' smart constructor.
 data TransitGatewayOptions = TransitGatewayOptions'
-  { vpnEcmpSupport ::
-      Lude.Maybe VPNEcmpSupportValue,
-    autoAcceptSharedAttachments ::
-      Lude.Maybe AutoAcceptSharedAttachmentsValue,
-    propagationDefaultRouteTableId ::
-      Lude.Maybe Lude.Text,
-    defaultRouteTableAssociation ::
-      Lude.Maybe DefaultRouteTableAssociationValue,
-    associationDefaultRouteTableId ::
-      Lude.Maybe Lude.Text,
+  { -- | Indicates whether Equal Cost Multipath Protocol support is enabled.
+    vpnEcmpSupport :: Lude.Maybe VPNEcmpSupportValue,
+    -- | Indicates whether attachment requests are automatically accepted.
+    autoAcceptSharedAttachments :: Lude.Maybe AutoAcceptSharedAttachmentsValue,
+    -- | The ID of the default propagation route table.
+    propagationDefaultRouteTableId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether resource attachments are automatically associated with the default association route table.
+    defaultRouteTableAssociation :: Lude.Maybe DefaultRouteTableAssociationValue,
+    -- | The ID of the default association route table.
+    associationDefaultRouteTableId :: Lude.Maybe Lude.Text,
+    -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
     amazonSideASN :: Lude.Maybe Lude.Integer,
-    defaultRouteTablePropagation ::
-      Lude.Maybe DefaultRouteTablePropagationValue,
-    multicastSupport ::
-      Lude.Maybe MulticastSupportValue,
+    -- | Indicates whether resource attachments automatically propagate routes to the default propagation route table.
+    defaultRouteTablePropagation :: Lude.Maybe DefaultRouteTablePropagationValue,
+    -- | Indicates whether multicast is enabled on the transit gateway
+    multicastSupport :: Lude.Maybe MulticastSupportValue,
+    -- | Indicates whether DNS support is enabled.
     dnsSupport :: Lude.Maybe DNSSupportValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayOptions' with the minimum fields required to make a request.
 --
--- * 'amazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
--- * 'associationDefaultRouteTableId' - The ID of the default association route table.
--- * 'autoAcceptSharedAttachments' - Indicates whether attachment requests are automatically accepted.
--- * 'defaultRouteTableAssociation' - Indicates whether resource attachments are automatically associated with the default association route table.
--- * 'defaultRouteTablePropagation' - Indicates whether resource attachments automatically propagate routes to the default propagation route table.
--- * 'dnsSupport' - Indicates whether DNS support is enabled.
--- * 'multicastSupport' - Indicates whether multicast is enabled on the transit gateway
--- * 'propagationDefaultRouteTableId' - The ID of the default propagation route table.
 -- * 'vpnEcmpSupport' - Indicates whether Equal Cost Multipath Protocol support is enabled.
+-- * 'autoAcceptSharedAttachments' - Indicates whether attachment requests are automatically accepted.
+-- * 'propagationDefaultRouteTableId' - The ID of the default propagation route table.
+-- * 'defaultRouteTableAssociation' - Indicates whether resource attachments are automatically associated with the default association route table.
+-- * 'associationDefaultRouteTableId' - The ID of the default association route table.
+-- * 'amazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
+-- * 'defaultRouteTablePropagation' - Indicates whether resource attachments automatically propagate routes to the default propagation route table.
+-- * 'multicastSupport' - Indicates whether multicast is enabled on the transit gateway
+-- * 'dnsSupport' - Indicates whether DNS support is enabled.
 mkTransitGatewayOptions ::
   TransitGatewayOptions
 mkTransitGatewayOptions =

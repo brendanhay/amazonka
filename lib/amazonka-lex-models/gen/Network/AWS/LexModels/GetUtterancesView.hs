@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.LexModels.GetUtterancesView
     mkGetUtterancesView,
 
     -- ** Request lenses
-    guvBotName,
     guvBotVersions,
+    guvBotName,
     guvStatusType,
 
     -- * Destructuring the response
@@ -48,45 +49,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetUtterancesView' smart constructor.
 data GetUtterancesView = GetUtterancesView'
-  { botName :: Lude.Text,
+  { -- | An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
     botVersions :: Lude.NonEmpty Lude.Text,
+    -- | The name of the bot for which utterance information should be returned.
+    botName :: Lude.Text,
+    -- | To return utterances that were recognized and handled, use @Detected@ . To return utterances that were not recognized, use @Missed@ .
     statusType :: StatusType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUtterancesView' with the minimum fields required to make a request.
 --
--- * 'botName' - The name of the bot for which utterance information should be returned.
 -- * 'botVersions' - An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
+-- * 'botName' - The name of the bot for which utterance information should be returned.
 -- * 'statusType' - To return utterances that were recognized and handled, use @Detected@ . To return utterances that were not recognized, use @Missed@ .
 mkGetUtterancesView ::
-  -- | 'botName'
-  Lude.Text ->
   -- | 'botVersions'
   Lude.NonEmpty Lude.Text ->
+  -- | 'botName'
+  Lude.Text ->
   -- | 'statusType'
   StatusType ->
   GetUtterancesView
-mkGetUtterancesView pBotName_ pBotVersions_ pStatusType_ =
+mkGetUtterancesView pBotVersions_ pBotName_ pStatusType_ =
   GetUtterancesView'
-    { botName = pBotName_,
-      botVersions = pBotVersions_,
+    { botVersions = pBotVersions_,
+      botName = pBotName_,
       statusType = pStatusType_
     }
-
--- | The name of the bot for which utterance information should be returned.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guvBotName :: Lens.Lens' GetUtterancesView Lude.Text
-guvBotName = Lens.lens (botName :: GetUtterancesView -> Lude.Text) (\s a -> s {botName = a} :: GetUtterancesView)
-{-# DEPRECATED guvBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | An array of bot versions for which utterance information should be returned. The limit is 5 versions per request.
 --
@@ -94,6 +85,13 @@ guvBotName = Lens.lens (botName :: GetUtterancesView -> Lude.Text) (\s a -> s {b
 guvBotVersions :: Lens.Lens' GetUtterancesView (Lude.NonEmpty Lude.Text)
 guvBotVersions = Lens.lens (botVersions :: GetUtterancesView -> Lude.NonEmpty Lude.Text) (\s a -> s {botVersions = a} :: GetUtterancesView)
 {-# DEPRECATED guvBotVersions "Use generic-lens or generic-optics with 'botVersions' instead." #-}
+
+-- | The name of the bot for which utterance information should be returned.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guvBotName :: Lens.Lens' GetUtterancesView Lude.Text
+guvBotName = Lens.lens (botName :: GetUtterancesView -> Lude.Text) (\s a -> s {botName = a} :: GetUtterancesView)
+{-# DEPRECATED guvBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | To return utterances that were recognized and handled, use @Detected@ . To return utterances that were not recognized, use @Missed@ .
 --
@@ -137,26 +135,21 @@ instance Lude.ToQuery GetUtterancesView where
 
 -- | /See:/ 'mkGetUtterancesViewResponse' smart constructor.
 data GetUtterancesViewResponse = GetUtterancesViewResponse'
-  { botName ::
-      Lude.Maybe Lude.Text,
-    utterances ::
-      Lude.Maybe [UtteranceList],
+  { -- | The name of the bot for which utterance information was returned.
+    botName :: Lude.Maybe Lude.Text,
+    -- | An array of 'UtteranceList' objects, each containing a list of 'UtteranceData' objects describing the utterances that were processed by your bot. The response contains a maximum of 100 @UtteranceData@ objects for each version. Amazon Lex returns the most frequent utterances received by the bot in the last 15 days.
+    utterances :: Lude.Maybe [UtteranceList],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUtterancesViewResponse' with the minimum fields required to make a request.
 --
 -- * 'botName' - The name of the bot for which utterance information was returned.
--- * 'responseStatus' - The response status code.
 -- * 'utterances' - An array of 'UtteranceList' objects, each containing a list of 'UtteranceData' objects describing the utterances that were processed by your bot. The response contains a maximum of 100 @UtteranceData@ objects for each version. Amazon Lex returns the most frequent utterances received by the bot in the last 15 days.
+-- * 'responseStatus' - The response status code.
 mkGetUtterancesViewResponse ::
   -- | 'responseStatus'
   Lude.Int ->

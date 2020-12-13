@@ -13,11 +13,11 @@
 module Network.AWS.Glue.Types.TaskType
   ( TaskType
       ( TaskType',
-        TTEvaluation,
-        TTExportLabels,
-        TTFindMatches,
-        TTImportLabels,
-        TTLabelingSetGeneration
+        Evaluation,
+        LabelingSetGeneration,
+        ImportLabels,
+        ExportLabels,
+        FindMatches
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TaskType = TaskType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TTEvaluation :: TaskType
-pattern TTEvaluation = TaskType' "EVALUATION"
+pattern Evaluation :: TaskType
+pattern Evaluation = TaskType' "EVALUATION"
 
-pattern TTExportLabels :: TaskType
-pattern TTExportLabels = TaskType' "EXPORT_LABELS"
+pattern LabelingSetGeneration :: TaskType
+pattern LabelingSetGeneration = TaskType' "LABELING_SET_GENERATION"
 
-pattern TTFindMatches :: TaskType
-pattern TTFindMatches = TaskType' "FIND_MATCHES"
+pattern ImportLabels :: TaskType
+pattern ImportLabels = TaskType' "IMPORT_LABELS"
 
-pattern TTImportLabels :: TaskType
-pattern TTImportLabels = TaskType' "IMPORT_LABELS"
+pattern ExportLabels :: TaskType
+pattern ExportLabels = TaskType' "EXPORT_LABELS"
 
-pattern TTLabelingSetGeneration :: TaskType
-pattern TTLabelingSetGeneration = TaskType' "LABELING_SET_GENERATION"
+pattern FindMatches :: TaskType
+pattern FindMatches = TaskType' "FIND_MATCHES"
 
 {-# COMPLETE
-  TTEvaluation,
-  TTExportLabels,
-  TTFindMatches,
-  TTImportLabels,
-  TTLabelingSetGeneration,
+  Evaluation,
+  LabelingSetGeneration,
+  ImportLabels,
+  ExportLabels,
+  FindMatches,
   TaskType'
   #-}

@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemediationExecutionStep' smart constructor.
 data RemediationExecutionStep = RemediationExecutionStep'
-  { state ::
-      Lude.Maybe RemediationExecutionStepState,
+  { -- | The valid status of the step.
+    state :: Lude.Maybe RemediationExecutionStepState,
+    -- | The time when the step started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The details of the step.
     name :: Lude.Maybe Lude.Text,
+    -- | The time when the step stopped.
     stopTime :: Lude.Maybe Lude.Timestamp,
+    -- | An error message if the step was interrupted during execution.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationExecutionStep' with the minimum fields required to make a request.
 --
--- * 'errorMessage' - An error message if the step was interrupted during execution.
--- * 'name' - The details of the step.
--- * 'startTime' - The time when the step started.
 -- * 'state' - The valid status of the step.
+-- * 'startTime' - The time when the step started.
+-- * 'name' - The details of the step.
 -- * 'stopTime' - The time when the step stopped.
+-- * 'errorMessage' - An error message if the step was interrupted during execution.
 mkRemediationExecutionStep ::
   RemediationExecutionStep
 mkRemediationExecutionStep =

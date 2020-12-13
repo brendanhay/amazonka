@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
     mkSnapshotOptionsStatus,
 
     -- * Lenses
-    sosOptions,
     sosStatus,
+    sosOptions,
   )
 where
 
@@ -31,38 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshotOptionsStatus' smart constructor.
 data SnapshotOptionsStatus = SnapshotOptionsStatus'
-  { options ::
-      SnapshotOptions,
-    status :: OptionStatus
+  { -- | Specifies the status of a daily automated snapshot.
+    status :: OptionStatus,
+    -- | Specifies the daily snapshot options specified for the Elasticsearch domain.
+    options :: SnapshotOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotOptionsStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Specifies the daily snapshot options specified for the Elasticsearch domain.
 -- * 'status' - Specifies the status of a daily automated snapshot.
+-- * 'options' - Specifies the daily snapshot options specified for the Elasticsearch domain.
 mkSnapshotOptionsStatus ::
-  -- | 'options'
-  SnapshotOptions ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  SnapshotOptions ->
   SnapshotOptionsStatus
-mkSnapshotOptionsStatus pOptions_ pStatus_ =
-  SnapshotOptionsStatus' {options = pOptions_, status = pStatus_}
-
--- | Specifies the daily snapshot options specified for the Elasticsearch domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sosOptions :: Lens.Lens' SnapshotOptionsStatus SnapshotOptions
-sosOptions = Lens.lens (options :: SnapshotOptionsStatus -> SnapshotOptions) (\s a -> s {options = a} :: SnapshotOptionsStatus)
-{-# DEPRECATED sosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkSnapshotOptionsStatus pStatus_ pOptions_ =
+  SnapshotOptionsStatus' {status = pStatus_, options = pOptions_}
 
 -- | Specifies the status of a daily automated snapshot.
 --
@@ -71,11 +59,18 @@ sosStatus :: Lens.Lens' SnapshotOptionsStatus OptionStatus
 sosStatus = Lens.lens (status :: SnapshotOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: SnapshotOptionsStatus)
 {-# DEPRECATED sosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Specifies the daily snapshot options specified for the Elasticsearch domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sosOptions :: Lens.Lens' SnapshotOptionsStatus SnapshotOptions
+sosOptions = Lens.lens (options :: SnapshotOptionsStatus -> SnapshotOptions) (\s a -> s {options = a} :: SnapshotOptionsStatus)
+{-# DEPRECATED sosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromJSON SnapshotOptionsStatus where
   parseJSON =
     Lude.withObject
       "SnapshotOptionsStatus"
       ( \x ->
           SnapshotOptionsStatus'
-            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
       )

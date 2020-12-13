@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,9 +39,9 @@ module Network.AWS.SQS.ChangeMessageVisibility
     mkChangeMessageVisibility,
 
     -- ** Request lenses
+    cmvVisibilityTimeout,
     cmvQueueURL,
     cmvReceiptHandle,
-    cmvVisibilityTimeout,
 
     -- * Destructuring the response
     ChangeMessageVisibilityResponse (..),
@@ -56,44 +57,49 @@ import Network.AWS.SQS.Types
 
 -- | /See:/ 'mkChangeMessageVisibility' smart constructor.
 data ChangeMessageVisibility = ChangeMessageVisibility'
-  { queueURL ::
-      Lude.Text,
-    receiptHandle :: Lude.Text,
-    visibilityTimeout :: Lude.Int
+  { -- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
+    visibilityTimeout :: Lude.Int,
+    -- | The URL of the Amazon SQS queue whose message's visibility is changed.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueURL :: Lude.Text,
+    -- | The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
+    receiptHandle :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeMessageVisibility' with the minimum fields required to make a request.
 --
+-- * 'visibilityTimeout' - The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
 -- * 'queueURL' - The URL of the Amazon SQS queue whose message's visibility is changed.
 --
 -- Queue URLs and names are case-sensitive.
 -- * 'receiptHandle' - The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
--- * 'visibilityTimeout' - The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
 mkChangeMessageVisibility ::
+  -- | 'visibilityTimeout'
+  Lude.Int ->
   -- | 'queueURL'
   Lude.Text ->
   -- | 'receiptHandle'
   Lude.Text ->
-  -- | 'visibilityTimeout'
-  Lude.Int ->
   ChangeMessageVisibility
 mkChangeMessageVisibility
+  pVisibilityTimeout_
   pQueueURL_
-  pReceiptHandle_
-  pVisibilityTimeout_ =
+  pReceiptHandle_ =
     ChangeMessageVisibility'
-      { queueURL = pQueueURL_,
-        receiptHandle = pReceiptHandle_,
-        visibilityTimeout = pVisibilityTimeout_
+      { visibilityTimeout = pVisibilityTimeout_,
+        queueURL = pQueueURL_,
+        receiptHandle = pReceiptHandle_
       }
+
+-- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
+--
+-- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmvVisibilityTimeout :: Lens.Lens' ChangeMessageVisibility Lude.Int
+cmvVisibilityTimeout = Lens.lens (visibilityTimeout :: ChangeMessageVisibility -> Lude.Int) (\s a -> s {visibilityTimeout = a} :: ChangeMessageVisibility)
+{-# DEPRECATED cmvVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}
 
 -- | The URL of the Amazon SQS queue whose message's visibility is changed.
 --
@@ -111,13 +117,6 @@ cmvReceiptHandle :: Lens.Lens' ChangeMessageVisibility Lude.Text
 cmvReceiptHandle = Lens.lens (receiptHandle :: ChangeMessageVisibility -> Lude.Text) (\s a -> s {receiptHandle = a} :: ChangeMessageVisibility)
 {-# DEPRECATED cmvReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
--- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
---
--- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvVisibilityTimeout :: Lens.Lens' ChangeMessageVisibility Lude.Int
-cmvVisibilityTimeout = Lens.lens (visibilityTimeout :: ChangeMessageVisibility -> Lude.Int) (\s a -> s {visibilityTimeout = a} :: ChangeMessageVisibility)
-{-# DEPRECATED cmvVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}
-
 instance Lude.AWSRequest ChangeMessageVisibility where
   type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse
   request = Req.postQuery sqsService
@@ -134,20 +133,14 @@ instance Lude.ToQuery ChangeMessageVisibility where
     Lude.mconcat
       [ "Action" Lude.=: ("ChangeMessageVisibility" :: Lude.ByteString),
         "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
+        "VisibilityTimeout" Lude.=: visibilityTimeout,
         "QueueUrl" Lude.=: queueURL,
-        "ReceiptHandle" Lude.=: receiptHandle,
-        "VisibilityTimeout" Lude.=: visibilityTimeout
+        "ReceiptHandle" Lude.=: receiptHandle
       ]
 
 -- | /See:/ 'mkChangeMessageVisibilityResponse' smart constructor.
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeMessageVisibilityResponse' with the minimum fields required to make a request.

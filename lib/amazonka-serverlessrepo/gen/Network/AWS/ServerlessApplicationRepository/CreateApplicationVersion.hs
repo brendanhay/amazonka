@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,12 +20,12 @@ module Network.AWS.ServerlessApplicationRepository.CreateApplicationVersion
     mkCreateApplicationVersion,
 
     -- ** Request lenses
+    cavSemanticVersion,
     cavSourceCodeURL,
+    cavApplicationId,
     cavTemplateBody,
     cavTemplateURL,
     cavSourceCodeArchiveURL,
-    cavApplicationId,
-    cavSemanticVersion,
 
     -- * Destructuring the response
     CreateApplicationVersionResponse (..),
@@ -52,49 +53,56 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkCreateApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
-  { sourceCodeURL ::
-      Lude.Maybe Lude.Text,
-    templateBody :: Lude.Maybe Lude.Text,
-    templateURL :: Lude.Maybe Lude.Text,
-    sourceCodeArchiveURL ::
-      Lude.Maybe Lude.Text,
+  { -- | The semantic version of the new version.
+    semanticVersion :: Lude.Text,
+    -- | A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
+    sourceCodeURL :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the application.
     applicationId :: Lude.Text,
-    semanticVersion :: Lude.Text
+    -- | The raw packaged AWS SAM template of your application.
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | A link to the packaged AWS SAM template of your application.
+    templateURL :: Lude.Maybe Lude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationVersion' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
 -- * 'semanticVersion' - The semantic version of the new version.
+-- * 'sourceCodeURL' - A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
+-- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
+-- * 'templateBody' - The raw packaged AWS SAM template of your application.
+-- * 'templateURL' - A link to the packaged AWS SAM template of your application.
 -- * 'sourceCodeArchiveURL' - A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
 --
 -- Maximum size 50 MB
--- * 'sourceCodeURL' - A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
--- * 'templateBody' - The raw packaged AWS SAM template of your application.
--- * 'templateURL' - A link to the packaged AWS SAM template of your application.
 mkCreateApplicationVersion ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'semanticVersion'
   Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   CreateApplicationVersion
-mkCreateApplicationVersion pApplicationId_ pSemanticVersion_ =
+mkCreateApplicationVersion pSemanticVersion_ pApplicationId_ =
   CreateApplicationVersion'
-    { sourceCodeURL = Lude.Nothing,
+    { semanticVersion = pSemanticVersion_,
+      sourceCodeURL = Lude.Nothing,
+      applicationId = pApplicationId_,
       templateBody = Lude.Nothing,
       templateURL = Lude.Nothing,
-      sourceCodeArchiveURL = Lude.Nothing,
-      applicationId = pApplicationId_,
-      semanticVersion = pSemanticVersion_
+      sourceCodeArchiveURL = Lude.Nothing
     }
+
+-- | The semantic version of the new version.
+--
+-- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cavSemanticVersion :: Lens.Lens' CreateApplicationVersion Lude.Text
+cavSemanticVersion = Lens.lens (semanticVersion :: CreateApplicationVersion -> Lude.Text) (\s a -> s {semanticVersion = a} :: CreateApplicationVersion)
+{-# DEPRECATED cavSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
 
 -- | A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
 --
@@ -102,6 +110,13 @@ mkCreateApplicationVersion pApplicationId_ pSemanticVersion_ =
 cavSourceCodeURL :: Lens.Lens' CreateApplicationVersion (Lude.Maybe Lude.Text)
 cavSourceCodeURL = Lens.lens (sourceCodeURL :: CreateApplicationVersion -> Lude.Maybe Lude.Text) (\s a -> s {sourceCodeURL = a} :: CreateApplicationVersion)
 {-# DEPRECATED cavSourceCodeURL "Use generic-lens or generic-optics with 'sourceCodeURL' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the application.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cavApplicationId :: Lens.Lens' CreateApplicationVersion Lude.Text
+cavApplicationId = Lens.lens (applicationId :: CreateApplicationVersion -> Lude.Text) (\s a -> s {applicationId = a} :: CreateApplicationVersion)
+{-# DEPRECATED cavApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The raw packaged AWS SAM template of your application.
 --
@@ -125,20 +140,6 @@ cavTemplateURL = Lens.lens (templateURL :: CreateApplicationVersion -> Lude.Mayb
 cavSourceCodeArchiveURL :: Lens.Lens' CreateApplicationVersion (Lude.Maybe Lude.Text)
 cavSourceCodeArchiveURL = Lens.lens (sourceCodeArchiveURL :: CreateApplicationVersion -> Lude.Maybe Lude.Text) (\s a -> s {sourceCodeArchiveURL = a} :: CreateApplicationVersion)
 {-# DEPRECATED cavSourceCodeArchiveURL "Use generic-lens or generic-optics with 'sourceCodeArchiveURL' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the application.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cavApplicationId :: Lens.Lens' CreateApplicationVersion Lude.Text
-cavApplicationId = Lens.lens (applicationId :: CreateApplicationVersion -> Lude.Text) (\s a -> s {applicationId = a} :: CreateApplicationVersion)
-{-# DEPRECATED cavApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
--- | The semantic version of the new version.
---
--- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cavSemanticVersion :: Lens.Lens' CreateApplicationVersion Lude.Text
-cavSemanticVersion = Lens.lens (semanticVersion :: CreateApplicationVersion -> Lude.Text) (\s a -> s {semanticVersion = a} :: CreateApplicationVersion)
-{-# DEPRECATED cavSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
 
 instance Lude.AWSRequest CreateApplicationVersion where
   type Rs CreateApplicationVersion = CreateApplicationVersionResponse
@@ -193,42 +194,70 @@ instance Lude.ToQuery CreateApplicationVersion where
 
 -- | /See:/ 'mkCreateApplicationVersionResponse' smart constructor.
 data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Text,
-    resourcesSupported ::
-      Lude.Maybe Lude.Bool,
-    requiredCapabilities ::
-      Lude.Maybe [Capability],
-    parameterDefinitions ::
-      Lude.Maybe
-        [ParameterDefinition],
-    semanticVersion ::
-      Lude.Maybe Lude.Text,
-    sourceCodeURL ::
-      Lude.Maybe Lude.Text,
-    applicationId ::
-      Lude.Maybe Lude.Text,
-    templateURL ::
-      Lude.Maybe Lude.Text,
-    sourceCodeArchiveURL ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The date and time this resource was created.
+    creationTime :: Lude.Maybe Lude.Text,
+    -- | Whether all of the AWS resources contained in this application are supported in the region
+    --
+    --  in which it is being retrieved.
+    resourcesSupported :: Lude.Maybe Lude.Bool,
+    -- | A list of values that you must specify before you can deploy certain applications.
+    --
+    --  Some applications might include resources that can affect permissions in your AWS
+    --  account, for example, by creating new AWS Identity and Access Management (IAM) users.
+    --  For those applications, you must explicitly acknowledge their capabilities by
+    --  specifying this parameter.
+    -- The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,
+    --  CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
+    -- The following resources require you to specify CAPABILITY_IAM or
+    --  CAPABILITY_NAMED_IAM:
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM::Policy> , and
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role> .
+    --  If the application contains IAM resources, you can specify either CAPABILITY_IAM
+    --  or CAPABILITY_NAMED_IAM. If the application contains IAM resources
+    --  with custom names, you must specify CAPABILITY_NAMED_IAM.
+    -- The following resources require you to specify CAPABILITY_RESOURCE_POLICY:
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html AWS::Lambda::Permission> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM:Policy> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html AWS::ApplicationAutoScaling::ScalingPolicy> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html AWS::S3::BucketPolicy> ,
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html AWS::SQS::QueuePolicy> , and
+    --  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html AWS::SNS::TopicPolicy> .
+    -- Applications that contain one or more nested applications require you to specify
+    --  CAPABILITY_AUTO_EXPAND.
+    -- If your application template contains any of the above resources, we recommend that you review
+    --  all permissions associated with the application before deploying. If you don't specify
+    --  this parameter for an application that requires capabilities, the call will fail.
+    requiredCapabilities :: Lude.Maybe [Capability],
+    -- | An array of parameter types supported by the application.
+    parameterDefinitions :: Lude.Maybe [ParameterDefinition],
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Lude.Maybe Lude.Text,
+    -- | A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
+    sourceCodeURL :: Lude.Maybe Lude.Text,
+    -- | The application Amazon Resource Name (ARN).
+    applicationId :: Lude.Maybe Lude.Text,
+    -- | A link to the packaged AWS SAM template of your application.
+    templateURL :: Lude.Maybe Lude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationVersionResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The application Amazon Resource Name (ARN).
 -- * 'creationTime' - The date and time this resource was created.
--- * 'parameterDefinitions' - An array of parameter types supported by the application.
+-- * 'resourcesSupported' - Whether all of the AWS resources contained in this application are supported in the region
+--
+--  in which it is being retrieved.
 -- * 'requiredCapabilities' - A list of values that you must specify before you can deploy certain applications.
 --
 --  Some applications might include resources that can affect permissions in your AWS
@@ -258,18 +287,17 @@ data CreateApplicationVersionResponse = CreateApplicationVersionResponse'
 -- If your application template contains any of the above resources, we recommend that you review
 --  all permissions associated with the application before deploying. If you don't specify
 --  this parameter for an application that requires capabilities, the call will fail.
--- * 'resourcesSupported' - Whether all of the AWS resources contained in this application are supported in the region
---
---  in which it is being retrieved.
--- * 'responseStatus' - The response status code.
+-- * 'parameterDefinitions' - An array of parameter types supported by the application.
 -- * 'semanticVersion' - The semantic version of the application:
 --
 -- <https://semver.org/ https://semver.org/>
+-- * 'sourceCodeURL' - A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
+-- * 'applicationId' - The application Amazon Resource Name (ARN).
+-- * 'templateURL' - A link to the packaged AWS SAM template of your application.
 -- * 'sourceCodeArchiveURL' - A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
 --
 -- Maximum size 50 MB
--- * 'sourceCodeURL' - A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
--- * 'templateURL' - A link to the packaged AWS SAM template of your application.
+-- * 'responseStatus' - The response status code.
 mkCreateApplicationVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

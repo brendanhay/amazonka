@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.MigrationHub.AssociateDiscoveredResource
     mkAssociateDiscoveredResource,
 
     -- ** Request lenses
-    adrDryRun,
+    adrDiscoveredResource,
     adrProgressUpdateStream,
     adrMigrationTaskName,
-    adrDiscoveredResource,
+    adrDryRun,
 
     -- * Destructuring the response
     AssociateDiscoveredResourceResponse (..),
@@ -41,53 +42,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateDiscoveredResource' smart constructor.
 data AssociateDiscoveredResource = AssociateDiscoveredResource'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | Object representing a Resource.
+    discoveredResource :: DiscoveredResource,
+    -- | The name of the ProgressUpdateStream.
     progressUpdateStream :: Lude.Text,
+    -- | The identifier given to the MigrationTask. /Do not store personal data in this field./
     migrationTaskName :: Lude.Text,
-    discoveredResource ::
-      DiscoveredResource
+    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDiscoveredResource' with the minimum fields required to make a request.
 --
 -- * 'discoveredResource' - Object representing a Resource.
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
--- * 'migrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data in this field./
 -- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+-- * 'migrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data in this field./
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 mkAssociateDiscoveredResource ::
+  -- | 'discoveredResource'
+  DiscoveredResource ->
   -- | 'progressUpdateStream'
   Lude.Text ->
   -- | 'migrationTaskName'
   Lude.Text ->
-  -- | 'discoveredResource'
-  DiscoveredResource ->
   AssociateDiscoveredResource
 mkAssociateDiscoveredResource
+  pDiscoveredResource_
   pProgressUpdateStream_
-  pMigrationTaskName_
-  pDiscoveredResource_ =
+  pMigrationTaskName_ =
     AssociateDiscoveredResource'
-      { dryRun = Lude.Nothing,
+      { discoveredResource =
+          pDiscoveredResource_,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
-        discoveredResource = pDiscoveredResource_
+        dryRun = Lude.Nothing
       }
 
--- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- | Object representing a Resource.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adrDryRun :: Lens.Lens' AssociateDiscoveredResource (Lude.Maybe Lude.Bool)
-adrDryRun = Lens.lens (dryRun :: AssociateDiscoveredResource -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateDiscoveredResource)
-{-# DEPRECATED adrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'discoveredResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adrDiscoveredResource :: Lens.Lens' AssociateDiscoveredResource DiscoveredResource
+adrDiscoveredResource = Lens.lens (discoveredResource :: AssociateDiscoveredResource -> DiscoveredResource) (\s a -> s {discoveredResource = a} :: AssociateDiscoveredResource)
+{-# DEPRECATED adrDiscoveredResource "Use generic-lens or generic-optics with 'discoveredResource' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
 --
@@ -103,12 +101,12 @@ adrMigrationTaskName :: Lens.Lens' AssociateDiscoveredResource Lude.Text
 adrMigrationTaskName = Lens.lens (migrationTaskName :: AssociateDiscoveredResource -> Lude.Text) (\s a -> s {migrationTaskName = a} :: AssociateDiscoveredResource)
 {-# DEPRECATED adrMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
--- | Object representing a Resource.
+-- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
--- /Note:/ Consider using 'discoveredResource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adrDiscoveredResource :: Lens.Lens' AssociateDiscoveredResource DiscoveredResource
-adrDiscoveredResource = Lens.lens (discoveredResource :: AssociateDiscoveredResource -> DiscoveredResource) (\s a -> s {discoveredResource = a} :: AssociateDiscoveredResource)
-{-# DEPRECATED adrDiscoveredResource "Use generic-lens or generic-optics with 'discoveredResource' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adrDryRun :: Lens.Lens' AssociateDiscoveredResource (Lude.Maybe Lude.Bool)
+adrDryRun = Lens.lens (dryRun :: AssociateDiscoveredResource -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateDiscoveredResource)
+{-# DEPRECATED adrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest AssociateDiscoveredResource where
   type
@@ -137,10 +135,10 @@ instance Lude.ToJSON AssociateDiscoveredResource where
   toJSON AssociateDiscoveredResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DryRun" Lude..=) Lude.<$> dryRun,
+          [ Lude.Just ("DiscoveredResource" Lude..= discoveredResource),
             Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
             Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
-            Lude.Just ("DiscoveredResource" Lude..= discoveredResource)
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -152,16 +150,10 @@ instance Lude.ToQuery AssociateDiscoveredResource where
 
 -- | /See:/ 'mkAssociateDiscoveredResourceResponse' smart constructor.
 newtype AssociateDiscoveredResourceResponse = AssociateDiscoveredResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDiscoveredResourceResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.DefaultRouteTableAssociationValue
   ( DefaultRouteTableAssociationValue
       ( DefaultRouteTableAssociationValue',
-        DRTAVDisable,
-        DRTAVEnable
+        DRTAVEnable,
+        DRTAVDisable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DefaultRouteTableAssociationValue = DefaultRouteTableAssociationValue' L
       Lude.ToHeader
     )
 
-pattern DRTAVDisable :: DefaultRouteTableAssociationValue
-pattern DRTAVDisable = DefaultRouteTableAssociationValue' "disable"
-
 pattern DRTAVEnable :: DefaultRouteTableAssociationValue
 pattern DRTAVEnable = DefaultRouteTableAssociationValue' "enable"
 
+pattern DRTAVDisable :: DefaultRouteTableAssociationValue
+pattern DRTAVDisable = DefaultRouteTableAssociationValue' "disable"
+
 {-# COMPLETE
-  DRTAVDisable,
   DRTAVEnable,
+  DRTAVDisable,
   DefaultRouteTableAssociationValue'
   #-}

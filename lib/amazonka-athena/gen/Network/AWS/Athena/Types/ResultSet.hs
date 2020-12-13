@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResultSet' smart constructor.
 data ResultSet = ResultSet'
-  { rows :: Lude.Maybe [Row],
+  { -- | The rows in the table.
+    rows :: Lude.Maybe [Row],
+    -- | The metadata that describes the column structure and data types of a table of query results.
     resultSetMetadata :: Lude.Maybe ResultSetMetadata
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResultSet' with the minimum fields required to make a request.
 --
--- * 'resultSetMetadata' - The metadata that describes the column structure and data types of a table of query results.
 -- * 'rows' - The rows in the table.
+-- * 'resultSetMetadata' - The metadata that describes the column structure and data types of a table of query results.
 mkResultSet ::
   ResultSet
 mkResultSet =

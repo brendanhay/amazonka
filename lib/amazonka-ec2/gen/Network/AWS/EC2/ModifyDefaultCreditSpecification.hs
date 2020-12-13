@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.EC2.ModifyDefaultCreditSpecification
     mkModifyDefaultCreditSpecification,
 
     -- ** Request lenses
-    mdcsDryRun,
     mdcsInstanceFamily,
     mdcsCPUCredits,
+    mdcsDryRun,
 
     -- * Destructuring the response
     ModifyDefaultCreditSpecificationResponse (..),
@@ -44,28 +45,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyDefaultCreditSpecification' smart constructor.
 data ModifyDefaultCreditSpecification = ModifyDefaultCreditSpecification'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    instanceFamily ::
-      UnlimitedSupportedInstanceFamily,
-    cpuCredits :: Lude.Text
+  { -- | The instance family.
+    instanceFamily :: UnlimitedSupportedInstanceFamily,
+    -- | The credit option for CPU usage of the instance family.
+    --
+    -- Valid Values: @standard@ | @unlimited@
+    cpuCredits :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDefaultCreditSpecification' with the minimum fields required to make a request.
 --
+-- * 'instanceFamily' - The instance family.
 -- * 'cpuCredits' - The credit option for CPU usage of the instance family.
 --
 -- Valid Values: @standard@ | @unlimited@
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'instanceFamily' - The instance family.
 mkModifyDefaultCreditSpecification ::
   -- | 'instanceFamily'
   UnlimitedSupportedInstanceFamily ->
@@ -74,17 +72,11 @@ mkModifyDefaultCreditSpecification ::
   ModifyDefaultCreditSpecification
 mkModifyDefaultCreditSpecification pInstanceFamily_ pCPUCredits_ =
   ModifyDefaultCreditSpecification'
-    { dryRun = Lude.Nothing,
-      instanceFamily = pInstanceFamily_,
-      cpuCredits = pCPUCredits_
+    { instanceFamily =
+        pInstanceFamily_,
+      cpuCredits = pCPUCredits_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcsDryRun :: Lens.Lens' ModifyDefaultCreditSpecification (Lude.Maybe Lude.Bool)
-mdcsDryRun = Lens.lens (dryRun :: ModifyDefaultCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyDefaultCreditSpecification)
-{-# DEPRECATED mdcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The instance family.
 --
@@ -101,6 +93,13 @@ mdcsInstanceFamily = Lens.lens (instanceFamily :: ModifyDefaultCreditSpecificati
 mdcsCPUCredits :: Lens.Lens' ModifyDefaultCreditSpecification Lude.Text
 mdcsCPUCredits = Lens.lens (cpuCredits :: ModifyDefaultCreditSpecification -> Lude.Text) (\s a -> s {cpuCredits = a} :: ModifyDefaultCreditSpecification)
 {-# DEPRECATED mdcsCPUCredits "Use generic-lens or generic-optics with 'cpuCredits' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsDryRun :: Lens.Lens' ModifyDefaultCreditSpecification (Lude.Maybe Lude.Bool)
+mdcsDryRun = Lens.lens (dryRun :: ModifyDefaultCreditSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyDefaultCreditSpecification)
+{-# DEPRECATED mdcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyDefaultCreditSpecification where
   type
@@ -127,26 +126,19 @@ instance Lude.ToQuery ModifyDefaultCreditSpecification where
       [ "Action"
           Lude.=: ("ModifyDefaultCreditSpecification" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "InstanceFamily" Lude.=: instanceFamily,
-        "CpuCredits" Lude.=: cpuCredits
+        "CpuCredits" Lude.=: cpuCredits,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyDefaultCreditSpecificationResponse' smart constructor.
 data ModifyDefaultCreditSpecificationResponse = ModifyDefaultCreditSpecificationResponse'
-  { instanceFamilyCreditSpecification ::
-      Lude.Maybe
-        InstanceFamilyCreditSpecification,
-    responseStatus ::
-      Lude.Int
+  { -- | The default credit option for CPU usage of the instance family.
+    instanceFamilyCreditSpecification :: Lude.Maybe InstanceFamilyCreditSpecification,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDefaultCreditSpecificationResponse' with the minimum fields required to make a request.

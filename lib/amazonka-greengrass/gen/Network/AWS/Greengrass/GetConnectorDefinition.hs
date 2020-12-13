@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,16 +47,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConnectorDefinition' smart constructor.
 newtype GetConnectorDefinition = GetConnectorDefinition'
-  { connectorDefinitionId ::
-      Lude.Text
+  { -- | The ID of the connector definition.
+    connectorDefinitionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorDefinition' with the minimum fields required to make a request.
@@ -117,45 +112,39 @@ instance Lude.ToQuery GetConnectorDefinition where
 
 -- | /See:/ 'mkGetConnectorDefinitionResponse' smart constructor.
 data GetConnectorDefinitionResponse = GetConnectorDefinitionResponse'
-  { latestVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the latest version associated with the definition.
+    latestVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the definition.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name of the definition.
     name :: Lude.Maybe Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the definition.
     id :: Lude.Maybe Lude.Text,
-    latestVersion ::
-      Lude.Maybe Lude.Text,
-    lastUpdatedTimestamp ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was last updated.
+    lastUpdatedTimestamp :: Lude.Maybe Lude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorDefinitionResponse' with the minimum fields required to make a request.
 --
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
 -- * 'arn' - The ARN of the definition.
+-- * 'name' - The name of the definition.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 -- * 'id' - The ID of the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 -- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'name' - The name of the definition.
--- * 'responseStatus' - The response status code.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 -- * 'tags' - Tag(s) attached to the resource arn.
+-- * 'responseStatus' - The response status code.
 mkGetConnectorDefinitionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

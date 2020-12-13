@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Lambda.GetAlias
     mkGetAlias,
 
     -- ** Request lenses
-    gaFunctionName,
     gaName,
+    gaFunctionName,
 
     -- * Destructuring the response
     AliasConfiguration (..),
@@ -44,20 +45,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAlias' smart constructor.
 data GetAlias = GetAlias'
-  { functionName :: Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the alias.
+    name :: Lude.Text,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAlias' with the minimum fields required to make a request.
 --
+-- * 'name' - The name of the alias.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -72,15 +83,21 @@ data GetAlias = GetAlias'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'name' - The name of the alias.
 mkGetAlias ::
-  -- | 'functionName'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'functionName'
+  Lude.Text ->
   GetAlias
-mkGetAlias pFunctionName_ pName_ =
-  GetAlias' {functionName = pFunctionName_, name = pName_}
+mkGetAlias pName_ pFunctionName_ =
+  GetAlias' {name = pName_, functionName = pFunctionName_}
+
+-- | The name of the alias.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaName :: Lens.Lens' GetAlias Lude.Text
+gaName = Lens.lens (name :: GetAlias -> Lude.Text) (\s a -> s {name = a} :: GetAlias)
+{-# DEPRECATED gaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -101,13 +118,6 @@ mkGetAlias pFunctionName_ pName_ =
 gaFunctionName :: Lens.Lens' GetAlias Lude.Text
 gaFunctionName = Lens.lens (functionName :: GetAlias -> Lude.Text) (\s a -> s {functionName = a} :: GetAlias)
 {-# DEPRECATED gaFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
-
--- | The name of the alias.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaName :: Lens.Lens' GetAlias Lude.Text
-gaName = Lens.lens (name :: GetAlias -> Lude.Text) (\s a -> s {name = a} :: GetAlias)
-{-# DEPRECATED gaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetAlias where
   type Rs GetAlias = AliasConfiguration

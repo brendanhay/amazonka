@@ -13,11 +13,11 @@
 module Network.AWS.Lightsail.Types.MetricStatistic
   ( MetricStatistic
       ( MetricStatistic',
-        Average,
-        Maximum,
         Minimum,
-        SampleCount,
-        Sum
+        Maximum,
+        Sum,
+        Average,
+        SampleCount
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype MetricStatistic = MetricStatistic' Lude.Text
       Lude.ToHeader
     )
 
-pattern Average :: MetricStatistic
-pattern Average = MetricStatistic' "Average"
+pattern Minimum :: MetricStatistic
+pattern Minimum = MetricStatistic' "Minimum"
 
 pattern Maximum :: MetricStatistic
 pattern Maximum = MetricStatistic' "Maximum"
 
-pattern Minimum :: MetricStatistic
-pattern Minimum = MetricStatistic' "Minimum"
+pattern Sum :: MetricStatistic
+pattern Sum = MetricStatistic' "Sum"
+
+pattern Average :: MetricStatistic
+pattern Average = MetricStatistic' "Average"
 
 pattern SampleCount :: MetricStatistic
 pattern SampleCount = MetricStatistic' "SampleCount"
 
-pattern Sum :: MetricStatistic
-pattern Sum = MetricStatistic' "Sum"
-
 {-# COMPLETE
-  Average,
-  Maximum,
   Minimum,
-  SampleCount,
+  Maximum,
   Sum,
+  Average,
+  SampleCount,
   MetricStatistic'
   #-}

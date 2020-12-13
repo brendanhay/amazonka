@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,19 +26,19 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     mkCreateDataSourceFromRedshift,
 
     -- ** Request lenses
-    cdsfrDataSourceName,
-    cdsfrComputeStatistics,
-    cdsfrDataSourceId,
-    cdsfrDataSpec,
-    cdsfrRoleARN,
+    cDataSourceName,
+    cDataSourceId,
+    cDataSpec,
+    cComputeStatistics,
+    cRoleARN,
 
     -- * Destructuring the response
     CreateDataSourceFromRedshiftResponse (..),
     mkCreateDataSourceFromRedshiftResponse,
 
     -- ** Response lenses
-    cdsfrrsDataSourceId,
-    cdsfrrsResponseStatus,
+    crsDataSourceId,
+    crsResponseStatus,
   )
 where
 
@@ -49,28 +50,57 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDataSourceFromRedshift' smart constructor.
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-  { dataSourceName ::
-      Lude.Maybe Lude.Text,
-    computeStatistics ::
-      Lude.Maybe Lude.Bool,
+  { -- | A user-supplied name or description of the @DataSource@ .
+    dataSourceName :: Lude.Maybe Lude.Text,
+    -- | A user-supplied ID that uniquely identifies the @DataSource@ .
     dataSourceId :: Lude.Text,
+    -- | The data specification of an Amazon Redshift @DataSource@ :
+    --
+    --
+    --     * DatabaseInformation -
+    --     * @DatabaseName@ - The name of the Amazon Redshift database.
+    --
+    --     * @ClusterIdentifier@ - The unique ID for the Amazon Redshift cluster.
+    --
+    --
+    --
+    --
+    --     * DatabaseCredentials - The AWS Identity and Access Management (IAM) credentials that are used to connect to the Amazon Redshift database.
+    --
+    --
+    --     * SelectSqlQuery - The query that is used to retrieve the observation data for the @Datasource@ .
+    --
+    --
+    --     * S3StagingLocation - The Amazon Simple Storage Service (Amazon S3) location for staging Amazon Redshift data. The data retrieved from Amazon Redshift using the @SelectSqlQuery@ query is stored in this location.
+    --
+    --
+    --     * DataSchemaUri - The Amazon S3 location of the @DataSchema@ .
+    --
+    --
+    --     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.
+    --
+    --
+    --     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @DataSource@ .
+    -- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
     dataSpec :: RedshiftDataSpec,
+    -- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
+    computeStatistics :: Lude.Maybe Lude.Bool,
+    -- | A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following:
+    --
+    --
+    --     * A security group to allow Amazon ML to execute the @SelectSqlQuery@ query on an Amazon Redshift cluster
+    --
+    --
+    --     * An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the @S3StagingLocation@
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDataSourceFromRedshift' with the minimum fields required to make a request.
 --
--- * 'computeStatistics' - The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
--- * 'dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@ .
 -- * 'dataSourceName' - A user-supplied name or description of the @DataSource@ .
+-- * 'dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@ .
 -- * 'dataSpec' - The data specification of an Amazon Redshift @DataSource@ :
 --
 --
@@ -101,6 +131,7 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
 -- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
 --
 --
+-- * 'computeStatistics' - The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
 -- * 'roleARN' - A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following:
 --
 --
@@ -119,32 +150,25 @@ mkCreateDataSourceFromRedshift ::
 mkCreateDataSourceFromRedshift pDataSourceId_ pDataSpec_ pRoleARN_ =
   CreateDataSourceFromRedshift'
     { dataSourceName = Lude.Nothing,
-      computeStatistics = Lude.Nothing,
       dataSourceId = pDataSourceId_,
       dataSpec = pDataSpec_,
+      computeStatistics = Lude.Nothing,
       roleARN = pRoleARN_
     }
 
 -- | A user-supplied name or description of the @DataSource@ .
 --
 -- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrDataSourceName :: Lens.Lens' CreateDataSourceFromRedshift (Lude.Maybe Lude.Text)
-cdsfrDataSourceName = Lens.lens (dataSourceName :: CreateDataSourceFromRedshift -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceName = a} :: CreateDataSourceFromRedshift)
-{-# DEPRECATED cdsfrDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
-
--- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
---
--- /Note:/ Consider using 'computeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrComputeStatistics :: Lens.Lens' CreateDataSourceFromRedshift (Lude.Maybe Lude.Bool)
-cdsfrComputeStatistics = Lens.lens (computeStatistics :: CreateDataSourceFromRedshift -> Lude.Maybe Lude.Bool) (\s a -> s {computeStatistics = a} :: CreateDataSourceFromRedshift)
-{-# DEPRECATED cdsfrComputeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead." #-}
+cDataSourceName :: Lens.Lens' CreateDataSourceFromRedshift (Lude.Maybe Lude.Text)
+cDataSourceName = Lens.lens (dataSourceName :: CreateDataSourceFromRedshift -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceName = a} :: CreateDataSourceFromRedshift)
+{-# DEPRECATED cDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@ .
 --
 -- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrDataSourceId :: Lens.Lens' CreateDataSourceFromRedshift Lude.Text
-cdsfrDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRedshift -> Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromRedshift)
-{-# DEPRECATED cdsfrDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
+cDataSourceId :: Lens.Lens' CreateDataSourceFromRedshift Lude.Text
+cDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRedshift -> Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromRedshift)
+{-# DEPRECATED cDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 -- | The data specification of an Amazon Redshift @DataSource@ :
 --
@@ -178,9 +202,16 @@ cdsfrDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRedshift -> L
 --
 --
 -- /Note:/ Consider using 'dataSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrDataSpec :: Lens.Lens' CreateDataSourceFromRedshift RedshiftDataSpec
-cdsfrDataSpec = Lens.lens (dataSpec :: CreateDataSourceFromRedshift -> RedshiftDataSpec) (\s a -> s {dataSpec = a} :: CreateDataSourceFromRedshift)
-{-# DEPRECATED cdsfrDataSpec "Use generic-lens or generic-optics with 'dataSpec' instead." #-}
+cDataSpec :: Lens.Lens' CreateDataSourceFromRedshift RedshiftDataSpec
+cDataSpec = Lens.lens (dataSpec :: CreateDataSourceFromRedshift -> RedshiftDataSpec) (\s a -> s {dataSpec = a} :: CreateDataSourceFromRedshift)
+{-# DEPRECATED cDataSpec "Use generic-lens or generic-optics with 'dataSpec' instead." #-}
+
+-- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
+--
+-- /Note:/ Consider using 'computeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cComputeStatistics :: Lens.Lens' CreateDataSourceFromRedshift (Lude.Maybe Lude.Bool)
+cComputeStatistics = Lens.lens (computeStatistics :: CreateDataSourceFromRedshift -> Lude.Maybe Lude.Bool) (\s a -> s {computeStatistics = a} :: CreateDataSourceFromRedshift)
+{-# DEPRECATED cComputeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead." #-}
 
 -- | A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following:
 --
@@ -194,9 +225,9 @@ cdsfrDataSpec = Lens.lens (dataSpec :: CreateDataSourceFromRedshift -> RedshiftD
 --
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrRoleARN :: Lens.Lens' CreateDataSourceFromRedshift Lude.Text
-cdsfrRoleARN = Lens.lens (roleARN :: CreateDataSourceFromRedshift -> Lude.Text) (\s a -> s {roleARN = a} :: CreateDataSourceFromRedshift)
-{-# DEPRECATED cdsfrRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+cRoleARN :: Lens.Lens' CreateDataSourceFromRedshift Lude.Text
+cRoleARN = Lens.lens (roleARN :: CreateDataSourceFromRedshift -> Lude.Text) (\s a -> s {roleARN = a} :: CreateDataSourceFromRedshift)
+{-# DEPRECATED cRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.AWSRequest CreateDataSourceFromRedshift where
   type
@@ -228,9 +259,9 @@ instance Lude.ToJSON CreateDataSourceFromRedshift where
     Lude.object
       ( Lude.catMaybes
           [ ("DataSourceName" Lude..=) Lude.<$> dataSourceName,
-            ("ComputeStatistics" Lude..=) Lude.<$> computeStatistics,
             Lude.Just ("DataSourceId" Lude..= dataSourceId),
             Lude.Just ("DataSpec" Lude..= dataSpec),
+            ("ComputeStatistics" Lude..=) Lude.<$> computeStatistics,
             Lude.Just ("RoleARN" Lude..= roleARN)
           ]
       )
@@ -247,19 +278,12 @@ instance Lude.ToQuery CreateDataSourceFromRedshift where
 --
 -- /See:/ 'mkCreateDataSourceFromRedshiftResponse' smart constructor.
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
-  { dataSourceId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
+    dataSourceId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDataSourceFromRedshiftResponse' with the minimum fields required to make a request.
@@ -280,13 +304,13 @@ mkCreateDataSourceFromRedshiftResponse pResponseStatus_ =
 -- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
 --
 -- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrrsDataSourceId :: Lens.Lens' CreateDataSourceFromRedshiftResponse (Lude.Maybe Lude.Text)
-cdsfrrsDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRedshiftResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromRedshiftResponse)
-{-# DEPRECATED cdsfrrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
+crsDataSourceId :: Lens.Lens' CreateDataSourceFromRedshiftResponse (Lude.Maybe Lude.Text)
+crsDataSourceId = Lens.lens (dataSourceId :: CreateDataSourceFromRedshiftResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: CreateDataSourceFromRedshiftResponse)
+{-# DEPRECATED crsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrrsResponseStatus :: Lens.Lens' CreateDataSourceFromRedshiftResponse Lude.Int
-cdsfrrsResponseStatus = Lens.lens (responseStatus :: CreateDataSourceFromRedshiftResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDataSourceFromRedshiftResponse)
-{-# DEPRECATED cdsfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crsResponseStatus :: Lens.Lens' CreateDataSourceFromRedshiftResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateDataSourceFromRedshiftResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDataSourceFromRedshiftResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.ArchitectureValues
   ( ArchitectureValues
       ( ArchitectureValues',
-        ARM64,
         I386,
-        X86_64
+        X86_64,
+        ARM64
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ArchitectureValues = ArchitectureValues' Lude.Text
       Lude.ToHeader
     )
 
-pattern ARM64 :: ArchitectureValues
-pattern ARM64 = ArchitectureValues' "arm64"
-
 pattern I386 :: ArchitectureValues
 pattern I386 = ArchitectureValues' "i386"
 
 pattern X86_64 :: ArchitectureValues
 pattern X86_64 = ArchitectureValues' "x86_64"
 
+pattern ARM64 :: ArchitectureValues
+pattern ARM64 = ArchitectureValues' "arm64"
+
 {-# COMPLETE
-  ARM64,
   I386,
   X86_64,
+  ARM64,
   ArchitectureValues'
   #-}

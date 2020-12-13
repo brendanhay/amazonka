@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionCodeLocation' smart constructor.
 data FunctionCodeLocation = FunctionCodeLocation'
-  { location ::
-      Lude.Maybe Lude.Text,
+  { -- | A presigned URL that you can use to download the deployment package.
+    location :: Lude.Maybe Lude.Text,
+    -- | The service that's hosting the file.
     repositoryType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionCodeLocation' with the minimum fields required to make a request.

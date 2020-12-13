@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.Comprehend.StartSentimentDetectionJob
     mkStartSentimentDetectionJob,
 
     -- ** Request lenses
+    ssdjLanguageCode,
     ssdjJobName,
+    ssdjInputDataConfig,
     ssdjVPCConfig,
     ssdjVolumeKMSKeyId,
-    ssdjClientRequestToken,
-    ssdjInputDataConfig,
     ssdjOutputDataConfig,
     ssdjDataAccessRoleARN,
-    ssdjLanguageCode,
+    ssdjClientRequestToken,
 
     -- * Destructuring the response
     StartSentimentDetectionJobResponse (..),
@@ -47,35 +48,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartSentimentDetectionJob' smart constructor.
 data StartSentimentDetectionJob = StartSentimentDetectionJob'
-  { jobName ::
-      Lude.Maybe Lude.Text,
-    vpcConfig :: Lude.Maybe VPCConfig,
-    volumeKMSKeyId ::
-      Lude.Maybe Lude.Text,
-    clientRequestToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+    languageCode :: LanguageCode,
+    -- | The identifier of the job.
+    jobName :: Lude.Maybe Lude.Text,
+    -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
+    -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+    vpcConfig :: Lude.Maybe VPCConfig,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+    --
+    --
+    --     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+    --
+    --
+    --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+    volumeKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
     dataAccessRoleARN :: Lude.Text,
-    languageCode :: LanguageCode
+    -- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSentimentDetectionJob' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
--- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
--- * 'jobName' - The identifier of the job.
 -- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
--- * 'outputDataConfig' - Specifies where to send the output files.
+-- * 'jobName' - The identifier of the job.
+-- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
+-- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 -- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
 --
@@ -85,32 +89,41 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
 --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
 --
--- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- * 'outputDataConfig' - Specifies where to send the output files.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
+-- * 'clientRequestToken' - A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
 mkStartSentimentDetectionJob ::
+  -- | 'languageCode'
+  LanguageCode ->
   -- | 'inputDataConfig'
   InputDataConfig ->
   -- | 'outputDataConfig'
   OutputDataConfig ->
   -- | 'dataAccessRoleARN'
   Lude.Text ->
-  -- | 'languageCode'
-  LanguageCode ->
   StartSentimentDetectionJob
 mkStartSentimentDetectionJob
+  pLanguageCode_
   pInputDataConfig_
   pOutputDataConfig_
-  pDataAccessRoleARN_
-  pLanguageCode_ =
+  pDataAccessRoleARN_ =
     StartSentimentDetectionJob'
-      { jobName = Lude.Nothing,
+      { languageCode = pLanguageCode_,
+        jobName = Lude.Nothing,
+        inputDataConfig = pInputDataConfig_,
         vpcConfig = Lude.Nothing,
         volumeKMSKeyId = Lude.Nothing,
-        clientRequestToken = Lude.Nothing,
-        inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleARN = pDataAccessRoleARN_,
-        languageCode = pLanguageCode_
+        clientRequestToken = Lude.Nothing
       }
+
+-- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdjLanguageCode :: Lens.Lens' StartSentimentDetectionJob LanguageCode
+ssdjLanguageCode = Lens.lens (languageCode :: StartSentimentDetectionJob -> LanguageCode) (\s a -> s {languageCode = a} :: StartSentimentDetectionJob)
+{-# DEPRECATED ssdjLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The identifier of the job.
 --
@@ -118,6 +131,13 @@ mkStartSentimentDetectionJob
 ssdjJobName :: Lens.Lens' StartSentimentDetectionJob (Lude.Maybe Lude.Text)
 ssdjJobName = Lens.lens (jobName :: StartSentimentDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartSentimentDetectionJob)
 {-# DEPRECATED ssdjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+
+-- | Specifies the format and location of the input data for the job.
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdjInputDataConfig :: Lens.Lens' StartSentimentDetectionJob InputDataConfig
+ssdjInputDataConfig = Lens.lens (inputDataConfig :: StartSentimentDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartSentimentDetectionJob)
+{-# DEPRECATED ssdjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 --
@@ -141,20 +161,6 @@ ssdjVolumeKMSKeyId :: Lens.Lens' StartSentimentDetectionJob (Lude.Maybe Lude.Tex
 ssdjVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: StartSentimentDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: StartSentimentDetectionJob)
 {-# DEPRECATED ssdjVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
--- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdjClientRequestToken :: Lens.Lens' StartSentimentDetectionJob (Lude.Maybe Lude.Text)
-ssdjClientRequestToken = Lens.lens (clientRequestToken :: StartSentimentDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartSentimentDetectionJob)
-{-# DEPRECATED ssdjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | Specifies the format and location of the input data for the job.
---
--- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdjInputDataConfig :: Lens.Lens' StartSentimentDetectionJob InputDataConfig
-ssdjInputDataConfig = Lens.lens (inputDataConfig :: StartSentimentDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartSentimentDetectionJob)
-{-# DEPRECATED ssdjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
-
 -- | Specifies where to send the output files.
 --
 -- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -169,12 +175,12 @@ ssdjDataAccessRoleARN :: Lens.Lens' StartSentimentDetectionJob Lude.Text
 ssdjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartSentimentDetectionJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartSentimentDetectionJob)
 {-# DEPRECATED ssdjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
 
--- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+-- | A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.
 --
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdjLanguageCode :: Lens.Lens' StartSentimentDetectionJob LanguageCode
-ssdjLanguageCode = Lens.lens (languageCode :: StartSentimentDetectionJob -> LanguageCode) (\s a -> s {languageCode = a} :: StartSentimentDetectionJob)
-{-# DEPRECATED ssdjLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdjClientRequestToken :: Lens.Lens' StartSentimentDetectionJob (Lude.Maybe Lude.Text)
+ssdjClientRequestToken = Lens.lens (clientRequestToken :: StartSentimentDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartSentimentDetectionJob)
+{-# DEPRECATED ssdjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest StartSentimentDetectionJob where
   type
@@ -207,14 +213,14 @@ instance Lude.ToJSON StartSentimentDetectionJob where
   toJSON StartSentimentDetectionJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("JobName" Lude..=) Lude.<$> jobName,
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            ("JobName" Lude..=) Lude.<$> jobName,
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
             ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
             ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
             Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
             Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
-            Lude.Just ("LanguageCode" Lude..= languageCode)
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -226,20 +232,26 @@ instance Lude.ToQuery StartSentimentDetectionJob where
 
 -- | /See:/ 'mkStartSentimentDetectionJobResponse' smart constructor.
 data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
-    jobStatus ::
-      Lude.Maybe JobStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier generated for the job. To get the status of a job, use this identifier with the operation.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The status of the job.
+    --
+    --
+    --     * SUBMITTED - The job has been received and is queued for processing.
+    --
+    --
+    --     * IN_PROGRESS - Amazon Comprehend is processing the job.
+    --
+    --
+    --     * COMPLETED - The job was successfully completed and the output is available.
+    --
+    --
+    --     * FAILED - The job did not complete. To get details, use the operation.
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSentimentDetectionJobResponse' with the minimum fields required to make a request.

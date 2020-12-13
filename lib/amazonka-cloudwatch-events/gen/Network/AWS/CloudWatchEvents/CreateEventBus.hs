@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CloudWatchEvents.CreateEventBus
     mkCreateEventBus,
 
     -- ** Request lenses
+    cebName,
     cebEventSourceName,
     cebTags,
-    cebName,
 
     -- * Destructuring the response
     CreateEventBusResponse (..),
@@ -41,27 +42,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateEventBus' smart constructor.
 data CreateEventBus = CreateEventBus'
-  { eventSourceName ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text
+  { -- | The name of the new event bus.
+    --
+    -- Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus.
+    -- If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
+    name :: Lude.Text,
+    -- | If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
+    eventSourceName :: Lude.Maybe Lude.Text,
+    -- | Tags to associate with the event bus.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEventBus' with the minimum fields required to make a request.
 --
--- * 'eventSourceName' - If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 -- * 'name' - The name of the new event bus.
 --
 -- Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus.
 -- If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
+-- * 'eventSourceName' - If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 -- * 'tags' - Tags to associate with the event bus.
 mkCreateEventBus ::
   -- | 'name'
@@ -69,10 +69,20 @@ mkCreateEventBus ::
   CreateEventBus
 mkCreateEventBus pName_ =
   CreateEventBus'
-    { eventSourceName = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+    { name = pName_,
+      eventSourceName = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | The name of the new event bus.
+--
+-- Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus.
+-- If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cebName :: Lens.Lens' CreateEventBus Lude.Text
+cebName = Lens.lens (name :: CreateEventBus -> Lude.Text) (\s a -> s {name = a} :: CreateEventBus)
+{-# DEPRECATED cebName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
 --
@@ -87,16 +97,6 @@ cebEventSourceName = Lens.lens (eventSourceName :: CreateEventBus -> Lude.Maybe 
 cebTags :: Lens.Lens' CreateEventBus (Lude.Maybe [Tag])
 cebTags = Lens.lens (tags :: CreateEventBus -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEventBus)
 {-# DEPRECATED cebTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the new event bus.
---
--- Event bus names cannot contain the / character. You can't use the name @default@ for a custom event bus, as this name is already used for your account's default event bus.
--- If this is a partner event bus, the name must exactly match the name of the partner event source that this event bus is matched to.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cebName :: Lens.Lens' CreateEventBus Lude.Text
-cebName = Lens.lens (name :: CreateEventBus -> Lude.Text) (\s a -> s {name = a} :: CreateEventBus)
-{-# DEPRECATED cebName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateEventBus where
   type Rs CreateEventBus = CreateEventBusResponse
@@ -123,9 +123,9 @@ instance Lude.ToJSON CreateEventBus where
   toJSON CreateEventBus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EventSourceName" Lude..=) Lude.<$> eventSourceName,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            ("EventSourceName" Lude..=) Lude.<$> eventSourceName,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -137,17 +137,12 @@ instance Lude.ToQuery CreateEventBus where
 
 -- | /See:/ 'mkCreateEventBusResponse' smart constructor.
 data CreateEventBusResponse = CreateEventBusResponse'
-  { eventBusARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the new event bus.
+    eventBusARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEventBusResponse' with the minimum fields required to make a request.

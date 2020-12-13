@@ -48,72 +48,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticsearchDestinationDescription' smart constructor.
 data ElasticsearchDestinationDescription = ElasticsearchDestinationDescription'
-  { indexRotationPeriod ::
-      Lude.Maybe
-        ElasticsearchIndexRotationPeriod,
-    typeName ::
-      Lude.Maybe
-        Lude.Text,
-    s3BackupMode ::
-      Lude.Maybe
-        ElasticsearchS3BackupMode,
-    domainARN ::
-      Lude.Maybe
-        Lude.Text,
-    vpcConfigurationDescription ::
-      Lude.Maybe
-        VPCConfigurationDescription,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe
-        CloudWatchLoggingOptions,
-    s3DestinationDescription ::
-      Lude.Maybe
-        S3DestinationDescription,
-    bufferingHints ::
-      Lude.Maybe
-        ElasticsearchBufferingHints,
-    retryOptions ::
-      Lude.Maybe
-        ElasticsearchRetryOptions,
-    processingConfiguration ::
-      Lude.Maybe
-        ProcessingConfiguration,
-    roleARN ::
-      Lude.Maybe
-        Lude.Text,
-    clusterEndpoint ::
-      Lude.Maybe
-        Lude.Text,
-    indexName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The Elasticsearch index rotation period
+    indexRotationPeriod :: Lude.Maybe ElasticsearchIndexRotationPeriod,
+    -- | The Elasticsearch type name. This applies to Elasticsearch 6.x and lower versions. For Elasticsearch 7.x, there's no value for @TypeName@ .
+    typeName :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 backup mode.
+    s3BackupMode :: Lude.Maybe ElasticsearchS3BackupMode,
+    -- | The ARN of the Amazon ES domain. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    --
+    -- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to send data to Amazon ES.
+    domainARN :: Lude.Maybe Lude.Text,
+    -- | The details of the VPC of the Amazon ES destination.
+    vpcConfigurationDescription :: Lude.Maybe VPCConfigurationDescription,
+    -- | The Amazon CloudWatch logging options.
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    -- | The Amazon S3 destination.
+    s3DestinationDescription :: Lude.Maybe S3DestinationDescription,
+    -- | The buffering options.
+    bufferingHints :: Lude.Maybe ElasticsearchBufferingHints,
+    -- | The Amazon ES retry options.
+    retryOptions :: Lude.Maybe ElasticsearchRetryOptions,
+    -- | The data processing configuration.
+    processingConfiguration :: Lude.Maybe ProcessingConfiguration,
+    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to send data to Amazon ES.
+    clusterEndpoint :: Lude.Maybe Lude.Text,
+    -- | The Elasticsearch index name.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDestinationDescription' with the minimum fields required to make a request.
 --
--- * 'bufferingHints' - The buffering options.
--- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options.
--- * 'clusterEndpoint' - The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to send data to Amazon ES.
+-- * 'indexRotationPeriod' - The Elasticsearch index rotation period
+-- * 'typeName' - The Elasticsearch type name. This applies to Elasticsearch 6.x and lower versions. For Elasticsearch 7.x, there's no value for @TypeName@ .
+-- * 's3BackupMode' - The Amazon S3 backup mode.
 -- * 'domainARN' - The ARN of the Amazon ES domain. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
 -- Kinesis Data Firehose uses either @ClusterEndpoint@ or @DomainARN@ to send data to Amazon ES.
--- * 'indexName' - The Elasticsearch index name.
--- * 'indexRotationPeriod' - The Elasticsearch index rotation period
--- * 'processingConfiguration' - The data processing configuration.
--- * 'retryOptions' - The Amazon ES retry options.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 's3BackupMode' - The Amazon S3 backup mode.
--- * 's3DestinationDescription' - The Amazon S3 destination.
--- * 'typeName' - The Elasticsearch type name. This applies to Elasticsearch 6.x and lower versions. For Elasticsearch 7.x, there's no value for @TypeName@ .
 -- * 'vpcConfigurationDescription' - The details of the VPC of the Amazon ES destination.
+-- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options.
+-- * 's3DestinationDescription' - The Amazon S3 destination.
+-- * 'bufferingHints' - The buffering options.
+-- * 'retryOptions' - The Amazon ES retry options.
+-- * 'processingConfiguration' - The data processing configuration.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'clusterEndpoint' - The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this @ClusterEndpoint@ or the @DomainARN@ field to send data to Amazon ES.
+-- * 'indexName' - The Elasticsearch index name.
 mkElasticsearchDestinationDescription ::
   ElasticsearchDestinationDescription
 mkElasticsearchDestinationDescription =

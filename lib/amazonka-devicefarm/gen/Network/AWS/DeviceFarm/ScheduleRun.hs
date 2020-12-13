@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.DeviceFarm.ScheduleRun
     -- ** Request lenses
     srExecutionConfiguration,
     srDeviceSelectionConfiguration,
+    srTest,
     srAppARN,
     srName,
+    srProjectARN,
     srConfiguration,
     srDevicePoolARN,
-    srProjectARN,
-    srTest,
 
     -- * Destructuring the response
     ScheduleRunResponse (..),
@@ -48,54 +49,56 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkScheduleRun' smart constructor.
 data ScheduleRun = ScheduleRun'
-  { executionConfiguration ::
-      Lude.Maybe ExecutionConfiguration,
-    deviceSelectionConfiguration ::
-      Lude.Maybe DeviceSelectionConfiguration,
+  { -- | Specifies configuration information about a test run, such as the execution timeout (in minutes).
+    executionConfiguration :: Lude.Maybe ExecutionConfiguration,
+    -- | The filter criteria used to dynamically select a set of devices for a test run and the maximum number of devices to be included in the run.
+    --
+    -- Either __@devicePoolArn@ __ or __@deviceSelectionConfiguration@ __ is required in a request.
+    deviceSelectionConfiguration :: Lude.Maybe DeviceSelectionConfiguration,
+    -- | Information about the test for the run to be scheduled.
+    test :: ScheduleRunTest,
+    -- | The ARN of an application package to run tests against, created with 'CreateUpload' . See 'ListUploads' .
     appARN :: Lude.Maybe Lude.Text,
+    -- | The name for the run to be scheduled.
     name :: Lude.Maybe Lude.Text,
-    configuration :: Lude.Maybe ScheduleRunConfiguration,
-    devicePoolARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the project for the run to be scheduled.
     projectARN :: Lude.Text,
-    test :: ScheduleRunTest
+    -- | Information about the settings for the run to be scheduled.
+    configuration :: Lude.Maybe ScheduleRunConfiguration,
+    -- | The ARN of the device pool for the run to be scheduled.
+    devicePoolARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleRun' with the minimum fields required to make a request.
 --
--- * 'appARN' - The ARN of an application package to run tests against, created with 'CreateUpload' . See 'ListUploads' .
--- * 'configuration' - Information about the settings for the run to be scheduled.
--- * 'devicePoolARN' - The ARN of the device pool for the run to be scheduled.
+-- * 'executionConfiguration' - Specifies configuration information about a test run, such as the execution timeout (in minutes).
 -- * 'deviceSelectionConfiguration' - The filter criteria used to dynamically select a set of devices for a test run and the maximum number of devices to be included in the run.
 --
 -- Either __@devicePoolArn@ __ or __@deviceSelectionConfiguration@ __ is required in a request.
--- * 'executionConfiguration' - Specifies configuration information about a test run, such as the execution timeout (in minutes).
+-- * 'test' - Information about the test for the run to be scheduled.
+-- * 'appARN' - The ARN of an application package to run tests against, created with 'CreateUpload' . See 'ListUploads' .
 -- * 'name' - The name for the run to be scheduled.
 -- * 'projectARN' - The ARN of the project for the run to be scheduled.
--- * 'test' - Information about the test for the run to be scheduled.
+-- * 'configuration' - Information about the settings for the run to be scheduled.
+-- * 'devicePoolARN' - The ARN of the device pool for the run to be scheduled.
 mkScheduleRun ::
-  -- | 'projectARN'
-  Lude.Text ->
   -- | 'test'
   ScheduleRunTest ->
+  -- | 'projectARN'
+  Lude.Text ->
   ScheduleRun
-mkScheduleRun pProjectARN_ pTest_ =
+mkScheduleRun pTest_ pProjectARN_ =
   ScheduleRun'
     { executionConfiguration = Lude.Nothing,
       deviceSelectionConfiguration = Lude.Nothing,
+      test = pTest_,
       appARN = Lude.Nothing,
       name = Lude.Nothing,
-      configuration = Lude.Nothing,
-      devicePoolARN = Lude.Nothing,
       projectARN = pProjectARN_,
-      test = pTest_
+      configuration = Lude.Nothing,
+      devicePoolARN = Lude.Nothing
     }
 
 -- | Specifies configuration information about a test run, such as the execution timeout (in minutes).
@@ -114,6 +117,13 @@ srDeviceSelectionConfiguration :: Lens.Lens' ScheduleRun (Lude.Maybe DeviceSelec
 srDeviceSelectionConfiguration = Lens.lens (deviceSelectionConfiguration :: ScheduleRun -> Lude.Maybe DeviceSelectionConfiguration) (\s a -> s {deviceSelectionConfiguration = a} :: ScheduleRun)
 {-# DEPRECATED srDeviceSelectionConfiguration "Use generic-lens or generic-optics with 'deviceSelectionConfiguration' instead." #-}
 
+-- | Information about the test for the run to be scheduled.
+--
+-- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srTest :: Lens.Lens' ScheduleRun ScheduleRunTest
+srTest = Lens.lens (test :: ScheduleRun -> ScheduleRunTest) (\s a -> s {test = a} :: ScheduleRun)
+{-# DEPRECATED srTest "Use generic-lens or generic-optics with 'test' instead." #-}
+
 -- | The ARN of an application package to run tests against, created with 'CreateUpload' . See 'ListUploads' .
 --
 -- /Note:/ Consider using 'appARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -128,6 +138,13 @@ srName :: Lens.Lens' ScheduleRun (Lude.Maybe Lude.Text)
 srName = Lens.lens (name :: ScheduleRun -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ScheduleRun)
 {-# DEPRECATED srName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | The ARN of the project for the run to be scheduled.
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srProjectARN :: Lens.Lens' ScheduleRun Lude.Text
+srProjectARN = Lens.lens (projectARN :: ScheduleRun -> Lude.Text) (\s a -> s {projectARN = a} :: ScheduleRun)
+{-# DEPRECATED srProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
+
 -- | Information about the settings for the run to be scheduled.
 --
 -- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -141,20 +158,6 @@ srConfiguration = Lens.lens (configuration :: ScheduleRun -> Lude.Maybe Schedule
 srDevicePoolARN :: Lens.Lens' ScheduleRun (Lude.Maybe Lude.Text)
 srDevicePoolARN = Lens.lens (devicePoolARN :: ScheduleRun -> Lude.Maybe Lude.Text) (\s a -> s {devicePoolARN = a} :: ScheduleRun)
 {-# DEPRECATED srDevicePoolARN "Use generic-lens or generic-optics with 'devicePoolARN' instead." #-}
-
--- | The ARN of the project for the run to be scheduled.
---
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srProjectARN :: Lens.Lens' ScheduleRun Lude.Text
-srProjectARN = Lens.lens (projectARN :: ScheduleRun -> Lude.Text) (\s a -> s {projectARN = a} :: ScheduleRun)
-{-# DEPRECATED srProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
-
--- | Information about the test for the run to be scheduled.
---
--- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srTest :: Lens.Lens' ScheduleRun ScheduleRunTest
-srTest = Lens.lens (test :: ScheduleRun -> ScheduleRunTest) (\s a -> s {test = a} :: ScheduleRun)
-{-# DEPRECATED srTest "Use generic-lens or generic-optics with 'test' instead." #-}
 
 instance Lude.AWSRequest ScheduleRun where
   type Rs ScheduleRun = ScheduleRunResponse
@@ -185,12 +188,12 @@ instance Lude.ToJSON ScheduleRun where
               Lude.<$> executionConfiguration,
             ("deviceSelectionConfiguration" Lude..=)
               Lude.<$> deviceSelectionConfiguration,
+            Lude.Just ("test" Lude..= test),
             ("appArn" Lude..=) Lude.<$> appARN,
             ("name" Lude..=) Lude.<$> name,
-            ("configuration" Lude..=) Lude.<$> configuration,
-            ("devicePoolArn" Lude..=) Lude.<$> devicePoolARN,
             Lude.Just ("projectArn" Lude..= projectARN),
-            Lude.Just ("test" Lude..= test)
+            ("configuration" Lude..=) Lude.<$> configuration,
+            ("devicePoolArn" Lude..=) Lude.<$> devicePoolARN
           ]
       )
 
@@ -204,23 +207,18 @@ instance Lude.ToQuery ScheduleRun where
 --
 -- /See:/ 'mkScheduleRunResponse' smart constructor.
 data ScheduleRunResponse = ScheduleRunResponse'
-  { run ::
-      Lude.Maybe Run,
+  { -- | Information about the scheduled run.
+    run :: Lude.Maybe Run,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleRunResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'run' - Information about the scheduled run.
+-- * 'responseStatus' - The response status code.
 mkScheduleRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

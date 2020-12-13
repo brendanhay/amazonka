@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.IoT.DescribeThingType
     mkDescribeThingTypeResponse,
 
     -- ** Response lenses
-    dtttrsThingTypeProperties,
-    dtttrsThingTypeName,
-    dtttrsThingTypeId,
-    dtttrsThingTypeMetadata,
-    dtttrsThingTypeARN,
-    dtttrsResponseStatus,
+    dttfrsThingTypeProperties,
+    dttfrsThingTypeName,
+    dttfrsThingTypeId,
+    dttfrsThingTypeMetadata,
+    dttfrsThingTypeARN,
+    dttfrsResponseStatus,
   )
 where
 
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeThingType' smart constructor.
 newtype DescribeThingType = DescribeThingType'
-  { thingTypeName ::
-      Lude.Text
+  { -- | The name of the thing type.
+    thingTypeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingType' with the minimum fields required to make a request.
@@ -103,32 +98,30 @@ instance Lude.ToQuery DescribeThingType where
 --
 -- /See:/ 'mkDescribeThingTypeResponse' smart constructor.
 data DescribeThingTypeResponse = DescribeThingTypeResponse'
-  { thingTypeProperties ::
-      Lude.Maybe ThingTypeProperties,
+  { -- | The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
+    thingTypeProperties :: Lude.Maybe ThingTypeProperties,
+    -- | The name of the thing type.
     thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The thing type ID.
     thingTypeId :: Lude.Maybe Lude.Text,
-    thingTypeMetadata ::
-      Lude.Maybe ThingTypeMetadata,
+    -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
+    thingTypeMetadata :: Lude.Maybe ThingTypeMetadata,
+    -- | The thing type ARN.
     thingTypeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingTypeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'thingTypeARN' - The thing type ARN.
+-- * 'thingTypeProperties' - The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
+-- * 'thingTypeName' - The name of the thing type.
 -- * 'thingTypeId' - The thing type ID.
 -- * 'thingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
--- * 'thingTypeName' - The name of the thing type.
--- * 'thingTypeProperties' - The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
+-- * 'thingTypeARN' - The thing type ARN.
+-- * 'responseStatus' - The response status code.
 mkDescribeThingTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -146,41 +139,41 @@ mkDescribeThingTypeResponse pResponseStatus_ =
 -- | The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.
 --
 -- /Note:/ Consider using 'thingTypeProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtttrsThingTypeProperties :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe ThingTypeProperties)
-dtttrsThingTypeProperties = Lens.lens (thingTypeProperties :: DescribeThingTypeResponse -> Lude.Maybe ThingTypeProperties) (\s a -> s {thingTypeProperties = a} :: DescribeThingTypeResponse)
-{-# DEPRECATED dtttrsThingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead." #-}
+dttfrsThingTypeProperties :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe ThingTypeProperties)
+dttfrsThingTypeProperties = Lens.lens (thingTypeProperties :: DescribeThingTypeResponse -> Lude.Maybe ThingTypeProperties) (\s a -> s {thingTypeProperties = a} :: DescribeThingTypeResponse)
+{-# DEPRECATED dttfrsThingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead." #-}
 
 -- | The name of the thing type.
 --
 -- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtttrsThingTypeName :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe Lude.Text)
-dtttrsThingTypeName = Lens.lens (thingTypeName :: DescribeThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: DescribeThingTypeResponse)
-{-# DEPRECATED dtttrsThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
+dttfrsThingTypeName :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe Lude.Text)
+dttfrsThingTypeName = Lens.lens (thingTypeName :: DescribeThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: DescribeThingTypeResponse)
+{-# DEPRECATED dttfrsThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
 -- | The thing type ID.
 --
 -- /Note:/ Consider using 'thingTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtttrsThingTypeId :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe Lude.Text)
-dtttrsThingTypeId = Lens.lens (thingTypeId :: DescribeThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeId = a} :: DescribeThingTypeResponse)
-{-# DEPRECATED dtttrsThingTypeId "Use generic-lens or generic-optics with 'thingTypeId' instead." #-}
+dttfrsThingTypeId :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe Lude.Text)
+dttfrsThingTypeId = Lens.lens (thingTypeId :: DescribeThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeId = a} :: DescribeThingTypeResponse)
+{-# DEPRECATED dttfrsThingTypeId "Use generic-lens or generic-optics with 'thingTypeId' instead." #-}
 
 -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 --
 -- /Note:/ Consider using 'thingTypeMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtttrsThingTypeMetadata :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe ThingTypeMetadata)
-dtttrsThingTypeMetadata = Lens.lens (thingTypeMetadata :: DescribeThingTypeResponse -> Lude.Maybe ThingTypeMetadata) (\s a -> s {thingTypeMetadata = a} :: DescribeThingTypeResponse)
-{-# DEPRECATED dtttrsThingTypeMetadata "Use generic-lens or generic-optics with 'thingTypeMetadata' instead." #-}
+dttfrsThingTypeMetadata :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe ThingTypeMetadata)
+dttfrsThingTypeMetadata = Lens.lens (thingTypeMetadata :: DescribeThingTypeResponse -> Lude.Maybe ThingTypeMetadata) (\s a -> s {thingTypeMetadata = a} :: DescribeThingTypeResponse)
+{-# DEPRECATED dttfrsThingTypeMetadata "Use generic-lens or generic-optics with 'thingTypeMetadata' instead." #-}
 
 -- | The thing type ARN.
 --
 -- /Note:/ Consider using 'thingTypeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtttrsThingTypeARN :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe Lude.Text)
-dtttrsThingTypeARN = Lens.lens (thingTypeARN :: DescribeThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeARN = a} :: DescribeThingTypeResponse)
-{-# DEPRECATED dtttrsThingTypeARN "Use generic-lens or generic-optics with 'thingTypeARN' instead." #-}
+dttfrsThingTypeARN :: Lens.Lens' DescribeThingTypeResponse (Lude.Maybe Lude.Text)
+dttfrsThingTypeARN = Lens.lens (thingTypeARN :: DescribeThingTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeARN = a} :: DescribeThingTypeResponse)
+{-# DEPRECATED dttfrsThingTypeARN "Use generic-lens or generic-optics with 'thingTypeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtttrsResponseStatus :: Lens.Lens' DescribeThingTypeResponse Lude.Int
-dtttrsResponseStatus = Lens.lens (responseStatus :: DescribeThingTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeThingTypeResponse)
-{-# DEPRECATED dtttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dttfrsResponseStatus :: Lens.Lens' DescribeThingTypeResponse Lude.Int
+dttfrsResponseStatus = Lens.lens (responseStatus :: DescribeThingTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeThingTypeResponse)
+{-# DEPRECATED dttfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

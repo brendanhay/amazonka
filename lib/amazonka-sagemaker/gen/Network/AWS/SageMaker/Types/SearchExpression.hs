@@ -49,27 +49,24 @@ import Network.AWS.SageMaker.Types.NestedFilters
 --
 -- /See:/ 'mkSearchExpression' smart constructor.
 data SearchExpression = SearchExpression'
-  { subExpressions ::
-      Lude.Maybe (Lude.NonEmpty SearchExpression),
+  { -- | A list of search expression objects.
+    subExpressions :: Lude.Maybe (Lude.NonEmpty SearchExpression),
+    -- | A Boolean operator used to evaluate the search expression. If you want every conditional statement in all lists to be satisfied for the entire search expression to be true, specify @And@ . If only a single conditional statement needs to be true for the entire search expression to be true, specify @Or@ . The default value is @And@ .
     operator :: Lude.Maybe BooleanOperator,
+    -- | A list of filter objects.
     filters :: Lude.Maybe (Lude.NonEmpty Filter),
+    -- | A list of nested filter objects.
     nestedFilters :: Lude.Maybe (Lude.NonEmpty NestedFilters)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchExpression' with the minimum fields required to make a request.
 --
+-- * 'subExpressions' - A list of search expression objects.
+-- * 'operator' - A Boolean operator used to evaluate the search expression. If you want every conditional statement in all lists to be satisfied for the entire search expression to be true, specify @And@ . If only a single conditional statement needs to be true for the entire search expression to be true, specify @Or@ . The default value is @And@ .
 -- * 'filters' - A list of filter objects.
 -- * 'nestedFilters' - A list of nested filter objects.
--- * 'operator' - A Boolean operator used to evaluate the search expression. If you want every conditional statement in all lists to be satisfied for the entire search expression to be true, specify @And@ . If only a single conditional statement needs to be true for the entire search expression to be true, specify @Or@ . The default value is @And@ .
--- * 'subExpressions' - A list of search expression objects.
 mkSearchExpression ::
   SearchExpression
 mkSearchExpression =

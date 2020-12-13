@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,10 +27,10 @@ module Network.AWS.EC2.ModifyVPCEndpointServiceConfiguration
     mvescAddGatewayLoadBalancerARNs,
     mvescRemoveNetworkLoadBalancerARNs,
     mvescAcceptanceRequired,
+    mvescServiceId,
     mvescAddNetworkLoadBalancerARNs,
     mvescPrivateDNSName,
     mvescDryRun,
-    mvescServiceId,
 
     -- * Destructuring the response
     ModifyVPCEndpointServiceConfigurationResponse (..),
@@ -49,53 +50,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPCEndpointServiceConfiguration' smart constructor.
 data ModifyVPCEndpointServiceConfiguration = ModifyVPCEndpointServiceConfiguration'
-  { removeGatewayLoadBalancerARNs ::
-      Lude.Maybe
-        [Lude.Text],
-    removePrivateDNSName ::
-      Lude.Maybe
-        Lude.Bool,
-    addGatewayLoadBalancerARNs ::
-      Lude.Maybe
-        [Lude.Text],
-    removeNetworkLoadBalancerARNs ::
-      Lude.Maybe
-        [Lude.Text],
-    acceptanceRequired ::
-      Lude.Maybe
-        Lude.Bool,
-    addNetworkLoadBalancerARNs ::
-      Lude.Maybe
-        [Lude.Text],
-    privateDNSName ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    serviceId ::
-      Lude.Text
+  { -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.
+    removeGatewayLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | (Interface endpoint configuration) Removes the private DNS name of the endpoint service.
+    removePrivateDNSName :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.
+    addGatewayLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration.
+    removeNetworkLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether requests to create an endpoint to your service must be accepted.
+    acceptanceRequired :: Lude.Maybe Lude.Bool,
+    -- | The ID of the service.
+    serviceId :: Lude.Text,
+    -- | The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.
+    addNetworkLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | (Interface endpoint configuration) The private DNS name to assign to the endpoint service.
+    privateDNSName :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointServiceConfiguration' with the minimum fields required to make a request.
 --
--- * 'acceptanceRequired' - Indicates whether requests to create an endpoint to your service must be accepted.
--- * 'addGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.
--- * 'addNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'privateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the endpoint service.
 -- * 'removeGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.
--- * 'removeNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration.
 -- * 'removePrivateDNSName' - (Interface endpoint configuration) Removes the private DNS name of the endpoint service.
+-- * 'addGatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.
+-- * 'removeNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration.
+-- * 'acceptanceRequired' - Indicates whether requests to create an endpoint to your service must be accepted.
 -- * 'serviceId' - The ID of the service.
+-- * 'addNetworkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.
+-- * 'privateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the endpoint service.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyVPCEndpointServiceConfiguration ::
   -- | 'serviceId'
   Lude.Text ->
@@ -108,10 +95,10 @@ mkModifyVPCEndpointServiceConfiguration pServiceId_ =
       addGatewayLoadBalancerARNs = Lude.Nothing,
       removeNetworkLoadBalancerARNs = Lude.Nothing,
       acceptanceRequired = Lude.Nothing,
+      serviceId = pServiceId_,
       addNetworkLoadBalancerARNs = Lude.Nothing,
       privateDNSName = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      serviceId = pServiceId_
+      dryRun = Lude.Nothing
     }
 
 -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.
@@ -149,6 +136,13 @@ mvescAcceptanceRequired :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lud
 mvescAcceptanceRequired = Lens.lens (acceptanceRequired :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {acceptanceRequired = a} :: ModifyVPCEndpointServiceConfiguration)
 {-# DEPRECATED mvescAcceptanceRequired "Use generic-lens or generic-optics with 'acceptanceRequired' instead." #-}
 
+-- | The ID of the service.
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvescServiceId :: Lens.Lens' ModifyVPCEndpointServiceConfiguration Lude.Text
+mvescServiceId = Lens.lens (serviceId :: ModifyVPCEndpointServiceConfiguration -> Lude.Text) (\s a -> s {serviceId = a} :: ModifyVPCEndpointServiceConfiguration)
+{-# DEPRECATED mvescServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+
 -- | The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.
 --
 -- /Note:/ Consider using 'addNetworkLoadBalancerARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -169,13 +163,6 @@ mvescPrivateDNSName = Lens.lens (privateDNSName :: ModifyVPCEndpointServiceConfi
 mvescDryRun :: Lens.Lens' ModifyVPCEndpointServiceConfiguration (Lude.Maybe Lude.Bool)
 mvescDryRun = Lens.lens (dryRun :: ModifyVPCEndpointServiceConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCEndpointServiceConfiguration)
 {-# DEPRECATED mvescDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the service.
---
--- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvescServiceId :: Lens.Lens' ModifyVPCEndpointServiceConfiguration Lude.Text
-mvescServiceId = Lens.lens (serviceId :: ModifyVPCEndpointServiceConfiguration -> Lude.Text) (\s a -> s {serviceId = a} :: ModifyVPCEndpointServiceConfiguration)
-{-# DEPRECATED mvescServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 instance Lude.AWSRequest ModifyVPCEndpointServiceConfiguration where
   type
@@ -215,39 +202,29 @@ instance Lude.ToQuery ModifyVPCEndpointServiceConfiguration where
               Lude.<$> removeNetworkLoadBalancerARNs
           ),
         "AcceptanceRequired" Lude.=: acceptanceRequired,
+        "ServiceId" Lude.=: serviceId,
         Lude.toQuery
           ( Lude.toQueryList "AddNetworkLoadBalancerArn"
               Lude.<$> addNetworkLoadBalancerARNs
           ),
         "PrivateDnsName" Lude.=: privateDNSName,
-        "DryRun" Lude.=: dryRun,
-        "ServiceId" Lude.=: serviceId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyVPCEndpointServiceConfigurationResponse' smart constructor.
 data ModifyVPCEndpointServiceConfigurationResponse = ModifyVPCEndpointServiceConfigurationResponse'
-  { return ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointServiceConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkModifyVPCEndpointServiceConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

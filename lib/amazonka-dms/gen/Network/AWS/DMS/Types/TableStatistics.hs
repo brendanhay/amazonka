@@ -46,56 +46,86 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTableStatistics' smart constructor.
 data TableStatistics = TableStatistics'
-  { validationState ::
-      Lude.Maybe Lude.Text,
+  { -- | The validation state of the table.
+    --
+    -- This parameter can have the following values:
+    --
+    --     * Not enabled – Validation isn't enabled for the table in the migration task.
+    --
+    --
+    --     * Pending records – Some records in the table are waiting for validation.
+    --
+    --
+    --     * Mismatched records – Some records in the table don't match between the source and target.
+    --
+    --
+    --     * Suspended records – Some records in the table couldn't be validated.
+    --
+    --
+    --     * No primary key –The table couldn't be validated because it has no primary key.
+    --
+    --
+    --     * Table error – The table wasn't validated because it's in an error state and some data wasn't migrated.
+    --
+    --
+    --     * Validated – All rows in the table are validated. If the table is updated, the status can change from Validated.
+    --
+    --
+    --     * Error – The table couldn't be validated because of an unexpected error.
+    --
+    --
+    --     * Pending validation – The table is waiting validation.
+    --
+    --
+    --     * Preparing table – Preparing the table enabled in the migration task for validation.
+    --
+    --
+    --     * Pending revalidation – All rows in the table are pending validation after the table was updated.
+    validationState :: Lude.Maybe Lude.Text,
+    -- | The number of rows added during the full load operation.
     fullLoadRows :: Lude.Maybe Lude.Integer,
+    -- | The number of insert actions performed on a table.
     inserts :: Lude.Maybe Lude.Integer,
+    -- | The time when the full load operation completed.
     fullLoadEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | The number of rows that failed conditional checks during the full load operation (valid only for migrations where DynamoDB is the target).
     fullLoadCondtnlChkFailedRows :: Lude.Maybe Lude.Integer,
+    -- | A value that indicates if the table was reloaded (@true@ ) or loaded as part of a new full load operation (@false@ ).
     fullLoadReloaded :: Lude.Maybe Lude.Bool,
+    -- | The number of records that failed validation.
     validationFailedRecords :: Lude.Maybe Lude.Integer,
+    -- | The number of records that couldn't be validated.
     validationSuspendedRecords :: Lude.Maybe Lude.Integer,
+    -- | The schema name.
     schemaName :: Lude.Maybe Lude.Text,
+    -- | Additional details about the state of validation.
     validationStateDetails :: Lude.Maybe Lude.Text,
+    -- | The state of the tables described.
+    --
+    -- Valid states: Table does not exist | Before load | Full load | Table completed | Table cancelled | Table error | Table all | Table updates | Table is being reloaded
     tableState :: Lude.Maybe Lude.Text,
+    -- | The number of rows that failed to load during the full load operation (valid only for migrations where DynamoDB is the target).
     fullLoadErrorRows :: Lude.Maybe Lude.Integer,
+    -- | The data definition language (DDL) used to build and modify the structure of your tables.
     ddls :: Lude.Maybe Lude.Integer,
+    -- | The number of delete actions performed on a table.
     deletes :: Lude.Maybe Lude.Integer,
+    -- | The number of update actions performed on a table.
     updates :: Lude.Maybe Lude.Integer,
+    -- | The number of records that have yet to be validated.
     validationPendingRecords :: Lude.Maybe Lude.Integer,
+    -- | The time when the full load operation started.
     fullLoadStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The last time a table was updated.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the table.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableStatistics' with the minimum fields required to make a request.
 --
--- * 'ddls' - The data definition language (DDL) used to build and modify the structure of your tables.
--- * 'deletes' - The number of delete actions performed on a table.
--- * 'fullLoadCondtnlChkFailedRows' - The number of rows that failed conditional checks during the full load operation (valid only for migrations where DynamoDB is the target).
--- * 'fullLoadEndTime' - The time when the full load operation completed.
--- * 'fullLoadErrorRows' - The number of rows that failed to load during the full load operation (valid only for migrations where DynamoDB is the target).
--- * 'fullLoadReloaded' - A value that indicates if the table was reloaded (@true@ ) or loaded as part of a new full load operation (@false@ ).
--- * 'fullLoadRows' - The number of rows added during the full load operation.
--- * 'fullLoadStartTime' - The time when the full load operation started.
--- * 'inserts' - The number of insert actions performed on a table.
--- * 'lastUpdateTime' - The last time a table was updated.
--- * 'schemaName' - The schema name.
--- * 'tableName' - The name of the table.
--- * 'tableState' - The state of the tables described.
---
--- Valid states: Table does not exist | Before load | Full load | Table completed | Table cancelled | Table error | Table all | Table updates | Table is being reloaded
--- * 'updates' - The number of update actions performed on a table.
--- * 'validationFailedRecords' - The number of records that failed validation.
--- * 'validationPendingRecords' - The number of records that have yet to be validated.
 -- * 'validationState' - The validation state of the table.
 --
 -- This parameter can have the following values:
@@ -133,8 +163,26 @@ data TableStatistics = TableStatistics'
 --     * Pending revalidation – All rows in the table are pending validation after the table was updated.
 --
 --
--- * 'validationStateDetails' - Additional details about the state of validation.
+-- * 'fullLoadRows' - The number of rows added during the full load operation.
+-- * 'inserts' - The number of insert actions performed on a table.
+-- * 'fullLoadEndTime' - The time when the full load operation completed.
+-- * 'fullLoadCondtnlChkFailedRows' - The number of rows that failed conditional checks during the full load operation (valid only for migrations where DynamoDB is the target).
+-- * 'fullLoadReloaded' - A value that indicates if the table was reloaded (@true@ ) or loaded as part of a new full load operation (@false@ ).
+-- * 'validationFailedRecords' - The number of records that failed validation.
 -- * 'validationSuspendedRecords' - The number of records that couldn't be validated.
+-- * 'schemaName' - The schema name.
+-- * 'validationStateDetails' - Additional details about the state of validation.
+-- * 'tableState' - The state of the tables described.
+--
+-- Valid states: Table does not exist | Before load | Full load | Table completed | Table cancelled | Table error | Table all | Table updates | Table is being reloaded
+-- * 'fullLoadErrorRows' - The number of rows that failed to load during the full load operation (valid only for migrations where DynamoDB is the target).
+-- * 'ddls' - The data definition language (DDL) used to build and modify the structure of your tables.
+-- * 'deletes' - The number of delete actions performed on a table.
+-- * 'updates' - The number of update actions performed on a table.
+-- * 'validationPendingRecords' - The number of records that have yet to be validated.
+-- * 'fullLoadStartTime' - The time when the full load operation started.
+-- * 'lastUpdateTime' - The last time a table was updated.
+-- * 'tableName' - The name of the table.
 mkTableStatistics ::
   TableStatistics
 mkTableStatistics =

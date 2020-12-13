@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.PlacementGroupState
   ( PlacementGroupState
       ( PlacementGroupState',
+        PGSPending,
         PGSAvailable,
-        PGSDeleted,
         PGSDeleting,
-        PGSPending
+        PGSDeleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype PlacementGroupState = PlacementGroupState' Lude.Text
       Lude.ToHeader
     )
 
+pattern PGSPending :: PlacementGroupState
+pattern PGSPending = PlacementGroupState' "pending"
+
 pattern PGSAvailable :: PlacementGroupState
 pattern PGSAvailable = PlacementGroupState' "available"
-
-pattern PGSDeleted :: PlacementGroupState
-pattern PGSDeleted = PlacementGroupState' "deleted"
 
 pattern PGSDeleting :: PlacementGroupState
 pattern PGSDeleting = PlacementGroupState' "deleting"
 
-pattern PGSPending :: PlacementGroupState
-pattern PGSPending = PlacementGroupState' "pending"
+pattern PGSDeleted :: PlacementGroupState
+pattern PGSDeleted = PlacementGroupState' "deleted"
 
 {-# COMPLETE
-  PGSAvailable,
-  PGSDeleted,
-  PGSDeleting,
   PGSPending,
+  PGSAvailable,
+  PGSDeleting,
+  PGSDeleted,
   PlacementGroupState'
   #-}

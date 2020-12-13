@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,9 +31,9 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     mkDescribeCacheSecurityGroupsResponse,
 
     -- ** Response lenses
-    dcsgsrsCacheSecurityGroups,
-    dcsgsrsMarker,
-    dcsgsrsResponseStatus,
+    dcsgrsCacheSecurityGroups,
+    dcsgrsMarker,
+    dcsgrsResponseStatus,
   )
 where
 
@@ -47,18 +48,17 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeCacheSecurityGroups' smart constructor.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
-  { cacheSecurityGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the cache security group to return details for.
+    cacheSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: minimum 20; maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheSecurityGroups' with the minimum fields required to make a request.
@@ -105,12 +105,12 @@ dcsgsMaxRecords = Lens.lens (maxRecords :: DescribeCacheSecurityGroups -> Lude.M
 
 instance Page.AWSPager DescribeCacheSecurityGroups where
   page rq rs
-    | Page.stop (rs Lens.^. dcsgsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcsgsrsCacheSecurityGroups) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcsgrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcsgrsCacheSecurityGroups) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dcsgsMarker Lens..~ rs Lens.^. dcsgsrsMarker
+          Lude.& dcsgsMarker Lens..~ rs Lens.^. dcsgrsMarker
 
 instance Lude.AWSRequest DescribeCacheSecurityGroups where
   type
@@ -150,22 +150,14 @@ instance Lude.ToQuery DescribeCacheSecurityGroups where
 --
 -- /See:/ 'mkDescribeCacheSecurityGroupsResponse' smart constructor.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
-  { cacheSecurityGroups ::
-      Lude.Maybe
-        [CacheSecurityGroup],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of cache security groups. Each element in the list contains detailed information about one group.
+    cacheSecurityGroups :: Lude.Maybe [CacheSecurityGroup],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheSecurityGroupsResponse' with the minimum fields required to make a request.
@@ -188,20 +180,20 @@ mkDescribeCacheSecurityGroupsResponse pResponseStatus_ =
 -- | A list of cache security groups. Each element in the list contains detailed information about one group.
 --
 -- /Note:/ Consider using 'cacheSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsrsCacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe [CacheSecurityGroup])
-dcsgsrsCacheSecurityGroups = Lens.lens (cacheSecurityGroups :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe [CacheSecurityGroup]) (\s a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse)
-{-# DEPRECATED dcsgsrsCacheSecurityGroups "Use generic-lens or generic-optics with 'cacheSecurityGroups' instead." #-}
+dcsgrsCacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe [CacheSecurityGroup])
+dcsgrsCacheSecurityGroups = Lens.lens (cacheSecurityGroups :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe [CacheSecurityGroup]) (\s a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse)
+{-# DEPRECATED dcsgrsCacheSecurityGroups "Use generic-lens or generic-optics with 'cacheSecurityGroups' instead." #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsrsMarker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe Lude.Text)
-dcsgsrsMarker = Lens.lens (marker :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSecurityGroupsResponse)
-{-# DEPRECATED dcsgsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcsgrsMarker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe Lude.Text)
+dcsgrsMarker = Lens.lens (marker :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSecurityGroupsResponse)
+{-# DEPRECATED dcsgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsrsResponseStatus :: Lens.Lens' DescribeCacheSecurityGroupsResponse Lude.Int
-dcsgsrsResponseStatus = Lens.lens (responseStatus :: DescribeCacheSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheSecurityGroupsResponse)
-{-# DEPRECATED dcsgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsgrsResponseStatus :: Lens.Lens' DescribeCacheSecurityGroupsResponse Lude.Int
+dcsgrsResponseStatus = Lens.lens (responseStatus :: DescribeCacheSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheSecurityGroupsResponse)
+{-# DEPRECATED dcsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

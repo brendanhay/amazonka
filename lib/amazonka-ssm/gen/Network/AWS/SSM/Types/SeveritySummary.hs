@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSeveritySummary' smart constructor.
 data SeveritySummary = SeveritySummary'
-  { lowCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
+    lowCount :: Lude.Maybe Lude.Int,
+    -- | The total number of resources or compliance items that have a severity level of unspecified. Unspecified severity is determined by the organization that published the compliance items.
     unspecifiedCount :: Lude.Maybe Lude.Int,
+    -- | The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
     highCount :: Lude.Maybe Lude.Int,
+    -- | The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
     mediumCount :: Lude.Maybe Lude.Int,
+    -- | The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
     informationalCount :: Lude.Maybe Lude.Int,
+    -- | The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
     criticalCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SeveritySummary' with the minimum fields required to make a request.
 --
--- * 'criticalCount' - The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
--- * 'highCount' - The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
--- * 'informationalCount' - The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
 -- * 'lowCount' - The total number of resources or compliance items that have a severity level of low. Low severity is determined by the organization that published the compliance items.
--- * 'mediumCount' - The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
 -- * 'unspecifiedCount' - The total number of resources or compliance items that have a severity level of unspecified. Unspecified severity is determined by the organization that published the compliance items.
+-- * 'highCount' - The total number of resources or compliance items that have a severity level of high. High severity is determined by the organization that published the compliance items.
+-- * 'mediumCount' - The total number of resources or compliance items that have a severity level of medium. Medium severity is determined by the organization that published the compliance items.
+-- * 'informationalCount' - The total number of resources or compliance items that have a severity level of informational. Informational severity is determined by the organization that published the compliance items.
+-- * 'criticalCount' - The total number of resources or compliance items that have a severity level of critical. Critical severity is determined by the organization that published the compliance items.
 mkSeveritySummary ::
   SeveritySummary
 mkSeveritySummary =

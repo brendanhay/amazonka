@@ -17,8 +17,8 @@ module Network.AWS.ECS.Types.DeploymentCircuitBreaker
     mkDeploymentCircuitBreaker,
 
     -- * Lenses
-    dcbEnable,
     dcbRollback,
+    dcbEnable,
   )
 where
 
@@ -29,41 +29,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentCircuitBreaker' smart constructor.
 data DeploymentCircuitBreaker = DeploymentCircuitBreaker'
-  { enable ::
-      Lude.Bool,
-    rollback :: Lude.Bool
+  { -- | Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+    rollback :: Lude.Bool,
+    -- | Whether to enable the deployment circuit breaker logic for the service.
+    enable :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentCircuitBreaker' with the minimum fields required to make a request.
 --
--- * 'enable' - Whether to enable the deployment circuit breaker logic for the service.
 -- * 'rollback' - Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
+-- * 'enable' - Whether to enable the deployment circuit breaker logic for the service.
 mkDeploymentCircuitBreaker ::
-  -- | 'enable'
-  Lude.Bool ->
   -- | 'rollback'
   Lude.Bool ->
+  -- | 'enable'
+  Lude.Bool ->
   DeploymentCircuitBreaker
-mkDeploymentCircuitBreaker pEnable_ pRollback_ =
+mkDeploymentCircuitBreaker pRollback_ pEnable_ =
   DeploymentCircuitBreaker'
-    { enable = pEnable_,
-      rollback = pRollback_
+    { rollback = pRollback_,
+      enable = pEnable_
     }
-
--- | Whether to enable the deployment circuit breaker logic for the service.
---
--- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcbEnable :: Lens.Lens' DeploymentCircuitBreaker Lude.Bool
-dcbEnable = Lens.lens (enable :: DeploymentCircuitBreaker -> Lude.Bool) (\s a -> s {enable = a} :: DeploymentCircuitBreaker)
-{-# DEPRECATED dcbEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
 
 -- | Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 --
@@ -72,20 +60,27 @@ dcbRollback :: Lens.Lens' DeploymentCircuitBreaker Lude.Bool
 dcbRollback = Lens.lens (rollback :: DeploymentCircuitBreaker -> Lude.Bool) (\s a -> s {rollback = a} :: DeploymentCircuitBreaker)
 {-# DEPRECATED dcbRollback "Use generic-lens or generic-optics with 'rollback' instead." #-}
 
+-- | Whether to enable the deployment circuit breaker logic for the service.
+--
+-- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcbEnable :: Lens.Lens' DeploymentCircuitBreaker Lude.Bool
+dcbEnable = Lens.lens (enable :: DeploymentCircuitBreaker -> Lude.Bool) (\s a -> s {enable = a} :: DeploymentCircuitBreaker)
+{-# DEPRECATED dcbEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
+
 instance Lude.FromJSON DeploymentCircuitBreaker where
   parseJSON =
     Lude.withObject
       "DeploymentCircuitBreaker"
       ( \x ->
           DeploymentCircuitBreaker'
-            Lude.<$> (x Lude..: "enable") Lude.<*> (x Lude..: "rollback")
+            Lude.<$> (x Lude..: "rollback") Lude.<*> (x Lude..: "enable")
       )
 
 instance Lude.ToJSON DeploymentCircuitBreaker where
   toJSON DeploymentCircuitBreaker' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("enable" Lude..= enable),
-            Lude.Just ("rollback" Lude..= rollback)
+          [ Lude.Just ("rollback" Lude..= rollback),
+            Lude.Just ("enable" Lude..= enable)
           ]
       )

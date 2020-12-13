@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.OwnerOverride
 --
 -- /See:/ 'mkAccessControlTranslation' smart constructor.
 newtype AccessControlTranslation = AccessControlTranslation'
-  { owner ::
-      OwnerOverride
+  { -- | Specifies the replica ownership. For default and valid values, see <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT bucket replication> in the /Amazon Simple Storage Service API Reference/ .
+    owner :: OwnerOverride
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessControlTranslation' with the minimum fields required to make a request.

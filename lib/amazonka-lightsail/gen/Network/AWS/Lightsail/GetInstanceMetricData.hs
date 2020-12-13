@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.Lightsail.GetInstanceMetricData
     mkGetInstanceMetricData,
 
     -- ** Request lenses
-    gimdInstanceName,
-    gimdMetricName,
-    gimdPeriod,
     gimdStartTime,
+    gimdPeriod,
+    gimdMetricName,
     gimdEndTime,
-    gimdUnit,
     gimdStatistics,
+    gimdInstanceName,
+    gimdUnit,
 
     -- * Destructuring the response
     GetInstanceMetricDataResponse (..),
@@ -48,28 +49,90 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetInstanceMetricData' smart constructor.
 data GetInstanceMetricData = GetInstanceMetricData'
-  { instanceName ::
-      Lude.Text,
-    metricName :: InstanceMetricName,
-    period :: Lude.Natural,
+  { -- | The start time of the time period.
     startTime :: Lude.Timestamp,
+    -- | The granularity, in seconds, of the returned data points.
+    --
+    -- The @StatusCheckFailed@ , @StatusCheckFailed_Instance@ , and @StatusCheckFailed_System@ instance metric data is available in 1-minute (60 seconds) granularity. All other instance metric data is available in 5-minute (300 seconds) granularity.
+    period :: Lude.Natural,
+    -- | The metric for which you want to return information.
+    --
+    -- Valid instance metric names are listed below, along with the most useful @statistics@ to include in your request, and the published @unit@ value.
+    --
+    --     * __@BurstCapacityPercentage@ __ - The percentage of CPU performance available for your instance to burst above its baseline. Your instance continuously accrues and consumes burst capacity. Burst capacity stops accruing when your instance's @BurstCapacityPercentage@ reaches 100%. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity Viewing instance burst capacity in Amazon Lightsail> .
+    -- @Statistics@ : The most useful statistics are @Maximum@ and @Average@ .
+    -- @Unit@ : The published unit is @Percent@ .
+    --
+    --
+    --     * __@BurstCapacityTime@ __ - The available amount of time for your instance to burst at 100% CPU utilization. Your instance continuously accrues and consumes burst capacity. Burst capacity time stops accruing when your instance's @BurstCapacityPercentage@ metric reaches 100%.
+    -- Burst capacity time is consumed at the full rate only when your instance operates at 100% CPU utilization. For example, if your instance operates at 50% CPU utilization in the burstable zone for a 5-minute period, then it consumes CPU burst capacity minutes at a 50% rate in that period. Your instance consumed 2 minutes and 30 seconds of CPU burst capacity minutes in the 5-minute period. For more information, see <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-viewing-instance-burst-capacity Viewing instance burst capacity in Amazon Lightsail> .
+    -- @Statistics@ : The most useful statistics are @Maximum@ and @Average@ .
+    -- @Unit@ : The published unit is @Seconds@ .
+    --
+    --
+    --     * __@CPUUtilization@ __ - The percentage of allocated compute units that are currently in use on the instance. This metric identifies the processing power to run the applications on the instance. Tools in your operating system can show a lower percentage than Lightsail when the instance is not allocated a full processor core.
+    -- @Statistics@ : The most useful statistics are @Maximum@ and @Average@ .
+    -- @Unit@ : The published unit is @Percent@ .
+    --
+    --
+    --     * __@NetworkIn@ __ - The number of bytes received on all network interfaces by the instance. This metric identifies the volume of incoming network traffic to the instance. The number reported is the number of bytes received during the period. Because this metric is reported in 5-minute intervals, divide the reported number by 300 to find Bytes/second.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @Bytes@ .
+    --
+    --
+    --     * __@NetworkOut@ __ - The number of bytes sent out on all network interfaces by the instance. This metric identifies the volume of outgoing network traffic from the instance. The number reported is the number of bytes sent during the period. Because this metric is reported in 5-minute intervals, divide the reported number by 300 to find Bytes/second.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @Bytes@ .
+    --
+    --
+    --     * __@StatusCheckFailed@ __ - Reports whether the instance passed or failed both the instance status check and the system status check. This metric can be either 0 (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds) granularity.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @Count@ .
+    --
+    --
+    --     * __@StatusCheckFailed_Instance@ __ - Reports whether the instance passed or failed the instance status check. This metric can be either 0 (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds) granularity.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @Count@ .
+    --
+    --
+    --     * __@StatusCheckFailed_System@ __ - Reports whether the instance passed or failed the system status check. This metric can be either 0 (passed) or 1 (failed). This metric data is available in 1-minute (60 seconds) granularity.
+    -- @Statistics@ : The most useful statistic is @Sum@ .
+    -- @Unit@ : The published unit is @Count@ .
+    metricName :: InstanceMetricName,
+    -- | The end time of the time period.
     endTime :: Lude.Timestamp,
-    unit :: MetricUnit,
-    statistics :: [MetricStatistic]
+    -- | The statistic for the metric.
+    --
+    -- The following statistics are available:
+    --
+    --     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.
+    --
+    --
+    --     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.
+    --
+    --
+    --     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.
+    --
+    --
+    --     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.
+    --
+    --
+    --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
+    statistics :: [MetricStatistic],
+    -- | The name of the instance for which you want to get metrics data.
+    instanceName :: Lude.Text,
+    -- | The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units to specify with each available metric, see the @metricName@ parameter.
+    unit :: MetricUnit
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceMetricData' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end time of the time period.
--- * 'instanceName' - The name of the instance for which you want to get metrics data.
+-- * 'startTime' - The start time of the time period.
+-- * 'period' - The granularity, in seconds, of the returned data points.
+--
+-- The @StatusCheckFailed@ , @StatusCheckFailed_Instance@ , and @StatusCheckFailed_System@ instance metric data is available in 1-minute (60 seconds) granularity. All other instance metric data is available in 5-minute (300 seconds) granularity.
 -- * 'metricName' - The metric for which you want to return information.
 --
 -- Valid instance metric names are listed below, along with the most useful @statistics@ to include in your request, and the published @unit@ value.
@@ -115,10 +178,7 @@ data GetInstanceMetricData = GetInstanceMetricData'
 -- @Unit@ : The published unit is @Count@ .
 --
 --
--- * 'period' - The granularity, in seconds, of the returned data points.
---
--- The @StatusCheckFailed@ , @StatusCheckFailed_Instance@ , and @StatusCheckFailed_System@ instance metric data is available in 1-minute (60 seconds) granularity. All other instance metric data is available in 5-minute (300 seconds) granularity.
--- * 'startTime' - The start time of the time period.
+-- * 'endTime' - The end time of the time period.
 -- * 'statistics' - The statistic for the metric.
 --
 -- The following statistics are available:
@@ -138,44 +198,54 @@ data GetInstanceMetricData = GetInstanceMetricData'
 --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
 --
 --
+-- * 'instanceName' - The name of the instance for which you want to get metrics data.
 -- * 'unit' - The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units to specify with each available metric, see the @metricName@ parameter.
 mkGetInstanceMetricData ::
-  -- | 'instanceName'
-  Lude.Text ->
-  -- | 'metricName'
-  InstanceMetricName ->
-  -- | 'period'
-  Lude.Natural ->
   -- | 'startTime'
   Lude.Timestamp ->
+  -- | 'period'
+  Lude.Natural ->
+  -- | 'metricName'
+  InstanceMetricName ->
   -- | 'endTime'
   Lude.Timestamp ->
+  -- | 'instanceName'
+  Lude.Text ->
   -- | 'unit'
   MetricUnit ->
   GetInstanceMetricData
 mkGetInstanceMetricData
-  pInstanceName_
-  pMetricName_
-  pPeriod_
   pStartTime_
+  pPeriod_
+  pMetricName_
   pEndTime_
+  pInstanceName_
   pUnit_ =
     GetInstanceMetricData'
-      { instanceName = pInstanceName_,
-        metricName = pMetricName_,
+      { startTime = pStartTime_,
         period = pPeriod_,
-        startTime = pStartTime_,
+        metricName = pMetricName_,
         endTime = pEndTime_,
-        unit = pUnit_,
-        statistics = Lude.mempty
+        statistics = Lude.mempty,
+        instanceName = pInstanceName_,
+        unit = pUnit_
       }
 
--- | The name of the instance for which you want to get metrics data.
+-- | The start time of the time period.
 --
--- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gimdInstanceName :: Lens.Lens' GetInstanceMetricData Lude.Text
-gimdInstanceName = Lens.lens (instanceName :: GetInstanceMetricData -> Lude.Text) (\s a -> s {instanceName = a} :: GetInstanceMetricData)
-{-# DEPRECATED gimdInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimdStartTime :: Lens.Lens' GetInstanceMetricData Lude.Timestamp
+gimdStartTime = Lens.lens (startTime :: GetInstanceMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetInstanceMetricData)
+{-# DEPRECATED gimdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The granularity, in seconds, of the returned data points.
+--
+-- The @StatusCheckFailed@ , @StatusCheckFailed_Instance@ , and @StatusCheckFailed_System@ instance metric data is available in 1-minute (60 seconds) granularity. All other instance metric data is available in 5-minute (300 seconds) granularity.
+--
+-- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimdPeriod :: Lens.Lens' GetInstanceMetricData Lude.Natural
+gimdPeriod = Lens.lens (period :: GetInstanceMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetInstanceMetricData)
+{-# DEPRECATED gimdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
 
 -- | The metric for which you want to return information.
 --
@@ -228,35 +298,12 @@ gimdMetricName :: Lens.Lens' GetInstanceMetricData InstanceMetricName
 gimdMetricName = Lens.lens (metricName :: GetInstanceMetricData -> InstanceMetricName) (\s a -> s {metricName = a} :: GetInstanceMetricData)
 {-# DEPRECATED gimdMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
--- | The granularity, in seconds, of the returned data points.
---
--- The @StatusCheckFailed@ , @StatusCheckFailed_Instance@ , and @StatusCheckFailed_System@ instance metric data is available in 1-minute (60 seconds) granularity. All other instance metric data is available in 5-minute (300 seconds) granularity.
---
--- /Note:/ Consider using 'period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gimdPeriod :: Lens.Lens' GetInstanceMetricData Lude.Natural
-gimdPeriod = Lens.lens (period :: GetInstanceMetricData -> Lude.Natural) (\s a -> s {period = a} :: GetInstanceMetricData)
-{-# DEPRECATED gimdPeriod "Use generic-lens or generic-optics with 'period' instead." #-}
-
--- | The start time of the time period.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gimdStartTime :: Lens.Lens' GetInstanceMetricData Lude.Timestamp
-gimdStartTime = Lens.lens (startTime :: GetInstanceMetricData -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetInstanceMetricData)
-{-# DEPRECATED gimdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
 -- | The end time of the time period.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gimdEndTime :: Lens.Lens' GetInstanceMetricData Lude.Timestamp
 gimdEndTime = Lens.lens (endTime :: GetInstanceMetricData -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetInstanceMetricData)
 {-# DEPRECATED gimdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units to specify with each available metric, see the @metricName@ parameter.
---
--- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gimdUnit :: Lens.Lens' GetInstanceMetricData MetricUnit
-gimdUnit = Lens.lens (unit :: GetInstanceMetricData -> MetricUnit) (\s a -> s {unit = a} :: GetInstanceMetricData)
-{-# DEPRECATED gimdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | The statistic for the metric.
 --
@@ -282,6 +329,20 @@ gimdUnit = Lens.lens (unit :: GetInstanceMetricData -> MetricUnit) (\s a -> s {u
 gimdStatistics :: Lens.Lens' GetInstanceMetricData [MetricStatistic]
 gimdStatistics = Lens.lens (statistics :: GetInstanceMetricData -> [MetricStatistic]) (\s a -> s {statistics = a} :: GetInstanceMetricData)
 {-# DEPRECATED gimdStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
+
+-- | The name of the instance for which you want to get metrics data.
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimdInstanceName :: Lens.Lens' GetInstanceMetricData Lude.Text
+gimdInstanceName = Lens.lens (instanceName :: GetInstanceMetricData -> Lude.Text) (\s a -> s {instanceName = a} :: GetInstanceMetricData)
+{-# DEPRECATED gimdInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
+
+-- | The unit for the metric data request. Valid units depend on the metric data being requested. For the valid units to specify with each available metric, see the @metricName@ parameter.
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gimdUnit :: Lens.Lens' GetInstanceMetricData MetricUnit
+gimdUnit = Lens.lens (unit :: GetInstanceMetricData -> MetricUnit) (\s a -> s {unit = a} :: GetInstanceMetricData)
+{-# DEPRECATED gimdUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 instance Lude.AWSRequest GetInstanceMetricData where
   type Rs GetInstanceMetricData = GetInstanceMetricDataResponse
@@ -310,13 +371,13 @@ instance Lude.ToJSON GetInstanceMetricData where
   toJSON GetInstanceMetricData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("instanceName" Lude..= instanceName),
-            Lude.Just ("metricName" Lude..= metricName),
+          [ Lude.Just ("startTime" Lude..= startTime),
             Lude.Just ("period" Lude..= period),
-            Lude.Just ("startTime" Lude..= startTime),
+            Lude.Just ("metricName" Lude..= metricName),
             Lude.Just ("endTime" Lude..= endTime),
-            Lude.Just ("unit" Lude..= unit),
-            Lude.Just ("statistics" Lude..= statistics)
+            Lude.Just ("statistics" Lude..= statistics),
+            Lude.Just ("instanceName" Lude..= instanceName),
+            Lude.Just ("unit" Lude..= unit)
           ]
       )
 
@@ -328,25 +389,20 @@ instance Lude.ToQuery GetInstanceMetricData where
 
 -- | /See:/ 'mkGetInstanceMetricDataResponse' smart constructor.
 data GetInstanceMetricDataResponse = GetInstanceMetricDataResponse'
-  { metricName ::
-      Lude.Maybe InstanceMetricName,
-    metricData ::
-      Lude.Maybe [MetricDatapoint],
+  { -- | The name of the metric returned.
+    metricName :: Lude.Maybe InstanceMetricName,
+    -- | An array of objects that describe the metric data returned.
+    metricData :: Lude.Maybe [MetricDatapoint],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceMetricDataResponse' with the minimum fields required to make a request.
 --
--- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'metricName' - The name of the metric returned.
+-- * 'metricData' - An array of objects that describe the metric data returned.
 -- * 'responseStatus' - The response status code.
 mkGetInstanceMetricDataResponse ::
   -- | 'responseStatus'

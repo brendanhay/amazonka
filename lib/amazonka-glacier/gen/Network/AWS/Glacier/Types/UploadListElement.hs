@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUploadListElement' smart constructor.
 data UploadListElement = UploadListElement'
-  { multipartUploadId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of a multipart upload.
+    multipartUploadId :: Lude.Maybe Lude.Text,
+    -- | The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
     partSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The description of the archive that was specified in the Initiate Multipart Upload request.
     archiveDescription :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the vault that contains the archive.
     vaultARN :: Lude.Maybe Lude.Text,
+    -- | The UTC time at which the multipart upload was initiated.
     creationDate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadListElement' with the minimum fields required to make a request.
 --
--- * 'archiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
--- * 'creationDate' - The UTC time at which the multipart upload was initiated.
 -- * 'multipartUploadId' - The ID of a multipart upload.
 -- * 'partSizeInBytes' - The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
+-- * 'archiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
 -- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault that contains the archive.
+-- * 'creationDate' - The UTC time at which the multipart upload was initiated.
 mkUploadListElement ::
   UploadListElement
 mkUploadListElement =

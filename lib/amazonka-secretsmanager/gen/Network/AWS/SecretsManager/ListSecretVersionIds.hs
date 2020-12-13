@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,10 +34,10 @@ module Network.AWS.SecretsManager.ListSecretVersionIds
     mkListSecretVersionIds,
 
     -- ** Request lenses
+    lsviSecretId,
     lsviNextToken,
     lsviIncludeDeprecated,
     lsviMaxResults,
-    lsviSecretId,
 
     -- * Destructuring the response
     ListSecretVersionIdsResponse (..),
@@ -60,38 +61,42 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkListSecretVersionIds' smart constructor.
 data ListSecretVersionIds = ListSecretVersionIds'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text,
+    -- | (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) Specifies that you want the results to include versions that do not have any staging labels attached to them. Such versions are considered deprecated and are subject to deletion by Secrets Manager as needed.
     includeDeprecated :: Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Natural,
-    secretId :: Lude.Text
+    -- | (Optional) Limits the number of results you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (isn't null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecretVersionIds' with the minimum fields required to make a request.
 --
+-- * 'secretId' - The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+-- * 'nextToken' - (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
 -- * 'includeDeprecated' - (Optional) Specifies that you want the results to include versions that do not have any staging labels attached to them. Such versions are considered deprecated and are subject to deletion by Secrets Manager as needed.
 -- * 'maxResults' - (Optional) Limits the number of results you want to include in the response. If you don't include this parameter, it defaults to a value that's specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (isn't null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Secrets Manager might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
--- * 'nextToken' - (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
--- * 'secretId' - The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 mkListSecretVersionIds ::
   -- | 'secretId'
   Lude.Text ->
   ListSecretVersionIds
 mkListSecretVersionIds pSecretId_ =
   ListSecretVersionIds'
-    { nextToken = Lude.Nothing,
+    { secretId = pSecretId_,
+      nextToken = Lude.Nothing,
       includeDeprecated = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      secretId = pSecretId_
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsviSecretId :: Lens.Lens' ListSecretVersionIds Lude.Text
+lsviSecretId = Lens.lens (secretId :: ListSecretVersionIds -> Lude.Text) (\s a -> s {secretId = a} :: ListSecretVersionIds)
+{-# DEPRECATED lsviSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 -- | (Optional) Use this parameter in a request if you receive a @NextToken@ response in a previous request indicating there's more output available. In a subsequent call, set it to the value of the previous call @NextToken@ response to indicate where the output should continue from.
 --
@@ -113,13 +118,6 @@ lsviIncludeDeprecated = Lens.lens (includeDeprecated :: ListSecretVersionIds -> 
 lsviMaxResults :: Lens.Lens' ListSecretVersionIds (Lude.Maybe Lude.Natural)
 lsviMaxResults = Lens.lens (maxResults :: ListSecretVersionIds -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSecretVersionIds)
 {-# DEPRECATED lsviMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier for the secret containing the versions you want to list. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
---
--- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsviSecretId :: Lens.Lens' ListSecretVersionIds Lude.Text
-lsviSecretId = Lens.lens (secretId :: ListSecretVersionIds -> Lude.Text) (\s a -> s {secretId = a} :: ListSecretVersionIds)
-{-# DEPRECATED lsviSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 instance Page.AWSPager ListSecretVersionIds where
   page rq rs
@@ -159,10 +157,10 @@ instance Lude.ToJSON ListSecretVersionIds where
   toJSON ListSecretVersionIds' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("SecretId" Lude..= secretId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("IncludeDeprecated" Lude..=) Lude.<$> includeDeprecated,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("SecretId" Lude..= secretId)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -174,31 +172,27 @@ instance Lude.ToQuery ListSecretVersionIds where
 
 -- | /See:/ 'mkListSecretVersionIdsResponse' smart constructor.
 data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
-    versions ::
-      Lude.Maybe
-        [SecretVersionsListEntry],
+  { -- | The Amazon Resource Name (ARN) for the secret.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The list of the currently available versions of the specified secret.
+    versions :: Lude.Maybe [SecretVersionsListEntry],
+    -- | If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecretVersionIdsResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) for the secret.
--- * 'name' - The friendly name of the secret.
--- * 'nextToken' - If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
--- * 'responseStatus' - The response status code.
 -- * 'versions' - The list of the currently available versions of the specified secret.
+-- * 'nextToken' - If present in the response, this value indicates that there's more output available than included in the current response. This can occur even when the response includes no values at all, such as when you ask for a filtered view of a very long list. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to continue processing and get the next part of the output. You should repeat this until the @NextToken@ response element comes back empty (as @null@ ).
+-- * 'name' - The friendly name of the secret.
+-- * 'responseStatus' - The response status code.
 mkListSecretVersionIdsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

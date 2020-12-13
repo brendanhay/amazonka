@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSuggestModel' smart constructor.
 data SuggestModel = SuggestModel'
-  { found :: Lude.Maybe Lude.Integer,
+  { -- | The number of documents that were found to match the query string.
+    found :: Lude.Maybe Lude.Integer,
+    -- | The documents that match the query string.
     suggestions :: Lude.Maybe [SuggestionMatch],
+    -- | The query string specified in the suggest request.
     query :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuggestModel' with the minimum fields required to make a request.
 --
 -- * 'found' - The number of documents that were found to match the query string.
--- * 'query' - The query string specified in the suggest request.
 -- * 'suggestions' - The documents that match the query string.
+-- * 'query' - The query string specified in the suggest request.
 mkSuggestModel ::
   SuggestModel
 mkSuggestModel =

@@ -13,9 +13,9 @@
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
   ( DirectConnectGatewayAssociationProposalState
       ( DirectConnectGatewayAssociationProposalState',
+        DCGAPSRequested,
         DCGAPSAccepted,
-        DCGAPSDeleted,
-        DCGAPSRequested
+        DCGAPSDeleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DirectConnectGatewayAssociationProposalState = DirectConnectGatewayAssoc
       Lude.ToHeader
     )
 
+pattern DCGAPSRequested :: DirectConnectGatewayAssociationProposalState
+pattern DCGAPSRequested = DirectConnectGatewayAssociationProposalState' "requested"
+
 pattern DCGAPSAccepted :: DirectConnectGatewayAssociationProposalState
 pattern DCGAPSAccepted = DirectConnectGatewayAssociationProposalState' "accepted"
 
 pattern DCGAPSDeleted :: DirectConnectGatewayAssociationProposalState
 pattern DCGAPSDeleted = DirectConnectGatewayAssociationProposalState' "deleted"
 
-pattern DCGAPSRequested :: DirectConnectGatewayAssociationProposalState
-pattern DCGAPSRequested = DirectConnectGatewayAssociationProposalState' "requested"
-
 {-# COMPLETE
+  DCGAPSRequested,
   DCGAPSAccepted,
   DCGAPSDeleted,
-  DCGAPSRequested,
   DirectConnectGatewayAssociationProposalState'
   #-}

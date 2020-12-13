@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.ELBv2.RemoveTags
     mkRemoveTags,
 
     -- ** Request lenses
-    rtResourceARNs,
     rtTagKeys,
+    rtResourceARNs,
 
     -- * Destructuring the response
     RemoveTagsResponse (..),
     mkRemoveTagsResponse,
 
     -- ** Response lenses
-    rtrsResponseStatus,
+    rrsResponseStatus,
   )
 where
 
@@ -39,33 +40,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { resourceARNs :: [Lude.Text],
-    tagKeys :: [Lude.Text]
+  { -- | The tag keys for the tags to remove.
+    tagKeys :: [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the resource.
+    resourceARNs :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
 --
--- * 'resourceARNs' - The Amazon Resource Name (ARN) of the resource.
 -- * 'tagKeys' - The tag keys for the tags to remove.
+-- * 'resourceARNs' - The Amazon Resource Name (ARN) of the resource.
 mkRemoveTags ::
   RemoveTags
 mkRemoveTags =
-  RemoveTags' {resourceARNs = Lude.mempty, tagKeys = Lude.mempty}
-
--- | The Amazon Resource Name (ARN) of the resource.
---
--- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtResourceARNs :: Lens.Lens' RemoveTags [Lude.Text]
-rtResourceARNs = Lens.lens (resourceARNs :: RemoveTags -> [Lude.Text]) (\s a -> s {resourceARNs = a} :: RemoveTags)
-{-# DEPRECATED rtResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
+  RemoveTags' {tagKeys = Lude.mempty, resourceARNs = Lude.mempty}
 
 -- | The tag keys for the tags to remove.
 --
@@ -73,6 +63,13 @@ rtResourceARNs = Lens.lens (resourceARNs :: RemoveTags -> [Lude.Text]) (\s a -> 
 rtTagKeys :: Lens.Lens' RemoveTags [Lude.Text]
 rtTagKeys = Lens.lens (tagKeys :: RemoveTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTags)
 {-# DEPRECATED rtTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the resource.
+--
+-- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtResourceARNs :: Lens.Lens' RemoveTags [Lude.Text]
+rtResourceARNs = Lens.lens (resourceARNs :: RemoveTags -> [Lude.Text]) (\s a -> s {resourceARNs = a} :: RemoveTags)
+{-# DEPRECATED rtResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
 
 instance Lude.AWSRequest RemoveTags where
   type Rs RemoveTags = RemoveTagsResponse
@@ -95,22 +92,16 @@ instance Lude.ToQuery RemoveTags where
     Lude.mconcat
       [ "Action" Lude.=: ("RemoveTags" :: Lude.ByteString),
         "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "ResourceArns" Lude.=: Lude.toQueryList "member" resourceARNs,
-        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys
+        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys,
+        "ResourceArns" Lude.=: Lude.toQueryList "member" resourceARNs
       ]
 
 -- | /See:/ 'mkRemoveTagsResponse' smart constructor.
 newtype RemoveTagsResponse = RemoveTagsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
@@ -126,6 +117,6 @@ mkRemoveTagsResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrsResponseStatus :: Lens.Lens' RemoveTagsResponse Lude.Int
-rtrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsResponse)
-{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rrsResponseStatus :: Lens.Lens' RemoveTagsResponse Lude.Int
+rrsResponseStatus = Lens.lens (responseStatus :: RemoveTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RemoveTagsResponse)
+{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

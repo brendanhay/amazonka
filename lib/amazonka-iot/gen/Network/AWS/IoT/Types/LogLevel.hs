@@ -14,10 +14,10 @@ module Network.AWS.IoT.Types.LogLevel
   ( LogLevel
       ( LogLevel',
         Debug,
-        Disabled,
-        Error,
         Info,
-        Warn
+        Error,
+        Warn,
+        Disabled
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype LogLevel = LogLevel' Lude.Text
 pattern Debug :: LogLevel
 pattern Debug = LogLevel' "DEBUG"
 
-pattern Disabled :: LogLevel
-pattern Disabled = LogLevel' "DISABLED"
+pattern Info :: LogLevel
+pattern Info = LogLevel' "INFO"
 
 pattern Error :: LogLevel
 pattern Error = LogLevel' "ERROR"
 
-pattern Info :: LogLevel
-pattern Info = LogLevel' "INFO"
-
 pattern Warn :: LogLevel
 pattern Warn = LogLevel' "WARN"
 
+pattern Disabled :: LogLevel
+pattern Disabled = LogLevel' "DISABLED"
+
 {-# COMPLETE
   Debug,
-  Disabled,
-  Error,
   Info,
+  Error,
   Warn,
+  Disabled,
   LogLevel'
   #-}

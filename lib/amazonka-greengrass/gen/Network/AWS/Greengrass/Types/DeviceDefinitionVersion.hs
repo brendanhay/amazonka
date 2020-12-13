@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceDefinitionVersion' smart constructor.
 newtype DeviceDefinitionVersion = DeviceDefinitionVersion'
-  { devices ::
-      Lude.Maybe [Device]
+  { -- | A list of devices in the definition version.
+    devices :: Lude.Maybe [Device]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceDefinitionVersion' with the minimum fields required to make a request.

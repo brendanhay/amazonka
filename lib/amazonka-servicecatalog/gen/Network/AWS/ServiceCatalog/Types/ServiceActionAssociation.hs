@@ -17,9 +17,9 @@ module Network.AWS.ServiceCatalog.Types.ServiceActionAssociation
     mkServiceActionAssociation,
 
     -- * Lenses
+    saaProvisioningArtifactId,
     saaServiceActionId,
     saaProductId,
-    saaProvisioningArtifactId,
   )
 where
 
@@ -30,42 +30,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceActionAssociation' smart constructor.
 data ServiceActionAssociation = ServiceActionAssociation'
-  { serviceActionId ::
-      Lude.Text,
-    productId :: Lude.Text,
-    provisioningArtifactId :: Lude.Text
+  { -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+    provisioningArtifactId :: Lude.Text,
+    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+    serviceActionId :: Lude.Text,
+    -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
+    productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceActionAssociation' with the minimum fields required to make a request.
 --
--- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
 -- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 -- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+-- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
 mkServiceActionAssociation ::
+  -- | 'provisioningArtifactId'
+  Lude.Text ->
   -- | 'serviceActionId'
   Lude.Text ->
   -- | 'productId'
   Lude.Text ->
-  -- | 'provisioningArtifactId'
-  Lude.Text ->
   ServiceActionAssociation
 mkServiceActionAssociation
+  pProvisioningArtifactId_
   pServiceActionId_
-  pProductId_
-  pProvisioningArtifactId_ =
+  pProductId_ =
     ServiceActionAssociation'
-      { serviceActionId = pServiceActionId_,
-        productId = pProductId_,
-        provisioningArtifactId = pProvisioningArtifactId_
+      { provisioningArtifactId =
+          pProvisioningArtifactId_,
+        serviceActionId = pServiceActionId_,
+        productId = pProductId_
       }
+
+-- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saaProvisioningArtifactId :: Lens.Lens' ServiceActionAssociation Lude.Text
+saaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ServiceActionAssociation -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ServiceActionAssociation)
+{-# DEPRECATED saaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
 --
@@ -81,20 +85,13 @@ saaProductId :: Lens.Lens' ServiceActionAssociation Lude.Text
 saaProductId = Lens.lens (productId :: ServiceActionAssociation -> Lude.Text) (\s a -> s {productId = a} :: ServiceActionAssociation)
 {-# DEPRECATED saaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
--- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saaProvisioningArtifactId :: Lens.Lens' ServiceActionAssociation Lude.Text
-saaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ServiceActionAssociation -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ServiceActionAssociation)
-{-# DEPRECATED saaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
-
 instance Lude.ToJSON ServiceActionAssociation where
   toJSON ServiceActionAssociation' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ServiceActionId" Lude..= serviceActionId),
-            Lude.Just ("ProductId" Lude..= productId),
-            Lude.Just
-              ("ProvisioningArtifactId" Lude..= provisioningArtifactId)
+          [ Lude.Just
+              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+            Lude.Just ("ServiceActionId" Lude..= serviceActionId),
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )

@@ -38,35 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkACLEntry' smart constructor.
 data NetworkACLEntry = NetworkACLEntry'
-  { ipv6CidrBlock ::
-      Lude.Maybe Lude.Text,
+  { -- | The IPv6 network range to allow or deny, in CIDR notation.
+    ipv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | ICMP protocol: The ICMP type and code.
     icmpTypeCode :: Lude.Maybe ICMPTypeCode,
+    -- | The rule number for the entry. ACL entries are processed in ascending order by rule number.
     ruleNumber :: Lude.Maybe Lude.Int,
+    -- | Indicates whether to allow or deny the traffic that matches the rule.
     ruleAction :: Lude.Maybe RuleAction,
+    -- | The protocol number. A value of "-1" means all protocols.
     protocol :: Lude.Maybe Lude.Text,
+    -- | TCP or UDP protocols: The range of ports the rule applies to.
     portRange :: Lude.Maybe PortRange,
+    -- | The IPv4 network range to allow or deny, in CIDR notation.
     cidrBlock :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).
     egress :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkACLEntry' with the minimum fields required to make a request.
 --
+-- * 'ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation.
+-- * 'icmpTypeCode' - ICMP protocol: The ICMP type and code.
+-- * 'ruleNumber' - The rule number for the entry. ACL entries are processed in ascending order by rule number.
+-- * 'ruleAction' - Indicates whether to allow or deny the traffic that matches the rule.
+-- * 'protocol' - The protocol number. A value of "-1" means all protocols.
+-- * 'portRange' - TCP or UDP protocols: The range of ports the rule applies to.
 -- * 'cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation.
 -- * 'egress' - Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).
--- * 'icmpTypeCode' - ICMP protocol: The ICMP type and code.
--- * 'ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation.
--- * 'portRange' - TCP or UDP protocols: The range of ports the rule applies to.
--- * 'protocol' - The protocol number. A value of "-1" means all protocols.
--- * 'ruleAction' - Indicates whether to allow or deny the traffic that matches the rule.
--- * 'ruleNumber' - The rule number for the entry. ACL entries are processed in ascending order by rule number.
 mkNetworkACLEntry ::
   NetworkACLEntry
 mkNetworkACLEntry =

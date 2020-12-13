@@ -59,74 +59,87 @@ import Network.AWS.SSM.Types.TargetLocation
 --
 -- /See:/ 'mkAutomationExecution' smart constructor.
 data AutomationExecution = AutomationExecution'
-  { currentStepName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the step that is currently running.
+    currentStepName :: Lude.Maybe Lude.Text,
+    -- | The parameter name.
     targetParameterName :: Lude.Maybe Lude.Text,
-    targetLocations ::
-      Lude.Maybe (Lude.NonEmpty TargetLocation),
+    -- | The combination of AWS Regions and/or AWS accounts where you want to run the Automation.
+    targetLocations :: Lude.Maybe (Lude.NonEmpty TargetLocation),
+    -- | An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
     progressCounters :: Lude.Maybe ProgressCounters,
+    -- | The Amazon Resource Name (ARN) of the user who ran the automation.
     executedBy :: Lude.Maybe Lude.Text,
+    -- | The name of the Automation document used during the execution.
     documentName :: Lude.Maybe Lude.Text,
+    -- | The time the execution finished.
     executionEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | A message describing why an execution has failed, if the status is set to Failed.
     failureMessage :: Lude.Maybe Lude.Text,
+    -- | The automation execution mode.
     mode :: Lude.Maybe ExecutionMode,
-    targetMaps ::
-      Lude.Maybe [Lude.HashMap Lude.Text ([Lude.Text])],
+    -- | The specified key-value mapping of document parameters to target resources.
+    targetMaps :: Lude.Maybe [Lude.HashMap Lude.Text ([Lude.Text])],
+    -- | A boolean value that indicates if the response contains the full list of the Automation step executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of step executions.
     stepExecutionsTruncated :: Lude.Maybe Lude.Bool,
-    automationExecutionStatus ::
-      Lude.Maybe AutomationExecutionStatus,
+    -- | The execution status of the Automation.
+    automationExecutionStatus :: Lude.Maybe AutomationExecutionStatus,
+    -- | The AutomationExecutionId of the parent automation.
     parentAutomationExecutionId :: Lude.Maybe Lude.Text,
-    outputs ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The list of execution outputs as defined in the automation document.
+    outputs :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The MaxErrors value specified by the user when the execution started.
     maxErrors :: Lude.Maybe Lude.Text,
+    -- | The time the execution started.
     executionStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The action of the step that is currently running.
     currentAction :: Lude.Maybe Lude.Text,
+    -- | The specified targets.
     targets :: Lude.Maybe [Target],
+    -- | A list of resolved targets in the rate control execution.
     resolvedTargets :: Lude.Maybe ResolvedTargets,
-    parameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The key-value map of execution parameters, which were supplied when calling StartAutomationExecution.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The version of the document to use during execution.
     documentVersion :: Lude.Maybe Lude.Text,
+    -- | The execution ID.
     automationExecutionId :: Lude.Maybe Lude.Text,
+    -- | A list of details about the current state of all steps that comprise an execution. An Automation document contains a list of steps that are run in order.
     stepExecutions :: Lude.Maybe [StepExecution],
+    -- | The MaxConcurrency value specified by the user when the execution started.
     maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The target of the execution.
     target :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomationExecution' with the minimum fields required to make a request.
 --
--- * 'automationExecutionId' - The execution ID.
--- * 'automationExecutionStatus' - The execution status of the Automation.
--- * 'currentAction' - The action of the step that is currently running.
 -- * 'currentStepName' - The name of the step that is currently running.
--- * 'documentName' - The name of the Automation document used during the execution.
--- * 'documentVersion' - The version of the document to use during execution.
--- * 'executedBy' - The Amazon Resource Name (ARN) of the user who ran the automation.
--- * 'executionEndTime' - The time the execution finished.
--- * 'executionStartTime' - The time the execution started.
--- * 'failureMessage' - A message describing why an execution has failed, if the status is set to Failed.
--- * 'maxConcurrency' - The MaxConcurrency value specified by the user when the execution started.
--- * 'maxErrors' - The MaxErrors value specified by the user when the execution started.
--- * 'mode' - The automation execution mode.
--- * 'outputs' - The list of execution outputs as defined in the automation document.
--- * 'parameters' - The key-value map of execution parameters, which were supplied when calling StartAutomationExecution.
--- * 'parentAutomationExecutionId' - The AutomationExecutionId of the parent automation.
--- * 'progressCounters' - An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
--- * 'resolvedTargets' - A list of resolved targets in the rate control execution.
--- * 'stepExecutions' - A list of details about the current state of all steps that comprise an execution. An Automation document contains a list of steps that are run in order.
--- * 'stepExecutionsTruncated' - A boolean value that indicates if the response contains the full list of the Automation step executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of step executions.
--- * 'target' - The target of the execution.
--- * 'targetLocations' - The combination of AWS Regions and/or AWS accounts where you want to run the Automation.
--- * 'targetMaps' - The specified key-value mapping of document parameters to target resources.
 -- * 'targetParameterName' - The parameter name.
+-- * 'targetLocations' - The combination of AWS Regions and/or AWS accounts where you want to run the Automation.
+-- * 'progressCounters' - An aggregate of step execution statuses displayed in the AWS Console for a multi-Region and multi-account Automation execution.
+-- * 'executedBy' - The Amazon Resource Name (ARN) of the user who ran the automation.
+-- * 'documentName' - The name of the Automation document used during the execution.
+-- * 'executionEndTime' - The time the execution finished.
+-- * 'failureMessage' - A message describing why an execution has failed, if the status is set to Failed.
+-- * 'mode' - The automation execution mode.
+-- * 'targetMaps' - The specified key-value mapping of document parameters to target resources.
+-- * 'stepExecutionsTruncated' - A boolean value that indicates if the response contains the full list of the Automation step executions. If true, use the DescribeAutomationStepExecutions API action to get the full list of step executions.
+-- * 'automationExecutionStatus' - The execution status of the Automation.
+-- * 'parentAutomationExecutionId' - The AutomationExecutionId of the parent automation.
+-- * 'outputs' - The list of execution outputs as defined in the automation document.
+-- * 'maxErrors' - The MaxErrors value specified by the user when the execution started.
+-- * 'executionStartTime' - The time the execution started.
+-- * 'currentAction' - The action of the step that is currently running.
 -- * 'targets' - The specified targets.
+-- * 'resolvedTargets' - A list of resolved targets in the rate control execution.
+-- * 'parameters' - The key-value map of execution parameters, which were supplied when calling StartAutomationExecution.
+-- * 'documentVersion' - The version of the document to use during execution.
+-- * 'automationExecutionId' - The execution ID.
+-- * 'stepExecutions' - A list of details about the current state of all steps that comprise an execution. An Automation document contains a list of steps that are run in order.
+-- * 'maxConcurrency' - The MaxConcurrency value specified by the user when the execution started.
+-- * 'target' - The target of the execution.
 mkAutomationExecution ::
   AutomationExecution
 mkAutomationExecution =

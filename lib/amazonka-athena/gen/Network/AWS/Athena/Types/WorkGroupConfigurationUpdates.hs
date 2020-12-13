@@ -34,37 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkGroupConfigurationUpdates' smart constructor.
 data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
-  { requesterPaysEnabled ::
-      Lude.Maybe Lude.Bool,
-    resultConfigurationUpdates ::
-      Lude.Maybe
-        ResultConfigurationUpdates,
-    bytesScannedCutoffPerQuery ::
-      Lude.Maybe Lude.Natural,
-    removeBytesScannedCutoffPerQuery ::
-      Lude.Maybe Lude.Bool,
-    enforceWorkGroupConfiguration ::
-      Lude.Maybe Lude.Bool,
-    publishCloudWatchMetricsEnabled ::
-      Lude.Maybe Lude.Bool
+  { -- | If set to @true@ , allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to @false@ , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is @false@ . For more information about Requester Pays buckets, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets> in the /Amazon Simple Storage Service Developer Guide/ .
+    requesterPaysEnabled :: Lude.Maybe Lude.Bool,
+    -- | The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
+    resultConfigurationUpdates :: Lude.Maybe ResultConfigurationUpdates,
+    -- | The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
+    bytesScannedCutoffPerQuery :: Lude.Maybe Lude.Natural,
+    -- | Indicates that the data usage control limit per query is removed. 'WorkGroupConfiguration$BytesScannedCutoffPerQuery'
+    removeBytesScannedCutoffPerQuery :: Lude.Maybe Lude.Bool,
+    -- | If set to "true", the settings for the workgroup override client-side settings. If set to "false" client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+    enforceWorkGroupConfiguration :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.
+    publishCloudWatchMetricsEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkGroupConfigurationUpdates' with the minimum fields required to make a request.
 --
--- * 'bytesScannedCutoffPerQuery' - The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
--- * 'enforceWorkGroupConfiguration' - If set to "true", the settings for the workgroup override client-side settings. If set to "false" client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
--- * 'publishCloudWatchMetricsEnabled' - Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.
--- * 'removeBytesScannedCutoffPerQuery' - Indicates that the data usage control limit per query is removed. 'WorkGroupConfiguration$BytesScannedCutoffPerQuery'
 -- * 'requesterPaysEnabled' - If set to @true@ , allows members assigned to a workgroup to specify Amazon S3 Requester Pays buckets in queries. If set to @false@ , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is @false@ . For more information about Requester Pays buckets, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets> in the /Amazon Simple Storage Service Developer Guide/ .
 -- * 'resultConfigurationUpdates' - The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
+-- * 'bytesScannedCutoffPerQuery' - The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.
+-- * 'removeBytesScannedCutoffPerQuery' - Indicates that the data usage control limit per query is removed. 'WorkGroupConfiguration$BytesScannedCutoffPerQuery'
+-- * 'enforceWorkGroupConfiguration' - If set to "true", the settings for the workgroup override client-side settings. If set to "false" client-side settings are used. For more information, see <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings> .
+-- * 'publishCloudWatchMetricsEnabled' - Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.
 mkWorkGroupConfigurationUpdates ::
   WorkGroupConfigurationUpdates
 mkWorkGroupConfigurationUpdates =

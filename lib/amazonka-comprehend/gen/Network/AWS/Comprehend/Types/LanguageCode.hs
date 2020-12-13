@@ -13,16 +13,16 @@
 module Network.AWS.Comprehend.Types.LanguageCode
   ( LanguageCode
       ( LanguageCode',
-        AR,
-        DE,
         EN,
         ES,
         FR,
-        HI,
+        DE,
         IT,
+        PT,
+        AR,
+        HI,
         JA,
         KO,
-        PT,
         ZH,
         ZhTw
       ),
@@ -55,12 +55,6 @@ newtype LanguageCode = LanguageCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AR :: LanguageCode
-pattern AR = LanguageCode' "ar"
-
-pattern DE :: LanguageCode
-pattern DE = LanguageCode' "de"
-
 pattern EN :: LanguageCode
 pattern EN = LanguageCode' "en"
 
@@ -70,20 +64,26 @@ pattern ES = LanguageCode' "es"
 pattern FR :: LanguageCode
 pattern FR = LanguageCode' "fr"
 
-pattern HI :: LanguageCode
-pattern HI = LanguageCode' "hi"
+pattern DE :: LanguageCode
+pattern DE = LanguageCode' "de"
 
 pattern IT :: LanguageCode
 pattern IT = LanguageCode' "it"
+
+pattern PT :: LanguageCode
+pattern PT = LanguageCode' "pt"
+
+pattern AR :: LanguageCode
+pattern AR = LanguageCode' "ar"
+
+pattern HI :: LanguageCode
+pattern HI = LanguageCode' "hi"
 
 pattern JA :: LanguageCode
 pattern JA = LanguageCode' "ja"
 
 pattern KO :: LanguageCode
 pattern KO = LanguageCode' "ko"
-
-pattern PT :: LanguageCode
-pattern PT = LanguageCode' "pt"
 
 pattern ZH :: LanguageCode
 pattern ZH = LanguageCode' "zh"
@@ -92,16 +92,16 @@ pattern ZhTw :: LanguageCode
 pattern ZhTw = LanguageCode' "zh-TW"
 
 {-# COMPLETE
-  AR,
-  DE,
   EN,
   ES,
   FR,
-  HI,
+  DE,
   IT,
+  PT,
+  AR,
+  HI,
   JA,
   KO,
-  PT,
   ZH,
   ZhTw,
   LanguageCode'

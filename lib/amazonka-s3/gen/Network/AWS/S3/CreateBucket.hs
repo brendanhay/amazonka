@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,6 +52,7 @@ module Network.AWS.S3.CreateBucket
 
     -- ** Request lenses
     cbGrantReadACP,
+    cbBucket,
     cbObjectLockEnabledForBucket,
     cbGrantWriteACP,
     cbGrantRead,
@@ -58,7 +60,6 @@ module Network.AWS.S3.CreateBucket
     cbCreateBucketConfiguration,
     cbGrantWrite,
     cbACL,
-    cbBucket,
 
     -- * Destructuring the response
     CreateBucketResponse (..),
@@ -78,37 +79,39 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkCreateBucket' smart constructor.
 data CreateBucket = CreateBucket'
-  { grantReadACP ::
-      Lude.Maybe Lude.Text,
+  { -- | Allows grantee to read the bucket ACL.
+    grantReadACP :: Lude.Maybe Lude.Text,
+    -- | The name of the bucket to create.
+    bucket :: BucketName,
+    -- | Specifies whether you want S3 Object Lock to be enabled for the new bucket.
     objectLockEnabledForBucket :: Lude.Maybe Lude.Bool,
+    -- | Allows grantee to write the ACL for the applicable bucket.
     grantWriteACP :: Lude.Maybe Lude.Text,
+    -- | Allows grantee to list the objects in the bucket.
     grantRead :: Lude.Maybe Lude.Text,
+    -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
     grantFullControl :: Lude.Maybe Lude.Text,
+    -- | The configuration information for the bucket.
     createBucketConfiguration :: Lude.Maybe CreateBucketConfiguration,
+    -- | Allows grantee to create, overwrite, and delete any object in the bucket.
     grantWrite :: Lude.Maybe Lude.Text,
-    acl :: Lude.Maybe BucketCannedACL,
-    bucket :: BucketName
+    -- | The canned ACL to apply to the bucket.
+    acl :: Lude.Maybe BucketCannedACL
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBucket' with the minimum fields required to make a request.
 --
--- * 'acl' - The canned ACL to apply to the bucket.
--- * 'bucket' - The name of the bucket to create.
--- * 'createBucketConfiguration' - The configuration information for the bucket.
--- * 'grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
--- * 'grantRead' - Allows grantee to list the objects in the bucket.
 -- * 'grantReadACP' - Allows grantee to read the bucket ACL.
--- * 'grantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
--- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
+-- * 'bucket' - The name of the bucket to create.
 -- * 'objectLockEnabledForBucket' - Specifies whether you want S3 Object Lock to be enabled for the new bucket.
+-- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
+-- * 'grantRead' - Allows grantee to list the objects in the bucket.
+-- * 'grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+-- * 'createBucketConfiguration' - The configuration information for the bucket.
+-- * 'grantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
+-- * 'acl' - The canned ACL to apply to the bucket.
 mkCreateBucket ::
   -- | 'bucket'
   BucketName ->
@@ -116,14 +119,14 @@ mkCreateBucket ::
 mkCreateBucket pBucket_ =
   CreateBucket'
     { grantReadACP = Lude.Nothing,
+      bucket = pBucket_,
       objectLockEnabledForBucket = Lude.Nothing,
       grantWriteACP = Lude.Nothing,
       grantRead = Lude.Nothing,
       grantFullControl = Lude.Nothing,
       createBucketConfiguration = Lude.Nothing,
       grantWrite = Lude.Nothing,
-      acl = Lude.Nothing,
-      bucket = pBucket_
+      acl = Lude.Nothing
     }
 
 -- | Allows grantee to read the bucket ACL.
@@ -132,6 +135,13 @@ mkCreateBucket pBucket_ =
 cbGrantReadACP :: Lens.Lens' CreateBucket (Lude.Maybe Lude.Text)
 cbGrantReadACP = Lens.lens (grantReadACP :: CreateBucket -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: CreateBucket)
 {-# DEPRECATED cbGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
+
+-- | The name of the bucket to create.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbBucket :: Lens.Lens' CreateBucket BucketName
+cbBucket = Lens.lens (bucket :: CreateBucket -> BucketName) (\s a -> s {bucket = a} :: CreateBucket)
+{-# DEPRECATED cbBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Specifies whether you want S3 Object Lock to be enabled for the new bucket.
 --
@@ -182,13 +192,6 @@ cbACL :: Lens.Lens' CreateBucket (Lude.Maybe BucketCannedACL)
 cbACL = Lens.lens (acl :: CreateBucket -> Lude.Maybe BucketCannedACL) (\s a -> s {acl = a} :: CreateBucket)
 {-# DEPRECATED cbACL "Use generic-lens or generic-optics with 'acl' instead." #-}
 
--- | The name of the bucket to create.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbBucket :: Lens.Lens' CreateBucket BucketName
-cbBucket = Lens.lens (bucket :: CreateBucket -> BucketName) (\s a -> s {bucket = a} :: CreateBucket)
-{-# DEPRECATED cbBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
 instance Lude.AWSRequest CreateBucket where
   type Rs CreateBucket = CreateBucketResponse
   request = Req.putXML s3Service
@@ -226,17 +229,12 @@ instance Lude.ToQuery CreateBucket where
 
 -- | /See:/ 'mkCreateBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
-  { location ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the Region where the bucket will be created. If you are creating a bucket on the US East (N. Virginia) Region (us-east-1), you do not need to specify the location.
+    location :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBucketResponse' with the minimum fields required to make a request.

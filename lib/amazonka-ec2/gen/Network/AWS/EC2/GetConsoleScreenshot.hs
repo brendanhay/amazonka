@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.GetConsoleScreenshot
     mkGetConsoleScreenshot,
 
     -- ** Request lenses
+    gcsInstanceId,
     gcsWakeUp,
     gcsDryRun,
-    gcsInstanceId,
 
     -- * Destructuring the response
     GetConsoleScreenshotResponse (..),
@@ -44,35 +45,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
-  { wakeUp ::
-      Lude.Maybe Lude.Bool,
-    dryRun :: Lude.Maybe Lude.Bool,
-    instanceId :: Lude.Text
+  { -- | The ID of the instance.
+    instanceId :: Lude.Text,
+    -- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
+    wakeUp :: Lude.Maybe Lude.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConsoleScreenshot' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceId' - The ID of the instance.
 -- * 'wakeUp' - When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkGetConsoleScreenshot ::
   -- | 'instanceId'
   Lude.Text ->
   GetConsoleScreenshot
 mkGetConsoleScreenshot pInstanceId_ =
   GetConsoleScreenshot'
-    { wakeUp = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      wakeUp = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsInstanceId :: Lens.Lens' GetConsoleScreenshot Lude.Text
+gcsInstanceId = Lens.lens (instanceId :: GetConsoleScreenshot -> Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleScreenshot)
+{-# DEPRECATED gcsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
 --
@@ -87,13 +91,6 @@ gcsWakeUp = Lens.lens (wakeUp :: GetConsoleScreenshot -> Lude.Maybe Lude.Bool) (
 gcsDryRun :: Lens.Lens' GetConsoleScreenshot (Lude.Maybe Lude.Bool)
 gcsDryRun = Lens.lens (dryRun :: GetConsoleScreenshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetConsoleScreenshot)
 {-# DEPRECATED gcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsInstanceId :: Lens.Lens' GetConsoleScreenshot Lude.Text
-gcsInstanceId = Lens.lens (instanceId :: GetConsoleScreenshot -> Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleScreenshot)
-{-# DEPRECATED gcsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest GetConsoleScreenshot where
   type Rs GetConsoleScreenshot = GetConsoleScreenshotResponse
@@ -118,31 +115,27 @@ instance Lude.ToQuery GetConsoleScreenshot where
     Lude.mconcat
       [ "Action" Lude.=: ("GetConsoleScreenshot" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceId" Lude.=: instanceId,
         "WakeUp" Lude.=: wakeUp,
-        "DryRun" Lude.=: dryRun,
-        "InstanceId" Lude.=: instanceId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkGetConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The data that comprises the image.
     imageData :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConsoleScreenshotResponse' with the minimum fields required to make a request.
 --
--- * 'imageData' - The data that comprises the image.
 -- * 'instanceId' - The ID of the instance.
+-- * 'imageData' - The data that comprises the image.
 -- * 'responseStatus' - The response status code.
 mkGetConsoleScreenshotResponse ::
   -- | 'responseStatus'

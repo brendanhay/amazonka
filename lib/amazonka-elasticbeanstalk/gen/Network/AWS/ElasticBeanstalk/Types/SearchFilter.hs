@@ -34,25 +34,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSearchFilter' smart constructor.
 data SearchFilter = SearchFilter'
-  { attribute ::
-      Lude.Maybe Lude.Text,
+  { -- | The result attribute to which the filter values are applied. Valid values vary by API action.
+    attribute :: Lude.Maybe Lude.Text,
+    -- | The list of values applied to the @Attribute@ and @Operator@ attributes. Number of values and valid values vary by @Attribute@ .
     values :: Lude.Maybe [Lude.Text],
+    -- | The operator to apply to the @Attribute@ with each of the @Values@ . Valid values vary by @Attribute@ .
     operator :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchFilter' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The result attribute to which the filter values are applied. Valid values vary by API action.
--- * 'operator' - The operator to apply to the @Attribute@ with each of the @Values@ . Valid values vary by @Attribute@ .
 -- * 'values' - The list of values applied to the @Attribute@ and @Operator@ attributes. Number of values and valid values vary by @Attribute@ .
+-- * 'operator' - The operator to apply to the @Attribute@ with each of the @Values@ . Valid values vary by @Attribute@ .
 mkSearchFilter ::
   SearchFilter
 mkSearchFilter =

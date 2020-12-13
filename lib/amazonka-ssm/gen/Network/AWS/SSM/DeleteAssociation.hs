@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.SSM.DeleteAssociation
     mkDeleteAssociation,
 
     -- ** Request lenses
-    daaAssociationId,
-    daaInstanceId,
-    daaName,
+    dafAssociationId,
+    dafInstanceId,
+    dafName,
 
     -- * Destructuring the response
     DeleteAssociationResponse (..),
     mkDeleteAssociationResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
+    dagrsResponseStatus,
   )
 where
 
@@ -42,18 +43,14 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDeleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-  { associationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The association ID that you want to delete.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the instance.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | The name of the Systems Manager document.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAssociation' with the minimum fields required to make a request.
@@ -73,23 +70,23 @@ mkDeleteAssociation =
 -- | The association ID that you want to delete.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaAssociationId :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
-daaAssociationId = Lens.lens (associationId :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: DeleteAssociation)
-{-# DEPRECATED daaAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+dafAssociationId :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
+dafAssociationId = Lens.lens (associationId :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: DeleteAssociation)
+{-# DEPRECATED dafAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaInstanceId :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
-daaInstanceId = Lens.lens (instanceId :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DeleteAssociation)
-{-# DEPRECATED daaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+dafInstanceId :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
+dafInstanceId = Lens.lens (instanceId :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: DeleteAssociation)
+{-# DEPRECATED dafInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the Systems Manager document.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaName :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
-daaName = Lens.lens (name :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteAssociation)
-{-# DEPRECATED daaName "Use generic-lens or generic-optics with 'name' instead." #-}
+dafName :: Lens.Lens' DeleteAssociation (Lude.Maybe Lude.Text)
+dafName = Lens.lens (name :: DeleteAssociation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteAssociation)
+{-# DEPRECATED dafName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeleteAssociation where
   type Rs DeleteAssociation = DeleteAssociationResponse
@@ -129,16 +126,10 @@ instance Lude.ToQuery DeleteAssociation where
 
 -- | /See:/ 'mkDeleteAssociationResponse' smart constructor.
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAssociationResponse' with the minimum fields required to make a request.
@@ -154,6 +145,6 @@ mkDeleteAssociationResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteAssociationResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAssociationResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dagrsResponseStatus :: Lens.Lens' DeleteAssociationResponse Lude.Int
+dagrsResponseStatus = Lens.lens (responseStatus :: DeleteAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAssociationResponse)
+{-# DEPRECATED dagrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

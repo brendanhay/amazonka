@@ -33,27 +33,25 @@ import Network.AWS.Snowball.Types.JobState
 --
 -- /See:/ 'mkNotification' smart constructor.
 data Notification = Notification'
-  { notifyAll ::
-      Lude.Maybe Lude.Bool,
+  { -- | Any change in job state will trigger a notification for this job.
+    notifyAll :: Lude.Maybe Lude.Bool,
+    -- | The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action.
+    --
+    -- You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
     snsTopicARN :: Lude.Maybe Lude.Text,
+    -- | The list of job states that will trigger a notification for this job.
     jobStatesToNotify :: Lude.Maybe [JobState]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Notification' with the minimum fields required to make a request.
 --
--- * 'jobStatesToNotify' - The list of job states that will trigger a notification for this job.
 -- * 'notifyAll' - Any change in job state will trigger a notification for this job.
 -- * 'snsTopicARN' - The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action.
 --
 -- You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
+-- * 'jobStatesToNotify' - The list of job states that will trigger a notification for this job.
 mkNotification ::
   Notification
 mkNotification =

@@ -17,24 +17,24 @@ module Network.AWS.Inspector.Types.Finding
     mkFinding,
 
     -- * Lenses
+    fArn,
+    fCreatedAt,
     fService,
     fSeverity,
     fSchemaVersion,
+    fUserAttributes,
     fConfidence,
     fAssetAttributes,
+    fAttributes,
     fServiceAttributes,
     fId,
     fNumericSeverity,
+    fUpdatedAt,
     fAssetType,
     fTitle,
     fIndicatorOfCompromise,
     fDescription,
     fRecommendation,
-    fArn,
-    fAttributes,
-    fUserAttributes,
-    fCreatedAt,
-    fUpdatedAt,
   )
 where
 
@@ -50,54 +50,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFinding' smart constructor.
 data Finding = Finding'
-  { service :: Lude.Maybe Lude.Text,
-    severity :: Lude.Maybe Severity,
-    schemaVersion :: Lude.Maybe Lude.Natural,
-    confidence :: Lude.Maybe Lude.Natural,
-    assetAttributes :: Lude.Maybe AssetAttributes,
-    serviceAttributes :: Lude.Maybe InspectorServiceAttributes,
-    id :: Lude.Maybe Lude.Text,
-    numericSeverity :: Lude.Maybe Lude.Double,
-    assetType :: Lude.Maybe AssetType,
-    title :: Lude.Maybe Lude.Text,
-    indicatorOfCompromise :: Lude.Maybe Lude.Bool,
-    description :: Lude.Maybe Lude.Text,
-    recommendation :: Lude.Maybe Lude.Text,
+  { -- | The ARN that specifies the finding.
     arn :: Lude.Text,
-    attributes :: [Attribute],
-    userAttributes :: [Attribute],
+    -- | The time when the finding was generated.
     createdAt :: Lude.Timestamp,
-    updatedAt :: Lude.Timestamp
+    -- | The data element is set to "Inspector".
+    service :: Lude.Maybe Lude.Text,
+    -- | The finding severity. Values can be set to High, Medium, Low, and Informational.
+    severity :: Lude.Maybe Severity,
+    -- | The schema version of this data type.
+    schemaVersion :: Lude.Maybe Lude.Natural,
+    -- | The user-defined attributes that are assigned to the finding.
+    userAttributes :: [Attribute],
+    -- | This data element is currently not used.
+    confidence :: Lude.Maybe Lude.Natural,
+    -- | A collection of attributes of the host from which the finding is generated.
+    assetAttributes :: Lude.Maybe AssetAttributes,
+    -- | The system-defined attributes for the finding.
+    attributes :: [Attribute],
+    -- | This data type is used in the 'Finding' data type.
+    serviceAttributes :: Lude.Maybe InspectorServiceAttributes,
+    -- | The ID of the finding.
+    id :: Lude.Maybe Lude.Text,
+    -- | The numeric value of the finding severity.
+    numericSeverity :: Lude.Maybe Lude.Double,
+    -- | The time when 'AddAttributesToFindings' is called.
+    updatedAt :: Lude.Timestamp,
+    -- | The type of the host from which the finding is generated.
+    assetType :: Lude.Maybe AssetType,
+    -- | The name of the finding.
+    title :: Lude.Maybe Lude.Text,
+    -- | This data element is currently not used.
+    indicatorOfCompromise :: Lude.Maybe Lude.Bool,
+    -- | The description of the finding.
+    description :: Lude.Maybe Lude.Text,
+    -- | The recommendation for the finding.
+    recommendation :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Finding' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN that specifies the finding.
--- * 'assetAttributes' - A collection of attributes of the host from which the finding is generated.
--- * 'assetType' - The type of the host from which the finding is generated.
--- * 'attributes' - The system-defined attributes for the finding.
--- * 'confidence' - This data element is currently not used.
 -- * 'createdAt' - The time when the finding was generated.
--- * 'description' - The description of the finding.
--- * 'id' - The ID of the finding.
--- * 'indicatorOfCompromise' - This data element is currently not used.
--- * 'numericSeverity' - The numeric value of the finding severity.
--- * 'recommendation' - The recommendation for the finding.
--- * 'schemaVersion' - The schema version of this data type.
 -- * 'service' - The data element is set to "Inspector".
--- * 'serviceAttributes' - This data type is used in the 'Finding' data type.
 -- * 'severity' - The finding severity. Values can be set to High, Medium, Low, and Informational.
--- * 'title' - The name of the finding.
--- * 'updatedAt' - The time when 'AddAttributesToFindings' is called.
+-- * 'schemaVersion' - The schema version of this data type.
 -- * 'userAttributes' - The user-defined attributes that are assigned to the finding.
+-- * 'confidence' - This data element is currently not used.
+-- * 'assetAttributes' - A collection of attributes of the host from which the finding is generated.
+-- * 'attributes' - The system-defined attributes for the finding.
+-- * 'serviceAttributes' - This data type is used in the 'Finding' data type.
+-- * 'id' - The ID of the finding.
+-- * 'numericSeverity' - The numeric value of the finding severity.
+-- * 'updatedAt' - The time when 'AddAttributesToFindings' is called.
+-- * 'assetType' - The type of the host from which the finding is generated.
+-- * 'title' - The name of the finding.
+-- * 'indicatorOfCompromise' - This data element is currently not used.
+-- * 'description' - The description of the finding.
+-- * 'recommendation' - The recommendation for the finding.
 mkFinding ::
   -- | 'arn'
   Lude.Text ->
@@ -108,25 +120,39 @@ mkFinding ::
   Finding
 mkFinding pArn_ pCreatedAt_ pUpdatedAt_ =
   Finding'
-    { service = Lude.Nothing,
+    { arn = pArn_,
+      createdAt = pCreatedAt_,
+      service = Lude.Nothing,
       severity = Lude.Nothing,
       schemaVersion = Lude.Nothing,
+      userAttributes = Lude.mempty,
       confidence = Lude.Nothing,
       assetAttributes = Lude.Nothing,
+      attributes = Lude.mempty,
       serviceAttributes = Lude.Nothing,
       id = Lude.Nothing,
       numericSeverity = Lude.Nothing,
+      updatedAt = pUpdatedAt_,
       assetType = Lude.Nothing,
       title = Lude.Nothing,
       indicatorOfCompromise = Lude.Nothing,
       description = Lude.Nothing,
-      recommendation = Lude.Nothing,
-      arn = pArn_,
-      attributes = Lude.mempty,
-      userAttributes = Lude.mempty,
-      createdAt = pCreatedAt_,
-      updatedAt = pUpdatedAt_
+      recommendation = Lude.Nothing
     }
+
+-- | The ARN that specifies the finding.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fArn :: Lens.Lens' Finding Lude.Text
+fArn = Lens.lens (arn :: Finding -> Lude.Text) (\s a -> s {arn = a} :: Finding)
+{-# DEPRECATED fArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The time when the finding was generated.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fCreatedAt :: Lens.Lens' Finding Lude.Timestamp
+fCreatedAt = Lens.lens (createdAt :: Finding -> Lude.Timestamp) (\s a -> s {createdAt = a} :: Finding)
+{-# DEPRECATED fCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The data element is set to "Inspector".
 --
@@ -149,6 +175,13 @@ fSchemaVersion :: Lens.Lens' Finding (Lude.Maybe Lude.Natural)
 fSchemaVersion = Lens.lens (schemaVersion :: Finding -> Lude.Maybe Lude.Natural) (\s a -> s {schemaVersion = a} :: Finding)
 {-# DEPRECATED fSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
+-- | The user-defined attributes that are assigned to the finding.
+--
+-- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fUserAttributes :: Lens.Lens' Finding [Attribute]
+fUserAttributes = Lens.lens (userAttributes :: Finding -> [Attribute]) (\s a -> s {userAttributes = a} :: Finding)
+{-# DEPRECATED fUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
+
 -- | This data element is currently not used.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -162,6 +195,13 @@ fConfidence = Lens.lens (confidence :: Finding -> Lude.Maybe Lude.Natural) (\s a
 fAssetAttributes :: Lens.Lens' Finding (Lude.Maybe AssetAttributes)
 fAssetAttributes = Lens.lens (assetAttributes :: Finding -> Lude.Maybe AssetAttributes) (\s a -> s {assetAttributes = a} :: Finding)
 {-# DEPRECATED fAssetAttributes "Use generic-lens or generic-optics with 'assetAttributes' instead." #-}
+
+-- | The system-defined attributes for the finding.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fAttributes :: Lens.Lens' Finding [Attribute]
+fAttributes = Lens.lens (attributes :: Finding -> [Attribute]) (\s a -> s {attributes = a} :: Finding)
+{-# DEPRECATED fAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | This data type is used in the 'Finding' data type.
 --
@@ -183,6 +223,13 @@ fId = Lens.lens (id :: Finding -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: F
 fNumericSeverity :: Lens.Lens' Finding (Lude.Maybe Lude.Double)
 fNumericSeverity = Lens.lens (numericSeverity :: Finding -> Lude.Maybe Lude.Double) (\s a -> s {numericSeverity = a} :: Finding)
 {-# DEPRECATED fNumericSeverity "Use generic-lens or generic-optics with 'numericSeverity' instead." #-}
+
+-- | The time when 'AddAttributesToFindings' is called.
+--
+-- /Note:/ Consider using 'updatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fUpdatedAt :: Lens.Lens' Finding Lude.Timestamp
+fUpdatedAt = Lens.lens (updatedAt :: Finding -> Lude.Timestamp) (\s a -> s {updatedAt = a} :: Finding)
+{-# DEPRECATED fUpdatedAt "Use generic-lens or generic-optics with 'updatedAt' instead." #-}
 
 -- | The type of the host from which the finding is generated.
 --
@@ -219,63 +266,28 @@ fRecommendation :: Lens.Lens' Finding (Lude.Maybe Lude.Text)
 fRecommendation = Lens.lens (recommendation :: Finding -> Lude.Maybe Lude.Text) (\s a -> s {recommendation = a} :: Finding)
 {-# DEPRECATED fRecommendation "Use generic-lens or generic-optics with 'recommendation' instead." #-}
 
--- | The ARN that specifies the finding.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fArn :: Lens.Lens' Finding Lude.Text
-fArn = Lens.lens (arn :: Finding -> Lude.Text) (\s a -> s {arn = a} :: Finding)
-{-# DEPRECATED fArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The system-defined attributes for the finding.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fAttributes :: Lens.Lens' Finding [Attribute]
-fAttributes = Lens.lens (attributes :: Finding -> [Attribute]) (\s a -> s {attributes = a} :: Finding)
-{-# DEPRECATED fAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The user-defined attributes that are assigned to the finding.
---
--- /Note:/ Consider using 'userAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fUserAttributes :: Lens.Lens' Finding [Attribute]
-fUserAttributes = Lens.lens (userAttributes :: Finding -> [Attribute]) (\s a -> s {userAttributes = a} :: Finding)
-{-# DEPRECATED fUserAttributes "Use generic-lens or generic-optics with 'userAttributes' instead." #-}
-
--- | The time when the finding was generated.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fCreatedAt :: Lens.Lens' Finding Lude.Timestamp
-fCreatedAt = Lens.lens (createdAt :: Finding -> Lude.Timestamp) (\s a -> s {createdAt = a} :: Finding)
-{-# DEPRECATED fCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The time when 'AddAttributesToFindings' is called.
---
--- /Note:/ Consider using 'updatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fUpdatedAt :: Lens.Lens' Finding Lude.Timestamp
-fUpdatedAt = Lens.lens (updatedAt :: Finding -> Lude.Timestamp) (\s a -> s {updatedAt = a} :: Finding)
-{-# DEPRECATED fUpdatedAt "Use generic-lens or generic-optics with 'updatedAt' instead." #-}
-
 instance Lude.FromJSON Finding where
   parseJSON =
     Lude.withObject
       "Finding"
       ( \x ->
           Finding'
-            Lude.<$> (x Lude..:? "service")
+            Lude.<$> (x Lude..: "arn")
+            Lude.<*> (x Lude..: "createdAt")
+            Lude.<*> (x Lude..:? "service")
             Lude.<*> (x Lude..:? "severity")
             Lude.<*> (x Lude..:? "schemaVersion")
+            Lude.<*> (x Lude..:? "userAttributes" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "confidence")
             Lude.<*> (x Lude..:? "assetAttributes")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "serviceAttributes")
             Lude.<*> (x Lude..:? "id")
             Lude.<*> (x Lude..:? "numericSeverity")
+            Lude.<*> (x Lude..: "updatedAt")
             Lude.<*> (x Lude..:? "assetType")
             Lude.<*> (x Lude..:? "title")
             Lude.<*> (x Lude..:? "indicatorOfCompromise")
             Lude.<*> (x Lude..:? "description")
             Lude.<*> (x Lude..:? "recommendation")
-            Lude.<*> (x Lude..: "arn")
-            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "userAttributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "createdAt")
-            Lude.<*> (x Lude..: "updatedAt")
       )

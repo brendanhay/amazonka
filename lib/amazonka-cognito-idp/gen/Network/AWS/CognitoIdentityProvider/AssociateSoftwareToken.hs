@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,8 +42,9 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateSoftwareToken' smart constructor.
 data AssociateSoftwareToken = AssociateSoftwareToken'
-  { accessToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The access token.
+    accessToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
     session :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -116,11 +118,11 @@ instance Lude.ToQuery AssociateSoftwareToken where
 
 -- | /See:/ 'mkAssociateSoftwareTokenResponse' smart constructor.
 data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
-  { secretCode ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    session ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.
+    secretCode :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
+    session :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -128,9 +130,9 @@ data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
 
 -- | Creates a value of 'AssociateSoftwareTokenResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'secretCode' - A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.
 -- * 'session' - The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
+-- * 'responseStatus' - The response status code.
 mkAssociateSoftwareTokenResponse ::
   -- | 'responseStatus'
   Lude.Int ->

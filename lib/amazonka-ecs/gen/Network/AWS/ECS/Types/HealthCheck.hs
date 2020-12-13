@@ -17,11 +17,11 @@ module Network.AWS.ECS.Types.HealthCheck
     mkHealthCheck,
 
     -- * Lenses
+    hcCommand,
     hcStartPeriod,
     hcRetries,
     hcInterval,
     hcTimeout,
-    hcCommand,
   )
 where
 
@@ -68,19 +68,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHealthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-  { startPeriod :: Lude.Maybe Lude.Int,
+  { -- | A string array representing the command that the container runs to determine if it is healthy. The string array must start with @CMD@ to execute the command arguments directly, or @CMD-SHELL@ to run the command with the container's default shell. For example:
+    --
+    -- @[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]@
+    -- An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see @HealthCheck@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> .
+    command :: [Lude.Text],
+    -- | The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
+    startPeriod :: Lude.Maybe Lude.Int,
+    -- | The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
     retries :: Lude.Maybe Lude.Int,
+    -- | The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
     interval :: Lude.Maybe Lude.Int,
-    timeout :: Lude.Maybe Lude.Int,
-    command :: [Lude.Text]
+    -- | The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
+    timeout :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
@@ -89,20 +91,30 @@ data HealthCheck = HealthCheck'
 --
 -- @[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]@
 -- An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see @HealthCheck@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> .
--- * 'interval' - The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
--- * 'retries' - The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
 -- * 'startPeriod' - The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
+-- * 'retries' - The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+-- * 'interval' - The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 -- * 'timeout' - The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5.
 mkHealthCheck ::
   HealthCheck
 mkHealthCheck =
   HealthCheck'
-    { startPeriod = Lude.Nothing,
+    { command = Lude.mempty,
+      startPeriod = Lude.Nothing,
       retries = Lude.Nothing,
       interval = Lude.Nothing,
-      timeout = Lude.Nothing,
-      command = Lude.mempty
+      timeout = Lude.Nothing
     }
+
+-- | A string array representing the command that the container runs to determine if it is healthy. The string array must start with @CMD@ to execute the command arguments directly, or @CMD-SHELL@ to run the command with the container's default shell. For example:
+--
+-- @[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]@
+-- An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see @HealthCheck@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> .
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcCommand :: Lens.Lens' HealthCheck [Lude.Text]
+hcCommand = Lens.lens (command :: HealthCheck -> [Lude.Text]) (\s a -> s {command = a} :: HealthCheck)
+{-# DEPRECATED hcCommand "Use generic-lens or generic-optics with 'command' instead." #-}
 
 -- | The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The @startPeriod@ is disabled by default.
 --
@@ -132,37 +144,27 @@ hcTimeout :: Lens.Lens' HealthCheck (Lude.Maybe Lude.Int)
 hcTimeout = Lens.lens (timeout :: HealthCheck -> Lude.Maybe Lude.Int) (\s a -> s {timeout = a} :: HealthCheck)
 {-# DEPRECATED hcTimeout "Use generic-lens or generic-optics with 'timeout' instead." #-}
 
--- | A string array representing the command that the container runs to determine if it is healthy. The string array must start with @CMD@ to execute the command arguments directly, or @CMD-SHELL@ to run the command with the container's default shell. For example:
---
--- @[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]@
--- An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see @HealthCheck@ in the <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container> section of the <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> .
---
--- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcCommand :: Lens.Lens' HealthCheck [Lude.Text]
-hcCommand = Lens.lens (command :: HealthCheck -> [Lude.Text]) (\s a -> s {command = a} :: HealthCheck)
-{-# DEPRECATED hcCommand "Use generic-lens or generic-optics with 'command' instead." #-}
-
 instance Lude.FromJSON HealthCheck where
   parseJSON =
     Lude.withObject
       "HealthCheck"
       ( \x ->
           HealthCheck'
-            Lude.<$> (x Lude..:? "startPeriod")
+            Lude.<$> (x Lude..:? "command" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "startPeriod")
             Lude.<*> (x Lude..:? "retries")
             Lude.<*> (x Lude..:? "interval")
             Lude.<*> (x Lude..:? "timeout")
-            Lude.<*> (x Lude..:? "command" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON HealthCheck where
   toJSON HealthCheck' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("startPeriod" Lude..=) Lude.<$> startPeriod,
+          [ Lude.Just ("command" Lude..= command),
+            ("startPeriod" Lude..=) Lude.<$> startPeriod,
             ("retries" Lude..=) Lude.<$> retries,
             ("interval" Lude..=) Lude.<$> interval,
-            ("timeout" Lude..=) Lude.<$> timeout,
-            Lude.Just ("command" Lude..= command)
+            ("timeout" Lude..=) Lude.<$> timeout
           ]
       )

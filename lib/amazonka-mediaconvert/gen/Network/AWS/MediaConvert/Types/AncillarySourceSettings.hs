@@ -32,27 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAncillarySourceSettings' smart constructor.
 data AncillarySourceSettings = AncillarySourceSettings'
-  { convert608To708 ::
-      Lude.Maybe AncillaryConvert608To708,
-    terminateCaptions ::
-      Lude.Maybe AncillaryTerminateCaptions,
-    sourceAncillaryChannelNumber ::
-      Lude.Maybe Lude.Natural
+  { -- | Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
+    convert608To708 :: Lude.Maybe AncillaryConvert608To708,
+    -- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
+    terminateCaptions :: Lude.Maybe AncillaryTerminateCaptions,
+    -- | Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
+    sourceAncillaryChannelNumber :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AncillarySourceSettings' with the minimum fields required to make a request.
 --
 -- * 'convert608To708' - Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
--- * 'sourceAncillaryChannelNumber' - Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
 -- * 'terminateCaptions' - By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
+-- * 'sourceAncillaryChannelNumber' - Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
 mkAncillarySourceSettings ::
   AncillarySourceSettings
 mkAncillarySourceSettings =

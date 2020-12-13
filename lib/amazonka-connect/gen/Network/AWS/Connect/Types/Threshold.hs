@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThreshold' smart constructor.
 data Threshold = Threshold'
-  { thresholdValue ::
-      Lude.Maybe Lude.Double,
+  { -- | The threshold value to compare.
+    thresholdValue :: Lude.Maybe Lude.Double,
+    -- | The type of comparison. Only "less than" (LT) comparisons are supported.
     comparison :: Lude.Maybe Comparison
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Threshold' with the minimum fields required to make a request.
 --
--- * 'comparison' - The type of comparison. Only "less than" (LT) comparisons are supported.
 -- * 'thresholdValue' - The threshold value to compare.
+-- * 'comparison' - The type of comparison. Only "less than" (LT) comparisons are supported.
 mkThreshold ::
   Threshold
 mkThreshold =

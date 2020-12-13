@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.ExportTaskState
   ( ExportTaskState
       ( ExportTaskState',
         ETSActive,
-        ETSCancelled,
         ETSCancelling,
+        ETSCancelled,
         ETSCompleted
       ),
   )
@@ -50,19 +50,19 @@ newtype ExportTaskState = ExportTaskState' Lude.Text
 pattern ETSActive :: ExportTaskState
 pattern ETSActive = ExportTaskState' "active"
 
-pattern ETSCancelled :: ExportTaskState
-pattern ETSCancelled = ExportTaskState' "cancelled"
-
 pattern ETSCancelling :: ExportTaskState
 pattern ETSCancelling = ExportTaskState' "cancelling"
+
+pattern ETSCancelled :: ExportTaskState
+pattern ETSCancelled = ExportTaskState' "cancelled"
 
 pattern ETSCompleted :: ExportTaskState
 pattern ETSCompleted = ExportTaskState' "completed"
 
 {-# COMPLETE
   ETSActive,
-  ETSCancelled,
   ETSCancelling,
+  ETSCancelled,
   ETSCompleted,
   ExportTaskState'
   #-}

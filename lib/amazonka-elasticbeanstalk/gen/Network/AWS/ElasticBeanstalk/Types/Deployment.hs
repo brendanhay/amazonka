@@ -31,27 +31,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { deploymentId ::
-      Lude.Maybe Lude.Integer,
+  { -- | The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
+    deploymentId :: Lude.Maybe Lude.Integer,
+    -- | The status of the deployment:
+    --
+    --
+    --     * @In Progress@ : The deployment is in progress.
+    --
+    --
+    --     * @Deployed@ : The deployment succeeded.
+    --
+    --
+    --     * @Failed@ : The deployment failed.
     status :: Lude.Maybe Lude.Text,
+    -- | For in-progress deployments, the time that the deployment started.
+    --
+    -- For completed deployments, the time that the deployment ended.
     deploymentTime :: Lude.Maybe Lude.DateTime,
+    -- | The version label of the application version in the deployment.
     versionLabel :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
 -- * 'deploymentId' - The ID of the deployment. This number increases by one each time that you deploy source code or change instance configuration settings.
--- * 'deploymentTime' - For in-progress deployments, the time that the deployment started.
---
--- For completed deployments, the time that the deployment ended.
 -- * 'status' - The status of the deployment:
 --
 --
@@ -64,6 +69,9 @@ data Deployment = Deployment'
 --     * @Failed@ : The deployment failed.
 --
 --
+-- * 'deploymentTime' - For in-progress deployments, the time that the deployment started.
+--
+-- For completed deployments, the time that the deployment ended.
 -- * 'versionLabel' - The version label of the application version in the deployment.
 mkDeployment ::
   Deployment

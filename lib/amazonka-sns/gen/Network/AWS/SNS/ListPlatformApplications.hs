@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,16 +48,10 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkListPlatformApplications' smart constructor.
 newtype ListPlatformApplications = ListPlatformApplications'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | NextToken string is used when calling ListPlatformApplications action to retrieve additional records that are available after the first page results.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPlatformApplications' with the minimum fields required to make a request.
@@ -116,27 +111,20 @@ instance Lude.ToQuery ListPlatformApplications where
 --
 -- /See:/ 'mkListPlatformApplicationsResponse' smart constructor.
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
-  { platformApplications ::
-      Lude.Maybe
-        [PlatformApplication],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Platform applications returned when calling ListPlatformApplications action.
+    platformApplications :: Lude.Maybe [PlatformApplication],
+    -- | NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPlatformApplicationsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.
 -- * 'platformApplications' - Platform applications returned when calling ListPlatformApplications action.
+-- * 'nextToken' - NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.
 -- * 'responseStatus' - The response status code.
 mkListPlatformApplicationsResponse ::
   -- | 'responseStatus'

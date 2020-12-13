@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.SSM.GetParametersByPath
     -- ** Request lenses
     gpbpWithDecryption,
     gpbpParameterFilters,
+    gpbpPath,
     gpbpNextToken,
     gpbpRecursive,
     gpbpMaxResults,
-    gpbpPath,
 
     -- * Destructuring the response
     GetParametersByPathResponse (..),
@@ -48,34 +49,34 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetParametersByPath' smart constructor.
 data GetParametersByPath = GetParametersByPath'
-  { withDecryption ::
-      Lude.Maybe Lude.Bool,
-    parameterFilters ::
-      Lude.Maybe [ParameterStringFilter],
+  { -- | Retrieve all parameters in a hierarchy with their value decrypted.
+    withDecryption :: Lude.Maybe Lude.Bool,
+    -- | Filters to limit the request results.
+    parameterFilters :: Lude.Maybe [ParameterStringFilter],
+    -- | The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
+    path :: Lude.Text,
+    -- | A token to start the list. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Retrieve all parameters within a hierarchy.
+    --
+    -- /Important:/ If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path @/a@ , then the user can also access @/a/b@ . Even if a user has explicitly been denied access in IAM for parameter @/a/b@ , they can still call the GetParametersByPath API action recursively for @/a@ and view @/a/b@ .
     recursive :: Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Natural,
-    path :: Lude.Text
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParametersByPath' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'withDecryption' - Retrieve all parameters in a hierarchy with their value decrypted.
 -- * 'parameterFilters' - Filters to limit the request results.
 -- * 'path' - The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
+-- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
 -- * 'recursive' - Retrieve all parameters within a hierarchy.
 --
 -- /Important:/ If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path @/a@ , then the user can also access @/a/b@ . Even if a user has explicitly been denied access in IAM for parameter @/a/b@ , they can still call the GetParametersByPath API action recursively for @/a@ and view @/a/b@ .
--- * 'withDecryption' - Retrieve all parameters in a hierarchy with their value decrypted.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkGetParametersByPath ::
   -- | 'path'
   Lude.Text ->
@@ -84,10 +85,10 @@ mkGetParametersByPath pPath_ =
   GetParametersByPath'
     { withDecryption = Lude.Nothing,
       parameterFilters = Lude.Nothing,
+      path = pPath_,
       nextToken = Lude.Nothing,
       recursive = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      path = pPath_
+      maxResults = Lude.Nothing
     }
 
 -- | Retrieve all parameters in a hierarchy with their value decrypted.
@@ -103,6 +104,13 @@ gpbpWithDecryption = Lens.lens (withDecryption :: GetParametersByPath -> Lude.Ma
 gpbpParameterFilters :: Lens.Lens' GetParametersByPath (Lude.Maybe [ParameterStringFilter])
 gpbpParameterFilters = Lens.lens (parameterFilters :: GetParametersByPath -> Lude.Maybe [ParameterStringFilter]) (\s a -> s {parameterFilters = a} :: GetParametersByPath)
 {-# DEPRECATED gpbpParameterFilters "Use generic-lens or generic-optics with 'parameterFilters' instead." #-}
+
+-- | The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpbpPath :: Lens.Lens' GetParametersByPath Lude.Text
+gpbpPath = Lens.lens (path :: GetParametersByPath -> Lude.Text) (\s a -> s {path = a} :: GetParametersByPath)
+{-# DEPRECATED gpbpPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | A token to start the list. Use this token to get the next set of results.
 --
@@ -126,13 +134,6 @@ gpbpRecursive = Lens.lens (recursive :: GetParametersByPath -> Lude.Maybe Lude.B
 gpbpMaxResults :: Lens.Lens' GetParametersByPath (Lude.Maybe Lude.Natural)
 gpbpMaxResults = Lens.lens (maxResults :: GetParametersByPath -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetParametersByPath)
 {-# DEPRECATED gpbpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: @/Finance/Prod/IAD/WinServ2016/license33@
---
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpbpPath :: Lens.Lens' GetParametersByPath Lude.Text
-gpbpPath = Lens.lens (path :: GetParametersByPath -> Lude.Text) (\s a -> s {path = a} :: GetParametersByPath)
-{-# DEPRECATED gpbpPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 instance Page.AWSPager GetParametersByPath where
   page rq rs
@@ -172,10 +173,10 @@ instance Lude.ToJSON GetParametersByPath where
       ( Lude.catMaybes
           [ ("WithDecryption" Lude..=) Lude.<$> withDecryption,
             ("ParameterFilters" Lude..=) Lude.<$> parameterFilters,
+            Lude.Just ("Path" Lude..= path),
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Recursive" Lude..=) Lude.<$> recursive,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("Path" Lude..= path)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -187,19 +188,14 @@ instance Lude.ToQuery GetParametersByPath where
 
 -- | /See:/ 'mkGetParametersByPathResponse' smart constructor.
 data GetParametersByPathResponse = GetParametersByPathResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    parameters ::
-      Lude.Maybe [Parameter],
+  { -- | The token for the next set of items to return. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of parameters found in the specified hierarchy.
+    parameters :: Lude.Maybe [Parameter],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParametersByPathResponse' with the minimum fields required to make a request.

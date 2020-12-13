@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,12 +31,12 @@ module Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
     -- ** Response lenses
     dsddsrsStackDriftStatus,
     dsddsrsDriftedStackResourceCount,
-    dsddsrsDetectionStatusReason,
-    dsddsrsResponseStatus,
-    dsddsrsStackId,
-    dsddsrsStackDriftDetectionId,
     dsddsrsDetectionStatus,
+    dsddsrsStackDriftDetectionId,
+    dsddsrsDetectionStatusReason,
+    dsddsrsStackId,
     dsddsrsTimestamp,
+    dsddsrsResponseStatus,
   )
 where
 
@@ -47,16 +48,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStackDriftDetectionStatus' smart constructor.
 newtype DescribeStackDriftDetectionStatus = DescribeStackDriftDetectionStatus'
-  { stackDriftDetectionId ::
-      Lude.Text
+  { -- | The ID of the drift detection results of this operation.
+    --
+    -- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of drift results AWS CloudFormation retains for any given stack, and for how long, may vary.
+    stackDriftDetectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackDriftDetectionStatus' with the minimum fields required to make a request.
@@ -95,12 +92,12 @@ instance Lude.AWSRequest DescribeStackDriftDetectionStatus where
           DescribeStackDriftDetectionStatusResponse'
             Lude.<$> (x Lude..@? "StackDriftStatus")
             Lude.<*> (x Lude..@? "DriftedStackResourceCount")
-            Lude.<*> (x Lude..@? "DetectionStatusReason")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "StackId")
-            Lude.<*> (x Lude..@ "StackDriftDetectionId")
             Lude.<*> (x Lude..@ "DetectionStatus")
+            Lude.<*> (x Lude..@ "StackDriftDetectionId")
+            Lude.<*> (x Lude..@? "DetectionStatusReason")
+            Lude.<*> (x Lude..@ "StackId")
             Lude.<*> (x Lude..@ "Timestamp")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeStackDriftDetectionStatus where
@@ -120,56 +117,52 @@ instance Lude.ToQuery DescribeStackDriftDetectionStatus where
 
 -- | /See:/ 'mkDescribeStackDriftDetectionStatusResponse' smart constructor.
 data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStatusResponse'
-  { stackDriftStatus ::
-      Lude.Maybe
-        StackDriftStatus,
-    driftedStackResourceCount ::
-      Lude.Maybe
-        Lude.Int,
-    detectionStatusReason ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    stackId ::
-      Lude.Text,
-    stackDriftDetectionId ::
-      Lude.Text,
-    detectionStatus ::
-      StackDriftDetectionStatus,
-    timestamp ::
-      Lude.DateTime
+  { -- | Status of the stack's actual configuration compared to its expected configuration.
+    --
+    --
+    --     * @DRIFTED@ : The stack differs from its expected template configuration. A stack is considered to have drifted if one or more of its resources have drifted.
+    --
+    --
+    --     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack differs from its expected template configuration.
+    --
+    --
+    --     * @IN_SYNC@ : The stack's actual configuration matches its expected template configuration.
+    --
+    --
+    --     * @UNKNOWN@ : This value is reserved for future use.
+    stackDriftStatus :: Lude.Maybe StackDriftStatus,
+    -- | Total number of stack resources that have drifted. This is NULL until the drift detection operation reaches a status of @DETECTION_COMPLETE@ . This value will be 0 for stacks whose drift status is @IN_SYNC@ .
+    driftedStackResourceCount :: Lude.Maybe Lude.Int,
+    -- | The status of the stack drift detection operation.
+    --
+    --
+    --     * @DETECTION_COMPLETE@ : The stack drift detection operation has successfully completed for all resources in the stack that support drift detection. (Resources that do not currently support stack detection remain unchecked.)
+    -- If you specified logical resource IDs for AWS CloudFormation to use as a filter for the stack drift detection operation, only the resources with those logical IDs are checked for drift.
+    --
+    --
+    --     * @DETECTION_FAILED@ : The stack drift detection operation has failed for at least one resource in the stack. Results will be available for resources on which AWS CloudFormation successfully completed drift detection.
+    --
+    --
+    --     * @DETECTION_IN_PROGRESS@ : The stack drift detection operation is currently in progress.
+    detectionStatus :: StackDriftDetectionStatus,
+    -- | The ID of the drift detection results of this operation.
+    --
+    -- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of reports AWS CloudFormation retains for any given stack, and for how long, may vary.
+    stackDriftDetectionId :: Lude.Text,
+    -- | The reason the stack drift detection operation has its current status.
+    detectionStatusReason :: Lude.Maybe Lude.Text,
+    -- | The ID of the stack.
+    stackId :: Lude.Text,
+    -- | Time at which the stack drift detection operation was initiated.
+    timestamp :: Lude.DateTime,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackDriftDetectionStatusResponse' with the minimum fields required to make a request.
 --
--- * 'detectionStatus' - The status of the stack drift detection operation.
---
---
---     * @DETECTION_COMPLETE@ : The stack drift detection operation has successfully completed for all resources in the stack that support drift detection. (Resources that do not currently support stack detection remain unchecked.)
--- If you specified logical resource IDs for AWS CloudFormation to use as a filter for the stack drift detection operation, only the resources with those logical IDs are checked for drift.
---
---
---     * @DETECTION_FAILED@ : The stack drift detection operation has failed for at least one resource in the stack. Results will be available for resources on which AWS CloudFormation successfully completed drift detection.
---
---
---     * @DETECTION_IN_PROGRESS@ : The stack drift detection operation is currently in progress.
---
---
--- * 'detectionStatusReason' - The reason the stack drift detection operation has its current status.
--- * 'driftedStackResourceCount' - Total number of stack resources that have drifted. This is NULL until the drift detection operation reaches a status of @DETECTION_COMPLETE@ . This value will be 0 for stacks whose drift status is @IN_SYNC@ .
--- * 'responseStatus' - The response status code.
--- * 'stackDriftDetectionId' - The ID of the drift detection results of this operation.
---
--- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of reports AWS CloudFormation retains for any given stack, and for how long, may vary.
 -- * 'stackDriftStatus' - Status of the stack's actual configuration compared to its expected configuration.
 --
 --
@@ -185,36 +178,55 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 --     * @UNKNOWN@ : This value is reserved for future use.
 --
 --
+-- * 'driftedStackResourceCount' - Total number of stack resources that have drifted. This is NULL until the drift detection operation reaches a status of @DETECTION_COMPLETE@ . This value will be 0 for stacks whose drift status is @IN_SYNC@ .
+-- * 'detectionStatus' - The status of the stack drift detection operation.
+--
+--
+--     * @DETECTION_COMPLETE@ : The stack drift detection operation has successfully completed for all resources in the stack that support drift detection. (Resources that do not currently support stack detection remain unchecked.)
+-- If you specified logical resource IDs for AWS CloudFormation to use as a filter for the stack drift detection operation, only the resources with those logical IDs are checked for drift.
+--
+--
+--     * @DETECTION_FAILED@ : The stack drift detection operation has failed for at least one resource in the stack. Results will be available for resources on which AWS CloudFormation successfully completed drift detection.
+--
+--
+--     * @DETECTION_IN_PROGRESS@ : The stack drift detection operation is currently in progress.
+--
+--
+-- * 'stackDriftDetectionId' - The ID of the drift detection results of this operation.
+--
+-- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of reports AWS CloudFormation retains for any given stack, and for how long, may vary.
+-- * 'detectionStatusReason' - The reason the stack drift detection operation has its current status.
 -- * 'stackId' - The ID of the stack.
 -- * 'timestamp' - Time at which the stack drift detection operation was initiated.
+-- * 'responseStatus' - The response status code.
 mkDescribeStackDriftDetectionStatusResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'stackId'
-  Lude.Text ->
-  -- | 'stackDriftDetectionId'
-  Lude.Text ->
   -- | 'detectionStatus'
   StackDriftDetectionStatus ->
+  -- | 'stackDriftDetectionId'
+  Lude.Text ->
+  -- | 'stackId'
+  Lude.Text ->
   -- | 'timestamp'
   Lude.DateTime ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStackDriftDetectionStatusResponse
 mkDescribeStackDriftDetectionStatusResponse
-  pResponseStatus_
-  pStackId_
-  pStackDriftDetectionId_
   pDetectionStatus_
-  pTimestamp_ =
+  pStackDriftDetectionId_
+  pStackId_
+  pTimestamp_
+  pResponseStatus_ =
     DescribeStackDriftDetectionStatusResponse'
       { stackDriftStatus =
           Lude.Nothing,
         driftedStackResourceCount = Lude.Nothing,
-        detectionStatusReason = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        stackId = pStackId_,
-        stackDriftDetectionId = pStackDriftDetectionId_,
         detectionStatus = pDetectionStatus_,
-        timestamp = pTimestamp_
+        stackDriftDetectionId = pStackDriftDetectionId_,
+        detectionStatusReason = Lude.Nothing,
+        stackId = pStackId_,
+        timestamp = pTimestamp_,
+        responseStatus = pResponseStatus_
       }
 
 -- | Status of the stack's actual configuration compared to its expected configuration.
@@ -245,36 +257,6 @@ dsddsrsDriftedStackResourceCount :: Lens.Lens' DescribeStackDriftDetectionStatus
 dsddsrsDriftedStackResourceCount = Lens.lens (driftedStackResourceCount :: DescribeStackDriftDetectionStatusResponse -> Lude.Maybe Lude.Int) (\s a -> s {driftedStackResourceCount = a} :: DescribeStackDriftDetectionStatusResponse)
 {-# DEPRECATED dsddsrsDriftedStackResourceCount "Use generic-lens or generic-optics with 'driftedStackResourceCount' instead." #-}
 
--- | The reason the stack drift detection operation has its current status.
---
--- /Note:/ Consider using 'detectionStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsddsrsDetectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Lude.Maybe Lude.Text)
-dsddsrsDetectionStatusReason = Lens.lens (detectionStatusReason :: DescribeStackDriftDetectionStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {detectionStatusReason = a} :: DescribeStackDriftDetectionStatusResponse)
-{-# DEPRECATED dsddsrsDetectionStatusReason "Use generic-lens or generic-optics with 'detectionStatusReason' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsddsrsResponseStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.Int
-dsddsrsResponseStatus = Lens.lens (responseStatus :: DescribeStackDriftDetectionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackDriftDetectionStatusResponse)
-{-# DEPRECATED dsddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The ID of the stack.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsddsrsStackId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.Text
-dsddsrsStackId = Lens.lens (stackId :: DescribeStackDriftDetectionStatusResponse -> Lude.Text) (\s a -> s {stackId = a} :: DescribeStackDriftDetectionStatusResponse)
-{-# DEPRECATED dsddsrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
-
--- | The ID of the drift detection results of this operation.
---
--- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of reports AWS CloudFormation retains for any given stack, and for how long, may vary.
---
--- /Note:/ Consider using 'stackDriftDetectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsddsrsStackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.Text
-dsddsrsStackDriftDetectionId = Lens.lens (stackDriftDetectionId :: DescribeStackDriftDetectionStatusResponse -> Lude.Text) (\s a -> s {stackDriftDetectionId = a} :: DescribeStackDriftDetectionStatusResponse)
-{-# DEPRECATED dsddsrsStackDriftDetectionId "Use generic-lens or generic-optics with 'stackDriftDetectionId' instead." #-}
-
 -- | The status of the stack drift detection operation.
 --
 --
@@ -294,9 +276,39 @@ dsddsrsDetectionStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse S
 dsddsrsDetectionStatus = Lens.lens (detectionStatus :: DescribeStackDriftDetectionStatusResponse -> StackDriftDetectionStatus) (\s a -> s {detectionStatus = a} :: DescribeStackDriftDetectionStatusResponse)
 {-# DEPRECATED dsddsrsDetectionStatus "Use generic-lens or generic-optics with 'detectionStatus' instead." #-}
 
+-- | The ID of the drift detection results of this operation.
+--
+-- AWS CloudFormation generates new results, with a new drift detection ID, each time this operation is run. However, the number of reports AWS CloudFormation retains for any given stack, and for how long, may vary.
+--
+-- /Note:/ Consider using 'stackDriftDetectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsddsrsStackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.Text
+dsddsrsStackDriftDetectionId = Lens.lens (stackDriftDetectionId :: DescribeStackDriftDetectionStatusResponse -> Lude.Text) (\s a -> s {stackDriftDetectionId = a} :: DescribeStackDriftDetectionStatusResponse)
+{-# DEPRECATED dsddsrsStackDriftDetectionId "Use generic-lens or generic-optics with 'stackDriftDetectionId' instead." #-}
+
+-- | The reason the stack drift detection operation has its current status.
+--
+-- /Note:/ Consider using 'detectionStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsddsrsDetectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Lude.Maybe Lude.Text)
+dsddsrsDetectionStatusReason = Lens.lens (detectionStatusReason :: DescribeStackDriftDetectionStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {detectionStatusReason = a} :: DescribeStackDriftDetectionStatusResponse)
+{-# DEPRECATED dsddsrsDetectionStatusReason "Use generic-lens or generic-optics with 'detectionStatusReason' instead." #-}
+
+-- | The ID of the stack.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsddsrsStackId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.Text
+dsddsrsStackId = Lens.lens (stackId :: DescribeStackDriftDetectionStatusResponse -> Lude.Text) (\s a -> s {stackId = a} :: DescribeStackDriftDetectionStatusResponse)
+{-# DEPRECATED dsddsrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+
 -- | Time at which the stack drift detection operation was initiated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsddsrsTimestamp :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.DateTime
 dsddsrsTimestamp = Lens.lens (timestamp :: DescribeStackDriftDetectionStatusResponse -> Lude.DateTime) (\s a -> s {timestamp = a} :: DescribeStackDriftDetectionStatusResponse)
 {-# DEPRECATED dsddsrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsddsrsResponseStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Lude.Int
+dsddsrsResponseStatus = Lens.lens (responseStatus :: DescribeStackDriftDetectionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackDriftDetectionStatusResponse)
+{-# DEPRECATED dsddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

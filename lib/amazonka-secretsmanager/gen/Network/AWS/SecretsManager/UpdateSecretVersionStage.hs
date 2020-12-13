@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,9 +34,9 @@ module Network.AWS.SecretsManager.UpdateSecretVersionStage
 
     -- ** Request lenses
     usvsRemoveFromVersionId,
-    usvsMoveToVersionId,
     usvsSecretId,
     usvsVersionStage,
+    usvsMoveToVersionId,
 
     -- * Destructuring the response
     UpdateSecretVersionStageResponse (..),
@@ -56,29 +57,28 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkUpdateSecretVersionStage' smart constructor.
 data UpdateSecretVersionStage = UpdateSecretVersionStage'
-  { removeFromVersionId ::
-      Lude.Maybe Lude.Text,
-    moveToVersionId :: Lude.Maybe Lude.Text,
+  { -- | Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label you are trying to attach to one version is already attached to a different version, then you must include this parameter and specify the version that the label is to be removed from. If the label is attached and you either do not specify this parameter, or the version ID does not match, then the operation fails.
+    removeFromVersionId :: Lude.Maybe Lude.Text,
+    -- | Specifies the secret with the version with the list of staging labels you want to modify. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
     secretId :: Lude.Text,
-    versionStage :: Lude.Text
+    -- | The staging label to add to this version.
+    versionStage :: Lude.Text,
+    -- | (Optional) The secret version ID that you want to add the staging label. If you want to remove a label from a version, then do not specify this parameter.
+    --
+    -- If the staging label is already attached to a different version of the secret, then you must also specify the @RemoveFromVersionId@ parameter.
+    moveToVersionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSecretVersionStage' with the minimum fields required to make a request.
 --
--- * 'moveToVersionId' - (Optional) The secret version ID that you want to add the staging label. If you want to remove a label from a version, then do not specify this parameter.
---
--- If the staging label is already attached to a different version of the secret, then you must also specify the @RemoveFromVersionId@ parameter.
 -- * 'removeFromVersionId' - Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label you are trying to attach to one version is already attached to a different version, then you must include this parameter and specify the version that the label is to be removed from. If the label is attached and you either do not specify this parameter, or the version ID does not match, then the operation fails.
 -- * 'secretId' - Specifies the secret with the version with the list of staging labels you want to modify. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 -- * 'versionStage' - The staging label to add to this version.
+-- * 'moveToVersionId' - (Optional) The secret version ID that you want to add the staging label. If you want to remove a label from a version, then do not specify this parameter.
+--
+-- If the staging label is already attached to a different version of the secret, then you must also specify the @RemoveFromVersionId@ parameter.
 mkUpdateSecretVersionStage ::
   -- | 'secretId'
   Lude.Text ->
@@ -88,9 +88,9 @@ mkUpdateSecretVersionStage ::
 mkUpdateSecretVersionStage pSecretId_ pVersionStage_ =
   UpdateSecretVersionStage'
     { removeFromVersionId = Lude.Nothing,
-      moveToVersionId = Lude.Nothing,
       secretId = pSecretId_,
-      versionStage = pVersionStage_
+      versionStage = pVersionStage_,
+      moveToVersionId = Lude.Nothing
     }
 
 -- | Specifies the secret version ID of the version that the staging label is to be removed from. If the staging label you are trying to attach to one version is already attached to a different version, then you must include this parameter and specify the version that the label is to be removed from. If the label is attached and you either do not specify this parameter, or the version ID does not match, then the operation fails.
@@ -99,15 +99,6 @@ mkUpdateSecretVersionStage pSecretId_ pVersionStage_ =
 usvsRemoveFromVersionId :: Lens.Lens' UpdateSecretVersionStage (Lude.Maybe Lude.Text)
 usvsRemoveFromVersionId = Lens.lens (removeFromVersionId :: UpdateSecretVersionStage -> Lude.Maybe Lude.Text) (\s a -> s {removeFromVersionId = a} :: UpdateSecretVersionStage)
 {-# DEPRECATED usvsRemoveFromVersionId "Use generic-lens or generic-optics with 'removeFromVersionId' instead." #-}
-
--- | (Optional) The secret version ID that you want to add the staging label. If you want to remove a label from a version, then do not specify this parameter.
---
--- If the staging label is already attached to a different version of the secret, then you must also specify the @RemoveFromVersionId@ parameter.
---
--- /Note:/ Consider using 'moveToVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usvsMoveToVersionId :: Lens.Lens' UpdateSecretVersionStage (Lude.Maybe Lude.Text)
-usvsMoveToVersionId = Lens.lens (moveToVersionId :: UpdateSecretVersionStage -> Lude.Maybe Lude.Text) (\s a -> s {moveToVersionId = a} :: UpdateSecretVersionStage)
-{-# DEPRECATED usvsMoveToVersionId "Use generic-lens or generic-optics with 'moveToVersionId' instead." #-}
 
 -- | Specifies the secret with the version with the list of staging labels you want to modify. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
@@ -122,6 +113,15 @@ usvsSecretId = Lens.lens (secretId :: UpdateSecretVersionStage -> Lude.Text) (\s
 usvsVersionStage :: Lens.Lens' UpdateSecretVersionStage Lude.Text
 usvsVersionStage = Lens.lens (versionStage :: UpdateSecretVersionStage -> Lude.Text) (\s a -> s {versionStage = a} :: UpdateSecretVersionStage)
 {-# DEPRECATED usvsVersionStage "Use generic-lens or generic-optics with 'versionStage' instead." #-}
+
+-- | (Optional) The secret version ID that you want to add the staging label. If you want to remove a label from a version, then do not specify this parameter.
+--
+-- If the staging label is already attached to a different version of the secret, then you must also specify the @RemoveFromVersionId@ parameter.
+--
+-- /Note:/ Consider using 'moveToVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usvsMoveToVersionId :: Lens.Lens' UpdateSecretVersionStage (Lude.Maybe Lude.Text)
+usvsMoveToVersionId = Lens.lens (moveToVersionId :: UpdateSecretVersionStage -> Lude.Maybe Lude.Text) (\s a -> s {moveToVersionId = a} :: UpdateSecretVersionStage)
+{-# DEPRECATED usvsMoveToVersionId "Use generic-lens or generic-optics with 'moveToVersionId' instead." #-}
 
 instance Lude.AWSRequest UpdateSecretVersionStage where
   type Rs UpdateSecretVersionStage = UpdateSecretVersionStageResponse
@@ -151,9 +151,9 @@ instance Lude.ToJSON UpdateSecretVersionStage where
     Lude.object
       ( Lude.catMaybes
           [ ("RemoveFromVersionId" Lude..=) Lude.<$> removeFromVersionId,
-            ("MoveToVersionId" Lude..=) Lude.<$> moveToVersionId,
             Lude.Just ("SecretId" Lude..= secretId),
-            Lude.Just ("VersionStage" Lude..= versionStage)
+            Lude.Just ("VersionStage" Lude..= versionStage),
+            ("MoveToVersionId" Lude..=) Lude.<$> moveToVersionId
           ]
       )
 
@@ -165,20 +165,14 @@ instance Lude.ToQuery UpdateSecretVersionStage where
 
 -- | /See:/ 'mkUpdateSecretVersionStageResponse' smart constructor.
 data UpdateSecretVersionStageResponse = UpdateSecretVersionStageResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
-    name ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the secret with the modified staging label.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret with the modified staging label.
+    name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSecretVersionStageResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,6 +43,7 @@ module Network.AWS.CodeBuild.StartBuild
     sbPrivilegedModeOverride,
     sbSourceVersion,
     sbBuildspecOverride,
+    sbProjectName,
     sbSecondarySourcesVersionOverride,
     sbReportBuildStatusOverride,
     sbInsecureSSLOverride,
@@ -49,15 +51,14 @@ module Network.AWS.CodeBuild.StartBuild
     sbSecondaryArtifactsOverride,
     sbArtifactsOverride,
     sbSourceTypeOverride,
-    sbProjectName,
 
     -- * Destructuring the response
     StartBuildResponse (..),
     mkStartBuildResponse,
 
     -- ** Response lenses
-    srsBuild,
-    srsResponseStatus,
+    sbrsBuild,
+    sbrsResponseStatus,
   )
 where
 
@@ -69,70 +70,130 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartBuild' smart constructor.
 data StartBuild = StartBuild'
-  { encryptionKeyOverride ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.
+    --
+    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
+    encryptionKeyOverride :: Lude.Maybe Lude.Text,
+    -- | A location that overrides, for this build, the source location for the one defined in the build project.
     sourceLocationOverride :: Lude.Maybe Lude.Text,
+    -- | A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
     environmentVariablesOverride :: Lude.Maybe [EnvironmentVariable],
+    -- | Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is @GITHUB@ , @GITHUB_ENTERPRISE@ , or @BITBUCKET@ .
     buildStatusConfigOverride :: Lude.Maybe BuildStatusConfig,
+    -- | A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild request. The token is included in the StartBuild request and is valid for 5 minutes. If you repeat the StartBuild request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
     idempotencyToken :: Lude.Maybe Lude.Text,
+    -- | Specifies if session debugging is enabled for this build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
     debugSessionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The credentials for access to a private registry.
     registryCredentialOverride :: Lude.Maybe RegistryCredential,
+    -- | The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
     timeoutInMinutesOverride :: Lude.Maybe Lude.Natural,
+    -- | The name of a service role for this build that overrides the one specified in the build project.
     serviceRoleOverride :: Lude.Maybe Lude.Text,
+    -- | A ProjectCache object specified for this build that overrides the one defined in the build project.
     cacheOverride :: Lude.Maybe ProjectCache,
+    -- | The number of minutes a build is allowed to be queued before it times out.
     queuedTimeoutInMinutesOverride :: Lude.Maybe Lude.Natural,
+    -- | An array of @ProjectSource@ objects.
     secondarySourcesOverride :: Lude.Maybe [ProjectSource],
+    -- | The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
     gitCloneDepthOverride :: Lude.Maybe Lude.Natural,
-    imagePullCredentialsTypeOverride ::
-      Lude.Maybe ImagePullCredentialsType,
+    -- | The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
+    --
+    --
+    --     * CODEBUILD
+    --
+    --     * Specifies that AWS CodeBuild uses its own credentials. This requires that you modify your ECR repository policy to trust AWS CodeBuild's service principal.
+    --
+    --
+    --     * SERVICE_ROLE
+    --
+    --     * Specifies that AWS CodeBuild uses your build project's service role.
+    --
+    --
+    -- When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
+    imagePullCredentialsTypeOverride :: Lude.Maybe ImagePullCredentialsType,
+    -- | Log settings for this build that override the log settings defined in the build project.
     logsConfigOverride :: Lude.Maybe LogsConfig,
+    -- | An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project's source is BitBucket or GitHub.
     sourceAuthOverride :: Lude.Maybe SourceAuth,
+    -- | Information about the Git submodules configuration for this build of an AWS CodeBuild build project.
     gitSubmodulesConfigOverride :: Lude.Maybe GitSubmodulesConfig,
+    -- | A container type for this build that overrides the one specified in the build project.
     environmentTypeOverride :: Lude.Maybe EnvironmentType,
+    -- | The name of a certificate for this build that overrides the one specified in the build project.
     certificateOverride :: Lude.Maybe Lude.Text,
+    -- | The name of a compute type for this build that overrides the one specified in the build project.
     computeTypeOverride :: Lude.Maybe ComputeType,
+    -- | Enable this flag to override privileged mode in the build project.
     privilegedModeOverride :: Lude.Maybe Lude.Bool,
+    -- | The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:
+    --
+    --
+    --     * AWS CodeCommit
+    --
+    --     * The commit ID, branch, or Git tag to use.
+    --
+    --
+    --     * GitHub
+    --
+    --     * The commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * Bitbucket
+    --
+    --     * The commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * Amazon Simple Storage Service (Amazon S3)
+    --
+    --     * The version ID of the object that represents the build input ZIP file to use.
+    --
+    --
+    -- If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
+    -- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
     sourceVersion :: Lude.Maybe Lude.Text,
+    -- | A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
+    --
+    -- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
     buildspecOverride :: Lude.Maybe Lude.Text,
-    secondarySourcesVersionOverride ::
-      Lude.Maybe [ProjectSourceVersion],
+    -- | The name of the AWS CodeBuild build project to start running a build.
+    projectName :: Lude.Text,
+    -- | An array of @ProjectSourceVersion@ objects that specify one or more versions of the project's secondary sources to be used for this build only.
+    secondarySourcesVersionOverride :: Lude.Maybe [ProjectSourceVersion],
+    -- | Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown.
     reportBuildStatusOverride :: Lude.Maybe Lude.Bool,
+    -- | Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
     insecureSSLOverride :: Lude.Maybe Lude.Bool,
+    -- | The name of an image for this build that overrides the one specified in the build project.
     imageOverride :: Lude.Maybe Lude.Text,
+    -- | An array of @ProjectArtifacts@ objects.
     secondaryArtifactsOverride :: Lude.Maybe [ProjectArtifacts],
+    -- | Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
     artifactsOverride :: Lude.Maybe ProjectArtifacts,
-    sourceTypeOverride :: Lude.Maybe SourceType,
-    projectName :: Lude.Text
+    -- | A source input type, for this build, that overrides the source input defined in the build project.
+    sourceTypeOverride :: Lude.Maybe SourceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBuild' with the minimum fields required to make a request.
 --
--- * 'artifactsOverride' - Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
--- * 'buildStatusConfigOverride' - Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is @GITHUB@ , @GITHUB_ENTERPRISE@ , or @BITBUCKET@ .
--- * 'buildspecOverride' - A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
---
--- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
--- * 'cacheOverride' - A ProjectCache object specified for this build that overrides the one defined in the build project.
--- * 'certificateOverride' - The name of a certificate for this build that overrides the one specified in the build project.
--- * 'computeTypeOverride' - The name of a compute type for this build that overrides the one specified in the build project.
--- * 'debugSessionEnabled' - Specifies if session debugging is enabled for this build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
 -- * 'encryptionKeyOverride' - The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.
 --
 -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
--- * 'environmentTypeOverride' - A container type for this build that overrides the one specified in the build project.
+-- * 'sourceLocationOverride' - A location that overrides, for this build, the source location for the one defined in the build project.
 -- * 'environmentVariablesOverride' - A set of environment variables that overrides, for this build only, the latest ones already defined in the build project.
--- * 'gitCloneDepthOverride' - The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
--- * 'gitSubmodulesConfigOverride' - Information about the Git submodules configuration for this build of an AWS CodeBuild build project.
+-- * 'buildStatusConfigOverride' - Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is @GITHUB@ , @GITHUB_ENTERPRISE@ , or @BITBUCKET@ .
 -- * 'idempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild request. The token is included in the StartBuild request and is valid for 5 minutes. If you repeat the StartBuild request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
--- * 'imageOverride' - The name of an image for this build that overrides the one specified in the build project.
+-- * 'debugSessionEnabled' - Specifies if session debugging is enabled for this build. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html Viewing a running build in Session Manager> .
+-- * 'registryCredentialOverride' - The credentials for access to a private registry.
+-- * 'timeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
+-- * 'serviceRoleOverride' - The name of a service role for this build that overrides the one specified in the build project.
+-- * 'cacheOverride' - A ProjectCache object specified for this build that overrides the one defined in the build project.
+-- * 'queuedTimeoutInMinutesOverride' - The number of minutes a build is allowed to be queued before it times out.
+-- * 'secondarySourcesOverride' - An array of @ProjectSource@ objects.
+-- * 'gitCloneDepthOverride' - The user-defined depth of history, with a minimum value of 0, that overrides, for this build only, any previous depth of history defined in the build project.
 -- * 'imagePullCredentialsTypeOverride' - The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid values:
 --
 --
@@ -147,20 +208,13 @@ data StartBuild = StartBuild'
 --
 --
 -- When using a cross-account or private registry image, you must use @SERVICE_ROLE@ credentials. When using an AWS CodeBuild curated image, you must use @CODEBUILD@ credentials.
--- * 'insecureSSLOverride' - Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
 -- * 'logsConfigOverride' - Log settings for this build that override the log settings defined in the build project.
--- * 'privilegedModeOverride' - Enable this flag to override privileged mode in the build project.
--- * 'projectName' - The name of the AWS CodeBuild build project to start running a build.
--- * 'queuedTimeoutInMinutesOverride' - The number of minutes a build is allowed to be queued before it times out.
--- * 'registryCredentialOverride' - The credentials for access to a private registry.
--- * 'reportBuildStatusOverride' - Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown.
--- * 'secondaryArtifactsOverride' - An array of @ProjectArtifacts@ objects.
--- * 'secondarySourcesOverride' - An array of @ProjectSource@ objects.
--- * 'secondarySourcesVersionOverride' - An array of @ProjectSourceVersion@ objects that specify one or more versions of the project's secondary sources to be used for this build only.
--- * 'serviceRoleOverride' - The name of a service role for this build that overrides the one specified in the build project.
 -- * 'sourceAuthOverride' - An authorization type for this build that overrides the one defined in the build project. This override applies only if the build project's source is BitBucket or GitHub.
--- * 'sourceLocationOverride' - A location that overrides, for this build, the source location for the one defined in the build project.
--- * 'sourceTypeOverride' - A source input type, for this build, that overrides the source input defined in the build project.
+-- * 'gitSubmodulesConfigOverride' - Information about the Git submodules configuration for this build of an AWS CodeBuild build project.
+-- * 'environmentTypeOverride' - A container type for this build that overrides the one specified in the build project.
+-- * 'certificateOverride' - The name of a certificate for this build that overrides the one specified in the build project.
+-- * 'computeTypeOverride' - The name of a compute type for this build that overrides the one specified in the build project.
+-- * 'privilegedModeOverride' - Enable this flag to override privileged mode in the build project.
 -- * 'sourceVersion' - The version of the build input to be built, for this build only. If not specified, the latest version is used. If specified, the contents depends on the source provider:
 --
 --
@@ -186,7 +240,17 @@ data StartBuild = StartBuild'
 --
 -- If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
 -- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
--- * 'timeoutInMinutesOverride' - The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this build only, the latest setting already defined in the build project.
+-- * 'buildspecOverride' - A buildspec file declaration that overrides, for this build only, the latest one already defined in the build project.
+--
+-- If this value is set, it can be either an inline buildspec definition, the path to an alternate buildspec file relative to the value of the built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3 bucket. The bucket must be in the same AWS Region as the build project. Specify the buildspec file using its ARN (for example, @arn:aws:s3:::my-codebuild-sample2/buildspec.yml@ ). If this value is not provided or is set to an empty string, the source code must contain a buildspec file in its root directory. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location> .
+-- * 'projectName' - The name of the AWS CodeBuild build project to start running a build.
+-- * 'secondarySourcesVersionOverride' - An array of @ProjectSourceVersion@ objects that specify one or more versions of the project's secondary sources to be used for this build only.
+-- * 'reportBuildStatusOverride' - Set to true to report to your source provider the status of a build's start and completion. If you use this option with a source provider other than GitHub, GitHub Enterprise, or Bitbucket, an invalidInputException is thrown.
+-- * 'insecureSSLOverride' - Enable this flag to override the insecure SSL setting that is specified in the build project. The insecure SSL setting determines whether to ignore SSL warnings while connecting to the project source code. This override applies only if the build's source is GitHub Enterprise.
+-- * 'imageOverride' - The name of an image for this build that overrides the one specified in the build project.
+-- * 'secondaryArtifactsOverride' - An array of @ProjectArtifacts@ objects.
+-- * 'artifactsOverride' - Build output artifact settings that override, for this build only, the latest ones already defined in the build project.
+-- * 'sourceTypeOverride' - A source input type, for this build, that overrides the source input defined in the build project.
 mkStartBuild ::
   -- | 'projectName'
   Lude.Text ->
@@ -216,14 +280,14 @@ mkStartBuild pProjectName_ =
       privilegedModeOverride = Lude.Nothing,
       sourceVersion = Lude.Nothing,
       buildspecOverride = Lude.Nothing,
+      projectName = pProjectName_,
       secondarySourcesVersionOverride = Lude.Nothing,
       reportBuildStatusOverride = Lude.Nothing,
       insecureSSLOverride = Lude.Nothing,
       imageOverride = Lude.Nothing,
       secondaryArtifactsOverride = Lude.Nothing,
       artifactsOverride = Lude.Nothing,
-      sourceTypeOverride = Lude.Nothing,
-      projectName = pProjectName_
+      sourceTypeOverride = Lude.Nothing
     }
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build project. The CMK key encrypts the build output artifacts.
@@ -428,6 +492,13 @@ sbBuildspecOverride :: Lens.Lens' StartBuild (Lude.Maybe Lude.Text)
 sbBuildspecOverride = Lens.lens (buildspecOverride :: StartBuild -> Lude.Maybe Lude.Text) (\s a -> s {buildspecOverride = a} :: StartBuild)
 {-# DEPRECATED sbBuildspecOverride "Use generic-lens or generic-optics with 'buildspecOverride' instead." #-}
 
+-- | The name of the AWS CodeBuild build project to start running a build.
+--
+-- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbProjectName :: Lens.Lens' StartBuild Lude.Text
+sbProjectName = Lens.lens (projectName :: StartBuild -> Lude.Text) (\s a -> s {projectName = a} :: StartBuild)
+{-# DEPRECATED sbProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
+
 -- | An array of @ProjectSourceVersion@ objects that specify one or more versions of the project's secondary sources to be used for this build only.
 --
 -- /Note:/ Consider using 'secondarySourcesVersionOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -476,13 +547,6 @@ sbArtifactsOverride = Lens.lens (artifactsOverride :: StartBuild -> Lude.Maybe P
 sbSourceTypeOverride :: Lens.Lens' StartBuild (Lude.Maybe SourceType)
 sbSourceTypeOverride = Lens.lens (sourceTypeOverride :: StartBuild -> Lude.Maybe SourceType) (\s a -> s {sourceTypeOverride = a} :: StartBuild)
 {-# DEPRECATED sbSourceTypeOverride "Use generic-lens or generic-optics with 'sourceTypeOverride' instead." #-}
-
--- | The name of the AWS CodeBuild build project to start running a build.
---
--- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbProjectName :: Lens.Lens' StartBuild Lude.Text
-sbProjectName = Lens.lens (projectName :: StartBuild -> Lude.Text) (\s a -> s {projectName = a} :: StartBuild)
-{-# DEPRECATED sbProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
 instance Lude.AWSRequest StartBuild where
   type Rs StartBuild = StartBuildResponse
@@ -541,6 +605,7 @@ instance Lude.ToJSON StartBuild where
             ("privilegedModeOverride" Lude..=) Lude.<$> privilegedModeOverride,
             ("sourceVersion" Lude..=) Lude.<$> sourceVersion,
             ("buildspecOverride" Lude..=) Lude.<$> buildspecOverride,
+            Lude.Just ("projectName" Lude..= projectName),
             ("secondarySourcesVersionOverride" Lude..=)
               Lude.<$> secondarySourcesVersionOverride,
             ("reportBuildStatusOverride" Lude..=)
@@ -550,8 +615,7 @@ instance Lude.ToJSON StartBuild where
             ("secondaryArtifactsOverride" Lude..=)
               Lude.<$> secondaryArtifactsOverride,
             ("artifactsOverride" Lude..=) Lude.<$> artifactsOverride,
-            ("sourceTypeOverride" Lude..=) Lude.<$> sourceTypeOverride,
-            Lude.Just ("projectName" Lude..= projectName)
+            ("sourceTypeOverride" Lude..=) Lude.<$> sourceTypeOverride
           ]
       )
 
@@ -563,17 +627,12 @@ instance Lude.ToQuery StartBuild where
 
 -- | /See:/ 'mkStartBuildResponse' smart constructor.
 data StartBuildResponse = StartBuildResponse'
-  { build ::
-      Lude.Maybe Build,
+  { -- | Information about the build to be run.
+    build :: Lude.Maybe Build,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartBuildResponse' with the minimum fields required to make a request.
@@ -593,13 +652,13 @@ mkStartBuildResponse pResponseStatus_ =
 -- | Information about the build to be run.
 --
 -- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsBuild :: Lens.Lens' StartBuildResponse (Lude.Maybe Build)
-srsBuild = Lens.lens (build :: StartBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: StartBuildResponse)
-{-# DEPRECATED srsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
+sbrsBuild :: Lens.Lens' StartBuildResponse (Lude.Maybe Build)
+sbrsBuild = Lens.lens (build :: StartBuildResponse -> Lude.Maybe Build) (\s a -> s {build = a} :: StartBuildResponse)
+{-# DEPRECATED sbrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartBuildResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartBuildResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sbrsResponseStatus :: Lens.Lens' StartBuildResponse Lude.Int
+sbrsResponseStatus = Lens.lens (responseStatus :: StartBuildResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartBuildResponse)
+{-# DEPRECATED sbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

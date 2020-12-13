@@ -27,14 +27,13 @@ import qualified Network.AWS.Prelude as Lude
 -- | Used to filter the workflow executions in visibility APIs based on a tag.
 --
 -- /See:/ 'mkTagFilter' smart constructor.
-newtype TagFilter = TagFilter' {tag :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype TagFilter = TagFilter'
+  { -- | Specifies the tag that must be associated with the execution for it to meet the filter criteria.
+    --
+    -- Tags may only contain unicode letters, digits, whitespace, or these symbols: @_ . : / = + - @@ .
+    tag :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagFilter' with the minimum fields required to make a request.

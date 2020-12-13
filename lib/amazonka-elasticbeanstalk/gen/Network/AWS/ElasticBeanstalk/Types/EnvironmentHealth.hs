@@ -14,9 +14,9 @@ module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
   ( EnvironmentHealth
       ( EnvironmentHealth',
         Green,
-        Grey,
+        Yellow,
         Red,
-        Yellow
+        Grey
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype EnvironmentHealth = EnvironmentHealth' Lude.Text
 pattern Green :: EnvironmentHealth
 pattern Green = EnvironmentHealth' "Green"
 
-pattern Grey :: EnvironmentHealth
-pattern Grey = EnvironmentHealth' "Grey"
+pattern Yellow :: EnvironmentHealth
+pattern Yellow = EnvironmentHealth' "Yellow"
 
 pattern Red :: EnvironmentHealth
 pattern Red = EnvironmentHealth' "Red"
 
-pattern Yellow :: EnvironmentHealth
-pattern Yellow = EnvironmentHealth' "Yellow"
+pattern Grey :: EnvironmentHealth
+pattern Grey = EnvironmentHealth' "Grey"
 
 {-# COMPLETE
   Green,
-  Grey,
-  Red,
   Yellow,
+  Red,
+  Grey,
   EnvironmentHealth'
   #-}

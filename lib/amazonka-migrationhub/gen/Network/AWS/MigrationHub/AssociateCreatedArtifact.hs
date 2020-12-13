@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,10 +29,10 @@ module Network.AWS.MigrationHub.AssociateCreatedArtifact
     mkAssociateCreatedArtifact,
 
     -- ** Request lenses
-    acaDryRun,
+    acaCreatedArtifact,
     acaProgressUpdateStream,
     acaMigrationTaskName,
-    acaCreatedArtifact,
+    acaDryRun,
 
     -- * Destructuring the response
     AssociateCreatedArtifactResponse (..),
@@ -50,52 +51,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateCreatedArtifact' smart constructor.
 data AssociateCreatedArtifact = AssociateCreatedArtifact'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
+    createdArtifact :: CreatedArtifact,
+    -- | The name of the ProgressUpdateStream.
     progressUpdateStream :: Lude.Text,
+    -- | Unique identifier that references the migration task. /Do not store personal data in this field./
     migrationTaskName :: Lude.Text,
-    createdArtifact :: CreatedArtifact
+    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateCreatedArtifact' with the minimum fields required to make a request.
 --
 -- * 'createdArtifact' - An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
--- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
 -- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 mkAssociateCreatedArtifact ::
+  -- | 'createdArtifact'
+  CreatedArtifact ->
   -- | 'progressUpdateStream'
   Lude.Text ->
   -- | 'migrationTaskName'
   Lude.Text ->
-  -- | 'createdArtifact'
-  CreatedArtifact ->
   AssociateCreatedArtifact
 mkAssociateCreatedArtifact
+  pCreatedArtifact_
   pProgressUpdateStream_
-  pMigrationTaskName_
-  pCreatedArtifact_ =
+  pMigrationTaskName_ =
     AssociateCreatedArtifact'
-      { dryRun = Lude.Nothing,
+      { createdArtifact = pCreatedArtifact_,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
-        createdArtifact = pCreatedArtifact_
+        dryRun = Lude.Nothing
       }
 
--- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acaDryRun :: Lens.Lens' AssociateCreatedArtifact (Lude.Maybe Lude.Bool)
-acaDryRun = Lens.lens (dryRun :: AssociateCreatedArtifact -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateCreatedArtifact)
-{-# DEPRECATED acaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'createdArtifact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acaCreatedArtifact :: Lens.Lens' AssociateCreatedArtifact CreatedArtifact
+acaCreatedArtifact = Lens.lens (createdArtifact :: AssociateCreatedArtifact -> CreatedArtifact) (\s a -> s {createdArtifact = a} :: AssociateCreatedArtifact)
+{-# DEPRECATED acaCreatedArtifact "Use generic-lens or generic-optics with 'createdArtifact' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
 --
@@ -111,12 +109,12 @@ acaMigrationTaskName :: Lens.Lens' AssociateCreatedArtifact Lude.Text
 acaMigrationTaskName = Lens.lens (migrationTaskName :: AssociateCreatedArtifact -> Lude.Text) (\s a -> s {migrationTaskName = a} :: AssociateCreatedArtifact)
 {-# DEPRECATED acaMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
--- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
+-- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
--- /Note:/ Consider using 'createdArtifact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acaCreatedArtifact :: Lens.Lens' AssociateCreatedArtifact CreatedArtifact
-acaCreatedArtifact = Lens.lens (createdArtifact :: AssociateCreatedArtifact -> CreatedArtifact) (\s a -> s {createdArtifact = a} :: AssociateCreatedArtifact)
-{-# DEPRECATED acaCreatedArtifact "Use generic-lens or generic-optics with 'createdArtifact' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acaDryRun :: Lens.Lens' AssociateCreatedArtifact (Lude.Maybe Lude.Bool)
+acaDryRun = Lens.lens (dryRun :: AssociateCreatedArtifact -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateCreatedArtifact)
+{-# DEPRECATED acaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest AssociateCreatedArtifact where
   type Rs AssociateCreatedArtifact = AssociateCreatedArtifactResponse
@@ -143,10 +141,10 @@ instance Lude.ToJSON AssociateCreatedArtifact where
   toJSON AssociateCreatedArtifact' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DryRun" Lude..=) Lude.<$> dryRun,
+          [ Lude.Just ("CreatedArtifact" Lude..= createdArtifact),
             Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
             Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
-            Lude.Just ("CreatedArtifact" Lude..= createdArtifact)
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -158,16 +156,10 @@ instance Lude.ToQuery AssociateCreatedArtifact where
 
 -- | /See:/ 'mkAssociateCreatedArtifactResponse' smart constructor.
 newtype AssociateCreatedArtifactResponse = AssociateCreatedArtifactResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateCreatedArtifactResponse' with the minimum fields required to make a request.

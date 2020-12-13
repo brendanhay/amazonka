@@ -17,8 +17,8 @@ module Network.AWS.MediaLive.Types.StaticKeySettings
     mkStaticKeySettings,
 
     -- * Lenses
-    sksKeyProviderServer,
     sksStaticKeyValue,
+    sksKeyProviderServer,
   )
 where
 
@@ -30,39 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStaticKeySettings' smart constructor.
 data StaticKeySettings = StaticKeySettings'
-  { keyProviderServer ::
-      Lude.Maybe InputLocation,
-    staticKeyValue :: Lude.Text
+  { -- | Static key value as a 32 character hexadecimal string.
+    staticKeyValue :: Lude.Text,
+    -- | The URL of the license server used for protecting content.
+    keyProviderServer :: Lude.Maybe InputLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticKeySettings' with the minimum fields required to make a request.
 --
--- * 'keyProviderServer' - The URL of the license server used for protecting content.
 -- * 'staticKeyValue' - Static key value as a 32 character hexadecimal string.
+-- * 'keyProviderServer' - The URL of the license server used for protecting content.
 mkStaticKeySettings ::
   -- | 'staticKeyValue'
   Lude.Text ->
   StaticKeySettings
 mkStaticKeySettings pStaticKeyValue_ =
   StaticKeySettings'
-    { keyProviderServer = Lude.Nothing,
-      staticKeyValue = pStaticKeyValue_
+    { staticKeyValue = pStaticKeyValue_,
+      keyProviderServer = Lude.Nothing
     }
-
--- | The URL of the license server used for protecting content.
---
--- /Note:/ Consider using 'keyProviderServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sksKeyProviderServer :: Lens.Lens' StaticKeySettings (Lude.Maybe InputLocation)
-sksKeyProviderServer = Lens.lens (keyProviderServer :: StaticKeySettings -> Lude.Maybe InputLocation) (\s a -> s {keyProviderServer = a} :: StaticKeySettings)
-{-# DEPRECATED sksKeyProviderServer "Use generic-lens or generic-optics with 'keyProviderServer' instead." #-}
 
 -- | Static key value as a 32 character hexadecimal string.
 --
@@ -71,21 +59,28 @@ sksStaticKeyValue :: Lens.Lens' StaticKeySettings Lude.Text
 sksStaticKeyValue = Lens.lens (staticKeyValue :: StaticKeySettings -> Lude.Text) (\s a -> s {staticKeyValue = a} :: StaticKeySettings)
 {-# DEPRECATED sksStaticKeyValue "Use generic-lens or generic-optics with 'staticKeyValue' instead." #-}
 
+-- | The URL of the license server used for protecting content.
+--
+-- /Note:/ Consider using 'keyProviderServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sksKeyProviderServer :: Lens.Lens' StaticKeySettings (Lude.Maybe InputLocation)
+sksKeyProviderServer = Lens.lens (keyProviderServer :: StaticKeySettings -> Lude.Maybe InputLocation) (\s a -> s {keyProviderServer = a} :: StaticKeySettings)
+{-# DEPRECATED sksKeyProviderServer "Use generic-lens or generic-optics with 'keyProviderServer' instead." #-}
+
 instance Lude.FromJSON StaticKeySettings where
   parseJSON =
     Lude.withObject
       "StaticKeySettings"
       ( \x ->
           StaticKeySettings'
-            Lude.<$> (x Lude..:? "keyProviderServer")
-            Lude.<*> (x Lude..: "staticKeyValue")
+            Lude.<$> (x Lude..: "staticKeyValue")
+            Lude.<*> (x Lude..:? "keyProviderServer")
       )
 
 instance Lude.ToJSON StaticKeySettings where
   toJSON StaticKeySettings' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("keyProviderServer" Lude..=) Lude.<$> keyProviderServer,
-            Lude.Just ("staticKeyValue" Lude..= staticKeyValue)
+          [ Lude.Just ("staticKeyValue" Lude..= staticKeyValue),
+            ("keyProviderServer" Lude..=) Lude.<$> keyProviderServer
           ]
       )

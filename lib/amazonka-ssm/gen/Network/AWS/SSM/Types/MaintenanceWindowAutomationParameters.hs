@@ -29,31 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaintenanceWindowAutomationParameters' smart constructor.
 data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
-  { parameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.Text])
-        ),
-    documentVersion ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The parameters for the AUTOMATION task.
+    --
+    -- For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The version of an Automation document to use during task execution.
+    documentVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowAutomationParameters' with the minimum fields required to make a request.
 --
--- * 'documentVersion' - The version of an Automation document to use during task execution.
 -- * 'parameters' - The parameters for the AUTOMATION task.
 --
 -- For information about specifying and updating task parameters, see 'RegisterTaskWithMaintenanceWindow' and 'UpdateMaintenanceWindowTask' .
+-- * 'documentVersion' - The version of an Automation document to use during task execution.
 mkMaintenanceWindowAutomationParameters ::
   MaintenanceWindowAutomationParameters
 mkMaintenanceWindowAutomationParameters =

@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.AutoMLChannel
     mkAutoMLChannel,
 
     -- * Lenses
-    amlcCompressionType,
-    amlcDataSource,
     amlcTargetAttributeName,
+    amlcDataSource,
+    amlcCompressionType,
   )
 where
 
@@ -32,51 +32,33 @@ import Network.AWS.SageMaker.Types.CompressionType
 --
 -- /See:/ 'mkAutoMLChannel' smart constructor.
 data AutoMLChannel = AutoMLChannel'
-  { compressionType ::
-      Lude.Maybe CompressionType,
+  { -- | The name of the target variable in supervised learning, a.k.a. 'y'.
+    targetAttributeName :: Lude.Text,
+    -- | The data source.
     dataSource :: AutoMLDataSource,
-    targetAttributeName :: Lude.Text
+    -- | You can use Gzip or None. The default value is None.
+    compressionType :: Lude.Maybe CompressionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLChannel' with the minimum fields required to make a request.
 --
--- * 'compressionType' - You can use Gzip or None. The default value is None.
--- * 'dataSource' - The data source.
 -- * 'targetAttributeName' - The name of the target variable in supervised learning, a.k.a. 'y'.
+-- * 'dataSource' - The data source.
+-- * 'compressionType' - You can use Gzip or None. The default value is None.
 mkAutoMLChannel ::
-  -- | 'dataSource'
-  AutoMLDataSource ->
   -- | 'targetAttributeName'
   Lude.Text ->
+  -- | 'dataSource'
+  AutoMLDataSource ->
   AutoMLChannel
-mkAutoMLChannel pDataSource_ pTargetAttributeName_ =
+mkAutoMLChannel pTargetAttributeName_ pDataSource_ =
   AutoMLChannel'
-    { compressionType = Lude.Nothing,
+    { targetAttributeName = pTargetAttributeName_,
       dataSource = pDataSource_,
-      targetAttributeName = pTargetAttributeName_
+      compressionType = Lude.Nothing
     }
-
--- | You can use Gzip or None. The default value is None.
---
--- /Note:/ Consider using 'compressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcCompressionType :: Lens.Lens' AutoMLChannel (Lude.Maybe CompressionType)
-amlcCompressionType = Lens.lens (compressionType :: AutoMLChannel -> Lude.Maybe CompressionType) (\s a -> s {compressionType = a} :: AutoMLChannel)
-{-# DEPRECATED amlcCompressionType "Use generic-lens or generic-optics with 'compressionType' instead." #-}
-
--- | The data source.
---
--- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcDataSource :: Lens.Lens' AutoMLChannel AutoMLDataSource
-amlcDataSource = Lens.lens (dataSource :: AutoMLChannel -> AutoMLDataSource) (\s a -> s {dataSource = a} :: AutoMLChannel)
-{-# DEPRECATED amlcDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
 
 -- | The name of the target variable in supervised learning, a.k.a. 'y'.
 --
@@ -85,23 +67,37 @@ amlcTargetAttributeName :: Lens.Lens' AutoMLChannel Lude.Text
 amlcTargetAttributeName = Lens.lens (targetAttributeName :: AutoMLChannel -> Lude.Text) (\s a -> s {targetAttributeName = a} :: AutoMLChannel)
 {-# DEPRECATED amlcTargetAttributeName "Use generic-lens or generic-optics with 'targetAttributeName' instead." #-}
 
+-- | The data source.
+--
+-- /Note:/ Consider using 'dataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcDataSource :: Lens.Lens' AutoMLChannel AutoMLDataSource
+amlcDataSource = Lens.lens (dataSource :: AutoMLChannel -> AutoMLDataSource) (\s a -> s {dataSource = a} :: AutoMLChannel)
+{-# DEPRECATED amlcDataSource "Use generic-lens or generic-optics with 'dataSource' instead." #-}
+
+-- | You can use Gzip or None. The default value is None.
+--
+-- /Note:/ Consider using 'compressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcCompressionType :: Lens.Lens' AutoMLChannel (Lude.Maybe CompressionType)
+amlcCompressionType = Lens.lens (compressionType :: AutoMLChannel -> Lude.Maybe CompressionType) (\s a -> s {compressionType = a} :: AutoMLChannel)
+{-# DEPRECATED amlcCompressionType "Use generic-lens or generic-optics with 'compressionType' instead." #-}
+
 instance Lude.FromJSON AutoMLChannel where
   parseJSON =
     Lude.withObject
       "AutoMLChannel"
       ( \x ->
           AutoMLChannel'
-            Lude.<$> (x Lude..:? "CompressionType")
+            Lude.<$> (x Lude..: "TargetAttributeName")
             Lude.<*> (x Lude..: "DataSource")
-            Lude.<*> (x Lude..: "TargetAttributeName")
+            Lude.<*> (x Lude..:? "CompressionType")
       )
 
 instance Lude.ToJSON AutoMLChannel where
   toJSON AutoMLChannel' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CompressionType" Lude..=) Lude.<$> compressionType,
+          [ Lude.Just ("TargetAttributeName" Lude..= targetAttributeName),
             Lude.Just ("DataSource" Lude..= dataSource),
-            Lude.Just ("TargetAttributeName" Lude..= targetAttributeName)
+            ("CompressionType" Lude..=) Lude.<$> compressionType
           ]
       )

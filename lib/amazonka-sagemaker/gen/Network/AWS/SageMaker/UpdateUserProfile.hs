@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.SageMaker.UpdateUserProfile
 
     -- ** Request lenses
     uupUserSettings,
-    uupDomainId,
     uupUserProfileName,
+    uupDomainId,
 
     -- * Destructuring the response
     UpdateUserProfileResponse (..),
@@ -41,36 +42,32 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { userSettings ::
-      Lude.Maybe UserSettings,
-    domainId :: Lude.Text,
-    userProfileName :: Lude.Text
+  { -- | A collection of settings.
+    userSettings :: Lude.Maybe UserSettings,
+    -- | The user profile name.
+    userProfileName :: Lude.Text,
+    -- | The domain ID.
+    domainId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
 --
--- * 'domainId' - The domain ID.
--- * 'userProfileName' - The user profile name.
 -- * 'userSettings' - A collection of settings.
+-- * 'userProfileName' - The user profile name.
+-- * 'domainId' - The domain ID.
 mkUpdateUserProfile ::
-  -- | 'domainId'
-  Lude.Text ->
   -- | 'userProfileName'
   Lude.Text ->
+  -- | 'domainId'
+  Lude.Text ->
   UpdateUserProfile
-mkUpdateUserProfile pDomainId_ pUserProfileName_ =
+mkUpdateUserProfile pUserProfileName_ pDomainId_ =
   UpdateUserProfile'
     { userSettings = Lude.Nothing,
-      domainId = pDomainId_,
-      userProfileName = pUserProfileName_
+      userProfileName = pUserProfileName_,
+      domainId = pDomainId_
     }
 
 -- | A collection of settings.
@@ -80,19 +77,19 @@ uupUserSettings :: Lens.Lens' UpdateUserProfile (Lude.Maybe UserSettings)
 uupUserSettings = Lens.lens (userSettings :: UpdateUserProfile -> Lude.Maybe UserSettings) (\s a -> s {userSettings = a} :: UpdateUserProfile)
 {-# DEPRECATED uupUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
 
--- | The domain ID.
---
--- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupDomainId :: Lens.Lens' UpdateUserProfile Lude.Text
-uupDomainId = Lens.lens (domainId :: UpdateUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: UpdateUserProfile)
-{-# DEPRECATED uupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
-
 -- | The user profile name.
 --
 -- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uupUserProfileName :: Lens.Lens' UpdateUserProfile Lude.Text
 uupUserProfileName = Lens.lens (userProfileName :: UpdateUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: UpdateUserProfile)
 {-# DEPRECATED uupUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+
+-- | The domain ID.
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupDomainId :: Lens.Lens' UpdateUserProfile Lude.Text
+uupDomainId = Lens.lens (domainId :: UpdateUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: UpdateUserProfile)
+{-# DEPRECATED uupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 instance Lude.AWSRequest UpdateUserProfile where
   type Rs UpdateUserProfile = UpdateUserProfileResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON UpdateUserProfile where
     Lude.object
       ( Lude.catMaybes
           [ ("UserSettings" Lude..=) Lude.<$> userSettings,
-            Lude.Just ("DomainId" Lude..= domainId),
-            Lude.Just ("UserProfileName" Lude..= userProfileName)
+            Lude.Just ("UserProfileName" Lude..= userProfileName),
+            Lude.Just ("DomainId" Lude..= domainId)
           ]
       )
 
@@ -134,23 +131,18 @@ instance Lude.ToQuery UpdateUserProfile where
 
 -- | /See:/ 'mkUpdateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
-  { userProfileARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The user profile Amazon Resource Name (ARN).
+    userProfileARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userProfileARN' - The user profile Amazon Resource Name (ARN).
+-- * 'responseStatus' - The response status code.
 mkUpdateUserProfileResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glacier.ListTagsForVault
     mkListTagsForVault,
 
     -- ** Request lenses
-    ltfvAccountId,
     ltfvVaultName,
+    ltfvAccountId,
 
     -- * Destructuring the response
     ListTagsForVaultResponse (..),
@@ -42,40 +43,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListTagsForVault' smart constructor.
 data ListTagsForVault = ListTagsForVault'
-  { accountId :: Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForVault' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 mkListTagsForVault ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   ListTagsForVault
-mkListTagsForVault pAccountId_ pVaultName_ =
+mkListTagsForVault pVaultName_ pAccountId_ =
   ListTagsForVault'
-    { accountId = pAccountId_,
-      vaultName = pVaultName_
+    { vaultName = pVaultName_,
+      accountId = pAccountId_
     }
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfvAccountId :: Lens.Lens' ListTagsForVault Lude.Text
-ltfvAccountId = Lens.lens (accountId :: ListTagsForVault -> Lude.Text) (\s a -> s {accountId = a} :: ListTagsForVault)
-{-# DEPRECATED ltfvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
 --
@@ -83,6 +73,13 @@ ltfvAccountId = Lens.lens (accountId :: ListTagsForVault -> Lude.Text) (\s a -> 
 ltfvVaultName :: Lens.Lens' ListTagsForVault Lude.Text
 ltfvVaultName = Lens.lens (vaultName :: ListTagsForVault -> Lude.Text) (\s a -> s {vaultName = a} :: ListTagsForVault)
 {-# DEPRECATED ltfvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfvAccountId :: Lens.Lens' ListTagsForVault Lude.Text
+ltfvAccountId = Lens.lens (accountId :: ListTagsForVault -> Lude.Text) (\s a -> s {accountId = a} :: ListTagsForVault)
+{-# DEPRECATED ltfvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest ListTagsForVault where
   type Rs ListTagsForVault = ListTagsForVaultResponse
@@ -115,24 +112,18 @@ instance Lude.ToQuery ListTagsForVault where
 --
 -- /See:/ 'mkListTagsForVaultResponse' smart constructor.
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-  { tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The tags attached to the vault. Each tag is composed of a key and a value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForVaultResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags attached to the vault. Each tag is composed of a key and a value.
+-- * 'responseStatus' - The response status code.
 mkListTagsForVaultResponse ::
   -- | 'responseStatus'
   Lude.Int ->

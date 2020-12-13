@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.KMS.Verify
     mkVerify,
 
     -- ** Request lenses
+    vSigningAlgorithm,
+    vSignature,
+    vKeyId,
     vMessageType,
     vGrantTokens,
-    vKeyId,
     vMessage,
-    vSignature,
-    vSigningAlgorithm,
 
     -- * Destructuring the response
     VerifyResponse (..),
@@ -53,21 +54,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkVerify' smart constructor.
 data Verify = Verify'
-  { messageType :: Lude.Maybe MessageType,
-    grantTokens :: Lude.Maybe [Lude.Text],
-    keyId :: Lude.Text,
-    message :: Lude.Sensitive Lude.Base64,
+  { -- | The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.
+    signingAlgorithm :: SigningAlgorithmSpec,
+    -- | The signature that the @Sign@ operation generated.
     signature :: Lude.Base64,
-    signingAlgorithm :: SigningAlgorithmSpec
+    -- | Identifies the asymmetric CMK that will be used to verify the signature. This must be the same CMK that was used to generate the signature. If you specify a different CMK, the signature verification fails.
+    --
+    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Alias name: @alias/ExampleAlias@
+    --
+    --
+    --     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+    keyId :: Lude.Text,
+    -- | Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
+    --
+    -- /Important:/ Use the @DIGEST@ value only when the value of the @Message@ parameter is a message digest. If you use the @DIGEST@ value with a raw message, the security of the verification operation can be compromised.
+    messageType :: Lude.Maybe MessageType,
+    -- | A list of grant tokens.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+    grantTokens :: Lude.Maybe [Lude.Text],
+    -- | Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the @MessageType@ parameter with a value of @DIGEST@ .
+    --
+    -- If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.
+    message :: Lude.Sensitive Lude.Base64
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Verify' with the minimum fields required to make a request.
 --
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+-- * 'signingAlgorithm' - The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.
+-- * 'signature' - The signature that the @Sign@ operation generated.
 -- * 'keyId' - Identifies the asymmetric CMK that will be used to verify the signature. This must be the same CMK that was used to generate the signature. If you specify a different CMK, the signature verification fails.
 --
 -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
@@ -86,59 +115,52 @@ data Verify = Verify'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
--- * 'message' - Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the @MessageType@ parameter with a value of @DIGEST@ .
---
--- If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'messageType' - Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
 --
 -- /Important:/ Use the @DIGEST@ value only when the value of the @Message@ parameter is a message digest. If you use the @DIGEST@ value with a raw message, the security of the verification operation can be compromised.
--- * 'signature' - The signature that the @Sign@ operation generated.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'signingAlgorithm' - The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.
+-- * 'grantTokens' - A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+-- * 'message' - Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the @MessageType@ parameter with a value of @DIGEST@ .
+--
+-- If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.
 mkVerify ::
+  -- | 'signingAlgorithm'
+  SigningAlgorithmSpec ->
+  -- | 'signature'
+  Lude.Base64 ->
   -- | 'keyId'
   Lude.Text ->
   -- | 'message'
   Lude.Sensitive Lude.Base64 ->
-  -- | 'signature'
-  Lude.Base64 ->
-  -- | 'signingAlgorithm'
-  SigningAlgorithmSpec ->
   Verify
-mkVerify pKeyId_ pMessage_ pSignature_ pSigningAlgorithm_ =
+mkVerify pSigningAlgorithm_ pSignature_ pKeyId_ pMessage_ =
   Verify'
-    { messageType = Lude.Nothing,
-      grantTokens = Lude.Nothing,
-      keyId = pKeyId_,
-      message = pMessage_,
+    { signingAlgorithm = pSigningAlgorithm_,
       signature = pSignature_,
-      signingAlgorithm = pSigningAlgorithm_
+      keyId = pKeyId_,
+      messageType = Lude.Nothing,
+      grantTokens = Lude.Nothing,
+      message = pMessage_
     }
 
--- | Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
+-- | The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.
 --
--- /Important:/ Use the @DIGEST@ value only when the value of the @Message@ parameter is a message digest. If you use the @DIGEST@ value with a raw message, the security of the verification operation can be compromised.
---
--- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vMessageType :: Lens.Lens' Verify (Lude.Maybe MessageType)
-vMessageType = Lens.lens (messageType :: Verify -> Lude.Maybe MessageType) (\s a -> s {messageType = a} :: Verify)
-{-# DEPRECATED vMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
+-- /Note:/ Consider using 'signingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vSigningAlgorithm :: Lens.Lens' Verify SigningAlgorithmSpec
+vSigningAlgorithm = Lens.lens (signingAlgorithm :: Verify -> SigningAlgorithmSpec) (\s a -> s {signingAlgorithm = a} :: Verify)
+{-# DEPRECATED vSigningAlgorithm "Use generic-lens or generic-optics with 'signingAlgorithm' instead." #-}
 
--- | A list of grant tokens.
+-- | The signature that the @Sign@ operation generated.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 --
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
---
--- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vGrantTokens :: Lens.Lens' Verify (Lude.Maybe [Lude.Text])
-vGrantTokens = Lens.lens (grantTokens :: Verify -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: Verify)
-{-# DEPRECATED vGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vSignature :: Lens.Lens' Verify Lude.Base64
+vSignature = Lens.lens (signature :: Verify -> Lude.Base64) (\s a -> s {signature = a} :: Verify)
+{-# DEPRECATED vSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | Identifies the asymmetric CMK that will be used to verify the signature. This must be the same CMK that was used to generate the signature. If you specify a different CMK, the signature verification fails.
 --
@@ -164,6 +186,24 @@ vKeyId :: Lens.Lens' Verify Lude.Text
 vKeyId = Lens.lens (keyId :: Verify -> Lude.Text) (\s a -> s {keyId = a} :: Verify)
 {-# DEPRECATED vKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
+-- | Tells AWS KMS whether the value of the @Message@ parameter is a message or message digest. The default value, RAW, indicates a message. To indicate a message digest, enter @DIGEST@ .
+--
+-- /Important:/ Use the @DIGEST@ value only when the value of the @Message@ parameter is a message digest. If you use the @DIGEST@ value with a raw message, the security of the verification operation can be compromised.
+--
+-- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vMessageType :: Lens.Lens' Verify (Lude.Maybe MessageType)
+vMessageType = Lens.lens (messageType :: Verify -> Lude.Maybe MessageType) (\s a -> s {messageType = a} :: Verify)
+{-# DEPRECATED vMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
+
+-- | A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vGrantTokens :: Lens.Lens' Verify (Lude.Maybe [Lude.Text])
+vGrantTokens = Lens.lens (grantTokens :: Verify -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: Verify)
+{-# DEPRECATED vGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+
 -- | Specifies the message that was signed. You can submit a raw message of up to 4096 bytes, or a hash digest of the message. If you submit a digest, use the @MessageType@ parameter with a value of @DIGEST@ .
 --
 -- If the message specified here is different from the message that was signed, the signature verification fails. A message and its hash digest are considered to be the same message.--
@@ -176,24 +216,6 @@ vKeyId = Lens.lens (keyId :: Verify -> Lude.Text) (\s a -> s {keyId = a} :: Veri
 vMessage :: Lens.Lens' Verify (Lude.Sensitive Lude.Base64)
 vMessage = Lens.lens (message :: Verify -> Lude.Sensitive Lude.Base64) (\s a -> s {message = a} :: Verify)
 {-# DEPRECATED vMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The signature that the @Sign@ operation generated.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vSignature :: Lens.Lens' Verify Lude.Base64
-vSignature = Lens.lens (signature :: Verify -> Lude.Base64) (\s a -> s {signature = a} :: Verify)
-{-# DEPRECATED vSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
-
--- | The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.
---
--- /Note:/ Consider using 'signingAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vSigningAlgorithm :: Lens.Lens' Verify SigningAlgorithmSpec
-vSigningAlgorithm = Lens.lens (signingAlgorithm :: Verify -> SigningAlgorithmSpec) (\s a -> s {signingAlgorithm = a} :: Verify)
-{-# DEPRECATED vSigningAlgorithm "Use generic-lens or generic-optics with 'signingAlgorithm' instead." #-}
 
 instance Lude.AWSRequest Verify where
   type Rs Verify = VerifyResponse
@@ -222,12 +244,12 @@ instance Lude.ToJSON Verify where
   toJSON Verify' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("MessageType" Lude..=) Lude.<$> messageType,
-            ("GrantTokens" Lude..=) Lude.<$> grantTokens,
-            Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("Message" Lude..= message),
+          [ Lude.Just ("SigningAlgorithm" Lude..= signingAlgorithm),
             Lude.Just ("Signature" Lude..= signature),
-            Lude.Just ("SigningAlgorithm" Lude..= signingAlgorithm)
+            Lude.Just ("KeyId" Lude..= keyId),
+            ("MessageType" Lude..=) Lude.<$> messageType,
+            ("GrantTokens" Lude..=) Lude.<$> grantTokens,
+            Lude.Just ("Message" Lude..= message)
           ]
       )
 
@@ -239,27 +261,24 @@ instance Lude.ToQuery Verify where
 
 -- | /See:/ 'mkVerifyResponse' smart constructor.
 data VerifyResponse = VerifyResponse'
-  { signingAlgorithm ::
-      Lude.Maybe SigningAlgorithmSpec,
+  { -- | The signing algorithm that was used to verify the signature.
+    signingAlgorithm :: Lude.Maybe SigningAlgorithmSpec,
+    -- | A Boolean value that indicates whether the signature was verified. A value of @True@ indicates that the @Signature@ was produced by signing the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the signature is not verified, the @Verify@ operation fails with a @KMSInvalidSignatureException@ exception.
     signatureValid :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK that was used to verify the signature.
     keyId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifyResponse' with the minimum fields required to make a request.
 --
+-- * 'signingAlgorithm' - The signing algorithm that was used to verify the signature.
+-- * 'signatureValid' - A Boolean value that indicates whether the signature was verified. A value of @True@ indicates that the @Signature@ was produced by signing the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the signature is not verified, the @Verify@ operation fails with a @KMSInvalidSignatureException@ exception.
 -- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK that was used to verify the signature.
 -- * 'responseStatus' - The response status code.
--- * 'signatureValid' - A Boolean value that indicates whether the signature was verified. A value of @True@ indicates that the @Signature@ was produced by signing the @Message@ with the specified @KeyID@ and @SigningAlgorithm.@ If the signature is not verified, the @Verify@ operation fails with a @KMSInvalidSignatureException@ exception.
--- * 'signingAlgorithm' - The signing algorithm that was used to verify the signature.
 mkVerifyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

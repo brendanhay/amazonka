@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
 
     -- ** Request lenses
     uflecIfMatch,
-    uflecFieldLevelEncryptionConfig,
     uflecId,
+    uflecFieldLevelEncryptionConfig,
 
     -- * Destructuring the response
     UpdateFieldLevelEncryptionConfigResponse (..),
@@ -42,39 +43,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateFieldLevelEncryptionConfig' smart constructor.
 data UpdateFieldLevelEncryptionConfig = UpdateFieldLevelEncryptionConfig'
-  { ifMatch ::
-      Lude.Maybe Lude.Text,
-    fieldLevelEncryptionConfig ::
-      FieldLevelEncryptionConfig,
-    id :: Lude.Text
+  { -- | The value of the @ETag@ header that you received when retrieving the configuration identity to update. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | The ID of the configuration you want to update.
+    id :: Lude.Text,
+    -- | Request to update a field-level encryption configuration.
+    fieldLevelEncryptionConfig :: FieldLevelEncryptionConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFieldLevelEncryptionConfig' with the minimum fields required to make a request.
 --
--- * 'fieldLevelEncryptionConfig' - Request to update a field-level encryption configuration.
--- * 'id' - The ID of the configuration you want to update.
 -- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the configuration identity to update. For example: @E2QWRUHAPOMQZL@ .
+-- * 'id' - The ID of the configuration you want to update.
+-- * 'fieldLevelEncryptionConfig' - Request to update a field-level encryption configuration.
 mkUpdateFieldLevelEncryptionConfig ::
-  -- | 'fieldLevelEncryptionConfig'
-  FieldLevelEncryptionConfig ->
   -- | 'id'
   Lude.Text ->
+  -- | 'fieldLevelEncryptionConfig'
+  FieldLevelEncryptionConfig ->
   UpdateFieldLevelEncryptionConfig
 mkUpdateFieldLevelEncryptionConfig
-  pFieldLevelEncryptionConfig_
-  pId_ =
+  pId_
+  pFieldLevelEncryptionConfig_ =
     UpdateFieldLevelEncryptionConfig'
       { ifMatch = Lude.Nothing,
-        fieldLevelEncryptionConfig = pFieldLevelEncryptionConfig_,
-        id = pId_
+        id = pId_,
+        fieldLevelEncryptionConfig = pFieldLevelEncryptionConfig_
       }
 
 -- | The value of the @ETag@ header that you received when retrieving the configuration identity to update. For example: @E2QWRUHAPOMQZL@ .
@@ -84,19 +80,19 @@ uflecIfMatch :: Lens.Lens' UpdateFieldLevelEncryptionConfig (Lude.Maybe Lude.Tex
 uflecIfMatch = Lens.lens (ifMatch :: UpdateFieldLevelEncryptionConfig -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdateFieldLevelEncryptionConfig)
 {-# DEPRECATED uflecIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
--- | Request to update a field-level encryption configuration.
---
--- /Note:/ Consider using 'fieldLevelEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uflecFieldLevelEncryptionConfig :: Lens.Lens' UpdateFieldLevelEncryptionConfig FieldLevelEncryptionConfig
-uflecFieldLevelEncryptionConfig = Lens.lens (fieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfig -> FieldLevelEncryptionConfig) (\s a -> s {fieldLevelEncryptionConfig = a} :: UpdateFieldLevelEncryptionConfig)
-{-# DEPRECATED uflecFieldLevelEncryptionConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionConfig' instead." #-}
-
 -- | The ID of the configuration you want to update.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uflecId :: Lens.Lens' UpdateFieldLevelEncryptionConfig Lude.Text
 uflecId = Lens.lens (id :: UpdateFieldLevelEncryptionConfig -> Lude.Text) (\s a -> s {id = a} :: UpdateFieldLevelEncryptionConfig)
 {-# DEPRECATED uflecId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Request to update a field-level encryption configuration.
+--
+-- /Note:/ Consider using 'fieldLevelEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uflecFieldLevelEncryptionConfig :: Lens.Lens' UpdateFieldLevelEncryptionConfig FieldLevelEncryptionConfig
+uflecFieldLevelEncryptionConfig = Lens.lens (fieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfig -> FieldLevelEncryptionConfig) (\s a -> s {fieldLevelEncryptionConfig = a} :: UpdateFieldLevelEncryptionConfig)
+{-# DEPRECATED uflecFieldLevelEncryptionConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionConfig' instead." #-}
 
 instance Lude.AWSRequest UpdateFieldLevelEncryptionConfig where
   type
@@ -132,22 +128,14 @@ instance Lude.ToQuery UpdateFieldLevelEncryptionConfig where
 
 -- | /See:/ 'mkUpdateFieldLevelEncryptionConfigResponse' smart constructor.
 data UpdateFieldLevelEncryptionConfigResponse = UpdateFieldLevelEncryptionConfigResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    fieldLevelEncryption ::
-      Lude.Maybe
-        FieldLevelEncryption,
-    responseStatus ::
-      Lude.Int
+  { -- | The value of the @ETag@ header that you received when updating the configuration. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | Return the results of updating the configuration.
+    fieldLevelEncryption :: Lude.Maybe FieldLevelEncryption,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFieldLevelEncryptionConfigResponse' with the minimum fields required to make a request.

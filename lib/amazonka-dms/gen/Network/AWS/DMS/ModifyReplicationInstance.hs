@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,11 +28,11 @@ module Network.AWS.DMS.ModifyReplicationInstance
     mriPreferredMaintenanceWindow,
     mriVPCSecurityGroupIds,
     mriMultiAZ,
+    mriReplicationInstanceARN,
     mriAllocatedStorage,
     mriApplyImmediately,
     mriReplicationInstanceClass,
     mriReplicationInstanceIdentifier,
-    mriReplicationInstanceARN,
 
     -- * Destructuring the response
     ModifyReplicationInstanceResponse (..),
@@ -53,42 +54,58 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyReplicationInstance' smart constructor.
 data ModifyReplicationInstance = ModifyReplicationInstance'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
-    autoMinorVersionUpgrade ::
-      Lude.Maybe Lude.Bool,
-    allowMajorVersionUpgrade ::
-      Lude.Maybe Lude.Bool,
-    preferredMaintenanceWindow ::
-      Lude.Maybe Lude.Text,
-    vpcSecurityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The engine version number of the replication instance.
+    --
+    -- When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | A value that indicates that minor version upgrades are applied automatically to the replication instance during the maintenance window. Changing this parameter doesn't result in an outage, except in the case dsecribed following. The change is asynchronously applied as soon as possible.
+    --
+    -- An outage does result if these factors apply:
+    --
+    --     * This parameter is set to @true@ during the maintenance window.
+    --
+    --
+    --     * A newer minor version is available.
+    --
+    --
+    --     * AWS DMS has enabled automatic patching for the given engine version.
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage, and the change is asynchronously applied as soon as possible.
+    --
+    -- This parameter must be set to @true@ when specifying a value for the @EngineVersion@ parameter that is a different major version than the replication instance's current version.
+    allowMajorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.
+    --
+    -- Default: Uses existing setting
+    -- Format: ddd:hh24:mi-ddd:hh24:mi
+    -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+    -- Constraints: Must be at least 30 minutes
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
+    vpcSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
     multiAZ :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Text,
+    -- | The amount of storage (in gigabytes) to be allocated for the replication instance.
     allocatedStorage :: Lude.Maybe Lude.Int,
-    applyImmediately ::
-      Lude.Maybe Lude.Bool,
-    replicationInstanceClass ::
-      Lude.Maybe Lude.Text,
-    replicationInstanceIdentifier ::
-      Lude.Maybe Lude.Text,
-    replicationInstanceARN :: Lude.Text
+    -- | Indicates whether the changes should be applied immediately or during the next maintenance window.
+    applyImmediately :: Lude.Maybe Lude.Bool,
+    -- | The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ .
+    --
+    -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+    replicationInstanceClass :: Lude.Maybe Lude.Text,
+    -- | The replication instance identifier. This parameter is stored as a lowercase string.
+    replicationInstanceIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationInstance' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - The amount of storage (in gigabytes) to be allocated for the replication instance.
--- * 'allowMajorVersionUpgrade' - Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage, and the change is asynchronously applied as soon as possible.
+-- * 'engineVersion' - The engine version number of the replication instance.
 --
--- This parameter must be set to @true@ when specifying a value for the @EngineVersion@ parameter that is a different major version than the replication instance's current version.
--- * 'applyImmediately' - Indicates whether the changes should be applied immediately or during the next maintenance window.
+-- When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
 -- * 'autoMinorVersionUpgrade' - A value that indicates that minor version upgrades are applied automatically to the replication instance during the maintenance window. Changing this parameter doesn't result in an outage, except in the case dsecribed following. The change is asynchronously applied as soon as possible.
 --
 -- An outage does result if these factors apply:
@@ -102,22 +119,24 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 --     * AWS DMS has enabled automatic patching for the given engine version.
 --
 --
--- * 'engineVersion' - The engine version number of the replication instance.
+-- * 'allowMajorVersionUpgrade' - Indicates that major version upgrades are allowed. Changing this parameter does not result in an outage, and the change is asynchronously applied as soon as possible.
 --
--- When modifying a major engine version of an instance, also set @AllowMajorVersionUpgrade@ to @true@ .
--- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+-- This parameter must be set to @true@ when specifying a value for the @EngineVersion@ parameter that is a different major version than the replication instance's current version.
 -- * 'preferredMaintenanceWindow' - The weekly time range (in UTC) during which system maintenance can occur, which might result in an outage. Changing this parameter does not result in an outage, except in the following situation, and the change is asynchronously applied as soon as possible. If moving this window to the current time, there must be at least 30 minutes between the current time and end of the window to ensure pending changes are applied.
 --
 -- Default: Uses existing setting
 -- Format: ddd:hh24:mi-ddd:hh24:mi
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 -- Constraints: Must be at least 30 minutes
+-- * 'vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
+-- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
 -- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'allocatedStorage' - The amount of storage (in gigabytes) to be allocated for the replication instance.
+-- * 'applyImmediately' - Indicates whether the changes should be applied immediately or during the next maintenance window.
 -- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ .
 --
 -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
 -- * 'replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a lowercase string.
--- * 'vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication instance. The VPC security group must work with the VPC containing the replication instance.
 mkModifyReplicationInstance ::
   -- | 'replicationInstanceARN'
   Lude.Text ->
@@ -130,11 +149,11 @@ mkModifyReplicationInstance pReplicationInstanceARN_ =
       preferredMaintenanceWindow = Lude.Nothing,
       vpcSecurityGroupIds = Lude.Nothing,
       multiAZ = Lude.Nothing,
+      replicationInstanceARN = pReplicationInstanceARN_,
       allocatedStorage = Lude.Nothing,
       applyImmediately = Lude.Nothing,
       replicationInstanceClass = Lude.Nothing,
-      replicationInstanceIdentifier = Lude.Nothing,
-      replicationInstanceARN = pReplicationInstanceARN_
+      replicationInstanceIdentifier = Lude.Nothing
     }
 
 -- | The engine version number of the replication instance.
@@ -200,6 +219,13 @@ mriMultiAZ :: Lens.Lens' ModifyReplicationInstance (Lude.Maybe Lude.Bool)
 mriMultiAZ = Lens.lens (multiAZ :: ModifyReplicationInstance -> Lude.Maybe Lude.Bool) (\s a -> s {multiAZ = a} :: ModifyReplicationInstance)
 {-# DEPRECATED mriMultiAZ "Use generic-lens or generic-optics with 'multiAZ' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the replication instance.
+--
+-- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mriReplicationInstanceARN :: Lens.Lens' ModifyReplicationInstance Lude.Text
+mriReplicationInstanceARN = Lens.lens (replicationInstanceARN :: ModifyReplicationInstance -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: ModifyReplicationInstance)
+{-# DEPRECATED mriReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
+
 -- | The amount of storage (in gigabytes) to be allocated for the replication instance.
 --
 -- /Note:/ Consider using 'allocatedStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -229,13 +255,6 @@ mriReplicationInstanceClass = Lens.lens (replicationInstanceClass :: ModifyRepli
 mriReplicationInstanceIdentifier :: Lens.Lens' ModifyReplicationInstance (Lude.Maybe Lude.Text)
 mriReplicationInstanceIdentifier = Lens.lens (replicationInstanceIdentifier :: ModifyReplicationInstance -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceIdentifier = a} :: ModifyReplicationInstance)
 {-# DEPRECATED mriReplicationInstanceIdentifier "Use generic-lens or generic-optics with 'replicationInstanceIdentifier' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the replication instance.
---
--- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mriReplicationInstanceARN :: Lens.Lens' ModifyReplicationInstance Lude.Text
-mriReplicationInstanceARN = Lens.lens (replicationInstanceARN :: ModifyReplicationInstance -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: ModifyReplicationInstance)
-{-# DEPRECATED mriReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
 instance Lude.AWSRequest ModifyReplicationInstance where
   type
@@ -276,14 +295,14 @@ instance Lude.ToJSON ModifyReplicationInstance where
               Lude.<$> preferredMaintenanceWindow,
             ("VpcSecurityGroupIds" Lude..=) Lude.<$> vpcSecurityGroupIds,
             ("MultiAZ" Lude..=) Lude.<$> multiAZ,
+            Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN),
             ("AllocatedStorage" Lude..=) Lude.<$> allocatedStorage,
             ("ApplyImmediately" Lude..=) Lude.<$> applyImmediately,
             ("ReplicationInstanceClass" Lude..=)
               Lude.<$> replicationInstanceClass,
             ("ReplicationInstanceIdentifier" Lude..=)
-              Lude.<$> replicationInstanceIdentifier,
-            Lude.Just
-              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
+              Lude.<$> replicationInstanceIdentifier
           ]
       )
 
@@ -297,19 +316,12 @@ instance Lude.ToQuery ModifyReplicationInstance where
 --
 -- /See:/ 'mkModifyReplicationInstanceResponse' smart constructor.
 data ModifyReplicationInstanceResponse = ModifyReplicationInstanceResponse'
-  { replicationInstance ::
-      Lude.Maybe
-        ReplicationInstance,
-    responseStatus ::
-      Lude.Int
+  { -- | The modified replication instance.
+    replicationInstance :: Lude.Maybe ReplicationInstance,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyReplicationInstanceResponse' with the minimum fields required to make a request.

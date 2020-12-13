@@ -32,25 +32,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFile' smart constructor.
 data File = File'
-  { absolutePath :: Lude.Maybe Lude.Text,
+  { -- | The fully qualified path to the file in the repository.
+    absolutePath :: Lude.Maybe Lude.Text,
+    -- | The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
     fileMode :: Lude.Maybe FileModeTypeEnum,
+    -- | The blob ID that contains the file information.
     blobId :: Lude.Maybe Lude.Text,
+    -- | The relative path of the file from the folder where the query originated.
     relativePath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'File' with the minimum fields required to make a request.
 --
 -- * 'absolutePath' - The fully qualified path to the file in the repository.
--- * 'blobId' - The blob ID that contains the file information.
 -- * 'fileMode' - The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.
+-- * 'blobId' - The blob ID that contains the file information.
 -- * 'relativePath' - The relative path of the file from the folder where the query originated.
 mkFile ::
   File

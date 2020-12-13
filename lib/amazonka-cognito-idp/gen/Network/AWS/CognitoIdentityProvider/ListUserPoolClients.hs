@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoIdentityProvider.ListUserPoolClients
     mkListUserPoolClients,
 
     -- ** Request lenses
+    lupcUserPoolId,
     lupcNextToken,
     lupcMaxResults,
-    lupcUserPoolId,
 
     -- * Destructuring the response
     ListUserPoolClientsResponse (..),
@@ -47,35 +48,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListUserPoolClients' smart constructor.
 data ListUserPoolClients = ListUserPoolClients'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    userPoolId :: Lude.Text
+  { -- | The user pool ID for the user pool where you want to list user pool clients.
+    userPoolId :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results you want the request to return when listing the user pool clients.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUserPoolClients' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results you want the request to return when listing the user pool clients.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 -- * 'userPoolId' - The user pool ID for the user pool where you want to list user pool clients.
+-- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'maxResults' - The maximum number of results you want the request to return when listing the user pool clients.
 mkListUserPoolClients ::
   -- | 'userPoolId'
   Lude.Text ->
   ListUserPoolClients
 mkListUserPoolClients pUserPoolId_ =
   ListUserPoolClients'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      userPoolId = pUserPoolId_
+    { userPoolId = pUserPoolId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The user pool ID for the user pool where you want to list user pool clients.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupcUserPoolId :: Lens.Lens' ListUserPoolClients Lude.Text
+lupcUserPoolId = Lens.lens (userPoolId :: ListUserPoolClients -> Lude.Text) (\s a -> s {userPoolId = a} :: ListUserPoolClients)
+{-# DEPRECATED lupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -90,13 +94,6 @@ lupcNextToken = Lens.lens (nextToken :: ListUserPoolClients -> Lude.Maybe Lude.T
 lupcMaxResults :: Lens.Lens' ListUserPoolClients (Lude.Maybe Lude.Natural)
 lupcMaxResults = Lens.lens (maxResults :: ListUserPoolClients -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUserPoolClients)
 {-# DEPRECATED lupcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The user pool ID for the user pool where you want to list user pool clients.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupcUserPoolId :: Lens.Lens' ListUserPoolClients Lude.Text
-lupcUserPoolId = Lens.lens (userPoolId :: ListUserPoolClients -> Lude.Text) (\s a -> s {userPoolId = a} :: ListUserPoolClients)
-{-# DEPRECATED lupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Page.AWSPager ListUserPoolClients where
   page rq rs
@@ -136,9 +133,9 @@ instance Lude.ToJSON ListUserPoolClients where
   toJSON ListUserPoolClients' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -152,11 +149,11 @@ instance Lude.ToQuery ListUserPoolClients where
 --
 -- /See:/ 'mkListUserPoolClientsResponse' smart constructor.
 data ListUserPoolClientsResponse = ListUserPoolClientsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    userPoolClients ::
-      Lude.Maybe
-        [UserPoolClientDescription],
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The user pool clients in the response that lists user pool clients.
+    userPoolClients :: Lude.Maybe [UserPoolClientDescription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -165,8 +162,8 @@ data ListUserPoolClientsResponse = ListUserPoolClientsResponse'
 -- | Creates a value of 'ListUserPoolClientsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
 -- * 'userPoolClients' - The user pool clients in the response that lists user pool clients.
+-- * 'responseStatus' - The response status code.
 mkListUserPoolClientsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

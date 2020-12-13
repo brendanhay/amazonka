@@ -32,23 +32,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHistoryRecord' smart constructor.
 data HistoryRecord = HistoryRecord'
-  { eventType ::
-      Lude.Maybe EventType,
+  { -- | The event type.
+    --
+    --
+    --     * @error@ - An error with the Spot Fleet request.
+    --
+    --
+    --     * @fleetRequestChange@ - A change in the status or configuration of the Spot Fleet request.
+    --
+    --
+    --     * @instanceChange@ - An instance was launched or terminated.
+    --
+    --
+    --     * @Information@ - An informational event.
+    eventType :: Lude.Maybe EventType,
+    -- | Information about the event.
     eventInformation :: Lude.Maybe EventInformation,
+    -- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
     timestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoryRecord' with the minimum fields required to make a request.
 --
--- * 'eventInformation' - Information about the event.
 -- * 'eventType' - The event type.
 --
 --
@@ -64,6 +71,7 @@ data HistoryRecord = HistoryRecord'
 --     * @Information@ - An informational event.
 --
 --
+-- * 'eventInformation' - Information about the event.
 -- * 'timestamp' - The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 mkHistoryRecord ::
   HistoryRecord

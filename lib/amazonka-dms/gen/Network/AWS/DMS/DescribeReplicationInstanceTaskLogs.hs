@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,21 +44,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeReplicationInstanceTaskLogs' smart constructor.
 data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    replicationInstanceARN ::
-      Lude.Text
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationInstanceTaskLogs' with the minimum fields required to make a request.
@@ -150,32 +147,23 @@ instance Lude.ToQuery DescribeReplicationInstanceTaskLogs where
 
 -- | /See:/ 'mkDescribeReplicationInstanceTaskLogsResponse' smart constructor.
 data DescribeReplicationInstanceTaskLogsResponse = DescribeReplicationInstanceTaskLogsResponse'
-  { replicationInstanceTaskLogs ::
-      Lude.Maybe
-        [ReplicationInstanceTaskLog],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    replicationInstanceARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
+    replicationInstanceTaskLogs :: Lude.Maybe [ReplicationInstanceTaskLog],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationInstanceTaskLogsResponse' with the minimum fields required to make a request.
 --
+-- * 'replicationInstanceTaskLogs' - An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
--- * 'replicationInstanceTaskLogs' - An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
 -- * 'responseStatus' - The response status code.
 mkDescribeReplicationInstanceTaskLogsResponse ::
   -- | 'responseStatus'

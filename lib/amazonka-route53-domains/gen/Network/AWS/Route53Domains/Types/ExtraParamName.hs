@@ -13,19 +13,19 @@
 module Network.AWS.Route53Domains.Types.ExtraParamName
   ( ExtraParamName
       ( ExtraParamName',
+        DunsNumber,
+        BrandNumber,
+        BirthDepartment,
+        BirthDateInYyyyMmDd,
+        BirthCountry,
+        BirthCity,
+        DocumentNumber,
         AuIdNumber,
         AuIdType,
-        BirthCity,
-        BirthCountry,
-        BirthDateInYyyyMmDd,
-        BirthDepartment,
-        BrandNumber,
+        CaLegalType,
         CaBusinessEntityType,
         CaLegalRepresentative,
         CaLegalRepresentativeCapacity,
-        CaLegalType,
-        DocumentNumber,
-        DunsNumber,
         EsIdentification,
         EsIdentificationType,
         EsLegalForm,
@@ -39,9 +39,9 @@ module Network.AWS.Route53Domains.Types.ExtraParamName
         RuPassportData,
         SeIdNumber,
         SgIdNumber,
-        UkCompanyNumber,
+        VatNumber,
         UkContactType,
-        VatNumber
+        UkCompanyNumber
       ),
   )
 where
@@ -72,26 +72,35 @@ newtype ExtraParamName = ExtraParamName' Lude.Text
       Lude.ToHeader
     )
 
+pattern DunsNumber :: ExtraParamName
+pattern DunsNumber = ExtraParamName' "DUNS_NUMBER"
+
+pattern BrandNumber :: ExtraParamName
+pattern BrandNumber = ExtraParamName' "BRAND_NUMBER"
+
+pattern BirthDepartment :: ExtraParamName
+pattern BirthDepartment = ExtraParamName' "BIRTH_DEPARTMENT"
+
+pattern BirthDateInYyyyMmDd :: ExtraParamName
+pattern BirthDateInYyyyMmDd = ExtraParamName' "BIRTH_DATE_IN_YYYY_MM_DD"
+
+pattern BirthCountry :: ExtraParamName
+pattern BirthCountry = ExtraParamName' "BIRTH_COUNTRY"
+
+pattern BirthCity :: ExtraParamName
+pattern BirthCity = ExtraParamName' "BIRTH_CITY"
+
+pattern DocumentNumber :: ExtraParamName
+pattern DocumentNumber = ExtraParamName' "DOCUMENT_NUMBER"
+
 pattern AuIdNumber :: ExtraParamName
 pattern AuIdNumber = ExtraParamName' "AU_ID_NUMBER"
 
 pattern AuIdType :: ExtraParamName
 pattern AuIdType = ExtraParamName' "AU_ID_TYPE"
 
-pattern BirthCity :: ExtraParamName
-pattern BirthCity = ExtraParamName' "BIRTH_CITY"
-
-pattern BirthCountry :: ExtraParamName
-pattern BirthCountry = ExtraParamName' "BIRTH_COUNTRY"
-
-pattern BirthDateInYyyyMmDd :: ExtraParamName
-pattern BirthDateInYyyyMmDd = ExtraParamName' "BIRTH_DATE_IN_YYYY_MM_DD"
-
-pattern BirthDepartment :: ExtraParamName
-pattern BirthDepartment = ExtraParamName' "BIRTH_DEPARTMENT"
-
-pattern BrandNumber :: ExtraParamName
-pattern BrandNumber = ExtraParamName' "BRAND_NUMBER"
+pattern CaLegalType :: ExtraParamName
+pattern CaLegalType = ExtraParamName' "CA_LEGAL_TYPE"
 
 pattern CaBusinessEntityType :: ExtraParamName
 pattern CaBusinessEntityType = ExtraParamName' "CA_BUSINESS_ENTITY_TYPE"
@@ -101,15 +110,6 @@ pattern CaLegalRepresentative = ExtraParamName' "CA_LEGAL_REPRESENTATIVE"
 
 pattern CaLegalRepresentativeCapacity :: ExtraParamName
 pattern CaLegalRepresentativeCapacity = ExtraParamName' "CA_LEGAL_REPRESENTATIVE_CAPACITY"
-
-pattern CaLegalType :: ExtraParamName
-pattern CaLegalType = ExtraParamName' "CA_LEGAL_TYPE"
-
-pattern DocumentNumber :: ExtraParamName
-pattern DocumentNumber = ExtraParamName' "DOCUMENT_NUMBER"
-
-pattern DunsNumber :: ExtraParamName
-pattern DunsNumber = ExtraParamName' "DUNS_NUMBER"
 
 pattern EsIdentification :: ExtraParamName
 pattern EsIdentification = ExtraParamName' "ES_IDENTIFICATION"
@@ -150,29 +150,29 @@ pattern SeIdNumber = ExtraParamName' "SE_ID_NUMBER"
 pattern SgIdNumber :: ExtraParamName
 pattern SgIdNumber = ExtraParamName' "SG_ID_NUMBER"
 
-pattern UkCompanyNumber :: ExtraParamName
-pattern UkCompanyNumber = ExtraParamName' "UK_COMPANY_NUMBER"
+pattern VatNumber :: ExtraParamName
+pattern VatNumber = ExtraParamName' "VAT_NUMBER"
 
 pattern UkContactType :: ExtraParamName
 pattern UkContactType = ExtraParamName' "UK_CONTACT_TYPE"
 
-pattern VatNumber :: ExtraParamName
-pattern VatNumber = ExtraParamName' "VAT_NUMBER"
+pattern UkCompanyNumber :: ExtraParamName
+pattern UkCompanyNumber = ExtraParamName' "UK_COMPANY_NUMBER"
 
 {-# COMPLETE
+  DunsNumber,
+  BrandNumber,
+  BirthDepartment,
+  BirthDateInYyyyMmDd,
+  BirthCountry,
+  BirthCity,
+  DocumentNumber,
   AuIdNumber,
   AuIdType,
-  BirthCity,
-  BirthCountry,
-  BirthDateInYyyyMmDd,
-  BirthDepartment,
-  BrandNumber,
+  CaLegalType,
   CaBusinessEntityType,
   CaLegalRepresentative,
   CaLegalRepresentativeCapacity,
-  CaLegalType,
-  DocumentNumber,
-  DunsNumber,
   EsIdentification,
   EsIdentificationType,
   EsLegalForm,
@@ -186,8 +186,8 @@ pattern VatNumber = ExtraParamName' "VAT_NUMBER"
   RuPassportData,
   SeIdNumber,
   SgIdNumber,
-  UkCompanyNumber,
-  UkContactType,
   VatNumber,
+  UkContactType,
+  UkCompanyNumber,
   ExtraParamName'
   #-}

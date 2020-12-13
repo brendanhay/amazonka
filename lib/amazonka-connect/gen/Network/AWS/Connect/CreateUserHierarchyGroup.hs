@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Connect.CreateUserHierarchyGroup
     mkCreateUserHierarchyGroup,
 
     -- ** Request lenses
+    cuhgInstanceId,
     cuhgParentGroupId,
     cuhgName,
-    cuhgInstanceId,
 
     -- * Destructuring the response
     CreateUserHierarchyGroupResponse (..),
@@ -42,37 +43,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateUserHierarchyGroup' smart constructor.
 data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
-  { parentGroupId ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+    parentGroupId :: Lude.Maybe Lude.Text,
+    -- | The name of the user hierarchy group. Must not be more than 100 characters.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserHierarchyGroup' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'name' - The name of the user hierarchy group. Must not be more than 100 characters.
 -- * 'parentGroupId' - The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
+-- * 'name' - The name of the user hierarchy group. Must not be more than 100 characters.
 mkCreateUserHierarchyGroup ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateUserHierarchyGroup
-mkCreateUserHierarchyGroup pName_ pInstanceId_ =
+mkCreateUserHierarchyGroup pInstanceId_ pName_ =
   CreateUserHierarchyGroup'
-    { parentGroupId = Lude.Nothing,
-      name = pName_,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      parentGroupId = Lude.Nothing,
+      name = pName_
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuhgInstanceId :: Lens.Lens' CreateUserHierarchyGroup Lude.Text
+cuhgInstanceId = Lens.lens (instanceId :: CreateUserHierarchyGroup -> Lude.Text) (\s a -> s {instanceId = a} :: CreateUserHierarchyGroup)
+{-# DEPRECATED cuhgInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 --
@@ -87,13 +91,6 @@ cuhgParentGroupId = Lens.lens (parentGroupId :: CreateUserHierarchyGroup -> Lude
 cuhgName :: Lens.Lens' CreateUserHierarchyGroup Lude.Text
 cuhgName = Lens.lens (name :: CreateUserHierarchyGroup -> Lude.Text) (\s a -> s {name = a} :: CreateUserHierarchyGroup)
 {-# DEPRECATED cuhgName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuhgInstanceId :: Lens.Lens' CreateUserHierarchyGroup Lude.Text
-cuhgInstanceId = Lens.lens (instanceId :: CreateUserHierarchyGroup -> Lude.Text) (\s a -> s {instanceId = a} :: CreateUserHierarchyGroup)
-{-# DEPRECATED cuhgInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest CreateUserHierarchyGroup where
   type Rs CreateUserHierarchyGroup = CreateUserHierarchyGroupResponse
@@ -134,20 +131,14 @@ instance Lude.ToQuery CreateUserHierarchyGroup where
 
 -- | /See:/ 'mkCreateUserHierarchyGroupResponse' smart constructor.
 data CreateUserHierarchyGroupResponse = CreateUserHierarchyGroupResponse'
-  { hierarchyGroupARN ::
-      Lude.Maybe Lude.Text,
-    hierarchyGroupId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Amazon Resource Name (ARN) of the hierarchy group.
+    hierarchyGroupARN :: Lude.Maybe Lude.Text,
+    -- | The identifier of the hierarchy group.
+    hierarchyGroupId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserHierarchyGroupResponse' with the minimum fields required to make a request.

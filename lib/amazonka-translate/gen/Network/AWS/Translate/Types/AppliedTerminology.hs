@@ -30,23 +30,18 @@ import Network.AWS.Translate.Types.Term
 --
 -- /See:/ 'mkAppliedTerminology' smart constructor.
 data AppliedTerminology = AppliedTerminology'
-  { terms ::
-      Lude.Maybe [Term],
+  { -- | The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text.
+    terms :: Lude.Maybe [Term],
+    -- | The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppliedTerminology' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.
 -- * 'terms' - The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text.
+-- * 'name' - The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.
 mkAppliedTerminology ::
   AppliedTerminology
 mkAppliedTerminology =

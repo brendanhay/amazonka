@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImagePermissions' smart constructor.
 data ImagePermissions = ImagePermissions'
-  { allowFleet ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the image can be used for a fleet.
+    allowFleet :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether the image can be used for an image builder.
     allowImageBuilder :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImagePermissions' with the minimum fields required to make a request.

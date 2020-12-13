@@ -17,8 +17,8 @@ module Network.AWS.MediaPackage.Types.Authorization
     mkAuthorization,
 
     -- * Lenses
-    aSecretsRoleARN,
     aCdnIdentifierSecret,
+    aSecretsRoleARN,
   )
 where
 
@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthorization' smart constructor.
 data Authorization = Authorization'
-  { secretsRoleARN :: Lude.Text,
-    cdnIdentifierSecret :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
+    cdnIdentifierSecret :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+    secretsRoleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Authorization' with the minimum fields required to make a request.
@@ -46,23 +42,16 @@ data Authorization = Authorization'
 -- * 'cdnIdentifierSecret' - The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 -- * 'secretsRoleARN' - The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 mkAuthorization ::
-  -- | 'secretsRoleARN'
-  Lude.Text ->
   -- | 'cdnIdentifierSecret'
   Lude.Text ->
+  -- | 'secretsRoleARN'
+  Lude.Text ->
   Authorization
-mkAuthorization pSecretsRoleARN_ pCdnIdentifierSecret_ =
+mkAuthorization pCdnIdentifierSecret_ pSecretsRoleARN_ =
   Authorization'
-    { secretsRoleARN = pSecretsRoleARN_,
-      cdnIdentifierSecret = pCdnIdentifierSecret_
+    { cdnIdentifierSecret = pCdnIdentifierSecret_,
+      secretsRoleARN = pSecretsRoleARN_
     }
-
--- | The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
---
--- /Note:/ Consider using 'secretsRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aSecretsRoleARN :: Lens.Lens' Authorization Lude.Text
-aSecretsRoleARN = Lens.lens (secretsRoleARN :: Authorization -> Lude.Text) (\s a -> s {secretsRoleARN = a} :: Authorization)
-{-# DEPRECATED aSecretsRoleARN "Use generic-lens or generic-optics with 'secretsRoleARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 --
@@ -71,21 +60,28 @@ aCdnIdentifierSecret :: Lens.Lens' Authorization Lude.Text
 aCdnIdentifierSecret = Lens.lens (cdnIdentifierSecret :: Authorization -> Lude.Text) (\s a -> s {cdnIdentifierSecret = a} :: Authorization)
 {-# DEPRECATED aCdnIdentifierSecret "Use generic-lens or generic-optics with 'cdnIdentifierSecret' instead." #-}
 
+-- | The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+--
+-- /Note:/ Consider using 'secretsRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSecretsRoleARN :: Lens.Lens' Authorization Lude.Text
+aSecretsRoleARN = Lens.lens (secretsRoleARN :: Authorization -> Lude.Text) (\s a -> s {secretsRoleARN = a} :: Authorization)
+{-# DEPRECATED aSecretsRoleARN "Use generic-lens or generic-optics with 'secretsRoleARN' instead." #-}
+
 instance Lude.FromJSON Authorization where
   parseJSON =
     Lude.withObject
       "Authorization"
       ( \x ->
           Authorization'
-            Lude.<$> (x Lude..: "secretsRoleArn")
-            Lude.<*> (x Lude..: "cdnIdentifierSecret")
+            Lude.<$> (x Lude..: "cdnIdentifierSecret")
+            Lude.<*> (x Lude..: "secretsRoleArn")
       )
 
 instance Lude.ToJSON Authorization where
   toJSON Authorization' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("secretsRoleArn" Lude..= secretsRoleARN),
-            Lude.Just ("cdnIdentifierSecret" Lude..= cdnIdentifierSecret)
+          [ Lude.Just ("cdnIdentifierSecret" Lude..= cdnIdentifierSecret),
+            Lude.Just ("secretsRoleArn" Lude..= secretsRoleARN)
           ]
       )

@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArtifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
-  { s3Location ::
-      Lude.Maybe S3ArtifactLocation,
+  { -- | The S3 bucket that contains the artifact.
+    s3Location :: Lude.Maybe S3ArtifactLocation,
+    -- | The type of artifact in the location.
     type' :: Lude.Maybe ArtifactLocationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArtifactLocation' with the minimum fields required to make a request.

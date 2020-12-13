@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetWorkflows' smart constructor.
 data BatchGetWorkflows = BatchGetWorkflows'
-  { includeGraph ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether to include a graph when returning the workflow resource metadata.
+    includeGraph :: Lude.Maybe Lude.Bool,
+    -- | A list of workflow names, which may be the names returned from the @ListWorkflows@ operation.
     names :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetWorkflows' with the minimum fields required to make a request.
@@ -119,26 +115,21 @@ instance Lude.ToQuery BatchGetWorkflows where
 
 -- | /See:/ 'mkBatchGetWorkflowsResponse' smart constructor.
 data BatchGetWorkflowsResponse = BatchGetWorkflowsResponse'
-  { missingWorkflows ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    workflows ::
-      Lude.Maybe (Lude.NonEmpty Workflow),
+  { -- | A list of names of workflows not found.
+    missingWorkflows :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of workflow resource metadata.
+    workflows :: Lude.Maybe (Lude.NonEmpty Workflow),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetWorkflowsResponse' with the minimum fields required to make a request.
 --
 -- * 'missingWorkflows' - A list of names of workflows not found.
--- * 'responseStatus' - The response status code.
 -- * 'workflows' - A list of workflow resource metadata.
+-- * 'responseStatus' - The response status code.
 mkBatchGetWorkflowsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

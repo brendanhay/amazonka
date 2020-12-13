@@ -29,23 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceAggregatedAssociationOverview' smart constructor.
 data InstanceAggregatedAssociationOverview = InstanceAggregatedAssociationOverview'
-  { detailedStatus ::
-      Lude.Maybe
-        Lude.Text,
-    instanceAssociationStatusAggregatedCount ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Int)
-        )
+  { -- | Detailed status information about the aggregated associations.
+    detailedStatus :: Lude.Maybe Lude.Text,
+    -- | The number of associations for the instance(s).
+    instanceAssociationStatusAggregatedCount :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAggregatedAssociationOverview' with the minimum fields required to make a request.

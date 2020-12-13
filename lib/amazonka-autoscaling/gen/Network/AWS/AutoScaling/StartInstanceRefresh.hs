@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartInstanceRefresh' smart constructor.
 data StartInstanceRefresh = StartInstanceRefresh'
-  { preferences ::
-      Lude.Maybe RefreshPreferences,
+  { -- | Set of preferences associated with the instance refresh request.
+    --
+    -- If not provided, the default values are used. For @MinHealthyPercentage@ , the default value is @90@ . For @InstanceWarmup@ , the default is to use the value specified for the health check grace period for the Auto Scaling group.
+    -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences> in the /Amazon EC2 Auto Scaling API Reference/ .
+    preferences :: Lude.Maybe RefreshPreferences,
+    -- | The strategy to use for the instance refresh. The only valid value is @Rolling@ .
+    --
+    -- A rolling update is an update that is applied to all instances in an Auto Scaling group until all instances have been updated. A rolling update can fail due to failed health checks or if instances are on standby or are protected from scale in. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration.
     strategy :: Lude.Maybe RefreshStrategy,
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstanceRefresh' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'preferences' - Set of preferences associated with the instance refresh request.
 --
 -- If not provided, the default values are used. For @MinHealthyPercentage@ , the default value is @90@ . For @InstanceWarmup@ , the default is to use the value specified for the health check grace period for the Auto Scaling group.
@@ -68,6 +69,7 @@ data StartInstanceRefresh = StartInstanceRefresh'
 -- * 'strategy' - The strategy to use for the instance refresh. The only valid value is @Rolling@ .
 --
 -- A rolling update is an update that is applied to all instances in an Auto Scaling group until all instances have been updated. A rolling update can fail due to failed health checks or if instances are on standby or are protected from scale in. If the rolling update process fails, any instances that were already replaced are not rolled back to their previous configuration.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkStartInstanceRefresh ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -135,17 +137,12 @@ instance Lude.ToQuery StartInstanceRefresh where
 
 -- | /See:/ 'mkStartInstanceRefreshResponse' smart constructor.
 data StartInstanceRefreshResponse = StartInstanceRefreshResponse'
-  { instanceRefreshId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique ID for tracking the progress of the request.
+    instanceRefreshId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartInstanceRefreshResponse' with the minimum fields required to make a request.

@@ -34,28 +34,21 @@ import Network.AWS.S3.Types.TopicConfiguration
 --
 -- /See:/ 'mkNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { queueConfigurations ::
-      Lude.Maybe [QueueConfiguration],
-    topicConfigurations ::
-      Lude.Maybe [TopicConfiguration],
-    lambdaFunctionConfigurations ::
-      Lude.Maybe
-        [LambdaFunctionConfiguration]
+  { -- | The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+    queueConfigurations :: Lude.Maybe [QueueConfiguration],
+    -- | The topic to which notifications are sent and the events for which notifications are generated.
+    topicConfigurations :: Lude.Maybe [TopicConfiguration],
+    -- | Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+    lambdaFunctionConfigurations :: Lude.Maybe [LambdaFunctionConfiguration]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
--- * 'lambdaFunctionConfigurations' - Describes the AWS Lambda functions to invoke and the events for which to invoke them.
 -- * 'queueConfigurations' - The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
 -- * 'topicConfigurations' - The topic to which notifications are sent and the events for which notifications are generated.
+-- * 'lambdaFunctionConfigurations' - Describes the AWS Lambda functions to invoke and the events for which to invoke them.
 mkNotificationConfiguration ::
   NotificationConfiguration
 mkNotificationConfiguration =

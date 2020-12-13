@@ -29,25 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventCategoryGroup' smart constructor.
 data EventCategoryGroup = EventCategoryGroup'
-  { sourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of AWS DMS resource that generates events.
+    --
+    -- Valid values: replication-instance | replication-server | security-group | replication-task
+    sourceType :: Lude.Maybe Lude.Text,
+    -- | A list of event categories from a source type that you've chosen.
     eventCategories :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventCategoryGroup' with the minimum fields required to make a request.
 --
--- * 'eventCategories' - A list of event categories from a source type that you've chosen.
 -- * 'sourceType' - The type of AWS DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-server | security-group | replication-task
+-- * 'eventCategories' - A list of event categories from a source type that you've chosen.
 mkEventCategoryGroup ::
   EventCategoryGroup
 mkEventCategoryGroup =

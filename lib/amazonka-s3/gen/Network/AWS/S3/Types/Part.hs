@@ -32,26 +32,24 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkPart' smart constructor.
 data Part = Part'
-  { eTag :: Lude.Maybe ETag,
+  { -- | Entity tag returned when the part was uploaded.
+    eTag :: Lude.Maybe ETag,
+    -- | Size in bytes of the uploaded part data.
     size :: Lude.Maybe Lude.Int,
+    -- | Part number identifying the part. This is a positive integer between 1 and 10,000.
     partNumber :: Lude.Maybe Lude.Int,
+    -- | Date and time at which the part was uploaded.
     lastModified :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Part' with the minimum fields required to make a request.
 --
 -- * 'eTag' - Entity tag returned when the part was uploaded.
--- * 'lastModified' - Date and time at which the part was uploaded.
--- * 'partNumber' - Part number identifying the part. This is a positive integer between 1 and 10,000.
 -- * 'size' - Size in bytes of the uploaded part data.
+-- * 'partNumber' - Part number identifying the part. This is a positive integer between 1 and 10,000.
+-- * 'lastModified' - Date and time at which the part was uploaded.
 mkPart ::
   Part
 mkPart =

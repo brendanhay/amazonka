@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,32 +47,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { filters ::
-      Lude.Maybe [ExportFilter],
+  { -- | One or more filters.
+    --
+    --
+    --     * @AgentId@ - ID of the agent whose collected data will be exported
+    filters :: Lude.Maybe [ExportFilter],
+    -- | The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | One or more unique identifiers used to query the status of an export request.
     exportIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
--- * 'exportIds' - One or more unique identifiers used to query the status of an export request.
 -- * 'filters' - One or more filters.
 --
 --
 --     * @AgentId@ - ID of the agent whose collected data will be exported
 --
 --
--- * 'maxResults' - The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
 -- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
+-- * 'exportIds' - One or more unique identifiers used to query the status of an export request.
+-- * 'maxResults' - The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
 mkDescribeExportTasks ::
   DescribeExportTasks
 mkDescribeExportTasks =
@@ -168,25 +169,20 @@ instance Lude.ToQuery DescribeExportTasks where
 
 -- | /See:/ 'mkDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    exportsInfo ::
-      Lude.Maybe [ExportInfo],
+  { -- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
+    exportsInfo :: Lude.Maybe [ExportInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
--- * 'exportsInfo' - Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
 -- * 'nextToken' - The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
+-- * 'exportsInfo' - Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
 -- * 'responseStatus' - The response status code.
 mkDescribeExportTasksResponse ::
   -- | 'responseStatus'

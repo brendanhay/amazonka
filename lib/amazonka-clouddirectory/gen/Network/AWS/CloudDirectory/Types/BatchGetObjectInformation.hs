@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchGetObjectInformation' smart constructor.
 newtype BatchGetObjectInformation = BatchGetObjectInformation'
-  { objectReference ::
-      ObjectReference
+  { -- | A reference to the object.
+    objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetObjectInformation' with the minimum fields required to make a request.

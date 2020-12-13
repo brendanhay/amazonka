@@ -13,8 +13,8 @@
 module Network.AWS.AppSync.Types.OutputType
   ( OutputType
       ( OutputType',
-        OTJSON,
-        OTSdl
+        OTSdl,
+        OTJSON
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OutputType = OutputType' Lude.Text
       Lude.ToHeader
     )
 
-pattern OTJSON :: OutputType
-pattern OTJSON = OutputType' "JSON"
-
 pattern OTSdl :: OutputType
 pattern OTSdl = OutputType' "SDL"
 
+pattern OTJSON :: OutputType
+pattern OTJSON = OutputType' "JSON"
+
 {-# COMPLETE
-  OTJSON,
   OTSdl,
+  OTJSON,
   OutputType'
   #-}

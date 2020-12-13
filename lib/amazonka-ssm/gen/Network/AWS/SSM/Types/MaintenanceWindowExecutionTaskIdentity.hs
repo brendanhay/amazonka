@@ -37,50 +37,36 @@ import Network.AWS.SSM.Types.MaintenanceWindowTaskType
 --
 -- /See:/ 'mkMaintenanceWindowExecutionTaskIdentity' smart constructor.
 data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIdentity'
-  { status ::
-      Lude.Maybe
-        MaintenanceWindowExecutionStatus,
-    taskExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    startTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    taskType ::
-      Lude.Maybe
-        MaintenanceWindowTaskType,
-    taskARN ::
-      Lude.Maybe
-        Lude.Text,
-    windowExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    statusDetails ::
-      Lude.Maybe
-        Lude.Text,
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp
+  { -- | The status of the task execution.
+    status :: Lude.Maybe MaintenanceWindowExecutionStatus,
+    -- | The ID of the specific task execution in the maintenance window execution.
+    taskExecutionId :: Lude.Maybe Lude.Text,
+    -- | The time the task execution started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The type of task that ran.
+    taskType :: Lude.Maybe MaintenanceWindowTaskType,
+    -- | The ARN of the task that ran.
+    taskARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the maintenance window execution that ran the task.
+    windowExecutionId :: Lude.Maybe Lude.Text,
+    -- | The details explaining the status of the task execution. Only available for certain status values.
+    statusDetails :: Lude.Maybe Lude.Text,
+    -- | The time the task execution finished.
+    endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowExecutionTaskIdentity' with the minimum fields required to make a request.
 --
--- * 'endTime' - The time the task execution finished.
--- * 'startTime' - The time the task execution started.
 -- * 'status' - The status of the task execution.
--- * 'statusDetails' - The details explaining the status of the task execution. Only available for certain status values.
--- * 'taskARN' - The ARN of the task that ran.
 -- * 'taskExecutionId' - The ID of the specific task execution in the maintenance window execution.
+-- * 'startTime' - The time the task execution started.
 -- * 'taskType' - The type of task that ran.
+-- * 'taskARN' - The ARN of the task that ran.
 -- * 'windowExecutionId' - The ID of the maintenance window execution that ran the task.
+-- * 'statusDetails' - The details explaining the status of the task execution. Only available for certain status values.
+-- * 'endTime' - The time the task execution finished.
 mkMaintenanceWindowExecutionTaskIdentity ::
   MaintenanceWindowExecutionTaskIdentity
 mkMaintenanceWindowExecutionTaskIdentity =

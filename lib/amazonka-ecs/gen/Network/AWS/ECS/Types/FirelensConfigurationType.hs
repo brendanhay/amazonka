@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.FirelensConfigurationType
   ( FirelensConfigurationType
       ( FirelensConfigurationType',
-        Fluentbit,
-        Fluentd
+        Fluentd,
+        Fluentbit
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FirelensConfigurationType = FirelensConfigurationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Fluentbit :: FirelensConfigurationType
-pattern Fluentbit = FirelensConfigurationType' "fluentbit"
-
 pattern Fluentd :: FirelensConfigurationType
 pattern Fluentd = FirelensConfigurationType' "fluentd"
 
+pattern Fluentbit :: FirelensConfigurationType
+pattern Fluentbit = FirelensConfigurationType' "fluentbit"
+
 {-# COMPLETE
-  Fluentbit,
   Fluentd,
+  Fluentbit,
   FirelensConfigurationType'
   #-}

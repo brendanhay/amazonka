@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeElasticLoadBalancers' smart constructor.
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
-  { layerIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of layer IDs. The action describes the Elastic Load Balancing instances for the specified layers.
+    layerIds :: Lude.Maybe [Lude.Text],
+    -- | A stack ID. The action describes the stack's Elastic Load Balancing instances.
     stackId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticLoadBalancers' with the minimum fields required to make a request.
@@ -126,19 +122,12 @@ instance Lude.ToQuery DescribeElasticLoadBalancers where
 --
 -- /See:/ 'mkDescribeElasticLoadBalancersResponse' smart constructor.
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
-  { elasticLoadBalancers ::
-      Lude.Maybe
-        [ElasticLoadBalancer],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @ElasticLoadBalancer@ objects that describe the specified Elastic Load Balancing instances.
+    elasticLoadBalancers :: Lude.Maybe [ElasticLoadBalancer],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticLoadBalancersResponse' with the minimum fields required to make a request.

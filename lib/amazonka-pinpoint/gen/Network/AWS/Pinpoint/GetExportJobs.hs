@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,16 +21,16 @@ module Network.AWS.Pinpoint.GetExportJobs
 
     -- ** Request lenses
     gejsToken,
-    gejsPageSize,
     gejsApplicationId,
+    gejsPageSize,
 
     -- * Destructuring the response
     GetExportJobsResponse (..),
     mkGetExportJobsResponse,
 
     -- ** Response lenses
-    gejrsResponseStatus,
     gejrsExportJobsResponse,
+    gejrsResponseStatus,
   )
 where
 
@@ -41,24 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetExportJobs' smart constructor.
 data GetExportJobs = GetExportJobs'
-  { token :: Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Text,
-    applicationId :: Lude.Text
+  { -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    pageSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExportJobs' with the minimum fields required to make a request.
 --
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
--- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 mkGetExportJobs ::
   -- | 'applicationId'
   Lude.Text ->
@@ -66,8 +64,8 @@ mkGetExportJobs ::
 mkGetExportJobs pApplicationId_ =
   GetExportJobs'
     { token = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      applicationId = pApplicationId_
+      applicationId = pApplicationId_,
+      pageSize = Lude.Nothing
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
@@ -77,19 +75,19 @@ gejsToken :: Lens.Lens' GetExportJobs (Lude.Maybe Lude.Text)
 gejsToken = Lens.lens (token :: GetExportJobs -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetExportJobs)
 {-# DEPRECATED gejsToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
--- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gejsPageSize :: Lens.Lens' GetExportJobs (Lude.Maybe Lude.Text)
-gejsPageSize = Lens.lens (pageSize :: GetExportJobs -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetExportJobs)
-{-# DEPRECATED gejsPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gejsApplicationId :: Lens.Lens' GetExportJobs Lude.Text
 gejsApplicationId = Lens.lens (applicationId :: GetExportJobs -> Lude.Text) (\s a -> s {applicationId = a} :: GetExportJobs)
 {-# DEPRECATED gejsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gejsPageSize :: Lens.Lens' GetExportJobs (Lude.Maybe Lude.Text)
+gejsPageSize = Lens.lens (pageSize :: GetExportJobs -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetExportJobs)
+{-# DEPRECATED gejsPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 instance Lude.AWSRequest GetExportJobs where
   type Rs GetExportJobs = GetExportJobsResponse
@@ -98,7 +96,7 @@ instance Lude.AWSRequest GetExportJobs where
     Res.receiveJSON
       ( \s h x ->
           GetExportJobsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetExportJobs where
@@ -122,41 +120,28 @@ instance Lude.ToQuery GetExportJobs where
 
 -- | /See:/ 'mkGetExportJobsResponse' smart constructor.
 data GetExportJobsResponse = GetExportJobsResponse'
-  { responseStatus ::
-      Lude.Int,
-    exportJobsResponse :: ExportJobsResponse
+  { exportJobsResponse :: ExportJobsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExportJobsResponse' with the minimum fields required to make a request.
 --
--- * 'exportJobsResponse' - Undocumented field.
+-- * 'exportJobsResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetExportJobsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'exportJobsResponse'
   ExportJobsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetExportJobsResponse
-mkGetExportJobsResponse pResponseStatus_ pExportJobsResponse_ =
+mkGetExportJobsResponse pExportJobsResponse_ pResponseStatus_ =
   GetExportJobsResponse'
-    { responseStatus = pResponseStatus_,
-      exportJobsResponse = pExportJobsResponse_
+    { exportJobsResponse = pExportJobsResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gejrsResponseStatus :: Lens.Lens' GetExportJobsResponse Lude.Int
-gejrsResponseStatus = Lens.lens (responseStatus :: GetExportJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExportJobsResponse)
-{-# DEPRECATED gejrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -164,3 +149,10 @@ gejrsResponseStatus = Lens.lens (responseStatus :: GetExportJobsResponse -> Lude
 gejrsExportJobsResponse :: Lens.Lens' GetExportJobsResponse ExportJobsResponse
 gejrsExportJobsResponse = Lens.lens (exportJobsResponse :: GetExportJobsResponse -> ExportJobsResponse) (\s a -> s {exportJobsResponse = a} :: GetExportJobsResponse)
 {-# DEPRECATED gejrsExportJobsResponse "Use generic-lens or generic-optics with 'exportJobsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gejrsResponseStatus :: Lens.Lens' GetExportJobsResponse Lude.Int
+gejrsResponseStatus = Lens.lens (responseStatus :: GetExportJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExportJobsResponse)
+{-# DEPRECATED gejrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

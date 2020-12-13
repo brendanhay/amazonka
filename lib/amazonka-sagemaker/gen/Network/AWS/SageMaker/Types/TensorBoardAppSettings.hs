@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.ResourceSpec
 --
 -- /See:/ 'mkTensorBoardAppSettings' smart constructor.
 newtype TensorBoardAppSettings = TensorBoardAppSettings'
-  { defaultResourceSpec ::
-      Lude.Maybe ResourceSpec
+  { -- | The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+    defaultResourceSpec :: Lude.Maybe ResourceSpec
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TensorBoardAppSettings' with the minimum fields required to make a request.

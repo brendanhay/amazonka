@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.ReconnectEnum
   ( ReconnectEnum
       ( ReconnectEnum',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReconnectEnum = ReconnectEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: ReconnectEnum
-pattern Disabled = ReconnectEnum' "DISABLED"
-
 pattern Enabled :: ReconnectEnum
 pattern Enabled = ReconnectEnum' "ENABLED"
 
+pattern Disabled :: ReconnectEnum
+pattern Disabled = ReconnectEnum' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   ReconnectEnum'
   #-}

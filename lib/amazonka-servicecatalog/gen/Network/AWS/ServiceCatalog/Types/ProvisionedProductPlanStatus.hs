@@ -13,12 +13,12 @@
 module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
   ( ProvisionedProductPlanStatus
       ( ProvisionedProductPlanStatus',
-        CreateFailed,
         CreateInProgress,
         CreateSuccess,
-        ExecuteFailed,
+        CreateFailed,
         ExecuteInProgress,
-        ExecuteSuccess
+        ExecuteSuccess,
+        ExecuteFailed
       ),
   )
 where
@@ -49,17 +49,14 @@ newtype ProvisionedProductPlanStatus = ProvisionedProductPlanStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreateFailed :: ProvisionedProductPlanStatus
-pattern CreateFailed = ProvisionedProductPlanStatus' "CREATE_FAILED"
-
 pattern CreateInProgress :: ProvisionedProductPlanStatus
 pattern CreateInProgress = ProvisionedProductPlanStatus' "CREATE_IN_PROGRESS"
 
 pattern CreateSuccess :: ProvisionedProductPlanStatus
 pattern CreateSuccess = ProvisionedProductPlanStatus' "CREATE_SUCCESS"
 
-pattern ExecuteFailed :: ProvisionedProductPlanStatus
-pattern ExecuteFailed = ProvisionedProductPlanStatus' "EXECUTE_FAILED"
+pattern CreateFailed :: ProvisionedProductPlanStatus
+pattern CreateFailed = ProvisionedProductPlanStatus' "CREATE_FAILED"
 
 pattern ExecuteInProgress :: ProvisionedProductPlanStatus
 pattern ExecuteInProgress = ProvisionedProductPlanStatus' "EXECUTE_IN_PROGRESS"
@@ -67,12 +64,15 @@ pattern ExecuteInProgress = ProvisionedProductPlanStatus' "EXECUTE_IN_PROGRESS"
 pattern ExecuteSuccess :: ProvisionedProductPlanStatus
 pattern ExecuteSuccess = ProvisionedProductPlanStatus' "EXECUTE_SUCCESS"
 
+pattern ExecuteFailed :: ProvisionedProductPlanStatus
+pattern ExecuteFailed = ProvisionedProductPlanStatus' "EXECUTE_FAILED"
+
 {-# COMPLETE
-  CreateFailed,
   CreateInProgress,
   CreateSuccess,
-  ExecuteFailed,
+  CreateFailed,
   ExecuteInProgress,
   ExecuteSuccess,
+  ExecuteFailed,
   ProvisionedProductPlanStatus'
   #-}

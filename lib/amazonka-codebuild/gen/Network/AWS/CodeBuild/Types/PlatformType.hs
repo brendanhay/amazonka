@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.PlatformType
   ( PlatformType
       ( PlatformType',
-        AmazonLinux,
         Debian,
+        AmazonLinux,
         Ubuntu,
         WindowsServer
       ),
@@ -47,11 +47,11 @@ newtype PlatformType = PlatformType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AmazonLinux :: PlatformType
-pattern AmazonLinux = PlatformType' "AMAZON_LINUX"
-
 pattern Debian :: PlatformType
 pattern Debian = PlatformType' "DEBIAN"
+
+pattern AmazonLinux :: PlatformType
+pattern AmazonLinux = PlatformType' "AMAZON_LINUX"
 
 pattern Ubuntu :: PlatformType
 pattern Ubuntu = PlatformType' "UBUNTU"
@@ -60,8 +60,8 @@ pattern WindowsServer :: PlatformType
 pattern WindowsServer = PlatformType' "WINDOWS_SERVER"
 
 {-# COMPLETE
-  AmazonLinux,
   Debian,
+  AmazonLinux,
   Ubuntu,
   WindowsServer,
   PlatformType'

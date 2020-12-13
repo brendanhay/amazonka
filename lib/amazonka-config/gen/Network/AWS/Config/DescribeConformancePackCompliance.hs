@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,19 +21,19 @@ module Network.AWS.Config.DescribeConformancePackCompliance
 
     -- ** Request lenses
     dcpcFilters,
+    dcpcConformancePackName,
     dcpcNextToken,
     dcpcLimit,
-    dcpcConformancePackName,
 
     -- * Destructuring the response
     DescribeConformancePackComplianceResponse (..),
     mkDescribeConformancePackComplianceResponse,
 
     -- ** Response lenses
+    dcpcrsConformancePackRuleComplianceList,
+    dcpcrsConformancePackName,
     dcpcrsNextToken,
     dcpcrsResponseStatus,
-    dcpcrsConformancePackName,
-    dcpcrsConformancePackRuleComplianceList,
   )
 where
 
@@ -44,31 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeConformancePackCompliance' smart constructor.
 data DescribeConformancePackCompliance = DescribeConformancePackCompliance'
-  { filters ::
-      Lude.Maybe
-        ConformancePackComplianceFilters,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe Lude.Natural,
-    conformancePackName ::
-      Lude.Text
+  { -- | A @ConformancePackComplianceFilters@ object.
+    filters :: Lude.Maybe ConformancePackComplianceFilters,
+    -- | Name of the conformance pack.
+    conformancePackName :: Lude.Text,
+    -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of AWS Config rules within a conformance pack are returned on each page.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConformancePackCompliance' with the minimum fields required to make a request.
 --
--- * 'conformancePackName' - Name of the conformance pack.
 -- * 'filters' - A @ConformancePackComplianceFilters@ object.
--- * 'limit' - The maximum number of AWS Config rules within a conformance pack are returned on each page.
+-- * 'conformancePackName' - Name of the conformance pack.
 -- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+-- * 'limit' - The maximum number of AWS Config rules within a conformance pack are returned on each page.
 mkDescribeConformancePackCompliance ::
   -- | 'conformancePackName'
   Lude.Text ->
@@ -76,9 +70,9 @@ mkDescribeConformancePackCompliance ::
 mkDescribeConformancePackCompliance pConformancePackName_ =
   DescribeConformancePackCompliance'
     { filters = Lude.Nothing,
+      conformancePackName = pConformancePackName_,
       nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      conformancePackName = pConformancePackName_
+      limit = Lude.Nothing
     }
 
 -- | A @ConformancePackComplianceFilters@ object.
@@ -87,6 +81,13 @@ mkDescribeConformancePackCompliance pConformancePackName_ =
 dcpcFilters :: Lens.Lens' DescribeConformancePackCompliance (Lude.Maybe ConformancePackComplianceFilters)
 dcpcFilters = Lens.lens (filters :: DescribeConformancePackCompliance -> Lude.Maybe ConformancePackComplianceFilters) (\s a -> s {filters = a} :: DescribeConformancePackCompliance)
 {-# DEPRECATED dcpcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | Name of the conformance pack.
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpcConformancePackName :: Lens.Lens' DescribeConformancePackCompliance Lude.Text
+dcpcConformancePackName = Lens.lens (conformancePackName :: DescribeConformancePackCompliance -> Lude.Text) (\s a -> s {conformancePackName = a} :: DescribeConformancePackCompliance)
+{-# DEPRECATED dcpcConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
 --
@@ -102,13 +103,6 @@ dcpcLimit :: Lens.Lens' DescribeConformancePackCompliance (Lude.Maybe Lude.Natur
 dcpcLimit = Lens.lens (limit :: DescribeConformancePackCompliance -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeConformancePackCompliance)
 {-# DEPRECATED dcpcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | Name of the conformance pack.
---
--- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpcConformancePackName :: Lens.Lens' DescribeConformancePackCompliance Lude.Text
-dcpcConformancePackName = Lens.lens (conformancePackName :: DescribeConformancePackCompliance -> Lude.Text) (\s a -> s {conformancePackName = a} :: DescribeConformancePackCompliance)
-{-# DEPRECATED dcpcConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
-
 instance Lude.AWSRequest DescribeConformancePackCompliance where
   type
     Rs DescribeConformancePackCompliance =
@@ -118,12 +112,12 @@ instance Lude.AWSRequest DescribeConformancePackCompliance where
     Res.receiveJSON
       ( \s h x ->
           DescribeConformancePackComplianceResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ConformancePackName")
-            Lude.<*> ( x Lude..?> "ConformancePackRuleComplianceList"
+            Lude.<$> ( x Lude..?> "ConformancePackRuleComplianceList"
                          Lude..!@ Lude.mempty
                      )
+            Lude.<*> (x Lude..:> "ConformancePackName")
+            Lude.<*> (x Lude..?> "NextToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeConformancePackCompliance where
@@ -144,9 +138,9 @@ instance Lude.ToJSON DescribeConformancePackCompliance where
     Lude.object
       ( Lude.catMaybes
           [ ("Filters" Lude..=) Lude.<$> filters,
+            Lude.Just ("ConformancePackName" Lude..= conformancePackName),
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ConformancePackName" Lude..= conformancePackName)
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -158,47 +152,54 @@ instance Lude.ToQuery DescribeConformancePackCompliance where
 
 -- | /See:/ 'mkDescribeConformancePackComplianceResponse' smart constructor.
 data DescribeConformancePackComplianceResponse = DescribeConformancePackComplianceResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    conformancePackName ::
-      Lude.Text,
-    conformancePackRuleComplianceList ::
-      [ConformancePackRuleCompliance]
+  { -- | Returns a list of @ConformancePackRuleCompliance@ objects.
+    conformancePackRuleComplianceList :: [ConformancePackRuleCompliance],
+    -- | Name of the conformance pack.
+    conformancePackName :: Lude.Text,
+    -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConformancePackComplianceResponse' with the minimum fields required to make a request.
 --
--- * 'conformancePackName' - Name of the conformance pack.
 -- * 'conformancePackRuleComplianceList' - Returns a list of @ConformancePackRuleCompliance@ objects.
+-- * 'conformancePackName' - Name of the conformance pack.
 -- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
 -- * 'responseStatus' - The response status code.
 mkDescribeConformancePackComplianceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'conformancePackName'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeConformancePackComplianceResponse
 mkDescribeConformancePackComplianceResponse
-  pResponseStatus_
-  pConformancePackName_ =
+  pConformancePackName_
+  pResponseStatus_ =
     DescribeConformancePackComplianceResponse'
-      { nextToken =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_,
+      { conformancePackRuleComplianceList =
+          Lude.mempty,
         conformancePackName = pConformancePackName_,
-        conformancePackRuleComplianceList = Lude.mempty
+        nextToken = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
+
+-- | Returns a list of @ConformancePackRuleCompliance@ objects.
+--
+-- /Note:/ Consider using 'conformancePackRuleComplianceList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpcrsConformancePackRuleComplianceList :: Lens.Lens' DescribeConformancePackComplianceResponse [ConformancePackRuleCompliance]
+dcpcrsConformancePackRuleComplianceList = Lens.lens (conformancePackRuleComplianceList :: DescribeConformancePackComplianceResponse -> [ConformancePackRuleCompliance]) (\s a -> s {conformancePackRuleComplianceList = a} :: DescribeConformancePackComplianceResponse)
+{-# DEPRECATED dcpcrsConformancePackRuleComplianceList "Use generic-lens or generic-optics with 'conformancePackRuleComplianceList' instead." #-}
+
+-- | Name of the conformance pack.
+--
+-- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpcrsConformancePackName :: Lens.Lens' DescribeConformancePackComplianceResponse Lude.Text
+dcpcrsConformancePackName = Lens.lens (conformancePackName :: DescribeConformancePackComplianceResponse -> Lude.Text) (\s a -> s {conformancePackName = a} :: DescribeConformancePackComplianceResponse)
+{-# DEPRECATED dcpcrsConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
 
 -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
 --
@@ -213,17 +214,3 @@ dcpcrsNextToken = Lens.lens (nextToken :: DescribeConformancePackComplianceRespo
 dcpcrsResponseStatus :: Lens.Lens' DescribeConformancePackComplianceResponse Lude.Int
 dcpcrsResponseStatus = Lens.lens (responseStatus :: DescribeConformancePackComplianceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConformancePackComplianceResponse)
 {-# DEPRECATED dcpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Name of the conformance pack.
---
--- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpcrsConformancePackName :: Lens.Lens' DescribeConformancePackComplianceResponse Lude.Text
-dcpcrsConformancePackName = Lens.lens (conformancePackName :: DescribeConformancePackComplianceResponse -> Lude.Text) (\s a -> s {conformancePackName = a} :: DescribeConformancePackComplianceResponse)
-{-# DEPRECATED dcpcrsConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
-
--- | Returns a list of @ConformancePackRuleCompliance@ objects.
---
--- /Note:/ Consider using 'conformancePackRuleComplianceList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpcrsConformancePackRuleComplianceList :: Lens.Lens' DescribeConformancePackComplianceResponse [ConformancePackRuleCompliance]
-dcpcrsConformancePackRuleComplianceList = Lens.lens (conformancePackRuleComplianceList :: DescribeConformancePackComplianceResponse -> [ConformancePackRuleCompliance]) (\s a -> s {conformancePackRuleComplianceList = a} :: DescribeConformancePackComplianceResponse)
-{-# DEPRECATED dcpcrsConformancePackRuleComplianceList "Use generic-lens or generic-optics with 'conformancePackRuleComplianceList' instead." #-}

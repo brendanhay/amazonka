@@ -13,10 +13,10 @@
 module Network.AWS.MediaStore.Types.MethodName
   ( MethodName
       ( MethodName',
-        Delete,
+        Put,
         Get,
-        Head,
-        Put
+        Delete,
+        Head
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype MethodName = MethodName' Lude.Text
       Lude.ToHeader
     )
 
-pattern Delete :: MethodName
-pattern Delete = MethodName' "DELETE"
+pattern Put :: MethodName
+pattern Put = MethodName' "PUT"
 
 pattern Get :: MethodName
 pattern Get = MethodName' "GET"
 
+pattern Delete :: MethodName
+pattern Delete = MethodName' "DELETE"
+
 pattern Head :: MethodName
 pattern Head = MethodName' "HEAD"
 
-pattern Put :: MethodName
-pattern Put = MethodName' "PUT"
-
 {-# COMPLETE
-  Delete,
-  Get,
-  Head,
   Put,
+  Get,
+  Delete,
+  Head,
   MethodName'
   #-}

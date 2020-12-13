@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,26 +43,21 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkListTextTranslationJobs' smart constructor.
 data ListTextTranslationJobs = ListTextTranslationJobs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe TextTranslationJobFilter,
+  { -- | The token to request the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.
+    filter :: Lude.Maybe TextTranslationJobFilter,
+    -- | The maximum number of results to return in each page. The default value is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTextTranslationJobs' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token to request the next page of results.
 -- * 'filter' - The parameters that specify which batch translation jobs to retrieve. Filters include job name, job status, and submission time. You can only set one filter at a time.
 -- * 'maxResults' - The maximum number of results to return in each page. The default value is 100.
--- * 'nextToken' - The token to request the next page of results.
 mkListTextTranslationJobs ::
   ListTextTranslationJobs
 mkListTextTranslationJobs =
@@ -137,27 +133,21 @@ instance Lude.ToQuery ListTextTranslationJobs where
 
 -- | /See:/ 'mkListTextTranslationJobsResponse' smart constructor.
 data ListTextTranslationJobsResponse = ListTextTranslationJobsResponse'
-  { textTranslationJobPropertiesList ::
-      Lude.Maybe
-        [TextTranslationJobProperties],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list containing the properties of each job that is returned.
+    textTranslationJobPropertiesList :: Lude.Maybe [TextTranslationJobProperties],
+    -- | The token to use to retreive the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTextTranslationJobsResponse' with the minimum fields required to make a request.
 --
+-- * 'textTranslationJobPropertiesList' - A list containing the properties of each job that is returned.
 -- * 'nextToken' - The token to use to retreive the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'textTranslationJobPropertiesList' - A list containing the properties of each job that is returned.
 mkListTextTranslationJobsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

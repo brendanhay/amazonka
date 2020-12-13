@@ -31,26 +31,21 @@ import Network.AWS.SSM.Types.InventoryGroup
 --
 -- /See:/ 'mkInventoryAggregator' smart constructor.
 data InventoryAggregator = InventoryAggregator'
-  { groups ::
-      Lude.Maybe (Lude.NonEmpty InventoryGroup),
-    aggregators ::
-      Lude.Maybe (Lude.NonEmpty InventoryAggregator),
+  { -- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+    groups :: Lude.Maybe (Lude.NonEmpty InventoryGroup),
+    -- | Nested aggregators to further refine aggregation for an inventory type.
+    aggregators :: Lude.Maybe (Lude.NonEmpty InventoryAggregator),
+    -- | The inventory type and attribute name for aggregation.
     expression :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryAggregator' with the minimum fields required to make a request.
 --
+-- * 'groups' - A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
 -- * 'aggregators' - Nested aggregators to further refine aggregation for an inventory type.
 -- * 'expression' - The inventory type and attribute name for aggregation.
--- * 'groups' - A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
 mkInventoryAggregator ::
   InventoryAggregator
 mkInventoryAggregator =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.AppStream.StopImageBuilder
     mkStopImageBuilder,
 
     -- ** Request lenses
-    stoName,
+    sibfName,
 
     -- * Destructuring the response
     StopImageBuilderResponse (..),
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopImageBuilder' smart constructor.
-newtype StopImageBuilder = StopImageBuilder' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StopImageBuilder = StopImageBuilder'
+  { -- | The name of the image builder.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopImageBuilder' with the minimum fields required to make a request.
@@ -60,9 +58,9 @@ mkStopImageBuilder pName_ = StopImageBuilder' {name = pName_}
 -- | The name of the image builder.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stoName :: Lens.Lens' StopImageBuilder Lude.Text
-stoName = Lens.lens (name :: StopImageBuilder -> Lude.Text) (\s a -> s {name = a} :: StopImageBuilder)
-{-# DEPRECATED stoName "Use generic-lens or generic-optics with 'name' instead." #-}
+sibfName :: Lens.Lens' StopImageBuilder Lude.Text
+sibfName = Lens.lens (name :: StopImageBuilder -> Lude.Text) (\s a -> s {name = a} :: StopImageBuilder)
+{-# DEPRECATED sibfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StopImageBuilder where
   type Rs StopImageBuilder = StopImageBuilderResponse
@@ -97,17 +95,12 @@ instance Lude.ToQuery StopImageBuilder where
 
 -- | /See:/ 'mkStopImageBuilderResponse' smart constructor.
 data StopImageBuilderResponse = StopImageBuilderResponse'
-  { imageBuilder ::
-      Lude.Maybe ImageBuilder,
+  { -- | Information about the image builder.
+    imageBuilder :: Lude.Maybe ImageBuilder,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopImageBuilderResponse' with the minimum fields required to make a request.

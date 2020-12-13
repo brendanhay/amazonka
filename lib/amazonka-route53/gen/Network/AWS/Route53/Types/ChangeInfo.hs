@@ -17,10 +17,10 @@ module Network.AWS.Route53.Types.ChangeInfo
     mkChangeInfo,
 
     -- * Lenses
-    ciComment,
-    ciId,
     ciStatus,
     ciSubmittedAt,
+    ciId,
+    ciComment,
   )
 where
 
@@ -33,59 +33,43 @@ import Network.AWS.Route53.Types.ChangeStatus
 --
 -- /See:/ 'mkChangeInfo' smart constructor.
 data ChangeInfo = ChangeInfo'
-  { comment :: Lude.Maybe Lude.Text,
-    id :: ResourceId,
+  { -- | The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
     status :: ChangeStatus,
-    submittedAt :: Lude.DateTime
+    -- | The date and time that the change request was submitted in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
+    submittedAt :: Lude.DateTime,
+    -- | The ID of the request.
+    id :: ResourceId,
+    -- | A complex type that describes change information about changes made to your hosted zone.
+    --
+    -- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeInfo' with the minimum fields required to make a request.
 --
+-- * 'status' - The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
+-- * 'submittedAt' - The date and time that the change request was submitted in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
+-- * 'id' - The ID of the request.
 -- * 'comment' - A complex type that describes change information about changes made to your hosted zone.
 --
 -- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
--- * 'id' - The ID of the request.
--- * 'status' - The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
--- * 'submittedAt' - The date and time that the change request was submitted in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
 mkChangeInfo ::
-  -- | 'id'
-  ResourceId ->
   -- | 'status'
   ChangeStatus ->
   -- | 'submittedAt'
   Lude.DateTime ->
+  -- | 'id'
+  ResourceId ->
   ChangeInfo
-mkChangeInfo pId_ pStatus_ pSubmittedAt_ =
+mkChangeInfo pStatus_ pSubmittedAt_ pId_ =
   ChangeInfo'
-    { comment = Lude.Nothing,
+    { status = pStatus_,
+      submittedAt = pSubmittedAt_,
       id = pId_,
-      status = pStatus_,
-      submittedAt = pSubmittedAt_
+      comment = Lude.Nothing
     }
-
--- | A complex type that describes change information about changes made to your hosted zone.
---
--- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciComment :: Lens.Lens' ChangeInfo (Lude.Maybe Lude.Text)
-ciComment = Lens.lens (comment :: ChangeInfo -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ChangeInfo)
-{-# DEPRECATED ciComment "Use generic-lens or generic-optics with 'comment' instead." #-}
-
--- | The ID of the request.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciId :: Lens.Lens' ChangeInfo ResourceId
-ciId = Lens.lens (id :: ChangeInfo -> ResourceId) (\s a -> s {id = a} :: ChangeInfo)
-{-# DEPRECATED ciId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The current state of the request. @PENDING@ indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.
 --
@@ -101,10 +85,26 @@ ciSubmittedAt :: Lens.Lens' ChangeInfo Lude.DateTime
 ciSubmittedAt = Lens.lens (submittedAt :: ChangeInfo -> Lude.DateTime) (\s a -> s {submittedAt = a} :: ChangeInfo)
 {-# DEPRECATED ciSubmittedAt "Use generic-lens or generic-optics with 'submittedAt' instead." #-}
 
+-- | The ID of the request.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciId :: Lens.Lens' ChangeInfo ResourceId
+ciId = Lens.lens (id :: ChangeInfo -> ResourceId) (\s a -> s {id = a} :: ChangeInfo)
+{-# DEPRECATED ciId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A complex type that describes change information about changes made to your hosted zone.
+--
+-- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciComment :: Lens.Lens' ChangeInfo (Lude.Maybe Lude.Text)
+ciComment = Lens.lens (comment :: ChangeInfo -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ChangeInfo)
+{-# DEPRECATED ciComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+
 instance Lude.FromXML ChangeInfo where
   parseXML x =
     ChangeInfo'
-      Lude.<$> (x Lude..@? "Comment")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status")
       Lude.<*> (x Lude..@ "SubmittedAt")
+      Lude.<*> (x Lude..@ "Id")
+      Lude.<*> (x Lude..@? "Comment")

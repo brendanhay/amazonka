@@ -63,85 +63,92 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkSnapshot' smart constructor.
 data Snapshot = Snapshot'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The snapshot status. The value of the status depends on the API operation used:
+    --
+    --
+    --     * 'CreateClusterSnapshot' and 'CopyClusterSnapshot' returns status as "creating".
+    --
+    --
+    --     * 'DescribeClusterSnapshots' returns status as "creating", "available", "final snapshot", or "failed".
+    --
+    --
+    --     * 'DeleteClusterSnapshot' returns status as "deleted".
+    status :: Lude.Maybe Lude.Text,
+    -- | The list of node types that this cluster snapshot is able to restore into.
     restorableNodeTypes :: Lude.Maybe [Lude.Text],
+    -- | A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
     accountsWithRestoreAccess :: Lude.Maybe [AccountWithRestoreAccess],
+    -- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+    --
+    -- If this option is @true@ , enhanced VPC routing is enabled.
+    -- Default: false
     enhancedVPCRouting :: Lude.Maybe Lude.Bool,
+    -- | The snapshot identifier that is provided in the request.
     snapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | A boolean that indicates whether the snapshot data is encrypted using the HSM keys of the source cluster. @true@ indicates that the data is encrypted using HSM keys.
     encryptedWithHSM :: Lude.Maybe Lude.Bool,
+    -- | The master user name for the cluster.
     masterUsername :: Lude.Maybe Lude.Text,
+    -- | The source region from which the snapshot was copied.
     sourceRegion :: Lude.Maybe Lude.Text,
+    -- | The name of the maintenance track for the snapshot.
     maintenanceTrackName :: Lude.Maybe Lude.Text,
+    -- | A timestamp representing the start of the retention period for the snapshot.
     snapshotRetentionStartTime :: Lude.Maybe Lude.DateTime,
+    -- | The number of days until a manual snapshot will pass its retention period.
     manualSnapshotRemainingDays :: Lude.Maybe Lude.Int,
+    -- | The VPC identifier of the cluster if the snapshot is from a cluster in a VPC. Otherwise, this field is not in the output.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The number of megabytes that have been transferred to the snapshot backup.
     backupProgressInMegaBytes :: Lude.Maybe Lude.Double,
+    -- | If @true@ , the data in the snapshot is encrypted at rest.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The identifier of the cluster for which the snapshot was taken.
     clusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The number of nodes in the cluster.
     numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' are of type "manual".
     snapshotType :: Lude.Maybe Lude.Text,
+    -- | The AWS Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone in which the cluster was created.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The number of megabytes per second being transferred to the snapshot backup. Returns @0@ for a completed backup.
     currentBackupRateInMegaBytesPerSecond :: Lude.Maybe Lude.Double,
+    -- | The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
     snapshotCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | The version ID of the Amazon Redshift engine that is running on the cluster.
     clusterVersion :: Lude.Maybe Lude.Text,
+    -- | For manual snapshots, the AWS customer account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
     ownerAccount :: Lude.Maybe Lude.Text,
+    -- | The node type of the nodes in the cluster.
     nodeType :: Lude.Maybe Lude.Text,
+    -- | The amount of time an in-progress snapshot backup has been running, or the amount of time it took a completed backup to finish.
     elapsedTimeInSeconds :: Lude.Maybe Lude.Integer,
+    -- | The time (UTC) when the cluster was originally created.
     clusterCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | The estimate of the time remaining before the snapshot backup will complete. Returns @0@ for a completed backup.
     estimatedSecondsToCompletion :: Lude.Maybe Lude.Integer,
+    -- | The size of the incremental backup.
     actualIncrementalBackupSizeInMegaBytes :: Lude.Maybe Lude.Double,
+    -- | The list of tags for the cluster snapshot.
     tags :: Lude.Maybe [Tag],
+    -- | The port that the cluster is listening on.
     port :: Lude.Maybe Lude.Int,
+    -- | The size of the complete set of backup data that would be used to restore the cluster.
     totalBackupSizeInMegaBytes :: Lude.Maybe Lude.Double,
+    -- | The name of the database that was created when the cluster was created.
     dbName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- * 'accountsWithRestoreAccess' - A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
--- * 'actualIncrementalBackupSizeInMegaBytes' - The size of the incremental backup.
--- * 'availabilityZone' - The Availability Zone in which the cluster was created.
--- * 'backupProgressInMegaBytes' - The number of megabytes that have been transferred to the snapshot backup.
--- * 'clusterCreateTime' - The time (UTC) when the cluster was originally created.
--- * 'clusterIdentifier' - The identifier of the cluster for which the snapshot was taken.
--- * 'clusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
--- * 'currentBackupRateInMegaBytesPerSecond' - The number of megabytes per second being transferred to the snapshot backup. Returns @0@ for a completed backup.
--- * 'dbName' - The name of the database that was created when the cluster was created.
--- * 'elapsedTimeInSeconds' - The amount of time an in-progress snapshot backup has been running, or the amount of time it took a completed backup to finish.
--- * 'encrypted' - If @true@ , the data in the snapshot is encrypted at rest.
--- * 'encryptedWithHSM' - A boolean that indicates whether the snapshot data is encrypted using the HSM keys of the source cluster. @true@ indicates that the data is encrypted using HSM keys.
--- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
---
--- If this option is @true@ , enhanced VPC routing is enabled.
--- Default: false
--- * 'estimatedSecondsToCompletion' - The estimate of the time remaining before the snapshot backup will complete. Returns @0@ for a completed backup.
--- * 'kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
--- * 'maintenanceTrackName' - The name of the maintenance track for the snapshot.
--- * 'manualSnapshotRemainingDays' - The number of days until a manual snapshot will pass its retention period.
--- * 'manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
---
--- The value must be either -1 or an integer between 1 and 3,653.
--- * 'masterUsername' - The master user name for the cluster.
--- * 'nodeType' - The node type of the nodes in the cluster.
--- * 'numberOfNodes' - The number of nodes in the cluster.
--- * 'ownerAccount' - For manual snapshots, the AWS customer account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
--- * 'port' - The port that the cluster is listening on.
--- * 'restorableNodeTypes' - The list of node types that this cluster snapshot is able to restore into.
--- * 'snapshotCreateTime' - The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
--- * 'snapshotIdentifier' - The snapshot identifier that is provided in the request.
--- * 'snapshotRetentionStartTime' - A timestamp representing the start of the retention period for the snapshot.
--- * 'snapshotType' - The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' are of type "manual".
--- * 'sourceRegion' - The source region from which the snapshot was copied.
 -- * 'status' - The snapshot status. The value of the status depends on the API operation used:
 --
 --
@@ -154,9 +161,43 @@ data Snapshot = Snapshot'
 --     * 'DeleteClusterSnapshot' returns status as "deleted".
 --
 --
--- * 'tags' - The list of tags for the cluster snapshot.
--- * 'totalBackupSizeInMegaBytes' - The size of the complete set of backup data that would be used to restore the cluster.
+-- * 'restorableNodeTypes' - The list of node types that this cluster snapshot is able to restore into.
+-- * 'accountsWithRestoreAccess' - A list of the AWS customer accounts authorized to restore the snapshot. Returns @null@ if no accounts are authorized. Visible only to the snapshot owner.
+-- * 'manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+--
+-- If this option is @true@ , enhanced VPC routing is enabled.
+-- Default: false
+-- * 'snapshotIdentifier' - The snapshot identifier that is provided in the request.
+-- * 'encryptedWithHSM' - A boolean that indicates whether the snapshot data is encrypted using the HSM keys of the source cluster. @true@ indicates that the data is encrypted using HSM keys.
+-- * 'masterUsername' - The master user name for the cluster.
+-- * 'sourceRegion' - The source region from which the snapshot was copied.
+-- * 'maintenanceTrackName' - The name of the maintenance track for the snapshot.
+-- * 'snapshotRetentionStartTime' - A timestamp representing the start of the retention period for the snapshot.
+-- * 'manualSnapshotRemainingDays' - The number of days until a manual snapshot will pass its retention period.
 -- * 'vpcId' - The VPC identifier of the cluster if the snapshot is from a cluster in a VPC. Otherwise, this field is not in the output.
+-- * 'backupProgressInMegaBytes' - The number of megabytes that have been transferred to the snapshot backup.
+-- * 'encrypted' - If @true@ , the data in the snapshot is encrypted at rest.
+-- * 'clusterIdentifier' - The identifier of the cluster for which the snapshot was taken.
+-- * 'numberOfNodes' - The number of nodes in the cluster.
+-- * 'snapshotType' - The snapshot type. Snapshots created using 'CreateClusterSnapshot' and 'CopyClusterSnapshot' are of type "manual".
+-- * 'kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+-- * 'availabilityZone' - The Availability Zone in which the cluster was created.
+-- * 'currentBackupRateInMegaBytesPerSecond' - The number of megabytes per second being transferred to the snapshot backup. Returns @0@ for a completed backup.
+-- * 'snapshotCreateTime' - The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a copy of the cluster data as of this exact time.
+-- * 'clusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
+-- * 'ownerAccount' - For manual snapshots, the AWS customer account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
+-- * 'nodeType' - The node type of the nodes in the cluster.
+-- * 'elapsedTimeInSeconds' - The amount of time an in-progress snapshot backup has been running, or the amount of time it took a completed backup to finish.
+-- * 'clusterCreateTime' - The time (UTC) when the cluster was originally created.
+-- * 'estimatedSecondsToCompletion' - The estimate of the time remaining before the snapshot backup will complete. Returns @0@ for a completed backup.
+-- * 'actualIncrementalBackupSizeInMegaBytes' - The size of the incremental backup.
+-- * 'tags' - The list of tags for the cluster snapshot.
+-- * 'port' - The port that the cluster is listening on.
+-- * 'totalBackupSizeInMegaBytes' - The size of the complete set of backup data that would be used to restore the cluster.
+-- * 'dbName' - The name of the database that was created when the cluster was created.
 mkSnapshot ::
   Snapshot
 mkSnapshot =

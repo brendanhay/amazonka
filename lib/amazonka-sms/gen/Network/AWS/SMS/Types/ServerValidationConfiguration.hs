@@ -35,32 +35,25 @@ import Network.AWS.SMS.Types.UserDataValidationParameters
 --
 -- /See:/ 'mkServerValidationConfiguration' smart constructor.
 data ServerValidationConfiguration = ServerValidationConfiguration'
-  { serverValidationStrategy ::
-      Lude.Maybe
-        ServerValidationStrategy,
-    userDataValidationParameters ::
-      Lude.Maybe
-        UserDataValidationParameters,
+  { -- | The validation strategy.
+    serverValidationStrategy :: Lude.Maybe ServerValidationStrategy,
+    -- | The validation parameters.
+    userDataValidationParameters :: Lude.Maybe UserDataValidationParameters,
+    -- | The name of the configuration.
     name :: Lude.Maybe Lude.Text,
     server :: Lude.Maybe Server,
-    validationId ::
-      Lude.Maybe Lude.Text
+    -- | The ID of the validation.
+    validationId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerValidationConfiguration' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the configuration.
--- * 'server' - Undocumented field.
 -- * 'serverValidationStrategy' - The validation strategy.
 -- * 'userDataValidationParameters' - The validation parameters.
+-- * 'name' - The name of the configuration.
+-- * 'server' -
 -- * 'validationId' - The ID of the validation.
 mkServerValidationConfiguration ::
   ServerValidationConfiguration

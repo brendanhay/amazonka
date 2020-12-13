@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,22 +49,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateResourceDefinition' smart constructor.
 data CreateResourceDefinition = CreateResourceDefinition'
-  { amznClientToken ::
-      Lude.Maybe Lude.Text,
-    initialVersion ::
-      Lude.Maybe ResourceDefinitionVersion,
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text,
+    -- | Information about the initial version of the resource definition.
+    initialVersion :: Lude.Maybe ResourceDefinitionVersion,
+    -- | The name of the resource definition.
     name :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text))
+    -- | Tag(s) to add to the new resource.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDefinition' with the minimum fields required to make a request.
@@ -153,41 +148,35 @@ instance Lude.ToQuery CreateResourceDefinition where
 
 -- | /See:/ 'mkCreateResourceDefinitionResponse' smart constructor.
 data CreateResourceDefinitionResponse = CreateResourceDefinitionResponse'
-  { latestVersionARN ::
-      Lude.Maybe Lude.Text,
-    arn ::
-      Lude.Maybe Lude.Text,
-    name ::
-      Lude.Maybe Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe Lude.Text,
-    id ::
-      Lude.Maybe Lude.Text,
-    latestVersion ::
-      Lude.Maybe Lude.Text,
-    lastUpdatedTimestamp ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the latest version associated with the definition.
+    latestVersionARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the definition.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the definition.
+    name :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the definition.
+    id :: Lude.Maybe Lude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was last updated.
+    lastUpdatedTimestamp :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDefinitionResponse' with the minimum fields required to make a request.
 --
+-- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
 -- * 'arn' - The ARN of the definition.
+-- * 'name' - The name of the definition.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
 -- * 'id' - The ID of the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 -- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'name' - The name of the definition.
+-- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
 -- * 'responseStatus' - The response status code.
 mkCreateResourceDefinitionResponse ::
   -- | 'responseStatus'

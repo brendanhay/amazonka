@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.CodePipeline.ListActionExecutions
     mkListActionExecutions,
 
     -- ** Request lenses
+    laePipelineName,
     laeNextToken,
     laeFilter,
     laeMaxResults,
-    laePipelineName,
 
     -- * Destructuring the response
     ListActionExecutionsResponse (..),
@@ -46,38 +47,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListActionExecutions' smart constructor.
 data ListActionExecutions = ListActionExecutions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the pipeline for which you want to list action execution history.
+    pipelineName :: Lude.Text,
+    -- | The token that was returned from the previous @ListActionExecutions@ call, which can be used to return the next set of action executions in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Input information used to filter action execution history.
     filter :: Lude.Maybe ActionExecutionFilter,
-    maxResults :: Lude.Maybe Lude.Natural,
-    pipelineName :: Lude.Text
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Action execution history is retained for up to 12 months, based on action execution start times. Default value is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActionExecutions' with the minimum fields required to make a request.
 --
+-- * 'pipelineName' - The name of the pipeline for which you want to list action execution history.
+-- * 'nextToken' - The token that was returned from the previous @ListActionExecutions@ call, which can be used to return the next set of action executions in the list.
 -- * 'filter' - Input information used to filter action execution history.
 -- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Action execution history is retained for up to 12 months, based on action execution start times. Default value is 100.
--- * 'nextToken' - The token that was returned from the previous @ListActionExecutions@ call, which can be used to return the next set of action executions in the list.
--- * 'pipelineName' - The name of the pipeline for which you want to list action execution history.
 mkListActionExecutions ::
   -- | 'pipelineName'
   Lude.Text ->
   ListActionExecutions
 mkListActionExecutions pPipelineName_ =
   ListActionExecutions'
-    { nextToken = Lude.Nothing,
+    { pipelineName = pPipelineName_,
+      nextToken = Lude.Nothing,
       filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      pipelineName = pPipelineName_
+      maxResults = Lude.Nothing
     }
+
+-- | The name of the pipeline for which you want to list action execution history.
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laePipelineName :: Lens.Lens' ListActionExecutions Lude.Text
+laePipelineName = Lens.lens (pipelineName :: ListActionExecutions -> Lude.Text) (\s a -> s {pipelineName = a} :: ListActionExecutions)
+{-# DEPRECATED laePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The token that was returned from the previous @ListActionExecutions@ call, which can be used to return the next set of action executions in the list.
 --
@@ -99,13 +104,6 @@ laeFilter = Lens.lens (filter :: ListActionExecutions -> Lude.Maybe ActionExecut
 laeMaxResults :: Lens.Lens' ListActionExecutions (Lude.Maybe Lude.Natural)
 laeMaxResults = Lens.lens (maxResults :: ListActionExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListActionExecutions)
 {-# DEPRECATED laeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The name of the pipeline for which you want to list action execution history.
---
--- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laePipelineName :: Lens.Lens' ListActionExecutions Lude.Text
-laePipelineName = Lens.lens (pipelineName :: ListActionExecutions -> Lude.Text) (\s a -> s {pipelineName = a} :: ListActionExecutions)
-{-# DEPRECATED laePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 instance Page.AWSPager ListActionExecutions where
   page rq rs
@@ -143,10 +141,10 @@ instance Lude.ToJSON ListActionExecutions where
   toJSON ListActionExecutions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("pipelineName" Lude..= pipelineName),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
             ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("pipelineName" Lude..= pipelineName)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -158,19 +156,14 @@ instance Lude.ToQuery ListActionExecutions where
 
 -- | /See:/ 'mkListActionExecutionsResponse' smart constructor.
 data ListActionExecutionsResponse = ListActionExecutionsResponse'
-  { actionExecutionDetails ::
-      Lude.Maybe
-        [ActionExecutionDetail],
+  { -- | The details for a list of recent executions, such as action execution ID.
+    actionExecutionDetails :: Lude.Maybe [ActionExecutionDetail],
+    -- | If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent @ListActionExecutions@ call to return the next set of action executions in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActionExecutionsResponse' with the minimum fields required to make a request.

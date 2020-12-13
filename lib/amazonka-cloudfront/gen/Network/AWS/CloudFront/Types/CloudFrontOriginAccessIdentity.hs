@@ -31,20 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudFrontOriginAccessIdentity' smart constructor.
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
-  { cloudFrontOriginAccessIdentityConfig ::
-      Lude.Maybe
-        CloudFrontOriginAccessIdentityConfig,
+  { -- | The current configuration information for the identity.
+    cloudFrontOriginAccessIdentityConfig :: Lude.Maybe CloudFrontOriginAccessIdentityConfig,
+    -- | The ID for the origin access identity, for example, @E74FTE3AJFJ256A@ .
     id :: Lude.Text,
-    s3CanonicalUserId ::
-      Lude.Text
+    -- | The Amazon S3 canonical user ID for the origin access identity, used when giving the origin access identity read permission to an object in Amazon S3.
+    s3CanonicalUserId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudFrontOriginAccessIdentity' with the minimum fields required to make a request.

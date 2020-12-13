@@ -51,53 +51,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStage' smart constructor.
 data Stage = Stage'
-  { deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the 'Deployment' that the stage points to.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | A map that defines the stage variables for a 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
     variables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Settings for logging access in this stage.
     accessLogSettings :: Lude.Maybe AccessLogSettings,
+    -- | The version of the associated API documentation.
     documentationVersion :: Lude.Maybe Lude.Text,
+    -- | The identifier of a client certificate for an API stage.
     clientCertificateId :: Lude.Maybe Lude.Text,
+    -- | Specifies whether active tracing with X-ray is enabled for the 'Stage' .
     tracingEnabled :: Lude.Maybe Lude.Bool,
+    -- | The timestamp when the stage was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the cache cluster for the stage, if enabled.
     cacheClusterStatus :: Lude.Maybe CacheClusterStatus,
-    methodSettings ::
-      Lude.Maybe (Lude.HashMap Lude.Text (MethodSetting)),
+    -- | A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
+    methodSettings :: Lude.Maybe (Lude.HashMap Lude.Text (MethodSetting)),
+    -- | The timestamp when the stage last updated.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The size of the cache cluster for the stage, if enabled.
     cacheClusterSize :: Lude.Maybe CacheClusterSize,
+    -- | The ARN of the WebAcl associated with the 'Stage' .
     webACLARN :: Lude.Maybe Lude.Text,
+    -- | Settings for the canary deployment in this stage.
     canarySettings :: Lude.Maybe CanarySettings,
+    -- | Specifies whether a cache cluster is enabled for the stage.
     cacheClusterEnabled :: Lude.Maybe Lude.Bool,
+    -- | The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
     stageName :: Lude.Maybe Lude.Text,
+    -- | The stage's description.
     description :: Lude.Maybe Lude.Text,
+    -- | The collection of tags. Each tag element is associated with a given resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stage' with the minimum fields required to make a request.
 --
--- * 'accessLogSettings' - Settings for logging access in this stage.
--- * 'cacheClusterEnabled' - Specifies whether a cache cluster is enabled for the stage.
--- * 'cacheClusterSize' - The size of the cache cluster for the stage, if enabled.
--- * 'cacheClusterStatus' - The status of the cache cluster for the stage, if enabled.
--- * 'canarySettings' - Settings for the canary deployment in this stage.
--- * 'clientCertificateId' - The identifier of a client certificate for an API stage.
--- * 'createdDate' - The timestamp when the stage was created.
 -- * 'deploymentId' - The identifier of the 'Deployment' that the stage points to.
--- * 'description' - The stage's description.
--- * 'documentationVersion' - The version of the associated API documentation.
--- * 'lastUpdatedDate' - The timestamp when the stage last updated.
--- * 'methodSettings' - A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
--- * 'stageName' - The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
--- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
--- * 'tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
 -- * 'variables' - A map that defines the stage variables for a 'Stage' resource. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+-- * 'accessLogSettings' - Settings for logging access in this stage.
+-- * 'documentationVersion' - The version of the associated API documentation.
+-- * 'clientCertificateId' - The identifier of a client certificate for an API stage.
+-- * 'tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
+-- * 'createdDate' - The timestamp when the stage was created.
+-- * 'cacheClusterStatus' - The status of the cache cluster for the stage, if enabled.
+-- * 'methodSettings' - A map that defines the method settings for a 'Stage' resource. Keys (designated as @/{method_setting_key@ below) are method paths defined as @{resource_path}/{http_method}@ for an individual method override, or @/\*/\*@ for overriding all methods in the stage.
+-- * 'lastUpdatedDate' - The timestamp when the stage last updated.
+-- * 'cacheClusterSize' - The size of the cache cluster for the stage, if enabled.
 -- * 'webACLARN' - The ARN of the WebAcl associated with the 'Stage' .
+-- * 'canarySettings' - Settings for the canary deployment in this stage.
+-- * 'cacheClusterEnabled' - Specifies whether a cache cluster is enabled for the stage.
+-- * 'stageName' - The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
+-- * 'description' - The stage's description.
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 mkStage ::
   Stage
 mkStage =

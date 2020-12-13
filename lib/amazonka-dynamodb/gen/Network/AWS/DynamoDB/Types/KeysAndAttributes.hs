@@ -35,28 +35,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeysAndAttributes' smart constructor.
 data KeysAndAttributes = KeysAndAttributes'
-  { projectionExpression ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
+    --
+    -- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
+    -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    projectionExpression :: Lude.Maybe Lude.Text,
+    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/ .
     attributesToGet :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
+    --
+    --
+    --     * To access an attribute whose name conflicts with a DynamoDB reserved word.
+    --
+    --
+    --     * To create a placeholder for repeating occurrences of an attribute name in an expression.
+    --
+    --
+    --     * To prevent special characters in an attribute name from being misinterpreted in an expression.
+    --
+    --
+    -- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
+    --
+    --     * @Percentile@
+    --
+    --
+    -- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :
+    --
+    --     * @{"#P":"Percentile"}@
+    --
+    --
+    -- You could then use this substitution in an expression, as in this example:
+    --
+    --     * @#P = :val@
+    --
+    --
+    -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
     consistentRead :: Lude.Maybe Lude.Bool,
-    keys ::
-      Lude.NonEmpty (Lude.HashMap Lude.Text (AttributeValue))
+    -- | The primary key attribute values that define the items and the attributes associated with the items.
+    keys :: Lude.NonEmpty (Lude.HashMap Lude.Text (AttributeValue))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeysAndAttributes' with the minimum fields required to make a request.
 --
+-- * 'projectionExpression' - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
+--
+-- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
+-- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/ .
--- * 'consistentRead' - The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
 --
 --
@@ -85,11 +114,8 @@ data KeysAndAttributes = KeysAndAttributes'
 --
 --
 -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'consistentRead' - The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
 -- * 'keys' - The primary key attribute values that define the items and the attributes associated with the items.
--- * 'projectionExpression' - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the @ProjectionExpression@ must be separated by commas.
---
--- If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.
--- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 mkKeysAndAttributes ::
   -- | 'keys'
   Lude.NonEmpty (Lude.HashMap Lude.Text (AttributeValue)) ->

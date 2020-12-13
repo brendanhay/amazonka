@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { certificateStatuses ::
-      Lude.Maybe [CertificateStatus],
+  { -- | Filter the certificate list by status value.
+    certificateStatuses :: Lude.Maybe [CertificateStatus],
+    -- | Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Filter the certificate list. For more information, see the 'Filters' structure.
     includes :: Lude.Maybe Filters,
+    -- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
 -- * 'certificateStatuses' - Filter the certificate list by status value.
+-- * 'nextToken' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
 -- * 'includes' - Filter the certificate list. For more information, see the 'Filters' structure.
 -- * 'maxItems' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
--- * 'nextToken' - Use this parameter only when paginating results and only in a subsequent request after you receive a response with truncated results. Set it to the value of @NextToken@ from the response you just received.
 mkListCertificates ::
   ListCertificates
 mkListCertificates =
@@ -156,18 +154,14 @@ instance Lude.ToQuery ListCertificates where
 
 -- | /See:/ 'mkListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { certificateSummaryList ::
-      Lude.Maybe [CertificateSummary],
+  { -- | A list of ACM certificates.
+    certificateSummaryList :: Lude.Maybe [CertificateSummary],
+    -- | When the list is truncated, this value is present and contains the value to use for the @NextToken@ parameter in a subsequent pagination request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.

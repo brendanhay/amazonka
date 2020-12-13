@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.SpotProvisioningTimeoutAction
   ( SpotProvisioningTimeoutAction
       ( SpotProvisioningTimeoutAction',
-        SPTASwitchToOnDemand,
-        SPTATerminateCluster
+        SwitchToOnDemand,
+        TerminateCluster
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SpotProvisioningTimeoutAction = SpotProvisioningTimeoutAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern SPTASwitchToOnDemand :: SpotProvisioningTimeoutAction
-pattern SPTASwitchToOnDemand = SpotProvisioningTimeoutAction' "SWITCH_TO_ON_DEMAND"
+pattern SwitchToOnDemand :: SpotProvisioningTimeoutAction
+pattern SwitchToOnDemand = SpotProvisioningTimeoutAction' "SWITCH_TO_ON_DEMAND"
 
-pattern SPTATerminateCluster :: SpotProvisioningTimeoutAction
-pattern SPTATerminateCluster = SpotProvisioningTimeoutAction' "TERMINATE_CLUSTER"
+pattern TerminateCluster :: SpotProvisioningTimeoutAction
+pattern TerminateCluster = SpotProvisioningTimeoutAction' "TERMINATE_CLUSTER"
 
 {-# COMPLETE
-  SPTASwitchToOnDemand,
-  SPTATerminateCluster,
+  SwitchToOnDemand,
+  TerminateCluster,
   SpotProvisioningTimeoutAction'
   #-}

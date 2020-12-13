@@ -32,28 +32,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBonusPayment' smart constructor.
 data BonusPayment = BonusPayment'
-  { reason :: Lude.Maybe Lude.Text,
+  { -- | The Reason text given when the bonus was granted, if any.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The date and time of when the bonus was granted.
     grantTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the Worker to whom the bonus was paid.
     workerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the assignment associated with this bonus payment.
     assignmentId :: Lude.Maybe Lude.Text,
     bonusAmount :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BonusPayment' with the minimum fields required to make a request.
 --
--- * 'assignmentId' - The ID of the assignment associated with this bonus payment.
--- * 'bonusAmount' - Undocumented field.
--- * 'grantTime' - The date and time of when the bonus was granted.
 -- * 'reason' - The Reason text given when the bonus was granted, if any.
+-- * 'grantTime' - The date and time of when the bonus was granted.
 -- * 'workerId' - The ID of the Worker to whom the bonus was paid.
+-- * 'assignmentId' - The ID of the assignment associated with this bonus payment.
+-- * 'bonusAmount' -
 mkBonusPayment ::
   BonusPayment
 mkBonusPayment =

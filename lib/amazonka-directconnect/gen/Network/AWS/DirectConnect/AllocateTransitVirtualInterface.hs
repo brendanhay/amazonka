@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.DirectConnect.AllocateTransitVirtualInterface
 
     -- ** Request lenses
     atviConnectionId,
-    atviOwnerAccount,
     atviNewTransitVirtualInterfaceAllocation,
+    atviOwnerAccount,
 
     -- * Destructuring the response
     AllocateTransitVirtualInterfaceResponse (..),
@@ -44,19 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAllocateTransitVirtualInterface' smart constructor.
 data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'
-  { connectionId ::
-      Lude.Text,
-    ownerAccount :: Lude.Text,
-    newTransitVirtualInterfaceAllocation ::
-      NewTransitVirtualInterfaceAllocation
+  { -- | The ID of the connection on which the transit virtual interface is provisioned.
+    connectionId :: Lude.Text,
+    -- | Information about the transit virtual interface.
+    newTransitVirtualInterfaceAllocation :: NewTransitVirtualInterfaceAllocation,
+    -- | The ID of the AWS account that owns the transit virtual interface.
+    ownerAccount :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateTransitVirtualInterface' with the minimum fields required to make a request.
@@ -67,20 +63,20 @@ data AllocateTransitVirtualInterface = AllocateTransitVirtualInterface'
 mkAllocateTransitVirtualInterface ::
   -- | 'connectionId'
   Lude.Text ->
-  -- | 'ownerAccount'
-  Lude.Text ->
   -- | 'newTransitVirtualInterfaceAllocation'
   NewTransitVirtualInterfaceAllocation ->
+  -- | 'ownerAccount'
+  Lude.Text ->
   AllocateTransitVirtualInterface
 mkAllocateTransitVirtualInterface
   pConnectionId_
-  pOwnerAccount_
-  pNewTransitVirtualInterfaceAllocation_ =
+  pNewTransitVirtualInterfaceAllocation_
+  pOwnerAccount_ =
     AllocateTransitVirtualInterface'
       { connectionId = pConnectionId_,
-        ownerAccount = pOwnerAccount_,
         newTransitVirtualInterfaceAllocation =
-          pNewTransitVirtualInterfaceAllocation_
+          pNewTransitVirtualInterfaceAllocation_,
+        ownerAccount = pOwnerAccount_
       }
 
 -- | The ID of the connection on which the transit virtual interface is provisioned.
@@ -90,19 +86,19 @@ atviConnectionId :: Lens.Lens' AllocateTransitVirtualInterface Lude.Text
 atviConnectionId = Lens.lens (connectionId :: AllocateTransitVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: AllocateTransitVirtualInterface)
 {-# DEPRECATED atviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
--- | The ID of the AWS account that owns the transit virtual interface.
---
--- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atviOwnerAccount :: Lens.Lens' AllocateTransitVirtualInterface Lude.Text
-atviOwnerAccount = Lens.lens (ownerAccount :: AllocateTransitVirtualInterface -> Lude.Text) (\s a -> s {ownerAccount = a} :: AllocateTransitVirtualInterface)
-{-# DEPRECATED atviOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
-
 -- | Information about the transit virtual interface.
 --
 -- /Note:/ Consider using 'newTransitVirtualInterfaceAllocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atviNewTransitVirtualInterfaceAllocation :: Lens.Lens' AllocateTransitVirtualInterface NewTransitVirtualInterfaceAllocation
 atviNewTransitVirtualInterfaceAllocation = Lens.lens (newTransitVirtualInterfaceAllocation :: AllocateTransitVirtualInterface -> NewTransitVirtualInterfaceAllocation) (\s a -> s {newTransitVirtualInterfaceAllocation = a} :: AllocateTransitVirtualInterface)
 {-# DEPRECATED atviNewTransitVirtualInterfaceAllocation "Use generic-lens or generic-optics with 'newTransitVirtualInterfaceAllocation' instead." #-}
+
+-- | The ID of the AWS account that owns the transit virtual interface.
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atviOwnerAccount :: Lens.Lens' AllocateTransitVirtualInterface Lude.Text
+atviOwnerAccount = Lens.lens (ownerAccount :: AllocateTransitVirtualInterface -> Lude.Text) (\s a -> s {ownerAccount = a} :: AllocateTransitVirtualInterface)
+{-# DEPRECATED atviOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
 instance Lude.AWSRequest AllocateTransitVirtualInterface where
   type
@@ -135,11 +131,11 @@ instance Lude.ToJSON AllocateTransitVirtualInterface where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just ("ownerAccount" Lude..= ownerAccount),
             Lude.Just
               ( "newTransitVirtualInterfaceAllocation"
                   Lude..= newTransitVirtualInterfaceAllocation
-              )
+              ),
+            Lude.Just ("ownerAccount" Lude..= ownerAccount)
           ]
       )
 
@@ -151,25 +147,17 @@ instance Lude.ToQuery AllocateTransitVirtualInterface where
 
 -- | /See:/ 'mkAllocateTransitVirtualInterfaceResponse' smart constructor.
 data AllocateTransitVirtualInterfaceResponse = AllocateTransitVirtualInterfaceResponse'
-  { virtualInterface ::
-      Lude.Maybe
-        VirtualInterface,
-    responseStatus ::
-      Lude.Int
+  { virtualInterface :: Lude.Maybe VirtualInterface,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateTransitVirtualInterfaceResponse' with the minimum fields required to make a request.
 --
+-- * 'virtualInterface' -
 -- * 'responseStatus' - The response status code.
--- * 'virtualInterface' - Undocumented field.
 mkAllocateTransitVirtualInterfaceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

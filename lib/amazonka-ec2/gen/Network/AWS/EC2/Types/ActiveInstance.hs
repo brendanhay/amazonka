@@ -32,25 +32,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActiveInstance' smart constructor.
 data ActiveInstance = ActiveInstance'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
     instanceHealth :: Lude.Maybe InstanceHealthStatus,
+    -- | The instance type.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The ID of the Spot Instance request.
     spotInstanceRequestId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActiveInstance' with the minimum fields required to make a request.
 --
--- * 'instanceHealth' - The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
 -- * 'instanceId' - The ID of the instance.
+-- * 'instanceHealth' - The health status of the instance. If the status of either the instance status check or the system status check is @impaired@ , the health status of the instance is @unhealthy@ . Otherwise, the health status is @healthy@ .
 -- * 'instanceType' - The instance type.
 -- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
 mkActiveInstance ::

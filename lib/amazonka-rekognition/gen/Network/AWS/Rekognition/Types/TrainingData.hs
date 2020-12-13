@@ -28,14 +28,11 @@ import Network.AWS.Rekognition.Types.Asset
 -- | The dataset used for training.
 --
 -- /See:/ 'mkTrainingData' smart constructor.
-newtype TrainingData = TrainingData' {assets :: Lude.Maybe [Asset]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype TrainingData = TrainingData'
+  { -- | A Sagemaker GroundTruth manifest file that contains the training images (assets).
+    assets :: Lude.Maybe [Asset]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrainingData' with the minimum fields required to make a request.

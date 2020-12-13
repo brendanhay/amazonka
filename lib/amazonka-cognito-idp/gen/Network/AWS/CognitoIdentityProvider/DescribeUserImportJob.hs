@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserImportJob
     mkDescribeUserImportJob,
 
     -- ** Request lenses
-    duijUserPoolId,
     duijJobId,
+    duijUserPoolId,
 
     -- * Destructuring the response
     DescribeUserImportJobResponse (..),
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeUserImportJob' smart constructor.
 data DescribeUserImportJob = DescribeUserImportJob'
-  { userPoolId ::
-      Lude.Text,
-    jobId :: Lude.Text
+  { -- | The job ID for the user import job.
+    jobId :: Lude.Text,
+    -- | The user pool ID for the user pool that the users are being imported into.
+    userPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserImportJob' with the minimum fields required to make a request.
@@ -60,23 +56,16 @@ data DescribeUserImportJob = DescribeUserImportJob'
 -- * 'jobId' - The job ID for the user import job.
 -- * 'userPoolId' - The user pool ID for the user pool that the users are being imported into.
 mkDescribeUserImportJob ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'jobId'
   Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   DescribeUserImportJob
-mkDescribeUserImportJob pUserPoolId_ pJobId_ =
+mkDescribeUserImportJob pJobId_ pUserPoolId_ =
   DescribeUserImportJob'
-    { userPoolId = pUserPoolId_,
-      jobId = pJobId_
+    { jobId = pJobId_,
+      userPoolId = pUserPoolId_
     }
-
--- | The user pool ID for the user pool that the users are being imported into.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duijUserPoolId :: Lens.Lens' DescribeUserImportJob Lude.Text
-duijUserPoolId = Lens.lens (userPoolId :: DescribeUserImportJob -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeUserImportJob)
-{-# DEPRECATED duijUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The job ID for the user import job.
 --
@@ -84,6 +73,13 @@ duijUserPoolId = Lens.lens (userPoolId :: DescribeUserImportJob -> Lude.Text) (\
 duijJobId :: Lens.Lens' DescribeUserImportJob Lude.Text
 duijJobId = Lens.lens (jobId :: DescribeUserImportJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeUserImportJob)
 {-# DEPRECATED duijJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+-- | The user pool ID for the user pool that the users are being imported into.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duijUserPoolId :: Lens.Lens' DescribeUserImportJob Lude.Text
+duijUserPoolId = Lens.lens (userPoolId :: DescribeUserImportJob -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeUserImportJob)
+{-# DEPRECATED duijUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest DescribeUserImportJob where
   type Rs DescribeUserImportJob = DescribeUserImportJobResponse
@@ -113,8 +109,8 @@ instance Lude.ToJSON DescribeUserImportJob where
   toJSON DescribeUserImportJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("JobId" Lude..= jobId)
+          [ Lude.Just ("JobId" Lude..= jobId),
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
@@ -128,23 +124,18 @@ instance Lude.ToQuery DescribeUserImportJob where
 --
 -- /See:/ 'mkDescribeUserImportJobResponse' smart constructor.
 data DescribeUserImportJobResponse = DescribeUserImportJobResponse'
-  { userImportJob ::
-      Lude.Maybe UserImportJobType,
+  { -- | The job object that represents the user import job.
+    userImportJob :: Lude.Maybe UserImportJobType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUserImportJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userImportJob' - The job object that represents the user import job.
+-- * 'responseStatus' - The response status code.
 mkDescribeUserImportJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

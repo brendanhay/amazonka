@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainValidationRecord' smart constructor.
 data DomainValidationRecord = DomainValidationRecord'
-  { resourceRecord ::
-      Lude.Maybe ResourceRecord,
+  { -- | An object that describes the DNS records to add to your domain's DNS to validate it for the certificate.
+    resourceRecord :: Lude.Maybe ResourceRecord,
+    -- | The domain name of the certificate validation record. For example, @example.com@ or @www.example.com@ .
     domainName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainValidationRecord' with the minimum fields required to make a request.
 --
--- * 'domainName' - The domain name of the certificate validation record. For example, @example.com@ or @www.example.com@ .
 -- * 'resourceRecord' - An object that describes the DNS records to add to your domain's DNS to validate it for the certificate.
+-- * 'domainName' - The domain name of the certificate validation record. For example, @example.com@ or @www.example.com@ .
 mkDomainValidationRecord ::
   DomainValidationRecord
 mkDomainValidationRecord =

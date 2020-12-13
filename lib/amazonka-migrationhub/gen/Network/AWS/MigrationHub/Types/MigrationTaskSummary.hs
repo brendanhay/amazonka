@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMigrationTaskSummary' smart constructor.
 data MigrationTaskSummary = MigrationTaskSummary'
-  { status ::
-      Lude.Maybe MigrationStatus,
+  { -- | Status of the task.
+    status :: Lude.Maybe MigrationStatus,
+    -- | The timestamp when the task was gathered.
     updateDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indication of the percentage completion of the task.
     progressPercent :: Lude.Maybe Lude.Natural,
+    -- | Detail information of what is being done within the overall status state.
     statusDetail :: Lude.Maybe Lude.Text,
+    -- | An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.
     progressUpdateStream :: Lude.Maybe Lude.Text,
+    -- | Unique identifier that references the migration task. /Do not store personal data in this field./
     migrationTaskName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MigrationTaskSummary' with the minimum fields required to make a request.
 --
--- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
--- * 'progressPercent' - Indication of the percentage completion of the task.
--- * 'progressUpdateStream' - An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.
 -- * 'status' - Status of the task.
--- * 'statusDetail' - Detail information of what is being done within the overall status state.
 -- * 'updateDateTime' - The timestamp when the task was gathered.
+-- * 'progressPercent' - Indication of the percentage completion of the task.
+-- * 'statusDetail' - Detail information of what is being done within the overall status state.
+-- * 'progressUpdateStream' - An AWS resource used for access control. It should uniquely identify the migration tool as it is used for all updates made by the tool.
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
 mkMigrationTaskSummary ::
   MigrationTaskSummary
 mkMigrationTaskSummary =

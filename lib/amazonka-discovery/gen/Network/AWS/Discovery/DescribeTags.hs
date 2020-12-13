@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,25 +59,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { filters ::
-      Lude.Maybe [TagFilter],
+  { -- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
+    filters :: Lude.Maybe [TagFilter],
+    -- | A token to start the list. Use this token to get the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of items to return in a single page of output. The maximum value is 100.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
 -- * 'filters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
--- * 'maxResults' - The total number of items to return in a single page of output. The maximum value is 100.
 -- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
+-- * 'maxResults' - The total number of items to return in a single page of output. The maximum value is 100.
 mkDescribeTags ::
   DescribeTags
 mkDescribeTags =
@@ -157,25 +154,21 @@ instance Lude.ToQuery DescribeTags where
 
 -- | /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The call returns a token. Use this token to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
     tags :: Lude.Maybe [ConfigurationTag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The call returns a token. Use this token to get the next set of results.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
+-- * 'responseStatus' - The response status code.
 mkDescribeTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

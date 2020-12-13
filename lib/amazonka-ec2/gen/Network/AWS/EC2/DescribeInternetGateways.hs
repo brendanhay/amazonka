@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.EC2.DescribeInternetGateways
     mkDescribeInternetGateways,
 
     -- ** Request lenses
-    dFilters,
-    dNextToken,
-    dInternetGatewayIds,
-    dDryRun,
-    dMaxResults,
+    digFilters,
+    digNextToken,
+    digInternetGatewayIds,
+    digDryRun,
+    digMaxResults,
 
     -- * Destructuring the response
     DescribeInternetGatewaysResponse (..),
@@ -47,26 +48,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInternetGateways' smart constructor.
 data DescribeInternetGateways = DescribeInternetGateways'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters.
+    --
+    --
+    --     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@available@ ). Present only if a VPC is attached.
+    --
+    --
+    --     * @attachment.vpc-id@ - The ID of an attached VPC.
+    --
+    --
+    --     * @internet-gateway-id@ - The ID of the Internet gateway.
+    --
+    --
+    --     * @owner-id@ - The ID of the AWS account that owns the internet gateway.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
-    internetGatewayIds ::
-      Lude.Maybe [Lude.Text],
+    -- | One or more internet gateway IDs.
+    --
+    -- Default: Describes all your internet gateways.
+    internetGatewayIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInternetGateways' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -88,11 +105,12 @@ data DescribeInternetGateways = DescribeInternetGateways'
 --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 --
+-- * 'nextToken' - The token for the next page of results.
 -- * 'internetGatewayIds' - One or more internet gateway IDs.
 --
 -- Default: Describes all your internet gateways.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'nextToken' - The token for the next page of results.
 mkDescribeInternetGateways ::
   DescribeInternetGateways
 mkDescribeInternetGateways =
@@ -127,39 +145,39 @@ mkDescribeInternetGateways =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFilters :: Lens.Lens' DescribeInternetGateways (Lude.Maybe [Filter])
-dFilters = Lens.lens (filters :: DescribeInternetGateways -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeInternetGateways)
-{-# DEPRECATED dFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+digFilters :: Lens.Lens' DescribeInternetGateways (Lude.Maybe [Filter])
+digFilters = Lens.lens (filters :: DescribeInternetGateways -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeInternetGateways)
+{-# DEPRECATED digFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNextToken :: Lens.Lens' DescribeInternetGateways (Lude.Maybe Lude.Text)
-dNextToken = Lens.lens (nextToken :: DescribeInternetGateways -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInternetGateways)
-{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+digNextToken :: Lens.Lens' DescribeInternetGateways (Lude.Maybe Lude.Text)
+digNextToken = Lens.lens (nextToken :: DescribeInternetGateways -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInternetGateways)
+{-# DEPRECATED digNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | One or more internet gateway IDs.
 --
 -- Default: Describes all your internet gateways.
 --
 -- /Note:/ Consider using 'internetGatewayIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInternetGatewayIds :: Lens.Lens' DescribeInternetGateways (Lude.Maybe [Lude.Text])
-dInternetGatewayIds = Lens.lens (internetGatewayIds :: DescribeInternetGateways -> Lude.Maybe [Lude.Text]) (\s a -> s {internetGatewayIds = a} :: DescribeInternetGateways)
-{-# DEPRECATED dInternetGatewayIds "Use generic-lens or generic-optics with 'internetGatewayIds' instead." #-}
+digInternetGatewayIds :: Lens.Lens' DescribeInternetGateways (Lude.Maybe [Lude.Text])
+digInternetGatewayIds = Lens.lens (internetGatewayIds :: DescribeInternetGateways -> Lude.Maybe [Lude.Text]) (\s a -> s {internetGatewayIds = a} :: DescribeInternetGateways)
+{-# DEPRECATED digInternetGatewayIds "Use generic-lens or generic-optics with 'internetGatewayIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDryRun :: Lens.Lens' DescribeInternetGateways (Lude.Maybe Lude.Bool)
-dDryRun = Lens.lens (dryRun :: DescribeInternetGateways -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInternetGateways)
-{-# DEPRECATED dDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+digDryRun :: Lens.Lens' DescribeInternetGateways (Lude.Maybe Lude.Bool)
+digDryRun = Lens.lens (dryRun :: DescribeInternetGateways -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInternetGateways)
+{-# DEPRECATED digDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxResults :: Lens.Lens' DescribeInternetGateways (Lude.Maybe Lude.Natural)
-dMaxResults = Lens.lens (maxResults :: DescribeInternetGateways -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInternetGateways)
-{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+digMaxResults :: Lens.Lens' DescribeInternetGateways (Lude.Maybe Lude.Natural)
+digMaxResults = Lens.lens (maxResults :: DescribeInternetGateways -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInternetGateways)
+{-# DEPRECATED digMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeInternetGateways where
   page rq rs
@@ -168,7 +186,7 @@ instance Page.AWSPager DescribeInternetGateways where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dNextToken Lens..~ rs Lens.^. digrsNextToken
+          Lude.& digNextToken Lens..~ rs Lens.^. digrsNextToken
 
 instance Lude.AWSRequest DescribeInternetGateways where
   type Rs DescribeInternetGateways = DescribeInternetGatewaysResponse
@@ -205,27 +223,20 @@ instance Lude.ToQuery DescribeInternetGateways where
 
 -- | /See:/ 'mkDescribeInternetGatewaysResponse' smart constructor.
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    internetGateways ::
-      Lude.Maybe
-        [InternetGateway],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about one or more internet gateways.
+    internetGateways :: Lude.Maybe [InternetGateway],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInternetGatewaysResponse' with the minimum fields required to make a request.
 --
--- * 'internetGateways' - Information about one or more internet gateways.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'internetGateways' - Information about one or more internet gateways.
 -- * 'responseStatus' - The response status code.
 mkDescribeInternetGatewaysResponse ::
   -- | 'responseStatus'

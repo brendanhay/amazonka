@@ -13,9 +13,9 @@
 module Network.AWS.WorkMail.Types.EntityState
   ( EntityState
       ( EntityState',
-        Deleted,
+        Enabled,
         Disabled,
-        Enabled
+        Deleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EntityState = EntityState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deleted :: EntityState
-pattern Deleted = EntityState' "DELETED"
+pattern Enabled :: EntityState
+pattern Enabled = EntityState' "ENABLED"
 
 pattern Disabled :: EntityState
 pattern Disabled = EntityState' "DISABLED"
 
-pattern Enabled :: EntityState
-pattern Enabled = EntityState' "ENABLED"
+pattern Deleted :: EntityState
+pattern Deleted = EntityState' "DELETED"
 
 {-# COMPLETE
-  Deleted,
-  Disabled,
   Enabled,
+  Disabled,
+  Deleted,
   EntityState'
   #-}

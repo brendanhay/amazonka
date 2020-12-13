@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,28 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkMergeBranchesByFastForward' smart constructor.
 data MergeBranchesByFastForward = MergeBranchesByFastForward'
-  { targetBranch ::
-      Lude.Maybe Lude.Text,
+  { -- | The branch where the merge is applied.
+    targetBranch :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where you want to merge two branches.
     repositoryName :: Lude.Text,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
     sourceCommitSpecifier :: Lude.Text,
-    destinationCommitSpecifier ::
-      Lude.Text
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+    destinationCommitSpecifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeBranchesByFastForward' with the minimum fields required to make a request.
 --
--- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+-- * 'targetBranch' - The branch where the merge is applied.
 -- * 'repositoryName' - The name of the repository where you want to merge two branches.
 -- * 'sourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
--- * 'targetBranch' - The branch where the merge is applied.
+-- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 mkMergeBranchesByFastForward ::
   -- | 'repositoryName'
   Lude.Text ->
@@ -159,27 +156,21 @@ instance Lude.ToQuery MergeBranchesByFastForward where
 
 -- | /See:/ 'mkMergeBranchesByFastForwardResponse' smart constructor.
 data MergeBranchesByFastForwardResponse = MergeBranchesByFastForwardResponse'
-  { commitId ::
-      Lude.Maybe Lude.Text,
-    treeId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The commit ID of the merge in the destination or target branch.
+    commitId :: Lude.Maybe Lude.Text,
+    -- | The tree ID of the merge in the destination or target branch.
+    treeId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeBranchesByFastForwardResponse' with the minimum fields required to make a request.
 --
 -- * 'commitId' - The commit ID of the merge in the destination or target branch.
--- * 'responseStatus' - The response status code.
 -- * 'treeId' - The tree ID of the merge in the destination or target branch.
+-- * 'responseStatus' - The response status code.
 mkMergeBranchesByFastForwardResponse ::
   -- | 'responseStatus'
   Lude.Int ->

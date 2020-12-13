@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.ProcessingJobStatus
   ( ProcessingJobStatus
       ( ProcessingJobStatus',
+        PJSInProgress,
         PJSCompleted,
         PJSFailed,
-        PJSInProgress,
-        PJSStopped,
-        PJSStopping
+        PJSStopping,
+        PJSStopped
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ProcessingJobStatus = ProcessingJobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern PJSInProgress :: ProcessingJobStatus
+pattern PJSInProgress = ProcessingJobStatus' "InProgress"
+
 pattern PJSCompleted :: ProcessingJobStatus
 pattern PJSCompleted = ProcessingJobStatus' "Completed"
 
 pattern PJSFailed :: ProcessingJobStatus
 pattern PJSFailed = ProcessingJobStatus' "Failed"
 
-pattern PJSInProgress :: ProcessingJobStatus
-pattern PJSInProgress = ProcessingJobStatus' "InProgress"
+pattern PJSStopping :: ProcessingJobStatus
+pattern PJSStopping = ProcessingJobStatus' "Stopping"
 
 pattern PJSStopped :: ProcessingJobStatus
 pattern PJSStopped = ProcessingJobStatus' "Stopped"
 
-pattern PJSStopping :: ProcessingJobStatus
-pattern PJSStopping = ProcessingJobStatus' "Stopping"
-
 {-# COMPLETE
+  PJSInProgress,
   PJSCompleted,
   PJSFailed,
-  PJSInProgress,
-  PJSStopped,
   PJSStopping,
+  PJSStopped,
   ProcessingJobStatus'
   #-}

@@ -34,33 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataFormatConversionConfiguration' smart constructor.
 data DataFormatConversionConfiguration = DataFormatConversionConfiguration'
-  { outputFormatConfiguration ::
-      Lude.Maybe
-        OutputFormatConfiguration,
-    enabled ::
-      Lude.Maybe Lude.Bool,
-    schemaConfiguration ::
-      Lude.Maybe
-        SchemaConfiguration,
-    inputFormatConfiguration ::
-      Lude.Maybe
-        InputFormatConfiguration
+  { -- | Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if @Enabled@ is set to true.
+    outputFormatConfiguration :: Lude.Maybe OutputFormatConfiguration,
+    -- | Defaults to @true@ . Set it to @false@ if you want to disable format conversion while preserving the configuration details.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if @Enabled@ is set to true.
+    schemaConfiguration :: Lude.Maybe SchemaConfiguration,
+    -- | Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. This parameter is required if @Enabled@ is set to true.
+    inputFormatConfiguration :: Lude.Maybe InputFormatConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataFormatConversionConfiguration' with the minimum fields required to make a request.
 --
--- * 'enabled' - Defaults to @true@ . Set it to @false@ if you want to disable format conversion while preserving the configuration details.
--- * 'inputFormatConfiguration' - Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. This parameter is required if @Enabled@ is set to true.
 -- * 'outputFormatConfiguration' - Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if @Enabled@ is set to true.
+-- * 'enabled' - Defaults to @true@ . Set it to @false@ if you want to disable format conversion while preserving the configuration details.
 -- * 'schemaConfiguration' - Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if @Enabled@ is set to true.
+-- * 'inputFormatConfiguration' - Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. This parameter is required if @Enabled@ is set to true.
 mkDataFormatConversionConfiguration ::
   DataFormatConversionConfiguration
 mkDataFormatConversionConfiguration =

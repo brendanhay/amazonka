@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCloudFormationStackRecords' smart constructor.
 newtype GetCloudFormationStackRecords = GetCloudFormationStackRecords'
-  { pageToken ::
-      Lude.Maybe Lude.Text
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetClouFormationStackRecords@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCloudFormationStackRecords' with the minimum fields required to make a request.
@@ -126,31 +123,26 @@ instance Lude.ToQuery GetCloudFormationStackRecords where
 
 -- | /See:/ 'mkGetCloudFormationStackRecordsResponse' smart constructor.
 data GetCloudFormationStackRecordsResponse = GetCloudFormationStackRecordsResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    cloudFormationStackRecords ::
-      Lude.Maybe
-        [CloudFormationStackRecord],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to display.
+    -- To get the next page of results, perform another @GetCloudFormationStackRecords@ request and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | A list of objects describing the CloudFormation stack records.
+    cloudFormationStackRecords :: Lude.Maybe [CloudFormationStackRecord],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCloudFormationStackRecordsResponse' with the minimum fields required to make a request.
 --
--- * 'cloudFormationStackRecords' - A list of objects describing the CloudFormation stack records.
 -- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to display.
 -- To get the next page of results, perform another @GetCloudFormationStackRecords@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'cloudFormationStackRecords' - A list of objects describing the CloudFormation stack records.
 -- * 'responseStatus' - The response status code.
 mkGetCloudFormationStackRecordsResponse ::
   -- | 'responseStatus'

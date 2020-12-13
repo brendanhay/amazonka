@@ -31,20 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateInstanceMarketOptionsRequest' smart constructor.
 data LaunchTemplateInstanceMarketOptionsRequest = LaunchTemplateInstanceMarketOptionsRequest'
-  { marketType ::
-      Lude.Maybe
-        MarketType,
-    spotOptions ::
-      Lude.Maybe
-        LaunchTemplateSpotMarketOptionsRequest
+  { -- | The market type.
+    marketType :: Lude.Maybe MarketType,
+    -- | The options for Spot Instances.
+    spotOptions :: Lude.Maybe LaunchTemplateSpotMarketOptionsRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateInstanceMarketOptionsRequest' with the minimum fields required to make a request.

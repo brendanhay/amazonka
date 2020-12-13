@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEncryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
-  { id :: Lude.Text,
+  { -- | The ID used to identify the key. For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN.
+    id :: Lude.Text,
+    -- | The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'.
     type' :: EncryptionKeyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionKey' with the minimum fields required to make a request.

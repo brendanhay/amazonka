@@ -13,13 +13,13 @@
 module Network.AWS.SageMaker.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
+        EPending,
         ECompleted,
         ECompletedWithViolations,
-        EFailed,
         EInProgress,
-        EPending,
-        EStopped,
-        EStopping
+        EFailed,
+        EStopping,
+        EStopped
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ExecutionStatus = ExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern EPending :: ExecutionStatus
+pattern EPending = ExecutionStatus' "Pending"
+
 pattern ECompleted :: ExecutionStatus
 pattern ECompleted = ExecutionStatus' "Completed"
 
 pattern ECompletedWithViolations :: ExecutionStatus
 pattern ECompletedWithViolations = ExecutionStatus' "CompletedWithViolations"
 
-pattern EFailed :: ExecutionStatus
-pattern EFailed = ExecutionStatus' "Failed"
-
 pattern EInProgress :: ExecutionStatus
 pattern EInProgress = ExecutionStatus' "InProgress"
 
-pattern EPending :: ExecutionStatus
-pattern EPending = ExecutionStatus' "Pending"
-
-pattern EStopped :: ExecutionStatus
-pattern EStopped = ExecutionStatus' "Stopped"
+pattern EFailed :: ExecutionStatus
+pattern EFailed = ExecutionStatus' "Failed"
 
 pattern EStopping :: ExecutionStatus
 pattern EStopping = ExecutionStatus' "Stopping"
 
+pattern EStopped :: ExecutionStatus
+pattern EStopped = ExecutionStatus' "Stopped"
+
 {-# COMPLETE
+  EPending,
   ECompleted,
   ECompletedWithViolations,
-  EFailed,
   EInProgress,
-  EPending,
-  EStopped,
+  EFailed,
   EStopping,
+  EStopped,
   ExecutionStatus'
   #-}

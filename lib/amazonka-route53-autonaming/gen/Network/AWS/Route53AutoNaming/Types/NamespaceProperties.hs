@@ -31,17 +31,12 @@ import Network.AWS.Route53AutoNaming.Types.HTTPProperties
 --
 -- /See:/ 'mkNamespaceProperties' smart constructor.
 data NamespaceProperties = NamespaceProperties'
-  { dnsProperties ::
-      Lude.Maybe DNSProperties,
+  { -- | A complex type that contains the ID for the Route 53 hosted zone that AWS Cloud Map creates when you create a namespace.
+    dnsProperties :: Lude.Maybe DNSProperties,
+    -- | A complex type that contains the name of an HTTP namespace.
     hTTPProperties :: Lude.Maybe HTTPProperties
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NamespaceProperties' with the minimum fields required to make a request.

@@ -29,21 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMssEncryption' smart constructor.
 newtype MssEncryption = MssEncryption'
-  { spekeKeyProvider ::
-      SpekeKeyProvider
+  { spekeKeyProvider :: SpekeKeyProvider
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MssEncryption' with the minimum fields required to make a request.
 --
--- * 'spekeKeyProvider' - Undocumented field.
+-- * 'spekeKeyProvider' -
 mkMssEncryption ::
   -- | 'spekeKeyProvider'
   SpekeKeyProvider ->

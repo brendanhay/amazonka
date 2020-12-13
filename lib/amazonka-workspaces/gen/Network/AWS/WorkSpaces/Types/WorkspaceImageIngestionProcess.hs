@@ -13,9 +13,9 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceImageIngestionProcess
   ( WorkspaceImageIngestionProcess
       ( WorkspaceImageIngestionProcess',
+        ByolRegular,
         ByolGraphics,
-        ByolGraphicspro,
-        ByolRegular
+        ByolGraphicspro
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype WorkspaceImageIngestionProcess = WorkspaceImageIngestionProcess' Lude.Te
       Lude.ToHeader
     )
 
+pattern ByolRegular :: WorkspaceImageIngestionProcess
+pattern ByolRegular = WorkspaceImageIngestionProcess' "BYOL_REGULAR"
+
 pattern ByolGraphics :: WorkspaceImageIngestionProcess
 pattern ByolGraphics = WorkspaceImageIngestionProcess' "BYOL_GRAPHICS"
 
 pattern ByolGraphicspro :: WorkspaceImageIngestionProcess
 pattern ByolGraphicspro = WorkspaceImageIngestionProcess' "BYOL_GRAPHICSPRO"
 
-pattern ByolRegular :: WorkspaceImageIngestionProcess
-pattern ByolRegular = WorkspaceImageIngestionProcess' "BYOL_REGULAR"
-
 {-# COMPLETE
+  ByolRegular,
   ByolGraphics,
   ByolGraphicspro,
-  ByolRegular,
   WorkspaceImageIngestionProcess'
   #-}

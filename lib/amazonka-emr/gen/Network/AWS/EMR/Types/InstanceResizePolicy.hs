@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceResizePolicy' smart constructor.
 data InstanceResizePolicy = InstanceResizePolicy'
-  { instancesToProtect ::
-      Lude.Maybe [Lude.Text],
+  { -- | Specific list of instances to be protected when shrinking an instance group.
+    instancesToProtect :: Lude.Maybe [Lude.Text],
+    -- | Specific list of instances to be terminated when shrinking an instance group.
     instancesToTerminate :: Lude.Maybe [Lude.Text],
+    -- | Decommissioning timeout override for the specific list of instances to be terminated.
     instanceTerminationTimeout :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceResizePolicy' with the minimum fields required to make a request.
 --
--- * 'instanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to be terminated.
 -- * 'instancesToProtect' - Specific list of instances to be protected when shrinking an instance group.
 -- * 'instancesToTerminate' - Specific list of instances to be terminated when shrinking an instance group.
+-- * 'instanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to be terminated.
 mkInstanceResizePolicy ::
   InstanceResizePolicy
 mkInstanceResizePolicy =

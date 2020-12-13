@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoTAnalytics.DescribeChannel
     mkDescribeChannel,
 
     -- ** Request lenses
-    desIncludeStatistics,
-    desChannelName,
+    dcChannelName,
+    dcIncludeStatistics,
 
     -- * Destructuring the response
     DescribeChannelResponse (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeChannel' smart constructor.
 data DescribeChannel = DescribeChannel'
-  { includeStatistics ::
-      Lude.Maybe Lude.Bool,
-    channelName :: Lude.Text
+  { -- | The name of the channel whose information is retrieved.
+    channelName :: Lude.Text,
+    -- | If true, additional statistical information about the channel is included in the response. This feature cannot be used with a channel whose S3 storage is customer-managed.
+    includeStatistics :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeChannel' with the minimum fields required to make a request.
@@ -64,23 +60,23 @@ mkDescribeChannel ::
   DescribeChannel
 mkDescribeChannel pChannelName_ =
   DescribeChannel'
-    { includeStatistics = Lude.Nothing,
-      channelName = pChannelName_
+    { channelName = pChannelName_,
+      includeStatistics = Lude.Nothing
     }
-
--- | If true, additional statistical information about the channel is included in the response. This feature cannot be used with a channel whose S3 storage is customer-managed.
---
--- /Note:/ Consider using 'includeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desIncludeStatistics :: Lens.Lens' DescribeChannel (Lude.Maybe Lude.Bool)
-desIncludeStatistics = Lens.lens (includeStatistics :: DescribeChannel -> Lude.Maybe Lude.Bool) (\s a -> s {includeStatistics = a} :: DescribeChannel)
-{-# DEPRECATED desIncludeStatistics "Use generic-lens or generic-optics with 'includeStatistics' instead." #-}
 
 -- | The name of the channel whose information is retrieved.
 --
 -- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desChannelName :: Lens.Lens' DescribeChannel Lude.Text
-desChannelName = Lens.lens (channelName :: DescribeChannel -> Lude.Text) (\s a -> s {channelName = a} :: DescribeChannel)
-{-# DEPRECATED desChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
+dcChannelName :: Lens.Lens' DescribeChannel Lude.Text
+dcChannelName = Lens.lens (channelName :: DescribeChannel -> Lude.Text) (\s a -> s {channelName = a} :: DescribeChannel)
+{-# DEPRECATED dcChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
+
+-- | If true, additional statistical information about the channel is included in the response. This feature cannot be used with a channel whose S3 storage is customer-managed.
+--
+-- /Note:/ Consider using 'includeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcIncludeStatistics :: Lens.Lens' DescribeChannel (Lude.Maybe Lude.Bool)
+dcIncludeStatistics = Lens.lens (includeStatistics :: DescribeChannel -> Lude.Maybe Lude.Bool) (\s a -> s {includeStatistics = a} :: DescribeChannel)
+{-# DEPRECATED dcIncludeStatistics "Use generic-lens or generic-optics with 'includeStatistics' instead." #-}
 
 instance Lude.AWSRequest DescribeChannel where
   type Rs DescribeChannel = DescribeChannelResponse
@@ -107,25 +103,21 @@ instance Lude.ToQuery DescribeChannel where
 
 -- | /See:/ 'mkDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { channel ::
-      Lude.Maybe Channel,
+  { -- | An object that contains information about the channel.
+    channel :: Lude.Maybe Channel,
+    -- | Statistics about the channel. Included if the @includeStatistics@ parameter is set to @true@ in the request.
     statistics :: Lude.Maybe ChannelStatistics,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeChannelResponse' with the minimum fields required to make a request.
 --
 -- * 'channel' - An object that contains information about the channel.
--- * 'responseStatus' - The response status code.
 -- * 'statistics' - Statistics about the channel. Included if the @includeStatistics@ parameter is set to @true@ in the request.
+-- * 'responseStatus' - The response status code.
 mkDescribeChannelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

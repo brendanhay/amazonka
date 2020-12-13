@@ -18,8 +18,8 @@ module Network.AWS.MediaLive.Types.ArchiveOutputSettings
 
     -- * Lenses
     aosExtension,
-    aosNameModifier,
     aosContainerSettings,
+    aosNameModifier,
   )
 where
 
@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArchiveOutputSettings' smart constructor.
 data ArchiveOutputSettings = ArchiveOutputSettings'
-  { extension ::
-      Lude.Maybe Lude.Text,
-    nameModifier :: Lude.Maybe Lude.Text,
-    containerSettings :: ArchiveContainerSettings
+  { -- | Output file extension. If excluded, this will be auto-selected from the container type.
+    extension :: Lude.Maybe Lude.Text,
+    -- | Settings specific to the container type of the file.
+    containerSettings :: ArchiveContainerSettings,
+    -- | String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+    nameModifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveOutputSettings' with the minimum fields required to make a request.
 --
--- * 'containerSettings' - Settings specific to the container type of the file.
 -- * 'extension' - Output file extension. If excluded, this will be auto-selected from the container type.
+-- * 'containerSettings' - Settings specific to the container type of the file.
 -- * 'nameModifier' - String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
 mkArchiveOutputSettings ::
   -- | 'containerSettings'
@@ -57,8 +53,8 @@ mkArchiveOutputSettings ::
 mkArchiveOutputSettings pContainerSettings_ =
   ArchiveOutputSettings'
     { extension = Lude.Nothing,
-      nameModifier = Lude.Nothing,
-      containerSettings = pContainerSettings_
+      containerSettings = pContainerSettings_,
+      nameModifier = Lude.Nothing
     }
 
 -- | Output file extension. If excluded, this will be auto-selected from the container type.
@@ -68,19 +64,19 @@ aosExtension :: Lens.Lens' ArchiveOutputSettings (Lude.Maybe Lude.Text)
 aosExtension = Lens.lens (extension :: ArchiveOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {extension = a} :: ArchiveOutputSettings)
 {-# DEPRECATED aosExtension "Use generic-lens or generic-optics with 'extension' instead." #-}
 
--- | String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
---
--- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosNameModifier :: Lens.Lens' ArchiveOutputSettings (Lude.Maybe Lude.Text)
-aosNameModifier = Lens.lens (nameModifier :: ArchiveOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: ArchiveOutputSettings)
-{-# DEPRECATED aosNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
-
 -- | Settings specific to the container type of the file.
 --
 -- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aosContainerSettings :: Lens.Lens' ArchiveOutputSettings ArchiveContainerSettings
 aosContainerSettings = Lens.lens (containerSettings :: ArchiveOutputSettings -> ArchiveContainerSettings) (\s a -> s {containerSettings = a} :: ArchiveOutputSettings)
 {-# DEPRECATED aosContainerSettings "Use generic-lens or generic-optics with 'containerSettings' instead." #-}
+
+-- | String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+--
+-- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aosNameModifier :: Lens.Lens' ArchiveOutputSettings (Lude.Maybe Lude.Text)
+aosNameModifier = Lens.lens (nameModifier :: ArchiveOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: ArchiveOutputSettings)
+{-# DEPRECATED aosNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
 
 instance Lude.FromJSON ArchiveOutputSettings where
   parseJSON =
@@ -89,8 +85,8 @@ instance Lude.FromJSON ArchiveOutputSettings where
       ( \x ->
           ArchiveOutputSettings'
             Lude.<$> (x Lude..:? "extension")
-            Lude.<*> (x Lude..:? "nameModifier")
             Lude.<*> (x Lude..: "containerSettings")
+            Lude.<*> (x Lude..:? "nameModifier")
       )
 
 instance Lude.ToJSON ArchiveOutputSettings where
@@ -98,7 +94,7 @@ instance Lude.ToJSON ArchiveOutputSettings where
     Lude.object
       ( Lude.catMaybes
           [ ("extension" Lude..=) Lude.<$> extension,
-            ("nameModifier" Lude..=) Lude.<$> nameModifier,
-            Lude.Just ("containerSettings" Lude..= containerSettings)
+            Lude.Just ("containerSettings" Lude..= containerSettings),
+            ("nameModifier" Lude..=) Lude.<$> nameModifier
           ]
       )

@@ -13,9 +13,9 @@
 module Network.AWS.Redshift.Types.SnapshotAttributeToSortBy
   ( SnapshotAttributeToSortBy
       ( SnapshotAttributeToSortBy',
-        CreateTime,
         SourceType,
-        TotalSize
+        TotalSize,
+        CreateTime
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype SnapshotAttributeToSortBy = SnapshotAttributeToSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreateTime :: SnapshotAttributeToSortBy
-pattern CreateTime = SnapshotAttributeToSortBy' "CREATE_TIME"
-
 pattern SourceType :: SnapshotAttributeToSortBy
 pattern SourceType = SnapshotAttributeToSortBy' "SOURCE_TYPE"
 
 pattern TotalSize :: SnapshotAttributeToSortBy
 pattern TotalSize = SnapshotAttributeToSortBy' "TOTAL_SIZE"
 
+pattern CreateTime :: SnapshotAttributeToSortBy
+pattern CreateTime = SnapshotAttributeToSortBy' "CREATE_TIME"
+
 {-# COMPLETE
-  CreateTime,
   SourceType,
   TotalSize,
+  CreateTime,
   SnapshotAttributeToSortBy'
   #-}

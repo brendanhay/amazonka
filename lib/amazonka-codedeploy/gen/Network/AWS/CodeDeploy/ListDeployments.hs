@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,29 +51,44 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { createTimeRange ::
-      Lude.Maybe TimeRange,
+  { -- | A time range (start and end) for returning a subset of the list of deployments.
+    createTimeRange :: Lude.Maybe TimeRange,
+    -- | An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A subset of deployments to list by status:
+    --
+    --
+    --     * @Created@ : Include created deployments in the resulting list.
+    --
+    --
+    --     * @Queued@ : Include queued deployments in the resulting list.
+    --
+    --
+    --     * @In Progress@ : Include in-progress deployments in the resulting list.
+    --
+    --
+    --     * @Succeeded@ : Include successful deployments in the resulting list.
+    --
+    --
+    --     * @Failed@ : Include failed deployments in the resulting list.
+    --
+    --
+    --     * @Stopped@ : Include stopped deployments in the resulting list.
     includeOnlyStatuses :: Lude.Maybe [DeploymentStatus],
+    -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | The unique ID of an external resource for returning deployments linked to the external resource.
     externalId :: Lude.Maybe Lude.Text,
+    -- | The name of a deployment group for the specified application.
     deploymentGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeployments' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 -- * 'createTimeRange' - A time range (start and end) for returning a subset of the list of deployments.
--- * 'deploymentGroupName' - The name of a deployment group for the specified application.
--- * 'externalId' - The unique ID of an external resource for returning deployments linked to the external resource.
+-- * 'nextToken' - An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
 -- * 'includeOnlyStatuses' - A subset of deployments to list by status:
 --
 --
@@ -94,7 +110,9 @@ data ListDeployments = ListDeployments'
 --     * @Stopped@ : Include stopped deployments in the resulting list.
 --
 --
--- * 'nextToken' - An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list.
+-- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+-- * 'externalId' - The unique ID of an external resource for returning deployments linked to the external resource.
+-- * 'deploymentGroupName' - The name of a deployment group for the specified application.
 mkListDeployments ::
   ListDeployments
 mkListDeployments =
@@ -224,24 +242,20 @@ instance Lude.ToQuery ListDeployments where
 --
 -- /See:/ 'mkListDeploymentsResponse' smart constructor.
 data ListDeploymentsResponse = ListDeploymentsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of deployment IDs.
     deployments :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
 --
--- * 'deployments' - A list of deployment IDs.
 -- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list.
+-- * 'deployments' - A list of deployment IDs.
 -- * 'responseStatus' - The response status code.
 mkListDeploymentsResponse ::
   -- | 'responseStatus'

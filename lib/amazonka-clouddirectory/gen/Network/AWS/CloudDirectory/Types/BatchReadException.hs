@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchReadException' smart constructor.
 data BatchReadException = BatchReadException'
-  { type' ::
-      Lude.Maybe BatchReadExceptionType,
+  { -- | A type of exception, such as @InvalidArnException@ .
+    type' :: Lude.Maybe BatchReadExceptionType,
+    -- | An exception message that is associated with the failure.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchReadException' with the minimum fields required to make a request.
 --
--- * 'message' - An exception message that is associated with the failure.
 -- * 'type'' - A type of exception, such as @InvalidArnException@ .
+-- * 'message' - An exception message that is associated with the failure.
 mkBatchReadException ::
   BatchReadException
 mkBatchReadException =

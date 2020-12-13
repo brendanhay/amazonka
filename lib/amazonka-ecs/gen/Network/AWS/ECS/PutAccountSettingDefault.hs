@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ECS.PutAccountSettingDefault
     mkPutAccountSettingDefault,
 
     -- ** Request lenses
-    pasdName,
     pasdValue,
+    pasdName,
 
     -- * Destructuring the response
     PutAccountSettingDefaultResponse (..),
@@ -40,38 +41,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutAccountSettingDefault' smart constructor.
 data PutAccountSettingDefault = PutAccountSettingDefault'
-  { name ::
-      SettingName,
-    value :: Lude.Text
+  { -- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
+    value :: Lude.Text,
+    -- | The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
+    name :: SettingName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccountSettingDefault' with the minimum fields required to make a request.
 --
--- * 'name' - The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
 -- * 'value' - The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
+-- * 'name' - The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
 mkPutAccountSettingDefault ::
-  -- | 'name'
-  SettingName ->
   -- | 'value'
   Lude.Text ->
+  -- | 'name'
+  SettingName ->
   PutAccountSettingDefault
-mkPutAccountSettingDefault pName_ pValue_ =
-  PutAccountSettingDefault' {name = pName_, value = pValue_}
-
--- | The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pasdName :: Lens.Lens' PutAccountSettingDefault SettingName
-pasdName = Lens.lens (name :: PutAccountSettingDefault -> SettingName) (\s a -> s {name = a} :: PutAccountSettingDefault)
-{-# DEPRECATED pasdName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkPutAccountSettingDefault pValue_ pName_ =
+  PutAccountSettingDefault' {value = pValue_, name = pName_}
 
 -- | The account setting value for the specified principal ARN. Accepted values are @enabled@ and @disabled@ .
 --
@@ -79,6 +68,13 @@ pasdName = Lens.lens (name :: PutAccountSettingDefault -> SettingName) (\s a -> 
 pasdValue :: Lens.Lens' PutAccountSettingDefault Lude.Text
 pasdValue = Lens.lens (value :: PutAccountSettingDefault -> Lude.Text) (\s a -> s {value = a} :: PutAccountSettingDefault)
 {-# DEPRECATED pasdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+-- | The resource name for which to modify the account setting. If @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS services is affected. If @taskLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If @containerInstanceLongArnFormat@ is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If @awsvpcTrunking@ is specified, the ENI limit for your Amazon ECS container instances is affected. If @containerInsights@ is specified, the default setting for CloudWatch Container Insights for your clusters is affected.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pasdName :: Lens.Lens' PutAccountSettingDefault SettingName
+pasdName = Lens.lens (name :: PutAccountSettingDefault -> SettingName) (\s a -> s {name = a} :: PutAccountSettingDefault)
+{-# DEPRECATED pasdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest PutAccountSettingDefault where
   type Rs PutAccountSettingDefault = PutAccountSettingDefaultResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON PutAccountSettingDefault where
   toJSON PutAccountSettingDefault' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            Lude.Just ("value" Lude..= value)
+          [ Lude.Just ("value" Lude..= value),
+            Lude.Just ("name" Lude..= name)
           ]
       )
 
@@ -120,24 +116,17 @@ instance Lude.ToQuery PutAccountSettingDefault where
 
 -- | /See:/ 'mkPutAccountSettingDefaultResponse' smart constructor.
 data PutAccountSettingDefaultResponse = PutAccountSettingDefaultResponse'
-  { setting ::
-      Lude.Maybe Setting,
-    responseStatus ::
-      Lude.Int
+  { setting :: Lude.Maybe Setting,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccountSettingDefaultResponse' with the minimum fields required to make a request.
 --
+-- * 'setting' -
 -- * 'responseStatus' - The response status code.
--- * 'setting' - Undocumented field.
 mkPutAccountSettingDefaultResponse ::
   -- | 'responseStatus'
   Lude.Int ->

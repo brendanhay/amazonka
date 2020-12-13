@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,23 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListServiceActions' smart constructor.
 data ListServiceActions = ListServiceActions'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServiceActions' with the minimum fields required to make a request.
@@ -73,8 +79,8 @@ data ListServiceActions = ListServiceActions'
 --     * @zh@ - Chinese
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkListServiceActions ::
   ListServiceActions
 mkListServiceActions =
@@ -168,26 +174,21 @@ instance Lude.ToQuery ListServiceActions where
 
 -- | /See:/ 'mkListServiceActionsResponse' smart constructor.
 data ListServiceActionsResponse = ListServiceActionsResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    serviceActionSummaries ::
-      Lude.Maybe [ServiceActionSummary],
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An object containing information about the service actions associated with the provisioning artifact.
+    serviceActionSummaries :: Lude.Maybe [ServiceActionSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServiceActionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'responseStatus' - The response status code.
 -- * 'serviceActionSummaries' - An object containing information about the service actions associated with the provisioning artifact.
+-- * 'responseStatus' - The response status code.
 mkListServiceActionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

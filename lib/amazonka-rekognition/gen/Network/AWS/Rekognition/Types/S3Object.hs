@@ -33,17 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Object' smart constructor.
 data S3Object = S3Object'
-  { bucket :: Lude.Maybe Lude.Text,
+  { -- | Name of the S3 bucket.
+    bucket :: Lude.Maybe Lude.Text,
+    -- | S3 object key name.
     name :: Lude.Maybe Lude.Text,
+    -- | If the bucket is versioning enabled, you can specify the object version.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Object' with the minimum fields required to make a request.

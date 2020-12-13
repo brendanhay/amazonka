@@ -29,16 +29,10 @@ import Network.AWS.WorkSpaces.Types.ReconnectEnum
 --
 -- /See:/ 'mkClientProperties' smart constructor.
 newtype ClientProperties = ClientProperties'
-  { reconnectEnabled ::
-      Lude.Maybe ReconnectEnum
+  { -- | Specifies whether users can cache their credentials on the Amazon WorkSpaces client. When enabled, users can choose to reconnect to their WorkSpaces without re-entering their credentials.
+    reconnectEnabled :: Lude.Maybe ReconnectEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientProperties' with the minimum fields required to make a request.

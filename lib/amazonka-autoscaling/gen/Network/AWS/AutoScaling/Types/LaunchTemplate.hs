@@ -34,24 +34,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
-  { overrides ::
-      Lude.Maybe [LaunchTemplateOverrides],
-    launchTemplateSpecification ::
-      Lude.Maybe LaunchTemplateSpecification
+  { -- | Any parameters that you specify override the same parameters in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance.
+    overrides :: Lude.Maybe [LaunchTemplateOverrides],
+    -- | The launch template to use.
+    launchTemplateSpecification :: Lude.Maybe LaunchTemplateSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplate' with the minimum fields required to make a request.
 --
--- * 'launchTemplateSpecification' - The launch template to use.
 -- * 'overrides' - Any parameters that you specify override the same parameters in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance.
+-- * 'launchTemplateSpecification' - The launch template to use.
 mkLaunchTemplate ::
   LaunchTemplate
 mkLaunchTemplate =

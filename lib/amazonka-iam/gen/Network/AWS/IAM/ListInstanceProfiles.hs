@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.IAM.ListInstanceProfiles
     -- ** Response lenses
     liprsMarker,
     liprsIsTruncated,
-    liprsResponseStatus,
     liprsInstanceProfiles,
+    liprsResponseStatus,
   )
 where
 
@@ -48,29 +49,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListInstanceProfiles' smart constructor.
 data ListInstanceProfiles = ListInstanceProfiles'
-  { pathPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The path prefix for filtering the results. For example, the prefix @/application_abc/component_xyz/@ gets all instance profiles whose path starts with @/application_abc/component_xyz/@ .
+    --
+    -- This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+    pathPrefix :: Lude.Maybe Lude.Text,
+    -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
     marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceProfiles' with the minimum fields required to make a request.
 --
+-- * 'pathPrefix' - The path prefix for filtering the results. For example, the prefix @/application_abc/component_xyz/@ gets all instance profiles whose path starts with @/application_abc/component_xyz/@ .
+--
+-- This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
 -- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 -- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
--- * 'pathPrefix' - The path prefix for filtering the results. For example, the prefix @/application_abc/component_xyz/@ gets all instance profiles whose path starts with @/application_abc/component_xyz/@ .
---
--- This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
 mkListInstanceProfiles ::
   ListInstanceProfiles
 mkListInstanceProfiles =
@@ -122,10 +123,10 @@ instance Lude.AWSRequest ListInstanceProfiles where
           ListInstanceProfilesResponse'
             Lude.<$> (x Lude..@? "Marker")
             Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "InstanceProfiles" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListInstanceProfiles where
@@ -148,28 +149,23 @@ instance Lude.ToQuery ListInstanceProfiles where
 --
 -- /See:/ 'mkListInstanceProfilesResponse' smart constructor.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    isTruncated ::
-      Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    instanceProfiles ::
-      [InstanceProfile]
+  { -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+    isTruncated :: Lude.Maybe Lude.Bool,
+    -- | A list of instance profiles.
+    instanceProfiles :: [InstanceProfile],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceProfilesResponse' with the minimum fields required to make a request.
 --
--- * 'instanceProfiles' - A list of instance profiles.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+-- * 'instanceProfiles' - A list of instance profiles.
 -- * 'responseStatus' - The response status code.
 mkListInstanceProfilesResponse ::
   -- | 'responseStatus'
@@ -179,8 +175,8 @@ mkListInstanceProfilesResponse pResponseStatus_ =
   ListInstanceProfilesResponse'
     { marker = Lude.Nothing,
       isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      instanceProfiles = Lude.mempty
+      instanceProfiles = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
@@ -197,16 +193,16 @@ liprsIsTruncated :: Lens.Lens' ListInstanceProfilesResponse (Lude.Maybe Lude.Boo
 liprsIsTruncated = Lens.lens (isTruncated :: ListInstanceProfilesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListInstanceProfilesResponse)
 {-# DEPRECATED liprsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liprsResponseStatus :: Lens.Lens' ListInstanceProfilesResponse Lude.Int
-liprsResponseStatus = Lens.lens (responseStatus :: ListInstanceProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstanceProfilesResponse)
-{-# DEPRECATED liprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of instance profiles.
 --
 -- /Note:/ Consider using 'instanceProfiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liprsInstanceProfiles :: Lens.Lens' ListInstanceProfilesResponse [InstanceProfile]
 liprsInstanceProfiles = Lens.lens (instanceProfiles :: ListInstanceProfilesResponse -> [InstanceProfile]) (\s a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse)
 {-# DEPRECATED liprsInstanceProfiles "Use generic-lens or generic-optics with 'instanceProfiles' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liprsResponseStatus :: Lens.Lens' ListInstanceProfilesResponse Lude.Int
+liprsResponseStatus = Lens.lens (responseStatus :: ListInstanceProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstanceProfilesResponse)
+{-# DEPRECATED liprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

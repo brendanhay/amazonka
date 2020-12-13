@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -101,38 +102,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDASHStreamingSessionURL' smart constructor.
 data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
-  { displayFragmentTimestamp ::
-      Lude.Maybe
-        DASHDisplayFragmentTimestamp,
+  { -- | Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file can be derived using attributes in the manifest itself. However, typically, MPEG-DASH compatible media players do not properly handle gaps in the media timeline. Kinesis Video Streams adjusts the media timeline in the manifest file to enable playback of media with discontinuities. Therefore, the wall-clock time derived from the manifest file may be inaccurate. If DisplayFragmentTimestamp is set to @ALWAYS@ , the accurate fragment timestamp is added to each S element in the manifest file with the attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this custom attribute.
+    --
+    -- The default value is @NEVER@ . When 'DASHFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'DASHFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
+    displayFragmentTimestamp :: Lude.Maybe DASHDisplayFragmentTimestamp,
+    -- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
+    --
+    -- When a session expires, no new calls to @GetDashManifest@ , @GetMP4InitFragment@ , or @GetMP4MediaFragment@ can be made for that session.
+    -- The default is 300 (5 minutes).
     expires :: Lude.Maybe Lude.Natural,
-    dASHFragmentSelector ::
-      Lude.Maybe DASHFragmentSelector,
-    maxManifestFragmentResults ::
-      Lude.Maybe Lude.Natural,
+    -- | The time range of the requested fragment and the source of the timestamps.
+    --
+    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
+    dASHFragmentSelector :: Lude.Maybe DASHFragmentSelector,
+    -- | The maximum number of fragments that are returned in the MPEG-DASH manifest.
+    --
+    -- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
+    -- When there are a higher number of fragments available in a live MPEG-DASH manifest, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live MPEG-DASH manifest have a minimum of 3 fragments and a maximum of 10 fragments.
+    -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
+    -- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
+    maxManifestFragmentResults :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@ .
     streamARN :: Lude.Maybe Lude.Text,
-    playbackMode ::
-      Lude.Maybe DASHPlaybackMode,
+    -- | Whether to retrieve live, live replay, or archived, on-demand data.
+    --
+    -- Features of the three types of sessions include the following:
+    --
+    --     * __@LIVE@ __ : For sessions of this type, the MPEG-DASH manifest is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new manifest on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
+    --
+    --
+    --     * __@LIVE_REPLAY@ __ : For sessions of this type, the MPEG-DASH manifest is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the manifest every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
+    --
+    --
+    --     * __@ON_DEMAND@ __ : For sessions of this type, the MPEG-DASH manifest contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The manifest must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
+    --
+    --
+    -- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the MPEG-DASH manifest. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the MPEG-DASH manifest. This can lead to unexpected behavior in the media player.
+    -- The default is @LIVE@ .
+    playbackMode :: Lude.Maybe DASHPlaybackMode,
+    -- | The name of the stream for which to retrieve the MPEG-DASH manifest URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@ .
     streamName :: Lude.Maybe Lude.Text,
-    displayFragmentNumber ::
-      Lude.Maybe DASHDisplayFragmentNumber
+    -- | Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
+    --
+    -- The default value is @NEVER@ .
+    displayFragmentNumber :: Lude.Maybe DASHDisplayFragmentNumber
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDASHStreamingSessionURL' with the minimum fields required to make a request.
 --
--- * 'dASHFragmentSelector' - The time range of the requested fragment and the source of the timestamps.
---
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
--- * 'displayFragmentNumber' - Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
---
--- The default value is @NEVER@ .
 -- * 'displayFragmentTimestamp' - Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file can be derived using attributes in the manifest itself. However, typically, MPEG-DASH compatible media players do not properly handle gaps in the media timeline. Kinesis Video Streams adjusts the media timeline in the manifest file to enable playback of media with discontinuities. Therefore, the wall-clock time derived from the manifest file may be inaccurate. If DisplayFragmentTimestamp is set to @ALWAYS@ , the accurate fragment timestamp is added to each S element in the manifest file with the attribute name “kvs:ts”. A custom MPEG-DASH media player is necessary to leverage this custom attribute.
 --
 -- The default value is @NEVER@ . When 'DASHFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'DASHFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
@@ -140,12 +163,18 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
 --
 -- When a session expires, no new calls to @GetDashManifest@ , @GetMP4InitFragment@ , or @GetMP4MediaFragment@ can be made for that session.
 -- The default is 300 (5 minutes).
+-- * 'dASHFragmentSelector' - The time range of the requested fragment and the source of the timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
 -- * 'maxManifestFragmentResults' - The maximum number of fragments that are returned in the MPEG-DASH manifest.
 --
 -- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
 -- When there are a higher number of fragments available in a live MPEG-DASH manifest, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live MPEG-DASH manifest have a minimum of 3 fragments and a maximum of 10 fragments.
 -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
 -- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
+--
+-- You must specify either the @StreamName@ or the @StreamARN@ .
 -- * 'playbackMode' - Whether to retrieve live, live replay, or archived, on-demand data.
 --
 -- Features of the three types of sessions include the following:
@@ -161,12 +190,12 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
 --
 -- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the MPEG-DASH manifest. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the MPEG-DASH manifest. This can lead to unexpected behavior in the media player.
 -- The default is @LIVE@ .
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH manifest URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@ .
 -- * 'streamName' - The name of the stream for which to retrieve the MPEG-DASH manifest URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@ .
+-- * 'displayFragmentNumber' - Fragments are identified in the manifest file based on their sequence number in the session. If DisplayFragmentNumber is set to @ALWAYS@ , the Kinesis Video Streams fragment number is added to each S element in the manifest file with the attribute name “kvs:fn”. These fragment numbers can be used for logging or for use with other APIs (e.g. @GetMedia@ and @GetMediaForFragmentList@ ). A custom MPEG-DASH media player is necessary to leverage these this custom attribute.
+--
+-- The default value is @NEVER@ .
 mkGetDASHStreamingSessionURL ::
   GetDASHStreamingSessionURL
 mkGetDASHStreamingSessionURL =
@@ -311,18 +340,12 @@ instance Lude.ToQuery GetDASHStreamingSessionURL where
 
 -- | /See:/ 'mkGetDASHStreamingSessionURLResponse' smart constructor.
 data GetDASHStreamingSessionURLResponse = GetDASHStreamingSessionURLResponse'
-  { dASHStreamingSessionURL ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The URL (containing the session token) that a media player can use to retrieve the MPEG-DASH manifest.
+    dASHStreamingSessionURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDASHStreamingSessionURLResponse' with the minimum fields required to make a request.

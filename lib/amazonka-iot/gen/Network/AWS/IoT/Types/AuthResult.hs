@@ -36,28 +36,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthResult' smart constructor.
 data AuthResult = AuthResult'
-  { denied :: Lude.Maybe Denied,
+  { -- | The policies and statements that denied the specified action.
+    denied :: Lude.Maybe Denied,
+    -- | The final authorization decision of this scenario. Multiple statements are taken into account when determining the authorization decision. An explicit deny statement can override multiple allow statements.
     authDecision :: Lude.Maybe AuthDecision,
+    -- | The policies and statements that allowed the specified action.
     allowed :: Lude.Maybe Allowed,
+    -- | Contains any missing context values found while evaluating policy.
     missingContextValues :: Lude.Maybe [Lude.Text],
+    -- | Authorization information.
     authInfo :: Lude.Maybe AuthInfo
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthResult' with the minimum fields required to make a request.
 --
--- * 'allowed' - The policies and statements that allowed the specified action.
--- * 'authDecision' - The final authorization decision of this scenario. Multiple statements are taken into account when determining the authorization decision. An explicit deny statement can override multiple allow statements.
--- * 'authInfo' - Authorization information.
 -- * 'denied' - The policies and statements that denied the specified action.
+-- * 'authDecision' - The final authorization decision of this scenario. Multiple statements are taken into account when determining the authorization decision. An explicit deny statement can override multiple allow statements.
+-- * 'allowed' - The policies and statements that allowed the specified action.
 -- * 'missingContextValues' - Contains any missing context values found while evaluating policy.
+-- * 'authInfo' - Authorization information.
 mkAuthResult ::
   AuthResult
 mkAuthResult =

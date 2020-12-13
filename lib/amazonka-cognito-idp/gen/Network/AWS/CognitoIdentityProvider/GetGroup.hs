@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CognitoIdentityProvider.GetGroup
     mkGetGroup,
 
     -- ** Request lenses
-    ggGroupName,
     ggUserPoolId,
+    ggGroupName,
 
     -- * Destructuring the response
     GetGroupResponse (..),
@@ -42,37 +43,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetGroup' smart constructor.
 data GetGroup = GetGroup'
-  { groupName :: Lude.Text,
-    userPoolId :: Lude.Text
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | The name of the group.
+    groupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
 --
--- * 'groupName' - The name of the group.
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'groupName' - The name of the group.
 mkGetGroup ::
-  -- | 'groupName'
-  Lude.Text ->
   -- | 'userPoolId'
   Lude.Text ->
+  -- | 'groupName'
+  Lude.Text ->
   GetGroup
-mkGetGroup pGroupName_ pUserPoolId_ =
-  GetGroup' {groupName = pGroupName_, userPoolId = pUserPoolId_}
-
--- | The name of the group.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggGroupName :: Lens.Lens' GetGroup Lude.Text
-ggGroupName = Lens.lens (groupName :: GetGroup -> Lude.Text) (\s a -> s {groupName = a} :: GetGroup)
-{-# DEPRECATED ggGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+mkGetGroup pUserPoolId_ pGroupName_ =
+  GetGroup' {userPoolId = pUserPoolId_, groupName = pGroupName_}
 
 -- | The user pool ID for the user pool.
 --
@@ -80,6 +70,13 @@ ggGroupName = Lens.lens (groupName :: GetGroup -> Lude.Text) (\s a -> s {groupNa
 ggUserPoolId :: Lens.Lens' GetGroup Lude.Text
 ggUserPoolId = Lens.lens (userPoolId :: GetGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: GetGroup)
 {-# DEPRECATED ggUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | The name of the group.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggGroupName :: Lens.Lens' GetGroup Lude.Text
+ggGroupName = Lens.lens (groupName :: GetGroup -> Lude.Text) (\s a -> s {groupName = a} :: GetGroup)
+{-# DEPRECATED ggGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 instance Lude.AWSRequest GetGroup where
   type Rs GetGroup = GetGroupResponse
@@ -106,8 +103,8 @@ instance Lude.ToJSON GetGroup where
   toJSON GetGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GroupName" Lude..= groupName),
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("GroupName" Lude..= groupName)
           ]
       )
 
@@ -119,17 +116,12 @@ instance Lude.ToQuery GetGroup where
 
 -- | /See:/ 'mkGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { group ::
-      Lude.Maybe GroupType,
+  { -- | The group object for the group.
+    group :: Lude.Maybe GroupType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.

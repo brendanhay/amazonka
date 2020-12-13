@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,26 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCertificateAuthorities' smart constructor.
 data ListCertificateAuthorities = ListCertificateAuthorities'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    resourceOwner ::
-      Lude.Maybe ResourceOwner,
+  { -- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the @NextToken@ parameter from the response you just received.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Use this parameter to filter the returned set of certificate authorities based on their owner. The default is SELF.
+    resourceOwner :: Lude.Maybe ResourceOwner,
+    -- | Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificateAuthorities' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
 -- * 'nextToken' - Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the @NextToken@ parameter from the response you just received.
 -- * 'resourceOwner' - Use this parameter to filter the returned set of certificate authorities based on their owner. The default is SELF.
+-- * 'maxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
 mkListCertificateAuthorities ::
   ListCertificateAuthorities
 mkListCertificateAuthorities =
@@ -147,21 +143,14 @@ instance Lude.ToQuery ListCertificateAuthorities where
 
 -- | /See:/ 'mkListCertificateAuthoritiesResponse' smart constructor.
 data ListCertificateAuthoritiesResponse = ListCertificateAuthoritiesResponse'
-  { certificateAuthorities ::
-      Lude.Maybe
-        [CertificateAuthority],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Summary information about each certificate authority you have created.
+    certificateAuthorities :: Lude.Maybe [CertificateAuthority],
+    -- | When the list is truncated, this value is present and should be used for the @NextToken@ parameter in a subsequent pagination request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificateAuthoritiesResponse' with the minimum fields required to make a request.

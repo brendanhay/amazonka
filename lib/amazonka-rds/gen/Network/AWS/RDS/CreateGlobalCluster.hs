@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,33 +48,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGlobalCluster' smart constructor.
 data CreateGlobalCluster = CreateGlobalCluster'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The engine version of the Aurora global database.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
     deletionProtection :: Lude.Maybe Lude.Bool,
+    -- | The storage encryption setting for the new global database cluster.
     storageEncrypted :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
     sourceDBClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The cluster identifier of the new global database cluster.
     globalClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The name of the database engine to be used for this DB cluster.
     engine :: Lude.Maybe Lude.Text,
+    -- | The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Aurora will not create a database in the global database cluster you are creating.
     databaseName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalCluster' with the minimum fields required to make a request.
 --
--- * 'databaseName' - The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Aurora will not create a database in the global database cluster you are creating.
--- * 'deletionProtection' - The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
--- * 'engine' - The name of the database engine to be used for this DB cluster.
 -- * 'engineVersion' - The engine version of the Aurora global database.
--- * 'globalClusterIdentifier' - The cluster identifier of the new global database cluster.
--- * 'sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
+-- * 'deletionProtection' - The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
 -- * 'storageEncrypted' - The storage encryption setting for the new global database cluster.
+-- * 'sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
+-- * 'globalClusterIdentifier' - The cluster identifier of the new global database cluster.
+-- * 'engine' - The name of the database engine to be used for this DB cluster.
+-- * 'databaseName' - The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Aurora will not create a database in the global database cluster you are creating.
 mkCreateGlobalCluster ::
   CreateGlobalCluster
 mkCreateGlobalCluster =
@@ -170,22 +171,16 @@ instance Lude.ToQuery CreateGlobalCluster where
 
 -- | /See:/ 'mkCreateGlobalClusterResponse' smart constructor.
 data CreateGlobalClusterResponse = CreateGlobalClusterResponse'
-  { globalCluster ::
-      Lude.Maybe GlobalCluster,
+  { globalCluster :: Lude.Maybe GlobalCluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalClusterResponse' with the minimum fields required to make a request.
 --
--- * 'globalCluster' - Undocumented field.
+-- * 'globalCluster' -
 -- * 'responseStatus' - The response status code.
 mkCreateGlobalClusterResponse ::
   -- | 'responseStatus'

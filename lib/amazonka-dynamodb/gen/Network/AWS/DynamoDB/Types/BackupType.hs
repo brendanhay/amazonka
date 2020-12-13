@@ -13,9 +13,9 @@
 module Network.AWS.DynamoDB.Types.BackupType
   ( BackupType
       ( BackupType',
-        AWSBackup,
+        User,
         System,
-        User
+        AWSBackup
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype BackupType = BackupType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSBackup :: BackupType
-pattern AWSBackup = BackupType' "AWS_BACKUP"
+pattern User :: BackupType
+pattern User = BackupType' "USER"
 
 pattern System :: BackupType
 pattern System = BackupType' "SYSTEM"
 
-pattern User :: BackupType
-pattern User = BackupType' "USER"
+pattern AWSBackup :: BackupType
+pattern AWSBackup = BackupType' "AWS_BACKUP"
 
 {-# COMPLETE
-  AWSBackup,
-  System,
   User,
+  System,
+  AWSBackup,
   BackupType'
   #-}

@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttachmentDetails' smart constructor.
 data AttachmentDetails = AttachmentDetails'
-  { attachmentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the attachment.
+    attachmentId :: Lude.Maybe Lude.Text,
+    -- | The file name of the attachment.
     fileName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachmentDetails' with the minimum fields required to make a request.

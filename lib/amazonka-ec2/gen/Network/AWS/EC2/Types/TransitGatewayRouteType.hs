@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.TransitGatewayRouteType
   ( TransitGatewayRouteType
       ( TransitGatewayRouteType',
-        TGRTPropagated,
-        TGRTStatic
+        TGRTStatic,
+        TGRTPropagated
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TransitGatewayRouteType = TransitGatewayRouteType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TGRTPropagated :: TransitGatewayRouteType
-pattern TGRTPropagated = TransitGatewayRouteType' "propagated"
-
 pattern TGRTStatic :: TransitGatewayRouteType
 pattern TGRTStatic = TransitGatewayRouteType' "static"
 
+pattern TGRTPropagated :: TransitGatewayRouteType
+pattern TGRTPropagated = TransitGatewayRouteType' "propagated"
+
 {-# COMPLETE
-  TGRTPropagated,
   TGRTStatic,
+  TGRTPropagated,
   TransitGatewayRouteType'
   #-}

@@ -31,17 +31,12 @@ import Network.AWS.WAF.Types.SizeConstraint
 --
 -- /See:/ 'mkSizeConstraintSetUpdate' smart constructor.
 data SizeConstraintSetUpdate = SizeConstraintSetUpdate'
-  { action ::
-      ChangeAction,
+  { -- | Specify @INSERT@ to add a 'SizeConstraintSetUpdate' to a 'SizeConstraintSet' . Use @DELETE@ to remove a @SizeConstraintSetUpdate@ from a @SizeConstraintSet@ .
+    action :: ChangeAction,
+    -- | Specifies a constraint on the size of a part of the web request. AWS WAF uses the @Size@ , @ComparisonOperator@ , and @FieldToMatch@ to build an expression in the form of "@Size@ @ComparisonOperator@ size in bytes of @FieldToMatch@ ". If that expression is true, the @SizeConstraint@ is considered to match.
     sizeConstraint :: SizeConstraint
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SizeConstraintSetUpdate' with the minimum fields required to make a request.

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrivateDNSDetails' smart constructor.
 newtype PrivateDNSDetails = PrivateDNSDetails'
-  { privateDNSName ::
-      Lude.Maybe Lude.Text
+  { -- | The private DNS name assigned to the VPC endpoint service.
+    privateDNSName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrivateDNSDetails' with the minimum fields required to make a request.

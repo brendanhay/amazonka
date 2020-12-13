@@ -39,39 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { privateIPAddresses ::
-      Lude.Maybe [PrivateIPAddressDetails],
+  { -- | Other private IP address information of the EC2 instance.
+    privateIPAddresses :: Lude.Maybe [PrivateIPAddressDetails],
+    -- | The public DNS name of the EC2 instance.
     publicDNSName :: Lude.Maybe Lude.Text,
+    -- | The security groups associated with the EC2 instance.
     securityGroups :: Lude.Maybe [SecurityGroup],
+    -- | The VPC ID of the EC2 instance.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The subnet ID of the EC2 instance.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The private IP address of the EC2 instance.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The public IP address of the EC2 instance.
     publicIP :: Lude.Maybe Lude.Text,
+    -- | The private DNS name of the EC2 instance.
     privateDNSName :: Lude.Maybe Lude.Text,
+    -- | A list of IPv6 addresses for the EC2 instance.
     ipv6Addresses :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- * 'ipv6Addresses' - A list of IPv6 addresses for the EC2 instance.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'privateDNSName' - The private DNS name of the EC2 instance.
--- * 'privateIPAddress' - The private IP address of the EC2 instance.
 -- * 'privateIPAddresses' - Other private IP address information of the EC2 instance.
 -- * 'publicDNSName' - The public DNS name of the EC2 instance.
--- * 'publicIP' - The public IP address of the EC2 instance.
 -- * 'securityGroups' - The security groups associated with the EC2 instance.
--- * 'subnetId' - The subnet ID of the EC2 instance.
 -- * 'vpcId' - The VPC ID of the EC2 instance.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'subnetId' - The subnet ID of the EC2 instance.
+-- * 'privateIPAddress' - The private IP address of the EC2 instance.
+-- * 'publicIP' - The public IP address of the EC2 instance.
+-- * 'privateDNSName' - The private DNS name of the EC2 instance.
+-- * 'ipv6Addresses' - A list of IPv6 addresses for the EC2 instance.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =

@@ -32,18 +32,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransformEncryption' smart constructor.
 data TransformEncryption = TransformEncryption'
-  { mlUserDataEncryption ::
-      Lude.Maybe MLUserDataEncryption,
-    taskRunSecurityConfigurationName ::
-      Lude.Maybe Lude.Text
+  { -- | An @MLUserDataEncryption@ object containing the encryption mode and customer-provided KMS key ID.
+    mlUserDataEncryption :: Lude.Maybe MLUserDataEncryption,
+    -- | The name of the security configuration.
+    taskRunSecurityConfigurationName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformEncryption' with the minimum fields required to make a request.

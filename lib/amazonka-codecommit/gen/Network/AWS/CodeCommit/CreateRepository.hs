@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CodeCommit.CreateRepository
 
     -- ** Request lenses
     crRepositoryDescription,
-    crTags,
     crRepositoryName,
+    crTags,
 
     -- * Destructuring the response
     CreateRepositoryResponse (..),
@@ -43,18 +44,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateRepository' smart constructor.
 data CreateRepository = CreateRepository'
-  { repositoryDescription ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    repositoryName :: Lude.Text
+  { -- | A comment or description about the new repository.
+    repositoryDescription :: Lude.Maybe Lude.Text,
+    -- | The name of the new repository to be created.
+    repositoryName :: Lude.Text,
+    -- | One or more tag key-value pairs to use when tagging this repository.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRepository' with the minimum fields required to make a request.
@@ -69,8 +66,8 @@ mkCreateRepository ::
 mkCreateRepository pRepositoryName_ =
   CreateRepository'
     { repositoryDescription = Lude.Nothing,
-      tags = Lude.Nothing,
-      repositoryName = pRepositoryName_
+      repositoryName = pRepositoryName_,
+      tags = Lude.Nothing
     }
 
 -- | A comment or description about the new repository.
@@ -80,19 +77,19 @@ crRepositoryDescription :: Lens.Lens' CreateRepository (Lude.Maybe Lude.Text)
 crRepositoryDescription = Lens.lens (repositoryDescription :: CreateRepository -> Lude.Maybe Lude.Text) (\s a -> s {repositoryDescription = a} :: CreateRepository)
 {-# DEPRECATED crRepositoryDescription "Use generic-lens or generic-optics with 'repositoryDescription' instead." #-}
 
--- | One or more tag key-value pairs to use when tagging this repository.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crTags :: Lens.Lens' CreateRepository (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-crTags = Lens.lens (tags :: CreateRepository -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRepository)
-{-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the new repository to be created.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crRepositoryName :: Lens.Lens' CreateRepository Lude.Text
 crRepositoryName = Lens.lens (repositoryName :: CreateRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: CreateRepository)
 {-# DEPRECATED crRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | One or more tag key-value pairs to use when tagging this repository.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crTags :: Lens.Lens' CreateRepository (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+crTags = Lens.lens (tags :: CreateRepository -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRepository)
+{-# DEPRECATED crTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateRepository where
   type Rs CreateRepository = CreateRepositoryResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON CreateRepository where
     Lude.object
       ( Lude.catMaybes
           [ ("repositoryDescription" Lude..=) Lude.<$> repositoryDescription,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("repositoryName" Lude..= repositoryName)
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -136,17 +133,12 @@ instance Lude.ToQuery CreateRepository where
 --
 -- /See:/ 'mkCreateRepositoryResponse' smart constructor.
 data CreateRepositoryResponse = CreateRepositoryResponse'
-  { repositoryMetadata ::
-      Lude.Maybe RepositoryMetadata,
+  { -- | Information about the newly created repository.
+    repositoryMetadata :: Lude.Maybe RepositoryMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRepositoryResponse' with the minimum fields required to make a request.

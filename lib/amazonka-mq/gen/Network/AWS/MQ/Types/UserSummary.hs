@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserSummary' smart constructor.
 data UserSummary = UserSummary'
-  { username :: Lude.Maybe Lude.Text,
+  { -- | Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+    username :: Lude.Maybe Lude.Text,
+    -- | The type of change pending for the broker user.
     pendingChange :: Lude.Maybe ChangeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserSummary' with the minimum fields required to make a request.
 --
--- * 'pendingChange' - The type of change pending for the broker user.
 -- * 'username' - Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'pendingChange' - The type of change pending for the broker user.
 mkUserSummary ::
   UserSummary
 mkUserSummary =

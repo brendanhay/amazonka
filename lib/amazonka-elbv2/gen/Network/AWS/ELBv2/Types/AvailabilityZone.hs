@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { subnetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the subnet. You can specify one subnet per Availability Zone.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The name of the Availability Zone.
     zoneName :: Lude.Maybe Lude.Text,
+    -- | [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
     loadBalancerAddresses :: Lude.Maybe [LoadBalancerAddress],
+    -- | [Application Load Balancers on Outposts] The ID of the Outpost.
     outpostId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
--- * 'loadBalancerAddresses' - [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
--- * 'outpostId' - [Application Load Balancers on Outposts] The ID of the Outpost.
 -- * 'subnetId' - The ID of the subnet. You can specify one subnet per Availability Zone.
 -- * 'zoneName' - The name of the Availability Zone.
+-- * 'loadBalancerAddresses' - [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
+-- * 'outpostId' - [Application Load Balancers on Outposts] The ID of the Outpost.
 mkAvailabilityZone ::
   AvailabilityZone
 mkAvailabilityZone =

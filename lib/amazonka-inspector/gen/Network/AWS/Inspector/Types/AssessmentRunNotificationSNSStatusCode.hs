@@ -13,10 +13,10 @@
 module Network.AWS.Inspector.Types.AssessmentRunNotificationSNSStatusCode
   ( AssessmentRunNotificationSNSStatusCode
       ( AssessmentRunNotificationSNSStatusCode',
-        AccessDenied,
-        InternalError,
         Success,
-        TopicDoesNotExist
+        TopicDoesNotExist,
+        AccessDenied,
+        InternalError
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AssessmentRunNotificationSNSStatusCode = AssessmentRunNotificationSNSSta
       Lude.ToHeader
     )
 
-pattern AccessDenied :: AssessmentRunNotificationSNSStatusCode
-pattern AccessDenied = AssessmentRunNotificationSNSStatusCode' "ACCESS_DENIED"
-
-pattern InternalError :: AssessmentRunNotificationSNSStatusCode
-pattern InternalError = AssessmentRunNotificationSNSStatusCode' "INTERNAL_ERROR"
-
 pattern Success :: AssessmentRunNotificationSNSStatusCode
 pattern Success = AssessmentRunNotificationSNSStatusCode' "SUCCESS"
 
 pattern TopicDoesNotExist :: AssessmentRunNotificationSNSStatusCode
 pattern TopicDoesNotExist = AssessmentRunNotificationSNSStatusCode' "TOPIC_DOES_NOT_EXIST"
 
+pattern AccessDenied :: AssessmentRunNotificationSNSStatusCode
+pattern AccessDenied = AssessmentRunNotificationSNSStatusCode' "ACCESS_DENIED"
+
+pattern InternalError :: AssessmentRunNotificationSNSStatusCode
+pattern InternalError = AssessmentRunNotificationSNSStatusCode' "INTERNAL_ERROR"
+
 {-# COMPLETE
-  AccessDenied,
-  InternalError,
   Success,
   TopicDoesNotExist,
+  AccessDenied,
+  InternalError,
   AssessmentRunNotificationSNSStatusCode'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.Budgets.Types.ThresholdType
   ( ThresholdType
       ( ThresholdType',
-        AbsoluteValue,
-        Percentage
+        Percentage,
+        AbsoluteValue
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ThresholdType = ThresholdType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AbsoluteValue :: ThresholdType
-pattern AbsoluteValue = ThresholdType' "ABSOLUTE_VALUE"
-
 pattern Percentage :: ThresholdType
 pattern Percentage = ThresholdType' "PERCENTAGE"
 
+pattern AbsoluteValue :: ThresholdType
+pattern AbsoluteValue = ThresholdType' "ABSOLUTE_VALUE"
+
 {-# COMPLETE
-  AbsoluteValue,
   Percentage,
+  AbsoluteValue,
   ThresholdType'
   #-}

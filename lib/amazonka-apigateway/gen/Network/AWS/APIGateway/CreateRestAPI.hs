@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,6 +23,7 @@ module Network.AWS.APIGateway.CreateRestAPI
     craMinimumCompressionSize,
     craDisableExecuteAPIEndpoint,
     craBinaryMediaTypes,
+    craName,
     craVersion,
     craApiKeySource,
     craCloneFrom,
@@ -29,7 +31,6 @@ module Network.AWS.APIGateway.CreateRestAPI
     craEndpointConfiguration,
     craDescription,
     craTags,
-    craName,
 
     -- * Destructuring the response
     RestAPI (..),
@@ -62,30 +63,43 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateRestAPI' smart constructor.
 data CreateRestAPI = CreateRestAPI'
-  { minimumCompressionSize ::
-      Lude.Maybe Lude.Int,
+  { -- | A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+    minimumCompressionSize :: Lude.Maybe Lude.Int,
+    -- | Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
     disableExecuteAPIEndpoint :: Lude.Maybe Lude.Bool,
+    -- | The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
     binaryMediaTypes :: Lude.Maybe [Lude.Text],
+    -- | [Required] The name of the 'RestApi' .
+    name :: Lude.Text,
+    -- | A version identifier for the API.
     version :: Lude.Maybe Lude.Text,
+    -- | The source of the API key for metering requests according to a usage plan. Valid values are:
+    --
+    --     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.
+    --
+    --     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
     apiKeySource :: Lude.Maybe APIKeySourceType,
+    -- | The ID of the 'RestApi' that you want to clone from.
     cloneFrom :: Lude.Maybe Lude.Text,
+    -- | 'Method'
     policy :: Lude.Maybe Lude.Text,
+    -- | The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
     endpointConfiguration :: Lude.Maybe EndpointConfiguration,
+    -- | The description of the 'RestApi' .
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    name :: Lude.Text
+    -- | The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRestAPI' with the minimum fields required to make a request.
 --
+-- * 'minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
+-- * 'disableExecuteAPIEndpoint' - Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
+-- * 'binaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
+-- * 'name' - [Required] The name of the 'RestApi' .
+-- * 'version' - A version identifier for the API.
 -- * 'apiKeySource' - The source of the API key for metering requests according to a usage plan. Valid values are:
 --
 --     * @HEADER@ to read the API key from the @X-API-Key@ header of a request.
@@ -93,16 +107,11 @@ data CreateRestAPI = CreateRestAPI'
 --     * @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from a custom authorizer.
 --
 --
--- * 'binaryMediaTypes' - The list of binary media types supported by the 'RestApi' . By default, the 'RestApi' supports only UTF-8-encoded text payloads.
 -- * 'cloneFrom' - The ID of the 'RestApi' that you want to clone from.
--- * 'description' - The description of the 'RestApi' .
--- * 'disableExecuteAPIEndpoint' - Specifies whether clients can invoke your API by using the default @execute-api@ endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.
--- * 'endpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
--- * 'minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
--- * 'name' - [Required] The name of the 'RestApi' .
 -- * 'policy' - 'Method'
+-- * 'endpointConfiguration' - The endpoint configuration of this 'RestApi' showing the endpoint types of the API.
+-- * 'description' - The description of the 'RestApi' .
 -- * 'tags' - The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with @aws:@ . The tag value can be up to 256 characters.
--- * 'version' - A version identifier for the API.
 mkCreateRestAPI ::
   -- | 'name'
   Lude.Text ->
@@ -112,14 +121,14 @@ mkCreateRestAPI pName_ =
     { minimumCompressionSize = Lude.Nothing,
       disableExecuteAPIEndpoint = Lude.Nothing,
       binaryMediaTypes = Lude.Nothing,
+      name = pName_,
       version = Lude.Nothing,
       apiKeySource = Lude.Nothing,
       cloneFrom = Lude.Nothing,
       policy = Lude.Nothing,
       endpointConfiguration = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
@@ -142,6 +151,13 @@ craDisableExecuteAPIEndpoint = Lens.lens (disableExecuteAPIEndpoint :: CreateRes
 craBinaryMediaTypes :: Lens.Lens' CreateRestAPI (Lude.Maybe [Lude.Text])
 craBinaryMediaTypes = Lens.lens (binaryMediaTypes :: CreateRestAPI -> Lude.Maybe [Lude.Text]) (\s a -> s {binaryMediaTypes = a} :: CreateRestAPI)
 {-# DEPRECATED craBinaryMediaTypes "Use generic-lens or generic-optics with 'binaryMediaTypes' instead." #-}
+
+-- | [Required] The name of the 'RestApi' .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+craName :: Lens.Lens' CreateRestAPI Lude.Text
+craName = Lens.lens (name :: CreateRestAPI -> Lude.Text) (\s a -> s {name = a} :: CreateRestAPI)
+{-# DEPRECATED craName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A version identifier for the API.
 --
@@ -198,13 +214,6 @@ craTags :: Lens.Lens' CreateRestAPI (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Te
 craTags = Lens.lens (tags :: CreateRestAPI -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateRestAPI)
 {-# DEPRECATED craTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | [Required] The name of the 'RestApi' .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-craName :: Lens.Lens' CreateRestAPI Lude.Text
-craName = Lens.lens (name :: CreateRestAPI -> Lude.Text) (\s a -> s {name = a} :: CreateRestAPI)
-{-# DEPRECATED craName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.AWSRequest CreateRestAPI where
   type Rs CreateRestAPI = RestAPI
   request = Req.postJSON apiGatewayService
@@ -226,14 +235,14 @@ instance Lude.ToJSON CreateRestAPI where
             ("disableExecuteApiEndpoint" Lude..=)
               Lude.<$> disableExecuteAPIEndpoint,
             ("binaryMediaTypes" Lude..=) Lude.<$> binaryMediaTypes,
+            Lude.Just ("name" Lude..= name),
             ("version" Lude..=) Lude.<$> version,
             ("apiKeySource" Lude..=) Lude.<$> apiKeySource,
             ("cloneFrom" Lude..=) Lude.<$> cloneFrom,
             ("policy" Lude..=) Lude.<$> policy,
             ("endpointConfiguration" Lude..=) Lude.<$> endpointConfiguration,
             ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("name" Lude..= name)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 

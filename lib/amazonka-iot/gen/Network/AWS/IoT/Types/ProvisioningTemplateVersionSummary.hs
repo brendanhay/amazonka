@@ -30,28 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisioningTemplateVersionSummary' smart constructor.
 data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
-  { versionId ::
-      Lude.Maybe Lude.Int,
-    creationDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    isDefaultVersion ::
-      Lude.Maybe Lude.Bool
+  { -- | The ID of the fleet privisioning template version.
+    versionId :: Lude.Maybe Lude.Int,
+    -- | The date when the fleet provisioning template version was created
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | True if the fleet provisioning template version is the default version, otherwise false.
+    isDefaultVersion :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningTemplateVersionSummary' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The ID of the fleet privisioning template version.
 -- * 'creationDate' - The date when the fleet provisioning template version was created
 -- * 'isDefaultVersion' - True if the fleet provisioning template version is the default version, otherwise false.
--- * 'versionId' - The ID of the fleet privisioning template version.
 mkProvisioningTemplateVersionSummary ::
   ProvisioningTemplateVersionSummary
 mkProvisioningTemplateVersionSummary =

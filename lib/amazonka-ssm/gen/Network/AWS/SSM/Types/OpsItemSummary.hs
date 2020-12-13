@@ -41,44 +41,48 @@ import Network.AWS.SSM.Types.OpsItemStatus
 --
 -- /See:/ 'mkOpsItemSummary' smart constructor.
 data OpsItemSummary = OpsItemSummary'
-  { opsItemId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the OpsItem.
+    opsItemId :: Lude.Maybe Lude.Text,
+    -- | The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ .
     status :: Lude.Maybe OpsItemStatus,
+    -- | The importance of this OpsItem in relation to other OpsItems in the system.
     priority :: Lude.Maybe Lude.Natural,
+    -- | The date and time the OpsItem was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | A list of OpsItems by category.
     category :: Lude.Maybe Lude.Text,
+    -- | A list of OpsItems by severity.
     severity :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The date and time the OpsItem was last updated.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The impacted AWS resource.
     source :: Lude.Maybe Lude.Text,
+    -- | A short heading that describes the nature of the OpsItem and the impacted resource.
     title :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
     lastModifiedBy :: Lude.Maybe Lude.Text,
-    operationalData ::
-      Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue))
+    -- | Operational data is custom data that provides useful reference details about the OpsItem.
+    operationalData :: Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsItemSummary' with the minimum fields required to make a request.
 --
--- * 'category' - A list of OpsItems by category.
--- * 'createdBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
--- * 'createdTime' - The date and time the OpsItem was created.
--- * 'lastModifiedBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
--- * 'lastModifiedTime' - The date and time the OpsItem was last updated.
--- * 'operationalData' - Operational data is custom data that provides useful reference details about the OpsItem.
 -- * 'opsItemId' - The ID of the OpsItem.
--- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
--- * 'severity' - A list of OpsItems by severity.
--- * 'source' - The impacted AWS resource.
 -- * 'status' - The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ .
+-- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
+-- * 'createdTime' - The date and time the OpsItem was created.
+-- * 'category' - A list of OpsItems by category.
+-- * 'severity' - A list of OpsItems by severity.
+-- * 'createdBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
+-- * 'lastModifiedTime' - The date and time the OpsItem was last updated.
+-- * 'source' - The impacted AWS resource.
 -- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
+-- * 'lastModifiedBy' - The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.
+-- * 'operationalData' - Operational data is custom data that provides useful reference details about the OpsItem.
 mkOpsItemSummary ::
   OpsItemSummary
 mkOpsItemSummary =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 
     -- ** Request lenses
     acsgiCacheSecurityGroupName,
-    acsgiEC2SecurityGroupName,
     acsgiEC2SecurityGroupOwnerId,
+    acsgiEC2SecurityGroupName,
 
     -- * Destructuring the response
     AuthorizeCacheSecurityGroupIngressResponse (..),
@@ -43,44 +44,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAuthorizeCacheSecurityGroupIngress' smart constructor.
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
-  { cacheSecurityGroupName ::
-      Lude.Text,
-    ec2SecurityGroupName ::
-      Lude.Text,
-    ec2SecurityGroupOwnerId ::
-      Lude.Text
+  { -- | The cache security group that allows network ingress.
+    cacheSecurityGroupName :: Lude.Text,
+    -- | The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
+    ec2SecurityGroupOwnerId :: Lude.Text,
+    -- | The Amazon EC2 security group to be authorized for ingress to the cache security group.
+    ec2SecurityGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeCacheSecurityGroupIngress' with the minimum fields required to make a request.
 --
 -- * 'cacheSecurityGroupName' - The cache security group that allows network ingress.
--- * 'ec2SecurityGroupName' - The Amazon EC2 security group to be authorized for ingress to the cache security group.
 -- * 'ec2SecurityGroupOwnerId' - The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
+-- * 'ec2SecurityGroupName' - The Amazon EC2 security group to be authorized for ingress to the cache security group.
 mkAuthorizeCacheSecurityGroupIngress ::
   -- | 'cacheSecurityGroupName'
   Lude.Text ->
-  -- | 'ec2SecurityGroupName'
-  Lude.Text ->
   -- | 'ec2SecurityGroupOwnerId'
+  Lude.Text ->
+  -- | 'ec2SecurityGroupName'
   Lude.Text ->
   AuthorizeCacheSecurityGroupIngress
 mkAuthorizeCacheSecurityGroupIngress
   pCacheSecurityGroupName_
-  pEC2SecurityGroupName_
-  pEC2SecurityGroupOwnerId_ =
+  pEC2SecurityGroupOwnerId_
+  pEC2SecurityGroupName_ =
     AuthorizeCacheSecurityGroupIngress'
       { cacheSecurityGroupName =
           pCacheSecurityGroupName_,
-        ec2SecurityGroupName = pEC2SecurityGroupName_,
-        ec2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
+        ec2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_,
+        ec2SecurityGroupName = pEC2SecurityGroupName_
       }
 
 -- | The cache security group that allows network ingress.
@@ -90,19 +85,19 @@ acsgiCacheSecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Lud
 acsgiCacheSecurityGroupName = Lens.lens (cacheSecurityGroupName :: AuthorizeCacheSecurityGroupIngress -> Lude.Text) (\s a -> s {cacheSecurityGroupName = a} :: AuthorizeCacheSecurityGroupIngress)
 {-# DEPRECATED acsgiCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
--- | The Amazon EC2 security group to be authorized for ingress to the cache security group.
---
--- /Note:/ Consider using 'ec2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsgiEC2SecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Lude.Text
-acsgiEC2SecurityGroupName = Lens.lens (ec2SecurityGroupName :: AuthorizeCacheSecurityGroupIngress -> Lude.Text) (\s a -> s {ec2SecurityGroupName = a} :: AuthorizeCacheSecurityGroupIngress)
-{-# DEPRECATED acsgiEC2SecurityGroupName "Use generic-lens or generic-optics with 'ec2SecurityGroupName' instead." #-}
-
 -- | The AWS account number of the Amazon EC2 security group owner. Note that this is not the same thing as an AWS access key ID - you must provide a valid AWS account number for this parameter.
 --
 -- /Note:/ Consider using 'ec2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acsgiEC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Lude.Text
 acsgiEC2SecurityGroupOwnerId = Lens.lens (ec2SecurityGroupOwnerId :: AuthorizeCacheSecurityGroupIngress -> Lude.Text) (\s a -> s {ec2SecurityGroupOwnerId = a} :: AuthorizeCacheSecurityGroupIngress)
 {-# DEPRECATED acsgiEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'ec2SecurityGroupOwnerId' instead." #-}
+
+-- | The Amazon EC2 security group to be authorized for ingress to the cache security group.
+--
+-- /Note:/ Consider using 'ec2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsgiEC2SecurityGroupName :: Lens.Lens' AuthorizeCacheSecurityGroupIngress Lude.Text
+acsgiEC2SecurityGroupName = Lens.lens (ec2SecurityGroupName :: AuthorizeCacheSecurityGroupIngress -> Lude.Text) (\s a -> s {ec2SecurityGroupName = a} :: AuthorizeCacheSecurityGroupIngress)
+{-# DEPRECATED acsgiEC2SecurityGroupName "Use generic-lens or generic-optics with 'ec2SecurityGroupName' instead." #-}
 
 instance Lude.AWSRequest AuthorizeCacheSecurityGroupIngress where
   type
@@ -131,30 +126,22 @@ instance Lude.ToQuery AuthorizeCacheSecurityGroupIngress where
           Lude.=: ("AuthorizeCacheSecurityGroupIngress" :: Lude.ByteString),
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
         "CacheSecurityGroupName" Lude.=: cacheSecurityGroupName,
-        "EC2SecurityGroupName" Lude.=: ec2SecurityGroupName,
-        "EC2SecurityGroupOwnerId" Lude.=: ec2SecurityGroupOwnerId
+        "EC2SecurityGroupOwnerId" Lude.=: ec2SecurityGroupOwnerId,
+        "EC2SecurityGroupName" Lude.=: ec2SecurityGroupName
       ]
 
 -- | /See:/ 'mkAuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
-  { cacheSecurityGroup ::
-      Lude.Maybe
-        CacheSecurityGroup,
-    responseStatus ::
-      Lude.Int
+  { cacheSecurityGroup :: Lude.Maybe CacheSecurityGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizeCacheSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
--- * 'cacheSecurityGroup' - Undocumented field.
+-- * 'cacheSecurityGroup' -
 -- * 'responseStatus' - The response status code.
 mkAuthorizeCacheSecurityGroupIngressResponse ::
   -- | 'responseStatus'

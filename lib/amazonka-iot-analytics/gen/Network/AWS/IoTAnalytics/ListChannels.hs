@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,25 +45,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in this request.
+    --
+    -- The default value is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChannels' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of results.
 -- * 'maxResults' - The maximum number of results to return in this request.
 --
 -- The default value is 100.
--- * 'nextToken' - The token for the next set of results.
 mkListChannels ::
   ListChannels
 mkListChannels =
@@ -121,18 +119,14 @@ instance Lude.ToQuery ListChannels where
 
 -- | /See:/ 'mkListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { channelSummaries ::
-      Lude.Maybe [ChannelSummary],
+  { -- | A list of @ChannelSummary@ objects.
+    channelSummaries :: Lude.Maybe [ChannelSummary],
+    -- | The token to retrieve the next set of results, or @null@ if there are no more results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChannelsResponse' with the minimum fields required to make a request.

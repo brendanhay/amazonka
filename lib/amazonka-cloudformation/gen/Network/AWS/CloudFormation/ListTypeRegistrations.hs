@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,41 +46,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTypeRegistrations' smart constructor.
 data ListTypeRegistrations = ListTypeRegistrations'
-  { typeName ::
-      Lude.Maybe Lude.Text,
-    registrationStatusFilter ::
-      Lude.Maybe RegistrationStatus,
+  { -- | The name of the type.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+    typeName :: Lude.Maybe Lude.Text,
+    -- | The current status of the type registration request.
+    --
+    -- The default is @IN_PROGRESS@ .
+    registrationStatusFilter :: Lude.Maybe RegistrationStatus,
+    -- | If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the type.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
     typeARN :: Lude.Maybe Lude.Text,
+    -- | The kind of type.
+    --
+    -- Currently the only valid value is @RESOURCE@ .
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
     type' :: Lude.Maybe RegistryType,
+    -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypeRegistrations' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
--- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+-- * 'typeName' - The name of the type.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
 -- * 'registrationStatusFilter' - The current status of the type registration request.
 --
 -- The default is @IN_PROGRESS@ .
+-- * 'nextToken' - If the previous paginated request didn't return all of the remaining results, the response object's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+-- * 'typeARN' - The Amazon Resource Name (ARN) of the type.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
 -- * 'type'' - The kind of type.
 --
 -- Currently the only valid value is @RESOURCE@ .
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'typeARN' - The Amazon Resource Name (ARN) of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'typeName' - The name of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 mkListTypeRegistrations ::
   ListTypeRegistrations
 mkListTypeRegistrations =
@@ -179,27 +187,24 @@ instance Lude.ToQuery ListTypeRegistrations where
 
 -- | /See:/ 'mkListTypeRegistrationsResponse' smart constructor.
 data ListTypeRegistrationsResponse = ListTypeRegistrationsResponse'
-  { registrationTokenList ::
-      Lude.Maybe [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of type registration tokens.
+    --
+    -- Use @'DescribeTypeRegistration' @ to return detailed information about a type registration request.
+    registrationTokenList :: Lude.Maybe [Lude.Text],
+    -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTypeRegistrationsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
 -- * 'registrationTokenList' - A list of type registration tokens.
 --
 -- Use @'DescribeTypeRegistration' @ to return detailed information about a type registration request.
+-- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
 -- * 'responseStatus' - The response status code.
 mkListTypeRegistrationsResponse ::
   -- | 'responseStatus'

@@ -18,8 +18,8 @@ module Network.AWS.EMR.Types.VolumeSpecification
 
     -- * Lenses
     vsIOPS,
-    vsVolumeType,
     vsSizeInGB,
+    vsVolumeType,
   )
 where
 
@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeSpecification' smart constructor.
 data VolumeSpecification = VolumeSpecification'
-  { iops ::
-      Lude.Maybe Lude.Int,
-    volumeType :: Lude.Text,
-    sizeInGB :: Lude.Int
+  { -- | The number of I/O operations per second (IOPS) that the volume supports.
+    iops :: Lude.Maybe Lude.Int,
+    -- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+    sizeInGB :: Lude.Int,
+    -- | The volume type. Volume types supported are gp2, io1, standard.
+    volumeType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeSpecification' with the minimum fields required to make a request.
@@ -50,16 +46,16 @@ data VolumeSpecification = VolumeSpecification'
 -- * 'sizeInGB' - The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
 -- * 'volumeType' - The volume type. Volume types supported are gp2, io1, standard.
 mkVolumeSpecification ::
-  -- | 'volumeType'
-  Lude.Text ->
   -- | 'sizeInGB'
   Lude.Int ->
+  -- | 'volumeType'
+  Lude.Text ->
   VolumeSpecification
-mkVolumeSpecification pVolumeType_ pSizeInGB_ =
+mkVolumeSpecification pSizeInGB_ pVolumeType_ =
   VolumeSpecification'
     { iops = Lude.Nothing,
-      volumeType = pVolumeType_,
-      sizeInGB = pSizeInGB_
+      sizeInGB = pSizeInGB_,
+      volumeType = pVolumeType_
     }
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
@@ -69,19 +65,19 @@ vsIOPS :: Lens.Lens' VolumeSpecification (Lude.Maybe Lude.Int)
 vsIOPS = Lens.lens (iops :: VolumeSpecification -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: VolumeSpecification)
 {-# DEPRECATED vsIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
 
--- | The volume type. Volume types supported are gp2, io1, standard.
---
--- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsVolumeType :: Lens.Lens' VolumeSpecification Lude.Text
-vsVolumeType = Lens.lens (volumeType :: VolumeSpecification -> Lude.Text) (\s a -> s {volumeType = a} :: VolumeSpecification)
-{-# DEPRECATED vsVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
-
 -- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
 --
 -- /Note:/ Consider using 'sizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 vsSizeInGB :: Lens.Lens' VolumeSpecification Lude.Int
 vsSizeInGB = Lens.lens (sizeInGB :: VolumeSpecification -> Lude.Int) (\s a -> s {sizeInGB = a} :: VolumeSpecification)
 {-# DEPRECATED vsSizeInGB "Use generic-lens or generic-optics with 'sizeInGB' instead." #-}
+
+-- | The volume type. Volume types supported are gp2, io1, standard.
+--
+-- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsVolumeType :: Lens.Lens' VolumeSpecification Lude.Text
+vsVolumeType = Lens.lens (volumeType :: VolumeSpecification -> Lude.Text) (\s a -> s {volumeType = a} :: VolumeSpecification)
+{-# DEPRECATED vsVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
 instance Lude.FromJSON VolumeSpecification where
   parseJSON =
@@ -90,8 +86,8 @@ instance Lude.FromJSON VolumeSpecification where
       ( \x ->
           VolumeSpecification'
             Lude.<$> (x Lude..:? "Iops")
-            Lude.<*> (x Lude..: "VolumeType")
             Lude.<*> (x Lude..: "SizeInGB")
+            Lude.<*> (x Lude..: "VolumeType")
       )
 
 instance Lude.ToJSON VolumeSpecification where
@@ -99,7 +95,7 @@ instance Lude.ToJSON VolumeSpecification where
     Lude.object
       ( Lude.catMaybes
           [ ("Iops" Lude..=) Lude.<$> iops,
-            Lude.Just ("VolumeType" Lude..= volumeType),
-            Lude.Just ("SizeInGB" Lude..= sizeInGB)
+            Lude.Just ("SizeInGB" Lude..= sizeInGB),
+            Lude.Just ("VolumeType" Lude..= volumeType)
           ]
       )

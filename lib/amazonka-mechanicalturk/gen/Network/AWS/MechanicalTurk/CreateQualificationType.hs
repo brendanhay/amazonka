@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,15 +21,15 @@ module Network.AWS.MechanicalTurk.CreateQualificationType
 
     -- ** Request lenses
     cqtTestDurationInSeconds,
+    cqtQualificationTypeStatus,
     cqtAnswerKey,
     cqtTest,
+    cqtName,
     cqtKeywords,
     cqtAutoGranted,
     cqtAutoGrantedValue,
-    cqtRetryDelayInSeconds,
-    cqtName,
     cqtDescription,
-    cqtQualificationTypeStatus,
+    cqtRetryDelayInSeconds,
 
     -- * Destructuring the response
     CreateQualificationTypeResponse (..),
@@ -48,76 +49,89 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateQualificationType' smart constructor.
 data CreateQualificationType = CreateQualificationType'
-  { testDurationInSeconds ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
+    testDurationInSeconds :: Lude.Maybe Lude.Integer,
+    -- | The initial status of the Qualification type.
+    --
+    -- Constraints: Valid values are: Active | Inactive
+    qualificationTypeStatus :: QualificationTypeStatus,
+    -- | The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
+    --
+    -- Constraints: Must not be longer than 65535 bytes.
+    -- Constraints: None. If not specified, you must process Qualification requests manually.
     answerKey :: Lude.Maybe Lude.Text,
+    -- | The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, @TestDurationInSeconds@ must also be specified.
+    --
+    -- Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.
+    -- Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.
     test :: Lude.Maybe Lude.Text,
-    keywords :: Lude.Maybe Lude.Text,
-    autoGranted :: Lude.Maybe Lude.Bool,
-    autoGrantedValue :: Lude.Maybe Lude.Int,
-    retryDelayInSeconds ::
-      Lude.Maybe Lude.Integer,
+    -- | The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.
     name :: Lude.Text,
+    -- | One or more words or phrases that describe the Qualification type, separated by commas. The keywords of a type make the type easier to find during a search.
+    keywords :: Lude.Maybe Lude.Text,
+    -- | Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.
+    --
+    -- Constraints: If the Test parameter is specified, this parameter cannot be true.
+    autoGranted :: Lude.Maybe Lude.Bool,
+    -- | The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+    autoGrantedValue :: Lude.Maybe Lude.Int,
+    -- | A long description for the Qualification type. On the Amazon Mechanical Turk website, the long description is displayed when a Worker examines a Qualification type.
     description :: Lude.Text,
-    qualificationTypeStatus ::
-      QualificationTypeStatus
+    -- | The number of seconds that a Worker must wait after requesting a Qualification of the Qualification type before the worker can retry the Qualification request.
+    --
+    -- Constraints: None. If not specified, retries are disabled and Workers can request a Qualification of this type only once, even if the Worker has not been granted the Qualification. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must delete existing retry-enabled Qualification type and then create a new Qualification type with retries disabled.
+    retryDelayInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateQualificationType' with the minimum fields required to make a request.
 --
+-- * 'testDurationInSeconds' - The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
+-- * 'qualificationTypeStatus' - The initial status of the Qualification type.
+--
+-- Constraints: Valid values are: Active | Inactive
 -- * 'answerKey' - The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
 --
 -- Constraints: Must not be longer than 65535 bytes.
 -- Constraints: None. If not specified, you must process Qualification requests manually.
+-- * 'test' - The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, @TestDurationInSeconds@ must also be specified.
+--
+-- Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.
+-- Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.
+-- * 'name' - The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.
+-- * 'keywords' - One or more words or phrases that describe the Qualification type, separated by commas. The keywords of a type make the type easier to find during a search.
 -- * 'autoGranted' - Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.
 --
 -- Constraints: If the Test parameter is specified, this parameter cannot be true.
 -- * 'autoGrantedValue' - The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
 -- * 'description' - A long description for the Qualification type. On the Amazon Mechanical Turk website, the long description is displayed when a Worker examines a Qualification type.
--- * 'keywords' - One or more words or phrases that describe the Qualification type, separated by commas. The keywords of a type make the type easier to find during a search.
--- * 'name' - The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.
--- * 'qualificationTypeStatus' - The initial status of the Qualification type.
---
--- Constraints: Valid values are: Active | Inactive
 -- * 'retryDelayInSeconds' - The number of seconds that a Worker must wait after requesting a Qualification of the Qualification type before the worker can retry the Qualification request.
 --
 -- Constraints: None. If not specified, retries are disabled and Workers can request a Qualification of this type only once, even if the Worker has not been granted the Qualification. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must delete existing retry-enabled Qualification type and then create a new Qualification type with retries disabled.
--- * 'test' - The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, @TestDurationInSeconds@ must also be specified.
---
--- Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.
--- Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.
--- * 'testDurationInSeconds' - The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
 mkCreateQualificationType ::
+  -- | 'qualificationTypeStatus'
+  QualificationTypeStatus ->
   -- | 'name'
   Lude.Text ->
   -- | 'description'
   Lude.Text ->
-  -- | 'qualificationTypeStatus'
-  QualificationTypeStatus ->
   CreateQualificationType
 mkCreateQualificationType
+  pQualificationTypeStatus_
   pName_
-  pDescription_
-  pQualificationTypeStatus_ =
+  pDescription_ =
     CreateQualificationType'
       { testDurationInSeconds = Lude.Nothing,
+        qualificationTypeStatus = pQualificationTypeStatus_,
         answerKey = Lude.Nothing,
         test = Lude.Nothing,
+        name = pName_,
         keywords = Lude.Nothing,
         autoGranted = Lude.Nothing,
         autoGrantedValue = Lude.Nothing,
-        retryDelayInSeconds = Lude.Nothing,
-        name = pName_,
         description = pDescription_,
-        qualificationTypeStatus = pQualificationTypeStatus_
+        retryDelayInSeconds = Lude.Nothing
       }
 
 -- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
@@ -126,6 +140,15 @@ mkCreateQualificationType
 cqtTestDurationInSeconds :: Lens.Lens' CreateQualificationType (Lude.Maybe Lude.Integer)
 cqtTestDurationInSeconds = Lens.lens (testDurationInSeconds :: CreateQualificationType -> Lude.Maybe Lude.Integer) (\s a -> s {testDurationInSeconds = a} :: CreateQualificationType)
 {-# DEPRECATED cqtTestDurationInSeconds "Use generic-lens or generic-optics with 'testDurationInSeconds' instead." #-}
+
+-- | The initial status of the Qualification type.
+--
+-- Constraints: Valid values are: Active | Inactive
+--
+-- /Note:/ Consider using 'qualificationTypeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqtQualificationTypeStatus :: Lens.Lens' CreateQualificationType QualificationTypeStatus
+cqtQualificationTypeStatus = Lens.lens (qualificationTypeStatus :: CreateQualificationType -> QualificationTypeStatus) (\s a -> s {qualificationTypeStatus = a} :: CreateQualificationType)
+{-# DEPRECATED cqtQualificationTypeStatus "Use generic-lens or generic-optics with 'qualificationTypeStatus' instead." #-}
 
 -- | The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
 --
@@ -146,6 +169,13 @@ cqtAnswerKey = Lens.lens (answerKey :: CreateQualificationType -> Lude.Maybe Lud
 cqtTest :: Lens.Lens' CreateQualificationType (Lude.Maybe Lude.Text)
 cqtTest = Lens.lens (test :: CreateQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {test = a} :: CreateQualificationType)
 {-# DEPRECATED cqtTest "Use generic-lens or generic-optics with 'test' instead." #-}
+
+-- | The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqtName :: Lens.Lens' CreateQualificationType Lude.Text
+cqtName = Lens.lens (name :: CreateQualificationType -> Lude.Text) (\s a -> s {name = a} :: CreateQualificationType)
+{-# DEPRECATED cqtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | One or more words or phrases that describe the Qualification type, separated by commas. The keywords of a type make the type easier to find during a search.
 --
@@ -170,6 +200,13 @@ cqtAutoGrantedValue :: Lens.Lens' CreateQualificationType (Lude.Maybe Lude.Int)
 cqtAutoGrantedValue = Lens.lens (autoGrantedValue :: CreateQualificationType -> Lude.Maybe Lude.Int) (\s a -> s {autoGrantedValue = a} :: CreateQualificationType)
 {-# DEPRECATED cqtAutoGrantedValue "Use generic-lens or generic-optics with 'autoGrantedValue' instead." #-}
 
+-- | A long description for the Qualification type. On the Amazon Mechanical Turk website, the long description is displayed when a Worker examines a Qualification type.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqtDescription :: Lens.Lens' CreateQualificationType Lude.Text
+cqtDescription = Lens.lens (description :: CreateQualificationType -> Lude.Text) (\s a -> s {description = a} :: CreateQualificationType)
+{-# DEPRECATED cqtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 -- | The number of seconds that a Worker must wait after requesting a Qualification of the Qualification type before the worker can retry the Qualification request.
 --
 -- Constraints: None. If not specified, retries are disabled and Workers can request a Qualification of this type only once, even if the Worker has not been granted the Qualification. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must delete existing retry-enabled Qualification type and then create a new Qualification type with retries disabled.
@@ -178,29 +215,6 @@ cqtAutoGrantedValue = Lens.lens (autoGrantedValue :: CreateQualificationType -> 
 cqtRetryDelayInSeconds :: Lens.Lens' CreateQualificationType (Lude.Maybe Lude.Integer)
 cqtRetryDelayInSeconds = Lens.lens (retryDelayInSeconds :: CreateQualificationType -> Lude.Maybe Lude.Integer) (\s a -> s {retryDelayInSeconds = a} :: CreateQualificationType)
 {-# DEPRECATED cqtRetryDelayInSeconds "Use generic-lens or generic-optics with 'retryDelayInSeconds' instead." #-}
-
--- | The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cqtName :: Lens.Lens' CreateQualificationType Lude.Text
-cqtName = Lens.lens (name :: CreateQualificationType -> Lude.Text) (\s a -> s {name = a} :: CreateQualificationType)
-{-# DEPRECATED cqtName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A long description for the Qualification type. On the Amazon Mechanical Turk website, the long description is displayed when a Worker examines a Qualification type.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cqtDescription :: Lens.Lens' CreateQualificationType Lude.Text
-cqtDescription = Lens.lens (description :: CreateQualificationType -> Lude.Text) (\s a -> s {description = a} :: CreateQualificationType)
-{-# DEPRECATED cqtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The initial status of the Qualification type.
---
--- Constraints: Valid values are: Active | Inactive
---
--- /Note:/ Consider using 'qualificationTypeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cqtQualificationTypeStatus :: Lens.Lens' CreateQualificationType QualificationTypeStatus
-cqtQualificationTypeStatus = Lens.lens (qualificationTypeStatus :: CreateQualificationType -> QualificationTypeStatus) (\s a -> s {qualificationTypeStatus = a} :: CreateQualificationType)
-{-# DEPRECATED cqtQualificationTypeStatus "Use generic-lens or generic-optics with 'qualificationTypeStatus' instead." #-}
 
 instance Lude.AWSRequest CreateQualificationType where
   type Rs CreateQualificationType = CreateQualificationTypeResponse
@@ -231,16 +245,16 @@ instance Lude.ToJSON CreateQualificationType where
     Lude.object
       ( Lude.catMaybes
           [ ("TestDurationInSeconds" Lude..=) Lude.<$> testDurationInSeconds,
+            Lude.Just
+              ("QualificationTypeStatus" Lude..= qualificationTypeStatus),
             ("AnswerKey" Lude..=) Lude.<$> answerKey,
             ("Test" Lude..=) Lude.<$> test,
+            Lude.Just ("Name" Lude..= name),
             ("Keywords" Lude..=) Lude.<$> keywords,
             ("AutoGranted" Lude..=) Lude.<$> autoGranted,
             ("AutoGrantedValue" Lude..=) Lude.<$> autoGrantedValue,
-            ("RetryDelayInSeconds" Lude..=) Lude.<$> retryDelayInSeconds,
-            Lude.Just ("Name" Lude..= name),
             Lude.Just ("Description" Lude..= description),
-            Lude.Just
-              ("QualificationTypeStatus" Lude..= qualificationTypeStatus)
+            ("RetryDelayInSeconds" Lude..=) Lude.<$> retryDelayInSeconds
           ]
       )
 
@@ -252,18 +266,12 @@ instance Lude.ToQuery CreateQualificationType where
 
 -- | /See:/ 'mkCreateQualificationTypeResponse' smart constructor.
 data CreateQualificationTypeResponse = CreateQualificationTypeResponse'
-  { qualificationType ::
-      Lude.Maybe
-        QualificationType,
+  { -- | The created Qualification type, returned as a QualificationType data structure.
+    qualificationType :: Lude.Maybe QualificationType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateQualificationTypeResponse' with the minimum fields required to make a request.

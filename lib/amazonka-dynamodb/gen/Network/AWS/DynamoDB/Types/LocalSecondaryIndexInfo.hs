@@ -32,23 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalSecondaryIndexInfo' smart constructor.
 data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
-  { keySchema ::
-      Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+  { -- | The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:
+    --
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
     projection :: Lude.Maybe Projection,
+    -- | Represents the name of the local secondary index.
     indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalSecondaryIndexInfo' with the minimum fields required to make a request.
 --
--- * 'indexName' - Represents the name of the local secondary index.
 -- * 'keySchema' - The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:
 --
 --
@@ -59,6 +60,7 @@ data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
 --
 --
 -- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+-- * 'indexName' - Represents the name of the local secondary index.
 mkLocalSecondaryIndexInfo ::
   LocalSecondaryIndexInfo
 mkLocalSecondaryIndexInfo =

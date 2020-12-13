@@ -13,9 +13,9 @@
 module Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType
   ( AdvancedSecurityModeType
       ( AdvancedSecurityModeType',
-        Audit,
-        Enforced,
-        Off
+        ASMTOff,
+        ASMTAudit,
+        ASMTEnforced
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AdvancedSecurityModeType = AdvancedSecurityModeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Audit :: AdvancedSecurityModeType
-pattern Audit = AdvancedSecurityModeType' "AUDIT"
+pattern ASMTOff :: AdvancedSecurityModeType
+pattern ASMTOff = AdvancedSecurityModeType' "OFF"
 
-pattern Enforced :: AdvancedSecurityModeType
-pattern Enforced = AdvancedSecurityModeType' "ENFORCED"
+pattern ASMTAudit :: AdvancedSecurityModeType
+pattern ASMTAudit = AdvancedSecurityModeType' "AUDIT"
 
-pattern Off :: AdvancedSecurityModeType
-pattern Off = AdvancedSecurityModeType' "OFF"
+pattern ASMTEnforced :: AdvancedSecurityModeType
+pattern ASMTEnforced = AdvancedSecurityModeType' "ENFORCED"
 
 {-# COMPLETE
-  Audit,
-  Enforced,
-  Off,
+  ASMTOff,
+  ASMTAudit,
+  ASMTEnforced,
   AdvancedSecurityModeType'
   #-}

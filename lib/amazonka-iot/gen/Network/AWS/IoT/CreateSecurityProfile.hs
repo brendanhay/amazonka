@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.IoT.CreateSecurityProfile
     cspAlertTargets,
     cspAdditionalMetricsToRetainV2,
     cspBehaviors,
+    cspSecurityProfileName,
     cspAdditionalMetricsToRetain,
     cspSecurityProfileDescription,
     cspTags,
-    cspSecurityProfileName,
 
     -- * Destructuring the response
     CreateSecurityProfileResponse (..),
@@ -46,38 +47,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSecurityProfile' smart constructor.
 data CreateSecurityProfile = CreateSecurityProfile'
-  { alertTargets ::
-      Lude.Maybe
-        (Lude.HashMap AlertTargetType (AlertTarget)),
-    additionalMetricsToRetainV2 ::
-      Lude.Maybe [MetricToRetain],
+  { -- | Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
+    alertTargets :: Lude.Maybe (Lude.HashMap AlertTargetType (AlertTarget)),
+    -- | A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+    additionalMetricsToRetainV2 :: Lude.Maybe [MetricToRetain],
+    -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
     behaviors :: Lude.Maybe [Behavior],
-    additionalMetricsToRetain ::
-      Lude.Maybe [Lude.Text],
-    securityProfileDescription ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    securityProfileName :: Lude.Text
+    -- | The name you are giving to the security profile.
+    securityProfileName :: Lude.Text,
+    -- | /Please use 'CreateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
+    --
+    -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+    additionalMetricsToRetain :: Lude.Maybe [Lude.Text],
+    -- | A description of the security profile.
+    securityProfileDescription :: Lude.Maybe Lude.Text,
+    -- | Metadata that can be used to manage the security profile.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityProfile' with the minimum fields required to make a request.
 --
+-- * 'alertTargets' - Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
+-- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
+-- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
+-- * 'securityProfileName' - The name you are giving to the security profile.
 -- * 'additionalMetricsToRetain' - /Please use 'CreateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
 --
 -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
--- * 'additionalMetricsToRetainV2' - A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
--- * 'alertTargets' - Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
--- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
 -- * 'securityProfileDescription' - A description of the security profile.
--- * 'securityProfileName' - The name you are giving to the security profile.
 -- * 'tags' - Metadata that can be used to manage the security profile.
 mkCreateSecurityProfile ::
   -- | 'securityProfileName'
@@ -88,10 +87,10 @@ mkCreateSecurityProfile pSecurityProfileName_ =
     { alertTargets = Lude.Nothing,
       additionalMetricsToRetainV2 = Lude.Nothing,
       behaviors = Lude.Nothing,
+      securityProfileName = pSecurityProfileName_,
       additionalMetricsToRetain = Lude.Nothing,
       securityProfileDescription = Lude.Nothing,
-      tags = Lude.Nothing,
-      securityProfileName = pSecurityProfileName_
+      tags = Lude.Nothing
     }
 
 -- | Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.
@@ -115,6 +114,13 @@ cspBehaviors :: Lens.Lens' CreateSecurityProfile (Lude.Maybe [Behavior])
 cspBehaviors = Lens.lens (behaviors :: CreateSecurityProfile -> Lude.Maybe [Behavior]) (\s a -> s {behaviors = a} :: CreateSecurityProfile)
 {-# DEPRECATED cspBehaviors "Use generic-lens or generic-optics with 'behaviors' instead." #-}
 
+-- | The name you are giving to the security profile.
+--
+-- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspSecurityProfileName :: Lens.Lens' CreateSecurityProfile Lude.Text
+cspSecurityProfileName = Lens.lens (securityProfileName :: CreateSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: CreateSecurityProfile)
+{-# DEPRECATED cspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
+
 -- | /Please use 'CreateSecurityProfileRequest$additionalMetricsToRetainV2' instead./
 --
 -- A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's @behaviors@ , but it is also retained for any metric specified here.
@@ -137,13 +143,6 @@ cspSecurityProfileDescription = Lens.lens (securityProfileDescription :: CreateS
 cspTags :: Lens.Lens' CreateSecurityProfile (Lude.Maybe [Tag])
 cspTags = Lens.lens (tags :: CreateSecurityProfile -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSecurityProfile)
 {-# DEPRECATED cspTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name you are giving to the security profile.
---
--- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspSecurityProfileName :: Lens.Lens' CreateSecurityProfile Lude.Text
-cspSecurityProfileName = Lens.lens (securityProfileName :: CreateSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: CreateSecurityProfile)
-{-# DEPRECATED cspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 instance Lude.AWSRequest CreateSecurityProfile where
   type Rs CreateSecurityProfile = CreateSecurityProfileResponse
@@ -186,26 +185,21 @@ instance Lude.ToQuery CreateSecurityProfile where
 
 -- | /See:/ 'mkCreateSecurityProfileResponse' smart constructor.
 data CreateSecurityProfileResponse = CreateSecurityProfileResponse'
-  { securityProfileName ::
-      Lude.Maybe Lude.Text,
-    securityProfileARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The name you gave to the security profile.
+    securityProfileName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the security profile.
+    securityProfileARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityProfileResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'securityProfileARN' - The ARN of the security profile.
 -- * 'securityProfileName' - The name you gave to the security profile.
+-- * 'securityProfileARN' - The ARN of the security profile.
+-- * 'responseStatus' - The response status code.
 mkCreateSecurityProfileResponse ::
   -- | 'responseStatus'
   Lude.Int ->

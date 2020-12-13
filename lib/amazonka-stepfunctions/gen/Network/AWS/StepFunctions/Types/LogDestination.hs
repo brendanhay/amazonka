@@ -29,16 +29,10 @@ import Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
 --
 -- /See:/ 'mkLogDestination' smart constructor.
 newtype LogDestination = LogDestination'
-  { cloudWatchLogsLogGroup ::
-      Lude.Maybe CloudWatchLogsLogGroup
+  { -- | An object describing a CloudWatch log group. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup> in the AWS CloudFormation User Guide.
+    cloudWatchLogsLogGroup :: Lude.Maybe CloudWatchLogsLogGroup
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogDestination' with the minimum fields required to make a request.

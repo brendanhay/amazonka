@@ -31,29 +31,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationPendingModifiedValues' smart constructor.
 data ReplicationPendingModifiedValues = ReplicationPendingModifiedValues'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
-    multiAZ ::
-      Lude.Maybe Lude.Bool,
-    allocatedStorage ::
-      Lude.Maybe Lude.Int,
-    replicationInstanceClass ::
-      Lude.Maybe Lude.Text
+  { -- | The engine version number of the replication instance.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+    multiAZ :: Lude.Maybe Lude.Bool,
+    -- | The amount of storage (in gigabytes) that is allocated for the replication instance.
+    allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The compute and memory capacity of the replication instance as defined for the specified replication instance class.
+    --
+    -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+    replicationInstanceClass :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationPendingModifiedValues' with the minimum fields required to make a request.
 --
--- * 'allocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
 -- * 'engineVersion' - The engine version number of the replication instance.
 -- * 'multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You can't set the @AvailabilityZone@ parameter if the Multi-AZ parameter is set to @true@ .
+-- * 'allocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
 -- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class.
 --
 -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .

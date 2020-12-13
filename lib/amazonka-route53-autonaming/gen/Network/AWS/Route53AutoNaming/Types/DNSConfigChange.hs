@@ -29,16 +29,10 @@ import Network.AWS.Route53AutoNaming.Types.DNSRecord
 --
 -- /See:/ 'mkDNSConfigChange' smart constructor.
 newtype DNSConfigChange = DNSConfigChange'
-  { dnsRecords ::
-      [DNSRecord]
+  { -- | An array that contains one @DnsRecord@ object for each Route 53 record that you want AWS Cloud Map to create when you register an instance.
+    dnsRecords :: [DNSRecord]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DNSConfigChange' with the minimum fields required to make a request.

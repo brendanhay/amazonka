@@ -19,11 +19,11 @@ module Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
     -- * Lenses
     ttcEstimatedInstanceWarmup,
     ttcPredefinedScalingMetricSpecification,
+    ttcTargetValue,
     ttcScaleInCooldown,
     ttcDisableScaleIn,
     ttcCustomizedScalingMetricSpecification,
     ttcScaleOutCooldown,
-    ttcTargetValue,
   )
 where
 
@@ -36,46 +36,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetTrackingConfiguration' smart constructor.
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
-  { estimatedInstanceWarmup ::
-      Lude.Maybe Lude.Int,
-    predefinedScalingMetricSpecification ::
-      Lude.Maybe
-        PredefinedScalingMetricSpecification,
-    scaleInCooldown ::
-      Lude.Maybe Lude.Int,
-    disableScaleIn ::
-      Lude.Maybe Lude.Bool,
-    customizedScalingMetricSpecification ::
-      Lude.Maybe
-        CustomizedScalingMetricSpecification,
-    scaleOutCooldown ::
-      Lude.Maybe Lude.Int,
-    targetValue :: Lude.Double
+  { -- | The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.
+    estimatedInstanceWarmup :: Lude.Maybe Lude.Int,
+    -- | A predefined metric. You can specify either a predefined metric or a customized metric.
+    predefinedScalingMetricSpecification :: Lude.Maybe PredefinedScalingMetricSpecification,
+    -- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+    targetValue :: Lude.Double,
+    -- | The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
+    --
+    -- The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale-out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
+    scaleInCooldown :: Lude.Maybe Lude.Int,
+    -- | Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable resource.
+    --
+    -- The default value is @false@ .
+    disableScaleIn :: Lude.Maybe Lude.Bool,
+    -- | A customized metric. You can specify either a predefined metric or a customized metric.
+    customizedScalingMetricSpecification :: Lude.Maybe CustomizedScalingMetricSpecification,
+    -- | The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start. This value is not used if the scalable resource is an Auto Scaling group.
+    --
+    -- While the cooldown period is in effect, the capacity that has been added by the previous scale-out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out.
+    scaleOutCooldown :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetTrackingConfiguration' with the minimum fields required to make a request.
 --
--- * 'customizedScalingMetricSpecification' - A customized metric. You can specify either a predefined metric or a customized metric.
--- * 'disableScaleIn' - Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable resource.
---
--- The default value is @false@ .
 -- * 'estimatedInstanceWarmup' - The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.
 -- * 'predefinedScalingMetricSpecification' - A predefined metric. You can specify either a predefined metric or a customized metric.
+-- * 'targetValue' - The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 -- * 'scaleInCooldown' - The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
 --
 -- The cooldown period is used to block subsequent scale in requests until it has expired. The intention is to scale in conservatively to protect your application's availability. However, if another alarm triggers a scale-out policy during the cooldown period after a scale-in, AWS Auto Scaling scales out your scalable target immediately.
+-- * 'disableScaleIn' - Indicates whether scale in by the target tracking scaling policy is disabled. If the value is @true@ , scale in is disabled and the target tracking scaling policy doesn't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable resource.
+--
+-- The default value is @false@ .
+-- * 'customizedScalingMetricSpecification' - A customized metric. You can specify either a predefined metric or a customized metric.
 -- * 'scaleOutCooldown' - The amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start. This value is not used if the scalable resource is an Auto Scaling group.
 --
 -- While the cooldown period is in effect, the capacity that has been added by the previous scale-out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. The intention is to continuously (but not excessively) scale out.
--- * 'targetValue' - The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 mkTargetTrackingConfiguration ::
   -- | 'targetValue'
   Lude.Double ->
@@ -85,11 +84,11 @@ mkTargetTrackingConfiguration pTargetValue_ =
     { estimatedInstanceWarmup =
         Lude.Nothing,
       predefinedScalingMetricSpecification = Lude.Nothing,
+      targetValue = pTargetValue_,
       scaleInCooldown = Lude.Nothing,
       disableScaleIn = Lude.Nothing,
       customizedScalingMetricSpecification = Lude.Nothing,
-      scaleOutCooldown = Lude.Nothing,
-      targetValue = pTargetValue_
+      scaleOutCooldown = Lude.Nothing
     }
 
 -- | The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. This value is used only if the resource is an Auto Scaling group.
@@ -105,6 +104,13 @@ ttcEstimatedInstanceWarmup = Lens.lens (estimatedInstanceWarmup :: TargetTrackin
 ttcPredefinedScalingMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Lude.Maybe PredefinedScalingMetricSpecification)
 ttcPredefinedScalingMetricSpecification = Lens.lens (predefinedScalingMetricSpecification :: TargetTrackingConfiguration -> Lude.Maybe PredefinedScalingMetricSpecification) (\s a -> s {predefinedScalingMetricSpecification = a} :: TargetTrackingConfiguration)
 {-# DEPRECATED ttcPredefinedScalingMetricSpecification "Use generic-lens or generic-optics with 'predefinedScalingMetricSpecification' instead." #-}
+
+-- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
+--
+-- /Note:/ Consider using 'targetValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttcTargetValue :: Lens.Lens' TargetTrackingConfiguration Lude.Double
+ttcTargetValue = Lens.lens (targetValue :: TargetTrackingConfiguration -> Lude.Double) (\s a -> s {targetValue = a} :: TargetTrackingConfiguration)
+{-# DEPRECATED ttcTargetValue "Use generic-lens or generic-optics with 'targetValue' instead." #-}
 
 -- | The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. This value is not used if the scalable resource is an Auto Scaling group.
 --
@@ -140,13 +146,6 @@ ttcScaleOutCooldown :: Lens.Lens' TargetTrackingConfiguration (Lude.Maybe Lude.I
 ttcScaleOutCooldown = Lens.lens (scaleOutCooldown :: TargetTrackingConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {scaleOutCooldown = a} :: TargetTrackingConfiguration)
 {-# DEPRECATED ttcScaleOutCooldown "Use generic-lens or generic-optics with 'scaleOutCooldown' instead." #-}
 
--- | The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
---
--- /Note:/ Consider using 'targetValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttcTargetValue :: Lens.Lens' TargetTrackingConfiguration Lude.Double
-ttcTargetValue = Lens.lens (targetValue :: TargetTrackingConfiguration -> Lude.Double) (\s a -> s {targetValue = a} :: TargetTrackingConfiguration)
-{-# DEPRECATED ttcTargetValue "Use generic-lens or generic-optics with 'targetValue' instead." #-}
-
 instance Lude.FromJSON TargetTrackingConfiguration where
   parseJSON =
     Lude.withObject
@@ -155,11 +154,11 @@ instance Lude.FromJSON TargetTrackingConfiguration where
           TargetTrackingConfiguration'
             Lude.<$> (x Lude..:? "EstimatedInstanceWarmup")
             Lude.<*> (x Lude..:? "PredefinedScalingMetricSpecification")
+            Lude.<*> (x Lude..: "TargetValue")
             Lude.<*> (x Lude..:? "ScaleInCooldown")
             Lude.<*> (x Lude..:? "DisableScaleIn")
             Lude.<*> (x Lude..:? "CustomizedScalingMetricSpecification")
             Lude.<*> (x Lude..:? "ScaleOutCooldown")
-            Lude.<*> (x Lude..: "TargetValue")
       )
 
 instance Lude.ToJSON TargetTrackingConfiguration where
@@ -170,11 +169,11 @@ instance Lude.ToJSON TargetTrackingConfiguration where
               Lude.<$> estimatedInstanceWarmup,
             ("PredefinedScalingMetricSpecification" Lude..=)
               Lude.<$> predefinedScalingMetricSpecification,
+            Lude.Just ("TargetValue" Lude..= targetValue),
             ("ScaleInCooldown" Lude..=) Lude.<$> scaleInCooldown,
             ("DisableScaleIn" Lude..=) Lude.<$> disableScaleIn,
             ("CustomizedScalingMetricSpecification" Lude..=)
               Lude.<$> customizedScalingMetricSpecification,
-            ("ScaleOutCooldown" Lude..=) Lude.<$> scaleOutCooldown,
-            Lude.Just ("TargetValue" Lude..= targetValue)
+            ("ScaleOutCooldown" Lude..=) Lude.<$> scaleOutCooldown
           ]
       )

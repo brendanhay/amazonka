@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.CloudTrail.ListTrails
     mkListTrails,
 
     -- ** Request lenses
-    lNextToken,
+    ltNextToken,
 
     -- * Destructuring the response
     ListTrailsResponse (..),
@@ -42,14 +43,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTrails' smart constructor.
-newtype ListTrails = ListTrails' {nextToken :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ListTrails = ListTrails'
+  { -- | The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+    nextToken :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrails' with the minimum fields required to make a request.
@@ -62,9 +60,9 @@ mkListTrails = ListTrails' {nextToken = Lude.Nothing}
 -- | The token to use to get the next page of results after a previous API call. This token must be passed in with the same parameters that were specified in the the original call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListTrails (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListTrails -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrails)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltNextToken :: Lens.Lens' ListTrails (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTrails -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTrails)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListTrails where
   page rq rs
@@ -73,7 +71,7 @@ instance Page.AWSPager ListTrails where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lNextToken Lens..~ rs Lens.^. lrsNextToken
+          Lude.& ltNextToken Lens..~ rs Lens.^. lrsNextToken
 
 instance Lude.AWSRequest ListTrails where
   type Rs ListTrails = ListTrailsResponse
@@ -113,25 +111,21 @@ instance Lude.ToQuery ListTrails where
 
 -- | /See:/ 'mkListTrailsResponse' smart constructor.
 data ListTrailsResponse = ListTrailsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns the name, ARN, and home region of trails in the current account.
     trails :: Lude.Maybe [TrailInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrailsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to get the next page of results after a previous API call. If the token does not appear, there are no more results to return. The token must be passed in with the same parameters as the previous call. For example, if the original call specified an AttributeKey of 'Username' with a value of 'root', the call with NextToken should include those same parameters.
--- * 'responseStatus' - The response status code.
 -- * 'trails' - Returns the name, ARN, and home region of trails in the current account.
+-- * 'responseStatus' - The response status code.
 mkListTrailsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

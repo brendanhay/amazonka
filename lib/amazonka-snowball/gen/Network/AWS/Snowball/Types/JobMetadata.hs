@@ -57,56 +57,68 @@ import Network.AWS.Snowball.Types.TaxDocuments
 --
 -- /See:/ 'mkJobMetadata' smart constructor.
 data JobMetadata = JobMetadata'
-  { jobType :: Lude.Maybe JobType,
+  { -- | The type of job.
+    jobType :: Lude.Maybe JobType,
+    -- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
     kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
     jobId :: Lude.Maybe Lude.Text,
+    -- | Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snow device for your job part is being delivered to you.
     jobLogInfo :: Lude.Maybe JobLogs,
+    -- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
     notification :: Lude.Maybe Notification,
+    -- | The current status of the jobs.
     jobState :: Lude.Maybe JobState,
+    -- | The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
     forwardingAddressId :: Lude.Maybe Lude.Text,
+    -- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
     shippingDetails :: Lude.Maybe ShippingDetails,
+    -- | The ID for the address that you want the Snow device shipped to.
     addressId :: Lude.Maybe Lude.Text,
+    -- | The type of device used with this job.
     snowballType :: Lude.Maybe SnowballType,
+    -- | A value that defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
     dataTransferProgress :: Lude.Maybe DataTransfer,
+    -- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
     resources :: Lude.Maybe JobResource,
+    -- | The 39-character ID for the cluster, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
     clusterId :: Lude.Maybe Lude.Text,
+    -- | The creation date for this job.
     creationDate :: Lude.Maybe Lude.Timestamp,
     deviceConfiguration :: Lude.Maybe DeviceConfiguration,
+    -- | The description of the job, provided at job creation.
     description :: Lude.Maybe Lude.Text,
+    -- | The metadata associated with the tax documents required in your AWS Region.
     taxDocuments :: Lude.Maybe TaxDocuments,
+    -- | The role ARN associated with this job. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The Snow device capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
     snowballCapacityPreference :: Lude.Maybe SnowballCapacity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobMetadata' with the minimum fields required to make a request.
 --
--- * 'addressId' - The ID for the address that you want the Snow device shipped to.
--- * 'clusterId' - The 39-character ID for the cluster, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
--- * 'creationDate' - The creation date for this job.
--- * 'dataTransferProgress' - A value that defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
--- * 'description' - The description of the job, provided at job creation.
--- * 'deviceConfiguration' - Undocumented field.
--- * 'forwardingAddressId' - The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
--- * 'jobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
--- * 'jobLogInfo' - Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snow device for your job part is being delivered to you.
--- * 'jobState' - The current status of the jobs.
 -- * 'jobType' - The type of job.
 -- * 'kmsKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS) key associated with this job. This ARN was created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS KMS.
+-- * 'jobId' - The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+-- * 'jobLogInfo' - Links to Amazon S3 presigned URLs for the job report and logs. For import jobs, the PDF job report becomes available at the end of the import process. For export jobs, your job report typically becomes available while the Snow device for your job part is being delivered to you.
 -- * 'notification' - The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
--- * 'resources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
--- * 'roleARN' - The role ARN associated with this job. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+-- * 'jobState' - The current status of the jobs.
+-- * 'forwardingAddressId' - The ID of the address that you want a job shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
 -- * 'shippingDetails' - A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
--- * 'snowballCapacityPreference' - The Snow device capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
+-- * 'addressId' - The ID for the address that you want the Snow device shipped to.
 -- * 'snowballType' - The type of device used with this job.
+-- * 'dataTransferProgress' - A value that defines the real-time status of a Snow device's data transfer while the device is at AWS. This data is only available while a job has a @JobState@ value of @InProgress@ , for both import and export jobs.
+-- * 'resources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into.
+-- * 'clusterId' - The 39-character ID for the cluster, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+-- * 'creationDate' - The creation date for this job.
+-- * 'deviceConfiguration' -
+-- * 'description' - The description of the job, provided at job creation.
 -- * 'taxDocuments' - The metadata associated with the tax documents required in your AWS Region.
+-- * 'roleARN' - The role ARN associated with this job. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+-- * 'snowballCapacityPreference' - The Snow device capacity preference for this job, specified at job creation. In US regions, you can choose between 50 TB and 80 TB Snowballs. All other regions use 80 TB capacity Snowballs.
 mkJobMetadata ::
   JobMetadata
 mkJobMetadata =

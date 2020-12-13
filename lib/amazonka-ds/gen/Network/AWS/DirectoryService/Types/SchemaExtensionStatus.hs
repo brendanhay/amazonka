@@ -13,15 +13,15 @@
 module Network.AWS.DirectoryService.Types.SchemaExtensionStatus
   ( SchemaExtensionStatus
       ( SchemaExtensionStatus',
-        SESCancelInProgress,
-        SESCancelled,
-        SESCompleted,
-        SESCreatingSnapshot,
-        SESFailed,
         SESInitializing,
+        SESCreatingSnapshot,
+        SESUpdatingSchema,
         SESReplicating,
+        SESCancelInProgress,
         SESRollbackInProgress,
-        SESUpdatingSchema
+        SESCancelled,
+        SESFailed,
+        SESCompleted
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype SchemaExtensionStatus = SchemaExtensionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SESCancelInProgress :: SchemaExtensionStatus
-pattern SESCancelInProgress = SchemaExtensionStatus' "CancelInProgress"
-
-pattern SESCancelled :: SchemaExtensionStatus
-pattern SESCancelled = SchemaExtensionStatus' "Cancelled"
-
-pattern SESCompleted :: SchemaExtensionStatus
-pattern SESCompleted = SchemaExtensionStatus' "Completed"
+pattern SESInitializing :: SchemaExtensionStatus
+pattern SESInitializing = SchemaExtensionStatus' "Initializing"
 
 pattern SESCreatingSnapshot :: SchemaExtensionStatus
 pattern SESCreatingSnapshot = SchemaExtensionStatus' "CreatingSnapshot"
 
-pattern SESFailed :: SchemaExtensionStatus
-pattern SESFailed = SchemaExtensionStatus' "Failed"
-
-pattern SESInitializing :: SchemaExtensionStatus
-pattern SESInitializing = SchemaExtensionStatus' "Initializing"
+pattern SESUpdatingSchema :: SchemaExtensionStatus
+pattern SESUpdatingSchema = SchemaExtensionStatus' "UpdatingSchema"
 
 pattern SESReplicating :: SchemaExtensionStatus
 pattern SESReplicating = SchemaExtensionStatus' "Replicating"
 
+pattern SESCancelInProgress :: SchemaExtensionStatus
+pattern SESCancelInProgress = SchemaExtensionStatus' "CancelInProgress"
+
 pattern SESRollbackInProgress :: SchemaExtensionStatus
 pattern SESRollbackInProgress = SchemaExtensionStatus' "RollbackInProgress"
 
-pattern SESUpdatingSchema :: SchemaExtensionStatus
-pattern SESUpdatingSchema = SchemaExtensionStatus' "UpdatingSchema"
+pattern SESCancelled :: SchemaExtensionStatus
+pattern SESCancelled = SchemaExtensionStatus' "Cancelled"
+
+pattern SESFailed :: SchemaExtensionStatus
+pattern SESFailed = SchemaExtensionStatus' "Failed"
+
+pattern SESCompleted :: SchemaExtensionStatus
+pattern SESCompleted = SchemaExtensionStatus' "Completed"
 
 {-# COMPLETE
-  SESCancelInProgress,
-  SESCancelled,
-  SESCompleted,
-  SESCreatingSnapshot,
-  SESFailed,
   SESInitializing,
-  SESReplicating,
-  SESRollbackInProgress,
+  SESCreatingSnapshot,
   SESUpdatingSchema,
+  SESReplicating,
+  SESCancelInProgress,
+  SESRollbackInProgress,
+  SESCancelled,
+  SESFailed,
+  SESCompleted,
   SchemaExtensionStatus'
   #-}

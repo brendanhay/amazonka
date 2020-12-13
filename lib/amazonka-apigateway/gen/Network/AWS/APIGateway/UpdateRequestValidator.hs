@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.UpdateRequestValidator
     mkUpdateRequestValidator,
 
     -- ** Request lenses
-    urvPatchOperations,
-    urvRestAPIId,
     urvRequestValidatorId,
+    urvRestAPIId,
+    urvPatchOperations,
 
     -- * Destructuring the response
     RequestValidator (..),
@@ -45,44 +46,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateRequestValidator' smart constructor.
 data UpdateRequestValidator = UpdateRequestValidator'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The identifier of 'RequestValidator' to be updated.
+    requestValidatorId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    requestValidatorId :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRequestValidator' with the minimum fields required to make a request.
 --
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'requestValidatorId' - [Required] The identifier of 'RequestValidator' to be updated.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateRequestValidator ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'requestValidatorId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateRequestValidator
-mkUpdateRequestValidator pRestAPIId_ pRequestValidatorId_ =
+mkUpdateRequestValidator pRequestValidatorId_ pRestAPIId_ =
   UpdateRequestValidator'
-    { patchOperations = Lude.Nothing,
+    { requestValidatorId =
+        pRequestValidatorId_,
       restAPIId = pRestAPIId_,
-      requestValidatorId = pRequestValidatorId_
+      patchOperations = Lude.Nothing
     }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- | [Required] The identifier of 'RequestValidator' to be updated.
 --
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urvPatchOperations :: Lens.Lens' UpdateRequestValidator (Lude.Maybe [PatchOperation])
-urvPatchOperations = Lens.lens (patchOperations :: UpdateRequestValidator -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateRequestValidator)
-{-# DEPRECATED urvPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
+-- /Note:/ Consider using 'requestValidatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urvRequestValidatorId :: Lens.Lens' UpdateRequestValidator Lude.Text
+urvRequestValidatorId = Lens.lens (requestValidatorId :: UpdateRequestValidator -> Lude.Text) (\s a -> s {requestValidatorId = a} :: UpdateRequestValidator)
+{-# DEPRECATED urvRequestValidatorId "Use generic-lens or generic-optics with 'requestValidatorId' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -91,12 +89,12 @@ urvRestAPIId :: Lens.Lens' UpdateRequestValidator Lude.Text
 urvRestAPIId = Lens.lens (restAPIId :: UpdateRequestValidator -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateRequestValidator)
 {-# DEPRECATED urvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | [Required] The identifier of 'RequestValidator' to be updated.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- /Note:/ Consider using 'requestValidatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urvRequestValidatorId :: Lens.Lens' UpdateRequestValidator Lude.Text
-urvRequestValidatorId = Lens.lens (requestValidatorId :: UpdateRequestValidator -> Lude.Text) (\s a -> s {requestValidatorId = a} :: UpdateRequestValidator)
-{-# DEPRECATED urvRequestValidatorId "Use generic-lens or generic-optics with 'requestValidatorId' instead." #-}
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urvPatchOperations :: Lens.Lens' UpdateRequestValidator (Lude.Maybe [PatchOperation])
+urvPatchOperations = Lens.lens (patchOperations :: UpdateRequestValidator -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateRequestValidator)
+{-# DEPRECATED urvPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateRequestValidator where
   type Rs UpdateRequestValidator = RequestValidator

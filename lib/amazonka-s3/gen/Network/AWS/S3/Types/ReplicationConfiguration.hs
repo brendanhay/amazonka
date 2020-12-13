@@ -17,8 +17,8 @@ module Network.AWS.S3.Types.ReplicationConfiguration
     mkReplicationConfiguration,
 
     -- * Lenses
-    rcRole,
     rcRules,
+    rcRole,
   )
 where
 
@@ -31,36 +31,24 @@ import Network.AWS.S3.Types.ReplicationRule
 --
 -- /See:/ 'mkReplicationConfiguration' smart constructor.
 data ReplicationConfiguration = ReplicationConfiguration'
-  { role' ::
-      Lude.Text,
-    rules :: [ReplicationRule]
+  { -- | A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
+    rules :: [ReplicationRule],
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication> in the /Amazon Simple Storage Service Developer Guide/ .
+    role' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationConfiguration' with the minimum fields required to make a request.
 --
--- * 'role'' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication> in the /Amazon Simple Storage Service Developer Guide/ .
 -- * 'rules' - A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
+-- * 'role'' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication> in the /Amazon Simple Storage Service Developer Guide/ .
 mkReplicationConfiguration ::
   -- | 'role''
   Lude.Text ->
   ReplicationConfiguration
 mkReplicationConfiguration pRole_ =
-  ReplicationConfiguration' {role' = pRole_, rules = Lude.mempty}
-
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcRole :: Lens.Lens' ReplicationConfiguration Lude.Text
-rcRole = Lens.lens (role' :: ReplicationConfiguration -> Lude.Text) (\s a -> s {role' = a} :: ReplicationConfiguration)
-{-# DEPRECATED rcRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+  ReplicationConfiguration' {rules = Lude.mempty, role' = pRole_}
 
 -- | A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.
 --
@@ -69,11 +57,18 @@ rcRules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
 rcRules = Lens.lens (rules :: ReplicationConfiguration -> [ReplicationRule]) (\s a -> s {rules = a} :: ReplicationConfiguration)
 {-# DEPRECATED rcRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcRole :: Lens.Lens' ReplicationConfiguration Lude.Text
+rcRole = Lens.lens (role' :: ReplicationConfiguration -> Lude.Text) (\s a -> s {role' = a} :: ReplicationConfiguration)
+{-# DEPRECATED rcRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+
 instance Lude.FromXML ReplicationConfiguration where
   parseXML x =
     ReplicationConfiguration'
-      Lude.<$> (x Lude..@ "Role") Lude.<*> (Lude.parseXMLList "Rule" x)
+      Lude.<$> (Lude.parseXMLList "Rule" x) Lude.<*> (x Lude..@ "Role")
 
 instance Lude.ToXML ReplicationConfiguration where
   toXML ReplicationConfiguration' {..} =
-    Lude.mconcat ["Role" Lude.@= role', Lude.toXMLList "Rule" rules]
+    Lude.mconcat [Lude.toXMLList "Rule" rules, "Role" Lude.@= role']

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,10 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkDeleteAppReplicationConfiguration' smart constructor.
 newtype DeleteAppReplicationConfiguration = DeleteAppReplicationConfiguration'
-  { appId ::
-      Lude.Maybe Lude.Text
+  { -- | The ID of the application.
+    appId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAppReplicationConfiguration' with the minimum fields required to make a request.
@@ -102,16 +97,10 @@ instance Lude.ToQuery DeleteAppReplicationConfiguration where
 
 -- | /See:/ 'mkDeleteAppReplicationConfigurationResponse' smart constructor.
 newtype DeleteAppReplicationConfigurationResponse = DeleteAppReplicationConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAppReplicationConfigurationResponse' with the minimum fields required to make a request.

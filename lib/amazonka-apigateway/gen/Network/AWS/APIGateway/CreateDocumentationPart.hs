@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.CreateDocumentationPart
     mkCreateDocumentationPart,
 
     -- ** Request lenses
-    cdpRestAPIId,
     cdpLocation,
+    cdpRestAPIId,
     cdpProperties,
 
     -- * Destructuring the response
@@ -44,46 +45,35 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateDocumentationPart' smart constructor.
 data CreateDocumentationPart = CreateDocumentationPart'
-  { restAPIId ::
-      Lude.Text,
+  { -- | [Required] The location of the targeted API entity of the to-be-created documentation part.
     location :: DocumentationPartLocation,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
     properties :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDocumentationPart' with the minimum fields required to make a request.
 --
 -- * 'location' - [Required] The location of the targeted API entity of the to-be-created documentation part.
--- * 'properties' - [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'properties' - [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 mkCreateDocumentationPart ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'location'
   DocumentationPartLocation ->
+  -- | 'restAPIId'
+  Lude.Text ->
   -- | 'properties'
   Lude.Text ->
   CreateDocumentationPart
-mkCreateDocumentationPart pRestAPIId_ pLocation_ pProperties_ =
+mkCreateDocumentationPart pLocation_ pRestAPIId_ pProperties_ =
   CreateDocumentationPart'
-    { restAPIId = pRestAPIId_,
-      location = pLocation_,
+    { location = pLocation_,
+      restAPIId = pRestAPIId_,
       properties = pProperties_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdpRestAPIId :: Lens.Lens' CreateDocumentationPart Lude.Text
-cdpRestAPIId = Lens.lens (restAPIId :: CreateDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateDocumentationPart)
-{-# DEPRECATED cdpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The location of the targeted API entity of the to-be-created documentation part.
 --
@@ -91,6 +81,13 @@ cdpRestAPIId = Lens.lens (restAPIId :: CreateDocumentationPart -> Lude.Text) (\s
 cdpLocation :: Lens.Lens' CreateDocumentationPart DocumentationPartLocation
 cdpLocation = Lens.lens (location :: CreateDocumentationPart -> DocumentationPartLocation) (\s a -> s {location = a} :: CreateDocumentationPart)
 {-# DEPRECATED cdpLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdpRestAPIId :: Lens.Lens' CreateDocumentationPart Lude.Text
+cdpRestAPIId = Lens.lens (restAPIId :: CreateDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateDocumentationPart)
+{-# DEPRECATED cdpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 --

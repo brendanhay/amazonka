@@ -41,27 +41,42 @@ import Network.AWS.Redshift.Types.UsageLimitPeriod
 --
 -- /See:/ 'mkUsageLimit' smart constructor.
 data UsageLimit = UsageLimit'
-  { amount :: Lude.Maybe Lude.Integer,
+  { -- | The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).
+    amount :: Lude.Maybe Lude.Integer,
+    -- | The type of limit. Depending on the feature type, this can be based on a time duration or data size.
     limitType :: Lude.Maybe UsageLimitLimitType,
+    -- | The identifier of the usage limit.
     usageLimitId :: Lude.Maybe Lude.Text,
+    -- | The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
     period :: Lude.Maybe UsageLimitPeriod,
+    -- | The identifier of the cluster with a usage limit.
     clusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The action that Amazon Redshift takes when the limit is reached. Possible values are:
+    --
+    --
+    --     * __log__ - To log an event in a system table. The default is log.
+    --
+    --
+    --     * __emit-metric__ - To emit CloudWatch metrics.
+    --
+    --
+    --     * __disable__ - To disable the feature until the next usage period begins.
     breachAction :: Lude.Maybe UsageLimitBreachAction,
+    -- | The Amazon Redshift feature to which the limit applies.
     featureType :: Lude.Maybe UsageLimitFeatureType,
+    -- | A list of tag instances.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageLimit' with the minimum fields required to make a request.
 --
 -- * 'amount' - The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).
+-- * 'limitType' - The type of limit. Depending on the feature type, this can be based on a time duration or data size.
+-- * 'usageLimitId' - The identifier of the usage limit.
+-- * 'period' - The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
+-- * 'clusterIdentifier' - The identifier of the cluster with a usage limit.
 -- * 'breachAction' - The action that Amazon Redshift takes when the limit is reached. Possible values are:
 --
 --
@@ -74,12 +89,8 @@ data UsageLimit = UsageLimit'
 --     * __disable__ - To disable the feature until the next usage period begins.
 --
 --
--- * 'clusterIdentifier' - The identifier of the cluster with a usage limit.
 -- * 'featureType' - The Amazon Redshift feature to which the limit applies.
--- * 'limitType' - The type of limit. Depending on the feature type, this can be based on a time duration or data size.
--- * 'period' - The time period that the amount applies to. A @weekly@ period begins on Sunday. The default is @monthly@ .
 -- * 'tags' - A list of tag instances.
--- * 'usageLimitId' - The identifier of the usage limit.
 mkUsageLimit ::
   UsageLimit
 mkUsageLimit =

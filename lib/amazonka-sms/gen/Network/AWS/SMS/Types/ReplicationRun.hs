@@ -41,34 +41,55 @@ import Network.AWS.SMS.Types.ReplicationRunType
 --
 -- /See:/ 'mkReplicationRun' smart constructor.
 data ReplicationRun = ReplicationRun'
-  { state ::
-      Lude.Maybe ReplicationRunState,
+  { -- | The state of the replication run.
+    state :: Lude.Maybe ReplicationRunState,
+    -- | The ID of the replication run.
     replicationRunId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the replication run should produce an encrypted AMI.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | Details about the current stage of the replication run.
     stageDetails :: Lude.Maybe ReplicationRunStageDetails,
+    -- | The start time of the next replication run.
     scheduledStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the current status of the replication job.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
+    --
+    --
+    --     * KMS key ID
+    --
+    --
+    --     * KMS key alias
+    --
+    --
+    --     * ARN referring to the KMS key ID
+    --
+    --
+    --     * ARN referring to the KMS key alias
+    --
+    --
+    -- If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The completion time of the last replication run.
     completedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the Amazon Machine Image (AMI) from the replication run.
     amiId :: Lude.Maybe Lude.Text,
+    -- | The type of replication run.
     type' :: Lude.Maybe ReplicationRunType,
+    -- | The description of the replication run.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRun' with the minimum fields required to make a request.
 --
--- * 'amiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
--- * 'completedTime' - The completion time of the last replication run.
--- * 'description' - The description of the replication run.
+-- * 'state' - The state of the replication run.
+-- * 'replicationRunId' - The ID of the replication run.
 -- * 'encrypted' - Indicates whether the replication run should produce an encrypted AMI.
+-- * 'stageDetails' - Details about the current stage of the replication run.
+-- * 'scheduledStartTime' - The start time of the next replication run.
+-- * 'statusMessage' - The description of the current status of the replication job.
 -- * 'kmsKeyId' - The ID of the KMS key for replication jobs that produce encrypted AMIs. This value can be any of the following:
 --
 --
@@ -85,12 +106,10 @@ data ReplicationRun = ReplicationRun'
 --
 --
 -- If encrypted is /true/ but a KMS key ID is not specified, the customer's default KMS key for Amazon EBS is used.
--- * 'replicationRunId' - The ID of the replication run.
--- * 'scheduledStartTime' - The start time of the next replication run.
--- * 'stageDetails' - Details about the current stage of the replication run.
--- * 'state' - The state of the replication run.
--- * 'statusMessage' - The description of the current status of the replication job.
+-- * 'completedTime' - The completion time of the last replication run.
+-- * 'amiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
 -- * 'type'' - The type of replication run.
+-- * 'description' - The description of the replication run.
 mkReplicationRun ::
   ReplicationRun
 mkReplicationRun =

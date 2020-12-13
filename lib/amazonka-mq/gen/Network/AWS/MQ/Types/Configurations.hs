@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurations' smart constructor.
 data Configurations = Configurations'
-  { pending ::
-      Lude.Maybe ConfigurationId,
+  { -- | The pending configuration of the broker.
+    pending :: Lude.Maybe ConfigurationId,
+    -- | The history of configurations applied to the broker.
     history :: Lude.Maybe [ConfigurationId],
+    -- | The current configuration of the broker.
     current :: Lude.Maybe ConfigurationId
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Configurations' with the minimum fields required to make a request.
 --
--- * 'current' - The current configuration of the broker.
--- * 'history' - The history of configurations applied to the broker.
 -- * 'pending' - The pending configuration of the broker.
+-- * 'history' - The history of configurations applied to the broker.
+-- * 'current' - The current configuration of the broker.
 mkConfigurations ::
   Configurations
 mkConfigurations =

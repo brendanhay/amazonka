@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkListCompatibleImages' smart constructor.
 data ListCompatibleImages = ListCompatibleImages'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for @NextToken@ as the starting point for your list of returned images.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCompatibleImages' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.
 -- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of compatible images, you can specify a value for @NextToken@ as the starting point for your list of returned images.
+-- * 'maxResults' - The maximum number of results for the list of compatible images. Currently, a Snowball Edge device can store 10 AMIs.
 mkListCompatibleImages ::
   ListCompatibleImages
 mkListCompatibleImages =
@@ -134,18 +130,14 @@ instance Lude.ToQuery ListCompatibleImages where
 
 -- | /See:/ 'mkListCompatibleImagesResponse' smart constructor.
 data ListCompatibleImagesResponse = ListCompatibleImagesResponse'
-  { compatibleImages ::
-      Lude.Maybe [CompatibleImage],
+  { -- | A JSON-formatted object that describes a compatible AMI, including the ID and name for a Snow device AMI.
+    compatibleImages :: Lude.Maybe [CompatibleImage],
+    -- | Because HTTP requests are stateless, this is the starting point for your next list of returned images.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCompatibleImagesResponse' with the minimum fields required to make a request.

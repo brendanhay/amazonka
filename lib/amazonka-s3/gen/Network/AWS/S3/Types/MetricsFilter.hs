@@ -33,24 +33,21 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkMetricsFilter' smart constructor.
 data MetricsFilter = MetricsFilter'
-  { tag :: Lude.Maybe Tag,
+  { -- | The tag used when evaluating a metrics filter.
+    tag :: Lude.Maybe Tag,
+    -- | The prefix used when evaluating a metrics filter.
     prefix :: Lude.Maybe Lude.Text,
+    -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
     and :: Lude.Maybe MetricsAndOperator
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricsFilter' with the minimum fields required to make a request.
 --
--- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
--- * 'prefix' - The prefix used when evaluating a metrics filter.
 -- * 'tag' - The tag used when evaluating a metrics filter.
+-- * 'prefix' - The prefix used when evaluating a metrics filter.
+-- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
 mkMetricsFilter ::
   MetricsFilter
 mkMetricsFilter =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.Rekognition.GetFaceSearch
     mkGetFaceSearch,
 
     -- ** Request lenses
+    gfsJobId,
     gfsNextToken,
     gfsMaxResults,
     gfsSortBy,
-    gfsJobId,
 
     -- * Destructuring the response
     GetFaceSearchResponse (..),
@@ -51,26 +52,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFaceSearch' smart constructor.
 data GetFaceSearch = GetFaceSearch'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The job identifer for the search request. You get the job identifier from an initial call to @StartFaceSearch@ .
+    jobId :: Lude.Text,
+    -- | If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
     maxResults :: Lude.Maybe Lude.Natural,
-    sortBy :: Lude.Maybe FaceSearchSortBy,
-    jobId :: Lude.Text
+    -- | Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group faces by the time that they are recognized. Use @INDEX@ to sort by recognized faces.
+    sortBy :: Lude.Maybe FaceSearchSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFaceSearch' with the minimum fields required to make a request.
 --
 -- * 'jobId' - The job identifer for the search request. You get the job identifier from an initial call to @StartFaceSearch@ .
--- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 -- * 'nextToken' - If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
+-- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 -- * 'sortBy' - Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group faces by the time that they are recognized. Use @INDEX@ to sort by recognized faces.
 mkGetFaceSearch ::
   -- | 'jobId'
@@ -78,11 +76,18 @@ mkGetFaceSearch ::
   GetFaceSearch
 mkGetFaceSearch pJobId_ =
   GetFaceSearch'
-    { nextToken = Lude.Nothing,
+    { jobId = pJobId_,
+      nextToken = Lude.Nothing,
       maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing,
-      jobId = pJobId_
+      sortBy = Lude.Nothing
     }
+
+-- | The job identifer for the search request. You get the job identifier from an initial call to @StartFaceSearch@ .
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfsJobId :: Lens.Lens' GetFaceSearch Lude.Text
+gfsJobId = Lens.lens (jobId :: GetFaceSearch -> Lude.Text) (\s a -> s {jobId = a} :: GetFaceSearch)
+{-# DEPRECATED gfsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results.
 --
@@ -104,13 +109,6 @@ gfsMaxResults = Lens.lens (maxResults :: GetFaceSearch -> Lude.Maybe Lude.Natura
 gfsSortBy :: Lens.Lens' GetFaceSearch (Lude.Maybe FaceSearchSortBy)
 gfsSortBy = Lens.lens (sortBy :: GetFaceSearch -> Lude.Maybe FaceSearchSortBy) (\s a -> s {sortBy = a} :: GetFaceSearch)
 {-# DEPRECATED gfsSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
-
--- | The job identifer for the search request. You get the job identifier from an initial call to @StartFaceSearch@ .
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfsJobId :: Lens.Lens' GetFaceSearch Lude.Text
-gfsJobId = Lens.lens (jobId :: GetFaceSearch -> Lude.Text) (\s a -> s {jobId = a} :: GetFaceSearch)
-{-# DEPRECATED gfsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest GetFaceSearch where
   type Rs GetFaceSearch = GetFaceSearchResponse
@@ -142,10 +140,10 @@ instance Lude.ToJSON GetFaceSearch where
   toJSON GetFaceSearch' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("JobId" Lude..= jobId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy,
-            Lude.Just ("JobId" Lude..= jobId)
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
@@ -157,31 +155,30 @@ instance Lude.ToQuery GetFaceSearch where
 
 -- | /See:/ 'mkGetFaceSearchResponse' smart constructor.
 data GetFaceSearchResponse = GetFaceSearchResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
     videoMetadata :: Lude.Maybe VideoMetadata,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The current status of the face search job.
     jobStatus :: Lude.Maybe VideoJobStatus,
+    -- | An array of persons, 'PersonMatch' , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
     persons :: Lude.Maybe [PersonMatch],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFaceSearchResponse' with the minimum fields required to make a request.
 --
--- * 'jobStatus' - The current status of the face search job.
 -- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results.
+-- * 'videoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
+-- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- * 'jobStatus' - The current status of the face search job.
 -- * 'persons' - An array of persons, 'PersonMatch' , in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information for when persons are matched in the video. You specify the input collection in an initial call to @StartFaceSearch@ . Each @Persons@ element includes a time the person was matched, face match details (@FaceMatches@ ) for matching faces in the collection, and person information (@Person@ ) for the matched person.
 -- * 'responseStatus' - The response status code.
--- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
--- * 'videoMetadata' - Information about a video that Amazon Rekognition analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
 mkGetFaceSearchResponse ::
   -- | 'responseStatus'
   Lude.Int ->

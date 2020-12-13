@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,19 +61,13 @@ data GetStatus = GetStatus'
   { apiVersion :: Lude.Maybe Lude.Text,
     jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatus' with the minimum fields required to make a request.
 --
--- * 'apiVersion' - Undocumented field.
--- * 'jobId' - Undocumented field.
+-- * 'apiVersion' -
+-- * 'jobId' -
 mkGetStatus ::
   -- | 'jobId'
   Lude.Text ->
@@ -143,8 +138,7 @@ instance Lude.ToQuery GetStatus where
 --
 -- /See:/ 'mkGetStatusResponse' smart constructor.
 data GetStatusResponse = GetStatusResponse'
-  { carrier ::
-      Lude.Maybe Lude.Text,
+  { carrier :: Lude.Maybe Lude.Text,
     trackingNumber :: Lude.Maybe Lude.Text,
     signature :: Lude.Maybe Lude.Text,
     jobType :: Lude.Maybe JobType,
@@ -160,36 +154,31 @@ data GetStatusResponse = GetStatusResponse'
     logKey :: Lude.Maybe Lude.Text,
     locationMessage :: Lude.Maybe Lude.Text,
     progressMessage :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatusResponse' with the minimum fields required to make a request.
 --
--- * 'artifactList' - Undocumented field.
--- * 'carrier' - Undocumented field.
--- * 'creationDate' - Undocumented field.
--- * 'currentManifest' - Undocumented field.
--- * 'errorCount' - Undocumented field.
--- * 'jobId' - Undocumented field.
--- * 'jobType' - Undocumented field.
--- * 'locationCode' - Undocumented field.
--- * 'locationMessage' - Undocumented field.
--- * 'logBucket' - Undocumented field.
--- * 'logKey' - Undocumented field.
--- * 'progressCode' - Undocumented field.
--- * 'progressMessage' - Undocumented field.
+-- * 'carrier' -
+-- * 'trackingNumber' -
+-- * 'signature' -
+-- * 'jobType' -
+-- * 'jobId' -
+-- * 'signatureFileContents' -
+-- * 'errorCount' -
+-- * 'currentManifest' -
+-- * 'artifactList' -
+-- * 'logBucket' -
+-- * 'creationDate' -
+-- * 'progressCode' -
+-- * 'locationCode' -
+-- * 'logKey' -
+-- * 'locationMessage' -
+-- * 'progressMessage' -
 -- * 'responseStatus' - The response status code.
--- * 'signature' - Undocumented field.
--- * 'signatureFileContents' - Undocumented field.
--- * 'trackingNumber' - Undocumented field.
 mkGetStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

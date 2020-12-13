@@ -13,12 +13,12 @@
 module Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus
   ( StackInstanceDetailedStatus
       ( StackInstanceDetailedStatus',
-        SIDSCancelled,
-        SIDSFailed,
-        SIDSInoperable,
         SIDSPending,
         SIDSRunning,
-        SIDSSucceeded
+        SIDSSucceeded,
+        SIDSFailed,
+        SIDSCancelled,
+        SIDSInoperable
       ),
   )
 where
@@ -49,15 +49,6 @@ newtype StackInstanceDetailedStatus = StackInstanceDetailedStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SIDSCancelled :: StackInstanceDetailedStatus
-pattern SIDSCancelled = StackInstanceDetailedStatus' "CANCELLED"
-
-pattern SIDSFailed :: StackInstanceDetailedStatus
-pattern SIDSFailed = StackInstanceDetailedStatus' "FAILED"
-
-pattern SIDSInoperable :: StackInstanceDetailedStatus
-pattern SIDSInoperable = StackInstanceDetailedStatus' "INOPERABLE"
-
 pattern SIDSPending :: StackInstanceDetailedStatus
 pattern SIDSPending = StackInstanceDetailedStatus' "PENDING"
 
@@ -67,12 +58,21 @@ pattern SIDSRunning = StackInstanceDetailedStatus' "RUNNING"
 pattern SIDSSucceeded :: StackInstanceDetailedStatus
 pattern SIDSSucceeded = StackInstanceDetailedStatus' "SUCCEEDED"
 
+pattern SIDSFailed :: StackInstanceDetailedStatus
+pattern SIDSFailed = StackInstanceDetailedStatus' "FAILED"
+
+pattern SIDSCancelled :: StackInstanceDetailedStatus
+pattern SIDSCancelled = StackInstanceDetailedStatus' "CANCELLED"
+
+pattern SIDSInoperable :: StackInstanceDetailedStatus
+pattern SIDSInoperable = StackInstanceDetailedStatus' "INOPERABLE"
+
 {-# COMPLETE
-  SIDSCancelled,
-  SIDSFailed,
-  SIDSInoperable,
   SIDSPending,
   SIDSRunning,
   SIDSSucceeded,
+  SIDSFailed,
+  SIDSCancelled,
+  SIDSInoperable,
   StackInstanceDetailedStatus'
   #-}

@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGatewayGroup' smart constructor.
 data GatewayGroup = GatewayGroup'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the gateway group.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the gateway group.
     name :: Lude.Maybe Lude.Text,
+    -- | The description of the gateway group.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GatewayGroup' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the gateway group.
--- * 'description' - The description of the gateway group.
 -- * 'name' - The name of the gateway group.
+-- * 'description' - The description of the gateway group.
 mkGatewayGroup ::
   GatewayGroup
 mkGatewayGroup =

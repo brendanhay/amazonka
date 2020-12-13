@@ -13,17 +13,17 @@
 module Network.AWS.EMR.Types.InstanceGroupState
   ( InstanceGroupState
       ( InstanceGroupState',
-        Arrested,
-        Bootstrapping,
-        Ended,
         Provisioning,
+        Bootstrapping,
+        Running,
         Reconfiguring,
         Resizing,
-        Running,
-        ShuttingDown,
         Suspended,
+        Terminating,
         Terminated,
-        Terminating
+        Arrested,
+        ShuttingDown,
+        Ended
       ),
   )
 where
@@ -54,17 +54,14 @@ newtype InstanceGroupState = InstanceGroupState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Arrested :: InstanceGroupState
-pattern Arrested = InstanceGroupState' "ARRESTED"
+pattern Provisioning :: InstanceGroupState
+pattern Provisioning = InstanceGroupState' "PROVISIONING"
 
 pattern Bootstrapping :: InstanceGroupState
 pattern Bootstrapping = InstanceGroupState' "BOOTSTRAPPING"
 
-pattern Ended :: InstanceGroupState
-pattern Ended = InstanceGroupState' "ENDED"
-
-pattern Provisioning :: InstanceGroupState
-pattern Provisioning = InstanceGroupState' "PROVISIONING"
+pattern Running :: InstanceGroupState
+pattern Running = InstanceGroupState' "RUNNING"
 
 pattern Reconfiguring :: InstanceGroupState
 pattern Reconfiguring = InstanceGroupState' "RECONFIGURING"
@@ -72,32 +69,35 @@ pattern Reconfiguring = InstanceGroupState' "RECONFIGURING"
 pattern Resizing :: InstanceGroupState
 pattern Resizing = InstanceGroupState' "RESIZING"
 
-pattern Running :: InstanceGroupState
-pattern Running = InstanceGroupState' "RUNNING"
-
-pattern ShuttingDown :: InstanceGroupState
-pattern ShuttingDown = InstanceGroupState' "SHUTTING_DOWN"
-
 pattern Suspended :: InstanceGroupState
 pattern Suspended = InstanceGroupState' "SUSPENDED"
-
-pattern Terminated :: InstanceGroupState
-pattern Terminated = InstanceGroupState' "TERMINATED"
 
 pattern Terminating :: InstanceGroupState
 pattern Terminating = InstanceGroupState' "TERMINATING"
 
+pattern Terminated :: InstanceGroupState
+pattern Terminated = InstanceGroupState' "TERMINATED"
+
+pattern Arrested :: InstanceGroupState
+pattern Arrested = InstanceGroupState' "ARRESTED"
+
+pattern ShuttingDown :: InstanceGroupState
+pattern ShuttingDown = InstanceGroupState' "SHUTTING_DOWN"
+
+pattern Ended :: InstanceGroupState
+pattern Ended = InstanceGroupState' "ENDED"
+
 {-# COMPLETE
-  Arrested,
-  Bootstrapping,
-  Ended,
   Provisioning,
+  Bootstrapping,
+  Running,
   Reconfiguring,
   Resizing,
-  Running,
-  ShuttingDown,
   Suspended,
-  Terminated,
   Terminating,
+  Terminated,
+  Arrested,
+  ShuttingDown,
+  Ended,
   InstanceGroupState'
   #-}

@@ -13,18 +13,18 @@
 module Network.AWS.Pinpoint.Types.EndpointTypesElement
   ( EndpointTypesElement
       ( EndpointTypesElement',
-        ADM,
-        APNS,
-        APNSSandbox,
-        APNSVoip,
-        APNSVoipSandbox,
-        Baidu,
-        Custom,
-        Email,
-        GCM,
-        Push,
-        Sms,
-        Voice
+        ETEPush,
+        ETEGCM,
+        ETEAPNS,
+        ETEAPNSSandbox,
+        ETEAPNSVoip,
+        ETEAPNSVoipSandbox,
+        ETEADM,
+        ETESms,
+        ETEVoice,
+        ETEEmail,
+        ETEBaidu,
+        ETECustom
       ),
   )
 where
@@ -55,54 +55,54 @@ newtype EndpointTypesElement = EndpointTypesElement' Lude.Text
       Lude.ToHeader
     )
 
-pattern ADM :: EndpointTypesElement
-pattern ADM = EndpointTypesElement' "ADM"
+pattern ETEPush :: EndpointTypesElement
+pattern ETEPush = EndpointTypesElement' "PUSH"
 
-pattern APNS :: EndpointTypesElement
-pattern APNS = EndpointTypesElement' "APNS"
+pattern ETEGCM :: EndpointTypesElement
+pattern ETEGCM = EndpointTypesElement' "GCM"
 
-pattern APNSSandbox :: EndpointTypesElement
-pattern APNSSandbox = EndpointTypesElement' "APNS_SANDBOX"
+pattern ETEAPNS :: EndpointTypesElement
+pattern ETEAPNS = EndpointTypesElement' "APNS"
 
-pattern APNSVoip :: EndpointTypesElement
-pattern APNSVoip = EndpointTypesElement' "APNS_VOIP"
+pattern ETEAPNSSandbox :: EndpointTypesElement
+pattern ETEAPNSSandbox = EndpointTypesElement' "APNS_SANDBOX"
 
-pattern APNSVoipSandbox :: EndpointTypesElement
-pattern APNSVoipSandbox = EndpointTypesElement' "APNS_VOIP_SANDBOX"
+pattern ETEAPNSVoip :: EndpointTypesElement
+pattern ETEAPNSVoip = EndpointTypesElement' "APNS_VOIP"
 
-pattern Baidu :: EndpointTypesElement
-pattern Baidu = EndpointTypesElement' "BAIDU"
+pattern ETEAPNSVoipSandbox :: EndpointTypesElement
+pattern ETEAPNSVoipSandbox = EndpointTypesElement' "APNS_VOIP_SANDBOX"
 
-pattern Custom :: EndpointTypesElement
-pattern Custom = EndpointTypesElement' "CUSTOM"
+pattern ETEADM :: EndpointTypesElement
+pattern ETEADM = EndpointTypesElement' "ADM"
 
-pattern Email :: EndpointTypesElement
-pattern Email = EndpointTypesElement' "EMAIL"
+pattern ETESms :: EndpointTypesElement
+pattern ETESms = EndpointTypesElement' "SMS"
 
-pattern GCM :: EndpointTypesElement
-pattern GCM = EndpointTypesElement' "GCM"
+pattern ETEVoice :: EndpointTypesElement
+pattern ETEVoice = EndpointTypesElement' "VOICE"
 
-pattern Push :: EndpointTypesElement
-pattern Push = EndpointTypesElement' "PUSH"
+pattern ETEEmail :: EndpointTypesElement
+pattern ETEEmail = EndpointTypesElement' "EMAIL"
 
-pattern Sms :: EndpointTypesElement
-pattern Sms = EndpointTypesElement' "SMS"
+pattern ETEBaidu :: EndpointTypesElement
+pattern ETEBaidu = EndpointTypesElement' "BAIDU"
 
-pattern Voice :: EndpointTypesElement
-pattern Voice = EndpointTypesElement' "VOICE"
+pattern ETECustom :: EndpointTypesElement
+pattern ETECustom = EndpointTypesElement' "CUSTOM"
 
 {-# COMPLETE
-  ADM,
-  APNS,
-  APNSSandbox,
-  APNSVoip,
-  APNSVoipSandbox,
-  Baidu,
-  Custom,
-  Email,
-  GCM,
-  Push,
-  Sms,
-  Voice,
+  ETEPush,
+  ETEGCM,
+  ETEAPNS,
+  ETEAPNSSandbox,
+  ETEAPNSVoip,
+  ETEAPNSVoipSandbox,
+  ETEADM,
+  ETESms,
+  ETEVoice,
+  ETEEmail,
+  ETEBaidu,
+  ETECustom,
   EndpointTypesElement'
   #-}

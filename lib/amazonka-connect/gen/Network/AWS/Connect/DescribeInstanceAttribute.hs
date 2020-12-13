@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The type of attribute.
     attributeType :: InstanceAttributeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeType' - The type of attribute.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'attributeType' - The type of attribute.
 mkDescribeInstanceAttribute ::
   -- | 'instanceId'
   Lude.Text ->
@@ -118,18 +114,12 @@ instance Lude.ToQuery DescribeInstanceAttribute where
 
 -- | /See:/ 'mkDescribeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-  { attribute ::
-      Lude.Maybe Attribute,
-    responseStatus ::
-      Lude.Int
+  { -- | The type of attribute.
+    attribute :: Lude.Maybe Attribute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceAttributeResponse' with the minimum fields required to make a request.

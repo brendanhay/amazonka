@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.CustomErrorResponses
     mkCustomErrorResponses,
 
     -- * Lenses
-    cerItems,
     cerQuantity,
+    cerItems,
   )
 where
 
@@ -39,39 +39,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomErrorResponses' smart constructor.
 data CustomErrorResponses = CustomErrorResponses'
-  { items ::
-      Lude.Maybe [CustomErrorResponse],
-    quantity :: Lude.Int
+  { -- | The number of HTTP status codes for which you want to specify a custom error page and/or a caching duration. If @Quantity@ is @0@ , you can omit @Items@ .
+    quantity :: Lude.Int,
+    -- | A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
+    items :: Lude.Maybe [CustomErrorResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomErrorResponses' with the minimum fields required to make a request.
 --
--- * 'items' - A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
 -- * 'quantity' - The number of HTTP status codes for which you want to specify a custom error page and/or a caching duration. If @Quantity@ is @0@ , you can omit @Items@ .
+-- * 'items' - A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
 mkCustomErrorResponses ::
   -- | 'quantity'
   Lude.Int ->
   CustomErrorResponses
 mkCustomErrorResponses pQuantity_ =
   CustomErrorResponses'
-    { items = Lude.Nothing,
-      quantity = pQuantity_
+    { quantity = pQuantity_,
+      items = Lude.Nothing
     }
-
--- | A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cerItems :: Lens.Lens' CustomErrorResponses (Lude.Maybe [CustomErrorResponse])
-cerItems = Lens.lens (items :: CustomErrorResponses -> Lude.Maybe [CustomErrorResponse]) (\s a -> s {items = a} :: CustomErrorResponses)
-{-# DEPRECATED cerItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
 -- | The number of HTTP status codes for which you want to specify a custom error page and/or a caching duration. If @Quantity@ is @0@ , you can omit @Items@ .
 --
@@ -80,18 +68,25 @@ cerQuantity :: Lens.Lens' CustomErrorResponses Lude.Int
 cerQuantity = Lens.lens (quantity :: CustomErrorResponses -> Lude.Int) (\s a -> s {quantity = a} :: CustomErrorResponses)
 {-# DEPRECATED cerQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cerItems :: Lens.Lens' CustomErrorResponses (Lude.Maybe [CustomErrorResponse])
+cerItems = Lens.lens (items :: CustomErrorResponses -> Lude.Maybe [CustomErrorResponse]) (\s a -> s {items = a} :: CustomErrorResponses)
+{-# DEPRECATED cerItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML CustomErrorResponses where
   parseXML x =
     CustomErrorResponses'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "CustomErrorResponse")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML CustomErrorResponses where
   toXML CustomErrorResponses' {..} =
     Lude.mconcat
-      [ "Items"
-          Lude.@= Lude.toXML (Lude.toXMLList "CustomErrorResponse" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "CustomErrorResponse" Lude.<$> items)
       ]

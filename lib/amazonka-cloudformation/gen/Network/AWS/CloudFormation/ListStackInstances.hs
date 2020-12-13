@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.CloudFormation.ListStackInstances
     lsiStackInstanceRegion,
     lsiFilters,
     lsiNextToken,
+    lsiStackSetName,
     lsiStackInstanceAccount,
     lsiMaxResults,
-    lsiStackSetName,
 
     -- * Destructuring the response
     ListStackInstancesResponse (..),
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListStackInstances' smart constructor.
 data ListStackInstances = ListStackInstances'
-  { stackInstanceRegion ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the Region where you want to list stack instances.
+    stackInstanceRegion :: Lude.Maybe Lude.Text,
+    -- | The status that stack instances are filtered by.
     filters :: Lude.Maybe [StackInstanceFilter],
+    -- | If the previous request didn't return all of the remaining results, the response's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name or unique ID of the stack set that you want to list stack instances for.
+    stackSetName :: Lude.Text,
+    -- | The name of the AWS account that you want to list stack instances for.
     stackInstanceAccount :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    stackSetName :: Lude.Text
+    -- | The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStackInstances' with the minimum fields required to make a request.
 --
--- * 'filters' - The status that stack instances are filtered by.
--- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
--- * 'nextToken' - If the previous request didn't return all of the remaining results, the response's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
--- * 'stackInstanceAccount' - The name of the AWS account that you want to list stack instances for.
 -- * 'stackInstanceRegion' - The name of the Region where you want to list stack instances.
+-- * 'filters' - The status that stack instances are filtered by.
+-- * 'nextToken' - If the previous request didn't return all of the remaining results, the response's @NextToken@ parameter value is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 -- * 'stackSetName' - The name or unique ID of the stack set that you want to list stack instances for.
+-- * 'stackInstanceAccount' - The name of the AWS account that you want to list stack instances for.
+-- * 'maxResults' - The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 mkListStackInstances ::
   -- | 'stackSetName'
   Lude.Text ->
@@ -82,9 +82,9 @@ mkListStackInstances pStackSetName_ =
     { stackInstanceRegion = Lude.Nothing,
       filters = Lude.Nothing,
       nextToken = Lude.Nothing,
+      stackSetName = pStackSetName_,
       stackInstanceAccount = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      stackSetName = pStackSetName_
+      maxResults = Lude.Nothing
     }
 
 -- | The name of the Region where you want to list stack instances.
@@ -108,6 +108,13 @@ lsiNextToken :: Lens.Lens' ListStackInstances (Lude.Maybe Lude.Text)
 lsiNextToken = Lens.lens (nextToken :: ListStackInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStackInstances)
 {-# DEPRECATED lsiNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The name or unique ID of the stack set that you want to list stack instances for.
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsiStackSetName :: Lens.Lens' ListStackInstances Lude.Text
+lsiStackSetName = Lens.lens (stackSetName :: ListStackInstances -> Lude.Text) (\s a -> s {stackSetName = a} :: ListStackInstances)
+{-# DEPRECATED lsiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+
 -- | The name of the AWS account that you want to list stack instances for.
 --
 -- /Note:/ Consider using 'stackInstanceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -121,13 +128,6 @@ lsiStackInstanceAccount = Lens.lens (stackInstanceAccount :: ListStackInstances 
 lsiMaxResults :: Lens.Lens' ListStackInstances (Lude.Maybe Lude.Natural)
 lsiMaxResults = Lens.lens (maxResults :: ListStackInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListStackInstances)
 {-# DEPRECATED lsiMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The name or unique ID of the stack set that you want to list stack instances for.
---
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsiStackSetName :: Lens.Lens' ListStackInstances Lude.Text
-lsiStackSetName = Lens.lens (stackSetName :: ListStackInstances -> Lude.Text) (\s a -> s {stackSetName = a} :: ListStackInstances)
-{-# DEPRECATED lsiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 instance Page.AWSPager ListStackInstances where
   page rq rs
@@ -168,33 +168,28 @@ instance Lude.ToQuery ListStackInstances where
         "Filters"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> filters),
         "NextToken" Lude.=: nextToken,
+        "StackSetName" Lude.=: stackSetName,
         "StackInstanceAccount" Lude.=: stackInstanceAccount,
-        "MaxResults" Lude.=: maxResults,
-        "StackSetName" Lude.=: stackSetName
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkListStackInstancesResponse' smart constructor.
 data ListStackInstancesResponse = ListStackInstancesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    summaries ::
-      Lude.Maybe [StackInstanceSummary],
+  { -- | If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @StackInstanceSummary@ structures that contain information about the specified stack instances.
+    summaries :: Lude.Maybe [StackInstanceSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStackInstancesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the request doesn't return all of the remaining results, @NextToken@ is set to a token. To retrieve the next set of results, call @ListStackInstances@ again and assign that token to the request object's @NextToken@ parameter. If the request returns all results, @NextToken@ is set to @null@ .
--- * 'responseStatus' - The response status code.
 -- * 'summaries' - A list of @StackInstanceSummary@ structures that contain information about the specified stack instances.
+-- * 'responseStatus' - The response status code.
 mkListStackInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -17,8 +17,8 @@ module Network.AWS.Glue.Types.BooleanColumnStatisticsData
     mkBooleanColumnStatisticsData,
 
     -- * Lenses
-    bNumberOfTrues,
     bNumberOfFalses,
+    bNumberOfTrues,
     bNumberOfNulls,
   )
 where
@@ -30,49 +30,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBooleanColumnStatisticsData' smart constructor.
 data BooleanColumnStatisticsData = BooleanColumnStatisticsData'
-  { numberOfTrues ::
-      Lude.Natural,
+  { -- | The number of false values in the column.
     numberOfFalses :: Lude.Natural,
+    -- | The number of true values in the column.
+    numberOfTrues :: Lude.Natural,
+    -- | The number of null values in the column.
     numberOfNulls :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BooleanColumnStatisticsData' with the minimum fields required to make a request.
 --
 -- * 'numberOfFalses' - The number of false values in the column.
--- * 'numberOfNulls' - The number of null values in the column.
 -- * 'numberOfTrues' - The number of true values in the column.
+-- * 'numberOfNulls' - The number of null values in the column.
 mkBooleanColumnStatisticsData ::
-  -- | 'numberOfTrues'
-  Lude.Natural ->
   -- | 'numberOfFalses'
+  Lude.Natural ->
+  -- | 'numberOfTrues'
   Lude.Natural ->
   -- | 'numberOfNulls'
   Lude.Natural ->
   BooleanColumnStatisticsData
 mkBooleanColumnStatisticsData
-  pNumberOfTrues_
   pNumberOfFalses_
+  pNumberOfTrues_
   pNumberOfNulls_ =
     BooleanColumnStatisticsData'
-      { numberOfTrues = pNumberOfTrues_,
-        numberOfFalses = pNumberOfFalses_,
+      { numberOfFalses = pNumberOfFalses_,
+        numberOfTrues = pNumberOfTrues_,
         numberOfNulls = pNumberOfNulls_
       }
-
--- | The number of true values in the column.
---
--- /Note:/ Consider using 'numberOfTrues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bNumberOfTrues :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
-bNumberOfTrues = Lens.lens (numberOfTrues :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfTrues = a} :: BooleanColumnStatisticsData)
-{-# DEPRECATED bNumberOfTrues "Use generic-lens or generic-optics with 'numberOfTrues' instead." #-}
 
 -- | The number of false values in the column.
 --
@@ -80,6 +69,13 @@ bNumberOfTrues = Lens.lens (numberOfTrues :: BooleanColumnStatisticsData -> Lude
 bNumberOfFalses :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
 bNumberOfFalses = Lens.lens (numberOfFalses :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfFalses = a} :: BooleanColumnStatisticsData)
 {-# DEPRECATED bNumberOfFalses "Use generic-lens or generic-optics with 'numberOfFalses' instead." #-}
+
+-- | The number of true values in the column.
+--
+-- /Note:/ Consider using 'numberOfTrues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bNumberOfTrues :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
+bNumberOfTrues = Lens.lens (numberOfTrues :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfTrues = a} :: BooleanColumnStatisticsData)
+{-# DEPRECATED bNumberOfTrues "Use generic-lens or generic-optics with 'numberOfTrues' instead." #-}
 
 -- | The number of null values in the column.
 --
@@ -94,8 +90,8 @@ instance Lude.FromJSON BooleanColumnStatisticsData where
       "BooleanColumnStatisticsData"
       ( \x ->
           BooleanColumnStatisticsData'
-            Lude.<$> (x Lude..: "NumberOfTrues")
-            Lude.<*> (x Lude..: "NumberOfFalses")
+            Lude.<$> (x Lude..: "NumberOfFalses")
+            Lude.<*> (x Lude..: "NumberOfTrues")
             Lude.<*> (x Lude..: "NumberOfNulls")
       )
 
@@ -103,8 +99,8 @@ instance Lude.ToJSON BooleanColumnStatisticsData where
   toJSON BooleanColumnStatisticsData' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("NumberOfTrues" Lude..= numberOfTrues),
-            Lude.Just ("NumberOfFalses" Lude..= numberOfFalses),
+          [ Lude.Just ("NumberOfFalses" Lude..= numberOfFalses),
+            Lude.Just ("NumberOfTrues" Lude..= numberOfTrues),
             Lude.Just ("NumberOfNulls" Lude..= numberOfNulls)
           ]
       )

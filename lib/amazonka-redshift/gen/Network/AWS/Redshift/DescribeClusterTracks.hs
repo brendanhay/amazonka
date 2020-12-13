@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeClusterTracks' smart constructor.
 data DescribeClusterTracks = DescribeClusterTracks'
-  { maintenanceTrackName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the maintenance track.
+    maintenanceTrackName :: Lude.Maybe Lude.Text,
+    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a @DescribeClusterTracks@ request exceed the value specified in @MaxRecords@ , Amazon Redshift returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
     marker :: Lude.Maybe Lude.Text,
+    -- | An integer value for the maximum number of maintenance tracks to return.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterTracks' with the minimum fields required to make a request.
@@ -134,18 +131,14 @@ instance Lude.ToQuery DescribeClusterTracks where
 
 -- | /See:/ 'mkDescribeClusterTracksResponse' smart constructor.
 data DescribeClusterTracksResponse = DescribeClusterTracksResponse'
-  { maintenanceTracks ::
-      Lude.Maybe [MaintenanceTrack],
+  { -- | A list of maintenance tracks output by the @DescribeClusterTracks@ operation.
+    maintenanceTracks :: Lude.Maybe [MaintenanceTrack],
+    -- | The starting point to return a set of response tracklist records. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusterTracksResponse' with the minimum fields required to make a request.

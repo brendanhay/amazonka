@@ -13,9 +13,9 @@
 module Network.AWS.ServiceCatalog.Types.AccessStatus
   ( AccessStatus
       ( AccessStatus',
-        Disabled,
         Enabled,
-        UnderChange
+        UnderChange,
+        Disabled
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AccessStatus = AccessStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: AccessStatus
-pattern Disabled = AccessStatus' "DISABLED"
-
 pattern Enabled :: AccessStatus
 pattern Enabled = AccessStatus' "ENABLED"
 
 pattern UnderChange :: AccessStatus
 pattern UnderChange = AccessStatus' "UNDER_CHANGE"
 
+pattern Disabled :: AccessStatus
+pattern Disabled = AccessStatus' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
   UnderChange,
+  Disabled,
   AccessStatus'
   #-}

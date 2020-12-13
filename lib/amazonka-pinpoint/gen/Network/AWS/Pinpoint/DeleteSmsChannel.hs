@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.DeleteSmsChannel
     mkDeleteSmsChannelResponse,
 
     -- ** Response lenses
-    dscrsResponseStatus,
     dscrsSMSChannelResponse,
+    dscrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSmsChannel' smart constructor.
 newtype DeleteSmsChannel = DeleteSmsChannel'
-  { applicationId ::
-      Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSmsChannel' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DeleteSmsChannel where
     Res.receiveJSON
       ( \s h x ->
           DeleteSmsChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteSmsChannel where
@@ -97,41 +92,29 @@ instance Lude.ToQuery DeleteSmsChannel where
 
 -- | /See:/ 'mkDeleteSmsChannelResponse' smart constructor.
 data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    sMSChannelResponse :: SMSChannelResponse
+  { sMSChannelResponse :: SMSChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSmsChannelResponse' with the minimum fields required to make a request.
 --
+-- * 'sMSChannelResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'sMSChannelResponse' - Undocumented field.
 mkDeleteSmsChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'sMSChannelResponse'
   SMSChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteSmsChannelResponse
-mkDeleteSmsChannelResponse pResponseStatus_ pSMSChannelResponse_ =
+mkDeleteSmsChannelResponse pSMSChannelResponse_ pResponseStatus_ =
   DeleteSmsChannelResponse'
-    { responseStatus = pResponseStatus_,
-      sMSChannelResponse = pSMSChannelResponse_
+    { sMSChannelResponse =
+        pSMSChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DeleteSmsChannelResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSmsChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSmsChannelResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -139,3 +122,10 @@ dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSmsChannelResponse -> L
 dscrsSMSChannelResponse :: Lens.Lens' DeleteSmsChannelResponse SMSChannelResponse
 dscrsSMSChannelResponse = Lens.lens (sMSChannelResponse :: DeleteSmsChannelResponse -> SMSChannelResponse) (\s a -> s {sMSChannelResponse = a} :: DeleteSmsChannelResponse)
 {-# DEPRECATED dscrsSMSChannelResponse "Use generic-lens or generic-optics with 'sMSChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscrsResponseStatus :: Lens.Lens' DeleteSmsChannelResponse Lude.Int
+dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSmsChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSmsChannelResponse)
+{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

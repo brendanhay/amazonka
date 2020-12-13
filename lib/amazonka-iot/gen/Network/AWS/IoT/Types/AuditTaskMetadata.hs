@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditTaskMetadata' smart constructor.
 data AuditTaskMetadata = AuditTaskMetadata'
-  { taskType ::
-      Lude.Maybe AuditTaskType,
+  { -- | The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
+    taskType :: Lude.Maybe AuditTaskType,
+    -- | The ID of this audit.
     taskId :: Lude.Maybe Lude.Text,
+    -- | The status of this audit. One of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
     taskStatus :: Lude.Maybe AuditTaskStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditTaskMetadata' with the minimum fields required to make a request.
 --
+-- * 'taskType' - The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
 -- * 'taskId' - The ID of this audit.
 -- * 'taskStatus' - The status of this audit. One of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".
--- * 'taskType' - The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".
 mkAuditTaskMetadata ::
   AuditTaskMetadata
 mkAuditTaskMetadata =

@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.IPv6SupportValue
   ( IPv6SupportValue
       ( IPv6SupportValue',
-        ISVDisable,
-        ISVEnable
+        ISVEnable,
+        ISVDisable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype IPv6SupportValue = IPv6SupportValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISVDisable :: IPv6SupportValue
-pattern ISVDisable = IPv6SupportValue' "disable"
-
 pattern ISVEnable :: IPv6SupportValue
 pattern ISVEnable = IPv6SupportValue' "enable"
 
+pattern ISVDisable :: IPv6SupportValue
+pattern ISVDisable = IPv6SupportValue' "disable"
+
 {-# COMPLETE
-  ISVDisable,
   ISVEnable,
+  ISVDisable,
   IPv6SupportValue'
   #-}

@@ -45,37 +45,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerSettings' smart constructor.
 data ContainerSettings = ContainerSettings'
-  { m2tsSettings ::
-      Lude.Maybe M2tsSettings,
+  { -- | MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
+    m2tsSettings :: Lude.Maybe M2tsSettings,
+    -- | MXF settings
     mxfSettings :: Lude.Maybe MxfSettings,
+    -- | Settings for TS segments in HLS
     m3u8Settings :: Lude.Maybe M3u8Settings,
+    -- | Settings for MP4 segments in CMAF
     cmfcSettings :: Lude.Maybe CmfcSettings,
+    -- | Settings for MOV Container.
     movSettings :: Lude.Maybe MovSettings,
+    -- | Settings for MP4 container. You can create audio-only AAC outputs with this container.
     mp4Settings :: Lude.Maybe Mp4Settings,
+    -- | Settings for MP4 segments in DASH
     mpdSettings :: Lude.Maybe MpdSettings,
+    -- | Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
     container :: Lude.Maybe ContainerType,
+    -- | Settings for F4v container
     f4vSettings :: Lude.Maybe F4vSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerSettings' with the minimum fields required to make a request.
 --
--- * 'cmfcSettings' - Settings for MP4 segments in CMAF
--- * 'container' - Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
--- * 'f4vSettings' - Settings for F4v container
 -- * 'm2tsSettings' - MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
+-- * 'mxfSettings' - MXF settings
 -- * 'm3u8Settings' - Settings for TS segments in HLS
+-- * 'cmfcSettings' - Settings for MP4 segments in CMAF
 -- * 'movSettings' - Settings for MOV Container.
 -- * 'mp4Settings' - Settings for MP4 container. You can create audio-only AAC outputs with this container.
 -- * 'mpdSettings' - Settings for MP4 segments in DASH
--- * 'mxfSettings' - MXF settings
+-- * 'container' - Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
+-- * 'f4vSettings' - Settings for F4v container
 mkContainerSettings ::
   ContainerSettings
 mkContainerSettings =

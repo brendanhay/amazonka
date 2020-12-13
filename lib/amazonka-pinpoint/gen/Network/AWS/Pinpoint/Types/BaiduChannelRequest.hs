@@ -17,9 +17,9 @@ module Network.AWS.Pinpoint.Types.BaiduChannelRequest
     mkBaiduChannelRequest,
 
     -- * Lenses
+    bcrAPIKey,
     bcrEnabled,
     bcrSecretKey,
-    bcrAPIKey,
   )
 where
 
@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBaiduChannelRequest' smart constructor.
 data BaiduChannelRequest = BaiduChannelRequest'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    secretKey :: Lude.Text,
-    apiKey :: Lude.Text
+  { -- | The API key that you received from the Baidu Cloud Push service to communicate with the service.
+    apiKey :: Lude.Text,
+    -- | Specifies whether to enable the Baidu channel for the application.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The secret key that you received from the Baidu Cloud Push service to communicate with the service.
+    secretKey :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BaiduChannelRequest' with the minimum fields required to make a request.
@@ -50,17 +46,24 @@ data BaiduChannelRequest = BaiduChannelRequest'
 -- * 'enabled' - Specifies whether to enable the Baidu channel for the application.
 -- * 'secretKey' - The secret key that you received from the Baidu Cloud Push service to communicate with the service.
 mkBaiduChannelRequest ::
-  -- | 'secretKey'
-  Lude.Text ->
   -- | 'apiKey'
   Lude.Text ->
+  -- | 'secretKey'
+  Lude.Text ->
   BaiduChannelRequest
-mkBaiduChannelRequest pSecretKey_ pAPIKey_ =
+mkBaiduChannelRequest pAPIKey_ pSecretKey_ =
   BaiduChannelRequest'
-    { enabled = Lude.Nothing,
-      secretKey = pSecretKey_,
-      apiKey = pAPIKey_
+    { apiKey = pAPIKey_,
+      enabled = Lude.Nothing,
+      secretKey = pSecretKey_
     }
+
+-- | The API key that you received from the Baidu Cloud Push service to communicate with the service.
+--
+-- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcrAPIKey :: Lens.Lens' BaiduChannelRequest Lude.Text
+bcrAPIKey = Lens.lens (apiKey :: BaiduChannelRequest -> Lude.Text) (\s a -> s {apiKey = a} :: BaiduChannelRequest)
+{-# DEPRECATED bcrAPIKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
 -- | Specifies whether to enable the Baidu channel for the application.
 --
@@ -76,19 +79,12 @@ bcrSecretKey :: Lens.Lens' BaiduChannelRequest Lude.Text
 bcrSecretKey = Lens.lens (secretKey :: BaiduChannelRequest -> Lude.Text) (\s a -> s {secretKey = a} :: BaiduChannelRequest)
 {-# DEPRECATED bcrSecretKey "Use generic-lens or generic-optics with 'secretKey' instead." #-}
 
--- | The API key that you received from the Baidu Cloud Push service to communicate with the service.
---
--- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcrAPIKey :: Lens.Lens' BaiduChannelRequest Lude.Text
-bcrAPIKey = Lens.lens (apiKey :: BaiduChannelRequest -> Lude.Text) (\s a -> s {apiKey = a} :: BaiduChannelRequest)
-{-# DEPRECATED bcrAPIKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
-
 instance Lude.ToJSON BaiduChannelRequest where
   toJSON BaiduChannelRequest' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            Lude.Just ("SecretKey" Lude..= secretKey),
-            Lude.Just ("ApiKey" Lude..= apiKey)
+          [ Lude.Just ("ApiKey" Lude..= apiKey),
+            ("Enabled" Lude..=) Lude.<$> enabled,
+            Lude.Just ("SecretKey" Lude..= secretKey)
           ]
       )

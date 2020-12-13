@@ -17,8 +17,8 @@ module Network.AWS.SES.Types.ExtensionField
     mkExtensionField,
 
     -- * Lenses
-    efName,
     efValue,
+    efName,
   )
 where
 
@@ -31,37 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExtensionField' smart constructor.
 data ExtensionField = ExtensionField'
-  { name :: Lude.Text,
-    value :: Lude.Text
+  { -- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+    value :: Lude.Text,
+    -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExtensionField' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 -- * 'value' - The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+-- * 'name' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 mkExtensionField ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   ExtensionField
-mkExtensionField pName_ pValue_ =
-  ExtensionField' {name = pName_, value = pValue_}
-
--- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efName :: Lens.Lens' ExtensionField Lude.Text
-efName = Lens.lens (name :: ExtensionField -> Lude.Text) (\s a -> s {name = a} :: ExtensionField)
-{-# DEPRECATED efName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkExtensionField pValue_ pName_ =
+  ExtensionField' {value = pValue_, name = pName_}
 
 -- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 --
@@ -70,6 +59,13 @@ efValue :: Lens.Lens' ExtensionField Lude.Text
 efValue = Lens.lens (value :: ExtensionField -> Lude.Text) (\s a -> s {value = a} :: ExtensionField)
 {-# DEPRECATED efValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efName :: Lens.Lens' ExtensionField Lude.Text
+efName = Lens.lens (name :: ExtensionField -> Lude.Text) (\s a -> s {name = a} :: ExtensionField)
+{-# DEPRECATED efName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.ToQuery ExtensionField where
   toQuery ExtensionField' {..} =
-    Lude.mconcat ["Name" Lude.=: name, "Value" Lude.=: value]
+    Lude.mconcat ["Value" Lude.=: value, "Name" Lude.=: name]

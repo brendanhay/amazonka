@@ -17,9 +17,9 @@ module Network.AWS.MediaLive.Types.Mp2Settings
     mkMp2Settings,
 
     -- * Lenses
-    msCodingMode,
-    msSampleRate,
-    msBitrate,
+    mCodingMode,
+    mSampleRate,
+    mBitrate,
   )
 where
 
@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMp2Settings' smart constructor.
 data Mp2Settings = Mp2Settings'
-  { codingMode ::
-      Lude.Maybe Mp2CodingMode,
+  { -- | The MPEG2 Audio coding mode.  Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
+    codingMode :: Lude.Maybe Mp2CodingMode,
+    -- | Sample rate in Hz.
     sampleRate :: Lude.Maybe Lude.Double,
+    -- | Average bitrate in bits/second.
     bitrate :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mp2Settings' with the minimum fields required to make a request.
 --
--- * 'bitrate' - Average bitrate in bits/second.
 -- * 'codingMode' - The MPEG2 Audio coding mode.  Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
 -- * 'sampleRate' - Sample rate in Hz.
+-- * 'bitrate' - Average bitrate in bits/second.
 mkMp2Settings ::
   Mp2Settings
 mkMp2Settings =
@@ -62,23 +58,23 @@ mkMp2Settings =
 -- | The MPEG2 Audio coding mode.  Valid values are codingMode10 (for mono) or codingMode20 (for stereo).
 --
 -- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msCodingMode :: Lens.Lens' Mp2Settings (Lude.Maybe Mp2CodingMode)
-msCodingMode = Lens.lens (codingMode :: Mp2Settings -> Lude.Maybe Mp2CodingMode) (\s a -> s {codingMode = a} :: Mp2Settings)
-{-# DEPRECATED msCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
+mCodingMode :: Lens.Lens' Mp2Settings (Lude.Maybe Mp2CodingMode)
+mCodingMode = Lens.lens (codingMode :: Mp2Settings -> Lude.Maybe Mp2CodingMode) (\s a -> s {codingMode = a} :: Mp2Settings)
+{-# DEPRECATED mCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
 
 -- | Sample rate in Hz.
 --
 -- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msSampleRate :: Lens.Lens' Mp2Settings (Lude.Maybe Lude.Double)
-msSampleRate = Lens.lens (sampleRate :: Mp2Settings -> Lude.Maybe Lude.Double) (\s a -> s {sampleRate = a} :: Mp2Settings)
-{-# DEPRECATED msSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
+mSampleRate :: Lens.Lens' Mp2Settings (Lude.Maybe Lude.Double)
+mSampleRate = Lens.lens (sampleRate :: Mp2Settings -> Lude.Maybe Lude.Double) (\s a -> s {sampleRate = a} :: Mp2Settings)
+{-# DEPRECATED mSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
 -- | Average bitrate in bits/second.
 --
 -- /Note:/ Consider using 'bitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msBitrate :: Lens.Lens' Mp2Settings (Lude.Maybe Lude.Double)
-msBitrate = Lens.lens (bitrate :: Mp2Settings -> Lude.Maybe Lude.Double) (\s a -> s {bitrate = a} :: Mp2Settings)
-{-# DEPRECATED msBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
+mBitrate :: Lens.Lens' Mp2Settings (Lude.Maybe Lude.Double)
+mBitrate = Lens.lens (bitrate :: Mp2Settings -> Lude.Maybe Lude.Double) (\s a -> s {bitrate = a} :: Mp2Settings)
+{-# DEPRECATED mBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
 
 instance Lude.FromJSON Mp2Settings where
   parseJSON =

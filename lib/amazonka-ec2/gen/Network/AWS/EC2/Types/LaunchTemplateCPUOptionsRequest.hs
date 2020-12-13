@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateCPUOptionsRequest' smart constructor.
 data LaunchTemplateCPUOptionsRequest = LaunchTemplateCPUOptionsRequest'
-  { coreCount ::
-      Lude.Maybe Lude.Int,
-    threadsPerCore ::
-      Lude.Maybe Lude.Int
+  { -- | The number of CPU cores for the instance.
+    coreCount :: Lude.Maybe Lude.Int,
+    -- | The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.
+    threadsPerCore :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateCPUOptionsRequest' with the minimum fields required to make a request.

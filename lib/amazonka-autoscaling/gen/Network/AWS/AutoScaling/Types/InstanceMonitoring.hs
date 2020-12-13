@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceMonitoring' smart constructor.
 newtype InstanceMonitoring = InstanceMonitoring'
-  { enabled ::
-      Lude.Maybe Lude.Bool
+  { -- | If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+    enabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceMonitoring' with the minimum fields required to make a request.

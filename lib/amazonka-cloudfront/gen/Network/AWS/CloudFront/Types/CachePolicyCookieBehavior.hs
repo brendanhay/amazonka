@@ -13,10 +13,10 @@
 module Network.AWS.CloudFront.Types.CachePolicyCookieBehavior
   ( CachePolicyCookieBehavior
       ( CachePolicyCookieBehavior',
-        CPCBAll,
-        CPCBAllExcept,
         CPCBNone,
-        CPCBWhitelist
+        CPCBWhitelist,
+        CPCBAllExcept,
+        CPCBAll
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype CachePolicyCookieBehavior = CachePolicyCookieBehavior' Lude.Text
       Lude.ToHeader
     )
 
-pattern CPCBAll :: CachePolicyCookieBehavior
-pattern CPCBAll = CachePolicyCookieBehavior' "all"
-
-pattern CPCBAllExcept :: CachePolicyCookieBehavior
-pattern CPCBAllExcept = CachePolicyCookieBehavior' "allExcept"
-
 pattern CPCBNone :: CachePolicyCookieBehavior
 pattern CPCBNone = CachePolicyCookieBehavior' "none"
 
 pattern CPCBWhitelist :: CachePolicyCookieBehavior
 pattern CPCBWhitelist = CachePolicyCookieBehavior' "whitelist"
 
+pattern CPCBAllExcept :: CachePolicyCookieBehavior
+pattern CPCBAllExcept = CachePolicyCookieBehavior' "allExcept"
+
+pattern CPCBAll :: CachePolicyCookieBehavior
+pattern CPCBAll = CachePolicyCookieBehavior' "all"
+
 {-# COMPLETE
-  CPCBAll,
-  CPCBAllExcept,
   CPCBNone,
   CPCBWhitelist,
+  CPCBAllExcept,
+  CPCBAll,
   CachePolicyCookieBehavior'
   #-}

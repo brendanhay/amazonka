@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,13 +38,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAvailableSolutionStacks' smart constructor.
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableSolutionStacks' with the minimum fields required to make a request.
@@ -90,29 +85,21 @@ instance Lude.ToQuery ListAvailableSolutionStacks where
 --
 -- /See:/ 'mkListAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-  { solutionStacks ::
-      Lude.Maybe
-        [Lude.Text],
-    solutionStackDetails ::
-      Lude.Maybe
-        [SolutionStackDescription],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of available solution stacks.
+    solutionStacks :: Lude.Maybe [Lude.Text],
+    -- | A list of available solution stacks and their 'SolutionStackDescription' .
+    solutionStackDetails :: Lude.Maybe [SolutionStackDescription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAvailableSolutionStacksResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'solutionStackDetails' - A list of available solution stacks and their 'SolutionStackDescription' .
 -- * 'solutionStacks' - A list of available solution stacks.
+-- * 'solutionStackDetails' - A list of available solution stacks and their 'SolutionStackDescription' .
+-- * 'responseStatus' - The response status code.
 mkListAvailableSolutionStacksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

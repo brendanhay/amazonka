@@ -34,29 +34,27 @@ import Network.AWS.RDS.Types.IAMAuthMode
 --
 -- /See:/ 'mkUserAuthConfig' smart constructor.
 data UserAuthConfig = UserAuthConfig'
-  { iamAuth ::
-      Lude.Maybe IAMAuthMode,
+  { -- | Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+    iamAuth :: Lude.Maybe IAMAuthMode,
+    -- | The name of the database user to which the proxy connects.
     userName :: Lude.Maybe Lude.Text,
+    -- | The type of authentication that the proxy uses for connections from the proxy to the underlying database.
     authScheme :: Lude.Maybe AuthScheme,
+    -- | The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
     secretARN :: Lude.Maybe Lude.Text,
+    -- | A user-specified description about the authentication used by a proxy to log in as a specific database user.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserAuthConfig' with the minimum fields required to make a request.
 --
--- * 'authScheme' - The type of authentication that the proxy uses for connections from the proxy to the underlying database.
--- * 'description' - A user-specified description about the authentication used by a proxy to log in as a specific database user.
 -- * 'iamAuth' - Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
--- * 'secretARN' - The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 -- * 'userName' - The name of the database user to which the proxy connects.
+-- * 'authScheme' - The type of authentication that the proxy uses for connections from the proxy to the underlying database.
+-- * 'secretARN' - The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+-- * 'description' - A user-specified description about the authentication used by a proxy to log in as a specific database user.
 mkUserAuthConfig ::
   UserAuthConfig
 mkUserAuthConfig =

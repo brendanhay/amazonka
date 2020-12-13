@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
   ( MsSmoothManifestEncoding
       ( MsSmoothManifestEncoding',
-        UTF16,
-        UTF8
+        UTF8,
+        UTF16
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MsSmoothManifestEncoding = MsSmoothManifestEncoding' Lude.Text
       Lude.ToHeader
     )
 
-pattern UTF16 :: MsSmoothManifestEncoding
-pattern UTF16 = MsSmoothManifestEncoding' "UTF16"
-
 pattern UTF8 :: MsSmoothManifestEncoding
 pattern UTF8 = MsSmoothManifestEncoding' "UTF8"
 
+pattern UTF16 :: MsSmoothManifestEncoding
+pattern UTF16 = MsSmoothManifestEncoding' "UTF16"
+
 {-# COMPLETE
-  UTF16,
   UTF8,
+  UTF16,
   MsSmoothManifestEncoding'
   #-}

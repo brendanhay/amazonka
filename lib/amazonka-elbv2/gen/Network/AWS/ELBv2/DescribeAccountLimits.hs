@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,17 +57,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
@@ -136,19 +132,14 @@ instance Lude.ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'mkDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { limits ::
-      Lude.Maybe [Limit],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the limits.
+    limits :: Lude.Maybe [Limit],
+    -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.

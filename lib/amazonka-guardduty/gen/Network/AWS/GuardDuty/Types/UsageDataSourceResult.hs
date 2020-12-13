@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsageDataSourceResult' smart constructor.
 data UsageDataSourceResult = UsageDataSourceResult'
-  { total ::
-      Lude.Maybe Total,
+  { -- | Represents the total of usage for the specified data source.
+    total :: Lude.Maybe Total,
+    -- | The data source type that generated usage.
     dataSource :: Lude.Maybe DataSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageDataSourceResult' with the minimum fields required to make a request.
 --
--- * 'dataSource' - The data source type that generated usage.
 -- * 'total' - Represents the total of usage for the specified data source.
+-- * 'dataSource' - The data source type that generated usage.
 mkUsageDataSourceResult ::
   UsageDataSourceResult
 mkUsageDataSourceResult =

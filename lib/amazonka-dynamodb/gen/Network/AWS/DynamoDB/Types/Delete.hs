@@ -35,32 +35,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDelete' smart constructor.
 data Delete = Delete'
-  { expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    expressionAttributeValues ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    returnValuesOnConditionCheckFailure ::
-      Lude.Maybe ReturnValuesOnConditionCheckFailure,
+  { -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+    returnValuesOnConditionCheckFailure :: Lude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | A condition that must be satisfied in order for a conditional delete to succeed.
     conditionExpression :: Lude.Maybe Lude.Text,
+    -- | The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
     key :: Lude.HashMap Lude.Text (AttributeValue),
+    -- | Name of the table in which the item to be deleted resides.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Delete' with the minimum fields required to make a request.
 --
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional delete to succeed.
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
--- * 'key' - The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
 -- * 'returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+-- * 'conditionExpression' - A condition that must be satisfied in order for a conditional delete to succeed.
+-- * 'key' - The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
 -- * 'tableName' - Name of the table in which the item to be deleted resides.
 mkDelete ::
   -- | 'tableName'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.UpdateComment
     mkUpdateComment,
 
     -- ** Request lenses
-    ucCommentId,
     ucContent,
+    ucCommentId,
 
     -- * Destructuring the response
     UpdateCommentResponse (..),
@@ -40,37 +41,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateComment' smart constructor.
 data UpdateComment = UpdateComment'
-  { commentId :: Lude.Text,
-    content :: Lude.Text
+  { -- | The updated content to replace the existing content of the comment.
+    content :: Lude.Text,
+    -- | The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+    commentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateComment' with the minimum fields required to make a request.
 --
--- * 'commentId' - The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
 -- * 'content' - The updated content to replace the existing content of the comment.
+-- * 'commentId' - The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
 mkUpdateComment ::
-  -- | 'commentId'
-  Lude.Text ->
   -- | 'content'
   Lude.Text ->
+  -- | 'commentId'
+  Lude.Text ->
   UpdateComment
-mkUpdateComment pCommentId_ pContent_ =
-  UpdateComment' {commentId = pCommentId_, content = pContent_}
-
--- | The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
---
--- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucCommentId :: Lens.Lens' UpdateComment Lude.Text
-ucCommentId = Lens.lens (commentId :: UpdateComment -> Lude.Text) (\s a -> s {commentId = a} :: UpdateComment)
-{-# DEPRECATED ucCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
+mkUpdateComment pContent_ pCommentId_ =
+  UpdateComment' {content = pContent_, commentId = pCommentId_}
 
 -- | The updated content to replace the existing content of the comment.
 --
@@ -78,6 +68,13 @@ ucCommentId = Lens.lens (commentId :: UpdateComment -> Lude.Text) (\s a -> s {co
 ucContent :: Lens.Lens' UpdateComment Lude.Text
 ucContent = Lens.lens (content :: UpdateComment -> Lude.Text) (\s a -> s {content = a} :: UpdateComment)
 {-# DEPRECATED ucContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+-- | The system-generated ID of the comment you want to update. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+--
+-- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucCommentId :: Lens.Lens' UpdateComment Lude.Text
+ucCommentId = Lens.lens (commentId :: UpdateComment -> Lude.Text) (\s a -> s {commentId = a} :: UpdateComment)
+{-# DEPRECATED ucCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
 instance Lude.AWSRequest UpdateComment where
   type Rs UpdateComment = UpdateCommentResponse
@@ -104,8 +101,8 @@ instance Lude.ToJSON UpdateComment where
   toJSON UpdateComment' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("commentId" Lude..= commentId),
-            Lude.Just ("content" Lude..= content)
+          [ Lude.Just ("content" Lude..= content),
+            Lude.Just ("commentId" Lude..= commentId)
           ]
       )
 
@@ -117,17 +114,12 @@ instance Lude.ToQuery UpdateComment where
 
 -- | /See:/ 'mkUpdateCommentResponse' smart constructor.
 data UpdateCommentResponse = UpdateCommentResponse'
-  { comment ::
-      Lude.Maybe Comment,
+  { -- | Information about the updated comment.
+    comment :: Lude.Maybe Comment,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCommentResponse' with the minimum fields required to make a request.

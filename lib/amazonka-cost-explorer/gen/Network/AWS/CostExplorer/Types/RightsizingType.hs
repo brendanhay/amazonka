@@ -13,8 +13,8 @@
 module Network.AWS.CostExplorer.Types.RightsizingType
   ( RightsizingType
       ( RightsizingType',
-        Modify,
-        Terminate
+        Terminate,
+        Modify
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RightsizingType = RightsizingType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Modify :: RightsizingType
-pattern Modify = RightsizingType' "MODIFY"
-
 pattern Terminate :: RightsizingType
 pattern Terminate = RightsizingType' "TERMINATE"
 
+pattern Modify :: RightsizingType
+pattern Modify = RightsizingType' "MODIFY"
+
 {-# COMPLETE
-  Modify,
   Terminate,
+  Modify,
   RightsizingType'
   #-}

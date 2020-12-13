@@ -34,32 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRouteTableAssociation' smart constructor.
 data RouteTableAssociation = RouteTableAssociation'
-  { routeTableId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the route table.
+    routeTableId :: Lude.Maybe Lude.Text,
+    -- | The ID of the association.
     routeTableAssociationId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether this is the main route table.
     main :: Lude.Maybe Lude.Bool,
+    -- | The ID of the subnet. A subnet ID is not returned for an implicit association.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the internet gateway or virtual private gateway.
     gatewayId :: Lude.Maybe Lude.Text,
-    associationState ::
-      Lude.Maybe RouteTableAssociationState
+    -- | The state of the association.
+    associationState :: Lude.Maybe RouteTableAssociationState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RouteTableAssociation' with the minimum fields required to make a request.
 --
--- * 'associationState' - The state of the association.
--- * 'gatewayId' - The ID of the internet gateway or virtual private gateway.
--- * 'main' - Indicates whether this is the main route table.
--- * 'routeTableAssociationId' - The ID of the association.
 -- * 'routeTableId' - The ID of the route table.
+-- * 'routeTableAssociationId' - The ID of the association.
+-- * 'main' - Indicates whether this is the main route table.
 -- * 'subnetId' - The ID of the subnet. A subnet ID is not returned for an implicit association.
+-- * 'gatewayId' - The ID of the internet gateway or virtual private gateway.
+-- * 'associationState' - The state of the association.
 mkRouteTableAssociation ::
   RouteTableAssociation
 mkRouteTableAssociation =

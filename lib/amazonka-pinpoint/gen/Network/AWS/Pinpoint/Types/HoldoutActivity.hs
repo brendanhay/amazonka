@@ -29,17 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHoldoutActivity' smart constructor.
 data HoldoutActivity = HoldoutActivity'
-  { nextActivity ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the next activity to perform, after performing the holdout activity.
+    nextActivity :: Lude.Maybe Lude.Text,
+    -- | The percentage of participants who shouldn't continue the journey.
+    --
+    -- To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.
     percentage :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HoldoutActivity' with the minimum fields required to make a request.

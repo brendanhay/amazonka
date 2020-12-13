@@ -37,35 +37,35 @@ import Network.AWS.Route53AutoNaming.Types.NamespaceType
 --
 -- /See:/ 'mkNamespaceSummary' smart constructor.
 data NamespaceSummary = NamespaceSummary'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The date and time that the namespace was created.
     createDate :: Lude.Maybe Lude.Timestamp,
+    -- | The number of services that were created using the namespace.
     serviceCount :: Lude.Maybe Lude.Int,
+    -- | The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone that has the same name as the namespace.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the namespace.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of the namespace, either public or private.
     type' :: Lude.Maybe NamespaceType,
+    -- | A description for the namespace.
     description :: Lude.Maybe Lude.Text,
     properties :: Lude.Maybe NamespaceProperties
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NamespaceSummary' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
 -- * 'createDate' - The date and time that the namespace was created.
--- * 'description' - A description for the namespace.
--- * 'id' - The ID of the namespace.
--- * 'name' - The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone that has the same name as the namespace.
--- * 'properties' - Undocumented field.
 -- * 'serviceCount' - The number of services that were created using the namespace.
+-- * 'name' - The name of the namespace. When you create a namespace, AWS Cloud Map automatically creates a Route 53 hosted zone that has the same name as the namespace.
+-- * 'id' - The ID of the namespace.
 -- * 'type'' - The type of the namespace, either public or private.
+-- * 'description' - A description for the namespace.
+-- * 'properties' -
 mkNamespaceSummary ::
   NamespaceSummary
 mkNamespaceSummary =

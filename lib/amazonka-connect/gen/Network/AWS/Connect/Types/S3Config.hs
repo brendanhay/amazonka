@@ -17,9 +17,9 @@ module Network.AWS.Connect.Types.S3Config
     mkS3Config,
 
     -- * Lenses
-    scEncryptionConfig,
-    scBucketName,
     scBucketPrefix,
+    scBucketName,
+    scEncryptionConfig,
   )
 where
 
@@ -31,51 +31,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Config' smart constructor.
 data S3Config = S3Config'
-  { encryptionConfig ::
-      Lude.Maybe EncryptionConfig,
+  { -- | The S3 bucket prefix.
+    bucketPrefix :: Lude.Text,
+    -- | The S3 bucket name.
     bucketName :: Lude.Text,
-    bucketPrefix :: Lude.Text
+    -- | The S3 encryption configuration.
+    encryptionConfig :: Lude.Maybe EncryptionConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Config' with the minimum fields required to make a request.
 --
--- * 'bucketName' - The S3 bucket name.
 -- * 'bucketPrefix' - The S3 bucket prefix.
+-- * 'bucketName' - The S3 bucket name.
 -- * 'encryptionConfig' - The S3 encryption configuration.
 mkS3Config ::
-  -- | 'bucketName'
-  Lude.Text ->
   -- | 'bucketPrefix'
   Lude.Text ->
+  -- | 'bucketName'
+  Lude.Text ->
   S3Config
-mkS3Config pBucketName_ pBucketPrefix_ =
+mkS3Config pBucketPrefix_ pBucketName_ =
   S3Config'
-    { encryptionConfig = Lude.Nothing,
+    { bucketPrefix = pBucketPrefix_,
       bucketName = pBucketName_,
-      bucketPrefix = pBucketPrefix_
+      encryptionConfig = Lude.Nothing
     }
-
--- | The S3 encryption configuration.
---
--- /Note:/ Consider using 'encryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scEncryptionConfig :: Lens.Lens' S3Config (Lude.Maybe EncryptionConfig)
-scEncryptionConfig = Lens.lens (encryptionConfig :: S3Config -> Lude.Maybe EncryptionConfig) (\s a -> s {encryptionConfig = a} :: S3Config)
-{-# DEPRECATED scEncryptionConfig "Use generic-lens or generic-optics with 'encryptionConfig' instead." #-}
-
--- | The S3 bucket name.
---
--- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scBucketName :: Lens.Lens' S3Config Lude.Text
-scBucketName = Lens.lens (bucketName :: S3Config -> Lude.Text) (\s a -> s {bucketName = a} :: S3Config)
-{-# DEPRECATED scBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | The S3 bucket prefix.
 --
@@ -84,23 +66,37 @@ scBucketPrefix :: Lens.Lens' S3Config Lude.Text
 scBucketPrefix = Lens.lens (bucketPrefix :: S3Config -> Lude.Text) (\s a -> s {bucketPrefix = a} :: S3Config)
 {-# DEPRECATED scBucketPrefix "Use generic-lens or generic-optics with 'bucketPrefix' instead." #-}
 
+-- | The S3 bucket name.
+--
+-- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scBucketName :: Lens.Lens' S3Config Lude.Text
+scBucketName = Lens.lens (bucketName :: S3Config -> Lude.Text) (\s a -> s {bucketName = a} :: S3Config)
+{-# DEPRECATED scBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
+
+-- | The S3 encryption configuration.
+--
+-- /Note:/ Consider using 'encryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scEncryptionConfig :: Lens.Lens' S3Config (Lude.Maybe EncryptionConfig)
+scEncryptionConfig = Lens.lens (encryptionConfig :: S3Config -> Lude.Maybe EncryptionConfig) (\s a -> s {encryptionConfig = a} :: S3Config)
+{-# DEPRECATED scEncryptionConfig "Use generic-lens or generic-optics with 'encryptionConfig' instead." #-}
+
 instance Lude.FromJSON S3Config where
   parseJSON =
     Lude.withObject
       "S3Config"
       ( \x ->
           S3Config'
-            Lude.<$> (x Lude..:? "EncryptionConfig")
+            Lude.<$> (x Lude..: "BucketPrefix")
             Lude.<*> (x Lude..: "BucketName")
-            Lude.<*> (x Lude..: "BucketPrefix")
+            Lude.<*> (x Lude..:? "EncryptionConfig")
       )
 
 instance Lude.ToJSON S3Config where
   toJSON S3Config' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EncryptionConfig" Lude..=) Lude.<$> encryptionConfig,
+          [ Lude.Just ("BucketPrefix" Lude..= bucketPrefix),
             Lude.Just ("BucketName" Lude..= bucketName),
-            Lude.Just ("BucketPrefix" Lude..= bucketPrefix)
+            ("EncryptionConfig" Lude..=) Lude.<$> encryptionConfig
           ]
       )

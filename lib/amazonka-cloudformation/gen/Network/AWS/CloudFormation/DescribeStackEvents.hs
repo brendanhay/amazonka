@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeStackEvents' smart constructor.
 data DescribeStackEvents = DescribeStackEvents'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that identifies the next page of events that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
+    --
+    --
+    --     * Running stacks: You can specify either the stack's name or its unique stack ID.
+    --
+    --
+    --     * Deleted stacks: You must specify the unique stack ID.
+    --
+    --
+    -- Default: There is no default value.
     stackName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackEvents' with the minimum fields required to make a request.
@@ -146,26 +151,21 @@ instance Lude.ToQuery DescribeStackEvents where
 --
 -- /See:/ 'mkDescribeStackEventsResponse' smart constructor.
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    stackEvents ::
-      Lude.Maybe [StackEvent],
+  { -- | If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @StackEvents@ structures.
+    stackEvents :: Lude.Maybe [StackEvent],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStackEventsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of events. If no additional page exists, this value is null.
--- * 'responseStatus' - The response status code.
 -- * 'stackEvents' - A list of @StackEvents@ structures.
+-- * 'responseStatus' - The response status code.
 mkDescribeStackEventsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

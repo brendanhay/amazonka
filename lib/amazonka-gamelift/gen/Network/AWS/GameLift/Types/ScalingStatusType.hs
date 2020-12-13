@@ -13,13 +13,13 @@
 module Network.AWS.GameLift.Types.ScalingStatusType
   ( ScalingStatusType
       ( ScalingStatusType',
-        Active,
-        DeleteRequested,
-        Deleted,
-        Deleting,
-        Error,
-        UpdateRequested,
-        Updating
+        SSTActive,
+        SSTUpdateRequested,
+        SSTUpdating,
+        SSTDeleteRequested,
+        SSTDeleting,
+        SSTDeleted,
+        SSTError
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ScalingStatusType = ScalingStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: ScalingStatusType
-pattern Active = ScalingStatusType' "ACTIVE"
+pattern SSTActive :: ScalingStatusType
+pattern SSTActive = ScalingStatusType' "ACTIVE"
 
-pattern DeleteRequested :: ScalingStatusType
-pattern DeleteRequested = ScalingStatusType' "DELETE_REQUESTED"
+pattern SSTUpdateRequested :: ScalingStatusType
+pattern SSTUpdateRequested = ScalingStatusType' "UPDATE_REQUESTED"
 
-pattern Deleted :: ScalingStatusType
-pattern Deleted = ScalingStatusType' "DELETED"
+pattern SSTUpdating :: ScalingStatusType
+pattern SSTUpdating = ScalingStatusType' "UPDATING"
 
-pattern Deleting :: ScalingStatusType
-pattern Deleting = ScalingStatusType' "DELETING"
+pattern SSTDeleteRequested :: ScalingStatusType
+pattern SSTDeleteRequested = ScalingStatusType' "DELETE_REQUESTED"
 
-pattern Error :: ScalingStatusType
-pattern Error = ScalingStatusType' "ERROR"
+pattern SSTDeleting :: ScalingStatusType
+pattern SSTDeleting = ScalingStatusType' "DELETING"
 
-pattern UpdateRequested :: ScalingStatusType
-pattern UpdateRequested = ScalingStatusType' "UPDATE_REQUESTED"
+pattern SSTDeleted :: ScalingStatusType
+pattern SSTDeleted = ScalingStatusType' "DELETED"
 
-pattern Updating :: ScalingStatusType
-pattern Updating = ScalingStatusType' "UPDATING"
+pattern SSTError :: ScalingStatusType
+pattern SSTError = ScalingStatusType' "ERROR"
 
 {-# COMPLETE
-  Active,
-  DeleteRequested,
-  Deleted,
-  Deleting,
-  Error,
-  UpdateRequested,
-  Updating,
+  SSTActive,
+  SSTUpdateRequested,
+  SSTUpdating,
+  SSTDeleteRequested,
+  SSTDeleting,
+  SSTDeleted,
+  SSTError,
   ScalingStatusType'
   #-}

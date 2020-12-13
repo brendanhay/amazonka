@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ElastiCache.StartMigration
     mkStartMigration,
 
     -- ** Request lenses
-    smReplicationGroupId,
     smCustomerNodeEndpointList,
+    smReplicationGroupId,
 
     -- * Destructuring the response
     StartMigrationResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartMigration' smart constructor.
 data StartMigration = StartMigration'
-  { replicationGroupId ::
-      Lude.Text,
-    customerNodeEndpointList :: [CustomerNodeEndpoint]
+  { -- | List of endpoints from which data should be migrated. For Redis (cluster mode disabled), list should have only one element.
+    customerNodeEndpointList :: [CustomerNodeEndpoint],
+    -- | The ID of the replication group to which data should be migrated.
+    replicationGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMigration' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkStartMigration ::
   StartMigration
 mkStartMigration pReplicationGroupId_ =
   StartMigration'
-    { replicationGroupId = pReplicationGroupId_,
-      customerNodeEndpointList = Lude.mempty
+    { customerNodeEndpointList = Lude.mempty,
+      replicationGroupId = pReplicationGroupId_
     }
-
--- | The ID of the replication group to which data should be migrated.
---
--- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smReplicationGroupId :: Lens.Lens' StartMigration Lude.Text
-smReplicationGroupId = Lens.lens (replicationGroupId :: StartMigration -> Lude.Text) (\s a -> s {replicationGroupId = a} :: StartMigration)
-{-# DEPRECATED smReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
 -- | List of endpoints from which data should be migrated. For Redis (cluster mode disabled), list should have only one element.
 --
@@ -80,6 +69,13 @@ smReplicationGroupId = Lens.lens (replicationGroupId :: StartMigration -> Lude.T
 smCustomerNodeEndpointList :: Lens.Lens' StartMigration [CustomerNodeEndpoint]
 smCustomerNodeEndpointList = Lens.lens (customerNodeEndpointList :: StartMigration -> [CustomerNodeEndpoint]) (\s a -> s {customerNodeEndpointList = a} :: StartMigration)
 {-# DEPRECATED smCustomerNodeEndpointList "Use generic-lens or generic-optics with 'customerNodeEndpointList' instead." #-}
+
+-- | The ID of the replication group to which data should be migrated.
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smReplicationGroupId :: Lens.Lens' StartMigration Lude.Text
+smReplicationGroupId = Lens.lens (replicationGroupId :: StartMigration -> Lude.Text) (\s a -> s {replicationGroupId = a} :: StartMigration)
+{-# DEPRECATED smReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
 instance Lude.AWSRequest StartMigration where
   type Rs StartMigration = StartMigrationResponse
@@ -104,29 +100,23 @@ instance Lude.ToQuery StartMigration where
     Lude.mconcat
       [ "Action" Lude.=: ("StartMigration" :: Lude.ByteString),
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "ReplicationGroupId" Lude.=: replicationGroupId,
         "CustomerNodeEndpointList"
-          Lude.=: Lude.toQueryList "member" customerNodeEndpointList
+          Lude.=: Lude.toQueryList "member" customerNodeEndpointList,
+        "ReplicationGroupId" Lude.=: replicationGroupId
       ]
 
 -- | /See:/ 'mkStartMigrationResponse' smart constructor.
 data StartMigrationResponse = StartMigrationResponse'
-  { replicationGroup ::
-      Lude.Maybe ReplicationGroup,
+  { replicationGroup :: Lude.Maybe ReplicationGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMigrationResponse' with the minimum fields required to make a request.
 --
--- * 'replicationGroup' - Undocumented field.
+-- * 'replicationGroup' -
 -- * 'responseStatus' - The response status code.
 mkStartMigrationResponse ::
   -- | 'responseStatus'

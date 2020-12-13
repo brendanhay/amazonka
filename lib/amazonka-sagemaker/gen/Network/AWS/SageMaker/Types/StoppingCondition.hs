@@ -32,23 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStoppingCondition' smart constructor.
 data StoppingCondition = StoppingCondition'
-  { maxWaitTimeInSeconds ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum length of time, in seconds, how long you are willing to wait for a managed spot training job to complete. It is the amount of time spent waiting for Spot capacity plus the amount of time the training job runs. It must be equal to or greater than @MaxRuntimeInSeconds@ .
+    maxWaitTimeInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum length of time, in seconds, that the training or compilation job can run. If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. The maximum value is 28 days.
     maxRuntimeInSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StoppingCondition' with the minimum fields required to make a request.
 --
--- * 'maxRuntimeInSeconds' - The maximum length of time, in seconds, that the training or compilation job can run. If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. The maximum value is 28 days.
 -- * 'maxWaitTimeInSeconds' - The maximum length of time, in seconds, how long you are willing to wait for a managed spot training job to complete. It is the amount of time spent waiting for Spot capacity plus the amount of time the training job runs. It must be equal to or greater than @MaxRuntimeInSeconds@ .
+-- * 'maxRuntimeInSeconds' - The maximum length of time, in seconds, that the training or compilation job can run. If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. The maximum value is 28 days.
 mkStoppingCondition ::
   StoppingCondition
 mkStoppingCondition =

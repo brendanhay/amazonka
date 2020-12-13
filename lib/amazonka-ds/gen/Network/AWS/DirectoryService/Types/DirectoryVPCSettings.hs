@@ -17,8 +17,8 @@ module Network.AWS.DirectoryService.Types.DirectoryVPCSettings
     mkDirectoryVPCSettings,
 
     -- * Lenses
-    dvsVPCId,
     dvsSubnetIds,
+    dvsVPCId,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectoryVPCSettings' smart constructor.
 data DirectoryVPCSettings = DirectoryVPCSettings'
-  { vpcId ::
-      Lude.Text,
-    subnetIds :: [Lude.Text]
+  { -- | The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service creates a directory server and a DNS server in each of these subnets.
+    subnetIds :: [Lude.Text],
+    -- | The identifier of the VPC in which to create the directory.
+    vpcId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryVPCSettings' with the minimum fields required to make a request.
@@ -51,14 +46,7 @@ mkDirectoryVPCSettings ::
   Lude.Text ->
   DirectoryVPCSettings
 mkDirectoryVPCSettings pVPCId_ =
-  DirectoryVPCSettings' {vpcId = pVPCId_, subnetIds = Lude.mempty}
-
--- | The identifier of the VPC in which to create the directory.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvsVPCId :: Lens.Lens' DirectoryVPCSettings Lude.Text
-dvsVPCId = Lens.lens (vpcId :: DirectoryVPCSettings -> Lude.Text) (\s a -> s {vpcId = a} :: DirectoryVPCSettings)
-{-# DEPRECATED dvsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+  DirectoryVPCSettings' {subnetIds = Lude.mempty, vpcId = pVPCId_}
 
 -- | The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service creates a directory server and a DNS server in each of these subnets.
 --
@@ -67,21 +55,28 @@ dvsSubnetIds :: Lens.Lens' DirectoryVPCSettings [Lude.Text]
 dvsSubnetIds = Lens.lens (subnetIds :: DirectoryVPCSettings -> [Lude.Text]) (\s a -> s {subnetIds = a} :: DirectoryVPCSettings)
 {-# DEPRECATED dvsSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
+-- | The identifier of the VPC in which to create the directory.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvsVPCId :: Lens.Lens' DirectoryVPCSettings Lude.Text
+dvsVPCId = Lens.lens (vpcId :: DirectoryVPCSettings -> Lude.Text) (\s a -> s {vpcId = a} :: DirectoryVPCSettings)
+{-# DEPRECATED dvsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
 instance Lude.FromJSON DirectoryVPCSettings where
   parseJSON =
     Lude.withObject
       "DirectoryVPCSettings"
       ( \x ->
           DirectoryVPCSettings'
-            Lude.<$> (x Lude..: "VpcId")
-            Lude.<*> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
+            Lude.<$> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "VpcId")
       )
 
 instance Lude.ToJSON DirectoryVPCSettings where
   toJSON DirectoryVPCSettings' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("VpcId" Lude..= vpcId),
-            Lude.Just ("SubnetIds" Lude..= subnetIds)
+          [ Lude.Just ("SubnetIds" Lude..= subnetIds),
+            Lude.Just ("VpcId" Lude..= vpcId)
           ]
       )

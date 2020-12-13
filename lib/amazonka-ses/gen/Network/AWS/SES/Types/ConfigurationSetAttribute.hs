@@ -13,10 +13,10 @@
 module Network.AWS.SES.Types.ConfigurationSetAttribute
   ( ConfigurationSetAttribute
       ( ConfigurationSetAttribute',
-        DeliveryOptions,
         EventDestinations,
-        ReputationOptions,
-        TrackingOptions
+        TrackingOptions,
+        DeliveryOptions,
+        ReputationOptions
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ConfigurationSetAttribute = ConfigurationSetAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeliveryOptions :: ConfigurationSetAttribute
-pattern DeliveryOptions = ConfigurationSetAttribute' "deliveryOptions"
-
 pattern EventDestinations :: ConfigurationSetAttribute
 pattern EventDestinations = ConfigurationSetAttribute' "eventDestinations"
-
-pattern ReputationOptions :: ConfigurationSetAttribute
-pattern ReputationOptions = ConfigurationSetAttribute' "reputationOptions"
 
 pattern TrackingOptions :: ConfigurationSetAttribute
 pattern TrackingOptions = ConfigurationSetAttribute' "trackingOptions"
 
+pattern DeliveryOptions :: ConfigurationSetAttribute
+pattern DeliveryOptions = ConfigurationSetAttribute' "deliveryOptions"
+
+pattern ReputationOptions :: ConfigurationSetAttribute
+pattern ReputationOptions = ConfigurationSetAttribute' "reputationOptions"
+
 {-# COMPLETE
-  DeliveryOptions,
   EventDestinations,
-  ReputationOptions,
   TrackingOptions,
+  DeliveryOptions,
+  ReputationOptions,
   ConfigurationSetAttribute'
   #-}

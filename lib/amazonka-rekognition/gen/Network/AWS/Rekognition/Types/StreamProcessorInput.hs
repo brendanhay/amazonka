@@ -29,16 +29,10 @@ import Network.AWS.Rekognition.Types.KinesisVideoStream
 --
 -- /See:/ 'mkStreamProcessorInput' smart constructor.
 newtype StreamProcessorInput = StreamProcessorInput'
-  { kinesisVideoStream ::
-      Lude.Maybe KinesisVideoStream
+  { -- | The Kinesis video stream input stream for the source streaming video.
+    kinesisVideoStream :: Lude.Maybe KinesisVideoStream
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamProcessorInput' with the minimum fields required to make a request.

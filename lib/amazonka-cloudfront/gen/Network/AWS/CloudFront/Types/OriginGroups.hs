@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.OriginGroups
     mkOriginGroups,
 
     -- * Lenses
-    ogItems,
     ogQuantity,
+    ogItems,
   )
 where
 
@@ -30,36 +30,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOriginGroups' smart constructor.
 data OriginGroups = OriginGroups'
-  { items ::
-      Lude.Maybe [OriginGroup],
-    quantity :: Lude.Int
+  { -- | The number of origin groups.
+    quantity :: Lude.Int,
+    -- | The items (origin groups) in a distribution.
+    items :: Lude.Maybe [OriginGroup]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OriginGroups' with the minimum fields required to make a request.
 --
--- * 'items' - The items (origin groups) in a distribution.
 -- * 'quantity' - The number of origin groups.
+-- * 'items' - The items (origin groups) in a distribution.
 mkOriginGroups ::
   -- | 'quantity'
   Lude.Int ->
   OriginGroups
 mkOriginGroups pQuantity_ =
-  OriginGroups' {items = Lude.Nothing, quantity = pQuantity_}
-
--- | The items (origin groups) in a distribution.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogItems :: Lens.Lens' OriginGroups (Lude.Maybe [OriginGroup])
-ogItems = Lens.lens (items :: OriginGroups -> Lude.Maybe [OriginGroup]) (\s a -> s {items = a} :: OriginGroups)
-{-# DEPRECATED ogItems "Use generic-lens or generic-optics with 'items' instead." #-}
+  OriginGroups' {quantity = pQuantity_, items = Lude.Nothing}
 
 -- | The number of origin groups.
 --
@@ -68,18 +56,25 @@ ogQuantity :: Lens.Lens' OriginGroups Lude.Int
 ogQuantity = Lens.lens (quantity :: OriginGroups -> Lude.Int) (\s a -> s {quantity = a} :: OriginGroups)
 {-# DEPRECATED ogQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | The items (origin groups) in a distribution.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogItems :: Lens.Lens' OriginGroups (Lude.Maybe [OriginGroup])
+ogItems = Lens.lens (items :: OriginGroups -> Lude.Maybe [OriginGroup]) (\s a -> s {items = a} :: OriginGroups)
+{-# DEPRECATED ogItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML OriginGroups where
   parseXML x =
     OriginGroups'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "OriginGroup")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML OriginGroups where
   toXML OriginGroups' {..} =
     Lude.mconcat
-      [ "Items"
-          Lude.@= Lude.toXML (Lude.toXMLList "OriginGroup" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "OriginGroup" Lude.<$> items)
       ]

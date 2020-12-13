@@ -13,9 +13,9 @@
 module Network.AWS.MediaPackage.Types.SegmentTemplateFormat
   ( SegmentTemplateFormat
       ( SegmentTemplateFormat',
-        NumberWithDuration,
         NumberWithTimeline,
-        TimeWithTimeline
+        TimeWithTimeline,
+        NumberWithDuration
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SegmentTemplateFormat = SegmentTemplateFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern NumberWithDuration :: SegmentTemplateFormat
-pattern NumberWithDuration = SegmentTemplateFormat' "NUMBER_WITH_DURATION"
-
 pattern NumberWithTimeline :: SegmentTemplateFormat
 pattern NumberWithTimeline = SegmentTemplateFormat' "NUMBER_WITH_TIMELINE"
 
 pattern TimeWithTimeline :: SegmentTemplateFormat
 pattern TimeWithTimeline = SegmentTemplateFormat' "TIME_WITH_TIMELINE"
 
+pattern NumberWithDuration :: SegmentTemplateFormat
+pattern NumberWithDuration = SegmentTemplateFormat' "NUMBER_WITH_DURATION"
+
 {-# COMPLETE
-  NumberWithDuration,
   NumberWithTimeline,
   TimeWithTimeline,
+  NumberWithDuration,
   SegmentTemplateFormat'
   #-}

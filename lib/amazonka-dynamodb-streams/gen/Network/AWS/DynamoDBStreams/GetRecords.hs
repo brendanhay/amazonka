@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DynamoDBStreams.GetRecords
     mkGetRecords,
 
     -- ** Request lenses
-    grLimit,
     grShardIterator,
+    grLimit,
 
     -- * Destructuring the response
     GetRecordsResponse (..),
@@ -45,38 +46,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetRecords' smart constructor.
 data GetRecords = GetRecords'
-  { limit :: Lude.Maybe Lude.Natural,
-    shardIterator :: Lude.Text
+  { -- | A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.
+    shardIterator :: Lude.Text,
+    -- | The maximum number of records to return from the shard. The upper limit is 1000.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of records to return from the shard. The upper limit is 1000.
 -- * 'shardIterator' - A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.
+-- * 'limit' - The maximum number of records to return from the shard. The upper limit is 1000.
 mkGetRecords ::
   -- | 'shardIterator'
   Lude.Text ->
   GetRecords
 mkGetRecords pShardIterator_ =
   GetRecords'
-    { limit = Lude.Nothing,
-      shardIterator = pShardIterator_
+    { shardIterator = pShardIterator_,
+      limit = Lude.Nothing
     }
-
--- | The maximum number of records to return from the shard. The upper limit is 1000.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grLimit :: Lens.Lens' GetRecords (Lude.Maybe Lude.Natural)
-grLimit = Lens.lens (limit :: GetRecords -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetRecords)
-{-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | A shard iterator that was retrieved from a previous GetShardIterator operation. This iterator can be used to access the stream records in this shard.
 --
@@ -84,6 +74,13 @@ grLimit = Lens.lens (limit :: GetRecords -> Lude.Maybe Lude.Natural) (\s a -> s 
 grShardIterator :: Lens.Lens' GetRecords Lude.Text
 grShardIterator = Lens.lens (shardIterator :: GetRecords -> Lude.Text) (\s a -> s {shardIterator = a} :: GetRecords)
 {-# DEPRECATED grShardIterator "Use generic-lens or generic-optics with 'shardIterator' instead." #-}
+
+-- | The maximum number of records to return from the shard. The upper limit is 1000.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grLimit :: Lens.Lens' GetRecords (Lude.Maybe Lude.Natural)
+grLimit = Lens.lens (limit :: GetRecords -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: GetRecords)
+{-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Lude.AWSRequest GetRecords where
   type Rs GetRecords = GetRecordsResponse
@@ -112,8 +109,8 @@ instance Lude.ToJSON GetRecords where
   toJSON GetRecords' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ShardIterator" Lude..= shardIterator)
+          [ Lude.Just ("ShardIterator" Lude..= shardIterator),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -127,24 +124,20 @@ instance Lude.ToQuery GetRecords where
 --
 -- /See:/ 'mkGetRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-  { records ::
-      Lude.Maybe [Record],
+  { -- | The stream records from the shard, which were retrieved using the shard iterator.
+    records :: Lude.Maybe [Record],
+    -- | The next position in the shard from which to start sequentially reading stream records. If set to @null@ , the shard has been closed and the requested iterator will not return any more data.
     nextShardIterator :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
 --
--- * 'nextShardIterator' - The next position in the shard from which to start sequentially reading stream records. If set to @null@ , the shard has been closed and the requested iterator will not return any more data.
 -- * 'records' - The stream records from the shard, which were retrieved using the shard iterator.
+-- * 'nextShardIterator' - The next position in the shard from which to start sequentially reading stream records. If set to @null@ , the shard has been closed and the requested iterator will not return any more data.
 -- * 'responseStatus' - The response status code.
 mkGetRecordsResponse ::
   -- | 'responseStatus'

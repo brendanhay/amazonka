@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResolvedTargets' smart constructor.
 data ResolvedTargets = ResolvedTargets'
-  { truncated ::
-      Lude.Maybe Lude.Bool,
+  { -- | A boolean value indicating whether the resolved target list is truncated.
+    truncated :: Lude.Maybe Lude.Bool,
+    -- | A list of parameter values sent to targets that resolved during the Automation execution.
     parameterValues :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolvedTargets' with the minimum fields required to make a request.
 --
--- * 'parameterValues' - A list of parameter values sent to targets that resolved during the Automation execution.
 -- * 'truncated' - A boolean value indicating whether the resolved target list is truncated.
+-- * 'parameterValues' - A list of parameter values sent to targets that resolved during the Automation execution.
 mkResolvedTargets ::
   ResolvedTargets
 mkResolvedTargets =

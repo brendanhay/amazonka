@@ -13,12 +13,12 @@
 module Network.AWS.Glue.Types.TaskStatusType
   ( TaskStatusType
       ( TaskStatusType',
-        Failed,
-        Running,
         Starting,
-        Stopped,
+        Running,
         Stopping,
+        Stopped,
         Succeeded,
+        Failed,
         Timeout
       ),
   )
@@ -50,34 +50,34 @@ newtype TaskStatusType = TaskStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: TaskStatusType
-pattern Failed = TaskStatusType' "FAILED"
+pattern Starting :: TaskStatusType
+pattern Starting = TaskStatusType' "STARTING"
 
 pattern Running :: TaskStatusType
 pattern Running = TaskStatusType' "RUNNING"
 
-pattern Starting :: TaskStatusType
-pattern Starting = TaskStatusType' "STARTING"
+pattern Stopping :: TaskStatusType
+pattern Stopping = TaskStatusType' "STOPPING"
 
 pattern Stopped :: TaskStatusType
 pattern Stopped = TaskStatusType' "STOPPED"
 
-pattern Stopping :: TaskStatusType
-pattern Stopping = TaskStatusType' "STOPPING"
-
 pattern Succeeded :: TaskStatusType
 pattern Succeeded = TaskStatusType' "SUCCEEDED"
+
+pattern Failed :: TaskStatusType
+pattern Failed = TaskStatusType' "FAILED"
 
 pattern Timeout :: TaskStatusType
 pattern Timeout = TaskStatusType' "TIMEOUT"
 
 {-# COMPLETE
-  Failed,
-  Running,
   Starting,
-  Stopped,
+  Running,
   Stopping,
+  Stopped,
   Succeeded,
+  Failed,
   Timeout,
   TaskStatusType'
   #-}

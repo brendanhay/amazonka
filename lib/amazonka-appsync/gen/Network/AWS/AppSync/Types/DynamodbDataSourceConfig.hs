@@ -20,8 +20,8 @@ module Network.AWS.AppSync.Types.DynamodbDataSourceConfig
     ddscVersioned,
     ddscUseCallerCredentials,
     ddscDeltaSyncConfig,
-    ddscTableName,
     ddscAwsRegion,
+    ddscTableName,
   )
 where
 
@@ -33,44 +33,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDynamodbDataSourceConfig' smart constructor.
 data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
-  { versioned ::
-      Lude.Maybe Lude.Bool,
-    useCallerCredentials ::
-      Lude.Maybe Lude.Bool,
-    deltaSyncConfig ::
-      Lude.Maybe DeltaSyncConfig,
-    tableName :: Lude.Text,
-    awsRegion :: Lude.Text
+  { -- | Set to TRUE to use Conflict Detection and Resolution with this data source.
+    versioned :: Lude.Maybe Lude.Bool,
+    -- | Set to TRUE to use Amazon Cognito credentials with this data source.
+    useCallerCredentials :: Lude.Maybe Lude.Bool,
+    -- | The @DeltaSyncConfig@ for a versioned datasource.
+    deltaSyncConfig :: Lude.Maybe DeltaSyncConfig,
+    -- | The AWS Region.
+    awsRegion :: Lude.Text,
+    -- | The table name.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DynamodbDataSourceConfig' with the minimum fields required to make a request.
 --
--- * 'awsRegion' - The AWS Region.
--- * 'deltaSyncConfig' - The @DeltaSyncConfig@ for a versioned datasource.
--- * 'tableName' - The table name.
--- * 'useCallerCredentials' - Set to TRUE to use Amazon Cognito credentials with this data source.
 -- * 'versioned' - Set to TRUE to use Conflict Detection and Resolution with this data source.
+-- * 'useCallerCredentials' - Set to TRUE to use Amazon Cognito credentials with this data source.
+-- * 'deltaSyncConfig' - The @DeltaSyncConfig@ for a versioned datasource.
+-- * 'awsRegion' - The AWS Region.
+-- * 'tableName' - The table name.
 mkDynamodbDataSourceConfig ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'awsRegion'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   DynamodbDataSourceConfig
-mkDynamodbDataSourceConfig pTableName_ pAwsRegion_ =
+mkDynamodbDataSourceConfig pAwsRegion_ pTableName_ =
   DynamodbDataSourceConfig'
     { versioned = Lude.Nothing,
       useCallerCredentials = Lude.Nothing,
       deltaSyncConfig = Lude.Nothing,
-      tableName = pTableName_,
-      awsRegion = pAwsRegion_
+      awsRegion = pAwsRegion_,
+      tableName = pTableName_
     }
 
 -- | Set to TRUE to use Conflict Detection and Resolution with this data source.
@@ -94,19 +90,19 @@ ddscDeltaSyncConfig :: Lens.Lens' DynamodbDataSourceConfig (Lude.Maybe DeltaSync
 ddscDeltaSyncConfig = Lens.lens (deltaSyncConfig :: DynamodbDataSourceConfig -> Lude.Maybe DeltaSyncConfig) (\s a -> s {deltaSyncConfig = a} :: DynamodbDataSourceConfig)
 {-# DEPRECATED ddscDeltaSyncConfig "Use generic-lens or generic-optics with 'deltaSyncConfig' instead." #-}
 
--- | The table name.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddscTableName :: Lens.Lens' DynamodbDataSourceConfig Lude.Text
-ddscTableName = Lens.lens (tableName :: DynamodbDataSourceConfig -> Lude.Text) (\s a -> s {tableName = a} :: DynamodbDataSourceConfig)
-{-# DEPRECATED ddscTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
 -- | The AWS Region.
 --
 -- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ddscAwsRegion :: Lens.Lens' DynamodbDataSourceConfig Lude.Text
 ddscAwsRegion = Lens.lens (awsRegion :: DynamodbDataSourceConfig -> Lude.Text) (\s a -> s {awsRegion = a} :: DynamodbDataSourceConfig)
 {-# DEPRECATED ddscAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+
+-- | The table name.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddscTableName :: Lens.Lens' DynamodbDataSourceConfig Lude.Text
+ddscTableName = Lens.lens (tableName :: DynamodbDataSourceConfig -> Lude.Text) (\s a -> s {tableName = a} :: DynamodbDataSourceConfig)
+{-# DEPRECATED ddscTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.FromJSON DynamodbDataSourceConfig where
   parseJSON =
@@ -117,8 +113,8 @@ instance Lude.FromJSON DynamodbDataSourceConfig where
             Lude.<$> (x Lude..:? "versioned")
             Lude.<*> (x Lude..:? "useCallerCredentials")
             Lude.<*> (x Lude..:? "deltaSyncConfig")
-            Lude.<*> (x Lude..: "tableName")
             Lude.<*> (x Lude..: "awsRegion")
+            Lude.<*> (x Lude..: "tableName")
       )
 
 instance Lude.ToJSON DynamodbDataSourceConfig where
@@ -128,7 +124,7 @@ instance Lude.ToJSON DynamodbDataSourceConfig where
           [ ("versioned" Lude..=) Lude.<$> versioned,
             ("useCallerCredentials" Lude..=) Lude.<$> useCallerCredentials,
             ("deltaSyncConfig" Lude..=) Lude.<$> deltaSyncConfig,
-            Lude.Just ("tableName" Lude..= tableName),
-            Lude.Just ("awsRegion" Lude..= awsRegion)
+            Lude.Just ("awsRegion" Lude..= awsRegion),
+            Lude.Just ("tableName" Lude..= tableName)
           ]
       )

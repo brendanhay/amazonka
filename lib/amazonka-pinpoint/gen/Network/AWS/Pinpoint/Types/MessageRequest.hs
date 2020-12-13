@@ -37,34 +37,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageRequest' smart constructor.
 data MessageRequest = MessageRequest'
-  { traceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for tracing the message. This identifier is visible to message recipients.
+    traceId :: Lude.Maybe Lude.Text,
+    -- | A map of custom attributes to attach to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
     context :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    addresses ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AddressConfiguration)),
+    -- | A map of key-value pairs, where each key is an address and each value is an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration> object. An address can be a push notification token, a phone number, or an email address. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration> object to tailor the message for an address by specifying settings such as content overrides and message variables.
+    addresses :: Lude.Maybe (Lude.HashMap Lude.Text (AddressConfiguration)),
+    -- | The message template to use for the message.
     templateConfiguration :: Lude.Maybe TemplateConfiguration,
-    endpoints ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (EndpointSendConfiguration)),
+    -- | A map of key-value pairs, where each key is an endpoint ID and each value is an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for an endpoint by specifying settings such as content overrides and message variables.
+    endpoints :: Lude.Maybe (Lude.HashMap Lude.Text (EndpointSendConfiguration)),
+    -- | The settings and content for the default message and any default messages that you defined for specific channels.
     messageConfiguration :: DirectMessageConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageRequest' with the minimum fields required to make a request.
 --
--- * 'addresses' - A map of key-value pairs, where each key is an address and each value is an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration> object. An address can be a push notification token, a phone number, or an email address. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration> object to tailor the message for an address by specifying settings such as content overrides and message variables.
+-- * 'traceId' - The unique identifier for tracing the message. This identifier is visible to message recipients.
 -- * 'context' - A map of custom attributes to attach to the message. For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
+-- * 'addresses' - A map of key-value pairs, where each key is an address and each value is an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration> object. An address can be a push notification token, a phone number, or an email address. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration AddressConfiguration> object to tailor the message for an address by specifying settings such as content overrides and message variables.
+-- * 'templateConfiguration' - The message template to use for the message.
 -- * 'endpoints' - A map of key-value pairs, where each key is an endpoint ID and each value is an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for an endpoint by specifying settings such as content overrides and message variables.
 -- * 'messageConfiguration' - The settings and content for the default message and any default messages that you defined for specific channels.
--- * 'templateConfiguration' - The message template to use for the message.
--- * 'traceId' - The unique identifier for tracing the message. This identifier is visible to message recipients.
 mkMessageRequest ::
   -- | 'messageConfiguration'
   DirectMessageConfiguration ->

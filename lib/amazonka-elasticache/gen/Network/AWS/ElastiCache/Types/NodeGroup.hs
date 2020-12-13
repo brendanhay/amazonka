@@ -35,30 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeGroup' smart constructor.
 data NodeGroup = NodeGroup'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ .
+    status :: Lude.Maybe Lude.Text,
+    -- | The endpoint of the primary node in this node group (shard).
     primaryEndpoint :: Lude.Maybe Endpoint,
+    -- | The keyspace for this node group (shard).
     slots :: Lude.Maybe Lude.Text,
+    -- | A list containing information about individual nodes within the node group (shard).
     nodeGroupMembers :: Lude.Maybe [NodeGroupMember],
+    -- | The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for a node group.
     nodeGroupId :: Lude.Maybe Lude.Text,
+    -- | The endpoint of the replica nodes in this node group (shard).
     readerEndpoint :: Lude.Maybe Endpoint
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeGroup' with the minimum fields required to make a request.
 --
--- * 'nodeGroupId' - The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for a node group.
--- * 'nodeGroupMembers' - A list containing information about individual nodes within the node group (shard).
--- * 'primaryEndpoint' - The endpoint of the primary node in this node group (shard).
--- * 'readerEndpoint' - The endpoint of the replica nodes in this node group (shard).
--- * 'slots' - The keyspace for this node group (shard).
 -- * 'status' - The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ .
+-- * 'primaryEndpoint' - The endpoint of the primary node in this node group (shard).
+-- * 'slots' - The keyspace for this node group (shard).
+-- * 'nodeGroupMembers' - A list containing information about individual nodes within the node group (shard).
+-- * 'nodeGroupId' - The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for a node group.
+-- * 'readerEndpoint' - The endpoint of the replica nodes in this node group (shard).
 mkNodeGroup ::
   NodeGroup
 mkNodeGroup =

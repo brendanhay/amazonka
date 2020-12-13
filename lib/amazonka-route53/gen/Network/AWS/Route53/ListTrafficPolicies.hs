@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,11 +30,11 @@ module Network.AWS.Route53.ListTrafficPolicies
     mkListTrafficPoliciesResponse,
 
     -- ** Response lenses
-    ltprsResponseStatus,
     ltprsTrafficPolicySummaries,
-    ltprsIsTruncated,
     ltprsTrafficPolicyIdMarker,
     ltprsMaxItems,
+    ltprsIsTruncated,
+    ltprsResponseStatus,
   )
 where
 
@@ -47,25 +48,22 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkListTrafficPolicies' smart constructor.
 data ListTrafficPolicies = ListTrafficPolicies'
-  { trafficPolicyIdMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | (Conditional) For your first request to @ListTrafficPolicies@ , don't include the @TrafficPolicyIdMarker@ parameter.
+    --
+    -- If you have more traffic policies than the value of @MaxItems@ , @ListTrafficPolicies@ returns only the first @MaxItems@ traffic policies. To get the next group of policies, submit another request to @ListTrafficPolicies@ . For the value of @TrafficPolicyIdMarker@ , specify the value of @TrafficPolicyIdMarker@ that was returned in the previous response.
+    trafficPolicyIdMarker :: Lude.Maybe Lude.Text,
+    -- | (Optional) The maximum number of traffic policies that you want Amazon Route 53 to return in response to this request. If you have more than @MaxItems@ traffic policies, the value of @IsTruncated@ in the response is @true@ , and the value of @TrafficPolicyIdMarker@ is the ID of the first traffic policy that Route 53 will return if you submit another request.
     maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrafficPolicies' with the minimum fields required to make a request.
 --
--- * 'maxItems' - (Optional) The maximum number of traffic policies that you want Amazon Route 53 to return in response to this request. If you have more than @MaxItems@ traffic policies, the value of @IsTruncated@ in the response is @true@ , and the value of @TrafficPolicyIdMarker@ is the ID of the first traffic policy that Route 53 will return if you submit another request.
 -- * 'trafficPolicyIdMarker' - (Conditional) For your first request to @ListTrafficPolicies@ , don't include the @TrafficPolicyIdMarker@ parameter.
 --
 -- If you have more traffic policies than the value of @MaxItems@ , @ListTrafficPolicies@ returns only the first @MaxItems@ traffic policies. To get the next group of policies, submit another request to @ListTrafficPolicies@ . For the value of @TrafficPolicyIdMarker@ , specify the value of @TrafficPolicyIdMarker@ that was returned in the previous response.
+-- * 'maxItems' - (Optional) The maximum number of traffic policies that you want Amazon Route 53 to return in response to this request. If you have more than @MaxItems@ traffic policies, the value of @IsTruncated@ in the response is @true@ , and the value of @TrafficPolicyIdMarker@ is the ID of the first traffic policy that Route 53 will return if you submit another request.
 mkListTrafficPolicies ::
   ListTrafficPolicies
 mkListTrafficPolicies =
@@ -97,13 +95,13 @@ instance Lude.AWSRequest ListTrafficPolicies where
     Res.receiveXML
       ( \s h x ->
           ListTrafficPoliciesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "TrafficPolicySummaries" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "TrafficPolicySummaries" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "TrafficPolicySummary"
                      )
-            Lude.<*> (x Lude..@ "IsTruncated")
             Lude.<*> (x Lude..@ "TrafficPolicyIdMarker")
             Lude.<*> (x Lude..@ "MaxItems")
+            Lude.<*> (x Lude..@ "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListTrafficPolicies where
@@ -123,59 +121,50 @@ instance Lude.ToQuery ListTrafficPolicies where
 --
 -- /See:/ 'mkListTrafficPoliciesResponse' smart constructor.
 data ListTrafficPoliciesResponse = ListTrafficPoliciesResponse'
-  { responseStatus ::
-      Lude.Int,
-    trafficPolicySummaries ::
-      [TrafficPolicySummary],
-    isTruncated :: Lude.Bool,
+  { -- | A list that contains one @TrafficPolicySummary@ element for each traffic policy that was created by the current AWS account.
+    trafficPolicySummaries :: [TrafficPolicySummary],
+    -- | If the value of @IsTruncated@ is @true@ , @TrafficPolicyIdMarker@ is the ID of the first traffic policy in the next group of @MaxItems@ traffic policies.
     trafficPolicyIdMarker :: Lude.Text,
-    maxItems :: Lude.Text
+    -- | The value that you specified for the @MaxItems@ parameter in the @ListTrafficPolicies@ request that produced the current response.
+    maxItems :: Lude.Text,
+    -- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicies@ request and specifying the value of @TrafficPolicyIdMarker@ in the @TrafficPolicyIdMarker@ request parameter.
+    isTruncated :: Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTrafficPoliciesResponse' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicies@ request and specifying the value of @TrafficPolicyIdMarker@ in the @TrafficPolicyIdMarker@ request parameter.
--- * 'maxItems' - The value that you specified for the @MaxItems@ parameter in the @ListTrafficPolicies@ request that produced the current response.
--- * 'responseStatus' - The response status code.
--- * 'trafficPolicyIdMarker' - If the value of @IsTruncated@ is @true@ , @TrafficPolicyIdMarker@ is the ID of the first traffic policy in the next group of @MaxItems@ traffic policies.
 -- * 'trafficPolicySummaries' - A list that contains one @TrafficPolicySummary@ element for each traffic policy that was created by the current AWS account.
+-- * 'trafficPolicyIdMarker' - If the value of @IsTruncated@ is @true@ , @TrafficPolicyIdMarker@ is the ID of the first traffic policy in the next group of @MaxItems@ traffic policies.
+-- * 'maxItems' - The value that you specified for the @MaxItems@ parameter in the @ListTrafficPolicies@ request that produced the current response.
+-- * 'isTruncated' - A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicies@ request and specifying the value of @TrafficPolicyIdMarker@ in the @TrafficPolicyIdMarker@ request parameter.
+-- * 'responseStatus' - The response status code.
 mkListTrafficPoliciesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'isTruncated'
-  Lude.Bool ->
   -- | 'trafficPolicyIdMarker'
   Lude.Text ->
   -- | 'maxItems'
   Lude.Text ->
+  -- | 'isTruncated'
+  Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTrafficPoliciesResponse
 mkListTrafficPoliciesResponse
-  pResponseStatus_
-  pIsTruncated_
   pTrafficPolicyIdMarker_
-  pMaxItems_ =
+  pMaxItems_
+  pIsTruncated_
+  pResponseStatus_ =
     ListTrafficPoliciesResponse'
-      { responseStatus = pResponseStatus_,
-        trafficPolicySummaries = Lude.mempty,
-        isTruncated = pIsTruncated_,
+      { trafficPolicySummaries =
+          Lude.mempty,
         trafficPolicyIdMarker = pTrafficPolicyIdMarker_,
-        maxItems = pMaxItems_
+        maxItems = pMaxItems_,
+        isTruncated = pIsTruncated_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprsResponseStatus :: Lens.Lens' ListTrafficPoliciesResponse Lude.Int
-ltprsResponseStatus = Lens.lens (responseStatus :: ListTrafficPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrafficPoliciesResponse)
-{-# DEPRECATED ltprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list that contains one @TrafficPolicySummary@ element for each traffic policy that was created by the current AWS account.
 --
@@ -183,13 +172,6 @@ ltprsResponseStatus = Lens.lens (responseStatus :: ListTrafficPoliciesResponse -
 ltprsTrafficPolicySummaries :: Lens.Lens' ListTrafficPoliciesResponse [TrafficPolicySummary]
 ltprsTrafficPolicySummaries = Lens.lens (trafficPolicySummaries :: ListTrafficPoliciesResponse -> [TrafficPolicySummary]) (\s a -> s {trafficPolicySummaries = a} :: ListTrafficPoliciesResponse)
 {-# DEPRECATED ltprsTrafficPolicySummaries "Use generic-lens or generic-optics with 'trafficPolicySummaries' instead." #-}
-
--- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicies@ request and specifying the value of @TrafficPolicyIdMarker@ in the @TrafficPolicyIdMarker@ request parameter.
---
--- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltprsIsTruncated :: Lens.Lens' ListTrafficPoliciesResponse Lude.Bool
-ltprsIsTruncated = Lens.lens (isTruncated :: ListTrafficPoliciesResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListTrafficPoliciesResponse)
-{-# DEPRECATED ltprsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | If the value of @IsTruncated@ is @true@ , @TrafficPolicyIdMarker@ is the ID of the first traffic policy in the next group of @MaxItems@ traffic policies.
 --
@@ -204,3 +186,17 @@ ltprsTrafficPolicyIdMarker = Lens.lens (trafficPolicyIdMarker :: ListTrafficPoli
 ltprsMaxItems :: Lens.Lens' ListTrafficPoliciesResponse Lude.Text
 ltprsMaxItems = Lens.lens (maxItems :: ListTrafficPoliciesResponse -> Lude.Text) (\s a -> s {maxItems = a} :: ListTrafficPoliciesResponse)
 {-# DEPRECATED ltprsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+-- | A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of traffic policies by submitting another @ListTrafficPolicies@ request and specifying the value of @TrafficPolicyIdMarker@ in the @TrafficPolicyIdMarker@ request parameter.
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprsIsTruncated :: Lens.Lens' ListTrafficPoliciesResponse Lude.Bool
+ltprsIsTruncated = Lens.lens (isTruncated :: ListTrafficPoliciesResponse -> Lude.Bool) (\s a -> s {isTruncated = a} :: ListTrafficPoliciesResponse)
+{-# DEPRECATED ltprsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltprsResponseStatus :: Lens.Lens' ListTrafficPoliciesResponse Lude.Int
+ltprsResponseStatus = Lens.lens (responseStatus :: ListTrafficPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTrafficPoliciesResponse)
+{-# DEPRECATED ltprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

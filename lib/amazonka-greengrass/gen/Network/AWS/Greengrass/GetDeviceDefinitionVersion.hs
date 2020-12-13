@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDeviceDefinitionVersion' smart constructor.
 data GetDeviceDefinitionVersion = GetDeviceDefinitionVersion'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    deviceDefinitionVersionId ::
-      Lude.Text,
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+    deviceDefinitionVersionId :: Lude.Text,
+    -- | The ID of the device definition.
     deviceDefinitionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeviceDefinitionVersion' with the minimum fields required to make a request.
 --
--- * 'deviceDefinitionId' - The ID of the device definition.
--- * 'deviceDefinitionVersionId' - The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'deviceDefinitionVersionId' - The ID of the device definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListDeviceDefinitionVersions'' requests. If the version is the last one that was associated with a device definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+-- * 'deviceDefinitionId' - The ID of the device definition.
 mkGetDeviceDefinitionVersion ::
   -- | 'deviceDefinitionVersionId'
   Lude.Text ->
@@ -144,40 +140,33 @@ instance Lude.ToQuery GetDeviceDefinitionVersion where
 
 -- | /See:/ 'mkGetDeviceDefinitionVersionResponse' smart constructor.
 data GetDeviceDefinitionVersionResponse = GetDeviceDefinitionVersionResponse'
-  { definition ::
-      Lude.Maybe
-        DeviceDefinitionVersion,
-    arn ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe Lude.Text,
-    version ::
-      Lude.Maybe Lude.Text,
-    id ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the device definition version.
+    definition :: Lude.Maybe DeviceDefinitionVersion,
+    -- | The ARN of the device definition version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the device definition version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The version of the device definition version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the device definition version.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDeviceDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the device definition version.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the device definition version was created.
 -- * 'definition' - Information about the device definition version.
--- * 'id' - The ID of the device definition version.
+-- * 'arn' - The ARN of the device definition version.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the device definition version was created.
 -- * 'version' - The version of the device definition version.
+-- * 'id' - The ID of the device definition version.
+-- * 'responseStatus' - The response status code.
 mkGetDeviceDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

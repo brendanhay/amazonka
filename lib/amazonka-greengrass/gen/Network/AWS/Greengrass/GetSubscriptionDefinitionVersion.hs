@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Greengrass.GetSubscriptionDefinitionVersion
     mkGetSubscriptionDefinitionVersion,
 
     -- ** Request lenses
-    gsdvNextToken,
     gsdvSubscriptionDefinitionId,
+    gsdvNextToken,
     gsdvSubscriptionDefinitionVersionId,
 
     -- * Destructuring the response
@@ -46,26 +47,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSubscriptionDefinitionVersion' smart constructor.
 data GetSubscriptionDefinitionVersion = GetSubscriptionDefinitionVersion'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    subscriptionDefinitionId ::
-      Lude.Text,
-    subscriptionDefinitionVersionId ::
-      Lude.Text
+  { -- | The ID of the subscription definition.
+    subscriptionDefinitionId :: Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+    subscriptionDefinitionVersionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionDefinitionVersion' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'subscriptionDefinitionId' - The ID of the subscription definition.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'subscriptionDefinitionVersionId' - The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 mkGetSubscriptionDefinitionVersion ::
   -- | 'subscriptionDefinitionId'
@@ -77,18 +72,12 @@ mkGetSubscriptionDefinitionVersion
   pSubscriptionDefinitionId_
   pSubscriptionDefinitionVersionId_ =
     GetSubscriptionDefinitionVersion'
-      { nextToken = Lude.Nothing,
-        subscriptionDefinitionId = pSubscriptionDefinitionId_,
+      { subscriptionDefinitionId =
+          pSubscriptionDefinitionId_,
+        nextToken = Lude.Nothing,
         subscriptionDefinitionVersionId =
           pSubscriptionDefinitionVersionId_
       }
-
--- | The token for the next set of results, or ''null'' if there are no additional results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdvNextToken :: Lens.Lens' GetSubscriptionDefinitionVersion (Lude.Maybe Lude.Text)
-gsdvNextToken = Lens.lens (nextToken :: GetSubscriptionDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSubscriptionDefinitionVersion)
-{-# DEPRECATED gsdvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the subscription definition.
 --
@@ -96,6 +85,13 @@ gsdvNextToken = Lens.lens (nextToken :: GetSubscriptionDefinitionVersion -> Lude
 gsdvSubscriptionDefinitionId :: Lens.Lens' GetSubscriptionDefinitionVersion Lude.Text
 gsdvSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: GetSubscriptionDefinitionVersion -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: GetSubscriptionDefinitionVersion)
 {-# DEPRECATED gsdvSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdvNextToken :: Lens.Lens' GetSubscriptionDefinitionVersion (Lude.Maybe Lude.Text)
+gsdvNextToken = Lens.lens (nextToken :: GetSubscriptionDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSubscriptionDefinitionVersion)
+{-# DEPRECATED gsdvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the subscription definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version is the last one that was associated with a subscription definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 --
@@ -146,45 +142,33 @@ instance Lude.ToQuery GetSubscriptionDefinitionVersion where
 
 -- | /See:/ 'mkGetSubscriptionDefinitionVersionResponse' smart constructor.
 data GetSubscriptionDefinitionVersionResponse = GetSubscriptionDefinitionVersionResponse'
-  { definition ::
-      Lude.Maybe
-        SubscriptionDefinitionVersion,
-    arn ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the subscription definition version.
+    definition :: Lude.Maybe SubscriptionDefinitionVersion,
+    -- | The ARN of the subscription definition version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the subscription definition version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The version of the subscription definition version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the subscription definition version.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSubscriptionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the subscription definition version.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the subscription definition version was created.
 -- * 'definition' - Information about the subscription definition version.
--- * 'id' - The ID of the subscription definition version.
+-- * 'arn' - The ARN of the subscription definition version.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the subscription definition version was created.
 -- * 'version' - The version of the subscription definition version.
+-- * 'id' - The ID of the subscription definition version.
+-- * 'responseStatus' - The response status code.
 mkGetSubscriptionDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

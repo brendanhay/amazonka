@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIdentityUsage' smart constructor.
 data IdentityUsage = IdentityUsage'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Date on which the identity was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
     identityPoolId :: Lude.Maybe Lude.Text,
+    -- | Number of datasets for the identity.
     datasetCount :: Lude.Maybe Lude.Int,
+    -- | Total data storage for this identity.
     dataStorage :: Lude.Maybe Lude.Integer,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
     identityId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityUsage' with the minimum fields required to make a request.
 --
--- * 'dataStorage' - Total data storage for this identity.
--- * 'datasetCount' - Number of datasets for the identity.
--- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'lastModifiedDate' - Date on which the identity was last modified.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'datasetCount' - Number of datasets for the identity.
+-- * 'dataStorage' - Total data storage for this identity.
+-- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 mkIdentityUsage ::
   IdentityUsage
 mkIdentityUsage =

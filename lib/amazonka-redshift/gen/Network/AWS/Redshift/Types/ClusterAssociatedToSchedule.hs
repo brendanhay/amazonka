@@ -31,24 +31,18 @@ import Network.AWS.Redshift.Types.ScheduleState
 --
 -- /See:/ 'mkClusterAssociatedToSchedule' smart constructor.
 data ClusterAssociatedToSchedule = ClusterAssociatedToSchedule'
-  { scheduleAssociationState ::
-      Lude.Maybe ScheduleState,
-    clusterIdentifier ::
-      Lude.Maybe Lude.Text
+  { -- |
+    scheduleAssociationState :: Lude.Maybe ScheduleState,
+    -- |
+    clusterIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterAssociatedToSchedule' with the minimum fields required to make a request.
 --
--- * 'clusterIdentifier' -
 -- * 'scheduleAssociationState' -
+-- * 'clusterIdentifier' -
 mkClusterAssociatedToSchedule ::
   ClusterAssociatedToSchedule
 mkClusterAssociatedToSchedule =

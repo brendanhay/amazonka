@@ -30,23 +30,18 @@ import Network.AWS.Rekognition.Types.ComparedFace
 --
 -- /See:/ 'mkCompareFacesMatch' smart constructor.
 data CompareFacesMatch = CompareFacesMatch'
-  { similarity ::
-      Lude.Maybe Lude.Double,
+  { -- | Level of confidence that the faces match.
+    similarity :: Lude.Maybe Lude.Double,
+    -- | Provides face metadata (bounding box and confidence that the bounding box actually contains a face).
     face :: Lude.Maybe ComparedFace
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompareFacesMatch' with the minimum fields required to make a request.
 --
--- * 'face' - Provides face metadata (bounding box and confidence that the bounding box actually contains a face).
 -- * 'similarity' - Level of confidence that the faces match.
+-- * 'face' - Provides face metadata (bounding box and confidence that the bounding box actually contains a face).
 mkCompareFacesMatch ::
   CompareFacesMatch
 mkCompareFacesMatch =

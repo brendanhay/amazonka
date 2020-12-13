@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSBlockDeviceConfig' smart constructor.
 data EBSBlockDeviceConfig = EBSBlockDeviceConfig'
-  { volumesPerInstance ::
-      Lude.Maybe Lude.Int,
+  { -- | Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group
+    volumesPerInstance :: Lude.Maybe Lude.Int,
+    -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
     volumeSpecification :: VolumeSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSBlockDeviceConfig' with the minimum fields required to make a request.
 --
--- * 'volumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 -- * 'volumesPerInstance' - Number of EBS volumes with a specific volume configuration that will be associated with every instance in the instance group
+-- * 'volumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 mkEBSBlockDeviceConfig ::
   -- | 'volumeSpecification'
   VolumeSpecification ->

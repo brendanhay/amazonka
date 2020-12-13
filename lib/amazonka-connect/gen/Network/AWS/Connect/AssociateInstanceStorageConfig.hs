@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,20 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateInstanceStorageConfig' smart constructor.
 data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
-  { instanceId ::
-      Lude.Text,
-    resourceType ::
-      InstanceStorageResourceType,
-    storageConfig ::
-      InstanceStorageConfig
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | A valid resource type.
+    resourceType :: InstanceStorageResourceType,
+    -- | A valid storage type.
+    storageConfig :: InstanceStorageConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateInstanceStorageConfig' with the minimum fields required to make a request.
@@ -144,19 +139,12 @@ instance Lude.ToQuery AssociateInstanceStorageConfig where
 
 -- | /See:/ 'mkAssociateInstanceStorageConfigResponse' smart constructor.
 data AssociateInstanceStorageConfigResponse = AssociateInstanceStorageConfigResponse'
-  { associationId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateInstanceStorageConfigResponse' with the minimum fields required to make a request.

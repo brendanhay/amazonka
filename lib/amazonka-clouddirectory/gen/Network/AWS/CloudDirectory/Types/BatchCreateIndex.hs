@@ -18,9 +18,9 @@ module Network.AWS.CloudDirectory.Types.BatchCreateIndex
 
     -- * Lenses
     bciParentReference,
+    bciOrderedIndexedAttributeList,
     bciLinkName,
     bciBatchReferenceName,
-    bciOrderedIndexedAttributeList,
     bciIsUnique,
   )
 where
@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchCreateIndex' smart constructor.
 data BatchCreateIndex = BatchCreateIndex'
-  { parentReference ::
-      Lude.Maybe ObjectReference,
-    linkName :: Lude.Maybe Lude.Text,
-    batchReferenceName :: Lude.Maybe Lude.Text,
+  { -- | A reference to the parent object that contains the index object.
+    parentReference :: Lude.Maybe ObjectReference,
+    -- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
     orderedIndexedAttributeList :: [AttributeKey],
+    -- | The name of the link between the parent object and the index object.
+    linkName :: Lude.Maybe Lude.Text,
+    -- | The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
+    batchReferenceName :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the attribute that is being indexed has unique values or not.
     isUnique :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchCreateIndex' with the minimum fields required to make a request.
 --
+-- * 'parentReference' - A reference to the parent object that contains the index object.
+-- * 'orderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
+-- * 'linkName' - The name of the link between the parent object and the index object.
 -- * 'batchReferenceName' - The batch reference name. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support> for more information.
 -- * 'isUnique' - Indicates whether the attribute that is being indexed has unique values or not.
--- * 'linkName' - The name of the link between the parent object and the index object.
--- * 'orderedIndexedAttributeList' - Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
--- * 'parentReference' - A reference to the parent object that contains the index object.
 mkBatchCreateIndex ::
   -- | 'isUnique'
   Lude.Bool ->
@@ -64,9 +62,9 @@ mkBatchCreateIndex ::
 mkBatchCreateIndex pIsUnique_ =
   BatchCreateIndex'
     { parentReference = Lude.Nothing,
+      orderedIndexedAttributeList = Lude.mempty,
       linkName = Lude.Nothing,
       batchReferenceName = Lude.Nothing,
-      orderedIndexedAttributeList = Lude.mempty,
       isUnique = pIsUnique_
     }
 
@@ -76,6 +74,13 @@ mkBatchCreateIndex pIsUnique_ =
 bciParentReference :: Lens.Lens' BatchCreateIndex (Lude.Maybe ObjectReference)
 bciParentReference = Lens.lens (parentReference :: BatchCreateIndex -> Lude.Maybe ObjectReference) (\s a -> s {parentReference = a} :: BatchCreateIndex)
 {-# DEPRECATED bciParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
+
+-- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
+--
+-- /Note:/ Consider using 'orderedIndexedAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bciOrderedIndexedAttributeList :: Lens.Lens' BatchCreateIndex [AttributeKey]
+bciOrderedIndexedAttributeList = Lens.lens (orderedIndexedAttributeList :: BatchCreateIndex -> [AttributeKey]) (\s a -> s {orderedIndexedAttributeList = a} :: BatchCreateIndex)
+{-# DEPRECATED bciOrderedIndexedAttributeList "Use generic-lens or generic-optics with 'orderedIndexedAttributeList' instead." #-}
 
 -- | The name of the link between the parent object and the index object.
 --
@@ -91,13 +96,6 @@ bciBatchReferenceName :: Lens.Lens' BatchCreateIndex (Lude.Maybe Lude.Text)
 bciBatchReferenceName = Lens.lens (batchReferenceName :: BatchCreateIndex -> Lude.Maybe Lude.Text) (\s a -> s {batchReferenceName = a} :: BatchCreateIndex)
 {-# DEPRECATED bciBatchReferenceName "Use generic-lens or generic-optics with 'batchReferenceName' instead." #-}
 
--- | Specifies the attributes that should be indexed on. Currently only a single attribute is supported.
---
--- /Note:/ Consider using 'orderedIndexedAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bciOrderedIndexedAttributeList :: Lens.Lens' BatchCreateIndex [AttributeKey]
-bciOrderedIndexedAttributeList = Lens.lens (orderedIndexedAttributeList :: BatchCreateIndex -> [AttributeKey]) (\s a -> s {orderedIndexedAttributeList = a} :: BatchCreateIndex)
-{-# DEPRECATED bciOrderedIndexedAttributeList "Use generic-lens or generic-optics with 'orderedIndexedAttributeList' instead." #-}
-
 -- | Indicates whether the attribute that is being indexed has unique values or not.
 --
 -- /Note:/ Consider using 'isUnique' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -110,12 +108,12 @@ instance Lude.ToJSON BatchCreateIndex where
     Lude.object
       ( Lude.catMaybes
           [ ("ParentReference" Lude..=) Lude.<$> parentReference,
-            ("LinkName" Lude..=) Lude.<$> linkName,
-            ("BatchReferenceName" Lude..=) Lude.<$> batchReferenceName,
             Lude.Just
               ( "OrderedIndexedAttributeList"
                   Lude..= orderedIndexedAttributeList
               ),
+            ("LinkName" Lude..=) Lude.<$> linkName,
+            ("BatchReferenceName" Lude..=) Lude.<$> batchReferenceName,
             Lude.Just ("IsUnique" Lude..= isUnique)
           ]
       )

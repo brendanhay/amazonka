@@ -34,33 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingThresholds' smart constructor.
 data AutoScalingThresholds = AutoScalingThresholds'
-  { instanceCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances to add or remove when the load exceeds a threshold.
+    instanceCount :: Lude.Maybe Lude.Int,
+    -- | The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
     ignoreMetricsTime :: Lude.Maybe Lude.Natural,
+    -- | The load threshold. A value of -1 disables the threshold. For more information about how load is computed, see <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)> .
     loadThreshold :: Lude.Maybe Lude.Double,
+    -- | The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
     thresholdsWaitTime :: Lude.Maybe Lude.Natural,
+    -- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
     alarms :: Lude.Maybe [Lude.Text],
+    -- | The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
     memoryThreshold :: Lude.Maybe Lude.Double,
+    -- | The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
     cpuThreshold :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingThresholds' with the minimum fields required to make a request.
 --
--- * 'alarms' - Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
--- * 'cpuThreshold' - The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
--- * 'ignoreMetricsTime' - The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
 -- * 'instanceCount' - The number of instances to add or remove when the load exceeds a threshold.
+-- * 'ignoreMetricsTime' - The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events. For example, AWS OpsWorks Stacks adds new instances following an upscaling event but the instances won't start reducing the load until they have been booted and configured. There is no point in raising additional scaling events during that operation, which typically takes several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks Stacks to suppress scaling events long enough to get the new instances online.
 -- * 'loadThreshold' - The load threshold. A value of -1 disables the threshold. For more information about how load is computed, see <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)> .
--- * 'memoryThreshold' - The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
 -- * 'thresholdsWaitTime' - The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+-- * 'alarms' - Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+-- * 'memoryThreshold' - The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+-- * 'cpuThreshold' - The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
 mkAutoScalingThresholds ::
   AutoScalingThresholds
 mkAutoScalingThresholds =

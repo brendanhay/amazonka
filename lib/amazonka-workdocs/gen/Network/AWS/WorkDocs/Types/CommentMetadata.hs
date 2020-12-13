@@ -34,27 +34,25 @@ import Network.AWS.WorkDocs.Types.User
 --
 -- /See:/ 'mkCommentMetadata' smart constructor.
 data CommentMetadata = CommentMetadata'
-  { commentStatus ::
-      Lude.Maybe CommentStatusType,
+  { -- | The status of the comment.
+    commentStatus :: Lude.Maybe CommentStatusType,
+    -- | The user who made the comment.
     contributor :: Lude.Maybe User,
+    -- | The ID of the comment.
     commentId :: Lude.Maybe Lude.Text,
+    -- | The timestamp that the comment was created.
     createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the user being replied to.
     recipientId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommentMetadata' with the minimum fields required to make a request.
 --
--- * 'commentId' - The ID of the comment.
 -- * 'commentStatus' - The status of the comment.
 -- * 'contributor' - The user who made the comment.
+-- * 'commentId' - The ID of the comment.
 -- * 'createdTimestamp' - The timestamp that the comment was created.
 -- * 'recipientId' - The ID of the user being replied to.
 mkCommentMetadata ::

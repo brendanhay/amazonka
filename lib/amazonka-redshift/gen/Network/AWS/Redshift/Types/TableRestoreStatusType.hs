@@ -13,11 +13,11 @@
 module Network.AWS.Redshift.Types.TableRestoreStatusType
   ( TableRestoreStatusType
       ( TableRestoreStatusType',
-        TRSTCanceled,
-        TRSTFailed,
-        TRSTInProgress,
-        TRSTPending,
-        TRSTSucceeded
+        Pending,
+        InProgress,
+        Succeeded,
+        Failed,
+        Canceled
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype TableRestoreStatusType = TableRestoreStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TRSTCanceled :: TableRestoreStatusType
-pattern TRSTCanceled = TableRestoreStatusType' "CANCELED"
+pattern Pending :: TableRestoreStatusType
+pattern Pending = TableRestoreStatusType' "PENDING"
 
-pattern TRSTFailed :: TableRestoreStatusType
-pattern TRSTFailed = TableRestoreStatusType' "FAILED"
+pattern InProgress :: TableRestoreStatusType
+pattern InProgress = TableRestoreStatusType' "IN_PROGRESS"
 
-pattern TRSTInProgress :: TableRestoreStatusType
-pattern TRSTInProgress = TableRestoreStatusType' "IN_PROGRESS"
+pattern Succeeded :: TableRestoreStatusType
+pattern Succeeded = TableRestoreStatusType' "SUCCEEDED"
 
-pattern TRSTPending :: TableRestoreStatusType
-pattern TRSTPending = TableRestoreStatusType' "PENDING"
+pattern Failed :: TableRestoreStatusType
+pattern Failed = TableRestoreStatusType' "FAILED"
 
-pattern TRSTSucceeded :: TableRestoreStatusType
-pattern TRSTSucceeded = TableRestoreStatusType' "SUCCEEDED"
+pattern Canceled :: TableRestoreStatusType
+pattern Canceled = TableRestoreStatusType' "CANCELED"
 
 {-# COMPLETE
-  TRSTCanceled,
-  TRSTFailed,
-  TRSTInProgress,
-  TRSTPending,
-  TRSTSucceeded,
+  Pending,
+  InProgress,
+  Succeeded,
+  Failed,
+  Canceled,
   TableRestoreStatusType'
   #-}

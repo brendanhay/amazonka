@@ -34,34 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeliveryStreamEncryptionConfiguration' smart constructor.
 data DeliveryStreamEncryptionConfiguration = DeliveryStreamEncryptionConfiguration'
-  { status ::
-      Lude.Maybe
-        DeliveryStreamEncryptionStatus,
-    keyType ::
-      Lude.Maybe
-        KeyType,
-    keyARN ::
-      Lude.Maybe
-        Lude.Text,
-    failureDescription ::
-      Lude.Maybe
-        FailureDescription
+  { -- | This is the server-side encryption (SSE) status for the delivery stream. For a full description of the different values of this status, see 'StartDeliveryStreamEncryption' and 'StopDeliveryStreamEncryption' . If this status is @ENABLING_FAILED@ or @DISABLING_FAILED@ , it is the status of the most recent attempt to enable or disable SSE, respectively.
+    status :: Lude.Maybe DeliveryStreamEncryptionStatus,
+    -- | Indicates the type of customer master key (CMK) that is used for encryption. The default setting is @AWS_OWNED_CMK@ . For more information about CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)> .
+    keyType :: Lude.Maybe KeyType,
+    -- | If @KeyType@ is @CUSTOMER_MANAGED_CMK@ , this field contains the ARN of the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@ , @DeliveryStreamEncryptionConfiguration@ doesn't contain a value for @KeyARN@ .
+    keyARN :: Lude.Maybe Lude.Text,
+    -- | Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
+    failureDescription :: Lude.Maybe FailureDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeliveryStreamEncryptionConfiguration' with the minimum fields required to make a request.
 --
--- * 'failureDescription' - Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
--- * 'keyARN' - If @KeyType@ is @CUSTOMER_MANAGED_CMK@ , this field contains the ARN of the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@ , @DeliveryStreamEncryptionConfiguration@ doesn't contain a value for @KeyARN@ .
--- * 'keyType' - Indicates the type of customer master key (CMK) that is used for encryption. The default setting is @AWS_OWNED_CMK@ . For more information about CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)> .
 -- * 'status' - This is the server-side encryption (SSE) status for the delivery stream. For a full description of the different values of this status, see 'StartDeliveryStreamEncryption' and 'StopDeliveryStreamEncryption' . If this status is @ENABLING_FAILED@ or @DISABLING_FAILED@ , it is the status of the most recent attempt to enable or disable SSE, respectively.
+-- * 'keyType' - Indicates the type of customer master key (CMK) that is used for encryption. The default setting is @AWS_OWNED_CMK@ . For more information about CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)> .
+-- * 'keyARN' - If @KeyType@ is @CUSTOMER_MANAGED_CMK@ , this field contains the ARN of the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@ , @DeliveryStreamEncryptionConfiguration@ doesn't contain a value for @KeyARN@ .
+-- * 'failureDescription' - Provides details in case one of the following operations fails due to an error related to KMS: 'CreateDeliveryStream' , 'DeleteDeliveryStream' , 'StartDeliveryStreamEncryption' , 'StopDeliveryStreamEncryption' .
 mkDeliveryStreamEncryptionConfiguration ::
   DeliveryStreamEncryptionConfiguration
 mkDeliveryStreamEncryptionConfiguration =

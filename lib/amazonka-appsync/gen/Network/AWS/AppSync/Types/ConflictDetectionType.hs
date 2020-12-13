@@ -13,8 +13,8 @@
 module Network.AWS.AppSync.Types.ConflictDetectionType
   ( ConflictDetectionType
       ( ConflictDetectionType',
-        CDTNone,
-        CDTVersion
+        CDTVersion,
+        CDTNone
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ConflictDetectionType = ConflictDetectionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CDTNone :: ConflictDetectionType
-pattern CDTNone = ConflictDetectionType' "NONE"
-
 pattern CDTVersion :: ConflictDetectionType
 pattern CDTVersion = ConflictDetectionType' "VERSION"
 
+pattern CDTNone :: ConflictDetectionType
+pattern CDTNone = ConflictDetectionType' "NONE"
+
 {-# COMPLETE
-  CDTNone,
   CDTVersion,
+  CDTNone,
   ConflictDetectionType'
   #-}

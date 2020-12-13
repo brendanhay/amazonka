@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Greengrass.CreateLoggerDefinitionVersion
     mkCreateLoggerDefinitionVersion,
 
     -- ** Request lenses
+    cldvLoggerDefinitionId,
     cldvLoggers,
     cldvAmznClientToken,
-    cldvLoggerDefinitionId,
 
     -- * Destructuring the response
     CreateLoggerDefinitionVersionResponse (..),
@@ -44,36 +45,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateLoggerDefinitionVersion' smart constructor.
 data CreateLoggerDefinitionVersion = CreateLoggerDefinitionVersion'
-  { loggers ::
-      Lude.Maybe [GreengrassLogger],
-    amznClientToken ::
-      Lude.Maybe Lude.Text,
-    loggerDefinitionId :: Lude.Text
+  { -- | The ID of the logger definition.
+    loggerDefinitionId :: Lude.Text,
+    -- | A list of loggers.
+    loggers :: Lude.Maybe [GreengrassLogger],
+    -- | A client token used to correlate requests and responses.
+    amznClientToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoggerDefinitionVersion' with the minimum fields required to make a request.
 --
--- * 'amznClientToken' - A client token used to correlate requests and responses.
 -- * 'loggerDefinitionId' - The ID of the logger definition.
 -- * 'loggers' - A list of loggers.
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
 mkCreateLoggerDefinitionVersion ::
   -- | 'loggerDefinitionId'
   Lude.Text ->
   CreateLoggerDefinitionVersion
 mkCreateLoggerDefinitionVersion pLoggerDefinitionId_ =
   CreateLoggerDefinitionVersion'
-    { loggers = Lude.Nothing,
-      amznClientToken = Lude.Nothing,
-      loggerDefinitionId = pLoggerDefinitionId_
+    { loggerDefinitionId =
+        pLoggerDefinitionId_,
+      loggers = Lude.Nothing,
+      amznClientToken = Lude.Nothing
     }
+
+-- | The ID of the logger definition.
+--
+-- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cldvLoggerDefinitionId :: Lens.Lens' CreateLoggerDefinitionVersion Lude.Text
+cldvLoggerDefinitionId = Lens.lens (loggerDefinitionId :: CreateLoggerDefinitionVersion -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: CreateLoggerDefinitionVersion)
+{-# DEPRECATED cldvLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
 -- | A list of loggers.
 --
@@ -88,13 +92,6 @@ cldvLoggers = Lens.lens (loggers :: CreateLoggerDefinitionVersion -> Lude.Maybe 
 cldvAmznClientToken :: Lens.Lens' CreateLoggerDefinitionVersion (Lude.Maybe Lude.Text)
 cldvAmznClientToken = Lens.lens (amznClientToken :: CreateLoggerDefinitionVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateLoggerDefinitionVersion)
 {-# DEPRECATED cldvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
-
--- | The ID of the logger definition.
---
--- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldvLoggerDefinitionId :: Lens.Lens' CreateLoggerDefinitionVersion Lude.Text
-cldvLoggerDefinitionId = Lens.lens (loggerDefinitionId :: CreateLoggerDefinitionVersion -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: CreateLoggerDefinitionVersion)
-{-# DEPRECATED cldvLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
 instance Lude.AWSRequest CreateLoggerDefinitionVersion where
   type
@@ -138,37 +135,27 @@ instance Lude.ToQuery CreateLoggerDefinitionVersion where
 
 -- | /See:/ 'mkCreateLoggerDefinitionVersionResponse' smart constructor.
 data CreateLoggerDefinitionVersionResponse = CreateLoggerDefinitionVersionResponse'
-  { arn ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The ID of the version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoggerDefinitionVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN of the version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- * 'version' - The ID of the version.
 -- * 'id' - The ID of the parent definition that the version is associated with.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The ID of the version.
 mkCreateLoggerDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

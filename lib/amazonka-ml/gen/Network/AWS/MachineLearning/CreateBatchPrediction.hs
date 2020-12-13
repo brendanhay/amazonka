@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     mkCreateBatchPrediction,
 
     -- ** Request lenses
-    cbpBatchPredictionName,
-    cbpBatchPredictionId,
     cbpMLModelId,
+    cbpBatchPredictionName,
     cbpBatchPredictionDataSourceId,
+    cbpBatchPredictionId,
     cbpOutputURI,
 
     -- * Destructuring the response
@@ -46,67 +47,53 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateBatchPrediction' smart constructor.
 data CreateBatchPrediction = CreateBatchPrediction'
-  { batchPredictionName ::
-      Lude.Maybe Lude.Text,
-    batchPredictionId :: Lude.Text,
+  { -- | The ID of the @MLModel@ that will generate predictions for the group of observations.
     mLModelId :: Lude.Text,
+    -- | A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
+    batchPredictionName :: Lude.Maybe Lude.Text,
+    -- | The ID of the @DataSource@ that points to the group of observations to predict.
     batchPredictionDataSourceId :: Lude.Text,
+    -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ .
+    batchPredictionId :: Lude.Text,
+    -- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
+    --
+    -- Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
     outputURI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBatchPrediction' with the minimum fields required to make a request.
 --
+-- * 'mLModelId' - The ID of the @MLModel@ that will generate predictions for the group of observations.
+-- * 'batchPredictionName' - A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
 -- * 'batchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to predict.
 -- * 'batchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@ .
--- * 'batchPredictionName' - A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
--- * 'mLModelId' - The ID of the @MLModel@ that will generate predictions for the group of observations.
 -- * 'outputURI' - The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
 --
 -- Amazon ML needs permissions to store and retrieve the logs on your behalf. For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
 mkCreateBatchPrediction ::
-  -- | 'batchPredictionId'
-  Lude.Text ->
   -- | 'mLModelId'
   Lude.Text ->
   -- | 'batchPredictionDataSourceId'
+  Lude.Text ->
+  -- | 'batchPredictionId'
   Lude.Text ->
   -- | 'outputURI'
   Lude.Text ->
   CreateBatchPrediction
 mkCreateBatchPrediction
-  pBatchPredictionId_
   pMLModelId_
   pBatchPredictionDataSourceId_
+  pBatchPredictionId_
   pOutputURI_ =
     CreateBatchPrediction'
-      { batchPredictionName = Lude.Nothing,
-        batchPredictionId = pBatchPredictionId_,
-        mLModelId = pMLModelId_,
+      { mLModelId = pMLModelId_,
+        batchPredictionName = Lude.Nothing,
         batchPredictionDataSourceId = pBatchPredictionDataSourceId_,
+        batchPredictionId = pBatchPredictionId_,
         outputURI = pOutputURI_
       }
-
--- | A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
---
--- /Note:/ Consider using 'batchPredictionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbpBatchPredictionName :: Lens.Lens' CreateBatchPrediction (Lude.Maybe Lude.Text)
-cbpBatchPredictionName = Lens.lens (batchPredictionName :: CreateBatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionName = a} :: CreateBatchPrediction)
-{-# DEPRECATED cbpBatchPredictionName "Use generic-lens or generic-optics with 'batchPredictionName' instead." #-}
-
--- | A user-supplied ID that uniquely identifies the @BatchPrediction@ .
---
--- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbpBatchPredictionId :: Lens.Lens' CreateBatchPrediction Lude.Text
-cbpBatchPredictionId = Lens.lens (batchPredictionId :: CreateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionId = a} :: CreateBatchPrediction)
-{-# DEPRECATED cbpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
 -- | The ID of the @MLModel@ that will generate predictions for the group of observations.
 --
@@ -115,12 +102,26 @@ cbpMLModelId :: Lens.Lens' CreateBatchPrediction Lude.Text
 cbpMLModelId = Lens.lens (mLModelId :: CreateBatchPrediction -> Lude.Text) (\s a -> s {mLModelId = a} :: CreateBatchPrediction)
 {-# DEPRECATED cbpMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
+-- | A user-supplied name or description of the @BatchPrediction@ . @BatchPredictionName@ can only use the UTF-8 character set.
+--
+-- /Note:/ Consider using 'batchPredictionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpBatchPredictionName :: Lens.Lens' CreateBatchPrediction (Lude.Maybe Lude.Text)
+cbpBatchPredictionName = Lens.lens (batchPredictionName :: CreateBatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionName = a} :: CreateBatchPrediction)
+{-# DEPRECATED cbpBatchPredictionName "Use generic-lens or generic-optics with 'batchPredictionName' instead." #-}
+
 -- | The ID of the @DataSource@ that points to the group of observations to predict.
 --
 -- /Note:/ Consider using 'batchPredictionDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbpBatchPredictionDataSourceId :: Lens.Lens' CreateBatchPrediction Lude.Text
 cbpBatchPredictionDataSourceId = Lens.lens (batchPredictionDataSourceId :: CreateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionDataSourceId = a} :: CreateBatchPrediction)
 {-# DEPRECATED cbpBatchPredictionDataSourceId "Use generic-lens or generic-optics with 'batchPredictionDataSourceId' instead." #-}
+
+-- | A user-supplied ID that uniquely identifies the @BatchPrediction@ .
+--
+-- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpBatchPredictionId :: Lens.Lens' CreateBatchPrediction Lude.Text
+cbpBatchPredictionId = Lens.lens (batchPredictionId :: CreateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionId = a} :: CreateBatchPrediction)
+{-# DEPRECATED cbpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
 -- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
 --
@@ -157,13 +158,13 @@ instance Lude.ToJSON CreateBatchPrediction where
   toJSON CreateBatchPrediction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("BatchPredictionName" Lude..=) Lude.<$> batchPredictionName,
-            Lude.Just ("BatchPredictionId" Lude..= batchPredictionId),
-            Lude.Just ("MLModelId" Lude..= mLModelId),
+          [ Lude.Just ("MLModelId" Lude..= mLModelId),
+            ("BatchPredictionName" Lude..=) Lude.<$> batchPredictionName,
             Lude.Just
               ( "BatchPredictionDataSourceId"
                   Lude..= batchPredictionDataSourceId
               ),
+            Lude.Just ("BatchPredictionId" Lude..= batchPredictionId),
             Lude.Just ("OutputUri" Lude..= outputURI)
           ]
       )
@@ -180,17 +181,12 @@ instance Lude.ToQuery CreateBatchPrediction where
 --
 -- /See:/ 'mkCreateBatchPredictionResponse' smart constructor.
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
-  { batchPredictionId ::
-      Lude.Maybe Lude.Text,
+  { -- | A user-supplied ID that uniquely identifies the @BatchPrediction@ . This value is identical to the value of the @BatchPredictionId@ in the request.
+    batchPredictionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBatchPredictionResponse' with the minimum fields required to make a request.

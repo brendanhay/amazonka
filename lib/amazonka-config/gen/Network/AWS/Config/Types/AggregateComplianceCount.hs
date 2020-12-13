@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAggregateComplianceCount' smart constructor.
 data AggregateComplianceCount = AggregateComplianceCount'
-  { groupName ::
-      Lude.Maybe Lude.Text,
-    complianceSummary ::
-      Lude.Maybe ComplianceSummary
+  { -- | The 12-digit account ID or region based on the GroupByKey value.
+    groupName :: Lude.Maybe Lude.Text,
+    -- | The number of compliant and noncompliant AWS Config rules.
+    complianceSummary :: Lude.Maybe ComplianceSummary
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AggregateComplianceCount' with the minimum fields required to make a request.
 --
--- * 'complianceSummary' - The number of compliant and noncompliant AWS Config rules.
 -- * 'groupName' - The 12-digit account ID or region based on the GroupByKey value.
+-- * 'complianceSummary' - The number of compliant and noncompliant AWS Config rules.
 mkAggregateComplianceCount ::
   AggregateComplianceCount
 mkAggregateComplianceCount =

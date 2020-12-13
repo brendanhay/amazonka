@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,8 +39,8 @@ module Network.AWS.SageMaker.ListHyperParameterTuningJobs
 
     -- ** Response lenses
     lhptjrsNextToken,
-    lhptjrsResponseStatus,
     lhptjrsHyperParameterTuningJobSummaries,
+    lhptjrsResponseStatus,
   )
 where
 
@@ -52,48 +53,42 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListHyperParameterTuningJobs' smart constructor.
 data ListHyperParameterTuningJobs = ListHyperParameterTuningJobs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTimeBefore ::
-      Lude.Maybe Lude.Timestamp,
-    creationTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A string in the tuning job name. This filter returns only tuning jobs whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only tuning jobs that were modified before the specified time.
+    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only tuning jobs that were created after the specified time.
+    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of the previous @ListHyperParameterTuningJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of tuning jobs, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Ascending@ .
     sortOrder :: Lude.Maybe SortOrder,
-    lastModifiedTimeAfter ::
-      Lude.Maybe Lude.Timestamp,
-    creationTimeBefore ::
-      Lude.Maybe Lude.Timestamp,
-    statusEquals ::
-      Lude.Maybe
-        HyperParameterTuningJobStatus,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    sortBy ::
-      Lude.Maybe
-        HyperParameterTuningJobSortByOptions
+    -- | A filter that returns only tuning jobs that were modified after the specified time.
+    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only tuning jobs that were created before the specified time.
+    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only tuning jobs with the specified status.
+    statusEquals :: Lude.Maybe HyperParameterTuningJobStatus,
+    -- | The maximum number of tuning jobs to return. The default value is 10.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @Name@ .
+    sortBy :: Lude.Maybe HyperParameterTuningJobSortByOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHyperParameterTuningJobs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only tuning jobs that were created after the specified time.
--- * 'creationTimeBefore' - A filter that returns only tuning jobs that were created before the specified time.
--- * 'lastModifiedTimeAfter' - A filter that returns only tuning jobs that were modified after the specified time.
--- * 'lastModifiedTimeBefore' - A filter that returns only tuning jobs that were modified before the specified time.
--- * 'maxResults' - The maximum number of tuning jobs to return. The default value is 10.
 -- * 'nameContains' - A string in the tuning job name. This filter returns only tuning jobs whose name contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only tuning jobs that were modified before the specified time.
+-- * 'creationTimeAfter' - A filter that returns only tuning jobs that were created after the specified time.
 -- * 'nextToken' - If the result of the previous @ListHyperParameterTuningJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of tuning jobs, use the token in the next request.
--- * 'sortBy' - The field to sort results by. The default is @Name@ .
 -- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns only tuning jobs that were modified after the specified time.
+-- * 'creationTimeBefore' - A filter that returns only tuning jobs that were created before the specified time.
 -- * 'statusEquals' - A filter that returns only tuning jobs with the specified status.
+-- * 'maxResults' - The maximum number of tuning jobs to return. The default value is 10.
+-- * 'sortBy' - The field to sort results by. The default is @Name@ .
 mkListHyperParameterTuningJobs ::
   ListHyperParameterTuningJobs
 mkListHyperParameterTuningJobs =
@@ -200,10 +195,10 @@ instance Lude.AWSRequest ListHyperParameterTuningJobs where
       ( \s h x ->
           ListHyperParameterTuningJobsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..?> "HyperParameterTuningJobSummaries"
                          Lude..!@ Lude.mempty
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListHyperParameterTuningJobs where
@@ -242,27 +237,20 @@ instance Lude.ToQuery ListHyperParameterTuningJobs where
 
 -- | /See:/ 'mkListHyperParameterTuningJobsResponse' smart constructor.
 data ListHyperParameterTuningJobsResponse = ListHyperParameterTuningJobsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    hyperParameterTuningJobSummaries ::
-      [HyperParameterTuningJobSummary]
+  { -- | If the result of this @ListHyperParameterTuningJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of tuning jobs, use the token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of 'HyperParameterTuningJobSummary' objects that describe the tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
+    hyperParameterTuningJobSummaries :: [HyperParameterTuningJobSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHyperParameterTuningJobsResponse' with the minimum fields required to make a request.
 --
--- * 'hyperParameterTuningJobSummaries' - A list of 'HyperParameterTuningJobSummary' objects that describe the tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
 -- * 'nextToken' - If the result of this @ListHyperParameterTuningJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of tuning jobs, use the token in the next request.
+-- * 'hyperParameterTuningJobSummaries' - A list of 'HyperParameterTuningJobSummary' objects that describe the tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
 -- * 'responseStatus' - The response status code.
 mkListHyperParameterTuningJobsResponse ::
   -- | 'responseStatus'
@@ -271,8 +259,8 @@ mkListHyperParameterTuningJobsResponse ::
 mkListHyperParameterTuningJobsResponse pResponseStatus_ =
   ListHyperParameterTuningJobsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      hyperParameterTuningJobSummaries = Lude.mempty
+      hyperParameterTuningJobSummaries = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the result of this @ListHyperParameterTuningJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of tuning jobs, use the token in the next request.
@@ -282,16 +270,16 @@ lhptjrsNextToken :: Lens.Lens' ListHyperParameterTuningJobsResponse (Lude.Maybe 
 lhptjrsNextToken = Lens.lens (nextToken :: ListHyperParameterTuningJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHyperParameterTuningJobsResponse)
 {-# DEPRECATED lhptjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhptjrsResponseStatus :: Lens.Lens' ListHyperParameterTuningJobsResponse Lude.Int
-lhptjrsResponseStatus = Lens.lens (responseStatus :: ListHyperParameterTuningJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHyperParameterTuningJobsResponse)
-{-# DEPRECATED lhptjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of 'HyperParameterTuningJobSummary' objects that describe the tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
 --
 -- /Note:/ Consider using 'hyperParameterTuningJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lhptjrsHyperParameterTuningJobSummaries :: Lens.Lens' ListHyperParameterTuningJobsResponse [HyperParameterTuningJobSummary]
 lhptjrsHyperParameterTuningJobSummaries = Lens.lens (hyperParameterTuningJobSummaries :: ListHyperParameterTuningJobsResponse -> [HyperParameterTuningJobSummary]) (\s a -> s {hyperParameterTuningJobSummaries = a} :: ListHyperParameterTuningJobsResponse)
 {-# DEPRECATED lhptjrsHyperParameterTuningJobSummaries "Use generic-lens or generic-optics with 'hyperParameterTuningJobSummaries' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhptjrsResponseStatus :: Lens.Lens' ListHyperParameterTuningJobsResponse Lude.Int
+lhptjrsResponseStatus = Lens.lens (responseStatus :: ListHyperParameterTuningJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHyperParameterTuningJobsResponse)
+{-# DEPRECATED lhptjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

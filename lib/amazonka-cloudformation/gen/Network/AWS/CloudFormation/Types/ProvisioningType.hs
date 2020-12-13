@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.ProvisioningType
   ( ProvisioningType
       ( ProvisioningType',
-        FullyMutable,
+        NonProvisionable,
         Immutable,
-        NonProvisionable
+        FullyMutable
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ProvisioningType = ProvisioningType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FullyMutable :: ProvisioningType
-pattern FullyMutable = ProvisioningType' "FULLY_MUTABLE"
+pattern NonProvisionable :: ProvisioningType
+pattern NonProvisionable = ProvisioningType' "NON_PROVISIONABLE"
 
 pattern Immutable :: ProvisioningType
 pattern Immutable = ProvisioningType' "IMMUTABLE"
 
-pattern NonProvisionable :: ProvisioningType
-pattern NonProvisionable = ProvisioningType' "NON_PROVISIONABLE"
+pattern FullyMutable :: ProvisioningType
+pattern FullyMutable = ProvisioningType' "FULLY_MUTABLE"
 
 {-# COMPLETE
-  FullyMutable,
-  Immutable,
   NonProvisionable,
+  Immutable,
+  FullyMutable,
   ProvisioningType'
   #-}

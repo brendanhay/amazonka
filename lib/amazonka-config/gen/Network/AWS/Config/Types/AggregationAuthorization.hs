@@ -31,30 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAggregationAuthorization' smart constructor.
 data AggregationAuthorization = AggregationAuthorization'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
-    authorizedAWSRegion ::
-      Lude.Maybe Lude.Text,
-    aggregationAuthorizationARN ::
-      Lude.Maybe Lude.Text,
-    authorizedAccountId ::
-      Lude.Maybe Lude.Text
+  { -- | The time stamp when the aggregation authorization was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The region authorized to collect aggregated data.
+    authorizedAWSRegion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the aggregation object.
+    aggregationAuthorizationARN :: Lude.Maybe Lude.Text,
+    -- | The 12-digit account ID of the account authorized to aggregate data.
+    authorizedAccountId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AggregationAuthorization' with the minimum fields required to make a request.
 --
--- * 'aggregationAuthorizationARN' - The Amazon Resource Name (ARN) of the aggregation object.
--- * 'authorizedAWSRegion' - The region authorized to collect aggregated data.
--- * 'authorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
 -- * 'creationTime' - The time stamp when the aggregation authorization was created.
+-- * 'authorizedAWSRegion' - The region authorized to collect aggregated data.
+-- * 'aggregationAuthorizationARN' - The Amazon Resource Name (ARN) of the aggregation object.
+-- * 'authorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
 mkAggregationAuthorization ::
   AggregationAuthorization
 mkAggregationAuthorization =

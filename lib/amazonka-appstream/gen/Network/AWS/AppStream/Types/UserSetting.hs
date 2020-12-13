@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserSetting' smart constructor.
 data UserSetting = UserSetting'
-  { action :: Action,
+  { -- | The action that is enabled or disabled.
+    action :: Action,
+    -- | Indicates whether the action is enabled or disabled.
     permission :: Permission
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserSetting' with the minimum fields required to make a request.

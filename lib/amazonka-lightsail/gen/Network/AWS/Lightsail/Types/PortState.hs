@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.PortState
   ( PortState
       ( PortState',
-        Closed,
-        Open
+        Open,
+        Closed
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PortState = PortState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Closed :: PortState
-pattern Closed = PortState' "closed"
-
 pattern Open :: PortState
 pattern Open = PortState' "open"
 
+pattern Closed :: PortState
+pattern Closed = PortState' "closed"
+
 {-# COMPLETE
-  Closed,
   Open,
+  Closed,
   PortState'
   #-}

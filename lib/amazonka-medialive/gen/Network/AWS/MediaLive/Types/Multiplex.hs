@@ -40,37 +40,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplex' smart constructor.
 data Multiplex = Multiplex'
-  { state :: Lude.Maybe MultiplexState,
+  { -- | The current state of the multiplex.
+    state :: Lude.Maybe MultiplexState,
+    -- | The unique arn of the multiplex.
     arn :: Lude.Maybe Lude.Text,
+    -- | The number of currently healthy pipelines.
     pipelinesRunningCount :: Lude.Maybe Lude.Int,
+    -- | A list of availability zones for the multiplex.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The number of programs in the multiplex.
     programCount :: Lude.Maybe Lude.Int,
+    -- | A list of the multiplex output destinations.
     destinations :: Lude.Maybe [MultiplexOutputDestination],
+    -- | The name of the multiplex.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique id of the multiplex.
     id :: Lude.Maybe Lude.Text,
+    -- | Configuration for a multiplex event.
     multiplexSettings :: Lude.Maybe MultiplexSettings,
+    -- | A collection of key-value pairs.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Multiplex' with the minimum fields required to make a request.
 --
+-- * 'state' - The current state of the multiplex.
 -- * 'arn' - The unique arn of the multiplex.
+-- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
 -- * 'availabilityZones' - A list of availability zones for the multiplex.
+-- * 'programCount' - The number of programs in the multiplex.
 -- * 'destinations' - A list of the multiplex output destinations.
+-- * 'name' - The name of the multiplex.
 -- * 'id' - The unique id of the multiplex.
 -- * 'multiplexSettings' - Configuration for a multiplex event.
--- * 'name' - The name of the multiplex.
--- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
--- * 'programCount' - The number of programs in the multiplex.
--- * 'state' - The current state of the multiplex.
 -- * 'tags' - A collection of key-value pairs.
 mkMultiplex ::
   Multiplex

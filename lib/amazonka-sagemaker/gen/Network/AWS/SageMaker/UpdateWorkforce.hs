@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.SageMaker.UpdateWorkforce
     mkUpdateWorkforceResponse,
 
     -- ** Response lenses
-    updrsResponseStatus,
-    updrsWorkforce,
+    uwfrsWorkforce,
+    uwfrsResponseStatus,
   )
 where
 
@@ -47,9 +48,13 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateWorkforce' smart constructor.
 data UpdateWorkforce = UpdateWorkforce'
-  { sourceIPConfig ::
-      Lude.Maybe SourceIPConfig,
+  { -- | A list of one to ten worker IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ) that can be used to access tasks assigned to this workforce.
+    --
+    -- Maximum: Ten CIDR values
+    sourceIPConfig :: Lude.Maybe SourceIPConfig,
+    -- | Use this parameter to update your OIDC Identity Provider (IdP) configuration for a workforce made using your own IdP.
     oidcConfig :: Lude.Maybe OidcConfig,
+    -- | The name of the private workforce that you want to update. You can find your workforce name by using the operation.
     workforceName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -57,10 +62,10 @@ data UpdateWorkforce = UpdateWorkforce'
 
 -- | Creates a value of 'UpdateWorkforce' with the minimum fields required to make a request.
 --
--- * 'oidcConfig' - Use this parameter to update your OIDC Identity Provider (IdP) configuration for a workforce made using your own IdP.
 -- * 'sourceIPConfig' - A list of one to ten worker IP address ranges (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs> ) that can be used to access tasks assigned to this workforce.
 --
 -- Maximum: Ten CIDR values
+-- * 'oidcConfig' - Use this parameter to update your OIDC Identity Provider (IdP) configuration for a workforce made using your own IdP.
 -- * 'workforceName' - The name of the private workforce that you want to update. You can find your workforce name by using the operation.
 mkUpdateWorkforce ::
   -- | 'workforceName'
@@ -103,7 +108,7 @@ instance Lude.AWSRequest UpdateWorkforce where
     Res.receiveJSON
       ( \s h x ->
           UpdateWorkforceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Workforce")
+            Lude.<$> (x Lude..:> "Workforce") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateWorkforce where
@@ -135,45 +140,40 @@ instance Lude.ToQuery UpdateWorkforce where
 
 -- | /See:/ 'mkUpdateWorkforceResponse' smart constructor.
 data UpdateWorkforceResponse = UpdateWorkforceResponse'
-  { responseStatus ::
-      Lude.Int,
-    workforce :: Workforce
+  { -- | A single private workforce. You can create one private work force in each AWS Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce> .
+    workforce :: Workforce,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateWorkforceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'workforce' - A single private workforce. You can create one private work force in each AWS Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce> .
+-- * 'responseStatus' - The response status code.
 mkUpdateWorkforceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'workforce'
   Workforce ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateWorkforceResponse
-mkUpdateWorkforceResponse pResponseStatus_ pWorkforce_ =
+mkUpdateWorkforceResponse pWorkforce_ pResponseStatus_ =
   UpdateWorkforceResponse'
-    { responseStatus = pResponseStatus_,
-      workforce = pWorkforce_
+    { workforce = pWorkforce_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updrsResponseStatus :: Lens.Lens' UpdateWorkforceResponse Lude.Int
-updrsResponseStatus = Lens.lens (responseStatus :: UpdateWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateWorkforceResponse)
-{-# DEPRECATED updrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A single private workforce. You can create one private work force in each AWS Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce> .
 --
 -- /Note:/ Consider using 'workforce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updrsWorkforce :: Lens.Lens' UpdateWorkforceResponse Workforce
-updrsWorkforce = Lens.lens (workforce :: UpdateWorkforceResponse -> Workforce) (\s a -> s {workforce = a} :: UpdateWorkforceResponse)
-{-# DEPRECATED updrsWorkforce "Use generic-lens or generic-optics with 'workforce' instead." #-}
+uwfrsWorkforce :: Lens.Lens' UpdateWorkforceResponse Workforce
+uwfrsWorkforce = Lens.lens (workforce :: UpdateWorkforceResponse -> Workforce) (\s a -> s {workforce = a} :: UpdateWorkforceResponse)
+{-# DEPRECATED uwfrsWorkforce "Use generic-lens or generic-optics with 'workforce' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uwfrsResponseStatus :: Lens.Lens' UpdateWorkforceResponse Lude.Int
+uwfrsResponseStatus = Lens.lens (responseStatus :: UpdateWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateWorkforceResponse)
+{-# DEPRECATED uwfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

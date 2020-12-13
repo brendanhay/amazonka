@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.ServerlessApplicationRepository.UnshareApplication
     mkUnshareApplication,
 
     -- ** Request lenses
-    uaApplicationId,
-    uaOrganizationId,
+    uApplicationId,
+    uOrganizationId,
 
     -- * Destructuring the response
     UnshareApplicationResponse (..),
@@ -38,17 +39,12 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkUnshareApplication' smart constructor.
 data UnshareApplication = UnshareApplication'
-  { applicationId ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the application.
+    applicationId :: Lude.Text,
+    -- | The AWS Organization ID to unshare the application from.
     organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareApplication' with the minimum fields required to make a request.
@@ -70,16 +66,16 @@ mkUnshareApplication pApplicationId_ pOrganizationId_ =
 -- | The Amazon Resource Name (ARN) of the application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaApplicationId :: Lens.Lens' UnshareApplication Lude.Text
-uaApplicationId = Lens.lens (applicationId :: UnshareApplication -> Lude.Text) (\s a -> s {applicationId = a} :: UnshareApplication)
-{-# DEPRECATED uaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+uApplicationId :: Lens.Lens' UnshareApplication Lude.Text
+uApplicationId = Lens.lens (applicationId :: UnshareApplication -> Lude.Text) (\s a -> s {applicationId = a} :: UnshareApplication)
+{-# DEPRECATED uApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The AWS Organization ID to unshare the application from.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaOrganizationId :: Lens.Lens' UnshareApplication Lude.Text
-uaOrganizationId = Lens.lens (organizationId :: UnshareApplication -> Lude.Text) (\s a -> s {organizationId = a} :: UnshareApplication)
-{-# DEPRECATED uaOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+uOrganizationId :: Lens.Lens' UnshareApplication Lude.Text
+uOrganizationId = Lens.lens (organizationId :: UnshareApplication -> Lude.Text) (\s a -> s {organizationId = a} :: UnshareApplication)
+{-# DEPRECATED uOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest UnshareApplication where
   type Rs UnshareApplication = UnshareApplicationResponse
@@ -112,13 +108,7 @@ instance Lude.ToQuery UnshareApplication where
 
 -- | /See:/ 'mkUnshareApplicationResponse' smart constructor.
 data UnshareApplicationResponse = UnshareApplicationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnshareApplicationResponse' with the minimum fields required to make a request.

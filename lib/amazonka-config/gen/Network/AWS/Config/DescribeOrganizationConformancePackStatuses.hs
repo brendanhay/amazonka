@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,29 +45,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeOrganizationConformancePackStatuses' smart constructor.
 data DescribeOrganizationConformancePackStatuses = DescribeOrganizationConformancePackStatuses'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    organizationConformancePackNames ::
-      Lude.Maybe
-        [Lude.Text]
+  { -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The names of organization conformance packs for which you want status details. If you do not specify any names, AWS Config returns details for all your organization conformance packs.
+    organizationConformancePackNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConformancePackStatuses' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
 -- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of OrganizationConformancePackStatuses returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
 -- * 'organizationConformancePackNames' - The names of organization conformance packs for which you want status details. If you do not specify any names, AWS Config returns details for all your organization conformance packs.
 mkDescribeOrganizationConformancePackStatuses ::
   DescribeOrganizationConformancePackStatuses
@@ -150,31 +142,20 @@ instance Lude.ToQuery DescribeOrganizationConformancePackStatuses where
 
 -- | /See:/ 'mkDescribeOrganizationConformancePackStatusesResponse' smart constructor.
 data DescribeOrganizationConformancePackStatusesResponse = DescribeOrganizationConformancePackStatusesResponse'
-  { organizationConformancePackStatuses ::
-      Lude.Maybe
-        [OrganizationConformancePackStatus],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @OrganizationConformancePackStatus@ objects.
+    organizationConformancePackStatuses :: Lude.Maybe [OrganizationConformancePackStatus],
+    -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConformancePackStatusesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConformancePackStatuses' - A list of @OrganizationConformancePackStatus@ objects.
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'responseStatus' - The response status code.
 mkDescribeOrganizationConformancePackStatusesResponse ::
   -- | 'responseStatus'

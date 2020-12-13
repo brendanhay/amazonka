@@ -32,29 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlayer' smart constructor.
 data Player = Player'
-  { playerAttributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+  { -- | A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
+    playerAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
     team :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a player
     playerId :: Lude.Maybe Lude.Text,
+    -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only in Regions for which latency is reported.
+    --
+    -- If a matchmaker has a rule that evaluates player latency, players must report latency in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that no Regions are available to the player and the ticket is not matchable.
     latencyInMs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Natural))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Player' with the minimum fields required to make a request.
 --
+-- * 'playerAttributes' - A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
+-- * 'team' - Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
+-- * 'playerId' - A unique identifier for a player
 -- * 'latencyInMs' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only in Regions for which latency is reported.
 --
 -- If a matchmaker has a rule that evaluates player latency, players must report latency in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that no Regions are available to the player and the ticket is not matchable.
--- * 'playerAttributes' - A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
--- * 'playerId' - A unique identifier for a player
--- * 'team' - Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
 mkPlayer ::
   Player
 mkPlayer =

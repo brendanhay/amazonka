@@ -14,9 +14,9 @@ module Network.AWS.MediaLive.Types.ReservationState
   ( ReservationState
       ( ReservationState',
         RSActive,
+        RSExpired,
         RSCanceled,
-        RSDeleted,
-        RSExpired
+        RSDeleted
       ),
   )
 where
@@ -51,19 +51,19 @@ newtype ReservationState = ReservationState' Lude.Text
 pattern RSActive :: ReservationState
 pattern RSActive = ReservationState' "ACTIVE"
 
+pattern RSExpired :: ReservationState
+pattern RSExpired = ReservationState' "EXPIRED"
+
 pattern RSCanceled :: ReservationState
 pattern RSCanceled = ReservationState' "CANCELED"
 
 pattern RSDeleted :: ReservationState
 pattern RSDeleted = ReservationState' "DELETED"
 
-pattern RSExpired :: ReservationState
-pattern RSExpired = ReservationState' "EXPIRED"
-
 {-# COMPLETE
   RSActive,
+  RSExpired,
   RSCanceled,
   RSDeleted,
-  RSExpired,
   ReservationState'
   #-}

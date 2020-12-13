@@ -45,43 +45,73 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluation' smart constructor.
 data Evaluation = Evaluation'
-  { status :: Lude.Maybe EntityStatus,
+  { -- | The status of the evaluation. This element can have one of the following values:
+    --
+    --
+    --     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .
+    --
+    --     * @INPROGRESS@ - The evaluation is underway.
+    --
+    --     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
+    --
+    --     * @COMPLETED@ - The evaluation process completed successfully.
+    --
+    --     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+    status :: Lude.Maybe EntityStatus,
+    -- | Measurements of how well the @MLModel@ performed, using observations referenced by the @DataSource@ . One of the following metrics is returned, based on the type of the @MLModel@ :
+    --
+    --
+    --     * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.
+    --
+    --
+    --     * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.
+    --
+    --
+    --     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.
+    --
+    --
+    -- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
     performanceMetrics :: Lude.Maybe PerformanceMetrics,
+    -- | The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the @Evaluation@ was created. The time is expressed in epoch time.
     createdAt :: Lude.Maybe Lude.Timestamp,
     computeTime :: Lude.Maybe Lude.Integer,
+    -- | The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.
     inputDataLocationS3 :: Lude.Maybe Lude.Text,
+    -- | The ID of the @MLModel@ that is the focus of the evaluation.
     mLModelId :: Lude.Maybe Lude.Text,
     startedAt :: Lude.Maybe Lude.Timestamp,
     finishedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
     createdByIAMUser :: Lude.Maybe Lude.Text,
+    -- | A user-supplied name or description of the @Evaluation@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The ID that is assigned to the @Evaluation@ at creation.
     evaluationId :: Lude.Maybe Lude.Text,
+    -- | A description of the most recent details about evaluating the @MLModel@ .
     message :: Lude.Maybe Lude.Text,
+    -- | The ID of the @DataSource@ that is used to evaluate the @MLModel@ .
     evaluationDataSourceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
--- * 'computeTime' - Undocumented field.
--- * 'createdAt' - The time that the @Evaluation@ was created. The time is expressed in epoch time.
--- * 'createdByIAMUser' - The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'evaluationDataSourceId' - The ID of the @DataSource@ that is used to evaluate the @MLModel@ .
--- * 'evaluationId' - The ID that is assigned to the @Evaluation@ at creation.
--- * 'finishedAt' - Undocumented field.
--- * 'inputDataLocationS3' - The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.
--- * 'lastUpdatedAt' - The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
--- * 'mLModelId' - The ID of the @MLModel@ that is the focus of the evaluation.
--- * 'message' - A description of the most recent details about evaluating the @MLModel@ .
--- * 'name' - A user-supplied name or description of the @Evaluation@ .
+-- * 'status' - The status of the evaluation. This element can have one of the following values:
+--
+--
+--     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .
+--
+--     * @INPROGRESS@ - The evaluation is underway.
+--
+--     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
+--
+--     * @COMPLETED@ - The evaluation process completed successfully.
+--
+--     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+--
 -- * 'performanceMetrics' - Measurements of how well the @MLModel@ performed, using observations referenced by the @DataSource@ . One of the following metrics is returned, based on the type of the @MLModel@ :
 --
 --
@@ -95,19 +125,18 @@ data Evaluation = Evaluation'
 --
 --
 -- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
--- * 'startedAt' - Undocumented field.
--- * 'status' - The status of the evaluation. This element can have one of the following values:
---
---
---     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to evaluate an @MLModel@ .
---
---     * @INPROGRESS@ - The evaluation is underway.
---
---     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
---
---     * @COMPLETED@ - The evaluation process completed successfully.
---
---     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
+-- * 'createdAt' - The time that the @Evaluation@ was created. The time is expressed in epoch time.
+-- * 'computeTime' -
+-- * 'inputDataLocationS3' - The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.
+-- * 'mLModelId' - The ID of the @MLModel@ that is the focus of the evaluation.
+-- * 'startedAt' -
+-- * 'finishedAt' -
+-- * 'createdByIAMUser' - The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'name' - A user-supplied name or description of the @Evaluation@ .
+-- * 'evaluationId' - The ID that is assigned to the @Evaluation@ at creation.
+-- * 'message' - A description of the most recent details about evaluating the @MLModel@ .
+-- * 'evaluationDataSourceId' - The ID of the @DataSource@ that is used to evaluate the @MLModel@ .
 mkEvaluation ::
   Evaluation
 mkEvaluation =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.EC2.DisassociateClientVPNTargetNetwork
     mkDisassociateClientVPNTargetNetwork,
 
     -- ** Request lenses
-    dcvpntnDryRun,
-    dcvpntnClientVPNEndpointId,
-    dcvpntnAssociationId,
+    dcvtnAssociationId,
+    dcvtnClientVPNEndpointId,
+    dcvtnDryRun,
 
     -- * Destructuring the response
     DisassociateClientVPNTargetNetworkResponse (..),
@@ -54,20 +55,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateClientVPNTargetNetwork' smart constructor.
 data DisassociateClientVPNTargetNetwork = DisassociateClientVPNTargetNetwork'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    clientVPNEndpointId ::
-      Lude.Text,
-    associationId ::
-      Lude.Text
+  { -- | The ID of the target network association.
+    associationId :: Lude.Text,
+    -- | The ID of the Client VPN endpoint from which to disassociate the target network.
+    clientVPNEndpointId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateClientVPNTargetNetwork' with the minimum fields required to make a request.
@@ -76,40 +71,41 @@ data DisassociateClientVPNTargetNetwork = DisassociateClientVPNTargetNetwork'
 -- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint from which to disassociate the target network.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDisassociateClientVPNTargetNetwork ::
-  -- | 'clientVPNEndpointId'
-  Lude.Text ->
   -- | 'associationId'
+  Lude.Text ->
+  -- | 'clientVPNEndpointId'
   Lude.Text ->
   DisassociateClientVPNTargetNetwork
 mkDisassociateClientVPNTargetNetwork
-  pClientVPNEndpointId_
-  pAssociationId_ =
+  pAssociationId_
+  pClientVPNEndpointId_ =
     DisassociateClientVPNTargetNetwork'
-      { dryRun = Lude.Nothing,
+      { associationId =
+          pAssociationId_,
         clientVPNEndpointId = pClientVPNEndpointId_,
-        associationId = pAssociationId_
+        dryRun = Lude.Nothing
       }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvpntnDryRun :: Lens.Lens' DisassociateClientVPNTargetNetwork (Lude.Maybe Lude.Bool)
-dcvpntnDryRun = Lens.lens (dryRun :: DisassociateClientVPNTargetNetwork -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisassociateClientVPNTargetNetwork)
-{-# DEPRECATED dcvpntnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the Client VPN endpoint from which to disassociate the target network.
---
--- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvpntnClientVPNEndpointId :: Lens.Lens' DisassociateClientVPNTargetNetwork Lude.Text
-dcvpntnClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: DisassociateClientVPNTargetNetwork -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: DisassociateClientVPNTargetNetwork)
-{-# DEPRECATED dcvpntnClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
 
 -- | The ID of the target network association.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvpntnAssociationId :: Lens.Lens' DisassociateClientVPNTargetNetwork Lude.Text
-dcvpntnAssociationId = Lens.lens (associationId :: DisassociateClientVPNTargetNetwork -> Lude.Text) (\s a -> s {associationId = a} :: DisassociateClientVPNTargetNetwork)
-{-# DEPRECATED dcvpntnAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+dcvtnAssociationId :: Lens.Lens' DisassociateClientVPNTargetNetwork Lude.Text
+dcvtnAssociationId = Lens.lens (associationId :: DisassociateClientVPNTargetNetwork -> Lude.Text) (\s a -> s {associationId = a} :: DisassociateClientVPNTargetNetwork)
+{-# DEPRECATED dcvtnAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+
+-- | The ID of the Client VPN endpoint from which to disassociate the target network.
+--
+-- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvtnClientVPNEndpointId :: Lens.Lens' DisassociateClientVPNTargetNetwork Lude.Text
+dcvtnClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: DisassociateClientVPNTargetNetwork -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: DisassociateClientVPNTargetNetwork)
+{-# DEPRECATED dcvtnClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvtnDryRun :: Lens.Lens' DisassociateClientVPNTargetNetwork (Lude.Maybe Lude.Bool)
+dcvtnDryRun = Lens.lens (dryRun :: DisassociateClientVPNTargetNetwork -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DisassociateClientVPNTargetNetwork)
+{-# DEPRECATED dcvtnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DisassociateClientVPNTargetNetwork where
   type
@@ -137,36 +133,28 @@ instance Lude.ToQuery DisassociateClientVPNTargetNetwork where
       [ "Action"
           Lude.=: ("DisassociateClientVpnTargetNetwork" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        "AssociationId" Lude.=: associationId,
         "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
-        "AssociationId" Lude.=: associationId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDisassociateClientVPNTargetNetworkResponse' smart constructor.
 data DisassociateClientVPNTargetNetworkResponse = DisassociateClientVPNTargetNetworkResponse'
-  { associationId ::
-      Lude.Maybe
-        Lude.Text,
-    status ::
-      Lude.Maybe
-        AssociationStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the target network association.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The current state of the target network association.
+    status :: Lude.Maybe AssociationStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateClientVPNTargetNetworkResponse' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The ID of the target network association.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The current state of the target network association.
+-- * 'responseStatus' - The response status code.
 mkDisassociateClientVPNTargetNetworkResponse ::
   -- | 'responseStatus'
   Lude.Int ->

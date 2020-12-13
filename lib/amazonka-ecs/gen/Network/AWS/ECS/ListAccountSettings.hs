@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAccountSettings' smart constructor.
 data ListAccountSettings = ListAccountSettings'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
+    value :: Lude.Maybe Lude.Text,
+    -- | The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the account setting you want to list the settings for.
     name :: Lude.Maybe SettingName,
+    -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
     principalARN :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to return the effective settings. If @true@ , the account settings for the root user or the default setting for the @principalArn@ are returned. If @false@ , the account settings for the @principalArn@ are returned if they are set. Otherwise, no account settings are returned.
     effectiveSettings :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of account setting results returned by @ListAccountSettings@ in paginated output. When this parameter is used, @ListAccountSettings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAccountSettings@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListAccountSettings@ returns up to 10 results and a @nextToken@ value if applicable.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccountSettings' with the minimum fields required to make a request.
 --
+-- * 'value' - The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
+-- * 'nextToken' - The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+-- * 'name' - The name of the account setting you want to list the settings for.
+-- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
 -- * 'effectiveSettings' - Specifies whether to return the effective settings. If @true@ , the account settings for the root user or the default setting for the @principalArn@ are returned. If @false@ , the account settings for the @principalArn@ are returned if they are set. Otherwise, no account settings are returned.
 -- * 'maxResults' - The maximum number of account setting results returned by @ListAccountSettings@ in paginated output. When this parameter is used, @ListAccountSettings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAccountSettings@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListAccountSettings@ returns up to 10 results and a @nextToken@ value if applicable.
--- * 'name' - The name of the account setting you want to list the settings for.
--- * 'nextToken' - The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
--- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
--- * 'value' - The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
 mkListAccountSettings ::
   ListAccountSettings
 mkListAccountSettings =
@@ -182,25 +182,21 @@ instance Lude.ToQuery ListAccountSettings where
 
 -- | /See:/ 'mkListAccountSettingsResponse' smart constructor.
 data ListAccountSettingsResponse = ListAccountSettingsResponse'
-  { settings ::
-      Lude.Maybe [Setting],
+  { -- | The account settings for the resource.
+    settings :: Lude.Maybe [Setting],
+    -- | The @nextToken@ value to include in a future @ListAccountSettings@ request. When the results of a @ListAccountSettings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAccountSettingsResponse' with the minimum fields required to make a request.
 --
+-- * 'settings' - The account settings for the resource.
 -- * 'nextToken' - The @nextToken@ value to include in a future @ListAccountSettings@ request. When the results of a @ListAccountSettings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'settings' - The account settings for the resource.
 mkListAccountSettingsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

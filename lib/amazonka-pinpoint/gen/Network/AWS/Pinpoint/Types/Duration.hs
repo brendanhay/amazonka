@@ -13,10 +13,10 @@
 module Network.AWS.Pinpoint.Types.Duration
   ( Duration
       ( Duration',
-        Day14,
-        Day30,
+        Hr24,
         Day7,
-        Hr24
+        Day14,
+        Day30
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype Duration = Duration' Lude.Text
       Lude.ToHeader
     )
 
+pattern Hr24 :: Duration
+pattern Hr24 = Duration' "HR_24"
+
+pattern Day7 :: Duration
+pattern Day7 = Duration' "DAY_7"
+
 pattern Day14 :: Duration
 pattern Day14 = Duration' "DAY_14"
 
 pattern Day30 :: Duration
 pattern Day30 = Duration' "DAY_30"
 
-pattern Day7 :: Duration
-pattern Day7 = Duration' "DAY_7"
-
-pattern Hr24 :: Duration
-pattern Hr24 = Duration' "HR_24"
-
 {-# COMPLETE
+  Hr24,
+  Day7,
   Day14,
   Day30,
-  Day7,
-  Hr24,
   Duration'
   #-}

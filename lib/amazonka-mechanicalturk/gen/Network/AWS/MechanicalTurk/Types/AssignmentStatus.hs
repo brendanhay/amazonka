@@ -13,9 +13,9 @@
 module Network.AWS.MechanicalTurk.Types.AssignmentStatus
   ( AssignmentStatus
       ( AssignmentStatus',
+        Submitted,
         Approved,
-        Rejected,
-        Submitted
+        Rejected
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AssignmentStatus = AssignmentStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Submitted :: AssignmentStatus
+pattern Submitted = AssignmentStatus' "Submitted"
+
 pattern Approved :: AssignmentStatus
 pattern Approved = AssignmentStatus' "Approved"
 
 pattern Rejected :: AssignmentStatus
 pattern Rejected = AssignmentStatus' "Rejected"
 
-pattern Submitted :: AssignmentStatus
-pattern Submitted = AssignmentStatus' "Submitted"
-
 {-# COMPLETE
+  Submitted,
   Approved,
   Rejected,
-  Submitted,
   AssignmentStatus'
   #-}

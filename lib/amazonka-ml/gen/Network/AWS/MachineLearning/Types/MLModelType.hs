@@ -13,9 +13,9 @@
 module Network.AWS.MachineLearning.Types.MLModelType
   ( MLModelType
       ( MLModelType',
+        Regression,
         Binary,
-        Multiclass,
-        Regression
+        Multiclass
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype MLModelType = MLModelType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Regression :: MLModelType
+pattern Regression = MLModelType' "REGRESSION"
+
 pattern Binary :: MLModelType
 pattern Binary = MLModelType' "BINARY"
 
 pattern Multiclass :: MLModelType
 pattern Multiclass = MLModelType' "MULTICLASS"
 
-pattern Regression :: MLModelType
-pattern Regression = MLModelType' "REGRESSION"
-
 {-# COMPLETE
+  Regression,
   Binary,
   Multiclass,
-  Regression,
   MLModelType'
   #-}

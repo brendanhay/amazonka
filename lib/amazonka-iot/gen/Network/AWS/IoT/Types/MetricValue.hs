@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricValue' smart constructor.
 data MetricValue = MetricValue'
-  { cidrs :: Lude.Maybe [Lude.Text],
+  { -- | If the @comparisonOperator@ calls for a set of CIDRs, use this to specify that set to be compared with the @metric@ .
+    cidrs :: Lude.Maybe [Lude.Text],
+    -- | If the @comparisonOperator@ calls for a numeric value, use this to specify that numeric value to be compared with the @metric@ .
     count :: Lude.Maybe Lude.Natural,
+    -- | If the @comparisonOperator@ calls for a set of ports, use this to specify that set to be compared with the @metric@ .
     ports :: Lude.Maybe [Lude.Natural]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricValue' with the minimum fields required to make a request.

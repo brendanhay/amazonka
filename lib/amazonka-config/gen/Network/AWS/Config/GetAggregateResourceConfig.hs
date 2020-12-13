@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,18 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAggregateResourceConfig' smart constructor.
 data GetAggregateResourceConfig = GetAggregateResourceConfig'
-  { configurationAggregatorName ::
-      Lude.Text,
-    resourceIdentifier ::
-      AggregateResourceIdentifier
+  { -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text,
+    -- | An object that identifies aggregate resource.
+    resourceIdentifier :: AggregateResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateResourceConfig' with the minimum fields required to make a request.
@@ -133,19 +128,12 @@ instance Lude.ToQuery GetAggregateResourceConfig where
 
 -- | /See:/ 'mkGetAggregateResourceConfigResponse' smart constructor.
 data GetAggregateResourceConfigResponse = GetAggregateResourceConfigResponse'
-  { configurationItem ::
-      Lude.Maybe
-        ConfigurationItem,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a @ConfigurationItem@ object.
+    configurationItem :: Lude.Maybe ConfigurationItem,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateResourceConfigResponse' with the minimum fields required to make a request.

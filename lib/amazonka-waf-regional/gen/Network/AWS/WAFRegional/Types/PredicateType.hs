@@ -13,13 +13,13 @@
 module Network.AWS.WAFRegional.Types.PredicateType
   ( PredicateType
       ( PredicateType',
-        ByteMatch,
-        GeoMatch,
         IPMatch,
-        RegexMatch,
-        SizeConstraint,
+        ByteMatch,
         SqlInjectionMatch,
-        XSSMatch
+        GeoMatch,
+        SizeConstraint,
+        XSSMatch,
+        RegexMatch
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype PredicateType = PredicateType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ByteMatch :: PredicateType
-pattern ByteMatch = PredicateType' "ByteMatch"
-
-pattern GeoMatch :: PredicateType
-pattern GeoMatch = PredicateType' "GeoMatch"
-
 pattern IPMatch :: PredicateType
 pattern IPMatch = PredicateType' "IPMatch"
 
-pattern RegexMatch :: PredicateType
-pattern RegexMatch = PredicateType' "RegexMatch"
-
-pattern SizeConstraint :: PredicateType
-pattern SizeConstraint = PredicateType' "SizeConstraint"
+pattern ByteMatch :: PredicateType
+pattern ByteMatch = PredicateType' "ByteMatch"
 
 pattern SqlInjectionMatch :: PredicateType
 pattern SqlInjectionMatch = PredicateType' "SqlInjectionMatch"
 
+pattern GeoMatch :: PredicateType
+pattern GeoMatch = PredicateType' "GeoMatch"
+
+pattern SizeConstraint :: PredicateType
+pattern SizeConstraint = PredicateType' "SizeConstraint"
+
 pattern XSSMatch :: PredicateType
 pattern XSSMatch = PredicateType' "XssMatch"
 
+pattern RegexMatch :: PredicateType
+pattern RegexMatch = PredicateType' "RegexMatch"
+
 {-# COMPLETE
-  ByteMatch,
-  GeoMatch,
   IPMatch,
-  RegexMatch,
-  SizeConstraint,
+  ByteMatch,
   SqlInjectionMatch,
+  GeoMatch,
+  SizeConstraint,
   XSSMatch,
+  RegexMatch,
   PredicateType'
   #-}

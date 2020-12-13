@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.CalendarState
   ( CalendarState
       ( CalendarState',
-        CSClosed,
-        CSOpen
+        CSOpen,
+        CSClosed
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CalendarState = CalendarState' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSClosed :: CalendarState
-pattern CSClosed = CalendarState' "CLOSED"
-
 pattern CSOpen :: CalendarState
 pattern CSOpen = CalendarState' "OPEN"
 
+pattern CSClosed :: CalendarState
+pattern CSClosed = CalendarState' "CLOSED"
+
 {-# COMPLETE
-  CSClosed,
   CSOpen,
+  CSClosed,
   CalendarState'
   #-}

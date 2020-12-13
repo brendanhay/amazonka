@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Config.DescribeRemediationExceptions
     mkDescribeRemediationExceptions,
 
     -- ** Request lenses
+    dreConfigRuleName,
     dreNextToken,
     dreLimit,
     dreResourceKeys,
-    dreConfigRuleName,
 
     -- * Destructuring the response
     DescribeRemediationExceptionsResponse (..),
@@ -43,31 +44,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRemediationExceptions' smart constructor.
 data DescribeRemediationExceptions = DescribeRemediationExceptions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe Lude.Natural,
-    resourceKeys ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            RemediationExceptionResourceKey
-        ),
-    configRuleName :: Lude.Text
+  { -- | The name of the AWS Config rule.
+    configRuleName :: Lude.Text,
+    -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
+    resourceKeys :: Lude.Maybe (Lude.NonEmpty RemediationExceptionResourceKey)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRemediationExceptions' with the minimum fields required to make a request.
 --
 -- * 'configRuleName' - The name of the AWS Config rule.
--- * 'limit' - The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+-- * 'limit' - The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, AWS Config uses the default.
 -- * 'resourceKeys' - An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
 mkDescribeRemediationExceptions ::
   -- | 'configRuleName'
@@ -75,11 +68,18 @@ mkDescribeRemediationExceptions ::
   DescribeRemediationExceptions
 mkDescribeRemediationExceptions pConfigRuleName_ =
   DescribeRemediationExceptions'
-    { nextToken = Lude.Nothing,
+    { configRuleName = pConfigRuleName_,
+      nextToken = Lude.Nothing,
       limit = Lude.Nothing,
-      resourceKeys = Lude.Nothing,
-      configRuleName = pConfigRuleName_
+      resourceKeys = Lude.Nothing
     }
+
+-- | The name of the AWS Config rule.
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreConfigRuleName :: Lens.Lens' DescribeRemediationExceptions Lude.Text
+dreConfigRuleName = Lens.lens (configRuleName :: DescribeRemediationExceptions -> Lude.Text) (\s a -> s {configRuleName = a} :: DescribeRemediationExceptions)
+{-# DEPRECATED dreConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
 --
@@ -101,13 +101,6 @@ dreLimit = Lens.lens (limit :: DescribeRemediationExceptions -> Lude.Maybe Lude.
 dreResourceKeys :: Lens.Lens' DescribeRemediationExceptions (Lude.Maybe (Lude.NonEmpty RemediationExceptionResourceKey))
 dreResourceKeys = Lens.lens (resourceKeys :: DescribeRemediationExceptions -> Lude.Maybe (Lude.NonEmpty RemediationExceptionResourceKey)) (\s a -> s {resourceKeys = a} :: DescribeRemediationExceptions)
 {-# DEPRECATED dreResourceKeys "Use generic-lens or generic-optics with 'resourceKeys' instead." #-}
-
--- | The name of the AWS Config rule.
---
--- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dreConfigRuleName :: Lens.Lens' DescribeRemediationExceptions Lude.Text
-dreConfigRuleName = Lens.lens (configRuleName :: DescribeRemediationExceptions -> Lude.Text) (\s a -> s {configRuleName = a} :: DescribeRemediationExceptions)
-{-# DEPRECATED dreConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 instance Lude.AWSRequest DescribeRemediationExceptions where
   type
@@ -140,10 +133,10 @@ instance Lude.ToJSON DescribeRemediationExceptions where
   toJSON DescribeRemediationExceptions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("ConfigRuleName" Lude..= configRuleName),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Limit" Lude..=) Lude.<$> limit,
-            ("ResourceKeys" Lude..=) Lude.<$> resourceKeys,
-            Lude.Just ("ConfigRuleName" Lude..= configRuleName)
+            ("ResourceKeys" Lude..=) Lude.<$> resourceKeys
           ]
       )
 
@@ -155,22 +148,14 @@ instance Lude.ToQuery DescribeRemediationExceptions where
 
 -- | /See:/ 'mkDescribeRemediationExceptionsResponse' smart constructor.
 data DescribeRemediationExceptionsResponse = DescribeRemediationExceptionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    remediationExceptions ::
-      Lude.Maybe
-        [RemediationException],
-    responseStatus ::
-      Lude.Int
+  { -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns a list of remediation exception objects.
+    remediationExceptions :: Lude.Maybe [RemediationException],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRemediationExceptionsResponse' with the minimum fields required to make a request.

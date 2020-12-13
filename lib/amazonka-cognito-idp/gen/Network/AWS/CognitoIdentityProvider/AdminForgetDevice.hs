@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,9 +42,11 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminForgetDevice' smart constructor.
 data AdminForgetDevice = AdminForgetDevice'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The user pool ID.
+    userPoolId :: Lude.Text,
+    -- | The user name.
     username :: Lude.Sensitive Lude.Text,
+    -- | The device key.
     deviceKey :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -51,9 +54,9 @@ data AdminForgetDevice = AdminForgetDevice'
 
 -- | Creates a value of 'AdminForgetDevice' with the minimum fields required to make a request.
 --
--- * 'deviceKey' - The device key.
 -- * 'userPoolId' - The user pool ID.
 -- * 'username' - The user name.
+-- * 'deviceKey' - The device key.
 mkAdminForgetDevice ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -126,13 +129,7 @@ instance Lude.ToQuery AdminForgetDevice where
 
 -- | /See:/ 'mkAdminForgetDeviceResponse' smart constructor.
 data AdminForgetDeviceResponse = AdminForgetDeviceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminForgetDeviceResponse' with the minimum fields required to make a request.

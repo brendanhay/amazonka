@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetTerminationProtection' smart constructor.
 data SetTerminationProtection = SetTerminationProtection'
-  { jobFlowIds ::
-      [Lude.Text],
+  { -- | A list of strings that uniquely identify the clusters to protect. This identifier is returned by 'RunJobFlow' and can also be obtained from 'DescribeJobFlows' .
+    jobFlowIds :: [Lude.Text],
+    -- | A Boolean that indicates whether to protect the cluster and prevent the Amazon EC2 instances in the cluster from shutting down due to API calls, user intervention, or job-flow error.
     terminationProtected :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTerminationProtection' with the minimum fields required to make a request.
@@ -116,13 +112,7 @@ instance Lude.ToQuery SetTerminationProtection where
 
 -- | /See:/ 'mkSetTerminationProtectionResponse' smart constructor.
 data SetTerminationProtectionResponse = SetTerminationProtectionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTerminationProtectionResponse' with the minimum fields required to make a request.

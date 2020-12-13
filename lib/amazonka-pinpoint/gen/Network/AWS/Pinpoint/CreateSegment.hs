@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.CreateSegment
     mkCreateSegmentResponse,
 
     -- ** Response lenses
-    csrsResponseStatus,
     csrsSegmentResponse,
+    csrsResponseStatus,
   )
 where
 
@@ -40,22 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSegment' smart constructor.
 data CreateSegment = CreateSegment'
-  { applicationId :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
     writeSegmentRequest :: WriteSegmentRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSegment' with the minimum fields required to make a request.
 --
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'writeSegmentRequest' - Undocumented field.
+-- * 'writeSegmentRequest' -
 mkCreateSegment ::
   -- | 'applicationId'
   Lude.Text ->
@@ -89,7 +85,7 @@ instance Lude.AWSRequest CreateSegment where
     Res.receiveJSON
       ( \s h x ->
           CreateSegmentResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateSegment where
@@ -117,41 +113,28 @@ instance Lude.ToQuery CreateSegment where
 
 -- | /See:/ 'mkCreateSegmentResponse' smart constructor.
 data CreateSegmentResponse = CreateSegmentResponse'
-  { responseStatus ::
-      Lude.Int,
-    segmentResponse :: SegmentResponse
+  { segmentResponse :: SegmentResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSegmentResponse' with the minimum fields required to make a request.
 --
+-- * 'segmentResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'segmentResponse' - Undocumented field.
 mkCreateSegmentResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'segmentResponse'
   SegmentResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSegmentResponse
-mkCreateSegmentResponse pResponseStatus_ pSegmentResponse_ =
+mkCreateSegmentResponse pSegmentResponse_ pResponseStatus_ =
   CreateSegmentResponse'
-    { responseStatus = pResponseStatus_,
-      segmentResponse = pSegmentResponse_
+    { segmentResponse = pSegmentResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CreateSegmentResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CreateSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSegmentResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -159,3 +142,10 @@ csrsResponseStatus = Lens.lens (responseStatus :: CreateSegmentResponse -> Lude.
 csrsSegmentResponse :: Lens.Lens' CreateSegmentResponse SegmentResponse
 csrsSegmentResponse = Lens.lens (segmentResponse :: CreateSegmentResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: CreateSegmentResponse)
 {-# DEPRECATED csrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrsResponseStatus :: Lens.Lens' CreateSegmentResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSegmentResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

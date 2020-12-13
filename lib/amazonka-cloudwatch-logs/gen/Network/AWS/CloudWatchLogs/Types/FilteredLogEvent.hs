@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilteredLogEvent' smart constructor.
 data FilteredLogEvent = FilteredLogEvent'
-  { ingestionTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    ingestionTime :: Lude.Maybe Lude.Natural,
+    -- | The name of the log stream to which this event belongs.
     logStreamName :: Lude.Maybe Lude.Text,
+    -- | The data contained in the log event.
     message :: Lude.Maybe Lude.Text,
+    -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     timestamp :: Lude.Maybe Lude.Natural,
+    -- | The ID of the event.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FilteredLogEvent' with the minimum fields required to make a request.
 --
--- * 'eventId' - The ID of the event.
 -- * 'ingestionTime' - The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 -- * 'logStreamName' - The name of the log stream to which this event belongs.
 -- * 'message' - The data contained in the log event.
 -- * 'timestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'eventId' - The ID of the event.
 mkFilteredLogEvent ::
   FilteredLogEvent
 mkFilteredLogEvent =

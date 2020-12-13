@@ -31,30 +31,21 @@ import Network.AWS.SWF.Types.StartLambdaFunctionFailedCause
 --
 -- /See:/ 'mkStartLambdaFunctionFailedEventAttributes' smart constructor.
 data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAttributes'
-  { scheduledEventId ::
-      Lude.Maybe
-        Lude.Integer,
-    cause ::
-      Lude.Maybe
-        StartLambdaFunctionFailedCause,
-    message ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+    scheduledEventId :: Lude.Maybe Lude.Integer,
+    -- | The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+    cause :: Lude.Maybe StartLambdaFunctionFailedCause,
+    -- | A description that can help diagnose the cause of the fault.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartLambdaFunctionFailedEventAttributes' with the minimum fields required to make a request.
 --
+-- * 'scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 -- * 'cause' - The cause of the failure. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 -- * 'message' - A description that can help diagnose the cause of the fault.
--- * 'scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
 mkStartLambdaFunctionFailedEventAttributes ::
   StartLambdaFunctionFailedEventAttributes
 mkStartLambdaFunctionFailedEventAttributes =

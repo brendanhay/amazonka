@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkListResourcesForWebACL' smart constructor.
 data ListResourcesForWebACL = ListResourcesForWebACL'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The type of resource to list, either an application load balancer or Amazon API Gateway.
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The unique identifier (ID) of the web ACL for which to list the associated resources.
     webACLId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForWebACL' with the minimum fields required to make a request.
@@ -122,17 +118,12 @@ instance Lude.ToQuery ListResourcesForWebACL where
 
 -- | /See:/ 'mkListResourcesForWebACLResponse' smart constructor.
 data ListResourcesForWebACLResponse = ListResourcesForWebACLResponse'
-  { resourceARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.
+    resourceARNs :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesForWebACLResponse' with the minimum fields required to make a request.

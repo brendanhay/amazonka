@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,28 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { filters :: Lude.Maybe [Filter],
+  { -- | Filter to determine the list of User IDs to return.
+    filters :: Lude.Maybe [Filter],
+    -- | The Redis engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | The ID of the user.
     userId :: Lude.Maybe Lude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsers' with the minimum fields required to make a request.
 --
--- * 'engine' - The Redis engine.
 -- * 'filters' - Filter to determine the list of User IDs to return.
+-- * 'engine' - The Redis engine.
+-- * 'userId' - The ID of the user.
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved.
--- * 'userId' - The ID of the user.
 mkDescribeUsers ::
   DescribeUsers
 mkDescribeUsers =
@@ -158,25 +158,21 @@ instance Lude.ToQuery DescribeUsers where
 
 -- | /See:/ 'mkDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-  { users ::
-      Lude.Maybe [User],
+  { -- | A list of users.
+    users :: Lude.Maybe [User],
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeUsersResponse' with the minimum fields required to make a request.
 --
+-- * 'users' - A list of users.
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. >
 -- * 'responseStatus' - The response status code.
--- * 'users' - A list of users.
 mkDescribeUsersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

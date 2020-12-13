@@ -13,10 +13,10 @@
 module Network.AWS.Snowball.Types.ShippingLabelStatus
   ( ShippingLabelStatus
       ( ShippingLabelStatus',
-        Failed,
-        InProgress,
-        Succeeded,
-        TimedOut
+        SLSInProgress,
+        SLSTimedOut,
+        SLSSucceeded,
+        SLSFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ShippingLabelStatus = ShippingLabelStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: ShippingLabelStatus
-pattern Failed = ShippingLabelStatus' "Failed"
+pattern SLSInProgress :: ShippingLabelStatus
+pattern SLSInProgress = ShippingLabelStatus' "InProgress"
 
-pattern InProgress :: ShippingLabelStatus
-pattern InProgress = ShippingLabelStatus' "InProgress"
+pattern SLSTimedOut :: ShippingLabelStatus
+pattern SLSTimedOut = ShippingLabelStatus' "TimedOut"
 
-pattern Succeeded :: ShippingLabelStatus
-pattern Succeeded = ShippingLabelStatus' "Succeeded"
+pattern SLSSucceeded :: ShippingLabelStatus
+pattern SLSSucceeded = ShippingLabelStatus' "Succeeded"
 
-pattern TimedOut :: ShippingLabelStatus
-pattern TimedOut = ShippingLabelStatus' "TimedOut"
+pattern SLSFailed :: ShippingLabelStatus
+pattern SLSFailed = ShippingLabelStatus' "Failed"
 
 {-# COMPLETE
-  Failed,
-  InProgress,
-  Succeeded,
-  TimedOut,
+  SLSInProgress,
+  SLSTimedOut,
+  SLSSucceeded,
+  SLSFailed,
   ShippingLabelStatus'
   #-}

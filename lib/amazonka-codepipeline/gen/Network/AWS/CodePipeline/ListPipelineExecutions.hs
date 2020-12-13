@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CodePipeline.ListPipelineExecutions
     mkListPipelineExecutions,
 
     -- ** Request lenses
+    lpePipelineName,
     lpeNextToken,
     lpeMaxResults,
-    lpePipelineName,
 
     -- * Destructuring the response
     ListPipelineExecutionsResponse (..),
@@ -47,35 +48,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListPipelineExecutions' smart constructor.
 data ListPipelineExecutions = ListPipelineExecutions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    pipelineName :: Lude.Text
+  { -- | The name of the pipeline for which you want to get execution summary information.
+    pipelineName :: Lude.Text,
+    -- | The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPipelineExecutions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
--- * 'nextToken' - The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
 -- * 'pipelineName' - The name of the pipeline for which you want to get execution summary information.
+-- * 'nextToken' - The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value. Pipeline history is limited to the most recent 12 months, based on pipeline execution start times. Default value is 100.
 mkListPipelineExecutions ::
   -- | 'pipelineName'
   Lude.Text ->
   ListPipelineExecutions
 mkListPipelineExecutions pPipelineName_ =
   ListPipelineExecutions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      pipelineName = pPipelineName_
+    { pipelineName = pPipelineName_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The name of the pipeline for which you want to get execution summary information.
+--
+-- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpePipelineName :: Lens.Lens' ListPipelineExecutions Lude.Text
+lpePipelineName = Lens.lens (pipelineName :: ListPipelineExecutions -> Lude.Text) (\s a -> s {pipelineName = a} :: ListPipelineExecutions)
+{-# DEPRECATED lpePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | The token that was returned from the previous @ListPipelineExecutions@ call, which can be used to return the next set of pipeline executions in the list.
 --
@@ -90,13 +94,6 @@ lpeNextToken = Lens.lens (nextToken :: ListPipelineExecutions -> Lude.Maybe Lude
 lpeMaxResults :: Lens.Lens' ListPipelineExecutions (Lude.Maybe Lude.Natural)
 lpeMaxResults = Lens.lens (maxResults :: ListPipelineExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPipelineExecutions)
 {-# DEPRECATED lpeMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The name of the pipeline for which you want to get execution summary information.
---
--- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpePipelineName :: Lens.Lens' ListPipelineExecutions Lude.Text
-lpePipelineName = Lens.lens (pipelineName :: ListPipelineExecutions -> Lude.Text) (\s a -> s {pipelineName = a} :: ListPipelineExecutions)
-{-# DEPRECATED lpePipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 instance Page.AWSPager ListPipelineExecutions where
   page rq rs
@@ -137,9 +134,9 @@ instance Lude.ToJSON ListPipelineExecutions where
   toJSON ListPipelineExecutions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("pipelineName" Lude..= pipelineName)
+          [ Lude.Just ("pipelineName" Lude..= pipelineName),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -153,20 +150,14 @@ instance Lude.ToQuery ListPipelineExecutions where
 --
 -- /See:/ 'mkListPipelineExecutionsResponse' smart constructor.
 data ListPipelineExecutionsResponse = ListPipelineExecutionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    pipelineExecutionSummaries ::
-      Lude.Maybe
-        [PipelineExecutionSummary],
+  { -- | A token that can be used in the next @ListPipelineExecutions@ call. To view all items in the list, continue to call this operation with each subsequent token until no more nextToken values are returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of executions in the history of a pipeline.
+    pipelineExecutionSummaries :: Lude.Maybe [PipelineExecutionSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPipelineExecutionsResponse' with the minimum fields required to make a request.

@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3DestinationSettings' smart constructor.
 data S3DestinationSettings = S3DestinationSettings'
-  { accessControl ::
-      Lude.Maybe S3DestinationAccessControl,
+  { -- | Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
+    accessControl :: Lude.Maybe S3DestinationAccessControl,
+    -- | Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
     encryption :: Lude.Maybe S3EncryptionSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3DestinationSettings' with the minimum fields required to make a request.

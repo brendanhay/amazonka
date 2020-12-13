@@ -15,8 +15,8 @@ module Network.AWS.ElastiCache.Types.ServiceUpdateSeverity
       ( ServiceUpdateSeverity',
         Critical,
         Important,
-        Low,
-        Medium
+        Medium,
+        Low
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern Critical = ServiceUpdateSeverity' "critical"
 pattern Important :: ServiceUpdateSeverity
 pattern Important = ServiceUpdateSeverity' "important"
 
-pattern Low :: ServiceUpdateSeverity
-pattern Low = ServiceUpdateSeverity' "low"
-
 pattern Medium :: ServiceUpdateSeverity
 pattern Medium = ServiceUpdateSeverity' "medium"
+
+pattern Low :: ServiceUpdateSeverity
+pattern Low = ServiceUpdateSeverity' "low"
 
 {-# COMPLETE
   Critical,
   Important,
-  Low,
   Medium,
+  Low,
   ServiceUpdateSeverity'
   #-}

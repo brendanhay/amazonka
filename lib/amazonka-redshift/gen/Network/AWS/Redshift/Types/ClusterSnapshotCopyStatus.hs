@@ -32,31 +32,27 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkClusterSnapshotCopyStatus' smart constructor.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
-  { manualSnapshotRetentionPeriod ::
-      Lude.Maybe Lude.Int,
-    retentionPeriod ::
-      Lude.Maybe Lude.Integer,
-    destinationRegion ::
-      Lude.Maybe Lude.Text,
-    snapshotCopyGrantName ::
-      Lude.Maybe Lude.Text
+  { -- | The number of days that automated snapshots are retained in the destination region after they are copied from a source region. If the value is -1, the manual snapshot is retained indefinitely.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    manualSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
+    retentionPeriod :: Lude.Maybe Lude.Integer,
+    -- | The destination region that snapshots are automatically copied to when cross-region snapshot copy is enabled.
+    destinationRegion :: Lude.Maybe Lude.Text,
+    -- | The name of the snapshot copy grant.
+    snapshotCopyGrantName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterSnapshotCopyStatus' with the minimum fields required to make a request.
 --
--- * 'destinationRegion' - The destination region that snapshots are automatically copied to when cross-region snapshot copy is enabled.
 -- * 'manualSnapshotRetentionPeriod' - The number of days that automated snapshots are retained in the destination region after they are copied from a source region. If the value is -1, the manual snapshot is retained indefinitely.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
 -- * 'retentionPeriod' - The number of days that automated snapshots are retained in the destination region after they are copied from a source region.
+-- * 'destinationRegion' - The destination region that snapshots are automatically copied to when cross-region snapshot copy is enabled.
 -- * 'snapshotCopyGrantName' - The name of the snapshot copy grant.
 mkClusterSnapshotCopyStatus ::
   ClusterSnapshotCopyStatus

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.StartExportLabelsTaskRun
     mkStartExportLabelsTaskRun,
 
     -- ** Request lenses
-    seltrTransformId,
     seltrOutputS3Path,
+    seltrTransformId,
 
     -- * Destructuring the response
     StartExportLabelsTaskRunResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartExportLabelsTaskRun' smart constructor.
 data StartExportLabelsTaskRun = StartExportLabelsTaskRun'
-  { transformId ::
-      Lude.Text,
-    outputS3Path :: Lude.Text
+  { -- | The Amazon S3 path where you export the labels.
+    outputS3Path :: Lude.Text,
+    -- | The unique identifier of the machine learning transform.
+    transformId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartExportLabelsTaskRun' with the minimum fields required to make a request.
@@ -58,23 +54,16 @@ data StartExportLabelsTaskRun = StartExportLabelsTaskRun'
 -- * 'outputS3Path' - The Amazon S3 path where you export the labels.
 -- * 'transformId' - The unique identifier of the machine learning transform.
 mkStartExportLabelsTaskRun ::
-  -- | 'transformId'
-  Lude.Text ->
   -- | 'outputS3Path'
   Lude.Text ->
+  -- | 'transformId'
+  Lude.Text ->
   StartExportLabelsTaskRun
-mkStartExportLabelsTaskRun pTransformId_ pOutputS3Path_ =
+mkStartExportLabelsTaskRun pOutputS3Path_ pTransformId_ =
   StartExportLabelsTaskRun'
-    { transformId = pTransformId_,
-      outputS3Path = pOutputS3Path_
+    { outputS3Path = pOutputS3Path_,
+      transformId = pTransformId_
     }
-
--- | The unique identifier of the machine learning transform.
---
--- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-seltrTransformId :: Lens.Lens' StartExportLabelsTaskRun Lude.Text
-seltrTransformId = Lens.lens (transformId :: StartExportLabelsTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: StartExportLabelsTaskRun)
-{-# DEPRECATED seltrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | The Amazon S3 path where you export the labels.
 --
@@ -82,6 +71,13 @@ seltrTransformId = Lens.lens (transformId :: StartExportLabelsTaskRun -> Lude.Te
 seltrOutputS3Path :: Lens.Lens' StartExportLabelsTaskRun Lude.Text
 seltrOutputS3Path = Lens.lens (outputS3Path :: StartExportLabelsTaskRun -> Lude.Text) (\s a -> s {outputS3Path = a} :: StartExportLabelsTaskRun)
 {-# DEPRECATED seltrOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
+
+-- | The unique identifier of the machine learning transform.
+--
+-- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+seltrTransformId :: Lens.Lens' StartExportLabelsTaskRun Lude.Text
+seltrTransformId = Lens.lens (transformId :: StartExportLabelsTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: StartExportLabelsTaskRun)
+{-# DEPRECATED seltrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 instance Lude.AWSRequest StartExportLabelsTaskRun where
   type Rs StartExportLabelsTaskRun = StartExportLabelsTaskRunResponse
@@ -108,8 +104,8 @@ instance Lude.ToJSON StartExportLabelsTaskRun where
   toJSON StartExportLabelsTaskRun' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TransformId" Lude..= transformId),
-            Lude.Just ("OutputS3Path" Lude..= outputS3Path)
+          [ Lude.Just ("OutputS3Path" Lude..= outputS3Path),
+            Lude.Just ("TransformId" Lude..= transformId)
           ]
       )
 
@@ -121,24 +117,18 @@ instance Lude.ToQuery StartExportLabelsTaskRun where
 
 -- | /See:/ 'mkStartExportLabelsTaskRunResponse' smart constructor.
 data StartExportLabelsTaskRunResponse = StartExportLabelsTaskRunResponse'
-  { taskRunId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The unique identifier for the task run.
+    taskRunId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartExportLabelsTaskRunResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'taskRunId' - The unique identifier for the task run.
+-- * 'responseStatus' - The response status code.
 mkStartExportLabelsTaskRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

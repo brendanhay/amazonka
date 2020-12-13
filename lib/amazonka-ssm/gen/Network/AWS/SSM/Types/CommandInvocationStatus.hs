@@ -13,14 +13,14 @@
 module Network.AWS.SSM.Types.CommandInvocationStatus
   ( CommandInvocationStatus
       ( CommandInvocationStatus',
-        CISCancelled,
-        CISCancelling,
-        CISDelayed,
-        CISFailed,
-        CISInProgress,
         CISPending,
+        CISInProgress,
+        CISDelayed,
         CISSuccess,
-        CISTimedOut
+        CISCancelled,
+        CISTimedOut,
+        CISFailed,
+        CISCancelling
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype CommandInvocationStatus = CommandInvocationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CISCancelled :: CommandInvocationStatus
-pattern CISCancelled = CommandInvocationStatus' "Cancelled"
-
-pattern CISCancelling :: CommandInvocationStatus
-pattern CISCancelling = CommandInvocationStatus' "Cancelling"
-
-pattern CISDelayed :: CommandInvocationStatus
-pattern CISDelayed = CommandInvocationStatus' "Delayed"
-
-pattern CISFailed :: CommandInvocationStatus
-pattern CISFailed = CommandInvocationStatus' "Failed"
+pattern CISPending :: CommandInvocationStatus
+pattern CISPending = CommandInvocationStatus' "Pending"
 
 pattern CISInProgress :: CommandInvocationStatus
 pattern CISInProgress = CommandInvocationStatus' "InProgress"
 
-pattern CISPending :: CommandInvocationStatus
-pattern CISPending = CommandInvocationStatus' "Pending"
+pattern CISDelayed :: CommandInvocationStatus
+pattern CISDelayed = CommandInvocationStatus' "Delayed"
 
 pattern CISSuccess :: CommandInvocationStatus
 pattern CISSuccess = CommandInvocationStatus' "Success"
 
+pattern CISCancelled :: CommandInvocationStatus
+pattern CISCancelled = CommandInvocationStatus' "Cancelled"
+
 pattern CISTimedOut :: CommandInvocationStatus
 pattern CISTimedOut = CommandInvocationStatus' "TimedOut"
 
+pattern CISFailed :: CommandInvocationStatus
+pattern CISFailed = CommandInvocationStatus' "Failed"
+
+pattern CISCancelling :: CommandInvocationStatus
+pattern CISCancelling = CommandInvocationStatus' "Cancelling"
+
 {-# COMPLETE
-  CISCancelled,
-  CISCancelling,
-  CISDelayed,
-  CISFailed,
-  CISInProgress,
   CISPending,
+  CISInProgress,
+  CISDelayed,
   CISSuccess,
+  CISCancelled,
   CISTimedOut,
+  CISFailed,
+  CISCancelling,
   CommandInvocationStatus'
   #-}

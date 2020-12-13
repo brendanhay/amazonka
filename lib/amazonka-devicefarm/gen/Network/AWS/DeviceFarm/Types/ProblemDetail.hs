@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProblemDetail' smart constructor.
 data ProblemDetail = ProblemDetail'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The problem detail's ARN.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The problem detail's name.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProblemDetail' with the minimum fields required to make a request.

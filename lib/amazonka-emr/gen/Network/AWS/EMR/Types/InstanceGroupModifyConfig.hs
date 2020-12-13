@@ -34,31 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceGroupModifyConfig' smart constructor.
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
-  { instanceCount ::
-      Lude.Maybe Lude.Int,
-    configurations ::
-      Lude.Maybe [Configuration],
-    ec2InstanceIdsToTerminate ::
-      Lude.Maybe [Lude.Text],
+  { -- | Target size for the instance group.
+    instanceCount :: Lude.Maybe Lude.Int,
+    -- | A list of new or modified configurations to apply for an instance group.
+    configurations :: Lude.Maybe [Configuration],
+    -- | The EC2 InstanceIds to terminate. After you terminate the instances, the instance group will not return to its original requested size.
+    ec2InstanceIdsToTerminate :: Lude.Maybe [Lude.Text],
+    -- | Policy for customizing shrink operations.
     shrinkPolicy :: Lude.Maybe ShrinkPolicy,
+    -- | Unique ID of the instance group to modify.
     instanceGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceGroupModifyConfig' with the minimum fields required to make a request.
 --
+-- * 'instanceCount' - Target size for the instance group.
 -- * 'configurations' - A list of new or modified configurations to apply for an instance group.
 -- * 'ec2InstanceIdsToTerminate' - The EC2 InstanceIds to terminate. After you terminate the instances, the instance group will not return to its original requested size.
--- * 'instanceCount' - Target size for the instance group.
--- * 'instanceGroupId' - Unique ID of the instance group to modify.
 -- * 'shrinkPolicy' - Policy for customizing shrink operations.
+-- * 'instanceGroupId' - Unique ID of the instance group to modify.
 mkInstanceGroupModifyConfig ::
   -- | 'instanceGroupId'
   Lude.Text ->

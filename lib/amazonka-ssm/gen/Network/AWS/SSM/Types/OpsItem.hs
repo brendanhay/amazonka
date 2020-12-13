@@ -47,55 +47,68 @@ import Network.AWS.SSM.Types.RelatedOpsItem
 --
 -- /See:/ 'mkOpsItem' smart constructor.
 data OpsItem = OpsItem'
-  { opsItemId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the OpsItem.
+    opsItemId :: Lude.Maybe Lude.Text,
+    -- | The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details> in the /AWS Systems Manager User Guide/ .
     status :: Lude.Maybe OpsItemStatus,
+    -- | The importance of this OpsItem in relation to other OpsItems in the system.
     priority :: Lude.Maybe Lude.Natural,
+    -- | The date and time the OpsItem was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | An OpsItem category. Category options include: Availability, Cost, Performance, Recovery, Security.
     category :: Lude.Maybe Lude.Text,
+    -- | The severity of the OpsItem. Severity options range from 1 to 4.
     severity :: Lude.Maybe Lude.Text,
+    -- | The ARN of the AWS account that created the OpsItem.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The date and time the OpsItem was last updated.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The version of this OpsItem. Each time the OpsItem is edited the version number increments by one.
     version :: Lude.Maybe Lude.Text,
+    -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager. The impacted resource is a subset of source.
     source :: Lude.Maybe Lude.Text,
+    -- | One or more OpsItems that share something in common with the current OpsItem. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
     relatedOpsItems :: Lude.Maybe [RelatedOpsItem],
+    -- | A short heading that describes the nature of the OpsItem and the impacted resource.
     title :: Lude.Maybe Lude.Text,
+    -- | The ARN of the AWS account that last updated the OpsItem.
     lastModifiedBy :: Lude.Maybe Lude.Text,
-    operationalData ::
-      Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)),
+    -- | Operational data is custom data that provides useful reference details about the OpsItem. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. You enter operational data as key-value pairs. The key has a maximum length of 128 characters. The value has a maximum size of 20 KB.
+    --
+    -- /Important:/ Operational data keys /can't/ begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm.
+    -- You can choose to make the data searchable by other users in the account or you can restrict search access. Searchable data means that all users with access to the OpsItem Overview page (as provided by the 'DescribeOpsItems' API action) can view and search on the specified data. Operational data that is not searchable is only viewable by users who have access to the OpsItem (as provided by the 'GetOpsItem' API action).
+    -- Use the @/aws/resources@ key in OperationalData to specify a related resource in the request. Use the @/aws/automations@ key in OperationalData to associate an Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually> in the /AWS Systems Manager User Guide/ .
+    operationalData :: Lude.Maybe (Lude.HashMap Lude.Text (OpsItemDataValue)),
+    -- | The OpsItem description.
     description :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
     notifications :: Lude.Maybe [OpsItemNotification]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsItem' with the minimum fields required to make a request.
 --
--- * 'category' - An OpsItem category. Category options include: Availability, Cost, Performance, Recovery, Security.
--- * 'createdBy' - The ARN of the AWS account that created the OpsItem.
+-- * 'opsItemId' - The ID of the OpsItem.
+-- * 'status' - The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details> in the /AWS Systems Manager User Guide/ .
+-- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
 -- * 'createdTime' - The date and time the OpsItem was created.
--- * 'description' - The OpsItem description.
--- * 'lastModifiedBy' - The ARN of the AWS account that last updated the OpsItem.
+-- * 'category' - An OpsItem category. Category options include: Availability, Cost, Performance, Recovery, Security.
+-- * 'severity' - The severity of the OpsItem. Severity options range from 1 to 4.
+-- * 'createdBy' - The ARN of the AWS account that created the OpsItem.
 -- * 'lastModifiedTime' - The date and time the OpsItem was last updated.
--- * 'notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
+-- * 'version' - The version of this OpsItem. Each time the OpsItem is edited the version number increments by one.
+-- * 'source' - The origin of the OpsItem, such as Amazon EC2 or Systems Manager. The impacted resource is a subset of source.
+-- * 'relatedOpsItems' - One or more OpsItems that share something in common with the current OpsItem. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
+-- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
+-- * 'lastModifiedBy' - The ARN of the AWS account that last updated the OpsItem.
 -- * 'operationalData' - Operational data is custom data that provides useful reference details about the OpsItem. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. You enter operational data as key-value pairs. The key has a maximum length of 128 characters. The value has a maximum size of 20 KB.
 --
 -- /Important:/ Operational data keys /can't/ begin with the following: amazon, aws, amzn, ssm, /amazon, /aws, /amzn, /ssm.
 -- You can choose to make the data searchable by other users in the account or you can restrict search access. Searchable data means that all users with access to the OpsItem Overview page (as provided by the 'DescribeOpsItems' API action) can view and search on the specified data. Operational data that is not searchable is only viewable by users who have access to the OpsItem (as provided by the 'GetOpsItem' API action).
 -- Use the @/aws/resources@ key in OperationalData to specify a related resource in the request. Use the @/aws/automations@ key in OperationalData to associate an Automation runbook with the OpsItem. To view AWS CLI example commands that use these keys, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually> in the /AWS Systems Manager User Guide/ .
--- * 'opsItemId' - The ID of the OpsItem.
--- * 'priority' - The importance of this OpsItem in relation to other OpsItems in the system.
--- * 'relatedOpsItems' - One or more OpsItems that share something in common with the current OpsItem. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
--- * 'severity' - The severity of the OpsItem. Severity options range from 1 to 4.
--- * 'source' - The origin of the OpsItem, such as Amazon EC2 or Systems Manager. The impacted resource is a subset of source.
--- * 'status' - The OpsItem status. Status can be @Open@ , @In Progress@ , or @Resolved@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details> in the /AWS Systems Manager User Guide/ .
--- * 'title' - A short heading that describes the nature of the OpsItem and the impacted resource.
--- * 'version' - The version of this OpsItem. Each time the OpsItem is edited the version number increments by one.
+-- * 'description' - The OpsItem description.
+-- * 'notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this OpsItem is edited or changed.
 mkOpsItem ::
   OpsItem
 mkOpsItem =

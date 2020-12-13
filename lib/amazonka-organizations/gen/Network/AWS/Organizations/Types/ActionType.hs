@@ -13,10 +13,10 @@
 module Network.AWS.Organizations.Types.ActionType
   ( ActionType
       ( ActionType',
-        AddOrganizationsServiceLinkedRole,
-        ApproveAllFeatures,
+        Invite,
         EnableAllFeatures,
-        Invite
+        ApproveAllFeatures,
+        AddOrganizationsServiceLinkedRole
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ActionType = ActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AddOrganizationsServiceLinkedRole :: ActionType
-pattern AddOrganizationsServiceLinkedRole = ActionType' "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE"
-
-pattern ApproveAllFeatures :: ActionType
-pattern ApproveAllFeatures = ActionType' "APPROVE_ALL_FEATURES"
+pattern Invite :: ActionType
+pattern Invite = ActionType' "INVITE"
 
 pattern EnableAllFeatures :: ActionType
 pattern EnableAllFeatures = ActionType' "ENABLE_ALL_FEATURES"
 
-pattern Invite :: ActionType
-pattern Invite = ActionType' "INVITE"
+pattern ApproveAllFeatures :: ActionType
+pattern ApproveAllFeatures = ActionType' "APPROVE_ALL_FEATURES"
+
+pattern AddOrganizationsServiceLinkedRole :: ActionType
+pattern AddOrganizationsServiceLinkedRole = ActionType' "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE"
 
 {-# COMPLETE
-  AddOrganizationsServiceLinkedRole,
-  ApproveAllFeatures,
-  EnableAllFeatures,
   Invite,
+  EnableAllFeatures,
+  ApproveAllFeatures,
+  AddOrganizationsServiceLinkedRole,
   ActionType'
   #-}

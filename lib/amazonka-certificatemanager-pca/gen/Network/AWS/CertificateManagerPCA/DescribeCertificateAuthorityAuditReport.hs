@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
     mkDescribeCertificateAuthorityAuditReport,
 
     -- ** Request lenses
-    dcaarCertificateAuthorityARN,
     dcaarAuditReportId,
+    dcaarCertificateAuthorityARN,
 
     -- * Destructuring the response
     DescribeCertificateAuthorityAuditReportResponse (..),
@@ -43,18 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeCertificateAuthorityAuditReport' smart constructor.
 data DescribeCertificateAuthorityAuditReport = DescribeCertificateAuthorityAuditReport'
-  { certificateAuthorityARN ::
-      Lude.Text,
-    auditReportId ::
-      Lude.Text
+  { -- | The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
+    auditReportId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the private CA. This must be of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+    certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateAuthorityAuditReport' with the minimum fields required to make a request.
@@ -64,19 +61,26 @@ data DescribeCertificateAuthorityAuditReport = DescribeCertificateAuthorityAudit
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
 mkDescribeCertificateAuthorityAuditReport ::
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
   -- | 'auditReportId'
+  Lude.Text ->
+  -- | 'certificateAuthorityARN'
   Lude.Text ->
   DescribeCertificateAuthorityAuditReport
 mkDescribeCertificateAuthorityAuditReport
-  pCertificateAuthorityARN_
-  pAuditReportId_ =
+  pAuditReportId_
+  pCertificateAuthorityARN_ =
     DescribeCertificateAuthorityAuditReport'
-      { certificateAuthorityARN =
-          pCertificateAuthorityARN_,
-        auditReportId = pAuditReportId_
+      { auditReportId =
+          pAuditReportId_,
+        certificateAuthorityARN = pCertificateAuthorityARN_
       }
+
+-- | The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
+--
+-- /Note:/ Consider using 'auditReportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarAuditReportId :: Lens.Lens' DescribeCertificateAuthorityAuditReport Lude.Text
+dcaarAuditReportId = Lens.lens (auditReportId :: DescribeCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {auditReportId = a} :: DescribeCertificateAuthorityAuditReport)
+{-# DEPRECATED dcaarAuditReportId "Use generic-lens or generic-optics with 'auditReportId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the private CA. This must be of the form:
 --
@@ -86,13 +90,6 @@ mkDescribeCertificateAuthorityAuditReport
 dcaarCertificateAuthorityARN :: Lens.Lens' DescribeCertificateAuthorityAuditReport Lude.Text
 dcaarCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: DescribeCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: DescribeCertificateAuthorityAuditReport)
 {-# DEPRECATED dcaarCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
-
--- | The report ID returned by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport> action.
---
--- /Note:/ Consider using 'auditReportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarAuditReportId :: Lens.Lens' DescribeCertificateAuthorityAuditReport Lude.Text
-dcaarAuditReportId = Lens.lens (auditReportId :: DescribeCertificateAuthorityAuditReport -> Lude.Text) (\s a -> s {auditReportId = a} :: DescribeCertificateAuthorityAuditReport)
-{-# DEPRECATED dcaarAuditReportId "Use generic-lens or generic-optics with 'auditReportId' instead." #-}
 
 instance Lude.AWSRequest DescribeCertificateAuthorityAuditReport where
   type
@@ -127,9 +124,9 @@ instance Lude.ToJSON DescribeCertificateAuthorityAuditReport where
   toJSON DescribeCertificateAuthorityAuditReport' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN),
-            Lude.Just ("AuditReportId" Lude..= auditReportId)
+          [ Lude.Just ("AuditReportId" Lude..= auditReportId),
+            Lude.Just
+              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
           ]
       )
 
@@ -141,40 +138,27 @@ instance Lude.ToQuery DescribeCertificateAuthorityAuditReport where
 
 -- | /See:/ 'mkDescribeCertificateAuthorityAuditReportResponse' smart constructor.
 data DescribeCertificateAuthorityAuditReportResponse = DescribeCertificateAuthorityAuditReportResponse'
-  { s3Key ::
-      Lude.Maybe
-        Lude.Text,
-    createdAt ::
-      Lude.Maybe
-        Lude.Timestamp,
-    auditReportStatus ::
-      Lude.Maybe
-        AuditReportStatus,
-    s3BucketName ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | S3 __key__ that uniquely identifies the report file in your S3 bucket.
+    s3Key :: Lude.Maybe Lude.Text,
+    -- | The date and time at which the report was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether report creation is in progress, has succeeded, or has failed.
+    auditReportStatus :: Lude.Maybe AuditReportStatus,
+    -- | Name of the S3 bucket that contains the report.
+    s3BucketName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateAuthorityAuditReportResponse' with the minimum fields required to make a request.
 --
--- * 'auditReportStatus' - Specifies whether report creation is in progress, has succeeded, or has failed.
--- * 'createdAt' - The date and time at which the report was created.
--- * 'responseStatus' - The response status code.
--- * 's3BucketName' - Name of the S3 bucket that contains the report.
 -- * 's3Key' - S3 __key__ that uniquely identifies the report file in your S3 bucket.
+-- * 'createdAt' - The date and time at which the report was created.
+-- * 'auditReportStatus' - Specifies whether report creation is in progress, has succeeded, or has failed.
+-- * 's3BucketName' - Name of the S3 bucket that contains the report.
+-- * 'responseStatus' - The response status code.
 mkDescribeCertificateAuthorityAuditReportResponse ::
   -- | 'responseStatus'
   Lude.Int ->

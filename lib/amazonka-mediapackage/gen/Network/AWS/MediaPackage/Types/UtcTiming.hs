@@ -13,9 +13,9 @@
 module Network.AWS.MediaPackage.Types.UtcTiming
   ( UtcTiming
       ( UtcTiming',
+        UTNone,
         UTHTTPHead,
-        UTHTTPIso,
-        UTNone
+        UTHTTPIso
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype UtcTiming = UtcTiming' Lude.Text
       Lude.ToHeader
     )
 
+pattern UTNone :: UtcTiming
+pattern UTNone = UtcTiming' "NONE"
+
 pattern UTHTTPHead :: UtcTiming
 pattern UTHTTPHead = UtcTiming' "HTTP-HEAD"
 
 pattern UTHTTPIso :: UtcTiming
 pattern UTHTTPIso = UtcTiming' "HTTP-ISO"
 
-pattern UTNone :: UtcTiming
-pattern UTNone = UtcTiming' "NONE"
-
 {-# COMPLETE
+  UTNone,
   UTHTTPHead,
   UTHTTPIso,
-  UTNone,
   UtcTiming'
   #-}

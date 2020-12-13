@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,17 +53,25 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDescribeActivities' smart constructor.
 data DescribeActivities = DescribeActivities'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The document or folder ID for which to describe activity types.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
     includeIndirectActivities :: Lude.Maybe Lude.Bool,
+    -- | The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
     startTime :: Lude.Maybe Lude.Timestamp,
-    authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
     userId :: Lude.Maybe Lude.Text,
+    -- | The marker for the next set of results.
     marker :: Lude.Maybe Lude.Text,
+    -- | The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of items to return.
     limit :: Lude.Maybe Lude.Natural,
+    -- | Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
     activityTypes :: Lude.Maybe Lude.Text,
+    -- | The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
     organizationId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -70,16 +79,16 @@ data DescribeActivities = DescribeActivities'
 
 -- | Creates a value of 'DescribeActivities' with the minimum fields required to make a request.
 --
--- * 'activityTypes' - Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'endTime' - The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
--- * 'includeIndirectActivities' - Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
--- * 'limit' - The maximum number of items to return.
--- * 'marker' - The marker for the next set of results.
--- * 'organizationId' - The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
 -- * 'resourceId' - The document or folder ID for which to describe activity types.
+-- * 'includeIndirectActivities' - Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
 -- * 'startTime' - The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'userId' - The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
+-- * 'marker' - The marker for the next set of results.
+-- * 'endTime' - The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
+-- * 'limit' - The maximum number of items to return.
+-- * 'activityTypes' - Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
+-- * 'organizationId' - The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
 mkDescribeActivities ::
   DescribeActivities
 mkDescribeActivities =
@@ -212,25 +221,21 @@ instance Lude.ToQuery DescribeActivities where
 
 -- | /See:/ 'mkDescribeActivitiesResponse' smart constructor.
 data DescribeActivitiesResponse = DescribeActivitiesResponse'
-  { userActivities ::
-      Lude.Maybe [Activity],
+  { -- | The list of activities for the specified user and time period.
+    userActivities :: Lude.Maybe [Activity],
+    -- | The marker for the next set of results.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeActivitiesResponse' with the minimum fields required to make a request.
 --
+-- * 'userActivities' - The list of activities for the specified user and time period.
 -- * 'marker' - The marker for the next set of results.
 -- * 'responseStatus' - The response status code.
--- * 'userActivities' - The list of activities for the specified user and time period.
 mkDescribeActivitiesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

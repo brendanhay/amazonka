@@ -33,28 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportToS3TaskSpecification' smart constructor.
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
-  { containerFormat ::
-      Lude.Maybe ContainerFormat,
+  { -- | The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
+    containerFormat :: Lude.Maybe ContainerFormat,
+    -- | The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
     s3Prefix :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
     s3Bucket :: Lude.Maybe Lude.Text,
-    diskImageFormat ::
-      Lude.Maybe DiskImageFormat
+    -- | The format for the exported image.
+    diskImageFormat :: Lude.Maybe DiskImageFormat
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportToS3TaskSpecification' with the minimum fields required to make a request.
 --
 -- * 'containerFormat' - The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.
--- * 'diskImageFormat' - The format for the exported image.
--- * 's3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
 -- * 's3Prefix' - The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.
+-- * 's3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account @vm-import-export@amazon.com@ .
+-- * 'diskImageFormat' - The format for the exported image.
 mkExportToS3TaskSpecification ::
   ExportToS3TaskSpecification
 mkExportToS3TaskSpecification =

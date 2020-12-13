@@ -41,41 +41,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPullRequest' smart constructor.
 data PullRequest = PullRequest'
-  { approvalRules ::
-      Lude.Maybe [ApprovalRule],
+  { -- | The approval rules applied to the pull request.
+    approvalRules :: Lude.Maybe [ApprovalRule],
+    -- | The Amazon Resource Name (ARN) of the user who created the pull request.
     authorARN :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the pull request.
     pullRequestId :: Lude.Maybe Lude.Text,
+    -- | The date and time the pull request was originally created, in timestamp format.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the pull request. Pull request status can only change from @OPEN@ to @CLOSED@ .
     pullRequestStatus :: Lude.Maybe PullRequestStatusEnum,
+    -- | The user-defined title of the pull request. This title is displayed in the list of pull requests to other repository users.
     title :: Lude.Maybe Lude.Text,
+    -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
     clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The day and time of the last user or system activity on the pull request, in timestamp format.
     lastActivityDate :: Lude.Maybe Lude.Timestamp,
+    -- | The system-generated revision ID for the pull request.
     revisionId :: Lude.Maybe Lude.Text,
+    -- | The targets of the pull request, including the source branch and destination branch for the pull request.
     pullRequestTargets :: Lude.Maybe [PullRequestTarget],
+    -- | The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequest' with the minimum fields required to make a request.
 --
 -- * 'approvalRules' - The approval rules applied to the pull request.
 -- * 'authorARN' - The Amazon Resource Name (ARN) of the user who created the pull request.
--- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
--- * 'creationDate' - The date and time the pull request was originally created, in timestamp format.
--- * 'description' - The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.
--- * 'lastActivityDate' - The day and time of the last user or system activity on the pull request, in timestamp format.
 -- * 'pullRequestId' - The system-generated ID of the pull request.
+-- * 'creationDate' - The date and time the pull request was originally created, in timestamp format.
 -- * 'pullRequestStatus' - The status of the pull request. Pull request status can only change from @OPEN@ to @CLOSED@ .
--- * 'pullRequestTargets' - The targets of the pull request, including the source branch and destination branch for the pull request.
--- * 'revisionId' - The system-generated revision ID for the pull request.
 -- * 'title' - The user-defined title of the pull request. This title is displayed in the list of pull requests to other repository users.
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+-- * 'lastActivityDate' - The day and time of the last user or system activity on the pull request, in timestamp format.
+-- * 'revisionId' - The system-generated revision ID for the pull request.
+-- * 'pullRequestTargets' - The targets of the pull request, including the source branch and destination branch for the pull request.
+-- * 'description' - The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.
 mkPullRequest ::
   PullRequest
 mkPullRequest =

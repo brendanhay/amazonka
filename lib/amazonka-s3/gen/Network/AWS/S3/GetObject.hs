@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -87,6 +88,7 @@ module Network.AWS.S3.GetObject
     goResponseContentType,
     goResponseContentDisposition,
     goResponseContentLanguage,
+    goBucket,
     goSSECustomerAlgorithm,
     goSSECustomerKey,
     goRequestPayer,
@@ -94,14 +96,13 @@ module Network.AWS.S3.GetObject
     goIfModifiedSince,
     goPartNumber,
     goRange,
+    goKey,
     goIfUnmodifiedSince,
     goSSECustomerKeyMD5,
     goResponseCacheControl,
     goResponseExpires,
     goIfNoneMatch,
     goExpectedBucketOwner,
-    goBucket,
-    goKey,
 
     -- * Destructuring the response
     GetObjectResponse (..),
@@ -115,6 +116,7 @@ module Network.AWS.S3.GetObject
     gorsContentLength,
     gorsObjectLockMode,
     gorsExpires,
+    gorsBody,
     gorsRestore,
     gorsExpiration,
     gorsDeleteMarker,
@@ -139,7 +141,6 @@ module Network.AWS.S3.GetObject
     gorsServerSideEncryption,
     gorsContentType,
     gorsResponseStatus,
-    gorsBody,
   )
 where
 
@@ -151,55 +152,77 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetObject' smart constructor.
 data GetObject = GetObject'
-  { ifMatch :: Lude.Maybe Lude.Text,
+  { -- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | VersionId used to reference a specific version of the object.
     versionId :: Lude.Maybe ObjectVersionId,
+    -- | Sets the @Content-Type@ header of the response.
     responseContentType :: Lude.Maybe Lude.Text,
+    -- | Sets the @Content-Disposition@ header of the response
     responseContentDisposition :: Lude.Maybe Lude.Text,
+    -- | Sets the @Content-Language@ header of the response.
     responseContentLanguage :: Lude.Maybe Lude.Text,
+    -- | The bucket name containing the object.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: BucketName,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
     sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
     requestPayer :: Lude.Maybe RequestPayer,
+    -- | Sets the @Content-Encoding@ header of the response.
     responseContentEncoding :: Lude.Maybe Lude.Text,
+    -- | Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
     ifModifiedSince :: Lude.Maybe Lude.DateTime,
+    -- | Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
     partNumber :: Lude.Maybe Lude.Int,
+    -- | Downloads the specified range bytes of an object. For more information about the HTTP Range header, see <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35> .
     range :: Lude.Maybe Lude.Text,
+    -- | Key of the object to get.
+    key :: ObjectKey,
+    -- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
     ifUnmodifiedSince :: Lude.Maybe Lude.DateTime,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | Sets the @Cache-Control@ header of the response.
     responseCacheControl :: Lude.Maybe Lude.Text,
+    -- | Sets the @Expires@ header of the response.
     responseExpires :: Lude.Maybe Lude.DateTime,
+    -- | Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
     ifNoneMatch :: Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    bucket :: BucketName,
-    key :: ObjectKey
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObject' with the minimum fields required to make a request.
 --
+-- * 'ifMatch' - Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
+-- * 'versionId' - VersionId used to reference a specific version of the object.
+-- * 'responseContentType' - Sets the @Content-Type@ header of the response.
+-- * 'responseContentDisposition' - Sets the @Content-Disposition@ header of the response
+-- * 'responseContentLanguage' - Sets the @Content-Language@ header of the response.
 -- * 'bucket' - The bucket name containing the object.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'ifMatch' - Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
--- * 'ifModifiedSince' - Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
--- * 'ifNoneMatch' - Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
--- * 'ifUnmodifiedSince' - Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
--- * 'key' - Key of the object to get.
--- * 'partNumber' - Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
--- * 'range' - Downloads the specified range bytes of an object. For more information about the HTTP Range header, see <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35> .
--- * 'requestPayer' - Undocumented field.
--- * 'responseCacheControl' - Sets the @Cache-Control@ header of the response.
--- * 'responseContentDisposition' - Sets the @Content-Disposition@ header of the response
--- * 'responseContentEncoding' - Sets the @Content-Encoding@ header of the response.
--- * 'responseContentLanguage' - Sets the @Content-Language@ header of the response.
--- * 'responseContentType' - Sets the @Content-Type@ header of the response.
--- * 'responseExpires' - Sets the @Expires@ header of the response.
 -- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
 -- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+-- * 'requestPayer' -
+-- * 'responseContentEncoding' - Sets the @Content-Encoding@ header of the response.
+-- * 'ifModifiedSince' - Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).
+-- * 'partNumber' - Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.
+-- * 'range' - Downloads the specified range bytes of an object. For more information about the HTTP Range header, see <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35> .
+-- * 'key' - Key of the object to get.
+-- * 'ifUnmodifiedSince' - Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 -- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'versionId' - VersionId used to reference a specific version of the object.
+-- * 'responseCacheControl' - Sets the @Cache-Control@ header of the response.
+-- * 'responseExpires' - Sets the @Expires@ header of the response.
+-- * 'ifNoneMatch' - Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkGetObject ::
   -- | 'bucket'
   BucketName ->
@@ -213,6 +236,7 @@ mkGetObject pBucket_ pKey_ =
       responseContentType = Lude.Nothing,
       responseContentDisposition = Lude.Nothing,
       responseContentLanguage = Lude.Nothing,
+      bucket = pBucket_,
       sSECustomerAlgorithm = Lude.Nothing,
       sSECustomerKey = Lude.Nothing,
       requestPayer = Lude.Nothing,
@@ -220,14 +244,13 @@ mkGetObject pBucket_ pKey_ =
       ifModifiedSince = Lude.Nothing,
       partNumber = Lude.Nothing,
       range = Lude.Nothing,
+      key = pKey_,
       ifUnmodifiedSince = Lude.Nothing,
       sSECustomerKeyMD5 = Lude.Nothing,
       responseCacheControl = Lude.Nothing,
       responseExpires = Lude.Nothing,
       ifNoneMatch = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
-      key = pKey_
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).
@@ -264,6 +287,16 @@ goResponseContentDisposition = Lens.lens (responseContentDisposition :: GetObjec
 goResponseContentLanguage :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
 goResponseContentLanguage = Lens.lens (responseContentLanguage :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {responseContentLanguage = a} :: GetObject)
 {-# DEPRECATED goResponseContentLanguage "Use generic-lens or generic-optics with 'responseContentLanguage' instead." #-}
+
+-- | The bucket name containing the object.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goBucket :: Lens.Lens' GetObject BucketName
+goBucket = Lens.lens (bucket :: GetObject -> BucketName) (\s a -> s {bucket = a} :: GetObject)
+{-# DEPRECATED goBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
 --
@@ -314,6 +347,13 @@ goRange :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
 goRange = Lens.lens (range :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {range = a} :: GetObject)
 {-# DEPRECATED goRange "Use generic-lens or generic-optics with 'range' instead." #-}
 
+-- | Key of the object to get.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goKey :: Lens.Lens' GetObject ObjectKey
+goKey = Lens.lens (key :: GetObject -> ObjectKey) (\s a -> s {key = a} :: GetObject)
+{-# DEPRECATED goKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 -- | Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).
 --
 -- /Note:/ Consider using 'ifUnmodifiedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -356,23 +396,6 @@ goExpectedBucketOwner :: Lens.Lens' GetObject (Lude.Maybe Lude.Text)
 goExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObject)
 {-# DEPRECATED goExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | The bucket name containing the object.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goBucket :: Lens.Lens' GetObject BucketName
-goBucket = Lens.lens (bucket :: GetObject -> BucketName) (\s a -> s {bucket = a} :: GetObject)
-{-# DEPRECATED goBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Key of the object to get.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goKey :: Lens.Lens' GetObject ObjectKey
-goKey = Lens.lens (key :: GetObject -> ObjectKey) (\s a -> s {key = a} :: GetObject)
-{-# DEPRECATED goKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
 instance Lude.AWSRequest GetObject where
   type Rs GetObject = GetObjectResponse
   request = Req.get s3Service
@@ -387,6 +410,7 @@ instance Lude.AWSRequest GetObject where
             Lude.<*> (h Lude..#? "Content-Length")
             Lude.<*> (h Lude..#? "x-amz-object-lock-mode")
             Lude.<*> (h Lude..#? "Expires")
+            Lude.<*> (Lude.pure x)
             Lude.<*> (h Lude..#? "x-amz-restore")
             Lude.<*> (h Lude..#? "x-amz-expiration")
             Lude.<*> (h Lude..#? "x-amz-delete-marker")
@@ -411,7 +435,6 @@ instance Lude.AWSRequest GetObject where
             Lude.<*> (h Lude..#? "x-amz-server-side-encryption")
             Lude.<*> (h Lude..#? "Content-Type")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.pure x)
       )
 
 instance Lude.ToHeaders GetObject where
@@ -450,84 +473,113 @@ instance Lude.ToQuery GetObject where
 
 -- | /See:/ 'mkGetObjectResponse' smart constructor.
 data GetObjectResponse = GetObjectResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | The count of parts this object has.
     partsCount :: Lude.Maybe Lude.Int,
+    -- | An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
     eTag :: Lude.Maybe ETag,
+    -- | Version of the object.
     versionId :: Lude.Maybe ObjectVersionId,
+    -- | Size of the body in bytes.
     contentLength :: Lude.Maybe Lude.Integer,
+    -- | The Object Lock mode currently in place for this object.
     objectLockMode :: Lude.Maybe ObjectLockMode,
+    -- | The date and time at which the object is no longer cacheable.
     expires :: Lude.Maybe Lude.DateTime,
+    -- | Object data.
+    body :: Lude.RsBody,
+    -- | Provides information about object restoration operation and expiration time of the restored object copy.
     restore :: Lude.Maybe Lude.Text,
+    -- | If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
     expiration :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
     deleteMarker :: Lude.Maybe Lude.Bool,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | The number of tags, if any, on the object.
     tagCount :: Lude.Maybe Lude.Int,
+    -- | This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
     missingMeta :: Lude.Maybe Lude.Int,
+    -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
     websiteRedirectLocation :: Lude.Maybe Lude.Text,
+    -- | Indicates that a range of bytes was specified.
     acceptRanges :: Lude.Maybe Lude.Text,
+    -- | Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
     storageClass :: Lude.Maybe StorageClass,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
     sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
     contentEncoding :: Lude.Maybe Lude.Text,
+    -- | The date and time when this object's Object Lock will expire.
     objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
+    -- | A map of metadata to store with the object in S3.
     metadata :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
     replicationStatus :: Lude.Maybe ReplicationStatus,
+    -- | Specifies caching behavior along the request/reply chain.
     cacheControl :: Lude.Maybe Lude.Text,
+    -- | The language the content is in.
     contentLanguage :: Lude.Maybe Lude.Text,
+    -- | Last modified date of the object
     lastModified :: Lude.Maybe Lude.DateTime,
-    objectLockLegalHoldStatus ::
-      Lude.Maybe ObjectLockLegalHoldStatus,
+    -- | Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
+    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
+    -- | Specifies presentational information for the object.
     contentDisposition :: Lude.Maybe Lude.Text,
+    -- | The portion of the object returned in the response.
     contentRange :: Lude.Maybe Lude.Text,
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
     serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    -- | A standard MIME type describing the format of the object data.
     contentType :: Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    body :: Lude.RsBody
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'GetObjectResponse' with the minimum fields required to make a request.
 --
--- * 'acceptRanges' - Indicates that a range of bytes was specified.
--- * 'body' - Object data.
--- * 'cacheControl' - Specifies caching behavior along the request/reply chain.
--- * 'contentDisposition' - Specifies presentational information for the object.
--- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
--- * 'contentLanguage' - The language the content is in.
--- * 'contentLength' - Size of the body in bytes.
--- * 'contentRange' - The portion of the object returned in the response.
--- * 'contentType' - A standard MIME type describing the format of the object data.
--- * 'deleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
--- * 'eTag' - An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
--- * 'expiration' - If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
--- * 'expires' - The date and time at which the object is no longer cacheable.
--- * 'lastModified' - Last modified date of the object
--- * 'metadata' - A map of metadata to store with the object in S3.
--- * 'missingMeta' - This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
--- * 'objectLockLegalHoldStatus' - Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
--- * 'objectLockMode' - The Object Lock mode currently in place for this object.
--- * 'objectLockRetainUntilDate' - The date and time when this object's Object Lock will expire.
+-- * 'requestCharged' -
 -- * 'partsCount' - The count of parts this object has.
--- * 'replicationStatus' - Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
--- * 'requestCharged' - Undocumented field.
--- * 'responseStatus' - The response status code.
+-- * 'eTag' - An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.
+-- * 'versionId' - Version of the object.
+-- * 'contentLength' - Size of the body in bytes.
+-- * 'objectLockMode' - The Object Lock mode currently in place for this object.
+-- * 'expires' - The date and time at which the object is no longer cacheable.
+-- * 'body' - Object data.
 -- * 'restore' - Provides information about object restoration operation and expiration time of the restored object copy.
+-- * 'expiration' - If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.
+-- * 'deleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.
 -- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+-- * 'tagCount' - The number of tags, if any, on the object.
+-- * 'missingMeta' - This is set to the number of metadata entries not returned in @x-amz-meta@ headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.
+-- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+-- * 'acceptRanges' - Indicates that a range of bytes was specified.
+-- * 'storageClass' - Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
 -- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
 -- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+-- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+-- * 'objectLockRetainUntilDate' - The date and time when this object's Object Lock will expire.
+-- * 'metadata' - A map of metadata to store with the object in S3.
+-- * 'replicationStatus' - Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.
+-- * 'cacheControl' - Specifies caching behavior along the request/reply chain.
+-- * 'contentLanguage' - The language the content is in.
+-- * 'lastModified' - Last modified date of the object
+-- * 'objectLockLegalHoldStatus' - Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.
+-- * 'contentDisposition' - Specifies presentational information for the object.
+-- * 'contentRange' - The portion of the object returned in the response.
 -- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'storageClass' - Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.
--- * 'tagCount' - The number of tags, if any, on the object.
--- * 'versionId' - Version of the object.
--- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+-- * 'contentType' - A standard MIME type describing the format of the object data.
+-- * 'responseStatus' - The response status code.
 mkGetObjectResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'body'
   Lude.RsBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetObjectResponse
-mkGetObjectResponse pResponseStatus_ pBody_ =
+mkGetObjectResponse pBody_ pResponseStatus_ =
   GetObjectResponse'
     { requestCharged = Lude.Nothing,
       partsCount = Lude.Nothing,
@@ -536,6 +588,7 @@ mkGetObjectResponse pResponseStatus_ pBody_ =
       contentLength = Lude.Nothing,
       objectLockMode = Lude.Nothing,
       expires = Lude.Nothing,
+      body = pBody_,
       restore = Lude.Nothing,
       expiration = Lude.Nothing,
       deleteMarker = Lude.Nothing,
@@ -559,8 +612,7 @@ mkGetObjectResponse pResponseStatus_ pBody_ =
       contentRange = Lude.Nothing,
       serverSideEncryption = Lude.Nothing,
       contentType = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      body = pBody_
+      responseStatus = pResponseStatus_
     }
 
 -- | Undocumented field.
@@ -611,6 +663,13 @@ gorsObjectLockMode = Lens.lens (objectLockMode :: GetObjectResponse -> Lude.Mayb
 gorsExpires :: Lens.Lens' GetObjectResponse (Lude.Maybe Lude.DateTime)
 gorsExpires = Lens.lens (expires :: GetObjectResponse -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: GetObjectResponse)
 {-# DEPRECATED gorsExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+
+-- | Object data.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorsBody :: Lens.Lens' GetObjectResponse Lude.RsBody
+gorsBody = Lens.lens (body :: GetObjectResponse -> Lude.RsBody) (\s a -> s {body = a} :: GetObjectResponse)
+{-# DEPRECATED gorsBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | Provides information about object restoration operation and expiration time of the restored object copy.
 --
@@ -779,10 +838,3 @@ gorsContentType = Lens.lens (contentType :: GetObjectResponse -> Lude.Maybe Lude
 gorsResponseStatus :: Lens.Lens' GetObjectResponse Lude.Int
 gorsResponseStatus = Lens.lens (responseStatus :: GetObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetObjectResponse)
 {-# DEPRECATED gorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Object data.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorsBody :: Lens.Lens' GetObjectResponse Lude.RsBody
-gorsBody = Lens.lens (body :: GetObjectResponse -> Lude.RsBody) (\s a -> s {body = a} :: GetObjectResponse)
-{-# DEPRECATED gorsBody "Use generic-lens or generic-optics with 'body' instead." #-}

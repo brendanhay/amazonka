@@ -13,10 +13,10 @@
 module Network.AWS.EFS.Types.TransitionToIARules
   ( TransitionToIARules
       ( TransitionToIARules',
+        After7Days,
         After14Days,
         After30Days,
         After60Days,
-        After7Days,
         After90Days
       ),
   )
@@ -48,6 +48,9 @@ newtype TransitionToIARules = TransitionToIARules' Lude.Text
       Lude.ToHeader
     )
 
+pattern After7Days :: TransitionToIARules
+pattern After7Days = TransitionToIARules' "AFTER_7_DAYS"
+
 pattern After14Days :: TransitionToIARules
 pattern After14Days = TransitionToIARules' "AFTER_14_DAYS"
 
@@ -57,17 +60,14 @@ pattern After30Days = TransitionToIARules' "AFTER_30_DAYS"
 pattern After60Days :: TransitionToIARules
 pattern After60Days = TransitionToIARules' "AFTER_60_DAYS"
 
-pattern After7Days :: TransitionToIARules
-pattern After7Days = TransitionToIARules' "AFTER_7_DAYS"
-
 pattern After90Days :: TransitionToIARules
 pattern After90Days = TransitionToIARules' "AFTER_90_DAYS"
 
 {-# COMPLETE
+  After7Days,
   After14Days,
   After30Days,
   After60Days,
-  After7Days,
   After90Days,
   TransitionToIARules'
   #-}

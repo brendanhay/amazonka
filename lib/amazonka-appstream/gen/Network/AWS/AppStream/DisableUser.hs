@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,7 +28,7 @@ module Network.AWS.AppStream.DisableUser
     mkDisableUserResponse,
 
     -- ** Response lenses
-    disrsResponseStatus,
+    dursResponseStatus,
   )
 where
 
@@ -39,8 +40,9 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisableUser' smart constructor.
 data DisableUser = DisableUser'
-  { userName ::
-      Lude.Sensitive Lude.Text,
+  { -- | The email address of the user.
+    userName :: Lude.Sensitive Lude.Text,
+    -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -48,8 +50,8 @@ data DisableUser = DisableUser'
 
 -- | Creates a value of 'DisableUser' with the minimum fields required to make a request.
 --
--- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
 -- * 'userName' - The email address of the user.
+-- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
 mkDisableUser ::
   -- | 'userName'
   Lude.Sensitive Lude.Text ->
@@ -113,16 +115,10 @@ instance Lude.ToQuery DisableUser where
 
 -- | /See:/ 'mkDisableUserResponse' smart constructor.
 newtype DisableUserResponse = DisableUserResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableUserResponse' with the minimum fields required to make a request.
@@ -138,6 +134,6 @@ mkDisableUserResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DisableUserResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DisableUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableUserResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dursResponseStatus :: Lens.Lens' DisableUserResponse Lude.Int
+dursResponseStatus = Lens.lens (responseStatus :: DisableUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableUserResponse)
+{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

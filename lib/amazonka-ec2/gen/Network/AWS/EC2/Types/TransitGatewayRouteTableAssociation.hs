@@ -33,33 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayRouteTableAssociation' smart constructor.
 data TransitGatewayRouteTableAssociation = TransitGatewayRouteTableAssociation'
-  { state ::
-      Lude.Maybe
-        TransitGatewayAssociationState,
-    resourceId ::
-      Lude.Maybe
-        Lude.Text,
-    resourceType ::
-      Lude.Maybe
-        TransitGatewayAttachmentResourceType,
-    transitGatewayAttachmentId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The state of the association.
+    state :: Lude.Maybe TransitGatewayAssociationState,
+    -- | The ID of the resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
+    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayRouteTableAssociation' with the minimum fields required to make a request.
 --
+-- * 'state' - The state of the association.
 -- * 'resourceId' - The ID of the resource.
 -- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
--- * 'state' - The state of the association.
 -- * 'transitGatewayAttachmentId' - The ID of the attachment.
 mkTransitGatewayRouteTableAssociation ::
   TransitGatewayRouteTableAssociation

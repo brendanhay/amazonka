@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPeeringConnectionOptions' smart constructor.
 data PeeringConnectionOptions = PeeringConnectionOptions'
-  { allowEgressFromLocalVPCToRemoteClassicLink ::
-      Lude.Maybe Lude.Bool,
-    allowEgressFromLocalClassicLinkToRemoteVPC ::
-      Lude.Maybe Lude.Bool,
-    allowDNSResolutionFromRemoteVPC ::
-      Lude.Maybe Lude.Bool
+  { -- | If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+    allowEgressFromLocalVPCToRemoteClassicLink :: Lude.Maybe Lude.Bool,
+    -- | If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
+    allowEgressFromLocalClassicLinkToRemoteVPC :: Lude.Maybe Lude.Bool,
+    -- | If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
+    allowDNSResolutionFromRemoteVPC :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PeeringConnectionOptions' with the minimum fields required to make a request.
 --
--- * 'allowDNSResolutionFromRemoteVPC' - If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
--- * 'allowEgressFromLocalClassicLinkToRemoteVPC' - If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
 -- * 'allowEgressFromLocalVPCToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.
+-- * 'allowEgressFromLocalClassicLinkToRemoteVPC' - If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.
+-- * 'allowDNSResolutionFromRemoteVPC' - If true, the public DNS hostnames of instances in the specified VPC resolve to private IP addresses when queried from instances in the peer VPC.
 mkPeeringConnectionOptions ::
   PeeringConnectionOptions
 mkPeeringConnectionOptions =

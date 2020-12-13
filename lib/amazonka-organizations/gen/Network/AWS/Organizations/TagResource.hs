@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,16 +53,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { resourceId :: Lude.Text,
+  { -- | The ID of the resource to add a tag to.
+    resourceId :: Lude.Text,
+    -- | A list of tags to add to the specified resource.
+    --
+    -- You can specify any of the following taggable resources.
+    --
+    --     * AWS account – specify the account ID number.
+    --
+    --
+    --     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @
+    --
+    --
+    --     * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @
+    --
+    --
+    --     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
+    --
+    --
+    -- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
     tags :: [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
@@ -154,13 +167,7 @@ instance Lude.ToQuery TagResource where
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.

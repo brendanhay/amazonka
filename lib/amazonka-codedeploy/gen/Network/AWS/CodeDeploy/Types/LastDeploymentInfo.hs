@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLastDeploymentInfo' smart constructor.
 data LastDeploymentInfo = LastDeploymentInfo'
-  { status ::
-      Lude.Maybe DeploymentStatus,
+  { -- | The status of the most recent deployment.
+    status :: Lude.Maybe DeploymentStatus,
+    -- | The unique ID of a deployment.
     deploymentId :: Lude.Maybe Lude.Text,
+    -- | A timestamp that indicates when the most recent deployment to the deployment group was complete.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | A timestamp that indicates when the most recent deployment to the deployment group started.
     createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LastDeploymentInfo' with the minimum fields required to make a request.
 --
--- * 'createTime' - A timestamp that indicates when the most recent deployment to the deployment group started.
+-- * 'status' - The status of the most recent deployment.
 -- * 'deploymentId' - The unique ID of a deployment.
 -- * 'endTime' - A timestamp that indicates when the most recent deployment to the deployment group was complete.
--- * 'status' - The status of the most recent deployment.
+-- * 'createTime' - A timestamp that indicates when the most recent deployment to the deployment group started.
 mkLastDeploymentInfo ::
   LastDeploymentInfo
 mkLastDeploymentInfo =

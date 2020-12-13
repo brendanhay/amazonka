@@ -37,36 +37,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaAttributeType' smart constructor.
 data SchemaAttributeType = SchemaAttributeType'
-  { numberAttributeConstraints ::
-      Lude.Maybe NumberAttributeConstraintsType,
+  { -- | Specifies the constraints for an attribute of the number type.
+    numberAttributeConstraints :: Lude.Maybe NumberAttributeConstraintsType,
+    -- | Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
     required :: Lude.Maybe Lude.Bool,
+    -- | The attribute data type.
     attributeDataType :: Lude.Maybe AttributeDataType,
-    stringAttributeConstraints ::
-      Lude.Maybe StringAttributeConstraintsType,
+    -- | Specifies the constraints for an attribute of the string type.
+    stringAttributeConstraints :: Lude.Maybe StringAttributeConstraintsType,
+    -- | A schema attribute of the name type.
     name :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.
     developerOnlyAttribute :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the value of the attribute can be changed.
+    --
+    -- For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to @true@ . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
     mutable :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaAttributeType' with the minimum fields required to make a request.
 --
+-- * 'numberAttributeConstraints' - Specifies the constraints for an attribute of the number type.
+-- * 'required' - Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
 -- * 'attributeDataType' - The attribute data type.
+-- * 'stringAttributeConstraints' - Specifies the constraints for an attribute of the string type.
+-- * 'name' - A schema attribute of the name type.
 -- * 'developerOnlyAttribute' - Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.
 -- * 'mutable' - Specifies whether the value of the attribute can be changed.
 --
 -- For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to @true@ . Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool> .
--- * 'name' - A schema attribute of the name type.
--- * 'numberAttributeConstraints' - Specifies the constraints for an attribute of the number type.
--- * 'required' - Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
--- * 'stringAttributeConstraints' - Specifies the constraints for an attribute of the string type.
 mkSchemaAttributeType ::
   SchemaAttributeType
 mkSchemaAttributeType =

@@ -35,38 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayPrefixListReference' smart constructor.
 data TransitGatewayPrefixListReference = TransitGatewayPrefixListReference'
-  { state ::
-      Lude.Maybe
-        TransitGatewayPrefixListReferenceState,
-    transitGatewayRouteTableId ::
-      Lude.Maybe Lude.Text,
-    prefixListOwnerId ::
-      Lude.Maybe Lude.Text,
-    blackhole ::
-      Lude.Maybe Lude.Bool,
-    prefixListId ::
-      Lude.Maybe Lude.Text,
-    transitGatewayAttachment ::
-      Lude.Maybe
-        TransitGatewayPrefixListAttachment
+  { -- | The state of the prefix list reference.
+    state :: Lude.Maybe TransitGatewayPrefixListReferenceState,
+    -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The ID of the prefix list owner.
+    prefixListOwnerId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether traffic that matches this route is dropped.
+    blackhole :: Lude.Maybe Lude.Bool,
+    -- | The ID of the prefix list.
+    prefixListId :: Lude.Maybe Lude.Text,
+    -- | Information about the transit gateway attachment.
+    transitGatewayAttachment :: Lude.Maybe TransitGatewayPrefixListAttachment
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayPrefixListReference' with the minimum fields required to make a request.
 --
+-- * 'state' - The state of the prefix list reference.
+-- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- * 'prefixListOwnerId' - The ID of the prefix list owner.
 -- * 'blackhole' - Indicates whether traffic that matches this route is dropped.
 -- * 'prefixListId' - The ID of the prefix list.
--- * 'prefixListOwnerId' - The ID of the prefix list owner.
--- * 'state' - The state of the prefix list reference.
 -- * 'transitGatewayAttachment' - Information about the transit gateway attachment.
--- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
 mkTransitGatewayPrefixListReference ::
   TransitGatewayPrefixListReference
 mkTransitGatewayPrefixListReference =

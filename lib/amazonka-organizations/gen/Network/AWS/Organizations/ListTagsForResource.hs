@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,8 +38,8 @@ module Network.AWS.Organizations.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
-    ltfrNextToken,
     ltfrResourceId,
+    ltfrNextToken,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -60,22 +61,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    resourceId :: Lude.Text
+  { -- | The ID of the resource with the tags to list.
+    --
+    -- You can specify any of the following taggable resources.
+    --
+    --     * AWS account – specify the account ID number.
+    --
+    --
+    --     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @
+    --
+    --
+    --     * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @
+    --
+    --
+    --     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
+    resourceId :: Lude.Text,
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 -- * 'resourceId' - The ID of the resource with the tags to list.
 --
 -- You can specify any of the following taggable resources.
@@ -90,22 +98,18 @@ data ListTagsForResource = ListTagsForResource'
 --
 --
 --     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
+--
+--
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 mkListTagsForResource ::
   -- | 'resourceId'
   Lude.Text ->
   ListTagsForResource
 mkListTagsForResource pResourceId_ =
   ListTagsForResource'
-    { nextToken = Lude.Nothing,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      nextToken = Lude.Nothing
     }
-
--- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrNextToken :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Text)
-ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the resource with the tags to list.
 --
@@ -128,6 +132,13 @@ ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.T
 ltfrResourceId :: Lens.Lens' ListTagsForResource Lude.Text
 ltfrResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrNextToken :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Text)
+ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListTagsForResource where
   page rq rs
@@ -167,8 +178,8 @@ instance Lude.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            ("NextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -180,25 +191,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The tags that are assigned to the resource.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags that are assigned to the resource.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

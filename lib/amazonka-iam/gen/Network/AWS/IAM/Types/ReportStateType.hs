@@ -13,9 +13,9 @@
 module Network.AWS.IAM.Types.ReportStateType
   ( ReportStateType
       ( ReportStateType',
-        RSTComplete,
+        RSTStarted,
         RSTInprogress,
-        RSTStarted
+        RSTComplete
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ReportStateType = ReportStateType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSTComplete :: ReportStateType
-pattern RSTComplete = ReportStateType' "COMPLETE"
+pattern RSTStarted :: ReportStateType
+pattern RSTStarted = ReportStateType' "STARTED"
 
 pattern RSTInprogress :: ReportStateType
 pattern RSTInprogress = ReportStateType' "INPROGRESS"
 
-pattern RSTStarted :: ReportStateType
-pattern RSTStarted = ReportStateType' "STARTED"
+pattern RSTComplete :: ReportStateType
+pattern RSTComplete = ReportStateType' "COMPLETE"
 
 {-# COMPLETE
-  RSTComplete,
-  RSTInprogress,
   RSTStarted,
+  RSTInprogress,
+  RSTComplete,
   ReportStateType'
   #-}

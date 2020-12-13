@@ -13,12 +13,12 @@
 module Network.AWS.CodeBuild.Types.StatusType
   ( StatusType
       ( StatusType',
+        Succeeded,
         Failed,
         Fault,
+        TimedOut,
         InProgress,
-        Stopped,
-        Succeeded,
-        TimedOut
+        Stopped
       ),
   )
 where
@@ -49,11 +49,17 @@ newtype StatusType = StatusType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Succeeded :: StatusType
+pattern Succeeded = StatusType' "SUCCEEDED"
+
 pattern Failed :: StatusType
 pattern Failed = StatusType' "FAILED"
 
 pattern Fault :: StatusType
 pattern Fault = StatusType' "FAULT"
+
+pattern TimedOut :: StatusType
+pattern TimedOut = StatusType' "TIMED_OUT"
 
 pattern InProgress :: StatusType
 pattern InProgress = StatusType' "IN_PROGRESS"
@@ -61,18 +67,12 @@ pattern InProgress = StatusType' "IN_PROGRESS"
 pattern Stopped :: StatusType
 pattern Stopped = StatusType' "STOPPED"
 
-pattern Succeeded :: StatusType
-pattern Succeeded = StatusType' "SUCCEEDED"
-
-pattern TimedOut :: StatusType
-pattern TimedOut = StatusType' "TIMED_OUT"
-
 {-# COMPLETE
+  Succeeded,
   Failed,
   Fault,
+  TimedOut,
   InProgress,
   Stopped,
-  Succeeded,
-  TimedOut,
   StatusType'
   #-}

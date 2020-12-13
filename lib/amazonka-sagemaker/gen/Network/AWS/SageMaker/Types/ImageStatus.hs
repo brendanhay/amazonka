@@ -13,13 +13,13 @@
 module Network.AWS.SageMaker.Types.ImageStatus
   ( ImageStatus
       ( ImageStatus',
-        ISCreateFailed,
-        ISCreated,
         ISCreating,
-        ISDeleteFailed,
-        ISDeleting,
+        ISCreated,
+        ISCreateFailed,
+        ISUpdating,
         ISUpdateFailed,
-        ISUpdating
+        ISDeleting,
+        ISDeleteFailed
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ImageStatus = ImageStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISCreateFailed :: ImageStatus
-pattern ISCreateFailed = ImageStatus' "CREATE_FAILED"
+pattern ISCreating :: ImageStatus
+pattern ISCreating = ImageStatus' "CREATING"
 
 pattern ISCreated :: ImageStatus
 pattern ISCreated = ImageStatus' "CREATED"
 
-pattern ISCreating :: ImageStatus
-pattern ISCreating = ImageStatus' "CREATING"
-
-pattern ISDeleteFailed :: ImageStatus
-pattern ISDeleteFailed = ImageStatus' "DELETE_FAILED"
-
-pattern ISDeleting :: ImageStatus
-pattern ISDeleting = ImageStatus' "DELETING"
-
-pattern ISUpdateFailed :: ImageStatus
-pattern ISUpdateFailed = ImageStatus' "UPDATE_FAILED"
+pattern ISCreateFailed :: ImageStatus
+pattern ISCreateFailed = ImageStatus' "CREATE_FAILED"
 
 pattern ISUpdating :: ImageStatus
 pattern ISUpdating = ImageStatus' "UPDATING"
 
+pattern ISUpdateFailed :: ImageStatus
+pattern ISUpdateFailed = ImageStatus' "UPDATE_FAILED"
+
+pattern ISDeleting :: ImageStatus
+pattern ISDeleting = ImageStatus' "DELETING"
+
+pattern ISDeleteFailed :: ImageStatus
+pattern ISDeleteFailed = ImageStatus' "DELETE_FAILED"
+
 {-# COMPLETE
-  ISCreateFailed,
-  ISCreated,
   ISCreating,
-  ISDeleteFailed,
-  ISDeleting,
-  ISUpdateFailed,
+  ISCreated,
+  ISCreateFailed,
   ISUpdating,
+  ISUpdateFailed,
+  ISDeleting,
+  ISDeleteFailed,
   ImageStatus'
   #-}

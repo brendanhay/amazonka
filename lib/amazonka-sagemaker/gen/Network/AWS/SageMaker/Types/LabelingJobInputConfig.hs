@@ -31,17 +31,12 @@ import Network.AWS.SageMaker.Types.LabelingJobDataSource
 --
 -- /See:/ 'mkLabelingJobInputConfig' smart constructor.
 data LabelingJobInputConfig = LabelingJobInputConfig'
-  { dataAttributes ::
-      Lude.Maybe LabelingJobDataAttributes,
+  { -- | Attributes of the data specified by the customer.
+    dataAttributes :: Lude.Maybe LabelingJobDataAttributes,
+    -- | The location of the input data.
     dataSource :: LabelingJobDataSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobInputConfig' with the minimum fields required to make a request.

@@ -29,14 +29,38 @@ import qualified Network.AWS.Prelude as Lude
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types Scaling processes> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- /See:/ 'mkProcessType' smart constructor.
-newtype ProcessType = ProcessType' {processName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ProcessType = ProcessType'
+  { -- | One of the following processes:
+    --
+    --
+    --     * @Launch@
+    --
+    --
+    --     * @Terminate@
+    --
+    --
+    --     * @AddToLoadBalancer@
+    --
+    --
+    --     * @AlarmNotification@
+    --
+    --
+    --     * @AZRebalance@
+    --
+    --
+    --     * @HealthCheck@
+    --
+    --
+    --     * @InstanceRefresh@
+    --
+    --
+    --     * @ReplaceUnhealthy@
+    --
+    --
+    --     * @ScheduledActions@
+    processName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessType' with the minimum fields required to make a request.

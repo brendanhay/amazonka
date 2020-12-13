@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomAMI' smart constructor.
 data CustomAMI = CustomAMI'
-  { virtualizationType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of virtualization used to create the custom AMI.
+    virtualizationType :: Lude.Maybe Lude.Text,
+    -- | THe ID of the image used to create the custom AMI.
     imageId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomAMI' with the minimum fields required to make a request.
 --
--- * 'imageId' - THe ID of the image used to create the custom AMI.
 -- * 'virtualizationType' - The type of virtualization used to create the custom AMI.
+-- * 'imageId' - THe ID of the image used to create the custom AMI.
 mkCustomAMI ::
   CustomAMI
 mkCustomAMI =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +20,18 @@ module Network.AWS.MachineLearning.DescribeTags
     mkDescribeTags,
 
     -- ** Request lenses
-    dtResourceId,
-    dtResourceType,
+    dResourceId,
+    dResourceType,
 
     -- * Destructuring the response
     DescribeTagsResponse (..),
     mkDescribeTagsResponse,
 
     -- ** Response lenses
-    dtrsResourceId,
-    dtrsResourceType,
-    dtrsTags,
-    dtrsResponseStatus,
+    dtsrsResourceId,
+    dtsrsResourceType,
+    dtsrsTags,
+    dtsrsResponseStatus,
   )
 where
 
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { resourceId :: Lude.Text,
+  { -- | The ID of the ML object. For example, @exampleModelId@ .
+    resourceId :: Lude.Text,
+    -- | The type of the ML object.
     resourceType :: TaggableResourceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
@@ -73,16 +70,16 @@ mkDescribeTags pResourceId_ pResourceType_ =
 -- | The ID of the ML object. For example, @exampleModelId@ .
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtResourceId :: Lens.Lens' DescribeTags Lude.Text
-dtResourceId = Lens.lens (resourceId :: DescribeTags -> Lude.Text) (\s a -> s {resourceId = a} :: DescribeTags)
-{-# DEPRECATED dtResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+dResourceId :: Lens.Lens' DescribeTags Lude.Text
+dResourceId = Lens.lens (resourceId :: DescribeTags -> Lude.Text) (\s a -> s {resourceId = a} :: DescribeTags)
+{-# DEPRECATED dResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the ML object.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtResourceType :: Lens.Lens' DescribeTags TaggableResourceType
-dtResourceType = Lens.lens (resourceType :: DescribeTags -> TaggableResourceType) (\s a -> s {resourceType = a} :: DescribeTags)
-{-# DEPRECATED dtResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+dResourceType :: Lens.Lens' DescribeTags TaggableResourceType
+dResourceType = Lens.lens (resourceType :: DescribeTags -> TaggableResourceType) (\s a -> s {resourceType = a} :: DescribeTags)
+{-# DEPRECATED dResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 instance Lude.AWSRequest DescribeTags where
   type Rs DescribeTags = DescribeTagsResponse
@@ -127,27 +124,24 @@ instance Lude.ToQuery DescribeTags where
 --
 -- /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the tagged ML object.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of the tagged ML object.
     resourceType :: Lude.Maybe TaggableResourceType,
+    -- | A list of tags associated with the ML object.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'resourceId' - The ID of the tagged ML object.
 -- * 'resourceType' - The type of the tagged ML object.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A list of tags associated with the ML object.
+-- * 'responseStatus' - The response status code.
 mkDescribeTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -163,27 +157,27 @@ mkDescribeTagsResponse pResponseStatus_ =
 -- | The ID of the tagged ML object.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResourceId :: Lens.Lens' DescribeTagsResponse (Lude.Maybe Lude.Text)
-dtrsResourceId = Lens.lens (resourceId :: DescribeTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+dtsrsResourceId :: Lens.Lens' DescribeTagsResponse (Lude.Maybe Lude.Text)
+dtsrsResourceId = Lens.lens (resourceId :: DescribeTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtsrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the tagged ML object.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResourceType :: Lens.Lens' DescribeTagsResponse (Lude.Maybe TaggableResourceType)
-dtrsResourceType = Lens.lens (resourceType :: DescribeTagsResponse -> Lude.Maybe TaggableResourceType) (\s a -> s {resourceType = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+dtsrsResourceType :: Lens.Lens' DescribeTagsResponse (Lude.Maybe TaggableResourceType)
+dtsrsResourceType = Lens.lens (resourceType :: DescribeTagsResponse -> Lude.Maybe TaggableResourceType) (\s a -> s {resourceType = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtsrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | A list of tags associated with the ML object.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTags :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [Tag])
-dtrsTags = Lens.lens (tags :: DescribeTagsResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dtsrsTags :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [Tag])
+dtsrsTags = Lens.lens (tags :: DescribeTagsResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtsrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtsrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
+dtsrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
+{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

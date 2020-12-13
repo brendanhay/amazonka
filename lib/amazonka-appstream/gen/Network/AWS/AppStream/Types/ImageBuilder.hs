@@ -29,12 +29,12 @@ module Network.AWS.AppStream.Types.ImageBuilder
     ibInstanceType,
     ibAccessEndpoints,
     ibVPCConfig,
+    ibName,
     ibImageARN,
     ibDisplayName,
     ibEnableDefaultInternetAccess,
     ibDescription,
     ibAppstreamAgentVersion,
-    ibName,
   )
 where
 
@@ -53,50 +53,155 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImageBuilder' smart constructor.
 data ImageBuilder = ImageBuilder'
-  { domainJoinInfo ::
-      Lude.Maybe DomainJoinInfo,
+  { -- | The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
+    domainJoinInfo :: Lude.Maybe DomainJoinInfo,
+    -- | The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) @AssumeRole@ API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the __appstream_machine_role__ credential profile on the instance.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances> in the /Amazon AppStream 2.0 Administration Guide/ .
     iamRoleARN :: Lude.Maybe Lude.Text,
+    -- | The state of the image builder.
     state :: Lude.Maybe ImageBuilderState,
+    -- | The operating system platform of the image builder.
     platform :: Lude.Maybe PlatformType,
-    networkAccessConfiguration ::
-      Lude.Maybe NetworkAccessConfiguration,
+    networkAccessConfiguration :: Lude.Maybe NetworkAccessConfiguration,
+    -- | The reason why the last state change occurred.
     stateChangeReason :: Lude.Maybe ImageBuilderStateChangeReason,
+    -- | The ARN for the image builder.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time stamp when the image builder was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The image builder errors.
     imageBuilderErrors :: Lude.Maybe [ResourceError],
+    -- | The instance type for the image builder. The following instance types are available:
+    --
+    --
+    --     * stream.standard.medium
+    --
+    --
+    --     * stream.standard.large
+    --
+    --
+    --     * stream.compute.large
+    --
+    --
+    --     * stream.compute.xlarge
+    --
+    --
+    --     * stream.compute.2xlarge
+    --
+    --
+    --     * stream.compute.4xlarge
+    --
+    --
+    --     * stream.compute.8xlarge
+    --
+    --
+    --     * stream.memory.large
+    --
+    --
+    --     * stream.memory.xlarge
+    --
+    --
+    --     * stream.memory.2xlarge
+    --
+    --
+    --     * stream.memory.4xlarge
+    --
+    --
+    --     * stream.memory.8xlarge
+    --
+    --
+    --     * stream.memory.z1d.large
+    --
+    --
+    --     * stream.memory.z1d.xlarge
+    --
+    --
+    --     * stream.memory.z1d.2xlarge
+    --
+    --
+    --     * stream.memory.z1d.3xlarge
+    --
+    --
+    --     * stream.memory.z1d.6xlarge
+    --
+    --
+    --     * stream.memory.z1d.12xlarge
+    --
+    --
+    --     * stream.graphics-design.large
+    --
+    --
+    --     * stream.graphics-design.xlarge
+    --
+    --
+    --     * stream.graphics-design.2xlarge
+    --
+    --
+    --     * stream.graphics-design.4xlarge
+    --
+    --
+    --     * stream.graphics-desktop.2xlarge
+    --
+    --
+    --     * stream.graphics.g4dn.xlarge
+    --
+    --
+    --     * stream.graphics.g4dn.2xlarge
+    --
+    --
+    --     * stream.graphics.g4dn.4xlarge
+    --
+    --
+    --     * stream.graphics.g4dn.8xlarge
+    --
+    --
+    --     * stream.graphics.g4dn.12xlarge
+    --
+    --
+    --     * stream.graphics.g4dn.16xlarge
+    --
+    --
+    --     * stream.graphics-pro.4xlarge
+    --
+    --
+    --     * stream.graphics-pro.8xlarge
+    --
+    --
+    --     * stream.graphics-pro.16xlarge
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
     accessEndpoints :: Lude.Maybe (Lude.NonEmpty AccessEndpoint),
+    -- | The VPC configuration of the image builder.
     vpcConfig :: Lude.Maybe VPCConfig,
+    -- | The name of the image builder.
+    name :: Lude.Text,
+    -- | The ARN of the image from which this builder was created.
     imageARN :: Lude.Maybe Lude.Text,
+    -- | The image builder name to display.
     displayName :: Lude.Maybe Lude.Text,
+    -- | Enables or disables default internet access for the image builder.
     enableDefaultInternetAccess :: Lude.Maybe Lude.Bool,
+    -- | The description to display.
     description :: Lude.Maybe Lude.Text,
-    appstreamAgentVersion :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The version of the AppStream 2.0 agent that is currently being used by the image builder.
+    appstreamAgentVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageBuilder' with the minimum fields required to make a request.
 --
--- * 'accessEndpoints' - The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
--- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent that is currently being used by the image builder.
--- * 'arn' - The ARN for the image builder.
--- * 'createdTime' - The time stamp when the image builder was created.
--- * 'description' - The description to display.
--- * 'displayName' - The image builder name to display.
 -- * 'domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
--- * 'enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
 -- * 'iamRoleARN' - The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) @AssumeRole@ API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the __appstream_machine_role__ credential profile on the instance.
 --
 -- For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances> in the /Amazon AppStream 2.0 Administration Guide/ .
--- * 'imageARN' - The ARN of the image from which this builder was created.
+-- * 'state' - The state of the image builder.
+-- * 'platform' - The operating system platform of the image builder.
+-- * 'networkAccessConfiguration' -
+-- * 'stateChangeReason' - The reason why the last state change occurred.
+-- * 'arn' - The ARN for the image builder.
+-- * 'createdTime' - The time stamp when the image builder was created.
 -- * 'imageBuilderErrors' - The image builder errors.
 -- * 'instanceType' - The instance type for the image builder. The following instance types are available:
 --
@@ -197,12 +302,14 @@ data ImageBuilder = ImageBuilder'
 --     * stream.graphics-pro.16xlarge
 --
 --
--- * 'name' - The name of the image builder.
--- * 'networkAccessConfiguration' - Undocumented field.
--- * 'platform' - The operating system platform of the image builder.
--- * 'state' - The state of the image builder.
--- * 'stateChangeReason' - The reason why the last state change occurred.
+-- * 'accessEndpoints' - The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 -- * 'vpcConfig' - The VPC configuration of the image builder.
+-- * 'name' - The name of the image builder.
+-- * 'imageARN' - The ARN of the image from which this builder was created.
+-- * 'displayName' - The image builder name to display.
+-- * 'enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
+-- * 'description' - The description to display.
+-- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent that is currently being used by the image builder.
 mkImageBuilder ::
   -- | 'name'
   Lude.Text ->
@@ -221,12 +328,12 @@ mkImageBuilder pName_ =
       instanceType = Lude.Nothing,
       accessEndpoints = Lude.Nothing,
       vpcConfig = Lude.Nothing,
+      name = pName_,
       imageARN = Lude.Nothing,
       displayName = Lude.Nothing,
       enableDefaultInternetAccess = Lude.Nothing,
       description = Lude.Nothing,
-      appstreamAgentVersion = Lude.Nothing,
-      name = pName_
+      appstreamAgentVersion = Lude.Nothing
     }
 
 -- | The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -413,6 +520,13 @@ ibVPCConfig :: Lens.Lens' ImageBuilder (Lude.Maybe VPCConfig)
 ibVPCConfig = Lens.lens (vpcConfig :: ImageBuilder -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: ImageBuilder)
 {-# DEPRECATED ibVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
+-- | The name of the image builder.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibName :: Lens.Lens' ImageBuilder Lude.Text
+ibName = Lens.lens (name :: ImageBuilder -> Lude.Text) (\s a -> s {name = a} :: ImageBuilder)
+{-# DEPRECATED ibName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The ARN of the image from which this builder was created.
 --
 -- /Note:/ Consider using 'imageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -448,13 +562,6 @@ ibAppstreamAgentVersion :: Lens.Lens' ImageBuilder (Lude.Maybe Lude.Text)
 ibAppstreamAgentVersion = Lens.lens (appstreamAgentVersion :: ImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {appstreamAgentVersion = a} :: ImageBuilder)
 {-# DEPRECATED ibAppstreamAgentVersion "Use generic-lens or generic-optics with 'appstreamAgentVersion' instead." #-}
 
--- | The name of the image builder.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibName :: Lens.Lens' ImageBuilder Lude.Text
-ibName = Lens.lens (name :: ImageBuilder -> Lude.Text) (\s a -> s {name = a} :: ImageBuilder)
-{-# DEPRECATED ibName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON ImageBuilder where
   parseJSON =
     Lude.withObject
@@ -473,10 +580,10 @@ instance Lude.FromJSON ImageBuilder where
             Lude.<*> (x Lude..:? "InstanceType")
             Lude.<*> (x Lude..:? "AccessEndpoints")
             Lude.<*> (x Lude..:? "VpcConfig")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "ImageArn")
             Lude.<*> (x Lude..:? "DisplayName")
             Lude.<*> (x Lude..:? "EnableDefaultInternetAccess")
             Lude.<*> (x Lude..:? "Description")
             Lude.<*> (x Lude..:? "AppstreamAgentVersion")
-            Lude.<*> (x Lude..: "Name")
       )

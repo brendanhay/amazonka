@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetSpotMaintenanceStrategies' smart constructor.
 newtype FleetSpotMaintenanceStrategies = FleetSpotMaintenanceStrategies'
-  { capacityRebalance ::
-      Lude.Maybe
-        FleetSpotCapacityRebalance
+  { -- | The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
+    capacityRebalance :: Lude.Maybe FleetSpotCapacityRebalance
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetSpotMaintenanceStrategies' with the minimum fields required to make a request.

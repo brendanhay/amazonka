@@ -662,8 +662,8 @@ module Network.AWS.EC2.Types
     -- * AddPrefixListEntry
     AddPrefixListEntry (..),
     mkAddPrefixListEntry,
-    apleDescription,
     apleCidr,
+    apleDescription,
 
     -- * Address
     Address (..),
@@ -776,14 +776,14 @@ module Network.AWS.EC2.Types
     -- * BundleTask
     BundleTask (..),
     mkBundleTask,
-    btBundleTaskError,
-    btBundleId,
     btInstanceId,
+    btState,
     btProgress,
     btStartTime,
-    btState,
+    btBundleId,
     btStorage,
     btUpdateTime,
+    btBundleTaskError,
 
     -- * BundleTaskError
     BundleTaskError (..),
@@ -920,8 +920,8 @@ module Network.AWS.EC2.Types
     -- * CidrAuthorizationContext
     CidrAuthorizationContext (..),
     mkCidrAuthorizationContext,
-    cacMessage,
     cacSignature,
+    cacMessage,
 
     -- * CidrBlock
     CidrBlock (..),
@@ -1124,13 +1124,13 @@ module Network.AWS.EC2.Types
     -- * ConversionTask
     ConversionTask (..),
     mkConversionTask,
-    ctImportInstance,
-    ctState,
-    ctStatusMessage,
-    ctImportVolume,
-    ctConversionTaskId,
-    ctExpirationTime,
-    ctTags,
+    cImportInstance,
+    cState,
+    cStatusMessage,
+    cImportVolume,
+    cConversionTaskId,
+    cExpirationTime,
+    cTags,
 
     -- * CreateFleetError
     CreateFleetError (..),
@@ -1181,14 +1181,14 @@ module Network.AWS.EC2.Types
     -- * CustomerGateway
     CustomerGateway (..),
     mkCustomerGateway,
-    cusCertificateARN,
-    cusDeviceName,
-    cusTags,
-    cusBGPASN,
-    cusCustomerGatewayId,
-    cusIPAddress,
-    cusState,
-    cusType,
+    cgfState,
+    cgfIPAddress,
+    cgfCertificateARN,
+    cgfBGPASN,
+    cgfCustomerGatewayId,
+    cgfDeviceName,
+    cgfType,
+    cgfTags,
 
     -- * DHCPConfiguration
     DHCPConfiguration (..),
@@ -1347,17 +1347,17 @@ module Network.AWS.EC2.Types
     -- * DiskImageDescription
     DiskImageDescription (..),
     mkDiskImageDescription,
-    dSize,
-    dChecksum,
-    dFormat,
-    dImportManifestURL,
+    didSize,
+    didChecksum,
+    didFormat,
+    didImportManifestURL,
 
     -- * DiskImageDetail
     DiskImageDetail (..),
     mkDiskImageDetail,
-    didBytes,
-    didFormat,
-    didImportManifestURL,
+    dFormat,
+    dImportManifestURL,
+    dBytes,
 
     -- * DiskImageVolumeDescription
     DiskImageVolumeDescription (..),
@@ -1535,13 +1535,13 @@ module Network.AWS.EC2.Types
     -- * ExportTask
     ExportTask (..),
     mkExportTask,
-    etTags,
-    etDescription,
     etExportTaskId,
+    etState,
     etExportToS3Task,
     etInstanceExportDetails,
-    etState,
     etStatusMessage,
+    etDescription,
+    etTags,
 
     -- * ExportTaskS3Location
     ExportTaskS3Location (..),
@@ -1916,16 +1916,16 @@ module Network.AWS.EC2.Types
     ipFromPort,
     ipUserIdGroupPairs,
     ipPrefixListIds,
+    ipIPProtocol,
     ipToPort,
     ipIPv6Ranges,
     ipIPRanges,
-    ipIPProtocol,
 
     -- * IPRange
     IPRange (..),
     mkIPRange,
-    iprDescription,
     iprCidrIP,
+    iprDescription,
 
     -- * IPv6CidrAssociation
     IPv6CidrAssociation (..),
@@ -1962,7 +1962,11 @@ module Network.AWS.EC2.Types
     -- * Image
     Image (..),
     mkImage,
+    iState,
+    iVirtualizationType,
+    iHypervisor,
     iPlatform,
+    iImageLocation,
     iPlatformDetails,
     iEnaSupport,
     iImageOwnerAlias,
@@ -1971,23 +1975,19 @@ module Network.AWS.EC2.Types
     iKernelId,
     iRootDeviceName,
     iSRIOVNetSupport,
+    iOwnerId,
+    iImageType,
     iName,
+    iImageId,
+    iArchitecture,
     iCreationDate,
     iProductCodes,
     iStateReason,
+    iRootDeviceType,
     iDescription,
     iBlockDeviceMappings,
     iTags,
-    iImageId,
-    iImageLocation,
-    iState,
-    iOwnerId,
     iPublic,
-    iArchitecture,
-    iImageType,
-    iRootDeviceType,
-    iVirtualizationType,
-    iHypervisor,
 
     -- * ImageDiskContainer
     ImageDiskContainer (..),
@@ -2094,54 +2094,54 @@ module Network.AWS.EC2.Types
     -- * Instance
     Instance (..),
     mkInstance,
-    insPublicDNSName,
-    insPlatform,
-    insSecurityGroups,
-    insClientToken,
-    insEnaSupport,
-    insSourceDestCheck,
-    insElasticGpuAssociations,
-    insVPCId,
-    insKeyName,
-    insNetworkInterfaces,
-    insOutpostARN,
-    insEnclaveOptions,
-    insRAMDiskId,
-    insCPUOptions,
-    insSubnetId,
-    insKernelId,
-    insRootDeviceName,
-    insCapacityReservationId,
-    insCapacityReservationSpecification,
-    insSRIOVNetSupport,
-    insEBSOptimized,
-    insStateTransitionReason,
-    insHibernationOptions,
-    insInstanceLifecycle,
-    insIAMInstanceProfile,
-    insPrivateIPAddress,
-    insMetadataOptions,
-    insProductCodes,
-    insSpotInstanceRequestId,
-    insLicenses,
-    insElasticInferenceAcceleratorAssociations,
-    insPrivateDNSName,
-    insStateReason,
-    insBlockDeviceMappings,
-    insPublicIPAddress,
-    insTags,
-    insInstanceId,
-    insImageId,
-    insAMILaunchIndex,
-    insInstanceType,
-    insLaunchTime,
-    insPlacement,
-    insMonitoring,
-    insArchitecture,
-    insRootDeviceType,
-    insVirtualizationType,
-    insHypervisor,
-    insState,
+    ifInstanceId,
+    ifState,
+    ifVirtualizationType,
+    ifPublicDNSName,
+    ifHypervisor,
+    ifPlatform,
+    ifSecurityGroups,
+    ifClientToken,
+    ifEnaSupport,
+    ifSourceDestCheck,
+    ifElasticGpuAssociations,
+    ifVPCId,
+    ifKeyName,
+    ifLaunchTime,
+    ifNetworkInterfaces,
+    ifOutpostARN,
+    ifEnclaveOptions,
+    ifRAMDiskId,
+    ifCPUOptions,
+    ifSubnetId,
+    ifKernelId,
+    ifRootDeviceName,
+    ifCapacityReservationId,
+    ifInstanceType,
+    ifCapacityReservationSpecification,
+    ifSRIOVNetSupport,
+    ifEBSOptimized,
+    ifMonitoring,
+    ifStateTransitionReason,
+    ifHibernationOptions,
+    ifInstanceLifecycle,
+    ifIAMInstanceProfile,
+    ifImageId,
+    ifPrivateIPAddress,
+    ifMetadataOptions,
+    ifArchitecture,
+    ifProductCodes,
+    ifSpotInstanceRequestId,
+    ifLicenses,
+    ifElasticInferenceAcceleratorAssociations,
+    ifPrivateDNSName,
+    ifStateReason,
+    ifRootDeviceType,
+    ifBlockDeviceMappings,
+    ifAMILaunchIndex,
+    ifPublicIPAddress,
+    ifPlacement,
+    ifTags,
 
     -- * InstanceBlockDeviceMapping
     InstanceBlockDeviceMapping (..),
@@ -2346,8 +2346,8 @@ module Network.AWS.EC2.Types
     -- * InstanceStatusSummary
     InstanceStatusSummary (..),
     mkInstanceStatusSummary,
-    issDetails,
     issStatus,
+    issDetails,
 
     -- * InstanceStorageInfo
     InstanceStorageInfo (..),
@@ -2407,8 +2407,8 @@ module Network.AWS.EC2.Types
     mkInternetGateway,
     igAttachments,
     igOwnerId,
-    igTags,
     igInternetGatewayId,
+    igTags,
 
     -- * InternetGatewayAttachment
     InternetGatewayAttachment (..),
@@ -2439,8 +2439,8 @@ module Network.AWS.EC2.Types
     -- * LaunchPermissionModifications
     LaunchPermissionModifications (..),
     mkLaunchPermissionModifications,
-    lRemove,
-    lAdd,
+    lpmRemove,
+    lpmAdd,
 
     -- * LaunchSpecification
     LaunchSpecification (..),
@@ -2783,8 +2783,8 @@ module Network.AWS.EC2.Types
     -- * LoadPermissionModifications
     LoadPermissionModifications (..),
     mkLoadPermissionModifications,
-    lpmRemove,
-    lpmAdd,
+    lRemove,
+    lAdd,
 
     -- * LoadPermissionRequest
     LoadPermissionRequest (..),
@@ -3170,7 +3170,7 @@ module Network.AWS.EC2.Types
     -- * Phase1EncryptionAlgorithmsListValue
     Phase1EncryptionAlgorithmsListValue (..),
     mkPhase1EncryptionAlgorithmsListValue,
-    pealveValue,
+    pealvfValue,
 
     -- * Phase1EncryptionAlgorithmsRequestListValue
     Phase1EncryptionAlgorithmsRequestListValue (..),
@@ -3185,7 +3185,7 @@ module Network.AWS.EC2.Types
     -- * Phase1IntegrityAlgorithmsRequestListValue
     Phase1IntegrityAlgorithmsRequestListValue (..),
     mkPhase1IntegrityAlgorithmsRequestListValue,
-    piarlviValue,
+    piarlvfValue,
 
     -- * Phase2DHGroupNumbersListValue
     Phase2DHGroupNumbersListValue (..),
@@ -3195,7 +3195,7 @@ module Network.AWS.EC2.Types
     -- * Phase2DHGroupNumbersRequestListValue
     Phase2DHGroupNumbersRequestListValue (..),
     mkPhase2DHGroupNumbersRequestListValue,
-    pdhgnrlvdValue,
+    pdhgnrlvfValue,
 
     -- * Phase2EncryptionAlgorithmsListValue
     Phase2EncryptionAlgorithmsListValue (..),
@@ -3205,12 +3205,12 @@ module Network.AWS.EC2.Types
     -- * Phase2EncryptionAlgorithmsRequestListValue
     Phase2EncryptionAlgorithmsRequestListValue (..),
     mkPhase2EncryptionAlgorithmsRequestListValue,
-    pearlveValue,
+    pearlvfValue,
 
     -- * Phase2IntegrityAlgorithmsListValue
     Phase2IntegrityAlgorithmsListValue (..),
     mkPhase2IntegrityAlgorithmsListValue,
-    phaValue,
+    pialvfValue,
 
     -- * Phase2IntegrityAlgorithmsRequestListValue
     Phase2IntegrityAlgorithmsRequestListValue (..),
@@ -3220,14 +3220,14 @@ module Network.AWS.EC2.Types
     -- * Placement
     Placement (..),
     mkPlacement,
-    plaAffinity,
-    plaHostId,
-    plaPartitionNumber,
-    plaSpreadDomain,
-    plaAvailabilityZone,
-    plaTenancy,
-    plaGroupName,
-    plaHostResourceGroupARN,
+    pfAffinity,
+    pfHostId,
+    pfPartitionNumber,
+    pfSpreadDomain,
+    pfAvailabilityZone,
+    pfTenancy,
+    pfGroupName,
+    pfHostResourceGroupARN,
 
     -- * PlacementGroup
     PlacementGroup (..),
@@ -3473,10 +3473,10 @@ module Network.AWS.EC2.Types
     Reservation (..),
     mkReservation,
     rGroups,
-    rInstances,
-    rRequesterId,
-    rReservationId,
     rOwnerId,
+    rInstances,
+    rReservationId,
+    rRequesterId,
 
     -- * ReservationValue
     ReservationValue (..),
@@ -3779,9 +3779,9 @@ module Network.AWS.EC2.Types
     silsUserData,
     silsMonitoring,
     silsIAMInstanceProfile,
+    silsImageId,
     silsBlockDeviceMappings,
     silsPlacement,
-    silsImageId,
 
     -- * ScheduledInstancesMonitoring
     ScheduledInstancesMonitoring (..),
@@ -3821,12 +3821,12 @@ module Network.AWS.EC2.Types
     mkSecurityGroup,
     sgVPCId,
     sgIPPermissions,
-    sgIPPermissionsEgress,
-    sgTags,
     sgOwnerId,
+    sgIPPermissionsEgress,
     sgGroupId,
     sgGroupName,
     sgDescription,
+    sgTags,
 
     -- * SecurityGroupIdentifier
     SecurityGroupIdentifier (..),
@@ -3883,8 +3883,8 @@ module Network.AWS.EC2.Types
     -- * SlotDateTimeRangeRequest
     SlotDateTimeRangeRequest (..),
     mkSlotDateTimeRangeRequest,
-    sdtrrEarliestTime,
     sdtrrLatestTime,
+    sdtrrEarliestTime,
 
     -- * SlotStartTimeRangeRequest
     SlotStartTimeRangeRequest (..),
@@ -3895,20 +3895,20 @@ module Network.AWS.EC2.Types
     -- * Snapshot
     Snapshot (..),
     mkSnapshot,
-    sStateMessage,
-    sOwnerAlias,
-    sDataEncryptionKeyId,
-    sKMSKeyId,
-    sTags,
-    sSnapshotId,
-    sOwnerId,
-    sVolumeId,
-    sVolumeSize,
-    sDescription,
-    sStartTime,
-    sProgress,
-    sState,
-    sEncrypted,
+    sfStateMessage,
+    sfState,
+    sfOwnerAlias,
+    sfProgress,
+    sfStartTime,
+    sfVolumeSize,
+    sfDataEncryptionKeyId,
+    sfEncrypted,
+    sfOwnerId,
+    sfKMSKeyId,
+    sfVolumeId,
+    sfDescription,
+    sfTags,
+    sfSnapshotId,
 
     -- * SnapshotDetail
     SnapshotDetail (..),
@@ -4015,9 +4015,11 @@ module Network.AWS.EC2.Types
     -- * SpotFleetRequestConfigData
     SpotFleetRequestConfigData (..),
     mkSpotFleetRequestConfigData,
+    sfrcdIAMFleetRole,
     sfrcdClientToken,
     sfrcdInstanceInterruptionBehavior,
     sfrcdOnDemandMaxTotalPrice,
+    sfrcdTargetCapacity,
     sfrcdSpotPrice,
     sfrcdSpotMaintenanceStrategies,
     sfrcdLoadBalancersConfig,
@@ -4037,8 +4039,6 @@ module Network.AWS.EC2.Types
     sfrcdOnDemandFulfilledCapacity,
     sfrcdSpotMaxTotalPrice,
     sfrcdAllocationStrategy,
-    sfrcdIAMFleetRole,
-    sfrcdTargetCapacity,
 
     -- * SpotFleetTagSpecification
     SpotFleetTagSpecification (..),
@@ -4130,11 +4130,11 @@ module Network.AWS.EC2.Types
     -- * SpotPrice
     SpotPrice (..),
     mkSpotPrice,
-    sProductDescription,
-    sSpotPrice,
-    sInstanceType,
-    sAvailabilityZone,
-    sTimestamp,
+    spfProductDescription,
+    spfSpotPrice,
+    spfInstanceType,
+    spfAvailabilityZone,
+    spfTimestamp,
 
     -- * StaleIPPermission
     StaleIPPermission (..),
@@ -4176,23 +4176,23 @@ module Network.AWS.EC2.Types
     -- * Subnet
     Subnet (..),
     mkSubnet,
-    subIPv6CidrBlockAssociationSet,
-    subAvailabilityZoneId,
-    subOutpostARN,
-    subAssignIPv6AddressOnCreation,
-    subSubnetARN,
-    subOwnerId,
-    subCustomerOwnedIPv4Pool,
-    subMapCustomerOwnedIPOnLaunch,
-    subMapPublicIPOnLaunch,
-    subDefaultForAz,
-    subTags,
-    subAvailabilityZone,
-    subAvailableIPAddressCount,
-    subCidrBlock,
-    subState,
-    subSubnetId,
-    subVPCId,
+    sState,
+    sIPv6CidrBlockAssociationSet,
+    sAvailabilityZoneId,
+    sAvailableIPAddressCount,
+    sVPCId,
+    sOutpostARN,
+    sAssignIPv6AddressOnCreation,
+    sSubnetId,
+    sSubnetARN,
+    sOwnerId,
+    sCustomerOwnedIPv4Pool,
+    sAvailabilityZone,
+    sMapCustomerOwnedIPOnLaunch,
+    sCidrBlock,
+    sMapPublicIPOnLaunch,
+    sDefaultForAz,
+    sTags,
 
     -- * SubnetAssociation
     SubnetAssociation (..),
@@ -4226,16 +4226,16 @@ module Network.AWS.EC2.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TagDescription
     TagDescription (..),
     mkTagDescription,
     tdResourceId,
     tdResourceType,
-    tdKey,
     tdValue,
+    tdKey,
 
     -- * TagSpecification
     TagSpecification (..),
@@ -4256,8 +4256,8 @@ module Network.AWS.EC2.Types
     mkTargetCapacitySpecificationRequest,
     tcsrOnDemandTargetCapacity,
     tcsrDefaultTargetCapacityType,
-    tcsrSpotTargetCapacity,
     tcsrTotalTargetCapacity,
+    tcsrSpotTargetCapacity,
 
     -- * TargetConfiguration
     TargetConfiguration (..),
@@ -4381,11 +4381,11 @@ module Network.AWS.EC2.Types
     -- * TransitGatewayAssociation
     TransitGatewayAssociation (..),
     mkTransitGatewayAssociation,
-    traState,
-    traResourceId,
-    traResourceType,
-    traTransitGatewayRouteTableId,
-    traTransitGatewayAttachmentId,
+    tgafState,
+    tgafResourceId,
+    tgafResourceType,
+    tgafTransitGatewayRouteTableId,
+    tgafTransitGatewayAttachmentId,
 
     -- * TransitGatewayAttachment
     TransitGatewayAttachment (..),
@@ -4702,16 +4702,16 @@ module Network.AWS.EC2.Types
     -- * VPC
     VPC (..),
     mkVPC,
-    vpcIPv6CidrBlockAssociationSet,
-    vpcCidrBlockAssociationSet,
-    vpcOwnerId,
-    vpcTags,
-    vpcIsDefault,
-    vpcCidrBlock,
-    vpcDHCPOptionsId,
-    vpcInstanceTenancy,
-    vpcState,
-    vpcVPCId,
+    vfState,
+    vfIPv6CidrBlockAssociationSet,
+    vfVPCId,
+    vfCidrBlockAssociationSet,
+    vfOwnerId,
+    vfDHCPOptionsId,
+    vfCidrBlock,
+    vfInstanceTenancy,
+    vfTags,
+    vfIsDefault,
 
     -- * VPCAttachment
     VPCAttachment (..),
@@ -4784,12 +4784,12 @@ module Network.AWS.EC2.Types
     -- * VPCPeeringConnection
     VPCPeeringConnection (..),
     mkVPCPeeringConnection,
-    vpcpcVPCPeeringConnectionId,
-    vpcpcStatus,
-    vpcpcAccepterVPCInfo,
-    vpcpcRequesterVPCInfo,
-    vpcpcExpirationTime,
-    vpcpcTags,
+    vpcVPCPeeringConnectionId,
+    vpcStatus,
+    vpcAccepterVPCInfo,
+    vpcRequesterVPCInfo,
+    vpcExpirationTime,
+    vpcTags,
 
     -- * VPCPeeringConnectionOptionsDescription
     VPCPeeringConnectionOptionsDescription (..),
@@ -4819,17 +4819,17 @@ module Network.AWS.EC2.Types
     VPNConnection (..),
     mkVPNConnection,
     vcCustomerGatewayConfiguration,
+    vcState,
     vcRoutes,
     vcVPNGatewayId,
     vcCategory,
+    vcCustomerGatewayId,
     vcTransitGatewayId,
+    vcType,
     vcOptions,
+    vcVPNConnectionId,
     vcTags,
     vcVGWTelemetry,
-    vcVPNConnectionId,
-    vcCustomerGatewayId,
-    vcState,
-    vcType,
 
     -- * VPNConnectionOptions
     VPNConnectionOptions (..),
@@ -4910,30 +4910,30 @@ module Network.AWS.EC2.Types
     Volume (..),
     mkVolume,
     vFastRestored,
+    vState,
     vMultiAttachEnabled,
     vAttachments,
+    vSize,
     vIOPS,
     vOutpostARN,
-    vKMSKeyId,
-    vTags,
-    vAvailabilityZone,
-    vCreateTime,
     vEncrypted,
-    vSize,
-    vSnapshotId,
-    vState,
+    vKMSKeyId,
+    vAvailabilityZone,
     vVolumeId,
     vVolumeType,
+    vCreateTime,
+    vTags,
+    vSnapshotId,
 
     -- * VolumeAttachment
     VolumeAttachment (..),
     mkVolumeAttachment,
-    volInstanceId,
-    volDeleteOnTermination,
-    volState,
-    volDevice,
-    volVolumeId,
-    volAttachTime,
+    vafInstanceId,
+    vafDeleteOnTermination,
+    vafState,
+    vafDevice,
+    vafVolumeId,
+    vafAttachTime,
 
     -- * VolumeDetail
     VolumeDetail (..),
@@ -5748,14 +5748,6 @@ ec2Service =
           (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
           e =
         Lude.Just "throttled_exception"
-      | Lens.has
-          (Lude.hasCode "RequestLimitExceeded" Lude.. Lude.hasStatus 503)
-          e =
-        Lude.Just "request_limit_exceeded"
-      | Lens.has
-          (Lude.hasCode "EC2ThrottledException" Lude.. Lude.hasStatus 503)
-          e =
-        Lude.Just "ec2_throttled_exception"
       | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
       | Lens.has
           (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
@@ -5781,4 +5773,12 @@ ec2Service =
       | Lens.has (Lude.hasStatus 500) e =
         Lude.Just "general_server_error"
       | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
+      | Lens.has
+          (Lude.hasCode "RequestLimitExceeded" Lude.. Lude.hasStatus 503)
+          e =
+        Lude.Just "request_limit_exceeded"
+      | Lens.has
+          (Lude.hasCode "EC2ThrottledException" Lude.. Lude.hasStatus 503)
+          e =
+        Lude.Just "ec2_throttled_exception"
       | Lude.otherwise = Lude.Nothing

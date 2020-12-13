@@ -13,9 +13,9 @@
 module Network.AWS.MediaLive.Types.CdiInputResolution
   ( CdiInputResolution
       ( CdiInputResolution',
-        CIRFhd,
-        CIRHD,
         CIRSD,
+        CIRHD,
+        CIRFhd,
         CIRUhd
       ),
   )
@@ -48,22 +48,22 @@ newtype CdiInputResolution = CdiInputResolution' Lude.Text
       Lude.ToHeader
     )
 
-pattern CIRFhd :: CdiInputResolution
-pattern CIRFhd = CdiInputResolution' "FHD"
+pattern CIRSD :: CdiInputResolution
+pattern CIRSD = CdiInputResolution' "SD"
 
 pattern CIRHD :: CdiInputResolution
 pattern CIRHD = CdiInputResolution' "HD"
 
-pattern CIRSD :: CdiInputResolution
-pattern CIRSD = CdiInputResolution' "SD"
+pattern CIRFhd :: CdiInputResolution
+pattern CIRFhd = CdiInputResolution' "FHD"
 
 pattern CIRUhd :: CdiInputResolution
 pattern CIRUhd = CdiInputResolution' "UHD"
 
 {-# COMPLETE
-  CIRFhd,
-  CIRHD,
   CIRSD,
+  CIRHD,
+  CIRFhd,
   CIRUhd,
   CdiInputResolution'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +21,10 @@ module Network.AWS.ResourceGroups.CreateGroup
 
     -- ** Request lenses
     cgResourceQuery,
+    cgName,
     cgConfiguration,
     cgDescription,
     cgTags,
-    cgName,
 
     -- * Destructuring the response
     CreateGroupResponse (..),
@@ -46,28 +47,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { resourceQuery ::
-      Lude.Maybe ResourceQuery,
+  { -- | The resource query that determines which AWS resources are members of this group.
+    resourceQuery :: Lude.Maybe ResourceQuery,
+    -- | The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within each AWS Region in your AWS account.
+    name :: Lude.Text,
+    -- | A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of 'GroupConfigurationItem' elements.
     configuration :: Lude.Maybe [GroupConfigurationItem],
+    -- | The description of the resource group. Descriptions can consist of letters, numbers, hyphens, underscores, periods, and spaces.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    name :: Lude.Text
+    -- | The tags to add to the group. A tag is key-value pair string.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
+-- * 'resourceQuery' - The resource query that determines which AWS resources are members of this group.
+-- * 'name' - The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within each AWS Region in your AWS account.
 -- * 'configuration' - A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of 'GroupConfigurationItem' elements.
 -- * 'description' - The description of the resource group. Descriptions can consist of letters, numbers, hyphens, underscores, periods, and spaces.
--- * 'name' - The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within each AWS Region in your AWS account.
--- * 'resourceQuery' - The resource query that determines which AWS resources are members of this group.
 -- * 'tags' - The tags to add to the group. A tag is key-value pair string.
 mkCreateGroup ::
   -- | 'name'
@@ -76,10 +75,10 @@ mkCreateGroup ::
 mkCreateGroup pName_ =
   CreateGroup'
     { resourceQuery = Lude.Nothing,
+      name = pName_,
       configuration = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | The resource query that determines which AWS resources are members of this group.
@@ -88,6 +87,13 @@ mkCreateGroup pName_ =
 cgResourceQuery :: Lens.Lens' CreateGroup (Lude.Maybe ResourceQuery)
 cgResourceQuery = Lens.lens (resourceQuery :: CreateGroup -> Lude.Maybe ResourceQuery) (\s a -> s {resourceQuery = a} :: CreateGroup)
 {-# DEPRECATED cgResourceQuery "Use generic-lens or generic-optics with 'resourceQuery' instead." #-}
+
+-- | The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within each AWS Region in your AWS account.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgName :: Lens.Lens' CreateGroup Lude.Text
+cgName = Lens.lens (name :: CreateGroup -> Lude.Text) (\s a -> s {name = a} :: CreateGroup)
+{-# DEPRECATED cgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. A configuration is an array of 'GroupConfigurationItem' elements.
 --
@@ -109,13 +115,6 @@ cgDescription = Lens.lens (description :: CreateGroup -> Lude.Maybe Lude.Text) (
 cgTags :: Lens.Lens' CreateGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 cgTags = Lens.lens (tags :: CreateGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateGroup)
 {-# DEPRECATED cgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the group, which is the identifier of the group in other operations. You can't change the name of a resource group after you create it. A resource group name can consist of letters, numbers, hyphens, periods, and underscores. The name cannot start with @AWS@ or @aws@ ; these are reserved. A resource group name must be unique within each AWS Region in your AWS account.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgName :: Lens.Lens' CreateGroup Lude.Text
-cgName = Lens.lens (name :: CreateGroup -> Lude.Text) (\s a -> s {name = a} :: CreateGroup)
-{-# DEPRECATED cgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateGroup where
   type Rs CreateGroup = CreateGroupResponse
@@ -139,10 +138,10 @@ instance Lude.ToJSON CreateGroup where
     Lude.object
       ( Lude.catMaybes
           [ ("ResourceQuery" Lude..=) Lude.<$> resourceQuery,
+            Lude.Just ("Name" Lude..= name),
             ("Configuration" Lude..=) Lude.<$> configuration,
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -154,21 +153,21 @@ instance Lude.ToQuery CreateGroup where
 
 -- | /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { group ::
-      Lude.Maybe Group,
+  { -- | The description of the resource group.
+    group :: Lude.Maybe Group,
+    -- | The service configuration associated with the resource group. AWS Resource Groups supports adding service configurations for the following resource group types:
+    --
+    --
+    --     * @AWS::EC2::CapacityReservationPool@ - Amazon EC2 capacity reservation pools. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
     groupConfiguration :: Lude.Maybe GroupConfiguration,
+    -- | The resource query associated with the group.
     resourceQuery :: Lude.Maybe ResourceQuery,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The tags associated with the group.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
@@ -181,8 +180,8 @@ data CreateGroupResponse = CreateGroupResponse'
 --
 --
 -- * 'resourceQuery' - The resource query associated with the group.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags associated with the group.
+-- * 'responseStatus' - The response status code.
 mkCreateGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

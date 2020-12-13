@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SageMaker.DeleteUserProfile
     mkDeleteUserProfile,
 
     -- ** Request lenses
-    delDomainId,
-    delUserProfileName,
+    dupfUserProfileName,
+    dupfDomainId,
 
     -- * Destructuring the response
     DeleteUserProfileResponse (..),
@@ -36,47 +37,43 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'
-  { domainId :: Lude.Text,
-    userProfileName :: Lude.Text
+  { -- | The user profile name.
+    userProfileName :: Lude.Text,
+    -- | The domain ID.
+    domainId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
 --
--- * 'domainId' - The domain ID.
 -- * 'userProfileName' - The user profile name.
+-- * 'domainId' - The domain ID.
 mkDeleteUserProfile ::
-  -- | 'domainId'
-  Lude.Text ->
   -- | 'userProfileName'
   Lude.Text ->
+  -- | 'domainId'
+  Lude.Text ->
   DeleteUserProfile
-mkDeleteUserProfile pDomainId_ pUserProfileName_ =
+mkDeleteUserProfile pUserProfileName_ pDomainId_ =
   DeleteUserProfile'
-    { domainId = pDomainId_,
-      userProfileName = pUserProfileName_
+    { userProfileName = pUserProfileName_,
+      domainId = pDomainId_
     }
-
--- | The domain ID.
---
--- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delDomainId :: Lens.Lens' DeleteUserProfile Lude.Text
-delDomainId = Lens.lens (domainId :: DeleteUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: DeleteUserProfile)
-{-# DEPRECATED delDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 -- | The user profile name.
 --
 -- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delUserProfileName :: Lens.Lens' DeleteUserProfile Lude.Text
-delUserProfileName = Lens.lens (userProfileName :: DeleteUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: DeleteUserProfile)
-{-# DEPRECATED delUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+dupfUserProfileName :: Lens.Lens' DeleteUserProfile Lude.Text
+dupfUserProfileName = Lens.lens (userProfileName :: DeleteUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: DeleteUserProfile)
+{-# DEPRECATED dupfUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+
+-- | The domain ID.
+--
+-- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupfDomainId :: Lens.Lens' DeleteUserProfile Lude.Text
+dupfDomainId = Lens.lens (domainId :: DeleteUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: DeleteUserProfile)
+{-# DEPRECATED dupfDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
 instance Lude.AWSRequest DeleteUserProfile where
   type Rs DeleteUserProfile = DeleteUserProfileResponse
@@ -98,8 +95,8 @@ instance Lude.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DomainId" Lude..= domainId),
-            Lude.Just ("UserProfileName" Lude..= userProfileName)
+          [ Lude.Just ("UserProfileName" Lude..= userProfileName),
+            Lude.Just ("DomainId" Lude..= domainId)
           ]
       )
 
@@ -111,13 +108,7 @@ instance Lude.ToQuery DeleteUserProfile where
 
 -- | /See:/ 'mkDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.

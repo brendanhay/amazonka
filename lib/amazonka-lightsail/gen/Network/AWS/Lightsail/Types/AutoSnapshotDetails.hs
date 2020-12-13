@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoSnapshotDetails' smart constructor.
 data AutoSnapshotDetails = AutoSnapshotDetails'
-  { status ::
-      Lude.Maybe AutoSnapshotStatus,
+  { -- | The status of the automatic snapshot.
+    status :: Lude.Maybe AutoSnapshotStatus,
+    -- | An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
     fromAttachedDisks :: Lude.Maybe [AttachedDisk],
+    -- | The timestamp when the automatic snapshot was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The date of the automatic snapshot in @YYYY-MM-DD@ format.
     date :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoSnapshotDetails' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the automatic snapshot.
+-- * 'fromAttachedDisks' - An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
 -- * 'createdAt' - The timestamp when the automatic snapshot was created.
 -- * 'date' - The date of the automatic snapshot in @YYYY-MM-DD@ format.
--- * 'fromAttachedDisks' - An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
--- * 'status' - The status of the automatic snapshot.
 mkAutoSnapshotDetails ::
   AutoSnapshotDetails
 mkAutoSnapshotDetails =

@@ -36,15 +36,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRadiusSettings' smart constructor.
 data RadiusSettings = RadiusSettings'
-  { displayLabel ::
-      Lude.Maybe Lude.Text,
+  { -- | Not currently used.
+    displayLabel :: Lude.Maybe Lude.Text,
+    -- | The maximum number of times that communication with the RADIUS server is attempted.
     radiusRetries :: Lude.Maybe Lude.Natural,
-    authenticationProtocol ::
-      Lude.Maybe RadiusAuthenticationProtocol,
+    -- | The protocol specified for your RADIUS endpoints.
+    authenticationProtocol :: Lude.Maybe RadiusAuthenticationProtocol,
+    -- | An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
     radiusServers :: Lude.Maybe [Lude.Text],
+    -- | Not currently used.
     useSameUsername :: Lude.Maybe Lude.Bool,
+    -- | Required for enabling RADIUS on the directory.
     sharedSecret :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The amount of time, in seconds, to wait for the RADIUS server to respond.
     radiusTimeout :: Lude.Maybe Lude.Natural,
+    -- | The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.
     radiusPort :: Lude.Maybe Lude.Natural
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -52,14 +58,14 @@ data RadiusSettings = RadiusSettings'
 
 -- | Creates a value of 'RadiusSettings' with the minimum fields required to make a request.
 --
--- * 'authenticationProtocol' - The protocol specified for your RADIUS endpoints.
 -- * 'displayLabel' - Not currently used.
--- * 'radiusPort' - The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.
 -- * 'radiusRetries' - The maximum number of times that communication with the RADIUS server is attempted.
+-- * 'authenticationProtocol' - The protocol specified for your RADIUS endpoints.
 -- * 'radiusServers' - An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
--- * 'radiusTimeout' - The amount of time, in seconds, to wait for the RADIUS server to respond.
--- * 'sharedSecret' - Required for enabling RADIUS on the directory.
 -- * 'useSameUsername' - Not currently used.
+-- * 'sharedSecret' - Required for enabling RADIUS on the directory.
+-- * 'radiusTimeout' - The amount of time, in seconds, to wait for the RADIUS server to respond.
+-- * 'radiusPort' - The port that your RADIUS server is using for communications. Your on-premises network must allow inbound traffic over this port from the AWS Directory Service servers.
 mkRadiusSettings ::
   RadiusSettings
 mkRadiusSettings =

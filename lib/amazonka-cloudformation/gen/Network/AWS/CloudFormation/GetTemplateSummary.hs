@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,33 +56,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetTemplateSummary' smart constructor.
 data GetTemplateSummary = GetTemplateSummary'
-  { templateBody ::
-      Lude.Maybe Lude.Text,
+  { -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+    --
+    -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+    --
+    -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
     templateURL :: Lude.Maybe Lude.Text,
+    -- | The name or unique ID of the stack set from which the stack was created.
+    --
+    -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
     stackSetName :: Lude.Maybe Lude.Text,
+    -- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
+    --
+    -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
     stackName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTemplateSummary' with the minimum fields required to make a request.
 --
--- * 'stackName' - The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
+-- * 'templateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+--
+-- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
+-- * 'templateURL' - Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
 -- * 'stackSetName' - The name or unique ID of the stack set from which the stack was created.
 --
 -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
--- * 'templateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
--- * 'templateURL' - Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+-- * 'stackName' - The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
 --
 -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
 mkGetTemplateSummary ::
@@ -181,47 +187,46 @@ instance Lude.ToQuery GetTemplateSummary where
 --
 -- /See:/ 'mkGetTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-  { declaredTransforms ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of the transforms that are declared in the template.
+    declaredTransforms :: Lude.Maybe [Lude.Text],
+    -- | The AWS template format version, which identifies the capabilities of the template.
     version :: Lude.Maybe Lude.Text,
-    capabilitiesReason ::
-      Lude.Maybe Lude.Text,
-    parameters ::
-      Lude.Maybe [ParameterDeclaration],
+    -- | The list of resources that generated the values in the @Capabilities@ response element.
+    capabilitiesReason :: Lude.Maybe Lude.Text,
+    -- | A list of parameter declarations that describe various properties for each parameter.
+    parameters :: Lude.Maybe [ParameterDeclaration],
+    -- | The value that is defined for the @Metadata@ property of the template.
     metadata :: Lude.Maybe Lude.Text,
-    resourceIdentifierSummaries ::
-      Lude.Maybe
-        [ResourceIdentifierSummary],
+    -- | A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
+    resourceIdentifierSummaries :: Lude.Maybe [ResourceIdentifierSummary],
+    -- | The value that is defined in the @Description@ property of the template.
     description :: Lude.Maybe Lude.Text,
-    capabilities ::
-      Lude.Maybe [Capability],
-    resourceTypes ::
-      Lude.Maybe [Lude.Text],
+    -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
+    capabilities :: Lude.Maybe [Capability],
+    -- | A list of all the template resource types that are defined in the template, such as @AWS::EC2::Instance@ , @AWS::Dynamo::Table@ , and @Custom::MyCustomInstance@ .
+    resourceTypes :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTemplateSummaryResponse' with the minimum fields required to make a request.
 --
+-- * 'declaredTransforms' - A list of the transforms that are declared in the template.
+-- * 'version' - The AWS template format version, which identifies the capabilities of the template.
+-- * 'capabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
+-- * 'parameters' - A list of parameter declarations that describe various properties for each parameter.
+-- * 'metadata' - The value that is defined for the @Metadata@ property of the template.
+-- * 'resourceIdentifierSummaries' - A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
+-- * 'description' - The value that is defined in the @Description@ property of the template.
 -- * 'capabilities' - The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
 --
 -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
--- * 'capabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
--- * 'declaredTransforms' - A list of the transforms that are declared in the template.
--- * 'description' - The value that is defined in the @Description@ property of the template.
--- * 'metadata' - The value that is defined for the @Metadata@ property of the template.
--- * 'parameters' - A list of parameter declarations that describe various properties for each parameter.
--- * 'resourceIdentifierSummaries' - A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
 -- * 'resourceTypes' - A list of all the template resource types that are defined in the template, such as @AWS::EC2::Instance@ , @AWS::Dynamo::Table@ , and @Custom::MyCustomInstance@ .
 -- * 'responseStatus' - The response status code.
--- * 'version' - The AWS template format version, which identifies the capabilities of the template.
 mkGetTemplateSummaryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

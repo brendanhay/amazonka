@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,24 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkListVocabularies' smart constructor.
 data ListVocabularies = ListVocabularies'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is not case sensitive, @ListVocabularies@ returns both "vocabularyname" and "VocabularyName" in the response list.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | If the result of the previous request to @ListVocabularies@ was truncated, include the @NextToken@ to fetch the next set of jobs.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | When specified, only returns vocabularies with the @VocabularyState@ field equal to the specified state.
     stateEquals :: Lude.Maybe VocabularyState,
+    -- | The maximum number of vocabularies to return in the response. If there are fewer results in the list, this response contains only the actual results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabularies' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of vocabularies to return in the response. If there are fewer results in the list, this response contains only the actual results.
 -- * 'nameContains' - When specified, the vocabularies returned in the list are limited to vocabularies whose name contains the specified string. The search is not case sensitive, @ListVocabularies@ returns both "vocabularyname" and "VocabularyName" in the response list.
 -- * 'nextToken' - If the result of the previous request to @ListVocabularies@ was truncated, include the @NextToken@ to fetch the next set of jobs.
 -- * 'stateEquals' - When specified, only returns vocabularies with the @VocabularyState@ field equal to the specified state.
+-- * 'maxResults' - The maximum number of vocabularies to return in the response. If there are fewer results in the list, this response contains only the actual results.
 mkListVocabularies ::
   ListVocabularies
 mkListVocabularies =
@@ -146,27 +144,24 @@ instance Lude.ToQuery ListVocabularies where
 
 -- | /See:/ 'mkListVocabulariesResponse' smart constructor.
 data ListVocabulariesResponse = ListVocabulariesResponse'
-  { vocabularies ::
-      Lude.Maybe [VocabularyInfo],
+  { -- | A list of objects that describe the vocabularies that match the search criteria in the request.
+    vocabularies :: Lude.Maybe [VocabularyInfo],
+    -- | The requested vocabulary state.
     status :: Lude.Maybe VocabularyState,
+    -- | The @ListVocabularies@ operation returns a page of vocabularies at a time. The maximum size of the page is set in the @MaxResults@ parameter. If there are more jobs in the list than will fit on the page, Amazon Transcribe returns the @NextPage@ token. To return in the next page of jobs, include the token in the next request to the @ListVocabularies@ operation.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVocabulariesResponse' with the minimum fields required to make a request.
 --
+-- * 'vocabularies' - A list of objects that describe the vocabularies that match the search criteria in the request.
+-- * 'status' - The requested vocabulary state.
 -- * 'nextToken' - The @ListVocabularies@ operation returns a page of vocabularies at a time. The maximum size of the page is set in the @MaxResults@ parameter. If there are more jobs in the list than will fit on the page, Amazon Transcribe returns the @NextPage@ token. To return in the next page of jobs, include the token in the next request to the @ListVocabularies@ operation.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The requested vocabulary state.
--- * 'vocabularies' - A list of objects that describe the vocabularies that match the search criteria in the request.
 mkListVocabulariesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

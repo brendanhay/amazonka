@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHibernationOptions' smart constructor.
 newtype HibernationOptions = HibernationOptions'
-  { configured ::
-      Lude.Maybe Lude.Bool
+  { -- | If this parameter is set to @true@ , your instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
+    configured :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HibernationOptions' with the minimum fields required to make a request.

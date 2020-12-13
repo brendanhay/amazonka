@@ -13,8 +13,8 @@
 module Network.AWS.ElastiCache.Types.AuthenticationType
   ( AuthenticationType
       ( AuthenticationType',
-        NoPassword,
-        Password
+        Password,
+        NoPassword
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AuthenticationType = AuthenticationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern NoPassword :: AuthenticationType
-pattern NoPassword = AuthenticationType' "no-password"
-
 pattern Password :: AuthenticationType
 pattern Password = AuthenticationType' "password"
 
+pattern NoPassword :: AuthenticationType
+pattern NoPassword = AuthenticationType' "no-password"
+
 {-# COMPLETE
-  NoPassword,
   Password,
+  NoPassword,
   AuthenticationType'
   #-}

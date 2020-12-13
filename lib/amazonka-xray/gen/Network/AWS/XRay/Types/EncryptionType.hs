@@ -13,8 +13,8 @@
 module Network.AWS.XRay.Types.EncryptionType
   ( EncryptionType
       ( EncryptionType',
-        KMS,
-        None
+        None,
+        KMS
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EncryptionType = EncryptionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern KMS :: EncryptionType
-pattern KMS = EncryptionType' "KMS"
-
 pattern None :: EncryptionType
 pattern None = EncryptionType' "NONE"
 
+pattern KMS :: EncryptionType
+pattern KMS = EncryptionType' "KMS"
+
 {-# COMPLETE
-  KMS,
   None,
+  KMS,
   EncryptionType'
   #-}

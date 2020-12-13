@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.MediaLive.PurchaseOffering
     -- ** Request lenses
     poRequestId,
     poStart,
-    poName,
-    poTags,
-    poOfferingId,
     poCount,
+    poName,
+    poOfferingId,
+    poTags,
 
     -- * Destructuring the response
     PurchaseOfferingResponse (..),
@@ -46,45 +47,44 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPurchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
-  { requestId ::
-      Lude.Maybe Lude.Text,
+  { -- | Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
     start :: Lude.Maybe Lude.Text,
+    -- | Number of resources
+    count :: Lude.Natural,
+    -- | Name for the new reservation
     name :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Offering to purchase, e.g. '87654321'
     offeringId :: Lude.Text,
-    count :: Lude.Natural
+    -- | A collection of key-value pairs
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseOffering' with the minimum fields required to make a request.
 --
+-- * 'requestId' - Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
+-- * 'start' - Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
 -- * 'count' - Number of resources
 -- * 'name' - Name for the new reservation
 -- * 'offeringId' - Offering to purchase, e.g. '87654321'
--- * 'requestId' - Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
--- * 'start' - Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
 -- * 'tags' - A collection of key-value pairs
 mkPurchaseOffering ::
-  -- | 'offeringId'
-  Lude.Text ->
   -- | 'count'
   Lude.Natural ->
+  -- | 'offeringId'
+  Lude.Text ->
   PurchaseOffering
-mkPurchaseOffering pOfferingId_ pCount_ =
+mkPurchaseOffering pCount_ pOfferingId_ =
   PurchaseOffering'
     { requestId = Lude.Nothing,
       start = Lude.Nothing,
+      count = pCount_,
       name = Lude.Nothing,
-      tags = Lude.Nothing,
       offeringId = pOfferingId_,
-      count = pCount_
+      tags = Lude.Nothing
     }
 
 -- | Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
@@ -101,19 +101,19 @@ poStart :: Lens.Lens' PurchaseOffering (Lude.Maybe Lude.Text)
 poStart = Lens.lens (start :: PurchaseOffering -> Lude.Maybe Lude.Text) (\s a -> s {start = a} :: PurchaseOffering)
 {-# DEPRECATED poStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
+-- | Number of resources
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poCount :: Lens.Lens' PurchaseOffering Lude.Natural
+poCount = Lens.lens (count :: PurchaseOffering -> Lude.Natural) (\s a -> s {count = a} :: PurchaseOffering)
+{-# DEPRECATED poCount "Use generic-lens or generic-optics with 'count' instead." #-}
+
 -- | Name for the new reservation
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 poName :: Lens.Lens' PurchaseOffering (Lude.Maybe Lude.Text)
 poName = Lens.lens (name :: PurchaseOffering -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PurchaseOffering)
 {-# DEPRECATED poName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A collection of key-value pairs
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poTags :: Lens.Lens' PurchaseOffering (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-poTags = Lens.lens (tags :: PurchaseOffering -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: PurchaseOffering)
-{-# DEPRECATED poTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Offering to purchase, e.g. '87654321'
 --
@@ -122,12 +122,12 @@ poOfferingId :: Lens.Lens' PurchaseOffering Lude.Text
 poOfferingId = Lens.lens (offeringId :: PurchaseOffering -> Lude.Text) (\s a -> s {offeringId = a} :: PurchaseOffering)
 {-# DEPRECATED poOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
--- | Number of resources
+-- | A collection of key-value pairs
 --
--- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poCount :: Lens.Lens' PurchaseOffering Lude.Natural
-poCount = Lens.lens (count :: PurchaseOffering -> Lude.Natural) (\s a -> s {count = a} :: PurchaseOffering)
-{-# DEPRECATED poCount "Use generic-lens or generic-optics with 'count' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poTags :: Lens.Lens' PurchaseOffering (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+poTags = Lens.lens (tags :: PurchaseOffering -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: PurchaseOffering)
+{-# DEPRECATED poTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest PurchaseOffering where
   type Rs PurchaseOffering = PurchaseOfferingResponse
@@ -154,9 +154,9 @@ instance Lude.ToJSON PurchaseOffering where
       ( Lude.catMaybes
           [ ("requestId" Lude..=) Lude.<$> requestId,
             ("start" Lude..=) Lude.<$> start,
+            Lude.Just ("count" Lude..= count),
             ("name" Lude..=) Lude.<$> name,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("count" Lude..= count)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -172,22 +172,16 @@ instance Lude.ToQuery PurchaseOffering where
 --
 -- /See:/ 'mkPurchaseOfferingResponse' smart constructor.
 data PurchaseOfferingResponse = PurchaseOfferingResponse'
-  { reservation ::
-      Lude.Maybe Reservation,
+  { reservation :: Lude.Maybe Reservation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurchaseOfferingResponse' with the minimum fields required to make a request.
 --
--- * 'reservation' - Undocumented field.
+-- * 'reservation' -
 -- * 'responseStatus' - The response status code.
 mkPurchaseOfferingResponse ::
   -- | 'responseStatus'

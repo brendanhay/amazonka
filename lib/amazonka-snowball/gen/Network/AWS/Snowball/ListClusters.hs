@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of @ClusterListEntry@ objects to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The number of @ClusterListEntry@ objects to return.
 -- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+-- * 'maxResults' - The number of @ClusterListEntry@ objects to return.
 mkListClusters ::
   ListClusters
 mkListClusters =
@@ -134,18 +130,14 @@ instance Lude.ToQuery ListClusters where
 
 -- | /See:/ 'mkListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { clusterListEntries ::
-      Lude.Maybe [ClusterListEntry],
+  { -- | Each @ClusterListEntry@ object contains a cluster's state, a cluster's ID, and other important status information.
+    clusterListEntries :: Lude.Maybe [ClusterListEntry],
+    -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ClusterListEntry@ call, your list of returned clusters will start from this point in the array.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.

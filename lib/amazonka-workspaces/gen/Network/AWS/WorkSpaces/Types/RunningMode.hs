@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.RunningMode
   ( RunningMode
       ( RunningMode',
-        AlwaysOn,
-        AutoStop
+        AutoStop,
+        AlwaysOn
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RunningMode = RunningMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AlwaysOn :: RunningMode
-pattern AlwaysOn = RunningMode' "ALWAYS_ON"
-
 pattern AutoStop :: RunningMode
 pattern AutoStop = RunningMode' "AUTO_STOP"
 
+pattern AlwaysOn :: RunningMode
+pattern AlwaysOn = RunningMode' "ALWAYS_ON"
+
 {-# COMPLETE
-  AlwaysOn,
   AutoStop,
+  AlwaysOn,
   RunningMode'
   #-}

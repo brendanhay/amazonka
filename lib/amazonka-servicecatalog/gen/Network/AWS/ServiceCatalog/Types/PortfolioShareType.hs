@@ -13,9 +13,9 @@
 module Network.AWS.ServiceCatalog.Types.PortfolioShareType
   ( PortfolioShareType
       ( PortfolioShareType',
-        AWSOrganizations,
+        Imported,
         AWSServicecatalog,
-        Imported
+        AWSOrganizations
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype PortfolioShareType = PortfolioShareType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSOrganizations :: PortfolioShareType
-pattern AWSOrganizations = PortfolioShareType' "AWS_ORGANIZATIONS"
+pattern Imported :: PortfolioShareType
+pattern Imported = PortfolioShareType' "IMPORTED"
 
 pattern AWSServicecatalog :: PortfolioShareType
 pattern AWSServicecatalog = PortfolioShareType' "AWS_SERVICECATALOG"
 
-pattern Imported :: PortfolioShareType
-pattern Imported = PortfolioShareType' "IMPORTED"
+pattern AWSOrganizations :: PortfolioShareType
+pattern AWSOrganizations = PortfolioShareType' "AWS_ORGANIZATIONS"
 
 {-# COMPLETE
-  AWSOrganizations,
-  AWSServicecatalog,
   Imported,
+  AWSServicecatalog,
+  AWSOrganizations,
   PortfolioShareType'
   #-}

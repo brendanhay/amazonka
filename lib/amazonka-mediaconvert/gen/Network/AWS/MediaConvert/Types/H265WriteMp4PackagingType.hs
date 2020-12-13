@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType
   ( H265WriteMp4PackagingType
       ( H265WriteMp4PackagingType',
-        HEV1,
-        HVC1
+        HVC1,
+        HEV1
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H265WriteMp4PackagingType = H265WriteMp4PackagingType' Lude.Text
       Lude.ToHeader
     )
 
-pattern HEV1 :: H265WriteMp4PackagingType
-pattern HEV1 = H265WriteMp4PackagingType' "HEV1"
-
 pattern HVC1 :: H265WriteMp4PackagingType
 pattern HVC1 = H265WriteMp4PackagingType' "HVC1"
 
+pattern HEV1 :: H265WriteMp4PackagingType
+pattern HEV1 = H265WriteMp4PackagingType' "HEV1"
+
 {-# COMPLETE
-  HEV1,
   HVC1,
+  HEV1,
   H265WriteMp4PackagingType'
   #-}

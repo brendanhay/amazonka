@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListThingRegistrationTasks' smart constructor.
 data ListThingRegistrationTasks = ListThingRegistrationTasks'
-  { status ::
-      Lude.Maybe TaskStatus,
+  { -- | The status of the bulk thing provisioning task.
+    status :: Lude.Maybe TaskStatus,
+    -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingRegistrationTasks' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'status' - The status of the bulk thing provisioning task.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+-- * 'maxResults' - The maximum number of results to return at one time.
 mkListThingRegistrationTasks ::
   ListThingRegistrationTasks
 mkListThingRegistrationTasks =
@@ -133,28 +130,21 @@ instance Lude.ToQuery ListThingRegistrationTasks where
 
 -- | /See:/ 'mkListThingRegistrationTasksResponse' smart constructor.
 data ListThingRegistrationTasksResponse = ListThingRegistrationTasksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    taskIds ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to get the next set of results, or __null__ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of bulk thing provisioning task IDs.
+    taskIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingRegistrationTasksResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
--- * 'responseStatus' - The response status code.
 -- * 'taskIds' - A list of bulk thing provisioning task IDs.
+-- * 'responseStatus' - The response status code.
 mkListThingRegistrationTasksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

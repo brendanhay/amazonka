@@ -37,32 +37,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceTableFeatureDetails' smart constructor.
 data SourceTableFeatureDetails = SourceTableFeatureDetails'
-  { streamDescription ::
-      Lude.Maybe StreamSpecification,
-    globalSecondaryIndexes ::
-      Lude.Maybe [GlobalSecondaryIndexInfo],
-    localSecondaryIndexes ::
-      Lude.Maybe [LocalSecondaryIndexInfo],
-    sSEDescription ::
-      Lude.Maybe SSEDescription,
-    timeToLiveDescription ::
-      Lude.Maybe TimeToLiveDescription
+  { -- | Stream settings on the table when the backup was created.
+    streamDescription :: Lude.Maybe StreamSpecification,
+    -- | Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.
+    globalSecondaryIndexes :: Lude.Maybe [GlobalSecondaryIndexInfo],
+    -- | Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.
+    localSecondaryIndexes :: Lude.Maybe [LocalSecondaryIndexInfo],
+    -- | The description of the server-side encryption status on the table when the backup was created.
+    sSEDescription :: Lude.Maybe SSEDescription,
+    -- | Time to Live settings on the table when the backup was created.
+    timeToLiveDescription :: Lude.Maybe TimeToLiveDescription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceTableFeatureDetails' with the minimum fields required to make a request.
 --
+-- * 'streamDescription' - Stream settings on the table when the backup was created.
 -- * 'globalSecondaryIndexes' - Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.
 -- * 'localSecondaryIndexes' - Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.
 -- * 'sSEDescription' - The description of the server-side encryption status on the table when the backup was created.
--- * 'streamDescription' - Stream settings on the table when the backup was created.
 -- * 'timeToLiveDescription' - Time to Live settings on the table when the backup was created.
 mkSourceTableFeatureDetails ::
   SourceTableFeatureDetails

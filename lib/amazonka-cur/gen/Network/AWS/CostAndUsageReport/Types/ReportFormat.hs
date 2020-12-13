@@ -13,8 +13,8 @@
 module Network.AWS.CostAndUsageReport.Types.ReportFormat
   ( ReportFormat
       ( ReportFormat',
-        Parquet,
-        TextORcsv
+        TextORcsv,
+        Parquet
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ReportFormat = ReportFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern Parquet :: ReportFormat
-pattern Parquet = ReportFormat' "Parquet"
-
 pattern TextORcsv :: ReportFormat
 pattern TextORcsv = ReportFormat' "textORcsv"
 
+pattern Parquet :: ReportFormat
+pattern Parquet = ReportFormat' "Parquet"
+
 {-# COMPLETE
-  Parquet,
   TextORcsv,
+  Parquet,
   ReportFormat'
   #-}

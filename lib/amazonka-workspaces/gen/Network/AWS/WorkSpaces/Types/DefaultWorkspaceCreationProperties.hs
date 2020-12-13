@@ -33,36 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDefaultWorkspaceCreationProperties' smart constructor.
 data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
-  { customSecurityGroupId ::
-      Lude.Maybe Lude.Text,
-    userEnabledAsLocalAdministrator ::
-      Lude.Maybe Lude.Bool,
-    enableWorkDocs ::
-      Lude.Maybe Lude.Bool,
-    enableMaintenanceMode ::
-      Lude.Maybe Lude.Bool,
-    enableInternetAccess ::
-      Lude.Maybe Lude.Bool,
-    defaultOu ::
-      Lude.Maybe Lude.Text
+  { -- | The identifier of the default security group to apply to WorkSpaces when they are created. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html Security Groups for Your WorkSpaces> .
+    customSecurityGroupId :: Lude.Maybe Lude.Text,
+    -- | Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+    userEnabledAsLocalAdministrator :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the directory is enabled for Amazon WorkDocs.
+    enableWorkDocs :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance> .
+    enableMaintenanceMode :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default. If enabled, the Elastic public IP address allows outbound internet access from your WorkSpaces when you’re using an internet gateway in the Amazon VPC in which your WorkSpaces are located. If you're using a Network Address Translation (NAT) gateway for outbound internet access from your VPC, or if your WorkSpaces are in public subnets and you manually assign them Elastic IP addresses, you should disable this setting. This setting applies to new WorkSpaces that you launch or to existing WorkSpaces that you rebuild. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces> .
+    enableInternetAccess :: Lude.Maybe Lude.Bool,
+    -- | The organizational unit (OU) in the directory for the WorkSpace machine accounts.
+    defaultOu :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultWorkspaceCreationProperties' with the minimum fields required to make a request.
 --
 -- * 'customSecurityGroupId' - The identifier of the default security group to apply to WorkSpaces when they are created. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-security-groups.html Security Groups for Your WorkSpaces> .
--- * 'defaultOu' - The organizational unit (OU) in the directory for the WorkSpace machine accounts.
--- * 'enableInternetAccess' - Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default. If enabled, the Elastic public IP address allows outbound internet access from your WorkSpaces when you’re using an internet gateway in the Amazon VPC in which your WorkSpaces are located. If you're using a Network Address Translation (NAT) gateway for outbound internet access from your VPC, or if your WorkSpaces are in public subnets and you manually assign them Elastic IP addresses, you should disable this setting. This setting applies to new WorkSpaces that you launch or to existing WorkSpaces that you rebuild. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces> .
--- * 'enableMaintenanceMode' - Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance> .
--- * 'enableWorkDocs' - Specifies whether the directory is enabled for Amazon WorkDocs.
 -- * 'userEnabledAsLocalAdministrator' - Specifies whether WorkSpace users are local administrators on their WorkSpaces.
+-- * 'enableWorkDocs' - Specifies whether the directory is enabled for Amazon WorkDocs.
+-- * 'enableMaintenanceMode' - Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance> .
+-- * 'enableInternetAccess' - Specifies whether to automatically assign an Elastic public IP address to WorkSpaces in this directory by default. If enabled, the Elastic public IP address allows outbound internet access from your WorkSpaces when you’re using an internet gateway in the Amazon VPC in which your WorkSpaces are located. If you're using a Network Address Translation (NAT) gateway for outbound internet access from your VPC, or if your WorkSpaces are in public subnets and you manually assign them Elastic IP addresses, you should disable this setting. This setting applies to new WorkSpaces that you launch or to existing WorkSpaces that you rebuild. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html Configure a VPC for Amazon WorkSpaces> .
+-- * 'defaultOu' - The organizational unit (OU) in the directory for the WorkSpace machine accounts.
 mkDefaultWorkspaceCreationProperties ::
   DefaultWorkspaceCreationProperties
 mkDefaultWorkspaceCreationProperties =

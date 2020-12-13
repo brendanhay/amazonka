@@ -32,25 +32,18 @@ import Network.AWS.RDS.Types.DBClusterSnapshotAttribute
 --
 -- /See:/ 'mkDBClusterSnapshotAttributesResult' smart constructor.
 data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
-  { dbClusterSnapshotIdentifier ::
-      Lude.Maybe Lude.Text,
-    dbClusterSnapshotAttributes ::
-      Lude.Maybe
-        [DBClusterSnapshotAttribute]
+  { -- | The identifier of the manual DB cluster snapshot that the attributes apply to.
+    dbClusterSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | The list of attributes and values for the manual DB cluster snapshot.
+    dbClusterSnapshotAttributes :: Lude.Maybe [DBClusterSnapshotAttribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterSnapshotAttributesResult' with the minimum fields required to make a request.
 --
--- * 'dbClusterSnapshotAttributes' - The list of attributes and values for the manual DB cluster snapshot.
 -- * 'dbClusterSnapshotIdentifier' - The identifier of the manual DB cluster snapshot that the attributes apply to.
+-- * 'dbClusterSnapshotAttributes' - The list of attributes and values for the manual DB cluster snapshot.
 mkDBClusterSnapshotAttributesResult ::
   DBClusterSnapshotAttributesResult
 mkDBClusterSnapshotAttributesResult =

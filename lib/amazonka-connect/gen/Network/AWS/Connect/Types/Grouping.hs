@@ -13,8 +13,8 @@
 module Network.AWS.Connect.Types.Grouping
   ( Grouping
       ( Grouping',
-        Channel,
-        Queue
+        Queue,
+        Channel
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Grouping = Grouping' Lude.Text
       Lude.ToHeader
     )
 
-pattern Channel :: Grouping
-pattern Channel = Grouping' "CHANNEL"
-
 pattern Queue :: Grouping
 pattern Queue = Grouping' "QUEUE"
 
+pattern Channel :: Grouping
+pattern Channel = Grouping' "CHANNEL"
+
 {-# COMPLETE
-  Channel,
   Queue,
+  Channel,
   Grouping'
   #-}

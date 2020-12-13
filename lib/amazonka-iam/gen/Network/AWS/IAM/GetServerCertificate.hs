@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.IAM.GetServerCertificate
     mkGetServerCertificateResponse,
 
     -- ** Response lenses
-    gscrsResponseStatus,
     gscrsServerCertificate,
+    gscrsResponseStatus,
   )
 where
 
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetServerCertificate' smart constructor.
 newtype GetServerCertificate = GetServerCertificate'
-  { serverCertificateName ::
-      Lude.Text
+  { -- | The name of the server certificate you want to retrieve information about.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    serverCertificateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServerCertificate' with the minimum fields required to make a request.
@@ -85,8 +82,8 @@ instance Lude.AWSRequest GetServerCertificate where
       "GetServerCertificateResult"
       ( \s h x ->
           GetServerCertificateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "ServerCertificate")
+            Lude.<$> (x Lude..@ "ServerCertificate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetServerCertificate where
@@ -107,42 +104,30 @@ instance Lude.ToQuery GetServerCertificate where
 --
 -- /See:/ 'mkGetServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'
-  { responseStatus ::
-      Lude.Int,
-    serverCertificate ::
-      ServerCertificate
+  { -- | A structure containing details about the server certificate.
+    serverCertificate :: ServerCertificate,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServerCertificateResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'serverCertificate' - A structure containing details about the server certificate.
+-- * 'responseStatus' - The response status code.
 mkGetServerCertificateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'serverCertificate'
   ServerCertificate ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetServerCertificateResponse
-mkGetServerCertificateResponse pResponseStatus_ pServerCertificate_ =
+mkGetServerCertificateResponse pServerCertificate_ pResponseStatus_ =
   GetServerCertificateResponse'
-    { responseStatus = pResponseStatus_,
-      serverCertificate = pServerCertificate_
+    { serverCertificate =
+        pServerCertificate_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscrsResponseStatus :: Lens.Lens' GetServerCertificateResponse Lude.Int
-gscrsResponseStatus = Lens.lens (responseStatus :: GetServerCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServerCertificateResponse)
-{-# DEPRECATED gscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the server certificate.
 --
@@ -150,3 +135,10 @@ gscrsResponseStatus = Lens.lens (responseStatus :: GetServerCertificateResponse 
 gscrsServerCertificate :: Lens.Lens' GetServerCertificateResponse ServerCertificate
 gscrsServerCertificate = Lens.lens (serverCertificate :: GetServerCertificateResponse -> ServerCertificate) (\s a -> s {serverCertificate = a} :: GetServerCertificateResponse)
 {-# DEPRECATED gscrsServerCertificate "Use generic-lens or generic-optics with 'serverCertificate' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gscrsResponseStatus :: Lens.Lens' GetServerCertificateResponse Lude.Int
+gscrsResponseStatus = Lens.lens (responseStatus :: GetServerCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServerCertificateResponse)
+{-# DEPRECATED gscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

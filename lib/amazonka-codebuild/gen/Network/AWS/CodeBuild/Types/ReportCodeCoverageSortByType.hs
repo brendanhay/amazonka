@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.ReportCodeCoverageSortByType
   ( ReportCodeCoverageSortByType
       ( ReportCodeCoverageSortByType',
-        RCCSBTFilePath,
-        RCCSBTLineCoveragePercentage
+        RCCSBTLineCoveragePercentage,
+        RCCSBTFilePath
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReportCodeCoverageSortByType = ReportCodeCoverageSortByType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RCCSBTFilePath :: ReportCodeCoverageSortByType
-pattern RCCSBTFilePath = ReportCodeCoverageSortByType' "FILE_PATH"
-
 pattern RCCSBTLineCoveragePercentage :: ReportCodeCoverageSortByType
 pattern RCCSBTLineCoveragePercentage = ReportCodeCoverageSortByType' "LINE_COVERAGE_PERCENTAGE"
 
+pattern RCCSBTFilePath :: ReportCodeCoverageSortByType
+pattern RCCSBTFilePath = ReportCodeCoverageSortByType' "FILE_PATH"
+
 {-# COMPLETE
-  RCCSBTFilePath,
   RCCSBTLineCoveragePercentage,
+  RCCSBTFilePath,
   ReportCodeCoverageSortByType'
   #-}

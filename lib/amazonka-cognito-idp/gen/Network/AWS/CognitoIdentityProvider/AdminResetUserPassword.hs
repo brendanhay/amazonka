@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,10 +46,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminResetUserPassword' smart constructor.
 data AdminResetUserPassword = AdminResetUserPassword'
-  { clientMetadata ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminResetUserPassword API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminResetUserPassword request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The user pool ID for the user pool where you want to reset the user's password.
     userPoolId :: Lude.Text,
+    -- | The user name of the user whose password you wish to reset.
     username :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -142,16 +147,10 @@ instance Lude.ToQuery AdminResetUserPassword where
 --
 -- /See:/ 'mkAdminResetUserPasswordResponse' smart constructor.
 newtype AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminResetUserPasswordResponse' with the minimum fields required to make a request.

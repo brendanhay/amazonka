@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlatformProgrammingLanguage' smart constructor.
 data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the programming language.
+    name :: Lude.Maybe Lude.Text,
+    -- | The version of the programming language.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformProgrammingLanguage' with the minimum fields required to make a request.

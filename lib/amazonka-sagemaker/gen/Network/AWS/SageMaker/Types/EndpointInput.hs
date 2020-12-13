@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.EndpointInput
     mkEndpointInput,
 
     -- * Lenses
+    eiEndpointName,
     eiS3DataDistributionType,
     eiS3InputMode,
-    eiEndpointName,
     eiLocalPath,
   )
 where
@@ -33,27 +33,24 @@ import Network.AWS.SageMaker.Types.ProcessingS3InputMode
 --
 -- /See:/ 'mkEndpointInput' smart constructor.
 data EndpointInput = EndpointInput'
-  { s3DataDistributionType ::
-      Lude.Maybe ProcessingS3DataDistributionType,
-    s3InputMode :: Lude.Maybe ProcessingS3InputMode,
+  { -- | An endpoint in customer's account which has enabled @DataCaptureConfig@ enabled.
     endpointName :: Lude.Text,
+    -- | Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to @FullyReplicated@
+    s3DataDistributionType :: Lude.Maybe ProcessingS3DataDistributionType,
+    -- | Whether the @Pipe@ or @File@ is used as the input mode for transfering data for the monitoring job. @Pipe@ mode is recommended for large datasets. @File@ mode is useful for small files that fit in memory. Defaults to @File@ .
+    s3InputMode :: Lude.Maybe ProcessingS3InputMode,
+    -- | Path to the filesystem where the endpoint data is available to the container.
     localPath :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointInput' with the minimum fields required to make a request.
 --
 -- * 'endpointName' - An endpoint in customer's account which has enabled @DataCaptureConfig@ enabled.
--- * 'localPath' - Path to the filesystem where the endpoint data is available to the container.
 -- * 's3DataDistributionType' - Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to @FullyReplicated@
 -- * 's3InputMode' - Whether the @Pipe@ or @File@ is used as the input mode for transfering data for the monitoring job. @Pipe@ mode is recommended for large datasets. @File@ mode is useful for small files that fit in memory. Defaults to @File@ .
+-- * 'localPath' - Path to the filesystem where the endpoint data is available to the container.
 mkEndpointInput ::
   -- | 'endpointName'
   Lude.Text ->
@@ -62,11 +59,18 @@ mkEndpointInput ::
   EndpointInput
 mkEndpointInput pEndpointName_ pLocalPath_ =
   EndpointInput'
-    { s3DataDistributionType = Lude.Nothing,
+    { endpointName = pEndpointName_,
+      s3DataDistributionType = Lude.Nothing,
       s3InputMode = Lude.Nothing,
-      endpointName = pEndpointName_,
       localPath = pLocalPath_
     }
+
+-- | An endpoint in customer's account which has enabled @DataCaptureConfig@ enabled.
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiEndpointName :: Lens.Lens' EndpointInput Lude.Text
+eiEndpointName = Lens.lens (endpointName :: EndpointInput -> Lude.Text) (\s a -> s {endpointName = a} :: EndpointInput)
+{-# DEPRECATED eiEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to @FullyReplicated@
 --
@@ -82,13 +86,6 @@ eiS3InputMode :: Lens.Lens' EndpointInput (Lude.Maybe ProcessingS3InputMode)
 eiS3InputMode = Lens.lens (s3InputMode :: EndpointInput -> Lude.Maybe ProcessingS3InputMode) (\s a -> s {s3InputMode = a} :: EndpointInput)
 {-# DEPRECATED eiS3InputMode "Use generic-lens or generic-optics with 's3InputMode' instead." #-}
 
--- | An endpoint in customer's account which has enabled @DataCaptureConfig@ enabled.
---
--- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiEndpointName :: Lens.Lens' EndpointInput Lude.Text
-eiEndpointName = Lens.lens (endpointName :: EndpointInput -> Lude.Text) (\s a -> s {endpointName = a} :: EndpointInput)
-{-# DEPRECATED eiEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
-
 -- | Path to the filesystem where the endpoint data is available to the container.
 --
 -- /Note:/ Consider using 'localPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -102,9 +99,9 @@ instance Lude.FromJSON EndpointInput where
       "EndpointInput"
       ( \x ->
           EndpointInput'
-            Lude.<$> (x Lude..:? "S3DataDistributionType")
+            Lude.<$> (x Lude..: "EndpointName")
+            Lude.<*> (x Lude..:? "S3DataDistributionType")
             Lude.<*> (x Lude..:? "S3InputMode")
-            Lude.<*> (x Lude..: "EndpointName")
             Lude.<*> (x Lude..: "LocalPath")
       )
 
@@ -112,10 +109,9 @@ instance Lude.ToJSON EndpointInput where
   toJSON EndpointInput' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("S3DataDistributionType" Lude..=)
-              Lude.<$> s3DataDistributionType,
+          [ Lude.Just ("EndpointName" Lude..= endpointName),
+            ("S3DataDistributionType" Lude..=) Lude.<$> s3DataDistributionType,
             ("S3InputMode" Lude..=) Lude.<$> s3InputMode,
-            Lude.Just ("EndpointName" Lude..= endpointName),
             Lude.Just ("LocalPath" Lude..= localPath)
           ]
       )

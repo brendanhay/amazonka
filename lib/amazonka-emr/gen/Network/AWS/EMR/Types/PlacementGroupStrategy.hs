@@ -13,10 +13,10 @@
 module Network.AWS.EMR.Types.PlacementGroupStrategy
   ( PlacementGroupStrategy
       ( PlacementGroupStrategy',
-        PGSCluster,
-        PGSNone,
+        PGSSpread,
         PGSPartition,
-        PGSSpread
+        PGSCluster,
+        PGSNone
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype PlacementGroupStrategy = PlacementGroupStrategy' Lude.Text
       Lude.ToHeader
     )
 
+pattern PGSSpread :: PlacementGroupStrategy
+pattern PGSSpread = PlacementGroupStrategy' "SPREAD"
+
+pattern PGSPartition :: PlacementGroupStrategy
+pattern PGSPartition = PlacementGroupStrategy' "PARTITION"
+
 pattern PGSCluster :: PlacementGroupStrategy
 pattern PGSCluster = PlacementGroupStrategy' "CLUSTER"
 
 pattern PGSNone :: PlacementGroupStrategy
 pattern PGSNone = PlacementGroupStrategy' "NONE"
 
-pattern PGSPartition :: PlacementGroupStrategy
-pattern PGSPartition = PlacementGroupStrategy' "PARTITION"
-
-pattern PGSSpread :: PlacementGroupStrategy
-pattern PGSSpread = PlacementGroupStrategy' "SPREAD"
-
 {-# COMPLETE
+  PGSSpread,
+  PGSPartition,
   PGSCluster,
   PGSNone,
-  PGSPartition,
-  PGSSpread,
   PlacementGroupStrategy'
   #-}

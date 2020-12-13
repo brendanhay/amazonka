@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIAMInstanceProfileSpecification' smart constructor.
 data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'
-  { arn ::
-      Lude.Maybe Lude.Text,
-    name ::
-      Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the instance profile.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the instance profile.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IAMInstanceProfileSpecification' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,15 +26,15 @@ module Network.AWS.ServerlessApplicationRepository.CreateApplication
     caSemanticVersion,
     caSourceCodeURL,
     caReadmeURL,
+    caName,
+    caAuthor,
     caLabels,
     caTemplateBody,
     caTemplateURL,
     caLicenseBody,
+    caDescription,
     caSpdxLicenseId,
     caSourceCodeArchiveURL,
-    caDescription,
-    caName,
-    caAuthor,
 
     -- * Destructuring the response
     CreateApplicationResponse (..),
@@ -65,76 +66,106 @@ import Network.AWS.ServerlessApplicationRepository.Types
 
 -- | /See:/ 'mkCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { homePageURL ::
-      Lude.Maybe Lude.Text,
+  { -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
+    homePageURL :: Lude.Maybe Lude.Text,
+    -- | A local text readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    --  The file has the format file://<path>/<filename>.
+    -- Maximum size 5 MB
+    -- You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
     readmeBody :: Lude.Maybe Lude.Text,
+    -- | A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.
+    --
+    -- Maximum size 5 MB
+    -- You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
     licenseURL :: Lude.Maybe Lude.Text,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
     semanticVersion :: Lude.Maybe Lude.Text,
+    -- | A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
     sourceCodeURL :: Lude.Maybe Lude.Text,
+    -- | A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
+    -- You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
     readmeURL :: Lude.Maybe Lude.Text,
-    labels :: Lude.Maybe [Lude.Text],
-    templateBody :: Lude.Maybe Lude.Text,
-    templateURL :: Lude.Maybe Lude.Text,
-    licenseBody :: Lude.Maybe Lude.Text,
-    spdxLicenseId :: Lude.Maybe Lude.Text,
-    sourceCodeArchiveURL :: Lude.Maybe Lude.Text,
-    description :: Lude.Text,
+    -- | The name of the application that you want to publish.
+    --
+    -- Minimum length=1. Maximum length=140
+    -- Pattern: "[a-zA-Z0-9\\-]+";
     name :: Lude.Text,
-    author :: Lude.Text
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+    author :: Lude.Text,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+    labels :: Lude.Maybe [Lude.Text],
+    -- | The local raw packaged AWS SAM template file of your application.
+    --
+    --  The file has the format file://<path>/<filename>.
+    -- You can specify only one of templateBody and templateUrl; otherwise an error results.
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | A link to the S3 object containing the packaged AWS SAM template of your application.
+    --
+    -- You can specify only one of templateBody and templateUrl; otherwise an error results.
+    templateURL :: Lude.Maybe Lude.Text,
+    -- | A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
+    --
+    --  The file has the format file://<path>/<filename>.
+    -- Maximum size 5 MB
+    -- You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+    licenseBody :: Lude.Maybe Lude.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
+    description :: Lude.Text,
+    -- | A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
+    spdxLicenseId :: Lude.Maybe Lude.Text,
+    -- | A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+    --
+    -- Maximum size 50 MB
+    sourceCodeArchiveURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- * 'author' - The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
 -- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'labels' - Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
--- * 'licenseBody' - A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
---
---  The file has the format file://<path>/<filename>.
--- Maximum size 5 MB
--- You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
--- * 'licenseURL' - A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.
---
--- Maximum size 5 MB
--- You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
--- * 'name' - The name of the application that you want to publish.
---
--- Minimum length=1. Maximum length=140
--- Pattern: "[a-zA-Z0-9\\-]+";
 -- * 'readmeBody' - A local text readme file in Markdown language that contains a more detailed description of the application and how it works.
 --
 --  The file has the format file://<path>/<filename>.
 -- Maximum size 5 MB
 -- You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
+-- * 'licenseURL' - A link to the S3 object that contains the license of the app that matches the spdxLicenseID value of your application.
+--
+-- Maximum size 5 MB
+-- You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+-- * 'semanticVersion' - The semantic version of the application:
+--
+-- <https://semver.org/ https://semver.org/>
+-- * 'sourceCodeURL' - A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
 -- * 'readmeURL' - A link to the S3 object in Markdown language that contains a more detailed description of the application and how it works.
 --
 -- Maximum size 5 MB
 -- You can specify only one of readmeBody and readmeUrl; otherwise, an error results.
--- * 'semanticVersion' - The semantic version of the application:
+-- * 'name' - The name of the application that you want to publish.
 --
--- <https://semver.org/ https://semver.org/>
--- * 'sourceCodeArchiveURL' - A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+-- Minimum length=1. Maximum length=140
+-- Pattern: "[a-zA-Z0-9\\-]+";
+-- * 'author' - The name of the author publishing the app.
 --
--- Maximum size 50 MB
--- * 'sourceCodeURL' - A link to a public repository for the source code of your application, for example the URL of a specific GitHub commit.
--- * 'spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'labels' - Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 -- * 'templateBody' - The local raw packaged AWS SAM template file of your application.
 --
 --  The file has the format file://<path>/<filename>.
@@ -142,15 +173,27 @@ data CreateApplication = CreateApplication'
 -- * 'templateURL' - A link to the S3 object containing the packaged AWS SAM template of your application.
 --
 -- You can specify only one of templateBody and templateUrl; otherwise an error results.
+-- * 'licenseBody' - A local text file that contains the license of the app that matches the spdxLicenseID value of your application.
+--
+--  The file has the format file://<path>/<filename>.
+-- Maximum size 5 MB
+-- You can specify only one of licenseBody and licenseUrl; otherwise, an error results.
+-- * 'description' - The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+-- * 'spdxLicenseId' - A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
+-- * 'sourceCodeArchiveURL' - A link to the S3 object that contains the ZIP archive of the source code for this version of your application.
+--
+-- Maximum size 50 MB
 mkCreateApplication ::
-  -- | 'description'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
   -- | 'author'
   Lude.Text ->
+  -- | 'description'
+  Lude.Text ->
   CreateApplication
-mkCreateApplication pDescription_ pName_ pAuthor_ =
+mkCreateApplication pName_ pAuthor_ pDescription_ =
   CreateApplication'
     { homePageURL = Lude.Nothing,
       readmeBody = Lude.Nothing,
@@ -158,15 +201,15 @@ mkCreateApplication pDescription_ pName_ pAuthor_ =
       semanticVersion = Lude.Nothing,
       sourceCodeURL = Lude.Nothing,
       readmeURL = Lude.Nothing,
+      name = pName_,
+      author = pAuthor_,
       labels = Lude.Nothing,
       templateBody = Lude.Nothing,
       templateURL = Lude.Nothing,
       licenseBody = Lude.Nothing,
-      spdxLicenseId = Lude.Nothing,
-      sourceCodeArchiveURL = Lude.Nothing,
       description = pDescription_,
-      name = pName_,
-      author = pAuthor_
+      spdxLicenseId = Lude.Nothing,
+      sourceCodeArchiveURL = Lude.Nothing
     }
 
 -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
@@ -223,6 +266,26 @@ caReadmeURL :: Lens.Lens' CreateApplication (Lude.Maybe Lude.Text)
 caReadmeURL = Lens.lens (readmeURL :: CreateApplication -> Lude.Maybe Lude.Text) (\s a -> s {readmeURL = a} :: CreateApplication)
 {-# DEPRECATED caReadmeURL "Use generic-lens or generic-optics with 'readmeURL' instead." #-}
 
+-- | The name of the application that you want to publish.
+--
+-- Minimum length=1. Maximum length=140
+-- Pattern: "[a-zA-Z0-9\\-]+";
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caName :: Lens.Lens' CreateApplication Lude.Text
+caName = Lens.lens (name :: CreateApplication -> Lude.Text) (\s a -> s {name = a} :: CreateApplication)
+{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+--
+-- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAuthor :: Lens.Lens' CreateApplication Lude.Text
+caAuthor = Lens.lens (author :: CreateApplication -> Lude.Text) (\s a -> s {author = a} :: CreateApplication)
+{-# DEPRECATED caAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
+
 -- | Labels to improve discovery of apps in search results.
 --
 -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
@@ -263,6 +326,15 @@ caLicenseBody :: Lens.Lens' CreateApplication (Lude.Maybe Lude.Text)
 caLicenseBody = Lens.lens (licenseBody :: CreateApplication -> Lude.Maybe Lude.Text) (\s a -> s {licenseBody = a} :: CreateApplication)
 {-# DEPRECATED caLicenseBody "Use generic-lens or generic-optics with 'licenseBody' instead." #-}
 
+-- | The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateApplication Lude.Text
+caDescription = Lens.lens (description :: CreateApplication -> Lude.Text) (\s a -> s {description = a} :: CreateApplication)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 -- | A valid identifier from <https://spdx.org/licenses/ https://spdx.org/licenses/> .
 --
 -- /Note:/ Consider using 'spdxLicenseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -278,35 +350,6 @@ caSpdxLicenseId = Lens.lens (spdxLicenseId :: CreateApplication -> Lude.Maybe Lu
 caSourceCodeArchiveURL :: Lens.Lens' CreateApplication (Lude.Maybe Lude.Text)
 caSourceCodeArchiveURL = Lens.lens (sourceCodeArchiveURL :: CreateApplication -> Lude.Maybe Lude.Text) (\s a -> s {sourceCodeArchiveURL = a} :: CreateApplication)
 {-# DEPRECATED caSourceCodeArchiveURL "Use generic-lens or generic-optics with 'sourceCodeArchiveURL' instead." #-}
-
--- | The description of the application.
---
--- Minimum length=1. Maximum length=256
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDescription :: Lens.Lens' CreateApplication Lude.Text
-caDescription = Lens.lens (description :: CreateApplication -> Lude.Text) (\s a -> s {description = a} :: CreateApplication)
-{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the application that you want to publish.
---
--- Minimum length=1. Maximum length=140
--- Pattern: "[a-zA-Z0-9\\-]+";
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caName :: Lens.Lens' CreateApplication Lude.Text
-caName = Lens.lens (name :: CreateApplication -> Lude.Text) (\s a -> s {name = a} :: CreateApplication)
-{-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
---
--- /Note:/ Consider using 'author' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAuthor :: Lens.Lens' CreateApplication Lude.Text
-caAuthor = Lens.lens (author :: CreateApplication -> Lude.Text) (\s a -> s {author = a} :: CreateApplication)
-{-# DEPRECATED caAuthor "Use generic-lens or generic-optics with 'author' instead." #-}
 
 instance Lude.AWSRequest CreateApplication where
   type Rs CreateApplication = CreateApplicationResponse
@@ -350,15 +393,15 @@ instance Lude.ToJSON CreateApplication where
             ("semanticVersion" Lude..=) Lude.<$> semanticVersion,
             ("sourceCodeUrl" Lude..=) Lude.<$> sourceCodeURL,
             ("readmeUrl" Lude..=) Lude.<$> readmeURL,
+            Lude.Just ("name" Lude..= name),
+            Lude.Just ("author" Lude..= author),
             ("labels" Lude..=) Lude.<$> labels,
             ("templateBody" Lude..=) Lude.<$> templateBody,
             ("templateUrl" Lude..=) Lude.<$> templateURL,
             ("licenseBody" Lude..=) Lude.<$> licenseBody,
-            ("spdxLicenseId" Lude..=) Lude.<$> spdxLicenseId,
-            ("sourceCodeArchiveUrl" Lude..=) Lude.<$> sourceCodeArchiveURL,
             Lude.Just ("description" Lude..= description),
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("author" Lude..= author)
+            ("spdxLicenseId" Lude..=) Lude.<$> spdxLicenseId,
+            ("sourceCodeArchiveUrl" Lude..=) Lude.<$> sourceCodeArchiveURL
           ]
       )
 
@@ -370,64 +413,84 @@ instance Lude.ToQuery CreateApplication where
 
 -- | /See:/ 'mkCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The date and time this resource was created.
+    creationTime :: Lude.Maybe Lude.Text,
+    -- | A URL with more information about the application, for example the location of your GitHub repository for the application.
     homePageURL :: Lude.Maybe Lude.Text,
+    -- | A link to a license file of the app that matches the spdxLicenseID value of your application.
+    --
+    -- Maximum size 5 MB
     licenseURL :: Lude.Maybe Lude.Text,
+    -- | A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+    --
+    -- Maximum size 5 MB
     readmeURL :: Lude.Maybe Lude.Text,
+    -- | The application Amazon Resource Name (ARN).
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The name of the application.
+    --
+    -- Minimum length=1. Maximum length=140
+    -- Pattern: "[a-zA-Z0-9\\-]+";
     name :: Lude.Maybe Lude.Text,
+    -- | Version information about the application.
     version :: Lude.Maybe Version,
+    -- | The name of the author publishing the app.
+    --
+    -- Minimum length=1. Maximum length=127.
+    -- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
     author :: Lude.Maybe Lude.Text,
+    -- | Labels to improve discovery of apps in search results.
+    --
+    -- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+    -- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
     labels :: Lude.Maybe [Lude.Text],
-    verifiedAuthorURL ::
-      Lude.Maybe Lude.Text,
+    -- | The URL to the public profile of a verified author. This URL is submitted by the author.
+    verifiedAuthorURL :: Lude.Maybe Lude.Text,
+    -- | The description of the application.
+    --
+    -- Minimum length=1. Maximum length=256
     description :: Lude.Maybe Lude.Text,
+    -- | A valid identifier from https://spdx.org/licenses/.
     spdxLicenseId :: Lude.Maybe Lude.Text,
-    isVerifiedAuthor ::
-      Lude.Maybe Lude.Bool,
+    -- | Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+    isVerifiedAuthor :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The application Amazon Resource Name (ARN).
--- * 'author' - The name of the author publishing the app.
---
--- Minimum length=1. Maximum length=127.
--- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
 -- * 'creationTime' - The date and time this resource was created.
--- * 'description' - The description of the application.
---
--- Minimum length=1. Maximum length=256
 -- * 'homePageURL' - A URL with more information about the application, for example the location of your GitHub repository for the application.
--- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
--- * 'labels' - Labels to improve discovery of apps in search results.
---
--- Minimum length=1. Maximum length=127. Maximum number of labels: 10
--- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
 -- * 'licenseURL' - A link to a license file of the app that matches the spdxLicenseID value of your application.
 --
 -- Maximum size 5 MB
+-- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
+--
+-- Maximum size 5 MB
+-- * 'applicationId' - The application Amazon Resource Name (ARN).
 -- * 'name' - The name of the application.
 --
 -- Minimum length=1. Maximum length=140
 -- Pattern: "[a-zA-Z0-9\\-]+";
--- * 'readmeURL' - A link to the readme file in Markdown language that contains a more detailed description of the application and how it works.
---
--- Maximum size 5 MB
--- * 'responseStatus' - The response status code.
--- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
--- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
 -- * 'version' - Version information about the application.
+-- * 'author' - The name of the author publishing the app.
+--
+-- Minimum length=1. Maximum length=127.
+-- Pattern "^[a-z0-9](([a-z0-9]|-(?!-))*[a-z0-9])?$";
+-- * 'labels' - Labels to improve discovery of apps in search results.
+--
+-- Minimum length=1. Maximum length=127. Maximum number of labels: 10
+-- Pattern: "^[a-zA-Z0-9+\\-_:\\/@]+$";
+-- * 'verifiedAuthorURL' - The URL to the public profile of a verified author. This URL is submitted by the author.
+-- * 'description' - The description of the application.
+--
+-- Minimum length=1. Maximum length=256
+-- * 'spdxLicenseId' - A valid identifier from https://spdx.org/licenses/.
+-- * 'isVerifiedAuthor' - Whether the author of this application has been verified. This means means that AWS has made a good faith review, as a reasonable and prudent service provider, of the information provided by the requester and has confirmed that the requester's identity is as claimed.
+-- * 'responseStatus' - The response status code.
 mkCreateApplicationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

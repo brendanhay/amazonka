@@ -104,9 +104,9 @@ module Network.AWS.AppSync.Types
     -- * CognitoUserPoolConfig
     CognitoUserPoolConfig (..),
     mkCognitoUserPoolConfig,
-    cupcAppIdClientRegex,
     cupcUserPoolId,
     cupcAwsRegion,
+    cupcAppIdClientRegex,
 
     -- * DataSource
     DataSource (..),
@@ -135,14 +135,14 @@ module Network.AWS.AppSync.Types
     ddscVersioned,
     ddscUseCallerCredentials,
     ddscDeltaSyncConfig,
-    ddscTableName,
     ddscAwsRegion,
+    ddscTableName,
 
     -- * ElasticsearchDataSourceConfig
     ElasticsearchDataSourceConfig (..),
     mkElasticsearchDataSourceConfig,
-    edscEndpoint,
     edscAwsRegion,
+    edscEndpoint,
 
     -- * FunctionConfiguration
     FunctionConfiguration (..),
@@ -256,10 +256,10 @@ module Network.AWS.AppSync.Types
     -- * UserPoolConfig
     UserPoolConfig (..),
     mkUserPoolConfig,
-    upcAppIdClientRegex,
     upcUserPoolId,
-    upcAwsRegion,
     upcDefaultAction,
+    upcAwsRegion,
+    upcAppIdClientRegex,
   )
 where
 

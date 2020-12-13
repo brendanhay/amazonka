@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.UsernameAttributeType
   ( UsernameAttributeType
       ( UsernameAttributeType',
-        UATEmail,
-        UATPhoneNumber
+        UATPhoneNumber,
+        UATEmail
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype UsernameAttributeType = UsernameAttributeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern UATEmail :: UsernameAttributeType
-pattern UATEmail = UsernameAttributeType' "email"
-
 pattern UATPhoneNumber :: UsernameAttributeType
 pattern UATPhoneNumber = UsernameAttributeType' "phone_number"
 
+pattern UATEmail :: UsernameAttributeType
+pattern UATEmail = UsernameAttributeType' "email"
+
 {-# COMPLETE
-  UATEmail,
   UATPhoneNumber,
+  UATEmail,
   UsernameAttributeType'
   #-}

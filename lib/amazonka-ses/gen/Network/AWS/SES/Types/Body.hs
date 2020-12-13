@@ -30,22 +30,18 @@ import Network.AWS.SES.Types.Content
 --
 -- /See:/ 'mkBody' smart constructor.
 data Body = Body'
-  { text :: Lude.Maybe Content,
+  { -- | The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
+    text :: Lude.Maybe Content,
+    -- | The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
     html :: Lude.Maybe Content
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Body' with the minimum fields required to make a request.
 --
--- * 'html' - The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
 -- * 'text' - The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
+-- * 'html' - The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
 mkBody ::
   Body
 mkBody = Body' {text = Lude.Nothing, html = Lude.Nothing}

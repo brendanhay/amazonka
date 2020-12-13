@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +20,18 @@ module Network.AWS.Shield.ListResourcesInProtectionGroup
     mkListResourcesInProtectionGroup,
 
     -- ** Request lenses
+    lripgProtectionGroupId,
     lripgNextToken,
     lripgMaxResults,
-    lripgProtectionGroupId,
 
     -- * Destructuring the response
     ListResourcesInProtectionGroupResponse (..),
     mkListResourcesInProtectionGroupResponse,
 
     -- ** Response lenses
+    lripgrsResourceARNs,
     lripgrsNextToken,
     lripgrsResponseStatus,
-    lripgrsResourceARNs,
   )
 where
 
@@ -42,39 +43,43 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkListResourcesInProtectionGroup' smart constructor.
 data ListResourcesInProtectionGroup = ListResourcesInProtectionGroup'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    protectionGroupId ::
-      Lude.Text
+  { -- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
+    protectionGroupId :: Lude.Text,
+    -- | The next token value from a previous call to @ListResourcesInProtectionGroup@ . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of resource ARN objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
+    --
+    -- This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than @MaxResults@ , even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in @NextToken@ that you can use in your next request, to get the next batch of objects.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesInProtectionGroup' with the minimum fields required to make a request.
 --
+-- * 'protectionGroupId' - The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
+-- * 'nextToken' - The next token value from a previous call to @ListResourcesInProtectionGroup@ . Pass null if this is the first call.
 -- * 'maxResults' - The maximum number of resource ARN objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
 --
 -- This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than @MaxResults@ , even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in @NextToken@ that you can use in your next request, to get the next batch of objects.
--- * 'nextToken' - The next token value from a previous call to @ListResourcesInProtectionGroup@ . Pass null if this is the first call.
--- * 'protectionGroupId' - The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
 mkListResourcesInProtectionGroup ::
   -- | 'protectionGroupId'
   Lude.Text ->
   ListResourcesInProtectionGroup
 mkListResourcesInProtectionGroup pProtectionGroupId_ =
   ListResourcesInProtectionGroup'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      protectionGroupId = pProtectionGroupId_
+    { protectionGroupId =
+        pProtectionGroupId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
+--
+-- /Note:/ Consider using 'protectionGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lripgProtectionGroupId :: Lens.Lens' ListResourcesInProtectionGroup Lude.Text
+lripgProtectionGroupId = Lens.lens (protectionGroupId :: ListResourcesInProtectionGroup -> Lude.Text) (\s a -> s {protectionGroupId = a} :: ListResourcesInProtectionGroup)
+{-# DEPRECATED lripgProtectionGroupId "Use generic-lens or generic-optics with 'protectionGroupId' instead." #-}
 
 -- | The next token value from a previous call to @ListResourcesInProtectionGroup@ . Pass null if this is the first call.
 --
@@ -92,13 +97,6 @@ lripgMaxResults :: Lens.Lens' ListResourcesInProtectionGroup (Lude.Maybe Lude.Na
 lripgMaxResults = Lens.lens (maxResults :: ListResourcesInProtectionGroup -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResourcesInProtectionGroup)
 {-# DEPRECATED lripgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
---
--- /Note:/ Consider using 'protectionGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lripgProtectionGroupId :: Lens.Lens' ListResourcesInProtectionGroup Lude.Text
-lripgProtectionGroupId = Lens.lens (protectionGroupId :: ListResourcesInProtectionGroup -> Lude.Text) (\s a -> s {protectionGroupId = a} :: ListResourcesInProtectionGroup)
-{-# DEPRECATED lripgProtectionGroupId "Use generic-lens or generic-optics with 'protectionGroupId' instead." #-}
-
 instance Lude.AWSRequest ListResourcesInProtectionGroup where
   type
     Rs ListResourcesInProtectionGroup =
@@ -108,9 +106,9 @@ instance Lude.AWSRequest ListResourcesInProtectionGroup where
     Res.receiveJSON
       ( \s h x ->
           ListResourcesInProtectionGroupResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "ResourceArns" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "ResourceArns" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListResourcesInProtectionGroup where
@@ -130,9 +128,9 @@ instance Lude.ToJSON ListResourcesInProtectionGroup where
   toJSON ListResourcesInProtectionGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ProtectionGroupId" Lude..= protectionGroupId)
+          [ Lude.Just ("ProtectionGroupId" Lude..= protectionGroupId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -144,27 +142,20 @@ instance Lude.ToQuery ListResourcesInProtectionGroup where
 
 -- | /See:/ 'mkListResourcesInProtectionGroupResponse' smart constructor.
 data ListResourcesInProtectionGroupResponse = ListResourcesInProtectionGroupResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    resourceARNs ::
-      [Lude.Text]
+  { -- | The Amazon Resource Names (ARNs) of the resources that are included in the protection group.
+    resourceARNs :: [Lude.Text],
+    -- | If you specify a value for @MaxResults@ and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourcesInProtectionGroupResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If you specify a value for @MaxResults@ and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects.
 -- * 'resourceARNs' - The Amazon Resource Names (ARNs) of the resources that are included in the protection group.
+-- * 'nextToken' - If you specify a value for @MaxResults@ and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects.
 -- * 'responseStatus' - The response status code.
 mkListResourcesInProtectionGroupResponse ::
   -- | 'responseStatus'
@@ -172,10 +163,18 @@ mkListResourcesInProtectionGroupResponse ::
   ListResourcesInProtectionGroupResponse
 mkListResourcesInProtectionGroupResponse pResponseStatus_ =
   ListResourcesInProtectionGroupResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      resourceARNs = Lude.mempty
+    { resourceARNs =
+        Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The Amazon Resource Names (ARNs) of the resources that are included in the protection group.
+--
+-- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lripgrsResourceARNs :: Lens.Lens' ListResourcesInProtectionGroupResponse [Lude.Text]
+lripgrsResourceARNs = Lens.lens (resourceARNs :: ListResourcesInProtectionGroupResponse -> [Lude.Text]) (\s a -> s {resourceARNs = a} :: ListResourcesInProtectionGroupResponse)
+{-# DEPRECATED lripgrsResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
 
 -- | If you specify a value for @MaxResults@ and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects.
 --
@@ -190,10 +189,3 @@ lripgrsNextToken = Lens.lens (nextToken :: ListResourcesInProtectionGroupRespons
 lripgrsResponseStatus :: Lens.Lens' ListResourcesInProtectionGroupResponse Lude.Int
 lripgrsResponseStatus = Lens.lens (responseStatus :: ListResourcesInProtectionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourcesInProtectionGroupResponse)
 {-# DEPRECATED lripgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The Amazon Resource Names (ARNs) of the resources that are included in the protection group.
---
--- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lripgrsResourceARNs :: Lens.Lens' ListResourcesInProtectionGroupResponse [Lude.Text]
-lripgrsResourceARNs = Lens.lens (resourceARNs :: ListResourcesInProtectionGroupResponse -> [Lude.Text]) (\s a -> s {resourceARNs = a} :: ListResourcesInProtectionGroupResponse)
-{-# DEPRECATED lripgrsResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}

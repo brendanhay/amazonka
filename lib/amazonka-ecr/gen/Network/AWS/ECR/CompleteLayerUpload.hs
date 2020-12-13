@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.ECR.CompleteLayerUpload
 
     -- ** Request lenses
     cluRegistryId,
+    cluLayerDigests,
     cluRepositoryName,
     cluUploadId,
-    cluLayerDigests,
 
     -- * Destructuring the response
     CompleteLayerUploadResponse (..),
@@ -47,41 +48,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCompleteLayerUpload' smart constructor.
 data CompleteLayerUpload = CompleteLayerUpload'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The @sha256@ digest of the image layer.
+    layerDigests :: Lude.NonEmpty Lude.Text,
+    -- | The name of the repository to associate with the image layer.
     repositoryName :: Lude.Text,
-    uploadId :: Lude.Text,
-    layerDigests :: Lude.NonEmpty Lude.Text
+    -- | The upload ID from a previous 'InitiateLayerUpload' operation to associate with the image layer.
+    uploadId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteLayerUpload' with the minimum fields required to make a request.
 --
--- * 'layerDigests' - The @sha256@ digest of the image layer.
 -- * 'registryId' - The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
+-- * 'layerDigests' - The @sha256@ digest of the image layer.
 -- * 'repositoryName' - The name of the repository to associate with the image layer.
 -- * 'uploadId' - The upload ID from a previous 'InitiateLayerUpload' operation to associate with the image layer.
 mkCompleteLayerUpload ::
+  -- | 'layerDigests'
+  Lude.NonEmpty Lude.Text ->
   -- | 'repositoryName'
   Lude.Text ->
   -- | 'uploadId'
   Lude.Text ->
-  -- | 'layerDigests'
-  Lude.NonEmpty Lude.Text ->
   CompleteLayerUpload
-mkCompleteLayerUpload pRepositoryName_ pUploadId_ pLayerDigests_ =
+mkCompleteLayerUpload pLayerDigests_ pRepositoryName_ pUploadId_ =
   CompleteLayerUpload'
     { registryId = Lude.Nothing,
+      layerDigests = pLayerDigests_,
       repositoryName = pRepositoryName_,
-      uploadId = pUploadId_,
-      layerDigests = pLayerDigests_
+      uploadId = pUploadId_
     }
 
 -- | The AWS account ID associated with the registry to which to upload layers. If you do not specify a registry, the default registry is assumed.
@@ -90,6 +88,13 @@ mkCompleteLayerUpload pRepositoryName_ pUploadId_ pLayerDigests_ =
 cluRegistryId :: Lens.Lens' CompleteLayerUpload (Lude.Maybe Lude.Text)
 cluRegistryId = Lens.lens (registryId :: CompleteLayerUpload -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: CompleteLayerUpload)
 {-# DEPRECATED cluRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+-- | The @sha256@ digest of the image layer.
+--
+-- /Note:/ Consider using 'layerDigests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cluLayerDigests :: Lens.Lens' CompleteLayerUpload (Lude.NonEmpty Lude.Text)
+cluLayerDigests = Lens.lens (layerDigests :: CompleteLayerUpload -> Lude.NonEmpty Lude.Text) (\s a -> s {layerDigests = a} :: CompleteLayerUpload)
+{-# DEPRECATED cluLayerDigests "Use generic-lens or generic-optics with 'layerDigests' instead." #-}
 
 -- | The name of the repository to associate with the image layer.
 --
@@ -104,13 +109,6 @@ cluRepositoryName = Lens.lens (repositoryName :: CompleteLayerUpload -> Lude.Tex
 cluUploadId :: Lens.Lens' CompleteLayerUpload Lude.Text
 cluUploadId = Lens.lens (uploadId :: CompleteLayerUpload -> Lude.Text) (\s a -> s {uploadId = a} :: CompleteLayerUpload)
 {-# DEPRECATED cluUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
-
--- | The @sha256@ digest of the image layer.
---
--- /Note:/ Consider using 'layerDigests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cluLayerDigests :: Lens.Lens' CompleteLayerUpload (Lude.NonEmpty Lude.Text)
-cluLayerDigests = Lens.lens (layerDigests :: CompleteLayerUpload -> Lude.NonEmpty Lude.Text) (\s a -> s {layerDigests = a} :: CompleteLayerUpload)
-{-# DEPRECATED cluLayerDigests "Use generic-lens or generic-optics with 'layerDigests' instead." #-}
 
 instance Lude.AWSRequest CompleteLayerUpload where
   type Rs CompleteLayerUpload = CompleteLayerUploadResponse
@@ -144,9 +142,9 @@ instance Lude.ToJSON CompleteLayerUpload where
     Lude.object
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
+            Lude.Just ("layerDigests" Lude..= layerDigests),
             Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("uploadId" Lude..= uploadId),
-            Lude.Just ("layerDigests" Lude..= layerDigests)
+            Lude.Just ("uploadId" Lude..= uploadId)
           ]
       )
 
@@ -158,30 +156,27 @@ instance Lude.ToQuery CompleteLayerUpload where
 
 -- | /See:/ 'mkCompleteLayerUploadResponse' smart constructor.
 data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The @sha256@ digest of the image layer.
     layerDigest :: Lude.Maybe Lude.Text,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The upload ID associated with the layer.
     uploadId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteLayerUploadResponse' with the minimum fields required to make a request.
 --
--- * 'layerDigest' - The @sha256@ digest of the image layer.
 -- * 'registryId' - The registry ID associated with the request.
+-- * 'layerDigest' - The @sha256@ digest of the image layer.
 -- * 'repositoryName' - The repository name associated with the request.
--- * 'responseStatus' - The response status code.
 -- * 'uploadId' - The upload ID associated with the layer.
+-- * 'responseStatus' - The response status code.
 mkCompleteLayerUploadResponse ::
   -- | 'responseStatus'
   Lude.Int ->

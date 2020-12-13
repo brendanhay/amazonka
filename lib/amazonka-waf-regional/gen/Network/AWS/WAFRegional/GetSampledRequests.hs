@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.WAFRegional.GetSampledRequests
     mkGetSampledRequests,
 
     -- ** Request lenses
-    gsrWebACLId,
     gsrRuleId,
+    gsrWebACLId,
     gsrTimeWindow,
     gsrMaxItems,
 
@@ -46,24 +47,26 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetSampledRequests' smart constructor.
 data GetSampledRequests = GetSampledRequests'
-  { webACLId ::
-      Lude.Text,
+  { -- | @RuleId@ is one of three values:
+    --
+    --
+    --     * The @RuleId@ of the @Rule@ or the @RuleGroupId@ of the @RuleGroup@ for which you want @GetSampledRequests@ to return a sample of requests.
+    --
+    --
+    --     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
     ruleId :: Lude.Text,
+    -- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
+    webACLId :: Lude.Text,
+    -- | The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
     timeWindow :: TimeWindow,
+    -- | The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
     maxItems :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSampledRequests' with the minimum fields required to make a request.
 --
--- * 'maxItems' - The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
 -- * 'ruleId' - @RuleId@ is one of three values:
 --
 --
@@ -73,32 +76,26 @@ data GetSampledRequests = GetSampledRequests'
 --     * @Default_Action@ , which causes @GetSampledRequests@ to return a sample of the requests that didn't match any of the rules in the specified @WebACL@ .
 --
 --
--- * 'timeWindow' - The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 -- * 'webACLId' - The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
+-- * 'timeWindow' - The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
+-- * 'maxItems' - The number of requests that you want AWS WAF to return from among the first 5,000 requests that your AWS resource received during the time range. If your resource received fewer requests than the value of @MaxItems@ , @GetSampledRequests@ returns information about all of them.
 mkGetSampledRequests ::
-  -- | 'webACLId'
-  Lude.Text ->
   -- | 'ruleId'
+  Lude.Text ->
+  -- | 'webACLId'
   Lude.Text ->
   -- | 'timeWindow'
   TimeWindow ->
   -- | 'maxItems'
   Lude.Natural ->
   GetSampledRequests
-mkGetSampledRequests pWebACLId_ pRuleId_ pTimeWindow_ pMaxItems_ =
+mkGetSampledRequests pRuleId_ pWebACLId_ pTimeWindow_ pMaxItems_ =
   GetSampledRequests'
-    { webACLId = pWebACLId_,
-      ruleId = pRuleId_,
+    { ruleId = pRuleId_,
+      webACLId = pWebACLId_,
       timeWindow = pTimeWindow_,
       maxItems = pMaxItems_
     }
-
--- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
---
--- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrWebACLId :: Lens.Lens' GetSampledRequests Lude.Text
-gsrWebACLId = Lens.lens (webACLId :: GetSampledRequests -> Lude.Text) (\s a -> s {webACLId = a} :: GetSampledRequests)
-{-# DEPRECATED gsrWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | @RuleId@ is one of three values:
 --
@@ -114,6 +111,13 @@ gsrWebACLId = Lens.lens (webACLId :: GetSampledRequests -> Lude.Text) (\s a -> s
 gsrRuleId :: Lens.Lens' GetSampledRequests Lude.Text
 gsrRuleId = Lens.lens (ruleId :: GetSampledRequests -> Lude.Text) (\s a -> s {ruleId = a} :: GetSampledRequests)
 {-# DEPRECATED gsrRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
+
+-- | The @WebACLId@ of the @WebACL@ for which you want @GetSampledRequests@ to return a sample of requests.
+--
+-- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrWebACLId :: Lens.Lens' GetSampledRequests Lude.Text
+gsrWebACLId = Lens.lens (webACLId :: GetSampledRequests -> Lude.Text) (\s a -> s {webACLId = a} :: GetSampledRequests)
+{-# DEPRECATED gsrWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | The start date and time and the end date and time of the range for which you want @GetSampledRequests@ to return a sample of requests. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 --
@@ -157,8 +161,8 @@ instance Lude.ToJSON GetSampledRequests where
   toJSON GetSampledRequests' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("WebAclId" Lude..= webACLId),
-            Lude.Just ("RuleId" Lude..= ruleId),
+          [ Lude.Just ("RuleId" Lude..= ruleId),
+            Lude.Just ("WebAclId" Lude..= webACLId),
             Lude.Just ("TimeWindow" Lude..= timeWindow),
             Lude.Just ("MaxItems" Lude..= maxItems)
           ]
@@ -172,28 +176,24 @@ instance Lude.ToQuery GetSampledRequests where
 
 -- | /See:/ 'mkGetSampledRequestsResponse' smart constructor.
 data GetSampledRequestsResponse = GetSampledRequestsResponse'
-  { sampledRequests ::
-      Lude.Maybe [SampledHTTPRequest],
-    populationSize ::
-      Lude.Maybe Lude.Integer,
+  { -- | A complex type that contains detailed information about each of the requests in the sample.
+    sampledRequests :: Lude.Maybe [SampledHTTPRequest],
+    -- | The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
+    populationSize :: Lude.Maybe Lude.Integer,
+    -- | Usually, @TimeWindow@ is the time range that you specified in the @GetSampledRequests@ request. However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, @GetSampledRequests@ returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.
     timeWindow :: Lude.Maybe TimeWindow,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSampledRequestsResponse' with the minimum fields required to make a request.
 --
--- * 'populationSize' - The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
--- * 'responseStatus' - The response status code.
 -- * 'sampledRequests' - A complex type that contains detailed information about each of the requests in the sample.
+-- * 'populationSize' - The total number of requests from which @GetSampledRequests@ got a sample of @MaxItems@ requests. If @PopulationSize@ is less than @MaxItems@ , the sample includes every request that your AWS resource received during the specified time range.
 -- * 'timeWindow' - Usually, @TimeWindow@ is the time range that you specified in the @GetSampledRequests@ request. However, if your AWS resource received more than 5,000 requests during the time range that you specified in the request, @GetSampledRequests@ returns the time range for the first 5,000 requests. Times are in Coordinated Universal Time (UTC) format.
+-- * 'responseStatus' - The response status code.
 mkGetSampledRequestsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

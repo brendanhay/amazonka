@@ -13,8 +13,8 @@
 module Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
   ( AuthTokenUpdateStatus
       ( AuthTokenUpdateStatus',
-        Rotating,
-        Setting
+        Setting,
+        Rotating
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AuthTokenUpdateStatus = AuthTokenUpdateStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Rotating :: AuthTokenUpdateStatus
-pattern Rotating = AuthTokenUpdateStatus' "ROTATING"
-
 pattern Setting :: AuthTokenUpdateStatus
 pattern Setting = AuthTokenUpdateStatus' "SETTING"
 
+pattern Rotating :: AuthTokenUpdateStatus
+pattern Rotating = AuthTokenUpdateStatus' "ROTATING"
+
 {-# COMPLETE
-  Rotating,
   Setting,
+  Rotating,
   AuthTokenUpdateStatus'
   #-}

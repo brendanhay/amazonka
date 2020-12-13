@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes a load balancer target group.
 --
 -- /See:/ 'mkTargetGroup' smart constructor.
-newtype TargetGroup = TargetGroup' {arn :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype TargetGroup = TargetGroup'
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    arn :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetGroup' with the minimum fields required to make a request.

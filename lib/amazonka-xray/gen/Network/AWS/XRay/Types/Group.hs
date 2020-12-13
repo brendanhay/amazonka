@@ -32,25 +32,27 @@ import Network.AWS.XRay.Types.InsightsConfiguration
 --
 -- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { filterExpression :: Lude.Maybe Lude.Text,
+  { -- | The filter expression defining the parameters to include traces.
+    filterExpression :: Lude.Maybe Lude.Text,
+    -- | The structure containing configurations related to insights.
+    --
+    --
+    --     * The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+    --
+    --
+    --     * The NotifcationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
     insightsConfiguration :: Lude.Maybe InsightsConfiguration,
+    -- | The Amazon Resource Name (ARN) of the group generated based on the GroupName.
     groupARN :: Lude.Maybe Lude.Text,
+    -- | The unique case-sensitive name of the group.
     groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Group' with the minimum fields required to make a request.
 --
 -- * 'filterExpression' - The filter expression defining the parameters to include traces.
--- * 'groupARN' - The Amazon Resource Name (ARN) of the group generated based on the GroupName.
--- * 'groupName' - The unique case-sensitive name of the group.
 -- * 'insightsConfiguration' - The structure containing configurations related to insights.
 --
 --
@@ -58,6 +60,10 @@ data Group = Group'
 --
 --
 --     * The NotifcationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
+--
+--
+-- * 'groupARN' - The Amazon Resource Name (ARN) of the group generated based on the GroupName.
+-- * 'groupName' - The unique case-sensitive name of the group.
 mkGroup ::
   Group
 mkGroup =

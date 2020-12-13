@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.ImportRestAPI
     mkImportRestAPI,
 
     -- ** Request lenses
+    iraBody,
     iraFailOnWarnings,
     iraParameters,
-    iraBody,
 
     -- * Destructuring the response
     RestAPI (..),
@@ -54,10 +55,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkImportRestAPI' smart constructor.
 data ImportRestAPI = ImportRestAPI'
-  { failOnWarnings ::
-      Lude.Maybe Lude.Bool,
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    body :: Lude.ByteString
+  { -- | [Required] The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
+    body :: Lude.ByteString,
+    -- | A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
+    failOnWarnings :: Lude.Maybe Lude.Bool,
+    -- | A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.
+    --
+    -- To exclude 'DocumentationParts' from the import, set @parameters@ as @ignore=documentation@ .
+    -- To configure the endpoint type, set @parameters@ as @endpointConfigurationTypes=EDGE@ , @endpointConfigurationTypes=REGIONAL@ , or @endpointConfigurationTypes=PRIVATE@ . The default endpoint type is @EDGE@ .
+    -- To handle imported @basepath@ , set @parameters@ as @basepath=ignore@ , @basepath=prepend@ or @basepath=split@ .
+    -- For example, the AWS CLI command to exclude documentation from the imported API is:
+    -- @@aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'@ @ The AWS CLI command to set the regional endpoint on the imported API is:
+    -- @@aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'@ @
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -80,10 +90,17 @@ mkImportRestAPI ::
   ImportRestAPI
 mkImportRestAPI pBody_ =
   ImportRestAPI'
-    { failOnWarnings = Lude.Nothing,
-      parameters = Lude.Nothing,
-      body = pBody_
+    { body = pBody_,
+      failOnWarnings = Lude.Nothing,
+      parameters = Lude.Nothing
     }
+
+-- | [Required] The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iraBody :: Lens.Lens' ImportRestAPI Lude.ByteString
+iraBody = Lens.lens (body :: ImportRestAPI -> Lude.ByteString) (\s a -> s {body = a} :: ImportRestAPI)
+{-# DEPRECATED iraBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | A query parameter to indicate whether to rollback the API creation (@true@ ) or not (@false@ ) when a warning is encountered. The default value is @false@ .
 --
@@ -105,13 +122,6 @@ iraFailOnWarnings = Lens.lens (failOnWarnings :: ImportRestAPI -> Lude.Maybe Lud
 iraParameters :: Lens.Lens' ImportRestAPI (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 iraParameters = Lens.lens (parameters :: ImportRestAPI -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: ImportRestAPI)
 {-# DEPRECATED iraParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | [Required] The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iraBody :: Lens.Lens' ImportRestAPI Lude.ByteString
-iraBody = Lens.lens (body :: ImportRestAPI -> Lude.ByteString) (\s a -> s {body = a} :: ImportRestAPI)
-{-# DEPRECATED iraBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 instance Lude.AWSRequest ImportRestAPI where
   type Rs ImportRestAPI = RestAPI

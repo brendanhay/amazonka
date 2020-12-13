@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DeviceFarm.ListSuites
     mkListSuites,
 
     -- ** Request lenses
-    lssNextToken,
-    lssArn,
+    lArn,
+    lNextToken,
 
     -- * Destructuring the response
     ListSuitesResponse (..),
@@ -46,16 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListSuites' smart constructor.
 data ListSuites = ListSuites'
-  { nextToken :: Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+  { -- | The job's Amazon Resource Name (ARN).
+    arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSuites' with the minimum fields required to make a request.
@@ -67,21 +64,21 @@ mkListSuites ::
   Lude.Text ->
   ListSuites
 mkListSuites pArn_ =
-  ListSuites' {nextToken = Lude.Nothing, arn = pArn_}
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssNextToken :: Lens.Lens' ListSuites (Lude.Maybe Lude.Text)
-lssNextToken = Lens.lens (nextToken :: ListSuites -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSuites)
-{-# DEPRECATED lssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListSuites' {arn = pArn_, nextToken = Lude.Nothing}
 
 -- | The job's Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssArn :: Lens.Lens' ListSuites Lude.Text
-lssArn = Lens.lens (arn :: ListSuites -> Lude.Text) (\s a -> s {arn = a} :: ListSuites)
-{-# DEPRECATED lssArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+lArn :: Lens.Lens' ListSuites Lude.Text
+lArn = Lens.lens (arn :: ListSuites -> Lude.Text) (\s a -> s {arn = a} :: ListSuites)
+{-# DEPRECATED lArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListSuites (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListSuites -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSuites)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListSuites where
   page rq rs
@@ -90,7 +87,7 @@ instance Page.AWSPager ListSuites where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lssNextToken Lens..~ rs Lens.^. lsrsNextToken
+          Lude.& lNextToken Lens..~ rs Lens.^. lsrsNextToken
 
 instance Lude.AWSRequest ListSuites where
   type Rs ListSuites = ListSuitesResponse
@@ -119,8 +116,8 @@ instance Lude.ToJSON ListSuites where
   toJSON ListSuites' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -134,25 +131,21 @@ instance Lude.ToQuery ListSuites where
 --
 -- /See:/ 'mkListSuitesResponse' smart constructor.
 data ListSuitesResponse = ListSuitesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the suites.
     suites :: Lude.Maybe [Suite],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSuitesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
 -- * 'suites' - Information about the suites.
+-- * 'responseStatus' - The response status code.
 mkListSuitesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

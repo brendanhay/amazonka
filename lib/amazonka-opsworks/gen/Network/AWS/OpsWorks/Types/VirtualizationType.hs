@@ -13,8 +13,8 @@
 module Network.AWS.OpsWorks.Types.VirtualizationType
   ( VirtualizationType
       ( VirtualizationType',
-        HVM,
-        Paravirtual
+        Paravirtual,
+        HVM
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype VirtualizationType = VirtualizationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern HVM :: VirtualizationType
-pattern HVM = VirtualizationType' "hvm"
-
 pattern Paravirtual :: VirtualizationType
 pattern Paravirtual = VirtualizationType' "paravirtual"
 
+pattern HVM :: VirtualizationType
+pattern HVM = VirtualizationType' "hvm"
+
 {-# COMPLETE
-  HVM,
   Paravirtual,
+  HVM,
   VirtualizationType'
   #-}

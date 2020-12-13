@@ -30,25 +30,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationResourceDetailedStatusFilters' smart constructor.
 data OrganizationResourceDetailedStatusFilters = OrganizationResourceDetailedStatusFilters'
-  { status ::
-      Lude.Maybe
-        OrganizationResourceDetailedStatus,
-    accountId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Indicates deployment status for conformance pack in a member account. When master account calls @PutOrganizationConformancePack@ action for the first time, conformance pack status is created in the member account. When master account calls @PutOrganizationConformancePack@ action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes @OrganizationConformancePack@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
+    --
+    -- AWS Config sets the state of the conformance pack to:
+    --
+    --     * @CREATE_SUCCESSFUL@ when conformance pack has been created in the member account.
+    --
+    --
+    --     * @CREATE_IN_PROGRESS@ when conformance pack is being created in the member account.
+    --
+    --
+    --     * @CREATE_FAILED@ when conformance pack creation has failed in the member account.
+    --
+    --
+    --     * @DELETE_FAILED@ when conformance pack deletion has failed in the member account.
+    --
+    --
+    --     * @DELETE_IN_PROGRESS@ when conformance pack is being deleted in the member account.
+    --
+    --
+    --     * @DELETE_SUCCESSFUL@ when conformance pack has been deleted in the member account.
+    --
+    --
+    --     * @UPDATE_SUCCESSFUL@ when conformance pack has been updated in the member account.
+    --
+    --
+    --     * @UPDATE_IN_PROGRESS@ when conformance pack is being updated in the member account.
+    --
+    --
+    --     * @UPDATE_FAILED@ when conformance pack deletion has failed in the member account.
+    status :: Lude.Maybe OrganizationResourceDetailedStatus,
+    -- | The 12-digit account ID of the member account within an organization.
+    accountId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationResourceDetailedStatusFilters' with the minimum fields required to make a request.
 --
--- * 'accountId' - The 12-digit account ID of the member account within an organization.
 -- * 'status' - Indicates deployment status for conformance pack in a member account. When master account calls @PutOrganizationConformancePack@ action for the first time, conformance pack status is created in the member account. When master account calls @PutOrganizationConformancePack@ action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes @OrganizationConformancePack@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
 --
 -- AWS Config sets the state of the conformance pack to:
@@ -78,6 +97,9 @@ data OrganizationResourceDetailedStatusFilters = OrganizationResourceDetailedSta
 --
 --
 --     * @UPDATE_FAILED@ when conformance pack deletion has failed in the member account.
+--
+--
+-- * 'accountId' - The 12-digit account ID of the member account within an organization.
 mkOrganizationResourceDetailedStatusFilters ::
   OrganizationResourceDetailedStatusFilters
 mkOrganizationResourceDetailedStatusFilters =

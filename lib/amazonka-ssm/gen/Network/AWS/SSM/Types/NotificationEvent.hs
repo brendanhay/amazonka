@@ -14,11 +14,11 @@ module Network.AWS.SSM.Types.NotificationEvent
   ( NotificationEvent
       ( NotificationEvent',
         NEAll,
-        NECancelled,
-        NEFailed,
         NEInProgress,
         NESuccess,
-        NETimedOut
+        NETimedOut,
+        NECancelled,
+        NEFailed
       ),
   )
 where
@@ -52,12 +52,6 @@ newtype NotificationEvent = NotificationEvent' Lude.Text
 pattern NEAll :: NotificationEvent
 pattern NEAll = NotificationEvent' "All"
 
-pattern NECancelled :: NotificationEvent
-pattern NECancelled = NotificationEvent' "Cancelled"
-
-pattern NEFailed :: NotificationEvent
-pattern NEFailed = NotificationEvent' "Failed"
-
 pattern NEInProgress :: NotificationEvent
 pattern NEInProgress = NotificationEvent' "InProgress"
 
@@ -67,12 +61,18 @@ pattern NESuccess = NotificationEvent' "Success"
 pattern NETimedOut :: NotificationEvent
 pattern NETimedOut = NotificationEvent' "TimedOut"
 
+pattern NECancelled :: NotificationEvent
+pattern NECancelled = NotificationEvent' "Cancelled"
+
+pattern NEFailed :: NotificationEvent
+pattern NEFailed = NotificationEvent' "Failed"
+
 {-# COMPLETE
   NEAll,
-  NECancelled,
-  NEFailed,
   NEInProgress,
   NESuccess,
   NETimedOut,
+  NECancelled,
+  NEFailed,
   NotificationEvent'
   #-}

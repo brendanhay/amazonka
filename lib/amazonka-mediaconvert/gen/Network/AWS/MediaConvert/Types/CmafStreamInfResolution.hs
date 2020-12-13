@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmafStreamInfResolution
   ( CmafStreamInfResolution
       ( CmafStreamInfResolution',
-        CSIRExclude,
-        CSIRInclude
+        CSIRInclude,
+        CSIRExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmafStreamInfResolution = CmafStreamInfResolution' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSIRExclude :: CmafStreamInfResolution
-pattern CSIRExclude = CmafStreamInfResolution' "EXCLUDE"
-
 pattern CSIRInclude :: CmafStreamInfResolution
 pattern CSIRInclude = CmafStreamInfResolution' "INCLUDE"
 
+pattern CSIRExclude :: CmafStreamInfResolution
+pattern CSIRExclude = CmafStreamInfResolution' "EXCLUDE"
+
 {-# COMPLETE
-  CSIRExclude,
   CSIRInclude,
+  CSIRExclude,
   CmafStreamInfResolution'
   #-}

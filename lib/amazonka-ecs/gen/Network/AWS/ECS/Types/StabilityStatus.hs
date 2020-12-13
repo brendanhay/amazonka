@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.StabilityStatus
   ( StabilityStatus
       ( StabilityStatus',
-        Stabilizing,
-        SteadyState
+        SteadyState,
+        Stabilizing
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StabilityStatus = StabilityStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Stabilizing :: StabilityStatus
-pattern Stabilizing = StabilityStatus' "STABILIZING"
-
 pattern SteadyState :: StabilityStatus
 pattern SteadyState = StabilityStatus' "STEADY_STATE"
 
+pattern Stabilizing :: StabilityStatus
+pattern Stabilizing = StabilityStatus' "STABILIZING"
+
 {-# COMPLETE
-  Stabilizing,
   SteadyState,
+  Stabilizing,
   StabilityStatus'
   #-}

@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBucket' smart constructor.
 data Bucket = Bucket'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The facet value being counted.
+    value :: Lude.Maybe Lude.Text,
+    -- | The number of hits that contain the facet value in the specified facet field.
     count :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Bucket' with the minimum fields required to make a request.
 --
--- * 'count' - The number of hits that contain the facet value in the specified facet field.
 -- * 'value' - The facet value being counted.
+-- * 'count' - The number of hits that contain the facet value in the specified facet field.
 mkBucket ::
   Bucket
 mkBucket = Bucket' {value = Lude.Nothing, count = Lude.Nothing}

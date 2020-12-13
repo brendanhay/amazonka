@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     mkSetLoadBalancerPoliciesForBackendServer,
 
     -- ** Request lenses
+    slbpfbsPolicyNames,
     slbpfbsLoadBalancerName,
     slbpfbsInstancePort,
-    slbpfbsPolicyNames,
 
     -- * Destructuring the response
     SetLoadBalancerPoliciesForBackendServerResponse (..),
@@ -46,27 +47,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetLoadBalancerPoliciesForBackendServer' smart constructor.
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
-  { loadBalancerName ::
-      Lude.Text,
-    instancePort ::
-      Lude.Int,
-    policyNames ::
-      [Lude.Text]
+  { -- | The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
+    policyNames :: [Lude.Text],
+    -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The port number associated with the EC2 instance.
+    instancePort :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesForBackendServer' with the minimum fields required to make a request.
 --
--- * 'instancePort' - The port number associated with the EC2 instance.
--- * 'loadBalancerName' - The name of the load balancer.
 -- * 'policyNames' - The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'instancePort' - The port number associated with the EC2 instance.
 mkSetLoadBalancerPoliciesForBackendServer ::
   -- | 'loadBalancerName'
   Lude.Text ->
@@ -77,11 +72,18 @@ mkSetLoadBalancerPoliciesForBackendServer
   pLoadBalancerName_
   pInstancePort_ =
     SetLoadBalancerPoliciesForBackendServer'
-      { loadBalancerName =
-          pLoadBalancerName_,
-        instancePort = pInstancePort_,
-        policyNames = Lude.mempty
+      { policyNames =
+          Lude.mempty,
+        loadBalancerName = pLoadBalancerName_,
+        instancePort = pInstancePort_
       }
+
+-- | The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slbpfbsPolicyNames :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer [Lude.Text]
+slbpfbsPolicyNames = Lens.lens (policyNames :: SetLoadBalancerPoliciesForBackendServer -> [Lude.Text]) (\s a -> s {policyNames = a} :: SetLoadBalancerPoliciesForBackendServer)
+{-# DEPRECATED slbpfbsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The name of the load balancer.
 --
@@ -96,13 +98,6 @@ slbpfbsLoadBalancerName = Lens.lens (loadBalancerName :: SetLoadBalancerPolicies
 slbpfbsInstancePort :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer Lude.Int
 slbpfbsInstancePort = Lens.lens (instancePort :: SetLoadBalancerPoliciesForBackendServer -> Lude.Int) (\s a -> s {instancePort = a} :: SetLoadBalancerPoliciesForBackendServer)
 {-# DEPRECATED slbpfbsInstancePort "Use generic-lens or generic-optics with 'instancePort' instead." #-}
-
--- | The names of the policies. If the list is empty, then all current polices are removed from the EC2 instance.
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slbpfbsPolicyNames :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer [Lude.Text]
-slbpfbsPolicyNames = Lens.lens (policyNames :: SetLoadBalancerPoliciesForBackendServer -> [Lude.Text]) (\s a -> s {policyNames = a} :: SetLoadBalancerPoliciesForBackendServer)
-{-# DEPRECATED slbpfbsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 instance Lude.AWSRequest SetLoadBalancerPoliciesForBackendServer where
   type
@@ -129,29 +124,20 @@ instance Lude.ToQuery SetLoadBalancerPoliciesForBackendServer where
       [ "Action"
           Lude.=: ("SetLoadBalancerPoliciesForBackendServer" :: Lude.ByteString),
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
+        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames,
         "LoadBalancerName" Lude.=: loadBalancerName,
-        "InstancePort" Lude.=: instancePort,
-        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames
+        "InstancePort" Lude.=: instancePort
       ]
 
 -- | Contains the output of SetLoadBalancerPoliciesForBackendServer.
 --
 -- /See:/ 'mkSetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBalancerPoliciesForBackendServerResponse' with the minimum fields required to make a request.
 --

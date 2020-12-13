@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,22 +49,25 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkViewBilling' smart constructor.
 data ViewBilling = ViewBilling'
-  { start :: Lude.Maybe Lude.Timestamp,
+  { -- | The beginning date and time for the time period for which you want a list of billing records. Specify the date and time in Unix time format and Coordinated Universal time (UTC).
+    start :: Lude.Maybe Lude.Timestamp,
+    -- | The end date and time for the time period for which you want a list of billing records. Specify the date and time in Unix time format and Coordinated Universal time (UTC).
     end :: Lude.Maybe Lude.Timestamp,
+    -- | For an initial request for a list of billing records, omit this element. If the number of billing records that are associated with the current AWS account during the specified period is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional billing records. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
+    --
+    -- Constraints: The marker must match the value of @NextPageMarker@ that was returned in the previous response.
     marker :: Lude.Maybe Lude.Text,
+    -- | The number of billing records to be returned.
+    --
+    -- Default: 20
     maxItems :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ViewBilling' with the minimum fields required to make a request.
 --
+-- * 'start' - The beginning date and time for the time period for which you want a list of billing records. Specify the date and time in Unix time format and Coordinated Universal time (UTC).
 -- * 'end' - The end date and time for the time period for which you want a list of billing records. Specify the date and time in Unix time format and Coordinated Universal time (UTC).
 -- * 'marker' - For an initial request for a list of billing records, omit this element. If the number of billing records that are associated with the current AWS account during the specified period is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional billing records. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
 --
@@ -71,7 +75,6 @@ data ViewBilling = ViewBilling'
 -- * 'maxItems' - The number of billing records to be returned.
 --
 -- Default: 20
--- * 'start' - The beginning date and time for the time period for which you want a list of billing records. Specify the date and time in Unix time format and Coordinated Universal time (UTC).
 mkViewBilling ::
   ViewBilling
 mkViewBilling =
@@ -167,24 +170,20 @@ instance Lude.ToQuery ViewBilling where
 --
 -- /See:/ 'mkViewBillingResponse' smart constructor.
 data ViewBillingResponse = ViewBillingResponse'
-  { nextPageMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | If there are more billing records than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
+    nextPageMarker :: Lude.Maybe Lude.Text,
+    -- | A summary of billing records.
     billingRecords :: Lude.Maybe [BillingRecord],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ViewBillingResponse' with the minimum fields required to make a request.
 --
--- * 'billingRecords' - A summary of billing records.
 -- * 'nextPageMarker' - If there are more billing records than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
+-- * 'billingRecords' - A summary of billing records.
 -- * 'responseStatus' - The response status code.
 mkViewBillingResponse ::
   -- | 'responseStatus'

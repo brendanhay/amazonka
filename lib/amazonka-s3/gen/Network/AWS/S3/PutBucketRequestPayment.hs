@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,10 +27,10 @@ module Network.AWS.S3.PutBucketRequestPayment
     mkPutBucketRequestPayment,
 
     -- ** Request lenses
+    pbrpRequestPaymentConfiguration,
+    pbrpBucket,
     pbrpContentMD5,
     pbrpExpectedBucketOwner,
-    pbrpBucket,
-    pbrpRequestPaymentConfiguration,
 
     -- * Destructuring the response
     PutBucketRequestPaymentResponse (..),
@@ -45,43 +46,56 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketRequestPayment' smart constructor.
 data PutBucketRequestPayment = PutBucketRequestPayment'
-  { contentMD5 ::
-      Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | Container for Payer.
+    requestPaymentConfiguration :: RequestPaymentConfiguration,
+    -- | The bucket name.
     bucket :: BucketName,
-    requestPaymentConfiguration ::
-      RequestPaymentConfiguration
+    -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketRequestPayment' with the minimum fields required to make a request.
 --
+-- * 'requestPaymentConfiguration' - Container for Payer.
 -- * 'bucket' - The bucket name.
 -- * 'contentMD5' - >The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'requestPaymentConfiguration' - Container for Payer.
 mkPutBucketRequestPayment ::
-  -- | 'bucket'
-  BucketName ->
   -- | 'requestPaymentConfiguration'
   RequestPaymentConfiguration ->
+  -- | 'bucket'
+  BucketName ->
   PutBucketRequestPayment
-mkPutBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
+mkPutBucketRequestPayment pRequestPaymentConfiguration_ pBucket_ =
   PutBucketRequestPayment'
-    { contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
+    { requestPaymentConfiguration =
+        pRequestPaymentConfiguration_,
       bucket = pBucket_,
-      requestPaymentConfiguration = pRequestPaymentConfiguration_
+      contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing
     }
+
+-- | Container for Payer.
+--
+-- /Note:/ Consider using 'requestPaymentConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbrpRequestPaymentConfiguration :: Lens.Lens' PutBucketRequestPayment RequestPaymentConfiguration
+pbrpRequestPaymentConfiguration = Lens.lens (requestPaymentConfiguration :: PutBucketRequestPayment -> RequestPaymentConfiguration) (\s a -> s {requestPaymentConfiguration = a} :: PutBucketRequestPayment)
+{-# DEPRECATED pbrpRequestPaymentConfiguration "Use generic-lens or generic-optics with 'requestPaymentConfiguration' instead." #-}
+
+-- | The bucket name.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbrpBucket :: Lens.Lens' PutBucketRequestPayment BucketName
+pbrpBucket = Lens.lens (bucket :: PutBucketRequestPayment -> BucketName) (\s a -> s {bucket = a} :: PutBucketRequestPayment)
+{-# DEPRECATED pbrpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
@@ -98,20 +112,6 @@ pbrpContentMD5 = Lens.lens (contentMD5 :: PutBucketRequestPayment -> Lude.Maybe 
 pbrpExpectedBucketOwner :: Lens.Lens' PutBucketRequestPayment (Lude.Maybe Lude.Text)
 pbrpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketRequestPayment -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketRequestPayment)
 {-# DEPRECATED pbrpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The bucket name.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbrpBucket :: Lens.Lens' PutBucketRequestPayment BucketName
-pbrpBucket = Lens.lens (bucket :: PutBucketRequestPayment -> BucketName) (\s a -> s {bucket = a} :: PutBucketRequestPayment)
-{-# DEPRECATED pbrpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Container for Payer.
---
--- /Note:/ Consider using 'requestPaymentConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbrpRequestPaymentConfiguration :: Lens.Lens' PutBucketRequestPayment RequestPaymentConfiguration
-pbrpRequestPaymentConfiguration = Lens.lens (requestPaymentConfiguration :: PutBucketRequestPayment -> RequestPaymentConfiguration) (\s a -> s {requestPaymentConfiguration = a} :: PutBucketRequestPayment)
-{-# DEPRECATED pbrpRequestPaymentConfiguration "Use generic-lens or generic-optics with 'requestPaymentConfiguration' instead." #-}
 
 instance Lude.AWSRequest PutBucketRequestPayment where
   type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
@@ -140,13 +140,7 @@ instance Lude.ToQuery PutBucketRequestPayment where
 
 -- | /See:/ 'mkPutBucketRequestPaymentResponse' smart constructor.
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketRequestPaymentResponse' with the minimum fields required to make a request.

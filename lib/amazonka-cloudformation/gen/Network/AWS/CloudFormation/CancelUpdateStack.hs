@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCancelUpdateStack' smart constructor.
 data CancelUpdateStack = CancelUpdateStack'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The name or the unique stack ID that is associated with the stack.
     stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelUpdateStack' with the minimum fields required to make a request.
@@ -101,13 +97,7 @@ instance Lude.ToQuery CancelUpdateStack where
 
 -- | /See:/ 'mkCancelUpdateStackResponse' smart constructor.
 data CancelUpdateStackResponse = CancelUpdateStackResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelUpdateStackResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +20,18 @@ module Network.AWS.Firehose.ListTagsForDeliveryStream
     mkListTagsForDeliveryStream,
 
     -- ** Request lenses
+    ltfdsDeliveryStreamName,
     ltfdsLimit,
     ltfdsExclusiveStartTagKey,
-    ltfdsDeliveryStreamName,
 
     -- * Destructuring the response
     ListTagsForDeliveryStreamResponse (..),
     mkListTagsForDeliveryStreamResponse,
 
     -- ** Response lenses
-    ltfdsrsResponseStatus,
-    ltfdsrsTags,
     ltfdsrsHasMoreTags,
+    ltfdsrsTags,
+    ltfdsrsResponseStatus,
   )
 where
 
@@ -42,36 +43,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForDeliveryStream' smart constructor.
 data ListTagsForDeliveryStream = ListTagsForDeliveryStream'
-  { limit ::
-      Lude.Maybe Lude.Natural,
-    exclusiveStartTagKey ::
-      Lude.Maybe Lude.Text,
-    deliveryStreamName :: Lude.Text
+  { -- | The name of the delivery stream whose tags you want to list.
+    deliveryStreamName :: Lude.Text,
+    -- | The number of tags to return. If this number is less than the total number of tags associated with the delivery stream, @HasMoreTags@ is set to @true@ in the response. To list additional tags, set @ExclusiveStartTagKey@ to the last key in the response.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The key to use as the starting point for the list of tags. If you set this parameter, @ListTagsForDeliveryStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
+    exclusiveStartTagKey :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForDeliveryStream' with the minimum fields required to make a request.
 --
 -- * 'deliveryStreamName' - The name of the delivery stream whose tags you want to list.
--- * 'exclusiveStartTagKey' - The key to use as the starting point for the list of tags. If you set this parameter, @ListTagsForDeliveryStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
 -- * 'limit' - The number of tags to return. If this number is less than the total number of tags associated with the delivery stream, @HasMoreTags@ is set to @true@ in the response. To list additional tags, set @ExclusiveStartTagKey@ to the last key in the response.
+-- * 'exclusiveStartTagKey' - The key to use as the starting point for the list of tags. If you set this parameter, @ListTagsForDeliveryStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
 mkListTagsForDeliveryStream ::
   -- | 'deliveryStreamName'
   Lude.Text ->
   ListTagsForDeliveryStream
 mkListTagsForDeliveryStream pDeliveryStreamName_ =
   ListTagsForDeliveryStream'
-    { limit = Lude.Nothing,
-      exclusiveStartTagKey = Lude.Nothing,
-      deliveryStreamName = pDeliveryStreamName_
+    { deliveryStreamName =
+        pDeliveryStreamName_,
+      limit = Lude.Nothing,
+      exclusiveStartTagKey = Lude.Nothing
     }
+
+-- | The name of the delivery stream whose tags you want to list.
+--
+-- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfdsDeliveryStreamName :: Lens.Lens' ListTagsForDeliveryStream Lude.Text
+ltfdsDeliveryStreamName = Lens.lens (deliveryStreamName :: ListTagsForDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: ListTagsForDeliveryStream)
+{-# DEPRECATED ltfdsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 -- | The number of tags to return. If this number is less than the total number of tags associated with the delivery stream, @HasMoreTags@ is set to @true@ in the response. To list additional tags, set @ExclusiveStartTagKey@ to the last key in the response.
 --
@@ -87,13 +91,6 @@ ltfdsExclusiveStartTagKey :: Lens.Lens' ListTagsForDeliveryStream (Lude.Maybe Lu
 ltfdsExclusiveStartTagKey = Lens.lens (exclusiveStartTagKey :: ListTagsForDeliveryStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartTagKey = a} :: ListTagsForDeliveryStream)
 {-# DEPRECATED ltfdsExclusiveStartTagKey "Use generic-lens or generic-optics with 'exclusiveStartTagKey' instead." #-}
 
--- | The name of the delivery stream whose tags you want to list.
---
--- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfdsDeliveryStreamName :: Lens.Lens' ListTagsForDeliveryStream Lude.Text
-ltfdsDeliveryStreamName = Lens.lens (deliveryStreamName :: ListTagsForDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: ListTagsForDeliveryStream)
-{-# DEPRECATED ltfdsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
-
 instance Lude.AWSRequest ListTagsForDeliveryStream where
   type
     Rs ListTagsForDeliveryStream =
@@ -103,9 +100,9 @@ instance Lude.AWSRequest ListTagsForDeliveryStream where
     Res.receiveJSON
       ( \s h x ->
           ListTagsForDeliveryStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "HasMoreTags")
             Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "HasMoreTags")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListTagsForDeliveryStream where
@@ -123,9 +120,9 @@ instance Lude.ToJSON ListTagsForDeliveryStream where
   toJSON ListTagsForDeliveryStream' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Limit" Lude..=) Lude.<$> limit,
-            ("ExclusiveStartTagKey" Lude..=) Lude.<$> exclusiveStartTagKey,
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
+          [ Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
+            ("Limit" Lude..=) Lude.<$> limit,
+            ("ExclusiveStartTagKey" Lude..=) Lude.<$> exclusiveStartTagKey
           ]
       )
 
@@ -137,46 +134,40 @@ instance Lude.ToQuery ListTagsForDeliveryStream where
 
 -- | /See:/ 'mkListTagsForDeliveryStreamResponse' smart constructor.
 data ListTagsForDeliveryStreamResponse = ListTagsForDeliveryStreamResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | If this is @true@ in the response, more tags are available. To list the remaining tags, set @ExclusiveStartTagKey@ to the key of the last tag returned and call @ListTagsForDeliveryStream@ again.
+    hasMoreTags :: Lude.Bool,
+    -- | A list of tags associated with @DeliveryStreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
     tags :: [Tag],
-    hasMoreTags ::
-      Lude.Bool
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForDeliveryStreamResponse' with the minimum fields required to make a request.
 --
 -- * 'hasMoreTags' - If this is @true@ in the response, more tags are available. To list the remaining tags, set @ExclusiveStartTagKey@ to the key of the last tag returned and call @ListTagsForDeliveryStream@ again.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A list of tags associated with @DeliveryStreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
+-- * 'responseStatus' - The response status code.
 mkListTagsForDeliveryStreamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hasMoreTags'
   Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListTagsForDeliveryStreamResponse
-mkListTagsForDeliveryStreamResponse pResponseStatus_ pHasMoreTags_ =
+mkListTagsForDeliveryStreamResponse pHasMoreTags_ pResponseStatus_ =
   ListTagsForDeliveryStreamResponse'
-    { responseStatus =
-        pResponseStatus_,
+    { hasMoreTags = pHasMoreTags_,
       tags = Lude.mempty,
-      hasMoreTags = pHasMoreTags_
+      responseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | If this is @true@ in the response, more tags are available. To list the remaining tags, set @ExclusiveStartTagKey@ to the key of the last tag returned and call @ListTagsForDeliveryStream@ again.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfdsrsResponseStatus :: Lens.Lens' ListTagsForDeliveryStreamResponse Lude.Int
-ltfdsrsResponseStatus = Lens.lens (responseStatus :: ListTagsForDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForDeliveryStreamResponse)
-{-# DEPRECATED ltfdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'hasMoreTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfdsrsHasMoreTags :: Lens.Lens' ListTagsForDeliveryStreamResponse Lude.Bool
+ltfdsrsHasMoreTags = Lens.lens (hasMoreTags :: ListTagsForDeliveryStreamResponse -> Lude.Bool) (\s a -> s {hasMoreTags = a} :: ListTagsForDeliveryStreamResponse)
+{-# DEPRECATED ltfdsrsHasMoreTags "Use generic-lens or generic-optics with 'hasMoreTags' instead." #-}
 
 -- | A list of tags associated with @DeliveryStreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
 --
@@ -185,9 +176,9 @@ ltfdsrsTags :: Lens.Lens' ListTagsForDeliveryStreamResponse [Tag]
 ltfdsrsTags = Lens.lens (tags :: ListTagsForDeliveryStreamResponse -> [Tag]) (\s a -> s {tags = a} :: ListTagsForDeliveryStreamResponse)
 {-# DEPRECATED ltfdsrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | If this is @true@ in the response, more tags are available. To list the remaining tags, set @ExclusiveStartTagKey@ to the key of the last tag returned and call @ListTagsForDeliveryStream@ again.
+-- | The response status code.
 --
--- /Note:/ Consider using 'hasMoreTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfdsrsHasMoreTags :: Lens.Lens' ListTagsForDeliveryStreamResponse Lude.Bool
-ltfdsrsHasMoreTags = Lens.lens (hasMoreTags :: ListTagsForDeliveryStreamResponse -> Lude.Bool) (\s a -> s {hasMoreTags = a} :: ListTagsForDeliveryStreamResponse)
-{-# DEPRECATED ltfdsrsHasMoreTags "Use generic-lens or generic-optics with 'hasMoreTags' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfdsrsResponseStatus :: Lens.Lens' ListTagsForDeliveryStreamResponse Lude.Int
+ltfdsrsResponseStatus = Lens.lens (responseStatus :: ListTagsForDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForDeliveryStreamResponse)
+{-# DEPRECATED ltfdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

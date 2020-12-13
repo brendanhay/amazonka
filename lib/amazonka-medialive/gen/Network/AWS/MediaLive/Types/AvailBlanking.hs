@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailBlanking' smart constructor.
 data AvailBlanking = AvailBlanking'
-  { state ::
-      Lude.Maybe AvailBlankingState,
+  { -- | When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+    state :: Lude.Maybe AvailBlankingState,
+    -- | Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
     availBlankingImage :: Lude.Maybe InputLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailBlanking' with the minimum fields required to make a request.
 --
--- * 'availBlankingImage' - Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
 -- * 'state' - When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+-- * 'availBlankingImage' - Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
 mkAvailBlanking ::
   AvailBlanking
 mkAvailBlanking =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,24 +45,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutDashboard' smart constructor.
 data PutDashboard = PutDashboard'
-  { dashboardName :: Lude.Text,
+  { -- | The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_". This parameter is required.
+    dashboardName :: Lude.Text,
+    -- | The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.
+    --
+    -- For more information about the syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
     dashboardBody :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDashboard' with the minimum fields required to make a request.
 --
+-- * 'dashboardName' - The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_". This parameter is required.
 -- * 'dashboardBody' - The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.
 --
 -- For more information about the syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
--- * 'dashboardName' - The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_". This parameter is required.
 mkPutDashboard ::
   -- | 'dashboardName'
   Lude.Text ->
@@ -121,17 +120,15 @@ instance Lude.ToQuery PutDashboard where
 
 -- | /See:/ 'mkPutDashboardResponse' smart constructor.
 data PutDashboardResponse = PutDashboardResponse'
-  { dashboardValidationMessages ::
-      Lude.Maybe [DashboardValidationMessage],
+  { -- | If the input for @PutDashboard@ was correct and the dashboard was successfully created or modified, this result is empty.
+    --
+    -- If this result includes only warning messages, then the input was valid enough for the dashboard to be created or modified, but some elements of the dashboard might not render.
+    -- If this result includes error messages, the input was not valid and the operation failed.
+    dashboardValidationMessages :: Lude.Maybe [DashboardValidationMessage],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDashboardResponse' with the minimum fields required to make a request.

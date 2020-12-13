@@ -45,61 +45,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPiiEntitiesDetectionJobProperties' smart constructor.
 data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
-    jobId ::
-      Lude.Maybe Lude.Text,
-    jobName ::
-      Lude.Maybe Lude.Text,
-    mode ::
-      Lude.Maybe
-        PiiEntitiesDetectionMode,
-    inputDataConfig ::
-      Lude.Maybe
-        InputDataConfig,
-    redactionConfig ::
-      Lude.Maybe
-        RedactionConfig,
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    outputDataConfig ::
-      Lude.Maybe
-        PiiOutputDataConfig,
-    dataAccessRoleARN ::
-      Lude.Maybe Lude.Text,
-    jobStatus ::
-      Lude.Maybe JobStatus,
-    message ::
-      Lude.Maybe Lude.Text,
-    submitTime ::
-      Lude.Maybe
-        Lude.Timestamp
+  { -- | The language code of the input documents
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The identifier assigned to the PII entities detection job.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The name that you assigned the PII entities detection job.
+    jobName :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
+    mode :: Lude.Maybe PiiEntitiesDetectionMode,
+    -- | The input properties for a PII entities detection job.
+    inputDataConfig :: Lude.Maybe InputDataConfig,
+    -- | Provides configuration parameters for PII entity redaction.
+    --
+    -- This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
+    redactionConfig :: Lude.Maybe RedactionConfig,
+    -- | The time that the PII entities detection job completed.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The output data configuration that you supplied when you created the PII entities detection job.
+    outputDataConfig :: Lude.Maybe PiiOutputDataConfig,
+    -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+    dataAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | The current status of the PII entities detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | A description of the status of a job.
+    message :: Lude.Maybe Lude.Text,
+    -- | The time that the PII entities detection job was submitted for processing.
+    submitTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PiiEntitiesDetectionJobProperties' with the minimum fields required to make a request.
 --
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
--- * 'endTime' - The time that the PII entities detection job completed.
--- * 'inputDataConfig' - The input properties for a PII entities detection job.
+-- * 'languageCode' - The language code of the input documents
 -- * 'jobId' - The identifier assigned to the PII entities detection job.
 -- * 'jobName' - The name that you assigned the PII entities detection job.
--- * 'jobStatus' - The current status of the PII entities detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
--- * 'languageCode' - The language code of the input documents
--- * 'message' - A description of the status of a job.
 -- * 'mode' - Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.
--- * 'outputDataConfig' - The output data configuration that you supplied when you created the PII entities detection job.
+-- * 'inputDataConfig' - The input properties for a PII entities detection job.
 -- * 'redactionConfig' - Provides configuration parameters for PII entity redaction.
 --
 -- This parameter is required if you set the @Mode@ parameter to @ONLY_REDACTION@ . In that case, you must provide a @RedactionConfig@ definition that includes the @PiiEntityTypes@ parameter.
+-- * 'endTime' - The time that the PII entities detection job completed.
+-- * 'outputDataConfig' - The output data configuration that you supplied when you created the PII entities detection job.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.
+-- * 'jobStatus' - The current status of the PII entities detection job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
+-- * 'message' - A description of the status of a job.
 -- * 'submitTime' - The time that the PII entities detection job was submitted for processing.
 mkPiiEntitiesDetectionJobProperties ::
   PiiEntitiesDetectionJobProperties

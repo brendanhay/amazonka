@@ -17,9 +17,9 @@ module Network.AWS.GameLift.Types.ServerProcess
     mkServerProcess,
 
     -- * Lenses
-    spParameters,
-    spLaunchPath,
     spConcurrentExecutions,
+    spLaunchPath,
+    spParameters,
   )
 where
 
@@ -30,18 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServerProcess' smart constructor.
 data ServerProcess = ServerProcess'
-  { parameters ::
-      Lude.Maybe Lude.Text,
+  { -- | The number of server processes that use this configuration to run concurrently on an instance.
+    concurrentExecutions :: Lude.Natural,
+    -- | The location of the server executable in a custom game build or the name of the Realtime script file that contains the @Init()@ function. Game builds and Realtime scripts are installed on instances at the root:
+    --
+    --
+    --     * Windows (for custom game builds only): @C:\game@ . Example: "@C:\game\MyGame\server.exe@ "
+    --
+    --
+    --     * Linux: @/local/game@ . Examples: "@/local/game/MyGame/server.exe@ " or "@/local/game/MyRealtimeScript.js@ "
     launchPath :: Lude.Text,
-    concurrentExecutions :: Lude.Natural
+    -- | An optional list of parameters to pass to the server executable or Realtime script on launch.
+    parameters :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerProcess' with the minimum fields required to make a request.
@@ -58,24 +60,24 @@ data ServerProcess = ServerProcess'
 --
 -- * 'parameters' - An optional list of parameters to pass to the server executable or Realtime script on launch.
 mkServerProcess ::
-  -- | 'launchPath'
-  Lude.Text ->
   -- | 'concurrentExecutions'
   Lude.Natural ->
+  -- | 'launchPath'
+  Lude.Text ->
   ServerProcess
-mkServerProcess pLaunchPath_ pConcurrentExecutions_ =
+mkServerProcess pConcurrentExecutions_ pLaunchPath_ =
   ServerProcess'
-    { parameters = Lude.Nothing,
+    { concurrentExecutions = pConcurrentExecutions_,
       launchPath = pLaunchPath_,
-      concurrentExecutions = pConcurrentExecutions_
+      parameters = Lude.Nothing
     }
 
--- | An optional list of parameters to pass to the server executable or Realtime script on launch.
+-- | The number of server processes that use this configuration to run concurrently on an instance.
 --
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spParameters :: Lens.Lens' ServerProcess (Lude.Maybe Lude.Text)
-spParameters = Lens.lens (parameters :: ServerProcess -> Lude.Maybe Lude.Text) (\s a -> s {parameters = a} :: ServerProcess)
-{-# DEPRECATED spParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+-- /Note:/ Consider using 'concurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spConcurrentExecutions :: Lens.Lens' ServerProcess Lude.Natural
+spConcurrentExecutions = Lens.lens (concurrentExecutions :: ServerProcess -> Lude.Natural) (\s a -> s {concurrentExecutions = a} :: ServerProcess)
+{-# DEPRECATED spConcurrentExecutions "Use generic-lens or generic-optics with 'concurrentExecutions' instead." #-}
 
 -- | The location of the server executable in a custom game build or the name of the Realtime script file that contains the @Init()@ function. Game builds and Realtime scripts are installed on instances at the root:
 --
@@ -92,12 +94,12 @@ spLaunchPath :: Lens.Lens' ServerProcess Lude.Text
 spLaunchPath = Lens.lens (launchPath :: ServerProcess -> Lude.Text) (\s a -> s {launchPath = a} :: ServerProcess)
 {-# DEPRECATED spLaunchPath "Use generic-lens or generic-optics with 'launchPath' instead." #-}
 
--- | The number of server processes that use this configuration to run concurrently on an instance.
+-- | An optional list of parameters to pass to the server executable or Realtime script on launch.
 --
--- /Note:/ Consider using 'concurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spConcurrentExecutions :: Lens.Lens' ServerProcess Lude.Natural
-spConcurrentExecutions = Lens.lens (concurrentExecutions :: ServerProcess -> Lude.Natural) (\s a -> s {concurrentExecutions = a} :: ServerProcess)
-{-# DEPRECATED spConcurrentExecutions "Use generic-lens or generic-optics with 'concurrentExecutions' instead." #-}
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spParameters :: Lens.Lens' ServerProcess (Lude.Maybe Lude.Text)
+spParameters = Lens.lens (parameters :: ServerProcess -> Lude.Maybe Lude.Text) (\s a -> s {parameters = a} :: ServerProcess)
+{-# DEPRECATED spParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 instance Lude.FromJSON ServerProcess where
   parseJSON =
@@ -105,17 +107,17 @@ instance Lude.FromJSON ServerProcess where
       "ServerProcess"
       ( \x ->
           ServerProcess'
-            Lude.<$> (x Lude..:? "Parameters")
+            Lude.<$> (x Lude..: "ConcurrentExecutions")
             Lude.<*> (x Lude..: "LaunchPath")
-            Lude.<*> (x Lude..: "ConcurrentExecutions")
+            Lude.<*> (x Lude..:? "Parameters")
       )
 
 instance Lude.ToJSON ServerProcess where
   toJSON ServerProcess' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Parameters" Lude..=) Lude.<$> parameters,
+          [ Lude.Just ("ConcurrentExecutions" Lude..= concurrentExecutions),
             Lude.Just ("LaunchPath" Lude..= launchPath),
-            Lude.Just ("ConcurrentExecutions" Lude..= concurrentExecutions)
+            ("Parameters" Lude..=) Lude.<$> parameters
           ]
       )

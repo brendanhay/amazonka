@@ -51,51 +51,62 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkInput' smart constructor.
 data Input = Input'
   { state :: Lude.Maybe InputState,
+    -- | A list of IDs for all the Input Security Groups attached to the input.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The Unique ARN of the input (generated, immutable).
     arn :: Lude.Maybe Lude.Text,
+    -- | Settings for the input devices.
     inputDevices :: Lude.Maybe [InputDeviceSettings],
+    -- | A list of the sources of the input (PULL-type).
     sources :: Lude.Maybe [InputSource],
+    -- | A list of the destinations of the input (PUSH-type).
     destinations :: Lude.Maybe [InputDestination],
+    -- | The user-assigned name (This is a mutable value).
     name :: Lude.Maybe Lude.Text,
+    -- | A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
     attachedChannels :: Lude.Maybe [Lude.Text],
+    -- | The generated ID of the input (unique for user account, immutable).
     id :: Lude.Maybe Lude.Text,
+    -- | STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
+    --
+    -- SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
     inputClass :: Lude.Maybe InputClass,
     type' :: Lude.Maybe InputType,
+    -- | A list of MediaConnect Flows for this input.
     mediaConnectFlows :: Lude.Maybe [MediaConnectFlow],
+    -- | Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
+    --
+    -- during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
     inputSourceType :: Lude.Maybe InputSourceType,
+    -- | A collection of key-value pairs.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Input' with the minimum fields required to make a request.
 --
+-- * 'state' -
+-- * 'securityGroups' - A list of IDs for all the Input Security Groups attached to the input.
 -- * 'arn' - The Unique ARN of the input (generated, immutable).
--- * 'attachedChannels' - A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
+-- * 'inputDevices' - Settings for the input devices.
+-- * 'sources' - A list of the sources of the input (PULL-type).
 -- * 'destinations' - A list of the destinations of the input (PUSH-type).
+-- * 'name' - The user-assigned name (This is a mutable value).
+-- * 'attachedChannels' - A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
 -- * 'id' - The generated ID of the input (unique for user account, immutable).
 -- * 'inputClass' - STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
 --
 -- SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
--- * 'inputDevices' - Settings for the input devices.
+-- * 'type'' -
+-- * 'mediaConnectFlows' - A list of MediaConnect Flows for this input.
 -- * 'inputSourceType' - Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
 --
 -- during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
--- * 'mediaConnectFlows' - A list of MediaConnect Flows for this input.
--- * 'name' - The user-assigned name (This is a mutable value).
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
--- * 'securityGroups' - A list of IDs for all the Input Security Groups attached to the input.
--- * 'sources' - A list of the sources of the input (PULL-type).
--- * 'state' - Undocumented field.
 -- * 'tags' - A collection of key-value pairs.
--- * 'type'' - Undocumented field.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
 mkInput ::
   Input
 mkInput =

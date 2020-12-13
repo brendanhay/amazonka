@@ -31,19 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingPolicyStatus' smart constructor.
 data AutoScalingPolicyStatus = AutoScalingPolicyStatus'
-  { state ::
-      Lude.Maybe AutoScalingPolicyState,
-    stateChangeReason ::
-      Lude.Maybe
-        AutoScalingPolicyStateChangeReason
+  { -- | Indicates the status of the automatic scaling policy.
+    state :: Lude.Maybe AutoScalingPolicyState,
+    -- | The reason for a change in status.
+    stateChangeReason :: Lude.Maybe AutoScalingPolicyStateChangeReason
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingPolicyStatus' with the minimum fields required to make a request.

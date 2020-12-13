@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGateways' smart constructor.
 data ListGateways = ListGateways'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token used to paginate though multiple pages of gateway summaries.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The gateway group ARN for which to list gateways.
     gatewayGroupARN :: Lude.Maybe Lude.Text,
+    -- | The maximum number of gateway summaries to return. The default is 50.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGateways' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token used to paginate though multiple pages of gateway summaries.
 -- * 'gatewayGroupARN' - The gateway group ARN for which to list gateways.
 -- * 'maxResults' - The maximum number of gateway summaries to return. The default is 50.
--- * 'nextToken' - The token used to paginate though multiple pages of gateway summaries.
 mkListGateways ::
   ListGateways
 mkListGateways =
@@ -132,24 +129,20 @@ instance Lude.ToQuery ListGateways where
 
 -- | /See:/ 'mkListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token used to paginate though multiple pages of gateway summaries.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The gateways in the list.
     gateways :: Lude.Maybe [GatewaySummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
 --
--- * 'gateways' - The gateways in the list.
 -- * 'nextToken' - The token used to paginate though multiple pages of gateway summaries.
+-- * 'gateways' - The gateways in the list.
 -- * 'responseStatus' - The response status code.
 mkListGatewaysResponse ::
   -- | 'responseStatus'

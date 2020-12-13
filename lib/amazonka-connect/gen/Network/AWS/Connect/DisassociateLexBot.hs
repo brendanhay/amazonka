@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,24 +38,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateLexBot' smart constructor.
 data DisassociateLexBot = DisassociateLexBot'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The name of the Amazon Lex bot. Maximum character limit of 50.
     botName :: Lude.Text,
+    -- | The Region in which the Amazon Lex bot has been created.
     lexRegion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateLexBot' with the minimum fields required to make a request.
 --
--- * 'botName' - The name of the Amazon Lex bot. Maximum character limit of 50.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- * 'botName' - The name of the Amazon Lex bot. Maximum character limit of 50.
 -- * 'lexRegion' - The Region in which the Amazon Lex bot has been created.
 mkDisassociateLexBot ::
   -- | 'instanceId'
@@ -117,13 +114,7 @@ instance Lude.ToQuery DisassociateLexBot where
 
 -- | /See:/ 'mkDisassociateLexBotResponse' smart constructor.
 data DisassociateLexBotResponse = DisassociateLexBotResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateLexBotResponse' with the minimum fields required to make a request.

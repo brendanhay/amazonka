@@ -28,17 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEsamManifestConfirmConditionNotification' smart constructor.
 newtype EsamManifestConfirmConditionNotification = EsamManifestConfirmConditionNotification'
-  { mccXML ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Provide your ESAM ManifestConfirmConditionNotification XML document inside your JSON job settings. Form the XML document as per OC-SP-ESAM-API-I03-131025. The transcoder will use the Manifest Conditioning instructions in the message that you supply.
+    mccXML :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EsamManifestConfirmConditionNotification' with the minimum fields required to make a request.

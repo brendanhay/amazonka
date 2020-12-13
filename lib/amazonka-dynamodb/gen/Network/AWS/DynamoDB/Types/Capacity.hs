@@ -17,9 +17,9 @@ module Network.AWS.DynamoDB.Types.Capacity
     mkCapacity,
 
     -- * Lenses
-    capReadCapacityUnits,
-    capCapacityUnits,
-    capWriteCapacityUnits,
+    cfReadCapacityUnits,
+    cfCapacityUnits,
+    cfWriteCapacityUnits,
   )
 where
 
@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCapacity' smart constructor.
 data Capacity = Capacity'
-  { readCapacityUnits ::
-      Lude.Maybe Lude.Double,
+  { -- | The total number of read capacity units consumed on a table or an index.
+    readCapacityUnits :: Lude.Maybe Lude.Double,
+    -- | The total number of capacity units consumed on a table or an index.
     capacityUnits :: Lude.Maybe Lude.Double,
+    -- | The total number of write capacity units consumed on a table or an index.
     writeCapacityUnits :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Capacity' with the minimum fields required to make a request.
 --
--- * 'capacityUnits' - The total number of capacity units consumed on a table or an index.
 -- * 'readCapacityUnits' - The total number of read capacity units consumed on a table or an index.
+-- * 'capacityUnits' - The total number of capacity units consumed on a table or an index.
 -- * 'writeCapacityUnits' - The total number of write capacity units consumed on a table or an index.
 mkCapacity ::
   Capacity
@@ -61,23 +57,23 @@ mkCapacity =
 -- | The total number of read capacity units consumed on a table or an index.
 --
 -- /Note:/ Consider using 'readCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-capReadCapacityUnits :: Lens.Lens' Capacity (Lude.Maybe Lude.Double)
-capReadCapacityUnits = Lens.lens (readCapacityUnits :: Capacity -> Lude.Maybe Lude.Double) (\s a -> s {readCapacityUnits = a} :: Capacity)
-{-# DEPRECATED capReadCapacityUnits "Use generic-lens or generic-optics with 'readCapacityUnits' instead." #-}
+cfReadCapacityUnits :: Lens.Lens' Capacity (Lude.Maybe Lude.Double)
+cfReadCapacityUnits = Lens.lens (readCapacityUnits :: Capacity -> Lude.Maybe Lude.Double) (\s a -> s {readCapacityUnits = a} :: Capacity)
+{-# DEPRECATED cfReadCapacityUnits "Use generic-lens or generic-optics with 'readCapacityUnits' instead." #-}
 
 -- | The total number of capacity units consumed on a table or an index.
 --
 -- /Note:/ Consider using 'capacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-capCapacityUnits :: Lens.Lens' Capacity (Lude.Maybe Lude.Double)
-capCapacityUnits = Lens.lens (capacityUnits :: Capacity -> Lude.Maybe Lude.Double) (\s a -> s {capacityUnits = a} :: Capacity)
-{-# DEPRECATED capCapacityUnits "Use generic-lens or generic-optics with 'capacityUnits' instead." #-}
+cfCapacityUnits :: Lens.Lens' Capacity (Lude.Maybe Lude.Double)
+cfCapacityUnits = Lens.lens (capacityUnits :: Capacity -> Lude.Maybe Lude.Double) (\s a -> s {capacityUnits = a} :: Capacity)
+{-# DEPRECATED cfCapacityUnits "Use generic-lens or generic-optics with 'capacityUnits' instead." #-}
 
 -- | The total number of write capacity units consumed on a table or an index.
 --
 -- /Note:/ Consider using 'writeCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-capWriteCapacityUnits :: Lens.Lens' Capacity (Lude.Maybe Lude.Double)
-capWriteCapacityUnits = Lens.lens (writeCapacityUnits :: Capacity -> Lude.Maybe Lude.Double) (\s a -> s {writeCapacityUnits = a} :: Capacity)
-{-# DEPRECATED capWriteCapacityUnits "Use generic-lens or generic-optics with 'writeCapacityUnits' instead." #-}
+cfWriteCapacityUnits :: Lens.Lens' Capacity (Lude.Maybe Lude.Double)
+cfWriteCapacityUnits = Lens.lens (writeCapacityUnits :: Capacity -> Lude.Maybe Lude.Double) (\s a -> s {writeCapacityUnits = a} :: Capacity)
+{-# DEPRECATED cfWriteCapacityUnits "Use generic-lens or generic-optics with 'writeCapacityUnits' instead." #-}
 
 instance Lude.FromJSON Capacity where
   parseJSON =

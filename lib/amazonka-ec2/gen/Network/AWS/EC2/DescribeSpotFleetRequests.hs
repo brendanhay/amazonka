@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,27 +51,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSpotFleetRequests' smart constructor.
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
-  { spotFleetRequestIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IDs of the Spot Fleet requests.
+    spotFleetRequestIds :: Lude.Maybe [Lude.Text],
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotFleetRequests' with the minimum fields required to make a request.
 --
+-- * 'spotFleetRequestIds' - The IDs of the Spot Fleet requests.
+-- * 'nextToken' - The token for the next set of results.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
--- * 'nextToken' - The token for the next set of results.
--- * 'spotFleetRequestIds' - The IDs of the Spot Fleet requests.
 mkDescribeSpotFleetRequests ::
   DescribeSpotFleetRequests
 mkDescribeSpotFleetRequests =
@@ -159,28 +157,21 @@ instance Lude.ToQuery DescribeSpotFleetRequests where
 --
 -- /See:/ 'mkDescribeSpotFleetRequestsResponse' smart constructor.
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    spotFleetRequestConfigs ::
-      Lude.Maybe
-        [SpotFleetRequestConfig],
-    responseStatus ::
-      Lude.Int
+  { -- | The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the configuration of your Spot Fleet.
+    spotFleetRequestConfigs :: Lude.Maybe [SpotFleetRequestConfig],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSpotFleetRequestsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token required to retrieve the next set of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'spotFleetRequestConfigs' - Information about the configuration of your Spot Fleet.
+-- * 'responseStatus' - The response status code.
 mkDescribeSpotFleetRequestsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

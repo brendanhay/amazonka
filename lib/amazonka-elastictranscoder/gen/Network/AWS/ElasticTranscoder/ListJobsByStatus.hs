@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     mkListJobsByStatus,
 
     -- ** Request lenses
+    ljbsStatus,
     ljbsAscending,
     ljbsPageToken,
-    ljbsStatus,
 
     -- * Destructuring the response
     ListJobsByStatusResponse (..),
@@ -47,35 +48,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListJobsByStatus' smart constructor.
 data ListJobsByStatus = ListJobsByStatus'
-  { ascending ::
-      Lude.Maybe Lude.Text,
-    pageToken :: Lude.Maybe Lude.Text,
-    status :: Lude.Text
+  { -- | To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
+    status :: Lude.Text,
+    -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
+    ascending :: Lude.Maybe Lude.Text,
+    -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsByStatus' with the minimum fields required to make a request.
 --
+-- * 'status' - To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
 -- * 'ascending' - To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
 -- * 'pageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
--- * 'status' - To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
 mkListJobsByStatus ::
   -- | 'status'
   Lude.Text ->
   ListJobsByStatus
 mkListJobsByStatus pStatus_ =
   ListJobsByStatus'
-    { ascending = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      status = pStatus_
+    { status = pStatus_,
+      ascending = Lude.Nothing,
+      pageToken = Lude.Nothing
     }
+
+-- | To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljbsStatus :: Lens.Lens' ListJobsByStatus Lude.Text
+ljbsStatus = Lens.lens (status :: ListJobsByStatus -> Lude.Text) (\s a -> s {status = a} :: ListJobsByStatus)
+{-# DEPRECATED ljbsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
 --
@@ -90,13 +94,6 @@ ljbsAscending = Lens.lens (ascending :: ListJobsByStatus -> Lude.Maybe Lude.Text
 ljbsPageToken :: Lens.Lens' ListJobsByStatus (Lude.Maybe Lude.Text)
 ljbsPageToken = Lens.lens (pageToken :: ListJobsByStatus -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListJobsByStatus)
 {-# DEPRECATED ljbsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
-
--- | To get information about all of the jobs associated with the current AWS account that have a given status, specify the following status: @Submitted@ , @Progressing@ , @Complete@ , @Canceled@ , or @Error@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbsStatus :: Lens.Lens' ListJobsByStatus Lude.Text
-ljbsStatus = Lens.lens (status :: ListJobsByStatus -> Lude.Text) (\s a -> s {status = a} :: ListJobsByStatus)
-{-# DEPRECATED ljbsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 instance Page.AWSPager ListJobsByStatus where
   page rq rs
@@ -135,24 +132,20 @@ instance Lude.ToQuery ListJobsByStatus where
 --
 -- /See:/ 'mkListJobsByStatusResponse' smart constructor.
 data ListJobsByStatusResponse = ListJobsByStatusResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An array of @Job@ objects that have the specified status.
     jobs :: Lude.Maybe [Job'],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsByStatusResponse' with the minimum fields required to make a request.
 --
--- * 'jobs' - An array of @Job@ objects that have the specified status.
 -- * 'nextPageToken' - A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
+-- * 'jobs' - An array of @Job@ objects that have the specified status.
 -- * 'responseStatus' - The response status code.
 mkListJobsByStatusResponse ::
   -- | 'responseStatus'

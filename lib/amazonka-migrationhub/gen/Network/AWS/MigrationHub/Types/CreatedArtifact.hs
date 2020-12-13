@@ -17,8 +17,8 @@ module Network.AWS.MigrationHub.Types.CreatedArtifact
     mkCreatedArtifact,
 
     -- * Lenses
-    caDescription,
     caName,
+    caDescription,
   )
 where
 
@@ -29,36 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreatedArtifact' smart constructor.
 data CreatedArtifact = CreatedArtifact'
-  { description ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | An ARN that uniquely identifies the result of a migration task.
+    name :: Lude.Text,
+    -- | A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatedArtifact' with the minimum fields required to make a request.
 --
--- * 'description' - A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
 -- * 'name' - An ARN that uniquely identifies the result of a migration task.
+-- * 'description' - A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
 mkCreatedArtifact ::
   -- | 'name'
   Lude.Text ->
   CreatedArtifact
 mkCreatedArtifact pName_ =
-  CreatedArtifact' {description = Lude.Nothing, name = pName_}
-
--- | A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDescription :: Lens.Lens' CreatedArtifact (Lude.Maybe Lude.Text)
-caDescription = Lens.lens (description :: CreatedArtifact -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatedArtifact)
-{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+  CreatedArtifact' {name = pName_, description = Lude.Nothing}
 
 -- | An ARN that uniquely identifies the result of a migration task.
 --
@@ -67,20 +55,27 @@ caName :: Lens.Lens' CreatedArtifact Lude.Text
 caName = Lens.lens (name :: CreatedArtifact -> Lude.Text) (\s a -> s {name = a} :: CreatedArtifact)
 {-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | A description that can be free-form text to record additional detail about the artifact for clarity or for later reference.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreatedArtifact (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreatedArtifact -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatedArtifact)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 instance Lude.FromJSON CreatedArtifact where
   parseJSON =
     Lude.withObject
       "CreatedArtifact"
       ( \x ->
           CreatedArtifact'
-            Lude.<$> (x Lude..:? "Description") Lude.<*> (x Lude..: "Name")
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..:? "Description")
       )
 
 instance Lude.ToJSON CreatedArtifact where
   toJSON CreatedArtifact' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            ("Description" Lude..=) Lude.<$> description
           ]
       )

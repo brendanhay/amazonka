@@ -30,23 +30,18 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { recurringChargeFrequency ::
-      Lude.Maybe Lude.Text,
+  { -- | The frequency at which the recurring charge amount is applied.
+    recurringChargeFrequency :: Lude.Maybe Lude.Text,
+    -- | The amount charged per the period of time specified by the recurring charge frequency.
     recurringChargeAmount :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
--- * 'recurringChargeAmount' - The amount charged per the period of time specified by the recurring charge frequency.
 -- * 'recurringChargeFrequency' - The frequency at which the recurring charge amount is applied.
+-- * 'recurringChargeAmount' - The amount charged per the period of time specified by the recurring charge frequency.
 mkRecurringCharge ::
   RecurringCharge
 mkRecurringCharge =

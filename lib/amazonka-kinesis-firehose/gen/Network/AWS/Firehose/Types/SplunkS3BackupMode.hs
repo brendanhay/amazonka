@@ -13,8 +13,8 @@
 module Network.AWS.Firehose.Types.SplunkS3BackupMode
   ( SplunkS3BackupMode
       ( SplunkS3BackupMode',
-        AllEvents,
-        FailedEventsOnly
+        FailedEventsOnly,
+        AllEvents
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SplunkS3BackupMode = SplunkS3BackupMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AllEvents :: SplunkS3BackupMode
-pattern AllEvents = SplunkS3BackupMode' "AllEvents"
-
 pattern FailedEventsOnly :: SplunkS3BackupMode
 pattern FailedEventsOnly = SplunkS3BackupMode' "FailedEventsOnly"
 
+pattern AllEvents :: SplunkS3BackupMode
+pattern AllEvents = SplunkS3BackupMode' "AllEvents"
+
 {-# COMPLETE
-  AllEvents,
   FailedEventsOnly,
+  AllEvents,
   SplunkS3BackupMode'
   #-}

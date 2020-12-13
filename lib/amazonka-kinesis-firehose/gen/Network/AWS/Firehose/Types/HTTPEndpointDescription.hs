@@ -29,8 +29,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPEndpointDescription' smart constructor.
 data HTTPEndpointDescription = HTTPEndpointDescription'
-  { url ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The URL of the HTTP endpoint selected as the destination.
+    url :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the HTTP endpoint selected as the destination.
     name :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -38,8 +39,8 @@ data HTTPEndpointDescription = HTTPEndpointDescription'
 
 -- | Creates a value of 'HTTPEndpointDescription' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the HTTP endpoint selected as the destination.
 -- * 'url' - The URL of the HTTP endpoint selected as the destination.
+-- * 'name' - The name of the HTTP endpoint selected as the destination.
 mkHTTPEndpointDescription ::
   HTTPEndpointDescription
 mkHTTPEndpointDescription =

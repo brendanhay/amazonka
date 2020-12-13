@@ -13,88 +13,88 @@
 module Network.AWS.GameLift.Types.EC2InstanceType
   ( EC2InstanceType
       ( EC2InstanceType',
-        EITC3_2XLarge,
-        EITC3_4XLarge,
-        EITC3_8XLarge,
-        EITC3_Large,
-        EITC3_XLarge,
-        EITC4_2XLarge,
-        EITC4_4XLarge,
-        EITC4_8XLarge,
-        EITC4_Large,
-        EITC4_XLarge,
-        EITC5_12XLarge,
-        EITC5_18XLarge,
-        EITC5_24XLarge,
-        EITC5_2XLarge,
-        EITC5_4XLarge,
-        EITC5_9XLarge,
-        EITC5_Large,
-        EITC5_XLarge,
-        EITC5a_12XLarge,
-        EITC5a_16XLarge,
-        EITC5a_24XLarge,
-        EITC5a_2XLarge,
-        EITC5a_4XLarge,
-        EITC5a_8XLarge,
-        EITC5a_Large,
-        EITC5a_XLarge,
-        EITM3_2XLarge,
-        EITM3_Large,
-        EITM3_Medium,
-        EITM3_XLarge,
-        EITM4_10XLarge,
-        EITM4_2XLarge,
-        EITM4_4XLarge,
-        EITM4_Large,
-        EITM4_XLarge,
-        EITM5_12XLarge,
-        EITM5_16XLarge,
-        EITM5_24XLarge,
-        EITM5_2XLarge,
-        EITM5_4XLarge,
-        EITM5_8XLarge,
-        EITM5_Large,
-        EITM5_XLarge,
-        EITM5a_12XLarge,
-        EITM5a_16XLarge,
-        EITM5a_24XLarge,
-        EITM5a_2XLarge,
-        EITM5a_4XLarge,
-        EITM5a_8XLarge,
-        EITM5a_Large,
-        EITM5a_XLarge,
-        EITR3_2XLarge,
-        EITR3_4XLarge,
-        EITR3_8XLarge,
-        EITR3_Large,
-        EITR3_XLarge,
-        EITR4_16XLarge,
-        EITR4_2XLarge,
-        EITR4_4XLarge,
-        EITR4_8XLarge,
-        EITR4_Large,
-        EITR4_XLarge,
-        EITR5_12XLarge,
-        EITR5_16XLarge,
-        EITR5_24XLarge,
-        EITR5_2XLarge,
-        EITR5_4XLarge,
-        EITR5_8XLarge,
-        EITR5_Large,
-        EITR5_XLarge,
-        EITR5a_12XLarge,
-        EITR5a_16XLarge,
-        EITR5a_24XLarge,
-        EITR5a_2XLarge,
-        EITR5a_4XLarge,
-        EITR5a_8XLarge,
-        EITR5a_Large,
-        EITR5a_XLarge,
-        EITT2_Large,
-        EITT2_Medium,
-        EITT2_Micro,
-        EITT2_Small
+        T2_Micro,
+        T2_Small,
+        T2_Medium,
+        T2_Large,
+        C3_Large,
+        C3_XLarge,
+        C3_2XLarge,
+        C3_4XLarge,
+        C3_8XLarge,
+        C4_Large,
+        C4_XLarge,
+        C4_2XLarge,
+        C4_4XLarge,
+        C4_8XLarge,
+        C5_Large,
+        C5_XLarge,
+        C5_2XLarge,
+        C5_4XLarge,
+        C5_9XLarge,
+        C5_12XLarge,
+        C5_18XLarge,
+        C5_24XLarge,
+        C5a_Large,
+        C5a_XLarge,
+        C5a_2XLarge,
+        C5a_4XLarge,
+        C5a_8XLarge,
+        C5a_12XLarge,
+        C5a_16XLarge,
+        C5a_24XLarge,
+        R3_Large,
+        R3_XLarge,
+        R3_2XLarge,
+        R3_4XLarge,
+        R3_8XLarge,
+        R4_Large,
+        R4_XLarge,
+        R4_2XLarge,
+        R4_4XLarge,
+        R4_8XLarge,
+        R4_16XLarge,
+        R5_Large,
+        R5_XLarge,
+        R5_2XLarge,
+        R5_4XLarge,
+        R5_8XLarge,
+        R5_12XLarge,
+        R5_16XLarge,
+        R5_24XLarge,
+        R5a_Large,
+        R5a_XLarge,
+        R5a_2XLarge,
+        R5a_4XLarge,
+        R5a_8XLarge,
+        R5a_12XLarge,
+        R5a_16XLarge,
+        R5a_24XLarge,
+        M3_Medium,
+        M3_Large,
+        M3_XLarge,
+        M3_2XLarge,
+        M4_Large,
+        M4_XLarge,
+        M4_2XLarge,
+        M4_4XLarge,
+        M4_10XLarge,
+        M5_Large,
+        M5_XLarge,
+        M5_2XLarge,
+        M5_4XLarge,
+        M5_8XLarge,
+        M5_12XLarge,
+        M5_16XLarge,
+        M5_24XLarge,
+        M5a_Large,
+        M5a_XLarge,
+        M5a_2XLarge,
+        M5a_4XLarge,
+        M5a_8XLarge,
+        M5a_12XLarge,
+        M5a_16XLarge,
+        M5a_24XLarge
       ),
   )
 where
@@ -125,334 +125,334 @@ newtype EC2InstanceType = EC2InstanceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern EITC3_2XLarge :: EC2InstanceType
-pattern EITC3_2XLarge = EC2InstanceType' "c3.2xlarge"
+pattern T2_Micro :: EC2InstanceType
+pattern T2_Micro = EC2InstanceType' "t2.micro"
 
-pattern EITC3_4XLarge :: EC2InstanceType
-pattern EITC3_4XLarge = EC2InstanceType' "c3.4xlarge"
+pattern T2_Small :: EC2InstanceType
+pattern T2_Small = EC2InstanceType' "t2.small"
 
-pattern EITC3_8XLarge :: EC2InstanceType
-pattern EITC3_8XLarge = EC2InstanceType' "c3.8xlarge"
+pattern T2_Medium :: EC2InstanceType
+pattern T2_Medium = EC2InstanceType' "t2.medium"
 
-pattern EITC3_Large :: EC2InstanceType
-pattern EITC3_Large = EC2InstanceType' "c3.large"
+pattern T2_Large :: EC2InstanceType
+pattern T2_Large = EC2InstanceType' "t2.large"
 
-pattern EITC3_XLarge :: EC2InstanceType
-pattern EITC3_XLarge = EC2InstanceType' "c3.xlarge"
+pattern C3_Large :: EC2InstanceType
+pattern C3_Large = EC2InstanceType' "c3.large"
 
-pattern EITC4_2XLarge :: EC2InstanceType
-pattern EITC4_2XLarge = EC2InstanceType' "c4.2xlarge"
+pattern C3_XLarge :: EC2InstanceType
+pattern C3_XLarge = EC2InstanceType' "c3.xlarge"
 
-pattern EITC4_4XLarge :: EC2InstanceType
-pattern EITC4_4XLarge = EC2InstanceType' "c4.4xlarge"
+pattern C3_2XLarge :: EC2InstanceType
+pattern C3_2XLarge = EC2InstanceType' "c3.2xlarge"
 
-pattern EITC4_8XLarge :: EC2InstanceType
-pattern EITC4_8XLarge = EC2InstanceType' "c4.8xlarge"
+pattern C3_4XLarge :: EC2InstanceType
+pattern C3_4XLarge = EC2InstanceType' "c3.4xlarge"
 
-pattern EITC4_Large :: EC2InstanceType
-pattern EITC4_Large = EC2InstanceType' "c4.large"
+pattern C3_8XLarge :: EC2InstanceType
+pattern C3_8XLarge = EC2InstanceType' "c3.8xlarge"
 
-pattern EITC4_XLarge :: EC2InstanceType
-pattern EITC4_XLarge = EC2InstanceType' "c4.xlarge"
+pattern C4_Large :: EC2InstanceType
+pattern C4_Large = EC2InstanceType' "c4.large"
 
-pattern EITC5_12XLarge :: EC2InstanceType
-pattern EITC5_12XLarge = EC2InstanceType' "c5.12xlarge"
+pattern C4_XLarge :: EC2InstanceType
+pattern C4_XLarge = EC2InstanceType' "c4.xlarge"
 
-pattern EITC5_18XLarge :: EC2InstanceType
-pattern EITC5_18XLarge = EC2InstanceType' "c5.18xlarge"
+pattern C4_2XLarge :: EC2InstanceType
+pattern C4_2XLarge = EC2InstanceType' "c4.2xlarge"
 
-pattern EITC5_24XLarge :: EC2InstanceType
-pattern EITC5_24XLarge = EC2InstanceType' "c5.24xlarge"
+pattern C4_4XLarge :: EC2InstanceType
+pattern C4_4XLarge = EC2InstanceType' "c4.4xlarge"
 
-pattern EITC5_2XLarge :: EC2InstanceType
-pattern EITC5_2XLarge = EC2InstanceType' "c5.2xlarge"
+pattern C4_8XLarge :: EC2InstanceType
+pattern C4_8XLarge = EC2InstanceType' "c4.8xlarge"
 
-pattern EITC5_4XLarge :: EC2InstanceType
-pattern EITC5_4XLarge = EC2InstanceType' "c5.4xlarge"
+pattern C5_Large :: EC2InstanceType
+pattern C5_Large = EC2InstanceType' "c5.large"
 
-pattern EITC5_9XLarge :: EC2InstanceType
-pattern EITC5_9XLarge = EC2InstanceType' "c5.9xlarge"
+pattern C5_XLarge :: EC2InstanceType
+pattern C5_XLarge = EC2InstanceType' "c5.xlarge"
 
-pattern EITC5_Large :: EC2InstanceType
-pattern EITC5_Large = EC2InstanceType' "c5.large"
+pattern C5_2XLarge :: EC2InstanceType
+pattern C5_2XLarge = EC2InstanceType' "c5.2xlarge"
 
-pattern EITC5_XLarge :: EC2InstanceType
-pattern EITC5_XLarge = EC2InstanceType' "c5.xlarge"
+pattern C5_4XLarge :: EC2InstanceType
+pattern C5_4XLarge = EC2InstanceType' "c5.4xlarge"
 
-pattern EITC5a_12XLarge :: EC2InstanceType
-pattern EITC5a_12XLarge = EC2InstanceType' "c5a.12xlarge"
+pattern C5_9XLarge :: EC2InstanceType
+pattern C5_9XLarge = EC2InstanceType' "c5.9xlarge"
 
-pattern EITC5a_16XLarge :: EC2InstanceType
-pattern EITC5a_16XLarge = EC2InstanceType' "c5a.16xlarge"
+pattern C5_12XLarge :: EC2InstanceType
+pattern C5_12XLarge = EC2InstanceType' "c5.12xlarge"
 
-pattern EITC5a_24XLarge :: EC2InstanceType
-pattern EITC5a_24XLarge = EC2InstanceType' "c5a.24xlarge"
+pattern C5_18XLarge :: EC2InstanceType
+pattern C5_18XLarge = EC2InstanceType' "c5.18xlarge"
 
-pattern EITC5a_2XLarge :: EC2InstanceType
-pattern EITC5a_2XLarge = EC2InstanceType' "c5a.2xlarge"
+pattern C5_24XLarge :: EC2InstanceType
+pattern C5_24XLarge = EC2InstanceType' "c5.24xlarge"
 
-pattern EITC5a_4XLarge :: EC2InstanceType
-pattern EITC5a_4XLarge = EC2InstanceType' "c5a.4xlarge"
+pattern C5a_Large :: EC2InstanceType
+pattern C5a_Large = EC2InstanceType' "c5a.large"
 
-pattern EITC5a_8XLarge :: EC2InstanceType
-pattern EITC5a_8XLarge = EC2InstanceType' "c5a.8xlarge"
+pattern C5a_XLarge :: EC2InstanceType
+pattern C5a_XLarge = EC2InstanceType' "c5a.xlarge"
 
-pattern EITC5a_Large :: EC2InstanceType
-pattern EITC5a_Large = EC2InstanceType' "c5a.large"
+pattern C5a_2XLarge :: EC2InstanceType
+pattern C5a_2XLarge = EC2InstanceType' "c5a.2xlarge"
 
-pattern EITC5a_XLarge :: EC2InstanceType
-pattern EITC5a_XLarge = EC2InstanceType' "c5a.xlarge"
+pattern C5a_4XLarge :: EC2InstanceType
+pattern C5a_4XLarge = EC2InstanceType' "c5a.4xlarge"
 
-pattern EITM3_2XLarge :: EC2InstanceType
-pattern EITM3_2XLarge = EC2InstanceType' "m3.2xlarge"
+pattern C5a_8XLarge :: EC2InstanceType
+pattern C5a_8XLarge = EC2InstanceType' "c5a.8xlarge"
 
-pattern EITM3_Large :: EC2InstanceType
-pattern EITM3_Large = EC2InstanceType' "m3.large"
+pattern C5a_12XLarge :: EC2InstanceType
+pattern C5a_12XLarge = EC2InstanceType' "c5a.12xlarge"
 
-pattern EITM3_Medium :: EC2InstanceType
-pattern EITM3_Medium = EC2InstanceType' "m3.medium"
+pattern C5a_16XLarge :: EC2InstanceType
+pattern C5a_16XLarge = EC2InstanceType' "c5a.16xlarge"
 
-pattern EITM3_XLarge :: EC2InstanceType
-pattern EITM3_XLarge = EC2InstanceType' "m3.xlarge"
+pattern C5a_24XLarge :: EC2InstanceType
+pattern C5a_24XLarge = EC2InstanceType' "c5a.24xlarge"
 
-pattern EITM4_10XLarge :: EC2InstanceType
-pattern EITM4_10XLarge = EC2InstanceType' "m4.10xlarge"
+pattern R3_Large :: EC2InstanceType
+pattern R3_Large = EC2InstanceType' "r3.large"
 
-pattern EITM4_2XLarge :: EC2InstanceType
-pattern EITM4_2XLarge = EC2InstanceType' "m4.2xlarge"
+pattern R3_XLarge :: EC2InstanceType
+pattern R3_XLarge = EC2InstanceType' "r3.xlarge"
 
-pattern EITM4_4XLarge :: EC2InstanceType
-pattern EITM4_4XLarge = EC2InstanceType' "m4.4xlarge"
+pattern R3_2XLarge :: EC2InstanceType
+pattern R3_2XLarge = EC2InstanceType' "r3.2xlarge"
 
-pattern EITM4_Large :: EC2InstanceType
-pattern EITM4_Large = EC2InstanceType' "m4.large"
+pattern R3_4XLarge :: EC2InstanceType
+pattern R3_4XLarge = EC2InstanceType' "r3.4xlarge"
 
-pattern EITM4_XLarge :: EC2InstanceType
-pattern EITM4_XLarge = EC2InstanceType' "m4.xlarge"
+pattern R3_8XLarge :: EC2InstanceType
+pattern R3_8XLarge = EC2InstanceType' "r3.8xlarge"
 
-pattern EITM5_12XLarge :: EC2InstanceType
-pattern EITM5_12XLarge = EC2InstanceType' "m5.12xlarge"
+pattern R4_Large :: EC2InstanceType
+pattern R4_Large = EC2InstanceType' "r4.large"
 
-pattern EITM5_16XLarge :: EC2InstanceType
-pattern EITM5_16XLarge = EC2InstanceType' "m5.16xlarge"
+pattern R4_XLarge :: EC2InstanceType
+pattern R4_XLarge = EC2InstanceType' "r4.xlarge"
 
-pattern EITM5_24XLarge :: EC2InstanceType
-pattern EITM5_24XLarge = EC2InstanceType' "m5.24xlarge"
+pattern R4_2XLarge :: EC2InstanceType
+pattern R4_2XLarge = EC2InstanceType' "r4.2xlarge"
 
-pattern EITM5_2XLarge :: EC2InstanceType
-pattern EITM5_2XLarge = EC2InstanceType' "m5.2xlarge"
+pattern R4_4XLarge :: EC2InstanceType
+pattern R4_4XLarge = EC2InstanceType' "r4.4xlarge"
 
-pattern EITM5_4XLarge :: EC2InstanceType
-pattern EITM5_4XLarge = EC2InstanceType' "m5.4xlarge"
+pattern R4_8XLarge :: EC2InstanceType
+pattern R4_8XLarge = EC2InstanceType' "r4.8xlarge"
 
-pattern EITM5_8XLarge :: EC2InstanceType
-pattern EITM5_8XLarge = EC2InstanceType' "m5.8xlarge"
+pattern R4_16XLarge :: EC2InstanceType
+pattern R4_16XLarge = EC2InstanceType' "r4.16xlarge"
 
-pattern EITM5_Large :: EC2InstanceType
-pattern EITM5_Large = EC2InstanceType' "m5.large"
+pattern R5_Large :: EC2InstanceType
+pattern R5_Large = EC2InstanceType' "r5.large"
 
-pattern EITM5_XLarge :: EC2InstanceType
-pattern EITM5_XLarge = EC2InstanceType' "m5.xlarge"
+pattern R5_XLarge :: EC2InstanceType
+pattern R5_XLarge = EC2InstanceType' "r5.xlarge"
 
-pattern EITM5a_12XLarge :: EC2InstanceType
-pattern EITM5a_12XLarge = EC2InstanceType' "m5a.12xlarge"
+pattern R5_2XLarge :: EC2InstanceType
+pattern R5_2XLarge = EC2InstanceType' "r5.2xlarge"
 
-pattern EITM5a_16XLarge :: EC2InstanceType
-pattern EITM5a_16XLarge = EC2InstanceType' "m5a.16xlarge"
+pattern R5_4XLarge :: EC2InstanceType
+pattern R5_4XLarge = EC2InstanceType' "r5.4xlarge"
 
-pattern EITM5a_24XLarge :: EC2InstanceType
-pattern EITM5a_24XLarge = EC2InstanceType' "m5a.24xlarge"
+pattern R5_8XLarge :: EC2InstanceType
+pattern R5_8XLarge = EC2InstanceType' "r5.8xlarge"
 
-pattern EITM5a_2XLarge :: EC2InstanceType
-pattern EITM5a_2XLarge = EC2InstanceType' "m5a.2xlarge"
+pattern R5_12XLarge :: EC2InstanceType
+pattern R5_12XLarge = EC2InstanceType' "r5.12xlarge"
 
-pattern EITM5a_4XLarge :: EC2InstanceType
-pattern EITM5a_4XLarge = EC2InstanceType' "m5a.4xlarge"
+pattern R5_16XLarge :: EC2InstanceType
+pattern R5_16XLarge = EC2InstanceType' "r5.16xlarge"
 
-pattern EITM5a_8XLarge :: EC2InstanceType
-pattern EITM5a_8XLarge = EC2InstanceType' "m5a.8xlarge"
+pattern R5_24XLarge :: EC2InstanceType
+pattern R5_24XLarge = EC2InstanceType' "r5.24xlarge"
 
-pattern EITM5a_Large :: EC2InstanceType
-pattern EITM5a_Large = EC2InstanceType' "m5a.large"
+pattern R5a_Large :: EC2InstanceType
+pattern R5a_Large = EC2InstanceType' "r5a.large"
 
-pattern EITM5a_XLarge :: EC2InstanceType
-pattern EITM5a_XLarge = EC2InstanceType' "m5a.xlarge"
+pattern R5a_XLarge :: EC2InstanceType
+pattern R5a_XLarge = EC2InstanceType' "r5a.xlarge"
 
-pattern EITR3_2XLarge :: EC2InstanceType
-pattern EITR3_2XLarge = EC2InstanceType' "r3.2xlarge"
+pattern R5a_2XLarge :: EC2InstanceType
+pattern R5a_2XLarge = EC2InstanceType' "r5a.2xlarge"
 
-pattern EITR3_4XLarge :: EC2InstanceType
-pattern EITR3_4XLarge = EC2InstanceType' "r3.4xlarge"
+pattern R5a_4XLarge :: EC2InstanceType
+pattern R5a_4XLarge = EC2InstanceType' "r5a.4xlarge"
 
-pattern EITR3_8XLarge :: EC2InstanceType
-pattern EITR3_8XLarge = EC2InstanceType' "r3.8xlarge"
+pattern R5a_8XLarge :: EC2InstanceType
+pattern R5a_8XLarge = EC2InstanceType' "r5a.8xlarge"
 
-pattern EITR3_Large :: EC2InstanceType
-pattern EITR3_Large = EC2InstanceType' "r3.large"
+pattern R5a_12XLarge :: EC2InstanceType
+pattern R5a_12XLarge = EC2InstanceType' "r5a.12xlarge"
 
-pattern EITR3_XLarge :: EC2InstanceType
-pattern EITR3_XLarge = EC2InstanceType' "r3.xlarge"
+pattern R5a_16XLarge :: EC2InstanceType
+pattern R5a_16XLarge = EC2InstanceType' "r5a.16xlarge"
 
-pattern EITR4_16XLarge :: EC2InstanceType
-pattern EITR4_16XLarge = EC2InstanceType' "r4.16xlarge"
+pattern R5a_24XLarge :: EC2InstanceType
+pattern R5a_24XLarge = EC2InstanceType' "r5a.24xlarge"
 
-pattern EITR4_2XLarge :: EC2InstanceType
-pattern EITR4_2XLarge = EC2InstanceType' "r4.2xlarge"
+pattern M3_Medium :: EC2InstanceType
+pattern M3_Medium = EC2InstanceType' "m3.medium"
 
-pattern EITR4_4XLarge :: EC2InstanceType
-pattern EITR4_4XLarge = EC2InstanceType' "r4.4xlarge"
+pattern M3_Large :: EC2InstanceType
+pattern M3_Large = EC2InstanceType' "m3.large"
 
-pattern EITR4_8XLarge :: EC2InstanceType
-pattern EITR4_8XLarge = EC2InstanceType' "r4.8xlarge"
+pattern M3_XLarge :: EC2InstanceType
+pattern M3_XLarge = EC2InstanceType' "m3.xlarge"
 
-pattern EITR4_Large :: EC2InstanceType
-pattern EITR4_Large = EC2InstanceType' "r4.large"
+pattern M3_2XLarge :: EC2InstanceType
+pattern M3_2XLarge = EC2InstanceType' "m3.2xlarge"
 
-pattern EITR4_XLarge :: EC2InstanceType
-pattern EITR4_XLarge = EC2InstanceType' "r4.xlarge"
+pattern M4_Large :: EC2InstanceType
+pattern M4_Large = EC2InstanceType' "m4.large"
 
-pattern EITR5_12XLarge :: EC2InstanceType
-pattern EITR5_12XLarge = EC2InstanceType' "r5.12xlarge"
+pattern M4_XLarge :: EC2InstanceType
+pattern M4_XLarge = EC2InstanceType' "m4.xlarge"
 
-pattern EITR5_16XLarge :: EC2InstanceType
-pattern EITR5_16XLarge = EC2InstanceType' "r5.16xlarge"
+pattern M4_2XLarge :: EC2InstanceType
+pattern M4_2XLarge = EC2InstanceType' "m4.2xlarge"
 
-pattern EITR5_24XLarge :: EC2InstanceType
-pattern EITR5_24XLarge = EC2InstanceType' "r5.24xlarge"
+pattern M4_4XLarge :: EC2InstanceType
+pattern M4_4XLarge = EC2InstanceType' "m4.4xlarge"
 
-pattern EITR5_2XLarge :: EC2InstanceType
-pattern EITR5_2XLarge = EC2InstanceType' "r5.2xlarge"
+pattern M4_10XLarge :: EC2InstanceType
+pattern M4_10XLarge = EC2InstanceType' "m4.10xlarge"
 
-pattern EITR5_4XLarge :: EC2InstanceType
-pattern EITR5_4XLarge = EC2InstanceType' "r5.4xlarge"
+pattern M5_Large :: EC2InstanceType
+pattern M5_Large = EC2InstanceType' "m5.large"
 
-pattern EITR5_8XLarge :: EC2InstanceType
-pattern EITR5_8XLarge = EC2InstanceType' "r5.8xlarge"
+pattern M5_XLarge :: EC2InstanceType
+pattern M5_XLarge = EC2InstanceType' "m5.xlarge"
 
-pattern EITR5_Large :: EC2InstanceType
-pattern EITR5_Large = EC2InstanceType' "r5.large"
+pattern M5_2XLarge :: EC2InstanceType
+pattern M5_2XLarge = EC2InstanceType' "m5.2xlarge"
 
-pattern EITR5_XLarge :: EC2InstanceType
-pattern EITR5_XLarge = EC2InstanceType' "r5.xlarge"
+pattern M5_4XLarge :: EC2InstanceType
+pattern M5_4XLarge = EC2InstanceType' "m5.4xlarge"
 
-pattern EITR5a_12XLarge :: EC2InstanceType
-pattern EITR5a_12XLarge = EC2InstanceType' "r5a.12xlarge"
+pattern M5_8XLarge :: EC2InstanceType
+pattern M5_8XLarge = EC2InstanceType' "m5.8xlarge"
 
-pattern EITR5a_16XLarge :: EC2InstanceType
-pattern EITR5a_16XLarge = EC2InstanceType' "r5a.16xlarge"
+pattern M5_12XLarge :: EC2InstanceType
+pattern M5_12XLarge = EC2InstanceType' "m5.12xlarge"
 
-pattern EITR5a_24XLarge :: EC2InstanceType
-pattern EITR5a_24XLarge = EC2InstanceType' "r5a.24xlarge"
+pattern M5_16XLarge :: EC2InstanceType
+pattern M5_16XLarge = EC2InstanceType' "m5.16xlarge"
 
-pattern EITR5a_2XLarge :: EC2InstanceType
-pattern EITR5a_2XLarge = EC2InstanceType' "r5a.2xlarge"
+pattern M5_24XLarge :: EC2InstanceType
+pattern M5_24XLarge = EC2InstanceType' "m5.24xlarge"
 
-pattern EITR5a_4XLarge :: EC2InstanceType
-pattern EITR5a_4XLarge = EC2InstanceType' "r5a.4xlarge"
+pattern M5a_Large :: EC2InstanceType
+pattern M5a_Large = EC2InstanceType' "m5a.large"
 
-pattern EITR5a_8XLarge :: EC2InstanceType
-pattern EITR5a_8XLarge = EC2InstanceType' "r5a.8xlarge"
+pattern M5a_XLarge :: EC2InstanceType
+pattern M5a_XLarge = EC2InstanceType' "m5a.xlarge"
 
-pattern EITR5a_Large :: EC2InstanceType
-pattern EITR5a_Large = EC2InstanceType' "r5a.large"
+pattern M5a_2XLarge :: EC2InstanceType
+pattern M5a_2XLarge = EC2InstanceType' "m5a.2xlarge"
 
-pattern EITR5a_XLarge :: EC2InstanceType
-pattern EITR5a_XLarge = EC2InstanceType' "r5a.xlarge"
+pattern M5a_4XLarge :: EC2InstanceType
+pattern M5a_4XLarge = EC2InstanceType' "m5a.4xlarge"
 
-pattern EITT2_Large :: EC2InstanceType
-pattern EITT2_Large = EC2InstanceType' "t2.large"
+pattern M5a_8XLarge :: EC2InstanceType
+pattern M5a_8XLarge = EC2InstanceType' "m5a.8xlarge"
 
-pattern EITT2_Medium :: EC2InstanceType
-pattern EITT2_Medium = EC2InstanceType' "t2.medium"
+pattern M5a_12XLarge :: EC2InstanceType
+pattern M5a_12XLarge = EC2InstanceType' "m5a.12xlarge"
 
-pattern EITT2_Micro :: EC2InstanceType
-pattern EITT2_Micro = EC2InstanceType' "t2.micro"
+pattern M5a_16XLarge :: EC2InstanceType
+pattern M5a_16XLarge = EC2InstanceType' "m5a.16xlarge"
 
-pattern EITT2_Small :: EC2InstanceType
-pattern EITT2_Small = EC2InstanceType' "t2.small"
+pattern M5a_24XLarge :: EC2InstanceType
+pattern M5a_24XLarge = EC2InstanceType' "m5a.24xlarge"
 
 {-# COMPLETE
-  EITC3_2XLarge,
-  EITC3_4XLarge,
-  EITC3_8XLarge,
-  EITC3_Large,
-  EITC3_XLarge,
-  EITC4_2XLarge,
-  EITC4_4XLarge,
-  EITC4_8XLarge,
-  EITC4_Large,
-  EITC4_XLarge,
-  EITC5_12XLarge,
-  EITC5_18XLarge,
-  EITC5_24XLarge,
-  EITC5_2XLarge,
-  EITC5_4XLarge,
-  EITC5_9XLarge,
-  EITC5_Large,
-  EITC5_XLarge,
-  EITC5a_12XLarge,
-  EITC5a_16XLarge,
-  EITC5a_24XLarge,
-  EITC5a_2XLarge,
-  EITC5a_4XLarge,
-  EITC5a_8XLarge,
-  EITC5a_Large,
-  EITC5a_XLarge,
-  EITM3_2XLarge,
-  EITM3_Large,
-  EITM3_Medium,
-  EITM3_XLarge,
-  EITM4_10XLarge,
-  EITM4_2XLarge,
-  EITM4_4XLarge,
-  EITM4_Large,
-  EITM4_XLarge,
-  EITM5_12XLarge,
-  EITM5_16XLarge,
-  EITM5_24XLarge,
-  EITM5_2XLarge,
-  EITM5_4XLarge,
-  EITM5_8XLarge,
-  EITM5_Large,
-  EITM5_XLarge,
-  EITM5a_12XLarge,
-  EITM5a_16XLarge,
-  EITM5a_24XLarge,
-  EITM5a_2XLarge,
-  EITM5a_4XLarge,
-  EITM5a_8XLarge,
-  EITM5a_Large,
-  EITM5a_XLarge,
-  EITR3_2XLarge,
-  EITR3_4XLarge,
-  EITR3_8XLarge,
-  EITR3_Large,
-  EITR3_XLarge,
-  EITR4_16XLarge,
-  EITR4_2XLarge,
-  EITR4_4XLarge,
-  EITR4_8XLarge,
-  EITR4_Large,
-  EITR4_XLarge,
-  EITR5_12XLarge,
-  EITR5_16XLarge,
-  EITR5_24XLarge,
-  EITR5_2XLarge,
-  EITR5_4XLarge,
-  EITR5_8XLarge,
-  EITR5_Large,
-  EITR5_XLarge,
-  EITR5a_12XLarge,
-  EITR5a_16XLarge,
-  EITR5a_24XLarge,
-  EITR5a_2XLarge,
-  EITR5a_4XLarge,
-  EITR5a_8XLarge,
-  EITR5a_Large,
-  EITR5a_XLarge,
-  EITT2_Large,
-  EITT2_Medium,
-  EITT2_Micro,
-  EITT2_Small,
+  T2_Micro,
+  T2_Small,
+  T2_Medium,
+  T2_Large,
+  C3_Large,
+  C3_XLarge,
+  C3_2XLarge,
+  C3_4XLarge,
+  C3_8XLarge,
+  C4_Large,
+  C4_XLarge,
+  C4_2XLarge,
+  C4_4XLarge,
+  C4_8XLarge,
+  C5_Large,
+  C5_XLarge,
+  C5_2XLarge,
+  C5_4XLarge,
+  C5_9XLarge,
+  C5_12XLarge,
+  C5_18XLarge,
+  C5_24XLarge,
+  C5a_Large,
+  C5a_XLarge,
+  C5a_2XLarge,
+  C5a_4XLarge,
+  C5a_8XLarge,
+  C5a_12XLarge,
+  C5a_16XLarge,
+  C5a_24XLarge,
+  R3_Large,
+  R3_XLarge,
+  R3_2XLarge,
+  R3_4XLarge,
+  R3_8XLarge,
+  R4_Large,
+  R4_XLarge,
+  R4_2XLarge,
+  R4_4XLarge,
+  R4_8XLarge,
+  R4_16XLarge,
+  R5_Large,
+  R5_XLarge,
+  R5_2XLarge,
+  R5_4XLarge,
+  R5_8XLarge,
+  R5_12XLarge,
+  R5_16XLarge,
+  R5_24XLarge,
+  R5a_Large,
+  R5a_XLarge,
+  R5a_2XLarge,
+  R5a_4XLarge,
+  R5a_8XLarge,
+  R5a_12XLarge,
+  R5a_16XLarge,
+  R5a_24XLarge,
+  M3_Medium,
+  M3_Large,
+  M3_XLarge,
+  M3_2XLarge,
+  M4_Large,
+  M4_XLarge,
+  M4_2XLarge,
+  M4_4XLarge,
+  M4_10XLarge,
+  M5_Large,
+  M5_XLarge,
+  M5_2XLarge,
+  M5_4XLarge,
+  M5_8XLarge,
+  M5_12XLarge,
+  M5_16XLarge,
+  M5_24XLarge,
+  M5a_Large,
+  M5a_XLarge,
+  M5a_2XLarge,
+  M5a_4XLarge,
+  M5a_8XLarge,
+  M5a_12XLarge,
+  M5a_16XLarge,
+  M5a_24XLarge,
   EC2InstanceType'
   #-}

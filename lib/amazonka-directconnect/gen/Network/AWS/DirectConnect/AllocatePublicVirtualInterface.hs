@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -67,26 +68,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAllocatePublicVirtualInterface' smart constructor.
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
-  { connectionId ::
-      Lude.Text,
+  { -- | The ID of the connection on which the public virtual interface is provisioned.
+    connectionId :: Lude.Text,
+    -- | The ID of the AWS account that owns the public virtual interface.
     ownerAccount :: Lude.Text,
-    newPublicVirtualInterfaceAllocation ::
-      NewPublicVirtualInterfaceAllocation
+    -- | Information about the public virtual interface.
+    newPublicVirtualInterfaceAllocation :: NewPublicVirtualInterfaceAllocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocatePublicVirtualInterface' with the minimum fields required to make a request.
 --
 -- * 'connectionId' - The ID of the connection on which the public virtual interface is provisioned.
--- * 'newPublicVirtualInterfaceAllocation' - Information about the public virtual interface.
 -- * 'ownerAccount' - The ID of the AWS account that owns the public virtual interface.
+-- * 'newPublicVirtualInterfaceAllocation' - Information about the public virtual interface.
 mkAllocatePublicVirtualInterface ::
   -- | 'connectionId'
   Lude.Text ->

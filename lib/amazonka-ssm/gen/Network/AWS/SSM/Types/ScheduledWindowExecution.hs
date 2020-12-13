@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledWindowExecution' smart constructor.
 data ScheduledWindowExecution = ScheduledWindowExecution'
-  { executionTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be run.
+    executionTime :: Lude.Maybe Lude.Text,
+    -- | The name of the maintenance window to be run.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the maintenance window to be run.
     windowId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledWindowExecution' with the minimum fields required to make a request.

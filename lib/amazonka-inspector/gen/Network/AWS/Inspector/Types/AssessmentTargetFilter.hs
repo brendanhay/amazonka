@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssessmentTargetFilter' smart constructor.
 newtype AssessmentTargetFilter = AssessmentTargetFilter'
-  { assessmentTargetNamePattern ::
-      Lude.Maybe Lude.Text
+  { -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
+    assessmentTargetNamePattern :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssessmentTargetFilter' with the minimum fields required to make a request.

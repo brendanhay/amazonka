@@ -40,42 +40,45 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the Amazon Redshift event notification subscription.
+    --
+    -- Constraints:
+    --
+    --     * Can be one of the following: active | no-permission | topic-not-exist
+    --
+    --
+    --     * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+    status :: Lude.Maybe Lude.Text,
+    -- | The AWS customer account associated with the Amazon Redshift event notification subscription.
     customerAWSId :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon Redshift event notification subscription.
     custSubscriptionId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event notification subscription.
     snsTopicARN :: Lude.Maybe Lude.Text,
+    -- | A boolean value indicating whether the subscription is enabled; @true@ indicates that the subscription is enabled.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The source type of the events returned by the Amazon Redshift event notification, such as cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, or scheduled-action.
     sourceType :: Lude.Maybe Lude.Text,
+    -- | The event severity specified in the Amazon Redshift event notification subscription.
+    --
+    -- Values: ERROR, INFO
     severity :: Lude.Maybe Lude.Text,
+    -- | The date and time the Amazon Redshift event notification subscription was created.
     subscriptionCreationTime :: Lude.Maybe Lude.DateTime,
+    -- | The list of Amazon Redshift event categories specified in the event notification subscription.
+    --
+    -- Values: Configuration, Management, Monitoring, Security
     eventCategoriesList :: Lude.Maybe [Lude.Text],
+    -- | The list of tags for the event subscription.
     tags :: Lude.Maybe [Tag],
+    -- | A list of the sources that publish events to the Amazon Redshift event notification subscription.
     sourceIdsList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
--- * 'custSubscriptionId' - The name of the Amazon Redshift event notification subscription.
--- * 'customerAWSId' - The AWS customer account associated with the Amazon Redshift event notification subscription.
--- * 'enabled' - A boolean value indicating whether the subscription is enabled; @true@ indicates that the subscription is enabled.
--- * 'eventCategoriesList' - The list of Amazon Redshift event categories specified in the event notification subscription.
---
--- Values: Configuration, Management, Monitoring, Security
--- * 'severity' - The event severity specified in the Amazon Redshift event notification subscription.
---
--- Values: ERROR, INFO
--- * 'snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event notification subscription.
--- * 'sourceIdsList' - A list of the sources that publish events to the Amazon Redshift event notification subscription.
--- * 'sourceType' - The source type of the events returned by the Amazon Redshift event notification, such as cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, or scheduled-action.
 -- * 'status' - The status of the Amazon Redshift event notification subscription.
 --
 -- Constraints:
@@ -86,8 +89,20 @@ data EventSubscription = EventSubscription'
 --     * The status "no-permission" indicates that Amazon Redshift no longer has permission to post to the Amazon SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
 --
 --
+-- * 'customerAWSId' - The AWS customer account associated with the Amazon Redshift event notification subscription.
+-- * 'custSubscriptionId' - The name of the Amazon Redshift event notification subscription.
+-- * 'snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event notification subscription.
+-- * 'enabled' - A boolean value indicating whether the subscription is enabled; @true@ indicates that the subscription is enabled.
+-- * 'sourceType' - The source type of the events returned by the Amazon Redshift event notification, such as cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, or scheduled-action.
+-- * 'severity' - The event severity specified in the Amazon Redshift event notification subscription.
+--
+-- Values: ERROR, INFO
 -- * 'subscriptionCreationTime' - The date and time the Amazon Redshift event notification subscription was created.
+-- * 'eventCategoriesList' - The list of Amazon Redshift event categories specified in the event notification subscription.
+--
+-- Values: Configuration, Management, Monitoring, Security
 -- * 'tags' - The list of tags for the event subscription.
+-- * 'sourceIdsList' - A list of the sources that publish events to the Amazon Redshift event notification subscription.
 mkEventSubscription ::
   EventSubscription
 mkEventSubscription =

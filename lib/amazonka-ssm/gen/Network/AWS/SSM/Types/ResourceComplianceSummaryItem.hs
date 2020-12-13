@@ -40,43 +40,36 @@ import Network.AWS.SSM.Types.NonCompliantSummary
 --
 -- /See:/ 'mkResourceComplianceSummaryItem' smart constructor.
 data ResourceComplianceSummaryItem = ResourceComplianceSummaryItem'
-  { nonCompliantSummary ::
-      Lude.Maybe NonCompliantSummary,
-    status ::
-      Lude.Maybe ComplianceStatus,
-    resourceId ::
-      Lude.Maybe Lude.Text,
-    resourceType ::
-      Lude.Maybe Lude.Text,
-    compliantSummary ::
-      Lude.Maybe CompliantSummary,
-    executionSummary ::
-      Lude.Maybe
-        ComplianceExecutionSummary,
-    overallSeverity ::
-      Lude.Maybe ComplianceSeverity,
-    complianceType ::
-      Lude.Maybe Lude.Text
+  { -- | A list of items that aren't compliant for the resource.
+    nonCompliantSummary :: Lude.Maybe NonCompliantSummary,
+    -- | The compliance status for the resource.
+    status :: Lude.Maybe ComplianceStatus,
+    -- | The resource ID.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The resource type.
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | A list of items that are compliant for the resource.
+    compliantSummary :: Lude.Maybe CompliantSummary,
+    -- | Information about the execution.
+    executionSummary :: Lude.Maybe ComplianceExecutionSummary,
+    -- | The highest severity item found for the resource. The resource is compliant for this item.
+    overallSeverity :: Lude.Maybe ComplianceSeverity,
+    -- | The compliance type.
+    complianceType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceComplianceSummaryItem' with the minimum fields required to make a request.
 --
--- * 'complianceType' - The compliance type.
--- * 'compliantSummary' - A list of items that are compliant for the resource.
--- * 'executionSummary' - Information about the execution.
 -- * 'nonCompliantSummary' - A list of items that aren't compliant for the resource.
--- * 'overallSeverity' - The highest severity item found for the resource. The resource is compliant for this item.
+-- * 'status' - The compliance status for the resource.
 -- * 'resourceId' - The resource ID.
 -- * 'resourceType' - The resource type.
--- * 'status' - The compliance status for the resource.
+-- * 'compliantSummary' - A list of items that are compliant for the resource.
+-- * 'executionSummary' - Information about the execution.
+-- * 'overallSeverity' - The highest severity item found for the resource. The resource is compliant for this item.
+-- * 'complianceType' - The compliance type.
 mkResourceComplianceSummaryItem ::
   ResourceComplianceSummaryItem
 mkResourceComplianceSummaryItem =

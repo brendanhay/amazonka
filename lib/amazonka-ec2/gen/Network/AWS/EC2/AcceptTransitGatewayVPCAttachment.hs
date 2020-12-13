@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.AcceptTransitGatewayVPCAttachment
     mkAcceptTransitGatewayVPCAttachment,
 
     -- ** Request lenses
-    atgvaDryRun,
     atgvaTransitGatewayAttachmentId,
+    atgvaDryRun,
 
     -- * Destructuring the response
     AcceptTransitGatewayVPCAttachmentResponse (..),
@@ -42,40 +43,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAcceptTransitGatewayVPCAttachment' smart constructor.
 data AcceptTransitGatewayVPCAttachment = AcceptTransitGatewayVPCAttachment'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    transitGatewayAttachmentId ::
-      Lude.Text
+  { -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptTransitGatewayVPCAttachment' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkAcceptTransitGatewayVPCAttachment ::
   -- | 'transitGatewayAttachmentId'
   Lude.Text ->
   AcceptTransitGatewayVPCAttachment
 mkAcceptTransitGatewayVPCAttachment pTransitGatewayAttachmentId_ =
   AcceptTransitGatewayVPCAttachment'
-    { dryRun = Lude.Nothing,
-      transitGatewayAttachmentId = pTransitGatewayAttachmentId_
+    { transitGatewayAttachmentId =
+        pTransitGatewayAttachmentId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atgvaDryRun :: Lens.Lens' AcceptTransitGatewayVPCAttachment (Lude.Maybe Lude.Bool)
-atgvaDryRun = Lens.lens (dryRun :: AcceptTransitGatewayVPCAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AcceptTransitGatewayVPCAttachment)
-{-# DEPRECATED atgvaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the attachment.
 --
@@ -83,6 +72,13 @@ atgvaDryRun = Lens.lens (dryRun :: AcceptTransitGatewayVPCAttachment -> Lude.May
 atgvaTransitGatewayAttachmentId :: Lens.Lens' AcceptTransitGatewayVPCAttachment Lude.Text
 atgvaTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: AcceptTransitGatewayVPCAttachment -> Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: AcceptTransitGatewayVPCAttachment)
 {-# DEPRECATED atgvaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atgvaDryRun :: Lens.Lens' AcceptTransitGatewayVPCAttachment (Lude.Maybe Lude.Bool)
+atgvaDryRun = Lens.lens (dryRun :: AcceptTransitGatewayVPCAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AcceptTransitGatewayVPCAttachment)
+{-# DEPRECATED atgvaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest AcceptTransitGatewayVPCAttachment where
   type
@@ -109,31 +105,24 @@ instance Lude.ToQuery AcceptTransitGatewayVPCAttachment where
       [ "Action"
           Lude.=: ("AcceptTransitGatewayVpcAttachment" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId
+        "TransitGatewayAttachmentId" Lude.=: transitGatewayAttachmentId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkAcceptTransitGatewayVPCAttachmentResponse' smart constructor.
 data AcceptTransitGatewayVPCAttachmentResponse = AcceptTransitGatewayVPCAttachmentResponse'
-  { transitGatewayVPCAttachment ::
-      Lude.Maybe
-        TransitGatewayVPCAttachment,
-    responseStatus ::
-      Lude.Int
+  { -- | The VPC attachment.
+    transitGatewayVPCAttachment :: Lude.Maybe TransitGatewayVPCAttachment,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptTransitGatewayVPCAttachmentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayVPCAttachment' - The VPC attachment.
+-- * 'responseStatus' - The response status code.
 mkAcceptTransitGatewayVPCAttachmentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

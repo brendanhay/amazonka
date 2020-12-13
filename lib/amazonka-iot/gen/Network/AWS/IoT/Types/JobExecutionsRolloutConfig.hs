@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecutionsRolloutConfig' smart constructor.
 data JobExecutionsRolloutConfig = JobExecutionsRolloutConfig'
-  { exponentialRate ::
-      Lude.Maybe ExponentialRolloutRate,
-    maximumPerMinute ::
-      Lude.Maybe Lude.Natural
+  { -- | The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
+    exponentialRate :: Lude.Maybe ExponentialRolloutRate,
+    -- | The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.
+    maximumPerMinute :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionsRolloutConfig' with the minimum fields required to make a request.

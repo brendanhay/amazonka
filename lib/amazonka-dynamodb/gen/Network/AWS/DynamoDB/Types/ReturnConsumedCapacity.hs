@@ -13,9 +13,9 @@
 module Network.AWS.DynamoDB.Types.ReturnConsumedCapacity
   ( ReturnConsumedCapacity
       ( ReturnConsumedCapacity',
-        RCCIndexes,
-        RCCNone,
-        RCCTotal
+        Indexes,
+        Total,
+        None
       ),
   )
 where
@@ -57,18 +57,18 @@ newtype ReturnConsumedCapacity = ReturnConsumedCapacity' Lude.Text
       Lude.ToHeader
     )
 
-pattern RCCIndexes :: ReturnConsumedCapacity
-pattern RCCIndexes = ReturnConsumedCapacity' "INDEXES"
+pattern Indexes :: ReturnConsumedCapacity
+pattern Indexes = ReturnConsumedCapacity' "INDEXES"
 
-pattern RCCNone :: ReturnConsumedCapacity
-pattern RCCNone = ReturnConsumedCapacity' "NONE"
+pattern Total :: ReturnConsumedCapacity
+pattern Total = ReturnConsumedCapacity' "TOTAL"
 
-pattern RCCTotal :: ReturnConsumedCapacity
-pattern RCCTotal = ReturnConsumedCapacity' "TOTAL"
+pattern None :: ReturnConsumedCapacity
+pattern None = ReturnConsumedCapacity' "NONE"
 
 {-# COMPLETE
-  RCCIndexes,
-  RCCNone,
-  RCCTotal,
+  Indexes,
+  Total,
+  None,
   ReturnConsumedCapacity'
   #-}

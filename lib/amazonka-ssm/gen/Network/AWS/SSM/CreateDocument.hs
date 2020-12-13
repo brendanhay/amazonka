@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.SSM.CreateDocument
     cdDocumentType,
     cdAttachments,
     cdVersionName,
+    cdContent,
     cdTargetType,
     cdDocumentFormat,
+    cdName,
     cdRequires,
     cdTags,
-    cdContent,
-    cdName,
 
     -- * Destructuring the response
     CreateDocumentResponse (..),
@@ -47,29 +48,59 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCreateDocument' smart constructor.
 data CreateDocument = CreateDocument'
-  { documentType ::
-      Lude.Maybe DocumentType,
+  { -- | The type of document to create.
+    documentType :: Lude.Maybe DocumentType,
+    -- | A list of key and value pairs that describe attachments to a version of a document.
     attachments :: Lude.Maybe [AttachmentsSource],
+    -- | An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
     versionName :: Lude.Maybe Lude.Text,
-    targetType :: Lude.Maybe Lude.Text,
-    documentFormat :: Lude.Maybe DocumentFormat,
-    requires :: Lude.Maybe (Lude.NonEmpty DocumentRequires),
-    tags :: Lude.Maybe [Tag],
+    -- | The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
+    --
+    -- For examples, see the following topics in the /AWS Systems Manager User Guide/ .
+    --
+    --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (AWS API)>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html Create an SSM document (AWS CLI)>
+    --
+    --
+    --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
     content :: Lude.Text,
-    name :: Lude.Text
+    -- | Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
+    targetType :: Lude.Maybe Lude.Text,
+    -- | Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.
+    documentFormat :: Lude.Maybe DocumentFormat,
+    -- | A name for the Systems Manager document.
+    --
+    -- /Important:/ You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
+    --
+    --     * @aws-@
+    --
+    --
+    --     * @amazon@
+    --
+    --
+    --     * @amzn@
+    name :: Lude.Text,
+    -- | A list of SSM documents required by a document. This parameter is used exclusively by AWS AppConfig. When a user creates an AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document for validation purposes. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html AWS AppConfig> in the /AWS Systems Manager User Guide/ .
+    requires :: Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    -- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an SSM document to identify the types of targets or the environment where it will run. In this case, you could specify the following key name/value pairs:
+    --
+    --
+    --     * @Key=OS,Value=Windows@
+    --
+    --
+    --     * @Key=Environment,Value=Production@
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDocument' with the minimum fields required to make a request.
 --
+-- * 'documentType' - The type of document to create.
 -- * 'attachments' - A list of key and value pairs that describe attachments to a version of a document.
+-- * 'versionName' - An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 -- * 'content' - The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
 --
 -- For examples, see the following topics in the /AWS Systems Manager User Guide/ .
@@ -83,8 +114,8 @@ data CreateDocument = CreateDocument'
 --     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
 --
 --
+-- * 'targetType' - Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
 -- * 'documentFormat' - Specify the document format for the request. The document format can be JSON, YAML, or TEXT. JSON is the default format.
--- * 'documentType' - The type of document to create.
 -- * 'name' - A name for the Systems Manager document.
 --
 -- /Important:/ You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
@@ -106,10 +137,6 @@ data CreateDocument = CreateDocument'
 --
 --
 --     * @Key=Environment,Value=Production@
---
---
--- * 'targetType' - Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
--- * 'versionName' - An optional field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 mkCreateDocument ::
   -- | 'content'
   Lude.Text ->
@@ -121,12 +148,12 @@ mkCreateDocument pContent_ pName_ =
     { documentType = Lude.Nothing,
       attachments = Lude.Nothing,
       versionName = Lude.Nothing,
+      content = pContent_,
       targetType = Lude.Nothing,
       documentFormat = Lude.Nothing,
+      name = pName_,
       requires = Lude.Nothing,
-      tags = Lude.Nothing,
-      content = pContent_,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | The type of document to create.
@@ -150,6 +177,25 @@ cdVersionName :: Lens.Lens' CreateDocument (Lude.Maybe Lude.Text)
 cdVersionName = Lens.lens (versionName :: CreateDocument -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: CreateDocument)
 {-# DEPRECATED cdVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
 
+-- | The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
+--
+-- For examples, see the following topics in the /AWS Systems Manager User Guide/ .
+--
+--     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (AWS API)>
+--
+--
+--     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html Create an SSM document (AWS CLI)>
+--
+--
+--     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
+--
+--
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdContent :: Lens.Lens' CreateDocument Lude.Text
+cdContent = Lens.lens (content :: CreateDocument -> Lude.Text) (\s a -> s {content = a} :: CreateDocument)
+{-# DEPRECATED cdContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
 -- | Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: /AWS::EC2::Instance. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS resource and property types reference> in the /AWS CloudFormation User Guide/ .
 --
 -- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -163,6 +209,25 @@ cdTargetType = Lens.lens (targetType :: CreateDocument -> Lude.Maybe Lude.Text) 
 cdDocumentFormat :: Lens.Lens' CreateDocument (Lude.Maybe DocumentFormat)
 cdDocumentFormat = Lens.lens (documentFormat :: CreateDocument -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: CreateDocument)
 {-# DEPRECATED cdDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
+
+-- | A name for the Systems Manager document.
+--
+-- /Important:/ You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
+--
+--     * @aws-@
+--
+--
+--     * @amazon@
+--
+--
+--     * @amzn@
+--
+--
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdName :: Lens.Lens' CreateDocument Lude.Text
+cdName = Lens.lens (name :: CreateDocument -> Lude.Text) (\s a -> s {name = a} :: CreateDocument)
+{-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of SSM documents required by a document. This parameter is used exclusively by AWS AppConfig. When a user creates an AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document for validation purposes. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html AWS AppConfig> in the /AWS Systems Manager User Guide/ .
 --
@@ -185,44 +250,6 @@ cdRequires = Lens.lens (requires :: CreateDocument -> Lude.Maybe (Lude.NonEmpty 
 cdTags :: Lens.Lens' CreateDocument (Lude.Maybe [Tag])
 cdTags = Lens.lens (tags :: CreateDocument -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDocument)
 {-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
---
--- For examples, see the following topics in the /AWS Systems Manager User Guide/ .
---
---     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (AWS API)>
---
---
---     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html Create an SSM document (AWS CLI)>
---
---
---     * <https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html Create an SSM document (API)>
---
---
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdContent :: Lens.Lens' CreateDocument Lude.Text
-cdContent = Lens.lens (content :: CreateDocument -> Lude.Text) (\s a -> s {content = a} :: CreateDocument)
-{-# DEPRECATED cdContent "Use generic-lens or generic-optics with 'content' instead." #-}
-
--- | A name for the Systems Manager document.
---
--- /Important:/ You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:
---
---     * @aws-@
---
---
---     * @amazon@
---
---
---     * @amzn@
---
---
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdName :: Lens.Lens' CreateDocument Lude.Text
-cdName = Lens.lens (name :: CreateDocument -> Lude.Text) (\s a -> s {name = a} :: CreateDocument)
-{-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateDocument where
   type Rs CreateDocument = CreateDocumentResponse
@@ -253,12 +280,12 @@ instance Lude.ToJSON CreateDocument where
           [ ("DocumentType" Lude..=) Lude.<$> documentType,
             ("Attachments" Lude..=) Lude.<$> attachments,
             ("VersionName" Lude..=) Lude.<$> versionName,
+            Lude.Just ("Content" Lude..= content),
             ("TargetType" Lude..=) Lude.<$> targetType,
             ("DocumentFormat" Lude..=) Lude.<$> documentFormat,
+            Lude.Just ("Name" Lude..= name),
             ("Requires" Lude..=) Lude.<$> requires,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Content" Lude..= content),
-            Lude.Just ("Name" Lude..= name)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -270,17 +297,12 @@ instance Lude.ToQuery CreateDocument where
 
 -- | /See:/ 'mkCreateDocumentResponse' smart constructor.
 data CreateDocumentResponse = CreateDocumentResponse'
-  { documentDescription ::
-      Lude.Maybe DocumentDescription,
+  { -- | Information about the Systems Manager document.
+    documentDescription :: Lude.Maybe DocumentDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDocumentResponse' with the minimum fields required to make a request.

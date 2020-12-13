@@ -31,25 +31,21 @@ import Network.AWS.XRay.Types.RootCauseException
 --
 -- /See:/ 'mkFaultRootCauseEntity' smart constructor.
 data FaultRootCauseEntity = FaultRootCauseEntity'
-  { exceptions ::
-      Lude.Maybe [RootCauseException],
+  { -- | The types and messages of the exceptions.
+    exceptions :: Lude.Maybe [RootCauseException],
+    -- | A flag that denotes a remote subsegment.
     remote :: Lude.Maybe Lude.Bool,
+    -- | The name of the entity.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaultRootCauseEntity' with the minimum fields required to make a request.
 --
 -- * 'exceptions' - The types and messages of the exceptions.
--- * 'name' - The name of the entity.
 -- * 'remote' - A flag that denotes a remote subsegment.
+-- * 'name' - The name of the entity.
 mkFaultRootCauseEntity ::
   FaultRootCauseEntity
 mkFaultRootCauseEntity =

@@ -29,21 +29,14 @@ import Network.AWS.SMS.Types.Server
 --
 -- /See:/ 'mkServerValidationOutput' smart constructor.
 newtype ServerValidationOutput = ServerValidationOutput'
-  { server ::
-      Lude.Maybe Server
+  { server :: Lude.Maybe Server
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerValidationOutput' with the minimum fields required to make a request.
 --
--- * 'server' - Undocumented field.
+-- * 'server' -
 mkServerValidationOutput ::
   ServerValidationOutput
 mkServerValidationOutput =

@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.TransitGatewayAssociationState
   ( TransitGatewayAssociationState
       ( TransitGatewayAssociationState',
-        TGASAssociated,
-        TGASAssociating,
-        TGASDisassociated,
-        TGASDisassociating
+        Associating,
+        Associated,
+        Disassociating,
+        Disassociated
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TransitGatewayAssociationState = TransitGatewayAssociationState' Lude.Te
       Lude.ToHeader
     )
 
-pattern TGASAssociated :: TransitGatewayAssociationState
-pattern TGASAssociated = TransitGatewayAssociationState' "associated"
+pattern Associating :: TransitGatewayAssociationState
+pattern Associating = TransitGatewayAssociationState' "associating"
 
-pattern TGASAssociating :: TransitGatewayAssociationState
-pattern TGASAssociating = TransitGatewayAssociationState' "associating"
+pattern Associated :: TransitGatewayAssociationState
+pattern Associated = TransitGatewayAssociationState' "associated"
 
-pattern TGASDisassociated :: TransitGatewayAssociationState
-pattern TGASDisassociated = TransitGatewayAssociationState' "disassociated"
+pattern Disassociating :: TransitGatewayAssociationState
+pattern Disassociating = TransitGatewayAssociationState' "disassociating"
 
-pattern TGASDisassociating :: TransitGatewayAssociationState
-pattern TGASDisassociating = TransitGatewayAssociationState' "disassociating"
+pattern Disassociated :: TransitGatewayAssociationState
+pattern Disassociated = TransitGatewayAssociationState' "disassociated"
 
 {-# COMPLETE
-  TGASAssociated,
-  TGASAssociating,
-  TGASDisassociated,
-  TGASDisassociating,
+  Associating,
+  Associated,
+  Disassociating,
+  Disassociated,
   TransitGatewayAssociationState'
   #-}

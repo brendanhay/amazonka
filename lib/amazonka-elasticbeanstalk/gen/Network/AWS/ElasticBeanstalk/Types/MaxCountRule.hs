@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaxCountRule' smart constructor.
 data MaxCountRule = MaxCountRule'
-  { maxCount :: Lude.Maybe Lude.Int,
+  { -- | Specify the maximum number of application versions to retain.
+    maxCount :: Lude.Maybe Lude.Int,
+    -- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
     deleteSourceFromS3 :: Lude.Maybe Lude.Bool,
+    -- | Specify @true@ to apply the rule, or @false@ to disable it.
     enabled :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaxCountRule' with the minimum fields required to make a request.
 --
+-- * 'maxCount' - Specify the maximum number of application versions to retain.
 -- * 'deleteSourceFromS3' - Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
 -- * 'enabled' - Specify @true@ to apply the rule, or @false@ to disable it.
--- * 'maxCount' - Specify the maximum number of application versions to retain.
 mkMaxCountRule ::
   -- | 'enabled'
   Lude.Bool ->

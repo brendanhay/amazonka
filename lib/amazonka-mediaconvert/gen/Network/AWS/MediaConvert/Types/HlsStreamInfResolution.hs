@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsStreamInfResolution
   ( HlsStreamInfResolution
       ( HlsStreamInfResolution',
-        HSIRExclude,
-        HSIRInclude
+        HSIRInclude,
+        HSIRExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsStreamInfResolution = HlsStreamInfResolution' Lude.Text
       Lude.ToHeader
     )
 
-pattern HSIRExclude :: HlsStreamInfResolution
-pattern HSIRExclude = HlsStreamInfResolution' "EXCLUDE"
-
 pattern HSIRInclude :: HlsStreamInfResolution
 pattern HSIRInclude = HlsStreamInfResolution' "INCLUDE"
 
+pattern HSIRExclude :: HlsStreamInfResolution
+pattern HSIRExclude = HlsStreamInfResolution' "EXCLUDE"
+
 {-# COMPLETE
-  HSIRExclude,
   HSIRInclude,
+  HSIRExclude,
   HlsStreamInfResolution'
   #-}

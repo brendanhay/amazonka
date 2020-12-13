@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     mkDescribeIndexFieldsResponse,
 
     -- ** Response lenses
-    difsrsResponseStatus,
     difsrsIndexFields,
+    difsrsResponseStatus,
   )
 where
 
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeIndexFields' smart constructor.
 data DescribeIndexFields = DescribeIndexFields'
-  { deployed ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+    deployed :: Lude.Maybe Lude.Bool,
+    -- | A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
     fieldNames :: Lude.Maybe [Lude.Text],
+    -- | The name of the domain you want to describe.
     domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIndexFields' with the minimum fields required to make a request.
 --
 -- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
--- * 'domainName' - The name of the domain you want to describe.
 -- * 'fieldNames' - A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
+-- * 'domainName' - The name of the domain you want to describe.
 mkDescribeIndexFields ::
   -- | 'domainName'
   Lude.Text ->
@@ -102,10 +99,10 @@ instance Lude.AWSRequest DescribeIndexFields where
       "DescribeIndexFieldsResult"
       ( \s h x ->
           DescribeIndexFieldsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "IndexFields" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "IndexFields" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeIndexFields where
@@ -129,17 +126,12 @@ instance Lude.ToQuery DescribeIndexFields where
 --
 -- /See:/ 'mkDescribeIndexFieldsResponse' smart constructor.
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-  { responseStatus ::
-      Lude.Int,
-    indexFields :: [IndexFieldStatus]
+  { -- | The index fields configured for the domain.
+    indexFields :: [IndexFieldStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIndexFieldsResponse' with the minimum fields required to make a request.
@@ -152,16 +144,9 @@ mkDescribeIndexFieldsResponse ::
   DescribeIndexFieldsResponse
 mkDescribeIndexFieldsResponse pResponseStatus_ =
   DescribeIndexFieldsResponse'
-    { responseStatus = pResponseStatus_,
-      indexFields = Lude.mempty
+    { indexFields = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difsrsResponseStatus :: Lens.Lens' DescribeIndexFieldsResponse Lude.Int
-difsrsResponseStatus = Lens.lens (responseStatus :: DescribeIndexFieldsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIndexFieldsResponse)
-{-# DEPRECATED difsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The index fields configured for the domain.
 --
@@ -169,3 +154,10 @@ difsrsResponseStatus = Lens.lens (responseStatus :: DescribeIndexFieldsResponse 
 difsrsIndexFields :: Lens.Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difsrsIndexFields = Lens.lens (indexFields :: DescribeIndexFieldsResponse -> [IndexFieldStatus]) (\s a -> s {indexFields = a} :: DescribeIndexFieldsResponse)
 {-# DEPRECATED difsrsIndexFields "Use generic-lens or generic-optics with 'indexFields' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+difsrsResponseStatus :: Lens.Lens' DescribeIndexFieldsResponse Lude.Int
+difsrsResponseStatus = Lens.lens (responseStatus :: DescribeIndexFieldsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIndexFieldsResponse)
+{-# DEPRECATED difsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

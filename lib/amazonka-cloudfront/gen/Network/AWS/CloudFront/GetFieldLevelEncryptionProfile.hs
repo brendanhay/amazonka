@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFieldLevelEncryptionProfile' smart constructor.
 newtype GetFieldLevelEncryptionProfile = GetFieldLevelEncryptionProfile'
-  { id ::
-      Lude.Text
+  { -- | Get the ID for the field-level encryption profile information.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryptionProfile' with the minimum fields required to make a request.
@@ -96,22 +91,14 @@ instance Lude.ToQuery GetFieldLevelEncryptionProfile where
 
 -- | /See:/ 'mkGetFieldLevelEncryptionProfileResponse' smart constructor.
 data GetFieldLevelEncryptionProfileResponse = GetFieldLevelEncryptionProfileResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    fieldLevelEncryptionProfile ::
-      Lude.Maybe
-        FieldLevelEncryptionProfile,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the field level encryption profile. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | Return the field-level encryption profile information.
+    fieldLevelEncryptionProfile :: Lude.Maybe FieldLevelEncryptionProfile,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryptionProfileResponse' with the minimum fields required to make a request.

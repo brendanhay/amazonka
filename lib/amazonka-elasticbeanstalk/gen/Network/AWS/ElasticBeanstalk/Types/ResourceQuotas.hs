@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceQuotas' smart constructor.
 data ResourceQuotas = ResourceQuotas'
-  { applicationQuota ::
-      Lude.Maybe ResourceQuota,
+  { -- | The quota for applications in the AWS account.
+    applicationQuota :: Lude.Maybe ResourceQuota,
+    -- | The quota for custom platforms in the AWS account.
     customPlatformQuota :: Lude.Maybe ResourceQuota,
+    -- | The quota for application versions in the AWS account.
     applicationVersionQuota :: Lude.Maybe ResourceQuota,
+    -- | The quota for environments in the AWS account.
     environmentQuota :: Lude.Maybe ResourceQuota,
+    -- | The quota for configuration templates in the AWS account.
     configurationTemplateQuota :: Lude.Maybe ResourceQuota
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceQuotas' with the minimum fields required to make a request.
 --
 -- * 'applicationQuota' - The quota for applications in the AWS account.
--- * 'applicationVersionQuota' - The quota for application versions in the AWS account.
--- * 'configurationTemplateQuota' - The quota for configuration templates in the AWS account.
 -- * 'customPlatformQuota' - The quota for custom platforms in the AWS account.
+-- * 'applicationVersionQuota' - The quota for application versions in the AWS account.
 -- * 'environmentQuota' - The quota for environments in the AWS account.
+-- * 'configurationTemplateQuota' - The quota for configuration templates in the AWS account.
 mkResourceQuotas ::
   ResourceQuotas
 mkResourceQuotas =

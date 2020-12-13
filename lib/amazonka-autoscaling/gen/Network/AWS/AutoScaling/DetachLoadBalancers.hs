@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     mkDetachLoadBalancers,
 
     -- ** Request lenses
-    dAutoScalingGroupName,
-    dLoadBalancerNames,
+    dlbsAutoScalingGroupName,
+    dlbsLoadBalancerNames,
 
     -- * Destructuring the response
     DetachLoadBalancersResponse (..),
     mkDetachLoadBalancersResponse,
 
     -- ** Response lenses
-    dlbsrsResponseStatus,
+    drsResponseStatus,
   )
 where
 
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
-  { autoScalingGroupName ::
-      Lude.Text,
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | The names of the load balancers. You can specify up to 10 load balancers.
     loadBalancerNames :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachLoadBalancers' with the minimum fields required to make a request.
@@ -73,16 +69,16 @@ mkDetachLoadBalancers pAutoScalingGroupName_ =
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAutoScalingGroupName :: Lens.Lens' DetachLoadBalancers Lude.Text
-dAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DetachLoadBalancers -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DetachLoadBalancers)
-{-# DEPRECATED dAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+dlbsAutoScalingGroupName :: Lens.Lens' DetachLoadBalancers Lude.Text
+dlbsAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DetachLoadBalancers -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DetachLoadBalancers)
+{-# DEPRECATED dlbsAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The names of the load balancers. You can specify up to 10 load balancers.
 --
 -- /Note:/ Consider using 'loadBalancerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLoadBalancerNames :: Lens.Lens' DetachLoadBalancers [Lude.Text]
-dLoadBalancerNames = Lens.lens (loadBalancerNames :: DetachLoadBalancers -> [Lude.Text]) (\s a -> s {loadBalancerNames = a} :: DetachLoadBalancers)
-{-# DEPRECATED dLoadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead." #-}
+dlbsLoadBalancerNames :: Lens.Lens' DetachLoadBalancers [Lude.Text]
+dlbsLoadBalancerNames = Lens.lens (loadBalancerNames :: DetachLoadBalancers -> [Lude.Text]) (\s a -> s {loadBalancerNames = a} :: DetachLoadBalancers)
+{-# DEPRECATED dlbsLoadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead." #-}
 
 instance Lude.AWSRequest DetachLoadBalancers where
   type Rs DetachLoadBalancers = DetachLoadBalancersResponse
@@ -113,16 +109,10 @@ instance Lude.ToQuery DetachLoadBalancers where
 
 -- | /See:/ 'mkDetachLoadBalancersResponse' smart constructor.
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachLoadBalancersResponse' with the minimum fields required to make a request.
@@ -138,6 +128,6 @@ mkDetachLoadBalancersResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbsrsResponseStatus :: Lens.Lens' DetachLoadBalancersResponse Lude.Int
-dlbsrsResponseStatus = Lens.lens (responseStatus :: DetachLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachLoadBalancersResponse)
-{-# DEPRECATED dlbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DetachLoadBalancersResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DetachLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachLoadBalancersResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

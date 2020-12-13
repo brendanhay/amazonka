@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CodeCommit.UpdateApprovalRuleTemplateName
     mkUpdateApprovalRuleTemplateNameResponse,
 
     -- ** Response lenses
-    uartnrsResponseStatus,
     uartnrsApprovalRuleTemplate,
+    uartnrsResponseStatus,
   )
 where
 
@@ -40,24 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateApprovalRuleTemplateName' smart constructor.
 data UpdateApprovalRuleTemplateName = UpdateApprovalRuleTemplateName'
-  { oldApprovalRuleTemplateName ::
-      Lude.Text,
-    newApprovalRuleTemplateName ::
-      Lude.Text
+  { -- | The current name of the approval rule template.
+    oldApprovalRuleTemplateName :: Lude.Text,
+    -- | The new name you want to apply to the approval rule template.
+    newApprovalRuleTemplateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApprovalRuleTemplateName' with the minimum fields required to make a request.
 --
--- * 'newApprovalRuleTemplateName' - The new name you want to apply to the approval rule template.
 -- * 'oldApprovalRuleTemplateName' - The current name of the approval rule template.
+-- * 'newApprovalRuleTemplateName' - The new name you want to apply to the approval rule template.
 mkUpdateApprovalRuleTemplateName ::
   -- | 'oldApprovalRuleTemplateName'
   Lude.Text ->
@@ -96,8 +91,8 @@ instance Lude.AWSRequest UpdateApprovalRuleTemplateName where
     Res.receiveJSON
       ( \s h x ->
           UpdateApprovalRuleTemplateNameResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "approvalRuleTemplate")
+            Lude.<$> (x Lude..:> "approvalRuleTemplate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateApprovalRuleTemplateName where
@@ -136,18 +131,12 @@ instance Lude.ToQuery UpdateApprovalRuleTemplateName where
 
 -- | /See:/ 'mkUpdateApprovalRuleTemplateNameResponse' smart constructor.
 data UpdateApprovalRuleTemplateNameResponse = UpdateApprovalRuleTemplateNameResponse'
-  { responseStatus ::
-      Lude.Int,
-    approvalRuleTemplate ::
-      ApprovalRuleTemplate
+  { -- | The structure and content of the updated approval rule template.
+    approvalRuleTemplate :: ApprovalRuleTemplate,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApprovalRuleTemplateNameResponse' with the minimum fields required to make a request.
@@ -155,26 +144,19 @@ data UpdateApprovalRuleTemplateNameResponse = UpdateApprovalRuleTemplateNameResp
 -- * 'approvalRuleTemplate' - The structure and content of the updated approval rule template.
 -- * 'responseStatus' - The response status code.
 mkUpdateApprovalRuleTemplateNameResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'approvalRuleTemplate'
   ApprovalRuleTemplate ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateApprovalRuleTemplateNameResponse
 mkUpdateApprovalRuleTemplateNameResponse
-  pResponseStatus_
-  pApprovalRuleTemplate_ =
+  pApprovalRuleTemplate_
+  pResponseStatus_ =
     UpdateApprovalRuleTemplateNameResponse'
-      { responseStatus =
-          pResponseStatus_,
-        approvalRuleTemplate = pApprovalRuleTemplate_
+      { approvalRuleTemplate =
+          pApprovalRuleTemplate_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartnrsResponseStatus :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse Lude.Int
-uartnrsResponseStatus = Lens.lens (responseStatus :: UpdateApprovalRuleTemplateNameResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApprovalRuleTemplateNameResponse)
-{-# DEPRECATED uartnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The structure and content of the updated approval rule template.
 --
@@ -182,3 +164,10 @@ uartnrsResponseStatus = Lens.lens (responseStatus :: UpdateApprovalRuleTemplateN
 uartnrsApprovalRuleTemplate :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse ApprovalRuleTemplate
 uartnrsApprovalRuleTemplate = Lens.lens (approvalRuleTemplate :: UpdateApprovalRuleTemplateNameResponse -> ApprovalRuleTemplate) (\s a -> s {approvalRuleTemplate = a} :: UpdateApprovalRuleTemplateNameResponse)
 {-# DEPRECATED uartnrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uartnrsResponseStatus :: Lens.Lens' UpdateApprovalRuleTemplateNameResponse Lude.Int
+uartnrsResponseStatus = Lens.lens (responseStatus :: UpdateApprovalRuleTemplateNameResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApprovalRuleTemplateNameResponse)
+{-# DEPRECATED uartnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

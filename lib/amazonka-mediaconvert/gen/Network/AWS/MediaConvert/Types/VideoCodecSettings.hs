@@ -49,41 +49,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVideoCodecSettings' smart constructor.
 data VideoCodecSettings = VideoCodecSettings'
-  { frameCaptureSettings ::
-      Lude.Maybe FrameCaptureSettings,
+  { -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
+    frameCaptureSettings :: Lude.Maybe FrameCaptureSettings,
+    -- | Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
     av1Settings :: Lude.Maybe Av1Settings,
+    -- | Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
     codec :: Lude.Maybe VideoCodec,
+    -- | Settings for H265 codec
     h265Settings :: Lude.Maybe H265Settings,
+    -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
     proresSettings :: Lude.Maybe ProresSettings,
+    -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
     vp9Settings :: Lude.Maybe Vp9Settings,
+    -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
     h264Settings :: Lude.Maybe H264Settings,
+    -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
     mpeg2Settings :: Lude.Maybe Mpeg2Settings,
+    -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
     vp8Settings :: Lude.Maybe Vp8Settings,
+    -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
     vc3Settings :: Lude.Maybe Vc3Settings,
+    -- | Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
     avcIntraSettings :: Lude.Maybe AvcIntraSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoCodecSettings' with the minimum fields required to make a request.
 --
--- * 'av1Settings' - Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
--- * 'avcIntraSettings' - Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
--- * 'codec' - Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
 -- * 'frameCaptureSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value FRAME_CAPTURE.
--- * 'h264Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
+-- * 'av1Settings' - Required when you set Codec, under VideoDescription>CodecSettings to the value AV1.
+-- * 'codec' - Specifies the video codec. This must be equal to one of the enum values defined by the object  VideoCodec.
 -- * 'h265Settings' - Settings for H265 codec
--- * 'mpeg2Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
 -- * 'proresSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value PRORES.
--- * 'vc3Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
--- * 'vp8Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
 -- * 'vp9Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP9.
+-- * 'h264Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
+-- * 'mpeg2Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value MPEG2.
+-- * 'vp8Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VP8.
+-- * 'vc3Settings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value VC3
+-- * 'avcIntraSettings' - Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
 mkVideoCodecSettings ::
   VideoCodecSettings
 mkVideoCodecSettings =

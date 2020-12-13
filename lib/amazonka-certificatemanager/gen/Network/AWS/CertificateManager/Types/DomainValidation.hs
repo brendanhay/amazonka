@@ -21,8 +21,8 @@ module Network.AWS.CertificateManager.Types.DomainValidation
     dvValidationMethod,
     dvResourceRecord,
     dvValidationStatus,
-    dvValidationDomain,
     dvDomainName,
+    dvValidationDomain,
   )
 where
 
@@ -36,32 +36,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainValidation' smart constructor.
 data DomainValidation = DomainValidation'
-  { validationEmails ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of email addresses that ACM used to send domain validation emails.
+    validationEmails :: Lude.Maybe [Lude.Text],
+    -- | Specifies the domain validation method.
     validationMethod :: Lude.Maybe ValidationMethod,
+    -- | Contains the CNAME record that you add to your DNS database for domain validation. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership> .
+    --
+    -- Note: The CNAME information that you need does not include the name of your domain. If you include  your domain name in the DNS database CNAME record, validation fails.  For example, if the name is "_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com", only "_a79865eb4cd1a6ab990a45779b4e0b96" must be used.
     resourceRecord :: Lude.Maybe ResourceRecord,
+    -- | The validation status of the domain name. This can be one of the following values:
+    --
+    --
+    --     * @PENDING_VALIDATION@
+    --
+    --
+    --     * SUCCESS
+    --
+    --
+    --     * FAILED
     validationStatus :: Lude.Maybe DomainStatus,
-    validationDomain :: Lude.Maybe Lude.Text,
-    domainName :: Lude.Text
+    -- | A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
+    domainName :: Lude.Text,
+    -- | The domain name that ACM used to send domain validation emails.
+    validationDomain :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainValidation' with the minimum fields required to make a request.
 --
--- * 'domainName' - A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
+-- * 'validationEmails' - A list of email addresses that ACM used to send domain validation emails.
+-- * 'validationMethod' - Specifies the domain validation method.
 -- * 'resourceRecord' - Contains the CNAME record that you add to your DNS database for domain validation. For more information, see <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html Use DNS to Validate Domain Ownership> .
 --
 -- Note: The CNAME information that you need does not include the name of your domain. If you include  your domain name in the DNS database CNAME record, validation fails.  For example, if the name is "_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com", only "_a79865eb4cd1a6ab990a45779b4e0b96" must be used.
--- * 'validationDomain' - The domain name that ACM used to send domain validation emails.
--- * 'validationEmails' - A list of email addresses that ACM used to send domain validation emails.
--- * 'validationMethod' - Specifies the domain validation method.
 -- * 'validationStatus' - The validation status of the domain name. This can be one of the following values:
 --
 --
@@ -72,6 +80,10 @@ data DomainValidation = DomainValidation'
 --
 --
 --     * FAILED
+--
+--
+-- * 'domainName' - A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
+-- * 'validationDomain' - The domain name that ACM used to send domain validation emails.
 mkDomainValidation ::
   -- | 'domainName'
   Lude.Text ->
@@ -82,8 +94,8 @@ mkDomainValidation pDomainName_ =
       validationMethod = Lude.Nothing,
       resourceRecord = Lude.Nothing,
       validationStatus = Lude.Nothing,
-      validationDomain = Lude.Nothing,
-      domainName = pDomainName_
+      domainName = pDomainName_,
+      validationDomain = Lude.Nothing
     }
 
 -- | A list of email addresses that ACM used to send domain validation emails.
@@ -127,19 +139,19 @@ dvValidationStatus :: Lens.Lens' DomainValidation (Lude.Maybe DomainStatus)
 dvValidationStatus = Lens.lens (validationStatus :: DomainValidation -> Lude.Maybe DomainStatus) (\s a -> s {validationStatus = a} :: DomainValidation)
 {-# DEPRECATED dvValidationStatus "Use generic-lens or generic-optics with 'validationStatus' instead." #-}
 
--- | The domain name that ACM used to send domain validation emails.
---
--- /Note:/ Consider using 'validationDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvValidationDomain :: Lens.Lens' DomainValidation (Lude.Maybe Lude.Text)
-dvValidationDomain = Lens.lens (validationDomain :: DomainValidation -> Lude.Maybe Lude.Text) (\s a -> s {validationDomain = a} :: DomainValidation)
-{-# DEPRECATED dvValidationDomain "Use generic-lens or generic-optics with 'validationDomain' instead." #-}
-
 -- | A fully qualified domain name (FQDN) in the certificate. For example, @www.example.com@ or @example.com@ .
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dvDomainName :: Lens.Lens' DomainValidation Lude.Text
 dvDomainName = Lens.lens (domainName :: DomainValidation -> Lude.Text) (\s a -> s {domainName = a} :: DomainValidation)
 {-# DEPRECATED dvDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | The domain name that ACM used to send domain validation emails.
+--
+-- /Note:/ Consider using 'validationDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvValidationDomain :: Lens.Lens' DomainValidation (Lude.Maybe Lude.Text)
+dvValidationDomain = Lens.lens (validationDomain :: DomainValidation -> Lude.Maybe Lude.Text) (\s a -> s {validationDomain = a} :: DomainValidation)
+{-# DEPRECATED dvValidationDomain "Use generic-lens or generic-optics with 'validationDomain' instead." #-}
 
 instance Lude.FromJSON DomainValidation where
   parseJSON =
@@ -151,6 +163,6 @@ instance Lude.FromJSON DomainValidation where
             Lude.<*> (x Lude..:? "ValidationMethod")
             Lude.<*> (x Lude..:? "ResourceRecord")
             Lude.<*> (x Lude..:? "ValidationStatus")
-            Lude.<*> (x Lude..:? "ValidationDomain")
             Lude.<*> (x Lude..: "DomainName")
+            Lude.<*> (x Lude..:? "ValidationDomain")
       )

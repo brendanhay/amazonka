@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DMS.DescribeConnections
     mkDescribeConnections,
 
     -- ** Request lenses
-    dcFilters,
-    dcMarker,
-    dcMaxRecords,
+    dFilters,
+    dMarker,
+    dMaxRecords,
 
     -- * Destructuring the response
     DescribeConnectionsResponse (..),
@@ -47,18 +48,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeConnections' smart constructor.
 data DescribeConnections = DescribeConnections'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters applied to the connection.
+    --
+    -- Valid filter names: endpoint-arn | replication-instance-arn
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConnections' with the minimum fields required to make a request.
@@ -85,16 +87,16 @@ mkDescribeConnections =
 -- Valid filter names: endpoint-arn | replication-instance-arn
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcFilters :: Lens.Lens' DescribeConnections (Lude.Maybe [Filter])
-dcFilters = Lens.lens (filters :: DescribeConnections -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeConnections)
-{-# DEPRECATED dcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dFilters :: Lens.Lens' DescribeConnections (Lude.Maybe [Filter])
+dFilters = Lens.lens (filters :: DescribeConnections -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeConnections)
+{-# DEPRECATED dFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcMarker :: Lens.Lens' DescribeConnections (Lude.Maybe Lude.Text)
-dcMarker = Lens.lens (marker :: DescribeConnections -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeConnections)
-{-# DEPRECATED dcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dMarker :: Lens.Lens' DescribeConnections (Lude.Maybe Lude.Text)
+dMarker = Lens.lens (marker :: DescribeConnections -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeConnections)
+{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -102,16 +104,16 @@ dcMarker = Lens.lens (marker :: DescribeConnections -> Lude.Maybe Lude.Text) (\s
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcMaxRecords :: Lens.Lens' DescribeConnections (Lude.Maybe Lude.Int)
-dcMaxRecords = Lens.lens (maxRecords :: DescribeConnections -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeConnections)
-{-# DEPRECATED dcMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dMaxRecords :: Lens.Lens' DescribeConnections (Lude.Maybe Lude.Int)
+dMaxRecords = Lens.lens (maxRecords :: DescribeConnections -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeConnections)
+{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Page.AWSPager DescribeConnections where
   page rq rs
     | Page.stop (rs Lens.^. dcsrsMarker) = Lude.Nothing
     | Page.stop (rs Lens.^. dcsrsConnections) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dcMarker Lens..~ rs Lens.^. dcsrsMarker
+      Lude.Just Lude.$ rq Lude.& dMarker Lens..~ rs Lens.^. dcsrsMarker
 
 instance Lude.AWSRequest DescribeConnections where
   type Rs DescribeConnections = DescribeConnectionsResponse
@@ -156,18 +158,14 @@ instance Lude.ToQuery DescribeConnections where
 --
 -- /See:/ 'mkDescribeConnectionsResponse' smart constructor.
 data DescribeConnectionsResponse = DescribeConnectionsResponse'
-  { connections ::
-      Lude.Maybe [Connection],
+  { -- | A description of the connections.
+    connections :: Lude.Maybe [Connection],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConnectionsResponse' with the minimum fields required to make a request.

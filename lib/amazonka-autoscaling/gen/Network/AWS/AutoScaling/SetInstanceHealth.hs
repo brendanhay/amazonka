@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     mkSetInstanceHealth,
 
     -- ** Request lenses
-    sihShouldRespectGracePeriod,
     sihInstanceId,
+    sihShouldRespectGracePeriod,
     sihHealthStatus,
 
     -- * Destructuring the response
@@ -39,27 +40,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetInstanceHealth' smart constructor.
 data SetInstanceHealth = SetInstanceHealth'
-  { shouldRespectGracePeriod ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the instance.
     instanceId :: Lude.Text,
+    -- | If the Auto Scaling group of the specified instance has a @HealthCheckGracePeriod@ specified for the group, by default, this call respects the grace period. Set this to @False@ , to have the call not respect the grace period associated with the group.
+    --
+    -- For more information about the health check grace period, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html CreateAutoScalingGroup> in the /Amazon EC2 Auto Scaling API Reference/ .
+    shouldRespectGracePeriod :: Lude.Maybe Lude.Bool,
+    -- | The health status of the instance. Set to @Healthy@ to have the instance remain in service. Set to @Unhealthy@ to have the instance be out of service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance.
     healthStatus :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetInstanceHealth' with the minimum fields required to make a request.
 --
--- * 'healthStatus' - The health status of the instance. Set to @Healthy@ to have the instance remain in service. Set to @Unhealthy@ to have the instance be out of service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance.
 -- * 'instanceId' - The ID of the instance.
 -- * 'shouldRespectGracePeriod' - If the Auto Scaling group of the specified instance has a @HealthCheckGracePeriod@ specified for the group, by default, this call respects the grace period. Set this to @False@ , to have the call not respect the grace period associated with the group.
 --
 -- For more information about the health check grace period, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html CreateAutoScalingGroup> in the /Amazon EC2 Auto Scaling API Reference/ .
+-- * 'healthStatus' - The health status of the instance. Set to @Healthy@ to have the instance remain in service. Set to @Unhealthy@ to have the instance be out of service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance.
 mkSetInstanceHealth ::
   -- | 'instanceId'
   Lude.Text ->
@@ -68,10 +67,17 @@ mkSetInstanceHealth ::
   SetInstanceHealth
 mkSetInstanceHealth pInstanceId_ pHealthStatus_ =
   SetInstanceHealth'
-    { shouldRespectGracePeriod = Lude.Nothing,
-      instanceId = pInstanceId_,
+    { instanceId = pInstanceId_,
+      shouldRespectGracePeriod = Lude.Nothing,
       healthStatus = pHealthStatus_
     }
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihInstanceId :: Lens.Lens' SetInstanceHealth Lude.Text
+sihInstanceId = Lens.lens (instanceId :: SetInstanceHealth -> Lude.Text) (\s a -> s {instanceId = a} :: SetInstanceHealth)
+{-# DEPRECATED sihInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | If the Auto Scaling group of the specified instance has a @HealthCheckGracePeriod@ specified for the group, by default, this call respects the grace period. Set this to @False@ , to have the call not respect the grace period associated with the group.
 --
@@ -81,13 +87,6 @@ mkSetInstanceHealth pInstanceId_ pHealthStatus_ =
 sihShouldRespectGracePeriod :: Lens.Lens' SetInstanceHealth (Lude.Maybe Lude.Bool)
 sihShouldRespectGracePeriod = Lens.lens (shouldRespectGracePeriod :: SetInstanceHealth -> Lude.Maybe Lude.Bool) (\s a -> s {shouldRespectGracePeriod = a} :: SetInstanceHealth)
 {-# DEPRECATED sihShouldRespectGracePeriod "Use generic-lens or generic-optics with 'shouldRespectGracePeriod' instead." #-}
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihInstanceId :: Lens.Lens' SetInstanceHealth Lude.Text
-sihInstanceId = Lens.lens (instanceId :: SetInstanceHealth -> Lude.Text) (\s a -> s {instanceId = a} :: SetInstanceHealth)
-{-# DEPRECATED sihInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The health status of the instance. Set to @Healthy@ to have the instance remain in service. Set to @Unhealthy@ to have the instance be out of service. Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance.
 --
@@ -112,20 +111,14 @@ instance Lude.ToQuery SetInstanceHealth where
     Lude.mconcat
       [ "Action" Lude.=: ("SetInstanceHealth" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "ShouldRespectGracePeriod" Lude.=: shouldRespectGracePeriod,
         "InstanceId" Lude.=: instanceId,
+        "ShouldRespectGracePeriod" Lude.=: shouldRespectGracePeriod,
         "HealthStatus" Lude.=: healthStatus
       ]
 
 -- | /See:/ 'mkSetInstanceHealthResponse' smart constructor.
 data SetInstanceHealthResponse = SetInstanceHealthResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetInstanceHealthResponse' with the minimum fields required to make a request.

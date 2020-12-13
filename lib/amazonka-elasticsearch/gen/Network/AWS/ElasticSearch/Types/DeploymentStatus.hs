@@ -13,11 +13,11 @@
 module Network.AWS.ElasticSearch.Types.DeploymentStatus
   ( DeploymentStatus
       ( DeploymentStatus',
-        Completed,
-        Eligible,
+        PendingUpdate,
         InProgress,
+        Completed,
         NotEligible,
-        PendingUpdate
+        Eligible
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype DeploymentStatus = DeploymentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Completed :: DeploymentStatus
-pattern Completed = DeploymentStatus' "COMPLETED"
-
-pattern Eligible :: DeploymentStatus
-pattern Eligible = DeploymentStatus' "ELIGIBLE"
+pattern PendingUpdate :: DeploymentStatus
+pattern PendingUpdate = DeploymentStatus' "PENDING_UPDATE"
 
 pattern InProgress :: DeploymentStatus
 pattern InProgress = DeploymentStatus' "IN_PROGRESS"
 
+pattern Completed :: DeploymentStatus
+pattern Completed = DeploymentStatus' "COMPLETED"
+
 pattern NotEligible :: DeploymentStatus
 pattern NotEligible = DeploymentStatus' "NOT_ELIGIBLE"
 
-pattern PendingUpdate :: DeploymentStatus
-pattern PendingUpdate = DeploymentStatus' "PENDING_UPDATE"
+pattern Eligible :: DeploymentStatus
+pattern Eligible = DeploymentStatus' "ELIGIBLE"
 
 {-# COMPLETE
-  Completed,
-  Eligible,
-  InProgress,
-  NotEligible,
   PendingUpdate,
+  InProgress,
+  Completed,
+  NotEligible,
+  Eligible,
   DeploymentStatus'
   #-}

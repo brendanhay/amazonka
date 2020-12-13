@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCapacityReservationGroup' smart constructor.
 data CapacityReservationGroup = CapacityReservationGroup'
-  { ownerId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS account that owns the resource group.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the resource group.
     groupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CapacityReservationGroup' with the minimum fields required to make a request.
 --
--- * 'groupARN' - The ARN of the resource group.
 -- * 'ownerId' - The ID of the AWS account that owns the resource group.
+-- * 'groupARN' - The ARN of the resource group.
 mkCapacityReservationGroup ::
   CapacityReservationGroup
 mkCapacityReservationGroup =

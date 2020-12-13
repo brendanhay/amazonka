@@ -37,33 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelInfo' smart constructor.
 data ChannelInfo = ChannelInfo'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time at which the signaling channel was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Current status of the signaling channel.
     channelStatus :: Lude.Maybe StreamStatus,
+    -- | The Amazon Resource Name (ARN) of the signaling channel.
     channelARN :: Lude.Maybe Lude.Text,
+    -- | A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
     singleMasterConfiguration :: Lude.Maybe SingleMasterConfiguration,
+    -- | The name of the signaling channel.
     channelName :: Lude.Maybe Lude.Text,
+    -- | The current version of the signaling channel.
     version :: Lude.Maybe Lude.Text,
+    -- | The type of the signaling channel.
     channelType :: Lude.Maybe ChannelType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelInfo' with the minimum fields required to make a request.
 --
--- * 'channelARN' - The Amazon Resource Name (ARN) of the signaling channel.
--- * 'channelName' - The name of the signaling channel.
--- * 'channelStatus' - Current status of the signaling channel.
--- * 'channelType' - The type of the signaling channel.
 -- * 'creationTime' - The time at which the signaling channel was created.
+-- * 'channelStatus' - Current status of the signaling channel.
+-- * 'channelARN' - The Amazon Resource Name (ARN) of the signaling channel.
 -- * 'singleMasterConfiguration' - A structure that contains the configuration for the @SINGLE_MASTER@ channel type.
+-- * 'channelName' - The name of the signaling channel.
 -- * 'version' - The current version of the signaling channel.
+-- * 'channelType' - The type of the signaling channel.
 mkChannelInfo ::
   ChannelInfo
 mkChannelInfo =

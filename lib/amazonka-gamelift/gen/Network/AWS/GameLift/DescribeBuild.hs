@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,7 +38,7 @@ module Network.AWS.GameLift.DescribeBuild
     mkDescribeBuild,
 
     -- ** Request lenses
-    dBuildId,
+    dbBuildId,
 
     -- * Destructuring the response
     DescribeBuildResponse (..),
@@ -58,14 +59,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeBuild' smart constructor.
-newtype DescribeBuild = DescribeBuild' {buildId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeBuild = DescribeBuild'
+  { -- | A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
+    buildId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBuild' with the minimum fields required to make a request.
@@ -80,9 +78,9 @@ mkDescribeBuild pBuildId_ = DescribeBuild' {buildId = pBuildId_}
 -- | A unique identifier for a build to retrieve properties for. You can use either the build ID or ARN value.
 --
 -- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dBuildId :: Lens.Lens' DescribeBuild Lude.Text
-dBuildId = Lens.lens (buildId :: DescribeBuild -> Lude.Text) (\s a -> s {buildId = a} :: DescribeBuild)
-{-# DEPRECATED dBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
+dbBuildId :: Lens.Lens' DescribeBuild Lude.Text
+dbBuildId = Lens.lens (buildId :: DescribeBuild -> Lude.Text) (\s a -> s {buildId = a} :: DescribeBuild)
+{-# DEPRECATED dbBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
 instance Lude.AWSRequest DescribeBuild where
   type Rs DescribeBuild = DescribeBuildResponse
@@ -120,17 +118,12 @@ instance Lude.ToQuery DescribeBuild where
 --
 -- /See:/ 'mkDescribeBuildResponse' smart constructor.
 data DescribeBuildResponse = DescribeBuildResponse'
-  { build ::
-      Lude.Maybe Build,
+  { -- | Set of properties describing the requested build.
+    build :: Lude.Maybe Build,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBuildResponse' with the minimum fields required to make a request.

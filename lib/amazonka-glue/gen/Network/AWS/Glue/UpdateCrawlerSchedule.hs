@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,23 +40,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateCrawlerSchedule' smart constructor.
 data UpdateCrawlerSchedule = UpdateCrawlerSchedule'
-  { schedule ::
-      Lude.Maybe Lude.Text,
+  { -- | The updated @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+    schedule :: Lude.Maybe Lude.Text,
+    -- | The name of the crawler whose schedule to update.
     crawlerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCrawlerSchedule' with the minimum fields required to make a request.
 --
--- * 'crawlerName' - The name of the crawler whose schedule to update.
 -- * 'schedule' - The updated @cron@ expression used to specify the schedule (see <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers> . For example, to run something every day at 12:15 UTC, you would specify: @cron(15 12 * * ? *)@ .
+-- * 'crawlerName' - The name of the crawler whose schedule to update.
 mkUpdateCrawlerSchedule ::
   -- | 'crawlerName'
   Lude.Text ->
@@ -118,16 +114,10 @@ instance Lude.ToQuery UpdateCrawlerSchedule where
 
 -- | /See:/ 'mkUpdateCrawlerScheduleResponse' smart constructor.
 newtype UpdateCrawlerScheduleResponse = UpdateCrawlerScheduleResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCrawlerScheduleResponse' with the minimum fields required to make a request.

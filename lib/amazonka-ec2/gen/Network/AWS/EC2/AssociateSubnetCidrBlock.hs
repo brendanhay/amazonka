@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateSubnetCidrBlock' smart constructor.
 data AssociateSubnetCidrBlock = AssociateSubnetCidrBlock'
-  { ipv6CidrBlock ::
-      Lude.Text,
+  { -- | The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.
+    ipv6CidrBlock :: Lude.Text,
+    -- | The ID of your subnet.
     subnetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSubnetCidrBlock' with the minimum fields required to make a request.
@@ -113,28 +109,21 @@ instance Lude.ToQuery AssociateSubnetCidrBlock where
 
 -- | /See:/ 'mkAssociateSubnetCidrBlockResponse' smart constructor.
 data AssociateSubnetCidrBlockResponse = AssociateSubnetCidrBlockResponse'
-  { subnetId ::
-      Lude.Maybe Lude.Text,
-    ipv6CidrBlockAssociation ::
-      Lude.Maybe
-        SubnetIPv6CidrBlockAssociation,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the subnet.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | Information about the IPv6 CIDR block association.
+    ipv6CidrBlockAssociation :: Lude.Maybe SubnetIPv6CidrBlockAssociation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSubnetCidrBlockResponse' with the minimum fields required to make a request.
 --
+-- * 'subnetId' - The ID of the subnet.
 -- * 'ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 -- * 'responseStatus' - The response status code.
--- * 'subnetId' - The ID of the subnet.
 mkAssociateSubnetCidrBlockResponse ::
   -- | 'responseStatus'
   Lude.Int ->

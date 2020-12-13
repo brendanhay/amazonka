@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectionsList' smart constructor.
 newtype ConnectionsList = ConnectionsList'
-  { connections ::
-      Lude.Maybe [Lude.Text]
+  { -- | A list of connections used by the job.
+    connections :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionsList' with the minimum fields required to make a request.

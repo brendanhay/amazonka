@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDashboardEntry' smart constructor.
 data DashboardEntry = DashboardEntry'
-  { size ::
-      Lude.Maybe Lude.Integer,
+  { -- | The size of the dashboard, in bytes.
+    size :: Lude.Maybe Lude.Integer,
+    -- | The name of the dashboard.
     dashboardName :: Lude.Maybe Lude.Text,
+    -- | The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
     lastModified :: Lude.Maybe Lude.DateTime,
+    -- | The Amazon Resource Name (ARN) of the dashboard.
     dashboardARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DashboardEntry' with the minimum fields required to make a request.
 --
--- * 'dashboardARN' - The Amazon Resource Name (ARN) of the dashboard.
+-- * 'size' - The size of the dashboard, in bytes.
 -- * 'dashboardName' - The name of the dashboard.
 -- * 'lastModified' - The time stamp of when the dashboard was last modified, either by an API call or through the console. This number is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.
--- * 'size' - The size of the dashboard, in bytes.
+-- * 'dashboardARN' - The Amazon Resource Name (ARN) of the dashboard.
 mkDashboardEntry ::
   DashboardEntry
 mkDashboardEntry =

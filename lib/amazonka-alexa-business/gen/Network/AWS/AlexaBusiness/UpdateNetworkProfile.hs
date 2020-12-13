@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,12 +21,12 @@ module Network.AWS.AlexaBusiness.UpdateNetworkProfile
 
     -- ** Request lenses
     unpNetworkProfileName,
+    unpNetworkProfileARN,
     unpCurrentPassword,
     unpNextPassword,
     unpDescription,
     unpTrustAnchors,
     unpCertificateAuthorityARN,
-    unpNetworkProfileARN,
 
     -- * Destructuring the response
     UpdateNetworkProfileResponse (..),
@@ -44,30 +45,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateNetworkProfile' smart constructor.
 data UpdateNetworkProfile = UpdateNetworkProfile'
-  { networkProfileName ::
-      Lude.Maybe Lude.Text,
-    currentPassword ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    nextPassword ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The name of the network profile associated with a device.
+    networkProfileName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the network profile associated with a device.
+    networkProfileARN :: Lude.Text,
+    -- | The current password of the Wi-Fi network.
+    currentPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
+    nextPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Detailed information about a device's network profile.
     description :: Lude.Maybe Lude.Text,
-    trustAnchors ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    certificateAuthorityARN :: Lude.Maybe Lude.Text,
-    networkProfileARN :: Lude.Text
+    -- | The root certificate(s) of your authentication server that will be installed on your devices and used to trust your authentication server during EAP negotiation.
+    trustAnchors :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
+    certificateAuthorityARN :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNetworkProfile' with the minimum fields required to make a request.
 --
--- * 'certificateAuthorityARN' - The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
--- * 'currentPassword' - The current password of the Wi-Fi network.
--- * 'description' - Detailed information about a device's network profile.
--- * 'networkProfileARN' - The ARN of the network profile associated with a device.
 -- * 'networkProfileName' - The name of the network profile associated with a device.
+-- * 'networkProfileARN' - The ARN of the network profile associated with a device.
+-- * 'currentPassword' - The current password of the Wi-Fi network.
 -- * 'nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
+-- * 'description' - Detailed information about a device's network profile.
 -- * 'trustAnchors' - The root certificate(s) of your authentication server that will be installed on your devices and used to trust your authentication server during EAP negotiation.
+-- * 'certificateAuthorityARN' - The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
 mkUpdateNetworkProfile ::
   -- | 'networkProfileARN'
   Lude.Text ->
@@ -75,12 +79,12 @@ mkUpdateNetworkProfile ::
 mkUpdateNetworkProfile pNetworkProfileARN_ =
   UpdateNetworkProfile'
     { networkProfileName = Lude.Nothing,
+      networkProfileARN = pNetworkProfileARN_,
       currentPassword = Lude.Nothing,
       nextPassword = Lude.Nothing,
       description = Lude.Nothing,
       trustAnchors = Lude.Nothing,
-      certificateAuthorityARN = Lude.Nothing,
-      networkProfileARN = pNetworkProfileARN_
+      certificateAuthorityARN = Lude.Nothing
     }
 
 -- | The name of the network profile associated with a device.
@@ -89,6 +93,13 @@ mkUpdateNetworkProfile pNetworkProfileARN_ =
 unpNetworkProfileName :: Lens.Lens' UpdateNetworkProfile (Lude.Maybe Lude.Text)
 unpNetworkProfileName = Lens.lens (networkProfileName :: UpdateNetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {networkProfileName = a} :: UpdateNetworkProfile)
 {-# DEPRECATED unpNetworkProfileName "Use generic-lens or generic-optics with 'networkProfileName' instead." #-}
+
+-- | The ARN of the network profile associated with a device.
+--
+-- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unpNetworkProfileARN :: Lens.Lens' UpdateNetworkProfile Lude.Text
+unpNetworkProfileARN = Lens.lens (networkProfileARN :: UpdateNetworkProfile -> Lude.Text) (\s a -> s {networkProfileARN = a} :: UpdateNetworkProfile)
+{-# DEPRECATED unpNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
 
 -- | The current password of the Wi-Fi network.
 --
@@ -125,13 +136,6 @@ unpCertificateAuthorityARN :: Lens.Lens' UpdateNetworkProfile (Lude.Maybe Lude.T
 unpCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: UpdateNetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: UpdateNetworkProfile)
 {-# DEPRECATED unpCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
 
--- | The ARN of the network profile associated with a device.
---
--- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unpNetworkProfileARN :: Lens.Lens' UpdateNetworkProfile Lude.Text
-unpNetworkProfileARN = Lens.lens (networkProfileARN :: UpdateNetworkProfile -> Lude.Text) (\s a -> s {networkProfileARN = a} :: UpdateNetworkProfile)
-{-# DEPRECATED unpNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
-
 instance Lude.AWSRequest UpdateNetworkProfile where
   type Rs UpdateNetworkProfile = UpdateNetworkProfileResponse
   request = Req.postJSON alexaBusinessService
@@ -158,13 +162,13 @@ instance Lude.ToJSON UpdateNetworkProfile where
     Lude.object
       ( Lude.catMaybes
           [ ("NetworkProfileName" Lude..=) Lude.<$> networkProfileName,
+            Lude.Just ("NetworkProfileArn" Lude..= networkProfileARN),
             ("CurrentPassword" Lude..=) Lude.<$> currentPassword,
             ("NextPassword" Lude..=) Lude.<$> nextPassword,
             ("Description" Lude..=) Lude.<$> description,
             ("TrustAnchors" Lude..=) Lude.<$> trustAnchors,
             ("CertificateAuthorityArn" Lude..=)
-              Lude.<$> certificateAuthorityARN,
-            Lude.Just ("NetworkProfileArn" Lude..= networkProfileARN)
+              Lude.<$> certificateAuthorityARN
           ]
       )
 
@@ -176,16 +180,10 @@ instance Lude.ToQuery UpdateNetworkProfile where
 
 -- | /See:/ 'mkUpdateNetworkProfileResponse' smart constructor.
 newtype UpdateNetworkProfileResponse = UpdateNetworkProfileResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNetworkProfileResponse' with the minimum fields required to make a request.

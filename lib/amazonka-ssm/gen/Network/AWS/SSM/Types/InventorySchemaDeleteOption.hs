@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.InventorySchemaDeleteOption
   ( InventorySchemaDeleteOption
       ( InventorySchemaDeleteOption',
-        DeleteSchema,
-        DisableSchema
+        DisableSchema,
+        DeleteSchema
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InventorySchemaDeleteOption = InventorySchemaDeleteOption' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeleteSchema :: InventorySchemaDeleteOption
-pattern DeleteSchema = InventorySchemaDeleteOption' "DeleteSchema"
-
 pattern DisableSchema :: InventorySchemaDeleteOption
 pattern DisableSchema = InventorySchemaDeleteOption' "DisableSchema"
 
+pattern DeleteSchema :: InventorySchemaDeleteOption
+pattern DeleteSchema = InventorySchemaDeleteOption' "DeleteSchema"
+
 {-# COMPLETE
-  DeleteSchema,
   DisableSchema,
+  DeleteSchema,
   InventorySchemaDeleteOption'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,26 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachInstancesToLoadBalancer' smart constructor.
 data AttachInstancesToLoadBalancer = AttachInstancesToLoadBalancer'
-  { loadBalancerName ::
-      Lude.Text,
+  { -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | An array of strings representing the instance name(s) you want to attach to your load balancer.
+    --
+    -- An instance must be @running@ before you can attach it to your load balancer.
+    -- There are no additional limits on the number of instances you can attach to your load balancer, aside from the limit of Lightsail instances you can create in your account (20).
     instanceNames :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstancesToLoadBalancer' with the minimum fields required to make a request.
 --
+-- * 'loadBalancerName' - The name of the load balancer.
 -- * 'instanceNames' - An array of strings representing the instance name(s) you want to attach to your load balancer.
 --
 -- An instance must be @running@ before you can attach it to your load balancer.
 -- There are no additional limits on the number of instances you can attach to your load balancer, aside from the limit of Lightsail instances you can create in your account (20).
--- * 'loadBalancerName' - The name of the load balancer.
 mkAttachInstancesToLoadBalancer ::
   -- | 'loadBalancerName'
   Lude.Text ->
@@ -134,19 +133,12 @@ instance Lude.ToQuery AttachInstancesToLoadBalancer where
 
 -- | /See:/ 'mkAttachInstancesToLoadBalancerResponse' smart constructor.
 data AttachInstancesToLoadBalancerResponse = AttachInstancesToLoadBalancerResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachInstancesToLoadBalancerResponse' with the minimum fields required to make a request.

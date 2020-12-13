@@ -34,26 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalSecondaryIndexInfo' smart constructor.
 data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
-  { provisionedThroughput ::
-      Lude.Maybe ProvisionedThroughput,
-    keySchema ::
-      Lude.Maybe
-        (Lude.NonEmpty KeySchemaElement),
+  { -- | Represents the provisioned throughput settings for the specified global secondary index.
+    provisionedThroughput :: Lude.Maybe ProvisionedThroughput,
+    -- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+    --
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
     projection :: Lude.Maybe Projection,
+    -- | The name of the global secondary index.
     indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalSecondaryIndexInfo' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the global secondary index.
+-- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
 -- * 'keySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
 --
@@ -64,7 +65,7 @@ data GlobalSecondaryIndexInfo = GlobalSecondaryIndexInfo'
 --
 --
 -- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
--- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
+-- * 'indexName' - The name of the global secondary index.
 mkGlobalSecondaryIndexInfo ::
   GlobalSecondaryIndexInfo
 mkGlobalSecondaryIndexInfo =

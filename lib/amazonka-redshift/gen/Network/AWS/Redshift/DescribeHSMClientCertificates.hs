@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,35 +53,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeHSMClientCertificates' smart constructor.
 data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
-  { tagValues ::
-      Lude.Maybe [Lude.Text],
-    tagKeys ::
-      Lude.Maybe [Lude.Text],
-    hsmClientCertificateIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | A tag value or values for which you want to return all matching HSM client certificates that are associated with the specified tag value or values. For example, suppose that you have HSM client certificates that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag values associated with them.
+    tagValues :: Lude.Maybe [Lude.Text],
+    -- | A tag key or keys for which you want to return all matching HSM client certificates that are associated with the specified key or keys. For example, suppose that you have HSM client certificates that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag keys associated with them.
+    tagKeys :: Lude.Maybe [Lude.Text],
+    -- | The identifier of a specific HSM client certificate for which you want information. If no identifier is specified, information is returned for all HSM client certificates owned by your AWS customer account.
+    hsmClientCertificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeHsmClientCertificates' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
     marker :: Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int
+    -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+    --
+    -- Default: @100@
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHSMClientCertificates' with the minimum fields required to make a request.
 --
+-- * 'tagValues' - A tag value or values for which you want to return all matching HSM client certificates that are associated with the specified tag value or values. For example, suppose that you have HSM client certificates that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag values associated with them.
+-- * 'tagKeys' - A tag key or keys for which you want to return all matching HSM client certificates that are associated with the specified key or keys. For example, suppose that you have HSM client certificates that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag keys associated with them.
 -- * 'hsmClientCertificateIdentifier' - The identifier of a specific HSM client certificate for which you want information. If no identifier is specified, information is returned for all HSM client certificates owned by your AWS customer account.
 -- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeHsmClientCertificates' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 -- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
 -- Default: @100@
 -- Constraints: minimum 20, maximum 100.
--- * 'tagKeys' - A tag key or keys for which you want to return all matching HSM client certificates that are associated with the specified key or keys. For example, suppose that you have HSM client certificates that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag keys associated with them.
--- * 'tagValues' - A tag value or values for which you want to return all matching HSM client certificates that are associated with the specified tag value or values. For example, suppose that you have HSM client certificates that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the HSM client certificates that have either or both of these tag values associated with them.
 mkDescribeHSMClientCertificates ::
   DescribeHSMClientCertificates
 mkDescribeHSMClientCertificates =
@@ -182,28 +181,20 @@ instance Lude.ToQuery DescribeHSMClientCertificates where
 --
 -- /See:/ 'mkDescribeHSMClientCertificatesResponse' smart constructor.
 data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    hsmClientCertificates ::
-      Lude.Maybe
-        [HSMClientCertificate],
-    responseStatus ::
-      Lude.Int
+  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A list of the identifiers for one or more HSM client certificates used by Amazon Redshift clusters to store and retrieve database encryption keys in an HSM.
+    hsmClientCertificates :: Lude.Maybe [HSMClientCertificate],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHSMClientCertificatesResponse' with the minimum fields required to make a request.
 --
--- * 'hsmClientCertificates' - A list of the identifiers for one or more HSM client certificates used by Amazon Redshift clusters to store and retrieve database encryption keys in an HSM.
 -- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+-- * 'hsmClientCertificates' - A list of the identifiers for one or more HSM client certificates used by Amazon Redshift clusters to store and retrieve database encryption keys in an HSM.
 -- * 'responseStatus' - The response status code.
 mkDescribeHSMClientCertificatesResponse ::
   -- | 'responseStatus'

@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConditionalForwarder' smart constructor.
 data ConditionalForwarder = ConditionalForwarder'
-  { dnsIPAddrs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IP addresses of the remote DNS server associated with RemoteDomainName. This is the IP address of the DNS server that your conditional forwarder points to.
+    dnsIPAddrs :: Lude.Maybe [Lude.Text],
+    -- | The fully qualified domain name (FQDN) of the remote domains pointed to by the conditional forwarder.
     remoteDomainName :: Lude.Maybe Lude.Text,
+    -- | The replication scope of the conditional forwarder. The only allowed value is @Domain@ , which will replicate the conditional forwarder to all of the domain controllers for your AWS directory.
     replicationScope :: Lude.Maybe ReplicationScope
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConditionalForwarder' with the minimum fields required to make a request.

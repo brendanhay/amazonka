@@ -17,10 +17,10 @@ module Network.AWS.MediaLive.Types.CaptionDescription
     mkCaptionDescription,
 
     -- * Lenses
+    cdCaptionSelectorName,
     cdLanguageCode,
     cdDestinationSettings,
     cdLanguageDescription,
-    cdCaptionSelectorName,
     cdName,
   )
 where
@@ -33,28 +33,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionDescription' smart constructor.
 data CaptionDescription = CaptionDescription'
-  { languageCode ::
-      Lude.Maybe Lude.Text,
-    destinationSettings ::
-      Lude.Maybe CaptionDestinationSettings,
-    languageDescription :: Lude.Maybe Lude.Text,
+  { -- | Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
     captionSelectorName :: Lude.Text,
+    -- | ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
+    languageCode :: Lude.Maybe Lude.Text,
+    -- | Additional settings for captions destination that depend on the destination type.
+    destinationSettings :: Lude.Maybe CaptionDestinationSettings,
+    -- | Human readable information to indicate captions available for players (eg. English, or Spanish).
+    languageDescription :: Lude.Maybe Lude.Text,
+    -- | Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionDescription' with the minimum fields required to make a request.
 --
 -- * 'captionSelectorName' - Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
--- * 'destinationSettings' - Additional settings for captions destination that depend on the destination type.
 -- * 'languageCode' - ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
+-- * 'destinationSettings' - Additional settings for captions destination that depend on the destination type.
 -- * 'languageDescription' - Human readable information to indicate captions available for players (eg. English, or Spanish).
 -- * 'name' - Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.
 mkCaptionDescription ::
@@ -65,12 +62,19 @@ mkCaptionDescription ::
   CaptionDescription
 mkCaptionDescription pCaptionSelectorName_ pName_ =
   CaptionDescription'
-    { languageCode = Lude.Nothing,
+    { captionSelectorName = pCaptionSelectorName_,
+      languageCode = Lude.Nothing,
       destinationSettings = Lude.Nothing,
       languageDescription = Lude.Nothing,
-      captionSelectorName = pCaptionSelectorName_,
       name = pName_
     }
+
+-- | Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+--
+-- /Note:/ Consider using 'captionSelectorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCaptionSelectorName :: Lens.Lens' CaptionDescription Lude.Text
+cdCaptionSelectorName = Lens.lens (captionSelectorName :: CaptionDescription -> Lude.Text) (\s a -> s {captionSelectorName = a} :: CaptionDescription)
+{-# DEPRECATED cdCaptionSelectorName "Use generic-lens or generic-optics with 'captionSelectorName' instead." #-}
 
 -- | ISO 639-2 three-digit code: http://www.loc.gov/standards/iso639-2/
 --
@@ -93,13 +97,6 @@ cdLanguageDescription :: Lens.Lens' CaptionDescription (Lude.Maybe Lude.Text)
 cdLanguageDescription = Lens.lens (languageDescription :: CaptionDescription -> Lude.Maybe Lude.Text) (\s a -> s {languageDescription = a} :: CaptionDescription)
 {-# DEPRECATED cdLanguageDescription "Use generic-lens or generic-optics with 'languageDescription' instead." #-}
 
--- | Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
---
--- /Note:/ Consider using 'captionSelectorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCaptionSelectorName :: Lens.Lens' CaptionDescription Lude.Text
-cdCaptionSelectorName = Lens.lens (captionSelectorName :: CaptionDescription -> Lude.Text) (\s a -> s {captionSelectorName = a} :: CaptionDescription)
-{-# DEPRECATED cdCaptionSelectorName "Use generic-lens or generic-optics with 'captionSelectorName' instead." #-}
-
 -- | Name of the caption description.  Used to associate a caption description with an output.  Names must be unique within an event.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -113,10 +110,10 @@ instance Lude.FromJSON CaptionDescription where
       "CaptionDescription"
       ( \x ->
           CaptionDescription'
-            Lude.<$> (x Lude..:? "languageCode")
+            Lude.<$> (x Lude..: "captionSelectorName")
+            Lude.<*> (x Lude..:? "languageCode")
             Lude.<*> (x Lude..:? "destinationSettings")
             Lude.<*> (x Lude..:? "languageDescription")
-            Lude.<*> (x Lude..: "captionSelectorName")
             Lude.<*> (x Lude..: "name")
       )
 
@@ -124,10 +121,10 @@ instance Lude.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("languageCode" Lude..=) Lude.<$> languageCode,
+          [ Lude.Just ("captionSelectorName" Lude..= captionSelectorName),
+            ("languageCode" Lude..=) Lude.<$> languageCode,
             ("destinationSettings" Lude..=) Lude.<$> destinationSettings,
             ("languageDescription" Lude..=) Lude.<$> languageDescription,
-            Lude.Just ("captionSelectorName" Lude..= captionSelectorName),
             Lude.Just ("name" Lude..= name)
           ]
       )

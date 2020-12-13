@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetAutomationExecution' smart constructor.
 newtype GetAutomationExecution = GetAutomationExecution'
-  { automationExecutionId ::
-      Lude.Text
+  { -- | The unique identifier for an existing automation execution to examine. The execution ID is returned by StartAutomationExecution when the execution of an Automation document is initiated.
+    automationExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutomationExecution' with the minimum fields required to make a request.
@@ -110,18 +105,12 @@ instance Lude.ToQuery GetAutomationExecution where
 
 -- | /See:/ 'mkGetAutomationExecutionResponse' smart constructor.
 data GetAutomationExecutionResponse = GetAutomationExecutionResponse'
-  { automationExecution ::
-      Lude.Maybe
-        AutomationExecution,
+  { -- | Detailed information about the current state of an automation execution.
+    automationExecution :: Lude.Maybe AutomationExecution,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutomationExecutionResponse' with the minimum fields required to make a request.

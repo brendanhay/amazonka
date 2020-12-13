@@ -394,19 +394,19 @@ module Network.AWS.XRay
     -- ** SamplingRule
     SamplingRule (..),
     mkSamplingRule,
-    srRuleName,
-    srAttributes,
-    srRuleARN,
-    srResourceARN,
+    srHTTPMethod,
     srPriority,
-    srFixedRate,
+    srRuleName,
     srReservoirSize,
+    srFixedRate,
+    srResourceARN,
+    srAttributes,
+    srVersion,
     srServiceName,
     srServiceType,
     srHost,
-    srHTTPMethod,
+    srRuleARN,
     srURLPath,
-    srVersion,
 
     -- ** SamplingRuleRecord
     SamplingRuleRecord (..),
@@ -443,11 +443,11 @@ module Network.AWS.XRay
     -- ** SamplingStatisticsDocument
     SamplingStatisticsDocument (..),
     mkSamplingStatisticsDocument,
+    ssdClientId,
+    ssdRequestCount,
     ssdBorrowCount,
     ssdRuleName,
-    ssdClientId,
     ssdTimestamp,
-    ssdRequestCount,
     ssdSampledCount,
 
     -- ** SamplingStrategy
@@ -508,8 +508,8 @@ module Network.AWS.XRay
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** TelemetryRecord
     TelemetryRecord (..),
@@ -518,8 +518,8 @@ module Network.AWS.XRay
     trSegmentsSentCount,
     trSegmentsSpilloverCount,
     trSegmentsRejectedCount,
-    trBackendConnectionErrors,
     trTimestamp,
+    trBackendConnectionErrors,
 
     -- ** TimeSeriesServiceStatistics
     TimeSeriesServiceStatistics (..),

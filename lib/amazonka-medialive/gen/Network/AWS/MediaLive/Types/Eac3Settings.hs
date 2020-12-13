@@ -61,59 +61,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEac3Settings' smart constructor.
 data Eac3Settings = Eac3Settings'
-  { stereoDownmix ::
-      Lude.Maybe Eac3StereoDownmix,
+  { -- | Stereo downmix preference. Only used for 3/2 coding mode.
+    stereoDownmix :: Lude.Maybe Eac3StereoDownmix,
+    -- | Left only/Right only center mix level. Only used for 3/2 coding mode.
     loRoCenterMixLevel :: Lude.Maybe Lude.Double,
+    -- | Left total/Right total center mix level. Only used for 3/2 coding mode.
     ltRtCenterMixLevel :: Lude.Maybe Lude.Double,
+    -- | When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with codingMode32 coding mode.
     lfeFilter :: Lude.Maybe Eac3LfeFilter,
+    -- | Left total/Right total surround mix level. Only used for 3/2 coding mode.
     ltRtSurroundMixLevel :: Lude.Maybe Lude.Double,
+    -- | When set to followInput, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
     metadataControl :: Lude.Maybe Eac3MetadataControl,
+    -- | Left only/Right only surround mix level. Only used for 3/2 coding mode.
     loRoSurroundMixLevel :: Lude.Maybe Lude.Double,
+    -- | When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
     surroundMode :: Lude.Maybe Eac3SurroundMode,
+    -- | When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
     attenuationControl :: Lude.Maybe Eac3AttenuationControl,
+    -- | When set to whenPossible, input DD+ audio will be passed through if it is present on the input. This detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
     passthroughControl :: Lude.Maybe Eac3PassthroughControl,
+    -- | Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
     bitstreamMode :: Lude.Maybe Eac3BitstreamMode,
+    -- | When encoding 3/2 audio, setting to lfe enables the LFE channel
     lfeControl :: Lude.Maybe Eac3LfeControl,
+    -- | Dolby Digital Plus coding mode. Determines number of channels.
     codingMode :: Lude.Maybe Eac3CodingMode,
+    -- | Sets the Dolby dynamic range compression profile.
     drcLine :: Lude.Maybe Eac3DrcLine,
+    -- | Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
     drcRf :: Lude.Maybe Eac3DrcRf,
+    -- | When set to enabled, activates a DC highpass filter for all input channels.
     dcFilter :: Lude.Maybe Eac3DcFilter,
+    -- | Average bitrate in bits/second. Valid bitrates depend on the coding mode.
     bitrate :: Lude.Maybe Lude.Double,
+    -- | When set to shift90Degrees, applies a 90-degree phase shift to the surround channels. Only used for 3/2 coding mode.
     phaseControl :: Lude.Maybe Eac3PhaseControl,
+    -- | When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
     surroundExMode :: Lude.Maybe Eac3SurroundExMode,
+    -- | Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
     dialnorm :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Eac3Settings' with the minimum fields required to make a request.
 --
--- * 'attenuationControl' - When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
--- * 'bitrate' - Average bitrate in bits/second. Valid bitrates depend on the coding mode.
--- * 'bitstreamMode' - Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
--- * 'codingMode' - Dolby Digital Plus coding mode. Determines number of channels.
--- * 'dcFilter' - When set to enabled, activates a DC highpass filter for all input channels.
--- * 'dialnorm' - Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
--- * 'drcLine' - Sets the Dolby dynamic range compression profile.
--- * 'drcRf' - Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
--- * 'lfeControl' - When encoding 3/2 audio, setting to lfe enables the LFE channel
--- * 'lfeFilter' - When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with codingMode32 coding mode.
+-- * 'stereoDownmix' - Stereo downmix preference. Only used for 3/2 coding mode.
 -- * 'loRoCenterMixLevel' - Left only/Right only center mix level. Only used for 3/2 coding mode.
--- * 'loRoSurroundMixLevel' - Left only/Right only surround mix level. Only used for 3/2 coding mode.
 -- * 'ltRtCenterMixLevel' - Left total/Right total center mix level. Only used for 3/2 coding mode.
+-- * 'lfeFilter' - When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with codingMode32 coding mode.
 -- * 'ltRtSurroundMixLevel' - Left total/Right total surround mix level. Only used for 3/2 coding mode.
 -- * 'metadataControl' - When set to followInput, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
--- * 'passthroughControl' - When set to whenPossible, input DD+ audio will be passed through if it is present on the input. This detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
--- * 'phaseControl' - When set to shift90Degrees, applies a 90-degree phase shift to the surround channels. Only used for 3/2 coding mode.
--- * 'stereoDownmix' - Stereo downmix preference. Only used for 3/2 coding mode.
--- * 'surroundExMode' - When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
+-- * 'loRoSurroundMixLevel' - Left only/Right only surround mix level. Only used for 3/2 coding mode.
 -- * 'surroundMode' - When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
+-- * 'attenuationControl' - When set to attenuate3Db, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
+-- * 'passthroughControl' - When set to whenPossible, input DD+ audio will be passed through if it is present on the input. This detection is dynamic over the life of the transcode. Inputs that alternate between DD+ and non-DD+ content will have a consistent DD+ output as the system alternates between passthrough and encoding.
+-- * 'bitstreamMode' - Specifies the bitstream mode (bsmod) for the emitted E-AC-3 stream. See ATSC A/52-2012 (Annex E) for background on these values.
+-- * 'lfeControl' - When encoding 3/2 audio, setting to lfe enables the LFE channel
+-- * 'codingMode' - Dolby Digital Plus coding mode. Determines number of channels.
+-- * 'drcLine' - Sets the Dolby dynamic range compression profile.
+-- * 'drcRf' - Sets the profile for heavy Dolby dynamic range compression, ensures that the instantaneous signal peaks do not exceed specified levels.
+-- * 'dcFilter' - When set to enabled, activates a DC highpass filter for all input channels.
+-- * 'bitrate' - Average bitrate in bits/second. Valid bitrates depend on the coding mode.
+-- * 'phaseControl' - When set to shift90Degrees, applies a 90-degree phase shift to the surround channels. Only used for 3/2 coding mode.
+-- * 'surroundExMode' - When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
+-- * 'dialnorm' - Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
 mkEac3Settings ::
   Eac3Settings
 mkEac3Settings =

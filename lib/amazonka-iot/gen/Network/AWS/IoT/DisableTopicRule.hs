@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoT.DisableTopicRule
     mkDisableTopicRule,
 
     -- ** Request lenses
-    dtrRuleName,
+    dRuleName,
 
     -- * Destructuring the response
     DisableTopicRuleResponse (..),
@@ -36,14 +37,11 @@ import qualified Network.AWS.Response as Res
 -- | The input for the DisableTopicRuleRequest operation.
 --
 -- /See:/ 'mkDisableTopicRule' smart constructor.
-newtype DisableTopicRule = DisableTopicRule' {ruleName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DisableTopicRule = DisableTopicRule'
+  { -- | The name of the rule to disable.
+    ruleName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableTopicRule' with the minimum fields required to make a request.
@@ -59,9 +57,9 @@ mkDisableTopicRule pRuleName_ =
 -- | The name of the rule to disable.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrRuleName :: Lens.Lens' DisableTopicRule Lude.Text
-dtrRuleName = Lens.lens (ruleName :: DisableTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: DisableTopicRule)
-{-# DEPRECATED dtrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+dRuleName :: Lens.Lens' DisableTopicRule Lude.Text
+dRuleName = Lens.lens (ruleName :: DisableTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: DisableTopicRule)
+{-# DEPRECATED dRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 instance Lude.AWSRequest DisableTopicRule where
   type Rs DisableTopicRule = DisableTopicRuleResponse
@@ -83,13 +81,7 @@ instance Lude.ToQuery DisableTopicRule where
 
 -- | /See:/ 'mkDisableTopicRuleResponse' smart constructor.
 data DisableTopicRuleResponse = DisableTopicRuleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableTopicRuleResponse' with the minimum fields required to make a request.

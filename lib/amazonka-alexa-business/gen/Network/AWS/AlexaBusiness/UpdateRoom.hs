@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,28 +43,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRoom' smart constructor.
 data UpdateRoom = UpdateRoom'
-  { profileARN :: Lude.Maybe Lude.Text,
+  { -- | The updated profile ARN for the room.
+    profileARN :: Lude.Maybe Lude.Text,
+    -- | The updated provider calendar ARN for the room.
     providerCalendarId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the room to update.
     roomARN :: Lude.Maybe Lude.Text,
+    -- | The updated name for the room.
     roomName :: Lude.Maybe Lude.Text,
+    -- | The updated description for the room.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoom' with the minimum fields required to make a request.
 --
--- * 'description' - The updated description for the room.
 -- * 'profileARN' - The updated profile ARN for the room.
 -- * 'providerCalendarId' - The updated provider calendar ARN for the room.
 -- * 'roomARN' - The ARN of the room to update.
 -- * 'roomName' - The updated name for the room.
+-- * 'description' - The updated description for the room.
 mkUpdateRoom ::
   UpdateRoom
 mkUpdateRoom =
@@ -150,16 +150,10 @@ instance Lude.ToQuery UpdateRoom where
 
 -- | /See:/ 'mkUpdateRoomResponse' smart constructor.
 newtype UpdateRoomResponse = UpdateRoomResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoomResponse' with the minimum fields required to make a request.

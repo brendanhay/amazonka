@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,14 +55,11 @@ import qualified Network.AWS.Response as Res
 -- | Request to get the name of a 'DomainName' resource.
 --
 -- /See:/ 'mkGetDomainName' smart constructor.
-newtype GetDomainName = GetDomainName' {domainName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDomainName = GetDomainName'
+  { -- | [Required] The name of the 'DomainName' resource.
+    domainName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainName' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListConferenceProviders' smart constructor.
 data ListConferenceProviders = ListConferenceProviders'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The tokens used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of conference providers to be returned, per paginated calls.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConferenceProviders' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of conference providers to be returned, per paginated calls.
 -- * 'nextToken' - The tokens used for pagination.
+-- * 'maxResults' - The maximum number of conference providers to be returned, per paginated calls.
 mkListConferenceProviders ::
   ListConferenceProviders
 mkListConferenceProviders =
@@ -132,20 +128,14 @@ instance Lude.ToQuery ListConferenceProviders where
 
 -- | /See:/ 'mkListConferenceProvidersResponse' smart constructor.
 data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
-  { conferenceProviders ::
-      Lude.Maybe
-        [ConferenceProvider],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The conference providers.
+    conferenceProviders :: Lude.Maybe [ConferenceProvider],
+    -- | The tokens used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConferenceProvidersResponse' with the minimum fields required to make a request.

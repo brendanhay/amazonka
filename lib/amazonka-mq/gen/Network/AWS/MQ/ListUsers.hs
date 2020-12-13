@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.MQ.ListUsers
 
     -- ** Request lenses
     luNextToken,
-    luMaxResults,
     luBrokerId,
+    luMaxResults,
 
     -- * Destructuring the response
     ListUsersResponse (..),
@@ -44,24 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    brokerId :: Lude.Text
+  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Lude.Text,
+    -- | The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 -- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
 -- * 'maxResults' - The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 mkListUsers ::
   -- | 'brokerId'
   Lude.Text ->
@@ -69,8 +67,8 @@ mkListUsers ::
 mkListUsers pBrokerId_ =
   ListUsers'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      brokerId = pBrokerId_
+      brokerId = pBrokerId_,
+      maxResults = Lude.Nothing
     }
 
 -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
@@ -80,19 +78,19 @@ luNextToken :: Lens.Lens' ListUsers (Lude.Maybe Lude.Text)
 luNextToken = Lens.lens (nextToken :: ListUsers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUsers)
 {-# DEPRECATED luNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luMaxResults :: Lens.Lens' ListUsers (Lude.Maybe Lude.Natural)
-luMaxResults = Lens.lens (maxResults :: ListUsers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUsers)
-{-# DEPRECATED luMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 luBrokerId :: Lens.Lens' ListUsers Lude.Text
 luBrokerId = Lens.lens (brokerId :: ListUsers -> Lude.Text) (\s a -> s {brokerId = a} :: ListUsers)
 {-# DEPRECATED luBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+
+-- | The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luMaxResults :: Lens.Lens' ListUsers (Lude.Maybe Lude.Natural)
+luMaxResults = Lens.lens (maxResults :: ListUsers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUsers)
+{-# DEPRECATED luMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListUsers where
   type Rs ListUsers = ListUsersResponse
@@ -128,29 +126,27 @@ instance Lude.ToQuery ListUsers where
 
 -- | /See:/ 'mkListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { users ::
-      Lude.Maybe [UserSummary],
+  { -- | Required. The list of all ActiveMQ usernames for the specified broker.
+    users :: Lude.Maybe [UserSummary],
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Required. The unique ID that Amazon MQ generates for the broker.
     brokerId :: Lude.Maybe Lude.Text,
+    -- | Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
 --
+-- * 'users' - Required. The list of all ActiveMQ usernames for the specified broker.
+-- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 -- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
 -- * 'maxResults' - Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 -- * 'responseStatus' - The response status code.
--- * 'users' - Required. The list of all ActiveMQ usernames for the specified broker.
 mkListUsersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingConnectivity' smart constructor.
 data ThingConnectivity = ThingConnectivity'
-  { connected ::
-      Lude.Maybe Lude.Bool,
+  { -- | True if the thing is connected to the AWS IoT service; false if it is not connected.
+    connected :: Lude.Maybe Lude.Bool,
+    -- | The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for more than a few weeks, the time value might be missing.
     timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingConnectivity' with the minimum fields required to make a request.

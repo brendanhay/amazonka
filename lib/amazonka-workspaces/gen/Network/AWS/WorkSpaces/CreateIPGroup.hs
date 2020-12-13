@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.WorkSpaces.CreateIPGroup
     -- ** Request lenses
     cigGroupDesc,
     cigUserRules,
-    cigTags,
     cigGroupName,
+    cigTags,
 
     -- * Destructuring the response
     CreateIPGroupResponse (..),
@@ -45,27 +46,24 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkCreateIPGroup' smart constructor.
 data CreateIPGroup = CreateIPGroup'
-  { groupDesc ::
-      Lude.Maybe Lude.Text,
+  { -- | The description of the group.
+    groupDesc :: Lude.Maybe Lude.Text,
+    -- | The rules to add to the group.
     userRules :: Lude.Maybe [IPRuleItem],
-    tags :: Lude.Maybe [Tag],
-    groupName :: Lude.Text
+    -- | The name of the group.
+    groupName :: Lude.Text,
+    -- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPGroup' with the minimum fields required to make a request.
 --
 -- * 'groupDesc' - The description of the group.
+-- * 'userRules' - The rules to add to the group.
 -- * 'groupName' - The name of the group.
 -- * 'tags' - The tags. Each WorkSpaces resource can have a maximum of 50 tags.
--- * 'userRules' - The rules to add to the group.
 mkCreateIPGroup ::
   -- | 'groupName'
   Lude.Text ->
@@ -74,8 +72,8 @@ mkCreateIPGroup pGroupName_ =
   CreateIPGroup'
     { groupDesc = Lude.Nothing,
       userRules = Lude.Nothing,
-      tags = Lude.Nothing,
-      groupName = pGroupName_
+      groupName = pGroupName_,
+      tags = Lude.Nothing
     }
 
 -- | The description of the group.
@@ -92,19 +90,19 @@ cigUserRules :: Lens.Lens' CreateIPGroup (Lude.Maybe [IPRuleItem])
 cigUserRules = Lens.lens (userRules :: CreateIPGroup -> Lude.Maybe [IPRuleItem]) (\s a -> s {userRules = a} :: CreateIPGroup)
 {-# DEPRECATED cigUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
 
--- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cigTags :: Lens.Lens' CreateIPGroup (Lude.Maybe [Tag])
-cigTags = Lens.lens (tags :: CreateIPGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateIPGroup)
-{-# DEPRECATED cigTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cigGroupName :: Lens.Lens' CreateIPGroup Lude.Text
 cigGroupName = Lens.lens (groupName :: CreateIPGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateIPGroup)
 {-# DEPRECATED cigGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+-- | The tags. Each WorkSpaces resource can have a maximum of 50 tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigTags :: Lens.Lens' CreateIPGroup (Lude.Maybe [Tag])
+cigTags = Lens.lens (tags :: CreateIPGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateIPGroup)
+{-# DEPRECATED cigTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateIPGroup where
   type Rs CreateIPGroup = CreateIPGroupResponse
@@ -133,8 +131,8 @@ instance Lude.ToJSON CreateIPGroup where
       ( Lude.catMaybes
           [ ("GroupDesc" Lude..=) Lude.<$> groupDesc,
             ("UserRules" Lude..=) Lude.<$> userRules,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("GroupName" Lude..= groupName)
+            Lude.Just ("GroupName" Lude..= groupName),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -146,17 +144,12 @@ instance Lude.ToQuery CreateIPGroup where
 
 -- | /See:/ 'mkCreateIPGroupResponse' smart constructor.
 data CreateIPGroupResponse = CreateIPGroupResponse'
-  { groupId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the group.
+    groupId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIPGroupResponse' with the minimum fields required to make a request.

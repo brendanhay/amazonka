@@ -19,9 +19,9 @@ module Network.AWS.SageMaker.Types.MonitoringAppSpecification
     -- * Lenses
     masContainerArguments,
     masRecordPreprocessorSourceURI,
+    masImageURI,
     masContainerEntrypoint,
     masPostAnalyticsProcessorSourceURI,
-    masImageURI,
   )
 where
 
@@ -32,32 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMonitoringAppSpecification' smart constructor.
 data MonitoringAppSpecification = MonitoringAppSpecification'
-  { containerArguments ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    recordPreprocessorSourceURI ::
-      Lude.Maybe Lude.Text,
-    containerEntrypoint ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    postAnalyticsProcessorSourceURI ::
-      Lude.Maybe Lude.Text,
-    imageURI :: Lude.Text
+  { -- | An array of arguments for the container used to run the monitoring job.
+    containerArguments :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+    recordPreprocessorSourceURI :: Lude.Maybe Lude.Text,
+    -- | The container image to be run by the monitoring job.
+    imageURI :: Lude.Text,
+    -- | Specifies the entrypoint for a container used to run the monitoring job.
+    containerEntrypoint :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+    postAnalyticsProcessorSourceURI :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringAppSpecification' with the minimum fields required to make a request.
 --
 -- * 'containerArguments' - An array of arguments for the container used to run the monitoring job.
--- * 'containerEntrypoint' - Specifies the entrypoint for a container used to run the monitoring job.
--- * 'imageURI' - The container image to be run by the monitoring job.
--- * 'postAnalyticsProcessorSourceURI' - An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 -- * 'recordPreprocessorSourceURI' - An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
+-- * 'imageURI' - The container image to be run by the monitoring job.
+-- * 'containerEntrypoint' - Specifies the entrypoint for a container used to run the monitoring job.
+-- * 'postAnalyticsProcessorSourceURI' - An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 mkMonitoringAppSpecification ::
   -- | 'imageURI'
   Lude.Text ->
@@ -66,9 +61,9 @@ mkMonitoringAppSpecification pImageURI_ =
   MonitoringAppSpecification'
     { containerArguments = Lude.Nothing,
       recordPreprocessorSourceURI = Lude.Nothing,
+      imageURI = pImageURI_,
       containerEntrypoint = Lude.Nothing,
-      postAnalyticsProcessorSourceURI = Lude.Nothing,
-      imageURI = pImageURI_
+      postAnalyticsProcessorSourceURI = Lude.Nothing
     }
 
 -- | An array of arguments for the container used to run the monitoring job.
@@ -85,6 +80,13 @@ masRecordPreprocessorSourceURI :: Lens.Lens' MonitoringAppSpecification (Lude.Ma
 masRecordPreprocessorSourceURI = Lens.lens (recordPreprocessorSourceURI :: MonitoringAppSpecification -> Lude.Maybe Lude.Text) (\s a -> s {recordPreprocessorSourceURI = a} :: MonitoringAppSpecification)
 {-# DEPRECATED masRecordPreprocessorSourceURI "Use generic-lens or generic-optics with 'recordPreprocessorSourceURI' instead." #-}
 
+-- | The container image to be run by the monitoring job.
+--
+-- /Note:/ Consider using 'imageURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+masImageURI :: Lens.Lens' MonitoringAppSpecification Lude.Text
+masImageURI = Lens.lens (imageURI :: MonitoringAppSpecification -> Lude.Text) (\s a -> s {imageURI = a} :: MonitoringAppSpecification)
+{-# DEPRECATED masImageURI "Use generic-lens or generic-optics with 'imageURI' instead." #-}
+
 -- | Specifies the entrypoint for a container used to run the monitoring job.
 --
 -- /Note:/ Consider using 'containerEntrypoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -99,13 +101,6 @@ masPostAnalyticsProcessorSourceURI :: Lens.Lens' MonitoringAppSpecification (Lud
 masPostAnalyticsProcessorSourceURI = Lens.lens (postAnalyticsProcessorSourceURI :: MonitoringAppSpecification -> Lude.Maybe Lude.Text) (\s a -> s {postAnalyticsProcessorSourceURI = a} :: MonitoringAppSpecification)
 {-# DEPRECATED masPostAnalyticsProcessorSourceURI "Use generic-lens or generic-optics with 'postAnalyticsProcessorSourceURI' instead." #-}
 
--- | The container image to be run by the monitoring job.
---
--- /Note:/ Consider using 'imageURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-masImageURI :: Lens.Lens' MonitoringAppSpecification Lude.Text
-masImageURI = Lens.lens (imageURI :: MonitoringAppSpecification -> Lude.Text) (\s a -> s {imageURI = a} :: MonitoringAppSpecification)
-{-# DEPRECATED masImageURI "Use generic-lens or generic-optics with 'imageURI' instead." #-}
-
 instance Lude.FromJSON MonitoringAppSpecification where
   parseJSON =
     Lude.withObject
@@ -114,9 +109,9 @@ instance Lude.FromJSON MonitoringAppSpecification where
           MonitoringAppSpecification'
             Lude.<$> (x Lude..:? "ContainerArguments")
             Lude.<*> (x Lude..:? "RecordPreprocessorSourceUri")
+            Lude.<*> (x Lude..: "ImageUri")
             Lude.<*> (x Lude..:? "ContainerEntrypoint")
             Lude.<*> (x Lude..:? "PostAnalyticsProcessorSourceUri")
-            Lude.<*> (x Lude..: "ImageUri")
       )
 
 instance Lude.ToJSON MonitoringAppSpecification where
@@ -126,9 +121,9 @@ instance Lude.ToJSON MonitoringAppSpecification where
           [ ("ContainerArguments" Lude..=) Lude.<$> containerArguments,
             ("RecordPreprocessorSourceUri" Lude..=)
               Lude.<$> recordPreprocessorSourceURI,
+            Lude.Just ("ImageUri" Lude..= imageURI),
             ("ContainerEntrypoint" Lude..=) Lude.<$> containerEntrypoint,
             ("PostAnalyticsProcessorSourceUri" Lude..=)
-              Lude.<$> postAnalyticsProcessorSourceURI,
-            Lude.Just ("ImageUri" Lude..= imageURI)
+              Lude.<$> postAnalyticsProcessorSourceURI
           ]
       )

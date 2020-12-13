@@ -33,29 +33,27 @@ import Network.AWS.SageMaker.Types.UserProfileStatus
 --
 -- /See:/ 'mkUserProfileDetails' smart constructor.
 data UserProfileDetails = UserProfileDetails'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status.
     status :: Lude.Maybe UserProfileStatus,
+    -- | The user profile name.
     userProfileName :: Lude.Maybe Lude.Text,
+    -- | The last modified time.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The domain ID.
     domainId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserProfileDetails' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time.
--- * 'domainId' - The domain ID.
--- * 'lastModifiedTime' - The last modified time.
 -- * 'status' - The status.
 -- * 'userProfileName' - The user profile name.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'domainId' - The domain ID.
 mkUserProfileDetails ::
   UserProfileDetails
 mkUserProfileDetails =

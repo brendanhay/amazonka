@@ -40,37 +40,39 @@ import Network.AWS.Transcribe.Types.ModelStatus
 --
 -- /See:/ 'mkLanguageModel' smart constructor.
 data LanguageModel = LanguageModel'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
+  { -- | The reason why the custom language model couldn't be created.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The language code you used to create your custom language model.
     languageCode :: Lude.Maybe CLMLanguageCode,
+    -- | The name of the custom language model.
     modelName :: Lude.Maybe Lude.Text,
+    -- | The most recent time the custom language model was modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Whether the base model used for the custom language model is up to date. If this field is @true@ then you are running the most up-to-date version of the base model in your custom language model.
     upgradeAvailability :: Lude.Maybe Lude.Bool,
+    -- | The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
     inputDataConfig :: Lude.Maybe InputDataConfig,
+    -- | The Amazon Transcribe standard language model, or base model used to create the custom language model.
     baseModelName :: Lude.Maybe BaseModelName,
+    -- | The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
     modelStatus :: Lude.Maybe ModelStatus,
+    -- | The time the custom language model was created.
     createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LanguageModel' with the minimum fields required to make a request.
 --
--- * 'baseModelName' - The Amazon Transcribe standard language model, or base model used to create the custom language model.
--- * 'createTime' - The time the custom language model was created.
 -- * 'failureReason' - The reason why the custom language model couldn't be created.
--- * 'inputDataConfig' - The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
 -- * 'languageCode' - The language code you used to create your custom language model.
--- * 'lastModifiedTime' - The most recent time the custom language model was modified.
 -- * 'modelName' - The name of the custom language model.
--- * 'modelStatus' - The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
+-- * 'lastModifiedTime' - The most recent time the custom language model was modified.
 -- * 'upgradeAvailability' - Whether the base model used for the custom language model is up to date. If this field is @true@ then you are running the most up-to-date version of the base model in your custom language model.
+-- * 'inputDataConfig' - The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
+-- * 'baseModelName' - The Amazon Transcribe standard language model, or base model used to create the custom language model.
+-- * 'modelStatus' - The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
+-- * 'createTime' - The time the custom language model was created.
 mkLanguageModel ::
   LanguageModel
 mkLanguageModel =

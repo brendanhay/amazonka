@@ -25,9 +25,9 @@ module Network.AWS.LexModels.Types.Slot
     sDefaultValueSpec,
     sSlotTypeVersion,
     sSampleUtterances,
-    sDescription,
-    sName,
     sSlotConstraint,
+    sName,
+    sDescription,
   )
 where
 
@@ -42,49 +42,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSlot' smart constructor.
 data Slot = Slot'
-  { slotType :: Lude.Maybe Lude.Text,
+  { -- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
+    slotType :: Lude.Maybe Lude.Text,
+    -- | The prompt that Amazon Lex uses to elicit the slot value from the user.
     valueElicitationPrompt :: Lude.Maybe Prompt,
+    -- | A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
     responseCard :: Lude.Maybe Lude.Text,
+    -- | Directs Amazon Lex the order in which to elicit this slot value from the user. For example, if the intent has two slots with priorities 1 and 2, AWS Amazon Lex first elicits a value for the slot with priority 1.
+    --
+    -- If multiple slots share the same priority, the order in which Amazon Lex elicits values is arbitrary.
     priority :: Lude.Maybe Lude.Natural,
+    -- | Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
     obfuscationSetting :: Lude.Maybe ObfuscationSetting,
+    -- | A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
     defaultValueSpec :: Lude.Maybe SlotDefaultValueSpec,
+    -- | The version of the slot type.
     slotTypeVersion :: Lude.Maybe Lude.Text,
+    -- | If you know a specific pattern with which users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
     sampleUtterances :: Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the slot is required or optional.
+    slotConstraint :: SlotConstraint,
+    -- | The name of the slot.
     name :: Lude.Text,
-    slotConstraint :: SlotConstraint
+    -- | A description of the slot.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Slot' with the minimum fields required to make a request.
 --
--- * 'defaultValueSpec' - A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
--- * 'description' - A description of the slot.
--- * 'name' - The name of the slot.
--- * 'obfuscationSetting' - Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
+-- * 'slotType' - The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
+-- * 'valueElicitationPrompt' - The prompt that Amazon Lex uses to elicit the slot value from the user.
+-- * 'responseCard' - A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
 -- * 'priority' - Directs Amazon Lex the order in which to elicit this slot value from the user. For example, if the intent has two slots with priorities 1 and 2, AWS Amazon Lex first elicits a value for the slot with priority 1.
 --
 -- If multiple slots share the same priority, the order in which Amazon Lex elicits values is arbitrary.
--- * 'responseCard' - A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
+-- * 'obfuscationSetting' - Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
+-- * 'defaultValueSpec' - A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
+-- * 'slotTypeVersion' - The version of the slot type.
 -- * 'sampleUtterances' - If you know a specific pattern with which users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
 -- * 'slotConstraint' - Specifies whether the slot is required or optional.
--- * 'slotType' - The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
--- * 'slotTypeVersion' - The version of the slot type.
--- * 'valueElicitationPrompt' - The prompt that Amazon Lex uses to elicit the slot value from the user.
+-- * 'name' - The name of the slot.
+-- * 'description' - A description of the slot.
 mkSlot ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'slotConstraint'
   SlotConstraint ->
+  -- | 'name'
+  Lude.Text ->
   Slot
-mkSlot pName_ pSlotConstraint_ =
+mkSlot pSlotConstraint_ pName_ =
   Slot'
     { slotType = Lude.Nothing,
       valueElicitationPrompt = Lude.Nothing,
@@ -94,9 +101,9 @@ mkSlot pName_ pSlotConstraint_ =
       defaultValueSpec = Lude.Nothing,
       slotTypeVersion = Lude.Nothing,
       sampleUtterances = Lude.Nothing,
-      description = Lude.Nothing,
+      slotConstraint = pSlotConstraint_,
       name = pName_,
-      slotConstraint = pSlotConstraint_
+      description = Lude.Nothing
     }
 
 -- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
@@ -157,12 +164,12 @@ sSampleUtterances :: Lens.Lens' Slot (Lude.Maybe [Lude.Text])
 sSampleUtterances = Lens.lens (sampleUtterances :: Slot -> Lude.Maybe [Lude.Text]) (\s a -> s {sampleUtterances = a} :: Slot)
 {-# DEPRECATED sSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
 
--- | A description of the slot.
+-- | Specifies whether the slot is required or optional.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDescription :: Lens.Lens' Slot (Lude.Maybe Lude.Text)
-sDescription = Lens.lens (description :: Slot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Slot)
-{-# DEPRECATED sDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'slotConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSlotConstraint :: Lens.Lens' Slot SlotConstraint
+sSlotConstraint = Lens.lens (slotConstraint :: Slot -> SlotConstraint) (\s a -> s {slotConstraint = a} :: Slot)
+{-# DEPRECATED sSlotConstraint "Use generic-lens or generic-optics with 'slotConstraint' instead." #-}
 
 -- | The name of the slot.
 --
@@ -171,12 +178,12 @@ sName :: Lens.Lens' Slot Lude.Text
 sName = Lens.lens (name :: Slot -> Lude.Text) (\s a -> s {name = a} :: Slot)
 {-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Specifies whether the slot is required or optional.
+-- | A description of the slot.
 --
--- /Note:/ Consider using 'slotConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSlotConstraint :: Lens.Lens' Slot SlotConstraint
-sSlotConstraint = Lens.lens (slotConstraint :: Slot -> SlotConstraint) (\s a -> s {slotConstraint = a} :: Slot)
-{-# DEPRECATED sSlotConstraint "Use generic-lens or generic-optics with 'slotConstraint' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDescription :: Lens.Lens' Slot (Lude.Maybe Lude.Text)
+sDescription = Lens.lens (description :: Slot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Slot)
+{-# DEPRECATED sDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.FromJSON Slot where
   parseJSON =
@@ -192,9 +199,9 @@ instance Lude.FromJSON Slot where
             Lude.<*> (x Lude..:? "defaultValueSpec")
             Lude.<*> (x Lude..:? "slotTypeVersion")
             Lude.<*> (x Lude..:? "sampleUtterances" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..: "name")
             Lude.<*> (x Lude..: "slotConstraint")
+            Lude.<*> (x Lude..: "name")
+            Lude.<*> (x Lude..:? "description")
       )
 
 instance Lude.ToJSON Slot where
@@ -209,8 +216,8 @@ instance Lude.ToJSON Slot where
             ("defaultValueSpec" Lude..=) Lude.<$> defaultValueSpec,
             ("slotTypeVersion" Lude..=) Lude.<$> slotTypeVersion,
             ("sampleUtterances" Lude..=) Lude.<$> sampleUtterances,
-            ("description" Lude..=) Lude.<$> description,
+            Lude.Just ("slotConstraint" Lude..= slotConstraint),
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("slotConstraint" Lude..= slotConstraint)
+            ("description" Lude..=) Lude.<$> description
           ]
       )

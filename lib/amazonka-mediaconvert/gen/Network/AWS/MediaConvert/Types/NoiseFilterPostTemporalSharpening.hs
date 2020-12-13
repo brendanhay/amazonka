@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.NoiseFilterPostTemporalSharpening
   ( NoiseFilterPostTemporalSharpening
       ( NoiseFilterPostTemporalSharpening',
-        NFPTSAuto,
         NFPTSDisabled,
-        NFPTSEnabled
+        NFPTSEnabled,
+        NFPTSAuto
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype NoiseFilterPostTemporalSharpening = NoiseFilterPostTemporalSharpening' L
       Lude.ToHeader
     )
 
-pattern NFPTSAuto :: NoiseFilterPostTemporalSharpening
-pattern NFPTSAuto = NoiseFilterPostTemporalSharpening' "AUTO"
-
 pattern NFPTSDisabled :: NoiseFilterPostTemporalSharpening
 pattern NFPTSDisabled = NoiseFilterPostTemporalSharpening' "DISABLED"
 
 pattern NFPTSEnabled :: NoiseFilterPostTemporalSharpening
 pattern NFPTSEnabled = NoiseFilterPostTemporalSharpening' "ENABLED"
 
+pattern NFPTSAuto :: NoiseFilterPostTemporalSharpening
+pattern NFPTSAuto = NoiseFilterPostTemporalSharpening' "AUTO"
+
 {-# COMPLETE
-  NFPTSAuto,
   NFPTSDisabled,
   NFPTSEnabled,
+  NFPTSAuto,
   NoiseFilterPostTemporalSharpening'
   #-}

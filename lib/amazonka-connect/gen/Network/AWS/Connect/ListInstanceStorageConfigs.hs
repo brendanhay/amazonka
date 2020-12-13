@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Connect.ListInstanceStorageConfigs
     mkListInstanceStorageConfigs,
 
     -- ** Request lenses
-    liscNextToken,
-    liscMaxResults,
     liscInstanceId,
     liscResourceType,
+    liscNextToken,
+    liscMaxResults,
 
     -- * Destructuring the response
     ListInstanceStorageConfigsResponse (..),
@@ -46,28 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListInstanceStorageConfigs' smart constructor.
 data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The identifier of the Amazon Connect instance.
     instanceId :: Lude.Text,
-    resourceType ::
-      InstanceStorageResourceType
+    -- | A valid resource type.
+    resourceType :: InstanceStorageResourceType,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceStorageConfigs' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 -- * 'resourceType' - A valid resource type.
+-- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListInstanceStorageConfigs ::
   -- | 'instanceId'
   Lude.Text ->
@@ -76,25 +73,11 @@ mkListInstanceStorageConfigs ::
   ListInstanceStorageConfigs
 mkListInstanceStorageConfigs pInstanceId_ pResourceType_ =
   ListInstanceStorageConfigs'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_,
-      resourceType = pResourceType_
+    { instanceId = pInstanceId_,
+      resourceType = pResourceType_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liscNextToken :: Lens.Lens' ListInstanceStorageConfigs (Lude.Maybe Lude.Text)
-liscNextToken = Lens.lens (nextToken :: ListInstanceStorageConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstanceStorageConfigs)
-{-# DEPRECATED liscNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximimum number of results to return per page.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liscMaxResults :: Lens.Lens' ListInstanceStorageConfigs (Lude.Maybe Lude.Natural)
-liscMaxResults = Lens.lens (maxResults :: ListInstanceStorageConfigs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstanceStorageConfigs)
-{-# DEPRECATED liscMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -109,6 +92,20 @@ liscInstanceId = Lens.lens (instanceId :: ListInstanceStorageConfigs -> Lude.Tex
 liscResourceType :: Lens.Lens' ListInstanceStorageConfigs InstanceStorageResourceType
 liscResourceType = Lens.lens (resourceType :: ListInstanceStorageConfigs -> InstanceStorageResourceType) (\s a -> s {resourceType = a} :: ListInstanceStorageConfigs)
 {-# DEPRECATED liscResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liscNextToken :: Lens.Lens' ListInstanceStorageConfigs (Lude.Maybe Lude.Text)
+liscNextToken = Lens.lens (nextToken :: ListInstanceStorageConfigs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstanceStorageConfigs)
+{-# DEPRECATED liscNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The maximimum number of results to return per page.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liscMaxResults :: Lens.Lens' ListInstanceStorageConfigs (Lude.Maybe Lude.Natural)
+liscMaxResults = Lens.lens (maxResults :: ListInstanceStorageConfigs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstanceStorageConfigs)
+{-# DEPRECATED liscMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListInstanceStorageConfigs where
   page rq rs
@@ -150,35 +147,28 @@ instance Lude.ToPath ListInstanceStorageConfigs where
 instance Lude.ToQuery ListInstanceStorageConfigs where
   toQuery ListInstanceStorageConfigs' {..} =
     Lude.mconcat
-      [ "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults,
-        "resourceType" Lude.=: resourceType
+      [ "resourceType" Lude.=: resourceType,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkListInstanceStorageConfigsResponse' smart constructor.
 data ListInstanceStorageConfigsResponse = ListInstanceStorageConfigsResponse'
-  { storageConfigs ::
-      Lude.Maybe
-        [InstanceStorageConfig],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A valid storage type.
+    storageConfigs :: Lude.Maybe [InstanceStorageConfig],
+    -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceStorageConfigsResponse' with the minimum fields required to make a request.
 --
+-- * 'storageConfigs' - A valid storage type.
 -- * 'nextToken' - If there are additional results, this is the token for the next set of results.
 -- * 'responseStatus' - The response status code.
--- * 'storageConfigs' - A valid storage type.
 mkListInstanceStorageConfigsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

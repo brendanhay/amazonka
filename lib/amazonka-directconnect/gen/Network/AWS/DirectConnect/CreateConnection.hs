@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,11 +25,11 @@ module Network.AWS.DirectConnect.CreateConnection
 
     -- ** Request lenses
     ccLagId,
+    ccLocation,
+    ccConnectionName,
+    ccBandwidth,
     ccProviderName,
     ccTags,
-    ccLocation,
-    ccBandwidth,
-    ccConnectionName,
 
     -- * Destructuring the response
     Connection (..),
@@ -63,47 +64,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { lagId ::
-      Lude.Maybe Lude.Text,
-    providerName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+  { -- | The ID of the LAG.
+    lagId :: Lude.Maybe Lude.Text,
+    -- | The location of the connection.
     location :: Lude.Text,
+    -- | The name of the connection.
+    connectionName :: Lude.Text,
+    -- | The bandwidth of the connection.
     bandwidth :: Lude.Text,
-    connectionName :: Lude.Text
+    -- | The name of the service provider associated with the requested connection.
+    providerName :: Lude.Maybe Lude.Text,
+    -- | The tags to associate with the lag.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
 --
--- * 'bandwidth' - The bandwidth of the connection.
--- * 'connectionName' - The name of the connection.
 -- * 'lagId' - The ID of the LAG.
 -- * 'location' - The location of the connection.
+-- * 'connectionName' - The name of the connection.
+-- * 'bandwidth' - The bandwidth of the connection.
 -- * 'providerName' - The name of the service provider associated with the requested connection.
 -- * 'tags' - The tags to associate with the lag.
 mkCreateConnection ::
   -- | 'location'
   Lude.Text ->
-  -- | 'bandwidth'
-  Lude.Text ->
   -- | 'connectionName'
   Lude.Text ->
+  -- | 'bandwidth'
+  Lude.Text ->
   CreateConnection
-mkCreateConnection pLocation_ pBandwidth_ pConnectionName_ =
+mkCreateConnection pLocation_ pConnectionName_ pBandwidth_ =
   CreateConnection'
     { lagId = Lude.Nothing,
-      providerName = Lude.Nothing,
-      tags = Lude.Nothing,
       location = pLocation_,
+      connectionName = pConnectionName_,
       bandwidth = pBandwidth_,
-      connectionName = pConnectionName_
+      providerName = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The ID of the LAG.
@@ -112,6 +112,27 @@ mkCreateConnection pLocation_ pBandwidth_ pConnectionName_ =
 ccLagId :: Lens.Lens' CreateConnection (Lude.Maybe Lude.Text)
 ccLagId = Lens.lens (lagId :: CreateConnection -> Lude.Maybe Lude.Text) (\s a -> s {lagId = a} :: CreateConnection)
 {-# DEPRECATED ccLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
+
+-- | The location of the connection.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLocation :: Lens.Lens' CreateConnection Lude.Text
+ccLocation = Lens.lens (location :: CreateConnection -> Lude.Text) (\s a -> s {location = a} :: CreateConnection)
+{-# DEPRECATED ccLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The name of the connection.
+--
+-- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccConnectionName :: Lens.Lens' CreateConnection Lude.Text
+ccConnectionName = Lens.lens (connectionName :: CreateConnection -> Lude.Text) (\s a -> s {connectionName = a} :: CreateConnection)
+{-# DEPRECATED ccConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
+
+-- | The bandwidth of the connection.
+--
+-- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccBandwidth :: Lens.Lens' CreateConnection Lude.Text
+ccBandwidth = Lens.lens (bandwidth :: CreateConnection -> Lude.Text) (\s a -> s {bandwidth = a} :: CreateConnection)
+{-# DEPRECATED ccBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
 
 -- | The name of the service provider associated with the requested connection.
 --
@@ -126,27 +147,6 @@ ccProviderName = Lens.lens (providerName :: CreateConnection -> Lude.Maybe Lude.
 ccTags :: Lens.Lens' CreateConnection (Lude.Maybe (Lude.NonEmpty Tag))
 ccTags = Lens.lens (tags :: CreateConnection -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateConnection)
 {-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The location of the connection.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccLocation :: Lens.Lens' CreateConnection Lude.Text
-ccLocation = Lens.lens (location :: CreateConnection -> Lude.Text) (\s a -> s {location = a} :: CreateConnection)
-{-# DEPRECATED ccLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The bandwidth of the connection.
---
--- /Note:/ Consider using 'bandwidth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccBandwidth :: Lens.Lens' CreateConnection Lude.Text
-ccBandwidth = Lens.lens (bandwidth :: CreateConnection -> Lude.Text) (\s a -> s {bandwidth = a} :: CreateConnection)
-{-# DEPRECATED ccBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
-
--- | The name of the connection.
---
--- /Note:/ Consider using 'connectionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccConnectionName :: Lens.Lens' CreateConnection Lude.Text
-ccConnectionName = Lens.lens (connectionName :: CreateConnection -> Lude.Text) (\s a -> s {connectionName = a} :: CreateConnection)
-{-# DEPRECATED ccConnectionName "Use generic-lens or generic-optics with 'connectionName' instead." #-}
 
 instance Lude.AWSRequest CreateConnection where
   type Rs CreateConnection = Connection
@@ -169,11 +169,11 @@ instance Lude.ToJSON CreateConnection where
     Lude.object
       ( Lude.catMaybes
           [ ("lagId" Lude..=) Lude.<$> lagId,
-            ("providerName" Lude..=) Lude.<$> providerName,
-            ("tags" Lude..=) Lude.<$> tags,
             Lude.Just ("location" Lude..= location),
+            Lude.Just ("connectionName" Lude..= connectionName),
             Lude.Just ("bandwidth" Lude..= bandwidth),
-            Lude.Just ("connectionName" Lude..= connectionName)
+            ("providerName" Lude..=) Lude.<$> providerName,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 

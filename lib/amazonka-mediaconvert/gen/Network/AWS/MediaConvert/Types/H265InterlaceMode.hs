@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.H265InterlaceMode
   ( H265InterlaceMode
       ( H265InterlaceMode',
-        BottomField,
-        FollowBottomField,
-        FollowTopField,
         Progressive,
-        TopField
+        TopField,
+        BottomField,
+        FollowTopField,
+        FollowBottomField
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype H265InterlaceMode = H265InterlaceMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern BottomField :: H265InterlaceMode
-pattern BottomField = H265InterlaceMode' "BOTTOM_FIELD"
-
-pattern FollowBottomField :: H265InterlaceMode
-pattern FollowBottomField = H265InterlaceMode' "FOLLOW_BOTTOM_FIELD"
-
-pattern FollowTopField :: H265InterlaceMode
-pattern FollowTopField = H265InterlaceMode' "FOLLOW_TOP_FIELD"
-
 pattern Progressive :: H265InterlaceMode
 pattern Progressive = H265InterlaceMode' "PROGRESSIVE"
 
 pattern TopField :: H265InterlaceMode
 pattern TopField = H265InterlaceMode' "TOP_FIELD"
 
+pattern BottomField :: H265InterlaceMode
+pattern BottomField = H265InterlaceMode' "BOTTOM_FIELD"
+
+pattern FollowTopField :: H265InterlaceMode
+pattern FollowTopField = H265InterlaceMode' "FOLLOW_TOP_FIELD"
+
+pattern FollowBottomField :: H265InterlaceMode
+pattern FollowBottomField = H265InterlaceMode' "FOLLOW_BOTTOM_FIELD"
+
 {-# COMPLETE
-  BottomField,
-  FollowBottomField,
-  FollowTopField,
   Progressive,
   TopField,
+  BottomField,
+  FollowTopField,
+  FollowBottomField,
   H265InterlaceMode'
   #-}

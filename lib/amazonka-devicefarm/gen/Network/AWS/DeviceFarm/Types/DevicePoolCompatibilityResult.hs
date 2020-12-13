@@ -32,27 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDevicePoolCompatibilityResult' smart constructor.
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
-  { device ::
-      Lude.Maybe Device,
-    compatible ::
-      Lude.Maybe Lude.Bool,
-    incompatibilityMessages ::
-      Lude.Maybe
-        [IncompatibilityMessage]
+  { -- | The device (phone or tablet) to return information about.
+    device :: Lude.Maybe Device,
+    -- | Whether the result was compatible with the device pool.
+    compatible :: Lude.Maybe Lude.Bool,
+    -- | Information about the compatibility.
+    incompatibilityMessages :: Lude.Maybe [IncompatibilityMessage]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DevicePoolCompatibilityResult' with the minimum fields required to make a request.
 --
--- * 'compatible' - Whether the result was compatible with the device pool.
 -- * 'device' - The device (phone or tablet) to return information about.
+-- * 'compatible' - Whether the result was compatible with the device pool.
 -- * 'incompatibilityMessages' - Information about the compatibility.
 mkDevicePoolCompatibilityResult ::
   DevicePoolCompatibilityResult

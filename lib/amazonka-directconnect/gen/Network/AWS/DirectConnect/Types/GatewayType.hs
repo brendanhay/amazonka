@@ -13,8 +13,8 @@
 module Network.AWS.DirectConnect.Types.GatewayType
   ( GatewayType
       ( GatewayType',
-        TransitGateway,
-        VirtualPrivateGateway
+        VirtualPrivateGateway,
+        TransitGateway
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype GatewayType = GatewayType' Lude.Text
       Lude.ToHeader
     )
 
-pattern TransitGateway :: GatewayType
-pattern TransitGateway = GatewayType' "transitGateway"
-
 pattern VirtualPrivateGateway :: GatewayType
 pattern VirtualPrivateGateway = GatewayType' "virtualPrivateGateway"
 
+pattern TransitGateway :: GatewayType
+pattern TransitGateway = GatewayType' "transitGateway"
+
 {-# COMPLETE
-  TransitGateway,
   VirtualPrivateGateway,
+  TransitGateway,
   GatewayType'
   #-}

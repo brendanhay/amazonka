@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Glue.StartWorkflowRun
     mkStartWorkflowRun,
 
     -- ** Request lenses
-    swrName,
+    swrfName,
 
     -- * Destructuring the response
     StartWorkflowRunResponse (..),
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartWorkflowRun' smart constructor.
-newtype StartWorkflowRun = StartWorkflowRun' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StartWorkflowRun = StartWorkflowRun'
+  { -- | The name of the workflow to start.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartWorkflowRun' with the minimum fields required to make a request.
@@ -60,9 +58,9 @@ mkStartWorkflowRun pName_ = StartWorkflowRun' {name = pName_}
 -- | The name of the workflow to start.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swrName :: Lens.Lens' StartWorkflowRun Lude.Text
-swrName = Lens.lens (name :: StartWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: StartWorkflowRun)
-{-# DEPRECATED swrName "Use generic-lens or generic-optics with 'name' instead." #-}
+swrfName :: Lens.Lens' StartWorkflowRun Lude.Text
+swrfName = Lens.lens (name :: StartWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: StartWorkflowRun)
+{-# DEPRECATED swrfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StartWorkflowRun where
   type Rs StartWorkflowRun = StartWorkflowRunResponse
@@ -97,23 +95,18 @@ instance Lude.ToQuery StartWorkflowRun where
 
 -- | /See:/ 'mkStartWorkflowRunResponse' smart constructor.
 data StartWorkflowRunResponse = StartWorkflowRunResponse'
-  { runId ::
-      Lude.Maybe Lude.Text,
+  { -- | An Id for the new run.
+    runId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartWorkflowRunResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'runId' - An Id for the new run.
+-- * 'responseStatus' - The response status code.
 mkStartWorkflowRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

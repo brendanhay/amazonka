@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTriggerNodeDetails' smart constructor.
 newtype TriggerNodeDetails = TriggerNodeDetails'
-  { trigger ::
-      Lude.Maybe Trigger
+  { -- | The information of the trigger represented by the trigger node.
+    trigger :: Lude.Maybe Trigger
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TriggerNodeDetails' with the minimum fields required to make a request.

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComputeCapacity' smart constructor.
 newtype ComputeCapacity = ComputeCapacity'
-  { desiredInstances ::
-      Lude.Int
+  { -- | The desired number of streaming instances.
+    desiredInstances :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeCapacity' with the minimum fields required to make a request.

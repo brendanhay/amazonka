@@ -39,41 +39,45 @@ import Network.AWS.WorkMail.Types.AccessControlRuleEffect
 --
 -- /See:/ 'mkAccessControlRule' smart constructor.
 data AccessControlRule = AccessControlRule'
-  { effect ::
-      Lude.Maybe AccessControlRuleEffect,
+  { -- | The rule effect.
+    effect :: Lude.Maybe AccessControlRuleEffect,
+    -- | User IDs to include in the rule.
     userIds :: Lude.Maybe [Lude.Text],
+    -- | Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
     actions :: Lude.Maybe [Lude.Text],
+    -- | The date that the rule was created.
     dateCreated :: Lude.Maybe Lude.Timestamp,
+    -- | The rule name.
     name :: Lude.Maybe Lude.Text,
+    -- | User IDs to exclude from the rule.
     notUserIds :: Lude.Maybe [Lude.Text],
+    -- | The date that the rule was modified.
     dateModified :: Lude.Maybe Lude.Timestamp,
+    -- | IPv4 CIDR ranges to include in the rule.
     ipRanges :: Lude.Maybe [Lude.Text],
+    -- | IPv4 CIDR ranges to exclude from the rule.
     notIPRanges :: Lude.Maybe [Lude.Text],
+    -- | Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
     notActions :: Lude.Maybe [Lude.Text],
+    -- | The rule description.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessControlRule' with the minimum fields required to make a request.
 --
+-- * 'effect' - The rule effect.
+-- * 'userIds' - User IDs to include in the rule.
 -- * 'actions' - Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
 -- * 'dateCreated' - The date that the rule was created.
--- * 'dateModified' - The date that the rule was modified.
--- * 'description' - The rule description.
--- * 'effect' - The rule effect.
--- * 'ipRanges' - IPv4 CIDR ranges to include in the rule.
 -- * 'name' - The rule name.
--- * 'notActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
--- * 'notIPRanges' - IPv4 CIDR ranges to exclude from the rule.
 -- * 'notUserIds' - User IDs to exclude from the rule.
--- * 'userIds' - User IDs to include in the rule.
+-- * 'dateModified' - The date that the rule was modified.
+-- * 'ipRanges' - IPv4 CIDR ranges to include in the rule.
+-- * 'notIPRanges' - IPv4 CIDR ranges to exclude from the rule.
+-- * 'notActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'description' - The rule description.
 mkAccessControlRule ::
   AccessControlRule
 mkAccessControlRule =

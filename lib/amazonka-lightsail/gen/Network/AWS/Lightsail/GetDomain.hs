@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Lightsail.GetDomain
     mkGetDomainResponse,
 
     -- ** Response lenses
-    gddrsDomain,
-    gddrsResponseStatus,
+    gdfrsDomain,
+    gdfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDomain' smart constructor.
-newtype GetDomain = GetDomain' {domainName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDomain = GetDomain'
+  { -- | The domain name for which your want to return information about.
+    domainName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomain' with the minimum fields required to make a request.
@@ -98,17 +96,12 @@ instance Lude.ToQuery GetDomain where
 
 -- | /See:/ 'mkGetDomainResponse' smart constructor.
 data GetDomainResponse = GetDomainResponse'
-  { domain ::
-      Lude.Maybe Domain,
+  { -- | An array of key-value pairs containing information about your get domain request.
+    domain :: Lude.Maybe Domain,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainResponse' with the minimum fields required to make a request.
@@ -128,13 +121,13 @@ mkGetDomainResponse pResponseStatus_ =
 -- | An array of key-value pairs containing information about your get domain request.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddrsDomain :: Lens.Lens' GetDomainResponse (Lude.Maybe Domain)
-gddrsDomain = Lens.lens (domain :: GetDomainResponse -> Lude.Maybe Domain) (\s a -> s {domain = a} :: GetDomainResponse)
-{-# DEPRECATED gddrsDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+gdfrsDomain :: Lens.Lens' GetDomainResponse (Lude.Maybe Domain)
+gdfrsDomain = Lens.lens (domain :: GetDomainResponse -> Lude.Maybe Domain) (\s a -> s {domain = a} :: GetDomainResponse)
+{-# DEPRECATED gdfrsDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gddrsResponseStatus :: Lens.Lens' GetDomainResponse Lude.Int
-gddrsResponseStatus = Lens.lens (responseStatus :: GetDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainResponse)
-{-# DEPRECATED gddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdfrsResponseStatus :: Lens.Lens' GetDomainResponse Lude.Int
+gdfrsResponseStatus = Lens.lens (responseStatus :: GetDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDomainResponse)
+{-# DEPRECATED gdfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

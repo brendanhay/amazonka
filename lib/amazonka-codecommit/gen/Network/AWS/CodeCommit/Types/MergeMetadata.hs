@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMergeMetadata' smart constructor.
 data MergeMetadata = MergeMetadata'
-  { mergedBy ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the user who merged the branches.
+    mergedBy :: Lude.Maybe Lude.Text,
+    -- | The merge strategy used in the merge.
     mergeOption :: Lude.Maybe MergeOptionTypeEnum,
+    -- | A Boolean value indicating whether the merge has been made.
     isMerged :: Lude.Maybe Lude.Bool,
+    -- | The commit ID for the merge commit, if any.
     mergeCommitId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeMetadata' with the minimum fields required to make a request.
 --
+-- * 'mergedBy' - The Amazon Resource Name (ARN) of the user who merged the branches.
+-- * 'mergeOption' - The merge strategy used in the merge.
 -- * 'isMerged' - A Boolean value indicating whether the merge has been made.
 -- * 'mergeCommitId' - The commit ID for the merge commit, if any.
--- * 'mergeOption' - The merge strategy used in the merge.
--- * 'mergedBy' - The Amazon Resource Name (ARN) of the user who merged the branches.
 mkMergeMetadata ::
   MergeMetadata
 mkMergeMetadata =

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { recurringChargeFrequency ::
-      Lude.Maybe Lude.Text,
+  { -- | The frequency of the recurring charge.
+    recurringChargeFrequency :: Lude.Maybe Lude.Text,
+    -- | The amount of the recurring charge.
     recurringChargeAmount :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
 --
--- * 'recurringChargeAmount' - The amount of the recurring charge.
 -- * 'recurringChargeFrequency' - The frequency of the recurring charge.
+-- * 'recurringChargeAmount' - The amount of the recurring charge.
 mkRecurringCharge ::
   RecurringCharge
 mkRecurringCharge =

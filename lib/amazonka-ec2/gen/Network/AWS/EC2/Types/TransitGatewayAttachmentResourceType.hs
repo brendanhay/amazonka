@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
   ( TransitGatewayAttachmentResourceType
       ( TransitGatewayAttachmentResourceType',
+        VPC,
+        VPN,
         DirectConnectGateway,
         Peering,
-        TgwPeering,
-        VPC,
-        VPN
+        TgwPeering
       ),
   )
 where
@@ -48,6 +48,12 @@ newtype TransitGatewayAttachmentResourceType = TransitGatewayAttachmentResourceT
       Lude.ToHeader
     )
 
+pattern VPC :: TransitGatewayAttachmentResourceType
+pattern VPC = TransitGatewayAttachmentResourceType' "vpc"
+
+pattern VPN :: TransitGatewayAttachmentResourceType
+pattern VPN = TransitGatewayAttachmentResourceType' "vpn"
+
 pattern DirectConnectGateway :: TransitGatewayAttachmentResourceType
 pattern DirectConnectGateway = TransitGatewayAttachmentResourceType' "direct-connect-gateway"
 
@@ -57,17 +63,11 @@ pattern Peering = TransitGatewayAttachmentResourceType' "peering"
 pattern TgwPeering :: TransitGatewayAttachmentResourceType
 pattern TgwPeering = TransitGatewayAttachmentResourceType' "tgw-peering"
 
-pattern VPC :: TransitGatewayAttachmentResourceType
-pattern VPC = TransitGatewayAttachmentResourceType' "vpc"
-
-pattern VPN :: TransitGatewayAttachmentResourceType
-pattern VPN = TransitGatewayAttachmentResourceType' "vpn"
-
 {-# COMPLETE
+  VPC,
+  VPN,
   DirectConnectGateway,
   Peering,
   TgwPeering,
-  VPC,
-  VPN,
   TransitGatewayAttachmentResourceType'
   #-}

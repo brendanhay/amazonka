@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGenericRevisionInfo' smart constructor.
 data GenericRevisionInfo = GenericRevisionInfo'
-  { registerTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the revision was registered with AWS CodeDeploy.
+    registerTime :: Lude.Maybe Lude.Timestamp,
+    -- | When the revision was first used by AWS CodeDeploy.
     firstUsedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The deployment groups for which this is the current target revision.
     deploymentGroups :: Lude.Maybe [Lude.Text],
+    -- | When the revision was last used by AWS CodeDeploy.
     lastUsedTime :: Lude.Maybe Lude.Timestamp,
+    -- | A comment about the revision.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenericRevisionInfo' with the minimum fields required to make a request.
 --
--- * 'deploymentGroups' - The deployment groups for which this is the current target revision.
--- * 'description' - A comment about the revision.
--- * 'firstUsedTime' - When the revision was first used by AWS CodeDeploy.
--- * 'lastUsedTime' - When the revision was last used by AWS CodeDeploy.
 -- * 'registerTime' - When the revision was registered with AWS CodeDeploy.
+-- * 'firstUsedTime' - When the revision was first used by AWS CodeDeploy.
+-- * 'deploymentGroups' - The deployment groups for which this is the current target revision.
+-- * 'lastUsedTime' - When the revision was last used by AWS CodeDeploy.
+-- * 'description' - A comment about the revision.
 mkGenericRevisionInfo ::
   GenericRevisionInfo
 mkGenericRevisionInfo =

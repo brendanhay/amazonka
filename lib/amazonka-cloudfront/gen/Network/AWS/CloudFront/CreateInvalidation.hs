@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CloudFront.CreateInvalidation
     mkCreateInvalidation,
 
     -- ** Request lenses
-    ciDistributionId,
     ciInvalidationBatch,
+    ciDistributionId,
 
     -- * Destructuring the response
     CreateInvalidationResponse (..),
@@ -43,41 +44,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateInvalidation' smart constructor.
 data CreateInvalidation = CreateInvalidation'
-  { distributionId ::
-      Lude.Text,
-    invalidationBatch :: InvalidationBatch
+  { -- | The batch information for the invalidation.
+    invalidationBatch :: InvalidationBatch,
+    -- | The distribution's id.
+    distributionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInvalidation' with the minimum fields required to make a request.
 --
--- * 'distributionId' - The distribution's id.
 -- * 'invalidationBatch' - The batch information for the invalidation.
+-- * 'distributionId' - The distribution's id.
 mkCreateInvalidation ::
-  -- | 'distributionId'
-  Lude.Text ->
   -- | 'invalidationBatch'
   InvalidationBatch ->
+  -- | 'distributionId'
+  Lude.Text ->
   CreateInvalidation
-mkCreateInvalidation pDistributionId_ pInvalidationBatch_ =
+mkCreateInvalidation pInvalidationBatch_ pDistributionId_ =
   CreateInvalidation'
-    { distributionId = pDistributionId_,
-      invalidationBatch = pInvalidationBatch_
+    { invalidationBatch = pInvalidationBatch_,
+      distributionId = pDistributionId_
     }
-
--- | The distribution's id.
---
--- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciDistributionId :: Lens.Lens' CreateInvalidation Lude.Text
-ciDistributionId = Lens.lens (distributionId :: CreateInvalidation -> Lude.Text) (\s a -> s {distributionId = a} :: CreateInvalidation)
-{-# DEPRECATED ciDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
 -- | The batch information for the invalidation.
 --
@@ -85,6 +74,13 @@ ciDistributionId = Lens.lens (distributionId :: CreateInvalidation -> Lude.Text)
 ciInvalidationBatch :: Lens.Lens' CreateInvalidation InvalidationBatch
 ciInvalidationBatch = Lens.lens (invalidationBatch :: CreateInvalidation -> InvalidationBatch) (\s a -> s {invalidationBatch = a} :: CreateInvalidation)
 {-# DEPRECATED ciInvalidationBatch "Use generic-lens or generic-optics with 'invalidationBatch' instead." #-}
+
+-- | The distribution's id.
+--
+-- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciDistributionId :: Lens.Lens' CreateInvalidation Lude.Text
+ciDistributionId = Lens.lens (distributionId :: CreateInvalidation -> Lude.Text) (\s a -> s {distributionId = a} :: CreateInvalidation)
+{-# DEPRECATED ciDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
 instance Lude.AWSRequest CreateInvalidation where
   type Rs CreateInvalidation = CreateInvalidationResponse
@@ -122,18 +118,14 @@ instance Lude.ToQuery CreateInvalidation where
 --
 -- /See:/ 'mkCreateInvalidationResponse' smart constructor.
 data CreateInvalidationResponse = CreateInvalidationResponse'
-  { invalidation ::
-      Lude.Maybe Invalidation,
+  { -- | The invalidation's information.
+    invalidation :: Lude.Maybe Invalidation,
+    -- | The fully qualified URI of the distribution and invalidation batch request, including the @Invalidation ID@ .
     location :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInvalidationResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppStream.DeleteImagePermissions
     mkDeleteImagePermissions,
 
     -- ** Request lenses
-    dipName,
     dipSharedAccountId,
+    dipName,
 
     -- * Destructuring the response
     DeleteImagePermissionsResponse (..),
@@ -39,41 +40,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteImagePermissions' smart constructor.
 data DeleteImagePermissions = DeleteImagePermissions'
-  { name ::
-      Lude.Text,
-    sharedAccountId :: Lude.Text
+  { -- | The 12-digit identifier of the AWS account for which to delete image permissions.
+    sharedAccountId :: Lude.Text,
+    -- | The name of the private image.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImagePermissions' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the private image.
 -- * 'sharedAccountId' - The 12-digit identifier of the AWS account for which to delete image permissions.
+-- * 'name' - The name of the private image.
 mkDeleteImagePermissions ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'sharedAccountId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   DeleteImagePermissions
-mkDeleteImagePermissions pName_ pSharedAccountId_ =
+mkDeleteImagePermissions pSharedAccountId_ pName_ =
   DeleteImagePermissions'
-    { name = pName_,
-      sharedAccountId = pSharedAccountId_
+    { sharedAccountId = pSharedAccountId_,
+      name = pName_
     }
-
--- | The name of the private image.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipName :: Lens.Lens' DeleteImagePermissions Lude.Text
-dipName = Lens.lens (name :: DeleteImagePermissions -> Lude.Text) (\s a -> s {name = a} :: DeleteImagePermissions)
-{-# DEPRECATED dipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The 12-digit identifier of the AWS account for which to delete image permissions.
 --
@@ -81,6 +70,13 @@ dipName = Lens.lens (name :: DeleteImagePermissions -> Lude.Text) (\s a -> s {na
 dipSharedAccountId :: Lens.Lens' DeleteImagePermissions Lude.Text
 dipSharedAccountId = Lens.lens (sharedAccountId :: DeleteImagePermissions -> Lude.Text) (\s a -> s {sharedAccountId = a} :: DeleteImagePermissions)
 {-# DEPRECATED dipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
+
+-- | The name of the private image.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipName :: Lens.Lens' DeleteImagePermissions Lude.Text
+dipName = Lens.lens (name :: DeleteImagePermissions -> Lude.Text) (\s a -> s {name = a} :: DeleteImagePermissions)
+{-# DEPRECATED dipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeleteImagePermissions where
   type Rs DeleteImagePermissions = DeleteImagePermissionsResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON DeleteImagePermissions where
   toJSON DeleteImagePermissions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("SharedAccountId" Lude..= sharedAccountId)
+          [ Lude.Just ("SharedAccountId" Lude..= sharedAccountId),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -122,16 +118,10 @@ instance Lude.ToQuery DeleteImagePermissions where
 
 -- | /See:/ 'mkDeleteImagePermissionsResponse' smart constructor.
 newtype DeleteImagePermissionsResponse = DeleteImagePermissionsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImagePermissionsResponse' with the minimum fields required to make a request.

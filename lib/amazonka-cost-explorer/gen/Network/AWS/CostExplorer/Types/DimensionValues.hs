@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDimensionValues' smart constructor.
 data DimensionValues = DimensionValues'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The metadata values that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The names of the metadata types that you can use to filter and group your results. For example, @AZ@ returns a list of Availability Zones.
     key :: Lude.Maybe Dimension,
+    -- | The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
     matchOptions :: Lude.Maybe [MatchOption]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DimensionValues' with the minimum fields required to make a request.
 --
+-- * 'values' - The metadata values that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
 -- * 'key' - The names of the metadata types that you can use to filter and group your results. For example, @AZ@ returns a list of Availability Zones.
 -- * 'matchOptions' - The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
--- * 'values' - The metadata values that you can use to filter and group your results. You can use @GetDimensionValues@ to find specific values.
 mkDimensionValues ::
   DimensionValues
 mkDimensionValues =

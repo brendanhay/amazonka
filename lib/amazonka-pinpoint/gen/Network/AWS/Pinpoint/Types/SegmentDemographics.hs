@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSegmentDemographics' smart constructor.
 data SegmentDemographics = SegmentDemographics'
-  { platform ::
-      Lude.Maybe SetDimension,
+  { -- | The device platform criteria for the segment.
+    platform :: Lude.Maybe SetDimension,
+    -- | The app version criteria for the segment.
     appVersion :: Lude.Maybe SetDimension,
+    -- | The channel criteria for the segment.
     channel :: Lude.Maybe SetDimension,
+    -- | The device model criteria for the segment.
     model :: Lude.Maybe SetDimension,
+    -- | The device make criteria for the segment.
     make :: Lude.Maybe SetDimension,
+    -- | The device type criteria for the segment.
     deviceType :: Lude.Maybe SetDimension
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentDemographics' with the minimum fields required to make a request.
 --
+-- * 'platform' - The device platform criteria for the segment.
 -- * 'appVersion' - The app version criteria for the segment.
 -- * 'channel' - The channel criteria for the segment.
--- * 'deviceType' - The device type criteria for the segment.
--- * 'make' - The device make criteria for the segment.
 -- * 'model' - The device model criteria for the segment.
--- * 'platform' - The device platform criteria for the segment.
+-- * 'make' - The device make criteria for the segment.
+-- * 'deviceType' - The device type criteria for the segment.
 mkSegmentDemographics ::
   SegmentDemographics
 mkSegmentDemographics =

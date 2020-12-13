@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,13 +41,7 @@ import Network.AWS.SES.Types
 
 -- | /See:/ 'mkGetSendQuota' smart constructor.
 data GetSendQuota = GetSendQuota'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSendQuota' with the minimum fields required to make a request.
@@ -87,27 +82,24 @@ instance Lude.ToQuery GetSendQuota where
 --
 -- /See:/ 'mkGetSendQuotaResponse' smart constructor.
 data GetSendQuotaResponse = GetSendQuotaResponse'
-  { maxSendRate ::
-      Lude.Maybe Lude.Double,
+  { -- | The maximum number of emails that Amazon SES can accept from the user's account per second.
+    maxSendRate :: Lude.Maybe Lude.Double,
+    -- | The number of emails sent during the previous 24 hours.
     sentLast24Hours :: Lude.Maybe Lude.Double,
+    -- | The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
     max24HourSend :: Lude.Maybe Lude.Double,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSendQuotaResponse' with the minimum fields required to make a request.
 --
--- * 'max24HourSend' - The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
 -- * 'maxSendRate' - The maximum number of emails that Amazon SES can accept from the user's account per second.
--- * 'responseStatus' - The response status code.
 -- * 'sentLast24Hours' - The number of emails sent during the previous 24 hours.
+-- * 'max24HourSend' - The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
+-- * 'responseStatus' - The response status code.
 mkGetSendQuotaResponse ::
   -- | 'responseStatus'
   Lude.Int ->

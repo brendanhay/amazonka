@@ -13,9 +13,9 @@
 module Network.AWS.CodeBuild.Types.ReportGroupSortByType
   ( ReportGroupSortByType
       ( ReportGroupSortByType',
+        RGSBTName,
         RGSBTCreatedTime,
-        RGSBTLastModifiedTime,
-        RGSBTName
+        RGSBTLastModifiedTime
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ReportGroupSortByType = ReportGroupSortByType' Lude.Text
       Lude.ToHeader
     )
 
+pattern RGSBTName :: ReportGroupSortByType
+pattern RGSBTName = ReportGroupSortByType' "NAME"
+
 pattern RGSBTCreatedTime :: ReportGroupSortByType
 pattern RGSBTCreatedTime = ReportGroupSortByType' "CREATED_TIME"
 
 pattern RGSBTLastModifiedTime :: ReportGroupSortByType
 pattern RGSBTLastModifiedTime = ReportGroupSortByType' "LAST_MODIFIED_TIME"
 
-pattern RGSBTName :: ReportGroupSortByType
-pattern RGSBTName = ReportGroupSortByType' "NAME"
-
 {-# COMPLETE
+  RGSBTName,
   RGSBTCreatedTime,
   RGSBTLastModifiedTime,
-  RGSBTName,
   ReportGroupSortByType'
   #-}

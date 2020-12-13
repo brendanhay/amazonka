@@ -40,17 +40,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFulfillmentActivity' smart constructor.
 data FulfillmentActivity = FulfillmentActivity'
-  { codeHook ::
-      Lude.Maybe CodeHook,
+  { -- | A description of the Lambda function that is run to fulfill the intent.
+    codeHook :: Lude.Maybe CodeHook,
+    -- | How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application.
     type' :: FulfillmentActivityType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FulfillmentActivity' with the minimum fields required to make a request.

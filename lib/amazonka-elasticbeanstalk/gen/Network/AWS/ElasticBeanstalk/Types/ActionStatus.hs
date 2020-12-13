@@ -13,9 +13,9 @@
 module Network.AWS.ElasticBeanstalk.Types.ActionStatus
   ( ActionStatus
       ( ActionStatus',
+        ASScheduled,
         ASPending,
         ASRunning,
-        ASScheduled,
         ASUnknown
       ),
   )
@@ -47,22 +47,22 @@ newtype ActionStatus = ActionStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern ASScheduled :: ActionStatus
+pattern ASScheduled = ActionStatus' "Scheduled"
+
 pattern ASPending :: ActionStatus
 pattern ASPending = ActionStatus' "Pending"
 
 pattern ASRunning :: ActionStatus
 pattern ASRunning = ActionStatus' "Running"
 
-pattern ASScheduled :: ActionStatus
-pattern ASScheduled = ActionStatus' "Scheduled"
-
 pattern ASUnknown :: ActionStatus
 pattern ASUnknown = ActionStatus' "Unknown"
 
 {-# COMPLETE
+  ASScheduled,
   ASPending,
   ASRunning,
-  ASScheduled,
   ASUnknown,
   ActionStatus'
   #-}

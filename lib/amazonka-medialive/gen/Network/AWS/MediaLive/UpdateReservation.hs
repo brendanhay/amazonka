@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateReservation' smart constructor.
 data UpdateReservation = UpdateReservation'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | Name of the reservation
+    name :: Lude.Maybe Lude.Text,
+    -- | Unique reservation ID, e.g. '1234567'
     reservationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReservation' with the minimum fields required to make a request.
@@ -117,22 +113,16 @@ instance Lude.ToQuery UpdateReservation where
 --
 -- /See:/ 'mkUpdateReservationResponse' smart constructor.
 data UpdateReservationResponse = UpdateReservationResponse'
-  { reservation ::
-      Lude.Maybe Reservation,
+  { reservation :: Lude.Maybe Reservation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateReservationResponse' with the minimum fields required to make a request.
 --
--- * 'reservation' - Undocumented field.
+-- * 'reservation' -
 -- * 'responseStatus' - The response status code.
 mkUpdateReservationResponse ::
   -- | 'responseStatus'

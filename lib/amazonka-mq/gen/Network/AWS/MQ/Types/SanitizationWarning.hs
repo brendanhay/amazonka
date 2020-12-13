@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSanitizationWarning' smart constructor.
 data SanitizationWarning = SanitizationWarning'
-  { reason ::
-      Lude.Maybe SanitizationWarningReason,
+  { -- | Required. The reason for which the XML elements or attributes were sanitized.
+    reason :: Lude.Maybe SanitizationWarningReason,
+    -- | The name of the XML attribute that has been sanitized.
     attributeName :: Lude.Maybe Lude.Text,
+    -- | The name of the XML element that has been sanitized.
     elementName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SanitizationWarning' with the minimum fields required to make a request.
 --
+-- * 'reason' - Required. The reason for which the XML elements or attributes were sanitized.
 -- * 'attributeName' - The name of the XML attribute that has been sanitized.
 -- * 'elementName' - The name of the XML element that has been sanitized.
--- * 'reason' - Required. The reason for which the XML elements or attributes were sanitized.
 mkSanitizationWarning ::
   SanitizationWarning
 mkSanitizationWarning =

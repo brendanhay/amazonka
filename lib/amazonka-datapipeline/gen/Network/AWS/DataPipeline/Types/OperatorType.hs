@@ -13,11 +13,11 @@
 module Network.AWS.DataPipeline.Types.OperatorType
   ( OperatorType
       ( OperatorType',
-        OperatorBetween,
         OperatorEQ,
-        OperatorGE,
+        OperatorRefEQ,
         OperatorLE,
-        OperatorRefEQ
+        OperatorGE,
+        OperatorBetween
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype OperatorType = OperatorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern OperatorBetween :: OperatorType
-pattern OperatorBetween = OperatorType' "BETWEEN"
-
 pattern OperatorEQ :: OperatorType
 pattern OperatorEQ = OperatorType' "EQ"
-
-pattern OperatorGE :: OperatorType
-pattern OperatorGE = OperatorType' "GE"
-
-pattern OperatorLE :: OperatorType
-pattern OperatorLE = OperatorType' "LE"
 
 pattern OperatorRefEQ :: OperatorType
 pattern OperatorRefEQ = OperatorType' "REF_EQ"
 
+pattern OperatorLE :: OperatorType
+pattern OperatorLE = OperatorType' "LE"
+
+pattern OperatorGE :: OperatorType
+pattern OperatorGE = OperatorType' "GE"
+
+pattern OperatorBetween :: OperatorType
+pattern OperatorBetween = OperatorType' "BETWEEN"
+
 {-# COMPLETE
-  OperatorBetween,
   OperatorEQ,
-  OperatorGE,
-  OperatorLE,
   OperatorRefEQ,
+  OperatorLE,
+  OperatorGE,
+  OperatorBetween,
   OperatorType'
   #-}

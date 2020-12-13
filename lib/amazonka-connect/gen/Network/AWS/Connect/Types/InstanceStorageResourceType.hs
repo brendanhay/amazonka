@@ -13,12 +13,12 @@
 module Network.AWS.Connect.Types.InstanceStorageResourceType
   ( InstanceStorageResourceType
       ( InstanceStorageResourceType',
-        AgentEvents,
-        CallRecordings,
         ChatTranscripts,
-        ContactTraceRecords,
+        CallRecordings,
+        ScheduledReports,
         MediaStreams,
-        ScheduledReports
+        ContactTraceRecords,
+        AgentEvents
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype InstanceStorageResourceType = InstanceStorageResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AgentEvents :: InstanceStorageResourceType
-pattern AgentEvents = InstanceStorageResourceType' "AGENT_EVENTS"
+pattern ChatTranscripts :: InstanceStorageResourceType
+pattern ChatTranscripts = InstanceStorageResourceType' "CHAT_TRANSCRIPTS"
 
 pattern CallRecordings :: InstanceStorageResourceType
 pattern CallRecordings = InstanceStorageResourceType' "CALL_RECORDINGS"
 
-pattern ChatTranscripts :: InstanceStorageResourceType
-pattern ChatTranscripts = InstanceStorageResourceType' "CHAT_TRANSCRIPTS"
-
-pattern ContactTraceRecords :: InstanceStorageResourceType
-pattern ContactTraceRecords = InstanceStorageResourceType' "CONTACT_TRACE_RECORDS"
+pattern ScheduledReports :: InstanceStorageResourceType
+pattern ScheduledReports = InstanceStorageResourceType' "SCHEDULED_REPORTS"
 
 pattern MediaStreams :: InstanceStorageResourceType
 pattern MediaStreams = InstanceStorageResourceType' "MEDIA_STREAMS"
 
-pattern ScheduledReports :: InstanceStorageResourceType
-pattern ScheduledReports = InstanceStorageResourceType' "SCHEDULED_REPORTS"
+pattern ContactTraceRecords :: InstanceStorageResourceType
+pattern ContactTraceRecords = InstanceStorageResourceType' "CONTACT_TRACE_RECORDS"
+
+pattern AgentEvents :: InstanceStorageResourceType
+pattern AgentEvents = InstanceStorageResourceType' "AGENT_EVENTS"
 
 {-# COMPLETE
-  AgentEvents,
-  CallRecordings,
   ChatTranscripts,
-  ContactTraceRecords,
-  MediaStreams,
+  CallRecordings,
   ScheduledReports,
+  MediaStreams,
+  ContactTraceRecords,
+  AgentEvents,
   InstanceStorageResourceType'
   #-}

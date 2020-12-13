@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceHardware' smart constructor.
 data InstanceHardware = InstanceHardware'
-  { cpuCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of vCPUs the instance has.
+    cpuCount :: Lude.Maybe Lude.Int,
+    -- | The disks attached to the instance.
     disks :: Lude.Maybe [Disk],
+    -- | The amount of RAM in GB on the instance (e.g., @1.0@ ).
     ramSizeInGb :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceHardware' with the minimum fields required to make a request.

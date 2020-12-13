@@ -13,14 +13,14 @@
 module Network.AWS.CodeDeploy.Types.DeploymentStatus
   ( DeploymentStatus
       ( DeploymentStatus',
-        Baking,
         Created,
-        Failed,
-        InProgress,
         Queued,
-        Ready,
+        InProgress,
+        Baking,
+        Succeeded,
+        Failed,
         Stopped,
-        Succeeded
+        Ready
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype DeploymentStatus = DeploymentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Baking :: DeploymentStatus
-pattern Baking = DeploymentStatus' "Baking"
-
 pattern Created :: DeploymentStatus
 pattern Created = DeploymentStatus' "Created"
-
-pattern Failed :: DeploymentStatus
-pattern Failed = DeploymentStatus' "Failed"
-
-pattern InProgress :: DeploymentStatus
-pattern InProgress = DeploymentStatus' "InProgress"
 
 pattern Queued :: DeploymentStatus
 pattern Queued = DeploymentStatus' "Queued"
 
-pattern Ready :: DeploymentStatus
-pattern Ready = DeploymentStatus' "Ready"
+pattern InProgress :: DeploymentStatus
+pattern InProgress = DeploymentStatus' "InProgress"
 
-pattern Stopped :: DeploymentStatus
-pattern Stopped = DeploymentStatus' "Stopped"
+pattern Baking :: DeploymentStatus
+pattern Baking = DeploymentStatus' "Baking"
 
 pattern Succeeded :: DeploymentStatus
 pattern Succeeded = DeploymentStatus' "Succeeded"
 
+pattern Failed :: DeploymentStatus
+pattern Failed = DeploymentStatus' "Failed"
+
+pattern Stopped :: DeploymentStatus
+pattern Stopped = DeploymentStatus' "Stopped"
+
+pattern Ready :: DeploymentStatus
+pattern Ready = DeploymentStatus' "Ready"
+
 {-# COMPLETE
-  Baking,
   Created,
-  Failed,
-  InProgress,
   Queued,
-  Ready,
-  Stopped,
+  InProgress,
+  Baking,
   Succeeded,
+  Failed,
+  Stopped,
+  Ready,
   DeploymentStatus'
   #-}

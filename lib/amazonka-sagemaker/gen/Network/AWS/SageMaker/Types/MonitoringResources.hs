@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.MonitoringClusterConfig
 --
 -- /See:/ 'mkMonitoringResources' smart constructor.
 newtype MonitoringResources = MonitoringResources'
-  { clusterConfig ::
-      MonitoringClusterConfig
+  { -- | The configuration for the cluster resources used to run the processing job.
+    clusterConfig :: MonitoringClusterConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringResources' with the minimum fields required to make a request.

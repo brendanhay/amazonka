@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.HumanTaskUiSummary
     mkHumanTaskUiSummary,
 
     -- * Lenses
+    htusCreationTime,
     htusHumanTaskUiName,
     htusHumanTaskUiARN,
-    htusCreationTime,
   )
 where
 
@@ -30,42 +30,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHumanTaskUiSummary' smart constructor.
 data HumanTaskUiSummary = HumanTaskUiSummary'
-  { humanTaskUiName ::
-      Lude.Text,
-    humanTaskUiARN :: Lude.Text,
-    creationTime :: Lude.Timestamp
+  { -- | A timestamp when SageMaker created the human task user interface.
+    creationTime :: Lude.Timestamp,
+    -- | The name of the human task user interface.
+    humanTaskUiName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the human task user interface.
+    humanTaskUiARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanTaskUiSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - A timestamp when SageMaker created the human task user interface.
--- * 'humanTaskUiARN' - The Amazon Resource Name (ARN) of the human task user interface.
 -- * 'humanTaskUiName' - The name of the human task user interface.
+-- * 'humanTaskUiARN' - The Amazon Resource Name (ARN) of the human task user interface.
 mkHumanTaskUiSummary ::
+  -- | 'creationTime'
+  Lude.Timestamp ->
   -- | 'humanTaskUiName'
   Lude.Text ->
   -- | 'humanTaskUiARN'
   Lude.Text ->
-  -- | 'creationTime'
-  Lude.Timestamp ->
   HumanTaskUiSummary
 mkHumanTaskUiSummary
+  pCreationTime_
   pHumanTaskUiName_
-  pHumanTaskUiARN_
-  pCreationTime_ =
+  pHumanTaskUiARN_ =
     HumanTaskUiSummary'
-      { humanTaskUiName = pHumanTaskUiName_,
-        humanTaskUiARN = pHumanTaskUiARN_,
-        creationTime = pCreationTime_
+      { creationTime = pCreationTime_,
+        humanTaskUiName = pHumanTaskUiName_,
+        humanTaskUiARN = pHumanTaskUiARN_
       }
+
+-- | A timestamp when SageMaker created the human task user interface.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+htusCreationTime :: Lens.Lens' HumanTaskUiSummary Lude.Timestamp
+htusCreationTime = Lens.lens (creationTime :: HumanTaskUiSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: HumanTaskUiSummary)
+{-# DEPRECATED htusCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the human task user interface.
 --
@@ -81,20 +84,13 @@ htusHumanTaskUiARN :: Lens.Lens' HumanTaskUiSummary Lude.Text
 htusHumanTaskUiARN = Lens.lens (humanTaskUiARN :: HumanTaskUiSummary -> Lude.Text) (\s a -> s {humanTaskUiARN = a} :: HumanTaskUiSummary)
 {-# DEPRECATED htusHumanTaskUiARN "Use generic-lens or generic-optics with 'humanTaskUiARN' instead." #-}
 
--- | A timestamp when SageMaker created the human task user interface.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htusCreationTime :: Lens.Lens' HumanTaskUiSummary Lude.Timestamp
-htusCreationTime = Lens.lens (creationTime :: HumanTaskUiSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: HumanTaskUiSummary)
-{-# DEPRECATED htusCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
 instance Lude.FromJSON HumanTaskUiSummary where
   parseJSON =
     Lude.withObject
       "HumanTaskUiSummary"
       ( \x ->
           HumanTaskUiSummary'
-            Lude.<$> (x Lude..: "HumanTaskUiName")
+            Lude.<$> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "HumanTaskUiName")
             Lude.<*> (x Lude..: "HumanTaskUiArn")
-            Lude.<*> (x Lude..: "CreationTime")
       )

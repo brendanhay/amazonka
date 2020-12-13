@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceQuota' smart constructor.
 newtype ResourceQuota = ResourceQuota'
-  { maximum ::
-      Lude.Maybe Lude.Int
+  { -- | The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use.
+    maximum :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceQuota' with the minimum fields required to make a request.

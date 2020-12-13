@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkStopTextTranslationJob' smart constructor.
 newtype StopTextTranslationJob = StopTextTranslationJob'
-  { jobId ::
-      Lude.Text
+  { -- | The job ID of the job to be stopped.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTextTranslationJob' with the minimum fields required to make a request.
@@ -109,19 +104,14 @@ instance Lude.ToQuery StopTextTranslationJob where
 
 -- | /See:/ 'mkStopTextTranslationJobResponse' smart constructor.
 data StopTextTranslationJobResponse = StopTextTranslationJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
-    jobStatus ::
-      Lude.Maybe JobStatus,
+  { -- | The job ID of the stopped batch translation job.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The status of the designated job. Upon successful completion, the job's status will be @STOPPED@ .
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopTextTranslationJobResponse' with the minimum fields required to make a request.

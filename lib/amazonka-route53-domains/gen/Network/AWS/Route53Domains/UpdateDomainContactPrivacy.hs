@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     mkUpdateDomainContactPrivacyResponse,
 
     -- ** Response lenses
-    udcprsResponseStatus,
     udcprsOperationId,
+    udcprsResponseStatus,
   )
 where
 
@@ -47,28 +48,24 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkUpdateDomainContactPrivacy' smart constructor.
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
-  { techPrivacy ::
-      Lude.Maybe Lude.Bool,
-    registrantPrivacy ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+    techPrivacy :: Lude.Maybe Lude.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+    registrantPrivacy :: Lude.Maybe Lude.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
     adminPrivacy :: Lude.Maybe Lude.Bool,
+    -- | The name of the domain that you want to update the privacy setting for.
     domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainContactPrivacy' with the minimum fields required to make a request.
 --
+-- * 'techPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+-- * 'registrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
 -- * 'adminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
 -- * 'domainName' - The name of the domain that you want to update the privacy setting for.
--- * 'registrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
--- * 'techPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
 mkUpdateDomainContactPrivacy ::
   -- | 'domainName'
   Lude.Text ->
@@ -118,7 +115,7 @@ instance Lude.AWSRequest UpdateDomainContactPrivacy where
     Res.receiveJSON
       ( \s h x ->
           UpdateDomainContactPrivacyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
+            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateDomainContactPrivacy where
@@ -155,18 +152,12 @@ instance Lude.ToQuery UpdateDomainContactPrivacy where
 --
 -- /See:/ 'mkUpdateDomainContactPrivacyResponse' smart constructor.
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
-  { responseStatus ::
-      Lude.Int,
-    operationId ::
-      Lude.Text
+  { -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
+    operationId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainContactPrivacyResponse' with the minimum fields required to make a request.
@@ -174,24 +165,16 @@ data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
 -- * 'operationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 -- * 'responseStatus' - The response status code.
 mkUpdateDomainContactPrivacyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDomainContactPrivacyResponse
-mkUpdateDomainContactPrivacyResponse pResponseStatus_ pOperationId_ =
+mkUpdateDomainContactPrivacyResponse pOperationId_ pResponseStatus_ =
   UpdateDomainContactPrivacyResponse'
-    { responseStatus =
-        pResponseStatus_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcprsResponseStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Lude.Int
-udcprsResponseStatus = Lens.lens (responseStatus :: UpdateDomainContactPrivacyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainContactPrivacyResponse)
-{-# DEPRECATED udcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
 --
@@ -199,3 +182,10 @@ udcprsResponseStatus = Lens.lens (responseStatus :: UpdateDomainContactPrivacyRe
 udcprsOperationId :: Lens.Lens' UpdateDomainContactPrivacyResponse Lude.Text
 udcprsOperationId = Lens.lens (operationId :: UpdateDomainContactPrivacyResponse -> Lude.Text) (\s a -> s {operationId = a} :: UpdateDomainContactPrivacyResponse)
 {-# DEPRECATED udcprsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcprsResponseStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Lude.Int
+udcprsResponseStatus = Lens.lens (responseStatus :: UpdateDomainContactPrivacyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainContactPrivacyResponse)
+{-# DEPRECATED udcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

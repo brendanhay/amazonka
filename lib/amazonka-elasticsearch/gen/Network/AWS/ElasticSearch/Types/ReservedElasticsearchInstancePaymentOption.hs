@@ -14,8 +14,8 @@ module Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOptio
   ( ReservedElasticsearchInstancePaymentOption
       ( ReservedElasticsearchInstancePaymentOption',
         AllUpfront,
-        NoUpfront,
-        PartialUpfront
+        PartialUpfront,
+        NoUpfront
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ReservedElasticsearchInstancePaymentOption = ReservedElasticsearchInstan
 pattern AllUpfront :: ReservedElasticsearchInstancePaymentOption
 pattern AllUpfront = ReservedElasticsearchInstancePaymentOption' "ALL_UPFRONT"
 
-pattern NoUpfront :: ReservedElasticsearchInstancePaymentOption
-pattern NoUpfront = ReservedElasticsearchInstancePaymentOption' "NO_UPFRONT"
-
 pattern PartialUpfront :: ReservedElasticsearchInstancePaymentOption
 pattern PartialUpfront = ReservedElasticsearchInstancePaymentOption' "PARTIAL_UPFRONT"
 
+pattern NoUpfront :: ReservedElasticsearchInstancePaymentOption
+pattern NoUpfront = ReservedElasticsearchInstancePaymentOption' "NO_UPFRONT"
+
 {-# COMPLETE
   AllUpfront,
-  NoUpfront,
   PartialUpfront,
+  NoUpfront,
   ReservedElasticsearchInstancePaymentOption'
   #-}

@@ -43,43 +43,55 @@ import Network.AWS.Redshift.Types.ReservedNodeOfferingType
 --
 -- /See:/ 'mkReservedNode' smart constructor.
 data ReservedNode = ReservedNode'
-  { reservedNodeOfferingType ::
-      Lude.Maybe ReservedNodeOfferingType,
+  { -- |
+    reservedNodeOfferingType :: Lude.Maybe ReservedNodeOfferingType,
+    -- | The state of the reserved compute node.
+    --
+    -- Possible Values:
+    --
+    --     * pending-payment-This reserved node has recently been purchased, and the sale has been approved, but payment has not yet been confirmed.
+    --
+    --
+    --     * active-This reserved node is owned by the caller and is available for use.
+    --
+    --
+    --     * payment-failed-Payment failed for the purchase attempt.
+    --
+    --
+    --     * retired-The reserved node is no longer available.
+    --
+    --
+    --     * exchanging-The owner is exchanging the reserved node for another reserved node.
     state :: Lude.Maybe Lude.Text,
+    -- | The currency code for the reserved cluster.
     currencyCode :: Lude.Maybe Lude.Text,
+    -- | The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | The number of reserved compute nodes.
     nodeCount :: Lude.Maybe Lude.Int,
+    -- | The unique identifier for the reservation.
     reservedNodeId :: Lude.Maybe Lude.Text,
+    -- | The identifier for the reserved node offering.
     reservedNodeOfferingId :: Lude.Maybe Lude.Text,
+    -- | The recurring charges for the reserved node.
     recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The anticipated utilization of the reserved node, as defined in the reserved node offering.
     offeringType :: Lude.Maybe Lude.Text,
+    -- | The hourly rate Amazon Redshift charges you for this reserved node.
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | The node type of the reserved node.
     nodeType :: Lude.Maybe Lude.Text,
+    -- | The fixed cost Amazon Redshift charges you for this reserved node.
     fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The duration of the node reservation in seconds.
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedNode' with the minimum fields required to make a request.
 --
--- * 'currencyCode' - The currency code for the reserved cluster.
--- * 'duration' - The duration of the node reservation in seconds.
--- * 'fixedPrice' - The fixed cost Amazon Redshift charges you for this reserved node.
--- * 'nodeCount' - The number of reserved compute nodes.
--- * 'nodeType' - The node type of the reserved node.
--- * 'offeringType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
--- * 'recurringCharges' - The recurring charges for the reserved node.
--- * 'reservedNodeId' - The unique identifier for the reservation.
--- * 'reservedNodeOfferingId' - The identifier for the reserved node offering.
 -- * 'reservedNodeOfferingType' -
--- * 'startTime' - The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
 -- * 'state' - The state of the reserved compute node.
 --
 -- Possible Values:
@@ -99,7 +111,17 @@ data ReservedNode = ReservedNode'
 --     * exchanging-The owner is exchanging the reserved node for another reserved node.
 --
 --
+-- * 'currencyCode' - The currency code for the reserved cluster.
+-- * 'startTime' - The time the reservation started. You purchase a reserved node offering for a duration. This is the start time of that duration.
+-- * 'nodeCount' - The number of reserved compute nodes.
+-- * 'reservedNodeId' - The unique identifier for the reservation.
+-- * 'reservedNodeOfferingId' - The identifier for the reserved node offering.
+-- * 'recurringCharges' - The recurring charges for the reserved node.
+-- * 'offeringType' - The anticipated utilization of the reserved node, as defined in the reserved node offering.
 -- * 'usagePrice' - The hourly rate Amazon Redshift charges you for this reserved node.
+-- * 'nodeType' - The node type of the reserved node.
+-- * 'fixedPrice' - The fixed cost Amazon Redshift charges you for this reserved node.
+-- * 'duration' - The duration of the node reservation in seconds.
 mkReservedNode ::
   ReservedNode
 mkReservedNode =

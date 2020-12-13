@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.Rekognition.StartStreamProcessor
     mkStartStreamProcessor,
 
     -- ** Request lenses
-    sName,
+    sspName,
 
     -- * Destructuring the response
     StartStreamProcessorResponse (..),
     mkStartStreamProcessorResponse,
 
     -- ** Response lenses
-    starsResponseStatus,
+    sspfrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartStreamProcessor' smart constructor.
 newtype StartStreamProcessor = StartStreamProcessor'
-  { name ::
-      Lude.Text
+  { -- | The name of the stream processor to start processing.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStreamProcessor' with the minimum fields required to make a request.
@@ -63,9 +58,9 @@ mkStartStreamProcessor pName_ =
 -- | The name of the stream processor to start processing.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' StartStreamProcessor Lude.Text
-sName = Lens.lens (name :: StartStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: StartStreamProcessor)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+sspName :: Lens.Lens' StartStreamProcessor Lude.Text
+sspName = Lens.lens (name :: StartStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: StartStreamProcessor)
+{-# DEPRECATED sspName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StartStreamProcessor where
   type Rs StartStreamProcessor = StartStreamProcessorResponse
@@ -100,16 +95,10 @@ instance Lude.ToQuery StartStreamProcessor where
 
 -- | /See:/ 'mkStartStreamProcessorResponse' smart constructor.
 newtype StartStreamProcessorResponse = StartStreamProcessorResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStreamProcessorResponse' with the minimum fields required to make a request.
@@ -125,6 +114,6 @@ mkStartStreamProcessorResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-starsResponseStatus :: Lens.Lens' StartStreamProcessorResponse Lude.Int
-starsResponseStatus = Lens.lens (responseStatus :: StartStreamProcessorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartStreamProcessorResponse)
-{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sspfrsResponseStatus :: Lens.Lens' StartStreamProcessorResponse Lude.Int
+sspfrsResponseStatus = Lens.lens (responseStatus :: StartStreamProcessorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartStreamProcessorResponse)
+{-# DEPRECATED sspfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

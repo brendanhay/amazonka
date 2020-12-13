@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnetAssociation' smart constructor.
 data SubnetAssociation = SubnetAssociation'
-  { state ::
-      Lude.Maybe
-        TransitGatewayMulitcastDomainAssociationState,
+  { -- | The state of the subnet association.
+    state :: Lude.Maybe TransitGatewayMulitcastDomainAssociationState,
+    -- | The ID of the subnet.
     subnetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetAssociation' with the minimum fields required to make a request.

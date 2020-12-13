@@ -17,8 +17,8 @@ module Network.AWS.Batch.Types.EC2Configuration
     mkEC2Configuration,
 
     -- * Lenses
-    ecImageIdOverride,
     ecImageType,
+    ecImageIdOverride,
   )
 where
 
@@ -29,22 +29,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2Configuration' smart constructor.
 data EC2Configuration = EC2Configuration'
-  { imageIdOverride ::
-      Lude.Maybe Lude.Text,
-    imageType :: Lude.Text
+  { -- | The image type to match with the instance type to pick an AMI. If the @imageIdOverride@ parameter is not specified, then a recent <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI> will be used.
+    --
+    --
+    --     * ECS_AL2
+    --
+    --     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami Amazon Linux 2> − Default for all AWS Graviton-based instance families (for example, @C6g@ , @M6g@ , @R6g@ , and @T4g@ ) and can be used for all non-GPU instance types.
+    --
+    --
+    --     * ECS_AL2_NVIDIA
+    --
+    --     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#gpuami Amazon Linux 2 (GPU)> −Default for all GPU instance families (for example @P4@ and @G4@ ) and can be used for all non-AWS Graviton-based instance types.
+    --
+    --
+    --     * ECS_AL1
+    --
+    --     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux> −Default for all non-GPU, non-AWS-Graviton instance families. Amazon Linux is reaching the end-of-life of standard support. For more information, see <https://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI> .
+    imageType :: Lude.Text,
+    -- | The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
+    imageIdOverride :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2Configuration' with the minimum fields required to make a request.
 --
--- * 'imageIdOverride' - The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
 -- * 'imageType' - The image type to match with the instance type to pick an AMI. If the @imageIdOverride@ parameter is not specified, then a recent <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI> will be used.
 --
 --
@@ -61,22 +70,18 @@ data EC2Configuration = EC2Configuration'
 --     * ECS_AL1
 --
 --     * <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#alami Amazon Linux> −Default for all non-GPU, non-AWS-Graviton instance families. Amazon Linux is reaching the end-of-life of standard support. For more information, see <https://aws.amazon.com/amazon-linux-ami/ Amazon Linux AMI> .
+--
+--
+-- * 'imageIdOverride' - The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
 mkEC2Configuration ::
   -- | 'imageType'
   Lude.Text ->
   EC2Configuration
 mkEC2Configuration pImageType_ =
   EC2Configuration'
-    { imageIdOverride = Lude.Nothing,
-      imageType = pImageType_
+    { imageType = pImageType_,
+      imageIdOverride = Lude.Nothing
     }
-
--- | The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
---
--- /Note:/ Consider using 'imageIdOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecImageIdOverride :: Lens.Lens' EC2Configuration (Lude.Maybe Lude.Text)
-ecImageIdOverride = Lens.lens (imageIdOverride :: EC2Configuration -> Lude.Maybe Lude.Text) (\s a -> s {imageIdOverride = a} :: EC2Configuration)
-{-# DEPRECATED ecImageIdOverride "Use generic-lens or generic-optics with 'imageIdOverride' instead." #-}
 
 -- | The image type to match with the instance type to pick an AMI. If the @imageIdOverride@ parameter is not specified, then a recent <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized AMI> will be used.
 --
@@ -102,20 +107,27 @@ ecImageType :: Lens.Lens' EC2Configuration Lude.Text
 ecImageType = Lens.lens (imageType :: EC2Configuration -> Lude.Text) (\s a -> s {imageType = a} :: EC2Configuration)
 {-# DEPRECATED ecImageType "Use generic-lens or generic-optics with 'imageType' instead." #-}
 
+-- | The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the @imageId@ set in the @computeResource@ object.
+--
+-- /Note:/ Consider using 'imageIdOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecImageIdOverride :: Lens.Lens' EC2Configuration (Lude.Maybe Lude.Text)
+ecImageIdOverride = Lens.lens (imageIdOverride :: EC2Configuration -> Lude.Maybe Lude.Text) (\s a -> s {imageIdOverride = a} :: EC2Configuration)
+{-# DEPRECATED ecImageIdOverride "Use generic-lens or generic-optics with 'imageIdOverride' instead." #-}
+
 instance Lude.FromJSON EC2Configuration where
   parseJSON =
     Lude.withObject
       "EC2Configuration"
       ( \x ->
           EC2Configuration'
-            Lude.<$> (x Lude..:? "imageIdOverride") Lude.<*> (x Lude..: "imageType")
+            Lude.<$> (x Lude..: "imageType") Lude.<*> (x Lude..:? "imageIdOverride")
       )
 
 instance Lude.ToJSON EC2Configuration where
   toJSON EC2Configuration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("imageIdOverride" Lude..=) Lude.<$> imageIdOverride,
-            Lude.Just ("imageType" Lude..= imageType)
+          [ Lude.Just ("imageType" Lude..= imageType),
+            ("imageIdOverride" Lude..=) Lude.<$> imageIdOverride
           ]
       )

@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.InstanceFleetType
   ( InstanceFleetType
       ( InstanceFleetType',
-        IFTCore,
         IFTMaster,
+        IFTCore,
         IFTTask
       ),
   )
@@ -46,18 +46,18 @@ newtype InstanceFleetType = InstanceFleetType' Lude.Text
       Lude.ToHeader
     )
 
-pattern IFTCore :: InstanceFleetType
-pattern IFTCore = InstanceFleetType' "CORE"
-
 pattern IFTMaster :: InstanceFleetType
 pattern IFTMaster = InstanceFleetType' "MASTER"
+
+pattern IFTCore :: InstanceFleetType
+pattern IFTCore = InstanceFleetType' "CORE"
 
 pattern IFTTask :: InstanceFleetType
 pattern IFTTask = InstanceFleetType' "TASK"
 
 {-# COMPLETE
-  IFTCore,
   IFTMaster,
+  IFTCore,
   IFTTask,
   InstanceFleetType'
   #-}

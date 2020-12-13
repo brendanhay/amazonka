@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus
     mkElasticsearchClusterConfigStatus,
 
     -- * Lenses
-    eccsOptions,
     eccsStatus,
+    eccsOptions,
   )
 where
 
@@ -31,41 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticsearchClusterConfigStatus' smart constructor.
 data ElasticsearchClusterConfigStatus = ElasticsearchClusterConfigStatus'
-  { options ::
-      ElasticsearchClusterConfig,
-    status :: OptionStatus
+  { -- | Specifies the status of the configuration for the specified Elasticsearch domain.
+    status :: OptionStatus,
+    -- | Specifies the cluster configuration for the specified Elasticsearch domain.
+    options :: ElasticsearchClusterConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchClusterConfigStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Specifies the cluster configuration for the specified Elasticsearch domain.
 -- * 'status' - Specifies the status of the configuration for the specified Elasticsearch domain.
+-- * 'options' - Specifies the cluster configuration for the specified Elasticsearch domain.
 mkElasticsearchClusterConfigStatus ::
-  -- | 'options'
-  ElasticsearchClusterConfig ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  ElasticsearchClusterConfig ->
   ElasticsearchClusterConfigStatus
-mkElasticsearchClusterConfigStatus pOptions_ pStatus_ =
+mkElasticsearchClusterConfigStatus pStatus_ pOptions_ =
   ElasticsearchClusterConfigStatus'
-    { options = pOptions_,
-      status = pStatus_
+    { status = pStatus_,
+      options = pOptions_
     }
-
--- | Specifies the cluster configuration for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eccsOptions :: Lens.Lens' ElasticsearchClusterConfigStatus ElasticsearchClusterConfig
-eccsOptions = Lens.lens (options :: ElasticsearchClusterConfigStatus -> ElasticsearchClusterConfig) (\s a -> s {options = a} :: ElasticsearchClusterConfigStatus)
-{-# DEPRECATED eccsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Specifies the status of the configuration for the specified Elasticsearch domain.
 --
@@ -74,11 +62,18 @@ eccsStatus :: Lens.Lens' ElasticsearchClusterConfigStatus OptionStatus
 eccsStatus = Lens.lens (status :: ElasticsearchClusterConfigStatus -> OptionStatus) (\s a -> s {status = a} :: ElasticsearchClusterConfigStatus)
 {-# DEPRECATED eccsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Specifies the cluster configuration for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eccsOptions :: Lens.Lens' ElasticsearchClusterConfigStatus ElasticsearchClusterConfig
+eccsOptions = Lens.lens (options :: ElasticsearchClusterConfigStatus -> ElasticsearchClusterConfig) (\s a -> s {options = a} :: ElasticsearchClusterConfigStatus)
+{-# DEPRECATED eccsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromJSON ElasticsearchClusterConfigStatus where
   parseJSON =
     Lude.withObject
       "ElasticsearchClusterConfigStatus"
       ( \x ->
           ElasticsearchClusterConfigStatus'
-            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
       )

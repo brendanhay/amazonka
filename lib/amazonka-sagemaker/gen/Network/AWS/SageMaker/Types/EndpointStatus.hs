@@ -13,14 +13,14 @@
 module Network.AWS.SageMaker.Types.EndpointStatus
   ( EndpointStatus
       ( EndpointStatus',
-        ESCreating,
-        ESDeleting,
-        ESFailed,
-        ESInService,
         ESOutOfService,
-        ESRollingBack,
+        ESCreating,
+        ESUpdating,
         ESSystemUpdating,
-        ESUpdating
+        ESRollingBack,
+        ESInService,
+        ESDeleting,
+        ESFailed
       ),
   )
 where
@@ -51,8 +51,23 @@ newtype EndpointStatus = EndpointStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern ESOutOfService :: EndpointStatus
+pattern ESOutOfService = EndpointStatus' "OutOfService"
+
 pattern ESCreating :: EndpointStatus
 pattern ESCreating = EndpointStatus' "Creating"
+
+pattern ESUpdating :: EndpointStatus
+pattern ESUpdating = EndpointStatus' "Updating"
+
+pattern ESSystemUpdating :: EndpointStatus
+pattern ESSystemUpdating = EndpointStatus' "SystemUpdating"
+
+pattern ESRollingBack :: EndpointStatus
+pattern ESRollingBack = EndpointStatus' "RollingBack"
+
+pattern ESInService :: EndpointStatus
+pattern ESInService = EndpointStatus' "InService"
 
 pattern ESDeleting :: EndpointStatus
 pattern ESDeleting = EndpointStatus' "Deleting"
@@ -60,29 +75,14 @@ pattern ESDeleting = EndpointStatus' "Deleting"
 pattern ESFailed :: EndpointStatus
 pattern ESFailed = EndpointStatus' "Failed"
 
-pattern ESInService :: EndpointStatus
-pattern ESInService = EndpointStatus' "InService"
-
-pattern ESOutOfService :: EndpointStatus
-pattern ESOutOfService = EndpointStatus' "OutOfService"
-
-pattern ESRollingBack :: EndpointStatus
-pattern ESRollingBack = EndpointStatus' "RollingBack"
-
-pattern ESSystemUpdating :: EndpointStatus
-pattern ESSystemUpdating = EndpointStatus' "SystemUpdating"
-
-pattern ESUpdating :: EndpointStatus
-pattern ESUpdating = EndpointStatus' "Updating"
-
 {-# COMPLETE
+  ESOutOfService,
   ESCreating,
+  ESUpdating,
+  ESSystemUpdating,
+  ESRollingBack,
+  ESInService,
   ESDeleting,
   ESFailed,
-  ESInService,
-  ESOutOfService,
-  ESRollingBack,
-  ESSystemUpdating,
-  ESUpdating,
   EndpointStatus'
   #-}

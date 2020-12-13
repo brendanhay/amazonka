@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.MechanicalTurk.ListQualificationTypes
     lqtMustBeOwnedByCaller,
     lqtNextToken,
     lqtQuery,
-    lqtMaxResults,
     lqtMustBeRequestable,
+    lqtMaxResults,
 
     -- * Destructuring the response
     ListQualificationTypesResponse (..),
@@ -48,29 +49,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListQualificationTypes' smart constructor.
 data ListQualificationTypes = ListQualificationTypes'
-  { mustBeOwnedByCaller ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types.
+    mustBeOwnedByCaller :: Lude.Maybe Lude.Bool,
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A text query against all of the searchable attributes of Qualification types.
     query :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    mustBeRequestable :: Lude.Bool
+    -- | Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False.
+    mustBeRequestable :: Lude.Bool,
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQualificationTypes' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'mustBeOwnedByCaller' - Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types.
--- * 'mustBeRequestable' - Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'query' - A text query against all of the searchable attributes of Qualification types.
+-- * 'mustBeRequestable' - Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False.
+-- * 'maxResults' - The maximum number of results to return in a single call.
 mkListQualificationTypes ::
   -- | 'mustBeRequestable'
   Lude.Bool ->
@@ -80,8 +78,8 @@ mkListQualificationTypes pMustBeRequestable_ =
     { mustBeOwnedByCaller = Lude.Nothing,
       nextToken = Lude.Nothing,
       query = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      mustBeRequestable = pMustBeRequestable_
+      mustBeRequestable = pMustBeRequestable_,
+      maxResults = Lude.Nothing
     }
 
 -- | Specifies that only Qualification types that the Requester created are returned. If false, the operation returns all Qualification types.
@@ -105,19 +103,19 @@ lqtQuery :: Lens.Lens' ListQualificationTypes (Lude.Maybe Lude.Text)
 lqtQuery = Lens.lens (query :: ListQualificationTypes -> Lude.Maybe Lude.Text) (\s a -> s {query = a} :: ListQualificationTypes)
 {-# DEPRECATED lqtQuery "Use generic-lens or generic-optics with 'query' instead." #-}
 
--- | The maximum number of results to return in a single call.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqtMaxResults :: Lens.Lens' ListQualificationTypes (Lude.Maybe Lude.Natural)
-lqtMaxResults = Lens.lens (maxResults :: ListQualificationTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListQualificationTypes)
-{-# DEPRECATED lqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | Specifies that only Qualification types that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test, are returned as results of the search. Some Qualification types, such as those assigned automatically by the system, cannot be requested directly by users. If false, all Qualification types, including those managed by the system, are considered. Valid values are True | False.
 --
 -- /Note:/ Consider using 'mustBeRequestable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lqtMustBeRequestable :: Lens.Lens' ListQualificationTypes Lude.Bool
 lqtMustBeRequestable = Lens.lens (mustBeRequestable :: ListQualificationTypes -> Lude.Bool) (\s a -> s {mustBeRequestable = a} :: ListQualificationTypes)
 {-# DEPRECATED lqtMustBeRequestable "Use generic-lens or generic-optics with 'mustBeRequestable' instead." #-}
+
+-- | The maximum number of results to return in a single call.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqtMaxResults :: Lens.Lens' ListQualificationTypes (Lude.Maybe Lude.Natural)
+lqtMaxResults = Lens.lens (maxResults :: ListQualificationTypes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListQualificationTypes)
+{-# DEPRECATED lqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListQualificationTypes where
   page rq rs
@@ -161,8 +159,8 @@ instance Lude.ToJSON ListQualificationTypes where
           [ ("MustBeOwnedByCaller" Lude..=) Lude.<$> mustBeOwnedByCaller,
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Query" Lude..=) Lude.<$> query,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("MustBeRequestable" Lude..= mustBeRequestable)
+            Lude.Just ("MustBeRequestable" Lude..= mustBeRequestable),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -174,29 +172,22 @@ instance Lude.ToQuery ListQualificationTypes where
 
 -- | /See:/ 'mkListQualificationTypesResponse' smart constructor.
 data ListQualificationTypesResponse = ListQualificationTypesResponse'
-  { qualificationTypes ::
-      Lude.Maybe
-        [QualificationType],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    numResults ::
-      Lude.Maybe Lude.Int,
+  { -- | The list of QualificationType elements returned by the query.
+    qualificationTypes :: Lude.Maybe [QualificationType],
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns.
+    numResults :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQualificationTypesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
--- * 'numResults' - The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns.
 -- * 'qualificationTypes' - The list of QualificationType elements returned by the query.
+-- * 'nextToken' -
+-- * 'numResults' - The number of Qualification types on this page in the filtered results list, equivalent to the number of types this operation returns.
 -- * 'responseStatus' - The response status code.
 mkListQualificationTypesResponse ::
   -- | 'responseStatus'

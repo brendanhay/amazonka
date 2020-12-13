@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAuditMitigationActionsTask' smart constructor.
 newtype DescribeAuditMitigationActionsTask = DescribeAuditMitigationActionsTask'
-  { taskId ::
-      Lude.Text
+  { -- | The unique identifier for the audit mitigation task.
+    taskId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAuditMitigationActionsTask' with the minimum fields required to make a request.
@@ -106,57 +101,36 @@ instance Lude.ToQuery DescribeAuditMitigationActionsTask where
 
 -- | /See:/ 'mkDescribeAuditMitigationActionsTaskResponse' smart constructor.
 data DescribeAuditMitigationActionsTaskResponse = DescribeAuditMitigationActionsTaskResponse'
-  { startTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    taskStatistics ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (TaskStatisticsForAuditCheck)
-        ),
-    actionsDefinition ::
-      Lude.Maybe
-        [MitigationAction],
-    auditCheckToActionsMapping ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ( Lude.NonEmpty
-                Lude.Text
-            )
-        ),
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    target ::
-      Lude.Maybe
-        AuditMitigationActionsTaskTarget,
-    taskStatus ::
-      Lude.Maybe
-        AuditMitigationActionsTaskStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The date and time when the task was started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.
+    taskStatistics :: Lude.Maybe (Lude.HashMap Lude.Text (TaskStatisticsForAuditCheck)),
+    -- | Specifies the mitigation actions and their parameters that are applied as part of this task.
+    actionsDefinition :: Lude.Maybe [MitigationAction],
+    -- | Specifies the mitigation actions that should be applied to specific audit checks.
+    auditCheckToActionsMapping :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text)),
+    -- | The date and time when the task was completed or canceled.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.
+    target :: Lude.Maybe AuditMitigationActionsTaskTarget,
+    -- | The current status of the task.
+    taskStatus :: Lude.Maybe AuditMitigationActionsTaskStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAuditMitigationActionsTaskResponse' with the minimum fields required to make a request.
 --
+-- * 'startTime' - The date and time when the task was started.
+-- * 'taskStatistics' - Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.
 -- * 'actionsDefinition' - Specifies the mitigation actions and their parameters that are applied as part of this task.
 -- * 'auditCheckToActionsMapping' - Specifies the mitigation actions that should be applied to specific audit checks.
 -- * 'endTime' - The date and time when the task was completed or canceled.
--- * 'responseStatus' - The response status code.
--- * 'startTime' - The date and time when the task was started.
 -- * 'target' - Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.
--- * 'taskStatistics' - Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.
 -- * 'taskStatus' - The current status of the task.
+-- * 'responseStatus' - The response status code.
 mkDescribeAuditMitigationActionsTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

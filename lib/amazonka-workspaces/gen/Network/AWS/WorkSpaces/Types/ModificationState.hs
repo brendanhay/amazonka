@@ -31,23 +31,18 @@ import Network.AWS.WorkSpaces.Types.ModificationStateEnum
 --
 -- /See:/ 'mkModificationState' smart constructor.
 data ModificationState = ModificationState'
-  { state ::
-      Lude.Maybe ModificationStateEnum,
+  { -- | The modification state.
+    state :: Lude.Maybe ModificationStateEnum,
+    -- | The resource.
     resource :: Lude.Maybe ModificationResourceEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModificationState' with the minimum fields required to make a request.
 --
--- * 'resource' - The resource.
 -- * 'state' - The modification state.
+-- * 'resource' - The resource.
 mkModificationState ::
   ModificationState
 mkModificationState =

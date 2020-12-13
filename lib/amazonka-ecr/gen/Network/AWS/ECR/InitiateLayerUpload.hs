@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkInitiateLayerUpload' smart constructor.
 data InitiateLayerUpload = InitiateLayerUpload'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository to which you intend to upload layers.
     repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateLayerUpload' with the minimum fields required to make a request.
@@ -126,25 +122,21 @@ instance Lude.ToQuery InitiateLayerUpload where
 
 -- | /See:/ 'mkInitiateLayerUploadResponse' smart constructor.
 data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
-  { partSize ::
-      Lude.Maybe Lude.Natural,
+  { -- | The size, in bytes, that Amazon ECR expects future layer part uploads to be.
+    partSize :: Lude.Maybe Lude.Natural,
+    -- | The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
     uploadId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InitiateLayerUploadResponse' with the minimum fields required to make a request.
 --
 -- * 'partSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to be.
--- * 'responseStatus' - The response status code.
 -- * 'uploadId' - The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
+-- * 'responseStatus' - The response status code.
 mkInitiateLayerUploadResponse ::
   -- | 'responseStatus'
   Lude.Int ->

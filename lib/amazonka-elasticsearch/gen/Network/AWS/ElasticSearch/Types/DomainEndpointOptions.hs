@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainEndpointOptions' smart constructor.
 data DomainEndpointOptions = DomainEndpointOptions'
-  { enforceHTTPS ::
-      Lude.Maybe Lude.Bool,
-    tlsSecurityPolicy ::
-      Lude.Maybe TLSSecurityPolicy,
+  { -- | Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
+    enforceHTTPS :: Lude.Maybe Lude.Bool,
+    -- | Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+    --
+    -- It can be one of the following values:
+    --     * __Policy-Min-TLS-1-0-2019-07: __ TLS security policy which supports TLSv1.0 and higher.
+    --
+    --     * __Policy-Min-TLS-1-2-2019-07: __ TLS security policy which supports only TLSv1.2
+    tlsSecurityPolicy :: Lude.Maybe TLSSecurityPolicy,
+    -- | Specify if custom endpoint should be enabled for the Elasticsearch domain.
     customEndpointEnabled :: Lude.Maybe Lude.Bool,
+    -- | Specify the fully qualified domain for your custom endpoint.
     customEndpoint :: Lude.Maybe Lude.Text,
-    customEndpointCertificateARN ::
-      Lude.Maybe Lude.Text
+    -- | Specify ACM certificate ARN for your custom endpoint.
+    customEndpointCertificateARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainEndpointOptions' with the minimum fields required to make a request.
 --
--- * 'customEndpoint' - Specify the fully qualified domain for your custom endpoint.
--- * 'customEndpointCertificateARN' - Specify ACM certificate ARN for your custom endpoint.
--- * 'customEndpointEnabled' - Specify if custom endpoint should be enabled for the Elasticsearch domain.
 -- * 'enforceHTTPS' - Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
 -- * 'tlsSecurityPolicy' - Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
 --
@@ -63,6 +61,11 @@ data DomainEndpointOptions = DomainEndpointOptions'
 --     * __Policy-Min-TLS-1-0-2019-07: __ TLS security policy which supports TLSv1.0 and higher.
 --
 --     * __Policy-Min-TLS-1-2-2019-07: __ TLS security policy which supports only TLSv1.2
+--
+--
+-- * 'customEndpointEnabled' - Specify if custom endpoint should be enabled for the Elasticsearch domain.
+-- * 'customEndpoint' - Specify the fully qualified domain for your custom endpoint.
+-- * 'customEndpointCertificateARN' - Specify ACM certificate ARN for your custom endpoint.
 mkDomainEndpointOptions ::
   DomainEndpointOptions
 mkDomainEndpointOptions =

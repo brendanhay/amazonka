@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,8 +38,8 @@ module Network.AWS.KMS.DescribeKey
     mkDescribeKey,
 
     -- ** Request lenses
-    dGrantTokens,
     dKeyId,
+    dGrantTokens,
 
     -- * Destructuring the response
     DescribeKeyResponse (..),
@@ -58,24 +59,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeKey' smart constructor.
 data DescribeKey = DescribeKey'
-  { grantTokens ::
-      Lude.Maybe [Lude.Text],
-    keyId :: Lude.Text
+  { -- | Describes the specified customer master key (CMK).
+    --
+    -- If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys AWS managed CMK> and returns its @KeyId@ and @Arn@ in the response.
+    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Alias name: @alias/ExampleAlias@
+    --
+    --
+    --     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+    keyId :: Lude.Text,
+    -- | A list of grant tokens.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+    grantTokens :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKey' with the minimum fields required to make a request.
 --
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 -- * 'keyId' - Describes the specified customer master key (CMK).
 --
 -- If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys AWS managed CMK> and returns its @KeyId@ and @Arn@ in the response.
@@ -95,21 +108,15 @@ data DescribeKey = DescribeKey'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+-- * 'grantTokens' - A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 mkDescribeKey ::
   -- | 'keyId'
   Lude.Text ->
   DescribeKey
 mkDescribeKey pKeyId_ =
-  DescribeKey' {grantTokens = Lude.Nothing, keyId = pKeyId_}
-
--- | A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
---
--- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGrantTokens :: Lens.Lens' DescribeKey (Lude.Maybe [Lude.Text])
-dGrantTokens = Lens.lens (grantTokens :: DescribeKey -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: DescribeKey)
-{-# DEPRECATED dGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+  DescribeKey' {keyId = pKeyId_, grantTokens = Lude.Nothing}
 
 -- | Describes the specified customer master key (CMK).
 --
@@ -136,6 +143,15 @@ dKeyId :: Lens.Lens' DescribeKey Lude.Text
 dKeyId = Lens.lens (keyId :: DescribeKey -> Lude.Text) (\s a -> s {keyId = a} :: DescribeKey)
 {-# DEPRECATED dKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
+-- | A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dGrantTokens :: Lens.Lens' DescribeKey (Lude.Maybe [Lude.Text])
+dGrantTokens = Lens.lens (grantTokens :: DescribeKey -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: DescribeKey)
+{-# DEPRECATED dGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+
 instance Lude.AWSRequest DescribeKey where
   type Rs DescribeKey = DescribeKeyResponse
   request = Req.postJSON kmsService
@@ -161,8 +177,8 @@ instance Lude.ToJSON DescribeKey where
   toJSON DescribeKey' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("GrantTokens" Lude..=) Lude.<$> grantTokens,
-            Lude.Just ("KeyId" Lude..= keyId)
+          [ Lude.Just ("KeyId" Lude..= keyId),
+            ("GrantTokens" Lude..=) Lude.<$> grantTokens
           ]
       )
 
@@ -174,17 +190,12 @@ instance Lude.ToQuery DescribeKey where
 
 -- | /See:/ 'mkDescribeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
-  { keyMetadata ::
-      Lude.Maybe KeyMetadata,
+  { -- | Metadata associated with the key.
+    keyMetadata :: Lude.Maybe KeyMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeKeyResponse' with the minimum fields required to make a request.

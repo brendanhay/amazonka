@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSentimentDetectionJob' smart constructor.
 newtype DescribeSentimentDetectionJob = DescribeSentimentDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSentimentDetectionJob' with the minimum fields required to make a request.
@@ -106,25 +101,18 @@ instance Lude.ToQuery DescribeSentimentDetectionJob where
 
 -- | /See:/ 'mkDescribeSentimentDetectionJobResponse' smart constructor.
 data DescribeSentimentDetectionJobResponse = DescribeSentimentDetectionJobResponse'
-  { sentimentDetectionJobProperties ::
-      Lude.Maybe
-        SentimentDetectionJobProperties,
-    responseStatus ::
-      Lude.Int
+  { -- | An object that contains the properties associated with a sentiment detection job.
+    sentimentDetectionJobProperties :: Lude.Maybe SentimentDetectionJobProperties,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSentimentDetectionJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sentimentDetectionJobProperties' - An object that contains the properties associated with a sentiment detection job.
+-- * 'responseStatus' - The response status code.
 mkDescribeSentimentDetectionJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

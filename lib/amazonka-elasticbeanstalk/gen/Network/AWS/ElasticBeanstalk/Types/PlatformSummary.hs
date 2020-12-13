@@ -40,47 +40,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlatformSummary' smart constructor.
 data PlatformSummary = PlatformSummary'
-  { platformBranchName ::
-      Lude.Maybe Lude.Text,
+  { -- | The platform branch to which the platform version belongs.
+    platformBranchName :: Lude.Maybe Lude.Text,
+    -- | The additions associated with the platform version.
     supportedAddonList :: Lude.Maybe [Lude.Text],
+    -- | The category of platform version.
     platformCategory :: Lude.Maybe Lude.Text,
+    -- | The state of the platform version's branch in its lifecycle.
+    --
+    -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
     platformBranchLifecycleState :: Lude.Maybe Lude.Text,
+    -- | The version string of the platform version.
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | The status of the platform version. You can create an environment from the platform version once it is ready.
     platformStatus :: Lude.Maybe PlatformStatus,
+    -- | The state of the platform version in its lifecycle.
+    --
+    -- Possible values: @recommended@ | empty
+    -- If an empty value is returned, the platform version is supported but isn't the recommended one for its branch.
     platformLifecycleState :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the person who created the platform version.
     platformOwner :: Lude.Maybe Lude.Text,
+    -- | The operating system used by the platform version.
     operatingSystemName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the platform version.
     platformARN :: Lude.Maybe Lude.Text,
+    -- | The version of the operating system used by the platform version.
     operatingSystemVersion :: Lude.Maybe Lude.Text,
+    -- | The tiers in which the platform version runs.
     supportedTierList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformSummary' with the minimum fields required to make a request.
 --
--- * 'operatingSystemName' - The operating system used by the platform version.
--- * 'operatingSystemVersion' - The version of the operating system used by the platform version.
--- * 'platformARN' - The ARN of the platform version.
+-- * 'platformBranchName' - The platform branch to which the platform version belongs.
+-- * 'supportedAddonList' - The additions associated with the platform version.
+-- * 'platformCategory' - The category of platform version.
 -- * 'platformBranchLifecycleState' - The state of the platform version's branch in its lifecycle.
 --
 -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
--- * 'platformBranchName' - The platform branch to which the platform version belongs.
--- * 'platformCategory' - The category of platform version.
+-- * 'platformVersion' - The version string of the platform version.
+-- * 'platformStatus' - The status of the platform version. You can create an environment from the platform version once it is ready.
 -- * 'platformLifecycleState' - The state of the platform version in its lifecycle.
 --
 -- Possible values: @recommended@ | empty
 -- If an empty value is returned, the platform version is supported but isn't the recommended one for its branch.
 -- * 'platformOwner' - The AWS account ID of the person who created the platform version.
--- * 'platformStatus' - The status of the platform version. You can create an environment from the platform version once it is ready.
--- * 'platformVersion' - The version string of the platform version.
--- * 'supportedAddonList' - The additions associated with the platform version.
+-- * 'operatingSystemName' - The operating system used by the platform version.
+-- * 'platformARN' - The ARN of the platform version.
+-- * 'operatingSystemVersion' - The version of the operating system used by the platform version.
 -- * 'supportedTierList' - The tiers in which the platform version runs.
 mkPlatformSummary ::
   PlatformSummary

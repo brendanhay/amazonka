@@ -13,18 +13,18 @@
 module Network.AWS.OpsWorks.Types.DeploymentCommandName
   ( DeploymentCommandName
       ( DeploymentCommandName',
-        Configure,
-        Deploy,
-        ExecuteRecipes,
         InstallDependencies,
-        Restart,
-        Rollback,
+        UpdateDependencies,
+        UpdateCustomCookbooks,
+        ExecuteRecipes,
+        Configure,
         Setup,
+        Deploy,
+        Rollback,
         Start,
         Stop,
-        Undeploy,
-        UpdateCustomCookbooks,
-        UpdateDependencies
+        Restart,
+        Undeploy
       ),
   )
 where
@@ -55,26 +55,29 @@ newtype DeploymentCommandName = DeploymentCommandName' Lude.Text
       Lude.ToHeader
     )
 
-pattern Configure :: DeploymentCommandName
-pattern Configure = DeploymentCommandName' "configure"
+pattern InstallDependencies :: DeploymentCommandName
+pattern InstallDependencies = DeploymentCommandName' "install_dependencies"
 
-pattern Deploy :: DeploymentCommandName
-pattern Deploy = DeploymentCommandName' "deploy"
+pattern UpdateDependencies :: DeploymentCommandName
+pattern UpdateDependencies = DeploymentCommandName' "update_dependencies"
+
+pattern UpdateCustomCookbooks :: DeploymentCommandName
+pattern UpdateCustomCookbooks = DeploymentCommandName' "update_custom_cookbooks"
 
 pattern ExecuteRecipes :: DeploymentCommandName
 pattern ExecuteRecipes = DeploymentCommandName' "execute_recipes"
 
-pattern InstallDependencies :: DeploymentCommandName
-pattern InstallDependencies = DeploymentCommandName' "install_dependencies"
-
-pattern Restart :: DeploymentCommandName
-pattern Restart = DeploymentCommandName' "restart"
-
-pattern Rollback :: DeploymentCommandName
-pattern Rollback = DeploymentCommandName' "rollback"
+pattern Configure :: DeploymentCommandName
+pattern Configure = DeploymentCommandName' "configure"
 
 pattern Setup :: DeploymentCommandName
 pattern Setup = DeploymentCommandName' "setup"
+
+pattern Deploy :: DeploymentCommandName
+pattern Deploy = DeploymentCommandName' "deploy"
+
+pattern Rollback :: DeploymentCommandName
+pattern Rollback = DeploymentCommandName' "rollback"
 
 pattern Start :: DeploymentCommandName
 pattern Start = DeploymentCommandName' "start"
@@ -82,27 +85,24 @@ pattern Start = DeploymentCommandName' "start"
 pattern Stop :: DeploymentCommandName
 pattern Stop = DeploymentCommandName' "stop"
 
+pattern Restart :: DeploymentCommandName
+pattern Restart = DeploymentCommandName' "restart"
+
 pattern Undeploy :: DeploymentCommandName
 pattern Undeploy = DeploymentCommandName' "undeploy"
 
-pattern UpdateCustomCookbooks :: DeploymentCommandName
-pattern UpdateCustomCookbooks = DeploymentCommandName' "update_custom_cookbooks"
-
-pattern UpdateDependencies :: DeploymentCommandName
-pattern UpdateDependencies = DeploymentCommandName' "update_dependencies"
-
 {-# COMPLETE
-  Configure,
-  Deploy,
-  ExecuteRecipes,
   InstallDependencies,
-  Restart,
-  Rollback,
+  UpdateDependencies,
+  UpdateCustomCookbooks,
+  ExecuteRecipes,
+  Configure,
   Setup,
+  Deploy,
+  Rollback,
   Start,
   Stop,
+  Restart,
   Undeploy,
-  UpdateCustomCookbooks,
-  UpdateDependencies,
   DeploymentCommandName'
   #-}

@@ -34,28 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { apiSummary ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.HashMap Lude.Text (MethodSnapshot))),
+  { -- | A summary of the 'RestApi' at the date and time that the deployment resource was created.
+    apiSummary :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.HashMap Lude.Text (MethodSnapshot))),
+    -- | The date and time that the deployment resource was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The identifier for the deployment resource.
     id :: Lude.Maybe Lude.Text,
+    -- | The description for the deployment resource.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
 -- * 'apiSummary' - A summary of the 'RestApi' at the date and time that the deployment resource was created.
 -- * 'createdDate' - The date and time that the deployment resource was created.
--- * 'description' - The description for the deployment resource.
 -- * 'id' - The identifier for the deployment resource.
+-- * 'description' - The description for the deployment resource.
 mkDeployment ::
   Deployment
 mkDeployment =

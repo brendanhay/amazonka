@@ -45,43 +45,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectMessageConfiguration' smart constructor.
 data DirectMessageConfiguration = DirectMessageConfiguration'
-  { apnsMessage ::
-      Lude.Maybe APNSMessage,
+  { -- | The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
+    apnsMessage :: Lude.Maybe APNSMessage,
+    -- | The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).
     gcmMessage :: Lude.Maybe GCMMessage,
-    defaultMessage ::
-      Lude.Maybe DefaultMessage,
+    -- | The default message for all channels.
+    defaultMessage :: Lude.Maybe DefaultMessage,
+    -- | The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
     aDMMessage :: Lude.Maybe ADMMessage,
+    -- | The default message for the SMS channel. This message overrides the default message (DefaultMessage).
     sMSMessage :: Lude.Maybe SMSMessage,
-    emailMessage ::
-      Lude.Maybe EmailMessage,
-    voiceMessage ::
-      Lude.Maybe VoiceMessage,
-    baiduMessage ::
-      Lude.Maybe BaiduMessage,
-    defaultPushNotificationMessage ::
-      Lude.Maybe
-        DefaultPushNotificationMessage
+    -- | The default message for the email channel. This message overrides the default message (DefaultMessage).
+    emailMessage :: Lude.Maybe EmailMessage,
+    -- | The default message for the voice channel. This message overrides the default message (DefaultMessage).
+    voiceMessage :: Lude.Maybe VoiceMessage,
+    -- | The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
+    baiduMessage :: Lude.Maybe BaiduMessage,
+    -- | The default push notification message for all push notification channels.
+    defaultPushNotificationMessage :: Lude.Maybe DefaultPushNotificationMessage
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectMessageConfiguration' with the minimum fields required to make a request.
 --
--- * 'aDMMessage' - The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
 -- * 'apnsMessage' - The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
--- * 'baiduMessage' - The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
--- * 'defaultMessage' - The default message for all channels.
--- * 'defaultPushNotificationMessage' - The default push notification message for all push notification channels.
--- * 'emailMessage' - The default message for the email channel. This message overrides the default message (DefaultMessage).
 -- * 'gcmMessage' - The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).
+-- * 'defaultMessage' - The default message for all channels.
+-- * 'aDMMessage' - The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
 -- * 'sMSMessage' - The default message for the SMS channel. This message overrides the default message (DefaultMessage).
+-- * 'emailMessage' - The default message for the email channel. This message overrides the default message (DefaultMessage).
 -- * 'voiceMessage' - The default message for the voice channel. This message overrides the default message (DefaultMessage).
+-- * 'baiduMessage' - The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).
+-- * 'defaultPushNotificationMessage' - The default push notification message for all push notification channels.
 mkDirectMessageConfiguration ::
   DirectMessageConfiguration
 mkDirectMessageConfiguration =

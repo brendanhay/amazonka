@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateTrial' smart constructor.
 data UpdateTrial = UpdateTrial'
-  { displayName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
+    displayName :: Lude.Maybe Lude.Text,
+    -- | The name of the trial to update.
     trialName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrial' with the minimum fields required to make a request.
@@ -116,23 +112,18 @@ instance Lude.ToQuery UpdateTrial where
 
 -- | /See:/ 'mkUpdateTrialResponse' smart constructor.
 data UpdateTrialResponse = UpdateTrialResponse'
-  { trialARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the trial.
+    trialARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrialResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
+-- * 'responseStatus' - The response status code.
 mkUpdateTrialResponse ::
   -- | 'responseStatus'
   Lude.Int ->

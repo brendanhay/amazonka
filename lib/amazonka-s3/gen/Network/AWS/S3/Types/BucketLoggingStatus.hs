@@ -30,21 +30,14 @@ import Network.AWS.S3.Types.LoggingEnabled
 --
 -- /See:/ 'mkBucketLoggingStatus' smart constructor.
 newtype BucketLoggingStatus = BucketLoggingStatus'
-  { loggingEnabled ::
-      Lude.Maybe LoggingEnabled
+  { loggingEnabled :: Lude.Maybe LoggingEnabled
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BucketLoggingStatus' with the minimum fields required to make a request.
 --
--- * 'loggingEnabled' - Undocumented field.
+-- * 'loggingEnabled' -
 mkBucketLoggingStatus ::
   BucketLoggingStatus
 mkBucketLoggingStatus =

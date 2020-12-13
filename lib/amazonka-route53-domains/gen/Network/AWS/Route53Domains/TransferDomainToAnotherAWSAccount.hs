@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.Route53Domains.TransferDomainToAnotherAWSAccount
     mkTransferDomainToAnotherAWSAccount,
 
     -- ** Request lenses
-    tdtaaaDomainName,
     tdtaaaAccountId,
+    tdtaaaDomainName,
 
     -- * Destructuring the response
     TransferDomainToAnotherAWSAccountResponse (..),
@@ -56,17 +57,12 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkTransferDomainToAnotherAWSAccount' smart constructor.
 data TransferDomainToAnotherAWSAccount = TransferDomainToAnotherAWSAccount'
-  { domainName ::
-      Lude.Text,
-    accountId :: Lude.Text
+  { -- | The account ID of the AWS account that you want to transfer the domain to, for example, @111122223333@ .
+    accountId :: Lude.Text,
+    -- | The name of the domain that you want to transfer from the current AWS account to another account.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransferDomainToAnotherAWSAccount' with the minimum fields required to make a request.
@@ -74,23 +70,16 @@ data TransferDomainToAnotherAWSAccount = TransferDomainToAnotherAWSAccount'
 -- * 'accountId' - The account ID of the AWS account that you want to transfer the domain to, for example, @111122223333@ .
 -- * 'domainName' - The name of the domain that you want to transfer from the current AWS account to another account.
 mkTransferDomainToAnotherAWSAccount ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'accountId'
   Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
   TransferDomainToAnotherAWSAccount
-mkTransferDomainToAnotherAWSAccount pDomainName_ pAccountId_ =
+mkTransferDomainToAnotherAWSAccount pAccountId_ pDomainName_ =
   TransferDomainToAnotherAWSAccount'
-    { domainName = pDomainName_,
-      accountId = pAccountId_
+    { accountId = pAccountId_,
+      domainName = pDomainName_
     }
-
--- | The name of the domain that you want to transfer from the current AWS account to another account.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdtaaaDomainName :: Lens.Lens' TransferDomainToAnotherAWSAccount Lude.Text
-tdtaaaDomainName = Lens.lens (domainName :: TransferDomainToAnotherAWSAccount -> Lude.Text) (\s a -> s {domainName = a} :: TransferDomainToAnotherAWSAccount)
-{-# DEPRECATED tdtaaaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The account ID of the AWS account that you want to transfer the domain to, for example, @111122223333@ .
 --
@@ -98,6 +87,13 @@ tdtaaaDomainName = Lens.lens (domainName :: TransferDomainToAnotherAWSAccount ->
 tdtaaaAccountId :: Lens.Lens' TransferDomainToAnotherAWSAccount Lude.Text
 tdtaaaAccountId = Lens.lens (accountId :: TransferDomainToAnotherAWSAccount -> Lude.Text) (\s a -> s {accountId = a} :: TransferDomainToAnotherAWSAccount)
 {-# DEPRECATED tdtaaaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The name of the domain that you want to transfer from the current AWS account to another account.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdtaaaDomainName :: Lens.Lens' TransferDomainToAnotherAWSAccount Lude.Text
+tdtaaaDomainName = Lens.lens (domainName :: TransferDomainToAnotherAWSAccount -> Lude.Text) (\s a -> s {domainName = a} :: TransferDomainToAnotherAWSAccount)
+{-# DEPRECATED tdtaaaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest TransferDomainToAnotherAWSAccount where
   type
@@ -130,8 +126,8 @@ instance Lude.ToJSON TransferDomainToAnotherAWSAccount where
   toJSON TransferDomainToAnotherAWSAccount' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DomainName" Lude..= domainName),
-            Lude.Just ("AccountId" Lude..= accountId)
+          [ Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("DomainName" Lude..= domainName)
           ]
       )
 
@@ -145,28 +141,20 @@ instance Lude.ToQuery TransferDomainToAnotherAWSAccount where
 --
 -- /See:/ 'mkTransferDomainToAnotherAWSAccountResponse' smart constructor.
 data TransferDomainToAnotherAWSAccountResponse = TransferDomainToAnotherAWSAccountResponse'
-  { password ::
-      Lude.Maybe
-        Lude.Text,
-    operationId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | To finish transferring a domain to another AWS account, the account that the domain is being transferred to must submit an <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount> request. The request must include the value of the @Password@ element that was returned in the @TransferDomainToAnotherAwsAccount@ response.
+    password :: Lude.Maybe Lude.Text,
+    -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransferDomainToAnotherAWSAccountResponse' with the minimum fields required to make a request.
 --
--- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 -- * 'password' - To finish transferring a domain to another AWS account, the account that the domain is being transferred to must submit an <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount> request. The request must include the value of the @Password@ element that was returned in the @TransferDomainToAnotherAwsAccount@ response.
+-- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 -- * 'responseStatus' - The response status code.
 mkTransferDomainToAnotherAWSAccountResponse ::
   -- | 'responseStatus'

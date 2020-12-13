@@ -38,34 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeStatusItem' smart constructor.
 data VolumeStatusItem = VolumeStatusItem'
-  { volumeStatus ::
-      Lude.Maybe VolumeStatusInfo,
+  { -- | The volume status.
+    volumeStatus :: Lude.Maybe VolumeStatusInfo,
+    -- | The details of the operation.
     actions :: Lude.Maybe [VolumeStatusAction],
+    -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostARN :: Lude.Maybe Lude.Text,
+    -- | A list of events associated with the volume.
     events :: Lude.Maybe [VolumeStatusEvent],
+    -- | The Availability Zone of the volume.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The volume ID.
     volumeId :: Lude.Maybe Lude.Text,
-    attachmentStatuses ::
-      Lude.Maybe [VolumeStatusAttachmentStatus]
+    -- | Information about the instances to which the volume is attached.
+    attachmentStatuses :: Lude.Maybe [VolumeStatusAttachmentStatus]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusItem' with the minimum fields required to make a request.
 --
--- * 'actions' - The details of the operation.
--- * 'attachmentStatuses' - Information about the instances to which the volume is attached.
--- * 'availabilityZone' - The Availability Zone of the volume.
--- * 'events' - A list of events associated with the volume.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'volumeId' - The volume ID.
 -- * 'volumeStatus' - The volume status.
+-- * 'actions' - The details of the operation.
+-- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
+-- * 'events' - A list of events associated with the volume.
+-- * 'availabilityZone' - The Availability Zone of the volume.
+-- * 'volumeId' - The volume ID.
+-- * 'attachmentStatuses' - Information about the instances to which the volume is attached.
 mkVolumeStatusItem ::
   VolumeStatusItem
 mkVolumeStatusItem =

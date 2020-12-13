@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
-  { creationDateTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when the cluster step was created.
+    creationDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time when the cluster step execution completed or failed.
     endDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time when the cluster step execution started.
     startDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepTimeline' with the minimum fields required to make a request.

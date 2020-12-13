@@ -59,52 +59,91 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlarm' smart constructor.
 data Alarm = Alarm'
-  { state :: Lude.Maybe AlarmState,
+  { -- | The current state of the alarm.
+    --
+    -- An alarm has the following possible states:
+    --
+    --     * @ALARM@ - The metric is outside of the defined threshold.
+    --
+    --
+    --     * @INSUFFICIENT_DATA@ - The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state.
+    --
+    --
+    --     * @OK@ - The metric is within the defined threshold.
+    state :: Lude.Maybe AlarmState,
+    -- | Specifies how the alarm handles missing data points.
+    --
+    -- An alarm can treat missing data in the following ways:
+    --
+    --     * @breaching@ - Assume the missing data is not within the threshold. Missing data counts towards the number of times the metric is not within the threshold.
+    --
+    --
+    --     * @notBreaching@ - Assume the missing data is within the threshold. Missing data does not count towards the number of times the metric is not within the threshold.
+    --
+    --
+    --     * @ignore@ - Ignore the missing data. Maintains the current alarm state.
+    --
+    --
+    --     * @missing@ - Missing data is treated as missing.
     treatMissingData :: Lude.Maybe TreatMissingData,
+    -- | The Lightsail resource type (e.g., @Alarm@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the alarm.
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the alarm was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | An object that lists information about the location of the alarm.
     location :: Lude.Maybe ResourceLocation,
+    -- | The contact protocols for the alarm, such as @Email@ , @SMS@ (text messaging), or both.
     contactProtocols :: Lude.Maybe [ContactProtocol],
+    -- | The period, in seconds, over which the statistic is applied.
     period :: Lude.Maybe Lude.Natural,
+    -- | The number of periods over which data is compared to the specified threshold.
     evaluationPeriods :: Lude.Maybe Lude.Int,
+    -- | The name of the metric associated with the alarm.
     metricName :: Lude.Maybe MetricName,
+    -- | The arithmetic operation used when comparing the specified statistic and threshold.
     comparisonOperator :: Lude.Maybe ComparisonOperator,
+    -- | The name of the alarm.
     name :: Lude.Maybe Lude.Text,
+    -- | The value against which the specified statistic is compared.
     threshold :: Lude.Maybe Lude.Double,
+    -- | The number of data points that must not within the specified threshold to trigger the alarm.
     datapointsToAlarm :: Lude.Maybe Lude.Int,
+    -- | The support code. Include this code in your email to support when you have questions about your Lightsail alarm. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the alarm is enabled.
     notificationEnabled :: Lude.Maybe Lude.Bool,
+    -- | The alarm states that trigger a notification.
     notificationTriggers :: Lude.Maybe [AlarmState],
+    -- | The statistic for the metric associated with the alarm.
+    --
+    -- The following statistics are available:
+    --
+    --     * @Minimum@ - The lowest value observed during the specified period. Use this value to determine low volumes of activity for your application.
+    --
+    --
+    --     * @Maximum@ - The highest value observed during the specified period. Use this value to determine high volumes of activity for your application.
+    --
+    --
+    --     * @Sum@ - All values submitted for the matching metric added together. You can use this statistic to determine the total volume of a metric.
+    --
+    --
+    --     * @Average@ - The value of Sum / SampleCount during the specified period. By comparing this statistic with the Minimum and Maximum values, you can determine the full scope of a metric and how close the average use is to the Minimum and Maximum values. This comparison helps you to know when to increase or decrease your resources.
+    --
+    --
+    --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
     statistic :: Lude.Maybe MetricStatistic,
+    -- | The unit of the metric associated with the alarm.
     unit :: Lude.Maybe MetricUnit,
+    -- | An object that lists information about the resource monitored by the alarm.
     monitoredResourceInfo :: Lude.Maybe MonitoredResourceInfo
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the alarm.
--- * 'comparisonOperator' - The arithmetic operation used when comparing the specified statistic and threshold.
--- * 'contactProtocols' - The contact protocols for the alarm, such as @Email@ , @SMS@ (text messaging), or both.
--- * 'createdAt' - The timestamp when the alarm was created.
--- * 'datapointsToAlarm' - The number of data points that must not within the specified threshold to trigger the alarm.
--- * 'evaluationPeriods' - The number of periods over which data is compared to the specified threshold.
--- * 'location' - An object that lists information about the location of the alarm.
--- * 'metricName' - The name of the metric associated with the alarm.
--- * 'monitoredResourceInfo' - An object that lists information about the resource monitored by the alarm.
--- * 'name' - The name of the alarm.
--- * 'notificationEnabled' - Indicates whether the alarm is enabled.
--- * 'notificationTriggers' - The alarm states that trigger a notification.
--- * 'period' - The period, in seconds, over which the statistic is applied.
--- * 'resourceType' - The Lightsail resource type (e.g., @Alarm@ ).
 -- * 'state' - The current state of the alarm.
 --
 -- An alarm has the following possible states:
@@ -118,6 +157,37 @@ data Alarm = Alarm'
 --     * @OK@ - The metric is within the defined threshold.
 --
 --
+-- * 'treatMissingData' - Specifies how the alarm handles missing data points.
+--
+-- An alarm can treat missing data in the following ways:
+--
+--     * @breaching@ - Assume the missing data is not within the threshold. Missing data counts towards the number of times the metric is not within the threshold.
+--
+--
+--     * @notBreaching@ - Assume the missing data is within the threshold. Missing data does not count towards the number of times the metric is not within the threshold.
+--
+--
+--     * @ignore@ - Ignore the missing data. Maintains the current alarm state.
+--
+--
+--     * @missing@ - Missing data is treated as missing.
+--
+--
+-- * 'resourceType' - The Lightsail resource type (e.g., @Alarm@ ).
+-- * 'arn' - The Amazon Resource Name (ARN) of the alarm.
+-- * 'createdAt' - The timestamp when the alarm was created.
+-- * 'location' - An object that lists information about the location of the alarm.
+-- * 'contactProtocols' - The contact protocols for the alarm, such as @Email@ , @SMS@ (text messaging), or both.
+-- * 'period' - The period, in seconds, over which the statistic is applied.
+-- * 'evaluationPeriods' - The number of periods over which data is compared to the specified threshold.
+-- * 'metricName' - The name of the metric associated with the alarm.
+-- * 'comparisonOperator' - The arithmetic operation used when comparing the specified statistic and threshold.
+-- * 'name' - The name of the alarm.
+-- * 'threshold' - The value against which the specified statistic is compared.
+-- * 'datapointsToAlarm' - The number of data points that must not within the specified threshold to trigger the alarm.
+-- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail alarm. This code enables our support team to look up your Lightsail information more easily.
+-- * 'notificationEnabled' - Indicates whether the alarm is enabled.
+-- * 'notificationTriggers' - The alarm states that trigger a notification.
 -- * 'statistic' - The statistic for the metric associated with the alarm.
 --
 -- The following statistics are available:
@@ -137,25 +207,8 @@ data Alarm = Alarm'
 --     * @SampleCount@ - The count, or number, of data points used for the statistical calculation.
 --
 --
--- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail alarm. This code enables our support team to look up your Lightsail information more easily.
--- * 'threshold' - The value against which the specified statistic is compared.
--- * 'treatMissingData' - Specifies how the alarm handles missing data points.
---
--- An alarm can treat missing data in the following ways:
---
---     * @breaching@ - Assume the missing data is not within the threshold. Missing data counts towards the number of times the metric is not within the threshold.
---
---
---     * @notBreaching@ - Assume the missing data is within the threshold. Missing data does not count towards the number of times the metric is not within the threshold.
---
---
---     * @ignore@ - Ignore the missing data. Maintains the current alarm state.
---
---
---     * @missing@ - Missing data is treated as missing.
---
---
 -- * 'unit' - The unit of the metric associated with the alarm.
+-- * 'monitoredResourceInfo' - An object that lists information about the resource monitored by the alarm.
 mkAlarm ::
   Alarm
 mkAlarm =

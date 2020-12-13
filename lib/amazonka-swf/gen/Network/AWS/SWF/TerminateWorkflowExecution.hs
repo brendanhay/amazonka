@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,11 +35,11 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     mkTerminateWorkflowExecution,
 
     -- ** Request lenses
+    tweDomain,
     tweReason,
     tweRunId,
     tweChildPolicy,
     tweDetails,
-    tweDomain,
     tweWorkflowId,
 
     -- * Destructuring the response
@@ -55,25 +56,37 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkTerminateWorkflowExecution' smart constructor.
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
-  { reason ::
-      Lude.Maybe Lude.Text,
-    runId :: Lude.Maybe Lude.Text,
-    childPolicy :: Lude.Maybe ChildPolicy,
-    details :: Lude.Maybe Lude.Text,
+  { -- | The domain of the workflow execution to terminate.
     domain :: Lude.Text,
+    -- | A descriptive reason for terminating the workflow execution.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The runId of the workflow execution to terminate.
+    runId :: Lude.Maybe Lude.Text,
+    -- | If set, specifies the policy to use for the child workflow executions of the workflow execution being terminated. This policy overrides the child policy specified for the workflow execution at registration time or when starting the execution.
+    --
+    -- The supported child policies are:
+    --
+    --     * @TERMINATE@ – The child executions are terminated.
+    --
+    --
+    --     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+    --
+    --
+    --     * @ABANDON@ – No action is taken. The child executions continue to run.
+    childPolicy :: Lude.Maybe ChildPolicy,
+    -- | Details for terminating the workflow execution.
+    details :: Lude.Maybe Lude.Text,
+    -- | The workflowId of the workflow execution to terminate.
     workflowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateWorkflowExecution' with the minimum fields required to make a request.
 --
+-- * 'domain' - The domain of the workflow execution to terminate.
+-- * 'reason' - A descriptive reason for terminating the workflow execution.
+-- * 'runId' - The runId of the workflow execution to terminate.
 -- * 'childPolicy' - If set, specifies the policy to use for the child workflow executions of the workflow execution being terminated. This policy overrides the child policy specified for the workflow execution at registration time or when starting the execution.
 --
 -- The supported child policies are:
@@ -88,9 +101,6 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
 --
 --
 -- * 'details' - Details for terminating the workflow execution.
--- * 'domain' - The domain of the workflow execution to terminate.
--- * 'reason' - A descriptive reason for terminating the workflow execution.
--- * 'runId' - The runId of the workflow execution to terminate.
 -- * 'workflowId' - The workflowId of the workflow execution to terminate.
 mkTerminateWorkflowExecution ::
   -- | 'domain'
@@ -100,13 +110,20 @@ mkTerminateWorkflowExecution ::
   TerminateWorkflowExecution
 mkTerminateWorkflowExecution pDomain_ pWorkflowId_ =
   TerminateWorkflowExecution'
-    { reason = Lude.Nothing,
+    { domain = pDomain_,
+      reason = Lude.Nothing,
       runId = Lude.Nothing,
       childPolicy = Lude.Nothing,
       details = Lude.Nothing,
-      domain = pDomain_,
       workflowId = pWorkflowId_
     }
+
+-- | The domain of the workflow execution to terminate.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tweDomain :: Lens.Lens' TerminateWorkflowExecution Lude.Text
+tweDomain = Lens.lens (domain :: TerminateWorkflowExecution -> Lude.Text) (\s a -> s {domain = a} :: TerminateWorkflowExecution)
+{-# DEPRECATED tweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | A descriptive reason for terminating the workflow execution.
 --
@@ -148,13 +165,6 @@ tweDetails :: Lens.Lens' TerminateWorkflowExecution (Lude.Maybe Lude.Text)
 tweDetails = Lens.lens (details :: TerminateWorkflowExecution -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: TerminateWorkflowExecution)
 {-# DEPRECATED tweDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
--- | The domain of the workflow execution to terminate.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tweDomain :: Lens.Lens' TerminateWorkflowExecution Lude.Text
-tweDomain = Lens.lens (domain :: TerminateWorkflowExecution -> Lude.Text) (\s a -> s {domain = a} :: TerminateWorkflowExecution)
-{-# DEPRECATED tweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
 -- | The workflowId of the workflow execution to terminate.
 --
 -- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -186,11 +196,11 @@ instance Lude.ToJSON TerminateWorkflowExecution where
   toJSON TerminateWorkflowExecution' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("reason" Lude..=) Lude.<$> reason,
+          [ Lude.Just ("domain" Lude..= domain),
+            ("reason" Lude..=) Lude.<$> reason,
             ("runId" Lude..=) Lude.<$> runId,
             ("childPolicy" Lude..=) Lude.<$> childPolicy,
             ("details" Lude..=) Lude.<$> details,
-            Lude.Just ("domain" Lude..= domain),
             Lude.Just ("workflowId" Lude..= workflowId)
           ]
       )
@@ -203,13 +213,7 @@ instance Lude.ToQuery TerminateWorkflowExecution where
 
 -- | /See:/ 'mkTerminateWorkflowExecutionResponse' smart constructor.
 data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateWorkflowExecutionResponse' with the minimum fields required to make a request.

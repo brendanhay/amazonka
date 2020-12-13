@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,6 +25,7 @@ module Network.AWS.SSM.SendCommand
     scDocumentHashType,
     scCloudWatchOutputConfig,
     scOutputS3KeyPrefix,
+    scDocumentName,
     scMaxErrors,
     scInstanceIds,
     scOutputS3Region,
@@ -35,7 +37,6 @@ module Network.AWS.SSM.SendCommand
     scComment,
     scOutputS3BucketName,
     scMaxConcurrency,
-    scDocumentName,
 
     -- * Destructuring the response
     SendCommandResponse (..),
@@ -55,63 +56,83 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkSendCommand' smart constructor.
 data SendCommand = SendCommand'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | Configurations for sending notifications.
     notificationConfig :: Lude.Maybe NotificationConfig,
+    -- | Sha256 or Sha1.
     documentHashType :: Lude.Maybe DocumentHashType,
+    -- | Enables Systems Manager to send Run Command output to Amazon CloudWatch Logs.
     cloudWatchOutputConfig :: Lude.Maybe CloudWatchOutputConfig,
+    -- | The directory structure within the S3 bucket where the responses should be stored.
     outputS3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | Required. The name of the Systems Manager document to run. This can be a public document or a custom document.
+    documentName :: Lude.Text,
+    -- | The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 0. For more information about how to use MaxErrors, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors Using error controls> in the /AWS Systems Manager User Guide/ .
     maxErrors :: Lude.Maybe Lude.Text,
+    -- | The IDs of the instances where the command should run. Specifying instance IDs is most useful when you are targeting a limited number of instances, though you can specify up to 50 IDs.
+    --
+    -- To target a larger number of instances, or if you prefer not to list individual instance IDs, we recommend using the @Targets@ option instead. Using @Targets@ , which accepts tag key-value pairs to identify the instances to send commands to, you can a send command to tens, hundreds, or thousands of instances at once.
+    -- For more information about how to use targets, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet> in the /AWS Systems Manager User Guide/ .
     instanceIds :: Lude.Maybe [Lude.Text],
+    -- | (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
     outputS3Region :: Lude.Maybe Lude.Text,
+    -- | An array of search criteria that targets instances using a @Key,Value@ combination that you specify. Specifying targets is most useful when you want to send a command to a large number of instances at once. Using @Targets@ , which accepts tag key-value pairs to identify instances, you can send a command to tens, hundreds, or thousands of instances at once.
+    --
+    -- To send a command to a smaller number of instances, you can use the @InstanceIds@ option instead.
+    -- For more information about how to use targets, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet> in the /AWS Systems Manager User Guide/ .
     targets :: Lude.Maybe [Target],
+    -- | The required and optional parameters specified in the document being run.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The Sha256 or Sha1 hash created by the system when the document was created.
     documentHash :: Lude.Maybe Lude.Text,
+    -- | The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
+    --
+    -- --document-version "\$DEFAULT"
+    -- --document-version "\$LATEST"
+    -- --document-version "3"
     documentVersion :: Lude.Maybe Lude.Text,
+    -- | If this time is reached and the command has not already started running, it will not run.
     timeoutSeconds :: Lude.Maybe Lude.Natural,
+    -- | User-specified information about the command, such as a brief description of what the command should do.
     comment :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket where command execution responses should be stored.
     outputS3BucketName :: Lude.Maybe Lude.Text,
-    maxConcurrency :: Lude.Maybe Lude.Text,
-    documentName :: Lude.Text
+    -- | (Optional) The maximum number of instances that are allowed to run the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls> in the /AWS Systems Manager User Guide/ .
+    maxConcurrency :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendCommand' with the minimum fields required to make a request.
 --
--- * 'cloudWatchOutputConfig' - Enables Systems Manager to send Run Command output to Amazon CloudWatch Logs.
--- * 'comment' - User-specified information about the command, such as a brief description of what the command should do.
--- * 'documentHash' - The Sha256 or Sha1 hash created by the system when the document was created.
+-- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.
+-- * 'notificationConfig' - Configurations for sending notifications.
 -- * 'documentHashType' - Sha256 or Sha1.
+-- * 'cloudWatchOutputConfig' - Enables Systems Manager to send Run Command output to Amazon CloudWatch Logs.
+-- * 'outputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should be stored.
 -- * 'documentName' - Required. The name of the Systems Manager document to run. This can be a public document or a custom document.
+-- * 'maxErrors' - The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 0. For more information about how to use MaxErrors, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors Using error controls> in the /AWS Systems Manager User Guide/ .
+-- * 'instanceIds' - The IDs of the instances where the command should run. Specifying instance IDs is most useful when you are targeting a limited number of instances, though you can specify up to 50 IDs.
+--
+-- To target a larger number of instances, or if you prefer not to list individual instance IDs, we recommend using the @Targets@ option instead. Using @Targets@ , which accepts tag key-value pairs to identify the instances to send commands to, you can a send command to tens, hundreds, or thousands of instances at once.
+-- For more information about how to use targets, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet> in the /AWS Systems Manager User Guide/ .
+-- * 'outputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
+-- * 'targets' - An array of search criteria that targets instances using a @Key,Value@ combination that you specify. Specifying targets is most useful when you want to send a command to a large number of instances at once. Using @Targets@ , which accepts tag key-value pairs to identify instances, you can send a command to tens, hundreds, or thousands of instances at once.
+--
+-- To send a command to a smaller number of instances, you can use the @InstanceIds@ option instead.
+-- For more information about how to use targets, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet> in the /AWS Systems Manager User Guide/ .
+-- * 'parameters' - The required and optional parameters specified in the document being run.
+-- * 'documentHash' - The Sha256 or Sha1 hash created by the system when the document was created.
 -- * 'documentVersion' - The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
 --
 -- --document-version "\$DEFAULT"
 -- --document-version "\$LATEST"
 -- --document-version "3"
--- * 'instanceIds' - The IDs of the instances where the command should run. Specifying instance IDs is most useful when you are targeting a limited number of instances, though you can specify up to 50 IDs.
---
--- To target a larger number of instances, or if you prefer not to list individual instance IDs, we recommend using the @Targets@ option instead. Using @Targets@ , which accepts tag key-value pairs to identify the instances to send commands to, you can a send command to tens, hundreds, or thousands of instances at once.
--- For more information about how to use targets, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet> in the /AWS Systems Manager User Guide/ .
--- * 'maxConcurrency' - (Optional) The maximum number of instances that are allowed to run the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls> in the /AWS Systems Manager User Guide/ .
--- * 'maxErrors' - The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 0. For more information about how to use MaxErrors, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors Using error controls> in the /AWS Systems Manager User Guide/ .
--- * 'notificationConfig' - Configurations for sending notifications.
--- * 'outputS3BucketName' - The name of the S3 bucket where command execution responses should be stored.
--- * 'outputS3KeyPrefix' - The directory structure within the S3 bucket where the responses should be stored.
--- * 'outputS3Region' - (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Region of the S3 bucket.
--- * 'parameters' - The required and optional parameters specified in the document being run.
--- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.
--- * 'targets' - An array of search criteria that targets instances using a @Key,Value@ combination that you specify. Specifying targets is most useful when you want to send a command to a large number of instances at once. Using @Targets@ , which accepts tag key-value pairs to identify instances, you can send a command to tens, hundreds, or thousands of instances at once.
---
--- To send a command to a smaller number of instances, you can use the @InstanceIds@ option instead.
--- For more information about how to use targets, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Sending commands to a fleet> in the /AWS Systems Manager User Guide/ .
 -- * 'timeoutSeconds' - If this time is reached and the command has not already started running, it will not run.
+-- * 'comment' - User-specified information about the command, such as a brief description of what the command should do.
+-- * 'outputS3BucketName' - The name of the S3 bucket where command execution responses should be stored.
+-- * 'maxConcurrency' - (Optional) The maximum number of instances that are allowed to run the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls> in the /AWS Systems Manager User Guide/ .
 mkSendCommand ::
   -- | 'documentName'
   Lude.Text ->
@@ -123,6 +144,7 @@ mkSendCommand pDocumentName_ =
       documentHashType = Lude.Nothing,
       cloudWatchOutputConfig = Lude.Nothing,
       outputS3KeyPrefix = Lude.Nothing,
+      documentName = pDocumentName_,
       maxErrors = Lude.Nothing,
       instanceIds = Lude.Nothing,
       outputS3Region = Lude.Nothing,
@@ -133,8 +155,7 @@ mkSendCommand pDocumentName_ =
       timeoutSeconds = Lude.Nothing,
       comment = Lude.Nothing,
       outputS3BucketName = Lude.Nothing,
-      maxConcurrency = Lude.Nothing,
-      documentName = pDocumentName_
+      maxConcurrency = Lude.Nothing
     }
 
 -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.
@@ -171,6 +192,13 @@ scCloudWatchOutputConfig = Lens.lens (cloudWatchOutputConfig :: SendCommand -> L
 scOutputS3KeyPrefix :: Lens.Lens' SendCommand (Lude.Maybe Lude.Text)
 scOutputS3KeyPrefix = Lens.lens (outputS3KeyPrefix :: SendCommand -> Lude.Maybe Lude.Text) (\s a -> s {outputS3KeyPrefix = a} :: SendCommand)
 {-# DEPRECATED scOutputS3KeyPrefix "Use generic-lens or generic-optics with 'outputS3KeyPrefix' instead." #-}
+
+-- | Required. The name of the Systems Manager document to run. This can be a public document or a custom document.
+--
+-- /Note:/ Consider using 'documentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scDocumentName :: Lens.Lens' SendCommand Lude.Text
+scDocumentName = Lens.lens (documentName :: SendCommand -> Lude.Text) (\s a -> s {documentName = a} :: SendCommand)
+{-# DEPRECATED scDocumentName "Use generic-lens or generic-optics with 'documentName' instead." #-}
 
 -- | The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 0. For more information about how to use MaxErrors, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors Using error controls> in the /AWS Systems Manager User Guide/ .
 --
@@ -259,13 +287,6 @@ scMaxConcurrency :: Lens.Lens' SendCommand (Lude.Maybe Lude.Text)
 scMaxConcurrency = Lens.lens (maxConcurrency :: SendCommand -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: SendCommand)
 {-# DEPRECATED scMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
--- | Required. The name of the Systems Manager document to run. This can be a public document or a custom document.
---
--- /Note:/ Consider using 'documentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scDocumentName :: Lens.Lens' SendCommand Lude.Text
-scDocumentName = Lens.lens (documentName :: SendCommand -> Lude.Text) (\s a -> s {documentName = a} :: SendCommand)
-{-# DEPRECATED scDocumentName "Use generic-lens or generic-optics with 'documentName' instead." #-}
-
 instance Lude.AWSRequest SendCommand where
   type Rs SendCommand = SendCommandResponse
   request = Req.postJSON ssmService
@@ -296,6 +317,7 @@ instance Lude.ToJSON SendCommand where
             ("DocumentHashType" Lude..=) Lude.<$> documentHashType,
             ("CloudWatchOutputConfig" Lude..=) Lude.<$> cloudWatchOutputConfig,
             ("OutputS3KeyPrefix" Lude..=) Lude.<$> outputS3KeyPrefix,
+            Lude.Just ("DocumentName" Lude..= documentName),
             ("MaxErrors" Lude..=) Lude.<$> maxErrors,
             ("InstanceIds" Lude..=) Lude.<$> instanceIds,
             ("OutputS3Region" Lude..=) Lude.<$> outputS3Region,
@@ -306,8 +328,7 @@ instance Lude.ToJSON SendCommand where
             ("TimeoutSeconds" Lude..=) Lude.<$> timeoutSeconds,
             ("Comment" Lude..=) Lude.<$> comment,
             ("OutputS3BucketName" Lude..=) Lude.<$> outputS3BucketName,
-            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency,
-            Lude.Just ("DocumentName" Lude..= documentName)
+            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency
           ]
       )
 
@@ -319,17 +340,12 @@ instance Lude.ToQuery SendCommand where
 
 -- | /See:/ 'mkSendCommandResponse' smart constructor.
 data SendCommandResponse = SendCommandResponse'
-  { command ::
-      Lude.Maybe Command,
+  { -- | The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request.
+    command :: Lude.Maybe Command,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendCommandResponse' with the minimum fields required to make a request.

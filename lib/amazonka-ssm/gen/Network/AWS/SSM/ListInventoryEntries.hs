@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.SSM.ListInventoryEntries
     mkListInventoryEntries,
 
     -- ** Request lenses
+    lieInstanceId,
+    lieTypeName,
     lieFilters,
     lieNextToken,
     lieMaxResults,
-    lieInstanceId,
-    lieTypeName,
 
     -- * Destructuring the response
     ListInventoryEntriesResponse (..),
@@ -48,29 +49,27 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListInventoryEntries' smart constructor.
 data ListInventoryEntries = ListInventoryEntries'
-  { filters ::
-      Lude.Maybe (Lude.NonEmpty InventoryFilter),
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The instance ID for which you want inventory information.
     instanceId :: Lude.Text,
-    typeName :: Lude.Text
+    -- | The type of inventory item for which you want information.
+    typeName :: Lude.Text,
+    -- | One or more filters. Use a filter to return a more specific list of results.
+    filters :: Lude.Maybe (Lude.NonEmpty InventoryFilter),
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInventoryEntries' with the minimum fields required to make a request.
 --
--- * 'filters' - One or more filters. Use a filter to return a more specific list of results.
 -- * 'instanceId' - The instance ID for which you want inventory information.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'typeName' - The type of inventory item for which you want information.
+-- * 'filters' - One or more filters. Use a filter to return a more specific list of results.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListInventoryEntries ::
   -- | 'instanceId'
   Lude.Text ->
@@ -79,12 +78,26 @@ mkListInventoryEntries ::
   ListInventoryEntries
 mkListInventoryEntries pInstanceId_ pTypeName_ =
   ListInventoryEntries'
-    { filters = Lude.Nothing,
+    { instanceId = pInstanceId_,
+      typeName = pTypeName_,
+      filters = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_,
-      typeName = pTypeName_
+      maxResults = Lude.Nothing
     }
+
+-- | The instance ID for which you want inventory information.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lieInstanceId :: Lens.Lens' ListInventoryEntries Lude.Text
+lieInstanceId = Lens.lens (instanceId :: ListInventoryEntries -> Lude.Text) (\s a -> s {instanceId = a} :: ListInventoryEntries)
+{-# DEPRECATED lieInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The type of inventory item for which you want information.
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lieTypeName :: Lens.Lens' ListInventoryEntries Lude.Text
+lieTypeName = Lens.lens (typeName :: ListInventoryEntries -> Lude.Text) (\s a -> s {typeName = a} :: ListInventoryEntries)
+{-# DEPRECATED lieTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 --
@@ -106,20 +119,6 @@ lieNextToken = Lens.lens (nextToken :: ListInventoryEntries -> Lude.Maybe Lude.T
 lieMaxResults :: Lens.Lens' ListInventoryEntries (Lude.Maybe Lude.Natural)
 lieMaxResults = Lens.lens (maxResults :: ListInventoryEntries -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInventoryEntries)
 {-# DEPRECATED lieMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The instance ID for which you want inventory information.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lieInstanceId :: Lens.Lens' ListInventoryEntries Lude.Text
-lieInstanceId = Lens.lens (instanceId :: ListInventoryEntries -> Lude.Text) (\s a -> s {instanceId = a} :: ListInventoryEntries)
-{-# DEPRECATED lieInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The type of inventory item for which you want information.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lieTypeName :: Lens.Lens' ListInventoryEntries Lude.Text
-lieTypeName = Lens.lens (typeName :: ListInventoryEntries -> Lude.Text) (\s a -> s {typeName = a} :: ListInventoryEntries)
-{-# DEPRECATED lieTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 instance Lude.AWSRequest ListInventoryEntries where
   type Rs ListInventoryEntries = ListInventoryEntriesResponse
@@ -152,11 +151,11 @@ instance Lude.ToJSON ListInventoryEntries where
   toJSON ListInventoryEntries' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("TypeName" Lude..= typeName),
+            ("Filters" Lude..=) Lude.<$> filters,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("TypeName" Lude..= typeName)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -168,40 +167,33 @@ instance Lude.ToQuery ListInventoryEntries where
 
 -- | /See:/ 'mkListInventoryEntriesResponse' smart constructor.
 data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID targeted by the request to query inventory information.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The type of inventory item returned by the request.
     typeName :: Lude.Maybe Lude.Text,
-    entries ::
-      Lude.Maybe
-        [ Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ],
-    schemaVersion ::
-      Lude.Maybe Lude.Text,
-    captureTime ::
-      Lude.Maybe Lude.Text,
+    -- | A list of inventory items on the instance(s).
+    entries :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    -- | The inventory schema version used by the instance(s).
+    schemaVersion :: Lude.Maybe Lude.Text,
+    -- | The time that inventory information was collected for the instance(s).
+    captureTime :: Lude.Maybe Lude.Text,
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInventoryEntriesResponse' with the minimum fields required to make a request.
 --
--- * 'captureTime' - The time that inventory information was collected for the instance(s).
--- * 'entries' - A list of inventory items on the instance(s).
 -- * 'instanceId' - The instance ID targeted by the request to query inventory information.
+-- * 'typeName' - The type of inventory item returned by the request.
+-- * 'entries' - A list of inventory items on the instance(s).
+-- * 'schemaVersion' - The inventory schema version used by the instance(s).
+-- * 'captureTime' - The time that inventory information was collected for the instance(s).
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 -- * 'responseStatus' - The response status code.
--- * 'schemaVersion' - The inventory schema version used by the instance(s).
--- * 'typeName' - The type of inventory item returned by the request.
 mkListInventoryEntriesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

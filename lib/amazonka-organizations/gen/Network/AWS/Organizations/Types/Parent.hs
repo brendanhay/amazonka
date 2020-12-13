@@ -30,16 +30,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParent' smart constructor.
 data Parent = Parent'
-  { id :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier (ID) of the parent entity.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a parent ID string requires one of the following:
+    --
+    --     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+    --
+    --
+    --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+    id :: Lude.Maybe Lude.Text,
+    -- | The type of the parent entity.
     type' :: Lude.Maybe ParentType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parent' with the minimum fields required to make a request.

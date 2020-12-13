@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceEvent' smart constructor.
 data DeviceEvent = DeviceEvent'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value of the event.
+    value :: Lude.Maybe Lude.Text,
+    -- | The type of device event.
     type' :: Lude.Maybe DeviceEventType,
+    -- | The time (in epoch) when the event occurred.
     timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceEvent' with the minimum fields required to make a request.
 --
--- * 'timestamp' - The time (in epoch) when the event occurred.
--- * 'type'' - The type of device event.
 -- * 'value' - The value of the event.
+-- * 'type'' - The type of device event.
+-- * 'timestamp' - The time (in epoch) when the event occurred.
 mkDeviceEvent ::
   DeviceEvent
 mkDeviceEvent =

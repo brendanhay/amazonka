@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,25 +40,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'
-  { stackPolicyBody ::
-      Lude.Maybe Lude.Text,
+  { -- | Structure containing the stack policy body. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+    stackPolicyBody :: Lude.Maybe Lude.Text,
+    -- | Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
     stackPolicyURL :: Lude.Maybe Lude.Text,
+    -- | The name or unique stack ID that you want to associate a policy with.
     stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetStackPolicy' with the minimum fields required to make a request.
 --
--- * 'stackName' - The name or unique stack ID that you want to associate a policy with.
 -- * 'stackPolicyBody' - Structure containing the stack policy body. For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 -- * 'stackPolicyURL' - Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+-- * 'stackName' - The name or unique stack ID that you want to associate a policy with.
 mkSetStackPolicy ::
   -- | 'stackName'
   Lude.Text ->
@@ -113,13 +110,7 @@ instance Lude.ToQuery SetStackPolicy where
 
 -- | /See:/ 'mkSetStackPolicyResponse' smart constructor.
 data SetStackPolicyResponse = SetStackPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetStackPolicyResponse' with the minimum fields required to make a request.

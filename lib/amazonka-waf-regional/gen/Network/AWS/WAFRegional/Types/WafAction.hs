@@ -28,14 +28,20 @@ import Network.AWS.WAFRegional.Types.WafActionType
 -- | For the action that is associated with a rule in a @WebACL@ , specifies the action that you want AWS WAF to perform when a web request matches all of the conditions in a rule. For the default action in a @WebACL@ , specifies the action that you want AWS WAF to take when a web request doesn't match all of the conditions in any of the rules in a @WebACL@ .
 --
 -- /See:/ 'mkWafAction' smart constructor.
-newtype WafAction = WafAction' {type' :: WafActionType}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype WafAction = WafAction'
+  { -- | Specifies how you want AWS WAF to respond to requests that match the settings in a @Rule@ . Valid settings include the following:
+    --
+    --
+    --     * @ALLOW@ : AWS WAF allows requests
+    --
+    --
+    --     * @BLOCK@ : AWS WAF blocks requests
+    --
+    --
+    --     * @COUNT@ : AWS WAF increments a counter of the requests that match all of the conditions in the rule. AWS WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify @COUNT@ for the default action for a @WebACL@ .
+    type' :: WafActionType
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WafAction' with the minimum fields required to make a request.

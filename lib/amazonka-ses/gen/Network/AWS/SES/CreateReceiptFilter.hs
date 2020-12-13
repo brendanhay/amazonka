@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkCreateReceiptFilter' smart constructor.
 newtype CreateReceiptFilter = CreateReceiptFilter'
-  { filter ::
-      ReceiptFilter
+  { -- | A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+    filter :: ReceiptFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptFilter' with the minimum fields required to make a request.
@@ -101,16 +96,10 @@ instance Lude.ToQuery CreateReceiptFilter where
 --
 -- /See:/ 'mkCreateReceiptFilterResponse' smart constructor.
 newtype CreateReceiptFilterResponse = CreateReceiptFilterResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReceiptFilterResponse' with the minimum fields required to make a request.

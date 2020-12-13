@@ -38,39 +38,42 @@ import Network.AWS.Translate.Types.EncryptionKey
 --
 -- /See:/ 'mkTerminologyProperties' smart constructor.
 data TerminologyProperties = TerminologyProperties'
-  { sizeBytes ::
-      Lude.Maybe Lude.Int,
+  { -- | The size of the file used when importing a custom terminology.
+    sizeBytes :: Lude.Maybe Lude.Int,
+    -- | The time at which the custom terminology was last update, based on the timestamp.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the custom terminology.
     arn :: Lude.Maybe Lude.Text,
+    -- | The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.
     targetLanguageCodes :: Lude.Maybe [Lude.Text],
+    -- | The time at which the custom terminology was created, based on the timestamp.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the custom terminology.
     name :: Lude.Maybe Lude.Text,
+    -- | The language code for the source text of the translation request for which the custom terminology is being used.
     sourceLanguageCode :: Lude.Maybe Lude.Text,
+    -- | The number of terms included in the custom terminology.
     termCount :: Lude.Maybe Lude.Int,
+    -- | The encryption key for the custom terminology.
     encryptionKey :: Lude.Maybe EncryptionKey,
+    -- | The description of the custom terminology properties.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminologyProperties' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the custom terminology.
--- * 'createdAt' - The time at which the custom terminology was created, based on the timestamp.
--- * 'description' - The description of the custom terminology properties.
--- * 'encryptionKey' - The encryption key for the custom terminology.
--- * 'lastUpdatedAt' - The time at which the custom terminology was last update, based on the timestamp.
--- * 'name' - The name of the custom terminology.
 -- * 'sizeBytes' - The size of the file used when importing a custom terminology.
--- * 'sourceLanguageCode' - The language code for the source text of the translation request for which the custom terminology is being used.
+-- * 'lastUpdatedAt' - The time at which the custom terminology was last update, based on the timestamp.
+-- * 'arn' - The Amazon Resource Name (ARN) of the custom terminology.
 -- * 'targetLanguageCodes' - The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.
+-- * 'createdAt' - The time at which the custom terminology was created, based on the timestamp.
+-- * 'name' - The name of the custom terminology.
+-- * 'sourceLanguageCode' - The language code for the source text of the translation request for which the custom terminology is being used.
 -- * 'termCount' - The number of terms included in the custom terminology.
+-- * 'encryptionKey' - The encryption key for the custom terminology.
+-- * 'description' - The description of the custom terminology properties.
 mkTerminologyProperties ::
   TerminologyProperties
 mkTerminologyProperties =

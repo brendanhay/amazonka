@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeStatusAction' smart constructor.
 data VolumeStatusAction = VolumeStatusAction'
-  { eventType ::
-      Lude.Maybe Lude.Text,
+  { -- | The event type associated with this operation.
+    eventType :: Lude.Maybe Lude.Text,
+    -- | The code identifying the operation, for example, @enable-volume-io@ .
     code :: Lude.Maybe Lude.Text,
+    -- | A description of the operation.
     description :: Lude.Maybe Lude.Text,
+    -- | The ID of the event associated with this operation.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusAction' with the minimum fields required to make a request.
 --
+-- * 'eventType' - The event type associated with this operation.
 -- * 'code' - The code identifying the operation, for example, @enable-volume-io@ .
 -- * 'description' - A description of the operation.
 -- * 'eventId' - The ID of the event associated with this operation.
--- * 'eventType' - The event type associated with this operation.
 mkVolumeStatusAction ::
   VolumeStatusAction
 mkVolumeStatusAction =

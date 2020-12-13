@@ -13,12 +13,12 @@
 module Network.AWS.SSM.Types.PatchComplianceLevel
   ( PatchComplianceLevel
       ( PatchComplianceLevel',
-        Critical,
-        High,
-        Informational,
-        Low,
-        Medium,
-        Unspecified
+        PCLCritical,
+        PCLHigh,
+        PCLMedium,
+        PCLLow,
+        PCLInformational,
+        PCLUnspecified
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype PatchComplianceLevel = PatchComplianceLevel' Lude.Text
       Lude.ToHeader
     )
 
-pattern Critical :: PatchComplianceLevel
-pattern Critical = PatchComplianceLevel' "CRITICAL"
+pattern PCLCritical :: PatchComplianceLevel
+pattern PCLCritical = PatchComplianceLevel' "CRITICAL"
 
-pattern High :: PatchComplianceLevel
-pattern High = PatchComplianceLevel' "HIGH"
+pattern PCLHigh :: PatchComplianceLevel
+pattern PCLHigh = PatchComplianceLevel' "HIGH"
 
-pattern Informational :: PatchComplianceLevel
-pattern Informational = PatchComplianceLevel' "INFORMATIONAL"
+pattern PCLMedium :: PatchComplianceLevel
+pattern PCLMedium = PatchComplianceLevel' "MEDIUM"
 
-pattern Low :: PatchComplianceLevel
-pattern Low = PatchComplianceLevel' "LOW"
+pattern PCLLow :: PatchComplianceLevel
+pattern PCLLow = PatchComplianceLevel' "LOW"
 
-pattern Medium :: PatchComplianceLevel
-pattern Medium = PatchComplianceLevel' "MEDIUM"
+pattern PCLInformational :: PatchComplianceLevel
+pattern PCLInformational = PatchComplianceLevel' "INFORMATIONAL"
 
-pattern Unspecified :: PatchComplianceLevel
-pattern Unspecified = PatchComplianceLevel' "UNSPECIFIED"
+pattern PCLUnspecified :: PatchComplianceLevel
+pattern PCLUnspecified = PatchComplianceLevel' "UNSPECIFIED"
 
 {-# COMPLETE
-  Critical,
-  High,
-  Informational,
-  Low,
-  Medium,
-  Unspecified,
+  PCLCritical,
+  PCLHigh,
+  PCLMedium,
+  PCLLow,
+  PCLInformational,
+  PCLUnspecified,
   PatchComplianceLevel'
   #-}

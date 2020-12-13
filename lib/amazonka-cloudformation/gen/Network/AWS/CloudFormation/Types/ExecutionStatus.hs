@@ -13,12 +13,12 @@
 module Network.AWS.CloudFormation.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
+        Unavailable,
         Available,
+        ExecuteInProgress,
         ExecuteComplete,
         ExecuteFailed,
-        ExecuteInProgress,
-        Obsolete,
-        Unavailable
+        Obsolete
       ),
   )
 where
@@ -49,8 +49,14 @@ newtype ExecutionStatus = ExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Unavailable :: ExecutionStatus
+pattern Unavailable = ExecutionStatus' "UNAVAILABLE"
+
 pattern Available :: ExecutionStatus
 pattern Available = ExecutionStatus' "AVAILABLE"
+
+pattern ExecuteInProgress :: ExecutionStatus
+pattern ExecuteInProgress = ExecutionStatus' "EXECUTE_IN_PROGRESS"
 
 pattern ExecuteComplete :: ExecutionStatus
 pattern ExecuteComplete = ExecutionStatus' "EXECUTE_COMPLETE"
@@ -58,21 +64,15 @@ pattern ExecuteComplete = ExecutionStatus' "EXECUTE_COMPLETE"
 pattern ExecuteFailed :: ExecutionStatus
 pattern ExecuteFailed = ExecutionStatus' "EXECUTE_FAILED"
 
-pattern ExecuteInProgress :: ExecutionStatus
-pattern ExecuteInProgress = ExecutionStatus' "EXECUTE_IN_PROGRESS"
-
 pattern Obsolete :: ExecutionStatus
 pattern Obsolete = ExecutionStatus' "OBSOLETE"
 
-pattern Unavailable :: ExecutionStatus
-pattern Unavailable = ExecutionStatus' "UNAVAILABLE"
-
 {-# COMPLETE
+  Unavailable,
   Available,
+  ExecuteInProgress,
   ExecuteComplete,
   ExecuteFailed,
-  ExecuteInProgress,
   Obsolete,
-  Unavailable,
   ExecutionStatus'
   #-}

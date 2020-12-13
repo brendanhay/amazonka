@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2InstanceDetails' smart constructor.
 data EC2InstanceDetails = EC2InstanceDetails'
-  { currentGeneration ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the recommendation is for a current-generation instance.
+    currentGeneration :: Lude.Maybe Lude.Bool,
+    -- | The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
     platform :: Lude.Maybe Lude.Text,
+    -- | The instance family of the recommended reservation.
     family :: Lude.Maybe Lude.Text,
+    -- | The type of instance that AWS recommends.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of the recommended reservation.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | Whether the recommended reservation is size flexible.
     sizeFlexEligible :: Lude.Maybe Lude.Bool,
+    -- | Whether the recommended reservation is dedicated or shared.
     tenancy :: Lude.Maybe Lude.Text,
+    -- | The AWS Region of the recommended reservation.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2InstanceDetails' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone of the recommended reservation.
 -- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
+-- * 'platform' - The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
 -- * 'family' - The instance family of the recommended reservation.
 -- * 'instanceType' - The type of instance that AWS recommends.
--- * 'platform' - The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance.
--- * 'region' - The AWS Region of the recommended reservation.
+-- * 'availabilityZone' - The Availability Zone of the recommended reservation.
 -- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
 -- * 'tenancy' - Whether the recommended reservation is dedicated or shared.
+-- * 'region' - The AWS Region of the recommended reservation.
 mkEC2InstanceDetails ::
   EC2InstanceDetails
 mkEC2InstanceDetails =

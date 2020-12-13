@@ -30,15 +30,10 @@ import Network.AWS.S3.Types.ServerSideEncryptionRule
 --
 -- /See:/ 'mkServerSideEncryptionConfiguration' smart constructor.
 newtype ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
-  { rules ::
-      [ServerSideEncryptionRule]
+  { -- | Container for information about a particular server-side encryption configuration rule.
+    rules :: [ServerSideEncryptionRule]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerSideEncryptionConfiguration' with the minimum fields required to make a request.

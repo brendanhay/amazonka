@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModifyRecommendationDetail' smart constructor.
 newtype ModifyRecommendationDetail = ModifyRecommendationDetail'
-  { targetInstances ::
-      Lude.Maybe [TargetInstance]
+  { -- | Identifies whether this instance type is the AWS default recommendation.
+    targetInstances :: Lude.Maybe [TargetInstance]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyRecommendationDetail' with the minimum fields required to make a request.

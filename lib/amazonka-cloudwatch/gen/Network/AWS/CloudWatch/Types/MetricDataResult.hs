@@ -35,31 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricDataResult' smart constructor.
 data MetricDataResult = MetricDataResult'
-  { values ::
-      Lude.Maybe [Lude.Double],
+  { -- | The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].
+    values :: Lude.Maybe [Lude.Double],
+    -- | The short name you specified to represent this metric.
     id :: Lude.Maybe Lude.Text,
+    -- | The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
     timestamps :: Lude.Maybe [Lude.DateTime],
+    -- | A list of messages with additional information about the data returned.
     messages :: Lude.Maybe [MessageData],
+    -- | The human-readable label associated with the data.
     label :: Lude.Maybe Lude.Text,
+    -- | The status of the returned data. @Complete@ indicates that all data points in the requested time range were returned. @PartialData@ means that an incomplete set of data points were returned. You can use the @NextToken@ value that was returned and repeat your request to get more data points. @NextToken@ is not returned if you are performing a math expression. @InternalError@ indicates that an error occurred. Retry your request using @NextToken@ , if present.
     statusCode :: Lude.Maybe StatusCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricDataResult' with the minimum fields required to make a request.
 --
--- * 'id' - The short name you specified to represent this metric.
--- * 'label' - The human-readable label associated with the data.
--- * 'messages' - A list of messages with additional information about the data returned.
--- * 'statusCode' - The status of the returned data. @Complete@ indicates that all data points in the requested time range were returned. @PartialData@ means that an incomplete set of data points were returned. You can use the @NextToken@ value that was returned and repeat your request to get more data points. @NextToken@ is not returned if you are performing a math expression. @InternalError@ indicates that an error occurred. Retry your request using @NextToken@ , if present.
--- * 'timestamps' - The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
 -- * 'values' - The data points for the metric corresponding to @Timestamps@ . The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].
+-- * 'id' - The short name you specified to represent this metric.
+-- * 'timestamps' - The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].
+-- * 'messages' - A list of messages with additional information about the data returned.
+-- * 'label' - The human-readable label associated with the data.
+-- * 'statusCode' - The status of the returned data. @Complete@ indicates that all data points in the requested time range were returned. @PartialData@ means that an incomplete set of data points were returned. You can use the @NextToken@ value that was returned and repeat your request to get more data points. @NextToken@ is not returned if you are performing a math expression. @InternalError@ indicates that an error occurred. Retry your request using @NextToken@ , if present.
 mkMetricDataResult ::
   MetricDataResult
 mkMetricDataResult =

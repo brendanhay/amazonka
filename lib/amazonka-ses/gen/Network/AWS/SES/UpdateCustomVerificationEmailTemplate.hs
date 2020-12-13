@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.SES.UpdateCustomVerificationEmailTemplate
 
     -- ** Request lenses
     ucvetFromEmailAddress,
+    ucvetTemplateName,
     ucvetFailureRedirectionURL,
     ucvetTemplateSubject,
     ucvetSuccessRedirectionURL,
     ucvetTemplateContent,
-    ucvetTemplateName,
 
     -- * Destructuring the response
     UpdateCustomVerificationEmailTemplateResponse (..),
@@ -45,41 +46,30 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkUpdateCustomVerificationEmailTemplate' smart constructor.
 data UpdateCustomVerificationEmailTemplate = UpdateCustomVerificationEmailTemplate'
-  { fromEmailAddress ::
-      Lude.Maybe
-        Lude.Text,
-    failureRedirectionURL ::
-      Lude.Maybe
-        Lude.Text,
-    templateSubject ::
-      Lude.Maybe
-        Lude.Text,
-    successRedirectionURL ::
-      Lude.Maybe
-        Lude.Text,
-    templateContent ::
-      Lude.Maybe
-        Lude.Text,
-    templateName ::
-      Lude.Text
+  { -- | The email address that the custom verification email is sent from.
+    fromEmailAddress :: Lude.Maybe Lude.Text,
+    -- | The name of the custom verification email template that you want to update.
+    templateName :: Lude.Text,
+    -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+    failureRedirectionURL :: Lude.Maybe Lude.Text,
+    -- | The subject line of the custom verification email.
+    templateSubject :: Lude.Maybe Lude.Text,
+    -- | The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
+    successRedirectionURL :: Lude.Maybe Lude.Text,
+    -- | The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions> in the /Amazon SES Developer Guide/ .
+    templateContent :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCustomVerificationEmailTemplate' with the minimum fields required to make a request.
 --
--- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
 -- * 'fromEmailAddress' - The email address that the custom verification email is sent from.
+-- * 'templateName' - The name of the custom verification email template that you want to update.
+-- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+-- * 'templateSubject' - The subject line of the custom verification email.
 -- * 'successRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 -- * 'templateContent' - The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions> in the /Amazon SES Developer Guide/ .
--- * 'templateName' - The name of the custom verification email template that you want to update.
--- * 'templateSubject' - The subject line of the custom verification email.
 mkUpdateCustomVerificationEmailTemplate ::
   -- | 'templateName'
   Lude.Text ->
@@ -88,11 +78,11 @@ mkUpdateCustomVerificationEmailTemplate pTemplateName_ =
   UpdateCustomVerificationEmailTemplate'
     { fromEmailAddress =
         Lude.Nothing,
+      templateName = pTemplateName_,
       failureRedirectionURL = Lude.Nothing,
       templateSubject = Lude.Nothing,
       successRedirectionURL = Lude.Nothing,
-      templateContent = Lude.Nothing,
-      templateName = pTemplateName_
+      templateContent = Lude.Nothing
     }
 
 -- | The email address that the custom verification email is sent from.
@@ -101,6 +91,13 @@ mkUpdateCustomVerificationEmailTemplate pTemplateName_ =
 ucvetFromEmailAddress :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Lude.Maybe Lude.Text)
 ucvetFromEmailAddress = Lens.lens (fromEmailAddress :: UpdateCustomVerificationEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {fromEmailAddress = a} :: UpdateCustomVerificationEmailTemplate)
 {-# DEPRECATED ucvetFromEmailAddress "Use generic-lens or generic-optics with 'fromEmailAddress' instead." #-}
+
+-- | The name of the custom verification email template that you want to update.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucvetTemplateName :: Lens.Lens' UpdateCustomVerificationEmailTemplate Lude.Text
+ucvetTemplateName = Lens.lens (templateName :: UpdateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateCustomVerificationEmailTemplate)
+{-# DEPRECATED ucvetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
 --
@@ -130,13 +127,6 @@ ucvetTemplateContent :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Lude.M
 ucvetTemplateContent = Lens.lens (templateContent :: UpdateCustomVerificationEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {templateContent = a} :: UpdateCustomVerificationEmailTemplate)
 {-# DEPRECATED ucvetTemplateContent "Use generic-lens or generic-optics with 'templateContent' instead." #-}
 
--- | The name of the custom verification email template that you want to update.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucvetTemplateName :: Lens.Lens' UpdateCustomVerificationEmailTemplate Lude.Text
-ucvetTemplateName = Lens.lens (templateName :: UpdateCustomVerificationEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateCustomVerificationEmailTemplate)
-{-# DEPRECATED ucvetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
 instance Lude.AWSRequest UpdateCustomVerificationEmailTemplate where
   type
     Rs UpdateCustomVerificationEmailTemplate =
@@ -158,26 +148,17 @@ instance Lude.ToQuery UpdateCustomVerificationEmailTemplate where
           Lude.=: ("UpdateCustomVerificationEmailTemplate" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
         "FromEmailAddress" Lude.=: fromEmailAddress,
+        "TemplateName" Lude.=: templateName,
         "FailureRedirectionURL" Lude.=: failureRedirectionURL,
         "TemplateSubject" Lude.=: templateSubject,
         "SuccessRedirectionURL" Lude.=: successRedirectionURL,
-        "TemplateContent" Lude.=: templateContent,
-        "TemplateName" Lude.=: templateName
+        "TemplateContent" Lude.=: templateContent
       ]
 
 -- | /See:/ 'mkUpdateCustomVerificationEmailTemplateResponse' smart constructor.
 data UpdateCustomVerificationEmailTemplateResponse = UpdateCustomVerificationEmailTemplateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCustomVerificationEmailTemplateResponse' with the minimum fields required to make a request.
 mkUpdateCustomVerificationEmailTemplateResponse ::

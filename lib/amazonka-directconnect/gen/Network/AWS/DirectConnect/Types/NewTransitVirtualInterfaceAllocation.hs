@@ -38,58 +38,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNewTransitVirtualInterfaceAllocation' smart constructor.
 data NewTransitVirtualInterfaceAllocation = NewTransitVirtualInterfaceAllocation'
-  { mtu ::
-      Lude.Maybe
-        Lude.Int,
-    customerAddress ::
-      Lude.Maybe
-        Lude.Text,
-    vlan ::
-      Lude.Maybe
-        Lude.Int,
-    amazonAddress ::
-      Lude.Maybe
-        Lude.Text,
-    addressFamily ::
-      Lude.Maybe
-        AddressFamily,
-    asn ::
-      Lude.Maybe
-        Lude.Int,
-    authKey ::
-      Lude.Maybe
-        Lude.Text,
-    virtualInterfaceName ::
-      Lude.Maybe
-        Lude.Text,
-    tags ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            Tag
-        )
+  { -- | The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+    mtu :: Lude.Maybe Lude.Int,
+    -- | The IP address assigned to the customer interface.
+    customerAddress :: Lude.Maybe Lude.Text,
+    -- | The ID of the VLAN.
+    vlan :: Lude.Maybe Lude.Int,
+    -- | The IP address assigned to the Amazon interface.
+    amazonAddress :: Lude.Maybe Lude.Text,
+    -- | The address family for the BGP peer.
+    addressFamily :: Lude.Maybe AddressFamily,
+    -- | The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+    --
+    -- The valid values are 1-2147483647.
+    asn :: Lude.Maybe Lude.Int,
+    -- | The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
+    authKey :: Lude.Maybe Lude.Text,
+    -- | The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
+    virtualInterfaceName :: Lude.Maybe Lude.Text,
+    -- | The tags associated with the transitive virtual interface.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NewTransitVirtualInterfaceAllocation' with the minimum fields required to make a request.
 --
--- * 'addressFamily' - The address family for the BGP peer.
+-- * 'mtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
+-- * 'customerAddress' - The IP address assigned to the customer interface.
+-- * 'vlan' - The ID of the VLAN.
 -- * 'amazonAddress' - The IP address assigned to the Amazon interface.
+-- * 'addressFamily' - The address family for the BGP peer.
 -- * 'asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
 --
 -- The valid values are 1-2147483647.
 -- * 'authKey' - The authentication key for BGP configuration. This string has a minimum length of 6 characters and and a maximun lenth of 80 characters.
--- * 'customerAddress' - The IP address assigned to the customer interface.
--- * 'mtu' - The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
--- * 'tags' - The tags associated with the transitive virtual interface.
 -- * 'virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
--- * 'vlan' - The ID of the VLAN.
+-- * 'tags' - The tags associated with the transitive virtual interface.
 mkNewTransitVirtualInterfaceAllocation ::
   NewTransitVirtualInterfaceAllocation
 mkNewTransitVirtualInterfaceAllocation =

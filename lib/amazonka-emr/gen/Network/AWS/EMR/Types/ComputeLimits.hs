@@ -20,8 +20,8 @@ module Network.AWS.EMR.Types.ComputeLimits
     clMaximumOnDemandCapacityUnits,
     clMaximumCoreCapacityUnits,
     clUnitType,
-    clMinimumCapacityUnits,
     clMaximumCapacityUnits,
+    clMinimumCapacityUnits,
   )
 where
 
@@ -33,47 +33,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComputeLimits' smart constructor.
 data ComputeLimits = ComputeLimits'
-  { maximumOnDemandCapacityUnits ::
-      Lude.Maybe Lude.Int,
+  { -- | The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
+    maximumOnDemandCapacityUnits :: Lude.Maybe Lude.Int,
+    -- | The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
     maximumCoreCapacityUnits :: Lude.Maybe Lude.Int,
+    -- | The unit type used for specifying a managed scaling policy.
     unitType :: ComputeLimitsUnitType,
-    minimumCapacityUnits :: Lude.Int,
-    maximumCapacityUnits :: Lude.Int
+    -- | The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+    maximumCapacityUnits :: Lude.Int,
+    -- | The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+    minimumCapacityUnits :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeLimits' with the minimum fields required to make a request.
 --
--- * 'maximumCapacityUnits' - The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
--- * 'maximumCoreCapacityUnits' - The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
 -- * 'maximumOnDemandCapacityUnits' - The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
--- * 'minimumCapacityUnits' - The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+-- * 'maximumCoreCapacityUnits' - The upper boundary of EC2 units for core node type in a cluster. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
 -- * 'unitType' - The unit type used for specifying a managed scaling policy.
+-- * 'maximumCapacityUnits' - The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+-- * 'minimumCapacityUnits' - The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 mkComputeLimits ::
   -- | 'unitType'
   ComputeLimitsUnitType ->
-  -- | 'minimumCapacityUnits'
-  Lude.Int ->
   -- | 'maximumCapacityUnits'
+  Lude.Int ->
+  -- | 'minimumCapacityUnits'
   Lude.Int ->
   ComputeLimits
 mkComputeLimits
   pUnitType_
-  pMinimumCapacityUnits_
-  pMaximumCapacityUnits_ =
+  pMaximumCapacityUnits_
+  pMinimumCapacityUnits_ =
     ComputeLimits'
       { maximumOnDemandCapacityUnits = Lude.Nothing,
         maximumCoreCapacityUnits = Lude.Nothing,
         unitType = pUnitType_,
-        minimumCapacityUnits = pMinimumCapacityUnits_,
-        maximumCapacityUnits = pMaximumCapacityUnits_
+        maximumCapacityUnits = pMaximumCapacityUnits_,
+        minimumCapacityUnits = pMinimumCapacityUnits_
       }
 
 -- | The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot Instances.
@@ -97,19 +95,19 @@ clUnitType :: Lens.Lens' ComputeLimits ComputeLimitsUnitType
 clUnitType = Lens.lens (unitType :: ComputeLimits -> ComputeLimitsUnitType) (\s a -> s {unitType = a} :: ComputeLimits)
 {-# DEPRECATED clUnitType "Use generic-lens or generic-optics with 'unitType' instead." #-}
 
--- | The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
---
--- /Note:/ Consider using 'minimumCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clMinimumCapacityUnits :: Lens.Lens' ComputeLimits Lude.Int
-clMinimumCapacityUnits = Lens.lens (minimumCapacityUnits :: ComputeLimits -> Lude.Int) (\s a -> s {minimumCapacityUnits = a} :: ComputeLimits)
-{-# DEPRECATED clMinimumCapacityUnits "Use generic-lens or generic-optics with 'minimumCapacityUnits' instead." #-}
-
 -- | The upper boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
 --
 -- /Note:/ Consider using 'maximumCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 clMaximumCapacityUnits :: Lens.Lens' ComputeLimits Lude.Int
 clMaximumCapacityUnits = Lens.lens (maximumCapacityUnits :: ComputeLimits -> Lude.Int) (\s a -> s {maximumCapacityUnits = a} :: ComputeLimits)
 {-# DEPRECATED clMaximumCapacityUnits "Use generic-lens or generic-optics with 'maximumCapacityUnits' instead." #-}
+
+-- | The lower boundary of EC2 units. It is measured through vCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+--
+-- /Note:/ Consider using 'minimumCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clMinimumCapacityUnits :: Lens.Lens' ComputeLimits Lude.Int
+clMinimumCapacityUnits = Lens.lens (minimumCapacityUnits :: ComputeLimits -> Lude.Int) (\s a -> s {minimumCapacityUnits = a} :: ComputeLimits)
+{-# DEPRECATED clMinimumCapacityUnits "Use generic-lens or generic-optics with 'minimumCapacityUnits' instead." #-}
 
 instance Lude.FromJSON ComputeLimits where
   parseJSON =
@@ -120,8 +118,8 @@ instance Lude.FromJSON ComputeLimits where
             Lude.<$> (x Lude..:? "MaximumOnDemandCapacityUnits")
             Lude.<*> (x Lude..:? "MaximumCoreCapacityUnits")
             Lude.<*> (x Lude..: "UnitType")
-            Lude.<*> (x Lude..: "MinimumCapacityUnits")
             Lude.<*> (x Lude..: "MaximumCapacityUnits")
+            Lude.<*> (x Lude..: "MinimumCapacityUnits")
       )
 
 instance Lude.ToJSON ComputeLimits where
@@ -133,7 +131,7 @@ instance Lude.ToJSON ComputeLimits where
             ("MaximumCoreCapacityUnits" Lude..=)
               Lude.<$> maximumCoreCapacityUnits,
             Lude.Just ("UnitType" Lude..= unitType),
-            Lude.Just ("MinimumCapacityUnits" Lude..= minimumCapacityUnits),
-            Lude.Just ("MaximumCapacityUnits" Lude..= maximumCapacityUnits)
+            Lude.Just ("MaximumCapacityUnits" Lude..= maximumCapacityUnits),
+            Lude.Just ("MinimumCapacityUnits" Lude..= minimumCapacityUnits)
           ]
       )

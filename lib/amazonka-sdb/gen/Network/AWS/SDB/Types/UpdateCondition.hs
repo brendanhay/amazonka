@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdateCondition' smart constructor.
 data UpdateCondition = UpdateCondition'
-  { exists ::
-      Lude.Maybe Lude.Bool,
+  { -- | A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
+    exists :: Lude.Maybe Lude.Bool,
+    -- | The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
     value :: Lude.Maybe Lude.Text,
+    -- | The name of the attribute involved in the condition.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCondition' with the minimum fields required to make a request.
 --
 -- * 'exists' - A value specifying whether or not the specified attribute must exist with the specified value in order for the update condition to be satisfied. Specify @true@ if the attribute must exist for the update condition to be satisfied. Specify @false@ if the attribute should not exist in order for the update condition to be satisfied.
--- * 'name' - The name of the attribute involved in the condition.
 -- * 'value' - The value of an attribute. This value can only be specified when the @Exists@ parameter is equal to @true@ .
+-- * 'name' - The name of the attribute involved in the condition.
 mkUpdateCondition ::
   UpdateCondition
 mkUpdateCondition =

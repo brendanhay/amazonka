@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkShotSegment' smart constructor.
 data ShotSegment = ShotSegment'
-  { confidence ::
-      Lude.Maybe Lude.Double,
+  { -- | The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
+    confidence :: Lude.Maybe Lude.Double,
+    -- | An Identifier for a shot detection segment detected in a video.
     index :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShotSegment' with the minimum fields required to make a request.

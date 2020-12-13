@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.DynamoDB.GetItem
     giExpressionAttributeNames,
     giConsistentRead,
     giReturnConsumedCapacity,
-    giTableName,
     giKey,
+    giTableName,
 
     -- * Destructuring the response
     GetItemResponse (..),
@@ -50,29 +51,62 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetItem' smart constructor.
 data GetItem = GetItem'
-  { projectionExpression ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
+    --
+    -- If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+    -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    projectionExpression :: Lude.Maybe Lude.Text,
+    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
     attributesToGet :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
+    --
+    --
+    --     * To access an attribute whose name conflicts with a DynamoDB reserved word.
+    --
+    --
+    --     * To create a placeholder for repeating occurrences of an attribute name in an expression.
+    --
+    --
+    --     * To prevent special characters in an attribute name from being misinterpreted in an expression.
+    --
+    --
+    -- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
+    --
+    --     * @Percentile@
+    --
+    --
+    -- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :
+    --
+    --     * @{"#P":"Percentile"}@
+    --
+    --
+    -- You could then use this substitution in an expression, as in this example:
+    --
+    --     * @#P = :val@
+    --
+    --
+    -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Determines the read consistency model: If set to @true@ , then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
     consistentRead :: Lude.Maybe Lude.Bool,
     returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity,
-    tableName :: Lude.Text,
-    key :: Lude.HashMap Lude.Text (AttributeValue)
+    -- | A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to retrieve.
+    --
+    -- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+    key :: Lude.HashMap Lude.Text (AttributeValue),
+    -- | The name of the table containing the requested item.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetItem' with the minimum fields required to make a request.
 --
+-- * 'projectionExpression' - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
+--
+-- If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+-- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
--- * 'consistentRead' - Determines the read consistency model: If set to @true@ , then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression. The following are some use cases for using @ExpressionAttributeNames@ :
 --
 --
@@ -101,14 +135,11 @@ data GetItem = GetItem'
 --
 --
 -- For more information on expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'consistentRead' - Determines the read consistency model: If set to @true@ , then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.
+-- * 'returnConsumedCapacity' -
 -- * 'key' - A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to retrieve.
 --
 -- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
--- * 'projectionExpression' - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
---
--- If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
--- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
--- * 'returnConsumedCapacity' - Undocumented field.
 -- * 'tableName' - The name of the table containing the requested item.
 mkGetItem ::
   -- | 'tableName'
@@ -121,8 +152,8 @@ mkGetItem pTableName_ =
       expressionAttributeNames = Lude.Nothing,
       consistentRead = Lude.Nothing,
       returnConsumedCapacity = Lude.Nothing,
-      tableName = pTableName_,
-      key = Lude.mempty
+      key = Lude.mempty,
+      tableName = pTableName_
     }
 
 -- | A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
@@ -190,13 +221,6 @@ giReturnConsumedCapacity :: Lens.Lens' GetItem (Lude.Maybe ReturnConsumedCapacit
 giReturnConsumedCapacity = Lens.lens (returnConsumedCapacity :: GetItem -> Lude.Maybe ReturnConsumedCapacity) (\s a -> s {returnConsumedCapacity = a} :: GetItem)
 {-# DEPRECATED giReturnConsumedCapacity "Use generic-lens or generic-optics with 'returnConsumedCapacity' instead." #-}
 
--- | The name of the table containing the requested item.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giTableName :: Lens.Lens' GetItem Lude.Text
-giTableName = Lens.lens (tableName :: GetItem -> Lude.Text) (\s a -> s {tableName = a} :: GetItem)
-{-# DEPRECATED giTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
 -- | A map of attribute names to @AttributeValue@ objects, representing the primary key of the item to retrieve.
 --
 -- For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
@@ -205,6 +229,13 @@ giTableName = Lens.lens (tableName :: GetItem -> Lude.Text) (\s a -> s {tableNam
 giKey :: Lens.Lens' GetItem (Lude.HashMap Lude.Text (AttributeValue))
 giKey = Lens.lens (key :: GetItem -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: GetItem)
 {-# DEPRECATED giKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The name of the table containing the requested item.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giTableName :: Lens.Lens' GetItem Lude.Text
+giTableName = Lens.lens (tableName :: GetItem -> Lude.Text) (\s a -> s {tableName = a} :: GetItem)
+{-# DEPRECATED giTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest GetItem where
   type Rs GetItem = GetItemResponse
@@ -239,8 +270,8 @@ instance Lude.ToJSON GetItem where
               Lude.<$> expressionAttributeNames,
             ("ConsistentRead" Lude..=) Lude.<$> consistentRead,
             ("ReturnConsumedCapacity" Lude..=) Lude.<$> returnConsumedCapacity,
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("Key" Lude..= key)
+            Lude.Just ("Key" Lude..= key),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -254,19 +285,14 @@ instance Lude.ToQuery GetItem where
 --
 -- /See:/ 'mkGetItemResponse' smart constructor.
 data GetItemResponse = GetItemResponse'
-  { consumedCapacity ::
-      Lude.Maybe ConsumedCapacity,
-    item ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+  { -- | The capacity units consumed by the @GetItem@ operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@ parameter was specified. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read/Write Capacity Mode> in the /Amazon DynamoDB Developer Guide/ .
+    consumedCapacity :: Lude.Maybe ConsumedCapacity,
+    -- | A map of attribute names to @AttributeValue@ objects, as specified by @ProjectionExpression@ .
+    item :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetItemResponse' with the minimum fields required to make a request.

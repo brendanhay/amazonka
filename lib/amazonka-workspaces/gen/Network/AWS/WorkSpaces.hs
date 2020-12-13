@@ -505,14 +505,14 @@ module Network.AWS.WorkSpaces
     -- ** WorkspaceRequest
     WorkspaceRequest (..),
     mkWorkspaceRequest,
+    wrDirectoryId,
+    wrUserName,
+    wrBundleId,
     wrWorkspaceProperties,
     wrRootVolumeEncryptionEnabled,
     wrVolumeEncryptionKey,
     wrUserVolumeEncryptionEnabled,
     wrTags,
-    wrDirectoryId,
-    wrUserName,
-    wrBundleId,
 
     -- ** WorkspacesIPGroup
     WorkspacesIPGroup (..),

@@ -29,24 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterValue' smart constructor.
 data ParameterValue = ParameterValue'
-  { value :: Lude.Text,
+  { -- | The input value associated with the parameter.
+    value :: Lude.Text,
+    -- | The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation
+    --
+    --  uses the default value that is specified in your template.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterValue' with the minimum fields required to make a request.
 --
+-- * 'value' - The input value associated with the parameter.
 -- * 'name' - The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation
 --
 --  uses the default value that is specified in your template.
--- * 'value' - The input value associated with the parameter.
 mkParameterValue ::
   -- | 'value'
   Lude.Text ->

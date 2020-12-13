@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.CreateProvisioningTemplateVersion
     mkCreateProvisioningTemplateVersion,
 
     -- ** Request lenses
-    cptvSetAsDefault,
     cptvTemplateName,
+    cptvSetAsDefault,
     cptvTemplateBody,
 
     -- * Destructuring the response
@@ -44,27 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateProvisioningTemplateVersion' smart constructor.
 data CreateProvisioningTemplateVersion = CreateProvisioningTemplateVersion'
-  { setAsDefault ::
-      Lude.Maybe Lude.Bool,
-    templateName ::
-      Lude.Text,
-    templateBody ::
-      Lude.Text
+  { -- | The name of the fleet provisioning template.
+    templateName :: Lude.Text,
+    -- | Sets a fleet provision template version as the default version.
+    setAsDefault :: Lude.Maybe Lude.Bool,
+    -- | The JSON formatted contents of the fleet provisioning template.
+    templateBody :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplateVersion' with the minimum fields required to make a request.
 --
+-- * 'templateName' - The name of the fleet provisioning template.
 -- * 'setAsDefault' - Sets a fleet provision template version as the default version.
 -- * 'templateBody' - The JSON formatted contents of the fleet provisioning template.
--- * 'templateName' - The name of the fleet provisioning template.
 mkCreateProvisioningTemplateVersion ::
   -- | 'templateName'
   Lude.Text ->
@@ -73,17 +68,10 @@ mkCreateProvisioningTemplateVersion ::
   CreateProvisioningTemplateVersion
 mkCreateProvisioningTemplateVersion pTemplateName_ pTemplateBody_ =
   CreateProvisioningTemplateVersion'
-    { setAsDefault = Lude.Nothing,
-      templateName = pTemplateName_,
+    { templateName = pTemplateName_,
+      setAsDefault = Lude.Nothing,
       templateBody = pTemplateBody_
     }
-
--- | Sets a fleet provision template version as the default version.
---
--- /Note:/ Consider using 'setAsDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cptvSetAsDefault :: Lens.Lens' CreateProvisioningTemplateVersion (Lude.Maybe Lude.Bool)
-cptvSetAsDefault = Lens.lens (setAsDefault :: CreateProvisioningTemplateVersion -> Lude.Maybe Lude.Bool) (\s a -> s {setAsDefault = a} :: CreateProvisioningTemplateVersion)
-{-# DEPRECATED cptvSetAsDefault "Use generic-lens or generic-optics with 'setAsDefault' instead." #-}
 
 -- | The name of the fleet provisioning template.
 --
@@ -91,6 +79,13 @@ cptvSetAsDefault = Lens.lens (setAsDefault :: CreateProvisioningTemplateVersion 
 cptvTemplateName :: Lens.Lens' CreateProvisioningTemplateVersion Lude.Text
 cptvTemplateName = Lens.lens (templateName :: CreateProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningTemplateVersion)
 {-# DEPRECATED cptvTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+-- | Sets a fleet provision template version as the default version.
+--
+-- /Note:/ Consider using 'setAsDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cptvSetAsDefault :: Lens.Lens' CreateProvisioningTemplateVersion (Lude.Maybe Lude.Bool)
+cptvSetAsDefault = Lens.lens (setAsDefault :: CreateProvisioningTemplateVersion -> Lude.Maybe Lude.Bool) (\s a -> s {setAsDefault = a} :: CreateProvisioningTemplateVersion)
+{-# DEPRECATED cptvSetAsDefault "Use generic-lens or generic-optics with 'setAsDefault' instead." #-}
 
 -- | The JSON formatted contents of the fleet provisioning template.
 --
@@ -134,37 +129,27 @@ instance Lude.ToQuery CreateProvisioningTemplateVersion where
 
 -- | /See:/ 'mkCreateProvisioningTemplateVersionResponse' smart constructor.
 data CreateProvisioningTemplateVersionResponse = CreateProvisioningTemplateVersionResponse'
-  { versionId ::
-      Lude.Maybe
-        Lude.Int,
-    templateName ::
-      Lude.Maybe
-        Lude.Text,
-    templateARN ::
-      Lude.Maybe
-        Lude.Text,
-    isDefaultVersion ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | The version of the fleet provisioning template.
+    versionId :: Lude.Maybe Lude.Int,
+    -- | The name of the fleet provisioning template.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | The ARN that identifies the provisioning template.
+    templateARN :: Lude.Maybe Lude.Text,
+    -- | True if the fleet provisioning template version is the default version, otherwise false.
+    isDefaultVersion :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProvisioningTemplateVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The version of the fleet provisioning template.
+-- * 'templateName' - The name of the fleet provisioning template.
+-- * 'templateARN' - The ARN that identifies the provisioning template.
 -- * 'isDefaultVersion' - True if the fleet provisioning template version is the default version, otherwise false.
 -- * 'responseStatus' - The response status code.
--- * 'templateARN' - The ARN that identifies the provisioning template.
--- * 'templateName' - The name of the fleet provisioning template.
--- * 'versionId' - The version of the fleet provisioning template.
 mkCreateProvisioningTemplateVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

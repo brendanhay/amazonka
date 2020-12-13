@@ -31,28 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPHeaderConditionConfig' smart constructor.
 data HTTPHeaderConditionConfig = HTTPHeaderConditionConfig'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | One or more strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+    --
+    -- If the same header appears multiple times in the request, we search them in order until a match is found.
+    -- If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
+    --
+    -- You can't use an HTTP header condition to specify the host header. Use 'HostHeaderConditionConfig' to specify a host header condition.
     hTTPHeaderName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPHeaderConditionConfig' with the minimum fields required to make a request.
 --
--- * 'hTTPHeaderName' - The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
---
--- You can't use an HTTP header condition to specify the host header. Use 'HostHeaderConditionConfig' to specify a host header condition.
 -- * 'values' - One or more strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 --
 -- If the same header appears multiple times in the request, we search them in order until a match is found.
 -- If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
+-- * 'hTTPHeaderName' - The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
+--
+-- You can't use an HTTP header condition to specify the host header. Use 'HostHeaderConditionConfig' to specify a host header condition.
 mkHTTPHeaderConditionConfig ::
   HTTPHeaderConditionConfig
 mkHTTPHeaderConditionConfig =

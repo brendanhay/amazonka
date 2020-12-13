@@ -35,28 +35,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChangeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
-  { visibilityTimeout ::
-      Lude.Maybe
-        Lude.Int,
-    id ::
-      Lude.Text,
-    receiptHandle ::
-      Lude.Text
+  { -- | The new value (in seconds) for the message's visibility timeout.
+    visibilityTimeout :: Lude.Maybe Lude.Int,
+    -- | An identifier for this particular receipt handle used to communicate the result.
+    id :: Lude.Text,
+    -- | A receipt handle.
+    receiptHandle :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeMessageVisibilityBatchRequestEntry' with the minimum fields required to make a request.
 --
+-- * 'visibilityTimeout' - The new value (in seconds) for the message's visibility timeout.
 -- * 'id' - An identifier for this particular receipt handle used to communicate the result.
 -- * 'receiptHandle' - A receipt handle.
--- * 'visibilityTimeout' - The new value (in seconds) for the message's visibility timeout.
 mkChangeMessageVisibilityBatchRequestEntry ::
   -- | 'id'
   Lude.Text ->

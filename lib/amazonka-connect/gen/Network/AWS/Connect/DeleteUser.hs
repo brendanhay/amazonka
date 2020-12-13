@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Connect.DeleteUser
     mkDeleteUser,
 
     -- ** Request lenses
-    delInstanceId,
-    delUserId,
+    dufInstanceId,
+    dufUserId,
 
     -- * Destructuring the response
     DeleteUserResponse (..),
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { instanceId :: Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the user.
     userId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
@@ -66,16 +63,16 @@ mkDeleteUser pInstanceId_ pUserId_ =
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delInstanceId :: Lens.Lens' DeleteUser Lude.Text
-delInstanceId = Lens.lens (instanceId :: DeleteUser -> Lude.Text) (\s a -> s {instanceId = a} :: DeleteUser)
-{-# DEPRECATED delInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+dufInstanceId :: Lens.Lens' DeleteUser Lude.Text
+dufInstanceId = Lens.lens (instanceId :: DeleteUser -> Lude.Text) (\s a -> s {instanceId = a} :: DeleteUser)
+{-# DEPRECATED dufInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delUserId :: Lens.Lens' DeleteUser Lude.Text
-delUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
-{-# DEPRECATED delUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+dufUserId :: Lens.Lens' DeleteUser Lude.Text
+dufUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
+{-# DEPRECATED dufUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 instance Lude.AWSRequest DeleteUser where
   type Rs DeleteUser = DeleteUserResponse
@@ -101,13 +98,7 @@ instance Lude.ToQuery DeleteUser where
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.

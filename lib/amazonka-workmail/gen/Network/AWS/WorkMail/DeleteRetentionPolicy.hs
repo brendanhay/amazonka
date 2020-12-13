@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkMail.DeleteRetentionPolicy
     mkDeleteRetentionPolicy,
 
     -- ** Request lenses
-    drpOrganizationId,
     drpId,
+    drpOrganizationId,
 
     -- * Destructuring the response
     DeleteRetentionPolicyResponse (..),
@@ -39,17 +40,12 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkDeleteRetentionPolicy' smart constructor.
 data DeleteRetentionPolicy = DeleteRetentionPolicy'
-  { organizationId ::
-      Lude.Text,
-    id :: Lude.Text
+  { -- | The retention policy ID.
+    id :: Lude.Text,
+    -- | The organization ID.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRetentionPolicy' with the minimum fields required to make a request.
@@ -57,23 +53,16 @@ data DeleteRetentionPolicy = DeleteRetentionPolicy'
 -- * 'id' - The retention policy ID.
 -- * 'organizationId' - The organization ID.
 mkDeleteRetentionPolicy ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'id'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   DeleteRetentionPolicy
-mkDeleteRetentionPolicy pOrganizationId_ pId_ =
+mkDeleteRetentionPolicy pId_ pOrganizationId_ =
   DeleteRetentionPolicy'
-    { organizationId = pOrganizationId_,
-      id = pId_
+    { id = pId_,
+      organizationId = pOrganizationId_
     }
-
--- | The organization ID.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpOrganizationId :: Lens.Lens' DeleteRetentionPolicy Lude.Text
-drpOrganizationId = Lens.lens (organizationId :: DeleteRetentionPolicy -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteRetentionPolicy)
-{-# DEPRECATED drpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The retention policy ID.
 --
@@ -81,6 +70,13 @@ drpOrganizationId = Lens.lens (organizationId :: DeleteRetentionPolicy -> Lude.T
 drpId :: Lens.Lens' DeleteRetentionPolicy Lude.Text
 drpId = Lens.lens (id :: DeleteRetentionPolicy -> Lude.Text) (\s a -> s {id = a} :: DeleteRetentionPolicy)
 {-# DEPRECATED drpId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The organization ID.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpOrganizationId :: Lens.Lens' DeleteRetentionPolicy Lude.Text
+drpOrganizationId = Lens.lens (organizationId :: DeleteRetentionPolicy -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteRetentionPolicy)
+{-# DEPRECATED drpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest DeleteRetentionPolicy where
   type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON DeleteRetentionPolicy where
   toJSON DeleteRetentionPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("Id" Lude..= id)
+          [ Lude.Just ("Id" Lude..= id),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -120,16 +116,10 @@ instance Lude.ToQuery DeleteRetentionPolicy where
 
 -- | /See:/ 'mkDeleteRetentionPolicyResponse' smart constructor.
 newtype DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRetentionPolicyResponse' with the minimum fields required to make a request.

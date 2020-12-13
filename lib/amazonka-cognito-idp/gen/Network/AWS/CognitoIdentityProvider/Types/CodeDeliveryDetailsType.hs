@@ -31,26 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
-  { destination ::
-      Lude.Maybe Lude.Text,
-    deliveryMedium ::
-      Lude.Maybe DeliveryMediumType,
+  { -- | The destination for the code delivery details.
+    destination :: Lude.Maybe Lude.Text,
+    -- | The delivery medium (email message or phone number).
+    deliveryMedium :: Lude.Maybe DeliveryMediumType,
+    -- | The attribute name.
     attributeName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeDeliveryDetailsType' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The attribute name.
--- * 'deliveryMedium' - The delivery medium (email message or phone number).
 -- * 'destination' - The destination for the code delivery details.
+-- * 'deliveryMedium' - The delivery medium (email message or phone number).
+-- * 'attributeName' - The attribute name.
 mkCodeDeliveryDetailsType ::
   CodeDeliveryDetailsType
 mkCodeDeliveryDetailsType =

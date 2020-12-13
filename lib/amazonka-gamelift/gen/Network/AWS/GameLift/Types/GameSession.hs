@@ -84,41 +84,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameSession' smart constructor.
 data GameSession = GameSession'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Current status of the game session. A game session must have an @ACTIVE@ status to have player sessions.
     status :: Lude.Maybe GameSessionStatus,
+    -- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). You can search for active game sessions based on this custom data with 'SearchGameSessions' .
     gameProperties :: Lude.Maybe [GameProperty],
+    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the game session. A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
     gameSessionId :: Lude.Maybe Lude.Text,
+    -- | Information about the matchmaking process that was used to create the game session. It is in JSON syntax, formatted as a string. In addition the matchmaking configuration used, it contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> . Matchmaker data is useful when requesting match backfills, and is updated whenever new players are added during a successful backfill (see 'StartMatchBackfill' ).
     matchmakerData :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that this game session is running on.
     fleetARN :: Lude.Maybe Lude.Text,
+    -- | The maximum number of players that can be connected simultaneously to the game session.
     maximumPlayerSessionCount :: Lude.Maybe Lude.Natural,
+    -- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
     terminationTime :: Lude.Maybe Lude.Timestamp,
-    playerSessionCreationPolicy ::
-      Lude.Maybe PlayerSessionCreationPolicy,
+    -- | Indicates whether or not the game session is accepting new players.
+    playerSessionCreationPolicy :: Lude.Maybe PlayerSessionCreationPolicy,
+    -- | A descriptive label that is associated with a game session. Session names do not need to be unique.
     name :: Lude.Maybe Lude.Text,
+    -- | Number of players currently in the game session.
     currentPlayerSessionCount :: Lude.Maybe Lude.Natural,
+    -- | Provides additional information about game session status. @INTERRUPTED@ indicates that the game session was hosted on a spot instance that was reclaimed, causing the active game session to be terminated.
     statusReason :: Lude.Maybe GameSessionStatusReason,
+    -- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
     gameSessionData :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a fleet that the game session is running on.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+    --
+    --
+    --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+    --
+    --
+    --     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+    --
+    --
+    -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
     dnsName :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a player. This ID is used to enforce a resource protection policy (if one exists), that limits the number of game sessions a player can create.
     creatorId :: Lude.Maybe Lude.Text,
+    -- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
     port :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSession' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'creatorId' - A unique identifier for a player. This ID is used to enforce a resource protection policy (if one exists), that limits the number of game sessions a player can create.
+-- * 'status' - Current status of the game session. A game session must have an @ACTIVE@ status to have player sessions.
+-- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). You can search for active game sessions based on this custom data with 'SearchGameSessions' .
+-- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
+-- * 'gameSessionId' - A unique identifier for the game session. A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
+-- * 'matchmakerData' - Information about the matchmaking process that was used to create the game session. It is in JSON syntax, formatted as a string. In addition the matchmaking configuration used, it contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> . Matchmaker data is useful when requesting match backfills, and is updated whenever new players are added during a successful backfill (see 'StartMatchBackfill' ).
+-- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that this game session is running on.
+-- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
+-- * 'terminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'playerSessionCreationPolicy' - Indicates whether or not the game session is accepting new players.
+-- * 'name' - A descriptive label that is associated with a game session. Session names do not need to be unique.
 -- * 'currentPlayerSessionCount' - Number of players currently in the game session.
+-- * 'statusReason' - Provides additional information about game session status. @INTERRUPTED@ indicates that the game session was hosted on a spot instance that was reclaimed, causing the active game session to be terminated.
+-- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'fleetId' - A unique identifier for a fleet that the game session is running on.
 -- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
 --
 --
@@ -129,20 +160,8 @@ data GameSession = GameSession'
 --
 --
 -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
--- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that this game session is running on.
--- * 'fleetId' - A unique identifier for a fleet that the game session is running on.
--- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ). You can search for active game sessions based on this custom data with 'SearchGameSessions' .
--- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
--- * 'gameSessionId' - A unique identifier for the game session. A game session ARN has the following format: @arn:aws:gamelift:<region>::gamesession/<fleet ID>/<custom ID string or idempotency token>@ .
--- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
--- * 'matchmakerData' - Information about the matchmaking process that was used to create the game session. It is in JSON syntax, formatted as a string. In addition the matchmaking configuration used, it contains data on all players assigned to the match, including player attributes and team assignments. For more details on matchmaker data, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> . Matchmaker data is useful when requesting match backfills, and is updated whenever new players are added during a successful backfill (see 'StartMatchBackfill' ).
--- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
--- * 'name' - A descriptive label that is associated with a game session. Session names do not need to be unique.
--- * 'playerSessionCreationPolicy' - Indicates whether or not the game session is accepting new players.
+-- * 'creatorId' - A unique identifier for a player. This ID is used to enforce a resource protection policy (if one exists), that limits the number of game sessions a player can create.
 -- * 'port' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
--- * 'status' - Current status of the game session. A game session must have an @ACTIVE@ status to have player sessions.
--- * 'statusReason' - Provides additional information about game session status. @INTERRUPTED@ indicates that the game session was hosted on a spot instance that was reclaimed, causing the active game session to be terminated.
--- * 'terminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 mkGameSession ::
   GameSession
 mkGameSession =

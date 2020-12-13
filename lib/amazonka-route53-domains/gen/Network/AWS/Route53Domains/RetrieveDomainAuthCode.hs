@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     mkRetrieveDomainAuthCodeResponse,
 
     -- ** Response lenses
-    rdacrsResponseStatus,
     rdacrsAuthCode,
+    rdacrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkRetrieveDomainAuthCode' smart constructor.
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the domain that you want to get an authorization code for.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetrieveDomainAuthCode' with the minimum fields required to make a request.
@@ -77,7 +72,7 @@ instance Lude.AWSRequest RetrieveDomainAuthCode where
     Res.receiveJSON
       ( \s h x ->
           RetrieveDomainAuthCodeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "AuthCode")
+            Lude.<$> (x Lude..:> "AuthCode") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders RetrieveDomainAuthCode where
@@ -108,10 +103,10 @@ instance Lude.ToQuery RetrieveDomainAuthCode where
 --
 -- /See:/ 'mkRetrieveDomainAuthCodeResponse' smart constructor.
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-  { responseStatus ::
-      Lude.Int,
-    authCode ::
-      Lude.Sensitive Lude.Text
+  { -- | The authorization code for the domain.
+    authCode :: Lude.Sensitive Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -121,24 +116,16 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
 -- * 'authCode' - The authorization code for the domain.
 -- * 'responseStatus' - The response status code.
 mkRetrieveDomainAuthCodeResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'authCode'
   Lude.Sensitive Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   RetrieveDomainAuthCodeResponse
-mkRetrieveDomainAuthCodeResponse pResponseStatus_ pAuthCode_ =
+mkRetrieveDomainAuthCodeResponse pAuthCode_ pResponseStatus_ =
   RetrieveDomainAuthCodeResponse'
-    { responseStatus =
-        pResponseStatus_,
-      authCode = pAuthCode_
+    { authCode = pAuthCode_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdacrsResponseStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Lude.Int
-rdacrsResponseStatus = Lens.lens (responseStatus :: RetrieveDomainAuthCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetrieveDomainAuthCodeResponse)
-{-# DEPRECATED rdacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The authorization code for the domain.
 --
@@ -146,3 +133,10 @@ rdacrsResponseStatus = Lens.lens (responseStatus :: RetrieveDomainAuthCodeRespon
 rdacrsAuthCode :: Lens.Lens' RetrieveDomainAuthCodeResponse (Lude.Sensitive Lude.Text)
 rdacrsAuthCode = Lens.lens (authCode :: RetrieveDomainAuthCodeResponse -> Lude.Sensitive Lude.Text) (\s a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse)
 {-# DEPRECATED rdacrsAuthCode "Use generic-lens or generic-optics with 'authCode' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdacrsResponseStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Lude.Int
+rdacrsResponseStatus = Lens.lens (responseStatus :: RetrieveDomainAuthCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetrieveDomainAuthCodeResponse)
+{-# DEPRECATED rdacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

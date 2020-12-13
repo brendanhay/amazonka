@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DirectoryService.DeregisterCertificate
     mkDeregisterCertificate,
 
     -- ** Request lenses
-    derDirectoryId,
-    derCertificateId,
+    dchDirectoryId,
+    dchCertificateId,
 
     -- * Destructuring the response
     DeregisterCertificateResponse (..),
@@ -39,23 +40,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterCertificate' smart constructor.
 data DeregisterCertificate = DeregisterCertificate'
-  { directoryId ::
-      Lude.Text,
+  { -- | The identifier of the directory.
+    directoryId :: Lude.Text,
+    -- | The identifier of the certificate.
     certificateId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterCertificate' with the minimum fields required to make a request.
 --
--- * 'certificateId' - The identifier of the certificate.
 -- * 'directoryId' - The identifier of the directory.
+-- * 'certificateId' - The identifier of the certificate.
 mkDeregisterCertificate ::
   -- | 'directoryId'
   Lude.Text ->
@@ -71,16 +67,16 @@ mkDeregisterCertificate pDirectoryId_ pCertificateId_ =
 -- | The identifier of the directory.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derDirectoryId :: Lens.Lens' DeregisterCertificate Lude.Text
-derDirectoryId = Lens.lens (directoryId :: DeregisterCertificate -> Lude.Text) (\s a -> s {directoryId = a} :: DeregisterCertificate)
-{-# DEPRECATED derDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+dchDirectoryId :: Lens.Lens' DeregisterCertificate Lude.Text
+dchDirectoryId = Lens.lens (directoryId :: DeregisterCertificate -> Lude.Text) (\s a -> s {directoryId = a} :: DeregisterCertificate)
+{-# DEPRECATED dchDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifier of the certificate.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derCertificateId :: Lens.Lens' DeregisterCertificate Lude.Text
-derCertificateId = Lens.lens (certificateId :: DeregisterCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DeregisterCertificate)
-{-# DEPRECATED derCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+dchCertificateId :: Lens.Lens' DeregisterCertificate Lude.Text
+dchCertificateId = Lens.lens (certificateId :: DeregisterCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DeregisterCertificate)
+{-# DEPRECATED dchCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 instance Lude.AWSRequest DeregisterCertificate where
   type Rs DeregisterCertificate = DeregisterCertificateResponse
@@ -122,16 +118,10 @@ instance Lude.ToQuery DeregisterCertificate where
 
 -- | /See:/ 'mkDeregisterCertificateResponse' smart constructor.
 newtype DeregisterCertificateResponse = DeregisterCertificateResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterCertificateResponse' with the minimum fields required to make a request.

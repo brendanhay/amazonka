@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,7 +23,9 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
 
     -- ** Request lenses
     rdctpitDeletionProtection,
+    rdctpitDBClusterIdentifier,
     rdctpitUseLatestRestorableTime,
+    rdctpitSourceDBClusterIdentifier,
     rdctpitDBSubnetGroupName,
     rdctpitDomain,
     rdctpitBacktrackWindow,
@@ -38,8 +41,6 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     rdctpitPort,
     rdctpitEnableIAMDatabaseAuthentication,
     rdctpitEnableCloudwatchLogsExports,
-    rdctpitDBClusterIdentifier,
-    rdctpitSourceDBClusterIdentifier,
 
     -- * Destructuring the response
     RestoreDBClusterToPointInTimeResponse (..),
@@ -61,62 +62,133 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRestoreDBClusterToPointInTime' smart constructor.
 data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
-  { deletionProtection ::
-      Lude.Maybe Lude.Bool,
-    useLatestRestorableTime ::
-      Lude.Maybe Lude.Bool,
-    dbSubnetGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+    deletionProtection :: Lude.Maybe Lude.Bool,
+    -- | The name of the new DB cluster to be created.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 1 to 63 letters, numbers, or hyphens
+    --
+    --
+    --     * First character must be a letter
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens
+    dbClusterIdentifier :: Lude.Text,
+    -- | A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster isn't restored to the latest restorable backup time.
+    --
+    -- Constraints: Can't be specified if @RestoreToTime@ parameter is provided.
+    useLatestRestorableTime :: Lude.Maybe Lude.Bool,
+    -- | The identifier of the source DB cluster from which to restore.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DBCluster.
+    sourceDBClusterIdentifier :: Lude.Text,
+    -- | The DB subnet group name to use for the new DB cluster.
+    --
+    -- Constraints: If supplied, must match the name of an existing DBSubnetGroup.
+    -- Example: @mySubnetgroup@
+    dbSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | Specify the Active Directory directory ID to restore the DB cluster in. The domain must be created prior to this operation.
+    --
+    -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB cluster. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon Aurora User Guide/ .
     domain :: Lude.Maybe Lude.Text,
-    backtrackWindow ::
-      Lude.Maybe Lude.Integer,
-    kmsKeyId ::
-      Lude.Maybe Lude.Text,
-    vpcSecurityGroupIds ::
-      Lude.Maybe [Lude.Text],
-    dbClusterParameterGroupName ::
-      Lude.Maybe Lude.Text,
-    restoreType ::
-      Lude.Maybe Lude.Text,
-    optionGroupName ::
-      Lude.Maybe Lude.Text,
-    copyTagsToSnapshot ::
-      Lude.Maybe Lude.Bool,
-    restoreToTime ::
-      Lude.Maybe Lude.DateTime,
-    domainIAMRoleName ::
-      Lude.Maybe Lude.Text,
+    -- | The target backtrack window, in seconds. To disable backtracking, set this value to 0.
+    --
+    -- Default: 0
+    -- Constraints:
+    --
+    --     * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
+    backtrackWindow :: Lude.Maybe Lude.Integer,
+    -- | The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.
+    --
+    -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.
+    -- You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the @KmsKeyId@ parameter.
+    -- If you don't specify a value for the @KmsKeyId@ parameter, then the following occurs:
+    --
+    --     * If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.
+    --
+    --
+    --     * If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.
+    --
+    --
+    -- If @DBClusterIdentifier@ refers to a DB cluster that isn't encrypted, then the restore request is rejected.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | A list of VPC security groups that the new DB cluster belongs to.
+    vpcSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, the default DB cluster parameter group for the specified engine is used.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match the name of an existing DB cluster parameter group.
+    --
+    --
+    --     * Must be 1 to 255 letters, numbers, or hyphens.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens.
+    dbClusterParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | The type of restore to be performed. You can specify one of the following values:
+    --
+    --
+    --     * @full-copy@ - The new DB cluster is restored as a full copy of the source DB cluster.
+    --
+    --
+    --     * @copy-on-write@ - The new DB cluster is restored as a clone of the source DB cluster.
+    --
+    --
+    -- Constraints: You can't specify @copy-on-write@ if the engine version of the source DB cluster is earlier than 1.11.
+    -- If you don't specify a @RestoreType@ value, then the new DB cluster is restored as a full copy of the source DB cluster.
+    restoreType :: Lude.Maybe Lude.Text,
+    -- | The name of the option group for the new DB cluster.
+    optionGroupName :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.
+    copyTagsToSnapshot :: Lude.Maybe Lude.Bool,
+    -- | The date and time to restore the DB cluster to.
+    --
+    -- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+    -- Constraints:
+    --
+    --     * Must be before the latest restorable time for the DB instance
+    --
+    --
+    --     * Must be specified if @UseLatestRestorableTime@ parameter isn't provided
+    --
+    --
+    --     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled
+    --
+    --
+    --     * Can't be specified if the @RestoreType@ parameter is @copy-on-write@
+    --
+    --
+    -- Example: @2015-03-07T23:45:00Z@
+    restoreToTime :: Lude.Maybe Lude.DateTime,
+    -- | Specify the name of the IAM role to be used when making API calls to the Directory Service.
+    domainIAMRoleName :: Lude.Maybe Lude.Text,
     tags :: Lude.Maybe [Tag],
+    -- | The port number on which the new DB cluster accepts connections.
+    --
+    -- Constraints: A value from @1150-65535@ .
+    -- Default: The default port for the engine.
     port :: Lude.Maybe Lude.Int,
-    enableIAMDatabaseAuthentication ::
-      Lude.Maybe Lude.Bool,
-    enableCloudwatchLogsExports ::
-      Lude.Maybe [Lude.Text],
-    dbClusterIdentifier ::
-      Lude.Text,
-    sourceDBClusterIdentifier ::
-      Lude.Text
+    -- | A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication> in the /Amazon Aurora User Guide./
+    enableIAMDatabaseAuthentication :: Lude.Maybe Lude.Bool,
+    -- | The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon Aurora User Guide/ .
+    enableCloudwatchLogsExports :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreDBClusterToPointInTime' with the minimum fields required to make a request.
 --
--- * 'backtrackWindow' - The target backtrack window, in seconds. To disable backtracking, set this value to 0.
---
--- Default: 0
--- Constraints:
---
---     * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
---
---
--- * 'copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.
+-- * 'deletionProtection' - A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 -- * 'dbClusterIdentifier' - The name of the new DB cluster to be created.
 --
 -- Constraints:
@@ -130,6 +202,45 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --     * Can't end with a hyphen or contain two consecutive hyphens
 --
 --
+-- * 'useLatestRestorableTime' - A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster isn't restored to the latest restorable backup time.
+--
+-- Constraints: Can't be specified if @RestoreToTime@ parameter is provided.
+-- * 'sourceDBClusterIdentifier' - The identifier of the source DB cluster from which to restore.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DBCluster.
+--
+--
+-- * 'dbSubnetGroupName' - The DB subnet group name to use for the new DB cluster.
+--
+-- Constraints: If supplied, must match the name of an existing DBSubnetGroup.
+-- Example: @mySubnetgroup@
+-- * 'domain' - Specify the Active Directory directory ID to restore the DB cluster in. The domain must be created prior to this operation.
+--
+-- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB cluster. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon Aurora User Guide/ .
+-- * 'backtrackWindow' - The target backtrack window, in seconds. To disable backtracking, set this value to 0.
+--
+-- Default: 0
+-- Constraints:
+--
+--     * If specified, this value must be set to a number from 0 to 259,200 (72 hours).
+--
+--
+-- * 'kmsKeyId' - The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.
+--
+-- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.
+-- You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the @KmsKeyId@ parameter.
+-- If you don't specify a value for the @KmsKeyId@ parameter, then the following occurs:
+--
+--     * If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.
+--
+--
+--     * If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.
+--
+--
+-- If @DBClusterIdentifier@ refers to a DB cluster that isn't encrypted, then the restore request is rejected.
+-- * 'vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster belongs to.
 -- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group to associate with this DB cluster. If this argument is omitted, the default DB cluster parameter group for the specified engine is used.
 --
 -- Constraints:
@@ -146,37 +257,19 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --     * Can't end with a hyphen or contain two consecutive hyphens.
 --
 --
--- * 'dbSubnetGroupName' - The DB subnet group name to use for the new DB cluster.
---
--- Constraints: If supplied, must match the name of an existing DBSubnetGroup.
--- Example: @mySubnetgroup@
--- * 'deletionProtection' - A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
--- * 'domain' - Specify the Active Directory directory ID to restore the DB cluster in. The domain must be created prior to this operation.
---
--- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB cluster. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon Aurora User Guide/ .
--- * 'domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
--- * 'enableCloudwatchLogsExports' - The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon Aurora User Guide/ .
--- * 'enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
---
--- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication> in the /Amazon Aurora User Guide./
--- * 'kmsKeyId' - The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.
---
--- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are restoring a DB cluster with the same AWS account that owns the KMS encryption key used to encrypt the new DB cluster, then you can use the KMS key alias instead of the ARN for the KMS encryption key.
--- You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different than the KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key identified by the @KmsKeyId@ parameter.
--- If you don't specify a value for the @KmsKeyId@ parameter, then the following occurs:
---
---     * If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.
+-- * 'restoreType' - The type of restore to be performed. You can specify one of the following values:
 --
 --
---     * If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.
+--     * @full-copy@ - The new DB cluster is restored as a full copy of the source DB cluster.
 --
 --
--- If @DBClusterIdentifier@ refers to a DB cluster that isn't encrypted, then the restore request is rejected.
+--     * @copy-on-write@ - The new DB cluster is restored as a clone of the source DB cluster.
+--
+--
+-- Constraints: You can't specify @copy-on-write@ if the engine version of the source DB cluster is earlier than 1.11.
+-- If you don't specify a @RestoreType@ value, then the new DB cluster is restored as a full copy of the source DB cluster.
 -- * 'optionGroupName' - The name of the option group for the new DB cluster.
--- * 'port' - The port number on which the new DB cluster accepts connections.
---
--- Constraints: A value from @1150-65535@ .
--- Default: The default port for the engine.
+-- * 'copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB cluster to snapshots of the restored DB cluster. The default is not to copy them.
 -- * 'restoreToTime' - The date and time to restore the DB cluster to.
 --
 -- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
@@ -195,29 +288,16 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --
 --
 -- Example: @2015-03-07T23:45:00Z@
--- * 'restoreType' - The type of restore to be performed. You can specify one of the following values:
+-- * 'domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
+-- * 'tags' -
+-- * 'port' - The port number on which the new DB cluster accepts connections.
 --
+-- Constraints: A value from @1150-65535@ .
+-- Default: The default port for the engine.
+-- * 'enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
 --
---     * @full-copy@ - The new DB cluster is restored as a full copy of the source DB cluster.
---
---
---     * @copy-on-write@ - The new DB cluster is restored as a clone of the source DB cluster.
---
---
--- Constraints: You can't specify @copy-on-write@ if the engine version of the source DB cluster is earlier than 1.11.
--- If you don't specify a @RestoreType@ value, then the new DB cluster is restored as a full copy of the source DB cluster.
--- * 'sourceDBClusterIdentifier' - The identifier of the source DB cluster from which to restore.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBCluster.
---
---
--- * 'tags' - Undocumented field.
--- * 'useLatestRestorableTime' - A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster isn't restored to the latest restorable backup time.
---
--- Constraints: Can't be specified if @RestoreToTime@ parameter is provided.
--- * 'vpcSecurityGroupIds' - A list of VPC security groups that the new DB cluster belongs to.
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication> in the /Amazon Aurora User Guide./
+-- * 'enableCloudwatchLogsExports' - The list of logs that the restored DB cluster is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon Aurora User Guide/ .
 mkRestoreDBClusterToPointInTime ::
   -- | 'dbClusterIdentifier'
   Lude.Text ->
@@ -229,7 +309,9 @@ mkRestoreDBClusterToPointInTime
   pSourceDBClusterIdentifier_ =
     RestoreDBClusterToPointInTime'
       { deletionProtection = Lude.Nothing,
+        dbClusterIdentifier = pDBClusterIdentifier_,
         useLatestRestorableTime = Lude.Nothing,
+        sourceDBClusterIdentifier = pSourceDBClusterIdentifier_,
         dbSubnetGroupName = Lude.Nothing,
         domain = Lude.Nothing,
         backtrackWindow = Lude.Nothing,
@@ -244,9 +326,7 @@ mkRestoreDBClusterToPointInTime
         tags = Lude.Nothing,
         port = Lude.Nothing,
         enableIAMDatabaseAuthentication = Lude.Nothing,
-        enableCloudwatchLogsExports = Lude.Nothing,
-        dbClusterIdentifier = pDBClusterIdentifier_,
-        sourceDBClusterIdentifier = pSourceDBClusterIdentifier_
+        enableCloudwatchLogsExports = Lude.Nothing
       }
 
 -- | A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -256,6 +336,25 @@ rdctpitDeletionProtection :: Lens.Lens' RestoreDBClusterToPointInTime (Lude.Mayb
 rdctpitDeletionProtection = Lens.lens (deletionProtection :: RestoreDBClusterToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {deletionProtection = a} :: RestoreDBClusterToPointInTime)
 {-# DEPRECATED rdctpitDeletionProtection "Use generic-lens or generic-optics with 'deletionProtection' instead." #-}
 
+-- | The name of the new DB cluster to be created.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdctpitDBClusterIdentifier :: Lens.Lens' RestoreDBClusterToPointInTime Lude.Text
+rdctpitDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: RestoreDBClusterToPointInTime -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: RestoreDBClusterToPointInTime)
+{-# DEPRECATED rdctpitDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+
 -- | A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster isn't restored to the latest restorable backup time.
 --
 -- Constraints: Can't be specified if @RestoreToTime@ parameter is provided.
@@ -264,6 +363,19 @@ rdctpitDeletionProtection = Lens.lens (deletionProtection :: RestoreDBClusterToP
 rdctpitUseLatestRestorableTime :: Lens.Lens' RestoreDBClusterToPointInTime (Lude.Maybe Lude.Bool)
 rdctpitUseLatestRestorableTime = Lens.lens (useLatestRestorableTime :: RestoreDBClusterToPointInTime -> Lude.Maybe Lude.Bool) (\s a -> s {useLatestRestorableTime = a} :: RestoreDBClusterToPointInTime)
 {-# DEPRECATED rdctpitUseLatestRestorableTime "Use generic-lens or generic-optics with 'useLatestRestorableTime' instead." #-}
+
+-- | The identifier of the source DB cluster from which to restore.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DBCluster.
+--
+--
+--
+-- /Note:/ Consider using 'sourceDBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdctpitSourceDBClusterIdentifier :: Lens.Lens' RestoreDBClusterToPointInTime Lude.Text
+rdctpitSourceDBClusterIdentifier = Lens.lens (sourceDBClusterIdentifier :: RestoreDBClusterToPointInTime -> Lude.Text) (\s a -> s {sourceDBClusterIdentifier = a} :: RestoreDBClusterToPointInTime)
+{-# DEPRECATED rdctpitSourceDBClusterIdentifier "Use generic-lens or generic-optics with 'sourceDBClusterIdentifier' instead." #-}
 
 -- | The DB subnet group name to use for the new DB cluster.
 --
@@ -441,38 +553,6 @@ rdctpitEnableCloudwatchLogsExports :: Lens.Lens' RestoreDBClusterToPointInTime (
 rdctpitEnableCloudwatchLogsExports = Lens.lens (enableCloudwatchLogsExports :: RestoreDBClusterToPointInTime -> Lude.Maybe [Lude.Text]) (\s a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterToPointInTime)
 {-# DEPRECATED rdctpitEnableCloudwatchLogsExports "Use generic-lens or generic-optics with 'enableCloudwatchLogsExports' instead." #-}
 
--- | The name of the new DB cluster to be created.
---
--- Constraints:
---
---     * Must contain from 1 to 63 letters, numbers, or hyphens
---
---
---     * First character must be a letter
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens
---
---
---
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdctpitDBClusterIdentifier :: Lens.Lens' RestoreDBClusterToPointInTime Lude.Text
-rdctpitDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: RestoreDBClusterToPointInTime -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: RestoreDBClusterToPointInTime)
-{-# DEPRECATED rdctpitDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
-
--- | The identifier of the source DB cluster from which to restore.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBCluster.
---
---
---
--- /Note:/ Consider using 'sourceDBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdctpitSourceDBClusterIdentifier :: Lens.Lens' RestoreDBClusterToPointInTime Lude.Text
-rdctpitSourceDBClusterIdentifier = Lens.lens (sourceDBClusterIdentifier :: RestoreDBClusterToPointInTime -> Lude.Text) (\s a -> s {sourceDBClusterIdentifier = a} :: RestoreDBClusterToPointInTime)
-{-# DEPRECATED rdctpitSourceDBClusterIdentifier "Use generic-lens or generic-optics with 'sourceDBClusterIdentifier' instead." #-}
-
 instance Lude.AWSRequest RestoreDBClusterToPointInTime where
   type
     Rs RestoreDBClusterToPointInTime =
@@ -499,7 +579,9 @@ instance Lude.ToQuery RestoreDBClusterToPointInTime where
           Lude.=: ("RestoreDBClusterToPointInTime" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "DeletionProtection" Lude.=: deletionProtection,
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
         "UseLatestRestorableTime" Lude.=: useLatestRestorableTime,
+        "SourceDBClusterIdentifier" Lude.=: sourceDBClusterIdentifier,
         "DBSubnetGroupName" Lude.=: dbSubnetGroupName,
         "Domain" Lude.=: domain,
         "BacktrackWindow" Lude.=: backtrackWindow,
@@ -521,31 +603,21 @@ instance Lude.ToQuery RestoreDBClusterToPointInTime where
           Lude.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"
           Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> enableCloudwatchLogsExports),
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
-        "SourceDBClusterIdentifier" Lude.=: sourceDBClusterIdentifier
+            (Lude.toQueryList "member" Lude.<$> enableCloudwatchLogsExports)
       ]
 
 -- | /See:/ 'mkRestoreDBClusterToPointInTimeResponse' smart constructor.
 data RestoreDBClusterToPointInTimeResponse = RestoreDBClusterToPointInTimeResponse'
-  { dbCluster ::
-      Lude.Maybe
-        DBCluster,
-    responseStatus ::
-      Lude.Int
+  { dbCluster :: Lude.Maybe DBCluster,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreDBClusterToPointInTimeResponse' with the minimum fields required to make a request.
 --
--- * 'dbCluster' - Undocumented field.
+-- * 'dbCluster' -
 -- * 'responseStatus' - The response status code.
 mkRestoreDBClusterToPointInTimeResponse ::
   -- | 'responseStatus'

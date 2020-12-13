@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Mp4MoovPlacement
   ( Mp4MoovPlacement
       ( Mp4MoovPlacement',
-        MMPNormal,
-        MMPProgressiveDownload
+        MMPProgressiveDownload,
+        MMPNormal
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mp4MoovPlacement = Mp4MoovPlacement' Lude.Text
       Lude.ToHeader
     )
 
-pattern MMPNormal :: Mp4MoovPlacement
-pattern MMPNormal = Mp4MoovPlacement' "NORMAL"
-
 pattern MMPProgressiveDownload :: Mp4MoovPlacement
 pattern MMPProgressiveDownload = Mp4MoovPlacement' "PROGRESSIVE_DOWNLOAD"
 
+pattern MMPNormal :: Mp4MoovPlacement
+pattern MMPNormal = Mp4MoovPlacement' "NORMAL"
+
 {-# COMPLETE
-  MMPNormal,
   MMPProgressiveDownload,
+  MMPNormal,
   Mp4MoovPlacement'
   #-}

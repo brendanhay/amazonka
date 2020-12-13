@@ -13,10 +13,10 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicyHeaderBehavior
   ( OriginRequestPolicyHeaderBehavior
       ( OriginRequestPolicyHeaderBehavior',
-        ORPHBAllViewer,
-        ORPHBAllViewerAndWhitelistCloudFront,
         ORPHBNone,
-        ORPHBWhitelist
+        ORPHBWhitelist,
+        ORPHBAllViewer,
+        ORPHBAllViewerAndWhitelistCloudFront
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype OriginRequestPolicyHeaderBehavior = OriginRequestPolicyHeaderBehavior' L
       Lude.ToHeader
     )
 
-pattern ORPHBAllViewer :: OriginRequestPolicyHeaderBehavior
-pattern ORPHBAllViewer = OriginRequestPolicyHeaderBehavior' "allViewer"
-
-pattern ORPHBAllViewerAndWhitelistCloudFront :: OriginRequestPolicyHeaderBehavior
-pattern ORPHBAllViewerAndWhitelistCloudFront = OriginRequestPolicyHeaderBehavior' "allViewerAndWhitelistCloudFront"
-
 pattern ORPHBNone :: OriginRequestPolicyHeaderBehavior
 pattern ORPHBNone = OriginRequestPolicyHeaderBehavior' "none"
 
 pattern ORPHBWhitelist :: OriginRequestPolicyHeaderBehavior
 pattern ORPHBWhitelist = OriginRequestPolicyHeaderBehavior' "whitelist"
 
+pattern ORPHBAllViewer :: OriginRequestPolicyHeaderBehavior
+pattern ORPHBAllViewer = OriginRequestPolicyHeaderBehavior' "allViewer"
+
+pattern ORPHBAllViewerAndWhitelistCloudFront :: OriginRequestPolicyHeaderBehavior
+pattern ORPHBAllViewerAndWhitelistCloudFront = OriginRequestPolicyHeaderBehavior' "allViewerAndWhitelistCloudFront"
+
 {-# COMPLETE
-  ORPHBAllViewer,
-  ORPHBAllViewerAndWhitelistCloudFront,
   ORPHBNone,
   ORPHBWhitelist,
+  ORPHBAllViewer,
+  ORPHBAllViewerAndWhitelistCloudFront,
   OriginRequestPolicyHeaderBehavior'
   #-}

@@ -35,33 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaExtensionInfo' smart constructor.
 data SchemaExtensionInfo = SchemaExtensionInfo'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the directory to which the schema extension is applied.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the schema extension.
     schemaExtensionId :: Lude.Maybe Lude.Text,
+    -- | The reason for the @SchemaExtensionStatus@ .
     schemaExtensionStatusReason :: Lude.Maybe Lude.Text,
-    schemaExtensionStatus ::
-      Lude.Maybe SchemaExtensionStatus,
+    -- | The current status of the schema extension.
+    schemaExtensionStatus :: Lude.Maybe SchemaExtensionStatus,
+    -- | A description of the schema extension.
     description :: Lude.Maybe Lude.Text,
+    -- | The date and time that the schema extension was completed.
     endDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the schema extension started being applied to the directory.
     startDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaExtensionInfo' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the schema extension.
 -- * 'directoryId' - The identifier of the directory to which the schema extension is applied.
--- * 'endDateTime' - The date and time that the schema extension was completed.
 -- * 'schemaExtensionId' - The identifier of the schema extension.
--- * 'schemaExtensionStatus' - The current status of the schema extension.
 -- * 'schemaExtensionStatusReason' - The reason for the @SchemaExtensionStatus@ .
+-- * 'schemaExtensionStatus' - The current status of the schema extension.
+-- * 'description' - A description of the schema extension.
+-- * 'endDateTime' - The date and time that the schema extension was completed.
 -- * 'startDateTime' - The date and time that the schema extension started being applied to the directory.
 mkSchemaExtensionInfo ::
   SchemaExtensionInfo

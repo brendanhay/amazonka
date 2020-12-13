@@ -13,8 +13,8 @@
 module Network.AWS.Redshift.Types.ScheduledActionTypeValues
   ( ScheduledActionTypeValues
       ( ScheduledActionTypeValues',
-        PauseCluster,
         ResizeCluster,
+        PauseCluster,
         ResumeCluster
       ),
   )
@@ -47,18 +47,18 @@ newtype ScheduledActionTypeValues = ScheduledActionTypeValues' Lude.Text
       Lude.ToHeader
     )
 
-pattern PauseCluster :: ScheduledActionTypeValues
-pattern PauseCluster = ScheduledActionTypeValues' "PauseCluster"
-
 pattern ResizeCluster :: ScheduledActionTypeValues
 pattern ResizeCluster = ScheduledActionTypeValues' "ResizeCluster"
+
+pattern PauseCluster :: ScheduledActionTypeValues
+pattern PauseCluster = ScheduledActionTypeValues' "PauseCluster"
 
 pattern ResumeCluster :: ScheduledActionTypeValues
 pattern ResumeCluster = ScheduledActionTypeValues' "ResumeCluster"
 
 {-# COMPLETE
-  PauseCluster,
   ResizeCluster,
+  PauseCluster,
   ResumeCluster,
   ScheduledActionTypeValues'
   #-}

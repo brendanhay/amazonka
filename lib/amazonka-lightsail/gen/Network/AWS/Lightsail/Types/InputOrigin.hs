@@ -34,25 +34,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputOrigin' smart constructor.
 data InputOrigin = InputOrigin'
-  { regionName ::
-      Lude.Maybe RegionName,
+  { -- | The AWS Region name of the origin resource.
+    regionName :: Lude.Maybe RegionName,
+    -- | The name of the origin resource.
     name :: Lude.Maybe Lude.Text,
+    -- | The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
     protocolPolicy :: Lude.Maybe OriginProtocolPolicyEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputOrigin' with the minimum fields required to make a request.
 --
+-- * 'regionName' - The AWS Region name of the origin resource.
 -- * 'name' - The name of the origin resource.
 -- * 'protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
--- * 'regionName' - The AWS Region name of the origin resource.
 mkInputOrigin ::
   InputOrigin
 mkInputOrigin =

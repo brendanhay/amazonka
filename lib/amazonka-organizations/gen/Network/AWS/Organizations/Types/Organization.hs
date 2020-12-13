@@ -36,12 +36,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganization' smart constructor.
 data Organization = Organization'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of an organization.
+    --
+    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+    arn :: Lude.Maybe Lude.Text,
+    -- | The unique identifier (ID) of the management account of an organization.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
     masterAccountId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
+    --
+    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
     masterAccountARN :: Lude.Maybe Lude.Text,
+    -- | The email address that is associated with the AWS account that is designated as the management account for the organization.
     masterAccountEmail :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | /Important:/ Do not use. This field is deprecated and doesn't provide complete information about the policies in your organization.
+    --
+    -- To determine the policies that are enabled and available for use in your organization, use the 'ListRoots' operation instead.
     availablePolicyTypes :: Lude.Maybe [PolicyTypeSummary],
+    -- | The unique identifier (ID) of an organization.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an organization ID string requires "o-" followed by from 10 to 32 lowercase letters or digits.
     id :: Lude.Maybe Lude.Text,
+    -- | Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
     featureSet :: Lude.Maybe OrganizationFeatureSet
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -52,20 +69,20 @@ data Organization = Organization'
 -- * 'arn' - The Amazon Resource Name (ARN) of an organization.
 --
 -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
--- * 'availablePolicyTypes' - /Important:/ Do not use. This field is deprecated and doesn't provide complete information about the policies in your organization.
+-- * 'masterAccountId' - The unique identifier (ID) of the management account of an organization.
 --
--- To determine the policies that are enabled and available for use in your organization, use the 'ListRoots' operation instead.
--- * 'featureSet' - Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
--- * 'id' - The unique identifier (ID) of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an organization ID string requires "o-" followed by from 10 to 32 lowercase letters or digits.
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 -- * 'masterAccountARN' - The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
 --
 -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 -- * 'masterAccountEmail' - The email address that is associated with the AWS account that is designated as the management account for the organization.
--- * 'masterAccountId' - The unique identifier (ID) of the management account of an organization.
+-- * 'availablePolicyTypes' - /Important:/ Do not use. This field is deprecated and doesn't provide complete information about the policies in your organization.
 --
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+-- To determine the policies that are enabled and available for use in your organization, use the 'ListRoots' operation instead.
+-- * 'id' - The unique identifier (ID) of an organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organization ID string requires "o-" followed by from 10 to 32 lowercase letters or digits.
+-- * 'featureSet' - Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
 mkOrganization ::
   Organization
 mkOrganization =

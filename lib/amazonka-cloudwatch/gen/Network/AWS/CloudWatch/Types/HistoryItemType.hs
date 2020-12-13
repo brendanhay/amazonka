@@ -13,9 +13,9 @@
 module Network.AWS.CloudWatch.Types.HistoryItemType
   ( HistoryItemType
       ( HistoryItemType',
-        Action,
         ConfigurationUpdate,
-        StateUpdate
+        StateUpdate,
+        Action
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype HistoryItemType = HistoryItemType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Action :: HistoryItemType
-pattern Action = HistoryItemType' "Action"
-
 pattern ConfigurationUpdate :: HistoryItemType
 pattern ConfigurationUpdate = HistoryItemType' "ConfigurationUpdate"
 
 pattern StateUpdate :: HistoryItemType
 pattern StateUpdate = HistoryItemType' "StateUpdate"
 
+pattern Action :: HistoryItemType
+pattern Action = HistoryItemType' "Action"
+
 {-# COMPLETE
-  Action,
   ConfigurationUpdate,
   StateUpdate,
+  Action,
   HistoryItemType'
   #-}

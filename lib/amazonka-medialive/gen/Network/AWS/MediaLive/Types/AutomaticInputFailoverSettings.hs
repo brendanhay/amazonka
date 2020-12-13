@@ -18,9 +18,9 @@ module Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings
 
     -- * Lenses
     aifsFailoverConditions,
+    aifsSecondaryInputId,
     aifsErrorClearTimeMsec,
     aifsInputPreference,
-    aifsSecondaryInputId,
   )
 where
 
@@ -33,30 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutomaticInputFailoverSettings' smart constructor.
 data AutomaticInputFailoverSettings = AutomaticInputFailoverSettings'
-  { failoverConditions ::
-      Lude.Maybe
-        [FailoverCondition],
-    errorClearTimeMsec ::
-      Lude.Maybe Lude.Natural,
-    inputPreference ::
-      Lude.Maybe InputPreference,
-    secondaryInputId :: Lude.Text
+  { -- | A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input.
+    failoverConditions :: Lude.Maybe [FailoverCondition],
+    -- | The input ID of the secondary input in the automatic input failover pair.
+    secondaryInputId :: Lude.Text,
+    -- | This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input_preference for the failover pair is set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+    errorClearTimeMsec :: Lude.Maybe Lude.Natural,
+    -- | Input preference when deciding which input to make active when a previously failed input has recovered.
+    inputPreference :: Lude.Maybe InputPreference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomaticInputFailoverSettings' with the minimum fields required to make a request.
 --
--- * 'errorClearTimeMsec' - This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input_preference for the failover pair is set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will switch back to the primary input.
 -- * 'failoverConditions' - A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input.
--- * 'inputPreference' - Input preference when deciding which input to make active when a previously failed input has recovered.
 -- * 'secondaryInputId' - The input ID of the secondary input in the automatic input failover pair.
+-- * 'errorClearTimeMsec' - This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input_preference for the failover pair is set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+-- * 'inputPreference' - Input preference when deciding which input to make active when a previously failed input has recovered.
 mkAutomaticInputFailoverSettings ::
   -- | 'secondaryInputId'
   Lude.Text ->
@@ -65,9 +59,9 @@ mkAutomaticInputFailoverSettings pSecondaryInputId_ =
   AutomaticInputFailoverSettings'
     { failoverConditions =
         Lude.Nothing,
+      secondaryInputId = pSecondaryInputId_,
       errorClearTimeMsec = Lude.Nothing,
-      inputPreference = Lude.Nothing,
-      secondaryInputId = pSecondaryInputId_
+      inputPreference = Lude.Nothing
     }
 
 -- | A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input.
@@ -76,6 +70,13 @@ mkAutomaticInputFailoverSettings pSecondaryInputId_ =
 aifsFailoverConditions :: Lens.Lens' AutomaticInputFailoverSettings (Lude.Maybe [FailoverCondition])
 aifsFailoverConditions = Lens.lens (failoverConditions :: AutomaticInputFailoverSettings -> Lude.Maybe [FailoverCondition]) (\s a -> s {failoverConditions = a} :: AutomaticInputFailoverSettings)
 {-# DEPRECATED aifsFailoverConditions "Use generic-lens or generic-optics with 'failoverConditions' instead." #-}
+
+-- | The input ID of the secondary input in the automatic input failover pair.
+--
+-- /Note:/ Consider using 'secondaryInputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aifsSecondaryInputId :: Lens.Lens' AutomaticInputFailoverSettings Lude.Text
+aifsSecondaryInputId = Lens.lens (secondaryInputId :: AutomaticInputFailoverSettings -> Lude.Text) (\s a -> s {secondaryInputId = a} :: AutomaticInputFailoverSettings)
+{-# DEPRECATED aifsSecondaryInputId "Use generic-lens or generic-optics with 'secondaryInputId' instead." #-}
 
 -- | This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input_preference for the failover pair is set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will switch back to the primary input.
 --
@@ -91,13 +92,6 @@ aifsInputPreference :: Lens.Lens' AutomaticInputFailoverSettings (Lude.Maybe Inp
 aifsInputPreference = Lens.lens (inputPreference :: AutomaticInputFailoverSettings -> Lude.Maybe InputPreference) (\s a -> s {inputPreference = a} :: AutomaticInputFailoverSettings)
 {-# DEPRECATED aifsInputPreference "Use generic-lens or generic-optics with 'inputPreference' instead." #-}
 
--- | The input ID of the secondary input in the automatic input failover pair.
---
--- /Note:/ Consider using 'secondaryInputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aifsSecondaryInputId :: Lens.Lens' AutomaticInputFailoverSettings Lude.Text
-aifsSecondaryInputId = Lens.lens (secondaryInputId :: AutomaticInputFailoverSettings -> Lude.Text) (\s a -> s {secondaryInputId = a} :: AutomaticInputFailoverSettings)
-{-# DEPRECATED aifsSecondaryInputId "Use generic-lens or generic-optics with 'secondaryInputId' instead." #-}
-
 instance Lude.FromJSON AutomaticInputFailoverSettings where
   parseJSON =
     Lude.withObject
@@ -105,9 +99,9 @@ instance Lude.FromJSON AutomaticInputFailoverSettings where
       ( \x ->
           AutomaticInputFailoverSettings'
             Lude.<$> (x Lude..:? "failoverConditions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "secondaryInputId")
             Lude.<*> (x Lude..:? "errorClearTimeMsec")
             Lude.<*> (x Lude..:? "inputPreference")
-            Lude.<*> (x Lude..: "secondaryInputId")
       )
 
 instance Lude.ToJSON AutomaticInputFailoverSettings where
@@ -115,8 +109,8 @@ instance Lude.ToJSON AutomaticInputFailoverSettings where
     Lude.object
       ( Lude.catMaybes
           [ ("failoverConditions" Lude..=) Lude.<$> failoverConditions,
+            Lude.Just ("secondaryInputId" Lude..= secondaryInputId),
             ("errorClearTimeMsec" Lude..=) Lude.<$> errorClearTimeMsec,
-            ("inputPreference" Lude..=) Lude.<$> inputPreference,
-            Lude.Just ("secondaryInputId" Lude..= secondaryInputId)
+            ("inputPreference" Lude..=) Lude.<$> inputPreference
           ]
       )

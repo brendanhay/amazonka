@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { start :: Lude.Maybe Lude.Timestamp,
+  { -- | The start time of the time range.
+    start :: Lude.Maybe Lude.Timestamp,
+    -- | The end time of the time range.
     end :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
 --
--- * 'end' - The end time of the time range.
 -- * 'start' - The start time of the time range.
+-- * 'end' - The end time of the time range.
 mkTimeRange ::
   TimeRange
 mkTimeRange = TimeRange' {start = Lude.Nothing, end = Lude.Nothing}

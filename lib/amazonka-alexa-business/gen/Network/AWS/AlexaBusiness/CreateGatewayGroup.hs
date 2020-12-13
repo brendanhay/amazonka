@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AlexaBusiness.CreateGatewayGroup
     mkCreateGatewayGroup,
 
     -- ** Request lenses
-    cggDescription,
     cggName,
     cggClientRequestToken,
+    cggDescription,
 
     -- * Destructuring the response
     CreateGatewayGroupResponse (..),
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGatewayGroup' smart constructor.
 data CreateGatewayGroup = CreateGatewayGroup'
-  { description ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the gateway group.
     name :: Lude.Text,
-    clientRequestToken :: Lude.Text
+    -- | A unique, user-specified identifier for the request that ensures idempotency.
+    clientRequestToken :: Lude.Text,
+    -- | The description of the gateway group.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGatewayGroup' with the minimum fields required to make a request.
 --
+-- * 'name' - The name of the gateway group.
 -- * 'clientRequestToken' - A unique, user-specified identifier for the request that ensures idempotency.
 -- * 'description' - The description of the gateway group.
--- * 'name' - The name of the gateway group.
 mkCreateGatewayGroup ::
   -- | 'name'
   Lude.Text ->
@@ -68,17 +65,10 @@ mkCreateGatewayGroup ::
   CreateGatewayGroup
 mkCreateGatewayGroup pName_ pClientRequestToken_ =
   CreateGatewayGroup'
-    { description = Lude.Nothing,
-      name = pName_,
-      clientRequestToken = pClientRequestToken_
+    { name = pName_,
+      clientRequestToken = pClientRequestToken_,
+      description = Lude.Nothing
     }
-
--- | The description of the gateway group.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cggDescription :: Lens.Lens' CreateGatewayGroup (Lude.Maybe Lude.Text)
-cggDescription = Lens.lens (description :: CreateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateGatewayGroup)
-{-# DEPRECATED cggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the gateway group.
 --
@@ -93,6 +83,13 @@ cggName = Lens.lens (name :: CreateGatewayGroup -> Lude.Text) (\s a -> s {name =
 cggClientRequestToken :: Lens.Lens' CreateGatewayGroup Lude.Text
 cggClientRequestToken = Lens.lens (clientRequestToken :: CreateGatewayGroup -> Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateGatewayGroup)
 {-# DEPRECATED cggClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | The description of the gateway group.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cggDescription :: Lens.Lens' CreateGatewayGroup (Lude.Maybe Lude.Text)
+cggDescription = Lens.lens (description :: CreateGatewayGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateGatewayGroup)
+{-# DEPRECATED cggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest CreateGatewayGroup where
   type Rs CreateGatewayGroup = CreateGatewayGroupResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON CreateGatewayGroup where
   toJSON CreateGatewayGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ClientRequestToken" Lude..= clientRequestToken)
+          [ Lude.Just ("Name" Lude..= name),
+            Lude.Just ("ClientRequestToken" Lude..= clientRequestToken),
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -134,17 +131,12 @@ instance Lude.ToQuery CreateGatewayGroup where
 
 -- | /See:/ 'mkCreateGatewayGroupResponse' smart constructor.
 data CreateGatewayGroupResponse = CreateGatewayGroupResponse'
-  { gatewayGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the created gateway group.
+    gatewayGroupARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGatewayGroupResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.GetEventStream
     mkGetEventStreamResponse,
 
     -- ** Response lenses
-    gesrsResponseStatus,
     gesrsEventStream,
+    gesrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetEventStream' smart constructor.
 newtype GetEventStream = GetEventStream'
-  { applicationId ::
-      Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEventStream' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest GetEventStream where
     Res.receiveJSON
       ( \s h x ->
           GetEventStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetEventStream where
@@ -97,41 +92,28 @@ instance Lude.ToQuery GetEventStream where
 
 -- | /See:/ 'mkGetEventStreamResponse' smart constructor.
 data GetEventStreamResponse = GetEventStreamResponse'
-  { responseStatus ::
-      Lude.Int,
-    eventStream :: EventStream
+  { eventStream :: EventStream,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEventStreamResponse' with the minimum fields required to make a request.
 --
--- * 'eventStream' - Undocumented field.
+-- * 'eventStream' -
 -- * 'responseStatus' - The response status code.
 mkGetEventStreamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'eventStream'
   EventStream ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetEventStreamResponse
-mkGetEventStreamResponse pResponseStatus_ pEventStream_ =
+mkGetEventStreamResponse pEventStream_ pResponseStatus_ =
   GetEventStreamResponse'
-    { responseStatus = pResponseStatus_,
-      eventStream = pEventStream_
+    { eventStream = pEventStream_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gesrsResponseStatus :: Lens.Lens' GetEventStreamResponse Lude.Int
-gesrsResponseStatus = Lens.lens (responseStatus :: GetEventStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEventStreamResponse)
-{-# DEPRECATED gesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -139,3 +121,10 @@ gesrsResponseStatus = Lens.lens (responseStatus :: GetEventStreamResponse -> Lud
 gesrsEventStream :: Lens.Lens' GetEventStreamResponse EventStream
 gesrsEventStream = Lens.lens (eventStream :: GetEventStreamResponse -> EventStream) (\s a -> s {eventStream = a} :: GetEventStreamResponse)
 {-# DEPRECATED gesrsEventStream "Use generic-lens or generic-optics with 'eventStream' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gesrsResponseStatus :: Lens.Lens' GetEventStreamResponse Lude.Int
+gesrsResponseStatus = Lens.lens (responseStatus :: GetEventStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEventStreamResponse)
+{-# DEPRECATED gesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

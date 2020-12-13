@@ -33,24 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { bundleType :: Lude.Maybe BundleType,
+  { -- | The file type of the application revision. Must be one of the following:
+    --
+    --
+    --     * @tar@ : A tar archive file.
+    --
+    --
+    --     * @tgz@ : A compressed tar archive file.
+    --
+    --
+    --     * @zip@ : A zip archive file.
+    bundleType :: Lude.Maybe BundleType,
+    -- | The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
+    --
+    -- If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
     eTag :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon S3 bucket where the application revision is stored.
     bucket :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
     key :: Lude.Maybe Lude.Text,
+    -- | A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
+    --
+    -- If the version is not specified, the system uses the most recent version by default.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the Amazon S3 bucket where the application revision is stored.
 -- * 'bundleType' - The file type of the application revision. Must be one of the following:
 --
 --
@@ -66,6 +77,7 @@ data S3Location = S3Location'
 -- * 'eTag' - The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
 --
 -- If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
+-- * 'bucket' - The name of the Amazon S3 bucket where the application revision is stored.
 -- * 'key' - The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
 -- * 'version' - A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
 --

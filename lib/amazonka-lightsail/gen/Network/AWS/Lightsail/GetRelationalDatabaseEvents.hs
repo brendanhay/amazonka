@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,19 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRelationalDatabaseEvents' smart constructor.
 data GetRelationalDatabaseEvents = GetRelationalDatabaseEvents'
-  { durationInMinutes ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of minutes in the past from which to retrieve events. For example, to get all events from the past 2 hours, enter 120.
+    --
+    -- Default: @60@
+    -- The minimum is 1 and the maximum is 14 days (20160 minutes).
+    durationInMinutes :: Lude.Maybe Lude.Int,
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetRelationalDatabaseEvents@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The name of the database from which to get events.
     relationalDatabaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseEvents' with the minimum fields required to make a request.
@@ -162,22 +164,17 @@ instance Lude.ToQuery GetRelationalDatabaseEvents where
 
 -- | /See:/ 'mkGetRelationalDatabaseEventsResponse' smart constructor.
 data GetRelationalDatabaseEventsResponse = GetRelationalDatabaseEventsResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    relationalDatabaseEvents ::
-      Lude.Maybe
-        [RelationalDatabaseEvent],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to display.
+    -- To get the next page of results, perform another @GetRelationalDatabaseEvents@ request and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An object describing the result of your get relational database events request.
+    relationalDatabaseEvents :: Lude.Maybe [RelationalDatabaseEvent],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseEventsResponse' with the minimum fields required to make a request.

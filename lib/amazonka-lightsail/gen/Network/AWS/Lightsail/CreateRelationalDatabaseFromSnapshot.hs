@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.Lightsail.CreateRelationalDatabaseFromSnapshot
     crdfsRestoreTime,
     crdfsAvailabilityZone,
     crdfsRelationalDatabaseSnapshotName,
-    crdfsTags,
     crdfsRelationalDatabaseName,
+    crdfsTags,
 
     -- * Destructuring the response
     CreateRelationalDatabaseFromSnapshotResponse (..),
@@ -50,62 +51,71 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateRelationalDatabaseFromSnapshot' smart constructor.
 data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot'
-  { sourceRelationalDatabaseName ::
-      Lude.Maybe
-        Lude.Text,
-    relationalDatabaseBundleId ::
-      Lude.Maybe
-        Lude.Text,
-    publiclyAccessible ::
-      Lude.Maybe
-        Lude.Bool,
-    useLatestRestorableTime ::
-      Lude.Maybe
-        Lude.Bool,
-    restoreTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    availabilityZone ::
-      Lude.Maybe
-        Lude.Text,
-    relationalDatabaseSnapshotName ::
-      Lude.Maybe
-        Lude.Text,
-    tags ::
-      Lude.Maybe [Tag],
-    relationalDatabaseName ::
-      Lude.Text
+  { -- | The name of the source database.
+    sourceRelationalDatabaseName :: Lude.Maybe Lude.Text,
+    -- | The bundle ID for your new database. A bundle describes the performance specifications for your database.
+    --
+    -- You can get a list of database bundle IDs by using the @get relational database bundles@ operation.
+    -- When creating a new database from a snapshot, you cannot choose a bundle that is smaller than the bundle of the source database.
+    relationalDatabaseBundleId :: Lude.Maybe Lude.Text,
+    -- | Specifies the accessibility options for your new database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether your database is restored from the latest backup time. A value of @true@ restores from the latest backup time.
+    --
+    -- Default: @false@
+    -- Constraints: Cannot be specified if the @restore time@ parameter is provided.
+    useLatestRestorableTime :: Lude.Maybe Lude.Bool,
+    -- | The date and time to restore your database from.
+    --
+    -- Constraints:
+    --
+    --     * Must be before the latest restorable time for the database.
+    --
+    --
+    --     * Cannot be specified if the @use latest restorable time@ parameter is @true@ .
+    --
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use a restore time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the restore time.
+    restoreTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Availability Zone in which to create your new database. Use the @us-east-2a@ case-sensitive format.
+    --
+    -- You can get a list of Availability Zones by using the @get regions@ operation. Be sure to add the @include relational database Availability Zones@ parameter to your request.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The name of the database snapshot from which to create your new database.
+    relationalDatabaseSnapshotName :: Lude.Maybe Lude.Text,
+    -- | The name to use for your new database.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 2 to 255 alphanumeric characters, or hyphens.
+    --
+    --
+    --     * The first and last character must be a letter or number.
+    relationalDatabaseName :: Lude.Text,
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRelationalDatabaseFromSnapshot' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which to create your new database. Use the @us-east-2a@ case-sensitive format.
---
--- You can get a list of Availability Zones by using the @get regions@ operation. Be sure to add the @include relational database Availability Zones@ parameter to your request.
--- * 'publiclyAccessible' - Specifies the accessibility options for your new database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
+-- * 'sourceRelationalDatabaseName' - The name of the source database.
 -- * 'relationalDatabaseBundleId' - The bundle ID for your new database. A bundle describes the performance specifications for your database.
 --
 -- You can get a list of database bundle IDs by using the @get relational database bundles@ operation.
 -- When creating a new database from a snapshot, you cannot choose a bundle that is smaller than the bundle of the source database.
--- * 'relationalDatabaseName' - The name to use for your new database.
+-- * 'publiclyAccessible' - Specifies the accessibility options for your new database. A value of @true@ specifies a database that is available to resources outside of your Lightsail account. A value of @false@ specifies a database that is available only to your Lightsail resources in the same region as your database.
+-- * 'useLatestRestorableTime' - Specifies whether your database is restored from the latest backup time. A value of @true@ restores from the latest backup time.
 --
--- Constraints:
---
---     * Must contain from 2 to 255 alphanumeric characters, or hyphens.
---
---
---     * The first and last character must be a letter or number.
---
---
--- * 'relationalDatabaseSnapshotName' - The name of the database snapshot from which to create your new database.
+-- Default: @false@
+-- Constraints: Cannot be specified if the @restore time@ parameter is provided.
 -- * 'restoreTime' - The date and time to restore your database from.
 --
 -- Constraints:
@@ -123,14 +133,23 @@ data CreateRelationalDatabaseFromSnapshot = CreateRelationalDatabaseFromSnapshot
 -- For example, if you wish to use a restore time of October 1, 2018, at 8 PM UTC, then you input @1538424000@ as the restore time.
 --
 --
--- * 'sourceRelationalDatabaseName' - The name of the source database.
+-- * 'availabilityZone' - The Availability Zone in which to create your new database. Use the @us-east-2a@ case-sensitive format.
+--
+-- You can get a list of Availability Zones by using the @get regions@ operation. Be sure to add the @include relational database Availability Zones@ parameter to your request.
+-- * 'relationalDatabaseSnapshotName' - The name of the database snapshot from which to create your new database.
+-- * 'relationalDatabaseName' - The name to use for your new database.
+--
+-- Constraints:
+--
+--     * Must contain from 2 to 255 alphanumeric characters, or hyphens.
+--
+--
+--     * The first and last character must be a letter or number.
+--
+--
 -- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
--- * 'useLatestRestorableTime' - Specifies whether your database is restored from the latest backup time. A value of @true@ restores from the latest backup time.
---
--- Default: @false@
--- Constraints: Cannot be specified if the @restore time@ parameter is provided.
 mkCreateRelationalDatabaseFromSnapshot ::
   -- | 'relationalDatabaseName'
   Lude.Text ->
@@ -145,8 +164,8 @@ mkCreateRelationalDatabaseFromSnapshot pRelationalDatabaseName_ =
       restoreTime = Lude.Nothing,
       availabilityZone = Lude.Nothing,
       relationalDatabaseSnapshotName = Lude.Nothing,
-      tags = Lude.Nothing,
-      relationalDatabaseName = pRelationalDatabaseName_
+      relationalDatabaseName = pRelationalDatabaseName_,
+      tags = Lude.Nothing
     }
 
 -- | The name of the source database.
@@ -222,15 +241,6 @@ crdfsRelationalDatabaseSnapshotName :: Lens.Lens' CreateRelationalDatabaseFromSn
 crdfsRelationalDatabaseSnapshotName = Lens.lens (relationalDatabaseSnapshotName :: CreateRelationalDatabaseFromSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {relationalDatabaseSnapshotName = a} :: CreateRelationalDatabaseFromSnapshot)
 {-# DEPRECATED crdfsRelationalDatabaseSnapshotName "Use generic-lens or generic-optics with 'relationalDatabaseSnapshotName' instead." #-}
 
--- | The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdfsTags :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Lude.Maybe [Tag])
-crdfsTags = Lens.lens (tags :: CreateRelationalDatabaseFromSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRelationalDatabaseFromSnapshot)
-{-# DEPRECATED crdfsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name to use for your new database.
 --
 -- Constraints:
@@ -246,6 +256,15 @@ crdfsTags = Lens.lens (tags :: CreateRelationalDatabaseFromSnapshot -> Lude.Mayb
 crdfsRelationalDatabaseName :: Lens.Lens' CreateRelationalDatabaseFromSnapshot Lude.Text
 crdfsRelationalDatabaseName = Lens.lens (relationalDatabaseName :: CreateRelationalDatabaseFromSnapshot -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: CreateRelationalDatabaseFromSnapshot)
 {-# DEPRECATED crdfsRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
+
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdfsTags :: Lens.Lens' CreateRelationalDatabaseFromSnapshot (Lude.Maybe [Tag])
+crdfsTags = Lens.lens (tags :: CreateRelationalDatabaseFromSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateRelationalDatabaseFromSnapshot)
+{-# DEPRECATED crdfsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateRelationalDatabaseFromSnapshot where
   type
@@ -288,9 +307,9 @@ instance Lude.ToJSON CreateRelationalDatabaseFromSnapshot where
             ("availabilityZone" Lude..=) Lude.<$> availabilityZone,
             ("relationalDatabaseSnapshotName" Lude..=)
               Lude.<$> relationalDatabaseSnapshotName,
-            ("tags" Lude..=) Lude.<$> tags,
             Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName)
+              ("relationalDatabaseName" Lude..= relationalDatabaseName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -302,19 +321,12 @@ instance Lude.ToQuery CreateRelationalDatabaseFromSnapshot where
 
 -- | /See:/ 'mkCreateRelationalDatabaseFromSnapshotResponse' smart constructor.
 data CreateRelationalDatabaseFromSnapshotResponse = CreateRelationalDatabaseFromSnapshotResponse'
-  { operations ::
-      Lude.Maybe
-        [Operation],
-    responseStatus ::
-      Lude.Int
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRelationalDatabaseFromSnapshotResponse' with the minimum fields required to make a request.

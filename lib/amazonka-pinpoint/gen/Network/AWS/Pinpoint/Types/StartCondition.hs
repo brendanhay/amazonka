@@ -32,25 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStartCondition' smart constructor.
 data StartCondition = StartCondition'
-  { segmentStartCondition ::
-      Lude.Maybe SegmentCondition,
+  { -- | The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.
+    segmentStartCondition :: Lude.Maybe SegmentCondition,
     eventStartCondition :: Lude.Maybe EventStartCondition,
+    -- | The custom description of the condition.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartCondition' with the minimum fields required to make a request.
 --
--- * 'description' - The custom description of the condition.
--- * 'eventStartCondition' - Undocumented field.
 -- * 'segmentStartCondition' - The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.
+-- * 'eventStartCondition' -
+-- * 'description' - The custom description of the condition.
 mkStartCondition ::
   StartCondition
 mkStartCondition =

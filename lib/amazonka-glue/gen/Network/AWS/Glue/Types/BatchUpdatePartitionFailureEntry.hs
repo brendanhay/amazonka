@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchUpdatePartitionFailureEntry' smart constructor.
 data BatchUpdatePartitionFailureEntry = BatchUpdatePartitionFailureEntry'
-  { partitionValueList ::
-      Lude.Maybe [Lude.Text],
-    errorDetail ::
-      Lude.Maybe ErrorDetail
+  { -- | A list of values defining the partitions.
+    partitionValueList :: Lude.Maybe [Lude.Text],
+    -- | The details about the batch update partition error.
+    errorDetail :: Lude.Maybe ErrorDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchUpdatePartitionFailureEntry' with the minimum fields required to make a request.
 --
--- * 'errorDetail' - The details about the batch update partition error.
 -- * 'partitionValueList' - A list of values defining the partitions.
+-- * 'errorDetail' - The details about the batch update partition error.
 mkBatchUpdatePartitionFailureEntry ::
   BatchUpdatePartitionFailureEntry
 mkBatchUpdatePartitionFailureEntry =

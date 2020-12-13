@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAccessKeyLastUsed' smart constructor.
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
-  { accessKeyId ::
-      AccessKey
+  { -- | The identifier of an access key.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
+    accessKeyId :: AccessKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessKeyLastUsed' with the minimum fields required to make a request.
@@ -104,26 +101,23 @@ instance Lude.ToQuery GetAccessKeyLastUsed where
 --
 -- /See:/ 'mkGetAccessKeyLastUsedResponse' smart constructor.
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-  { userName ::
-      Lude.Maybe Lude.Text,
-    accessKeyLastUsed ::
-      Lude.Maybe AccessKeyLastUsed,
+  { -- | The name of the AWS IAM user that owns this access key.
+    userName :: Lude.Maybe Lude.Text,
+    -- | Contains information about the last time the access key was used.
+    accessKeyLastUsed :: Lude.Maybe AccessKeyLastUsed,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessKeyLastUsedResponse' with the minimum fields required to make a request.
 --
+-- * 'userName' - The name of the AWS IAM user that owns this access key.
+--
+--
 -- * 'accessKeyLastUsed' - Contains information about the last time the access key was used.
 -- * 'responseStatus' - The response status code.
--- * 'userName' - The name of the AWS IAM user that owns this access key.
 mkGetAccessKeyLastUsedResponse ::
   -- | 'responseStatus'
   Lude.Int ->

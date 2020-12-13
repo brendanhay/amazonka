@@ -13,13 +13,13 @@
 module Network.AWS.Batch.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        Failed,
+        Submitted,
         Pending,
         Runnable,
-        Running,
         Starting,
-        Submitted,
-        Succeeded
+        Running,
+        Succeeded,
+        Failed
       ),
   )
 where
@@ -50,8 +50,8 @@ newtype JobStatus = JobStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: JobStatus
-pattern Failed = JobStatus' "FAILED"
+pattern Submitted :: JobStatus
+pattern Submitted = JobStatus' "SUBMITTED"
 
 pattern Pending :: JobStatus
 pattern Pending = JobStatus' "PENDING"
@@ -59,25 +59,25 @@ pattern Pending = JobStatus' "PENDING"
 pattern Runnable :: JobStatus
 pattern Runnable = JobStatus' "RUNNABLE"
 
-pattern Running :: JobStatus
-pattern Running = JobStatus' "RUNNING"
-
 pattern Starting :: JobStatus
 pattern Starting = JobStatus' "STARTING"
 
-pattern Submitted :: JobStatus
-pattern Submitted = JobStatus' "SUBMITTED"
+pattern Running :: JobStatus
+pattern Running = JobStatus' "RUNNING"
 
 pattern Succeeded :: JobStatus
 pattern Succeeded = JobStatus' "SUCCEEDED"
 
+pattern Failed :: JobStatus
+pattern Failed = JobStatus' "FAILED"
+
 {-# COMPLETE
-  Failed,
+  Submitted,
   Pending,
   Runnable,
-  Running,
   Starting,
-  Submitted,
+  Running,
   Succeeded,
+  Failed,
   JobStatus'
   #-}

@@ -18,9 +18,9 @@ module Network.AWS.DynamoDB.Types.GlobalSecondaryIndex
 
     -- * Lenses
     gsiProvisionedThroughput,
-    gsiIndexName,
     gsiKeySchema,
     gsiProjection,
+    gsiIndexName,
   )
 where
 
@@ -34,24 +34,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalSecondaryIndex' smart constructor.
 data GlobalSecondaryIndex = GlobalSecondaryIndex'
-  { provisionedThroughput ::
-      Lude.Maybe ProvisionedThroughput,
-    indexName :: Lude.Text,
+  { -- | Represents the provisioned throughput settings for the specified global secondary index.
+    --
+    -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+    provisionedThroughput :: Lude.Maybe ProvisionedThroughput,
+    -- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
+    --
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
     keySchema :: Lude.NonEmpty KeySchemaElement,
-    projection :: Projection
+    -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+    projection :: Projection,
+    -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
+    indexName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalSecondaryIndex' with the minimum fields required to make a request.
 --
--- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
+-- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
+--
+-- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'keySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
 --
@@ -62,23 +69,21 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex'
 --
 --
 -- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
--- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
---
--- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
 mkGlobalSecondaryIndex ::
-  -- | 'indexName'
-  Lude.Text ->
   -- | 'keySchema'
   Lude.NonEmpty KeySchemaElement ->
   -- | 'projection'
   Projection ->
+  -- | 'indexName'
+  Lude.Text ->
   GlobalSecondaryIndex
-mkGlobalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
+mkGlobalSecondaryIndex pKeySchema_ pProjection_ pIndexName_ =
   GlobalSecondaryIndex'
     { provisionedThroughput = Lude.Nothing,
-      indexName = pIndexName_,
       keySchema = pKeySchema_,
-      projection = pProjection_
+      projection = pProjection_,
+      indexName = pIndexName_
     }
 
 -- | Represents the provisioned throughput settings for the specified global secondary index.
@@ -89,13 +94,6 @@ mkGlobalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
 gsiProvisionedThroughput :: Lens.Lens' GlobalSecondaryIndex (Lude.Maybe ProvisionedThroughput)
 gsiProvisionedThroughput = Lens.lens (provisionedThroughput :: GlobalSecondaryIndex -> Lude.Maybe ProvisionedThroughput) (\s a -> s {provisionedThroughput = a} :: GlobalSecondaryIndex)
 {-# DEPRECATED gsiProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
-
--- | The name of the global secondary index. The name must be unique among all other indexes on this table.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiIndexName :: Lens.Lens' GlobalSecondaryIndex Lude.Text
-gsiIndexName = Lens.lens (indexName :: GlobalSecondaryIndex -> Lude.Text) (\s a -> s {indexName = a} :: GlobalSecondaryIndex)
-{-# DEPRECATED gsiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
@@ -119,13 +117,20 @@ gsiProjection :: Lens.Lens' GlobalSecondaryIndex Projection
 gsiProjection = Lens.lens (projection :: GlobalSecondaryIndex -> Projection) (\s a -> s {projection = a} :: GlobalSecondaryIndex)
 {-# DEPRECATED gsiProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
 
+-- | The name of the global secondary index. The name must be unique among all other indexes on this table.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiIndexName :: Lens.Lens' GlobalSecondaryIndex Lude.Text
+gsiIndexName = Lens.lens (indexName :: GlobalSecondaryIndex -> Lude.Text) (\s a -> s {indexName = a} :: GlobalSecondaryIndex)
+{-# DEPRECATED gsiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
 instance Lude.ToJSON GlobalSecondaryIndex where
   toJSON GlobalSecondaryIndex' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("ProvisionedThroughput" Lude..=) Lude.<$> provisionedThroughput,
-            Lude.Just ("IndexName" Lude..= indexName),
             Lude.Just ("KeySchema" Lude..= keySchema),
-            Lude.Just ("Projection" Lude..= projection)
+            Lude.Just ("Projection" Lude..= projection),
+            Lude.Just ("IndexName" Lude..= indexName)
           ]
       )

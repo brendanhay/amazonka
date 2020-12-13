@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.ECR.GetDownloadURLForLayer
 
     -- ** Request lenses
     gduflRegistryId,
-    gduflRepositoryName,
     gduflLayerDigest,
+    gduflRepositoryName,
 
     -- * Destructuring the response
     GetDownloadURLForLayerResponse (..),
@@ -44,36 +45,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDownloadURLForLayer' smart constructor.
 data GetDownloadURLForLayer = GetDownloadURLForLayer'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName :: Lude.Text,
-    layerDigest :: Lude.Text
+  { -- | The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The digest of the image layer to download.
+    layerDigest :: Lude.Text,
+    -- | The name of the repository that is associated with the image layer to download.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDownloadURLForLayer' with the minimum fields required to make a request.
 --
--- * 'layerDigest' - The digest of the image layer to download.
 -- * 'registryId' - The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
+-- * 'layerDigest' - The digest of the image layer to download.
 -- * 'repositoryName' - The name of the repository that is associated with the image layer to download.
 mkGetDownloadURLForLayer ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'layerDigest'
   Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   GetDownloadURLForLayer
-mkGetDownloadURLForLayer pRepositoryName_ pLayerDigest_ =
+mkGetDownloadURLForLayer pLayerDigest_ pRepositoryName_ =
   GetDownloadURLForLayer'
     { registryId = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      layerDigest = pLayerDigest_
+      layerDigest = pLayerDigest_,
+      repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the image layer to download. If you do not specify a registry, the default registry is assumed.
@@ -83,19 +80,19 @@ gduflRegistryId :: Lens.Lens' GetDownloadURLForLayer (Lude.Maybe Lude.Text)
 gduflRegistryId = Lens.lens (registryId :: GetDownloadURLForLayer -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: GetDownloadURLForLayer)
 {-# DEPRECATED gduflRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
--- | The name of the repository that is associated with the image layer to download.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gduflRepositoryName :: Lens.Lens' GetDownloadURLForLayer Lude.Text
-gduflRepositoryName = Lens.lens (repositoryName :: GetDownloadURLForLayer -> Lude.Text) (\s a -> s {repositoryName = a} :: GetDownloadURLForLayer)
-{-# DEPRECATED gduflRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
-
 -- | The digest of the image layer to download.
 --
 -- /Note:/ Consider using 'layerDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gduflLayerDigest :: Lens.Lens' GetDownloadURLForLayer Lude.Text
 gduflLayerDigest = Lens.lens (layerDigest :: GetDownloadURLForLayer -> Lude.Text) (\s a -> s {layerDigest = a} :: GetDownloadURLForLayer)
 {-# DEPRECATED gduflLayerDigest "Use generic-lens or generic-optics with 'layerDigest' instead." #-}
+
+-- | The name of the repository that is associated with the image layer to download.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gduflRepositoryName :: Lens.Lens' GetDownloadURLForLayer Lude.Text
+gduflRepositoryName = Lens.lens (repositoryName :: GetDownloadURLForLayer -> Lude.Text) (\s a -> s {repositoryName = a} :: GetDownloadURLForLayer)
+{-# DEPRECATED gduflRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest GetDownloadURLForLayer where
   type Rs GetDownloadURLForLayer = GetDownloadURLForLayerResponse
@@ -127,8 +124,8 @@ instance Lude.ToJSON GetDownloadURLForLayer where
     Lude.object
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("layerDigest" Lude..= layerDigest)
+            Lude.Just ("layerDigest" Lude..= layerDigest),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -140,25 +137,20 @@ instance Lude.ToQuery GetDownloadURLForLayer where
 
 -- | /See:/ 'mkGetDownloadURLForLayerResponse' smart constructor.
 data GetDownloadURLForLayerResponse = GetDownloadURLForLayerResponse'
-  { layerDigest ::
-      Lude.Maybe Lude.Text,
-    downloadURL ::
-      Lude.Maybe Lude.Text,
+  { -- | The digest of the image layer to download.
+    layerDigest :: Lude.Maybe Lude.Text,
+    -- | The pre-signed Amazon S3 download URL for the requested layer.
+    downloadURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDownloadURLForLayerResponse' with the minimum fields required to make a request.
 --
--- * 'downloadURL' - The pre-signed Amazon S3 download URL for the requested layer.
 -- * 'layerDigest' - The digest of the image layer to download.
+-- * 'downloadURL' - The pre-signed Amazon S3 download URL for the requested layer.
 -- * 'responseStatus' - The response status code.
 mkGetDownloadURLForLayerResponse ::
   -- | 'responseStatus'

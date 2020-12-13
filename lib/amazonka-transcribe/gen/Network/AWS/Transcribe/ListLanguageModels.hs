@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,27 +44,24 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkListLanguageModels' smart constructor.
 data ListLanguageModels = ListLanguageModels'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | When specified, the custom language model names returned contain the substring you've specified.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | When included, fetches the next set of jobs if the result of the previous request was truncated.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | When specified, returns only custom language models with the specified status. Language models are ordered by creation date, with the newest models first. If you don't specify a status, Amazon Transcribe returns all custom language models ordered by date.
     statusEquals :: Lude.Maybe ModelStatus,
+    -- | The maximum number of language models to return in the response. If there are fewer results in the list, the response contains only the actual results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLanguageModels' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of language models to return in the response. If there are fewer results in the list, the response contains only the actual results.
 -- * 'nameContains' - When specified, the custom language model names returned contain the substring you've specified.
 -- * 'nextToken' - When included, fetches the next set of jobs if the result of the previous request was truncated.
 -- * 'statusEquals' - When specified, returns only custom language models with the specified status. Language models are ordered by creation date, with the newest models first. If you don't specify a status, Amazon Transcribe returns all custom language models ordered by date.
+-- * 'maxResults' - The maximum number of language models to return in the response. If there are fewer results in the list, the response contains only the actual results.
 mkListLanguageModels ::
   ListLanguageModels
 mkListLanguageModels =
@@ -144,24 +142,20 @@ instance Lude.ToQuery ListLanguageModels where
 
 -- | /See:/ 'mkListLanguageModelsResponse' smart constructor.
 data ListLanguageModelsResponse = ListLanguageModelsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The operation returns a page of jobs at a time. The maximum size of the list is set by the MaxResults parameter. If there are more language models in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the operation to return the next page of language models.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of objects containing information about custom language models.
     models :: Lude.Maybe [LanguageModel],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLanguageModelsResponse' with the minimum fields required to make a request.
 --
--- * 'models' - A list of objects containing information about custom language models.
 -- * 'nextToken' - The operation returns a page of jobs at a time. The maximum size of the list is set by the MaxResults parameter. If there are more language models in the list than the page size, Amazon Transcribe returns the @NextPage@ token. Include the token in the next request to the operation to return the next page of language models.
+-- * 'models' - A list of objects containing information about custom language models.
 -- * 'responseStatus' - The response status code.
 mkListLanguageModelsResponse ::
   -- | 'responseStatus'

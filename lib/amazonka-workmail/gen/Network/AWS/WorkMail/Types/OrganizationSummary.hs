@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationSummary' smart constructor.
 data OrganizationSummary = OrganizationSummary'
-  { state ::
-      Lude.Maybe Lude.Text,
+  { -- | The state associated with the organization.
+    state :: Lude.Maybe Lude.Text,
+    -- | The alias associated with the organization.
     alias :: Lude.Maybe Lude.Text,
+    -- | The default email domain associated with the organization.
     defaultMailDomain :: Lude.Maybe Lude.Text,
+    -- | The error message associated with the organization. It is only present if unexpected behavior has occurred with regards to the organization. It provides insight or solutions regarding unexpected behavior.
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The identifier associated with the organization.
     organizationId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationSummary' with the minimum fields required to make a request.
 --
+-- * 'state' - The state associated with the organization.
 -- * 'alias' - The alias associated with the organization.
 -- * 'defaultMailDomain' - The default email domain associated with the organization.
 -- * 'errorMessage' - The error message associated with the organization. It is only present if unexpected behavior has occurred with regards to the organization. It provides insight or solutions regarding unexpected behavior.
 -- * 'organizationId' - The identifier associated with the organization.
--- * 'state' - The state associated with the organization.
 mkOrganizationSummary ::
   OrganizationSummary
 mkOrganizationSummary =

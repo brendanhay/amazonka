@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkGetConnectors' smart constructor.
 data GetConnectors = GetConnectors'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectors' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkGetConnectors ::
   GetConnectors
 mkGetConnectors =
@@ -134,18 +130,14 @@ instance Lude.ToQuery GetConnectors where
 
 -- | /See:/ 'mkGetConnectorsResponse' smart constructor.
 data GetConnectorsResponse = GetConnectorsResponse'
-  { connectorList ::
-      Lude.Maybe [Connector],
+  { -- | Information about the registered connectors.
+    connectorList :: Lude.Maybe [Connector],
+    -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorsResponse' with the minimum fields required to make a request.

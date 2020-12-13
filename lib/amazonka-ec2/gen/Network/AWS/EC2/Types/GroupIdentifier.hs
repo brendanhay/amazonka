@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
-  { groupId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the security group.
+    groupId :: Lude.Maybe Lude.Text,
+    -- | The name of the security group.
     groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupIdentifier' with the minimum fields required to make a request.

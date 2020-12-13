@@ -29,17 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProjectBadge' smart constructor.
 data ProjectBadge = ProjectBadge'
-  { badgeEnabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Set this to true to generate a publicly accessible URL for your project's build badge.
+    badgeEnabled :: Lude.Maybe Lude.Bool,
+    -- | The publicly-accessible URL through which you can access the build badge for your project.
+    --
+    -- The publicly accessible URL through which you can access the build badge for your project.
     badgeRequestURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectBadge' with the minimum fields required to make a request.

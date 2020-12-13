@@ -13,17 +13,17 @@
 module Network.AWS.AppStream.Types.StackAttribute
   ( StackAttribute
       ( StackAttribute',
-        AccessEndpoints,
-        EmbedHostDomains,
-        FeedbackURL,
-        IAMRoleARN,
-        RedirectURL,
-        StorageConnectorGoogleDrive,
-        StorageConnectorHomefolders,
-        StorageConnectorOneDrive,
-        StorageConnectors,
-        ThemeName,
-        UserSettings
+        SAStorageConnectors,
+        SAStorageConnectorHomefolders,
+        SAStorageConnectorGoogleDrive,
+        SAStorageConnectorOneDrive,
+        SARedirectURL,
+        SAFeedbackURL,
+        SAThemeName,
+        SAUserSettings,
+        SAEmbedHostDomains,
+        SAIAMRoleARN,
+        SAAccessEndpoints
       ),
   )
 where
@@ -54,50 +54,50 @@ newtype StackAttribute = StackAttribute' Lude.Text
       Lude.ToHeader
     )
 
-pattern AccessEndpoints :: StackAttribute
-pattern AccessEndpoints = StackAttribute' "ACCESS_ENDPOINTS"
+pattern SAStorageConnectors :: StackAttribute
+pattern SAStorageConnectors = StackAttribute' "STORAGE_CONNECTORS"
 
-pattern EmbedHostDomains :: StackAttribute
-pattern EmbedHostDomains = StackAttribute' "EMBED_HOST_DOMAINS"
+pattern SAStorageConnectorHomefolders :: StackAttribute
+pattern SAStorageConnectorHomefolders = StackAttribute' "STORAGE_CONNECTOR_HOMEFOLDERS"
 
-pattern FeedbackURL :: StackAttribute
-pattern FeedbackURL = StackAttribute' "FEEDBACK_URL"
+pattern SAStorageConnectorGoogleDrive :: StackAttribute
+pattern SAStorageConnectorGoogleDrive = StackAttribute' "STORAGE_CONNECTOR_GOOGLE_DRIVE"
 
-pattern IAMRoleARN :: StackAttribute
-pattern IAMRoleARN = StackAttribute' "IAM_ROLE_ARN"
+pattern SAStorageConnectorOneDrive :: StackAttribute
+pattern SAStorageConnectorOneDrive = StackAttribute' "STORAGE_CONNECTOR_ONE_DRIVE"
 
-pattern RedirectURL :: StackAttribute
-pattern RedirectURL = StackAttribute' "REDIRECT_URL"
+pattern SARedirectURL :: StackAttribute
+pattern SARedirectURL = StackAttribute' "REDIRECT_URL"
 
-pattern StorageConnectorGoogleDrive :: StackAttribute
-pattern StorageConnectorGoogleDrive = StackAttribute' "STORAGE_CONNECTOR_GOOGLE_DRIVE"
+pattern SAFeedbackURL :: StackAttribute
+pattern SAFeedbackURL = StackAttribute' "FEEDBACK_URL"
 
-pattern StorageConnectorHomefolders :: StackAttribute
-pattern StorageConnectorHomefolders = StackAttribute' "STORAGE_CONNECTOR_HOMEFOLDERS"
+pattern SAThemeName :: StackAttribute
+pattern SAThemeName = StackAttribute' "THEME_NAME"
 
-pattern StorageConnectorOneDrive :: StackAttribute
-pattern StorageConnectorOneDrive = StackAttribute' "STORAGE_CONNECTOR_ONE_DRIVE"
+pattern SAUserSettings :: StackAttribute
+pattern SAUserSettings = StackAttribute' "USER_SETTINGS"
 
-pattern StorageConnectors :: StackAttribute
-pattern StorageConnectors = StackAttribute' "STORAGE_CONNECTORS"
+pattern SAEmbedHostDomains :: StackAttribute
+pattern SAEmbedHostDomains = StackAttribute' "EMBED_HOST_DOMAINS"
 
-pattern ThemeName :: StackAttribute
-pattern ThemeName = StackAttribute' "THEME_NAME"
+pattern SAIAMRoleARN :: StackAttribute
+pattern SAIAMRoleARN = StackAttribute' "IAM_ROLE_ARN"
 
-pattern UserSettings :: StackAttribute
-pattern UserSettings = StackAttribute' "USER_SETTINGS"
+pattern SAAccessEndpoints :: StackAttribute
+pattern SAAccessEndpoints = StackAttribute' "ACCESS_ENDPOINTS"
 
 {-# COMPLETE
-  AccessEndpoints,
-  EmbedHostDomains,
-  FeedbackURL,
-  IAMRoleARN,
-  RedirectURL,
-  StorageConnectorGoogleDrive,
-  StorageConnectorHomefolders,
-  StorageConnectorOneDrive,
-  StorageConnectors,
-  ThemeName,
-  UserSettings,
+  SAStorageConnectors,
+  SAStorageConnectorHomefolders,
+  SAStorageConnectorGoogleDrive,
+  SAStorageConnectorOneDrive,
+  SARedirectURL,
+  SAFeedbackURL,
+  SAThemeName,
+  SAUserSettings,
+  SAEmbedHostDomains,
+  SAIAMRoleARN,
+  SAAccessEndpoints,
   StackAttribute'
   #-}

@@ -13,10 +13,10 @@
 module Network.AWS.OpsWorks.Types.SourceType
   ( SourceType
       ( SourceType',
-        Archive,
         Git,
-        S3,
-        SVN
+        SVN,
+        Archive,
+        S3
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype SourceType = SourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Archive :: SourceType
-pattern Archive = SourceType' "archive"
-
 pattern Git :: SourceType
 pattern Git = SourceType' "git"
-
-pattern S3 :: SourceType
-pattern S3 = SourceType' "s3"
 
 pattern SVN :: SourceType
 pattern SVN = SourceType' "svn"
 
+pattern Archive :: SourceType
+pattern Archive = SourceType' "archive"
+
+pattern S3 :: SourceType
+pattern S3 = SourceType' "s3"
+
 {-# COMPLETE
-  Archive,
   Git,
-  S3,
   SVN,
+  Archive,
+  S3,
   SourceType'
   #-}

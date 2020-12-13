@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkGetPlatformApplicationAttributes' smart constructor.
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
-  { platformApplicationARN ::
-      Lude.Text
+  { -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
+    platformApplicationARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPlatformApplicationAttributes' with the minimum fields required to make a request.
@@ -108,22 +103,24 @@ instance Lude.ToQuery GetPlatformApplicationAttributes where
 --
 -- /See:/ 'mkGetPlatformApplicationAttributesResponse' smart constructor.
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
-  { attributes ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | Attributes include the following:
+    --
+    --
+    --     * @EventEndpointCreated@ – Topic ARN to which EndpointCreated event notifications should be sent.
+    --
+    --
+    --     * @EventEndpointDeleted@ – Topic ARN to which EndpointDeleted event notifications should be sent.
+    --
+    --
+    --     * @EventEndpointUpdated@ – Topic ARN to which EndpointUpdate event notifications should be sent.
+    --
+    --
+    --     * @EventDeliveryFailure@ – Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.

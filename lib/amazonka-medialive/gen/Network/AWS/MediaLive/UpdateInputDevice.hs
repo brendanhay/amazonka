@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.MediaLive.UpdateInputDevice
     mkUpdateInputDevice,
 
     -- ** Request lenses
+    uidInputDeviceId,
     uidHdDeviceSettings,
     uidName,
-    uidInputDeviceId,
 
     -- * Destructuring the response
     UpdateInputDeviceResponse (..),
@@ -53,24 +54,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateInputDevice' smart constructor.
 data UpdateInputDevice = UpdateInputDevice'
-  { hdDeviceSettings ::
-      Lude.Maybe InputDeviceConfigurableSettings,
-    name :: Lude.Maybe Lude.Text,
-    inputDeviceId :: Lude.Text
+  { -- | The unique ID of the input device. For example, hd-123456789abcdef.
+    inputDeviceId :: Lude.Text,
+    -- | The settings that you want to apply to the input device.
+    hdDeviceSettings :: Lude.Maybe InputDeviceConfigurableSettings,
+    -- | The name that you assigned to this input device (not the unique ID).
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInputDevice' with the minimum fields required to make a request.
 --
--- * 'hdDeviceSettings' - The settings that you want to apply to the input device.
 -- * 'inputDeviceId' - The unique ID of the input device. For example, hd-123456789abcdef.
+-- * 'hdDeviceSettings' - The settings that you want to apply to the input device.
 -- * 'name' - The name that you assigned to this input device (not the unique ID).
 mkUpdateInputDevice ::
   -- | 'inputDeviceId'
@@ -78,10 +75,17 @@ mkUpdateInputDevice ::
   UpdateInputDevice
 mkUpdateInputDevice pInputDeviceId_ =
   UpdateInputDevice'
-    { hdDeviceSettings = Lude.Nothing,
-      name = Lude.Nothing,
-      inputDeviceId = pInputDeviceId_
+    { inputDeviceId = pInputDeviceId_,
+      hdDeviceSettings = Lude.Nothing,
+      name = Lude.Nothing
     }
+
+-- | The unique ID of the input device. For example, hd-123456789abcdef.
+--
+-- /Note:/ Consider using 'inputDeviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uidInputDeviceId :: Lens.Lens' UpdateInputDevice Lude.Text
+uidInputDeviceId = Lens.lens (inputDeviceId :: UpdateInputDevice -> Lude.Text) (\s a -> s {inputDeviceId = a} :: UpdateInputDevice)
+{-# DEPRECATED uidInputDeviceId "Use generic-lens or generic-optics with 'inputDeviceId' instead." #-}
 
 -- | The settings that you want to apply to the input device.
 --
@@ -96,13 +100,6 @@ uidHdDeviceSettings = Lens.lens (hdDeviceSettings :: UpdateInputDevice -> Lude.M
 uidName :: Lens.Lens' UpdateInputDevice (Lude.Maybe Lude.Text)
 uidName = Lens.lens (name :: UpdateInputDevice -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateInputDevice)
 {-# DEPRECATED uidName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The unique ID of the input device. For example, hd-123456789abcdef.
---
--- /Note:/ Consider using 'inputDeviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uidInputDeviceId :: Lens.Lens' UpdateInputDevice Lude.Text
-uidInputDeviceId = Lens.lens (inputDeviceId :: UpdateInputDevice -> Lude.Text) (\s a -> s {inputDeviceId = a} :: UpdateInputDevice)
-{-# DEPRECATED uidInputDeviceId "Use generic-lens or generic-optics with 'inputDeviceId' instead." #-}
 
 instance Lude.AWSRequest UpdateInputDevice where
   type Rs UpdateInputDevice = UpdateInputDeviceResponse
@@ -154,48 +151,48 @@ instance Lude.ToQuery UpdateInputDevice where
 --
 -- /See:/ 'mkUpdateInputDeviceResponse' smart constructor.
 data UpdateInputDeviceResponse = UpdateInputDeviceResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ARN of the input device.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The network MAC address of the input device.
     mACAddress :: Lude.Maybe Lude.Text,
-    hdDeviceSettings ::
-      Lude.Maybe InputDeviceHdSettings,
+    -- | Settings that describe an input device that is type HD.
+    hdDeviceSettings :: Lude.Maybe InputDeviceHdSettings,
+    -- | A name that you specify for the input device.
     name :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the input device.
     id :: Lude.Maybe Lude.Text,
-    deviceUpdateStatus ::
-      Lude.Maybe DeviceUpdateStatus,
-    deviceSettingsSyncState ::
-      Lude.Maybe DeviceSettingsSyncState,
+    -- | The status of software on the input device.
+    deviceUpdateStatus :: Lude.Maybe DeviceUpdateStatus,
+    -- | The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+    deviceSettingsSyncState :: Lude.Maybe DeviceSettingsSyncState,
+    -- | The type of the input device.
     type' :: Lude.Maybe InputDeviceType,
+    -- | The unique serial number of the input device.
     serialNumber :: Lude.Maybe Lude.Text,
-    networkSettings ::
-      Lude.Maybe InputDeviceNetworkSettings,
-    connectionState ::
-      Lude.Maybe InputDeviceConnectionState,
+    -- | The network settings for the input device.
+    networkSettings :: Lude.Maybe InputDeviceNetworkSettings,
+    -- | The state of the connection between the input device and AWS.
+    connectionState :: Lude.Maybe InputDeviceConnectionState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateInputDeviceResponse' with the minimum fields required to make a request.
 --
 -- * 'arn' - The unique ARN of the input device.
--- * 'connectionState' - The state of the connection between the input device and AWS.
--- * 'deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
--- * 'deviceUpdateStatus' - The status of software on the input device.
--- * 'hdDeviceSettings' - Settings that describe an input device that is type HD.
--- * 'id' - The unique ID of the input device.
 -- * 'mACAddress' - The network MAC address of the input device.
+-- * 'hdDeviceSettings' - Settings that describe an input device that is type HD.
 -- * 'name' - A name that you specify for the input device.
--- * 'networkSettings' - The network settings for the input device.
--- * 'responseStatus' - The response status code.
--- * 'serialNumber' - The unique serial number of the input device.
+-- * 'id' - The unique ID of the input device.
+-- * 'deviceUpdateStatus' - The status of software on the input device.
+-- * 'deviceSettingsSyncState' - The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
 -- * 'type'' - The type of the input device.
+-- * 'serialNumber' - The unique serial number of the input device.
+-- * 'networkSettings' - The network settings for the input device.
+-- * 'connectionState' - The state of the connection between the input device and AWS.
+-- * 'responseStatus' - The response status code.
 mkUpdateInputDeviceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

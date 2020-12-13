@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,19 +52,19 @@ module Network.AWS.Redshift.ResizeCluster
     mkResizeCluster,
 
     -- ** Request lenses
-    rcNumberOfNodes,
-    rcClassic,
-    rcClusterType,
-    rcNodeType,
-    rcClusterIdentifier,
+    rcfClusterIdentifier,
+    rcfNumberOfNodes,
+    rcfClassic,
+    rcfClusterType,
+    rcfNodeType,
 
     -- * Destructuring the response
     ResizeClusterResponse (..),
     mkResizeClusterResponse,
 
     -- ** Response lenses
-    resrsCluster,
-    resrsResponseStatus,
+    rcfrsCluster,
+    rcfrsResponseStatus,
   )
 where
 
@@ -77,76 +78,74 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkResizeCluster' smart constructor.
 data ResizeCluster = ResizeCluster'
-  { numberOfNodes ::
-      Lude.Maybe Lude.Int,
+  { -- | The unique identifier for the cluster to resize.
+    clusterIdentifier :: Lude.Text,
+    -- | The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
+    numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
     classic :: Lude.Maybe Lude.Bool,
+    -- | The new cluster type for the specified cluster.
     clusterType :: Lude.Maybe Lude.Text,
-    nodeType :: Lude.Maybe Lude.Text,
-    clusterIdentifier :: Lude.Text
+    -- | The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.
+    nodeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResizeCluster' with the minimum fields required to make a request.
 --
--- * 'classic' - A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
 -- * 'clusterIdentifier' - The unique identifier for the cluster to resize.
+-- * 'numberOfNodes' - The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
+-- * 'classic' - A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
 -- * 'clusterType' - The new cluster type for the specified cluster.
 -- * 'nodeType' - The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.
--- * 'numberOfNodes' - The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
 mkResizeCluster ::
   -- | 'clusterIdentifier'
   Lude.Text ->
   ResizeCluster
 mkResizeCluster pClusterIdentifier_ =
   ResizeCluster'
-    { numberOfNodes = Lude.Nothing,
+    { clusterIdentifier = pClusterIdentifier_,
+      numberOfNodes = Lude.Nothing,
       classic = Lude.Nothing,
       clusterType = Lude.Nothing,
-      nodeType = Lude.Nothing,
-      clusterIdentifier = pClusterIdentifier_
+      nodeType = Lude.Nothing
     }
-
--- | The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
---
--- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcNumberOfNodes :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Int)
-rcNumberOfNodes = Lens.lens (numberOfNodes :: ResizeCluster -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: ResizeCluster)
-{-# DEPRECATED rcNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
-
--- | A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
---
--- /Note:/ Consider using 'classic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcClassic :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Bool)
-rcClassic = Lens.lens (classic :: ResizeCluster -> Lude.Maybe Lude.Bool) (\s a -> s {classic = a} :: ResizeCluster)
-{-# DEPRECATED rcClassic "Use generic-lens or generic-optics with 'classic' instead." #-}
-
--- | The new cluster type for the specified cluster.
---
--- /Note:/ Consider using 'clusterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcClusterType :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Text)
-rcClusterType = Lens.lens (clusterType :: ResizeCluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterType = a} :: ResizeCluster)
-{-# DEPRECATED rcClusterType "Use generic-lens or generic-optics with 'clusterType' instead." #-}
-
--- | The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.
---
--- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcNodeType :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Text)
-rcNodeType = Lens.lens (nodeType :: ResizeCluster -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: ResizeCluster)
-{-# DEPRECATED rcNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 -- | The unique identifier for the cluster to resize.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcClusterIdentifier :: Lens.Lens' ResizeCluster Lude.Text
-rcClusterIdentifier = Lens.lens (clusterIdentifier :: ResizeCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ResizeCluster)
-{-# DEPRECATED rcClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+rcfClusterIdentifier :: Lens.Lens' ResizeCluster Lude.Text
+rcfClusterIdentifier = Lens.lens (clusterIdentifier :: ResizeCluster -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ResizeCluster)
+{-# DEPRECATED rcfClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+
+-- | The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.
+--
+-- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcfNumberOfNodes :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Int)
+rcfNumberOfNodes = Lens.lens (numberOfNodes :: ResizeCluster -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: ResizeCluster)
+{-# DEPRECATED rcfNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
+
+-- | A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to @false@ , the resize type is elastic.
+--
+-- /Note:/ Consider using 'classic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcfClassic :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Bool)
+rcfClassic = Lens.lens (classic :: ResizeCluster -> Lude.Maybe Lude.Bool) (\s a -> s {classic = a} :: ResizeCluster)
+{-# DEPRECATED rcfClassic "Use generic-lens or generic-optics with 'classic' instead." #-}
+
+-- | The new cluster type for the specified cluster.
+--
+-- /Note:/ Consider using 'clusterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcfClusterType :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Text)
+rcfClusterType = Lens.lens (clusterType :: ResizeCluster -> Lude.Maybe Lude.Text) (\s a -> s {clusterType = a} :: ResizeCluster)
+{-# DEPRECATED rcfClusterType "Use generic-lens or generic-optics with 'clusterType' instead." #-}
+
+-- | The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcfNodeType :: Lens.Lens' ResizeCluster (Lude.Maybe Lude.Text)
+rcfNodeType = Lens.lens (nodeType :: ResizeCluster -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: ResizeCluster)
+{-# DEPRECATED rcfNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 instance Lude.AWSRequest ResizeCluster where
   type Rs ResizeCluster = ResizeClusterResponse
@@ -170,31 +169,25 @@ instance Lude.ToQuery ResizeCluster where
     Lude.mconcat
       [ "Action" Lude.=: ("ResizeCluster" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
         "NumberOfNodes" Lude.=: numberOfNodes,
         "Classic" Lude.=: classic,
         "ClusterType" Lude.=: clusterType,
-        "NodeType" Lude.=: nodeType,
-        "ClusterIdentifier" Lude.=: clusterIdentifier
+        "NodeType" Lude.=: nodeType
       ]
 
 -- | /See:/ 'mkResizeClusterResponse' smart constructor.
 data ResizeClusterResponse = ResizeClusterResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
+  { cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResizeClusterResponse' with the minimum fields required to make a request.
 --
--- * 'cluster' - Undocumented field.
+-- * 'cluster' -
 -- * 'responseStatus' - The response status code.
 mkResizeClusterResponse ::
   -- | 'responseStatus'
@@ -209,13 +202,13 @@ mkResizeClusterResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resrsCluster :: Lens.Lens' ResizeClusterResponse (Lude.Maybe Cluster)
-resrsCluster = Lens.lens (cluster :: ResizeClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ResizeClusterResponse)
-{-# DEPRECATED resrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+rcfrsCluster :: Lens.Lens' ResizeClusterResponse (Lude.Maybe Cluster)
+rcfrsCluster = Lens.lens (cluster :: ResizeClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ResizeClusterResponse)
+{-# DEPRECATED rcfrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resrsResponseStatus :: Lens.Lens' ResizeClusterResponse Lude.Int
-resrsResponseStatus = Lens.lens (responseStatus :: ResizeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResizeClusterResponse)
-{-# DEPRECATED resrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rcfrsResponseStatus :: Lens.Lens' ResizeClusterResponse Lude.Int
+rcfrsResponseStatus = Lens.lens (responseStatus :: ResizeClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResizeClusterResponse)
+{-# DEPRECATED rcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

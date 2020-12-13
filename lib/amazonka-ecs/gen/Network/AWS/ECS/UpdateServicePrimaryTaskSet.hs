@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateServicePrimaryTaskSet' smart constructor.
 data UpdateServicePrimaryTaskSet = UpdateServicePrimaryTaskSet'
-  { cluster ::
-      Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
+    cluster :: Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
     service :: Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the deployment.
     primaryTaskSet :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServicePrimaryTaskSet' with the minimum fields required to make a request.
 --
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
--- * 'primaryTaskSet' - The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the deployment.
 -- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
+-- * 'primaryTaskSet' - The short name or full Amazon Resource Name (ARN) of the task set to set as the primary task set in the deployment.
 mkUpdateServicePrimaryTaskSet ::
   -- | 'cluster'
   Lude.Text ->
@@ -139,24 +136,17 @@ instance Lude.ToQuery UpdateServicePrimaryTaskSet where
 
 -- | /See:/ 'mkUpdateServicePrimaryTaskSetResponse' smart constructor.
 data UpdateServicePrimaryTaskSetResponse = UpdateServicePrimaryTaskSetResponse'
-  { taskSet ::
-      Lude.Maybe TaskSet,
-    responseStatus ::
-      Lude.Int
+  { taskSet :: Lude.Maybe TaskSet,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServicePrimaryTaskSetResponse' with the minimum fields required to make a request.
 --
+-- * 'taskSet' -
 -- * 'responseStatus' - The response status code.
--- * 'taskSet' - Undocumented field.
 mkUpdateServicePrimaryTaskSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,11 +13,11 @@
 module Network.AWS.WorkDocs.Types.UserSortType
   ( UserSortType
       ( UserSortType',
+        UserName,
         FullName,
         StorageLimit,
-        StorageUsed,
-        UserName,
-        UserStatus
+        UserStatus,
+        StorageUsed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype UserSortType = UserSortType' Lude.Text
       Lude.ToHeader
     )
 
+pattern UserName :: UserSortType
+pattern UserName = UserSortType' "USER_NAME"
+
 pattern FullName :: UserSortType
 pattern FullName = UserSortType' "FULL_NAME"
 
 pattern StorageLimit :: UserSortType
 pattern StorageLimit = UserSortType' "STORAGE_LIMIT"
 
-pattern StorageUsed :: UserSortType
-pattern StorageUsed = UserSortType' "STORAGE_USED"
-
-pattern UserName :: UserSortType
-pattern UserName = UserSortType' "USER_NAME"
-
 pattern UserStatus :: UserSortType
 pattern UserStatus = UserSortType' "USER_STATUS"
 
+pattern StorageUsed :: UserSortType
+pattern StorageUsed = UserSortType' "STORAGE_USED"
+
 {-# COMPLETE
+  UserName,
   FullName,
   StorageLimit,
-  StorageUsed,
-  UserName,
   UserStatus,
+  StorageUsed,
   UserSortType'
   #-}

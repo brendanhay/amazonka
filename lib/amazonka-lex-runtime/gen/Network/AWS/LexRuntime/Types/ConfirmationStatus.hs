@@ -13,9 +13,9 @@
 module Network.AWS.LexRuntime.Types.ConfirmationStatus
   ( ConfirmationStatus
       ( ConfirmationStatus',
+        None,
         Confirmed,
-        Denied,
-        None
+        Denied
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ConfirmationStatus = ConfirmationStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern None :: ConfirmationStatus
+pattern None = ConfirmationStatus' "None"
+
 pattern Confirmed :: ConfirmationStatus
 pattern Confirmed = ConfirmationStatus' "Confirmed"
 
 pattern Denied :: ConfirmationStatus
 pattern Denied = ConfirmationStatus' "Denied"
 
-pattern None :: ConfirmationStatus
-pattern None = ConfirmationStatus' "None"
-
 {-# COMPLETE
+  None,
   Confirmed,
   Denied,
-  None,
   ConfirmationStatus'
   #-}

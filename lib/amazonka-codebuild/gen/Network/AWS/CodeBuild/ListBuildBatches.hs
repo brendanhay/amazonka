@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListBuildBatches' smart constructor.
 data ListBuildBatches = ListBuildBatches'
-  { sortOrder ::
-      Lude.Maybe SortOrderType,
+  { -- | Specifies the sort order of the returned items. Valid values include:
+    --
+    --
+    --     * @ASCENDING@ : List the batch build identifiers in ascending order by identifier.
+    --
+    --
+    --     * @DESCENDING@ : List the batch build identifiers in descending order by identifier.
+    sortOrder :: Lude.Maybe SortOrderType,
+    -- | The @nextToken@ value returned from a previous call to @ListBuildBatches@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A @BuildBatchFilter@ object that specifies the filters for the search.
     filter :: Lude.Maybe BuildBatchFilter,
+    -- | The maximum number of results to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuildBatches' with the minimum fields required to make a request.
 --
--- * 'filter' - A @BuildBatchFilter@ object that specifies the filters for the search.
--- * 'maxResults' - The maximum number of results to return.
--- * 'nextToken' - The @nextToken@ value returned from a previous call to @ListBuildBatches@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
 -- * 'sortOrder' - Specifies the sort order of the returned items. Valid values include:
 --
 --
@@ -73,6 +74,11 @@ data ListBuildBatches = ListBuildBatches'
 --
 --
 --     * @DESCENDING@ : List the batch build identifiers in descending order by identifier.
+--
+--
+-- * 'nextToken' - The @nextToken@ value returned from a previous call to @ListBuildBatches@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
+-- * 'filter' - A @BuildBatchFilter@ object that specifies the filters for the search.
+-- * 'maxResults' - The maximum number of results to return.
 mkListBuildBatches ::
   ListBuildBatches
 mkListBuildBatches =
@@ -170,18 +176,14 @@ instance Lude.ToQuery ListBuildBatches where
 
 -- | /See:/ 'mkListBuildBatchesResponse' smart constructor.
 data ListBuildBatchesResponse = ListBuildBatchesResponse'
-  { ids ::
-      Lude.Maybe [Lude.Text],
+  { -- | An array of strings that contains the batch build identifiers.
+    ids :: Lude.Maybe [Lude.Text],
+    -- | If there are more items to return, this contains a token that is passed to a subsequent call to @ListBuildBatches@ to retrieve the next set of items.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuildBatchesResponse' with the minimum fields required to make a request.

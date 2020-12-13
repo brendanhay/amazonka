@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabaseEndpoint' smart constructor.
 data RelationalDatabaseEndpoint = RelationalDatabaseEndpoint'
-  { address ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the DNS address of the database.
+    address :: Lude.Maybe Lude.Text,
+    -- | Specifies the port that the database is listening on.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseEndpoint' with the minimum fields required to make a request.

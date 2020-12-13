@@ -43,46 +43,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventFilter' smart constructor.
 data EventFilter = EventFilter'
-  { eventARNs ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    eventTypeCategories ::
-      Lude.Maybe (Lude.NonEmpty EventTypeCategory),
+  { -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
+    eventARNs :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
+    eventTypeCategories :: Lude.Maybe (Lude.NonEmpty EventTypeCategory),
+    -- | A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
     eventTypeCodes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of AWS regions.
     regions :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of event status codes.
     eventStatusCodes :: Lude.Maybe (Lude.NonEmpty EventStatusCode),
+    -- | A list of dates and times that the event ended.
     endTimes :: Lude.Maybe (Lude.NonEmpty DateTimeRange),
+    -- | A list of AWS availability zones.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | A list of entity ARNs (unique identifiers).
     entityARNs :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@ ) or EBS volumes (@vol-426ab23e@ ).
     entityValues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of dates and times that the event began.
     startTimes :: Lude.Maybe (Lude.NonEmpty DateTimeRange),
+    -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
     services :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A map of entity tags attached to the affected entity.
     tags :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    -- | A list of dates and times that the event was last updated.
     lastUpdatedTimes :: Lude.Maybe (Lude.NonEmpty DateTimeRange)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventFilter' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - A list of AWS availability zones.
--- * 'endTimes' - A list of dates and times that the event ended.
--- * 'entityARNs' - A list of entity ARNs (unique identifiers).
--- * 'entityValues' - A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@ ) or EBS volumes (@vol-426ab23e@ ).
 -- * 'eventARNs' - A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
--- * 'eventStatusCodes' - A list of event status codes.
 -- * 'eventTypeCategories' - A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 -- * 'eventTypeCodes' - A list of unique identifiers for event types. For example, @"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".@
--- * 'lastUpdatedTimes' - A list of dates and times that the event was last updated.
 -- * 'regions' - A list of AWS regions.
--- * 'services' - The AWS services associated with the event. For example, @EC2@ , @RDS@ .
+-- * 'eventStatusCodes' - A list of event status codes.
+-- * 'endTimes' - A list of dates and times that the event ended.
+-- * 'availabilityZones' - A list of AWS availability zones.
+-- * 'entityARNs' - A list of entity ARNs (unique identifiers).
+-- * 'entityValues' - A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@ ) or EBS volumes (@vol-426ab23e@ ).
 -- * 'startTimes' - A list of dates and times that the event began.
+-- * 'services' - The AWS services associated with the event. For example, @EC2@ , @RDS@ .
 -- * 'tags' - A map of entity tags attached to the affected entity.
+-- * 'lastUpdatedTimes' - A list of dates and times that the event was last updated.
 mkEventFilter ::
   EventFilter
 mkEventFilter =

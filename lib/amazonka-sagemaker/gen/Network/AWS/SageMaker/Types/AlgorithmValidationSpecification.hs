@@ -30,25 +30,18 @@ import Network.AWS.SageMaker.Types.AlgorithmValidationProfile
 --
 -- /See:/ 'mkAlgorithmValidationSpecification' smart constructor.
 data AlgorithmValidationSpecification = AlgorithmValidationSpecification'
-  { validationRole ::
-      Lude.Text,
-    validationProfiles ::
-      Lude.NonEmpty
-        AlgorithmValidationProfile
+  { -- | The IAM roles that Amazon SageMaker uses to run the training jobs.
+    validationRole :: Lude.Text,
+    -- | An array of @AlgorithmValidationProfile@ objects, each of which specifies a training job and batch transform job that Amazon SageMaker runs to validate your algorithm.
+    validationProfiles :: Lude.NonEmpty AlgorithmValidationProfile
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlgorithmValidationSpecification' with the minimum fields required to make a request.
 --
--- * 'validationProfiles' - An array of @AlgorithmValidationProfile@ objects, each of which specifies a training job and batch transform job that Amazon SageMaker runs to validate your algorithm.
 -- * 'validationRole' - The IAM roles that Amazon SageMaker uses to run the training jobs.
+-- * 'validationProfiles' - An array of @AlgorithmValidationProfile@ objects, each of which specifies a training job and batch transform job that Amazon SageMaker runs to validate your algorithm.
 mkAlgorithmValidationSpecification ::
   -- | 'validationRole'
   Lude.Text ->

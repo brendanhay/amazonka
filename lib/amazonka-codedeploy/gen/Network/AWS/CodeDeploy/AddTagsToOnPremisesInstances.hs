@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     mkAddTagsToOnPremisesInstances,
 
     -- ** Request lenses
-    attopiTags,
     attopiInstanceNames,
+    attopiTags,
 
     -- * Destructuring the response
     AddTagsToOnPremisesInstancesResponse (..),
@@ -38,17 +39,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddTagsToOnPremisesInstances' smart constructor.
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
-  { tags ::
-      [Tag],
-    instanceNames :: [Lude.Text]
+  { -- | The names of the on-premises instances to which to add tags.
+    instanceNames :: [Lude.Text],
+    -- | The tag key-value pairs to add to the on-premises instances.
+    --
+    -- Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.
+    tags :: [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToOnPremisesInstances' with the minimum fields required to make a request.
@@ -61,9 +59,16 @@ mkAddTagsToOnPremisesInstances ::
   AddTagsToOnPremisesInstances
 mkAddTagsToOnPremisesInstances =
   AddTagsToOnPremisesInstances'
-    { tags = Lude.mempty,
-      instanceNames = Lude.mempty
+    { instanceNames = Lude.mempty,
+      tags = Lude.mempty
     }
+
+-- | The names of the on-premises instances to which to add tags.
+--
+-- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attopiInstanceNames :: Lens.Lens' AddTagsToOnPremisesInstances [Lude.Text]
+attopiInstanceNames = Lens.lens (instanceNames :: AddTagsToOnPremisesInstances -> [Lude.Text]) (\s a -> s {instanceNames = a} :: AddTagsToOnPremisesInstances)
+{-# DEPRECATED attopiInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
 -- | The tag key-value pairs to add to the on-premises instances.
 --
@@ -73,13 +78,6 @@ mkAddTagsToOnPremisesInstances =
 attopiTags :: Lens.Lens' AddTagsToOnPremisesInstances [Tag]
 attopiTags = Lens.lens (tags :: AddTagsToOnPremisesInstances -> [Tag]) (\s a -> s {tags = a} :: AddTagsToOnPremisesInstances)
 {-# DEPRECATED attopiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The names of the on-premises instances to which to add tags.
---
--- /Note:/ Consider using 'instanceNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attopiInstanceNames :: Lens.Lens' AddTagsToOnPremisesInstances [Lude.Text]
-attopiInstanceNames = Lens.lens (instanceNames :: AddTagsToOnPremisesInstances -> [Lude.Text]) (\s a -> s {instanceNames = a} :: AddTagsToOnPremisesInstances)
-{-# DEPRECATED attopiInstanceNames "Use generic-lens or generic-optics with 'instanceNames' instead." #-}
 
 instance Lude.AWSRequest AddTagsToOnPremisesInstances where
   type
@@ -105,8 +103,8 @@ instance Lude.ToJSON AddTagsToOnPremisesInstances where
   toJSON AddTagsToOnPremisesInstances' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("tags" Lude..= tags),
-            Lude.Just ("instanceNames" Lude..= instanceNames)
+          [ Lude.Just ("instanceNames" Lude..= instanceNames),
+            Lude.Just ("tags" Lude..= tags)
           ]
       )
 
@@ -118,13 +116,7 @@ instance Lude.ToQuery AddTagsToOnPremisesInstances where
 
 -- | /See:/ 'mkAddTagsToOnPremisesInstancesResponse' smart constructor.
 data AddTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToOnPremisesInstancesResponse' with the minimum fields required to make a request.

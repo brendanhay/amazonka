@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComputeResourceUpdate' smart constructor.
 data ComputeResourceUpdate = ComputeResourceUpdate'
-  { minvCPUs ::
-      Lude.Maybe Lude.Int,
+  { -- | The minimum number of Amazon EC2 vCPUs that an environment should maintain.
+    minvCPUs :: Lude.Maybe Lude.Int,
+    -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
     maxvCPUs :: Lude.Maybe Lude.Int,
+    -- | The desired number of Amazon EC2 vCPUS in the compute environment.
     desiredvCPUs :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComputeResourceUpdate' with the minimum fields required to make a request.
 --
--- * 'desiredvCPUs' - The desired number of Amazon EC2 vCPUS in the compute environment.
--- * 'maxvCPUs' - The maximum number of Amazon EC2 vCPUs that an environment can reach.
 -- * 'minvCPUs' - The minimum number of Amazon EC2 vCPUs that an environment should maintain.
+-- * 'maxvCPUs' - The maximum number of Amazon EC2 vCPUs that an environment can reach.
+-- * 'desiredvCPUs' - The desired number of Amazon EC2 vCPUS in the compute environment.
 mkComputeResourceUpdate ::
   ComputeResourceUpdate
 mkComputeResourceUpdate =

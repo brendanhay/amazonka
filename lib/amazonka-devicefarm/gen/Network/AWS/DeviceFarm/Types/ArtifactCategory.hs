@@ -13,9 +13,9 @@
 module Network.AWS.DeviceFarm.Types.ArtifactCategory
   ( ArtifactCategory
       ( ArtifactCategory',
-        File,
-        Log,
-        Screenshot
+        ACScreenshot,
+        ACFile,
+        ACLog
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ArtifactCategory = ArtifactCategory' Lude.Text
       Lude.ToHeader
     )
 
-pattern File :: ArtifactCategory
-pattern File = ArtifactCategory' "FILE"
+pattern ACScreenshot :: ArtifactCategory
+pattern ACScreenshot = ArtifactCategory' "SCREENSHOT"
 
-pattern Log :: ArtifactCategory
-pattern Log = ArtifactCategory' "LOG"
+pattern ACFile :: ArtifactCategory
+pattern ACFile = ArtifactCategory' "FILE"
 
-pattern Screenshot :: ArtifactCategory
-pattern Screenshot = ArtifactCategory' "SCREENSHOT"
+pattern ACLog :: ArtifactCategory
+pattern ACLog = ArtifactCategory' "LOG"
 
 {-# COMPLETE
-  File,
-  Log,
-  Screenshot,
+  ACScreenshot,
+  ACFile,
+  ACLog,
   ArtifactCategory'
   #-}

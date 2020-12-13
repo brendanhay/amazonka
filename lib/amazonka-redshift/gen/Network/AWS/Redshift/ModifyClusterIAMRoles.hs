@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Redshift.ModifyClusterIAMRoles
 
     -- ** Request lenses
     mcirRemoveIAMRoles,
-    mcirAddIAMRoles,
     mcirClusterIdentifier,
+    mcirAddIAMRoles,
 
     -- * Destructuring the response
     ModifyClusterIAMRolesResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyClusterIAMRoles' smart constructor.
 data ModifyClusterIAMRoles = ModifyClusterIAMRoles'
-  { removeIAMRoles ::
-      Lude.Maybe [Lude.Text],
-    addIAMRoles :: Lude.Maybe [Lude.Text],
-    clusterIdentifier :: Lude.Text
+  { -- | Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
+    removeIAMRoles :: Lude.Maybe [Lude.Text],
+    -- | The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
+    clusterIdentifier :: Lude.Text,
+    -- | Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
+    addIAMRoles :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterIAMRoles' with the minimum fields required to make a request.
 --
--- * 'addIAMRoles' - Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
--- * 'clusterIdentifier' - The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
 -- * 'removeIAMRoles' - Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
+-- * 'clusterIdentifier' - The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
+-- * 'addIAMRoles' - Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
 mkModifyClusterIAMRoles ::
   -- | 'clusterIdentifier'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkModifyClusterIAMRoles ::
 mkModifyClusterIAMRoles pClusterIdentifier_ =
   ModifyClusterIAMRoles'
     { removeIAMRoles = Lude.Nothing,
-      addIAMRoles = Lude.Nothing,
-      clusterIdentifier = pClusterIdentifier_
+      clusterIdentifier = pClusterIdentifier_,
+      addIAMRoles = Lude.Nothing
     }
 
 -- | Zero or more IAM roles in ARN format to disassociate from the cluster. You can disassociate up to 10 IAM roles from a single cluster in a single request.
@@ -82,19 +79,19 @@ mcirRemoveIAMRoles :: Lens.Lens' ModifyClusterIAMRoles (Lude.Maybe [Lude.Text])
 mcirRemoveIAMRoles = Lens.lens (removeIAMRoles :: ModifyClusterIAMRoles -> Lude.Maybe [Lude.Text]) (\s a -> s {removeIAMRoles = a} :: ModifyClusterIAMRoles)
 {-# DEPRECATED mcirRemoveIAMRoles "Use generic-lens or generic-optics with 'removeIAMRoles' instead." #-}
 
--- | Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
---
--- /Note:/ Consider using 'addIAMRoles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcirAddIAMRoles :: Lens.Lens' ModifyClusterIAMRoles (Lude.Maybe [Lude.Text])
-mcirAddIAMRoles = Lens.lens (addIAMRoles :: ModifyClusterIAMRoles -> Lude.Maybe [Lude.Text]) (\s a -> s {addIAMRoles = a} :: ModifyClusterIAMRoles)
-{-# DEPRECATED mcirAddIAMRoles "Use generic-lens or generic-optics with 'addIAMRoles' instead." #-}
-
 -- | The unique identifier of the cluster for which you want to associate or disassociate IAM roles.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mcirClusterIdentifier :: Lens.Lens' ModifyClusterIAMRoles Lude.Text
 mcirClusterIdentifier = Lens.lens (clusterIdentifier :: ModifyClusterIAMRoles -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ModifyClusterIAMRoles)
 {-# DEPRECATED mcirClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+
+-- | Zero or more IAM roles to associate with the cluster. The roles must be in their Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single cluster in a single request.
+--
+-- /Note:/ Consider using 'addIAMRoles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcirAddIAMRoles :: Lens.Lens' ModifyClusterIAMRoles (Lude.Maybe [Lude.Text])
+mcirAddIAMRoles = Lens.lens (addIAMRoles :: ModifyClusterIAMRoles -> Lude.Maybe [Lude.Text]) (\s a -> s {addIAMRoles = a} :: ModifyClusterIAMRoles)
+{-# DEPRECATED mcirAddIAMRoles "Use generic-lens or generic-optics with 'addIAMRoles' instead." #-}
 
 instance Lude.AWSRequest ModifyClusterIAMRoles where
   type Rs ModifyClusterIAMRoles = ModifyClusterIAMRolesResponse
@@ -121,29 +118,23 @@ instance Lude.ToQuery ModifyClusterIAMRoles where
         "RemoveIamRoles"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "IamRoleArn" Lude.<$> removeIAMRoles),
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
         "AddIamRoles"
-          Lude.=: Lude.toQuery (Lude.toQueryList "IamRoleArn" Lude.<$> addIAMRoles),
-        "ClusterIdentifier" Lude.=: clusterIdentifier
+          Lude.=: Lude.toQuery (Lude.toQueryList "IamRoleArn" Lude.<$> addIAMRoles)
       ]
 
 -- | /See:/ 'mkModifyClusterIAMRolesResponse' smart constructor.
 data ModifyClusterIAMRolesResponse = ModifyClusterIAMRolesResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
+  { cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterIAMRolesResponse' with the minimum fields required to make a request.
 --
--- * 'cluster' - Undocumented field.
+-- * 'cluster' -
 -- * 'responseStatus' - The response status code.
 mkModifyClusterIAMRolesResponse ::
   -- | 'responseStatus'

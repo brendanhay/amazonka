@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.EMR.CreateSecurityConfiguration
     mkCreateSecurityConfiguration,
 
     -- ** Request lenses
-    cscName,
     cscSecurityConfiguration,
+    cscName,
 
     -- * Destructuring the response
     CreateSecurityConfigurationResponse (..),
     mkCreateSecurityConfigurationResponse,
 
     -- ** Response lenses
-    cscrsResponseStatus,
     cscrsName,
     cscrsCreationDateTime,
+    cscrsResponseStatus,
   )
 where
 
@@ -41,41 +42,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSecurityConfiguration' smart constructor.
 data CreateSecurityConfiguration = CreateSecurityConfiguration'
-  { name ::
-      Lude.Text,
-    securityConfiguration :: Lude.Text
+  { -- | The security configuration details in JSON format. For JSON parameters and examples, see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html Use Security Configurations to Set Up Cluster Security> in the /Amazon EMR Management Guide/ .
+    securityConfiguration :: Lude.Text,
+    -- | The name of the security configuration.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityConfiguration' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the security configuration.
 -- * 'securityConfiguration' - The security configuration details in JSON format. For JSON parameters and examples, see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html Use Security Configurations to Set Up Cluster Security> in the /Amazon EMR Management Guide/ .
+-- * 'name' - The name of the security configuration.
 mkCreateSecurityConfiguration ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'securityConfiguration'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateSecurityConfiguration
-mkCreateSecurityConfiguration pName_ pSecurityConfiguration_ =
+mkCreateSecurityConfiguration pSecurityConfiguration_ pName_ =
   CreateSecurityConfiguration'
-    { name = pName_,
-      securityConfiguration = pSecurityConfiguration_
+    { securityConfiguration =
+        pSecurityConfiguration_,
+      name = pName_
     }
-
--- | The name of the security configuration.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscName :: Lens.Lens' CreateSecurityConfiguration Lude.Text
-cscName = Lens.lens (name :: CreateSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: CreateSecurityConfiguration)
-{-# DEPRECATED cscName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The security configuration details in JSON format. For JSON parameters and examples, see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html Use Security Configurations to Set Up Cluster Security> in the /Amazon EMR Management Guide/ .
 --
@@ -83,6 +73,13 @@ cscName = Lens.lens (name :: CreateSecurityConfiguration -> Lude.Text) (\s a -> 
 cscSecurityConfiguration :: Lens.Lens' CreateSecurityConfiguration Lude.Text
 cscSecurityConfiguration = Lens.lens (securityConfiguration :: CreateSecurityConfiguration -> Lude.Text) (\s a -> s {securityConfiguration = a} :: CreateSecurityConfiguration)
 {-# DEPRECATED cscSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
+
+-- | The name of the security configuration.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscName :: Lens.Lens' CreateSecurityConfiguration Lude.Text
+cscName = Lens.lens (name :: CreateSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: CreateSecurityConfiguration)
+{-# DEPRECATED cscName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateSecurityConfiguration where
   type
@@ -93,9 +90,9 @@ instance Lude.AWSRequest CreateSecurityConfiguration where
     Res.receiveJSON
       ( \s h x ->
           CreateSecurityConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "Name")
+            Lude.<$> (x Lude..:> "Name")
             Lude.<*> (x Lude..:> "CreationDateTime")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateSecurityConfiguration where
@@ -115,8 +112,8 @@ instance Lude.ToJSON CreateSecurityConfiguration where
   toJSON CreateSecurityConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("SecurityConfiguration" Lude..= securityConfiguration)
+          [ Lude.Just ("SecurityConfiguration" Lude..= securityConfiguration),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -128,51 +125,38 @@ instance Lude.ToQuery CreateSecurityConfiguration where
 
 -- | /See:/ 'mkCreateSecurityConfigurationResponse' smart constructor.
 data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | The name of the security configuration.
     name :: Lude.Text,
-    creationDateTime ::
-      Lude.Timestamp
+    -- | The date and time the security configuration was created.
+    creationDateTime :: Lude.Timestamp,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'creationDateTime' - The date and time the security configuration was created.
 -- * 'name' - The name of the security configuration.
+-- * 'creationDateTime' - The date and time the security configuration was created.
 -- * 'responseStatus' - The response status code.
 mkCreateSecurityConfigurationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'name'
   Lude.Text ->
   -- | 'creationDateTime'
   Lude.Timestamp ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSecurityConfigurationResponse
 mkCreateSecurityConfigurationResponse
-  pResponseStatus_
   pName_
-  pCreationDateTime_ =
+  pCreationDateTime_
+  pResponseStatus_ =
     CreateSecurityConfigurationResponse'
-      { responseStatus =
-          pResponseStatus_,
-        name = pName_,
-        creationDateTime = pCreationDateTime_
+      { name = pName_,
+        creationDateTime = pCreationDateTime_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscrsResponseStatus :: Lens.Lens' CreateSecurityConfigurationResponse Lude.Int
-cscrsResponseStatus = Lens.lens (responseStatus :: CreateSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSecurityConfigurationResponse)
-{-# DEPRECATED cscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The name of the security configuration.
 --
@@ -187,3 +171,10 @@ cscrsName = Lens.lens (name :: CreateSecurityConfigurationResponse -> Lude.Text)
 cscrsCreationDateTime :: Lens.Lens' CreateSecurityConfigurationResponse Lude.Timestamp
 cscrsCreationDateTime = Lens.lens (creationDateTime :: CreateSecurityConfigurationResponse -> Lude.Timestamp) (\s a -> s {creationDateTime = a} :: CreateSecurityConfigurationResponse)
 {-# DEPRECATED cscrsCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscrsResponseStatus :: Lens.Lens' CreateSecurityConfigurationResponse Lude.Int
+cscrsResponseStatus = Lens.lens (responseStatus :: CreateSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSecurityConfigurationResponse)
+{-# DEPRECATED cscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

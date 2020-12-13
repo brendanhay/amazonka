@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     mkDeleteLunaClient,
 
     -- ** Request lenses
-    dClientARN,
+    dlcClientARN,
 
     -- * Destructuring the response
     DeleteLunaClientResponse (..),
     mkDeleteLunaClientResponse,
 
     -- ** Response lenses
-    dlcrsResponseStatus,
     dlcrsStatus,
+    dlcrsResponseStatus,
   )
 where
 
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteLunaClient' smart constructor.
 newtype DeleteLunaClient = DeleteLunaClient'
-  { clientARN ::
-      Lude.Text
+  { -- | The ARN of the client to delete.
+    clientARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLunaClient' with the minimum fields required to make a request.
@@ -67,9 +62,9 @@ mkDeleteLunaClient pClientARN_ =
 -- | The ARN of the client to delete.
 --
 -- /Note:/ Consider using 'clientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dClientARN :: Lens.Lens' DeleteLunaClient Lude.Text
-dClientARN = Lens.lens (clientARN :: DeleteLunaClient -> Lude.Text) (\s a -> s {clientARN = a} :: DeleteLunaClient)
-{-# DEPRECATED dClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
+dlcClientARN :: Lens.Lens' DeleteLunaClient Lude.Text
+dlcClientARN = Lens.lens (clientARN :: DeleteLunaClient -> Lude.Text) (\s a -> s {clientARN = a} :: DeleteLunaClient)
+{-# DEPRECATED dlcClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
 
 instance Lude.AWSRequest DeleteLunaClient where
   type Rs DeleteLunaClient = DeleteLunaClientResponse
@@ -78,7 +73,7 @@ instance Lude.AWSRequest DeleteLunaClient where
     Res.receiveJSON
       ( \s h x ->
           DeleteLunaClientResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Status")
+            Lude.<$> (x Lude..:> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteLunaClient where
@@ -105,41 +100,29 @@ instance Lude.ToQuery DeleteLunaClient where
 
 -- | /See:/ 'mkDeleteLunaClientResponse' smart constructor.
 data DeleteLunaClientResponse = DeleteLunaClientResponse'
-  { responseStatus ::
-      Lude.Int,
-    status :: Lude.Text
+  { -- | The status of the action.
+    status :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLunaClientResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the action.
+-- * 'responseStatus' - The response status code.
 mkDeleteLunaClientResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'status'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteLunaClientResponse
-mkDeleteLunaClientResponse pResponseStatus_ pStatus_ =
+mkDeleteLunaClientResponse pStatus_ pResponseStatus_ =
   DeleteLunaClientResponse'
-    { responseStatus = pResponseStatus_,
-      status = pStatus_
+    { status = pStatus_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcrsResponseStatus :: Lens.Lens' DeleteLunaClientResponse Lude.Int
-dlcrsResponseStatus = Lens.lens (responseStatus :: DeleteLunaClientResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLunaClientResponse)
-{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the action.
 --
@@ -147,3 +130,10 @@ dlcrsResponseStatus = Lens.lens (responseStatus :: DeleteLunaClientResponse -> L
 dlcrsStatus :: Lens.Lens' DeleteLunaClientResponse Lude.Text
 dlcrsStatus = Lens.lens (status :: DeleteLunaClientResponse -> Lude.Text) (\s a -> s {status = a} :: DeleteLunaClientResponse)
 {-# DEPRECATED dlcrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrsResponseStatus :: Lens.Lens' DeleteLunaClientResponse Lude.Int
+dlcrsResponseStatus = Lens.lens (responseStatus :: DeleteLunaClientResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLunaClientResponse)
+{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

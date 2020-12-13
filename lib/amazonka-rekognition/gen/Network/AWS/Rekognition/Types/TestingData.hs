@@ -30,16 +30,12 @@ import Network.AWS.Rekognition.Types.Asset
 --
 -- /See:/ 'mkTestingData' smart constructor.
 data TestingData = TestingData'
-  { assets :: Lude.Maybe [Asset],
+  { -- | The assets used for testing.
+    assets :: Lude.Maybe [Asset],
+    -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.
     autoCreate :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestingData' with the minimum fields required to make a request.

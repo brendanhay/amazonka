@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkStopWorkspaces' smart constructor.
 newtype StopWorkspaces = StopWorkspaces'
-  { stopWorkspaceRequests ::
-      Lude.NonEmpty StopRequest
+  { -- | The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
+    stopWorkspaceRequests :: Lude.NonEmpty StopRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopWorkspaces' with the minimum fields required to make a request.
@@ -109,17 +104,12 @@ instance Lude.ToQuery StopWorkspaces where
 
 -- | /See:/ 'mkStopWorkspacesResponse' smart constructor.
 data StopWorkspacesResponse = StopWorkspacesResponse'
-  { failedRequests ::
-      Lude.Maybe [FailedWorkspaceChangeRequest],
+  { -- | Information about the WorkSpaces that could not be stopped.
+    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopWorkspacesResponse' with the minimum fields required to make a request.

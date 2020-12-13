@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTerminateRecommendationDetail' smart constructor.
 data TerminateRecommendationDetail = TerminateRecommendationDetail'
-  { currencyCode ::
-      Lude.Maybe Lude.Text,
-    estimatedMonthlySavings ::
-      Lude.Maybe Lude.Text
+  { -- | The currency code that AWS used to calculate the costs for this instance.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | Estimated savings resulting from modification, on a monthly basis.
+    estimatedMonthlySavings :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateRecommendationDetail' with the minimum fields required to make a request.

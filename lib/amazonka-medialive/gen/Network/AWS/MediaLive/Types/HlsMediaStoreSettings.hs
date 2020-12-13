@@ -33,30 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsMediaStoreSettings' smart constructor.
 data HlsMediaStoreSettings = HlsMediaStoreSettings'
-  { numRetries ::
-      Lude.Maybe Lude.Natural,
-    connectionRetryInterval ::
-      Lude.Maybe Lude.Natural,
+  { -- | Number of retry attempts that will be made before the Live Event is put into an error state.
+    numRetries :: Lude.Maybe Lude.Natural,
+    -- | Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+    connectionRetryInterval :: Lude.Maybe Lude.Natural,
+    -- | Size in seconds of file cache for streaming outputs.
     filecacheDuration :: Lude.Maybe Lude.Natural,
-    mediaStoreStorageClass ::
-      Lude.Maybe HlsMediaStoreStorageClass,
+    -- | When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
+    mediaStoreStorageClass :: Lude.Maybe HlsMediaStoreStorageClass,
+    -- | If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
     restartDelay :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsMediaStoreSettings' with the minimum fields required to make a request.
 --
+-- * 'numRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
 -- * 'connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the connection is lost.
 -- * 'filecacheDuration' - Size in seconds of file cache for streaming outputs.
 -- * 'mediaStoreStorageClass' - When set to temporal, output files are stored in non-persistent memory for faster reading and writing.
--- * 'numRetries' - Number of retry attempts that will be made before the Live Event is put into an error state.
 -- * 'restartDelay' - If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
 mkHlsMediaStoreSettings ::
   HlsMediaStoreSettings

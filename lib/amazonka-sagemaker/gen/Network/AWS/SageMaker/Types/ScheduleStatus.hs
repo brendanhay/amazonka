@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ScheduleStatus
   ( ScheduleStatus
       ( ScheduleStatus',
-        SSFailed,
         SSPending,
+        SSFailed,
         SSScheduled,
         SSStopped
       ),
@@ -47,11 +47,11 @@ newtype ScheduleStatus = ScheduleStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSFailed :: ScheduleStatus
-pattern SSFailed = ScheduleStatus' "Failed"
-
 pattern SSPending :: ScheduleStatus
 pattern SSPending = ScheduleStatus' "Pending"
+
+pattern SSFailed :: ScheduleStatus
+pattern SSFailed = ScheduleStatus' "Failed"
 
 pattern SSScheduled :: ScheduleStatus
 pattern SSScheduled = ScheduleStatus' "Scheduled"
@@ -60,8 +60,8 @@ pattern SSStopped :: ScheduleStatus
 pattern SSStopped = ScheduleStatus' "Stopped"
 
 {-# COMPLETE
-  SSFailed,
   SSPending,
+  SSFailed,
   SSScheduled,
   SSStopped,
   ScheduleStatus'

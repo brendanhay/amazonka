@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutgoingCertificate' smart constructor.
 data OutgoingCertificate = OutgoingCertificate'
-  { transferDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the transfer was initiated.
+    transferDate :: Lude.Maybe Lude.Timestamp,
+    -- | The certificate ARN.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The certificate ID.
     certificateId :: Lude.Maybe Lude.Text,
+    -- | The AWS account to which the transfer was made.
     transferredTo :: Lude.Maybe Lude.Text,
+    -- | The certificate creation date.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The transfer message.
     transferMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutgoingCertificate' with the minimum fields required to make a request.
 --
+-- * 'transferDate' - The date the transfer was initiated.
 -- * 'certificateARN' - The certificate ARN.
 -- * 'certificateId' - The certificate ID.
--- * 'creationDate' - The certificate creation date.
--- * 'transferDate' - The date the transfer was initiated.
--- * 'transferMessage' - The transfer message.
 -- * 'transferredTo' - The AWS account to which the transfer was made.
+-- * 'creationDate' - The certificate creation date.
+-- * 'transferMessage' - The transfer message.
 mkOutgoingCertificate ::
   OutgoingCertificate
 mkOutgoingCertificate =

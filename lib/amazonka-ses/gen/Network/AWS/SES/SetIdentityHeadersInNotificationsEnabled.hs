@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
     mkSetIdentityHeadersInNotificationsEnabled,
 
     -- ** Request lenses
-    sihineIdentity,
-    sihineNotificationType,
     sihineEnabled,
+    sihineNotificationType,
+    sihineIdentity,
 
     -- * Destructuring the response
     SetIdentityHeadersInNotificationsEnabledResponse (..),
@@ -45,20 +46,16 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkSetIdentityHeadersInNotificationsEnabled' smart constructor.
 data SetIdentityHeadersInNotificationsEnabled = SetIdentityHeadersInNotificationsEnabled'
-  { identity ::
-      Lude.Text,
-    notificationType ::
-      NotificationType,
-    enabled ::
-      Lude.Bool
+  { -- | Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of @true@ specifies that Amazon SES will include headers in notifications, and a value of @false@ specifies that Amazon SES will not include headers in notifications.
+    --
+    -- This value can only be set when @NotificationType@ is already set to use a particular Amazon SNS topic.
+    enabled :: Lude.Bool,
+    -- | The notification type for which to enable or disable headers in notifications.
+    notificationType :: NotificationType,
+    -- | The identity for which to enable or disable headers in notifications. Examples: @user@example.com@ , @example.com@ .
+    identity :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityHeadersInNotificationsEnabled' with the minimum fields required to make a request.
@@ -66,39 +63,25 @@ data SetIdentityHeadersInNotificationsEnabled = SetIdentityHeadersInNotification
 -- * 'enabled' - Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of @true@ specifies that Amazon SES will include headers in notifications, and a value of @false@ specifies that Amazon SES will not include headers in notifications.
 --
 -- This value can only be set when @NotificationType@ is already set to use a particular Amazon SNS topic.
--- * 'identity' - The identity for which to enable or disable headers in notifications. Examples: @user@example.com@ , @example.com@ .
 -- * 'notificationType' - The notification type for which to enable or disable headers in notifications.
+-- * 'identity' - The identity for which to enable or disable headers in notifications. Examples: @user@example.com@ , @example.com@ .
 mkSetIdentityHeadersInNotificationsEnabled ::
-  -- | 'identity'
-  Lude.Text ->
-  -- | 'notificationType'
-  NotificationType ->
   -- | 'enabled'
   Lude.Bool ->
+  -- | 'notificationType'
+  NotificationType ->
+  -- | 'identity'
+  Lude.Text ->
   SetIdentityHeadersInNotificationsEnabled
 mkSetIdentityHeadersInNotificationsEnabled
-  pIdentity_
+  pEnabled_
   pNotificationType_
-  pEnabled_ =
+  pIdentity_ =
     SetIdentityHeadersInNotificationsEnabled'
-      { identity = pIdentity_,
+      { enabled = pEnabled_,
         notificationType = pNotificationType_,
-        enabled = pEnabled_
+        identity = pIdentity_
       }
-
--- | The identity for which to enable or disable headers in notifications. Examples: @user@example.com@ , @example.com@ .
---
--- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihineIdentity :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled Lude.Text
-sihineIdentity = Lens.lens (identity :: SetIdentityHeadersInNotificationsEnabled -> Lude.Text) (\s a -> s {identity = a} :: SetIdentityHeadersInNotificationsEnabled)
-{-# DEPRECATED sihineIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
-
--- | The notification type for which to enable or disable headers in notifications.
---
--- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihineNotificationType :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled NotificationType
-sihineNotificationType = Lens.lens (notificationType :: SetIdentityHeadersInNotificationsEnabled -> NotificationType) (\s a -> s {notificationType = a} :: SetIdentityHeadersInNotificationsEnabled)
-{-# DEPRECATED sihineNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
 
 -- | Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of @true@ specifies that Amazon SES will include headers in notifications, and a value of @false@ specifies that Amazon SES will not include headers in notifications.
 --
@@ -108,6 +91,20 @@ sihineNotificationType = Lens.lens (notificationType :: SetIdentityHeadersInNoti
 sihineEnabled :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled Lude.Bool
 sihineEnabled = Lens.lens (enabled :: SetIdentityHeadersInNotificationsEnabled -> Lude.Bool) (\s a -> s {enabled = a} :: SetIdentityHeadersInNotificationsEnabled)
 {-# DEPRECATED sihineEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+-- | The notification type for which to enable or disable headers in notifications.
+--
+-- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihineNotificationType :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled NotificationType
+sihineNotificationType = Lens.lens (notificationType :: SetIdentityHeadersInNotificationsEnabled -> NotificationType) (\s a -> s {notificationType = a} :: SetIdentityHeadersInNotificationsEnabled)
+{-# DEPRECATED sihineNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
+
+-- | The identity for which to enable or disable headers in notifications. Examples: @user@example.com@ , @example.com@ .
+--
+-- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihineIdentity :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled Lude.Text
+sihineIdentity = Lens.lens (identity :: SetIdentityHeadersInNotificationsEnabled -> Lude.Text) (\s a -> s {identity = a} :: SetIdentityHeadersInNotificationsEnabled)
+{-# DEPRECATED sihineIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
 instance Lude.AWSRequest SetIdentityHeadersInNotificationsEnabled where
   type
@@ -134,29 +131,20 @@ instance Lude.ToQuery SetIdentityHeadersInNotificationsEnabled where
       [ "Action"
           Lude.=: ("SetIdentityHeadersInNotificationsEnabled" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Identity" Lude.=: identity,
+        "Enabled" Lude.=: enabled,
         "NotificationType" Lude.=: notificationType,
-        "Enabled" Lude.=: enabled
+        "Identity" Lude.=: identity
       ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkSetIdentityHeadersInNotificationsEnabledResponse' smart constructor.
 newtype SetIdentityHeadersInNotificationsEnabledResponse = SetIdentityHeadersInNotificationsEnabledResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityHeadersInNotificationsEnabledResponse' with the minimum fields required to make a request.
 --

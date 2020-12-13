@@ -13,8 +13,8 @@
 module Network.AWS.Firehose.Types.ContentEncoding
   ( ContentEncoding
       ( ContentEncoding',
-        CEGzip,
-        CENone
+        CENone,
+        CEGzip
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ContentEncoding = ContentEncoding' Lude.Text
       Lude.ToHeader
     )
 
-pattern CEGzip :: ContentEncoding
-pattern CEGzip = ContentEncoding' "GZIP"
-
 pattern CENone :: ContentEncoding
 pattern CENone = ContentEncoding' "NONE"
 
+pattern CEGzip :: ContentEncoding
+pattern CEGzip = ContentEncoding' "GZIP"
+
 {-# COMPLETE
-  CEGzip,
   CENone,
+  CEGzip,
   ContentEncoding'
   #-}

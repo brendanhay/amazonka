@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -67,11 +68,11 @@ module Network.AWS.S3.PutObjectTagging
 
     -- ** Request lenses
     potVersionId,
-    potContentMD5,
-    potExpectedBucketOwner,
     potBucket,
     potKey,
     potTagging,
+    potContentMD5,
+    potExpectedBucketOwner,
 
     -- * Destructuring the response
     PutObjectTaggingResponse (..),
@@ -91,36 +92,40 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutObjectTagging' smart constructor.
 data PutObjectTagging = PutObjectTagging'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
-    contentMD5 :: Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The versionId of the object that the tag-set will be added to.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The bucket name containing the object.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
+    -- | Name of the object key.
     key :: ObjectKey,
-    tagging :: Tagging
+    -- | Container for the @TagSet@ and @Tag@ elements
+    tagging :: Tagging,
+    -- | The MD5 hash for the request body.
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutObjectTagging' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The versionId of the object that the tag-set will be added to.
 -- * 'bucket' - The bucket name containing the object.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'key' - Name of the object key.
+-- * 'tagging' - Container for the @TagSet@ and @Tag@ elements
 -- * 'contentMD5' - The MD5 hash for the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'key' - Name of the object key.
--- * 'tagging' - Container for the @TagSet@ and @Tag@ elements
--- * 'versionId' - The versionId of the object that the tag-set will be added to.
 mkPutObjectTagging ::
   -- | 'bucket'
   BucketName ->
@@ -132,11 +137,11 @@ mkPutObjectTagging ::
 mkPutObjectTagging pBucket_ pKey_ pTagging_ =
   PutObjectTagging'
     { versionId = Lude.Nothing,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
       bucket = pBucket_,
       key = pKey_,
-      tagging = pTagging_
+      tagging = pTagging_,
+      contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The versionId of the object that the tag-set will be added to.
@@ -145,22 +150,6 @@ mkPutObjectTagging pBucket_ pKey_ pTagging_ =
 potVersionId :: Lens.Lens' PutObjectTagging (Lude.Maybe ObjectVersionId)
 potVersionId = Lens.lens (versionId :: PutObjectTagging -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: PutObjectTagging)
 {-# DEPRECATED potVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The MD5 hash for the request body.
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
---
--- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-potContentMD5 :: Lens.Lens' PutObjectTagging (Lude.Maybe Lude.Text)
-potContentMD5 = Lens.lens (contentMD5 :: PutObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutObjectTagging)
-{-# DEPRECATED potContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-potExpectedBucketOwner :: Lens.Lens' PutObjectTagging (Lude.Maybe Lude.Text)
-potExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutObjectTagging)
-{-# DEPRECATED potExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name containing the object.
 --
@@ -185,6 +174,22 @@ potKey = Lens.lens (key :: PutObjectTagging -> ObjectKey) (\s a -> s {key = a} :
 potTagging :: Lens.Lens' PutObjectTagging Tagging
 potTagging = Lens.lens (tagging :: PutObjectTagging -> Tagging) (\s a -> s {tagging = a} :: PutObjectTagging)
 {-# DEPRECATED potTagging "Use generic-lens or generic-optics with 'tagging' instead." #-}
+
+-- | The MD5 hash for the request body.
+--
+-- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+--
+-- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+potContentMD5 :: Lens.Lens' PutObjectTagging (Lude.Maybe Lude.Text)
+potContentMD5 = Lens.lens (contentMD5 :: PutObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutObjectTagging)
+{-# DEPRECATED potContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+potExpectedBucketOwner :: Lens.Lens' PutObjectTagging (Lude.Maybe Lude.Text)
+potExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutObjectTagging)
+{-# DEPRECATED potExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest PutObjectTagging where
   type Rs PutObjectTagging = PutObjectTaggingResponse
@@ -219,23 +224,18 @@ instance Lude.ToQuery PutObjectTagging where
 
 -- | /See:/ 'mkPutObjectTaggingResponse' smart constructor.
 data PutObjectTaggingResponse = PutObjectTaggingResponse'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
+  { -- | The versionId of the object the tag-set was added to.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutObjectTaggingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'versionId' - The versionId of the object the tag-set was added to.
+-- * 'responseStatus' - The response status code.
 mkPutObjectTaggingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

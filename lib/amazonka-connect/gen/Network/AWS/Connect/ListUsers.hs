@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Connect.ListUsers
     mkListUsers,
 
     -- ** Request lenses
+    luInstanceId,
     luNextToken,
     luMaxResults,
-    luInstanceId,
 
     -- * Destructuring the response
     ListUsersResponse (..),
@@ -45,34 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListUsers ::
   -- | 'instanceId'
   Lude.Text ->
   ListUsers
 mkListUsers pInstanceId_ =
   ListUsers'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luInstanceId :: Lens.Lens' ListUsers Lude.Text
+luInstanceId = Lens.lens (instanceId :: ListUsers -> Lude.Text) (\s a -> s {instanceId = a} :: ListUsers)
+{-# DEPRECATED luInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -87,13 +92,6 @@ luNextToken = Lens.lens (nextToken :: ListUsers -> Lude.Maybe Lude.Text) (\s a -
 luMaxResults :: Lens.Lens' ListUsers (Lude.Maybe Lude.Natural)
 luMaxResults = Lens.lens (maxResults :: ListUsers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUsers)
 {-# DEPRECATED luMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luInstanceId :: Lens.Lens' ListUsers Lude.Text
-luInstanceId = Lens.lens (instanceId :: ListUsers -> Lude.Text) (\s a -> s {instanceId = a} :: ListUsers)
-{-# DEPRECATED luInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListUsers where
   page rq rs
@@ -136,25 +134,21 @@ instance Lude.ToQuery ListUsers where
 
 -- | /See:/ 'mkListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the users.
     userSummaryList :: Lude.Maybe [UserSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'responseStatus' - The response status code.
 -- * 'userSummaryList' - Information about the users.
+-- * 'responseStatus' - The response status code.
 mkListUsersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

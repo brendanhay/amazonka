@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeConformancePacks' smart constructor.
 data DescribeConformancePacks = DescribeConformancePacks'
-  { conformancePackNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | Comma-separated list of conformance pack names for which you want details. If you do not specify any names, AWS Config returns details for all your conformance packs.
+    conformancePackNames :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of conformance packs returned on each page.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConformancePacks' with the minimum fields required to make a request.
 --
 -- * 'conformancePackNames' - Comma-separated list of conformance pack names for which you want details. If you do not specify any names, AWS Config returns details for all your conformance packs.
--- * 'limit' - The maximum number of conformance packs returned on each page.
 -- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+-- * 'limit' - The maximum number of conformance packs returned on each page.
 mkDescribeConformancePacks ::
   DescribeConformancePacks
 mkDescribeConformancePacks =
@@ -134,27 +131,20 @@ instance Lude.ToQuery DescribeConformancePacks where
 
 -- | /See:/ 'mkDescribeConformancePacksResponse' smart constructor.
 data DescribeConformancePacksResponse = DescribeConformancePacksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    conformancePackDetails ::
-      Lude.Maybe
-        [ConformancePackDetail],
-    responseStatus ::
-      Lude.Int
+  { -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns a list of @ConformancePackDetail@ objects.
+    conformancePackDetails :: Lude.Maybe [ConformancePackDetail],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConformancePacksResponse' with the minimum fields required to make a request.
 --
--- * 'conformancePackDetails' - Returns a list of @ConformancePackDetail@ objects.
 -- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+-- * 'conformancePackDetails' - Returns a list of @ConformancePackDetail@ objects.
 -- * 'responseStatus' - The response status code.
 mkDescribeConformancePacksResponse ::
   -- | 'responseStatus'

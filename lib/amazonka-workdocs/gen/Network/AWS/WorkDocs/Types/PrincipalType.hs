@@ -13,11 +13,11 @@
 module Network.AWS.WorkDocs.Types.PrincipalType
   ( PrincipalType
       ( PrincipalType',
-        Anonymous,
+        User,
         Group,
         Invite,
-        Organization,
-        User
+        Anonymous,
+        Organization
       ),
   )
 where
@@ -48,8 +48,8 @@ newtype PrincipalType = PrincipalType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Anonymous :: PrincipalType
-pattern Anonymous = PrincipalType' "ANONYMOUS"
+pattern User :: PrincipalType
+pattern User = PrincipalType' "USER"
 
 pattern Group :: PrincipalType
 pattern Group = PrincipalType' "GROUP"
@@ -57,17 +57,17 @@ pattern Group = PrincipalType' "GROUP"
 pattern Invite :: PrincipalType
 pattern Invite = PrincipalType' "INVITE"
 
+pattern Anonymous :: PrincipalType
+pattern Anonymous = PrincipalType' "ANONYMOUS"
+
 pattern Organization :: PrincipalType
 pattern Organization = PrincipalType' "ORGANIZATION"
 
-pattern User :: PrincipalType
-pattern User = PrincipalType' "USER"
-
 {-# COMPLETE
-  Anonymous,
+  User,
   Group,
   Invite,
+  Anonymous,
   Organization,
-  User,
   PrincipalType'
   #-}

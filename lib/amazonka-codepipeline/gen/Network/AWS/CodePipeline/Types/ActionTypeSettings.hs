@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionTypeSettings' smart constructor.
 data ActionTypeSettings = ActionTypeSettings'
-  { thirdPartyConfigurationURL ::
-      Lude.Maybe Lude.Text,
+  { -- | The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+    thirdPartyConfigurationURL :: Lude.Maybe Lude.Text,
+    -- | The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
     executionURLTemplate :: Lude.Maybe Lude.Text,
+    -- | The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
     revisionURLTemplate :: Lude.Maybe Lude.Text,
+    -- | The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
     entityURLTemplate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionTypeSettings' with the minimum fields required to make a request.
 --
--- * 'entityURLTemplate' - The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
+-- * 'thirdPartyConfigurationURL' - The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 -- * 'executionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
 -- * 'revisionURLTemplate' - The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
--- * 'thirdPartyConfigurationURL' - The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+-- * 'entityURLTemplate' - The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
 mkActionTypeSettings ::
   ActionTypeSettings
 mkActionTypeSettings =

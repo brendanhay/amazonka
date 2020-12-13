@@ -13,11 +13,11 @@
 module Network.AWS.SSM.Types.AssociationComplianceSeverity
   ( AssociationComplianceSeverity
       ( AssociationComplianceSeverity',
-        ACSCritical,
-        ACSHigh,
-        ACSLow,
-        ACSMedium,
-        ACSUnspecified
+        Critical,
+        High,
+        Medium,
+        Low,
+        Unspecified
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype AssociationComplianceSeverity = AssociationComplianceSeverity' Lude.Text
       Lude.ToHeader
     )
 
-pattern ACSCritical :: AssociationComplianceSeverity
-pattern ACSCritical = AssociationComplianceSeverity' "CRITICAL"
+pattern Critical :: AssociationComplianceSeverity
+pattern Critical = AssociationComplianceSeverity' "CRITICAL"
 
-pattern ACSHigh :: AssociationComplianceSeverity
-pattern ACSHigh = AssociationComplianceSeverity' "HIGH"
+pattern High :: AssociationComplianceSeverity
+pattern High = AssociationComplianceSeverity' "HIGH"
 
-pattern ACSLow :: AssociationComplianceSeverity
-pattern ACSLow = AssociationComplianceSeverity' "LOW"
+pattern Medium :: AssociationComplianceSeverity
+pattern Medium = AssociationComplianceSeverity' "MEDIUM"
 
-pattern ACSMedium :: AssociationComplianceSeverity
-pattern ACSMedium = AssociationComplianceSeverity' "MEDIUM"
+pattern Low :: AssociationComplianceSeverity
+pattern Low = AssociationComplianceSeverity' "LOW"
 
-pattern ACSUnspecified :: AssociationComplianceSeverity
-pattern ACSUnspecified = AssociationComplianceSeverity' "UNSPECIFIED"
+pattern Unspecified :: AssociationComplianceSeverity
+pattern Unspecified = AssociationComplianceSeverity' "UNSPECIFIED"
 
 {-# COMPLETE
-  ACSCritical,
-  ACSHigh,
-  ACSLow,
-  ACSMedium,
-  ACSUnspecified,
+  Critical,
+  High,
+  Medium,
+  Low,
+  Unspecified,
   AssociationComplianceSeverity'
   #-}

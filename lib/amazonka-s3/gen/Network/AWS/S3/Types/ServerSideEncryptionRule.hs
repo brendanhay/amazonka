@@ -30,9 +30,8 @@ import Network.AWS.S3.Types.ServerSideEncryptionByDefault
 --
 -- /See:/ 'mkServerSideEncryptionRule' smart constructor.
 newtype ServerSideEncryptionRule = ServerSideEncryptionRule'
-  { applyServerSideEncryptionByDefault ::
-      Lude.Maybe
-        ServerSideEncryptionByDefault
+  { -- | Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+    applyServerSideEncryptionByDefault :: Lude.Maybe ServerSideEncryptionByDefault
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)

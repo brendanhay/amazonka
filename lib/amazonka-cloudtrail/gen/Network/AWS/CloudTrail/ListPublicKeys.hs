@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Reserved for future use.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
     endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublicKeys' with the minimum fields required to make a request.
 --
--- * 'endTime' - Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
--- * 'nextToken' - Reserved for future use.
 -- * 'startTime' - Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.
+-- * 'nextToken' - Reserved for future use.
+-- * 'endTime' - Optionally specifies, in UTC, the end of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used.
 mkListPublicKeys ::
   ListPublicKeys
 mkListPublicKeys =
@@ -150,24 +147,20 @@ instance Lude.ToQuery ListPublicKeys where
 --
 -- /See:/ 'mkListPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
-  { publicKeyList ::
-      Lude.Maybe [PublicKey],
+  { -- | Contains an array of PublicKey objects.
+    publicKeyList :: Lude.Maybe [PublicKey],
+    -- | Reserved for future use.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPublicKeysResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Reserved for future use.
 -- * 'publicKeyList' - Contains an array of PublicKey objects.
+-- * 'nextToken' - Reserved for future use.
 -- * 'responseStatus' - The response status code.
 mkListPublicKeysResponse ::
   -- | 'responseStatus'

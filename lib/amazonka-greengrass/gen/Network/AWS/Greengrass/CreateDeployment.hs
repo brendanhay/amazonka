@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Greengrass.CreateDeployment
     -- ** Request lenses
     cdDeploymentId,
     cdAmznClientToken,
-    cdGroupVersionId,
-    cdGroupId,
     cdDeploymentType,
+    cdGroupId,
+    cdGroupVersionId,
 
     -- * Destructuring the response
     CreateDeploymentResponse (..),
@@ -44,42 +45,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the deployment if you wish to redeploy a previous deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | A client token used to correlate requests and responses.
     amznClientToken :: Lude.Maybe Lude.Text,
-    groupVersionId :: Lude.Maybe Lude.Text,
+    -- | The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
+    deploymentType :: DeploymentType,
+    -- | The ID of the Greengrass group.
     groupId :: Lude.Text,
-    deploymentType :: DeploymentType
+    -- | The ID of the group version to be deployed.
+    groupVersionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
--- * 'amznClientToken' - A client token used to correlate requests and responses.
 -- * 'deploymentId' - The ID of the deployment if you wish to redeploy a previous deployment.
+-- * 'amznClientToken' - A client token used to correlate requests and responses.
 -- * 'deploymentType' - The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 -- * 'groupId' - The ID of the Greengrass group.
 -- * 'groupVersionId' - The ID of the group version to be deployed.
 mkCreateDeployment ::
-  -- | 'groupId'
-  Lude.Text ->
   -- | 'deploymentType'
   DeploymentType ->
+  -- | 'groupId'
+  Lude.Text ->
   CreateDeployment
-mkCreateDeployment pGroupId_ pDeploymentType_ =
+mkCreateDeployment pDeploymentType_ pGroupId_ =
   CreateDeployment'
     { deploymentId = Lude.Nothing,
       amznClientToken = Lude.Nothing,
-      groupVersionId = Lude.Nothing,
+      deploymentType = pDeploymentType_,
       groupId = pGroupId_,
-      deploymentType = pDeploymentType_
+      groupVersionId = Lude.Nothing
     }
 
 -- | The ID of the deployment if you wish to redeploy a previous deployment.
@@ -96,12 +95,12 @@ cdAmznClientToken :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
 cdAmznClientToken = Lens.lens (amznClientToken :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateDeployment)
 {-# DEPRECATED cdAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
--- | The ID of the group version to be deployed.
+-- | The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
 --
--- /Note:/ Consider using 'groupVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdGroupVersionId :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
-cdGroupVersionId = Lens.lens (groupVersionId :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {groupVersionId = a} :: CreateDeployment)
-{-# DEPRECATED cdGroupVersionId "Use generic-lens or generic-optics with 'groupVersionId' instead." #-}
+-- /Note:/ Consider using 'deploymentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDeploymentType :: Lens.Lens' CreateDeployment DeploymentType
+cdDeploymentType = Lens.lens (deploymentType :: CreateDeployment -> DeploymentType) (\s a -> s {deploymentType = a} :: CreateDeployment)
+{-# DEPRECATED cdDeploymentType "Use generic-lens or generic-optics with 'deploymentType' instead." #-}
 
 -- | The ID of the Greengrass group.
 --
@@ -110,12 +109,12 @@ cdGroupId :: Lens.Lens' CreateDeployment Lude.Text
 cdGroupId = Lens.lens (groupId :: CreateDeployment -> Lude.Text) (\s a -> s {groupId = a} :: CreateDeployment)
 {-# DEPRECATED cdGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
--- | The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
+-- | The ID of the group version to be deployed.
 --
--- /Note:/ Consider using 'deploymentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDeploymentType :: Lens.Lens' CreateDeployment DeploymentType
-cdDeploymentType = Lens.lens (deploymentType :: CreateDeployment -> DeploymentType) (\s a -> s {deploymentType = a} :: CreateDeployment)
-{-# DEPRECATED cdDeploymentType "Use generic-lens or generic-optics with 'deploymentType' instead." #-}
+-- /Note:/ Consider using 'groupVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdGroupVersionId :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
+cdGroupVersionId = Lens.lens (groupVersionId :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {groupVersionId = a} :: CreateDeployment)
+{-# DEPRECATED cdGroupVersionId "Use generic-lens or generic-optics with 'groupVersionId' instead." #-}
 
 instance Lude.AWSRequest CreateDeployment where
   type Rs CreateDeployment = CreateDeploymentResponse
@@ -142,8 +141,8 @@ instance Lude.ToJSON CreateDeployment where
     Lude.object
       ( Lude.catMaybes
           [ ("DeploymentId" Lude..=) Lude.<$> deploymentId,
-            ("GroupVersionId" Lude..=) Lude.<$> groupVersionId,
-            Lude.Just ("DeploymentType" Lude..= deploymentType)
+            Lude.Just ("DeploymentType" Lude..= deploymentType),
+            ("GroupVersionId" Lude..=) Lude.<$> groupVersionId
           ]
       )
 
@@ -157,24 +156,20 @@ instance Lude.ToQuery CreateDeployment where
 
 -- | /See:/ 'mkCreateDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the deployment.
     deploymentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
 --
--- * 'deploymentARN' - The ARN of the deployment.
 -- * 'deploymentId' - The ID of the deployment.
+-- * 'deploymentARN' - The ARN of the deployment.
 -- * 'responseStatus' - The response status code.
 mkCreateDeploymentResponse ::
   -- | 'responseStatus'

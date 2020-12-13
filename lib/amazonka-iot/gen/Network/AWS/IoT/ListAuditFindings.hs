@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,35 +51,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAuditFindings' smart constructor.
 data ListAuditFindings = ListAuditFindings'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | A filter to limit results to the audit with the specified ID. You must specify either the taskId or the startTime and endTime, but not both.
     taskId :: Lude.Maybe Lude.Text,
+    -- | A filter to limit results to the findings for the specified audit check.
     checkName :: Lude.Maybe Lude.Text,
+    -- | Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.
     listSuppressedFindings :: Lude.Maybe Lude.Bool,
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A filter to limit results to those found before the specified time. You must specify either the startTime and endTime or the taskId, but not both.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of results to return at one time. The default is 25.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | Information identifying the noncompliant resource.
     resourceIdentifier :: Lude.Maybe ResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditFindings' with the minimum fields required to make a request.
 --
--- * 'checkName' - A filter to limit results to the findings for the specified audit check.
--- * 'endTime' - A filter to limit results to those found before the specified time. You must specify either the startTime and endTime or the taskId, but not both.
--- * 'listSuppressedFindings' - Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.
--- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
--- * 'nextToken' - The token for the next set of results.
--- * 'resourceIdentifier' - Information identifying the noncompliant resource.
 -- * 'startTime' - A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both.
 -- * 'taskId' - A filter to limit results to the audit with the specified ID. You must specify either the taskId or the startTime and endTime, but not both.
+-- * 'checkName' - A filter to limit results to the findings for the specified audit check.
+-- * 'listSuppressedFindings' - Boolean flag indicating whether only the suppressed findings or the unsuppressed findings should be listed. If this parameter isn't provided, the response will list both suppressed and unsuppressed findings.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'endTime' - A filter to limit results to those found before the specified time. You must specify either the startTime and endTime or the taskId, but not both.
+-- * 'maxResults' - The maximum number of results to return at one time. The default is 25.
+-- * 'resourceIdentifier' - Information identifying the noncompliant resource.
 mkListAuditFindings ::
   ListAuditFindings
 mkListAuditFindings =
@@ -196,24 +198,20 @@ instance Lude.ToQuery ListAuditFindings where
 
 -- | /See:/ 'mkListAuditFindingsResponse' smart constructor.
 data ListAuditFindingsResponse = ListAuditFindingsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The findings (results) of the audit.
     findings :: Lude.Maybe [AuditFinding],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAuditFindingsResponse' with the minimum fields required to make a request.
 --
--- * 'findings' - The findings (results) of the audit.
 -- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+-- * 'findings' - The findings (results) of the audit.
 -- * 'responseStatus' - The response status code.
 mkListAuditFindingsResponse ::
   -- | 'responseStatus'

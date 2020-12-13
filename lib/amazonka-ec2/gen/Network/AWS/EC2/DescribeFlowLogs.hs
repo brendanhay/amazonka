@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeFlowLogs' smart constructor.
 data DescribeFlowLogs = DescribeFlowLogs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | One or more flow log IDs.
+    --
+    -- Constraint: Maximum of 1000 flow log IDs.
     flowLogIds :: Lude.Maybe [Lude.Text],
+    -- | One or more filters.
+    --
+    --
+    --     * @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
+    --
+    --
+    --     * @log-destination-type@ - The type of destination to which the flow log publishes data. Possible destination types include @cloud-watch-logs@ and @s3@ .
+    --
+    --
+    --     * @flow-log-id@ - The ID of the flow log.
+    --
+    --
+    --     * @log-group-name@ - The name of the log group.
+    --
+    --
+    --     * @resource-id@ - The ID of the VPC, subnet, or network interface.
+    --
+    --
+    --     * @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@ ).
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
     filter :: Lude.Maybe [Filter],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFlowLogs' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'nextToken' - The token for the next page of results.
+-- * 'flowLogIds' - One or more flow log IDs.
+--
+-- Constraint: Maximum of 1000 flow log IDs.
 -- * 'filter' - One or more filters.
 --
 --
@@ -93,11 +121,8 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 --
--- * 'flowLogIds' - One or more flow log IDs.
---
--- Constraint: Maximum of 1000 flow log IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'nextToken' - The token for the next page of results.
 mkDescribeFlowLogs ::
   DescribeFlowLogs
 mkDescribeFlowLogs =
@@ -215,24 +240,20 @@ instance Lude.ToQuery DescribeFlowLogs where
 
 -- | /See:/ 'mkDescribeFlowLogsResponse' smart constructor.
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the flow logs.
     flowLogs :: Lude.Maybe [FlowLog],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFlowLogsResponse' with the minimum fields required to make a request.
 --
--- * 'flowLogs' - Information about the flow logs.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'flowLogs' - Information about the flow logs.
 -- * 'responseStatus' - The response status code.
 mkDescribeFlowLogsResponse ::
   -- | 'responseStatus'

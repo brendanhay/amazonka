@@ -49,55 +49,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchSpecification' smart constructor.
 data LaunchSpecification = LaunchSpecification'
-  { securityGroups ::
-      Lude.Maybe [GroupIdentifier],
+  { -- | One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+    securityGroups :: Lude.Maybe [GroupIdentifier],
+    -- | The name of the key pair.
     keyName :: Lude.Maybe Lude.Text,
-    networkInterfaces ::
-      Lude.Maybe [InstanceNetworkInterfaceSpecification],
+    -- | One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+    networkInterfaces :: Lude.Maybe [InstanceNetworkInterfaceSpecification],
+    -- | The ID of the RAM disk.
     ramdiskId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet in which to launch the instance.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel.
     kernelId :: Lude.Maybe Lude.Text,
+    -- | The instance type.
     instanceType :: Lude.Maybe InstanceType,
+    -- | Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+    --
+    -- Default: @false@
     ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The Base64-encoded user data for the instance.
     userData :: Lude.Maybe Lude.Text,
-    monitoring ::
-      Lude.Maybe RunInstancesMonitoringEnabled,
-    iamInstanceProfile ::
-      Lude.Maybe IAMInstanceProfileSpecification,
+    monitoring :: Lude.Maybe RunInstancesMonitoringEnabled,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Lude.Maybe IAMInstanceProfileSpecification,
+    -- | The ID of the AMI.
     imageId :: Lude.Maybe Lude.Text,
+    -- | Deprecated.
     addressingType :: Lude.Maybe Lude.Text,
-    blockDeviceMappings ::
-      Lude.Maybe [BlockDeviceMapping],
+    -- | One or more block device mapping entries.
+    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
+    -- | The placement information for the instance.
     placement :: Lude.Maybe SpotPlacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchSpecification' with the minimum fields required to make a request.
 --
--- * 'addressingType' - Deprecated.
--- * 'blockDeviceMappings' - One or more block device mapping entries.
+-- * 'securityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
+-- * 'keyName' - The name of the key pair.
+-- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+-- * 'ramdiskId' - The ID of the RAM disk.
+-- * 'subnetId' - The ID of the subnet in which to launch the instance.
+-- * 'kernelId' - The ID of the kernel.
+-- * 'instanceType' - The instance type.
 -- * 'ebsOptimized' - Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 --
 -- Default: @false@
+-- * 'userData' - The Base64-encoded user data for the instance.
+-- * 'monitoring' -
 -- * 'iamInstanceProfile' - The IAM instance profile.
 -- * 'imageId' - The ID of the AMI.
--- * 'instanceType' - The instance type.
--- * 'kernelId' - The ID of the kernel.
--- * 'keyName' - The name of the key pair.
--- * 'monitoring' - Undocumented field.
--- * 'networkInterfaces' - One or more network interfaces. If you specify a network interface, you must specify subnet IDs and security group IDs using the network interface.
+-- * 'addressingType' - Deprecated.
+-- * 'blockDeviceMappings' - One or more block device mapping entries.
 -- * 'placement' - The placement information for the instance.
--- * 'ramdiskId' - The ID of the RAM disk.
--- * 'securityGroups' - One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.
--- * 'subnetId' - The ID of the subnet in which to launch the instance.
--- * 'userData' - The Base64-encoded user data for the instance.
 mkLaunchSpecification ::
   LaunchSpecification
 mkLaunchSpecification =

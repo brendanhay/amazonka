@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,8 +49,8 @@ module Network.AWS.GameLift.ResumeGameServerGroup
     mkResumeGameServerGroup,
 
     -- ** Request lenses
-    rgsgGameServerGroupName,
     rgsgResumeActions,
+    rgsgGameServerGroupName,
 
     -- * Destructuring the response
     ResumeGameServerGroupResponse (..),
@@ -69,43 +70,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResumeGameServerGroup' smart constructor.
 data ResumeGameServerGroup = ResumeGameServerGroup'
-  { gameServerGroupName ::
-      Lude.Text,
-    resumeActions ::
-      Lude.NonEmpty GameServerGroupAction
+  { -- | The activity to resume for this game server group.
+    resumeActions :: Lude.NonEmpty GameServerGroupAction,
+    -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+    gameServerGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeGameServerGroup' with the minimum fields required to make a request.
 --
--- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 -- * 'resumeActions' - The activity to resume for this game server group.
+-- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 mkResumeGameServerGroup ::
-  -- | 'gameServerGroupName'
-  Lude.Text ->
   -- | 'resumeActions'
   Lude.NonEmpty GameServerGroupAction ->
+  -- | 'gameServerGroupName'
+  Lude.Text ->
   ResumeGameServerGroup
-mkResumeGameServerGroup pGameServerGroupName_ pResumeActions_ =
+mkResumeGameServerGroup pResumeActions_ pGameServerGroupName_ =
   ResumeGameServerGroup'
-    { gameServerGroupName =
-        pGameServerGroupName_,
-      resumeActions = pResumeActions_
+    { resumeActions = pResumeActions_,
+      gameServerGroupName = pGameServerGroupName_
     }
-
--- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
---
--- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsgGameServerGroupName :: Lens.Lens' ResumeGameServerGroup Lude.Text
-rgsgGameServerGroupName = Lens.lens (gameServerGroupName :: ResumeGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: ResumeGameServerGroup)
-{-# DEPRECATED rgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | The activity to resume for this game server group.
 --
@@ -113,6 +100,13 @@ rgsgGameServerGroupName = Lens.lens (gameServerGroupName :: ResumeGameServerGrou
 rgsgResumeActions :: Lens.Lens' ResumeGameServerGroup (Lude.NonEmpty GameServerGroupAction)
 rgsgResumeActions = Lens.lens (resumeActions :: ResumeGameServerGroup -> Lude.NonEmpty GameServerGroupAction) (\s a -> s {resumeActions = a} :: ResumeGameServerGroup)
 {-# DEPRECATED rgsgResumeActions "Use generic-lens or generic-optics with 'resumeActions' instead." #-}
+
+-- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsgGameServerGroupName :: Lens.Lens' ResumeGameServerGroup Lude.Text
+rgsgGameServerGroupName = Lens.lens (gameServerGroupName :: ResumeGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: ResumeGameServerGroup)
+{-# DEPRECATED rgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 instance Lude.AWSRequest ResumeGameServerGroup where
   type Rs ResumeGameServerGroup = ResumeGameServerGroupResponse
@@ -140,8 +134,8 @@ instance Lude.ToJSON ResumeGameServerGroup where
   toJSON ResumeGameServerGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
-            Lude.Just ("ResumeActions" Lude..= resumeActions)
+          [ Lude.Just ("ResumeActions" Lude..= resumeActions),
+            Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName)
           ]
       )
 
@@ -153,17 +147,12 @@ instance Lude.ToQuery ResumeGameServerGroup where
 
 -- | /See:/ 'mkResumeGameServerGroupResponse' smart constructor.
 data ResumeGameServerGroupResponse = ResumeGameServerGroupResponse'
-  { gameServerGroup ::
-      Lude.Maybe GameServerGroup,
+  { -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the resumed activity.
+    gameServerGroup :: Lude.Maybe GameServerGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeGameServerGroupResponse' with the minimum fields required to make a request.

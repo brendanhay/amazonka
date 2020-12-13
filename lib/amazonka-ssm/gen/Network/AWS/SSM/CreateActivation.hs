@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.SSM.CreateActivation
     mkCreateActivationResponse,
 
     -- ** Response lenses
-    carsActivationId,
-    carsActivationCode,
-    carsResponseStatus,
+    crsActivationId,
+    crsActivationCode,
+    crsResponseStatus,
   )
 where
 
@@ -45,21 +46,34 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCreateActivation' smart constructor.
 data CreateActivation = CreateActivation'
-  { defaultInstanceName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the registered, managed instance as it will appear in the Systems Manager console or when you use the AWS command line tools to list Systems Manager resources.
+    --
+    -- /Important:/ Do not enter personally identifiable information in this field.
+    defaultInstanceName :: Lude.Maybe Lude.Text,
+    -- | Specify the maximum number of managed instances you want to register. The default value is 1 instance.
     registrationLimit :: Lude.Maybe Lude.Natural,
+    -- | The date by which this activation request should expire. The default value is 24 hours.
     expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | A user-defined description of the resource that you want to register with Systems Manager.
+    --
+    -- /Important:/ Do not enter personally identifiable information in this field.
     description :: Lude.Maybe Lude.Text,
+    -- | Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:
+    --
+    --
+    --     * @Key=OS,Value=Windows@
+    --
+    --
+    --     * @Key=Environment,Value=Production@
+    --
+    --
+    -- /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs.
+    -- You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
     tags :: Lude.Maybe [Tag],
+    -- | The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal @ssm.amazonaws.com@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment> in the /AWS Systems Manager User Guide/ .
     iamRole :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateActivation' with the minimum fields required to make a request.
@@ -67,12 +81,11 @@ data CreateActivation = CreateActivation'
 -- * 'defaultInstanceName' - The name of the registered, managed instance as it will appear in the Systems Manager console or when you use the AWS command line tools to list Systems Manager resources.
 --
 -- /Important:/ Do not enter personally identifiable information in this field.
+-- * 'registrationLimit' - Specify the maximum number of managed instances you want to register. The default value is 1 instance.
+-- * 'expirationDate' - The date by which this activation request should expire. The default value is 24 hours.
 -- * 'description' - A user-defined description of the resource that you want to register with Systems Manager.
 --
 -- /Important:/ Do not enter personally identifiable information in this field.
--- * 'expirationDate' - The date by which this activation request should expire. The default value is 24 hours.
--- * 'iamRole' - The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal @ssm.amazonaws.com@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment> in the /AWS Systems Manager User Guide/ .
--- * 'registrationLimit' - Specify the maximum number of managed instances you want to register. The default value is 1 instance.
 -- * 'tags' - Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an activation to identify which servers or virtual machines (VMs) in your on-premises environment you intend to activate. In this case, you could specify the following key name/value pairs:
 --
 --
@@ -84,6 +97,7 @@ data CreateActivation = CreateActivation'
 --
 -- /Important:/ When you install SSM Agent on your on-premises servers and VMs, you specify an activation ID and code. When you specify the activation ID and code, tags assigned to the activation are automatically applied to the on-premises servers or VMs.
 -- You can't add tags to or delete tags from an existing activation. You can tag your on-premises servers and VMs after they connect to Systems Manager for the first time and are assigned a managed instance ID. This means they are listed in the AWS Systems Manager console with an ID that is prefixed with "mi-". For information about how to add tags to your managed instances, see 'AddTagsToResource' . For information about how to remove tags from your managed instances, see 'RemoveTagsFromResource' .
+-- * 'iamRole' - The Amazon Identity and Access Management (IAM) role that you want to assign to the managed instance. This IAM role must provide AssumeRole permissions for the Systems Manager service principal @ssm.amazonaws.com@ . For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html Create an IAM service role for a hybrid environment> in the /AWS Systems Manager User Guide/ .
 mkCreateActivation ::
   -- | 'iamRole'
   Lude.Text ->
@@ -198,24 +212,20 @@ instance Lude.ToQuery CreateActivation where
 
 -- | /See:/ 'mkCreateActivationResponse' smart constructor.
 data CreateActivationResponse = CreateActivationResponse'
-  { activationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID number generated by the system when it processed the activation. The activation ID functions like a user name.
+    activationId :: Lude.Maybe Lude.Text,
+    -- | The code the system generates when it processes the activation. The activation code functions like a password to validate the activation ID.
     activationCode :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateActivationResponse' with the minimum fields required to make a request.
 --
--- * 'activationCode' - The code the system generates when it processes the activation. The activation code functions like a password to validate the activation ID.
 -- * 'activationId' - The ID number generated by the system when it processed the activation. The activation ID functions like a user name.
+-- * 'activationCode' - The code the system generates when it processes the activation. The activation code functions like a password to validate the activation ID.
 -- * 'responseStatus' - The response status code.
 mkCreateActivationResponse ::
   -- | 'responseStatus'
@@ -231,20 +241,20 @@ mkCreateActivationResponse pResponseStatus_ =
 -- | The ID number generated by the system when it processed the activation. The activation ID functions like a user name.
 --
 -- /Note:/ Consider using 'activationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsActivationId :: Lens.Lens' CreateActivationResponse (Lude.Maybe Lude.Text)
-carsActivationId = Lens.lens (activationId :: CreateActivationResponse -> Lude.Maybe Lude.Text) (\s a -> s {activationId = a} :: CreateActivationResponse)
-{-# DEPRECATED carsActivationId "Use generic-lens or generic-optics with 'activationId' instead." #-}
+crsActivationId :: Lens.Lens' CreateActivationResponse (Lude.Maybe Lude.Text)
+crsActivationId = Lens.lens (activationId :: CreateActivationResponse -> Lude.Maybe Lude.Text) (\s a -> s {activationId = a} :: CreateActivationResponse)
+{-# DEPRECATED crsActivationId "Use generic-lens or generic-optics with 'activationId' instead." #-}
 
 -- | The code the system generates when it processes the activation. The activation code functions like a password to validate the activation ID.
 --
 -- /Note:/ Consider using 'activationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsActivationCode :: Lens.Lens' CreateActivationResponse (Lude.Maybe Lude.Text)
-carsActivationCode = Lens.lens (activationCode :: CreateActivationResponse -> Lude.Maybe Lude.Text) (\s a -> s {activationCode = a} :: CreateActivationResponse)
-{-# DEPRECATED carsActivationCode "Use generic-lens or generic-optics with 'activationCode' instead." #-}
+crsActivationCode :: Lens.Lens' CreateActivationResponse (Lude.Maybe Lude.Text)
+crsActivationCode = Lens.lens (activationCode :: CreateActivationResponse -> Lude.Maybe Lude.Text) (\s a -> s {activationCode = a} :: CreateActivationResponse)
+{-# DEPRECATED crsActivationCode "Use generic-lens or generic-optics with 'activationCode' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsResponseStatus :: Lens.Lens' CreateActivationResponse Lude.Int
-carsResponseStatus = Lens.lens (responseStatus :: CreateActivationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateActivationResponse)
-{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crsResponseStatus :: Lens.Lens' CreateActivationResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateActivationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateActivationResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

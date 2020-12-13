@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.CapacityReservationPreference
   ( CapacityReservationPreference
       ( CapacityReservationPreference',
-        None,
-        Open
+        Open,
+        None
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CapacityReservationPreference = CapacityReservationPreference' Lude.Text
       Lude.ToHeader
     )
 
-pattern None :: CapacityReservationPreference
-pattern None = CapacityReservationPreference' "none"
-
 pattern Open :: CapacityReservationPreference
 pattern Open = CapacityReservationPreference' "open"
 
+pattern None :: CapacityReservationPreference
+pattern None = CapacityReservationPreference' "none"
+
 {-# COMPLETE
-  None,
   Open,
+  None,
   CapacityReservationPreference'
   #-}

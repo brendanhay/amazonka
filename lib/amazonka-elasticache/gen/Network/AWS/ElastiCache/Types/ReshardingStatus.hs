@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReshardingStatus' smart constructor.
 newtype ReshardingStatus = ReshardingStatus'
-  { slotMigration ::
-      Lude.Maybe SlotMigration
+  { -- | Represents the progress of an online resharding operation.
+    slotMigration :: Lude.Maybe SlotMigration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReshardingStatus' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.OpsWorksCM.StartMaintenance
     mkStartMaintenance,
 
     -- ** Request lenses
-    smEngineAttributes,
     smServerName,
+    smEngineAttributes,
 
     -- * Destructuring the response
     StartMaintenanceResponse (..),
@@ -42,32 +43,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartMaintenance' smart constructor.
 data StartMaintenance = StartMaintenance'
-  { engineAttributes ::
-      Lude.Maybe [EngineAttribute],
-    serverName :: Lude.Text
+  { -- | The name of the server on which to run maintenance.
+    serverName :: Lude.Text,
+    -- | Engine attributes that are specific to the server on which you want to run maintenance.
+    --
+    -- __Attributes accepted in a StartMaintenance request for Chef__
+    --
+    --     * @CHEF_MAJOR_UPGRADE@ : If a Chef Automate server is eligible for upgrade to Chef Automate 2, add this engine attribute to a @StartMaintenance@ request and set the value to @true@ to upgrade the server to Chef Automate 2. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html Upgrade an AWS OpsWorks for Chef Automate Server to Chef Automate 2> .
+    engineAttributes :: Lude.Maybe [EngineAttribute]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMaintenance' with the minimum fields required to make a request.
 --
+-- * 'serverName' - The name of the server on which to run maintenance.
 -- * 'engineAttributes' - Engine attributes that are specific to the server on which you want to run maintenance.
 --
 -- __Attributes accepted in a StartMaintenance request for Chef__
 --
 --     * @CHEF_MAJOR_UPGRADE@ : If a Chef Automate server is eligible for upgrade to Chef Automate 2, add this engine attribute to a @StartMaintenance@ request and set the value to @true@ to upgrade the server to Chef Automate 2. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html Upgrade an AWS OpsWorks for Chef Automate Server to Chef Automate 2> .
---
---
--- * 'serverName' - The name of the server on which to run maintenance.
 mkStartMaintenance ::
   -- | 'serverName'
   Lude.Text ->
   StartMaintenance
 mkStartMaintenance pServerName_ =
   StartMaintenance'
-    { engineAttributes = Lude.Nothing,
-      serverName = pServerName_
+    { serverName = pServerName_,
+      engineAttributes = Lude.Nothing
     }
+
+-- | The name of the server on which to run maintenance.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smServerName :: Lens.Lens' StartMaintenance Lude.Text
+smServerName = Lens.lens (serverName :: StartMaintenance -> Lude.Text) (\s a -> s {serverName = a} :: StartMaintenance)
+{-# DEPRECATED smServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | Engine attributes that are specific to the server on which you want to run maintenance.
 --
@@ -81,13 +92,6 @@ mkStartMaintenance pServerName_ =
 smEngineAttributes :: Lens.Lens' StartMaintenance (Lude.Maybe [EngineAttribute])
 smEngineAttributes = Lens.lens (engineAttributes :: StartMaintenance -> Lude.Maybe [EngineAttribute]) (\s a -> s {engineAttributes = a} :: StartMaintenance)
 {-# DEPRECATED smEngineAttributes "Use generic-lens or generic-optics with 'engineAttributes' instead." #-}
-
--- | The name of the server on which to run maintenance.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smServerName :: Lens.Lens' StartMaintenance Lude.Text
-smServerName = Lens.lens (serverName :: StartMaintenance -> Lude.Text) (\s a -> s {serverName = a} :: StartMaintenance)
-{-# DEPRECATED smServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 instance Lude.AWSRequest StartMaintenance where
   type Rs StartMaintenance = StartMaintenanceResponse
@@ -114,8 +118,8 @@ instance Lude.ToJSON StartMaintenance where
   toJSON StartMaintenance' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EngineAttributes" Lude..=) Lude.<$> engineAttributes,
-            Lude.Just ("ServerName" Lude..= serverName)
+          [ Lude.Just ("ServerName" Lude..= serverName),
+            ("EngineAttributes" Lude..=) Lude.<$> engineAttributes
           ]
       )
 
@@ -127,8 +131,9 @@ instance Lude.ToQuery StartMaintenance where
 
 -- | /See:/ 'mkStartMaintenanceResponse' smart constructor.
 data StartMaintenanceResponse = StartMaintenanceResponse'
-  { server ::
-      Lude.Maybe Server,
+  { -- | Contains the response to a @StartMaintenance@ request.
+    server :: Lude.Maybe Server,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -136,8 +141,8 @@ data StartMaintenanceResponse = StartMaintenanceResponse'
 
 -- | Creates a value of 'StartMaintenanceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'server' - Contains the response to a @StartMaintenance@ request.
+-- * 'responseStatus' - The response status code.
 mkStartMaintenanceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

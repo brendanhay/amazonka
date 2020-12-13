@@ -13,13 +13,13 @@
 module Network.AWS.Route53.Types.HealthCheckType
   ( HealthCheckType
       ( HealthCheckType',
-        Calculated,
-        CloudwatchMetric,
         HTTP,
         HTTPS,
-        HTTPSStrMatch,
         HTTPStrMatch,
-        TCP
+        HTTPSStrMatch,
+        TCP,
+        Calculated,
+        CloudwatchMetric
       ),
   )
 where
@@ -51,34 +51,34 @@ newtype HealthCheckType = HealthCheckType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Calculated :: HealthCheckType
-pattern Calculated = HealthCheckType' "CALCULATED"
-
-pattern CloudwatchMetric :: HealthCheckType
-pattern CloudwatchMetric = HealthCheckType' "CLOUDWATCH_METRIC"
-
 pattern HTTP :: HealthCheckType
 pattern HTTP = HealthCheckType' "HTTP"
 
 pattern HTTPS :: HealthCheckType
 pattern HTTPS = HealthCheckType' "HTTPS"
 
-pattern HTTPSStrMatch :: HealthCheckType
-pattern HTTPSStrMatch = HealthCheckType' "HTTPS_STR_MATCH"
-
 pattern HTTPStrMatch :: HealthCheckType
 pattern HTTPStrMatch = HealthCheckType' "HTTP_STR_MATCH"
+
+pattern HTTPSStrMatch :: HealthCheckType
+pattern HTTPSStrMatch = HealthCheckType' "HTTPS_STR_MATCH"
 
 pattern TCP :: HealthCheckType
 pattern TCP = HealthCheckType' "TCP"
 
+pattern Calculated :: HealthCheckType
+pattern Calculated = HealthCheckType' "CALCULATED"
+
+pattern CloudwatchMetric :: HealthCheckType
+pattern CloudwatchMetric = HealthCheckType' "CLOUDWATCH_METRIC"
+
 {-# COMPLETE
-  Calculated,
-  CloudwatchMetric,
   HTTP,
   HTTPS,
-  HTTPSStrMatch,
   HTTPStrMatch,
+  HTTPSStrMatch,
   TCP,
+  Calculated,
+  CloudwatchMetric,
   HealthCheckType'
   #-}

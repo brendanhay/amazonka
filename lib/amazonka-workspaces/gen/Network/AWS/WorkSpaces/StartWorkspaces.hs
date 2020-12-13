@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkStartWorkspaces' smart constructor.
 newtype StartWorkspaces = StartWorkspaces'
-  { startWorkspaceRequests ::
-      Lude.NonEmpty StartRequest
+  { -- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.
+    startWorkspaceRequests :: Lude.NonEmpty StartRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartWorkspaces' with the minimum fields required to make a request.
@@ -112,17 +107,12 @@ instance Lude.ToQuery StartWorkspaces where
 
 -- | /See:/ 'mkStartWorkspacesResponse' smart constructor.
 data StartWorkspacesResponse = StartWorkspacesResponse'
-  { failedRequests ::
-      Lude.Maybe [FailedWorkspaceChangeRequest],
+  { -- | Information about the WorkSpaces that could not be started.
+    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartWorkspacesResponse' with the minimum fields required to make a request.

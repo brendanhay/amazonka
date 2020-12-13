@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.AlgorithmValidationProfile
     mkAlgorithmValidationProfile,
 
     -- * Lenses
+    avpTrainingJobDefinition,
     avpTransformJobDefinition,
     avpProfileName,
-    avpTrainingJobDefinition,
   )
 where
 
@@ -34,39 +34,41 @@ import Network.AWS.SageMaker.Types.TransformJobDefinition
 --
 -- /See:/ 'mkAlgorithmValidationProfile' smart constructor.
 data AlgorithmValidationProfile = AlgorithmValidationProfile'
-  { transformJobDefinition ::
-      Lude.Maybe TransformJobDefinition,
-    profileName :: Lude.Text,
-    trainingJobDefinition ::
-      TrainingJobDefinition
+  { -- | The @TrainingJobDefinition@ object that describes the training job that Amazon SageMaker runs to validate your algorithm.
+    trainingJobDefinition :: TrainingJobDefinition,
+    -- | The @TransformJobDefinition@ object that describes the transform job that Amazon SageMaker runs to validate your algorithm.
+    transformJobDefinition :: Lude.Maybe TransformJobDefinition,
+    -- | The name of the profile for the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
+    profileName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlgorithmValidationProfile' with the minimum fields required to make a request.
 --
--- * 'profileName' - The name of the profile for the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
 -- * 'trainingJobDefinition' - The @TrainingJobDefinition@ object that describes the training job that Amazon SageMaker runs to validate your algorithm.
 -- * 'transformJobDefinition' - The @TransformJobDefinition@ object that describes the transform job that Amazon SageMaker runs to validate your algorithm.
+-- * 'profileName' - The name of the profile for the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).
 mkAlgorithmValidationProfile ::
-  -- | 'profileName'
-  Lude.Text ->
   -- | 'trainingJobDefinition'
   TrainingJobDefinition ->
+  -- | 'profileName'
+  Lude.Text ->
   AlgorithmValidationProfile
-mkAlgorithmValidationProfile pProfileName_ pTrainingJobDefinition_ =
+mkAlgorithmValidationProfile pTrainingJobDefinition_ pProfileName_ =
   AlgorithmValidationProfile'
-    { transformJobDefinition =
-        Lude.Nothing,
-      profileName = pProfileName_,
-      trainingJobDefinition = pTrainingJobDefinition_
+    { trainingJobDefinition =
+        pTrainingJobDefinition_,
+      transformJobDefinition = Lude.Nothing,
+      profileName = pProfileName_
     }
+
+-- | The @TrainingJobDefinition@ object that describes the training job that Amazon SageMaker runs to validate your algorithm.
+--
+-- /Note:/ Consider using 'trainingJobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avpTrainingJobDefinition :: Lens.Lens' AlgorithmValidationProfile TrainingJobDefinition
+avpTrainingJobDefinition = Lens.lens (trainingJobDefinition :: AlgorithmValidationProfile -> TrainingJobDefinition) (\s a -> s {trainingJobDefinition = a} :: AlgorithmValidationProfile)
+{-# DEPRECATED avpTrainingJobDefinition "Use generic-lens or generic-optics with 'trainingJobDefinition' instead." #-}
 
 -- | The @TransformJobDefinition@ object that describes the transform job that Amazon SageMaker runs to validate your algorithm.
 --
@@ -82,31 +84,23 @@ avpProfileName :: Lens.Lens' AlgorithmValidationProfile Lude.Text
 avpProfileName = Lens.lens (profileName :: AlgorithmValidationProfile -> Lude.Text) (\s a -> s {profileName = a} :: AlgorithmValidationProfile)
 {-# DEPRECATED avpProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
 
--- | The @TrainingJobDefinition@ object that describes the training job that Amazon SageMaker runs to validate your algorithm.
---
--- /Note:/ Consider using 'trainingJobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avpTrainingJobDefinition :: Lens.Lens' AlgorithmValidationProfile TrainingJobDefinition
-avpTrainingJobDefinition = Lens.lens (trainingJobDefinition :: AlgorithmValidationProfile -> TrainingJobDefinition) (\s a -> s {trainingJobDefinition = a} :: AlgorithmValidationProfile)
-{-# DEPRECATED avpTrainingJobDefinition "Use generic-lens or generic-optics with 'trainingJobDefinition' instead." #-}
-
 instance Lude.FromJSON AlgorithmValidationProfile where
   parseJSON =
     Lude.withObject
       "AlgorithmValidationProfile"
       ( \x ->
           AlgorithmValidationProfile'
-            Lude.<$> (x Lude..:? "TransformJobDefinition")
+            Lude.<$> (x Lude..: "TrainingJobDefinition")
+            Lude.<*> (x Lude..:? "TransformJobDefinition")
             Lude.<*> (x Lude..: "ProfileName")
-            Lude.<*> (x Lude..: "TrainingJobDefinition")
       )
 
 instance Lude.ToJSON AlgorithmValidationProfile where
   toJSON AlgorithmValidationProfile' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TransformJobDefinition" Lude..=)
-              Lude.<$> transformJobDefinition,
-            Lude.Just ("ProfileName" Lude..= profileName),
-            Lude.Just ("TrainingJobDefinition" Lude..= trainingJobDefinition)
+          [ Lude.Just ("TrainingJobDefinition" Lude..= trainingJobDefinition),
+            ("TransformJobDefinition" Lude..=) Lude.<$> transformJobDefinition,
+            Lude.Just ("ProfileName" Lude..= profileName)
           ]
       )

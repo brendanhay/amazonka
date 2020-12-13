@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CloudWatchEvents.DeletePartnerEventSource
     mkDeletePartnerEventSource,
 
     -- ** Request lenses
-    dpesName,
     dpesAccount,
+    dpesName,
 
     -- * Destructuring the response
     DeletePartnerEventSourceResponse (..),
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePartnerEventSource' smart constructor.
 data DeletePartnerEventSource = DeletePartnerEventSource'
-  { name ::
-      Lude.Text,
-    account :: Lude.Text
+  { -- | The AWS account ID of the AWS customer that the event source was created for.
+    account :: Lude.Text,
+    -- | The name of the event source to delete.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartnerEventSource' with the minimum fields required to make a request.
@@ -56,20 +52,13 @@ data DeletePartnerEventSource = DeletePartnerEventSource'
 -- * 'account' - The AWS account ID of the AWS customer that the event source was created for.
 -- * 'name' - The name of the event source to delete.
 mkDeletePartnerEventSource ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'account'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   DeletePartnerEventSource
-mkDeletePartnerEventSource pName_ pAccount_ =
-  DeletePartnerEventSource' {name = pName_, account = pAccount_}
-
--- | The name of the event source to delete.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpesName :: Lens.Lens' DeletePartnerEventSource Lude.Text
-dpesName = Lens.lens (name :: DeletePartnerEventSource -> Lude.Text) (\s a -> s {name = a} :: DeletePartnerEventSource)
-{-# DEPRECATED dpesName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkDeletePartnerEventSource pAccount_ pName_ =
+  DeletePartnerEventSource' {account = pAccount_, name = pName_}
 
 -- | The AWS account ID of the AWS customer that the event source was created for.
 --
@@ -77,6 +66,13 @@ dpesName = Lens.lens (name :: DeletePartnerEventSource -> Lude.Text) (\s a -> s 
 dpesAccount :: Lens.Lens' DeletePartnerEventSource Lude.Text
 dpesAccount = Lens.lens (account :: DeletePartnerEventSource -> Lude.Text) (\s a -> s {account = a} :: DeletePartnerEventSource)
 {-# DEPRECATED dpesAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+
+-- | The name of the event source to delete.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpesName :: Lens.Lens' DeletePartnerEventSource Lude.Text
+dpesName = Lens.lens (name :: DeletePartnerEventSource -> Lude.Text) (\s a -> s {name = a} :: DeletePartnerEventSource)
+{-# DEPRECATED dpesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeletePartnerEventSource where
   type Rs DeletePartnerEventSource = DeletePartnerEventSourceResponse
@@ -98,8 +94,8 @@ instance Lude.ToJSON DeletePartnerEventSource where
   toJSON DeletePartnerEventSource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Account" Lude..= account)
+          [ Lude.Just ("Account" Lude..= account),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -111,13 +107,7 @@ instance Lude.ToQuery DeletePartnerEventSource where
 
 -- | /See:/ 'mkDeletePartnerEventSourceResponse' smart constructor.
 data DeletePartnerEventSourceResponse = DeletePartnerEventSourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartnerEventSourceResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CloudDirectory.DisableDirectory
     mkDisableDirectoryResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
     drsDirectoryARN,
+    drsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisableDirectory' smart constructor.
 newtype DisableDirectory = DisableDirectory'
-  { directoryARN ::
-      Lude.Text
+  { -- | The ARN of the directory to disable.
+    directoryARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDirectory' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DisableDirectory where
     Res.receiveJSON
       ( \s h x ->
           DisableDirectoryResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "DirectoryArn")
+            Lude.<$> (x Lude..:> "DirectoryArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DisableDirectory where
@@ -94,17 +89,12 @@ instance Lude.ToQuery DisableDirectory where
 
 -- | /See:/ 'mkDisableDirectoryResponse' smart constructor.
 data DisableDirectoryResponse = DisableDirectoryResponse'
-  { responseStatus ::
-      Lude.Int,
-    directoryARN :: Lude.Text
+  { -- | The ARN of the directory that has been disabled.
+    directoryARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableDirectoryResponse' with the minimum fields required to make a request.
@@ -112,23 +102,16 @@ data DisableDirectoryResponse = DisableDirectoryResponse'
 -- * 'directoryARN' - The ARN of the directory that has been disabled.
 -- * 'responseStatus' - The response status code.
 mkDisableDirectoryResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'directoryARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DisableDirectoryResponse
-mkDisableDirectoryResponse pResponseStatus_ pDirectoryARN_ =
+mkDisableDirectoryResponse pDirectoryARN_ pResponseStatus_ =
   DisableDirectoryResponse'
-    { responseStatus = pResponseStatus_,
-      directoryARN = pDirectoryARN_
+    { directoryARN = pDirectoryARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DisableDirectoryResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DisableDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDirectoryResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ARN of the directory that has been disabled.
 --
@@ -136,3 +119,10 @@ drsResponseStatus = Lens.lens (responseStatus :: DisableDirectoryResponse -> Lud
 drsDirectoryARN :: Lens.Lens' DisableDirectoryResponse Lude.Text
 drsDirectoryARN = Lens.lens (directoryARN :: DisableDirectoryResponse -> Lude.Text) (\s a -> s {directoryARN = a} :: DisableDirectoryResponse)
 {-# DEPRECATED drsDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DisableDirectoryResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DisableDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDirectoryResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

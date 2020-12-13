@@ -13,12 +13,12 @@
 module Network.AWS.EMR.Types.AutoScalingPolicyState
   ( AutoScalingPolicyState
       ( AutoScalingPolicyState',
-        Attached,
+        Pending,
         Attaching,
-        Detached,
+        Attached,
         Detaching,
-        Failed,
-        Pending
+        Detached,
+        Failed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype AutoScalingPolicyState = AutoScalingPolicyState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Attached :: AutoScalingPolicyState
-pattern Attached = AutoScalingPolicyState' "ATTACHED"
+pattern Pending :: AutoScalingPolicyState
+pattern Pending = AutoScalingPolicyState' "PENDING"
 
 pattern Attaching :: AutoScalingPolicyState
 pattern Attaching = AutoScalingPolicyState' "ATTACHING"
 
-pattern Detached :: AutoScalingPolicyState
-pattern Detached = AutoScalingPolicyState' "DETACHED"
+pattern Attached :: AutoScalingPolicyState
+pattern Attached = AutoScalingPolicyState' "ATTACHED"
 
 pattern Detaching :: AutoScalingPolicyState
 pattern Detaching = AutoScalingPolicyState' "DETACHING"
 
+pattern Detached :: AutoScalingPolicyState
+pattern Detached = AutoScalingPolicyState' "DETACHED"
+
 pattern Failed :: AutoScalingPolicyState
 pattern Failed = AutoScalingPolicyState' "FAILED"
 
-pattern Pending :: AutoScalingPolicyState
-pattern Pending = AutoScalingPolicyState' "PENDING"
-
 {-# COMPLETE
-  Attached,
-  Attaching,
-  Detached,
-  Detaching,
-  Failed,
   Pending,
+  Attaching,
+  Attached,
+  Detaching,
+  Detached,
+  Failed,
   AutoScalingPolicyState'
   #-}

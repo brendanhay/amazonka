@@ -17,8 +17,8 @@ module Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes
     mkBatchGetLinkAttributes,
 
     -- * Lenses
-    bglaTypedLinkSpecifier,
     bglaAttributeNames,
+    bglaTypedLinkSpecifier,
   )
 where
 
@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchGetLinkAttributes' smart constructor.
 data BatchGetLinkAttributes = BatchGetLinkAttributes'
-  { typedLinkSpecifier ::
-      TypedLinkSpecifier,
-    attributeNames :: [Lude.Text]
+  { -- | A list of attribute names whose values will be retrieved.
+    attributeNames :: [Lude.Text],
+    -- | Allows a typed link specifier to be accepted as input.
+    typedLinkSpecifier :: TypedLinkSpecifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetLinkAttributes' with the minimum fields required to make a request.
@@ -53,17 +48,9 @@ mkBatchGetLinkAttributes ::
   BatchGetLinkAttributes
 mkBatchGetLinkAttributes pTypedLinkSpecifier_ =
   BatchGetLinkAttributes'
-    { typedLinkSpecifier =
-        pTypedLinkSpecifier_,
-      attributeNames = Lude.mempty
+    { attributeNames = Lude.mempty,
+      typedLinkSpecifier = pTypedLinkSpecifier_
     }
-
--- | Allows a typed link specifier to be accepted as input.
---
--- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bglaTypedLinkSpecifier :: Lens.Lens' BatchGetLinkAttributes TypedLinkSpecifier
-bglaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: BatchGetLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: BatchGetLinkAttributes)
-{-# DEPRECATED bglaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
 -- | A list of attribute names whose values will be retrieved.
 --
@@ -72,11 +59,18 @@ bglaAttributeNames :: Lens.Lens' BatchGetLinkAttributes [Lude.Text]
 bglaAttributeNames = Lens.lens (attributeNames :: BatchGetLinkAttributes -> [Lude.Text]) (\s a -> s {attributeNames = a} :: BatchGetLinkAttributes)
 {-# DEPRECATED bglaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
+-- | Allows a typed link specifier to be accepted as input.
+--
+-- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bglaTypedLinkSpecifier :: Lens.Lens' BatchGetLinkAttributes TypedLinkSpecifier
+bglaTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: BatchGetLinkAttributes -> TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: BatchGetLinkAttributes)
+{-# DEPRECATED bglaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
+
 instance Lude.ToJSON BatchGetLinkAttributes where
   toJSON BatchGetLinkAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier),
-            Lude.Just ("AttributeNames" Lude..= attributeNames)
+          [ Lude.Just ("AttributeNames" Lude..= attributeNames),
+            Lude.Just ("TypedLinkSpecifier" Lude..= typedLinkSpecifier)
           ]
       )

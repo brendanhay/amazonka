@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTerminationPolicyTypes' smart constructor.
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTerminationPolicyTypes' with the minimum fields required to make a request.
@@ -86,25 +81,18 @@ instance Lude.ToQuery DescribeTerminationPolicyTypes where
 
 -- | /See:/ 'mkDescribeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
-  { terminationPolicyTypes ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The termination policies supported by Amazon EC2 Auto Scaling: @OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , @Default@ , @OldestLaunchTemplate@ , and @AllocationStrategy@ .
+    terminationPolicyTypes :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTerminationPolicyTypesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'terminationPolicyTypes' - The termination policies supported by Amazon EC2 Auto Scaling: @OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , @Default@ , @OldestLaunchTemplate@ , and @AllocationStrategy@ .
+-- * 'responseStatus' - The response status code.
 mkDescribeTerminationPolicyTypesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

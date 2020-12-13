@@ -53,64 +53,76 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLightsailDistribution' smart constructor.
 data LightsailDistribution = LightsailDistribution'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the distribution.
+    status :: Lude.Maybe Lude.Text,
+    -- | An object that describes the origin resource of the distribution, such as a Lightsail instance or load balancer.
+    --
+    -- The distribution pulls, caches, and serves content from the origin.
     origin :: Lude.Maybe Origin,
+    -- | The name of the SSL/TLS certificate attached to the distribution, if any.
     certificateName :: Lude.Maybe Lude.Text,
+    -- | The Lightsail resource type (e.g., @Distribution@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the distribution.
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the distribution was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
     location :: Lude.Maybe ResourceLocation,
-    cacheBehaviorSettings ::
-      Lude.Maybe CacheSettings,
-    alternativeDomainNames ::
-      Lude.Maybe [Lude.Text],
+    -- | An object that describes the cache behavior settings of the distribution.
+    cacheBehaviorSettings :: Lude.Maybe CacheSettings,
+    -- | The alternate domain names of the distribution.
+    alternativeDomainNames :: Lude.Maybe [Lude.Text],
+    -- | The ID of the bundle currently applied to the distribution.
     bundleId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the bundle that is currently applied to your distribution, specified using the @distributionName@ parameter, can be changed to another bundle.
+    --
+    -- Use the @UpdateDistributionBundle@ action to change your distribution's bundle.
     ableToUpdateBundle :: Lude.Maybe Lude.Bool,
+    -- | The public DNS of the origin.
     originPublicDNS :: Lude.Maybe Lude.Text,
+    -- | The domain name of the distribution.
     domainName :: Lude.Maybe Lude.Text,
+    -- | The name of the distribution.
     name :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the distribution is enabled.
     isEnabled :: Lude.Maybe Lude.Bool,
+    -- | The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
-    defaultCacheBehavior ::
-      Lude.Maybe CacheBehavior,
-    cacheBehaviors ::
-      Lude.Maybe [CacheBehaviorPerPath],
+    -- | An object that describes the default cache behavior of the distribution.
+    defaultCacheBehavior :: Lude.Maybe CacheBehavior,
+    -- | An array of objects that describe the per-path cache behavior of the distribution.
+    cacheBehaviors :: Lude.Maybe [CacheBehaviorPerPath],
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LightsailDistribution' with the minimum fields required to make a request.
 --
--- * 'ableToUpdateBundle' - Indicates whether the bundle that is currently applied to your distribution, specified using the @distributionName@ parameter, can be changed to another bundle.
---
--- Use the @UpdateDistributionBundle@ action to change your distribution's bundle.
--- * 'alternativeDomainNames' - The alternate domain names of the distribution.
--- * 'arn' - The Amazon Resource Name (ARN) of the distribution.
--- * 'bundleId' - The ID of the bundle currently applied to the distribution.
--- * 'cacheBehaviorSettings' - An object that describes the cache behavior settings of the distribution.
--- * 'cacheBehaviors' - An array of objects that describe the per-path cache behavior of the distribution.
--- * 'certificateName' - The name of the SSL/TLS certificate attached to the distribution, if any.
--- * 'createdAt' - The timestamp when the distribution was created.
--- * 'defaultCacheBehavior' - An object that describes the default cache behavior of the distribution.
--- * 'domainName' - The domain name of the distribution.
--- * 'isEnabled' - Indicates whether the distribution is enabled.
--- * 'location' - An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
--- * 'name' - The name of the distribution.
+-- * 'status' - The status of the distribution.
 -- * 'origin' - An object that describes the origin resource of the distribution, such as a Lightsail instance or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
--- * 'originPublicDNS' - The public DNS of the origin.
+-- * 'certificateName' - The name of the SSL/TLS certificate attached to the distribution, if any.
 -- * 'resourceType' - The Lightsail resource type (e.g., @Distribution@ ).
--- * 'status' - The status of the distribution.
+-- * 'arn' - The Amazon Resource Name (ARN) of the distribution.
+-- * 'createdAt' - The timestamp when the distribution was created.
+-- * 'location' - An object that describes the location of the distribution, such as the AWS Region and Availability Zone.
+-- * 'cacheBehaviorSettings' - An object that describes the cache behavior settings of the distribution.
+-- * 'alternativeDomainNames' - The alternate domain names of the distribution.
+-- * 'bundleId' - The ID of the bundle currently applied to the distribution.
+-- * 'ableToUpdateBundle' - Indicates whether the bundle that is currently applied to your distribution, specified using the @distributionName@ parameter, can be changed to another bundle.
+--
+-- Use the @UpdateDistributionBundle@ action to change your distribution's bundle.
+-- * 'originPublicDNS' - The public DNS of the origin.
+-- * 'domainName' - The domain name of the distribution.
+-- * 'name' - The name of the distribution.
+-- * 'isEnabled' - Indicates whether the distribution is enabled.
 -- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
+-- * 'defaultCacheBehavior' - An object that describes the default cache behavior of the distribution.
+-- * 'cacheBehaviors' - An array of objects that describe the per-path cache behavior of the distribution.
 -- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkLightsailDistribution ::
   LightsailDistribution

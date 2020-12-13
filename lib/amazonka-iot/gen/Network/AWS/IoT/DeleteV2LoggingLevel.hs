@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,23 +37,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteV2LoggingLevel' smart constructor.
 data DeleteV2LoggingLevel = DeleteV2LoggingLevel'
-  { targetType ::
-      LogTargetType,
+  { -- | The type of resource for which you are configuring logging. Must be @THING_Group@ .
+    targetType :: LogTargetType,
+    -- | The name of the resource for which you are configuring logging.
     targetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteV2LoggingLevel' with the minimum fields required to make a request.
 --
--- * 'targetName' - The name of the resource for which you are configuring logging.
 -- * 'targetType' - The type of resource for which you are configuring logging. Must be @THING_Group@ .
+-- * 'targetName' - The name of the resource for which you are configuring logging.
 mkDeleteV2LoggingLevel ::
   -- | 'targetType'
   LogTargetType ->
@@ -97,13 +93,7 @@ instance Lude.ToQuery DeleteV2LoggingLevel where
 
 -- | /See:/ 'mkDeleteV2LoggingLevelResponse' smart constructor.
 data DeleteV2LoggingLevelResponse = DeleteV2LoggingLevelResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteV2LoggingLevelResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.SortOrder
   ( SortOrder
       ( SortOrder',
-        SOAscending,
-        SODescending
+        Ascending,
+        Descending
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SortOrder = SortOrder' Lude.Text
       Lude.ToHeader
     )
 
-pattern SOAscending :: SortOrder
-pattern SOAscending = SortOrder' "Ascending"
+pattern Ascending :: SortOrder
+pattern Ascending = SortOrder' "Ascending"
 
-pattern SODescending :: SortOrder
-pattern SODescending = SortOrder' "Descending"
+pattern Descending :: SortOrder
+pattern Descending = SortOrder' "Descending"
 
 {-# COMPLETE
-  SOAscending,
-  SODescending,
+  Ascending,
+  Descending,
   SortOrder'
   #-}

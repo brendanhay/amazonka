@@ -35,11 +35,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPNDetails' smart constructor.
 data VPNDetails = VPNDetails'
-  { vpnName :: Lude.Maybe Lude.Text,
+  { -- | The name of the VPN.
+    vpnName :: Lude.Maybe Lude.Text,
+    -- | The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.
     vpnTunnelOriginatorIP :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPN.
     vpnId :: Lude.Maybe Lude.Text,
+    -- | The state of the VPN.
     vpnState :: Lude.Maybe Lude.Text,
+    -- | The preshared key (PSK) for the VPN.
     vpnPSK :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The IP address of network traffic from AWS to your on-premises data center.
     vpnGatewayIP :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -47,12 +53,12 @@ data VPNDetails = VPNDetails'
 
 -- | Creates a value of 'VPNDetails' with the minimum fields required to make a request.
 --
--- * 'vpnGatewayIP' - The IP address of network traffic from AWS to your on-premises data center.
--- * 'vpnId' - The ID of the VPN.
 -- * 'vpnName' - The name of the VPN.
--- * 'vpnPSK' - The preshared key (PSK) for the VPN.
--- * 'vpnState' - The state of the VPN.
 -- * 'vpnTunnelOriginatorIP' - The IP address of network traffic from your on-premises data center. A custom AZ receives the network traffic.
+-- * 'vpnId' - The ID of the VPN.
+-- * 'vpnState' - The state of the VPN.
+-- * 'vpnPSK' - The preshared key (PSK) for the VPN.
+-- * 'vpnGatewayIP' - The IP address of network traffic from AWS to your on-premises data center.
 mkVPNDetails ::
   VPNDetails
 mkVPNDetails =

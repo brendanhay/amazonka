@@ -19,8 +19,8 @@ module Network.AWS.CodeCommit.Types.RepositoryTrigger
     -- * Lenses
     rtBranches,
     rtCustomData,
-    rtName,
     rtDestinationARN,
+    rtName,
     rtEvents,
   )
 where
@@ -33,20 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRepositoryTrigger' smart constructor.
 data RepositoryTrigger = RepositoryTrigger'
-  { branches ::
-      Lude.Maybe [Lude.Text],
+  { -- | The branches to be included in the trigger configuration. If you specify an empty array, the trigger applies to all branches.
+    branches :: Lude.Maybe [Lude.Text],
+    -- | Any custom data associated with the trigger to be included in the information sent to the target of the trigger.
     customData :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
+    -- | The ARN of the resource that is the target for a trigger (for example, the ARN of a topic in Amazon SNS).
     destinationARN :: Lude.Text,
+    -- | The name of the trigger.
+    name :: Lude.Text,
+    -- | The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS.
     events :: [RepositoryTriggerEventEnum]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RepositoryTrigger' with the minimum fields required to make a request.
@@ -54,20 +52,20 @@ data RepositoryTrigger = RepositoryTrigger'
 -- * 'branches' - The branches to be included in the trigger configuration. If you specify an empty array, the trigger applies to all branches.
 -- * 'customData' - Any custom data associated with the trigger to be included in the information sent to the target of the trigger.
 -- * 'destinationARN' - The ARN of the resource that is the target for a trigger (for example, the ARN of a topic in Amazon SNS).
--- * 'events' - The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS.
 -- * 'name' - The name of the trigger.
+-- * 'events' - The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS.
 mkRepositoryTrigger ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'destinationARN'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   RepositoryTrigger
-mkRepositoryTrigger pName_ pDestinationARN_ =
+mkRepositoryTrigger pDestinationARN_ pName_ =
   RepositoryTrigger'
     { branches = Lude.Nothing,
       customData = Lude.Nothing,
-      name = pName_,
       destinationARN = pDestinationARN_,
+      name = pName_,
       events = Lude.mempty
     }
 
@@ -85,19 +83,19 @@ rtCustomData :: Lens.Lens' RepositoryTrigger (Lude.Maybe Lude.Text)
 rtCustomData = Lens.lens (customData :: RepositoryTrigger -> Lude.Maybe Lude.Text) (\s a -> s {customData = a} :: RepositoryTrigger)
 {-# DEPRECATED rtCustomData "Use generic-lens or generic-optics with 'customData' instead." #-}
 
--- | The name of the trigger.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtName :: Lens.Lens' RepositoryTrigger Lude.Text
-rtName = Lens.lens (name :: RepositoryTrigger -> Lude.Text) (\s a -> s {name = a} :: RepositoryTrigger)
-{-# DEPRECATED rtName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 -- | The ARN of the resource that is the target for a trigger (for example, the ARN of a topic in Amazon SNS).
 --
 -- /Note:/ Consider using 'destinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rtDestinationARN :: Lens.Lens' RepositoryTrigger Lude.Text
 rtDestinationARN = Lens.lens (destinationARN :: RepositoryTrigger -> Lude.Text) (\s a -> s {destinationARN = a} :: RepositoryTrigger)
 {-# DEPRECATED rtDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
+
+-- | The name of the trigger.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtName :: Lens.Lens' RepositoryTrigger Lude.Text
+rtName = Lens.lens (name :: RepositoryTrigger -> Lude.Text) (\s a -> s {name = a} :: RepositoryTrigger)
+{-# DEPRECATED rtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS.
 --
@@ -114,8 +112,8 @@ instance Lude.FromJSON RepositoryTrigger where
           RepositoryTrigger'
             Lude.<$> (x Lude..:? "branches" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "customData")
-            Lude.<*> (x Lude..: "name")
             Lude.<*> (x Lude..: "destinationArn")
+            Lude.<*> (x Lude..: "name")
             Lude.<*> (x Lude..:? "events" Lude..!= Lude.mempty)
       )
 
@@ -125,8 +123,8 @@ instance Lude.ToJSON RepositoryTrigger where
       ( Lude.catMaybes
           [ ("branches" Lude..=) Lude.<$> branches,
             ("customData" Lude..=) Lude.<$> customData,
-            Lude.Just ("name" Lude..= name),
             Lude.Just ("destinationArn" Lude..= destinationARN),
+            Lude.Just ("name" Lude..= name),
             Lude.Just ("events" Lude..= events)
           ]
       )

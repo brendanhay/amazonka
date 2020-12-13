@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,15 +22,15 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     mkDeactivatePipeline,
 
     -- ** Request lenses
-    dCancelActive,
-    dPipelineId,
+    dpPipelineId,
+    dpCancelActive,
 
     -- * Destructuring the response
     DeactivatePipelineResponse (..),
     mkDeactivatePipelineResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dprsResponseStatus,
   )
 where
 
@@ -43,46 +44,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeactivatePipeline' smart constructor.
 data DeactivatePipeline = DeactivatePipeline'
-  { cancelActive ::
-      Lude.Maybe Lude.Bool,
-    pipelineId :: Lude.Text
+  { -- | The ID of the pipeline.
+    pipelineId :: Lude.Text,
+    -- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
+    cancelActive :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeactivatePipeline' with the minimum fields required to make a request.
 --
--- * 'cancelActive' - Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
 -- * 'pipelineId' - The ID of the pipeline.
+-- * 'cancelActive' - Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
 mkDeactivatePipeline ::
   -- | 'pipelineId'
   Lude.Text ->
   DeactivatePipeline
 mkDeactivatePipeline pPipelineId_ =
   DeactivatePipeline'
-    { cancelActive = Lude.Nothing,
-      pipelineId = pPipelineId_
+    { pipelineId = pPipelineId_,
+      cancelActive = Lude.Nothing
     }
-
--- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
---
--- /Note:/ Consider using 'cancelActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCancelActive :: Lens.Lens' DeactivatePipeline (Lude.Maybe Lude.Bool)
-dCancelActive = Lens.lens (cancelActive :: DeactivatePipeline -> Lude.Maybe Lude.Bool) (\s a -> s {cancelActive = a} :: DeactivatePipeline)
-{-# DEPRECATED dCancelActive "Use generic-lens or generic-optics with 'cancelActive' instead." #-}
 
 -- | The ID of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPipelineId :: Lens.Lens' DeactivatePipeline Lude.Text
-dPipelineId = Lens.lens (pipelineId :: DeactivatePipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: DeactivatePipeline)
-{-# DEPRECATED dPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+dpPipelineId :: Lens.Lens' DeactivatePipeline Lude.Text
+dpPipelineId = Lens.lens (pipelineId :: DeactivatePipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: DeactivatePipeline)
+{-# DEPRECATED dpPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+
+-- | Indicates whether to cancel any running objects. The default is true, which sets the state of any running objects to @CANCELED@ . If this value is false, the pipeline is deactivated after all running objects finish.
+--
+-- /Note:/ Consider using 'cancelActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpCancelActive :: Lens.Lens' DeactivatePipeline (Lude.Maybe Lude.Bool)
+dpCancelActive = Lens.lens (cancelActive :: DeactivatePipeline -> Lude.Maybe Lude.Bool) (\s a -> s {cancelActive = a} :: DeactivatePipeline)
+{-# DEPRECATED dpCancelActive "Use generic-lens or generic-optics with 'cancelActive' instead." #-}
 
 instance Lude.AWSRequest DeactivatePipeline where
   type Rs DeactivatePipeline = DeactivatePipelineResponse
@@ -108,8 +104,8 @@ instance Lude.ToJSON DeactivatePipeline where
   toJSON DeactivatePipeline' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("cancelActive" Lude..=) Lude.<$> cancelActive,
-            Lude.Just ("pipelineId" Lude..= pipelineId)
+          [ Lude.Just ("pipelineId" Lude..= pipelineId),
+            ("cancelActive" Lude..=) Lude.<$> cancelActive
           ]
       )
 
@@ -123,16 +119,10 @@ instance Lude.ToQuery DeactivatePipeline where
 --
 -- /See:/ 'mkDeactivatePipelineResponse' smart constructor.
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeactivatePipelineResponse' with the minimum fields required to make a request.
@@ -148,6 +138,6 @@ mkDeactivatePipelineResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeactivatePipelineResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeactivatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeactivatePipelineResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprsResponseStatus :: Lens.Lens' DeactivatePipelineResponse Lude.Int
+dprsResponseStatus = Lens.lens (responseStatus :: DeactivatePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeactivatePipelineResponse)
+{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

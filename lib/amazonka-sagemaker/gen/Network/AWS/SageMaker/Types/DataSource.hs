@@ -31,23 +31,18 @@ import Network.AWS.SageMaker.Types.S3DataSource
 --
 -- /See:/ 'mkDataSource' smart constructor.
 data DataSource = DataSource'
-  { s3DataSource ::
-      Lude.Maybe S3DataSource,
+  { -- | The S3 location of the data source that is associated with a channel.
+    s3DataSource :: Lude.Maybe S3DataSource,
+    -- | The file system that is associated with a channel.
     fileSystemDataSource :: Lude.Maybe FileSystemDataSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.
 --
--- * 'fileSystemDataSource' - The file system that is associated with a channel.
 -- * 's3DataSource' - The S3 location of the data source that is associated with a channel.
+-- * 'fileSystemDataSource' - The file system that is associated with a channel.
 mkDataSource ::
   DataSource
 mkDataSource =

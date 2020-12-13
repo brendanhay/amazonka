@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.ReservedInstanceState
   ( ReservedInstanceState
       ( ReservedInstanceState',
+        PaymentPending,
         Active,
         PaymentFailed,
-        PaymentPending,
+        Retired,
         Queued,
-        QueuedDeleted,
-        Retired
+        QueuedDeleted
       ),
   )
 where
@@ -49,14 +49,17 @@ newtype ReservedInstanceState = ReservedInstanceState' Lude.Text
       Lude.ToHeader
     )
 
+pattern PaymentPending :: ReservedInstanceState
+pattern PaymentPending = ReservedInstanceState' "payment-pending"
+
 pattern Active :: ReservedInstanceState
 pattern Active = ReservedInstanceState' "active"
 
 pattern PaymentFailed :: ReservedInstanceState
 pattern PaymentFailed = ReservedInstanceState' "payment-failed"
 
-pattern PaymentPending :: ReservedInstanceState
-pattern PaymentPending = ReservedInstanceState' "payment-pending"
+pattern Retired :: ReservedInstanceState
+pattern Retired = ReservedInstanceState' "retired"
 
 pattern Queued :: ReservedInstanceState
 pattern Queued = ReservedInstanceState' "queued"
@@ -64,15 +67,12 @@ pattern Queued = ReservedInstanceState' "queued"
 pattern QueuedDeleted :: ReservedInstanceState
 pattern QueuedDeleted = ReservedInstanceState' "queued-deleted"
 
-pattern Retired :: ReservedInstanceState
-pattern Retired = ReservedInstanceState' "retired"
-
 {-# COMPLETE
+  PaymentPending,
   Active,
   PaymentFailed,
-  PaymentPending,
+  Retired,
   Queued,
   QueuedDeleted,
-  Retired,
   ReservedInstanceState'
   #-}

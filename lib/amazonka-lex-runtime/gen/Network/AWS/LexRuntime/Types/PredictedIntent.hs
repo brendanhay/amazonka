@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPredictedIntent' smart constructor.
 data PredictedIntent = PredictedIntent'
-  { nluIntentConfidence ::
-      Lude.Maybe IntentConfidence,
+  { -- | Indicates how confident Amazon Lex is that an intent satisfies the user's intent.
+    nluIntentConfidence :: Lude.Maybe IntentConfidence,
+    -- | The slot and slot values associated with the predicted intent.
     slots :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the intent that Amazon Lex suggests satisfies the user's intent.
     intentName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PredictedIntent' with the minimum fields required to make a request.
 --
--- * 'intentName' - The name of the intent that Amazon Lex suggests satisfies the user's intent.
 -- * 'nluIntentConfidence' - Indicates how confident Amazon Lex is that an intent satisfies the user's intent.
 -- * 'slots' - The slot and slot values associated with the predicted intent.
+-- * 'intentName' - The name of the intent that Amazon Lex suggests satisfies the user's intent.
 mkPredictedIntent ::
   PredictedIntent
 mkPredictedIntent =

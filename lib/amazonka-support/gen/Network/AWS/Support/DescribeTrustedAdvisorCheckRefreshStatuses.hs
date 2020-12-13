@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     mkDescribeTrustedAdvisorCheckRefreshStatusesResponse,
 
     -- ** Response lenses
-    dtacrsrsResponseStatus,
     dtacrsrsStatuses,
+    dtacrsrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkDescribeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
-  { checkIds ::
-      [Lude.Text]
+  { -- | The IDs of the Trusted Advisor checks to get the status of.
+    checkIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckRefreshStatuses' with the minimum fields required to make a request.
@@ -80,8 +75,8 @@ instance Lude.AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
     Res.receiveJSON
       ( \s h x ->
           DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "statuses" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "statuses" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeTrustedAdvisorCheckRefreshStatuses where
@@ -112,27 +107,18 @@ instance Lude.ToQuery DescribeTrustedAdvisorCheckRefreshStatuses where
 --
 -- /See:/ 'mkDescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-  { responseStatus ::
-      Lude.Int,
-    statuses ::
-      [TrustedAdvisorCheckRefreshStatus]
+  { -- | The refresh status of the specified Trusted Advisor checks.
+    statuses :: [TrustedAdvisorCheckRefreshStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'statuses' - The refresh status of the specified Trusted Advisor checks.
+-- * 'responseStatus' - The response status code.
 mkDescribeTrustedAdvisorCheckRefreshStatusesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -140,17 +126,10 @@ mkDescribeTrustedAdvisorCheckRefreshStatusesResponse ::
 mkDescribeTrustedAdvisorCheckRefreshStatusesResponse
   pResponseStatus_ =
     DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-      { responseStatus =
-          pResponseStatus_,
-        statuses = Lude.mempty
+      { statuses =
+          Lude.mempty,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtacrsrsResponseStatus :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Lude.Int
-dtacrsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse)
-{-# DEPRECATED dtacrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The refresh status of the specified Trusted Advisor checks.
 --
@@ -158,3 +137,10 @@ dtacrsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrustedAdvisorChec
 dtacrsrsStatuses :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
 dtacrsrsStatuses = Lens.lens (statuses :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> [TrustedAdvisorCheckRefreshStatus]) (\s a -> s {statuses = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse)
 {-# DEPRECATED dtacrsrsStatuses "Use generic-lens or generic-optics with 'statuses' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacrsrsResponseStatus :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Lude.Int
+dtacrsrsResponseStatus = Lens.lens (responseStatus :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse)
+{-# DEPRECATED dtacrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

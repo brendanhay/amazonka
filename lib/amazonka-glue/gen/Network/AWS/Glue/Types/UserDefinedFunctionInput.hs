@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserDefinedFunctionInput' smart constructor.
 data UserDefinedFunctionInput = UserDefinedFunctionInput'
-  { ownerName ::
-      Lude.Maybe Lude.Text,
+  { -- | The owner of the function.
+    ownerName :: Lude.Maybe Lude.Text,
+    -- | The resource URIs for the function.
     resourceURIs :: Lude.Maybe [ResourceURI],
+    -- | The name of the function.
     functionName :: Lude.Maybe Lude.Text,
+    -- | The owner type.
     ownerType :: Lude.Maybe PrincipalType,
+    -- | The Java class that contains the function code.
     className :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserDefinedFunctionInput' with the minimum fields required to make a request.
 --
--- * 'className' - The Java class that contains the function code.
--- * 'functionName' - The name of the function.
 -- * 'ownerName' - The owner of the function.
--- * 'ownerType' - The owner type.
 -- * 'resourceURIs' - The resource URIs for the function.
+-- * 'functionName' - The name of the function.
+-- * 'ownerType' - The owner type.
+-- * 'className' - The Java class that contains the function code.
 mkUserDefinedFunctionInput ::
   UserDefinedFunctionInput
 mkUserDefinedFunctionInput =

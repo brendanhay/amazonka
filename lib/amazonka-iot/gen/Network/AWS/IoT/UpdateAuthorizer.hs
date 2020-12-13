@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +21,10 @@ module Network.AWS.IoT.UpdateAuthorizer
 
     -- ** Request lenses
     uaStatus,
+    uaAuthorizerName,
     uaAuthorizerFunctionARN,
     uaTokenSigningPublicKeys,
     uaTokenKeyName,
-    uaAuthorizerName,
 
     -- * Destructuring the response
     UpdateAuthorizerResponse (..),
@@ -44,30 +45,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-  { status ::
-      Lude.Maybe AuthorizerStatus,
+  { -- | The status of the update authorizer request.
+    status :: Lude.Maybe AuthorizerStatus,
+    -- | The authorizer name.
+    authorizerName :: Lude.Text,
+    -- | The ARN of the authorizer's Lambda function.
     authorizerFunctionARN :: Lude.Maybe Lude.Text,
-    tokenSigningPublicKeys ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    tokenKeyName :: Lude.Maybe Lude.Text,
-    authorizerName :: Lude.Text
+    -- | The public keys used to verify the token signature.
+    tokenSigningPublicKeys :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The key used to extract the token from the HTTP headers.
+    tokenKeyName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuthorizer' with the minimum fields required to make a request.
 --
--- * 'authorizerFunctionARN' - The ARN of the authorizer's Lambda function.
--- * 'authorizerName' - The authorizer name.
 -- * 'status' - The status of the update authorizer request.
--- * 'tokenKeyName' - The key used to extract the token from the HTTP headers.
+-- * 'authorizerName' - The authorizer name.
+-- * 'authorizerFunctionARN' - The ARN of the authorizer's Lambda function.
 -- * 'tokenSigningPublicKeys' - The public keys used to verify the token signature.
+-- * 'tokenKeyName' - The key used to extract the token from the HTTP headers.
 mkUpdateAuthorizer ::
   -- | 'authorizerName'
   Lude.Text ->
@@ -75,10 +73,10 @@ mkUpdateAuthorizer ::
 mkUpdateAuthorizer pAuthorizerName_ =
   UpdateAuthorizer'
     { status = Lude.Nothing,
+      authorizerName = pAuthorizerName_,
       authorizerFunctionARN = Lude.Nothing,
       tokenSigningPublicKeys = Lude.Nothing,
-      tokenKeyName = Lude.Nothing,
-      authorizerName = pAuthorizerName_
+      tokenKeyName = Lude.Nothing
     }
 
 -- | The status of the update authorizer request.
@@ -87,6 +85,13 @@ mkUpdateAuthorizer pAuthorizerName_ =
 uaStatus :: Lens.Lens' UpdateAuthorizer (Lude.Maybe AuthorizerStatus)
 uaStatus = Lens.lens (status :: UpdateAuthorizer -> Lude.Maybe AuthorizerStatus) (\s a -> s {status = a} :: UpdateAuthorizer)
 {-# DEPRECATED uaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The authorizer name.
+--
+-- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAuthorizerName :: Lens.Lens' UpdateAuthorizer Lude.Text
+uaAuthorizerName = Lens.lens (authorizerName :: UpdateAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: UpdateAuthorizer)
+{-# DEPRECATED uaAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
 -- | The ARN of the authorizer's Lambda function.
 --
@@ -108,13 +113,6 @@ uaTokenSigningPublicKeys = Lens.lens (tokenSigningPublicKeys :: UpdateAuthorizer
 uaTokenKeyName :: Lens.Lens' UpdateAuthorizer (Lude.Maybe Lude.Text)
 uaTokenKeyName = Lens.lens (tokenKeyName :: UpdateAuthorizer -> Lude.Maybe Lude.Text) (\s a -> s {tokenKeyName = a} :: UpdateAuthorizer)
 {-# DEPRECATED uaTokenKeyName "Use generic-lens or generic-optics with 'tokenKeyName' instead." #-}
-
--- | The authorizer name.
---
--- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAuthorizerName :: Lens.Lens' UpdateAuthorizer Lude.Text
-uaAuthorizerName = Lens.lens (authorizerName :: UpdateAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: UpdateAuthorizer)
-{-# DEPRECATED uaAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
 instance Lude.AWSRequest UpdateAuthorizer where
   type Rs UpdateAuthorizer = UpdateAuthorizerResponse
@@ -151,24 +149,20 @@ instance Lude.ToQuery UpdateAuthorizer where
 
 -- | /See:/ 'mkUpdateAuthorizerResponse' smart constructor.
 data UpdateAuthorizerResponse = UpdateAuthorizerResponse'
-  { authorizerName ::
-      Lude.Maybe Lude.Text,
+  { -- | The authorizer name.
+    authorizerName :: Lude.Maybe Lude.Text,
+    -- | The authorizer ARN.
     authorizerARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAuthorizerResponse' with the minimum fields required to make a request.
 --
--- * 'authorizerARN' - The authorizer ARN.
 -- * 'authorizerName' - The authorizer name.
+-- * 'authorizerARN' - The authorizer ARN.
 -- * 'responseStatus' - The response status code.
 mkUpdateAuthorizerResponse ::
   -- | 'responseStatus'

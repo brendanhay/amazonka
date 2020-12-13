@@ -38,13 +38,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironment' smart constructor.
 data Environment = Environment'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the environment.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The state of the environment in its creation or deletion lifecycle.
     lifecycle :: Lude.Maybe EnvironmentLifecycle,
+    -- | The Amazon Resource Name (ARN) of the environment owner.
     ownerARN :: Lude.Maybe Lude.Text,
+    -- | The name of the environment.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the environment.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of environment. Valid values include the following:
+    --
+    --
+    --     * @ec2@ : An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.
+    --
+    --
+    --     * @ssh@ : Your own server connects to the environment.
     type' :: Lude.Maybe EnvironmentType,
+    -- | The connection type used for connecting to an Amazon EC2 environment.
     connectionType :: Lude.Maybe ConnectionType,
+    -- | The description for the environment.
     description :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -53,12 +67,10 @@ data Environment = Environment'
 -- | Creates a value of 'Environment' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the environment.
--- * 'connectionType' - The connection type used for connecting to an Amazon EC2 environment.
--- * 'description' - The description for the environment.
--- * 'id' - The ID of the environment.
 -- * 'lifecycle' - The state of the environment in its creation or deletion lifecycle.
--- * 'name' - The name of the environment.
 -- * 'ownerARN' - The Amazon Resource Name (ARN) of the environment owner.
+-- * 'name' - The name of the environment.
+-- * 'id' - The ID of the environment.
 -- * 'type'' - The type of environment. Valid values include the following:
 --
 --
@@ -66,6 +78,10 @@ data Environment = Environment'
 --
 --
 --     * @ssh@ : Your own server connects to the environment.
+--
+--
+-- * 'connectionType' - The connection type used for connecting to an Amazon EC2 environment.
+-- * 'description' - The description for the environment.
 mkEnvironment ::
   Environment
 mkEnvironment =

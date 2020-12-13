@@ -17,11 +17,11 @@ module Network.AWS.CognitoSync.Types.RecordPatch
     mkRecordPatch,
 
     -- * Lenses
-    rpDeviceLastModifiedDate,
-    rpValue,
-    rpOp,
-    rpKey,
     rpSyncCount,
+    rpDeviceLastModifiedDate,
+    rpOp,
+    rpValue,
+    rpKey,
   )
 where
 
@@ -33,73 +33,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecordPatch' smart constructor.
 data RecordPatch = RecordPatch'
-  { deviceLastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
-    value :: Lude.Maybe Lude.Text,
+  { -- | Last known server sync count for this record. Set to 0 if unknown.
+    syncCount :: Lude.Integer,
+    -- | The last modified date of the client device.
+    deviceLastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | An operation, either replace or remove.
     op :: Operation,
-    key :: Lude.Text,
-    syncCount :: Lude.Integer
+    -- | The value associated with the record patch.
+    value :: Lude.Maybe Lude.Text,
+    -- | The key associated with the record patch.
+    key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordPatch' with the minimum fields required to make a request.
 --
--- * 'deviceLastModifiedDate' - The last modified date of the client device.
--- * 'key' - The key associated with the record patch.
--- * 'op' - An operation, either replace or remove.
 -- * 'syncCount' - Last known server sync count for this record. Set to 0 if unknown.
+-- * 'deviceLastModifiedDate' - The last modified date of the client device.
+-- * 'op' - An operation, either replace or remove.
 -- * 'value' - The value associated with the record patch.
+-- * 'key' - The key associated with the record patch.
 mkRecordPatch ::
+  -- | 'syncCount'
+  Lude.Integer ->
   -- | 'op'
   Operation ->
   -- | 'key'
   Lude.Text ->
-  -- | 'syncCount'
-  Lude.Integer ->
   RecordPatch
-mkRecordPatch pOp_ pKey_ pSyncCount_ =
+mkRecordPatch pSyncCount_ pOp_ pKey_ =
   RecordPatch'
-    { deviceLastModifiedDate = Lude.Nothing,
-      value = Lude.Nothing,
+    { syncCount = pSyncCount_,
+      deviceLastModifiedDate = Lude.Nothing,
       op = pOp_,
-      key = pKey_,
-      syncCount = pSyncCount_
+      value = Lude.Nothing,
+      key = pKey_
     }
-
--- | The last modified date of the client device.
---
--- /Note:/ Consider using 'deviceLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpDeviceLastModifiedDate :: Lens.Lens' RecordPatch (Lude.Maybe Lude.Timestamp)
-rpDeviceLastModifiedDate = Lens.lens (deviceLastModifiedDate :: RecordPatch -> Lude.Maybe Lude.Timestamp) (\s a -> s {deviceLastModifiedDate = a} :: RecordPatch)
-{-# DEPRECATED rpDeviceLastModifiedDate "Use generic-lens or generic-optics with 'deviceLastModifiedDate' instead." #-}
-
--- | The value associated with the record patch.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpValue :: Lens.Lens' RecordPatch (Lude.Maybe Lude.Text)
-rpValue = Lens.lens (value :: RecordPatch -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: RecordPatch)
-{-# DEPRECATED rpValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | An operation, either replace or remove.
---
--- /Note:/ Consider using 'op' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpOp :: Lens.Lens' RecordPatch Operation
-rpOp = Lens.lens (op :: RecordPatch -> Operation) (\s a -> s {op = a} :: RecordPatch)
-{-# DEPRECATED rpOp "Use generic-lens or generic-optics with 'op' instead." #-}
-
--- | The key associated with the record patch.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpKey :: Lens.Lens' RecordPatch Lude.Text
-rpKey = Lens.lens (key :: RecordPatch -> Lude.Text) (\s a -> s {key = a} :: RecordPatch)
-{-# DEPRECATED rpKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Last known server sync count for this record. Set to 0 if unknown.
 --
@@ -108,15 +78,42 @@ rpSyncCount :: Lens.Lens' RecordPatch Lude.Integer
 rpSyncCount = Lens.lens (syncCount :: RecordPatch -> Lude.Integer) (\s a -> s {syncCount = a} :: RecordPatch)
 {-# DEPRECATED rpSyncCount "Use generic-lens or generic-optics with 'syncCount' instead." #-}
 
+-- | The last modified date of the client device.
+--
+-- /Note:/ Consider using 'deviceLastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpDeviceLastModifiedDate :: Lens.Lens' RecordPatch (Lude.Maybe Lude.Timestamp)
+rpDeviceLastModifiedDate = Lens.lens (deviceLastModifiedDate :: RecordPatch -> Lude.Maybe Lude.Timestamp) (\s a -> s {deviceLastModifiedDate = a} :: RecordPatch)
+{-# DEPRECATED rpDeviceLastModifiedDate "Use generic-lens or generic-optics with 'deviceLastModifiedDate' instead." #-}
+
+-- | An operation, either replace or remove.
+--
+-- /Note:/ Consider using 'op' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpOp :: Lens.Lens' RecordPatch Operation
+rpOp = Lens.lens (op :: RecordPatch -> Operation) (\s a -> s {op = a} :: RecordPatch)
+{-# DEPRECATED rpOp "Use generic-lens or generic-optics with 'op' instead." #-}
+
+-- | The value associated with the record patch.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpValue :: Lens.Lens' RecordPatch (Lude.Maybe Lude.Text)
+rpValue = Lens.lens (value :: RecordPatch -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: RecordPatch)
+{-# DEPRECATED rpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+-- | The key associated with the record patch.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpKey :: Lens.Lens' RecordPatch Lude.Text
+rpKey = Lens.lens (key :: RecordPatch -> Lude.Text) (\s a -> s {key = a} :: RecordPatch)
+{-# DEPRECATED rpKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.ToJSON RecordPatch where
   toJSON RecordPatch' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DeviceLastModifiedDate" Lude..=)
-              Lude.<$> deviceLastModifiedDate,
-            ("Value" Lude..=) Lude.<$> value,
+          [ Lude.Just ("SyncCount" Lude..= syncCount),
+            ("DeviceLastModifiedDate" Lude..=) Lude.<$> deviceLastModifiedDate,
             Lude.Just ("Op" Lude..= op),
-            Lude.Just ("Key" Lude..= key),
-            Lude.Just ("SyncCount" Lude..= syncCount)
+            ("Value" Lude..=) Lude.<$> value,
+            Lude.Just ("Key" Lude..= key)
           ]
       )

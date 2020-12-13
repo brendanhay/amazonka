@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -80,27 +81,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateFleetCapacity' smart constructor.
 data UpdateFleetCapacity = UpdateFleetCapacity'
-  { maxSize ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum value allowed for the fleet's instance count. Default if not set is 1.
+    maxSize :: Lude.Maybe Lude.Natural,
+    -- | The minimum value allowed for the fleet's instance count. Default if not set is 0.
     minSize :: Lude.Maybe Lude.Natural,
+    -- | Number of EC2 instances you want this fleet to host.
     desiredInstances :: Lude.Maybe Lude.Natural,
+    -- | A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
     fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFleetCapacity' with the minimum fields required to make a request.
 --
--- * 'desiredInstances' - Number of EC2 instances you want this fleet to host.
--- * 'fleetId' - A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
 -- * 'maxSize' - The maximum value allowed for the fleet's instance count. Default if not set is 1.
 -- * 'minSize' - The minimum value allowed for the fleet's instance count. Default if not set is 0.
+-- * 'desiredInstances' - Number of EC2 instances you want this fleet to host.
+-- * 'fleetId' - A unique identifier for a fleet to update capacity for. You can use either the fleet ID or ARN value.
 mkUpdateFleetCapacity ::
   -- | 'fleetId'
   Lude.Text ->
@@ -183,17 +181,12 @@ instance Lude.ToQuery UpdateFleetCapacity where
 --
 -- /See:/ 'mkUpdateFleetCapacityResponse' smart constructor.
 data UpdateFleetCapacityResponse = UpdateFleetCapacityResponse'
-  { fleetId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for a fleet that was updated.
+    fleetId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFleetCapacityResponse' with the minimum fields required to make a request.

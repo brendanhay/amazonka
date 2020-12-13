@@ -31,19 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityProfileTargetMapping' smart constructor.
 data SecurityProfileTargetMapping = SecurityProfileTargetMapping'
-  { securityProfileIdentifier ::
-      Lude.Maybe
-        SecurityProfileIdentifier,
-    target ::
-      Lude.Maybe SecurityProfileTarget
+  { -- | Information that identifies the security profile.
+    securityProfileIdentifier :: Lude.Maybe SecurityProfileIdentifier,
+    -- | Information about the target (thing group) associated with the security profile.
+    target :: Lude.Maybe SecurityProfileTarget
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityProfileTargetMapping' with the minimum fields required to make a request.

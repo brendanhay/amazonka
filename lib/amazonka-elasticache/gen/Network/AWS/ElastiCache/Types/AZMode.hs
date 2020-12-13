@@ -13,8 +13,8 @@
 module Network.AWS.ElastiCache.Types.AZMode
   ( AZMode
       ( AZMode',
-        CrossAz,
-        SingleAz
+        SingleAz,
+        CrossAz
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AZMode = AZMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern CrossAz :: AZMode
-pattern CrossAz = AZMode' "cross-az"
-
 pattern SingleAz :: AZMode
 pattern SingleAz = AZMode' "single-az"
 
+pattern CrossAz :: AZMode
+pattern CrossAz = AZMode' "cross-az"
+
 {-# COMPLETE
-  CrossAz,
   SingleAz,
+  CrossAz,
   AZMode'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetInsightSelectors' smart constructor.
 newtype GetInsightSelectors = GetInsightSelectors'
-  { trailName ::
-      Lude.Text
+  { -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:
+    --
+    --
+    --     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
+    --
+    --
+    --     * Start with a letter or number, and end with a letter or number
+    --
+    --
+    --     * Be between 3 and 128 characters
+    --
+    --
+    --     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are not valid.
+    --
+    --
+    --     * Not be in IP address format (for example, 192.168.5.4)
+    --
+    --
+    -- If you specify a trail ARN, it must be in the format:
+    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+    trailName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightSelectors' with the minimum fields required to make a request.
@@ -147,26 +161,21 @@ instance Lude.ToQuery GetInsightSelectors where
 
 -- | /See:/ 'mkGetInsightSelectorsResponse' smart constructor.
 data GetInsightSelectorsResponse = GetInsightSelectorsResponse'
-  { trailARN ::
-      Lude.Maybe Lude.Text,
-    insightSelectors ::
-      Lude.Maybe [InsightSelector],
+  { -- | The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
+    trailARN :: Lude.Maybe Lude.Text,
+    -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
+    insightSelectors :: Lude.Maybe [InsightSelector],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInsightSelectorsResponse' with the minimum fields required to make a request.
 --
+-- * 'trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
 -- * 'insightSelectors' - A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
 -- * 'responseStatus' - The response status code.
--- * 'trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to get Insights selectors.
 mkGetInsightSelectorsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

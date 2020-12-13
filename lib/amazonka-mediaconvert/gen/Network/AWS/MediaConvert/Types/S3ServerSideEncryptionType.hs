@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType
   ( S3ServerSideEncryptionType
       ( S3ServerSideEncryptionType',
-        ServerSideEncryptionKMS,
-        ServerSideEncryptionS3
+        ServerSideEncryptionS3,
+        ServerSideEncryptionKMS
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype S3ServerSideEncryptionType = S3ServerSideEncryptionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ServerSideEncryptionKMS :: S3ServerSideEncryptionType
-pattern ServerSideEncryptionKMS = S3ServerSideEncryptionType' "SERVER_SIDE_ENCRYPTION_KMS"
-
 pattern ServerSideEncryptionS3 :: S3ServerSideEncryptionType
 pattern ServerSideEncryptionS3 = S3ServerSideEncryptionType' "SERVER_SIDE_ENCRYPTION_S3"
 
+pattern ServerSideEncryptionKMS :: S3ServerSideEncryptionType
+pattern ServerSideEncryptionKMS = S3ServerSideEncryptionType' "SERVER_SIDE_ENCRYPTION_KMS"
+
 {-# COMPLETE
-  ServerSideEncryptionKMS,
   ServerSideEncryptionS3,
+  ServerSideEncryptionKMS,
   S3ServerSideEncryptionType'
   #-}

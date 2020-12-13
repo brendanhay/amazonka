@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,8 +40,8 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchAssociateUserStack' smart constructor.
 newtype BatchAssociateUserStack = BatchAssociateUserStack'
-  { userStackAssociations ::
-      Lude.NonEmpty UserStackAssociation
+  { -- | The list of UserStackAssociation objects.
+    userStackAssociations :: Lude.NonEmpty UserStackAssociation
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
@@ -106,9 +107,9 @@ instance Lude.ToQuery BatchAssociateUserStack where
 
 -- | /See:/ 'mkBatchAssociateUserStackResponse' smart constructor.
 data BatchAssociateUserStackResponse = BatchAssociateUserStackResponse'
-  { errors ::
-      Lude.Maybe
-        [UserStackAssociationError],
+  { -- | The list of UserStackAssociationError objects.
+    errors :: Lude.Maybe [UserStackAssociationError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

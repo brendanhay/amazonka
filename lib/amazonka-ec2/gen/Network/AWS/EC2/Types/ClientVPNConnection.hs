@@ -42,47 +42,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientVPNConnection' smart constructor.
 data ClientVPNConnection = ClientVPNConnection'
-  { ingressPackets ::
-      Lude.Maybe Lude.Text,
+  { -- | The number of packets sent by the client.
+    ingressPackets :: Lude.Maybe Lude.Text,
+    -- | The current state of the client connection.
     status :: Lude.Maybe ClientVPNConnectionStatus,
+    -- | The date and time the client connection was terminated.
     connectionEndTime :: Lude.Maybe Lude.Text,
+    -- | The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.
     commonName :: Lude.Maybe Lude.Text,
+    -- | The statuses returned by the client connect handler for posture compliance, if applicable.
     postureComplianceStatuses :: Lude.Maybe [Lude.Text],
+    -- | The date and time the client connection was established.
     connectionEstablishedTime :: Lude.Maybe Lude.Text,
+    -- | The ID of the client connection.
     connectionId :: Lude.Maybe Lude.Text,
+    -- | The number of bytes sent by the client.
     ingressBytes :: Lude.Maybe Lude.Text,
+    -- | The username of the client who established the client connection. This information is only provided if Active Directory client authentication is used.
     username :: Lude.Maybe Lude.Text,
+    -- | The number of bytes received by the client.
     egressBytes :: Lude.Maybe Lude.Text,
+    -- | The ID of the Client VPN endpoint to which the client is connected.
     clientVPNEndpointId :: Lude.Maybe Lude.Text,
+    -- | The IP address of the client.
     clientIP :: Lude.Maybe Lude.Text,
+    -- | The number of packets received by the client.
     egressPackets :: Lude.Maybe Lude.Text,
+    -- | The current date and time.
     timestamp :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNConnection' with the minimum fields required to make a request.
 --
--- * 'clientIP' - The IP address of the client.
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint to which the client is connected.
--- * 'commonName' - The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.
+-- * 'ingressPackets' - The number of packets sent by the client.
+-- * 'status' - The current state of the client connection.
 -- * 'connectionEndTime' - The date and time the client connection was terminated.
+-- * 'commonName' - The common name associated with the client. This is either the name of the client certificate, or the Active Directory user name.
+-- * 'postureComplianceStatuses' - The statuses returned by the client connect handler for posture compliance, if applicable.
 -- * 'connectionEstablishedTime' - The date and time the client connection was established.
 -- * 'connectionId' - The ID of the client connection.
--- * 'egressBytes' - The number of bytes received by the client.
--- * 'egressPackets' - The number of packets received by the client.
 -- * 'ingressBytes' - The number of bytes sent by the client.
--- * 'ingressPackets' - The number of packets sent by the client.
--- * 'postureComplianceStatuses' - The statuses returned by the client connect handler for posture compliance, if applicable.
--- * 'status' - The current state of the client connection.
--- * 'timestamp' - The current date and time.
 -- * 'username' - The username of the client who established the client connection. This information is only provided if Active Directory client authentication is used.
+-- * 'egressBytes' - The number of bytes received by the client.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint to which the client is connected.
+-- * 'clientIP' - The IP address of the client.
+-- * 'egressPackets' - The number of packets received by the client.
+-- * 'timestamp' - The current date and time.
 mkClientVPNConnection ::
   ClientVPNConnection
 mkClientVPNConnection =

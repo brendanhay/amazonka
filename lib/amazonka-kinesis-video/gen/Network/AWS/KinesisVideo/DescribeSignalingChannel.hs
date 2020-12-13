@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.KinesisVideo.DescribeSignalingChannel
     mkDescribeSignalingChannelResponse,
 
     -- ** Response lenses
-    desrsChannelInfo,
-    desrsResponseStatus,
+    dscrsChannelInfo,
+    dscrsResponseStatus,
   )
 where
 
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSignalingChannel' smart constructor.
 data DescribeSignalingChannel = DescribeSignalingChannel'
-  { channelARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the signaling channel that you want to describe.
+    channelARN :: Lude.Maybe Lude.Text,
+    -- | The name of the signaling channel that you want to describe.
     channelName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSignalingChannel' with the minimum fields required to make a request.
@@ -109,18 +105,12 @@ instance Lude.ToQuery DescribeSignalingChannel where
 
 -- | /See:/ 'mkDescribeSignalingChannelResponse' smart constructor.
 data DescribeSignalingChannelResponse = DescribeSignalingChannelResponse'
-  { channelInfo ::
-      Lude.Maybe ChannelInfo,
-    responseStatus ::
-      Lude.Int
+  { -- | A structure that encapsulates the specified signaling channel's metadata and properties.
+    channelInfo :: Lude.Maybe ChannelInfo,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSignalingChannelResponse' with the minimum fields required to make a request.
@@ -140,13 +130,13 @@ mkDescribeSignalingChannelResponse pResponseStatus_ =
 -- | A structure that encapsulates the specified signaling channel's metadata and properties.
 --
 -- /Note:/ Consider using 'channelInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsChannelInfo :: Lens.Lens' DescribeSignalingChannelResponse (Lude.Maybe ChannelInfo)
-desrsChannelInfo = Lens.lens (channelInfo :: DescribeSignalingChannelResponse -> Lude.Maybe ChannelInfo) (\s a -> s {channelInfo = a} :: DescribeSignalingChannelResponse)
-{-# DEPRECATED desrsChannelInfo "Use generic-lens or generic-optics with 'channelInfo' instead." #-}
+dscrsChannelInfo :: Lens.Lens' DescribeSignalingChannelResponse (Lude.Maybe ChannelInfo)
+dscrsChannelInfo = Lens.lens (channelInfo :: DescribeSignalingChannelResponse -> Lude.Maybe ChannelInfo) (\s a -> s {channelInfo = a} :: DescribeSignalingChannelResponse)
+{-# DEPRECATED dscrsChannelInfo "Use generic-lens or generic-optics with 'channelInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeSignalingChannelResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeSignalingChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSignalingChannelResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrsResponseStatus :: Lens.Lens' DescribeSignalingChannelResponse Lude.Int
+dscrsResponseStatus = Lens.lens (responseStatus :: DescribeSignalingChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSignalingChannelResponse)
+{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

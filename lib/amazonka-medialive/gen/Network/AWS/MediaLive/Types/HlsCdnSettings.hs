@@ -35,27 +35,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsCdnSettings' smart constructor.
 data HlsCdnSettings = HlsCdnSettings'
-  { hlsAkamaiSettings ::
-      Lude.Maybe HlsAkamaiSettings,
+  { hlsAkamaiSettings :: Lude.Maybe HlsAkamaiSettings,
     hlsMediaStoreSettings :: Lude.Maybe HlsMediaStoreSettings,
     hlsBasicPutSettings :: Lude.Maybe HlsBasicPutSettings,
     hlsWebdavSettings :: Lude.Maybe HlsWebdavSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsCdnSettings' with the minimum fields required to make a request.
 --
--- * 'hlsAkamaiSettings' - Undocumented field.
--- * 'hlsBasicPutSettings' - Undocumented field.
--- * 'hlsMediaStoreSettings' - Undocumented field.
--- * 'hlsWebdavSettings' - Undocumented field.
+-- * 'hlsAkamaiSettings' -
+-- * 'hlsMediaStoreSettings' -
+-- * 'hlsBasicPutSettings' -
+-- * 'hlsWebdavSettings' -
 mkHlsCdnSettings ::
   HlsCdnSettings
 mkHlsCdnSettings =

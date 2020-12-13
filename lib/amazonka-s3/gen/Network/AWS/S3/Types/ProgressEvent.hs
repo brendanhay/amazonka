@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.Progress
 --
 -- /See:/ 'mkProgressEvent' smart constructor.
 newtype ProgressEvent = ProgressEvent'
-  { details ::
-      Lude.Maybe Progress
+  { -- | The Progress event details.
+    details :: Lude.Maybe Progress
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProgressEvent' with the minimum fields required to make a request.

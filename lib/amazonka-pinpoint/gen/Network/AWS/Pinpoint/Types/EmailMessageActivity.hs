@@ -32,29 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEmailMessageActivity' smart constructor.
 data EmailMessageActivity = EmailMessageActivity'
-  { templateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the email message template to use for the message. If specified, this value must match the name of an existing message template.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the version of the email template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
+    --
+    -- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
     templateVersion :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the next activity to perform, after the message is sent.
     nextActivity :: Lude.Maybe Lude.Text,
+    -- | Specifies the sender address for an email message that's sent to participants in the journey.
     messageConfig :: Lude.Maybe JourneyEmailMessage
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EmailMessageActivity' with the minimum fields required to make a request.
 --
--- * 'messageConfig' - Specifies the sender address for an email message that's sent to participants in the journey.
--- * 'nextActivity' - The unique identifier for the next activity to perform, after the message is sent.
 -- * 'templateName' - The name of the email message template to use for the message. If specified, this value must match the name of an existing message template.
 -- * 'templateVersion' - The unique identifier for the version of the email template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
 --
 -- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
+-- * 'nextActivity' - The unique identifier for the next activity to perform, after the message is sent.
+-- * 'messageConfig' - Specifies the sender address for an email message that's sent to participants in the journey.
 mkEmailMessageActivity ::
   EmailMessageActivity
 mkEmailMessageActivity =

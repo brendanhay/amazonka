@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeStar.UntagProject
     mkUntagProject,
 
     -- ** Request lenses
-    uId,
-    uTags,
+    upId,
+    upTags,
 
     -- * Destructuring the response
     UntagProjectResponse (..),
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUntagProject' smart constructor.
 data UntagProject = UntagProject'
-  { id :: Lude.Text,
+  { -- | The ID of the project to remove tags from.
+    id :: Lude.Text,
+    -- | The tags to remove from the project.
     tags :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagProject' with the minimum fields required to make a request.
@@ -64,16 +61,16 @@ mkUntagProject pId_ = UntagProject' {id = pId_, tags = Lude.mempty}
 -- | The ID of the project to remove tags from.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uId :: Lens.Lens' UntagProject Lude.Text
-uId = Lens.lens (id :: UntagProject -> Lude.Text) (\s a -> s {id = a} :: UntagProject)
-{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
+upId :: Lens.Lens' UntagProject Lude.Text
+upId = Lens.lens (id :: UntagProject -> Lude.Text) (\s a -> s {id = a} :: UntagProject)
+{-# DEPRECATED upId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The tags to remove from the project.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uTags :: Lens.Lens' UntagProject [Lude.Text]
-uTags = Lens.lens (tags :: UntagProject -> [Lude.Text]) (\s a -> s {tags = a} :: UntagProject)
-{-# DEPRECATED uTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+upTags :: Lens.Lens' UntagProject [Lude.Text]
+upTags = Lens.lens (tags :: UntagProject -> [Lude.Text]) (\s a -> s {tags = a} :: UntagProject)
+{-# DEPRECATED upTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest UntagProject where
   type Rs UntagProject = UntagProjectResponse
@@ -110,16 +107,10 @@ instance Lude.ToQuery UntagProject where
 
 -- | /See:/ 'mkUntagProjectResponse' smart constructor.
 newtype UntagProjectResponse = UntagProjectResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagProjectResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SSM.GetMaintenanceWindowExecutionTask
     mkGetMaintenanceWindowExecutionTask,
 
     -- ** Request lenses
-    gmwetWindowExecutionId,
     gmwetTaskId,
+    gmwetWindowExecutionId,
 
     -- * Destructuring the response
     GetMaintenanceWindowExecutionTaskResponse (..),
@@ -52,17 +53,12 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetMaintenanceWindowExecutionTask' smart constructor.
 data GetMaintenanceWindowExecutionTask = GetMaintenanceWindowExecutionTask'
-  { windowExecutionId ::
-      Lude.Text,
-    taskId :: Lude.Text
+  { -- | The ID of the specific task execution in the maintenance window task that should be retrieved.
+    taskId :: Lude.Text,
+    -- | The ID of the maintenance window execution that includes the task.
+    windowExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionTask' with the minimum fields required to make a request.
@@ -70,24 +66,16 @@ data GetMaintenanceWindowExecutionTask = GetMaintenanceWindowExecutionTask'
 -- * 'taskId' - The ID of the specific task execution in the maintenance window task that should be retrieved.
 -- * 'windowExecutionId' - The ID of the maintenance window execution that includes the task.
 mkGetMaintenanceWindowExecutionTask ::
-  -- | 'windowExecutionId'
-  Lude.Text ->
   -- | 'taskId'
   Lude.Text ->
+  -- | 'windowExecutionId'
+  Lude.Text ->
   GetMaintenanceWindowExecutionTask
-mkGetMaintenanceWindowExecutionTask pWindowExecutionId_ pTaskId_ =
+mkGetMaintenanceWindowExecutionTask pTaskId_ pWindowExecutionId_ =
   GetMaintenanceWindowExecutionTask'
-    { windowExecutionId =
-        pWindowExecutionId_,
-      taskId = pTaskId_
+    { taskId = pTaskId_,
+      windowExecutionId = pWindowExecutionId_
     }
-
--- | The ID of the maintenance window execution that includes the task.
---
--- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmwetWindowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTask Lude.Text
-gmwetWindowExecutionId = Lens.lens (windowExecutionId :: GetMaintenanceWindowExecutionTask -> Lude.Text) (\s a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTask)
-{-# DEPRECATED gmwetWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 -- | The ID of the specific task execution in the maintenance window task that should be retrieved.
 --
@@ -95,6 +83,13 @@ gmwetWindowExecutionId = Lens.lens (windowExecutionId :: GetMaintenanceWindowExe
 gmwetTaskId :: Lens.Lens' GetMaintenanceWindowExecutionTask Lude.Text
 gmwetTaskId = Lens.lens (taskId :: GetMaintenanceWindowExecutionTask -> Lude.Text) (\s a -> s {taskId = a} :: GetMaintenanceWindowExecutionTask)
 {-# DEPRECATED gmwetTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
+
+-- | The ID of the maintenance window execution that includes the task.
+--
+-- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwetWindowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTask Lude.Text
+gmwetWindowExecutionId = Lens.lens (windowExecutionId :: GetMaintenanceWindowExecutionTask -> Lude.Text) (\s a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTask)
+{-# DEPRECATED gmwetWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 instance Lude.AWSRequest GetMaintenanceWindowExecutionTask where
   type
@@ -136,8 +131,8 @@ instance Lude.ToJSON GetMaintenanceWindowExecutionTask where
   toJSON GetMaintenanceWindowExecutionTask' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("WindowExecutionId" Lude..= windowExecutionId),
-            Lude.Just ("TaskId" Lude..= taskId)
+          [ Lude.Just ("TaskId" Lude..= taskId),
+            Lude.Just ("WindowExecutionId" Lude..= windowExecutionId)
           ]
       )
 
@@ -149,79 +144,62 @@ instance Lude.ToQuery GetMaintenanceWindowExecutionTask where
 
 -- | /See:/ 'mkGetMaintenanceWindowExecutionTaskResponse' smart constructor.
 data GetMaintenanceWindowExecutionTaskResponse = GetMaintenanceWindowExecutionTaskResponse'
-  { status ::
-      Lude.Maybe
-        MaintenanceWindowExecutionStatus,
-    taskParameters ::
-      Lude.Maybe
-        [ Lude.HashMap
-            Lude.Text
-            (MaintenanceWindowTaskParameterValueExpression)
-        ],
-    taskExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    priority ::
-      Lude.Maybe
-        Lude.Natural,
-    startTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    taskARN ::
-      Lude.Maybe
-        Lude.Text,
-    windowExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    statusDetails ::
-      Lude.Maybe
-        Lude.Text,
-    maxErrors ::
-      Lude.Maybe
-        Lude.Text,
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    type' ::
-      Lude.Maybe
-        MaintenanceWindowTaskType,
-    maxConcurrency ::
-      Lude.Maybe
-        Lude.Text,
-    serviceRole ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the task.
+    status :: Lude.Maybe MaintenanceWindowExecutionStatus,
+    -- | The parameters passed to the task when it was run.
+    --
+    -- The map has the following format:
+    -- Key: string, between 1 and 255 characters
+    -- Value: an array of strings, each string is between 1 and 255 characters
+    taskParameters :: Lude.Maybe [Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)],
+    -- | The ID of the specific task execution in the maintenance window task that was retrieved.
+    taskExecutionId :: Lude.Maybe Lude.Text,
+    -- | The priority of the task.
+    priority :: Lude.Maybe Lude.Natural,
+    -- | The time the task execution started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the task that ran.
+    taskARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the maintenance window execution that includes the task.
+    windowExecutionId :: Lude.Maybe Lude.Text,
+    -- | The details explaining the Status. Only available for certain status values.
+    statusDetails :: Lude.Maybe Lude.Text,
+    -- | The defined maximum number of task execution errors allowed before scheduling of the task execution would have been stopped.
+    maxErrors :: Lude.Maybe Lude.Text,
+    -- | The time the task execution completed.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The type of task that was run.
+    type' :: Lude.Maybe MaintenanceWindowTaskType,
+    -- | The defined maximum number of task executions that could be run in parallel.
+    maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The role that was assumed when running the task.
+    serviceRole :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowExecutionTaskResponse' with the minimum fields required to make a request.
 --
--- * 'endTime' - The time the task execution completed.
--- * 'maxConcurrency' - The defined maximum number of task executions that could be run in parallel.
--- * 'maxErrors' - The defined maximum number of task execution errors allowed before scheduling of the task execution would have been stopped.
--- * 'priority' - The priority of the task.
--- * 'responseStatus' - The response status code.
--- * 'serviceRole' - The role that was assumed when running the task.
--- * 'startTime' - The time the task execution started.
 -- * 'status' - The status of the task.
--- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
--- * 'taskARN' - The ARN of the task that ran.
--- * 'taskExecutionId' - The ID of the specific task execution in the maintenance window task that was retrieved.
 -- * 'taskParameters' - The parameters passed to the task when it was run.
 --
 -- The map has the following format:
 -- Key: string, between 1 and 255 characters
 -- Value: an array of strings, each string is between 1 and 255 characters
--- * 'type'' - The type of task that was run.
+-- * 'taskExecutionId' - The ID of the specific task execution in the maintenance window task that was retrieved.
+-- * 'priority' - The priority of the task.
+-- * 'startTime' - The time the task execution started.
+-- * 'taskARN' - The ARN of the task that ran.
 -- * 'windowExecutionId' - The ID of the maintenance window execution that includes the task.
+-- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
+-- * 'maxErrors' - The defined maximum number of task execution errors allowed before scheduling of the task execution would have been stopped.
+-- * 'endTime' - The time the task execution completed.
+-- * 'type'' - The type of task that was run.
+-- * 'maxConcurrency' - The defined maximum number of task executions that could be run in parallel.
+-- * 'serviceRole' - The role that was assumed when running the task.
+-- * 'responseStatus' - The response status code.
 mkGetMaintenanceWindowExecutionTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

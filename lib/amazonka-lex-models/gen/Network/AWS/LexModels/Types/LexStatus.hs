@@ -13,11 +13,11 @@
 module Network.AWS.LexModels.Types.LexStatus
   ( LexStatus
       ( LexStatus',
-        LSBuilding,
-        LSFailed,
-        LSNotBuilt,
-        LSReady,
-        LSReadyBasicTesting
+        Building,
+        Ready,
+        ReadyBasicTesting,
+        Failed,
+        NotBuilt
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype LexStatus = LexStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern LSBuilding :: LexStatus
-pattern LSBuilding = LexStatus' "BUILDING"
+pattern Building :: LexStatus
+pattern Building = LexStatus' "BUILDING"
 
-pattern LSFailed :: LexStatus
-pattern LSFailed = LexStatus' "FAILED"
+pattern Ready :: LexStatus
+pattern Ready = LexStatus' "READY"
 
-pattern LSNotBuilt :: LexStatus
-pattern LSNotBuilt = LexStatus' "NOT_BUILT"
+pattern ReadyBasicTesting :: LexStatus
+pattern ReadyBasicTesting = LexStatus' "READY_BASIC_TESTING"
 
-pattern LSReady :: LexStatus
-pattern LSReady = LexStatus' "READY"
+pattern Failed :: LexStatus
+pattern Failed = LexStatus' "FAILED"
 
-pattern LSReadyBasicTesting :: LexStatus
-pattern LSReadyBasicTesting = LexStatus' "READY_BASIC_TESTING"
+pattern NotBuilt :: LexStatus
+pattern NotBuilt = LexStatus' "NOT_BUILT"
 
 {-# COMPLETE
-  LSBuilding,
-  LSFailed,
-  LSNotBuilt,
-  LSReady,
-  LSReadyBasicTesting,
+  Building,
+  Ready,
+  ReadyBasicTesting,
+  Failed,
+  NotBuilt,
   LexStatus'
   #-}

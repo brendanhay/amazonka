@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetActiveNames' smart constructor.
 newtype GetActiveNames = GetActiveNames'
-  { pageToken ::
-      Lude.Maybe Lude.Text
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetActiveNames@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+    pageToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetActiveNames' with the minimum fields required to make a request.
@@ -118,27 +115,26 @@ instance Lude.ToQuery GetActiveNames where
 
 -- | /See:/ 'mkGetActiveNamesResponse' smart constructor.
 data GetActiveNamesResponse = GetActiveNamesResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to display.
+    -- To get the next page of results, perform another @GetActiveNames@ request and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The list of active names returned by the get active names request.
     activeNames :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetActiveNamesResponse' with the minimum fields required to make a request.
 --
--- * 'activeNames' - The list of active names returned by the get active names request.
 -- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to display.
 -- To get the next page of results, perform another @GetActiveNames@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'activeNames' - The list of active names returned by the get active names request.
 -- * 'responseStatus' - The response status code.
 mkGetActiveNamesResponse ::
   -- | 'responseStatus'

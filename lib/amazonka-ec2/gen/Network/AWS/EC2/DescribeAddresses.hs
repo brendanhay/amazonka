@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,25 +45,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters. Filter names and values are case-sensitive.
+    --
+    --
+    --     * @allocation-id@ - [EC2-VPC] The allocation ID for the address.
+    --
+    --
+    --     * @association-id@ - [EC2-VPC] The association ID for the address.
+    --
+    --
+    --     * @domain@ - Indicates whether the address is for use in EC2-Classic (@standard@ ) or in a VPC (@vpc@ ).
+    --
+    --
+    --     * @instance-id@ - The ID of the instance the address is associated with, if any.
+    --
+    --
+    --     * @network-border-group@ - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where AWS advertises IP addresses.
+    --
+    --
+    --     * @network-interface-id@ - [EC2-VPC] The ID of the network interface that the address is associated with, if any.
+    --
+    --
+    --     * @network-interface-owner-id@ - The AWS account ID of the owner.
+    --
+    --
+    --     * @private-ip-address@ - [EC2-VPC] The private IP address associated with the Elastic IP address.
+    --
+    --
+    --     * @public-ip@ - The Elastic IP address, or the carrier IP address.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    filters :: Lude.Maybe [Filter],
+    -- | One or more Elastic IP addresses.
+    --
+    -- Default: Describes all your Elastic IP addresses.
     publicIPs :: Lude.Maybe [Lude.Text],
+    -- | [EC2-VPC] Information about the allocation IDs.
     allocationIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
 --
--- * 'allocationIds' - [EC2-VPC] Information about the allocation IDs.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. Filter names and values are case-sensitive.
 --
 --
@@ -102,6 +133,8 @@ data DescribeAddresses = DescribeAddresses'
 -- * 'publicIPs' - One or more Elastic IP addresses.
 --
 -- Default: Describes all your Elastic IP addresses.
+-- * 'allocationIds' - [EC2-VPC] Information about the allocation IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeAddresses ::
   DescribeAddresses
 mkDescribeAddresses =
@@ -210,17 +243,12 @@ instance Lude.ToQuery DescribeAddresses where
 
 -- | /See:/ 'mkDescribeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-  { addresses ::
-      Lude.Maybe [Address],
+  { -- | Information about the Elastic IP addresses.
+    addresses :: Lude.Maybe [Address],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.

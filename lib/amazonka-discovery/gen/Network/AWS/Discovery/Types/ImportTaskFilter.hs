@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportTaskFilter' smart constructor.
 data ImportTaskFilter = ImportTaskFilter'
-  { values ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | An array of strings that you can provide to match against a specific name, status, or import task ID to filter the results for your import task queries.
+    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The name, status, or import task ID for a specific import task.
     name :: Lude.Maybe ImportTaskFilterName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportTaskFilter' with the minimum fields required to make a request.
 --
--- * 'name' - The name, status, or import task ID for a specific import task.
 -- * 'values' - An array of strings that you can provide to match against a specific name, status, or import task ID to filter the results for your import task queries.
+-- * 'name' - The name, status, or import task ID for a specific import task.
 mkImportTaskFilter ::
   ImportTaskFilter
 mkImportTaskFilter =

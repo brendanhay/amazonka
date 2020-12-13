@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
     -- ** Request lenses
     gihsNextToken,
     gihsInstances,
-    gihsMaxResults,
     gihsServiceId,
+    gihsMaxResults,
 
     -- * Destructuring the response
     GetInstancesHealthStatusResponse (..),
@@ -43,32 +44,32 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkGetInstancesHealthStatus' smart constructor.
 data GetInstancesHealthStatus = GetInstancesHealthStatus'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    instances ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    maxResults :: Lude.Maybe Lude.Natural,
-    serviceId :: Lude.Text
+  { -- | For the first @GetInstancesHealthStatus@ request, omit this value.
+    --
+    -- If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array that contains the IDs of all the instances that you want to get the health status for.
+    --
+    -- If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
+    instances :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The ID of the service that the instance is associated with.
+    serviceId :: Lude.Text,
+    -- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstancesHealthStatus' with the minimum fields required to make a request.
 --
--- * 'instances' - An array that contains the IDs of all the instances that you want to get the health status for.
---
--- If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
--- * 'maxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 -- * 'nextToken' - For the first @GetInstancesHealthStatus@ request, omit this value.
 --
 -- If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+-- * 'instances' - An array that contains the IDs of all the instances that you want to get the health status for.
+--
+-- If you omit @Instances@ , AWS Cloud Map returns the health status for all the instances that are associated with the specified service.
 -- * 'serviceId' - The ID of the service that the instance is associated with.
+-- * 'maxResults' - The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
 mkGetInstancesHealthStatus ::
   -- | 'serviceId'
   Lude.Text ->
@@ -77,8 +78,8 @@ mkGetInstancesHealthStatus pServiceId_ =
   GetInstancesHealthStatus'
     { nextToken = Lude.Nothing,
       instances = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      serviceId = pServiceId_
+      serviceId = pServiceId_,
+      maxResults = Lude.Nothing
     }
 
 -- | For the first @GetInstancesHealthStatus@ request, omit this value.
@@ -99,19 +100,19 @@ gihsInstances :: Lens.Lens' GetInstancesHealthStatus (Lude.Maybe (Lude.NonEmpty 
 gihsInstances = Lens.lens (instances :: GetInstancesHealthStatus -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {instances = a} :: GetInstancesHealthStatus)
 {-# DEPRECATED gihsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
--- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gihsMaxResults :: Lens.Lens' GetInstancesHealthStatus (Lude.Maybe Lude.Natural)
-gihsMaxResults = Lens.lens (maxResults :: GetInstancesHealthStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInstancesHealthStatus)
-{-# DEPRECATED gihsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the service that the instance is associated with.
 --
 -- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gihsServiceId :: Lens.Lens' GetInstancesHealthStatus Lude.Text
 gihsServiceId = Lens.lens (serviceId :: GetInstancesHealthStatus -> Lude.Text) (\s a -> s {serviceId = a} :: GetInstancesHealthStatus)
 {-# DEPRECATED gihsServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+
+-- | The maximum number of instances that you want AWS Cloud Map to return in the response to a @GetInstancesHealthStatus@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 instances.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gihsMaxResults :: Lens.Lens' GetInstancesHealthStatus (Lude.Maybe Lude.Natural)
+gihsMaxResults = Lens.lens (maxResults :: GetInstancesHealthStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInstancesHealthStatus)
+{-# DEPRECATED gihsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest GetInstancesHealthStatus where
   type Rs GetInstancesHealthStatus = GetInstancesHealthStatusResponse
@@ -144,8 +145,8 @@ instance Lude.ToJSON GetInstancesHealthStatus where
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Instances" Lude..=) Lude.<$> instances,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ServiceId" Lude..= serviceId)
+            Lude.Just ("ServiceId" Lude..= serviceId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -157,31 +158,21 @@ instance Lude.ToQuery GetInstancesHealthStatus where
 
 -- | /See:/ 'mkGetInstancesHealthStatusResponse' smart constructor.
 data GetInstancesHealthStatusResponse = GetInstancesHealthStatusResponse'
-  { status ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (HealthStatus)
-        ),
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
+    status :: Lude.Maybe (Lude.HashMap Lude.Text (HealthStatus)),
+    -- | If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstancesHealthStatusResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
 -- * 'nextToken' - If more than @MaxResults@ instances match the specified criteria, you can submit another @GetInstancesHealthStatus@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 -- * 'responseStatus' - The response status code.
--- * 'status' - A complex type that contains the IDs and the health status of the instances that you specified in the @GetInstancesHealthStatus@ request.
 mkGetInstancesHealthStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

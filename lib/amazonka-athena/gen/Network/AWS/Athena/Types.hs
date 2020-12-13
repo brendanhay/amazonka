@@ -34,9 +34,9 @@ module Network.AWS.Athena.Types
     -- * Column
     Column (..),
     mkColumn,
+    cName,
     cType,
     cComment,
-    cName,
 
     -- * ColumnInfo
     ColumnInfo (..),
@@ -45,20 +45,20 @@ module Network.AWS.Athena.Types
     ciPrecision,
     ciSchemaName,
     ciCatalogName,
+    ciName,
+    ciType,
     ciCaseSensitive,
     ciLabel,
     ciTableName,
     ciNullable,
-    ciName,
-    ciType,
 
     -- * DataCatalog
     DataCatalog (..),
     mkDataCatalog,
-    dcParameters,
-    dcDescription,
     dcName,
+    dcParameters,
     dcType,
+    dcDescription,
 
     -- * DataCatalogSummary
     DataCatalogSummary (..),
@@ -69,9 +69,9 @@ module Network.AWS.Athena.Types
     -- * Database
     Database (..),
     mkDatabase,
+    dName,
     dParameters,
     dDescription,
-    dName,
 
     -- * Datum
     Datum (..),
@@ -81,18 +81,18 @@ module Network.AWS.Athena.Types
     -- * EncryptionConfiguration
     EncryptionConfiguration (..),
     mkEncryptionConfiguration,
-    ecKMSKey,
     ecEncryptionOption,
+    ecKMSKey,
 
     -- * NamedQuery
     NamedQuery (..),
     mkNamedQuery,
     nqNamedQueryId,
+    nqDatabase,
+    nqName,
+    nqQueryString,
     nqDescription,
     nqWorkGroup,
-    nqName,
-    nqDatabase,
-    nqQueryString,
 
     -- * QueryExecution
     QueryExecution (..),
@@ -165,12 +165,12 @@ module Network.AWS.Athena.Types
     TableMetadata (..),
     mkTableMetadata,
     tmTableType,
+    tmName,
     tmParameters,
     tmColumns,
     tmLastAccessTime,
     tmPartitionKeys,
     tmCreateTime,
-    tmName,
 
     -- * Tag
     Tag (..),
@@ -197,9 +197,9 @@ module Network.AWS.Athena.Types
     mkWorkGroup,
     wgCreationTime,
     wgState,
+    wgName,
     wgConfiguration,
     wgDescription,
-    wgName,
 
     -- * WorkGroupConfiguration
     WorkGroupConfiguration (..),

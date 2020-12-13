@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,23 +40,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateSkillGroupWithRoom' smart constructor.
 data AssociateSkillGroupWithRoom = AssociateSkillGroupWithRoom'
-  { skillGroupARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the skill group to associate with a room. Required.
+    skillGroupARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the room with which to associate the skill group. Required.
     roomARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSkillGroupWithRoom' with the minimum fields required to make a request.
 --
--- * 'roomARN' - The ARN of the room with which to associate the skill group. Required.
 -- * 'skillGroupARN' - The ARN of the skill group to associate with a room. Required.
+-- * 'roomARN' - The ARN of the room with which to associate the skill group. Required.
 mkAssociateSkillGroupWithRoom ::
   AssociateSkillGroupWithRoom
 mkAssociateSkillGroupWithRoom =
@@ -120,16 +116,10 @@ instance Lude.ToQuery AssociateSkillGroupWithRoom where
 
 -- | /See:/ 'mkAssociateSkillGroupWithRoomResponse' smart constructor.
 newtype AssociateSkillGroupWithRoomResponse = AssociateSkillGroupWithRoomResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateSkillGroupWithRoomResponse' with the minimum fields required to make a request.

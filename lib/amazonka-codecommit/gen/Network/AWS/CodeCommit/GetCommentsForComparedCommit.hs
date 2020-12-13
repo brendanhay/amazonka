@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.CodeCommit.GetCommentsForComparedCommit
     mkGetCommentsForComparedCommit,
 
     -- ** Request lenses
+    gcfccAfterCommitId,
     gcfccNextToken,
     gcfccBeforeCommitId,
-    gcfccMaxResults,
     gcfccRepositoryName,
-    gcfccAfterCommitId,
+    gcfccMaxResults,
 
     -- * Destructuring the response
     GetCommentsForComparedCommitResponse (..),
@@ -47,44 +48,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCommentsForComparedCommit' smart constructor.
 data GetCommentsForComparedCommit = GetCommentsForComparedCommit'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    beforeCommitId ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
+  { -- | To establish the directionality of the comparison, the full commit ID of the after commit.
+    afterCommitId :: Lude.Text,
+    -- | An enumeration token that when provided in a request, returns the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | To establish the directionality of the comparison, the full commit ID of the before commit.
+    beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository where you want to compare commits.
     repositoryName :: Lude.Text,
-    afterCommitId :: Lude.Text
+    -- | A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentsForComparedCommit' with the minimum fields required to make a request.
 --
 -- * 'afterCommitId' - To establish the directionality of the comparison, the full commit ID of the after commit.
--- * 'beforeCommitId' - To establish the directionality of the comparison, the full commit ID of the before commit.
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
 -- * 'nextToken' - An enumeration token that when provided in a request, returns the next batch of the results.
+-- * 'beforeCommitId' - To establish the directionality of the comparison, the full commit ID of the before commit.
 -- * 'repositoryName' - The name of the repository where you want to compare commits.
+-- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
 mkGetCommentsForComparedCommit ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'afterCommitId'
   Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   GetCommentsForComparedCommit
-mkGetCommentsForComparedCommit pRepositoryName_ pAfterCommitId_ =
+mkGetCommentsForComparedCommit pAfterCommitId_ pRepositoryName_ =
   GetCommentsForComparedCommit'
-    { nextToken = Lude.Nothing,
+    { afterCommitId = pAfterCommitId_,
+      nextToken = Lude.Nothing,
       beforeCommitId = Lude.Nothing,
-      maxResults = Lude.Nothing,
       repositoryName = pRepositoryName_,
-      afterCommitId = pAfterCommitId_
+      maxResults = Lude.Nothing
     }
+
+-- | To establish the directionality of the comparison, the full commit ID of the after commit.
+--
+-- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccAfterCommitId :: Lens.Lens' GetCommentsForComparedCommit Lude.Text
+gcfccAfterCommitId = Lens.lens (afterCommitId :: GetCommentsForComparedCommit -> Lude.Text) (\s a -> s {afterCommitId = a} :: GetCommentsForComparedCommit)
+{-# DEPRECATED gcfccAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
 
 -- | An enumeration token that when provided in a request, returns the next batch of the results.
 --
@@ -100,13 +105,6 @@ gcfccBeforeCommitId :: Lens.Lens' GetCommentsForComparedCommit (Lude.Maybe Lude.
 gcfccBeforeCommitId = Lens.lens (beforeCommitId :: GetCommentsForComparedCommit -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitId = a} :: GetCommentsForComparedCommit)
 {-# DEPRECATED gcfccBeforeCommitId "Use generic-lens or generic-optics with 'beforeCommitId' instead." #-}
 
--- | A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfccMaxResults :: Lens.Lens' GetCommentsForComparedCommit (Lude.Maybe Lude.Int)
-gcfccMaxResults = Lens.lens (maxResults :: GetCommentsForComparedCommit -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetCommentsForComparedCommit)
-{-# DEPRECATED gcfccMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the repository where you want to compare commits.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -114,12 +112,12 @@ gcfccRepositoryName :: Lens.Lens' GetCommentsForComparedCommit Lude.Text
 gcfccRepositoryName = Lens.lens (repositoryName :: GetCommentsForComparedCommit -> Lude.Text) (\s a -> s {repositoryName = a} :: GetCommentsForComparedCommit)
 {-# DEPRECATED gcfccRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
--- | To establish the directionality of the comparison, the full commit ID of the after commit.
+-- | A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments, but you can configure up to 500.
 --
--- /Note:/ Consider using 'afterCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfccAfterCommitId :: Lens.Lens' GetCommentsForComparedCommit Lude.Text
-gcfccAfterCommitId = Lens.lens (afterCommitId :: GetCommentsForComparedCommit -> Lude.Text) (\s a -> s {afterCommitId = a} :: GetCommentsForComparedCommit)
-{-# DEPRECATED gcfccAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfccMaxResults :: Lens.Lens' GetCommentsForComparedCommit (Lude.Maybe Lude.Int)
+gcfccMaxResults = Lens.lens (maxResults :: GetCommentsForComparedCommit -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetCommentsForComparedCommit)
+{-# DEPRECATED gcfccMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetCommentsForComparedCommit where
   page rq rs
@@ -162,11 +160,11 @@ instance Lude.ToJSON GetCommentsForComparedCommit where
   toJSON GetCommentsForComparedCommit' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("afterCommitId" Lude..= afterCommitId),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
             ("beforeCommitId" Lude..=) Lude.<$> beforeCommitId,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("afterCommitId" Lude..= afterCommitId)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -178,22 +176,14 @@ instance Lude.ToQuery GetCommentsForComparedCommit where
 
 -- | /See:/ 'mkGetCommentsForComparedCommitResponse' smart constructor.
 data GetCommentsForComparedCommitResponse = GetCommentsForComparedCommitResponse'
-  { commentsForComparedCommitData ::
-      Lude.Maybe
-        [CommentsForComparedCommit],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of comment objects on the compared commit.
+    commentsForComparedCommitData :: Lude.Maybe [CommentsForComparedCommit],
+    -- | An enumeration token that can be used in a request to return the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentsForComparedCommitResponse' with the minimum fields required to make a request.

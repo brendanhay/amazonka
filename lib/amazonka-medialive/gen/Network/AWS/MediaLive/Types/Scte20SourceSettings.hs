@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte20SourceSettings' smart constructor.
 data Scte20SourceSettings = Scte20SourceSettings'
-  { convert608To708 ::
-      Lude.Maybe Scte20Convert608To708,
+  { -- | If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+    convert608To708 :: Lude.Maybe Scte20Convert608To708,
+    -- | Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
     source608ChannelNumber :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte20SourceSettings' with the minimum fields required to make a request.

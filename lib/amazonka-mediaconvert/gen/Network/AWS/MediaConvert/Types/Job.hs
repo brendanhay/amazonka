@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.Job
     jAccelerationSettings,
     jPriority,
     jStatusUpdateInterval,
+    jSettings,
     jARN,
     jCreatedAt,
     jHopDestinations,
@@ -30,6 +31,7 @@ module Network.AWS.MediaConvert.Types.Job
     jCurrentPhase,
     jQueue,
     jUserMetadata,
+    jRole,
     jBillingTagsSource,
     jOutputGroupDetails,
     jErrorCode,
@@ -40,8 +42,6 @@ module Network.AWS.MediaConvert.Types.Job
     jMessages,
     jErrorMessage,
     jAccelerationStatus,
-    jRole,
-    jSettings,
   )
 where
 
@@ -65,81 +65,101 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { status :: Lude.Maybe JobStatus,
+  { -- | A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+    status :: Lude.Maybe JobStatus,
+    -- | The job template that the job is created from, if it is created from a job template.
     jobTemplate :: Lude.Maybe Lude.Text,
+    -- | Accelerated transcoding can significantly speed up jobs with long, visually complex content.
     accelerationSettings :: Lude.Maybe AccelerationSettings,
+    -- | Relative priority on the job.
     priority :: Lude.Maybe Lude.Int,
+    -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
     statusUpdateInterval :: Lude.Maybe StatusUpdateInterval,
+    -- | JobSettings contains all the transcode settings for a job.
+    settings :: JobSettings,
+    -- | An identifier for this resource that is unique within all of AWS.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time, in Unix epoch format in seconds, when the job got created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | Optional list of hop destinations.
     hopDestinations :: Lude.Maybe [HopDestination],
+    -- | The number of times that the service automatically attempted to process your job after encountering an error.
     retryCount :: Lude.Maybe Lude.Int,
+    -- | Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
     simulateReservedQueue :: Lude.Maybe SimulateReservedQueue,
+    -- | A job's phase can be PROBING, TRANSCODING OR UPLOADING
     currentPhase :: Lude.Maybe JobPhase,
+    -- | When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
     queue :: Lude.Maybe Lude.Text,
+    -- | User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
     userMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    billingTagsSource :: Lude.Maybe BillingTagsSource,
-    outputGroupDetails :: Lude.Maybe [OutputGroupDetail],
-    errorCode :: Lude.Maybe Lude.Int,
-    queueTransitions :: Lude.Maybe [QueueTransition],
-    id :: Lude.Maybe Lude.Text,
-    jobPercentComplete :: Lude.Maybe Lude.Int,
-    timing :: Lude.Maybe Timing,
-    messages :: Lude.Maybe JobMessages,
-    errorMessage :: Lude.Maybe Lude.Text,
-    accelerationStatus :: Lude.Maybe AccelerationStatus,
+    -- | The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
     role' :: Lude.Text,
-    settings :: JobSettings
+    -- | The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
+    billingTagsSource :: Lude.Maybe BillingTagsSource,
+    -- | List of output group details
+    outputGroupDetails :: Lude.Maybe [OutputGroupDetail],
+    -- | Error code for the job
+    errorCode :: Lude.Maybe Lude.Int,
+    -- | The job's queue hopping history.
+    queueTransitions :: Lude.Maybe [QueueTransition],
+    -- | A portion of the job's ARN, unique within your AWS Elemental MediaConvert resources
+    id :: Lude.Maybe Lude.Text,
+    -- | An estimate of how far your job has progressed. This estimate is shown as a percentage of the total time from when your job leaves its queue to when your output files appear in your output Amazon S3 bucket. AWS Elemental MediaConvert provides jobPercentComplete in CloudWatch STATUS_UPDATE events and in the response to GetJob and ListJobs requests. The jobPercentComplete estimate is reliable for the following input containers: Quicktime, Transport Stream, MP4, and MXF. For some jobs, the service can't provide information about job progress. In those cases, jobPercentComplete returns a null value.
+    jobPercentComplete :: Lude.Maybe Lude.Int,
+    -- | Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
+    timing :: Lude.Maybe Timing,
+    -- | Provides messages from the service about jobs that you have already successfully submitted.
+    messages :: Lude.Maybe JobMessages,
+    -- | Error message of Job
+    errorMessage :: Lude.Maybe Lude.Text,
+    -- | Describes whether the current job is running with accelerated transcoding. For jobs that have Acceleration (AccelerationMode) set to DISABLED, AccelerationStatus is always NOT_APPLICABLE. For jobs that have Acceleration (AccelerationMode) set to ENABLED or PREFERRED, AccelerationStatus is one of the other states. AccelerationStatus is IN_PROGRESS initially, while the service determines whether the input files and job settings are compatible with accelerated transcoding. If they are, AcclerationStatus is ACCELERATED. If your input files and job settings aren't compatible with accelerated transcoding, the service either fails your job or runs it without accelerated transcoding, depending on how you set Acceleration (AccelerationMode). When the service runs your job without accelerated transcoding, AccelerationStatus is NOT_ACCELERATED.
+    accelerationStatus :: Lude.Maybe AccelerationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
+-- * 'status' - A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+-- * 'jobTemplate' - The job template that the job is created from, if it is created from a job template.
 -- * 'accelerationSettings' - Accelerated transcoding can significantly speed up jobs with long, visually complex content.
--- * 'accelerationStatus' - Describes whether the current job is running with accelerated transcoding. For jobs that have Acceleration (AccelerationMode) set to DISABLED, AccelerationStatus is always NOT_APPLICABLE. For jobs that have Acceleration (AccelerationMode) set to ENABLED or PREFERRED, AccelerationStatus is one of the other states. AccelerationStatus is IN_PROGRESS initially, while the service determines whether the input files and job settings are compatible with accelerated transcoding. If they are, AcclerationStatus is ACCELERATED. If your input files and job settings aren't compatible with accelerated transcoding, the service either fails your job or runs it without accelerated transcoding, depending on how you set Acceleration (AccelerationMode). When the service runs your job without accelerated transcoding, AccelerationStatus is NOT_ACCELERATED.
+-- * 'priority' - Relative priority on the job.
+-- * 'statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+-- * 'settings' - JobSettings contains all the transcode settings for a job.
 -- * 'arn' - An identifier for this resource that is unique within all of AWS.
--- * 'billingTagsSource' - The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
 -- * 'createdAt' - The time, in Unix epoch format in seconds, when the job got created.
--- * 'currentPhase' - A job's phase can be PROBING, TRANSCODING OR UPLOADING
--- * 'errorCode' - Error code for the job
--- * 'errorMessage' - Error message of Job
 -- * 'hopDestinations' - Optional list of hop destinations.
+-- * 'retryCount' - The number of times that the service automatically attempted to process your job after encountering an error.
+-- * 'simulateReservedQueue' - Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
+-- * 'currentPhase' - A job's phase can be PROBING, TRANSCODING OR UPLOADING
+-- * 'queue' - When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+-- * 'userMetadata' - User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
+-- * 'role'' - The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
+-- * 'billingTagsSource' - The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
+-- * 'outputGroupDetails' - List of output group details
+-- * 'errorCode' - Error code for the job
+-- * 'queueTransitions' - The job's queue hopping history.
 -- * 'id' - A portion of the job's ARN, unique within your AWS Elemental MediaConvert resources
 -- * 'jobPercentComplete' - An estimate of how far your job has progressed. This estimate is shown as a percentage of the total time from when your job leaves its queue to when your output files appear in your output Amazon S3 bucket. AWS Elemental MediaConvert provides jobPercentComplete in CloudWatch STATUS_UPDATE events and in the response to GetJob and ListJobs requests. The jobPercentComplete estimate is reliable for the following input containers: Quicktime, Transport Stream, MP4, and MXF. For some jobs, the service can't provide information about job progress. In those cases, jobPercentComplete returns a null value.
--- * 'jobTemplate' - The job template that the job is created from, if it is created from a job template.
--- * 'messages' - Provides messages from the service about jobs that you have already successfully submitted.
--- * 'outputGroupDetails' - List of output group details
--- * 'priority' - Relative priority on the job.
--- * 'queue' - When you create a job, you can specify a queue to send it to. If you don't specify, the job will go to the default queue. For more about queues, see the User Guide topic at https://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
--- * 'queueTransitions' - The job's queue hopping history.
--- * 'retryCount' - The number of times that the service automatically attempted to process your job after encountering an error.
--- * 'role'' - The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
--- * 'settings' - JobSettings contains all the transcode settings for a job.
--- * 'simulateReservedQueue' - Enable this setting when you run a test job to estimate how many reserved transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your job from an on-demand queue with similar performance to what you will see with one RTS in a reserved queue. This setting is disabled by default.
--- * 'status' - A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
--- * 'statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
 -- * 'timing' - Information about when jobs are submitted, started, and finished is specified in Unix epoch format in seconds.
--- * 'userMetadata' - User-defined metadata that you want to associate with an MediaConvert job. You specify metadata in key/value pairs.
+-- * 'messages' - Provides messages from the service about jobs that you have already successfully submitted.
+-- * 'errorMessage' - Error message of Job
+-- * 'accelerationStatus' - Describes whether the current job is running with accelerated transcoding. For jobs that have Acceleration (AccelerationMode) set to DISABLED, AccelerationStatus is always NOT_APPLICABLE. For jobs that have Acceleration (AccelerationMode) set to ENABLED or PREFERRED, AccelerationStatus is one of the other states. AccelerationStatus is IN_PROGRESS initially, while the service determines whether the input files and job settings are compatible with accelerated transcoding. If they are, AcclerationStatus is ACCELERATED. If your input files and job settings aren't compatible with accelerated transcoding, the service either fails your job or runs it without accelerated transcoding, depending on how you set Acceleration (AccelerationMode). When the service runs your job without accelerated transcoding, AccelerationStatus is NOT_ACCELERATED.
 mkJob ::
-  -- | 'role''
-  Lude.Text ->
   -- | 'settings'
   JobSettings ->
+  -- | 'role''
+  Lude.Text ->
   Job
-mkJob pRole_ pSettings_ =
+mkJob pSettings_ pRole_ =
   Job'
     { status = Lude.Nothing,
       jobTemplate = Lude.Nothing,
       accelerationSettings = Lude.Nothing,
       priority = Lude.Nothing,
       statusUpdateInterval = Lude.Nothing,
+      settings = pSettings_,
       arn = Lude.Nothing,
       createdAt = Lude.Nothing,
       hopDestinations = Lude.Nothing,
@@ -148,6 +168,7 @@ mkJob pRole_ pSettings_ =
       currentPhase = Lude.Nothing,
       queue = Lude.Nothing,
       userMetadata = Lude.Nothing,
+      role' = pRole_,
       billingTagsSource = Lude.Nothing,
       outputGroupDetails = Lude.Nothing,
       errorCode = Lude.Nothing,
@@ -157,9 +178,7 @@ mkJob pRole_ pSettings_ =
       timing = Lude.Nothing,
       messages = Lude.Nothing,
       errorMessage = Lude.Nothing,
-      accelerationStatus = Lude.Nothing,
-      role' = pRole_,
-      settings = pSettings_
+      accelerationStatus = Lude.Nothing
     }
 
 -- | A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
@@ -196,6 +215,13 @@ jPriority = Lens.lens (priority :: Job -> Lude.Maybe Lude.Int) (\s a -> s {prior
 jStatusUpdateInterval :: Lens.Lens' Job (Lude.Maybe StatusUpdateInterval)
 jStatusUpdateInterval = Lens.lens (statusUpdateInterval :: Job -> Lude.Maybe StatusUpdateInterval) (\s a -> s {statusUpdateInterval = a} :: Job)
 {-# DEPRECATED jStatusUpdateInterval "Use generic-lens or generic-optics with 'statusUpdateInterval' instead." #-}
+
+-- | JobSettings contains all the transcode settings for a job.
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jSettings :: Lens.Lens' Job JobSettings
+jSettings = Lens.lens (settings :: Job -> JobSettings) (\s a -> s {settings = a} :: Job)
+{-# DEPRECATED jSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | An identifier for this resource that is unique within all of AWS.
 --
@@ -252,6 +278,13 @@ jQueue = Lens.lens (queue :: Job -> Lude.Maybe Lude.Text) (\s a -> s {queue = a}
 jUserMetadata :: Lens.Lens' Job (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 jUserMetadata = Lens.lens (userMetadata :: Job -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {userMetadata = a} :: Job)
 {-# DEPRECATED jUserMetadata "Use generic-lens or generic-optics with 'userMetadata' instead." #-}
+
+-- | The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jRole :: Lens.Lens' Job Lude.Text
+jRole = Lens.lens (role' :: Job -> Lude.Text) (\s a -> s {role' = a} :: Job)
+{-# DEPRECATED jRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The tag type that AWS Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs on any billing report that you set up.
 --
@@ -323,20 +356,6 @@ jAccelerationStatus :: Lens.Lens' Job (Lude.Maybe AccelerationStatus)
 jAccelerationStatus = Lens.lens (accelerationStatus :: Job -> Lude.Maybe AccelerationStatus) (\s a -> s {accelerationStatus = a} :: Job)
 {-# DEPRECATED jAccelerationStatus "Use generic-lens or generic-optics with 'accelerationStatus' instead." #-}
 
--- | The IAM role you use for creating this job. For details about permissions, see the User Guide topic at the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jRole :: Lens.Lens' Job Lude.Text
-jRole = Lens.lens (role' :: Job -> Lude.Text) (\s a -> s {role' = a} :: Job)
-{-# DEPRECATED jRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
--- | JobSettings contains all the transcode settings for a job.
---
--- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jSettings :: Lens.Lens' Job JobSettings
-jSettings = Lens.lens (settings :: Job -> JobSettings) (\s a -> s {settings = a} :: Job)
-{-# DEPRECATED jSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
-
 instance Lude.FromJSON Job where
   parseJSON =
     Lude.withObject
@@ -348,6 +367,7 @@ instance Lude.FromJSON Job where
             Lude.<*> (x Lude..:? "accelerationSettings")
             Lude.<*> (x Lude..:? "priority")
             Lude.<*> (x Lude..:? "statusUpdateInterval")
+            Lude.<*> (x Lude..: "settings")
             Lude.<*> (x Lude..:? "arn")
             Lude.<*> (x Lude..:? "createdAt")
             Lude.<*> (x Lude..:? "hopDestinations" Lude..!= Lude.mempty)
@@ -356,6 +376,7 @@ instance Lude.FromJSON Job where
             Lude.<*> (x Lude..:? "currentPhase")
             Lude.<*> (x Lude..:? "queue")
             Lude.<*> (x Lude..:? "userMetadata" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "role")
             Lude.<*> (x Lude..:? "billingTagsSource")
             Lude.<*> (x Lude..:? "outputGroupDetails" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "errorCode")
@@ -366,6 +387,4 @@ instance Lude.FromJSON Job where
             Lude.<*> (x Lude..:? "messages")
             Lude.<*> (x Lude..:? "errorMessage")
             Lude.<*> (x Lude..:? "accelerationStatus")
-            Lude.<*> (x Lude..: "role")
-            Lude.<*> (x Lude..: "settings")
       )

@@ -13,10 +13,10 @@
 module Network.AWS.Lightsail.Types.PortInfoSourceType
   ( PortInfoSourceType
       ( PortInfoSourceType',
-        PISTClosed,
         PISTDefault,
         PISTInstance,
-        PISTNone
+        PISTNone,
+        PISTClosed
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype PortInfoSourceType = PortInfoSourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PISTClosed :: PortInfoSourceType
-pattern PISTClosed = PortInfoSourceType' "CLOSED"
-
 pattern PISTDefault :: PortInfoSourceType
 pattern PISTDefault = PortInfoSourceType' "DEFAULT"
 
@@ -59,10 +56,13 @@ pattern PISTInstance = PortInfoSourceType' "INSTANCE"
 pattern PISTNone :: PortInfoSourceType
 pattern PISTNone = PortInfoSourceType' "NONE"
 
+pattern PISTClosed :: PortInfoSourceType
+pattern PISTClosed = PortInfoSourceType' "CLOSED"
+
 {-# COMPLETE
-  PISTClosed,
   PISTDefault,
   PISTInstance,
   PISTNone,
+  PISTClosed,
   PortInfoSourceType'
   #-}

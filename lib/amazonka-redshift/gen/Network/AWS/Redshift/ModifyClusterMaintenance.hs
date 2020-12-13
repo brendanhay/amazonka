@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.Redshift.ModifyClusterMaintenance
     mcmDeferMaintenanceEndTime,
     mcmDeferMaintenance,
     mcmDeferMaintenanceDuration,
+    mcmClusterIdentifier,
     mcmDeferMaintenanceStartTime,
     mcmDeferMaintenanceIdentifier,
-    mcmClusterIdentifier,
 
     -- * Destructuring the response
     ModifyClusterMaintenanceResponse (..),
@@ -44,34 +45,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyClusterMaintenance' smart constructor.
 data ModifyClusterMaintenance = ModifyClusterMaintenance'
-  { deferMaintenanceEndTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
+    deferMaintenanceEndTime :: Lude.Maybe Lude.DateTime,
+    -- | A boolean indicating whether to enable the deferred maintenance window.
     deferMaintenance :: Lude.Maybe Lude.Bool,
-    deferMaintenanceDuration ::
-      Lude.Maybe Lude.Int,
-    deferMaintenanceStartTime ::
-      Lude.Maybe Lude.DateTime,
-    deferMaintenanceIdentifier ::
-      Lude.Maybe Lude.Text,
-    clusterIdentifier :: Lude.Text
+    -- | An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+    deferMaintenanceDuration :: Lude.Maybe Lude.Int,
+    -- | A unique identifier for the cluster.
+    clusterIdentifier :: Lude.Text,
+    -- | A timestamp indicating the start time for the deferred maintenance window.
+    deferMaintenanceStartTime :: Lude.Maybe Lude.DateTime,
+    -- | A unique identifier for the deferred maintenance window.
+    deferMaintenanceIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterMaintenance' with the minimum fields required to make a request.
 --
--- * 'clusterIdentifier' - A unique identifier for the cluster.
+-- * 'deferMaintenanceEndTime' - A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
 -- * 'deferMaintenance' - A boolean indicating whether to enable the deferred maintenance window.
 -- * 'deferMaintenanceDuration' - An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
--- * 'deferMaintenanceEndTime' - A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
--- * 'deferMaintenanceIdentifier' - A unique identifier for the deferred maintenance window.
+-- * 'clusterIdentifier' - A unique identifier for the cluster.
 -- * 'deferMaintenanceStartTime' - A timestamp indicating the start time for the deferred maintenance window.
+-- * 'deferMaintenanceIdentifier' - A unique identifier for the deferred maintenance window.
 mkModifyClusterMaintenance ::
   -- | 'clusterIdentifier'
   Lude.Text ->
@@ -81,9 +78,9 @@ mkModifyClusterMaintenance pClusterIdentifier_ =
     { deferMaintenanceEndTime = Lude.Nothing,
       deferMaintenance = Lude.Nothing,
       deferMaintenanceDuration = Lude.Nothing,
+      clusterIdentifier = pClusterIdentifier_,
       deferMaintenanceStartTime = Lude.Nothing,
-      deferMaintenanceIdentifier = Lude.Nothing,
-      clusterIdentifier = pClusterIdentifier_
+      deferMaintenanceIdentifier = Lude.Nothing
     }
 
 -- | A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
@@ -107,6 +104,13 @@ mcmDeferMaintenanceDuration :: Lens.Lens' ModifyClusterMaintenance (Lude.Maybe L
 mcmDeferMaintenanceDuration = Lens.lens (deferMaintenanceDuration :: ModifyClusterMaintenance -> Lude.Maybe Lude.Int) (\s a -> s {deferMaintenanceDuration = a} :: ModifyClusterMaintenance)
 {-# DEPRECATED mcmDeferMaintenanceDuration "Use generic-lens or generic-optics with 'deferMaintenanceDuration' instead." #-}
 
+-- | A unique identifier for the cluster.
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcmClusterIdentifier :: Lens.Lens' ModifyClusterMaintenance Lude.Text
+mcmClusterIdentifier = Lens.lens (clusterIdentifier :: ModifyClusterMaintenance -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ModifyClusterMaintenance)
+{-# DEPRECATED mcmClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+
 -- | A timestamp indicating the start time for the deferred maintenance window.
 --
 -- /Note:/ Consider using 'deferMaintenanceStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -120,13 +124,6 @@ mcmDeferMaintenanceStartTime = Lens.lens (deferMaintenanceStartTime :: ModifyClu
 mcmDeferMaintenanceIdentifier :: Lens.Lens' ModifyClusterMaintenance (Lude.Maybe Lude.Text)
 mcmDeferMaintenanceIdentifier = Lens.lens (deferMaintenanceIdentifier :: ModifyClusterMaintenance -> Lude.Maybe Lude.Text) (\s a -> s {deferMaintenanceIdentifier = a} :: ModifyClusterMaintenance)
 {-# DEPRECATED mcmDeferMaintenanceIdentifier "Use generic-lens or generic-optics with 'deferMaintenanceIdentifier' instead." #-}
-
--- | A unique identifier for the cluster.
---
--- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcmClusterIdentifier :: Lens.Lens' ModifyClusterMaintenance Lude.Text
-mcmClusterIdentifier = Lens.lens (clusterIdentifier :: ModifyClusterMaintenance -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ModifyClusterMaintenance)
-{-# DEPRECATED mcmClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 instance Lude.AWSRequest ModifyClusterMaintenance where
   type Rs ModifyClusterMaintenance = ModifyClusterMaintenanceResponse
@@ -153,30 +150,23 @@ instance Lude.ToQuery ModifyClusterMaintenance where
         "DeferMaintenanceEndTime" Lude.=: deferMaintenanceEndTime,
         "DeferMaintenance" Lude.=: deferMaintenance,
         "DeferMaintenanceDuration" Lude.=: deferMaintenanceDuration,
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
         "DeferMaintenanceStartTime" Lude.=: deferMaintenanceStartTime,
-        "DeferMaintenanceIdentifier" Lude.=: deferMaintenanceIdentifier,
-        "ClusterIdentifier" Lude.=: clusterIdentifier
+        "DeferMaintenanceIdentifier" Lude.=: deferMaintenanceIdentifier
       ]
 
 -- | /See:/ 'mkModifyClusterMaintenanceResponse' smart constructor.
 data ModifyClusterMaintenanceResponse = ModifyClusterMaintenanceResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
-    responseStatus ::
-      Lude.Int
+  { cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterMaintenanceResponse' with the minimum fields required to make a request.
 --
--- * 'cluster' - Undocumented field.
+-- * 'cluster' -
 -- * 'responseStatus' - The response status code.
 mkModifyClusterMaintenanceResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkDescribeSeverityLevels' smart constructor.
 newtype DescribeSeverityLevels = DescribeSeverityLevels'
-  { language ::
-      Lude.Maybe Lude.Text
+  { -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+    language :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSeverityLevels' with the minimum fields required to make a request.
@@ -103,23 +98,18 @@ instance Lude.ToQuery DescribeSeverityLevels where
 --
 -- /See:/ 'mkDescribeSeverityLevelsResponse' smart constructor.
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
-  { severityLevels ::
-      Lude.Maybe [SeverityLevel],
+  { -- | The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
+    severityLevels :: Lude.Maybe [SeverityLevel],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSeverityLevelsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'severityLevels' - The available severity levels for the support case. Available severity levels are defined by your service level agreement with AWS.
+-- * 'responseStatus' - The response status code.
 mkDescribeSeverityLevelsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

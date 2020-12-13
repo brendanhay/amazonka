@@ -52,57 +52,71 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJob' smart constructor.
 data Job = Job'
-  { status :: Lude.Maybe JobStatus,
-    jobExecutionsRolloutConfig ::
-      Lude.Maybe JobExecutionsRolloutConfig,
+  { -- | The status of the job, one of @IN_PROGRESS@ , @CANCELED@ , @DELETION_IN_PROGRESS@ or @COMPLETED@ .
+    status :: Lude.Maybe JobStatus,
+    -- | Allows you to create a staged rollout of a job.
+    jobExecutionsRolloutConfig :: Lude.Maybe JobExecutionsRolloutConfig,
+    -- | The unique identifier you assigned to this job when it was created.
     jobId :: Lude.Maybe Lude.Text,
+    -- | The time, in seconds since the epoch, when the job was last updated.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
     jobARN :: Lude.Maybe Lude.Text,
+    -- | The time, in seconds since the epoch, when the job was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | Configuration for criteria to abort the job.
     abortConfig :: Lude.Maybe AbortConfig,
+    -- | Details about the job process.
     jobProcessDetails :: Lude.Maybe JobProcessDetails,
+    -- | The namespace used to indicate that a job is a customer-managed job.
+    --
+    -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+    -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
     namespaceId :: Lude.Maybe Lude.Text,
+    -- | If the job was updated, provides the reason code for the update.
     reasonCode :: Lude.Maybe Lude.Text,
+    -- | Configuration for pre-signed S3 URLs.
     presignedURLConfig :: Lude.Maybe PresignedURLConfig,
+    -- | Will be @true@ if the job was canceled with the optional @force@ parameter set to @true@ .
     forceCanceled :: Lude.Maybe Lude.Bool,
+    -- | A list of IoT things and thing groups to which the job should be sent.
     targets :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The time, in seconds since the epoch, when the job was completed.
     completedAt :: Lude.Maybe Lude.Timestamp,
+    -- | If the job was updated, describes the reason for the update.
     comment :: Lude.Maybe Lude.Text,
+    -- | A short text description of the job.
     description :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a device when the thing representing the device is added to a target group, even after the job was completed by all things originally in the group.
     targetSelection :: Lude.Maybe TargetSelection,
+    -- | Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
     timeoutConfig :: Lude.Maybe TimeoutConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- * 'abortConfig' - Configuration for criteria to abort the job.
--- * 'comment' - If the job was updated, describes the reason for the update.
--- * 'completedAt' - The time, in seconds since the epoch, when the job was completed.
--- * 'createdAt' - The time, in seconds since the epoch, when the job was created.
--- * 'description' - A short text description of the job.
--- * 'forceCanceled' - Will be @true@ if the job was canceled with the optional @force@ parameter set to @true@ .
--- * 'jobARN' - An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
+-- * 'status' - The status of the job, one of @IN_PROGRESS@ , @CANCELED@ , @DELETION_IN_PROGRESS@ or @COMPLETED@ .
 -- * 'jobExecutionsRolloutConfig' - Allows you to create a staged rollout of a job.
 -- * 'jobId' - The unique identifier you assigned to this job when it was created.
--- * 'jobProcessDetails' - Details about the job process.
 -- * 'lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
+-- * 'jobARN' - An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".
+-- * 'createdAt' - The time, in seconds since the epoch, when the job was created.
+-- * 'abortConfig' - Configuration for criteria to abort the job.
+-- * 'jobProcessDetails' - Details about the job process.
 -- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
 -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
--- * 'presignedURLConfig' - Configuration for pre-signed S3 URLs.
 -- * 'reasonCode' - If the job was updated, provides the reason code for the update.
--- * 'status' - The status of the job, one of @IN_PROGRESS@ , @CANCELED@ , @DELETION_IN_PROGRESS@ or @COMPLETED@ .
--- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a device when the thing representing the device is added to a target group, even after the job was completed by all things originally in the group.
+-- * 'presignedURLConfig' - Configuration for pre-signed S3 URLs.
+-- * 'forceCanceled' - Will be @true@ if the job was canceled with the optional @force@ parameter set to @true@ .
 -- * 'targets' - A list of IoT things and thing groups to which the job should be sent.
+-- * 'completedAt' - The time, in seconds since the epoch, when the job was completed.
+-- * 'comment' - If the job was updated, describes the reason for the update.
+-- * 'description' - A short text description of the job.
+-- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a device when the thing representing the device is added to a target group, even after the job was completed by all things originally in the group.
 -- * 'timeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to @TIMED_OUT@ .
 mkJob ::
   Job

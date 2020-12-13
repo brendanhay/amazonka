@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,36 +41,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSwapEnvironmentCNAMEs' smart constructor.
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
-  { destinationEnvironmentName ::
-      Lude.Maybe Lude.Text,
-    destinationEnvironmentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the destination environment.
+    --
+    -- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
+    destinationEnvironmentName :: Lude.Maybe Lude.Text,
+    -- | The ID of the destination environment.
+    --
+    -- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@ .
+    destinationEnvironmentId :: Lude.Maybe Lude.Text,
+    -- | The name of the source environment.
+    --
+    -- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentName@ , you must specify the @DestinationEnvironmentName@ .
     sourceEnvironmentName :: Lude.Maybe Lude.Text,
+    -- | The ID of the source environment.
+    --
+    -- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentId@ , you must specify the @DestinationEnvironmentId@ .
     sourceEnvironmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SwapEnvironmentCNAMEs' with the minimum fields required to make a request.
 --
--- * 'destinationEnvironmentId' - The ID of the destination environment.
---
--- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@ .
 -- * 'destinationEnvironmentName' - The name of the destination environment.
 --
 -- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
--- * 'sourceEnvironmentId' - The ID of the source environment.
+-- * 'destinationEnvironmentId' - The ID of the destination environment.
 --
--- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentId@ , you must specify the @DestinationEnvironmentId@ .
+-- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@ .
 -- * 'sourceEnvironmentName' - The name of the source environment.
 --
 -- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentName@ , you must specify the @DestinationEnvironmentName@ .
+-- * 'sourceEnvironmentId' - The ID of the source environment.
+--
+-- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentId@ , you must specify the @DestinationEnvironmentId@ .
 mkSwapEnvironmentCNAMEs ::
   SwapEnvironmentCNAMEs
 mkSwapEnvironmentCNAMEs =
@@ -140,13 +145,7 @@ instance Lude.ToQuery SwapEnvironmentCNAMEs where
 
 -- | /See:/ 'mkSwapEnvironmentCNAMEsResponse' smart constructor.
 data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SwapEnvironmentCNAMEsResponse' with the minimum fields required to make a request.

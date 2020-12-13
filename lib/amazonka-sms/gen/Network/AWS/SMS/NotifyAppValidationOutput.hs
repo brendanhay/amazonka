@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SMS.NotifyAppValidationOutput
     mkNotifyAppValidationOutput,
 
     -- ** Request lenses
-    navoNotificationContext,
     navoAppId,
+    navoNotificationContext,
 
     -- * Destructuring the response
     NotifyAppValidationOutputResponse (..),
@@ -39,17 +40,12 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkNotifyAppValidationOutput' smart constructor.
 data NotifyAppValidationOutput = NotifyAppValidationOutput'
-  { notificationContext ::
-      Lude.Maybe NotificationContext,
-    appId :: Lude.Text
+  { -- | The ID of the application.
+    appId :: Lude.Text,
+    -- | The notification information.
+    notificationContext :: Lude.Maybe NotificationContext
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyAppValidationOutput' with the minimum fields required to make a request.
@@ -62,16 +58,9 @@ mkNotifyAppValidationOutput ::
   NotifyAppValidationOutput
 mkNotifyAppValidationOutput pAppId_ =
   NotifyAppValidationOutput'
-    { notificationContext = Lude.Nothing,
-      appId = pAppId_
+    { appId = pAppId_,
+      notificationContext = Lude.Nothing
     }
-
--- | The notification information.
---
--- /Note:/ Consider using 'notificationContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-navoNotificationContext :: Lens.Lens' NotifyAppValidationOutput (Lude.Maybe NotificationContext)
-navoNotificationContext = Lens.lens (notificationContext :: NotifyAppValidationOutput -> Lude.Maybe NotificationContext) (\s a -> s {notificationContext = a} :: NotifyAppValidationOutput)
-{-# DEPRECATED navoNotificationContext "Use generic-lens or generic-optics with 'notificationContext' instead." #-}
 
 -- | The ID of the application.
 --
@@ -79,6 +68,13 @@ navoNotificationContext = Lens.lens (notificationContext :: NotifyAppValidationO
 navoAppId :: Lens.Lens' NotifyAppValidationOutput Lude.Text
 navoAppId = Lens.lens (appId :: NotifyAppValidationOutput -> Lude.Text) (\s a -> s {appId = a} :: NotifyAppValidationOutput)
 {-# DEPRECATED navoAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
+
+-- | The notification information.
+--
+-- /Note:/ Consider using 'notificationContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+navoNotificationContext :: Lens.Lens' NotifyAppValidationOutput (Lude.Maybe NotificationContext)
+navoNotificationContext = Lens.lens (notificationContext :: NotifyAppValidationOutput -> Lude.Maybe NotificationContext) (\s a -> s {notificationContext = a} :: NotifyAppValidationOutput)
+{-# DEPRECATED navoNotificationContext "Use generic-lens or generic-optics with 'notificationContext' instead." #-}
 
 instance Lude.AWSRequest NotifyAppValidationOutput where
   type
@@ -109,8 +105,8 @@ instance Lude.ToJSON NotifyAppValidationOutput where
   toJSON NotifyAppValidationOutput' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("notificationContext" Lude..=) Lude.<$> notificationContext,
-            Lude.Just ("appId" Lude..= appId)
+          [ Lude.Just ("appId" Lude..= appId),
+            ("notificationContext" Lude..=) Lude.<$> notificationContext
           ]
       )
 
@@ -122,16 +118,10 @@ instance Lude.ToQuery NotifyAppValidationOutput where
 
 -- | /See:/ 'mkNotifyAppValidationOutputResponse' smart constructor.
 newtype NotifyAppValidationOutputResponse = NotifyAppValidationOutputResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyAppValidationOutputResponse' with the minimum fields required to make a request.

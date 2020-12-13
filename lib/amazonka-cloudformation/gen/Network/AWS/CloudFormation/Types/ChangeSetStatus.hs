@@ -13,13 +13,13 @@
 module Network.AWS.CloudFormation.Types.ChangeSetStatus
   ( ChangeSetStatus
       ( ChangeSetStatus',
-        CSSCreateComplete,
-        CSSCreateInProgress,
         CSSCreatePending,
+        CSSCreateInProgress,
+        CSSCreateComplete,
+        CSSDeletePending,
+        CSSDeleteInProgress,
         CSSDeleteComplete,
         CSSDeleteFailed,
-        CSSDeleteInProgress,
-        CSSDeletePending,
         CSSFailed
       ),
   )
@@ -51,14 +51,20 @@ newtype ChangeSetStatus = ChangeSetStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSSCreateComplete :: ChangeSetStatus
-pattern CSSCreateComplete = ChangeSetStatus' "CREATE_COMPLETE"
+pattern CSSCreatePending :: ChangeSetStatus
+pattern CSSCreatePending = ChangeSetStatus' "CREATE_PENDING"
 
 pattern CSSCreateInProgress :: ChangeSetStatus
 pattern CSSCreateInProgress = ChangeSetStatus' "CREATE_IN_PROGRESS"
 
-pattern CSSCreatePending :: ChangeSetStatus
-pattern CSSCreatePending = ChangeSetStatus' "CREATE_PENDING"
+pattern CSSCreateComplete :: ChangeSetStatus
+pattern CSSCreateComplete = ChangeSetStatus' "CREATE_COMPLETE"
+
+pattern CSSDeletePending :: ChangeSetStatus
+pattern CSSDeletePending = ChangeSetStatus' "DELETE_PENDING"
+
+pattern CSSDeleteInProgress :: ChangeSetStatus
+pattern CSSDeleteInProgress = ChangeSetStatus' "DELETE_IN_PROGRESS"
 
 pattern CSSDeleteComplete :: ChangeSetStatus
 pattern CSSDeleteComplete = ChangeSetStatus' "DELETE_COMPLETE"
@@ -66,23 +72,17 @@ pattern CSSDeleteComplete = ChangeSetStatus' "DELETE_COMPLETE"
 pattern CSSDeleteFailed :: ChangeSetStatus
 pattern CSSDeleteFailed = ChangeSetStatus' "DELETE_FAILED"
 
-pattern CSSDeleteInProgress :: ChangeSetStatus
-pattern CSSDeleteInProgress = ChangeSetStatus' "DELETE_IN_PROGRESS"
-
-pattern CSSDeletePending :: ChangeSetStatus
-pattern CSSDeletePending = ChangeSetStatus' "DELETE_PENDING"
-
 pattern CSSFailed :: ChangeSetStatus
 pattern CSSFailed = ChangeSetStatus' "FAILED"
 
 {-# COMPLETE
-  CSSCreateComplete,
-  CSSCreateInProgress,
   CSSCreatePending,
+  CSSCreateInProgress,
+  CSSCreateComplete,
+  CSSDeletePending,
+  CSSDeleteInProgress,
   CSSDeleteComplete,
   CSSDeleteFailed,
-  CSSDeleteInProgress,
-  CSSDeletePending,
   CSSFailed,
   ChangeSetStatus'
   #-}

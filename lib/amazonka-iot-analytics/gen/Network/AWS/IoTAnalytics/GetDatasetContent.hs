@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDatasetContent' smart constructor.
 data GetDatasetContent = GetDatasetContent'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The name of the data set whose contents are retrieved.
     datasetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatasetContent' with the minimum fields required to make a request.
 --
--- * 'datasetName' - The name of the data set whose contents are retrieved.
 -- * 'versionId' - The version of the data set whose contents are retrieved. You can also use the strings "$LATEST" or "$LATEST_SUCCEEDED" to retrieve the contents of the latest or latest successfully completed data set. If not specified, "$LATEST_SUCCEEDED" is the default.
+-- * 'datasetName' - The name of the data set whose contents are retrieved.
 mkGetDatasetContent ::
   -- | 'datasetName'
   Lude.Text ->
@@ -109,27 +105,24 @@ instance Lude.ToQuery GetDatasetContent where
 
 -- | /See:/ 'mkGetDatasetContentResponse' smart constructor.
 data GetDatasetContentResponse = GetDatasetContentResponse'
-  { status ::
-      Lude.Maybe DatasetContentStatus,
+  { -- | The status of the data set content.
+    status :: Lude.Maybe DatasetContentStatus,
+    -- | A list of @DatasetEntry@ objects.
     entries :: Lude.Maybe [DatasetEntry],
+    -- | The time when the request was made.
     timestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDatasetContentResponse' with the minimum fields required to make a request.
 --
--- * 'entries' - A list of @DatasetEntry@ objects.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the data set content.
+-- * 'entries' - A list of @DatasetEntry@ objects.
 -- * 'timestamp' - The time when the request was made.
+-- * 'responseStatus' - The response status code.
 mkGetDatasetContentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.APIGateway.DeleteAuthorizer
     mkDeleteAuthorizer,
 
     -- ** Request lenses
-    daRestAPIId,
     daAuthorizerId,
+    daRestAPIId,
 
     -- * Destructuring the response
     DeleteAuthorizerResponse (..),
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
-  { restAPIId :: Lude.Text,
-    authorizerId :: Lude.Text
+  { -- | [Required] The identifier of the 'Authorizer' resource.
+    authorizerId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAuthorizer' with the minimum fields required to make a request.
@@ -57,23 +54,16 @@ data DeleteAuthorizer = DeleteAuthorizer'
 -- * 'authorizerId' - [Required] The identifier of the 'Authorizer' resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteAuthorizer ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'authorizerId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   DeleteAuthorizer
-mkDeleteAuthorizer pRestAPIId_ pAuthorizerId_ =
+mkDeleteAuthorizer pAuthorizerId_ pRestAPIId_ =
   DeleteAuthorizer'
-    { restAPIId = pRestAPIId_,
-      authorizerId = pAuthorizerId_
+    { authorizerId = pAuthorizerId_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daRestAPIId :: Lens.Lens' DeleteAuthorizer Lude.Text
-daRestAPIId = Lens.lens (restAPIId :: DeleteAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteAuthorizer)
-{-# DEPRECATED daRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Authorizer' resource.
 --
@@ -81,6 +71,13 @@ daRestAPIId = Lens.lens (restAPIId :: DeleteAuthorizer -> Lude.Text) (\s a -> s 
 daAuthorizerId :: Lens.Lens' DeleteAuthorizer Lude.Text
 daAuthorizerId = Lens.lens (authorizerId :: DeleteAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: DeleteAuthorizer)
 {-# DEPRECATED daAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daRestAPIId :: Lens.Lens' DeleteAuthorizer Lude.Text
+daRestAPIId = Lens.lens (restAPIId :: DeleteAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteAuthorizer)
+{-# DEPRECATED daRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest DeleteAuthorizer where
   type Rs DeleteAuthorizer = DeleteAuthorizerResponse
@@ -108,13 +105,7 @@ instance Lude.ToQuery DeleteAuthorizer where
 
 -- | /See:/ 'mkDeleteAuthorizerResponse' smart constructor.
 data DeleteAuthorizerResponse = DeleteAuthorizerResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAuthorizerResponse' with the minimum fields required to make a request.

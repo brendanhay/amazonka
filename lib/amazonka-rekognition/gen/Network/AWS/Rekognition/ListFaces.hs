@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.Rekognition.ListFaces
     mkListFaces,
 
     -- ** Request lenses
+    lfCollectionId,
     lfNextToken,
     lfMaxResults,
-    lfCollectionId,
 
     -- * Destructuring the response
     ListFacesResponse (..),
@@ -48,34 +49,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFaces' smart constructor.
 data ListFaces = ListFaces'
-  { nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    collectionId :: Lude.Text
+  { -- | ID of the collection from which to list the faces.
+    collectionId :: Lude.Text,
+    -- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of faces to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFaces' with the minimum fields required to make a request.
 --
 -- * 'collectionId' - ID of the collection from which to list the faces.
--- * 'maxResults' - Maximum number of faces to return.
 -- * 'nextToken' - If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+-- * 'maxResults' - Maximum number of faces to return.
 mkListFaces ::
   -- | 'collectionId'
   Lude.Text ->
   ListFaces
 mkListFaces pCollectionId_ =
   ListFaces'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      collectionId = pCollectionId_
+    { collectionId = pCollectionId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | ID of the collection from which to list the faces.
+--
+-- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfCollectionId :: Lens.Lens' ListFaces Lude.Text
+lfCollectionId = Lens.lens (collectionId :: ListFaces -> Lude.Text) (\s a -> s {collectionId = a} :: ListFaces)
+{-# DEPRECATED lfCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
 -- | If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
 --
@@ -90,13 +95,6 @@ lfNextToken = Lens.lens (nextToken :: ListFaces -> Lude.Maybe Lude.Text) (\s a -
 lfMaxResults :: Lens.Lens' ListFaces (Lude.Maybe Lude.Natural)
 lfMaxResults = Lens.lens (maxResults :: ListFaces -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFaces)
 {-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | ID of the collection from which to list the faces.
---
--- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfCollectionId :: Lens.Lens' ListFaces Lude.Text
-lfCollectionId = Lens.lens (collectionId :: ListFaces -> Lude.Text) (\s a -> s {collectionId = a} :: ListFaces)
-{-# DEPRECATED lfCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
 instance Page.AWSPager ListFaces where
   page rq rs
@@ -135,9 +133,9 @@ instance Lude.ToJSON ListFaces where
   toJSON ListFaces' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("CollectionId" Lude..= collectionId)
+          [ Lude.Just ("CollectionId" Lude..= collectionId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -149,26 +147,23 @@ instance Lude.ToQuery ListFaces where
 
 -- | /See:/ 'mkListFacesResponse' smart constructor.
 data ListFacesResponse = ListFacesResponse'
-  { faceModelVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | Version number of the face detection model associated with the input collection (@CollectionId@ ).
+    faceModelVersion :: Lude.Maybe Lude.Text,
+    -- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @Face@ objects.
     faces :: Lude.Maybe [Face],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFacesResponse' with the minimum fields required to make a request.
 --
 -- * 'faceModelVersion' - Version number of the face detection model associated with the input collection (@CollectionId@ ).
--- * 'faces' - An array of @Face@ objects.
 -- * 'nextToken' - If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
+-- * 'faces' - An array of @Face@ objects.
 -- * 'responseStatus' - The response status code.
 mkListFacesResponse ::
   -- | 'responseStatus'

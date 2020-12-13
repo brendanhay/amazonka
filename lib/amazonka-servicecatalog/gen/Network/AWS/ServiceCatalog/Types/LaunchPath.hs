@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchPath' smart constructor.
 data LaunchPath = LaunchPath'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The name of the launch path.
+    name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the launch path.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchPath' with the minimum fields required to make a request.
 --
--- * 'id' - The identifier of the launch path.
 -- * 'name' - The name of the launch path.
+-- * 'id' - The identifier of the launch path.
 mkLaunchPath ::
   LaunchPath
 mkLaunchPath = LaunchPath' {name = Lude.Nothing, id = Lude.Nothing}

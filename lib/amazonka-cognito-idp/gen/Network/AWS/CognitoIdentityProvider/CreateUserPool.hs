@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,6 +22,7 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
     -- ** Request lenses
     cupUserPoolTags,
     cupVerificationMessageTemplate,
+    cupPoolName,
     cupEmailVerificationMessage,
     cupSmsAuthenticationMessage,
     cupUserPoolAddOns,
@@ -39,7 +41,6 @@ module Network.AWS.CognitoIdentityProvider.CreateUserPool
     cupAutoVerifiedAttributes,
     cupPolicies,
     cupUsernameConfiguration,
-    cupPoolName,
 
     -- * Destructuring the response
     CreateUserPoolResponse (..),
@@ -61,63 +62,75 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateUserPool' smart constructor.
 data CreateUserPool = CreateUserPool'
-  { userPoolTags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    verificationMessageTemplate ::
-      Lude.Maybe VerificationMessageTemplateType,
+  { -- | The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+    userPoolTags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The template for the verification message that the user sees when the app requests permission to access the user's information.
+    verificationMessageTemplate :: Lude.Maybe VerificationMessageTemplateType,
+    -- | A string used to name the user pool.
+    poolName :: Lude.Text,
+    -- | A string representing the email verification message. EmailVerificationMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
     emailVerificationMessage :: Lude.Maybe Lude.Text,
+    -- | A string representing the SMS authentication message.
     smsAuthenticationMessage :: Lude.Maybe Lude.Text,
+    -- | Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
     userPoolAddOns :: Lude.Maybe UserPoolAddOnsType,
+    -- | A string representing the email verification subject. EmailVerificationSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
     emailVerificationSubject :: Lude.Maybe Lude.Text,
+    -- | Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
     usernameAttributes :: Lude.Maybe [UsernameAttributeType],
+    -- | Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
     aliasAttributes :: Lude.Maybe [AliasAttributeType],
+    -- | An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
     schema :: Lude.Maybe (Lude.NonEmpty SchemaAttributeType),
-    accountRecoverySetting ::
-      Lude.Maybe AccountRecoverySettingType,
+    -- | Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+    accountRecoverySetting :: Lude.Maybe AccountRecoverySettingType,
+    -- | The email configuration.
     emailConfiguration :: Lude.Maybe EmailConfigurationType,
+    -- | A string representing the SMS verification message.
     smsVerificationMessage :: Lude.Maybe Lude.Text,
+    -- | Specifies MFA configuration details.
     mfaConfiguration :: Lude.Maybe UserPoolMFAType,
+    -- | The Lambda trigger configuration information for the new user pool.
     lambdaConfig :: Lude.Maybe LambdaConfigType,
+    -- | The SMS configuration.
     smsConfiguration :: Lude.Maybe SmsConfigurationType,
+    -- | The configuration for @AdminCreateUser@ requests.
     adminCreateUserConfig :: Lude.Maybe AdminCreateUserConfigType,
+    -- | The device configuration.
     deviceConfiguration :: Lude.Maybe DeviceConfigurationType,
+    -- | The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
     autoVerifiedAttributes :: Lude.Maybe [VerifiedAttributeType],
+    -- | The policies associated with the new user pool.
     policies :: Lude.Maybe UserPoolPolicyType,
-    usernameConfiguration :: Lude.Maybe UsernameConfigurationType,
-    poolName :: Lude.Text
+    -- | You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
+    usernameConfiguration :: Lude.Maybe UsernameConfigurationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserPool' with the minimum fields required to make a request.
 --
--- * 'accountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
--- * 'adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
--- * 'aliasAttributes' - Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
--- * 'autoVerifiedAttributes' - The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
--- * 'deviceConfiguration' - The device configuration.
--- * 'emailConfiguration' - The email configuration.
--- * 'emailVerificationMessage' - A string representing the email verification message. EmailVerificationMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
--- * 'emailVerificationSubject' - A string representing the email verification subject. EmailVerificationSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
--- * 'lambdaConfig' - The Lambda trigger configuration information for the new user pool.
--- * 'mfaConfiguration' - Specifies MFA configuration details.
--- * 'policies' - The policies associated with the new user pool.
--- * 'poolName' - A string used to name the user pool.
--- * 'schema' - An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
--- * 'smsAuthenticationMessage' - A string representing the SMS authentication message.
--- * 'smsConfiguration' - The SMS configuration.
--- * 'smsVerificationMessage' - A string representing the SMS verification message.
--- * 'userPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
 -- * 'userPoolTags' - The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
--- * 'usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
--- * 'usernameConfiguration' - You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
 -- * 'verificationMessageTemplate' - The template for the verification message that the user sees when the app requests permission to access the user's information.
+-- * 'poolName' - A string used to name the user pool.
+-- * 'emailVerificationMessage' - A string representing the email verification message. EmailVerificationMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+-- * 'smsAuthenticationMessage' - A string representing the SMS authentication message.
+-- * 'userPoolAddOns' - Used to enable advanced security risk detection. Set the key @AdvancedSecurityMode@ to the value "AUDIT".
+-- * 'emailVerificationSubject' - A string representing the email verification subject. EmailVerificationSubject is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
+-- * 'usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
+-- * 'aliasAttributes' - Attributes supported as an alias for this user pool. Possible values: __phone_number__ , __email__ , or __preferred_username__ .
+-- * 'schema' - An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+-- * 'accountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+-- * 'emailConfiguration' - The email configuration.
+-- * 'smsVerificationMessage' - A string representing the SMS verification message.
+-- * 'mfaConfiguration' - Specifies MFA configuration details.
+-- * 'lambdaConfig' - The Lambda trigger configuration information for the new user pool.
+-- * 'smsConfiguration' - The SMS configuration.
+-- * 'adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
+-- * 'deviceConfiguration' - The device configuration.
+-- * 'autoVerifiedAttributes' - The attributes to be auto-verified. Possible values: __email__ , __phone_number__ .
+-- * 'policies' - The policies associated with the new user pool.
+-- * 'usernameConfiguration' - You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
 mkCreateUserPool ::
   -- | 'poolName'
   Lude.Text ->
@@ -126,6 +139,7 @@ mkCreateUserPool pPoolName_ =
   CreateUserPool'
     { userPoolTags = Lude.Nothing,
       verificationMessageTemplate = Lude.Nothing,
+      poolName = pPoolName_,
       emailVerificationMessage = Lude.Nothing,
       smsAuthenticationMessage = Lude.Nothing,
       userPoolAddOns = Lude.Nothing,
@@ -143,8 +157,7 @@ mkCreateUserPool pPoolName_ =
       deviceConfiguration = Lude.Nothing,
       autoVerifiedAttributes = Lude.Nothing,
       policies = Lude.Nothing,
-      usernameConfiguration = Lude.Nothing,
-      poolName = pPoolName_
+      usernameConfiguration = Lude.Nothing
     }
 
 -- | The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
@@ -160,6 +173,13 @@ cupUserPoolTags = Lens.lens (userPoolTags :: CreateUserPool -> Lude.Maybe (Lude.
 cupVerificationMessageTemplate :: Lens.Lens' CreateUserPool (Lude.Maybe VerificationMessageTemplateType)
 cupVerificationMessageTemplate = Lens.lens (verificationMessageTemplate :: CreateUserPool -> Lude.Maybe VerificationMessageTemplateType) (\s a -> s {verificationMessageTemplate = a} :: CreateUserPool)
 {-# DEPRECATED cupVerificationMessageTemplate "Use generic-lens or generic-optics with 'verificationMessageTemplate' instead." #-}
+
+-- | A string used to name the user pool.
+--
+-- /Note:/ Consider using 'poolName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupPoolName :: Lens.Lens' CreateUserPool Lude.Text
+cupPoolName = Lens.lens (poolName :: CreateUserPool -> Lude.Text) (\s a -> s {poolName = a} :: CreateUserPool)
+{-# DEPRECATED cupPoolName "Use generic-lens or generic-optics with 'poolName' instead." #-}
 
 -- | A string representing the email verification message. EmailVerificationMessage is allowed only if <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount> is DEVELOPER.
 --
@@ -287,13 +307,6 @@ cupUsernameConfiguration :: Lens.Lens' CreateUserPool (Lude.Maybe UsernameConfig
 cupUsernameConfiguration = Lens.lens (usernameConfiguration :: CreateUserPool -> Lude.Maybe UsernameConfigurationType) (\s a -> s {usernameConfiguration = a} :: CreateUserPool)
 {-# DEPRECATED cupUsernameConfiguration "Use generic-lens or generic-optics with 'usernameConfiguration' instead." #-}
 
--- | A string used to name the user pool.
---
--- /Note:/ Consider using 'poolName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupPoolName :: Lens.Lens' CreateUserPool Lude.Text
-cupPoolName = Lens.lens (poolName :: CreateUserPool -> Lude.Text) (\s a -> s {poolName = a} :: CreateUserPool)
-{-# DEPRECATED cupPoolName "Use generic-lens or generic-optics with 'poolName' instead." #-}
-
 instance Lude.AWSRequest CreateUserPool where
   type Rs CreateUserPool = CreateUserPoolResponse
   request = Req.postJSON cognitoIdentityProviderService
@@ -324,6 +337,7 @@ instance Lude.ToJSON CreateUserPool where
           [ ("UserPoolTags" Lude..=) Lude.<$> userPoolTags,
             ("VerificationMessageTemplate" Lude..=)
               Lude.<$> verificationMessageTemplate,
+            Lude.Just ("PoolName" Lude..= poolName),
             ("EmailVerificationMessage" Lude..=)
               Lude.<$> emailVerificationMessage,
             ("SmsAuthenticationMessage" Lude..=)
@@ -344,8 +358,7 @@ instance Lude.ToJSON CreateUserPool where
             ("DeviceConfiguration" Lude..=) Lude.<$> deviceConfiguration,
             ("AutoVerifiedAttributes" Lude..=) Lude.<$> autoVerifiedAttributes,
             ("Policies" Lude..=) Lude.<$> policies,
-            ("UsernameConfiguration" Lude..=) Lude.<$> usernameConfiguration,
-            Lude.Just ("PoolName" Lude..= poolName)
+            ("UsernameConfiguration" Lude..=) Lude.<$> usernameConfiguration
           ]
       )
 
@@ -359,23 +372,18 @@ instance Lude.ToQuery CreateUserPool where
 --
 -- /See:/ 'mkCreateUserPoolResponse' smart constructor.
 data CreateUserPoolResponse = CreateUserPoolResponse'
-  { userPool ::
-      Lude.Maybe UserPoolType,
+  { -- | A container for the user pool details.
+    userPool :: Lude.Maybe UserPoolType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserPoolResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userPool' - A container for the user pool details.
+-- * 'responseStatus' - The response status code.
 mkCreateUserPoolResponse ::
   -- | 'responseStatus'
   Lude.Int ->

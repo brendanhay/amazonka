@@ -39,17 +39,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegistryCredential' smart constructor.
 data RegistryCredential = RegistryCredential'
-  { credential ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+    credential :: Lude.Text,
+    -- | The service that created the credentials to access a private Docker registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
     credentialProvider :: CredentialProviderType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegistryCredential' with the minimum fields required to make a request.

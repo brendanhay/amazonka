@@ -17,14 +17,14 @@ module Network.AWS.Firehose.Types.S3DestinationDescription
     mkS3DestinationDescription,
 
     -- * Lenses
-    s3Prefix,
-    s3CloudWatchLoggingOptions,
-    s3ErrorOutputPrefix,
-    s3RoleARN,
-    s3BucketARN,
-    s3BufferingHints,
-    s3CompressionFormat,
-    s3EncryptionConfiguration,
+    sddfPrefix,
+    sddfCloudWatchLoggingOptions,
+    sddfErrorOutputPrefix,
+    sddfEncryptionConfiguration,
+    sddfCompressionFormat,
+    sddfBufferingHints,
+    sddfBucketARN,
+    sddfRoleARN,
   )
 where
 
@@ -39,121 +39,120 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3DestinationDescription' smart constructor.
 data S3DestinationDescription = S3DestinationDescription'
-  { prefix ::
-      Lude.Maybe Lude.Text,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe CloudWatchLoggingOptions,
+  { -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+    prefix :: Lude.Maybe Lude.Text,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
     errorOutputPrefix :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Text,
-    bucketARN :: Lude.Text,
-    bufferingHints :: BufferingHints,
+    -- | The encryption configuration. If no value is specified, the default is no encryption.
+    encryptionConfiguration :: EncryptionConfiguration,
+    -- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
     compressionFormat :: CompressionFormat,
-    encryptionConfiguration ::
-      EncryptionConfiguration
+    -- | The buffering option. If no value is specified, @BufferingHints@ object default values are used.
+    bufferingHints :: BufferingHints,
+    -- | The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    bucketARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3DestinationDescription' with the minimum fields required to make a request.
 --
--- * 'bucketARN' - The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 'bufferingHints' - The buffering option. If no value is specified, @BufferingHints@ object default values are used.
--- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
--- * 'compressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
--- * 'encryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
--- * 'errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
 -- * 'prefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+-- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
+-- * 'errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+-- * 'encryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
+-- * 'compressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+-- * 'bufferingHints' - The buffering option. If no value is specified, @BufferingHints@ object default values are used.
+-- * 'bucketARN' - The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 mkS3DestinationDescription ::
-  -- | 'roleARN'
-  Lude.Text ->
-  -- | 'bucketARN'
-  Lude.Text ->
-  -- | 'bufferingHints'
-  BufferingHints ->
-  -- | 'compressionFormat'
-  CompressionFormat ->
   -- | 'encryptionConfiguration'
   EncryptionConfiguration ->
+  -- | 'compressionFormat'
+  CompressionFormat ->
+  -- | 'bufferingHints'
+  BufferingHints ->
+  -- | 'bucketARN'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   S3DestinationDescription
 mkS3DestinationDescription
-  pRoleARN_
-  pBucketARN_
-  pBufferingHints_
+  pEncryptionConfiguration_
   pCompressionFormat_
-  pEncryptionConfiguration_ =
+  pBufferingHints_
+  pBucketARN_
+  pRoleARN_ =
     S3DestinationDescription'
       { prefix = Lude.Nothing,
         cloudWatchLoggingOptions = Lude.Nothing,
         errorOutputPrefix = Lude.Nothing,
-        roleARN = pRoleARN_,
-        bucketARN = pBucketARN_,
-        bufferingHints = pBufferingHints_,
+        encryptionConfiguration = pEncryptionConfiguration_,
         compressionFormat = pCompressionFormat_,
-        encryptionConfiguration = pEncryptionConfiguration_
+        bufferingHints = pBufferingHints_,
+        bucketARN = pBucketARN_,
+        roleARN = pRoleARN_
       }
 
 -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
 --
 -- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3Prefix :: Lens.Lens' S3DestinationDescription (Lude.Maybe Lude.Text)
-s3Prefix = Lens.lens (prefix :: S3DestinationDescription -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: S3DestinationDescription)
-{-# DEPRECATED s3Prefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+sddfPrefix :: Lens.Lens' S3DestinationDescription (Lude.Maybe Lude.Text)
+sddfPrefix = Lens.lens (prefix :: S3DestinationDescription -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The Amazon CloudWatch logging options for your delivery stream.
 --
 -- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3CloudWatchLoggingOptions :: Lens.Lens' S3DestinationDescription (Lude.Maybe CloudWatchLoggingOptions)
-s3CloudWatchLoggingOptions = Lens.lens (cloudWatchLoggingOptions :: S3DestinationDescription -> Lude.Maybe CloudWatchLoggingOptions) (\s a -> s {cloudWatchLoggingOptions = a} :: S3DestinationDescription)
-{-# DEPRECATED s3CloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
+sddfCloudWatchLoggingOptions :: Lens.Lens' S3DestinationDescription (Lude.Maybe CloudWatchLoggingOptions)
+sddfCloudWatchLoggingOptions = Lens.lens (cloudWatchLoggingOptions :: S3DestinationDescription -> Lude.Maybe CloudWatchLoggingOptions) (\s a -> s {cloudWatchLoggingOptions = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
 
 -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
 --
 -- /Note:/ Consider using 'errorOutputPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3ErrorOutputPrefix :: Lens.Lens' S3DestinationDescription (Lude.Maybe Lude.Text)
-s3ErrorOutputPrefix = Lens.lens (errorOutputPrefix :: S3DestinationDescription -> Lude.Maybe Lude.Text) (\s a -> s {errorOutputPrefix = a} :: S3DestinationDescription)
-{-# DEPRECATED s3ErrorOutputPrefix "Use generic-lens or generic-optics with 'errorOutputPrefix' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3RoleARN :: Lens.Lens' S3DestinationDescription Lude.Text
-s3RoleARN = Lens.lens (roleARN :: S3DestinationDescription -> Lude.Text) (\s a -> s {roleARN = a} :: S3DestinationDescription)
-{-# DEPRECATED s3RoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
---
--- /Note:/ Consider using 'bucketARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3BucketARN :: Lens.Lens' S3DestinationDescription Lude.Text
-s3BucketARN = Lens.lens (bucketARN :: S3DestinationDescription -> Lude.Text) (\s a -> s {bucketARN = a} :: S3DestinationDescription)
-{-# DEPRECATED s3BucketARN "Use generic-lens or generic-optics with 'bucketARN' instead." #-}
-
--- | The buffering option. If no value is specified, @BufferingHints@ object default values are used.
---
--- /Note:/ Consider using 'bufferingHints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3BufferingHints :: Lens.Lens' S3DestinationDescription BufferingHints
-s3BufferingHints = Lens.lens (bufferingHints :: S3DestinationDescription -> BufferingHints) (\s a -> s {bufferingHints = a} :: S3DestinationDescription)
-{-# DEPRECATED s3BufferingHints "Use generic-lens or generic-optics with 'bufferingHints' instead." #-}
-
--- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
---
--- /Note:/ Consider using 'compressionFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3CompressionFormat :: Lens.Lens' S3DestinationDescription CompressionFormat
-s3CompressionFormat = Lens.lens (compressionFormat :: S3DestinationDescription -> CompressionFormat) (\s a -> s {compressionFormat = a} :: S3DestinationDescription)
-{-# DEPRECATED s3CompressionFormat "Use generic-lens or generic-optics with 'compressionFormat' instead." #-}
+sddfErrorOutputPrefix :: Lens.Lens' S3DestinationDescription (Lude.Maybe Lude.Text)
+sddfErrorOutputPrefix = Lens.lens (errorOutputPrefix :: S3DestinationDescription -> Lude.Maybe Lude.Text) (\s a -> s {errorOutputPrefix = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfErrorOutputPrefix "Use generic-lens or generic-optics with 'errorOutputPrefix' instead." #-}
 
 -- | The encryption configuration. If no value is specified, the default is no encryption.
 --
 -- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-s3EncryptionConfiguration :: Lens.Lens' S3DestinationDescription EncryptionConfiguration
-s3EncryptionConfiguration = Lens.lens (encryptionConfiguration :: S3DestinationDescription -> EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: S3DestinationDescription)
-{-# DEPRECATED s3EncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
+sddfEncryptionConfiguration :: Lens.Lens' S3DestinationDescription EncryptionConfiguration
+sddfEncryptionConfiguration = Lens.lens (encryptionConfiguration :: S3DestinationDescription -> EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
+
+-- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+--
+-- /Note:/ Consider using 'compressionFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sddfCompressionFormat :: Lens.Lens' S3DestinationDescription CompressionFormat
+sddfCompressionFormat = Lens.lens (compressionFormat :: S3DestinationDescription -> CompressionFormat) (\s a -> s {compressionFormat = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfCompressionFormat "Use generic-lens or generic-optics with 'compressionFormat' instead." #-}
+
+-- | The buffering option. If no value is specified, @BufferingHints@ object default values are used.
+--
+-- /Note:/ Consider using 'bufferingHints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sddfBufferingHints :: Lens.Lens' S3DestinationDescription BufferingHints
+sddfBufferingHints = Lens.lens (bufferingHints :: S3DestinationDescription -> BufferingHints) (\s a -> s {bufferingHints = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfBufferingHints "Use generic-lens or generic-optics with 'bufferingHints' instead." #-}
+
+-- | The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'bucketARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sddfBucketARN :: Lens.Lens' S3DestinationDescription Lude.Text
+sddfBucketARN = Lens.lens (bucketARN :: S3DestinationDescription -> Lude.Text) (\s a -> s {bucketARN = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfBucketARN "Use generic-lens or generic-optics with 'bucketARN' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sddfRoleARN :: Lens.Lens' S3DestinationDescription Lude.Text
+sddfRoleARN = Lens.lens (roleARN :: S3DestinationDescription -> Lude.Text) (\s a -> s {roleARN = a} :: S3DestinationDescription)
+{-# DEPRECATED sddfRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.FromJSON S3DestinationDescription where
   parseJSON =
@@ -164,9 +163,9 @@ instance Lude.FromJSON S3DestinationDescription where
             Lude.<$> (x Lude..:? "Prefix")
             Lude.<*> (x Lude..:? "CloudWatchLoggingOptions")
             Lude.<*> (x Lude..:? "ErrorOutputPrefix")
-            Lude.<*> (x Lude..: "RoleARN")
-            Lude.<*> (x Lude..: "BucketARN")
-            Lude.<*> (x Lude..: "BufferingHints")
-            Lude.<*> (x Lude..: "CompressionFormat")
             Lude.<*> (x Lude..: "EncryptionConfiguration")
+            Lude.<*> (x Lude..: "CompressionFormat")
+            Lude.<*> (x Lude..: "BufferingHints")
+            Lude.<*> (x Lude..: "BucketARN")
+            Lude.<*> (x Lude..: "RoleARN")
       )

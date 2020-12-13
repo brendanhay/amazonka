@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +21,10 @@ module Network.AWS.EC2.CreateNatGateway
 
     -- ** Request lenses
     cngClientToken,
-    cngTagSpecifications,
-    cngDryRun,
     cngAllocationId,
     cngSubnetId,
+    cngTagSpecifications,
+    cngDryRun,
 
     -- * Destructuring the response
     CreateNatGatewayResponse (..),
@@ -44,31 +45,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateNatGateway' smart constructor.
 data CreateNatGateway = CreateNatGateway'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    --
+    -- Constraint: Maximum 64 ASCII characters.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
     allocationId :: Lude.Text,
-    subnetId :: Lude.Text
+    -- | The subnet in which to create the NAT gateway.
+    subnetId :: Lude.Text,
+    -- | The tags to assign to the NAT gateway.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNatGateway' with the minimum fields required to make a request.
 --
--- * 'allocationId' - The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
 -- Constraint: Maximum 64 ASCII characters.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'allocationId' - The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
 -- * 'subnetId' - The subnet in which to create the NAT gateway.
 -- * 'tagSpecifications' - The tags to assign to the NAT gateway.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateNatGateway ::
   -- | 'allocationId'
   Lude.Text ->
@@ -78,10 +79,10 @@ mkCreateNatGateway ::
 mkCreateNatGateway pAllocationId_ pSubnetId_ =
   CreateNatGateway'
     { clientToken = Lude.Nothing,
-      tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
       allocationId = pAllocationId_,
-      subnetId = pSubnetId_
+      subnetId = pSubnetId_,
+      tagSpecifications = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
@@ -92,20 +93,6 @@ mkCreateNatGateway pAllocationId_ pSubnetId_ =
 cngClientToken :: Lens.Lens' CreateNatGateway (Lude.Maybe Lude.Text)
 cngClientToken = Lens.lens (clientToken :: CreateNatGateway -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateNatGateway)
 {-# DEPRECATED cngClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The tags to assign to the NAT gateway.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngTagSpecifications :: Lens.Lens' CreateNatGateway (Lude.Maybe [TagSpecification])
-cngTagSpecifications = Lens.lens (tagSpecifications :: CreateNatGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateNatGateway)
-{-# DEPRECATED cngTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cngDryRun :: Lens.Lens' CreateNatGateway (Lude.Maybe Lude.Bool)
-cngDryRun = Lens.lens (dryRun :: CreateNatGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNatGateway)
-{-# DEPRECATED cngDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.
 --
@@ -120,6 +107,20 @@ cngAllocationId = Lens.lens (allocationId :: CreateNatGateway -> Lude.Text) (\s 
 cngSubnetId :: Lens.Lens' CreateNatGateway Lude.Text
 cngSubnetId = Lens.lens (subnetId :: CreateNatGateway -> Lude.Text) (\s a -> s {subnetId = a} :: CreateNatGateway)
 {-# DEPRECATED cngSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+-- | The tags to assign to the NAT gateway.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cngTagSpecifications :: Lens.Lens' CreateNatGateway (Lude.Maybe [TagSpecification])
+cngTagSpecifications = Lens.lens (tagSpecifications :: CreateNatGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateNatGateway)
+{-# DEPRECATED cngTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cngDryRun :: Lens.Lens' CreateNatGateway (Lude.Maybe Lude.Bool)
+cngDryRun = Lens.lens (dryRun :: CreateNatGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNatGateway)
+{-# DEPRECATED cngDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateNatGateway where
   type Rs CreateNatGateway = CreateNatGatewayResponse
@@ -145,27 +146,23 @@ instance Lude.ToQuery CreateNatGateway where
       [ "Action" Lude.=: ("CreateNatGateway" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ClientToken" Lude.=: clientToken,
+        "AllocationId" Lude.=: allocationId,
+        "SubnetId" Lude.=: subnetId,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        "AllocationId" Lude.=: allocationId,
-        "SubnetId" Lude.=: subnetId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateNatGatewayResponse' smart constructor.
 data CreateNatGatewayResponse = CreateNatGatewayResponse'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | Information about the NAT gateway.
     natGateway :: Lude.Maybe NatGateway,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNatGatewayResponse' with the minimum fields required to make a request.

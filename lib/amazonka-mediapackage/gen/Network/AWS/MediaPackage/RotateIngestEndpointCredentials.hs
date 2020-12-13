@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRotateIngestEndpointCredentials' smart constructor.
 data RotateIngestEndpointCredentials = RotateIngestEndpointCredentials'
-  { ingestEndpointId ::
-      Lude.Text,
+  { -- | The id of the IngestEndpoint whose credentials should be rotated
+    ingestEndpointId :: Lude.Text,
+    -- | The ID of the channel the IngestEndpoint is on.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateIngestEndpointCredentials' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the channel the IngestEndpoint is on.
 -- * 'ingestEndpointId' - The id of the IngestEndpoint whose credentials should be rotated
+-- * 'id' - The ID of the channel the IngestEndpoint is on.
 mkRotateIngestEndpointCredentials ::
   -- | 'ingestEndpointId'
   Lude.Text ->
@@ -136,52 +132,32 @@ instance Lude.ToQuery RotateIngestEndpointCredentials where
 
 -- | /See:/ 'mkRotateIngestEndpointCredentialsResponse' smart constructor.
 data RotateIngestEndpointCredentialsResponse = RotateIngestEndpointCredentialsResponse'
-  { ingressAccessLogs ::
-      Lude.Maybe
-        IngressAccessLogs,
-    hlsIngest ::
-      Lude.Maybe
-        HlsIngest,
-    arn ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    description ::
-      Lude.Maybe
-        Lude.Text,
-    egressAccessLogs ::
-      Lude.Maybe
-        EgressAccessLogs,
-    tags ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    responseStatus ::
-      Lude.Int
+  { ingressAccessLogs :: Lude.Maybe IngressAccessLogs,
+    hlsIngest :: Lude.Maybe HlsIngest,
+    -- | The Amazon Resource Name (ARN) assigned to the Channel.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the Channel.
+    id :: Lude.Maybe Lude.Text,
+    -- | A short text description of the Channel.
+    description :: Lude.Maybe Lude.Text,
+    egressAccessLogs :: Lude.Maybe EgressAccessLogs,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotateIngestEndpointCredentialsResponse' with the minimum fields required to make a request.
 --
+-- * 'ingressAccessLogs' -
+-- * 'hlsIngest' -
 -- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
--- * 'description' - A short text description of the Channel.
--- * 'egressAccessLogs' - Undocumented field.
--- * 'hlsIngest' - Undocumented field.
 -- * 'id' - The ID of the Channel.
--- * 'ingressAccessLogs' - Undocumented field.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' -
+-- * 'tags' -
 -- * 'responseStatus' - The response status code.
--- * 'tags' - Undocumented field.
 mkRotateIngestEndpointCredentialsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

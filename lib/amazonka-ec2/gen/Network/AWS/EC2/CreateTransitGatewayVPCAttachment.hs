@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.EC2.CreateTransitGatewayVPCAttachment
     mkCreateTransitGatewayVPCAttachment,
 
     -- ** Request lenses
+    ctgvaSubnetIds,
+    ctgvaVPCId,
     ctgvaTagSpecifications,
+    ctgvaTransitGatewayId,
     ctgvaOptions,
     ctgvaDryRun,
-    ctgvaTransitGatewayId,
-    ctgvaVPCId,
-    ctgvaSubnetIds,
 
     -- * Destructuring the response
     CreateTransitGatewayVPCAttachmentResponse (..),
@@ -47,53 +48,59 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTransitGatewayVPCAttachment' smart constructor.
 data CreateTransitGatewayVPCAttachment = CreateTransitGatewayVPCAttachment'
-  { tagSpecifications ::
-      Lude.Maybe
-        [TagSpecification],
-    options ::
-      Lude.Maybe
-        CreateTransitGatewayVPCAttachmentRequestOptions,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    transitGatewayId ::
-      Lude.Text,
+  { -- | The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+    subnetIds :: [Lude.Text],
+    -- | The ID of the VPC.
     vpcId :: Lude.Text,
-    subnetIds ::
-      [Lude.Text]
+    -- | The tags to apply to the VPC attachment.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The ID of the transit gateway.
+    transitGatewayId :: Lude.Text,
+    -- | The VPC attachment options.
+    options :: Lude.Maybe CreateTransitGatewayVPCAttachmentRequestOptions,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayVPCAttachment' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'options' - The VPC attachment options.
 -- * 'subnetIds' - The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+-- * 'vpcId' - The ID of the VPC.
 -- * 'tagSpecifications' - The tags to apply to the VPC attachment.
 -- * 'transitGatewayId' - The ID of the transit gateway.
--- * 'vpcId' - The ID of the VPC.
+-- * 'options' - The VPC attachment options.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateTransitGatewayVPCAttachment ::
-  -- | 'transitGatewayId'
-  Lude.Text ->
   -- | 'vpcId'
   Lude.Text ->
+  -- | 'transitGatewayId'
+  Lude.Text ->
   CreateTransitGatewayVPCAttachment
-mkCreateTransitGatewayVPCAttachment pTransitGatewayId_ pVPCId_ =
+mkCreateTransitGatewayVPCAttachment pVPCId_ pTransitGatewayId_ =
   CreateTransitGatewayVPCAttachment'
-    { tagSpecifications =
-        Lude.Nothing,
-      options = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      transitGatewayId = pTransitGatewayId_,
+    { subnetIds = Lude.mempty,
       vpcId = pVPCId_,
-      subnetIds = Lude.mempty
+      tagSpecifications = Lude.Nothing,
+      transitGatewayId = pTransitGatewayId_,
+      options = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
+
+-- | The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgvaSubnetIds :: Lens.Lens' CreateTransitGatewayVPCAttachment [Lude.Text]
+ctgvaSubnetIds = Lens.lens (subnetIds :: CreateTransitGatewayVPCAttachment -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateTransitGatewayVPCAttachment)
+{-# DEPRECATED ctgvaSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgvaVPCId :: Lens.Lens' CreateTransitGatewayVPCAttachment Lude.Text
+ctgvaVPCId = Lens.lens (vpcId :: CreateTransitGatewayVPCAttachment -> Lude.Text) (\s a -> s {vpcId = a} :: CreateTransitGatewayVPCAttachment)
+{-# DEPRECATED ctgvaVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The tags to apply to the VPC attachment.
 --
@@ -101,6 +108,13 @@ mkCreateTransitGatewayVPCAttachment pTransitGatewayId_ pVPCId_ =
 ctgvaTagSpecifications :: Lens.Lens' CreateTransitGatewayVPCAttachment (Lude.Maybe [TagSpecification])
 ctgvaTagSpecifications = Lens.lens (tagSpecifications :: CreateTransitGatewayVPCAttachment -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTransitGatewayVPCAttachment)
 {-# DEPRECATED ctgvaTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+-- | The ID of the transit gateway.
+--
+-- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgvaTransitGatewayId :: Lens.Lens' CreateTransitGatewayVPCAttachment Lude.Text
+ctgvaTransitGatewayId = Lens.lens (transitGatewayId :: CreateTransitGatewayVPCAttachment -> Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateTransitGatewayVPCAttachment)
+{-# DEPRECATED ctgvaTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | The VPC attachment options.
 --
@@ -115,27 +129,6 @@ ctgvaOptions = Lens.lens (options :: CreateTransitGatewayVPCAttachment -> Lude.M
 ctgvaDryRun :: Lens.Lens' CreateTransitGatewayVPCAttachment (Lude.Maybe Lude.Bool)
 ctgvaDryRun = Lens.lens (dryRun :: CreateTransitGatewayVPCAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayVPCAttachment)
 {-# DEPRECATED ctgvaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the transit gateway.
---
--- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgvaTransitGatewayId :: Lens.Lens' CreateTransitGatewayVPCAttachment Lude.Text
-ctgvaTransitGatewayId = Lens.lens (transitGatewayId :: CreateTransitGatewayVPCAttachment -> Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateTransitGatewayVPCAttachment)
-{-# DEPRECATED ctgvaTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
-
--- | The ID of the VPC.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgvaVPCId :: Lens.Lens' CreateTransitGatewayVPCAttachment Lude.Text
-ctgvaVPCId = Lens.lens (vpcId :: CreateTransitGatewayVPCAttachment -> Lude.Text) (\s a -> s {vpcId = a} :: CreateTransitGatewayVPCAttachment)
-{-# DEPRECATED ctgvaVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
---
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgvaSubnetIds :: Lens.Lens' CreateTransitGatewayVPCAttachment [Lude.Text]
-ctgvaSubnetIds = Lens.lens (subnetIds :: CreateTransitGatewayVPCAttachment -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateTransitGatewayVPCAttachment)
-{-# DEPRECATED ctgvaSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 instance Lude.AWSRequest CreateTransitGatewayVPCAttachment where
   type
@@ -162,36 +155,29 @@ instance Lude.ToQuery CreateTransitGatewayVPCAttachment where
       [ "Action"
           Lude.=: ("CreateTransitGatewayVpcAttachment" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQueryList "SubnetIds" subnetIds,
+        "VpcId" Lude.=: vpcId,
         Lude.toQuery
           (Lude.toQueryList "TagSpecifications" Lude.<$> tagSpecifications),
-        "Options" Lude.=: options,
-        "DryRun" Lude.=: dryRun,
         "TransitGatewayId" Lude.=: transitGatewayId,
-        "VpcId" Lude.=: vpcId,
-        Lude.toQueryList "SubnetIds" subnetIds
+        "Options" Lude.=: options,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateTransitGatewayVPCAttachmentResponse' smart constructor.
 data CreateTransitGatewayVPCAttachmentResponse = CreateTransitGatewayVPCAttachmentResponse'
-  { transitGatewayVPCAttachment ::
-      Lude.Maybe
-        TransitGatewayVPCAttachment,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the VPC attachment.
+    transitGatewayVPCAttachment :: Lude.Maybe TransitGatewayVPCAttachment,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayVPCAttachmentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayVPCAttachment' - Information about the VPC attachment.
+-- * 'responseStatus' - The response status code.
 mkCreateTransitGatewayVPCAttachmentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

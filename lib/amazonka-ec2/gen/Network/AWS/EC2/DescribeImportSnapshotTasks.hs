@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,30 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeImportSnapshotTasks' smart constructor.
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-  { filters ::
-      Lude.Maybe [Filter],
-    importTaskIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The filters.
+    filters :: Lude.Maybe [Filter],
+    -- | A list of import snapshot task IDs.
+    importTaskIds :: Lude.Maybe [Lude.Text],
+    -- | A token that indicates the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportSnapshotTasks' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 -- * 'importTaskIds' - A list of import snapshot task IDs.
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 -- * 'nextToken' - A token that indicates the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeImportSnapshotTasks ::
   DescribeImportSnapshotTasks
 mkDescribeImportSnapshotTasks =
@@ -164,28 +162,20 @@ instance Lude.ToQuery DescribeImportSnapshotTasks where
 
 -- | /See:/ 'mkDescribeImportSnapshotTasksResponse' smart constructor.
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    importSnapshotTasks ::
-      Lude.Maybe
-        [ImportSnapshotTask],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
+    importSnapshotTasks :: Lude.Maybe [ImportSnapshotTask],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeImportSnapshotTasksResponse' with the minimum fields required to make a request.
 --
--- * 'importSnapshotTasks' - A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
 -- * 'nextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
+-- * 'importSnapshotTasks' - A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the previous 7 days.
 -- * 'responseStatus' - The response status code.
 mkDescribeImportSnapshotTasksResponse ::
   -- | 'responseStatus'

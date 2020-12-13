@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.MediaLive.CreateMultiplexProgram
     mkCreateMultiplexProgram,
 
     -- ** Request lenses
-    cmpMultiplexId,
     cmpRequestId,
-    cmpMultiplexProgramSettings,
+    cmpMultiplexId,
     cmpProgramName,
+    cmpMultiplexProgramSettings,
 
     -- * Destructuring the response
     CreateMultiplexProgramResponse (..),
@@ -44,58 +45,49 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateMultiplexProgram' smart constructor.
 data CreateMultiplexProgram = CreateMultiplexProgram'
-  { multiplexId ::
-      Lude.Text,
+  { -- | Unique request ID. This prevents retries from creating multiple
+    --
+    -- resources.
     requestId :: Lude.Text,
-    multiplexProgramSettings ::
-      MultiplexProgramSettings,
-    programName :: Lude.Text
+    -- | ID of the multiplex where the program is to be created.
+    multiplexId :: Lude.Text,
+    -- | Name of multiplex program.
+    programName :: Lude.Text,
+    -- | The settings for this multiplex program.
+    multiplexProgramSettings :: MultiplexProgramSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMultiplexProgram' with the minimum fields required to make a request.
 --
--- * 'multiplexId' - ID of the multiplex where the program is to be created.
--- * 'multiplexProgramSettings' - The settings for this multiplex program.
--- * 'programName' - Name of multiplex program.
 -- * 'requestId' - Unique request ID. This prevents retries from creating multiple
 --
 -- resources.
+-- * 'multiplexId' - ID of the multiplex where the program is to be created.
+-- * 'programName' - Name of multiplex program.
+-- * 'multiplexProgramSettings' - The settings for this multiplex program.
 mkCreateMultiplexProgram ::
+  -- | 'requestId'
+  Lude.Text ->
   -- | 'multiplexId'
   Lude.Text ->
-  -- | 'requestId'
+  -- | 'programName'
   Lude.Text ->
   -- | 'multiplexProgramSettings'
   MultiplexProgramSettings ->
-  -- | 'programName'
-  Lude.Text ->
   CreateMultiplexProgram
 mkCreateMultiplexProgram
-  pMultiplexId_
   pRequestId_
-  pMultiplexProgramSettings_
-  pProgramName_ =
+  pMultiplexId_
+  pProgramName_
+  pMultiplexProgramSettings_ =
     CreateMultiplexProgram'
-      { multiplexId = pMultiplexId_,
-        requestId = pRequestId_,
-        multiplexProgramSettings = pMultiplexProgramSettings_,
-        programName = pProgramName_
+      { requestId = pRequestId_,
+        multiplexId = pMultiplexId_,
+        programName = pProgramName_,
+        multiplexProgramSettings = pMultiplexProgramSettings_
       }
-
--- | ID of the multiplex where the program is to be created.
---
--- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpMultiplexId :: Lens.Lens' CreateMultiplexProgram Lude.Text
-cmpMultiplexId = Lens.lens (multiplexId :: CreateMultiplexProgram -> Lude.Text) (\s a -> s {multiplexId = a} :: CreateMultiplexProgram)
-{-# DEPRECATED cmpMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 -- | Unique request ID. This prevents retries from creating multiple
 --
@@ -106,12 +98,12 @@ cmpRequestId :: Lens.Lens' CreateMultiplexProgram Lude.Text
 cmpRequestId = Lens.lens (requestId :: CreateMultiplexProgram -> Lude.Text) (\s a -> s {requestId = a} :: CreateMultiplexProgram)
 {-# DEPRECATED cmpRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
--- | The settings for this multiplex program.
+-- | ID of the multiplex where the program is to be created.
 --
--- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmpMultiplexProgramSettings :: Lens.Lens' CreateMultiplexProgram MultiplexProgramSettings
-cmpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: CreateMultiplexProgram -> MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: CreateMultiplexProgram)
-{-# DEPRECATED cmpMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
+-- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpMultiplexId :: Lens.Lens' CreateMultiplexProgram Lude.Text
+cmpMultiplexId = Lens.lens (multiplexId :: CreateMultiplexProgram -> Lude.Text) (\s a -> s {multiplexId = a} :: CreateMultiplexProgram)
+{-# DEPRECATED cmpMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
 -- | Name of multiplex program.
 --
@@ -119,6 +111,13 @@ cmpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: CreateMulti
 cmpProgramName :: Lens.Lens' CreateMultiplexProgram Lude.Text
 cmpProgramName = Lens.lens (programName :: CreateMultiplexProgram -> Lude.Text) (\s a -> s {programName = a} :: CreateMultiplexProgram)
 {-# DEPRECATED cmpProgramName "Use generic-lens or generic-optics with 'programName' instead." #-}
+
+-- | The settings for this multiplex program.
+--
+-- /Note:/ Consider using 'multiplexProgramSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmpMultiplexProgramSettings :: Lens.Lens' CreateMultiplexProgram MultiplexProgramSettings
+cmpMultiplexProgramSettings = Lens.lens (multiplexProgramSettings :: CreateMultiplexProgram -> MultiplexProgramSettings) (\s a -> s {multiplexProgramSettings = a} :: CreateMultiplexProgram)
+{-# DEPRECATED cmpMultiplexProgramSettings "Use generic-lens or generic-optics with 'multiplexProgramSettings' instead." #-}
 
 instance Lude.AWSRequest CreateMultiplexProgram where
   type Rs CreateMultiplexProgram = CreateMultiplexProgramResponse
@@ -145,9 +144,9 @@ instance Lude.ToJSON CreateMultiplexProgram where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("requestId" Lude..= requestId),
+            Lude.Just ("programName" Lude..= programName),
             Lude.Just
-              ("multiplexProgramSettings" Lude..= multiplexProgramSettings),
-            Lude.Just ("programName" Lude..= programName)
+              ("multiplexProgramSettings" Lude..= multiplexProgramSettings)
           ]
       )
 
@@ -163,17 +162,12 @@ instance Lude.ToQuery CreateMultiplexProgram where
 --
 -- /See:/ 'mkCreateMultiplexProgramResponse' smart constructor.
 data CreateMultiplexProgramResponse = CreateMultiplexProgramResponse'
-  { multiplexProgram ::
-      Lude.Maybe MultiplexProgram,
+  { -- | The newly created multiplex program.
+    multiplexProgram :: Lude.Maybe MultiplexProgram,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateMultiplexProgramResponse' with the minimum fields required to make a request.

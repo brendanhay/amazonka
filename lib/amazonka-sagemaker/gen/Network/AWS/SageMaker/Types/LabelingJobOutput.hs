@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLabelingJobOutput' smart constructor.
 data LabelingJobOutput = LabelingJobOutput'
-  { finalActiveLearningModelARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for the most recent Amazon SageMaker model trained as part of automated data labeling.
+    finalActiveLearningModelARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 bucket location of the manifest file for labeled data.
     outputDatasetS3URI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobOutput' with the minimum fields required to make a request.

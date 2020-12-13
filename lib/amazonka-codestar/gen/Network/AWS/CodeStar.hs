@@ -142,8 +142,8 @@ module Network.AWS.CodeStar
     -- ** Code
     Code (..),
     mkCode,
-    cSource,
     cDestination,
+    cSource,
 
     -- ** CodeCommitCodeDestination
     CodeCommitCodeDestination (..),
@@ -164,19 +164,19 @@ module Network.AWS.CodeStar
     -- ** GitHubCodeDestination
     GitHubCodeDestination (..),
     mkGitHubCodeDestination,
-    ghcdDescription,
-    ghcdName,
-    ghcdType,
-    ghcdOwner,
     ghcdPrivateRepository,
-    ghcdIssuesEnabled,
     ghcdToken,
+    ghcdOwner,
+    ghcdName,
+    ghcdIssuesEnabled,
+    ghcdType,
+    ghcdDescription,
 
     -- ** ProjectStatus
     ProjectStatus (..),
     mkProjectStatus,
-    psReason,
     psState,
+    psReason,
 
     -- ** ProjectSummary
     ProjectSummary (..),
@@ -198,16 +198,16 @@ module Network.AWS.CodeStar
     -- ** TeamMember
     TeamMember (..),
     mkTeamMember,
-    tmRemoteAccessAllowed,
     tmUserARN,
+    tmRemoteAccessAllowed,
     tmProjectRole,
 
     -- ** Toolchain
     Toolchain (..),
     mkToolchain,
     tStackParameters,
-    tRoleARN,
     tSource,
+    tRoleARN,
 
     -- ** ToolchainSource
     ToolchainSource (..),

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchAddressBooks' smart constructor.
 data SearchAddressBooks = SearchAddressBooks'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters to use to list a specified set of address books. The supported filter key is AddressBookName.
+    filters :: Lude.Maybe [Filter],
+    -- | The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.
     sortCriteria :: Lude.Maybe [Sort],
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchAddressBooks' with the minimum fields required to make a request.
 --
 -- * 'filters' - The filters to use to list a specified set of address books. The supported filter key is AddressBookName.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
 -- * 'sortCriteria' - The sort order to use in listing the specified set of address books. The supported sort key is AddressBookName.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
 mkSearchAddressBooks ::
   SearchAddressBooks
 mkSearchAddressBooks =
@@ -146,28 +144,24 @@ instance Lude.ToQuery SearchAddressBooks where
 
 -- | /See:/ 'mkSearchAddressBooksResponse' smart constructor.
 data SearchAddressBooksResponse = SearchAddressBooksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    addressBooks ::
-      Lude.Maybe [AddressBookData],
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The address books that meet the specified set of filter criteria, in sort order.
+    addressBooks :: Lude.Maybe [AddressBookData],
+    -- | The total number of address books returned.
     totalCount :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchAddressBooksResponse' with the minimum fields required to make a request.
 --
--- * 'addressBooks' - The address books that meet the specified set of filter criteria, in sort order.
 -- * 'nextToken' - The token returned to indicate that there is more data available.
--- * 'responseStatus' - The response status code.
+-- * 'addressBooks' - The address books that meet the specified set of filter criteria, in sort order.
 -- * 'totalCount' - The total number of address books returned.
+-- * 'responseStatus' - The response status code.
 mkSearchAddressBooksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

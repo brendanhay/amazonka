@@ -17,13 +17,13 @@ module Network.AWS.CodeStar.Types.GitHubCodeDestination
     mkGitHubCodeDestination,
 
     -- * Lenses
-    ghcdDescription,
-    ghcdName,
-    ghcdType,
-    ghcdOwner,
     ghcdPrivateRepository,
-    ghcdIssuesEnabled,
     ghcdToken,
+    ghcdOwner,
+    ghcdName,
+    ghcdIssuesEnabled,
+    ghcdType,
+    ghcdDescription,
   )
 where
 
@@ -34,85 +34,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGitHubCodeDestination' smart constructor.
 data GitHubCodeDestination = GitHubCodeDestination'
-  { description ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text,
-    type' :: Lude.Text,
-    owner :: Lude.Text,
+  { -- | Whether the GitHub repository is to be a private repository.
     privateRepository :: Lude.Bool,
+    -- | The GitHub user's personal access token for the GitHub repository.
+    token :: Lude.Sensitive Lude.Text,
+    -- | The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
+    owner :: Lude.Text,
+    -- | Name of the GitHub repository to be created in AWS CodeStar.
+    name :: Lude.Text,
+    -- | Whether to enable issues for the GitHub repository.
     issuesEnabled :: Lude.Bool,
-    token :: Lude.Sensitive Lude.Text
+    -- | The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.
+    type' :: Lude.Text,
+    -- | Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
+    description :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GitHubCodeDestination' with the minimum fields required to make a request.
 --
--- * 'description' - Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
--- * 'issuesEnabled' - Whether to enable issues for the GitHub repository.
--- * 'name' - Name of the GitHub repository to be created in AWS CodeStar.
--- * 'owner' - The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
 -- * 'privateRepository' - Whether the GitHub repository is to be a private repository.
 -- * 'token' - The GitHub user's personal access token for the GitHub repository.
+-- * 'owner' - The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
+-- * 'name' - Name of the GitHub repository to be created in AWS CodeStar.
+-- * 'issuesEnabled' - Whether to enable issues for the GitHub repository.
 -- * 'type'' - The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.
+-- * 'description' - Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
 mkGitHubCodeDestination ::
-  -- | 'name'
-  Lude.Text ->
-  -- | 'type''
-  Lude.Text ->
-  -- | 'owner'
-  Lude.Text ->
   -- | 'privateRepository'
-  Lude.Bool ->
-  -- | 'issuesEnabled'
   Lude.Bool ->
   -- | 'token'
   Lude.Sensitive Lude.Text ->
+  -- | 'owner'
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
+  -- | 'issuesEnabled'
+  Lude.Bool ->
+  -- | 'type''
+  Lude.Text ->
   GitHubCodeDestination
 mkGitHubCodeDestination
-  pName_
-  pType_
-  pOwner_
   pPrivateRepository_
+  pToken_
+  pOwner_
+  pName_
   pIssuesEnabled_
-  pToken_ =
+  pType_ =
     GitHubCodeDestination'
-      { description = Lude.Nothing,
-        name = pName_,
-        type' = pType_,
+      { privateRepository = pPrivateRepository_,
+        token = pToken_,
         owner = pOwner_,
-        privateRepository = pPrivateRepository_,
+        name = pName_,
         issuesEnabled = pIssuesEnabled_,
-        token = pToken_
+        type' = pType_,
+        description = Lude.Nothing
       }
-
--- | Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghcdDescription :: Lens.Lens' GitHubCodeDestination (Lude.Maybe Lude.Text)
-ghcdDescription = Lens.lens (description :: GitHubCodeDestination -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GitHubCodeDestination)
-{-# DEPRECATED ghcdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Name of the GitHub repository to be created in AWS CodeStar.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghcdName :: Lens.Lens' GitHubCodeDestination Lude.Text
-ghcdName = Lens.lens (name :: GitHubCodeDestination -> Lude.Text) (\s a -> s {name = a} :: GitHubCodeDestination)
-{-# DEPRECATED ghcdName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghcdType :: Lens.Lens' GitHubCodeDestination Lude.Text
-ghcdType = Lens.lens (type' :: GitHubCodeDestination -> Lude.Text) (\s a -> s {type' = a} :: GitHubCodeDestination)
-{-# DEPRECATED ghcdType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghcdOwner :: Lens.Lens' GitHubCodeDestination Lude.Text
-ghcdOwner = Lens.lens (owner :: GitHubCodeDestination -> Lude.Text) (\s a -> s {owner = a} :: GitHubCodeDestination)
-{-# DEPRECATED ghcdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | Whether the GitHub repository is to be a private repository.
 --
@@ -121,13 +99,6 @@ ghcdPrivateRepository :: Lens.Lens' GitHubCodeDestination Lude.Bool
 ghcdPrivateRepository = Lens.lens (privateRepository :: GitHubCodeDestination -> Lude.Bool) (\s a -> s {privateRepository = a} :: GitHubCodeDestination)
 {-# DEPRECATED ghcdPrivateRepository "Use generic-lens or generic-optics with 'privateRepository' instead." #-}
 
--- | Whether to enable issues for the GitHub repository.
---
--- /Note:/ Consider using 'issuesEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghcdIssuesEnabled :: Lens.Lens' GitHubCodeDestination Lude.Bool
-ghcdIssuesEnabled = Lens.lens (issuesEnabled :: GitHubCodeDestination -> Lude.Bool) (\s a -> s {issuesEnabled = a} :: GitHubCodeDestination)
-{-# DEPRECATED ghcdIssuesEnabled "Use generic-lens or generic-optics with 'issuesEnabled' instead." #-}
-
 -- | The GitHub user's personal access token for the GitHub repository.
 --
 -- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -135,16 +106,51 @@ ghcdToken :: Lens.Lens' GitHubCodeDestination (Lude.Sensitive Lude.Text)
 ghcdToken = Lens.lens (token :: GitHubCodeDestination -> Lude.Sensitive Lude.Text) (\s a -> s {token = a} :: GitHubCodeDestination)
 {-# DEPRECATED ghcdToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
+-- | The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghcdOwner :: Lens.Lens' GitHubCodeDestination Lude.Text
+ghcdOwner = Lens.lens (owner :: GitHubCodeDestination -> Lude.Text) (\s a -> s {owner = a} :: GitHubCodeDestination)
+{-# DEPRECATED ghcdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | Name of the GitHub repository to be created in AWS CodeStar.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghcdName :: Lens.Lens' GitHubCodeDestination Lude.Text
+ghcdName = Lens.lens (name :: GitHubCodeDestination -> Lude.Text) (\s a -> s {name = a} :: GitHubCodeDestination)
+{-# DEPRECATED ghcdName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Whether to enable issues for the GitHub repository.
+--
+-- /Note:/ Consider using 'issuesEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghcdIssuesEnabled :: Lens.Lens' GitHubCodeDestination Lude.Bool
+ghcdIssuesEnabled = Lens.lens (issuesEnabled :: GitHubCodeDestination -> Lude.Bool) (\s a -> s {issuesEnabled = a} :: GitHubCodeDestination)
+{-# DEPRECATED ghcdIssuesEnabled "Use generic-lens or generic-optics with 'issuesEnabled' instead." #-}
+
+-- | The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghcdType :: Lens.Lens' GitHubCodeDestination Lude.Text
+ghcdType = Lens.lens (type' :: GitHubCodeDestination -> Lude.Text) (\s a -> s {type' = a} :: GitHubCodeDestination)
+{-# DEPRECATED ghcdType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghcdDescription :: Lens.Lens' GitHubCodeDestination (Lude.Maybe Lude.Text)
+ghcdDescription = Lens.lens (description :: GitHubCodeDestination -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GitHubCodeDestination)
+{-# DEPRECATED ghcdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 instance Lude.ToJSON GitHubCodeDestination where
   toJSON GitHubCodeDestination' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("type" Lude..= type'),
+          [ Lude.Just ("privateRepository" Lude..= privateRepository),
+            Lude.Just ("token" Lude..= token),
             Lude.Just ("owner" Lude..= owner),
-            Lude.Just ("privateRepository" Lude..= privateRepository),
+            Lude.Just ("name" Lude..= name),
             Lude.Just ("issuesEnabled" Lude..= issuesEnabled),
-            Lude.Just ("token" Lude..= token)
+            Lude.Just ("type" Lude..= type'),
+            ("description" Lude..=) Lude.<$> description
           ]
       )

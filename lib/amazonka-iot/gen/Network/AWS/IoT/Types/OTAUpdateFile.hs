@@ -35,31 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOTAUpdateFile' smart constructor.
 data OTAUpdateFile = OTAUpdateFile'
-  { fileLocation ::
-      Lude.Maybe FileLocation,
+  { -- | The location of the updated firmware.
+    fileLocation :: Lude.Maybe FileLocation,
+    -- | An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
     fileType :: Lude.Maybe Lude.Natural,
+    -- | The file version.
     fileVersion :: Lude.Maybe Lude.Text,
+    -- | A list of name/attribute pairs.
     attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The code signing method of the file.
     codeSigning :: Lude.Maybe CodeSigning,
+    -- | The name of the file.
     fileName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OTAUpdateFile' with the minimum fields required to make a request.
 --
--- * 'attributes' - A list of name/attribute pairs.
--- * 'codeSigning' - The code signing method of the file.
 -- * 'fileLocation' - The location of the updated firmware.
--- * 'fileName' - The name of the file.
 -- * 'fileType' - An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.
 -- * 'fileVersion' - The file version.
+-- * 'attributes' - A list of name/attribute pairs.
+-- * 'codeSigning' - The code signing method of the file.
+-- * 'fileName' - The name of the file.
 mkOTAUpdateFile ::
   OTAUpdateFile
 mkOTAUpdateFile =

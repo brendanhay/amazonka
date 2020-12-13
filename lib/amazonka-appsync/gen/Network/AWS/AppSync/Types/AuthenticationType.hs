@@ -13,10 +13,10 @@
 module Network.AWS.AppSync.Types.AuthenticationType
   ( AuthenticationType
       ( AuthenticationType',
-        ATAPIKey,
-        ATAWSIAM,
-        ATAmazonCognitoUserPools,
-        ATOpenidConnect
+        APIKey,
+        AWSIAM,
+        AmazonCognitoUserPools,
+        OpenidConnect
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AuthenticationType = AuthenticationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ATAPIKey :: AuthenticationType
-pattern ATAPIKey = AuthenticationType' "API_KEY"
+pattern APIKey :: AuthenticationType
+pattern APIKey = AuthenticationType' "API_KEY"
 
-pattern ATAWSIAM :: AuthenticationType
-pattern ATAWSIAM = AuthenticationType' "AWS_IAM"
+pattern AWSIAM :: AuthenticationType
+pattern AWSIAM = AuthenticationType' "AWS_IAM"
 
-pattern ATAmazonCognitoUserPools :: AuthenticationType
-pattern ATAmazonCognitoUserPools = AuthenticationType' "AMAZON_COGNITO_USER_POOLS"
+pattern AmazonCognitoUserPools :: AuthenticationType
+pattern AmazonCognitoUserPools = AuthenticationType' "AMAZON_COGNITO_USER_POOLS"
 
-pattern ATOpenidConnect :: AuthenticationType
-pattern ATOpenidConnect = AuthenticationType' "OPENID_CONNECT"
+pattern OpenidConnect :: AuthenticationType
+pattern OpenidConnect = AuthenticationType' "OPENID_CONNECT"
 
 {-# COMPLETE
-  ATAPIKey,
-  ATAWSIAM,
-  ATAmazonCognitoUserPools,
-  ATOpenidConnect,
+  APIKey,
+  AWSIAM,
+  AmazonCognitoUserPools,
+  OpenidConnect,
   AuthenticationType'
   #-}

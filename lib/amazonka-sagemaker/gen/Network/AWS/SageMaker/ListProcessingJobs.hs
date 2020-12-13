@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,8 +39,8 @@ module Network.AWS.SageMaker.ListProcessingJobs
 
     -- ** Response lenses
     lpjrsNextToken,
-    lpjrsResponseStatus,
     lpjrsProcessingJobSummaries,
+    lpjrsResponseStatus,
   )
 where
 
@@ -52,39 +53,42 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListProcessingJobs' smart constructor.
 data ListProcessingJobs = ListProcessingJobs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only processing jobs modified before the specified time.
     lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only processing jobs created after the specified time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of the previous @ListProcessingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of processing jobs, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Ascending@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | A filter that returns only processing jobs modified after the specified time.
     lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only processing jobs created after the specified time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that retrieves only processing jobs with a specific status.
     statusEquals :: Lude.Maybe ProcessingJobStatus,
+    -- | The maximum number of processing jobs to return in the response.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @CreationTime@ .
     sortBy :: Lude.Maybe SortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProcessingJobs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only processing jobs created after the specified time.
--- * 'creationTimeBefore' - A filter that returns only processing jobs created after the specified time.
--- * 'lastModifiedTimeAfter' - A filter that returns only processing jobs modified after the specified time.
--- * 'lastModifiedTimeBefore' - A filter that returns only processing jobs modified before the specified time.
--- * 'maxResults' - The maximum number of processing jobs to return in the response.
 -- * 'nameContains' - A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only processing jobs modified before the specified time.
+-- * 'creationTimeAfter' - A filter that returns only processing jobs created after the specified time.
 -- * 'nextToken' - If the result of the previous @ListProcessingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of processing jobs, use the token in the next request.
--- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 -- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns only processing jobs modified after the specified time.
+-- * 'creationTimeBefore' - A filter that returns only processing jobs created after the specified time.
 -- * 'statusEquals' - A filter that retrieves only processing jobs with a specific status.
+-- * 'maxResults' - The maximum number of processing jobs to return in the response.
+-- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 mkListProcessingJobs ::
   ListProcessingJobs
 mkListProcessingJobs =
@@ -188,8 +192,8 @@ instance Lude.AWSRequest ListProcessingJobs where
       ( \s h x ->
           ListProcessingJobsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "ProcessingJobSummaries" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListProcessingJobs where
@@ -228,19 +232,14 @@ instance Lude.ToQuery ListProcessingJobs where
 
 -- | /See:/ 'mkListProcessingJobsResponse' smart constructor.
 data ListProcessingJobsResponse = ListProcessingJobsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    processingJobSummaries ::
-      [ProcessingJobSummary]
+  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of processing jobs, use it in the subsequent request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @ProcessingJobSummary@ objects, each listing a processing job.
+    processingJobSummaries :: [ProcessingJobSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProcessingJobsResponse' with the minimum fields required to make a request.
@@ -255,8 +254,8 @@ mkListProcessingJobsResponse ::
 mkListProcessingJobsResponse pResponseStatus_ =
   ListProcessingJobsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      processingJobSummaries = Lude.mempty
+      processingJobSummaries = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of processing jobs, use it in the subsequent request.
@@ -266,16 +265,16 @@ lpjrsNextToken :: Lens.Lens' ListProcessingJobsResponse (Lude.Maybe Lude.Text)
 lpjrsNextToken = Lens.lens (nextToken :: ListProcessingJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProcessingJobsResponse)
 {-# DEPRECATED lpjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjrsResponseStatus :: Lens.Lens' ListProcessingJobsResponse Lude.Int
-lpjrsResponseStatus = Lens.lens (responseStatus :: ListProcessingJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProcessingJobsResponse)
-{-# DEPRECATED lpjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | An array of @ProcessingJobSummary@ objects, each listing a processing job.
 --
 -- /Note:/ Consider using 'processingJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lpjrsProcessingJobSummaries :: Lens.Lens' ListProcessingJobsResponse [ProcessingJobSummary]
 lpjrsProcessingJobSummaries = Lens.lens (processingJobSummaries :: ListProcessingJobsResponse -> [ProcessingJobSummary]) (\s a -> s {processingJobSummaries = a} :: ListProcessingJobsResponse)
 {-# DEPRECATED lpjrsProcessingJobSummaries "Use generic-lens or generic-optics with 'processingJobSummaries' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjrsResponseStatus :: Lens.Lens' ListProcessingJobsResponse Lude.Int
+lpjrsResponseStatus = Lens.lens (responseStatus :: ListProcessingJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProcessingJobsResponse)
+{-# DEPRECATED lpjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

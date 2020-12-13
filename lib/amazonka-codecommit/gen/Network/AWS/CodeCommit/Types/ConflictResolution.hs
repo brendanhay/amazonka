@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConflictResolution' smart constructor.
 data ConflictResolution = ConflictResolution'
-  { setFileModes ::
-      Lude.Maybe [SetFileModeEntry],
+  { -- | File modes that are set as part of the merge conflict resolution.
+    setFileModes :: Lude.Maybe [SetFileModeEntry],
+    -- | Files to be deleted as part of the merge conflict resolution.
     deleteFiles :: Lude.Maybe [DeleteFileEntry],
+    -- | Files to have content replaced as part of the merge conflict resolution.
     replaceContents :: Lude.Maybe [ReplaceContentEntry]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConflictResolution' with the minimum fields required to make a request.
 --
+-- * 'setFileModes' - File modes that are set as part of the merge conflict resolution.
 -- * 'deleteFiles' - Files to be deleted as part of the merge conflict resolution.
 -- * 'replaceContents' - Files to have content replaced as part of the merge conflict resolution.
--- * 'setFileModes' - File modes that are set as part of the merge conflict resolution.
 mkConflictResolution ::
   ConflictResolution
 mkConflictResolution =

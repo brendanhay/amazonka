@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,11 +35,11 @@ module Network.AWS.S3.PutBucketReplication
     mkPutBucketReplication,
 
     -- ** Request lenses
+    pbrReplicationConfiguration,
     pbrToken,
+    pbrBucket,
     pbrContentMD5,
     pbrExpectedBucketOwner,
-    pbrBucket,
-    pbrReplicationConfiguration,
 
     -- * Destructuring the response
     PutBucketReplicationResponse (..),
@@ -54,46 +55,52 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketReplication' smart constructor.
 data PutBucketReplication = PutBucketReplication'
-  { token ::
-      Lude.Maybe Lude.Text,
-    contentMD5 :: Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { replicationConfiguration :: ReplicationConfiguration,
+    -- | A token to allow Object Lock to be enabled for an existing bucket.
+    token :: Lude.Maybe Lude.Text,
+    -- | The name of the bucket
     bucket :: BucketName,
-    replicationConfiguration ::
-      ReplicationConfiguration
+    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketReplication' with the minimum fields required to make a request.
 --
+-- * 'replicationConfiguration' -
+-- * 'token' - A token to allow Object Lock to be enabled for an existing bucket.
 -- * 'bucket' - The name of the bucket
 -- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'replicationConfiguration' - Undocumented field.
--- * 'token' - A token to allow Object Lock to be enabled for an existing bucket.
 mkPutBucketReplication ::
-  -- | 'bucket'
-  BucketName ->
   -- | 'replicationConfiguration'
   ReplicationConfiguration ->
+  -- | 'bucket'
+  BucketName ->
   PutBucketReplication
-mkPutBucketReplication pBucket_ pReplicationConfiguration_ =
+mkPutBucketReplication pReplicationConfiguration_ pBucket_ =
   PutBucketReplication'
-    { token = Lude.Nothing,
-      contentMD5 = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
+    { replicationConfiguration =
+        pReplicationConfiguration_,
+      token = Lude.Nothing,
       bucket = pBucket_,
-      replicationConfiguration = pReplicationConfiguration_
+      contentMD5 = Lude.Nothing,
+      expectedBucketOwner = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'replicationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbrReplicationConfiguration :: Lens.Lens' PutBucketReplication ReplicationConfiguration
+pbrReplicationConfiguration = Lens.lens (replicationConfiguration :: PutBucketReplication -> ReplicationConfiguration) (\s a -> s {replicationConfiguration = a} :: PutBucketReplication)
+{-# DEPRECATED pbrReplicationConfiguration "Use generic-lens or generic-optics with 'replicationConfiguration' instead." #-}
 
 -- | A token to allow Object Lock to be enabled for an existing bucket.
 --
@@ -101,6 +108,13 @@ mkPutBucketReplication pBucket_ pReplicationConfiguration_ =
 pbrToken :: Lens.Lens' PutBucketReplication (Lude.Maybe Lude.Text)
 pbrToken = Lens.lens (token :: PutBucketReplication -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: PutBucketReplication)
 {-# DEPRECATED pbrToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+-- | The name of the bucket
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbrBucket :: Lens.Lens' PutBucketReplication BucketName
+pbrBucket = Lens.lens (bucket :: PutBucketReplication -> BucketName) (\s a -> s {bucket = a} :: PutBucketReplication)
+{-# DEPRECATED pbrBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <http://www.ietf.org/rfc/rfc1864.txt RFC 1864> .
 --
@@ -117,20 +131,6 @@ pbrContentMD5 = Lens.lens (contentMD5 :: PutBucketReplication -> Lude.Maybe Lude
 pbrExpectedBucketOwner :: Lens.Lens' PutBucketReplication (Lude.Maybe Lude.Text)
 pbrExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketReplication -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketReplication)
 {-# DEPRECATED pbrExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The name of the bucket
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbrBucket :: Lens.Lens' PutBucketReplication BucketName
-pbrBucket = Lens.lens (bucket :: PutBucketReplication -> BucketName) (\s a -> s {bucket = a} :: PutBucketReplication)
-{-# DEPRECATED pbrBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'replicationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbrReplicationConfiguration :: Lens.Lens' PutBucketReplication ReplicationConfiguration
-pbrReplicationConfiguration = Lens.lens (replicationConfiguration :: PutBucketReplication -> ReplicationConfiguration) (\s a -> s {replicationConfiguration = a} :: PutBucketReplication)
-{-# DEPRECATED pbrReplicationConfiguration "Use generic-lens or generic-optics with 'replicationConfiguration' instead." #-}
 
 instance Lude.AWSRequest PutBucketReplication where
   type Rs PutBucketReplication = PutBucketReplicationResponse
@@ -160,13 +160,7 @@ instance Lude.ToQuery PutBucketReplication where
 
 -- | /See:/ 'mkPutBucketReplicationResponse' smart constructor.
 data PutBucketReplicationResponse = PutBucketReplicationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketReplicationResponse' with the minimum fields required to make a request.

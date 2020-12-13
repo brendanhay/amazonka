@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes the user data for an instance.
 --
 -- /See:/ 'mkUserData' smart constructor.
-newtype UserData = UserData' {data' :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype UserData = UserData'
+  { -- | The user data. If you are using an AWS SDK or command line tool, Base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide Base64-encoded text.
+    data' :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserData' with the minimum fields required to make a request.

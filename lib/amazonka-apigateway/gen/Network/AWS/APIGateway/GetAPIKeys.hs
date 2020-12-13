@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,28 +51,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetAPIKeys' smart constructor.
 data GetAPIKeys = GetAPIKeys'
-  { includeValues ::
-      Lude.Maybe Lude.Bool,
+  { -- | A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
+    includeValues :: Lude.Maybe Lude.Bool,
+    -- | The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
     customerId :: Lude.Maybe Lude.Text,
+    -- | The name of queried API keys.
     nameQuery :: Lude.Maybe Lude.Text,
+    -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
     limit :: Lude.Maybe Lude.Int,
+    -- | The current pagination position in the paged result set.
     position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPIKeys' with the minimum fields required to make a request.
 --
--- * 'customerId' - The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
 -- * 'includeValues' - A boolean flag to specify whether (@true@ ) or not (@false@ ) the result contains key values.
--- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'customerId' - The identifier of a customer in AWS Marketplace or an external system, such as a developer portal.
 -- * 'nameQuery' - The name of queried API keys.
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 -- * 'position' - The current pagination position in the paged result set.
 mkGetAPIKeys ::
   GetAPIKeys
@@ -167,27 +166,23 @@ instance Lude.ToQuery GetAPIKeys where
 --
 -- /See:/ 'mkGetAPIKeysResponse' smart constructor.
 data GetAPIKeysResponse = GetAPIKeysResponse'
-  { items ::
-      Lude.Maybe [APIKey],
+  { -- | The current page of elements from this collection.
+    items :: Lude.Maybe [APIKey],
+    -- | A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
     warnings :: Lude.Maybe [Lude.Text],
     position :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAPIKeysResponse' with the minimum fields required to make a request.
 --
 -- * 'items' - The current page of elements from this collection.
--- * 'position' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'warnings' - A list of warning messages logged during the import of API keys when the @failOnWarnings@ option is set to true.
+-- * 'position' -
+-- * 'responseStatus' - The response status code.
 mkGetAPIKeysResponse ::
   -- | 'responseStatus'
   Lude.Int ->

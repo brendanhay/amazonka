@@ -13,9 +13,9 @@
 module Network.AWS.Rekognition.Types.VideoJobStatus
   ( VideoJobStatus
       ( VideoJobStatus',
-        VJSFailed,
         VJSInProgress,
-        VJSSucceeded
+        VJSSucceeded,
+        VJSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype VideoJobStatus = VideoJobStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern VJSFailed :: VideoJobStatus
-pattern VJSFailed = VideoJobStatus' "FAILED"
-
 pattern VJSInProgress :: VideoJobStatus
 pattern VJSInProgress = VideoJobStatus' "IN_PROGRESS"
 
 pattern VJSSucceeded :: VideoJobStatus
 pattern VJSSucceeded = VideoJobStatus' "SUCCEEDED"
 
+pattern VJSFailed :: VideoJobStatus
+pattern VJSFailed = VideoJobStatus' "FAILED"
+
 {-# COMPLETE
-  VJSFailed,
   VJSInProgress,
   VJSSucceeded,
+  VJSFailed,
   VideoJobStatus'
   #-}

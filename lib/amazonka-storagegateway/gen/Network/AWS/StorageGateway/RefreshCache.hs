@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.StorageGateway.RefreshCache
     mkRefreshCache,
 
     -- ** Request lenses
+    rcFileShareARN,
     rcFolderList,
     rcRecursive,
-    rcFileShareARN,
 
     -- * Destructuring the response
     RefreshCacheResponse (..),
@@ -49,18 +50,16 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkRefreshCache' smart constructor.
 data RefreshCache = RefreshCache'
-  { folderList ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    recursive :: Lude.Maybe Lude.Bool,
-    fileShareARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the file share you want to refresh.
+    fileShareARN :: Lude.Text,
+    -- | A comma-separated list of the paths of folders to refresh in the cache. The default is [@"/"@ ]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If @Recursive@ is set to @true@ , the entire S3 bucket that the file share has access to is refreshed.
+    folderList :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A value that specifies whether to recursively refresh folders in the cache. The refresh includes folders that were in the cache the last time the gateway listed the folder's contents. If this value set to @true@ , each folder that is listed in @FolderList@ is recursively updated. Otherwise, subfolders listed in @FolderList@ are not refreshed. Only objects that are in folders listed directly under @FolderList@ are found and used for the update. The default is @true@ .
+    --
+    -- Valid Values: @true@ | @false@
+    recursive :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshCache' with the minimum fields required to make a request.
@@ -76,10 +75,17 @@ mkRefreshCache ::
   RefreshCache
 mkRefreshCache pFileShareARN_ =
   RefreshCache'
-    { folderList = Lude.Nothing,
-      recursive = Lude.Nothing,
-      fileShareARN = pFileShareARN_
+    { fileShareARN = pFileShareARN_,
+      folderList = Lude.Nothing,
+      recursive = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the file share you want to refresh.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcFileShareARN :: Lens.Lens' RefreshCache Lude.Text
+rcFileShareARN = Lens.lens (fileShareARN :: RefreshCache -> Lude.Text) (\s a -> s {fileShareARN = a} :: RefreshCache)
+{-# DEPRECATED rcFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
 -- | A comma-separated list of the paths of folders to refresh in the cache. The default is [@"/"@ ]. The default refreshes objects and folders at the root of the Amazon S3 bucket. If @Recursive@ is set to @true@ , the entire S3 bucket that the file share has access to is refreshed.
 --
@@ -96,13 +102,6 @@ rcFolderList = Lens.lens (folderList :: RefreshCache -> Lude.Maybe (Lude.NonEmpt
 rcRecursive :: Lens.Lens' RefreshCache (Lude.Maybe Lude.Bool)
 rcRecursive = Lens.lens (recursive :: RefreshCache -> Lude.Maybe Lude.Bool) (\s a -> s {recursive = a} :: RefreshCache)
 {-# DEPRECATED rcRecursive "Use generic-lens or generic-optics with 'recursive' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the file share you want to refresh.
---
--- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcFileShareARN :: Lens.Lens' RefreshCache Lude.Text
-rcFileShareARN = Lens.lens (fileShareARN :: RefreshCache -> Lude.Text) (\s a -> s {fileShareARN = a} :: RefreshCache)
-{-# DEPRECATED rcFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
 instance Lude.AWSRequest RefreshCache where
   type Rs RefreshCache = RefreshCacheResponse
@@ -131,9 +130,9 @@ instance Lude.ToJSON RefreshCache where
   toJSON RefreshCache' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("FolderList" Lude..=) Lude.<$> folderList,
-            ("Recursive" Lude..=) Lude.<$> recursive,
-            Lude.Just ("FileShareARN" Lude..= fileShareARN)
+          [ Lude.Just ("FileShareARN" Lude..= fileShareARN),
+            ("FolderList" Lude..=) Lude.<$> folderList,
+            ("Recursive" Lude..=) Lude.<$> recursive
           ]
       )
 
@@ -147,24 +146,18 @@ instance Lude.ToQuery RefreshCache where
 --
 -- /See:/ 'mkRefreshCacheResponse' smart constructor.
 data RefreshCacheResponse = RefreshCacheResponse'
-  { fileShareARN ::
-      Lude.Maybe Lude.Text,
+  { fileShareARN :: Lude.Maybe Lude.Text,
     notificationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RefreshCacheResponse' with the minimum fields required to make a request.
 --
--- * 'fileShareARN' - Undocumented field.
--- * 'notificationId' - Undocumented field.
+-- * 'fileShareARN' -
+-- * 'notificationId' -
 -- * 'responseStatus' - The response status code.
 mkRefreshCacheResponse ::
   -- | 'responseStatus'

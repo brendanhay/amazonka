@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.SSM.CreateResourceDataSync
     -- ** Request lenses
     crdsSyncType,
     crdsSyncSource,
-    crdsS3Destination,
     crdsSyncName,
+    crdsS3Destination,
 
     -- * Destructuring the response
     CreateResourceDataSyncResponse (..),
@@ -45,29 +46,24 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkCreateResourceDataSync' smart constructor.
 data CreateResourceDataSync = CreateResourceDataSync'
-  { syncType ::
-      Lude.Maybe Lude.Text,
-    syncSource ::
-      Lude.Maybe ResourceDataSyncSource,
-    s3Destination ::
-      Lude.Maybe ResourceDataSyncS3Destination,
-    syncName :: Lude.Text
+  { -- | Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
+    syncType :: Lude.Maybe Lude.Text,
+    -- | Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
+    syncSource :: Lude.Maybe ResourceDataSyncSource,
+    -- | A name for the configuration.
+    syncName :: Lude.Text,
+    -- | Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
+    s3Destination :: Lude.Maybe ResourceDataSyncS3Destination
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDataSync' with the minimum fields required to make a request.
 --
--- * 's3Destination' - Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
--- * 'syncName' - A name for the configuration.
--- * 'syncSource' - Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
 -- * 'syncType' - Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
+-- * 'syncSource' - Specify information about the data sources to synchronize. This parameter is required if the @SyncType@ value is SyncFromSource.
+-- * 'syncName' - A name for the configuration.
+-- * 's3Destination' - Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
 mkCreateResourceDataSync ::
   -- | 'syncName'
   Lude.Text ->
@@ -76,8 +72,8 @@ mkCreateResourceDataSync pSyncName_ =
   CreateResourceDataSync'
     { syncType = Lude.Nothing,
       syncSource = Lude.Nothing,
-      s3Destination = Lude.Nothing,
-      syncName = pSyncName_
+      syncName = pSyncName_,
+      s3Destination = Lude.Nothing
     }
 
 -- | Specify @SyncToDestination@ to create a resource data sync that synchronizes data to an S3 bucket for Inventory. If you specify @SyncToDestination@ , you must provide a value for @S3Destination@ . Specify @SyncFromSource@ to synchronize data from a single account and multiple Regions, or multiple AWS accounts and Regions, as listed in AWS Organizations for Explorer. If you specify @SyncFromSource@ , you must provide a value for @SyncSource@ . The default value is @SyncToDestination@ .
@@ -94,19 +90,19 @@ crdsSyncSource :: Lens.Lens' CreateResourceDataSync (Lude.Maybe ResourceDataSync
 crdsSyncSource = Lens.lens (syncSource :: CreateResourceDataSync -> Lude.Maybe ResourceDataSyncSource) (\s a -> s {syncSource = a} :: CreateResourceDataSync)
 {-# DEPRECATED crdsSyncSource "Use generic-lens or generic-optics with 'syncSource' instead." #-}
 
--- | Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
---
--- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crdsS3Destination :: Lens.Lens' CreateResourceDataSync (Lude.Maybe ResourceDataSyncS3Destination)
-crdsS3Destination = Lens.lens (s3Destination :: CreateResourceDataSync -> Lude.Maybe ResourceDataSyncS3Destination) (\s a -> s {s3Destination = a} :: CreateResourceDataSync)
-{-# DEPRECATED crdsS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
-
 -- | A name for the configuration.
 --
 -- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crdsSyncName :: Lens.Lens' CreateResourceDataSync Lude.Text
 crdsSyncName = Lens.lens (syncName :: CreateResourceDataSync -> Lude.Text) (\s a -> s {syncName = a} :: CreateResourceDataSync)
 {-# DEPRECATED crdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
+
+-- | Amazon S3 configuration details for the sync. This parameter is required if the @SyncType@ value is SyncToDestination.
+--
+-- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crdsS3Destination :: Lens.Lens' CreateResourceDataSync (Lude.Maybe ResourceDataSyncS3Destination)
+crdsS3Destination = Lens.lens (s3Destination :: CreateResourceDataSync -> Lude.Maybe ResourceDataSyncS3Destination) (\s a -> s {s3Destination = a} :: CreateResourceDataSync)
+{-# DEPRECATED crdsS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
 
 instance Lude.AWSRequest CreateResourceDataSync where
   type Rs CreateResourceDataSync = CreateResourceDataSyncResponse
@@ -135,8 +131,8 @@ instance Lude.ToJSON CreateResourceDataSync where
       ( Lude.catMaybes
           [ ("SyncType" Lude..=) Lude.<$> syncType,
             ("SyncSource" Lude..=) Lude.<$> syncSource,
-            ("S3Destination" Lude..=) Lude.<$> s3Destination,
-            Lude.Just ("SyncName" Lude..= syncName)
+            Lude.Just ("SyncName" Lude..= syncName),
+            ("S3Destination" Lude..=) Lude.<$> s3Destination
           ]
       )
 
@@ -148,16 +144,10 @@ instance Lude.ToQuery CreateResourceDataSync where
 
 -- | /See:/ 'mkCreateResourceDataSyncResponse' smart constructor.
 newtype CreateResourceDataSyncResponse = CreateResourceDataSyncResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateResourceDataSyncResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,6 +23,7 @@ module Network.AWS.SSM.StartAutomationExecution
     saeTargetParameterName,
     saeTargetLocations,
     saeClientToken,
+    saeDocumentName,
     saeMode,
     saeTargetMaps,
     saeMaxErrors,
@@ -30,15 +32,14 @@ module Network.AWS.SSM.StartAutomationExecution
     saeDocumentVersion,
     saeTags,
     saeMaxConcurrency,
-    saeDocumentName,
 
     -- * Destructuring the response
     StartAutomationExecutionResponse (..),
     mkStartAutomationExecutionResponse,
 
     -- ** Response lenses
-    srsAutomationExecutionId,
-    srsResponseStatus,
+    saersAutomationExecutionId,
+    saersResponseStatus,
   )
 where
 
@@ -50,45 +51,56 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkStartAutomationExecution' smart constructor.
 data StartAutomationExecution = StartAutomationExecution'
-  { targetParameterName ::
-      Lude.Maybe Lude.Text,
-    targetLocations ::
-      Lude.Maybe (Lude.NonEmpty TargetLocation),
+  { -- | The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify targets.
+    targetParameterName :: Lude.Maybe Lude.Text,
+    -- | A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this action to start an Automation in multiple Regions and multiple accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
+    targetLocations :: Lude.Maybe (Lude.NonEmpty TargetLocation),
+    -- | User-provided idempotency token. The token must be unique, is case insensitive, enforces the UUID format, and can't be reused.
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The name of the Automation document to use for this execution.
+    documentName :: Lude.Text,
+    -- | The execution mode of the automation. Valid modes include the following: Auto and Interactive. The default mode is Auto.
     mode :: Lude.Maybe ExecutionMode,
-    targetMaps ::
-      Lude.Maybe
-        [Lude.HashMap Lude.Text ([Lude.Text])],
+    -- | A key-value mapping of document parameters to target resources. Both Targets and TargetMaps cannot be specified together.
+    targetMaps :: Lude.Maybe [Lude.HashMap Lude.Text ([Lude.Text])],
+    -- | The number of errors that are allowed before the system stops running the automation on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops running the automation when the fourth error is received. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned. If you run an automation on 50 resources and set max-errors to 10%, then the system stops running the automation on additional targets when the sixth error is received.
+    --
+    -- Executions that are already running an automation when max-errors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one at a time.
     maxErrors :: Lude.Maybe Lude.Text,
+    -- | A key-value mapping to target resources. Required if you specify TargetParameterName.
     targets :: Lude.Maybe [Target],
-    parameters ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | A key-value map of execution parameters, which match the declared parameters in the Automation document.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The version of the Automation document to use for this execution.
     documentVersion :: Lude.Maybe Lude.Text,
+    -- | Optional metadata that you assign to a resource. You can specify a maximum of five tags for an automation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an automation to identify an environment or operating system. In this case, you could specify the following key name/value pairs:
+    --
+    --
+    --     * @Key=environment,Value=test@
+    --
+    --
+    --     * @Key=OS,Value=Windows@
     tags :: Lude.Maybe [Tag],
-    maxConcurrency :: Lude.Maybe Lude.Text,
-    documentName :: Lude.Text
+    -- | The maximum number of targets allowed to run this task in parallel. You can specify a number, such as 10, or a percentage, such as 10%. The default value is 10.
+    maxConcurrency :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAutomationExecution' with the minimum fields required to make a request.
 --
+-- * 'targetParameterName' - The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify targets.
+-- * 'targetLocations' - A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this action to start an Automation in multiple Regions and multiple accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
 -- * 'clientToken' - User-provided idempotency token. The token must be unique, is case insensitive, enforces the UUID format, and can't be reused.
 -- * 'documentName' - The name of the Automation document to use for this execution.
--- * 'documentVersion' - The version of the Automation document to use for this execution.
--- * 'maxConcurrency' - The maximum number of targets allowed to run this task in parallel. You can specify a number, such as 10, or a percentage, such as 10%. The default value is 10.
+-- * 'mode' - The execution mode of the automation. Valid modes include the following: Auto and Interactive. The default mode is Auto.
+-- * 'targetMaps' - A key-value mapping of document parameters to target resources. Both Targets and TargetMaps cannot be specified together.
 -- * 'maxErrors' - The number of errors that are allowed before the system stops running the automation on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops running the automation when the fourth error is received. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned. If you run an automation on 50 resources and set max-errors to 10%, then the system stops running the automation on additional targets when the sixth error is received.
 --
 -- Executions that are already running an automation when max-errors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one at a time.
--- * 'mode' - The execution mode of the automation. Valid modes include the following: Auto and Interactive. The default mode is Auto.
+-- * 'targets' - A key-value mapping to target resources. Required if you specify TargetParameterName.
 -- * 'parameters' - A key-value map of execution parameters, which match the declared parameters in the Automation document.
+-- * 'documentVersion' - The version of the Automation document to use for this execution.
 -- * 'tags' - Optional metadata that you assign to a resource. You can specify a maximum of five tags for an automation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag an automation to identify an environment or operating system. In this case, you could specify the following key name/value pairs:
 --
 --
@@ -98,10 +110,7 @@ data StartAutomationExecution = StartAutomationExecution'
 --     * @Key=OS,Value=Windows@
 --
 --
--- * 'targetLocations' - A location is a combination of AWS Regions and/or AWS accounts where you want to run the Automation. Use this action to start an Automation in multiple Regions and multiple accounts. For more information, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts> in the /AWS Systems Manager User Guide/ .
--- * 'targetMaps' - A key-value mapping of document parameters to target resources. Both Targets and TargetMaps cannot be specified together.
--- * 'targetParameterName' - The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify targets.
--- * 'targets' - A key-value mapping to target resources. Required if you specify TargetParameterName.
+-- * 'maxConcurrency' - The maximum number of targets allowed to run this task in parallel. You can specify a number, such as 10, or a percentage, such as 10%. The default value is 10.
 mkStartAutomationExecution ::
   -- | 'documentName'
   Lude.Text ->
@@ -111,6 +120,7 @@ mkStartAutomationExecution pDocumentName_ =
     { targetParameterName = Lude.Nothing,
       targetLocations = Lude.Nothing,
       clientToken = Lude.Nothing,
+      documentName = pDocumentName_,
       mode = Lude.Nothing,
       targetMaps = Lude.Nothing,
       maxErrors = Lude.Nothing,
@@ -118,8 +128,7 @@ mkStartAutomationExecution pDocumentName_ =
       parameters = Lude.Nothing,
       documentVersion = Lude.Nothing,
       tags = Lude.Nothing,
-      maxConcurrency = Lude.Nothing,
-      documentName = pDocumentName_
+      maxConcurrency = Lude.Nothing
     }
 
 -- | The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify targets.
@@ -142,6 +151,13 @@ saeTargetLocations = Lens.lens (targetLocations :: StartAutomationExecution -> L
 saeClientToken :: Lens.Lens' StartAutomationExecution (Lude.Maybe Lude.Text)
 saeClientToken = Lens.lens (clientToken :: StartAutomationExecution -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: StartAutomationExecution)
 {-# DEPRECATED saeClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The name of the Automation document to use for this execution.
+--
+-- /Note:/ Consider using 'documentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saeDocumentName :: Lens.Lens' StartAutomationExecution Lude.Text
+saeDocumentName = Lens.lens (documentName :: StartAutomationExecution -> Lude.Text) (\s a -> s {documentName = a} :: StartAutomationExecution)
+{-# DEPRECATED saeDocumentName "Use generic-lens or generic-optics with 'documentName' instead." #-}
 
 -- | The execution mode of the automation. Valid modes include the following: Auto and Interactive. The default mode is Auto.
 --
@@ -209,13 +225,6 @@ saeMaxConcurrency :: Lens.Lens' StartAutomationExecution (Lude.Maybe Lude.Text)
 saeMaxConcurrency = Lens.lens (maxConcurrency :: StartAutomationExecution -> Lude.Maybe Lude.Text) (\s a -> s {maxConcurrency = a} :: StartAutomationExecution)
 {-# DEPRECATED saeMaxConcurrency "Use generic-lens or generic-optics with 'maxConcurrency' instead." #-}
 
--- | The name of the Automation document to use for this execution.
---
--- /Note:/ Consider using 'documentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saeDocumentName :: Lens.Lens' StartAutomationExecution Lude.Text
-saeDocumentName = Lens.lens (documentName :: StartAutomationExecution -> Lude.Text) (\s a -> s {documentName = a} :: StartAutomationExecution)
-{-# DEPRECATED saeDocumentName "Use generic-lens or generic-optics with 'documentName' instead." #-}
-
 instance Lude.AWSRequest StartAutomationExecution where
   type Rs StartAutomationExecution = StartAutomationExecutionResponse
   request = Req.postJSON ssmService
@@ -245,6 +254,7 @@ instance Lude.ToJSON StartAutomationExecution where
           [ ("TargetParameterName" Lude..=) Lude.<$> targetParameterName,
             ("TargetLocations" Lude..=) Lude.<$> targetLocations,
             ("ClientToken" Lude..=) Lude.<$> clientToken,
+            Lude.Just ("DocumentName" Lude..= documentName),
             ("Mode" Lude..=) Lude.<$> mode,
             ("TargetMaps" Lude..=) Lude.<$> targetMaps,
             ("MaxErrors" Lude..=) Lude.<$> maxErrors,
@@ -252,8 +262,7 @@ instance Lude.ToJSON StartAutomationExecution where
             ("Parameters" Lude..=) Lude.<$> parameters,
             ("DocumentVersion" Lude..=) Lude.<$> documentVersion,
             ("Tags" Lude..=) Lude.<$> tags,
-            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency,
-            Lude.Just ("DocumentName" Lude..= documentName)
+            ("MaxConcurrency" Lude..=) Lude.<$> maxConcurrency
           ]
       )
 
@@ -265,18 +274,12 @@ instance Lude.ToQuery StartAutomationExecution where
 
 -- | /See:/ 'mkStartAutomationExecutionResponse' smart constructor.
 data StartAutomationExecutionResponse = StartAutomationExecutionResponse'
-  { automationExecutionId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The unique ID of a newly scheduled automation execution.
+    automationExecutionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAutomationExecutionResponse' with the minimum fields required to make a request.
@@ -297,13 +300,13 @@ mkStartAutomationExecutionResponse pResponseStatus_ =
 -- | The unique ID of a newly scheduled automation execution.
 --
 -- /Note:/ Consider using 'automationExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsAutomationExecutionId :: Lens.Lens' StartAutomationExecutionResponse (Lude.Maybe Lude.Text)
-srsAutomationExecutionId = Lens.lens (automationExecutionId :: StartAutomationExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {automationExecutionId = a} :: StartAutomationExecutionResponse)
-{-# DEPRECATED srsAutomationExecutionId "Use generic-lens or generic-optics with 'automationExecutionId' instead." #-}
+saersAutomationExecutionId :: Lens.Lens' StartAutomationExecutionResponse (Lude.Maybe Lude.Text)
+saersAutomationExecutionId = Lens.lens (automationExecutionId :: StartAutomationExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {automationExecutionId = a} :: StartAutomationExecutionResponse)
+{-# DEPRECATED saersAutomationExecutionId "Use generic-lens or generic-optics with 'automationExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartAutomationExecutionResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartAutomationExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAutomationExecutionResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+saersResponseStatus :: Lens.Lens' StartAutomationExecutionResponse Lude.Int
+saersResponseStatus = Lens.lens (responseStatus :: StartAutomationExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAutomationExecutionResponse)
+{-# DEPRECATED saersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

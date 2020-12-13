@@ -39,37 +39,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReportGroup' smart constructor.
 data ReportGroup = ReportGroup'
-  { status ::
-      Lude.Maybe ReportGroupStatusType,
+  { status :: Lude.Maybe ReportGroupStatusType,
+    -- | The ARN of a @ReportGroup@ .
     arn :: Lude.Maybe Lude.Text,
+    -- | The date and time this @ReportGroup@ was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The name of a @ReportGroup@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The type of the @ReportGroup@ . The one valid value is @TEST@ .
     type' :: Lude.Maybe ReportType,
+    -- | The date and time this @ReportGroup@ was last modified.
     lastModified :: Lude.Maybe Lude.Timestamp,
+    -- | Information about the destination where the raw data of this @ReportGroup@ is exported.
     exportConfig :: Lude.Maybe ReportExportConfig,
+    -- | A list of tag key and value pairs associated with this report group.
+    --
+    -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReportGroup' with the minimum fields required to make a request.
 --
+-- * 'status' -
 -- * 'arn' - The ARN of a @ReportGroup@ .
 -- * 'created' - The date and time this @ReportGroup@ was created.
--- * 'exportConfig' - Information about the destination where the raw data of this @ReportGroup@ is exported.
--- * 'lastModified' - The date and time this @ReportGroup@ was last modified.
 -- * 'name' - The name of a @ReportGroup@ .
--- * 'status' - Undocumented field.
+-- * 'type'' - The type of the @ReportGroup@ . The one valid value is @TEST@ .
+-- * 'lastModified' - The date and time this @ReportGroup@ was last modified.
+-- * 'exportConfig' - Information about the destination where the raw data of this @ReportGroup@ is exported.
 -- * 'tags' - A list of tag key and value pairs associated with this report group.
 --
 -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
--- * 'type'' - The type of the @ReportGroup@ . The one valid value is @TEST@ .
 mkReportGroup ::
   ReportGroup
 mkReportGroup =

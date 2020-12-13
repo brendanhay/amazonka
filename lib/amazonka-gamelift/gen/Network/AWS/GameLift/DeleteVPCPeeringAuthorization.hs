@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,8 +38,8 @@ module Network.AWS.GameLift.DeleteVPCPeeringAuthorization
     mkDeleteVPCPeeringAuthorization,
 
     -- ** Request lenses
-    dvpaGameLiftAWSAccountId,
     dvpaPeerVPCId,
+    dvpaGameLiftAWSAccountId,
 
     -- * Destructuring the response
     DeleteVPCPeeringAuthorizationResponse (..),
@@ -59,42 +60,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteVPCPeeringAuthorization' smart constructor.
 data DeleteVPCPeeringAuthorization = DeleteVPCPeeringAuthorization'
-  { gameLiftAWSAccountId ::
-      Lude.Text,
-    peerVPCId :: Lude.Text
+  { -- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+    peerVPCId :: Lude.Text,
+    -- | A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
+    gameLiftAWSAccountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCPeeringAuthorization' with the minimum fields required to make a request.
 --
--- * 'gameLiftAWSAccountId' - A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
 -- * 'peerVPCId' - A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+-- * 'gameLiftAWSAccountId' - A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
 mkDeleteVPCPeeringAuthorization ::
-  -- | 'gameLiftAWSAccountId'
-  Lude.Text ->
   -- | 'peerVPCId'
   Lude.Text ->
+  -- | 'gameLiftAWSAccountId'
+  Lude.Text ->
   DeleteVPCPeeringAuthorization
-mkDeleteVPCPeeringAuthorization pGameLiftAWSAccountId_ pPeerVPCId_ =
+mkDeleteVPCPeeringAuthorization pPeerVPCId_ pGameLiftAWSAccountId_ =
   DeleteVPCPeeringAuthorization'
-    { gameLiftAWSAccountId =
-        pGameLiftAWSAccountId_,
-      peerVPCId = pPeerVPCId_
+    { peerVPCId = pPeerVPCId_,
+      gameLiftAWSAccountId = pGameLiftAWSAccountId_
     }
-
--- | A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
---
--- /Note:/ Consider using 'gameLiftAWSAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvpaGameLiftAWSAccountId :: Lens.Lens' DeleteVPCPeeringAuthorization Lude.Text
-dvpaGameLiftAWSAccountId = Lens.lens (gameLiftAWSAccountId :: DeleteVPCPeeringAuthorization -> Lude.Text) (\s a -> s {gameLiftAWSAccountId = a} :: DeleteVPCPeeringAuthorization)
-{-# DEPRECATED dvpaGameLiftAWSAccountId "Use generic-lens or generic-optics with 'gameLiftAWSAccountId' instead." #-}
 
 -- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region where your fleet is deployed. Look up a VPC ID using the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
 --
@@ -102,6 +90,13 @@ dvpaGameLiftAWSAccountId = Lens.lens (gameLiftAWSAccountId :: DeleteVPCPeeringAu
 dvpaPeerVPCId :: Lens.Lens' DeleteVPCPeeringAuthorization Lude.Text
 dvpaPeerVPCId = Lens.lens (peerVPCId :: DeleteVPCPeeringAuthorization -> Lude.Text) (\s a -> s {peerVPCId = a} :: DeleteVPCPeeringAuthorization)
 {-# DEPRECATED dvpaPeerVPCId "Use generic-lens or generic-optics with 'peerVPCId' instead." #-}
+
+-- | A unique identifier for the AWS account that you use to manage your Amazon GameLift fleet. You can find your Account ID in the AWS Management Console under account settings.
+--
+-- /Note:/ Consider using 'gameLiftAWSAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpaGameLiftAWSAccountId :: Lens.Lens' DeleteVPCPeeringAuthorization Lude.Text
+dvpaGameLiftAWSAccountId = Lens.lens (gameLiftAWSAccountId :: DeleteVPCPeeringAuthorization -> Lude.Text) (\s a -> s {gameLiftAWSAccountId = a} :: DeleteVPCPeeringAuthorization)
+{-# DEPRECATED dvpaGameLiftAWSAccountId "Use generic-lens or generic-optics with 'gameLiftAWSAccountId' instead." #-}
 
 instance Lude.AWSRequest DeleteVPCPeeringAuthorization where
   type
@@ -130,8 +125,8 @@ instance Lude.ToJSON DeleteVPCPeeringAuthorization where
   toJSON DeleteVPCPeeringAuthorization' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GameLiftAwsAccountId" Lude..= gameLiftAWSAccountId),
-            Lude.Just ("PeerVpcId" Lude..= peerVPCId)
+          [ Lude.Just ("PeerVpcId" Lude..= peerVPCId),
+            Lude.Just ("GameLiftAwsAccountId" Lude..= gameLiftAWSAccountId)
           ]
       )
 
@@ -143,16 +138,10 @@ instance Lude.ToQuery DeleteVPCPeeringAuthorization where
 
 -- | /See:/ 'mkDeleteVPCPeeringAuthorizationResponse' smart constructor.
 newtype DeleteVPCPeeringAuthorizationResponse = DeleteVPCPeeringAuthorizationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCPeeringAuthorizationResponse' with the minimum fields required to make a request.

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFragment' smart constructor.
 data Fragment = Fragment'
-  { fragmentLengthInMilliseconds ::
-      Lude.Maybe Lude.Integer,
+  { -- | The playback duration or other time value associated with the fragment.
+    fragmentLengthInMilliseconds :: Lude.Maybe Lude.Integer,
+    -- | The timestamp from the AWS server corresponding to the fragment.
     serverTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The total fragment size, including information about the fragment and contained media data.
     fragmentSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The unique identifier of the fragment. This value monotonically increases based on the ingestion order.
     fragmentNumber :: Lude.Maybe Lude.Text,
+    -- | The timestamp from the producer corresponding to the fragment.
     producerTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Fragment' with the minimum fields required to make a request.
 --
 -- * 'fragmentLengthInMilliseconds' - The playback duration or other time value associated with the fragment.
--- * 'fragmentNumber' - The unique identifier of the fragment. This value monotonically increases based on the ingestion order.
--- * 'fragmentSizeInBytes' - The total fragment size, including information about the fragment and contained media data.
--- * 'producerTimestamp' - The timestamp from the producer corresponding to the fragment.
 -- * 'serverTimestamp' - The timestamp from the AWS server corresponding to the fragment.
+-- * 'fragmentSizeInBytes' - The total fragment size, including information about the fragment and contained media data.
+-- * 'fragmentNumber' - The unique identifier of the fragment. This value monotonically increases based on the ingestion order.
+-- * 'producerTimestamp' - The timestamp from the producer corresponding to the fragment.
 mkFragment ::
   Fragment
 mkFragment =

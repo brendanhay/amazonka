@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
     mkDeleteNotebookInstanceLifecycleConfig,
 
     -- ** Request lenses
-    dnilcNotebookInstanceLifecycleConfigName,
+    dNotebookInstanceLifecycleConfigName,
 
     -- * Destructuring the response
     DeleteNotebookInstanceLifecycleConfigResponse (..),
@@ -35,16 +36,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteNotebookInstanceLifecycleConfig' smart constructor.
 newtype DeleteNotebookInstanceLifecycleConfig = DeleteNotebookInstanceLifecycleConfig'
-  { notebookInstanceLifecycleConfigName ::
-      Lude.Text
+  { -- | The name of the lifecycle configuration to delete.
+    notebookInstanceLifecycleConfigName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotebookInstanceLifecycleConfig' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDeleteNotebookInstanceLifecycleConfig
 -- | The name of the lifecycle configuration to delete.
 --
 -- /Note:/ Consider using 'notebookInstanceLifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnilcNotebookInstanceLifecycleConfigName :: Lens.Lens' DeleteNotebookInstanceLifecycleConfig Lude.Text
-dnilcNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: DeleteNotebookInstanceLifecycleConfig -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: DeleteNotebookInstanceLifecycleConfig)
-{-# DEPRECATED dnilcNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
+dNotebookInstanceLifecycleConfigName :: Lens.Lens' DeleteNotebookInstanceLifecycleConfig Lude.Text
+dNotebookInstanceLifecycleConfigName = Lens.lens (notebookInstanceLifecycleConfigName :: DeleteNotebookInstanceLifecycleConfig -> Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigName = a} :: DeleteNotebookInstanceLifecycleConfig)
+{-# DEPRECATED dNotebookInstanceLifecycleConfigName "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigName' instead." #-}
 
 instance Lude.AWSRequest DeleteNotebookInstanceLifecycleConfig where
   type
@@ -108,17 +103,8 @@ instance Lude.ToQuery DeleteNotebookInstanceLifecycleConfig where
 
 -- | /See:/ 'mkDeleteNotebookInstanceLifecycleConfigResponse' smart constructor.
 data DeleteNotebookInstanceLifecycleConfigResponse = DeleteNotebookInstanceLifecycleConfigResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNotebookInstanceLifecycleConfigResponse' with the minimum fields required to make a request.
 mkDeleteNotebookInstanceLifecycleConfigResponse ::

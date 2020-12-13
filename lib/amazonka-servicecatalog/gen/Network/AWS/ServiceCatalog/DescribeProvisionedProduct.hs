@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,18 +20,18 @@ module Network.AWS.ServiceCatalog.DescribeProvisionedProduct
     mkDescribeProvisionedProduct,
 
     -- ** Request lenses
-    deseName,
-    deseAcceptLanguage,
-    deseId,
+    dppName,
+    dppAcceptLanguage,
+    dppId,
 
     -- * Destructuring the response
     DescribeProvisionedProductResponse (..),
     mkDescribeProvisionedProductResponse,
 
     -- ** Response lenses
-    drsProvisionedProductDetail,
-    drsCloudWatchDashboards,
-    drsResponseStatus,
+    dppfrsProvisionedProductDetail,
+    dppfrsCloudWatchDashboards,
+    dppfrsResponseStatus,
   )
 where
 
@@ -44,23 +45,34 @@ import Network.AWS.ServiceCatalog.Types
 --
 -- /See:/ 'mkDescribeProvisionedProduct' smart constructor.
 data DescribeProvisionedProduct = DescribeProvisionedProduct'
-  { name ::
-      Lude.Maybe Lude.Text,
-    acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the provisioned product. You must provide the name or ID, but not both.
+    --
+    -- If you do not provide a name or ID, or you provide both name and ID, an @InvalidParametersException@ will occur.
+    name :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The provisioned product identifier. You must provide the name or ID, but not both.
+    --
+    -- If you do not provide a name or ID, or you provide both name and ID, an @InvalidParametersException@ will occur.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisionedProduct' with the minimum fields required to make a request.
 --
+-- * 'name' - The name of the provisioned product. You must provide the name or ID, but not both.
+--
+-- If you do not provide a name or ID, or you provide both name and ID, an @InvalidParametersException@ will occur.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -74,9 +86,6 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 --
 --
 -- * 'id' - The provisioned product identifier. You must provide the name or ID, but not both.
---
--- If you do not provide a name or ID, or you provide both name and ID, an @InvalidParametersException@ will occur.
--- * 'name' - The name of the provisioned product. You must provide the name or ID, but not both.
 --
 -- If you do not provide a name or ID, or you provide both name and ID, an @InvalidParametersException@ will occur.
 mkDescribeProvisionedProduct ::
@@ -93,9 +102,9 @@ mkDescribeProvisionedProduct =
 -- If you do not provide a name or ID, or you provide both name and ID, an @InvalidParametersException@ will occur.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseName :: Lens.Lens' DescribeProvisionedProduct (Lude.Maybe Lude.Text)
-deseName = Lens.lens (name :: DescribeProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeProvisionedProduct)
-{-# DEPRECATED deseName "Use generic-lens or generic-optics with 'name' instead." #-}
+dppName :: Lens.Lens' DescribeProvisionedProduct (Lude.Maybe Lude.Text)
+dppName = Lens.lens (name :: DescribeProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeProvisionedProduct)
+{-# DEPRECATED dppName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The language code.
 --
@@ -111,18 +120,18 @@ deseName = Lens.lens (name :: DescribeProvisionedProduct -> Lude.Maybe Lude.Text
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseAcceptLanguage :: Lens.Lens' DescribeProvisionedProduct (Lude.Maybe Lude.Text)
-deseAcceptLanguage = Lens.lens (acceptLanguage :: DescribeProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeProvisionedProduct)
-{-# DEPRECATED deseAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dppAcceptLanguage :: Lens.Lens' DescribeProvisionedProduct (Lude.Maybe Lude.Text)
+dppAcceptLanguage = Lens.lens (acceptLanguage :: DescribeProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeProvisionedProduct)
+{-# DEPRECATED dppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The provisioned product identifier. You must provide the name or ID, but not both.
 --
 -- If you do not provide a name or ID, or you provide both name and ID, an @InvalidParametersException@ will occur.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseId :: Lens.Lens' DescribeProvisionedProduct (Lude.Maybe Lude.Text)
-deseId = Lens.lens (id :: DescribeProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeProvisionedProduct)
-{-# DEPRECATED deseId "Use generic-lens or generic-optics with 'id' instead." #-}
+dppId :: Lens.Lens' DescribeProvisionedProduct (Lude.Maybe Lude.Text)
+dppId = Lens.lens (id :: DescribeProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeProvisionedProduct)
+{-# DEPRECATED dppId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DescribeProvisionedProduct where
   type
@@ -169,28 +178,20 @@ instance Lude.ToQuery DescribeProvisionedProduct where
 
 -- | /See:/ 'mkDescribeProvisionedProductResponse' smart constructor.
 data DescribeProvisionedProductResponse = DescribeProvisionedProductResponse'
-  { provisionedProductDetail ::
-      Lude.Maybe
-        ProvisionedProductDetail,
-    cloudWatchDashboards ::
-      Lude.Maybe
-        [CloudWatchDashboard],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the provisioned product.
+    provisionedProductDetail :: Lude.Maybe ProvisionedProductDetail,
+    -- | Any CloudWatch dashboards that were created when provisioning the product.
+    cloudWatchDashboards :: Lude.Maybe [CloudWatchDashboard],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisionedProductResponse' with the minimum fields required to make a request.
 --
--- * 'cloudWatchDashboards' - Any CloudWatch dashboards that were created when provisioning the product.
 -- * 'provisionedProductDetail' - Information about the provisioned product.
+-- * 'cloudWatchDashboards' - Any CloudWatch dashboards that were created when provisioning the product.
 -- * 'responseStatus' - The response status code.
 mkDescribeProvisionedProductResponse ::
   -- | 'responseStatus'
@@ -207,20 +208,20 @@ mkDescribeProvisionedProductResponse pResponseStatus_ =
 -- | Information about the provisioned product.
 --
 -- /Note:/ Consider using 'provisionedProductDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsProvisionedProductDetail :: Lens.Lens' DescribeProvisionedProductResponse (Lude.Maybe ProvisionedProductDetail)
-drsProvisionedProductDetail = Lens.lens (provisionedProductDetail :: DescribeProvisionedProductResponse -> Lude.Maybe ProvisionedProductDetail) (\s a -> s {provisionedProductDetail = a} :: DescribeProvisionedProductResponse)
-{-# DEPRECATED drsProvisionedProductDetail "Use generic-lens or generic-optics with 'provisionedProductDetail' instead." #-}
+dppfrsProvisionedProductDetail :: Lens.Lens' DescribeProvisionedProductResponse (Lude.Maybe ProvisionedProductDetail)
+dppfrsProvisionedProductDetail = Lens.lens (provisionedProductDetail :: DescribeProvisionedProductResponse -> Lude.Maybe ProvisionedProductDetail) (\s a -> s {provisionedProductDetail = a} :: DescribeProvisionedProductResponse)
+{-# DEPRECATED dppfrsProvisionedProductDetail "Use generic-lens or generic-optics with 'provisionedProductDetail' instead." #-}
 
 -- | Any CloudWatch dashboards that were created when provisioning the product.
 --
 -- /Note:/ Consider using 'cloudWatchDashboards' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCloudWatchDashboards :: Lens.Lens' DescribeProvisionedProductResponse (Lude.Maybe [CloudWatchDashboard])
-drsCloudWatchDashboards = Lens.lens (cloudWatchDashboards :: DescribeProvisionedProductResponse -> Lude.Maybe [CloudWatchDashboard]) (\s a -> s {cloudWatchDashboards = a} :: DescribeProvisionedProductResponse)
-{-# DEPRECATED drsCloudWatchDashboards "Use generic-lens or generic-optics with 'cloudWatchDashboards' instead." #-}
+dppfrsCloudWatchDashboards :: Lens.Lens' DescribeProvisionedProductResponse (Lude.Maybe [CloudWatchDashboard])
+dppfrsCloudWatchDashboards = Lens.lens (cloudWatchDashboards :: DescribeProvisionedProductResponse -> Lude.Maybe [CloudWatchDashboard]) (\s a -> s {cloudWatchDashboards = a} :: DescribeProvisionedProductResponse)
+{-# DEPRECATED dppfrsCloudWatchDashboards "Use generic-lens or generic-optics with 'cloudWatchDashboards' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeProvisionedProductResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeProvisionedProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProvisionedProductResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dppfrsResponseStatus :: Lens.Lens' DescribeProvisionedProductResponse Lude.Int
+dppfrsResponseStatus = Lens.lens (responseStatus :: DescribeProvisionedProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProvisionedProductResponse)
+{-# DEPRECATED dppfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

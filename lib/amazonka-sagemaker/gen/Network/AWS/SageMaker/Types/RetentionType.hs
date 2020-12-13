@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.RetentionType
   ( RetentionType
       ( RetentionType',
-        Delete,
-        Retain
+        Retain,
+        Delete
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RetentionType = RetentionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Delete :: RetentionType
-pattern Delete = RetentionType' "Delete"
-
 pattern Retain :: RetentionType
 pattern Retain = RetentionType' "Retain"
 
+pattern Delete :: RetentionType
+pattern Delete = RetentionType' "Delete"
+
 {-# COMPLETE
-  Delete,
   Retain,
+  Delete,
   RetentionType'
   #-}

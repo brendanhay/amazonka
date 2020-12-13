@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,11 +40,11 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTarget
     -- ** Request lenses
     uReplace,
     uOwnerInformation,
+    uWindowTargetId,
     uName,
     uTargets,
     uDescription,
     uWindowId,
-    uWindowTargetId,
 
     -- * Destructuring the response
     UpdateMaintenanceWindowTargetResponse (..),
@@ -68,46 +69,48 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkUpdateMaintenanceWindowTarget' smart constructor.
 data UpdateMaintenanceWindowTarget = UpdateMaintenanceWindowTarget'
-  { replace ::
-      Lude.Maybe Lude.Bool,
-    ownerInformation ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
+  { -- | If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
+    replace :: Lude.Maybe Lude.Bool,
+    -- | User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this maintenance window.
+    ownerInformation :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The target ID to modify.
+    windowTargetId :: Lude.Text,
+    -- | A name for the update.
     name :: Lude.Maybe Lude.Text,
+    -- | The targets to add or replace.
     targets :: Lude.Maybe [Target],
-    description ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    windowId :: Lude.Text,
-    windowTargetId :: Lude.Text
+    -- | An optional description for the update.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The maintenance window ID with which to modify the target.
+    windowId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindowTarget' with the minimum fields required to make a request.
 --
--- * 'description' - An optional description for the update.
--- * 'name' - A name for the update.
--- * 'ownerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this maintenance window.
 -- * 'replace' - If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
--- * 'targets' - The targets to add or replace.
--- * 'windowId' - The maintenance window ID with which to modify the target.
+-- * 'ownerInformation' - User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this maintenance window.
 -- * 'windowTargetId' - The target ID to modify.
+-- * 'name' - A name for the update.
+-- * 'targets' - The targets to add or replace.
+-- * 'description' - An optional description for the update.
+-- * 'windowId' - The maintenance window ID with which to modify the target.
 mkUpdateMaintenanceWindowTarget ::
-  -- | 'windowId'
-  Lude.Text ->
   -- | 'windowTargetId'
   Lude.Text ->
+  -- | 'windowId'
+  Lude.Text ->
   UpdateMaintenanceWindowTarget
-mkUpdateMaintenanceWindowTarget pWindowId_ pWindowTargetId_ =
+mkUpdateMaintenanceWindowTarget pWindowTargetId_ pWindowId_ =
   UpdateMaintenanceWindowTarget'
     { replace = Lude.Nothing,
       ownerInformation = Lude.Nothing,
+      windowTargetId = pWindowTargetId_,
       name = Lude.Nothing,
       targets = Lude.Nothing,
       description = Lude.Nothing,
-      windowId = pWindowId_,
-      windowTargetId = pWindowTargetId_
+      windowId = pWindowId_
     }
 
 -- | If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null.
@@ -123,6 +126,13 @@ uReplace = Lens.lens (replace :: UpdateMaintenanceWindowTarget -> Lude.Maybe Lud
 uOwnerInformation :: Lens.Lens' UpdateMaintenanceWindowTarget (Lude.Maybe (Lude.Sensitive Lude.Text))
 uOwnerInformation = Lens.lens (ownerInformation :: UpdateMaintenanceWindowTarget -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {ownerInformation = a} :: UpdateMaintenanceWindowTarget)
 {-# DEPRECATED uOwnerInformation "Use generic-lens or generic-optics with 'ownerInformation' instead." #-}
+
+-- | The target ID to modify.
+--
+-- /Note:/ Consider using 'windowTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uWindowTargetId :: Lens.Lens' UpdateMaintenanceWindowTarget Lude.Text
+uWindowTargetId = Lens.lens (windowTargetId :: UpdateMaintenanceWindowTarget -> Lude.Text) (\s a -> s {windowTargetId = a} :: UpdateMaintenanceWindowTarget)
+{-# DEPRECATED uWindowTargetId "Use generic-lens or generic-optics with 'windowTargetId' instead." #-}
 
 -- | A name for the update.
 --
@@ -151,13 +161,6 @@ uDescription = Lens.lens (description :: UpdateMaintenanceWindowTarget -> Lude.M
 uWindowId :: Lens.Lens' UpdateMaintenanceWindowTarget Lude.Text
 uWindowId = Lens.lens (windowId :: UpdateMaintenanceWindowTarget -> Lude.Text) (\s a -> s {windowId = a} :: UpdateMaintenanceWindowTarget)
 {-# DEPRECATED uWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
-
--- | The target ID to modify.
---
--- /Note:/ Consider using 'windowTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uWindowTargetId :: Lens.Lens' UpdateMaintenanceWindowTarget Lude.Text
-uWindowTargetId = Lens.lens (windowTargetId :: UpdateMaintenanceWindowTarget -> Lude.Text) (\s a -> s {windowTargetId = a} :: UpdateMaintenanceWindowTarget)
-{-# DEPRECATED uWindowTargetId "Use generic-lens or generic-optics with 'windowTargetId' instead." #-}
 
 instance Lude.AWSRequest UpdateMaintenanceWindowTarget where
   type
@@ -194,11 +197,11 @@ instance Lude.ToJSON UpdateMaintenanceWindowTarget where
       ( Lude.catMaybes
           [ ("Replace" Lude..=) Lude.<$> replace,
             ("OwnerInformation" Lude..=) Lude.<$> ownerInformation,
+            Lude.Just ("WindowTargetId" Lude..= windowTargetId),
             ("Name" Lude..=) Lude.<$> name,
             ("Targets" Lude..=) Lude.<$> targets,
             ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("WindowId" Lude..= windowId),
-            Lude.Just ("WindowTargetId" Lude..= windowTargetId)
+            Lude.Just ("WindowId" Lude..= windowId)
           ]
       )
 
@@ -210,48 +213,33 @@ instance Lude.ToQuery UpdateMaintenanceWindowTarget where
 
 -- | /See:/ 'mkUpdateMaintenanceWindowTargetResponse' smart constructor.
 data UpdateMaintenanceWindowTargetResponse = UpdateMaintenanceWindowTargetResponse'
-  { ownerInformation ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    windowTargetId ::
-      Lude.Maybe
-        Lude.Text,
-    name ::
-      Lude.Maybe
-        Lude.Text,
-    targets ::
-      Lude.Maybe
-        [Target],
-    description ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    windowId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The updated owner.
+    ownerInformation :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The target ID specified in the update request.
+    windowTargetId :: Lude.Maybe Lude.Text,
+    -- | The updated name.
+    name :: Lude.Maybe Lude.Text,
+    -- | The updated targets.
+    targets :: Lude.Maybe [Target],
+    -- | The updated description.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The maintenance window ID specified in the update request.
+    windowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMaintenanceWindowTargetResponse' with the minimum fields required to make a request.
 --
--- * 'description' - The updated description.
--- * 'name' - The updated name.
 -- * 'ownerInformation' - The updated owner.
--- * 'responseStatus' - The response status code.
--- * 'targets' - The updated targets.
--- * 'windowId' - The maintenance window ID specified in the update request.
 -- * 'windowTargetId' - The target ID specified in the update request.
+-- * 'name' - The updated name.
+-- * 'targets' - The updated targets.
+-- * 'description' - The updated description.
+-- * 'windowId' - The maintenance window ID specified in the update request.
+-- * 'responseStatus' - The response status code.
 mkUpdateMaintenanceWindowTargetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -34,16 +34,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotebookInstanceLifecycleHook' smart constructor.
 newtype NotebookInstanceLifecycleHook = NotebookInstanceLifecycleHook'
-  { content ::
-      Lude.Maybe Lude.Text
+  { -- | A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+    content :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotebookInstanceLifecycleHook' with the minimum fields required to make a request.

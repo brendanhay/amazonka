@@ -17,10 +17,10 @@ module Network.AWS.SageMaker.Types.MonitoringClusterConfig
     mkMonitoringClusterConfig,
 
     -- * Lenses
-    mccVolumeKMSKeyId,
     mccInstanceCount,
     mccInstanceType,
     mccVolumeSizeInGB,
+    mccVolumeKMSKeyId,
   )
 where
 
@@ -32,27 +32,24 @@ import Network.AWS.SageMaker.Types.ProcessingInstanceType
 --
 -- /See:/ 'mkMonitoringClusterConfig' smart constructor.
 data MonitoringClusterConfig = MonitoringClusterConfig'
-  { volumeKMSKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
     instanceCount :: Lude.Natural,
+    -- | The ML compute instance type for the processing job.
     instanceType :: ProcessingInstanceType,
-    volumeSizeInGB :: Lude.Natural
+    -- | The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+    volumeSizeInGB :: Lude.Natural,
+    -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+    volumeKMSKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringClusterConfig' with the minimum fields required to make a request.
 --
 -- * 'instanceCount' - The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 -- * 'instanceType' - The ML compute instance type for the processing job.
--- * 'volumeKMSKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 -- * 'volumeSizeInGB' - The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+-- * 'volumeKMSKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 mkMonitoringClusterConfig ::
   -- | 'instanceCount'
   Lude.Natural ->
@@ -66,18 +63,11 @@ mkMonitoringClusterConfig
   pInstanceType_
   pVolumeSizeInGB_ =
     MonitoringClusterConfig'
-      { volumeKMSKeyId = Lude.Nothing,
-        instanceCount = pInstanceCount_,
+      { instanceCount = pInstanceCount_,
         instanceType = pInstanceType_,
-        volumeSizeInGB = pVolumeSizeInGB_
+        volumeSizeInGB = pVolumeSizeInGB_,
+        volumeKMSKeyId = Lude.Nothing
       }
-
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
---
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mccVolumeKMSKeyId :: Lens.Lens' MonitoringClusterConfig (Lude.Maybe Lude.Text)
-mccVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: MonitoringClusterConfig -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: MonitoringClusterConfig)
-{-# DEPRECATED mccVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
 -- | The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 --
@@ -100,25 +90,32 @@ mccVolumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Lude.Natural
 mccVolumeSizeInGB = Lens.lens (volumeSizeInGB :: MonitoringClusterConfig -> Lude.Natural) (\s a -> s {volumeSizeInGB = a} :: MonitoringClusterConfig)
 {-# DEPRECATED mccVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
 
+-- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+--
+-- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mccVolumeKMSKeyId :: Lens.Lens' MonitoringClusterConfig (Lude.Maybe Lude.Text)
+mccVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: MonitoringClusterConfig -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: MonitoringClusterConfig)
+{-# DEPRECATED mccVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
+
 instance Lude.FromJSON MonitoringClusterConfig where
   parseJSON =
     Lude.withObject
       "MonitoringClusterConfig"
       ( \x ->
           MonitoringClusterConfig'
-            Lude.<$> (x Lude..:? "VolumeKmsKeyId")
-            Lude.<*> (x Lude..: "InstanceCount")
+            Lude.<$> (x Lude..: "InstanceCount")
             Lude.<*> (x Lude..: "InstanceType")
             Lude.<*> (x Lude..: "VolumeSizeInGB")
+            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
       )
 
 instance Lude.ToJSON MonitoringClusterConfig where
   toJSON MonitoringClusterConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
-            Lude.Just ("InstanceCount" Lude..= instanceCount),
+          [ Lude.Just ("InstanceCount" Lude..= instanceCount),
             Lude.Just ("InstanceType" Lude..= instanceType),
-            Lude.Just ("VolumeSizeInGB" Lude..= volumeSizeInGB)
+            Lude.Just ("VolumeSizeInGB" Lude..= volumeSizeInGB),
+            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId
           ]
       )

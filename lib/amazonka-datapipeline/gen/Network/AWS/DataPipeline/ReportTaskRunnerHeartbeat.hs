@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     mkReportTaskRunnerHeartbeatResponse,
 
     -- ** Response lenses
-    rtrhrsResponseStatus,
     rtrhrsTerminate,
+    rtrhrsResponseStatus,
   )
 where
 
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkReportTaskRunnerHeartbeat' smart constructor.
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-  { hostname ::
-      Lude.Maybe Lude.Text,
+  { -- | The public DNS name of the task runner.
+    hostname :: Lude.Maybe Lude.Text,
+    -- | The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
     workerGroup :: Lude.Maybe Lude.Text,
+    -- | The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
     taskrunnerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReportTaskRunnerHeartbeat' with the minimum fields required to make a request.
 --
 -- * 'hostname' - The public DNS name of the task runner.
--- * 'taskrunnerId' - The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
 -- * 'workerGroup' - The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
+-- * 'taskrunnerId' - The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
 mkReportTaskRunnerHeartbeat ::
   -- | 'taskrunnerId'
   Lude.Text ->
@@ -103,7 +100,7 @@ instance Lude.AWSRequest ReportTaskRunnerHeartbeat where
     Res.receiveJSON
       ( \s h x ->
           ReportTaskRunnerHeartbeatResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "terminate")
+            Lude.<$> (x Lude..:> "terminate") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ReportTaskRunnerHeartbeat where
@@ -137,42 +134,29 @@ instance Lude.ToQuery ReportTaskRunnerHeartbeat where
 --
 -- /See:/ 'mkReportTaskRunnerHeartbeatResponse' smart constructor.
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
-  { responseStatus ::
-      Lude.Int,
-    terminate :: Lude.Bool
+  { -- | Indicates whether the calling task runner should terminate.
+    terminate :: Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReportTaskRunnerHeartbeatResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'terminate' - Indicates whether the calling task runner should terminate.
+-- * 'responseStatus' - The response status code.
 mkReportTaskRunnerHeartbeatResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'terminate'
   Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ReportTaskRunnerHeartbeatResponse
-mkReportTaskRunnerHeartbeatResponse pResponseStatus_ pTerminate_ =
+mkReportTaskRunnerHeartbeatResponse pTerminate_ pResponseStatus_ =
   ReportTaskRunnerHeartbeatResponse'
-    { responseStatus =
-        pResponseStatus_,
-      terminate = pTerminate_
+    { terminate = pTerminate_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrhrsResponseStatus :: Lens.Lens' ReportTaskRunnerHeartbeatResponse Lude.Int
-rtrhrsResponseStatus = Lens.lens (responseStatus :: ReportTaskRunnerHeartbeatResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReportTaskRunnerHeartbeatResponse)
-{-# DEPRECATED rtrhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Indicates whether the calling task runner should terminate.
 --
@@ -180,3 +164,10 @@ rtrhrsResponseStatus = Lens.lens (responseStatus :: ReportTaskRunnerHeartbeatRes
 rtrhrsTerminate :: Lens.Lens' ReportTaskRunnerHeartbeatResponse Lude.Bool
 rtrhrsTerminate = Lens.lens (terminate :: ReportTaskRunnerHeartbeatResponse -> Lude.Bool) (\s a -> s {terminate = a} :: ReportTaskRunnerHeartbeatResponse)
 {-# DEPRECATED rtrhrsTerminate "Use generic-lens or generic-optics with 'terminate' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrhrsResponseStatus :: Lens.Lens' ReportTaskRunnerHeartbeatResponse Lude.Int
+rtrhrsResponseStatus = Lens.lens (responseStatus :: ReportTaskRunnerHeartbeatResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReportTaskRunnerHeartbeatResponse)
+{-# DEPRECATED rtrhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

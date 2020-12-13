@@ -34,26 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { resourceType :: Lude.Maybe Lude.Text,
+  { -- | The type of AWS resource.
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | Contains information on the S3 bucket.
     s3BucketDetails :: Lude.Maybe [S3BucketDetail],
+    -- | The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
     instanceDetails :: Lude.Maybe InstanceDetails,
+    -- | The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
     accessKeyDetails :: Lude.Maybe AccessKeyDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- * 'accessKeyDetails' - The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
--- * 'instanceDetails' - The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
 -- * 'resourceType' - The type of AWS resource.
 -- * 's3BucketDetails' - Contains information on the S3 bucket.
+-- * 'instanceDetails' - The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
+-- * 'accessKeyDetails' - The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
 mkResource ::
   Resource
 mkResource =

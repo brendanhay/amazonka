@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,30 +50,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSnapshotSchedule' smart constructor.
 data CreateSnapshotSchedule = CreateSnapshotSchedule'
-  { nextInvocations ::
-      Lude.Maybe Lude.Int,
+  { -- |
+    nextInvocations :: Lude.Maybe Lude.Int,
+    -- | The definition of the snapshot schedule. The definition is made up of schedule expressions, for example "cron(30 12 *)" or "rate(12 hours)".
     scheduleDefinitions :: Lude.Maybe [Lude.Text],
+    -- | The description of the snapshot schedule.
     scheduleDescription :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed for the identifier.
     scheduleIdentifier :: Lude.Maybe Lude.Text,
+    -- |
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | An optional set of tags you can use to search for the schedule.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotSchedule' with the minimum fields required to make a request.
 --
--- * 'dryRun' -
 -- * 'nextInvocations' -
 -- * 'scheduleDefinitions' - The definition of the snapshot schedule. The definition is made up of schedule expressions, for example "cron(30 12 *)" or "rate(12 hours)".
 -- * 'scheduleDescription' - The description of the snapshot schedule.
 -- * 'scheduleIdentifier' - A unique identifier for a snapshot schedule. Only alphanumeric characters are allowed for the identifier.
+-- * 'dryRun' -
 -- * 'tags' - An optional set of tags you can use to search for the schedule.
 mkCreateSnapshotSchedule ::
   CreateSnapshotSchedule

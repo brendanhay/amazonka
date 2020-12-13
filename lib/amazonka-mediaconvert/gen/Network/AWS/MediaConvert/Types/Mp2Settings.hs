@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMp2Settings' smart constructor.
 data Mp2Settings = Mp2Settings'
-  { channels ::
-      Lude.Maybe Lude.Natural,
+  { -- | Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2.
+    channels :: Lude.Maybe Lude.Natural,
+    -- | Sample rate in hz.
     sampleRate :: Lude.Maybe Lude.Natural,
+    -- | Specify the average bitrate in bits per second.
     bitrate :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Mp2Settings' with the minimum fields required to make a request.
 --
--- * 'bitrate' - Specify the average bitrate in bits per second.
 -- * 'channels' - Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2.
 -- * 'sampleRate' - Sample rate in hz.
+-- * 'bitrate' - Specify the average bitrate in bits per second.
 mkMp2Settings ::
   Mp2Settings
 mkMp2Settings =

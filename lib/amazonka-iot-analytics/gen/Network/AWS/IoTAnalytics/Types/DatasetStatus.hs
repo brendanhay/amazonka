@@ -13,8 +13,8 @@
 module Network.AWS.IoTAnalytics.Types.DatasetStatus
   ( DatasetStatus
       ( DatasetStatus',
-        Active,
         Creating,
+        Active,
         Deleting
       ),
   )
@@ -46,18 +46,18 @@ newtype DatasetStatus = DatasetStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: DatasetStatus
-pattern Active = DatasetStatus' "ACTIVE"
-
 pattern Creating :: DatasetStatus
 pattern Creating = DatasetStatus' "CREATING"
+
+pattern Active :: DatasetStatus
+pattern Active = DatasetStatus' "ACTIVE"
 
 pattern Deleting :: DatasetStatus
 pattern Deleting = DatasetStatus' "DELETING"
 
 {-# COMPLETE
-  Active,
   Creating,
+  Active,
   Deleting,
   DatasetStatus'
   #-}

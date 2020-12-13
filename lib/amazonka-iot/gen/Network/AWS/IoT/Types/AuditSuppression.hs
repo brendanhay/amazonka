@@ -17,10 +17,10 @@ module Network.AWS.IoT.Types.AuditSuppression
     mkAuditSuppression,
 
     -- * Lenses
+    asCheckName,
     asExpirationDate,
     asSuppressIndefinitely,
     asDescription,
-    asCheckName,
     asResourceIdentifier,
   )
 where
@@ -33,29 +33,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditSuppression' smart constructor.
 data AuditSuppression = AuditSuppression'
-  { expirationDate ::
-      Lude.Maybe Lude.Timestamp,
+  { checkName :: Lude.Text,
+    -- | The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Lude.Maybe Lude.Bool,
+    -- | The description of the audit suppression.
     description :: Lude.Maybe Lude.Text,
-    checkName :: Lude.Text,
     resourceIdentifier :: ResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditSuppression' with the minimum fields required to make a request.
 --
--- * 'checkName' - Undocumented field.
--- * 'description' - The description of the audit suppression.
+-- * 'checkName' -
 -- * 'expirationDate' - The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
--- * 'resourceIdentifier' - Undocumented field.
 -- * 'suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+-- * 'description' - The description of the audit suppression.
+-- * 'resourceIdentifier' -
 mkAuditSuppression ::
   -- | 'checkName'
   Lude.Text ->
@@ -64,12 +60,19 @@ mkAuditSuppression ::
   AuditSuppression
 mkAuditSuppression pCheckName_ pResourceIdentifier_ =
   AuditSuppression'
-    { expirationDate = Lude.Nothing,
+    { checkName = pCheckName_,
+      expirationDate = Lude.Nothing,
       suppressIndefinitely = Lude.Nothing,
       description = Lude.Nothing,
-      checkName = pCheckName_,
       resourceIdentifier = pResourceIdentifier_
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCheckName :: Lens.Lens' AuditSuppression Lude.Text
+asCheckName = Lens.lens (checkName :: AuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: AuditSuppression)
+{-# DEPRECATED asCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
 --
@@ -94,13 +97,6 @@ asDescription = Lens.lens (description :: AuditSuppression -> Lude.Maybe Lude.Te
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCheckName :: Lens.Lens' AuditSuppression Lude.Text
-asCheckName = Lens.lens (checkName :: AuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: AuditSuppression)
-{-# DEPRECATED asCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 asResourceIdentifier :: Lens.Lens' AuditSuppression ResourceIdentifier
 asResourceIdentifier = Lens.lens (resourceIdentifier :: AuditSuppression -> ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: AuditSuppression)
@@ -112,9 +108,9 @@ instance Lude.FromJSON AuditSuppression where
       "AuditSuppression"
       ( \x ->
           AuditSuppression'
-            Lude.<$> (x Lude..:? "expirationDate")
+            Lude.<$> (x Lude..: "checkName")
+            Lude.<*> (x Lude..:? "expirationDate")
             Lude.<*> (x Lude..:? "suppressIndefinitely")
             Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..: "checkName")
             Lude.<*> (x Lude..: "resourceIdentifier")
       )

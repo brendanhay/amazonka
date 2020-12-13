@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.GetSSHPublicKey
     mkGetSSHPublicKey,
 
     -- ** Request lenses
-    gspkUserName,
     gspkSSHPublicKeyId,
+    gspkUserName,
     gspkEncoding,
 
     -- * Destructuring the response
@@ -43,51 +44,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSSHPublicKey' smart constructor.
 data GetSSHPublicKey = GetSSHPublicKey'
-  { userName :: Lude.Text,
+  { -- | The unique identifier for the SSH public key.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
     sshPublicKeyId :: Lude.Text,
+    -- | The name of the IAM user associated with the SSH public key.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text,
+    -- | Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
     encoding :: EncodingType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSSHPublicKey' with the minimum fields required to make a request.
 --
--- * 'encoding' - Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
 -- * 'sshPublicKeyId' - The unique identifier for the SSH public key.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that can consist of any upper or lowercased letter or digit.
 -- * 'userName' - The name of the IAM user associated with the SSH public key.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'encoding' - Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
 mkGetSSHPublicKey ::
-  -- | 'userName'
-  Lude.Text ->
   -- | 'sshPublicKeyId'
+  Lude.Text ->
+  -- | 'userName'
   Lude.Text ->
   -- | 'encoding'
   EncodingType ->
   GetSSHPublicKey
-mkGetSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
+mkGetSSHPublicKey pSSHPublicKeyId_ pUserName_ pEncoding_ =
   GetSSHPublicKey'
-    { userName = pUserName_,
-      sshPublicKeyId = pSSHPublicKeyId_,
+    { sshPublicKeyId = pSSHPublicKeyId_,
+      userName = pUserName_,
       encoding = pEncoding_
     }
-
--- | The name of the IAM user associated with the SSH public key.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspkUserName :: Lens.Lens' GetSSHPublicKey Lude.Text
-gspkUserName = Lens.lens (userName :: GetSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: GetSSHPublicKey)
-{-# DEPRECATED gspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The unique identifier for the SSH public key.
 --
@@ -97,6 +90,15 @@ gspkUserName = Lens.lens (userName :: GetSSHPublicKey -> Lude.Text) (\s a -> s {
 gspkSSHPublicKeyId :: Lens.Lens' GetSSHPublicKey Lude.Text
 gspkSSHPublicKeyId = Lens.lens (sshPublicKeyId :: GetSSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyId = a} :: GetSSHPublicKey)
 {-# DEPRECATED gspkSSHPublicKeyId "Use generic-lens or generic-optics with 'sshPublicKeyId' instead." #-}
+
+-- | The name of the IAM user associated with the SSH public key.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspkUserName :: Lens.Lens' GetSSHPublicKey Lude.Text
+gspkUserName = Lens.lens (userName :: GetSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: GetSSHPublicKey)
+{-# DEPRECATED gspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use @SSH@ . To retrieve the public key in PEM format, use @PEM@ .
 --
@@ -127,8 +129,8 @@ instance Lude.ToQuery GetSSHPublicKey where
     Lude.mconcat
       [ "Action" Lude.=: ("GetSSHPublicKey" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
         "SSHPublicKeyId" Lude.=: sshPublicKeyId,
+        "UserName" Lude.=: userName,
         "Encoding" Lude.=: encoding
       ]
 
@@ -136,23 +138,18 @@ instance Lude.ToQuery GetSSHPublicKey where
 --
 -- /See:/ 'mkGetSSHPublicKeyResponse' smart constructor.
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
-  { sshPublicKey ::
-      Lude.Maybe SSHPublicKey,
+  { -- | A structure containing details about the SSH public key.
+    sshPublicKey :: Lude.Maybe SSHPublicKey,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sshPublicKey' - A structure containing details about the SSH public key.
+-- * 'responseStatus' - The response status code.
 mkGetSSHPublicKeyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

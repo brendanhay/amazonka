@@ -37,39 +37,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioNormalizationSettings' smart constructor.
 data AudioNormalizationSettings = AudioNormalizationSettings'
-  { algorithmControl ::
-      Lude.Maybe
-        AudioNormalizationAlgorithmControl,
+  { -- | When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
+    algorithmControl :: Lude.Maybe AudioNormalizationAlgorithmControl,
+    -- | When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
     targetLkfs :: Lude.Maybe Lude.Double,
-    peakCalculation ::
-      Lude.Maybe
-        AudioNormalizationPeakCalculation,
-    correctionGateLevel ::
-      Lude.Maybe Lude.Int,
-    algorithm ::
-      Lude.Maybe
-        AudioNormalizationAlgorithm,
-    loudnessLogging ::
-      Lude.Maybe
-        AudioNormalizationLoudnessLogging
+    -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
+    peakCalculation :: Lude.Maybe AudioNormalizationPeakCalculation,
+    -- | Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
+    correctionGateLevel :: Lude.Maybe Lude.Int,
+    -- | Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
+    algorithm :: Lude.Maybe AudioNormalizationAlgorithm,
+    -- | If set to LOG, log each output's audio track loudness to a CSV file.
+    loudnessLogging :: Lude.Maybe AudioNormalizationLoudnessLogging
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioNormalizationSettings' with the minimum fields required to make a request.
 --
--- * 'algorithm' - Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
 -- * 'algorithmControl' - When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
--- * 'correctionGateLevel' - Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
--- * 'loudnessLogging' - If set to LOG, log each output's audio track loudness to a CSV file.
--- * 'peakCalculation' - If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
 -- * 'targetLkfs' - When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
+-- * 'peakCalculation' - If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
+-- * 'correctionGateLevel' - Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
+-- * 'algorithm' - Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
+-- * 'loudnessLogging' - If set to LOG, log each output's audio track loudness to a CSV file.
 mkAudioNormalizationSettings ::
   AudioNormalizationSettings
 mkAudioNormalizationSettings =

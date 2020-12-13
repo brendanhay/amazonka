@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     mkSetIdentityPoolConfiguration,
 
     -- ** Request lenses
+    sipcIdentityPoolId,
     sipcCognitoStreams,
     sipcPushSync,
-    sipcIdentityPoolId,
 
     -- * Destructuring the response
     SetIdentityPoolConfigurationResponse (..),
@@ -47,24 +48,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetIdentityPoolConfiguration' smart constructor.
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
-  { cognitoStreams ::
-      Lude.Maybe CognitoStreams,
-    pushSync :: Lude.Maybe PushSync,
-    identityPoolId :: Lude.Text
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
+    identityPoolId :: Lude.Text,
+    -- | Options to apply to this identity pool for Amazon Cognito streams.
+    cognitoStreams :: Lude.Maybe CognitoStreams,
+    -- | Options to apply to this identity pool for push synchronization.
+    pushSync :: Lude.Maybe PushSync
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityPoolConfiguration' with the minimum fields required to make a request.
 --
--- * 'cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 -- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
+-- * 'cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 -- * 'pushSync' - Options to apply to this identity pool for push synchronization.
 mkSetIdentityPoolConfiguration ::
   -- | 'identityPoolId'
@@ -72,10 +69,17 @@ mkSetIdentityPoolConfiguration ::
   SetIdentityPoolConfiguration
 mkSetIdentityPoolConfiguration pIdentityPoolId_ =
   SetIdentityPoolConfiguration'
-    { cognitoStreams = Lude.Nothing,
-      pushSync = Lude.Nothing,
-      identityPoolId = pIdentityPoolId_
+    { identityPoolId = pIdentityPoolId_,
+      cognitoStreams = Lude.Nothing,
+      pushSync = Lude.Nothing
     }
+
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sipcIdentityPoolId :: Lens.Lens' SetIdentityPoolConfiguration Lude.Text
+sipcIdentityPoolId = Lens.lens (identityPoolId :: SetIdentityPoolConfiguration -> Lude.Text) (\s a -> s {identityPoolId = a} :: SetIdentityPoolConfiguration)
+{-# DEPRECATED sipcIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
 --
@@ -90,13 +94,6 @@ sipcCognitoStreams = Lens.lens (cognitoStreams :: SetIdentityPoolConfiguration -
 sipcPushSync :: Lens.Lens' SetIdentityPoolConfiguration (Lude.Maybe PushSync)
 sipcPushSync = Lens.lens (pushSync :: SetIdentityPoolConfiguration -> Lude.Maybe PushSync) (\s a -> s {pushSync = a} :: SetIdentityPoolConfiguration)
 {-# DEPRECATED sipcPushSync "Use generic-lens or generic-optics with 'pushSync' instead." #-}
-
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.
---
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sipcIdentityPoolId :: Lens.Lens' SetIdentityPoolConfiguration Lude.Text
-sipcIdentityPoolId = Lens.lens (identityPoolId :: SetIdentityPoolConfiguration -> Lude.Text) (\s a -> s {identityPoolId = a} :: SetIdentityPoolConfiguration)
-{-# DEPRECATED sipcIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 instance Lude.AWSRequest SetIdentityPoolConfiguration where
   type
@@ -143,31 +140,22 @@ instance Lude.ToQuery SetIdentityPoolConfiguration where
 --
 -- /See:/ 'mkSetIdentityPoolConfigurationResponse' smart constructor.
 data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
-  { identityPoolId ::
-      Lude.Maybe
-        Lude.Text,
-    cognitoStreams ::
-      Lude.Maybe
-        CognitoStreams,
-    pushSync ::
-      Lude.Maybe
-        PushSync,
-    responseStatus ::
-      Lude.Int
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+    identityPoolId :: Lude.Maybe Lude.Text,
+    -- | Options to apply to this identity pool for Amazon Cognito streams.
+    cognitoStreams :: Lude.Maybe CognitoStreams,
+    -- | Options to apply to this identity pool for push synchronization.
+    pushSync :: Lude.Maybe PushSync,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 -- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
+-- * 'cognitoStreams' - Options to apply to this identity pool for Amazon Cognito streams.
 -- * 'pushSync' - Options to apply to this identity pool for push synchronization.
 -- * 'responseStatus' - The response status code.
 mkSetIdentityPoolConfigurationResponse ::

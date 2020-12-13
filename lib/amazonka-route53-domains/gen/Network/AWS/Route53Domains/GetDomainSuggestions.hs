@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Route53Domains.GetDomainSuggestions
     mkGetDomainSuggestions,
 
     -- ** Request lenses
-    gdsDomainName,
     gdsSuggestionCount,
+    gdsDomainName,
     gdsOnlyAvailable,
 
     -- * Destructuring the response
@@ -41,22 +42,35 @@ import Network.AWS.Route53Domains.Types
 
 -- | /See:/ 'mkGetDomainSuggestions' smart constructor.
 data GetDomainSuggestions = GetDomainSuggestions'
-  { domainName ::
-      Lude.Text,
+  { -- | The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
     suggestionCount :: Lude.Int,
+    -- | A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
+    --
+    -- The domain name can contain only the following characters:
+    --
+    --     * Letters a through z. Domain names are not case sensitive.
+    --
+    --
+    --     * Numbers 0 through 9.
+    --
+    --
+    --     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.
+    --
+    --
+    --     * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
+    --
+    --
+    -- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> .
+    domainName :: Lude.Text,
+    -- | If @OnlyAvailable@ is @true@ , Route 53 returns only domain names that are available. If @OnlyAvailable@ is @false@ , Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call @checkDomainAvailability@ for each suggestion.
     onlyAvailable :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainSuggestions' with the minimum fields required to make a request.
 --
+-- * 'suggestionCount' - The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
 -- * 'domainName' - A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
 -- The domain name can contain only the following characters:
@@ -75,24 +89,30 @@ data GetDomainSuggestions = GetDomainSuggestions'
 --
 -- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> .
 -- * 'onlyAvailable' - If @OnlyAvailable@ is @true@ , Route 53 returns only domain names that are available. If @OnlyAvailable@ is @false@ , Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call @checkDomainAvailability@ for each suggestion.
--- * 'suggestionCount' - The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
 mkGetDomainSuggestions ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'suggestionCount'
   Lude.Int ->
+  -- | 'domainName'
+  Lude.Text ->
   -- | 'onlyAvailable'
   Lude.Bool ->
   GetDomainSuggestions
 mkGetDomainSuggestions
-  pDomainName_
   pSuggestionCount_
+  pDomainName_
   pOnlyAvailable_ =
     GetDomainSuggestions'
-      { domainName = pDomainName_,
-        suggestionCount = pSuggestionCount_,
+      { suggestionCount = pSuggestionCount_,
+        domainName = pDomainName_,
         onlyAvailable = pOnlyAvailable_
       }
+
+-- | The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
+--
+-- /Note:/ Consider using 'suggestionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsSuggestionCount :: Lens.Lens' GetDomainSuggestions Lude.Int
+gdsSuggestionCount = Lens.lens (suggestionCount :: GetDomainSuggestions -> Lude.Int) (\s a -> s {suggestionCount = a} :: GetDomainSuggestions)
+{-# DEPRECATED gdsSuggestionCount "Use generic-lens or generic-optics with 'suggestionCount' instead." #-}
 
 -- | A domain name that you want to use as the basis for a list of possible domain names. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
@@ -116,13 +136,6 @@ mkGetDomainSuggestions
 gdsDomainName :: Lens.Lens' GetDomainSuggestions Lude.Text
 gdsDomainName = Lens.lens (domainName :: GetDomainSuggestions -> Lude.Text) (\s a -> s {domainName = a} :: GetDomainSuggestions)
 {-# DEPRECATED gdsDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
--- | The number of suggested domain names that you want Route 53 to return. Specify a value between 1 and 50.
---
--- /Note:/ Consider using 'suggestionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsSuggestionCount :: Lens.Lens' GetDomainSuggestions Lude.Int
-gdsSuggestionCount = Lens.lens (suggestionCount :: GetDomainSuggestions -> Lude.Int) (\s a -> s {suggestionCount = a} :: GetDomainSuggestions)
-{-# DEPRECATED gdsSuggestionCount "Use generic-lens or generic-optics with 'suggestionCount' instead." #-}
 
 -- | If @OnlyAvailable@ is @true@ , Route 53 returns only domain names that are available. If @OnlyAvailable@ is @false@ , Route 53 returns domain names without checking whether they're available to be registered. To determine whether the domain is available, you can call @checkDomainAvailability@ for each suggestion.
 --
@@ -159,8 +172,8 @@ instance Lude.ToJSON GetDomainSuggestions where
   toJSON GetDomainSuggestions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DomainName" Lude..= domainName),
-            Lude.Just ("SuggestionCount" Lude..= suggestionCount),
+          [ Lude.Just ("SuggestionCount" Lude..= suggestionCount),
+            Lude.Just ("DomainName" Lude..= domainName),
             Lude.Just ("OnlyAvailable" Lude..= onlyAvailable)
           ]
       )
@@ -173,23 +186,18 @@ instance Lude.ToQuery GetDomainSuggestions where
 
 -- | /See:/ 'mkGetDomainSuggestionsResponse' smart constructor.
 data GetDomainSuggestionsResponse = GetDomainSuggestionsResponse'
-  { suggestionsList ::
-      Lude.Maybe [DomainSuggestion],
+  { -- | A list of possible domain names. If you specified @true@ for @OnlyAvailable@ in the request, the list contains only domains that are available for registration.
+    suggestionsList :: Lude.Maybe [DomainSuggestion],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDomainSuggestionsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'suggestionsList' - A list of possible domain names. If you specified @true@ for @OnlyAvailable@ in the request, the list contains only domains that are available for registration.
+-- * 'responseStatus' - The response status code.
 mkGetDomainSuggestionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

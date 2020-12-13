@@ -13,13 +13,13 @@
 module Network.AWS.SMS.Types.ReplicationRunState
   ( ReplicationRunState
       ( ReplicationRunState',
-        RRSActive,
-        RRSCompleted,
-        RRSDeleted,
-        RRSDeleting,
-        RRSFailed,
+        RRSPending,
         RRSMissed,
-        RRSPending
+        RRSActive,
+        RRSFailed,
+        RRSCompleted,
+        RRSDeleting,
+        RRSDeleted
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ReplicationRunState = ReplicationRunState' Lude.Text
       Lude.ToHeader
     )
 
-pattern RRSActive :: ReplicationRunState
-pattern RRSActive = ReplicationRunState' "ACTIVE"
-
-pattern RRSCompleted :: ReplicationRunState
-pattern RRSCompleted = ReplicationRunState' "COMPLETED"
-
-pattern RRSDeleted :: ReplicationRunState
-pattern RRSDeleted = ReplicationRunState' "DELETED"
-
-pattern RRSDeleting :: ReplicationRunState
-pattern RRSDeleting = ReplicationRunState' "DELETING"
-
-pattern RRSFailed :: ReplicationRunState
-pattern RRSFailed = ReplicationRunState' "FAILED"
+pattern RRSPending :: ReplicationRunState
+pattern RRSPending = ReplicationRunState' "PENDING"
 
 pattern RRSMissed :: ReplicationRunState
 pattern RRSMissed = ReplicationRunState' "MISSED"
 
-pattern RRSPending :: ReplicationRunState
-pattern RRSPending = ReplicationRunState' "PENDING"
+pattern RRSActive :: ReplicationRunState
+pattern RRSActive = ReplicationRunState' "ACTIVE"
+
+pattern RRSFailed :: ReplicationRunState
+pattern RRSFailed = ReplicationRunState' "FAILED"
+
+pattern RRSCompleted :: ReplicationRunState
+pattern RRSCompleted = ReplicationRunState' "COMPLETED"
+
+pattern RRSDeleting :: ReplicationRunState
+pattern RRSDeleting = ReplicationRunState' "DELETING"
+
+pattern RRSDeleted :: ReplicationRunState
+pattern RRSDeleted = ReplicationRunState' "DELETED"
 
 {-# COMPLETE
-  RRSActive,
-  RRSCompleted,
-  RRSDeleted,
-  RRSDeleting,
-  RRSFailed,
-  RRSMissed,
   RRSPending,
+  RRSMissed,
+  RRSActive,
+  RRSFailed,
+  RRSCompleted,
+  RRSDeleting,
+  RRSDeleted,
   ReplicationRunState'
   #-}

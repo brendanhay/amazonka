@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.AddressStatus
   ( AddressStatus
       ( AddressStatus',
-        InClassic,
+        MoveInProgress,
         InVPC,
-        MoveInProgress
+        InClassic
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AddressStatus = AddressStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern InClassic :: AddressStatus
-pattern InClassic = AddressStatus' "InClassic"
+pattern MoveInProgress :: AddressStatus
+pattern MoveInProgress = AddressStatus' "MoveInProgress"
 
 pattern InVPC :: AddressStatus
 pattern InVPC = AddressStatus' "InVpc"
 
-pattern MoveInProgress :: AddressStatus
-pattern MoveInProgress = AddressStatus' "MoveInProgress"
+pattern InClassic :: AddressStatus
+pattern InClassic = AddressStatus' "InClassic"
 
 {-# COMPLETE
-  InClassic,
-  InVPC,
   MoveInProgress,
+  InVPC,
+  InClassic,
   AddressStatus'
   #-}

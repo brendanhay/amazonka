@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDiscoverPollEndpoint' smart constructor.
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-  { cluster ::
-      Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance belongs.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | The container instance ID or full ARN of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
     containerInstance :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiscoverPollEndpoint' with the minimum fields required to make a request.
@@ -122,25 +118,21 @@ instance Lude.ToQuery DiscoverPollEndpoint where
 
 -- | /See:/ 'mkDiscoverPollEndpointResponse' smart constructor.
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
-  { telemetryEndpoint ::
-      Lude.Maybe Lude.Text,
+  { -- | The telemetry endpoint for the Amazon ECS agent.
+    telemetryEndpoint :: Lude.Maybe Lude.Text,
+    -- | The endpoint for the Amazon ECS agent to poll.
     endpoint :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiscoverPollEndpointResponse' with the minimum fields required to make a request.
 --
+-- * 'telemetryEndpoint' - The telemetry endpoint for the Amazon ECS agent.
 -- * 'endpoint' - The endpoint for the Amazon ECS agent to poll.
 -- * 'responseStatus' - The response status code.
--- * 'telemetryEndpoint' - The telemetry endpoint for the Amazon ECS agent.
 mkDiscoverPollEndpointResponse ::
   -- | 'responseStatus'
   Lude.Int ->

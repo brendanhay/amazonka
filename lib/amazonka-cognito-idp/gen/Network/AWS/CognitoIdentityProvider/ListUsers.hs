@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.CognitoIdentityProvider.ListUsers
     -- ** Request lenses
     luPaginationToken,
     luAttributesToGet,
+    luUserPoolId,
     luLimit,
     luFilter,
-    luUserPoolId,
 
     -- * Destructuring the response
     ListUsersResponse (..),
@@ -49,25 +50,72 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is null, all attributes are returned.
     attributesToGet :: Lude.Maybe [Lude.Text],
+    -- | The user pool ID for the user pool on which the search should be performed.
+    userPoolId :: Lude.Text,
+    -- | Maximum number of users to be returned.
     limit :: Lude.Maybe Lude.Natural,
-    filter :: Lude.Maybe Lude.Text,
-    userPoolId :: Lude.Text
+    -- | A filter string of the form "/AttributeName/ /Filter-Type/ "/AttributeValue/ "". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "@family_name@ = \"Reddy\"".
+    --
+    --
+    --     * /AttributeName/ : The name of the attribute to search for. You can only search for one attribute at a time.
+    --
+    --
+    --     * /Filter-Type/ : For an exact match, use =, for example, "@given_name@ = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "@given_name@ ^= \"Jon\"".
+    --
+    --
+    --     * /AttributeValue/ : The attribute value that must be matched for each user.
+    --
+    --
+    -- If the filter string is empty, @ListUsers@ returns all users in the user pool.
+    -- You can only search for the following standard attributes:
+    --
+    --     * @username@ (case-sensitive)
+    --
+    --
+    --     * @email@
+    --
+    --
+    --     * @phone_number@
+    --
+    --
+    --     * @name@
+    --
+    --
+    --     * @given_name@
+    --
+    --
+    --     * @family_name@
+    --
+    --
+    --     * @preferred_username@
+    --
+    --
+    --     * @cognito:user_status@ (called __Status__ in the Console) (case-insensitive)
+    --
+    --
+    --     * @status (called __Enabled__ in the Console) (case-sensitive)@
+    --
+    --
+    --     * @sub@
+    --
+    --
+    -- Custom attributes are not searchable.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api Searching for Users Using the ListUsers API> and <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples Examples of Using the ListUsers API> in the /Amazon Cognito Developer Guide/ .
+    filter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
 --
+-- * 'paginationToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 -- * 'attributesToGet' - An array of strings, where each string is the name of a user attribute to be returned for each user in the search results. If the array is null, all attributes are returned.
+-- * 'userPoolId' - The user pool ID for the user pool on which the search should be performed.
+-- * 'limit' - Maximum number of users to be returned.
 -- * 'filter' - A filter string of the form "/AttributeName/ /Filter-Type/ "/AttributeValue/ "". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "@family_name@ = \"Reddy\"".
 --
 --
@@ -115,9 +163,6 @@ data ListUsers = ListUsers'
 --
 -- Custom attributes are not searchable.
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api Searching for Users Using the ListUsers API> and <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples Examples of Using the ListUsers API> in the /Amazon Cognito Developer Guide/ .
--- * 'limit' - Maximum number of users to be returned.
--- * 'paginationToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'userPoolId' - The user pool ID for the user pool on which the search should be performed.
 mkListUsers ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -126,9 +171,9 @@ mkListUsers pUserPoolId_ =
   ListUsers'
     { paginationToken = Lude.Nothing,
       attributesToGet = Lude.Nothing,
+      userPoolId = pUserPoolId_,
       limit = Lude.Nothing,
-      filter = Lude.Nothing,
-      userPoolId = pUserPoolId_
+      filter = Lude.Nothing
     }
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
@@ -144,6 +189,13 @@ luPaginationToken = Lens.lens (paginationToken :: ListUsers -> Lude.Maybe Lude.T
 luAttributesToGet :: Lens.Lens' ListUsers (Lude.Maybe [Lude.Text])
 luAttributesToGet = Lens.lens (attributesToGet :: ListUsers -> Lude.Maybe [Lude.Text]) (\s a -> s {attributesToGet = a} :: ListUsers)
 {-# DEPRECATED luAttributesToGet "Use generic-lens or generic-optics with 'attributesToGet' instead." #-}
+
+-- | The user pool ID for the user pool on which the search should be performed.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luUserPoolId :: Lens.Lens' ListUsers Lude.Text
+luUserPoolId = Lens.lens (userPoolId :: ListUsers -> Lude.Text) (\s a -> s {userPoolId = a} :: ListUsers)
+{-# DEPRECATED luUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | Maximum number of users to be returned.
 --
@@ -205,13 +257,6 @@ luFilter :: Lens.Lens' ListUsers (Lude.Maybe Lude.Text)
 luFilter = Lens.lens (filter :: ListUsers -> Lude.Maybe Lude.Text) (\s a -> s {filter = a} :: ListUsers)
 {-# DEPRECATED luFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
--- | The user pool ID for the user pool on which the search should be performed.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luUserPoolId :: Lens.Lens' ListUsers Lude.Text
-luUserPoolId = Lens.lens (userPoolId :: ListUsers -> Lude.Text) (\s a -> s {userPoolId = a} :: ListUsers)
-{-# DEPRECATED luUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
-
 instance Page.AWSPager ListUsers where
   page rq rs
     | Page.stop (rs Lens.^. lursPaginationToken) = Lude.Nothing
@@ -250,9 +295,9 @@ instance Lude.ToJSON ListUsers where
       ( Lude.catMaybes
           [ ("PaginationToken" Lude..=) Lude.<$> paginationToken,
             ("AttributesToGet" Lude..=) Lude.<$> attributesToGet,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
             ("Limit" Lude..=) Lude.<$> limit,
-            ("Filter" Lude..=) Lude.<$> filter,
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+            ("Filter" Lude..=) Lude.<$> filter
           ]
       )
 
@@ -266,9 +311,11 @@ instance Lude.ToQuery ListUsers where
 --
 -- /See:/ 'mkListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | The users returned in the request to list users.
     users :: Lude.Maybe [UserType],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -277,8 +324,8 @@ data ListUsersResponse = ListUsersResponse'
 -- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
 --
 -- * 'paginationToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
 -- * 'users' - The users returned in the request to list users.
+-- * 'responseStatus' - The response status code.
 mkListUsersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

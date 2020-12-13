@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDescribeProtection' smart constructor.
 data DescribeProtection = DescribeProtection'
-  { protectionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier (ID) for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
+    protectionId :: Lude.Maybe Lude.Text,
+    -- | The ARN (Amazon Resource Name) of the AWS resource for the 'Protection' object that is described. When submitting the @DescribeProtection@ request you must provide either the @ResourceArn@ or the @ProtectionID@ , but not both.
     resourceARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProtection' with the minimum fields required to make a request.
@@ -117,17 +113,12 @@ instance Lude.ToQuery DescribeProtection where
 
 -- | /See:/ 'mkDescribeProtectionResponse' smart constructor.
 data DescribeProtectionResponse = DescribeProtectionResponse'
-  { protection ::
-      Lude.Maybe Protection,
+  { -- | The 'Protection' object that is described.
+    protection :: Lude.Maybe Protection,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProtectionResponse' with the minimum fields required to make a request.

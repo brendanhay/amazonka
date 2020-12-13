@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.AuditFrequency
   ( AuditFrequency
       ( AuditFrequency',
-        Biweekly,
         Daily,
-        Monthly,
-        Weekly
+        Weekly,
+        Biweekly,
+        Monthly
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AuditFrequency = AuditFrequency' Lude.Text
       Lude.ToHeader
     )
 
-pattern Biweekly :: AuditFrequency
-pattern Biweekly = AuditFrequency' "BIWEEKLY"
-
 pattern Daily :: AuditFrequency
 pattern Daily = AuditFrequency' "DAILY"
-
-pattern Monthly :: AuditFrequency
-pattern Monthly = AuditFrequency' "MONTHLY"
 
 pattern Weekly :: AuditFrequency
 pattern Weekly = AuditFrequency' "WEEKLY"
 
+pattern Biweekly :: AuditFrequency
+pattern Biweekly = AuditFrequency' "BIWEEKLY"
+
+pattern Monthly :: AuditFrequency
+pattern Monthly = AuditFrequency' "MONTHLY"
+
 {-# COMPLETE
-  Biweekly,
   Daily,
-  Monthly,
   Weekly,
+  Biweekly,
+  Monthly,
   AuditFrequency'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateDomainEndpointOptions' smart constructor.
 data UpdateDomainEndpointOptions = UpdateDomainEndpointOptions'
-  { domainName ::
-      Lude.Text,
-    domainEndpointOptions ::
-      DomainEndpointOptions
+  { -- | A string that represents the name of a domain.
+    domainName :: Lude.Text,
+    -- | Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07.
+    domainEndpointOptions :: DomainEndpointOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainEndpointOptions' with the minimum fields required to make a request.
 --
--- * 'domainEndpointOptions' - Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07.
 -- * 'domainName' - A string that represents the name of a domain.
+-- * 'domainEndpointOptions' - Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07.
 mkUpdateDomainEndpointOptions ::
   -- | 'domainName'
   Lude.Text ->
@@ -120,19 +115,12 @@ instance Lude.ToQuery UpdateDomainEndpointOptions where
 --
 -- /See:/ 'mkUpdateDomainEndpointOptionsResponse' smart constructor.
 data UpdateDomainEndpointOptionsResponse = UpdateDomainEndpointOptionsResponse'
-  { domainEndpointOptions ::
-      Lude.Maybe
-        DomainEndpointOptionsStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The newly-configured domain endpoint options.
+    domainEndpointOptions :: Lude.Maybe DomainEndpointOptionsStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainEndpointOptionsResponse' with the minimum fields required to make a request.

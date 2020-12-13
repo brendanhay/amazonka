@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPDataSourceConfig' smart constructor.
 data HTTPDataSourceConfig = HTTPDataSourceConfig'
-  { authorizationConfig ::
-      Lude.Maybe AuthorizationConfig,
+  { -- | The authorization config in case the HTTP endpoint requires authorization.
+    authorizationConfig :: Lude.Maybe AuthorizationConfig,
+    -- | The HTTP URL endpoint. You can either specify the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.
     endpoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPDataSourceConfig' with the minimum fields required to make a request.

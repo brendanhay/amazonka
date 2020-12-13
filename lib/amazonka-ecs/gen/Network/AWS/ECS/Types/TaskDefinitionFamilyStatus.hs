@@ -14,8 +14,8 @@ module Network.AWS.ECS.Types.TaskDefinitionFamilyStatus
   ( TaskDefinitionFamilyStatus
       ( TaskDefinitionFamilyStatus',
         TDFSActive,
-        TDFSAll,
-        TDFSInactive
+        TDFSInactive,
+        TDFSAll
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype TaskDefinitionFamilyStatus = TaskDefinitionFamilyStatus' Lude.Text
 pattern TDFSActive :: TaskDefinitionFamilyStatus
 pattern TDFSActive = TaskDefinitionFamilyStatus' "ACTIVE"
 
-pattern TDFSAll :: TaskDefinitionFamilyStatus
-pattern TDFSAll = TaskDefinitionFamilyStatus' "ALL"
-
 pattern TDFSInactive :: TaskDefinitionFamilyStatus
 pattern TDFSInactive = TaskDefinitionFamilyStatus' "INACTIVE"
 
+pattern TDFSAll :: TaskDefinitionFamilyStatus
+pattern TDFSAll = TaskDefinitionFamilyStatus' "ALL"
+
 {-# COMPLETE
   TDFSActive,
-  TDFSAll,
   TDFSInactive,
+  TDFSAll,
   TaskDefinitionFamilyStatus'
   #-}

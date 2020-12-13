@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     mkUnlinkIdentity,
 
     -- ** Request lenses
-    uiIdentityId,
-    uiLogins,
     uiLoginsToRemove,
+    uiLogins,
+    uiIdentityId,
 
     -- * Destructuring the response
     UnlinkIdentityResponse (..),
@@ -41,41 +42,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUnlinkIdentity' smart constructor.
 data UnlinkIdentity = UnlinkIdentity'
-  { identityId :: Lude.Text,
+  { -- | Provider names to unlink from this identity.
+    loginsToRemove :: [Lude.Text],
+    -- | A set of optional name-value pairs that map provider names to provider tokens.
     logins :: Lude.HashMap Lude.Text (Lude.Text),
-    loginsToRemove :: [Lude.Text]
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnlinkIdentity' with the minimum fields required to make a request.
 --
--- * 'identityId' - A unique identifier in the format REGION:GUID.
--- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens.
 -- * 'loginsToRemove' - Provider names to unlink from this identity.
+-- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens.
+-- * 'identityId' - A unique identifier in the format REGION:GUID.
 mkUnlinkIdentity ::
   -- | 'identityId'
   Lude.Text ->
   UnlinkIdentity
 mkUnlinkIdentity pIdentityId_ =
   UnlinkIdentity'
-    { identityId = pIdentityId_,
+    { loginsToRemove = Lude.mempty,
       logins = Lude.mempty,
-      loginsToRemove = Lude.mempty
+      identityId = pIdentityId_
     }
 
--- | A unique identifier in the format REGION:GUID.
+-- | Provider names to unlink from this identity.
 --
--- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiIdentityId :: Lens.Lens' UnlinkIdentity Lude.Text
-uiIdentityId = Lens.lens (identityId :: UnlinkIdentity -> Lude.Text) (\s a -> s {identityId = a} :: UnlinkIdentity)
-{-# DEPRECATED uiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
+-- /Note:/ Consider using 'loginsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiLoginsToRemove :: Lens.Lens' UnlinkIdentity [Lude.Text]
+uiLoginsToRemove = Lens.lens (loginsToRemove :: UnlinkIdentity -> [Lude.Text]) (\s a -> s {loginsToRemove = a} :: UnlinkIdentity)
+{-# DEPRECATED uiLoginsToRemove "Use generic-lens or generic-optics with 'loginsToRemove' instead." #-}
 
 -- | A set of optional name-value pairs that map provider names to provider tokens.
 --
@@ -84,12 +82,12 @@ uiLogins :: Lens.Lens' UnlinkIdentity (Lude.HashMap Lude.Text (Lude.Text))
 uiLogins = Lens.lens (logins :: UnlinkIdentity -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {logins = a} :: UnlinkIdentity)
 {-# DEPRECATED uiLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
 
--- | Provider names to unlink from this identity.
+-- | A unique identifier in the format REGION:GUID.
 --
--- /Note:/ Consider using 'loginsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiLoginsToRemove :: Lens.Lens' UnlinkIdentity [Lude.Text]
-uiLoginsToRemove = Lens.lens (loginsToRemove :: UnlinkIdentity -> [Lude.Text]) (\s a -> s {loginsToRemove = a} :: UnlinkIdentity)
-{-# DEPRECATED uiLoginsToRemove "Use generic-lens or generic-optics with 'loginsToRemove' instead." #-}
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiIdentityId :: Lens.Lens' UnlinkIdentity Lude.Text
+uiIdentityId = Lens.lens (identityId :: UnlinkIdentity -> Lude.Text) (\s a -> s {identityId = a} :: UnlinkIdentity)
+{-# DEPRECATED uiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 instance Lude.AWSRequest UnlinkIdentity where
   type Rs UnlinkIdentity = UnlinkIdentityResponse
@@ -111,9 +109,9 @@ instance Lude.ToJSON UnlinkIdentity where
   toJSON UnlinkIdentity' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("IdentityId" Lude..= identityId),
+          [ Lude.Just ("LoginsToRemove" Lude..= loginsToRemove),
             Lude.Just ("Logins" Lude..= logins),
-            Lude.Just ("LoginsToRemove" Lude..= loginsToRemove)
+            Lude.Just ("IdentityId" Lude..= identityId)
           ]
       )
 
@@ -125,13 +123,7 @@ instance Lude.ToQuery UnlinkIdentity where
 
 -- | /See:/ 'mkUnlinkIdentityResponse' smart constructor.
 data UnlinkIdentityResponse = UnlinkIdentityResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnlinkIdentityResponse' with the minimum fields required to make a request.

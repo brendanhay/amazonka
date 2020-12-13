@@ -53,13 +53,13 @@ module Network.AWS.CognitoIdentity.Types
     mkIdentityPool,
     ipSamlProviderARNs,
     ipSupportedLoginProviders,
+    ipIdentityPoolId,
     ipAllowClassicFlow,
+    ipIdentityPoolName,
     ipDeveloperProviderName,
     ipIdentityPoolTags,
     ipOpenIdConnectProviderARNs,
     ipCognitoIdentityProviders,
-    ipIdentityPoolId,
-    ipIdentityPoolName,
     ipAllowUnauthenticatedIdentities,
 
     -- * IdentityPoolShortDescription
@@ -71,17 +71,17 @@ module Network.AWS.CognitoIdentity.Types
     -- * MappingRule
     MappingRule (..),
     mkMappingRule,
-    mrClaim,
     mrMatchType,
     mrValue,
+    mrClaim,
     mrRoleARN,
 
     -- * RoleMapping
     RoleMapping (..),
     mkRoleMapping,
     rmRulesConfiguration,
-    rmAmbiguousRoleResolution,
     rmType,
+    rmAmbiguousRoleResolution,
 
     -- * RulesConfigurationType
     RulesConfigurationType (..),

@@ -13,11 +13,11 @@
 module Network.AWS.ECR.Types.FindingSeverity
   ( FindingSeverity
       ( FindingSeverity',
-        Critical,
-        High,
         Informational,
         Low,
         Medium,
+        High,
+        Critical,
         Undefined
       ),
   )
@@ -49,12 +49,6 @@ newtype FindingSeverity = FindingSeverity' Lude.Text
       Lude.ToHeader
     )
 
-pattern Critical :: FindingSeverity
-pattern Critical = FindingSeverity' "CRITICAL"
-
-pattern High :: FindingSeverity
-pattern High = FindingSeverity' "HIGH"
-
 pattern Informational :: FindingSeverity
 pattern Informational = FindingSeverity' "INFORMATIONAL"
 
@@ -64,15 +58,21 @@ pattern Low = FindingSeverity' "LOW"
 pattern Medium :: FindingSeverity
 pattern Medium = FindingSeverity' "MEDIUM"
 
+pattern High :: FindingSeverity
+pattern High = FindingSeverity' "HIGH"
+
+pattern Critical :: FindingSeverity
+pattern Critical = FindingSeverity' "CRITICAL"
+
 pattern Undefined :: FindingSeverity
 pattern Undefined = FindingSeverity' "UNDEFINED"
 
 {-# COMPLETE
-  Critical,
-  High,
   Informational,
   Low,
   Medium,
+  High,
+  Critical,
   Undefined,
   FindingSeverity'
   #-}

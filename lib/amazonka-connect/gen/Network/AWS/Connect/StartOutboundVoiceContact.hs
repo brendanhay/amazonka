@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,13 +23,13 @@ module Network.AWS.Connect.StartOutboundVoiceContact
     mkStartOutboundVoiceContact,
 
     -- ** Request lenses
+    sovcInstanceId,
     sovcClientToken,
     sovcQueueId,
+    sovcContactFlowId,
     sovcAttributes,
     sovcSourcePhoneNumber,
     sovcDestinationPhoneNumber,
-    sovcContactFlowId,
-    sovcInstanceId,
 
     -- * Destructuring the response
     StartOutboundVoiceContactResponse (..),
@@ -48,61 +49,69 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartOutboundVoiceContact' smart constructor.
 data StartOutboundVoiceContact = StartOutboundVoiceContact'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. If the contact is disconnected, a new contact is started.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
     queueId :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    sourcePhoneNumber ::
-      Lude.Maybe Lude.Text,
-    destinationPhoneNumber :: Lude.Text,
+    -- | The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
+    --
+    -- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
     contactFlowId :: Lude.Text,
-    instanceId :: Lude.Text
+    -- | A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
+    --
+    -- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
+    sourcePhoneNumber :: Lude.Maybe Lude.Text,
+    -- | The phone number of the customer, in E.164 format.
+    destinationPhoneNumber :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOutboundVoiceContact' with the minimum fields required to make a request.
 --
--- * 'attributes' - A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
---
--- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'clientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. If the contact is disconnected, a new contact is started.
+-- * 'queueId' - The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
 -- * 'contactFlowId' - The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
 --
 -- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
--- * 'destinationPhoneNumber' - The phone number of the customer, in E.164 format.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'queueId' - The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
+-- * 'attributes' - A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
+--
+-- There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
 -- * 'sourcePhoneNumber' - The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
+-- * 'destinationPhoneNumber' - The phone number of the customer, in E.164 format.
 mkStartOutboundVoiceContact ::
-  -- | 'destinationPhoneNumber'
+  -- | 'instanceId'
   Lude.Text ->
   -- | 'contactFlowId'
   Lude.Text ->
-  -- | 'instanceId'
+  -- | 'destinationPhoneNumber'
   Lude.Text ->
   StartOutboundVoiceContact
 mkStartOutboundVoiceContact
-  pDestinationPhoneNumber_
+  pInstanceId_
   pContactFlowId_
-  pInstanceId_ =
+  pDestinationPhoneNumber_ =
     StartOutboundVoiceContact'
-      { clientToken = Lude.Nothing,
+      { instanceId = pInstanceId_,
+        clientToken = Lude.Nothing,
         queueId = Lude.Nothing,
+        contactFlowId = pContactFlowId_,
         attributes = Lude.Nothing,
         sourcePhoneNumber = Lude.Nothing,
-        destinationPhoneNumber = pDestinationPhoneNumber_,
-        contactFlowId = pContactFlowId_,
-        instanceId = pInstanceId_
+        destinationPhoneNumber = pDestinationPhoneNumber_
       }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sovcInstanceId :: Lens.Lens' StartOutboundVoiceContact Lude.Text
+sovcInstanceId = Lens.lens (instanceId :: StartOutboundVoiceContact -> Lude.Text) (\s a -> s {instanceId = a} :: StartOutboundVoiceContact)
+{-# DEPRECATED sovcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. If the contact is disconnected, a new contact is started.
 --
@@ -117,6 +126,15 @@ sovcClientToken = Lens.lens (clientToken :: StartOutboundVoiceContact -> Lude.Ma
 sovcQueueId :: Lens.Lens' StartOutboundVoiceContact (Lude.Maybe Lude.Text)
 sovcQueueId = Lens.lens (queueId :: StartOutboundVoiceContact -> Lude.Maybe Lude.Text) (\s a -> s {queueId = a} :: StartOutboundVoiceContact)
 {-# DEPRECATED sovcQueueId "Use generic-lens or generic-optics with 'queueId' instead." #-}
+
+-- | The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
+--
+-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+--
+-- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sovcContactFlowId :: Lens.Lens' StartOutboundVoiceContact Lude.Text
+sovcContactFlowId = Lens.lens (contactFlowId :: StartOutboundVoiceContact -> Lude.Text) (\s a -> s {contactFlowId = a} :: StartOutboundVoiceContact)
+{-# DEPRECATED sovcContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
 -- | A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.
 --
@@ -140,22 +158,6 @@ sovcSourcePhoneNumber = Lens.lens (sourcePhoneNumber :: StartOutboundVoiceContac
 sovcDestinationPhoneNumber :: Lens.Lens' StartOutboundVoiceContact Lude.Text
 sovcDestinationPhoneNumber = Lens.lens (destinationPhoneNumber :: StartOutboundVoiceContact -> Lude.Text) (\s a -> s {destinationPhoneNumber = a} :: StartOutboundVoiceContact)
 {-# DEPRECATED sovcDestinationPhoneNumber "Use generic-lens or generic-optics with 'destinationPhoneNumber' instead." #-}
-
--- | The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to __Routing__ , __Contact Flows__ . Choose the contact flow. On the contact flow page, under the name of the contact flow, choose __Show additional flow information__ . The ContactFlowId is the last part of the ARN, shown here in bold:
---
--- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
---
--- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sovcContactFlowId :: Lens.Lens' StartOutboundVoiceContact Lude.Text
-sovcContactFlowId = Lens.lens (contactFlowId :: StartOutboundVoiceContact -> Lude.Text) (\s a -> s {contactFlowId = a} :: StartOutboundVoiceContact)
-{-# DEPRECATED sovcContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sovcInstanceId :: Lens.Lens' StartOutboundVoiceContact Lude.Text
-sovcInstanceId = Lens.lens (instanceId :: StartOutboundVoiceContact -> Lude.Text) (\s a -> s {instanceId = a} :: StartOutboundVoiceContact)
-{-# DEPRECATED sovcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest StartOutboundVoiceContact where
   type
@@ -182,14 +184,14 @@ instance Lude.ToJSON StartOutboundVoiceContact where
   toJSON StartOutboundVoiceContact' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ClientToken" Lude..=) Lude.<$> clientToken,
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("ClientToken" Lude..=) Lude.<$> clientToken,
             ("QueueId" Lude..=) Lude.<$> queueId,
+            Lude.Just ("ContactFlowId" Lude..= contactFlowId),
             ("Attributes" Lude..=) Lude.<$> attributes,
             ("SourcePhoneNumber" Lude..=) Lude.<$> sourcePhoneNumber,
             Lude.Just
-              ("DestinationPhoneNumber" Lude..= destinationPhoneNumber),
-            Lude.Just ("ContactFlowId" Lude..= contactFlowId),
-            Lude.Just ("InstanceId" Lude..= instanceId)
+              ("DestinationPhoneNumber" Lude..= destinationPhoneNumber)
           ]
       )
 
@@ -201,18 +203,12 @@ instance Lude.ToQuery StartOutboundVoiceContact where
 
 -- | /See:/ 'mkStartOutboundVoiceContactResponse' smart constructor.
 data StartOutboundVoiceContactResponse = StartOutboundVoiceContactResponse'
-  { contactId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier of this contact within the Amazon Connect instance.
+    contactId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartOutboundVoiceContactResponse' with the minimum fields required to make a request.

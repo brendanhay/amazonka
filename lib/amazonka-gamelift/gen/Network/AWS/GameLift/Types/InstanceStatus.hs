@@ -13,8 +13,8 @@
 module Network.AWS.GameLift.Types.InstanceStatus
   ( InstanceStatus
       ( InstanceStatus',
-        ISActive,
         ISPending,
+        ISActive,
         ISTerminating
       ),
   )
@@ -46,18 +46,18 @@ newtype InstanceStatus = InstanceStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISActive :: InstanceStatus
-pattern ISActive = InstanceStatus' "ACTIVE"
-
 pattern ISPending :: InstanceStatus
 pattern ISPending = InstanceStatus' "PENDING"
+
+pattern ISActive :: InstanceStatus
+pattern ISActive = InstanceStatus' "ACTIVE"
 
 pattern ISTerminating :: InstanceStatus
 pattern ISTerminating = InstanceStatus' "TERMINATING"
 
 {-# COMPLETE
-  ISActive,
   ISPending,
+  ISActive,
   ISTerminating,
   InstanceStatus'
   #-}

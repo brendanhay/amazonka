@@ -37,36 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { username :: Lude.Maybe Lude.Text,
+  { -- | A user name or role name of the requester that called the API in the event returned.
+    username :: Lude.Maybe Lude.Text,
+    -- | A list of resources referenced by the event returned.
     resources :: Lude.Maybe [Resource],
+    -- | The date and time of the event returned.
     eventTime :: Lude.Maybe Lude.Timestamp,
+    -- | A JSON string that contains a representation of the event returned.
     cloudTrailEvent :: Lude.Maybe Lude.Text,
+    -- | The name of the event returned.
     eventName :: Lude.Maybe Lude.Text,
+    -- | Information about whether the event is a write event or a read event.
     readOnly :: Lude.Maybe Lude.Text,
+    -- | The AWS access key ID that was used to sign the request. If the request was made with temporary security credentials, this is the access key ID of the temporary credentials.
     accessKeyId :: Lude.Maybe Lude.Text,
+    -- | The AWS service that the request was made to.
     eventSource :: Lude.Maybe Lude.Text,
+    -- | The CloudTrail ID of the event returned.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- * 'accessKeyId' - The AWS access key ID that was used to sign the request. If the request was made with temporary security credentials, this is the access key ID of the temporary credentials.
--- * 'cloudTrailEvent' - A JSON string that contains a representation of the event returned.
--- * 'eventId' - The CloudTrail ID of the event returned.
--- * 'eventName' - The name of the event returned.
--- * 'eventSource' - The AWS service that the request was made to.
--- * 'eventTime' - The date and time of the event returned.
--- * 'readOnly' - Information about whether the event is a write event or a read event.
--- * 'resources' - A list of resources referenced by the event returned.
 -- * 'username' - A user name or role name of the requester that called the API in the event returned.
+-- * 'resources' - A list of resources referenced by the event returned.
+-- * 'eventTime' - The date and time of the event returned.
+-- * 'cloudTrailEvent' - A JSON string that contains a representation of the event returned.
+-- * 'eventName' - The name of the event returned.
+-- * 'readOnly' - Information about whether the event is a write event or a read event.
+-- * 'accessKeyId' - The AWS access key ID that was used to sign the request. If the request was made with temporary security credentials, this is the access key ID of the temporary credentials.
+-- * 'eventSource' - The AWS service that the request was made to.
+-- * 'eventId' - The CloudTrail ID of the event returned.
 mkEvent ::
   Event
 mkEvent =

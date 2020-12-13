@@ -13,11 +13,11 @@
 module Network.AWS.EMR.Types.InstanceStateChangeReasonCode
   ( InstanceStateChangeReasonCode
       ( InstanceStateChangeReasonCode',
-        ISCRCBootstrapFailure,
-        ISCRCClusterTerminated,
-        ISCRCInstanceFailure,
         ISCRCInternalError,
-        ISCRCValidationError
+        ISCRCValidationError,
+        ISCRCInstanceFailure,
+        ISCRCBootstrapFailure,
+        ISCRCClusterTerminated
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype InstanceStateChangeReasonCode = InstanceStateChangeReasonCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISCRCBootstrapFailure :: InstanceStateChangeReasonCode
-pattern ISCRCBootstrapFailure = InstanceStateChangeReasonCode' "BOOTSTRAP_FAILURE"
-
-pattern ISCRCClusterTerminated :: InstanceStateChangeReasonCode
-pattern ISCRCClusterTerminated = InstanceStateChangeReasonCode' "CLUSTER_TERMINATED"
-
-pattern ISCRCInstanceFailure :: InstanceStateChangeReasonCode
-pattern ISCRCInstanceFailure = InstanceStateChangeReasonCode' "INSTANCE_FAILURE"
-
 pattern ISCRCInternalError :: InstanceStateChangeReasonCode
 pattern ISCRCInternalError = InstanceStateChangeReasonCode' "INTERNAL_ERROR"
 
 pattern ISCRCValidationError :: InstanceStateChangeReasonCode
 pattern ISCRCValidationError = InstanceStateChangeReasonCode' "VALIDATION_ERROR"
 
+pattern ISCRCInstanceFailure :: InstanceStateChangeReasonCode
+pattern ISCRCInstanceFailure = InstanceStateChangeReasonCode' "INSTANCE_FAILURE"
+
+pattern ISCRCBootstrapFailure :: InstanceStateChangeReasonCode
+pattern ISCRCBootstrapFailure = InstanceStateChangeReasonCode' "BOOTSTRAP_FAILURE"
+
+pattern ISCRCClusterTerminated :: InstanceStateChangeReasonCode
+pattern ISCRCClusterTerminated = InstanceStateChangeReasonCode' "CLUSTER_TERMINATED"
+
 {-# COMPLETE
-  ISCRCBootstrapFailure,
-  ISCRCClusterTerminated,
-  ISCRCInstanceFailure,
   ISCRCInternalError,
   ISCRCValidationError,
+  ISCRCInstanceFailure,
+  ISCRCBootstrapFailure,
+  ISCRCClusterTerminated,
   InstanceStateChangeReasonCode'
   #-}

@@ -13,14 +13,14 @@
 module Network.AWS.EC2.Types.State
   ( State
       ( State',
-        SAvailable,
-        SDeleted,
-        SDeleting,
-        SExpired,
-        SFailed,
-        SPending,
-        SPendingAcceptance,
-        SRejected
+        SfPendingAcceptance,
+        SfPending,
+        SfAvailable,
+        SfDeleting,
+        SfDeleted,
+        SfRejected,
+        SfFailed,
+        SfExpired
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype State = State' Lude.Text
       Lude.ToHeader
     )
 
-pattern SAvailable :: State
-pattern SAvailable = State' "Available"
+pattern SfPendingAcceptance :: State
+pattern SfPendingAcceptance = State' "PendingAcceptance"
 
-pattern SDeleted :: State
-pattern SDeleted = State' "Deleted"
+pattern SfPending :: State
+pattern SfPending = State' "Pending"
 
-pattern SDeleting :: State
-pattern SDeleting = State' "Deleting"
+pattern SfAvailable :: State
+pattern SfAvailable = State' "Available"
 
-pattern SExpired :: State
-pattern SExpired = State' "Expired"
+pattern SfDeleting :: State
+pattern SfDeleting = State' "Deleting"
 
-pattern SFailed :: State
-pattern SFailed = State' "Failed"
+pattern SfDeleted :: State
+pattern SfDeleted = State' "Deleted"
 
-pattern SPending :: State
-pattern SPending = State' "Pending"
+pattern SfRejected :: State
+pattern SfRejected = State' "Rejected"
 
-pattern SPendingAcceptance :: State
-pattern SPendingAcceptance = State' "PendingAcceptance"
+pattern SfFailed :: State
+pattern SfFailed = State' "Failed"
 
-pattern SRejected :: State
-pattern SRejected = State' "Rejected"
+pattern SfExpired :: State
+pattern SfExpired = State' "Expired"
 
 {-# COMPLETE
-  SAvailable,
-  SDeleted,
-  SDeleting,
-  SExpired,
-  SFailed,
-  SPending,
-  SPendingAcceptance,
-  SRejected,
+  SfPendingAcceptance,
+  SfPending,
+  SfAvailable,
+  SfDeleting,
+  SfDeleted,
+  SfRejected,
+  SfFailed,
+  SfExpired,
   State'
   #-}

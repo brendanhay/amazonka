@@ -37,44 +37,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledUpdateGroupAction' smart constructor.
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
-  { scheduledActionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the scheduled action.
+    scheduledActionARN :: Lude.Maybe Lude.Text,
+    -- | The date and time in UTC for this action to start. For example, @"2019-06-01T00:00:00Z"@ .
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | This parameter is no longer used.
     time :: Lude.Maybe Lude.DateTime,
-    scheduledActionName ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the scheduled action.
+    scheduledActionName :: Lude.Maybe Lude.Text,
+    -- | The maximum size of the Auto Scaling group.
     maxSize :: Lude.Maybe Lude.Int,
+    -- | The recurring schedule for the action, in Unix cron syntax format.
+    --
+    -- When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action starts and stops.
     recurrence :: Lude.Maybe Lude.Text,
-    desiredCapacity ::
-      Lude.Maybe Lude.Int,
+    -- | The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+    desiredCapacity :: Lude.Maybe Lude.Int,
+    -- | The minimum size of the Auto Scaling group.
     minSize :: Lude.Maybe Lude.Int,
-    autoScalingGroupName ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Maybe Lude.Text,
+    -- | The date and time in UTC for the recurring schedule to end. For example, @"2019-06-01T00:00:00Z"@ .
     endTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledUpdateGroupAction' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
--- * 'endTime' - The date and time in UTC for the recurring schedule to end. For example, @"2019-06-01T00:00:00Z"@ .
+-- * 'scheduledActionARN' - The Amazon Resource Name (ARN) of the scheduled action.
+-- * 'startTime' - The date and time in UTC for this action to start. For example, @"2019-06-01T00:00:00Z"@ .
+-- * 'time' - This parameter is no longer used.
+-- * 'scheduledActionName' - The name of the scheduled action.
 -- * 'maxSize' - The maximum size of the Auto Scaling group.
--- * 'minSize' - The minimum size of the Auto Scaling group.
 -- * 'recurrence' - The recurring schedule for the action, in Unix cron syntax format.
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@ , they form the boundaries of when the recurring action starts and stops.
--- * 'scheduledActionARN' - The Amazon Resource Name (ARN) of the scheduled action.
--- * 'scheduledActionName' - The name of the scheduled action.
--- * 'startTime' - The date and time in UTC for this action to start. For example, @"2019-06-01T00:00:00Z"@ .
--- * 'time' - This parameter is no longer used.
+-- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+-- * 'minSize' - The minimum size of the Auto Scaling group.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'endTime' - The date and time in UTC for the recurring schedule to end. For example, @"2019-06-01T00:00:00Z"@ .
 mkScheduledUpdateGroupAction ::
   ScheduledUpdateGroupAction
 mkScheduledUpdateGroupAction =

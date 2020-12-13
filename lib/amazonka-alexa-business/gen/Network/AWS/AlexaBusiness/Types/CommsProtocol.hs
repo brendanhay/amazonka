@@ -13,9 +13,9 @@
 module Network.AWS.AlexaBusiness.Types.CommsProtocol
   ( CommsProtocol
       ( CommsProtocol',
-        H323,
         Sip,
-        Sips
+        Sips,
+        H323
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CommsProtocol = CommsProtocol' Lude.Text
       Lude.ToHeader
     )
 
-pattern H323 :: CommsProtocol
-pattern H323 = CommsProtocol' "H323"
-
 pattern Sip :: CommsProtocol
 pattern Sip = CommsProtocol' "SIP"
 
 pattern Sips :: CommsProtocol
 pattern Sips = CommsProtocol' "SIPS"
 
+pattern H323 :: CommsProtocol
+pattern H323 = CommsProtocol' "H323"
+
 {-# COMPLETE
-  H323,
   Sip,
   Sips,
+  H323,
   CommsProtocol'
   #-}

@@ -33,27 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioSelectorSettings' smart constructor.
 data AudioSelectorSettings = AudioSelectorSettings'
-  { audioLanguageSelection ::
-      Lude.Maybe AudioLanguageSelection,
-    audioTrackSelection ::
-      Lude.Maybe AudioTrackSelection,
-    audioPidSelection ::
-      Lude.Maybe AudioPidSelection
+  { audioLanguageSelection :: Lude.Maybe AudioLanguageSelection,
+    audioTrackSelection :: Lude.Maybe AudioTrackSelection,
+    audioPidSelection :: Lude.Maybe AudioPidSelection
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioSelectorSettings' with the minimum fields required to make a request.
 --
--- * 'audioLanguageSelection' - Undocumented field.
--- * 'audioPidSelection' - Undocumented field.
--- * 'audioTrackSelection' - Undocumented field.
+-- * 'audioLanguageSelection' -
+-- * 'audioTrackSelection' -
+-- * 'audioPidSelection' -
 mkAudioSelectorSettings ::
   AudioSelectorSettings
 mkAudioSelectorSettings =

@@ -13,8 +13,8 @@
 module Network.AWS.Batch.Types.RetryAction
   ( RetryAction
       ( RetryAction',
-        Exit,
-        Retry
+        Retry,
+        Exit
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RetryAction = RetryAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Exit :: RetryAction
-pattern Exit = RetryAction' "EXIT"
-
 pattern Retry :: RetryAction
 pattern Retry = RetryAction' "RETRY"
 
+pattern Exit :: RetryAction
+pattern Exit = RetryAction' "EXIT"
+
 {-# COMPLETE
-  Exit,
   Retry,
+  Exit,
   RetryAction'
   #-}

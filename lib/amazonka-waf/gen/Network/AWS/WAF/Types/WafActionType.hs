@@ -13,8 +13,8 @@
 module Network.AWS.WAF.Types.WafActionType
   ( WafActionType
       ( WafActionType',
-        Allow,
         Block,
+        Allow,
         Count
       ),
   )
@@ -46,18 +46,18 @@ newtype WafActionType = WafActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Allow :: WafActionType
-pattern Allow = WafActionType' "ALLOW"
-
 pattern Block :: WafActionType
 pattern Block = WafActionType' "BLOCK"
+
+pattern Allow :: WafActionType
+pattern Allow = WafActionType' "ALLOW"
 
 pattern Count :: WafActionType
 pattern Count = WafActionType' "COUNT"
 
 {-# COMPLETE
-  Allow,
   Block,
+  Allow,
   Count,
   WafActionType'
   #-}

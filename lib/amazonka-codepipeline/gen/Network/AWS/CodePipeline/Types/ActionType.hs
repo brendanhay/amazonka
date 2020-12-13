@@ -18,10 +18,10 @@ module Network.AWS.CodePipeline.Types.ActionType
 
     -- * Lenses
     atSettings,
-    atActionConfigurationProperties,
-    atId,
-    atInputArtifactDetails,
     atOutputArtifactDetails,
+    atActionConfigurationProperties,
+    atInputArtifactDetails,
+    atId,
   )
 where
 
@@ -36,45 +36,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionType' smart constructor.
 data ActionType = ActionType'
-  { settings ::
-      Lude.Maybe ActionTypeSettings,
-    actionConfigurationProperties ::
-      Lude.Maybe [ActionConfigurationProperty],
-    id :: ActionTypeId,
+  { -- | The settings for the action type.
+    settings :: Lude.Maybe ActionTypeSettings,
+    -- | The details of the output artifact of the action, such as its commit ID.
+    outputArtifactDetails :: ArtifactDetails,
+    -- | The configuration properties for the action type.
+    actionConfigurationProperties :: Lude.Maybe [ActionConfigurationProperty],
+    -- | The details of the input artifact for the action, such as its commit ID.
     inputArtifactDetails :: ArtifactDetails,
-    outputArtifactDetails :: ArtifactDetails
+    -- | Represents information about an action type.
+    id :: ActionTypeId
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionType' with the minimum fields required to make a request.
 --
--- * 'actionConfigurationProperties' - The configuration properties for the action type.
--- * 'id' - Represents information about an action type.
--- * 'inputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
--- * 'outputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
 -- * 'settings' - The settings for the action type.
+-- * 'outputArtifactDetails' - The details of the output artifact of the action, such as its commit ID.
+-- * 'actionConfigurationProperties' - The configuration properties for the action type.
+-- * 'inputArtifactDetails' - The details of the input artifact for the action, such as its commit ID.
+-- * 'id' - Represents information about an action type.
 mkActionType ::
-  -- | 'id'
-  ActionTypeId ->
-  -- | 'inputArtifactDetails'
-  ArtifactDetails ->
   -- | 'outputArtifactDetails'
   ArtifactDetails ->
+  -- | 'inputArtifactDetails'
+  ArtifactDetails ->
+  -- | 'id'
+  ActionTypeId ->
   ActionType
-mkActionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ =
+mkActionType pOutputArtifactDetails_ pInputArtifactDetails_ pId_ =
   ActionType'
     { settings = Lude.Nothing,
+      outputArtifactDetails = pOutputArtifactDetails_,
       actionConfigurationProperties = Lude.Nothing,
-      id = pId_,
       inputArtifactDetails = pInputArtifactDetails_,
-      outputArtifactDetails = pOutputArtifactDetails_
+      id = pId_
     }
 
 -- | The settings for the action type.
@@ -84,19 +81,19 @@ atSettings :: Lens.Lens' ActionType (Lude.Maybe ActionTypeSettings)
 atSettings = Lens.lens (settings :: ActionType -> Lude.Maybe ActionTypeSettings) (\s a -> s {settings = a} :: ActionType)
 {-# DEPRECATED atSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
+-- | The details of the output artifact of the action, such as its commit ID.
+--
+-- /Note:/ Consider using 'outputArtifactDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atOutputArtifactDetails :: Lens.Lens' ActionType ArtifactDetails
+atOutputArtifactDetails = Lens.lens (outputArtifactDetails :: ActionType -> ArtifactDetails) (\s a -> s {outputArtifactDetails = a} :: ActionType)
+{-# DEPRECATED atOutputArtifactDetails "Use generic-lens or generic-optics with 'outputArtifactDetails' instead." #-}
+
 -- | The configuration properties for the action type.
 --
 -- /Note:/ Consider using 'actionConfigurationProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atActionConfigurationProperties :: Lens.Lens' ActionType (Lude.Maybe [ActionConfigurationProperty])
 atActionConfigurationProperties = Lens.lens (actionConfigurationProperties :: ActionType -> Lude.Maybe [ActionConfigurationProperty]) (\s a -> s {actionConfigurationProperties = a} :: ActionType)
 {-# DEPRECATED atActionConfigurationProperties "Use generic-lens or generic-optics with 'actionConfigurationProperties' instead." #-}
-
--- | Represents information about an action type.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atId :: Lens.Lens' ActionType ActionTypeId
-atId = Lens.lens (id :: ActionType -> ActionTypeId) (\s a -> s {id = a} :: ActionType)
-{-# DEPRECATED atId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The details of the input artifact for the action, such as its commit ID.
 --
@@ -105,12 +102,12 @@ atInputArtifactDetails :: Lens.Lens' ActionType ArtifactDetails
 atInputArtifactDetails = Lens.lens (inputArtifactDetails :: ActionType -> ArtifactDetails) (\s a -> s {inputArtifactDetails = a} :: ActionType)
 {-# DEPRECATED atInputArtifactDetails "Use generic-lens or generic-optics with 'inputArtifactDetails' instead." #-}
 
--- | The details of the output artifact of the action, such as its commit ID.
+-- | Represents information about an action type.
 --
--- /Note:/ Consider using 'outputArtifactDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atOutputArtifactDetails :: Lens.Lens' ActionType ArtifactDetails
-atOutputArtifactDetails = Lens.lens (outputArtifactDetails :: ActionType -> ArtifactDetails) (\s a -> s {outputArtifactDetails = a} :: ActionType)
-{-# DEPRECATED atOutputArtifactDetails "Use generic-lens or generic-optics with 'outputArtifactDetails' instead." #-}
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atId :: Lens.Lens' ActionType ActionTypeId
+atId = Lens.lens (id :: ActionType -> ActionTypeId) (\s a -> s {id = a} :: ActionType)
+{-# DEPRECATED atId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.FromJSON ActionType where
   parseJSON =
@@ -119,8 +116,8 @@ instance Lude.FromJSON ActionType where
       ( \x ->
           ActionType'
             Lude.<$> (x Lude..:? "settings")
-            Lude.<*> (x Lude..:? "actionConfigurationProperties" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "id")
-            Lude.<*> (x Lude..: "inputArtifactDetails")
             Lude.<*> (x Lude..: "outputArtifactDetails")
+            Lude.<*> (x Lude..:? "actionConfigurationProperties" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "inputArtifactDetails")
+            Lude.<*> (x Lude..: "id")
       )

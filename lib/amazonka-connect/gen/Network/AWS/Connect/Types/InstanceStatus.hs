@@ -13,9 +13,9 @@
 module Network.AWS.Connect.Types.InstanceStatus
   ( InstanceStatus
       ( InstanceStatus',
+        CreationInProgress,
         Active,
-        CreationFailed,
-        CreationInProgress
+        CreationFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype InstanceStatus = InstanceStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern CreationInProgress :: InstanceStatus
+pattern CreationInProgress = InstanceStatus' "CREATION_IN_PROGRESS"
+
 pattern Active :: InstanceStatus
 pattern Active = InstanceStatus' "ACTIVE"
 
 pattern CreationFailed :: InstanceStatus
 pattern CreationFailed = InstanceStatus' "CREATION_FAILED"
 
-pattern CreationInProgress :: InstanceStatus
-pattern CreationInProgress = InstanceStatus' "CREATION_IN_PROGRESS"
-
 {-# COMPLETE
+  CreationInProgress,
   Active,
   CreationFailed,
-  CreationInProgress,
   InstanceStatus'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.IoTAnalytics.Types.DatasetActionType
   ( DatasetActionType
       ( DatasetActionType',
-        Container,
-        Query
+        Query,
+        Container
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DatasetActionType = DatasetActionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Container :: DatasetActionType
-pattern Container = DatasetActionType' "CONTAINER"
-
 pattern Query :: DatasetActionType
 pattern Query = DatasetActionType' "QUERY"
 
+pattern Container :: DatasetActionType
+pattern Container = DatasetActionType' "CONTAINER"
+
 {-# COMPLETE
-  Container,
   Query,
+  Container,
   DatasetActionType'
   #-}

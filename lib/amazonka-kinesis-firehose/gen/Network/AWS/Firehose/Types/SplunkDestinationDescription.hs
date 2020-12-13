@@ -42,47 +42,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSplunkDestinationDescription' smart constructor.
 data SplunkDestinationDescription = SplunkDestinationDescription'
-  { s3BackupMode ::
-      Lude.Maybe SplunkS3BackupMode,
+  { -- | Defines how documents should be delivered to Amazon S3. When set to @FailedDocumentsOnly@ , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to @AllDocuments@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. Default value is @FailedDocumentsOnly@ .
+    s3BackupMode :: Lude.Maybe SplunkS3BackupMode,
+    -- | A GUID you obtain from your Splunk cluster when you create a new HEC endpoint.
     hECToken :: Lude.Maybe Lude.Text,
-    hECEndpointType ::
-      Lude.Maybe HECEndpointType,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe
-        CloudWatchLoggingOptions,
-    hECAcknowledgmentTimeoutInSeconds ::
-      Lude.Maybe Lude.Natural,
-    s3DestinationDescription ::
-      Lude.Maybe
-        S3DestinationDescription,
-    hECEndpoint ::
-      Lude.Maybe Lude.Text,
-    retryOptions ::
-      Lude.Maybe SplunkRetryOptions,
-    processingConfiguration ::
-      Lude.Maybe
-        ProcessingConfiguration
+    -- | This type can be either "Raw" or "Event."
+    hECEndpointType :: Lude.Maybe HECEndpointType,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    -- | The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
+    hECAcknowledgmentTimeoutInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The Amazon S3 destination.>
+    s3DestinationDescription :: Lude.Maybe S3DestinationDescription,
+    -- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
+    hECEndpoint :: Lude.Maybe Lude.Text,
+    -- | The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn't receive an acknowledgment of receipt from Splunk.
+    retryOptions :: Lude.Maybe SplunkRetryOptions,
+    -- | The data processing configuration.
+    processingConfiguration :: Lude.Maybe ProcessingConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SplunkDestinationDescription' with the minimum fields required to make a request.
 --
+-- * 's3BackupMode' - Defines how documents should be delivered to Amazon S3. When set to @FailedDocumentsOnly@ , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to @AllDocuments@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. Default value is @FailedDocumentsOnly@ .
+-- * 'hECToken' - A GUID you obtain from your Splunk cluster when you create a new HEC endpoint.
+-- * 'hECEndpointType' - This type can be either "Raw" or "Event."
 -- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
 -- * 'hECAcknowledgmentTimeoutInSeconds' - The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings.
--- * 'hECEndpoint' - The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
--- * 'hECEndpointType' - This type can be either "Raw" or "Event."
--- * 'hECToken' - A GUID you obtain from your Splunk cluster when you create a new HEC endpoint.
--- * 'processingConfiguration' - The data processing configuration.
--- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn't receive an acknowledgment of receipt from Splunk.
--- * 's3BackupMode' - Defines how documents should be delivered to Amazon S3. When set to @FailedDocumentsOnly@ , Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to @AllDocuments@ , Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. Default value is @FailedDocumentsOnly@ .
 -- * 's3DestinationDescription' - The Amazon S3 destination.>
+-- * 'hECEndpoint' - The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
+-- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn't receive an acknowledgment of receipt from Splunk.
+-- * 'processingConfiguration' - The data processing configuration.
 mkSplunkDestinationDescription ::
   SplunkDestinationDescription
 mkSplunkDestinationDescription =

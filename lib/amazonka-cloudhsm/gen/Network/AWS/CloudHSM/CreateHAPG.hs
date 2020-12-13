@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.CloudHSM.CreateHAPG
     mkCreateHAPGResponse,
 
     -- ** Response lenses
-    chapgrsHAPGARN,
-    chapgrsResponseStatus,
+    chrsHAPGARN,
+    chrsResponseStatus,
   )
 where
 
@@ -43,14 +44,11 @@ import qualified Network.AWS.Response as Res
 -- | Contains the inputs for the 'CreateHapgRequest' action.
 --
 -- /See:/ 'mkCreateHAPG' smart constructor.
-newtype CreateHAPG = CreateHAPG' {label :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype CreateHAPG = CreateHAPG'
+  { -- | The label of the new high-availability partition group.
+    label :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHAPG' with the minimum fields required to make a request.
@@ -104,17 +102,12 @@ instance Lude.ToQuery CreateHAPG where
 --
 -- /See:/ 'mkCreateHAPGResponse' smart constructor.
 data CreateHAPGResponse = CreateHAPGResponse'
-  { hapgARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the high-availability partition group.
+    hapgARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHAPGResponse' with the minimum fields required to make a request.
@@ -134,13 +127,13 @@ mkCreateHAPGResponse pResponseStatus_ =
 -- | The ARN of the high-availability partition group.
 --
 -- /Note:/ Consider using 'hapgARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chapgrsHAPGARN :: Lens.Lens' CreateHAPGResponse (Lude.Maybe Lude.Text)
-chapgrsHAPGARN = Lens.lens (hapgARN :: CreateHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {hapgARN = a} :: CreateHAPGResponse)
-{-# DEPRECATED chapgrsHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
+chrsHAPGARN :: Lens.Lens' CreateHAPGResponse (Lude.Maybe Lude.Text)
+chrsHAPGARN = Lens.lens (hapgARN :: CreateHAPGResponse -> Lude.Maybe Lude.Text) (\s a -> s {hapgARN = a} :: CreateHAPGResponse)
+{-# DEPRECATED chrsHAPGARN "Use generic-lens or generic-optics with 'hapgARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chapgrsResponseStatus :: Lens.Lens' CreateHAPGResponse Lude.Int
-chapgrsResponseStatus = Lens.lens (responseStatus :: CreateHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHAPGResponse)
-{-# DEPRECATED chapgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+chrsResponseStatus :: Lens.Lens' CreateHAPGResponse Lude.Int
+chrsResponseStatus = Lens.lens (responseStatus :: CreateHAPGResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHAPGResponse)
+{-# DEPRECATED chrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

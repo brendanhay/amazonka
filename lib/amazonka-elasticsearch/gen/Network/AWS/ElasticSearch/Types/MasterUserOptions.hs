@@ -30,9 +30,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMasterUserOptions' smart constructor.
 data MasterUserOptions = MasterUserOptions'
-  { masterUserPassword ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
+    masterUserPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
     masterUserName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | ARN for the master user (if IAM is enabled).
     masterUserARN :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -40,9 +42,9 @@ data MasterUserOptions = MasterUserOptions'
 
 -- | Creates a value of 'MasterUserOptions' with the minimum fields required to make a request.
 --
--- * 'masterUserARN' - ARN for the master user (if IAM is enabled).
--- * 'masterUserName' - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
 -- * 'masterUserPassword' - The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
+-- * 'masterUserName' - The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
+-- * 'masterUserARN' - ARN for the master user (if IAM is enabled).
 mkMasterUserOptions ::
   MasterUserOptions
 mkMasterUserOptions =

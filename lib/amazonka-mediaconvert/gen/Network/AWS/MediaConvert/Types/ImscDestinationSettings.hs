@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImscDestinationSettings' smart constructor.
 newtype ImscDestinationSettings = ImscDestinationSettings'
-  { stylePassthrough ::
-      Lude.Maybe ImscStylePassthrough
+  { -- | Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
+    stylePassthrough :: Lude.Maybe ImscStylePassthrough
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImscDestinationSettings' with the minimum fields required to make a request.

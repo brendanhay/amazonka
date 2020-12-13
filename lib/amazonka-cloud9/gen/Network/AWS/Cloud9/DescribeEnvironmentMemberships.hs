@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.Cloud9.DescribeEnvironmentMemberships
     mkDescribeEnvironmentMembershipsResponse,
 
     -- ** Response lenses
-    drsNextToken,
-    drsMemberships,
-    drsResponseStatus,
+    demsrsNextToken,
+    demsrsMemberships,
+    demsrsResponseStatus,
   )
 where
 
@@ -47,30 +48,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEnvironmentMemberships' smart constructor.
 data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
-  { userARN ::
-      Lude.Maybe Lude.Text,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    permissions ::
-      Lude.Maybe [Permissions],
-    environmentId ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+  { -- | The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.
+    userARN :: Lude.Maybe Lude.Text,
+    -- | During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The type of environment member permissions to get information about. Available values include:
+    --
+    --
+    --     * @owner@ : Owns the environment.
+    --
+    --
+    --     * @read-only@ : Has read-only access to the environment.
+    --
+    --
+    --     * @read-write@ : Has read-write access to the environment.
+    --
+    --
+    -- If no value is specified, information about all environment members are returned.
+    permissions :: Lude.Maybe [Permissions],
+    -- | The ID of the environment to get environment member information about.
+    environmentId :: Lude.Maybe Lude.Text,
+    -- | The maximum number of environment members to get information about.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentMemberships' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The ID of the environment to get environment member information about.
--- * 'maxResults' - The maximum number of environment members to get information about.
+-- * 'userARN' - The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.
 -- * 'nextToken' - During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'permissions' - The type of environment member permissions to get information about. Available values include:
 --
@@ -85,7 +91,8 @@ data DescribeEnvironmentMemberships = DescribeEnvironmentMemberships'
 --
 --
 -- If no value is specified, information about all environment members are returned.
--- * 'userARN' - The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.
+-- * 'environmentId' - The ID of the environment to get environment member information about.
+-- * 'maxResults' - The maximum number of environment members to get information about.
 mkDescribeEnvironmentMemberships ::
   DescribeEnvironmentMemberships
 mkDescribeEnvironmentMemberships =
@@ -146,12 +153,12 @@ dMaxResults = Lens.lens (maxResults :: DescribeEnvironmentMemberships -> Lude.Ma
 
 instance Page.AWSPager DescribeEnvironmentMemberships where
   page rq rs
-    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. drsMemberships) = Lude.Nothing
+    | Page.stop (rs Lens.^. demsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. demsrsMemberships) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dNextToken Lens..~ rs Lens.^. drsNextToken
+          Lude.& dNextToken Lens..~ rs Lens.^. demsrsNextToken
 
 instance Lude.AWSRequest DescribeEnvironmentMemberships where
   type
@@ -200,28 +207,20 @@ instance Lude.ToQuery DescribeEnvironmentMemberships where
 
 -- | /See:/ 'mkDescribeEnvironmentMembershipsResponse' smart constructor.
 data DescribeEnvironmentMembershipsResponse = DescribeEnvironmentMembershipsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    memberships ::
-      Lude.Maybe
-        [EnvironmentMember],
-    responseStatus ::
-      Lude.Int
+  { -- | If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the environment members for the environment.
+    memberships :: Lude.Maybe [EnvironmentMember],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentMembershipsResponse' with the minimum fields required to make a request.
 --
--- * 'memberships' - Information about the environment members for the environment.
 -- * 'nextToken' - If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
+-- * 'memberships' - Information about the environment members for the environment.
 -- * 'responseStatus' - The response status code.
 mkDescribeEnvironmentMembershipsResponse ::
   -- | 'responseStatus'
@@ -237,20 +236,20 @@ mkDescribeEnvironmentMembershipsResponse pResponseStatus_ =
 -- | If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsNextToken :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Lude.Maybe Lude.Text)
-drsNextToken = Lens.lens (nextToken :: DescribeEnvironmentMembershipsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEnvironmentMembershipsResponse)
-{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+demsrsNextToken :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Lude.Maybe Lude.Text)
+demsrsNextToken = Lens.lens (nextToken :: DescribeEnvironmentMembershipsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEnvironmentMembershipsResponse)
+{-# DEPRECATED demsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the environment members for the environment.
 --
 -- /Note:/ Consider using 'memberships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsMemberships :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Lude.Maybe [EnvironmentMember])
-drsMemberships = Lens.lens (memberships :: DescribeEnvironmentMembershipsResponse -> Lude.Maybe [EnvironmentMember]) (\s a -> s {memberships = a} :: DescribeEnvironmentMembershipsResponse)
-{-# DEPRECATED drsMemberships "Use generic-lens or generic-optics with 'memberships' instead." #-}
+demsrsMemberships :: Lens.Lens' DescribeEnvironmentMembershipsResponse (Lude.Maybe [EnvironmentMember])
+demsrsMemberships = Lens.lens (memberships :: DescribeEnvironmentMembershipsResponse -> Lude.Maybe [EnvironmentMember]) (\s a -> s {memberships = a} :: DescribeEnvironmentMembershipsResponse)
+{-# DEPRECATED demsrsMemberships "Use generic-lens or generic-optics with 'memberships' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeEnvironmentMembershipsResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentMembershipsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentMembershipsResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+demsrsResponseStatus :: Lens.Lens' DescribeEnvironmentMembershipsResponse Lude.Int
+demsrsResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentMembershipsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentMembershipsResponse)
+{-# DEPRECATED demsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

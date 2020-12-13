@@ -44,45 +44,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceDetails' smart constructor.
 data InstanceDetails = InstanceDetails'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the EC2 instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The platform of the EC2 instance.
     platform :: Lude.Maybe Lude.Text,
+    -- | The launch time of the EC2 instance.
     launchTime :: Lude.Maybe Lude.Text,
+    -- | The elastic network interface information of the EC2 instance.
     networkInterfaces :: Lude.Maybe [NetworkInterface],
+    -- | The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to AWS Outposts instances.
     outpostARN :: Lude.Maybe Lude.Text,
+    -- | The type of the EC2 instance.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of the EC2 instance.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The profile information of the EC2 instance.
     iamInstanceProfile :: Lude.Maybe IAMInstanceProfile,
+    -- | The image ID of the EC2 instance.
     imageId :: Lude.Maybe Lude.Text,
+    -- | The product code of the EC2 instance.
     productCodes :: Lude.Maybe [ProductCode],
+    -- | The state of the EC2 instance.
     instanceState :: Lude.Maybe Lude.Text,
+    -- | The tags of the EC2 instance.
     tags :: Lude.Maybe [Tag],
+    -- | The image description of the EC2 instance.
     imageDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceDetails' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone of the EC2 instance.
--- * 'iamInstanceProfile' - The profile information of the EC2 instance.
--- * 'imageDescription' - The image description of the EC2 instance.
--- * 'imageId' - The image ID of the EC2 instance.
 -- * 'instanceId' - The ID of the EC2 instance.
--- * 'instanceState' - The state of the EC2 instance.
--- * 'instanceType' - The type of the EC2 instance.
+-- * 'platform' - The platform of the EC2 instance.
 -- * 'launchTime' - The launch time of the EC2 instance.
 -- * 'networkInterfaces' - The elastic network interface information of the EC2 instance.
 -- * 'outpostARN' - The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to AWS Outposts instances.
--- * 'platform' - The platform of the EC2 instance.
+-- * 'instanceType' - The type of the EC2 instance.
+-- * 'availabilityZone' - The Availability Zone of the EC2 instance.
+-- * 'iamInstanceProfile' - The profile information of the EC2 instance.
+-- * 'imageId' - The image ID of the EC2 instance.
 -- * 'productCodes' - The product code of the EC2 instance.
+-- * 'instanceState' - The state of the EC2 instance.
 -- * 'tags' - The tags of the EC2 instance.
+-- * 'imageDescription' - The image description of the EC2 instance.
 mkInstanceDetails ::
   InstanceDetails
 mkInstanceDetails =

@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
   ( DedicatedTenancySupportResultEnum
       ( DedicatedTenancySupportResultEnum',
-        DTSREDisabled,
-        DTSREEnabled
+        DTSREEnabled,
+        DTSREDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DedicatedTenancySupportResultEnum = DedicatedTenancySupportResultEnum' L
       Lude.ToHeader
     )
 
-pattern DTSREDisabled :: DedicatedTenancySupportResultEnum
-pattern DTSREDisabled = DedicatedTenancySupportResultEnum' "DISABLED"
-
 pattern DTSREEnabled :: DedicatedTenancySupportResultEnum
 pattern DTSREEnabled = DedicatedTenancySupportResultEnum' "ENABLED"
 
+pattern DTSREDisabled :: DedicatedTenancySupportResultEnum
+pattern DTSREDisabled = DedicatedTenancySupportResultEnum' "DISABLED"
+
 {-# COMPLETE
-  DTSREDisabled,
   DTSREEnabled,
+  DTSREDisabled,
   DedicatedTenancySupportResultEnum'
   #-}

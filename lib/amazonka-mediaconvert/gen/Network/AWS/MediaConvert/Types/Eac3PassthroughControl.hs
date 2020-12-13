@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Eac3PassthroughControl
   ( Eac3PassthroughControl
       ( Eac3PassthroughControl',
-        NoPassthrough,
-        WhenPossible
+        WhenPossible,
+        NoPassthrough
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Eac3PassthroughControl = Eac3PassthroughControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern NoPassthrough :: Eac3PassthroughControl
-pattern NoPassthrough = Eac3PassthroughControl' "NO_PASSTHROUGH"
-
 pattern WhenPossible :: Eac3PassthroughControl
 pattern WhenPossible = Eac3PassthroughControl' "WHEN_POSSIBLE"
 
+pattern NoPassthrough :: Eac3PassthroughControl
+pattern NoPassthrough = Eac3PassthroughControl' "NO_PASSTHROUGH"
+
 {-# COMPLETE
-  NoPassthrough,
   WhenPossible,
+  NoPassthrough,
   Eac3PassthroughControl'
   #-}

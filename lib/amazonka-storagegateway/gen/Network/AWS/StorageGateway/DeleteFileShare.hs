@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.StorageGateway.DeleteFileShare
     mkDeleteFileShare,
 
     -- ** Request lenses
-    dfsForceDelete,
     dfsFileShareARN,
+    dfsForceDelete,
 
     -- * Destructuring the response
     DeleteFileShareResponse (..),
@@ -42,17 +43,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDeleteFileShare' smart constructor.
 data DeleteFileShare = DeleteFileShare'
-  { forceDelete ::
-      Lude.Maybe Lude.Bool,
-    fileShareARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the file share to be deleted.
+    fileShareARN :: Lude.Text,
+    -- | If this value is set to @true@ , the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the @FORCE_DELETING@ status.
+    --
+    -- Valid Values: @true@ | @false@
+    forceDelete :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileShare' with the minimum fields required to make a request.
@@ -67,9 +65,16 @@ mkDeleteFileShare ::
   DeleteFileShare
 mkDeleteFileShare pFileShareARN_ =
   DeleteFileShare'
-    { forceDelete = Lude.Nothing,
-      fileShareARN = pFileShareARN_
+    { fileShareARN = pFileShareARN_,
+      forceDelete = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the file share to be deleted.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfsFileShareARN :: Lens.Lens' DeleteFileShare Lude.Text
+dfsFileShareARN = Lens.lens (fileShareARN :: DeleteFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: DeleteFileShare)
+{-# DEPRECATED dfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
 -- | If this value is set to @true@ , the operation deletes a file share immediately and aborts all data uploads to AWS. Otherwise, the file share is not deleted until all data is uploaded to AWS. This process aborts the data upload process, and the file share enters the @FORCE_DELETING@ status.
 --
@@ -79,13 +84,6 @@ mkDeleteFileShare pFileShareARN_ =
 dfsForceDelete :: Lens.Lens' DeleteFileShare (Lude.Maybe Lude.Bool)
 dfsForceDelete = Lens.lens (forceDelete :: DeleteFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {forceDelete = a} :: DeleteFileShare)
 {-# DEPRECATED dfsForceDelete "Use generic-lens or generic-optics with 'forceDelete' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the file share to be deleted.
---
--- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsFileShareARN :: Lens.Lens' DeleteFileShare Lude.Text
-dfsFileShareARN = Lens.lens (fileShareARN :: DeleteFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: DeleteFileShare)
-{-# DEPRECATED dfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
 instance Lude.AWSRequest DeleteFileShare where
   type Rs DeleteFileShare = DeleteFileShareResponse
@@ -112,8 +110,8 @@ instance Lude.ToJSON DeleteFileShare where
   toJSON DeleteFileShare' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ForceDelete" Lude..=) Lude.<$> forceDelete,
-            Lude.Just ("FileShareARN" Lude..= fileShareARN)
+          [ Lude.Just ("FileShareARN" Lude..= fileShareARN),
+            ("ForceDelete" Lude..=) Lude.<$> forceDelete
           ]
       )
 
@@ -127,17 +125,12 @@ instance Lude.ToQuery DeleteFileShare where
 --
 -- /See:/ 'mkDeleteFileShareResponse' smart constructor.
 data DeleteFileShareResponse = DeleteFileShareResponse'
-  { fileShareARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the deleted file share.
+    fileShareARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFileShareResponse' with the minimum fields required to make a request.

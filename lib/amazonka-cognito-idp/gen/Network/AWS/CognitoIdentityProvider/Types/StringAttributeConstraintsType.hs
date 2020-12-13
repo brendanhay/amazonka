@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStringAttributeConstraintsType' smart constructor.
 data StringAttributeConstraintsType = StringAttributeConstraintsType'
-  { maxLength ::
-      Lude.Maybe Lude.Text,
-    minLength ::
-      Lude.Maybe Lude.Text
+  { -- | The maximum length.
+    maxLength :: Lude.Maybe Lude.Text,
+    -- | The minimum length.
+    minLength :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StringAttributeConstraintsType' with the minimum fields required to make a request.

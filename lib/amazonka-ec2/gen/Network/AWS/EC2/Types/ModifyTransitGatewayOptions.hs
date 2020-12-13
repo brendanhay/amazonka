@@ -39,42 +39,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModifyTransitGatewayOptions' smart constructor.
 data ModifyTransitGatewayOptions = ModifyTransitGatewayOptions'
-  { vpnEcmpSupport ::
-      Lude.Maybe VPNEcmpSupportValue,
-    autoAcceptSharedAttachments ::
-      Lude.Maybe
-        AutoAcceptSharedAttachmentsValue,
-    propagationDefaultRouteTableId ::
-      Lude.Maybe Lude.Text,
-    defaultRouteTableAssociation ::
-      Lude.Maybe
-        DefaultRouteTableAssociationValue,
-    associationDefaultRouteTableId ::
-      Lude.Maybe Lude.Text,
-    defaultRouteTablePropagation ::
-      Lude.Maybe
-        DefaultRouteTablePropagationValue,
-    dnsSupport ::
-      Lude.Maybe DNSSupportValue
+  { -- | Enable or disable Equal Cost Multipath Protocol support.
+    vpnEcmpSupport :: Lude.Maybe VPNEcmpSupportValue,
+    -- | Enable or disable automatic acceptance of attachment requests.
+    autoAcceptSharedAttachments :: Lude.Maybe AutoAcceptSharedAttachmentsValue,
+    -- | The ID of the default propagation route table.
+    propagationDefaultRouteTableId :: Lude.Maybe Lude.Text,
+    -- | Enable or disable automatic association with the default association route table.
+    defaultRouteTableAssociation :: Lude.Maybe DefaultRouteTableAssociationValue,
+    -- | The ID of the default association route table.
+    associationDefaultRouteTableId :: Lude.Maybe Lude.Text,
+    -- | Enable or disable automatic propagation of routes to the default propagation route table.
+    defaultRouteTablePropagation :: Lude.Maybe DefaultRouteTablePropagationValue,
+    -- | Enable or disable DNS support.
+    dnsSupport :: Lude.Maybe DNSSupportValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyTransitGatewayOptions' with the minimum fields required to make a request.
 --
--- * 'associationDefaultRouteTableId' - The ID of the default association route table.
+-- * 'vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support.
 -- * 'autoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests.
+-- * 'propagationDefaultRouteTableId' - The ID of the default propagation route table.
 -- * 'defaultRouteTableAssociation' - Enable or disable automatic association with the default association route table.
+-- * 'associationDefaultRouteTableId' - The ID of the default association route table.
 -- * 'defaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default propagation route table.
 -- * 'dnsSupport' - Enable or disable DNS support.
--- * 'propagationDefaultRouteTableId' - The ID of the default propagation route table.
--- * 'vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support.
 mkModifyTransitGatewayOptions ::
   ModifyTransitGatewayOptions
 mkModifyTransitGatewayOptions =

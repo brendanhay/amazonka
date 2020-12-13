@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResolvedArtifact' smart constructor.
 data ResolvedArtifact = ResolvedArtifact'
-  { location ::
-      Lude.Maybe Lude.Text,
+  { -- | The location of the artifact.
+    location :: Lude.Maybe Lude.Text,
+    -- | The identifier of the artifact.
     identifier :: Lude.Maybe Lude.Text,
+    -- | Specifies the type of artifact.
     type' :: Lude.Maybe ArtifactsType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolvedArtifact' with the minimum fields required to make a request.
 --
--- * 'identifier' - The identifier of the artifact.
 -- * 'location' - The location of the artifact.
+-- * 'identifier' - The identifier of the artifact.
 -- * 'type'' - Specifies the type of artifact.
 mkResolvedArtifact ::
   ResolvedArtifact

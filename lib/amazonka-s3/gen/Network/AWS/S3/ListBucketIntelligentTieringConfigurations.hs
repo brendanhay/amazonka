@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,25 +57,18 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListBucketIntelligentTieringConfigurations' smart constructor.
 data ListBucketIntelligentTieringConfigurations = ListBucketIntelligentTieringConfigurations'
-  { continuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    bucket ::
-      BucketName
+  { -- | The ContinuationToken that represents a placeholder from where this request should begin.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
+    bucket :: BucketName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketIntelligentTieringConfigurations' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
 -- * 'continuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
+-- * 'bucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
 mkListBucketIntelligentTieringConfigurations ::
   -- | 'bucket'
   BucketName ->
@@ -132,39 +126,26 @@ instance Lude.ToQuery ListBucketIntelligentTieringConfigurations where
 
 -- | /See:/ 'mkListBucketIntelligentTieringConfigurationsResponse' smart constructor.
 data ListBucketIntelligentTieringConfigurationsResponse = ListBucketIntelligentTieringConfigurationsResponse'
-  { intelligentTieringConfigurationList ::
-      Lude.Maybe
-        [IntelligentTieringConfiguration],
-    continuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    nextContinuationToken ::
-      Lude.Maybe
-        Lude.Text,
-    isTruncated ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of S3 Intelligent-Tiering configurations for a bucket.
+    intelligentTieringConfigurationList :: Lude.Maybe [IntelligentTieringConfiguration],
+    -- | The ContinuationToken that represents a placeholder from where this request should begin.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The marker used to continue this inventory configuration listing. Use the @NextContinuationToken@ from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
+    nextContinuationToken :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
+    isTruncated :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketIntelligentTieringConfigurationsResponse' with the minimum fields required to make a request.
 --
--- * 'continuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
 -- * 'intelligentTieringConfigurationList' - The list of S3 Intelligent-Tiering configurations for a bucket.
--- * 'isTruncated' - Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
+-- * 'continuationToken' - The ContinuationToken that represents a placeholder from where this request should begin.
 -- * 'nextContinuationToken' - The marker used to continue this inventory configuration listing. Use the @NextContinuationToken@ from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.
+-- * 'isTruncated' - Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.
 -- * 'responseStatus' - The response status code.
 mkListBucketIntelligentTieringConfigurationsResponse ::
   -- | 'responseStatus'

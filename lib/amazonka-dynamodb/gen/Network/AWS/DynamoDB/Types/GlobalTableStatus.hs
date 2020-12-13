@@ -13,8 +13,8 @@
 module Network.AWS.DynamoDB.Types.GlobalTableStatus
   ( GlobalTableStatus
       ( GlobalTableStatus',
-        GTSActive,
         GTSCreating,
+        GTSActive,
         GTSDeleting,
         GTSUpdating
       ),
@@ -47,11 +47,11 @@ newtype GlobalTableStatus = GlobalTableStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern GTSActive :: GlobalTableStatus
-pattern GTSActive = GlobalTableStatus' "ACTIVE"
-
 pattern GTSCreating :: GlobalTableStatus
 pattern GTSCreating = GlobalTableStatus' "CREATING"
+
+pattern GTSActive :: GlobalTableStatus
+pattern GTSActive = GlobalTableStatus' "ACTIVE"
 
 pattern GTSDeleting :: GlobalTableStatus
 pattern GTSDeleting = GlobalTableStatus' "DELETING"
@@ -60,8 +60,8 @@ pattern GTSUpdating :: GlobalTableStatus
 pattern GTSUpdating = GlobalTableStatus' "UPDATING"
 
 {-# COMPLETE
-  GTSActive,
   GTSCreating,
+  GTSActive,
   GTSDeleting,
   GTSUpdating,
   GlobalTableStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteQueryDefinition' smart constructor.
 newtype DeleteQueryDefinition = DeleteQueryDefinition'
-  { queryDefinitionId ::
-      Lude.Text
+  { -- | The ID of the query definition that you want to delete. You can use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions> to retrieve the IDs of your saved query definitions.
+    queryDefinitionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueryDefinition' with the minimum fields required to make a request.
@@ -107,23 +102,18 @@ instance Lude.ToQuery DeleteQueryDefinition where
 
 -- | /See:/ 'mkDeleteQueryDefinitionResponse' smart constructor.
 data DeleteQueryDefinitionResponse = DeleteQueryDefinitionResponse'
-  { success ::
-      Lude.Maybe Lude.Bool,
+  { -- | A value of TRUE indicates that the operation succeeded. FALSE indicates that the operation failed.
+    success :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteQueryDefinitionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'success' - A value of TRUE indicates that the operation succeeded. FALSE indicates that the operation failed.
+-- * 'responseStatus' - The response status code.
 mkDeleteQueryDefinitionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

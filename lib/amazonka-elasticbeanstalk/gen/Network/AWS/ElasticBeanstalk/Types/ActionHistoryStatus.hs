@@ -13,9 +13,9 @@
 module Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
   ( ActionHistoryStatus
       ( ActionHistoryStatus',
-        AHSCompleted,
-        AHSFailed,
-        AHSUnknown
+        Completed,
+        Failed,
+        Unknown
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ActionHistoryStatus = ActionHistoryStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern AHSCompleted :: ActionHistoryStatus
-pattern AHSCompleted = ActionHistoryStatus' "Completed"
+pattern Completed :: ActionHistoryStatus
+pattern Completed = ActionHistoryStatus' "Completed"
 
-pattern AHSFailed :: ActionHistoryStatus
-pattern AHSFailed = ActionHistoryStatus' "Failed"
+pattern Failed :: ActionHistoryStatus
+pattern Failed = ActionHistoryStatus' "Failed"
 
-pattern AHSUnknown :: ActionHistoryStatus
-pattern AHSUnknown = ActionHistoryStatus' "Unknown"
+pattern Unknown :: ActionHistoryStatus
+pattern Unknown = ActionHistoryStatus' "Unknown"
 
 {-# COMPLETE
-  AHSCompleted,
-  AHSFailed,
-  AHSUnknown,
+  Completed,
+  Failed,
+  Unknown,
   ActionHistoryStatus'
   #-}

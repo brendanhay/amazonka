@@ -91,70 +91,220 @@ import Network.AWS.Redshift.Types.VPCSecurityGroupMembership
 --
 -- /See:/ 'mkCluster' smart constructor.
 data Cluster = Cluster'
-  { resizeInfo :: Lude.Maybe ResizeInfo,
+  { -- | Returns the following:
+    --
+    --
+    --     * AllowCancelResize: a boolean value indicating if the resize operation can be cancelled.
+    --
+    --
+    --     * ResizeType: Returns ClassicResize
+    resizeInfo :: Lude.Maybe ResizeInfo,
+    -- | A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
     restoreStatus :: Lude.Maybe RestoreStatus,
+    -- | The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
     manualSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+    --
+    -- If this option is @true@ , enhanced VPC routing is enabled.
+    -- Default: false
     enhancedVPCRouting :: Lude.Maybe Lude.Bool,
+    -- | A value that returns the destination region and retention period that are configured for cross-region snapshot copy.
     clusterSnapshotCopyStatus :: Lude.Maybe ClusterSnapshotCopyStatus,
+    -- | The availability status of the cluster for queries. Possible values are the following:
+    --
+    --
+    --     * Available - The cluster is available for queries.
+    --
+    --
+    --     * Unavailable - The cluster is not available for queries.
+    --
+    --
+    --     * Maintenance - The cluster is intermittently available for queries due to maintenance activities.
+    --
+    --
+    --     * Modifying - The cluster is intermittently available for queries due to changes that modify the cluster.
+    --
+    --
+    --     * Failed - The cluster failed and is not available for queries.
     clusterAvailabilityStatus :: Lude.Maybe Lude.Text,
+    -- | The specific revision number of the database in the cluster.
     clusterRevisionNumber :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the cluster snapshot schedule.
     snapshotScheduleIdentifier :: Lude.Maybe Lude.Text,
+    -- | A boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
     publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
     masterUsername :: Lude.Maybe Lude.Text,
+    -- | The name of the maintenance track for the cluster.
     maintenanceTrackName :: Lude.Maybe Lude.Text,
+    -- | The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled.
     expectedNextSnapshotScheduleTime :: Lude.Maybe Lude.DateTime,
+    -- | The number of nodes that you can resize the cluster to with the elastic resize method.
     elasticResizeNumberOfNodeOptions :: Lude.Maybe Lude.Text,
+    -- | The identifier of the VPC the cluster is in, if the cluster is in a VPC.
     vpcId :: Lude.Maybe Lude.Text,
-    clusterSecurityGroups ::
-      Lude.Maybe [ClusterSecurityGroupMembership],
+    -- | A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.
+    --
+    -- Cluster security groups are used when the cluster is not created in an Amazon Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
+    clusterSecurityGroups :: Lude.Maybe [ClusterSecurityGroupMembership],
+    -- | The number of days that automatic cluster snapshots are retained.
     automatedSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | The current state of the cluster snapshot schedule.
     snapshotScheduleState :: Lude.Maybe ScheduleState,
+    -- |
     dataTransferProgress :: Lude.Maybe DataTransferProgress,
+    -- | A boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
     encrypted :: Lude.Maybe Lude.Bool,
+    -- | The name of the subnet group that is associated with the cluster. This parameter is valid only when the cluster is in a VPC.
     clusterSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The status of next expected snapshot for clusters having a valid snapshot schedule and backups enabled. Possible values are the following:
+    --
+    --
+    --     * OnTrack - The next snapshot is expected to be taken on time.
+    --
+    --
+    --     * Pending - The next snapshot is pending to be taken.
     expectedNextSnapshotScheduleTimeStatus :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the cluster.
     clusterIdentifier :: Lude.Maybe Lude.Text,
-    deferredMaintenanceWindows ::
-      Lude.Maybe [DeferredMaintenanceWindow],
+    -- | Describes a group of @DeferredMaintenanceWindow@ objects.
+    deferredMaintenanceWindows :: Lude.Maybe [DeferredMaintenanceWindow],
+    -- | The number of compute nodes in the cluster.
     numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The public key for the cluster.
     clusterPublicKey :: Lude.Maybe Lude.Text,
+    -- | The weekly time range, in Universal Coordinated Time (UTC), during which system maintenance can occur.
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The status of a modify operation, if any, initiated for the cluster.
     modifyStatus :: Lude.Maybe Lude.Text,
+    -- | The namespace Amazon Resource Name (ARN) of the cluster.
     clusterNamespaceARN :: Lude.Maybe Lude.Text,
+    -- | The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The list of cluster parameter groups that are associated with this cluster. Each parameter group in the list is returned with its status.
     clusterParameterGroups :: Lude.Maybe [ClusterParameterGroupStatus],
+    -- | The name of the Availability Zone in which the cluster is located.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
     vpcSecurityGroups :: Lude.Maybe [VPCSecurityGroupMembership],
+    -- | A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command.
+    --
+    -- Values: active, applying
     hsmStatus :: Lude.Maybe HSMStatus,
+    -- | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
     iamRoles :: Lude.Maybe [ClusterIAMRole],
+    -- | Cluster operations that are waiting to be started.
     pendingActions :: Lude.Maybe [Lude.Text],
+    -- | The status of the elastic IP (EIP) address.
     elasticIPStatus :: Lude.Maybe ElasticIPStatus,
+    -- | The version ID of the Amazon Redshift engine that is running on the cluster.
     clusterVersion :: Lude.Maybe Lude.Text,
+    -- | The node type for the nodes in the cluster.
     nodeType :: Lude.Maybe Lude.Text,
+    -- | The date and time in UTC when system maintenance can begin.
     nextMaintenanceWindowStartTime :: Lude.Maybe Lude.DateTime,
+    -- | The date and time that the cluster was created.
     clusterCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | The connection endpoint.
     endpoint :: Lude.Maybe Endpoint,
+    -- | A boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
     allowVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The current state of the cluster. Possible values are the following:
+    --
+    --
+    --     * @available@
+    --
+    --
+    --     * @available, prep-for-resize@
+    --
+    --
+    --     * @available, resize-cleanup@
+    --
+    --
+    --     * @cancelling-resize@
+    --
+    --
+    --     * @creating@
+    --
+    --
+    --     * @deleting@
+    --
+    --
+    --     * @final-snapshot@
+    --
+    --
+    --     * @hardware-failure@
+    --
+    --
+    --     * @incompatible-hsm@
+    --
+    --
+    --     * @incompatible-network@
+    --
+    --
+    --     * @incompatible-parameters@
+    --
+    --
+    --     * @incompatible-restore@
+    --
+    --
+    --     * @modifying@
+    --
+    --
+    --     * @paused@
+    --
+    --
+    --     * @rebooting@
+    --
+    --
+    --     * @renaming@
+    --
+    --
+    --     * @resizing@
+    --
+    --
+    --     * @rotating-keys@
+    --
+    --
+    --     * @storage-full@
+    --
+    --
+    --     * @updating-hsm@
     clusterStatus :: Lude.Maybe Lude.Text,
+    -- | A value that, if present, indicates that changes to the cluster are pending. Specific pending changes are identified by subelements.
     pendingModifiedValues :: Lude.Maybe PendingModifiedValues,
+    -- | The list of tags for the cluster.
     tags :: Lude.Maybe [Tag],
+    -- | The nodes in the cluster.
     clusterNodes :: Lude.Maybe [ClusterNode],
+    -- | The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named @dev@ dev was created by default.
     dbName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- * 'allowVersionUpgrade' - A boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
--- * 'automatedSnapshotRetentionPeriod' - The number of days that automatic cluster snapshots are retained.
--- * 'availabilityZone' - The name of the Availability Zone in which the cluster is located.
+-- * 'resizeInfo' - Returns the following:
+--
+--
+--     * AllowCancelResize: a boolean value indicating if the resize operation can be cancelled.
+--
+--
+--     * ResizeType: Returns ClassicResize
+--
+--
+-- * 'restoreStatus' - A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
+-- * 'manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+--
+-- If this option is @true@ , enhanced VPC routing is enabled.
+-- Default: false
+-- * 'clusterSnapshotCopyStatus' - A value that returns the destination region and retention period that are configured for cross-region snapshot copy.
 -- * 'clusterAvailabilityStatus' - The availability status of the cluster for queries. Possible values are the following:
 --
 --
@@ -173,17 +323,54 @@ data Cluster = Cluster'
 --     * Failed - The cluster failed and is not available for queries.
 --
 --
--- * 'clusterCreateTime' - The date and time that the cluster was created.
--- * 'clusterIdentifier' - The unique identifier of the cluster.
--- * 'clusterNamespaceARN' - The namespace Amazon Resource Name (ARN) of the cluster.
--- * 'clusterNodes' - The nodes in the cluster.
--- * 'clusterParameterGroups' - The list of cluster parameter groups that are associated with this cluster. Each parameter group in the list is returned with its status.
--- * 'clusterPublicKey' - The public key for the cluster.
 -- * 'clusterRevisionNumber' - The specific revision number of the database in the cluster.
+-- * 'snapshotScheduleIdentifier' - A unique identifier for the cluster snapshot schedule.
+-- * 'publiclyAccessible' - A boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
+-- * 'masterUsername' - The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
+-- * 'maintenanceTrackName' - The name of the maintenance track for the cluster.
+-- * 'expectedNextSnapshotScheduleTime' - The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled.
+-- * 'elasticResizeNumberOfNodeOptions' - The number of nodes that you can resize the cluster to with the elastic resize method.
+-- * 'vpcId' - The identifier of the VPC the cluster is in, if the cluster is in a VPC.
 -- * 'clusterSecurityGroups' - A list of cluster security group that are associated with the cluster. Each security group is represented by an element that contains @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@ subelements.
 --
 -- Cluster security groups are used when the cluster is not created in an Amazon Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups, which are listed by the __VpcSecurityGroups__ parameter.
--- * 'clusterSnapshotCopyStatus' - A value that returns the destination region and retention period that are configured for cross-region snapshot copy.
+-- * 'automatedSnapshotRetentionPeriod' - The number of days that automatic cluster snapshots are retained.
+-- * 'snapshotScheduleState' - The current state of the cluster snapshot schedule.
+-- * 'dataTransferProgress' -
+-- * 'encrypted' - A boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
+-- * 'clusterSubnetGroupName' - The name of the subnet group that is associated with the cluster. This parameter is valid only when the cluster is in a VPC.
+-- * 'expectedNextSnapshotScheduleTimeStatus' - The status of next expected snapshot for clusters having a valid snapshot schedule and backups enabled. Possible values are the following:
+--
+--
+--     * OnTrack - The next snapshot is expected to be taken on time.
+--
+--
+--     * Pending - The next snapshot is pending to be taken.
+--
+--
+-- * 'clusterIdentifier' - The unique identifier of the cluster.
+-- * 'deferredMaintenanceWindows' - Describes a group of @DeferredMaintenanceWindow@ objects.
+-- * 'numberOfNodes' - The number of compute nodes in the cluster.
+-- * 'clusterPublicKey' - The public key for the cluster.
+-- * 'preferredMaintenanceWindow' - The weekly time range, in Universal Coordinated Time (UTC), during which system maintenance can occur.
+-- * 'modifyStatus' - The status of a modify operation, if any, initiated for the cluster.
+-- * 'clusterNamespaceARN' - The namespace Amazon Resource Name (ARN) of the cluster.
+-- * 'kmsKeyId' - The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
+-- * 'clusterParameterGroups' - The list of cluster parameter groups that are associated with this cluster. Each parameter group in the list is returned with its status.
+-- * 'availabilityZone' - The name of the Availability Zone in which the cluster is located.
+-- * 'vpcSecurityGroups' - A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
+-- * 'hsmStatus' - A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command.
+--
+-- Values: active, applying
+-- * 'iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
+-- * 'pendingActions' - Cluster operations that are waiting to be started.
+-- * 'elasticIPStatus' - The status of the elastic IP (EIP) address.
+-- * 'clusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
+-- * 'nodeType' - The node type for the nodes in the cluster.
+-- * 'nextMaintenanceWindowStartTime' - The date and time in UTC when system maintenance can begin.
+-- * 'clusterCreateTime' - The date and time that the cluster was created.
+-- * 'endpoint' - The connection endpoint.
+-- * 'allowVersionUpgrade' - A boolean value that, if @true@ , indicates that major version upgrades will be applied automatically to the cluster during the maintenance window.
 -- * 'clusterStatus' - The current state of the cluster. Possible values are the following:
 --
 --
@@ -247,62 +434,10 @@ data Cluster = Cluster'
 --     * @updating-hsm@
 --
 --
--- * 'clusterSubnetGroupName' - The name of the subnet group that is associated with the cluster. This parameter is valid only when the cluster is in a VPC.
--- * 'clusterVersion' - The version ID of the Amazon Redshift engine that is running on the cluster.
--- * 'dataTransferProgress' -
--- * 'dbName' - The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named @dev@ dev was created by default.
--- * 'deferredMaintenanceWindows' - Describes a group of @DeferredMaintenanceWindow@ objects.
--- * 'elasticIPStatus' - The status of the elastic IP (EIP) address.
--- * 'elasticResizeNumberOfNodeOptions' - The number of nodes that you can resize the cluster to with the elastic resize method.
--- * 'encrypted' - A boolean value that, if @true@ , indicates that data in the cluster is encrypted at rest.
--- * 'endpoint' - The connection endpoint.
--- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
---
--- If this option is @true@ , enhanced VPC routing is enabled.
--- Default: false
--- * 'expectedNextSnapshotScheduleTime' - The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled.
--- * 'expectedNextSnapshotScheduleTimeStatus' - The status of next expected snapshot for clusters having a valid snapshot schedule and backups enabled. Possible values are the following:
---
---
---     * OnTrack - The next snapshot is expected to be taken on time.
---
---
---     * Pending - The next snapshot is pending to be taken.
---
---
--- * 'hsmStatus' - A value that reports whether the Amazon Redshift cluster has finished applying any hardware security module (HSM) settings changes specified in a modify cluster command.
---
--- Values: active, applying
--- * 'iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services.
--- * 'kmsKeyId' - The AWS Key Management Service (AWS KMS) key ID of the encryption key used to encrypt data in the cluster.
--- * 'maintenanceTrackName' - The name of the maintenance track for the cluster.
--- * 'manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
---
--- The value must be either -1 or an integer between 1 and 3,653.
--- * 'masterUsername' - The master user name for the cluster. This name is used to connect to the database that is specified in the __DBName__ parameter.
--- * 'modifyStatus' - The status of a modify operation, if any, initiated for the cluster.
--- * 'nextMaintenanceWindowStartTime' - The date and time in UTC when system maintenance can begin.
--- * 'nodeType' - The node type for the nodes in the cluster.
--- * 'numberOfNodes' - The number of compute nodes in the cluster.
--- * 'pendingActions' - Cluster operations that are waiting to be started.
 -- * 'pendingModifiedValues' - A value that, if present, indicates that changes to the cluster are pending. Specific pending changes are identified by subelements.
--- * 'preferredMaintenanceWindow' - The weekly time range, in Universal Coordinated Time (UTC), during which system maintenance can occur.
--- * 'publiclyAccessible' - A boolean value that, if @true@ , indicates that the cluster can be accessed from a public network.
--- * 'resizeInfo' - Returns the following:
---
---
---     * AllowCancelResize: a boolean value indicating if the resize operation can be cancelled.
---
---
---     * ResizeType: Returns ClassicResize
---
---
--- * 'restoreStatus' - A value that describes the status of a cluster restore action. This parameter returns null if the cluster was not created by restoring a snapshot.
--- * 'snapshotScheduleIdentifier' - A unique identifier for the cluster snapshot schedule.
--- * 'snapshotScheduleState' - The current state of the cluster snapshot schedule.
 -- * 'tags' - The list of tags for the cluster.
--- * 'vpcId' - The identifier of the VPC the cluster is in, if the cluster is in a VPC.
--- * 'vpcSecurityGroups' - A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are associated with the cluster. This parameter is returned only if the cluster is in a VPC.
+-- * 'clusterNodes' - The nodes in the cluster.
+-- * 'dbName' - The name of the initial database that was created when the cluster was created. This same name is returned for the life of the cluster. If an initial database was not specified, a database named @dev@ dev was created by default.
 mkCluster ::
   Cluster
 mkCluster =

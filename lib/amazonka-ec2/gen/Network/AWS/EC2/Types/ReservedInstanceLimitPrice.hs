@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedInstanceLimitPrice' smart constructor.
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
-  { amount ::
-      Lude.Maybe Lude.Double,
-    currencyCode ::
-      Lude.Maybe CurrencyCodeValues
+  { -- | Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).
+    amount :: Lude.Maybe Lude.Double,
+    -- | The currency in which the @limitPrice@ amount is specified. At this time, the only supported currency is @USD@ .
+    currencyCode :: Lude.Maybe CurrencyCodeValues
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstanceLimitPrice' with the minimum fields required to make a request.

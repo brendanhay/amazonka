@@ -31,28 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansCoverageData' smart constructor.
 data SavingsPlansCoverageData = SavingsPlansCoverageData'
-  { onDemandCost ::
-      Lude.Maybe Lude.Text,
-    spendCoveredBySavingsPlans ::
-      Lude.Maybe Lude.Text,
-    coveragePercentage ::
-      Lude.Maybe Lude.Text,
+  { -- | The cost of your AWS usage at the public On-Demand rate.
+    onDemandCost :: Lude.Maybe Lude.Text,
+    -- | The amount of your AWS usage that is covered by a Savings Plans.
+    spendCoveredBySavingsPlans :: Lude.Maybe Lude.Text,
+    -- | The percentage of your existing Savings Plans covered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts).
+    coveragePercentage :: Lude.Maybe Lude.Text,
+    -- | The total cost of your AWS usage, regardless of your purchase option.
     totalCost :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansCoverageData' with the minimum fields required to make a request.
 --
--- * 'coveragePercentage' - The percentage of your existing Savings Plans covered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts).
 -- * 'onDemandCost' - The cost of your AWS usage at the public On-Demand rate.
 -- * 'spendCoveredBySavingsPlans' - The amount of your AWS usage that is covered by a Savings Plans.
+-- * 'coveragePercentage' - The percentage of your existing Savings Plans covered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts).
 -- * 'totalCost' - The total cost of your AWS usage, regardless of your purchase option.
 mkSavingsPlansCoverageData ::
   SavingsPlansCoverageData

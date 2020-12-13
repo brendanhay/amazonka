@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.DeleteUserPoolClient
     mkDeleteUserPoolClient,
 
     -- ** Request lenses
-    dupcUserPoolId,
     dupcClientId,
+    dupcUserPoolId,
 
     -- * Destructuring the response
     DeleteUserPoolClientResponse (..),
@@ -38,9 +39,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteUserPoolClient' smart constructor.
 data DeleteUserPoolClient = DeleteUserPoolClient'
-  { userPoolId ::
-      Lude.Text,
-    clientId :: Lude.Sensitive Lude.Text
+  { -- | The app client ID of the app associated with the user pool.
+    clientId :: Lude.Sensitive Lude.Text,
+    -- | The user pool ID for the user pool where you want to delete the client.
+    userPoolId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -50,23 +52,16 @@ data DeleteUserPoolClient = DeleteUserPoolClient'
 -- * 'clientId' - The app client ID of the app associated with the user pool.
 -- * 'userPoolId' - The user pool ID for the user pool where you want to delete the client.
 mkDeleteUserPoolClient ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'clientId'
   Lude.Sensitive Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   DeleteUserPoolClient
-mkDeleteUserPoolClient pUserPoolId_ pClientId_ =
+mkDeleteUserPoolClient pClientId_ pUserPoolId_ =
   DeleteUserPoolClient'
-    { userPoolId = pUserPoolId_,
-      clientId = pClientId_
+    { clientId = pClientId_,
+      userPoolId = pUserPoolId_
     }
-
--- | The user pool ID for the user pool where you want to delete the client.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupcUserPoolId :: Lens.Lens' DeleteUserPoolClient Lude.Text
-dupcUserPoolId = Lens.lens (userPoolId :: DeleteUserPoolClient -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteUserPoolClient)
-{-# DEPRECATED dupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The app client ID of the app associated with the user pool.
 --
@@ -74,6 +69,13 @@ dupcUserPoolId = Lens.lens (userPoolId :: DeleteUserPoolClient -> Lude.Text) (\s
 dupcClientId :: Lens.Lens' DeleteUserPoolClient (Lude.Sensitive Lude.Text)
 dupcClientId = Lens.lens (clientId :: DeleteUserPoolClient -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: DeleteUserPoolClient)
 {-# DEPRECATED dupcClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+-- | The user pool ID for the user pool where you want to delete the client.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupcUserPoolId :: Lens.Lens' DeleteUserPoolClient Lude.Text
+dupcUserPoolId = Lens.lens (userPoolId :: DeleteUserPoolClient -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteUserPoolClient)
+{-# DEPRECATED dupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest DeleteUserPoolClient where
   type Rs DeleteUserPoolClient = DeleteUserPoolClientResponse
@@ -97,8 +99,8 @@ instance Lude.ToJSON DeleteUserPoolClient where
   toJSON DeleteUserPoolClient' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("ClientId" Lude..= clientId)
+          [ Lude.Just ("ClientId" Lude..= clientId),
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
@@ -110,13 +112,7 @@ instance Lude.ToQuery DeleteUserPoolClient where
 
 -- | /See:/ 'mkDeleteUserPoolClientResponse' smart constructor.
 data DeleteUserPoolClientResponse = DeleteUserPoolClientResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPoolClientResponse' with the minimum fields required to make a request.

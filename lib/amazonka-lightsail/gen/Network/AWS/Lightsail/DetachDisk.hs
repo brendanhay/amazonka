@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.Lightsail.DetachDisk
     mkDetachDisk,
 
     -- ** Request lenses
-    ddDiskName,
+    dDiskName,
 
     -- * Destructuring the response
     DetachDiskResponse (..),
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachDisk' smart constructor.
-newtype DetachDisk = DetachDisk' {diskName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DetachDisk = DetachDisk'
+  { -- | The unique name of the disk you want to detach from your instance (e.g., @my-disk@ ).
+    diskName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachDisk' with the minimum fields required to make a request.
@@ -62,9 +60,9 @@ mkDetachDisk pDiskName_ = DetachDisk' {diskName = pDiskName_}
 -- | The unique name of the disk you want to detach from your instance (e.g., @my-disk@ ).
 --
 -- /Note:/ Consider using 'diskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDiskName :: Lens.Lens' DetachDisk Lude.Text
-ddDiskName = Lens.lens (diskName :: DetachDisk -> Lude.Text) (\s a -> s {diskName = a} :: DetachDisk)
-{-# DEPRECATED ddDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
+dDiskName :: Lens.Lens' DetachDisk Lude.Text
+dDiskName = Lens.lens (diskName :: DetachDisk -> Lude.Text) (\s a -> s {diskName = a} :: DetachDisk)
+{-# DEPRECATED dDiskName "Use generic-lens or generic-optics with 'diskName' instead." #-}
 
 instance Lude.AWSRequest DetachDisk where
   type Rs DetachDisk = DetachDiskResponse
@@ -101,17 +99,12 @@ instance Lude.ToQuery DetachDisk where
 
 -- | /See:/ 'mkDetachDiskResponse' smart constructor.
 data DetachDiskResponse = DetachDiskResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachDiskResponse' with the minimum fields required to make a request.

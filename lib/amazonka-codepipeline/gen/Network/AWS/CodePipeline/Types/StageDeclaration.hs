@@ -17,9 +17,9 @@ module Network.AWS.CodePipeline.Types.StageDeclaration
     mkStageDeclaration,
 
     -- * Lenses
+    sdActions,
     sdBlockers,
     sdName,
-    sdActions,
   )
 where
 
@@ -32,18 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStageDeclaration' smart constructor.
 data StageDeclaration = StageDeclaration'
-  { blockers ::
-      Lude.Maybe [BlockerDeclaration],
-    name :: Lude.Text,
-    actions :: [ActionDeclaration]
+  { -- | The actions included in a stage.
+    actions :: [ActionDeclaration],
+    -- | Reserved for future use.
+    blockers :: Lude.Maybe [BlockerDeclaration],
+    -- | The name of the stage.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StageDeclaration' with the minimum fields required to make a request.
@@ -57,10 +53,17 @@ mkStageDeclaration ::
   StageDeclaration
 mkStageDeclaration pName_ =
   StageDeclaration'
-    { blockers = Lude.Nothing,
-      name = pName_,
-      actions = Lude.mempty
+    { actions = Lude.mempty,
+      blockers = Lude.Nothing,
+      name = pName_
     }
+
+-- | The actions included in a stage.
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdActions :: Lens.Lens' StageDeclaration [ActionDeclaration]
+sdActions = Lens.lens (actions :: StageDeclaration -> [ActionDeclaration]) (\s a -> s {actions = a} :: StageDeclaration)
+{-# DEPRECATED sdActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | Reserved for future use.
 --
@@ -76,30 +79,23 @@ sdName :: Lens.Lens' StageDeclaration Lude.Text
 sdName = Lens.lens (name :: StageDeclaration -> Lude.Text) (\s a -> s {name = a} :: StageDeclaration)
 {-# DEPRECATED sdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The actions included in a stage.
---
--- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdActions :: Lens.Lens' StageDeclaration [ActionDeclaration]
-sdActions = Lens.lens (actions :: StageDeclaration -> [ActionDeclaration]) (\s a -> s {actions = a} :: StageDeclaration)
-{-# DEPRECATED sdActions "Use generic-lens or generic-optics with 'actions' instead." #-}
-
 instance Lude.FromJSON StageDeclaration where
   parseJSON =
     Lude.withObject
       "StageDeclaration"
       ( \x ->
           StageDeclaration'
-            Lude.<$> (x Lude..:? "blockers" Lude..!= Lude.mempty)
+            Lude.<$> (x Lude..:? "actions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "blockers" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..:? "actions" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON StageDeclaration where
   toJSON StageDeclaration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("blockers" Lude..=) Lude.<$> blockers,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("actions" Lude..= actions)
+          [ Lude.Just ("actions" Lude..= actions),
+            ("blockers" Lude..=) Lude.<$> blockers,
+            Lude.Just ("name" Lude..= name)
           ]
       )

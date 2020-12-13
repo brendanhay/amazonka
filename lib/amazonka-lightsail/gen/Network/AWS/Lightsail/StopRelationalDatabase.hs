@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.Lightsail.StopRelationalDatabase
     mkStopRelationalDatabaseResponse,
 
     -- ** Response lenses
-    storsOperations,
-    storsResponseStatus,
+    srsOperations,
+    srsResponseStatus,
   )
 where
 
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopRelationalDatabase' smart constructor.
 data StopRelationalDatabase = StopRelationalDatabase'
-  { relationalDatabaseSnapshotName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of your new database snapshot to be created before stopping your database.
+    relationalDatabaseSnapshotName :: Lude.Maybe Lude.Text,
+    -- | The name of your database to stop.
     relationalDatabaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopRelationalDatabase' with the minimum fields required to make a request.
 --
--- * 'relationalDatabaseName' - The name of your database to stop.
 -- * 'relationalDatabaseSnapshotName' - The name of your new database snapshot to be created before stopping your database.
+-- * 'relationalDatabaseName' - The name of your database to stop.
 mkStopRelationalDatabase ::
   -- | 'relationalDatabaseName'
   Lude.Text ->
@@ -125,17 +121,12 @@ instance Lude.ToQuery StopRelationalDatabase where
 
 -- | /See:/ 'mkStopRelationalDatabaseResponse' smart constructor.
 data StopRelationalDatabaseResponse = StopRelationalDatabaseResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopRelationalDatabaseResponse' with the minimum fields required to make a request.
@@ -155,13 +146,13 @@ mkStopRelationalDatabaseResponse pResponseStatus_ =
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-storsOperations :: Lens.Lens' StopRelationalDatabaseResponse (Lude.Maybe [Operation])
-storsOperations = Lens.lens (operations :: StopRelationalDatabaseResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StopRelationalDatabaseResponse)
-{-# DEPRECATED storsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+srsOperations :: Lens.Lens' StopRelationalDatabaseResponse (Lude.Maybe [Operation])
+srsOperations = Lens.lens (operations :: StopRelationalDatabaseResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StopRelationalDatabaseResponse)
+{-# DEPRECATED srsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-storsResponseStatus :: Lens.Lens' StopRelationalDatabaseResponse Lude.Int
-storsResponseStatus = Lens.lens (responseStatus :: StopRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopRelationalDatabaseResponse)
-{-# DEPRECATED storsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StopRelationalDatabaseResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StopRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopRelationalDatabaseResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

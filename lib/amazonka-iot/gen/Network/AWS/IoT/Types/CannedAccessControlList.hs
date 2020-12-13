@@ -13,14 +13,14 @@
 module Network.AWS.IoT.Types.CannedAccessControlList
   ( CannedAccessControlList
       ( CannedAccessControlList',
-        AWSExecRead,
-        AuthenticatedRead,
-        BucketOwnerFullControl,
-        BucketOwnerRead,
-        LogDeliveryWrite,
         Private,
         PublicRead,
-        PublicReadWrite
+        PublicReadWrite,
+        AWSExecRead,
+        AuthenticatedRead,
+        BucketOwnerRead,
+        BucketOwnerFullControl,
+        LogDeliveryWrite
       ),
   )
 where
@@ -51,21 +51,6 @@ newtype CannedAccessControlList = CannedAccessControlList' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSExecRead :: CannedAccessControlList
-pattern AWSExecRead = CannedAccessControlList' "aws-exec-read"
-
-pattern AuthenticatedRead :: CannedAccessControlList
-pattern AuthenticatedRead = CannedAccessControlList' "authenticated-read"
-
-pattern BucketOwnerFullControl :: CannedAccessControlList
-pattern BucketOwnerFullControl = CannedAccessControlList' "bucket-owner-full-control"
-
-pattern BucketOwnerRead :: CannedAccessControlList
-pattern BucketOwnerRead = CannedAccessControlList' "bucket-owner-read"
-
-pattern LogDeliveryWrite :: CannedAccessControlList
-pattern LogDeliveryWrite = CannedAccessControlList' "log-delivery-write"
-
 pattern Private :: CannedAccessControlList
 pattern Private = CannedAccessControlList' "private"
 
@@ -75,14 +60,29 @@ pattern PublicRead = CannedAccessControlList' "public-read"
 pattern PublicReadWrite :: CannedAccessControlList
 pattern PublicReadWrite = CannedAccessControlList' "public-read-write"
 
+pattern AWSExecRead :: CannedAccessControlList
+pattern AWSExecRead = CannedAccessControlList' "aws-exec-read"
+
+pattern AuthenticatedRead :: CannedAccessControlList
+pattern AuthenticatedRead = CannedAccessControlList' "authenticated-read"
+
+pattern BucketOwnerRead :: CannedAccessControlList
+pattern BucketOwnerRead = CannedAccessControlList' "bucket-owner-read"
+
+pattern BucketOwnerFullControl :: CannedAccessControlList
+pattern BucketOwnerFullControl = CannedAccessControlList' "bucket-owner-full-control"
+
+pattern LogDeliveryWrite :: CannedAccessControlList
+pattern LogDeliveryWrite = CannedAccessControlList' "log-delivery-write"
+
 {-# COMPLETE
-  AWSExecRead,
-  AuthenticatedRead,
-  BucketOwnerFullControl,
-  BucketOwnerRead,
-  LogDeliveryWrite,
   Private,
   PublicRead,
   PublicReadWrite,
+  AWSExecRead,
+  AuthenticatedRead,
+  BucketOwnerRead,
+  BucketOwnerFullControl,
+  LogDeliveryWrite,
   CannedAccessControlList'
   #-}

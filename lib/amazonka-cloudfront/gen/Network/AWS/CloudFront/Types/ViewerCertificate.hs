@@ -66,82 +66,81 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkViewerCertificate' smart constructor.
 data ViewerCertificate = ViewerCertificate'
-  { sslSupportMethod ::
-      Lude.Maybe SSLSupportMethod,
+  { -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
+    --
+    --
+    --     * @sni-only@ – The distribution accepts HTTPS connections from only viewers that support <https://en.wikipedia.org/wiki/Server_Name_Indication server name indication (SNI)> . This is recommended. Most browsers and clients support SNI.
+    --
+    --
+    --     * @vip@ – The distribution accepts HTTPS connections from all viewers including those that don’t support SNI. This is not recommended, and results in additional monthly charges from CloudFront.
+    --
+    --
+    --     * @static-ip@ - Do not specify this value unless your distribution has been enabled for this feature by the CloudFront team. If you have a use case that requires static IP addresses for a distribution, contact CloudFront through the <https://console.aws.amazon.com/support/home AWS Support Center> .
+    --
+    --
+    -- If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ , don’t set a value for this field.
+    sslSupportMethod :: Lude.Maybe SSLSupportMethod,
+    -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)> , provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (@us-east-1@ ).
+    --
+    -- If you specify an ACM certificate ARN, you must also specify values for @MinimumProtocolVerison@ and @SSLSupportMethod@ .
     aCMCertificateARN :: Lude.Maybe Lude.Text,
+    -- | This field is deprecated. Use one of the following fields instead:
+    --
+    --
+    --     * @ACMCertificateArn@
+    --
+    --
+    --     * @IAMCertificateId@
+    --
+    --
+    --     * @CloudFrontDefaultCertificate@
     certificateSource :: Lude.Maybe CertificateSource,
-    minimumProtocolVersion ::
-      Lude.Maybe MinimumProtocolVersion,
+    -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs), specify the security policy that you want CloudFront to use for HTTPS connections with viewers. The security policy determines two settings:
+    --
+    --
+    --     * The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.
+    --
+    --
+    --     * The ciphers that CloudFront can use to encrypt the content that it returns to viewers.
+    --
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy> and <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront> in the /Amazon CloudFront Developer Guide/ .
+    -- When you’re using SNI only (you set @SSLSupportMethod@ to @sni-only@ ), you must specify @TLSv1@ or higher.
+    -- If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@ to @true@ ), CloudFront automatically sets the security policy to @TLSv1@ regardless of the value that you set here.
+    minimumProtocolVersion :: Lude.Maybe MinimumProtocolVersion,
+    -- | This field is deprecated. Use one of the following fields instead:
+    --
+    --
+    --     * @ACMCertificateArn@
+    --
+    --
+    --     * @IAMCertificateId@
+    --
+    --
+    --     * @CloudFrontDefaultCertificate@
     certificate :: Lude.Maybe Lude.Text,
+    -- | If the distribution uses @Aliases@ (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)> , provide the ID of the IAM certificate.
+    --
+    -- If you specify an IAM certificate ID, you must also specify values for @MinimumProtocolVerison@ and @SSLSupportMethod@ .
     iamCertificateId :: Lude.Maybe Lude.Text,
+    -- | If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ , set this field to @true@ .
+    --
+    -- If the distribution uses @Aliases@ (alternate domain names or CNAMEs), set this field to @false@ and specify values for the following fields:
+    --
+    --     * @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one, not both)
+    --
+    --
+    --     * @MinimumProtocolVersion@
+    --
+    --
+    --     * @SSLSupportMethod@
     cloudFrontDefaultCertificate :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ViewerCertificate' with the minimum fields required to make a request.
 --
--- * 'aCMCertificateARN' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)> , provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (@us-east-1@ ).
---
--- If you specify an ACM certificate ARN, you must also specify values for @MinimumProtocolVerison@ and @SSLSupportMethod@ .
--- * 'certificate' - This field is deprecated. Use one of the following fields instead:
---
---
---     * @ACMCertificateArn@
---
---
---     * @IAMCertificateId@
---
---
---     * @CloudFrontDefaultCertificate@
---
---
--- * 'certificateSource' - This field is deprecated. Use one of the following fields instead:
---
---
---     * @ACMCertificateArn@
---
---
---     * @IAMCertificateId@
---
---
---     * @CloudFrontDefaultCertificate@
---
---
--- * 'cloudFrontDefaultCertificate' - If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ , set this field to @true@ .
---
--- If the distribution uses @Aliases@ (alternate domain names or CNAMEs), set this field to @false@ and specify values for the following fields:
---
---     * @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one, not both)
---
---
---     * @MinimumProtocolVersion@
---
---
---     * @SSLSupportMethod@
---
---
--- * 'iamCertificateId' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)> , provide the ID of the IAM certificate.
---
--- If you specify an IAM certificate ID, you must also specify values for @MinimumProtocolVerison@ and @SSLSupportMethod@ .
--- * 'minimumProtocolVersion' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs), specify the security policy that you want CloudFront to use for HTTPS connections with viewers. The security policy determines two settings:
---
---
---     * The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.
---
---
---     * The ciphers that CloudFront can use to encrypt the content that it returns to viewers.
---
---
--- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy> and <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront> in the /Amazon CloudFront Developer Guide/ .
--- When you’re using SNI only (you set @SSLSupportMethod@ to @sni-only@ ), you must specify @TLSv1@ or higher.
--- If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@ to @true@ ), CloudFront automatically sets the security policy to @TLSv1@ regardless of the value that you set here.
 -- * 'sslSupportMethod' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs), specify which viewers the distribution accepts HTTPS connections from.
 --
 --
@@ -155,6 +154,59 @@ data ViewerCertificate = ViewerCertificate'
 --
 --
 -- If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ , don’t set a value for this field.
+-- * 'aCMCertificateARN' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in <https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html AWS Certificate Manager (ACM)> , provide the Amazon Resource Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US East (N. Virginia) Region (@us-east-1@ ).
+--
+-- If you specify an ACM certificate ARN, you must also specify values for @MinimumProtocolVerison@ and @SSLSupportMethod@ .
+-- * 'certificateSource' - This field is deprecated. Use one of the following fields instead:
+--
+--
+--     * @ACMCertificateArn@
+--
+--
+--     * @IAMCertificateId@
+--
+--
+--     * @CloudFrontDefaultCertificate@
+--
+--
+-- * 'minimumProtocolVersion' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs), specify the security policy that you want CloudFront to use for HTTPS connections with viewers. The security policy determines two settings:
+--
+--
+--     * The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.
+--
+--
+--     * The ciphers that CloudFront can use to encrypt the content that it returns to viewers.
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy Security Policy> and <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers Supported Protocols and Ciphers Between Viewers and CloudFront> in the /Amazon CloudFront Developer Guide/ .
+-- When you’re using SNI only (you set @SSLSupportMethod@ to @sni-only@ ), you must specify @TLSv1@ or higher.
+-- If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ (you set @CloudFrontDefaultCertificate@ to @true@ ), CloudFront automatically sets the security policy to @TLSv1@ regardless of the value that you set here.
+-- * 'certificate' - This field is deprecated. Use one of the following fields instead:
+--
+--
+--     * @ACMCertificateArn@
+--
+--
+--     * @IAMCertificateId@
+--
+--
+--     * @CloudFrontDefaultCertificate@
+--
+--
+-- * 'iamCertificateId' - If the distribution uses @Aliases@ (alternate domain names or CNAMEs) and the SSL/TLS certificate is stored in <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html AWS Identity and Access Management (AWS IAM)> , provide the ID of the IAM certificate.
+--
+-- If you specify an IAM certificate ID, you must also specify values for @MinimumProtocolVerison@ and @SSLSupportMethod@ .
+-- * 'cloudFrontDefaultCertificate' - If the distribution uses the CloudFront domain name such as @d111111abcdef8.cloudfront.net@ , set this field to @true@ .
+--
+-- If the distribution uses @Aliases@ (alternate domain names or CNAMEs), set this field to @false@ and specify values for the following fields:
+--
+--     * @ACMCertificateArn@ or @IAMCertificateId@ (specify a value for one, not both)
+--
+--
+--     * @MinimumProtocolVersion@
+--
+--
+--     * @SSLSupportMethod@
 mkViewerCertificate ::
   ViewerCertificate
 mkViewerCertificate =

@@ -13,11 +13,11 @@
 module Network.AWS.Budgets.Types.EventType
   ( EventType
       ( EventType',
+        System,
         CreateAction,
         DeleteAction,
-        ExecuteAction,
-        System,
-        UpdateAction
+        UpdateAction,
+        ExecuteAction
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype EventType = EventType' Lude.Text
       Lude.ToHeader
     )
 
+pattern System :: EventType
+pattern System = EventType' "SYSTEM"
+
 pattern CreateAction :: EventType
 pattern CreateAction = EventType' "CREATE_ACTION"
 
 pattern DeleteAction :: EventType
 pattern DeleteAction = EventType' "DELETE_ACTION"
 
-pattern ExecuteAction :: EventType
-pattern ExecuteAction = EventType' "EXECUTE_ACTION"
-
-pattern System :: EventType
-pattern System = EventType' "SYSTEM"
-
 pattern UpdateAction :: EventType
 pattern UpdateAction = EventType' "UPDATE_ACTION"
 
+pattern ExecuteAction :: EventType
+pattern ExecuteAction = EventType' "EXECUTE_ACTION"
+
 {-# COMPLETE
+  System,
   CreateAction,
   DeleteAction,
-  ExecuteAction,
-  System,
   UpdateAction,
+  ExecuteAction,
   EventType'
   #-}

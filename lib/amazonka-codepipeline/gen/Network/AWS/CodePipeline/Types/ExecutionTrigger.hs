@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExecutionTrigger' smart constructor.
 data ExecutionTrigger = ExecutionTrigger'
-  { triggerType ::
-      Lude.Maybe TriggerType,
+  { -- | The type of change-detection method, command, or user interaction that started a pipeline execution.
+    triggerType :: Lude.Maybe TriggerType,
+    -- | Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated @start-pipeline-execution@ CLI command.
     triggerDetail :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionTrigger' with the minimum fields required to make a request.
 --
--- * 'triggerDetail' - Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated @start-pipeline-execution@ CLI command.
 -- * 'triggerType' - The type of change-detection method, command, or user interaction that started a pipeline execution.
+-- * 'triggerDetail' - Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated @start-pipeline-execution@ CLI command.
 mkExecutionTrigger ::
   ExecutionTrigger
 mkExecutionTrigger =

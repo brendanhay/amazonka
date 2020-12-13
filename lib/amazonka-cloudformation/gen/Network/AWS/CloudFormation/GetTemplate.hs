@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetTemplate' smart constructor.
 data GetTemplate = GetTemplate'
-  { changeSetName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name or Amazon Resource Name (ARN) of a change set for which AWS CloudFormation returns the associated template. If you specify a name, you must also specify the @StackName@ .
+    changeSetName :: Lude.Maybe Lude.Text,
+    -- | For templates that include transforms, the stage of the template that AWS CloudFormation returns. To get the user-submitted template, specify @Original@ . To get the template after AWS CloudFormation has processed all transforms, specify @Processed@ .
+    --
+    -- If the template doesn't include transforms, @Original@ and @Processed@ return the same template. By default, AWS CloudFormation specifies @Original@ .
     templateStage :: Lude.Maybe TemplateStage,
+    -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
+    --
+    --
+    --     * Running stacks: You can specify either the stack's name or its unique stack ID.
+    --
+    --
+    --     * Deleted stacks: You must specify the unique stack ID.
+    --
+    --
+    -- Default: There is no default value.
     stackName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTemplate' with the minimum fields required to make a request.
 --
 -- * 'changeSetName' - The name or Amazon Resource Name (ARN) of a change set for which AWS CloudFormation returns the associated template. If you specify a name, you must also specify the @StackName@ .
+-- * 'templateStage' - For templates that include transforms, the stage of the template that AWS CloudFormation returns. To get the user-submitted template, specify @Original@ . To get the template after AWS CloudFormation has processed all transforms, specify @Processed@ .
+--
+-- If the template doesn't include transforms, @Original@ and @Processed@ return the same template. By default, AWS CloudFormation specifies @Original@ .
 -- * 'stackName' - The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
 --
@@ -73,9 +84,6 @@ data GetTemplate = GetTemplate'
 --
 --
 -- Default: There is no default value.
--- * 'templateStage' - For templates that include transforms, the stage of the template that AWS CloudFormation returns. To get the user-submitted template, specify @Original@ . To get the template after AWS CloudFormation has processed all transforms, specify @Processed@ .
---
--- If the template doesn't include transforms, @Original@ and @Processed@ return the same template. By default, AWS CloudFormation specifies @Original@ .
 mkGetTemplate ::
   GetTemplate
 mkGetTemplate =
@@ -152,27 +160,25 @@ instance Lude.ToQuery GetTemplate where
 --
 -- /See:/ 'mkGetTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { stagesAvailable ::
-      Lude.Maybe [TemplateStage],
+  { -- | The stage of the template that you can retrieve. For stacks, the @Original@ and @Processed@ templates are always available. For change sets, the @Original@ template is always available. After AWS CloudFormation finishes creating the change set, the @Processed@ template becomes available.
+    stagesAvailable :: Lude.Maybe [TemplateStage],
+    -- | Structure containing the template body. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.)
+    --
+    -- AWS CloudFormation returns the same template that was used when the stack was created.
     templateBody :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stagesAvailable' - The stage of the template that you can retrieve. For stacks, the @Original@ and @Processed@ templates are always available. For change sets, the @Original@ template is always available. After AWS CloudFormation finishes creating the change set, the @Processed@ template becomes available.
 -- * 'templateBody' - Structure containing the template body. (For more information, go to <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.)
 --
 -- AWS CloudFormation returns the same template that was used when the stack was created.
+-- * 'responseStatus' - The response status code.
 mkGetTemplateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

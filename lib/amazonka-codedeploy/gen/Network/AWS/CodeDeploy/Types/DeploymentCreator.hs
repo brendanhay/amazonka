@@ -13,12 +13,12 @@
 module Network.AWS.CodeDeploy.Types.DeploymentCreator
   ( DeploymentCreator
       ( DeploymentCreator',
+        User,
         Autoscaling,
-        CloudFormation,
-        CloudFormationRollback,
-        CodeDeploy,
         CodeDeployRollback,
-        User
+        CodeDeploy,
+        CloudFormation,
+        CloudFormationRollback
       ),
   )
 where
@@ -49,8 +49,17 @@ newtype DeploymentCreator = DeploymentCreator' Lude.Text
       Lude.ToHeader
     )
 
+pattern User :: DeploymentCreator
+pattern User = DeploymentCreator' "user"
+
 pattern Autoscaling :: DeploymentCreator
 pattern Autoscaling = DeploymentCreator' "autoscaling"
+
+pattern CodeDeployRollback :: DeploymentCreator
+pattern CodeDeployRollback = DeploymentCreator' "codeDeployRollback"
+
+pattern CodeDeploy :: DeploymentCreator
+pattern CodeDeploy = DeploymentCreator' "CodeDeploy"
 
 pattern CloudFormation :: DeploymentCreator
 pattern CloudFormation = DeploymentCreator' "CloudFormation"
@@ -58,21 +67,12 @@ pattern CloudFormation = DeploymentCreator' "CloudFormation"
 pattern CloudFormationRollback :: DeploymentCreator
 pattern CloudFormationRollback = DeploymentCreator' "CloudFormationRollback"
 
-pattern CodeDeploy :: DeploymentCreator
-pattern CodeDeploy = DeploymentCreator' "CodeDeploy"
-
-pattern CodeDeployRollback :: DeploymentCreator
-pattern CodeDeployRollback = DeploymentCreator' "codeDeployRollback"
-
-pattern User :: DeploymentCreator
-pattern User = DeploymentCreator' "user"
-
 {-# COMPLETE
+  User,
   Autoscaling,
+  CodeDeployRollback,
+  CodeDeploy,
   CloudFormation,
   CloudFormationRollback,
-  CodeDeploy,
-  CodeDeployRollback,
-  User,
   DeploymentCreator'
   #-}

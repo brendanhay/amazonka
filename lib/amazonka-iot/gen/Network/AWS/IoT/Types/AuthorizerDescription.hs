@@ -37,38 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthorizerDescription' smart constructor.
 data AuthorizerDescription = AuthorizerDescription'
-  { status ::
-      Lude.Maybe AuthorizerStatus,
+  { -- | The status of the authorizer.
+    status :: Lude.Maybe AuthorizerStatus,
+    -- | The UNIX timestamp of when the authorizer was last updated.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether AWS IoT validates the token signature in an authorization request.
     signingDisabled :: Lude.Maybe Lude.Bool,
+    -- | The authorizer name.
     authorizerName :: Lude.Maybe Lude.Text,
+    -- | The authorizer's Lambda function ARN.
     authorizerFunctionARN :: Lude.Maybe Lude.Text,
+    -- | The authorizer ARN.
     authorizerARN :: Lude.Maybe Lude.Text,
+    -- | The UNIX timestamp of when the authorizer was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
-    tokenSigningPublicKeys ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The public keys used to validate the token signature returned by your custom authentication service.
+    tokenSigningPublicKeys :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The key used to extract the token from the HTTP headers.
     tokenKeyName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizerDescription' with the minimum fields required to make a request.
 --
--- * 'authorizerARN' - The authorizer ARN.
--- * 'authorizerFunctionARN' - The authorizer's Lambda function ARN.
--- * 'authorizerName' - The authorizer name.
--- * 'creationDate' - The UNIX timestamp of when the authorizer was created.
+-- * 'status' - The status of the authorizer.
 -- * 'lastModifiedDate' - The UNIX timestamp of when the authorizer was last updated.
 -- * 'signingDisabled' - Specifies whether AWS IoT validates the token signature in an authorization request.
--- * 'status' - The status of the authorizer.
--- * 'tokenKeyName' - The key used to extract the token from the HTTP headers.
+-- * 'authorizerName' - The authorizer name.
+-- * 'authorizerFunctionARN' - The authorizer's Lambda function ARN.
+-- * 'authorizerARN' - The authorizer ARN.
+-- * 'creationDate' - The UNIX timestamp of when the authorizer was created.
 -- * 'tokenSigningPublicKeys' - The public keys used to validate the token signature returned by your custom authentication service.
+-- * 'tokenKeyName' - The key used to extract the token from the HTTP headers.
 mkAuthorizerDescription ::
   AuthorizerDescription
 mkAuthorizerDescription =

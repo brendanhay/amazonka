@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetResourcePolicies' smart constructor.
 data GetResourcePolicies = GetResourcePolicies'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if this is a continuation request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum size of a list to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePolicies' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum size of a list to return.
 -- * 'nextToken' - A continuation token, if this is a continuation request.
+-- * 'maxResults' - The maximum size of a list to return.
 mkGetResourcePolicies ::
   GetResourcePolicies
 mkGetResourcePolicies =
@@ -135,18 +131,14 @@ instance Lude.ToQuery GetResourcePolicies where
 
 -- | /See:/ 'mkGetResourcePoliciesResponse' smart constructor.
 data GetResourcePoliciesResponse = GetResourcePoliciesResponse'
-  { getResourcePoliciesResponseList ::
-      Lude.Maybe [GluePolicy],
+  { -- | A list of the individual resource policies and the account-level resource policy.
+    getResourcePoliciesResponseList :: Lude.Maybe [GluePolicy],
+    -- | A continuation token, if the returned list does not contain the last resource policy available.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcePoliciesResponse' with the minimum fields required to make a request.

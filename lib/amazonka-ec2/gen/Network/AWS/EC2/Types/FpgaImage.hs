@@ -46,48 +46,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFpgaImage' smart constructor.
 data FpgaImage = FpgaImage'
-  { shellVersion :: Lude.Maybe Lude.Text,
+  { -- | The version of the AWS Shell that was used to create the bitstream.
+    shellVersion :: Lude.Maybe Lude.Text,
+    -- | Information about the PCI bus.
     pciId :: Lude.Maybe PciId,
+    -- | Information about the state of the AFI.
     state :: Lude.Maybe FpgaImageState,
+    -- | The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
     ownerAlias :: Lude.Maybe Lude.Text,
+    -- | The FPGA image identifier (AFI ID).
     fpgaImageId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether data retention support is enabled for the AFI.
     dataRetentionSupport :: Lude.Maybe Lude.Bool,
+    -- | The AWS account ID of the AFI owner.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The time of the most recent update to the AFI.
     updateTime :: Lude.Maybe Lude.DateTime,
+    -- | The name of the AFI.
     name :: Lude.Maybe Lude.Text,
+    -- | The product codes for the AFI.
     productCodes :: Lude.Maybe [ProductCode],
+    -- | The description of the AFI.
     description :: Lude.Maybe Lude.Text,
+    -- | The date and time the AFI was created.
     createTime :: Lude.Maybe Lude.DateTime,
+    -- | Any tags assigned to the AFI.
     tags :: Lude.Maybe [Tag],
+    -- | Indicates whether the AFI is public.
     public :: Lude.Maybe Lude.Bool,
+    -- | The global FPGA image identifier (AGFI ID).
     fpgaImageGlobalId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaImage' with the minimum fields required to make a request.
 --
--- * 'createTime' - The date and time the AFI was created.
--- * 'dataRetentionSupport' - Indicates whether data retention support is enabled for the AFI.
--- * 'description' - The description of the AFI.
--- * 'fpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
--- * 'fpgaImageId' - The FPGA image identifier (AFI ID).
--- * 'name' - The name of the AFI.
--- * 'ownerAlias' - The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
--- * 'ownerId' - The AWS account ID of the AFI owner.
--- * 'pciId' - Information about the PCI bus.
--- * 'productCodes' - The product codes for the AFI.
--- * 'public' - Indicates whether the AFI is public.
 -- * 'shellVersion' - The version of the AWS Shell that was used to create the bitstream.
+-- * 'pciId' - Information about the PCI bus.
 -- * 'state' - Information about the state of the AFI.
--- * 'tags' - Any tags assigned to the AFI.
+-- * 'ownerAlias' - The alias of the AFI owner. Possible values include @self@ , @amazon@ , and @aws-marketplace@ .
+-- * 'fpgaImageId' - The FPGA image identifier (AFI ID).
+-- * 'dataRetentionSupport' - Indicates whether data retention support is enabled for the AFI.
+-- * 'ownerId' - The AWS account ID of the AFI owner.
 -- * 'updateTime' - The time of the most recent update to the AFI.
+-- * 'name' - The name of the AFI.
+-- * 'productCodes' - The product codes for the AFI.
+-- * 'description' - The description of the AFI.
+-- * 'createTime' - The date and time the AFI was created.
+-- * 'tags' - Any tags assigned to the AFI.
+-- * 'public' - Indicates whether the AFI is public.
+-- * 'fpgaImageGlobalId' - The global FPGA image identifier (AGFI ID).
 mkFpgaImage ::
   FpgaImage
 mkFpgaImage =

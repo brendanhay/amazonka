@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeConversionTasks' smart constructor.
 data DescribeConversionTasks = DescribeConversionTasks'
-  { conversionTaskIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The conversion task IDs.
+    conversionTaskIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConversionTasks' with the minimum fields required to make a request.
@@ -112,17 +108,12 @@ instance Lude.ToQuery DescribeConversionTasks where
 
 -- | /See:/ 'mkDescribeConversionTasksResponse' smart constructor.
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
-  { conversionTasks ::
-      Lude.Maybe [ConversionTask],
+  { -- | Information about the conversion tasks.
+    conversionTasks :: Lude.Maybe [ConversionTask],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConversionTasksResponse' with the minimum fields required to make a request.

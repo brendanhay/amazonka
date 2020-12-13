@@ -19,10 +19,10 @@ module Network.AWS.Glue.Types.GrokClassifier
     -- * Lenses
     gcCreationTime,
     gcLastUpdated,
+    gcClassification,
+    gcName,
     gcVersion,
     gcCustomPatterns,
-    gcName,
-    gcClassification,
     gcGrokPattern,
   )
 where
@@ -34,49 +34,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGrokClassifier' smart constructor.
 data GrokClassifier = GrokClassifier'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time that this classifier was registered.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time that this classifier was last updated.
     lastUpdated :: Lude.Maybe Lude.Timestamp,
-    version :: Lude.Maybe Lude.Integer,
-    customPatterns :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
+    -- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
     classification :: Lude.Text,
+    -- | The name of the classifier.
+    name :: Lude.Text,
+    -- | The version of this classifier.
+    version :: Lude.Maybe Lude.Integer,
+    -- | Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers> .
+    customPatterns :: Lude.Maybe Lude.Text,
+    -- | The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers> .
     grokPattern :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GrokClassifier' with the minimum fields required to make a request.
 --
--- * 'classification' - An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
 -- * 'creationTime' - The time that this classifier was registered.
--- * 'customPatterns' - Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers> .
--- * 'grokPattern' - The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers> .
 -- * 'lastUpdated' - The time that this classifier was last updated.
+-- * 'classification' - An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
 -- * 'name' - The name of the classifier.
 -- * 'version' - The version of this classifier.
+-- * 'customPatterns' - Optional custom grok patterns defined by this classifier. For more information, see custom patterns in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers> .
+-- * 'grokPattern' - The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers> .
 mkGrokClassifier ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'classification'
+  Lude.Text ->
+  -- | 'name'
   Lude.Text ->
   -- | 'grokPattern'
   Lude.Text ->
   GrokClassifier
-mkGrokClassifier pName_ pClassification_ pGrokPattern_ =
+mkGrokClassifier pClassification_ pName_ pGrokPattern_ =
   GrokClassifier'
     { creationTime = Lude.Nothing,
       lastUpdated = Lude.Nothing,
+      classification = pClassification_,
+      name = pName_,
       version = Lude.Nothing,
       customPatterns = Lude.Nothing,
-      name = pName_,
-      classification = pClassification_,
       grokPattern = pGrokPattern_
     }
 
@@ -94,6 +94,20 @@ gcLastUpdated :: Lens.Lens' GrokClassifier (Lude.Maybe Lude.Timestamp)
 gcLastUpdated = Lens.lens (lastUpdated :: GrokClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: GrokClassifier)
 {-# DEPRECATED gcLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
+-- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
+--
+-- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcClassification :: Lens.Lens' GrokClassifier Lude.Text
+gcClassification = Lens.lens (classification :: GrokClassifier -> Lude.Text) (\s a -> s {classification = a} :: GrokClassifier)
+{-# DEPRECATED gcClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
+
+-- | The name of the classifier.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcName :: Lens.Lens' GrokClassifier Lude.Text
+gcName = Lens.lens (name :: GrokClassifier -> Lude.Text) (\s a -> s {name = a} :: GrokClassifier)
+{-# DEPRECATED gcName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The version of this classifier.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -107,20 +121,6 @@ gcVersion = Lens.lens (version :: GrokClassifier -> Lude.Maybe Lude.Integer) (\s
 gcCustomPatterns :: Lens.Lens' GrokClassifier (Lude.Maybe Lude.Text)
 gcCustomPatterns = Lens.lens (customPatterns :: GrokClassifier -> Lude.Maybe Lude.Text) (\s a -> s {customPatterns = a} :: GrokClassifier)
 {-# DEPRECATED gcCustomPatterns "Use generic-lens or generic-optics with 'customPatterns' instead." #-}
-
--- | The name of the classifier.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcName :: Lens.Lens' GrokClassifier Lude.Text
-gcName = Lens.lens (name :: GrokClassifier -> Lude.Text) (\s a -> s {name = a} :: GrokClassifier)
-{-# DEPRECATED gcName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, and so on.
---
--- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcClassification :: Lens.Lens' GrokClassifier Lude.Text
-gcClassification = Lens.lens (classification :: GrokClassifier -> Lude.Text) (\s a -> s {classification = a} :: GrokClassifier)
-{-# DEPRECATED gcClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | The grok pattern applied to a data store by this classifier. For more information, see built-in patterns in <https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html Writing Custom Classifiers> .
 --
@@ -137,9 +137,9 @@ instance Lude.FromJSON GrokClassifier where
           GrokClassifier'
             Lude.<$> (x Lude..:? "CreationTime")
             Lude.<*> (x Lude..:? "LastUpdated")
+            Lude.<*> (x Lude..: "Classification")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "Version")
             Lude.<*> (x Lude..:? "CustomPatterns")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "Classification")
             Lude.<*> (x Lude..: "GrokPattern")
       )

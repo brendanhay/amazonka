@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.FpgaImageAttributeName
   ( FpgaImageAttributeName
       ( FpgaImageAttributeName',
         FIANDescription,
-        FIANLoadPermission,
         FIANName,
+        FIANLoadPermission,
         FIANProductCodes
       ),
   )
@@ -50,19 +50,19 @@ newtype FpgaImageAttributeName = FpgaImageAttributeName' Lude.Text
 pattern FIANDescription :: FpgaImageAttributeName
 pattern FIANDescription = FpgaImageAttributeName' "description"
 
-pattern FIANLoadPermission :: FpgaImageAttributeName
-pattern FIANLoadPermission = FpgaImageAttributeName' "loadPermission"
-
 pattern FIANName :: FpgaImageAttributeName
 pattern FIANName = FpgaImageAttributeName' "name"
+
+pattern FIANLoadPermission :: FpgaImageAttributeName
+pattern FIANLoadPermission = FpgaImageAttributeName' "loadPermission"
 
 pattern FIANProductCodes :: FpgaImageAttributeName
 pattern FIANProductCodes = FpgaImageAttributeName' "productCodes"
 
 {-# COMPLETE
   FIANDescription,
-  FIANLoadPermission,
   FIANName,
+  FIANLoadPermission,
   FIANProductCodes,
   FpgaImageAttributeName'
   #-}

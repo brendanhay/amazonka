@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRule' smart constructor.
 data Rule = Rule'
-  { parameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The minimum and maximum parameters that are associated with the rule.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of attribute validation rule.
     type' :: Lude.Maybe RuleType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rule' with the minimum fields required to make a request.

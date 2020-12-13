@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTLSContext' smart constructor.
 newtype TLSContext = TLSContext'
-  { serverName ::
-      Lude.Maybe Lude.Text
+  { -- | The value of the @serverName@ key in a TLS authorization request.
+    serverName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TLSContext' with the minimum fields required to make a request.

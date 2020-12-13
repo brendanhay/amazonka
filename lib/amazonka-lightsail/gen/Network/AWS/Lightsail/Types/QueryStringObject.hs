@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryStringObject' smart constructor.
 data QueryStringObject = QueryStringObject'
-  { queryStringsAllowList ::
-      Lude.Maybe [Lude.Text],
+  { -- | The specific query strings that the distribution forwards to the origin.
+    --
+    -- Your distribution will cache content based on the specified query strings.
+    -- If the @option@ parameter is true, then your distribution forwards all query strings, regardless of what you specify using the @queryStringsAllowList@ parameter.
+    queryStringsAllowList :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether the distribution forwards and caches based on query strings.
     option :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryStringObject' with the minimum fields required to make a request.
 --
--- * 'option' - Indicates whether the distribution forwards and caches based on query strings.
 -- * 'queryStringsAllowList' - The specific query strings that the distribution forwards to the origin.
 --
 -- Your distribution will cache content based on the specified query strings.
 -- If the @option@ parameter is true, then your distribution forwards all query strings, regardless of what you specify using the @queryStringsAllowList@ parameter.
+-- * 'option' - Indicates whether the distribution forwards and caches based on query strings.
 mkQueryStringObject ::
   QueryStringObject
 mkQueryStringObject =

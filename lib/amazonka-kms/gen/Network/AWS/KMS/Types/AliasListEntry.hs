@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAliasListEntry' smart constructor.
 data AliasListEntry = AliasListEntry'
-  { targetKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | String that contains the key identifier referred to by the alias.
+    targetKeyId :: Lude.Maybe Lude.Text,
+    -- | String that contains the alias. This value begins with @alias/@ .
     aliasName :: Lude.Maybe Lude.Text,
+    -- | String that contains the key ARN.
     aliasARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AliasListEntry' with the minimum fields required to make a request.
 --
--- * 'aliasARN' - String that contains the key ARN.
--- * 'aliasName' - String that contains the alias. This value begins with @alias/@ .
 -- * 'targetKeyId' - String that contains the key identifier referred to by the alias.
+-- * 'aliasName' - String that contains the alias. This value begins with @alias/@ .
+-- * 'aliasARN' - String that contains the key ARN.
 mkAliasListEntry ::
   AliasListEntry
 mkAliasListEntry =

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHostProperties' smart constructor.
 data HostProperties = HostProperties'
-  { instanceFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance family supported by the Dedicated Host. For example, @m5@ .
+    instanceFamily :: Lude.Maybe Lude.Text,
+    -- | The instance type supported by the Dedicated Host. For example, @m5.large@ . If the host supports multiple instance types, no __instanceType__ is returned.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The total number of vCPUs on the Dedicated Host.
     totalVCPUs :: Lude.Maybe Lude.Int,
+    -- | The number of cores on the Dedicated Host.
     cores :: Lude.Maybe Lude.Int,
+    -- | The number of sockets on the Dedicated Host.
     sockets :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostProperties' with the minimum fields required to make a request.
 --
--- * 'cores' - The number of cores on the Dedicated Host.
 -- * 'instanceFamily' - The instance family supported by the Dedicated Host. For example, @m5@ .
 -- * 'instanceType' - The instance type supported by the Dedicated Host. For example, @m5.large@ . If the host supports multiple instance types, no __instanceType__ is returned.
--- * 'sockets' - The number of sockets on the Dedicated Host.
 -- * 'totalVCPUs' - The total number of vCPUs on the Dedicated Host.
+-- * 'cores' - The number of cores on the Dedicated Host.
+-- * 'sockets' - The number of sockets on the Dedicated Host.
 mkHostProperties ::
   HostProperties
 mkHostProperties =

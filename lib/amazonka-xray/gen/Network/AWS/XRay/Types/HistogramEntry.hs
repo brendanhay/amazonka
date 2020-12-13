@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHistogramEntry' smart constructor.
 data HistogramEntry = HistogramEntry'
-  { count :: Lude.Maybe Lude.Int,
+  { -- | The prevalence of the entry.
+    count :: Lude.Maybe Lude.Int,
+    -- | The value of the entry.
     value :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistogramEntry' with the minimum fields required to make a request.

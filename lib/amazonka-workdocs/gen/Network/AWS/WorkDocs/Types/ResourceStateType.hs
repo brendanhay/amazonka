@@ -14,9 +14,9 @@ module Network.AWS.WorkDocs.Types.ResourceStateType
   ( ResourceStateType
       ( ResourceStateType',
         RSTActive,
-        RSTRecycled,
+        RSTRestoring,
         RSTRecycling,
-        RSTRestoring
+        RSTRecycled
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ResourceStateType = ResourceStateType' Lude.Text
 pattern RSTActive :: ResourceStateType
 pattern RSTActive = ResourceStateType' "ACTIVE"
 
-pattern RSTRecycled :: ResourceStateType
-pattern RSTRecycled = ResourceStateType' "RECYCLED"
+pattern RSTRestoring :: ResourceStateType
+pattern RSTRestoring = ResourceStateType' "RESTORING"
 
 pattern RSTRecycling :: ResourceStateType
 pattern RSTRecycling = ResourceStateType' "RECYCLING"
 
-pattern RSTRestoring :: ResourceStateType
-pattern RSTRestoring = ResourceStateType' "RESTORING"
+pattern RSTRecycled :: ResourceStateType
+pattern RSTRecycled = ResourceStateType' "RECYCLED"
 
 {-# COMPLETE
   RSTActive,
-  RSTRecycled,
-  RSTRecycling,
   RSTRestoring,
+  RSTRecycling,
+  RSTRecycled,
   ResourceStateType'
   #-}

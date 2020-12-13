@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchDetectKeyPhrasesItemResult' smart constructor.
 data BatchDetectKeyPhrasesItemResult = BatchDetectKeyPhrasesItemResult'
-  { index ::
-      Lude.Maybe Lude.Int,
-    keyPhrases ::
-      Lude.Maybe [KeyPhrase]
+  { -- | The zero-based index of the document in the input list.
+    index :: Lude.Maybe Lude.Int,
+    -- | One or more 'KeyPhrase' objects, one for each key phrase detected in the document.
+    keyPhrases :: Lude.Maybe [KeyPhrase]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectKeyPhrasesItemResult' with the minimum fields required to make a request.

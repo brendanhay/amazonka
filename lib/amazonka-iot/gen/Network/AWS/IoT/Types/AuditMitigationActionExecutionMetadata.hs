@@ -37,54 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditMitigationActionExecutionMetadata' smart constructor.
 data AuditMitigationActionExecutionMetadata = AuditMitigationActionExecutionMetadata'
-  { status ::
-      Lude.Maybe
-        AuditMitigationActionsExecutionStatus,
-    startTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    taskId ::
-      Lude.Maybe
-        Lude.Text,
-    actionId ::
-      Lude.Maybe
-        Lude.Text,
-    actionName ::
-      Lude.Maybe
-        Lude.Text,
-    endTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    errorCode ::
-      Lude.Maybe
-        Lude.Text,
-    findingId ::
-      Lude.Maybe
-        Lude.Text,
-    message ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The current status of the task being executed.
+    status :: Lude.Maybe AuditMitigationActionsExecutionStatus,
+    -- | The date and time when the task was started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The unique identifier for the task that applies the mitigation action.
+    taskId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the mitigation action being applied by the task.
+    actionId :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the mitigation action being applied by the task.
+    actionName :: Lude.Maybe Lude.Text,
+    -- | The date and time when the task was completed or canceled. Blank if the task is still running.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | If an error occurred, the code that indicates which type of error occurred.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the findings to which the task and associated mitigation action are applied.
+    findingId :: Lude.Maybe Lude.Text,
+    -- | If an error occurred, a message that describes the error.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditMitigationActionExecutionMetadata' with the minimum fields required to make a request.
 --
+-- * 'status' - The current status of the task being executed.
+-- * 'startTime' - The date and time when the task was started.
+-- * 'taskId' - The unique identifier for the task that applies the mitigation action.
 -- * 'actionId' - The unique identifier for the mitigation action being applied by the task.
 -- * 'actionName' - The friendly name of the mitigation action being applied by the task.
 -- * 'endTime' - The date and time when the task was completed or canceled. Blank if the task is still running.
 -- * 'errorCode' - If an error occurred, the code that indicates which type of error occurred.
 -- * 'findingId' - The unique identifier for the findings to which the task and associated mitigation action are applied.
 -- * 'message' - If an error occurred, a message that describes the error.
--- * 'startTime' - The date and time when the task was started.
--- * 'status' - The current status of the task being executed.
--- * 'taskId' - The unique identifier for the task that applies the mitigation action.
 mkAuditMitigationActionExecutionMetadata ::
   AuditMitigationActionExecutionMetadata
 mkAuditMitigationActionExecutionMetadata =

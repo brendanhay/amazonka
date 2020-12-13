@@ -44,34 +44,58 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportTask' smart constructor.
 data ExportTask = ExportTask'
-  { totalExtractedDataInGB ::
-      Lude.Maybe Lude.Int,
+  { -- | The total amount of data exported, in gigabytes.
+    totalExtractedDataInGB :: Lude.Maybe Lude.Int,
+    -- | The progress status of the export task.
     status :: Lude.Maybe Lude.Text,
+    -- | The name of the IAM role that is used to write to Amazon S3 when exporting a snapshot.
     iamRoleARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
     sourceARN :: Lude.Maybe Lude.Text,
+    -- | The data exported from the snapshot. Valid values are the following:
+    --
+    --
+    --     * @database@ - Export all the data from a specified database.
+    --
+    --
+    --     * @database.table@ /table-name/ - Export a table of the snapshot. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.
+    --
+    --
+    --     * @database.schema@ /schema-name/ - Export a database schema of the snapshot. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.
+    --
+    --
+    --     * @database.schema.table@ /table-name/ - Export a table of the database schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.
     exportOnly :: Lude.Maybe [Lude.Text],
+    -- | The time that the snapshot export task started.
     taskStartTime :: Lude.Maybe Lude.DateTime,
+    -- | A warning about the snapshot export task.
     warningMessage :: Lude.Maybe Lude.Text,
+    -- | The time that the snapshot was created.
     snapshotTime :: Lude.Maybe Lude.DateTime,
+    -- | The ID of the AWS KMS key that is used to encrypt the snapshot when it's exported to Amazon S3. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key alias for the KMS encryption key. The IAM role used for the snapshot export must have encryption and decryption permissions to use this KMS key.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The time that the snapshot export task completed.
     taskEndTime :: Lude.Maybe Lude.DateTime,
+    -- | A unique identifier for the snapshot export task. This ID isn't an identifier for the Amazon S3 bucket where the snapshot is exported to.
     exportTaskIdentifier :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 bucket prefix that is the file name and path of the exported snapshot.
     s3Prefix :: Lude.Maybe Lude.Text,
+    -- | The progress of the snapshot export task as a percentage.
     percentProgress :: Lude.Maybe Lude.Int,
+    -- | The Amazon S3 bucket that the snapshot is exported to.
     s3Bucket :: Lude.Maybe Lude.Text,
+    -- | The reason the export failed, if it failed.
     failureCause :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTask' with the minimum fields required to make a request.
 --
+-- * 'totalExtractedDataInGB' - The total amount of data exported, in gigabytes.
+-- * 'status' - The progress status of the export task.
+-- * 'iamRoleARN' - The name of the IAM role that is used to write to Amazon S3 when exporting a snapshot.
+-- * 'sourceARN' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
 -- * 'exportOnly' - The data exported from the snapshot. Valid values are the following:
 --
 --
@@ -87,20 +111,16 @@ data ExportTask = ExportTask'
 --     * @database.schema.table@ /table-name/ - Export a table of the database schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.
 --
 --
--- * 'exportTaskIdentifier' - A unique identifier for the snapshot export task. This ID isn't an identifier for the Amazon S3 bucket where the snapshot is exported to.
--- * 'failureCause' - The reason the export failed, if it failed.
--- * 'iamRoleARN' - The name of the IAM role that is used to write to Amazon S3 when exporting a snapshot.
+-- * 'taskStartTime' - The time that the snapshot export task started.
+-- * 'warningMessage' - A warning about the snapshot export task.
+-- * 'snapshotTime' - The time that the snapshot was created.
 -- * 'kmsKeyId' - The ID of the AWS KMS key that is used to encrypt the snapshot when it's exported to Amazon S3. The KMS key ID is the Amazon Resource Name (ARN), the KMS key identifier, or the KMS key alias for the KMS encryption key. The IAM role used for the snapshot export must have encryption and decryption permissions to use this KMS key.
+-- * 'taskEndTime' - The time that the snapshot export task completed.
+-- * 'exportTaskIdentifier' - A unique identifier for the snapshot export task. This ID isn't an identifier for the Amazon S3 bucket where the snapshot is exported to.
+-- * 's3Prefix' - The Amazon S3 bucket prefix that is the file name and path of the exported snapshot.
 -- * 'percentProgress' - The progress of the snapshot export task as a percentage.
 -- * 's3Bucket' - The Amazon S3 bucket that the snapshot is exported to.
--- * 's3Prefix' - The Amazon S3 bucket prefix that is the file name and path of the exported snapshot.
--- * 'snapshotTime' - The time that the snapshot was created.
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
--- * 'status' - The progress status of the export task.
--- * 'taskEndTime' - The time that the snapshot export task completed.
--- * 'taskStartTime' - The time that the snapshot export task started.
--- * 'totalExtractedDataInGB' - The total amount of data exported, in gigabytes.
--- * 'warningMessage' - A warning about the snapshot export task.
+-- * 'failureCause' - The reason the export failed, if it failed.
 mkExportTask ::
   ExportTask
 mkExportTask =

@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventType' smart constructor.
 data EventType = EventType'
-  { service :: Lude.Maybe Lude.Text,
+  { -- | The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
+    service :: Lude.Maybe Lude.Text,
+    -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
     category :: Lude.Maybe EventTypeCategory,
+    -- | The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
     code :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventType' with the minimum fields required to make a request.
 --
+-- * 'service' - The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
 -- * 'category' - A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 -- * 'code' - The unique identifier for the event type. The format is @AWS_/SERVICE/ _/DESCRIPTION/ @ ; for example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
--- * 'service' - The AWS service that is affected by the event. For example, @EC2@ , @RDS@ .
 mkEventType ::
   EventType
 mkEventType =

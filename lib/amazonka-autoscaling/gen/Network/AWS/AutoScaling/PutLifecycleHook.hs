@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,13 +43,13 @@ module Network.AWS.AutoScaling.PutLifecycleHook
 
     -- ** Request lenses
     plhDefaultResult,
+    plhLifecycleHookName,
     plhHeartbeatTimeout,
+    plhAutoScalingGroupName,
     plhNotificationMetadata,
     plhNotificationTargetARN,
     plhLifecycleTransition,
     plhRoleARN,
-    plhLifecycleHookName,
-    plhAutoScalingGroupName,
 
     -- * Destructuring the response
     PutLifecycleHookResponse (..),
@@ -67,33 +68,57 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutLifecycleHook' smart constructor.
 data PutLifecycleHook = PutLifecycleHook'
-  { defaultResult ::
-      Lude.Maybe Lude.Text,
-    heartbeatTimeout :: Lude.Maybe Lude.Int,
-    notificationMetadata :: Lude.Maybe Lude.Text,
-    notificationTargetARN :: Lude.Maybe Lude.Text,
-    lifecycleTransition :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
+  { -- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. This parameter can be either @CONTINUE@ or @ABANDON@ . The default value is @ABANDON@ .
+    defaultResult :: Lude.Maybe Lude.Text,
+    -- | The name of the lifecycle hook.
     lifecycleHookName :: Lude.Text,
-    autoScalingGroupName :: Lude.Text
+    -- | The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from @30@ to @7200@ seconds. The default value is @3600@ seconds (1 hour).
+    --
+    -- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling the 'RecordLifecycleActionHeartbeat' API.
+    heartbeatTimeout :: Lude.Maybe Lude.Int,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+    notificationMetadata :: Lude.Maybe Lude.Text,
+    -- | The ARN of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. This target can be either an SQS queue or an SNS topic.
+    --
+    -- If you specify an empty string, this overrides the current ARN.
+    -- This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key-value pair format when sending notifications to an Amazon SNS topic.
+    -- When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message. Test messages contain the following additional key-value pair: @"Event": "autoscaling:TEST_NOTIFICATION"@ .
+    notificationTargetARN :: Lude.Maybe Lude.Text,
+    -- | The instance state to which you want to attach the lifecycle hook. The valid values are:
+    --
+    --
+    --     * autoscaling:EC2_INSTANCE_LAUNCHING
+    --
+    --
+    --     * autoscaling:EC2_INSTANCE_TERMINATING
+    --
+    --
+    -- Required for new lifecycle hooks, but optional when updating existing hooks.
+    lifecycleTransition :: Lude.Maybe Lude.Text,
+    -- | The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
+    --
+    -- Required for new lifecycle hooks, but optional when updating existing hooks.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecycleHook' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'defaultResult' - Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. This parameter can be either @CONTINUE@ or @ABANDON@ . The default value is @ABANDON@ .
+-- * 'lifecycleHookName' - The name of the lifecycle hook.
 -- * 'heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from @30@ to @7200@ seconds. The default value is @3600@ seconds (1 hour).
 --
 -- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling the 'RecordLifecycleActionHeartbeat' API.
--- * 'lifecycleHookName' - The name of the lifecycle hook.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+-- * 'notificationTargetARN' - The ARN of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. This target can be either an SQS queue or an SNS topic.
+--
+-- If you specify an empty string, this overrides the current ARN.
+-- This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key-value pair format when sending notifications to an Amazon SNS topic.
+-- When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message. Test messages contain the following additional key-value pair: @"Event": "autoscaling:TEST_NOTIFICATION"@ .
 -- * 'lifecycleTransition' - The instance state to which you want to attach the lifecycle hook. The valid values are:
 --
 --
@@ -104,12 +129,6 @@ data PutLifecycleHook = PutLifecycleHook'
 --
 --
 -- Required for new lifecycle hooks, but optional when updating existing hooks.
--- * 'notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
--- * 'notificationTargetARN' - The ARN of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. This target can be either an SQS queue or an SNS topic.
---
--- If you specify an empty string, this overrides the current ARN.
--- This operation uses the JSON format when sending notifications to an Amazon SQS queue, and an email key-value pair format when sending notifications to an Amazon SNS topic.
--- When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message. Test messages contain the following additional key-value pair: @"Event": "autoscaling:TEST_NOTIFICATION"@ .
 -- * 'roleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
 --
 -- Required for new lifecycle hooks, but optional when updating existing hooks.
@@ -122,13 +141,13 @@ mkPutLifecycleHook ::
 mkPutLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
   PutLifecycleHook'
     { defaultResult = Lude.Nothing,
+      lifecycleHookName = pLifecycleHookName_,
       heartbeatTimeout = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_,
       notificationMetadata = Lude.Nothing,
       notificationTargetARN = Lude.Nothing,
       lifecycleTransition = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      lifecycleHookName = pLifecycleHookName_,
-      autoScalingGroupName = pAutoScalingGroupName_
+      roleARN = Lude.Nothing
     }
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. This parameter can be either @CONTINUE@ or @ABANDON@ . The default value is @ABANDON@ .
@@ -138,6 +157,13 @@ plhDefaultResult :: Lens.Lens' PutLifecycleHook (Lude.Maybe Lude.Text)
 plhDefaultResult = Lens.lens (defaultResult :: PutLifecycleHook -> Lude.Maybe Lude.Text) (\s a -> s {defaultResult = a} :: PutLifecycleHook)
 {-# DEPRECATED plhDefaultResult "Use generic-lens or generic-optics with 'defaultResult' instead." #-}
 
+-- | The name of the lifecycle hook.
+--
+-- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plhLifecycleHookName :: Lens.Lens' PutLifecycleHook Lude.Text
+plhLifecycleHookName = Lens.lens (lifecycleHookName :: PutLifecycleHook -> Lude.Text) (\s a -> s {lifecycleHookName = a} :: PutLifecycleHook)
+{-# DEPRECATED plhLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
+
 -- | The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from @30@ to @7200@ seconds. The default value is @3600@ seconds (1 hour).
 --
 -- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling the 'RecordLifecycleActionHeartbeat' API.
@@ -146,6 +172,13 @@ plhDefaultResult = Lens.lens (defaultResult :: PutLifecycleHook -> Lude.Maybe Lu
 plhHeartbeatTimeout :: Lens.Lens' PutLifecycleHook (Lude.Maybe Lude.Int)
 plhHeartbeatTimeout = Lens.lens (heartbeatTimeout :: PutLifecycleHook -> Lude.Maybe Lude.Int) (\s a -> s {heartbeatTimeout = a} :: PutLifecycleHook)
 {-# DEPRECATED plhHeartbeatTimeout "Use generic-lens or generic-optics with 'heartbeatTimeout' instead." #-}
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plhAutoScalingGroupName :: Lens.Lens' PutLifecycleHook Lude.Text
+plhAutoScalingGroupName = Lens.lens (autoScalingGroupName :: PutLifecycleHook -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: PutLifecycleHook)
+{-# DEPRECATED plhAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
 --
@@ -190,20 +223,6 @@ plhRoleARN :: Lens.Lens' PutLifecycleHook (Lude.Maybe Lude.Text)
 plhRoleARN = Lens.lens (roleARN :: PutLifecycleHook -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: PutLifecycleHook)
 {-# DEPRECATED plhRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | The name of the lifecycle hook.
---
--- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plhLifecycleHookName :: Lens.Lens' PutLifecycleHook Lude.Text
-plhLifecycleHookName = Lens.lens (lifecycleHookName :: PutLifecycleHook -> Lude.Text) (\s a -> s {lifecycleHookName = a} :: PutLifecycleHook)
-{-# DEPRECATED plhLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
-
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plhAutoScalingGroupName :: Lens.Lens' PutLifecycleHook Lude.Text
-plhAutoScalingGroupName = Lens.lens (autoScalingGroupName :: PutLifecycleHook -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: PutLifecycleHook)
-{-# DEPRECATED plhAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
 instance Lude.AWSRequest PutLifecycleHook where
   type Rs PutLifecycleHook = PutLifecycleHookResponse
   request = Req.postQuery autoScalingService
@@ -226,27 +245,21 @@ instance Lude.ToQuery PutLifecycleHook where
       [ "Action" Lude.=: ("PutLifecycleHook" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "DefaultResult" Lude.=: defaultResult,
+        "LifecycleHookName" Lude.=: lifecycleHookName,
         "HeartbeatTimeout" Lude.=: heartbeatTimeout,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "NotificationMetadata" Lude.=: notificationMetadata,
         "NotificationTargetARN" Lude.=: notificationTargetARN,
         "LifecycleTransition" Lude.=: lifecycleTransition,
-        "RoleARN" Lude.=: roleARN,
-        "LifecycleHookName" Lude.=: lifecycleHookName,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
+        "RoleARN" Lude.=: roleARN
       ]
 
 -- | /See:/ 'mkPutLifecycleHookResponse' smart constructor.
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecycleHookResponse' with the minimum fields required to make a request.

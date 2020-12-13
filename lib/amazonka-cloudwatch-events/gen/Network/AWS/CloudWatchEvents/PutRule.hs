@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,10 +35,10 @@ module Network.AWS.CloudWatchEvents.PutRule
     prState,
     prEventBusName,
     prScheduleExpression,
+    prName,
     prDescription,
     prTags,
     prRoleARN,
-    prName,
 
     -- * Destructuring the response
     PutRuleResponse (..),
@@ -57,34 +58,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutRule' smart constructor.
 data PutRule = PutRule'
-  { eventPattern :: Lude.Maybe Lude.Text,
+  { -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
+    eventPattern :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the rule is enabled or disabled.
     state :: Lude.Maybe RuleState,
+    -- | The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
     eventBusName :: Lude.Maybe Lude.Text,
+    -- | The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
     scheduleExpression :: Lude.Maybe Lude.Text,
+    -- | The name of the rule that you are creating or updating.
+    name :: Lude.Text,
+    -- | A description of the rule.
     description :: Lude.Maybe Lude.Text,
+    -- | The list of key-value pairs to associate with the rule.
     tags :: Lude.Maybe [Tag],
-    roleARN :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the IAM role associated with the rule.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRule' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the rule.
--- * 'eventBusName' - The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
 -- * 'eventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
--- * 'name' - The name of the rule that you are creating or updating.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
--- * 'scheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
 -- * 'state' - Indicates whether the rule is enabled or disabled.
+-- * 'eventBusName' - The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is used.
+-- * 'scheduleExpression' - The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".
+-- * 'name' - The name of the rule that you are creating or updating.
+-- * 'description' - A description of the rule.
 -- * 'tags' - The list of key-value pairs to associate with the rule.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the rule.
 mkPutRule ::
   -- | 'name'
   Lude.Text ->
@@ -95,10 +98,10 @@ mkPutRule pName_ =
       state = Lude.Nothing,
       eventBusName = Lude.Nothing,
       scheduleExpression = Lude.Nothing,
+      name = pName_,
       description = Lude.Nothing,
       tags = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      name = pName_
+      roleARN = Lude.Nothing
     }
 
 -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
@@ -129,6 +132,13 @@ prScheduleExpression :: Lens.Lens' PutRule (Lude.Maybe Lude.Text)
 prScheduleExpression = Lens.lens (scheduleExpression :: PutRule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleExpression = a} :: PutRule)
 {-# DEPRECATED prScheduleExpression "Use generic-lens or generic-optics with 'scheduleExpression' instead." #-}
 
+-- | The name of the rule that you are creating or updating.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prName :: Lens.Lens' PutRule Lude.Text
+prName = Lens.lens (name :: PutRule -> Lude.Text) (\s a -> s {name = a} :: PutRule)
+{-# DEPRECATED prName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | A description of the rule.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -149,13 +159,6 @@ prTags = Lens.lens (tags :: PutRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :
 prRoleARN :: Lens.Lens' PutRule (Lude.Maybe Lude.Text)
 prRoleARN = Lens.lens (roleARN :: PutRule -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: PutRule)
 {-# DEPRECATED prRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The name of the rule that you are creating or updating.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prName :: Lens.Lens' PutRule Lude.Text
-prName = Lens.lens (name :: PutRule -> Lude.Text) (\s a -> s {name = a} :: PutRule)
-{-# DEPRECATED prName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest PutRule where
   type Rs PutRule = PutRuleResponse
@@ -185,10 +188,10 @@ instance Lude.ToJSON PutRule where
             ("State" Lude..=) Lude.<$> state,
             ("EventBusName" Lude..=) Lude.<$> eventBusName,
             ("ScheduleExpression" Lude..=) Lude.<$> scheduleExpression,
+            Lude.Just ("Name" Lude..= name),
             ("Description" Lude..=) Lude.<$> description,
             ("Tags" Lude..=) Lude.<$> tags,
-            ("RoleArn" Lude..=) Lude.<$> roleARN,
-            Lude.Just ("Name" Lude..= name)
+            ("RoleArn" Lude..=) Lude.<$> roleARN
           ]
       )
 
@@ -200,23 +203,18 @@ instance Lude.ToQuery PutRule where
 
 -- | /See:/ 'mkPutRuleResponse' smart constructor.
 data PutRuleResponse = PutRuleResponse'
-  { ruleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the rule.
+    ruleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRuleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'ruleARN' - The Amazon Resource Name (ARN) of the rule.
+-- * 'responseStatus' - The response status code.
 mkPutRuleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

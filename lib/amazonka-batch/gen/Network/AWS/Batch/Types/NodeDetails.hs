@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeDetails' smart constructor.
 data NodeDetails = NodeDetails'
-  { nodeIndex :: Lude.Maybe Lude.Int,
+  { -- | The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
+    nodeIndex :: Lude.Maybe Lude.Int,
+    -- | Specifies whether the current node is the main node for a multi-node parallel job.
     isMainNode :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeDetails' with the minimum fields required to make a request.
 --
--- * 'isMainNode' - Specifies whether the current node is the main node for a multi-node parallel job.
 -- * 'nodeIndex' - The node index for the node. Node index numbering begins at zero. This index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@ environment variable.
+-- * 'isMainNode' - Specifies whether the current node is the main node for a multi-node parallel job.
 mkNodeDetails ::
   NodeDetails
 mkNodeDetails =

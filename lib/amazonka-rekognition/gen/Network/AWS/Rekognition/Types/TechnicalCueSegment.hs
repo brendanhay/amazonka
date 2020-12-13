@@ -30,17 +30,12 @@ import Network.AWS.Rekognition.Types.TechnicalCueType
 --
 -- /See:/ 'mkTechnicalCueSegment' smart constructor.
 data TechnicalCueSegment = TechnicalCueSegment'
-  { confidence ::
-      Lude.Maybe Lude.Double,
+  { -- | The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.
+    confidence :: Lude.Maybe Lude.Double,
+    -- | The type of the technical cue.
     type' :: Lude.Maybe TechnicalCueType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TechnicalCueSegment' with the minimum fields required to make a request.

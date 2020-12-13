@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,16 +23,16 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     mkCreateVirtualMFADevice,
 
     -- ** Request lenses
-    cvmdPath,
     cvmdVirtualMFADeviceName,
+    cvmdPath,
 
     -- * Destructuring the response
     CreateVirtualMFADeviceResponse (..),
     mkCreateVirtualMFADeviceResponse,
 
     -- ** Response lenses
-    cvmdrsResponseStatus,
     cvmdrsVirtualMFADevice,
+    cvmdrsResponseStatus,
   )
 where
 
@@ -43,37 +44,47 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateVirtualMFADevice' smart constructor.
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
-  { path ::
-      Lude.Maybe Lude.Text,
-    virtualMFADeviceName :: Lude.Text
+  { -- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    virtualMFADeviceName :: Lude.Text,
+    -- | The path for the virtual MFA device. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    --
+    -- This parameter is optional. If it is not included, it defaults to a slash (/).
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+    path :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVirtualMFADevice' with the minimum fields required to make a request.
 --
+-- * 'virtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'path' - The path for the virtual MFA device. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (/).
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
--- * 'virtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkCreateVirtualMFADevice ::
   -- | 'virtualMFADeviceName'
   Lude.Text ->
   CreateVirtualMFADevice
 mkCreateVirtualMFADevice pVirtualMFADeviceName_ =
   CreateVirtualMFADevice'
-    { path = Lude.Nothing,
-      virtualMFADeviceName = pVirtualMFADeviceName_
+    { virtualMFADeviceName =
+        pVirtualMFADeviceName_,
+      path = Lude.Nothing
     }
+
+-- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'virtualMFADeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvmdVirtualMFADeviceName :: Lens.Lens' CreateVirtualMFADevice Lude.Text
+cvmdVirtualMFADeviceName = Lens.lens (virtualMFADeviceName :: CreateVirtualMFADevice -> Lude.Text) (\s a -> s {virtualMFADeviceName = a} :: CreateVirtualMFADevice)
+{-# DEPRECATED cvmdVirtualMFADeviceName "Use generic-lens or generic-optics with 'virtualMFADeviceName' instead." #-}
 
 -- | The path for the virtual MFA device. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
@@ -85,15 +96,6 @@ cvmdPath :: Lens.Lens' CreateVirtualMFADevice (Lude.Maybe Lude.Text)
 cvmdPath = Lens.lens (path :: CreateVirtualMFADevice -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: CreateVirtualMFADevice)
 {-# DEPRECATED cvmdPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'virtualMFADeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvmdVirtualMFADeviceName :: Lens.Lens' CreateVirtualMFADevice Lude.Text
-cvmdVirtualMFADeviceName = Lens.lens (virtualMFADeviceName :: CreateVirtualMFADevice -> Lude.Text) (\s a -> s {virtualMFADeviceName = a} :: CreateVirtualMFADevice)
-{-# DEPRECATED cvmdVirtualMFADeviceName "Use generic-lens or generic-optics with 'virtualMFADeviceName' instead." #-}
-
 instance Lude.AWSRequest CreateVirtualMFADevice where
   type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
   request = Req.postQuery iamService
@@ -102,8 +104,8 @@ instance Lude.AWSRequest CreateVirtualMFADevice where
       "CreateVirtualMFADeviceResult"
       ( \s h x ->
           CreateVirtualMFADeviceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "VirtualMFADevice")
+            Lude.<$> (x Lude..@ "VirtualMFADevice")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateVirtualMFADevice where
@@ -117,47 +119,40 @@ instance Lude.ToQuery CreateVirtualMFADevice where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateVirtualMFADevice" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "Path" Lude.=: path,
-        "VirtualMFADeviceName" Lude.=: virtualMFADeviceName
+        "VirtualMFADeviceName" Lude.=: virtualMFADeviceName,
+        "Path" Lude.=: path
       ]
 
 -- | Contains the response to a successful 'CreateVirtualMFADevice' request.
 --
 -- /See:/ 'mkCreateVirtualMFADeviceResponse' smart constructor.
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
-  { responseStatus ::
-      Lude.Int,
-    virtualMFADevice ::
-      VirtualMFADevice
+  { -- | A structure containing details about the new virtual MFA device.
+    virtualMFADevice :: VirtualMFADevice,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVirtualMFADeviceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'virtualMFADevice' - A structure containing details about the new virtual MFA device.
+-- * 'responseStatus' - The response status code.
 mkCreateVirtualMFADeviceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'virtualMFADevice'
   VirtualMFADevice ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateVirtualMFADeviceResponse
 mkCreateVirtualMFADeviceResponse
-  pResponseStatus_
-  pVirtualMFADevice_ =
+  pVirtualMFADevice_
+  pResponseStatus_ =
     CreateVirtualMFADeviceResponse'
-      { responseStatus =
-          pResponseStatus_,
-        virtualMFADevice = pVirtualMFADevice_
+      { virtualMFADevice =
+          pVirtualMFADevice_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvmdrsResponseStatus :: Lens.Lens' CreateVirtualMFADeviceResponse Lude.Int
-cvmdrsResponseStatus = Lens.lens (responseStatus :: CreateVirtualMFADeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVirtualMFADeviceResponse)
-{-# DEPRECATED cvmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the new virtual MFA device.
 --
@@ -165,3 +160,10 @@ cvmdrsResponseStatus = Lens.lens (responseStatus :: CreateVirtualMFADeviceRespon
 cvmdrsVirtualMFADevice :: Lens.Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmdrsVirtualMFADevice = Lens.lens (virtualMFADevice :: CreateVirtualMFADeviceResponse -> VirtualMFADevice) (\s a -> s {virtualMFADevice = a} :: CreateVirtualMFADeviceResponse)
 {-# DEPRECATED cvmdrsVirtualMFADevice "Use generic-lens or generic-optics with 'virtualMFADevice' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvmdrsResponseStatus :: Lens.Lens' CreateVirtualMFADeviceResponse Lude.Int
+cvmdrsResponseStatus = Lens.lens (responseStatus :: CreateVirtualMFADeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateVirtualMFADeviceResponse)
+{-# DEPRECATED cvmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

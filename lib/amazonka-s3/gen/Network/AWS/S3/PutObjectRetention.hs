@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.S3.PutObjectRetention
     -- ** Request lenses
     porRetention,
     porVersionId,
+    porBucket,
     porRequestPayer,
+    porKey,
     porContentMD5,
     porBypassGovernanceRetention,
     porExpectedBucketOwner,
-    porBucket,
-    porKey,
 
     -- * Destructuring the response
     PutObjectRetentionResponse (..),
@@ -51,39 +52,43 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutObjectRetention' smart constructor.
 data PutObjectRetention = PutObjectRetention'
-  { retention ::
-      Lude.Maybe ObjectLockRetention,
+  { -- | The container element for the Object Retention configuration.
+    retention :: Lude.Maybe ObjectLockRetention,
+    -- | The version ID for the object that you want to apply this Object Retention configuration to.
     versionId :: Lude.Maybe ObjectVersionId,
-    requestPayer :: Lude.Maybe RequestPayer,
-    contentMD5 :: Lude.Maybe Lude.Text,
-    bypassGovernanceRetention :: Lude.Maybe Lude.Bool,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    -- | The bucket name that contains the object you want to apply this Object Retention configuration to.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
-    key :: ObjectKey
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | The key name for the object that you want to apply this Object Retention configuration to.
+    key :: ObjectKey,
+    -- | The MD5 hash for the request body.
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | Indicates whether this operation should bypass Governance-mode restrictions.
+    bypassGovernanceRetention :: Lude.Maybe Lude.Bool,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutObjectRetention' with the minimum fields required to make a request.
 --
+-- * 'retention' - The container element for the Object Retention configuration.
+-- * 'versionId' - The version ID for the object that you want to apply this Object Retention configuration to.
 -- * 'bucket' - The bucket name that contains the object you want to apply this Object Retention configuration to.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'bypassGovernanceRetention' - Indicates whether this operation should bypass Governance-mode restrictions.
+-- * 'requestPayer' -
+-- * 'key' - The key name for the object that you want to apply this Object Retention configuration to.
 -- * 'contentMD5' - The MD5 hash for the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+-- * 'bypassGovernanceRetention' - Indicates whether this operation should bypass Governance-mode restrictions.
 -- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'key' - The key name for the object that you want to apply this Object Retention configuration to.
--- * 'requestPayer' - Undocumented field.
--- * 'retention' - The container element for the Object Retention configuration.
--- * 'versionId' - The version ID for the object that you want to apply this Object Retention configuration to.
 mkPutObjectRetention ::
   -- | 'bucket'
   BucketName ->
@@ -94,12 +99,12 @@ mkPutObjectRetention pBucket_ pKey_ =
   PutObjectRetention'
     { retention = Lude.Nothing,
       versionId = Lude.Nothing,
+      bucket = pBucket_,
       requestPayer = Lude.Nothing,
+      key = pKey_,
       contentMD5 = Lude.Nothing,
       bypassGovernanceRetention = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
-      key = pKey_
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The container element for the Object Retention configuration.
@@ -116,12 +121,28 @@ porVersionId :: Lens.Lens' PutObjectRetention (Lude.Maybe ObjectVersionId)
 porVersionId = Lens.lens (versionId :: PutObjectRetention -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: PutObjectRetention)
 {-# DEPRECATED porVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
+-- | The bucket name that contains the object you want to apply this Object Retention configuration to.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+porBucket :: Lens.Lens' PutObjectRetention BucketName
+porBucket = Lens.lens (bucket :: PutObjectRetention -> BucketName) (\s a -> s {bucket = a} :: PutObjectRetention)
+{-# DEPRECATED porBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 porRequestPayer :: Lens.Lens' PutObjectRetention (Lude.Maybe RequestPayer)
 porRequestPayer = Lens.lens (requestPayer :: PutObjectRetention -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: PutObjectRetention)
 {-# DEPRECATED porRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
+-- | The key name for the object that you want to apply this Object Retention configuration to.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+porKey :: Lens.Lens' PutObjectRetention ObjectKey
+porKey = Lens.lens (key :: PutObjectRetention -> ObjectKey) (\s a -> s {key = a} :: PutObjectRetention)
+{-# DEPRECATED porKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The MD5 hash for the request body.
 --
@@ -145,22 +166,6 @@ porBypassGovernanceRetention = Lens.lens (bypassGovernanceRetention :: PutObject
 porExpectedBucketOwner :: Lens.Lens' PutObjectRetention (Lude.Maybe Lude.Text)
 porExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutObjectRetention -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutObjectRetention)
 {-# DEPRECATED porExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The bucket name that contains the object you want to apply this Object Retention configuration to.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porBucket :: Lens.Lens' PutObjectRetention BucketName
-porBucket = Lens.lens (bucket :: PutObjectRetention -> BucketName) (\s a -> s {bucket = a} :: PutObjectRetention)
-{-# DEPRECATED porBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | The key name for the object that you want to apply this Object Retention configuration to.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-porKey :: Lens.Lens' PutObjectRetention ObjectKey
-porKey = Lens.lens (key :: PutObjectRetention -> ObjectKey) (\s a -> s {key = a} :: PutObjectRetention)
-{-# DEPRECATED porKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 instance Lude.AWSRequest PutObjectRetention where
   type Rs PutObjectRetention = PutObjectRetentionResponse
@@ -199,22 +204,16 @@ instance Lude.ToQuery PutObjectRetention where
 
 -- | /See:/ 'mkPutObjectRetentionResponse' smart constructor.
 data PutObjectRetentionResponse = PutObjectRetentionResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutObjectRetentionResponse' with the minimum fields required to make a request.
 --
--- * 'requestCharged' - Undocumented field.
+-- * 'requestCharged' -
 -- * 'responseStatus' - The response status code.
 mkPutObjectRetentionResponse ::
   -- | 'responseStatus'

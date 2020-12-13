@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
   ( CmafWriteSegmentTimelineInRepresentation
       ( CmafWriteSegmentTimelineInRepresentation',
-        CWSTIRDisabled,
-        CWSTIREnabled
+        CWSTIREnabled,
+        CWSTIRDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmafWriteSegmentTimelineInRepresentation = CmafWriteSegmentTimelineInRep
       Lude.ToHeader
     )
 
-pattern CWSTIRDisabled :: CmafWriteSegmentTimelineInRepresentation
-pattern CWSTIRDisabled = CmafWriteSegmentTimelineInRepresentation' "DISABLED"
-
 pattern CWSTIREnabled :: CmafWriteSegmentTimelineInRepresentation
 pattern CWSTIREnabled = CmafWriteSegmentTimelineInRepresentation' "ENABLED"
 
+pattern CWSTIRDisabled :: CmafWriteSegmentTimelineInRepresentation
+pattern CWSTIRDisabled = CmafWriteSegmentTimelineInRepresentation' "DISABLED"
+
 {-# COMPLETE
-  CWSTIRDisabled,
   CWSTIREnabled,
+  CWSTIRDisabled,
   CmafWriteSegmentTimelineInRepresentation'
   #-}

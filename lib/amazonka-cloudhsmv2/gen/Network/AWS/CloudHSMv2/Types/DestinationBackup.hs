@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestinationBackup' smart constructor.
 data DestinationBackup = DestinationBackup'
-  { sourceCluster ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
+    sourceCluster :: Lude.Maybe Lude.Text,
+    -- | The AWS region that contains the source backup from which the new backup was copied.
     sourceRegion :: Lude.Maybe Lude.Text,
+    -- | The identifier (ID) of the source backup from which the new backup was copied.
     sourceBackup :: Lude.Maybe Lude.Text,
+    -- | The date and time when both the source backup was created.
     createTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationBackup' with the minimum fields required to make a request.
 --
--- * 'createTimestamp' - The date and time when both the source backup was created.
--- * 'sourceBackup' - The identifier (ID) of the source backup from which the new backup was copied.
 -- * 'sourceCluster' - The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
 -- * 'sourceRegion' - The AWS region that contains the source backup from which the new backup was copied.
+-- * 'sourceBackup' - The identifier (ID) of the source backup from which the new backup was copied.
+-- * 'createTimestamp' - The date and time when both the source backup was created.
 mkDestinationBackup ::
   DestinationBackup
 mkDestinationBackup =

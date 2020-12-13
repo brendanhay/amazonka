@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.IoT.ListPrincipalThings
     mkListPrincipalThings,
 
     -- ** Request lenses
-    lptNextToken,
-    lptMaxResults,
-    lptPrincipal,
+    lNextToken,
+    lPrincipal,
+    lMaxResults,
 
     -- * Destructuring the response
     ListPrincipalThingsResponse (..),
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListPrincipalThings' smart constructor.
 data ListPrincipalThings = ListPrincipalThings'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    principal :: Lude.Text
+  { -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The principal.
+    principal :: Lude.Text,
+    -- | The maximum number of results to return in this operation.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPrincipalThings' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in this operation.
 -- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'principal' - The principal.
+-- * 'maxResults' - The maximum number of results to return in this operation.
 mkListPrincipalThings ::
   -- | 'principal'
   Lude.Text ->
@@ -73,30 +70,30 @@ mkListPrincipalThings ::
 mkListPrincipalThings pPrincipal_ =
   ListPrincipalThings'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      principal = pPrincipal_
+      principal = pPrincipal_,
+      maxResults = Lude.Nothing
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptNextToken :: Lens.Lens' ListPrincipalThings (Lude.Maybe Lude.Text)
-lptNextToken = Lens.lens (nextToken :: ListPrincipalThings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPrincipalThings)
-{-# DEPRECATED lptNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of results to return in this operation.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptMaxResults :: Lens.Lens' ListPrincipalThings (Lude.Maybe Lude.Natural)
-lptMaxResults = Lens.lens (maxResults :: ListPrincipalThings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPrincipalThings)
-{-# DEPRECATED lptMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lNextToken :: Lens.Lens' ListPrincipalThings (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListPrincipalThings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPrincipalThings)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The principal.
 --
 -- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lptPrincipal :: Lens.Lens' ListPrincipalThings Lude.Text
-lptPrincipal = Lens.lens (principal :: ListPrincipalThings -> Lude.Text) (\s a -> s {principal = a} :: ListPrincipalThings)
-{-# DEPRECATED lptPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+lPrincipal :: Lens.Lens' ListPrincipalThings Lude.Text
+lPrincipal = Lens.lens (principal :: ListPrincipalThings -> Lude.Text) (\s a -> s {principal = a} :: ListPrincipalThings)
+{-# DEPRECATED lPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+
+-- | The maximum number of results to return in this operation.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMaxResults :: Lens.Lens' ListPrincipalThings (Lude.Maybe Lude.Natural)
+lMaxResults = Lens.lens (maxResults :: ListPrincipalThings -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListPrincipalThings)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListPrincipalThings where
   page rq rs
@@ -105,7 +102,7 @@ instance Page.AWSPager ListPrincipalThings where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lptNextToken Lens..~ rs Lens.^. lptrsNextToken
+          Lude.& lNextToken Lens..~ rs Lens.^. lptrsNextToken
 
 instance Lude.AWSRequest ListPrincipalThings where
   type Rs ListPrincipalThings = ListPrincipalThingsResponse
@@ -135,25 +132,21 @@ instance Lude.ToQuery ListPrincipalThings where
 --
 -- /See:/ 'mkListPrincipalThingsResponse' smart constructor.
 data ListPrincipalThingsResponse = ListPrincipalThingsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to get the next set of results, or __null__ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The things.
     things :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPrincipalThingsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
--- * 'responseStatus' - The response status code.
 -- * 'things' - The things.
+-- * 'responseStatus' - The response status code.
 mkListPrincipalThingsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

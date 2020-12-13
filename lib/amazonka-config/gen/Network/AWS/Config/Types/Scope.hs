@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScope' smart constructor.
 data Scope = Scope'
-  { complianceResourceTypes ::
-      Lude.Maybe [Lude.Text],
+  { -- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
+    complianceResourceTypes :: Lude.Maybe [Lude.Text],
+    -- | The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
     complianceResourceId :: Lude.Maybe Lude.Text,
+    -- | The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
     tagValue :: Lude.Maybe Lude.Text,
+    -- | The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
     tagKey :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scope' with the minimum fields required to make a request.
 --
--- * 'complianceResourceId' - The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
 -- * 'complianceResourceTypes' - The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
--- * 'tagKey' - The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
+-- * 'complianceResourceId' - The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
 -- * 'tagValue' - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
+-- * 'tagKey' - The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 mkScope ::
   Scope
 mkScope =

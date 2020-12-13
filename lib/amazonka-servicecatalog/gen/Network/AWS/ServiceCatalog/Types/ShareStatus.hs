@@ -13,11 +13,11 @@
 module Network.AWS.ServiceCatalog.Types.ShareStatus
   ( ShareStatus
       ( ShareStatus',
+        NotStarted,
+        InProgress,
         Completed,
         CompletedWithErrors,
-        Error,
-        InProgress,
-        NotStarted
+        Error
       ),
   )
 where
@@ -48,6 +48,12 @@ newtype ShareStatus = ShareStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern NotStarted :: ShareStatus
+pattern NotStarted = ShareStatus' "NOT_STARTED"
+
+pattern InProgress :: ShareStatus
+pattern InProgress = ShareStatus' "IN_PROGRESS"
+
 pattern Completed :: ShareStatus
 pattern Completed = ShareStatus' "COMPLETED"
 
@@ -57,17 +63,11 @@ pattern CompletedWithErrors = ShareStatus' "COMPLETED_WITH_ERRORS"
 pattern Error :: ShareStatus
 pattern Error = ShareStatus' "ERROR"
 
-pattern InProgress :: ShareStatus
-pattern InProgress = ShareStatus' "IN_PROGRESS"
-
-pattern NotStarted :: ShareStatus
-pattern NotStarted = ShareStatus' "NOT_STARTED"
-
 {-# COMPLETE
+  NotStarted,
+  InProgress,
   Completed,
   CompletedWithErrors,
   Error,
-  InProgress,
-  NotStarted,
   ShareStatus'
   #-}

@@ -13,9 +13,9 @@
 module Network.AWS.CloudWatchEvents.Types.EventSourceState
   ( EventSourceState
       ( EventSourceState',
+        Pending,
         Active,
-        Deleted,
-        Pending
+        Deleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EventSourceState = EventSourceState' Lude.Text
       Lude.ToHeader
     )
 
+pattern Pending :: EventSourceState
+pattern Pending = EventSourceState' "PENDING"
+
 pattern Active :: EventSourceState
 pattern Active = EventSourceState' "ACTIVE"
 
 pattern Deleted :: EventSourceState
 pattern Deleted = EventSourceState' "DELETED"
 
-pattern Pending :: EventSourceState
-pattern Pending = EventSourceState' "PENDING"
-
 {-# COMPLETE
+  Pending,
   Active,
   Deleted,
-  Pending,
   EventSourceState'
   #-}

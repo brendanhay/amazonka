@@ -30,23 +30,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPredefinedLoadMetricSpecification' smart constructor.
 data PredefinedLoadMetricSpecification = PredefinedLoadMetricSpecification'
-  { resourceLabel ::
-      Lude.Maybe Lude.Text,
-    predefinedLoadMetricType ::
-      LoadMetricType
+  { -- | Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group.
+    --
+    -- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
+    --
+    --     * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN.
+    --
+    --
+    --     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+    resourceLabel :: Lude.Maybe Lude.Text,
+    -- | The metric type.
+    predefinedLoadMetricType :: LoadMetricType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PredefinedLoadMetricSpecification' with the minimum fields required to make a request.
 --
--- * 'predefinedLoadMetricType' - The metric type.
 -- * 'resourceLabel' - Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group.
 --
 -- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
@@ -55,6 +55,9 @@ data PredefinedLoadMetricSpecification = PredefinedLoadMetricSpecification'
 --
 --
 --     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+--
+--
+-- * 'predefinedLoadMetricType' - The metric type.
 mkPredefinedLoadMetricSpecification ::
   -- | 'predefinedLoadMetricType'
   LoadMetricType ->

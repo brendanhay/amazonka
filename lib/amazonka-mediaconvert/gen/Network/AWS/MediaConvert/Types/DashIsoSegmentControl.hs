@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.DashIsoSegmentControl
   ( DashIsoSegmentControl
       ( DashIsoSegmentControl',
-        DISCSegmentedFiles,
-        DISCSingleFile
+        DISCSingleFile,
+        DISCSegmentedFiles
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype DashIsoSegmentControl = DashIsoSegmentControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern DISCSegmentedFiles :: DashIsoSegmentControl
-pattern DISCSegmentedFiles = DashIsoSegmentControl' "SEGMENTED_FILES"
-
 pattern DISCSingleFile :: DashIsoSegmentControl
 pattern DISCSingleFile = DashIsoSegmentControl' "SINGLE_FILE"
 
+pattern DISCSegmentedFiles :: DashIsoSegmentControl
+pattern DISCSegmentedFiles = DashIsoSegmentControl' "SEGMENTED_FILES"
+
 {-# COMPLETE
-  DISCSegmentedFiles,
   DISCSingleFile,
+  DISCSegmentedFiles,
   DashIsoSegmentControl'
   #-}

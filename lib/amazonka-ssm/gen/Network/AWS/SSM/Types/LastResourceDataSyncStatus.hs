@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.LastResourceDataSyncStatus
   ( LastResourceDataSyncStatus
       ( LastResourceDataSyncStatus',
+        LRDSSSuccessful,
         LRDSSFailed,
-        LRDSSInProgress,
-        LRDSSSuccessful
+        LRDSSInProgress
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype LastResourceDataSyncStatus = LastResourceDataSyncStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern LRDSSSuccessful :: LastResourceDataSyncStatus
+pattern LRDSSSuccessful = LastResourceDataSyncStatus' "Successful"
+
 pattern LRDSSFailed :: LastResourceDataSyncStatus
 pattern LRDSSFailed = LastResourceDataSyncStatus' "Failed"
 
 pattern LRDSSInProgress :: LastResourceDataSyncStatus
 pattern LRDSSInProgress = LastResourceDataSyncStatus' "InProgress"
 
-pattern LRDSSSuccessful :: LastResourceDataSyncStatus
-pattern LRDSSSuccessful = LastResourceDataSyncStatus' "Successful"
-
 {-# COMPLETE
+  LRDSSSuccessful,
   LRDSSFailed,
   LRDSSInProgress,
-  LRDSSSuccessful,
   LastResourceDataSyncStatus'
   #-}

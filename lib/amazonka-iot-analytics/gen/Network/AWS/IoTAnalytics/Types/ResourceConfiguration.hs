@@ -17,8 +17,8 @@ module Network.AWS.IoTAnalytics.Types.ResourceConfiguration
     mkResourceConfiguration,
 
     -- * Lenses
-    rcComputeType,
     rcVolumeSizeInGB,
+    rcComputeType,
   )
 where
 
@@ -30,41 +30,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceConfiguration' smart constructor.
 data ResourceConfiguration = ResourceConfiguration'
-  { computeType ::
-      ComputeType,
-    volumeSizeInGB :: Lude.Natural
+  { -- | The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
+    volumeSizeInGB :: Lude.Natural,
+    -- | The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
+    computeType :: ComputeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceConfiguration' with the minimum fields required to make a request.
 --
--- * 'computeType' - The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
 -- * 'volumeSizeInGB' - The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
+-- * 'computeType' - The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
 mkResourceConfiguration ::
-  -- | 'computeType'
-  ComputeType ->
   -- | 'volumeSizeInGB'
   Lude.Natural ->
+  -- | 'computeType'
+  ComputeType ->
   ResourceConfiguration
-mkResourceConfiguration pComputeType_ pVolumeSizeInGB_ =
+mkResourceConfiguration pVolumeSizeInGB_ pComputeType_ =
   ResourceConfiguration'
-    { computeType = pComputeType_,
-      volumeSizeInGB = pVolumeSizeInGB_
+    { volumeSizeInGB = pVolumeSizeInGB_,
+      computeType = pComputeType_
     }
-
--- | The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
---
--- /Note:/ Consider using 'computeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcComputeType :: Lens.Lens' ResourceConfiguration ComputeType
-rcComputeType = Lens.lens (computeType :: ResourceConfiguration -> ComputeType) (\s a -> s {computeType = a} :: ResourceConfiguration)
-{-# DEPRECATED rcComputeType "Use generic-lens or generic-optics with 'computeType' instead." #-}
 
 -- | The size, in GB, of the persistent storage available to the resource instance used to execute the @containerAction@ (min: 1, max: 50).
 --
@@ -73,20 +61,27 @@ rcVolumeSizeInGB :: Lens.Lens' ResourceConfiguration Lude.Natural
 rcVolumeSizeInGB = Lens.lens (volumeSizeInGB :: ResourceConfiguration -> Lude.Natural) (\s a -> s {volumeSizeInGB = a} :: ResourceConfiguration)
 {-# DEPRECATED rcVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
 
+-- | The type of the compute resource used to execute the @containerAction@ . Possible values are: @ACU_1@ (vCPU=4, memory=16 GiB) or @ACU_2@ (vCPU=8, memory=32 GiB).
+--
+-- /Note:/ Consider using 'computeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcComputeType :: Lens.Lens' ResourceConfiguration ComputeType
+rcComputeType = Lens.lens (computeType :: ResourceConfiguration -> ComputeType) (\s a -> s {computeType = a} :: ResourceConfiguration)
+{-# DEPRECATED rcComputeType "Use generic-lens or generic-optics with 'computeType' instead." #-}
+
 instance Lude.FromJSON ResourceConfiguration where
   parseJSON =
     Lude.withObject
       "ResourceConfiguration"
       ( \x ->
           ResourceConfiguration'
-            Lude.<$> (x Lude..: "computeType") Lude.<*> (x Lude..: "volumeSizeInGB")
+            Lude.<$> (x Lude..: "volumeSizeInGB") Lude.<*> (x Lude..: "computeType")
       )
 
 instance Lude.ToJSON ResourceConfiguration where
   toJSON ResourceConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("computeType" Lude..= computeType),
-            Lude.Just ("volumeSizeInGB" Lude..= volumeSizeInGB)
+          [ Lude.Just ("volumeSizeInGB" Lude..= volumeSizeInGB),
+            Lude.Just ("computeType" Lude..= computeType)
           ]
       )

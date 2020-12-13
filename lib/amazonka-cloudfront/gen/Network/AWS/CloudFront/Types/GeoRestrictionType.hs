@@ -13,9 +13,9 @@
 module Network.AWS.CloudFront.Types.GeoRestrictionType
   ( GeoRestrictionType
       ( GeoRestrictionType',
-        GRTBlacklist,
-        GRTNone,
-        GRTWhitelist
+        Blacklist,
+        Whitelist,
+        None
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype GeoRestrictionType = GeoRestrictionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern GRTBlacklist :: GeoRestrictionType
-pattern GRTBlacklist = GeoRestrictionType' "blacklist"
+pattern Blacklist :: GeoRestrictionType
+pattern Blacklist = GeoRestrictionType' "blacklist"
 
-pattern GRTNone :: GeoRestrictionType
-pattern GRTNone = GeoRestrictionType' "none"
+pattern Whitelist :: GeoRestrictionType
+pattern Whitelist = GeoRestrictionType' "whitelist"
 
-pattern GRTWhitelist :: GeoRestrictionType
-pattern GRTWhitelist = GeoRestrictionType' "whitelist"
+pattern None :: GeoRestrictionType
+pattern None = GeoRestrictionType' "none"
 
 {-# COMPLETE
-  GRTBlacklist,
-  GRTNone,
-  GRTWhitelist,
+  Blacklist,
+  Whitelist,
+  None,
   GeoRestrictionType'
   #-}

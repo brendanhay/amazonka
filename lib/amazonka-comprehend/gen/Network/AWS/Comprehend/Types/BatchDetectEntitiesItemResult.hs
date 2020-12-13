@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchDetectEntitiesItemResult' smart constructor.
 data BatchDetectEntitiesItemResult = BatchDetectEntitiesItemResult'
-  { entities ::
-      Lude.Maybe [Entity],
+  { -- | One or more 'Entity' objects, one for each entity detected in the document.
+    entities :: Lude.Maybe [Entity],
+    -- | The zero-based index of the document in the input list.
     index :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDetectEntitiesItemResult' with the minimum fields required to make a request.

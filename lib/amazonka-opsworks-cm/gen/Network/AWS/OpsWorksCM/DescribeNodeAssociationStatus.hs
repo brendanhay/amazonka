@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
     mkDescribeNodeAssociationStatus,
 
     -- ** Request lenses
-    dnasNodeAssociationStatusToken,
     dnasServerName,
+    dnasNodeAssociationStatusToken,
 
     -- * Destructuring the response
     DescribeNodeAssociationStatusResponse (..),
@@ -30,8 +31,8 @@ module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
 
     -- ** Response lenses
     dnasrsEngineAttributes,
-    dnasrsResponseStatus,
     dnasrsNodeAssociationStatus,
+    dnasrsResponseStatus,
   )
 where
 
@@ -43,44 +44,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeNodeAssociationStatus' smart constructor.
 data DescribeNodeAssociationStatus = DescribeNodeAssociationStatus'
-  { nodeAssociationStatusToken ::
-      Lude.Text,
-    serverName :: Lude.Text
+  { -- | The name of the server from which to disassociate the node.
+    serverName :: Lude.Text,
+    -- | The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
+    nodeAssociationStatusToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNodeAssociationStatus' with the minimum fields required to make a request.
 --
--- * 'nodeAssociationStatusToken' - The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
 -- * 'serverName' - The name of the server from which to disassociate the node.
+-- * 'nodeAssociationStatusToken' - The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
 mkDescribeNodeAssociationStatus ::
-  -- | 'nodeAssociationStatusToken'
-  Lude.Text ->
   -- | 'serverName'
+  Lude.Text ->
+  -- | 'nodeAssociationStatusToken'
   Lude.Text ->
   DescribeNodeAssociationStatus
 mkDescribeNodeAssociationStatus
-  pNodeAssociationStatusToken_
-  pServerName_ =
+  pServerName_
+  pNodeAssociationStatusToken_ =
     DescribeNodeAssociationStatus'
-      { nodeAssociationStatusToken =
-          pNodeAssociationStatusToken_,
-        serverName = pServerName_
+      { serverName = pServerName_,
+        nodeAssociationStatusToken = pNodeAssociationStatusToken_
       }
-
--- | The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
---
--- /Note:/ Consider using 'nodeAssociationStatusToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnasNodeAssociationStatusToken :: Lens.Lens' DescribeNodeAssociationStatus Lude.Text
-dnasNodeAssociationStatusToken = Lens.lens (nodeAssociationStatusToken :: DescribeNodeAssociationStatus -> Lude.Text) (\s a -> s {nodeAssociationStatusToken = a} :: DescribeNodeAssociationStatus)
-{-# DEPRECATED dnasNodeAssociationStatusToken "Use generic-lens or generic-optics with 'nodeAssociationStatusToken' instead." #-}
 
 -- | The name of the server from which to disassociate the node.
 --
@@ -88,6 +76,13 @@ dnasNodeAssociationStatusToken = Lens.lens (nodeAssociationStatusToken :: Descri
 dnasServerName :: Lens.Lens' DescribeNodeAssociationStatus Lude.Text
 dnasServerName = Lens.lens (serverName :: DescribeNodeAssociationStatus -> Lude.Text) (\s a -> s {serverName = a} :: DescribeNodeAssociationStatus)
 {-# DEPRECATED dnasServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+
+-- | The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
+--
+-- /Note:/ Consider using 'nodeAssociationStatusToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnasNodeAssociationStatusToken :: Lens.Lens' DescribeNodeAssociationStatus Lude.Text
+dnasNodeAssociationStatusToken = Lens.lens (nodeAssociationStatusToken :: DescribeNodeAssociationStatus -> Lude.Text) (\s a -> s {nodeAssociationStatusToken = a} :: DescribeNodeAssociationStatus)
+{-# DEPRECATED dnasNodeAssociationStatusToken "Use generic-lens or generic-optics with 'nodeAssociationStatusToken' instead." #-}
 
 instance Lude.AWSRequest DescribeNodeAssociationStatus where
   type
@@ -99,8 +94,8 @@ instance Lude.AWSRequest DescribeNodeAssociationStatus where
       ( \s h x ->
           DescribeNodeAssociationStatusResponse'
             Lude.<$> (x Lude..?> "EngineAttributes" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..:> "NodeAssociationStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeNodeAssociationStatus where
@@ -120,9 +115,9 @@ instance Lude.ToJSON DescribeNodeAssociationStatus where
   toJSON DescribeNodeAssociationStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("NodeAssociationStatusToken" Lude..= nodeAssociationStatusToken),
-            Lude.Just ("ServerName" Lude..= serverName)
+          [ Lude.Just ("ServerName" Lude..= serverName),
+            Lude.Just
+              ("NodeAssociationStatusToken" Lude..= nodeAssociationStatusToken)
           ]
       )
 
@@ -134,20 +129,24 @@ instance Lude.ToQuery DescribeNodeAssociationStatus where
 
 -- | /See:/ 'mkDescribeNodeAssociationStatusResponse' smart constructor.
 data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusResponse'
-  { engineAttributes ::
-      Lude.Maybe
-        [EngineAttribute],
-    responseStatus ::
-      Lude.Int,
-    nodeAssociationStatus ::
-      NodeAssociationStatus
+  { -- | Attributes specific to the node association. In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
+    engineAttributes :: Lude.Maybe [EngineAttribute],
+    -- | The status of the association or disassociation request.
+    --
+    -- __Possible values:__
+    --
+    --     * @SUCCESS@ : The association or disassociation succeeded.
+    --
+    --
+    --     * @FAILED@ : The association or disassociation failed.
+    --
+    --
+    --     * @IN_PROGRESS@ : The association or disassociation is still in progress.
+    nodeAssociationStatus :: NodeAssociationStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNodeAssociationStatusResponse' with the minimum fields required to make a request.
@@ -168,19 +167,19 @@ data DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusRespon
 --
 -- * 'responseStatus' - The response status code.
 mkDescribeNodeAssociationStatusResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'nodeAssociationStatus'
   NodeAssociationStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNodeAssociationStatusResponse
 mkDescribeNodeAssociationStatusResponse
-  pResponseStatus_
-  pNodeAssociationStatus_ =
+  pNodeAssociationStatus_
+  pResponseStatus_ =
     DescribeNodeAssociationStatusResponse'
       { engineAttributes =
           Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        nodeAssociationStatus = pNodeAssociationStatus_
+        nodeAssociationStatus = pNodeAssociationStatus_,
+        responseStatus = pResponseStatus_
       }
 
 -- | Attributes specific to the node association. In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
@@ -189,13 +188,6 @@ mkDescribeNodeAssociationStatusResponse
 dnasrsEngineAttributes :: Lens.Lens' DescribeNodeAssociationStatusResponse (Lude.Maybe [EngineAttribute])
 dnasrsEngineAttributes = Lens.lens (engineAttributes :: DescribeNodeAssociationStatusResponse -> Lude.Maybe [EngineAttribute]) (\s a -> s {engineAttributes = a} :: DescribeNodeAssociationStatusResponse)
 {-# DEPRECATED dnasrsEngineAttributes "Use generic-lens or generic-optics with 'engineAttributes' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnasrsResponseStatus :: Lens.Lens' DescribeNodeAssociationStatusResponse Lude.Int
-dnasrsResponseStatus = Lens.lens (responseStatus :: DescribeNodeAssociationStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNodeAssociationStatusResponse)
-{-# DEPRECATED dnasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the association or disassociation request.
 --
@@ -215,3 +207,10 @@ dnasrsResponseStatus = Lens.lens (responseStatus :: DescribeNodeAssociationStatu
 dnasrsNodeAssociationStatus :: Lens.Lens' DescribeNodeAssociationStatusResponse NodeAssociationStatus
 dnasrsNodeAssociationStatus = Lens.lens (nodeAssociationStatus :: DescribeNodeAssociationStatusResponse -> NodeAssociationStatus) (\s a -> s {nodeAssociationStatus = a} :: DescribeNodeAssociationStatusResponse)
 {-# DEPRECATED dnasrsNodeAssociationStatus "Use generic-lens or generic-optics with 'nodeAssociationStatus' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnasrsResponseStatus :: Lens.Lens' DescribeNodeAssociationStatusResponse Lude.Int
+dnasrsResponseStatus = Lens.lens (responseStatus :: DescribeNodeAssociationStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNodeAssociationStatusResponse)
+{-# DEPRECATED dnasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

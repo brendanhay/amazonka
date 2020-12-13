@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.ClientVPNEndpointStatusCode
   ( ClientVPNEndpointStatusCode
       ( ClientVPNEndpointStatusCode',
+        CVESCPendingAssociate,
         CVESCAvailable,
-        CVESCDeleted,
         CVESCDeleting,
-        CVESCPendingAssociate
+        CVESCDeleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ClientVPNEndpointStatusCode = ClientVPNEndpointStatusCode' Lude.Text
       Lude.ToHeader
     )
 
+pattern CVESCPendingAssociate :: ClientVPNEndpointStatusCode
+pattern CVESCPendingAssociate = ClientVPNEndpointStatusCode' "pending-associate"
+
 pattern CVESCAvailable :: ClientVPNEndpointStatusCode
 pattern CVESCAvailable = ClientVPNEndpointStatusCode' "available"
-
-pattern CVESCDeleted :: ClientVPNEndpointStatusCode
-pattern CVESCDeleted = ClientVPNEndpointStatusCode' "deleted"
 
 pattern CVESCDeleting :: ClientVPNEndpointStatusCode
 pattern CVESCDeleting = ClientVPNEndpointStatusCode' "deleting"
 
-pattern CVESCPendingAssociate :: ClientVPNEndpointStatusCode
-pattern CVESCPendingAssociate = ClientVPNEndpointStatusCode' "pending-associate"
+pattern CVESCDeleted :: ClientVPNEndpointStatusCode
+pattern CVESCDeleted = ClientVPNEndpointStatusCode' "deleted"
 
 {-# COMPLETE
-  CVESCAvailable,
-  CVESCDeleted,
-  CVESCDeleting,
   CVESCPendingAssociate,
+  CVESCAvailable,
+  CVESCDeleting,
+  CVESCDeleted,
   ClientVPNEndpointStatusCode'
   #-}

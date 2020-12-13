@@ -34,31 +34,30 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkLoggingStatus' smart constructor.
 data LoggingStatus = LoggingStatus'
-  { lastFailureTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The last time when logs failed to be delivered.
+    lastFailureTime :: Lude.Maybe Lude.DateTime,
+    -- | The last time that logs were delivered.
     lastSuccessfulDeliveryTime :: Lude.Maybe Lude.DateTime,
+    -- | The prefix applied to the log file names.
     s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket where the log files are stored.
     bucketName :: Lude.Maybe Lude.Text,
+    -- | @true@ if logging is on, @false@ if logging is off.
     loggingEnabled :: Lude.Maybe Lude.Bool,
+    -- | The message indicating that logs failed to be delivered.
     lastFailureMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggingStatus' with the minimum fields required to make a request.
 --
--- * 'bucketName' - The name of the S3 bucket where the log files are stored.
--- * 'lastFailureMessage' - The message indicating that logs failed to be delivered.
 -- * 'lastFailureTime' - The last time when logs failed to be delivered.
 -- * 'lastSuccessfulDeliveryTime' - The last time that logs were delivered.
--- * 'loggingEnabled' - @true@ if logging is on, @false@ if logging is off.
 -- * 's3KeyPrefix' - The prefix applied to the log file names.
+-- * 'bucketName' - The name of the S3 bucket where the log files are stored.
+-- * 'loggingEnabled' - @true@ if logging is on, @false@ if logging is off.
+-- * 'lastFailureMessage' - The message indicating that logs failed to be delivered.
 mkLoggingStatus ::
   LoggingStatus
 mkLoggingStatus =

@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { values :: Lude.Maybe [Lude.Text],
+  { -- | One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
+    values :: Lude.Maybe [Lude.Text],
+    -- | One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
 --
--- * 'key' - One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
 -- * 'values' - One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
+-- * 'key' - One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
 mkTagFilter ::
   TagFilter
 mkTagFilter = TagFilter' {values = Lude.Nothing, key = Lude.Nothing}

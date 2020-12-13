@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,18 +38,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResendValidationEmail' smart constructor.
 data ResendValidationEmail = ResendValidationEmail'
-  { certificateARN ::
-      Lude.Text,
+  { -- | String that contains the ARN of the requested certificate. The certificate ARN is generated and returned by the 'RequestCertificate' action as soon as the request is made. By default, using this parameter causes email to be sent to all top-level domains you specified in the certificate request. The ARN must be of the form:
+    --
+    -- @arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+    certificateARN :: Lude.Text,
+    -- | The fully qualified domain name (FQDN) of the certificate that needs to be validated.
     domain :: Lude.Text,
+    -- | The base validation domain that will act as the suffix of the email addresses that are used to send the emails. This must be the same as the @Domain@ value or a superdomain of the @Domain@ value. For example, if you requested a certificate for @site.subdomain.example.com@ and specify a __ValidationDomain__ of @subdomain.example.com@ , ACM sends email to the domain registrant, technical contact, and administrative contact in WHOIS and the following five addresses:
+    --
+    --
+    --     * admin@subdomain.example.com
+    --
+    --
+    --     * administrator@subdomain.example.com
+    --
+    --
+    --     * hostmaster@subdomain.example.com
+    --
+    --
+    --     * postmaster@subdomain.example.com
+    --
+    --
+    --     * webmaster@subdomain.example.com
     validationDomain :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResendValidationEmail' with the minimum fields required to make a request.
@@ -165,13 +179,7 @@ instance Lude.ToQuery ResendValidationEmail where
 
 -- | /See:/ 'mkResendValidationEmailResponse' smart constructor.
 data ResendValidationEmailResponse = ResendValidationEmailResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResendValidationEmailResponse' with the minimum fields required to make a request.

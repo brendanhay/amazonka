@@ -17,12 +17,12 @@ module Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityList
     mkCloudFrontOriginAccessIdentityList,
 
     -- * Lenses
+    cfoailQuantity,
     cfoailItems,
-    cfoailNextMarker,
     cfoailMarker,
     cfoailMaxItems,
+    cfoailNextMarker,
     cfoailIsTruncated,
-    cfoailQuantity,
   )
 where
 
@@ -34,57 +34,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudFrontOriginAccessIdentityList' smart constructor.
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
-  { items ::
-      Lude.Maybe
-        [CloudFrontOriginAccessIdentitySummary],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | The number of CloudFront origin access identities that were created by the current AWS account.
+    quantity :: Lude.Int,
+    -- | A complex type that contains one @CloudFrontOriginAccessIdentitySummary@ element for each origin access identity that was created by the current AWS account.
+    items :: Lude.Maybe [CloudFrontOriginAccessIdentitySummary],
+    -- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
     marker :: Lude.Text,
+    -- | The maximum number of origin access identities you want in the response body.
     maxItems :: Lude.Int,
-    isTruncated ::
-      Lude.Bool,
-    quantity :: Lude.Int
+    -- | If @IsTruncated@ is @true@ , this element is present and contains the value you can use for the @Marker@ request parameter to continue listing your origin access identities where they left off.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether more origin access identities remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more items in the list.
+    isTruncated :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudFrontOriginAccessIdentityList' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - A flag that indicates whether more origin access identities remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more items in the list.
+-- * 'quantity' - The number of CloudFront origin access identities that were created by the current AWS account.
 -- * 'items' - A complex type that contains one @CloudFrontOriginAccessIdentitySummary@ element for each origin access identity that was created by the current AWS account.
 -- * 'marker' - Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
 -- * 'maxItems' - The maximum number of origin access identities you want in the response body.
 -- * 'nextMarker' - If @IsTruncated@ is @true@ , this element is present and contains the value you can use for the @Marker@ request parameter to continue listing your origin access identities where they left off.
--- * 'quantity' - The number of CloudFront origin access identities that were created by the current AWS account.
+-- * 'isTruncated' - A flag that indicates whether more origin access identities remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more items in the list.
 mkCloudFrontOriginAccessIdentityList ::
+  -- | 'quantity'
+  Lude.Int ->
   -- | 'marker'
   Lude.Text ->
   -- | 'maxItems'
   Lude.Int ->
   -- | 'isTruncated'
   Lude.Bool ->
-  -- | 'quantity'
-  Lude.Int ->
   CloudFrontOriginAccessIdentityList
 mkCloudFrontOriginAccessIdentityList
+  pQuantity_
   pMarker_
   pMaxItems_
-  pIsTruncated_
-  pQuantity_ =
+  pIsTruncated_ =
     CloudFrontOriginAccessIdentityList'
-      { items = Lude.Nothing,
-        nextMarker = Lude.Nothing,
+      { quantity = pQuantity_,
+        items = Lude.Nothing,
         marker = pMarker_,
         maxItems = pMaxItems_,
-        isTruncated = pIsTruncated_,
-        quantity = pQuantity_
+        nextMarker = Lude.Nothing,
+        isTruncated = pIsTruncated_
       }
+
+-- | The number of CloudFront origin access identities that were created by the current AWS account.
+--
+-- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfoailQuantity :: Lens.Lens' CloudFrontOriginAccessIdentityList Lude.Int
+cfoailQuantity = Lens.lens (quantity :: CloudFrontOriginAccessIdentityList -> Lude.Int) (\s a -> s {quantity = a} :: CloudFrontOriginAccessIdentityList)
+{-# DEPRECATED cfoailQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A complex type that contains one @CloudFrontOriginAccessIdentitySummary@ element for each origin access identity that was created by the current AWS account.
 --
@@ -92,13 +95,6 @@ mkCloudFrontOriginAccessIdentityList
 cfoailItems :: Lens.Lens' CloudFrontOriginAccessIdentityList (Lude.Maybe [CloudFrontOriginAccessIdentitySummary])
 cfoailItems = Lens.lens (items :: CloudFrontOriginAccessIdentityList -> Lude.Maybe [CloudFrontOriginAccessIdentitySummary]) (\s a -> s {items = a} :: CloudFrontOriginAccessIdentityList)
 {-# DEPRECATED cfoailItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | If @IsTruncated@ is @true@ , this element is present and contains the value you can use for the @Marker@ request parameter to continue listing your origin access identities where they left off.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfoailNextMarker :: Lens.Lens' CloudFrontOriginAccessIdentityList (Lude.Maybe Lude.Text)
-cfoailNextMarker = Lens.lens (nextMarker :: CloudFrontOriginAccessIdentityList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: CloudFrontOriginAccessIdentityList)
-{-# DEPRECATED cfoailNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Use this when paginating results to indicate where to begin in your list of origin access identities. The results include identities in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last identity on that page).
 --
@@ -114,6 +110,13 @@ cfoailMaxItems :: Lens.Lens' CloudFrontOriginAccessIdentityList Lude.Int
 cfoailMaxItems = Lens.lens (maxItems :: CloudFrontOriginAccessIdentityList -> Lude.Int) (\s a -> s {maxItems = a} :: CloudFrontOriginAccessIdentityList)
 {-# DEPRECATED cfoailMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
+-- | If @IsTruncated@ is @true@ , this element is present and contains the value you can use for the @Marker@ request parameter to continue listing your origin access identities where they left off.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfoailNextMarker :: Lens.Lens' CloudFrontOriginAccessIdentityList (Lude.Maybe Lude.Text)
+cfoailNextMarker = Lens.lens (nextMarker :: CloudFrontOriginAccessIdentityList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: CloudFrontOriginAccessIdentityList)
+{-# DEPRECATED cfoailNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
 -- | A flag that indicates whether more origin access identities remain to be listed. If your results were truncated, you can make a follow-up pagination request using the @Marker@ request parameter to retrieve more items in the list.
 --
 -- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -121,22 +124,15 @@ cfoailIsTruncated :: Lens.Lens' CloudFrontOriginAccessIdentityList Lude.Bool
 cfoailIsTruncated = Lens.lens (isTruncated :: CloudFrontOriginAccessIdentityList -> Lude.Bool) (\s a -> s {isTruncated = a} :: CloudFrontOriginAccessIdentityList)
 {-# DEPRECATED cfoailIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
--- | The number of CloudFront origin access identities that were created by the current AWS account.
---
--- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfoailQuantity :: Lens.Lens' CloudFrontOriginAccessIdentityList Lude.Int
-cfoailQuantity = Lens.lens (quantity :: CloudFrontOriginAccessIdentityList -> Lude.Int) (\s a -> s {quantity = a} :: CloudFrontOriginAccessIdentityList)
-{-# DEPRECATED cfoailQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
-
 instance Lude.FromXML CloudFrontOriginAccessIdentityList where
   parseXML x =
     CloudFrontOriginAccessIdentityList'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may
                      (Lude.parseXMLList "CloudFrontOriginAccessIdentitySummary")
                )
-      Lude.<*> (x Lude..@? "NextMarker")
       Lude.<*> (x Lude..@ "Marker")
       Lude.<*> (x Lude..@ "MaxItems")
+      Lude.<*> (x Lude..@? "NextMarker")
       Lude.<*> (x Lude..@ "IsTruncated")
-      Lude.<*> (x Lude..@ "Quantity")

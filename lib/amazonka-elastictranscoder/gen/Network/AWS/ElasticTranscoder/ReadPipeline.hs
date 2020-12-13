@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,14 +42,11 @@ import qualified Network.AWS.Response as Res
 -- | The @ReadPipelineRequest@ structure.
 --
 -- /See:/ 'mkReadPipeline' smart constructor.
-newtype ReadPipeline = ReadPipeline' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ReadPipeline = ReadPipeline'
+  { -- | The identifier of the pipeline to read.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadPipeline' with the minimum fields required to make a request.
@@ -93,27 +91,25 @@ instance Lude.ToQuery ReadPipeline where
 --
 -- /See:/ 'mkReadPipelineResponse' smart constructor.
 data ReadPipelineResponse = ReadPipelineResponse'
-  { warnings ::
-      Lude.Maybe [Warning],
+  { -- | Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
+    --
+    -- Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
+    warnings :: Lude.Maybe [Warning],
+    -- | A section of the response body that provides information about the pipeline.
     pipeline :: Lude.Maybe Pipeline,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadPipelineResponse' with the minimum fields required to make a request.
 --
--- * 'pipeline' - A section of the response body that provides information about the pipeline.
--- * 'responseStatus' - The response status code.
 -- * 'warnings' - Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region as the pipeline.
 --
 -- Using resources in the same region, such as your Amazon S3 buckets, Amazon SNS notification topics, and AWS KMS key, reduces processing time and prevents cross-regional charges.
+-- * 'pipeline' - A section of the response body that provides information about the pipeline.
+-- * 'responseStatus' - The response status code.
 mkReadPipelineResponse ::
   -- | 'responseStatus'
   Lude.Int ->

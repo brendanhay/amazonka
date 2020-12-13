@@ -13,11 +13,11 @@
 module Network.AWS.ELBv2.Types.ActionTypeEnum
   ( ActionTypeEnum
       ( ActionTypeEnum',
-        AuthenticateCognito,
-        AuthenticateOidc,
-        FixedResponse,
         Forward,
-        Redirect
+        AuthenticateOidc,
+        AuthenticateCognito,
+        Redirect,
+        FixedResponse
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ActionTypeEnum = ActionTypeEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern AuthenticateCognito :: ActionTypeEnum
-pattern AuthenticateCognito = ActionTypeEnum' "authenticate-cognito"
+pattern Forward :: ActionTypeEnum
+pattern Forward = ActionTypeEnum' "forward"
 
 pattern AuthenticateOidc :: ActionTypeEnum
 pattern AuthenticateOidc = ActionTypeEnum' "authenticate-oidc"
 
-pattern FixedResponse :: ActionTypeEnum
-pattern FixedResponse = ActionTypeEnum' "fixed-response"
-
-pattern Forward :: ActionTypeEnum
-pattern Forward = ActionTypeEnum' "forward"
+pattern AuthenticateCognito :: ActionTypeEnum
+pattern AuthenticateCognito = ActionTypeEnum' "authenticate-cognito"
 
 pattern Redirect :: ActionTypeEnum
 pattern Redirect = ActionTypeEnum' "redirect"
 
+pattern FixedResponse :: ActionTypeEnum
+pattern FixedResponse = ActionTypeEnum' "fixed-response"
+
 {-# COMPLETE
-  AuthenticateCognito,
-  AuthenticateOidc,
-  FixedResponse,
   Forward,
+  AuthenticateOidc,
+  AuthenticateCognito,
   Redirect,
+  FixedResponse,
   ActionTypeEnum'
   #-}

@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSMSMessage' smart constructor.
 data SMSMessage = SMSMessage'
-  { substitutions ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | The message variables to use in the SMS message. You can override the default variables with individual address variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
     originationNumber :: Lude.Maybe Lude.Text,
+    -- | The body of the SMS message.
     body :: Lude.Maybe Lude.Text,
+    -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
     messageType :: Lude.Maybe MessageType,
+    -- | The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
     senderId :: Lude.Maybe Lude.Text,
+    -- | This field is reserved for future use.
     mediaURL :: Lude.Maybe Lude.Text,
+    -- | The SMS program name that you provided to AWS Support when you requested your dedicated number.
     keyword :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SMSMessage' with the minimum fields required to make a request.
 --
--- * 'body' - The body of the SMS message.
--- * 'keyword' - The SMS program name that you provided to AWS Support when you requested your dedicated number.
--- * 'mediaURL' - This field is reserved for future use.
--- * 'messageType' - The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
--- * 'originationNumber' - The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
--- * 'senderId' - The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
 -- * 'substitutions' - The message variables to use in the SMS message. You can override the default variables with individual address variables.
+-- * 'originationNumber' - The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
+-- * 'body' - The body of the SMS message.
+-- * 'messageType' - The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
+-- * 'senderId' - The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
+-- * 'mediaURL' - This field is reserved for future use.
+-- * 'keyword' - The SMS program name that you provided to AWS Support when you requested your dedicated number.
 mkSMSMessage ::
   SMSMessage
 mkSMSMessage =

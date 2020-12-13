@@ -39,38 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAPIKey' smart constructor.
 data APIKey = APIKey'
-  { enabled :: Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the API Key can be used by callers.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The value of the API Key.
     value :: Lude.Maybe Lude.Text,
+    -- | An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
     customerId :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the API Key was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the API Key.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the API Key.
     id :: Lude.Maybe Lude.Text,
+    -- | A list of 'Stage' resources that are associated with the 'ApiKey' resource.
     stageKeys :: Lude.Maybe [Lude.Text],
+    -- | The timestamp when the API Key was last updated.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the API Key.
     description :: Lude.Maybe Lude.Text,
+    -- | The collection of tags. Each tag element is associated with a given resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APIKey' with the minimum fields required to make a request.
 --
--- * 'createdDate' - The timestamp when the API Key was created.
--- * 'customerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
--- * 'description' - The description of the API Key.
 -- * 'enabled' - Specifies whether the API Key can be used by callers.
--- * 'id' - The identifier of the API Key.
--- * 'lastUpdatedDate' - The timestamp when the API Key was last updated.
--- * 'name' - The name of the API Key.
--- * 'stageKeys' - A list of 'Stage' resources that are associated with the 'ApiKey' resource.
--- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 -- * 'value' - The value of the API Key.
+-- * 'customerId' - An AWS Marketplace customer identifier , when integrating with the AWS SaaS Marketplace.
+-- * 'createdDate' - The timestamp when the API Key was created.
+-- * 'name' - The name of the API Key.
+-- * 'id' - The identifier of the API Key.
+-- * 'stageKeys' - A list of 'Stage' resources that are associated with the 'ApiKey' resource.
+-- * 'lastUpdatedDate' - The timestamp when the API Key was last updated.
+-- * 'description' - The description of the API Key.
+-- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 mkAPIKey ::
   APIKey
 mkAPIKey =

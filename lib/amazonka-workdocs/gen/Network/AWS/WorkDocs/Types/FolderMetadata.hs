@@ -39,41 +39,45 @@ import Network.AWS.WorkDocs.Types.ResourceStateType
 --
 -- /See:/ 'mkFolderMetadata' smart constructor.
 data FolderMetadata = FolderMetadata'
-  { signature ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier created from the subfolders and documents of the folder.
+    signature :: Lude.Maybe Lude.Text,
+    -- | The ID of the parent folder.
     parentFolderId :: Lude.Maybe Lude.Text,
+    -- | The size of the folder metadata.
     size :: Lude.Maybe Lude.Integer,
+    -- | The size of the latest version of the folder metadata.
     latestVersionSize :: Lude.Maybe Lude.Integer,
+    -- | The name of the folder.
     name :: Lude.Maybe Lude.Text,
+    -- | The time when the folder was updated.
     modifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the folder.
     id :: Lude.Maybe Lude.Text,
+    -- | List of labels on the folder.
     labels :: Lude.Maybe [Lude.Text],
+    -- | The resource state of the folder.
     resourceState :: Lude.Maybe ResourceStateType,
+    -- | The time when the folder was created.
     createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the creator.
     creatorId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FolderMetadata' with the minimum fields required to make a request.
 --
--- * 'createdTimestamp' - The time when the folder was created.
--- * 'creatorId' - The ID of the creator.
+-- * 'signature' - The unique identifier created from the subfolders and documents of the folder.
+-- * 'parentFolderId' - The ID of the parent folder.
+-- * 'size' - The size of the folder metadata.
+-- * 'latestVersionSize' - The size of the latest version of the folder metadata.
+-- * 'name' - The name of the folder.
+-- * 'modifiedTimestamp' - The time when the folder was updated.
 -- * 'id' - The ID of the folder.
 -- * 'labels' - List of labels on the folder.
--- * 'latestVersionSize' - The size of the latest version of the folder metadata.
--- * 'modifiedTimestamp' - The time when the folder was updated.
--- * 'name' - The name of the folder.
--- * 'parentFolderId' - The ID of the parent folder.
 -- * 'resourceState' - The resource state of the folder.
--- * 'signature' - The unique identifier created from the subfolders and documents of the folder.
--- * 'size' - The size of the folder metadata.
+-- * 'createdTimestamp' - The time when the folder was created.
+-- * 'creatorId' - The ID of the creator.
 mkFolderMetadata ::
   FolderMetadata
 mkFolderMetadata =

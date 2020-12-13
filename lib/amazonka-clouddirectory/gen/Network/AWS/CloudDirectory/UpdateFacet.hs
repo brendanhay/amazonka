@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,27 +51,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateFacet' smart constructor.
 data UpdateFacet = UpdateFacet'
-  { objectType ::
-      Lude.Maybe ObjectType,
+  { -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+    objectType :: Lude.Maybe ObjectType,
+    -- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
     attributeUpdates :: Lude.Maybe [FacetAttributeUpdate],
+    -- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
     schemaARN :: Lude.Text,
+    -- | The name of the facet.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFacet' with the minimum fields required to make a request.
 --
--- * 'attributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
--- * 'name' - The name of the facet.
 -- * 'objectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+-- * 'attributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
 -- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
+-- * 'name' - The name of the facet.
 mkUpdateFacet ::
   -- | 'schemaARN'
   Lude.Text ->
@@ -144,16 +142,10 @@ instance Lude.ToQuery UpdateFacet where
 
 -- | /See:/ 'mkUpdateFacetResponse' smart constructor.
 newtype UpdateFacetResponse = UpdateFacetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFacetResponse' with the minimum fields required to make a request.

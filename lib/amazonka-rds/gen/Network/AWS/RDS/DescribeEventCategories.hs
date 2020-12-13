@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,22 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
-  { sourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of source that is generating the events.
+    --
+    -- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ | @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@
+    sourceType :: Lude.Maybe Lude.Text,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
 --
--- * 'filters' - This parameter isn't currently supported.
 -- * 'sourceType' - The type of source that is generating the events.
 --
 -- Valid values: @db-instance@ | @db-cluster@ | @db-parameter-group@ | @db-security-group@ | @db-snapshot@ | @db-cluster-snapshot@
+-- * 'filters' - This parameter isn't currently supported.
 mkDescribeEventCategories ::
   DescribeEventCategories
 mkDescribeEventCategories =
@@ -119,18 +117,12 @@ instance Lude.ToQuery DescribeEventCategories where
 --
 -- /See:/ 'mkDescribeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-  { eventCategoriesMapList ::
-      Lude.Maybe
-        [EventCategoriesMap],
+  { -- | A list of EventCategoriesMap data types.
+    eventCategoriesMapList :: Lude.Maybe [EventCategoriesMap],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.

@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamFile' smart constructor.
 data StreamFile = StreamFile'
-  { s3Location :: Lude.Maybe S3Location,
+  { -- | The location of the file in S3.
+    s3Location :: Lude.Maybe S3Location,
+    -- | The file ID.
     fileId :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamFile' with the minimum fields required to make a request.
 --
--- * 'fileId' - The file ID.
 -- * 's3Location' - The location of the file in S3.
+-- * 'fileId' - The file ID.
 mkStreamFile ::
   StreamFile
 mkStreamFile =

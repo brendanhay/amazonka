@@ -94,19 +94,19 @@ module Network.AWS.AutoScalingPlans
     -- ** CustomizedLoadMetricSpecification
     CustomizedLoadMetricSpecification (..),
     mkCustomizedLoadMetricSpecification,
-    clmsDimensions,
-    clmsUnit,
     clmsMetricName,
     clmsNamespace,
+    clmsDimensions,
+    clmsUnit,
     clmsStatistic,
 
     -- ** CustomizedScalingMetricSpecification
     CustomizedScalingMetricSpecification (..),
     mkCustomizedScalingMetricSpecification,
-    csmsDimensions,
-    csmsUnit,
     csmsMetricName,
     csmsNamespace,
+    csmsDimensions,
+    csmsUnit,
     csmsStatistic,
 
     -- ** Datapoint
@@ -118,8 +118,8 @@ module Network.AWS.AutoScalingPlans
     -- ** MetricDimension
     MetricDimension (..),
     mkMetricDimension,
-    mdName,
     mdValue,
+    mdName,
 
     -- ** PredefinedLoadMetricSpecification
     PredefinedLoadMetricSpecification (..),
@@ -136,51 +136,51 @@ module Network.AWS.AutoScalingPlans
     -- ** ScalingInstruction
     ScalingInstruction (..),
     mkScalingInstruction,
+    siScalableDimension,
+    siResourceId,
     siScheduledActionBufferTime,
     siPredictiveScalingMaxCapacityBuffer,
+    siTargetTrackingConfigurations,
     siScalingPolicyUpdateBehavior,
     siCustomizedLoadMetricSpecification,
+    siServiceNamespace,
     siPredictiveScalingMode,
     siDisableDynamicScaling,
+    siMaxCapacity,
+    siMinCapacity,
     siPredictiveScalingMaxCapacityBehavior,
     siPredefinedLoadMetricSpecification,
-    siServiceNamespace,
-    siResourceId,
-    siScalableDimension,
-    siMinCapacity,
-    siMaxCapacity,
-    siTargetTrackingConfigurations,
 
     -- ** ScalingPlan
     ScalingPlan (..),
     mkScalingPlan,
     spCreationTime,
-    spStatusStartTime,
-    spStatusMessage,
-    spScalingPlanName,
     spScalingPlanVersion,
-    spApplicationSource,
     spScalingInstructions,
+    spStatusStartTime,
+    spScalingPlanName,
+    spApplicationSource,
+    spStatusMessage,
     spStatusCode,
 
     -- ** ScalingPlanResource
     ScalingPlanResource (..),
     mkScalingPlanResource,
+    sprScalingStatusCode,
+    sprScalingPlanVersion,
+    sprScalableDimension,
+    sprResourceId,
+    sprServiceNamespace,
+    sprScalingPlanName,
     sprScalingStatusMessage,
     sprScalingPolicies,
-    sprScalingPlanName,
-    sprScalingPlanVersion,
-    sprServiceNamespace,
-    sprResourceId,
-    sprScalableDimension,
-    sprScalingStatusCode,
 
     -- ** ScalingPolicy
     ScalingPolicy (..),
     mkScalingPolicy,
-    spTargetTrackingConfiguration,
     spPolicyName,
     spPolicyType,
+    spTargetTrackingConfiguration,
 
     -- ** TagFilter
     TagFilter (..),
@@ -193,11 +193,11 @@ module Network.AWS.AutoScalingPlans
     mkTargetTrackingConfiguration,
     ttcEstimatedInstanceWarmup,
     ttcPredefinedScalingMetricSpecification,
+    ttcTargetValue,
     ttcScaleInCooldown,
     ttcDisableScaleIn,
     ttcCustomizedScalingMetricSpecification,
     ttcScaleOutCooldown,
-    ttcTargetValue,
 
     -- * Serialization types
     Lude.Base64 (..),

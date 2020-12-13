@@ -36,35 +36,39 @@ import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
 --
 -- /See:/ 'mkProvisioningArtifactDetail' smart constructor.
 data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
-  { createdTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The UTC time stamp of the creation time.
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether the product version is active.
     active :: Lude.Maybe Lude.Bool,
+    -- | The name of the provisioning artifact.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioning artifact.
     id :: Lude.Maybe Lude.Text,
-    type' ::
-      Lude.Maybe ProvisioningArtifactType,
-    guidance ::
-      Lude.Maybe
-        ProvisioningArtifactGuidance,
+    -- | The type of provisioning artifact.
+    --
+    --
+    --     * @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
+    --
+    --
+    --     * @MARKETPLACE_AMI@ - AWS Marketplace AMI
+    --
+    --
+    --     * @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+    type' :: Lude.Maybe ProvisioningArtifactType,
+    -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+    guidance :: Lude.Maybe ProvisioningArtifactGuidance,
+    -- | The description of the provisioning artifact.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactDetail' with the minimum fields required to make a request.
 --
--- * 'active' - Indicates whether the product version is active.
 -- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'description' - The description of the provisioning artifact.
--- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
--- * 'id' - The identifier of the provisioning artifact.
+-- * 'active' - Indicates whether the product version is active.
 -- * 'name' - The name of the provisioning artifact.
+-- * 'id' - The identifier of the provisioning artifact.
 -- * 'type'' - The type of provisioning artifact.
 --
 --
@@ -75,6 +79,10 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
 --
 --
 --     * @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
+--
+--
+-- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+-- * 'description' - The description of the provisioning artifact.
 mkProvisioningArtifactDetail ::
   ProvisioningArtifactDetail
 mkProvisioningArtifactDetail =

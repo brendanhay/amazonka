@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,13 +20,13 @@ module Network.AWS.IoT.UpdateProvisioningTemplate
     mkUpdateProvisioningTemplate,
 
     -- ** Request lenses
+    uptTemplateName,
     uptPreProvisioningHook,
     uptEnabled,
     uptProvisioningRoleARN,
     uptDefaultVersionId,
     uptRemovePreProvisioningHook,
     uptDescription,
-    uptTemplateName,
 
     -- * Destructuring the response
     UpdateProvisioningTemplateResponse (..),
@@ -44,50 +45,54 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateProvisioningTemplate' smart constructor.
 data UpdateProvisioningTemplate = UpdateProvisioningTemplate'
-  { preProvisioningHook ::
-      Lude.Maybe ProvisioningHook,
+  { -- | The name of the fleet provisioning template.
+    templateName :: Lude.Text,
+    -- | Updates the pre-provisioning hook template.
+    preProvisioningHook :: Lude.Maybe ProvisioningHook,
+    -- | True to enable the fleet provisioning template, otherwise false.
     enabled :: Lude.Maybe Lude.Bool,
-    provisioningRoleARN ::
-      Lude.Maybe Lude.Text,
-    defaultVersionId ::
-      Lude.Maybe Lude.Int,
-    removePreProvisioningHook ::
-      Lude.Maybe Lude.Bool,
-    description :: Lude.Maybe Lude.Text,
-    templateName :: Lude.Text
+    -- | The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
+    provisioningRoleARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the default provisioning template version.
+    defaultVersionId :: Lude.Maybe Lude.Int,
+    -- | Removes pre-provisioning hook template.
+    removePreProvisioningHook :: Lude.Maybe Lude.Bool,
+    -- | The description of the fleet provisioning template.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisioningTemplate' with the minimum fields required to make a request.
 --
--- * 'defaultVersionId' - The ID of the default provisioning template version.
--- * 'description' - The description of the fleet provisioning template.
--- * 'enabled' - True to enable the fleet provisioning template, otherwise false.
--- * 'preProvisioningHook' - Updates the pre-provisioning hook template.
--- * 'provisioningRoleARN' - The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
--- * 'removePreProvisioningHook' - Removes pre-provisioning hook template.
 -- * 'templateName' - The name of the fleet provisioning template.
+-- * 'preProvisioningHook' - Updates the pre-provisioning hook template.
+-- * 'enabled' - True to enable the fleet provisioning template, otherwise false.
+-- * 'provisioningRoleARN' - The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
+-- * 'defaultVersionId' - The ID of the default provisioning template version.
+-- * 'removePreProvisioningHook' - Removes pre-provisioning hook template.
+-- * 'description' - The description of the fleet provisioning template.
 mkUpdateProvisioningTemplate ::
   -- | 'templateName'
   Lude.Text ->
   UpdateProvisioningTemplate
 mkUpdateProvisioningTemplate pTemplateName_ =
   UpdateProvisioningTemplate'
-    { preProvisioningHook = Lude.Nothing,
+    { templateName = pTemplateName_,
+      preProvisioningHook = Lude.Nothing,
       enabled = Lude.Nothing,
       provisioningRoleARN = Lude.Nothing,
       defaultVersionId = Lude.Nothing,
       removePreProvisioningHook = Lude.Nothing,
-      description = Lude.Nothing,
-      templateName = pTemplateName_
+      description = Lude.Nothing
     }
+
+-- | The name of the fleet provisioning template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uptTemplateName :: Lens.Lens' UpdateProvisioningTemplate Lude.Text
+uptTemplateName = Lens.lens (templateName :: UpdateProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateProvisioningTemplate)
+{-# DEPRECATED uptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | Updates the pre-provisioning hook template.
 --
@@ -131,13 +136,6 @@ uptDescription :: Lens.Lens' UpdateProvisioningTemplate (Lude.Maybe Lude.Text)
 uptDescription = Lens.lens (description :: UpdateProvisioningTemplate -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateProvisioningTemplate)
 {-# DEPRECATED uptDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The name of the fleet provisioning template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uptTemplateName :: Lens.Lens' UpdateProvisioningTemplate Lude.Text
-uptTemplateName = Lens.lens (templateName :: UpdateProvisioningTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateProvisioningTemplate)
-{-# DEPRECATED uptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
 instance Lude.AWSRequest UpdateProvisioningTemplate where
   type
     Rs UpdateProvisioningTemplate =
@@ -176,16 +174,10 @@ instance Lude.ToQuery UpdateProvisioningTemplate where
 
 -- | /See:/ 'mkUpdateProvisioningTemplateResponse' smart constructor.
 newtype UpdateProvisioningTemplateResponse = UpdateProvisioningTemplateResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisioningTemplateResponse' with the minimum fields required to make a request.

@@ -17,8 +17,8 @@ module Network.AWS.SageMaker.Types.CategoricalParameterRange
     mkCategoricalParameterRange,
 
     -- * Lenses
-    cprName,
     cprValues,
+    cprName,
   )
 where
 
@@ -29,38 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCategoricalParameterRange' smart constructor.
 data CategoricalParameterRange = CategoricalParameterRange'
-  { name ::
-      Lude.Text,
-    values :: Lude.NonEmpty Lude.Text
+  { -- | A list of the categories for the hyperparameter.
+    values :: Lude.NonEmpty Lude.Text,
+    -- | The name of the categorical hyperparameter to tune.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CategoricalParameterRange' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the categorical hyperparameter to tune.
 -- * 'values' - A list of the categories for the hyperparameter.
+-- * 'name' - The name of the categorical hyperparameter to tune.
 mkCategoricalParameterRange ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'values'
   Lude.NonEmpty Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CategoricalParameterRange
-mkCategoricalParameterRange pName_ pValues_ =
-  CategoricalParameterRange' {name = pName_, values = pValues_}
-
--- | The name of the categorical hyperparameter to tune.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprName :: Lens.Lens' CategoricalParameterRange Lude.Text
-cprName = Lens.lens (name :: CategoricalParameterRange -> Lude.Text) (\s a -> s {name = a} :: CategoricalParameterRange)
-{-# DEPRECATED cprName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkCategoricalParameterRange pValues_ pName_ =
+  CategoricalParameterRange' {values = pValues_, name = pName_}
 
 -- | A list of the categories for the hyperparameter.
 --
@@ -69,20 +57,27 @@ cprValues :: Lens.Lens' CategoricalParameterRange (Lude.NonEmpty Lude.Text)
 cprValues = Lens.lens (values :: CategoricalParameterRange -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: CategoricalParameterRange)
 {-# DEPRECATED cprValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | The name of the categorical hyperparameter to tune.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cprName :: Lens.Lens' CategoricalParameterRange Lude.Text
+cprName = Lens.lens (name :: CategoricalParameterRange -> Lude.Text) (\s a -> s {name = a} :: CategoricalParameterRange)
+{-# DEPRECATED cprName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.FromJSON CategoricalParameterRange where
   parseJSON =
     Lude.withObject
       "CategoricalParameterRange"
       ( \x ->
           CategoricalParameterRange'
-            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "Values")
+            Lude.<$> (x Lude..: "Values") Lude.<*> (x Lude..: "Name")
       )
 
 instance Lude.ToJSON CategoricalParameterRange where
   toJSON CategoricalParameterRange' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Values" Lude..= values)
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Name" Lude..= name)
           ]
       )

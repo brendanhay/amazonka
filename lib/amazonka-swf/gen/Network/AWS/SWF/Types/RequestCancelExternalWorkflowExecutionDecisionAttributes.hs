@@ -44,26 +44,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRequestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExternalWorkflowExecutionDecisionAttributes'
-  { control ::
-      Lude.Maybe
-        Lude.Text,
-    runId ::
-      Lude.Maybe
-        Lude.Text,
-    workflowId ::
-      Lude.Text
+  { -- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
+    control :: Lude.Maybe Lude.Text,
+    -- | The @runId@ of the external workflow execution to cancel.
+    runId :: Lude.Maybe Lude.Text,
+    -- | The @workflowId@ of the external workflow execution to cancel.
+    workflowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestCancelExternalWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
 --

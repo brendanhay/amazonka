@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.GetStage
     mkGetStage,
 
     -- ** Request lenses
-    gssRestAPIId,
-    gssStageName,
+    gsfRestAPIId,
+    gsfStageName,
 
     -- * Destructuring the response
     Stage (..),
@@ -57,16 +58,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetStage' smart constructor.
 data GetStage = GetStage'
-  { restAPIId :: Lude.Text,
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] The name of the 'Stage' resource to get information about.
     stageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStage' with the minimum fields required to make a request.
@@ -85,16 +82,16 @@ mkGetStage pRestAPIId_ pStageName_ =
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssRestAPIId :: Lens.Lens' GetStage Lude.Text
-gssRestAPIId = Lens.lens (restAPIId :: GetStage -> Lude.Text) (\s a -> s {restAPIId = a} :: GetStage)
-{-# DEPRECATED gssRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+gsfRestAPIId :: Lens.Lens' GetStage Lude.Text
+gsfRestAPIId = Lens.lens (restAPIId :: GetStage -> Lude.Text) (\s a -> s {restAPIId = a} :: GetStage)
+{-# DEPRECATED gsfRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The name of the 'Stage' resource to get information about.
 --
 -- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssStageName :: Lens.Lens' GetStage Lude.Text
-gssStageName = Lens.lens (stageName :: GetStage -> Lude.Text) (\s a -> s {stageName = a} :: GetStage)
-{-# DEPRECATED gssStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
+gsfStageName :: Lens.Lens' GetStage Lude.Text
+gsfStageName = Lens.lens (stageName :: GetStage -> Lude.Text) (\s a -> s {stageName = a} :: GetStage)
+{-# DEPRECATED gsfStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
 
 instance Lude.AWSRequest GetStage where
   type Rs GetStage = Stage

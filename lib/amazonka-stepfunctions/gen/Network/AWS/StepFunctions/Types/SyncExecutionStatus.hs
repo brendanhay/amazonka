@@ -13,9 +13,9 @@
 module Network.AWS.StepFunctions.Types.SyncExecutionStatus
   ( SyncExecutionStatus
       ( SyncExecutionStatus',
-        SESFailed,
-        SESSucceeded,
-        SESTimedOut
+        Succeeded,
+        Failed,
+        TimedOut
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SyncExecutionStatus = SyncExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SESFailed :: SyncExecutionStatus
-pattern SESFailed = SyncExecutionStatus' "FAILED"
+pattern Succeeded :: SyncExecutionStatus
+pattern Succeeded = SyncExecutionStatus' "SUCCEEDED"
 
-pattern SESSucceeded :: SyncExecutionStatus
-pattern SESSucceeded = SyncExecutionStatus' "SUCCEEDED"
+pattern Failed :: SyncExecutionStatus
+pattern Failed = SyncExecutionStatus' "FAILED"
 
-pattern SESTimedOut :: SyncExecutionStatus
-pattern SESTimedOut = SyncExecutionStatus' "TIMED_OUT"
+pattern TimedOut :: SyncExecutionStatus
+pattern TimedOut = SyncExecutionStatus' "TIMED_OUT"
 
 {-# COMPLETE
-  SESFailed,
-  SESSucceeded,
-  SESTimedOut,
+  Succeeded,
+  Failed,
+  TimedOut,
   SyncExecutionStatus'
   #-}

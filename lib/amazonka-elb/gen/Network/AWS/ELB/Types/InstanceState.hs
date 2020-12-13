@@ -32,23 +32,67 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceState' smart constructor.
 data InstanceState = InstanceState'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The current state of the instance.
+    --
+    -- Valid values: @InService@ | @OutOfService@ | @Unknown@
     state :: Lude.Maybe Lude.Text,
+    -- | Information about the cause of @OutOfService@ instances. Specifically, whether the cause is Elastic Load Balancing or the instance.
+    --
+    -- Valid values: @ELB@ | @Instance@ | @N/A@
     reasonCode :: Lude.Maybe Lude.Text,
+    -- | A description of the instance state. This string can contain one or more of the following messages.
+    --
+    --
+    --     * @N/A@
+    --
+    --
+    --     * @A transient error occurred. Please try again later.@
+    --
+    --
+    --     * @Instance has failed at least the UnhealthyThreshold number of health checks consecutively.@
+    --
+    --
+    --     * @Instance has not passed the configured HealthyThreshold number of health checks consecutively.@
+    --
+    --
+    --     * @Instance registration is still in progress.@
+    --
+    --
+    --     * @Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.@
+    --
+    --
+    --     * @Instance is not currently registered with the LoadBalancer.@
+    --
+    --
+    --     * @Instance deregistration currently in progress.@
+    --
+    --
+    --     * @Disable Availability Zone is currently in progress.@
+    --
+    --
+    --     * @Instance is in pending state.@
+    --
+    --
+    --     * @Instance is in stopped state.@
+    --
+    --
+    --     * @Instance is in terminated state.@
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceState' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The ID of the instance.
+-- * 'state' - The current state of the instance.
+--
+-- Valid values: @InService@ | @OutOfService@ | @Unknown@
+-- * 'reasonCode' - Information about the cause of @OutOfService@ instances. Specifically, whether the cause is Elastic Load Balancing or the instance.
+--
+-- Valid values: @ELB@ | @Instance@ | @N/A@
 -- * 'description' - A description of the instance state. This string can contain one or more of the following messages.
 --
 --
@@ -86,15 +130,6 @@ data InstanceState = InstanceState'
 --
 --
 --     * @Instance is in terminated state.@
---
---
--- * 'instanceId' - The ID of the instance.
--- * 'reasonCode' - Information about the cause of @OutOfService@ instances. Specifically, whether the cause is Elastic Load Balancing or the instance.
---
--- Valid values: @ELB@ | @Instance@ | @N/A@
--- * 'state' - The current state of the instance.
---
--- Valid values: @InService@ | @OutOfService@ | @Unknown@
 mkInstanceState ::
   InstanceState
 mkInstanceState =

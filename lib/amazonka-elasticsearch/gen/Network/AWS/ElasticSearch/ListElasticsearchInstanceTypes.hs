@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,30 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListElasticsearchInstanceTypes' smart constructor.
 data ListElasticsearchInstanceTypes = ListElasticsearchInstanceTypes'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    domainName ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Int,
-    elasticsearchVersion ::
-      Lude.Text
+  { -- | NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain.
+    domainName :: Lude.Maybe Lude.Text,
+    -- | Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored.
+    maxResults :: Lude.Maybe Lude.Int,
+    -- | Version of Elasticsearch for which list of supported elasticsearch instance types are needed.
+    elasticsearchVersion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListElasticsearchInstanceTypes' with the minimum fields required to make a request.
 --
--- * 'domainName' - DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain.
--- * 'elasticsearchVersion' - Version of Elasticsearch for which list of supported elasticsearch instance types are needed.
--- * 'maxResults' - Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored.
 -- * 'nextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+-- * 'domainName' - DomainName represents the name of the Domain that we are trying to modify. This should be present only if we are querying for list of available Elasticsearch instance types when modifying existing domain.
+-- * 'maxResults' - Set this value to limit the number of results returned. Value provided must be greater than 30 else it wont be honored.
+-- * 'elasticsearchVersion' - Version of Elasticsearch for which list of supported elasticsearch instance types are needed.
 mkListElasticsearchInstanceTypes ::
   -- | 'elasticsearchVersion'
   Lude.Text ->
@@ -156,22 +151,14 @@ instance Lude.ToQuery ListElasticsearchInstanceTypes where
 --
 -- /See:/ 'mkListElasticsearchInstanceTypesResponse' smart constructor.
 data ListElasticsearchInstanceTypesResponse = ListElasticsearchInstanceTypesResponse'
-  { elasticsearchInstanceTypes ::
-      Lude.Maybe
-        [ESPartitionInstanceType],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | List of instance types supported by Amazon Elasticsearch service for given @'ElasticsearchVersion' @
+    elasticsearchInstanceTypes :: Lude.Maybe [ESPartitionInstanceType],
+    -- | In case if there are more results available NextToken would be present, make further request to the same API with received NextToken to paginate remaining results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListElasticsearchInstanceTypesResponse' with the minimum fields required to make a request.

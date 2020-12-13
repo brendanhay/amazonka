@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ListWorkforcesSortByOptions
   ( ListWorkforcesSortByOptions
       ( ListWorkforcesSortByOptions',
-        LWSBOCreateDate,
-        LWSBOName
+        LWSBOName,
+        LWSBOCreateDate
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ListWorkforcesSortByOptions = ListWorkforcesSortByOptions' Lude.Text
       Lude.ToHeader
     )
 
-pattern LWSBOCreateDate :: ListWorkforcesSortByOptions
-pattern LWSBOCreateDate = ListWorkforcesSortByOptions' "CreateDate"
-
 pattern LWSBOName :: ListWorkforcesSortByOptions
 pattern LWSBOName = ListWorkforcesSortByOptions' "Name"
 
+pattern LWSBOCreateDate :: ListWorkforcesSortByOptions
+pattern LWSBOCreateDate = ListWorkforcesSortByOptions' "CreateDate"
+
 {-# COMPLETE
-  LWSBOCreateDate,
   LWSBOName,
+  LWSBOCreateDate,
   ListWorkforcesSortByOptions'
   #-}

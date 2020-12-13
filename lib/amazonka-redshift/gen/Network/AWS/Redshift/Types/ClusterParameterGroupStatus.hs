@@ -32,20 +32,16 @@ import Network.AWS.Redshift.Types.ClusterParameterStatus
 --
 -- /See:/ 'mkClusterParameterGroupStatus' smart constructor.
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
-  { clusterParameterStatusList ::
-      Lude.Maybe [ClusterParameterStatus],
-    parameterApplyStatus ::
-      Lude.Maybe Lude.Text,
-    parameterGroupName ::
-      Lude.Maybe Lude.Text
+  { -- | The list of parameter statuses.
+    --
+    -- For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
+    clusterParameterStatusList :: Lude.Maybe [ClusterParameterStatus],
+    -- | The status of parameter updates.
+    parameterApplyStatus :: Lude.Maybe Lude.Text,
+    -- | The name of the cluster parameter group.
+    parameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterParameterGroupStatus' with the minimum fields required to make a request.

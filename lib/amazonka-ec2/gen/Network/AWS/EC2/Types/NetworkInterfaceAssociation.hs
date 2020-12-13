@@ -34,37 +34,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterfaceAssociation' smart constructor.
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    publicDNSName ::
-      Lude.Maybe Lude.Text,
-    allocationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The association ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The public DNS name.
+    publicDNSName :: Lude.Maybe Lude.Text,
+    -- | The allocation ID.
+    allocationId :: Lude.Maybe Lude.Text,
+    -- | The carrier IP address associated with the network interface.
+    --
+    -- This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.
     carrierIP :: Lude.Maybe Lude.Text,
+    -- | The ID of the Elastic IP address owner.
     ipOwnerId :: Lude.Maybe Lude.Text,
-    customerOwnedIP ::
-      Lude.Maybe Lude.Text,
+    -- | The customer-owned IP address associated with the network interface.
+    customerOwnedIP :: Lude.Maybe Lude.Text,
+    -- | The address of the Elastic IP address bound to the network interface.
     publicIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfaceAssociation' with the minimum fields required to make a request.
 --
--- * 'allocationId' - The allocation ID.
 -- * 'associationId' - The association ID.
+-- * 'publicDNSName' - The public DNS name.
+-- * 'allocationId' - The allocation ID.
 -- * 'carrierIP' - The carrier IP address associated with the network interface.
 --
 -- This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.
--- * 'customerOwnedIP' - The customer-owned IP address associated with the network interface.
 -- * 'ipOwnerId' - The ID of the Elastic IP address owner.
--- * 'publicDNSName' - The public DNS name.
+-- * 'customerOwnedIP' - The customer-owned IP address associated with the network interface.
 -- * 'publicIP' - The address of the Elastic IP address bound to the network interface.
 mkNetworkInterfaceAssociation ::
   NetworkInterfaceAssociation

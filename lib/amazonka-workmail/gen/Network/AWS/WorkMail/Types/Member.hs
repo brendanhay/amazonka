@@ -35,30 +35,30 @@ import Network.AWS.WorkMail.Types.MemberType
 --
 -- /See:/ 'mkMember' smart constructor.
 data Member = Member'
-  { state :: Lude.Maybe EntityState,
+  { -- | The state of the member, which can be ENABLED, DISABLED, or DELETED.
+    state :: Lude.Maybe EntityState,
+    -- | The date indicating when the member was disabled from Amazon WorkMail use.
     disabledDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the member.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the member.
     id :: Lude.Maybe Lude.Text,
+    -- | A member can be a user or group.
     type' :: Lude.Maybe MemberType,
+    -- | The date indicating when the member was enabled for Amazon WorkMail use.
     enabledDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Member' with the minimum fields required to make a request.
 --
--- * 'disabledDate' - The date indicating when the member was disabled from Amazon WorkMail use.
--- * 'enabledDate' - The date indicating when the member was enabled for Amazon WorkMail use.
--- * 'id' - The identifier of the member.
--- * 'name' - The name of the member.
 -- * 'state' - The state of the member, which can be ENABLED, DISABLED, or DELETED.
+-- * 'disabledDate' - The date indicating when the member was disabled from Amazon WorkMail use.
+-- * 'name' - The name of the member.
+-- * 'id' - The identifier of the member.
 -- * 'type'' - A member can be a user or group.
+-- * 'enabledDate' - The date indicating when the member was enabled for Amazon WorkMail use.
 mkMember ::
   Member
 mkMember =

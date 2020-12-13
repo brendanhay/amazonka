@@ -17,8 +17,10 @@ module Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
     mkScte35SegmentationDescriptor,
 
     -- * Lenses
+    ssdSegmentationEventId,
     ssdSegmentationUpidType,
     ssdSegmentsExpected,
+    ssdSegmentationCancelIndicator,
     ssdSubSegmentsExpected,
     ssdSegmentNum,
     ssdSegmentationDuration,
@@ -26,8 +28,6 @@ module Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
     ssdDeliveryRestrictions,
     ssdSegmentationUpid,
     ssdSubSegmentNum,
-    ssdSegmentationEventId,
-    ssdSegmentationCancelIndicator,
   )
 where
 
@@ -40,52 +40,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte35SegmentationDescriptor' smart constructor.
 data Scte35SegmentationDescriptor = Scte35SegmentationDescriptor'
-  { segmentationUpidType ::
-      Lude.Maybe Lude.Natural,
-    segmentsExpected ::
-      Lude.Maybe Lude.Natural,
-    subSegmentsExpected ::
-      Lude.Maybe Lude.Natural,
-    segmentNum ::
-      Lude.Maybe Lude.Natural,
-    segmentationDuration ::
-      Lude.Maybe Lude.Natural,
-    segmentationTypeId ::
-      Lude.Maybe Lude.Natural,
-    deliveryRestrictions ::
-      Lude.Maybe
-        Scte35DeliveryRestrictions,
-    segmentationUpid ::
-      Lude.Maybe Lude.Text,
-    subSegmentNum ::
-      Lude.Maybe Lude.Natural,
-    segmentationEventId ::
-      Lude.Natural,
-    segmentationCancelIndicator ::
-      Scte35SegmentationCancelIndicator
+  { -- | Corresponds to SCTE-35 segmentation_event_id.
+    segmentationEventId :: Lude.Natural,
+    -- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
+    segmentationUpidType :: Lude.Maybe Lude.Natural,
+    -- | Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
+    segmentsExpected :: Lude.Maybe Lude.Natural,
+    -- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
+    segmentationCancelIndicator :: Scte35SegmentationCancelIndicator,
+    -- | Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
+    subSegmentsExpected :: Lude.Maybe Lude.Natural,
+    -- | Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
+    segmentNum :: Lude.Maybe Lude.Natural,
+    -- | Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
+    segmentationDuration :: Lude.Maybe Lude.Natural,
+    -- | Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
+    segmentationTypeId :: Lude.Maybe Lude.Natural,
+    -- | Holds the four SCTE-35 delivery restriction parameters.
+    deliveryRestrictions :: Lude.Maybe Scte35DeliveryRestrictions,
+    -- | Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
+    segmentationUpid :: Lude.Maybe Lude.Text,
+    -- | Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
+    subSegmentNum :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35SegmentationDescriptor' with the minimum fields required to make a request.
 --
--- * 'deliveryRestrictions' - Holds the four SCTE-35 delivery restriction parameters.
--- * 'segmentNum' - Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
--- * 'segmentationCancelIndicator' - Corresponds to SCTE-35 segmentation_event_cancel_indicator.
--- * 'segmentationDuration' - Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
 -- * 'segmentationEventId' - Corresponds to SCTE-35 segmentation_event_id.
--- * 'segmentationTypeId' - Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
--- * 'segmentationUpid' - Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
 -- * 'segmentationUpidType' - Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
 -- * 'segmentsExpected' - Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
--- * 'subSegmentNum' - Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
+-- * 'segmentationCancelIndicator' - Corresponds to SCTE-35 segmentation_event_cancel_indicator.
 -- * 'subSegmentsExpected' - Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
+-- * 'segmentNum' - Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
+-- * 'segmentationDuration' - Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
+-- * 'segmentationTypeId' - Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
+-- * 'deliveryRestrictions' - Holds the four SCTE-35 delivery restriction parameters.
+-- * 'segmentationUpid' - Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
+-- * 'subSegmentNum' - Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
 mkScte35SegmentationDescriptor ::
   -- | 'segmentationEventId'
   Lude.Natural ->
@@ -96,19 +89,26 @@ mkScte35SegmentationDescriptor
   pSegmentationEventId_
   pSegmentationCancelIndicator_ =
     Scte35SegmentationDescriptor'
-      { segmentationUpidType =
-          Lude.Nothing,
+      { segmentationEventId =
+          pSegmentationEventId_,
+        segmentationUpidType = Lude.Nothing,
         segmentsExpected = Lude.Nothing,
+        segmentationCancelIndicator = pSegmentationCancelIndicator_,
         subSegmentsExpected = Lude.Nothing,
         segmentNum = Lude.Nothing,
         segmentationDuration = Lude.Nothing,
         segmentationTypeId = Lude.Nothing,
         deliveryRestrictions = Lude.Nothing,
         segmentationUpid = Lude.Nothing,
-        subSegmentNum = Lude.Nothing,
-        segmentationEventId = pSegmentationEventId_,
-        segmentationCancelIndicator = pSegmentationCancelIndicator_
+        subSegmentNum = Lude.Nothing
       }
+
+-- | Corresponds to SCTE-35 segmentation_event_id.
+--
+-- /Note:/ Consider using 'segmentationEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdSegmentationEventId :: Lens.Lens' Scte35SegmentationDescriptor Lude.Natural
+ssdSegmentationEventId = Lens.lens (segmentationEventId :: Scte35SegmentationDescriptor -> Lude.Natural) (\s a -> s {segmentationEventId = a} :: Scte35SegmentationDescriptor)
+{-# DEPRECATED ssdSegmentationEventId "Use generic-lens or generic-optics with 'segmentationEventId' instead." #-}
 
 -- | Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
 --
@@ -123,6 +123,13 @@ ssdSegmentationUpidType = Lens.lens (segmentationUpidType :: Scte35SegmentationD
 ssdSegmentsExpected :: Lens.Lens' Scte35SegmentationDescriptor (Lude.Maybe Lude.Natural)
 ssdSegmentsExpected = Lens.lens (segmentsExpected :: Scte35SegmentationDescriptor -> Lude.Maybe Lude.Natural) (\s a -> s {segmentsExpected = a} :: Scte35SegmentationDescriptor)
 {-# DEPRECATED ssdSegmentsExpected "Use generic-lens or generic-optics with 'segmentsExpected' instead." #-}
+
+-- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
+--
+-- /Note:/ Consider using 'segmentationCancelIndicator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdSegmentationCancelIndicator :: Lens.Lens' Scte35SegmentationDescriptor Scte35SegmentationCancelIndicator
+ssdSegmentationCancelIndicator = Lens.lens (segmentationCancelIndicator :: Scte35SegmentationDescriptor -> Scte35SegmentationCancelIndicator) (\s a -> s {segmentationCancelIndicator = a} :: Scte35SegmentationDescriptor)
+{-# DEPRECATED ssdSegmentationCancelIndicator "Use generic-lens or generic-optics with 'segmentationCancelIndicator' instead." #-}
 
 -- | Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
 --
@@ -173,28 +180,16 @@ ssdSubSegmentNum :: Lens.Lens' Scte35SegmentationDescriptor (Lude.Maybe Lude.Nat
 ssdSubSegmentNum = Lens.lens (subSegmentNum :: Scte35SegmentationDescriptor -> Lude.Maybe Lude.Natural) (\s a -> s {subSegmentNum = a} :: Scte35SegmentationDescriptor)
 {-# DEPRECATED ssdSubSegmentNum "Use generic-lens or generic-optics with 'subSegmentNum' instead." #-}
 
--- | Corresponds to SCTE-35 segmentation_event_id.
---
--- /Note:/ Consider using 'segmentationEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdSegmentationEventId :: Lens.Lens' Scte35SegmentationDescriptor Lude.Natural
-ssdSegmentationEventId = Lens.lens (segmentationEventId :: Scte35SegmentationDescriptor -> Lude.Natural) (\s a -> s {segmentationEventId = a} :: Scte35SegmentationDescriptor)
-{-# DEPRECATED ssdSegmentationEventId "Use generic-lens or generic-optics with 'segmentationEventId' instead." #-}
-
--- | Corresponds to SCTE-35 segmentation_event_cancel_indicator.
---
--- /Note:/ Consider using 'segmentationCancelIndicator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdSegmentationCancelIndicator :: Lens.Lens' Scte35SegmentationDescriptor Scte35SegmentationCancelIndicator
-ssdSegmentationCancelIndicator = Lens.lens (segmentationCancelIndicator :: Scte35SegmentationDescriptor -> Scte35SegmentationCancelIndicator) (\s a -> s {segmentationCancelIndicator = a} :: Scte35SegmentationDescriptor)
-{-# DEPRECATED ssdSegmentationCancelIndicator "Use generic-lens or generic-optics with 'segmentationCancelIndicator' instead." #-}
-
 instance Lude.FromJSON Scte35SegmentationDescriptor where
   parseJSON =
     Lude.withObject
       "Scte35SegmentationDescriptor"
       ( \x ->
           Scte35SegmentationDescriptor'
-            Lude.<$> (x Lude..:? "segmentationUpidType")
+            Lude.<$> (x Lude..: "segmentationEventId")
+            Lude.<*> (x Lude..:? "segmentationUpidType")
             Lude.<*> (x Lude..:? "segmentsExpected")
+            Lude.<*> (x Lude..: "segmentationCancelIndicator")
             Lude.<*> (x Lude..:? "subSegmentsExpected")
             Lude.<*> (x Lude..:? "segmentNum")
             Lude.<*> (x Lude..:? "segmentationDuration")
@@ -202,27 +197,25 @@ instance Lude.FromJSON Scte35SegmentationDescriptor where
             Lude.<*> (x Lude..:? "deliveryRestrictions")
             Lude.<*> (x Lude..:? "segmentationUpid")
             Lude.<*> (x Lude..:? "subSegmentNum")
-            Lude.<*> (x Lude..: "segmentationEventId")
-            Lude.<*> (x Lude..: "segmentationCancelIndicator")
       )
 
 instance Lude.ToJSON Scte35SegmentationDescriptor where
   toJSON Scte35SegmentationDescriptor' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("segmentationUpidType" Lude..=) Lude.<$> segmentationUpidType,
+          [ Lude.Just ("segmentationEventId" Lude..= segmentationEventId),
+            ("segmentationUpidType" Lude..=) Lude.<$> segmentationUpidType,
             ("segmentsExpected" Lude..=) Lude.<$> segmentsExpected,
+            Lude.Just
+              ( "segmentationCancelIndicator"
+                  Lude..= segmentationCancelIndicator
+              ),
             ("subSegmentsExpected" Lude..=) Lude.<$> subSegmentsExpected,
             ("segmentNum" Lude..=) Lude.<$> segmentNum,
             ("segmentationDuration" Lude..=) Lude.<$> segmentationDuration,
             ("segmentationTypeId" Lude..=) Lude.<$> segmentationTypeId,
             ("deliveryRestrictions" Lude..=) Lude.<$> deliveryRestrictions,
             ("segmentationUpid" Lude..=) Lude.<$> segmentationUpid,
-            ("subSegmentNum" Lude..=) Lude.<$> subSegmentNum,
-            Lude.Just ("segmentationEventId" Lude..= segmentationEventId),
-            Lude.Just
-              ( "segmentationCancelIndicator"
-                  Lude..= segmentationCancelIndicator
-              )
+            ("subSegmentNum" Lude..=) Lude.<$> subSegmentNum
           ]
       )

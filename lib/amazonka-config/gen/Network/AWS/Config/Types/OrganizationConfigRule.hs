@@ -18,11 +18,11 @@ module Network.AWS.Config.Types.OrganizationConfigRule
 
     -- * Lenses
     ocrOrganizationManagedRuleMetadata,
+    ocrOrganizationConfigRuleARN,
+    ocrOrganizationConfigRuleName,
     ocrExcludedAccounts,
     ocrOrganizationCustomRuleMetadata,
     ocrLastUpdateTime,
-    ocrOrganizationConfigRuleName,
-    ocrOrganizationConfigRuleARN,
   )
 where
 
@@ -35,49 +35,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationConfigRule' smart constructor.
 data OrganizationConfigRule = OrganizationConfigRule'
-  { organizationManagedRuleMetadata ::
-      Lude.Maybe OrganizationManagedRuleMetadata,
-    excludedAccounts :: Lude.Maybe [Lude.Text],
-    organizationCustomRuleMetadata ::
-      Lude.Maybe OrganizationCustomRuleMetadata,
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | An @OrganizationManagedRuleMetadata@ object.
+    organizationManagedRuleMetadata :: Lude.Maybe OrganizationManagedRuleMetadata,
+    -- | Amazon Resource Name (ARN) of organization config rule.
+    organizationConfigRuleARN :: Lude.Text,
+    -- | The name that you assign to organization config rule.
     organizationConfigRuleName :: Lude.Text,
-    organizationConfigRuleARN :: Lude.Text
+    -- | A comma-separated list of accounts excluded from organization config rule.
+    excludedAccounts :: Lude.Maybe [Lude.Text],
+    -- | An @OrganizationCustomRuleMetadata@ object.
+    organizationCustomRuleMetadata :: Lude.Maybe OrganizationCustomRuleMetadata,
+    -- | The timestamp of the last update.
+    lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationConfigRule' with the minimum fields required to make a request.
 --
--- * 'excludedAccounts' - A comma-separated list of accounts excluded from organization config rule.
--- * 'lastUpdateTime' - The timestamp of the last update.
+-- * 'organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object.
 -- * 'organizationConfigRuleARN' - Amazon Resource Name (ARN) of organization config rule.
 -- * 'organizationConfigRuleName' - The name that you assign to organization config rule.
+-- * 'excludedAccounts' - A comma-separated list of accounts excluded from organization config rule.
 -- * 'organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
--- * 'organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object.
+-- * 'lastUpdateTime' - The timestamp of the last update.
 mkOrganizationConfigRule ::
-  -- | 'organizationConfigRuleName'
-  Lude.Text ->
   -- | 'organizationConfigRuleARN'
+  Lude.Text ->
+  -- | 'organizationConfigRuleName'
   Lude.Text ->
   OrganizationConfigRule
 mkOrganizationConfigRule
-  pOrganizationConfigRuleName_
-  pOrganizationConfigRuleARN_ =
+  pOrganizationConfigRuleARN_
+  pOrganizationConfigRuleName_ =
     OrganizationConfigRule'
       { organizationManagedRuleMetadata =
           Lude.Nothing,
+        organizationConfigRuleARN = pOrganizationConfigRuleARN_,
+        organizationConfigRuleName = pOrganizationConfigRuleName_,
         excludedAccounts = Lude.Nothing,
         organizationCustomRuleMetadata = Lude.Nothing,
-        lastUpdateTime = Lude.Nothing,
-        organizationConfigRuleName = pOrganizationConfigRuleName_,
-        organizationConfigRuleARN = pOrganizationConfigRuleARN_
+        lastUpdateTime = Lude.Nothing
       }
 
 -- | An @OrganizationManagedRuleMetadata@ object.
@@ -86,6 +84,20 @@ mkOrganizationConfigRule
 ocrOrganizationManagedRuleMetadata :: Lens.Lens' OrganizationConfigRule (Lude.Maybe OrganizationManagedRuleMetadata)
 ocrOrganizationManagedRuleMetadata = Lens.lens (organizationManagedRuleMetadata :: OrganizationConfigRule -> Lude.Maybe OrganizationManagedRuleMetadata) (\s a -> s {organizationManagedRuleMetadata = a} :: OrganizationConfigRule)
 {-# DEPRECATED ocrOrganizationManagedRuleMetadata "Use generic-lens or generic-optics with 'organizationManagedRuleMetadata' instead." #-}
+
+-- | Amazon Resource Name (ARN) of organization config rule.
+--
+-- /Note:/ Consider using 'organizationConfigRuleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocrOrganizationConfigRuleARN :: Lens.Lens' OrganizationConfigRule Lude.Text
+ocrOrganizationConfigRuleARN = Lens.lens (organizationConfigRuleARN :: OrganizationConfigRule -> Lude.Text) (\s a -> s {organizationConfigRuleARN = a} :: OrganizationConfigRule)
+{-# DEPRECATED ocrOrganizationConfigRuleARN "Use generic-lens or generic-optics with 'organizationConfigRuleARN' instead." #-}
+
+-- | The name that you assign to organization config rule.
+--
+-- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocrOrganizationConfigRuleName :: Lens.Lens' OrganizationConfigRule Lude.Text
+ocrOrganizationConfigRuleName = Lens.lens (organizationConfigRuleName :: OrganizationConfigRule -> Lude.Text) (\s a -> s {organizationConfigRuleName = a} :: OrganizationConfigRule)
+{-# DEPRECATED ocrOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
 
 -- | A comma-separated list of accounts excluded from organization config rule.
 --
@@ -108,20 +120,6 @@ ocrLastUpdateTime :: Lens.Lens' OrganizationConfigRule (Lude.Maybe Lude.Timestam
 ocrLastUpdateTime = Lens.lens (lastUpdateTime :: OrganizationConfigRule -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: OrganizationConfigRule)
 {-# DEPRECATED ocrLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
--- | The name that you assign to organization config rule.
---
--- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrOrganizationConfigRuleName :: Lens.Lens' OrganizationConfigRule Lude.Text
-ocrOrganizationConfigRuleName = Lens.lens (organizationConfigRuleName :: OrganizationConfigRule -> Lude.Text) (\s a -> s {organizationConfigRuleName = a} :: OrganizationConfigRule)
-{-# DEPRECATED ocrOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
-
--- | Amazon Resource Name (ARN) of organization config rule.
---
--- /Note:/ Consider using 'organizationConfigRuleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrOrganizationConfigRuleARN :: Lens.Lens' OrganizationConfigRule Lude.Text
-ocrOrganizationConfigRuleARN = Lens.lens (organizationConfigRuleARN :: OrganizationConfigRule -> Lude.Text) (\s a -> s {organizationConfigRuleARN = a} :: OrganizationConfigRule)
-{-# DEPRECATED ocrOrganizationConfigRuleARN "Use generic-lens or generic-optics with 'organizationConfigRuleARN' instead." #-}
-
 instance Lude.FromJSON OrganizationConfigRule where
   parseJSON =
     Lude.withObject
@@ -129,9 +127,9 @@ instance Lude.FromJSON OrganizationConfigRule where
       ( \x ->
           OrganizationConfigRule'
             Lude.<$> (x Lude..:? "OrganizationManagedRuleMetadata")
+            Lude.<*> (x Lude..: "OrganizationConfigRuleArn")
+            Lude.<*> (x Lude..: "OrganizationConfigRuleName")
             Lude.<*> (x Lude..:? "ExcludedAccounts" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "OrganizationCustomRuleMetadata")
             Lude.<*> (x Lude..:? "LastUpdateTime")
-            Lude.<*> (x Lude..: "OrganizationConfigRuleName")
-            Lude.<*> (x Lude..: "OrganizationConfigRuleArn")
       )

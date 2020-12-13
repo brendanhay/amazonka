@@ -36,31 +36,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDescribeFleetsInstances' smart constructor.
 data DescribeFleetsInstances = DescribeFleetsInstances'
-  { platform ::
-      Lude.Maybe PlatformValues,
+  { -- | The value is @Windows@ for Windows instances. Otherwise, the value is blank.
+    platform :: Lude.Maybe PlatformValues,
+    -- | Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
     lifecycle :: Lude.Maybe InstanceLifecycle,
-    launchTemplateAndOverrides ::
-      Lude.Maybe
-        LaunchTemplateAndOverridesResponse,
+    -- | The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
+    launchTemplateAndOverrides :: Lude.Maybe LaunchTemplateAndOverridesResponse,
+    -- | The instance type.
     instanceType :: Lude.Maybe InstanceType,
+    -- | The IDs of the instances.
     instanceIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetsInstances' with the minimum fields required to make a request.
 --
--- * 'instanceIds' - The IDs of the instances.
--- * 'instanceType' - The instance type.
--- * 'launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
--- * 'lifecycle' - Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
 -- * 'platform' - The value is @Windows@ for Windows instances. Otherwise, the value is blank.
+-- * 'lifecycle' - Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+-- * 'launchTemplateAndOverrides' - The launch templates and overrides that were used for launching the instances. The values that you specify in the Overrides replace the values in the launch template.
+-- * 'instanceType' - The instance type.
+-- * 'instanceIds' - The IDs of the instances.
 mkDescribeFleetsInstances ::
   DescribeFleetsInstances
 mkDescribeFleetsInstances =

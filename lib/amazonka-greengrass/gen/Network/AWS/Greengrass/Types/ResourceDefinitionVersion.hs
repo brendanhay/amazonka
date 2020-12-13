@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceDefinitionVersion' smart constructor.
 newtype ResourceDefinitionVersion = ResourceDefinitionVersion'
-  { resources ::
-      Lude.Maybe [Resource]
+  { -- | A list of resources.
+    resources :: Lude.Maybe [Resource]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDefinitionVersion' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,24 +25,24 @@ module Network.AWS.EC2.CopySnapshot
     mkCopySnapshot,
 
     -- ** Request lenses
-    copPresignedURL,
-    copEncrypted,
-    copTagSpecifications,
-    copDestinationRegion,
-    copKMSKeyId,
-    copDescription,
-    copDryRun,
-    copSourceRegion,
-    copSourceSnapshotId,
+    csfSourceSnapshotId,
+    csfSourceRegion,
+    csfPresignedURL,
+    csfEncrypted,
+    csfTagSpecifications,
+    csfDestinationRegion,
+    csfKMSKeyId,
+    csfDescription,
+    csfDryRun,
 
     -- * Destructuring the response
     CopySnapshotResponse (..),
     mkCopySnapshotResponse,
 
     -- ** Response lenses
-    csrsTags,
-    csrsSnapshotId,
-    csrsResponseStatus,
+    crsTags,
+    crsSnapshotId,
+    crsResponseStatus,
   )
 where
 
@@ -53,34 +54,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCopySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { presignedURL ::
-      Lude.Maybe Lude.Text,
-    encrypted :: Lude.Maybe Lude.Bool,
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    destinationRegion :: Lude.Maybe Lude.Text,
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the EBS snapshot to copy.
+    sourceSnapshotId :: Lude.Text,
+    -- | The ID of the Region that contains the snapshot to be copied.
     sourceRegion :: Lude.Text,
-    sourceSnapshotId :: Lude.Text
+    -- | When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query Requests> .
+    --
+    -- The @PresignedUrl@ should use the snapshot source endpoint, the @CopySnapshot@ action, and include the @SourceRegion@ , @SourceSnapshotId@ , and @DestinationRegion@ parameters. The @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests by Using Query Parameters (AWS Signature Version 4)> in the /Amazon Simple Storage Service API Reference/ . An invalid or improperly signed @PresignedUrl@ will cause the copy operation to fail asynchronously, and the snapshot will move to an @error@ state.
+    presignedURL :: Lude.Maybe Lude.Text,
+    -- | To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots are encrypted, even if you omit this parameter and encryption by default is not enabled. You cannot set this parameter to false. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+    encrypted :: Lude.Maybe Lude.Bool,
+    -- | The tags to apply to the new snapshot.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The destination Region to use in the @PresignedUrl@ parameter of a snapshot copy operation. This parameter is only valid for specifying the destination Region in a @PresignedUrl@ parameter, where it is required.
+    --
+    -- The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, @ec2.us-east-1.amazonaws.com@ ). With the AWS CLI, this is specified using the @--region@ parameter or the default Region in your AWS configuration file.
+    destinationRegion :: Lude.Maybe Lude.Text,
+    -- | The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
+    --
+    -- You can specify the CMK using any of the following:
+    --
+    --     * Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    --
+    --     * Key alias. For example, alias/ExampleAlias.
+    --
+    --
+    --     * Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    --
+    --     * Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+    --
+    --
+    -- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | A description for the EBS snapshot.
+    description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopySnapshot' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the EBS snapshot.
+-- * 'sourceSnapshotId' - The ID of the EBS snapshot to copy.
+-- * 'sourceRegion' - The ID of the Region that contains the snapshot to be copied.
+-- * 'presignedURL' - When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query Requests> .
+--
+-- The @PresignedUrl@ should use the snapshot source endpoint, the @CopySnapshot@ action, and include the @SourceRegion@ , @SourceSnapshotId@ , and @DestinationRegion@ parameters. The @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests by Using Query Parameters (AWS Signature Version 4)> in the /Amazon Simple Storage Service API Reference/ . An invalid or improperly signed @PresignedUrl@ will cause the copy operation to fail asynchronously, and the snapshot will move to an @error@ state.
+-- * 'encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots are encrypted, even if you omit this parameter and encryption by default is not enabled. You cannot set this parameter to false. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'tagSpecifications' - The tags to apply to the new snapshot.
 -- * 'destinationRegion' - The destination Region to use in the @PresignedUrl@ parameter of a snapshot copy operation. This parameter is only valid for specifying the destination Region in a @PresignedUrl@ parameter, where it is required.
 --
 -- The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, @ec2.us-east-1.amazonaws.com@ ). With the AWS CLI, this is specified using the @--region@ parameter or the default Region in your AWS configuration file.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots are encrypted, even if you omit this parameter and encryption by default is not enabled. You cannot set this parameter to false. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- * 'kmsKeyId' - The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
 --
 -- You can specify the CMK using any of the following:
@@ -98,62 +125,72 @@ data CopySnapshot = CopySnapshot'
 --
 --
 -- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
--- * 'presignedURL' - When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query Requests> .
---
--- The @PresignedUrl@ should use the snapshot source endpoint, the @CopySnapshot@ action, and include the @SourceRegion@ , @SourceSnapshotId@ , and @DestinationRegion@ parameters. The @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests by Using Query Parameters (AWS Signature Version 4)> in the /Amazon Simple Storage Service API Reference/ . An invalid or improperly signed @PresignedUrl@ will cause the copy operation to fail asynchronously, and the snapshot will move to an @error@ state.
--- * 'sourceRegion' - The ID of the Region that contains the snapshot to be copied.
--- * 'sourceSnapshotId' - The ID of the EBS snapshot to copy.
--- * 'tagSpecifications' - The tags to apply to the new snapshot.
+-- * 'description' - A description for the EBS snapshot.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCopySnapshot ::
-  -- | 'sourceRegion'
-  Lude.Text ->
   -- | 'sourceSnapshotId'
   Lude.Text ->
+  -- | 'sourceRegion'
+  Lude.Text ->
   CopySnapshot
-mkCopySnapshot pSourceRegion_ pSourceSnapshotId_ =
+mkCopySnapshot pSourceSnapshotId_ pSourceRegion_ =
   CopySnapshot'
-    { presignedURL = Lude.Nothing,
+    { sourceSnapshotId = pSourceSnapshotId_,
+      sourceRegion = pSourceRegion_,
+      presignedURL = Lude.Nothing,
       encrypted = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
       destinationRegion = Lude.Nothing,
       kmsKeyId = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      sourceRegion = pSourceRegion_,
-      sourceSnapshotId = pSourceSnapshotId_
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the EBS snapshot to copy.
+--
+-- /Note:/ Consider using 'sourceSnapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfSourceSnapshotId :: Lens.Lens' CopySnapshot Lude.Text
+csfSourceSnapshotId = Lens.lens (sourceSnapshotId :: CopySnapshot -> Lude.Text) (\s a -> s {sourceSnapshotId = a} :: CopySnapshot)
+{-# DEPRECATED csfSourceSnapshotId "Use generic-lens or generic-optics with 'sourceSnapshotId' instead." #-}
+
+-- | The ID of the Region that contains the snapshot to be copied.
+--
+-- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfSourceRegion :: Lens.Lens' CopySnapshot Lude.Text
+csfSourceRegion = Lens.lens (sourceRegion :: CopySnapshot -> Lude.Text) (\s a -> s {sourceRegion = a} :: CopySnapshot)
+{-# DEPRECATED csfSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
 -- | When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query Requests> .
 --
 -- The @PresignedUrl@ should use the snapshot source endpoint, the @CopySnapshot@ action, and include the @SourceRegion@ , @SourceSnapshotId@ , and @DestinationRegion@ parameters. The @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests by Using Query Parameters (AWS Signature Version 4)> in the /Amazon Simple Storage Service API Reference/ . An invalid or improperly signed @PresignedUrl@ will cause the copy operation to fail asynchronously, and the snapshot will move to an @error@ state.
 --
 -- /Note:/ Consider using 'presignedURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copPresignedURL :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
-copPresignedURL = Lens.lens (presignedURL :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {presignedURL = a} :: CopySnapshot)
-{-# DEPRECATED copPresignedURL "Use generic-lens or generic-optics with 'presignedURL' instead." #-}
+csfPresignedURL :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
+csfPresignedURL = Lens.lens (presignedURL :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {presignedURL = a} :: CopySnapshot)
+{-# DEPRECATED csfPresignedURL "Use generic-lens or generic-optics with 'presignedURL' instead." #-}
 
 -- | To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots are encrypted, even if you omit this parameter and encryption by default is not enabled. You cannot set this parameter to false. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copEncrypted :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Bool)
-copEncrypted = Lens.lens (encrypted :: CopySnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: CopySnapshot)
-{-# DEPRECATED copEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
+csfEncrypted :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Bool)
+csfEncrypted = Lens.lens (encrypted :: CopySnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: CopySnapshot)
+{-# DEPRECATED csfEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | The tags to apply to the new snapshot.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copTagSpecifications :: Lens.Lens' CopySnapshot (Lude.Maybe [TagSpecification])
-copTagSpecifications = Lens.lens (tagSpecifications :: CopySnapshot -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CopySnapshot)
-{-# DEPRECATED copTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+csfTagSpecifications :: Lens.Lens' CopySnapshot (Lude.Maybe [TagSpecification])
+csfTagSpecifications = Lens.lens (tagSpecifications :: CopySnapshot -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CopySnapshot)
+{-# DEPRECATED csfTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The destination Region to use in the @PresignedUrl@ parameter of a snapshot copy operation. This parameter is only valid for specifying the destination Region in a @PresignedUrl@ parameter, where it is required.
 --
 -- The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, @ec2.us-east-1.amazonaws.com@ ). With the AWS CLI, this is specified using the @--region@ parameter or the default Region in your AWS configuration file.
 --
 -- /Note:/ Consider using 'destinationRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copDestinationRegion :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
-copDestinationRegion = Lens.lens (destinationRegion :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {destinationRegion = a} :: CopySnapshot)
-{-# DEPRECATED copDestinationRegion "Use generic-lens or generic-optics with 'destinationRegion' instead." #-}
+csfDestinationRegion :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
+csfDestinationRegion = Lens.lens (destinationRegion :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {destinationRegion = a} :: CopySnapshot)
+{-# DEPRECATED csfDestinationRegion "Use generic-lens or generic-optics with 'destinationRegion' instead." #-}
 
 -- | The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is specified, the encrypted state must be @true@ .
 --
@@ -174,37 +211,23 @@ copDestinationRegion = Lens.lens (destinationRegion :: CopySnapshot -> Lude.Mayb
 -- AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copKMSKeyId :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
-copKMSKeyId = Lens.lens (kmsKeyId :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CopySnapshot)
-{-# DEPRECATED copKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+csfKMSKeyId :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
+csfKMSKeyId = Lens.lens (kmsKeyId :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CopySnapshot)
+{-# DEPRECATED csfKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | A description for the EBS snapshot.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copDescription :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
-copDescription = Lens.lens (description :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CopySnapshot)
-{-# DEPRECATED copDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+csfDescription :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
+csfDescription = Lens.lens (description :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CopySnapshot)
+{-# DEPRECATED csfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copDryRun :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Bool)
-copDryRun = Lens.lens (dryRun :: CopySnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CopySnapshot)
-{-# DEPRECATED copDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the Region that contains the snapshot to be copied.
---
--- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copSourceRegion :: Lens.Lens' CopySnapshot Lude.Text
-copSourceRegion = Lens.lens (sourceRegion :: CopySnapshot -> Lude.Text) (\s a -> s {sourceRegion = a} :: CopySnapshot)
-{-# DEPRECATED copSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
-
--- | The ID of the EBS snapshot to copy.
---
--- /Note:/ Consider using 'sourceSnapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copSourceSnapshotId :: Lens.Lens' CopySnapshot Lude.Text
-copSourceSnapshotId = Lens.lens (sourceSnapshotId :: CopySnapshot -> Lude.Text) (\s a -> s {sourceSnapshotId = a} :: CopySnapshot)
-{-# DEPRECATED copSourceSnapshotId "Use generic-lens or generic-optics with 'sourceSnapshotId' instead." #-}
+csfDryRun :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Bool)
+csfDryRun = Lens.lens (dryRun :: CopySnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CopySnapshot)
+{-# DEPRECATED csfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CopySnapshot where
   type Rs CopySnapshot = CopySnapshotResponse
@@ -231,6 +254,8 @@ instance Lude.ToQuery CopySnapshot where
     Lude.mconcat
       [ "Action" Lude.=: ("CopySnapshot" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "SourceSnapshotId" Lude.=: sourceSnapshotId,
+        "SourceRegion" Lude.=: sourceRegion,
         "PresignedUrl" Lude.=: presignedURL,
         "Encrypted" Lude.=: encrypted,
         Lude.toQuery
@@ -238,32 +263,26 @@ instance Lude.ToQuery CopySnapshot where
         "DestinationRegion" Lude.=: destinationRegion,
         "KmsKeyId" Lude.=: kmsKeyId,
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "SourceRegion" Lude.=: sourceRegion,
-        "SourceSnapshotId" Lude.=: sourceSnapshotId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCopySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | Any tags applied to the new snapshot.
+    tags :: Lude.Maybe [Tag],
+    -- | The ID of the new snapshot.
     snapshotId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'snapshotId' - The ID of the new snapshot.
 -- * 'tags' - Any tags applied to the new snapshot.
+-- * 'snapshotId' - The ID of the new snapshot.
+-- * 'responseStatus' - The response status code.
 mkCopySnapshotResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -278,20 +297,20 @@ mkCopySnapshotResponse pResponseStatus_ =
 -- | Any tags applied to the new snapshot.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsTags :: Lens.Lens' CopySnapshotResponse (Lude.Maybe [Tag])
-csrsTags = Lens.lens (tags :: CopySnapshotResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CopySnapshotResponse)
-{-# DEPRECATED csrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+crsTags :: Lens.Lens' CopySnapshotResponse (Lude.Maybe [Tag])
+crsTags = Lens.lens (tags :: CopySnapshotResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CopySnapshotResponse)
+{-# DEPRECATED crsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ID of the new snapshot.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsSnapshotId :: Lens.Lens' CopySnapshotResponse (Lude.Maybe Lude.Text)
-csrsSnapshotId = Lens.lens (snapshotId :: CopySnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CopySnapshotResponse)
-{-# DEPRECATED csrsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+crsSnapshotId :: Lens.Lens' CopySnapshotResponse (Lude.Maybe Lude.Text)
+crsSnapshotId = Lens.lens (snapshotId :: CopySnapshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CopySnapshotResponse)
+{-# DEPRECATED crsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CopySnapshotResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CopySnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopySnapshotResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crsResponseStatus :: Lens.Lens' CopySnapshotResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CopySnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopySnapshotResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

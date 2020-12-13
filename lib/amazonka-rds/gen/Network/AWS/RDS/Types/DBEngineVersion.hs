@@ -48,60 +48,74 @@ import Network.AWS.RDS.Types.UpgradeTarget
 --
 -- /See:/ 'mkDBEngineVersion' smart constructor.
 data DBEngineVersion = DBEngineVersion'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version number of the database engine.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The status of the DB engine version, either @available@ or @deprecated@ .
     status :: Lude.Maybe Lude.Text,
+    -- | The description of the database engine version.
     dbEngineVersionDescription :: Lude.Maybe Lude.Text,
+    -- | A list of the supported DB engine modes.
     supportedEngineModes :: Lude.Maybe [Lude.Text],
+    -- | The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API isn't specified.
     defaultCharacterSet :: Lude.Maybe CharacterSet,
+    -- | The name of the database engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | The name of the DB parameter group family for the database engine.
     dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
     supportedCharacterSets :: Lude.Maybe [CharacterSet],
+    -- | The description of the database engine.
     dbEngineDescription :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether you can use Aurora global databases with a specific DB engine version.
     supportsGlobalDatabases :: Lude.Maybe Lude.Bool,
+    -- | A list of engine versions that this database engine version can be upgraded to.
     validUpgradeTarget :: Lude.Maybe [UpgradeTarget],
+    -- | A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
     supportsParallelQuery :: Lude.Maybe Lude.Bool,
+    -- | A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
     supportedNcharCharacterSets :: Lude.Maybe [CharacterSet],
+    -- | A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
     supportsLogExportsToCloudwatchLogs :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether the database engine version supports read replicas.
     supportsReadReplica :: Lude.Maybe Lude.Bool,
+    -- | A list of features supported by the DB engine. Supported feature names include the following.
+    --
+    --
+    --     * s3Import
     supportedFeatureNames :: Lude.Maybe [Lude.Text],
+    -- | A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
     supportedTimezones :: Lude.Maybe [Timezone],
+    -- | The types of logs that the database engine has available for export to CloudWatch Logs.
     exportableLogTypes :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBEngineVersion' with the minimum fields required to make a request.
 --
--- * 'dbEngineDescription' - The description of the database engine.
+-- * 'engineVersion' - The version number of the database engine.
+-- * 'status' - The status of the DB engine version, either @available@ or @deprecated@ .
 -- * 'dbEngineVersionDescription' - The description of the database engine version.
--- * 'dbParameterGroupFamily' - The name of the DB parameter group family for the database engine.
+-- * 'supportedEngineModes' - A list of the supported DB engine modes.
 -- * 'defaultCharacterSet' - The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API isn't specified.
 -- * 'engine' - The name of the database engine.
--- * 'engineVersion' - The version number of the database engine.
--- * 'exportableLogTypes' - The types of logs that the database engine has available for export to CloudWatch Logs.
--- * 'status' - The status of the DB engine version, either @available@ or @deprecated@ .
+-- * 'dbParameterGroupFamily' - The name of the DB parameter group family for the database engine.
 -- * 'supportedCharacterSets' - A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
--- * 'supportedEngineModes' - A list of the supported DB engine modes.
+-- * 'dbEngineDescription' - The description of the database engine.
+-- * 'supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with a specific DB engine version.
+-- * 'validUpgradeTarget' - A list of engine versions that this database engine version can be upgraded to.
+-- * 'supportsParallelQuery' - A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
+-- * 'supportedNcharCharacterSets' - A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
+-- * 'supportsLogExportsToCloudwatchLogs' - A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
+-- * 'supportsReadReplica' - Indicates whether the database engine version supports read replicas.
 -- * 'supportedFeatureNames' - A list of features supported by the DB engine. Supported feature names include the following.
 --
 --
 --     * s3Import
 --
 --
--- * 'supportedNcharCharacterSets' - A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
 -- * 'supportedTimezones' - A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
--- * 'supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with a specific DB engine version.
--- * 'supportsLogExportsToCloudwatchLogs' - A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
--- * 'supportsParallelQuery' - A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
--- * 'supportsReadReplica' - Indicates whether the database engine version supports read replicas.
--- * 'validUpgradeTarget' - A list of engine versions that this database engine version can be upgraded to.
+-- * 'exportableLogTypes' - The types of logs that the database engine has available for export to CloudWatch Logs.
 mkDBEngineVersion ::
   DBEngineVersion
 mkDBEngineVersion =

@@ -38,38 +38,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalConfiguration' smart constructor.
 data GlobalConfiguration = GlobalConfiguration'
-  { outputLockingMode ::
-      Lude.Maybe GlobalConfigurationOutputLockingMode,
+  { -- | Indicates how MediaLive pipelines are synchronized.
+    --
+    --
+    -- PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
+    -- EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+    outputLockingMode :: Lude.Maybe GlobalConfigurationOutputLockingMode,
+    -- | Settings for system actions when input is lost.
     inputLossBehavior :: Lude.Maybe InputLossBehavior,
+    -- | Value to set the initial audio gain for the Live Event.
     initialAudioGain :: Lude.Maybe Lude.Int,
-    supportLowFramerateInputs ::
-      Lude.Maybe GlobalConfigurationLowFramerateInputs,
-    inputEndAction ::
-      Lude.Maybe GlobalConfigurationInputEndAction,
-    outputTimingSource ::
-      Lude.Maybe GlobalConfigurationOutputTimingSource
+    -- | Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+    supportLowFramerateInputs :: Lude.Maybe GlobalConfigurationLowFramerateInputs,
+    -- | Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+    inputEndAction :: Lude.Maybe GlobalConfigurationInputEndAction,
+    -- | Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+    outputTimingSource :: Lude.Maybe GlobalConfigurationOutputTimingSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalConfiguration' with the minimum fields required to make a request.
 --
--- * 'initialAudioGain' - Value to set the initial audio gain for the Live Event.
--- * 'inputEndAction' - Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
--- * 'inputLossBehavior' - Settings for system actions when input is lost.
 -- * 'outputLockingMode' - Indicates how MediaLive pipelines are synchronized.
 --
 --
 -- PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
 -- EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
--- * 'outputTimingSource' - Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+-- * 'inputLossBehavior' - Settings for system actions when input is lost.
+-- * 'initialAudioGain' - Value to set the initial audio gain for the Live Event.
 -- * 'supportLowFramerateInputs' - Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+-- * 'inputEndAction' - Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+-- * 'outputTimingSource' - Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
 mkGlobalConfiguration ::
   GlobalConfiguration
 mkGlobalConfiguration =

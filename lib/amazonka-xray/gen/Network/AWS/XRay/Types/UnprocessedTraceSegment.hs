@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnprocessedTraceSegment' smart constructor.
 data UnprocessedTraceSegment = UnprocessedTraceSegment'
-  { errorCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The error that caused processing to fail.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The segment's ID.
     id :: Lude.Maybe Lude.Text,
+    -- | The error message.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnprocessedTraceSegment' with the minimum fields required to make a request.

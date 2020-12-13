@@ -100,19 +100,19 @@ module Network.AWS.CloudTrail
     -- ** AdvancedEventSelector
     AdvancedEventSelector (..),
     mkAdvancedEventSelector,
-    aesName,
     aesFieldSelectors,
+    aesName,
 
     -- ** AdvancedFieldSelector
     AdvancedFieldSelector (..),
     mkAdvancedFieldSelector,
+    afsField,
     afsEndsWith,
     afsNotStartsWith,
     afsEquals,
     afsNotEquals,
     afsNotEndsWith,
     afsStartsWith,
-    afsField,
 
     -- ** DataResource
     DataResource (..),
@@ -149,8 +149,8 @@ module Network.AWS.CloudTrail
     -- ** LookupAttribute
     LookupAttribute (..),
     mkLookupAttribute,
-    laAttributeKey,
     laAttributeValue,
+    laAttributeKey,
 
     -- ** PublicKey
     PublicKey (..),
@@ -169,8 +169,8 @@ module Network.AWS.CloudTrail
     -- ** ResourceTag
     ResourceTag (..),
     mkResourceTag,
-    rResourceId,
-    rTagsList,
+    rtResourceId,
+    rtTagsList,
 
     -- ** Tag
     Tag (..),

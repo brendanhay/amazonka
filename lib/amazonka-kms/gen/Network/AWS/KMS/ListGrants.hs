@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.KMS.ListGrants
     mkListGrants,
 
     -- ** Request lenses
+    lgKeyId,
     lgMarker,
     lgLimit,
-    lgKeyId,
 
     -- * Destructuring the response
     ListGrantsResponse (..),
@@ -47,17 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGrants' smart constructor.
 data ListGrants = ListGrants'
-  { marker :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    keyId :: Lude.Text
+  { -- | A unique identifier for the customer master key (CMK).
+    --
+    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+    keyId :: Lude.Text,
+    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+    --
+    -- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGrants' with the minimum fields required to make a request.
@@ -74,36 +85,20 @@ data ListGrants = ListGrants'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 -- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
--- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
 mkListGrants ::
   -- | 'keyId'
   Lude.Text ->
   ListGrants
 mkListGrants pKeyId_ =
   ListGrants'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      keyId = pKeyId_
+    { keyId = pKeyId_,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
-
--- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgMarker :: Lens.Lens' ListGrants (Lude.Maybe Lude.Text)
-lgMarker = Lens.lens (marker :: ListGrants -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListGrants)
-{-# DEPRECATED lgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgLimit :: Lens.Lens' ListGrants (Lude.Maybe Lude.Natural)
-lgLimit = Lens.lens (limit :: ListGrants -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGrants)
-{-# DEPRECATED lgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | A unique identifier for the customer master key (CMK).
 --
@@ -122,6 +117,22 @@ lgLimit = Lens.lens (limit :: ListGrants -> Lude.Maybe Lude.Natural) (\s a -> s 
 lgKeyId :: Lens.Lens' ListGrants Lude.Text
 lgKeyId = Lens.lens (keyId :: ListGrants -> Lude.Text) (\s a -> s {keyId = a} :: ListGrants)
 {-# DEPRECATED lgKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgMarker :: Lens.Lens' ListGrants (Lude.Maybe Lude.Text)
+lgMarker = Lens.lens (marker :: ListGrants -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListGrants)
+{-# DEPRECATED lgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgLimit :: Lens.Lens' ListGrants (Lude.Maybe Lude.Natural)
+lgLimit = Lens.lens (limit :: ListGrants -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListGrants)
+{-# DEPRECATED lgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Page.AWSPager ListGrants where
   page rq rs
@@ -150,9 +161,9 @@ instance Lude.ToJSON ListGrants where
   toJSON ListGrants' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("KeyId" Lude..= keyId)
+          [ Lude.Just ("KeyId" Lude..= keyId),
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 

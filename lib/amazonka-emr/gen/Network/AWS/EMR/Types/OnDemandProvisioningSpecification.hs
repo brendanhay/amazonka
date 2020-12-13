@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOnDemandProvisioningSpecification' smart constructor.
 newtype OnDemandProvisioningSpecification = OnDemandProvisioningSpecification'
-  { allocationStrategy ::
-      OnDemandProvisioningAllocationStrategy
+  { -- | Specifies the strategy to use in launching On-Demand Instance fleets. Currently, the only option is lowest-price (the default), which launches the lowest price first.
+    allocationStrategy :: OnDemandProvisioningAllocationStrategy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OnDemandProvisioningSpecification' with the minimum fields required to make a request.

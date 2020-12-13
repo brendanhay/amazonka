@@ -13,11 +13,11 @@
 module Network.AWS.Lightsail.Types.ContainerServicePowerName
   ( ContainerServicePowerName
       ( ContainerServicePowerName',
-        Large,
-        Medium,
-        Micro,
         Nano,
+        Micro,
         Small,
+        Medium,
+        Large,
         XLarge
       ),
   )
@@ -49,30 +49,30 @@ newtype ContainerServicePowerName = ContainerServicePowerName' Lude.Text
       Lude.ToHeader
     )
 
-pattern Large :: ContainerServicePowerName
-pattern Large = ContainerServicePowerName' "large"
-
-pattern Medium :: ContainerServicePowerName
-pattern Medium = ContainerServicePowerName' "medium"
+pattern Nano :: ContainerServicePowerName
+pattern Nano = ContainerServicePowerName' "nano"
 
 pattern Micro :: ContainerServicePowerName
 pattern Micro = ContainerServicePowerName' "micro"
 
-pattern Nano :: ContainerServicePowerName
-pattern Nano = ContainerServicePowerName' "nano"
-
 pattern Small :: ContainerServicePowerName
 pattern Small = ContainerServicePowerName' "small"
+
+pattern Medium :: ContainerServicePowerName
+pattern Medium = ContainerServicePowerName' "medium"
+
+pattern Large :: ContainerServicePowerName
+pattern Large = ContainerServicePowerName' "large"
 
 pattern XLarge :: ContainerServicePowerName
 pattern XLarge = ContainerServicePowerName' "xlarge"
 
 {-# COMPLETE
-  Large,
-  Medium,
-  Micro,
   Nano,
+  Micro,
   Small,
+  Medium,
+  Large,
   XLarge,
   ContainerServicePowerName'
   #-}

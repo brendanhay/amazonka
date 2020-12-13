@@ -31,27 +31,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKinesisVideoStreamConfig' smart constructor.
 data KinesisVideoStreamConfig = KinesisVideoStreamConfig'
-  { prefix ::
-      Lude.Text,
+  { -- | The prefix of the video stream.
+    prefix :: Lude.Text,
+    -- | The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+    --
+    -- The default value is 0, indicating that the stream does not persist data.
     retentionPeriodHours :: Lude.Natural,
+    -- | The encryption configuration.
     encryptionConfig :: EncryptionConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisVideoStreamConfig' with the minimum fields required to make a request.
 --
--- * 'encryptionConfig' - The encryption configuration.
 -- * 'prefix' - The prefix of the video stream.
 -- * 'retentionPeriodHours' - The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
 --
 -- The default value is 0, indicating that the stream does not persist data.
+-- * 'encryptionConfig' - The encryption configuration.
 mkKinesisVideoStreamConfig ::
   -- | 'prefix'
   Lude.Text ->

@@ -42,45 +42,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceData' smart constructor.
 data DeviceData = DeviceData'
-  { deviceStatus ::
-      Lude.Maybe DeviceStatus,
+  { -- | The status of a device.
+    deviceStatus :: Lude.Maybe DeviceStatus,
+    -- | The name of the network profile associated with a device.
     networkProfileName :: Lude.Maybe Lude.Text,
+    -- | Detailed information about a device's status.
     deviceStatusInfo :: Lude.Maybe DeviceStatusInfo,
+    -- | The time (in epoch) when the device data was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of a device.
     deviceARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the network profile associated with a device.
     networkProfileARN :: Lude.Maybe Lude.Text,
+    -- | The MAC address of a device.
     mACAddress :: Lude.Maybe Lude.Text,
+    -- | The name of a device.
     deviceName :: Lude.Maybe Lude.Text,
+    -- | The room ARN associated with a device.
     roomARN :: Lude.Maybe Lude.Text,
+    -- | The software version of a device.
     softwareVersion :: Lude.Maybe Lude.Text,
+    -- | The type of a device.
     deviceType :: Lude.Maybe Lude.Text,
+    -- | The name of the room associated with a device.
     roomName :: Lude.Maybe Lude.Text,
+    -- | The serial number of a device.
     deviceSerialNumber :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceData' with the minimum fields required to make a request.
 --
+-- * 'deviceStatus' - The status of a device.
+-- * 'networkProfileName' - The name of the network profile associated with a device.
+-- * 'deviceStatusInfo' - Detailed information about a device's status.
 -- * 'createdTime' - The time (in epoch) when the device data was created.
 -- * 'deviceARN' - The ARN of a device.
--- * 'deviceName' - The name of a device.
--- * 'deviceSerialNumber' - The serial number of a device.
--- * 'deviceStatus' - The status of a device.
--- * 'deviceStatusInfo' - Detailed information about a device's status.
--- * 'deviceType' - The type of a device.
--- * 'mACAddress' - The MAC address of a device.
 -- * 'networkProfileARN' - The ARN of the network profile associated with a device.
--- * 'networkProfileName' - The name of the network profile associated with a device.
+-- * 'mACAddress' - The MAC address of a device.
+-- * 'deviceName' - The name of a device.
 -- * 'roomARN' - The room ARN associated with a device.
--- * 'roomName' - The name of the room associated with a device.
 -- * 'softwareVersion' - The software version of a device.
+-- * 'deviceType' - The type of a device.
+-- * 'roomName' - The name of the room associated with a device.
+-- * 'deviceSerialNumber' - The serial number of a device.
 mkDeviceData ::
   DeviceData
 mkDeviceData =

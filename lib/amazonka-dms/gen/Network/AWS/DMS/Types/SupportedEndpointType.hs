@@ -33,28 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSupportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
-  { engineDisplayName ::
-      Lude.Maybe Lude.Text,
-    endpointType ::
-      Lude.Maybe ReplicationEndpointTypeValue,
+  { -- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
+    engineDisplayName :: Lude.Maybe Lude.Text,
+    -- | The type of endpoint. Valid values are @source@ and @target@ .
+    endpointType :: Lude.Maybe ReplicationEndpointTypeValue,
+    -- | The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
     engineName :: Lude.Maybe Lude.Text,
-    replicationInstanceEngineMinimumVersion ::
-      Lude.Maybe Lude.Text,
+    -- | The earliest AWS DMS engine version that supports this endpoint engine. Note that endpoint engines released with AWS DMS versions earlier than 3.1.1 do not return a value for this parameter.
+    replicationInstanceEngineMinimumVersion :: Lude.Maybe Lude.Text,
+    -- | Indicates if Change Data Capture (CDC) is supported.
     supportsCDC :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SupportedEndpointType' with the minimum fields required to make a request.
 --
--- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
 -- * 'engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
+-- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
 -- * 'engineName' - The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
 -- * 'replicationInstanceEngineMinimumVersion' - The earliest AWS DMS engine version that supports this endpoint engine. Note that endpoint engines released with AWS DMS versions earlier than 3.1.1 do not return a value for this parameter.
 -- * 'supportsCDC' - Indicates if Change Data Capture (CDC) is supported.

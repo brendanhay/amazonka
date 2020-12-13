@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeletePlacementGroup
     mkDeletePlacementGroup,
 
     -- ** Request lenses
-    dpgDryRun,
     dpgGroupName,
+    dpgDryRun,
 
     -- * Destructuring the response
     DeletePlacementGroupResponse (..),
@@ -36,39 +37,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePlacementGroup' smart constructor.
 data DeletePlacementGroup = DeletePlacementGroup'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    groupName :: Lude.Text
+  { -- | The name of the placement group.
+    groupName :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePlacementGroup' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'groupName' - The name of the placement group.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeletePlacementGroup ::
   -- | 'groupName'
   Lude.Text ->
   DeletePlacementGroup
 mkDeletePlacementGroup pGroupName_ =
   DeletePlacementGroup'
-    { dryRun = Lude.Nothing,
-      groupName = pGroupName_
+    { groupName = pGroupName_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgDryRun :: Lens.Lens' DeletePlacementGroup (Lude.Maybe Lude.Bool)
-dpgDryRun = Lens.lens (dryRun :: DeletePlacementGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeletePlacementGroup)
-{-# DEPRECATED dpgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The name of the placement group.
 --
@@ -76,6 +65,13 @@ dpgDryRun = Lens.lens (dryRun :: DeletePlacementGroup -> Lude.Maybe Lude.Bool) (
 dpgGroupName :: Lens.Lens' DeletePlacementGroup Lude.Text
 dpgGroupName = Lens.lens (groupName :: DeletePlacementGroup -> Lude.Text) (\s a -> s {groupName = a} :: DeletePlacementGroup)
 {-# DEPRECATED dpgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgDryRun :: Lens.Lens' DeletePlacementGroup (Lude.Maybe Lude.Bool)
+dpgDryRun = Lens.lens (dryRun :: DeletePlacementGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeletePlacementGroup)
+{-# DEPRECATED dpgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeletePlacementGroup where
   type Rs DeletePlacementGroup = DeletePlacementGroupResponse
@@ -93,19 +89,13 @@ instance Lude.ToQuery DeletePlacementGroup where
     Lude.mconcat
       [ "Action" Lude.=: ("DeletePlacementGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "GroupName" Lude.=: groupName
+        "GroupName" Lude.=: groupName,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeletePlacementGroupResponse' smart constructor.
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePlacementGroupResponse' with the minimum fields required to make a request.

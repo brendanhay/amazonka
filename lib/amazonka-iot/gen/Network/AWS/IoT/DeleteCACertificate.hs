@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteCACertificate' smart constructor.
 newtype DeleteCACertificate = DeleteCACertificate'
-  { certificateId ::
-      Lude.Text
+  { -- | The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)
+    certificateId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCACertificate' with the minimum fields required to make a request.
@@ -93,16 +88,10 @@ instance Lude.ToQuery DeleteCACertificate where
 --
 -- /See:/ 'mkDeleteCACertificateResponse' smart constructor.
 newtype DeleteCACertificateResponse = DeleteCACertificateResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCACertificateResponse' with the minimum fields required to make a request.

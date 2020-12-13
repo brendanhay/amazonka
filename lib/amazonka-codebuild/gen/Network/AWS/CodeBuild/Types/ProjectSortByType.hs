@@ -13,9 +13,9 @@
 module Network.AWS.CodeBuild.Types.ProjectSortByType
   ( ProjectSortByType
       ( ProjectSortByType',
+        Name,
         CreatedTime,
-        LastModifiedTime,
-        Name
+        LastModifiedTime
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ProjectSortByType = ProjectSortByType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Name :: ProjectSortByType
+pattern Name = ProjectSortByType' "NAME"
+
 pattern CreatedTime :: ProjectSortByType
 pattern CreatedTime = ProjectSortByType' "CREATED_TIME"
 
 pattern LastModifiedTime :: ProjectSortByType
 pattern LastModifiedTime = ProjectSortByType' "LAST_MODIFIED_TIME"
 
-pattern Name :: ProjectSortByType
-pattern Name = ProjectSortByType' "NAME"
-
 {-# COMPLETE
+  Name,
   CreatedTime,
   LastModifiedTime,
-  Name,
   ProjectSortByType'
   #-}

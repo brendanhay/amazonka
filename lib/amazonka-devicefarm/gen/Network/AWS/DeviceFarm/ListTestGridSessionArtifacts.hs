@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +20,19 @@ module Network.AWS.DeviceFarm.ListTestGridSessionArtifacts
     mkListTestGridSessionArtifacts,
 
     -- ** Request lenses
-    lMaxResult,
-    lNextToken,
-    lType,
-    lSessionARN,
+    ltgsaMaxResult,
+    ltgsaSessionARN,
+    ltgsaNextToken,
+    ltgsaType,
 
     -- * Destructuring the response
     ListTestGridSessionArtifactsResponse (..),
     mkListTestGridSessionArtifactsResponse,
 
     -- ** Response lenses
-    lrsArtifacts,
-    lrsNextToken,
-    lrsResponseStatus,
+    ltgsasrsArtifacts,
+    ltgsasrsNextToken,
+    ltgsasrsResponseStatus,
   )
 where
 
@@ -43,28 +44,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTestGridSessionArtifacts' smart constructor.
 data ListTestGridSessionArtifacts = ListTestGridSessionArtifacts'
-  { maxResult ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum number of results to be returned by a request.
+    maxResult :: Lude.Maybe Lude.Natural,
+    -- | The ARN of a 'TestGridSession' .
+    sessionARN :: Lude.Text,
+    -- | Pagination token.
     nextToken :: Lude.Maybe Lude.Text,
-    type' ::
-      Lude.Maybe
-        TestGridSessionArtifactCategory,
-    sessionARN :: Lude.Text
+    -- | Limit results to a specified type of artifact.
+    type' :: Lude.Maybe TestGridSessionArtifactCategory
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridSessionArtifacts' with the minimum fields required to make a request.
 --
 -- * 'maxResult' - The maximum number of results to be returned by a request.
--- * 'nextToken' - Pagination token.
 -- * 'sessionARN' - The ARN of a 'TestGridSession' .
+-- * 'nextToken' - Pagination token.
 -- * 'type'' - Limit results to a specified type of artifact.
 mkListTestGridSessionArtifacts ::
   -- | 'sessionARN'
@@ -73,38 +69,38 @@ mkListTestGridSessionArtifacts ::
 mkListTestGridSessionArtifacts pSessionARN_ =
   ListTestGridSessionArtifacts'
     { maxResult = Lude.Nothing,
+      sessionARN = pSessionARN_,
       nextToken = Lude.Nothing,
-      type' = Lude.Nothing,
-      sessionARN = pSessionARN_
+      type' = Lude.Nothing
     }
 
 -- | The maximum number of results to be returned by a request.
 --
 -- /Note:/ Consider using 'maxResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaxResult :: Lens.Lens' ListTestGridSessionArtifacts (Lude.Maybe Lude.Natural)
-lMaxResult = Lens.lens (maxResult :: ListTestGridSessionArtifacts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResult = a} :: ListTestGridSessionArtifacts)
-{-# DEPRECATED lMaxResult "Use generic-lens or generic-optics with 'maxResult' instead." #-}
-
--- | Pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListTestGridSessionArtifacts (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListTestGridSessionArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessionArtifacts)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Limit results to a specified type of artifact.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lType :: Lens.Lens' ListTestGridSessionArtifacts (Lude.Maybe TestGridSessionArtifactCategory)
-lType = Lens.lens (type' :: ListTestGridSessionArtifacts -> Lude.Maybe TestGridSessionArtifactCategory) (\s a -> s {type' = a} :: ListTestGridSessionArtifacts)
-{-# DEPRECATED lType "Use generic-lens or generic-optics with 'type'' instead." #-}
+ltgsaMaxResult :: Lens.Lens' ListTestGridSessionArtifacts (Lude.Maybe Lude.Natural)
+ltgsaMaxResult = Lens.lens (maxResult :: ListTestGridSessionArtifacts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResult = a} :: ListTestGridSessionArtifacts)
+{-# DEPRECATED ltgsaMaxResult "Use generic-lens or generic-optics with 'maxResult' instead." #-}
 
 -- | The ARN of a 'TestGridSession' .
 --
 -- /Note:/ Consider using 'sessionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lSessionARN :: Lens.Lens' ListTestGridSessionArtifacts Lude.Text
-lSessionARN = Lens.lens (sessionARN :: ListTestGridSessionArtifacts -> Lude.Text) (\s a -> s {sessionARN = a} :: ListTestGridSessionArtifacts)
-{-# DEPRECATED lSessionARN "Use generic-lens or generic-optics with 'sessionARN' instead." #-}
+ltgsaSessionARN :: Lens.Lens' ListTestGridSessionArtifacts Lude.Text
+ltgsaSessionARN = Lens.lens (sessionARN :: ListTestGridSessionArtifacts -> Lude.Text) (\s a -> s {sessionARN = a} :: ListTestGridSessionArtifacts)
+{-# DEPRECATED ltgsaSessionARN "Use generic-lens or generic-optics with 'sessionARN' instead." #-}
+
+-- | Pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsaNextToken :: Lens.Lens' ListTestGridSessionArtifacts (Lude.Maybe Lude.Text)
+ltgsaNextToken = Lens.lens (nextToken :: ListTestGridSessionArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessionArtifacts)
+{-# DEPRECATED ltgsaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Limit results to a specified type of artifact.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgsaType :: Lens.Lens' ListTestGridSessionArtifacts (Lude.Maybe TestGridSessionArtifactCategory)
+ltgsaType = Lens.lens (type' :: ListTestGridSessionArtifacts -> Lude.Maybe TestGridSessionArtifactCategory) (\s a -> s {type' = a} :: ListTestGridSessionArtifacts)
+{-# DEPRECATED ltgsaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 instance Lude.AWSRequest ListTestGridSessionArtifacts where
   type
@@ -138,9 +134,9 @@ instance Lude.ToJSON ListTestGridSessionArtifacts where
     Lude.object
       ( Lude.catMaybes
           [ ("maxResult" Lude..=) Lude.<$> maxResult,
+            Lude.Just ("sessionArn" Lude..= sessionARN),
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("type" Lude..=) Lude.<$> type',
-            Lude.Just ("sessionArn" Lude..= sessionARN)
+            ("type" Lude..=) Lude.<$> type'
           ]
       )
 
@@ -152,22 +148,14 @@ instance Lude.ToQuery ListTestGridSessionArtifacts where
 
 -- | /See:/ 'mkListTestGridSessionArtifactsResponse' smart constructor.
 data ListTestGridSessionArtifactsResponse = ListTestGridSessionArtifactsResponse'
-  { artifacts ::
-      Lude.Maybe
-        [TestGridSessionArtifact],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of test grid session artifacts for a 'TestGridSession' .
+    artifacts :: Lude.Maybe [TestGridSessionArtifact],
+    -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridSessionArtifactsResponse' with the minimum fields required to make a request.
@@ -189,20 +177,20 @@ mkListTestGridSessionArtifactsResponse pResponseStatus_ =
 -- | A list of test grid session artifacts for a 'TestGridSession' .
 --
 -- /Note:/ Consider using 'artifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsArtifacts :: Lens.Lens' ListTestGridSessionArtifactsResponse (Lude.Maybe [TestGridSessionArtifact])
-lrsArtifacts = Lens.lens (artifacts :: ListTestGridSessionArtifactsResponse -> Lude.Maybe [TestGridSessionArtifact]) (\s a -> s {artifacts = a} :: ListTestGridSessionArtifactsResponse)
-{-# DEPRECATED lrsArtifacts "Use generic-lens or generic-optics with 'artifacts' instead." #-}
+ltgsasrsArtifacts :: Lens.Lens' ListTestGridSessionArtifactsResponse (Lude.Maybe [TestGridSessionArtifact])
+ltgsasrsArtifacts = Lens.lens (artifacts :: ListTestGridSessionArtifactsResponse -> Lude.Maybe [TestGridSessionArtifact]) (\s a -> s {artifacts = a} :: ListTestGridSessionArtifactsResponse)
+{-# DEPRECATED ltgsasrsArtifacts "Use generic-lens or generic-optics with 'artifacts' instead." #-}
 
 -- | Pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsNextToken :: Lens.Lens' ListTestGridSessionArtifactsResponse (Lude.Maybe Lude.Text)
-lrsNextToken = Lens.lens (nextToken :: ListTestGridSessionArtifactsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessionArtifactsResponse)
-{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltgsasrsNextToken :: Lens.Lens' ListTestGridSessionArtifactsResponse (Lude.Maybe Lude.Text)
+ltgsasrsNextToken = Lens.lens (nextToken :: ListTestGridSessionArtifactsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTestGridSessionArtifactsResponse)
+{-# DEPRECATED ltgsasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsResponseStatus :: Lens.Lens' ListTestGridSessionArtifactsResponse Lude.Int
-lrsResponseStatus = Lens.lens (responseStatus :: ListTestGridSessionArtifactsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTestGridSessionArtifactsResponse)
-{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltgsasrsResponseStatus :: Lens.Lens' ListTestGridSessionArtifactsResponse Lude.Int
+ltgsasrsResponseStatus = Lens.lens (responseStatus :: ListTestGridSessionArtifactsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTestGridSessionArtifactsResponse)
+{-# DEPRECATED ltgsasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

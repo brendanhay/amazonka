@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddAttributesActivity' smart constructor.
 data AddAttributesActivity = AddAttributesActivity'
-  { next ::
-      Lude.Maybe Lude.Text,
+  { -- | The next activity in the pipeline.
+    next :: Lude.Maybe Lude.Text,
+    -- | The name of the addAttributes activity.
     name :: Lude.Text,
-    attributes ::
-      Lude.HashMap Lude.Text (Lude.Text)
+    -- | A list of 1-50 @AttributeNameMapping@ objects that map an existing attribute to a new attribute.
+    attributes :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttributesActivity' with the minimum fields required to make a request.
 --
--- * 'attributes' - A list of 1-50 @AttributeNameMapping@ objects that map an existing attribute to a new attribute.
--- * 'name' - The name of the addAttributes activity.
 -- * 'next' - The next activity in the pipeline.
+-- * 'name' - The name of the addAttributes activity.
+-- * 'attributes' - A list of 1-50 @AttributeNameMapping@ objects that map an existing attribute to a new attribute.
 mkAddAttributesActivity ::
   -- | 'name'
   Lude.Text ->

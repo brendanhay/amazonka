@@ -31,21 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The on-premises instance tag filter value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The on-premises instance tag filter key.
     key :: Lude.Maybe Lude.Text,
+    -- | The on-premises instance tag filter type:
+    --
+    --
+    --     * KEY_ONLY: Key only.
+    --
+    --
+    --     * VALUE_ONLY: Value only.
+    --
+    --
+    --     * KEY_AND_VALUE: Key and value.
     type' :: Lude.Maybe TagFilterType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
 --
+-- * 'value' - The on-premises instance tag filter value.
 -- * 'key' - The on-premises instance tag filter key.
 -- * 'type'' - The on-premises instance tag filter type:
 --
@@ -57,9 +64,6 @@ data TagFilter = TagFilter'
 --
 --
 --     * KEY_AND_VALUE: Key and value.
---
---
--- * 'value' - The on-premises instance tag filter value.
 mkTagFilter ::
   TagFilter
 mkTagFilter =

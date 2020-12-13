@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,20 +28,20 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     mkDescribeCacheClusters,
 
     -- ** Request lenses
-    dShowCacheClustersNotInReplicationGroups,
-    dCacheClusterId,
-    dMarker,
-    dMaxRecords,
-    dShowCacheNodeInfo,
+    dccsShowCacheClustersNotInReplicationGroups,
+    dccsCacheClusterId,
+    dccsMarker,
+    dccsMaxRecords,
+    dccsShowCacheNodeInfo,
 
     -- * Destructuring the response
     DescribeCacheClustersResponse (..),
     mkDescribeCacheClustersResponse,
 
     -- ** Response lenses
-    drsCacheClusters,
-    drsMarker,
-    drsResponseStatus,
+    dccrsCacheClusters,
+    dccrsMarker,
+    dccrsResponseStatus,
   )
 where
 
@@ -55,31 +56,32 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
-  { showCacheClustersNotInReplicationGroups ::
-      Lude.Maybe Lude.Bool,
+  { -- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
+    showCacheClustersNotInReplicationGroups :: Lude.Maybe Lude.Bool,
+    -- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
     cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: minimum 20; maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
     showCacheNodeInfo :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheClusters' with the minimum fields required to make a request.
 --
+-- * 'showCacheClustersNotInReplicationGroups' - An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 -- * 'cacheClusterId' - The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 -- Constraints: minimum 20; maximum 100.
--- * 'showCacheClustersNotInReplicationGroups' - An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 -- * 'showCacheNodeInfo' - An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
 mkDescribeCacheClusters ::
   DescribeCacheClusters
@@ -96,23 +98,23 @@ mkDescribeCacheClusters =
 -- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 --
 -- /Note:/ Consider using 'showCacheClustersNotInReplicationGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dShowCacheClustersNotInReplicationGroups :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Bool)
-dShowCacheClustersNotInReplicationGroups = Lens.lens (showCacheClustersNotInReplicationGroups :: DescribeCacheClusters -> Lude.Maybe Lude.Bool) (\s a -> s {showCacheClustersNotInReplicationGroups = a} :: DescribeCacheClusters)
-{-# DEPRECATED dShowCacheClustersNotInReplicationGroups "Use generic-lens or generic-optics with 'showCacheClustersNotInReplicationGroups' instead." #-}
+dccsShowCacheClustersNotInReplicationGroups :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Bool)
+dccsShowCacheClustersNotInReplicationGroups = Lens.lens (showCacheClustersNotInReplicationGroups :: DescribeCacheClusters -> Lude.Maybe Lude.Bool) (\s a -> s {showCacheClustersNotInReplicationGroups = a} :: DescribeCacheClusters)
+{-# DEPRECATED dccsShowCacheClustersNotInReplicationGroups "Use generic-lens or generic-optics with 'showCacheClustersNotInReplicationGroups' instead." #-}
 
 -- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCacheClusterId :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Text)
-dCacheClusterId = Lens.lens (cacheClusterId :: DescribeCacheClusters -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: DescribeCacheClusters)
-{-# DEPRECATED dCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
+dccsCacheClusterId :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Text)
+dccsCacheClusterId = Lens.lens (cacheClusterId :: DescribeCacheClusters -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: DescribeCacheClusters)
+{-# DEPRECATED dccsCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMarker :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Text)
-dMarker = Lens.lens (marker :: DescribeCacheClusters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheClusters)
-{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dccsMarker :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Text)
+dccsMarker = Lens.lens (marker :: DescribeCacheClusters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheClusters)
+{-# DEPRECATED dccsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -120,23 +122,25 @@ dMarker = Lens.lens (marker :: DescribeCacheClusters -> Lude.Maybe Lude.Text) (\
 -- Constraints: minimum 20; maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxRecords :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Int)
-dMaxRecords = Lens.lens (maxRecords :: DescribeCacheClusters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCacheClusters)
-{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dccsMaxRecords :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Int)
+dccsMaxRecords = Lens.lens (maxRecords :: DescribeCacheClusters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCacheClusters)
+{-# DEPRECATED dccsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
 --
 -- /Note:/ Consider using 'showCacheNodeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dShowCacheNodeInfo :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Bool)
-dShowCacheNodeInfo = Lens.lens (showCacheNodeInfo :: DescribeCacheClusters -> Lude.Maybe Lude.Bool) (\s a -> s {showCacheNodeInfo = a} :: DescribeCacheClusters)
-{-# DEPRECATED dShowCacheNodeInfo "Use generic-lens or generic-optics with 'showCacheNodeInfo' instead." #-}
+dccsShowCacheNodeInfo :: Lens.Lens' DescribeCacheClusters (Lude.Maybe Lude.Bool)
+dccsShowCacheNodeInfo = Lens.lens (showCacheNodeInfo :: DescribeCacheClusters -> Lude.Maybe Lude.Bool) (\s a -> s {showCacheNodeInfo = a} :: DescribeCacheClusters)
+{-# DEPRECATED dccsShowCacheNodeInfo "Use generic-lens or generic-optics with 'showCacheNodeInfo' instead." #-}
 
 instance Page.AWSPager DescribeCacheClusters where
   page rq rs
-    | Page.stop (rs Lens.^. drsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. drsCacheClusters) = Lude.Nothing
+    | Page.stop (rs Lens.^. dccrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dccrsCacheClusters) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dMarker Lens..~ rs Lens.^. drsMarker
+      Lude.Just Lude.$
+        rq
+          Lude.& dccsMarker Lens..~ rs Lens.^. dccrsMarker
 
 instance Lude.AWSRequest DescribeCacheClusters where
   type Rs DescribeCacheClusters = DescribeCacheClustersResponse
@@ -176,18 +180,14 @@ instance Lude.ToQuery DescribeCacheClusters where
 --
 -- /See:/ 'mkDescribeCacheClustersResponse' smart constructor.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-  { cacheClusters ::
-      Lude.Maybe [CacheCluster],
+  { -- | A list of clusters. Each item in the list contains detailed information about one cluster.
+    cacheClusters :: Lude.Maybe [CacheCluster],
+    -- | Provides an identifier to allow retrieval of paginated results.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheClustersResponse' with the minimum fields required to make a request.
@@ -209,20 +209,20 @@ mkDescribeCacheClustersResponse pResponseStatus_ =
 -- | A list of clusters. Each item in the list contains detailed information about one cluster.
 --
 -- /Note:/ Consider using 'cacheClusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCacheClusters :: Lens.Lens' DescribeCacheClustersResponse (Lude.Maybe [CacheCluster])
-drsCacheClusters = Lens.lens (cacheClusters :: DescribeCacheClustersResponse -> Lude.Maybe [CacheCluster]) (\s a -> s {cacheClusters = a} :: DescribeCacheClustersResponse)
-{-# DEPRECATED drsCacheClusters "Use generic-lens or generic-optics with 'cacheClusters' instead." #-}
+dccrsCacheClusters :: Lens.Lens' DescribeCacheClustersResponse (Lude.Maybe [CacheCluster])
+dccrsCacheClusters = Lens.lens (cacheClusters :: DescribeCacheClustersResponse -> Lude.Maybe [CacheCluster]) (\s a -> s {cacheClusters = a} :: DescribeCacheClustersResponse)
+{-# DEPRECATED dccrsCacheClusters "Use generic-lens or generic-optics with 'cacheClusters' instead." #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsMarker :: Lens.Lens' DescribeCacheClustersResponse (Lude.Maybe Lude.Text)
-drsMarker = Lens.lens (marker :: DescribeCacheClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheClustersResponse)
-{-# DEPRECATED drsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dccrsMarker :: Lens.Lens' DescribeCacheClustersResponse (Lude.Maybe Lude.Text)
+dccrsMarker = Lens.lens (marker :: DescribeCacheClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheClustersResponse)
+{-# DEPRECATED dccrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeCacheClustersResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeCacheClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheClustersResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dccrsResponseStatus :: Lens.Lens' DescribeCacheClustersResponse Lude.Int
+dccrsResponseStatus = Lens.lens (responseStatus :: DescribeCacheClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheClustersResponse)
+{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

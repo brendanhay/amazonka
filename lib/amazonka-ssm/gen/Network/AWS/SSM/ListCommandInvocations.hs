@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,32 +49,30 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListCommandInvocations' smart constructor.
 data ListCommandInvocations = ListCommandInvocations'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
-    filters ::
-      Lude.Maybe (Lude.NonEmpty CommandFilter),
+  { -- | (Optional) The command execution details for a specific instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | (Optional) One or more filters. Use a filter to return a more specific list of results.
+    filters :: Lude.Maybe (Lude.NonEmpty CommandFilter),
+    -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) The invocations for a specific command ID.
     commandId :: Lude.Maybe Lude.Text,
+    -- | (Optional) If set this returns the response of the command executions and any command output. By default this is set to False.
     details :: Lude.Maybe Lude.Bool,
+    -- | (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCommandInvocations' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - (Optional) The command execution details for a specific instance ID.
+-- * 'filters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
+-- * 'nextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'commandId' - (Optional) The invocations for a specific command ID.
 -- * 'details' - (Optional) If set this returns the response of the command executions and any command output. By default this is set to False.
--- * 'filters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
--- * 'instanceId' - (Optional) The command execution details for a specific instance ID.
 -- * 'maxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
 mkListCommandInvocations ::
   ListCommandInvocations
 mkListCommandInvocations =
@@ -181,26 +180,20 @@ instance Lude.ToQuery ListCommandInvocations where
 
 -- | /See:/ 'mkListCommandInvocationsResponse' smart constructor.
 data ListCommandInvocationsResponse = ListCommandInvocationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    commandInvocations ::
-      Lude.Maybe
-        [CommandInvocation],
+  { -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) A list of all invocations.
+    commandInvocations :: Lude.Maybe [CommandInvocation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCommandInvocationsResponse' with the minimum fields required to make a request.
 --
--- * 'commandInvocations' - (Optional) A list of all invocations.
 -- * 'nextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'commandInvocations' - (Optional) A list of all invocations.
 -- * 'responseStatus' - The response status code.
 mkListCommandInvocationsResponse ::
   -- | 'responseStatus'

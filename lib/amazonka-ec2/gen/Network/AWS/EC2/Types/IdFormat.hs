@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIdFormat' smart constructor.
 data IdFormat = IdFormat'
-  { useLongIds :: Lude.Maybe Lude.Bool,
+  { -- | Indicates whether longer IDs (17-character IDs) are enabled for the resource.
+    useLongIds :: Lude.Maybe Lude.Bool,
+    -- | The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.
     deadline :: Lude.Maybe Lude.DateTime,
+    -- | The type of resource.
     resource :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdFormat' with the minimum fields required to make a request.
 --
+-- * 'useLongIds' - Indicates whether longer IDs (17-character IDs) are enabled for the resource.
 -- * 'deadline' - The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.
 -- * 'resource' - The type of resource.
--- * 'useLongIds' - Indicates whether longer IDs (17-character IDs) are enabled for the resource.
 mkIdFormat ::
   IdFormat
 mkIdFormat =

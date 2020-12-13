@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.AppStream.DeleteUser
     mkDeleteUser,
 
     -- ** Request lenses
-    delUserName,
-    delAuthenticationType,
+    duUserName,
+    duAuthenticationType,
 
     -- * Destructuring the response
     DeleteUserResponse (..),
     mkDeleteUserResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
+    dufrsResponseStatus,
   )
 where
 
@@ -39,7 +40,9 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { userName :: Lude.Sensitive Lude.Text,
+  { -- | The email address of the user.
+    userName :: Lude.Sensitive Lude.Text,
+    -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -47,8 +50,8 @@ data DeleteUser = DeleteUser'
 
 -- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
--- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
 -- * 'userName' - The email address of the user.
+-- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
 mkDeleteUser ::
   -- | 'userName'
   Lude.Sensitive Lude.Text ->
@@ -64,16 +67,16 @@ mkDeleteUser pUserName_ pAuthenticationType_ =
 -- | The email address of the user.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delUserName :: Lens.Lens' DeleteUser (Lude.Sensitive Lude.Text)
-delUserName = Lens.lens (userName :: DeleteUser -> Lude.Sensitive Lude.Text) (\s a -> s {userName = a} :: DeleteUser)
-{-# DEPRECATED delUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+duUserName :: Lens.Lens' DeleteUser (Lude.Sensitive Lude.Text)
+duUserName = Lens.lens (userName :: DeleteUser -> Lude.Sensitive Lude.Text) (\s a -> s {userName = a} :: DeleteUser)
+{-# DEPRECATED duUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The authentication type for the user. You must specify USERPOOL.
 --
 -- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delAuthenticationType :: Lens.Lens' DeleteUser AuthenticationType
-delAuthenticationType = Lens.lens (authenticationType :: DeleteUser -> AuthenticationType) (\s a -> s {authenticationType = a} :: DeleteUser)
-{-# DEPRECATED delAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
+duAuthenticationType :: Lens.Lens' DeleteUser AuthenticationType
+duAuthenticationType = Lens.lens (authenticationType :: DeleteUser -> AuthenticationType) (\s a -> s {authenticationType = a} :: DeleteUser)
+{-# DEPRECATED duAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
 instance Lude.AWSRequest DeleteUser where
   type Rs DeleteUser = DeleteUserResponse
@@ -112,16 +115,10 @@ instance Lude.ToQuery DeleteUser where
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 newtype DeleteUserResponse = DeleteUserResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
@@ -137,6 +134,6 @@ mkDeleteUserResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteUserResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dufrsResponseStatus :: Lens.Lens' DeleteUserResponse Lude.Int
+dufrsResponseStatus = Lens.lens (responseStatus :: DeleteUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserResponse)
+{-# DEPRECATED dufrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

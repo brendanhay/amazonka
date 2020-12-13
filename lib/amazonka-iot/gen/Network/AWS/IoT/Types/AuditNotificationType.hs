@@ -13,7 +13,7 @@
 module Network.AWS.IoT.Types.AuditNotificationType
   ( AuditNotificationType
       ( AuditNotificationType',
-        ANTSNS
+        SNS
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype AuditNotificationType = AuditNotificationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ANTSNS :: AuditNotificationType
-pattern ANTSNS = AuditNotificationType' "SNS"
+pattern SNS :: AuditNotificationType
+pattern SNS = AuditNotificationType' "SNS"
 
 {-# COMPLETE
-  ANTSNS,
+  SNS,
   AuditNotificationType'
   #-}

@@ -29,16 +29,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Origin' smart constructor.
 data S3Origin = S3Origin'
-  { domainName :: Lude.Text,
+  { -- | The DNS name of the Amazon S3 origin.
+    domainName :: Lude.Text,
+    -- | The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 bucket through CloudFront.
+    --
+    -- If you want end users to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element.
+    -- To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element.
+    -- To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
+    -- For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content> in the /Amazon CloudFront Developer Guide/ .
     originAccessIdentity :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Origin' with the minimum fields required to make a request.

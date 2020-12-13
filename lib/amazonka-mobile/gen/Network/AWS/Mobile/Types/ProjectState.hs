@@ -13,9 +13,9 @@
 module Network.AWS.Mobile.Types.ProjectState
   ( ProjectState
       ( ProjectState',
-        Importing,
         Normal,
-        Syncing
+        Syncing,
+        Importing
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype ProjectState = ProjectState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Importing :: ProjectState
-pattern Importing = ProjectState' "IMPORTING"
-
 pattern Normal :: ProjectState
 pattern Normal = ProjectState' "NORMAL"
 
 pattern Syncing :: ProjectState
 pattern Syncing = ProjectState' "SYNCING"
 
+pattern Importing :: ProjectState
+pattern Importing = ProjectState' "IMPORTING"
+
 {-# COMPLETE
-  Importing,
   Normal,
   Syncing,
+  Importing,
   ProjectState'
   #-}

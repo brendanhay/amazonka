@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.RDS.DescribeDBInstances
     mkDescribeDBInstances,
 
     -- ** Request lenses
-    ddbiFilters,
-    ddbiDBInstanceIdentifier,
-    ddbiMarker,
-    ddbiMaxRecords,
+    ddiFilters,
+    ddiDBInstanceIdentifier,
+    ddiMarker,
+    ddiMaxRecords,
 
     -- * Destructuring the response
     DescribeDBInstancesResponse (..),
@@ -48,29 +49,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBInstances' smart constructor.
 data DescribeDBInstances = DescribeDBInstances'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | A filter that specifies one or more DB instances to describe.
+    --
+    -- Supported filters:
+    --
+    --     * @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster Amazon Resource Names (ARNs). The results list will only include information about the DB instances associated with the DB clusters identified by these ARNs.
+    --
+    --
+    --     * @db-instance-id@ - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs). The results list will only include information about the DB instances identified by these ARNs.
+    --
+    --
+    --     * @dbi-resource-id@ - Accepts DB instance resource identifiers. The results list will only include information about the DB instances identified by these DB instance resource identifiers.
+    --
+    --
+    --     * @domain@ - Accepts Active Directory directory IDs. The results list will only include information about the DB instances associated with these domains.
+    --
+    --
+    --     * @engine@ - Accepts engine names. The results list will only include information about the DB instances for these engines.
+    filters :: Lude.Maybe [Filter],
+    -- | The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match the identifier of an existing DBInstance.
     dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous @DescribeDBInstances@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBInstances' with the minimum fields required to make a request.
---
--- * 'dbInstanceIdentifier' - The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * If supplied, must match the identifier of an existing DBInstance.
---
 --
 -- * 'filters' - A filter that specifies one or more DB instances to describe.
 --
@@ -89,6 +103,13 @@ data DescribeDBInstances = DescribeDBInstances'
 --
 --
 --     * @engine@ - Accepts engine names. The results list will only include information about the DB instances for these engines.
+--
+--
+-- * 'dbInstanceIdentifier' - The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * If supplied, must match the identifier of an existing DBInstance.
 --
 --
 -- * 'marker' - An optional pagination token provided by a previous @DescribeDBInstances@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
@@ -127,9 +148,9 @@ mkDescribeDBInstances =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiFilters :: Lens.Lens' DescribeDBInstances (Lude.Maybe [Filter])
-ddbiFilters = Lens.lens (filters :: DescribeDBInstances -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBInstances)
-{-# DEPRECATED ddbiFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+ddiFilters :: Lens.Lens' DescribeDBInstances (Lude.Maybe [Filter])
+ddiFilters = Lens.lens (filters :: DescribeDBInstances -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBInstances)
+{-# DEPRECATED ddiFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The user-supplied instance identifier. If this parameter is specified, information from only the specific DB instance is returned. This parameter isn't case-sensitive.
 --
@@ -140,16 +161,16 @@ ddbiFilters = Lens.lens (filters :: DescribeDBInstances -> Lude.Maybe [Filter]) 
 --
 --
 -- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiDBInstanceIdentifier :: Lens.Lens' DescribeDBInstances (Lude.Maybe Lude.Text)
-ddbiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBInstances)
-{-# DEPRECATED ddbiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+ddiDBInstanceIdentifier :: Lens.Lens' DescribeDBInstances (Lude.Maybe Lude.Text)
+ddiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBInstances)
+{-# DEPRECATED ddiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBInstances@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiMarker :: Lens.Lens' DescribeDBInstances (Lude.Maybe Lude.Text)
-ddbiMarker = Lens.lens (marker :: DescribeDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBInstances)
-{-# DEPRECATED ddbiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddiMarker :: Lens.Lens' DescribeDBInstances (Lude.Maybe Lude.Text)
+ddiMarker = Lens.lens (marker :: DescribeDBInstances -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBInstances)
+{-# DEPRECATED ddiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
@@ -157,9 +178,9 @@ ddbiMarker = Lens.lens (marker :: DescribeDBInstances -> Lude.Maybe Lude.Text) (
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbiMaxRecords :: Lens.Lens' DescribeDBInstances (Lude.Maybe Lude.Int)
-ddbiMaxRecords = Lens.lens (maxRecords :: DescribeDBInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBInstances)
-{-# DEPRECATED ddbiMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddiMaxRecords :: Lens.Lens' DescribeDBInstances (Lude.Maybe Lude.Int)
+ddiMaxRecords = Lens.lens (maxRecords :: DescribeDBInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBInstances)
+{-# DEPRECATED ddiMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Page.AWSPager DescribeDBInstances where
   page rq rs
@@ -168,7 +189,7 @@ instance Page.AWSPager DescribeDBInstances where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ddbiMarker Lens..~ rs Lens.^. ddbirsMarker
+          Lude.& ddiMarker Lens..~ rs Lens.^. ddbirsMarker
 
 instance Lude.AWSRequest DescribeDBInstances where
   type Rs DescribeDBInstances = DescribeDBInstancesResponse
@@ -207,18 +228,14 @@ instance Lude.ToQuery DescribeDBInstances where
 --
 -- /See:/ 'mkDescribeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
-  { dbInstances ::
-      Lude.Maybe [DBInstance],
+  { -- | A list of @DBInstance@ instances.
+    dbInstances :: Lude.Maybe [DBInstance],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBInstancesResponse' with the minimum fields required to make a request.

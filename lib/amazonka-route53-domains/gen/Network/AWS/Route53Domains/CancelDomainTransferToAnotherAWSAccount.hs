@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,16 +45,10 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkCancelDomainTransferToAnotherAWSAccount' smart constructor.
 newtype CancelDomainTransferToAnotherAWSAccount = CancelDomainTransferToAnotherAWSAccount'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the domain for which you want to cancel the transfer to another AWS account.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelDomainTransferToAnotherAWSAccount' with the minimum fields required to make a request.
@@ -116,23 +111,13 @@ instance Lude.ToQuery CancelDomainTransferToAnotherAWSAccount where
 --
 -- /See:/ 'mkCancelDomainTransferToAnotherAWSAccountResponse' smart constructor.
 data CancelDomainTransferToAnotherAWSAccountResponse = CancelDomainTransferToAnotherAWSAccountResponse'
-  { operationId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier that @TransferDomainToAnotherAwsAccount@ returned to track the progress of the request. Because the transfer request was canceled, the value is no longer valid, and you can't use @GetOperationDetail@ to query the operation status.
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelDomainTransferToAnotherAWSAccountResponse' with the minimum fields required to make a request.
 --

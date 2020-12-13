@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.EMR.DescribeSecurityConfiguration
     mkDescribeSecurityConfiguration,
 
     -- ** Request lenses
-    dName,
+    dscName,
 
     -- * Destructuring the response
     DescribeSecurityConfigurationResponse (..),
     mkDescribeSecurityConfigurationResponse,
 
     -- ** Response lenses
-    drsSecurityConfiguration,
-    drsName,
-    drsCreationDateTime,
-    drsResponseStatus,
+    dscrsSecurityConfiguration,
+    dscrsName,
+    dscrsCreationDateTime,
+    dscrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSecurityConfiguration' smart constructor.
 newtype DescribeSecurityConfiguration = DescribeSecurityConfiguration'
-  { name ::
-      Lude.Text
+  { -- | The name of the security configuration.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityConfiguration' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDescribeSecurityConfiguration pName_ =
 -- | The name of the security configuration.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' DescribeSecurityConfiguration Lude.Text
-dName = Lens.lens (name :: DescribeSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: DescribeSecurityConfiguration)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+dscName :: Lens.Lens' DescribeSecurityConfiguration Lude.Text
+dscName = Lens.lens (name :: DescribeSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: DescribeSecurityConfiguration)
+{-# DEPRECATED dscName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DescribeSecurityConfiguration where
   type
@@ -110,33 +105,24 @@ instance Lude.ToQuery DescribeSecurityConfiguration where
 
 -- | /See:/ 'mkDescribeSecurityConfigurationResponse' smart constructor.
 data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationResponse'
-  { securityConfiguration ::
-      Lude.Maybe
-        Lude.Text,
-    name ::
-      Lude.Maybe
-        Lude.Text,
-    creationDateTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    responseStatus ::
-      Lude.Int
+  { -- | The security configuration details in JSON format.
+    securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | The name of the security configuration.
+    name :: Lude.Maybe Lude.Text,
+    -- | The date and time the security configuration was created
+    creationDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecurityConfigurationResponse' with the minimum fields required to make a request.
 --
--- * 'creationDateTime' - The date and time the security configuration was created
--- * 'name' - The name of the security configuration.
--- * 'responseStatus' - The response status code.
 -- * 'securityConfiguration' - The security configuration details in JSON format.
+-- * 'name' - The name of the security configuration.
+-- * 'creationDateTime' - The date and time the security configuration was created
+-- * 'responseStatus' - The response status code.
 mkDescribeSecurityConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -153,27 +139,27 @@ mkDescribeSecurityConfigurationResponse pResponseStatus_ =
 -- | The security configuration details in JSON format.
 --
 -- /Note:/ Consider using 'securityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsSecurityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Text)
-drsSecurityConfiguration = Lens.lens (securityConfiguration :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityConfiguration = a} :: DescribeSecurityConfigurationResponse)
-{-# DEPRECATED drsSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
+dscrsSecurityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Text)
+dscrsSecurityConfiguration = Lens.lens (securityConfiguration :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {securityConfiguration = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED dscrsSecurityConfiguration "Use generic-lens or generic-optics with 'securityConfiguration' instead." #-}
 
 -- | The name of the security configuration.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsName :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Text)
-drsName = Lens.lens (name :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeSecurityConfigurationResponse)
-{-# DEPRECATED drsName "Use generic-lens or generic-optics with 'name' instead." #-}
+dscrsName :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Text)
+dscrsName = Lens.lens (name :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED dscrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date and time the security configuration was created
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCreationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Timestamp)
-drsCreationDateTime = Lens.lens (creationDateTime :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse)
-{-# DEPRECATED drsCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
+dscrsCreationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Lude.Maybe Lude.Timestamp)
+dscrsCreationDateTime = Lens.lens (creationDateTime :: DescribeSecurityConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED dscrsCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSecurityConfigurationResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrsResponseStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Lude.Int
+dscrsResponseStatus = Lens.lens (responseStatus :: DescribeSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSecurityConfigurationResponse)
+{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

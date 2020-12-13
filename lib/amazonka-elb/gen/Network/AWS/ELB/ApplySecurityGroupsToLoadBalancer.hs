@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     mkApplySecurityGroupsToLoadBalancer,
 
     -- ** Request lenses
-    asgtlbLoadBalancerName,
     asgtlbSecurityGroups,
+    asgtlbLoadBalancerName,
 
     -- * Destructuring the response
     ApplySecurityGroupsToLoadBalancerResponse (..),
@@ -44,41 +45,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkApplySecurityGroupsToLoadBalancer' smart constructor.
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
-  { loadBalancerName ::
-      Lude.Text,
-    securityGroups ::
-      [Lude.Text]
+  { -- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
+    securityGroups :: [Lude.Text],
+    -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplySecurityGroupsToLoadBalancer' with the minimum fields required to make a request.
 --
--- * 'loadBalancerName' - The name of the load balancer.
 -- * 'securityGroups' - The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
+-- * 'loadBalancerName' - The name of the load balancer.
 mkApplySecurityGroupsToLoadBalancer ::
   -- | 'loadBalancerName'
   Lude.Text ->
   ApplySecurityGroupsToLoadBalancer
 mkApplySecurityGroupsToLoadBalancer pLoadBalancerName_ =
   ApplySecurityGroupsToLoadBalancer'
-    { loadBalancerName =
-        pLoadBalancerName_,
-      securityGroups = Lude.mempty
+    { securityGroups = Lude.mempty,
+      loadBalancerName = pLoadBalancerName_
     }
-
--- | The name of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgtlbLoadBalancerName :: Lens.Lens' ApplySecurityGroupsToLoadBalancer Lude.Text
-asgtlbLoadBalancerName = Lens.lens (loadBalancerName :: ApplySecurityGroupsToLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: ApplySecurityGroupsToLoadBalancer)
-{-# DEPRECATED asgtlbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
 --
@@ -86,6 +73,13 @@ asgtlbLoadBalancerName = Lens.lens (loadBalancerName :: ApplySecurityGroupsToLoa
 asgtlbSecurityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancer [Lude.Text]
 asgtlbSecurityGroups = Lens.lens (securityGroups :: ApplySecurityGroupsToLoadBalancer -> [Lude.Text]) (\s a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancer)
 {-# DEPRECATED asgtlbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | The name of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtlbLoadBalancerName :: Lens.Lens' ApplySecurityGroupsToLoadBalancer Lude.Text
+asgtlbLoadBalancerName = Lens.lens (loadBalancerName :: ApplySecurityGroupsToLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: ApplySecurityGroupsToLoadBalancer)
+{-# DEPRECATED asgtlbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 instance Lude.AWSRequest ApplySecurityGroupsToLoadBalancer where
   type
@@ -115,33 +109,26 @@ instance Lude.ToQuery ApplySecurityGroupsToLoadBalancer where
       [ "Action"
           Lude.=: ("ApplySecurityGroupsToLoadBalancer" :: Lude.ByteString),
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "SecurityGroups" Lude.=: Lude.toQueryList "member" securityGroups
+        "SecurityGroups" Lude.=: Lude.toQueryList "member" securityGroups,
+        "LoadBalancerName" Lude.=: loadBalancerName
       ]
 
 -- | Contains the output of ApplySecurityGroupsToLoadBalancer.
 --
 -- /See:/ 'mkApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
-  { securityGroups ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The IDs of the security groups associated with the load balancer.
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplySecurityGroupsToLoadBalancerResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'securityGroups' - The IDs of the security groups associated with the load balancer.
+-- * 'responseStatus' - The response status code.
 mkApplySecurityGroupsToLoadBalancerResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -32,28 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProcessedUpdateAction' smart constructor.
 data ProcessedUpdateAction = ProcessedUpdateAction'
-  { cacheClusterId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the cache cluster
+    cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The unique ID of the service update
     serviceUpdateName :: Lude.Maybe Lude.Text,
-    updateActionStatus ::
-      Lude.Maybe UpdateActionStatus,
+    -- | The status of the update action on the Redis cluster
+    updateActionStatus :: Lude.Maybe UpdateActionStatus,
+    -- | The ID of the replication group
     replicationGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessedUpdateAction' with the minimum fields required to make a request.
 --
 -- * 'cacheClusterId' - The ID of the cache cluster
--- * 'replicationGroupId' - The ID of the replication group
 -- * 'serviceUpdateName' - The unique ID of the service update
 -- * 'updateActionStatus' - The status of the update action on the Redis cluster
+-- * 'replicationGroupId' - The ID of the replication group
 mkProcessedUpdateAction ::
   ProcessedUpdateAction
 mkProcessedUpdateAction =

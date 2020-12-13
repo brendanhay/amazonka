@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     mkCreateAppCookieStickinessPolicy,
 
     -- ** Request lenses
-    cacspLoadBalancerName,
     cacspPolicyName,
+    cacspLoadBalancerName,
     cacspCookieName,
 
     -- * Destructuring the response
@@ -46,50 +47,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateAppCookieStickinessPolicy' smart constructor.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
-  { loadBalancerName ::
-      Lude.Text,
+  { -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
     policyName :: Lude.Text,
+    -- | The name of the load balancer.
+    loadBalancerName :: Lude.Text,
+    -- | The name of the application cookie used for stickiness.
     cookieName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppCookieStickinessPolicy' with the minimum fields required to make a request.
 --
--- * 'cookieName' - The name of the application cookie used for stickiness.
--- * 'loadBalancerName' - The name of the load balancer.
 -- * 'policyName' - The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
+-- * 'loadBalancerName' - The name of the load balancer.
+-- * 'cookieName' - The name of the application cookie used for stickiness.
 mkCreateAppCookieStickinessPolicy ::
-  -- | 'loadBalancerName'
-  Lude.Text ->
   -- | 'policyName'
+  Lude.Text ->
+  -- | 'loadBalancerName'
   Lude.Text ->
   -- | 'cookieName'
   Lude.Text ->
   CreateAppCookieStickinessPolicy
 mkCreateAppCookieStickinessPolicy
-  pLoadBalancerName_
   pPolicyName_
+  pLoadBalancerName_
   pCookieName_ =
     CreateAppCookieStickinessPolicy'
-      { loadBalancerName =
-          pLoadBalancerName_,
-        policyName = pPolicyName_,
+      { policyName = pPolicyName_,
+        loadBalancerName = pLoadBalancerName_,
         cookieName = pCookieName_
       }
-
--- | The name of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacspLoadBalancerName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
-cacspLoadBalancerName = Lens.lens (loadBalancerName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateAppCookieStickinessPolicy)
-{-# DEPRECATED cacspLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
 --
@@ -97,6 +86,13 @@ cacspLoadBalancerName = Lens.lens (loadBalancerName :: CreateAppCookieStickiness
 cacspPolicyName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
 cacspPolicyName = Lens.lens (policyName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreateAppCookieStickinessPolicy)
 {-# DEPRECATED cacspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The name of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacspLoadBalancerName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
+cacspLoadBalancerName = Lens.lens (loadBalancerName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateAppCookieStickinessPolicy)
+{-# DEPRECATED cacspLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The name of the application cookie used for stickiness.
 --
@@ -130,8 +126,8 @@ instance Lude.ToQuery CreateAppCookieStickinessPolicy where
       [ "Action"
           Lude.=: ("CreateAppCookieStickinessPolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "LoadBalancerName" Lude.=: loadBalancerName,
         "PolicyName" Lude.=: policyName,
+        "LoadBalancerName" Lude.=: loadBalancerName,
         "CookieName" Lude.=: cookieName
       ]
 
@@ -139,16 +135,10 @@ instance Lude.ToQuery CreateAppCookieStickinessPolicy where
 --
 -- /See:/ 'mkCreateAppCookieStickinessPolicyResponse' smart constructor.
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppCookieStickinessPolicyResponse' with the minimum fields required to make a request.

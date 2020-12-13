@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkDocs.DeleteUser
     mkDeleteUser,
 
     -- ** Request lenses
-    duuAuthenticationToken,
-    duuUserId,
+    dufAuthenticationToken,
+    dufUserId,
 
     -- * Destructuring the response
     DeleteUserResponse (..),
@@ -36,8 +37,9 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the user.
     userId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -60,16 +62,16 @@ mkDeleteUser pUserId_ =
 -- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duuAuthenticationToken :: Lens.Lens' DeleteUser (Lude.Maybe (Lude.Sensitive Lude.Text))
-duuAuthenticationToken = Lens.lens (authenticationToken :: DeleteUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteUser)
-{-# DEPRECATED duuAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+dufAuthenticationToken :: Lens.Lens' DeleteUser (Lude.Maybe (Lude.Sensitive Lude.Text))
+dufAuthenticationToken = Lens.lens (authenticationToken :: DeleteUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteUser)
+{-# DEPRECATED dufAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duuUserId :: Lens.Lens' DeleteUser Lude.Text
-duuUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
-{-# DEPRECATED duuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+dufUserId :: Lens.Lens' DeleteUser Lude.Text
+dufUserId = Lens.lens (userId :: DeleteUser -> Lude.Text) (\s a -> s {userId = a} :: DeleteUser)
+{-# DEPRECATED dufUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 instance Lude.AWSRequest DeleteUser where
   type Rs DeleteUser = DeleteUserResponse
@@ -93,13 +95,7 @@ instance Lude.ToQuery DeleteUser where
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.

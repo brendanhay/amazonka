@@ -28,14 +28,11 @@ import Network.AWS.SSM.Types.PatchRule
 -- | A set of rules defining the approval rules for a patch baseline.
 --
 -- /See:/ 'mkPatchRuleGroup' smart constructor.
-newtype PatchRuleGroup = PatchRuleGroup' {patchRules :: [PatchRule]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype PatchRuleGroup = PatchRuleGroup'
+  { -- | The rules that make up the rule group.
+    patchRules :: [PatchRule]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchRuleGroup' with the minimum fields required to make a request.

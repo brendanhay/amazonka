@@ -30,17 +30,12 @@ import Network.AWS.SSM.Types.OpsEntityItem
 --
 -- /See:/ 'mkOpsEntity' smart constructor.
 data OpsEntity = OpsEntity'
-  { data' ::
-      Lude.Maybe (Lude.HashMap Lude.Text (OpsEntityItem)),
+  { -- | The data returned by the query.
+    data' :: Lude.Maybe (Lude.HashMap Lude.Text (OpsEntityItem)),
+    -- | The query ID.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsEntity' with the minimum fields required to make a request.

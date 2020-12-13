@@ -35,41 +35,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabaseParameter' smart constructor.
 data RelationalDatabaseParameter = RelationalDatabaseParameter'
-  { applyType ::
-      Lude.Maybe Lude.Text,
-    parameterValue ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the engine-specific parameter type.
+    applyType :: Lude.Maybe Lude.Text,
+    -- | Specifies the value of the parameter.
+    parameterValue :: Lude.Maybe Lude.Text,
+    -- | Indicates when parameter updates are applied.
+    --
+    -- Can be @immediate@ or @pending-reboot@ .
     applyMethod :: Lude.Maybe Lude.Text,
+    -- | Specifies the valid data type for the parameter.
     dataType :: Lude.Maybe Lude.Text,
-    isModifiable ::
-      Lude.Maybe Lude.Bool,
-    allowedValues ::
-      Lude.Maybe Lude.Text,
-    parameterName ::
-      Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether the parameter can be modified.
+    isModifiable :: Lude.Maybe Lude.Bool,
+    -- | Specifies the valid range of values for the parameter.
+    allowedValues :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the parameter.
+    parameterName :: Lude.Maybe Lude.Text,
+    -- | Provides a description of the parameter.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseParameter' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - Specifies the valid range of values for the parameter.
+-- * 'applyType' - Specifies the engine-specific parameter type.
+-- * 'parameterValue' - Specifies the value of the parameter.
 -- * 'applyMethod' - Indicates when parameter updates are applied.
 --
 -- Can be @immediate@ or @pending-reboot@ .
--- * 'applyType' - Specifies the engine-specific parameter type.
 -- * 'dataType' - Specifies the valid data type for the parameter.
--- * 'description' - Provides a description of the parameter.
 -- * 'isModifiable' - A Boolean value indicating whether the parameter can be modified.
+-- * 'allowedValues' - Specifies the valid range of values for the parameter.
 -- * 'parameterName' - Specifies the name of the parameter.
--- * 'parameterValue' - Specifies the value of the parameter.
+-- * 'description' - Provides a description of the parameter.
 mkRelationalDatabaseParameter ::
   RelationalDatabaseParameter
 mkRelationalDatabaseParameter =

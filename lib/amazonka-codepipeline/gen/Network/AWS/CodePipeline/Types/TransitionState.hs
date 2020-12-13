@@ -31,25 +31,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitionState' smart constructor.
 data TransitionState = TransitionState'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the transition between stages is enabled (true) or disabled (false).
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The user-specified reason why the transition between two stages of a pipeline was disabled.
     disabledReason :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the transition state was last changed.
     lastChangedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the user who last changed the transition state.
     lastChangedBy :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitionState' with the minimum fields required to make a request.
 --
--- * 'disabledReason' - The user-specified reason why the transition between two stages of a pipeline was disabled.
 -- * 'enabled' - Whether the transition between stages is enabled (true) or disabled (false).
+-- * 'disabledReason' - The user-specified reason why the transition between two stages of a pipeline was disabled.
 -- * 'lastChangedAt' - The timestamp when the transition state was last changed.
 -- * 'lastChangedBy' - The ID of the user who last changed the transition state.
 mkTransitionState ::

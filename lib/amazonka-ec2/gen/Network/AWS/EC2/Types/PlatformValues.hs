@@ -13,7 +13,7 @@
 module Network.AWS.EC2.Types.PlatformValues
   ( PlatformValues
       ( PlatformValues',
-        Windows
+        PVWindows
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype PlatformValues = PlatformValues' Lude.Text
       Lude.ToHeader
     )
 
-pattern Windows :: PlatformValues
-pattern Windows = PlatformValues' "Windows"
+pattern PVWindows :: PlatformValues
+pattern PVWindows = PlatformValues' "Windows"
 
 {-# COMPLETE
-  Windows,
+  PVWindows,
   PlatformValues'
   #-}

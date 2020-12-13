@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.APIGateway.GetModels
 
     -- ** Request lenses
     gmsLimit,
-    gmsPosition,
     gmsRestAPIId,
+    gmsPosition,
 
     -- * Destructuring the response
     GetModelsResponse (..),
@@ -47,24 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetModels' smart constructor.
 data GetModels = GetModels'
-  { limit :: Lude.Maybe Lude.Int,
-    position :: Lude.Maybe Lude.Text,
-    restAPIId :: Lude.Text
+  { -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+    limit :: Lude.Maybe Lude.Int,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | The current pagination position in the paged result set.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModels' with the minimum fields required to make a request.
 --
 -- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
--- * 'position' - The current pagination position in the paged result set.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'position' - The current pagination position in the paged result set.
 mkGetModels ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -72,8 +70,8 @@ mkGetModels ::
 mkGetModels pRestAPIId_ =
   GetModels'
     { limit = Lude.Nothing,
-      position = Lude.Nothing,
-      restAPIId = pRestAPIId_
+      restAPIId = pRestAPIId_,
+      position = Lude.Nothing
     }
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
@@ -83,19 +81,19 @@ gmsLimit :: Lens.Lens' GetModels (Lude.Maybe Lude.Int)
 gmsLimit = Lens.lens (limit :: GetModels -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetModels)
 {-# DEPRECATED gmsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The current pagination position in the paged result set.
---
--- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmsPosition :: Lens.Lens' GetModels (Lude.Maybe Lude.Text)
-gmsPosition = Lens.lens (position :: GetModels -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetModels)
-{-# DEPRECATED gmsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
-
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gmsRestAPIId :: Lens.Lens' GetModels Lude.Text
 gmsRestAPIId = Lens.lens (restAPIId :: GetModels -> Lude.Text) (\s a -> s {restAPIId = a} :: GetModels)
 {-# DEPRECATED gmsRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | The current pagination position in the paged result set.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmsPosition :: Lens.Lens' GetModels (Lude.Maybe Lude.Text)
+gmsPosition = Lens.lens (position :: GetModels -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetModels)
+{-# DEPRECATED gmsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 instance Page.AWSPager GetModels where
   page rq rs
@@ -139,24 +137,19 @@ instance Lude.ToQuery GetModels where
 --
 -- /See:/ 'mkGetModelsResponse' smart constructor.
 data GetModelsResponse = GetModelsResponse'
-  { items ::
-      Lude.Maybe [Model],
+  { -- | The current page of elements from this collection.
+    items :: Lude.Maybe [Model],
     position :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetModelsResponse' with the minimum fields required to make a request.
 --
 -- * 'items' - The current page of elements from this collection.
--- * 'position' - Undocumented field.
+-- * 'position' -
 -- * 'responseStatus' - The response status code.
 mkGetModelsResponse ::
   -- | 'responseStatus'

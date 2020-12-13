@@ -17,8 +17,8 @@ module Network.AWS.ResourceGroups.Types.GroupFilter
     mkGroupFilter,
 
     -- * Lenses
-    gfName,
     gfValues,
+    gfName,
   )
 where
 
@@ -30,37 +30,26 @@ import Network.AWS.ResourceGroups.Types.GroupFilterName
 --
 -- /See:/ 'mkGroupFilter' smart constructor.
 data GroupFilter = GroupFilter'
-  { name :: GroupFilterName,
-    values :: Lude.NonEmpty Lude.Text
+  { -- | One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.
+    values :: Lude.NonEmpty Lude.Text,
+    -- | The name of the filter. Filter names are case-sensitive.
+    name :: GroupFilterName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupFilter' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the filter. Filter names are case-sensitive.
 -- * 'values' - One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.
+-- * 'name' - The name of the filter. Filter names are case-sensitive.
 mkGroupFilter ::
-  -- | 'name'
-  GroupFilterName ->
   -- | 'values'
   Lude.NonEmpty Lude.Text ->
+  -- | 'name'
+  GroupFilterName ->
   GroupFilter
-mkGroupFilter pName_ pValues_ =
-  GroupFilter' {name = pName_, values = pValues_}
-
--- | The name of the filter. Filter names are case-sensitive.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfName :: Lens.Lens' GroupFilter GroupFilterName
-gfName = Lens.lens (name :: GroupFilter -> GroupFilterName) (\s a -> s {name = a} :: GroupFilter)
-{-# DEPRECATED gfName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkGroupFilter pValues_ pName_ =
+  GroupFilter' {values = pValues_, name = pName_}
 
 -- | One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.
 --
@@ -69,11 +58,18 @@ gfValues :: Lens.Lens' GroupFilter (Lude.NonEmpty Lude.Text)
 gfValues = Lens.lens (values :: GroupFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: GroupFilter)
 {-# DEPRECATED gfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | The name of the filter. Filter names are case-sensitive.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfName :: Lens.Lens' GroupFilter GroupFilterName
+gfName = Lens.lens (name :: GroupFilter -> GroupFilterName) (\s a -> s {name = a} :: GroupFilter)
+{-# DEPRECATED gfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.ToJSON GroupFilter where
   toJSON GroupFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Values" Lude..= values)
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Name" Lude..= name)
           ]
       )

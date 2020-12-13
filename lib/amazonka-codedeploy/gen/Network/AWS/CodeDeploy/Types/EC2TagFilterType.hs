@@ -13,9 +13,9 @@
 module Network.AWS.CodeDeploy.Types.EC2TagFilterType
   ( EC2TagFilterType
       ( EC2TagFilterType',
-        KeyAndValue,
         KeyOnly,
-        ValueOnly
+        ValueOnly,
+        KeyAndValue
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EC2TagFilterType = EC2TagFilterType' Lude.Text
       Lude.ToHeader
     )
 
-pattern KeyAndValue :: EC2TagFilterType
-pattern KeyAndValue = EC2TagFilterType' "KEY_AND_VALUE"
-
 pattern KeyOnly :: EC2TagFilterType
 pattern KeyOnly = EC2TagFilterType' "KEY_ONLY"
 
 pattern ValueOnly :: EC2TagFilterType
 pattern ValueOnly = EC2TagFilterType' "VALUE_ONLY"
 
+pattern KeyAndValue :: EC2TagFilterType
+pattern KeyAndValue = EC2TagFilterType' "KEY_AND_VALUE"
+
 {-# COMPLETE
-  KeyAndValue,
   KeyOnly,
   ValueOnly,
+  KeyAndValue,
   EC2TagFilterType'
   #-}

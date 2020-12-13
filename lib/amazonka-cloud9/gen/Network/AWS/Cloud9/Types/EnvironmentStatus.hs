@@ -13,13 +13,13 @@
 module Network.AWS.Cloud9.Types.EnvironmentStatus
   ( EnvironmentStatus
       ( EnvironmentStatus',
-        ESConnecting,
-        ESCreating,
-        ESDeleting,
         ESError,
+        ESCreating,
+        ESConnecting,
         ESReady,
+        ESStopping,
         ESStopped,
-        ESStopping
+        ESDeleting
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype EnvironmentStatus = EnvironmentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ESConnecting :: EnvironmentStatus
-pattern ESConnecting = EnvironmentStatus' "connecting"
+pattern ESError :: EnvironmentStatus
+pattern ESError = EnvironmentStatus' "error"
 
 pattern ESCreating :: EnvironmentStatus
 pattern ESCreating = EnvironmentStatus' "creating"
 
-pattern ESDeleting :: EnvironmentStatus
-pattern ESDeleting = EnvironmentStatus' "deleting"
-
-pattern ESError :: EnvironmentStatus
-pattern ESError = EnvironmentStatus' "error"
+pattern ESConnecting :: EnvironmentStatus
+pattern ESConnecting = EnvironmentStatus' "connecting"
 
 pattern ESReady :: EnvironmentStatus
 pattern ESReady = EnvironmentStatus' "ready"
 
-pattern ESStopped :: EnvironmentStatus
-pattern ESStopped = EnvironmentStatus' "stopped"
-
 pattern ESStopping :: EnvironmentStatus
 pattern ESStopping = EnvironmentStatus' "stopping"
 
+pattern ESStopped :: EnvironmentStatus
+pattern ESStopped = EnvironmentStatus' "stopped"
+
+pattern ESDeleting :: EnvironmentStatus
+pattern ESDeleting = EnvironmentStatus' "deleting"
+
 {-# COMPLETE
-  ESConnecting,
-  ESCreating,
-  ESDeleting,
   ESError,
+  ESCreating,
+  ESConnecting,
   ESReady,
-  ESStopped,
   ESStopping,
+  ESStopped,
+  ESDeleting,
   EnvironmentStatus'
   #-}

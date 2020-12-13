@@ -13,10 +13,10 @@
 module Network.AWS.Route53AutoNaming.Types.OperationStatus
   ( OperationStatus
       ( OperationStatus',
-        Fail,
-        Pending,
         Submitted,
-        Success
+        Pending,
+        Success,
+        Fail
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype OperationStatus = OperationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Fail :: OperationStatus
-pattern Fail = OperationStatus' "FAIL"
+pattern Submitted :: OperationStatus
+pattern Submitted = OperationStatus' "SUBMITTED"
 
 pattern Pending :: OperationStatus
 pattern Pending = OperationStatus' "PENDING"
 
-pattern Submitted :: OperationStatus
-pattern Submitted = OperationStatus' "SUBMITTED"
-
 pattern Success :: OperationStatus
 pattern Success = OperationStatus' "SUCCESS"
 
+pattern Fail :: OperationStatus
+pattern Fail = OperationStatus' "FAIL"
+
 {-# COMPLETE
-  Fail,
-  Pending,
   Submitted,
+  Pending,
   Success,
+  Fail,
   OperationStatus'
   #-}

@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWarning' smart constructor.
 data Warning = Warning'
-  { code :: Lude.Maybe Lude.Text,
+  { -- | The code of the cross-regional warning.
+    code :: Lude.Maybe Lude.Text,
+    -- | The message explaining what resources are in a different region from the pipeline.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Warning' with the minimum fields required to make a request.

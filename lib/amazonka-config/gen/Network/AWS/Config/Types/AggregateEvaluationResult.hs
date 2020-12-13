@@ -36,38 +36,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAggregateEvaluationResult' smart constructor.
 data AggregateEvaluationResult = AggregateEvaluationResult'
-  { evaluationResultIdentifier ::
-      Lude.Maybe EvaluationResultIdentifier,
+  { -- | Uniquely identifies the evaluation result.
+    evaluationResultIdentifier :: Lude.Maybe EvaluationResultIdentifier,
+    -- | Supplementary information about how the agrregate evaluation determined the compliance.
     annotation :: Lude.Maybe Lude.Text,
-    configRuleInvokedTime ::
-      Lude.Maybe Lude.Timestamp,
-    resultRecordedTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The time when the AWS Config rule evaluated the AWS resource.
+    configRuleInvokedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time when AWS Config recorded the aggregate evaluation result.
+    resultRecordedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The 12-digit account ID of the source account.
     accountId :: Lude.Maybe Lude.Text,
-    complianceType ::
-      Lude.Maybe ComplianceType,
+    -- | The resource compliance status.
+    --
+    -- For the @AggregationEvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
+    complianceType :: Lude.Maybe ComplianceType,
+    -- | The source region from where the data is aggregated.
     awsRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AggregateEvaluationResult' with the minimum fields required to make a request.
 --
--- * 'accountId' - The 12-digit account ID of the source account.
+-- * 'evaluationResultIdentifier' - Uniquely identifies the evaluation result.
 -- * 'annotation' - Supplementary information about how the agrregate evaluation determined the compliance.
--- * 'awsRegion' - The source region from where the data is aggregated.
+-- * 'configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
+-- * 'resultRecordedTime' - The time when AWS Config recorded the aggregate evaluation result.
+-- * 'accountId' - The 12-digit account ID of the source account.
 -- * 'complianceType' - The resource compliance status.
 --
 -- For the @AggregationEvaluationResult@ data type, AWS Config supports only the @COMPLIANT@ and @NON_COMPLIANT@ . AWS Config does not support the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
--- * 'configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
--- * 'evaluationResultIdentifier' - Uniquely identifies the evaluation result.
--- * 'resultRecordedTime' - The time when AWS Config recorded the aggregate evaluation result.
+-- * 'awsRegion' - The source region from where the data is aggregated.
 mkAggregateEvaluationResult ::
   AggregateEvaluationResult
 mkAggregateEvaluationResult =

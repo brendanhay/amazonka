@@ -32,22 +32,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReceiptRuleSetMetadata' smart constructor.
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the receipt rule set. The name must:
+    --
+    --
+    --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+    --
+    --
+    --     * Start and end with a letter or number.
+    --
+    --
+    --     * Contain less than 64 characters.
+    name :: Lude.Maybe Lude.Text,
+    -- | The date and time the receipt rule set was created.
     createdTimestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReceiptRuleSetMetadata' with the minimum fields required to make a request.
 --
--- * 'createdTimestamp' - The date and time the receipt rule set was created.
 -- * 'name' - The name of the receipt rule set. The name must:
 --
 --
@@ -58,6 +61,9 @@ data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
 --
 --
 --     * Contain less than 64 characters.
+--
+--
+-- * 'createdTimestamp' - The date and time the receipt rule set was created.
 mkReceiptRuleSetMetadata ::
   ReceiptRuleSetMetadata
 mkReceiptRuleSetMetadata =

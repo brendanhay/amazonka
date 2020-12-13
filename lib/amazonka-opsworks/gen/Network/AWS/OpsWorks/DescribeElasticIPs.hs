@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,18 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeElasticIPs' smart constructor.
 data DescribeElasticIPs = DescribeElasticIPs'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses associated with the specified instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | An array of Elastic IP addresses to be described. If you include this parameter, @DescribeElasticIps@ returns a description of the specified Elastic IP addresses. Otherwise, it returns a description of every Elastic IP address.
     ips :: Lude.Maybe [Lude.Text],
+    -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns a description of the Elastic IP addresses that are registered with the specified stack.
     stackId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticIPs' with the minimum fields required to make a request.
@@ -134,17 +131,12 @@ instance Lude.ToQuery DescribeElasticIPs where
 --
 -- /See:/ 'mkDescribeElasticIPsResponse' smart constructor.
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
-  { elasticIPs ::
-      Lude.Maybe [ElasticIP],
+  { -- | An @ElasticIps@ object that describes the specified Elastic IP addresses.
+    elasticIPs :: Lude.Maybe [ElasticIP],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticIPsResponse' with the minimum fields required to make a request.

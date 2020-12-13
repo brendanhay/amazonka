@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,19 +27,19 @@ module Network.AWS.S3.GetObjectTagging
     mkGetObjectTagging,
 
     -- ** Request lenses
-    gotoVersionId,
-    gotoExpectedBucketOwner,
-    gotoBucket,
-    gotoKey,
+    gVersionId,
+    gBucket,
+    gKey,
+    gExpectedBucketOwner,
 
     -- * Destructuring the response
     GetObjectTaggingResponse (..),
     mkGetObjectTaggingResponse,
 
     -- ** Response lenses
-    gotrsVersionId,
-    gotrsResponseStatus,
-    gotrsTagSet,
+    gotfrsVersionId,
+    gotfrsTagSet,
+    gotfrsResponseStatus,
   )
 where
 
@@ -50,30 +51,30 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetObjectTagging' smart constructor.
 data GetObjectTagging = GetObjectTagging'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The versionId of the object for which to get the tagging information.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The bucket name containing the object for which to get the tagging information.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
-    key :: ObjectKey
+    -- | Object key for which to get the tagging information.
+    key :: ObjectKey,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectTagging' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The versionId of the object for which to get the tagging information.
 -- * 'bucket' - The bucket name containing the object for which to get the tagging information.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'key' - Object key for which to get the tagging information.
--- * 'versionId' - The versionId of the object for which to get the tagging information.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkGetObjectTagging ::
   -- | 'bucket'
   BucketName ->
@@ -83,24 +84,17 @@ mkGetObjectTagging ::
 mkGetObjectTagging pBucket_ pKey_ =
   GetObjectTagging'
     { versionId = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
       bucket = pBucket_,
-      key = pKey_
+      key = pKey_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The versionId of the object for which to get the tagging information.
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gotoVersionId :: Lens.Lens' GetObjectTagging (Lude.Maybe ObjectVersionId)
-gotoVersionId = Lens.lens (versionId :: GetObjectTagging -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectTagging)
-{-# DEPRECATED gotoVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gotoExpectedBucketOwner :: Lens.Lens' GetObjectTagging (Lude.Maybe Lude.Text)
-gotoExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectTagging)
-{-# DEPRECATED gotoExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+gVersionId :: Lens.Lens' GetObjectTagging (Lude.Maybe ObjectVersionId)
+gVersionId = Lens.lens (versionId :: GetObjectTagging -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectTagging)
+{-# DEPRECATED gVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The bucket name containing the object for which to get the tagging information.
 --
@@ -108,16 +102,23 @@ gotoExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectTagging -> 
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gotoBucket :: Lens.Lens' GetObjectTagging BucketName
-gotoBucket = Lens.lens (bucket :: GetObjectTagging -> BucketName) (\s a -> s {bucket = a} :: GetObjectTagging)
-{-# DEPRECATED gotoBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+gBucket :: Lens.Lens' GetObjectTagging BucketName
+gBucket = Lens.lens (bucket :: GetObjectTagging -> BucketName) (\s a -> s {bucket = a} :: GetObjectTagging)
+{-# DEPRECATED gBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Object key for which to get the tagging information.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gotoKey :: Lens.Lens' GetObjectTagging ObjectKey
-gotoKey = Lens.lens (key :: GetObjectTagging -> ObjectKey) (\s a -> s {key = a} :: GetObjectTagging)
-{-# DEPRECATED gotoKey "Use generic-lens or generic-optics with 'key' instead." #-}
+gKey :: Lens.Lens' GetObjectTagging ObjectKey
+gKey = Lens.lens (key :: GetObjectTagging -> ObjectKey) (\s a -> s {key = a} :: GetObjectTagging)
+{-# DEPRECATED gKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gExpectedBucketOwner :: Lens.Lens' GetObjectTagging (Lude.Maybe Lude.Text)
+gExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectTagging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectTagging)
+{-# DEPRECATED gExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetObjectTagging where
   type Rs GetObjectTagging = GetObjectTaggingResponse
@@ -127,10 +128,10 @@ instance Lude.AWSRequest GetObjectTagging where
       ( \s h x ->
           GetObjectTaggingResponse'
             Lude.<$> (h Lude..#? "x-amz-version-id")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "TagSet" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "Tag"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetObjectTagging where
@@ -148,25 +149,21 @@ instance Lude.ToQuery GetObjectTagging where
 
 -- | /See:/ 'mkGetObjectTaggingResponse' smart constructor.
 data GetObjectTaggingResponse = GetObjectTaggingResponse'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
-    responseStatus :: Lude.Int,
-    tagSet :: [Tag]
+  { -- | The versionId of the object for which you got the tagging information.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | Contains the tag set.
+    tagSet :: [Tag],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectTaggingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'tagSet' - Contains the tag set.
 -- * 'versionId' - The versionId of the object for which you got the tagging information.
+-- * 'tagSet' - Contains the tag set.
+-- * 'responseStatus' - The response status code.
 mkGetObjectTaggingResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -174,27 +171,27 @@ mkGetObjectTaggingResponse ::
 mkGetObjectTaggingResponse pResponseStatus_ =
   GetObjectTaggingResponse'
     { versionId = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      tagSet = Lude.mempty
+      tagSet = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | The versionId of the object for which you got the tagging information.
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gotrsVersionId :: Lens.Lens' GetObjectTaggingResponse (Lude.Maybe ObjectVersionId)
-gotrsVersionId = Lens.lens (versionId :: GetObjectTaggingResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectTaggingResponse)
-{-# DEPRECATED gotrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gotrsResponseStatus :: Lens.Lens' GetObjectTaggingResponse Lude.Int
-gotrsResponseStatus = Lens.lens (responseStatus :: GetObjectTaggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetObjectTaggingResponse)
-{-# DEPRECATED gotrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gotfrsVersionId :: Lens.Lens' GetObjectTaggingResponse (Lude.Maybe ObjectVersionId)
+gotfrsVersionId = Lens.lens (versionId :: GetObjectTaggingResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectTaggingResponse)
+{-# DEPRECATED gotfrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Contains the tag set.
 --
 -- /Note:/ Consider using 'tagSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gotrsTagSet :: Lens.Lens' GetObjectTaggingResponse [Tag]
-gotrsTagSet = Lens.lens (tagSet :: GetObjectTaggingResponse -> [Tag]) (\s a -> s {tagSet = a} :: GetObjectTaggingResponse)
-{-# DEPRECATED gotrsTagSet "Use generic-lens or generic-optics with 'tagSet' instead." #-}
+gotfrsTagSet :: Lens.Lens' GetObjectTaggingResponse [Tag]
+gotfrsTagSet = Lens.lens (tagSet :: GetObjectTaggingResponse -> [Tag]) (\s a -> s {tagSet = a} :: GetObjectTaggingResponse)
+{-# DEPRECATED gotfrsTagSet "Use generic-lens or generic-optics with 'tagSet' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gotfrsResponseStatus :: Lens.Lens' GetObjectTaggingResponse Lude.Int
+gotfrsResponseStatus = Lens.lens (responseStatus :: GetObjectTaggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetObjectTaggingResponse)
+{-# DEPRECATED gotfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

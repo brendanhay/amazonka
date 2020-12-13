@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceRegion' smart constructor.
 data SourceRegion = SourceRegion'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The status of the source AWS Region.
+    status :: Lude.Maybe Lude.Text,
+    -- | The name of the source AWS Region.
     regionName :: Lude.Maybe Lude.Text,
+    -- | The endpoint for the source AWS Region endpoint.
     endpoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceRegion' with the minimum fields required to make a request.
 --
--- * 'endpoint' - The endpoint for the source AWS Region endpoint.
--- * 'regionName' - The name of the source AWS Region.
 -- * 'status' - The status of the source AWS Region.
+-- * 'regionName' - The name of the source AWS Region.
+-- * 'endpoint' - The endpoint for the source AWS Region endpoint.
 mkSourceRegion ::
   SourceRegion
 mkSourceRegion =

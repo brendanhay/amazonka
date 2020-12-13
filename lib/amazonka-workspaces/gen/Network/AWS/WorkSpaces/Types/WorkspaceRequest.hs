@@ -17,14 +17,14 @@ module Network.AWS.WorkSpaces.Types.WorkspaceRequest
     mkWorkspaceRequest,
 
     -- * Lenses
+    wrDirectoryId,
+    wrUserName,
+    wrBundleId,
     wrWorkspaceProperties,
     wrRootVolumeEncryptionEnabled,
     wrVolumeEncryptionKey,
     wrUserVolumeEncryptionEnabled,
     wrTags,
-    wrDirectoryId,
-    wrUserName,
-    wrBundleId,
   )
 where
 
@@ -37,35 +37,36 @@ import Network.AWS.WorkSpaces.Types.WorkspaceProperties
 --
 -- /See:/ 'mkWorkspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
-  { workspaceProperties ::
-      Lude.Maybe WorkspaceProperties,
-    rootVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
-    volumeEncryptionKey :: Lude.Maybe Lude.Text,
-    userVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
-    tags :: Lude.Maybe [Tag],
+  { -- | The identifier of the AWS Directory Service directory for the WorkSpace. You can use 'DescribeWorkspaceDirectories' to list the available directories.
     directoryId :: Lude.Text,
+    -- | The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.
     userName :: Lude.Text,
-    bundleId :: Lude.Text
+    -- | The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
+    bundleId :: Lude.Text,
+    -- | The WorkSpace properties.
+    workspaceProperties :: Lude.Maybe WorkspaceProperties,
+    -- | Indicates whether the data stored on the root volume is encrypted.
+    rootVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+    volumeEncryptionKey :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the data stored on the user volume is encrypted.
+    userVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The tags for the WorkSpace.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceRequest' with the minimum fields required to make a request.
 --
--- * 'bundleId' - The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
 -- * 'directoryId' - The identifier of the AWS Directory Service directory for the WorkSpace. You can use 'DescribeWorkspaceDirectories' to list the available directories.
--- * 'rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
--- * 'tags' - The tags for the WorkSpace.
 -- * 'userName' - The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.
--- * 'userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
--- * 'volumeEncryptionKey' - The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+-- * 'bundleId' - The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
 -- * 'workspaceProperties' - The WorkSpace properties.
+-- * 'rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
+-- * 'volumeEncryptionKey' - The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+-- * 'userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
+-- * 'tags' - The tags for the WorkSpace.
 mkWorkspaceRequest ::
   -- | 'directoryId'
   Lude.Text ->
@@ -76,15 +77,36 @@ mkWorkspaceRequest ::
   WorkspaceRequest
 mkWorkspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
   WorkspaceRequest'
-    { workspaceProperties = Lude.Nothing,
+    { directoryId = pDirectoryId_,
+      userName = pUserName_,
+      bundleId = pBundleId_,
+      workspaceProperties = Lude.Nothing,
       rootVolumeEncryptionEnabled = Lude.Nothing,
       volumeEncryptionKey = Lude.Nothing,
       userVolumeEncryptionEnabled = Lude.Nothing,
-      tags = Lude.Nothing,
-      directoryId = pDirectoryId_,
-      userName = pUserName_,
-      bundleId = pBundleId_
+      tags = Lude.Nothing
     }
+
+-- | The identifier of the AWS Directory Service directory for the WorkSpace. You can use 'DescribeWorkspaceDirectories' to list the available directories.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrDirectoryId :: Lens.Lens' WorkspaceRequest Lude.Text
+wrDirectoryId = Lens.lens (directoryId :: WorkspaceRequest -> Lude.Text) (\s a -> s {directoryId = a} :: WorkspaceRequest)
+{-# DEPRECATED wrDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+
+-- | The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrUserName :: Lens.Lens' WorkspaceRequest Lude.Text
+wrUserName = Lens.lens (userName :: WorkspaceRequest -> Lude.Text) (\s a -> s {userName = a} :: WorkspaceRequest)
+{-# DEPRECATED wrUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
+--
+-- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrBundleId :: Lens.Lens' WorkspaceRequest Lude.Text
+wrBundleId = Lens.lens (bundleId :: WorkspaceRequest -> Lude.Text) (\s a -> s {bundleId = a} :: WorkspaceRequest)
+{-# DEPRECATED wrBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
 
 -- | The WorkSpace properties.
 --
@@ -121,56 +143,35 @@ wrTags :: Lens.Lens' WorkspaceRequest (Lude.Maybe [Tag])
 wrTags = Lens.lens (tags :: WorkspaceRequest -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: WorkspaceRequest)
 {-# DEPRECATED wrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The identifier of the AWS Directory Service directory for the WorkSpace. You can use 'DescribeWorkspaceDirectories' to list the available directories.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrDirectoryId :: Lens.Lens' WorkspaceRequest Lude.Text
-wrDirectoryId = Lens.lens (directoryId :: WorkspaceRequest -> Lude.Text) (\s a -> s {directoryId = a} :: WorkspaceRequest)
-{-# DEPRECATED wrDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrUserName :: Lens.Lens' WorkspaceRequest Lude.Text
-wrUserName = Lens.lens (userName :: WorkspaceRequest -> Lude.Text) (\s a -> s {userName = a} :: WorkspaceRequest)
-{-# DEPRECATED wrUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | The identifier of the bundle for the WorkSpace. You can use 'DescribeWorkspaceBundles' to list the available bundles.
---
--- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrBundleId :: Lens.Lens' WorkspaceRequest Lude.Text
-wrBundleId = Lens.lens (bundleId :: WorkspaceRequest -> Lude.Text) (\s a -> s {bundleId = a} :: WorkspaceRequest)
-{-# DEPRECATED wrBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
-
 instance Lude.FromJSON WorkspaceRequest where
   parseJSON =
     Lude.withObject
       "WorkspaceRequest"
       ( \x ->
           WorkspaceRequest'
-            Lude.<$> (x Lude..:? "WorkspaceProperties")
+            Lude.<$> (x Lude..: "DirectoryId")
+            Lude.<*> (x Lude..: "UserName")
+            Lude.<*> (x Lude..: "BundleId")
+            Lude.<*> (x Lude..:? "WorkspaceProperties")
             Lude.<*> (x Lude..:? "RootVolumeEncryptionEnabled")
             Lude.<*> (x Lude..:? "VolumeEncryptionKey")
             Lude.<*> (x Lude..:? "UserVolumeEncryptionEnabled")
             Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "DirectoryId")
-            Lude.<*> (x Lude..: "UserName")
-            Lude.<*> (x Lude..: "BundleId")
       )
 
 instance Lude.ToJSON WorkspaceRequest where
   toJSON WorkspaceRequest' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("WorkspaceProperties" Lude..=) Lude.<$> workspaceProperties,
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("UserName" Lude..= userName),
+            Lude.Just ("BundleId" Lude..= bundleId),
+            ("WorkspaceProperties" Lude..=) Lude.<$> workspaceProperties,
             ("RootVolumeEncryptionEnabled" Lude..=)
               Lude.<$> rootVolumeEncryptionEnabled,
             ("VolumeEncryptionKey" Lude..=) Lude.<$> volumeEncryptionKey,
             ("UserVolumeEncryptionEnabled" Lude..=)
               Lude.<$> userVolumeEncryptionEnabled,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("UserName" Lude..= userName),
-            Lude.Just ("BundleId" Lude..= bundleId)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,10 +40,10 @@ module Network.AWS.Kinesis.PutRecords
     mkPutRecordsResponse,
 
     -- ** Response lenses
-    prsEncryptionType,
-    prsFailedRecordCount,
-    prsResponseStatus,
-    prsRecords,
+    prrsEncryptionType,
+    prrsFailedRecordCount,
+    prrsRecords,
+    prrsResponseStatus,
   )
 where
 
@@ -56,17 +57,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutRecords' smart constructor.
 data PutRecords = PutRecords'
-  { recordEntries ::
-      Lude.NonEmpty PutRecordsRequestEntry,
+  { -- | The records associated with the request.
+    recordEntries :: Lude.NonEmpty PutRecordsRequestEntry,
+    -- | The stream name associated with the request.
     streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRecords' with the minimum fields required to make a request.
@@ -108,8 +104,8 @@ instance Lude.AWSRequest PutRecords where
           PutRecordsResponse'
             Lude.<$> (x Lude..?> "EncryptionType")
             Lude.<*> (x Lude..?> "FailedRecordCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..:> "Records")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders PutRecords where
@@ -142,19 +138,22 @@ instance Lude.ToQuery PutRecords where
 --
 -- /See:/ 'mkPutRecordsResponse' smart constructor.
 data PutRecordsResponse = PutRecordsResponse'
-  { encryptionType ::
-      Lude.Maybe EncryptionType,
+  { -- | The encryption type used on the records. This parameter can be one of the following values:
+    --
+    --
+    --     * @NONE@ : Do not encrypt the records.
+    --
+    --
+    --     * @KMS@ : Use server-side encryption on the records using a customer-managed AWS KMS key.
+    encryptionType :: Lude.Maybe EncryptionType,
+    -- | The number of unsuccessfully processed records in a @PutRecords@ request.
     failedRecordCount :: Lude.Maybe Lude.Natural,
-    responseStatus :: Lude.Int,
-    records :: Lude.NonEmpty PutRecordsResultEntry
+    -- | An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to a stream includes @ErrorCode@ and @ErrorMessage@ in the result.
+    records :: Lude.NonEmpty PutRecordsResultEntry,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRecordsResponse' with the minimum fields required to make a request.
@@ -172,17 +171,17 @@ data PutRecordsResponse = PutRecordsResponse'
 -- * 'records' - An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to a stream includes @ErrorCode@ and @ErrorMessage@ in the result.
 -- * 'responseStatus' - The response status code.
 mkPutRecordsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'records'
   Lude.NonEmpty PutRecordsResultEntry ->
+  -- | 'responseStatus'
+  Lude.Int ->
   PutRecordsResponse
-mkPutRecordsResponse pResponseStatus_ pRecords_ =
+mkPutRecordsResponse pRecords_ pResponseStatus_ =
   PutRecordsResponse'
     { encryptionType = Lude.Nothing,
       failedRecordCount = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      records = pRecords_
+      records = pRecords_,
+      responseStatus = pResponseStatus_
     }
 
 -- | The encryption type used on the records. This parameter can be one of the following values:
@@ -196,27 +195,27 @@ mkPutRecordsResponse pResponseStatus_ pRecords_ =
 --
 --
 -- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsEncryptionType :: Lens.Lens' PutRecordsResponse (Lude.Maybe EncryptionType)
-prsEncryptionType = Lens.lens (encryptionType :: PutRecordsResponse -> Lude.Maybe EncryptionType) (\s a -> s {encryptionType = a} :: PutRecordsResponse)
-{-# DEPRECATED prsEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
+prrsEncryptionType :: Lens.Lens' PutRecordsResponse (Lude.Maybe EncryptionType)
+prrsEncryptionType = Lens.lens (encryptionType :: PutRecordsResponse -> Lude.Maybe EncryptionType) (\s a -> s {encryptionType = a} :: PutRecordsResponse)
+{-# DEPRECATED prrsEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
 -- | The number of unsuccessfully processed records in a @PutRecords@ request.
 --
 -- /Note:/ Consider using 'failedRecordCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsFailedRecordCount :: Lens.Lens' PutRecordsResponse (Lude.Maybe Lude.Natural)
-prsFailedRecordCount = Lens.lens (failedRecordCount :: PutRecordsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {failedRecordCount = a} :: PutRecordsResponse)
-{-# DEPRECATED prsFailedRecordCount "Use generic-lens or generic-optics with 'failedRecordCount' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsResponseStatus :: Lens.Lens' PutRecordsResponse Lude.Int
-prsResponseStatus = Lens.lens (responseStatus :: PutRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRecordsResponse)
-{-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prrsFailedRecordCount :: Lens.Lens' PutRecordsResponse (Lude.Maybe Lude.Natural)
+prrsFailedRecordCount = Lens.lens (failedRecordCount :: PutRecordsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {failedRecordCount = a} :: PutRecordsResponse)
+{-# DEPRECATED prrsFailedRecordCount "Use generic-lens or generic-optics with 'failedRecordCount' instead." #-}
 
 -- | An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to a stream includes @ErrorCode@ and @ErrorMessage@ in the result.
 --
 -- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsRecords :: Lens.Lens' PutRecordsResponse (Lude.NonEmpty PutRecordsResultEntry)
-prsRecords = Lens.lens (records :: PutRecordsResponse -> Lude.NonEmpty PutRecordsResultEntry) (\s a -> s {records = a} :: PutRecordsResponse)
-{-# DEPRECATED prsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
+prrsRecords :: Lens.Lens' PutRecordsResponse (Lude.NonEmpty PutRecordsResultEntry)
+prrsRecords = Lens.lens (records :: PutRecordsResponse -> Lude.NonEmpty PutRecordsResultEntry) (\s a -> s {records = a} :: PutRecordsResponse)
+{-# DEPRECATED prrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prrsResponseStatus :: Lens.Lens' PutRecordsResponse Lude.Int
+prrsResponseStatus = Lens.lens (responseStatus :: PutRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRecordsResponse)
+{-# DEPRECATED prrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

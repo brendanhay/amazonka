@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.GuardDuty.UpdateMemberDetectors
     mkUpdateMemberDetectors,
 
     -- ** Request lenses
+    umdAccountIds,
     umdDataSources,
     umdDetectorId,
-    umdAccountIds,
 
     -- * Destructuring the response
     UpdateMemberDetectorsResponse (..),
     mkUpdateMemberDetectorsResponse,
 
     -- ** Response lenses
-    umdrsResponseStatus,
     umdrsUnprocessedAccounts,
+    umdrsResponseStatus,
   )
 where
 
@@ -41,18 +42,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateMemberDetectors' smart constructor.
 data UpdateMemberDetectors = UpdateMemberDetectors'
-  { dataSources ::
-      Lude.Maybe DataSourceConfigurations,
-    detectorId :: Lude.Text,
-    accountIds :: Lude.NonEmpty Lude.Text
+  { -- | A list of member account IDs to be updated.
+    accountIds :: Lude.NonEmpty Lude.Text,
+    -- | An object describes which data sources will be updated.
+    dataSources :: Lude.Maybe DataSourceConfigurations,
+    -- | The detector ID of the master account.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMemberDetectors' with the minimum fields required to make a request.
@@ -61,17 +58,24 @@ data UpdateMemberDetectors = UpdateMemberDetectors'
 -- * 'dataSources' - An object describes which data sources will be updated.
 -- * 'detectorId' - The detector ID of the master account.
 mkUpdateMemberDetectors ::
-  -- | 'detectorId'
-  Lude.Text ->
   -- | 'accountIds'
   Lude.NonEmpty Lude.Text ->
+  -- | 'detectorId'
+  Lude.Text ->
   UpdateMemberDetectors
-mkUpdateMemberDetectors pDetectorId_ pAccountIds_ =
+mkUpdateMemberDetectors pAccountIds_ pDetectorId_ =
   UpdateMemberDetectors'
-    { dataSources = Lude.Nothing,
-      detectorId = pDetectorId_,
-      accountIds = pAccountIds_
+    { accountIds = pAccountIds_,
+      dataSources = Lude.Nothing,
+      detectorId = pDetectorId_
     }
+
+-- | A list of member account IDs to be updated.
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umdAccountIds :: Lens.Lens' UpdateMemberDetectors (Lude.NonEmpty Lude.Text)
+umdAccountIds = Lens.lens (accountIds :: UpdateMemberDetectors -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: UpdateMemberDetectors)
+{-# DEPRECATED umdAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 -- | An object describes which data sources will be updated.
 --
@@ -87,13 +91,6 @@ umdDetectorId :: Lens.Lens' UpdateMemberDetectors Lude.Text
 umdDetectorId = Lens.lens (detectorId :: UpdateMemberDetectors -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateMemberDetectors)
 {-# DEPRECATED umdDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
--- | A list of member account IDs to be updated.
---
--- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umdAccountIds :: Lens.Lens' UpdateMemberDetectors (Lude.NonEmpty Lude.Text)
-umdAccountIds = Lens.lens (accountIds :: UpdateMemberDetectors -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: UpdateMemberDetectors)
-{-# DEPRECATED umdAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
-
 instance Lude.AWSRequest UpdateMemberDetectors where
   type Rs UpdateMemberDetectors = UpdateMemberDetectorsResponse
   request = Req.postJSON guardDutyService
@@ -101,8 +98,8 @@ instance Lude.AWSRequest UpdateMemberDetectors where
     Res.receiveJSON
       ( \s h x ->
           UpdateMemberDetectorsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateMemberDetectors where
@@ -118,8 +115,8 @@ instance Lude.ToJSON UpdateMemberDetectors where
   toJSON UpdateMemberDetectors' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("dataSources" Lude..=) Lude.<$> dataSources,
-            Lude.Just ("accountIds" Lude..= accountIds)
+          [ Lude.Just ("accountIds" Lude..= accountIds),
+            ("dataSources" Lude..=) Lude.<$> dataSources
           ]
       )
 
@@ -133,40 +130,27 @@ instance Lude.ToQuery UpdateMemberDetectors where
 
 -- | /See:/ 'mkUpdateMemberDetectorsResponse' smart constructor.
 data UpdateMemberDetectorsResponse = UpdateMemberDetectorsResponse'
-  { responseStatus ::
-      Lude.Int,
-    unprocessedAccounts ::
-      [UnprocessedAccount]
+  { -- | A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
+    unprocessedAccounts :: [UnprocessedAccount],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateMemberDetectorsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedAccounts' - A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
+-- * 'responseStatus' - The response status code.
 mkUpdateMemberDetectorsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   UpdateMemberDetectorsResponse
 mkUpdateMemberDetectorsResponse pResponseStatus_ =
   UpdateMemberDetectorsResponse'
-    { responseStatus = pResponseStatus_,
-      unprocessedAccounts = Lude.mempty
+    { unprocessedAccounts = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umdrsResponseStatus :: Lens.Lens' UpdateMemberDetectorsResponse Lude.Int
-umdrsResponseStatus = Lens.lens (responseStatus :: UpdateMemberDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMemberDetectorsResponse)
-{-# DEPRECATED umdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of member account IDs that were unable to be processed along with an explanation for why they were not processed.
 --
@@ -174,3 +158,10 @@ umdrsResponseStatus = Lens.lens (responseStatus :: UpdateMemberDetectorsResponse
 umdrsUnprocessedAccounts :: Lens.Lens' UpdateMemberDetectorsResponse [UnprocessedAccount]
 umdrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: UpdateMemberDetectorsResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: UpdateMemberDetectorsResponse)
 {-# DEPRECATED umdrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umdrsResponseStatus :: Lens.Lens' UpdateMemberDetectorsResponse Lude.Int
+umdrsResponseStatus = Lens.lens (responseStatus :: UpdateMemberDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMemberDetectorsResponse)
+{-# DEPRECATED umdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

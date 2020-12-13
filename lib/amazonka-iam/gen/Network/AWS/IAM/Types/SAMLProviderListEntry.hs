@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSAMLProviderListEntry' smart constructor.
 data SAMLProviderListEntry = SAMLProviderListEntry'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the SAML provider.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The date and time when the SAML provider was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The expiration date and time for the SAML provider.
     validUntil :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SAMLProviderListEntry' with the minimum fields required to make a request.

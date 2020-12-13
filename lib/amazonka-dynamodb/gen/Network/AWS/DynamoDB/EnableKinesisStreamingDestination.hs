@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DynamoDB.EnableKinesisStreamingDestination
     mkEnableKinesisStreamingDestination,
 
     -- ** Request lenses
-    eksdTableName,
     eksdStreamARN,
+    eksdTableName,
 
     -- * Destructuring the response
     KinesisStreamingDestinationOutput (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEnableKinesisStreamingDestination' smart constructor.
 data EnableKinesisStreamingDestination = EnableKinesisStreamingDestination'
-  { tableName ::
-      Lude.Text,
-    streamARN :: Lude.Text
+  { -- | The ARN for a Kinesis data stream.
+    streamARN :: Lude.Text,
+    -- | The name of the DynamoDB table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableKinesisStreamingDestination' with the minimum fields required to make a request.
@@ -59,23 +55,16 @@ data EnableKinesisStreamingDestination = EnableKinesisStreamingDestination'
 -- * 'streamARN' - The ARN for a Kinesis data stream.
 -- * 'tableName' - The name of the DynamoDB table.
 mkEnableKinesisStreamingDestination ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'streamARN'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   EnableKinesisStreamingDestination
-mkEnableKinesisStreamingDestination pTableName_ pStreamARN_ =
+mkEnableKinesisStreamingDestination pStreamARN_ pTableName_ =
   EnableKinesisStreamingDestination'
-    { tableName = pTableName_,
-      streamARN = pStreamARN_
+    { streamARN = pStreamARN_,
+      tableName = pTableName_
     }
-
--- | The name of the DynamoDB table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eksdTableName :: Lens.Lens' EnableKinesisStreamingDestination Lude.Text
-eksdTableName = Lens.lens (tableName :: EnableKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: EnableKinesisStreamingDestination)
-{-# DEPRECATED eksdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The ARN for a Kinesis data stream.
 --
@@ -83,6 +72,13 @@ eksdTableName = Lens.lens (tableName :: EnableKinesisStreamingDestination -> Lud
 eksdStreamARN :: Lens.Lens' EnableKinesisStreamingDestination Lude.Text
 eksdStreamARN = Lens.lens (streamARN :: EnableKinesisStreamingDestination -> Lude.Text) (\s a -> s {streamARN = a} :: EnableKinesisStreamingDestination)
 {-# DEPRECATED eksdStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+
+-- | The name of the DynamoDB table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eksdTableName :: Lens.Lens' EnableKinesisStreamingDestination Lude.Text
+eksdTableName = Lens.lens (tableName :: EnableKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: EnableKinesisStreamingDestination)
+{-# DEPRECATED eksdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest EnableKinesisStreamingDestination where
   type
@@ -108,8 +104,8 @@ instance Lude.ToJSON EnableKinesisStreamingDestination where
   toJSON EnableKinesisStreamingDestination' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("StreamArn" Lude..= streamARN)
+          [ Lude.Just ("StreamArn" Lude..= streamARN),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 

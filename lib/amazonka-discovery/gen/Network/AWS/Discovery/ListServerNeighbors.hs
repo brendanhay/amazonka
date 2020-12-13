@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +20,21 @@ module Network.AWS.Discovery.ListServerNeighbors
     mkListServerNeighbors,
 
     -- ** Request lenses
+    lsnConfigurationId,
     lsnPortInformationNeeded,
     lsnNeighborConfigurationIds,
     lsnNextToken,
     lsnMaxResults,
-    lsnConfigurationId,
 
     -- * Destructuring the response
     ListServerNeighborsResponse (..),
     mkListServerNeighborsResponse,
 
     -- ** Response lenses
+    lsnrsNeighbors,
     lsnrsNextToken,
     lsnrsKnownDependencyCount,
     lsnrsResponseStatus,
-    lsnrsNeighbors,
   )
 where
 
@@ -45,41 +46,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListServerNeighbors' smart constructor.
 data ListServerNeighbors = ListServerNeighbors'
-  { portInformationNeeded ::
-      Lude.Maybe Lude.Bool,
+  { -- | Configuration ID of the server for which neighbors are being listed.
+    configurationId :: Lude.Text,
+    -- | Flag to indicate if port and protocol information is needed as part of the response.
+    portInformationNeeded :: Lude.Maybe Lude.Bool,
+    -- | List of configuration IDs to test for one-hop-away.
     neighborConfigurationIds :: Lude.Maybe [Lude.Text],
+    -- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @ListServerNeighborsRequest$neighborConfigurationIds@ but set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    configurationId :: Lude.Text
+    -- | Maximum number of results to return in a single page of output.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServerNeighbors' with the minimum fields required to make a request.
 --
 -- * 'configurationId' - Configuration ID of the server for which neighbors are being listed.
--- * 'maxResults' - Maximum number of results to return in a single page of output.
+-- * 'portInformationNeeded' - Flag to indicate if port and protocol information is needed as part of the response.
 -- * 'neighborConfigurationIds' - List of configuration IDs to test for one-hop-away.
 -- * 'nextToken' - Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @ListServerNeighborsRequest$neighborConfigurationIds@ but set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
--- * 'portInformationNeeded' - Flag to indicate if port and protocol information is needed as part of the response.
+-- * 'maxResults' - Maximum number of results to return in a single page of output.
 mkListServerNeighbors ::
   -- | 'configurationId'
   Lude.Text ->
   ListServerNeighbors
 mkListServerNeighbors pConfigurationId_ =
   ListServerNeighbors'
-    { portInformationNeeded = Lude.Nothing,
+    { configurationId = pConfigurationId_,
+      portInformationNeeded = Lude.Nothing,
       neighborConfigurationIds = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      configurationId = pConfigurationId_
+      maxResults = Lude.Nothing
     }
+
+-- | Configuration ID of the server for which neighbors are being listed.
+--
+-- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsnConfigurationId :: Lens.Lens' ListServerNeighbors Lude.Text
+lsnConfigurationId = Lens.lens (configurationId :: ListServerNeighbors -> Lude.Text) (\s a -> s {configurationId = a} :: ListServerNeighbors)
+{-# DEPRECATED lsnConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | Flag to indicate if port and protocol information is needed as part of the response.
 --
@@ -109,13 +115,6 @@ lsnMaxResults :: Lens.Lens' ListServerNeighbors (Lude.Maybe Lude.Int)
 lsnMaxResults = Lens.lens (maxResults :: ListServerNeighbors -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListServerNeighbors)
 {-# DEPRECATED lsnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | Configuration ID of the server for which neighbors are being listed.
---
--- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsnConfigurationId :: Lens.Lens' ListServerNeighbors Lude.Text
-lsnConfigurationId = Lens.lens (configurationId :: ListServerNeighbors -> Lude.Text) (\s a -> s {configurationId = a} :: ListServerNeighbors)
-{-# DEPRECATED lsnConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
-
 instance Lude.AWSRequest ListServerNeighbors where
   type Rs ListServerNeighbors = ListServerNeighborsResponse
   request = Req.postJSON discoveryService
@@ -123,10 +122,10 @@ instance Lude.AWSRequest ListServerNeighbors where
     Res.receiveJSON
       ( \s h x ->
           ListServerNeighborsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "neighbors" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (x Lude..?> "knownDependencyCount")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "neighbors" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListServerNeighbors where
@@ -146,12 +145,12 @@ instance Lude.ToJSON ListServerNeighbors where
   toJSON ListServerNeighbors' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("portInformationNeeded" Lude..=) Lude.<$> portInformationNeeded,
+          [ Lude.Just ("configurationId" Lude..= configurationId),
+            ("portInformationNeeded" Lude..=) Lude.<$> portInformationNeeded,
             ("neighborConfigurationIds" Lude..=)
               Lude.<$> neighborConfigurationIds,
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("configurationId" Lude..= configurationId)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -163,28 +162,23 @@ instance Lude.ToQuery ListServerNeighbors where
 
 -- | /See:/ 'mkListServerNeighborsResponse' smart constructor.
 data ListServerNeighborsResponse = ListServerNeighborsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    knownDependencyCount ::
-      Lude.Maybe Lude.Integer,
-    responseStatus :: Lude.Int,
-    neighbors ::
-      [NeighborConnectionDetail]
+  { -- | List of distinct servers that are one hop away from the given server.
+    neighbors :: [NeighborConnectionDetail],
+    -- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @ListServerNeighborsRequest$neighborConfigurationIds@ but set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Count of distinct servers that are one hop away from the given server.
+    knownDependencyCount :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServerNeighborsResponse' with the minimum fields required to make a request.
 --
--- * 'knownDependencyCount' - Count of distinct servers that are one hop away from the given server.
 -- * 'neighbors' - List of distinct servers that are one hop away from the given server.
 -- * 'nextToken' - Token to retrieve the next set of results. For example, if you specified 100 IDs for @ListServerNeighborsRequest$neighborConfigurationIds@ but set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
+-- * 'knownDependencyCount' - Count of distinct servers that are one hop away from the given server.
 -- * 'responseStatus' - The response status code.
 mkListServerNeighborsResponse ::
   -- | 'responseStatus'
@@ -192,11 +186,18 @@ mkListServerNeighborsResponse ::
   ListServerNeighborsResponse
 mkListServerNeighborsResponse pResponseStatus_ =
   ListServerNeighborsResponse'
-    { nextToken = Lude.Nothing,
+    { neighbors = Lude.mempty,
+      nextToken = Lude.Nothing,
       knownDependencyCount = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      neighbors = Lude.mempty
+      responseStatus = pResponseStatus_
     }
+
+-- | List of distinct servers that are one hop away from the given server.
+--
+-- /Note:/ Consider using 'neighbors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsnrsNeighbors :: Lens.Lens' ListServerNeighborsResponse [NeighborConnectionDetail]
+lsnrsNeighbors = Lens.lens (neighbors :: ListServerNeighborsResponse -> [NeighborConnectionDetail]) (\s a -> s {neighbors = a} :: ListServerNeighborsResponse)
+{-# DEPRECATED lsnrsNeighbors "Use generic-lens or generic-optics with 'neighbors' instead." #-}
 
 -- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @ListServerNeighborsRequest$neighborConfigurationIds@ but set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
 --
@@ -218,10 +219,3 @@ lsnrsKnownDependencyCount = Lens.lens (knownDependencyCount :: ListServerNeighbo
 lsnrsResponseStatus :: Lens.Lens' ListServerNeighborsResponse Lude.Int
 lsnrsResponseStatus = Lens.lens (responseStatus :: ListServerNeighborsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListServerNeighborsResponse)
 {-# DEPRECATED lsnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | List of distinct servers that are one hop away from the given server.
---
--- /Note:/ Consider using 'neighbors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsnrsNeighbors :: Lens.Lens' ListServerNeighborsResponse [NeighborConnectionDetail]
-lsnrsNeighbors = Lens.lens (neighbors :: ListServerNeighborsResponse -> [NeighborConnectionDetail]) (\s a -> s {neighbors = a} :: ListServerNeighborsResponse)
-{-# DEPRECATED lsnrsNeighbors "Use generic-lens or generic-optics with 'neighbors' instead." #-}

@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChallengeResponseType' smart constructor.
 data ChallengeResponseType = ChallengeResponseType'
-  { challengeName ::
-      Lude.Maybe ChallengeName,
-    challengeResponse ::
-      Lude.Maybe ChallengeResponse
+  { -- | The challenge name
+    challengeName :: Lude.Maybe ChallengeName,
+    -- | The challenge response.
+    challengeResponse :: Lude.Maybe ChallengeResponse
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChallengeResponseType' with the minimum fields required to make a request.

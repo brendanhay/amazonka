@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailedQueuedPurchaseDeletion' smart constructor.
 data FailedQueuedPurchaseDeletion = FailedQueuedPurchaseDeletion'
-  { error ::
-      Lude.Maybe
-        DeleteQueuedReservedInstancesError,
-    reservedInstancesId ::
-      Lude.Maybe Lude.Text
+  { -- | The error.
+    error :: Lude.Maybe DeleteQueuedReservedInstancesError,
+    -- | The ID of the Reserved Instance.
+    reservedInstancesId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedQueuedPurchaseDeletion' with the minimum fields required to make a request.

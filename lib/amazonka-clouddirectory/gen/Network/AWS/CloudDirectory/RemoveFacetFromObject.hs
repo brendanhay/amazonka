@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,25 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveFacetFromObject' smart constructor.
 data RemoveFacetFromObject = RemoveFacetFromObject'
-  { directoryARN ::
-      Lude.Text,
+  { -- | The ARN of the directory in which the object resides.
+    directoryARN :: Lude.Text,
+    -- | The facet to remove. See 'SchemaFacet' for details.
     schemaFacet :: SchemaFacet,
+    -- | A reference to the object to remove the facet from.
     objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveFacetFromObject' with the minimum fields required to make a request.
 --
 -- * 'directoryARN' - The ARN of the directory in which the object resides.
--- * 'objectReference' - A reference to the object to remove the facet from.
 -- * 'schemaFacet' - The facet to remove. See 'SchemaFacet' for details.
+-- * 'objectReference' - A reference to the object to remove the facet from.
 mkRemoveFacetFromObject ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -131,16 +128,10 @@ instance Lude.ToQuery RemoveFacetFromObject where
 
 -- | /See:/ 'mkRemoveFacetFromObjectResponse' smart constructor.
 newtype RemoveFacetFromObjectResponse = RemoveFacetFromObjectResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveFacetFromObjectResponse' with the minimum fields required to make a request.

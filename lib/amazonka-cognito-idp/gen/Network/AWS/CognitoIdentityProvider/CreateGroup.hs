@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.CognitoIdentityProvider.CreateGroup
     mkCreateGroup,
 
     -- ** Request lenses
+    cgUserPoolId,
     cgPrecedence,
+    cgGroupName,
     cgDescription,
     cgRoleARN,
-    cgGroupName,
-    cgUserPoolId,
 
     -- * Destructuring the response
     CreateGroupResponse (..),
@@ -45,46 +46,54 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { precedence ::
-      Lude.Maybe Lude.Natural,
-    description :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower @Precedence@ values take precedence over groups with higher or null @Precedence@ values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens.
+    --
+    -- Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens.
+    -- The default @Precedence@ value is null.
+    precedence :: Lude.Maybe Lude.Natural,
+    -- | The name of the group. Must be unique.
     groupName :: Lude.Text,
-    userPoolId :: Lude.Text
+    -- | A string containing the description of the group.
+    description :: Lude.Maybe Lude.Text,
+    -- | The role ARN for the group.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
--- * 'description' - A string containing the description of the group.
--- * 'groupName' - The name of the group. Must be unique.
+-- * 'userPoolId' - The user pool ID for the user pool.
 -- * 'precedence' - A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower @Precedence@ values take precedence over groups with higher or null @Precedence@ values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens.
 --
 -- Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens.
 -- The default @Precedence@ value is null.
+-- * 'groupName' - The name of the group. Must be unique.
+-- * 'description' - A string containing the description of the group.
 -- * 'roleARN' - The role ARN for the group.
--- * 'userPoolId' - The user pool ID for the user pool.
 mkCreateGroup ::
-  -- | 'groupName'
-  Lude.Text ->
   -- | 'userPoolId'
   Lude.Text ->
+  -- | 'groupName'
+  Lude.Text ->
   CreateGroup
-mkCreateGroup pGroupName_ pUserPoolId_ =
+mkCreateGroup pUserPoolId_ pGroupName_ =
   CreateGroup'
-    { precedence = Lude.Nothing,
-      description = Lude.Nothing,
-      roleARN = Lude.Nothing,
+    { userPoolId = pUserPoolId_,
+      precedence = Lude.Nothing,
       groupName = pGroupName_,
-      userPoolId = pUserPoolId_
+      description = Lude.Nothing,
+      roleARN = Lude.Nothing
     }
+
+-- | The user pool ID for the user pool.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgUserPoolId :: Lens.Lens' CreateGroup Lude.Text
+cgUserPoolId = Lens.lens (userPoolId :: CreateGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: CreateGroup)
+{-# DEPRECATED cgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower @Precedence@ values take precedence over groups with higher or null @Precedence@ values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens.
 --
@@ -95,6 +104,13 @@ mkCreateGroup pGroupName_ pUserPoolId_ =
 cgPrecedence :: Lens.Lens' CreateGroup (Lude.Maybe Lude.Natural)
 cgPrecedence = Lens.lens (precedence :: CreateGroup -> Lude.Maybe Lude.Natural) (\s a -> s {precedence = a} :: CreateGroup)
 {-# DEPRECATED cgPrecedence "Use generic-lens or generic-optics with 'precedence' instead." #-}
+
+-- | The name of the group. Must be unique.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgGroupName :: Lens.Lens' CreateGroup Lude.Text
+cgGroupName = Lens.lens (groupName :: CreateGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateGroup)
+{-# DEPRECATED cgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | A string containing the description of the group.
 --
@@ -109,20 +125,6 @@ cgDescription = Lens.lens (description :: CreateGroup -> Lude.Maybe Lude.Text) (
 cgRoleARN :: Lens.Lens' CreateGroup (Lude.Maybe Lude.Text)
 cgRoleARN = Lens.lens (roleARN :: CreateGroup -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: CreateGroup)
 {-# DEPRECATED cgRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The name of the group. Must be unique.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgGroupName :: Lens.Lens' CreateGroup Lude.Text
-cgGroupName = Lens.lens (groupName :: CreateGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateGroup)
-{-# DEPRECATED cgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | The user pool ID for the user pool.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgUserPoolId :: Lens.Lens' CreateGroup Lude.Text
-cgUserPoolId = Lens.lens (userPoolId :: CreateGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: CreateGroup)
-{-# DEPRECATED cgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest CreateGroup where
   type Rs CreateGroup = CreateGroupResponse
@@ -151,11 +153,11 @@ instance Lude.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Precedence" Lude..=) Lude.<$> precedence,
-            ("Description" Lude..=) Lude.<$> description,
-            ("RoleArn" Lude..=) Lude.<$> roleARN,
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            ("Precedence" Lude..=) Lude.<$> precedence,
             Lude.Just ("GroupName" Lude..= groupName),
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+            ("Description" Lude..=) Lude.<$> description,
+            ("RoleArn" Lude..=) Lude.<$> roleARN
           ]
       )
 
@@ -167,17 +169,12 @@ instance Lude.ToQuery CreateGroup where
 
 -- | /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
-  { group ::
-      Lude.Maybe GroupType,
+  { -- | The group object for the group.
+    group :: Lude.Maybe GroupType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.

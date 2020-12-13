@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdateCACertificateParams' smart constructor.
 newtype UpdateCACertificateParams = UpdateCACertificateParams'
-  { action ::
-      CACertificateUpdateAction
+  { -- | The action that you want to apply to the CA cerrtificate. The only supported value is @DEACTIVATE@ .
+    action :: CACertificateUpdateAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateCACertificateParams' with the minimum fields required to make a request.

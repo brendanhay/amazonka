@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,30 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutLifecycleEventHookExecutionStatus' smart constructor.
 data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus'
-  { status ::
-      Lude.Maybe
-        LifecycleEventStatus,
-    deploymentId ::
-      Lude.Maybe
-        Lude.Text,
-    lifecycleEventHookExecutionId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
+    status :: Lude.Maybe LifecycleEventStatus,
+    -- | The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the @hooks@ section of the AppSpec file.
+    lifecycleEventHookExecutionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecycleEventHookExecutionStatus' with the minimum fields required to make a request.
 --
+-- * 'status' - The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
 -- * 'deploymentId' - The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
 -- * 'lifecycleEventHookExecutionId' - The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the @hooks@ section of the AppSpec file.
--- * 'status' - The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
 mkPutLifecycleEventHookExecutionStatus ::
   PutLifecycleEventHookExecutionStatus
 mkPutLifecycleEventHookExecutionStatus =
@@ -140,19 +132,12 @@ instance Lude.ToQuery PutLifecycleEventHookExecutionStatus where
 
 -- | /See:/ 'mkPutLifecycleEventHookExecutionStatusResponse' smart constructor.
 data PutLifecycleEventHookExecutionStatusResponse = PutLifecycleEventHookExecutionStatusResponse'
-  { lifecycleEventHookExecutionId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The execution ID of the lifecycle event hook. A hook is specified in the @hooks@ section of the deployment's AppSpec file.
+    lifecycleEventHookExecutionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecycleEventHookExecutionStatusResponse' with the minimum fields required to make a request.

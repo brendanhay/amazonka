@@ -30,19 +30,12 @@ import Network.AWS.RDS.Types.PendingMaintenanceAction
 --
 -- /See:/ 'mkResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-  { pendingMaintenanceActionDetails ::
-      Lude.Maybe
-        [PendingMaintenanceAction],
-    resourceIdentifier ::
-      Lude.Maybe Lude.Text
+  { -- | A list that provides details about the pending maintenance actions for the resource.
+    pendingMaintenanceActionDetails :: Lude.Maybe [PendingMaintenanceAction],
+    -- | The ARN of the resource that has pending maintenance actions.
+    resourceIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourcePendingMaintenanceActions' with the minimum fields required to make a request.

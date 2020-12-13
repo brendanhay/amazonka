@@ -13,9 +13,9 @@
 module Network.AWS.Route53Domains.Types.Transferable
   ( Transferable
       ( Transferable',
-        DontKnow,
         Transferable,
-        Untransferable
+        Untransferable,
+        DontKnow
       ),
   )
 where
@@ -63,18 +63,18 @@ newtype Transferable = Transferable' Lude.Text
       Lude.ToHeader
     )
 
-pattern DontKnow :: Transferable
-pattern DontKnow = Transferable' "DONT_KNOW"
-
 pattern Transferable :: Transferable
 pattern Transferable = Transferable' "TRANSFERABLE"
 
 pattern Untransferable :: Transferable
 pattern Untransferable = Transferable' "UNTRANSFERABLE"
 
+pattern DontKnow :: Transferable
+pattern DontKnow = Transferable' "DONT_KNOW"
+
 {-# COMPLETE
-  DontKnow,
   Transferable,
   Untransferable,
+  DontKnow,
   Transferable'
   #-}

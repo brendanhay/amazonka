@@ -33,34 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLifecyclePolicyPreviewResult' smart constructor.
 data LifecyclePolicyPreviewResult = LifecyclePolicyPreviewResult'
-  { imageTags ::
-      Lude.Maybe [Lude.Text],
-    action ::
-      Lude.Maybe
-        LifecyclePolicyRuleAction,
-    imageDigest ::
-      Lude.Maybe Lude.Text,
-    imagePushedAt ::
-      Lude.Maybe Lude.Timestamp,
-    appliedRulePriority ::
-      Lude.Maybe Lude.Natural
+  { -- | The list of tags associated with this image.
+    imageTags :: Lude.Maybe [Lude.Text],
+    -- | The type of action to be taken.
+    action :: Lude.Maybe LifecyclePolicyRuleAction,
+    -- | The @sha256@ digest of the image manifest.
+    imageDigest :: Lude.Maybe Lude.Text,
+    -- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
+    imagePushedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The priority of the applied rule.
+    appliedRulePriority :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecyclePolicyPreviewResult' with the minimum fields required to make a request.
 --
+-- * 'imageTags' - The list of tags associated with this image.
 -- * 'action' - The type of action to be taken.
--- * 'appliedRulePriority' - The priority of the applied rule.
 -- * 'imageDigest' - The @sha256@ digest of the image manifest.
 -- * 'imagePushedAt' - The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
--- * 'imageTags' - The list of tags associated with this image.
+-- * 'appliedRulePriority' - The priority of the applied rule.
 mkLifecyclePolicyPreviewResult ::
   LifecyclePolicyPreviewResult
 mkLifecyclePolicyPreviewResult =

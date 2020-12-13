@@ -222,8 +222,8 @@ module Network.AWS.CloudWatchLogs
     -- ** InputLogEvent
     InputLogEvent (..),
     mkInputLogEvent,
-    ileTimestamp,
     ileMessage,
+    ileTimestamp,
 
     -- ** LogGroup
     LogGroup (..),
@@ -273,10 +273,10 @@ module Network.AWS.CloudWatchLogs
     -- ** MetricTransformation
     MetricTransformation (..),
     mkMetricTransformation,
-    mtDefaultValue,
     mtMetricName,
     mtMetricNamespace,
     mtMetricValue,
+    mtDefaultValue,
 
     -- ** OutputLogEvent
     OutputLogEvent (..),

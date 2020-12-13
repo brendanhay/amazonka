@@ -14,9 +14,9 @@ module Network.AWS.APIGateway.Types.VPCLinkStatus
   ( VPCLinkStatus
       ( VPCLinkStatus',
         VLSAvailable,
+        VLSPending,
         VLSDeleting,
-        VLSFailed,
-        VLSPending
+        VLSFailed
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype VPCLinkStatus = VPCLinkStatus' Lude.Text
 pattern VLSAvailable :: VPCLinkStatus
 pattern VLSAvailable = VPCLinkStatus' "AVAILABLE"
 
+pattern VLSPending :: VPCLinkStatus
+pattern VLSPending = VPCLinkStatus' "PENDING"
+
 pattern VLSDeleting :: VPCLinkStatus
 pattern VLSDeleting = VPCLinkStatus' "DELETING"
 
 pattern VLSFailed :: VPCLinkStatus
 pattern VLSFailed = VPCLinkStatus' "FAILED"
 
-pattern VLSPending :: VPCLinkStatus
-pattern VLSPending = VPCLinkStatus' "PENDING"
-
 {-# COMPLETE
   VLSAvailable,
+  VLSPending,
   VLSDeleting,
   VLSFailed,
-  VLSPending,
   VPCLinkStatus'
   #-}

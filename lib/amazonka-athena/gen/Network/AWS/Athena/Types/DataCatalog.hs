@@ -17,10 +17,10 @@ module Network.AWS.Athena.Types.DataCatalog
     mkDataCatalog,
 
     -- * Lenses
-    dcParameters,
-    dcDescription,
     dcName,
+    dcParameters,
     dcType,
+    dcDescription,
   )
 where
 
@@ -32,24 +32,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataCatalog' smart constructor.
 data DataCatalog = DataCatalog'
-  { parameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    description :: Lude.Maybe Lude.Text,
+  { -- | The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
     name :: Lude.Text,
-    type' :: DataCatalogType
+    -- | Specifies the Lambda function or functions to use for the data catalog. This is a mapping whose values depend on the catalog type.
+    --
+    --
+    --     * For the @HIVE@ data catalog type, use the following syntax. The @metadata-function@ parameter is required. @The sdk-version@ parameter is optional and defaults to the currently supported version.
+    -- @metadata-function=/lambda_arn/ , sdk-version=/version_number/ @
+    --
+    --
+    --     * For the @LAMBDA@ data catalog type, use one of the following sets of required parameters, but not both.
+    --
+    --     * If you have one Lambda function that processes metadata and another for reading the actual data, use the following syntax. Both parameters are required.
+    -- @metadata-function=/lambda_arn/ , record-function=/lambda_arn/ @
+    --
+    --
+    --     * If you have a composite Lambda function that processes both metadata and data, use the following syntax to specify your Lambda function.
+    -- @function=/lambda_arn/ @
+    --
+    --
+    --
+    --
+    --     * The @GLUE@ type has no parameters.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of data catalog: @LAMBDA@ for a federated catalog, @GLUE@ for AWS Glue Catalog, or @HIVE@ for an external hive metastore.
+    type' :: DataCatalogType,
+    -- | An optional description of the data catalog.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataCatalog' with the minimum fields required to make a request.
 --
--- * 'description' - An optional description of the data catalog.
 -- * 'name' - The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
 -- * 'parameters' - Specifies the Lambda function or functions to use for the data catalog. This is a mapping whose values depend on the catalog type.
 --
@@ -74,6 +89,7 @@ data DataCatalog = DataCatalog'
 --
 --
 -- * 'type'' - The type of data catalog: @LAMBDA@ for a federated catalog, @GLUE@ for AWS Glue Catalog, or @HIVE@ for an external hive metastore.
+-- * 'description' - An optional description of the data catalog.
 mkDataCatalog ::
   -- | 'name'
   Lude.Text ->
@@ -82,11 +98,18 @@ mkDataCatalog ::
   DataCatalog
 mkDataCatalog pName_ pType_ =
   DataCatalog'
-    { parameters = Lude.Nothing,
-      description = Lude.Nothing,
-      name = pName_,
-      type' = pType_
+    { name = pName_,
+      parameters = Lude.Nothing,
+      type' = pType_,
+      description = Lude.Nothing
     }
+
+-- | The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcName :: Lens.Lens' DataCatalog Lude.Text
+dcName = Lens.lens (name :: DataCatalog -> Lude.Text) (\s a -> s {name = a} :: DataCatalog)
+{-# DEPRECATED dcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specifies the Lambda function or functions to use for the data catalog. This is a mapping whose values depend on the catalog type.
 --
@@ -116,20 +139,6 @@ dcParameters :: Lens.Lens' DataCatalog (Lude.Maybe (Lude.HashMap Lude.Text (Lude
 dcParameters = Lens.lens (parameters :: DataCatalog -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: DataCatalog)
 {-# DEPRECATED dcParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | An optional description of the data catalog.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcDescription :: Lens.Lens' DataCatalog (Lude.Maybe Lude.Text)
-dcDescription = Lens.lens (description :: DataCatalog -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DataCatalog)
-{-# DEPRECATED dcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the data catalog. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcName :: Lens.Lens' DataCatalog Lude.Text
-dcName = Lens.lens (name :: DataCatalog -> Lude.Text) (\s a -> s {name = a} :: DataCatalog)
-{-# DEPRECATED dcName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 -- | The type of data catalog: @LAMBDA@ for a federated catalog, @GLUE@ for AWS Glue Catalog, or @HIVE@ for an external hive metastore.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -137,14 +146,21 @@ dcType :: Lens.Lens' DataCatalog DataCatalogType
 dcType = Lens.lens (type' :: DataCatalog -> DataCatalogType) (\s a -> s {type' = a} :: DataCatalog)
 {-# DEPRECATED dcType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
+-- | An optional description of the data catalog.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcDescription :: Lens.Lens' DataCatalog (Lude.Maybe Lude.Text)
+dcDescription = Lens.lens (description :: DataCatalog -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DataCatalog)
+{-# DEPRECATED dcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 instance Lude.FromJSON DataCatalog where
   parseJSON =
     Lude.withObject
       "DataCatalog"
       ( \x ->
           DataCatalog'
-            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..: "Name")
+            Lude.<$> (x Lude..: "Name")
+            Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "Type")
+            Lude.<*> (x Lude..:? "Description")
       )

@@ -30,28 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailedDeleteRemediationExceptionsBatch' smart constructor.
 data FailedDeleteRemediationExceptionsBatch = FailedDeleteRemediationExceptionsBatch'
-  { failureMessage ::
-      Lude.Maybe
-        Lude.Text,
-    failedItems ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            RemediationExceptionResourceKey
-        )
+  { -- | Returns a failure message for delete remediation exception. For example, AWS Config creates an exception due to an internal error.
+    failureMessage :: Lude.Maybe Lude.Text,
+    -- | Returns remediation exception resource key object of the failed items.
+    failedItems :: Lude.Maybe (Lude.NonEmpty RemediationExceptionResourceKey)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedDeleteRemediationExceptionsBatch' with the minimum fields required to make a request.
 --
--- * 'failedItems' - Returns remediation exception resource key object of the failed items.
 -- * 'failureMessage' - Returns a failure message for delete remediation exception. For example, AWS Config creates an exception due to an internal error.
+-- * 'failedItems' - Returns remediation exception resource key object of the failed items.
 mkFailedDeleteRemediationExceptionsBatch ::
   FailedDeleteRemediationExceptionsBatch
 mkFailedDeleteRemediationExceptionsBatch =

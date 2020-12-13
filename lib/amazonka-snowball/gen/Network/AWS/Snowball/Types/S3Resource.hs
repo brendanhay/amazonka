@@ -30,22 +30,18 @@ import Network.AWS.Snowball.Types.KeyRange
 --
 -- /See:/ 'mkS3Resource' smart constructor.
 data S3Resource = S3Resource'
-  { keyRange :: Lude.Maybe KeyRange,
+  { -- | For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
+    keyRange :: Lude.Maybe KeyRange,
+    -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
     bucketARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Resource' with the minimum fields required to make a request.
 --
--- * 'bucketARN' - The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 -- * 'keyRange' - For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
+-- * 'bucketARN' - The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 mkS3Resource ::
   S3Resource
 mkS3Resource =

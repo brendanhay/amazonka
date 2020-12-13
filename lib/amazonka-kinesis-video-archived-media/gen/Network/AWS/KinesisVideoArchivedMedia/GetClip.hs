@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,18 +38,18 @@ module Network.AWS.KinesisVideoArchivedMedia.GetClip
     mkGetClip,
 
     -- ** Request lenses
+    gcClipFragmentSelector,
     gcStreamARN,
     gcStreamName,
-    gcClipFragmentSelector,
 
     -- * Destructuring the response
     GetClipResponse (..),
     mkGetClipResponse,
 
     -- ** Response lenses
+    gcrsPayload,
     gcrsContentType,
     gcrsResponseStatus,
-    gcrsPayload,
   )
 where
 
@@ -60,17 +61,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetClip' smart constructor.
 data GetClip = GetClip'
-  { streamARN :: Lude.Maybe Lude.Text,
-    streamName :: Lude.Maybe Lude.Text,
-    clipFragmentSelector :: ClipFragmentSelector
+  { -- | The time range of the requested clip and the source of the timestamps.
+    clipFragmentSelector :: ClipFragmentSelector,
+    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the media clip.
+    --
+    -- You must specify either the StreamName or the StreamARN.
+    streamARN :: Lude.Maybe Lude.Text,
+    -- | The name of the stream for which to retrieve the media clip.
+    --
+    -- You must specify either the StreamName or the StreamARN.
+    streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClip' with the minimum fields required to make a request.
@@ -88,10 +90,17 @@ mkGetClip ::
   GetClip
 mkGetClip pClipFragmentSelector_ =
   GetClip'
-    { streamARN = Lude.Nothing,
-      streamName = Lude.Nothing,
-      clipFragmentSelector = pClipFragmentSelector_
+    { clipFragmentSelector = pClipFragmentSelector_,
+      streamARN = Lude.Nothing,
+      streamName = Lude.Nothing
     }
+
+-- | The time range of the requested clip and the source of the timestamps.
+--
+-- /Note:/ Consider using 'clipFragmentSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcClipFragmentSelector :: Lens.Lens' GetClip ClipFragmentSelector
+gcClipFragmentSelector = Lens.lens (clipFragmentSelector :: GetClip -> ClipFragmentSelector) (\s a -> s {clipFragmentSelector = a} :: GetClip)
+{-# DEPRECATED gcClipFragmentSelector "Use generic-lens or generic-optics with 'clipFragmentSelector' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the media clip.
 --
@@ -111,13 +120,6 @@ gcStreamName :: Lens.Lens' GetClip (Lude.Maybe Lude.Text)
 gcStreamName = Lens.lens (streamName :: GetClip -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: GetClip)
 {-# DEPRECATED gcStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | The time range of the requested clip and the source of the timestamps.
---
--- /Note:/ Consider using 'clipFragmentSelector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcClipFragmentSelector :: Lens.Lens' GetClip ClipFragmentSelector
-gcClipFragmentSelector = Lens.lens (clipFragmentSelector :: GetClip -> ClipFragmentSelector) (\s a -> s {clipFragmentSelector = a} :: GetClip)
-{-# DEPRECATED gcClipFragmentSelector "Use generic-lens or generic-optics with 'clipFragmentSelector' instead." #-}
-
 instance Lude.AWSRequest GetClip where
   type Rs GetClip = GetClipResponse
   request = Req.postJSON kinesisVideoArchivedMediaService
@@ -125,9 +127,9 @@ instance Lude.AWSRequest GetClip where
     Res.receiveBody
       ( \s h x ->
           GetClipResponse'
-            Lude.<$> (h Lude..#? "Content-Type")
+            Lude.<$> (Lude.pure x)
+            Lude.<*> (h Lude..#? "Content-Type")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.pure x)
       )
 
 instance Lude.ToHeaders GetClip where
@@ -137,9 +139,9 @@ instance Lude.ToJSON GetClip where
   toJSON GetClip' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
-            ("StreamName" Lude..=) Lude.<$> streamName,
-            Lude.Just ("ClipFragmentSelector" Lude..= clipFragmentSelector)
+          [ Lude.Just ("ClipFragmentSelector" Lude..= clipFragmentSelector),
+            ("StreamARN" Lude..=) Lude.<$> streamARN,
+            ("StreamName" Lude..=) Lude.<$> streamName
           ]
       )
 
@@ -151,30 +153,39 @@ instance Lude.ToQuery GetClip where
 
 -- | /See:/ 'mkGetClipResponse' smart constructor.
 data GetClipResponse = GetClipResponse'
-  { contentType ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    payload :: Lude.RsBody
+  { -- | Traditional MP4 file that contains the media clip from the specified video stream. The output will contain the first 100 MB or the first 200 fragments from the specified start timestamp. For more information, see <Kinesis Video Streams Limits Kinesis Video Streams Limits> .
+    payload :: Lude.RsBody,
+    -- | The content type of the media in the requested clip.
+    contentType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'GetClipResponse' with the minimum fields required to make a request.
 --
--- * 'contentType' - The content type of the media in the requested clip.
 -- * 'payload' - Traditional MP4 file that contains the media clip from the specified video stream. The output will contain the first 100 MB or the first 200 fragments from the specified start timestamp. For more information, see <Kinesis Video Streams Limits Kinesis Video Streams Limits> .
+-- * 'contentType' - The content type of the media in the requested clip.
 -- * 'responseStatus' - The response status code.
 mkGetClipResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'payload'
   Lude.RsBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetClipResponse
-mkGetClipResponse pResponseStatus_ pPayload_ =
+mkGetClipResponse pPayload_ pResponseStatus_ =
   GetClipResponse'
-    { contentType = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      payload = pPayload_
+    { payload = pPayload_,
+      contentType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | Traditional MP4 file that contains the media clip from the specified video stream. The output will contain the first 100 MB or the first 200 fragments from the specified start timestamp. For more information, see <Kinesis Video Streams Limits Kinesis Video Streams Limits> .
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrsPayload :: Lens.Lens' GetClipResponse Lude.RsBody
+gcrsPayload = Lens.lens (payload :: GetClipResponse -> Lude.RsBody) (\s a -> s {payload = a} :: GetClipResponse)
+{-# DEPRECATED gcrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
 -- | The content type of the media in the requested clip.
 --
@@ -189,10 +200,3 @@ gcrsContentType = Lens.lens (contentType :: GetClipResponse -> Lude.Maybe Lude.T
 gcrsResponseStatus :: Lens.Lens' GetClipResponse Lude.Int
 gcrsResponseStatus = Lens.lens (responseStatus :: GetClipResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetClipResponse)
 {-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Traditional MP4 file that contains the media clip from the specified video stream. The output will contain the first 100 MB or the first 200 fragments from the specified start timestamp. For more information, see <Kinesis Video Streams Limits Kinesis Video Streams Limits> .
---
--- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrsPayload :: Lens.Lens' GetClipResponse Lude.RsBody
-gcrsPayload = Lens.lens (payload :: GetClipResponse -> Lude.RsBody) (\s a -> s {payload = a} :: GetClipResponse)
-{-# DEPRECATED gcrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}

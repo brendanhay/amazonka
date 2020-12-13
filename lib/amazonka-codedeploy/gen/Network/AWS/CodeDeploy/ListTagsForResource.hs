@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier returned from the previous @ListTagsForResource@ call. It can be used to return the next set of applications in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of a CodeDeploy resource. @ListTagsForResource@ returns all the tags associated with the resource that is identified by the @ResourceArn@ .
     resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
@@ -122,25 +118,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of tags returned by @ListTagsForResource@ . The tags are associated with the resource identified by the input @ResourceArn@ parameter.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - A list of tags returned by @ListTagsForResource@ . The tags are associated with the resource identified by the input @ResourceArn@ parameter.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

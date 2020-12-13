@@ -31,24 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkForwardActionConfig' smart constructor.
 data ForwardActionConfig = ForwardActionConfig'
-  { targetGroups ::
-      Lude.Maybe [TargetGroupTuple],
-    targetGroupStickinessConfig ::
-      Lude.Maybe TargetGroupStickinessConfig
+  { -- | One or more target groups. For Network Load Balancers, you can specify a single target group.
+    targetGroups :: Lude.Maybe [TargetGroupTuple],
+    -- | The target group stickiness for the rule.
+    targetGroupStickinessConfig :: Lude.Maybe TargetGroupStickinessConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForwardActionConfig' with the minimum fields required to make a request.
 --
--- * 'targetGroupStickinessConfig' - The target group stickiness for the rule.
 -- * 'targetGroups' - One or more target groups. For Network Load Balancers, you can specify a single target group.
+-- * 'targetGroupStickinessConfig' - The target group stickiness for the rule.
 mkForwardActionConfig ::
   ForwardActionConfig
 mkForwardActionConfig =

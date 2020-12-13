@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterThing' smart constructor.
 data RegisterThing = RegisterThing'
-  { parameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The parameters for provisioning a thing. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates> for more information.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The provisioning template. See <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates> for more information.
     templateBody :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterThing' with the minimum fields required to make a request.
@@ -114,19 +110,14 @@ instance Lude.ToQuery RegisterThing where
 
 -- | /See:/ 'mkRegisterThingResponse' smart constructor.
 data RegisterThingResponse = RegisterThingResponse'
-  { certificatePem ::
-      Lude.Maybe Lude.Text,
-    resourceARNs ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The certificate data, in PEM format.
+    certificatePem :: Lude.Maybe Lude.Text,
+    -- | ARNs for the generated resources.
+    resourceARNs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterThingResponse' with the minimum fields required to make a request.

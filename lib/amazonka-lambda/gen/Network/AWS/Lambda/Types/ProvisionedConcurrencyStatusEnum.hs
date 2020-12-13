@@ -13,9 +13,9 @@
 module Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
   ( ProvisionedConcurrencyStatusEnum
       ( ProvisionedConcurrencyStatusEnum',
-        PCSEFailed,
         PCSEInProgress,
-        PCSEReady
+        PCSEReady,
+        PCSEFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ProvisionedConcurrencyStatusEnum = ProvisionedConcurrencyStatusEnum' Lud
       Lude.ToHeader
     )
 
-pattern PCSEFailed :: ProvisionedConcurrencyStatusEnum
-pattern PCSEFailed = ProvisionedConcurrencyStatusEnum' "FAILED"
-
 pattern PCSEInProgress :: ProvisionedConcurrencyStatusEnum
 pattern PCSEInProgress = ProvisionedConcurrencyStatusEnum' "IN_PROGRESS"
 
 pattern PCSEReady :: ProvisionedConcurrencyStatusEnum
 pattern PCSEReady = ProvisionedConcurrencyStatusEnum' "READY"
 
+pattern PCSEFailed :: ProvisionedConcurrencyStatusEnum
+pattern PCSEFailed = ProvisionedConcurrencyStatusEnum' "FAILED"
+
 {-# COMPLETE
-  PCSEFailed,
   PCSEInProgress,
   PCSEReady,
+  PCSEFailed,
   ProvisionedConcurrencyStatusEnum'
   #-}

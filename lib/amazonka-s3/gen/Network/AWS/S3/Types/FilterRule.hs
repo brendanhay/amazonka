@@ -31,22 +31,18 @@ import Network.AWS.S3.Types.FilterRuleName
 --
 -- /See:/ 'mkFilterRule' smart constructor.
 data FilterRule = FilterRule'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value that the filter searches for in object key names.
+    value :: Lude.Maybe Lude.Text,
+    -- | The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
     name :: Lude.Maybe FilterRuleName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FilterRule' with the minimum fields required to make a request.
 --
--- * 'name' - The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
 -- * 'value' - The value that the filter searches for in object key names.
+-- * 'name' - The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
 mkFilterRule ::
   FilterRule
 mkFilterRule =

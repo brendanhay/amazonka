@@ -13,7 +13,7 @@
 module Network.AWS.KMS.Types.WrappingKeySpec
   ( WrappingKeySpec
       ( WrappingKeySpec',
-        Rsa2048
+        WKSRsa2048
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype WrappingKeySpec = WrappingKeySpec' Lude.Text
       Lude.ToHeader
     )
 
-pattern Rsa2048 :: WrappingKeySpec
-pattern Rsa2048 = WrappingKeySpec' "RSA_2048"
+pattern WKSRsa2048 :: WrappingKeySpec
+pattern WKSRsa2048 = WrappingKeySpec' "RSA_2048"
 
 {-# COMPLETE
-  Rsa2048,
+  WKSRsa2048,
   WrappingKeySpec'
   #-}

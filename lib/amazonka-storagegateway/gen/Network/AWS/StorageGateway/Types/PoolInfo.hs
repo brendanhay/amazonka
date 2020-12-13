@@ -36,31 +36,30 @@ import Network.AWS.StorageGateway.Types.TapeStorageClass
 --
 -- /See:/ 'mkPoolInfo' smart constructor.
 data PoolInfo = PoolInfo'
-  { retentionLockType ::
-      Lude.Maybe RetentionLockType,
+  { -- | Tape retention lock type, which can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
+    retentionLockType :: Lude.Maybe RetentionLockType,
+    -- | Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
     retentionLockTimeInDays :: Lude.Maybe Lude.Natural,
+    -- | The name of the custom tape pool. @PoolName@ can use all ASCII characters, except '/' and '\'.
     poolName :: Lude.Maybe Lude.Text,
+    -- | The storage class that is associated with the custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
     storageClass :: Lude.Maybe TapeStorageClass,
+    -- | Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@ .
     poolStatus :: Lude.Maybe PoolStatus,
+    -- | The Amazon Resource Name (ARN) of the custom tape pool. Use the 'ListTapePools' operation to return a list of custom tape pools for your account and AWS Region.
     poolARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PoolInfo' with the minimum fields required to make a request.
 --
--- * 'poolARN' - The Amazon Resource Name (ARN) of the custom tape pool. Use the 'ListTapePools' operation to return a list of custom tape pools for your account and AWS Region.
--- * 'poolName' - The name of the custom tape pool. @PoolName@ can use all ASCII characters, except '/' and '\'.
--- * 'poolStatus' - Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@ .
--- * 'retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
 -- * 'retentionLockType' - Tape retention lock type, which can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
+-- * 'retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
+-- * 'poolName' - The name of the custom tape pool. @PoolName@ can use all ASCII characters, except '/' and '\'.
 -- * 'storageClass' - The storage class that is associated with the custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+-- * 'poolStatus' - Status of the custom tape pool. Pool can be @ACTIVE@ or @DELETED@ .
+-- * 'poolARN' - The Amazon Resource Name (ARN) of the custom tape pool. Use the 'ListTapePools' operation to return a list of custom tape pools for your account and AWS Region.
 mkPoolInfo ::
   PoolInfo
 mkPoolInfo =

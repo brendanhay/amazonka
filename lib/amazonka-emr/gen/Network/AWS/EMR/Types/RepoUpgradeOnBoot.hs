@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.RepoUpgradeOnBoot
   ( RepoUpgradeOnBoot
       ( RepoUpgradeOnBoot',
-        RUOBNone,
-        RUOBSecurity
+        RUOBSecurity,
+        RUOBNone
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RepoUpgradeOnBoot = RepoUpgradeOnBoot' Lude.Text
       Lude.ToHeader
     )
 
-pattern RUOBNone :: RepoUpgradeOnBoot
-pattern RUOBNone = RepoUpgradeOnBoot' "NONE"
-
 pattern RUOBSecurity :: RepoUpgradeOnBoot
 pattern RUOBSecurity = RepoUpgradeOnBoot' "SECURITY"
 
+pattern RUOBNone :: RepoUpgradeOnBoot
+pattern RUOBNone = RepoUpgradeOnBoot' "NONE"
+
 {-# COMPLETE
-  RUOBNone,
   RUOBSecurity,
+  RUOBNone,
   RepoUpgradeOnBoot'
   #-}

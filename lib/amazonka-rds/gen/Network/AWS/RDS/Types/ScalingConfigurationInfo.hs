@@ -34,31 +34,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingConfigurationInfo' smart constructor.
 data ScalingConfigurationInfo = ScalingConfigurationInfo'
-  { secondsUntilAutoPause ::
-      Lude.Maybe Lude.Int,
+  { -- | The remaining amount of time, in seconds, before the Aurora DB cluster in @serverless@ mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+    secondsUntilAutoPause :: Lude.Maybe Lude.Int,
+    -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@ , either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
     timeoutAction :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether automatic pause is allowed for the Aurora DB cluster in @serverless@ DB engine mode.
+    --
+    -- When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
     autoPause :: Lude.Maybe Lude.Bool,
+    -- | The maximum capacity for an Aurora DB cluster in @serverless@ DB engine mode.
     maxCapacity :: Lude.Maybe Lude.Int,
+    -- | The maximum capacity for the Aurora DB cluster in @serverless@ DB engine mode.
     minCapacity :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScalingConfigurationInfo' with the minimum fields required to make a request.
 --
+-- * 'secondsUntilAutoPause' - The remaining amount of time, in seconds, before the Aurora DB cluster in @serverless@ mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
+-- * 'timeoutAction' - The timeout action of a call to @ModifyCurrentDBClusterCapacity@ , either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
 -- * 'autoPause' - A value that indicates whether automatic pause is allowed for the Aurora DB cluster in @serverless@ DB engine mode.
 --
 -- When the value is set to false for an Aurora Serverless DB cluster, the DB cluster automatically resumes.
 -- * 'maxCapacity' - The maximum capacity for an Aurora DB cluster in @serverless@ DB engine mode.
 -- * 'minCapacity' - The maximum capacity for the Aurora DB cluster in @serverless@ DB engine mode.
--- * 'secondsUntilAutoPause' - The remaining amount of time, in seconds, before the Aurora DB cluster in @serverless@ mode is paused. A DB cluster can be paused only when it's idle (it has no connections).
--- * 'timeoutAction' - The timeout action of a call to @ModifyCurrentDBClusterCapacity@ , either @ForceApplyCapacityChange@ or @RollbackCapacityChange@ .
 mkScalingConfigurationInfo ::
   ScalingConfigurationInfo
 mkScalingConfigurationInfo =

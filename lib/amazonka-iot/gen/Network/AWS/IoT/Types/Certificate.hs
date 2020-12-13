@@ -34,31 +34,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificate' smart constructor.
 data Certificate = Certificate'
-  { status ::
-      Lude.Maybe CertificateStatus,
+  { -- | The status of the certificate.
+    --
+    -- The status value REGISTER_INACTIVE is deprecated and should not be used.
+    status :: Lude.Maybe CertificateStatus,
+    -- | The ARN of the certificate.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
     certificateId :: Lude.Maybe Lude.Text,
+    -- | The mode of the certificate.
     certificateMode :: Lude.Maybe CertificateMode,
+    -- | The date and time the certificate was created.
     creationDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the certificate.
+--
+-- The status value REGISTER_INACTIVE is deprecated and should not be used.
 -- * 'certificateARN' - The ARN of the certificate.
 -- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 -- * 'certificateMode' - The mode of the certificate.
 -- * 'creationDate' - The date and time the certificate was created.
--- * 'status' - The status of the certificate.
---
--- The status value REGISTER_INACTIVE is deprecated and should not be used.
 mkCertificate ::
   Certificate
 mkCertificate =

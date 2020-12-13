@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailableCapacity' smart constructor.
 data AvailableCapacity = AvailableCapacity'
-  { availableInstanceCapacity ::
-      Lude.Maybe [InstanceCapacity],
+  { -- | The number of instances that can be launched onto the Dedicated Host depending on the host's available capacity. For Dedicated Hosts that support multiple instance types, this parameter represents the number of instances for each instance size that is supported on the host.
+    availableInstanceCapacity :: Lude.Maybe [InstanceCapacity],
+    -- | The number of vCPUs available for launching instances onto the Dedicated Host.
     availableVCPUs :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailableCapacity' with the minimum fields required to make a request.

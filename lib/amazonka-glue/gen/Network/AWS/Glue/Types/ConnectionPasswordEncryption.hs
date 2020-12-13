@@ -17,8 +17,8 @@ module Network.AWS.Glue.Types.ConnectionPasswordEncryption
     mkConnectionPasswordEncryption,
 
     -- * Lenses
-    cpeAWSKMSKeyId,
     cpeReturnConnectionPasswordEncrypted,
+    cpeAWSKMSKeyId,
   )
 where
 
@@ -32,37 +32,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectionPasswordEncryption' smart constructor.
 data ConnectionPasswordEncryption = ConnectionPasswordEncryption'
-  { awsKMSKeyId ::
-      Lude.Maybe Lude.Text,
-    returnConnectionPasswordEncrypted ::
-      Lude.Bool
+  { -- | When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption.
+    returnConnectionPasswordEncrypted :: Lude.Bool,
+    -- | An AWS KMS key that is used to encrypt the connection password.
+    --
+    -- If connection password protection is enabled, the caller of @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@ permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+    -- You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
+    awsKMSKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionPasswordEncryption' with the minimum fields required to make a request.
 --
+-- * 'returnConnectionPasswordEncrypted' - When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption.
 -- * 'awsKMSKeyId' - An AWS KMS key that is used to encrypt the connection password.
 --
 -- If connection password protection is enabled, the caller of @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@ permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
 -- You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
--- * 'returnConnectionPasswordEncrypted' - When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption.
 mkConnectionPasswordEncryption ::
   -- | 'returnConnectionPasswordEncrypted'
   Lude.Bool ->
   ConnectionPasswordEncryption
 mkConnectionPasswordEncryption pReturnConnectionPasswordEncrypted_ =
   ConnectionPasswordEncryption'
-    { awsKMSKeyId = Lude.Nothing,
-      returnConnectionPasswordEncrypted =
-        pReturnConnectionPasswordEncrypted_
+    { returnConnectionPasswordEncrypted =
+        pReturnConnectionPasswordEncrypted_,
+      awsKMSKeyId = Lude.Nothing
     }
+
+-- | When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption.
+--
+-- /Note:/ Consider using 'returnConnectionPasswordEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpeReturnConnectionPasswordEncrypted :: Lens.Lens' ConnectionPasswordEncryption Lude.Bool
+cpeReturnConnectionPasswordEncrypted = Lens.lens (returnConnectionPasswordEncrypted :: ConnectionPasswordEncryption -> Lude.Bool) (\s a -> s {returnConnectionPasswordEncrypted = a} :: ConnectionPasswordEncryption)
+{-# DEPRECATED cpeReturnConnectionPasswordEncrypted "Use generic-lens or generic-optics with 'returnConnectionPasswordEncrypted' instead." #-}
 
 -- | An AWS KMS key that is used to encrypt the connection password.
 --
@@ -74,31 +78,24 @@ cpeAWSKMSKeyId :: Lens.Lens' ConnectionPasswordEncryption (Lude.Maybe Lude.Text)
 cpeAWSKMSKeyId = Lens.lens (awsKMSKeyId :: ConnectionPasswordEncryption -> Lude.Maybe Lude.Text) (\s a -> s {awsKMSKeyId = a} :: ConnectionPasswordEncryption)
 {-# DEPRECATED cpeAWSKMSKeyId "Use generic-lens or generic-optics with 'awsKMSKeyId' instead." #-}
 
--- | When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption.
---
--- /Note:/ Consider using 'returnConnectionPasswordEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpeReturnConnectionPasswordEncrypted :: Lens.Lens' ConnectionPasswordEncryption Lude.Bool
-cpeReturnConnectionPasswordEncrypted = Lens.lens (returnConnectionPasswordEncrypted :: ConnectionPasswordEncryption -> Lude.Bool) (\s a -> s {returnConnectionPasswordEncrypted = a} :: ConnectionPasswordEncryption)
-{-# DEPRECATED cpeReturnConnectionPasswordEncrypted "Use generic-lens or generic-optics with 'returnConnectionPasswordEncrypted' instead." #-}
-
 instance Lude.FromJSON ConnectionPasswordEncryption where
   parseJSON =
     Lude.withObject
       "ConnectionPasswordEncryption"
       ( \x ->
           ConnectionPasswordEncryption'
-            Lude.<$> (x Lude..:? "AwsKmsKeyId")
-            Lude.<*> (x Lude..: "ReturnConnectionPasswordEncrypted")
+            Lude.<$> (x Lude..: "ReturnConnectionPasswordEncrypted")
+            Lude.<*> (x Lude..:? "AwsKmsKeyId")
       )
 
 instance Lude.ToJSON ConnectionPasswordEncryption where
   toJSON ConnectionPasswordEncryption' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AwsKmsKeyId" Lude..=) Lude.<$> awsKMSKeyId,
-            Lude.Just
+          [ Lude.Just
               ( "ReturnConnectionPasswordEncrypted"
                   Lude..= returnConnectionPasswordEncrypted
-              )
+              ),
+            ("AwsKmsKeyId" Lude..=) Lude.<$> awsKMSKeyId
           ]
       )

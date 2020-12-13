@@ -13,9 +13,9 @@
 module Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
   ( ValidityPeriodType
       ( ValidityPeriodType',
+        EndDate,
         Absolute,
         Days,
-        EndDate,
         Months,
         Years
       ),
@@ -48,14 +48,14 @@ newtype ValidityPeriodType = ValidityPeriodType' Lude.Text
       Lude.ToHeader
     )
 
+pattern EndDate :: ValidityPeriodType
+pattern EndDate = ValidityPeriodType' "END_DATE"
+
 pattern Absolute :: ValidityPeriodType
 pattern Absolute = ValidityPeriodType' "ABSOLUTE"
 
 pattern Days :: ValidityPeriodType
 pattern Days = ValidityPeriodType' "DAYS"
-
-pattern EndDate :: ValidityPeriodType
-pattern EndDate = ValidityPeriodType' "END_DATE"
 
 pattern Months :: ValidityPeriodType
 pattern Months = ValidityPeriodType' "MONTHS"
@@ -64,9 +64,9 @@ pattern Years :: ValidityPeriodType
 pattern Years = ValidityPeriodType' "YEARS"
 
 {-# COMPLETE
+  EndDate,
   Absolute,
   Days,
-  EndDate,
   Months,
   Years,
   ValidityPeriodType'

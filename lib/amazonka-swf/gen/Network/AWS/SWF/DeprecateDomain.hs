@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,7 +34,7 @@ module Network.AWS.SWF.DeprecateDomain
     mkDeprecateDomain,
 
     -- ** Request lenses
-    dName,
+    ddName,
 
     -- * Destructuring the response
     DeprecateDomainResponse (..),
@@ -48,14 +49,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkDeprecateDomain' smart constructor.
-newtype DeprecateDomain = DeprecateDomain' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeprecateDomain = DeprecateDomain'
+  { -- | The name of the domain to deprecate.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprecateDomain' with the minimum fields required to make a request.
@@ -70,9 +68,9 @@ mkDeprecateDomain pName_ = DeprecateDomain' {name = pName_}
 -- | The name of the domain to deprecate.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' DeprecateDomain Lude.Text
-dName = Lens.lens (name :: DeprecateDomain -> Lude.Text) (\s a -> s {name = a} :: DeprecateDomain)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+ddName :: Lens.Lens' DeprecateDomain Lude.Text
+ddName = Lens.lens (name :: DeprecateDomain -> Lude.Text) (\s a -> s {name = a} :: DeprecateDomain)
+{-# DEPRECATED ddName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeprecateDomain where
   type Rs DeprecateDomain = DeprecateDomainResponse
@@ -102,13 +100,7 @@ instance Lude.ToQuery DeprecateDomain where
 
 -- | /See:/ 'mkDeprecateDomainResponse' smart constructor.
 data DeprecateDomainResponse = DeprecateDomainResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprecateDomainResponse' with the minimum fields required to make a request.

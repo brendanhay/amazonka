@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListReports' smart constructor.
 data ListReports = ListReports'
-  { sortOrder ::
-      Lude.Maybe SortOrderType,
+  { -- | Specifies the sort order for the list of returned reports. Valid values are:
+    --
+    --
+    --     * @ASCENDING@ : return reports in chronological order based on their creation date.
+    --
+    --
+    --     * @DESCENDING@ : return reports in the reverse chronological order based on their creation date.
+    sortOrder :: Lude.Maybe SortOrderType,
+    -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A @ReportFilter@ object used to filter the returned reports.
     filter :: Lude.Maybe ReportFilter,
+    -- | The maximum number of paginated reports returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReports' with the minimum fields required to make a request.
 --
--- * 'filter' - A @ReportFilter@ object used to filter the returned reports.
--- * 'maxResults' - The maximum number of paginated reports returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
--- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'sortOrder' - Specifies the sort order for the list of returned reports. Valid values are:
 --
 --
@@ -73,6 +74,11 @@ data ListReports = ListReports'
 --
 --
 --     * @DESCENDING@ : return reports in the reverse chronological order based on their creation date.
+--
+--
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'filter' - A @ReportFilter@ object used to filter the returned reports.
+-- * 'maxResults' - The maximum number of paginated reports returned per response. Use @nextToken@ to iterate pages in the list of returned @Report@ objects. The default value is 100.
 mkListReports ::
   ListReports
 mkListReports =
@@ -170,24 +176,20 @@ instance Lude.ToQuery ListReports where
 
 -- | /See:/ 'mkListReportsResponse' smart constructor.
 data ListReportsResponse = ListReportsResponse'
-  { reports ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The list of returned ARNs for the reports in the current AWS account.
+    reports :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListReportsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'reports' - The list of returned ARNs for the reports in the current AWS account.
+-- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'responseStatus' - The response status code.
 mkListReportsResponse ::
   -- | 'responseStatus'

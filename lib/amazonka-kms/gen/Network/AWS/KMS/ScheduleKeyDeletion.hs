@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.KMS.ScheduleKeyDeletion
     mkScheduleKeyDeletion,
 
     -- ** Request lenses
-    skdPendingWindowInDays,
     skdKeyId,
+    skdPendingWindowInDays,
 
     -- * Destructuring the response
     ScheduleKeyDeletionResponse (..),
@@ -47,17 +48,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkScheduleKeyDeletion' smart constructor.
 data ScheduleKeyDeletion = ScheduleKeyDeletion'
-  { pendingWindowInDays ::
-      Lude.Maybe Lude.Natural,
-    keyId :: Lude.Text
+  { -- | The unique identifier of the customer master key (CMK) to delete.
+    --
+    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+    keyId :: Lude.Text,
+    -- | The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK).
+    --
+    -- This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
+    pendingWindowInDays :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleKeyDeletion' with the minimum fields required to make a request.
@@ -83,18 +92,9 @@ mkScheduleKeyDeletion ::
   ScheduleKeyDeletion
 mkScheduleKeyDeletion pKeyId_ =
   ScheduleKeyDeletion'
-    { pendingWindowInDays = Lude.Nothing,
-      keyId = pKeyId_
+    { keyId = pKeyId_,
+      pendingWindowInDays = Lude.Nothing
     }
-
--- | The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK).
---
--- This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
---
--- /Note:/ Consider using 'pendingWindowInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skdPendingWindowInDays :: Lens.Lens' ScheduleKeyDeletion (Lude.Maybe Lude.Natural)
-skdPendingWindowInDays = Lens.lens (pendingWindowInDays :: ScheduleKeyDeletion -> Lude.Maybe Lude.Natural) (\s a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletion)
-{-# DEPRECATED skdPendingWindowInDays "Use generic-lens or generic-optics with 'pendingWindowInDays' instead." #-}
 
 -- | The unique identifier of the customer master key (CMK) to delete.
 --
@@ -113,6 +113,15 @@ skdPendingWindowInDays = Lens.lens (pendingWindowInDays :: ScheduleKeyDeletion -
 skdKeyId :: Lens.Lens' ScheduleKeyDeletion Lude.Text
 skdKeyId = Lens.lens (keyId :: ScheduleKeyDeletion -> Lude.Text) (\s a -> s {keyId = a} :: ScheduleKeyDeletion)
 {-# DEPRECATED skdKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the customer master key (CMK).
+--
+-- This value is optional. If you include a value, it must be between 7 and 30, inclusive. If you do not include a value, it defaults to 30.
+--
+-- /Note:/ Consider using 'pendingWindowInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+skdPendingWindowInDays :: Lens.Lens' ScheduleKeyDeletion (Lude.Maybe Lude.Natural)
+skdPendingWindowInDays = Lens.lens (pendingWindowInDays :: ScheduleKeyDeletion -> Lude.Maybe Lude.Natural) (\s a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletion)
+{-# DEPRECATED skdPendingWindowInDays "Use generic-lens or generic-optics with 'pendingWindowInDays' instead." #-}
 
 instance Lude.AWSRequest ScheduleKeyDeletion where
   type Rs ScheduleKeyDeletion = ScheduleKeyDeletionResponse
@@ -141,8 +150,8 @@ instance Lude.ToJSON ScheduleKeyDeletion where
   toJSON ScheduleKeyDeletion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PendingWindowInDays" Lude..=) Lude.<$> pendingWindowInDays,
-            Lude.Just ("KeyId" Lude..= keyId)
+          [ Lude.Just ("KeyId" Lude..= keyId),
+            ("PendingWindowInDays" Lude..=) Lude.<$> pendingWindowInDays
           ]
       )
 
@@ -154,25 +163,20 @@ instance Lude.ToQuery ScheduleKeyDeletion where
 
 -- | /See:/ 'mkScheduleKeyDeletionResponse' smart constructor.
 data ScheduleKeyDeletionResponse = ScheduleKeyDeletionResponse'
-  { keyId ::
-      Lude.Maybe Lude.Text,
-    deletionDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK whose deletion is scheduled.
+    keyId :: Lude.Maybe Lude.Text,
+    -- | The date and time after which AWS KMS deletes the customer master key (CMK).
+    deletionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleKeyDeletionResponse' with the minimum fields required to make a request.
 --
--- * 'deletionDate' - The date and time after which AWS KMS deletes the customer master key (CMK).
 -- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK whose deletion is scheduled.
+-- * 'deletionDate' - The date and time after which AWS KMS deletes the customer master key (CMK).
 -- * 'responseStatus' - The response status code.
 mkScheduleKeyDeletionResponse ::
   -- | 'responseStatus'

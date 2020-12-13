@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,21 +43,14 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkListVolumeRecoveryPoints' smart constructor.
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVolumeRecoveryPoints' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkListVolumeRecoveryPoints ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -109,28 +103,20 @@ instance Lude.ToQuery ListVolumeRecoveryPoints where
 
 -- | /See:/ 'mkListVolumeRecoveryPointsResponse' smart constructor.
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
-  { volumeRecoveryPointInfos ::
-      Lude.Maybe
-        [VolumeRecoveryPointInfo],
-    gatewayARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of 'VolumeRecoveryPointInfo' objects.
+    volumeRecoveryPointInfos :: Lude.Maybe [VolumeRecoveryPointInfo],
+    gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVolumeRecoveryPointsResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'volumeRecoveryPointInfos' - An array of 'VolumeRecoveryPointInfo' objects.
+-- * 'gatewayARN' -
+-- * 'responseStatus' - The response status code.
 mkListVolumeRecoveryPointsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

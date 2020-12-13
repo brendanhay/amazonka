@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,35 +43,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateTableReplicaAutoScaling' smart constructor.
 data UpdateTableReplicaAutoScaling = UpdateTableReplicaAutoScaling'
-  { replicaUpdates ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ReplicaAutoScalingUpdate
-        ),
-    provisionedWriteCapacityAutoScalingUpdate ::
-      Lude.Maybe
-        AutoScalingSettingsUpdate,
-    globalSecondaryIndexUpdates ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            GlobalSecondaryIndexAutoScalingUpdate
-        ),
+  { -- | Represents the auto scaling settings of replicas of the table that will be modified.
+    replicaUpdates :: Lude.Maybe (Lude.NonEmpty ReplicaAutoScalingUpdate),
+    provisionedWriteCapacityAutoScalingUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+    -- | Represents the auto scaling settings of the global secondary indexes of the replica to be updated.
+    globalSecondaryIndexUpdates :: Lude.Maybe (Lude.NonEmpty GlobalSecondaryIndexAutoScalingUpdate),
+    -- | The name of the global table to be updated.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTableReplicaAutoScaling' with the minimum fields required to make a request.
 --
--- * 'globalSecondaryIndexUpdates' - Represents the auto scaling settings of the global secondary indexes of the replica to be updated.
--- * 'provisionedWriteCapacityAutoScalingUpdate' - Undocumented field.
 -- * 'replicaUpdates' - Represents the auto scaling settings of replicas of the table that will be modified.
+-- * 'provisionedWriteCapacityAutoScalingUpdate' -
+-- * 'globalSecondaryIndexUpdates' - Represents the auto scaling settings of the global secondary indexes of the replica to be updated.
 -- * 'tableName' - The name of the global table to be updated.
 mkUpdateTableReplicaAutoScaling ::
   -- | 'tableName'
@@ -159,25 +147,18 @@ instance Lude.ToQuery UpdateTableReplicaAutoScaling where
 
 -- | /See:/ 'mkUpdateTableReplicaAutoScalingResponse' smart constructor.
 data UpdateTableReplicaAutoScalingResponse = UpdateTableReplicaAutoScalingResponse'
-  { tableAutoScalingDescription ::
-      Lude.Maybe
-        TableAutoScalingDescription,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns information about the auto scaling settings of a table with replicas.
+    tableAutoScalingDescription :: Lude.Maybe TableAutoScalingDescription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTableReplicaAutoScalingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tableAutoScalingDescription' - Returns information about the auto scaling settings of a table with replicas.
+-- * 'responseStatus' - The response status code.
 mkUpdateTableReplicaAutoScalingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

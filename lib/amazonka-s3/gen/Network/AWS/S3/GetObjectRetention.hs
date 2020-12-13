@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.S3.GetObjectRetention
 
     -- ** Request lenses
     gorVersionId,
-    gorRequestPayer,
-    gorExpectedBucketOwner,
     gorBucket,
+    gorRequestPayer,
     gorKey,
+    gorExpectedBucketOwner,
 
     -- * Destructuring the response
     GetObjectRetentionResponse (..),
@@ -45,31 +46,30 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetObjectRetention' smart constructor.
 data GetObjectRetention = GetObjectRetention'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
-    requestPayer :: Lude.Maybe RequestPayer,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The version ID for the object whose retention settings you want to retrieve.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The bucket name containing the object whose retention settings you want to retrieve.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
-    key :: ObjectKey
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | The key name for the object whose retention settings you want to retrieve.
+    key :: ObjectKey,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectRetention' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The version ID for the object whose retention settings you want to retrieve.
 -- * 'bucket' - The bucket name containing the object whose retention settings you want to retrieve.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'requestPayer' -
 -- * 'key' - The key name for the object whose retention settings you want to retrieve.
--- * 'requestPayer' - Undocumented field.
--- * 'versionId' - The version ID for the object whose retention settings you want to retrieve.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkGetObjectRetention ::
   -- | 'bucket'
   BucketName ->
@@ -79,10 +79,10 @@ mkGetObjectRetention ::
 mkGetObjectRetention pBucket_ pKey_ =
   GetObjectRetention'
     { versionId = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
       bucket = pBucket_,
-      key = pKey_
+      requestPayer = Lude.Nothing,
+      key = pKey_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The version ID for the object whose retention settings you want to retrieve.
@@ -91,20 +91,6 @@ mkGetObjectRetention pBucket_ pKey_ =
 gorVersionId :: Lens.Lens' GetObjectRetention (Lude.Maybe ObjectVersionId)
 gorVersionId = Lens.lens (versionId :: GetObjectRetention -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectRetention)
 {-# DEPRECATED gorVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorRequestPayer :: Lens.Lens' GetObjectRetention (Lude.Maybe RequestPayer)
-gorRequestPayer = Lens.lens (requestPayer :: GetObjectRetention -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: GetObjectRetention)
-{-# DEPRECATED gorRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gorExpectedBucketOwner :: Lens.Lens' GetObjectRetention (Lude.Maybe Lude.Text)
-gorExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectRetention -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectRetention)
-{-# DEPRECATED gorExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name containing the object whose retention settings you want to retrieve.
 --
@@ -115,12 +101,26 @@ gorBucket :: Lens.Lens' GetObjectRetention BucketName
 gorBucket = Lens.lens (bucket :: GetObjectRetention -> BucketName) (\s a -> s {bucket = a} :: GetObjectRetention)
 {-# DEPRECATED gorBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorRequestPayer :: Lens.Lens' GetObjectRetention (Lude.Maybe RequestPayer)
+gorRequestPayer = Lens.lens (requestPayer :: GetObjectRetention -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: GetObjectRetention)
+{-# DEPRECATED gorRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
 -- | The key name for the object whose retention settings you want to retrieve.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gorKey :: Lens.Lens' GetObjectRetention ObjectKey
 gorKey = Lens.lens (key :: GetObjectRetention -> ObjectKey) (\s a -> s {key = a} :: GetObjectRetention)
 {-# DEPRECATED gorKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gorExpectedBucketOwner :: Lens.Lens' GetObjectRetention (Lude.Maybe Lude.Text)
+gorExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectRetention -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectRetention)
+{-# DEPRECATED gorExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetObjectRetention where
   type Rs GetObjectRetention = GetObjectRetentionResponse
@@ -149,23 +149,18 @@ instance Lude.ToQuery GetObjectRetention where
 
 -- | /See:/ 'mkGetObjectRetentionResponse' smart constructor.
 data GetObjectRetentionResponse = GetObjectRetentionResponse'
-  { retention ::
-      Lude.Maybe ObjectLockRetention,
+  { -- | The container element for an object's retention settings.
+    retention :: Lude.Maybe ObjectLockRetention,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectRetentionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'retention' - The container element for an object's retention settings.
+-- * 'responseStatus' - The response status code.
 mkGetObjectRetentionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

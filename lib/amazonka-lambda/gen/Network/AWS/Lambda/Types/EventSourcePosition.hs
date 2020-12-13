@@ -13,9 +13,9 @@
 module Network.AWS.Lambda.Types.EventSourcePosition
   ( EventSourcePosition
       ( EventSourcePosition',
-        AtTimestamp,
+        TrimHorizon,
         Latest,
-        TrimHorizon
+        AtTimestamp
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EventSourcePosition = EventSourcePosition' Lude.Text
       Lude.ToHeader
     )
 
-pattern AtTimestamp :: EventSourcePosition
-pattern AtTimestamp = EventSourcePosition' "AT_TIMESTAMP"
+pattern TrimHorizon :: EventSourcePosition
+pattern TrimHorizon = EventSourcePosition' "TRIM_HORIZON"
 
 pattern Latest :: EventSourcePosition
 pattern Latest = EventSourcePosition' "LATEST"
 
-pattern TrimHorizon :: EventSourcePosition
-pattern TrimHorizon = EventSourcePosition' "TRIM_HORIZON"
+pattern AtTimestamp :: EventSourcePosition
+pattern AtTimestamp = EventSourcePosition' "AT_TIMESTAMP"
 
 {-# COMPLETE
-  AtTimestamp,
-  Latest,
   TrimHorizon,
+  Latest,
+  AtTimestamp,
   EventSourcePosition'
   #-}

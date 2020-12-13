@@ -13,16 +13,16 @@
 module Network.AWS.Lambda.Types.StateReasonCode
   ( StateReasonCode
       ( StateReasonCode',
-        Creating,
-        EniLimitExceeded,
         Idle,
-        InsufficientRolePermissions,
-        InternalError,
-        InvalidConfiguration,
-        InvalidSecurityGroup,
-        InvalidSubnet,
+        Creating,
         Restoring,
-        SubnetOutOfIPAddresses
+        EniLimitExceeded,
+        InsufficientRolePermissions,
+        InvalidConfiguration,
+        InternalError,
+        SubnetOutOfIPAddresses,
+        InvalidSubnet,
+        InvalidSecurityGroup
       ),
   )
 where
@@ -53,46 +53,46 @@ newtype StateReasonCode = StateReasonCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Creating :: StateReasonCode
-pattern Creating = StateReasonCode' "Creating"
-
-pattern EniLimitExceeded :: StateReasonCode
-pattern EniLimitExceeded = StateReasonCode' "EniLimitExceeded"
-
 pattern Idle :: StateReasonCode
 pattern Idle = StateReasonCode' "Idle"
 
-pattern InsufficientRolePermissions :: StateReasonCode
-pattern InsufficientRolePermissions = StateReasonCode' "InsufficientRolePermissions"
-
-pattern InternalError :: StateReasonCode
-pattern InternalError = StateReasonCode' "InternalError"
-
-pattern InvalidConfiguration :: StateReasonCode
-pattern InvalidConfiguration = StateReasonCode' "InvalidConfiguration"
-
-pattern InvalidSecurityGroup :: StateReasonCode
-pattern InvalidSecurityGroup = StateReasonCode' "InvalidSecurityGroup"
-
-pattern InvalidSubnet :: StateReasonCode
-pattern InvalidSubnet = StateReasonCode' "InvalidSubnet"
+pattern Creating :: StateReasonCode
+pattern Creating = StateReasonCode' "Creating"
 
 pattern Restoring :: StateReasonCode
 pattern Restoring = StateReasonCode' "Restoring"
 
+pattern EniLimitExceeded :: StateReasonCode
+pattern EniLimitExceeded = StateReasonCode' "EniLimitExceeded"
+
+pattern InsufficientRolePermissions :: StateReasonCode
+pattern InsufficientRolePermissions = StateReasonCode' "InsufficientRolePermissions"
+
+pattern InvalidConfiguration :: StateReasonCode
+pattern InvalidConfiguration = StateReasonCode' "InvalidConfiguration"
+
+pattern InternalError :: StateReasonCode
+pattern InternalError = StateReasonCode' "InternalError"
+
 pattern SubnetOutOfIPAddresses :: StateReasonCode
 pattern SubnetOutOfIPAddresses = StateReasonCode' "SubnetOutOfIPAddresses"
 
+pattern InvalidSubnet :: StateReasonCode
+pattern InvalidSubnet = StateReasonCode' "InvalidSubnet"
+
+pattern InvalidSecurityGroup :: StateReasonCode
+pattern InvalidSecurityGroup = StateReasonCode' "InvalidSecurityGroup"
+
 {-# COMPLETE
-  Creating,
-  EniLimitExceeded,
   Idle,
-  InsufficientRolePermissions,
-  InternalError,
-  InvalidConfiguration,
-  InvalidSecurityGroup,
-  InvalidSubnet,
+  Creating,
   Restoring,
+  EniLimitExceeded,
+  InsufficientRolePermissions,
+  InvalidConfiguration,
+  InternalError,
   SubnetOutOfIPAddresses,
+  InvalidSubnet,
+  InvalidSecurityGroup,
   StateReasonCode'
   #-}

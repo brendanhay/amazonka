@@ -13,8 +13,8 @@
 module Network.AWS.LexModels.Types.ObfuscationSetting
   ( ObfuscationSetting
       ( ObfuscationSetting',
-        DefaultObfuscation,
-        None
+        None,
+        DefaultObfuscation
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ObfuscationSetting = ObfuscationSetting' Lude.Text
       Lude.ToHeader
     )
 
-pattern DefaultObfuscation :: ObfuscationSetting
-pattern DefaultObfuscation = ObfuscationSetting' "DEFAULT_OBFUSCATION"
-
 pattern None :: ObfuscationSetting
 pattern None = ObfuscationSetting' "NONE"
 
+pattern DefaultObfuscation :: ObfuscationSetting
+pattern DefaultObfuscation = ObfuscationSetting' "DEFAULT_OBFUSCATION"
+
 {-# COMPLETE
-  DefaultObfuscation,
   None,
+  DefaultObfuscation,
   ObfuscationSetting'
   #-}

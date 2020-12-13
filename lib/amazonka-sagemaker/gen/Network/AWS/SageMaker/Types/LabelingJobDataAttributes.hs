@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.ContentClassifier
 --
 -- /See:/ 'mkLabelingJobDataAttributes' smart constructor.
 newtype LabelingJobDataAttributes = LabelingJobDataAttributes'
-  { contentClassifiers ::
-      Lude.Maybe [ContentClassifier]
+  { -- | Declares that your content is free of personally identifiable information or adult content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can view your task based on this information.
+    contentClassifiers :: Lude.Maybe [ContentClassifier]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobDataAttributes' with the minimum fields required to make a request.

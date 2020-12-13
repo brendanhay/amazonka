@@ -44,44 +44,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoute' smart constructor.
 data Route = Route'
-  { vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+  { -- | The ID of a VPC peering connection.
+    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+    -- | The ID of a NAT instance in your VPC.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | Describes how the route was created.
+    --
+    --
+    --     * @CreateRouteTable@ - The route was automatically created when the route table was created.
+    --
+    --
+    --     * @CreateRoute@ - The route was manually added to the route table.
+    --
+    --
+    --     * @EnableVgwRoutePropagation@ - The route was propagated by route propagation.
     origin :: Lude.Maybe RouteOrigin,
+    -- | The state of the route. The @blackhole@ state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
     state :: Lude.Maybe RouteState,
+    -- | The ID of the egress-only internet gateway.
     egressOnlyInternetGatewayId :: Lude.Maybe Lude.Text,
+    -- | The IPv6 CIDR block used for the destination match.
     destinationIPv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway.
     localGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of a NAT gateway.
     natGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of a transit gateway.
     transitGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of a gateway attached to your VPC.
     gatewayId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the owner of the instance.
     instanceOwnerId :: Lude.Maybe Lude.Text,
+    -- | The prefix of the AWS service.
     destinationPrefixListId :: Lude.Maybe Lude.Text,
+    -- | The ID of the carrier gateway.
     carrierGatewayId :: Lude.Maybe Lude.Text,
+    -- | The IPv4 CIDR block used for the destination match.
     destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Route' with the minimum fields required to make a request.
 --
--- * 'carrierGatewayId' - The ID of the carrier gateway.
--- * 'destinationCidrBlock' - The IPv4 CIDR block used for the destination match.
--- * 'destinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match.
--- * 'destinationPrefixListId' - The prefix of the AWS service.
--- * 'egressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
--- * 'gatewayId' - The ID of a gateway attached to your VPC.
+-- * 'vpcPeeringConnectionId' - The ID of a VPC peering connection.
 -- * 'instanceId' - The ID of a NAT instance in your VPC.
--- * 'instanceOwnerId' - The AWS account ID of the owner of the instance.
--- * 'localGatewayId' - The ID of the local gateway.
--- * 'natGatewayId' - The ID of a NAT gateway.
--- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'origin' - Describes how the route was created.
 --
 --
@@ -95,8 +104,17 @@ data Route = Route'
 --
 --
 -- * 'state' - The state of the route. The @blackhole@ state indicates that the route's target isn't available (for example, the specified gateway isn't attached to the VPC, or the specified NAT instance has been terminated).
+-- * 'egressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
+-- * 'destinationIPv6CidrBlock' - The IPv6 CIDR block used for the destination match.
+-- * 'localGatewayId' - The ID of the local gateway.
+-- * 'natGatewayId' - The ID of a NAT gateway.
+-- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'transitGatewayId' - The ID of a transit gateway.
--- * 'vpcPeeringConnectionId' - The ID of a VPC peering connection.
+-- * 'gatewayId' - The ID of a gateway attached to your VPC.
+-- * 'instanceOwnerId' - The AWS account ID of the owner of the instance.
+-- * 'destinationPrefixListId' - The prefix of the AWS service.
+-- * 'carrierGatewayId' - The ID of the carrier gateway.
+-- * 'destinationCidrBlock' - The IPv4 CIDR block used for the destination match.
 mkRoute ::
   Route
 mkRoute =

@@ -13,13 +13,13 @@
 module Network.AWS.EC2.Types.FleetStateCode
   ( FleetStateCode
       ( FleetStateCode',
+        FSCSubmitted,
         FSCActive,
         FSCDeleted,
+        FSCFailed,
         FSCDeletedRunning,
         FSCDeletedTerminating,
-        FSCFailed,
-        FSCModifying,
-        FSCSubmitted
+        FSCModifying
       ),
   )
 where
@@ -50,11 +50,17 @@ newtype FleetStateCode = FleetStateCode' Lude.Text
       Lude.ToHeader
     )
 
+pattern FSCSubmitted :: FleetStateCode
+pattern FSCSubmitted = FleetStateCode' "submitted"
+
 pattern FSCActive :: FleetStateCode
 pattern FSCActive = FleetStateCode' "active"
 
 pattern FSCDeleted :: FleetStateCode
 pattern FSCDeleted = FleetStateCode' "deleted"
+
+pattern FSCFailed :: FleetStateCode
+pattern FSCFailed = FleetStateCode' "failed"
 
 pattern FSCDeletedRunning :: FleetStateCode
 pattern FSCDeletedRunning = FleetStateCode' "deleted_running"
@@ -62,22 +68,16 @@ pattern FSCDeletedRunning = FleetStateCode' "deleted_running"
 pattern FSCDeletedTerminating :: FleetStateCode
 pattern FSCDeletedTerminating = FleetStateCode' "deleted_terminating"
 
-pattern FSCFailed :: FleetStateCode
-pattern FSCFailed = FleetStateCode' "failed"
-
 pattern FSCModifying :: FleetStateCode
 pattern FSCModifying = FleetStateCode' "modifying"
 
-pattern FSCSubmitted :: FleetStateCode
-pattern FSCSubmitted = FleetStateCode' "submitted"
-
 {-# COMPLETE
+  FSCSubmitted,
   FSCActive,
   FSCDeleted,
+  FSCFailed,
   FSCDeletedRunning,
   FSCDeletedTerminating,
-  FSCFailed,
   FSCModifying,
-  FSCSubmitted,
   FleetStateCode'
   #-}

@@ -37,33 +37,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBrokerInstanceOption' smart constructor.
 data BrokerInstanceOption = BrokerInstanceOption'
-  { supportedEngineVersions ::
-      Lude.Maybe [Lude.Text],
-    availabilityZones ::
-      Lude.Maybe [AvailabilityZone],
-    supportedDeploymentModes ::
-      Lude.Maybe [DeploymentMode],
+  { -- | The list of supported engine versions.
+    supportedEngineVersions :: Lude.Maybe [Lude.Text],
+    -- | The list of available az.
+    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    -- | The list of supported deployment modes.
+    supportedDeploymentModes :: Lude.Maybe [DeploymentMode],
+    -- | The type of broker engine.
     engineType :: Lude.Maybe EngineType,
+    -- | The type of broker instance.
     hostInstanceType :: Lude.Maybe Lude.Text,
+    -- | The broker's storage type.
     storageType :: Lude.Maybe BrokerStorageType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BrokerInstanceOption' with the minimum fields required to make a request.
 --
+-- * 'supportedEngineVersions' - The list of supported engine versions.
 -- * 'availabilityZones' - The list of available az.
+-- * 'supportedDeploymentModes' - The list of supported deployment modes.
 -- * 'engineType' - The type of broker engine.
 -- * 'hostInstanceType' - The type of broker instance.
 -- * 'storageType' - The broker's storage type.
--- * 'supportedDeploymentModes' - The list of supported deployment modes.
--- * 'supportedEngineVersions' - The list of supported engine versions.
 mkBrokerInstanceOption ::
   BrokerInstanceOption
 mkBrokerInstanceOption =

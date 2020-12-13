@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     mkDetachClassicLinkVPC,
 
     -- ** Request lenses
-    dclvDryRun,
     dclvInstanceId,
     dclvVPCId,
+    dclvDryRun,
 
     -- * Destructuring the response
     DetachClassicLinkVPCResponse (..),
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachClassicLinkVPC' smart constructor.
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the instance to unlink from the VPC.
     instanceId :: Lude.Text,
-    vpcId :: Lude.Text
+    -- | The ID of the VPC to which the instance is linked.
+    vpcId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachClassicLinkVPC' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceId' - The ID of the instance to unlink from the VPC.
 -- * 'vpcId' - The ID of the VPC to which the instance is linked.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDetachClassicLinkVPC ::
   -- | 'instanceId'
   Lude.Text ->
@@ -68,17 +65,10 @@ mkDetachClassicLinkVPC ::
   DetachClassicLinkVPC
 mkDetachClassicLinkVPC pInstanceId_ pVPCId_ =
   DetachClassicLinkVPC'
-    { dryRun = Lude.Nothing,
-      instanceId = pInstanceId_,
-      vpcId = pVPCId_
+    { instanceId = pInstanceId_,
+      vpcId = pVPCId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dclvDryRun :: Lens.Lens' DetachClassicLinkVPC (Lude.Maybe Lude.Bool)
-dclvDryRun = Lens.lens (dryRun :: DetachClassicLinkVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachClassicLinkVPC)
-{-# DEPRECATED dclvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the instance to unlink from the VPC.
 --
@@ -93,6 +83,13 @@ dclvInstanceId = Lens.lens (instanceId :: DetachClassicLinkVPC -> Lude.Text) (\s
 dclvVPCId :: Lens.Lens' DetachClassicLinkVPC Lude.Text
 dclvVPCId = Lens.lens (vpcId :: DetachClassicLinkVPC -> Lude.Text) (\s a -> s {vpcId = a} :: DetachClassicLinkVPC)
 {-# DEPRECATED dclvVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dclvDryRun :: Lens.Lens' DetachClassicLinkVPC (Lude.Maybe Lude.Bool)
+dclvDryRun = Lens.lens (dryRun :: DetachClassicLinkVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachClassicLinkVPC)
+{-# DEPRECATED dclvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DetachClassicLinkVPC where
   type Rs DetachClassicLinkVPC = DetachClassicLinkVPCResponse
@@ -115,30 +112,25 @@ instance Lude.ToQuery DetachClassicLinkVPC where
     Lude.mconcat
       [ "Action" Lude.=: ("DetachClassicLinkVpc" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "InstanceId" Lude.=: instanceId,
-        "VpcId" Lude.=: vpcId
+        "VpcId" Lude.=: vpcId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDetachClassicLinkVPCResponse' smart constructor.
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachClassicLinkVPCResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkDetachClassicLinkVPCResponse ::
   -- | 'responseStatus'
   Lude.Int ->

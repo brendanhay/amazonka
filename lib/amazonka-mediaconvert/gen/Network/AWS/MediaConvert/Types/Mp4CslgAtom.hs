@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Mp4CslgAtom
   ( Mp4CslgAtom
       ( Mp4CslgAtom',
-        Mp4Exclude,
-        Mp4Include
+        MCAfInclude,
+        MCAfExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mp4CslgAtom = Mp4CslgAtom' Lude.Text
       Lude.ToHeader
     )
 
-pattern Mp4Exclude :: Mp4CslgAtom
-pattern Mp4Exclude = Mp4CslgAtom' "EXCLUDE"
+pattern MCAfInclude :: Mp4CslgAtom
+pattern MCAfInclude = Mp4CslgAtom' "INCLUDE"
 
-pattern Mp4Include :: Mp4CslgAtom
-pattern Mp4Include = Mp4CslgAtom' "INCLUDE"
+pattern MCAfExclude :: Mp4CslgAtom
+pattern MCAfExclude = Mp4CslgAtom' "EXCLUDE"
 
 {-# COMPLETE
-  Mp4Exclude,
-  Mp4Include,
+  MCAfInclude,
+  MCAfExclude,
   Mp4CslgAtom'
   #-}

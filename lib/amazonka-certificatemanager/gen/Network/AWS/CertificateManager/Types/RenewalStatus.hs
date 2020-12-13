@@ -13,10 +13,10 @@
 module Network.AWS.CertificateManager.Types.RenewalStatus
   ( RenewalStatus
       ( RenewalStatus',
-        RSFailed,
         RSPendingAutoRenewal,
         RSPendingValidation,
-        RSSuccess
+        RSSuccess,
+        RSFailed
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype RenewalStatus = RenewalStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSFailed :: RenewalStatus
-pattern RSFailed = RenewalStatus' "FAILED"
-
 pattern RSPendingAutoRenewal :: RenewalStatus
 pattern RSPendingAutoRenewal = RenewalStatus' "PENDING_AUTO_RENEWAL"
 
@@ -59,10 +56,13 @@ pattern RSPendingValidation = RenewalStatus' "PENDING_VALIDATION"
 pattern RSSuccess :: RenewalStatus
 pattern RSSuccess = RenewalStatus' "SUCCESS"
 
+pattern RSFailed :: RenewalStatus
+pattern RSFailed = RenewalStatus' "FAILED"
+
 {-# COMPLETE
-  RSFailed,
   RSPendingAutoRenewal,
   RSPendingValidation,
   RSSuccess,
+  RSFailed,
   RenewalStatus'
   #-}

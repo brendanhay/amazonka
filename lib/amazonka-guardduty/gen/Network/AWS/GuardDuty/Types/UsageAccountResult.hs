@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsageAccountResult' smart constructor.
 data UsageAccountResult = UsageAccountResult'
-  { accountId ::
-      Lude.Maybe Lude.Text,
+  { -- | The Account ID that generated usage.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | Represents the total of usage for the Account ID.
     total :: Lude.Maybe Total
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageAccountResult' with the minimum fields required to make a request.

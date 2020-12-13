@@ -18,8 +18,8 @@ module Network.AWS.CloudWatchEvents.Types.AWSVPCConfiguration
 
     -- * Lenses
     avcSecurityGroups,
-    avcAssignPublicIP,
     avcSubnets,
+    avcAssignPublicIP,
   )
 where
 
@@ -31,32 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSVPCConfiguration' smart constructor.
 data AWSVPCConfiguration = AWSVPCConfiguration'
-  { securityGroups ::
-      Lude.Maybe [Lude.Text],
-    assignPublicIP :: Lude.Maybe AssignPublicIP,
-    subnets :: [Lude.Text]
+  { -- | Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+    subnets :: [Lude.Text],
+    -- | Specifies whether the task's elastic network interface receives a public IP address. You can specify @ENABLED@ only when @LaunchType@ in @EcsParameters@ is set to @FARGATE@ .
+    assignPublicIP :: Lude.Maybe AssignPublicIP
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSVPCConfiguration' with the minimum fields required to make a request.
 --
--- * 'assignPublicIP' - Specifies whether the task's elastic network interface receives a public IP address. You can specify @ENABLED@ only when @LaunchType@ in @EcsParameters@ is set to @FARGATE@ .
 -- * 'securityGroups' - Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
 -- * 'subnets' - Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+-- * 'assignPublicIP' - Specifies whether the task's elastic network interface receives a public IP address. You can specify @ENABLED@ only when @LaunchType@ in @EcsParameters@ is set to @FARGATE@ .
 mkAWSVPCConfiguration ::
   AWSVPCConfiguration
 mkAWSVPCConfiguration =
   AWSVPCConfiguration'
     { securityGroups = Lude.Nothing,
-      assignPublicIP = Lude.Nothing,
-      subnets = Lude.mempty
+      subnets = Lude.mempty,
+      assignPublicIP = Lude.Nothing
     }
 
 -- | Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
@@ -66,19 +62,19 @@ avcSecurityGroups :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe [Lude.Text])
 avcSecurityGroups = Lens.lens (securityGroups :: AWSVPCConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: AWSVPCConfiguration)
 {-# DEPRECATED avcSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
--- | Specifies whether the task's elastic network interface receives a public IP address. You can specify @ENABLED@ only when @LaunchType@ in @EcsParameters@ is set to @FARGATE@ .
---
--- /Note:/ Consider using 'assignPublicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avcAssignPublicIP :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe AssignPublicIP)
-avcAssignPublicIP = Lens.lens (assignPublicIP :: AWSVPCConfiguration -> Lude.Maybe AssignPublicIP) (\s a -> s {assignPublicIP = a} :: AWSVPCConfiguration)
-{-# DEPRECATED avcAssignPublicIP "Use generic-lens or generic-optics with 'assignPublicIP' instead." #-}
-
 -- | Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 avcSubnets :: Lens.Lens' AWSVPCConfiguration [Lude.Text]
 avcSubnets = Lens.lens (subnets :: AWSVPCConfiguration -> [Lude.Text]) (\s a -> s {subnets = a} :: AWSVPCConfiguration)
 {-# DEPRECATED avcSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+
+-- | Specifies whether the task's elastic network interface receives a public IP address. You can specify @ENABLED@ only when @LaunchType@ in @EcsParameters@ is set to @FARGATE@ .
+--
+-- /Note:/ Consider using 'assignPublicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcAssignPublicIP :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe AssignPublicIP)
+avcAssignPublicIP = Lens.lens (assignPublicIP :: AWSVPCConfiguration -> Lude.Maybe AssignPublicIP) (\s a -> s {assignPublicIP = a} :: AWSVPCConfiguration)
+{-# DEPRECATED avcAssignPublicIP "Use generic-lens or generic-optics with 'assignPublicIP' instead." #-}
 
 instance Lude.FromJSON AWSVPCConfiguration where
   parseJSON =
@@ -87,8 +83,8 @@ instance Lude.FromJSON AWSVPCConfiguration where
       ( \x ->
           AWSVPCConfiguration'
             Lude.<$> (x Lude..:? "SecurityGroups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AssignPublicIp")
             Lude.<*> (x Lude..:? "Subnets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "AssignPublicIp")
       )
 
 instance Lude.ToJSON AWSVPCConfiguration where
@@ -96,7 +92,7 @@ instance Lude.ToJSON AWSVPCConfiguration where
     Lude.object
       ( Lude.catMaybes
           [ ("SecurityGroups" Lude..=) Lude.<$> securityGroups,
-            ("AssignPublicIp" Lude..=) Lude.<$> assignPublicIP,
-            Lude.Just ("Subnets" Lude..= subnets)
+            Lude.Just ("Subnets" Lude..= subnets),
+            ("AssignPublicIp" Lude..=) Lude.<$> assignPublicIP
           ]
       )

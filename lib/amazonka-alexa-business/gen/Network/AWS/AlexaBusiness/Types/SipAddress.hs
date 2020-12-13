@@ -30,7 +30,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSipAddress' smart constructor.
 data SipAddress = SipAddress'
-  { uri :: Lude.Sensitive Lude.Text,
+  { -- | The URI for the SIP address.
+    uri :: Lude.Sensitive Lude.Text,
+    -- | The type of the SIP address.
     type' :: SipType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -38,8 +40,8 @@ data SipAddress = SipAddress'
 
 -- | Creates a value of 'SipAddress' with the minimum fields required to make a request.
 --
--- * 'type'' - The type of the SIP address.
 -- * 'uri' - The URI for the SIP address.
+-- * 'type'' - The type of the SIP address.
 mkSipAddress ::
   -- | 'uri'
   Lude.Sensitive Lude.Text ->

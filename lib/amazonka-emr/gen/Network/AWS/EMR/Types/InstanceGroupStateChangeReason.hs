@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceGroupStateChangeReason' smart constructor.
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
-  { code ::
-      Lude.Maybe
-        InstanceGroupStateChangeReasonCode,
-    message ::
-      Lude.Maybe Lude.Text
+  { -- | The programmable code for the state change reason.
+    code :: Lude.Maybe InstanceGroupStateChangeReasonCode,
+    -- | The status change reason description.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceGroupStateChangeReason' with the minimum fields required to make a request.

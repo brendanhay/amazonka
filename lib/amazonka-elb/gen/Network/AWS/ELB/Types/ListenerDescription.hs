@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkListenerDescription' smart constructor.
 data ListenerDescription = ListenerDescription'
-  { policyNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The policies. If there are no policies enabled, the list is empty.
+    policyNames :: Lude.Maybe [Lude.Text],
+    -- | The listener.
     listener :: Lude.Maybe Listener
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListenerDescription' with the minimum fields required to make a request.
 --
--- * 'listener' - The listener.
 -- * 'policyNames' - The policies. If there are no policies enabled, the list is empty.
+-- * 'listener' - The listener.
 mkListenerDescription ::
   ListenerDescription
 mkListenerDescription =

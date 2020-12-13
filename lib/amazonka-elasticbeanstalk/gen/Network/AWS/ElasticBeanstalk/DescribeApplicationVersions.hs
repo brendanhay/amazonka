@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,33 +49,32 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeApplicationVersions' smart constructor.
 data DescribeApplicationVersions = DescribeApplicationVersions'
-  { versionLabels ::
-      Lude.Maybe [Lude.Text],
+  { -- | Specify a version label to show a specific application version.
+    versionLabels :: Lude.Maybe [Lude.Text],
+    -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
+    --
+    -- If no @NextToken@ is specified, the first page is retrieved.
     nextToken :: Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Natural,
-    applicationName ::
-      Lude.Maybe Lude.Text
+    -- | For a paginated request. Specify a maximum number of application versions to include in each response.
+    --
+    -- If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
+    maxRecords :: Lude.Maybe Lude.Natural,
+    -- | Specify an application name to show only application versions for that application.
+    applicationName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicationVersions' with the minimum fields required to make a request.
 --
--- * 'applicationName' - Specify an application name to show only application versions for that application.
--- * 'maxRecords' - For a paginated request. Specify a maximum number of application versions to include in each response.
---
--- If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
+-- * 'versionLabels' - Specify a version label to show a specific application version.
 -- * 'nextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
--- * 'versionLabels' - Specify a version label to show a specific application version.
+-- * 'maxRecords' - For a paginated request. Specify a maximum number of application versions to include in each response.
+--
+-- If no @MaxRecords@ is specified, all available application versions are retrieved in a single response.
+-- * 'applicationName' - Specify an application name to show only application versions for that application.
 mkDescribeApplicationVersions ::
   DescribeApplicationVersions
 mkDescribeApplicationVersions =
@@ -166,22 +166,14 @@ instance Lude.ToQuery DescribeApplicationVersions where
 --
 -- /See:/ 'mkDescribeApplicationVersionsResponse' smart constructor.
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
-  { applicationVersions ::
-      Lude.Maybe
-        [ApplicationVersionDescription],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | List of @ApplicationVersionDescription@ objects sorted in order of creation.
+    applicationVersions :: Lude.Maybe [ApplicationVersionDescription],
+    -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicationVersionsResponse' with the minimum fields required to make a request.

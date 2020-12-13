@@ -47,57 +47,62 @@ import Network.AWS.Translate.Types.ParallelDataStatus
 --
 -- /See:/ 'mkParallelDataProperties' smart constructor.
 data ParallelDataProperties = ParallelDataProperties'
-  { status ::
-      Lude.Maybe ParallelDataStatus,
+  { -- | The status of the parallel data resource. When the parallel data is ready for you to use, the status is @ACTIVE@ .
+    status :: Lude.Maybe ParallelDataStatus,
+    -- | The time at which the parallel data resource was last updated.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    importedRecordCount ::
-      Lude.Maybe Lude.Integer,
+    -- | The number of records successfully imported from the parallel data input file.
+    importedRecordCount :: Lude.Maybe Lude.Integer,
+    -- | The Amazon Resource Name (ARN) of the parallel data resource.
     arn :: Lude.Maybe Lude.Text,
+    -- | The language codes for the target languages available in the parallel data file. All possible target languages are returned as an array.
     targetLanguageCodes :: Lude.Maybe [Lude.Text],
+    -- | The time at which the parallel data resource was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The number of records unsuccessfully imported from the parallel data input file.
     failedRecordCount :: Lude.Maybe Lude.Integer,
+    -- | The number of UTF-8 characters that Amazon Translate imported from the parallel data input file. This number includes only the characters in your translation examples. It does not include characters that are used to format your file. For example, if you provided a Translation Memory Exchange (.tmx) file, this number does not include the tags.
     importedDataSize :: Lude.Maybe Lude.Integer,
+    -- | The custom name assigned to the parallel data resource.
     name :: Lude.Maybe Lude.Text,
+    -- | The source language of the translations in the parallel data file.
     sourceLanguageCode :: Lude.Maybe Lude.Text,
-    latestUpdateAttemptAt ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The time that the most recent update was attempted.
+    latestUpdateAttemptAt :: Lude.Maybe Lude.Timestamp,
     encryptionKey :: Lude.Maybe EncryptionKey,
-    latestUpdateAttemptStatus ::
-      Lude.Maybe ParallelDataStatus,
+    -- | The status of the most recent update attempt for the parallel data resource.
+    latestUpdateAttemptStatus :: Lude.Maybe ParallelDataStatus,
+    -- | Additional information from Amazon Translate about the parallel data resource.
     message :: Lude.Maybe Lude.Text,
+    -- | The description assigned to the parallel data resource.
     description :: Lude.Maybe Lude.Text,
+    -- | The number of items in the input file that Amazon Translate skipped when you created or updated the parallel data resource. For example, Amazon Translate skips empty records, empty target texts, and empty lines.
     skippedRecordCount :: Lude.Maybe Lude.Integer,
-    parallelDataConfig ::
-      Lude.Maybe ParallelDataConfig
+    -- | Specifies the format and S3 location of the parallel data input file.
+    parallelDataConfig :: Lude.Maybe ParallelDataConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParallelDataProperties' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the parallel data resource. When the parallel data is ready for you to use, the status is @ACTIVE@ .
+-- * 'lastUpdatedAt' - The time at which the parallel data resource was last updated.
+-- * 'importedRecordCount' - The number of records successfully imported from the parallel data input file.
 -- * 'arn' - The Amazon Resource Name (ARN) of the parallel data resource.
+-- * 'targetLanguageCodes' - The language codes for the target languages available in the parallel data file. All possible target languages are returned as an array.
 -- * 'createdAt' - The time at which the parallel data resource was created.
--- * 'description' - The description assigned to the parallel data resource.
--- * 'encryptionKey' - Undocumented field.
 -- * 'failedRecordCount' - The number of records unsuccessfully imported from the parallel data input file.
 -- * 'importedDataSize' - The number of UTF-8 characters that Amazon Translate imported from the parallel data input file. This number includes only the characters in your translation examples. It does not include characters that are used to format your file. For example, if you provided a Translation Memory Exchange (.tmx) file, this number does not include the tags.
--- * 'importedRecordCount' - The number of records successfully imported from the parallel data input file.
--- * 'lastUpdatedAt' - The time at which the parallel data resource was last updated.
+-- * 'name' - The custom name assigned to the parallel data resource.
+-- * 'sourceLanguageCode' - The source language of the translations in the parallel data file.
 -- * 'latestUpdateAttemptAt' - The time that the most recent update was attempted.
+-- * 'encryptionKey' -
 -- * 'latestUpdateAttemptStatus' - The status of the most recent update attempt for the parallel data resource.
 -- * 'message' - Additional information from Amazon Translate about the parallel data resource.
--- * 'name' - The custom name assigned to the parallel data resource.
--- * 'parallelDataConfig' - Specifies the format and S3 location of the parallel data input file.
+-- * 'description' - The description assigned to the parallel data resource.
 -- * 'skippedRecordCount' - The number of items in the input file that Amazon Translate skipped when you created or updated the parallel data resource. For example, Amazon Translate skips empty records, empty target texts, and empty lines.
--- * 'sourceLanguageCode' - The source language of the translations in the parallel data file.
--- * 'status' - The status of the parallel data resource. When the parallel data is ready for you to use, the status is @ACTIVE@ .
--- * 'targetLanguageCodes' - The language codes for the target languages available in the parallel data file. All possible target languages are returned as an array.
+-- * 'parallelDataConfig' - Specifies the format and S3 location of the parallel data input file.
 mkParallelDataProperties ::
   ParallelDataProperties
 mkParallelDataProperties =

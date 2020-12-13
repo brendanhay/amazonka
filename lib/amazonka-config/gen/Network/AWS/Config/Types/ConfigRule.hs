@@ -23,10 +23,10 @@ module Network.AWS.Config.Types.ConfigRule
     crMaximumExecutionFrequency,
     crConfigRuleId,
     crScope,
+    crSource,
     crConfigRuleState,
     crDescription,
     crConfigRuleARN,
-    crSource,
   )
 where
 
@@ -43,40 +43,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigRule' smart constructor.
 data ConfigRule = ConfigRule'
-  { inputParameters ::
-      Lude.Maybe Lude.Text,
+  { -- | A string, in JSON format, that is passed to the AWS Config rule Lambda function.
+    inputParameters :: Lude.Maybe Lude.Text,
+    -- | The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
     configRuleName :: Lude.Maybe Lude.Text,
+    -- | Service principal name of the service that created the rule.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:
+    --
+    --
+    --     * You are using an AWS managed rule that is triggered at a periodic frequency.
+    --
+    --
+    --     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
     maximumExecutionFrequency :: Lude.Maybe MaximumExecutionFrequency,
+    -- | The ID of the AWS Config rule.
     configRuleId :: Lude.Maybe Lude.Text,
+    -- | Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
     scope :: Lude.Maybe Scope,
+    -- | Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
+    source :: Source,
+    -- | Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the AWS Config rule.
+    --
+    -- AWS Config sets the state of the rule to @EVALUATING@ temporarily after you use the @StartConfigRulesEvaluation@ request to evaluate your resources against the AWS Config rule.
+    -- AWS Config sets the state of the rule to @DELETING_RESULTS@ temporarily after you use the @DeleteEvaluationResults@ request to delete the current evaluation results for the AWS Config rule.
+    -- AWS Config temporarily sets the state of a rule to @DELETING@ after you use the @DeleteConfigRule@ request to delete the rule. After AWS Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.
     configRuleState :: Lude.Maybe ConfigRuleState,
+    -- | The description that you provide for the AWS Config rule.
     description :: Lude.Maybe Lude.Text,
-    configRuleARN :: Lude.Maybe Lude.Text,
-    source :: Source
+    -- | The Amazon Resource Name (ARN) of the AWS Config rule.
+    configRuleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigRule' with the minimum fields required to make a request.
 --
--- * 'configRuleARN' - The Amazon Resource Name (ARN) of the AWS Config rule.
--- * 'configRuleId' - The ID of the AWS Config rule.
--- * 'configRuleName' - The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
--- * 'configRuleState' - Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the AWS Config rule.
---
--- AWS Config sets the state of the rule to @EVALUATING@ temporarily after you use the @StartConfigRulesEvaluation@ request to evaluate your resources against the AWS Config rule.
--- AWS Config sets the state of the rule to @DELETING_RESULTS@ temporarily after you use the @DeleteEvaluationResults@ request to delete the current evaluation results for the AWS Config rule.
--- AWS Config temporarily sets the state of a rule to @DELETING@ after you use the @DeleteConfigRule@ request to delete the rule. After AWS Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.
--- * 'createdBy' - Service principal name of the service that created the rule.
--- * 'description' - The description that you provide for the AWS Config rule.
 -- * 'inputParameters' - A string, in JSON format, that is passed to the AWS Config rule Lambda function.
+-- * 'configRuleName' - The name that you assign to the AWS Config rule. The name is required if you are adding a new rule.
+-- * 'createdBy' - Service principal name of the service that created the rule.
 -- * 'maximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for @MaximumExecutionFrequency@ when:
 --
 --
@@ -86,8 +91,16 @@ data ConfigRule = ConfigRule'
 --     * Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
 --
 --
+-- * 'configRuleId' - The ID of the AWS Config rule.
 -- * 'scope' - Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes.
 -- * 'source' - Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
+-- * 'configRuleState' - Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the AWS Config rule.
+--
+-- AWS Config sets the state of the rule to @EVALUATING@ temporarily after you use the @StartConfigRulesEvaluation@ request to evaluate your resources against the AWS Config rule.
+-- AWS Config sets the state of the rule to @DELETING_RESULTS@ temporarily after you use the @DeleteEvaluationResults@ request to delete the current evaluation results for the AWS Config rule.
+-- AWS Config temporarily sets the state of a rule to @DELETING@ after you use the @DeleteConfigRule@ request to delete the rule. After AWS Config deletes the rule, the rule and all of its evaluations are erased and are no longer available.
+-- * 'description' - The description that you provide for the AWS Config rule.
+-- * 'configRuleARN' - The Amazon Resource Name (ARN) of the AWS Config rule.
 mkConfigRule ::
   -- | 'source'
   Source ->
@@ -100,10 +113,10 @@ mkConfigRule pSource_ =
       maximumExecutionFrequency = Lude.Nothing,
       configRuleId = Lude.Nothing,
       scope = Lude.Nothing,
+      source = pSource_,
       configRuleState = Lude.Nothing,
       description = Lude.Nothing,
-      configRuleARN = Lude.Nothing,
-      source = pSource_
+      configRuleARN = Lude.Nothing
     }
 
 -- | A string, in JSON format, that is passed to the AWS Config rule Lambda function.
@@ -156,6 +169,13 @@ crScope :: Lens.Lens' ConfigRule (Lude.Maybe Scope)
 crScope = Lens.lens (scope :: ConfigRule -> Lude.Maybe Scope) (\s a -> s {scope = a} :: ConfigRule)
 {-# DEPRECATED crScope "Use generic-lens or generic-optics with 'scope' instead." #-}
 
+-- | Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crSource :: Lens.Lens' ConfigRule Source
+crSource = Lens.lens (source :: ConfigRule -> Source) (\s a -> s {source = a} :: ConfigRule)
+{-# DEPRECATED crSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
 -- | Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the AWS Config rule.
 --
 -- AWS Config sets the state of the rule to @EVALUATING@ temporarily after you use the @StartConfigRulesEvaluation@ request to evaluate your resources against the AWS Config rule.
@@ -181,13 +201,6 @@ crConfigRuleARN :: Lens.Lens' ConfigRule (Lude.Maybe Lude.Text)
 crConfigRuleARN = Lens.lens (configRuleARN :: ConfigRule -> Lude.Maybe Lude.Text) (\s a -> s {configRuleARN = a} :: ConfigRule)
 {-# DEPRECATED crConfigRuleARN "Use generic-lens or generic-optics with 'configRuleARN' instead." #-}
 
--- | Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources.
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crSource :: Lens.Lens' ConfigRule Source
-crSource = Lens.lens (source :: ConfigRule -> Source) (\s a -> s {source = a} :: ConfigRule)
-{-# DEPRECATED crSource "Use generic-lens or generic-optics with 'source' instead." #-}
-
 instance Lude.FromJSON ConfigRule where
   parseJSON =
     Lude.withObject
@@ -200,10 +213,10 @@ instance Lude.FromJSON ConfigRule where
             Lude.<*> (x Lude..:? "MaximumExecutionFrequency")
             Lude.<*> (x Lude..:? "ConfigRuleId")
             Lude.<*> (x Lude..:? "Scope")
+            Lude.<*> (x Lude..: "Source")
             Lude.<*> (x Lude..:? "ConfigRuleState")
             Lude.<*> (x Lude..:? "Description")
             Lude.<*> (x Lude..:? "ConfigRuleArn")
-            Lude.<*> (x Lude..: "Source")
       )
 
 instance Lude.ToJSON ConfigRule where
@@ -217,9 +230,9 @@ instance Lude.ToJSON ConfigRule where
               Lude.<$> maximumExecutionFrequency,
             ("ConfigRuleId" Lude..=) Lude.<$> configRuleId,
             ("Scope" Lude..=) Lude.<$> scope,
+            Lude.Just ("Source" Lude..= source),
             ("ConfigRuleState" Lude..=) Lude.<$> configRuleState,
             ("Description" Lude..=) Lude.<$> description,
-            ("ConfigRuleArn" Lude..=) Lude.<$> configRuleARN,
-            Lude.Just ("Source" Lude..= source)
+            ("ConfigRuleArn" Lude..=) Lude.<$> configRuleARN
           ]
       )

@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPv6CidrAssociation' smart constructor.
 data IPv6CidrAssociation = IPv6CidrAssociation'
-  { associatedResource ::
-      Lude.Maybe Lude.Text,
+  { -- | The resource that's associated with the IPv6 CIDR block.
+    associatedResource :: Lude.Maybe Lude.Text,
+    -- | The IPv6 CIDR block.
     ipv6Cidr :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPv6CidrAssociation' with the minimum fields required to make a request.

@@ -44,83 +44,61 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateInstanceNetworkInterfaceSpecification' smart constructor.
 data LaunchTemplateInstanceNetworkInterfaceSpecification = LaunchTemplateInstanceNetworkInterfaceSpecification'
-  { groups ::
-      Lude.Maybe
-        [Lude.Text],
-    privateIPAddresses ::
-      Lude.Maybe
-        [PrivateIPAddressSpecification],
-    deleteOnTermination ::
-      Lude.Maybe
-        Lude.Bool,
-    associateCarrierIPAddress ::
-      Lude.Maybe
-        Lude.Bool,
-    associatePublicIPAddress ::
-      Lude.Maybe
-        Lude.Bool,
-    interfaceType ::
-      Lude.Maybe
-        Lude.Text,
-    networkInterfaceId ::
-      Lude.Maybe
-        Lude.Text,
-    subnetId ::
-      Lude.Maybe
-        Lude.Text,
-    ipv6AddressCount ::
-      Lude.Maybe
-        Lude.Int,
-    networkCardIndex ::
-      Lude.Maybe
-        Lude.Int,
-    privateIPAddress ::
-      Lude.Maybe
-        Lude.Text,
-    secondaryPrivateIPAddressCount ::
-      Lude.Maybe
-        Lude.Int,
-    description ::
-      Lude.Maybe
-        Lude.Text,
-    deviceIndex ::
-      Lude.Maybe
-        Lude.Int,
-    ipv6Addresses ::
-      Lude.Maybe
-        [InstanceIPv6Address]
+  { -- | The IDs of one or more security groups.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | One or more private IPv4 addresses.
+    privateIPAddresses :: Lude.Maybe [PrivateIPAddressSpecification],
+    -- | Indicates whether the network interface is deleted when the instance is terminated.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+    --
+    -- Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
+    associateCarrierIPAddress :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether to associate a public IPv4 address with eth0 for a new network interface.
+    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    -- | The type of network interface.
+    interfaceType :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet for the network interface.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The number of IPv6 addresses for the network interface.
+    ipv6AddressCount :: Lude.Maybe Lude.Int,
+    -- | The index of the network card.
+    networkCardIndex :: Lude.Maybe Lude.Int,
+    -- | The primary private IPv4 address of the network interface.
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The number of secondary private IPv4 addresses for the network interface.
+    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
+    -- | A description for the network interface.
+    description :: Lude.Maybe Lude.Text,
+    -- | The device index for the network interface attachment.
+    deviceIndex :: Lude.Maybe Lude.Int,
+    -- | The IPv6 addresses for the network interface.
+    ipv6Addresses :: Lude.Maybe [InstanceIPv6Address]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateInstanceNetworkInterfaceSpecification' with the minimum fields required to make a request.
 --
+-- * 'groups' - The IDs of one or more security groups.
+-- * 'privateIPAddresses' - One or more private IPv4 addresses.
+-- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
 -- * 'associateCarrierIPAddress' - Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
 --
 -- Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses> in the /AWS Wavelength Developer Guide/ .
 -- * 'associatePublicIPAddress' - Indicates whether to associate a public IPv4 address with eth0 for a new network interface.
--- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
+-- * 'interfaceType' - The type of network interface.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'subnetId' - The ID of the subnet for the network interface.
+-- * 'ipv6AddressCount' - The number of IPv6 addresses for the network interface.
+-- * 'networkCardIndex' - The index of the network card.
+-- * 'privateIPAddress' - The primary private IPv4 address of the network interface.
+-- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses for the network interface.
 -- * 'description' - A description for the network interface.
 -- * 'deviceIndex' - The device index for the network interface attachment.
--- * 'groups' - The IDs of one or more security groups.
--- * 'interfaceType' - The type of network interface.
--- * 'ipv6AddressCount' - The number of IPv6 addresses for the network interface.
 -- * 'ipv6Addresses' - The IPv6 addresses for the network interface.
--- * 'networkCardIndex' - The index of the network card.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'privateIPAddress' - The primary private IPv4 address of the network interface.
--- * 'privateIPAddresses' - One or more private IPv4 addresses.
--- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses for the network interface.
--- * 'subnetId' - The ID of the subnet for the network interface.
 mkLaunchTemplateInstanceNetworkInterfaceSpecification ::
   LaunchTemplateInstanceNetworkInterfaceSpecification
 mkLaunchTemplateInstanceNetworkInterfaceSpecification =

@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskObject' smart constructor.
 data TaskObject = TaskObject'
-  { pipelineId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the pipeline that provided the task.
+    pipelineId :: Lude.Maybe Lude.Text,
+    -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
     attemptId :: Lude.Maybe Lude.Text,
+    -- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
     taskId :: Lude.Maybe Lude.Text,
+    -- | Connection information for the location where the task runner will publish the output of the task.
     objects :: Lude.Maybe (Lude.HashMap Lude.Text (PipelineObject))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskObject' with the minimum fields required to make a request.
 --
--- * 'attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
--- * 'objects' - Connection information for the location where the task runner will publish the output of the task.
 -- * 'pipelineId' - The ID of the pipeline that provided the task.
+-- * 'attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
 -- * 'taskId' - An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
+-- * 'objects' - Connection information for the location where the task runner will publish the output of the task.
 mkTaskObject ::
   TaskObject
 mkTaskObject =

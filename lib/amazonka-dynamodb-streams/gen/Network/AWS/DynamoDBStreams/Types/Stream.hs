@@ -30,22 +30,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStream' smart constructor.
 data Stream = Stream'
-  { streamLabel :: Lude.Maybe Lude.Text,
+  { -- | A timestamp, in ISO 8601 format, for this stream.
+    --
+    -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
+    --
+    --     * the AWS customer ID.
+    --
+    --
+    --     * the table name
+    --
+    --
+    --     * the @StreamLabel@
+    streamLabel :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the stream.
     streamARN :: Lude.Maybe Lude.Text,
+    -- | The DynamoDB table with which the stream is associated.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stream' with the minimum fields required to make a request.
 --
--- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
 -- * 'streamLabel' - A timestamp, in ISO 8601 format, for this stream.
 --
 -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
@@ -59,6 +65,7 @@ data Stream = Stream'
 --     * the @StreamLabel@
 --
 --
+-- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
 -- * 'tableName' - The DynamoDB table with which the stream is associated.
 mkStream ::
   Stream

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateType' smart constructor.
 data CreateType = CreateType'
-  { apiId :: Lude.Text,
+  { -- | The API ID.
+    apiId :: Lude.Text,
+    -- | The type definition, in GraphQL Schema Definition Language (SDL) format.
+    --
+    -- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
     definition :: Lude.Text,
+    -- | The type format: SDL or JSON.
     format :: TypeDefinitionFormat
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateType' with the minimum fields required to make a request.
@@ -136,23 +136,18 @@ instance Lude.ToQuery CreateType where
 
 -- | /See:/ 'mkCreateTypeResponse' smart constructor.
 data CreateTypeResponse = CreateTypeResponse'
-  { type' ::
-      Lude.Maybe Type,
+  { -- | The @Type@ object.
+    type' :: Lude.Maybe Type,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTypeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'type'' - The @Type@ object.
+-- * 'responseStatus' - The response status code.
 mkCreateTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

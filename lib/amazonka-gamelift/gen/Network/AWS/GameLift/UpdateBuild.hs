@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,9 +38,9 @@ module Network.AWS.GameLift.UpdateBuild
     mkUpdateBuild,
 
     -- ** Request lenses
+    ubBuildId,
     ubName,
     ubVersion,
-    ubBuildId,
 
     -- * Destructuring the response
     UpdateBuildResponse (..),
@@ -61,17 +62,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateBuild' smart constructor.
 data UpdateBuild = UpdateBuild'
-  { name :: Lude.Maybe Lude.Text,
-    version :: Lude.Maybe Lude.Text,
-    buildId :: Lude.Text
+  { -- | A unique identifier for a build to update. You can use either the build ID or ARN value.
+    buildId :: Lude.Text,
+    -- | A descriptive label that is associated with a build. Build names do not need to be unique.
+    name :: Lude.Maybe Lude.Text,
+    -- | Version information that is associated with a build or script. Version strings do not need to be unique.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBuild' with the minimum fields required to make a request.
@@ -85,10 +83,17 @@ mkUpdateBuild ::
   UpdateBuild
 mkUpdateBuild pBuildId_ =
   UpdateBuild'
-    { name = Lude.Nothing,
-      version = Lude.Nothing,
-      buildId = pBuildId_
+    { buildId = pBuildId_,
+      name = Lude.Nothing,
+      version = Lude.Nothing
     }
+
+-- | A unique identifier for a build to update. You can use either the build ID or ARN value.
+--
+-- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubBuildId :: Lens.Lens' UpdateBuild Lude.Text
+ubBuildId = Lens.lens (buildId :: UpdateBuild -> Lude.Text) (\s a -> s {buildId = a} :: UpdateBuild)
+{-# DEPRECATED ubBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
 -- | A descriptive label that is associated with a build. Build names do not need to be unique.
 --
@@ -103,13 +108,6 @@ ubName = Lens.lens (name :: UpdateBuild -> Lude.Maybe Lude.Text) (\s a -> s {nam
 ubVersion :: Lens.Lens' UpdateBuild (Lude.Maybe Lude.Text)
 ubVersion = Lens.lens (version :: UpdateBuild -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: UpdateBuild)
 {-# DEPRECATED ubVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | A unique identifier for a build to update. You can use either the build ID or ARN value.
---
--- /Note:/ Consider using 'buildId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubBuildId :: Lens.Lens' UpdateBuild Lude.Text
-ubBuildId = Lens.lens (buildId :: UpdateBuild -> Lude.Text) (\s a -> s {buildId = a} :: UpdateBuild)
-{-# DEPRECATED ubBuildId "Use generic-lens or generic-optics with 'buildId' instead." #-}
 
 instance Lude.AWSRequest UpdateBuild where
   type Rs UpdateBuild = UpdateBuildResponse
@@ -136,9 +134,9 @@ instance Lude.ToJSON UpdateBuild where
   toJSON UpdateBuild' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
-            ("Version" Lude..=) Lude.<$> version,
-            Lude.Just ("BuildId" Lude..= buildId)
+          [ Lude.Just ("BuildId" Lude..= buildId),
+            ("Name" Lude..=) Lude.<$> name,
+            ("Version" Lude..=) Lude.<$> version
           ]
       )
 
@@ -152,17 +150,12 @@ instance Lude.ToQuery UpdateBuild where
 --
 -- /See:/ 'mkUpdateBuildResponse' smart constructor.
 data UpdateBuildResponse = UpdateBuildResponse'
-  { build ::
-      Lude.Maybe Build,
+  { -- | The updated build resource.
+    build :: Lude.Maybe Build,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBuildResponse' with the minimum fields required to make a request.

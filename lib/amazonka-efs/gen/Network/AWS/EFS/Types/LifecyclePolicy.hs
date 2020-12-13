@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLifecyclePolicy' smart constructor.
 newtype LifecyclePolicy = LifecyclePolicy'
-  { transitionToIA ::
-      Lude.Maybe TransitionToIARules
+  { -- | A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata operations such as listing the contents of a directory don't count as file access events.
+    transitionToIA :: Lude.Maybe TransitionToIARules
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecyclePolicy' with the minimum fields required to make a request.

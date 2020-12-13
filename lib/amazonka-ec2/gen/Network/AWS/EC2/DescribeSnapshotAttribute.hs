@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     mkDescribeSnapshotAttribute,
 
     -- ** Request lenses
-    dsaDryRun,
     dsaAttribute,
+    dsaDryRun,
     dsaSnapshotId,
 
     -- * Destructuring the response
@@ -45,18 +46,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSnapshotAttribute' smart constructor.
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The snapshot attribute you would like to view.
     attribute :: SnapshotAttributeName,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The ID of the EBS snapshot.
     snapshotId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotAttribute' with the minimum fields required to make a request.
@@ -72,17 +69,10 @@ mkDescribeSnapshotAttribute ::
   DescribeSnapshotAttribute
 mkDescribeSnapshotAttribute pAttribute_ pSnapshotId_ =
   DescribeSnapshotAttribute'
-    { dryRun = Lude.Nothing,
-      attribute = pAttribute_,
+    { attribute = pAttribute_,
+      dryRun = Lude.Nothing,
       snapshotId = pSnapshotId_
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaDryRun :: Lens.Lens' DescribeSnapshotAttribute (Lude.Maybe Lude.Bool)
-dsaDryRun = Lens.lens (dryRun :: DescribeSnapshotAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSnapshotAttribute)
-{-# DEPRECATED dsaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The snapshot attribute you would like to view.
 --
@@ -90,6 +80,13 @@ dsaDryRun = Lens.lens (dryRun :: DescribeSnapshotAttribute -> Lude.Maybe Lude.Bo
 dsaAttribute :: Lens.Lens' DescribeSnapshotAttribute SnapshotAttributeName
 dsaAttribute = Lens.lens (attribute :: DescribeSnapshotAttribute -> SnapshotAttributeName) (\s a -> s {attribute = a} :: DescribeSnapshotAttribute)
 {-# DEPRECATED dsaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsaDryRun :: Lens.Lens' DescribeSnapshotAttribute (Lude.Maybe Lude.Bool)
+dsaDryRun = Lens.lens (dryRun :: DescribeSnapshotAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeSnapshotAttribute)
+{-# DEPRECATED dsaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the EBS snapshot.
 --
@@ -128,39 +125,31 @@ instance Lude.ToQuery DescribeSnapshotAttribute where
     Lude.mconcat
       [ "Action" Lude.=: ("DescribeSnapshotAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "Attribute" Lude.=: attribute,
+        "DryRun" Lude.=: dryRun,
         "SnapshotId" Lude.=: snapshotId
       ]
 
 -- | /See:/ 'mkDescribeSnapshotAttributeResponse' smart constructor.
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-  { createVolumePermissions ::
-      Lude.Maybe
-        [CreateVolumePermission],
-    productCodes ::
-      Lude.Maybe
-        [ProductCode],
-    snapshotId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The users and groups that have the permissions for creating volumes from the snapshot.
+    createVolumePermissions :: Lude.Maybe [CreateVolumePermission],
+    -- | The product codes.
+    productCodes :: Lude.Maybe [ProductCode],
+    -- | The ID of the EBS snapshot.
+    snapshotId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
 -- * 'createVolumePermissions' - The users and groups that have the permissions for creating volumes from the snapshot.
 -- * 'productCodes' - The product codes.
--- * 'responseStatus' - The response status code.
 -- * 'snapshotId' - The ID of the EBS snapshot.
+-- * 'responseStatus' - The response status code.
 mkDescribeSnapshotAttributeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

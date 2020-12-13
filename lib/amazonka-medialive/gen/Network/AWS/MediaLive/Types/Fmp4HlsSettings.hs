@@ -32,25 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFmp4HlsSettings' smart constructor.
 data Fmp4HlsSettings = Fmp4HlsSettings'
-  { nielsenId3Behavior ::
-      Lude.Maybe Fmp4NielsenId3Behavior,
+  { -- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+    nielsenId3Behavior :: Lude.Maybe Fmp4NielsenId3Behavior,
+    -- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
     audioRenditionSets :: Lude.Maybe Lude.Text,
-    timedMetadataBehavior ::
-      Lude.Maybe Fmp4TimedMetadataBehavior
+    -- | When set to passthrough, timed metadata is passed through from input to output.
+    timedMetadataBehavior :: Lude.Maybe Fmp4TimedMetadataBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Fmp4HlsSettings' with the minimum fields required to make a request.
 --
--- * 'audioRenditionSets' - List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
 -- * 'nielsenId3Behavior' - If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+-- * 'audioRenditionSets' - List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
 -- * 'timedMetadataBehavior' - When set to passthrough, timed metadata is passed through from input to output.
 mkFmp4HlsSettings ::
   Fmp4HlsSettings

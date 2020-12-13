@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,14 +47,11 @@ import qualified Network.AWS.Response as Res
 -- | The input for the GetPolicy operation.
 --
 -- /See:/ 'mkGetPolicy' smart constructor.
-newtype GetPolicy = GetPolicy' {policyName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetPolicy = GetPolicy'
+  { -- | The name of the policy.
+    policyName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
@@ -103,34 +101,35 @@ instance Lude.ToQuery GetPolicy where
 --
 -- /See:/ 'mkGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the policy was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The policy name.
     policyName :: Lude.Maybe Lude.Text,
+    -- | The JSON document that describes the policy.
     policyDocument :: Lude.Maybe Lude.Text,
+    -- | The default policy version ID.
     defaultVersionId :: Lude.Maybe Lude.Text,
+    -- | The policy ARN.
     policyARN :: Lude.Maybe Lude.Text,
+    -- | The date the policy was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The generation ID of the policy.
     generationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date the policy was created.
--- * 'defaultVersionId' - The default policy version ID.
--- * 'generationId' - The generation ID of the policy.
 -- * 'lastModifiedDate' - The date the policy was last modified.
--- * 'policyARN' - The policy ARN.
--- * 'policyDocument' - The JSON document that describes the policy.
 -- * 'policyName' - The policy name.
+-- * 'policyDocument' - The JSON document that describes the policy.
+-- * 'defaultVersionId' - The default policy version ID.
+-- * 'policyARN' - The policy ARN.
+-- * 'creationDate' - The date the policy was created.
+-- * 'generationId' - The generation ID of the policy.
 -- * 'responseStatus' - The response status code.
 mkGetPolicyResponse ::
   -- | 'responseStatus'

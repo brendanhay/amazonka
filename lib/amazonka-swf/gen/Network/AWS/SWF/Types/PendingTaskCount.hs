@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPendingTaskCount' smart constructor.
 data PendingTaskCount = PendingTaskCount'
-  { truncated ::
-      Lude.Maybe Lude.Bool,
+  { -- | If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
+    truncated :: Lude.Maybe Lude.Bool,
+    -- | The number of tasks in the task list.
     count :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingTaskCount' with the minimum fields required to make a request.
 --
--- * 'count' - The number of tasks in the task list.
 -- * 'truncated' - If set to true, indicates that the actual count was more than the maximum supported by this API and the count returned is the truncated value.
+-- * 'count' - The number of tasks in the task list.
 mkPendingTaskCount ::
   -- | 'count'
   Lude.Natural ->

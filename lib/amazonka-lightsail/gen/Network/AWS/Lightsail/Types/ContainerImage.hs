@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerImage' smart constructor.
 data ContainerImage = ContainerImage'
-  { image ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the container image.
+    image :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the container image was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The digest of the container image.
     digest :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerImage' with the minimum fields required to make a request.
 --
+-- * 'image' - The name of the container image.
 -- * 'createdAt' - The timestamp when the container image was created.
 -- * 'digest' - The digest of the container image.
--- * 'image' - The name of the container image.
 mkContainerImage ::
   ContainerImage
 mkContainerImage =

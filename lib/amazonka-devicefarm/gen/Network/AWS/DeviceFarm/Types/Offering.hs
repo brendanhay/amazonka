@@ -35,28 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOffering' smart constructor.
 data Offering = Offering'
-  { platform :: Lude.Maybe DevicePlatform,
+  { -- | The platform of the device (for example, @ANDROID@ or @IOS@ ).
+    platform :: Lude.Maybe DevicePlatform,
+    -- | The ID that corresponds to a device offering.
     id :: Lude.Maybe Lude.Text,
+    -- | Specifies whether there are recurring charges for the offering.
     recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The type of offering (for example, @RECURRING@ ) for a device.
     type' :: Lude.Maybe OfferingType,
+    -- | A string that describes the offering.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Offering' with the minimum fields required to make a request.
 --
--- * 'description' - A string that describes the offering.
--- * 'id' - The ID that corresponds to a device offering.
 -- * 'platform' - The platform of the device (for example, @ANDROID@ or @IOS@ ).
+-- * 'id' - The ID that corresponds to a device offering.
 -- * 'recurringCharges' - Specifies whether there are recurring charges for the offering.
 -- * 'type'' - The type of offering (for example, @RECURRING@ ) for a device.
+-- * 'description' - A string that describes the offering.
 mkOffering ::
   Offering
 mkOffering =

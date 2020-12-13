@@ -33,18 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCoverageByTime' smart constructor.
 data CoverageByTime = CoverageByTime'
-  { groups ::
-      Lude.Maybe [ReservationCoverageGroup],
+  { -- | The groups of instances that the reservation covered.
+    groups :: Lude.Maybe [ReservationCoverageGroup],
+    -- | The period that this coverage was used over.
     timePeriod :: Lude.Maybe DateInterval,
+    -- | The total reservation coverage, in hours.
     total :: Lude.Maybe Coverage
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoverageByTime' with the minimum fields required to make a request.

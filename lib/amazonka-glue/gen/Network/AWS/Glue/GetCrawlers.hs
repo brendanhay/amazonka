@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Glue.GetCrawlers
     mkGetCrawlers,
 
     -- ** Request lenses
-    gNextToken,
-    gMaxResults,
+    gcNextToken,
+    gcMaxResults,
 
     -- * Destructuring the response
     GetCrawlersResponse (..),
@@ -44,22 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCrawlers' smart constructor.
 data GetCrawlers = GetCrawlers'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | A continuation token, if this is a continuation request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of crawlers to return on each call.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCrawlers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The number of crawlers to return on each call.
 -- * 'nextToken' - A continuation token, if this is a continuation request.
+-- * 'maxResults' - The number of crawlers to return on each call.
 mkGetCrawlers ::
   GetCrawlers
 mkGetCrawlers =
@@ -68,16 +65,16 @@ mkGetCrawlers =
 -- | A continuation token, if this is a continuation request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gNextToken :: Lens.Lens' GetCrawlers (Lude.Maybe Lude.Text)
-gNextToken = Lens.lens (nextToken :: GetCrawlers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCrawlers)
-{-# DEPRECATED gNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gcNextToken :: Lens.Lens' GetCrawlers (Lude.Maybe Lude.Text)
+gcNextToken = Lens.lens (nextToken :: GetCrawlers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCrawlers)
+{-# DEPRECATED gcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of crawlers to return on each call.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gMaxResults :: Lens.Lens' GetCrawlers (Lude.Maybe Lude.Natural)
-gMaxResults = Lens.lens (maxResults :: GetCrawlers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCrawlers)
-{-# DEPRECATED gMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+gcMaxResults :: Lens.Lens' GetCrawlers (Lude.Maybe Lude.Natural)
+gcMaxResults = Lens.lens (maxResults :: GetCrawlers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCrawlers)
+{-# DEPRECATED gcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetCrawlers where
   page rq rs
@@ -86,7 +83,7 @@ instance Page.AWSPager GetCrawlers where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gNextToken Lens..~ rs Lens.^. grsNextToken
+          Lude.& gcNextToken Lens..~ rs Lens.^. grsNextToken
 
 instance Lude.AWSRequest GetCrawlers where
   type Rs GetCrawlers = GetCrawlersResponse
@@ -127,24 +124,20 @@ instance Lude.ToQuery GetCrawlers where
 
 -- | /See:/ 'mkGetCrawlersResponse' smart constructor.
 data GetCrawlersResponse = GetCrawlersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if the returned list has not reached the end of those defined in this customer account.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of crawler metadata.
     crawlers :: Lude.Maybe [Crawler],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCrawlersResponse' with the minimum fields required to make a request.
 --
--- * 'crawlers' - A list of crawler metadata.
 -- * 'nextToken' - A continuation token, if the returned list has not reached the end of those defined in this customer account.
+-- * 'crawlers' - A list of crawler metadata.
 -- * 'responseStatus' - The response status code.
 mkGetCrawlersResponse ::
   -- | 'responseStatus'

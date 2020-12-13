@@ -31,18 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatusCodes' smart constructor.
 data StatusCodes = StatusCodes'
-  { status2xx :: Lude.Maybe Lude.Int,
+  { -- | The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201, etc.) status code.
+    status2xx :: Lude.Maybe Lude.Int,
+    -- | The percentage of requests over the last 10 seconds that resulted in a 3xx (300, 301, etc.) status code.
     status3xx :: Lude.Maybe Lude.Int,
+    -- | The percentage of requests over the last 10 seconds that resulted in a 4xx (400, 401, etc.) status code.
     status4xx :: Lude.Maybe Lude.Int,
+    -- | The percentage of requests over the last 10 seconds that resulted in a 5xx (500, 501, etc.) status code.
     status5xx :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatusCodes' with the minimum fields required to make a request.

@@ -31,25 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataCatalogEncryptionSettings' smart constructor.
 data DataCatalogEncryptionSettings = DataCatalogEncryptionSettings'
-  { encryptionAtRest ::
-      Lude.Maybe EncryptionAtRest,
-    connectionPasswordEncryption ::
-      Lude.Maybe
-        ConnectionPasswordEncryption
+  { -- | Specifies the encryption-at-rest configuration for the Data Catalog.
+    encryptionAtRest :: Lude.Maybe EncryptionAtRest,
+    -- | When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of @CreateConnection@ or @UpdateConnection@ and store it in the @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable catalog encryption or only password encryption.
+    connectionPasswordEncryption :: Lude.Maybe ConnectionPasswordEncryption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataCatalogEncryptionSettings' with the minimum fields required to make a request.
 --
--- * 'connectionPasswordEncryption' - When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of @CreateConnection@ or @UpdateConnection@ and store it in the @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable catalog encryption or only password encryption.
 -- * 'encryptionAtRest' - Specifies the encryption-at-rest configuration for the Data Catalog.
+-- * 'connectionPasswordEncryption' - When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of @CreateConnection@ or @UpdateConnection@ and store it in the @ENCRYPTED_PASSWORD@ field in the connection properties. You can enable catalog encryption or only password encryption.
 mkDataCatalogEncryptionSettings ::
   DataCatalogEncryptionSettings
 mkDataCatalogEncryptionSettings =

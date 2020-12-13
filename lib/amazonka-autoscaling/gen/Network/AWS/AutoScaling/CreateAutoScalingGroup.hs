@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,12 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     casgTargetGroupARNs,
     casgMaxInstanceLifetime,
     casgDefaultCooldown,
+    casgMaxSize,
     casgAvailabilityZones,
     casgDesiredCapacity,
     casgMixedInstancesPolicy,
+    casgMinSize,
+    casgAutoScalingGroupName,
     casgLaunchConfigurationName,
     casgLifecycleHookSpecificationList,
     casgHealthCheckType,
@@ -43,9 +47,6 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     casgPlacementGroup,
     casgLoadBalancerNames,
     casgTags,
-    casgAutoScalingGroupName,
-    casgMinSize,
-    casgMaxSize,
 
     -- * Destructuring the response
     CreateAutoScalingGroupResponse (..),
@@ -61,92 +62,114 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAutoScalingGroup' smart constructor.
 data CreateAutoScalingGroup = CreateAutoScalingGroup'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance used to base the launch configuration on. If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a new launch configuration. To get the instance ID, use the Amazon EC2 <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> API operation. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html Creating an Auto Scaling group using an EC2 instance> in the /Amazon EC2 Auto Scaling User Guide/ .
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
     terminationPolicies :: Lude.Maybe [Lude.Text],
+    -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. During this time, any health check failures for the instance are ignored. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period> in the /Amazon EC2 Auto Scaling User Guide/ .
+    --
+    -- Conditional: Required if you are adding an @ELB@ health check.
     healthCheckGracePeriod :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
     serviceLinkedRoleARN :: Lude.Maybe Lude.Text,
-    newInstancesProtectedFromScaleIn ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
+    newInstancesProtectedFromScaleIn :: Lude.Maybe Lude.Bool,
+    -- | A comma-separated list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created. If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
+    --
+    -- Conditional: If your account supports EC2-Classic and VPC, this parameter is required to launch instances into a VPC.
     vpcZoneIdentifier :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group. Instances are registered as targets in a target group, and traffic is routed to the target group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
     targetGroupARNs :: Lude.Maybe [Lude.Text],
+    -- | The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
     maxInstanceLifetime :: Lude.Maybe Lude.Int,
+    -- | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
     defaultCooldown :: Lude.Maybe Lude.Int,
-    availabilityZones ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The maximum size of the group.
+    maxSize :: Lude.Int,
+    -- | A list of Availability Zones where instances in the Auto Scaling group can be created. This parameter is optional if you specify one or more subnets for @VPCZoneIdentifier@ .
+    --
+    -- Conditional: If your account supports EC2-Classic and VPC, this parameter is required to launch instances into EC2-Classic.
+    availabilityZones :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure auto scaling. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.
     desiredCapacity :: Lude.Maybe Lude.Int,
-    mixedInstancesPolicy ::
-      Lude.Maybe MixedInstancesPolicy,
-    launchConfigurationName ::
-      Lude.Maybe Lude.Text,
-    lifecycleHookSpecificationList ::
-      Lude.Maybe [LifecycleHookSpecification],
-    healthCheckType :: Lude.Maybe Lude.Text,
-    launchTemplate ::
-      Lude.Maybe LaunchTemplateSpecification,
-    capacityRebalance :: Lude.Maybe Lude.Bool,
-    placementGroup :: Lude.Maybe Lude.Text,
-    loadBalancerNames :: Lude.Maybe [Lude.Text],
-    tags :: Lude.Maybe [Tag],
-    autoScalingGroupName :: Lude.Text,
+    -- | An embedded object that specifies a mixed instances policy. The required parameters must be specified. If optional parameters are unspecified, their default values are used.
+    --
+    -- The policy includes parameters that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the parameters that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
+    mixedInstancesPolicy :: Lude.Maybe MixedInstancesPolicy,
+    -- | The minimum size of the group.
     minSize :: Lude.Int,
-    maxSize :: Lude.Int
+    -- | The name of the Auto Scaling group. This name must be unique per Region per account.
+    autoScalingGroupName :: Lude.Text,
+    -- | The name of the launch configuration to use to launch instances.
+    --
+    -- Conditional: You must specify either a launch template (@LaunchTemplate@ or @MixedInstancesPolicy@ ) or a launch configuration (@LaunchConfigurationName@ or @InstanceId@ ).
+    launchConfigurationName :: Lude.Maybe Lude.Text,
+    -- | One or more lifecycle hooks for the group, which specify actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
+    lifecycleHookSpecificationList :: Lude.Maybe [LifecycleHookSpecification],
+    -- | The service to use for the health checks. The valid values are @EC2@ (default) and @ELB@ . If you configure an Auto Scaling group to use load balancer (ELB) health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+    healthCheckType :: Lude.Maybe Lude.Text,
+    -- | Parameters used to specify the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html launch template> and version to use to launch instances.
+    --
+    -- Conditional: You must specify either a launch template (@LaunchTemplate@ or @MixedInstancesPolicy@ ) or a launch configuration (@LaunchConfigurationName@ or @InstanceId@ ).
+    launchTemplate :: Lude.Maybe LaunchTemplateSpecification,
+    -- | Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
+    capacityRebalance :: Lude.Maybe Lude.Bool,
+    -- | The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
+    placementGroup :: Lude.Maybe Lude.Text,
+    -- | A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the @TargetGroupARNs@ property instead.
+    loadBalancerNames :: Lude.Maybe [Lude.Text],
+    -- | One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html Tagging Auto Scaling groups and instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAutoScalingGroup' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group. This name must be unique per Region per account.
--- * 'availabilityZones' - A list of Availability Zones where instances in the Auto Scaling group can be created. This parameter is optional if you specify one or more subnets for @VPCZoneIdentifier@ .
---
--- Conditional: If your account supports EC2-Classic and VPC, this parameter is required to launch instances into EC2-Classic.
--- * 'capacityRebalance' - Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'defaultCooldown' - The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure auto scaling. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.
+-- * 'instanceId' - The ID of the instance used to base the launch configuration on. If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a new launch configuration. To get the instance ID, use the Amazon EC2 <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> API operation. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html Creating an Auto Scaling group using an EC2 instance> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'terminationPolicies' - A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- * 'healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service. During this time, any health check failures for the instance are ignored. The default value is @0@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period Health check grace period> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- Conditional: Required if you are adding an @ELB@ health check.
--- * 'healthCheckType' - The service to use for the health checks. The valid values are @EC2@ (default) and @ELB@ . If you configure an Auto Scaling group to use load balancer (ELB) health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'instanceId' - The ID of the instance used to base the launch configuration on. If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a new launch configuration. To get the instance ID, use the Amazon EC2 <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> API operation. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html Creating an Auto Scaling group using an EC2 instance> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'launchConfigurationName' - The name of the launch configuration to use to launch instances.
---
--- Conditional: You must specify either a launch template (@LaunchTemplate@ or @MixedInstancesPolicy@ ) or a launch configuration (@LaunchConfigurationName@ or @InstanceId@ ).
--- * 'launchTemplate' - Parameters used to specify the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html launch template> and version to use to launch instances.
---
--- Conditional: You must specify either a launch template (@LaunchTemplate@ or @MixedInstancesPolicy@ ) or a launch configuration (@LaunchConfigurationName@ or @InstanceId@ ).
--- * 'lifecycleHookSpecificationList' - One or more lifecycle hooks for the group, which specify actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
--- * 'loadBalancerNames' - A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the @TargetGroupARNs@ property instead.
--- * 'maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'maxSize' - The maximum size of the group.
--- * 'minSize' - The minimum size of the group.
--- * 'mixedInstancesPolicy' - An embedded object that specifies a mixed instances policy. The required parameters must be specified. If optional parameters are unspecified, their default values are used.
---
--- The policy includes parameters that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the parameters that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'placementGroup' - The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
 -- * 'serviceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html Service-linked roles> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'tags' - One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html Tagging Auto Scaling groups and instances> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group. Instances are registered as targets in a target group, and traffic is routed to the target group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'terminationPolicies' - A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in. For more information about preventing instances from terminating on scale in, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance scale-in protection> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- * 'vpcZoneIdentifier' - A comma-separated list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created. If you specify @VPCZoneIdentifier@ with @AvailabilityZones@ , the subnets that you specify for this parameter must reside in those Availability Zones.
 --
 -- Conditional: If your account supports EC2-Classic and VPC, this parameter is required to launch instances into a VPC.
+-- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group. Instances are registered as targets in a target group, and traffic is routed to the target group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html Elastic Load Balancing and Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in service. The default is null. If specified, the value must be either 0 or a number equal to or greater than 86,400 seconds (1 day). For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html Replacing Auto Scaling instances based on maximum instance lifetime> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'defaultCooldown' - The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default value is @300@ . This setting applies when using simple scaling policies, but not when using other scaling policies or scheduled scaling. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'maxSize' - The maximum size of the group.
+-- * 'availabilityZones' - A list of Availability Zones where instances in the Auto Scaling group can be created. This parameter is optional if you specify one or more subnets for @VPCZoneIdentifier@ .
+--
+-- Conditional: If your account supports EC2-Classic and VPC, this parameter is required to launch instances into EC2-Classic.
+-- * 'desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure auto scaling. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.
+-- * 'mixedInstancesPolicy' - An embedded object that specifies a mixed instances policy. The required parameters must be specified. If optional parameters are unspecified, their default values are used.
+--
+-- The policy includes parameters that not only define the distribution of On-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also the parameters that specify the instance configuration information—the launch template and instance types. The policy can also include a weight for each instance type and different launch templates for individual instance types. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'minSize' - The minimum size of the group.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group. This name must be unique per Region per account.
+-- * 'launchConfigurationName' - The name of the launch configuration to use to launch instances.
+--
+-- Conditional: You must specify either a launch template (@LaunchTemplate@ or @MixedInstancesPolicy@ ) or a launch configuration (@LaunchConfigurationName@ or @InstanceId@ ).
+-- * 'lifecycleHookSpecificationList' - One or more lifecycle hooks for the group, which specify actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
+-- * 'healthCheckType' - The service to use for the health checks. The valid values are @EC2@ (default) and @ELB@ . If you configure an Auto Scaling group to use load balancer (ELB) health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'launchTemplate' - Parameters used to specify the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html launch template> and version to use to launch instances.
+--
+-- Conditional: You must specify either a launch template (@LaunchTemplate@ or @MixedInstancesPolicy@ ) or a launch configuration (@LaunchConfigurationName@ or @InstanceId@ ).
+-- * 'capacityRebalance' - Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/capacity-rebalance.html Amazon EC2 Auto Scaling Capacity Rebalancing> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'placementGroup' - The name of an existing placement group into which to launch your instances, if any. A placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a placement group. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'loadBalancerNames' - A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the @TargetGroupARNs@ property instead.
+-- * 'tags' - One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html Tagging Auto Scaling groups and instances> in the /Amazon EC2 Auto Scaling User Guide/ .
 mkCreateAutoScalingGroup ::
-  -- | 'autoScalingGroupName'
-  Lude.Text ->
-  -- | 'minSize'
-  Lude.Int ->
   -- | 'maxSize'
   Lude.Int ->
+  -- | 'minSize'
+  Lude.Int ->
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   CreateAutoScalingGroup
-mkCreateAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
+mkCreateAutoScalingGroup pMaxSize_ pMinSize_ pAutoScalingGroupName_ =
   CreateAutoScalingGroup'
     { instanceId = Lude.Nothing,
       terminationPolicies = Lude.Nothing,
@@ -157,9 +180,12 @@ mkCreateAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
       targetGroupARNs = Lude.Nothing,
       maxInstanceLifetime = Lude.Nothing,
       defaultCooldown = Lude.Nothing,
+      maxSize = pMaxSize_,
       availabilityZones = Lude.Nothing,
       desiredCapacity = Lude.Nothing,
       mixedInstancesPolicy = Lude.Nothing,
+      minSize = pMinSize_,
+      autoScalingGroupName = pAutoScalingGroupName_,
       launchConfigurationName = Lude.Nothing,
       lifecycleHookSpecificationList = Lude.Nothing,
       healthCheckType = Lude.Nothing,
@@ -167,10 +193,7 @@ mkCreateAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
       capacityRebalance = Lude.Nothing,
       placementGroup = Lude.Nothing,
       loadBalancerNames = Lude.Nothing,
-      tags = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_,
-      minSize = pMinSize_,
-      maxSize = pMaxSize_
+      tags = Lude.Nothing
     }
 
 -- | The ID of the instance used to base the launch configuration on. If specified, Amazon EC2 Auto Scaling uses the configuration values from the specified instance to create a new launch configuration. To get the instance ID, use the Amazon EC2 <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances> API operation. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html Creating an Auto Scaling group using an EC2 instance> in the /Amazon EC2 Auto Scaling User Guide/ .
@@ -240,6 +263,13 @@ casgDefaultCooldown :: Lens.Lens' CreateAutoScalingGroup (Lude.Maybe Lude.Int)
 casgDefaultCooldown = Lens.lens (defaultCooldown :: CreateAutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {defaultCooldown = a} :: CreateAutoScalingGroup)
 {-# DEPRECATED casgDefaultCooldown "Use generic-lens or generic-optics with 'defaultCooldown' instead." #-}
 
+-- | The maximum size of the group.
+--
+-- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casgMaxSize :: Lens.Lens' CreateAutoScalingGroup Lude.Int
+casgMaxSize = Lens.lens (maxSize :: CreateAutoScalingGroup -> Lude.Int) (\s a -> s {maxSize = a} :: CreateAutoScalingGroup)
+{-# DEPRECATED casgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
+
 -- | A list of Availability Zones where instances in the Auto Scaling group can be created. This parameter is optional if you specify one or more subnets for @VPCZoneIdentifier@ .
 --
 -- Conditional: If your account supports EC2-Classic and VPC, this parameter is required to launch instances into EC2-Classic.
@@ -264,6 +294,20 @@ casgDesiredCapacity = Lens.lens (desiredCapacity :: CreateAutoScalingGroup -> Lu
 casgMixedInstancesPolicy :: Lens.Lens' CreateAutoScalingGroup (Lude.Maybe MixedInstancesPolicy)
 casgMixedInstancesPolicy = Lens.lens (mixedInstancesPolicy :: CreateAutoScalingGroup -> Lude.Maybe MixedInstancesPolicy) (\s a -> s {mixedInstancesPolicy = a} :: CreateAutoScalingGroup)
 {-# DEPRECATED casgMixedInstancesPolicy "Use generic-lens or generic-optics with 'mixedInstancesPolicy' instead." #-}
+
+-- | The minimum size of the group.
+--
+-- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casgMinSize :: Lens.Lens' CreateAutoScalingGroup Lude.Int
+casgMinSize = Lens.lens (minSize :: CreateAutoScalingGroup -> Lude.Int) (\s a -> s {minSize = a} :: CreateAutoScalingGroup)
+{-# DEPRECATED casgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
+
+-- | The name of the Auto Scaling group. This name must be unique per Region per account.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casgAutoScalingGroupName :: Lens.Lens' CreateAutoScalingGroup Lude.Text
+casgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: CreateAutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: CreateAutoScalingGroup)
+{-# DEPRECATED casgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The name of the launch configuration to use to launch instances.
 --
@@ -325,27 +369,6 @@ casgTags :: Lens.Lens' CreateAutoScalingGroup (Lude.Maybe [Tag])
 casgTags = Lens.lens (tags :: CreateAutoScalingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAutoScalingGroup)
 {-# DEPRECATED casgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the Auto Scaling group. This name must be unique per Region per account.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casgAutoScalingGroupName :: Lens.Lens' CreateAutoScalingGroup Lude.Text
-casgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: CreateAutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: CreateAutoScalingGroup)
-{-# DEPRECATED casgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
--- | The minimum size of the group.
---
--- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casgMinSize :: Lens.Lens' CreateAutoScalingGroup Lude.Int
-casgMinSize = Lens.lens (minSize :: CreateAutoScalingGroup -> Lude.Int) (\s a -> s {minSize = a} :: CreateAutoScalingGroup)
-{-# DEPRECATED casgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
-
--- | The maximum size of the group.
---
--- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casgMaxSize :: Lens.Lens' CreateAutoScalingGroup Lude.Int
-casgMaxSize = Lens.lens (maxSize :: CreateAutoScalingGroup -> Lude.Int) (\s a -> s {maxSize = a} :: CreateAutoScalingGroup)
-{-# DEPRECATED casgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
-
 instance Lude.AWSRequest CreateAutoScalingGroup where
   type Rs CreateAutoScalingGroup = CreateAutoScalingGroupResponse
   request = Req.postQuery autoScalingService
@@ -375,11 +398,14 @@ instance Lude.ToQuery CreateAutoScalingGroup where
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> targetGroupARNs),
         "MaxInstanceLifetime" Lude.=: maxInstanceLifetime,
         "DefaultCooldown" Lude.=: defaultCooldown,
+        "MaxSize" Lude.=: maxSize,
         "AvailabilityZones"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "member" Lude.<$> availabilityZones),
         "DesiredCapacity" Lude.=: desiredCapacity,
         "MixedInstancesPolicy" Lude.=: mixedInstancesPolicy,
+        "MinSize" Lude.=: minSize,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "LaunchConfigurationName" Lude.=: launchConfigurationName,
         "LifecycleHookSpecificationList"
           Lude.=: Lude.toQuery
@@ -394,21 +420,12 @@ instance Lude.ToQuery CreateAutoScalingGroup where
           Lude.=: Lude.toQuery
             (Lude.toQueryList "member" Lude.<$> loadBalancerNames),
         "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "MinSize" Lude.=: minSize,
-        "MaxSize" Lude.=: maxSize
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCreateAutoScalingGroupResponse' smart constructor.
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAutoScalingGroupResponse' with the minimum fields required to make a request.

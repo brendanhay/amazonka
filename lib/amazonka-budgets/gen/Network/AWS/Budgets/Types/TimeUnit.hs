@@ -13,10 +13,10 @@
 module Network.AWS.Budgets.Types.TimeUnit
   ( TimeUnit
       ( TimeUnit',
-        Annually,
         Daily,
         Monthly,
-        Quarterly
+        Quarterly,
+        Annually
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype TimeUnit = TimeUnit' Lude.Text
       Lude.ToHeader
     )
 
-pattern Annually :: TimeUnit
-pattern Annually = TimeUnit' "ANNUALLY"
-
 pattern Daily :: TimeUnit
 pattern Daily = TimeUnit' "DAILY"
 
@@ -60,10 +57,13 @@ pattern Monthly = TimeUnit' "MONTHLY"
 pattern Quarterly :: TimeUnit
 pattern Quarterly = TimeUnit' "QUARTERLY"
 
+pattern Annually :: TimeUnit
+pattern Annually = TimeUnit' "ANNUALLY"
+
 {-# COMPLETE
-  Annually,
   Daily,
   Monthly,
   Quarterly,
+  Annually,
   TimeUnit'
   #-}

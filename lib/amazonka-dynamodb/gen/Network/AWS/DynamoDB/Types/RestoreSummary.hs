@@ -19,8 +19,8 @@ module Network.AWS.DynamoDB.Types.RestoreSummary
     -- * Lenses
     rsSourceTableARN,
     rsSourceBackupARN,
-    rsRestoreDateTime,
     rsRestoreInProgress,
+    rsRestoreDateTime,
   )
 where
 
@@ -31,39 +31,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRestoreSummary' smart constructor.
 data RestoreSummary = RestoreSummary'
-  { sourceTableARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the source table of the backup that is being restored.
+    sourceTableARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the backup from which the table was restored.
     sourceBackupARN :: Lude.Maybe Lude.Text,
-    restoreDateTime :: Lude.Timestamp,
-    restoreInProgress :: Lude.Bool
+    -- | Indicates if a restore is in progress or not.
+    restoreInProgress :: Lude.Bool,
+    -- | Point in time or source backup time.
+    restoreDateTime :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreSummary' with the minimum fields required to make a request.
 --
--- * 'restoreDateTime' - Point in time or source backup time.
--- * 'restoreInProgress' - Indicates if a restore is in progress or not.
--- * 'sourceBackupARN' - The Amazon Resource Name (ARN) of the backup from which the table was restored.
 -- * 'sourceTableARN' - The ARN of the source table of the backup that is being restored.
+-- * 'sourceBackupARN' - The Amazon Resource Name (ARN) of the backup from which the table was restored.
+-- * 'restoreInProgress' - Indicates if a restore is in progress or not.
+-- * 'restoreDateTime' - Point in time or source backup time.
 mkRestoreSummary ::
-  -- | 'restoreDateTime'
-  Lude.Timestamp ->
   -- | 'restoreInProgress'
   Lude.Bool ->
+  -- | 'restoreDateTime'
+  Lude.Timestamp ->
   RestoreSummary
-mkRestoreSummary pRestoreDateTime_ pRestoreInProgress_ =
+mkRestoreSummary pRestoreInProgress_ pRestoreDateTime_ =
   RestoreSummary'
     { sourceTableARN = Lude.Nothing,
       sourceBackupARN = Lude.Nothing,
-      restoreDateTime = pRestoreDateTime_,
-      restoreInProgress = pRestoreInProgress_
+      restoreInProgress = pRestoreInProgress_,
+      restoreDateTime = pRestoreDateTime_
     }
 
 -- | The ARN of the source table of the backup that is being restored.
@@ -80,19 +77,19 @@ rsSourceBackupARN :: Lens.Lens' RestoreSummary (Lude.Maybe Lude.Text)
 rsSourceBackupARN = Lens.lens (sourceBackupARN :: RestoreSummary -> Lude.Maybe Lude.Text) (\s a -> s {sourceBackupARN = a} :: RestoreSummary)
 {-# DEPRECATED rsSourceBackupARN "Use generic-lens or generic-optics with 'sourceBackupARN' instead." #-}
 
--- | Point in time or source backup time.
---
--- /Note:/ Consider using 'restoreDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsRestoreDateTime :: Lens.Lens' RestoreSummary Lude.Timestamp
-rsRestoreDateTime = Lens.lens (restoreDateTime :: RestoreSummary -> Lude.Timestamp) (\s a -> s {restoreDateTime = a} :: RestoreSummary)
-{-# DEPRECATED rsRestoreDateTime "Use generic-lens or generic-optics with 'restoreDateTime' instead." #-}
-
 -- | Indicates if a restore is in progress or not.
 --
 -- /Note:/ Consider using 'restoreInProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsRestoreInProgress :: Lens.Lens' RestoreSummary Lude.Bool
 rsRestoreInProgress = Lens.lens (restoreInProgress :: RestoreSummary -> Lude.Bool) (\s a -> s {restoreInProgress = a} :: RestoreSummary)
 {-# DEPRECATED rsRestoreInProgress "Use generic-lens or generic-optics with 'restoreInProgress' instead." #-}
+
+-- | Point in time or source backup time.
+--
+-- /Note:/ Consider using 'restoreDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsRestoreDateTime :: Lens.Lens' RestoreSummary Lude.Timestamp
+rsRestoreDateTime = Lens.lens (restoreDateTime :: RestoreSummary -> Lude.Timestamp) (\s a -> s {restoreDateTime = a} :: RestoreSummary)
+{-# DEPRECATED rsRestoreDateTime "Use generic-lens or generic-optics with 'restoreDateTime' instead." #-}
 
 instance Lude.FromJSON RestoreSummary where
   parseJSON =
@@ -102,6 +99,6 @@ instance Lude.FromJSON RestoreSummary where
           RestoreSummary'
             Lude.<$> (x Lude..:? "SourceTableArn")
             Lude.<*> (x Lude..:? "SourceBackupArn")
-            Lude.<*> (x Lude..: "RestoreDateTime")
             Lude.<*> (x Lude..: "RestoreInProgress")
+            Lude.<*> (x Lude..: "RestoreDateTime")
       )

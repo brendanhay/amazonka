@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.OpsItemStatus
   ( OpsItemStatus
       ( OpsItemStatus',
-        InProgress,
         Open,
+        InProgress,
         Resolved
       ),
   )
@@ -46,18 +46,18 @@ newtype OpsItemStatus = OpsItemStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern InProgress :: OpsItemStatus
-pattern InProgress = OpsItemStatus' "InProgress"
-
 pattern Open :: OpsItemStatus
 pattern Open = OpsItemStatus' "Open"
+
+pattern InProgress :: OpsItemStatus
+pattern InProgress = OpsItemStatus' "InProgress"
 
 pattern Resolved :: OpsItemStatus
 pattern Resolved = OpsItemStatus' "Resolved"
 
 {-# COMPLETE
-  InProgress,
   Open,
+  InProgress,
   Resolved,
   OpsItemStatus'
   #-}

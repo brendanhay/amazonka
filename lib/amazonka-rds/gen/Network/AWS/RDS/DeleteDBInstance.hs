@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,10 +32,10 @@ module Network.AWS.RDS.DeleteDBInstance
     mkDeleteDBInstance,
 
     -- ** Request lenses
-    ddiFinalDBSnapshotIdentifier,
-    ddiDeleteAutomatedBackups,
-    ddiSkipFinalSnapshot,
-    ddiDBInstanceIdentifier,
+    ddbiFinalDBSnapshotIdentifier,
+    ddbiDBInstanceIdentifier,
+    ddbiDeleteAutomatedBackups,
+    ddbiSkipFinalSnapshot,
 
     -- * Destructuring the response
     DeleteDBInstanceResponse (..),
@@ -56,31 +57,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDBInstance' smart constructor.
 data DeleteDBInstance = DeleteDBInstance'
-  { finalDBSnapshotIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the @SkipFinalSnapshot@ parameter is disabled.
+    --
+    -- Constraints:
+    --
+    --     * Must be 1 to 255 letters or numbers.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens.
+    --
+    --
+    --     * Can't be specified when deleting a read replica.
+    finalDBSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * Must match the name of an existing DB instance.
+    dbInstanceIdentifier :: Lude.Text,
+    -- | A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
     deleteAutomatedBackups :: Lude.Maybe Lude.Bool,
-    skipFinalSnapshot :: Lude.Maybe Lude.Bool,
-    dbInstanceIdentifier :: Lude.Text
+    -- | A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted. If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created.
+    --
+    -- When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified.
+    -- Specify skip when deleting a read replica.
+    skipFinalSnapshot :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBInstance' with the minimum fields required to make a request.
 --
--- * 'dbInstanceIdentifier' - The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * Must match the name of an existing DB instance.
---
---
--- * 'deleteAutomatedBackups' - A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 -- * 'finalDBSnapshotIdentifier' - The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the @SkipFinalSnapshot@ parameter is disabled.
 --
 -- Constraints:
@@ -97,6 +107,14 @@ data DeleteDBInstance = DeleteDBInstance'
 --     * Can't be specified when deleting a read replica.
 --
 --
+-- * 'dbInstanceIdentifier' - The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive.
+--
+-- Constraints:
+--
+--     * Must match the name of an existing DB instance.
+--
+--
+-- * 'deleteAutomatedBackups' - A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 -- * 'skipFinalSnapshot' - A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted. If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created.
 --
 -- When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified.
@@ -108,9 +126,9 @@ mkDeleteDBInstance ::
 mkDeleteDBInstance pDBInstanceIdentifier_ =
   DeleteDBInstance'
     { finalDBSnapshotIdentifier = Lude.Nothing,
+      dbInstanceIdentifier = pDBInstanceIdentifier_,
       deleteAutomatedBackups = Lude.Nothing,
-      skipFinalSnapshot = Lude.Nothing,
-      dbInstanceIdentifier = pDBInstanceIdentifier_
+      skipFinalSnapshot = Lude.Nothing
     }
 
 -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the @SkipFinalSnapshot@ parameter is disabled.
@@ -131,26 +149,9 @@ mkDeleteDBInstance pDBInstanceIdentifier_ =
 --
 --
 -- /Note:/ Consider using 'finalDBSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddiFinalDBSnapshotIdentifier :: Lens.Lens' DeleteDBInstance (Lude.Maybe Lude.Text)
-ddiFinalDBSnapshotIdentifier = Lens.lens (finalDBSnapshotIdentifier :: DeleteDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {finalDBSnapshotIdentifier = a} :: DeleteDBInstance)
-{-# DEPRECATED ddiFinalDBSnapshotIdentifier "Use generic-lens or generic-optics with 'finalDBSnapshotIdentifier' instead." #-}
-
--- | A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
---
--- /Note:/ Consider using 'deleteAutomatedBackups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddiDeleteAutomatedBackups :: Lens.Lens' DeleteDBInstance (Lude.Maybe Lude.Bool)
-ddiDeleteAutomatedBackups = Lens.lens (deleteAutomatedBackups :: DeleteDBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {deleteAutomatedBackups = a} :: DeleteDBInstance)
-{-# DEPRECATED ddiDeleteAutomatedBackups "Use generic-lens or generic-optics with 'deleteAutomatedBackups' instead." #-}
-
--- | A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted. If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created.
---
--- When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified.
--- Specify skip when deleting a read replica.
---
--- /Note:/ Consider using 'skipFinalSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddiSkipFinalSnapshot :: Lens.Lens' DeleteDBInstance (Lude.Maybe Lude.Bool)
-ddiSkipFinalSnapshot = Lens.lens (skipFinalSnapshot :: DeleteDBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {skipFinalSnapshot = a} :: DeleteDBInstance)
-{-# DEPRECATED ddiSkipFinalSnapshot "Use generic-lens or generic-optics with 'skipFinalSnapshot' instead." #-}
+ddbiFinalDBSnapshotIdentifier :: Lens.Lens' DeleteDBInstance (Lude.Maybe Lude.Text)
+ddbiFinalDBSnapshotIdentifier = Lens.lens (finalDBSnapshotIdentifier :: DeleteDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {finalDBSnapshotIdentifier = a} :: DeleteDBInstance)
+{-# DEPRECATED ddbiFinalDBSnapshotIdentifier "Use generic-lens or generic-optics with 'finalDBSnapshotIdentifier' instead." #-}
 
 -- | The DB instance identifier for the DB instance to be deleted. This parameter isn't case-sensitive.
 --
@@ -161,9 +162,26 @@ ddiSkipFinalSnapshot = Lens.lens (skipFinalSnapshot :: DeleteDBInstance -> Lude.
 --
 --
 -- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddiDBInstanceIdentifier :: Lens.Lens' DeleteDBInstance Lude.Text
-ddiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DeleteDBInstance -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DeleteDBInstance)
-{-# DEPRECATED ddiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+ddbiDBInstanceIdentifier :: Lens.Lens' DeleteDBInstance Lude.Text
+ddbiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DeleteDBInstance -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DeleteDBInstance)
+{-# DEPRECATED ddbiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+
+-- | A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
+--
+-- /Note:/ Consider using 'deleteAutomatedBackups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbiDeleteAutomatedBackups :: Lens.Lens' DeleteDBInstance (Lude.Maybe Lude.Bool)
+ddbiDeleteAutomatedBackups = Lens.lens (deleteAutomatedBackups :: DeleteDBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {deleteAutomatedBackups = a} :: DeleteDBInstance)
+{-# DEPRECATED ddbiDeleteAutomatedBackups "Use generic-lens or generic-optics with 'deleteAutomatedBackups' instead." #-}
+
+-- | A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted. If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created.
+--
+-- When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified.
+-- Specify skip when deleting a read replica.
+--
+-- /Note:/ Consider using 'skipFinalSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbiSkipFinalSnapshot :: Lens.Lens' DeleteDBInstance (Lude.Maybe Lude.Bool)
+ddbiSkipFinalSnapshot = Lens.lens (skipFinalSnapshot :: DeleteDBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {skipFinalSnapshot = a} :: DeleteDBInstance)
+{-# DEPRECATED ddbiSkipFinalSnapshot "Use generic-lens or generic-optics with 'skipFinalSnapshot' instead." #-}
 
 instance Lude.AWSRequest DeleteDBInstance where
   type Rs DeleteDBInstance = DeleteDBInstanceResponse
@@ -188,29 +206,23 @@ instance Lude.ToQuery DeleteDBInstance where
       [ "Action" Lude.=: ("DeleteDBInstance" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "FinalDBSnapshotIdentifier" Lude.=: finalDBSnapshotIdentifier,
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
         "DeleteAutomatedBackups" Lude.=: deleteAutomatedBackups,
-        "SkipFinalSnapshot" Lude.=: skipFinalSnapshot,
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier
+        "SkipFinalSnapshot" Lude.=: skipFinalSnapshot
       ]
 
 -- | /See:/ 'mkDeleteDBInstanceResponse' smart constructor.
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
-  { dbInstance ::
-      Lude.Maybe DBInstance,
+  { dbInstance :: Lude.Maybe DBInstance,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'dbInstance' - Undocumented field.
+-- * 'dbInstance' -
 -- * 'responseStatus' - The response status code.
 mkDeleteDBInstanceResponse ::
   -- | 'responseStatus'

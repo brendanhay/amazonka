@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThrottleSettings' smart constructor.
 data ThrottleSettings = ThrottleSettings'
-  { burstLimit ::
-      Lude.Maybe Lude.Int,
+  { -- | The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+    burstLimit :: Lude.Maybe Lude.Int,
+    -- | The API request steady-state rate limit.
     rateLimit :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThrottleSettings' with the minimum fields required to make a request.

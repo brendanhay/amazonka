@@ -29,26 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMinimumEngineVersionPerAllowedValue' smart constructor.
 data MinimumEngineVersionPerAllowedValue = MinimumEngineVersionPerAllowedValue'
-  { minimumEngineVersion ::
-      Lude.Maybe
-        Lude.Text,
-    allowedValue ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The minimum DB engine version required for the allowed value.
+    minimumEngineVersion :: Lude.Maybe Lude.Text,
+    -- | The allowed value for an option setting.
+    allowedValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MinimumEngineVersionPerAllowedValue' with the minimum fields required to make a request.
 --
--- * 'allowedValue' - The allowed value for an option setting.
 -- * 'minimumEngineVersion' - The minimum DB engine version required for the allowed value.
+-- * 'allowedValue' - The allowed value for an option setting.
 mkMinimumEngineVersionPerAllowedValue ::
   MinimumEngineVersionPerAllowedValue
 mkMinimumEngineVersionPerAllowedValue =

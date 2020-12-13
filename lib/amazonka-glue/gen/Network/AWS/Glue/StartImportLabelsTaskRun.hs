@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.Glue.StartImportLabelsTaskRun
     mkStartImportLabelsTaskRun,
 
     -- ** Request lenses
+    siltrInputS3Path,
     siltrReplaceAllLabels,
     siltrTransformId,
-    siltrInputS3Path,
 
     -- * Destructuring the response
     StartImportLabelsTaskRunResponse (..),
@@ -45,18 +46,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartImportLabelsTaskRun' smart constructor.
 data StartImportLabelsTaskRun = StartImportLabelsTaskRun'
-  { replaceAllLabels ::
-      Lude.Maybe Lude.Bool,
-    transformId :: Lude.Text,
-    inputS3Path :: Lude.Text
+  { -- | The Amazon Simple Storage Service (Amazon S3) path from where you import the labels.
+    inputS3Path :: Lude.Text,
+    -- | Indicates whether to overwrite your existing labels.
+    replaceAllLabels :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier of the machine learning transform.
+    transformId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImportLabelsTaskRun' with the minimum fields required to make a request.
@@ -65,17 +62,24 @@ data StartImportLabelsTaskRun = StartImportLabelsTaskRun'
 -- * 'replaceAllLabels' - Indicates whether to overwrite your existing labels.
 -- * 'transformId' - The unique identifier of the machine learning transform.
 mkStartImportLabelsTaskRun ::
-  -- | 'transformId'
-  Lude.Text ->
   -- | 'inputS3Path'
   Lude.Text ->
+  -- | 'transformId'
+  Lude.Text ->
   StartImportLabelsTaskRun
-mkStartImportLabelsTaskRun pTransformId_ pInputS3Path_ =
+mkStartImportLabelsTaskRun pInputS3Path_ pTransformId_ =
   StartImportLabelsTaskRun'
-    { replaceAllLabels = Lude.Nothing,
-      transformId = pTransformId_,
-      inputS3Path = pInputS3Path_
+    { inputS3Path = pInputS3Path_,
+      replaceAllLabels = Lude.Nothing,
+      transformId = pTransformId_
     }
+
+-- | The Amazon Simple Storage Service (Amazon S3) path from where you import the labels.
+--
+-- /Note:/ Consider using 'inputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siltrInputS3Path :: Lens.Lens' StartImportLabelsTaskRun Lude.Text
+siltrInputS3Path = Lens.lens (inputS3Path :: StartImportLabelsTaskRun -> Lude.Text) (\s a -> s {inputS3Path = a} :: StartImportLabelsTaskRun)
+{-# DEPRECATED siltrInputS3Path "Use generic-lens or generic-optics with 'inputS3Path' instead." #-}
 
 -- | Indicates whether to overwrite your existing labels.
 --
@@ -90,13 +94,6 @@ siltrReplaceAllLabels = Lens.lens (replaceAllLabels :: StartImportLabelsTaskRun 
 siltrTransformId :: Lens.Lens' StartImportLabelsTaskRun Lude.Text
 siltrTransformId = Lens.lens (transformId :: StartImportLabelsTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: StartImportLabelsTaskRun)
 {-# DEPRECATED siltrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
-
--- | The Amazon Simple Storage Service (Amazon S3) path from where you import the labels.
---
--- /Note:/ Consider using 'inputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siltrInputS3Path :: Lens.Lens' StartImportLabelsTaskRun Lude.Text
-siltrInputS3Path = Lens.lens (inputS3Path :: StartImportLabelsTaskRun -> Lude.Text) (\s a -> s {inputS3Path = a} :: StartImportLabelsTaskRun)
-{-# DEPRECATED siltrInputS3Path "Use generic-lens or generic-optics with 'inputS3Path' instead." #-}
 
 instance Lude.AWSRequest StartImportLabelsTaskRun where
   type Rs StartImportLabelsTaskRun = StartImportLabelsTaskRunResponse
@@ -123,9 +120,9 @@ instance Lude.ToJSON StartImportLabelsTaskRun where
   toJSON StartImportLabelsTaskRun' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ReplaceAllLabels" Lude..=) Lude.<$> replaceAllLabels,
-            Lude.Just ("TransformId" Lude..= transformId),
-            Lude.Just ("InputS3Path" Lude..= inputS3Path)
+          [ Lude.Just ("InputS3Path" Lude..= inputS3Path),
+            ("ReplaceAllLabels" Lude..=) Lude.<$> replaceAllLabels,
+            Lude.Just ("TransformId" Lude..= transformId)
           ]
       )
 
@@ -137,24 +134,18 @@ instance Lude.ToQuery StartImportLabelsTaskRun where
 
 -- | /See:/ 'mkStartImportLabelsTaskRunResponse' smart constructor.
 data StartImportLabelsTaskRunResponse = StartImportLabelsTaskRunResponse'
-  { taskRunId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The unique identifier for the task run.
+    taskRunId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImportLabelsTaskRunResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'taskRunId' - The unique identifier for the task run.
+-- * 'responseStatus' - The response status code.
 mkStartImportLabelsTaskRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

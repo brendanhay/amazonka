@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -59,23 +60,19 @@ import Network.AWS.StorageGateway.Types
 -- /See:/ 'mkListVolumes' smart constructor.
 data ListVolumes = ListVolumes'
   { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
     marker :: Lude.Maybe Lude.Text,
+    -- | Specifies that the list of volumes returned be limited to the specified number of items.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVolumes' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
--- * 'limit' - Specifies that the list of volumes returned be limited to the specified number of items.
+-- * 'gatewayARN' -
 -- * 'marker' - A string that indicates the position at which to begin the returned list of volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
+-- * 'limit' - Specifies that the list of volumes returned be limited to the specified number of items.
 mkListVolumes ::
   ListVolumes
 mkListVolumes =
@@ -165,27 +162,23 @@ instance Lude.ToQuery ListVolumes where
 --
 -- /See:/ 'mkListVolumesResponse' smart constructor.
 data ListVolumesResponse = ListVolumesResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
     marker :: Lude.Maybe Lude.Text,
+    -- | An array of 'VolumeInfo' objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then @VolumeInfos@ is an empty array "[]".
     volumeInfos :: Lude.Maybe [VolumeInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVolumesResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'marker' - Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.
--- * 'responseStatus' - The response status code.
 -- * 'volumeInfos' - An array of 'VolumeInfo' objects, where each object describes an iSCSI volume. If no volumes are defined for the gateway, then @VolumeInfos@ is an empty array "[]".
+-- * 'responseStatus' - The response status code.
 mkListVolumesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,15 +28,15 @@ module Network.AWS.Firehose.StartDeliveryStreamEncryption
     mkStartDeliveryStreamEncryption,
 
     -- ** Request lenses
-    sDeliveryStreamEncryptionConfigurationInput,
     sDeliveryStreamName,
+    sDeliveryStreamEncryptionConfigurationInput,
 
     -- * Destructuring the response
     StartDeliveryStreamEncryptionResponse (..),
     mkStartDeliveryStreamEncryptionResponse,
 
     -- ** Response lenses
-    srsResponseStatus,
+    sdsersResponseStatus,
   )
 where
 
@@ -47,41 +48,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartDeliveryStreamEncryption' smart constructor.
 data StartDeliveryStreamEncryption = StartDeliveryStreamEncryption'
-  { deliveryStreamEncryptionConfigurationInput ::
-      Lude.Maybe
-        DeliveryStreamEncryptionConfigurationInput,
-    deliveryStreamName :: Lude.Text
+  { -- | The name of the delivery stream for which you want to enable server-side encryption (SSE).
+    deliveryStreamName :: Lude.Text,
+    -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
+    deliveryStreamEncryptionConfigurationInput :: Lude.Maybe DeliveryStreamEncryptionConfigurationInput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDeliveryStreamEncryption' with the minimum fields required to make a request.
 --
--- * 'deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
 -- * 'deliveryStreamName' - The name of the delivery stream for which you want to enable server-side encryption (SSE).
+-- * 'deliveryStreamEncryptionConfigurationInput' - Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
 mkStartDeliveryStreamEncryption ::
   -- | 'deliveryStreamName'
   Lude.Text ->
   StartDeliveryStreamEncryption
 mkStartDeliveryStreamEncryption pDeliveryStreamName_ =
   StartDeliveryStreamEncryption'
-    { deliveryStreamEncryptionConfigurationInput =
-        Lude.Nothing,
-      deliveryStreamName = pDeliveryStreamName_
+    { deliveryStreamName =
+        pDeliveryStreamName_,
+      deliveryStreamEncryptionConfigurationInput = Lude.Nothing
     }
-
--- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
---
--- /Note:/ Consider using 'deliveryStreamEncryptionConfigurationInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDeliveryStreamEncryptionConfigurationInput :: Lens.Lens' StartDeliveryStreamEncryption (Lude.Maybe DeliveryStreamEncryptionConfigurationInput)
-sDeliveryStreamEncryptionConfigurationInput = Lens.lens (deliveryStreamEncryptionConfigurationInput :: StartDeliveryStreamEncryption -> Lude.Maybe DeliveryStreamEncryptionConfigurationInput) (\s a -> s {deliveryStreamEncryptionConfigurationInput = a} :: StartDeliveryStreamEncryption)
-{-# DEPRECATED sDeliveryStreamEncryptionConfigurationInput "Use generic-lens or generic-optics with 'deliveryStreamEncryptionConfigurationInput' instead." #-}
 
 -- | The name of the delivery stream for which you want to enable server-side encryption (SSE).
 --
@@ -89,6 +77,13 @@ sDeliveryStreamEncryptionConfigurationInput = Lens.lens (deliveryStreamEncryptio
 sDeliveryStreamName :: Lens.Lens' StartDeliveryStreamEncryption Lude.Text
 sDeliveryStreamName = Lens.lens (deliveryStreamName :: StartDeliveryStreamEncryption -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: StartDeliveryStreamEncryption)
 {-# DEPRECATED sDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+
+-- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
+--
+-- /Note:/ Consider using 'deliveryStreamEncryptionConfigurationInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDeliveryStreamEncryptionConfigurationInput :: Lens.Lens' StartDeliveryStreamEncryption (Lude.Maybe DeliveryStreamEncryptionConfigurationInput)
+sDeliveryStreamEncryptionConfigurationInput = Lens.lens (deliveryStreamEncryptionConfigurationInput :: StartDeliveryStreamEncryption -> Lude.Maybe DeliveryStreamEncryptionConfigurationInput) (\s a -> s {deliveryStreamEncryptionConfigurationInput = a} :: StartDeliveryStreamEncryption)
+{-# DEPRECATED sDeliveryStreamEncryptionConfigurationInput "Use generic-lens or generic-optics with 'deliveryStreamEncryptionConfigurationInput' instead." #-}
 
 instance Lude.AWSRequest StartDeliveryStreamEncryption where
   type
@@ -119,9 +114,9 @@ instance Lude.ToJSON StartDeliveryStreamEncryption where
   toJSON StartDeliveryStreamEncryption' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DeliveryStreamEncryptionConfigurationInput" Lude..=)
-              Lude.<$> deliveryStreamEncryptionConfigurationInput,
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
+          [ Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
+            ("DeliveryStreamEncryptionConfigurationInput" Lude..=)
+              Lude.<$> deliveryStreamEncryptionConfigurationInput
           ]
       )
 
@@ -133,16 +128,10 @@ instance Lude.ToQuery StartDeliveryStreamEncryption where
 
 -- | /See:/ 'mkStartDeliveryStreamEncryptionResponse' smart constructor.
 newtype StartDeliveryStreamEncryptionResponse = StartDeliveryStreamEncryptionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDeliveryStreamEncryptionResponse' with the minimum fields required to make a request.
@@ -161,6 +150,6 @@ mkStartDeliveryStreamEncryptionResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartDeliveryStreamEncryptionResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartDeliveryStreamEncryptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDeliveryStreamEncryptionResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdsersResponseStatus :: Lens.Lens' StartDeliveryStreamEncryptionResponse Lude.Int
+sdsersResponseStatus = Lens.lens (responseStatus :: StartDeliveryStreamEncryptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDeliveryStreamEncryptionResponse)
+{-# DEPRECATED sdsersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

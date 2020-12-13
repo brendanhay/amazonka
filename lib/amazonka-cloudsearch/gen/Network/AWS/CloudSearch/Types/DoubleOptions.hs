@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDoubleOptions' smart constructor.
 data DoubleOptions = DoubleOptions'
-  { sourceField ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the source field to map to the field.
+    sourceField :: Lude.Maybe Lude.Text,
+    -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether facet information can be returned for the field.
     facetEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether the contents of the field are searchable.
     searchEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether the field can be used to sort the search results.
     sortEnabled :: Lude.Maybe Lude.Bool,
+    -- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
     defaultValue :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DoubleOptions' with the minimum fields required to make a request.
 --
--- * 'defaultValue' - A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
--- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'sourceField' - The name of the source field to map to the field.
 -- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
 -- * 'searchEnabled' - Whether the contents of the field are searchable.
 -- * 'sortEnabled' - Whether the field can be used to sort the search results.
--- * 'sourceField' - The name of the source field to map to the field.
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 mkDoubleOptions ::
   DoubleOptions
 mkDoubleOptions =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.DeleteBaiduChannel
     mkDeleteBaiduChannelResponse,
 
     -- ** Response lenses
-    dbcrsResponseStatus,
     dbcrsBaiduChannelResponse,
+    dbcrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteBaiduChannel' smart constructor.
 newtype DeleteBaiduChannel = DeleteBaiduChannel'
-  { applicationId ::
-      Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBaiduChannel' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DeleteBaiduChannel where
     Res.receiveJSON
       ( \s h x ->
           DeleteBaiduChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteBaiduChannel where
@@ -97,44 +92,31 @@ instance Lude.ToQuery DeleteBaiduChannel where
 
 -- | /See:/ 'mkDeleteBaiduChannelResponse' smart constructor.
 data DeleteBaiduChannelResponse = DeleteBaiduChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    baiduChannelResponse ::
-      BaiduChannelResponse
+  { baiduChannelResponse :: BaiduChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBaiduChannelResponse' with the minimum fields required to make a request.
 --
--- * 'baiduChannelResponse' - Undocumented field.
+-- * 'baiduChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkDeleteBaiduChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'baiduChannelResponse'
   BaiduChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteBaiduChannelResponse
 mkDeleteBaiduChannelResponse
-  pResponseStatus_
-  pBaiduChannelResponse_ =
+  pBaiduChannelResponse_
+  pResponseStatus_ =
     DeleteBaiduChannelResponse'
-      { responseStatus = pResponseStatus_,
-        baiduChannelResponse = pBaiduChannelResponse_
+      { baiduChannelResponse =
+          pBaiduChannelResponse_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbcrsResponseStatus :: Lens.Lens' DeleteBaiduChannelResponse Lude.Int
-dbcrsResponseStatus = Lens.lens (responseStatus :: DeleteBaiduChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBaiduChannelResponse)
-{-# DEPRECATED dbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -142,3 +124,10 @@ dbcrsResponseStatus = Lens.lens (responseStatus :: DeleteBaiduChannelResponse ->
 dbcrsBaiduChannelResponse :: Lens.Lens' DeleteBaiduChannelResponse BaiduChannelResponse
 dbcrsBaiduChannelResponse = Lens.lens (baiduChannelResponse :: DeleteBaiduChannelResponse -> BaiduChannelResponse) (\s a -> s {baiduChannelResponse = a} :: DeleteBaiduChannelResponse)
 {-# DEPRECATED dbcrsBaiduChannelResponse "Use generic-lens or generic-optics with 'baiduChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcrsResponseStatus :: Lens.Lens' DeleteBaiduChannelResponse Lude.Int
+dbcrsResponseStatus = Lens.lens (responseStatus :: DeleteBaiduChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBaiduChannelResponse)
+{-# DEPRECATED dbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

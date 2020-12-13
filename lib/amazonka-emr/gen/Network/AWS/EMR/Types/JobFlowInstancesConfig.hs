@@ -47,60 +47,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobFlowInstancesConfig' smart constructor.
 data JobFlowInstancesConfig = JobFlowInstancesConfig'
-  { instanceFleets ::
-      Lude.Maybe [InstanceFleetConfig],
+  { -- | Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.
+    instanceFleets :: Lude.Maybe [InstanceFleetConfig],
+    -- | The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop."
     ec2KeyName :: Lude.Maybe Lude.Text,
+    -- | The EC2 instance type of the core and task nodes.
     slaveInstanceType :: Lude.Maybe Lude.Text,
+    -- | The number of EC2 instances in the cluster.
     instanceCount :: Lude.Maybe Lude.Int,
-    emrManagedSlaveSecurityGroup ::
-      Lude.Maybe Lude.Text,
-    additionalSlaveSecurityGroups ::
-      Lude.Maybe [Lude.Text],
+    -- | The identifier of the Amazon EC2 security group for the core and task nodes.
+    emrManagedSlaveSecurityGroup :: Lude.Maybe Lude.Text,
+    -- | A list of additional Amazon EC2 security group IDs for the core and task nodes.
+    additionalSlaveSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
     ec2SubnetIds :: Lude.Maybe [Lude.Text],
+    -- | Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the @AmiVersion@ parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
     hadoopVersion :: Lude.Maybe Lude.Text,
-    additionalMasterSecurityGroups ::
-      Lude.Maybe [Lude.Text],
-    emrManagedMasterSecurityGroup ::
-      Lude.Maybe Lude.Text,
+    -- | A list of additional Amazon EC2 security group IDs for the master node.
+    additionalMasterSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | The identifier of the Amazon EC2 security group for the master node.
+    emrManagedMasterSecurityGroup :: Lude.Maybe Lude.Text,
+    -- | Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
     ec2SubnetId :: Lude.Maybe Lude.Text,
+    -- | The EC2 instance type of the master node.
     masterInstanceType :: Lude.Maybe Lude.Text,
-    instanceGroups ::
-      Lude.Maybe [InstanceGroupConfig],
-    keepJobFlowAliveWhenNoSteps ::
-      Lude.Maybe Lude.Bool,
-    serviceAccessSecurityGroup ::
-      Lude.Maybe Lude.Text,
+    -- | Configuration for the instance groups in a cluster.
+    instanceGroups :: Lude.Maybe [InstanceGroupConfig],
+    -- | Specifies whether the cluster should remain available after completing all steps.
+    keepJobFlowAliveWhenNoSteps :: Lude.Maybe Lude.Bool,
+    -- | The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
+    serviceAccessSecurityGroup :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
     terminationProtected :: Lude.Maybe Lude.Bool,
+    -- | The Availability Zone in which the cluster runs.
     placement :: Lude.Maybe PlacementType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobFlowInstancesConfig' with the minimum fields required to make a request.
 --
--- * 'additionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
--- * 'additionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the core and task nodes.
--- * 'ec2KeyName' - The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop."
--- * 'ec2SubnetId' - Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
--- * 'ec2SubnetIds' - Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
--- * 'emrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
--- * 'emrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the core and task nodes.
--- * 'hadoopVersion' - Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the @AmiVersion@ parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
--- * 'instanceCount' - The number of EC2 instances in the cluster.
 -- * 'instanceFleets' - Describes the EC2 instances and instance configurations for clusters that use the instance fleet configuration.
+-- * 'ec2KeyName' - The name of the EC2 key pair that can be used to connect to the master node using SSH as the user called "hadoop."
+-- * 'slaveInstanceType' - The EC2 instance type of the core and task nodes.
+-- * 'instanceCount' - The number of EC2 instances in the cluster.
+-- * 'emrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the core and task nodes.
+-- * 'additionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the core and task nodes.
+-- * 'ec2SubnetIds' - Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in the optimal subnet.
+-- * 'hadoopVersion' - Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained), "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is used, unless the @AmiVersion@ parameter is set in the RunJobFlow call, in which case the default version of Hadoop for that AMI version is used.
+-- * 'additionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.
+-- * 'emrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.
+-- * 'ec2SubnetId' - Applies to clusters that use the uniform instance group configuration. To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set this parameter to the identifier of the Amazon VPC subnet where you want the cluster to launch. If you do not specify this value and your account supports EC2-Classic, the cluster launches in EC2-Classic.
+-- * 'masterInstanceType' - The EC2 instance type of the master node.
 -- * 'instanceGroups' - Configuration for the instance groups in a cluster.
 -- * 'keepJobFlowAliveWhenNoSteps' - Specifies whether the cluster should remain available after completing all steps.
--- * 'masterInstanceType' - The EC2 instance type of the master node.
--- * 'placement' - The Availability Zone in which the cluster runs.
 -- * 'serviceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR service to access clusters in VPC private subnets.
--- * 'slaveInstanceType' - The EC2 instance type of the core and task nodes.
 -- * 'terminationProtected' - Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being terminated by API call, user intervention, or in the event of a job-flow error.
+-- * 'placement' - The Availability Zone in which the cluster runs.
 mkJobFlowInstancesConfig ::
   JobFlowInstancesConfig
 mkJobFlowInstancesConfig =

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLabelingJobS3DataSource' smart constructor.
 newtype LabelingJobS3DataSource = LabelingJobS3DataSource'
-  { manifestS3URI ::
-      Lude.Text
+  { -- | The Amazon S3 location of the manifest file that describes the input data objects.
+    manifestS3URI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobS3DataSource' with the minimum fields required to make a request.

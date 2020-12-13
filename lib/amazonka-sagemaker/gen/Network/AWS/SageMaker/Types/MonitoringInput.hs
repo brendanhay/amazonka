@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.EndpointInput
 --
 -- /See:/ 'mkMonitoringInput' smart constructor.
 newtype MonitoringInput = MonitoringInput'
-  { endpointInput ::
-      EndpointInput
+  { -- | The endpoint for a monitoring job.
+    endpointInput :: EndpointInput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringInput' with the minimum fields required to make a request.

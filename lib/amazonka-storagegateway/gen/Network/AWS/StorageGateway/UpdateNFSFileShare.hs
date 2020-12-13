@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,6 +40,7 @@ module Network.AWS.StorageGateway.UpdateNFSFileShare
     unfsfsCacheAttributes,
     unfsfsObjectACL,
     unfsfsKMSEncrypted,
+    unfsfsFileShareARN,
     unfsfsDefaultStorageClass,
     unfsfsFileShareName,
     unfsfsNotificationPolicy,
@@ -48,7 +50,6 @@ module Network.AWS.StorageGateway.UpdateNFSFileShare
     unfsfsClientList,
     unfsfsGuessMIMETypeEnabled,
     unfsfsReadOnly,
-    unfsfsFileShareARN,
 
     -- * Destructuring the response
     UpdateNFSFileShareResponse (..),
@@ -70,57 +71,72 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkUpdateNFSFileShare' smart constructor.
 data UpdateNFSFileShare = UpdateNFSFileShare'
-  { kmsKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+    kmsKey :: Lude.Maybe Lude.Text,
+    -- | Refresh cache information.
     cacheAttributes :: Lude.Maybe CacheAttributes,
+    -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
     objectACL :: Lude.Maybe ObjectACL,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
     kmsEncrypted :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the file share to be updated.
+    fileShareARN :: Lude.Text,
+    -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+    --
+    -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
     defaultStorageClass :: Lude.Maybe Lude.Text,
+    -- | The name of the file share. Optional.
     fileShareName :: Lude.Maybe Lude.Text,
+    -- | The notification policy of the file share.
     notificationPolicy :: Lude.Maybe Lude.Text,
+    -- | The user mapped to anonymous user.
+    --
+    -- Valid values are the following:
+    --
+    --     * @RootSquash@ : Only root is mapped to anonymous user.
+    --
+    --
+    --     * @NoSquash@ : No one is mapped to anonymous user.
+    --
+    --
+    --     * @AllSquash@ : Everyone is mapped to anonymous user.
     squash :: Lude.Maybe Lude.Text,
+    -- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+    --
+    -- Valid Values: @true@ | @false@
     requesterPays :: Lude.Maybe Lude.Bool,
-    nFSFileShareDefaults ::
-      Lude.Maybe NFSFileShareDefaults,
+    -- | The default values for the file share. Optional.
+    nFSFileShareDefaults :: Lude.Maybe NFSFileShareDefaults,
+    -- | The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
     clientList :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+    --
+    -- Valid Values: @true@ | @false@
     guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
-    readOnly :: Lude.Maybe Lude.Bool,
-    fileShareARN :: Lude.Text
+    -- | A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+    --
+    -- Valid Values: @true@ | @false@
+    readOnly :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNFSFileShare' with the minimum fields required to make a request.
 --
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
 -- * 'cacheAttributes' - Refresh cache information.
--- * 'clientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
--- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
---
--- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
--- * 'fileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
--- * 'fileShareName' - The name of the file share. Optional.
--- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
---
--- Valid Values: @true@ | @false@
+-- * 'objectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
 -- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
--- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
--- * 'nFSFileShareDefaults' - The default values for the file share. Optional.
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the file share to be updated.
+-- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+--
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- * 'fileShareName' - The name of the file share. Optional.
 -- * 'notificationPolicy' - The notification policy of the file share.
--- * 'objectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
--- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
---
--- Valid Values: @true@ | @false@
--- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
---
--- Valid Values: @true@ | @false@
 -- * 'squash' - The user mapped to anonymous user.
 --
 -- Valid values are the following:
@@ -132,6 +148,19 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 --
 --
 --     * @AllSquash@ : Everyone is mapped to anonymous user.
+--
+--
+-- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- Valid Values: @true@ | @false@
+-- * 'nFSFileShareDefaults' - The default values for the file share. Optional.
+-- * 'clientList' - The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks.
+-- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+--
+-- Valid Values: @true@ | @false@
+-- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set the write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
 mkUpdateNFSFileShare ::
   -- | 'fileShareARN'
   Lude.Text ->
@@ -142,6 +171,7 @@ mkUpdateNFSFileShare pFileShareARN_ =
       cacheAttributes = Lude.Nothing,
       objectACL = Lude.Nothing,
       kmsEncrypted = Lude.Nothing,
+      fileShareARN = pFileShareARN_,
       defaultStorageClass = Lude.Nothing,
       fileShareName = Lude.Nothing,
       notificationPolicy = Lude.Nothing,
@@ -150,8 +180,7 @@ mkUpdateNFSFileShare pFileShareARN_ =
       nFSFileShareDefaults = Lude.Nothing,
       clientList = Lude.Nothing,
       guessMIMETypeEnabled = Lude.Nothing,
-      readOnly = Lude.Nothing,
-      fileShareARN = pFileShareARN_
+      readOnly = Lude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
@@ -183,6 +212,13 @@ unfsfsObjectACL = Lens.lens (objectACL :: UpdateNFSFileShare -> Lude.Maybe Objec
 unfsfsKMSEncrypted :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Bool)
 unfsfsKMSEncrypted = Lens.lens (kmsEncrypted :: UpdateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: UpdateNFSFileShare)
 {-# DEPRECATED unfsfsKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the file share to be updated.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unfsfsFileShareARN :: Lens.Lens' UpdateNFSFileShare Lude.Text
+unfsfsFileShareARN = Lens.lens (fileShareARN :: UpdateNFSFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateNFSFileShare)
+{-# DEPRECATED unfsfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
 -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
@@ -267,13 +303,6 @@ unfsfsReadOnly :: Lens.Lens' UpdateNFSFileShare (Lude.Maybe Lude.Bool)
 unfsfsReadOnly = Lens.lens (readOnly :: UpdateNFSFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: UpdateNFSFileShare)
 {-# DEPRECATED unfsfsReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the file share to be updated.
---
--- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unfsfsFileShareARN :: Lens.Lens' UpdateNFSFileShare Lude.Text
-unfsfsFileShareARN = Lens.lens (fileShareARN :: UpdateNFSFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateNFSFileShare)
-{-# DEPRECATED unfsfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
-
 instance Lude.AWSRequest UpdateNFSFileShare where
   type Rs UpdateNFSFileShare = UpdateNFSFileShareResponse
   request = Req.postJSON storageGatewayService
@@ -303,6 +332,7 @@ instance Lude.ToJSON UpdateNFSFileShare where
             ("CacheAttributes" Lude..=) Lude.<$> cacheAttributes,
             ("ObjectACL" Lude..=) Lude.<$> objectACL,
             ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
+            Lude.Just ("FileShareARN" Lude..= fileShareARN),
             ("DefaultStorageClass" Lude..=) Lude.<$> defaultStorageClass,
             ("FileShareName" Lude..=) Lude.<$> fileShareName,
             ("NotificationPolicy" Lude..=) Lude.<$> notificationPolicy,
@@ -311,8 +341,7 @@ instance Lude.ToJSON UpdateNFSFileShare where
             ("NFSFileShareDefaults" Lude..=) Lude.<$> nFSFileShareDefaults,
             ("ClientList" Lude..=) Lude.<$> clientList,
             ("GuessMIMETypeEnabled" Lude..=) Lude.<$> guessMIMETypeEnabled,
-            ("ReadOnly" Lude..=) Lude.<$> readOnly,
-            Lude.Just ("FileShareARN" Lude..= fileShareARN)
+            ("ReadOnly" Lude..=) Lude.<$> readOnly
           ]
       )
 
@@ -326,17 +355,12 @@ instance Lude.ToQuery UpdateNFSFileShare where
 --
 -- /See:/ 'mkUpdateNFSFileShareResponse' smart constructor.
 data UpdateNFSFileShareResponse = UpdateNFSFileShareResponse'
-  { fileShareARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the updated file share.
+    fileShareARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNFSFileShareResponse' with the minimum fields required to make a request.

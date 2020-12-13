@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Contains information about a key group.
 --
 -- /See:/ 'mkKeyGroupSummary' smart constructor.
-newtype KeyGroupSummary = KeyGroupSummary' {keyGroup :: KeyGroup}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype KeyGroupSummary = KeyGroupSummary'
+  { -- | A key group.
+    keyGroup :: KeyGroup
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyGroupSummary' with the minimum fields required to make a request.

@@ -13,14 +13,14 @@
 module Network.AWS.SES.Types.EventType
   ( EventType
       ( EventType',
-        ETBounce,
-        ETClick,
-        ETComplaint,
-        ETDelivery,
-        ETOpen,
-        ETReject,
-        ETRenderingFailure,
-        ETSend
+        Send,
+        Reject,
+        Bounce,
+        Complaint,
+        Delivery,
+        Open,
+        Click,
+        RenderingFailure
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype EventType = EventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ETBounce :: EventType
-pattern ETBounce = EventType' "bounce"
+pattern Send :: EventType
+pattern Send = EventType' "send"
 
-pattern ETClick :: EventType
-pattern ETClick = EventType' "click"
+pattern Reject :: EventType
+pattern Reject = EventType' "reject"
 
-pattern ETComplaint :: EventType
-pattern ETComplaint = EventType' "complaint"
+pattern Bounce :: EventType
+pattern Bounce = EventType' "bounce"
 
-pattern ETDelivery :: EventType
-pattern ETDelivery = EventType' "delivery"
+pattern Complaint :: EventType
+pattern Complaint = EventType' "complaint"
 
-pattern ETOpen :: EventType
-pattern ETOpen = EventType' "open"
+pattern Delivery :: EventType
+pattern Delivery = EventType' "delivery"
 
-pattern ETReject :: EventType
-pattern ETReject = EventType' "reject"
+pattern Open :: EventType
+pattern Open = EventType' "open"
 
-pattern ETRenderingFailure :: EventType
-pattern ETRenderingFailure = EventType' "renderingFailure"
+pattern Click :: EventType
+pattern Click = EventType' "click"
 
-pattern ETSend :: EventType
-pattern ETSend = EventType' "send"
+pattern RenderingFailure :: EventType
+pattern RenderingFailure = EventType' "renderingFailure"
 
 {-# COMPLETE
-  ETBounce,
-  ETClick,
-  ETComplaint,
-  ETDelivery,
-  ETOpen,
-  ETReject,
-  ETRenderingFailure,
-  ETSend,
+  Send,
+  Reject,
+  Bounce,
+  Complaint,
+  Delivery,
+  Open,
+  Click,
+  RenderingFailure,
   EventType'
   #-}

@@ -13,15 +13,15 @@
 module Network.AWS.DirectConnect.Types.VirtualInterfaceState
   ( VirtualInterfaceState
       ( VirtualInterfaceState',
-        VISAvailable,
         VISConfirming,
-        VISDeleted,
-        VISDeleting,
-        VISDown,
+        VISVerifying,
         VISPending,
+        VISAvailable,
+        VISDown,
+        VISDeleting,
+        VISDeleted,
         VISRejected,
-        VISUnknown,
-        VISVerifying
+        VISUnknown
       ),
   )
 where
@@ -52,23 +52,26 @@ newtype VirtualInterfaceState = VirtualInterfaceState' Lude.Text
       Lude.ToHeader
     )
 
-pattern VISAvailable :: VirtualInterfaceState
-pattern VISAvailable = VirtualInterfaceState' "available"
-
 pattern VISConfirming :: VirtualInterfaceState
 pattern VISConfirming = VirtualInterfaceState' "confirming"
 
-pattern VISDeleted :: VirtualInterfaceState
-pattern VISDeleted = VirtualInterfaceState' "deleted"
+pattern VISVerifying :: VirtualInterfaceState
+pattern VISVerifying = VirtualInterfaceState' "verifying"
 
-pattern VISDeleting :: VirtualInterfaceState
-pattern VISDeleting = VirtualInterfaceState' "deleting"
+pattern VISPending :: VirtualInterfaceState
+pattern VISPending = VirtualInterfaceState' "pending"
+
+pattern VISAvailable :: VirtualInterfaceState
+pattern VISAvailable = VirtualInterfaceState' "available"
 
 pattern VISDown :: VirtualInterfaceState
 pattern VISDown = VirtualInterfaceState' "down"
 
-pattern VISPending :: VirtualInterfaceState
-pattern VISPending = VirtualInterfaceState' "pending"
+pattern VISDeleting :: VirtualInterfaceState
+pattern VISDeleting = VirtualInterfaceState' "deleting"
+
+pattern VISDeleted :: VirtualInterfaceState
+pattern VISDeleted = VirtualInterfaceState' "deleted"
 
 pattern VISRejected :: VirtualInterfaceState
 pattern VISRejected = VirtualInterfaceState' "rejected"
@@ -76,18 +79,15 @@ pattern VISRejected = VirtualInterfaceState' "rejected"
 pattern VISUnknown :: VirtualInterfaceState
 pattern VISUnknown = VirtualInterfaceState' "unknown"
 
-pattern VISVerifying :: VirtualInterfaceState
-pattern VISVerifying = VirtualInterfaceState' "verifying"
-
 {-# COMPLETE
-  VISAvailable,
   VISConfirming,
-  VISDeleted,
-  VISDeleting,
-  VISDown,
+  VISVerifying,
   VISPending,
+  VISAvailable,
+  VISDown,
+  VISDeleting,
+  VISDeleted,
   VISRejected,
   VISUnknown,
-  VISVerifying,
   VirtualInterfaceState'
   #-}

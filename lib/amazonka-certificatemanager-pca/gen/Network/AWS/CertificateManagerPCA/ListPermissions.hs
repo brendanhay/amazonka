@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -59,25 +60,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListPermissions' smart constructor.
 data ListPermissions = ListPermissions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
     certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPermissions' with the minimum fields required to make a request.
 --
--- * 'certificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
--- * 'maxResults' - When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
 -- * 'nextToken' - When paginating results, use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+-- * 'maxResults' - When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
+-- * 'certificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN by calling the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action. This must be of the form: @arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012@ You can get a private CA's ARN by running the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities> action.
 mkListPermissions ::
   -- | 'certificateAuthorityARN'
   Lude.Text ->
@@ -161,18 +158,14 @@ instance Lude.ToQuery ListPermissions where
 
 -- | /See:/ 'mkListPermissionsResponse' smart constructor.
 data ListPermissionsResponse = ListPermissionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Summary information about each permission assigned by the specified private CA, including the action enabled, the policy provided, and the time of creation.
     permissions :: Lude.Maybe [Permission],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPermissionsResponse' with the minimum fields required to make a request.

@@ -30,23 +30,18 @@ import Network.AWS.Shield.Types.AttackVolume
 --
 -- /See:/ 'mkAttackStatisticsDataItem' smart constructor.
 data AttackStatisticsDataItem = AttackStatisticsDataItem'
-  { attackVolume ::
-      Lude.Maybe AttackVolume,
+  { -- | Information about the volume of attacks during the time period. If the accompanying @AttackCount@ is zero, this setting might be empty.
+    attackVolume :: Lude.Maybe AttackVolume,
+    -- | The number of attacks detected during the time period. This is always present, but might be zero.
     attackCount :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackStatisticsDataItem' with the minimum fields required to make a request.
 --
--- * 'attackCount' - The number of attacks detected during the time period. This is always present, but might be zero.
 -- * 'attackVolume' - Information about the volume of attacks during the time period. If the accompanying @AttackCount@ is zero, this setting might be empty.
+-- * 'attackCount' - The number of attacks detected during the time period. This is always present, but might be zero.
 mkAttackStatisticsDataItem ::
   -- | 'attackCount'
   Lude.Integer ->

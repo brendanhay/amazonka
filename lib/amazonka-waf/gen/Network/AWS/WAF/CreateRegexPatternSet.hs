@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,23 +58,18 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkCreateRegexPatternSet' smart constructor.
 data CreateRegexPatternSet = CreateRegexPatternSet'
-  { name ::
-      Lude.Text,
+  { -- | A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+    name :: Lude.Text,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegexPatternSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'name' - A friendly name or description of the 'RegexPatternSet' . You can't change @Name@ after you create a @RegexPatternSet@ .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkCreateRegexPatternSet ::
   -- | 'name'
   Lude.Text ->
@@ -140,25 +136,20 @@ instance Lude.ToQuery CreateRegexPatternSet where
 
 -- | /See:/ 'mkCreateRegexPatternSetResponse' smart constructor.
 data CreateRegexPatternSetResponse = CreateRegexPatternSetResponse'
-  { regexPatternSet ::
-      Lude.Maybe RegexPatternSet,
-    changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A 'RegexPatternSet' that contains no objects.
+    regexPatternSet :: Lude.Maybe RegexPatternSet,
+    -- | The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateRegexPatternSetResponse' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 -- * 'regexPatternSet' - A 'RegexPatternSet' that contains no objects.
+-- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateRegexPatternSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 -- * 'responseStatus' - The response status code.
 mkCreateRegexPatternSetResponse ::
   -- | 'responseStatus'

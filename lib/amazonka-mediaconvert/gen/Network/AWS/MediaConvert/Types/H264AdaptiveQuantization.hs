@@ -13,13 +13,13 @@
 module Network.AWS.MediaConvert.Types.H264AdaptiveQuantization
   ( H264AdaptiveQuantization
       ( H264AdaptiveQuantization',
-        H26Auto,
-        H26High,
-        H26Higher,
-        H26Low,
-        H26Max,
-        H26Medium,
-        H26Off
+        HAQfOff,
+        HAQfAuto,
+        HAQfLow,
+        HAQfMedium,
+        HAQfHigh,
+        HAQfHigher,
+        HAQfMax
       ),
   )
 where
@@ -51,34 +51,34 @@ newtype H264AdaptiveQuantization = H264AdaptiveQuantization' Lude.Text
       Lude.ToHeader
     )
 
-pattern H26Auto :: H264AdaptiveQuantization
-pattern H26Auto = H264AdaptiveQuantization' "AUTO"
+pattern HAQfOff :: H264AdaptiveQuantization
+pattern HAQfOff = H264AdaptiveQuantization' "OFF"
 
-pattern H26High :: H264AdaptiveQuantization
-pattern H26High = H264AdaptiveQuantization' "HIGH"
+pattern HAQfAuto :: H264AdaptiveQuantization
+pattern HAQfAuto = H264AdaptiveQuantization' "AUTO"
 
-pattern H26Higher :: H264AdaptiveQuantization
-pattern H26Higher = H264AdaptiveQuantization' "HIGHER"
+pattern HAQfLow :: H264AdaptiveQuantization
+pattern HAQfLow = H264AdaptiveQuantization' "LOW"
 
-pattern H26Low :: H264AdaptiveQuantization
-pattern H26Low = H264AdaptiveQuantization' "LOW"
+pattern HAQfMedium :: H264AdaptiveQuantization
+pattern HAQfMedium = H264AdaptiveQuantization' "MEDIUM"
 
-pattern H26Max :: H264AdaptiveQuantization
-pattern H26Max = H264AdaptiveQuantization' "MAX"
+pattern HAQfHigh :: H264AdaptiveQuantization
+pattern HAQfHigh = H264AdaptiveQuantization' "HIGH"
 
-pattern H26Medium :: H264AdaptiveQuantization
-pattern H26Medium = H264AdaptiveQuantization' "MEDIUM"
+pattern HAQfHigher :: H264AdaptiveQuantization
+pattern HAQfHigher = H264AdaptiveQuantization' "HIGHER"
 
-pattern H26Off :: H264AdaptiveQuantization
-pattern H26Off = H264AdaptiveQuantization' "OFF"
+pattern HAQfMax :: H264AdaptiveQuantization
+pattern HAQfMax = H264AdaptiveQuantization' "MAX"
 
 {-# COMPLETE
-  H26Auto,
-  H26High,
-  H26Higher,
-  H26Low,
-  H26Max,
-  H26Medium,
-  H26Off,
+  HAQfOff,
+  HAQfAuto,
+  HAQfLow,
+  HAQfMedium,
+  HAQfHigh,
+  HAQfHigher,
+  HAQfMax,
   H264AdaptiveQuantization'
   #-}

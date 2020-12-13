@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
 
     -- ** Request lenses
     ccaIdempotencyToken,
-    ccaRevocationConfiguration,
-    ccaTags,
     ccaCertificateAuthorityConfiguration,
     ccaCertificateAuthorityType,
+    ccaRevocationConfiguration,
+    ccaTags,
 
     -- * Destructuring the response
     CreateCertificateAuthorityResponse (..),
@@ -45,31 +46,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCertificateAuthority' smart constructor.
 data CreateCertificateAuthority = CreateCertificateAuthority'
-  { idempotencyToken ::
-      Lude.Maybe Lude.Text,
-    revocationConfiguration ::
-      Lude.Maybe RevocationConfiguration,
-    tags ::
-      Lude.Maybe (Lude.NonEmpty Tag),
-    certificateAuthorityConfiguration ::
-      CertificateAuthorityConfiguration,
-    certificateAuthorityType ::
-      CertificateAuthorityType
+  { -- | Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
+    idempotencyToken :: Lude.Maybe Lude.Text,
+    -- | Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.
+    certificateAuthorityConfiguration :: CertificateAuthorityConfiguration,
+    -- | The type of the certificate authority.
+    certificateAuthorityType :: CertificateAuthorityType,
+    -- | Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the __CRL Distribution Points__ extension of your CA certificate. For more information, see the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration> structure.
+    revocationConfiguration :: Lude.Maybe RevocationConfiguration,
+    -- | Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificateAuthority' with the minimum fields required to make a request.
 --
+-- * 'idempotencyToken' - Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
 -- * 'certificateAuthorityConfiguration' - Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.
 -- * 'certificateAuthorityType' - The type of the certificate authority.
--- * 'idempotencyToken' - Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
 -- * 'revocationConfiguration' - Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the __CRL Distribution Points__ extension of your CA certificate. For more information, see the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration> structure.
 -- * 'tags' - Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
 mkCreateCertificateAuthority ::
@@ -83,11 +78,11 @@ mkCreateCertificateAuthority
   pCertificateAuthorityType_ =
     CreateCertificateAuthority'
       { idempotencyToken = Lude.Nothing,
-        revocationConfiguration = Lude.Nothing,
-        tags = Lude.Nothing,
         certificateAuthorityConfiguration =
           pCertificateAuthorityConfiguration_,
-        certificateAuthorityType = pCertificateAuthorityType_
+        certificateAuthorityType = pCertificateAuthorityType_,
+        revocationConfiguration = Lude.Nothing,
+        tags = Lude.Nothing
       }
 
 -- | Alphanumeric string that can be used to distinguish between calls to __CreateCertificateAuthority__ . For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent call using the same token, ACM Private CA returns the ARN of the existing CA and takes no further action. If you change the idempotency token across multiple calls, ACM Private CA creates a unique CA for each unique token.
@@ -96,20 +91,6 @@ mkCreateCertificateAuthority
 ccaIdempotencyToken :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe Lude.Text)
 ccaIdempotencyToken = Lens.lens (idempotencyToken :: CreateCertificateAuthority -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateCertificateAuthority)
 {-# DEPRECATED ccaIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
-
--- | Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the __CRL Distribution Points__ extension of your CA certificate. For more information, see the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration> structure.
---
--- /Note:/ Consider using 'revocationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaRevocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe RevocationConfiguration)
-ccaRevocationConfiguration = Lens.lens (revocationConfiguration :: CreateCertificateAuthority -> Lude.Maybe RevocationConfiguration) (\s a -> s {revocationConfiguration = a} :: CreateCertificateAuthority)
-{-# DEPRECATED ccaRevocationConfiguration "Use generic-lens or generic-optics with 'revocationConfiguration' instead." #-}
-
--- | Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaTags :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe (Lude.NonEmpty Tag))
-ccaTags = Lens.lens (tags :: CreateCertificateAuthority -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateCertificateAuthority)
-{-# DEPRECATED ccaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.
 --
@@ -124,6 +105,20 @@ ccaCertificateAuthorityConfiguration = Lens.lens (certificateAuthorityConfigurat
 ccaCertificateAuthorityType :: Lens.Lens' CreateCertificateAuthority CertificateAuthorityType
 ccaCertificateAuthorityType = Lens.lens (certificateAuthorityType :: CreateCertificateAuthority -> CertificateAuthorityType) (\s a -> s {certificateAuthorityType = a} :: CreateCertificateAuthority)
 {-# DEPRECATED ccaCertificateAuthorityType "Use generic-lens or generic-optics with 'certificateAuthorityType' instead." #-}
+
+-- | Contains a Boolean value that you can use to enable a certification revocation list (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the CRL, and an optional CNAME alias that you can use to hide the name of your bucket in the __CRL Distribution Points__ extension of your CA certificate. For more information, see the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration> structure.
+--
+-- /Note:/ Consider using 'revocationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccaRevocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe RevocationConfiguration)
+ccaRevocationConfiguration = Lens.lens (revocationConfiguration :: CreateCertificateAuthority -> Lude.Maybe RevocationConfiguration) (\s a -> s {revocationConfiguration = a} :: CreateCertificateAuthority)
+{-# DEPRECATED ccaRevocationConfiguration "Use generic-lens or generic-optics with 'revocationConfiguration' instead." #-}
+
+-- | Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags> .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccaTags :: Lens.Lens' CreateCertificateAuthority (Lude.Maybe (Lude.NonEmpty Tag))
+ccaTags = Lens.lens (tags :: CreateCertificateAuthority -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateCertificateAuthority)
+{-# DEPRECATED ccaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateCertificateAuthority where
   type
@@ -154,15 +149,15 @@ instance Lude.ToJSON CreateCertificateAuthority where
     Lude.object
       ( Lude.catMaybes
           [ ("IdempotencyToken" Lude..=) Lude.<$> idempotencyToken,
-            ("RevocationConfiguration" Lude..=)
-              Lude.<$> revocationConfiguration,
-            ("Tags" Lude..=) Lude.<$> tags,
             Lude.Just
               ( "CertificateAuthorityConfiguration"
                   Lude..= certificateAuthorityConfiguration
               ),
             Lude.Just
-              ("CertificateAuthorityType" Lude..= certificateAuthorityType)
+              ("CertificateAuthorityType" Lude..= certificateAuthorityType),
+            ("RevocationConfiguration" Lude..=)
+              Lude.<$> revocationConfiguration,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -174,18 +169,14 @@ instance Lude.ToQuery CreateCertificateAuthority where
 
 -- | /See:/ 'mkCreateCertificateAuthorityResponse' smart constructor.
 data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
-  { certificateAuthorityARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This is of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+    certificateAuthorityARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificateAuthorityResponse' with the minimum fields required to make a request.

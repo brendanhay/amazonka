@@ -34,28 +34,27 @@ import Network.AWS.S3.Types.Protocol
 --
 -- /See:/ 'mkRedirect' smart constructor.
 data Redirect = Redirect'
-  { hostName :: Lude.Maybe Lude.Text,
+  { -- | The host name to use in the redirect request.
+    hostName :: Lude.Maybe Lude.Text,
+    -- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
     protocol :: Lude.Maybe Protocol,
+    -- | The HTTP redirect code to use on the response. Not required if one of the siblings is present.
     hTTPRedirectCode :: Lude.Maybe Lude.Text,
+    -- | The specific object key to use in the redirect request. For example, redirect request to @error.html@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
     replaceKeyWith :: Lude.Maybe Lude.Text,
+    -- | The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix @docs/@ (objects in the @docs/@ folder) to @documents/@ , you can set a condition block with @KeyPrefixEquals@ set to @docs/@ and in the Redirect set @ReplaceKeyPrefixWith@ to @/documents@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyWith@ is not provided.
     replaceKeyPrefixWith :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Redirect' with the minimum fields required to make a request.
 --
--- * 'hTTPRedirectCode' - The HTTP redirect code to use on the response. Not required if one of the siblings is present.
 -- * 'hostName' - The host name to use in the redirect request.
 -- * 'protocol' - Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
--- * 'replaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix @docs/@ (objects in the @docs/@ folder) to @documents/@ , you can set a condition block with @KeyPrefixEquals@ set to @docs/@ and in the Redirect set @ReplaceKeyPrefixWith@ to @/documents@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyWith@ is not provided.
+-- * 'hTTPRedirectCode' - The HTTP redirect code to use on the response. Not required if one of the siblings is present.
 -- * 'replaceKeyWith' - The specific object key to use in the redirect request. For example, redirect request to @error.html@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.
+-- * 'replaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix @docs/@ (objects in the @docs/@ folder) to @documents/@ , you can set a condition block with @KeyPrefixEquals@ set to @docs/@ and in the Redirect set @ReplaceKeyPrefixWith@ to @/documents@ . Not required if one of the siblings is present. Can be present only if @ReplaceKeyWith@ is not provided.
 mkRedirect ::
   Redirect
 mkRedirect =

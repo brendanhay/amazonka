@@ -13,10 +13,10 @@
 module Network.AWS.Rekognition.Types.StreamProcessorStatus
   ( StreamProcessorStatus
       ( StreamProcessorStatus',
-        SPSFailed,
-        SPSRunning,
-        SPSStarting,
         SPSStopped,
+        SPSStarting,
+        SPSRunning,
+        SPSFailed,
         SPSStopping
       ),
   )
@@ -48,26 +48,26 @@ newtype StreamProcessorStatus = StreamProcessorStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SPSFailed :: StreamProcessorStatus
-pattern SPSFailed = StreamProcessorStatus' "FAILED"
-
-pattern SPSRunning :: StreamProcessorStatus
-pattern SPSRunning = StreamProcessorStatus' "RUNNING"
+pattern SPSStopped :: StreamProcessorStatus
+pattern SPSStopped = StreamProcessorStatus' "STOPPED"
 
 pattern SPSStarting :: StreamProcessorStatus
 pattern SPSStarting = StreamProcessorStatus' "STARTING"
 
-pattern SPSStopped :: StreamProcessorStatus
-pattern SPSStopped = StreamProcessorStatus' "STOPPED"
+pattern SPSRunning :: StreamProcessorStatus
+pattern SPSRunning = StreamProcessorStatus' "RUNNING"
+
+pattern SPSFailed :: StreamProcessorStatus
+pattern SPSFailed = StreamProcessorStatus' "FAILED"
 
 pattern SPSStopping :: StreamProcessorStatus
 pattern SPSStopping = StreamProcessorStatus' "STOPPING"
 
 {-# COMPLETE
-  SPSFailed,
-  SPSRunning,
-  SPSStarting,
   SPSStopped,
+  SPSStarting,
+  SPSRunning,
+  SPSFailed,
   SPSStopping,
   StreamProcessorStatus'
   #-}

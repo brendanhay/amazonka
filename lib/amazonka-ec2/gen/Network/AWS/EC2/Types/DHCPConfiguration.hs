@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDHCPConfiguration' smart constructor.
 data DHCPConfiguration = DHCPConfiguration'
-  { values ::
-      Lude.Maybe [AttributeValue],
+  { -- | One or more values for the DHCP option.
+    values :: Lude.Maybe [AttributeValue],
+    -- | The name of a DHCP option.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DHCPConfiguration' with the minimum fields required to make a request.
 --
--- * 'key' - The name of a DHCP option.
 -- * 'values' - One or more values for the DHCP option.
+-- * 'key' - The name of a DHCP option.
 mkDHCPConfiguration ::
   DHCPConfiguration
 mkDHCPConfiguration =

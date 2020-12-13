@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ProcessingS3DataDistributionType
   ( ProcessingS3DataDistributionType
       ( ProcessingS3DataDistributionType',
-        PSDDTFullyReplicated,
-        PSDDTShardedByS3Key
+        FullyReplicated,
+        ShardedByS3Key
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ProcessingS3DataDistributionType = ProcessingS3DataDistributionType' Lud
       Lude.ToHeader
     )
 
-pattern PSDDTFullyReplicated :: ProcessingS3DataDistributionType
-pattern PSDDTFullyReplicated = ProcessingS3DataDistributionType' "FullyReplicated"
+pattern FullyReplicated :: ProcessingS3DataDistributionType
+pattern FullyReplicated = ProcessingS3DataDistributionType' "FullyReplicated"
 
-pattern PSDDTShardedByS3Key :: ProcessingS3DataDistributionType
-pattern PSDDTShardedByS3Key = ProcessingS3DataDistributionType' "ShardedByS3Key"
+pattern ShardedByS3Key :: ProcessingS3DataDistributionType
+pattern ShardedByS3Key = ProcessingS3DataDistributionType' "ShardedByS3Key"
 
 {-# COMPLETE
-  PSDDTFullyReplicated,
-  PSDDTShardedByS3Key,
+  FullyReplicated,
+  ShardedByS3Key,
   ProcessingS3DataDistributionType'
   #-}

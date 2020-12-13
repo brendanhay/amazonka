@@ -17,8 +17,8 @@ module Network.AWS.AlexaBusiness.Types.Audio
     mkAudio,
 
     -- * Lenses
-    aLocale,
     aLocation,
+    aLocale,
   )
 where
 
@@ -32,35 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 -- @ffmpeg -i <input-file> -ac 2 -codec:a libmp3lame -b:a 48k -ar 16000 <output-file.mp3>@
 --
 -- /See:/ 'mkAudio' smart constructor.
-data Audio = Audio' {locale :: Locale, location :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Audio = Audio'
+  { -- | The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
+    location :: Lude.Text,
+    -- | The locale of the audio message. Currently, en-US is supported.
+    locale :: Locale
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Audio' with the minimum fields required to make a request.
 --
--- * 'locale' - The locale of the audio message. Currently, en-US is supported.
 -- * 'location' - The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
+-- * 'locale' - The locale of the audio message. Currently, en-US is supported.
 mkAudio ::
-  -- | 'locale'
-  Locale ->
   -- | 'location'
   Lude.Text ->
+  -- | 'locale'
+  Locale ->
   Audio
-mkAudio pLocale_ pLocation_ =
-  Audio' {locale = pLocale_, location = pLocation_}
-
--- | The locale of the audio message. Currently, en-US is supported.
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aLocale :: Lens.Lens' Audio Locale
-aLocale = Lens.lens (locale :: Audio -> Locale) (\s a -> s {locale = a} :: Audio)
-{-# DEPRECATED aLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+mkAudio pLocation_ pLocale_ =
+  Audio' {location = pLocation_, locale = pLocale_}
 
 -- | The location of the audio file. Currently, S3 URLs are supported. Only S3 locations comprised of safe characters are valid. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#Safe%20Characters Safe Characters> .
 --
@@ -69,11 +61,18 @@ aLocation :: Lens.Lens' Audio Lude.Text
 aLocation = Lens.lens (location :: Audio -> Lude.Text) (\s a -> s {location = a} :: Audio)
 {-# DEPRECATED aLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
+-- | The locale of the audio message. Currently, en-US is supported.
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLocale :: Lens.Lens' Audio Locale
+aLocale = Lens.lens (locale :: Audio -> Locale) (\s a -> s {locale = a} :: Audio)
+{-# DEPRECATED aLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
 instance Lude.ToJSON Audio where
   toJSON Audio' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Locale" Lude..= locale),
-            Lude.Just ("Location" Lude..= location)
+          [ Lude.Just ("Location" Lude..= location),
+            Lude.Just ("Locale" Lude..= locale)
           ]
       )

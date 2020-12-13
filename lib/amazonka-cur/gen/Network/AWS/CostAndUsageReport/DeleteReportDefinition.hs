@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteReportDefinition' smart constructor.
 newtype DeleteReportDefinition = DeleteReportDefinition'
-  { reportName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.
+    reportName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReportDefinition' with the minimum fields required to make a request.
@@ -107,22 +102,16 @@ instance Lude.ToQuery DeleteReportDefinition where
 --
 -- /See:/ 'mkDeleteReportDefinitionResponse' smart constructor.
 data DeleteReportDefinitionResponse = DeleteReportDefinitionResponse'
-  { responseMessage ::
-      Lude.Maybe Lude.Text,
+  { responseMessage :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteReportDefinitionResponse' with the minimum fields required to make a request.
 --
--- * 'responseMessage' - Undocumented field.
+-- * 'responseMessage' -
 -- * 'responseStatus' - The response status code.
 mkDeleteReportDefinitionResponse ::
   -- | 'responseStatus'

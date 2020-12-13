@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     mkDownloadDBLogFilePortion,
 
     -- ** Request lenses
+    ddlfpDBInstanceIdentifier,
     ddlfpNumberOfLines,
     ddlfpMarker,
-    ddlfpDBInstanceIdentifier,
     ddlfpLogFileName,
 
     -- * Destructuring the response
@@ -49,19 +50,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDownloadDBLogFilePortion' smart constructor.
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
-  { numberOfLines ::
-      Lude.Maybe Lude.Int,
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The customer-assigned name of the DB instance that contains the log files you want to list.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DBInstance.
     dbInstanceIdentifier :: Lude.Text,
+    -- | The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.
+    --
+    -- If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.
+    --
+    --     * If neither Marker or NumberOfLines are specified, the entire log file is returned up to a maximum of 10000 lines, starting with the most recent log entries first.
+    --
+    --
+    --     * If NumberOfLines is specified and Marker isn't specified, then the most recent lines from the end of the log file are returned.
+    --
+    --
+    --     * If Marker is specified as "0", then the specified number of lines from the beginning of the log file are returned.
+    --
+    --
+    --     * You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.
+    numberOfLines :: Lude.Maybe Lude.Int,
+    -- | The pagination token provided in the previous request or "0". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The name of the log file to be downloaded.
     logFileName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DownloadDBLogFilePortion' with the minimum fields required to make a request.
@@ -73,8 +88,6 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
 --     * Must match the identifier of an existing DBInstance.
 --
 --
--- * 'logFileName' - The name of the log file to be downloaded.
--- * 'marker' - The pagination token provided in the previous request or "0". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines.
 -- * 'numberOfLines' - The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.
 --
 -- If the NumberOfLines parameter is specified, then the block of lines returned can be from the beginning or the end of the log file, depending on the value of the Marker parameter.
@@ -89,6 +102,10 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
 --
 --
 --     * You can download the log file in blocks of lines by specifying the size of the block using the NumberOfLines parameter, and by specifying a value of "0" for the Marker parameter in your first request. Include the Marker value returned in the response as the Marker value for the next request, continuing until the AdditionalDataPending response element returns false.
+--
+--
+-- * 'marker' - The pagination token provided in the previous request or "0". If the Marker parameter is specified the response includes only records beyond the marker until the end of the file or up to NumberOfLines.
+-- * 'logFileName' - The name of the log file to be downloaded.
 mkDownloadDBLogFilePortion ::
   -- | 'dbInstanceIdentifier'
   Lude.Text ->
@@ -97,11 +114,25 @@ mkDownloadDBLogFilePortion ::
   DownloadDBLogFilePortion
 mkDownloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
   DownloadDBLogFilePortion'
-    { numberOfLines = Lude.Nothing,
+    { dbInstanceIdentifier =
+        pDBInstanceIdentifier_,
+      numberOfLines = Lude.Nothing,
       marker = Lude.Nothing,
-      dbInstanceIdentifier = pDBInstanceIdentifier_,
       logFileName = pLogFileName_
     }
+
+-- | The customer-assigned name of the DB instance that contains the log files you want to list.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DBInstance.
+--
+--
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddlfpDBInstanceIdentifier :: Lens.Lens' DownloadDBLogFilePortion Lude.Text
+ddlfpDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DownloadDBLogFilePortion -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DownloadDBLogFilePortion)
+{-# DEPRECATED ddlfpDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 -- | The number of lines to download. If the number of lines specified results in a file over 1 MB in size, the file is truncated at 1 MB in size.
 --
@@ -131,19 +162,6 @@ ddlfpNumberOfLines = Lens.lens (numberOfLines :: DownloadDBLogFilePortion -> Lud
 ddlfpMarker :: Lens.Lens' DownloadDBLogFilePortion (Lude.Maybe Lude.Text)
 ddlfpMarker = Lens.lens (marker :: DownloadDBLogFilePortion -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DownloadDBLogFilePortion)
 {-# DEPRECATED ddlfpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The customer-assigned name of the DB instance that contains the log files you want to list.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBInstance.
---
---
---
--- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfpDBInstanceIdentifier :: Lens.Lens' DownloadDBLogFilePortion Lude.Text
-ddlfpDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DownloadDBLogFilePortion -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DownloadDBLogFilePortion)
-{-# DEPRECATED ddlfpDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 -- | The name of the log file to be downloaded.
 --
@@ -187,9 +205,9 @@ instance Lude.ToQuery DownloadDBLogFilePortion where
     Lude.mconcat
       [ "Action" Lude.=: ("DownloadDBLogFilePortion" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
         "NumberOfLines" Lude.=: numberOfLines,
         "Marker" Lude.=: marker,
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
         "LogFileName" Lude.=: logFileName
       ]
 
@@ -197,28 +215,22 @@ instance Lude.ToQuery DownloadDBLogFilePortion where
 --
 -- /See:/ 'mkDownloadDBLogFilePortionResponse' smart constructor.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-  { logFileData ::
-      Lude.Maybe Lude.Text,
-    additionalDataPending ::
-      Lude.Maybe Lude.Bool,
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Entries from the specified log file.
+    logFileData :: Lude.Maybe Lude.Text,
+    -- | Boolean value that if true, indicates there is more data to be downloaded.
+    additionalDataPending :: Lude.Maybe Lude.Bool,
+    -- | A pagination token that can be used in a later DownloadDBLogFilePortion request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DownloadDBLogFilePortionResponse' with the minimum fields required to make a request.
 --
--- * 'additionalDataPending' - Boolean value that if true, indicates there is more data to be downloaded.
 -- * 'logFileData' - Entries from the specified log file.
+-- * 'additionalDataPending' - Boolean value that if true, indicates there is more data to be downloaded.
 -- * 'marker' - A pagination token that can be used in a later DownloadDBLogFilePortion request.
 -- * 'responseStatus' - The response status code.
 mkDownloadDBLogFilePortionResponse ::

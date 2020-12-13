@@ -157,8 +157,8 @@ module Network.AWS.Cloud9
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * Serialization types
     Lude.Base64 (..),

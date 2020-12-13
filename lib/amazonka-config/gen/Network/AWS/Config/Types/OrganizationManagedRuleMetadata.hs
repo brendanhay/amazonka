@@ -22,9 +22,9 @@ module Network.AWS.Config.Types.OrganizationManagedRuleMetadata
     omrmTagValueScope,
     omrmMaximumExecutionFrequency,
     omrmTagKeyScope,
+    omrmRuleIdentifier,
     omrmResourceTypesScope,
     omrmDescription,
-    omrmRuleIdentifier,
   )
 where
 
@@ -36,42 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationManagedRuleMetadata' smart constructor.
 data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
-  { inputParameters ::
-      Lude.Maybe Lude.Text,
-    resourceIdScope ::
-      Lude.Maybe Lude.Text,
-    tagValueScope ::
-      Lude.Maybe Lude.Text,
-    maximumExecutionFrequency ::
-      Lude.Maybe
-        MaximumExecutionFrequency,
-    tagKeyScope ::
-      Lude.Maybe Lude.Text,
-    resourceTypesScope ::
-      Lude.Maybe [Lude.Text],
-    description ::
-      Lude.Maybe Lude.Text,
-    ruleIdentifier :: Lude.Text
+  { -- | A string, in JSON format, that is passed to organization config rule Lambda function.
+    inputParameters :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS resource that was evaluated.
+    resourceIdScope :: Lude.Maybe Lude.Text,
+    -- | The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+    tagValueScope :: Lude.Maybe Lude.Text,
+    -- | The maximum frequency with which AWS Config runs evaluations for a rule. You are using an AWS managed rule that is triggered at a periodic frequency.
+    maximumExecutionFrequency :: Lude.Maybe MaximumExecutionFrequency,
+    -- | One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+    tagKeyScope :: Lude.Maybe Lude.Text,
+    -- | For organization config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
+    ruleIdentifier :: Lude.Text,
+    -- | The type of the AWS resource that was evaluated.
+    resourceTypesScope :: Lude.Maybe [Lude.Text],
+    -- | The description that you provide for organization config rule.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationManagedRuleMetadata' with the minimum fields required to make a request.
 --
--- * 'description' - The description that you provide for organization config rule.
 -- * 'inputParameters' - A string, in JSON format, that is passed to organization config rule Lambda function.
--- * 'maximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule. You are using an AWS managed rule that is triggered at a periodic frequency.
 -- * 'resourceIdScope' - The ID of the AWS resource that was evaluated.
--- * 'resourceTypesScope' - The type of the AWS resource that was evaluated.
--- * 'ruleIdentifier' - For organization config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
--- * 'tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
 -- * 'tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+-- * 'maximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule. You are using an AWS managed rule that is triggered at a periodic frequency.
+-- * 'tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+-- * 'ruleIdentifier' - For organization config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
+-- * 'resourceTypesScope' - The type of the AWS resource that was evaluated.
+-- * 'description' - The description that you provide for organization config rule.
 mkOrganizationManagedRuleMetadata ::
   -- | 'ruleIdentifier'
   Lude.Text ->
@@ -83,9 +77,9 @@ mkOrganizationManagedRuleMetadata pRuleIdentifier_ =
       tagValueScope = Lude.Nothing,
       maximumExecutionFrequency = Lude.Nothing,
       tagKeyScope = Lude.Nothing,
+      ruleIdentifier = pRuleIdentifier_,
       resourceTypesScope = Lude.Nothing,
-      description = Lude.Nothing,
-      ruleIdentifier = pRuleIdentifier_
+      description = Lude.Nothing
     }
 
 -- | A string, in JSON format, that is passed to organization config rule Lambda function.
@@ -123,6 +117,13 @@ omrmTagKeyScope :: Lens.Lens' OrganizationManagedRuleMetadata (Lude.Maybe Lude.T
 omrmTagKeyScope = Lens.lens (tagKeyScope :: OrganizationManagedRuleMetadata -> Lude.Maybe Lude.Text) (\s a -> s {tagKeyScope = a} :: OrganizationManagedRuleMetadata)
 {-# DEPRECATED omrmTagKeyScope "Use generic-lens or generic-optics with 'tagKeyScope' instead." #-}
 
+-- | For organization config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
+--
+-- /Note:/ Consider using 'ruleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+omrmRuleIdentifier :: Lens.Lens' OrganizationManagedRuleMetadata Lude.Text
+omrmRuleIdentifier = Lens.lens (ruleIdentifier :: OrganizationManagedRuleMetadata -> Lude.Text) (\s a -> s {ruleIdentifier = a} :: OrganizationManagedRuleMetadata)
+{-# DEPRECATED omrmRuleIdentifier "Use generic-lens or generic-optics with 'ruleIdentifier' instead." #-}
+
 -- | The type of the AWS resource that was evaluated.
 --
 -- /Note:/ Consider using 'resourceTypesScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -137,13 +138,6 @@ omrmDescription :: Lens.Lens' OrganizationManagedRuleMetadata (Lude.Maybe Lude.T
 omrmDescription = Lens.lens (description :: OrganizationManagedRuleMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: OrganizationManagedRuleMetadata)
 {-# DEPRECATED omrmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | For organization config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
---
--- /Note:/ Consider using 'ruleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-omrmRuleIdentifier :: Lens.Lens' OrganizationManagedRuleMetadata Lude.Text
-omrmRuleIdentifier = Lens.lens (ruleIdentifier :: OrganizationManagedRuleMetadata -> Lude.Text) (\s a -> s {ruleIdentifier = a} :: OrganizationManagedRuleMetadata)
-{-# DEPRECATED omrmRuleIdentifier "Use generic-lens or generic-optics with 'ruleIdentifier' instead." #-}
-
 instance Lude.FromJSON OrganizationManagedRuleMetadata where
   parseJSON =
     Lude.withObject
@@ -155,9 +149,9 @@ instance Lude.FromJSON OrganizationManagedRuleMetadata where
             Lude.<*> (x Lude..:? "TagValueScope")
             Lude.<*> (x Lude..:? "MaximumExecutionFrequency")
             Lude.<*> (x Lude..:? "TagKeyScope")
+            Lude.<*> (x Lude..: "RuleIdentifier")
             Lude.<*> (x Lude..:? "ResourceTypesScope" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..: "RuleIdentifier")
       )
 
 instance Lude.ToJSON OrganizationManagedRuleMetadata where
@@ -170,8 +164,8 @@ instance Lude.ToJSON OrganizationManagedRuleMetadata where
             ("MaximumExecutionFrequency" Lude..=)
               Lude.<$> maximumExecutionFrequency,
             ("TagKeyScope" Lude..=) Lude.<$> tagKeyScope,
+            Lude.Just ("RuleIdentifier" Lude..= ruleIdentifier),
             ("ResourceTypesScope" Lude..=) Lude.<$> resourceTypesScope,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("RuleIdentifier" Lude..= ruleIdentifier)
+            ("Description" Lude..=) Lude.<$> description
           ]
       )

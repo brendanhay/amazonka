@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddOnRequest' smart constructor.
 data AddOnRequest = AddOnRequest'
-  { autoSnapshotAddOnRequest ::
-      Lude.Maybe AutoSnapshotAddOnRequest,
+  { -- | An object that represents additional parameters when enabling or modifying the automatic snapshot add-on.
+    autoSnapshotAddOnRequest :: Lude.Maybe AutoSnapshotAddOnRequest,
+    -- | The add-on type.
     addOnType :: AddOnType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddOnRequest' with the minimum fields required to make a request.
 --
--- * 'addOnType' - The add-on type.
 -- * 'autoSnapshotAddOnRequest' - An object that represents additional parameters when enabling or modifying the automatic snapshot add-on.
+-- * 'addOnType' - The add-on type.
 mkAddOnRequest ::
   -- | 'addOnType'
   AddOnType ->

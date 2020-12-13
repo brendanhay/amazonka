@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDestinations' smart constructor.
 data DescribeDestinations = DescribeDestinations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
     limit :: Lude.Maybe Lude.Natural,
+    -- | The prefix to match. If you don't specify a value, no prefix filter is applied.
     destinationNamePrefix :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDestinations' with the minimum fields required to make a request.
 --
--- * 'destinationNamePrefix' - The prefix to match. If you don't specify a value, no prefix filter is applied.
--- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- * 'destinationNamePrefix' - The prefix to match. If you don't specify a value, no prefix filter is applied.
 mkDescribeDestinations ::
   DescribeDestinations
 mkDescribeDestinations =
@@ -144,25 +141,19 @@ instance Lude.ToQuery DescribeDestinations where
 
 -- | /See:/ 'mkDescribeDestinationsResponse' smart constructor.
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    destinations ::
-      Lude.Maybe [Destination],
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The destinations.
+    destinations :: Lude.Maybe [Destination],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDestinationsResponse' with the minimum fields required to make a request.
 --
+-- * 'nextToken' -
 -- * 'destinations' - The destinations.
--- * 'nextToken' - Undocumented field.
 -- * 'responseStatus' - The response status code.
 mkDescribeDestinationsResponse ::
   -- | 'responseStatus'

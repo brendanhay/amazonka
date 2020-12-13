@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.CloudSearch.DeleteDomain
     mkDeleteDomain,
 
     -- ** Request lenses
-    dddDomainName,
+    ddDomainName,
 
     -- * Destructuring the response
     DeleteDomainResponse (..),
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | Container for the parameters to the @'DeleteDomain' @ operation. Specifies the name of the domain you want to delete.
 --
 -- /See:/ 'mkDeleteDomain' smart constructor.
-newtype DeleteDomain = DeleteDomain' {domainName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteDomain = DeleteDomain'
+  { -- | The name of the domain you want to permanently delete.
+    domainName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
@@ -63,9 +61,9 @@ mkDeleteDomain pDomainName_ =
 -- | The name of the domain you want to permanently delete.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddDomainName :: Lens.Lens' DeleteDomain Lude.Text
-dddDomainName = Lens.lens (domainName :: DeleteDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteDomain)
-{-# DEPRECATED dddDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+ddDomainName :: Lens.Lens' DeleteDomain Lude.Text
+ddDomainName = Lens.lens (domainName :: DeleteDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteDomain)
+{-# DEPRECATED ddDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest DeleteDomain where
   type Rs DeleteDomain = DeleteDomainResponse
@@ -96,22 +94,16 @@ instance Lude.ToQuery DeleteDomain where
 --
 -- /See:/ 'mkDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  { domainStatus ::
-      Lude.Maybe DomainStatus,
+  { domainStatus :: Lude.Maybe DomainStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
 --
--- * 'domainStatus' - Undocumented field.
+-- * 'domainStatus' -
 -- * 'responseStatus' - The response status code.
 mkDeleteDomainResponse ::
   -- | 'responseStatus'

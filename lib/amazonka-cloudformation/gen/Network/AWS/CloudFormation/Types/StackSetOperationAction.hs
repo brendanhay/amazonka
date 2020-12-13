@@ -13,10 +13,10 @@
 module Network.AWS.CloudFormation.Types.StackSetOperationAction
   ( StackSetOperationAction
       ( StackSetOperationAction',
-        Create,
-        Delete,
-        DetectDrift,
-        Update
+        SSOACreate,
+        SSOAUpdate,
+        SSOADelete,
+        SSOADetectDrift
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype StackSetOperationAction = StackSetOperationAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Create :: StackSetOperationAction
-pattern Create = StackSetOperationAction' "CREATE"
+pattern SSOACreate :: StackSetOperationAction
+pattern SSOACreate = StackSetOperationAction' "CREATE"
 
-pattern Delete :: StackSetOperationAction
-pattern Delete = StackSetOperationAction' "DELETE"
+pattern SSOAUpdate :: StackSetOperationAction
+pattern SSOAUpdate = StackSetOperationAction' "UPDATE"
 
-pattern DetectDrift :: StackSetOperationAction
-pattern DetectDrift = StackSetOperationAction' "DETECT_DRIFT"
+pattern SSOADelete :: StackSetOperationAction
+pattern SSOADelete = StackSetOperationAction' "DELETE"
 
-pattern Update :: StackSetOperationAction
-pattern Update = StackSetOperationAction' "UPDATE"
+pattern SSOADetectDrift :: StackSetOperationAction
+pattern SSOADetectDrift = StackSetOperationAction' "DETECT_DRIFT"
 
 {-# COMPLETE
-  Create,
-  Delete,
-  DetectDrift,
-  Update,
+  SSOACreate,
+  SSOAUpdate,
+  SSOADelete,
+  SSOADetectDrift,
   StackSetOperationAction'
   #-}

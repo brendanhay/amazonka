@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkShard' smart constructor.
 data Shard = Shard'
-  { parentShardId :: Lude.Maybe Lude.Text,
+  { -- | The shard ID of the current shard's parent.
+    parentShardId :: Lude.Maybe Lude.Text,
+    -- | The range of possible sequence numbers for the shard.
     sequenceNumberRange :: Lude.Maybe SequenceNumberRange,
+    -- | The system-generated identifier for this shard.
     shardId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Shard' with the minimum fields required to make a request.

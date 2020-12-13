@@ -31,27 +31,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPointInTimeRecoveryDescription' smart constructor.
 data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
-  { pointInTimeRecoveryStatus ::
-      Lude.Maybe
-        PointInTimeRecoveryStatus,
-    earliestRestorableDateTime ::
-      Lude.Maybe Lude.Timestamp,
-    latestRestorableDateTime ::
-      Lude.Maybe Lude.Timestamp
+  { -- | The current state of point in time recovery:
+    --
+    --
+    --     * @ENABLING@ - Point in time recovery is being enabled.
+    --
+    --
+    --     * @ENABLED@ - Point in time recovery is enabled.
+    --
+    --
+    --     * @DISABLED@ - Point in time recovery is disabled.
+    pointInTimeRecoveryStatus :: Lude.Maybe PointInTimeRecoveryStatus,
+    -- | Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days.
+    earliestRestorableDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | @LatestRestorableDateTime@ is typically 5 minutes before the current time.
+    latestRestorableDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PointInTimeRecoveryDescription' with the minimum fields required to make a request.
 --
--- * 'earliestRestorableDateTime' - Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days.
--- * 'latestRestorableDateTime' - @LatestRestorableDateTime@ is typically 5 minutes before the current time.
 -- * 'pointInTimeRecoveryStatus' - The current state of point in time recovery:
 --
 --
@@ -62,6 +62,10 @@ data PointInTimeRecoveryDescription = PointInTimeRecoveryDescription'
 --
 --
 --     * @DISABLED@ - Point in time recovery is disabled.
+--
+--
+-- * 'earliestRestorableDateTime' - Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days.
+-- * 'latestRestorableDateTime' - @LatestRestorableDateTime@ is typically 5 minutes before the current time.
 mkPointInTimeRecoveryDescription ::
   PointInTimeRecoveryDescription
 mkPointInTimeRecoveryDescription =

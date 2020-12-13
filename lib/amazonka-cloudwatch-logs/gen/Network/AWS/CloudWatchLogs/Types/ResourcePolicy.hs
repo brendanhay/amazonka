@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourcePolicy' smart constructor.
 data ResourcePolicy = ResourcePolicy'
-  { policyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the resource policy.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | The details of the policy.
     policyDocument :: Lude.Maybe Lude.Text,
+    -- | Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     lastUpdatedTime :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourcePolicy' with the minimum fields required to make a request.
 --
--- * 'lastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- * 'policyDocument' - The details of the policy.
 -- * 'policyName' - The name of the resource policy.
+-- * 'policyDocument' - The details of the policy.
+-- * 'lastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 mkResourcePolicy ::
   ResourcePolicy
 mkResourcePolicy =

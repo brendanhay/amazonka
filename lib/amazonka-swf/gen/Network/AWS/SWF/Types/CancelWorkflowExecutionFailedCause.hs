@@ -13,8 +13,8 @@
 module Network.AWS.SWF.Types.CancelWorkflowExecutionFailedCause
   ( CancelWorkflowExecutionFailedCause
       ( CancelWorkflowExecutionFailedCause',
-        COperationNotPermitted,
-        CUnhandledDecision
+        CUnhandledDecision,
+        COperationNotPermitted
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CancelWorkflowExecutionFailedCause = CancelWorkflowExecutionFailedCause'
       Lude.ToHeader
     )
 
-pattern COperationNotPermitted :: CancelWorkflowExecutionFailedCause
-pattern COperationNotPermitted = CancelWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
-
 pattern CUnhandledDecision :: CancelWorkflowExecutionFailedCause
 pattern CUnhandledDecision = CancelWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
+pattern COperationNotPermitted :: CancelWorkflowExecutionFailedCause
+pattern COperationNotPermitted = CancelWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+
 {-# COMPLETE
-  COperationNotPermitted,
   CUnhandledDecision,
+  COperationNotPermitted,
   CancelWorkflowExecutionFailedCause'
   #-}

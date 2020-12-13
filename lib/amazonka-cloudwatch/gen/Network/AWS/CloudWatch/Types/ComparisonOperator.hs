@@ -15,11 +15,11 @@ module Network.AWS.CloudWatch.Types.ComparisonOperator
       ( ComparisonOperator',
         GreaterThanOrEqualToThreshold,
         GreaterThanThreshold,
-        GreaterThanUpperThreshold,
+        LessThanThreshold,
+        LessThanOrEqualToThreshold,
         LessThanLowerOrGreaterThanUpperThreshold,
         LessThanLowerThreshold,
-        LessThanOrEqualToThreshold,
-        LessThanThreshold
+        GreaterThanUpperThreshold
       ),
   )
 where
@@ -56,8 +56,11 @@ pattern GreaterThanOrEqualToThreshold = ComparisonOperator' "GreaterThanOrEqualT
 pattern GreaterThanThreshold :: ComparisonOperator
 pattern GreaterThanThreshold = ComparisonOperator' "GreaterThanThreshold"
 
-pattern GreaterThanUpperThreshold :: ComparisonOperator
-pattern GreaterThanUpperThreshold = ComparisonOperator' "GreaterThanUpperThreshold"
+pattern LessThanThreshold :: ComparisonOperator
+pattern LessThanThreshold = ComparisonOperator' "LessThanThreshold"
+
+pattern LessThanOrEqualToThreshold :: ComparisonOperator
+pattern LessThanOrEqualToThreshold = ComparisonOperator' "LessThanOrEqualToThreshold"
 
 pattern LessThanLowerOrGreaterThanUpperThreshold :: ComparisonOperator
 pattern LessThanLowerOrGreaterThanUpperThreshold = ComparisonOperator' "LessThanLowerOrGreaterThanUpperThreshold"
@@ -65,19 +68,16 @@ pattern LessThanLowerOrGreaterThanUpperThreshold = ComparisonOperator' "LessThan
 pattern LessThanLowerThreshold :: ComparisonOperator
 pattern LessThanLowerThreshold = ComparisonOperator' "LessThanLowerThreshold"
 
-pattern LessThanOrEqualToThreshold :: ComparisonOperator
-pattern LessThanOrEqualToThreshold = ComparisonOperator' "LessThanOrEqualToThreshold"
-
-pattern LessThanThreshold :: ComparisonOperator
-pattern LessThanThreshold = ComparisonOperator' "LessThanThreshold"
+pattern GreaterThanUpperThreshold :: ComparisonOperator
+pattern GreaterThanUpperThreshold = ComparisonOperator' "GreaterThanUpperThreshold"
 
 {-# COMPLETE
   GreaterThanOrEqualToThreshold,
   GreaterThanThreshold,
-  GreaterThanUpperThreshold,
+  LessThanThreshold,
+  LessThanOrEqualToThreshold,
   LessThanLowerOrGreaterThanUpperThreshold,
   LessThanLowerThreshold,
-  LessThanOrEqualToThreshold,
-  LessThanThreshold,
+  GreaterThanUpperThreshold,
   ComparisonOperator'
   #-}

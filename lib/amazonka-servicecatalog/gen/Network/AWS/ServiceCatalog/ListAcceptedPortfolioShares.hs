@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,49 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListAcceptedPortfolioShares' smart constructor.
 data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
-  { portfolioShareType ::
-      Lude.Maybe PortfolioShareType,
-    acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of shared portfolios to list. The default is to list imported portfolios.
+    --
+    --
+    --     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
+    --
+    --
+    --     * @AWS_SERVICECATALOG@ - List default portfolios
+    --
+    --
+    --     * @IMPORTED@ - List imported portfolios
+    portfolioShareType :: Lude.Maybe PortfolioShareType,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAcceptedPortfolioShares' with the minimum fields required to make a request.
+--
+-- * 'portfolioShareType' - The type of shared portfolios to list. The default is to list imported portfolios.
+--
+--
+--     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
+--
+--
+--     * @AWS_SERVICECATALOG@ - List default portfolios
+--
+--
+--     * @IMPORTED@ - List imported portfolios
+--
 --
 -- * 'acceptLanguage' - The language code.
 --
@@ -76,18 +103,8 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 --     * @zh@ - Chinese
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'portfolioShareType' - The type of shared portfolios to list. The default is to list imported portfolios.
---
---
---     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
---
---
---     * @AWS_SERVICECATALOG@ - List default portfolios
---
---
---     * @IMPORTED@ - List imported portfolios
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkListAcceptedPortfolioShares ::
   ListAcceptedPortfolioShares
 mkListAcceptedPortfolioShares =
@@ -203,22 +220,14 @@ instance Lude.ToQuery ListAcceptedPortfolioShares where
 
 -- | /See:/ 'mkListAcceptedPortfolioSharesResponse' smart constructor.
 data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    portfolioDetails ::
-      Lude.Maybe
-        [PortfolioDetail],
-    responseStatus ::
-      Lude.Int
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the portfolios.
+    portfolioDetails :: Lude.Maybe [PortfolioDetail],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAcceptedPortfolioSharesResponse' with the minimum fields required to make a request.

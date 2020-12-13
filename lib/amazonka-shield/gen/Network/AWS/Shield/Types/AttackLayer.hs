@@ -13,8 +13,8 @@
 module Network.AWS.Shield.Types.AttackLayer
   ( AttackLayer
       ( AttackLayer',
-        Application,
-        Network
+        Network,
+        Application
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AttackLayer = AttackLayer' Lude.Text
       Lude.ToHeader
     )
 
-pattern Application :: AttackLayer
-pattern Application = AttackLayer' "APPLICATION"
-
 pattern Network :: AttackLayer
 pattern Network = AttackLayer' "NETWORK"
 
+pattern Application :: AttackLayer
+pattern Application = AttackLayer' "APPLICATION"
+
 {-# COMPLETE
-  Application,
   Network,
+  Application,
   AttackLayer'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation
   ( UpdateDataRetentionOperation
       ( UpdateDataRetentionOperation',
-        DecreaseDataRetention,
-        IncreaseDataRetention
+        IncreaseDataRetention,
+        DecreaseDataRetention
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype UpdateDataRetentionOperation = UpdateDataRetentionOperation' Lude.Text
       Lude.ToHeader
     )
 
-pattern DecreaseDataRetention :: UpdateDataRetentionOperation
-pattern DecreaseDataRetention = UpdateDataRetentionOperation' "DECREASE_DATA_RETENTION"
-
 pattern IncreaseDataRetention :: UpdateDataRetentionOperation
 pattern IncreaseDataRetention = UpdateDataRetentionOperation' "INCREASE_DATA_RETENTION"
 
+pattern DecreaseDataRetention :: UpdateDataRetentionOperation
+pattern DecreaseDataRetention = UpdateDataRetentionOperation' "DECREASE_DATA_RETENTION"
+
 {-# COMPLETE
-  DecreaseDataRetention,
   IncreaseDataRetention,
+  DecreaseDataRetention,
   UpdateDataRetentionOperation'
   #-}

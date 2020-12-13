@@ -28,16 +28,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte27SourceSettings' smart constructor.
 newtype Scte27SourceSettings = Scte27SourceSettings'
-  { pid ::
-      Lude.Maybe Lude.Natural
+  { -- | The pid field is used in conjunction with the caption selector languageCode field as follows:
+    --
+    --   - Specify PID and Language: Extracts captions from that PID; the language is "informational".
+    --   - Specify PID and omit Language: Extracts the specified PID.
+    --   - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be.
+    --   - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
+    pid :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte27SourceSettings' with the minimum fields required to make a request.

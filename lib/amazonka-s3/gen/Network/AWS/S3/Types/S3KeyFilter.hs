@@ -30,21 +30,14 @@ import Network.AWS.S3.Types.FilterRule
 --
 -- /See:/ 'mkS3KeyFilter' smart constructor.
 newtype S3KeyFilter = S3KeyFilter'
-  { filterRules ::
-      Lude.Maybe [FilterRule]
+  { filterRules :: Lude.Maybe [FilterRule]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3KeyFilter' with the minimum fields required to make a request.
 --
--- * 'filterRules' - Undocumented field.
+-- * 'filterRules' -
 mkS3KeyFilter ::
   S3KeyFilter
 mkS3KeyFilter = S3KeyFilter' {filterRules = Lude.Nothing}

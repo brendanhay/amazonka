@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMonetaryAmount' smart constructor.
 data MonetaryAmount = MonetaryAmount'
-  { amount ::
-      Lude.Maybe Lude.Double,
+  { -- | The numerical amount of an offering or transaction.
+    amount :: Lude.Maybe Lude.Double,
+    -- | The currency code of a monetary amount. For example, @USD@ means U.S. dollars.
     currencyCode :: Lude.Maybe CurrencyCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonetaryAmount' with the minimum fields required to make a request.

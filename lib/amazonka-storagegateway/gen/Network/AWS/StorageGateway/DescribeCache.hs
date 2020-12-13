@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,19 +47,15 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkDescribeCache' smart constructor.
-newtype DescribeCache = DescribeCache' {gatewayARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeCache = DescribeCache'
+  { gatewayARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCache' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeCache ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -114,35 +111,34 @@ instance Lude.ToQuery DescribeCache where
 
 -- | /See:/ 'mkDescribeCacheResponse' smart constructor.
 data DescribeCacheResponse = DescribeCacheResponse'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
     diskIds :: Lude.Maybe [Lude.Text],
+    -- | Percent use of the gateway's cache storage. This metric applies only to the gateway-cached volume setup. The sample is taken at the end of the reporting period.
     cacheUsedPercentage :: Lude.Maybe Lude.Double,
+    -- | Percent of application read operations from the file shares that are served from cache. The sample is taken at the end of the reporting period.
     cacheHitPercentage :: Lude.Maybe Lude.Double,
+    -- | Percent of application read operations from the file shares that are not served from cache. The sample is taken at the end of the reporting period.
     cacheMissPercentage :: Lude.Maybe Lude.Double,
-    cacheAllocatedInBytes ::
-      Lude.Maybe Lude.Integer,
+    -- | The amount of cache in bytes allocated to a gateway.
+    cacheAllocatedInBytes :: Lude.Maybe Lude.Integer,
+    -- | The file share's contribution to the overall percentage of the gateway's cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.
     cacheDirtyPercentage :: Lude.Maybe Lude.Double,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCacheResponse' with the minimum fields required to make a request.
 --
--- * 'cacheAllocatedInBytes' - The amount of cache in bytes allocated to a gateway.
--- * 'cacheDirtyPercentage' - The file share's contribution to the overall percentage of the gateway's cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.
+-- * 'gatewayARN' -
+-- * 'diskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
+-- * 'cacheUsedPercentage' - Percent use of the gateway's cache storage. This metric applies only to the gateway-cached volume setup. The sample is taken at the end of the reporting period.
 -- * 'cacheHitPercentage' - Percent of application read operations from the file shares that are served from cache. The sample is taken at the end of the reporting period.
 -- * 'cacheMissPercentage' - Percent of application read operations from the file shares that are not served from cache. The sample is taken at the end of the reporting period.
--- * 'cacheUsedPercentage' - Percent use of the gateway's cache storage. This metric applies only to the gateway-cached volume setup. The sample is taken at the end of the reporting period.
--- * 'diskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
--- * 'gatewayARN' - Undocumented field.
+-- * 'cacheAllocatedInBytes' - The amount of cache in bytes allocated to a gateway.
+-- * 'cacheDirtyPercentage' - The file share's contribution to the overall percentage of the gateway's cache that has not been persisted to AWS. The sample is taken at the end of the reporting period.
 -- * 'responseStatus' - The response status code.
 mkDescribeCacheResponse ::
   -- | 'responseStatus'

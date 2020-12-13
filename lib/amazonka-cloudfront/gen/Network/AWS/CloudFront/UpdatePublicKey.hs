@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdatePublicKey' smart constructor.
 data UpdatePublicKey = UpdatePublicKey'
-  { ifMatch ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the @ETag@ header that you received when retrieving the public key to update. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | A public key configuration.
     publicKeyConfig :: PublicKeyConfig,
+    -- | The identifier of the public key that you are updating.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePublicKey' with the minimum fields required to make a request.
 --
--- * 'id' - The identifier of the public key that you are updating.
 -- * 'ifMatch' - The value of the @ETag@ header that you received when retrieving the public key to update. For example: @E2QWRUHAPOMQZL@ .
 -- * 'publicKeyConfig' - A public key configuration.
+-- * 'id' - The identifier of the public key that you are updating.
 mkUpdatePublicKey ::
   -- | 'publicKeyConfig'
   PublicKeyConfig ->
@@ -126,18 +123,14 @@ instance Lude.ToQuery UpdatePublicKey where
 
 -- | /See:/ 'mkUpdatePublicKeyResponse' smart constructor.
 data UpdatePublicKeyResponse = UpdatePublicKeyResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the current version of the public key.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The public key.
     publicKey :: Lude.Maybe PublicKey,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePublicKeyResponse' with the minimum fields required to make a request.

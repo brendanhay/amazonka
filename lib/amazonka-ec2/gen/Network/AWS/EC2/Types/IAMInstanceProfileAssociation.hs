@@ -34,33 +34,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIAMInstanceProfileAssociation' smart constructor.
 data IAMInstanceProfileAssociation = IAMInstanceProfileAssociation'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    instanceId ::
-      Lude.Maybe Lude.Text,
-    state ::
-      Lude.Maybe
-        IAMInstanceProfileAssociationState,
-    iamInstanceProfile ::
-      Lude.Maybe IAMInstanceProfile,
-    timestamp ::
-      Lude.Maybe Lude.DateTime
+  { -- | The ID of the association.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The state of the association.
+    state :: Lude.Maybe IAMInstanceProfileAssociationState,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Lude.Maybe IAMInstanceProfile,
+    -- | The time the IAM instance profile was associated with the instance.
+    timestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IAMInstanceProfileAssociation' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The ID of the association.
--- * 'iamInstanceProfile' - The IAM instance profile.
 -- * 'instanceId' - The ID of the instance.
 -- * 'state' - The state of the association.
+-- * 'iamInstanceProfile' - The IAM instance profile.
 -- * 'timestamp' - The time the IAM instance profile was associated with the instance.
 mkIAMInstanceProfileAssociation ::
   IAMInstanceProfileAssociation

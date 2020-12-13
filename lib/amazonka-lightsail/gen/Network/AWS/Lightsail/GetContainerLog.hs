@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.Lightsail.GetContainerLog
 
     -- ** Request lenses
     gclStartTime,
+    gclContainerName,
     gclEndTime,
+    gclServiceName,
     gclPageToken,
     gclFilterPattern,
-    gclServiceName,
-    gclContainerName,
 
     -- * Destructuring the response
     GetContainerLogResponse (..),
@@ -47,25 +48,76 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetContainerLog' smart constructor.
 data GetContainerLog = GetContainerLog'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The start of the time interval for which to get log data.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
+    --
+    --
+    -- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the container that is either running or previously ran on the container service for which to return a log.
+    containerName :: Lude.Text,
+    -- | The end of the time interval for which to get log data.
+    --
+    -- Constraints:
+    --
+    --     * Specified in Coordinated Universal Time (UTC).
+    --
+    --
+    --     * Specified in the Unix time format.
+    -- For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify @1538427600@ as the end time.
+    --
+    --
+    -- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
     endTime :: Lude.Maybe Lude.Timestamp,
-    pageToken :: Lude.Maybe Lude.Text,
-    filterPattern :: Lude.Maybe Lude.Text,
+    -- | The name of the container service for which to get a container log.
     serviceName :: Lude.Text,
-    containerName :: Lude.Text
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetContainerLog@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+    pageToken :: Lude.Maybe Lude.Text,
+    -- | The pattern to use to filter the returned log events to a specific term.
+    --
+    -- The following are a few examples of filter patterns that you can specify:
+    --
+    --     * To return all log events, specify a filter pattern of @""@ .
+    --
+    --
+    --     * To exclude log events that contain the @ERROR@ term, and return all other log events, specify a filter pattern of @"-ERROR"@ .
+    --
+    --
+    --     * To return log events that contain the @ERROR@ term, specify a filter pattern of @"ERROR"@ .
+    --
+    --
+    --     * To return log events that contain both the @ERROR@ and @Exception@ terms, specify a filter pattern of @"ERROR Exception"@ .
+    --
+    --
+    --     * To return log events that contain the @ERROR@ /or/ the @Exception@ term, specify a filter pattern of @"?ERROR ?Exception"@ .
+    filterPattern :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerLog' with the minimum fields required to make a request.
 --
+-- * 'startTime' - The start of the time interval for which to get log data.
+--
+-- Constraints:
+--
+--     * Specified in Coordinated Universal Time (UTC).
+--
+--
+--     * Specified in the Unix time format.
+-- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
+--
+--
+-- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
 -- * 'containerName' - The name of the container that is either running or previously ran on the container service for which to return a log.
 -- * 'endTime' - The end of the time interval for which to get log data.
 --
@@ -79,6 +131,10 @@ data GetContainerLog = GetContainerLog'
 --
 --
 -- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
+-- * 'serviceName' - The name of the container service for which to get a container log.
+-- * 'pageToken' - The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetContainerLog@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 -- * 'filterPattern' - The pattern to use to filter the returned log events to a specific term.
 --
 -- The following are a few examples of filter patterns that you can specify:
@@ -96,38 +152,20 @@ data GetContainerLog = GetContainerLog'
 --
 --
 --     * To return log events that contain the @ERROR@ /or/ the @Exception@ term, specify a filter pattern of @"?ERROR ?Exception"@ .
---
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetContainerLog@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
--- * 'serviceName' - The name of the container service for which to get a container log.
--- * 'startTime' - The start of the time interval for which to get log data.
---
--- Constraints:
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * Specified in the Unix time format.
--- For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify @1538424000@ as the start time.
---
---
--- You can convert a human-friendly time to Unix time format using a converter like <https://www.epochconverter.com/ Epoch converter> .
 mkGetContainerLog ::
-  -- | 'serviceName'
-  Lude.Text ->
   -- | 'containerName'
   Lude.Text ->
+  -- | 'serviceName'
+  Lude.Text ->
   GetContainerLog
-mkGetContainerLog pServiceName_ pContainerName_ =
+mkGetContainerLog pContainerName_ pServiceName_ =
   GetContainerLog'
     { startTime = Lude.Nothing,
+      containerName = pContainerName_,
       endTime = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      filterPattern = Lude.Nothing,
       serviceName = pServiceName_,
-      containerName = pContainerName_
+      pageToken = Lude.Nothing,
+      filterPattern = Lude.Nothing
     }
 
 -- | The start of the time interval for which to get log data.
@@ -148,6 +186,13 @@ gclStartTime :: Lens.Lens' GetContainerLog (Lude.Maybe Lude.Timestamp)
 gclStartTime = Lens.lens (startTime :: GetContainerLog -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetContainerLog)
 {-# DEPRECATED gclStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
+-- | The name of the container that is either running or previously ran on the container service for which to return a log.
+--
+-- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gclContainerName :: Lens.Lens' GetContainerLog Lude.Text
+gclContainerName = Lens.lens (containerName :: GetContainerLog -> Lude.Text) (\s a -> s {containerName = a} :: GetContainerLog)
+{-# DEPRECATED gclContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+
 -- | The end of the time interval for which to get log data.
 --
 -- Constraints:
@@ -165,6 +210,13 @@ gclStartTime = Lens.lens (startTime :: GetContainerLog -> Lude.Maybe Lude.Timest
 gclEndTime :: Lens.Lens' GetContainerLog (Lude.Maybe Lude.Timestamp)
 gclEndTime = Lens.lens (endTime :: GetContainerLog -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GetContainerLog)
 {-# DEPRECATED gclEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The name of the container service for which to get a container log.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gclServiceName :: Lens.Lens' GetContainerLog Lude.Text
+gclServiceName = Lens.lens (serviceName :: GetContainerLog -> Lude.Text) (\s a -> s {serviceName = a} :: GetContainerLog)
+{-# DEPRECATED gclServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -200,20 +252,6 @@ gclFilterPattern :: Lens.Lens' GetContainerLog (Lude.Maybe Lude.Text)
 gclFilterPattern = Lens.lens (filterPattern :: GetContainerLog -> Lude.Maybe Lude.Text) (\s a -> s {filterPattern = a} :: GetContainerLog)
 {-# DEPRECATED gclFilterPattern "Use generic-lens or generic-optics with 'filterPattern' instead." #-}
 
--- | The name of the container service for which to get a container log.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gclServiceName :: Lens.Lens' GetContainerLog Lude.Text
-gclServiceName = Lens.lens (serviceName :: GetContainerLog -> Lude.Text) (\s a -> s {serviceName = a} :: GetContainerLog)
-{-# DEPRECATED gclServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
-
--- | The name of the container that is either running or previously ran on the container service for which to return a log.
---
--- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gclContainerName :: Lens.Lens' GetContainerLog Lude.Text
-gclContainerName = Lens.lens (containerName :: GetContainerLog -> Lude.Text) (\s a -> s {containerName = a} :: GetContainerLog)
-{-# DEPRECATED gclContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
-
 instance Lude.AWSRequest GetContainerLog where
   type Rs GetContainerLog = GetContainerLogResponse
   request = Req.postJSON lightsailService
@@ -242,11 +280,11 @@ instance Lude.ToJSON GetContainerLog where
     Lude.object
       ( Lude.catMaybes
           [ ("startTime" Lude..=) Lude.<$> startTime,
+            Lude.Just ("containerName" Lude..= containerName),
             ("endTime" Lude..=) Lude.<$> endTime,
-            ("pageToken" Lude..=) Lude.<$> pageToken,
-            ("filterPattern" Lude..=) Lude.<$> filterPattern,
             Lude.Just ("serviceName" Lude..= serviceName),
-            Lude.Just ("containerName" Lude..= containerName)
+            ("pageToken" Lude..=) Lude.<$> pageToken,
+            ("filterPattern" Lude..=) Lude.<$> filterPattern
           ]
       )
 
@@ -258,28 +296,26 @@ instance Lude.ToQuery GetContainerLog where
 
 -- | /See:/ 'mkGetContainerLogResponse' smart constructor.
 data GetContainerLogResponse = GetContainerLogResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    logEvents ::
-      Lude.Maybe [ContainerServiceLogEvent],
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to display.
+    -- To get the next page of results, perform another @GetContainerLog@ request and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | An array of objects that describe the log events of a container.
+    logEvents :: Lude.Maybe [ContainerServiceLogEvent],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerLogResponse' with the minimum fields required to make a request.
 --
--- * 'logEvents' - An array of objects that describe the log events of a container.
 -- * 'nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to display.
 -- To get the next page of results, perform another @GetContainerLog@ request and specify the next page token using the @pageToken@ parameter.
+-- * 'logEvents' - An array of objects that describe the log events of a container.
 -- * 'responseStatus' - The response status code.
 mkGetContainerLogResponse ::
   -- | 'responseStatus'

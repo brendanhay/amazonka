@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,9 +38,9 @@ module Network.AWS.EC2.CreateDHCPOptions
     mkCreateDHCPOptions,
 
     -- ** Request lenses
+    cdoDHCPConfigurations,
     cdoTagSpecifications,
     cdoDryRun,
-    cdoDHCPConfigurations,
 
     -- * Destructuring the response
     CreateDHCPOptionsResponse (..),
@@ -59,33 +60,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDHCPOptions' smart constructor.
 data CreateDHCPOptions = CreateDHCPOptions'
-  { tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
-    dhcpConfigurations :: [NewDHCPConfiguration]
+  { -- | A DHCP configuration option.
+    dhcpConfigurations :: [NewDHCPConfiguration],
+    -- | The tags to assign to the DHCP option.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDHCPOptions' with the minimum fields required to make a request.
 --
 -- * 'dhcpConfigurations' - A DHCP configuration option.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'tagSpecifications' - The tags to assign to the DHCP option.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateDHCPOptions ::
   CreateDHCPOptions
 mkCreateDHCPOptions =
   CreateDHCPOptions'
-    { tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      dhcpConfigurations = Lude.mempty
+    { dhcpConfigurations = Lude.mempty,
+      tagSpecifications = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
+
+-- | A DHCP configuration option.
+--
+-- /Note:/ Consider using 'dhcpConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdoDHCPConfigurations :: Lens.Lens' CreateDHCPOptions [NewDHCPConfiguration]
+cdoDHCPConfigurations = Lens.lens (dhcpConfigurations :: CreateDHCPOptions -> [NewDHCPConfiguration]) (\s a -> s {dhcpConfigurations = a} :: CreateDHCPOptions)
+{-# DEPRECATED cdoDHCPConfigurations "Use generic-lens or generic-optics with 'dhcpConfigurations' instead." #-}
 
 -- | The tags to assign to the DHCP option.
 --
@@ -100,13 +104,6 @@ cdoTagSpecifications = Lens.lens (tagSpecifications :: CreateDHCPOptions -> Lude
 cdoDryRun :: Lens.Lens' CreateDHCPOptions (Lude.Maybe Lude.Bool)
 cdoDryRun = Lens.lens (dryRun :: CreateDHCPOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateDHCPOptions)
 {-# DEPRECATED cdoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | A DHCP configuration option.
---
--- /Note:/ Consider using 'dhcpConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdoDHCPConfigurations :: Lens.Lens' CreateDHCPOptions [NewDHCPConfiguration]
-cdoDHCPConfigurations = Lens.lens (dhcpConfigurations :: CreateDHCPOptions -> [NewDHCPConfiguration]) (\s a -> s {dhcpConfigurations = a} :: CreateDHCPOptions)
-{-# DEPRECATED cdoDHCPConfigurations "Use generic-lens or generic-optics with 'dhcpConfigurations' instead." #-}
 
 instance Lude.AWSRequest CreateDHCPOptions where
   type Rs CreateDHCPOptions = CreateDHCPOptionsResponse
@@ -129,25 +126,20 @@ instance Lude.ToQuery CreateDHCPOptions where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateDhcpOptions" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQueryList "DhcpConfiguration" dhcpConfigurations,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "DhcpConfiguration" dhcpConfigurations
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateDHCPOptionsResponse' smart constructor.
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
-  { dhcpOptions ::
-      Lude.Maybe DHCPOptions,
+  { -- | A set of DHCP options.
+    dhcpOptions :: Lude.Maybe DHCPOptions,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDHCPOptionsResponse' with the minimum fields required to make a request.

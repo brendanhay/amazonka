@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.LexModels.GetBotAlias
     mkGetBotAlias,
 
     -- ** Request lenses
-    gbasName,
-    gbasBotName,
+    gbaBotName,
+    gbaName,
 
     -- * Destructuring the response
     GetBotAliasResponse (..),
@@ -49,16 +50,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetBotAlias' smart constructor.
 data GetBotAlias = GetBotAlias'
-  { name :: Lude.Text,
-    botName :: Lude.Text
+  { -- | The name of the bot.
+    botName :: Lude.Text,
+    -- | The name of the bot alias. The name is case sensitive.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotAlias' with the minimum fields required to make a request.
@@ -66,27 +63,27 @@ data GetBotAlias = GetBotAlias'
 -- * 'botName' - The name of the bot.
 -- * 'name' - The name of the bot alias. The name is case sensitive.
 mkGetBotAlias ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'botName'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   GetBotAlias
-mkGetBotAlias pName_ pBotName_ =
-  GetBotAlias' {name = pName_, botName = pBotName_}
-
--- | The name of the bot alias. The name is case sensitive.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbasName :: Lens.Lens' GetBotAlias Lude.Text
-gbasName = Lens.lens (name :: GetBotAlias -> Lude.Text) (\s a -> s {name = a} :: GetBotAlias)
-{-# DEPRECATED gbasName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkGetBotAlias pBotName_ pName_ =
+  GetBotAlias' {botName = pBotName_, name = pName_}
 
 -- | The name of the bot.
 --
 -- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbasBotName :: Lens.Lens' GetBotAlias Lude.Text
-gbasBotName = Lens.lens (botName :: GetBotAlias -> Lude.Text) (\s a -> s {botName = a} :: GetBotAlias)
-{-# DEPRECATED gbasBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+gbaBotName :: Lens.Lens' GetBotAlias Lude.Text
+gbaBotName = Lens.lens (botName :: GetBotAlias -> Lude.Text) (\s a -> s {botName = a} :: GetBotAlias)
+{-# DEPRECATED gbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+
+-- | The name of the bot alias. The name is case sensitive.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbaName :: Lens.Lens' GetBotAlias Lude.Text
+gbaName = Lens.lens (name :: GetBotAlias -> Lude.Text) (\s a -> s {name = a} :: GetBotAlias)
+{-# DEPRECATED gbaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetBotAlias where
   type Rs GetBotAlias = GetBotAliasResponse
@@ -125,37 +122,38 @@ instance Lude.ToQuery GetBotAlias where
 
 -- | /See:/ 'mkGetBotAliasResponse' smart constructor.
 data GetBotAliasResponse = GetBotAliasResponse'
-  { checksum ::
-      Lude.Maybe Lude.Text,
+  { -- | Checksum of the bot alias.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The version of the bot that the alias points to.
     botVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the bot that the alias points to.
     botName :: Lude.Maybe Lude.Text,
+    -- | The date that the bot alias was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the bot alias.
     name :: Lude.Maybe Lude.Text,
-    conversationLogs ::
-      Lude.Maybe ConversationLogsResponse,
+    -- | The settings that determine how Amazon Lex uses conversation logs for the alias.
+    conversationLogs :: Lude.Maybe ConversationLogsResponse,
+    -- | The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the bot alias.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBotAliasResponse' with the minimum fields required to make a request.
 --
--- * 'botName' - The name of the bot that the alias points to.
--- * 'botVersion' - The version of the bot that the alias points to.
 -- * 'checksum' - Checksum of the bot alias.
--- * 'conversationLogs' - The settings that determine how Amazon Lex uses conversation logs for the alias.
+-- * 'botVersion' - The version of the bot that the alias points to.
+-- * 'botName' - The name of the bot that the alias points to.
 -- * 'createdDate' - The date that the bot alias was created.
--- * 'description' - A description of the bot alias.
--- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 -- * 'name' - The name of the bot alias.
+-- * 'conversationLogs' - The settings that determine how Amazon Lex uses conversation logs for the alias.
+-- * 'lastUpdatedDate' - The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+-- * 'description' - A description of the bot alias.
 -- * 'responseStatus' - The response status code.
 mkGetBotAliasResponse ::
   -- | 'responseStatus'

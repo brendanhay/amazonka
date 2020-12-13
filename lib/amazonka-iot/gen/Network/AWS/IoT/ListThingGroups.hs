@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListThingGroups' smart constructor.
 data ListThingGroups = ListThingGroups'
-  { namePrefixFilter ::
-      Lude.Maybe Lude.Text,
+  { -- | A filter that limits the results to those with the specified name prefix.
+    namePrefixFilter :: Lude.Maybe Lude.Text,
+    -- | A filter that limits the results to those with the specified parent group.
     parentGroup :: Lude.Maybe Lude.Text,
+    -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | If true, return child groups as well.
     recursive :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingGroups' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'namePrefixFilter' - A filter that limits the results to those with the specified name prefix.
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'parentGroup' - A filter that limits the results to those with the specified parent group.
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'recursive' - If true, return child groups as well.
+-- * 'maxResults' - The maximum number of results to return at one time.
 mkListThingGroups ::
   ListThingGroups
 mkListThingGroups =
@@ -155,25 +154,21 @@ instance Lude.ToQuery ListThingGroups where
 
 -- | /See:/ 'mkListThingGroupsResponse' smart constructor.
 data ListThingGroupsResponse = ListThingGroupsResponse'
-  { thingGroups ::
-      Lude.Maybe [GroupNameAndARN],
+  { -- | The thing groups.
+    thingGroups :: Lude.Maybe [GroupNameAndARN],
+    -- | The token to use to get the next set of results. Will not be returned if operation has returned all results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingGroupsResponse' with the minimum fields required to make a request.
 --
+-- * 'thingGroups' - The thing groups.
 -- * 'nextToken' - The token to use to get the next set of results. Will not be returned if operation has returned all results.
 -- * 'responseStatus' - The response status code.
--- * 'thingGroups' - The thing groups.
 mkListThingGroupsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.DecryptionMode
   ( DecryptionMode
       ( DecryptionMode',
-        DMAESCbc,
         DMAESCtr,
+        DMAESCbc,
         DMAESGCM
       ),
   )
@@ -47,18 +47,18 @@ newtype DecryptionMode = DecryptionMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern DMAESCbc :: DecryptionMode
-pattern DMAESCbc = DecryptionMode' "AES_CBC"
-
 pattern DMAESCtr :: DecryptionMode
 pattern DMAESCtr = DecryptionMode' "AES_CTR"
+
+pattern DMAESCbc :: DecryptionMode
+pattern DMAESCbc = DecryptionMode' "AES_CBC"
 
 pattern DMAESGCM :: DecryptionMode
 pattern DMAESGCM = DecryptionMode' "AES_GCM"
 
 {-# COMPLETE
-  DMAESCbc,
   DMAESCtr,
+  DMAESCbc,
   DMAESGCM,
   DecryptionMode'
   #-}

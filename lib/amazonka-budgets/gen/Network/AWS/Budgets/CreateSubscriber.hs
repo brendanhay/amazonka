@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Budgets.CreateSubscriber
     mkCreateSubscriber,
 
     -- ** Request lenses
+    csSubscriber,
+    csNotification,
     csAccountId,
     csBudgetName,
-    csNotification,
-    csSubscriber,
 
     -- * Destructuring the response
     CreateSubscriberResponse (..),
@@ -43,41 +44,59 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateSubscriber' smart constructor.
 data CreateSubscriber = CreateSubscriber'
-  { accountId :: Lude.Text,
-    budgetName :: Lude.Text,
+  { -- | The subscriber that you want to associate with a budget notification.
+    subscriber :: Subscriber,
+    -- | The notification that you want to create a subscriber for.
     notification :: Notification,
-    subscriber :: Subscriber
+    -- | The @accountId@ that is associated with the budget that you want to create a subscriber for.
+    accountId :: Lude.Text,
+    -- | The name of the budget that you want to subscribe to. Budget names must be unique within an account.
+    budgetName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscriber' with the minimum fields required to make a request.
 --
+-- * 'subscriber' - The subscriber that you want to associate with a budget notification.
+-- * 'notification' - The notification that you want to create a subscriber for.
 -- * 'accountId' - The @accountId@ that is associated with the budget that you want to create a subscriber for.
 -- * 'budgetName' - The name of the budget that you want to subscribe to. Budget names must be unique within an account.
--- * 'notification' - The notification that you want to create a subscriber for.
--- * 'subscriber' - The subscriber that you want to associate with a budget notification.
 mkCreateSubscriber ::
+  -- | 'subscriber'
+  Subscriber ->
+  -- | 'notification'
+  Notification ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'notification'
-  Notification ->
-  -- | 'subscriber'
-  Subscriber ->
   CreateSubscriber
 mkCreateSubscriber
-  pAccountId_
-  pBudgetName_
+  pSubscriber_
   pNotification_
-  pSubscriber_ =
+  pAccountId_
+  pBudgetName_ =
     CreateSubscriber'
-      { accountId = pAccountId_,
-        budgetName = pBudgetName_,
+      { subscriber = pSubscriber_,
         notification = pNotification_,
-        subscriber = pSubscriber_
+        accountId = pAccountId_,
+        budgetName = pBudgetName_
       }
+
+-- | The subscriber that you want to associate with a budget notification.
+--
+-- /Note:/ Consider using 'subscriber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSubscriber :: Lens.Lens' CreateSubscriber Subscriber
+csSubscriber = Lens.lens (subscriber :: CreateSubscriber -> Subscriber) (\s a -> s {subscriber = a} :: CreateSubscriber)
+{-# DEPRECATED csSubscriber "Use generic-lens or generic-optics with 'subscriber' instead." #-}
+
+-- | The notification that you want to create a subscriber for.
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csNotification :: Lens.Lens' CreateSubscriber Notification
+csNotification = Lens.lens (notification :: CreateSubscriber -> Notification) (\s a -> s {notification = a} :: CreateSubscriber)
+{-# DEPRECATED csNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | The @accountId@ that is associated with the budget that you want to create a subscriber for.
 --
@@ -92,20 +111,6 @@ csAccountId = Lens.lens (accountId :: CreateSubscriber -> Lude.Text) (\s a -> s 
 csBudgetName :: Lens.Lens' CreateSubscriber Lude.Text
 csBudgetName = Lens.lens (budgetName :: CreateSubscriber -> Lude.Text) (\s a -> s {budgetName = a} :: CreateSubscriber)
 {-# DEPRECATED csBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
-
--- | The notification that you want to create a subscriber for.
---
--- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csNotification :: Lens.Lens' CreateSubscriber Notification
-csNotification = Lens.lens (notification :: CreateSubscriber -> Notification) (\s a -> s {notification = a} :: CreateSubscriber)
-{-# DEPRECATED csNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
-
--- | The subscriber that you want to associate with a budget notification.
---
--- /Note:/ Consider using 'subscriber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csSubscriber :: Lens.Lens' CreateSubscriber Subscriber
-csSubscriber = Lens.lens (subscriber :: CreateSubscriber -> Subscriber) (\s a -> s {subscriber = a} :: CreateSubscriber)
-{-# DEPRECATED csSubscriber "Use generic-lens or generic-optics with 'subscriber' instead." #-}
 
 instance Lude.AWSRequest CreateSubscriber where
   type Rs CreateSubscriber = CreateSubscriberResponse
@@ -131,10 +136,10 @@ instance Lude.ToJSON CreateSubscriber where
   toJSON CreateSubscriber' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName),
+          [ Lude.Just ("Subscriber" Lude..= subscriber),
             Lude.Just ("Notification" Lude..= notification),
-            Lude.Just ("Subscriber" Lude..= subscriber)
+            Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
@@ -148,16 +153,10 @@ instance Lude.ToQuery CreateSubscriber where
 --
 -- /See:/ 'mkCreateSubscriberResponse' smart constructor.
 newtype CreateSubscriberResponse = CreateSubscriberResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubscriberResponse' with the minimum fields required to make a request.

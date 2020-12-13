@@ -13,11 +13,11 @@
 module Network.AWS.SMS.Types.ConnectorCapability
   ( ConnectorCapability
       ( ConnectorCapability',
-        CCHypervManager,
+        CCVsphere,
         CCScvmm,
-        CCSmsOptimized,
+        CCHypervManager,
         CCSnapshotBatching,
-        CCVsphere
+        CCSmsOptimized
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ConnectorCapability = ConnectorCapability' Lude.Text
       Lude.ToHeader
     )
 
-pattern CCHypervManager :: ConnectorCapability
-pattern CCHypervManager = ConnectorCapability' "HYPERV-MANAGER"
+pattern CCVsphere :: ConnectorCapability
+pattern CCVsphere = ConnectorCapability' "VSPHERE"
 
 pattern CCScvmm :: ConnectorCapability
 pattern CCScvmm = ConnectorCapability' "SCVMM"
 
-pattern CCSmsOptimized :: ConnectorCapability
-pattern CCSmsOptimized = ConnectorCapability' "SMS_OPTIMIZED"
+pattern CCHypervManager :: ConnectorCapability
+pattern CCHypervManager = ConnectorCapability' "HYPERV-MANAGER"
 
 pattern CCSnapshotBatching :: ConnectorCapability
 pattern CCSnapshotBatching = ConnectorCapability' "SNAPSHOT_BATCHING"
 
-pattern CCVsphere :: ConnectorCapability
-pattern CCVsphere = ConnectorCapability' "VSPHERE"
+pattern CCSmsOptimized :: ConnectorCapability
+pattern CCSmsOptimized = ConnectorCapability' "SMS_OPTIMIZED"
 
 {-# COMPLETE
-  CCHypervManager,
-  CCScvmm,
-  CCSmsOptimized,
-  CCSnapshotBatching,
   CCVsphere,
+  CCScvmm,
+  CCHypervManager,
+  CCSnapshotBatching,
+  CCSmsOptimized,
   ConnectorCapability'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.CloudFormation.Types.RegistryType
   ( RegistryType
       ( RegistryType',
-        Module,
-        Resource
+        Resource,
+        Module
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RegistryType = RegistryType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Module :: RegistryType
-pattern Module = RegistryType' "MODULE"
-
 pattern Resource :: RegistryType
 pattern Resource = RegistryType' "RESOURCE"
 
+pattern Module :: RegistryType
+pattern Module = RegistryType' "MODULE"
+
 {-# COMPLETE
-  Module,
   Resource,
+  Module,
   RegistryType'
   #-}

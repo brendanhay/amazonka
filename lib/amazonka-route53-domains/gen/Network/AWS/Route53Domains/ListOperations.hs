@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.Route53Domains.ListOperations
 
     -- ** Response lenses
     lorsNextPageMarker,
-    lorsResponseStatus,
     lorsOperations,
+    lorsResponseStatus,
   )
 where
 
@@ -47,18 +48,16 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | For an initial request for a list of operations, omit this element. If the number of operations that are not yet complete is greater than the value that you specified for @MaxItems@ , you can use @Marker@ to return additional operations. Get the value of @NextPageMarker@ from the previous response, and submit another request that includes the value of @NextPageMarker@ in the @Marker@ element.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Number of domains to be returned.
+    --
+    -- Default: 20
     maxItems :: Lude.Maybe Lude.Int,
+    -- | An optional parameter that lets you get information about all the operations that you submitted after a specified date and time. Specify the date and time in Unix time format and Coordinated Universal time (UTC).
     submittedSince :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOperations' with the minimum fields required to make a request.
@@ -117,8 +116,8 @@ instance Lude.AWSRequest ListOperations where
       ( \s h x ->
           ListOperationsResponse'
             Lude.<$> (x Lude..?> "NextPageMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "Operations" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListOperations where
@@ -152,18 +151,14 @@ instance Lude.ToQuery ListOperations where
 --
 -- /See:/ 'mkListOperationsResponse' smart constructor.
 data ListOperationsResponse = ListOperationsResponse'
-  { nextPageMarker ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    operations :: [OperationSummary]
+  { -- | If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
+    nextPageMarker :: Lude.Maybe Lude.Text,
+    -- | Lists summaries of the operations.
+    operations :: [OperationSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOperationsResponse' with the minimum fields required to make a request.
@@ -178,8 +173,8 @@ mkListOperationsResponse ::
 mkListOperationsResponse pResponseStatus_ =
   ListOperationsResponse'
     { nextPageMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      operations = Lude.mempty
+      operations = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If there are more operations than you specified for @MaxItems@ in the request, submit another request and include the value of @NextPageMarker@ in the value of @Marker@ .
@@ -189,16 +184,16 @@ lorsNextPageMarker :: Lens.Lens' ListOperationsResponse (Lude.Maybe Lude.Text)
 lorsNextPageMarker = Lens.lens (nextPageMarker :: ListOperationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageMarker = a} :: ListOperationsResponse)
 {-# DEPRECATED lorsNextPageMarker "Use generic-lens or generic-optics with 'nextPageMarker' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lorsResponseStatus :: Lens.Lens' ListOperationsResponse Lude.Int
-lorsResponseStatus = Lens.lens (responseStatus :: ListOperationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOperationsResponse)
-{-# DEPRECATED lorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | Lists summaries of the operations.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lorsOperations :: Lens.Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = Lens.lens (operations :: ListOperationsResponse -> [OperationSummary]) (\s a -> s {operations = a} :: ListOperationsResponse)
 {-# DEPRECATED lorsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lorsResponseStatus :: Lens.Lens' ListOperationsResponse Lude.Int
+lorsResponseStatus = Lens.lens (responseStatus :: ListOperationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOperationsResponse)
+{-# DEPRECATED lorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodeCommit.AssociateApprovalRuleTemplateWithRepository
     mkAssociateApprovalRuleTemplateWithRepository,
 
     -- ** Request lenses
-    aartwrApprovalRuleTemplateName,
     aartwrRepositoryName,
+    aartwrApprovalRuleTemplateName,
 
     -- * Destructuring the response
     AssociateApprovalRuleTemplateWithRepositoryResponse (..),
@@ -36,45 +37,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateApprovalRuleTemplateWithRepository' smart constructor.
 data AssociateApprovalRuleTemplateWithRepository = AssociateApprovalRuleTemplateWithRepository'
-  { approvalRuleTemplateName ::
-      Lude.Text,
-    repositoryName ::
-      Lude.Text
+  { -- | The name of the repository that you want to associate with the template.
+    repositoryName :: Lude.Text,
+    -- | The name for the approval rule template.
+    approvalRuleTemplateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateApprovalRuleTemplateWithRepository' with the minimum fields required to make a request.
 --
--- * 'approvalRuleTemplateName' - The name for the approval rule template.
 -- * 'repositoryName' - The name of the repository that you want to associate with the template.
+-- * 'approvalRuleTemplateName' - The name for the approval rule template.
 mkAssociateApprovalRuleTemplateWithRepository ::
-  -- | 'approvalRuleTemplateName'
-  Lude.Text ->
   -- | 'repositoryName'
+  Lude.Text ->
+  -- | 'approvalRuleTemplateName'
   Lude.Text ->
   AssociateApprovalRuleTemplateWithRepository
 mkAssociateApprovalRuleTemplateWithRepository
-  pApprovalRuleTemplateName_
-  pRepositoryName_ =
+  pRepositoryName_
+  pApprovalRuleTemplateName_ =
     AssociateApprovalRuleTemplateWithRepository'
-      { approvalRuleTemplateName =
-          pApprovalRuleTemplateName_,
-        repositoryName = pRepositoryName_
+      { repositoryName =
+          pRepositoryName_,
+        approvalRuleTemplateName =
+          pApprovalRuleTemplateName_
       }
-
--- | The name for the approval rule template.
---
--- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aartwrApprovalRuleTemplateName :: Lens.Lens' AssociateApprovalRuleTemplateWithRepository Lude.Text
-aartwrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: AssociateApprovalRuleTemplateWithRepository -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: AssociateApprovalRuleTemplateWithRepository)
-{-# DEPRECATED aartwrApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
 -- | The name of the repository that you want to associate with the template.
 --
@@ -82,6 +71,13 @@ aartwrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: Associat
 aartwrRepositoryName :: Lens.Lens' AssociateApprovalRuleTemplateWithRepository Lude.Text
 aartwrRepositoryName = Lens.lens (repositoryName :: AssociateApprovalRuleTemplateWithRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: AssociateApprovalRuleTemplateWithRepository)
 {-# DEPRECATED aartwrRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The name for the approval rule template.
+--
+-- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aartwrApprovalRuleTemplateName :: Lens.Lens' AssociateApprovalRuleTemplateWithRepository Lude.Text
+aartwrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: AssociateApprovalRuleTemplateWithRepository -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: AssociateApprovalRuleTemplateWithRepository)
+{-# DEPRECATED aartwrApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -112,9 +108,9 @@ instance Lude.ToJSON AssociateApprovalRuleTemplateWithRepository where
   toJSON AssociateApprovalRuleTemplateWithRepository' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
+          [ Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just
+              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
           ]
       )
 
@@ -126,17 +122,8 @@ instance Lude.ToQuery AssociateApprovalRuleTemplateWithRepository where
 
 -- | /See:/ 'mkAssociateApprovalRuleTemplateWithRepositoryResponse' smart constructor.
 data AssociateApprovalRuleTemplateWithRepositoryResponse = AssociateApprovalRuleTemplateWithRepositoryResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateApprovalRuleTemplateWithRepositoryResponse' with the minimum fields required to make a request.
 mkAssociateApprovalRuleTemplateWithRepositoryResponse ::

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,7 +29,7 @@ module Network.AWS.Athena.StopQueryExecution
     mkStopQueryExecutionResponse,
 
     -- ** Response lenses
-    srsResponseStatus,
+    sqersResponseStatus,
   )
 where
 
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopQueryExecution' smart constructor.
 newtype StopQueryExecution = StopQueryExecution'
-  { queryExecutionId ::
-      Lude.Text
+  { -- | The unique ID of the query execution to stop.
+    queryExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopQueryExecution' with the minimum fields required to make a request.
@@ -104,16 +99,10 @@ instance Lude.ToQuery StopQueryExecution where
 
 -- | /See:/ 'mkStopQueryExecutionResponse' smart constructor.
 newtype StopQueryExecutionResponse = StopQueryExecutionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopQueryExecutionResponse' with the minimum fields required to make a request.
@@ -129,6 +118,6 @@ mkStopQueryExecutionResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopQueryExecutionResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopQueryExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopQueryExecutionResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sqersResponseStatus :: Lens.Lens' StopQueryExecutionResponse Lude.Int
+sqersResponseStatus = Lens.lens (responseStatus :: StopQueryExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopQueryExecutionResponse)
+{-# DEPRECATED sqersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

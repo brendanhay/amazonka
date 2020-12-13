@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceSpecification' smart constructor.
 data InstanceSpecification = InstanceSpecification'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance to specify which volumes should be snapshotted.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Excludes the root volume from being snapshotted.
     excludeBootVolume :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceSpecification' with the minimum fields required to make a request.
 --
--- * 'excludeBootVolume' - Excludes the root volume from being snapshotted.
 -- * 'instanceId' - The instance to specify which volumes should be snapshotted.
+-- * 'excludeBootVolume' - Excludes the root volume from being snapshotted.
 mkInstanceSpecification ::
   InstanceSpecification
 mkInstanceSpecification =

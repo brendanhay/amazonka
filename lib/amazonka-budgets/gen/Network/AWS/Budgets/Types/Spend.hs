@@ -37,14 +37,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 --
 -- /See:/ 'mkSpend' smart constructor.
-data Spend = Spend' {amount :: Lude.Text, unit :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Spend = Spend'
+  { -- | The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.
+    amount :: Lude.Text,
+    -- | The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.
+    unit :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Spend' with the minimum fields required to make a request.

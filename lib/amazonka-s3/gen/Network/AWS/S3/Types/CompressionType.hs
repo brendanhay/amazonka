@@ -13,9 +13,9 @@
 module Network.AWS.S3.Types.CompressionType
   ( CompressionType
       ( CompressionType',
-        CTBZIP2,
+        CTNone,
         CTGzip,
-        CTNone
+        CTBZIP2
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype CompressionType = CompressionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CTBZIP2 :: CompressionType
-pattern CTBZIP2 = CompressionType' "BZIP2"
+pattern CTNone :: CompressionType
+pattern CTNone = CompressionType' "NONE"
 
 pattern CTGzip :: CompressionType
 pattern CTGzip = CompressionType' "GZIP"
 
-pattern CTNone :: CompressionType
-pattern CTNone = CompressionType' "NONE"
+pattern CTBZIP2 :: CompressionType
+pattern CTBZIP2 = CompressionType' "BZIP2"
 
 {-# COMPLETE
-  CTBZIP2,
-  CTGzip,
   CTNone,
+  CTGzip,
+  CTBZIP2,
   CompressionType'
   #-}

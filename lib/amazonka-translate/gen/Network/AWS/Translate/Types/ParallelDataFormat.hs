@@ -13,9 +13,9 @@
 module Network.AWS.Translate.Types.ParallelDataFormat
   ( ParallelDataFormat
       ( ParallelDataFormat',
-        CSV,
-        Tmx,
-        Tsv
+        PDFTsv,
+        PDFCSV,
+        PDFTmx
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ParallelDataFormat = ParallelDataFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSV :: ParallelDataFormat
-pattern CSV = ParallelDataFormat' "CSV"
+pattern PDFTsv :: ParallelDataFormat
+pattern PDFTsv = ParallelDataFormat' "TSV"
 
-pattern Tmx :: ParallelDataFormat
-pattern Tmx = ParallelDataFormat' "TMX"
+pattern PDFCSV :: ParallelDataFormat
+pattern PDFCSV = ParallelDataFormat' "CSV"
 
-pattern Tsv :: ParallelDataFormat
-pattern Tsv = ParallelDataFormat' "TSV"
+pattern PDFTmx :: ParallelDataFormat
+pattern PDFTmx = ParallelDataFormat' "TMX"
 
 {-# COMPLETE
-  CSV,
-  Tmx,
-  Tsv,
+  PDFTsv,
+  PDFCSV,
+  PDFTmx,
   ParallelDataFormat'
   #-}

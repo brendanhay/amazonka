@@ -33,31 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPasswordPolicyType' smart constructor.
 data PasswordPolicyType = PasswordPolicyType'
-  { requireNumbers ::
-      Lude.Maybe Lude.Bool,
+  { -- | In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
+    requireNumbers :: Lude.Maybe Lude.Bool,
+    -- | In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
     requireUppercase :: Lude.Maybe Lude.Bool,
+    -- | In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
     requireLowercase :: Lude.Maybe Lude.Bool,
+    -- | The minimum length of the password policy that you have set. Cannot be less than 6.
     minimumLength :: Lude.Maybe Lude.Natural,
+    -- | In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
     requireSymbols :: Lude.Maybe Lude.Bool,
-    temporaryPasswordValidityDays ::
-      Lude.Maybe Lude.Natural
+    -- | In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+    temporaryPasswordValidityDays :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PasswordPolicyType' with the minimum fields required to make a request.
 --
--- * 'minimumLength' - The minimum length of the password policy that you have set. Cannot be less than 6.
--- * 'requireLowercase' - In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
 -- * 'requireNumbers' - In the password policy that you have set, refers to whether you have required users to use at least one number in their password.
--- * 'requireSymbols' - In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
 -- * 'requireUppercase' - In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.
+-- * 'requireLowercase' - In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.
+-- * 'minimumLength' - The minimum length of the password policy that you have set. Cannot be less than 6.
+-- * 'requireSymbols' - In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.
 -- * 'temporaryPasswordValidityDays' - In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
 mkPasswordPolicyType ::
   PasswordPolicyType

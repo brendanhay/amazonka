@@ -16,15 +16,15 @@ module Network.AWS.MediaConvert.Types.CaptionSourceType
         CSTAncillary,
         CSTDvbSub,
         CSTEmbedded,
-        CSTImsc,
-        CSTNullSource,
         CSTSCTE20,
         CSTScc,
-        CSTSmi,
-        CSTSrt,
+        CSTTtml,
         CSTStl,
+        CSTSrt,
+        CSTSmi,
         CSTTeletext,
-        CSTTtml
+        CSTNullSource,
+        CSTImsc
       ),
   )
 where
@@ -65,45 +65,45 @@ pattern CSTDvbSub = CaptionSourceType' "DVB_SUB"
 pattern CSTEmbedded :: CaptionSourceType
 pattern CSTEmbedded = CaptionSourceType' "EMBEDDED"
 
-pattern CSTImsc :: CaptionSourceType
-pattern CSTImsc = CaptionSourceType' "IMSC"
-
-pattern CSTNullSource :: CaptionSourceType
-pattern CSTNullSource = CaptionSourceType' "NULL_SOURCE"
-
 pattern CSTSCTE20 :: CaptionSourceType
 pattern CSTSCTE20 = CaptionSourceType' "SCTE20"
 
 pattern CSTScc :: CaptionSourceType
 pattern CSTScc = CaptionSourceType' "SCC"
 
-pattern CSTSmi :: CaptionSourceType
-pattern CSTSmi = CaptionSourceType' "SMI"
-
-pattern CSTSrt :: CaptionSourceType
-pattern CSTSrt = CaptionSourceType' "SRT"
+pattern CSTTtml :: CaptionSourceType
+pattern CSTTtml = CaptionSourceType' "TTML"
 
 pattern CSTStl :: CaptionSourceType
 pattern CSTStl = CaptionSourceType' "STL"
 
+pattern CSTSrt :: CaptionSourceType
+pattern CSTSrt = CaptionSourceType' "SRT"
+
+pattern CSTSmi :: CaptionSourceType
+pattern CSTSmi = CaptionSourceType' "SMI"
+
 pattern CSTTeletext :: CaptionSourceType
 pattern CSTTeletext = CaptionSourceType' "TELETEXT"
 
-pattern CSTTtml :: CaptionSourceType
-pattern CSTTtml = CaptionSourceType' "TTML"
+pattern CSTNullSource :: CaptionSourceType
+pattern CSTNullSource = CaptionSourceType' "NULL_SOURCE"
+
+pattern CSTImsc :: CaptionSourceType
+pattern CSTImsc = CaptionSourceType' "IMSC"
 
 {-# COMPLETE
   CSTAncillary,
   CSTDvbSub,
   CSTEmbedded,
-  CSTImsc,
-  CSTNullSource,
   CSTSCTE20,
   CSTScc,
-  CSTSmi,
-  CSTSrt,
-  CSTStl,
-  CSTTeletext,
   CSTTtml,
+  CSTStl,
+  CSTSrt,
+  CSTSmi,
+  CSTTeletext,
+  CSTNullSource,
+  CSTImsc,
   CaptionSourceType'
   #-}

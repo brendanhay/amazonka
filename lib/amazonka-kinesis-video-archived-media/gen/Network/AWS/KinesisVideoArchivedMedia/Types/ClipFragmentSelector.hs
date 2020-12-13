@@ -33,17 +33,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClipFragmentSelector' smart constructor.
 data ClipFragmentSelector = ClipFragmentSelector'
-  { fragmentSelectorType ::
-      ClipFragmentSelectorType,
+  { -- | The origin of the timestamps to use (Server or Producer).
+    fragmentSelectorType :: ClipFragmentSelectorType,
+    -- | The range of timestamps to return.
     timestampRange :: ClipTimestampRange
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClipFragmentSelector' with the minimum fields required to make a request.

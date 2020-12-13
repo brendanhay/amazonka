@@ -33,29 +33,27 @@ import Network.AWS.Shield.Types.AttackVectorDescription
 --
 -- /See:/ 'mkAttackSummary' smart constructor.
 data AttackSummary = AttackSummary'
-  { attackVectors ::
-      Lude.Maybe [AttackVectorDescription],
+  { -- | The list of attacks for a specified time period.
+    attackVectors :: Lude.Maybe [AttackVectorDescription],
+    -- | The unique identifier (ID) of the attack.
     attackId :: Lude.Maybe Lude.Text,
+    -- | The start time of the attack, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN (Amazon Resource Name) of the resource that was attacked.
     resourceARN :: Lude.Maybe Lude.Text,
+    -- | The end time of the attack, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
     endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackSummary' with the minimum fields required to make a request.
 --
--- * 'attackId' - The unique identifier (ID) of the attack.
 -- * 'attackVectors' - The list of attacks for a specified time period.
--- * 'endTime' - The end time of the attack, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
--- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource that was attacked.
+-- * 'attackId' - The unique identifier (ID) of the attack.
 -- * 'startTime' - The start time of the attack, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
+-- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource that was attacked.
+-- * 'endTime' - The end time of the attack, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
 mkAttackSummary ::
   AttackSummary
 mkAttackSummary =

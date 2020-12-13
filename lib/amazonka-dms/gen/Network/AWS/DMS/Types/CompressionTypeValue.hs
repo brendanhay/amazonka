@@ -13,8 +13,8 @@
 module Network.AWS.DMS.Types.CompressionTypeValue
   ( CompressionTypeValue
       ( CompressionTypeValue',
-        CTVGzip,
-        CTVNone
+        CTVNone,
+        CTVGzip
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CompressionTypeValue = CompressionTypeValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern CTVGzip :: CompressionTypeValue
-pattern CTVGzip = CompressionTypeValue' "gzip"
-
 pattern CTVNone :: CompressionTypeValue
 pattern CTVNone = CompressionTypeValue' "none"
 
+pattern CTVGzip :: CompressionTypeValue
+pattern CTVGzip = CompressionTypeValue' "gzip"
+
 {-# COMPLETE
-  CTVGzip,
   CTVNone,
+  CTVGzip,
   CompressionTypeValue'
   #-}

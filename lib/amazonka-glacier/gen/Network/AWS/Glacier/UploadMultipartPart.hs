@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,11 +36,11 @@ module Network.AWS.Glacier.UploadMultipartPart
 
     -- ** Request lenses
     umpChecksum,
-    umpRange,
-    umpAccountId,
     umpVaultName,
-    umpUploadId,
     umpBody,
+    umpAccountId,
+    umpRange,
+    umpUploadId,
 
     -- * Destructuring the response
     UploadMultipartPartResponse (..),
@@ -61,42 +62,47 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUploadMultipartPart' smart constructor.
 data UploadMultipartPart = UploadMultipartPart'
-  { checksum ::
-      Lude.Maybe Lude.Text,
-    range :: Lude.Maybe Lude.Text,
-    accountId :: Lude.Text,
+  { -- | The SHA256 tree hash of the data being uploaded.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The name of the vault.
     vaultName :: Lude.Text,
-    uploadId :: Lude.Text,
-    body :: Lude.HashedBody
+    -- | The data to upload.
+    body :: Lude.HashedBody,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text,
+    -- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
+    range :: Lude.Maybe Lude.Text,
+    -- | The upload ID of the multipart upload.
+    uploadId :: Lude.Text
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'UploadMultipartPart' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'body' - The data to upload.
 -- * 'checksum' - The SHA256 tree hash of the data being uploaded.
+-- * 'vaultName' - The name of the vault.
+-- * 'body' - The data to upload.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'range' - Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
 -- * 'uploadId' - The upload ID of the multipart upload.
--- * 'vaultName' - The name of the vault.
 mkUploadMultipartPart ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
-  Lude.Text ->
-  -- | 'uploadId'
   Lude.Text ->
   -- | 'body'
   Lude.HashedBody ->
+  -- | 'accountId'
+  Lude.Text ->
+  -- | 'uploadId'
+  Lude.Text ->
   UploadMultipartPart
-mkUploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ =
+mkUploadMultipartPart pVaultName_ pBody_ pAccountId_ pUploadId_ =
   UploadMultipartPart'
     { checksum = Lude.Nothing,
-      range = Lude.Nothing,
-      accountId = pAccountId_,
       vaultName = pVaultName_,
-      uploadId = pUploadId_,
-      body = pBody_
+      body = pBody_,
+      accountId = pAccountId_,
+      range = Lude.Nothing,
+      uploadId = pUploadId_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.
@@ -106,12 +112,19 @@ umpChecksum :: Lens.Lens' UploadMultipartPart (Lude.Maybe Lude.Text)
 umpChecksum = Lens.lens (checksum :: UploadMultipartPart -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: UploadMultipartPart)
 {-# DEPRECATED umpChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
--- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpRange :: Lens.Lens' UploadMultipartPart (Lude.Maybe Lude.Text)
-umpRange = Lens.lens (range :: UploadMultipartPart -> Lude.Maybe Lude.Text) (\s a -> s {range = a} :: UploadMultipartPart)
-{-# DEPRECATED umpRange "Use generic-lens or generic-optics with 'range' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpVaultName :: Lens.Lens' UploadMultipartPart Lude.Text
+umpVaultName = Lens.lens (vaultName :: UploadMultipartPart -> Lude.Text) (\s a -> s {vaultName = a} :: UploadMultipartPart)
+{-# DEPRECATED umpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The data to upload.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpBody :: Lens.Lens' UploadMultipartPart Lude.HashedBody
+umpBody = Lens.lens (body :: UploadMultipartPart -> Lude.HashedBody) (\s a -> s {body = a} :: UploadMultipartPart)
+{-# DEPRECATED umpBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
@@ -120,12 +133,12 @@ umpAccountId :: Lens.Lens' UploadMultipartPart Lude.Text
 umpAccountId = Lens.lens (accountId :: UploadMultipartPart -> Lude.Text) (\s a -> s {accountId = a} :: UploadMultipartPart)
 {-# DEPRECATED umpAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | The name of the vault.
+-- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
 --
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpVaultName :: Lens.Lens' UploadMultipartPart Lude.Text
-umpVaultName = Lens.lens (vaultName :: UploadMultipartPart -> Lude.Text) (\s a -> s {vaultName = a} :: UploadMultipartPart)
-{-# DEPRECATED umpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+-- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpRange :: Lens.Lens' UploadMultipartPart (Lude.Maybe Lude.Text)
+umpRange = Lens.lens (range :: UploadMultipartPart -> Lude.Maybe Lude.Text) (\s a -> s {range = a} :: UploadMultipartPart)
+{-# DEPRECATED umpRange "Use generic-lens or generic-optics with 'range' instead." #-}
 
 -- | The upload ID of the multipart upload.
 --
@@ -133,13 +146,6 @@ umpVaultName = Lens.lens (vaultName :: UploadMultipartPart -> Lude.Text) (\s a -
 umpUploadId :: Lens.Lens' UploadMultipartPart Lude.Text
 umpUploadId = Lens.lens (uploadId :: UploadMultipartPart -> Lude.Text) (\s a -> s {uploadId = a} :: UploadMultipartPart)
 {-# DEPRECATED umpUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
-
--- | The data to upload.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpBody :: Lens.Lens' UploadMultipartPart Lude.HashedBody
-umpBody = Lens.lens (body :: UploadMultipartPart -> Lude.HashedBody) (\s a -> s {body = a} :: UploadMultipartPart)
-{-# DEPRECATED umpBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 instance Lude.AWSRequest UploadMultipartPart where
   type Rs UploadMultipartPart = UploadMultipartPartResponse
@@ -180,17 +186,12 @@ instance Lude.ToQuery UploadMultipartPart where
 --
 -- /See:/ 'mkUploadMultipartPartResponse' smart constructor.
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
-  { checksum ::
-      Lude.Maybe Lude.Text,
+  { -- | The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadMultipartPartResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,48 +52,59 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateInput' smart constructor.
 data CreateInput = CreateInput'
-  { requestId :: Lude.Maybe Lude.Text,
+  { -- | Unique identifier of the request to ensure the request is handled
+    --
+    -- exactly once in case of retries.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | Settings for the devices.
     inputDevices :: Lude.Maybe [InputDeviceSettings],
+    -- | The source URLs for a PULL-type input. Every PULL type input needs
+    --
+    -- exactly two source URLs for redundancy.
+    -- Only specify sources for PULL type Inputs. Leave Destinations empty.
     sources :: Lude.Maybe [InputSourceRequest],
+    -- | A list of security groups referenced by IDs to attach to the input.
     inputSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | Destination settings for PUSH type inputs.
     destinations :: Lude.Maybe [InputDestinationRequest],
+    -- | Name of the input.
     name :: Lude.Maybe Lude.Text,
     vpc :: Lude.Maybe InputVPCRequest,
     type' :: Lude.Maybe InputType,
+    -- | A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
+    --
+    -- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+    -- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
     mediaConnectFlows :: Lude.Maybe [MediaConnectFlowRequest],
+    -- | A collection of key-value pairs.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInput' with the minimum fields required to make a request.
 --
--- * 'destinations' - Destination settings for PUSH type inputs.
--- * 'inputDevices' - Settings for the devices.
--- * 'inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
--- * 'mediaConnectFlows' - A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
---
--- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
--- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
--- * 'name' - Name of the input.
 -- * 'requestId' - Unique identifier of the request to ensure the request is handled
 --
 -- exactly once in case of retries.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+-- * 'inputDevices' - Settings for the devices.
 -- * 'sources' - The source URLs for a PULL-type input. Every PULL type input needs
 --
 -- exactly two source URLs for redundancy.
 -- Only specify sources for PULL type Inputs. Leave Destinations empty.
+-- * 'inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
+-- * 'destinations' - Destination settings for PUSH type inputs.
+-- * 'name' - Name of the input.
+-- * 'vpc' -
+-- * 'type'' -
+-- * 'mediaConnectFlows' - A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
+--
+-- Flow and presently, as many as two. The only requirement is when you have more than one is that each Flow is in a
+-- separate Availability Zone as this ensures your EML input is redundant to AZ issues.
 -- * 'tags' - A collection of key-value pairs.
--- * 'type'' - Undocumented field.
--- * 'vpc' - Undocumented field.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
 mkCreateInput ::
   CreateInput
 mkCreateInput =
@@ -242,22 +254,16 @@ instance Lude.ToQuery CreateInput where
 --
 -- /See:/ 'mkCreateInputResponse' smart constructor.
 data CreateInputResponse = CreateInputResponse'
-  { input ::
-      Lude.Maybe Input,
+  { input :: Lude.Maybe Input,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInputResponse' with the minimum fields required to make a request.
 --
--- * 'input' - Undocumented field.
+-- * 'input' -
 -- * 'responseStatus' - The response status code.
 mkCreateInputResponse ::
   -- | 'responseStatus'

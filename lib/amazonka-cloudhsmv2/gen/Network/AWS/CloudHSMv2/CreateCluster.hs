@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +21,10 @@ module Network.AWS.CloudHSMv2.CreateCluster
 
     -- ** Request lenses
     ccBackupRetentionPolicy,
+    ccSubnetIds,
     ccTagList,
     ccSourceBackupId,
     ccHSMType,
-    ccSubnetIds,
 
     -- * Destructuring the response
     CreateClusterResponse (..),
@@ -43,27 +44,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { backupRetentionPolicy ::
-      Lude.Maybe BackupRetentionPolicy,
+  { -- | A policy that defines how the service retains backups.
+    backupRetentionPolicy :: Lude.Maybe BackupRetentionPolicy,
+    -- | The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:
+    --
+    --
+    --     * All subnets must be in the same virtual private cloud (VPC).
+    --
+    --
+    --     * You can specify only one subnet per Availability Zone.
+    subnetIds :: Lude.NonEmpty Lude.Text,
+    -- | Tags to apply to the CloudHSM cluster during creation.
     tagList :: Lude.Maybe [Tag],
+    -- | The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use 'DescribeBackups' .
     sourceBackupId :: Lude.Maybe Lude.Text,
-    hsmType :: Lude.Text,
-    subnetIds :: Lude.NonEmpty Lude.Text
+    -- | The type of HSM to use in the cluster. Currently the only allowed value is @hsm1.medium@ .
+    hsmType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
 -- * 'backupRetentionPolicy' - A policy that defines how the service retains backups.
--- * 'hsmType' - The type of HSM to use in the cluster. Currently the only allowed value is @hsm1.medium@ .
--- * 'sourceBackupId' - The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use 'DescribeBackups' .
 -- * 'subnetIds' - The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:
 --
 --
@@ -74,19 +77,21 @@ data CreateCluster = CreateCluster'
 --
 --
 -- * 'tagList' - Tags to apply to the CloudHSM cluster during creation.
+-- * 'sourceBackupId' - The identifier (ID) of the cluster backup to restore. Use this value to restore the cluster from a backup instead of creating a new cluster. To find the backup ID, use 'DescribeBackups' .
+-- * 'hsmType' - The type of HSM to use in the cluster. Currently the only allowed value is @hsm1.medium@ .
 mkCreateCluster ::
-  -- | 'hsmType'
-  Lude.Text ->
   -- | 'subnetIds'
   Lude.NonEmpty Lude.Text ->
+  -- | 'hsmType'
+  Lude.Text ->
   CreateCluster
-mkCreateCluster pHSMType_ pSubnetIds_ =
+mkCreateCluster pSubnetIds_ pHSMType_ =
   CreateCluster'
     { backupRetentionPolicy = Lude.Nothing,
+      subnetIds = pSubnetIds_,
       tagList = Lude.Nothing,
       sourceBackupId = Lude.Nothing,
-      hsmType = pHSMType_,
-      subnetIds = pSubnetIds_
+      hsmType = pHSMType_
     }
 
 -- | A policy that defines how the service retains backups.
@@ -95,6 +100,21 @@ mkCreateCluster pHSMType_ pSubnetIds_ =
 ccBackupRetentionPolicy :: Lens.Lens' CreateCluster (Lude.Maybe BackupRetentionPolicy)
 ccBackupRetentionPolicy = Lens.lens (backupRetentionPolicy :: CreateCluster -> Lude.Maybe BackupRetentionPolicy) (\s a -> s {backupRetentionPolicy = a} :: CreateCluster)
 {-# DEPRECATED ccBackupRetentionPolicy "Use generic-lens or generic-optics with 'backupRetentionPolicy' instead." #-}
+
+-- | The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:
+--
+--
+--     * All subnets must be in the same virtual private cloud (VPC).
+--
+--
+--     * You can specify only one subnet per Availability Zone.
+--
+--
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccSubnetIds :: Lens.Lens' CreateCluster (Lude.NonEmpty Lude.Text)
+ccSubnetIds = Lens.lens (subnetIds :: CreateCluster -> Lude.NonEmpty Lude.Text) (\s a -> s {subnetIds = a} :: CreateCluster)
+{-# DEPRECATED ccSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | Tags to apply to the CloudHSM cluster during creation.
 --
@@ -116,21 +136,6 @@ ccSourceBackupId = Lens.lens (sourceBackupId :: CreateCluster -> Lude.Maybe Lude
 ccHSMType :: Lens.Lens' CreateCluster Lude.Text
 ccHSMType = Lens.lens (hsmType :: CreateCluster -> Lude.Text) (\s a -> s {hsmType = a} :: CreateCluster)
 {-# DEPRECATED ccHSMType "Use generic-lens or generic-optics with 'hsmType' instead." #-}
-
--- | The identifiers (IDs) of the subnets where you are creating the cluster. You must specify at least one subnet. If you specify multiple subnets, they must meet the following criteria:
---
---
---     * All subnets must be in the same virtual private cloud (VPC).
---
---
---     * You can specify only one subnet per Availability Zone.
---
---
---
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccSubnetIds :: Lens.Lens' CreateCluster (Lude.NonEmpty Lude.Text)
-ccSubnetIds = Lens.lens (subnetIds :: CreateCluster -> Lude.NonEmpty Lude.Text) (\s a -> s {subnetIds = a} :: CreateCluster)
-{-# DEPRECATED ccSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 instance Lude.AWSRequest CreateCluster where
   type Rs CreateCluster = CreateClusterResponse
@@ -158,10 +163,10 @@ instance Lude.ToJSON CreateCluster where
     Lude.object
       ( Lude.catMaybes
           [ ("BackupRetentionPolicy" Lude..=) Lude.<$> backupRetentionPolicy,
+            Lude.Just ("SubnetIds" Lude..= subnetIds),
             ("TagList" Lude..=) Lude.<$> tagList,
             ("SourceBackupId" Lude..=) Lude.<$> sourceBackupId,
-            Lude.Just ("HsmType" Lude..= hsmType),
-            Lude.Just ("SubnetIds" Lude..= subnetIds)
+            Lude.Just ("HsmType" Lude..= hsmType)
           ]
       )
 
@@ -173,17 +178,12 @@ instance Lude.ToQuery CreateCluster where
 
 -- | /See:/ 'mkCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
+  { -- | Information about the cluster that was created.
+    cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.

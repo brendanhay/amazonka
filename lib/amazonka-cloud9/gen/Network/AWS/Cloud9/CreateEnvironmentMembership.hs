@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Cloud9.CreateEnvironmentMembership
     mkCreateEnvironmentMembership,
 
     -- ** Request lenses
-    cemEnvironmentId,
     cemUserARN,
     cemPermissions,
+    cemEnvironmentId,
 
     -- * Destructuring the response
     CreateEnvironmentMembershipResponse (..),
@@ -41,23 +42,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateEnvironmentMembership' smart constructor.
 data CreateEnvironmentMembership = CreateEnvironmentMembership'
-  { environmentId ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the environment member you want to add.
     userARN :: Lude.Text,
-    permissions :: MemberPermissions
+    -- | The type of environment member permissions you want to associate with this environment member. Available values include:
+    --
+    --
+    --     * @read-only@ : Has read-only access to the environment.
+    --
+    --
+    --     * @read-write@ : Has read-write access to the environment.
+    permissions :: MemberPermissions,
+    -- | The ID of the environment that contains the environment member you want to add.
+    environmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEnvironmentMembership' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The ID of the environment that contains the environment member you want to add.
+-- * 'userARN' - The Amazon Resource Name (ARN) of the environment member you want to add.
 -- * 'permissions' - The type of environment member permissions you want to associate with this environment member. Available values include:
 --
 --
@@ -67,31 +70,24 @@ data CreateEnvironmentMembership = CreateEnvironmentMembership'
 --     * @read-write@ : Has read-write access to the environment.
 --
 --
--- * 'userARN' - The Amazon Resource Name (ARN) of the environment member you want to add.
+-- * 'environmentId' - The ID of the environment that contains the environment member you want to add.
 mkCreateEnvironmentMembership ::
-  -- | 'environmentId'
-  Lude.Text ->
   -- | 'userARN'
   Lude.Text ->
   -- | 'permissions'
   MemberPermissions ->
+  -- | 'environmentId'
+  Lude.Text ->
   CreateEnvironmentMembership
 mkCreateEnvironmentMembership
-  pEnvironmentId_
   pUserARN_
-  pPermissions_ =
+  pPermissions_
+  pEnvironmentId_ =
     CreateEnvironmentMembership'
-      { environmentId = pEnvironmentId_,
-        userARN = pUserARN_,
-        permissions = pPermissions_
+      { userARN = pUserARN_,
+        permissions = pPermissions_,
+        environmentId = pEnvironmentId_
       }
-
--- | The ID of the environment that contains the environment member you want to add.
---
--- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cemEnvironmentId :: Lens.Lens' CreateEnvironmentMembership Lude.Text
-cemEnvironmentId = Lens.lens (environmentId :: CreateEnvironmentMembership -> Lude.Text) (\s a -> s {environmentId = a} :: CreateEnvironmentMembership)
-{-# DEPRECATED cemEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the environment member you want to add.
 --
@@ -114,6 +110,13 @@ cemUserARN = Lens.lens (userARN :: CreateEnvironmentMembership -> Lude.Text) (\s
 cemPermissions :: Lens.Lens' CreateEnvironmentMembership MemberPermissions
 cemPermissions = Lens.lens (permissions :: CreateEnvironmentMembership -> MemberPermissions) (\s a -> s {permissions = a} :: CreateEnvironmentMembership)
 {-# DEPRECATED cemPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
+
+-- | The ID of the environment that contains the environment member you want to add.
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cemEnvironmentId :: Lens.Lens' CreateEnvironmentMembership Lude.Text
+cemEnvironmentId = Lens.lens (environmentId :: CreateEnvironmentMembership -> Lude.Text) (\s a -> s {environmentId = a} :: CreateEnvironmentMembership)
+{-# DEPRECATED cemEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 instance Lude.AWSRequest CreateEnvironmentMembership where
   type
@@ -144,9 +147,9 @@ instance Lude.ToJSON CreateEnvironmentMembership where
   toJSON CreateEnvironmentMembership' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("environmentId" Lude..= environmentId),
-            Lude.Just ("userArn" Lude..= userARN),
-            Lude.Just ("permissions" Lude..= permissions)
+          [ Lude.Just ("userArn" Lude..= userARN),
+            Lude.Just ("permissions" Lude..= permissions),
+            Lude.Just ("environmentId" Lude..= environmentId)
           ]
       )
 
@@ -158,19 +161,12 @@ instance Lude.ToQuery CreateEnvironmentMembership where
 
 -- | /See:/ 'mkCreateEnvironmentMembershipResponse' smart constructor.
 data CreateEnvironmentMembershipResponse = CreateEnvironmentMembershipResponse'
-  { membership ::
-      Lude.Maybe
-        EnvironmentMember,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the environment member that was added.
+    membership :: Lude.Maybe EnvironmentMember,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEnvironmentMembershipResponse' with the minimum fields required to make a request.

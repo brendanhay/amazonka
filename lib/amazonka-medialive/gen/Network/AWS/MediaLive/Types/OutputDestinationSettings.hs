@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputDestinationSettings' smart constructor.
 data OutputDestinationSettings = OutputDestinationSettings'
-  { url ::
-      Lude.Maybe Lude.Text,
+  { -- | A URL specifying a destination
+    url :: Lude.Maybe Lude.Text,
+    -- | username for destination
     username :: Lude.Maybe Lude.Text,
+    -- | key used to extract the password from EC2 Parameter store
     passwordParam :: Lude.Maybe Lude.Text,
+    -- | Stream name for RTMP destinations (URLs of type rtmp://)
     streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputDestinationSettings' with the minimum fields required to make a request.
 --
--- * 'passwordParam' - key used to extract the password from EC2 Parameter store
--- * 'streamName' - Stream name for RTMP destinations (URLs of type rtmp://)
 -- * 'url' - A URL specifying a destination
 -- * 'username' - username for destination
+-- * 'passwordParam' - key used to extract the password from EC2 Parameter store
+-- * 'streamName' - Stream name for RTMP destinations (URLs of type rtmp://)
 mkOutputDestinationSettings ::
   OutputDestinationSettings
 mkOutputDestinationSettings =

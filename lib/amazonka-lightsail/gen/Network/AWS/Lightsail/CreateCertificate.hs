@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.Lightsail.CreateCertificate
 
     -- ** Request lenses
     ccSubjectAlternativeNames,
-    ccTags,
     ccCertificateName,
     ccDomainName,
+    ccTags,
 
     -- * Destructuring the response
     CreateCertificateResponse (..),
@@ -46,29 +47,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCertificate' smart constructor.
 data CreateCertificate = CreateCertificate'
-  { subjectAlternativeNames ::
-      Lude.Maybe [Lude.Text],
-    tags :: Lude.Maybe [Tag],
+  { -- | An array of strings that specify the alternate domains (e.g., @example2.com@ ) and subdomains (e.g., @blog.example.com@ ) for the certificate.
+    --
+    -- You can specify a maximum of nine alternate domains (in addition to the primary domain name).
+    -- Wildcard domain entries (e.g., @*.example.com@ ) are not supported.
+    subjectAlternativeNames :: Lude.Maybe [Lude.Text],
+    -- | The name for the certificate.
     certificateName :: Lude.Text,
-    domainName :: Lude.Text
+    -- | The domain name (e.g., @example.com@ ) for the certificate.
+    domainName :: Lude.Text,
+    -- | The tag keys and optional values to add to the certificate during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificate' with the minimum fields required to make a request.
 --
--- * 'certificateName' - The name for the certificate.
--- * 'domainName' - The domain name (e.g., @example.com@ ) for the certificate.
 -- * 'subjectAlternativeNames' - An array of strings that specify the alternate domains (e.g., @example2.com@ ) and subdomains (e.g., @blog.example.com@ ) for the certificate.
 --
 -- You can specify a maximum of nine alternate domains (in addition to the primary domain name).
 -- Wildcard domain entries (e.g., @*.example.com@ ) are not supported.
+-- * 'certificateName' - The name for the certificate.
+-- * 'domainName' - The domain name (e.g., @example.com@ ) for the certificate.
 -- * 'tags' - The tag keys and optional values to add to the certificate during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
@@ -81,9 +84,9 @@ mkCreateCertificate ::
 mkCreateCertificate pCertificateName_ pDomainName_ =
   CreateCertificate'
     { subjectAlternativeNames = Lude.Nothing,
-      tags = Lude.Nothing,
       certificateName = pCertificateName_,
-      domainName = pDomainName_
+      domainName = pDomainName_,
+      tags = Lude.Nothing
     }
 
 -- | An array of strings that specify the alternate domains (e.g., @example2.com@ ) and subdomains (e.g., @blog.example.com@ ) for the certificate.
@@ -95,15 +98,6 @@ mkCreateCertificate pCertificateName_ pDomainName_ =
 ccSubjectAlternativeNames :: Lens.Lens' CreateCertificate (Lude.Maybe [Lude.Text])
 ccSubjectAlternativeNames = Lens.lens (subjectAlternativeNames :: CreateCertificate -> Lude.Maybe [Lude.Text]) (\s a -> s {subjectAlternativeNames = a} :: CreateCertificate)
 {-# DEPRECATED ccSubjectAlternativeNames "Use generic-lens or generic-optics with 'subjectAlternativeNames' instead." #-}
-
--- | The tag keys and optional values to add to the certificate during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTags :: Lens.Lens' CreateCertificate (Lude.Maybe [Tag])
-ccTags = Lens.lens (tags :: CreateCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCertificate)
-{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name for the certificate.
 --
@@ -118,6 +112,15 @@ ccCertificateName = Lens.lens (certificateName :: CreateCertificate -> Lude.Text
 ccDomainName :: Lens.Lens' CreateCertificate Lude.Text
 ccDomainName = Lens.lens (domainName :: CreateCertificate -> Lude.Text) (\s a -> s {domainName = a} :: CreateCertificate)
 {-# DEPRECATED ccDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | The tag keys and optional values to add to the certificate during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTags :: Lens.Lens' CreateCertificate (Lude.Maybe [Tag])
+ccTags = Lens.lens (tags :: CreateCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCertificate)
+{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateCertificate where
   type Rs CreateCertificate = CreateCertificateResponse
@@ -148,9 +151,9 @@ instance Lude.ToJSON CreateCertificate where
       ( Lude.catMaybes
           [ ("subjectAlternativeNames" Lude..=)
               Lude.<$> subjectAlternativeNames,
-            ("tags" Lude..=) Lude.<$> tags,
             Lude.Just ("certificateName" Lude..= certificateName),
-            Lude.Just ("domainName" Lude..= domainName)
+            Lude.Just ("domainName" Lude..= domainName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -162,18 +165,14 @@ instance Lude.ToQuery CreateCertificate where
 
 -- | /See:/ 'mkCreateCertificateResponse' smart constructor.
 data CreateCertificateResponse = CreateCertificateResponse'
-  { certificate ::
-      Lude.Maybe CertificateSummary,
+  { -- | An object that describes the certificate created.
+    certificate :: Lude.Maybe CertificateSummary,
+    -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
     operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCertificateResponse' with the minimum fields required to make a request.

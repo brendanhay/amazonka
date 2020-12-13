@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,8 +33,8 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     mkDescribeDefaultClusterParametersResponse,
 
     -- ** Response lenses
-    ddcprsResponseStatus,
     ddcprsDefaultClusterParameters,
+    ddcprsResponseStatus,
   )
 where
 
@@ -48,20 +49,17 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDefaultClusterParameters' smart constructor.
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    parameterGroupFamily ::
-      Lude.Text
+  { -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeDefaultClusterParameters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+    --
+    -- Default: @100@
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int,
+    -- | The name of the cluster parameter group family.
+    parameterGroupFamily :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDefaultClusterParameters' with the minimum fields required to make a request.
@@ -138,8 +136,8 @@ instance Lude.AWSRequest DescribeDefaultClusterParameters where
       "DescribeDefaultClusterParametersResult"
       ( \s h x ->
           DescribeDefaultClusterParametersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "DefaultClusterParameters")
+            Lude.<$> (x Lude..@ "DefaultClusterParameters")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeDefaultClusterParameters where
@@ -161,45 +159,31 @@ instance Lude.ToQuery DescribeDefaultClusterParameters where
 
 -- | /See:/ 'mkDescribeDefaultClusterParametersResponse' smart constructor.
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-  { responseStatus ::
-      Lude.Int,
-    defaultClusterParameters ::
-      DefaultClusterParameters
+  { defaultClusterParameters :: DefaultClusterParameters,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDefaultClusterParametersResponse' with the minimum fields required to make a request.
 --
--- * 'defaultClusterParameters' - Undocumented field.
+-- * 'defaultClusterParameters' -
 -- * 'responseStatus' - The response status code.
 mkDescribeDefaultClusterParametersResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'defaultClusterParameters'
   DefaultClusterParameters ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDefaultClusterParametersResponse
 mkDescribeDefaultClusterParametersResponse
-  pResponseStatus_
-  pDefaultClusterParameters_ =
+  pDefaultClusterParameters_
+  pResponseStatus_ =
     DescribeDefaultClusterParametersResponse'
-      { responseStatus =
-          pResponseStatus_,
-        defaultClusterParameters = pDefaultClusterParameters_
+      { defaultClusterParameters =
+          pDefaultClusterParameters_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcprsResponseStatus :: Lens.Lens' DescribeDefaultClusterParametersResponse Lude.Int
-ddcprsResponseStatus = Lens.lens (responseStatus :: DescribeDefaultClusterParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDefaultClusterParametersResponse)
-{-# DEPRECATED ddcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -207,3 +191,10 @@ ddcprsResponseStatus = Lens.lens (responseStatus :: DescribeDefaultClusterParame
 ddcprsDefaultClusterParameters :: Lens.Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
 ddcprsDefaultClusterParameters = Lens.lens (defaultClusterParameters :: DescribeDefaultClusterParametersResponse -> DefaultClusterParameters) (\s a -> s {defaultClusterParameters = a} :: DescribeDefaultClusterParametersResponse)
 {-# DEPRECATED ddcprsDefaultClusterParameters "Use generic-lens or generic-optics with 'defaultClusterParameters' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcprsResponseStatus :: Lens.Lens' DescribeDefaultClusterParametersResponse Lude.Int
+ddcprsResponseStatus = Lens.lens (responseStatus :: DescribeDefaultClusterParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDefaultClusterParametersResponse)
+{-# DEPRECATED ddcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

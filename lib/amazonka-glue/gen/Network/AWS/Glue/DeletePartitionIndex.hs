@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,27 +42,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePartitionIndex' smart constructor.
 data DeletePartitionIndex = DeletePartitionIndex'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The catalog ID where the table resides.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of a database from which you want to delete a partition index.
     databaseName :: Lude.Text,
+    -- | Specifies the name of a table from which you want to delete a partition index.
     tableName :: Lude.Text,
+    -- | The name of the partition index to be deleted.
     indexName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartitionIndex' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The catalog ID where the table resides.
 -- * 'databaseName' - Specifies the name of a database from which you want to delete a partition index.
--- * 'indexName' - The name of the partition index to be deleted.
 -- * 'tableName' - Specifies the name of a table from which you want to delete a partition index.
+-- * 'indexName' - The name of the partition index to be deleted.
 mkDeletePartitionIndex ::
   -- | 'databaseName'
   Lude.Text ->
@@ -146,16 +144,10 @@ instance Lude.ToQuery DeletePartitionIndex where
 
 -- | /See:/ 'mkDeletePartitionIndexResponse' smart constructor.
 newtype DeletePartitionIndexResponse = DeletePartitionIndexResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePartitionIndexResponse' with the minimum fields required to make a request.

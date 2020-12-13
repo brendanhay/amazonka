@@ -19,10 +19,10 @@ module Network.AWS.CloudWatchEvents.Types.EcsParameters
     -- * Lenses
     epGroup,
     epPlatformVersion,
+    epTaskDefinitionARN,
     epLaunchType,
     epTaskCount,
     epNetworkConfiguration,
-    epTaskDefinitionARN,
   )
 where
 
@@ -35,34 +35,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEcsParameters' smart constructor.
 data EcsParameters = EcsParameters'
-  { group :: Lude.Maybe Lude.Text,
+  { -- | Specifies an ECS task group for the task. The maximum length is 255 characters.
+    group :: Lude.Maybe Lude.Text,
+    -- | Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as @1.1.0@ .
+    --
+    -- This structure is used only if @LaunchType@ is @FARGATE@ . For more information about valid platform versions, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | The ARN of the task definition to use if the event target is an Amazon ECS task.
+    taskDefinitionARN :: Lude.Text,
+    -- | Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The @FARGATE@ value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html AWS Fargate on Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
     launchType :: Lude.Maybe LaunchType,
+    -- | The number of tasks to create based on @TaskDefinition@ . The default is 1.
     taskCount :: Lude.Maybe Lude.Natural,
-    networkConfiguration :: Lude.Maybe NetworkConfiguration,
-    taskDefinitionARN :: Lude.Text
+    -- | Use this structure if the ECS task uses the @awsvpc@ network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if @LaunchType@ is @FARGATE@ because the @awsvpc@ mode is required for Fargate tasks.
+    --
+    -- If you specify @NetworkConfiguration@ when the target ECS task does not use the @awsvpc@ network mode, the task fails.
+    networkConfiguration :: Lude.Maybe NetworkConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EcsParameters' with the minimum fields required to make a request.
 --
 -- * 'group' - Specifies an ECS task group for the task. The maximum length is 255 characters.
--- * 'launchType' - Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The @FARGATE@ value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html AWS Fargate on Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'networkConfiguration' - Use this structure if the ECS task uses the @awsvpc@ network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if @LaunchType@ is @FARGATE@ because the @awsvpc@ mode is required for Fargate tasks.
---
--- If you specify @NetworkConfiguration@ when the target ECS task does not use the @awsvpc@ network mode, the task fails.
 -- * 'platformVersion' - Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as @1.1.0@ .
 --
 -- This structure is used only if @LaunchType@ is @FARGATE@ . For more information about valid platform versions, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'taskCount' - The number of tasks to create based on @TaskDefinition@ . The default is 1.
 -- * 'taskDefinitionARN' - The ARN of the task definition to use if the event target is an Amazon ECS task.
+-- * 'launchType' - Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The @FARGATE@ value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html AWS Fargate on Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'taskCount' - The number of tasks to create based on @TaskDefinition@ . The default is 1.
+-- * 'networkConfiguration' - Use this structure if the ECS task uses the @awsvpc@ network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if @LaunchType@ is @FARGATE@ because the @awsvpc@ mode is required for Fargate tasks.
+--
+-- If you specify @NetworkConfiguration@ when the target ECS task does not use the @awsvpc@ network mode, the task fails.
 mkEcsParameters ::
   -- | 'taskDefinitionARN'
   Lude.Text ->
@@ -71,10 +75,10 @@ mkEcsParameters pTaskDefinitionARN_ =
   EcsParameters'
     { group = Lude.Nothing,
       platformVersion = Lude.Nothing,
+      taskDefinitionARN = pTaskDefinitionARN_,
       launchType = Lude.Nothing,
       taskCount = Lude.Nothing,
-      networkConfiguration = Lude.Nothing,
-      taskDefinitionARN = pTaskDefinitionARN_
+      networkConfiguration = Lude.Nothing
     }
 
 -- | Specifies an ECS task group for the task. The maximum length is 255 characters.
@@ -92,6 +96,13 @@ epGroup = Lens.lens (group :: EcsParameters -> Lude.Maybe Lude.Text) (\s a -> s 
 epPlatformVersion :: Lens.Lens' EcsParameters (Lude.Maybe Lude.Text)
 epPlatformVersion = Lens.lens (platformVersion :: EcsParameters -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: EcsParameters)
 {-# DEPRECATED epPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
+
+-- | The ARN of the task definition to use if the event target is an Amazon ECS task.
+--
+-- /Note:/ Consider using 'taskDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epTaskDefinitionARN :: Lens.Lens' EcsParameters Lude.Text
+epTaskDefinitionARN = Lens.lens (taskDefinitionARN :: EcsParameters -> Lude.Text) (\s a -> s {taskDefinitionARN = a} :: EcsParameters)
+{-# DEPRECATED epTaskDefinitionARN "Use generic-lens or generic-optics with 'taskDefinitionARN' instead." #-}
 
 -- | Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The @FARGATE@ value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html AWS Fargate on Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
 --
@@ -116,13 +127,6 @@ epNetworkConfiguration :: Lens.Lens' EcsParameters (Lude.Maybe NetworkConfigurat
 epNetworkConfiguration = Lens.lens (networkConfiguration :: EcsParameters -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: EcsParameters)
 {-# DEPRECATED epNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
 
--- | The ARN of the task definition to use if the event target is an Amazon ECS task.
---
--- /Note:/ Consider using 'taskDefinitionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epTaskDefinitionARN :: Lens.Lens' EcsParameters Lude.Text
-epTaskDefinitionARN = Lens.lens (taskDefinitionARN :: EcsParameters -> Lude.Text) (\s a -> s {taskDefinitionARN = a} :: EcsParameters)
-{-# DEPRECATED epTaskDefinitionARN "Use generic-lens or generic-optics with 'taskDefinitionARN' instead." #-}
-
 instance Lude.FromJSON EcsParameters where
   parseJSON =
     Lude.withObject
@@ -131,10 +135,10 @@ instance Lude.FromJSON EcsParameters where
           EcsParameters'
             Lude.<$> (x Lude..:? "Group")
             Lude.<*> (x Lude..:? "PlatformVersion")
+            Lude.<*> (x Lude..: "TaskDefinitionArn")
             Lude.<*> (x Lude..:? "LaunchType")
             Lude.<*> (x Lude..:? "TaskCount")
             Lude.<*> (x Lude..:? "NetworkConfiguration")
-            Lude.<*> (x Lude..: "TaskDefinitionArn")
       )
 
 instance Lude.ToJSON EcsParameters where
@@ -143,9 +147,9 @@ instance Lude.ToJSON EcsParameters where
       ( Lude.catMaybes
           [ ("Group" Lude..=) Lude.<$> group,
             ("PlatformVersion" Lude..=) Lude.<$> platformVersion,
+            Lude.Just ("TaskDefinitionArn" Lude..= taskDefinitionARN),
             ("LaunchType" Lude..=) Lude.<$> launchType,
             ("TaskCount" Lude..=) Lude.<$> taskCount,
-            ("NetworkConfiguration" Lude..=) Lude.<$> networkConfiguration,
-            Lude.Just ("TaskDefinitionArn" Lude..= taskDefinitionARN)
+            ("NetworkConfiguration" Lude..=) Lude.<$> networkConfiguration
           ]
       )

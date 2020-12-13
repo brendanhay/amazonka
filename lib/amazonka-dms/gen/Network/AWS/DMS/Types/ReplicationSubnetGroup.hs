@@ -33,31 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationSubnetGroup' smart constructor.
 data ReplicationSubnetGroup = ReplicationSubnetGroup'
-  { vpcId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | The subnets that are in the subnet group.
     subnets :: Lude.Maybe [Subnet],
-    replicationSubnetGroupIdentifier ::
-      Lude.Maybe Lude.Text,
+    -- | The identifier of the replication instance subnet group.
+    replicationSubnetGroupIdentifier :: Lude.Maybe Lude.Text,
+    -- | The status of the subnet group.
     subnetGroupStatus :: Lude.Maybe Lude.Text,
-    replicationSubnetGroupDescription ::
-      Lude.Maybe Lude.Text
+    -- | A description for the replication subnet group.
+    replicationSubnetGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationSubnetGroup' with the minimum fields required to make a request.
 --
--- * 'replicationSubnetGroupDescription' - A description for the replication subnet group.
+-- * 'vpcId' - The ID of the VPC.
+-- * 'subnets' - The subnets that are in the subnet group.
 -- * 'replicationSubnetGroupIdentifier' - The identifier of the replication instance subnet group.
 -- * 'subnetGroupStatus' - The status of the subnet group.
--- * 'subnets' - The subnets that are in the subnet group.
--- * 'vpcId' - The ID of the VPC.
+-- * 'replicationSubnetGroupDescription' - A description for the replication subnet group.
 mkReplicationSubnetGroup ::
   ReplicationSubnetGroup
 mkReplicationSubnetGroup =

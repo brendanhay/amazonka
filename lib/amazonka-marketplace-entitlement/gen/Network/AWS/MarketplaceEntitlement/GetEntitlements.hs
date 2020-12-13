@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.MarketplaceEntitlement.GetEntitlements
     -- ** Request lenses
     geNextToken,
     geFilter,
-    geMaxResults,
     geProductCode,
+    geMaxResults,
 
     -- * Destructuring the response
     GetEntitlementsResponse (..),
@@ -48,32 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetEntitlements' smart constructor.
 data GetEntitlements = GetEntitlements'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe
-        ( Lude.HashMap
-            GetEntitlementFilterName
-            (Lude.NonEmpty Lude.Text)
-        ),
-    maxResults :: Lude.Maybe Lude.Int,
-    productCode :: Lude.Text
+  { -- | For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are /unioned/ for each value in the value list, and then /intersected/ for each filter key.
+    filter :: Lude.Maybe (Lude.HashMap GetEntitlementFilterName (Lude.NonEmpty Lude.Text)),
+    -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.
+    productCode :: Lude.Text,
+    -- | The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEntitlements' with the minimum fields required to make a request.
 --
--- * 'filter' - Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are /unioned/ for each value in the value list, and then /intersected/ for each filter key.
--- * 'maxResults' - The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.
 -- * 'nextToken' - For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.
+-- * 'filter' - Filter is used to return entitlements for a specific customer or for a specific dimension. Filters are described as keys mapped to a lists of values. Filtered requests are /unioned/ for each value in the value list, and then /intersected/ for each filter key.
 -- * 'productCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.
+-- * 'maxResults' - The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.
 mkGetEntitlements ::
   -- | 'productCode'
   Lude.Text ->
@@ -82,8 +75,8 @@ mkGetEntitlements pProductCode_ =
   GetEntitlements'
     { nextToken = Lude.Nothing,
       filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      productCode = pProductCode_
+      productCode = pProductCode_,
+      maxResults = Lude.Nothing
     }
 
 -- | For paginated calls to GetEntitlements, pass the NextToken from the previous GetEntitlementsResult.
@@ -100,19 +93,19 @@ geFilter :: Lens.Lens' GetEntitlements (Lude.Maybe (Lude.HashMap GetEntitlementF
 geFilter = Lens.lens (filter :: GetEntitlements -> Lude.Maybe (Lude.HashMap GetEntitlementFilterName (Lude.NonEmpty Lude.Text))) (\s a -> s {filter = a} :: GetEntitlements)
 {-# DEPRECATED geFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
--- | The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geMaxResults :: Lens.Lens' GetEntitlements (Lude.Maybe Lude.Int)
-geMaxResults = Lens.lens (maxResults :: GetEntitlements -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetEntitlements)
-{-# DEPRECATED geMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code will be provided by AWS Marketplace when the product listing is created.
 --
 -- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 geProductCode :: Lens.Lens' GetEntitlements Lude.Text
 geProductCode = Lens.lens (productCode :: GetEntitlements -> Lude.Text) (\s a -> s {productCode = a} :: GetEntitlements)
 {-# DEPRECATED geProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
+
+-- | The maximum number of items to retrieve from the GetEntitlements operation. For pagination, use the NextToken field in subsequent calls to GetEntitlements.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geMaxResults :: Lens.Lens' GetEntitlements (Lude.Maybe Lude.Int)
+geMaxResults = Lens.lens (maxResults :: GetEntitlements -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetEntitlements)
+{-# DEPRECATED geMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetEntitlements where
   page rq rs
@@ -152,8 +145,8 @@ instance Lude.ToJSON GetEntitlements where
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Filter" Lude..=) Lude.<$> filter,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ProductCode" Lude..= productCode)
+            Lude.Just ("ProductCode" Lude..= productCode),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -167,24 +160,20 @@ instance Lude.ToQuery GetEntitlements where
 --
 -- /See:/ 'mkGetEntitlementsResponse' smart constructor.
 data GetEntitlementsResponse = GetEntitlementsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
     entitlements :: Lude.Maybe [Entitlement],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEntitlementsResponse' with the minimum fields required to make a request.
 --
--- * 'entitlements' - The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
 -- * 'nextToken' - For paginated results, use NextToken in subsequent calls to GetEntitlements. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
+-- * 'entitlements' - The set of entitlements found through the GetEntitlements operation. If the result contains an empty set of entitlements, NextToken might still be present and should be used.
 -- * 'responseStatus' - The response status code.
 mkGetEntitlementsResponse ::
   -- | 'responseStatus'

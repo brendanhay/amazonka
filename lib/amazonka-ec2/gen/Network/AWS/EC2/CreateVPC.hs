@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,14 +24,14 @@ module Network.AWS.EC2.CreateVPC
     mkCreateVPC,
 
     -- ** Request lenses
-    cvIPv6CidrBlock,
-    cvIPv6CidrBlockNetworkBorderGroup,
-    cvTagSpecifications,
-    cvIPv6Pool,
-    cvAmazonProvidedIPv6CidrBlock,
-    cvInstanceTenancy,
-    cvDryRun,
-    cvCidrBlock,
+    cIPv6CidrBlock,
+    cIPv6CidrBlockNetworkBorderGroup,
+    cTagSpecifications,
+    cCidrBlock,
+    cIPv6Pool,
+    cAmazonProvidedIPv6CidrBlock,
+    cInstanceTenancy,
+    cDryRun,
 
     -- * Destructuring the response
     CreateVPCResponse (..),
@@ -50,41 +51,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateVPC' smart constructor.
 data CreateVPC = CreateVPC'
-  { ipv6CidrBlock :: Lude.Maybe Lude.Text,
+  { -- | The IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
+    --
+    -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+    ipv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.
+    --
+    -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter.
     ipv6CidrBlockNetworkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | The tags to assign to the VPC.
     tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The IPv4 network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
+    cidrBlock :: Lude.Text,
+    -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
     ipv6Pool :: Lude.Maybe Lude.Text,
+    -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.
     amazonProvidedIPv6CidrBlock :: Lude.Maybe Lude.Bool,
+    -- | The tenancy options for instances launched into the VPC. For @default@ , instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For @dedicated@ , instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of @dedicated@ or @host@ into a dedicated tenancy VPC.
+    --
+    -- __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only.
+    -- Default: @default@
     instanceTenancy :: Lude.Maybe Tenancy,
-    dryRun :: Lude.Maybe Lude.Bool,
-    cidrBlock :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPC' with the minimum fields required to make a request.
 --
--- * 'amazonProvidedIPv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.
--- * 'cidrBlock' - The IPv4 network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'instanceTenancy' - The tenancy options for instances launched into the VPC. For @default@ , instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For @dedicated@ , instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of @dedicated@ or @host@ into a dedicated tenancy VPC.
---
--- __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only.
--- Default: @default@
 -- * 'ipv6CidrBlock' - The IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
 --
 -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
 -- * 'ipv6CidrBlockNetworkBorderGroup' - The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.
 --
 -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter.
--- * 'ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
 -- * 'tagSpecifications' - The tags to assign to the VPC.
+-- * 'cidrBlock' - The IPv4 network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
+-- * 'ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
+-- * 'amazonProvidedIPv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.
+-- * 'instanceTenancy' - The tenancy options for instances launched into the VPC. For @default@ , instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For @dedicated@ , instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of @dedicated@ or @host@ into a dedicated tenancy VPC.
+--
+-- __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only.
+-- Default: @default@
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateVPC ::
   -- | 'cidrBlock'
   Lude.Text ->
@@ -94,11 +104,11 @@ mkCreateVPC pCidrBlock_ =
     { ipv6CidrBlock = Lude.Nothing,
       ipv6CidrBlockNetworkBorderGroup = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
+      cidrBlock = pCidrBlock_,
       ipv6Pool = Lude.Nothing,
       amazonProvidedIPv6CidrBlock = Lude.Nothing,
       instanceTenancy = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      cidrBlock = pCidrBlock_
+      dryRun = Lude.Nothing
     }
 
 -- | The IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
@@ -106,39 +116,46 @@ mkCreateVPC pCidrBlock_ =
 -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
 --
 -- /Note:/ Consider using 'ipv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvIPv6CidrBlock :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Text)
-cvIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: CreateVPC -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: CreateVPC)
-{-# DEPRECATED cvIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
+cIPv6CidrBlock :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Text)
+cIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: CreateVPC -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: CreateVPC)
+{-# DEPRECATED cIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
 
 -- | The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.
 --
 -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter.
 --
 -- /Note:/ Consider using 'ipv6CidrBlockNetworkBorderGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvIPv6CidrBlockNetworkBorderGroup :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Text)
-cvIPv6CidrBlockNetworkBorderGroup = Lens.lens (ipv6CidrBlockNetworkBorderGroup :: CreateVPC -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlockNetworkBorderGroup = a} :: CreateVPC)
-{-# DEPRECATED cvIPv6CidrBlockNetworkBorderGroup "Use generic-lens or generic-optics with 'ipv6CidrBlockNetworkBorderGroup' instead." #-}
+cIPv6CidrBlockNetworkBorderGroup :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Text)
+cIPv6CidrBlockNetworkBorderGroup = Lens.lens (ipv6CidrBlockNetworkBorderGroup :: CreateVPC -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlockNetworkBorderGroup = a} :: CreateVPC)
+{-# DEPRECATED cIPv6CidrBlockNetworkBorderGroup "Use generic-lens or generic-optics with 'ipv6CidrBlockNetworkBorderGroup' instead." #-}
 
 -- | The tags to assign to the VPC.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvTagSpecifications :: Lens.Lens' CreateVPC (Lude.Maybe [TagSpecification])
-cvTagSpecifications = Lens.lens (tagSpecifications :: CreateVPC -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateVPC)
-{-# DEPRECATED cvTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+cTagSpecifications :: Lens.Lens' CreateVPC (Lude.Maybe [TagSpecification])
+cTagSpecifications = Lens.lens (tagSpecifications :: CreateVPC -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateVPC)
+{-# DEPRECATED cTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+-- | The IPv4 network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCidrBlock :: Lens.Lens' CreateVPC Lude.Text
+cCidrBlock = Lens.lens (cidrBlock :: CreateVPC -> Lude.Text) (\s a -> s {cidrBlock = a} :: CreateVPC)
+{-# DEPRECATED cCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
 -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
 --
 -- /Note:/ Consider using 'ipv6Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvIPv6Pool :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Text)
-cvIPv6Pool = Lens.lens (ipv6Pool :: CreateVPC -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Pool = a} :: CreateVPC)
-{-# DEPRECATED cvIPv6Pool "Use generic-lens or generic-optics with 'ipv6Pool' instead." #-}
+cIPv6Pool :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Text)
+cIPv6Pool = Lens.lens (ipv6Pool :: CreateVPC -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Pool = a} :: CreateVPC)
+{-# DEPRECATED cIPv6Pool "Use generic-lens or generic-optics with 'ipv6Pool' instead." #-}
 
 -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block.
 --
 -- /Note:/ Consider using 'amazonProvidedIPv6CidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvAmazonProvidedIPv6CidrBlock :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Bool)
-cvAmazonProvidedIPv6CidrBlock = Lens.lens (amazonProvidedIPv6CidrBlock :: CreateVPC -> Lude.Maybe Lude.Bool) (\s a -> s {amazonProvidedIPv6CidrBlock = a} :: CreateVPC)
-{-# DEPRECATED cvAmazonProvidedIPv6CidrBlock "Use generic-lens or generic-optics with 'amazonProvidedIPv6CidrBlock' instead." #-}
+cAmazonProvidedIPv6CidrBlock :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Bool)
+cAmazonProvidedIPv6CidrBlock = Lens.lens (amazonProvidedIPv6CidrBlock :: CreateVPC -> Lude.Maybe Lude.Bool) (\s a -> s {amazonProvidedIPv6CidrBlock = a} :: CreateVPC)
+{-# DEPRECATED cAmazonProvidedIPv6CidrBlock "Use generic-lens or generic-optics with 'amazonProvidedIPv6CidrBlock' instead." #-}
 
 -- | The tenancy options for instances launched into the VPC. For @default@ , instances are launched with shared tenancy by default. You can launch instances with any tenancy into a shared tenancy VPC. For @dedicated@ , instances are launched as dedicated tenancy instances by default. You can only launch instances with a tenancy of @dedicated@ or @host@ into a dedicated tenancy VPC.
 --
@@ -146,23 +163,16 @@ cvAmazonProvidedIPv6CidrBlock = Lens.lens (amazonProvidedIPv6CidrBlock :: Create
 -- Default: @default@
 --
 -- /Note:/ Consider using 'instanceTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvInstanceTenancy :: Lens.Lens' CreateVPC (Lude.Maybe Tenancy)
-cvInstanceTenancy = Lens.lens (instanceTenancy :: CreateVPC -> Lude.Maybe Tenancy) (\s a -> s {instanceTenancy = a} :: CreateVPC)
-{-# DEPRECATED cvInstanceTenancy "Use generic-lens or generic-optics with 'instanceTenancy' instead." #-}
+cInstanceTenancy :: Lens.Lens' CreateVPC (Lude.Maybe Tenancy)
+cInstanceTenancy = Lens.lens (instanceTenancy :: CreateVPC -> Lude.Maybe Tenancy) (\s a -> s {instanceTenancy = a} :: CreateVPC)
+{-# DEPRECATED cInstanceTenancy "Use generic-lens or generic-optics with 'instanceTenancy' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvDryRun :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Bool)
-cvDryRun = Lens.lens (dryRun :: CreateVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPC)
-{-# DEPRECATED cvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The IPv4 network range for the VPC, in CIDR notation. For example, @10.0.0.0/16@ . We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
---
--- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvCidrBlock :: Lens.Lens' CreateVPC Lude.Text
-cvCidrBlock = Lens.lens (cidrBlock :: CreateVPC -> Lude.Text) (\s a -> s {cidrBlock = a} :: CreateVPC)
-{-# DEPRECATED cvCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
+cDryRun :: Lens.Lens' CreateVPC (Lude.Maybe Lude.Bool)
+cDryRun = Lens.lens (dryRun :: CreateVPC -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPC)
+{-# DEPRECATED cDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateVPC where
   type Rs CreateVPC = CreateVPCResponse
@@ -190,31 +200,27 @@ instance Lude.ToQuery CreateVPC where
           Lude.=: ipv6CidrBlockNetworkBorderGroup,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "CidrBlock" Lude.=: cidrBlock,
         "Ipv6Pool" Lude.=: ipv6Pool,
         "AmazonProvidedIpv6CidrBlock" Lude.=: amazonProvidedIPv6CidrBlock,
         "InstanceTenancy" Lude.=: instanceTenancy,
-        "DryRun" Lude.=: dryRun,
-        "CidrBlock" Lude.=: cidrBlock
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateVPCResponse' smart constructor.
 data CreateVPCResponse = CreateVPCResponse'
-  { vpc :: Lude.Maybe VPC,
+  { -- | Information about the VPC.
+    vpc :: Lude.Maybe VPC,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpc' - Information about the VPC.
+-- * 'responseStatus' - The response status code.
 mkCreateVPCResponse ::
   -- | 'responseStatus'
   Lude.Int ->

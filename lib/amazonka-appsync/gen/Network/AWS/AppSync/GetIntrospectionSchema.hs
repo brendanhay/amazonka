@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppSync.GetIntrospectionSchema
     mkGetIntrospectionSchema,
 
     -- ** Request lenses
-    gisIncludeDirectives,
     gisApiId,
+    gisIncludeDirectives,
     gisFormat,
 
     -- * Destructuring the response
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetIntrospectionSchema' smart constructor.
 data GetIntrospectionSchema = GetIntrospectionSchema'
-  { includeDirectives ::
-      Lude.Maybe Lude.Bool,
+  { -- | The API ID.
     apiId :: Lude.Text,
+    -- | A flag that specifies whether the schema introspection should contain directives.
+    includeDirectives :: Lude.Maybe Lude.Bool,
+    -- | The schema format: SDL or JSON.
     format :: OutputType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntrospectionSchema' with the minimum fields required to make a request.
 --
 -- * 'apiId' - The API ID.
--- * 'format' - The schema format: SDL or JSON.
 -- * 'includeDirectives' - A flag that specifies whether the schema introspection should contain directives.
+-- * 'format' - The schema format: SDL or JSON.
 mkGetIntrospectionSchema ::
   -- | 'apiId'
   Lude.Text ->
@@ -68,17 +65,10 @@ mkGetIntrospectionSchema ::
   GetIntrospectionSchema
 mkGetIntrospectionSchema pApiId_ pFormat_ =
   GetIntrospectionSchema'
-    { includeDirectives = Lude.Nothing,
-      apiId = pApiId_,
+    { apiId = pApiId_,
+      includeDirectives = Lude.Nothing,
       format = pFormat_
     }
-
--- | A flag that specifies whether the schema introspection should contain directives.
---
--- /Note:/ Consider using 'includeDirectives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisIncludeDirectives :: Lens.Lens' GetIntrospectionSchema (Lude.Maybe Lude.Bool)
-gisIncludeDirectives = Lens.lens (includeDirectives :: GetIntrospectionSchema -> Lude.Maybe Lude.Bool) (\s a -> s {includeDirectives = a} :: GetIntrospectionSchema)
-{-# DEPRECATED gisIncludeDirectives "Use generic-lens or generic-optics with 'includeDirectives' instead." #-}
 
 -- | The API ID.
 --
@@ -86,6 +76,13 @@ gisIncludeDirectives = Lens.lens (includeDirectives :: GetIntrospectionSchema ->
 gisApiId :: Lens.Lens' GetIntrospectionSchema Lude.Text
 gisApiId = Lens.lens (apiId :: GetIntrospectionSchema -> Lude.Text) (\s a -> s {apiId = a} :: GetIntrospectionSchema)
 {-# DEPRECATED gisApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+
+-- | A flag that specifies whether the schema introspection should contain directives.
+--
+-- /Note:/ Consider using 'includeDirectives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisIncludeDirectives :: Lens.Lens' GetIntrospectionSchema (Lude.Maybe Lude.Bool)
+gisIncludeDirectives = Lens.lens (includeDirectives :: GetIntrospectionSchema -> Lude.Maybe Lude.Bool) (\s a -> s {includeDirectives = a} :: GetIntrospectionSchema)
+{-# DEPRECATED gisIncludeDirectives "Use generic-lens or generic-optics with 'includeDirectives' instead." #-}
 
 -- | The schema format: SDL or JSON.
 --
@@ -126,25 +123,22 @@ instance Lude.ToQuery GetIntrospectionSchema where
 
 -- | /See:/ 'mkGetIntrospectionSchemaResponse' smart constructor.
 data GetIntrospectionSchemaResponse = GetIntrospectionSchemaResponse'
-  { schema ::
-      Lude.Maybe Lude.ByteString,
+  { -- | The schema, in GraphQL Schema Definition Language (SDL) format.
+    --
+    -- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+    schema :: Lude.Maybe Lude.ByteString,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntrospectionSchemaResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'schema' - The schema, in GraphQL Schema Definition Language (SDL) format.
 --
 -- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+-- * 'responseStatus' - The response status code.
 mkGetIntrospectionSchemaResponse ::
   -- | 'responseStatus'
   Lude.Int ->

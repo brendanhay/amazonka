@@ -32,23 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsageRecordResult' smart constructor.
 data UsageRecordResult = UsageRecordResult'
-  { status ::
-      Lude.Maybe UsageRecordResultStatus,
+  { -- | The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.
+    --
+    --
+    --     * /Success/ - The UsageRecord was accepted and honored by BatchMeterUsage.
+    --
+    --
+    --     * /CustomerNotSubscribed/ - The CustomerIdentifier specified is not subscribed to your product. The UsageRecord was not honored. Future UsageRecords for this customer will fail until the customer subscribes to your product.
+    --
+    --
+    --     * /DuplicateRecord/ - Indicates that the UsageRecord was invalid and not honored. A previously metered UsageRecord had the same customer, dimension, and time, but a different quantity.
+    status :: Lude.Maybe UsageRecordResultStatus,
+    -- | The UsageRecord that was part of the BatchMeterUsage request.
     usageRecord :: Lude.Maybe UsageRecord,
+    -- | The MeteringRecordId is a unique identifier for this metering event.
     meteringRecordId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UsageRecordResult' with the minimum fields required to make a request.
 --
--- * 'meteringRecordId' - The MeteringRecordId is a unique identifier for this metering event.
 -- * 'status' - The UsageRecordResult Status indicates the status of an individual UsageRecord processed by BatchMeterUsage.
 --
 --
@@ -62,6 +66,7 @@ data UsageRecordResult = UsageRecordResult'
 --
 --
 -- * 'usageRecord' - The UsageRecord that was part of the BatchMeterUsage request.
+-- * 'meteringRecordId' - The MeteringRecordId is a unique identifier for this metering event.
 mkUsageRecordResult ::
   UsageRecordResult
 mkUsageRecordResult =

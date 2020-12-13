@@ -116,9 +116,9 @@ module Network.AWS.ResourceGroups
     -- ** Group
     Group (..),
     mkGroup,
-    gDescription,
-    gGroupARN,
     gName,
+    gGroupARN,
+    gDescription,
 
     -- ** GroupConfiguration
     GroupConfiguration (..),
@@ -143,8 +143,8 @@ module Network.AWS.ResourceGroups
     -- ** GroupFilter
     GroupFilter (..),
     mkGroupFilter,
-    gfName,
     gfValues,
+    gfName,
 
     -- ** GroupIdentifier
     GroupIdentifier (..),
@@ -155,8 +155,8 @@ module Network.AWS.ResourceGroups
     -- ** GroupQuery
     GroupQuery (..),
     mkGroupQuery,
-    gqGroupName,
     gqResourceQuery,
+    gqGroupName,
 
     -- ** QueryError
     QueryError (..),
@@ -167,8 +167,8 @@ module Network.AWS.ResourceGroups
     -- ** ResourceFilter
     ResourceFilter (..),
     mkResourceFilter,
-    rfName,
     rfValues,
+    rfName,
 
     -- ** ResourceIdentifier
     ResourceIdentifier (..),
@@ -179,8 +179,8 @@ module Network.AWS.ResourceGroups
     -- ** ResourceQuery
     ResourceQuery (..),
     mkResourceQuery,
-    rqType,
     rqSearchQuery,
+    rqType,
 
     -- * Serialization types
     Lude.Base64 (..),

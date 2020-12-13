@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DeviceFarm.ListNetworkProfiles
     mkListNetworkProfiles,
 
     -- ** Request lenses
+    lnpArn,
     lnpNextToken,
     lnpType,
-    lnpArn,
 
     -- * Destructuring the response
     ListNetworkProfilesResponse (..),
@@ -45,18 +46,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListNetworkProfiles' smart constructor.
 data ListNetworkProfiles = ListNetworkProfiles'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    type' :: Lude.Maybe NetworkProfileType,
-    arn :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the project for which you want to list network profiles.
+    arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The type of network profile to return information about. Valid values are listed here.
+    type' :: Lude.Maybe NetworkProfileType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNetworkProfiles' with the minimum fields required to make a request.
@@ -70,10 +67,17 @@ mkListNetworkProfiles ::
   ListNetworkProfiles
 mkListNetworkProfiles pArn_ =
   ListNetworkProfiles'
-    { nextToken = Lude.Nothing,
-      type' = Lude.Nothing,
-      arn = pArn_
+    { arn = pArn_,
+      nextToken = Lude.Nothing,
+      type' = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the project for which you want to list network profiles.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lnpArn :: Lens.Lens' ListNetworkProfiles Lude.Text
+lnpArn = Lens.lens (arn :: ListNetworkProfiles -> Lude.Text) (\s a -> s {arn = a} :: ListNetworkProfiles)
+{-# DEPRECATED lnpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -88,13 +92,6 @@ lnpNextToken = Lens.lens (nextToken :: ListNetworkProfiles -> Lude.Maybe Lude.Te
 lnpType :: Lens.Lens' ListNetworkProfiles (Lude.Maybe NetworkProfileType)
 lnpType = Lens.lens (type' :: ListNetworkProfiles -> Lude.Maybe NetworkProfileType) (\s a -> s {type' = a} :: ListNetworkProfiles)
 {-# DEPRECATED lnpType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the project for which you want to list network profiles.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnpArn :: Lens.Lens' ListNetworkProfiles Lude.Text
-lnpArn = Lens.lens (arn :: ListNetworkProfiles -> Lude.Text) (\s a -> s {arn = a} :: ListNetworkProfiles)
-{-# DEPRECATED lnpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 instance Page.AWSPager ListNetworkProfiles where
   page rq rs
@@ -132,9 +129,9 @@ instance Lude.ToJSON ListNetworkProfiles where
   toJSON ListNetworkProfiles' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("type" Lude..=) Lude.<$> type',
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("type" Lude..=) Lude.<$> type'
           ]
       )
 
@@ -146,18 +143,14 @@ instance Lude.ToQuery ListNetworkProfiles where
 
 -- | /See:/ 'mkListNetworkProfilesResponse' smart constructor.
 data ListNetworkProfilesResponse = ListNetworkProfilesResponse'
-  { networkProfiles ::
-      Lude.Maybe [NetworkProfile],
+  { -- | A list of the available network profiles.
+    networkProfiles :: Lude.Maybe [NetworkProfile],
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListNetworkProfilesResponse' with the minimum fields required to make a request.

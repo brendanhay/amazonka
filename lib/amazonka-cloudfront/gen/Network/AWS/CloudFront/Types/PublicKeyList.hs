@@ -17,10 +17,10 @@ module Network.AWS.CloudFront.Types.PublicKeyList
     mkPublicKeyList,
 
     -- * Lenses
-    pklItems,
-    pklNextMarker,
-    pklMaxItems,
     pklQuantity,
+    pklItems,
+    pklMaxItems,
+    pklNextMarker,
   )
 where
 
@@ -32,61 +32,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPublicKeyList' smart constructor.
 data PublicKeyList = PublicKeyList'
-  { items ::
-      Lude.Maybe [PublicKeySummary],
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | The number of public keys in the list.
+    quantity :: Lude.Int,
+    -- | A list of public keys.
+    items :: Lude.Maybe [PublicKeySummary],
+    -- | The maximum number of public keys you want in the response.
     maxItems :: Lude.Int,
-    quantity :: Lude.Int
+    -- | If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your public keys where you left off.
+    nextMarker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicKeyList' with the minimum fields required to make a request.
 --
+-- * 'quantity' - The number of public keys in the list.
 -- * 'items' - A list of public keys.
 -- * 'maxItems' - The maximum number of public keys you want in the response.
 -- * 'nextMarker' - If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your public keys where you left off.
--- * 'quantity' - The number of public keys in the list.
 mkPublicKeyList ::
-  -- | 'maxItems'
-  Lude.Int ->
   -- | 'quantity'
   Lude.Int ->
+  -- | 'maxItems'
+  Lude.Int ->
   PublicKeyList
-mkPublicKeyList pMaxItems_ pQuantity_ =
+mkPublicKeyList pQuantity_ pMaxItems_ =
   PublicKeyList'
-    { items = Lude.Nothing,
-      nextMarker = Lude.Nothing,
+    { quantity = pQuantity_,
+      items = Lude.Nothing,
       maxItems = pMaxItems_,
-      quantity = pQuantity_
+      nextMarker = Lude.Nothing
     }
-
--- | A list of public keys.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pklItems :: Lens.Lens' PublicKeyList (Lude.Maybe [PublicKeySummary])
-pklItems = Lens.lens (items :: PublicKeyList -> Lude.Maybe [PublicKeySummary]) (\s a -> s {items = a} :: PublicKeyList)
-{-# DEPRECATED pklItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your public keys where you left off.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pklNextMarker :: Lens.Lens' PublicKeyList (Lude.Maybe Lude.Text)
-pklNextMarker = Lens.lens (nextMarker :: PublicKeyList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: PublicKeyList)
-{-# DEPRECATED pklNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
-
--- | The maximum number of public keys you want in the response.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pklMaxItems :: Lens.Lens' PublicKeyList Lude.Int
-pklMaxItems = Lens.lens (maxItems :: PublicKeyList -> Lude.Int) (\s a -> s {maxItems = a} :: PublicKeyList)
-{-# DEPRECATED pklMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The number of public keys in the list.
 --
@@ -95,12 +71,33 @@ pklQuantity :: Lens.Lens' PublicKeyList Lude.Int
 pklQuantity = Lens.lens (quantity :: PublicKeyList -> Lude.Int) (\s a -> s {quantity = a} :: PublicKeyList)
 {-# DEPRECATED pklQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A list of public keys.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pklItems :: Lens.Lens' PublicKeyList (Lude.Maybe [PublicKeySummary])
+pklItems = Lens.lens (items :: PublicKeyList -> Lude.Maybe [PublicKeySummary]) (\s a -> s {items = a} :: PublicKeyList)
+{-# DEPRECATED pklItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
+-- | The maximum number of public keys you want in the response.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pklMaxItems :: Lens.Lens' PublicKeyList Lude.Int
+pklMaxItems = Lens.lens (maxItems :: PublicKeyList -> Lude.Int) (\s a -> s {maxItems = a} :: PublicKeyList)
+{-# DEPRECATED pklMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+-- | If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your public keys where you left off.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pklNextMarker :: Lens.Lens' PublicKeyList (Lude.Maybe Lude.Text)
+pklNextMarker = Lens.lens (nextMarker :: PublicKeyList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: PublicKeyList)
+{-# DEPRECATED pklNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
 instance Lude.FromXML PublicKeyList where
   parseXML x =
     PublicKeyList'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "PublicKeySummary")
                )
-      Lude.<*> (x Lude..@? "NextMarker")
       Lude.<*> (x Lude..@ "MaxItems")
-      Lude.<*> (x Lude..@ "Quantity")
+      Lude.<*> (x Lude..@? "NextMarker")

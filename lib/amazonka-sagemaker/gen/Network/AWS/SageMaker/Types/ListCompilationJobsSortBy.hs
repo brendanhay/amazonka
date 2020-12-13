@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ListCompilationJobsSortBy
   ( ListCompilationJobsSortBy
       ( ListCompilationJobsSortBy',
-        LCJSBCreationTime,
         LCJSBName,
+        LCJSBCreationTime,
         LCJSBStatus
       ),
   )
@@ -46,18 +46,18 @@ newtype ListCompilationJobsSortBy = ListCompilationJobsSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern LCJSBCreationTime :: ListCompilationJobsSortBy
-pattern LCJSBCreationTime = ListCompilationJobsSortBy' "CreationTime"
-
 pattern LCJSBName :: ListCompilationJobsSortBy
 pattern LCJSBName = ListCompilationJobsSortBy' "Name"
+
+pattern LCJSBCreationTime :: ListCompilationJobsSortBy
+pattern LCJSBCreationTime = ListCompilationJobsSortBy' "CreationTime"
 
 pattern LCJSBStatus :: ListCompilationJobsSortBy
 pattern LCJSBStatus = ListCompilationJobsSortBy' "Status"
 
 {-# COMPLETE
-  LCJSBCreationTime,
   LCJSBName,
+  LCJSBCreationTime,
   LCJSBStatus,
   ListCompilationJobsSortBy'
   #-}

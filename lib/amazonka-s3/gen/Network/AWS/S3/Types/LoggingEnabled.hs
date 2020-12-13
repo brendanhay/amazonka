@@ -17,8 +17,8 @@ module Network.AWS.S3.Types.LoggingEnabled
     mkLoggingEnabled,
 
     -- * Lenses
-    leTargetGrants,
     leTargetBucket,
+    leTargetGrants,
     leTargetPrefix,
   )
 where
@@ -32,18 +32,14 @@ import Network.AWS.S3.Types.TargetGrant
 --
 -- /See:/ 'mkLoggingEnabled' smart constructor.
 data LoggingEnabled = LoggingEnabled'
-  { targetGrants ::
-      Lude.Maybe [TargetGrant],
+  { -- | Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case, you should choose a different @TargetPrefix@ for each source bucket so that the delivered log files can be distinguished by key.
     targetBucket :: Lude.Text,
+    -- | Container for granting information.
+    targetGrants :: Lude.Maybe [TargetGrant],
+    -- | A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
     targetPrefix :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggingEnabled' with the minimum fields required to make a request.
@@ -59,17 +55,10 @@ mkLoggingEnabled ::
   LoggingEnabled
 mkLoggingEnabled pTargetBucket_ pTargetPrefix_ =
   LoggingEnabled'
-    { targetGrants = Lude.Nothing,
-      targetBucket = pTargetBucket_,
+    { targetBucket = pTargetBucket_,
+      targetGrants = Lude.Nothing,
       targetPrefix = pTargetPrefix_
     }
-
--- | Container for granting information.
---
--- /Note:/ Consider using 'targetGrants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leTargetGrants :: Lens.Lens' LoggingEnabled (Lude.Maybe [TargetGrant])
-leTargetGrants = Lens.lens (targetGrants :: LoggingEnabled -> Lude.Maybe [TargetGrant]) (\s a -> s {targetGrants = a} :: LoggingEnabled)
-{-# DEPRECATED leTargetGrants "Use generic-lens or generic-optics with 'targetGrants' instead." #-}
 
 -- | Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case, you should choose a different @TargetPrefix@ for each source bucket so that the delivered log files can be distinguished by key.
 --
@@ -77,6 +66,13 @@ leTargetGrants = Lens.lens (targetGrants :: LoggingEnabled -> Lude.Maybe [Target
 leTargetBucket :: Lens.Lens' LoggingEnabled Lude.Text
 leTargetBucket = Lens.lens (targetBucket :: LoggingEnabled -> Lude.Text) (\s a -> s {targetBucket = a} :: LoggingEnabled)
 {-# DEPRECATED leTargetBucket "Use generic-lens or generic-optics with 'targetBucket' instead." #-}
+
+-- | Container for granting information.
+--
+-- /Note:/ Consider using 'targetGrants' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leTargetGrants :: Lens.Lens' LoggingEnabled (Lude.Maybe [TargetGrant])
+leTargetGrants = Lens.lens (targetGrants :: LoggingEnabled -> Lude.Maybe [TargetGrant]) (\s a -> s {targetGrants = a} :: LoggingEnabled)
+{-# DEPRECATED leTargetGrants "Use generic-lens or generic-optics with 'targetGrants' instead." #-}
 
 -- | A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a single bucket, you can use a prefix to distinguish which log files came from which bucket.
 --
@@ -88,17 +84,17 @@ leTargetPrefix = Lens.lens (targetPrefix :: LoggingEnabled -> Lude.Text) (\s a -
 instance Lude.FromXML LoggingEnabled where
   parseXML x =
     LoggingEnabled'
-      Lude.<$> ( x Lude..@? "TargetGrants" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "TargetBucket")
+      Lude.<*> ( x Lude..@? "TargetGrants" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "Grant")
                )
-      Lude.<*> (x Lude..@ "TargetBucket")
       Lude.<*> (x Lude..@ "TargetPrefix")
 
 instance Lude.ToXML LoggingEnabled where
   toXML LoggingEnabled' {..} =
     Lude.mconcat
-      [ "TargetGrants"
+      [ "TargetBucket" Lude.@= targetBucket,
+        "TargetGrants"
           Lude.@= Lude.toXML (Lude.toXMLList "Grant" Lude.<$> targetGrants),
-        "TargetBucket" Lude.@= targetBucket,
         "TargetPrefix" Lude.@= targetPrefix
       ]

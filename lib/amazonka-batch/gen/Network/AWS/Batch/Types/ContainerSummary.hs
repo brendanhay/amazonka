@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerSummary' smart constructor.
 data ContainerSummary = ContainerSummary'
-  { reason ::
-      Lude.Maybe Lude.Text,
+  { -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+    reason :: Lude.Maybe Lude.Text,
+    -- | The exit code to return upon completion.
     exitCode :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerSummary' with the minimum fields required to make a request.
 --
--- * 'exitCode' - The exit code to return upon completion.
 -- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+-- * 'exitCode' - The exit code to return upon completion.
 mkContainerSummary ::
   ContainerSummary
 mkContainerSummary =

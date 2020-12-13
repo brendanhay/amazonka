@@ -31,24 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateConfig' smart constructor.
 data LaunchTemplateConfig = LaunchTemplateConfig'
-  { overrides ::
-      Lude.Maybe [LaunchTemplateOverrides],
-    launchTemplateSpecification ::
-      Lude.Maybe FleetLaunchTemplateSpecification
+  { -- | Any parameters that you specify override the same parameters in the launch template.
+    overrides :: Lude.Maybe [LaunchTemplateOverrides],
+    -- | The launch template.
+    launchTemplateSpecification :: Lude.Maybe FleetLaunchTemplateSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateConfig' with the minimum fields required to make a request.
 --
--- * 'launchTemplateSpecification' - The launch template.
 -- * 'overrides' - Any parameters that you specify override the same parameters in the launch template.
+-- * 'launchTemplateSpecification' - The launch template.
 mkLaunchTemplateConfig ::
   LaunchTemplateConfig
 mkLaunchTemplateConfig =

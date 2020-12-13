@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.DeleteLaunchTemplate
     mkDeleteLaunchTemplate,
 
     -- ** Request lenses
-    dltLaunchTemplateName,
-    dltLaunchTemplateId,
-    dltDryRun,
+    dltfLaunchTemplateName,
+    dltfLaunchTemplateId,
+    dltfDryRun,
 
     -- * Destructuring the response
     DeleteLaunchTemplateResponse (..),
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteLaunchTemplate' smart constructor.
 data DeleteLaunchTemplate = DeleteLaunchTemplate'
-  { launchTemplateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
     launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchTemplate' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'launchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
 -- * 'launchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+-- * 'launchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteLaunchTemplate ::
   DeleteLaunchTemplate
 mkDeleteLaunchTemplate =
@@ -72,23 +69,23 @@ mkDeleteLaunchTemplate =
 -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
 --
 -- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltLaunchTemplateName :: Lens.Lens' DeleteLaunchTemplate (Lude.Maybe Lude.Text)
-dltLaunchTemplateName = Lens.lens (launchTemplateName :: DeleteLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: DeleteLaunchTemplate)
-{-# DEPRECATED dltLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
+dltfLaunchTemplateName :: Lens.Lens' DeleteLaunchTemplate (Lude.Maybe Lude.Text)
+dltfLaunchTemplateName = Lens.lens (launchTemplateName :: DeleteLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: DeleteLaunchTemplate)
+{-# DEPRECATED dltfLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
 --
 -- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltLaunchTemplateId :: Lens.Lens' DeleteLaunchTemplate (Lude.Maybe Lude.Text)
-dltLaunchTemplateId = Lens.lens (launchTemplateId :: DeleteLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: DeleteLaunchTemplate)
-{-# DEPRECATED dltLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+dltfLaunchTemplateId :: Lens.Lens' DeleteLaunchTemplate (Lude.Maybe Lude.Text)
+dltfLaunchTemplateId = Lens.lens (launchTemplateId :: DeleteLaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: DeleteLaunchTemplate)
+{-# DEPRECATED dltfLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltDryRun :: Lens.Lens' DeleteLaunchTemplate (Lude.Maybe Lude.Bool)
-dltDryRun = Lens.lens (dryRun :: DeleteLaunchTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteLaunchTemplate)
-{-# DEPRECATED dltDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dltfDryRun :: Lens.Lens' DeleteLaunchTemplate (Lude.Maybe Lude.Bool)
+dltfDryRun = Lens.lens (dryRun :: DeleteLaunchTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteLaunchTemplate)
+{-# DEPRECATED dltfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteLaunchTemplate where
   type Rs DeleteLaunchTemplate = DeleteLaunchTemplateResponse
@@ -119,17 +116,12 @@ instance Lude.ToQuery DeleteLaunchTemplate where
 
 -- | /See:/ 'mkDeleteLaunchTemplateResponse' smart constructor.
 data DeleteLaunchTemplateResponse = DeleteLaunchTemplateResponse'
-  { launchTemplate ::
-      Lude.Maybe LaunchTemplate,
+  { -- | Information about the launch template.
+    launchTemplate :: Lude.Maybe LaunchTemplate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLaunchTemplateResponse' with the minimum fields required to make a request.

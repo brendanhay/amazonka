@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceStorageInfo' smart constructor.
 data InstanceStorageInfo = InstanceStorageInfo'
-  { totalSizeInGB ::
-      Lude.Maybe Lude.Integer,
+  { -- | The total size of the disks, in GB.
+    totalSizeInGB :: Lude.Maybe Lude.Integer,
+    -- | Indicates whether non-volatile memory express (NVMe) is supported for instance store.
     nvmeSupport :: Lude.Maybe EphemeralNvmeSupport,
+    -- | Describes the disks that are available for the instance type.
     disks :: Lude.Maybe [DiskInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStorageInfo' with the minimum fields required to make a request.
 --
--- * 'disks' - Describes the disks that are available for the instance type.
--- * 'nvmeSupport' - Indicates whether non-volatile memory express (NVMe) is supported for instance store.
 -- * 'totalSizeInGB' - The total size of the disks, in GB.
+-- * 'nvmeSupport' - Indicates whether non-volatile memory express (NVMe) is supported for instance store.
+-- * 'disks' - Describes the disks that are available for the instance type.
 mkInstanceStorageInfo ::
   InstanceStorageInfo
 mkInstanceStorageInfo =

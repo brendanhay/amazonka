@@ -13,17 +13,17 @@
 module Network.AWS.CertificateManager.Types.KeyUsageName
   ( KeyUsageName
       ( KeyUsageName',
-        KUNAny,
+        KUNDigitalSignature,
+        KUNNonRepudiation,
+        KUNKeyEncipherment,
+        KUNDataEncipherment,
+        KUNKeyAgreement,
         KUNCertificateSigning,
         KUNCrlSigning,
-        KUNCustom,
-        KUNDataEncipherment,
-        KUNDecipherOnly,
-        KUNDigitalSignature,
         KUNEncipherOnly,
-        KUNKeyAgreement,
-        KUNKeyEncipherment,
-        KUNNonRepudiation
+        KUNDecipherOnly,
+        KUNAny,
+        KUNCustom
       ),
   )
 where
@@ -54,8 +54,20 @@ newtype KeyUsageName = KeyUsageName' Lude.Text
       Lude.ToHeader
     )
 
-pattern KUNAny :: KeyUsageName
-pattern KUNAny = KeyUsageName' "ANY"
+pattern KUNDigitalSignature :: KeyUsageName
+pattern KUNDigitalSignature = KeyUsageName' "DIGITAL_SIGNATURE"
+
+pattern KUNNonRepudiation :: KeyUsageName
+pattern KUNNonRepudiation = KeyUsageName' "NON_REPUDIATION"
+
+pattern KUNKeyEncipherment :: KeyUsageName
+pattern KUNKeyEncipherment = KeyUsageName' "KEY_ENCIPHERMENT"
+
+pattern KUNDataEncipherment :: KeyUsageName
+pattern KUNDataEncipherment = KeyUsageName' "DATA_ENCIPHERMENT"
+
+pattern KUNKeyAgreement :: KeyUsageName
+pattern KUNKeyAgreement = KeyUsageName' "KEY_AGREEMENT"
 
 pattern KUNCertificateSigning :: KeyUsageName
 pattern KUNCertificateSigning = KeyUsageName' "CERTIFICATE_SIGNING"
@@ -63,41 +75,29 @@ pattern KUNCertificateSigning = KeyUsageName' "CERTIFICATE_SIGNING"
 pattern KUNCrlSigning :: KeyUsageName
 pattern KUNCrlSigning = KeyUsageName' "CRL_SIGNING"
 
-pattern KUNCustom :: KeyUsageName
-pattern KUNCustom = KeyUsageName' "CUSTOM"
-
-pattern KUNDataEncipherment :: KeyUsageName
-pattern KUNDataEncipherment = KeyUsageName' "DATA_ENCIPHERMENT"
+pattern KUNEncipherOnly :: KeyUsageName
+pattern KUNEncipherOnly = KeyUsageName' "ENCIPHER_ONLY"
 
 pattern KUNDecipherOnly :: KeyUsageName
 pattern KUNDecipherOnly = KeyUsageName' "DECIPHER_ONLY"
 
-pattern KUNDigitalSignature :: KeyUsageName
-pattern KUNDigitalSignature = KeyUsageName' "DIGITAL_SIGNATURE"
+pattern KUNAny :: KeyUsageName
+pattern KUNAny = KeyUsageName' "ANY"
 
-pattern KUNEncipherOnly :: KeyUsageName
-pattern KUNEncipherOnly = KeyUsageName' "ENCIPHER_ONLY"
-
-pattern KUNKeyAgreement :: KeyUsageName
-pattern KUNKeyAgreement = KeyUsageName' "KEY_AGREEMENT"
-
-pattern KUNKeyEncipherment :: KeyUsageName
-pattern KUNKeyEncipherment = KeyUsageName' "KEY_ENCIPHERMENT"
-
-pattern KUNNonRepudiation :: KeyUsageName
-pattern KUNNonRepudiation = KeyUsageName' "NON_REPUDIATION"
+pattern KUNCustom :: KeyUsageName
+pattern KUNCustom = KeyUsageName' "CUSTOM"
 
 {-# COMPLETE
-  KUNAny,
+  KUNDigitalSignature,
+  KUNNonRepudiation,
+  KUNKeyEncipherment,
+  KUNDataEncipherment,
+  KUNKeyAgreement,
   KUNCertificateSigning,
   KUNCrlSigning,
-  KUNCustom,
-  KUNDataEncipherment,
-  KUNDecipherOnly,
-  KUNDigitalSignature,
   KUNEncipherOnly,
-  KUNKeyAgreement,
-  KUNKeyEncipherment,
-  KUNNonRepudiation,
+  KUNDecipherOnly,
+  KUNAny,
+  KUNCustom,
   KeyUsageName'
   #-}

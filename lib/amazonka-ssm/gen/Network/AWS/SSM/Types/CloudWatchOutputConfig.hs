@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudWatchOutputConfig' smart constructor.
 data CloudWatchOutputConfig = CloudWatchOutputConfig'
-  { cloudWatchLogGroupName ::
-      Lude.Maybe Lude.Text,
-    cloudWatchOutputEnabled ::
-      Lude.Maybe Lude.Bool
+  { -- | The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
+    cloudWatchLogGroupName :: Lude.Maybe Lude.Text,
+    -- | Enables Systems Manager to send command output to CloudWatch Logs.
+    cloudWatchOutputEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchOutputConfig' with the minimum fields required to make a request.

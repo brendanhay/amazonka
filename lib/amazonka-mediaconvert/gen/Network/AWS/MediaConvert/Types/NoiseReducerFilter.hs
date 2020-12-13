@@ -14,11 +14,11 @@ module Network.AWS.MediaConvert.Types.NoiseReducerFilter
   ( NoiseReducerFilter
       ( NoiseReducerFilter',
         Bilateral,
-        Conserve,
+        Mean,
         Gaussian,
         Lanczos,
-        Mean,
         Sharpen,
+        Conserve,
         Spatial,
         Temporal
       ),
@@ -55,8 +55,8 @@ newtype NoiseReducerFilter = NoiseReducerFilter' Lude.Text
 pattern Bilateral :: NoiseReducerFilter
 pattern Bilateral = NoiseReducerFilter' "BILATERAL"
 
-pattern Conserve :: NoiseReducerFilter
-pattern Conserve = NoiseReducerFilter' "CONSERVE"
+pattern Mean :: NoiseReducerFilter
+pattern Mean = NoiseReducerFilter' "MEAN"
 
 pattern Gaussian :: NoiseReducerFilter
 pattern Gaussian = NoiseReducerFilter' "GAUSSIAN"
@@ -64,11 +64,11 @@ pattern Gaussian = NoiseReducerFilter' "GAUSSIAN"
 pattern Lanczos :: NoiseReducerFilter
 pattern Lanczos = NoiseReducerFilter' "LANCZOS"
 
-pattern Mean :: NoiseReducerFilter
-pattern Mean = NoiseReducerFilter' "MEAN"
-
 pattern Sharpen :: NoiseReducerFilter
 pattern Sharpen = NoiseReducerFilter' "SHARPEN"
+
+pattern Conserve :: NoiseReducerFilter
+pattern Conserve = NoiseReducerFilter' "CONSERVE"
 
 pattern Spatial :: NoiseReducerFilter
 pattern Spatial = NoiseReducerFilter' "SPATIAL"
@@ -78,11 +78,11 @@ pattern Temporal = NoiseReducerFilter' "TEMPORAL"
 
 {-# COMPLETE
   Bilateral,
-  Conserve,
+  Mean,
   Gaussian,
   Lanczos,
-  Mean,
   Sharpen,
+  Conserve,
   Spatial,
   Temporal,
   NoiseReducerFilter'

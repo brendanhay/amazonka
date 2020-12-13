@@ -43,39 +43,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataSource' smart constructor.
 data DataSource = DataSource'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
-    relationalDatabaseConfig ::
-      Lude.Maybe RelationalDatabaseDataSourceConfig,
+  { -- | The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | Relational database settings.
+    relationalDatabaseConfig :: Lude.Maybe RelationalDatabaseDataSourceConfig,
+    -- | The data source ARN.
     dataSourceARN :: Lude.Maybe Lude.Text,
+    -- | Amazon DynamoDB settings.
     dynamodbConfig :: Lude.Maybe DynamodbDataSourceConfig,
+    -- | The name of the data source.
     name :: Lude.Maybe Lude.Text,
+    -- | HTTP endpoint settings.
     httpConfig :: Lude.Maybe HTTPDataSourceConfig,
+    -- | AWS Lambda settings.
     lambdaConfig :: Lude.Maybe LambdaDataSourceConfig,
+    -- | The type of the data source.
+    --
+    --
+    --     * __AMAZON_DYNAMODB__ : The data source is an Amazon DynamoDB table.
+    --
+    --
+    --     * __AMAZON_ELASTICSEARCH__ : The data source is an Amazon Elasticsearch Service domain.
+    --
+    --
+    --     * __AWS_LAMBDA__ : The data source is an AWS Lambda function.
+    --
+    --
+    --     * __NONE__ : There is no data source. This type is used when you wish to invoke a GraphQL operation without connecting to a data source, such as performing data transformation with resolvers or triggering a subscription to be invoked from a mutation.
+    --
+    --
+    --     * __HTTP__ : The data source is an HTTP endpoint.
+    --
+    --
+    --     * __RELATIONAL_DATABASE__ : The data source is a relational database.
     type' :: Lude.Maybe DataSourceType,
+    -- | The description of the data source.
     description :: Lude.Maybe Lude.Text,
+    -- | Amazon Elasticsearch Service settings.
     elasticsearchConfig :: Lude.Maybe ElasticsearchDataSourceConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataSource' with the minimum fields required to make a request.
 --
+-- * 'serviceRoleARN' - The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
+-- * 'relationalDatabaseConfig' - Relational database settings.
 -- * 'dataSourceARN' - The data source ARN.
--- * 'description' - The description of the data source.
 -- * 'dynamodbConfig' - Amazon DynamoDB settings.
--- * 'elasticsearchConfig' - Amazon Elasticsearch Service settings.
+-- * 'name' - The name of the data source.
 -- * 'httpConfig' - HTTP endpoint settings.
 -- * 'lambdaConfig' - AWS Lambda settings.
--- * 'name' - The name of the data source.
--- * 'relationalDatabaseConfig' - Relational database settings.
--- * 'serviceRoleARN' - The AWS IAM service role ARN for the data source. The system assumes this role when accessing the data source.
 -- * 'type'' - The type of the data source.
 --
 --
@@ -95,6 +113,10 @@ data DataSource = DataSource'
 --
 --
 --     * __RELATIONAL_DATABASE__ : The data source is a relational database.
+--
+--
+-- * 'description' - The description of the data source.
+-- * 'elasticsearchConfig' - Amazon Elasticsearch Service settings.
 mkDataSource ::
   DataSource
 mkDataSource =

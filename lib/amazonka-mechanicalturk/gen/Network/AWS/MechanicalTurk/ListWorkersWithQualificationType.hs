@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
     -- ** Request lenses
     lwwqtStatus,
     lwwqtNextToken,
-    lwwqtMaxResults,
     lwwqtQualificationTypeId,
+    lwwqtMaxResults,
 
     -- * Destructuring the response
     ListWorkersWithQualificationTypeResponse (..),
@@ -47,31 +48,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListWorkersWithQualificationType' smart constructor.
 data ListWorkersWithQualificationType = ListWorkersWithQualificationType'
-  { status ::
-      Lude.Maybe
-        QualificationStatus,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    qualificationTypeId ::
-      Lude.Text
+  { -- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
+    status :: Lude.Maybe QualificationStatus,
+    -- | Pagination Token
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Qualification type of the Qualifications to return.
+    qualificationTypeId :: Lude.Text,
+    -- | Limit the number of results returned.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkersWithQualificationType' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Limit the number of results returned.
+-- * 'status' - The status of the Qualifications to return. Can be @Granted | Revoked@ .
 -- * 'nextToken' - Pagination Token
 -- * 'qualificationTypeId' - The ID of the Qualification type of the Qualifications to return.
--- * 'status' - The status of the Qualifications to return. Can be @Granted | Revoked@ .
+-- * 'maxResults' - Limit the number of results returned.
 mkListWorkersWithQualificationType ::
   -- | 'qualificationTypeId'
   Lude.Text ->
@@ -80,8 +74,8 @@ mkListWorkersWithQualificationType pQualificationTypeId_ =
   ListWorkersWithQualificationType'
     { status = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      qualificationTypeId = pQualificationTypeId_
+      qualificationTypeId = pQualificationTypeId_,
+      maxResults = Lude.Nothing
     }
 
 -- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
@@ -98,19 +92,19 @@ lwwqtNextToken :: Lens.Lens' ListWorkersWithQualificationType (Lude.Maybe Lude.T
 lwwqtNextToken = Lens.lens (nextToken :: ListWorkersWithQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkersWithQualificationType)
 {-# DEPRECATED lwwqtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Limit the number of results returned.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtMaxResults :: Lens.Lens' ListWorkersWithQualificationType (Lude.Maybe Lude.Natural)
-lwwqtMaxResults = Lens.lens (maxResults :: ListWorkersWithQualificationType -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkersWithQualificationType)
-{-# DEPRECATED lwwqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the Qualification type of the Qualifications to return.
 --
 -- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lwwqtQualificationTypeId :: Lens.Lens' ListWorkersWithQualificationType Lude.Text
 lwwqtQualificationTypeId = Lens.lens (qualificationTypeId :: ListWorkersWithQualificationType -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: ListWorkersWithQualificationType)
 {-# DEPRECATED lwwqtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
+
+-- | Limit the number of results returned.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwwqtMaxResults :: Lens.Lens' ListWorkersWithQualificationType (Lude.Maybe Lude.Natural)
+lwwqtMaxResults = Lens.lens (maxResults :: ListWorkersWithQualificationType -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkersWithQualificationType)
+{-# DEPRECATED lwwqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListWorkersWithQualificationType where
   page rq rs
@@ -155,8 +149,8 @@ instance Lude.ToJSON ListWorkersWithQualificationType where
       ( Lude.catMaybes
           [ ("Status" Lude..=) Lude.<$> status,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId)
+            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -168,30 +162,20 @@ instance Lude.ToQuery ListWorkersWithQualificationType where
 
 -- | /See:/ 'mkListWorkersWithQualificationTypeResponse' smart constructor.
 data ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationTypeResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    numResults ::
-      Lude.Maybe
-        Lude.Int,
-    qualifications ::
-      Lude.Maybe
-        [Qualification],
-    responseStatus ::
-      Lude.Int
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
+    numResults :: Lude.Maybe Lude.Int,
+    -- | The list of Qualification elements returned by this call.
+    qualifications :: Lude.Maybe [Qualification],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkersWithQualificationTypeResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'numResults' - The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
 -- * 'qualifications' - The list of Qualification elements returned by this call.
 -- * 'responseStatus' - The response status code.

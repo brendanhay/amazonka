@@ -13,9 +13,9 @@
 module Network.AWS.Organizations.Types.CreateAccountState
   ( CreateAccountState
       ( CreateAccountState',
-        Failed,
         InProgress,
-        Succeeded
+        Succeeded,
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CreateAccountState = CreateAccountState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: CreateAccountState
-pattern Failed = CreateAccountState' "FAILED"
-
 pattern InProgress :: CreateAccountState
 pattern InProgress = CreateAccountState' "IN_PROGRESS"
 
 pattern Succeeded :: CreateAccountState
 pattern Succeeded = CreateAccountState' "SUCCEEDED"
 
+pattern Failed :: CreateAccountState
+pattern Failed = CreateAccountState' "FAILED"
+
 {-# COMPLETE
-  Failed,
   InProgress,
   Succeeded,
+  Failed,
   CreateAccountState'
   #-}

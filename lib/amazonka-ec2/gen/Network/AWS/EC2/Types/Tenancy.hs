@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.Tenancy
   ( Tenancy
       ( Tenancy',
-        Dedicated,
         Default,
+        Dedicated,
         Host
       ),
   )
@@ -46,18 +46,18 @@ newtype Tenancy = Tenancy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Dedicated :: Tenancy
-pattern Dedicated = Tenancy' "dedicated"
-
 pattern Default :: Tenancy
 pattern Default = Tenancy' "default"
+
+pattern Dedicated :: Tenancy
+pattern Dedicated = Tenancy' "dedicated"
 
 pattern Host :: Tenancy
 pattern Host = Tenancy' "host"
 
 {-# COMPLETE
-  Dedicated,
   Default,
+  Dedicated,
   Host,
   Tenancy'
   #-}

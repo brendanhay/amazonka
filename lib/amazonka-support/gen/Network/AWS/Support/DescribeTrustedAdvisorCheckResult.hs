@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,8 +41,8 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     mkDescribeTrustedAdvisorCheckResult,
 
     -- ** Request lenses
-    dtacrLanguage,
     dtacrCheckId,
+    dtacrLanguage,
 
     -- * Destructuring the response
     DescribeTrustedAdvisorCheckResultResponse (..),
@@ -63,17 +64,12 @@ import Network.AWS.Support.Types
 --
 -- /See:/ 'mkDescribeTrustedAdvisorCheckResult' smart constructor.
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-  { language ::
-      Lude.Maybe Lude.Text,
-    checkId :: Lude.Text
+  { -- | The unique identifier for the Trusted Advisor check.
+    checkId :: Lude.Text,
+    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+    language :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckResult' with the minimum fields required to make a request.
@@ -86,16 +82,9 @@ mkDescribeTrustedAdvisorCheckResult ::
   DescribeTrustedAdvisorCheckResult
 mkDescribeTrustedAdvisorCheckResult pCheckId_ =
   DescribeTrustedAdvisorCheckResult'
-    { language = Lude.Nothing,
-      checkId = pCheckId_
+    { checkId = pCheckId_,
+      language = Lude.Nothing
     }
-
--- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
---
--- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtacrLanguage :: Lens.Lens' DescribeTrustedAdvisorCheckResult (Lude.Maybe Lude.Text)
-dtacrLanguage = Lens.lens (language :: DescribeTrustedAdvisorCheckResult -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: DescribeTrustedAdvisorCheckResult)
-{-# DEPRECATED dtacrLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 -- | The unique identifier for the Trusted Advisor check.
 --
@@ -103,6 +92,13 @@ dtacrLanguage = Lens.lens (language :: DescribeTrustedAdvisorCheckResult -> Lude
 dtacrCheckId :: Lens.Lens' DescribeTrustedAdvisorCheckResult Lude.Text
 dtacrCheckId = Lens.lens (checkId :: DescribeTrustedAdvisorCheckResult -> Lude.Text) (\s a -> s {checkId = a} :: DescribeTrustedAdvisorCheckResult)
 {-# DEPRECATED dtacrCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
+
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
+--
+-- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtacrLanguage :: Lens.Lens' DescribeTrustedAdvisorCheckResult (Lude.Maybe Lude.Text)
+dtacrLanguage = Lens.lens (language :: DescribeTrustedAdvisorCheckResult -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: DescribeTrustedAdvisorCheckResult)
+{-# DEPRECATED dtacrLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
 
 instance Lude.AWSRequest DescribeTrustedAdvisorCheckResult where
   type
@@ -133,8 +129,8 @@ instance Lude.ToJSON DescribeTrustedAdvisorCheckResult where
   toJSON DescribeTrustedAdvisorCheckResult' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("language" Lude..=) Lude.<$> language,
-            Lude.Just ("checkId" Lude..= checkId)
+          [ Lude.Just ("checkId" Lude..= checkId),
+            ("language" Lude..=) Lude.<$> language
           ]
       )
 
@@ -148,25 +144,18 @@ instance Lude.ToQuery DescribeTrustedAdvisorCheckResult where
 --
 -- /See:/ 'mkDescribeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-  { result ::
-      Lude.Maybe
-        TrustedAdvisorCheckResult,
-    responseStatus ::
-      Lude.Int
+  { -- | The detailed results of the Trusted Advisor check.
+    result :: Lude.Maybe TrustedAdvisorCheckResult,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTrustedAdvisorCheckResultResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'result' - The detailed results of the Trusted Advisor check.
+-- * 'responseStatus' - The response status code.
 mkDescribeTrustedAdvisorCheckResultResponse ::
   -- | 'responseStatus'
   Lude.Int ->

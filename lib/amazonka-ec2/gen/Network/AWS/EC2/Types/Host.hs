@@ -52,52 +52,62 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHost' smart constructor.
 data Host = Host'
-  { releaseTime :: Lude.Maybe Lude.DateTime,
+  { -- | The time that the Dedicated Host was released.
+    releaseTime :: Lude.Maybe Lude.DateTime,
+    -- | The Dedicated Host's state.
     state :: Lude.Maybe AllocationState,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Availability Zone in which the Dedicated Host is allocated.
     availabilityZoneId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Dedicated Host.
     hostId :: Lude.Maybe Lude.Text,
+    -- | Information about the instances running on the Dedicated Host.
     availableCapacity :: Lude.Maybe AvailableCapacity,
+    -- | The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
     hostReservationId :: Lude.Maybe Lude.Text,
-    allowsMultipleInstanceTypes ::
-      Lude.Maybe AllowsMultipleInstanceTypes,
+    -- | Indicates whether the Dedicated Host supports multiple instance types of the same instance family, or a specific instance type only. @one@ indicates that the Dedicated Host supports multiple instance types in the instance family. @off@ indicates that the Dedicated Host supports a single instance type only.
+    allowsMultipleInstanceTypes :: Lude.Maybe AllowsMultipleInstanceTypes,
+    -- | The hardware specifications of the Dedicated Host.
     hostProperties :: Lude.Maybe HostProperties,
+    -- | The ID of the AWS account that owns the Dedicated Host.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of the Dedicated Host.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The IDs and instance type that are currently running on the Dedicated Host.
     instances :: Lude.Maybe [HostInstance],
+    -- | The time that the Dedicated Host was allocated.
     allocationTime :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
     memberOfServiceLinkedResourceGroup :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether host recovery is enabled or disabled for the Dedicated Host.
     hostRecovery :: Lude.Maybe HostRecovery,
+    -- | Whether auto-placement is on or off.
     autoPlacement :: Lude.Maybe AutoPlacement,
+    -- | Any tags assigned to the Dedicated Host.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Host' with the minimum fields required to make a request.
 --
--- * 'allocationTime' - The time that the Dedicated Host was allocated.
--- * 'allowsMultipleInstanceTypes' - Indicates whether the Dedicated Host supports multiple instance types of the same instance family, or a specific instance type only. @one@ indicates that the Dedicated Host supports multiple instance types in the instance family. @off@ indicates that the Dedicated Host supports a single instance type only.
--- * 'autoPlacement' - Whether auto-placement is on or off.
--- * 'availabilityZone' - The Availability Zone of the Dedicated Host.
--- * 'availabilityZoneId' - The ID of the Availability Zone in which the Dedicated Host is allocated.
--- * 'availableCapacity' - Information about the instances running on the Dedicated Host.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'hostId' - The ID of the Dedicated Host.
--- * 'hostProperties' - The hardware specifications of the Dedicated Host.
--- * 'hostRecovery' - Indicates whether host recovery is enabled or disabled for the Dedicated Host.
--- * 'hostReservationId' - The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
--- * 'instances' - The IDs and instance type that are currently running on the Dedicated Host.
--- * 'memberOfServiceLinkedResourceGroup' - Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
--- * 'ownerId' - The ID of the AWS account that owns the Dedicated Host.
 -- * 'releaseTime' - The time that the Dedicated Host was released.
 -- * 'state' - The Dedicated Host's state.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'availabilityZoneId' - The ID of the Availability Zone in which the Dedicated Host is allocated.
+-- * 'hostId' - The ID of the Dedicated Host.
+-- * 'availableCapacity' - Information about the instances running on the Dedicated Host.
+-- * 'hostReservationId' - The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
+-- * 'allowsMultipleInstanceTypes' - Indicates whether the Dedicated Host supports multiple instance types of the same instance family, or a specific instance type only. @one@ indicates that the Dedicated Host supports multiple instance types in the instance family. @off@ indicates that the Dedicated Host supports a single instance type only.
+-- * 'hostProperties' - The hardware specifications of the Dedicated Host.
+-- * 'ownerId' - The ID of the AWS account that owns the Dedicated Host.
+-- * 'availabilityZone' - The Availability Zone of the Dedicated Host.
+-- * 'instances' - The IDs and instance type that are currently running on the Dedicated Host.
+-- * 'allocationTime' - The time that the Dedicated Host was allocated.
+-- * 'memberOfServiceLinkedResourceGroup' - Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
+-- * 'hostRecovery' - Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+-- * 'autoPlacement' - Whether auto-placement is on or off.
 -- * 'tags' - Any tags assigned to the Dedicated Host.
 mkHost ::
   Host

@@ -13,9 +13,9 @@
 module Network.AWS.CostAndUsageReport.Types.CompressionFormat
   ( CompressionFormat
       ( CompressionFormat',
+        CFZip,
         CFGzip,
-        CFParquet,
-        CFZip
+        CFParquet
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype CompressionFormat = CompressionFormat' Lude.Text
       Lude.ToHeader
     )
 
+pattern CFZip :: CompressionFormat
+pattern CFZip = CompressionFormat' "ZIP"
+
 pattern CFGzip :: CompressionFormat
 pattern CFGzip = CompressionFormat' "GZIP"
 
 pattern CFParquet :: CompressionFormat
 pattern CFParquet = CompressionFormat' "Parquet"
 
-pattern CFZip :: CompressionFormat
-pattern CFZip = CompressionFormat' "ZIP"
-
 {-# COMPLETE
+  CFZip,
   CFGzip,
   CFParquet,
-  CFZip,
   CompressionFormat'
   #-}

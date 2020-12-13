@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,16 +36,10 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkDeleteMedicalVocabulary' smart constructor.
 newtype DeleteMedicalVocabulary = DeleteMedicalVocabulary'
-  { vocabularyName ::
-      Lude.Text
+  { -- | The name of the vocabulary that you want to delete.
+    vocabularyName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMedicalVocabulary' with the minimum fields required to make a request.
@@ -95,13 +90,7 @@ instance Lude.ToQuery DeleteMedicalVocabulary where
 
 -- | /See:/ 'mkDeleteMedicalVocabularyResponse' smart constructor.
 data DeleteMedicalVocabularyResponse = DeleteMedicalVocabularyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMedicalVocabularyResponse' with the minimum fields required to make a request.

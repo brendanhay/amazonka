@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,16 +50,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeArchive' smart constructor.
 newtype DescribeArchive = DescribeArchive'
-  { archiveName ::
-      Lude.Text
+  { -- | The name of the archive to retrieve.
+    archiveName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeArchive' with the minimum fields required to make a request.
@@ -123,43 +118,48 @@ instance Lude.ToQuery DescribeArchive where
 
 -- | /See:/ 'mkDescribeArchiveResponse' smart constructor.
 data DescribeArchiveResponse = DescribeArchiveResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time at which the archive was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The size of the archive in bytes.
     sizeBytes :: Lude.Maybe Lude.Integer,
+    -- | The ARN of the event source associated with the archive.
     eventSourceARN :: Lude.Maybe Lude.Text,
+    -- | The event pattern used to filter events sent to the archive.
     eventPattern :: Lude.Maybe Lude.Text,
+    -- | The state of the archive.
     state :: Lude.Maybe ArchiveState,
+    -- | The number of events in the archive.
     eventCount :: Lude.Maybe Lude.Integer,
+    -- | The name of the archive.
     archiveName :: Lude.Maybe Lude.Text,
+    -- | The number of days to retain events for in the archive.
     retentionDays :: Lude.Maybe Lude.Natural,
+    -- | The ARN of the archive.
     archiveARN :: Lude.Maybe Lude.Text,
+    -- | The reason that the archive is in the state.
     stateReason :: Lude.Maybe Lude.Text,
+    -- | The description of the archive.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeArchiveResponse' with the minimum fields required to make a request.
 --
--- * 'archiveARN' - The ARN of the archive.
--- * 'archiveName' - The name of the archive.
 -- * 'creationTime' - The time at which the archive was created.
--- * 'description' - The description of the archive.
--- * 'eventCount' - The number of events in the archive.
--- * 'eventPattern' - The event pattern used to filter events sent to the archive.
--- * 'eventSourceARN' - The ARN of the event source associated with the archive.
--- * 'responseStatus' - The response status code.
--- * 'retentionDays' - The number of days to retain events for in the archive.
 -- * 'sizeBytes' - The size of the archive in bytes.
+-- * 'eventSourceARN' - The ARN of the event source associated with the archive.
+-- * 'eventPattern' - The event pattern used to filter events sent to the archive.
 -- * 'state' - The state of the archive.
+-- * 'eventCount' - The number of events in the archive.
+-- * 'archiveName' - The name of the archive.
+-- * 'retentionDays' - The number of days to retain events for in the archive.
+-- * 'archiveARN' - The ARN of the archive.
 -- * 'stateReason' - The reason that the archive is in the state.
+-- * 'description' - The description of the archive.
+-- * 'responseStatus' - The response status code.
 mkDescribeArchiveResponse ::
   -- | 'responseStatus'
   Lude.Int ->

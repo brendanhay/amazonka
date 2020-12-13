@@ -45,40 +45,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataset' smart constructor.
 data Dataset = Dataset'
-  { creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | When the data set was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the data set.
     status :: Lude.Maybe DatasetStatus,
+    -- | Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
     versioningConfiguration :: Lude.Maybe VersioningConfiguration,
+    -- | The ARN of the data set.
     arn :: Lude.Maybe Lude.Text,
+    -- | The @DatasetAction@ objects that automatically create the data set contents.
     actions :: Lude.Maybe (Lude.NonEmpty DatasetAction),
+    -- | The @DatasetTrigger@ objects that specify when the data set is automatically updated.
     triggers :: Lude.Maybe [DatasetTrigger],
+    -- | Optional. How long, in days, message data is kept for the data set.
     retentionPeriod :: Lude.Maybe RetentionPeriod,
+    -- | A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
     lateDataRules :: Lude.Maybe (Lude.NonEmpty LateDataRule),
+    -- | The name of the data set.
     name :: Lude.Maybe Lude.Text,
+    -- | When dataset contents are created they are delivered to destinations specified here.
     contentDeliveryRules :: Lude.Maybe [DatasetContentDeliveryRule],
+    -- | The last time the data set was updated.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Dataset' with the minimum fields required to make a request.
 --
--- * 'actions' - The @DatasetAction@ objects that automatically create the data set contents.
--- * 'arn' - The ARN of the data set.
--- * 'contentDeliveryRules' - When dataset contents are created they are delivered to destinations specified here.
 -- * 'creationTime' - When the data set was created.
--- * 'lastUpdateTime' - The last time the data set was updated.
+-- * 'status' - The status of the data set.
+-- * 'versioningConfiguration' - Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
+-- * 'arn' - The ARN of the data set.
+-- * 'actions' - The @DatasetAction@ objects that automatically create the data set contents.
+-- * 'triggers' - The @DatasetTrigger@ objects that specify when the data set is automatically updated.
+-- * 'retentionPeriod' - Optional. How long, in days, message data is kept for the data set.
 -- * 'lateDataRules' - A list of data rules that send notifications to Amazon CloudWatch, when data arrives late. To specify @lateDataRules@ , the dataset must use a <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer> filter.
 -- * 'name' - The name of the data set.
--- * 'retentionPeriod' - Optional. How long, in days, message data is kept for the data set.
--- * 'status' - The status of the data set.
--- * 'triggers' - The @DatasetTrigger@ objects that specify when the data set is automatically updated.
--- * 'versioningConfiguration' - Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the @retentionPeriod@ parameter. For more information, see <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of AWS IoT Analytics Data Sets> in the /AWS IoT Analytics User Guide/ .
+-- * 'contentDeliveryRules' - When dataset contents are created they are delivered to destinations specified here.
+-- * 'lastUpdateTime' - The last time the data set was updated.
 mkDataset ::
   Dataset
 mkDataset =

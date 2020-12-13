@@ -33,29 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportInstanceTaskDetails' smart constructor.
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The instance operating system.
     platform :: Lude.Maybe PlatformValues,
-    volumes ::
-      Lude.Maybe
-        [ImportInstanceVolumeDetailItem],
+    -- | The volumes.
+    volumes :: Lude.Maybe [ImportInstanceVolumeDetailItem],
+    -- | A description of the task.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportInstanceTaskDetails' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the task.
 -- * 'instanceId' - The ID of the instance.
 -- * 'platform' - The instance operating system.
 -- * 'volumes' - The volumes.
+-- * 'description' - A description of the task.
 mkImportInstanceTaskDetails ::
   ImportInstanceTaskDetails
 mkImportInstanceTaskDetails =

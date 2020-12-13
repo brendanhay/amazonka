@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,16 +38,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteOrganizationalUnit' smart constructor.
 newtype DeleteOrganizationalUnit = DeleteOrganizationalUnit'
-  { organizationalUnitId ::
-      Lude.Text
+  { -- | The unique identifier (ID) of the organizational unit that you want to delete. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+    organizationalUnitId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganizationalUnit' with the minimum fields required to make a request.
@@ -106,13 +103,7 @@ instance Lude.ToQuery DeleteOrganizationalUnit where
 
 -- | /See:/ 'mkDeleteOrganizationalUnitResponse' smart constructor.
 data DeleteOrganizationalUnitResponse = DeleteOrganizationalUnitResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOrganizationalUnitResponse' with the minimum fields required to make a request.

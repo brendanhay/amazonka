@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSerializer' smart constructor.
 data Serializer = Serializer'
-  { orcSerDe :: Lude.Maybe OrcSerDe,
+  { -- | A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
+    orcSerDe :: Lude.Maybe OrcSerDe,
+    -- | A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
     parquetSerDe :: Lude.Maybe ParquetSerDe
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Serializer' with the minimum fields required to make a request.

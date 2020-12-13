@@ -35,32 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegionInfo' smart constructor.
 data RegionInfo = RegionInfo'
-  { availabilityZones ::
-      Lude.Maybe [AvailabilityZone],
+  { -- | The Availability Zones. Follows the format @us-east-2a@ (case-sensitive).
+    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    -- | The region name (e.g., @us-east-2@ ).
     name :: Lude.Maybe RegionName,
-    relationalDatabaseAvailabilityZones ::
-      Lude.Maybe [AvailabilityZone],
+    -- | The Availability Zones for databases. Follows the format @us-east-2a@ (case-sensitive).
+    relationalDatabaseAvailabilityZones :: Lude.Maybe [AvailabilityZone],
+    -- | The display name (e.g., @Ohio@ ).
     displayName :: Lude.Maybe Lude.Text,
+    -- | The continent code (e.g., @NA@ , meaning North America).
     continentCode :: Lude.Maybe Lude.Text,
+    -- | The description of the AWS Region (e.g., @This region is recommended to serve users in the eastern United States and eastern Canada@ ).
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionInfo' with the minimum fields required to make a request.
 --
 -- * 'availabilityZones' - The Availability Zones. Follows the format @us-east-2a@ (case-sensitive).
--- * 'continentCode' - The continent code (e.g., @NA@ , meaning North America).
--- * 'description' - The description of the AWS Region (e.g., @This region is recommended to serve users in the eastern United States and eastern Canada@ ).
--- * 'displayName' - The display name (e.g., @Ohio@ ).
 -- * 'name' - The region name (e.g., @us-east-2@ ).
 -- * 'relationalDatabaseAvailabilityZones' - The Availability Zones for databases. Follows the format @us-east-2a@ (case-sensitive).
+-- * 'displayName' - The display name (e.g., @Ohio@ ).
+-- * 'continentCode' - The continent code (e.g., @NA@ , meaning North America).
+-- * 'description' - The description of the AWS Region (e.g., @This region is recommended to serve users in the eastern United States and eastern Canada@ ).
 mkRegionInfo ::
   RegionInfo
 mkRegionInfo =

@@ -446,8 +446,8 @@ module Network.AWS.CognitoIdentityProvider
     -- ** AccountTakeoverActionType
     AccountTakeoverActionType (..),
     mkAccountTakeoverActionType,
-    atatNotify,
     atatEventAction,
+    atatNotify,
 
     -- ** AccountTakeoverActionsType
     AccountTakeoverActionsType (..),
@@ -459,8 +459,8 @@ module Network.AWS.CognitoIdentityProvider
     -- ** AccountTakeoverRiskConfigurationType
     AccountTakeoverRiskConfigurationType (..),
     mkAccountTakeoverRiskConfigurationType,
-    atrctNotifyConfiguration,
     atrctActions,
+    atrctNotifyConfiguration,
 
     -- ** AdminCreateUserConfigType
     AdminCreateUserConfigType (..),
@@ -532,17 +532,17 @@ module Network.AWS.CognitoIdentityProvider
     -- ** CompromisedCredentialsRiskConfigurationType
     CompromisedCredentialsRiskConfigurationType (..),
     mkCompromisedCredentialsRiskConfigurationType,
-    ccrctEventFilter,
     ccrctActions,
+    ccrctEventFilter,
 
     -- ** ContextDataType
     ContextDataType (..),
     mkContextDataType,
-    cdtEncodedData,
+    cdtHTTPHeaders,
     cdtIPAddress,
     cdtServerName,
+    cdtEncodedData,
     cdtServerPath,
-    cdtHTTPHeaders,
 
     -- ** CustomDomainConfigType
     CustomDomainConfigType (..),
@@ -552,14 +552,14 @@ module Network.AWS.CognitoIdentityProvider
     -- ** CustomEmailLambdaVersionConfigType
     CustomEmailLambdaVersionConfigType (..),
     mkCustomEmailLambdaVersionConfigType,
-    celvctLambdaVersion,
     celvctLambdaARN,
+    celvctLambdaVersion,
 
     -- ** CustomSMSLambdaVersionConfigType
     CustomSMSLambdaVersionConfigType (..),
     mkCustomSMSLambdaVersionConfigType,
-    csmslvctLambdaVersion,
     csmslvctLambdaARN,
+    csmslvctLambdaVersion,
 
     -- ** DeviceConfigurationType
     DeviceConfigurationType (..),
@@ -615,8 +615,8 @@ module Network.AWS.CognitoIdentityProvider
     -- ** EventFeedbackType
     EventFeedbackType (..),
     mkEventFeedbackType,
-    eftFeedbackDate,
     eftFeedbackValue,
+    eftFeedbackDate,
     eftProvider,
 
     -- ** EventRiskType
@@ -694,19 +694,19 @@ module Network.AWS.CognitoIdentityProvider
     -- ** NotifyConfigurationType
     NotifyConfigurationType (..),
     mkNotifyConfigurationType,
+    nctSourceARN,
     nctNoActionEmail,
     nctFrom,
     nctReplyTo,
     nctBlockEmail,
     nctMFAEmail,
-    nctSourceARN,
 
     -- ** NotifyEmailType
     NotifyEmailType (..),
     mkNotifyEmailType,
+    netSubject,
     netTextBody,
     netHTMLBody,
-    netSubject,
 
     -- ** NumberAttributeConstraintsType
     NumberAttributeConstraintsType (..),
@@ -795,8 +795,8 @@ module Network.AWS.CognitoIdentityProvider
     -- ** SmsConfigurationType
     SmsConfigurationType (..),
     mkSmsConfigurationType,
-    sctExternalId,
     sctSNSCallerARN,
+    sctExternalId,
 
     -- ** SmsMFAConfigType
     SmsMFAConfigType (..),

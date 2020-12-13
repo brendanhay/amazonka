@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectorDefinitionVersion' smart constructor.
 newtype ConnectorDefinitionVersion = ConnectorDefinitionVersion'
-  { connectors ::
-      Lude.Maybe [Connector]
+  { -- | A list of references to connectors in this version, with their corresponding configuration settings.
+    connectors :: Lude.Maybe [Connector]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectorDefinitionVersion' with the minimum fields required to make a request.

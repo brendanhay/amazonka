@@ -33,16 +33,10 @@ import Network.AWS.Rekognition.Types.Asset
 --
 -- /See:/ 'mkValidationData' smart constructor.
 newtype ValidationData = ValidationData'
-  { assets ::
-      Lude.Maybe [Asset]
+  { -- | The assets that comprise the validation data.
+    assets :: Lude.Maybe [Asset]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationData' with the minimum fields required to make a request.

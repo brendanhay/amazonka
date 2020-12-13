@@ -41,43 +41,49 @@ import Network.AWS.SSM.Types.ParameterType
 --
 -- /See:/ 'mkParameterMetadata' smart constructor.
 data ParameterMetadata = ParameterMetadata'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Date the parameter was last changed or updated.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the query key used for this parameter.
     keyId :: Lude.Maybe Lude.Text,
+    -- | The parameter name.
     name :: Lude.Maybe Lude.Text,
+    -- | The parameter tier.
     tier :: Lude.Maybe ParameterTier,
+    -- | The parameter version.
     version :: Lude.Maybe Lude.Integer,
+    -- | Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
     lastModifiedUser :: Lude.Maybe Lude.Text,
+    -- | A parameter name can include only the following letters and symbols.
+    --
+    -- a-zA-Z0-9_.-
     allowedPattern :: Lude.Maybe Lude.Text,
+    -- | The type of parameter. Valid parameter types include the following: @String@ , @StringList@ , and @SecureString@ .
     type' :: Lude.Maybe ParameterType,
+    -- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
     dataType :: Lude.Maybe Lude.Text,
+    -- | Description of the parameter actions.
     description :: Lude.Maybe Lude.Text,
+    -- | A list of policies associated with a parameter.
     policies :: Lude.Maybe [ParameterInlinePolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterMetadata' with the minimum fields required to make a request.
 --
+-- * 'lastModifiedDate' - Date the parameter was last changed or updated.
+-- * 'keyId' - The ID of the query key used for this parameter.
+-- * 'name' - The parameter name.
+-- * 'tier' - The parameter tier.
+-- * 'version' - The parameter version.
+-- * 'lastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
 -- * 'allowedPattern' - A parameter name can include only the following letters and symbols.
 --
 -- a-zA-Z0-9_.-
+-- * 'type'' - The type of parameter. Valid parameter types include the following: @String@ , @StringList@ , and @SecureString@ .
 -- * 'dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
 -- * 'description' - Description of the parameter actions.
--- * 'keyId' - The ID of the query key used for this parameter.
--- * 'lastModifiedDate' - Date the parameter was last changed or updated.
--- * 'lastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
--- * 'name' - The parameter name.
 -- * 'policies' - A list of policies associated with a parameter.
--- * 'tier' - The parameter tier.
--- * 'type'' - The type of parameter. Valid parameter types include the following: @String@ , @StringList@ , and @SecureString@ .
--- * 'version' - The parameter version.
 mkParameterMetadata ::
   ParameterMetadata
 mkParameterMetadata =

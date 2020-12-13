@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkObjectIdentifierAndLinkNameTuple' smart constructor.
 data ObjectIdentifierAndLinkNameTuple = ObjectIdentifierAndLinkNameTuple'
-  { objectIdentifier ::
-      Lude.Maybe Lude.Text,
-    linkName ::
-      Lude.Maybe Lude.Text
+  { -- | The ID that is associated with the object.
+    objectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The name of the link between the parent and the child object.
+    linkName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectIdentifierAndLinkNameTuple' with the minimum fields required to make a request.
 --
--- * 'linkName' - The name of the link between the parent and the child object.
 -- * 'objectIdentifier' - The ID that is associated with the object.
+-- * 'linkName' - The name of the link between the parent and the child object.
 mkObjectIdentifierAndLinkNameTuple ::
   ObjectIdentifierAndLinkNameTuple
 mkObjectIdentifierAndLinkNameTuple =

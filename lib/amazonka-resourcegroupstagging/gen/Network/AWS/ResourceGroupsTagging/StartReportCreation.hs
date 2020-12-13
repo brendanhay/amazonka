@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,13 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartReportCreation' smart constructor.
 newtype StartReportCreation = StartReportCreation'
-  { s3Bucket ::
-      Lude.Text
+  { -- | The name of the Amazon S3 bucket where the report will be stored; for example:
+    --
+    -- @awsexamplebucket@
+    -- For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
+    s3Bucket :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReportCreation' with the minimum fields required to make a request.
@@ -113,16 +111,10 @@ instance Lude.ToQuery StartReportCreation where
 
 -- | /See:/ 'mkStartReportCreationResponse' smart constructor.
 newtype StartReportCreationResponse = StartReportCreationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartReportCreationResponse' with the minimum fields required to make a request.

@@ -28,7 +28,10 @@ import Network.AWS.S3.Internal
 -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
 --
 -- /See:/ 'mkSSEKMS' smart constructor.
-newtype SSEKMS = SSEKMS' {keyId :: Lude.Sensitive Lude.Text}
+newtype SSEKMS = SSEKMS'
+  { -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) to use for encrypting inventory reports.
+    keyId :: Lude.Sensitive Lude.Text
+  }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 

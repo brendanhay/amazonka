@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.SSM.GetDocument
     -- ** Request lenses
     gdVersionName,
     gdDocumentFormat,
-    gdDocumentVersion,
     gdName,
+    gdDocumentVersion,
 
     -- * Destructuring the response
     GetDocumentResponse (..),
@@ -51,27 +52,24 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetDocument' smart constructor.
 data GetDocument = GetDocument'
-  { versionName ::
-      Lude.Maybe Lude.Text,
+  { -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
+    versionName :: Lude.Maybe Lude.Text,
+    -- | Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
     documentFormat :: Lude.Maybe DocumentFormat,
-    documentVersion :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The name of the Systems Manager document.
+    name :: Lude.Text,
+    -- | The document version for which you want information.
+    documentVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
 --
--- * 'documentFormat' - Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
--- * 'documentVersion' - The document version for which you want information.
--- * 'name' - The name of the Systems Manager document.
 -- * 'versionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
+-- * 'documentFormat' - Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+-- * 'name' - The name of the Systems Manager document.
+-- * 'documentVersion' - The document version for which you want information.
 mkGetDocument ::
   -- | 'name'
   Lude.Text ->
@@ -80,8 +78,8 @@ mkGetDocument pName_ =
   GetDocument'
     { versionName = Lude.Nothing,
       documentFormat = Lude.Nothing,
-      documentVersion = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      documentVersion = Lude.Nothing
     }
 
 -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
@@ -98,19 +96,19 @@ gdDocumentFormat :: Lens.Lens' GetDocument (Lude.Maybe DocumentFormat)
 gdDocumentFormat = Lens.lens (documentFormat :: GetDocument -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: GetDocument)
 {-# DEPRECATED gdDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
 
--- | The document version for which you want information.
---
--- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDocumentVersion :: Lens.Lens' GetDocument (Lude.Maybe Lude.Text)
-gdDocumentVersion = Lens.lens (documentVersion :: GetDocument -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: GetDocument)
-{-# DEPRECATED gdDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
-
 -- | The name of the Systems Manager document.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdName :: Lens.Lens' GetDocument Lude.Text
 gdName = Lens.lens (name :: GetDocument -> Lude.Text) (\s a -> s {name = a} :: GetDocument)
 {-# DEPRECATED gdName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The document version for which you want information.
+--
+-- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDocumentVersion :: Lens.Lens' GetDocument (Lude.Maybe Lude.Text)
+gdDocumentVersion = Lens.lens (documentVersion :: GetDocument -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: GetDocument)
+{-# DEPRECATED gdDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
 instance Lude.AWSRequest GetDocument where
   type Rs GetDocument = GetDocumentResponse
@@ -149,8 +147,8 @@ instance Lude.ToJSON GetDocument where
       ( Lude.catMaybes
           [ ("VersionName" Lude..=) Lude.<$> versionName,
             ("DocumentFormat" Lude..=) Lude.<$> documentFormat,
-            ("DocumentVersion" Lude..=) Lude.<$> documentVersion,
-            Lude.Just ("Name" Lude..= name)
+            Lude.Just ("Name" Lude..= name),
+            ("DocumentVersion" Lude..=) Lude.<$> documentVersion
           ]
       )
 
@@ -162,43 +160,45 @@ instance Lude.ToQuery GetDocument where
 
 -- | /See:/ 'mkGetDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { status ::
-      Lude.Maybe DocumentStatus,
+  { -- | The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
+    status :: Lude.Maybe DocumentStatus,
+    -- | The document type.
     documentType :: Lude.Maybe DocumentType,
+    -- | The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
     versionName :: Lude.Maybe Lude.Text,
-    attachmentsContent ::
-      Lude.Maybe [AttachmentContent],
+    -- | A description of the document attachments, including names, locations, sizes, and so on.
+    attachmentsContent :: Lude.Maybe [AttachmentContent],
+    -- | The contents of the Systems Manager document.
     content :: Lude.Maybe Lude.Text,
+    -- | The document format, either JSON or YAML.
     documentFormat :: Lude.Maybe DocumentFormat,
+    -- | The name of the Systems Manager document.
     name :: Lude.Maybe Lude.Text,
+    -- | The document version.
     documentVersion :: Lude.Maybe Lude.Text,
+    -- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
     statusInformation :: Lude.Maybe Lude.Text,
-    requires ::
-      Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    -- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
+    requires :: Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
+-- * 'documentType' - The document type.
+-- * 'versionName' - The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 -- * 'attachmentsContent' - A description of the document attachments, including names, locations, sizes, and so on.
 -- * 'content' - The contents of the Systems Manager document.
 -- * 'documentFormat' - The document format, either JSON or YAML.
--- * 'documentType' - The document type.
--- * 'documentVersion' - The document version.
 -- * 'name' - The name of the Systems Manager document.
+-- * 'documentVersion' - The document version.
+-- * 'statusInformation' - A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
 -- * 'requires' - A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
--- * 'statusInformation' - A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
--- * 'versionName' - The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
 mkGetDocumentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,27 +43,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListProtocolsLists' smart constructor.
 data ListProtocolsLists = ListProtocolsLists'
-  { defaultLists ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
+    defaultLists :: Lude.Maybe Lude.Bool,
+    -- | If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects.
+    --
+    -- If you don't specify this, AWS Firewall Manager returns all available objects.
     maxResults :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProtocolsLists' with the minimum fields required to make a request.
 --
 -- * 'defaultLists' - Specifies whether the lists to retrieve are default lists owned by AWS Firewall Manager.
+-- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
 -- * 'maxResults' - The maximum number of objects that you want AWS Firewall Manager to return for this request. If more objects are available, in the response, AWS Firewall Manager provides a @NextToken@ value that you can use in a subsequent call to get the next batch of objects.
 --
 -- If you don't specify this, AWS Firewall Manager returns all available objects.
--- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. For all but the first request, you provide the token returned by the prior request in the request parameters, to retrieve the next batch of objects.
 mkListProtocolsLists ::
   -- | 'maxResults'
   Lude.Natural ->
@@ -138,24 +137,20 @@ instance Lude.ToQuery ListProtocolsLists where
 
 -- | /See:/ 'mkListProtocolsListsResponse' smart constructor.
 data ListProtocolsListsResponse = ListProtocolsListsResponse'
-  { protocolsLists ::
-      Lude.Maybe [ProtocolsListDataSummary],
+  { -- | An array of @ProtocolsListDataSummary@ objects.
+    protocolsLists :: Lude.Maybe [ProtocolsListDataSummary],
+    -- | If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProtocolsListsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
 -- * 'protocolsLists' - An array of @ProtocolsListDataSummary@ objects.
+-- * 'nextToken' - If you specify a value for @MaxResults@ in your list request, and you have more objects than the maximum, AWS Firewall Manager returns this token in the response. You can use this token in subsequent requests to retrieve the next batch of objects.
 -- * 'responseStatus' - The response status code.
 mkListProtocolsListsResponse ::
   -- | 'responseStatus'

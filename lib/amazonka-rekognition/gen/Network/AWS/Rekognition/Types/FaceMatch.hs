@@ -30,22 +30,18 @@ import Network.AWS.Rekognition.Types.Face
 --
 -- /See:/ 'mkFaceMatch' smart constructor.
 data FaceMatch = FaceMatch'
-  { similarity :: Lude.Maybe Lude.Double,
+  { -- | Confidence in the match of this face with the input face.
+    similarity :: Lude.Maybe Lude.Double,
+    -- | Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.
     face :: Lude.Maybe Face
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceMatch' with the minimum fields required to make a request.
 --
--- * 'face' - Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.
 -- * 'similarity' - Confidence in the match of this face with the input face.
+-- * 'face' - Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned.
 mkFaceMatch ::
   FaceMatch
 mkFaceMatch =

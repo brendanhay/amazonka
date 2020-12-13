@@ -34,24 +34,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildSummary' smart constructor.
 data BuildSummary = BuildSummary'
-  { secondaryArtifacts ::
-      Lude.Maybe [ResolvedArtifact],
+  { -- | An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
+    secondaryArtifacts :: Lude.Maybe [ResolvedArtifact],
+    -- | A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
     primaryArtifact :: Lude.Maybe ResolvedArtifact,
+    -- | The batch build ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | The status of the build group.
+    --
+    --
+    --     * FAILED
+    --
+    --     * The build group failed.
+    --
+    --
+    --     * FAULT
+    --
+    --     * The build group faulted.
+    --
+    --
+    --     * IN_PROGRESS
+    --
+    --     * The build group is still in progress.
+    --
+    --
+    --     * STOPPED
+    --
+    --     * The build group stopped.
+    --
+    --
+    --     * SUCCEEDED
+    --
+    --     * The build group succeeded.
+    --
+    --
+    --     * TIMED_OUT
+    --
+    --     * The build group timed out.
     buildStatus :: Lude.Maybe StatusType,
+    -- | When the build was started, expressed in Unix time format.
     requestedOn :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildSummary' with the minimum fields required to make a request.
 --
+-- * 'secondaryArtifacts' - An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
+-- * 'primaryArtifact' - A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
 -- * 'arn' - The batch build ARN.
 -- * 'buildStatus' - The status of the build group.
 --
@@ -86,9 +116,7 @@ data BuildSummary = BuildSummary'
 --     * The build group timed out.
 --
 --
--- * 'primaryArtifact' - A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
 -- * 'requestedOn' - When the build was started, expressed in Unix time format.
--- * 'secondaryArtifacts' - An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
 mkBuildSummary ::
   BuildSummary
 mkBuildSummary =

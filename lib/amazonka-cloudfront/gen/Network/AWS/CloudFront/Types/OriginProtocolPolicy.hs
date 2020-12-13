@@ -14,8 +14,8 @@ module Network.AWS.CloudFront.Types.OriginProtocolPolicy
   ( OriginProtocolPolicy
       ( OriginProtocolPolicy',
         HTTPOnly,
-        HTTPSOnly,
-        MatchViewer
+        MatchViewer,
+        HTTPSOnly
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype OriginProtocolPolicy = OriginProtocolPolicy' Lude.Text
 pattern HTTPOnly :: OriginProtocolPolicy
 pattern HTTPOnly = OriginProtocolPolicy' "http-only"
 
-pattern HTTPSOnly :: OriginProtocolPolicy
-pattern HTTPSOnly = OriginProtocolPolicy' "https-only"
-
 pattern MatchViewer :: OriginProtocolPolicy
 pattern MatchViewer = OriginProtocolPolicy' "match-viewer"
 
+pattern HTTPSOnly :: OriginProtocolPolicy
+pattern HTTPSOnly = OriginProtocolPolicy' "https-only"
+
 {-# COMPLETE
   HTTPOnly,
-  HTTPSOnly,
   MatchViewer,
+  HTTPSOnly,
   OriginProtocolPolicy'
   #-}

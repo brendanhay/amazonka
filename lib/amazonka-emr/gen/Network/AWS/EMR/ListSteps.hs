@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.EMR.ListSteps
     mkListSteps,
 
     -- ** Request lenses
-    lsStepIds,
-    lsStepStates,
-    lsMarker,
-    lsClusterId,
+    lStepIds,
+    lStepStates,
+    lClusterId,
+    lMarker,
 
     -- * Destructuring the response
     ListStepsResponse (..),
@@ -48,26 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListSteps' smart constructor.
 data ListSteps = ListSteps'
-  { stepIds :: Lude.Maybe [Lude.Text],
+  { -- | The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
+    stepIds :: Lude.Maybe [Lude.Text],
+    -- | The filter to limit the step list based on certain states.
     stepStates :: Lude.Maybe [StepState],
-    marker :: Lude.Maybe Lude.Text,
-    clusterId :: Lude.Text
+    -- | The identifier of the cluster for which to list the steps.
+    clusterId :: Lude.Text,
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSteps' with the minimum fields required to make a request.
 --
--- * 'clusterId' - The identifier of the cluster for which to list the steps.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
 -- * 'stepIds' - The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
 -- * 'stepStates' - The filter to limit the step list based on certain states.
+-- * 'clusterId' - The identifier of the cluster for which to list the steps.
+-- * 'marker' - The pagination token that indicates the next set of results to retrieve.
 mkListSteps ::
   -- | 'clusterId'
   Lude.Text ->
@@ -76,44 +75,44 @@ mkListSteps pClusterId_ =
   ListSteps'
     { stepIds = Lude.Nothing,
       stepStates = Lude.Nothing,
-      marker = Lude.Nothing,
-      clusterId = pClusterId_
+      clusterId = pClusterId_,
+      marker = Lude.Nothing
     }
 
 -- | The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
 --
 -- /Note:/ Consider using 'stepIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsStepIds :: Lens.Lens' ListSteps (Lude.Maybe [Lude.Text])
-lsStepIds = Lens.lens (stepIds :: ListSteps -> Lude.Maybe [Lude.Text]) (\s a -> s {stepIds = a} :: ListSteps)
-{-# DEPRECATED lsStepIds "Use generic-lens or generic-optics with 'stepIds' instead." #-}
+lStepIds :: Lens.Lens' ListSteps (Lude.Maybe [Lude.Text])
+lStepIds = Lens.lens (stepIds :: ListSteps -> Lude.Maybe [Lude.Text]) (\s a -> s {stepIds = a} :: ListSteps)
+{-# DEPRECATED lStepIds "Use generic-lens or generic-optics with 'stepIds' instead." #-}
 
 -- | The filter to limit the step list based on certain states.
 --
 -- /Note:/ Consider using 'stepStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsStepStates :: Lens.Lens' ListSteps (Lude.Maybe [StepState])
-lsStepStates = Lens.lens (stepStates :: ListSteps -> Lude.Maybe [StepState]) (\s a -> s {stepStates = a} :: ListSteps)
-{-# DEPRECATED lsStepStates "Use generic-lens or generic-optics with 'stepStates' instead." #-}
-
--- | The pagination token that indicates the next set of results to retrieve.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsMarker :: Lens.Lens' ListSteps (Lude.Maybe Lude.Text)
-lsMarker = Lens.lens (marker :: ListSteps -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSteps)
-{-# DEPRECATED lsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lStepStates :: Lens.Lens' ListSteps (Lude.Maybe [StepState])
+lStepStates = Lens.lens (stepStates :: ListSteps -> Lude.Maybe [StepState]) (\s a -> s {stepStates = a} :: ListSteps)
+{-# DEPRECATED lStepStates "Use generic-lens or generic-optics with 'stepStates' instead." #-}
 
 -- | The identifier of the cluster for which to list the steps.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsClusterId :: Lens.Lens' ListSteps Lude.Text
-lsClusterId = Lens.lens (clusterId :: ListSteps -> Lude.Text) (\s a -> s {clusterId = a} :: ListSteps)
-{-# DEPRECATED lsClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+lClusterId :: Lens.Lens' ListSteps Lude.Text
+lClusterId = Lens.lens (clusterId :: ListSteps -> Lude.Text) (\s a -> s {clusterId = a} :: ListSteps)
+{-# DEPRECATED lClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The pagination token that indicates the next set of results to retrieve.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lMarker :: Lens.Lens' ListSteps (Lude.Maybe Lude.Text)
+lMarker = Lens.lens (marker :: ListSteps -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSteps)
+{-# DEPRECATED lMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 instance Page.AWSPager ListSteps where
   page rq rs
     | Page.stop (rs Lens.^. lrsMarker) = Lude.Nothing
     | Page.stop (rs Lens.^. lrsSteps) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lsMarker Lens..~ rs Lens.^. lrsMarker
+      Lude.Just Lude.$ rq Lude.& lMarker Lens..~ rs Lens.^. lrsMarker
 
 instance Lude.AWSRequest ListSteps where
   type Rs ListSteps = ListStepsResponse
@@ -144,8 +143,8 @@ instance Lude.ToJSON ListSteps where
       ( Lude.catMaybes
           [ ("StepIds" Lude..=) Lude.<$> stepIds,
             ("StepStates" Lude..=) Lude.<$> stepStates,
-            ("Marker" Lude..=) Lude.<$> marker,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+            Lude.Just ("ClusterId" Lude..= clusterId),
+            ("Marker" Lude..=) Lude.<$> marker
           ]
       )
 
@@ -159,25 +158,21 @@ instance Lude.ToQuery ListSteps where
 --
 -- /See:/ 'mkListStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
-  { steps ::
-      Lude.Maybe [StepSummary],
+  { -- | The filtered list of steps for the cluster.
+    steps :: Lude.Maybe [StepSummary],
+    -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStepsResponse' with the minimum fields required to make a request.
 --
+-- * 'steps' - The filtered list of steps for the cluster.
 -- * 'marker' - The pagination token that indicates the next set of results to retrieve.
 -- * 'responseStatus' - The response status code.
--- * 'steps' - The filtered list of steps for the cluster.
 mkListStepsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

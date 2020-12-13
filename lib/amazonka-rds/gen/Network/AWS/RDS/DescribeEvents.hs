@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,41 +54,69 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { startTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+    --
+    -- Example: 2009-07-08T18:00Z
+    startTime :: Lude.Maybe Lude.DateTime,
+    -- | The event source to retrieve events for. If no value is specified, all events are returned.
     sourceType :: Lude.Maybe SourceType,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter],
+    -- | The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.
+    --
+    -- Constraints:
+    --
+    --     * If @SourceIdentifier@ is supplied, @SourceType@ must also be provided.
+    --
+    --
+    --     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.
+    --
+    --
+    --     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens.
     sourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | A list of event categories that trigger notifications for a event notification subscription.
     eventCategories :: Lude.Maybe [Lude.Text],
+    -- | An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+    --
+    -- Example: 2009-07-08T18:00Z
     endTime :: Lude.Maybe Lude.DateTime,
+    -- | The number of minutes to retrieve events for.
+    --
+    -- Default: 60
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- * 'duration' - The number of minutes to retrieve events for.
---
--- Default: 60
--- * 'endTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+-- * 'startTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: 2009-07-08T18:00Z
--- * 'eventCategories' - A list of event categories that trigger notifications for a event notification subscription.
+-- * 'sourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
 -- * 'filters' - This parameter isn't currently supported.
--- * 'marker' - An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
 -- * 'sourceIdentifier' - The identifier of the event source for which events are returned. If not specified, then all sources are included in the response.
 --
 -- Constraints:
@@ -116,10 +145,18 @@ data DescribeEvents = DescribeEvents'
 --     * Can't end with a hyphen or contain two consecutive hyphens.
 --
 --
--- * 'sourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
--- * 'startTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+-- * 'eventCategories' - A list of event categories that trigger notifications for a event notification subscription.
+-- * 'marker' - An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+--
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
+-- * 'endTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: 2009-07-08T18:00Z
+-- * 'duration' - The number of minutes to retrieve events for.
+--
+-- Default: 60
 mkDescribeEvents ::
   DescribeEvents
 mkDescribeEvents =
@@ -285,18 +322,14 @@ instance Lude.ToQuery DescribeEvents where
 --
 -- /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { events ::
-      Lude.Maybe [Event],
+  { -- | A list of @Event@ instances.
+    events :: Lude.Maybe [Event],
+    -- | An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.

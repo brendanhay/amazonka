@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileGroupSettings' smart constructor.
 data FileGroupSettings = FileGroupSettings'
-  { destination ::
-      Lude.Maybe Lude.Text,
+  { -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+    destination :: Lude.Maybe Lude.Text,
+    -- | Settings associated with the destination. Will vary based on the type of destination
     destinationSettings :: Lude.Maybe DestinationSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileGroupSettings' with the minimum fields required to make a request.

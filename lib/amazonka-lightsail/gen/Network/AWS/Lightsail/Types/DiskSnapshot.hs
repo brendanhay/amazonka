@@ -46,48 +46,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDiskSnapshot' smart constructor.
 data DiskSnapshot = DiskSnapshot'
-  { fromDiskName ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique name of the source disk from which the disk snapshot was created.
+    fromDiskName :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether the snapshot was created from an automatic snapshot.
     isFromAutoSnapshot :: Lude.Maybe Lude.Bool,
+    -- | The status of the disk snapshot operation.
     state :: Lude.Maybe DiskSnapshotState,
+    -- | The Lightsail resource type (e.g., @DiskSnapshot@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the disk snapshot.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date when the disk snapshot was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS Region and Availability Zone where the disk snapshot was created.
     location :: Lude.Maybe ResourceLocation,
+    -- | The progress of the disk snapshot operation.
     progress :: Lude.Maybe Lude.Text,
+    -- | The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
     name :: Lude.Maybe Lude.Text,
+    -- | The size of the disk in GB.
     sizeInGb :: Lude.Maybe Lude.Int,
+    -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
     fromInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The unique name of the source instance from which the disk (system volume) snapshot was created.
     fromInstanceName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
     fromDiskARN :: Lude.Maybe Lude.Text,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskSnapshot' with the minimum fields required to make a request.
 --
+-- * 'fromDiskName' - The unique name of the source disk from which the disk snapshot was created.
+-- * 'isFromAutoSnapshot' - A Boolean value indicating whether the snapshot was created from an automatic snapshot.
+-- * 'state' - The status of the disk snapshot operation.
+-- * 'resourceType' - The Lightsail resource type (e.g., @DiskSnapshot@ ).
 -- * 'arn' - The Amazon Resource Name (ARN) of the disk snapshot.
 -- * 'createdAt' - The date when the disk snapshot was created.
--- * 'fromDiskARN' - The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
--- * 'fromDiskName' - The unique name of the source disk from which the disk snapshot was created.
+-- * 'location' - The AWS Region and Availability Zone where the disk snapshot was created.
+-- * 'progress' - The progress of the disk snapshot operation.
+-- * 'name' - The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
+-- * 'sizeInGb' - The size of the disk in GB.
+-- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 -- * 'fromInstanceARN' - The Amazon Resource Name (ARN) of the source instance from which the disk (system volume) snapshot was created.
 -- * 'fromInstanceName' - The unique name of the source instance from which the disk (system volume) snapshot was created.
--- * 'isFromAutoSnapshot' - A Boolean value indicating whether the snapshot was created from an automatic snapshot.
--- * 'location' - The AWS Region and Availability Zone where the disk snapshot was created.
--- * 'name' - The name of the disk snapshot (e.g., @my-disk-snapshot@ ).
--- * 'progress' - The progress of the disk snapshot operation.
--- * 'resourceType' - The Lightsail resource type (e.g., @DiskSnapshot@ ).
--- * 'sizeInGb' - The size of the disk in GB.
--- * 'state' - The status of the disk snapshot operation.
--- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+-- * 'fromDiskARN' - The Amazon Resource Name (ARN) of the source disk from which the disk snapshot was created.
 -- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkDiskSnapshot ::
   DiskSnapshot

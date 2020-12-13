@@ -41,34 +41,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobData' smart constructor.
 data JobData = JobData'
-  { continuationToken :: Lude.Maybe Lude.Text,
+  { -- | A system-generated token, such as a AWS CodeDeploy deployment ID, required by a job to continue the job asynchronously.
+    continuationToken :: Lude.Maybe Lude.Text,
+    -- | The output of the job.
     outputArtifacts :: Lude.Maybe [Artifact],
+    -- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifacts for the pipeline in AWS CodePipeline.
     artifactCredentials :: Lude.Maybe AWSSessionCredentials,
+    -- | Represents information about a pipeline to a job worker.
     pipelineContext :: Lude.Maybe PipelineContext,
+    -- | Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
     encryptionKey :: Lude.Maybe EncryptionKey,
+    -- | Represents information about an action type.
     actionTypeId :: Lude.Maybe ActionTypeId,
+    -- | The artifact supplied to the job.
     inputArtifacts :: Lude.Maybe [Artifact],
+    -- | Represents information about an action configuration.
     actionConfiguration :: Lude.Maybe ActionConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobData' with the minimum fields required to make a request.
 --
--- * 'actionConfiguration' - Represents information about an action configuration.
--- * 'actionTypeId' - Represents information about an action type.
--- * 'artifactCredentials' - Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifacts for the pipeline in AWS CodePipeline.
 -- * 'continuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID, required by a job to continue the job asynchronously.
--- * 'encryptionKey' - Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
--- * 'inputArtifacts' - The artifact supplied to the job.
 -- * 'outputArtifacts' - The output of the job.
+-- * 'artifactCredentials' - Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifacts for the pipeline in AWS CodePipeline.
 -- * 'pipelineContext' - Represents information about a pipeline to a job worker.
+-- * 'encryptionKey' - Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key.
+-- * 'actionTypeId' - Represents information about an action type.
+-- * 'inputArtifacts' - The artifact supplied to the job.
+-- * 'actionConfiguration' - Represents information about an action configuration.
 mkJobData ::
   JobData
 mkJobData =

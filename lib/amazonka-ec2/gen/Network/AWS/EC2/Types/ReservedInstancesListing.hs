@@ -41,43 +41,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedInstancesListing' smart constructor.
 data ReservedInstancesListing = ReservedInstancesListing'
-  { status ::
-      Lude.Maybe ListingStatus,
+  { -- | The status of the Reserved Instance listing.
+    status :: Lude.Maybe ListingStatus,
+    -- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The last modified timestamp of the listing.
     updateDate :: Lude.Maybe Lude.DateTime,
+    -- | The time the listing was created.
     createDate :: Lude.Maybe Lude.DateTime,
-    priceSchedules ::
-      Lude.Maybe [PriceSchedule],
+    -- | The price of the Reserved Instance listing.
+    priceSchedules :: Lude.Maybe [PriceSchedule],
+    -- | The reason for the current status of the Reserved Instance listing. The response can be blank.
     statusMessage :: Lude.Maybe Lude.Text,
-    reservedInstancesId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the Reserved Instance.
+    reservedInstancesId :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the resource.
     tags :: Lude.Maybe [Tag],
-    instanceCounts ::
-      Lude.Maybe [InstanceCount],
-    reservedInstancesListingId ::
-      Lude.Maybe Lude.Text
+    -- | The number of instances in this state.
+    instanceCounts :: Lude.Maybe [InstanceCount],
+    -- | The ID of the Reserved Instance listing.
+    reservedInstancesListingId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesListing' with the minimum fields required to make a request.
 --
--- * 'clientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'createDate' - The time the listing was created.
--- * 'instanceCounts' - The number of instances in this state.
--- * 'priceSchedules' - The price of the Reserved Instance listing.
--- * 'reservedInstancesId' - The ID of the Reserved Instance.
--- * 'reservedInstancesListingId' - The ID of the Reserved Instance listing.
 -- * 'status' - The status of the Reserved Instance listing.
--- * 'statusMessage' - The reason for the current status of the Reserved Instance listing. The response can be blank.
--- * 'tags' - Any tags assigned to the resource.
+-- * 'clientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 -- * 'updateDate' - The last modified timestamp of the listing.
+-- * 'createDate' - The time the listing was created.
+-- * 'priceSchedules' - The price of the Reserved Instance listing.
+-- * 'statusMessage' - The reason for the current status of the Reserved Instance listing. The response can be blank.
+-- * 'reservedInstancesId' - The ID of the Reserved Instance.
+-- * 'tags' - Any tags assigned to the resource.
+-- * 'instanceCounts' - The number of instances in this state.
+-- * 'reservedInstancesListingId' - The ID of the Reserved Instance listing.
 mkReservedInstancesListing ::
   ReservedInstancesListing
 mkReservedInstancesListing =

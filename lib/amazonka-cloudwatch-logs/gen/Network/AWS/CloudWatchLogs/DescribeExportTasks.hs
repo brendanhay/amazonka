@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { taskId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
+    taskId :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
     limit :: Lude.Maybe Lude.Natural,
+    -- | The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
     statusCode :: Lude.Maybe ExportTaskStatusCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'statusCode' - The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 -- * 'taskId' - The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'limit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- * 'statusCode' - The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
 mkDescribeExportTasks ::
   DescribeExportTasks
 mkDescribeExportTasks =
@@ -156,25 +154,19 @@ instance Lude.ToQuery DescribeExportTasks where
 
 -- | /See:/ 'mkDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    exportTasks ::
-      Lude.Maybe [ExportTask],
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | The export tasks.
+    exportTasks :: Lude.Maybe [ExportTask],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
 --
+-- * 'nextToken' -
 -- * 'exportTasks' - The export tasks.
--- * 'nextToken' - Undocumented field.
 -- * 'responseStatus' - The response status code.
 mkDescribeExportTasksResponse ::
   -- | 'responseStatus'

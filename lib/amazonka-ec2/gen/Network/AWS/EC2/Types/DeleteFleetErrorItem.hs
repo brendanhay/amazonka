@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeleteFleetErrorItem' smart constructor.
 data DeleteFleetErrorItem = DeleteFleetErrorItem'
-  { error ::
-      Lude.Maybe DeleteFleetError,
+  { -- | The error.
+    error :: Lude.Maybe DeleteFleetError,
+    -- | The ID of the EC2 Fleet.
     fleetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFleetErrorItem' with the minimum fields required to make a request.

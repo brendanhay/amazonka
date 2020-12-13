@@ -436,13 +436,14 @@ module Network.AWS.Pinpoint
     -- ** ADMChannelRequest
     ADMChannelRequest (..),
     mkADMChannelRequest,
-    admcrEnabled,
-    admcrClientSecret,
     admcrClientId,
+    admcrClientSecret,
+    admcrEnabled,
 
     -- ** ADMChannelResponse
     ADMChannelResponse (..),
     mkADMChannelResponse,
+    admcPlatform,
     admcLastModifiedDate,
     admcEnabled,
     admcIsArchived,
@@ -452,7 +453,6 @@ module Network.AWS.Pinpoint
     admcCreationDate,
     admcLastModifiedBy,
     admcHasCredential,
-    admcPlatform,
 
     -- ** ADMMessage
     ADMMessage (..),
@@ -489,6 +489,7 @@ module Network.AWS.Pinpoint
     -- ** APNSChannelResponse
     APNSChannelResponse (..),
     mkAPNSChannelResponse,
+    acPlatform,
     acLastModifiedDate,
     acEnabled,
     acHasTokenKey,
@@ -500,7 +501,6 @@ module Network.AWS.Pinpoint
     acCreationDate,
     acLastModifiedBy,
     acHasCredential,
-    acPlatform,
 
     -- ** APNSMessage
     APNSMessage (..),
@@ -550,6 +550,7 @@ module Network.AWS.Pinpoint
     -- ** APNSSandboxChannelResponse
     APNSSandboxChannelResponse (..),
     mkAPNSSandboxChannelResponse,
+    ascPlatform,
     ascLastModifiedDate,
     ascEnabled,
     ascHasTokenKey,
@@ -561,7 +562,6 @@ module Network.AWS.Pinpoint
     ascCreationDate,
     ascLastModifiedBy,
     ascHasCredential,
-    ascPlatform,
 
     -- ** APNSVoipChannelRequest
     APNSVoipChannelRequest (..),
@@ -578,6 +578,7 @@ module Network.AWS.Pinpoint
     -- ** APNSVoipChannelResponse
     APNSVoipChannelResponse (..),
     mkAPNSVoipChannelResponse,
+    avcPlatform,
     avcLastModifiedDate,
     avcEnabled,
     avcHasTokenKey,
@@ -589,7 +590,6 @@ module Network.AWS.Pinpoint
     avcCreationDate,
     avcLastModifiedBy,
     avcHasCredential,
-    avcPlatform,
 
     -- ** APNSVoipSandboxChannelRequest
     APNSVoipSandboxChannelRequest (..),
@@ -606,6 +606,7 @@ module Network.AWS.Pinpoint
     -- ** APNSVoipSandboxChannelResponse
     APNSVoipSandboxChannelResponse (..),
     mkAPNSVoipSandboxChannelResponse,
+    avscPlatform,
     avscLastModifiedDate,
     avscEnabled,
     avscHasTokenKey,
@@ -617,7 +618,6 @@ module Network.AWS.Pinpoint
     avscCreationDate,
     avscLastModifiedBy,
     avscHasCredential,
-    avscPlatform,
 
     -- ** ActivitiesResponse
     ActivitiesResponse (..),
@@ -644,17 +644,17 @@ module Network.AWS.Pinpoint
     mkActivityResponse,
     aState,
     aStart,
+    aCampaignId,
     aTimezonesCompletedCount,
     aTimezonesTotalCount,
     aResult,
     aTreatmentId,
     aSuccessfulEndpointCount,
     aEnd,
-    aTotalEndpointCount,
-    aScheduledStart,
-    aCampaignId,
-    aId,
     aApplicationId,
+    aTotalEndpointCount,
+    aId,
+    aScheduledStart,
 
     -- ** AddressConfiguration
     AddressConfiguration (..),
@@ -682,20 +682,20 @@ module Network.AWS.Pinpoint
     -- ** ApplicationDateRangeKpiResponse
     ApplicationDateRangeKpiResponse (..),
     mkApplicationDateRangeKpiResponse,
-    adrkNextToken,
-    adrkKpiResult,
     adrkKpiName,
-    adrkEndTime,
     adrkStartTime,
+    adrkNextToken,
     adrkApplicationId,
+    adrkEndTime,
+    adrkKpiResult,
 
     -- ** ApplicationResponse
     ApplicationResponse (..),
     mkApplicationResponse,
-    appTags,
-    appId,
-    appARN,
-    appName,
+    afARN,
+    afName,
+    afId,
+    afTags,
 
     -- ** ApplicationSettingsResource
     ApplicationSettingsResource (..),
@@ -703,40 +703,42 @@ module Network.AWS.Pinpoint
     asrLastModifiedDate,
     asrLimits,
     asrQuietTime,
-    asrCampaignHook,
     asrApplicationId,
+    asrCampaignHook,
 
     -- ** ApplicationsResponse
     ApplicationsResponse (..),
     mkApplicationsResponse,
-    appNextToken,
-    appItem,
+    afNextToken,
+    afItem,
 
     -- ** AttributeDimension
     AttributeDimension (..),
     mkAttributeDimension,
-    adAttributeType,
     adValues,
+    adAttributeType,
 
     -- ** AttributesResource
     AttributesResource (..),
     mkAttributesResource,
-    arAttributes,
     arAttributeType,
     arApplicationId,
+    arAttributes,
 
     -- ** BaiduChannelRequest
     BaiduChannelRequest (..),
     mkBaiduChannelRequest,
+    bcrAPIKey,
     bcrEnabled,
     bcrSecretKey,
-    bcrAPIKey,
 
     -- ** BaiduChannelResponse
     BaiduChannelResponse (..),
     mkBaiduChannelResponse,
+    bcPlatform,
     bcLastModifiedDate,
     bcEnabled,
+    bcCredential,
     bcIsArchived,
     bcApplicationId,
     bcVersion,
@@ -744,8 +746,6 @@ module Network.AWS.Pinpoint
     bcCreationDate,
     bcLastModifiedBy,
     bcHasCredential,
-    bcCredential,
-    bcPlatform,
 
     -- ** BaiduMessage
     BaiduMessage (..),
@@ -778,13 +778,13 @@ module Network.AWS.Pinpoint
     -- ** CampaignDateRangeKpiResponse
     CampaignDateRangeKpiResponse (..),
     mkCampaignDateRangeKpiResponse,
-    cdrkNextToken,
-    cdrkKpiResult,
     cdrkKpiName,
-    cdrkEndTime,
-    cdrkCampaignId,
     cdrkStartTime,
+    cdrkCampaignId,
+    cdrkNextToken,
     cdrkApplicationId,
+    cdrkEndTime,
+    cdrkKpiResult,
 
     -- ** CampaignEmailMessage
     CampaignEmailMessage (..),
@@ -820,6 +820,8 @@ module Network.AWS.Pinpoint
     mkCampaignResponse,
     cCustomDeliveryConfiguration,
     cState,
+    cLastModifiedDate,
+    cARN,
     cSchedule,
     cTemplateConfiguration,
     cHook,
@@ -827,21 +829,19 @@ module Network.AWS.Pinpoint
     cLimits,
     cIsPaused,
     cDefaultState,
+    cApplicationId,
     cName,
     cVersion,
     cHoldoutPercent,
     cTreatmentDescription,
+    cId,
+    cCreationDate,
     cMessageConfiguration,
     cDescription,
+    cSegmentId,
     cAdditionalTreatments,
     cTags,
-    cLastModifiedDate,
-    cCreationDate,
-    cSegmentId,
     cSegmentVersion,
-    cId,
-    cARN,
-    cApplicationId,
 
     -- ** CampaignSmsMessage
     CampaignSmsMessage (..),
@@ -864,15 +864,15 @@ module Network.AWS.Pinpoint
     -- ** ChannelResponse
     ChannelResponse (..),
     mkChannelResponse,
-    chaLastModifiedDate,
-    chaEnabled,
-    chaIsArchived,
-    chaApplicationId,
-    chaVersion,
-    chaId,
-    chaCreationDate,
-    chaLastModifiedBy,
-    chaHasCredential,
+    cfLastModifiedDate,
+    cfEnabled,
+    cfIsArchived,
+    cfApplicationId,
+    cfVersion,
+    cfId,
+    cfCreationDate,
+    cfLastModifiedBy,
+    cfHasCredential,
 
     -- ** ChannelsResponse
     ChannelsResponse (..),
@@ -896,8 +896,8 @@ module Network.AWS.Pinpoint
     -- ** CreateApplicationRequest
     CreateApplicationRequest (..),
     mkCreateApplicationRequest,
-    carTags,
     carName,
+    carTags,
 
     -- ** CreateTemplateMessageBody
     CreateTemplateMessageBody (..),
@@ -965,14 +965,15 @@ module Network.AWS.Pinpoint
     EmailChannelRequest (..),
     mkEmailChannelRequest,
     ecrEnabled,
-    ecrConfigurationSet,
-    ecrRoleARN,
     ecrFromAddress,
+    ecrConfigurationSet,
     ecrIdentity,
+    ecrRoleARN,
 
     -- ** EmailChannelResponse
     EmailChannelResponse (..),
     mkEmailChannelResponse,
+    ecPlatform,
     ecMessagesPerSecond,
     ecLastModifiedDate,
     ecEnabled,
@@ -987,7 +988,6 @@ module Network.AWS.Pinpoint
     ecIdentity,
     ecHasCredential,
     ecRoleARN,
-    ecPlatform,
 
     -- ** EmailMessage
     EmailMessage (..),
@@ -1023,18 +1023,18 @@ module Network.AWS.Pinpoint
     EmailTemplateResponse (..),
     mkEmailTemplateResponse,
     etSubject,
+    etTemplateName,
+    etLastModifiedDate,
     etTextPart,
     etARN,
+    etTemplateType,
     etTemplateDescription,
     etDefaultSubstitutions,
     etVersion,
     etHTMLPart,
+    etCreationDate,
     etRecommenderId,
     etTags,
-    etLastModifiedDate,
-    etCreationDate,
-    etTemplateName,
-    etTemplateType,
 
     -- ** EndpointBatchItem
     EndpointBatchItem (..),
@@ -1088,11 +1088,11 @@ module Network.AWS.Pinpoint
     -- ** EndpointMessageResult
     EndpointMessageResult (..),
     mkEndpointMessageResult,
+    emrDeliveryStatus,
     emrAddress,
     emrStatusMessage,
     emrUpdatedToken,
     emrMessageId,
-    emrDeliveryStatus,
     emrStatusCode,
 
     -- ** EndpointRequest
@@ -1113,21 +1113,21 @@ module Network.AWS.Pinpoint
     -- ** EndpointResponse
     EndpointResponse (..),
     mkEndpointResponse,
-    endRequestId,
-    endMetrics,
-    endLocation,
-    endDemographic,
-    endCohortId,
-    endAddress,
-    endEffectiveDate,
-    endUser,
-    endApplicationId,
-    endAttributes,
-    endEndpointStatus,
-    endOptOut,
-    endId,
-    endCreationDate,
-    endChannelType,
+    efRequestId,
+    efMetrics,
+    efLocation,
+    efDemographic,
+    efCohortId,
+    efAddress,
+    efEffectiveDate,
+    efUser,
+    efApplicationId,
+    efAttributes,
+    efEndpointStatus,
+    efOptOut,
+    efId,
+    efCreationDate,
+    efChannelType,
 
     -- ** EndpointSendConfiguration
     EndpointSendConfiguration (..),
@@ -1156,12 +1156,12 @@ module Network.AWS.Pinpoint
     eMetrics,
     eAppVersionCode,
     eAppTitle,
+    eEventType,
     eAppPackageName,
     eAttributes,
     eSDKName,
-    eSession,
-    eEventType,
     eTimestamp,
+    eSession,
 
     -- ** EventCondition
     EventCondition (..),
@@ -1199,16 +1199,16 @@ module Network.AWS.Pinpoint
     mkEventStream,
     esLastUpdatedBy,
     esLastModifiedDate,
-    esExternalId,
-    esApplicationId,
-    esRoleARN,
     esDestinationStreamARN,
+    esApplicationId,
+    esExternalId,
+    esRoleARN,
 
     -- ** EventsBatch
     EventsBatch (..),
     mkEventsBatch,
-    ebEndpoint,
     ebEvents,
+    ebEndpoint,
 
     -- ** EventsRequest
     EventsRequest (..),
@@ -1223,35 +1223,35 @@ module Network.AWS.Pinpoint
     -- ** ExportJobRequest
     ExportJobRequest (..),
     mkExportJobRequest,
-    eSegmentId,
-    eSegmentVersion,
     eS3URLPrefix,
+    eSegmentId,
     eRoleARN,
+    eSegmentVersion,
 
     -- ** ExportJobResource
     ExportJobResource (..),
     mkExportJobResource,
-    ejrSegmentId,
-    ejrSegmentVersion,
     ejrS3URLPrefix,
+    ejrSegmentId,
     ejrRoleARN,
+    ejrSegmentVersion,
 
     -- ** ExportJobResponse
     ExportJobResponse (..),
     mkExportJobResponse,
     ejCompletedPieces,
     ejFailedPieces,
+    ejDefinition,
     ejTotalProcessed,
     ejFailures,
     ejTotalPieces,
-    ejCompletionDate,
-    ejTotalFailures,
-    ejJobStatus,
+    ejApplicationId,
+    ejId,
     ejCreationDate,
     ejType,
-    ejDefinition,
-    ejId,
-    ejApplicationId,
+    ejCompletionDate,
+    ejJobStatus,
+    ejTotalFailures,
 
     -- ** ExportJobsResponse
     ExportJobsResponse (..),
@@ -1262,23 +1262,23 @@ module Network.AWS.Pinpoint
     -- ** GCMChannelRequest
     GCMChannelRequest (..),
     mkGCMChannelRequest,
-    gcrEnabled,
     gcrAPIKey,
+    gcrEnabled,
 
     -- ** GCMChannelResponse
     GCMChannelResponse (..),
     mkGCMChannelResponse,
-    gcLastModifiedDate,
-    gcEnabled,
-    gcIsArchived,
-    gcApplicationId,
-    gcVersion,
-    gcId,
-    gcCreationDate,
-    gcLastModifiedBy,
-    gcHasCredential,
-    gcCredential,
-    gcPlatform,
+    gcmcPlatform,
+    gcmcLastModifiedDate,
+    gcmcEnabled,
+    gcmcCredential,
+    gcmcIsArchived,
+    gcmcApplicationId,
+    gcmcVersion,
+    gcmcId,
+    gcmcCreationDate,
+    gcmcLastModifiedBy,
+    gcmcHasCredential,
 
     -- ** GCMMessage
     GCMMessage (..),
@@ -1310,8 +1310,8 @@ module Network.AWS.Pinpoint
     -- ** GPSPointDimension
     GPSPointDimension (..),
     mkGPSPointDimension,
-    gpspdRangeInKilometers,
     gpspdCoordinates,
+    gpspdRangeInKilometers,
 
     -- ** HoldoutActivity
     HoldoutActivity (..),
@@ -1323,24 +1323,24 @@ module Network.AWS.Pinpoint
     ImportJobRequest (..),
     mkImportJobRequest,
     iSegmentName,
+    iFormat,
     iDefineSegment,
     iRegisterEndpoints,
     iExternalId,
-    iSegmentId,
-    iFormat,
     iS3URL,
+    iSegmentId,
     iRoleARN,
 
     -- ** ImportJobResource
     ImportJobResource (..),
     mkImportJobResource,
     ijrSegmentName,
+    ijrFormat,
     ijrDefineSegment,
     ijrRegisterEndpoints,
     ijrExternalId,
-    ijrSegmentId,
-    ijrFormat,
     ijrS3URL,
+    ijrSegmentId,
     ijrRoleARN,
 
     -- ** ImportJobResponse
@@ -1348,17 +1348,17 @@ module Network.AWS.Pinpoint
     mkImportJobResponse,
     ijCompletedPieces,
     ijFailedPieces,
+    ijDefinition,
     ijTotalProcessed,
     ijFailures,
     ijTotalPieces,
-    ijCompletionDate,
-    ijTotalFailures,
-    ijJobStatus,
+    ijApplicationId,
+    ijId,
     ijCreationDate,
     ijType,
-    ijDefinition,
-    ijId,
-    ijApplicationId,
+    ijCompletionDate,
+    ijJobStatus,
+    ijTotalFailures,
 
     -- ** ImportJobsResponse
     ImportJobsResponse (..),
@@ -1380,13 +1380,13 @@ module Network.AWS.Pinpoint
     -- ** JourneyDateRangeKpiResponse
     JourneyDateRangeKpiResponse (..),
     mkJourneyDateRangeKpiResponse,
-    jdrkNextToken,
-    jdrkKpiResult,
     jdrkKpiName,
-    jdrkJourneyId,
-    jdrkEndTime,
     jdrkStartTime,
+    jdrkNextToken,
     jdrkApplicationId,
+    jdrkEndTime,
+    jdrkJourneyId,
+    jdrkKpiResult,
 
     -- ** JourneyEmailMessage
     JourneyEmailMessage (..),
@@ -1397,19 +1397,19 @@ module Network.AWS.Pinpoint
     JourneyExecutionActivityMetricsResponse (..),
     mkJourneyExecutionActivityMetricsResponse,
     jeamMetrics,
-    jeamJourneyId,
+    jeamActivityType,
     jeamLastEvaluatedTime,
     jeamJourneyActivityId,
-    jeamActivityType,
     jeamApplicationId,
+    jeamJourneyId,
 
     -- ** JourneyExecutionMetricsResponse
     JourneyExecutionMetricsResponse (..),
     mkJourneyExecutionMetricsResponse,
     jemMetrics,
-    jemJourneyId,
     jemLastEvaluatedTime,
     jemApplicationId,
+    jemJourneyId,
 
     -- ** JourneyLimits
     JourneyLimits (..),
@@ -1433,14 +1433,14 @@ module Network.AWS.Pinpoint
     jActivities,
     jLimits,
     jQuietTime,
+    jApplicationId,
+    jName,
+    jId,
     jStartActivity,
     jCreationDate,
     jStartCondition,
     jRefreshFrequency,
     jTags,
-    jName,
-    jId,
-    jApplicationId,
 
     -- ** JourneySMSMessage
     JourneySMSMessage (..),
@@ -1521,23 +1521,23 @@ module Network.AWS.Pinpoint
     mkMessageResponse,
     mRequestId,
     mResult,
-    mEndpointResult,
     mApplicationId,
+    mEndpointResult,
 
     -- ** MessageResult
     MessageResult (..),
     mkMessageResult,
+    mrDeliveryStatus,
     mrStatusMessage,
     mrUpdatedToken,
     mrMessageId,
-    mrDeliveryStatus,
     mrStatusCode,
 
     -- ** MetricDimension
     MetricDimension (..),
     mkMetricDimension,
-    mdComparisonOperator,
     mdValue,
+    mdComparisonOperator,
 
     -- ** MultiConditionalBranch
     MultiConditionalBranch (..),
@@ -1615,21 +1615,21 @@ module Network.AWS.Pinpoint
     -- ** PushNotificationTemplateResponse
     PushNotificationTemplateResponse (..),
     mkPushNotificationTemplateResponse,
+    pntTemplateName,
+    pntLastModifiedDate,
     pntARN,
+    pntTemplateType,
     pntDefault,
     pntTemplateDescription,
     pntGCM,
     pntAPNS,
     pntDefaultSubstitutions,
     pntVersion,
+    pntCreationDate,
     pntADM,
     pntBaidu,
     pntRecommenderId,
     pntTags,
-    pntLastModifiedDate,
-    pntCreationDate,
-    pntTemplateType,
-    pntTemplateName,
 
     -- ** QuietTime
     QuietTime (..),
@@ -1656,37 +1656,37 @@ module Network.AWS.Pinpoint
     -- ** RecencyDimension
     RecencyDimension (..),
     mkRecencyDimension,
-    rdDuration,
     rdRecencyType,
+    rdDuration,
 
     -- ** RecommenderConfigurationResponse
     RecommenderConfigurationResponse (..),
     mkRecommenderConfigurationResponse,
     rcRecommendationTransformerURI,
     rcRecommendationsDisplayName,
+    rcLastModifiedDate,
     rcRecommendationProviderIdType,
+    rcRecommendationProviderURI,
     rcAttributes,
     rcName,
+    rcId,
+    rcCreationDate,
     rcDescription,
     rcRecommendationsPerMessage,
-    rcRecommendationProviderURI,
-    rcLastModifiedDate,
-    rcCreationDate,
     rcRecommendationProviderRoleARN,
-    rcId,
 
     -- ** ResultRow
     ResultRow (..),
     mkResultRow,
-    rrGroupedBys,
     rrValues,
+    rrGroupedBys,
 
     -- ** ResultRowValue
     ResultRowValue (..),
     mkResultRowValue,
-    rrvType,
     rrvValue,
     rrvKey,
+    rrvType,
 
     -- ** SMSChannelRequest
     SMSChannelRequest (..),
@@ -1698,6 +1698,7 @@ module Network.AWS.Pinpoint
     -- ** SMSChannelResponse
     SMSChannelResponse (..),
     mkSMSChannelResponse,
+    smscPlatform,
     smscShortCode,
     smscLastModifiedDate,
     smscEnabled,
@@ -1711,7 +1712,6 @@ module Network.AWS.Pinpoint
     smscCreationDate,
     smscLastModifiedBy,
     smscHasCredential,
-    smscPlatform,
 
     -- ** SMSMessage
     SMSMessage (..),
@@ -1744,28 +1744,28 @@ module Network.AWS.Pinpoint
     -- ** SMSTemplateResponse
     SMSTemplateResponse (..),
     mkSMSTemplateResponse,
+    smstTemplateName,
+    smstLastModifiedDate,
     smstARN,
+    smstTemplateType,
     smstBody,
     smstTemplateDescription,
     smstDefaultSubstitutions,
     smstVersion,
+    smstCreationDate,
     smstRecommenderId,
     smstTags,
-    smstLastModifiedDate,
-    smstCreationDate,
-    smstTemplateName,
-    smstTemplateType,
 
     -- ** Schedule
     Schedule (..),
     mkSchedule,
     sFrequency,
+    sStartTime,
     sQuietTime,
     sEventFilter,
     sIsLocalTime,
     sEndTime,
     sTimezone,
-    sStartTime,
 
     -- ** SegmentBehaviors
     SegmentBehaviors (..),
@@ -1814,11 +1814,11 @@ module Network.AWS.Pinpoint
     -- ** SegmentImportResource
     SegmentImportResource (..),
     mkSegmentImportResource,
-    sirChannelCounts,
-    sirFormat,
-    sirS3URL,
     sirSize,
+    sirFormat,
+    sirChannelCounts,
     sirExternalId,
+    sirS3URL,
     sirRoleARN,
 
     -- ** SegmentLocation
@@ -1837,17 +1837,17 @@ module Network.AWS.Pinpoint
     SegmentResponse (..),
     mkSegmentResponse,
     sLastModifiedDate,
+    sARN,
+    sSegmentType,
     sSegmentGroups,
+    sApplicationId,
     sName,
     sVersion,
+    sId,
+    sCreationDate,
     sImportDefinition,
     sDimensions,
     sTags,
-    sSegmentType,
-    sCreationDate,
-    sId,
-    sARN,
-    sApplicationId,
 
     -- ** SegmentsResponse
     SegmentsResponse (..),
@@ -1860,9 +1860,9 @@ module Network.AWS.Pinpoint
     mkSendUsersMessageRequest,
     sumrTraceId,
     sumrContext,
+    sumrUsers,
     sumrTemplateConfiguration,
     sumrMessageConfiguration,
-    sumrUsers,
 
     -- ** SendUsersMessageResponse
     SendUsersMessageResponse (..),
@@ -1874,16 +1874,16 @@ module Network.AWS.Pinpoint
     -- ** Session
     Session (..),
     mkSession,
-    sesStopTimestamp,
-    sesDuration,
-    sesStartTimestamp,
-    sesId,
+    sfStopTimestamp,
+    sfId,
+    sfStartTimestamp,
+    sfDuration,
 
     -- ** SetDimension
     SetDimension (..),
     mkSetDimension,
-    sdDimensionType,
     sdValues,
+    sdDimensionType,
 
     -- ** SimpleCondition
     SimpleCondition (..),
@@ -1939,34 +1939,34 @@ module Network.AWS.Pinpoint
     -- ** TemplateResponse
     TemplateResponse (..),
     mkTemplateResponse,
-    temARN,
-    temTemplateDescription,
-    temDefaultSubstitutions,
-    temVersion,
-    temTags,
-    temLastModifiedDate,
-    temCreationDate,
-    temTemplateName,
-    temTemplateType,
+    tfTemplateName,
+    tfLastModifiedDate,
+    tfARN,
+    tfTemplateType,
+    tfTemplateDescription,
+    tfDefaultSubstitutions,
+    tfVersion,
+    tfCreationDate,
+    tfTags,
 
     -- ** TemplateVersionResponse
     TemplateVersionResponse (..),
     mkTemplateVersionResponse,
+    tvTemplateName,
+    tvLastModifiedDate,
+    tvTemplateType,
     tvTemplateDescription,
     tvDefaultSubstitutions,
     tvVersion,
-    tvLastModifiedDate,
     tvCreationDate,
-    tvTemplateName,
-    tvTemplateType,
 
     -- ** TemplateVersionsResponse
     TemplateVersionsResponse (..),
     mkTemplateVersionsResponse,
     tvRequestId,
     tvNextToken,
-    tvMessage,
     tvItem,
+    tvMessage,
 
     -- ** TemplatesResponse
     TemplatesResponse (..),
@@ -1982,10 +1982,10 @@ module Network.AWS.Pinpoint
     trSchedule,
     trTemplateConfiguration,
     trTreatmentName,
-    trTreatmentDescription,
-    trMessageConfiguration,
-    trId,
     trSizePercent,
+    trTreatmentDescription,
+    trId,
+    trMessageConfiguration,
 
     -- ** UpdateAttributesRequest
     UpdateAttributesRequest (..),
@@ -2000,6 +2000,7 @@ module Network.AWS.Pinpoint
     -- ** VoiceChannelResponse
     VoiceChannelResponse (..),
     mkVoiceChannelResponse,
+    vcPlatform,
     vcLastModifiedDate,
     vcEnabled,
     vcIsArchived,
@@ -2009,7 +2010,6 @@ module Network.AWS.Pinpoint
     vcCreationDate,
     vcLastModifiedBy,
     vcHasCredential,
-    vcPlatform,
 
     -- ** VoiceMessage
     VoiceMessage (..),
@@ -2033,18 +2033,18 @@ module Network.AWS.Pinpoint
     -- ** VoiceTemplateResponse
     VoiceTemplateResponse (..),
     mkVoiceTemplateResponse,
+    vtTemplateName,
+    vtLastModifiedDate,
     vtLanguageCode,
     vtARN,
+    vtTemplateType,
     vtBody,
     vtTemplateDescription,
     vtDefaultSubstitutions,
     vtVersion,
+    vtCreationDate,
     vtVoiceId,
     vtTags,
-    vtLastModifiedDate,
-    vtCreationDate,
-    vtTemplateName,
-    vtTemplateType,
 
     -- ** WaitActivity
     WaitActivity (..),
@@ -2090,8 +2090,8 @@ module Network.AWS.Pinpoint
     -- ** WriteEventStream
     WriteEventStream (..),
     mkWriteEventStream,
-    wesRoleARN,
     wesDestinationStreamARN,
+    wesRoleARN,
 
     -- ** WriteJourneyRequest
     WriteJourneyRequest (..),
@@ -2103,11 +2103,11 @@ module Network.AWS.Pinpoint
     wjrActivities,
     wjrLimits,
     wjrQuietTime,
+    wjrName,
     wjrStartActivity,
     wjrCreationDate,
     wjrStartCondition,
     wjrRefreshFrequency,
-    wjrName,
 
     -- ** WriteSegmentRequest
     WriteSegmentRequest (..),
@@ -2124,9 +2124,9 @@ module Network.AWS.Pinpoint
     wtrSchedule,
     wtrTemplateConfiguration,
     wtrTreatmentName,
+    wtrSizePercent,
     wtrTreatmentDescription,
     wtrMessageConfiguration,
-    wtrSizePercent,
 
     -- * Serialization types
     Lude.Base64 (..),

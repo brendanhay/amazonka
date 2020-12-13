@@ -33,33 +33,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceProfile' smart constructor.
 data InstanceProfile = InstanceProfile'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the instance profile.
+    arn :: Lude.Maybe Lude.Text,
+    -- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
     rebootAfterUse :: Lude.Maybe Lude.Bool,
+    -- | The name of the instance profile.
     name :: Lude.Maybe Lude.Text,
+    -- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
     packageCleanup :: Lude.Maybe Lude.Bool,
+    -- | An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
+    --
+    -- The list of packages is considered only if you set @packageCleanup@ to @true@ .
     excludeAppPackagesFromCleanup :: Lude.Maybe [Lude.Text],
+    -- | The description of the instance profile.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceProfile' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the instance profile.
--- * 'description' - The description of the instance profile.
+-- * 'rebootAfterUse' - When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
+-- * 'name' - The name of the instance profile.
+-- * 'packageCleanup' - When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
 -- * 'excludeAppPackagesFromCleanup' - An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
 --
 -- The list of packages is considered only if you set @packageCleanup@ to @true@ .
--- * 'name' - The name of the instance profile.
--- * 'packageCleanup' - When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
--- * 'rebootAfterUse' - When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
+-- * 'description' - The description of the instance profile.
 mkInstanceProfile ::
   InstanceProfile
 mkInstanceProfile =

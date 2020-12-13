@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Glue.GetPartition
     mkGetPartition,
 
     -- ** Request lenses
-    gpCatalogId,
-    gpDatabaseName,
-    gpTableName,
-    gpPartitionValues,
+    gpfCatalogId,
+    gpfDatabaseName,
+    gpfPartitionValues,
+    gpfTableName,
 
     -- * Destructuring the response
     GetPartitionResponse (..),
@@ -42,19 +43,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPartition' smart constructor.
 data GetPartition = GetPartition'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database where the partition resides.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    partitionValues :: [Lude.Text]
+    -- | The values that define the partition.
+    partitionValues :: [Lude.Text],
+    -- | The name of the partition's table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPartition' with the minimum fields required to make a request.
@@ -73,37 +71,37 @@ mkGetPartition pDatabaseName_ pTableName_ =
   GetPartition'
     { catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      partitionValues = Lude.mempty
+      partitionValues = Lude.mempty,
+      tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the partition in question resides. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpCatalogId :: Lens.Lens' GetPartition (Lude.Maybe Lude.Text)
-gpCatalogId = Lens.lens (catalogId :: GetPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetPartition)
-{-# DEPRECATED gpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+gpfCatalogId :: Lens.Lens' GetPartition (Lude.Maybe Lude.Text)
+gpfCatalogId = Lens.lens (catalogId :: GetPartition -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetPartition)
+{-# DEPRECATED gpfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the partition resides.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpDatabaseName :: Lens.Lens' GetPartition Lude.Text
-gpDatabaseName = Lens.lens (databaseName :: GetPartition -> Lude.Text) (\s a -> s {databaseName = a} :: GetPartition)
-{-# DEPRECATED gpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
-
--- | The name of the partition's table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpTableName :: Lens.Lens' GetPartition Lude.Text
-gpTableName = Lens.lens (tableName :: GetPartition -> Lude.Text) (\s a -> s {tableName = a} :: GetPartition)
-{-# DEPRECATED gpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+gpfDatabaseName :: Lens.Lens' GetPartition Lude.Text
+gpfDatabaseName = Lens.lens (databaseName :: GetPartition -> Lude.Text) (\s a -> s {databaseName = a} :: GetPartition)
+{-# DEPRECATED gpfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The values that define the partition.
 --
 -- /Note:/ Consider using 'partitionValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpPartitionValues :: Lens.Lens' GetPartition [Lude.Text]
-gpPartitionValues = Lens.lens (partitionValues :: GetPartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: GetPartition)
-{-# DEPRECATED gpPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
+gpfPartitionValues :: Lens.Lens' GetPartition [Lude.Text]
+gpfPartitionValues = Lens.lens (partitionValues :: GetPartition -> [Lude.Text]) (\s a -> s {partitionValues = a} :: GetPartition)
+{-# DEPRECATED gpfPartitionValues "Use generic-lens or generic-optics with 'partitionValues' instead." #-}
+
+-- | The name of the partition's table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpfTableName :: Lens.Lens' GetPartition Lude.Text
+gpfTableName = Lens.lens (tableName :: GetPartition -> Lude.Text) (\s a -> s {tableName = a} :: GetPartition)
+{-# DEPRECATED gpfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest GetPartition where
   type Rs GetPartition = GetPartitionResponse
@@ -132,8 +130,8 @@ instance Lude.ToJSON GetPartition where
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("PartitionValues" Lude..= partitionValues)
+            Lude.Just ("PartitionValues" Lude..= partitionValues),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -145,17 +143,12 @@ instance Lude.ToQuery GetPartition where
 
 -- | /See:/ 'mkGetPartitionResponse' smart constructor.
 data GetPartitionResponse = GetPartitionResponse'
-  { partition ::
-      Lude.Maybe Partition,
+  { -- | The requested information, in the form of a @Partition@ object.
+    partition :: Lude.Maybe Partition,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPartitionResponse' with the minimum fields required to make a request.

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOptionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
+    status :: Lude.Maybe Lude.Text,
+    -- | The name of the option group that the instance belongs to.
     optionGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionGroupMembership' with the minimum fields required to make a request.
 --
--- * 'optionGroupName' - The name of the option group that the instance belongs to.
 -- * 'status' - The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
+-- * 'optionGroupName' - The name of the option group that the instance belongs to.
 mkOptionGroupMembership ::
   OptionGroupMembership
 mkOptionGroupMembership =

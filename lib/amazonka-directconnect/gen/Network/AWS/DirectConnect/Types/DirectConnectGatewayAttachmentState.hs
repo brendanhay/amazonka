@@ -13,10 +13,10 @@
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState
   ( DirectConnectGatewayAttachmentState
       ( DirectConnectGatewayAttachmentState',
-        Attached,
         Attaching,
-        Detached,
-        Detaching
+        Attached,
+        Detaching,
+        Detached
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DirectConnectGatewayAttachmentState = DirectConnectGatewayAttachmentStat
       Lude.ToHeader
     )
 
-pattern Attached :: DirectConnectGatewayAttachmentState
-pattern Attached = DirectConnectGatewayAttachmentState' "attached"
-
 pattern Attaching :: DirectConnectGatewayAttachmentState
 pattern Attaching = DirectConnectGatewayAttachmentState' "attaching"
 
-pattern Detached :: DirectConnectGatewayAttachmentState
-pattern Detached = DirectConnectGatewayAttachmentState' "detached"
+pattern Attached :: DirectConnectGatewayAttachmentState
+pattern Attached = DirectConnectGatewayAttachmentState' "attached"
 
 pattern Detaching :: DirectConnectGatewayAttachmentState
 pattern Detaching = DirectConnectGatewayAttachmentState' "detaching"
 
+pattern Detached :: DirectConnectGatewayAttachmentState
+pattern Detached = DirectConnectGatewayAttachmentState' "detached"
+
 {-# COMPLETE
-  Attached,
   Attaching,
-  Detached,
+  Attached,
   Detaching,
+  Detached,
   DirectConnectGatewayAttachmentState'
   #-}

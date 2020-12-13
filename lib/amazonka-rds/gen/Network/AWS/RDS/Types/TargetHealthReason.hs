@@ -13,10 +13,10 @@
 module Network.AWS.RDS.Types.TargetHealthReason
   ( TargetHealthReason
       ( TargetHealthReason',
-        AuthFailure,
+        Unreachable,
         ConnectionFailed,
-        PendingProxyCapacity,
-        Unreachable
+        AuthFailure,
+        PendingProxyCapacity
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TargetHealthReason = TargetHealthReason' Lude.Text
       Lude.ToHeader
     )
 
-pattern AuthFailure :: TargetHealthReason
-pattern AuthFailure = TargetHealthReason' "AUTH_FAILURE"
+pattern Unreachable :: TargetHealthReason
+pattern Unreachable = TargetHealthReason' "UNREACHABLE"
 
 pattern ConnectionFailed :: TargetHealthReason
 pattern ConnectionFailed = TargetHealthReason' "CONNECTION_FAILED"
 
+pattern AuthFailure :: TargetHealthReason
+pattern AuthFailure = TargetHealthReason' "AUTH_FAILURE"
+
 pattern PendingProxyCapacity :: TargetHealthReason
 pattern PendingProxyCapacity = TargetHealthReason' "PENDING_PROXY_CAPACITY"
 
-pattern Unreachable :: TargetHealthReason
-pattern Unreachable = TargetHealthReason' "UNREACHABLE"
-
 {-# COMPLETE
-  AuthFailure,
-  ConnectionFailed,
-  PendingProxyCapacity,
   Unreachable,
+  ConnectionFailed,
+  AuthFailure,
+  PendingProxyCapacity,
   TargetHealthReason'
   #-}

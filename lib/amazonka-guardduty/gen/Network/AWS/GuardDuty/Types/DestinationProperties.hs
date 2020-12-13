@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestinationProperties' smart constructor.
 data DestinationProperties = DestinationProperties'
-  { kmsKeyARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the KMS key to use for encryption.
+    kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the resource to publish to.
     destinationARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationProperties' with the minimum fields required to make a request.
 --
--- * 'destinationARN' - The ARN of the resource to publish to.
 -- * 'kmsKeyARN' - The ARN of the KMS key to use for encryption.
+-- * 'destinationARN' - The ARN of the resource to publish to.
 mkDestinationProperties ::
   DestinationProperties
 mkDestinationProperties =

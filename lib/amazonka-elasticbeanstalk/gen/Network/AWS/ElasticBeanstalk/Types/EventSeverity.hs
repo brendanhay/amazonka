@@ -13,12 +13,12 @@
 module Network.AWS.ElasticBeanstalk.Types.EventSeverity
   ( EventSeverity
       ( EventSeverity',
-        LevelDebug,
-        LevelError,
-        LevelFatal,
-        LevelInfo,
         LevelTrace,
-        LevelWarn
+        LevelDebug,
+        LevelInfo,
+        LevelWarn,
+        LevelError,
+        LevelFatal
       ),
   )
 where
@@ -49,8 +49,17 @@ newtype EventSeverity = EventSeverity' Lude.Text
       Lude.ToHeader
     )
 
+pattern LevelTrace :: EventSeverity
+pattern LevelTrace = EventSeverity' "TRACE"
+
 pattern LevelDebug :: EventSeverity
 pattern LevelDebug = EventSeverity' "DEBUG"
+
+pattern LevelInfo :: EventSeverity
+pattern LevelInfo = EventSeverity' "INFO"
+
+pattern LevelWarn :: EventSeverity
+pattern LevelWarn = EventSeverity' "WARN"
 
 pattern LevelError :: EventSeverity
 pattern LevelError = EventSeverity' "ERROR"
@@ -58,21 +67,12 @@ pattern LevelError = EventSeverity' "ERROR"
 pattern LevelFatal :: EventSeverity
 pattern LevelFatal = EventSeverity' "FATAL"
 
-pattern LevelInfo :: EventSeverity
-pattern LevelInfo = EventSeverity' "INFO"
-
-pattern LevelTrace :: EventSeverity
-pattern LevelTrace = EventSeverity' "TRACE"
-
-pattern LevelWarn :: EventSeverity
-pattern LevelWarn = EventSeverity' "WARN"
-
 {-# COMPLETE
+  LevelTrace,
   LevelDebug,
+  LevelInfo,
+  LevelWarn,
   LevelError,
   LevelFatal,
-  LevelInfo,
-  LevelTrace,
-  LevelWarn,
   EventSeverity'
   #-}

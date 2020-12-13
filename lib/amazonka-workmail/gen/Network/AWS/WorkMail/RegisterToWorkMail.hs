@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.WorkMail.RegisterToWorkMail
     mkRegisterToWorkMail,
 
     -- ** Request lenses
-    rtwmOrganizationId,
-    rtwmEntityId,
     rtwmEmail,
+    rtwmEntityId,
+    rtwmOrganizationId,
 
     -- * Destructuring the response
     RegisterToWorkMailResponse (..),
@@ -42,18 +43,14 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkRegisterToWorkMail' smart constructor.
 data RegisterToWorkMail = RegisterToWorkMail'
-  { organizationId ::
-      Lude.Text,
+  { -- | The email for the user, group, or resource to be updated.
+    email :: Lude.Text,
+    -- | The identifier for the user, group, or resource to be updated.
     entityId :: Lude.Text,
-    email :: Lude.Text
+    -- | The identifier for the organization under which the user, group, or resource exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterToWorkMail' with the minimum fields required to make a request.
@@ -62,26 +59,26 @@ data RegisterToWorkMail = RegisterToWorkMail'
 -- * 'entityId' - The identifier for the user, group, or resource to be updated.
 -- * 'organizationId' - The identifier for the organization under which the user, group, or resource exists.
 mkRegisterToWorkMail ::
-  -- | 'organizationId'
+  -- | 'email'
   Lude.Text ->
   -- | 'entityId'
   Lude.Text ->
-  -- | 'email'
+  -- | 'organizationId'
   Lude.Text ->
   RegisterToWorkMail
-mkRegisterToWorkMail pOrganizationId_ pEntityId_ pEmail_ =
+mkRegisterToWorkMail pEmail_ pEntityId_ pOrganizationId_ =
   RegisterToWorkMail'
-    { organizationId = pOrganizationId_,
+    { email = pEmail_,
       entityId = pEntityId_,
-      email = pEmail_
+      organizationId = pOrganizationId_
     }
 
--- | The identifier for the organization under which the user, group, or resource exists.
+-- | The email for the user, group, or resource to be updated.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtwmOrganizationId :: Lens.Lens' RegisterToWorkMail Lude.Text
-rtwmOrganizationId = Lens.lens (organizationId :: RegisterToWorkMail -> Lude.Text) (\s a -> s {organizationId = a} :: RegisterToWorkMail)
-{-# DEPRECATED rtwmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtwmEmail :: Lens.Lens' RegisterToWorkMail Lude.Text
+rtwmEmail = Lens.lens (email :: RegisterToWorkMail -> Lude.Text) (\s a -> s {email = a} :: RegisterToWorkMail)
+{-# DEPRECATED rtwmEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The identifier for the user, group, or resource to be updated.
 --
@@ -90,12 +87,12 @@ rtwmEntityId :: Lens.Lens' RegisterToWorkMail Lude.Text
 rtwmEntityId = Lens.lens (entityId :: RegisterToWorkMail -> Lude.Text) (\s a -> s {entityId = a} :: RegisterToWorkMail)
 {-# DEPRECATED rtwmEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
--- | The email for the user, group, or resource to be updated.
+-- | The identifier for the organization under which the user, group, or resource exists.
 --
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtwmEmail :: Lens.Lens' RegisterToWorkMail Lude.Text
-rtwmEmail = Lens.lens (email :: RegisterToWorkMail -> Lude.Text) (\s a -> s {email = a} :: RegisterToWorkMail)
-{-# DEPRECATED rtwmEmail "Use generic-lens or generic-optics with 'email' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtwmOrganizationId :: Lens.Lens' RegisterToWorkMail Lude.Text
+rtwmOrganizationId = Lens.lens (organizationId :: RegisterToWorkMail -> Lude.Text) (\s a -> s {organizationId = a} :: RegisterToWorkMail)
+{-# DEPRECATED rtwmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest RegisterToWorkMail where
   type Rs RegisterToWorkMail = RegisterToWorkMailResponse
@@ -121,9 +118,9 @@ instance Lude.ToJSON RegisterToWorkMail where
   toJSON RegisterToWorkMail' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
+          [ Lude.Just ("Email" Lude..= email),
             Lude.Just ("EntityId" Lude..= entityId),
-            Lude.Just ("Email" Lude..= email)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -135,16 +132,10 @@ instance Lude.ToQuery RegisterToWorkMail where
 
 -- | /See:/ 'mkRegisterToWorkMailResponse' smart constructor.
 newtype RegisterToWorkMailResponse = RegisterToWorkMailResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterToWorkMailResponse' with the minimum fields required to make a request.

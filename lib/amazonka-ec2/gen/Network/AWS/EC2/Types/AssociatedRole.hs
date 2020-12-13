@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssociatedRole' smart constructor.
 data AssociatedRole = AssociatedRole'
-  { certificateS3BucketName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the Amazon S3 bucket in which the Amazon S3 object is stored.
+    certificateS3BucketName :: Lude.Maybe Lude.Text,
+    -- | The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: @certificate_arn@ /@role_arn@ .
     certificateS3ObjectKey :: Lude.Maybe Lude.Text,
+    -- | The ID of the KMS customer master key (CMK) used to encrypt the private key.
     encryptionKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the associated IAM role.
     associatedRoleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociatedRole' with the minimum fields required to make a request.
 --
--- * 'associatedRoleARN' - The ARN of the associated IAM role.
 -- * 'certificateS3BucketName' - The name of the Amazon S3 bucket in which the Amazon S3 object is stored.
 -- * 'certificateS3ObjectKey' - The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: @certificate_arn@ /@role_arn@ .
 -- * 'encryptionKMSKeyId' - The ID of the KMS customer master key (CMK) used to encrypt the private key.
+-- * 'associatedRoleARN' - The ARN of the associated IAM role.
 mkAssociatedRole ::
   AssociatedRole
 mkAssociatedRole =

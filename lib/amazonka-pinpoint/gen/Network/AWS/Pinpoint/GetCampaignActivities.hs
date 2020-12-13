@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,17 +21,17 @@ module Network.AWS.Pinpoint.GetCampaignActivities
 
     -- ** Request lenses
     gcaToken,
-    gcaPageSize,
-    gcaApplicationId,
     gcaCampaignId,
+    gcaApplicationId,
+    gcaPageSize,
 
     -- * Destructuring the response
     GetCampaignActivitiesResponse (..),
     mkGetCampaignActivitiesResponse,
 
     -- ** Response lenses
-    gcarsResponseStatus,
     gcarsActivitiesResponse,
+    gcarsResponseStatus,
   )
 where
 
@@ -42,39 +43,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCampaignActivities' smart constructor.
 data GetCampaignActivities = GetCampaignActivities'
-  { token ::
-      Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Text,
+  { -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the campaign.
+    campaignId :: Lude.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Lude.Text,
-    campaignId :: Lude.Text
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    pageSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaignActivities' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'campaignId' - The unique identifier for the campaign.
--- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 -- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
+-- * 'campaignId' - The unique identifier for the campaign.
+-- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 mkGetCampaignActivities ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'campaignId'
   Lude.Text ->
+  -- | 'applicationId'
+  Lude.Text ->
   GetCampaignActivities
-mkGetCampaignActivities pApplicationId_ pCampaignId_ =
+mkGetCampaignActivities pCampaignId_ pApplicationId_ =
   GetCampaignActivities'
     { token = Lude.Nothing,
-      pageSize = Lude.Nothing,
+      campaignId = pCampaignId_,
       applicationId = pApplicationId_,
-      campaignId = pCampaignId_
+      pageSize = Lude.Nothing
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
@@ -84,12 +82,12 @@ gcaToken :: Lens.Lens' GetCampaignActivities (Lude.Maybe Lude.Text)
 gcaToken = Lens.lens (token :: GetCampaignActivities -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetCampaignActivities)
 {-# DEPRECATED gcaToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
--- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- | The unique identifier for the campaign.
 --
--- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcaPageSize :: Lens.Lens' GetCampaignActivities (Lude.Maybe Lude.Text)
-gcaPageSize = Lens.lens (pageSize :: GetCampaignActivities -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetCampaignActivities)
-{-# DEPRECATED gcaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+-- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcaCampaignId :: Lens.Lens' GetCampaignActivities Lude.Text
+gcaCampaignId = Lens.lens (campaignId :: GetCampaignActivities -> Lude.Text) (\s a -> s {campaignId = a} :: GetCampaignActivities)
+{-# DEPRECATED gcaCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
@@ -98,12 +96,12 @@ gcaApplicationId :: Lens.Lens' GetCampaignActivities Lude.Text
 gcaApplicationId = Lens.lens (applicationId :: GetCampaignActivities -> Lude.Text) (\s a -> s {applicationId = a} :: GetCampaignActivities)
 {-# DEPRECATED gcaApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | The unique identifier for the campaign.
+-- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
--- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcaCampaignId :: Lens.Lens' GetCampaignActivities Lude.Text
-gcaCampaignId = Lens.lens (campaignId :: GetCampaignActivities -> Lude.Text) (\s a -> s {campaignId = a} :: GetCampaignActivities)
-{-# DEPRECATED gcaCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcaPageSize :: Lens.Lens' GetCampaignActivities (Lude.Maybe Lude.Text)
+gcaPageSize = Lens.lens (pageSize :: GetCampaignActivities -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetCampaignActivities)
+{-# DEPRECATED gcaPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 instance Lude.AWSRequest GetCampaignActivities where
   type Rs GetCampaignActivities = GetCampaignActivitiesResponse
@@ -112,7 +110,7 @@ instance Lude.AWSRequest GetCampaignActivities where
     Res.receiveJSON
       ( \s h x ->
           GetCampaignActivitiesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetCampaignActivities where
@@ -141,44 +139,31 @@ instance Lude.ToQuery GetCampaignActivities where
 
 -- | /See:/ 'mkGetCampaignActivitiesResponse' smart constructor.
 data GetCampaignActivitiesResponse = GetCampaignActivitiesResponse'
-  { responseStatus ::
-      Lude.Int,
-    activitiesResponse ::
-      ActivitiesResponse
+  { activitiesResponse :: ActivitiesResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCampaignActivitiesResponse' with the minimum fields required to make a request.
 --
--- * 'activitiesResponse' - Undocumented field.
+-- * 'activitiesResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetCampaignActivitiesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'activitiesResponse'
   ActivitiesResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCampaignActivitiesResponse
 mkGetCampaignActivitiesResponse
-  pResponseStatus_
-  pActivitiesResponse_ =
+  pActivitiesResponse_
+  pResponseStatus_ =
     GetCampaignActivitiesResponse'
-      { responseStatus = pResponseStatus_,
-        activitiesResponse = pActivitiesResponse_
+      { activitiesResponse =
+          pActivitiesResponse_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcarsResponseStatus :: Lens.Lens' GetCampaignActivitiesResponse Lude.Int
-gcarsResponseStatus = Lens.lens (responseStatus :: GetCampaignActivitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignActivitiesResponse)
-{-# DEPRECATED gcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -186,3 +171,10 @@ gcarsResponseStatus = Lens.lens (responseStatus :: GetCampaignActivitiesResponse
 gcarsActivitiesResponse :: Lens.Lens' GetCampaignActivitiesResponse ActivitiesResponse
 gcarsActivitiesResponse = Lens.lens (activitiesResponse :: GetCampaignActivitiesResponse -> ActivitiesResponse) (\s a -> s {activitiesResponse = a} :: GetCampaignActivitiesResponse)
 {-# DEPRECATED gcarsActivitiesResponse "Use generic-lens or generic-optics with 'activitiesResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcarsResponseStatus :: Lens.Lens' GetCampaignActivitiesResponse Lude.Int
+gcarsResponseStatus = Lens.lens (responseStatus :: GetCampaignActivitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignActivitiesResponse)
+{-# DEPRECATED gcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

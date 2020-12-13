@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.AutoAcceptSharedAttachmentsValue
   ( AutoAcceptSharedAttachmentsValue
       ( AutoAcceptSharedAttachmentsValue',
-        Disable,
-        Enable
+        Enable,
+        Disable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AutoAcceptSharedAttachmentsValue = AutoAcceptSharedAttachmentsValue' Lud
       Lude.ToHeader
     )
 
-pattern Disable :: AutoAcceptSharedAttachmentsValue
-pattern Disable = AutoAcceptSharedAttachmentsValue' "disable"
-
 pattern Enable :: AutoAcceptSharedAttachmentsValue
 pattern Enable = AutoAcceptSharedAttachmentsValue' "enable"
 
+pattern Disable :: AutoAcceptSharedAttachmentsValue
+pattern Disable = AutoAcceptSharedAttachmentsValue' "disable"
+
 {-# COMPLETE
-  Disable,
   Enable,
+  Disable,
   AutoAcceptSharedAttachmentsValue'
   #-}

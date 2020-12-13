@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,15 +22,15 @@ module Network.AWS.MediaStore.GetCORSPolicy
     mkGetCORSPolicy,
 
     -- ** Request lenses
-    gcpContainerName,
+    gcorspContainerName,
 
     -- * Destructuring the response
     GetCORSPolicyResponse (..),
     mkGetCORSPolicyResponse,
 
     -- ** Response lenses
-    gcorsprsResponseStatus,
-    gcorsprsCORSPolicy,
+    gcprsCORSPolicy,
+    gcprsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCORSPolicy' smart constructor.
-newtype GetCORSPolicy = GetCORSPolicy' {containerName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetCORSPolicy = GetCORSPolicy'
+  { -- | The name of the container that the policy is assigned to.
+    containerName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCORSPolicy' with the minimum fields required to make a request.
@@ -63,9 +61,9 @@ mkGetCORSPolicy pContainerName_ =
 -- | The name of the container that the policy is assigned to.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpContainerName :: Lens.Lens' GetCORSPolicy Lude.Text
-gcpContainerName = Lens.lens (containerName :: GetCORSPolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetCORSPolicy)
-{-# DEPRECATED gcpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+gcorspContainerName :: Lens.Lens' GetCORSPolicy Lude.Text
+gcorspContainerName = Lens.lens (containerName :: GetCORSPolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetCORSPolicy)
+{-# DEPRECATED gcorspContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 instance Lude.AWSRequest GetCORSPolicy where
   type Rs GetCORSPolicy = GetCORSPolicyResponse
@@ -74,7 +72,7 @@ instance Lude.AWSRequest GetCORSPolicy where
     Res.receiveJSON
       ( \s h x ->
           GetCORSPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "CorsPolicy")
+            Lude.<$> (x Lude..:> "CorsPolicy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetCORSPolicy where
@@ -103,17 +101,12 @@ instance Lude.ToQuery GetCORSPolicy where
 
 -- | /See:/ 'mkGetCORSPolicyResponse' smart constructor.
 data GetCORSPolicyResponse = GetCORSPolicyResponse'
-  { responseStatus ::
-      Lude.Int,
-    corsPolicy :: Lude.NonEmpty CORSRule
+  { -- | The CORS policy assigned to the container.
+    corsPolicy :: Lude.NonEmpty CORSRule,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCORSPolicyResponse' with the minimum fields required to make a request.
@@ -121,27 +114,27 @@ data GetCORSPolicyResponse = GetCORSPolicyResponse'
 -- * 'corsPolicy' - The CORS policy assigned to the container.
 -- * 'responseStatus' - The response status code.
 mkGetCORSPolicyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'corsPolicy'
   Lude.NonEmpty CORSRule ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetCORSPolicyResponse
-mkGetCORSPolicyResponse pResponseStatus_ pCORSPolicy_ =
+mkGetCORSPolicyResponse pCORSPolicy_ pResponseStatus_ =
   GetCORSPolicyResponse'
-    { responseStatus = pResponseStatus_,
-      corsPolicy = pCORSPolicy_
+    { corsPolicy = pCORSPolicy_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcorsprsResponseStatus :: Lens.Lens' GetCORSPolicyResponse Lude.Int
-gcorsprsResponseStatus = Lens.lens (responseStatus :: GetCORSPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCORSPolicyResponse)
-{-# DEPRECATED gcorsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The CORS policy assigned to the container.
 --
 -- /Note:/ Consider using 'corsPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcorsprsCORSPolicy :: Lens.Lens' GetCORSPolicyResponse (Lude.NonEmpty CORSRule)
-gcorsprsCORSPolicy = Lens.lens (corsPolicy :: GetCORSPolicyResponse -> Lude.NonEmpty CORSRule) (\s a -> s {corsPolicy = a} :: GetCORSPolicyResponse)
-{-# DEPRECATED gcorsprsCORSPolicy "Use generic-lens or generic-optics with 'corsPolicy' instead." #-}
+gcprsCORSPolicy :: Lens.Lens' GetCORSPolicyResponse (Lude.NonEmpty CORSRule)
+gcprsCORSPolicy = Lens.lens (corsPolicy :: GetCORSPolicyResponse -> Lude.NonEmpty CORSRule) (\s a -> s {corsPolicy = a} :: GetCORSPolicyResponse)
+{-# DEPRECATED gcprsCORSPolicy "Use generic-lens or generic-optics with 'corsPolicy' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcprsResponseStatus :: Lens.Lens' GetCORSPolicyResponse Lude.Int
+gcprsResponseStatus = Lens.lens (responseStatus :: GetCORSPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCORSPolicyResponse)
+{-# DEPRECATED gcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

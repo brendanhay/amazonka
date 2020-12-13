@@ -33,30 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCoverageNormalizedUnits' smart constructor.
 data CoverageNormalizedUnits = CoverageNormalizedUnits'
-  { reservedNormalizedUnits ::
-      Lude.Maybe Lude.Text,
-    totalRunningNormalizedUnits ::
-      Lude.Maybe Lude.Text,
-    coverageNormalizedUnitsPercentage ::
-      Lude.Maybe Lude.Text,
-    onDemandNormalizedUnits ::
-      Lude.Maybe Lude.Text
+  { -- | The number of normalized units that a reservation covers.
+    reservedNormalizedUnits :: Lude.Maybe Lude.Text,
+    -- | The total number of normalized units that you used.
+    totalRunningNormalizedUnits :: Lude.Maybe Lude.Text,
+    -- | The percentage of your used instance normalized units that a reservation covers.
+    coverageNormalizedUnitsPercentage :: Lude.Maybe Lude.Text,
+    -- | The number of normalized units that are covered by On-Demand Instances instead of a reservation.
+    onDemandNormalizedUnits :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoverageNormalizedUnits' with the minimum fields required to make a request.
 --
--- * 'coverageNormalizedUnitsPercentage' - The percentage of your used instance normalized units that a reservation covers.
--- * 'onDemandNormalizedUnits' - The number of normalized units that are covered by On-Demand Instances instead of a reservation.
 -- * 'reservedNormalizedUnits' - The number of normalized units that a reservation covers.
 -- * 'totalRunningNormalizedUnits' - The total number of normalized units that you used.
+-- * 'coverageNormalizedUnitsPercentage' - The percentage of your used instance normalized units that a reservation covers.
+-- * 'onDemandNormalizedUnits' - The number of normalized units that are covered by On-Demand Instances instead of a reservation.
 mkCoverageNormalizedUnits ::
   CoverageNormalizedUnits
 mkCoverageNormalizedUnits =

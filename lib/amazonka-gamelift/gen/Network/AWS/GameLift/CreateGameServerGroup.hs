@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,17 +58,17 @@ module Network.AWS.GameLift.CreateGameServerGroup
     mkCreateGameServerGroup,
 
     -- ** Request lenses
+    cgsgInstanceDefinitions,
     cgsgVPCSubnets,
     cgsgBalancingStrategy,
+    cgsgGameServerGroupName,
+    cgsgMaxSize,
+    cgsgMinSize,
     cgsgAutoScalingPolicy,
+    cgsgLaunchTemplate,
     cgsgGameServerProtectionPolicy,
     cgsgTags,
-    cgsgGameServerGroupName,
     cgsgRoleARN,
-    cgsgMinSize,
-    cgsgMaxSize,
-    cgsgLaunchTemplate,
-    cgsgInstanceDefinitions,
 
     -- * Destructuring the response
     CreateGameServerGroupResponse (..),
@@ -87,35 +88,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGameServerGroup' smart constructor.
 data CreateGameServerGroup = CreateGameServerGroup'
-  { vpcSubnets ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    balancingStrategy ::
-      Lude.Maybe BalancingStrategy,
-    autoScalingPolicy ::
-      Lude.Maybe GameServerGroupAutoScalingPolicy,
-    gameServerProtectionPolicy ::
-      Lude.Maybe GameServerProtectionPolicy,
-    tags :: Lude.Maybe [Tag],
+  { -- | The EC2 instance types and sizes to use in the Auto Scaling group. The instance definitions must specify at least two different instance types that are supported by GameLift FleetIQ. For more information on instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types> in the /Amazon EC2 User Guide/ . You can optionally specify capacity weighting for each instance type. If no weight value is specified for an instance type, it is set to the default value "1". For more information about capacity weighting, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling> in the Amazon EC2 Auto Scaling User Guide.
+    instanceDefinitions :: Lude.NonEmpty InstanceDefinition,
+    -- | A list of virtual private cloud (VPC) subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used. You can use this parameter to specify VPCs that you've set up. This property cannot be updated after the game server group is created, and the corresponding Auto Scaling group will always use the property value that is set with this request, even if the Auto Scaling group is updated directly.
+    vpcSubnets :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group. Method options include the following:
+    --
+    --
+    --     * @SPOT_ONLY@ - Only Spot Instances are used in the game server group. If Spot Instances are unavailable or not viable for game hosting, the game server group provides no hosting capacity until Spot Instances can again be used. Until then, no new instances are started, and the existing nonviable Spot Instances are terminated (after current gameplay ends) and are not replaced.
+    --
+    --
+    --     * @SPOT_PREFERRED@ - (default value) Spot Instances are used whenever available in the game server group. If Spot Instances are unavailable, the game server group continues to provide hosting capacity by falling back to On-Demand Instances. Existing nonviable Spot Instances are terminated (after current gameplay ends) and are replaced with new On-Demand Instances.
+    --
+    --
+    --     * @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game server group. No Spot Instances are used, even when available, while this balancing strategy is in force.
+    balancingStrategy :: Lude.Maybe BalancingStrategy,
+    -- | An identifier for the new game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group. The name must be unique per Region per AWS account.
     gameServerGroupName :: Lude.Text,
-    roleARN :: Lude.Text,
-    minSize :: Lude.Natural,
+    -- | The maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
     maxSize :: Lude.Natural,
+    -- | The minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum. In production, this value should be set to at least 1. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+    minSize :: Lude.Natural,
+    -- | Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. The scaling policy uses the metric @"PercentUtilizedGameServers"@ to maintain a buffer of idle game servers that can immediately accommodate new games and players. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+    autoScalingPolicy :: Lude.Maybe GameServerGroupAutoScalingPolicy,
+    -- | The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. You can specify the template using either the template name or ID. For help with creating a launch template, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ . After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
     launchTemplate :: LaunchTemplateSpecification,
-    instanceDefinitions ::
-      Lude.NonEmpty InstanceDefinition
+    -- | A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status. This property is set to @NO_PROTECTION@ by default.
+    gameServerProtectionPolicy :: Lude.Maybe GameServerProtectionPolicy,
+    -- | A list of labels to assign to the new game server group resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management, and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags, respectively. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+    tags :: Lude.Maybe [Tag],
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGameServerGroup' with the minimum fields required to make a request.
 --
--- * 'autoScalingPolicy' - Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. The scaling policy uses the metric @"PercentUtilizedGameServers"@ to maintain a buffer of idle game servers that can immediately accommodate new games and players. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+-- * 'instanceDefinitions' - The EC2 instance types and sizes to use in the Auto Scaling group. The instance definitions must specify at least two different instance types that are supported by GameLift FleetIQ. For more information on instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types> in the /Amazon EC2 User Guide/ . You can optionally specify capacity weighting for each instance type. If no weight value is specified for an instance type, it is set to the default value "1". For more information about capacity weighting, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling> in the Amazon EC2 Auto Scaling User Guide.
+-- * 'vpcSubnets' - A list of virtual private cloud (VPC) subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used. You can use this parameter to specify VPCs that you've set up. This property cannot be updated after the game server group is created, and the corresponding Auto Scaling group will always use the property value that is set with this request, even if the Auto Scaling group is updated directly.
 -- * 'balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group. Method options include the following:
 --
 --
@@ -129,48 +140,55 @@ data CreateGameServerGroup = CreateGameServerGroup'
 --
 --
 -- * 'gameServerGroupName' - An identifier for the new game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group. The name must be unique per Region per AWS account.
--- * 'gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status. This property is set to @NO_PROTECTION@ by default.
--- * 'instanceDefinitions' - The EC2 instance types and sizes to use in the Auto Scaling group. The instance definitions must specify at least two different instance types that are supported by GameLift FleetIQ. For more information on instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types> in the /Amazon EC2 User Guide/ . You can optionally specify capacity weighting for each instance type. If no weight value is specified for an instance type, it is set to the default value "1". For more information about capacity weighting, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling> in the Amazon EC2 Auto Scaling User Guide.
--- * 'launchTemplate' - The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. You can specify the template using either the template name or ID. For help with creating a launch template, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ . After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
 -- * 'maxSize' - The maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
 -- * 'minSize' - The minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum. In production, this value should be set to at least 1. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
--- * 'roleARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+-- * 'autoScalingPolicy' - Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. The scaling policy uses the metric @"PercentUtilizedGameServers"@ to maintain a buffer of idle game servers that can immediately accommodate new games and players. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+-- * 'launchTemplate' - The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. You can specify the template using either the template name or ID. For help with creating a launch template, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ . After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+-- * 'gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status. This property is set to @NO_PROTECTION@ by default.
 -- * 'tags' - A list of labels to assign to the new game server group resource. Tags are developer-defined key-value pairs. Tagging AWS resources is useful for resource management, access management, and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags, respectively. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
--- * 'vpcSubnets' - A list of virtual private cloud (VPC) subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used. You can use this parameter to specify VPCs that you've set up. This property cannot be updated after the game server group is created, and the corresponding Auto Scaling group will always use the property value that is set with this request, even if the Auto Scaling group is updated directly.
+-- * 'roleARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 mkCreateGameServerGroup ::
+  -- | 'instanceDefinitions'
+  Lude.NonEmpty InstanceDefinition ->
   -- | 'gameServerGroupName'
   Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
-  -- | 'minSize'
-  Lude.Natural ->
   -- | 'maxSize'
+  Lude.Natural ->
+  -- | 'minSize'
   Lude.Natural ->
   -- | 'launchTemplate'
   LaunchTemplateSpecification ->
-  -- | 'instanceDefinitions'
-  Lude.NonEmpty InstanceDefinition ->
+  -- | 'roleARN'
+  Lude.Text ->
   CreateGameServerGroup
 mkCreateGameServerGroup
+  pInstanceDefinitions_
   pGameServerGroupName_
-  pRoleARN_
-  pMinSize_
   pMaxSize_
+  pMinSize_
   pLaunchTemplate_
-  pInstanceDefinitions_ =
+  pRoleARN_ =
     CreateGameServerGroup'
-      { vpcSubnets = Lude.Nothing,
+      { instanceDefinitions =
+          pInstanceDefinitions_,
+        vpcSubnets = Lude.Nothing,
         balancingStrategy = Lude.Nothing,
+        gameServerGroupName = pGameServerGroupName_,
+        maxSize = pMaxSize_,
+        minSize = pMinSize_,
         autoScalingPolicy = Lude.Nothing,
+        launchTemplate = pLaunchTemplate_,
         gameServerProtectionPolicy = Lude.Nothing,
         tags = Lude.Nothing,
-        gameServerGroupName = pGameServerGroupName_,
-        roleARN = pRoleARN_,
-        minSize = pMinSize_,
-        maxSize = pMaxSize_,
-        launchTemplate = pLaunchTemplate_,
-        instanceDefinitions = pInstanceDefinitions_
+        roleARN = pRoleARN_
       }
+
+-- | The EC2 instance types and sizes to use in the Auto Scaling group. The instance definitions must specify at least two different instance types that are supported by GameLift FleetIQ. For more information on instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types> in the /Amazon EC2 User Guide/ . You can optionally specify capacity weighting for each instance type. If no weight value is specified for an instance type, it is set to the default value "1". For more information about capacity weighting, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling> in the Amazon EC2 Auto Scaling User Guide.
+--
+-- /Note:/ Consider using 'instanceDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsgInstanceDefinitions :: Lens.Lens' CreateGameServerGroup (Lude.NonEmpty InstanceDefinition)
+cgsgInstanceDefinitions = Lens.lens (instanceDefinitions :: CreateGameServerGroup -> Lude.NonEmpty InstanceDefinition) (\s a -> s {instanceDefinitions = a} :: CreateGameServerGroup)
+{-# DEPRECATED cgsgInstanceDefinitions "Use generic-lens or generic-optics with 'instanceDefinitions' instead." #-}
 
 -- | A list of virtual private cloud (VPC) subnets to use with instances in the game server group. By default, all GameLift FleetIQ-supported Availability Zones are used. You can use this parameter to specify VPCs that you've set up. This property cannot be updated after the game server group is created, and the corresponding Auto Scaling group will always use the property value that is set with this request, even if the Auto Scaling group is updated directly.
 --
@@ -197,12 +215,40 @@ cgsgBalancingStrategy :: Lens.Lens' CreateGameServerGroup (Lude.Maybe BalancingS
 cgsgBalancingStrategy = Lens.lens (balancingStrategy :: CreateGameServerGroup -> Lude.Maybe BalancingStrategy) (\s a -> s {balancingStrategy = a} :: CreateGameServerGroup)
 {-# DEPRECATED cgsgBalancingStrategy "Use generic-lens or generic-optics with 'balancingStrategy' instead." #-}
 
+-- | An identifier for the new game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group. The name must be unique per Region per AWS account.
+--
+-- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsgGameServerGroupName :: Lens.Lens' CreateGameServerGroup Lude.Text
+cgsgGameServerGroupName = Lens.lens (gameServerGroupName :: CreateGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: CreateGameServerGroup)
+{-# DEPRECATED cgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
+
+-- | The maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+--
+-- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsgMaxSize :: Lens.Lens' CreateGameServerGroup Lude.Natural
+cgsgMaxSize = Lens.lens (maxSize :: CreateGameServerGroup -> Lude.Natural) (\s a -> s {maxSize = a} :: CreateGameServerGroup)
+{-# DEPRECATED cgsgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
+
+-- | The minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum. In production, this value should be set to at least 1. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+--
+-- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsgMinSize :: Lens.Lens' CreateGameServerGroup Lude.Natural
+cgsgMinSize = Lens.lens (minSize :: CreateGameServerGroup -> Lude.Natural) (\s a -> s {minSize = a} :: CreateGameServerGroup)
+{-# DEPRECATED cgsgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
+
 -- | Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. The scaling policy uses the metric @"PercentUtilizedGameServers"@ to maintain a buffer of idle game servers that can immediately accommodate new games and players. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
 --
 -- /Note:/ Consider using 'autoScalingPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cgsgAutoScalingPolicy :: Lens.Lens' CreateGameServerGroup (Lude.Maybe GameServerGroupAutoScalingPolicy)
 cgsgAutoScalingPolicy = Lens.lens (autoScalingPolicy :: CreateGameServerGroup -> Lude.Maybe GameServerGroupAutoScalingPolicy) (\s a -> s {autoScalingPolicy = a} :: CreateGameServerGroup)
 {-# DEPRECATED cgsgAutoScalingPolicy "Use generic-lens or generic-optics with 'autoScalingPolicy' instead." #-}
+
+-- | The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. You can specify the template using either the template name or ID. For help with creating a launch template, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ . After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
+--
+-- /Note:/ Consider using 'launchTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgsgLaunchTemplate :: Lens.Lens' CreateGameServerGroup LaunchTemplateSpecification
+cgsgLaunchTemplate = Lens.lens (launchTemplate :: CreateGameServerGroup -> LaunchTemplateSpecification) (\s a -> s {launchTemplate = a} :: CreateGameServerGroup)
+{-# DEPRECATED cgsgLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
 
 -- | A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status. This property is set to @NO_PROTECTION@ by default.
 --
@@ -218,47 +264,12 @@ cgsgTags :: Lens.Lens' CreateGameServerGroup (Lude.Maybe [Tag])
 cgsgTags = Lens.lens (tags :: CreateGameServerGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateGameServerGroup)
 {-# DEPRECATED cgsgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | An identifier for the new game server group. This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group. The name must be unique per Region per AWS account.
---
--- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsgGameServerGroupName :: Lens.Lens' CreateGameServerGroup Lude.Text
-cgsgGameServerGroupName = Lens.lens (gameServerGroupName :: CreateGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: CreateGameServerGroup)
-{-# DEPRECATED cgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
-
 -- | The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cgsgRoleARN :: Lens.Lens' CreateGameServerGroup Lude.Text
 cgsgRoleARN = Lens.lens (roleARN :: CreateGameServerGroup -> Lude.Text) (\s a -> s {roleARN = a} :: CreateGameServerGroup)
 {-# DEPRECATED cgsgRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The minimum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum. In production, this value should be set to at least 1. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
---
--- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsgMinSize :: Lens.Lens' CreateGameServerGroup Lude.Natural
-cgsgMinSize = Lens.lens (minSize :: CreateGameServerGroup -> Lude.Natural) (\s a -> s {minSize = a} :: CreateGameServerGroup)
-{-# DEPRECATED cgsgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
-
--- | The maximum number of instances allowed in the EC2 Auto Scaling group. During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum. After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
---
--- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsgMaxSize :: Lens.Lens' CreateGameServerGroup Lude.Natural
-cgsgMaxSize = Lens.lens (maxSize :: CreateGameServerGroup -> Lude.Natural) (\s a -> s {maxSize = a} :: CreateGameServerGroup)
-{-# DEPRECATED cgsgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
-
--- | The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. You can specify the template using either the template name or ID. For help with creating a launch template, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html Creating a Launch Template for an Auto Scaling Group> in the /Amazon EC2 Auto Scaling User Guide/ . After the Auto Scaling group is created, update this value directly in the Auto Scaling group using the AWS console or APIs.
---
--- /Note:/ Consider using 'launchTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsgLaunchTemplate :: Lens.Lens' CreateGameServerGroup LaunchTemplateSpecification
-cgsgLaunchTemplate = Lens.lens (launchTemplate :: CreateGameServerGroup -> LaunchTemplateSpecification) (\s a -> s {launchTemplate = a} :: CreateGameServerGroup)
-{-# DEPRECATED cgsgLaunchTemplate "Use generic-lens or generic-optics with 'launchTemplate' instead." #-}
-
--- | The EC2 instance types and sizes to use in the Auto Scaling group. The instance definitions must specify at least two different instance types that are supported by GameLift FleetIQ. For more information on instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types> in the /Amazon EC2 User Guide/ . You can optionally specify capacity weighting for each instance type. If no weight value is specified for an instance type, it is set to the default value "1". For more information about capacity weighting, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling> in the Amazon EC2 Auto Scaling User Guide.
---
--- /Note:/ Consider using 'instanceDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgsgInstanceDefinitions :: Lens.Lens' CreateGameServerGroup (Lude.NonEmpty InstanceDefinition)
-cgsgInstanceDefinitions = Lens.lens (instanceDefinitions :: CreateGameServerGroup -> Lude.NonEmpty InstanceDefinition) (\s a -> s {instanceDefinitions = a} :: CreateGameServerGroup)
-{-# DEPRECATED cgsgInstanceDefinitions "Use generic-lens or generic-optics with 'instanceDefinitions' instead." #-}
 
 instance Lude.AWSRequest CreateGameServerGroup where
   type Rs CreateGameServerGroup = CreateGameServerGroupResponse
@@ -286,18 +297,18 @@ instance Lude.ToJSON CreateGameServerGroup where
   toJSON CreateGameServerGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("VpcSubnets" Lude..=) Lude.<$> vpcSubnets,
+          [ Lude.Just ("InstanceDefinitions" Lude..= instanceDefinitions),
+            ("VpcSubnets" Lude..=) Lude.<$> vpcSubnets,
             ("BalancingStrategy" Lude..=) Lude.<$> balancingStrategy,
+            Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
+            Lude.Just ("MaxSize" Lude..= maxSize),
+            Lude.Just ("MinSize" Lude..= minSize),
             ("AutoScalingPolicy" Lude..=) Lude.<$> autoScalingPolicy,
+            Lude.Just ("LaunchTemplate" Lude..= launchTemplate),
             ("GameServerProtectionPolicy" Lude..=)
               Lude.<$> gameServerProtectionPolicy,
             ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
-            Lude.Just ("RoleArn" Lude..= roleARN),
-            Lude.Just ("MinSize" Lude..= minSize),
-            Lude.Just ("MaxSize" Lude..= maxSize),
-            Lude.Just ("LaunchTemplate" Lude..= launchTemplate),
-            Lude.Just ("InstanceDefinitions" Lude..= instanceDefinitions)
+            Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )
 
@@ -309,17 +320,12 @@ instance Lude.ToQuery CreateGameServerGroup where
 
 -- | /See:/ 'mkCreateGameServerGroupResponse' smart constructor.
 data CreateGameServerGroupResponse = CreateGameServerGroupResponse'
-  { gameServerGroup ::
-      Lude.Maybe GameServerGroup,
+  { -- | The newly created game server group object, including the new ARN value for the GameLift FleetIQ game server group and the object's status. The EC2 Auto Scaling group ARN is initially null, since the group has not yet been created. This value is added once the game server group status reaches @ACTIVE@ .
+    gameServerGroup :: Lude.Maybe GameServerGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGameServerGroupResponse' with the minimum fields required to make a request.

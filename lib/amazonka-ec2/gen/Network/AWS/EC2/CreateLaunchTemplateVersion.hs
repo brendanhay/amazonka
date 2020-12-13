@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.EC2.CreateLaunchTemplateVersion
     cltvLaunchTemplateId,
     cltvVersionDescription,
     cltvSourceVersion,
-    cltvDryRun,
     cltvLaunchTemplateData,
+    cltvDryRun,
 
     -- * Destructuring the response
     CreateLaunchTemplateVersionResponse (..),
@@ -49,39 +50,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateLaunchTemplateVersion' smart constructor.
 data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
-  { launchTemplateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+    launchTemplateName :: Lude.Maybe Lude.Text,
+    -- | Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    --
+    -- Constraint: Maximum 128 ASCII characters.
     clientToken :: Lude.Maybe Lude.Text,
-    launchTemplateId ::
-      Lude.Maybe Lude.Text,
-    versionDescription ::
-      Lude.Maybe Lude.Text,
-    sourceVersion ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    launchTemplateData ::
-      RequestLaunchTemplateData
+    -- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
+    launchTemplateId :: Lude.Maybe Lude.Text,
+    -- | A description for the version of the launch template.
+    versionDescription :: Lude.Maybe Lude.Text,
+    -- | The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in @LaunchTemplateData@ . Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.
+    sourceVersion :: Lude.Maybe Lude.Text,
+    -- | The information for the launch template.
+    launchTemplateData :: RequestLaunchTemplateData,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchTemplateVersion' with the minimum fields required to make a request.
 --
+-- * 'launchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
 -- * 'clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- Constraint: Maximum 128 ASCII characters.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'launchTemplateData' - The information for the launch template.
 -- * 'launchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
--- * 'launchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
--- * 'sourceVersion' - The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in @LaunchTemplateData@ . Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.
 -- * 'versionDescription' - A description for the version of the launch template.
+-- * 'sourceVersion' - The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in @LaunchTemplateData@ . Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.
+-- * 'launchTemplateData' - The information for the launch template.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateLaunchTemplateVersion ::
   -- | 'launchTemplateData'
   RequestLaunchTemplateData ->
@@ -93,8 +92,8 @@ mkCreateLaunchTemplateVersion pLaunchTemplateData_ =
       launchTemplateId = Lude.Nothing,
       versionDescription = Lude.Nothing,
       sourceVersion = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      launchTemplateData = pLaunchTemplateData_
+      launchTemplateData = pLaunchTemplateData_,
+      dryRun = Lude.Nothing
     }
 
 -- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
@@ -134,19 +133,19 @@ cltvSourceVersion :: Lens.Lens' CreateLaunchTemplateVersion (Lude.Maybe Lude.Tex
 cltvSourceVersion = Lens.lens (sourceVersion :: CreateLaunchTemplateVersion -> Lude.Maybe Lude.Text) (\s a -> s {sourceVersion = a} :: CreateLaunchTemplateVersion)
 {-# DEPRECATED cltvSourceVersion "Use generic-lens or generic-optics with 'sourceVersion' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cltvDryRun :: Lens.Lens' CreateLaunchTemplateVersion (Lude.Maybe Lude.Bool)
-cltvDryRun = Lens.lens (dryRun :: CreateLaunchTemplateVersion -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateLaunchTemplateVersion)
-{-# DEPRECATED cltvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The information for the launch template.
 --
 -- /Note:/ Consider using 'launchTemplateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cltvLaunchTemplateData :: Lens.Lens' CreateLaunchTemplateVersion RequestLaunchTemplateData
 cltvLaunchTemplateData = Lens.lens (launchTemplateData :: CreateLaunchTemplateVersion -> RequestLaunchTemplateData) (\s a -> s {launchTemplateData = a} :: CreateLaunchTemplateVersion)
 {-# DEPRECATED cltvLaunchTemplateData "Use generic-lens or generic-optics with 'launchTemplateData' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cltvDryRun :: Lens.Lens' CreateLaunchTemplateVersion (Lude.Maybe Lude.Bool)
+cltvDryRun = Lens.lens (dryRun :: CreateLaunchTemplateVersion -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateLaunchTemplateVersion)
+{-# DEPRECATED cltvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateLaunchTemplateVersion where
   type
@@ -179,35 +178,27 @@ instance Lude.ToQuery CreateLaunchTemplateVersion where
         "LaunchTemplateId" Lude.=: launchTemplateId,
         "VersionDescription" Lude.=: versionDescription,
         "SourceVersion" Lude.=: sourceVersion,
-        "DryRun" Lude.=: dryRun,
-        "LaunchTemplateData" Lude.=: launchTemplateData
+        "LaunchTemplateData" Lude.=: launchTemplateData,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateLaunchTemplateVersionResponse' smart constructor.
 data CreateLaunchTemplateVersionResponse = CreateLaunchTemplateVersionResponse'
-  { launchTemplateVersion ::
-      Lude.Maybe
-        LaunchTemplateVersion,
-    warning ::
-      Lude.Maybe
-        ValidationWarning,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the launch template version.
+    launchTemplateVersion :: Lude.Maybe LaunchTemplateVersion,
+    -- | If the new version of the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
+    warning :: Lude.Maybe ValidationWarning,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchTemplateVersionResponse' with the minimum fields required to make a request.
 --
 -- * 'launchTemplateVersion' - Information about the launch template version.
--- * 'responseStatus' - The response status code.
 -- * 'warning' - If the new version of the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.
+-- * 'responseStatus' - The response status code.
 mkCreateLaunchTemplateVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

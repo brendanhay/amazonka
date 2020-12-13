@@ -38,36 +38,36 @@ import Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo
 --
 -- /See:/ 'mkDBProxyTargetGroup' smart constructor.
 data DBProxyTargetGroup = DBProxyTargetGroup'
-  { status ::
-      Lude.Maybe Lude.Text,
-    connectionPoolConfig ::
-      Lude.Maybe ConnectionPoolConfigurationInfo,
+  { -- | The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
+    status :: Lude.Maybe Lude.Text,
+    -- | The settings that determine the size and behavior of the connection pool for the target group.
+    connectionPoolConfig :: Lude.Maybe ConnectionPoolConfigurationInfo,
+    -- | The Amazon Resource Name (ARN) representing the target group.
     targetGroupARN :: Lude.Maybe Lude.Text,
+    -- | The date and time when the target group was last updated.
     updatedDate :: Lude.Maybe Lude.DateTime,
+    -- | The date and time when the target group was first created.
     createdDate :: Lude.Maybe Lude.DateTime,
+    -- | The identifier for the RDS proxy associated with this target group.
     dbProxyName :: Lude.Maybe Lude.Text,
+    -- | The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.
     targetGroupName :: Lude.Maybe Lude.Text,
+    -- | Whether this target group is the first one used for connection requests by the associated proxy. Because each proxy is currently associated with a single target group, currently this setting is always @true@ .
     isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBProxyTargetGroup' with the minimum fields required to make a request.
 --
+-- * 'status' - The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
 -- * 'connectionPoolConfig' - The settings that determine the size and behavior of the connection pool for the target group.
+-- * 'targetGroupARN' - The Amazon Resource Name (ARN) representing the target group.
+-- * 'updatedDate' - The date and time when the target group was last updated.
 -- * 'createdDate' - The date and time when the target group was first created.
 -- * 'dbProxyName' - The identifier for the RDS proxy associated with this target group.
--- * 'isDefault' - Whether this target group is the first one used for connection requests by the associated proxy. Because each proxy is currently associated with a single target group, currently this setting is always @true@ .
--- * 'status' - The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) representing the target group.
 -- * 'targetGroupName' - The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.
--- * 'updatedDate' - The date and time when the target group was last updated.
+-- * 'isDefault' - Whether this target group is the first one used for connection requests by the associated proxy. Because each proxy is currently associated with a single target group, currently this setting is always @true@ .
 mkDBProxyTargetGroup ::
   DBProxyTargetGroup
 mkDBProxyTargetGroup =

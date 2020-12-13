@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.DirectConnect.DescribeLocations
     mkDescribeLocationsResponse,
 
     -- ** Response lenses
-    dlsrsLocations,
-    dlsrsResponseStatus,
+    dlfrsLocations,
+    dlfrsResponseStatus,
   )
 where
 
@@ -36,13 +37,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLocations' smart constructor.
 data DescribeLocations = DescribeLocations'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocations' with the minimum fields required to make a request.
@@ -83,17 +78,12 @@ instance Lude.ToQuery DescribeLocations where
 
 -- | /See:/ 'mkDescribeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
-  { locations ::
-      Lude.Maybe [Location],
+  { -- | The locations.
+    locations :: Lude.Maybe [Location],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocationsResponse' with the minimum fields required to make a request.
@@ -113,13 +103,13 @@ mkDescribeLocationsResponse pResponseStatus_ =
 -- | The locations.
 --
 -- /Note:/ Consider using 'locations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsLocations :: Lens.Lens' DescribeLocationsResponse (Lude.Maybe [Location])
-dlsrsLocations = Lens.lens (locations :: DescribeLocationsResponse -> Lude.Maybe [Location]) (\s a -> s {locations = a} :: DescribeLocationsResponse)
-{-# DEPRECATED dlsrsLocations "Use generic-lens or generic-optics with 'locations' instead." #-}
+dlfrsLocations :: Lens.Lens' DescribeLocationsResponse (Lude.Maybe [Location])
+dlfrsLocations = Lens.lens (locations :: DescribeLocationsResponse -> Lude.Maybe [Location]) (\s a -> s {locations = a} :: DescribeLocationsResponse)
+{-# DEPRECATED dlfrsLocations "Use generic-lens or generic-optics with 'locations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlsrsResponseStatus :: Lens.Lens' DescribeLocationsResponse Lude.Int
-dlsrsResponseStatus = Lens.lens (responseStatus :: DescribeLocationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLocationsResponse)
-{-# DEPRECATED dlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlfrsResponseStatus :: Lens.Lens' DescribeLocationsResponse Lude.Int
+dlfrsResponseStatus = Lens.lens (responseStatus :: DescribeLocationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLocationsResponse)
+{-# DEPRECATED dlfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

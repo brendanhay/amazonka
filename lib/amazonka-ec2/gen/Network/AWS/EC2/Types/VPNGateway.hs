@@ -38,32 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPNGateway' smart constructor.
 data VPNGateway = VPNGateway'
-  { state :: Lude.Maybe VPNState,
+  { -- | The current state of the virtual private gateway.
+    state :: Lude.Maybe VPNState,
+    -- | Any VPCs attached to the virtual private gateway.
     vpcAttachments :: Lude.Maybe [VPCAttachment],
+    -- | The ID of the virtual private gateway.
     vpnGatewayId :: Lude.Maybe Lude.Text,
+    -- | The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
     amazonSideASN :: Lude.Maybe Lude.Integer,
+    -- | The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The type of VPN connection the virtual private gateway supports.
     type' :: Lude.Maybe GatewayType,
+    -- | Any tags assigned to the virtual private gateway.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNGateway' with the minimum fields required to make a request.
 --
--- * 'amazonSideASN' - The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
--- * 'availabilityZone' - The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
 -- * 'state' - The current state of the virtual private gateway.
--- * 'tags' - Any tags assigned to the virtual private gateway.
--- * 'type'' - The type of VPN connection the virtual private gateway supports.
 -- * 'vpcAttachments' - Any VPCs attached to the virtual private gateway.
 -- * 'vpnGatewayId' - The ID of the virtual private gateway.
+-- * 'amazonSideASN' - The private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+-- * 'availabilityZone' - The Availability Zone where the virtual private gateway was created, if applicable. This field may be empty or not returned.
+-- * 'type'' - The type of VPN connection the virtual private gateway supports.
+-- * 'tags' - Any tags assigned to the virtual private gateway.
 mkVPNGateway ::
   VPNGateway
 mkVPNGateway =

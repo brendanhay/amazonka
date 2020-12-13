@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.UpdateStream
     -- ** Request lenses
     usFiles,
     usDescription,
-    usRoleARN,
     usStreamId,
+    usRoleARN,
 
     -- * Destructuring the response
     UpdateStreamResponse (..),
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateStream' smart constructor.
 data UpdateStream = UpdateStream'
-  { files ::
-      Lude.Maybe (Lude.NonEmpty StreamFile),
+  { -- | The files associated with the stream.
+    files :: Lude.Maybe (Lude.NonEmpty StreamFile),
+    -- | The description of the stream.
     description :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
-    streamId :: Lude.Text
+    -- | The stream ID.
+    streamId :: Lude.Text,
+    -- | An IAM role that allows the IoT service principal assumes to access your S3 files.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStream' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the stream.
 -- * 'files' - The files associated with the stream.
--- * 'roleARN' - An IAM role that allows the IoT service principal assumes to access your S3 files.
+-- * 'description' - The description of the stream.
 -- * 'streamId' - The stream ID.
+-- * 'roleARN' - An IAM role that allows the IoT service principal assumes to access your S3 files.
 mkUpdateStream ::
   -- | 'streamId'
   Lude.Text ->
@@ -74,8 +72,8 @@ mkUpdateStream pStreamId_ =
   UpdateStream'
     { files = Lude.Nothing,
       description = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      streamId = pStreamId_
+      streamId = pStreamId_,
+      roleARN = Lude.Nothing
     }
 
 -- | The files associated with the stream.
@@ -92,19 +90,19 @@ usDescription :: Lens.Lens' UpdateStream (Lude.Maybe Lude.Text)
 usDescription = Lens.lens (description :: UpdateStream -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateStream)
 {-# DEPRECATED usDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | An IAM role that allows the IoT service principal assumes to access your S3 files.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usRoleARN :: Lens.Lens' UpdateStream (Lude.Maybe Lude.Text)
-usRoleARN = Lens.lens (roleARN :: UpdateStream -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateStream)
-{-# DEPRECATED usRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
 -- | The stream ID.
 --
 -- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 usStreamId :: Lens.Lens' UpdateStream Lude.Text
 usStreamId = Lens.lens (streamId :: UpdateStream -> Lude.Text) (\s a -> s {streamId = a} :: UpdateStream)
 {-# DEPRECATED usStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
+
+-- | An IAM role that allows the IoT service principal assumes to access your S3 files.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usRoleARN :: Lens.Lens' UpdateStream (Lude.Maybe Lude.Text)
+usRoleARN = Lens.lens (roleARN :: UpdateStream -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateStream)
+{-# DEPRECATED usRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.AWSRequest UpdateStream where
   type Rs UpdateStream = UpdateStreamResponse
@@ -142,29 +140,27 @@ instance Lude.ToQuery UpdateStream where
 
 -- | /See:/ 'mkUpdateStreamResponse' smart constructor.
 data UpdateStreamResponse = UpdateStreamResponse'
-  { streamVersion ::
-      Lude.Maybe Lude.Natural,
+  { -- | The stream version.
+    streamVersion :: Lude.Maybe Lude.Natural,
+    -- | The stream ARN.
     streamARN :: Lude.Maybe Lude.Text,
+    -- | A description of the stream.
     description :: Lude.Maybe Lude.Text,
+    -- | The stream ID.
     streamId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateStreamResponse' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the stream.
--- * 'responseStatus' - The response status code.
--- * 'streamARN' - The stream ARN.
--- * 'streamId' - The stream ID.
 -- * 'streamVersion' - The stream version.
+-- * 'streamARN' - The stream ARN.
+-- * 'description' - A description of the stream.
+-- * 'streamId' - The stream ID.
+-- * 'responseStatus' - The response status code.
 mkUpdateStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->

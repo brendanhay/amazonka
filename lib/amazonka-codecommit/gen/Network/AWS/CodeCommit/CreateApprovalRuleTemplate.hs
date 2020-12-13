@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,16 +21,16 @@ module Network.AWS.CodeCommit.CreateApprovalRuleTemplate
 
     -- ** Request lenses
     cartApprovalRuleTemplateDescription,
-    cartApprovalRuleTemplateName,
     cartApprovalRuleTemplateContent,
+    cartApprovalRuleTemplateName,
 
     -- * Destructuring the response
     CreateApprovalRuleTemplateResponse (..),
     mkCreateApprovalRuleTemplateResponse,
 
     -- ** Response lenses
-    cartrsResponseStatus,
     cartrsApprovalRuleTemplate,
+    cartrsResponseStatus,
   )
 where
 
@@ -41,40 +42,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateApprovalRuleTemplate' smart constructor.
 data CreateApprovalRuleTemplate = CreateApprovalRuleTemplate'
-  { approvalRuleTemplateDescription ::
-      Lude.Maybe Lude.Text,
-    approvalRuleTemplateName :: Lude.Text,
-    approvalRuleTemplateContent ::
-      Lude.Text
+  { -- | The description of the approval rule template. Consider providing a description that explains what this template does and when it might be appropriate to associate it with repositories.
+    approvalRuleTemplateDescription :: Lude.Maybe Lude.Text,
+    -- | The content of the approval rule that is created on pull requests in associated repositories. If you specify one or more destination references (branches), approval rules are created in an associated repository only if their destination references (branches) match those specified in the template.
+    approvalRuleTemplateContent :: Lude.Text,
+    -- | The name of the approval rule template. Provide descriptive names, because this name is applied to the approval rules created automatically in associated repositories.
+    approvalRuleTemplateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApprovalRuleTemplate' with the minimum fields required to make a request.
 --
--- * 'approvalRuleTemplateContent' - The content of the approval rule that is created on pull requests in associated repositories. If you specify one or more destination references (branches), approval rules are created in an associated repository only if their destination references (branches) match those specified in the template.
 -- * 'approvalRuleTemplateDescription' - The description of the approval rule template. Consider providing a description that explains what this template does and when it might be appropriate to associate it with repositories.
+-- * 'approvalRuleTemplateContent' - The content of the approval rule that is created on pull requests in associated repositories. If you specify one or more destination references (branches), approval rules are created in an associated repository only if their destination references (branches) match those specified in the template.
 -- * 'approvalRuleTemplateName' - The name of the approval rule template. Provide descriptive names, because this name is applied to the approval rules created automatically in associated repositories.
 mkCreateApprovalRuleTemplate ::
-  -- | 'approvalRuleTemplateName'
-  Lude.Text ->
   -- | 'approvalRuleTemplateContent'
+  Lude.Text ->
+  -- | 'approvalRuleTemplateName'
   Lude.Text ->
   CreateApprovalRuleTemplate
 mkCreateApprovalRuleTemplate
-  pApprovalRuleTemplateName_
-  pApprovalRuleTemplateContent_ =
+  pApprovalRuleTemplateContent_
+  pApprovalRuleTemplateName_ =
     CreateApprovalRuleTemplate'
       { approvalRuleTemplateDescription =
           Lude.Nothing,
-        approvalRuleTemplateName = pApprovalRuleTemplateName_,
-        approvalRuleTemplateContent = pApprovalRuleTemplateContent_
+        approvalRuleTemplateContent = pApprovalRuleTemplateContent_,
+        approvalRuleTemplateName = pApprovalRuleTemplateName_
       }
 
 -- | The description of the approval rule template. Consider providing a description that explains what this template does and when it might be appropriate to associate it with repositories.
@@ -84,19 +80,19 @@ cartApprovalRuleTemplateDescription :: Lens.Lens' CreateApprovalRuleTemplate (Lu
 cartApprovalRuleTemplateDescription = Lens.lens (approvalRuleTemplateDescription :: CreateApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateDescription = a} :: CreateApprovalRuleTemplate)
 {-# DEPRECATED cartApprovalRuleTemplateDescription "Use generic-lens or generic-optics with 'approvalRuleTemplateDescription' instead." #-}
 
--- | The name of the approval rule template. Provide descriptive names, because this name is applied to the approval rules created automatically in associated repositories.
---
--- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cartApprovalRuleTemplateName :: Lens.Lens' CreateApprovalRuleTemplate Lude.Text
-cartApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: CreateApprovalRuleTemplate -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: CreateApprovalRuleTemplate)
-{-# DEPRECATED cartApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
-
 -- | The content of the approval rule that is created on pull requests in associated repositories. If you specify one or more destination references (branches), approval rules are created in an associated repository only if their destination references (branches) match those specified in the template.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cartApprovalRuleTemplateContent :: Lens.Lens' CreateApprovalRuleTemplate Lude.Text
 cartApprovalRuleTemplateContent = Lens.lens (approvalRuleTemplateContent :: CreateApprovalRuleTemplate -> Lude.Text) (\s a -> s {approvalRuleTemplateContent = a} :: CreateApprovalRuleTemplate)
 {-# DEPRECATED cartApprovalRuleTemplateContent "Use generic-lens or generic-optics with 'approvalRuleTemplateContent' instead." #-}
+
+-- | The name of the approval rule template. Provide descriptive names, because this name is applied to the approval rules created automatically in associated repositories.
+--
+-- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cartApprovalRuleTemplateName :: Lens.Lens' CreateApprovalRuleTemplate Lude.Text
+cartApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: CreateApprovalRuleTemplate -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: CreateApprovalRuleTemplate)
+{-# DEPRECATED cartApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
 instance Lude.AWSRequest CreateApprovalRuleTemplate where
   type
@@ -107,8 +103,8 @@ instance Lude.AWSRequest CreateApprovalRuleTemplate where
     Res.receiveJSON
       ( \s h x ->
           CreateApprovalRuleTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "approvalRuleTemplate")
+            Lude.<$> (x Lude..:> "approvalRuleTemplate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateApprovalRuleTemplate where
@@ -131,11 +127,11 @@ instance Lude.ToJSON CreateApprovalRuleTemplate where
           [ ("approvalRuleTemplateDescription" Lude..=)
               Lude.<$> approvalRuleTemplateDescription,
             Lude.Just
-              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName),
-            Lude.Just
               ( "approvalRuleTemplateContent"
                   Lude..= approvalRuleTemplateContent
-              )
+              ),
+            Lude.Just
+              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
           ]
       )
 
@@ -147,18 +143,12 @@ instance Lude.ToQuery CreateApprovalRuleTemplate where
 
 -- | /See:/ 'mkCreateApprovalRuleTemplateResponse' smart constructor.
 data CreateApprovalRuleTemplateResponse = CreateApprovalRuleTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    approvalRuleTemplate ::
-      ApprovalRuleTemplate
+  { -- | The content and structure of the created approval rule template.
+    approvalRuleTemplate :: ApprovalRuleTemplate,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApprovalRuleTemplateResponse' with the minimum fields required to make a request.
@@ -166,26 +156,19 @@ data CreateApprovalRuleTemplateResponse = CreateApprovalRuleTemplateResponse'
 -- * 'approvalRuleTemplate' - The content and structure of the created approval rule template.
 -- * 'responseStatus' - The response status code.
 mkCreateApprovalRuleTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'approvalRuleTemplate'
   ApprovalRuleTemplate ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateApprovalRuleTemplateResponse
 mkCreateApprovalRuleTemplateResponse
-  pResponseStatus_
-  pApprovalRuleTemplate_ =
+  pApprovalRuleTemplate_
+  pResponseStatus_ =
     CreateApprovalRuleTemplateResponse'
-      { responseStatus =
-          pResponseStatus_,
-        approvalRuleTemplate = pApprovalRuleTemplate_
+      { approvalRuleTemplate =
+          pApprovalRuleTemplate_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cartrsResponseStatus :: Lens.Lens' CreateApprovalRuleTemplateResponse Lude.Int
-cartrsResponseStatus = Lens.lens (responseStatus :: CreateApprovalRuleTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateApprovalRuleTemplateResponse)
-{-# DEPRECATED cartrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The content and structure of the created approval rule template.
 --
@@ -193,3 +176,10 @@ cartrsResponseStatus = Lens.lens (responseStatus :: CreateApprovalRuleTemplateRe
 cartrsApprovalRuleTemplate :: Lens.Lens' CreateApprovalRuleTemplateResponse ApprovalRuleTemplate
 cartrsApprovalRuleTemplate = Lens.lens (approvalRuleTemplate :: CreateApprovalRuleTemplateResponse -> ApprovalRuleTemplate) (\s a -> s {approvalRuleTemplate = a} :: CreateApprovalRuleTemplateResponse)
 {-# DEPRECATED cartrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cartrsResponseStatus :: Lens.Lens' CreateApprovalRuleTemplateResponse Lude.Int
+cartrsResponseStatus = Lens.lens (responseStatus :: CreateApprovalRuleTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateApprovalRuleTemplateResponse)
+{-# DEPRECATED cartrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

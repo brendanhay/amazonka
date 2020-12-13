@@ -13,8 +13,8 @@
 module Network.AWS.Config.Types.Owner
   ( Owner
       ( Owner',
-        AWS,
-        CustomLambda
+        CustomLambda,
+        AWS
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Owner = Owner' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWS :: Owner
-pattern AWS = Owner' "AWS"
-
 pattern CustomLambda :: Owner
 pattern CustomLambda = Owner' "CUSTOM_LAMBDA"
 
+pattern AWS :: Owner
+pattern AWS = Owner' "AWS"
+
 {-# COMPLETE
-  AWS,
   CustomLambda,
+  AWS,
   Owner'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
     mkAddApplicationCloudWatchLoggingOption,
 
     -- ** Request lenses
-    aacwloApplicationName,
     aacwloCurrentApplicationVersionId,
+    aacwloApplicationName,
     aacwloCloudWatchLoggingOption,
 
     -- * Destructuring the response
@@ -40,53 +41,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddApplicationCloudWatchLoggingOption' smart constructor.
 data AddApplicationCloudWatchLoggingOption = AddApplicationCloudWatchLoggingOption'
-  { applicationName ::
-      Lude.Text,
-    currentApplicationVersionId ::
-      Lude.Natural,
-    cloudWatchLoggingOption ::
-      CloudWatchLoggingOption
+  { -- | The version ID of the Kinesis Analytics application.
+    currentApplicationVersionId :: Lude.Natural,
+    -- | The Kinesis Analytics application name.
+    applicationName :: Lude.Text,
+    -- | Provides the CloudWatch log stream Amazon Resource Name (ARN) and the IAM role ARN. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
+    cloudWatchLoggingOption :: CloudWatchLoggingOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddApplicationCloudWatchLoggingOption' with the minimum fields required to make a request.
 --
+-- * 'currentApplicationVersionId' - The version ID of the Kinesis Analytics application.
 -- * 'applicationName' - The Kinesis Analytics application name.
 -- * 'cloudWatchLoggingOption' - Provides the CloudWatch log stream Amazon Resource Name (ARN) and the IAM role ARN. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
--- * 'currentApplicationVersionId' - The version ID of the Kinesis Analytics application.
 mkAddApplicationCloudWatchLoggingOption ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'currentApplicationVersionId'
   Lude.Natural ->
+  -- | 'applicationName'
+  Lude.Text ->
   -- | 'cloudWatchLoggingOption'
   CloudWatchLoggingOption ->
   AddApplicationCloudWatchLoggingOption
 mkAddApplicationCloudWatchLoggingOption
-  pApplicationName_
   pCurrentApplicationVersionId_
+  pApplicationName_
   pCloudWatchLoggingOption_ =
     AddApplicationCloudWatchLoggingOption'
-      { applicationName =
-          pApplicationName_,
-        currentApplicationVersionId =
+      { currentApplicationVersionId =
           pCurrentApplicationVersionId_,
+        applicationName = pApplicationName_,
         cloudWatchLoggingOption = pCloudWatchLoggingOption_
       }
-
--- | The Kinesis Analytics application name.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aacwloApplicationName :: Lens.Lens' AddApplicationCloudWatchLoggingOption Lude.Text
-aacwloApplicationName = Lens.lens (applicationName :: AddApplicationCloudWatchLoggingOption -> Lude.Text) (\s a -> s {applicationName = a} :: AddApplicationCloudWatchLoggingOption)
-{-# DEPRECATED aacwloApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The version ID of the Kinesis Analytics application.
 --
@@ -94,6 +81,13 @@ aacwloApplicationName = Lens.lens (applicationName :: AddApplicationCloudWatchLo
 aacwloCurrentApplicationVersionId :: Lens.Lens' AddApplicationCloudWatchLoggingOption Lude.Natural
 aacwloCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: AddApplicationCloudWatchLoggingOption -> Lude.Natural) (\s a -> s {currentApplicationVersionId = a} :: AddApplicationCloudWatchLoggingOption)
 {-# DEPRECATED aacwloCurrentApplicationVersionId "Use generic-lens or generic-optics with 'currentApplicationVersionId' instead." #-}
+
+-- | The Kinesis Analytics application name.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aacwloApplicationName :: Lens.Lens' AddApplicationCloudWatchLoggingOption Lude.Text
+aacwloApplicationName = Lens.lens (applicationName :: AddApplicationCloudWatchLoggingOption -> Lude.Text) (\s a -> s {applicationName = a} :: AddApplicationCloudWatchLoggingOption)
+{-# DEPRECATED aacwloApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Provides the CloudWatch log stream Amazon Resource Name (ARN) and the IAM role ARN. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
 --
@@ -131,11 +125,11 @@ instance Lude.ToJSON AddApplicationCloudWatchLoggingOption where
   toJSON AddApplicationCloudWatchLoggingOption' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ApplicationName" Lude..= applicationName),
-            Lude.Just
+          [ Lude.Just
               ( "CurrentApplicationVersionId"
                   Lude..= currentApplicationVersionId
               ),
+            Lude.Just ("ApplicationName" Lude..= applicationName),
             Lude.Just
               ("CloudWatchLoggingOption" Lude..= cloudWatchLoggingOption)
           ]
@@ -149,20 +143,11 @@ instance Lude.ToQuery AddApplicationCloudWatchLoggingOption where
 
 -- | /See:/ 'mkAddApplicationCloudWatchLoggingOptionResponse' smart constructor.
 newtype AddApplicationCloudWatchLoggingOptionResponse = AddApplicationCloudWatchLoggingOptionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddApplicationCloudWatchLoggingOptionResponse' with the minimum fields required to make a request.
 --

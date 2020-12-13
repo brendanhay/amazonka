@@ -22,8 +22,8 @@ module Network.AWS.SageMaker.Types.DebugRuleConfiguration
     drcLocalPath,
     drcInstanceType,
     drcVolumeSizeInGB,
-    drcRuleConfigurationName,
     drcRuleEvaluatorImage,
+    drcRuleConfigurationName,
   )
 where
 
@@ -35,52 +35,50 @@ import Network.AWS.SageMaker.Types.ProcessingInstanceType
 --
 -- /See:/ 'mkDebugRuleConfiguration' smart constructor.
 data DebugRuleConfiguration = DebugRuleConfiguration'
-  { ruleParameters ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Runtime configuration for rule container.
+    ruleParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Path to Amazon S3 storage location for rules.
     s3OutputPath :: Lude.Maybe Lude.Text,
+    -- | Path to local storage location for output of rules. Defaults to @/opt/ml/processing/output/rule/@ .
     localPath :: Lude.Maybe Lude.Text,
-    instanceType ::
-      Lude.Maybe ProcessingInstanceType,
+    -- | The instance type to deploy for a training job.
+    instanceType :: Lude.Maybe ProcessingInstanceType,
+    -- | The size, in GB, of the ML storage volume attached to the processing instance.
     volumeSizeInGB :: Lude.Maybe Lude.Natural,
-    ruleConfigurationName :: Lude.Text,
-    ruleEvaluatorImage :: Lude.Text
+    -- | The Amazon Elastic Container (ECR) Image for the managed rule evaluation.
+    ruleEvaluatorImage :: Lude.Text,
+    -- | The name of the rule configuration. It must be unique relative to other rule configuration names.
+    ruleConfigurationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DebugRuleConfiguration' with the minimum fields required to make a request.
 --
--- * 'instanceType' - The instance type to deploy for a training job.
--- * 'localPath' - Path to local storage location for output of rules. Defaults to @/opt/ml/processing/output/rule/@ .
--- * 'ruleConfigurationName' - The name of the rule configuration. It must be unique relative to other rule configuration names.
--- * 'ruleEvaluatorImage' - The Amazon Elastic Container (ECR) Image for the managed rule evaluation.
 -- * 'ruleParameters' - Runtime configuration for rule container.
 -- * 's3OutputPath' - Path to Amazon S3 storage location for rules.
+-- * 'localPath' - Path to local storage location for output of rules. Defaults to @/opt/ml/processing/output/rule/@ .
+-- * 'instanceType' - The instance type to deploy for a training job.
 -- * 'volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing instance.
+-- * 'ruleEvaluatorImage' - The Amazon Elastic Container (ECR) Image for the managed rule evaluation.
+-- * 'ruleConfigurationName' - The name of the rule configuration. It must be unique relative to other rule configuration names.
 mkDebugRuleConfiguration ::
-  -- | 'ruleConfigurationName'
-  Lude.Text ->
   -- | 'ruleEvaluatorImage'
+  Lude.Text ->
+  -- | 'ruleConfigurationName'
   Lude.Text ->
   DebugRuleConfiguration
 mkDebugRuleConfiguration
-  pRuleConfigurationName_
-  pRuleEvaluatorImage_ =
+  pRuleEvaluatorImage_
+  pRuleConfigurationName_ =
     DebugRuleConfiguration'
       { ruleParameters = Lude.Nothing,
         s3OutputPath = Lude.Nothing,
         localPath = Lude.Nothing,
         instanceType = Lude.Nothing,
         volumeSizeInGB = Lude.Nothing,
-        ruleConfigurationName = pRuleConfigurationName_,
-        ruleEvaluatorImage = pRuleEvaluatorImage_
+        ruleEvaluatorImage = pRuleEvaluatorImage_,
+        ruleConfigurationName = pRuleConfigurationName_
       }
 
 -- | Runtime configuration for rule container.
@@ -118,19 +116,19 @@ drcVolumeSizeInGB :: Lens.Lens' DebugRuleConfiguration (Lude.Maybe Lude.Natural)
 drcVolumeSizeInGB = Lens.lens (volumeSizeInGB :: DebugRuleConfiguration -> Lude.Maybe Lude.Natural) (\s a -> s {volumeSizeInGB = a} :: DebugRuleConfiguration)
 {-# DEPRECATED drcVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
 
--- | The name of the rule configuration. It must be unique relative to other rule configuration names.
---
--- /Note:/ Consider using 'ruleConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcRuleConfigurationName :: Lens.Lens' DebugRuleConfiguration Lude.Text
-drcRuleConfigurationName = Lens.lens (ruleConfigurationName :: DebugRuleConfiguration -> Lude.Text) (\s a -> s {ruleConfigurationName = a} :: DebugRuleConfiguration)
-{-# DEPRECATED drcRuleConfigurationName "Use generic-lens or generic-optics with 'ruleConfigurationName' instead." #-}
-
 -- | The Amazon Elastic Container (ECR) Image for the managed rule evaluation.
 --
 -- /Note:/ Consider using 'ruleEvaluatorImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drcRuleEvaluatorImage :: Lens.Lens' DebugRuleConfiguration Lude.Text
 drcRuleEvaluatorImage = Lens.lens (ruleEvaluatorImage :: DebugRuleConfiguration -> Lude.Text) (\s a -> s {ruleEvaluatorImage = a} :: DebugRuleConfiguration)
 {-# DEPRECATED drcRuleEvaluatorImage "Use generic-lens or generic-optics with 'ruleEvaluatorImage' instead." #-}
+
+-- | The name of the rule configuration. It must be unique relative to other rule configuration names.
+--
+-- /Note:/ Consider using 'ruleConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcRuleConfigurationName :: Lens.Lens' DebugRuleConfiguration Lude.Text
+drcRuleConfigurationName = Lens.lens (ruleConfigurationName :: DebugRuleConfiguration -> Lude.Text) (\s a -> s {ruleConfigurationName = a} :: DebugRuleConfiguration)
+{-# DEPRECATED drcRuleConfigurationName "Use generic-lens or generic-optics with 'ruleConfigurationName' instead." #-}
 
 instance Lude.FromJSON DebugRuleConfiguration where
   parseJSON =
@@ -143,8 +141,8 @@ instance Lude.FromJSON DebugRuleConfiguration where
             Lude.<*> (x Lude..:? "LocalPath")
             Lude.<*> (x Lude..:? "InstanceType")
             Lude.<*> (x Lude..:? "VolumeSizeInGB")
-            Lude.<*> (x Lude..: "RuleConfigurationName")
             Lude.<*> (x Lude..: "RuleEvaluatorImage")
+            Lude.<*> (x Lude..: "RuleConfigurationName")
       )
 
 instance Lude.ToJSON DebugRuleConfiguration where
@@ -156,7 +154,7 @@ instance Lude.ToJSON DebugRuleConfiguration where
             ("LocalPath" Lude..=) Lude.<$> localPath,
             ("InstanceType" Lude..=) Lude.<$> instanceType,
             ("VolumeSizeInGB" Lude..=) Lude.<$> volumeSizeInGB,
-            Lude.Just ("RuleConfigurationName" Lude..= ruleConfigurationName),
-            Lude.Just ("RuleEvaluatorImage" Lude..= ruleEvaluatorImage)
+            Lude.Just ("RuleEvaluatorImage" Lude..= ruleEvaluatorImage),
+            Lude.Just ("RuleConfigurationName" Lude..= ruleConfigurationName)
           ]
       )

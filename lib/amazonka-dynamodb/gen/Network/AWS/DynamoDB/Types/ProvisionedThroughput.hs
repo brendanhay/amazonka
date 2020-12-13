@@ -31,17 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisionedThroughput' smart constructor.
 data ProvisionedThroughput = ProvisionedThroughput'
-  { readCapacityUnits ::
-      Lude.Natural,
+  { -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+    --
+    -- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
+    readCapacityUnits :: Lude.Natural,
+    -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+    --
+    -- If read/write capacity mode is @PAY_PER_REQUEST@ the value is set to 0.
     writeCapacityUnits :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedThroughput' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.ServiceCatalog.CreateConstraint
     mkCreateConstraint,
 
     -- ** Request lenses
-    ccAcceptLanguage,
-    ccDescription,
+    ccIdempotencyToken,
     ccPortfolioId,
-    ccProductId,
+    ccAcceptLanguage,
     ccParameters,
     ccType,
-    ccIdempotencyToken,
+    ccDescription,
+    ccProductId,
 
     -- * Destructuring the response
     CreateConstraintResponse (..),
@@ -49,26 +50,91 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkCreateConstraint' smart constructor.
 data CreateConstraint = CreateConstraint'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
+  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Lude.Text,
+    -- | The portfolio identifier.
     portfolioId :: Lude.Text,
-    productId :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
+    --
+    --
+    --     * LAUNCH
+    --
+    --     * You are required to specify either the @RoleArn@ or the @LocalRoleName@ but can't use both.
+    -- Specify the @RoleArn@ property as follows:
+    -- @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@
+    -- Specify the @LocalRoleName@ property as follows:
+    -- @{"LocalRoleName": "SCBasicLaunchRole"}@
+    -- If you specify the @LocalRoleName@ property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
+    -- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    -- You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.
+    --
+    --
+    --     * NOTIFICATION
+    --
+    --     * Specify the @NotificationArns@ property as follows:
+    -- @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@
+    --
+    --
+    --     * RESOURCE_UPDATE
+    --
+    --     * Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+    -- @{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}@
+    -- The @TagUpdatesOnProvisionedProduct@ property accepts a string value of @ALLOWED@ or @NOT_ALLOWED@ .
+    --
+    --
+    --     * STACKSET
+    --
+    --     * Specify the @Parameters@ property as follows:
+    -- @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@
+    -- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    -- You also cannot have more than one @STACKSET@ constraint on a product and portfolio.
+    -- Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.
+    --
+    --
+    --     * TEMPLATE
+    --
+    --     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
     parameters :: Lude.Text,
+    -- | The type of constraint.
+    --
+    --
+    --     * @LAUNCH@
+    --
+    --
+    --     * @NOTIFICATION@
+    --
+    --
+    --     * @RESOURCE_UPDATE@
+    --
+    --
+    --     * @STACKSET@
+    --
+    --
+    --     * @TEMPLATE@
     type' :: Lude.Text,
-    idempotencyToken :: Lude.Text
+    -- | The description of the constraint.
+    description :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
+    productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConstraint' with the minimum fields required to make a request.
 --
+-- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- * 'portfolioId' - The portfolio identifier.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -81,8 +147,6 @@ data CreateConstraint = CreateConstraint'
 --     * @zh@ - Chinese
 --
 --
--- * 'description' - The description of the constraint.
--- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 -- * 'parameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
 --
 --
@@ -125,8 +189,6 @@ data CreateConstraint = CreateConstraint'
 --     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
 --
 --
--- * 'portfolioId' - The portfolio identifier.
--- * 'productId' - The product identifier.
 -- * 'type'' - The type of constraint.
 --
 --
@@ -143,33 +205,51 @@ data CreateConstraint = CreateConstraint'
 --
 --
 --     * @TEMPLATE@
+--
+--
+-- * 'description' - The description of the constraint.
+-- * 'productId' - The product identifier.
 mkCreateConstraint ::
-  -- | 'portfolioId'
+  -- | 'idempotencyToken'
   Lude.Text ->
-  -- | 'productId'
+  -- | 'portfolioId'
   Lude.Text ->
   -- | 'parameters'
   Lude.Text ->
   -- | 'type''
   Lude.Text ->
-  -- | 'idempotencyToken'
+  -- | 'productId'
   Lude.Text ->
   CreateConstraint
 mkCreateConstraint
+  pIdempotencyToken_
   pPortfolioId_
-  pProductId_
   pParameters_
   pType_
-  pIdempotencyToken_ =
+  pProductId_ =
     CreateConstraint'
-      { acceptLanguage = Lude.Nothing,
-        description = Lude.Nothing,
+      { idempotencyToken = pIdempotencyToken_,
         portfolioId = pPortfolioId_,
-        productId = pProductId_,
+        acceptLanguage = Lude.Nothing,
         parameters = pParameters_,
         type' = pType_,
-        idempotencyToken = pIdempotencyToken_
+        description = Lude.Nothing,
+        productId = pProductId_
       }
+
+-- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccIdempotencyToken :: Lens.Lens' CreateConstraint Lude.Text
+ccIdempotencyToken = Lens.lens (idempotencyToken :: CreateConstraint -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateConstraint)
+{-# DEPRECATED ccIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPortfolioId :: Lens.Lens' CreateConstraint Lude.Text
+ccPortfolioId = Lens.lens (portfolioId :: CreateConstraint -> Lude.Text) (\s a -> s {portfolioId = a} :: CreateConstraint)
+{-# DEPRECATED ccPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The language code.
 --
@@ -188,27 +268,6 @@ mkCreateConstraint
 ccAcceptLanguage :: Lens.Lens' CreateConstraint (Lude.Maybe Lude.Text)
 ccAcceptLanguage = Lens.lens (acceptLanguage :: CreateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CreateConstraint)
 {-# DEPRECATED ccAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The description of the constraint.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDescription :: Lens.Lens' CreateConstraint (Lude.Maybe Lude.Text)
-ccDescription = Lens.lens (description :: CreateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateConstraint)
-{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccPortfolioId :: Lens.Lens' CreateConstraint Lude.Text
-ccPortfolioId = Lens.lens (portfolioId :: CreateConstraint -> Lude.Text) (\s a -> s {portfolioId = a} :: CreateConstraint)
-{-# DEPRECATED ccPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
-
--- | The product identifier.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccProductId :: Lens.Lens' CreateConstraint Lude.Text
-ccProductId = Lens.lens (productId :: CreateConstraint -> Lude.Text) (\s a -> s {productId = a} :: CreateConstraint)
-{-# DEPRECATED ccProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
 --
@@ -282,12 +341,19 @@ ccType :: Lens.Lens' CreateConstraint Lude.Text
 ccType = Lens.lens (type' :: CreateConstraint -> Lude.Text) (\s a -> s {type' = a} :: CreateConstraint)
 {-# DEPRECATED ccType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+-- | The description of the constraint.
 --
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccIdempotencyToken :: Lens.Lens' CreateConstraint Lude.Text
-ccIdempotencyToken = Lens.lens (idempotencyToken :: CreateConstraint -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateConstraint)
-{-# DEPRECATED ccIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDescription :: Lens.Lens' CreateConstraint (Lude.Maybe Lude.Text)
+ccDescription = Lens.lens (description :: CreateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateConstraint)
+{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccProductId :: Lens.Lens' CreateConstraint Lude.Text
+ccProductId = Lens.lens (productId :: CreateConstraint -> Lude.Text) (\s a -> s {productId = a} :: CreateConstraint)
+{-# DEPRECATED ccProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 instance Lude.AWSRequest CreateConstraint where
   type Rs CreateConstraint = CreateConstraintResponse
@@ -319,13 +385,13 @@ instance Lude.ToJSON CreateConstraint where
   toJSON CreateConstraint' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("Description" Lude..=) Lude.<$> description,
+          [ Lude.Just ("IdempotencyToken" Lude..= idempotencyToken),
             Lude.Just ("PortfolioId" Lude..= portfolioId),
-            Lude.Just ("ProductId" Lude..= productId),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             Lude.Just ("Parameters" Lude..= parameters),
             Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
+            ("Description" Lude..=) Lude.<$> description,
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )
 
@@ -337,29 +403,24 @@ instance Lude.ToQuery CreateConstraint where
 
 -- | /See:/ 'mkCreateConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
-  { status ::
-      Lude.Maybe RequestStatus,
-    constraintDetail ::
-      Lude.Maybe ConstraintDetail,
-    constraintParameters ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the current request.
+    status :: Lude.Maybe RequestStatus,
+    -- | Information about the constraint.
+    constraintDetail :: Lude.Maybe ConstraintDetail,
+    -- | The constraint parameters.
+    constraintParameters :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConstraintResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the current request.
 -- * 'constraintDetail' - Information about the constraint.
 -- * 'constraintParameters' - The constraint parameters.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the current request.
 mkCreateConstraintResponse ::
   -- | 'responseStatus'
   Lude.Int ->

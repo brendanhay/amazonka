@@ -13,10 +13,10 @@
 module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateFailureReason
   ( LoadBalancerTLSCertificateFailureReason
       ( LoadBalancerTLSCertificateFailureReason',
+        NoAvailableContacts,
         AdditionalVerificationRequired,
         DomainNotAllowed,
         InvalidPublicDomain,
-        NoAvailableContacts,
         Other
       ),
   )
@@ -48,6 +48,9 @@ newtype LoadBalancerTLSCertificateFailureReason = LoadBalancerTLSCertificateFail
       Lude.ToHeader
     )
 
+pattern NoAvailableContacts :: LoadBalancerTLSCertificateFailureReason
+pattern NoAvailableContacts = LoadBalancerTLSCertificateFailureReason' "NO_AVAILABLE_CONTACTS"
+
 pattern AdditionalVerificationRequired :: LoadBalancerTLSCertificateFailureReason
 pattern AdditionalVerificationRequired = LoadBalancerTLSCertificateFailureReason' "ADDITIONAL_VERIFICATION_REQUIRED"
 
@@ -57,17 +60,14 @@ pattern DomainNotAllowed = LoadBalancerTLSCertificateFailureReason' "DOMAIN_NOT_
 pattern InvalidPublicDomain :: LoadBalancerTLSCertificateFailureReason
 pattern InvalidPublicDomain = LoadBalancerTLSCertificateFailureReason' "INVALID_PUBLIC_DOMAIN"
 
-pattern NoAvailableContacts :: LoadBalancerTLSCertificateFailureReason
-pattern NoAvailableContacts = LoadBalancerTLSCertificateFailureReason' "NO_AVAILABLE_CONTACTS"
-
 pattern Other :: LoadBalancerTLSCertificateFailureReason
 pattern Other = LoadBalancerTLSCertificateFailureReason' "OTHER"
 
 {-# COMPLETE
+  NoAvailableContacts,
   AdditionalVerificationRequired,
   DomainNotAllowed,
   InvalidPublicDomain,
-  NoAvailableContacts,
   Other,
   LoadBalancerTLSCertificateFailureReason'
   #-}

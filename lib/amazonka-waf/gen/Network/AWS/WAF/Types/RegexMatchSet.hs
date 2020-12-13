@@ -33,25 +33,30 @@ import Network.AWS.WAF.Types.RegexMatchTuple
 --
 -- /See:/ 'mkRegexMatchSet' smart constructor.
 data RegexMatchSet = RegexMatchSet'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
+    name :: Lude.Maybe Lude.Text,
+    -- | Contains an array of 'RegexMatchTuple' objects. Each @RegexMatchTuple@ object contains:
+    --
+    --
+    --     * The part of a web request that you want AWS WAF to inspect, such as a query string or the value of the @User-Agent@ header.
+    --
+    --
+    --     * The identifier of the pattern (a regular expression) that you want AWS WAF to look for. For more information, see 'RegexPatternSet' .
+    --
+    --
+    --     * Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.
     regexMatchTuples :: Lude.Maybe [RegexMatchTuple],
+    -- | The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ (see 'GetRegexMatchSet' ), update a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), insert a @RegexMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @RegexMatchSet@ from AWS WAF (see 'DeleteRegexMatchSet' ).
+    --
+    -- @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
     regexMatchSetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegexMatchSet' with the minimum fields required to make a request.
 --
 -- * 'name' - A friendly name or description of the 'RegexMatchSet' . You can't change @Name@ after you create a @RegexMatchSet@ .
--- * 'regexMatchSetId' - The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ (see 'GetRegexMatchSet' ), update a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), insert a @RegexMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @RegexMatchSet@ from AWS WAF (see 'DeleteRegexMatchSet' ).
---
--- @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
 -- * 'regexMatchTuples' - Contains an array of 'RegexMatchTuple' objects. Each @RegexMatchTuple@ object contains:
 --
 --
@@ -62,6 +67,11 @@ data RegexMatchSet = RegexMatchSet'
 --
 --
 --     * Whether to perform any conversions on the request, such as converting it to lowercase, before inspecting it for the specified string.
+--
+--
+-- * 'regexMatchSetId' - The @RegexMatchSetId@ for a @RegexMatchSet@ . You use @RegexMatchSetId@ to get information about a @RegexMatchSet@ (see 'GetRegexMatchSet' ), update a @RegexMatchSet@ (see 'UpdateRegexMatchSet' ), insert a @RegexMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @RegexMatchSet@ from AWS WAF (see 'DeleteRegexMatchSet' ).
+--
+-- @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
 mkRegexMatchSet ::
   RegexMatchSet
 mkRegexMatchSet =

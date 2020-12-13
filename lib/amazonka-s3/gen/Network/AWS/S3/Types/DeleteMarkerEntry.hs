@@ -34,29 +34,27 @@ import Network.AWS.S3.Types.Owner
 --
 -- /See:/ 'mkDeleteMarkerEntry' smart constructor.
 data DeleteMarkerEntry = DeleteMarkerEntry'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
+  { -- | Version ID of an object.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | Specifies whether the object is (true) or is not (false) the latest version of an object.
     isLatest :: Lude.Maybe Lude.Bool,
+    -- | The account that created the delete marker.>
     owner :: Lude.Maybe Owner,
+    -- | The object key.
     key :: Lude.Maybe ObjectKey,
+    -- | Date and time the object was last modified.
     lastModified :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMarkerEntry' with the minimum fields required to make a request.
 --
+-- * 'versionId' - Version ID of an object.
 -- * 'isLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
+-- * 'owner' - The account that created the delete marker.>
 -- * 'key' - The object key.
 -- * 'lastModified' - Date and time the object was last modified.
--- * 'owner' - The account that created the delete marker.>
--- * 'versionId' - Version ID of an object.
 mkDeleteMarkerEntry ::
   DeleteMarkerEntry
 mkDeleteMarkerEntry =

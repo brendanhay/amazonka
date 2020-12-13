@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,24 +43,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTasks' smart constructor.
 data DescribeTasks = DescribeTasks'
-  { include ::
-      Lude.Maybe [TaskField],
+  { -- | Specifies whether you want to see the resource tags for the task. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+    include :: Lude.Maybe [TaskField],
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were launched in any cluster other than the default cluster.
     cluster :: Lude.Maybe Lude.Text,
+    -- | A list of up to 100 task IDs or full ARN entries.
     tasks :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTasks' with the minimum fields required to make a request.
 --
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were launched in any cluster other than the default cluster.
 -- * 'include' - Specifies whether you want to see the resource tags for the task. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task or tasks to describe. If you do not specify a cluster, the default cluster is assumed. This parameter is required if the task or tasks you are describing were launched in any cluster other than the default cluster.
 -- * 'tasks' - A list of up to 100 task IDs or full ARN entries.
 mkDescribeTasks ::
   DescribeTasks
@@ -134,25 +131,21 @@ instance Lude.ToQuery DescribeTasks where
 
 -- | /See:/ 'mkDescribeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
-  { failures ::
-      Lude.Maybe [Failure],
+  { -- | Any failures associated with the call.
+    failures :: Lude.Maybe [Failure],
+    -- | The list of tasks.
     tasks :: Lude.Maybe [Task],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTasksResponse' with the minimum fields required to make a request.
 --
 -- * 'failures' - Any failures associated with the call.
--- * 'responseStatus' - The response status code.
 -- * 'tasks' - The list of tasks.
+-- * 'responseStatus' - The response status code.
 mkDescribeTasksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

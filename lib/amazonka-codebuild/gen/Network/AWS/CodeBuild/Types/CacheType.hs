@@ -13,9 +13,9 @@
 module Network.AWS.CodeBuild.Types.CacheType
   ( CacheType
       ( CacheType',
-        CTLocal,
-        CTNoCache,
-        CTS3
+        NoCache,
+        S3,
+        Local
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CacheType = CacheType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CTLocal :: CacheType
-pattern CTLocal = CacheType' "LOCAL"
+pattern NoCache :: CacheType
+pattern NoCache = CacheType' "NO_CACHE"
 
-pattern CTNoCache :: CacheType
-pattern CTNoCache = CacheType' "NO_CACHE"
+pattern S3 :: CacheType
+pattern S3 = CacheType' "S3"
 
-pattern CTS3 :: CacheType
-pattern CTS3 = CacheType' "S3"
+pattern Local :: CacheType
+pattern Local = CacheType' "LOCAL"
 
 {-# COMPLETE
-  CTLocal,
-  CTNoCache,
-  CTS3,
+  NoCache,
+  S3,
+  Local,
   CacheType'
   #-}

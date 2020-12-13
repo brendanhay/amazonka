@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Shield.AssociateHealthCheck
     mkAssociateHealthCheck,
 
     -- ** Request lenses
-    ahcProtectionId,
     ahcHealthCheckARN,
+    ahcProtectionId,
 
     -- * Destructuring the response
     AssociateHealthCheckResponse (..),
@@ -41,17 +42,12 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkAssociateHealthCheck' smart constructor.
 data AssociateHealthCheck = AssociateHealthCheck'
-  { protectionId ::
-      Lude.Text,
-    healthCheckARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the health check to associate with the protection.
+    healthCheckARN :: Lude.Text,
+    -- | The unique identifier (ID) for the 'Protection' object to add the health check association to.
+    protectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateHealthCheck' with the minimum fields required to make a request.
@@ -59,23 +55,16 @@ data AssociateHealthCheck = AssociateHealthCheck'
 -- * 'healthCheckARN' - The Amazon Resource Name (ARN) of the health check to associate with the protection.
 -- * 'protectionId' - The unique identifier (ID) for the 'Protection' object to add the health check association to.
 mkAssociateHealthCheck ::
-  -- | 'protectionId'
-  Lude.Text ->
   -- | 'healthCheckARN'
   Lude.Text ->
+  -- | 'protectionId'
+  Lude.Text ->
   AssociateHealthCheck
-mkAssociateHealthCheck pProtectionId_ pHealthCheckARN_ =
+mkAssociateHealthCheck pHealthCheckARN_ pProtectionId_ =
   AssociateHealthCheck'
-    { protectionId = pProtectionId_,
-      healthCheckARN = pHealthCheckARN_
+    { healthCheckARN = pHealthCheckARN_,
+      protectionId = pProtectionId_
     }
-
--- | The unique identifier (ID) for the 'Protection' object to add the health check association to.
---
--- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahcProtectionId :: Lens.Lens' AssociateHealthCheck Lude.Text
-ahcProtectionId = Lens.lens (protectionId :: AssociateHealthCheck -> Lude.Text) (\s a -> s {protectionId = a} :: AssociateHealthCheck)
-{-# DEPRECATED ahcProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the health check to associate with the protection.
 --
@@ -83,6 +72,13 @@ ahcProtectionId = Lens.lens (protectionId :: AssociateHealthCheck -> Lude.Text) 
 ahcHealthCheckARN :: Lens.Lens' AssociateHealthCheck Lude.Text
 ahcHealthCheckARN = Lens.lens (healthCheckARN :: AssociateHealthCheck -> Lude.Text) (\s a -> s {healthCheckARN = a} :: AssociateHealthCheck)
 {-# DEPRECATED ahcHealthCheckARN "Use generic-lens or generic-optics with 'healthCheckARN' instead." #-}
+
+-- | The unique identifier (ID) for the 'Protection' object to add the health check association to.
+--
+-- /Note:/ Consider using 'protectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcProtectionId :: Lens.Lens' AssociateHealthCheck Lude.Text
+ahcProtectionId = Lens.lens (protectionId :: AssociateHealthCheck -> Lude.Text) (\s a -> s {protectionId = a} :: AssociateHealthCheck)
+{-# DEPRECATED ahcProtectionId "Use generic-lens or generic-optics with 'protectionId' instead." #-}
 
 instance Lude.AWSRequest AssociateHealthCheck where
   type Rs AssociateHealthCheck = AssociateHealthCheckResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON AssociateHealthCheck where
   toJSON AssociateHealthCheck' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ProtectionId" Lude..= protectionId),
-            Lude.Just ("HealthCheckArn" Lude..= healthCheckARN)
+          [ Lude.Just ("HealthCheckArn" Lude..= healthCheckARN),
+            Lude.Just ("ProtectionId" Lude..= protectionId)
           ]
       )
 
@@ -122,16 +118,10 @@ instance Lude.ToQuery AssociateHealthCheck where
 
 -- | /See:/ 'mkAssociateHealthCheckResponse' smart constructor.
 newtype AssociateHealthCheckResponse = AssociateHealthCheckResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateHealthCheckResponse' with the minimum fields required to make a request.

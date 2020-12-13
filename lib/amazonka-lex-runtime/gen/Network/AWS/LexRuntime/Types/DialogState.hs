@@ -13,12 +13,12 @@
 module Network.AWS.LexRuntime.Types.DialogState
   ( DialogState
       ( DialogState',
-        ConfirmIntent,
         ElicitIntent,
+        ConfirmIntent,
         ElicitSlot,
-        Failed,
         Fulfilled,
-        ReadyForFulfillment
+        ReadyForFulfillment,
+        Failed
       ),
   )
 where
@@ -49,17 +49,14 @@ newtype DialogState = DialogState' Lude.Text
       Lude.ToHeader
     )
 
-pattern ConfirmIntent :: DialogState
-pattern ConfirmIntent = DialogState' "ConfirmIntent"
-
 pattern ElicitIntent :: DialogState
 pattern ElicitIntent = DialogState' "ElicitIntent"
 
+pattern ConfirmIntent :: DialogState
+pattern ConfirmIntent = DialogState' "ConfirmIntent"
+
 pattern ElicitSlot :: DialogState
 pattern ElicitSlot = DialogState' "ElicitSlot"
-
-pattern Failed :: DialogState
-pattern Failed = DialogState' "Failed"
 
 pattern Fulfilled :: DialogState
 pattern Fulfilled = DialogState' "Fulfilled"
@@ -67,12 +64,15 @@ pattern Fulfilled = DialogState' "Fulfilled"
 pattern ReadyForFulfillment :: DialogState
 pattern ReadyForFulfillment = DialogState' "ReadyForFulfillment"
 
+pattern Failed :: DialogState
+pattern Failed = DialogState' "Failed"
+
 {-# COMPLETE
-  ConfirmIntent,
   ElicitIntent,
+  ConfirmIntent,
   ElicitSlot,
-  Failed,
   Fulfilled,
   ReadyForFulfillment,
+  Failed,
   DialogState'
   #-}

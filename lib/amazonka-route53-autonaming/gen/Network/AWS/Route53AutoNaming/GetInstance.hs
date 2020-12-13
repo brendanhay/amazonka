@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Route53AutoNaming.GetInstance
     mkGetInstance,
 
     -- ** Request lenses
-    giServiceId,
     giInstanceId,
+    giServiceId,
 
     -- * Destructuring the response
     GetInstanceResponse (..),
@@ -40,16 +41,12 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkGetInstance' smart constructor.
 data GetInstance = GetInstance'
-  { serviceId :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The ID of the instance that you want to get information about.
+    instanceId :: Lude.Text,
+    -- | The ID of the service that the instance is associated with.
+    serviceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstance' with the minimum fields required to make a request.
@@ -57,20 +54,13 @@ data GetInstance = GetInstance'
 -- * 'instanceId' - The ID of the instance that you want to get information about.
 -- * 'serviceId' - The ID of the service that the instance is associated with.
 mkGetInstance ::
-  -- | 'serviceId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'serviceId'
+  Lude.Text ->
   GetInstance
-mkGetInstance pServiceId_ pInstanceId_ =
-  GetInstance' {serviceId = pServiceId_, instanceId = pInstanceId_}
-
--- | The ID of the service that the instance is associated with.
---
--- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giServiceId :: Lens.Lens' GetInstance Lude.Text
-giServiceId = Lens.lens (serviceId :: GetInstance -> Lude.Text) (\s a -> s {serviceId = a} :: GetInstance)
-{-# DEPRECATED giServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+mkGetInstance pInstanceId_ pServiceId_ =
+  GetInstance' {instanceId = pInstanceId_, serviceId = pServiceId_}
 
 -- | The ID of the instance that you want to get information about.
 --
@@ -78,6 +68,13 @@ giServiceId = Lens.lens (serviceId :: GetInstance -> Lude.Text) (\s a -> s {serv
 giInstanceId :: Lens.Lens' GetInstance Lude.Text
 giInstanceId = Lens.lens (instanceId :: GetInstance -> Lude.Text) (\s a -> s {instanceId = a} :: GetInstance)
 {-# DEPRECATED giInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The ID of the service that the instance is associated with.
+--
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giServiceId :: Lens.Lens' GetInstance Lude.Text
+giServiceId = Lens.lens (serviceId :: GetInstance -> Lude.Text) (\s a -> s {serviceId = a} :: GetInstance)
+{-# DEPRECATED giServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 instance Lude.AWSRequest GetInstance where
   type Rs GetInstance = GetInstanceResponse
@@ -104,8 +101,8 @@ instance Lude.ToJSON GetInstance where
   toJSON GetInstance' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ServiceId" Lude..= serviceId),
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("ServiceId" Lude..= serviceId)
           ]
       )
 
@@ -117,17 +114,12 @@ instance Lude.ToQuery GetInstance where
 
 -- | /See:/ 'mkGetInstanceResponse' smart constructor.
 data GetInstanceResponse = GetInstanceResponse'
-  { instance' ::
-      Lude.Maybe Instance,
+  { -- | A complex type that contains information about a specified instance.
+    instance' :: Lude.Maybe Instance,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceResponse' with the minimum fields required to make a request.

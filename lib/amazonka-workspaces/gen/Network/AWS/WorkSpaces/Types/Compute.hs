@@ -13,13 +13,13 @@
 module Network.AWS.WorkSpaces.Types.Compute
   ( Compute
       ( Compute',
-        Graphics,
-        Graphicspro,
+        Value,
+        Standard,
         Performance,
         Power,
+        Graphics,
         Powerpro,
-        Standard,
-        Value
+        Graphicspro
       ),
   )
 where
@@ -50,11 +50,11 @@ newtype Compute = Compute' Lude.Text
       Lude.ToHeader
     )
 
-pattern Graphics :: Compute
-pattern Graphics = Compute' "GRAPHICS"
+pattern Value :: Compute
+pattern Value = Compute' "VALUE"
 
-pattern Graphicspro :: Compute
-pattern Graphicspro = Compute' "GRAPHICSPRO"
+pattern Standard :: Compute
+pattern Standard = Compute' "STANDARD"
 
 pattern Performance :: Compute
 pattern Performance = Compute' "PERFORMANCE"
@@ -62,22 +62,22 @@ pattern Performance = Compute' "PERFORMANCE"
 pattern Power :: Compute
 pattern Power = Compute' "POWER"
 
+pattern Graphics :: Compute
+pattern Graphics = Compute' "GRAPHICS"
+
 pattern Powerpro :: Compute
 pattern Powerpro = Compute' "POWERPRO"
 
-pattern Standard :: Compute
-pattern Standard = Compute' "STANDARD"
-
-pattern Value :: Compute
-pattern Value = Compute' "VALUE"
+pattern Graphicspro :: Compute
+pattern Graphicspro = Compute' "GRAPHICSPRO"
 
 {-# COMPLETE
-  Graphics,
-  Graphicspro,
+  Value,
+  Standard,
   Performance,
   Power,
+  Graphics,
   Powerpro,
-  Standard,
-  Value,
+  Graphicspro,
   Compute'
   #-}

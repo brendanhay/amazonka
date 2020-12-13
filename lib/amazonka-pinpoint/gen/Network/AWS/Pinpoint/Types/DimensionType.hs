@@ -13,8 +13,8 @@
 module Network.AWS.Pinpoint.Types.DimensionType
   ( DimensionType
       ( DimensionType',
-        DTExclusive,
-        DTInclusive
+        DTInclusive,
+        DTExclusive
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DimensionType = DimensionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DTExclusive :: DimensionType
-pattern DTExclusive = DimensionType' "EXCLUSIVE"
-
 pattern DTInclusive :: DimensionType
 pattern DTInclusive = DimensionType' "INCLUSIVE"
 
+pattern DTExclusive :: DimensionType
+pattern DTExclusive = DimensionType' "EXCLUSIVE"
+
 {-# COMPLETE
-  DTExclusive,
   DTInclusive,
+  DTExclusive,
   DimensionType'
   #-}

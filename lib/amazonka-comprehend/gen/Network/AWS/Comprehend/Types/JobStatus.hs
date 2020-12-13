@@ -13,12 +13,12 @@
 module Network.AWS.Comprehend.Types.JobStatus
   ( JobStatus
       ( JobStatus',
+        Submitted,
+        InProgress,
         Completed,
         Failed,
-        InProgress,
         StopRequested,
-        Stopped,
-        Submitted
+        Stopped
       ),
   )
 where
@@ -49,14 +49,17 @@ newtype JobStatus = JobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Submitted :: JobStatus
+pattern Submitted = JobStatus' "SUBMITTED"
+
+pattern InProgress :: JobStatus
+pattern InProgress = JobStatus' "IN_PROGRESS"
+
 pattern Completed :: JobStatus
 pattern Completed = JobStatus' "COMPLETED"
 
 pattern Failed :: JobStatus
 pattern Failed = JobStatus' "FAILED"
-
-pattern InProgress :: JobStatus
-pattern InProgress = JobStatus' "IN_PROGRESS"
 
 pattern StopRequested :: JobStatus
 pattern StopRequested = JobStatus' "STOP_REQUESTED"
@@ -64,15 +67,12 @@ pattern StopRequested = JobStatus' "STOP_REQUESTED"
 pattern Stopped :: JobStatus
 pattern Stopped = JobStatus' "STOPPED"
 
-pattern Submitted :: JobStatus
-pattern Submitted = JobStatus' "SUBMITTED"
-
 {-# COMPLETE
+  Submitted,
+  InProgress,
   Completed,
   Failed,
-  InProgress,
   StopRequested,
   Stopped,
-  Submitted,
   JobStatus'
   #-}

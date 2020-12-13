@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,6 +28,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     rditpitAutoMinorVersionUpgrade,
     rditpitDBSubnetGroupName,
     rditpitRestoreTime,
+    rditpitTargetDBInstanceIdentifier,
     rditpitIOPS,
     rditpitDomain,
     rditpitEngine,
@@ -52,7 +54,6 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     rditpitStorageType,
     rditpitEnableCloudwatchLogsExports,
     rditpitDBName,
-    rditpitTargetDBInstanceIdentifier,
 
     -- * Destructuring the response
     RestoreDBInstanceToPointInTimeResponse (..),
@@ -74,120 +75,236 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRestoreDBInstanceToPointInTime' smart constructor.
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
-  { deletionProtection ::
-      Lude.Maybe Lude.Bool,
-    useLatestRestorableTime ::
-      Lude.Maybe Lude.Bool,
-    publiclyAccessible ::
-      Lude.Maybe Lude.Bool,
-    autoMinorVersionUpgrade ::
-      Lude.Maybe Lude.Bool,
-    dbSubnetGroupName ::
-      Lude.Maybe Lude.Text,
-    restoreTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+    deletionProtection :: Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+    --
+    -- Constraints: Can't be specified if the @RestoreTime@ parameter is provided.
+    useLatestRestorableTime :: Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether the DB instance is publicly accessible.
+    --
+    -- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+    -- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+    -- For more information, see 'CreateDBInstance' .
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.
+    autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The DB subnet group name to use for the new instance.
+    --
+    -- Constraints: If supplied, must match the name of an existing DBSubnetGroup.
+    -- Example: @mySubnetgroup@
+    dbSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The date and time to restore from.
+    --
+    -- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+    -- Constraints:
+    --
+    --     * Must be before the latest restorable time for the DB instance
+    --
+    --
+    --     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled
+    --
+    --
+    -- Example: @2009-09-07T23:45:00Z@
+    restoreTime :: Lude.Maybe Lude.DateTime,
+    -- | The name of the new DB instance to be created.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 1 to 63 letters, numbers, or hyphens
+    --
+    --
+    --     * First character must be a letter
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens
+    targetDBInstanceIdentifier :: Lude.Text,
+    -- | The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
+    --
+    -- Constraints: Must be an integer greater than 1000.
+    -- __SQL Server__
+    -- Setting the IOPS value for the SQL Server database engine isn't supported.
     iops :: Lude.Maybe Lude.Int,
-    domain ::
-      Lude.Maybe Lude.Text,
-    engine ::
-      Lude.Maybe Lude.Text,
-    tdeCredentialPassword ::
-      Lude.Maybe Lude.Text,
-    sourceDBInstanceIdentifier ::
-      Lude.Maybe Lude.Text,
-    processorFeatures ::
-      Lude.Maybe [ProcessorFeature],
-    dbInstanceClass ::
-      Lude.Maybe Lude.Text,
-    licenseModel ::
-      Lude.Maybe Lude.Text,
-    maxAllocatedStorage ::
-      Lude.Maybe Lude.Int,
-    dbParameterGroupName ::
-      Lude.Maybe Lude.Text,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
-    vpcSecurityGroupIds ::
-      Lude.Maybe [Lude.Text],
-    multiAZ ::
-      Lude.Maybe Lude.Bool,
-    sourceDBiResourceId ::
-      Lude.Maybe Lude.Text,
-    optionGroupName ::
-      Lude.Maybe Lude.Text,
-    copyTagsToSnapshot ::
-      Lude.Maybe Lude.Bool,
-    tdeCredentialARN ::
-      Lude.Maybe Lude.Text,
-    domainIAMRoleName ::
-      Lude.Maybe Lude.Text,
+    -- | Specify the Active Directory directory ID to restore the DB instance in. The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon RDS User Guide/ .
+    domain :: Lude.Maybe Lude.Text,
+    -- | The database engine to use for the new instance.
+    --
+    -- Default: The same as source
+    -- Constraint: Must be compatible with the engine of the source
+    -- Valid Values:
+    --
+    --     * @mariadb@
+    --
+    --
+    --     * @mysql@
+    --
+    --
+    --     * @oracle-ee@
+    --
+    --
+    --     * @oracle-se2@
+    --
+    --
+    --     * @oracle-se1@
+    --
+    --
+    --     * @oracle-se@
+    --
+    --
+    --     * @postgres@
+    --
+    --
+    --     * @sqlserver-ee@
+    --
+    --
+    --     * @sqlserver-se@
+    --
+    --
+    --     * @sqlserver-ex@
+    --
+    --
+    --     * @sqlserver-web@
+    engine :: Lude.Maybe Lude.Text,
+    -- | The password for the given ARN from the key store in order to access the device.
+    tdeCredentialPassword :: Lude.Maybe Lude.Text,
+    -- | The identifier of the source DB instance from which to restore.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DB instance.
+    sourceDBInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+    processorFeatures :: Lude.Maybe [ProcessorFeature],
+    -- | The compute and memory capacity of the Amazon RDS DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the /Amazon RDS User Guide./
+    --
+    -- Default: The same DBInstanceClass as the original DB instance.
+    dbInstanceClass :: Lude.Maybe Lude.Text,
+    -- | License model information for the restored DB instance.
+    --
+    -- Default: Same as source.
+    -- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
+    licenseModel :: Lude.Maybe Lude.Text,
+    -- | The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+    maxAllocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The name of the DB parameter group to associate with this DB instance.
+    --
+    -- If you do not specify a value for @DBParameterGroupName@ , then the default @DBParameterGroup@ for the specified DB engine is used.
+    -- Constraints:
+    --
+    --     * If supplied, must match the name of an existing DBParameterGroup.
+    --
+    --
+    --     * Must be 1 to 255 letters, numbers, or hyphens.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens.
+    dbParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone (AZ) where the DB instance will be created.
+    --
+    -- Default: A random, system-chosen Availability Zone.
+    -- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+    -- Example: @us-east-1a@
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | A list of EC2 VPC security groups to associate with this DB instance.
+    --
+    -- Default: The default EC2 VPC security group for the DB subnet group's VPC.
+    vpcSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+    --
+    -- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+    multiAZ :: Lude.Maybe Lude.Bool,
+    -- | The resource ID of the source DB instance from which to restore.
+    sourceDBiResourceId :: Lude.Maybe Lude.Text,
+    -- | The name of the option group to be used for the restored DB instance.
+    --
+    -- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+    optionGroupName :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.
+    copyTagsToSnapshot :: Lude.Maybe Lude.Bool,
+    -- | The ARN from the key store with which to associate the instance for TDE encryption.
+    tdeCredentialARN :: Lude.Maybe Lude.Text,
+    -- | Specify the name of the IAM role to be used when making API calls to the Directory Service.
+    domainIAMRoleName :: Lude.Maybe Lude.Text,
     tags :: Lude.Maybe [Tag],
+    -- | The port number on which the database accepts connections.
+    --
+    -- Constraints: Value must be @1150-65535@
+    -- Default: The same port as the original DB instance.
     port :: Lude.Maybe Lude.Int,
-    enableIAMDatabaseAuthentication ::
-      Lude.Maybe Lude.Bool,
-    useDefaultProcessorFeatures ::
-      Lude.Maybe Lude.Bool,
-    storageType ::
-      Lude.Maybe Lude.Text,
-    enableCloudwatchLogsExports ::
-      Lude.Maybe [Lude.Text],
-    dbName ::
-      Lude.Maybe Lude.Text,
-    targetDBInstanceIdentifier ::
-      Lude.Text
+    -- | A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+    --
+    -- For more information about IAM database authentication, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL> in the /Amazon RDS User Guide./
+    enableIAMDatabaseAuthentication :: Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+    useDefaultProcessorFeatures :: Lude.Maybe Lude.Bool,
+    -- | Specifies the storage type to be associated with the DB instance.
+    --
+    -- Valid values: @standard | gp2 | io1@
+    -- If you specify @io1@ , you must also include a value for the @Iops@ parameter.
+    -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
+    storageType :: Lude.Maybe Lude.Text,
+    -- | The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon RDS User Guide/ .
+    enableCloudwatchLogsExports :: Lude.Maybe [Lude.Text],
+    -- | The database name for the restored DB instance.
+    dbName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTime' with the minimum fields required to make a request.
 --
+-- * 'deletionProtection' - A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+-- * 'useLatestRestorableTime' - A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+--
+-- Constraints: Can't be specified if the @RestoreTime@ parameter is provided.
+-- * 'publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
+--
+-- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
+-- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
+-- For more information, see 'CreateDBInstance' .
 -- * 'autoMinorVersionUpgrade' - A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.
--- * 'availabilityZone' - The Availability Zone (AZ) where the DB instance will be created.
---
--- Default: A random, system-chosen Availability Zone.
--- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
--- Example: @us-east-1a@
--- * 'copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.
--- * 'dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the /Amazon RDS User Guide./
---
--- Default: The same DBInstanceClass as the original DB instance.
--- * 'dbName' - The database name for the restored DB instance.
--- * 'dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
---
--- If you do not specify a value for @DBParameterGroupName@ , then the default @DBParameterGroup@ for the specified DB engine is used.
--- Constraints:
---
---     * If supplied, must match the name of an existing DBParameterGroup.
---
---
---     * Must be 1 to 255 letters, numbers, or hyphens.
---
---
---     * First character must be a letter.
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens.
---
---
 -- * 'dbSubnetGroupName' - The DB subnet group name to use for the new instance.
 --
 -- Constraints: If supplied, must match the name of an existing DBSubnetGroup.
 -- Example: @mySubnetgroup@
--- * 'deletionProtection' - A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
+-- * 'restoreTime' - The date and time to restore from.
+--
+-- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
+-- Constraints:
+--
+--     * Must be before the latest restorable time for the DB instance
+--
+--
+--     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled
+--
+--
+-- Example: @2009-09-07T23:45:00Z@
+-- * 'targetDBInstanceIdentifier' - The name of the new DB instance to be created.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+-- * 'iops' - The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
+--
+-- Constraints: Must be an integer greater than 1000.
+-- __SQL Server__
+-- Setting the IOPS value for the SQL Server database engine isn't supported.
 -- * 'domain' - Specify the Active Directory directory ID to restore the DB instance in. The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
 --
 -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication> in the /Amazon RDS User Guide/ .
--- * 'domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
--- * 'enableCloudwatchLogsExports' - The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon RDS User Guide/ .
--- * 'enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
---
--- For more information about IAM database authentication, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL> in the /Amazon RDS User Guide./
 -- * 'engine' - The database engine to use for the new instance.
 --
 -- Default: The same as source
@@ -227,44 +344,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --     * @sqlserver-web@
 --
 --
--- * 'iops' - The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
---
--- Constraints: Must be an integer greater than 1000.
--- __SQL Server__
--- Setting the IOPS value for the SQL Server database engine isn't supported.
--- * 'licenseModel' - License model information for the restored DB instance.
---
--- Default: Same as source.
--- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
--- * 'maxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
--- * 'multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
---
--- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
--- * 'optionGroupName' - The name of the option group to be used for the restored DB instance.
---
--- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
--- * 'port' - The port number on which the database accepts connections.
---
--- Constraints: Value must be @1150-65535@
--- Default: The same port as the original DB instance.
--- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
--- * 'publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
---
--- When the DB instance is publicly accessible, its DNS endpoint resolves to the private IP address from within the DB instance's VPC, and to the public IP address from outside of the DB instance's VPC. Access to the DB instance is ultimately controlled by the security group it uses, and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.
--- When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.
--- For more information, see 'CreateDBInstance' .
--- * 'restoreTime' - The date and time to restore from.
---
--- Valid Values: Value must be a time in Universal Coordinated Time (UTC) format
--- Constraints:
---
---     * Must be before the latest restorable time for the DB instance
---
---
---     * Can't be specified if the @UseLatestRestorableTime@ parameter is enabled
---
---
--- Example: @2009-09-07T23:45:00Z@
+-- * 'tdeCredentialPassword' - The password for the given ARN from the key store in order to access the device.
 -- * 'sourceDBInstanceIdentifier' - The identifier of the source DB instance from which to restore.
 --
 -- Constraints:
@@ -272,35 +352,66 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 --     * Must match the identifier of an existing DB instance.
 --
 --
+-- * 'processorFeatures' - The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+-- * 'dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for example, @db.m4.large@ . Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class> in the /Amazon RDS User Guide./
+--
+-- Default: The same DBInstanceClass as the original DB instance.
+-- * 'licenseModel' - License model information for the restored DB instance.
+--
+-- Default: Same as source.
+-- Valid values: @license-included@ | @bring-your-own-license@ | @general-public-license@
+-- * 'maxAllocatedStorage' - The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+-- * 'dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
+--
+-- If you do not specify a value for @DBParameterGroupName@ , then the default @DBParameterGroup@ for the specified DB engine is used.
+-- Constraints:
+--
+--     * If supplied, must match the name of an existing DBParameterGroup.
+--
+--
+--     * Must be 1 to 255 letters, numbers, or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- * 'availabilityZone' - The Availability Zone (AZ) where the DB instance will be created.
+--
+-- Default: A random, system-chosen Availability Zone.
+-- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
+-- Example: @us-east-1a@
+-- * 'vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB instance.
+--
+-- Default: The default EC2 VPC security group for the DB subnet group's VPC.
+-- * 'multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
+--
+-- Constraint: You can't specify the @AvailabilityZone@ parameter if the DB instance is a Multi-AZ deployment.
 -- * 'sourceDBiResourceId' - The resource ID of the source DB instance from which to restore.
+-- * 'optionGroupName' - The name of the option group to be used for the restored DB instance.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
+-- * 'copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.
+-- * 'tdeCredentialARN' - The ARN from the key store with which to associate the instance for TDE encryption.
+-- * 'domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the Directory Service.
+-- * 'tags' -
+-- * 'port' - The port number on which the database accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+-- Default: The same port as the original DB instance.
+-- * 'enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
+--
+-- For more information about IAM database authentication, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL> in the /Amazon RDS User Guide./
+-- * 'useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 -- * 'storageType' - Specifies the storage type to be associated with the DB instance.
 --
 -- Valid values: @standard | gp2 | io1@
 -- If you specify @io1@ , you must also include a value for the @Iops@ parameter.
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
--- * 'tags' - Undocumented field.
--- * 'targetDBInstanceIdentifier' - The name of the new DB instance to be created.
---
--- Constraints:
---
---     * Must contain from 1 to 63 letters, numbers, or hyphens
---
---
---     * First character must be a letter
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens
---
---
--- * 'tdeCredentialARN' - The ARN from the key store with which to associate the instance for TDE encryption.
--- * 'tdeCredentialPassword' - The password for the given ARN from the key store in order to access the device.
--- * 'useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance uses its default processor features.
--- * 'useLatestRestorableTime' - A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
---
--- Constraints: Can't be specified if the @RestoreTime@ parameter is provided.
--- * 'vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with this DB instance.
---
--- Default: The default EC2 VPC security group for the DB subnet group's VPC.
+-- * 'enableCloudwatchLogsExports' - The list of logs that the restored DB instance is to export to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs> in the /Amazon RDS User Guide/ .
+-- * 'dbName' - The database name for the restored DB instance.
 mkRestoreDBInstanceToPointInTime ::
   -- | 'targetDBInstanceIdentifier'
   Lude.Text ->
@@ -314,6 +425,7 @@ mkRestoreDBInstanceToPointInTime pTargetDBInstanceIdentifier_ =
       autoMinorVersionUpgrade = Lude.Nothing,
       dbSubnetGroupName = Lude.Nothing,
       restoreTime = Lude.Nothing,
+      targetDBInstanceIdentifier = pTargetDBInstanceIdentifier_,
       iops = Lude.Nothing,
       domain = Lude.Nothing,
       engine = Lude.Nothing,
@@ -338,8 +450,7 @@ mkRestoreDBInstanceToPointInTime pTargetDBInstanceIdentifier_ =
       useDefaultProcessorFeatures = Lude.Nothing,
       storageType = Lude.Nothing,
       enableCloudwatchLogsExports = Lude.Nothing,
-      dbName = Lude.Nothing,
-      targetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
+      dbName = Lude.Nothing
     }
 
 -- | A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance> .
@@ -403,6 +514,25 @@ rditpitDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: RestoreDBInstanceToPo
 rditpitRestoreTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.DateTime)
 rditpitRestoreTime = Lens.lens (restoreTime :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.DateTime) (\s a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime)
 {-# DEPRECATED rditpitRestoreTime "Use generic-lens or generic-optics with 'restoreTime' instead." #-}
+
+-- | The name of the new DB instance to be created.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 letters, numbers, or hyphens
+--
+--
+--     * First character must be a letter
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens
+--
+--
+--
+-- /Note:/ Consider using 'targetDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rditpitTargetDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime Lude.Text
+rditpitTargetDBInstanceIdentifier = Lens.lens (targetDBInstanceIdentifier :: RestoreDBInstanceToPointInTime -> Lude.Text) (\s a -> s {targetDBInstanceIdentifier = a} :: RestoreDBInstanceToPointInTime)
+{-# DEPRECATED rditpitTargetDBInstanceIdentifier "Use generic-lens or generic-optics with 'targetDBInstanceIdentifier' instead." #-}
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for the DB instance.
 --
@@ -669,25 +799,6 @@ rditpitDBName :: Lens.Lens' RestoreDBInstanceToPointInTime (Lude.Maybe Lude.Text
 rditpitDBName = Lens.lens (dbName :: RestoreDBInstanceToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {dbName = a} :: RestoreDBInstanceToPointInTime)
 {-# DEPRECATED rditpitDBName "Use generic-lens or generic-optics with 'dbName' instead." #-}
 
--- | The name of the new DB instance to be created.
---
--- Constraints:
---
---     * Must contain from 1 to 63 letters, numbers, or hyphens
---
---
---     * First character must be a letter
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens
---
---
---
--- /Note:/ Consider using 'targetDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rditpitTargetDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime Lude.Text
-rditpitTargetDBInstanceIdentifier = Lens.lens (targetDBInstanceIdentifier :: RestoreDBInstanceToPointInTime -> Lude.Text) (\s a -> s {targetDBInstanceIdentifier = a} :: RestoreDBInstanceToPointInTime)
-{-# DEPRECATED rditpitTargetDBInstanceIdentifier "Use generic-lens or generic-optics with 'targetDBInstanceIdentifier' instead." #-}
-
 instance Lude.AWSRequest RestoreDBInstanceToPointInTime where
   type
     Rs RestoreDBInstanceToPointInTime =
@@ -719,6 +830,7 @@ instance Lude.ToQuery RestoreDBInstanceToPointInTime where
         "AutoMinorVersionUpgrade" Lude.=: autoMinorVersionUpgrade,
         "DBSubnetGroupName" Lude.=: dbSubnetGroupName,
         "RestoreTime" Lude.=: restoreTime,
+        "TargetDBInstanceIdentifier" Lude.=: targetDBInstanceIdentifier,
         "Iops" Lude.=: iops,
         "Domain" Lude.=: domain,
         "Engine" Lude.=: engine,
@@ -752,30 +864,21 @@ instance Lude.ToQuery RestoreDBInstanceToPointInTime where
         "EnableCloudwatchLogsExports"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "member" Lude.<$> enableCloudwatchLogsExports),
-        "DBName" Lude.=: dbName,
-        "TargetDBInstanceIdentifier" Lude.=: targetDBInstanceIdentifier
+        "DBName" Lude.=: dbName
       ]
 
 -- | /See:/ 'mkRestoreDBInstanceToPointInTimeResponse' smart constructor.
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
-  { dbInstance ::
-      Lude.Maybe
-        DBInstance,
-    responseStatus ::
-      Lude.Int
+  { dbInstance :: Lude.Maybe DBInstance,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreDBInstanceToPointInTimeResponse' with the minimum fields required to make a request.
 --
--- * 'dbInstance' - Undocumented field.
+-- * 'dbInstance' -
 -- * 'responseStatus' - The response status code.
 mkRestoreDBInstanceToPointInTimeResponse ::
   -- | 'responseStatus'

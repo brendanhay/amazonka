@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Organizations.DetachPolicy
     mkDetachPolicy,
 
     -- ** Request lenses
-    detPolicyId,
-    detTargetId,
+    dpfTargetId,
+    dpfPolicyId,
 
     -- * Destructuring the response
     DetachPolicyResponse (..),
@@ -40,23 +41,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
-  { policyId :: Lude.Text,
-    targetId :: Lude.Text
+  { -- | The unique identifier (ID) of the root, OU, or account that you want to detach the policy from. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:
+    --
+    --     * __Root__ - A string that begins with "r-" followed by from 4 to 32 lowercase letters or digits.
+    --
+    --
+    --     * __Account__ - A string that consists of exactly 12 digits.
+    --
+    --
+    --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
+    targetId :: Lude.Text,
+    -- | The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+    policyId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
 --
--- * 'policyId' - The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
 -- * 'targetId' - The unique identifier (ID) of the root, OU, or account that you want to detach the policy from. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a target ID string requires one of the following:
@@ -68,23 +74,19 @@ data DetachPolicy = DetachPolicy'
 --
 --
 --     * __Organizational unit (OU)__ - A string that begins with "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-mkDetachPolicy ::
-  -- | 'policyId'
-  Lude.Text ->
-  -- | 'targetId'
-  Lude.Text ->
-  DetachPolicy
-mkDetachPolicy pPolicyId_ pTargetId_ =
-  DetachPolicy' {policyId = pPolicyId_, targetId = pTargetId_}
-
--- | The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
+--
+--
+-- * 'policyId' - The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detPolicyId :: Lens.Lens' DetachPolicy Lude.Text
-detPolicyId = Lens.lens (policyId :: DetachPolicy -> Lude.Text) (\s a -> s {policyId = a} :: DetachPolicy)
-{-# DEPRECATED detPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
+mkDetachPolicy ::
+  -- | 'targetId'
+  Lude.Text ->
+  -- | 'policyId'
+  Lude.Text ->
+  DetachPolicy
+mkDetachPolicy pTargetId_ pPolicyId_ =
+  DetachPolicy' {targetId = pTargetId_, policyId = pPolicyId_}
 
 -- | The unique identifier (ID) of the root, OU, or account that you want to detach the policy from. You can get the ID from the 'ListRoots' , 'ListOrganizationalUnitsForParent' , or 'ListAccounts' operations.
 --
@@ -101,9 +103,18 @@ detPolicyId = Lens.lens (policyId :: DetachPolicy -> Lude.Text) (\s a -> s {poli
 --
 --
 -- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detTargetId :: Lens.Lens' DetachPolicy Lude.Text
-detTargetId = Lens.lens (targetId :: DetachPolicy -> Lude.Text) (\s a -> s {targetId = a} :: DetachPolicy)
-{-# DEPRECATED detTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+dpfTargetId :: Lens.Lens' DetachPolicy Lude.Text
+dpfTargetId = Lens.lens (targetId :: DetachPolicy -> Lude.Text) (\s a -> s {targetId = a} :: DetachPolicy)
+{-# DEPRECATED dpfTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+
+-- | The unique identifier (ID) of the policy you want to detach. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpfPolicyId :: Lens.Lens' DetachPolicy Lude.Text
+dpfPolicyId = Lens.lens (policyId :: DetachPolicy -> Lude.Text) (\s a -> s {policyId = a} :: DetachPolicy)
+{-# DEPRECATED dpfPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 instance Lude.AWSRequest DetachPolicy where
   type Rs DetachPolicy = DetachPolicyResponse
@@ -125,8 +136,8 @@ instance Lude.ToJSON DetachPolicy where
   toJSON DetachPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("PolicyId" Lude..= policyId),
-            Lude.Just ("TargetId" Lude..= targetId)
+          [ Lude.Just ("TargetId" Lude..= targetId),
+            Lude.Just ("PolicyId" Lude..= policyId)
           ]
       )
 
@@ -138,13 +149,7 @@ instance Lude.ToQuery DetachPolicy where
 
 -- | /See:/ 'mkDetachPolicyResponse' smart constructor.
 data DetachPolicyResponse = DetachPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.

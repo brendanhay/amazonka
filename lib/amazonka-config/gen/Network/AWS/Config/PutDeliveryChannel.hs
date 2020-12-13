@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutDeliveryChannel' smart constructor.
 newtype PutDeliveryChannel = PutDeliveryChannel'
-  { deliveryChannel ::
-      DeliveryChannel
+  { -- | The configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket and to an Amazon SNS topic.
+    deliveryChannel :: DeliveryChannel
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDeliveryChannel' with the minimum fields required to make a request.
@@ -100,13 +95,7 @@ instance Lude.ToQuery PutDeliveryChannel where
 
 -- | /See:/ 'mkPutDeliveryChannelResponse' smart constructor.
 data PutDeliveryChannelResponse = PutDeliveryChannelResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutDeliveryChannelResponse' with the minimum fields required to make a request.

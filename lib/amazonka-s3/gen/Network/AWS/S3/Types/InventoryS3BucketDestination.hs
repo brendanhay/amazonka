@@ -18,10 +18,10 @@ module Network.AWS.S3.Types.InventoryS3BucketDestination
 
     -- * Lenses
     isbdPrefix,
+    isbdFormat,
+    isbdBucket,
     isbdAccountId,
     isbdEncryption,
-    isbdBucket,
-    isbdFormat,
   )
 where
 
@@ -35,37 +35,40 @@ import Network.AWS.S3.Types.InventoryFormat
 --
 -- /See:/ 'mkInventoryS3BucketDestination' smart constructor.
 data InventoryS3BucketDestination = InventoryS3BucketDestination'
-  { prefix ::
-      Lude.Maybe Lude.Text,
-    accountId :: Lude.Maybe Lude.Text,
-    encryption ::
-      Lude.Maybe InventoryEncryption,
+  { -- | The prefix that is prepended to all inventory results.
+    prefix :: Lude.Maybe Lude.Text,
+    -- | Specifies the output format of the inventory results.
+    format :: InventoryFormat,
+    -- | The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
     bucket :: BucketName,
-    format :: InventoryFormat
+    -- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | Contains the type of server-side encryption used to encrypt the inventory results.
+    encryption :: Lude.Maybe InventoryEncryption
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryS3BucketDestination' with the minimum fields required to make a request.
 --
--- * 'accountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
--- * 'bucket' - The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
--- * 'encryption' - Contains the type of server-side encryption used to encrypt the inventory results.
--- * 'format' - Specifies the output format of the inventory results.
 -- * 'prefix' - The prefix that is prepended to all inventory results.
+-- * 'format' - Specifies the output format of the inventory results.
+-- * 'bucket' - The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
+-- * 'accountId' - The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
+-- * 'encryption' - Contains the type of server-side encryption used to encrypt the inventory results.
 mkInventoryS3BucketDestination ::
-  -- | 'bucket'
-  BucketName ->
   -- | 'format'
   InventoryFormat ->
+  -- | 'bucket'
+  BucketName ->
   InventoryS3BucketDestination
-mkInventoryS3BucketDestination pBucket_ pFormat_ =
+mkInventoryS3BucketDestination pFormat_ pBucket_ =
   InventoryS3BucketDestination'
     { prefix = Lude.Nothing,
-      accountId = Lude.Nothing,
-      encryption = Lude.Nothing,
+      format = pFormat_,
       bucket = pBucket_,
-      format = pFormat_
+      accountId = Lude.Nothing,
+      encryption = Lude.Nothing
     }
 
 -- | The prefix that is prepended to all inventory results.
@@ -74,6 +77,20 @@ mkInventoryS3BucketDestination pBucket_ pFormat_ =
 isbdPrefix :: Lens.Lens' InventoryS3BucketDestination (Lude.Maybe Lude.Text)
 isbdPrefix = Lens.lens (prefix :: InventoryS3BucketDestination -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: InventoryS3BucketDestination)
 {-# DEPRECATED isbdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | Specifies the output format of the inventory results.
+--
+-- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isbdFormat :: Lens.Lens' InventoryS3BucketDestination InventoryFormat
+isbdFormat = Lens.lens (format :: InventoryS3BucketDestination -> InventoryFormat) (\s a -> s {format = a} :: InventoryS3BucketDestination)
+{-# DEPRECATED isbdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isbdBucket :: Lens.Lens' InventoryS3BucketDestination BucketName
+isbdBucket = Lens.lens (bucket :: InventoryS3BucketDestination -> BucketName) (\s a -> s {bucket = a} :: InventoryS3BucketDestination)
+{-# DEPRECATED isbdBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account ID that owns the destination S3 bucket. If no account ID is provided, the owner is not validated before exporting data.
 --
@@ -89,35 +106,21 @@ isbdEncryption :: Lens.Lens' InventoryS3BucketDestination (Lude.Maybe InventoryE
 isbdEncryption = Lens.lens (encryption :: InventoryS3BucketDestination -> Lude.Maybe InventoryEncryption) (\s a -> s {encryption = a} :: InventoryS3BucketDestination)
 {-# DEPRECATED isbdEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the bucket where inventory results will be published.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isbdBucket :: Lens.Lens' InventoryS3BucketDestination BucketName
-isbdBucket = Lens.lens (bucket :: InventoryS3BucketDestination -> BucketName) (\s a -> s {bucket = a} :: InventoryS3BucketDestination)
-{-# DEPRECATED isbdBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Specifies the output format of the inventory results.
---
--- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isbdFormat :: Lens.Lens' InventoryS3BucketDestination InventoryFormat
-isbdFormat = Lens.lens (format :: InventoryS3BucketDestination -> InventoryFormat) (\s a -> s {format = a} :: InventoryS3BucketDestination)
-{-# DEPRECATED isbdFormat "Use generic-lens or generic-optics with 'format' instead." #-}
-
 instance Lude.FromXML InventoryS3BucketDestination where
   parseXML x =
     InventoryS3BucketDestination'
       Lude.<$> (x Lude..@? "Prefix")
+      Lude.<*> (x Lude..@ "Format")
+      Lude.<*> (x Lude..@ "Bucket")
       Lude.<*> (x Lude..@? "AccountId")
       Lude.<*> (x Lude..@? "Encryption")
-      Lude.<*> (x Lude..@ "Bucket")
-      Lude.<*> (x Lude..@ "Format")
 
 instance Lude.ToXML InventoryS3BucketDestination where
   toXML InventoryS3BucketDestination' {..} =
     Lude.mconcat
       [ "Prefix" Lude.@= prefix,
-        "AccountId" Lude.@= accountId,
-        "Encryption" Lude.@= encryption,
+        "Format" Lude.@= format,
         "Bucket" Lude.@= bucket,
-        "Format" Lude.@= format
+        "AccountId" Lude.@= accountId,
+        "Encryption" Lude.@= encryption
       ]

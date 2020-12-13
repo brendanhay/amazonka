@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutAttributes' smart constructor.
 data PutAttributes = PutAttributes'
-  { cluster ::
-      Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
     attributes :: [Attribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAttributes' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply attributes. If you do not specify a cluster, the default cluster is assumed.
+-- * 'attributes' - The attributes to apply to your resource. You can specify up to 10 custom attributes per resource. You can specify up to 10 attributes in a single call.
 mkPutAttributes ::
   PutAttributes
 mkPutAttributes =
@@ -117,17 +113,12 @@ instance Lude.ToQuery PutAttributes where
 
 -- | /See:/ 'mkPutAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse'
-  { attributes ::
-      Lude.Maybe [Attribute],
+  { -- | The attributes applied to your resource.
+    attributes :: Lude.Maybe [Attribute],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAttributesResponse' with the minimum fields required to make a request.

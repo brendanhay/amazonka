@@ -13,10 +13,10 @@
 module Network.AWS.MigrationHub.Types.MigrationStatus
   ( MigrationStatus
       ( MigrationStatus',
-        MSCompleted,
-        MSFailed,
-        MSInProgress,
-        MSNotStarted
+        NotStarted,
+        InProgress,
+        Failed,
+        Completed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype MigrationStatus = MigrationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSCompleted :: MigrationStatus
-pattern MSCompleted = MigrationStatus' "COMPLETED"
+pattern NotStarted :: MigrationStatus
+pattern NotStarted = MigrationStatus' "NOT_STARTED"
 
-pattern MSFailed :: MigrationStatus
-pattern MSFailed = MigrationStatus' "FAILED"
+pattern InProgress :: MigrationStatus
+pattern InProgress = MigrationStatus' "IN_PROGRESS"
 
-pattern MSInProgress :: MigrationStatus
-pattern MSInProgress = MigrationStatus' "IN_PROGRESS"
+pattern Failed :: MigrationStatus
+pattern Failed = MigrationStatus' "FAILED"
 
-pattern MSNotStarted :: MigrationStatus
-pattern MSNotStarted = MigrationStatus' "NOT_STARTED"
+pattern Completed :: MigrationStatus
+pattern Completed = MigrationStatus' "COMPLETED"
 
 {-# COMPLETE
-  MSCompleted,
-  MSFailed,
-  MSInProgress,
-  MSNotStarted,
+  NotStarted,
+  InProgress,
+  Failed,
+  Completed,
   MigrationStatus'
   #-}

@@ -31,29 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpekeKeyProvider' smart constructor.
 data SpekeKeyProvider = SpekeKeyProvider'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
     url :: Lude.Maybe Lude.Text,
+    -- | Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See
+    --
+    --  https://dashif.org/identifiers/content_protection/ for more details.
     systemIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpekeKeyProvider' with the minimum fields required to make a request.
 --
--- * 'certificateARN' - If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
 -- * 'resourceId' - Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
+-- * 'certificateARN' - If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
+-- * 'url' - Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
 -- * 'systemIds' - Relates to SPEKE implementation. DRM system identifiers. DASH output groups support a max of two system ids. Other group types support one system id. See
 --
 --  https://dashif.org/identifiers/content_protection/ for more details.
--- * 'url' - Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
 mkSpekeKeyProvider ::
   SpekeKeyProvider
 mkSpekeKeyProvider =

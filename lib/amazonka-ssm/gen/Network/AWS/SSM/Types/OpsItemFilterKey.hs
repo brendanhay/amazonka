@@ -13,21 +13,21 @@
 module Network.AWS.SSM.Types.OpsItemFilterKey
   ( OpsItemFilterKey
       ( OpsItemFilterKey',
-        OIFKAutomationId,
-        OIFKCategory,
+        OIFKStatus,
         OIFKCreatedBy,
+        OIFKSource,
+        OIFKPriority,
+        OIFKTitle,
+        OIFKOpsItemId,
         OIFKCreatedTime,
         OIFKLastModifiedTime,
         OIFKOperationalData,
         OIFKOperationalDataKey,
         OIFKOperationalDataValue,
-        OIFKOpsItemId,
-        OIFKPriority,
         OIFKResourceId,
-        OIFKSeverity,
-        OIFKSource,
-        OIFKStatus,
-        OIFKTitle
+        OIFKAutomationId,
+        OIFKCategory,
+        OIFKSeverity
       ),
   )
 where
@@ -58,14 +58,23 @@ newtype OpsItemFilterKey = OpsItemFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern OIFKAutomationId :: OpsItemFilterKey
-pattern OIFKAutomationId = OpsItemFilterKey' "AutomationId"
-
-pattern OIFKCategory :: OpsItemFilterKey
-pattern OIFKCategory = OpsItemFilterKey' "Category"
+pattern OIFKStatus :: OpsItemFilterKey
+pattern OIFKStatus = OpsItemFilterKey' "Status"
 
 pattern OIFKCreatedBy :: OpsItemFilterKey
 pattern OIFKCreatedBy = OpsItemFilterKey' "CreatedBy"
+
+pattern OIFKSource :: OpsItemFilterKey
+pattern OIFKSource = OpsItemFilterKey' "Source"
+
+pattern OIFKPriority :: OpsItemFilterKey
+pattern OIFKPriority = OpsItemFilterKey' "Priority"
+
+pattern OIFKTitle :: OpsItemFilterKey
+pattern OIFKTitle = OpsItemFilterKey' "Title"
+
+pattern OIFKOpsItemId :: OpsItemFilterKey
+pattern OIFKOpsItemId = OpsItemFilterKey' "OpsItemId"
 
 pattern OIFKCreatedTime :: OpsItemFilterKey
 pattern OIFKCreatedTime = OpsItemFilterKey' "CreatedTime"
@@ -82,42 +91,33 @@ pattern OIFKOperationalDataKey = OpsItemFilterKey' "OperationalDataKey"
 pattern OIFKOperationalDataValue :: OpsItemFilterKey
 pattern OIFKOperationalDataValue = OpsItemFilterKey' "OperationalDataValue"
 
-pattern OIFKOpsItemId :: OpsItemFilterKey
-pattern OIFKOpsItemId = OpsItemFilterKey' "OpsItemId"
-
-pattern OIFKPriority :: OpsItemFilterKey
-pattern OIFKPriority = OpsItemFilterKey' "Priority"
-
 pattern OIFKResourceId :: OpsItemFilterKey
 pattern OIFKResourceId = OpsItemFilterKey' "ResourceId"
+
+pattern OIFKAutomationId :: OpsItemFilterKey
+pattern OIFKAutomationId = OpsItemFilterKey' "AutomationId"
+
+pattern OIFKCategory :: OpsItemFilterKey
+pattern OIFKCategory = OpsItemFilterKey' "Category"
 
 pattern OIFKSeverity :: OpsItemFilterKey
 pattern OIFKSeverity = OpsItemFilterKey' "Severity"
 
-pattern OIFKSource :: OpsItemFilterKey
-pattern OIFKSource = OpsItemFilterKey' "Source"
-
-pattern OIFKStatus :: OpsItemFilterKey
-pattern OIFKStatus = OpsItemFilterKey' "Status"
-
-pattern OIFKTitle :: OpsItemFilterKey
-pattern OIFKTitle = OpsItemFilterKey' "Title"
-
 {-# COMPLETE
-  OIFKAutomationId,
-  OIFKCategory,
+  OIFKStatus,
   OIFKCreatedBy,
+  OIFKSource,
+  OIFKPriority,
+  OIFKTitle,
+  OIFKOpsItemId,
   OIFKCreatedTime,
   OIFKLastModifiedTime,
   OIFKOperationalData,
   OIFKOperationalDataKey,
   OIFKOperationalDataValue,
-  OIFKOpsItemId,
-  OIFKPriority,
   OIFKResourceId,
+  OIFKAutomationId,
+  OIFKCategory,
   OIFKSeverity,
-  OIFKSource,
-  OIFKStatus,
-  OIFKTitle,
   OpsItemFilterKey'
   #-}

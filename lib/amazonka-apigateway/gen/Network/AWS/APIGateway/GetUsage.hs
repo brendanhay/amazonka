@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.APIGateway.GetUsage
 
     -- ** Request lenses
     guKeyId,
+    guUsagePlanId,
+    guEndDate,
+    guStartDate,
     guLimit,
     guPosition,
-    guUsagePlanId,
-    guStartDate,
-    guEndDate,
 
     -- * Destructuring the response
     Usage (..),
@@ -52,46 +53,46 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetUsage' smart constructor.
 data GetUsage = GetUsage'
-  { keyId :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Int,
-    position :: Lude.Maybe Lude.Text,
+  { -- | The Id of the API key associated with the resultant usage data.
+    keyId :: Lude.Maybe Lude.Text,
+    -- | [Required] The Id of the usage plan associated with the usage data.
     usagePlanId :: Lude.Text,
+    -- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
+    endDate :: Lude.Text,
+    -- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
     startDate :: Lude.Text,
-    endDate :: Lude.Text
+    -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+    limit :: Lude.Maybe Lude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsage' with the minimum fields required to make a request.
 --
--- * 'endDate' - [Required] The ending date (e.g., 2016-12-31) of the usage data.
 -- * 'keyId' - The Id of the API key associated with the resultant usage data.
+-- * 'usagePlanId' - [Required] The Id of the usage plan associated with the usage data.
+-- * 'endDate' - [Required] The ending date (e.g., 2016-12-31) of the usage data.
+-- * 'startDate' - [Required] The starting date (e.g., 2016-01-01) of the usage data.
 -- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 -- * 'position' - The current pagination position in the paged result set.
--- * 'startDate' - [Required] The starting date (e.g., 2016-01-01) of the usage data.
--- * 'usagePlanId' - [Required] The Id of the usage plan associated with the usage data.
 mkGetUsage ::
   -- | 'usagePlanId'
   Lude.Text ->
-  -- | 'startDate'
-  Lude.Text ->
   -- | 'endDate'
   Lude.Text ->
+  -- | 'startDate'
+  Lude.Text ->
   GetUsage
-mkGetUsage pUsagePlanId_ pStartDate_ pEndDate_ =
+mkGetUsage pUsagePlanId_ pEndDate_ pStartDate_ =
   GetUsage'
     { keyId = Lude.Nothing,
-      limit = Lude.Nothing,
-      position = Lude.Nothing,
       usagePlanId = pUsagePlanId_,
+      endDate = pEndDate_,
       startDate = pStartDate_,
-      endDate = pEndDate_
+      limit = Lude.Nothing,
+      position = Lude.Nothing
     }
 
 -- | The Id of the API key associated with the resultant usage data.
@@ -100,6 +101,27 @@ mkGetUsage pUsagePlanId_ pStartDate_ pEndDate_ =
 guKeyId :: Lens.Lens' GetUsage (Lude.Maybe Lude.Text)
 guKeyId = Lens.lens (keyId :: GetUsage -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: GetUsage)
 {-# DEPRECATED guKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | [Required] The Id of the usage plan associated with the usage data.
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guUsagePlanId :: Lens.Lens' GetUsage Lude.Text
+guUsagePlanId = Lens.lens (usagePlanId :: GetUsage -> Lude.Text) (\s a -> s {usagePlanId = a} :: GetUsage)
+{-# DEPRECATED guUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
+
+-- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
+--
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guEndDate :: Lens.Lens' GetUsage Lude.Text
+guEndDate = Lens.lens (endDate :: GetUsage -> Lude.Text) (\s a -> s {endDate = a} :: GetUsage)
+{-# DEPRECATED guEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+
+-- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guStartDate :: Lens.Lens' GetUsage Lude.Text
+guStartDate = Lens.lens (startDate :: GetUsage -> Lude.Text) (\s a -> s {startDate = a} :: GetUsage)
+{-# DEPRECATED guStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
@@ -114,27 +136,6 @@ guLimit = Lens.lens (limit :: GetUsage -> Lude.Maybe Lude.Int) (\s a -> s {limit
 guPosition :: Lens.Lens' GetUsage (Lude.Maybe Lude.Text)
 guPosition = Lens.lens (position :: GetUsage -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetUsage)
 {-# DEPRECATED guPosition "Use generic-lens or generic-optics with 'position' instead." #-}
-
--- | [Required] The Id of the usage plan associated with the usage data.
---
--- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guUsagePlanId :: Lens.Lens' GetUsage Lude.Text
-guUsagePlanId = Lens.lens (usagePlanId :: GetUsage -> Lude.Text) (\s a -> s {usagePlanId = a} :: GetUsage)
-{-# DEPRECATED guUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
-
--- | [Required] The starting date (e.g., 2016-01-01) of the usage data.
---
--- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guStartDate :: Lens.Lens' GetUsage Lude.Text
-guStartDate = Lens.lens (startDate :: GetUsage -> Lude.Text) (\s a -> s {startDate = a} :: GetUsage)
-{-# DEPRECATED guStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
-
--- | [Required] The ending date (e.g., 2016-12-31) of the usage data.
---
--- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guEndDate :: Lens.Lens' GetUsage Lude.Text
-guEndDate = Lens.lens (endDate :: GetUsage -> Lude.Text) (\s a -> s {endDate = a} :: GetUsage)
-{-# DEPRECATED guEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
 
 instance Page.AWSPager GetUsage where
   page rq rs
@@ -163,8 +164,8 @@ instance Lude.ToQuery GetUsage where
   toQuery GetUsage' {..} =
     Lude.mconcat
       [ "keyId" Lude.=: keyId,
-        "limit" Lude.=: limit,
-        "position" Lude.=: position,
+        "endDate" Lude.=: endDate,
         "startDate" Lude.=: startDate,
-        "endDate" Lude.=: endDate
+        "limit" Lude.=: limit,
+        "position" Lude.=: position
       ]

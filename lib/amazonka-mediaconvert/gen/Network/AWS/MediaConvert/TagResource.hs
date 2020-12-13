@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { arn :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
+    arn :: Lude.Text,
+    -- | The tags that you want to add to the resource. You can tag resources with a key-value pair or with only a key.
     tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResource' with the minimum fields required to make a request.
@@ -108,16 +105,10 @@ instance Lude.ToQuery TagResource where
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.

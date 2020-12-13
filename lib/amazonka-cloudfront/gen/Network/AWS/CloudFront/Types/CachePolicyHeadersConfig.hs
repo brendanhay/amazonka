@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.CachePolicyHeadersConfig
     mkCachePolicyHeadersConfig,
 
     -- * Lenses
-    cphcHeaders,
     cphcHeaderBehavior,
+    cphcHeaders,
   )
 where
 
@@ -31,18 +31,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCachePolicyHeadersConfig' smart constructor.
 data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
-  { headers ::
-      Lude.Maybe Headers,
-    headerBehavior ::
-      CachePolicyHeaderBehavior
+  { -- | Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
+    --
+    --
+    --     * @none@ – HTTP headers are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any headers that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.
+    --
+    --
+    --     * @whitelist@ – The HTTP headers that are listed in the @Headers@ type are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
+    headerBehavior :: CachePolicyHeaderBehavior,
+    headers :: Lude.Maybe Headers
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicyHeadersConfig' with the minimum fields required to make a request.
@@ -56,23 +55,16 @@ data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
 --     * @whitelist@ – The HTTP headers that are listed in the @Headers@ type are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
 --
 --
--- * 'headers' - Undocumented field.
+-- * 'headers' -
 mkCachePolicyHeadersConfig ::
   -- | 'headerBehavior'
   CachePolicyHeaderBehavior ->
   CachePolicyHeadersConfig
 mkCachePolicyHeadersConfig pHeaderBehavior_ =
   CachePolicyHeadersConfig'
-    { headers = Lude.Nothing,
-      headerBehavior = pHeaderBehavior_
+    { headerBehavior = pHeaderBehavior_,
+      headers = Lude.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cphcHeaders :: Lens.Lens' CachePolicyHeadersConfig (Lude.Maybe Headers)
-cphcHeaders = Lens.lens (headers :: CachePolicyHeadersConfig -> Lude.Maybe Headers) (\s a -> s {headers = a} :: CachePolicyHeadersConfig)
-{-# DEPRECATED cphcHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
 -- | Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
 --
@@ -89,14 +81,21 @@ cphcHeaderBehavior :: Lens.Lens' CachePolicyHeadersConfig CachePolicyHeaderBehav
 cphcHeaderBehavior = Lens.lens (headerBehavior :: CachePolicyHeadersConfig -> CachePolicyHeaderBehavior) (\s a -> s {headerBehavior = a} :: CachePolicyHeadersConfig)
 {-# DEPRECATED cphcHeaderBehavior "Use generic-lens or generic-optics with 'headerBehavior' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cphcHeaders :: Lens.Lens' CachePolicyHeadersConfig (Lude.Maybe Headers)
+cphcHeaders = Lens.lens (headers :: CachePolicyHeadersConfig -> Lude.Maybe Headers) (\s a -> s {headers = a} :: CachePolicyHeadersConfig)
+{-# DEPRECATED cphcHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
+
 instance Lude.FromXML CachePolicyHeadersConfig where
   parseXML x =
     CachePolicyHeadersConfig'
-      Lude.<$> (x Lude..@? "Headers") Lude.<*> (x Lude..@ "HeaderBehavior")
+      Lude.<$> (x Lude..@ "HeaderBehavior") Lude.<*> (x Lude..@? "Headers")
 
 instance Lude.ToXML CachePolicyHeadersConfig where
   toXML CachePolicyHeadersConfig' {..} =
     Lude.mconcat
-      [ "Headers" Lude.@= headers,
-        "HeaderBehavior" Lude.@= headerBehavior
+      [ "HeaderBehavior" Lude.@= headerBehavior,
+        "Headers" Lude.@= headers
       ]

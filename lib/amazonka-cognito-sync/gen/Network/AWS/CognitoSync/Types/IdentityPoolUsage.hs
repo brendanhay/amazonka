@@ -31,26 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIdentityPoolUsage' smart constructor.
 data IdentityPoolUsage = IdentityPoolUsage'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Date on which the identity pool was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
     identityPoolId :: Lude.Maybe Lude.Text,
+    -- | Data storage information for the identity pool.
     dataStorage :: Lude.Maybe Lude.Integer,
+    -- | Number of sync sessions for the identity pool.
     syncSessionsCount :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityPoolUsage' with the minimum fields required to make a request.
 --
--- * 'dataStorage' - Data storage information for the identity pool.
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'lastModifiedDate' - Date on which the identity pool was last modified.
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- * 'dataStorage' - Data storage information for the identity pool.
 -- * 'syncSessionsCount' - Number of sync sessions for the identity pool.
 mkIdentityPoolUsage ::
   IdentityPoolUsage

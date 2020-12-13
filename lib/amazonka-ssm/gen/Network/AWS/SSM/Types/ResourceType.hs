@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        Document,
-        EC2Instance,
-        ManagedInstance
+        RTManagedInstance,
+        RTDocument,
+        RTEC2Instance
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Document :: ResourceType
-pattern Document = ResourceType' "Document"
+pattern RTManagedInstance :: ResourceType
+pattern RTManagedInstance = ResourceType' "ManagedInstance"
 
-pattern EC2Instance :: ResourceType
-pattern EC2Instance = ResourceType' "EC2Instance"
+pattern RTDocument :: ResourceType
+pattern RTDocument = ResourceType' "Document"
 
-pattern ManagedInstance :: ResourceType
-pattern ManagedInstance = ResourceType' "ManagedInstance"
+pattern RTEC2Instance :: ResourceType
+pattern RTEC2Instance = ResourceType' "EC2Instance"
 
 {-# COMPLETE
-  Document,
-  EC2Instance,
-  ManagedInstance,
+  RTManagedInstance,
+  RTDocument,
+  RTEC2Instance,
   ResourceType'
   #-}

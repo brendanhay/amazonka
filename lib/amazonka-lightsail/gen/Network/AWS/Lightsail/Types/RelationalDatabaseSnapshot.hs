@@ -45,55 +45,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabaseSnapshot' smart constructor.
 data RelationalDatabaseSnapshot = RelationalDatabaseSnapshot'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The database engine version for the database snapshot (for example, @5.7.23@ ).
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The state of the database snapshot.
     state :: Lude.Maybe Lude.Text,
-    fromRelationalDatabaseName ::
-      Lude.Maybe Lude.Text,
-    resourceType ::
-      Lude.Maybe ResourceType,
-    fromRelationalDatabaseBlueprintId ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the source database from which the database snapshot was created.
+    fromRelationalDatabaseName :: Lude.Maybe Lude.Text,
+    -- | The Lightsail resource type.
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The blueprint ID of the database from which the database snapshot was created. A blueprint describes the major engine version of a database.
+    fromRelationalDatabaseBlueprintId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the database snapshot.
     arn :: Lude.Maybe Lude.Text,
-    createdAt ::
-      Lude.Maybe Lude.Timestamp,
-    location ::
-      Lude.Maybe ResourceLocation,
+    -- | The timestamp when the database snapshot was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The Region name and Availability Zone where the database snapshot is located.
+    location :: Lude.Maybe ResourceLocation,
+    -- | The software of the database snapshot (for example, @MySQL@ )
     engine :: Lude.Maybe Lude.Text,
+    -- | The name of the database snapshot.
     name :: Lude.Maybe Lude.Text,
+    -- | The size of the disk in GB (for example, @32@ ) for the database snapshot.
     sizeInGb :: Lude.Maybe Lude.Int,
+    -- | The support code for the database snapshot. Include this code in your email to support when you have questions about a database snapshot in Lightsail. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
-    fromRelationalDatabaseARN ::
-      Lude.Maybe Lude.Text,
-    fromRelationalDatabaseBundleId ::
-      Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the database from which the database snapshot was created.
+    fromRelationalDatabaseARN :: Lude.Maybe Lude.Text,
+    -- | The bundle ID of the database from which the database snapshot was created.
+    fromRelationalDatabaseBundleId :: Lude.Maybe Lude.Text,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseSnapshot' with the minimum fields required to make a request.
 --
+-- * 'engineVersion' - The database engine version for the database snapshot (for example, @5.7.23@ ).
+-- * 'state' - The state of the database snapshot.
+-- * 'fromRelationalDatabaseName' - The name of the source database from which the database snapshot was created.
+-- * 'resourceType' - The Lightsail resource type.
+-- * 'fromRelationalDatabaseBlueprintId' - The blueprint ID of the database from which the database snapshot was created. A blueprint describes the major engine version of a database.
 -- * 'arn' - The Amazon Resource Name (ARN) of the database snapshot.
 -- * 'createdAt' - The timestamp when the database snapshot was created.
--- * 'engine' - The software of the database snapshot (for example, @MySQL@ )
--- * 'engineVersion' - The database engine version for the database snapshot (for example, @5.7.23@ ).
--- * 'fromRelationalDatabaseARN' - The Amazon Resource Name (ARN) of the database from which the database snapshot was created.
--- * 'fromRelationalDatabaseBlueprintId' - The blueprint ID of the database from which the database snapshot was created. A blueprint describes the major engine version of a database.
--- * 'fromRelationalDatabaseBundleId' - The bundle ID of the database from which the database snapshot was created.
--- * 'fromRelationalDatabaseName' - The name of the source database from which the database snapshot was created.
 -- * 'location' - The Region name and Availability Zone where the database snapshot is located.
+-- * 'engine' - The software of the database snapshot (for example, @MySQL@ )
 -- * 'name' - The name of the database snapshot.
--- * 'resourceType' - The Lightsail resource type.
 -- * 'sizeInGb' - The size of the disk in GB (for example, @32@ ) for the database snapshot.
--- * 'state' - The state of the database snapshot.
 -- * 'supportCode' - The support code for the database snapshot. Include this code in your email to support when you have questions about a database snapshot in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+-- * 'fromRelationalDatabaseARN' - The Amazon Resource Name (ARN) of the database from which the database snapshot was created.
+-- * 'fromRelationalDatabaseBundleId' - The bundle ID of the database from which the database snapshot was created.
 -- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkRelationalDatabaseSnapshot ::
   RelationalDatabaseSnapshot

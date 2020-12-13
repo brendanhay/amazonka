@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.DAX.DecreaseReplicationFactor
     mkDecreaseReplicationFactor,
 
     -- ** Request lenses
+    drfNewReplicationFactor,
     drfNodeIdsToRemove,
     drfAvailabilityZones,
     drfClusterName,
-    drfNewReplicationFactor,
 
     -- * Destructuring the response
     DecreaseReplicationFactorResponse (..),
@@ -42,41 +43,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDecreaseReplicationFactor' smart constructor.
 data DecreaseReplicationFactor = DecreaseReplicationFactor'
-  { nodeIdsToRemove ::
-      Lude.Maybe [Lude.Text],
-    availabilityZones ::
-      Lude.Maybe [Lude.Text],
-    clusterName :: Lude.Text,
-    newReplicationFactor :: Lude.Int
+  { -- | The new number of nodes for the DAX cluster.
+    newReplicationFactor :: Lude.Int,
+    -- | The unique identifiers of the nodes to be removed from the cluster.
+    nodeIdsToRemove :: Lude.Maybe [Lude.Text],
+    -- | The Availability Zone(s) from which to remove nodes.
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The name of the DAX cluster from which you want to remove nodes.
+    clusterName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DecreaseReplicationFactor' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - The Availability Zone(s) from which to remove nodes.
--- * 'clusterName' - The name of the DAX cluster from which you want to remove nodes.
 -- * 'newReplicationFactor' - The new number of nodes for the DAX cluster.
 -- * 'nodeIdsToRemove' - The unique identifiers of the nodes to be removed from the cluster.
+-- * 'availabilityZones' - The Availability Zone(s) from which to remove nodes.
+-- * 'clusterName' - The name of the DAX cluster from which you want to remove nodes.
 mkDecreaseReplicationFactor ::
-  -- | 'clusterName'
-  Lude.Text ->
   -- | 'newReplicationFactor'
   Lude.Int ->
+  -- | 'clusterName'
+  Lude.Text ->
   DecreaseReplicationFactor
-mkDecreaseReplicationFactor pClusterName_ pNewReplicationFactor_ =
+mkDecreaseReplicationFactor pNewReplicationFactor_ pClusterName_ =
   DecreaseReplicationFactor'
-    { nodeIdsToRemove = Lude.Nothing,
+    { newReplicationFactor =
+        pNewReplicationFactor_,
+      nodeIdsToRemove = Lude.Nothing,
       availabilityZones = Lude.Nothing,
-      clusterName = pClusterName_,
-      newReplicationFactor = pNewReplicationFactor_
+      clusterName = pClusterName_
     }
+
+-- | The new number of nodes for the DAX cluster.
+--
+-- /Note:/ Consider using 'newReplicationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drfNewReplicationFactor :: Lens.Lens' DecreaseReplicationFactor Lude.Int
+drfNewReplicationFactor = Lens.lens (newReplicationFactor :: DecreaseReplicationFactor -> Lude.Int) (\s a -> s {newReplicationFactor = a} :: DecreaseReplicationFactor)
+{-# DEPRECATED drfNewReplicationFactor "Use generic-lens or generic-optics with 'newReplicationFactor' instead." #-}
 
 -- | The unique identifiers of the nodes to be removed from the cluster.
 --
@@ -98,13 +103,6 @@ drfAvailabilityZones = Lens.lens (availabilityZones :: DecreaseReplicationFactor
 drfClusterName :: Lens.Lens' DecreaseReplicationFactor Lude.Text
 drfClusterName = Lens.lens (clusterName :: DecreaseReplicationFactor -> Lude.Text) (\s a -> s {clusterName = a} :: DecreaseReplicationFactor)
 {-# DEPRECATED drfClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
-
--- | The new number of nodes for the DAX cluster.
---
--- /Note:/ Consider using 'newReplicationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drfNewReplicationFactor :: Lens.Lens' DecreaseReplicationFactor Lude.Int
-drfNewReplicationFactor = Lens.lens (newReplicationFactor :: DecreaseReplicationFactor -> Lude.Int) (\s a -> s {newReplicationFactor = a} :: DecreaseReplicationFactor)
-{-# DEPRECATED drfNewReplicationFactor "Use generic-lens or generic-optics with 'newReplicationFactor' instead." #-}
 
 instance Lude.AWSRequest DecreaseReplicationFactor where
   type
@@ -133,10 +131,10 @@ instance Lude.ToJSON DecreaseReplicationFactor where
   toJSON DecreaseReplicationFactor' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NodeIdsToRemove" Lude..=) Lude.<$> nodeIdsToRemove,
+          [ Lude.Just ("NewReplicationFactor" Lude..= newReplicationFactor),
+            ("NodeIdsToRemove" Lude..=) Lude.<$> nodeIdsToRemove,
             ("AvailabilityZones" Lude..=) Lude.<$> availabilityZones,
-            Lude.Just ("ClusterName" Lude..= clusterName),
-            Lude.Just ("NewReplicationFactor" Lude..= newReplicationFactor)
+            Lude.Just ("ClusterName" Lude..= clusterName)
           ]
       )
 
@@ -148,18 +146,12 @@ instance Lude.ToQuery DecreaseReplicationFactor where
 
 -- | /See:/ 'mkDecreaseReplicationFactorResponse' smart constructor.
 data DecreaseReplicationFactorResponse = DecreaseReplicationFactorResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
-    responseStatus ::
-      Lude.Int
+  { -- | A description of the DAX cluster, after you have decreased its replication factor.
+    cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DecreaseReplicationFactorResponse' with the minimum fields required to make a request.

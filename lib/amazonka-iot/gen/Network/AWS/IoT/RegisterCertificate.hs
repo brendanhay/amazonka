@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.RegisterCertificate
     -- ** Request lenses
     rcStatus,
     rcCaCertificatePem,
-    rcSetAsActive,
     rcCertificatePem,
+    rcSetAsActive,
 
     -- * Destructuring the response
     RegisterCertificateResponse (..),
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRegisterCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-  { status ::
-      Lude.Maybe CertificateStatus,
+  { -- | The status of the register certificate request.
+    status :: Lude.Maybe CertificateStatus,
+    -- | The CA certificate used to sign the device certificate being registered.
     caCertificatePem :: Lude.Maybe Lude.Text,
-    setAsActive :: Lude.Maybe Lude.Bool,
-    certificatePem :: Lude.Text
+    -- | The certificate data, in PEM format.
+    certificatePem :: Lude.Text,
+    -- | A boolean value that specifies if the certificate is set to active.
+    setAsActive :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCertificate' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the register certificate request.
 -- * 'caCertificatePem' - The CA certificate used to sign the device certificate being registered.
 -- * 'certificatePem' - The certificate data, in PEM format.
 -- * 'setAsActive' - A boolean value that specifies if the certificate is set to active.
--- * 'status' - The status of the register certificate request.
 mkRegisterCertificate ::
   -- | 'certificatePem'
   Lude.Text ->
@@ -74,8 +72,8 @@ mkRegisterCertificate pCertificatePem_ =
   RegisterCertificate'
     { status = Lude.Nothing,
       caCertificatePem = Lude.Nothing,
-      setAsActive = Lude.Nothing,
-      certificatePem = pCertificatePem_
+      certificatePem = pCertificatePem_,
+      setAsActive = Lude.Nothing
     }
 
 -- | The status of the register certificate request.
@@ -92,19 +90,19 @@ rcCaCertificatePem :: Lens.Lens' RegisterCertificate (Lude.Maybe Lude.Text)
 rcCaCertificatePem = Lens.lens (caCertificatePem :: RegisterCertificate -> Lude.Maybe Lude.Text) (\s a -> s {caCertificatePem = a} :: RegisterCertificate)
 {-# DEPRECATED rcCaCertificatePem "Use generic-lens or generic-optics with 'caCertificatePem' instead." #-}
 
--- | A boolean value that specifies if the certificate is set to active.
---
--- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcSetAsActive :: Lens.Lens' RegisterCertificate (Lude.Maybe Lude.Bool)
-rcSetAsActive = Lens.lens (setAsActive :: RegisterCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: RegisterCertificate)
-{-# DEPRECATED rcSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
-
 -- | The certificate data, in PEM format.
 --
 -- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rcCertificatePem :: Lens.Lens' RegisterCertificate Lude.Text
 rcCertificatePem = Lens.lens (certificatePem :: RegisterCertificate -> Lude.Text) (\s a -> s {certificatePem = a} :: RegisterCertificate)
 {-# DEPRECATED rcCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
+
+-- | A boolean value that specifies if the certificate is set to active.
+--
+-- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcSetAsActive :: Lens.Lens' RegisterCertificate (Lude.Maybe Lude.Bool)
+rcSetAsActive = Lens.lens (setAsActive :: RegisterCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: RegisterCertificate)
+{-# DEPRECATED rcSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
 
 instance Lude.AWSRequest RegisterCertificate where
   type Rs RegisterCertificate = RegisterCertificateResponse
@@ -142,19 +140,14 @@ instance Lude.ToQuery RegisterCertificate where
 --
 -- /See:/ 'mkRegisterCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
-  { certificateARN ::
-      Lude.Maybe Lude.Text,
-    certificateId ::
-      Lude.Maybe Lude.Text,
+  { -- | The certificate ARN.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | The certificate identifier.
+    certificateId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCertificateResponse' with the minimum fields required to make a request.

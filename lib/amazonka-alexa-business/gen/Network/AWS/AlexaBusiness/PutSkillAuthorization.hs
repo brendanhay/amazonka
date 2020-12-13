@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AlexaBusiness.PutSkillAuthorization
     mkPutSkillAuthorization,
 
     -- ** Request lenses
-    psaRoomARN,
-    psaAuthorizationResult,
     psaSkillId,
+    psaAuthorizationResult,
+    psaRoomARN,
 
     -- * Destructuring the response
     PutSkillAuthorizationResponse (..),
@@ -40,43 +41,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutSkillAuthorization' smart constructor.
 data PutSkillAuthorization = PutSkillAuthorization'
-  { roomARN ::
-      Lude.Maybe Lude.Text,
-    authorizationResult ::
-      Lude.HashMap Lude.Text (Lude.Text),
-    skillId :: Lude.Text
+  { -- | The unique identifier of a skill.
+    skillId :: Lude.Text,
+    -- | The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.
+    authorizationResult :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | The room that the skill is authorized for.
+    roomARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSkillAuthorization' with the minimum fields required to make a request.
 --
+-- * 'skillId' - The unique identifier of a skill.
 -- * 'authorizationResult' - The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.
 -- * 'roomARN' - The room that the skill is authorized for.
--- * 'skillId' - The unique identifier of a skill.
 mkPutSkillAuthorization ::
   -- | 'skillId'
   Lude.Text ->
   PutSkillAuthorization
 mkPutSkillAuthorization pSkillId_ =
   PutSkillAuthorization'
-    { roomARN = Lude.Nothing,
+    { skillId = pSkillId_,
       authorizationResult = Lude.mempty,
-      skillId = pSkillId_
+      roomARN = Lude.Nothing
     }
 
--- | The room that the skill is authorized for.
+-- | The unique identifier of a skill.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psaRoomARN :: Lens.Lens' PutSkillAuthorization (Lude.Maybe Lude.Text)
-psaRoomARN = Lens.lens (roomARN :: PutSkillAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: PutSkillAuthorization)
-{-# DEPRECATED psaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psaSkillId :: Lens.Lens' PutSkillAuthorization Lude.Text
+psaSkillId = Lens.lens (skillId :: PutSkillAuthorization -> Lude.Text) (\s a -> s {skillId = a} :: PutSkillAuthorization)
+{-# DEPRECATED psaSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
 -- | The authorization result specific to OAUTH code grant output. "Code” must be populated in the AuthorizationResult map to establish the authorization.
 --
@@ -85,12 +81,12 @@ psaAuthorizationResult :: Lens.Lens' PutSkillAuthorization (Lude.HashMap Lude.Te
 psaAuthorizationResult = Lens.lens (authorizationResult :: PutSkillAuthorization -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {authorizationResult = a} :: PutSkillAuthorization)
 {-# DEPRECATED psaAuthorizationResult "Use generic-lens or generic-optics with 'authorizationResult' instead." #-}
 
--- | The unique identifier of a skill.
+-- | The room that the skill is authorized for.
 --
--- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psaSkillId :: Lens.Lens' PutSkillAuthorization Lude.Text
-psaSkillId = Lens.lens (skillId :: PutSkillAuthorization -> Lude.Text) (\s a -> s {skillId = a} :: PutSkillAuthorization)
-{-# DEPRECATED psaSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psaRoomARN :: Lens.Lens' PutSkillAuthorization (Lude.Maybe Lude.Text)
+psaRoomARN = Lens.lens (roomARN :: PutSkillAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: PutSkillAuthorization)
+{-# DEPRECATED psaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 instance Lude.AWSRequest PutSkillAuthorization where
   type Rs PutSkillAuthorization = PutSkillAuthorizationResponse
@@ -117,9 +113,9 @@ instance Lude.ToJSON PutSkillAuthorization where
   toJSON PutSkillAuthorization' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RoomArn" Lude..=) Lude.<$> roomARN,
+          [ Lude.Just ("SkillId" Lude..= skillId),
             Lude.Just ("AuthorizationResult" Lude..= authorizationResult),
-            Lude.Just ("SkillId" Lude..= skillId)
+            ("RoomArn" Lude..=) Lude.<$> roomARN
           ]
       )
 
@@ -131,16 +127,10 @@ instance Lude.ToQuery PutSkillAuthorization where
 
 -- | /See:/ 'mkPutSkillAuthorizationResponse' smart constructor.
 newtype PutSkillAuthorizationResponse = PutSkillAuthorizationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSkillAuthorizationResponse' with the minimum fields required to make a request.

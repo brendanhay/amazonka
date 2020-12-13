@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,17 +49,12 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkListSubscriptionsByTopic' smart constructor.
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ARN of the topic for which you wish to find subscriptions.
     topicARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionsByTopic' with the minimum fields required to make a request.
@@ -132,27 +128,21 @@ instance Lude.ToQuery ListSubscriptionsByTopic where
 --
 -- /See:/ 'mkListSubscriptionsByTopicResponse' smart constructor.
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    subscriptions ::
-      Lude.Maybe [Subscription],
-    responseStatus ::
-      Lude.Int
+  { -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of subscriptions.
+    subscriptions :: Lude.Maybe [Subscription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionsByTopicResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Token to pass along to the next @ListSubscriptionsByTopic@ request. This element is returned if there are more subscriptions to retrieve.
--- * 'responseStatus' - The response status code.
 -- * 'subscriptions' - A list of subscriptions.
+-- * 'responseStatus' - The response status code.
 mkListSubscriptionsByTopicResponse ::
   -- | 'responseStatus'
   Lude.Int ->

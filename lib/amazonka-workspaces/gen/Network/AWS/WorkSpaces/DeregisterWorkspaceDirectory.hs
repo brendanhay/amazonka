@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
     mkDeregisterWorkspaceDirectoryResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dwdrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDeregisterWorkspaceDirectory' smart constructor.
 newtype DeregisterWorkspaceDirectory = DeregisterWorkspaceDirectory'
-  { directoryId ::
-      Lude.Text
+  { -- | The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.
+    directoryId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterWorkspaceDirectory' with the minimum fields required to make a request.
@@ -105,16 +100,10 @@ instance Lude.ToQuery DeregisterWorkspaceDirectory where
 
 -- | /See:/ 'mkDeregisterWorkspaceDirectoryResponse' smart constructor.
 newtype DeregisterWorkspaceDirectoryResponse = DeregisterWorkspaceDirectoryResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterWorkspaceDirectoryResponse' with the minimum fields required to make a request.
@@ -133,6 +122,6 @@ mkDeregisterWorkspaceDirectoryResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeregisterWorkspaceDirectoryResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeregisterWorkspaceDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterWorkspaceDirectoryResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwdrsResponseStatus :: Lens.Lens' DeregisterWorkspaceDirectoryResponse Lude.Int
+dwdrsResponseStatus = Lens.lens (responseStatus :: DeregisterWorkspaceDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterWorkspaceDirectoryResponse)
+{-# DEPRECATED dwdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

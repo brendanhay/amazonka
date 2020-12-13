@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPartitionIndexes' smart constructor.
 data GetPartitionIndexes = GetPartitionIndexes'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The catalog ID where the table resides.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | A continuation token, included if this is a continuation call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of a database from which you want to retrieve partition indexes.
     databaseName :: Lude.Text,
+    -- | Specifies the name of a table for which you want to retrieve the partition indexes.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPartitionIndexes' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The catalog ID where the table resides.
--- * 'databaseName' - Specifies the name of a database from which you want to retrieve partition indexes.
 -- * 'nextToken' - A continuation token, included if this is a continuation call.
+-- * 'databaseName' - Specifies the name of a database from which you want to retrieve partition indexes.
 -- * 'tableName' - Specifies the name of a table for which you want to retrieve the partition indexes.
 mkGetPartitionIndexes ::
   -- | 'databaseName'
@@ -161,25 +159,20 @@ instance Lude.ToQuery GetPartitionIndexes where
 
 -- | /See:/ 'mkGetPartitionIndexesResponse' smart constructor.
 data GetPartitionIndexesResponse = GetPartitionIndexesResponse'
-  { partitionIndexDescriptorList ::
-      Lude.Maybe
-        [PartitionIndexDescriptor],
+  { -- | A list of index descriptors.
+    partitionIndexDescriptorList :: Lude.Maybe [PartitionIndexDescriptor],
+    -- | A continuation token, present if the current list segment is not the last.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPartitionIndexesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - A continuation token, present if the current list segment is not the last.
 -- * 'partitionIndexDescriptorList' - A list of index descriptors.
+-- * 'nextToken' - A continuation token, present if the current list segment is not the last.
 -- * 'responseStatus' - The response status code.
 mkGetPartitionIndexesResponse ::
   -- | 'responseStatus'

@@ -42,48 +42,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventsDetectionJobProperties' smart constructor.
 data EventsDetectionJobProperties = EventsDetectionJobProperties'
-  { languageCode ::
-      Lude.Maybe LanguageCode,
+  { -- | The language code of the input documents.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The identifier assigned to the events detection job.
     jobId :: Lude.Maybe Lude.Text,
+    -- | The name you assigned the events detection job.
     jobName :: Lude.Maybe Lude.Text,
-    targetEventTypes ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
-    inputDataConfig ::
-      Lude.Maybe InputDataConfig,
-    endTime ::
-      Lude.Maybe Lude.Timestamp,
-    outputDataConfig ::
-      Lude.Maybe OutputDataConfig,
-    dataAccessRoleARN ::
-      Lude.Maybe Lude.Text,
+    -- | The types of events that are detected by the job.
+    targetEventTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The input data configuration that you supplied when you created the events detection job.
+    inputDataConfig :: Lude.Maybe InputDataConfig,
+    -- | The time that the events detection job completed.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The output data configuration that you supplied when you created the events detection job.
+    outputDataConfig :: Lude.Maybe OutputDataConfig,
+    -- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+    dataAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | The current status of the events detection job.
     jobStatus :: Lude.Maybe JobStatus,
+    -- | A description of the status of the events detection job.
     message :: Lude.Maybe Lude.Text,
-    submitTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | The time that the events detection job was submitted for processing.
+    submitTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventsDetectionJobProperties' with the minimum fields required to make a request.
 --
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
--- * 'endTime' - The time that the events detection job completed.
--- * 'inputDataConfig' - The input data configuration that you supplied when you created the events detection job.
+-- * 'languageCode' - The language code of the input documents.
 -- * 'jobId' - The identifier assigned to the events detection job.
 -- * 'jobName' - The name you assigned the events detection job.
--- * 'jobStatus' - The current status of the events detection job.
--- * 'languageCode' - The language code of the input documents.
--- * 'message' - A description of the status of the events detection job.
--- * 'outputDataConfig' - The output data configuration that you supplied when you created the events detection job.
--- * 'submitTime' - The time that the events detection job was submitted for processing.
 -- * 'targetEventTypes' - The types of events that are detected by the job.
+-- * 'inputDataConfig' - The input data configuration that you supplied when you created the events detection job.
+-- * 'endTime' - The time that the events detection job completed.
+-- * 'outputDataConfig' - The output data configuration that you supplied when you created the events detection job.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'jobStatus' - The current status of the events detection job.
+-- * 'message' - A description of the status of the events detection job.
+-- * 'submitTime' - The time that the events detection job was submitted for processing.
 mkEventsDetectionJobProperties ::
   EventsDetectionJobProperties
 mkEventsDetectionJobProperties =

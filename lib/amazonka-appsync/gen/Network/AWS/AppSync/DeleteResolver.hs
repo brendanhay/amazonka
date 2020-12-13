@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppSync.DeleteResolver
     mkDeleteResolver,
 
     -- ** Request lenses
-    drApiId,
     drTypeName,
+    drApiId,
     drFieldName,
 
     -- * Destructuring the response
@@ -40,45 +41,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteResolver' smart constructor.
 data DeleteResolver = DeleteResolver'
-  { apiId :: Lude.Text,
+  { -- | The name of the resolver type.
     typeName :: Lude.Text,
+    -- | The API ID.
+    apiId :: Lude.Text,
+    -- | The resolver field name.
     fieldName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResolver' with the minimum fields required to make a request.
 --
+-- * 'typeName' - The name of the resolver type.
 -- * 'apiId' - The API ID.
 -- * 'fieldName' - The resolver field name.
--- * 'typeName' - The name of the resolver type.
 mkDeleteResolver ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'typeName'
+  Lude.Text ->
+  -- | 'apiId'
   Lude.Text ->
   -- | 'fieldName'
   Lude.Text ->
   DeleteResolver
-mkDeleteResolver pApiId_ pTypeName_ pFieldName_ =
+mkDeleteResolver pTypeName_ pApiId_ pFieldName_ =
   DeleteResolver'
-    { apiId = pApiId_,
-      typeName = pTypeName_,
+    { typeName = pTypeName_,
+      apiId = pApiId_,
       fieldName = pFieldName_
     }
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drApiId :: Lens.Lens' DeleteResolver Lude.Text
-drApiId = Lens.lens (apiId :: DeleteResolver -> Lude.Text) (\s a -> s {apiId = a} :: DeleteResolver)
-{-# DEPRECATED drApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The name of the resolver type.
 --
@@ -86,6 +77,13 @@ drApiId = Lens.lens (apiId :: DeleteResolver -> Lude.Text) (\s a -> s {apiId = a
 drTypeName :: Lens.Lens' DeleteResolver Lude.Text
 drTypeName = Lens.lens (typeName :: DeleteResolver -> Lude.Text) (\s a -> s {typeName = a} :: DeleteResolver)
 {-# DEPRECATED drTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drApiId :: Lens.Lens' DeleteResolver Lude.Text
+drApiId = Lens.lens (apiId :: DeleteResolver -> Lude.Text) (\s a -> s {apiId = a} :: DeleteResolver)
+{-# DEPRECATED drApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The resolver field name.
 --
@@ -128,16 +126,10 @@ instance Lude.ToQuery DeleteResolver where
 
 -- | /See:/ 'mkDeleteResolverResponse' smart constructor.
 newtype DeleteResolverResponse = DeleteResolverResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResolverResponse' with the minimum fields required to make a request.

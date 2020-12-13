@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.SageMaker.DescribeSubscribedWorkteam
     mkDescribeSubscribedWorkteamResponse,
 
     -- ** Response lenses
-    dswrsResponseStatus,
     dswrsSubscribedWorkteam,
+    dswrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeSubscribedWorkteam' smart constructor.
 newtype DescribeSubscribedWorkteam = DescribeSubscribedWorkteam'
-  { workteamARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the subscribed work team to describe.
+    workteamARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscribedWorkteam' with the minimum fields required to make a request.
@@ -77,8 +72,8 @@ instance Lude.AWSRequest DescribeSubscribedWorkteam where
     Res.receiveJSON
       ( \s h x ->
           DescribeSubscribedWorkteamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "SubscribedWorkteam")
+            Lude.<$> (x Lude..:> "SubscribedWorkteam")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeSubscribedWorkteam where
@@ -105,45 +100,32 @@ instance Lude.ToQuery DescribeSubscribedWorkteam where
 
 -- | /See:/ 'mkDescribeSubscribedWorkteamResponse' smart constructor.
 data DescribeSubscribedWorkteamResponse = DescribeSubscribedWorkteamResponse'
-  { responseStatus ::
-      Lude.Int,
-    subscribedWorkteam ::
-      SubscribedWorkteam
+  { -- | A @Workteam@ instance that contains information about the work team.
+    subscribedWorkteam :: SubscribedWorkteam,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscribedWorkteamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'subscribedWorkteam' - A @Workteam@ instance that contains information about the work team.
+-- * 'responseStatus' - The response status code.
 mkDescribeSubscribedWorkteamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'subscribedWorkteam'
   SubscribedWorkteam ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeSubscribedWorkteamResponse
 mkDescribeSubscribedWorkteamResponse
-  pResponseStatus_
-  pSubscribedWorkteam_ =
+  pSubscribedWorkteam_
+  pResponseStatus_ =
     DescribeSubscribedWorkteamResponse'
-      { responseStatus =
-          pResponseStatus_,
-        subscribedWorkteam = pSubscribedWorkteam_
+      { subscribedWorkteam =
+          pSubscribedWorkteam_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dswrsResponseStatus :: Lens.Lens' DescribeSubscribedWorkteamResponse Lude.Int
-dswrsResponseStatus = Lens.lens (responseStatus :: DescribeSubscribedWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSubscribedWorkteamResponse)
-{-# DEPRECATED dswrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A @Workteam@ instance that contains information about the work team.
 --
@@ -151,3 +133,10 @@ dswrsResponseStatus = Lens.lens (responseStatus :: DescribeSubscribedWorkteamRes
 dswrsSubscribedWorkteam :: Lens.Lens' DescribeSubscribedWorkteamResponse SubscribedWorkteam
 dswrsSubscribedWorkteam = Lens.lens (subscribedWorkteam :: DescribeSubscribedWorkteamResponse -> SubscribedWorkteam) (\s a -> s {subscribedWorkteam = a} :: DescribeSubscribedWorkteamResponse)
 {-# DEPRECATED dswrsSubscribedWorkteam "Use generic-lens or generic-optics with 'subscribedWorkteam' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dswrsResponseStatus :: Lens.Lens' DescribeSubscribedWorkteamResponse Lude.Int
+dswrsResponseStatus = Lens.lens (responseStatus :: DescribeSubscribedWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSubscribedWorkteamResponse)
+{-# DEPRECATED dswrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

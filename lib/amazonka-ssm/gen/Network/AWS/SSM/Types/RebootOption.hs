@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.RebootOption
   ( RebootOption
       ( RebootOption',
-        NoReboot,
-        RebootIfNeeded
+        RebootIfNeeded,
+        NoReboot
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RebootOption = RebootOption' Lude.Text
       Lude.ToHeader
     )
 
-pattern NoReboot :: RebootOption
-pattern NoReboot = RebootOption' "NoReboot"
-
 pattern RebootIfNeeded :: RebootOption
 pattern RebootIfNeeded = RebootOption' "RebootIfNeeded"
 
+pattern NoReboot :: RebootOption
+pattern NoReboot = RebootOption' "NoReboot"
+
 {-# COMPLETE
-  NoReboot,
   RebootIfNeeded,
+  NoReboot,
   RebootOption'
   #-}

@@ -13,10 +13,10 @@
 module Network.AWS.CodeDeploy.Types.RevisionLocationType
   ( RevisionLocationType
       ( RevisionLocationType',
-        AppSpecContent,
-        GitHub,
         S3,
-        String
+        GitHub,
+        String,
+        AppSpecContent
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype RevisionLocationType = RevisionLocationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AppSpecContent :: RevisionLocationType
-pattern AppSpecContent = RevisionLocationType' "AppSpecContent"
+pattern S3 :: RevisionLocationType
+pattern S3 = RevisionLocationType' "S3"
 
 pattern GitHub :: RevisionLocationType
 pattern GitHub = RevisionLocationType' "GitHub"
 
-pattern S3 :: RevisionLocationType
-pattern S3 = RevisionLocationType' "S3"
-
 pattern String :: RevisionLocationType
 pattern String = RevisionLocationType' "String"
 
+pattern AppSpecContent :: RevisionLocationType
+pattern AppSpecContent = RevisionLocationType' "AppSpecContent"
+
 {-# COMPLETE
-  AppSpecContent,
-  GitHub,
   S3,
+  GitHub,
   String,
+  AppSpecContent,
   RevisionLocationType'
   #-}

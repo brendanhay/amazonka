@@ -13,9 +13,9 @@
 module Network.AWS.Kinesis.Types.ConsumerStatus
   ( ConsumerStatus
       ( ConsumerStatus',
-        Active,
         Creating,
-        Deleting
+        Deleting,
+        Active
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ConsumerStatus = ConsumerStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: ConsumerStatus
-pattern Active = ConsumerStatus' "ACTIVE"
-
 pattern Creating :: ConsumerStatus
 pattern Creating = ConsumerStatus' "CREATING"
 
 pattern Deleting :: ConsumerStatus
 pattern Deleting = ConsumerStatus' "DELETING"
 
+pattern Active :: ConsumerStatus
+pattern Active = ConsumerStatus' "ACTIVE"
+
 {-# COMPLETE
-  Active,
   Creating,
   Deleting,
+  Active,
   ConsumerStatus'
   #-}

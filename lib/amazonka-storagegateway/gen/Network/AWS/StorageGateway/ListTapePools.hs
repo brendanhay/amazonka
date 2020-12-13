@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkListTapePools' smart constructor.
 data ListTapePools = ListTapePools'
-  { poolARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you don't specify a custom tape pool ARN, the response lists all custom tape pools.
+    poolARNs :: Lude.Maybe [Lude.Text],
+    -- | A string that indicates the position at which to begin the returned list of tape pools.
     marker :: Lude.Maybe Lude.Text,
+    -- | An optional number limit for the tape pools in the list returned by this call.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTapePools' with the minimum fields required to make a request.
 --
--- * 'limit' - An optional number limit for the tape pools in the list returned by this call.
--- * 'marker' - A string that indicates the position at which to begin the returned list of tape pools.
 -- * 'poolARNs' - The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you don't specify a custom tape pool ARN, the response lists all custom tape pools.
+-- * 'marker' - A string that indicates the position at which to begin the returned list of tape pools.
+-- * 'limit' - An optional number limit for the tape pools in the list returned by this call.
 mkListTapePools ::
   ListTapePools
 mkListTapePools =
@@ -144,24 +141,20 @@ instance Lude.ToQuery ListTapePools where
 
 -- | /See:/ 'mkListTapePoolsResponse' smart constructor.
 data ListTapePoolsResponse = ListTapePoolsResponse'
-  { poolInfos ::
-      Lude.Maybe [PoolInfo],
+  { -- | An array of @PoolInfo@ objects, where each object describes a single custom tape pool. If there are no custom tape pools, the @PoolInfos@ is an empty array.
+    poolInfos :: Lude.Maybe [PoolInfo],
+    -- | A string that indicates the position at which to begin the returned list of tape pools. Use the marker in your next request to continue pagination of tape pools. If there are no more tape pools to list, this element does not appear in the response body.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTapePoolsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - A string that indicates the position at which to begin the returned list of tape pools. Use the marker in your next request to continue pagination of tape pools. If there are no more tape pools to list, this element does not appear in the response body.
 -- * 'poolInfos' - An array of @PoolInfo@ objects, where each object describes a single custom tape pool. If there are no custom tape pools, the @PoolInfos@ is an empty array.
+-- * 'marker' - A string that indicates the position at which to begin the returned list of tape pools. Use the marker in your next request to continue pagination of tape pools. If there are no more tape pools to list, this element does not appear in the response body.
 -- * 'responseStatus' - The response status code.
 mkListTapePoolsResponse ::
   -- | 'responseStatus'

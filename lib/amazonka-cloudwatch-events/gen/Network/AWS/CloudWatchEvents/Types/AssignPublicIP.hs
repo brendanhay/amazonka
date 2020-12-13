@@ -13,8 +13,8 @@
 module Network.AWS.CloudWatchEvents.Types.AssignPublicIP
   ( AssignPublicIP
       ( AssignPublicIP',
-        APIDisabled,
-        APIEnabled
+        APIEnabled,
+        APIDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AssignPublicIP = AssignPublicIP' Lude.Text
       Lude.ToHeader
     )
 
-pattern APIDisabled :: AssignPublicIP
-pattern APIDisabled = AssignPublicIP' "DISABLED"
-
 pattern APIEnabled :: AssignPublicIP
 pattern APIEnabled = AssignPublicIP' "ENABLED"
 
+pattern APIDisabled :: AssignPublicIP
+pattern APIDisabled = AssignPublicIP' "DISABLED"
+
 {-# COMPLETE
-  APIDisabled,
   APIEnabled,
+  APIDisabled,
   AssignPublicIP'
   #-}

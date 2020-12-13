@@ -30,23 +30,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventStartCondition' smart constructor.
 data EventStartCondition = EventStartCondition'
-  { eventFilter ::
-      Lude.Maybe EventFilter,
+  { eventFilter :: Lude.Maybe EventFilter,
     segmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventStartCondition' with the minimum fields required to make a request.
 --
--- * 'eventFilter' - Undocumented field.
--- * 'segmentId' - Undocumented field.
+-- * 'eventFilter' -
+-- * 'segmentId' -
 mkEventStartCondition ::
   EventStartCondition
 mkEventStartCondition =

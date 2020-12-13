@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.CodeBuild.CreateReportGroup
     mkCreateReportGroup,
 
     -- ** Request lenses
-    crgTags,
     crgName,
     crgType,
     crgExportConfig,
+    crgTags,
 
     -- * Destructuring the response
     CreateReportGroupResponse (..),
@@ -42,29 +43,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateReportGroup' smart constructor.
 data CreateReportGroup = CreateReportGroup'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | The name of the report group.
     name :: Lude.Text,
+    -- | The type of report group.
     type' :: ReportType,
-    exportConfig :: ReportExportConfig
+    -- | A @ReportExportConfig@ object that contains information about where the report group test results are exported.
+    exportConfig :: ReportExportConfig,
+    -- | A list of tag key and value pairs associated with this report group.
+    --
+    -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReportGroup' with the minimum fields required to make a request.
 --
--- * 'exportConfig' - A @ReportExportConfig@ object that contains information about where the report group test results are exported.
 -- * 'name' - The name of the report group.
+-- * 'type'' - The type of report group.
+-- * 'exportConfig' - A @ReportExportConfig@ object that contains information about where the report group test results are exported.
 -- * 'tags' - A list of tag key and value pairs associated with this report group.
 --
 -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
--- * 'type'' - The type of report group.
 mkCreateReportGroup ::
   -- | 'name'
   Lude.Text ->
@@ -75,20 +75,11 @@ mkCreateReportGroup ::
   CreateReportGroup
 mkCreateReportGroup pName_ pType_ pExportConfig_ =
   CreateReportGroup'
-    { tags = Lude.Nothing,
-      name = pName_,
+    { name = pName_,
       type' = pType_,
-      exportConfig = pExportConfig_
+      exportConfig = pExportConfig_,
+      tags = Lude.Nothing
     }
-
--- | A list of tag key and value pairs associated with this report group.
---
--- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgTags :: Lens.Lens' CreateReportGroup (Lude.Maybe [Tag])
-crgTags = Lens.lens (tags :: CreateReportGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateReportGroup)
-{-# DEPRECATED crgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name of the report group.
 --
@@ -110,6 +101,15 @@ crgType = Lens.lens (type' :: CreateReportGroup -> ReportType) (\s a -> s {type'
 crgExportConfig :: Lens.Lens' CreateReportGroup ReportExportConfig
 crgExportConfig = Lens.lens (exportConfig :: CreateReportGroup -> ReportExportConfig) (\s a -> s {exportConfig = a} :: CreateReportGroup)
 {-# DEPRECATED crgExportConfig "Use generic-lens or generic-optics with 'exportConfig' instead." #-}
+
+-- | A list of tag key and value pairs associated with this report group.
+--
+-- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crgTags :: Lens.Lens' CreateReportGroup (Lude.Maybe [Tag])
+crgTags = Lens.lens (tags :: CreateReportGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateReportGroup)
+{-# DEPRECATED crgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateReportGroup where
   type Rs CreateReportGroup = CreateReportGroupResponse
@@ -136,10 +136,10 @@ instance Lude.ToJSON CreateReportGroup where
   toJSON CreateReportGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("name" Lude..= name),
+          [ Lude.Just ("name" Lude..= name),
             Lude.Just ("type" Lude..= type'),
-            Lude.Just ("exportConfig" Lude..= exportConfig)
+            Lude.Just ("exportConfig" Lude..= exportConfig),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -151,17 +151,12 @@ instance Lude.ToQuery CreateReportGroup where
 
 -- | /See:/ 'mkCreateReportGroupResponse' smart constructor.
 data CreateReportGroupResponse = CreateReportGroupResponse'
-  { reportGroup ::
-      Lude.Maybe ReportGroup,
+  { -- | Information about the report group that was created.
+    reportGroup :: Lude.Maybe ReportGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReportGroupResponse' with the minimum fields required to make a request.

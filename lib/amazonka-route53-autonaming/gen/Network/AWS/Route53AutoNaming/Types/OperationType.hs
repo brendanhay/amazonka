@@ -15,9 +15,9 @@ module Network.AWS.Route53AutoNaming.Types.OperationType
       ( OperationType',
         CreateNamespace,
         DeleteNamespace,
-        DeregisterInstance,
+        UpdateService,
         RegisterInstance,
-        UpdateService
+        DeregisterInstance
       ),
   )
 where
@@ -54,20 +54,20 @@ pattern CreateNamespace = OperationType' "CREATE_NAMESPACE"
 pattern DeleteNamespace :: OperationType
 pattern DeleteNamespace = OperationType' "DELETE_NAMESPACE"
 
-pattern DeregisterInstance :: OperationType
-pattern DeregisterInstance = OperationType' "DEREGISTER_INSTANCE"
+pattern UpdateService :: OperationType
+pattern UpdateService = OperationType' "UPDATE_SERVICE"
 
 pattern RegisterInstance :: OperationType
 pattern RegisterInstance = OperationType' "REGISTER_INSTANCE"
 
-pattern UpdateService :: OperationType
-pattern UpdateService = OperationType' "UPDATE_SERVICE"
+pattern DeregisterInstance :: OperationType
+pattern DeregisterInstance = OperationType' "DEREGISTER_INSTANCE"
 
 {-# COMPLETE
   CreateNamespace,
   DeleteNamespace,
-  DeregisterInstance,
-  RegisterInstance,
   UpdateService,
+  RegisterInstance,
+  DeregisterInstance,
   OperationType'
   #-}

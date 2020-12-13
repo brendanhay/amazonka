@@ -14,8 +14,8 @@ module Network.AWS.SageMaker.Types.HyperParameterTuningJobStatus
   ( HyperParameterTuningJobStatus
       ( HyperParameterTuningJobStatus',
         HPTJSCompleted,
-        HPTJSFailed,
         HPTJSInProgress,
+        HPTJSFailed,
         HPTJSStopped,
         HPTJSStopping
       ),
@@ -51,11 +51,11 @@ newtype HyperParameterTuningJobStatus = HyperParameterTuningJobStatus' Lude.Text
 pattern HPTJSCompleted :: HyperParameterTuningJobStatus
 pattern HPTJSCompleted = HyperParameterTuningJobStatus' "Completed"
 
-pattern HPTJSFailed :: HyperParameterTuningJobStatus
-pattern HPTJSFailed = HyperParameterTuningJobStatus' "Failed"
-
 pattern HPTJSInProgress :: HyperParameterTuningJobStatus
 pattern HPTJSInProgress = HyperParameterTuningJobStatus' "InProgress"
+
+pattern HPTJSFailed :: HyperParameterTuningJobStatus
+pattern HPTJSFailed = HyperParameterTuningJobStatus' "Failed"
 
 pattern HPTJSStopped :: HyperParameterTuningJobStatus
 pattern HPTJSStopped = HyperParameterTuningJobStatus' "Stopped"
@@ -65,8 +65,8 @@ pattern HPTJSStopping = HyperParameterTuningJobStatus' "Stopping"
 
 {-# COMPLETE
   HPTJSCompleted,
-  HPTJSFailed,
   HPTJSInProgress,
+  HPTJSFailed,
   HPTJSStopped,
   HPTJSStopping,
   HyperParameterTuningJobStatus'

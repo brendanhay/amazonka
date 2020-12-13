@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,21 +20,21 @@ module Network.AWS.EC2.DescribeFleetInstances
     mkDescribeFleetInstances,
 
     -- ** Request lenses
-    dfisFilters,
-    dfisNextToken,
-    dfisDryRun,
-    dfisMaxResults,
-    dfisFleetId,
+    dfifFilters,
+    dfifNextToken,
+    dfifFleetId,
+    dfifDryRun,
+    dfifMaxResults,
 
     -- * Destructuring the response
     DescribeFleetInstancesResponse (..),
     mkDescribeFleetInstancesResponse,
 
     -- ** Response lenses
-    drsNextToken,
-    drsFleetId,
-    drsActiveInstances,
-    drsResponseStatus,
+    dfisrsNextToken,
+    dfisrsFleetId,
+    dfisrsActiveInstances,
+    dfisrsResponseStatus,
   )
 where
 
@@ -45,34 +46,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeFleetInstances' smart constructor.
 data DescribeFleetInstances = DescribeFleetInstances'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters.
+    --
+    --
+    --     * @instance-type@ - The instance type.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the EC2 Fleet.
+    fleetId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Int,
-    fleetId :: Lude.Text
+    -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetInstances' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 --
 --
 --     * @instance-type@ - The instance type.
 --
 --
--- * 'fleetId' - The ID of the EC2 Fleet.
--- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'fleetId' - The ID of the EC2 Fleet.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkDescribeFleetInstances ::
   -- | 'fleetId'
   Lude.Text ->
@@ -81,9 +83,9 @@ mkDescribeFleetInstances pFleetId_ =
   DescribeFleetInstances'
     { filters = Lude.Nothing,
       nextToken = Lude.Nothing,
+      fleetId = pFleetId_,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      fleetId = pFleetId_
+      maxResults = Lude.Nothing
     }
 
 -- | The filters.
@@ -94,37 +96,37 @@ mkDescribeFleetInstances pFleetId_ =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisFilters :: Lens.Lens' DescribeFleetInstances (Lude.Maybe [Filter])
-dfisFilters = Lens.lens (filters :: DescribeFleetInstances -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeFleetInstances)
-{-# DEPRECATED dfisFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dfifFilters :: Lens.Lens' DescribeFleetInstances (Lude.Maybe [Filter])
+dfifFilters = Lens.lens (filters :: DescribeFleetInstances -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeFleetInstances)
+{-# DEPRECATED dfifFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisNextToken :: Lens.Lens' DescribeFleetInstances (Lude.Maybe Lude.Text)
-dfisNextToken = Lens.lens (nextToken :: DescribeFleetInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetInstances)
-{-# DEPRECATED dfisNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisDryRun :: Lens.Lens' DescribeFleetInstances (Lude.Maybe Lude.Bool)
-dfisDryRun = Lens.lens (dryRun :: DescribeFleetInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFleetInstances)
-{-# DEPRECATED dfisDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisMaxResults :: Lens.Lens' DescribeFleetInstances (Lude.Maybe Lude.Int)
-dfisMaxResults = Lens.lens (maxResults :: DescribeFleetInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeFleetInstances)
-{-# DEPRECATED dfisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dfifNextToken :: Lens.Lens' DescribeFleetInstances (Lude.Maybe Lude.Text)
+dfifNextToken = Lens.lens (nextToken :: DescribeFleetInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetInstances)
+{-# DEPRECATED dfifNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfisFleetId :: Lens.Lens' DescribeFleetInstances Lude.Text
-dfisFleetId = Lens.lens (fleetId :: DescribeFleetInstances -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetInstances)
-{-# DEPRECATED dfisFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+dfifFleetId :: Lens.Lens' DescribeFleetInstances Lude.Text
+dfifFleetId = Lens.lens (fleetId :: DescribeFleetInstances -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetInstances)
+{-# DEPRECATED dfifFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifDryRun :: Lens.Lens' DescribeFleetInstances (Lude.Maybe Lude.Bool)
+dfifDryRun = Lens.lens (dryRun :: DescribeFleetInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeFleetInstances)
+{-# DEPRECATED dfifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfifMaxResults :: Lens.Lens' DescribeFleetInstances (Lude.Maybe Lude.Int)
+dfifMaxResults = Lens.lens (maxResults :: DescribeFleetInstances -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeFleetInstances)
+{-# DEPRECATED dfifMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest DescribeFleetInstances where
   type Rs DescribeFleetInstances = DescribeFleetInstancesResponse
@@ -154,35 +156,30 @@ instance Lude.ToQuery DescribeFleetInstances where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
         "NextToken" Lude.=: nextToken,
+        "FleetId" Lude.=: fleetId,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "FleetId" Lude.=: fleetId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkDescribeFleetInstancesResponse' smart constructor.
 data DescribeFleetInstancesResponse = DescribeFleetInstancesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    fleetId ::
-      Lude.Maybe Lude.Text,
-    activeInstances ::
-      Lude.Maybe [ActiveInstance],
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the EC2 Fleet.
+    fleetId :: Lude.Maybe Lude.Text,
+    -- | The running instances. This list is refreshed periodically and might be out of date.
+    activeInstances :: Lude.Maybe [ActiveInstance],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'activeInstances' - The running instances. This list is refreshed periodically and might be out of date.
--- * 'fleetId' - The ID of the EC2 Fleet.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'fleetId' - The ID of the EC2 Fleet.
+-- * 'activeInstances' - The running instances. This list is refreshed periodically and might be out of date.
 -- * 'responseStatus' - The response status code.
 mkDescribeFleetInstancesResponse ::
   -- | 'responseStatus'
@@ -199,27 +196,27 @@ mkDescribeFleetInstancesResponse pResponseStatus_ =
 -- | The token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsNextToken :: Lens.Lens' DescribeFleetInstancesResponse (Lude.Maybe Lude.Text)
-drsNextToken = Lens.lens (nextToken :: DescribeFleetInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetInstancesResponse)
-{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dfisrsNextToken :: Lens.Lens' DescribeFleetInstancesResponse (Lude.Maybe Lude.Text)
+dfisrsNextToken = Lens.lens (nextToken :: DescribeFleetInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetInstancesResponse)
+{-# DEPRECATED dfisrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the EC2 Fleet.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsFleetId :: Lens.Lens' DescribeFleetInstancesResponse (Lude.Maybe Lude.Text)
-drsFleetId = Lens.lens (fleetId :: DescribeFleetInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetInstancesResponse)
-{-# DEPRECATED drsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+dfisrsFleetId :: Lens.Lens' DescribeFleetInstancesResponse (Lude.Maybe Lude.Text)
+dfisrsFleetId = Lens.lens (fleetId :: DescribeFleetInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetInstancesResponse)
+{-# DEPRECATED dfisrsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | The running instances. This list is refreshed periodically and might be out of date.
 --
 -- /Note:/ Consider using 'activeInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsActiveInstances :: Lens.Lens' DescribeFleetInstancesResponse (Lude.Maybe [ActiveInstance])
-drsActiveInstances = Lens.lens (activeInstances :: DescribeFleetInstancesResponse -> Lude.Maybe [ActiveInstance]) (\s a -> s {activeInstances = a} :: DescribeFleetInstancesResponse)
-{-# DEPRECATED drsActiveInstances "Use generic-lens or generic-optics with 'activeInstances' instead." #-}
+dfisrsActiveInstances :: Lens.Lens' DescribeFleetInstancesResponse (Lude.Maybe [ActiveInstance])
+dfisrsActiveInstances = Lens.lens (activeInstances :: DescribeFleetInstancesResponse -> Lude.Maybe [ActiveInstance]) (\s a -> s {activeInstances = a} :: DescribeFleetInstancesResponse)
+{-# DEPRECATED dfisrsActiveInstances "Use generic-lens or generic-optics with 'activeInstances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeFleetInstancesResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeFleetInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetInstancesResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfisrsResponseStatus :: Lens.Lens' DescribeFleetInstancesResponse Lude.Int
+dfisrsResponseStatus = Lens.lens (responseStatus :: DescribeFleetInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetInstancesResponse)
+{-# DEPRECATED dfisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

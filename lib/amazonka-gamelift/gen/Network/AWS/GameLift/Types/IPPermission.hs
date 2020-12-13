@@ -18,9 +18,9 @@ module Network.AWS.GameLift.Types.IPPermission
 
     -- * Lenses
     ipFromPort,
+    ipProtocol,
     ipToPort,
     ipIPRange,
-    ipProtocol,
   )
 where
 
@@ -32,42 +32,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPPermission' smart constructor.
 data IPPermission = IPPermission'
-  { fromPort :: Lude.Natural,
+  { -- | A starting value for a range of allowed port numbers.
+    fromPort :: Lude.Natural,
+    -- | The network communication protocol used by the fleet.
+    protocol :: IPProtocol,
+    -- | An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than @FromPort@ .
     toPort :: Lude.Natural,
-    ipRange :: Lude.Text,
-    protocol :: IPProtocol
+    -- | A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "@000.000.000.000/[subnet mask]@ " or optionally the shortened version "@0.0.0.0/[subnet mask]@ ".
+    ipRange :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPPermission' with the minimum fields required to make a request.
 --
 -- * 'fromPort' - A starting value for a range of allowed port numbers.
--- * 'ipRange' - A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "@000.000.000.000/[subnet mask]@ " or optionally the shortened version "@0.0.0.0/[subnet mask]@ ".
 -- * 'protocol' - The network communication protocol used by the fleet.
 -- * 'toPort' - An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than @FromPort@ .
+-- * 'ipRange' - A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "@000.000.000.000/[subnet mask]@ " or optionally the shortened version "@0.0.0.0/[subnet mask]@ ".
 mkIPPermission ::
   -- | 'fromPort'
   Lude.Natural ->
+  -- | 'protocol'
+  IPProtocol ->
   -- | 'toPort'
   Lude.Natural ->
   -- | 'ipRange'
   Lude.Text ->
-  -- | 'protocol'
-  IPProtocol ->
   IPPermission
-mkIPPermission pFromPort_ pToPort_ pIPRange_ pProtocol_ =
+mkIPPermission pFromPort_ pProtocol_ pToPort_ pIPRange_ =
   IPPermission'
     { fromPort = pFromPort_,
+      protocol = pProtocol_,
       toPort = pToPort_,
-      ipRange = pIPRange_,
-      protocol = pProtocol_
+      ipRange = pIPRange_
     }
 
 -- | A starting value for a range of allowed port numbers.
@@ -76,6 +74,13 @@ mkIPPermission pFromPort_ pToPort_ pIPRange_ pProtocol_ =
 ipFromPort :: Lens.Lens' IPPermission Lude.Natural
 ipFromPort = Lens.lens (fromPort :: IPPermission -> Lude.Natural) (\s a -> s {fromPort = a} :: IPPermission)
 {-# DEPRECATED ipFromPort "Use generic-lens or generic-optics with 'fromPort' instead." #-}
+
+-- | The network communication protocol used by the fleet.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipProtocol :: Lens.Lens' IPPermission IPProtocol
+ipProtocol = Lens.lens (protocol :: IPPermission -> IPProtocol) (\s a -> s {protocol = a} :: IPPermission)
+{-# DEPRECATED ipProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than @FromPort@ .
 --
@@ -91,13 +96,6 @@ ipIPRange :: Lens.Lens' IPPermission Lude.Text
 ipIPRange = Lens.lens (ipRange :: IPPermission -> Lude.Text) (\s a -> s {ipRange = a} :: IPPermission)
 {-# DEPRECATED ipIPRange "Use generic-lens or generic-optics with 'ipRange' instead." #-}
 
--- | The network communication protocol used by the fleet.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipProtocol :: Lens.Lens' IPPermission IPProtocol
-ipProtocol = Lens.lens (protocol :: IPPermission -> IPProtocol) (\s a -> s {protocol = a} :: IPPermission)
-{-# DEPRECATED ipProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
-
 instance Lude.FromJSON IPPermission where
   parseJSON =
     Lude.withObject
@@ -105,9 +103,9 @@ instance Lude.FromJSON IPPermission where
       ( \x ->
           IPPermission'
             Lude.<$> (x Lude..: "FromPort")
+            Lude.<*> (x Lude..: "Protocol")
             Lude.<*> (x Lude..: "ToPort")
             Lude.<*> (x Lude..: "IpRange")
-            Lude.<*> (x Lude..: "Protocol")
       )
 
 instance Lude.ToJSON IPPermission where
@@ -115,8 +113,8 @@ instance Lude.ToJSON IPPermission where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("FromPort" Lude..= fromPort),
+            Lude.Just ("Protocol" Lude..= protocol),
             Lude.Just ("ToPort" Lude..= toPort),
-            Lude.Just ("IpRange" Lude..= ipRange),
-            Lude.Just ("Protocol" Lude..= protocol)
+            Lude.Just ("IpRange" Lude..= ipRange)
           ]
       )

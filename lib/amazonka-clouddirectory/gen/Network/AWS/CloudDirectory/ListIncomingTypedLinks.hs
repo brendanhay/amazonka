@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.CloudDirectory.ListIncomingTypedLinks
     mkListIncomingTypedLinks,
 
     -- ** Request lenses
+    litlDirectoryARN,
     litlFilterAttributeRanges,
     litlConsistencyLevel,
     litlNextToken,
     litlFilterTypedLink,
-    litlMaxResults,
-    litlDirectoryARN,
     litlObjectReference,
+    litlMaxResults,
 
     -- * Destructuring the response
     ListIncomingTypedLinksResponse (..),
@@ -49,35 +50,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListIncomingTypedLinks' smart constructor.
 data ListIncomingTypedLinks = ListIncomingTypedLinks'
-  { filterAttributeRanges ::
-      Lude.Maybe [TypedLinkAttributeRange],
-    consistencyLevel ::
-      Lude.Maybe ConsistencyLevel,
-    nextToken :: Lude.Maybe Lude.Text,
-    filterTypedLink ::
-      Lude.Maybe TypedLinkSchemaAndFacetName,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
     directoryARN :: Lude.Text,
-    objectReference :: ObjectReference
+    -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
+    filterAttributeRanges :: Lude.Maybe [TypedLinkAttributeRange],
+    -- | The consistency level to execute the request at.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
+    filterTypedLink :: Lude.Maybe TypedLinkSchemaAndFacetName,
+    -- | Reference that identifies the object whose attributes will be listed.
+    objectReference :: ObjectReference,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIncomingTypedLinks' with the minimum fields required to make a request.
 --
--- * 'consistencyLevel' - The consistency level to execute the request at.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
 -- * 'filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
--- * 'filterTypedLink' - Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
--- * 'maxResults' - The maximum number of results to retrieve.
+-- * 'consistencyLevel' - The consistency level to execute the request at.
 -- * 'nextToken' - The pagination token.
+-- * 'filterTypedLink' - Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls.
 -- * 'objectReference' - Reference that identifies the object whose attributes will be listed.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkListIncomingTypedLinks ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -86,14 +85,21 @@ mkListIncomingTypedLinks ::
   ListIncomingTypedLinks
 mkListIncomingTypedLinks pDirectoryARN_ pObjectReference_ =
   ListIncomingTypedLinks'
-    { filterAttributeRanges = Lude.Nothing,
+    { directoryARN = pDirectoryARN_,
+      filterAttributeRanges = Lude.Nothing,
       consistencyLevel = Lude.Nothing,
       nextToken = Lude.Nothing,
       filterTypedLink = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
-      objectReference = pObjectReference_
+      objectReference = pObjectReference_,
+      maxResults = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+litlDirectoryARN :: Lens.Lens' ListIncomingTypedLinks Lude.Text
+litlDirectoryARN = Lens.lens (directoryARN :: ListIncomingTypedLinks -> Lude.Text) (\s a -> s {directoryARN = a} :: ListIncomingTypedLinks)
+{-# DEPRECATED litlDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Provides range filters for multiple attributes. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range.
 --
@@ -123,26 +129,19 @@ litlFilterTypedLink :: Lens.Lens' ListIncomingTypedLinks (Lude.Maybe TypedLinkSc
 litlFilterTypedLink = Lens.lens (filterTypedLink :: ListIncomingTypedLinks -> Lude.Maybe TypedLinkSchemaAndFacetName) (\s a -> s {filterTypedLink = a} :: ListIncomingTypedLinks)
 {-# DEPRECATED litlFilterTypedLink "Use generic-lens or generic-optics with 'filterTypedLink' instead." #-}
 
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-litlMaxResults :: Lens.Lens' ListIncomingTypedLinks (Lude.Maybe Lude.Natural)
-litlMaxResults = Lens.lens (maxResults :: ListIncomingTypedLinks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIncomingTypedLinks)
-{-# DEPRECATED litlMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the directory where you want to list the typed links.
---
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-litlDirectoryARN :: Lens.Lens' ListIncomingTypedLinks Lude.Text
-litlDirectoryARN = Lens.lens (directoryARN :: ListIncomingTypedLinks -> Lude.Text) (\s a -> s {directoryARN = a} :: ListIncomingTypedLinks)
-{-# DEPRECATED litlDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
 -- | Reference that identifies the object whose attributes will be listed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 litlObjectReference :: Lens.Lens' ListIncomingTypedLinks ObjectReference
 litlObjectReference = Lens.lens (objectReference :: ListIncomingTypedLinks -> ObjectReference) (\s a -> s {objectReference = a} :: ListIncomingTypedLinks)
 {-# DEPRECATED litlObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+litlMaxResults :: Lens.Lens' ListIncomingTypedLinks (Lude.Maybe Lude.Natural)
+litlMaxResults = Lens.lens (maxResults :: ListIncomingTypedLinks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIncomingTypedLinks)
+{-# DEPRECATED litlMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListIncomingTypedLinks where
   page rq rs
@@ -177,8 +176,8 @@ instance Lude.ToJSON ListIncomingTypedLinks where
             ("ConsistencyLevel" Lude..=) Lude.<$> consistencyLevel,
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("FilterTypedLink" Lude..=) Lude.<$> filterTypedLink,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+            Lude.Just ("ObjectReference" Lude..= objectReference),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -191,20 +190,14 @@ instance Lude.ToQuery ListIncomingTypedLinks where
 
 -- | /See:/ 'mkListIncomingTypedLinksResponse' smart constructor.
 data ListIncomingTypedLinksResponse = ListIncomingTypedLinksResponse'
-  { linkSpecifiers ::
-      Lude.Maybe
-        [TypedLinkSpecifier],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Returns one or more typed link specifiers as output.
+    linkSpecifiers :: Lude.Maybe [TypedLinkSpecifier],
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIncomingTypedLinksResponse' with the minimum fields required to make a request.

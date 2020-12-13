@@ -33,26 +33,20 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkIntelligentTieringFilter' smart constructor.
 data IntelligentTieringFilter = IntelligentTieringFilter'
-  { tag ::
-      Lude.Maybe Tag,
+  { tag :: Lude.Maybe Tag,
+    -- | An object key name prefix that identifies the subset of objects to which the rule applies.
     prefix :: Lude.Maybe Lude.Text,
-    and ::
-      Lude.Maybe IntelligentTieringAndOperator
+    -- | A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+    and :: Lude.Maybe IntelligentTieringAndOperator
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntelligentTieringFilter' with the minimum fields required to make a request.
 --
--- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
+-- * 'tag' -
 -- * 'prefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
--- * 'tag' - Undocumented field.
+-- * 'and' - A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.
 mkIntelligentTieringFilter ::
   IntelligentTieringFilter
 mkIntelligentTieringFilter =

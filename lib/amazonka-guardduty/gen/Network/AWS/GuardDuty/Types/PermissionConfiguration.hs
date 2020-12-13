@@ -31,24 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPermissionConfiguration' smart constructor.
 data PermissionConfiguration = PermissionConfiguration'
-  { bucketLevelPermissions ::
-      Lude.Maybe BucketLevelPermissions,
-    accountLevelPermissions ::
-      Lude.Maybe AccountLevelPermissions
+  { -- | Contains information about the bucket level permissions for the S3 bucket.
+    bucketLevelPermissions :: Lude.Maybe BucketLevelPermissions,
+    -- | Contains information about the account level permissions on the S3 bucket.
+    accountLevelPermissions :: Lude.Maybe AccountLevelPermissions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PermissionConfiguration' with the minimum fields required to make a request.
 --
--- * 'accountLevelPermissions' - Contains information about the account level permissions on the S3 bucket.
 -- * 'bucketLevelPermissions' - Contains information about the bucket level permissions for the S3 bucket.
+-- * 'accountLevelPermissions' - Contains information about the account level permissions on the S3 bucket.
 mkPermissionConfiguration ::
   PermissionConfiguration
 mkPermissionConfiguration =

@@ -55,32 +55,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlias' smart constructor.
 data Alias = Alias'
-  { creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
     lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | A unique identifier for an alias. Alias IDs are unique within a Region.
     aliasId :: Lude.Maybe Lude.Text,
+    -- | The routing configuration, including routing type and fleet target, for the alias.
     routingStrategy :: Lude.Maybe RoutingStrategy,
+    -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
     name :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
     aliasARN :: Lude.Maybe Lude.Text,
+    -- | A human-readable description of an alias.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Alias' with the minimum fields required to make a request.
 --
--- * 'aliasARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
--- * 'aliasId' - A unique identifier for an alias. Alias IDs are unique within a Region.
 -- * 'creationTime' - A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'description' - A human-readable description of an alias.
 -- * 'lastUpdatedTime' - The time that this data object was last modified. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
+-- * 'aliasId' - A unique identifier for an alias. Alias IDs are unique within a Region.
 -- * 'routingStrategy' - The routing configuration, including routing type and fleet target, for the alias.
+-- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
+-- * 'aliasARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift alias ARN, the resource ID matches the alias ID value.
+-- * 'description' - A human-readable description of an alias.
 mkAlias ::
   Alias
 mkAlias =

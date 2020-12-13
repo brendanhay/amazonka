@@ -40,39 +40,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowRun' smart constructor.
 data WorkflowRun = WorkflowRun'
-  { completedOn ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when the workflow run completed.
+    completedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the workflow run.
     status :: Lude.Maybe WorkflowRunStatus,
+    -- | The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
     graph :: Lude.Maybe WorkflowGraph,
+    -- | The date and time when the workflow run was started.
     startedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of this workflow run.
     workflowRunId :: Lude.Maybe Lude.Text,
+    -- | Name of the workflow that was executed.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the previous workflow run.
     previousRunId :: Lude.Maybe Lude.Text,
+    -- | The statistics of the run.
     statistics :: Lude.Maybe WorkflowRunStatistics,
+    -- | This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: @foo@ ."
     errorMessage :: Lude.Maybe Lude.Text,
-    workflowRunProperties ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | The workflow run properties which were set during the run.
+    workflowRunProperties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowRun' with the minimum fields required to make a request.
 --
 -- * 'completedOn' - The date and time when the workflow run completed.
--- * 'errorMessage' - This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: @foo@ ."
+-- * 'status' - The status of the workflow run.
 -- * 'graph' - The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
+-- * 'startedOn' - The date and time when the workflow run was started.
+-- * 'workflowRunId' - The ID of this workflow run.
 -- * 'name' - Name of the workflow that was executed.
 -- * 'previousRunId' - The ID of the previous workflow run.
--- * 'startedOn' - The date and time when the workflow run was started.
 -- * 'statistics' - The statistics of the run.
--- * 'status' - The status of the workflow run.
--- * 'workflowRunId' - The ID of this workflow run.
+-- * 'errorMessage' - This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: @foo@ ."
 -- * 'workflowRunProperties' - The workflow run properties which were set during the run.
 mkWorkflowRun ::
   WorkflowRun

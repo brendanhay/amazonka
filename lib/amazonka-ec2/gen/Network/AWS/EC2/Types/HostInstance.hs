@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHostInstance' smart constructor.
 data HostInstance = HostInstance'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of instance that is running on the Dedicated Host.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The instance type (for example, @m3.medium@ ) of the running instance.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the instance.
     ownerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostInstance' with the minimum fields required to make a request.

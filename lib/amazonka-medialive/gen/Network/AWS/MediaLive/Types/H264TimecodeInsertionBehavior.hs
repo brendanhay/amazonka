@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.H264TimecodeInsertionBehavior
   ( H264TimecodeInsertionBehavior
       ( H264TimecodeInsertionBehavior',
-        H26Disabled,
-        H26PicTimingSei
+        HTIBfDisabled,
+        HTIBfPicTimingSei
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264TimecodeInsertionBehavior = H264TimecodeInsertionBehavior' Lude.Text
       Lude.ToHeader
     )
 
-pattern H26Disabled :: H264TimecodeInsertionBehavior
-pattern H26Disabled = H264TimecodeInsertionBehavior' "DISABLED"
+pattern HTIBfDisabled :: H264TimecodeInsertionBehavior
+pattern HTIBfDisabled = H264TimecodeInsertionBehavior' "DISABLED"
 
-pattern H26PicTimingSei :: H264TimecodeInsertionBehavior
-pattern H26PicTimingSei = H264TimecodeInsertionBehavior' "PIC_TIMING_SEI"
+pattern HTIBfPicTimingSei :: H264TimecodeInsertionBehavior
+pattern HTIBfPicTimingSei = H264TimecodeInsertionBehavior' "PIC_TIMING_SEI"
 
 {-# COMPLETE
-  H26Disabled,
-  H26PicTimingSei,
+  HTIBfDisabled,
+  HTIBfPicTimingSei,
   H264TimecodeInsertionBehavior'
   #-}

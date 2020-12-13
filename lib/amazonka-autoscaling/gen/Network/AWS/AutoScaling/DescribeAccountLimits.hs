@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,13 +42,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
@@ -87,31 +82,26 @@ instance Lude.ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'mkDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { numberOfLaunchConfigurations ::
-      Lude.Maybe Lude.Int,
-    numberOfAutoScalingGroups ::
-      Lude.Maybe Lude.Int,
-    maxNumberOfAutoScalingGroups ::
-      Lude.Maybe Lude.Int,
-    maxNumberOfLaunchConfigurations ::
-      Lude.Maybe Lude.Int,
+  { -- | The current number of launch configurations for your AWS account.
+    numberOfLaunchConfigurations :: Lude.Maybe Lude.Int,
+    -- | The current number of groups for your AWS account.
+    numberOfAutoScalingGroups :: Lude.Maybe Lude.Int,
+    -- | The maximum number of groups allowed for your AWS account. The default is 200 groups per AWS Region.
+    maxNumberOfAutoScalingGroups :: Lude.Maybe Lude.Int,
+    -- | The maximum number of launch configurations allowed for your AWS account. The default is 200 launch configurations per AWS Region.
+    maxNumberOfLaunchConfigurations :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
 --
+-- * 'numberOfLaunchConfigurations' - The current number of launch configurations for your AWS account.
+-- * 'numberOfAutoScalingGroups' - The current number of groups for your AWS account.
 -- * 'maxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your AWS account. The default is 200 groups per AWS Region.
 -- * 'maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your AWS account. The default is 200 launch configurations per AWS Region.
--- * 'numberOfAutoScalingGroups' - The current number of groups for your AWS account.
--- * 'numberOfLaunchConfigurations' - The current number of launch configurations for your AWS account.
 -- * 'responseStatus' - The response status code.
 mkDescribeAccountLimitsResponse ::
   -- | 'responseStatus'

@@ -13,9 +13,9 @@
 module Network.AWS.ServiceCatalog.Types.Replacement
   ( Replacement
       ( Replacement',
-        Conditional,
+        True,
         False,
-        True
+        Conditional
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype Replacement = Replacement' Lude.Text
       Lude.ToHeader
     )
 
-pattern Conditional :: Replacement
-pattern Conditional = Replacement' "CONDITIONAL"
+pattern True :: Replacement
+pattern True = Replacement' "TRUE"
 
 pattern False :: Replacement
 pattern False = Replacement' "FALSE"
 
-pattern True :: Replacement
-pattern True = Replacement' "TRUE"
+pattern Conditional :: Replacement
+pattern Conditional = Replacement' "CONDITIONAL"
 
 {-# COMPLETE
-  Conditional,
-  False,
   True,
+  False,
+  Conditional,
   Replacement'
   #-}

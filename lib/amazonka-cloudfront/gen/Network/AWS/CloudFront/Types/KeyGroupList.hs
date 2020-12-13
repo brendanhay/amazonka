@@ -17,10 +17,10 @@ module Network.AWS.CloudFront.Types.KeyGroupList
     mkKeyGroupList,
 
     -- * Lenses
-    kglItems,
-    kglNextMarker,
-    kglMaxItems,
     kglQuantity,
+    kglItems,
+    kglMaxItems,
+    kglNextMarker,
   )
 where
 
@@ -32,61 +32,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyGroupList' smart constructor.
 data KeyGroupList = KeyGroupList'
-  { items ::
-      Lude.Maybe [KeyGroupSummary],
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | The number of key groups returned in the response.
+    quantity :: Lude.Int,
+    -- | A list of key groups.
+    items :: Lude.Maybe [KeyGroupSummary],
+    -- | The maximum number of key groups requested.
     maxItems :: Lude.Int,
-    quantity :: Lude.Int
+    -- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing key groups.
+    nextMarker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyGroupList' with the minimum fields required to make a request.
 --
+-- * 'quantity' - The number of key groups returned in the response.
 -- * 'items' - A list of key groups.
 -- * 'maxItems' - The maximum number of key groups requested.
 -- * 'nextMarker' - If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing key groups.
--- * 'quantity' - The number of key groups returned in the response.
 mkKeyGroupList ::
-  -- | 'maxItems'
-  Lude.Int ->
   -- | 'quantity'
   Lude.Int ->
+  -- | 'maxItems'
+  Lude.Int ->
   KeyGroupList
-mkKeyGroupList pMaxItems_ pQuantity_ =
+mkKeyGroupList pQuantity_ pMaxItems_ =
   KeyGroupList'
-    { items = Lude.Nothing,
-      nextMarker = Lude.Nothing,
+    { quantity = pQuantity_,
+      items = Lude.Nothing,
       maxItems = pMaxItems_,
-      quantity = pQuantity_
+      nextMarker = Lude.Nothing
     }
-
--- | A list of key groups.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kglItems :: Lens.Lens' KeyGroupList (Lude.Maybe [KeyGroupSummary])
-kglItems = Lens.lens (items :: KeyGroupList -> Lude.Maybe [KeyGroupSummary]) (\s a -> s {items = a} :: KeyGroupList)
-{-# DEPRECATED kglItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing key groups.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kglNextMarker :: Lens.Lens' KeyGroupList (Lude.Maybe Lude.Text)
-kglNextMarker = Lens.lens (nextMarker :: KeyGroupList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: KeyGroupList)
-{-# DEPRECATED kglNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
-
--- | The maximum number of key groups requested.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kglMaxItems :: Lens.Lens' KeyGroupList Lude.Int
-kglMaxItems = Lens.lens (maxItems :: KeyGroupList -> Lude.Int) (\s a -> s {maxItems = a} :: KeyGroupList)
-{-# DEPRECATED kglMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The number of key groups returned in the response.
 --
@@ -95,12 +71,33 @@ kglQuantity :: Lens.Lens' KeyGroupList Lude.Int
 kglQuantity = Lens.lens (quantity :: KeyGroupList -> Lude.Int) (\s a -> s {quantity = a} :: KeyGroupList)
 {-# DEPRECATED kglQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A list of key groups.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kglItems :: Lens.Lens' KeyGroupList (Lude.Maybe [KeyGroupSummary])
+kglItems = Lens.lens (items :: KeyGroupList -> Lude.Maybe [KeyGroupSummary]) (\s a -> s {items = a} :: KeyGroupList)
+{-# DEPRECATED kglItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
+-- | The maximum number of key groups requested.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kglMaxItems :: Lens.Lens' KeyGroupList Lude.Int
+kglMaxItems = Lens.lens (maxItems :: KeyGroupList -> Lude.Int) (\s a -> s {maxItems = a} :: KeyGroupList)
+{-# DEPRECATED kglMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+
+-- | If there are more items in the list than are in this response, this element is present. It contains the value that you should use in the @Marker@ field of a subsequent request to continue listing key groups.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kglNextMarker :: Lens.Lens' KeyGroupList (Lude.Maybe Lude.Text)
+kglNextMarker = Lens.lens (nextMarker :: KeyGroupList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: KeyGroupList)
+{-# DEPRECATED kglNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
 instance Lude.FromXML KeyGroupList where
   parseXML x =
     KeyGroupList'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "KeyGroupSummary")
                )
-      Lude.<*> (x Lude..@? "NextMarker")
       Lude.<*> (x Lude..@ "MaxItems")
-      Lude.<*> (x Lude..@ "Quantity")
+      Lude.<*> (x Lude..@? "NextMarker")

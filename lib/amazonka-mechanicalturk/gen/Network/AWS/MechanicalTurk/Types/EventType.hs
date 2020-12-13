@@ -13,17 +13,17 @@
 module Network.AWS.MechanicalTurk.Types.EventType
   ( EventType
       ( EventType',
-        AssignmentAbandoned,
         AssignmentAccepted,
-        AssignmentApproved,
-        AssignmentRejected,
+        AssignmentAbandoned,
         AssignmentReturned,
         AssignmentSubmitted,
+        AssignmentRejected,
+        AssignmentApproved,
         HITCreated,
-        HITDisposed,
         HITExpired,
-        HITExtended,
         HITReviewable,
+        HITExtended,
+        HITDisposed,
         Ping
       ),
   )
@@ -55,17 +55,11 @@ newtype EventType = EventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AssignmentAbandoned :: EventType
-pattern AssignmentAbandoned = EventType' "AssignmentAbandoned"
-
 pattern AssignmentAccepted :: EventType
 pattern AssignmentAccepted = EventType' "AssignmentAccepted"
 
-pattern AssignmentApproved :: EventType
-pattern AssignmentApproved = EventType' "AssignmentApproved"
-
-pattern AssignmentRejected :: EventType
-pattern AssignmentRejected = EventType' "AssignmentRejected"
+pattern AssignmentAbandoned :: EventType
+pattern AssignmentAbandoned = EventType' "AssignmentAbandoned"
 
 pattern AssignmentReturned :: EventType
 pattern AssignmentReturned = EventType' "AssignmentReturned"
@@ -73,36 +67,42 @@ pattern AssignmentReturned = EventType' "AssignmentReturned"
 pattern AssignmentSubmitted :: EventType
 pattern AssignmentSubmitted = EventType' "AssignmentSubmitted"
 
+pattern AssignmentRejected :: EventType
+pattern AssignmentRejected = EventType' "AssignmentRejected"
+
+pattern AssignmentApproved :: EventType
+pattern AssignmentApproved = EventType' "AssignmentApproved"
+
 pattern HITCreated :: EventType
 pattern HITCreated = EventType' "HITCreated"
-
-pattern HITDisposed :: EventType
-pattern HITDisposed = EventType' "HITDisposed"
 
 pattern HITExpired :: EventType
 pattern HITExpired = EventType' "HITExpired"
 
+pattern HITReviewable :: EventType
+pattern HITReviewable = EventType' "HITReviewable"
+
 pattern HITExtended :: EventType
 pattern HITExtended = EventType' "HITExtended"
 
-pattern HITReviewable :: EventType
-pattern HITReviewable = EventType' "HITReviewable"
+pattern HITDisposed :: EventType
+pattern HITDisposed = EventType' "HITDisposed"
 
 pattern Ping :: EventType
 pattern Ping = EventType' "Ping"
 
 {-# COMPLETE
-  AssignmentAbandoned,
   AssignmentAccepted,
-  AssignmentApproved,
-  AssignmentRejected,
+  AssignmentAbandoned,
   AssignmentReturned,
   AssignmentSubmitted,
+  AssignmentRejected,
+  AssignmentApproved,
   HITCreated,
-  HITDisposed,
   HITExpired,
-  HITExtended,
   HITReviewable,
+  HITExtended,
+  HITDisposed,
   Ping,
   EventType'
   #-}

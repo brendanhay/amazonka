@@ -33,30 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdditionalAuthenticationProvider' smart constructor.
 data AdditionalAuthenticationProvider = AdditionalAuthenticationProvider'
-  { openIdConnectConfig ::
-      Lude.Maybe
-        OpenIdConnectConfig,
-    userPoolConfig ::
-      Lude.Maybe
-        CognitoUserPoolConfig,
-    authenticationType ::
-      Lude.Maybe
-        AuthenticationType
+  { -- | The OpenID Connect configuration.
+    openIdConnectConfig :: Lude.Maybe OpenIdConnectConfig,
+    -- | The Amazon Cognito user pool configuration.
+    userPoolConfig :: Lude.Maybe CognitoUserPoolConfig,
+    -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
+    authenticationType :: Lude.Maybe AuthenticationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdditionalAuthenticationProvider' with the minimum fields required to make a request.
 --
--- * 'authenticationType' - The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
 -- * 'openIdConnectConfig' - The OpenID Connect configuration.
 -- * 'userPoolConfig' - The Amazon Cognito user pool configuration.
+-- * 'authenticationType' - The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
 mkAdditionalAuthenticationProvider ::
   AdditionalAuthenticationProvider
 mkAdditionalAuthenticationProvider =

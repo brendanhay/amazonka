@@ -38,35 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFindingFilter' smart constructor.
 data FindingFilter = FindingFilter'
-  { agentIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
+    agentIds :: Lude.Maybe [Lude.Text],
+    -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
     ruleNames :: Lude.Maybe [Lude.Text],
+    -- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
     userAttributes :: Lude.Maybe [Attribute],
+    -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
     rulesPackageARNs :: Lude.Maybe [Lude.Text],
+    -- | For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
     attributes :: Lude.Maybe [Attribute],
+    -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
     severities :: Lude.Maybe [Severity],
+    -- | The time range during which the finding is generated.
     creationTimeRange :: Lude.Maybe TimestampRange,
+    -- | For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
     autoScalingGroups :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FindingFilter' with the minimum fields required to make a request.
 --
 -- * 'agentIds' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __agentId__ property of the 'Finding' data type.
--- * 'attributes' - For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
--- * 'autoScalingGroups' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
--- * 'creationTimeRange' - The time range during which the finding is generated.
 -- * 'ruleNames' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __ruleName__ property of the 'Finding' data type.
--- * 'rulesPackageARNs' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
--- * 'severities' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
 -- * 'userAttributes' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __userAttributes__ property of the 'Finding' data type.
+-- * 'rulesPackageARNs' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __rulesPackageArn__ property of the 'Finding' data type.
+-- * 'attributes' - For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the __attributes__ property of the 'Finding' data type.
+-- * 'severities' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __severity__ property of the 'Finding' data type.
+-- * 'creationTimeRange' - The time range during which the finding is generated.
+-- * 'autoScalingGroups' - For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the __autoScalingGroup__ property of the 'Finding' data type.
 mkFindingFilter ::
   FindingFilter
 mkFindingFilter =

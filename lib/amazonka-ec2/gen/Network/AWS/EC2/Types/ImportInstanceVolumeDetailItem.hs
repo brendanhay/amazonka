@@ -36,41 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportInstanceVolumeDetailItem' smart constructor.
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
-  { status ::
-      Lude.Maybe Lude.Text,
-    bytesConverted ::
-      Lude.Maybe Lude.Integer,
-    image ::
-      Lude.Maybe
-        DiskImageDescription,
-    volume ::
-      Lude.Maybe
-        DiskImageVolumeDescription,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
-    statusMessage ::
-      Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text
+  { -- | The status of the import of this particular disk image.
+    status :: Lude.Maybe Lude.Text,
+    -- | The number of bytes converted so far.
+    bytesConverted :: Lude.Maybe Lude.Integer,
+    -- | The image.
+    image :: Lude.Maybe DiskImageDescription,
+    -- | The volume.
+    volume :: Lude.Maybe DiskImageVolumeDescription,
+    -- | The Availability Zone where the resulting instance will reside.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The status information or errors related to the disk image.
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | A description of the task.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportInstanceVolumeDetailItem' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone where the resulting instance will reside.
--- * 'bytesConverted' - The number of bytes converted so far.
--- * 'description' - A description of the task.
--- * 'image' - The image.
 -- * 'status' - The status of the import of this particular disk image.
--- * 'statusMessage' - The status information or errors related to the disk image.
+-- * 'bytesConverted' - The number of bytes converted so far.
+-- * 'image' - The image.
 -- * 'volume' - The volume.
+-- * 'availabilityZone' - The Availability Zone where the resulting instance will reside.
+-- * 'statusMessage' - The status information or errors related to the disk image.
+-- * 'description' - A description of the task.
 mkImportInstanceVolumeDetailItem ::
   ImportInstanceVolumeDetailItem
 mkImportInstanceVolumeDetailItem =

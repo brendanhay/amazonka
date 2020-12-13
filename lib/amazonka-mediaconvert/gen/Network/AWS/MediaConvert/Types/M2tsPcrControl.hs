@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.M2tsPcrControl
   ( M2tsPcrControl
       ( M2tsPcrControl',
-        ConfiguredPcrPeriod,
-        PcrEveryPesPacket
+        PcrEveryPesPacket,
+        ConfiguredPcrPeriod
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M2tsPcrControl = M2tsPcrControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern ConfiguredPcrPeriod :: M2tsPcrControl
-pattern ConfiguredPcrPeriod = M2tsPcrControl' "CONFIGURED_PCR_PERIOD"
-
 pattern PcrEveryPesPacket :: M2tsPcrControl
 pattern PcrEveryPesPacket = M2tsPcrControl' "PCR_EVERY_PES_PACKET"
 
+pattern ConfiguredPcrPeriod :: M2tsPcrControl
+pattern ConfiguredPcrPeriod = M2tsPcrControl' "CONFIGURED_PCR_PERIOD"
+
 {-# COMPLETE
-  ConfiguredPcrPeriod,
   PcrEveryPesPacket,
+  ConfiguredPcrPeriod,
   M2tsPcrControl'
   #-}

@@ -33,27 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { s3Encryption ::
-      Lude.Maybe [S3Encryption],
-    jobBookmarksEncryption ::
-      Lude.Maybe JobBookmarksEncryption,
-    cloudWatchEncryption ::
-      Lude.Maybe CloudWatchEncryption
+  { -- | The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+    s3Encryption :: Lude.Maybe [S3Encryption],
+    -- | The encryption configuration for job bookmarks.
+    jobBookmarksEncryption :: Lude.Maybe JobBookmarksEncryption,
+    -- | The encryption configuration for Amazon CloudWatch.
+    cloudWatchEncryption :: Lude.Maybe CloudWatchEncryption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
 --
--- * 'cloudWatchEncryption' - The encryption configuration for Amazon CloudWatch.
--- * 'jobBookmarksEncryption' - The encryption configuration for job bookmarks.
 -- * 's3Encryption' - The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
+-- * 'jobBookmarksEncryption' - The encryption configuration for job bookmarks.
+-- * 'cloudWatchEncryption' - The encryption configuration for Amazon CloudWatch.
 mkEncryptionConfiguration ::
   EncryptionConfiguration
 mkEncryptionConfiguration =

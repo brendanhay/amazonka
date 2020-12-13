@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CostExplorer.ProvideAnomalyFeedback
     mkProvideAnomalyFeedbackResponse,
 
     -- ** Response lenses
-    pafrsResponseStatus,
     pafrsAnomalyId,
+    pafrsResponseStatus,
   )
 where
 
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkProvideAnomalyFeedback' smart constructor.
 data ProvideAnomalyFeedback = ProvideAnomalyFeedback'
-  { anomalyId ::
-      Lude.Text,
+  { -- | A cost anomaly ID.
+    anomalyId :: Lude.Text,
+    -- | Describes whether the cost anomaly was a planned activity or you considered it an anomaly.
     feedback :: AnomalyFeedbackType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvideAnomalyFeedback' with the minimum fields required to make a request.
@@ -90,7 +86,7 @@ instance Lude.AWSRequest ProvideAnomalyFeedback where
     Res.receiveJSON
       ( \s h x ->
           ProvideAnomalyFeedbackResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "AnomalyId")
+            Lude.<$> (x Lude..:> "AnomalyId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ProvideAnomalyFeedback where
@@ -123,17 +119,12 @@ instance Lude.ToQuery ProvideAnomalyFeedback where
 
 -- | /See:/ 'mkProvideAnomalyFeedbackResponse' smart constructor.
 data ProvideAnomalyFeedbackResponse = ProvideAnomalyFeedbackResponse'
-  { responseStatus ::
-      Lude.Int,
-    anomalyId :: Lude.Text
+  { -- | The ID of the modified cost anomaly.
+    anomalyId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvideAnomalyFeedbackResponse' with the minimum fields required to make a request.
@@ -141,24 +132,16 @@ data ProvideAnomalyFeedbackResponse = ProvideAnomalyFeedbackResponse'
 -- * 'anomalyId' - The ID of the modified cost anomaly.
 -- * 'responseStatus' - The response status code.
 mkProvideAnomalyFeedbackResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'anomalyId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ProvideAnomalyFeedbackResponse
-mkProvideAnomalyFeedbackResponse pResponseStatus_ pAnomalyId_ =
+mkProvideAnomalyFeedbackResponse pAnomalyId_ pResponseStatus_ =
   ProvideAnomalyFeedbackResponse'
-    { responseStatus =
-        pResponseStatus_,
-      anomalyId = pAnomalyId_
+    { anomalyId = pAnomalyId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pafrsResponseStatus :: Lens.Lens' ProvideAnomalyFeedbackResponse Lude.Int
-pafrsResponseStatus = Lens.lens (responseStatus :: ProvideAnomalyFeedbackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ProvideAnomalyFeedbackResponse)
-{-# DEPRECATED pafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The ID of the modified cost anomaly.
 --
@@ -166,3 +149,10 @@ pafrsResponseStatus = Lens.lens (responseStatus :: ProvideAnomalyFeedbackRespons
 pafrsAnomalyId :: Lens.Lens' ProvideAnomalyFeedbackResponse Lude.Text
 pafrsAnomalyId = Lens.lens (anomalyId :: ProvideAnomalyFeedbackResponse -> Lude.Text) (\s a -> s {anomalyId = a} :: ProvideAnomalyFeedbackResponse)
 {-# DEPRECATED pafrsAnomalyId "Use generic-lens or generic-optics with 'anomalyId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pafrsResponseStatus :: Lens.Lens' ProvideAnomalyFeedbackResponse Lude.Int
+pafrsResponseStatus = Lens.lens (responseStatus :: ProvideAnomalyFeedbackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ProvideAnomalyFeedbackResponse)
+{-# DEPRECATED pafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

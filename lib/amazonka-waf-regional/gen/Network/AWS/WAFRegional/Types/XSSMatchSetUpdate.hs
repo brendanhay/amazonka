@@ -17,8 +17,8 @@ module Network.AWS.WAFRegional.Types.XSSMatchSetUpdate
     mkXSSMatchSetUpdate,
 
     -- * Lenses
-    xmsuAction,
     xmsuXSSMatchTuple,
+    xmsuAction,
   )
 where
 
@@ -31,40 +31,29 @@ import Network.AWS.WAFRegional.Types.XSSMatchTuple
 --
 -- /See:/ 'mkXSSMatchSetUpdate' smart constructor.
 data XSSMatchSetUpdate = XSSMatchSetUpdate'
-  { action :: ChangeAction,
-    xssMatchTuple :: XSSMatchTuple
+  { -- | Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
+    xssMatchTuple :: XSSMatchTuple,
+    -- | Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
+    action :: ChangeAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'XSSMatchSetUpdate' with the minimum fields required to make a request.
 --
--- * 'action' - Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
 -- * 'xssMatchTuple' - Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
+-- * 'action' - Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
 mkXSSMatchSetUpdate ::
-  -- | 'action'
-  ChangeAction ->
   -- | 'xssMatchTuple'
   XSSMatchTuple ->
+  -- | 'action'
+  ChangeAction ->
   XSSMatchSetUpdate
-mkXSSMatchSetUpdate pAction_ pXSSMatchTuple_ =
+mkXSSMatchSetUpdate pXSSMatchTuple_ pAction_ =
   XSSMatchSetUpdate'
-    { action = pAction_,
-      xssMatchTuple = pXSSMatchTuple_
+    { xssMatchTuple = pXSSMatchTuple_,
+      action = pAction_
     }
-
--- | Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
---
--- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-xmsuAction :: Lens.Lens' XSSMatchSetUpdate ChangeAction
-xmsuAction = Lens.lens (action :: XSSMatchSetUpdate -> ChangeAction) (\s a -> s {action = a} :: XSSMatchSetUpdate)
-{-# DEPRECATED xmsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Specifies the part of a web request that you want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF to inspect a header, the name of the header.
 --
@@ -73,11 +62,18 @@ xmsuXSSMatchTuple :: Lens.Lens' XSSMatchSetUpdate XSSMatchTuple
 xmsuXSSMatchTuple = Lens.lens (xssMatchTuple :: XSSMatchSetUpdate -> XSSMatchTuple) (\s a -> s {xssMatchTuple = a} :: XSSMatchSetUpdate)
 {-# DEPRECATED xmsuXSSMatchTuple "Use generic-lens or generic-optics with 'xssMatchTuple' instead." #-}
 
+-- | Specify @INSERT@ to add an 'XssMatchSetUpdate' to an 'XssMatchSet' . Use @DELETE@ to remove an @XssMatchSetUpdate@ from an @XssMatchSet@ .
+--
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xmsuAction :: Lens.Lens' XSSMatchSetUpdate ChangeAction
+xmsuAction = Lens.lens (action :: XSSMatchSetUpdate -> ChangeAction) (\s a -> s {action = a} :: XSSMatchSetUpdate)
+{-# DEPRECATED xmsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
+
 instance Lude.ToJSON XSSMatchSetUpdate where
   toJSON XSSMatchSetUpdate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Action" Lude..= action),
-            Lude.Just ("XssMatchTuple" Lude..= xssMatchTuple)
+          [ Lude.Just ("XssMatchTuple" Lude..= xssMatchTuple),
+            Lude.Just ("Action" Lude..= action)
           ]
       )

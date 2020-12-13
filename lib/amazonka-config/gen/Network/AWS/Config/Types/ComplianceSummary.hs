@@ -31,20 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComplianceSummary' smart constructor.
 data ComplianceSummary = ComplianceSummary'
-  { complianceSummaryTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    compliantResourceCount ::
-      Lude.Maybe ComplianceContributorCount,
-    nonCompliantResourceCount ::
-      Lude.Maybe ComplianceContributorCount
+  { -- | The time that AWS Config created the compliance summary.
+    complianceSummaryTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources.
+    compliantResourceCount :: Lude.Maybe ComplianceContributorCount,
+    -- | The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources.
+    nonCompliantResourceCount :: Lude.Maybe ComplianceContributorCount
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceSummary' with the minimum fields required to make a request.

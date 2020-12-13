@@ -33,26 +33,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDefaultPushNotificationTemplate' smart constructor.
 data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
-  { body ::
-      Lude.Maybe Lude.Text,
+  { -- | The message body to use in push notifications that are based on the message template.
+    body :: Lude.Maybe Lude.Text,
+    -- | The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.
     url :: Lude.Maybe Lude.Text,
-    sound ::
-      Lude.Maybe Lude.Text,
+    -- | The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
+    --
+    -- For an iOS platform, this value is the key for the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.
+    sound :: Lude.Maybe Lude.Text,
+    -- | The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:
+    --
+    --
+    --     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+    --
+    --
+    --     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.
+    --
+    --
+    --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
     action :: Lude.Maybe Action,
-    title ::
-      Lude.Maybe Lude.Text
+    -- | The title to use in push notifications that are based on the message template. This title appears above the notification message on a recipient's device.
+    title :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultPushNotificationTemplate' with the minimum fields required to make a request.
 --
+-- * 'body' - The message body to use in push notifications that are based on the message template.
+-- * 'url' - The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.
+-- * 'sound' - The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
+--
+-- For an iOS platform, this value is the key for the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.
 -- * 'action' - The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:
 --
 --
@@ -65,12 +77,7 @@ data DefaultPushNotificationTemplate = DefaultPushNotificationTemplate'
 --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
 --
 --
--- * 'body' - The message body to use in push notifications that are based on the message template.
--- * 'sound' - The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
---
--- For an iOS platform, this value is the key for the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.
 -- * 'title' - The title to use in push notifications that are based on the message template. This title appears above the notification message on a recipient's device.
--- * 'url' - The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.
 mkDefaultPushNotificationTemplate ::
   DefaultPushNotificationTemplate
 mkDefaultPushNotificationTemplate =

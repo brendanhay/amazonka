@@ -40,39 +40,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionExecutionDetail' smart constructor.
 data ActionExecutionDetail = ActionExecutionDetail'
-  { status ::
-      Lude.Maybe ActionExecutionStatus,
+  { -- | The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
+    status :: Lude.Maybe ActionExecutionStatus,
+    -- | The start time of the action execution.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The version of the pipeline where the action was run.
     pipelineVersion :: Lude.Maybe Lude.Natural,
+    -- | Input details for the action execution, such as role ARN, Region, and input artifacts.
     input :: Lude.Maybe ActionExecutionInput,
+    -- | The name of the action.
     actionName :: Lude.Maybe Lude.Text,
+    -- | Output details for the action execution, such as the action execution result.
     output :: Lude.Maybe ActionExecutionOutput,
+    -- | The pipeline execution ID for the action execution.
     pipelineExecutionId :: Lude.Maybe Lude.Text,
+    -- | The name of the stage that contains the action.
     stageName :: Lude.Maybe Lude.Text,
+    -- | The last update time of the action execution.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The action execution ID.
     actionExecutionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionExecutionDetail' with the minimum fields required to make a request.
 --
--- * 'actionExecutionId' - The action execution ID.
--- * 'actionName' - The name of the action.
+-- * 'status' - The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
+-- * 'startTime' - The start time of the action execution.
+-- * 'pipelineVersion' - The version of the pipeline where the action was run.
 -- * 'input' - Input details for the action execution, such as role ARN, Region, and input artifacts.
--- * 'lastUpdateTime' - The last update time of the action execution.
+-- * 'actionName' - The name of the action.
 -- * 'output' - Output details for the action execution, such as the action execution result.
 -- * 'pipelineExecutionId' - The pipeline execution ID for the action execution.
--- * 'pipelineVersion' - The version of the pipeline where the action was run.
 -- * 'stageName' - The name of the stage that contains the action.
--- * 'startTime' - The start time of the action execution.
--- * 'status' - The status of the action execution. Status categories are @InProgress@ , @Succeeded@ , and @Failed@ .
+-- * 'lastUpdateTime' - The last update time of the action execution.
+-- * 'actionExecutionId' - The action execution ID.
 mkActionExecutionDetail ::
   ActionExecutionDetail
 mkActionExecutionDetail =

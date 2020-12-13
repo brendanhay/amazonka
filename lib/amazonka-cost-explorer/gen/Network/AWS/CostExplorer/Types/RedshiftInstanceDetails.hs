@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRedshiftInstanceDetails' smart constructor.
 data RedshiftInstanceDetails = RedshiftInstanceDetails'
-  { currentGeneration ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the recommendation is for a current-generation instance.
+    currentGeneration :: Lude.Maybe Lude.Bool,
+    -- | The instance family of the recommended reservation.
     family :: Lude.Maybe Lude.Text,
+    -- | Whether the recommended reservation is size flexible.
     sizeFlexEligible :: Lude.Maybe Lude.Bool,
+    -- | The AWS Region of the recommended reservation.
     region :: Lude.Maybe Lude.Text,
+    -- | The type of node that AWS recommends.
     nodeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RedshiftInstanceDetails' with the minimum fields required to make a request.
 --
 -- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
 -- * 'family' - The instance family of the recommended reservation.
--- * 'nodeType' - The type of node that AWS recommends.
--- * 'region' - The AWS Region of the recommended reservation.
 -- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
+-- * 'region' - The AWS Region of the recommended reservation.
+-- * 'nodeType' - The type of node that AWS recommends.
 mkRedshiftInstanceDetails ::
   RedshiftInstanceDetails
 mkRedshiftInstanceDetails =

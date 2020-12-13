@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.OpsWorks.UpdateRDSDBInstance
     mkUpdateRDSDBInstance,
 
     -- ** Request lenses
+    urdiRDSDBInstanceARN,
     urdiDBUser,
     urdiDBPassword,
-    urdiRDSDBInstanceARN,
 
     -- * Destructuring the response
     UpdateRDSDBInstanceResponse (..),
@@ -39,35 +40,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRDSDBInstance' smart constructor.
 data UpdateRDSDBInstance = UpdateRDSDBInstance'
-  { dbUser ::
-      Lude.Maybe Lude.Text,
-    dbPassword :: Lude.Maybe Lude.Text,
-    rdsDBInstanceARN :: Lude.Text
+  { -- | The Amazon RDS instance's ARN.
+    rdsDBInstanceARN :: Lude.Text,
+    -- | The master user name.
+    dbUser :: Lude.Maybe Lude.Text,
+    -- | The database password.
+    dbPassword :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRDSDBInstance' with the minimum fields required to make a request.
 --
--- * 'dbPassword' - The database password.
--- * 'dbUser' - The master user name.
 -- * 'rdsDBInstanceARN' - The Amazon RDS instance's ARN.
+-- * 'dbUser' - The master user name.
+-- * 'dbPassword' - The database password.
 mkUpdateRDSDBInstance ::
   -- | 'rdsDBInstanceARN'
   Lude.Text ->
   UpdateRDSDBInstance
 mkUpdateRDSDBInstance pRDSDBInstanceARN_ =
   UpdateRDSDBInstance'
-    { dbUser = Lude.Nothing,
-      dbPassword = Lude.Nothing,
-      rdsDBInstanceARN = pRDSDBInstanceARN_
+    { rdsDBInstanceARN = pRDSDBInstanceARN_,
+      dbUser = Lude.Nothing,
+      dbPassword = Lude.Nothing
     }
+
+-- | The Amazon RDS instance's ARN.
+--
+-- /Note:/ Consider using 'rdsDBInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urdiRDSDBInstanceARN :: Lens.Lens' UpdateRDSDBInstance Lude.Text
+urdiRDSDBInstanceARN = Lens.lens (rdsDBInstanceARN :: UpdateRDSDBInstance -> Lude.Text) (\s a -> s {rdsDBInstanceARN = a} :: UpdateRDSDBInstance)
+{-# DEPRECATED urdiRDSDBInstanceARN "Use generic-lens or generic-optics with 'rdsDBInstanceARN' instead." #-}
 
 -- | The master user name.
 --
@@ -82,13 +86,6 @@ urdiDBUser = Lens.lens (dbUser :: UpdateRDSDBInstance -> Lude.Maybe Lude.Text) (
 urdiDBPassword :: Lens.Lens' UpdateRDSDBInstance (Lude.Maybe Lude.Text)
 urdiDBPassword = Lens.lens (dbPassword :: UpdateRDSDBInstance -> Lude.Maybe Lude.Text) (\s a -> s {dbPassword = a} :: UpdateRDSDBInstance)
 {-# DEPRECATED urdiDBPassword "Use generic-lens or generic-optics with 'dbPassword' instead." #-}
-
--- | The Amazon RDS instance's ARN.
---
--- /Note:/ Consider using 'rdsDBInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urdiRDSDBInstanceARN :: Lens.Lens' UpdateRDSDBInstance Lude.Text
-urdiRDSDBInstanceARN = Lens.lens (rdsDBInstanceARN :: UpdateRDSDBInstance -> Lude.Text) (\s a -> s {rdsDBInstanceARN = a} :: UpdateRDSDBInstance)
-{-# DEPRECATED urdiRDSDBInstanceARN "Use generic-lens or generic-optics with 'rdsDBInstanceARN' instead." #-}
 
 instance Lude.AWSRequest UpdateRDSDBInstance where
   type Rs UpdateRDSDBInstance = UpdateRDSDBInstanceResponse
@@ -110,9 +107,9 @@ instance Lude.ToJSON UpdateRDSDBInstance where
   toJSON UpdateRDSDBInstance' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DbUser" Lude..=) Lude.<$> dbUser,
-            ("DbPassword" Lude..=) Lude.<$> dbPassword,
-            Lude.Just ("RdsDbInstanceArn" Lude..= rdsDBInstanceARN)
+          [ Lude.Just ("RdsDbInstanceArn" Lude..= rdsDBInstanceARN),
+            ("DbUser" Lude..=) Lude.<$> dbUser,
+            ("DbPassword" Lude..=) Lude.<$> dbPassword
           ]
       )
 
@@ -124,13 +121,7 @@ instance Lude.ToQuery UpdateRDSDBInstance where
 
 -- | /See:/ 'mkUpdateRDSDBInstanceResponse' smart constructor.
 data UpdateRDSDBInstanceResponse = UpdateRDSDBInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRDSDBInstanceResponse' with the minimum fields required to make a request.

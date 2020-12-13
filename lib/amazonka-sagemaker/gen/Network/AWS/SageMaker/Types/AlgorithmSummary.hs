@@ -17,10 +17,10 @@ module Network.AWS.SageMaker.Types.AlgorithmSummary
     mkAlgorithmSummary,
 
     -- * Lenses
-    aAlgorithmDescription,
-    aAlgorithmName,
-    aAlgorithmARN,
     aCreationTime,
+    aAlgorithmARN,
+    aAlgorithmName,
+    aAlgorithmDescription,
     aAlgorithmStatus,
   )
 where
@@ -33,65 +33,56 @@ import Network.AWS.SageMaker.Types.AlgorithmStatus
 --
 -- /See:/ 'mkAlgorithmSummary' smart constructor.
 data AlgorithmSummary = AlgorithmSummary'
-  { algorithmDescription ::
-      Lude.Maybe Lude.Text,
-    algorithmName :: Lude.Text,
-    algorithmARN :: Lude.Text,
+  { -- | A timestamp that shows when the algorithm was created.
     creationTime :: Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the algorithm.
+    algorithmARN :: Lude.Text,
+    -- | The name of the algorithm that is described by the summary.
+    algorithmName :: Lude.Text,
+    -- | A brief description of the algorithm.
+    algorithmDescription :: Lude.Maybe Lude.Text,
+    -- | The overall status of the algorithm.
     algorithmStatus :: AlgorithmStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlgorithmSummary' with the minimum fields required to make a request.
 --
--- * 'algorithmARN' - The Amazon Resource Name (ARN) of the algorithm.
--- * 'algorithmDescription' - A brief description of the algorithm.
--- * 'algorithmName' - The name of the algorithm that is described by the summary.
--- * 'algorithmStatus' - The overall status of the algorithm.
 -- * 'creationTime' - A timestamp that shows when the algorithm was created.
+-- * 'algorithmARN' - The Amazon Resource Name (ARN) of the algorithm.
+-- * 'algorithmName' - The name of the algorithm that is described by the summary.
+-- * 'algorithmDescription' - A brief description of the algorithm.
+-- * 'algorithmStatus' - The overall status of the algorithm.
 mkAlgorithmSummary ::
-  -- | 'algorithmName'
-  Lude.Text ->
-  -- | 'algorithmARN'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'algorithmARN'
+  Lude.Text ->
+  -- | 'algorithmName'
+  Lude.Text ->
   -- | 'algorithmStatus'
   AlgorithmStatus ->
   AlgorithmSummary
 mkAlgorithmSummary
-  pAlgorithmName_
-  pAlgorithmARN_
   pCreationTime_
+  pAlgorithmARN_
+  pAlgorithmName_
   pAlgorithmStatus_ =
     AlgorithmSummary'
-      { algorithmDescription = Lude.Nothing,
-        algorithmName = pAlgorithmName_,
+      { creationTime = pCreationTime_,
         algorithmARN = pAlgorithmARN_,
-        creationTime = pCreationTime_,
+        algorithmName = pAlgorithmName_,
+        algorithmDescription = Lude.Nothing,
         algorithmStatus = pAlgorithmStatus_
       }
 
--- | A brief description of the algorithm.
+-- | A timestamp that shows when the algorithm was created.
 --
--- /Note:/ Consider using 'algorithmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlgorithmDescription :: Lens.Lens' AlgorithmSummary (Lude.Maybe Lude.Text)
-aAlgorithmDescription = Lens.lens (algorithmDescription :: AlgorithmSummary -> Lude.Maybe Lude.Text) (\s a -> s {algorithmDescription = a} :: AlgorithmSummary)
-{-# DEPRECATED aAlgorithmDescription "Use generic-lens or generic-optics with 'algorithmDescription' instead." #-}
-
--- | The name of the algorithm that is described by the summary.
---
--- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlgorithmName :: Lens.Lens' AlgorithmSummary Lude.Text
-aAlgorithmName = Lens.lens (algorithmName :: AlgorithmSummary -> Lude.Text) (\s a -> s {algorithmName = a} :: AlgorithmSummary)
-{-# DEPRECATED aAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCreationTime :: Lens.Lens' AlgorithmSummary Lude.Timestamp
+aCreationTime = Lens.lens (creationTime :: AlgorithmSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: AlgorithmSummary)
+{-# DEPRECATED aCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the algorithm.
 --
@@ -100,12 +91,19 @@ aAlgorithmARN :: Lens.Lens' AlgorithmSummary Lude.Text
 aAlgorithmARN = Lens.lens (algorithmARN :: AlgorithmSummary -> Lude.Text) (\s a -> s {algorithmARN = a} :: AlgorithmSummary)
 {-# DEPRECATED aAlgorithmARN "Use generic-lens or generic-optics with 'algorithmARN' instead." #-}
 
--- | A timestamp that shows when the algorithm was created.
+-- | The name of the algorithm that is described by the summary.
 --
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCreationTime :: Lens.Lens' AlgorithmSummary Lude.Timestamp
-aCreationTime = Lens.lens (creationTime :: AlgorithmSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: AlgorithmSummary)
-{-# DEPRECATED aCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+-- /Note:/ Consider using 'algorithmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAlgorithmName :: Lens.Lens' AlgorithmSummary Lude.Text
+aAlgorithmName = Lens.lens (algorithmName :: AlgorithmSummary -> Lude.Text) (\s a -> s {algorithmName = a} :: AlgorithmSummary)
+{-# DEPRECATED aAlgorithmName "Use generic-lens or generic-optics with 'algorithmName' instead." #-}
+
+-- | A brief description of the algorithm.
+--
+-- /Note:/ Consider using 'algorithmDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAlgorithmDescription :: Lens.Lens' AlgorithmSummary (Lude.Maybe Lude.Text)
+aAlgorithmDescription = Lens.lens (algorithmDescription :: AlgorithmSummary -> Lude.Maybe Lude.Text) (\s a -> s {algorithmDescription = a} :: AlgorithmSummary)
+{-# DEPRECATED aAlgorithmDescription "Use generic-lens or generic-optics with 'algorithmDescription' instead." #-}
 
 -- | The overall status of the algorithm.
 --
@@ -120,9 +118,9 @@ instance Lude.FromJSON AlgorithmSummary where
       "AlgorithmSummary"
       ( \x ->
           AlgorithmSummary'
-            Lude.<$> (x Lude..:? "AlgorithmDescription")
-            Lude.<*> (x Lude..: "AlgorithmName")
+            Lude.<$> (x Lude..: "CreationTime")
             Lude.<*> (x Lude..: "AlgorithmArn")
-            Lude.<*> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..: "AlgorithmName")
+            Lude.<*> (x Lude..:? "AlgorithmDescription")
             Lude.<*> (x Lude..: "AlgorithmStatus")
       )

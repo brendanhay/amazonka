@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
     mkAssociatePrincipalWithPortfolio,
 
     -- ** Request lenses
-    aAcceptLanguage,
-    aPortfolioId,
-    aPrincipalARN,
-    aPrincipalType,
+    apwpPortfolioId,
+    apwpPrincipalType,
+    apwpPrincipalARN,
+    apwpAcceptLanguage,
 
     -- * Destructuring the response
     AssociatePrincipalWithPortfolioResponse (..),
     mkAssociatePrincipalWithPortfolioResponse,
 
     -- ** Response lenses
-    apwprsResponseStatus,
+    arsResponseStatus,
   )
 where
 
@@ -41,24 +42,32 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkAssociatePrincipalWithPortfolio' smart constructor.
 data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The portfolio identifier.
     portfolioId :: Lude.Text,
+    -- | The principal type. The supported value is @IAM@ .
+    principalType :: PrincipalType,
+    -- | The ARN of the principal (IAM user, role, or group).
     principalARN :: Lude.Text,
-    principalType ::
-      PrincipalType
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociatePrincipalWithPortfolio' with the minimum fields required to make a request.
 --
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'principalType' - The principal type. The supported value is @IAM@ .
+-- * 'principalARN' - The ARN of the principal (IAM user, role, or group).
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -69,29 +78,45 @@ data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
 --
 --
 --     * @zh@ - Chinese
---
---
--- * 'portfolioId' - The portfolio identifier.
--- * 'principalARN' - The ARN of the principal (IAM user, role, or group).
--- * 'principalType' - The principal type. The supported value is @IAM@ .
 mkAssociatePrincipalWithPortfolio ::
   -- | 'portfolioId'
   Lude.Text ->
-  -- | 'principalARN'
-  Lude.Text ->
   -- | 'principalType'
   PrincipalType ->
+  -- | 'principalARN'
+  Lude.Text ->
   AssociatePrincipalWithPortfolio
 mkAssociatePrincipalWithPortfolio
   pPortfolioId_
-  pPrincipalARN_
-  pPrincipalType_ =
+  pPrincipalType_
+  pPrincipalARN_ =
     AssociatePrincipalWithPortfolio'
-      { acceptLanguage = Lude.Nothing,
-        portfolioId = pPortfolioId_,
+      { portfolioId = pPortfolioId_,
+        principalType = pPrincipalType_,
         principalARN = pPrincipalARN_,
-        principalType = pPrincipalType_
+        acceptLanguage = Lude.Nothing
       }
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apwpPortfolioId :: Lens.Lens' AssociatePrincipalWithPortfolio Lude.Text
+apwpPortfolioId = Lens.lens (portfolioId :: AssociatePrincipalWithPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: AssociatePrincipalWithPortfolio)
+{-# DEPRECATED apwpPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+
+-- | The principal type. The supported value is @IAM@ .
+--
+-- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apwpPrincipalType :: Lens.Lens' AssociatePrincipalWithPortfolio PrincipalType
+apwpPrincipalType = Lens.lens (principalType :: AssociatePrincipalWithPortfolio -> PrincipalType) (\s a -> s {principalType = a} :: AssociatePrincipalWithPortfolio)
+{-# DEPRECATED apwpPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
+
+-- | The ARN of the principal (IAM user, role, or group).
+--
+-- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apwpPrincipalARN :: Lens.Lens' AssociatePrincipalWithPortfolio Lude.Text
+apwpPrincipalARN = Lens.lens (principalARN :: AssociatePrincipalWithPortfolio -> Lude.Text) (\s a -> s {principalARN = a} :: AssociatePrincipalWithPortfolio)
+{-# DEPRECATED apwpPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
 -- | The language code.
 --
@@ -107,30 +132,9 @@ mkAssociatePrincipalWithPortfolio
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAcceptLanguage :: Lens.Lens' AssociatePrincipalWithPortfolio (Lude.Maybe Lude.Text)
-aAcceptLanguage = Lens.lens (acceptLanguage :: AssociatePrincipalWithPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: AssociatePrincipalWithPortfolio)
-{-# DEPRECATED aAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPortfolioId :: Lens.Lens' AssociatePrincipalWithPortfolio Lude.Text
-aPortfolioId = Lens.lens (portfolioId :: AssociatePrincipalWithPortfolio -> Lude.Text) (\s a -> s {portfolioId = a} :: AssociatePrincipalWithPortfolio)
-{-# DEPRECATED aPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
-
--- | The ARN of the principal (IAM user, role, or group).
---
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPrincipalARN :: Lens.Lens' AssociatePrincipalWithPortfolio Lude.Text
-aPrincipalARN = Lens.lens (principalARN :: AssociatePrincipalWithPortfolio -> Lude.Text) (\s a -> s {principalARN = a} :: AssociatePrincipalWithPortfolio)
-{-# DEPRECATED aPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
-
--- | The principal type. The supported value is @IAM@ .
---
--- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPrincipalType :: Lens.Lens' AssociatePrincipalWithPortfolio PrincipalType
-aPrincipalType = Lens.lens (principalType :: AssociatePrincipalWithPortfolio -> PrincipalType) (\s a -> s {principalType = a} :: AssociatePrincipalWithPortfolio)
-{-# DEPRECATED aPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
+apwpAcceptLanguage :: Lens.Lens' AssociatePrincipalWithPortfolio (Lude.Maybe Lude.Text)
+apwpAcceptLanguage = Lens.lens (acceptLanguage :: AssociatePrincipalWithPortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: AssociatePrincipalWithPortfolio)
+{-# DEPRECATED apwpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 instance Lude.AWSRequest AssociatePrincipalWithPortfolio where
   type
@@ -161,10 +165,10 @@ instance Lude.ToJSON AssociatePrincipalWithPortfolio where
   toJSON AssociatePrincipalWithPortfolio' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("PortfolioId" Lude..= portfolioId),
+          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
+            Lude.Just ("PrincipalType" Lude..= principalType),
             Lude.Just ("PrincipalARN" Lude..= principalARN),
-            Lude.Just ("PrincipalType" Lude..= principalType)
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage
           ]
       )
 
@@ -176,16 +180,10 @@ instance Lude.ToQuery AssociatePrincipalWithPortfolio where
 
 -- | /See:/ 'mkAssociatePrincipalWithPortfolioResponse' smart constructor.
 newtype AssociatePrincipalWithPortfolioResponse = AssociatePrincipalWithPortfolioResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociatePrincipalWithPortfolioResponse' with the minimum fields required to make a request.
@@ -204,6 +202,6 @@ mkAssociatePrincipalWithPortfolioResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apwprsResponseStatus :: Lens.Lens' AssociatePrincipalWithPortfolioResponse Lude.Int
-apwprsResponseStatus = Lens.lens (responseStatus :: AssociatePrincipalWithPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociatePrincipalWithPortfolioResponse)
-{-# DEPRECATED apwprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+arsResponseStatus :: Lens.Lens' AssociatePrincipalWithPortfolioResponse Lude.Int
+arsResponseStatus = Lens.lens (responseStatus :: AssociatePrincipalWithPortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociatePrincipalWithPortfolioResponse)
+{-# DEPRECATED arsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSecurityProfiles' smart constructor.
 data ListSecurityProfiles = ListSecurityProfiles'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A filter to limit results to the security profiles that use the defined dimension.
     dimensionName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityProfiles' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of results.
 -- * 'dimensionName' - A filter to limit results to the security profiles that use the defined dimension.
 -- * 'maxResults' - The maximum number of results to return at one time.
--- * 'nextToken' - The token for the next set of results.
 mkListSecurityProfiles ::
   ListSecurityProfiles
 mkListSecurityProfiles =
@@ -132,27 +129,21 @@ instance Lude.ToQuery ListSecurityProfiles where
 
 -- | /See:/ 'mkListSecurityProfilesResponse' smart constructor.
 data ListSecurityProfilesResponse = ListSecurityProfilesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    securityProfileIdentifiers ::
-      Lude.Maybe
-        [SecurityProfileIdentifier],
+  { -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of security profile identifiers (names and ARNs).
+    securityProfileIdentifiers :: Lude.Maybe [SecurityProfileIdentifier],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityProfilesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
--- * 'responseStatus' - The response status code.
 -- * 'securityProfileIdentifiers' - A list of security profile identifiers (names and ARNs).
+-- * 'responseStatus' - The response status code.
 mkListSecurityProfilesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

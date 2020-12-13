@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteFaces' smart constructor.
 data DeleteFaces = DeleteFaces'
-  { collectionId :: Lude.Text,
+  { -- | Collection from which to remove the specific faces.
+    collectionId :: Lude.Text,
+    -- | An array of face IDs to delete.
     faceIds :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFaces' with the minimum fields required to make a request.
@@ -119,17 +116,12 @@ instance Lude.ToQuery DeleteFaces where
 
 -- | /See:/ 'mkDeleteFacesResponse' smart constructor.
 data DeleteFacesResponse = DeleteFacesResponse'
-  { deletedFaces ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | An array of strings (face IDs) of the faces that were deleted.
+    deletedFaces :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFacesResponse' with the minimum fields required to make a request.

@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssociationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
-  { code ::
-      Lude.Maybe AssociationStatusCode,
+  { -- | The state of the target network association.
+    code :: Lude.Maybe AssociationStatusCode,
+    -- | A message about the status of the target network association, if applicable.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationStatus' with the minimum fields required to make a request.

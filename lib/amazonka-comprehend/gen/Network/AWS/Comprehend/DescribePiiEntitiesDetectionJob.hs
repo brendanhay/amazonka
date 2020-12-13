@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribePiiEntitiesDetectionJob' smart constructor.
 newtype DescribePiiEntitiesDetectionJob = DescribePiiEntitiesDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePiiEntitiesDetectionJob' with the minimum fields required to make a request.
@@ -106,24 +101,16 @@ instance Lude.ToQuery DescribePiiEntitiesDetectionJob where
 
 -- | /See:/ 'mkDescribePiiEntitiesDetectionJobResponse' smart constructor.
 data DescribePiiEntitiesDetectionJobResponse = DescribePiiEntitiesDetectionJobResponse'
-  { piiEntitiesDetectionJobProperties ::
-      Lude.Maybe
-        PiiEntitiesDetectionJobProperties,
-    responseStatus ::
-      Lude.Int
+  { piiEntitiesDetectionJobProperties :: Lude.Maybe PiiEntitiesDetectionJobProperties,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePiiEntitiesDetectionJobResponse' with the minimum fields required to make a request.
 --
--- * 'piiEntitiesDetectionJobProperties' - Undocumented field.
+-- * 'piiEntitiesDetectionJobProperties' -
 -- * 'responseStatus' - The response status code.
 mkDescribePiiEntitiesDetectionJobResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.Lightsail.CreateDiskSnapshot
     mkCreateDiskSnapshot,
 
     -- ** Request lenses
+    cdsDiskSnapshotName,
     cdsDiskName,
     cdsInstanceName,
     cdsTags,
-    cdsDiskSnapshotName,
 
     -- * Destructuring the response
     CreateDiskSnapshotResponse (..),
@@ -46,25 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDiskSnapshot' smart constructor.
 data CreateDiskSnapshot = CreateDiskSnapshot'
-  { diskName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the destination disk snapshot (e.g., @my-disk-snapshot@ ) based on the source disk.
+    diskSnapshotName :: Lude.Text,
+    -- | The unique name of the source disk (e.g., @Disk-Virginia-1@ ).
+    diskName :: Lude.Maybe Lude.Text,
+    -- | The unique name of the source instance (e.g., @Amazon_Linux-512MB-Virginia-1@ ). When this is defined, a snapshot of the instance's system volume is created.
     instanceName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    diskSnapshotName :: Lude.Text
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDiskSnapshot' with the minimum fields required to make a request.
 --
--- * 'diskName' - The unique name of the source disk (e.g., @Disk-Virginia-1@ ).
 -- * 'diskSnapshotName' - The name of the destination disk snapshot (e.g., @my-disk-snapshot@ ) based on the source disk.
+-- * 'diskName' - The unique name of the source disk (e.g., @Disk-Virginia-1@ ).
 -- * 'instanceName' - The unique name of the source instance (e.g., @Amazon_Linux-512MB-Virginia-1@ ). When this is defined, a snapshot of the instance's system volume is created.
 -- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
@@ -75,11 +75,18 @@ mkCreateDiskSnapshot ::
   CreateDiskSnapshot
 mkCreateDiskSnapshot pDiskSnapshotName_ =
   CreateDiskSnapshot'
-    { diskName = Lude.Nothing,
+    { diskSnapshotName = pDiskSnapshotName_,
+      diskName = Lude.Nothing,
       instanceName = Lude.Nothing,
-      tags = Lude.Nothing,
-      diskSnapshotName = pDiskSnapshotName_
+      tags = Lude.Nothing
     }
+
+-- | The name of the destination disk snapshot (e.g., @my-disk-snapshot@ ) based on the source disk.
+--
+-- /Note:/ Consider using 'diskSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDiskSnapshotName :: Lens.Lens' CreateDiskSnapshot Lude.Text
+cdsDiskSnapshotName = Lens.lens (diskSnapshotName :: CreateDiskSnapshot -> Lude.Text) (\s a -> s {diskSnapshotName = a} :: CreateDiskSnapshot)
+{-# DEPRECATED cdsDiskSnapshotName "Use generic-lens or generic-optics with 'diskSnapshotName' instead." #-}
 
 -- | The unique name of the source disk (e.g., @Disk-Virginia-1@ ).
 --
@@ -103,13 +110,6 @@ cdsInstanceName = Lens.lens (instanceName :: CreateDiskSnapshot -> Lude.Maybe Lu
 cdsTags :: Lens.Lens' CreateDiskSnapshot (Lude.Maybe [Tag])
 cdsTags = Lens.lens (tags :: CreateDiskSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDiskSnapshot)
 {-# DEPRECATED cdsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the destination disk snapshot (e.g., @my-disk-snapshot@ ) based on the source disk.
---
--- /Note:/ Consider using 'diskSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsDiskSnapshotName :: Lens.Lens' CreateDiskSnapshot Lude.Text
-cdsDiskSnapshotName = Lens.lens (diskSnapshotName :: CreateDiskSnapshot -> Lude.Text) (\s a -> s {diskSnapshotName = a} :: CreateDiskSnapshot)
-{-# DEPRECATED cdsDiskSnapshotName "Use generic-lens or generic-optics with 'diskSnapshotName' instead." #-}
 
 instance Lude.AWSRequest CreateDiskSnapshot where
   type Rs CreateDiskSnapshot = CreateDiskSnapshotResponse
@@ -137,10 +137,10 @@ instance Lude.ToJSON CreateDiskSnapshot where
   toJSON CreateDiskSnapshot' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("diskName" Lude..=) Lude.<$> diskName,
+          [ Lude.Just ("diskSnapshotName" Lude..= diskSnapshotName),
+            ("diskName" Lude..=) Lude.<$> diskName,
             ("instanceName" Lude..=) Lude.<$> instanceName,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("diskSnapshotName" Lude..= diskSnapshotName)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -152,17 +152,12 @@ instance Lude.ToQuery CreateDiskSnapshot where
 
 -- | /See:/ 'mkCreateDiskSnapshotResponse' smart constructor.
 data CreateDiskSnapshotResponse = CreateDiskSnapshotResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDiskSnapshotResponse' with the minimum fields required to make a request.

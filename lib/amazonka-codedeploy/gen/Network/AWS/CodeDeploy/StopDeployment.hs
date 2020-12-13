@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStopDeployment' smart constructor.
 data StopDeployment = StopDeployment'
-  { autoRollbackEnabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision.
+    autoRollbackEnabled :: Lude.Maybe Lude.Bool,
+    -- | The unique ID of a deployment.
     deploymentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDeployment' with the minimum fields required to make a request.
@@ -126,23 +122,24 @@ instance Lude.ToQuery StopDeployment where
 --
 -- /See:/ 'mkStopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
-  { status ::
-      Lude.Maybe StopStatus,
+  { -- | The status of the stop deployment operation:
+    --
+    --
+    --     * Pending: The stop operation is pending.
+    --
+    --
+    --     * Succeeded: The stop operation was successful.
+    status :: Lude.Maybe StopStatus,
+    -- | An accompanying status message.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopDeploymentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the stop deployment operation:
 --
 --
@@ -153,6 +150,7 @@ data StopDeploymentResponse = StopDeploymentResponse'
 --
 --
 -- * 'statusMessage' - An accompanying status message.
+-- * 'responseStatus' - The response status code.
 mkStopDeploymentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

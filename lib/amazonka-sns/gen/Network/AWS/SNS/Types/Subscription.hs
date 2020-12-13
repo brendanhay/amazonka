@@ -32,28 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { protocol :: Lude.Maybe Lude.Text,
+  { -- | The subscription's protocol.
+    protocol :: Lude.Maybe Lude.Text,
+    -- | The subscription's owner.
     owner :: Lude.Maybe Lude.Text,
+    -- | The ARN of the subscription's topic.
     topicARN :: Lude.Maybe Lude.Text,
+    -- | The subscription's endpoint (format depends on the protocol).
     endpoint :: Lude.Maybe Lude.Text,
+    -- | The subscription's ARN.
     subscriptionARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
--- * 'endpoint' - The subscription's endpoint (format depends on the protocol).
--- * 'owner' - The subscription's owner.
 -- * 'protocol' - The subscription's protocol.
--- * 'subscriptionARN' - The subscription's ARN.
+-- * 'owner' - The subscription's owner.
 -- * 'topicARN' - The ARN of the subscription's topic.
+-- * 'endpoint' - The subscription's endpoint (format depends on the protocol).
+-- * 'subscriptionARN' - The subscription's ARN.
 mkSubscription ::
   Subscription
 mkSubscription =

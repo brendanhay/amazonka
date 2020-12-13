@@ -31,25 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCostCategoryValues' smart constructor.
 data CostCategoryValues = CostCategoryValues'
-  { values ::
-      Lude.Maybe [Lude.Text],
+  { -- | The specific value of the Cost Category.
+    values :: Lude.Maybe [Lude.Text],
     key :: Lude.Maybe Lude.Text,
+    -- | The match options that you can use to filter your results. MatchOptions is only applicable for only applicable for actions related to cost category. The default values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@ .
     matchOptions :: Lude.Maybe [MatchOption]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostCategoryValues' with the minimum fields required to make a request.
 --
--- * 'key' - Undocumented field.
--- * 'matchOptions' - The match options that you can use to filter your results. MatchOptions is only applicable for only applicable for actions related to cost category. The default values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@ .
 -- * 'values' - The specific value of the Cost Category.
+-- * 'key' -
+-- * 'matchOptions' - The match options that you can use to filter your results. MatchOptions is only applicable for only applicable for actions related to cost category. The default values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@ .
 mkCostCategoryValues ::
   CostCategoryValues
 mkCostCategoryValues =

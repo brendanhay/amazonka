@@ -36,37 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectoryLimits' smart constructor.
 data DirectoryLimits = DirectoryLimits'
-  { connectedDirectoriesCurrentCount ::
-      Lude.Maybe Lude.Natural,
+  { -- | The current number of connected directories in the Region.
+    connectedDirectoriesCurrentCount :: Lude.Maybe Lude.Natural,
+    -- | Indicates if the AWS Managed Microsoft AD directory limit has been reached.
     cloudOnlyMicrosoftADLimitReached :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of connected directories allowed in the Region.
     connectedDirectoriesLimit :: Lude.Maybe Lude.Natural,
+    -- | Indicates if the connected directory limit has been reached.
     connectedDirectoriesLimitReached :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of AWS Managed Microsoft AD directories allowed in the region.
     cloudOnlyMicrosoftADLimit :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of cloud directories allowed in the Region.
     cloudOnlyDirectoriesLimit :: Lude.Maybe Lude.Natural,
+    -- | The current number of cloud directories in the Region.
     cloudOnlyDirectoriesCurrentCount :: Lude.Maybe Lude.Natural,
+    -- | Indicates if the cloud directory limit has been reached.
     cloudOnlyDirectoriesLimitReached :: Lude.Maybe Lude.Bool,
+    -- | The current number of AWS Managed Microsoft AD directories in the region.
     cloudOnlyMicrosoftADCurrentCount :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryLimits' with the minimum fields required to make a request.
 --
--- * 'cloudOnlyDirectoriesCurrentCount' - The current number of cloud directories in the Region.
--- * 'cloudOnlyDirectoriesLimit' - The maximum number of cloud directories allowed in the Region.
--- * 'cloudOnlyDirectoriesLimitReached' - Indicates if the cloud directory limit has been reached.
--- * 'cloudOnlyMicrosoftADCurrentCount' - The current number of AWS Managed Microsoft AD directories in the region.
--- * 'cloudOnlyMicrosoftADLimit' - The maximum number of AWS Managed Microsoft AD directories allowed in the region.
--- * 'cloudOnlyMicrosoftADLimitReached' - Indicates if the AWS Managed Microsoft AD directory limit has been reached.
 -- * 'connectedDirectoriesCurrentCount' - The current number of connected directories in the Region.
+-- * 'cloudOnlyMicrosoftADLimitReached' - Indicates if the AWS Managed Microsoft AD directory limit has been reached.
 -- * 'connectedDirectoriesLimit' - The maximum number of connected directories allowed in the Region.
 -- * 'connectedDirectoriesLimitReached' - Indicates if the connected directory limit has been reached.
+-- * 'cloudOnlyMicrosoftADLimit' - The maximum number of AWS Managed Microsoft AD directories allowed in the region.
+-- * 'cloudOnlyDirectoriesLimit' - The maximum number of cloud directories allowed in the Region.
+-- * 'cloudOnlyDirectoriesCurrentCount' - The current number of cloud directories in the Region.
+-- * 'cloudOnlyDirectoriesLimitReached' - Indicates if the cloud directory limit has been reached.
+-- * 'cloudOnlyMicrosoftADCurrentCount' - The current number of AWS Managed Microsoft AD directories in the region.
 mkDirectoryLimits ::
   DirectoryLimits
 mkDirectoryLimits =

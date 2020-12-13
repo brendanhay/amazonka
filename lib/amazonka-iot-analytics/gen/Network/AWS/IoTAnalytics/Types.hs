@@ -54,21 +54,21 @@ module Network.AWS.IoTAnalytics.Types
     -- * Channel
     Channel (..),
     mkChannel,
-    cCreationTime,
-    cStatus,
-    cLastMessageArrivalTime,
-    cArn,
-    cStorage,
-    cRetentionPeriod,
-    cName,
-    cLastUpdateTime,
+    cfCreationTime,
+    cfStatus,
+    cfLastMessageArrivalTime,
+    cfArn,
+    cfStorage,
+    cfRetentionPeriod,
+    cfName,
+    cfLastUpdateTime,
 
     -- * ChannelActivity
     ChannelActivity (..),
     mkChannelActivity,
     caNext,
-    caName,
     caChannelName,
+    caName,
 
     -- * ChannelStatistics
     ChannelStatistics (..),
@@ -100,16 +100,16 @@ module Network.AWS.IoTAnalytics.Types
     -- * ContainerDatasetAction
     ContainerDatasetAction (..),
     mkContainerDatasetAction,
-    cdaVariables,
     cdaImage,
-    cdaExecutionRoleARN,
     cdaResourceConfiguration,
+    cdaVariables,
+    cdaExecutionRoleARN,
 
     -- * CustomerManagedChannelS3Storage
     CustomerManagedChannelS3Storage (..),
     mkCustomerManagedChannelS3Storage,
-    cmcssKeyPrefix,
     cmcssBucket,
+    cmcssKeyPrefix,
     cmcssRoleARN,
 
     -- * CustomerManagedChannelS3StorageSummary
@@ -122,8 +122,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * CustomerManagedDatastoreS3Storage
     CustomerManagedDatastoreS3Storage (..),
     mkCustomerManagedDatastoreS3Storage,
-    cmdssKeyPrefix,
     cmdssBucket,
+    cmdssKeyPrefix,
     cmdssRoleARN,
 
     -- * CustomerManagedDatastoreS3StorageSummary
@@ -170,8 +170,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * DatasetContentDeliveryRule
     DatasetContentDeliveryRule (..),
     mkDatasetContentDeliveryRule,
-    dcdrEntryName,
     dcdrDestination,
+    dcdrEntryName,
 
     -- * DatasetContentStatus
     DatasetContentStatus (..),
@@ -202,12 +202,12 @@ module Network.AWS.IoTAnalytics.Types
     -- * DatasetSummary
     DatasetSummary (..),
     mkDatasetSummary,
-    dssCreationTime,
-    dssStatus,
-    dssActions,
-    dssTriggers,
-    dssDatasetName,
-    dssLastUpdateTime,
+    dsfCreationTime,
+    dsfStatus,
+    dsfActions,
+    dsfTriggers,
+    dsfDatasetName,
+    dsfLastUpdateTime,
 
     -- * DatasetTrigger
     DatasetTrigger (..),
@@ -218,20 +218,20 @@ module Network.AWS.IoTAnalytics.Types
     -- * Datastore
     Datastore (..),
     mkDatastore,
-    datCreationTime,
-    datStatus,
-    datLastMessageArrivalTime,
-    datArn,
-    datStorage,
-    datRetentionPeriod,
-    datName,
-    datLastUpdateTime,
+    dfCreationTime,
+    dfStatus,
+    dfLastMessageArrivalTime,
+    dfArn,
+    dfStorage,
+    dfRetentionPeriod,
+    dfName,
+    dfLastUpdateTime,
 
     -- * DatastoreActivity
     DatastoreActivity (..),
     mkDatastoreActivity,
-    daName,
     daDatastoreName,
+    daName,
 
     -- * DatastoreStatistics
     DatastoreStatistics (..),
@@ -263,8 +263,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * DeltaTime
     DeltaTime (..),
     mkDeltaTime,
-    dtOffsetSeconds,
     dtTimeExpression,
+    dtOffsetSeconds,
 
     -- * DeltaTimeSessionWindowConfiguration
     DeltaTimeSessionWindowConfiguration (..),
@@ -274,18 +274,18 @@ module Network.AWS.IoTAnalytics.Types
     -- * DeviceRegistryEnrichActivity
     DeviceRegistryEnrichActivity (..),
     mkDeviceRegistryEnrichActivity,
+    dreaAttribute,
     dreaNext,
     dreaName,
-    dreaAttribute,
     dreaThingName,
     dreaRoleARN,
 
     -- * DeviceShadowEnrichActivity
     DeviceShadowEnrichActivity (..),
     mkDeviceShadowEnrichActivity,
+    dseaAttribute,
     dseaNext,
     dseaName,
-    dseaAttribute,
     dseaThingName,
     dseaRoleARN,
 
@@ -305,8 +305,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * GlueConfiguration
     GlueConfiguration (..),
     mkGlueConfiguration,
-    gcTableName,
     gcDatabaseName,
+    gcTableName,
 
     -- * IotEventsDestinationConfiguration
     IotEventsDestinationConfiguration (..),
@@ -318,9 +318,9 @@ module Network.AWS.IoTAnalytics.Types
     LambdaActivity (..),
     mkLambdaActivity,
     laNext,
-    laName,
     laLambdaName,
     laBatchSize,
+    laName,
 
     -- * LateDataRule
     LateDataRule (..),
@@ -336,23 +336,23 @@ module Network.AWS.IoTAnalytics.Types
     -- * LoggingOptions
     LoggingOptions (..),
     mkLoggingOptions,
-    loRoleARN,
-    loLevel,
     loEnabled,
+    loLevel,
+    loRoleARN,
 
     -- * MathActivity
     MathActivity (..),
     mkMathActivity,
+    maAttribute,
     maNext,
     maName,
-    maAttribute,
     maMath,
 
     -- * Message
     Message (..),
     mkMessage,
-    mMessageId,
     mPayload,
+    mMessageId,
 
     -- * OutputFileURIValue
     OutputFileURIValue (..),
@@ -413,8 +413,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * ResourceConfiguration
     ResourceConfiguration (..),
     mkResourceConfiguration,
-    rcComputeType,
     rcVolumeSizeInGB,
+    rcComputeType,
 
     -- * RetentionPeriod
     RetentionPeriod (..),
@@ -467,8 +467,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TriggeringDataset
     TriggeringDataset (..),
@@ -481,8 +481,8 @@ module Network.AWS.IoTAnalytics.Types
     vOutputFileURIValue,
     vDoubleValue,
     vStringValue,
-    vDatasetContentVersionValue,
     vName,
+    vDatasetContentVersionValue,
 
     -- * VersioningConfiguration
     VersioningConfiguration (..),

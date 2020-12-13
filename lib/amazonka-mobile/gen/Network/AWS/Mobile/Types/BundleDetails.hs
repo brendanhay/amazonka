@@ -34,31 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBundleDetails' smart constructor.
 data BundleDetails = BundleDetails'
-  { availablePlatforms ::
-      Lude.Maybe [Platform],
+  { availablePlatforms :: Lude.Maybe [Platform],
     bundleId :: Lude.Maybe Lude.Text,
     version :: Lude.Maybe Lude.Text,
     iconURL :: Lude.Maybe Lude.Text,
     title :: Lude.Maybe Lude.Text,
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BundleDetails' with the minimum fields required to make a request.
 --
--- * 'availablePlatforms' - Undocumented field.
--- * 'bundleId' - Undocumented field.
--- * 'description' - Undocumented field.
--- * 'iconURL' - Undocumented field.
--- * 'title' - Undocumented field.
--- * 'version' - Undocumented field.
+-- * 'availablePlatforms' -
+-- * 'bundleId' -
+-- * 'version' -
+-- * 'iconURL' -
+-- * 'title' -
+-- * 'description' -
 mkBundleDetails ::
   BundleDetails
 mkBundleDetails =

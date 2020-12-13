@@ -31,23 +31,18 @@ import Network.AWS.XRay.Types.ServiceId
 --
 -- /See:/ 'mkValueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
-  { serviceIds ::
-      Lude.Maybe [ServiceId],
+  { -- | Services to which the annotation applies.
+    serviceIds :: Lude.Maybe [ServiceId],
+    -- | Values of the annotation.
     annotationValue :: Lude.Maybe AnnotationValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValueWithServiceIds' with the minimum fields required to make a request.
 --
--- * 'annotationValue' - Values of the annotation.
 -- * 'serviceIds' - Services to which the annotation applies.
+-- * 'annotationValue' - Values of the annotation.
 mkValueWithServiceIds ::
   ValueWithServiceIds
 mkValueWithServiceIds =

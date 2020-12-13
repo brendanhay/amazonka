@@ -35,12 +35,17 @@ import Network.AWS.WorkDocs.Types.ShareStatusType
 --
 -- /See:/ 'mkShareResult' smart constructor.
 data ShareResult = ShareResult'
-  { status ::
-      Lude.Maybe ShareStatusType,
+  { -- | The status.
+    status :: Lude.Maybe ShareStatusType,
+    -- | The ID of the principal.
     principalId :: Lude.Maybe Lude.Text,
+    -- | The ID of the invited user.
     inviteePrincipalId :: Lude.Maybe Lude.Text,
+    -- | The role.
     role' :: Lude.Maybe RoleType,
+    -- | The status message.
     statusMessage :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the resource that was shared.
     shareId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -48,12 +53,12 @@ data ShareResult = ShareResult'
 
 -- | Creates a value of 'ShareResult' with the minimum fields required to make a request.
 --
--- * 'inviteePrincipalId' - The ID of the invited user.
--- * 'principalId' - The ID of the principal.
--- * 'role'' - The role.
--- * 'shareId' - The ID of the resource that was shared.
 -- * 'status' - The status.
+-- * 'principalId' - The ID of the principal.
+-- * 'inviteePrincipalId' - The ID of the invited user.
+-- * 'role'' - The role.
 -- * 'statusMessage' - The status message.
+-- * 'shareId' - The ID of the resource that was shared.
 mkShareResult ::
   ShareResult
 mkShareResult =

@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSkillsStoreSkill' smart constructor.
 data SkillsStoreSkill = SkillsStoreSkill'
-  { skillId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the skill.
+    skillId :: Lude.Maybe Lude.Text,
+    -- | Linking support for a skill.
     supportsLinking :: Lude.Maybe Lude.Bool,
+    -- | Sample utterances that interact with the skill.
     sampleUtterances :: Lude.Maybe [Lude.Text],
+    -- | Short description about the skill.
     shortDescription :: Lude.Maybe Lude.Text,
+    -- | The URL where the skill icon resides.
     iconURL :: Lude.Maybe Lude.Text,
+    -- | Information about the skill.
     skillDetails :: Lude.Maybe SkillDetails,
+    -- | The name of the skill.
     skillName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SkillsStoreSkill' with the minimum fields required to make a request.
 --
--- * 'iconURL' - The URL where the skill icon resides.
+-- * 'skillId' - The ARN of the skill.
+-- * 'supportsLinking' - Linking support for a skill.
 -- * 'sampleUtterances' - Sample utterances that interact with the skill.
 -- * 'shortDescription' - Short description about the skill.
+-- * 'iconURL' - The URL where the skill icon resides.
 -- * 'skillDetails' - Information about the skill.
--- * 'skillId' - The ARN of the skill.
 -- * 'skillName' - The name of the skill.
--- * 'supportsLinking' - Linking support for a skill.
 mkSkillsStoreSkill ::
   SkillsStoreSkill
 mkSkillsStoreSkill =

@@ -14,8 +14,8 @@ module Network.AWS.CostExplorer.Types.LookbackPeriodInDays
   ( LookbackPeriodInDays
       ( LookbackPeriodInDays',
         SevenDays,
-        SixtyDays,
-        ThirtyDays
+        ThirtyDays,
+        SixtyDays
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype LookbackPeriodInDays = LookbackPeriodInDays' Lude.Text
 pattern SevenDays :: LookbackPeriodInDays
 pattern SevenDays = LookbackPeriodInDays' "SEVEN_DAYS"
 
-pattern SixtyDays :: LookbackPeriodInDays
-pattern SixtyDays = LookbackPeriodInDays' "SIXTY_DAYS"
-
 pattern ThirtyDays :: LookbackPeriodInDays
 pattern ThirtyDays = LookbackPeriodInDays' "THIRTY_DAYS"
 
+pattern SixtyDays :: LookbackPeriodInDays
+pattern SixtyDays = LookbackPeriodInDays' "SIXTY_DAYS"
+
 {-# COMPLETE
   SevenDays,
-  SixtyDays,
   ThirtyDays,
+  SixtyDays,
   LookbackPeriodInDays'
   #-}

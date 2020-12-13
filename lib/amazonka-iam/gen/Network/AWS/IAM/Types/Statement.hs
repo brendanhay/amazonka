@@ -35,26 +35,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatement' smart constructor.
 data Statement = Statement'
-  { sourcePolicyType ::
-      Lude.Maybe PolicySourceType,
+  { -- | The type of the policy.
+    sourcePolicyType :: Lude.Maybe PolicySourceType,
+    -- | The identifier of the policy that was provided as an input.
     sourcePolicyId :: Lude.Maybe Lude.Text,
+    -- | The row and column of the end of a @Statement@ in an IAM policy.
     endPosition :: Lude.Maybe Position,
+    -- | The row and column of the beginning of the @Statement@ in an IAM policy.
     startPosition :: Lude.Maybe Position
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Statement' with the minimum fields required to make a request.
 --
--- * 'endPosition' - The row and column of the end of a @Statement@ in an IAM policy.
--- * 'sourcePolicyId' - The identifier of the policy that was provided as an input.
 -- * 'sourcePolicyType' - The type of the policy.
+-- * 'sourcePolicyId' - The identifier of the policy that was provided as an input.
+-- * 'endPosition' - The row and column of the end of a @Statement@ in an IAM policy.
 -- * 'startPosition' - The row and column of the beginning of the @Statement@ in an IAM policy.
 mkStatement ::
   Statement

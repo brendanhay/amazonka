@@ -31,26 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssessmentTemplateFilter' smart constructor.
 data AssessmentTemplateFilter = AssessmentTemplateFilter'
-  { namePattern ::
-      Lude.Maybe Lude.Text,
-    rulesPackageARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
+    namePattern :: Lude.Maybe Lude.Text,
+    -- | For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
+    rulesPackageARNs :: Lude.Maybe [Lude.Text],
+    -- | For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
     durationRange :: Lude.Maybe DurationRange
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssessmentTemplateFilter' with the minimum fields required to make a request.
 --
--- * 'durationRange' - For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
 -- * 'namePattern' - For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
 -- * 'rulesPackageARNs' - For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
+-- * 'durationRange' - For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
 mkAssessmentTemplateFilter ::
   AssessmentTemplateFilter
 mkAssessmentTemplateFilter =

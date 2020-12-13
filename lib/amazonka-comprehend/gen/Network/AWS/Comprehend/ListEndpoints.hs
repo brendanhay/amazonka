@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEndpoints' smart constructor.
 data ListEndpoints = ListEndpoints'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time.
     filter :: Lude.Maybe EndpointFilter,
+    -- | The maximum number of results to return in each page. The default is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpoints' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Identifies the next page of results to return.
 -- * 'filter' - Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time.
 -- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
--- * 'nextToken' - Identifies the next page of results to return.
 mkListEndpoints ::
   ListEndpoints
 mkListEndpoints =
@@ -132,18 +129,14 @@ instance Lude.ToQuery ListEndpoints where
 
 -- | /See:/ 'mkListEndpointsResponse' smart constructor.
 data ListEndpointsResponse = ListEndpointsResponse'
-  { endpointPropertiesList ::
-      Lude.Maybe [EndpointProperties],
+  { -- | Displays a list of endpoint properties being retrieved by the service in response to the request.
+    endpointPropertiesList :: Lude.Maybe [EndpointProperties],
+    -- | Identifies the next page of results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEndpointsResponse' with the minimum fields required to make a request.

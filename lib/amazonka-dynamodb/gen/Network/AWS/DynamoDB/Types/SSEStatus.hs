@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDB.Types.SSEStatus
   ( SSEStatus
       ( SSEStatus',
-        SSESDisabled,
-        SSESDisabling,
-        SSESEnabled,
         SSESEnabling,
+        SSESEnabled,
+        SSESDisabling,
+        SSESDisabled,
         SSESUpdating
       ),
   )
@@ -48,26 +48,26 @@ newtype SSEStatus = SSEStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSESDisabled :: SSEStatus
-pattern SSESDisabled = SSEStatus' "DISABLED"
-
-pattern SSESDisabling :: SSEStatus
-pattern SSESDisabling = SSEStatus' "DISABLING"
+pattern SSESEnabling :: SSEStatus
+pattern SSESEnabling = SSEStatus' "ENABLING"
 
 pattern SSESEnabled :: SSEStatus
 pattern SSESEnabled = SSEStatus' "ENABLED"
 
-pattern SSESEnabling :: SSEStatus
-pattern SSESEnabling = SSEStatus' "ENABLING"
+pattern SSESDisabling :: SSEStatus
+pattern SSESDisabling = SSEStatus' "DISABLING"
+
+pattern SSESDisabled :: SSEStatus
+pattern SSESDisabled = SSEStatus' "DISABLED"
 
 pattern SSESUpdating :: SSEStatus
 pattern SSESUpdating = SSEStatus' "UPDATING"
 
 {-# COMPLETE
-  SSESDisabled,
-  SSESDisabling,
-  SSESEnabled,
   SSESEnabling,
+  SSESEnabled,
+  SSESDisabling,
+  SSESDisabled,
   SSESUpdating,
   SSEStatus'
   #-}

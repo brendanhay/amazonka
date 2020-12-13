@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.CodeBuild.CreateWebhook
     -- ** Request lenses
     cwBranchFilter,
     cwFilterGroups,
-    cwBuildType,
     cwProjectName,
+    cwBuildType,
 
     -- * Destructuring the response
     CreateWebhookResponse (..),
@@ -44,29 +45,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateWebhook' smart constructor.
 data CreateWebhook = CreateWebhook'
-  { branchFilter ::
-      Lude.Maybe Lude.Text,
+  { -- | A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
+    branchFilter :: Lude.Maybe Lude.Text,
+    -- | An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .
+    --
+    -- For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
     filterGroups :: Lude.Maybe [[WebhookFilter]],
-    buildType :: Lude.Maybe WebhookBuildType,
-    projectName :: Lude.Text
+    -- | The name of the AWS CodeBuild project.
+    projectName :: Lude.Text,
+    -- | Specifies the type of build this webhook will trigger.
+    buildType :: Lude.Maybe WebhookBuildType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWebhook' with the minimum fields required to make a request.
 --
 -- * 'branchFilter' - A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
--- * 'buildType' - Specifies the type of build this webhook will trigger.
 -- * 'filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which webhooks are triggered. At least one @WebhookFilter@ in the array must specify @EVENT@ as its @type@ .
 --
 -- For a build to be triggered, at least one filter group in the @filterGroups@ array must pass. For a filter group to pass, each of its filters must pass.
 -- * 'projectName' - The name of the AWS CodeBuild project.
+-- * 'buildType' - Specifies the type of build this webhook will trigger.
 mkCreateWebhook ::
   -- | 'projectName'
   Lude.Text ->
@@ -75,8 +75,8 @@ mkCreateWebhook pProjectName_ =
   CreateWebhook'
     { branchFilter = Lude.Nothing,
       filterGroups = Lude.Nothing,
-      buildType = Lude.Nothing,
-      projectName = pProjectName_
+      projectName = pProjectName_,
+      buildType = Lude.Nothing
     }
 
 -- | A regular expression used to determine which repository branches are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If @branchFilter@ is empty, then all branches are built.
@@ -95,19 +95,19 @@ cwFilterGroups :: Lens.Lens' CreateWebhook (Lude.Maybe [[WebhookFilter]])
 cwFilterGroups = Lens.lens (filterGroups :: CreateWebhook -> Lude.Maybe [[WebhookFilter]]) (\s a -> s {filterGroups = a} :: CreateWebhook)
 {-# DEPRECATED cwFilterGroups "Use generic-lens or generic-optics with 'filterGroups' instead." #-}
 
--- | Specifies the type of build this webhook will trigger.
---
--- /Note:/ Consider using 'buildType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwBuildType :: Lens.Lens' CreateWebhook (Lude.Maybe WebhookBuildType)
-cwBuildType = Lens.lens (buildType :: CreateWebhook -> Lude.Maybe WebhookBuildType) (\s a -> s {buildType = a} :: CreateWebhook)
-{-# DEPRECATED cwBuildType "Use generic-lens or generic-optics with 'buildType' instead." #-}
-
 -- | The name of the AWS CodeBuild project.
 --
 -- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cwProjectName :: Lens.Lens' CreateWebhook Lude.Text
 cwProjectName = Lens.lens (projectName :: CreateWebhook -> Lude.Text) (\s a -> s {projectName = a} :: CreateWebhook)
 {-# DEPRECATED cwProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
+
+-- | Specifies the type of build this webhook will trigger.
+--
+-- /Note:/ Consider using 'buildType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwBuildType :: Lens.Lens' CreateWebhook (Lude.Maybe WebhookBuildType)
+cwBuildType = Lens.lens (buildType :: CreateWebhook -> Lude.Maybe WebhookBuildType) (\s a -> s {buildType = a} :: CreateWebhook)
+{-# DEPRECATED cwBuildType "Use generic-lens or generic-optics with 'buildType' instead." #-}
 
 instance Lude.AWSRequest CreateWebhook where
   type Rs CreateWebhook = CreateWebhookResponse
@@ -136,8 +136,8 @@ instance Lude.ToJSON CreateWebhook where
       ( Lude.catMaybes
           [ ("branchFilter" Lude..=) Lude.<$> branchFilter,
             ("filterGroups" Lude..=) Lude.<$> filterGroups,
-            ("buildType" Lude..=) Lude.<$> buildType,
-            Lude.Just ("projectName" Lude..= projectName)
+            Lude.Just ("projectName" Lude..= projectName),
+            ("buildType" Lude..=) Lude.<$> buildType
           ]
       )
 
@@ -149,23 +149,18 @@ instance Lude.ToQuery CreateWebhook where
 
 -- | /See:/ 'mkCreateWebhookResponse' smart constructor.
 data CreateWebhookResponse = CreateWebhookResponse'
-  { webhook ::
-      Lude.Maybe Webhook,
+  { -- | Information about a webhook that connects repository events to a build project in AWS CodeBuild.
+    webhook :: Lude.Maybe Webhook,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateWebhookResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'webhook' - Information about a webhook that connects repository events to a build project in AWS CodeBuild.
+-- * 'responseStatus' - The response status code.
 mkCreateWebhookResponse ::
   -- | 'responseStatus'
   Lude.Int ->

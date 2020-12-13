@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.OpsWorks.StartStack
     mkStartStack,
 
     -- ** Request lenses
-    staStackId,
+    ssfStackId,
 
     -- * Destructuring the response
     StartStackResponse (..),
@@ -36,14 +37,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartStack' smart constructor.
-newtype StartStack = StartStack' {stackId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StartStack = StartStack'
+  { -- | The stack ID.
+    stackId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStack' with the minimum fields required to make a request.
@@ -58,9 +56,9 @@ mkStartStack pStackId_ = StartStack' {stackId = pStackId_}
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staStackId :: Lens.Lens' StartStack Lude.Text
-staStackId = Lens.lens (stackId :: StartStack -> Lude.Text) (\s a -> s {stackId = a} :: StartStack)
-{-# DEPRECATED staStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+ssfStackId :: Lens.Lens' StartStack Lude.Text
+ssfStackId = Lens.lens (stackId :: StartStack -> Lude.Text) (\s a -> s {stackId = a} :: StartStack)
+{-# DEPRECATED ssfStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 instance Lude.AWSRequest StartStack where
   type Rs StartStack = StartStackResponse
@@ -91,13 +89,7 @@ instance Lude.ToQuery StartStack where
 
 -- | /See:/ 'mkStartStackResponse' smart constructor.
 data StartStackResponse = StartStackResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartStackResponse' with the minimum fields required to make a request.

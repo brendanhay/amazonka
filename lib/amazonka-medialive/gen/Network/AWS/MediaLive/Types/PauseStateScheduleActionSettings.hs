@@ -29,22 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPauseStateScheduleActionSettings' smart constructor.
 newtype PauseStateScheduleActionSettings = PauseStateScheduleActionSettings'
-  { pipelines ::
-      Lude.Maybe
-        [PipelinePauseStateSettings]
+  { pipelines :: Lude.Maybe [PipelinePauseStateSettings]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PauseStateScheduleActionSettings' with the minimum fields required to make a request.
 --
--- * 'pipelines' - Undocumented field.
+-- * 'pipelines' -
 mkPauseStateScheduleActionSettings ::
   PauseStateScheduleActionSettings
 mkPauseStateScheduleActionSettings =

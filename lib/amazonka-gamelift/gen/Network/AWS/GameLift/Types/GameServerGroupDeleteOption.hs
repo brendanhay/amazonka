@@ -13,9 +13,9 @@
 module Network.AWS.GameLift.Types.GameServerGroupDeleteOption
   ( GameServerGroupDeleteOption
       ( GameServerGroupDeleteOption',
+        SafeDelete,
         ForceDelete,
-        Retain,
-        SafeDelete
+        Retain
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype GameServerGroupDeleteOption = GameServerGroupDeleteOption' Lude.Text
       Lude.ToHeader
     )
 
+pattern SafeDelete :: GameServerGroupDeleteOption
+pattern SafeDelete = GameServerGroupDeleteOption' "SAFE_DELETE"
+
 pattern ForceDelete :: GameServerGroupDeleteOption
 pattern ForceDelete = GameServerGroupDeleteOption' "FORCE_DELETE"
 
 pattern Retain :: GameServerGroupDeleteOption
 pattern Retain = GameServerGroupDeleteOption' "RETAIN"
 
-pattern SafeDelete :: GameServerGroupDeleteOption
-pattern SafeDelete = GameServerGroupDeleteOption' "SAFE_DELETE"
-
 {-# COMPLETE
+  SafeDelete,
   ForceDelete,
   Retain,
-  SafeDelete,
   GameServerGroupDeleteOption'
   #-}

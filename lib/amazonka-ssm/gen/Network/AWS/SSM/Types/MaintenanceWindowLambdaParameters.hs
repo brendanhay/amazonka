@@ -32,33 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaintenanceWindowLambdaParameters' smart constructor.
 data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
-  { payload ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Base64
-        ),
-    qualifier ::
-      Lude.Maybe Lude.Text,
-    clientContext ::
-      Lude.Maybe Lude.Text
+  { -- | JSON to provide to your Lambda function as input.
+    payload :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | (Optional) Specify a Lambda function version or alias name. If you specify a function version, the action uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version to which the alias points.
+    qualifier :: Lude.Maybe Lude.Text,
+    -- | Pass client-specific information to the Lambda function that you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
+    clientContext :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowLambdaParameters' with the minimum fields required to make a request.
 --
--- * 'clientContext' - Pass client-specific information to the Lambda function that you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
--- * 'payload' - JSON to provide to your Lambda function as input.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'payload' - JSON to provide to your Lambda function as input.
 -- * 'qualifier' - (Optional) Specify a Lambda function version or alias name. If you specify a function version, the action uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version to which the alias points.
+-- * 'clientContext' - Pass client-specific information to the Lambda function that you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.
 mkMaintenanceWindowLambdaParameters ::
   MaintenanceWindowLambdaParameters
 mkMaintenanceWindowLambdaParameters =

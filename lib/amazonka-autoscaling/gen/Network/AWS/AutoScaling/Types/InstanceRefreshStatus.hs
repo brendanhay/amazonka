@@ -13,12 +13,12 @@
 module Network.AWS.AutoScaling.Types.InstanceRefreshStatus
   ( InstanceRefreshStatus
       ( InstanceRefreshStatus',
-        IRSCancelled,
-        IRSCancelling,
-        IRSFailed,
-        IRSInProgress,
-        IRSPending,
-        IRSSuccessful
+        Pending,
+        InProgress,
+        Successful,
+        Failed,
+        Cancelling,
+        Cancelled
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype InstanceRefreshStatus = InstanceRefreshStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern IRSCancelled :: InstanceRefreshStatus
-pattern IRSCancelled = InstanceRefreshStatus' "Cancelled"
+pattern Pending :: InstanceRefreshStatus
+pattern Pending = InstanceRefreshStatus' "Pending"
 
-pattern IRSCancelling :: InstanceRefreshStatus
-pattern IRSCancelling = InstanceRefreshStatus' "Cancelling"
+pattern InProgress :: InstanceRefreshStatus
+pattern InProgress = InstanceRefreshStatus' "InProgress"
 
-pattern IRSFailed :: InstanceRefreshStatus
-pattern IRSFailed = InstanceRefreshStatus' "Failed"
+pattern Successful :: InstanceRefreshStatus
+pattern Successful = InstanceRefreshStatus' "Successful"
 
-pattern IRSInProgress :: InstanceRefreshStatus
-pattern IRSInProgress = InstanceRefreshStatus' "InProgress"
+pattern Failed :: InstanceRefreshStatus
+pattern Failed = InstanceRefreshStatus' "Failed"
 
-pattern IRSPending :: InstanceRefreshStatus
-pattern IRSPending = InstanceRefreshStatus' "Pending"
+pattern Cancelling :: InstanceRefreshStatus
+pattern Cancelling = InstanceRefreshStatus' "Cancelling"
 
-pattern IRSSuccessful :: InstanceRefreshStatus
-pattern IRSSuccessful = InstanceRefreshStatus' "Successful"
+pattern Cancelled :: InstanceRefreshStatus
+pattern Cancelled = InstanceRefreshStatus' "Cancelled"
 
 {-# COMPLETE
-  IRSCancelled,
-  IRSCancelling,
-  IRSFailed,
-  IRSInProgress,
-  IRSPending,
-  IRSSuccessful,
+  Pending,
+  InProgress,
+  Successful,
+  Failed,
+  Cancelling,
+  Cancelled,
   InstanceRefreshStatus'
   #-}

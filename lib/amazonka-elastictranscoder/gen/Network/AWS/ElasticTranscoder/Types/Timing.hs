@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTiming' smart constructor.
 data Timing = Timing'
-  { submitTimeMillis :: Lude.Maybe Lude.Integer,
+  { -- | The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
+    submitTimeMillis :: Lude.Maybe Lude.Integer,
+    -- | The time the job finished transcoding, in epoch milliseconds.
     finishTimeMillis :: Lude.Maybe Lude.Integer,
+    -- | The time the job began transcoding, in epoch milliseconds.
     startTimeMillis :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Timing' with the minimum fields required to make a request.
 --
+-- * 'submitTimeMillis' - The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
 -- * 'finishTimeMillis' - The time the job finished transcoding, in epoch milliseconds.
 -- * 'startTimeMillis' - The time the job began transcoding, in epoch milliseconds.
--- * 'submitTimeMillis' - The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
 mkTiming ::
   Timing
 mkTiming =

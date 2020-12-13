@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDescribeDBLogFilesDetails' smart constructor.
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
-  { lastWritten ::
-      Lude.Maybe Lude.Integer,
+  { -- | A POSIX timestamp when the last log entry was written.
+    lastWritten :: Lude.Maybe Lude.Integer,
+    -- | The size, in bytes, of the log file for the specified DB instance.
     size :: Lude.Maybe Lude.Integer,
+    -- | The name of the log file for the specified DB instance.
     logFileName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBLogFilesDetails' with the minimum fields required to make a request.
 --
 -- * 'lastWritten' - A POSIX timestamp when the last log entry was written.
--- * 'logFileName' - The name of the log file for the specified DB instance.
 -- * 'size' - The size, in bytes, of the log file for the specified DB instance.
+-- * 'logFileName' - The name of the log file for the specified DB instance.
 mkDescribeDBLogFilesDetails ::
   DescribeDBLogFilesDetails
 mkDescribeDBLogFilesDetails =

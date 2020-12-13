@@ -13,16 +13,16 @@
 module Network.AWS.CognitoIdentityProvider.Types.ChallengeNameType
   ( ChallengeNameType
       ( ChallengeNameType',
-        CNTAdminNoSrpAuth,
-        CNTCustomChallenge,
-        CNTDevicePasswordVerifier,
-        CNTDeviceSrpAuth,
-        CNTMFASetup,
-        CNTNewPasswordRequired,
-        CNTPasswordVerifier,
-        CNTSelectMFAType,
-        CNTSmsMFA,
-        CNTSoftwareTokenMFA
+        SmsMFA,
+        SoftwareTokenMFA,
+        SelectMFAType,
+        MFASetup,
+        PasswordVerifier,
+        CustomChallenge,
+        DeviceSrpAuth,
+        DevicePasswordVerifier,
+        AdminNoSrpAuth,
+        NewPasswordRequired
       ),
   )
 where
@@ -53,46 +53,46 @@ newtype ChallengeNameType = ChallengeNameType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CNTAdminNoSrpAuth :: ChallengeNameType
-pattern CNTAdminNoSrpAuth = ChallengeNameType' "ADMIN_NO_SRP_AUTH"
+pattern SmsMFA :: ChallengeNameType
+pattern SmsMFA = ChallengeNameType' "SMS_MFA"
 
-pattern CNTCustomChallenge :: ChallengeNameType
-pattern CNTCustomChallenge = ChallengeNameType' "CUSTOM_CHALLENGE"
+pattern SoftwareTokenMFA :: ChallengeNameType
+pattern SoftwareTokenMFA = ChallengeNameType' "SOFTWARE_TOKEN_MFA"
 
-pattern CNTDevicePasswordVerifier :: ChallengeNameType
-pattern CNTDevicePasswordVerifier = ChallengeNameType' "DEVICE_PASSWORD_VERIFIER"
+pattern SelectMFAType :: ChallengeNameType
+pattern SelectMFAType = ChallengeNameType' "SELECT_MFA_TYPE"
 
-pattern CNTDeviceSrpAuth :: ChallengeNameType
-pattern CNTDeviceSrpAuth = ChallengeNameType' "DEVICE_SRP_AUTH"
+pattern MFASetup :: ChallengeNameType
+pattern MFASetup = ChallengeNameType' "MFA_SETUP"
 
-pattern CNTMFASetup :: ChallengeNameType
-pattern CNTMFASetup = ChallengeNameType' "MFA_SETUP"
+pattern PasswordVerifier :: ChallengeNameType
+pattern PasswordVerifier = ChallengeNameType' "PASSWORD_VERIFIER"
 
-pattern CNTNewPasswordRequired :: ChallengeNameType
-pattern CNTNewPasswordRequired = ChallengeNameType' "NEW_PASSWORD_REQUIRED"
+pattern CustomChallenge :: ChallengeNameType
+pattern CustomChallenge = ChallengeNameType' "CUSTOM_CHALLENGE"
 
-pattern CNTPasswordVerifier :: ChallengeNameType
-pattern CNTPasswordVerifier = ChallengeNameType' "PASSWORD_VERIFIER"
+pattern DeviceSrpAuth :: ChallengeNameType
+pattern DeviceSrpAuth = ChallengeNameType' "DEVICE_SRP_AUTH"
 
-pattern CNTSelectMFAType :: ChallengeNameType
-pattern CNTSelectMFAType = ChallengeNameType' "SELECT_MFA_TYPE"
+pattern DevicePasswordVerifier :: ChallengeNameType
+pattern DevicePasswordVerifier = ChallengeNameType' "DEVICE_PASSWORD_VERIFIER"
 
-pattern CNTSmsMFA :: ChallengeNameType
-pattern CNTSmsMFA = ChallengeNameType' "SMS_MFA"
+pattern AdminNoSrpAuth :: ChallengeNameType
+pattern AdminNoSrpAuth = ChallengeNameType' "ADMIN_NO_SRP_AUTH"
 
-pattern CNTSoftwareTokenMFA :: ChallengeNameType
-pattern CNTSoftwareTokenMFA = ChallengeNameType' "SOFTWARE_TOKEN_MFA"
+pattern NewPasswordRequired :: ChallengeNameType
+pattern NewPasswordRequired = ChallengeNameType' "NEW_PASSWORD_REQUIRED"
 
 {-# COMPLETE
-  CNTAdminNoSrpAuth,
-  CNTCustomChallenge,
-  CNTDevicePasswordVerifier,
-  CNTDeviceSrpAuth,
-  CNTMFASetup,
-  CNTNewPasswordRequired,
-  CNTPasswordVerifier,
-  CNTSelectMFAType,
-  CNTSmsMFA,
-  CNTSoftwareTokenMFA,
+  SmsMFA,
+  SoftwareTokenMFA,
+  SelectMFAType,
+  MFASetup,
+  PasswordVerifier,
+  CustomChallenge,
+  DeviceSrpAuth,
+  DevicePasswordVerifier,
+  AdminNoSrpAuth,
+  NewPasswordRequired,
   ChallengeNameType'
   #-}

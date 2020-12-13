@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEnvironmentStatus' smart constructor.
 newtype DescribeEnvironmentStatus = DescribeEnvironmentStatus'
-  { environmentId ::
-      Lude.Text
+  { -- | The ID of the environment to get status information about.
+    environmentId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentStatus' with the minimum fields required to make a request.
@@ -111,27 +106,39 @@ instance Lude.ToQuery DescribeEnvironmentStatus where
 
 -- | /See:/ 'mkDescribeEnvironmentStatusResponse' smart constructor.
 data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
-  { status ::
-      Lude.Maybe
-        EnvironmentStatus,
-    message ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the environment. Available values include:
+    --
+    --
+    --     * @connecting@ : The environment is connecting.
+    --
+    --
+    --     * @creating@ : The environment is being created.
+    --
+    --
+    --     * @deleting@ : The environment is being deleted.
+    --
+    --
+    --     * @error@ : The environment is in an error state.
+    --
+    --
+    --     * @ready@ : The environment is ready.
+    --
+    --
+    --     * @stopped@ : The environment is stopped.
+    --
+    --
+    --     * @stopping@ : The environment is stopping.
+    status :: Lude.Maybe EnvironmentStatus,
+    -- | Any informational message about the status of the environment.
+    message :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEnvironmentStatusResponse' with the minimum fields required to make a request.
 --
--- * 'message' - Any informational message about the status of the environment.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the environment. Available values include:
 --
 --
@@ -154,6 +161,10 @@ data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
 --
 --
 --     * @stopping@ : The environment is stopping.
+--
+--
+-- * 'message' - Any informational message about the status of the environment.
+-- * 'responseStatus' - The response status code.
 mkDescribeEnvironmentStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

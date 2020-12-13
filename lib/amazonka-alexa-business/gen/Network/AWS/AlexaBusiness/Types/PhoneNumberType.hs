@@ -13,9 +13,9 @@
 module Network.AWS.AlexaBusiness.Types.PhoneNumberType
   ( PhoneNumberType
       ( PhoneNumberType',
-        PNTHome,
         PNTMobile,
-        PNTWork
+        PNTWork,
+        PNTHome
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype PhoneNumberType = PhoneNumberType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PNTHome :: PhoneNumberType
-pattern PNTHome = PhoneNumberType' "HOME"
-
 pattern PNTMobile :: PhoneNumberType
 pattern PNTMobile = PhoneNumberType' "MOBILE"
 
 pattern PNTWork :: PhoneNumberType
 pattern PNTWork = PhoneNumberType' "WORK"
 
+pattern PNTHome :: PhoneNumberType
+pattern PNTHome = PhoneNumberType' "HOME"
+
 {-# COMPLETE
-  PNTHome,
   PNTMobile,
   PNTWork,
+  PNTHome,
   PhoneNumberType'
   #-}

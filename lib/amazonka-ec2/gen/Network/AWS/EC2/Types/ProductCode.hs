@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProductCode' smart constructor.
 data ProductCode = ProductCode'
-  { productCodeType ::
-      Lude.Maybe ProductCodeValues,
+  { -- | The type of product code.
+    productCodeType :: Lude.Maybe ProductCodeValues,
+    -- | The product code.
     productCodeId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductCode' with the minimum fields required to make a request.
 --
--- * 'productCodeId' - The product code.
 -- * 'productCodeType' - The type of product code.
+-- * 'productCodeId' - The product code.
 mkProductCode ::
   ProductCode
 mkProductCode =

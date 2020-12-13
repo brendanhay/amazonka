@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailedRemediationExceptionBatch' smart constructor.
 data FailedRemediationExceptionBatch = FailedRemediationExceptionBatch'
-  { failureMessage ::
-      Lude.Maybe Lude.Text,
-    failedItems ::
-      Lude.Maybe
-        [RemediationException]
+  { -- | Returns a failure message. For example, the auto-remediation has failed.
+    failureMessage :: Lude.Maybe Lude.Text,
+    -- | Returns remediation exception resource key object of the failed items.
+    failedItems :: Lude.Maybe [RemediationException]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedRemediationExceptionBatch' with the minimum fields required to make a request.
 --
--- * 'failedItems' - Returns remediation exception resource key object of the failed items.
 -- * 'failureMessage' - Returns a failure message. For example, the auto-remediation has failed.
+-- * 'failedItems' - Returns remediation exception resource key object of the failed items.
 mkFailedRemediationExceptionBatch ::
   FailedRemediationExceptionBatch
 mkFailedRemediationExceptionBatch =

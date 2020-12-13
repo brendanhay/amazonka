@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,34 +48,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVPCEndpointServiceConfigurations' smart constructor.
 data DescribeVPCEndpointServiceConfigurations = DescribeVPCEndpointServiceConfigurations'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    serviceIds ::
-      Lude.Maybe
-        [Lude.Text],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int
+  { -- | One or more filters.
+    --
+    --
+    --     * @service-name@ - The name of the service.
+    --
+    --
+    --     * @service-id@ - The ID of the service.
+    --
+    --
+    --     * @service-state@ - The state of the service (@Pending@ | @Available@ | @Deleting@ | @Deleted@ | @Failed@ ).
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    filters :: Lude.Maybe [Filter],
+    -- | The IDs of one or more services.
+    serviceIds :: Lude.Maybe [Lude.Text],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointServiceConfigurations' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -93,9 +97,10 @@ data DescribeVPCEndpointServiceConfigurations = DescribeVPCEndpointServiceConfig
 --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
 --
 --
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
--- * 'nextToken' - The token to retrieve the next page of results.
 -- * 'serviceIds' - The IDs of one or more services.
+-- * 'nextToken' - The token to retrieve the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
 mkDescribeVPCEndpointServiceConfigurations ::
   DescribeVPCEndpointServiceConfigurations
 mkDescribeVPCEndpointServiceConfigurations =
@@ -206,32 +211,21 @@ instance Lude.ToQuery DescribeVPCEndpointServiceConfigurations where
 
 -- | /See:/ 'mkDescribeVPCEndpointServiceConfigurationsResponse' smart constructor.
 data DescribeVPCEndpointServiceConfigurationsResponse = DescribeVPCEndpointServiceConfigurationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    serviceConfigurations ::
-      Lude.Maybe
-        [ServiceConfiguration],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about one or more services.
+    serviceConfigurations :: Lude.Maybe [ServiceConfiguration],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointServiceConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'serviceConfigurations' - Information about one or more services.
+-- * 'responseStatus' - The response status code.
 mkDescribeVPCEndpointServiceConfigurationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

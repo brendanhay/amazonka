@@ -37,37 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKinesisSettings' smart constructor.
 data KinesisSettings = KinesisSettings'
-  { includeTransactionDetails ::
-      Lude.Maybe Lude.Bool,
+  { -- | Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for @transaction_id@ , previous @transaction_id@ , and @transaction_record_id@ (the record offset within a transaction). The default is @false@ .
+    includeTransactionDetails :: Lude.Maybe Lude.Bool,
+    -- | Includes any data definition language (DDL) operations that change the table in the control data, such as @rename-table@ , @drop-table@ , @add-column@ , @drop-column@ , and @rename-column@ . The default is @false@ .
     includeTableAlterOperations :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role that AWS DMS uses to write to the Kinesis data stream.
     serviceAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | Prefixes schema and table names to partition values, when the partition type is @primary-key-type@ . Doing this increases data distribution among Kinesis shards. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same shard, which causes throttling. The default is @false@ .
     partitionIncludeSchemaTable :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
     streamARN :: Lude.Maybe Lude.Text,
+    -- | Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is @false@ .
     includeControlDetails :: Lude.Maybe Lude.Bool,
+    -- | Shows the partition value within the Kinesis message output, unless the partition type is @schema-table-type@ . The default is @false@ .
     includePartitionValue :: Lude.Maybe Lude.Bool,
+    -- | The output format for the records created on the endpoint. The message format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no tab).
     messageFormat :: Lude.Maybe MessageFormatValue,
+    -- | Include NULL and empty columns for records migrated to the endpoint. The default is @false@ .
     includeNullAndEmpty :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisSettings' with the minimum fields required to make a request.
 --
--- * 'includeControlDetails' - Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is @false@ .
--- * 'includeNullAndEmpty' - Include NULL and empty columns for records migrated to the endpoint. The default is @false@ .
--- * 'includePartitionValue' - Shows the partition value within the Kinesis message output, unless the partition type is @schema-table-type@ . The default is @false@ .
--- * 'includeTableAlterOperations' - Includes any data definition language (DDL) operations that change the table in the control data, such as @rename-table@ , @drop-table@ , @add-column@ , @drop-column@ , and @rename-column@ . The default is @false@ .
 -- * 'includeTransactionDetails' - Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for @transaction_id@ , previous @transaction_id@ , and @transaction_record_id@ (the record offset within a transaction). The default is @false@ .
--- * 'messageFormat' - The output format for the records created on the endpoint. The message format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no tab).
--- * 'partitionIncludeSchemaTable' - Prefixes schema and table names to partition values, when the partition type is @primary-key-type@ . Doing this increases data distribution among Kinesis shards. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same shard, which causes throttling. The default is @false@ .
+-- * 'includeTableAlterOperations' - Includes any data definition language (DDL) operations that change the table in the control data, such as @rename-table@ , @drop-table@ , @add-column@ , @drop-column@ , and @rename-column@ . The default is @false@ .
 -- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role that AWS DMS uses to write to the Kinesis data stream.
+-- * 'partitionIncludeSchemaTable' - Prefixes schema and table names to partition values, when the partition type is @primary-key-type@ . Doing this increases data distribution among Kinesis shards. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same shard, which causes throttling. The default is @false@ .
 -- * 'streamARN' - The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.
+-- * 'includeControlDetails' - Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is @false@ .
+-- * 'includePartitionValue' - Shows the partition value within the Kinesis message output, unless the partition type is @schema-table-type@ . The default is @false@ .
+-- * 'messageFormat' - The output format for the records created on the endpoint. The message format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no tab).
+-- * 'includeNullAndEmpty' - Include NULL and empty columns for records migrated to the endpoint. The default is @false@ .
 mkKinesisSettings ::
   KinesisSettings
 mkKinesisSettings =

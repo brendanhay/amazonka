@@ -34,33 +34,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigExportDeliveryInfo' smart constructor.
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
-  { lastErrorCode ::
-      Lude.Maybe Lude.Text,
-    lastAttemptTime ::
-      Lude.Maybe Lude.Timestamp,
-    lastSuccessfulTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The error code from the last attempted delivery.
+    lastErrorCode :: Lude.Maybe Lude.Text,
+    -- | The time of the last attempted delivery.
+    lastAttemptTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time of the last successful delivery.
+    lastSuccessfulTime :: Lude.Maybe Lude.Timestamp,
+    -- | Status of the last attempted delivery.
     lastStatus :: Lude.Maybe DeliveryStatus,
+    -- | The error message from the last attempted delivery.
     lastErrorMessage :: Lude.Maybe Lude.Text,
-    nextDeliveryTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | The time that the next delivery occurs.
+    nextDeliveryTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigExportDeliveryInfo' with the minimum fields required to make a request.
 --
--- * 'lastAttemptTime' - The time of the last attempted delivery.
 -- * 'lastErrorCode' - The error code from the last attempted delivery.
--- * 'lastErrorMessage' - The error message from the last attempted delivery.
--- * 'lastStatus' - Status of the last attempted delivery.
+-- * 'lastAttemptTime' - The time of the last attempted delivery.
 -- * 'lastSuccessfulTime' - The time of the last successful delivery.
+-- * 'lastStatus' - Status of the last attempted delivery.
+-- * 'lastErrorMessage' - The error message from the last attempted delivery.
 -- * 'nextDeliveryTime' - The time that the next delivery occurs.
 mkConfigExportDeliveryInfo ::
   ConfigExportDeliveryInfo

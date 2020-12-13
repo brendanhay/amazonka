@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
   ( DashIsoWriteSegmentTimelineInRepresentation
       ( DashIsoWriteSegmentTimelineInRepresentation',
-        DIWSTIRDisabled,
-        DIWSTIREnabled
+        DIWSTIREnabled,
+        DIWSTIRDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype DashIsoWriteSegmentTimelineInRepresentation = DashIsoWriteSegmentTimelin
       Lude.ToHeader
     )
 
-pattern DIWSTIRDisabled :: DashIsoWriteSegmentTimelineInRepresentation
-pattern DIWSTIRDisabled = DashIsoWriteSegmentTimelineInRepresentation' "DISABLED"
-
 pattern DIWSTIREnabled :: DashIsoWriteSegmentTimelineInRepresentation
 pattern DIWSTIREnabled = DashIsoWriteSegmentTimelineInRepresentation' "ENABLED"
 
+pattern DIWSTIRDisabled :: DashIsoWriteSegmentTimelineInRepresentation
+pattern DIWSTIRDisabled = DashIsoWriteSegmentTimelineInRepresentation' "DISABLED"
+
 {-# COMPLETE
-  DIWSTIRDisabled,
   DIWSTIREnabled,
+  DIWSTIRDisabled,
   DashIsoWriteSegmentTimelineInRepresentation'
   #-}

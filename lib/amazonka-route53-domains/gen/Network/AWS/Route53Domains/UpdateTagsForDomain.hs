@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,23 +44,18 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkUpdateTagsForDomain' smart constructor.
 data UpdateTagsForDomain = UpdateTagsForDomain'
-  { tagsToUpdate ::
-      Lude.Maybe [Tag],
+  { -- | A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
+    tagsToUpdate :: Lude.Maybe [Tag],
+    -- | The domain for which you want to add or update tags.
     domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForDomain' with the minimum fields required to make a request.
 --
--- * 'domainName' - The domain for which you want to add or update tags.
 -- * 'tagsToUpdate' - A list of the tag keys and values that you want to add or update. If you specify a key that already exists, the corresponding value will be replaced.
+-- * 'domainName' - The domain for which you want to add or update tags.
 mkUpdateTagsForDomain ::
   -- | 'domainName'
   Lude.Text ->
@@ -124,16 +120,10 @@ instance Lude.ToQuery UpdateTagsForDomain where
 
 -- | /See:/ 'mkUpdateTagsForDomainResponse' smart constructor.
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTagsForDomainResponse' with the minimum fields required to make a request.

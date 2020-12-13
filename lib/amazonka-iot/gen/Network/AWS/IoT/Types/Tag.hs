@@ -28,20 +28,19 @@ import qualified Network.AWS.Prelude as Lude
 -- | A set of key/value pairs that are used to manage the resource.
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {value :: Lude.Maybe Lude.Text, key :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | The tag's value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The tag's key.
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - The tag's key.
 -- * 'value' - The tag's value.
+-- * 'key' - The tag's key.
 mkTag ::
   -- | 'key'
   Lude.Text ->

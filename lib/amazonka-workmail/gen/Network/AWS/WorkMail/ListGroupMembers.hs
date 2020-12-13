@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.WorkMail.ListGroupMembers
 
     -- ** Request lenses
     lgmNextToken,
+    lgmGroupId,
     lgmMaxResults,
     lgmOrganizationId,
-    lgmGroupId,
 
     -- * Destructuring the response
     ListGroupMembersResponse (..),
@@ -46,39 +47,36 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListGroupMembers' smart constructor.
 data ListGroupMembers = ListGroupMembers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The identifier for the group to which the members (users or groups) are associated.
+    groupId :: Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural,
-    organizationId :: Lude.Text,
-    groupId :: Lude.Text
+    -- | The identifier for the organization under which the group exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupMembers' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
 -- * 'groupId' - The identifier for the group to which the members (users or groups) are associated.
 -- * 'maxResults' - The maximum number of results to return in a single call.
--- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
 -- * 'organizationId' - The identifier for the organization under which the group exists.
 mkListGroupMembers ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'groupId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   ListGroupMembers
-mkListGroupMembers pOrganizationId_ pGroupId_ =
+mkListGroupMembers pGroupId_ pOrganizationId_ =
   ListGroupMembers'
     { nextToken = Lude.Nothing,
+      groupId = pGroupId_,
       maxResults = Lude.Nothing,
-      organizationId = pOrganizationId_,
-      groupId = pGroupId_
+      organizationId = pOrganizationId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
@@ -87,6 +85,13 @@ mkListGroupMembers pOrganizationId_ pGroupId_ =
 lgmNextToken :: Lens.Lens' ListGroupMembers (Lude.Maybe Lude.Text)
 lgmNextToken = Lens.lens (nextToken :: ListGroupMembers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGroupMembers)
 {-# DEPRECATED lgmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The identifier for the group to which the members (users or groups) are associated.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgmGroupId :: Lens.Lens' ListGroupMembers Lude.Text
+lgmGroupId = Lens.lens (groupId :: ListGroupMembers -> Lude.Text) (\s a -> s {groupId = a} :: ListGroupMembers)
+{-# DEPRECATED lgmGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The maximum number of results to return in a single call.
 --
@@ -101,13 +106,6 @@ lgmMaxResults = Lens.lens (maxResults :: ListGroupMembers -> Lude.Maybe Lude.Nat
 lgmOrganizationId :: Lens.Lens' ListGroupMembers Lude.Text
 lgmOrganizationId = Lens.lens (organizationId :: ListGroupMembers -> Lude.Text) (\s a -> s {organizationId = a} :: ListGroupMembers)
 {-# DEPRECATED lgmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The identifier for the group to which the members (users or groups) are associated.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgmGroupId :: Lens.Lens' ListGroupMembers Lude.Text
-lgmGroupId = Lens.lens (groupId :: ListGroupMembers -> Lude.Text) (\s a -> s {groupId = a} :: ListGroupMembers)
-{-# DEPRECATED lgmGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 instance Page.AWSPager ListGroupMembers where
   page rq rs
@@ -146,9 +144,9 @@ instance Lude.ToJSON ListGroupMembers where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("GroupId" Lude..= groupId),
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("GroupId" Lude..= groupId)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -160,18 +158,14 @@ instance Lude.ToQuery ListGroupMembers where
 
 -- | /See:/ 'mkListGroupMembersResponse' smart constructor.
 data ListGroupMembersResponse = ListGroupMembersResponse'
-  { members ::
-      Lude.Maybe [Member],
+  { -- | The members associated to the group.
+    members :: Lude.Maybe [Member],
+    -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupMembersResponse' with the minimum fields required to make a request.

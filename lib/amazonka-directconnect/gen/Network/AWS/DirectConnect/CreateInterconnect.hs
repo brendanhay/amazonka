@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,11 +25,11 @@ module Network.AWS.DirectConnect.CreateInterconnect
 
     -- ** Request lenses
     ciLagId,
-    ciProviderName,
-    ciTags,
+    ciLocation,
     ciInterconnectName,
     ciBandwidth,
-    ciLocation,
+    ciProviderName,
+    ciTags,
 
     -- * Destructuring the response
     Interconnect (..),
@@ -60,47 +61,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateInterconnect' smart constructor.
 data CreateInterconnect = CreateInterconnect'
-  { lagId ::
-      Lude.Maybe Lude.Text,
-    providerName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+  { -- | The ID of the LAG.
+    lagId :: Lude.Maybe Lude.Text,
+    -- | The location of the interconnect.
+    location :: Lude.Text,
+    -- | The name of the interconnect.
     interconnectName :: Lude.Text,
+    -- | The port bandwidth, in Gbps. The possible values are 1 and 10.
     bandwidth :: Lude.Text,
-    location :: Lude.Text
+    -- | The name of the service provider associated with the interconnect.
+    providerName :: Lude.Maybe Lude.Text,
+    -- | The tags to associate with the interconnect.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInterconnect' with the minimum fields required to make a request.
 --
--- * 'bandwidth' - The port bandwidth, in Gbps. The possible values are 1 and 10.
--- * 'interconnectName' - The name of the interconnect.
 -- * 'lagId' - The ID of the LAG.
 -- * 'location' - The location of the interconnect.
+-- * 'interconnectName' - The name of the interconnect.
+-- * 'bandwidth' - The port bandwidth, in Gbps. The possible values are 1 and 10.
 -- * 'providerName' - The name of the service provider associated with the interconnect.
 -- * 'tags' - The tags to associate with the interconnect.
 mkCreateInterconnect ::
+  -- | 'location'
+  Lude.Text ->
   -- | 'interconnectName'
   Lude.Text ->
   -- | 'bandwidth'
   Lude.Text ->
-  -- | 'location'
-  Lude.Text ->
   CreateInterconnect
-mkCreateInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
+mkCreateInterconnect pLocation_ pInterconnectName_ pBandwidth_ =
   CreateInterconnect'
     { lagId = Lude.Nothing,
-      providerName = Lude.Nothing,
-      tags = Lude.Nothing,
+      location = pLocation_,
       interconnectName = pInterconnectName_,
       bandwidth = pBandwidth_,
-      location = pLocation_
+      providerName = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | The ID of the LAG.
@@ -110,19 +110,12 @@ ciLagId :: Lens.Lens' CreateInterconnect (Lude.Maybe Lude.Text)
 ciLagId = Lens.lens (lagId :: CreateInterconnect -> Lude.Maybe Lude.Text) (\s a -> s {lagId = a} :: CreateInterconnect)
 {-# DEPRECATED ciLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
--- | The name of the service provider associated with the interconnect.
+-- | The location of the interconnect.
 --
--- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciProviderName :: Lens.Lens' CreateInterconnect (Lude.Maybe Lude.Text)
-ciProviderName = Lens.lens (providerName :: CreateInterconnect -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: CreateInterconnect)
-{-# DEPRECATED ciProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
-
--- | The tags to associate with the interconnect.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciTags :: Lens.Lens' CreateInterconnect (Lude.Maybe (Lude.NonEmpty Tag))
-ciTags = Lens.lens (tags :: CreateInterconnect -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateInterconnect)
-{-# DEPRECATED ciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciLocation :: Lens.Lens' CreateInterconnect Lude.Text
+ciLocation = Lens.lens (location :: CreateInterconnect -> Lude.Text) (\s a -> s {location = a} :: CreateInterconnect)
+{-# DEPRECATED ciLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The name of the interconnect.
 --
@@ -138,12 +131,19 @@ ciBandwidth :: Lens.Lens' CreateInterconnect Lude.Text
 ciBandwidth = Lens.lens (bandwidth :: CreateInterconnect -> Lude.Text) (\s a -> s {bandwidth = a} :: CreateInterconnect)
 {-# DEPRECATED ciBandwidth "Use generic-lens or generic-optics with 'bandwidth' instead." #-}
 
--- | The location of the interconnect.
+-- | The name of the service provider associated with the interconnect.
 --
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciLocation :: Lens.Lens' CreateInterconnect Lude.Text
-ciLocation = Lens.lens (location :: CreateInterconnect -> Lude.Text) (\s a -> s {location = a} :: CreateInterconnect)
-{-# DEPRECATED ciLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+-- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciProviderName :: Lens.Lens' CreateInterconnect (Lude.Maybe Lude.Text)
+ciProviderName = Lens.lens (providerName :: CreateInterconnect -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: CreateInterconnect)
+{-# DEPRECATED ciProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
+
+-- | The tags to associate with the interconnect.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciTags :: Lens.Lens' CreateInterconnect (Lude.Maybe (Lude.NonEmpty Tag))
+ciTags = Lens.lens (tags :: CreateInterconnect -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateInterconnect)
+{-# DEPRECATED ciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateInterconnect where
   type Rs CreateInterconnect = Interconnect
@@ -166,11 +166,11 @@ instance Lude.ToJSON CreateInterconnect where
     Lude.object
       ( Lude.catMaybes
           [ ("lagId" Lude..=) Lude.<$> lagId,
-            ("providerName" Lude..=) Lude.<$> providerName,
-            ("tags" Lude..=) Lude.<$> tags,
+            Lude.Just ("location" Lude..= location),
             Lude.Just ("interconnectName" Lude..= interconnectName),
             Lude.Just ("bandwidth" Lude..= bandwidth),
-            Lude.Just ("location" Lude..= location)
+            ("providerName" Lude..=) Lude.<$> providerName,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 

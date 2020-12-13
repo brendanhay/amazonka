@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSSLPolicy' smart constructor.
 data SSLPolicy = SSLPolicy'
-  { ciphers :: Lude.Maybe [Cipher],
+  { -- | The ciphers.
+    ciphers :: Lude.Maybe [Cipher],
+    -- | The name of the policy.
     name :: Lude.Maybe Lude.Text,
+    -- | The protocols.
     sslProtocols :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSLPolicy' with the minimum fields required to make a request.

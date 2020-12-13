@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte35TimeSignalScheduleActionSettings' smart constructor.
 newtype Scte35TimeSignalScheduleActionSettings = Scte35TimeSignalScheduleActionSettings'
-  { scte35Descriptors ::
-      [Scte35Descriptor]
+  { -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
+    scte35Descriptors :: [Scte35Descriptor]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35TimeSignalScheduleActionSettings' with the minimum fields required to make a request.

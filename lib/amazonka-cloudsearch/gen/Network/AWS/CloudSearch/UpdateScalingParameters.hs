@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     mkUpdateScalingParameters,
 
     -- ** Request lenses
-    uspDomainName,
     uspScalingParameters,
+    uspDomainName,
 
     -- * Destructuring the response
     UpdateScalingParametersResponse (..),
     mkUpdateScalingParametersResponse,
 
     -- ** Response lenses
-    usprsResponseStatus,
     usprsScalingParameters,
+    usprsResponseStatus,
   )
 where
 
@@ -42,41 +43,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateScalingParameters' smart constructor.
 data UpdateScalingParameters = UpdateScalingParameters'
-  { domainName ::
-      Lude.Text,
-    scalingParameters :: ScalingParameters
+  { scalingParameters :: ScalingParameters,
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateScalingParameters' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
--- * 'scalingParameters' - Undocumented field.
+-- * 'scalingParameters' -
+-- * 'domainName' -
 mkUpdateScalingParameters ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'scalingParameters'
   ScalingParameters ->
+  -- | 'domainName'
+  Lude.Text ->
   UpdateScalingParameters
-mkUpdateScalingParameters pDomainName_ pScalingParameters_ =
+mkUpdateScalingParameters pScalingParameters_ pDomainName_ =
   UpdateScalingParameters'
-    { domainName = pDomainName_,
-      scalingParameters = pScalingParameters_
+    { scalingParameters = pScalingParameters_,
+      domainName = pDomainName_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uspDomainName :: Lens.Lens' UpdateScalingParameters Lude.Text
-uspDomainName = Lens.lens (domainName :: UpdateScalingParameters -> Lude.Text) (\s a -> s {domainName = a} :: UpdateScalingParameters)
-{-# DEPRECATED uspDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -84,6 +71,13 @@ uspDomainName = Lens.lens (domainName :: UpdateScalingParameters -> Lude.Text) (
 uspScalingParameters :: Lens.Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters = Lens.lens (scalingParameters :: UpdateScalingParameters -> ScalingParameters) (\s a -> s {scalingParameters = a} :: UpdateScalingParameters)
 {-# DEPRECATED uspScalingParameters "Use generic-lens or generic-optics with 'scalingParameters' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uspDomainName :: Lens.Lens' UpdateScalingParameters Lude.Text
+uspDomainName = Lens.lens (domainName :: UpdateScalingParameters -> Lude.Text) (\s a -> s {domainName = a} :: UpdateScalingParameters)
+{-# DEPRECATED uspDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest UpdateScalingParameters where
   type Rs UpdateScalingParameters = UpdateScalingParametersResponse
@@ -93,8 +87,8 @@ instance Lude.AWSRequest UpdateScalingParameters where
       "UpdateScalingParametersResult"
       ( \s h x ->
           UpdateScalingParametersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "ScalingParameters")
+            Lude.<$> (x Lude..@ "ScalingParameters")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateScalingParameters where
@@ -108,53 +102,39 @@ instance Lude.ToQuery UpdateScalingParameters where
     Lude.mconcat
       [ "Action" Lude.=: ("UpdateScalingParameters" :: Lude.ByteString),
         "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName,
-        "ScalingParameters" Lude.=: scalingParameters
+        "ScalingParameters" Lude.=: scalingParameters,
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @UpdateScalingParameters@ request. Contains the status of the newly-configured scaling parameters.
 --
 -- /See:/ 'mkUpdateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
-  { responseStatus ::
-      Lude.Int,
-    scalingParameters ::
-      ScalingParametersStatus
+  { scalingParameters :: ScalingParametersStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateScalingParametersResponse' with the minimum fields required to make a request.
 --
+-- * 'scalingParameters' -
 -- * 'responseStatus' - The response status code.
--- * 'scalingParameters' - Undocumented field.
 mkUpdateScalingParametersResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'scalingParameters'
   ScalingParametersStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateScalingParametersResponse
 mkUpdateScalingParametersResponse
-  pResponseStatus_
-  pScalingParameters_ =
+  pScalingParameters_
+  pResponseStatus_ =
     UpdateScalingParametersResponse'
-      { responseStatus =
-          pResponseStatus_,
-        scalingParameters = pScalingParameters_
+      { scalingParameters =
+          pScalingParameters_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usprsResponseStatus :: Lens.Lens' UpdateScalingParametersResponse Lude.Int
-usprsResponseStatus = Lens.lens (responseStatus :: UpdateScalingParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateScalingParametersResponse)
-{-# DEPRECATED usprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -162,3 +142,10 @@ usprsResponseStatus = Lens.lens (responseStatus :: UpdateScalingParametersRespon
 usprsScalingParameters :: Lens.Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprsScalingParameters = Lens.lens (scalingParameters :: UpdateScalingParametersResponse -> ScalingParametersStatus) (\s a -> s {scalingParameters = a} :: UpdateScalingParametersResponse)
 {-# DEPRECATED usprsScalingParameters "Use generic-lens or generic-optics with 'scalingParameters' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usprsResponseStatus :: Lens.Lens' UpdateScalingParametersResponse Lude.Int
+usprsResponseStatus = Lens.lens (responseStatus :: UpdateScalingParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateScalingParametersResponse)
+{-# DEPRECATED usprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

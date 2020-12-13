@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.DirectInternetAccess
   ( DirectInternetAccess
       ( DirectInternetAccess',
-        DIADisabled,
-        DIAEnabled
+        DIAEnabled,
+        DIADisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DirectInternetAccess = DirectInternetAccess' Lude.Text
       Lude.ToHeader
     )
 
-pattern DIADisabled :: DirectInternetAccess
-pattern DIADisabled = DirectInternetAccess' "Disabled"
-
 pattern DIAEnabled :: DirectInternetAccess
 pattern DIAEnabled = DirectInternetAccess' "Enabled"
 
+pattern DIADisabled :: DirectInternetAccess
+pattern DIADisabled = DirectInternetAccess' "Disabled"
+
 {-# COMPLETE
-  DIADisabled,
   DIAEnabled,
+  DIADisabled,
   DirectInternetAccess'
   #-}

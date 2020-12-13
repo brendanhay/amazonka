@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.GuardDuty.UnarchiveFindings
     mkUnarchiveFindings,
 
     -- ** Request lenses
-    uDetectorId,
     uFindingIds,
+    uDetectorId,
 
     -- * Destructuring the response
     UnarchiveFindingsResponse (..),
@@ -39,39 +40,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUnarchiveFindings' smart constructor.
 data UnarchiveFindings = UnarchiveFindings'
-  { detectorId ::
-      Lude.Text,
-    findingIds :: [Lude.Text]
+  { -- | The IDs of the findings to unarchive.
+    findingIds :: [Lude.Text],
+    -- | The ID of the detector associated with the findings to unarchive.
+    detectorId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnarchiveFindings' with the minimum fields required to make a request.
 --
--- * 'detectorId' - The ID of the detector associated with the findings to unarchive.
 -- * 'findingIds' - The IDs of the findings to unarchive.
+-- * 'detectorId' - The ID of the detector associated with the findings to unarchive.
 mkUnarchiveFindings ::
   -- | 'detectorId'
   Lude.Text ->
   UnarchiveFindings
 mkUnarchiveFindings pDetectorId_ =
   UnarchiveFindings'
-    { detectorId = pDetectorId_,
-      findingIds = Lude.mempty
+    { findingIds = Lude.mempty,
+      detectorId = pDetectorId_
     }
-
--- | The ID of the detector associated with the findings to unarchive.
---
--- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uDetectorId :: Lens.Lens' UnarchiveFindings Lude.Text
-uDetectorId = Lens.lens (detectorId :: UnarchiveFindings -> Lude.Text) (\s a -> s {detectorId = a} :: UnarchiveFindings)
-{-# DEPRECATED uDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The IDs of the findings to unarchive.
 --
@@ -79,6 +68,13 @@ uDetectorId = Lens.lens (detectorId :: UnarchiveFindings -> Lude.Text) (\s a -> 
 uFindingIds :: Lens.Lens' UnarchiveFindings [Lude.Text]
 uFindingIds = Lens.lens (findingIds :: UnarchiveFindings -> [Lude.Text]) (\s a -> s {findingIds = a} :: UnarchiveFindings)
 {-# DEPRECATED uFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
+
+-- | The ID of the detector associated with the findings to unarchive.
+--
+-- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDetectorId :: Lens.Lens' UnarchiveFindings Lude.Text
+uDetectorId = Lens.lens (detectorId :: UnarchiveFindings -> Lude.Text) (\s a -> s {detectorId = a} :: UnarchiveFindings)
+{-# DEPRECATED uDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 instance Lude.AWSRequest UnarchiveFindings where
   type Rs UnarchiveFindings = UnarchiveFindingsResponse
@@ -113,16 +109,10 @@ instance Lude.ToQuery UnarchiveFindings where
 
 -- | /See:/ 'mkUnarchiveFindingsResponse' smart constructor.
 newtype UnarchiveFindingsResponse = UnarchiveFindingsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnarchiveFindingsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,30 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeOrganizationConfigRuleStatuses' smart constructor.
 data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStatuses'
-  { organizationConfigRuleNames ::
-      Lude.Maybe
-        [Lude.Text],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | The names of organization config rules for which you want status details. If you do not specify any names, AWS Config returns details for all your organization AWS Confg rules.
+    organizationConfigRuleNames :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of @OrganizationConfigRuleStatuses@ returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConfigRuleStatuses' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of @OrganizationConfigRuleStatuses@ returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConfigRuleNames' - The names of organization config rules for which you want status details. If you do not specify any names, AWS Config returns details for all your organization AWS Confg rules.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of @OrganizationConfigRuleStatuses@ returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
 mkDescribeOrganizationConfigRuleStatuses ::
   DescribeOrganizationConfigRuleStatuses
 mkDescribeOrganizationConfigRuleStatuses =
@@ -145,26 +137,15 @@ instance Lude.ToQuery DescribeOrganizationConfigRuleStatuses where
 
 -- | /See:/ 'mkDescribeOrganizationConfigRuleStatusesResponse' smart constructor.
 data DescribeOrganizationConfigRuleStatusesResponse = DescribeOrganizationConfigRuleStatusesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    organizationConfigRuleStatuses ::
-      Lude.Maybe
-        [OrganizationConfigRuleStatus],
-    responseStatus ::
-      Lude.Int
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @OrganizationConfigRuleStatus@ objects.
+    organizationConfigRuleStatuses :: Lude.Maybe [OrganizationConfigRuleStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConfigRuleStatusesResponse' with the minimum fields required to make a request.
 --

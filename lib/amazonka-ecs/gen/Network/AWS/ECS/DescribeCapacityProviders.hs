@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,28 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeCapacityProviders' smart constructor.
 data DescribeCapacityProviders = DescribeCapacityProviders'
-  { include ::
-      Lude.Maybe [CapacityProviderField],
+  { -- | Specifies whether or not you want to see the resource tags for the capacity provider. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
+    include :: Lude.Maybe [CapacityProviderField],
+    -- | The @nextToken@ value returned from a previous paginated @DescribeCapacityProviders@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
     nextToken :: Lude.Maybe Lude.Text,
-    capacityProviders ::
-      Lude.Maybe [Lude.Text],
+    -- | The short name or full Amazon Resource Name (ARN) of one or more capacity providers. Up to @100@ capacity providers can be described in an action.
+    capacityProviders :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of account setting results returned by @DescribeCapacityProviders@ in paginated output. When this parameter is used, @DescribeCapacityProviders@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeCapacityProviders@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @DescribeCapacityProviders@ returns up to 10 results and a @nextToken@ value if applicable.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCapacityProviders' with the minimum fields required to make a request.
 --
--- * 'capacityProviders' - The short name or full Amazon Resource Name (ARN) of one or more capacity providers. Up to @100@ capacity providers can be described in an action.
 -- * 'include' - Specifies whether or not you want to see the resource tags for the capacity provider. If @TAGS@ is specified, the tags are included in the response. If this field is omitted, tags are not included in the response.
--- * 'maxResults' - The maximum number of account setting results returned by @DescribeCapacityProviders@ in paginated output. When this parameter is used, @DescribeCapacityProviders@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeCapacityProviders@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @DescribeCapacityProviders@ returns up to 10 results and a @nextToken@ value if applicable.
 -- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeCapacityProviders@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value.
+-- * 'capacityProviders' - The short name or full Amazon Resource Name (ARN) of one or more capacity providers. Up to @100@ capacity providers can be described in an action.
+-- * 'maxResults' - The maximum number of account setting results returned by @DescribeCapacityProviders@ in paginated output. When this parameter is used, @DescribeCapacityProviders@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeCapacityProviders@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @DescribeCapacityProviders@ returns up to 10 results and a @nextToken@ value if applicable.
 mkDescribeCapacityProviders ::
   DescribeCapacityProviders
 mkDescribeCapacityProviders =
@@ -151,30 +148,23 @@ instance Lude.ToQuery DescribeCapacityProviders where
 
 -- | /See:/ 'mkDescribeCapacityProvidersResponse' smart constructor.
 data DescribeCapacityProvidersResponse = DescribeCapacityProvidersResponse'
-  { failures ::
-      Lude.Maybe [Failure],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    capacityProviders ::
-      Lude.Maybe
-        [CapacityProvider],
-    responseStatus ::
-      Lude.Int
+  { -- | Any failures associated with the call.
+    failures :: Lude.Maybe [Failure],
+    -- | The @nextToken@ value to include in a future @DescribeCapacityProviders@ request. When the results of a @DescribeCapacityProviders@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of capacity providers.
+    capacityProviders :: Lude.Maybe [CapacityProvider],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCapacityProvidersResponse' with the minimum fields required to make a request.
 --
--- * 'capacityProviders' - The list of capacity providers.
 -- * 'failures' - Any failures associated with the call.
 -- * 'nextToken' - The @nextToken@ value to include in a future @DescribeCapacityProviders@ request. When the results of a @DescribeCapacityProviders@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'capacityProviders' - The list of capacity providers.
 -- * 'responseStatus' - The response status code.
 mkDescribeCapacityProvidersResponse ::
   -- | 'responseStatus'

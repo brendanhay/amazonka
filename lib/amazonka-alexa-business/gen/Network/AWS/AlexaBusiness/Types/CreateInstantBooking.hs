@@ -17,8 +17,8 @@ module Network.AWS.AlexaBusiness.Types.CreateInstantBooking
     mkCreateInstantBooking,
 
     -- * Lenses
-    cibDurationInMinutes,
     cibEnabled,
+    cibDurationInMinutes,
   )
 where
 
@@ -29,41 +29,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateInstantBooking' smart constructor.
 data CreateInstantBooking = CreateInstantBooking'
-  { durationInMinutes ::
-      Lude.Int,
-    enabled :: Lude.Bool
+  { -- | Whether instant booking is enabled or not.
+    enabled :: Lude.Bool,
+    -- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+    durationInMinutes :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstantBooking' with the minimum fields required to make a request.
 --
--- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
 -- * 'enabled' - Whether instant booking is enabled or not.
+-- * 'durationInMinutes' - Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
 mkCreateInstantBooking ::
-  -- | 'durationInMinutes'
-  Lude.Int ->
   -- | 'enabled'
   Lude.Bool ->
+  -- | 'durationInMinutes'
+  Lude.Int ->
   CreateInstantBooking
-mkCreateInstantBooking pDurationInMinutes_ pEnabled_ =
+mkCreateInstantBooking pEnabled_ pDurationInMinutes_ =
   CreateInstantBooking'
-    { durationInMinutes = pDurationInMinutes_,
-      enabled = pEnabled_
+    { enabled = pEnabled_,
+      durationInMinutes = pDurationInMinutes_
     }
-
--- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
---
--- /Note:/ Consider using 'durationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cibDurationInMinutes :: Lens.Lens' CreateInstantBooking Lude.Int
-cibDurationInMinutes = Lens.lens (durationInMinutes :: CreateInstantBooking -> Lude.Int) (\s a -> s {durationInMinutes = a} :: CreateInstantBooking)
-{-# DEPRECATED cibDurationInMinutes "Use generic-lens or generic-optics with 'durationInMinutes' instead." #-}
 
 -- | Whether instant booking is enabled or not.
 --
@@ -72,11 +60,18 @@ cibEnabled :: Lens.Lens' CreateInstantBooking Lude.Bool
 cibEnabled = Lens.lens (enabled :: CreateInstantBooking -> Lude.Bool) (\s a -> s {enabled = a} :: CreateInstantBooking)
 {-# DEPRECATED cibEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
+-- | Duration between 15 and 240 minutes at increments of 15 that determines how long to book an available room when a meeting is started with Alexa.
+--
+-- /Note:/ Consider using 'durationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibDurationInMinutes :: Lens.Lens' CreateInstantBooking Lude.Int
+cibDurationInMinutes = Lens.lens (durationInMinutes :: CreateInstantBooking -> Lude.Int) (\s a -> s {durationInMinutes = a} :: CreateInstantBooking)
+{-# DEPRECATED cibDurationInMinutes "Use generic-lens or generic-optics with 'durationInMinutes' instead." #-}
+
 instance Lude.ToJSON CreateInstantBooking where
   toJSON CreateInstantBooking' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DurationInMinutes" Lude..= durationInMinutes),
-            Lude.Just ("Enabled" Lude..= enabled)
+          [ Lude.Just ("Enabled" Lude..= enabled),
+            Lude.Just ("DurationInMinutes" Lude..= durationInMinutes)
           ]
       )

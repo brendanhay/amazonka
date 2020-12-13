@@ -31,16 +31,10 @@ import Network.AWS.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'mkRegionOfInterest' smart constructor.
 newtype RegionOfInterest = RegionOfInterest'
-  { boundingBox ::
-      Lude.Maybe BoundingBox
+  { -- | The box representing a region of interest on screen.
+    boundingBox :: Lude.Maybe BoundingBox
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionOfInterest' with the minimum fields required to make a request.

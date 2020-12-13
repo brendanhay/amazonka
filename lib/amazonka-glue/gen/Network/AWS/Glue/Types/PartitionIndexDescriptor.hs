@@ -17,10 +17,10 @@ module Network.AWS.Glue.Types.PartitionIndexDescriptor
     mkPartitionIndexDescriptor,
 
     -- * Lenses
+    pidIndexStatus,
+    pidKeys,
     pidBackfillErrors,
     pidIndexName,
-    pidKeys,
-    pidIndexStatus,
   )
 where
 
@@ -34,25 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartitionIndexDescriptor' smart constructor.
 data PartitionIndexDescriptor = PartitionIndexDescriptor'
-  { backfillErrors ::
-      Lude.Maybe [BackfillError],
-    indexName :: Lude.Text,
+  { -- | The status of the partition index.
+    --
+    -- The possible statuses are:
+    --
+    --     * CREATING: The index is being created. When an index is in a CREATING state, the index or its table cannot be deleted.
+    --
+    --
+    --     * ACTIVE: The index creation succeeds.
+    --
+    --
+    --     * FAILED: The index creation fails.
+    --
+    --
+    --     * DELETING: The index is deleted from the list of indexes.
+    indexStatus :: PartitionIndexStatus,
+    -- | A list of one or more keys, as @KeySchemaElement@ structures, for the partition index.
     keys :: Lude.NonEmpty KeySchemaElement,
-    indexStatus :: PartitionIndexStatus
+    -- | A list of errors that can occur when registering partition indexes for an existing table.
+    backfillErrors :: Lude.Maybe [BackfillError],
+    -- | The name of the partition index.
+    indexName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartitionIndexDescriptor' with the minimum fields required to make a request.
 --
--- * 'backfillErrors' - A list of errors that can occur when registering partition indexes for an existing table.
--- * 'indexName' - The name of the partition index.
 -- * 'indexStatus' - The status of the partition index.
 --
 -- The possible statuses are:
@@ -70,42 +78,23 @@ data PartitionIndexDescriptor = PartitionIndexDescriptor'
 --
 --
 -- * 'keys' - A list of one or more keys, as @KeySchemaElement@ structures, for the partition index.
+-- * 'backfillErrors' - A list of errors that can occur when registering partition indexes for an existing table.
+-- * 'indexName' - The name of the partition index.
 mkPartitionIndexDescriptor ::
-  -- | 'indexName'
-  Lude.Text ->
-  -- | 'keys'
-  Lude.NonEmpty KeySchemaElement ->
   -- | 'indexStatus'
   PartitionIndexStatus ->
+  -- | 'keys'
+  Lude.NonEmpty KeySchemaElement ->
+  -- | 'indexName'
+  Lude.Text ->
   PartitionIndexDescriptor
-mkPartitionIndexDescriptor pIndexName_ pKeys_ pIndexStatus_ =
+mkPartitionIndexDescriptor pIndexStatus_ pKeys_ pIndexName_ =
   PartitionIndexDescriptor'
-    { backfillErrors = Lude.Nothing,
-      indexName = pIndexName_,
+    { indexStatus = pIndexStatus_,
       keys = pKeys_,
-      indexStatus = pIndexStatus_
+      backfillErrors = Lude.Nothing,
+      indexName = pIndexName_
     }
-
--- | A list of errors that can occur when registering partition indexes for an existing table.
---
--- /Note:/ Consider using 'backfillErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pidBackfillErrors :: Lens.Lens' PartitionIndexDescriptor (Lude.Maybe [BackfillError])
-pidBackfillErrors = Lens.lens (backfillErrors :: PartitionIndexDescriptor -> Lude.Maybe [BackfillError]) (\s a -> s {backfillErrors = a} :: PartitionIndexDescriptor)
-{-# DEPRECATED pidBackfillErrors "Use generic-lens or generic-optics with 'backfillErrors' instead." #-}
-
--- | The name of the partition index.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pidIndexName :: Lens.Lens' PartitionIndexDescriptor Lude.Text
-pidIndexName = Lens.lens (indexName :: PartitionIndexDescriptor -> Lude.Text) (\s a -> s {indexName = a} :: PartitionIndexDescriptor)
-{-# DEPRECATED pidIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
--- | A list of one or more keys, as @KeySchemaElement@ structures, for the partition index.
---
--- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pidKeys :: Lens.Lens' PartitionIndexDescriptor (Lude.NonEmpty KeySchemaElement)
-pidKeys = Lens.lens (keys :: PartitionIndexDescriptor -> Lude.NonEmpty KeySchemaElement) (\s a -> s {keys = a} :: PartitionIndexDescriptor)
-{-# DEPRECATED pidKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
 -- | The status of the partition index.
 --
@@ -129,14 +118,35 @@ pidIndexStatus :: Lens.Lens' PartitionIndexDescriptor PartitionIndexStatus
 pidIndexStatus = Lens.lens (indexStatus :: PartitionIndexDescriptor -> PartitionIndexStatus) (\s a -> s {indexStatus = a} :: PartitionIndexDescriptor)
 {-# DEPRECATED pidIndexStatus "Use generic-lens or generic-optics with 'indexStatus' instead." #-}
 
+-- | A list of one or more keys, as @KeySchemaElement@ structures, for the partition index.
+--
+-- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pidKeys :: Lens.Lens' PartitionIndexDescriptor (Lude.NonEmpty KeySchemaElement)
+pidKeys = Lens.lens (keys :: PartitionIndexDescriptor -> Lude.NonEmpty KeySchemaElement) (\s a -> s {keys = a} :: PartitionIndexDescriptor)
+{-# DEPRECATED pidKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
+
+-- | A list of errors that can occur when registering partition indexes for an existing table.
+--
+-- /Note:/ Consider using 'backfillErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pidBackfillErrors :: Lens.Lens' PartitionIndexDescriptor (Lude.Maybe [BackfillError])
+pidBackfillErrors = Lens.lens (backfillErrors :: PartitionIndexDescriptor -> Lude.Maybe [BackfillError]) (\s a -> s {backfillErrors = a} :: PartitionIndexDescriptor)
+{-# DEPRECATED pidBackfillErrors "Use generic-lens or generic-optics with 'backfillErrors' instead." #-}
+
+-- | The name of the partition index.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pidIndexName :: Lens.Lens' PartitionIndexDescriptor Lude.Text
+pidIndexName = Lens.lens (indexName :: PartitionIndexDescriptor -> Lude.Text) (\s a -> s {indexName = a} :: PartitionIndexDescriptor)
+{-# DEPRECATED pidIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+
 instance Lude.FromJSON PartitionIndexDescriptor where
   parseJSON =
     Lude.withObject
       "PartitionIndexDescriptor"
       ( \x ->
           PartitionIndexDescriptor'
-            Lude.<$> (x Lude..:? "BackfillErrors" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "IndexName")
+            Lude.<$> (x Lude..: "IndexStatus")
             Lude.<*> (x Lude..: "Keys")
-            Lude.<*> (x Lude..: "IndexStatus")
+            Lude.<*> (x Lude..:? "BackfillErrors" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "IndexName")
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkForgetSmartHomeAppliances' smart constructor.
 newtype ForgetSmartHomeAppliances = ForgetSmartHomeAppliances'
-  { roomARN ::
-      Lude.Text
+  { -- | The room that the appliances are associated with.
+    roomARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForgetSmartHomeAppliances' with the minimum fields required to make a request.
@@ -103,16 +98,10 @@ instance Lude.ToQuery ForgetSmartHomeAppliances where
 
 -- | /See:/ 'mkForgetSmartHomeAppliancesResponse' smart constructor.
 newtype ForgetSmartHomeAppliancesResponse = ForgetSmartHomeAppliancesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ForgetSmartHomeAppliancesResponse' with the minimum fields required to make a request.

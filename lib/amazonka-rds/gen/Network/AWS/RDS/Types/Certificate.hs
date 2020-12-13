@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificate' smart constructor.
 data Certificate = Certificate'
-  { certificateType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of the certificate.
+    certificateType :: Lude.Maybe Lude.Text,
+    -- | Whether there is an override for the default certificate identifier.
     customerOverride :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) for the certificate.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | If there is an override for the default certificate identifier, when the override expires.
     customerOverrideValidTill :: Lude.Maybe Lude.DateTime,
+    -- | The final date that the certificate continues to be valid.
     validTill :: Lude.Maybe Lude.DateTime,
+    -- | The unique key that identifies a certificate.
     certificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | The thumbprint of the certificate.
     thumbprint :: Lude.Maybe Lude.Text,
+    -- | The starting date from which the certificate is valid.
     validFrom :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
--- * 'certificateARN' - The Amazon Resource Name (ARN) for the certificate.
--- * 'certificateIdentifier' - The unique key that identifies a certificate.
 -- * 'certificateType' - The type of the certificate.
 -- * 'customerOverride' - Whether there is an override for the default certificate identifier.
+-- * 'certificateARN' - The Amazon Resource Name (ARN) for the certificate.
 -- * 'customerOverrideValidTill' - If there is an override for the default certificate identifier, when the override expires.
+-- * 'validTill' - The final date that the certificate continues to be valid.
+-- * 'certificateIdentifier' - The unique key that identifies a certificate.
 -- * 'thumbprint' - The thumbprint of the certificate.
 -- * 'validFrom' - The starting date from which the certificate is valid.
--- * 'validTill' - The final date that the certificate continues to be valid.
 mkCertificate ::
   Certificate
 mkCertificate =

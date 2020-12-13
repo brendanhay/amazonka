@@ -17,8 +17,8 @@ module Network.AWS.DynamoDB.Types.KinesisStreamingDestinationInput
     mkKinesisStreamingDestinationInput,
 
     -- * Lenses
-    ksdiTableName,
     ksdiStreamARN,
+    ksdiTableName,
   )
 where
 
@@ -27,17 +27,12 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkKinesisStreamingDestinationInput' smart constructor.
 data KinesisStreamingDestinationInput = KinesisStreamingDestinationInput'
-  { tableName ::
-      Lude.Text,
-    streamARN :: Lude.Text
+  { -- | The ARN for a Kinesis data stream.
+    streamARN :: Lude.Text,
+    -- | The name of the DynamoDB table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamingDestinationInput' with the minimum fields required to make a request.
@@ -45,23 +40,16 @@ data KinesisStreamingDestinationInput = KinesisStreamingDestinationInput'
 -- * 'streamARN' - The ARN for a Kinesis data stream.
 -- * 'tableName' - The name of the DynamoDB table.
 mkKinesisStreamingDestinationInput ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'streamARN'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   KinesisStreamingDestinationInput
-mkKinesisStreamingDestinationInput pTableName_ pStreamARN_ =
+mkKinesisStreamingDestinationInput pStreamARN_ pTableName_ =
   KinesisStreamingDestinationInput'
-    { tableName = pTableName_,
-      streamARN = pStreamARN_
+    { streamARN = pStreamARN_,
+      tableName = pTableName_
     }
-
--- | The name of the DynamoDB table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksdiTableName :: Lens.Lens' KinesisStreamingDestinationInput Lude.Text
-ksdiTableName = Lens.lens (tableName :: KinesisStreamingDestinationInput -> Lude.Text) (\s a -> s {tableName = a} :: KinesisStreamingDestinationInput)
-{-# DEPRECATED ksdiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The ARN for a Kinesis data stream.
 --
@@ -70,11 +58,18 @@ ksdiStreamARN :: Lens.Lens' KinesisStreamingDestinationInput Lude.Text
 ksdiStreamARN = Lens.lens (streamARN :: KinesisStreamingDestinationInput -> Lude.Text) (\s a -> s {streamARN = a} :: KinesisStreamingDestinationInput)
 {-# DEPRECATED ksdiStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
+-- | The name of the DynamoDB table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksdiTableName :: Lens.Lens' KinesisStreamingDestinationInput Lude.Text
+ksdiTableName = Lens.lens (tableName :: KinesisStreamingDestinationInput -> Lude.Text) (\s a -> s {tableName = a} :: KinesisStreamingDestinationInput)
+{-# DEPRECATED ksdiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
 instance Lude.ToJSON KinesisStreamingDestinationInput where
   toJSON KinesisStreamingDestinationInput' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("StreamArn" Lude..= streamARN)
+          [ Lude.Just ("StreamArn" Lude..= streamARN),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )

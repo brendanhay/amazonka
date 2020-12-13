@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuiltinSlotTypeMetadata' smart constructor.
 data BuiltinSlotTypeMetadata = BuiltinSlotTypeMetadata'
-  { signature ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for the built-in slot type. To find the signature for a slot type, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
+    signature :: Lude.Maybe Lude.Text,
+    -- | A list of target locales for the slot.
     supportedLocales :: Lude.Maybe [Locale]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuiltinSlotTypeMetadata' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
   ( SuggesterFuzzyMatching
       ( SuggesterFuzzyMatching',
-        High,
+        None,
         Low,
-        None
+        High
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SuggesterFuzzyMatching = SuggesterFuzzyMatching' Lude.Text
       Lude.ToHeader
     )
 
-pattern High :: SuggesterFuzzyMatching
-pattern High = SuggesterFuzzyMatching' "high"
+pattern None :: SuggesterFuzzyMatching
+pattern None = SuggesterFuzzyMatching' "none"
 
 pattern Low :: SuggesterFuzzyMatching
 pattern Low = SuggesterFuzzyMatching' "low"
 
-pattern None :: SuggesterFuzzyMatching
-pattern None = SuggesterFuzzyMatching' "none"
+pattern High :: SuggesterFuzzyMatching
+pattern High = SuggesterFuzzyMatching' "high"
 
 {-# COMPLETE
-  High,
-  Low,
   None,
+  Low,
+  High,
   SuggesterFuzzyMatching'
   #-}

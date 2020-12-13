@@ -13,10 +13,10 @@
 module Network.AWS.CloudFront.Types.EventType
   ( EventType
       ( EventType',
-        OriginRequest,
-        OriginResponse,
         ViewerRequest,
-        ViewerResponse
+        ViewerResponse,
+        OriginRequest,
+        OriginResponse
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype EventType = EventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern OriginRequest :: EventType
-pattern OriginRequest = EventType' "origin-request"
-
-pattern OriginResponse :: EventType
-pattern OriginResponse = EventType' "origin-response"
-
 pattern ViewerRequest :: EventType
 pattern ViewerRequest = EventType' "viewer-request"
 
 pattern ViewerResponse :: EventType
 pattern ViewerResponse = EventType' "viewer-response"
 
+pattern OriginRequest :: EventType
+pattern OriginRequest = EventType' "origin-request"
+
+pattern OriginResponse :: EventType
+pattern OriginResponse = EventType' "origin-response"
+
 {-# COMPLETE
-  OriginRequest,
-  OriginResponse,
   ViewerRequest,
   ViewerResponse,
+  OriginRequest,
+  OriginResponse,
   EventType'
   #-}

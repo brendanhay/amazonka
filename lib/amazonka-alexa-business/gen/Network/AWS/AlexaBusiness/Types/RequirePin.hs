@@ -13,9 +13,9 @@
 module Network.AWS.AlexaBusiness.Types.RequirePin
   ( RequirePin
       ( RequirePin',
+        Yes,
         NO,
-        Optional,
-        Yes
+        Optional
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RequirePin = RequirePin' Lude.Text
       Lude.ToHeader
     )
 
+pattern Yes :: RequirePin
+pattern Yes = RequirePin' "YES"
+
 pattern NO :: RequirePin
 pattern NO = RequirePin' "NO"
 
 pattern Optional :: RequirePin
 pattern Optional = RequirePin' "OPTIONAL"
 
-pattern Yes :: RequirePin
-pattern Yes = RequirePin' "YES"
-
 {-# COMPLETE
+  Yes,
   NO,
   Optional,
-  Yes,
   RequirePin'
   #-}

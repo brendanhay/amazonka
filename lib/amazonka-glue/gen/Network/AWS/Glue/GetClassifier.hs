@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Glue.GetClassifier
     mkGetClassifier,
 
     -- ** Request lenses
-    getName,
+    gName,
 
     -- * Destructuring the response
     GetClassifierResponse (..),
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetClassifier' smart constructor.
-newtype GetClassifier = GetClassifier' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetClassifier = GetClassifier'
+  { -- | Name of the classifier to retrieve.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifier' with the minimum fields required to make a request.
@@ -60,9 +58,9 @@ mkGetClassifier pName_ = GetClassifier' {name = pName_}
 -- | Name of the classifier to retrieve.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getName :: Lens.Lens' GetClassifier Lude.Text
-getName = Lens.lens (name :: GetClassifier -> Lude.Text) (\s a -> s {name = a} :: GetClassifier)
-{-# DEPRECATED getName "Use generic-lens or generic-optics with 'name' instead." #-}
+gName :: Lens.Lens' GetClassifier Lude.Text
+gName = Lens.lens (name :: GetClassifier -> Lude.Text) (\s a -> s {name = a} :: GetClassifier)
+{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetClassifier where
   type Rs GetClassifier = GetClassifierResponse
@@ -97,17 +95,12 @@ instance Lude.ToQuery GetClassifier where
 
 -- | /See:/ 'mkGetClassifierResponse' smart constructor.
 data GetClassifierResponse = GetClassifierResponse'
-  { classifier ::
-      Lude.Maybe Classifier,
+  { -- | The requested classifier.
+    classifier :: Lude.Maybe Classifier,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetClassifierResponse' with the minimum fields required to make a request.

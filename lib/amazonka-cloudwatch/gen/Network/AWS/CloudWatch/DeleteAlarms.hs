@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.CloudWatch.DeleteAlarms
     mkDeleteAlarms,
 
     -- ** Request lenses
-    dAlarmNames,
+    daAlarmNames,
 
     -- * Destructuring the response
     DeleteAlarmsResponse (..),
@@ -36,14 +37,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteAlarms' smart constructor.
-newtype DeleteAlarms = DeleteAlarms' {alarmNames :: [Lude.Text]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteAlarms = DeleteAlarms'
+  { -- | The alarms to be deleted.
+    alarmNames :: [Lude.Text]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlarms' with the minimum fields required to make a request.
@@ -56,9 +54,9 @@ mkDeleteAlarms = DeleteAlarms' {alarmNames = Lude.mempty}
 -- | The alarms to be deleted.
 --
 -- /Note:/ Consider using 'alarmNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAlarmNames :: Lens.Lens' DeleteAlarms [Lude.Text]
-dAlarmNames = Lens.lens (alarmNames :: DeleteAlarms -> [Lude.Text]) (\s a -> s {alarmNames = a} :: DeleteAlarms)
-{-# DEPRECATED dAlarmNames "Use generic-lens or generic-optics with 'alarmNames' instead." #-}
+daAlarmNames :: Lens.Lens' DeleteAlarms [Lude.Text]
+daAlarmNames = Lens.lens (alarmNames :: DeleteAlarms -> [Lude.Text]) (\s a -> s {alarmNames = a} :: DeleteAlarms)
+{-# DEPRECATED daAlarmNames "Use generic-lens or generic-optics with 'alarmNames' instead." #-}
 
 instance Lude.AWSRequest DeleteAlarms where
   type Rs DeleteAlarms = DeleteAlarmsResponse
@@ -81,13 +79,7 @@ instance Lude.ToQuery DeleteAlarms where
 
 -- | /See:/ 'mkDeleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse = DeleteAlarmsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlarmsResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.QueueListBy
   ( QueueListBy
       ( QueueListBy',
-        CreationDate,
-        Name
+        Name,
+        CreationDate
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype QueueListBy = QueueListBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreationDate :: QueueListBy
-pattern CreationDate = QueueListBy' "CREATION_DATE"
-
 pattern Name :: QueueListBy
 pattern Name = QueueListBy' "NAME"
 
+pattern CreationDate :: QueueListBy
+pattern CreationDate = QueueListBy' "CREATION_DATE"
+
 {-# COMPLETE
-  CreationDate,
   Name,
+  CreationDate,
   QueueListBy'
   #-}

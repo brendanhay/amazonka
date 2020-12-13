@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMouthOpen' smart constructor.
 data MouthOpen = MouthOpen'
-  { value :: Lude.Maybe Lude.Bool,
+  { -- | Boolean value that indicates whether the mouth on the face is open or not.
+    value :: Lude.Maybe Lude.Bool,
+    -- | Level of confidence in the determination.
     confidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MouthOpen' with the minimum fields required to make a request.
 --
--- * 'confidence' - Level of confidence in the determination.
 -- * 'value' - Boolean value that indicates whether the mouth on the face is open or not.
+-- * 'confidence' - Level of confidence in the determination.
 mkMouthOpen ::
   MouthOpen
 mkMouthOpen =

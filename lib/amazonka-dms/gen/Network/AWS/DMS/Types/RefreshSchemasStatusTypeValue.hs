@@ -13,9 +13,9 @@
 module Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
   ( RefreshSchemasStatusTypeValue
       ( RefreshSchemasStatusTypeValue',
+        Successful,
         Failed,
-        Refreshing,
-        Successful
+        Refreshing
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RefreshSchemasStatusTypeValue = RefreshSchemasStatusTypeValue' Lude.Text
       Lude.ToHeader
     )
 
+pattern Successful :: RefreshSchemasStatusTypeValue
+pattern Successful = RefreshSchemasStatusTypeValue' "successful"
+
 pattern Failed :: RefreshSchemasStatusTypeValue
 pattern Failed = RefreshSchemasStatusTypeValue' "failed"
 
 pattern Refreshing :: RefreshSchemasStatusTypeValue
 pattern Refreshing = RefreshSchemasStatusTypeValue' "refreshing"
 
-pattern Successful :: RefreshSchemasStatusTypeValue
-pattern Successful = RefreshSchemasStatusTypeValue' "successful"
-
 {-# COMPLETE
+  Successful,
   Failed,
   Refreshing,
-  Successful,
   RefreshSchemasStatusTypeValue'
   #-}

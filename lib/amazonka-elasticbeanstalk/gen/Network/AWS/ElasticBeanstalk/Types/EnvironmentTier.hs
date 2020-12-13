@@ -30,18 +30,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentTier' smart constructor.
 data EnvironmentTier = EnvironmentTier'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of this environment tier.
+    --
+    -- Valid values:
+    --
+    --     * For /Web server tier/ – @WebServer@
+    --
+    --
+    --     * For /Worker tier/ – @Worker@
+    name :: Lude.Maybe Lude.Text,
+    -- | The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
     version :: Lude.Maybe Lude.Text,
+    -- | The type of this environment tier.
+    --
+    -- Valid values:
+    --
+    --     * For /Web server tier/ – @Standard@
+    --
+    --
+    --     * For /Worker tier/ – @SQS/HTTP@
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentTier' with the minimum fields required to make a request.
@@ -56,6 +66,7 @@ data EnvironmentTier = EnvironmentTier'
 --     * For /Worker tier/ – @Worker@
 --
 --
+-- * 'version' - The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 -- * 'type'' - The type of this environment tier.
 --
 -- Valid values:
@@ -64,9 +75,6 @@ data EnvironmentTier = EnvironmentTier'
 --
 --
 --     * For /Worker tier/ – @SQS/HTTP@
---
---
--- * 'version' - The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 mkEnvironmentTier ::
   EnvironmentTier
 mkEnvironmentTier =

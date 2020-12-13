@@ -35,31 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSyncConfig' smart constructor.
 data SyncConfig = SyncConfig'
-  { conflictHandler ::
-      Lude.Maybe ConflictHandlerType,
+  { -- | The Conflict Resolution strategy to perform in the event of a conflict.
+    --
+    --
+    --     * __OPTIMISTIC_CONCURRENCY__ : Resolve conflicts by rejecting mutations when versions do not match the latest version at the server.
+    --
+    --
+    --     * __AUTOMERGE__ : Resolve conflicts with the Automerge conflict resolution strategy.
+    --
+    --
+    --     * __LAMBDA__ : Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.
+    conflictHandler :: Lude.Maybe ConflictHandlerType,
+    -- | The Conflict Detection strategy to use.
+    --
+    --
+    --     * __VERSION__ : Detect conflicts based on object versions for this resolver.
+    --
+    --
+    --     * __NONE__ : Do not detect conflicts when executing this resolver.
     conflictDetection :: Lude.Maybe ConflictDetectionType,
-    lambdaConflictHandlerConfig ::
-      Lude.Maybe LambdaConflictHandlerConfig
+    -- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the Conflict Handler.
+    lambdaConflictHandlerConfig :: Lude.Maybe LambdaConflictHandlerConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SyncConfig' with the minimum fields required to make a request.
---
--- * 'conflictDetection' - The Conflict Detection strategy to use.
---
---
---     * __VERSION__ : Detect conflicts based on object versions for this resolver.
---
---
---     * __NONE__ : Do not detect conflicts when executing this resolver.
---
 --
 -- * 'conflictHandler' - The Conflict Resolution strategy to perform in the event of a conflict.
 --
@@ -71,6 +72,15 @@ data SyncConfig = SyncConfig'
 --
 --
 --     * __LAMBDA__ : Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.
+--
+--
+-- * 'conflictDetection' - The Conflict Detection strategy to use.
+--
+--
+--     * __VERSION__ : Detect conflicts based on object versions for this resolver.
+--
+--
+--     * __NONE__ : Do not detect conflicts when executing this resolver.
 --
 --
 -- * 'lambdaConflictHandlerConfig' - The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the Conflict Handler.

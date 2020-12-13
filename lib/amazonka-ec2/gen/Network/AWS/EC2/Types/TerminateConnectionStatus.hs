@@ -31,25 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTerminateConnectionStatus' smart constructor.
 data TerminateConnectionStatus = TerminateConnectionStatus'
-  { currentStatus ::
-      Lude.Maybe ClientVPNConnectionStatus,
+  { -- | A message about the status of the client connection, if applicable.
+    currentStatus :: Lude.Maybe ClientVPNConnectionStatus,
+    -- | The ID of the client connection.
     connectionId :: Lude.Maybe Lude.Text,
-    previousStatus ::
-      Lude.Maybe ClientVPNConnectionStatus
+    -- | The state of the client connection.
+    previousStatus :: Lude.Maybe ClientVPNConnectionStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateConnectionStatus' with the minimum fields required to make a request.
 --
--- * 'connectionId' - The ID of the client connection.
 -- * 'currentStatus' - A message about the status of the client connection, if applicable.
+-- * 'connectionId' - The ID of the client connection.
 -- * 'previousStatus' - The state of the client connection.
 mkTerminateConnectionStatus ::
   TerminateConnectionStatus

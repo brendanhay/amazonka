@@ -32,20 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlatformBranchSummary' smart constructor.
 data PlatformBranchSummary = PlatformBranchSummary'
-  { branchName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the platform branch.
+    branchName :: Lude.Maybe Lude.Text,
+    -- | An ordinal number that designates the order in which platform branches have been added to a platform. This can be helpful, for example, if your code calls the @ListPlatformBranches@ action and then displays a list of platform branches.
+    --
+    -- A larger @BranchOrder@ value designates a newer platform branch within the platform.
     branchOrder :: Lude.Maybe Lude.Int,
+    -- | The name of the platform to which this platform branch belongs.
     platformName :: Lude.Maybe Lude.Text,
+    -- | The environment tiers that platform versions in this branch support.
+    --
+    -- Possible values: @WebServer/Standard@ | @Worker/SQS/HTTP@
     supportedTierList :: Lude.Maybe [Lude.Text],
+    -- | The support life cycle state of the platform branch.
+    --
+    -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
     lifecycleState :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlatformBranchSummary' with the minimum fields required to make a request.
@@ -54,13 +58,13 @@ data PlatformBranchSummary = PlatformBranchSummary'
 -- * 'branchOrder' - An ordinal number that designates the order in which platform branches have been added to a platform. This can be helpful, for example, if your code calls the @ListPlatformBranches@ action and then displays a list of platform branches.
 --
 -- A larger @BranchOrder@ value designates a newer platform branch within the platform.
--- * 'lifecycleState' - The support life cycle state of the platform branch.
---
--- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
 -- * 'platformName' - The name of the platform to which this platform branch belongs.
 -- * 'supportedTierList' - The environment tiers that platform versions in this branch support.
 --
 -- Possible values: @WebServer/Standard@ | @Worker/SQS/HTTP@
+-- * 'lifecycleState' - The support life cycle state of the platform branch.
+--
+-- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
 mkPlatformBranchSummary ::
   PlatformBranchSummary
 mkPlatformBranchSummary =

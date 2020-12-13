@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListChannels' smart constructor.
 data ListChannels = ListChannels'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { nextToken :: Lude.Maybe Lude.Text,
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChannels' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Undocumented field.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
+-- * 'maxResults' -
 mkListChannels ::
   ListChannels
 mkListChannels =
@@ -127,24 +121,18 @@ instance Lude.ToQuery ListChannels where
 --
 -- /See:/ 'mkListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { channels ::
-      Lude.Maybe [ChannelSummary],
+  { channels :: Lude.Maybe [ChannelSummary],
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChannelsResponse' with the minimum fields required to make a request.
 --
--- * 'channels' - Undocumented field.
--- * 'nextToken' - Undocumented field.
+-- * 'channels' -
+-- * 'nextToken' -
 -- * 'responseStatus' - The response status code.
 mkListChannelsResponse ::
   -- | 'responseStatus'

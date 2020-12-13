@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.H264SceneChangeDetect
   ( H264SceneChangeDetect
       ( H264SceneChangeDetect',
-        HSCDSDisabled,
-        HSCDSEnabled,
-        HSCDSTransitionDetection
+        HSCDfDisabled,
+        HSCDfEnabled,
+        HSCDfTransitionDetection
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype H264SceneChangeDetect = H264SceneChangeDetect' Lude.Text
       Lude.ToHeader
     )
 
-pattern HSCDSDisabled :: H264SceneChangeDetect
-pattern HSCDSDisabled = H264SceneChangeDetect' "DISABLED"
+pattern HSCDfDisabled :: H264SceneChangeDetect
+pattern HSCDfDisabled = H264SceneChangeDetect' "DISABLED"
 
-pattern HSCDSEnabled :: H264SceneChangeDetect
-pattern HSCDSEnabled = H264SceneChangeDetect' "ENABLED"
+pattern HSCDfEnabled :: H264SceneChangeDetect
+pattern HSCDfEnabled = H264SceneChangeDetect' "ENABLED"
 
-pattern HSCDSTransitionDetection :: H264SceneChangeDetect
-pattern HSCDSTransitionDetection = H264SceneChangeDetect' "TRANSITION_DETECTION"
+pattern HSCDfTransitionDetection :: H264SceneChangeDetect
+pattern HSCDfTransitionDetection = H264SceneChangeDetect' "TRANSITION_DETECTION"
 
 {-# COMPLETE
-  HSCDSDisabled,
-  HSCDSEnabled,
-  HSCDSTransitionDetection,
+  HSCDfDisabled,
+  HSCDfEnabled,
+  HSCDfTransitionDetection,
   H264SceneChangeDetect'
   #-}

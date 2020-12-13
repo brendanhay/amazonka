@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpdateProvisioningParameter' smart constructor.
 data UpdateProvisioningParameter = UpdateProvisioningParameter'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The parameter value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The parameter key.
     key :: Lude.Maybe Lude.Text,
-    usePreviousValue ::
-      Lude.Maybe Lude.Bool
+    -- | If set to true, @Value@ is ignored and the previous parameter value is kept.
+    usePreviousValue :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisioningParameter' with the minimum fields required to make a request.
 --
+-- * 'value' - The parameter value.
 -- * 'key' - The parameter key.
 -- * 'usePreviousValue' - If set to true, @Value@ is ignored and the previous parameter value is kept.
--- * 'value' - The parameter value.
 mkUpdateProvisioningParameter ::
   UpdateProvisioningParameter
 mkUpdateProvisioningParameter =

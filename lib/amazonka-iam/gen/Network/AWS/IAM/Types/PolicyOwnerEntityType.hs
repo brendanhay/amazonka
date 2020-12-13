@@ -13,9 +13,9 @@
 module Network.AWS.IAM.Types.PolicyOwnerEntityType
   ( PolicyOwnerEntityType
       ( PolicyOwnerEntityType',
-        POETGroup,
+        POETUser,
         POETRole,
-        POETUser
+        POETGroup
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype PolicyOwnerEntityType = PolicyOwnerEntityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern POETGroup :: PolicyOwnerEntityType
-pattern POETGroup = PolicyOwnerEntityType' "GROUP"
+pattern POETUser :: PolicyOwnerEntityType
+pattern POETUser = PolicyOwnerEntityType' "USER"
 
 pattern POETRole :: PolicyOwnerEntityType
 pattern POETRole = PolicyOwnerEntityType' "ROLE"
 
-pattern POETUser :: PolicyOwnerEntityType
-pattern POETUser = PolicyOwnerEntityType' "USER"
+pattern POETGroup :: PolicyOwnerEntityType
+pattern POETGroup = PolicyOwnerEntityType' "GROUP"
 
 {-# COMPLETE
-  POETGroup,
-  POETRole,
   POETUser,
+  POETRole,
+  POETGroup,
   PolicyOwnerEntityType'
   #-}

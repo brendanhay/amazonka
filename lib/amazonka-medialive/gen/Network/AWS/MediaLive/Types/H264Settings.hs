@@ -93,107 +93,160 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkH264Settings' smart constructor.
 data H264Settings = H264Settings'
-  { temporalAq ::
-      Lude.Maybe H264TemporalAq,
+  { -- | If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
+    temporalAq :: Lude.Maybe H264TemporalAq,
+    -- | Scene change detection.
+    --
+    --
+    -- - On: inserts I-frames when scene change is detected.
+    -- - Off: does not force an I-frame when scene change is detected.
     sceneChangeDetect :: Lude.Maybe H264SceneChangeDetect,
+    -- | Sets the scan type of the output to progressive or top-field-first interlaced.
     scanType :: Lude.Maybe H264ScanType,
+    -- | Determines how timecodes should be inserted into the video elementary stream.
+    --
+    -- - 'disabled': Do not include timecodes
+    -- - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
     timecodeInsertion :: Lude.Maybe H264TimecodeInsertionBehavior,
+    -- | Pixel Aspect Ratio numerator.
     parNumerator :: Lude.Maybe Lude.Natural,
+    -- | Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
     afdSignaling :: Lude.Maybe AfdSignaling,
+    -- | GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
+    --
+    -- If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
+    -- If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
     gopSize :: Lude.Maybe Lude.Double,
+    -- | Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
     gopSizeUnits :: Lude.Maybe H264GopSizeUnits,
+    -- | If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
     subgopLength :: Lude.Maybe H264SubGopLength,
+    -- | Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
+    --
+    -- - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
+    -- - STANDARD_QUALITY: Valid for any Rate control mode.
     qualityLevel :: Lude.Maybe H264QualityLevel,
+    -- | Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+    --
+    -- This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
     slices :: Lude.Maybe Lude.Natural,
+    -- | H.264 Profile.
     profile :: Lude.Maybe H264Profile,
+    -- | Rate control mode.
+    --
+    --
+    -- QVBR: Quality will match the specified quality level except when it is constrained by the
+    -- maximum bitrate.  Recommended if you or your viewers pay for bandwidth.
+    --
+    -- VBR: Quality and bitrate vary, depending on the video complexity. Recommended instead of QVBR
+    -- if you want to maintain a specific average bitrate over the duration of the channel.
+    --
+    -- CBR: Quality varies, depending on the video complexity. Recommended only if you distribute
+    -- your assets to devices that cannot handle variable bitrates.
+    --
+    -- Multiplex: This rate control mode is only supported (and is required) when the video is being
+    -- delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
+    -- by the properties within the Multiplex Program.
     rateControlMode :: Lude.Maybe H264RateControlMode,
+    -- | Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
     minIInterval :: Lude.Maybe Lude.Natural,
+    -- | Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+    --
+    -- - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+    -- - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+    -- - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
     qvbrQualityLevel :: Lude.Maybe Lude.Natural,
+    -- | Color Space settings
     colorSpaceSettings :: Lude.Maybe H264ColorSpaceSettings,
+    -- | This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
     parControl :: Lude.Maybe H264ParControl,
+    -- | If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
     flickerAq :: Lude.Maybe H264FlickerAq,
+    -- | Size of buffer (HRD buffer model) in bits.
     bufSize :: Lude.Maybe Lude.Natural,
+    -- | If set to enabled, adjust quantization within each frame based on spatial variation of content complexity.
     spatialAq :: Lude.Maybe H264SpatialAq,
+    -- | Number of B-frames between reference frames.
     gopNumBFrames :: Lude.Maybe Lude.Natural,
+    -- | Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
     fixedAfd :: Lude.Maybe FixedAfd,
+    -- | Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
     softness :: Lude.Maybe Lude.Natural,
+    -- | Optional filters that you can apply to an encode.
     filterSettings :: Lude.Maybe H264FilterSettings,
+    -- | Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
     bitrate :: Lude.Maybe Lude.Natural,
+    -- | Framerate denominator.
     framerateDenominator :: Lude.Maybe Lude.Natural,
+    -- | This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
+    --
+    -- enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
+    -- disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
     forceFieldPictures :: Lude.Maybe H264ForceFieldPictures,
+    -- | Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
     entropyEncoding :: Lude.Maybe H264EntropyEncoding,
+    -- | This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
     framerateControl :: Lude.Maybe H264FramerateControl,
+    -- | Includes colorspace metadata in the output.
     colorMetadata :: Lude.Maybe H264ColorMetadata,
+    -- | Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
     lookAheadRateControl :: Lude.Maybe H264LookAheadRateControl,
+    -- | Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
     adaptiveQuantization :: Lude.Maybe H264AdaptiveQuantization,
+    -- | Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
     framerateNumerator :: Lude.Maybe Lude.Natural,
+    -- | H.264 Level.
     level :: Lude.Maybe H264Level,
+    -- | Documentation update needed
     gopBReference :: Lude.Maybe H264GopBReference,
+    -- | For QVBR: See the tooltip for Quality level
+    --
+    --
+    -- For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
     maxBitrate :: Lude.Maybe Lude.Natural,
+    -- | Produces a bitstream compliant with SMPTE RP-2027.
     syntax :: Lude.Maybe H264Syntax,
+    -- | Percentage of the buffer that should initially be filled (HRD buffer model).
     bufFillPct :: Lude.Maybe Lude.Natural,
+    -- | Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
     gopClosedCadence :: Lude.Maybe Lude.Natural,
+    -- | Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
     numRefFrames :: Lude.Maybe Lude.Natural,
+    -- | Pixel Aspect Ratio denominator.
     parDenominator :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'H264Settings' with the minimum fields required to make a request.
 --
--- * 'adaptiveQuantization' - Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
--- * 'afdSignaling' - Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
--- * 'bitrate' - Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
--- * 'bufFillPct' - Percentage of the buffer that should initially be filled (HRD buffer model).
--- * 'bufSize' - Size of buffer (HRD buffer model) in bits.
--- * 'colorMetadata' - Includes colorspace metadata in the output.
--- * 'colorSpaceSettings' - Color Space settings
--- * 'entropyEncoding' - Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
--- * 'filterSettings' - Optional filters that you can apply to an encode.
--- * 'fixedAfd' - Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
--- * 'flickerAq' - If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
--- * 'forceFieldPictures' - This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
+-- * 'temporalAq' - If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
+-- * 'sceneChangeDetect' - Scene change detection.
 --
--- enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
--- disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
--- * 'framerateControl' - This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
--- * 'framerateDenominator' - Framerate denominator.
--- * 'framerateNumerator' - Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
--- * 'gopBReference' - Documentation update needed
--- * 'gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
--- * 'gopNumBFrames' - Number of B-frames between reference frames.
+--
+-- - On: inserts I-frames when scene change is detected.
+-- - Off: does not force an I-frame when scene change is detected.
+-- * 'scanType' - Sets the scan type of the output to progressive or top-field-first interlaced.
+-- * 'timecodeInsertion' - Determines how timecodes should be inserted into the video elementary stream.
+--
+-- - 'disabled': Do not include timecodes
+-- - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+-- * 'parNumerator' - Pixel Aspect Ratio numerator.
+-- * 'afdSignaling' - Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
 -- * 'gopSize' - GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
 --
 -- If gopSizeUnits is frames, gopSize must be an integer and must be greater than or equal to 1.
 -- If gopSizeUnits is seconds, gopSize must be greater than 0, but need not be an integer.
 -- * 'gopSizeUnits' - Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
--- * 'level' - H.264 Level.
--- * 'lookAheadRateControl' - Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
--- * 'maxBitrate' - For QVBR: See the tooltip for Quality level
---
---
--- For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
--- * 'minIInterval' - Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
--- * 'numRefFrames' - Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
--- * 'parControl' - This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
--- * 'parDenominator' - Pixel Aspect Ratio denominator.
--- * 'parNumerator' - Pixel Aspect Ratio numerator.
--- * 'profile' - H.264 Profile.
+-- * 'subgopLength' - If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
 -- * 'qualityLevel' - Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
 --
 -- - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
 -- - STANDARD_QUALITY: Valid for any Rate control mode.
--- * 'qvbrQualityLevel' - Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+-- * 'slices' - Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
 --
--- - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
--- - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
--- - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+-- This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+-- * 'profile' - H.264 Profile.
 -- * 'rateControlMode' - Rate control mode.
 --
 --
@@ -209,24 +262,44 @@ data H264Settings = H264Settings'
 -- Multiplex: This rate control mode is only supported (and is required) when the video is being
 -- delivered to a MediaLive Multiplex in which case the rate control configuration is controlled
 -- by the properties within the Multiplex Program.
--- * 'scanType' - Sets the scan type of the output to progressive or top-field-first interlaced.
--- * 'sceneChangeDetect' - Scene change detection.
+-- * 'minIInterval' - Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+-- * 'qvbrQualityLevel' - Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
 --
---
--- - On: inserts I-frames when scene change is detected.
--- - Off: does not force an I-frame when scene change is detected.
--- * 'slices' - Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
---
--- This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
--- * 'softness' - Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
+-- - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+-- - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+-- - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+-- * 'colorSpaceSettings' - Color Space settings
+-- * 'parControl' - This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
+-- * 'flickerAq' - If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
+-- * 'bufSize' - Size of buffer (HRD buffer model) in bits.
 -- * 'spatialAq' - If set to enabled, adjust quantization within each frame based on spatial variation of content complexity.
--- * 'subgopLength' - If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
--- * 'syntax' - Produces a bitstream compliant with SMPTE RP-2027.
--- * 'temporalAq' - If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
--- * 'timecodeInsertion' - Determines how timecodes should be inserted into the video elementary stream.
+-- * 'gopNumBFrames' - Number of B-frames between reference frames.
+-- * 'fixedAfd' - Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+-- * 'softness' - Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
+-- * 'filterSettings' - Optional filters that you can apply to an encode.
+-- * 'bitrate' - Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+-- * 'framerateDenominator' - Framerate denominator.
+-- * 'forceFieldPictures' - This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
 --
--- - 'disabled': Do not include timecodes
--- - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+-- enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
+-- disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
+-- * 'entropyEncoding' - Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
+-- * 'framerateControl' - This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
+-- * 'colorMetadata' - Includes colorspace metadata in the output.
+-- * 'lookAheadRateControl' - Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
+-- * 'adaptiveQuantization' - Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+-- * 'framerateNumerator' - Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+-- * 'level' - H.264 Level.
+-- * 'gopBReference' - Documentation update needed
+-- * 'maxBitrate' - For QVBR: See the tooltip for Quality level
+--
+--
+-- For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+-- * 'syntax' - Produces a bitstream compliant with SMPTE RP-2027.
+-- * 'bufFillPct' - Percentage of the buffer that should initially be filled (HRD buffer model).
+-- * 'gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+-- * 'numRefFrames' - Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
+-- * 'parDenominator' - Pixel Aspect Ratio denominator.
 mkH264Settings ::
   H264Settings
 mkH264Settings =

@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCancelStepsInfo' smart constructor.
 data CancelStepsInfo = CancelStepsInfo'
-  { status ::
-      Lude.Maybe CancelStepsRequestStatus,
+  { -- | The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
+    status :: Lude.Maybe CancelStepsRequestStatus,
+    -- | The encrypted StepId of a step.
     stepId :: Lude.Maybe Lude.Text,
+    -- | The reason for the failure if the CancelSteps request fails.
     reason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelStepsInfo' with the minimum fields required to make a request.
 --
--- * 'reason' - The reason for the failure if the CancelSteps request fails.
 -- * 'status' - The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.
 -- * 'stepId' - The encrypted StepId of a step.
+-- * 'reason' - The reason for the failure if the CancelSteps request fails.
 mkCancelStepsInfo ::
   CancelStepsInfo
 mkCancelStepsInfo =

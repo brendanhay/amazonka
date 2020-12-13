@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.ManagedScalingStatus
   ( ManagedScalingStatus
       ( ManagedScalingStatus',
-        MSSDisabled,
-        MSSEnabled
+        MSSEnabled,
+        MSSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ManagedScalingStatus = ManagedScalingStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSSDisabled :: ManagedScalingStatus
-pattern MSSDisabled = ManagedScalingStatus' "DISABLED"
-
 pattern MSSEnabled :: ManagedScalingStatus
 pattern MSSEnabled = ManagedScalingStatus' "ENABLED"
 
+pattern MSSDisabled :: ManagedScalingStatus
+pattern MSSDisabled = ManagedScalingStatus' "DISABLED"
+
 {-# COMPLETE
-  MSSDisabled,
   MSSEnabled,
+  MSSDisabled,
   ManagedScalingStatus'
   #-}

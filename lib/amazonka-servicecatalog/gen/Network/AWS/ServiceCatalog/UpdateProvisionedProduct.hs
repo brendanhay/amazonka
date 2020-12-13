@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,6 +25,7 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
     -- ** Request lenses
     uppProductName,
     uppProvisionedProductName,
+    uppUpdateToken,
     uppProvisioningArtifactId,
     uppProvisioningArtifactName,
     uppPathName,
@@ -34,7 +36,6 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProduct
     uppProductId,
     uppTags,
     uppProvisioningPreferences,
-    uppUpdateToken,
 
     -- * Destructuring the response
     UpdateProvisionedProductResponse (..),
@@ -54,38 +55,53 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkUpdateProvisionedProduct' smart constructor.
 data UpdateProvisionedProduct = UpdateProvisionedProduct'
-  { productName ::
-      Lude.Maybe Lude.Text,
-    provisionedProductName ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactId ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the product. You must provide the name or ID, but not both.
+    productName :: Lude.Maybe Lude.Text,
+    -- | The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
+    provisionedProductName :: Lude.Maybe Lude.Text,
+    -- | The idempotency token that uniquely identifies the provisioning update request.
+    updateToken :: Lude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | The name of the provisioning artifact. You must provide the name or ID, but not both.
+    provisioningArtifactName :: Lude.Maybe Lude.Text,
+    -- | The name of the path. You must provide the name or ID, but not both.
     pathName :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The path identifier. This value is optional if the product has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.
     pathId :: Lude.Maybe Lude.Text,
-    provisioningParameters ::
-      Lude.Maybe [UpdateProvisioningParameter],
-    provisionedProductId ::
-      Lude.Maybe Lude.Text,
+    -- | The new parameters.
+    provisioningParameters :: Lude.Maybe [UpdateProvisioningParameter],
+    -- | The identifier of the provisioned product. You must provide the name or ID, but not both.
+    provisionedProductId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the product. You must provide the name or ID, but not both.
     productId :: Lude.Maybe Lude.Text,
+    -- | One or more tags. Requires the product to have @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
     tags :: Lude.Maybe [Tag],
-    provisioningPreferences ::
-      Lude.Maybe UpdateProvisioningPreferences,
-    updateToken :: Lude.Text
+    -- | An object that contains information about the provisioning preferences for a stack set.
+    provisioningPreferences :: Lude.Maybe UpdateProvisioningPreferences
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisionedProduct' with the minimum fields required to make a request.
 --
+-- * 'productName' - The name of the product. You must provide the name or ID, but not both.
+-- * 'provisionedProductName' - The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
+-- * 'updateToken' - The idempotency token that uniquely identifies the provisioning update request.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
+-- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -99,17 +115,11 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 --
 --
 -- * 'pathId' - The path identifier. This value is optional if the product has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.
--- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
--- * 'productId' - The identifier of the product. You must provide the name or ID, but not both.
--- * 'productName' - The name of the product. You must provide the name or ID, but not both.
--- * 'provisionedProductId' - The identifier of the provisioned product. You must provide the name or ID, but not both.
--- * 'provisionedProductName' - The name of the provisioned product. You cannot specify both @ProvisionedProductName@ and @ProvisionedProductId@ .
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
 -- * 'provisioningParameters' - The new parameters.
--- * 'provisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
+-- * 'provisionedProductId' - The identifier of the provisioned product. You must provide the name or ID, but not both.
+-- * 'productId' - The identifier of the product. You must provide the name or ID, but not both.
 -- * 'tags' - One or more tags. Requires the product to have @RESOURCE_UPDATE@ constraint with @TagUpdatesOnProvisionedProduct@ set to @ALLOWED@ to allow tag updates.
--- * 'updateToken' - The idempotency token that uniquely identifies the provisioning update request.
+-- * 'provisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
 mkUpdateProvisionedProduct ::
   -- | 'updateToken'
   Lude.Text ->
@@ -118,6 +128,7 @@ mkUpdateProvisionedProduct pUpdateToken_ =
   UpdateProvisionedProduct'
     { productName = Lude.Nothing,
       provisionedProductName = Lude.Nothing,
+      updateToken = pUpdateToken_,
       provisioningArtifactId = Lude.Nothing,
       provisioningArtifactName = Lude.Nothing,
       pathName = Lude.Nothing,
@@ -127,8 +138,7 @@ mkUpdateProvisionedProduct pUpdateToken_ =
       provisionedProductId = Lude.Nothing,
       productId = Lude.Nothing,
       tags = Lude.Nothing,
-      provisioningPreferences = Lude.Nothing,
-      updateToken = pUpdateToken_
+      provisioningPreferences = Lude.Nothing
     }
 
 -- | The name of the product. You must provide the name or ID, but not both.
@@ -144,6 +154,13 @@ uppProductName = Lens.lens (productName :: UpdateProvisionedProduct -> Lude.Mayb
 uppProvisionedProductName :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Lude.Text)
 uppProvisionedProductName = Lens.lens (provisionedProductName :: UpdateProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisionedProductName = a} :: UpdateProvisionedProduct)
 {-# DEPRECATED uppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
+
+-- | The idempotency token that uniquely identifies the provisioning update request.
+--
+-- /Note:/ Consider using 'updateToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uppUpdateToken :: Lens.Lens' UpdateProvisionedProduct Lude.Text
+uppUpdateToken = Lens.lens (updateToken :: UpdateProvisionedProduct -> Lude.Text) (\s a -> s {updateToken = a} :: UpdateProvisionedProduct)
+{-# DEPRECATED uppUpdateToken "Use generic-lens or generic-optics with 'updateToken' instead." #-}
 
 -- | The identifier of the provisioning artifact.
 --
@@ -226,13 +243,6 @@ uppProvisioningPreferences :: Lens.Lens' UpdateProvisionedProduct (Lude.Maybe Up
 uppProvisioningPreferences = Lens.lens (provisioningPreferences :: UpdateProvisionedProduct -> Lude.Maybe UpdateProvisioningPreferences) (\s a -> s {provisioningPreferences = a} :: UpdateProvisionedProduct)
 {-# DEPRECATED uppProvisioningPreferences "Use generic-lens or generic-optics with 'provisioningPreferences' instead." #-}
 
--- | The idempotency token that uniquely identifies the provisioning update request.
---
--- /Note:/ Consider using 'updateToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uppUpdateToken :: Lens.Lens' UpdateProvisionedProduct Lude.Text
-uppUpdateToken = Lens.lens (updateToken :: UpdateProvisionedProduct -> Lude.Text) (\s a -> s {updateToken = a} :: UpdateProvisionedProduct)
-{-# DEPRECATED uppUpdateToken "Use generic-lens or generic-optics with 'updateToken' instead." #-}
-
 instance Lude.AWSRequest UpdateProvisionedProduct where
   type Rs UpdateProvisionedProduct = UpdateProvisionedProductResponse
   request = Req.postJSON serviceCatalogService
@@ -262,6 +272,7 @@ instance Lude.ToJSON UpdateProvisionedProduct where
       ( Lude.catMaybes
           [ ("ProductName" Lude..=) Lude.<$> productName,
             ("ProvisionedProductName" Lude..=) Lude.<$> provisionedProductName,
+            Lude.Just ("UpdateToken" Lude..= updateToken),
             ("ProvisioningArtifactId" Lude..=) Lude.<$> provisioningArtifactId,
             ("ProvisioningArtifactName" Lude..=)
               Lude.<$> provisioningArtifactName,
@@ -273,8 +284,7 @@ instance Lude.ToJSON UpdateProvisionedProduct where
             ("ProductId" Lude..=) Lude.<$> productId,
             ("Tags" Lude..=) Lude.<$> tags,
             ("ProvisioningPreferences" Lude..=)
-              Lude.<$> provisioningPreferences,
-            Lude.Just ("UpdateToken" Lude..= updateToken)
+              Lude.<$> provisioningPreferences
           ]
       )
 
@@ -286,18 +296,12 @@ instance Lude.ToQuery UpdateProvisionedProduct where
 
 -- | /See:/ 'mkUpdateProvisionedProductResponse' smart constructor.
 data UpdateProvisionedProductResponse = UpdateProvisionedProductResponse'
-  { recordDetail ::
-      Lude.Maybe RecordDetail,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the result of the request.
+    recordDetail :: Lude.Maybe RecordDetail,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisionedProductResponse' with the minimum fields required to make a request.

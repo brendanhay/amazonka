@@ -13,9 +13,9 @@
 module Network.AWS.Inspector.Types.ReportStatus
   ( ReportStatus
       ( ReportStatus',
-        RSCompleted,
+        RSWorkInProgress,
         RSFailed,
-        RSWorkInProgress
+        RSCompleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ReportStatus = ReportStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSCompleted :: ReportStatus
-pattern RSCompleted = ReportStatus' "COMPLETED"
+pattern RSWorkInProgress :: ReportStatus
+pattern RSWorkInProgress = ReportStatus' "WORK_IN_PROGRESS"
 
 pattern RSFailed :: ReportStatus
 pattern RSFailed = ReportStatus' "FAILED"
 
-pattern RSWorkInProgress :: ReportStatus
-pattern RSWorkInProgress = ReportStatus' "WORK_IN_PROGRESS"
+pattern RSCompleted :: ReportStatus
+pattern RSCompleted = ReportStatus' "COMPLETED"
 
 {-# COMPLETE
-  RSCompleted,
-  RSFailed,
   RSWorkInProgress,
+  RSFailed,
+  RSCompleted,
   ReportStatus'
   #-}

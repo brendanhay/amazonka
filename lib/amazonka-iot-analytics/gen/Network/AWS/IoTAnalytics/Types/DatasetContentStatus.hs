@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatasetContentStatus' smart constructor.
 data DatasetContentStatus = DatasetContentStatus'
-  { state ::
-      Lude.Maybe DatasetContentState,
+  { -- | The state of the data set contents. Can be one of READY, CREATING, SUCCEEDED, or FAILED.
+    state :: Lude.Maybe DatasetContentState,
+    -- | The reason the data set contents are in this state.
     reason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetContentStatus' with the minimum fields required to make a request.
 --
--- * 'reason' - The reason the data set contents are in this state.
 -- * 'state' - The state of the data set contents. Can be one of READY, CREATING, SUCCEEDED, or FAILED.
+-- * 'reason' - The reason the data set contents are in this state.
 mkDatasetContentStatus ::
   DatasetContentStatus
 mkDatasetContentStatus =

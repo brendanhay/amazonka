@@ -48,48 +48,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCluster' smart constructor.
 data Cluster = Cluster'
-  { preCoPassword :: Lude.Maybe Lude.Text,
+  { -- | The default password for the cluster's Pre-Crypto Officer (PRECO) user.
+    preCoPassword :: Lude.Maybe Lude.Text,
+    -- | A description of the cluster's state.
     stateMessage :: Lude.Maybe Lude.Text,
+    -- | The cluster's state.
     state :: Lude.Maybe ClusterState,
+    -- | A map from availability zone to the cluster’s subnet in that availability zone.
     subnetMapping :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A policy that defines how the service retains backups.
     backupRetentionPolicy :: Lude.Maybe BackupRetentionPolicy,
+    -- | Contains information about the HSMs in the cluster.
     hsms :: Lude.Maybe [HSM],
+    -- | The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the cluster.
     tagList :: Lude.Maybe [Tag],
+    -- | The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.
     sourceBackupId :: Lude.Maybe Lude.Text,
+    -- | Contains one or more certificates or a certificate signing request (CSR).
     certificates :: Lude.Maybe Certificates,
+    -- | The identifier (ID) of the cluster's security group.
     securityGroup :: Lude.Maybe Lude.Text,
+    -- | The cluster's identifier (ID).
     clusterId :: Lude.Maybe Lude.Text,
+    -- | The date and time when the cluster was created.
     createTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The cluster's backup policy.
     backupPolicy :: Lude.Maybe BackupPolicy,
+    -- | The type of HSM that the cluster contains.
     hsmType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- * 'backupPolicy' - The cluster's backup policy.
+-- * 'preCoPassword' - The default password for the cluster's Pre-Crypto Officer (PRECO) user.
+-- * 'stateMessage' - A description of the cluster's state.
+-- * 'state' - The cluster's state.
+-- * 'subnetMapping' - A map from availability zone to the cluster’s subnet in that availability zone.
 -- * 'backupRetentionPolicy' - A policy that defines how the service retains backups.
+-- * 'hsms' - Contains information about the HSMs in the cluster.
+-- * 'vpcId' - The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.
+-- * 'tagList' - The list of tags for the cluster.
+-- * 'sourceBackupId' - The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.
 -- * 'certificates' - Contains one or more certificates or a certificate signing request (CSR).
+-- * 'securityGroup' - The identifier (ID) of the cluster's security group.
 -- * 'clusterId' - The cluster's identifier (ID).
 -- * 'createTimestamp' - The date and time when the cluster was created.
+-- * 'backupPolicy' - The cluster's backup policy.
 -- * 'hsmType' - The type of HSM that the cluster contains.
--- * 'hsms' - Contains information about the HSMs in the cluster.
--- * 'preCoPassword' - The default password for the cluster's Pre-Crypto Officer (PRECO) user.
--- * 'securityGroup' - The identifier (ID) of the cluster's security group.
--- * 'sourceBackupId' - The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup.
--- * 'state' - The cluster's state.
--- * 'stateMessage' - A description of the cluster's state.
--- * 'subnetMapping' - A map from availability zone to the cluster’s subnet in that availability zone.
--- * 'tagList' - The list of tags for the cluster.
--- * 'vpcId' - The identifier (ID) of the virtual private cloud (VPC) that contains the cluster.
 mkCluster ::
   Cluster
 mkCluster =

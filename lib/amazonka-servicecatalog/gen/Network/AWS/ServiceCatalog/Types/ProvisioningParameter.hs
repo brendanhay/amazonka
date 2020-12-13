@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The parameter value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The parameter key.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningParameter' with the minimum fields required to make a request.
 --
--- * 'key' - The parameter key.
 -- * 'value' - The parameter value.
+-- * 'key' - The parameter key.
 mkProvisioningParameter ::
   ProvisioningParameter
 mkProvisioningParameter =

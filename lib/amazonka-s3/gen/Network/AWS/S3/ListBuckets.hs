@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,13 +38,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListBuckets' smart constructor.
 data ListBuckets = ListBuckets'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuckets' with the minimum fields required to make a request.
@@ -76,18 +71,14 @@ instance Lude.ToQuery ListBuckets where
 
 -- | /See:/ 'mkListBucketsResponse' smart constructor.
 data ListBucketsResponse = ListBucketsResponse'
-  { buckets ::
-      Lude.Maybe [Bucket],
+  { -- | The list of buckets owned by the requestor.
+    buckets :: Lude.Maybe [Bucket],
+    -- | The owner of the buckets listed.
     owner :: Lude.Maybe Owner,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBucketsResponse' with the minimum fields required to make a request.

@@ -34,29 +34,27 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkHSMConfiguration' smart constructor.
 data HSMConfiguration = HSMConfiguration'
-  { hsmConfigurationIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the Amazon Redshift HSM configuration.
+    hsmConfigurationIdentifier :: Lude.Maybe Lude.Text,
+    -- | The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
     hsmPartitionName :: Lude.Maybe Lude.Text,
+    -- | A text description of the HSM configuration.
     description :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the HSM configuration.
     tags :: Lude.Maybe [Tag],
+    -- | The IP address that the Amazon Redshift cluster must use to access the HSM.
     hsmIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HSMConfiguration' with the minimum fields required to make a request.
 --
--- * 'description' - A text description of the HSM configuration.
 -- * 'hsmConfigurationIdentifier' - The name of the Amazon Redshift HSM configuration.
--- * 'hsmIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
 -- * 'hsmPartitionName' - The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
+-- * 'description' - A text description of the HSM configuration.
 -- * 'tags' - The list of tags for the HSM configuration.
+-- * 'hsmIPAddress' - The IP address that the Amazon Redshift cluster must use to access the HSM.
 mkHSMConfiguration ::
   HSMConfiguration
 mkHSMConfiguration =

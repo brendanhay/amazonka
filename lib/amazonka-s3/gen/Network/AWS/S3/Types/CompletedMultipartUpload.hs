@@ -30,17 +30,10 @@ import Network.AWS.S3.Types.CompletedPart
 --
 -- /See:/ 'mkCompletedMultipartUpload' smart constructor.
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
-  { parts ::
-      Lude.Maybe
-        (Lude.NonEmpty CompletedPart)
+  { -- | Array of CompletedPart data types.
+    parts :: Lude.Maybe (Lude.NonEmpty CompletedPart)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompletedMultipartUpload' with the minimum fields required to make a request.

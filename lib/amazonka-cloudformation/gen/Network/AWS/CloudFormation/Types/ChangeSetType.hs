@@ -14,8 +14,8 @@ module Network.AWS.CloudFormation.Types.ChangeSetType
   ( ChangeSetType
       ( ChangeSetType',
         CSTCreate,
-        CSTImport,
-        CSTUpdate
+        CSTUpdate,
+        CSTImport
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ChangeSetType = ChangeSetType' Lude.Text
 pattern CSTCreate :: ChangeSetType
 pattern CSTCreate = ChangeSetType' "CREATE"
 
-pattern CSTImport :: ChangeSetType
-pattern CSTImport = ChangeSetType' "IMPORT"
-
 pattern CSTUpdate :: ChangeSetType
 pattern CSTUpdate = ChangeSetType' "UPDATE"
 
+pattern CSTImport :: ChangeSetType
+pattern CSTImport = ChangeSetType' "IMPORT"
+
 {-# COMPLETE
   CSTCreate,
-  CSTImport,
   CSTUpdate,
+  CSTImport,
   ChangeSetType'
   #-}

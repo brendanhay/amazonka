@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- ** Request lenses
     cCacheClusterId,
     cKMSKeyId,
-    cReplicationGroupId,
     cSnapshotName,
+    cReplicationGroupId,
 
     -- * Destructuring the response
     CreateSnapshotResponse (..),
     mkCreateSnapshotResponse,
 
     -- ** Response lenses
-    crersSnapshot,
-    crersResponseStatus,
+    csfrsSnapshot,
+    csfrsResponseStatus,
   )
 where
 
@@ -44,27 +45,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { cacheClusterId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of an existing cluster. The snapshot is created from this cluster.
+    cacheClusterId :: Lude.Maybe Lude.Text,
+    -- | The ID of the KMS key used to encrypt the snapshot.
     kmsKeyId :: Lude.Maybe Lude.Text,
-    replicationGroupId :: Lude.Maybe Lude.Text,
-    snapshotName :: Lude.Text
+    -- | A name for the snapshot being created.
+    snapshotName :: Lude.Text,
+    -- | The identifier of an existing replication group. The snapshot is created from this replication group.
+    replicationGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
 --
 -- * 'cacheClusterId' - The identifier of an existing cluster. The snapshot is created from this cluster.
 -- * 'kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
--- * 'replicationGroupId' - The identifier of an existing replication group. The snapshot is created from this replication group.
 -- * 'snapshotName' - A name for the snapshot being created.
+-- * 'replicationGroupId' - The identifier of an existing replication group. The snapshot is created from this replication group.
 mkCreateSnapshot ::
   -- | 'snapshotName'
   Lude.Text ->
@@ -73,8 +71,8 @@ mkCreateSnapshot pSnapshotName_ =
   CreateSnapshot'
     { cacheClusterId = Lude.Nothing,
       kmsKeyId = Lude.Nothing,
-      replicationGroupId = Lude.Nothing,
-      snapshotName = pSnapshotName_
+      snapshotName = pSnapshotName_,
+      replicationGroupId = Lude.Nothing
     }
 
 -- | The identifier of an existing cluster. The snapshot is created from this cluster.
@@ -91,19 +89,19 @@ cKMSKeyId :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
 cKMSKeyId = Lens.lens (kmsKeyId :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateSnapshot)
 {-# DEPRECATED cKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
--- | The identifier of an existing replication group. The snapshot is created from this replication group.
---
--- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cReplicationGroupId :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
-cReplicationGroupId = Lens.lens (replicationGroupId :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: CreateSnapshot)
-{-# DEPRECATED cReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
-
 -- | A name for the snapshot being created.
 --
 -- /Note:/ Consider using 'snapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cSnapshotName :: Lens.Lens' CreateSnapshot Lude.Text
 cSnapshotName = Lens.lens (snapshotName :: CreateSnapshot -> Lude.Text) (\s a -> s {snapshotName = a} :: CreateSnapshot)
 {-# DEPRECATED cSnapshotName "Use generic-lens or generic-optics with 'snapshotName' instead." #-}
+
+-- | The identifier of an existing replication group. The snapshot is created from this replication group.
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cReplicationGroupId :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
+cReplicationGroupId = Lens.lens (replicationGroupId :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: CreateSnapshot)
+{-# DEPRECATED cReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
 instance Lude.AWSRequest CreateSnapshot where
   type Rs CreateSnapshot = CreateSnapshotResponse
@@ -129,29 +127,23 @@ instance Lude.ToQuery CreateSnapshot where
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
         "CacheClusterId" Lude.=: cacheClusterId,
         "KmsKeyId" Lude.=: kmsKeyId,
-        "ReplicationGroupId" Lude.=: replicationGroupId,
-        "SnapshotName" Lude.=: snapshotName
+        "SnapshotName" Lude.=: snapshotName,
+        "ReplicationGroupId" Lude.=: replicationGroupId
       ]
 
 -- | /See:/ 'mkCreateSnapshotResponse' smart constructor.
 data CreateSnapshotResponse = CreateSnapshotResponse'
-  { snapshot ::
-      Lude.Maybe Snapshot,
+  { snapshot :: Lude.Maybe Snapshot,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
 --
+-- * 'snapshot' -
 -- * 'responseStatus' - The response status code.
--- * 'snapshot' - Undocumented field.
 mkCreateSnapshotResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -165,13 +157,13 @@ mkCreateSnapshotResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersSnapshot :: Lens.Lens' CreateSnapshotResponse (Lude.Maybe Snapshot)
-crersSnapshot = Lens.lens (snapshot :: CreateSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: CreateSnapshotResponse)
-{-# DEPRECATED crersSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
+csfrsSnapshot :: Lens.Lens' CreateSnapshotResponse (Lude.Maybe Snapshot)
+csfrsSnapshot = Lens.lens (snapshot :: CreateSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: CreateSnapshotResponse)
+{-# DEPRECATED csfrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crersResponseStatus :: Lens.Lens' CreateSnapshotResponse Lude.Int
-crersResponseStatus = Lens.lens (responseStatus :: CreateSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSnapshotResponse)
-{-# DEPRECATED crersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csfrsResponseStatus :: Lens.Lens' CreateSnapshotResponse Lude.Int
+csfrsResponseStatus = Lens.lens (responseStatus :: CreateSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSnapshotResponse)
+{-# DEPRECATED csfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

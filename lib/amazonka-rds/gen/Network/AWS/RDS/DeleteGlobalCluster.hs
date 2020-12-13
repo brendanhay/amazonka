@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.RDS.DeleteGlobalCluster
     mkDeleteGlobalCluster,
 
     -- ** Request lenses
-    dgcGlobalClusterIdentifier,
+    dGlobalClusterIdentifier,
 
     -- * Destructuring the response
     DeleteGlobalClusterResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteGlobalCluster' smart constructor.
 newtype DeleteGlobalCluster = DeleteGlobalCluster'
-  { globalClusterIdentifier ::
-      Lude.Text
+  { -- | The cluster identifier of the global database cluster being deleted.
+    globalClusterIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGlobalCluster' with the minimum fields required to make a request.
@@ -67,9 +62,9 @@ mkDeleteGlobalCluster pGlobalClusterIdentifier_ =
 -- | The cluster identifier of the global database cluster being deleted.
 --
 -- /Note:/ Consider using 'globalClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgcGlobalClusterIdentifier :: Lens.Lens' DeleteGlobalCluster Lude.Text
-dgcGlobalClusterIdentifier = Lens.lens (globalClusterIdentifier :: DeleteGlobalCluster -> Lude.Text) (\s a -> s {globalClusterIdentifier = a} :: DeleteGlobalCluster)
-{-# DEPRECATED dgcGlobalClusterIdentifier "Use generic-lens or generic-optics with 'globalClusterIdentifier' instead." #-}
+dGlobalClusterIdentifier :: Lens.Lens' DeleteGlobalCluster Lude.Text
+dGlobalClusterIdentifier = Lens.lens (globalClusterIdentifier :: DeleteGlobalCluster -> Lude.Text) (\s a -> s {globalClusterIdentifier = a} :: DeleteGlobalCluster)
+{-# DEPRECATED dGlobalClusterIdentifier "Use generic-lens or generic-optics with 'globalClusterIdentifier' instead." #-}
 
 instance Lude.AWSRequest DeleteGlobalCluster where
   type Rs DeleteGlobalCluster = DeleteGlobalClusterResponse
@@ -99,22 +94,16 @@ instance Lude.ToQuery DeleteGlobalCluster where
 
 -- | /See:/ 'mkDeleteGlobalClusterResponse' smart constructor.
 data DeleteGlobalClusterResponse = DeleteGlobalClusterResponse'
-  { globalCluster ::
-      Lude.Maybe GlobalCluster,
+  { globalCluster :: Lude.Maybe GlobalCluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGlobalClusterResponse' with the minimum fields required to make a request.
 --
--- * 'globalCluster' - Undocumented field.
+-- * 'globalCluster' -
 -- * 'responseStatus' - The response status code.
 mkDeleteGlobalClusterResponse ::
   -- | 'responseStatus'

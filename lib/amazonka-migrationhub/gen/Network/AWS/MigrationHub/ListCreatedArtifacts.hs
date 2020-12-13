@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,9 +34,9 @@ module Network.AWS.MigrationHub.ListCreatedArtifacts
 
     -- ** Request lenses
     lcaNextToken,
-    lcaMaxResults,
     lcaProgressUpdateStream,
     lcaMigrationTaskName,
+    lcaMaxResults,
 
     -- * Destructuring the response
     ListCreatedArtifactsResponse (..),
@@ -57,27 +58,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCreatedArtifacts' smart constructor.
 data ListCreatedArtifacts = ListCreatedArtifacts'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the ProgressUpdateStream.
     progressUpdateStream :: Lude.Text,
-    migrationTaskName :: Lude.Text
+    -- | Unique identifier that references the migration task. /Do not store personal data in this field./
+    migrationTaskName :: Lude.Text,
+    -- | Maximum number of results to be returned per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCreatedArtifacts' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of results to be returned per page.
--- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
 -- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 -- * 'progressUpdateStream' - The name of the ProgressUpdateStream.
+-- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
+-- * 'maxResults' - Maximum number of results to be returned per page.
 mkListCreatedArtifacts ::
   -- | 'progressUpdateStream'
   Lude.Text ->
@@ -87,9 +85,9 @@ mkListCreatedArtifacts ::
 mkListCreatedArtifacts pProgressUpdateStream_ pMigrationTaskName_ =
   ListCreatedArtifacts'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
       progressUpdateStream = pProgressUpdateStream_,
-      migrationTaskName = pMigrationTaskName_
+      migrationTaskName = pMigrationTaskName_,
+      maxResults = Lude.Nothing
     }
 
 -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
@@ -98,13 +96,6 @@ mkListCreatedArtifacts pProgressUpdateStream_ pMigrationTaskName_ =
 lcaNextToken :: Lens.Lens' ListCreatedArtifacts (Lude.Maybe Lude.Text)
 lcaNextToken = Lens.lens (nextToken :: ListCreatedArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCreatedArtifacts)
 {-# DEPRECATED lcaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Maximum number of results to be returned per page.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcaMaxResults :: Lens.Lens' ListCreatedArtifacts (Lude.Maybe Lude.Natural)
-lcaMaxResults = Lens.lens (maxResults :: ListCreatedArtifacts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCreatedArtifacts)
-{-# DEPRECATED lcaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the ProgressUpdateStream.
 --
@@ -119,6 +110,13 @@ lcaProgressUpdateStream = Lens.lens (progressUpdateStream :: ListCreatedArtifact
 lcaMigrationTaskName :: Lens.Lens' ListCreatedArtifacts Lude.Text
 lcaMigrationTaskName = Lens.lens (migrationTaskName :: ListCreatedArtifacts -> Lude.Text) (\s a -> s {migrationTaskName = a} :: ListCreatedArtifacts)
 {-# DEPRECATED lcaMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
+
+-- | Maximum number of results to be returned per page.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcaMaxResults :: Lens.Lens' ListCreatedArtifacts (Lude.Maybe Lude.Natural)
+lcaMaxResults = Lens.lens (maxResults :: ListCreatedArtifacts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCreatedArtifacts)
+{-# DEPRECATED lcaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListCreatedArtifacts where
   page rq rs
@@ -157,9 +155,9 @@ instance Lude.ToJSON ListCreatedArtifacts where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
-            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName)
+            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -171,25 +169,20 @@ instance Lude.ToQuery ListCreatedArtifacts where
 
 -- | /See:/ 'mkListCreatedArtifactsResponse' smart constructor.
 data ListCreatedArtifactsResponse = ListCreatedArtifactsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    createdArtifactList ::
-      Lude.Maybe [CreatedArtifact],
+  { -- | If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of created artifacts up to the maximum number of results specified in the request.
+    createdArtifactList :: Lude.Maybe [CreatedArtifact],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCreatedArtifactsResponse' with the minimum fields required to make a request.
 --
--- * 'createdArtifactList' - List of created artifacts up to the maximum number of results specified in the request.
 -- * 'nextToken' - If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
+-- * 'createdArtifactList' - List of created artifacts up to the maximum number of results specified in the request.
 -- * 'responseStatus' - The response status code.
 mkListCreatedArtifactsResponse ::
   -- | 'responseStatus'

@@ -41,39 +41,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionSelectorSettings' smart constructor.
 data CaptionSelectorSettings = CaptionSelectorSettings'
-  { teletextSourceSettings ::
-      Lude.Maybe TeletextSourceSettings,
-    aribSourceSettings ::
-      Lude.Maybe AribSourceSettings,
-    scte27SourceSettings ::
-      Lude.Maybe Scte27SourceSettings,
-    dvbSubSourceSettings ::
-      Lude.Maybe DvbSubSourceSettings,
-    ancillarySourceSettings ::
-      Lude.Maybe AncillarySourceSettings,
-    scte20SourceSettings ::
-      Lude.Maybe Scte20SourceSettings,
-    embeddedSourceSettings ::
-      Lude.Maybe EmbeddedSourceSettings
+  { teletextSourceSettings :: Lude.Maybe TeletextSourceSettings,
+    aribSourceSettings :: Lude.Maybe AribSourceSettings,
+    scte27SourceSettings :: Lude.Maybe Scte27SourceSettings,
+    dvbSubSourceSettings :: Lude.Maybe DvbSubSourceSettings,
+    ancillarySourceSettings :: Lude.Maybe AncillarySourceSettings,
+    scte20SourceSettings :: Lude.Maybe Scte20SourceSettings,
+    embeddedSourceSettings :: Lude.Maybe EmbeddedSourceSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSelectorSettings' with the minimum fields required to make a request.
 --
--- * 'ancillarySourceSettings' - Undocumented field.
--- * 'aribSourceSettings' - Undocumented field.
--- * 'dvbSubSourceSettings' - Undocumented field.
--- * 'embeddedSourceSettings' - Undocumented field.
--- * 'scte20SourceSettings' - Undocumented field.
--- * 'scte27SourceSettings' - Undocumented field.
--- * 'teletextSourceSettings' - Undocumented field.
+-- * 'teletextSourceSettings' -
+-- * 'aribSourceSettings' -
+-- * 'scte27SourceSettings' -
+-- * 'dvbSubSourceSettings' -
+-- * 'ancillarySourceSettings' -
+-- * 'scte20SourceSettings' -
+-- * 'embeddedSourceSettings' -
 mkCaptionSelectorSettings ::
   CaptionSelectorSettings
 mkCaptionSelectorSettings =

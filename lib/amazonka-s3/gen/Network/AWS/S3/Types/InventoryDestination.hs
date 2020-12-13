@@ -30,8 +30,8 @@ import Network.AWS.S3.Types.InventoryS3BucketDestination
 --
 -- /See:/ 'mkInventoryDestination' smart constructor.
 newtype InventoryDestination = InventoryDestination'
-  { s3BucketDestination ::
-      InventoryS3BucketDestination
+  { -- | Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.
+    s3BucketDestination :: InventoryS3BucketDestination
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)

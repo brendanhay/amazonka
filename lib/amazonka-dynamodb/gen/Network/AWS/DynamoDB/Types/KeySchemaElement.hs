@@ -17,8 +17,8 @@ module Network.AWS.DynamoDB.Types.KeySchemaElement
     mkKeySchemaElement,
 
     -- * Lenses
-    kseAttributeName,
     kseKeyType,
+    kseAttributeName,
   )
 where
 
@@ -33,22 +33,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-  { attributeName ::
-      Lude.Text,
-    keyType :: KeyType
+  { -- | The role that this key attribute will assume:
+    --
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    keyType :: KeyType,
+    -- | The name of a key attribute.
+    attributeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of a key attribute.
 -- * 'keyType' - The role that this key attribute will assume:
 --
 --
@@ -56,24 +56,20 @@ data KeySchemaElement = KeySchemaElement'
 --
 --
 --     * @RANGE@ - sort key
+--
+--
+-- * 'attributeName' - The name of a key attribute.
 mkKeySchemaElement ::
-  -- | 'attributeName'
-  Lude.Text ->
   -- | 'keyType'
   KeyType ->
+  -- | 'attributeName'
+  Lude.Text ->
   KeySchemaElement
-mkKeySchemaElement pAttributeName_ pKeyType_ =
+mkKeySchemaElement pKeyType_ pAttributeName_ =
   KeySchemaElement'
-    { attributeName = pAttributeName_,
-      keyType = pKeyType_
+    { keyType = pKeyType_,
+      attributeName = pAttributeName_
     }
-
--- | The name of a key attribute.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kseAttributeName :: Lens.Lens' KeySchemaElement Lude.Text
-kseAttributeName = Lens.lens (attributeName :: KeySchemaElement -> Lude.Text) (\s a -> s {attributeName = a} :: KeySchemaElement)
-{-# DEPRECATED kseAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The role that this key attribute will assume:
 --
@@ -90,20 +86,27 @@ kseKeyType :: Lens.Lens' KeySchemaElement KeyType
 kseKeyType = Lens.lens (keyType :: KeySchemaElement -> KeyType) (\s a -> s {keyType = a} :: KeySchemaElement)
 {-# DEPRECATED kseKeyType "Use generic-lens or generic-optics with 'keyType' instead." #-}
 
+-- | The name of a key attribute.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kseAttributeName :: Lens.Lens' KeySchemaElement Lude.Text
+kseAttributeName = Lens.lens (attributeName :: KeySchemaElement -> Lude.Text) (\s a -> s {attributeName = a} :: KeySchemaElement)
+{-# DEPRECATED kseAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
+
 instance Lude.FromJSON KeySchemaElement where
   parseJSON =
     Lude.withObject
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Lude.<$> (x Lude..: "AttributeName") Lude.<*> (x Lude..: "KeyType")
+            Lude.<$> (x Lude..: "KeyType") Lude.<*> (x Lude..: "AttributeName")
       )
 
 instance Lude.ToJSON KeySchemaElement where
   toJSON KeySchemaElement' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AttributeName" Lude..= attributeName),
-            Lude.Just ("KeyType" Lude..= keyType)
+          [ Lude.Just ("KeyType" Lude..= keyType),
+            Lude.Just ("AttributeName" Lude..= attributeName)
           ]
       )

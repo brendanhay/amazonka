@@ -13,12 +13,12 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
   ( BurninSubtitleFontColor
       ( BurninSubtitleFontColor',
-        BSFCBlack,
-        BSFCBlue,
-        BSFCGreen,
-        BSFCRed,
         BSFCWhite,
-        BSFCYellow
+        BSFCBlack,
+        BSFCYellow,
+        BSFCRed,
+        BSFCGreen,
+        BSFCBlue
       ),
   )
 where
@@ -50,30 +50,30 @@ newtype BurninSubtitleFontColor = BurninSubtitleFontColor' Lude.Text
       Lude.ToHeader
     )
 
-pattern BSFCBlack :: BurninSubtitleFontColor
-pattern BSFCBlack = BurninSubtitleFontColor' "BLACK"
-
-pattern BSFCBlue :: BurninSubtitleFontColor
-pattern BSFCBlue = BurninSubtitleFontColor' "BLUE"
-
-pattern BSFCGreen :: BurninSubtitleFontColor
-pattern BSFCGreen = BurninSubtitleFontColor' "GREEN"
-
-pattern BSFCRed :: BurninSubtitleFontColor
-pattern BSFCRed = BurninSubtitleFontColor' "RED"
-
 pattern BSFCWhite :: BurninSubtitleFontColor
 pattern BSFCWhite = BurninSubtitleFontColor' "WHITE"
+
+pattern BSFCBlack :: BurninSubtitleFontColor
+pattern BSFCBlack = BurninSubtitleFontColor' "BLACK"
 
 pattern BSFCYellow :: BurninSubtitleFontColor
 pattern BSFCYellow = BurninSubtitleFontColor' "YELLOW"
 
+pattern BSFCRed :: BurninSubtitleFontColor
+pattern BSFCRed = BurninSubtitleFontColor' "RED"
+
+pattern BSFCGreen :: BurninSubtitleFontColor
+pattern BSFCGreen = BurninSubtitleFontColor' "GREEN"
+
+pattern BSFCBlue :: BurninSubtitleFontColor
+pattern BSFCBlue = BurninSubtitleFontColor' "BLUE"
+
 {-# COMPLETE
-  BSFCBlack,
-  BSFCBlue,
-  BSFCGreen,
-  BSFCRed,
   BSFCWhite,
+  BSFCBlack,
   BSFCYellow,
+  BSFCRed,
+  BSFCGreen,
+  BSFCBlue,
   BurninSubtitleFontColor'
   #-}

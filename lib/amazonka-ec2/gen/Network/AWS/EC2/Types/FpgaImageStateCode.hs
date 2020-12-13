@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.FpgaImageStateCode
   ( FpgaImageStateCode
       ( FpgaImageStateCode',
-        FISCAvailable,
-        FISCFailed,
         FISCPending,
+        FISCFailed,
+        FISCAvailable,
         FISCUnavailable
       ),
   )
@@ -47,22 +47,22 @@ newtype FpgaImageStateCode = FpgaImageStateCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern FISCAvailable :: FpgaImageStateCode
-pattern FISCAvailable = FpgaImageStateCode' "available"
+pattern FISCPending :: FpgaImageStateCode
+pattern FISCPending = FpgaImageStateCode' "pending"
 
 pattern FISCFailed :: FpgaImageStateCode
 pattern FISCFailed = FpgaImageStateCode' "failed"
 
-pattern FISCPending :: FpgaImageStateCode
-pattern FISCPending = FpgaImageStateCode' "pending"
+pattern FISCAvailable :: FpgaImageStateCode
+pattern FISCAvailable = FpgaImageStateCode' "available"
 
 pattern FISCUnavailable :: FpgaImageStateCode
 pattern FISCUnavailable = FpgaImageStateCode' "unavailable"
 
 {-# COMPLETE
-  FISCAvailable,
-  FISCFailed,
   FISCPending,
+  FISCFailed,
+  FISCAvailable,
   FISCUnavailable,
   FpgaImageStateCode'
   #-}

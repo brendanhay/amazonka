@@ -13,13 +13,13 @@
 module Network.AWS.Redshift.Types.OperatorType
   ( OperatorType
       ( OperatorType',
-        Between,
         EQ,
-        GE,
+        LT,
         GT,
-        IN,
         LE,
-        LT
+        GE,
+        IN,
+        Between
       ),
   )
 where
@@ -51,34 +51,34 @@ newtype OperatorType = OperatorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Between :: OperatorType
-pattern Between = OperatorType' "between"
-
 pattern EQ :: OperatorType
 pattern EQ = OperatorType' "eq"
-
-pattern GE :: OperatorType
-pattern GE = OperatorType' "ge"
-
-pattern GT :: OperatorType
-pattern GT = OperatorType' "gt"
-
-pattern IN :: OperatorType
-pattern IN = OperatorType' "in"
-
-pattern LE :: OperatorType
-pattern LE = OperatorType' "le"
 
 pattern LT :: OperatorType
 pattern LT = OperatorType' "lt"
 
+pattern GT :: OperatorType
+pattern GT = OperatorType' "gt"
+
+pattern LE :: OperatorType
+pattern LE = OperatorType' "le"
+
+pattern GE :: OperatorType
+pattern GE = OperatorType' "ge"
+
+pattern IN :: OperatorType
+pattern IN = OperatorType' "in"
+
+pattern Between :: OperatorType
+pattern Between = OperatorType' "between"
+
 {-# COMPLETE
-  Between,
   EQ,
-  GE,
-  GT,
-  IN,
-  LE,
   LT,
+  GT,
+  LE,
+  GE,
+  IN,
+  Between,
   OperatorType'
   #-}

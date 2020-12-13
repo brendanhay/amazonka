@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodeStar.UpdateProject
     mkUpdateProject,
 
     -- ** Request lenses
-    upName,
-    upDescription,
-    upId,
+    uName,
+    uId,
+    uDescription,
 
     -- * Destructuring the response
     UpdateProjectResponse (..),
@@ -40,19 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateProject' smart constructor.
 data UpdateProject = UpdateProject'
-  { name ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    id :: Lude.Text
+  { -- | The name of the project you want to update.
+    name :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the project you want to update.
+    id :: Lude.Text,
+    -- | The description of the project, if any.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProject' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the project, if any.
--- * 'id' - The ID of the project you want to update.
 -- * 'name' - The name of the project you want to update.
+-- * 'id' - The ID of the project you want to update.
+-- * 'description' - The description of the project, if any.
 mkUpdateProject ::
   -- | 'id'
   Lude.Text ->
@@ -60,30 +63,30 @@ mkUpdateProject ::
 mkUpdateProject pId_ =
   UpdateProject'
     { name = Lude.Nothing,
-      description = Lude.Nothing,
-      id = pId_
+      id = pId_,
+      description = Lude.Nothing
     }
 
 -- | The name of the project you want to update.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upName :: Lens.Lens' UpdateProject (Lude.Maybe (Lude.Sensitive Lude.Text))
-upName = Lens.lens (name :: UpdateProject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {name = a} :: UpdateProject)
-{-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The description of the project, if any.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upDescription :: Lens.Lens' UpdateProject (Lude.Maybe (Lude.Sensitive Lude.Text))
-upDescription = Lens.lens (description :: UpdateProject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateProject)
-{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+uName :: Lens.Lens' UpdateProject (Lude.Maybe (Lude.Sensitive Lude.Text))
+uName = Lens.lens (name :: UpdateProject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {name = a} :: UpdateProject)
+{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the project you want to update.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upId :: Lens.Lens' UpdateProject Lude.Text
-upId = Lens.lens (id :: UpdateProject -> Lude.Text) (\s a -> s {id = a} :: UpdateProject)
-{-# DEPRECATED upId "Use generic-lens or generic-optics with 'id' instead." #-}
+uId :: Lens.Lens' UpdateProject Lude.Text
+uId = Lens.lens (id :: UpdateProject -> Lude.Text) (\s a -> s {id = a} :: UpdateProject)
+{-# DEPRECATED uId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The description of the project, if any.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uDescription :: Lens.Lens' UpdateProject (Lude.Maybe (Lude.Sensitive Lude.Text))
+uDescription = Lens.lens (description :: UpdateProject -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: UpdateProject)
+{-# DEPRECATED uDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateProject where
   type Rs UpdateProject = UpdateProjectResponse
@@ -110,8 +113,8 @@ instance Lude.ToJSON UpdateProject where
     Lude.object
       ( Lude.catMaybes
           [ ("name" Lude..=) Lude.<$> name,
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("id" Lude..= id)
+            Lude.Just ("id" Lude..= id),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -123,16 +126,10 @@ instance Lude.ToQuery UpdateProject where
 
 -- | /See:/ 'mkUpdateProjectResponse' smart constructor.
 newtype UpdateProjectResponse = UpdateProjectResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProjectResponse' with the minimum fields required to make a request.

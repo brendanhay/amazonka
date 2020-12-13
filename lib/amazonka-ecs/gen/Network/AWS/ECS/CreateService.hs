@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,27 @@ module Network.AWS.ECS.CreateService
     mkCreateService,
 
     -- ** Request lenses
-    creCluster,
-    creClientToken,
-    crePropagateTags,
-    crePlatformVersion,
-    creEnableECSManagedTags,
-    creDesiredCount,
-    creLoadBalancers,
-    creRole,
-    crePlacementConstraints,
-    crePlacementStrategy,
-    creDeploymentController,
-    creLaunchType,
-    creTaskDefinition,
-    creSchedulingStrategy,
-    creHealthCheckGracePeriodSeconds,
-    creNetworkConfiguration,
-    creServiceRegistries,
-    creCapacityProviderStrategy,
-    creTags,
-    creDeploymentConfiguration,
-    creServiceName,
+    csfCluster,
+    csfClientToken,
+    csfPropagateTags,
+    csfPlatformVersion,
+    csfEnableECSManagedTags,
+    csfDesiredCount,
+    csfLoadBalancers,
+    csfRole,
+    csfPlacementConstraints,
+    csfPlacementStrategy,
+    csfServiceName,
+    csfDeploymentController,
+    csfLaunchType,
+    csfTaskDefinition,
+    csfSchedulingStrategy,
+    csfHealthCheckGracePeriodSeconds,
+    csfNetworkConfiguration,
+    csfServiceRegistries,
+    csfCapacityProviderStrategy,
+    csfTags,
+    csfDeploymentConfiguration,
 
     -- * Destructuring the response
     CreateServiceResponse (..),
@@ -86,62 +87,115 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateService' smart constructor.
 data CreateService = CreateService'
-  { cluster ::
-      Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster on which to run your service. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
     clientToken :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to propagate the tags from the task definition or the service to the tasks in the service. If no value is specified, the tags are not propagated. Tags can only be propagated to the tasks within the service during service creation. To add tags to a task after service creation, use the 'TagResource' API action.
     propagateTags :: Lude.Maybe PropagateTags,
+    -- | The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
     platformVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to enable Amazon ECS managed tags for the tasks within the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
     enableECSManagedTags :: Lude.Maybe Lude.Bool,
+    -- | The number of instantiations of the specified task definition to place and keep running on your cluster.
+    --
+    -- This is required if @schedulingStrategy@ is @REPLICA@ or is not specified. If @schedulingStrategy@ is @DAEMON@ then this is not required.
     desiredCount :: Lude.Maybe Lude.Int,
+    -- | A load balancer object representing the load balancers to use with your service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html Service Load Balancing> in the /Amazon Elastic Container Service Developer Guide/ .
+    --
+    -- If the service is using the rolling update (@ECS@ ) deployment controller and using either an Application Load Balancer or Network Load Balancer, you must specify one or more target group ARNs to attach to the service. The service-linked role is required for services that make use of multiple target groups. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
+    -- If the service is using the @CODE_DEPLOY@ deployment controller, the service is required to use either an Application Load Balancer or Network Load Balancer. When creating an AWS CodeDeploy deployment group, you specify two target groups (referred to as a @targetGroupPair@ ). During a deployment, AWS CodeDeploy determines which task set in your service has the status @PRIMARY@ and associates one target group with it, and then associates the other target group with the replacement task set. The load balancer can also have up to two listeners: a required listener for production traffic and an optional listener that allows you perform validation tests with Lambda functions before routing production traffic to it.
+    -- After you create a service using the @ECS@ deployment controller, the load balancer name or target group ARN, container name, and container port specified in the service definition are immutable. If you are using the @CODE_DEPLOY@ deployment controller, these values can be changed when updating the service.
+    -- For Application Load Balancers and Network Load Balancers, this object must contain the load balancer target group ARN, the container name (as it appears in a container definition), and the container port to access from the load balancer. The load balancer name parameter must be omitted. When a task from this service is placed on a container instance, the container instance and port combination is registered as a target in the target group specified here.
+    -- For Classic Load Balancers, this object must contain the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. The target group ARN parameter must be omitted. When a task from this service is placed on a container instance, the container instance is registered with the load balancer specified here.
+    -- Services with tasks that use the @awsvpc@ network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose @ip@ as the target type, not @instance@ , because tasks that use the @awsvpc@ network mode are associated with an elastic network interface, not an Amazon EC2 instance.
     loadBalancers :: Lude.Maybe [LoadBalancer],
+    -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is only permitted if you are using a load balancer with your service and your task definition does not use the @awsvpc@ network mode. If you specify the @role@ parameter, you must also specify a load balancer object with the @loadBalancers@ parameter.
+    --
+    -- /Important:/ If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here. The service-linked role is required if your task definition uses the @awsvpc@ network mode or if the service is configured to use service discovery, an external deployment controller, multiple target groups, or Elastic Inference accelerators in which case you should not specify a role here. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
+    -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name @bar@ has a path of @/foo/@ then you would specify @/foo/bar@ as the role name. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths> in the /IAM User Guide/ .
     role' :: Lude.Maybe Lude.Text,
+    -- | An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
     placementConstraints :: Lude.Maybe [PlacementConstraint],
+    -- | The placement strategy objects to use for tasks in your service. You can specify a maximum of five strategy rules per service.
     placementStrategy :: Lude.Maybe [PlacementStrategy],
+    -- | The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
+    serviceName :: Lude.Text,
+    -- | The deployment controller to use for the service.
     deploymentController :: Lude.Maybe DeploymentController,
+    -- | The launch type on which to run your service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+    --
+    -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter must be omitted.
     launchType :: Lude.Maybe LaunchType,
+    -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
+    --
+    -- A task definition must be specified if the service is using either the @ECS@ or @CODE_DEPLOY@ deployment controllers.
     taskDefinition :: Lude.Maybe Lude.Text,
+    -- | The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> .
+    --
+    -- There are two service scheduler strategies available:
+    --
+    --     * @REPLICA@ -The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service is using the @CODE_DEPLOY@ or @EXTERNAL@ deployment controller types.
+    --
+    --
+    --     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
     schedulingStrategy :: Lude.Maybe SchedulingStrategy,
+    -- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of @0@ is used.
+    --
+    -- If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
     healthCheckGracePeriodSeconds :: Lude.Maybe Lude.Int,
+    -- | The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
     networkConfiguration :: Lude.Maybe NetworkConfiguration,
+    -- | The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
     serviceRegistries :: Lude.Maybe [ServiceRegistry],
-    capacityProviderStrategy ::
-      Lude.Maybe [CapacityProviderStrategyItem],
+    -- | The capacity provider strategy to use for the service.
+    --
+    -- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
+    -- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter must be omitted. If no @capacityProviderStrategy@ or @launchType@ is specified, the @defaultCapacityProviderStrategy@ for the cluster is used.
+    -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+    -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
+    capacityProviderStrategy :: Lude.Maybe [CapacityProviderStrategyItem],
+    -- | The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per resource - 50
+    --
+    --
+    --     * For each resource, each tag key must be unique, and each tag key can have only one value.
+    --
+    --
+    --     * Maximum key length - 128 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length - 256 Unicode characters in UTF-8
+    --
+    --
+    --     * If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+    --
+    --
+    --     * Tag keys and values are case-sensitive.
+    --
+    --
+    --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
     tags :: Lude.Maybe [Tag],
-    deploymentConfiguration :: Lude.Maybe DeploymentConfiguration,
-    serviceName :: Lude.Text
+    -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+    deploymentConfiguration :: Lude.Maybe DeploymentConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateService' with the minimum fields required to make a request.
 --
--- * 'capacityProviderStrategy' - The capacity provider strategy to use for the service.
---
--- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
--- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter must be omitted. If no @capacityProviderStrategy@ or @launchType@ is specified, the @defaultCapacityProviderStrategy@ for the cluster is used.
--- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
--- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on which to run your service. If you do not specify a cluster, the default cluster is assumed.
--- * 'deploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
--- * 'deploymentController' - The deployment controller to use for the service.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
+-- * 'propagateTags' - Specifies whether to propagate the tags from the task definition or the service to the tasks in the service. If no value is specified, the tags are not propagated. Tags can only be propagated to the tasks within the service during service creation. To add tags to a task after service creation, use the 'TagResource' API action.
+-- * 'platformVersion' - The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
+-- * 'enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks within the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
 -- * 'desiredCount' - The number of instantiations of the specified task definition to place and keep running on your cluster.
 --
 -- This is required if @schedulingStrategy@ is @REPLICA@ or is not specified. If @schedulingStrategy@ is @DAEMON@ then this is not required.
--- * 'enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks within the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of @0@ is used.
---
--- If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
--- * 'launchType' - The launch type on which to run your service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
---
--- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter must be omitted.
 -- * 'loadBalancers' - A load balancer object representing the load balancers to use with your service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html Service Load Balancing> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- If the service is using the rolling update (@ECS@ ) deployment controller and using either an Application Load Balancer or Network Load Balancer, you must specify one or more target group ARNs to attach to the service. The service-linked role is required for services that make use of multiple target groups. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
@@ -150,15 +204,20 @@ data CreateService = CreateService'
 -- For Application Load Balancers and Network Load Balancers, this object must contain the load balancer target group ARN, the container name (as it appears in a container definition), and the container port to access from the load balancer. The load balancer name parameter must be omitted. When a task from this service is placed on a container instance, the container instance and port combination is registered as a target in the target group specified here.
 -- For Classic Load Balancers, this object must contain the load balancer name, the container name (as it appears in a container definition), and the container port to access from the load balancer. The target group ARN parameter must be omitted. When a task from this service is placed on a container instance, the container instance is registered with the load balancer specified here.
 -- Services with tasks that use the @awsvpc@ network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose @ip@ as the target type, not @instance@ , because tasks that use the @awsvpc@ network mode are associated with an elastic network interface, not an Amazon EC2 instance.
--- * 'networkConfiguration' - The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'placementConstraints' - An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
--- * 'placementStrategy' - The placement strategy objects to use for tasks in your service. You can specify a maximum of five strategy rules per service.
--- * 'platformVersion' - The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
--- * 'propagateTags' - Specifies whether to propagate the tags from the task definition or the service to the tasks in the service. If no value is specified, the tags are not propagated. Tags can only be propagated to the tasks within the service during service creation. To add tags to a task after service creation, use the 'TagResource' API action.
 -- * 'role'' - The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is only permitted if you are using a load balancer with your service and your task definition does not use the @awsvpc@ network mode. If you specify the @role@ parameter, you must also specify a load balancer object with the @loadBalancers@ parameter.
 --
 -- /Important:/ If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here. The service-linked role is required if your task definition uses the @awsvpc@ network mode or if the service is configured to use service discovery, an external deployment controller, multiple target groups, or Elastic Inference accelerators in which case you should not specify a role here. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
 -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name @bar@ has a path of @/foo/@ then you would specify @/foo/bar@ as the role name. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths> in the /IAM User Guide/ .
+-- * 'placementConstraints' - An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
+-- * 'placementStrategy' - The placement strategy objects to use for tasks in your service. You can specify a maximum of five strategy rules per service.
+-- * 'serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
+-- * 'deploymentController' - The deployment controller to use for the service.
+-- * 'launchType' - The launch type on which to run your service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
+--
+-- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter must be omitted.
+-- * 'taskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
+--
+-- A task definition must be specified if the service is using either the @ECS@ or @CODE_DEPLOY@ deployment controllers.
 -- * 'schedulingStrategy' - The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> .
 --
 -- There are two service scheduler strategies available:
@@ -169,8 +228,18 @@ data CreateService = CreateService'
 --     * @DAEMON@ -The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
 --
 --
--- * 'serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
+-- * 'healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of @0@ is used.
+--
+-- If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+-- * 'networkConfiguration' - The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
 -- * 'serviceRegistries' - The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
+-- * 'capacityProviderStrategy' - The capacity provider strategy to use for the service.
+--
+-- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
+-- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter must be omitted. If no @capacityProviderStrategy@ or @launchType@ is specified, the @defaultCapacityProviderStrategy@ for the cluster is used.
+-- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+-- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+-- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
 -- * 'tags' - The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
 --
 -- The following basic restrictions apply to tags:
@@ -196,9 +265,7 @@ data CreateService = CreateService'
 --     * Do not use @aws:@ , @AWS:@ , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
 --
 --
--- * 'taskDefinition' - The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
---
--- A task definition must be specified if the service is using either the @ECS@ or @CODE_DEPLOY@ deployment controllers.
+-- * 'deploymentConfiguration' - Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 mkCreateService ::
   -- | 'serviceName'
   Lude.Text ->
@@ -215,6 +282,7 @@ mkCreateService pServiceName_ =
       role' = Lude.Nothing,
       placementConstraints = Lude.Nothing,
       placementStrategy = Lude.Nothing,
+      serviceName = pServiceName_,
       deploymentController = Lude.Nothing,
       launchType = Lude.Nothing,
       taskDefinition = Lude.Nothing,
@@ -224,53 +292,52 @@ mkCreateService pServiceName_ =
       serviceRegistries = Lude.Nothing,
       capacityProviderStrategy = Lude.Nothing,
       tags = Lude.Nothing,
-      deploymentConfiguration = Lude.Nothing,
-      serviceName = pServiceName_
+      deploymentConfiguration = Lude.Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster on which to run your service. If you do not specify a cluster, the default cluster is assumed.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creCluster :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
-creCluster = Lens.lens (cluster :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: CreateService)
-{-# DEPRECATED creCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+csfCluster :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
+csfCluster = Lens.lens (cluster :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: CreateService)
+{-# DEPRECATED csfCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Up to 32 ASCII characters are allowed.
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creClientToken :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
-creClientToken = Lens.lens (clientToken :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateService)
-{-# DEPRECATED creClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+csfClientToken :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
+csfClientToken = Lens.lens (clientToken :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateService)
+{-# DEPRECATED csfClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | Specifies whether to propagate the tags from the task definition or the service to the tasks in the service. If no value is specified, the tags are not propagated. Tags can only be propagated to the tasks within the service during service creation. To add tags to a task after service creation, use the 'TagResource' API action.
 --
 -- /Note:/ Consider using 'propagateTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crePropagateTags :: Lens.Lens' CreateService (Lude.Maybe PropagateTags)
-crePropagateTags = Lens.lens (propagateTags :: CreateService -> Lude.Maybe PropagateTags) (\s a -> s {propagateTags = a} :: CreateService)
-{-# DEPRECATED crePropagateTags "Use generic-lens or generic-optics with 'propagateTags' instead." #-}
+csfPropagateTags :: Lens.Lens' CreateService (Lude.Maybe PropagateTags)
+csfPropagateTags = Lens.lens (propagateTags :: CreateService -> Lude.Maybe PropagateTags) (\s a -> s {propagateTags = a} :: CreateService)
+{-# DEPRECATED csfPropagateTags "Use generic-lens or generic-optics with 'propagateTags' instead." #-}
 
 -- | The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the @LATEST@ platform version is used by default. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'platformVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crePlatformVersion :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
-crePlatformVersion = Lens.lens (platformVersion :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: CreateService)
-{-# DEPRECATED crePlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
+csfPlatformVersion :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
+csfPlatformVersion = Lens.lens (platformVersion :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {platformVersion = a} :: CreateService)
+{-# DEPRECATED csfPlatformVersion "Use generic-lens or generic-optics with 'platformVersion' instead." #-}
 
 -- | Specifies whether to enable Amazon ECS managed tags for the tasks within the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'enableECSManagedTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creEnableECSManagedTags :: Lens.Lens' CreateService (Lude.Maybe Lude.Bool)
-creEnableECSManagedTags = Lens.lens (enableECSManagedTags :: CreateService -> Lude.Maybe Lude.Bool) (\s a -> s {enableECSManagedTags = a} :: CreateService)
-{-# DEPRECATED creEnableECSManagedTags "Use generic-lens or generic-optics with 'enableECSManagedTags' instead." #-}
+csfEnableECSManagedTags :: Lens.Lens' CreateService (Lude.Maybe Lude.Bool)
+csfEnableECSManagedTags = Lens.lens (enableECSManagedTags :: CreateService -> Lude.Maybe Lude.Bool) (\s a -> s {enableECSManagedTags = a} :: CreateService)
+{-# DEPRECATED csfEnableECSManagedTags "Use generic-lens or generic-optics with 'enableECSManagedTags' instead." #-}
 
 -- | The number of instantiations of the specified task definition to place and keep running on your cluster.
 --
 -- This is required if @schedulingStrategy@ is @REPLICA@ or is not specified. If @schedulingStrategy@ is @DAEMON@ then this is not required.
 --
 -- /Note:/ Consider using 'desiredCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creDesiredCount :: Lens.Lens' CreateService (Lude.Maybe Lude.Int)
-creDesiredCount = Lens.lens (desiredCount :: CreateService -> Lude.Maybe Lude.Int) (\s a -> s {desiredCount = a} :: CreateService)
-{-# DEPRECATED creDesiredCount "Use generic-lens or generic-optics with 'desiredCount' instead." #-}
+csfDesiredCount :: Lens.Lens' CreateService (Lude.Maybe Lude.Int)
+csfDesiredCount = Lens.lens (desiredCount :: CreateService -> Lude.Maybe Lude.Int) (\s a -> s {desiredCount = a} :: CreateService)
+{-# DEPRECATED csfDesiredCount "Use generic-lens or generic-optics with 'desiredCount' instead." #-}
 
 -- | A load balancer object representing the load balancers to use with your service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html Service Load Balancing> in the /Amazon Elastic Container Service Developer Guide/ .
 --
@@ -282,9 +349,9 @@ creDesiredCount = Lens.lens (desiredCount :: CreateService -> Lude.Maybe Lude.In
 -- Services with tasks that use the @awsvpc@ network mode (for example, those with the Fargate launch type) only support Application Load Balancers and Network Load Balancers. Classic Load Balancers are not supported. Also, when you create any target groups for these services, you must choose @ip@ as the target type, not @instance@ , because tasks that use the @awsvpc@ network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 --
 -- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creLoadBalancers :: Lens.Lens' CreateService (Lude.Maybe [LoadBalancer])
-creLoadBalancers = Lens.lens (loadBalancers :: CreateService -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: CreateService)
-{-# DEPRECATED creLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
+csfLoadBalancers :: Lens.Lens' CreateService (Lude.Maybe [LoadBalancer])
+csfLoadBalancers = Lens.lens (loadBalancers :: CreateService -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: CreateService)
+{-# DEPRECATED csfLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
 -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is only permitted if you are using a load balancer with your service and your task definition does not use the @awsvpc@ network mode. If you specify the @role@ parameter, you must also specify a load balancer object with the @loadBalancers@ parameter.
 --
@@ -292,48 +359,55 @@ creLoadBalancers = Lens.lens (loadBalancers :: CreateService -> Lude.Maybe [Load
 -- If your specified role has a path other than @/@ , then you must either specify the full role ARN (this is recommended) or prefix the role name with the path. For example, if a role with the name @bar@ has a path of @/foo/@ then you would specify @/foo/bar@ as the role name. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creRole :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
-creRole = Lens.lens (role' :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: CreateService)
-{-# DEPRECATED creRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+csfRole :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
+csfRole = Lens.lens (role' :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {role' = a} :: CreateService)
+{-# DEPRECATED csfRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints per task (this limit includes constraints in the task definition and those specified at runtime).
 --
 -- /Note:/ Consider using 'placementConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crePlacementConstraints :: Lens.Lens' CreateService (Lude.Maybe [PlacementConstraint])
-crePlacementConstraints = Lens.lens (placementConstraints :: CreateService -> Lude.Maybe [PlacementConstraint]) (\s a -> s {placementConstraints = a} :: CreateService)
-{-# DEPRECATED crePlacementConstraints "Use generic-lens or generic-optics with 'placementConstraints' instead." #-}
+csfPlacementConstraints :: Lens.Lens' CreateService (Lude.Maybe [PlacementConstraint])
+csfPlacementConstraints = Lens.lens (placementConstraints :: CreateService -> Lude.Maybe [PlacementConstraint]) (\s a -> s {placementConstraints = a} :: CreateService)
+{-# DEPRECATED csfPlacementConstraints "Use generic-lens or generic-optics with 'placementConstraints' instead." #-}
 
 -- | The placement strategy objects to use for tasks in your service. You can specify a maximum of five strategy rules per service.
 --
 -- /Note:/ Consider using 'placementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crePlacementStrategy :: Lens.Lens' CreateService (Lude.Maybe [PlacementStrategy])
-crePlacementStrategy = Lens.lens (placementStrategy :: CreateService -> Lude.Maybe [PlacementStrategy]) (\s a -> s {placementStrategy = a} :: CreateService)
-{-# DEPRECATED crePlacementStrategy "Use generic-lens or generic-optics with 'placementStrategy' instead." #-}
+csfPlacementStrategy :: Lens.Lens' CreateService (Lude.Maybe [PlacementStrategy])
+csfPlacementStrategy = Lens.lens (placementStrategy :: CreateService -> Lude.Maybe [PlacementStrategy]) (\s a -> s {placementStrategy = a} :: CreateService)
+{-# DEPRECATED csfPlacementStrategy "Use generic-lens or generic-optics with 'placementStrategy' instead." #-}
+
+-- | The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfServiceName :: Lens.Lens' CreateService Lude.Text
+csfServiceName = Lens.lens (serviceName :: CreateService -> Lude.Text) (\s a -> s {serviceName = a} :: CreateService)
+{-# DEPRECATED csfServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The deployment controller to use for the service.
 --
 -- /Note:/ Consider using 'deploymentController' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creDeploymentController :: Lens.Lens' CreateService (Lude.Maybe DeploymentController)
-creDeploymentController = Lens.lens (deploymentController :: CreateService -> Lude.Maybe DeploymentController) (\s a -> s {deploymentController = a} :: CreateService)
-{-# DEPRECATED creDeploymentController "Use generic-lens or generic-optics with 'deploymentController' instead." #-}
+csfDeploymentController :: Lens.Lens' CreateService (Lude.Maybe DeploymentController)
+csfDeploymentController = Lens.lens (deploymentController :: CreateService -> Lude.Maybe DeploymentController) (\s a -> s {deploymentController = a} :: CreateService)
+{-# DEPRECATED csfDeploymentController "Use generic-lens or generic-optics with 'deploymentController' instead." #-}
 
 -- | The launch type on which to run your service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter must be omitted.
 --
 -- /Note:/ Consider using 'launchType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creLaunchType :: Lens.Lens' CreateService (Lude.Maybe LaunchType)
-creLaunchType = Lens.lens (launchType :: CreateService -> Lude.Maybe LaunchType) (\s a -> s {launchType = a} :: CreateService)
-{-# DEPRECATED creLaunchType "Use generic-lens or generic-optics with 'launchType' instead." #-}
+csfLaunchType :: Lens.Lens' CreateService (Lude.Maybe LaunchType)
+csfLaunchType = Lens.lens (launchType :: CreateService -> Lude.Maybe LaunchType) (\s a -> s {launchType = a} :: CreateService)
+{-# DEPRECATED csfLaunchType "Use generic-lens or generic-optics with 'launchType' instead." #-}
 
 -- | The @family@ and @revision@ (@family:revision@ ) or full ARN of the task definition to run in your service. If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
 --
 -- A task definition must be specified if the service is using either the @ECS@ or @CODE_DEPLOY@ deployment controllers.
 --
 -- /Note:/ Consider using 'taskDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creTaskDefinition :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
-creTaskDefinition = Lens.lens (taskDefinition :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {taskDefinition = a} :: CreateService)
-{-# DEPRECATED creTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
+csfTaskDefinition :: Lens.Lens' CreateService (Lude.Maybe Lude.Text)
+csfTaskDefinition = Lens.lens (taskDefinition :: CreateService -> Lude.Maybe Lude.Text) (\s a -> s {taskDefinition = a} :: CreateService)
+{-# DEPRECATED csfTaskDefinition "Use generic-lens or generic-optics with 'taskDefinition' instead." #-}
 
 -- | The scheduling strategy to use for the service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services> .
 --
@@ -347,32 +421,32 @@ creTaskDefinition = Lens.lens (taskDefinition :: CreateService -> Lude.Maybe Lud
 --
 --
 -- /Note:/ Consider using 'schedulingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creSchedulingStrategy :: Lens.Lens' CreateService (Lude.Maybe SchedulingStrategy)
-creSchedulingStrategy = Lens.lens (schedulingStrategy :: CreateService -> Lude.Maybe SchedulingStrategy) (\s a -> s {schedulingStrategy = a} :: CreateService)
-{-# DEPRECATED creSchedulingStrategy "Use generic-lens or generic-optics with 'schedulingStrategy' instead." #-}
+csfSchedulingStrategy :: Lens.Lens' CreateService (Lude.Maybe SchedulingStrategy)
+csfSchedulingStrategy = Lens.lens (schedulingStrategy :: CreateService -> Lude.Maybe SchedulingStrategy) (\s a -> s {schedulingStrategy = a} :: CreateService)
+{-# DEPRECATED csfSchedulingStrategy "Use generic-lens or generic-optics with 'schedulingStrategy' instead." #-}
 
 -- | The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started. This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of @0@ is used.
 --
 -- If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
 --
 -- /Note:/ Consider using 'healthCheckGracePeriodSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creHealthCheckGracePeriodSeconds :: Lens.Lens' CreateService (Lude.Maybe Lude.Int)
-creHealthCheckGracePeriodSeconds = Lens.lens (healthCheckGracePeriodSeconds :: CreateService -> Lude.Maybe Lude.Int) (\s a -> s {healthCheckGracePeriodSeconds = a} :: CreateService)
-{-# DEPRECATED creHealthCheckGracePeriodSeconds "Use generic-lens or generic-optics with 'healthCheckGracePeriodSeconds' instead." #-}
+csfHealthCheckGracePeriodSeconds :: Lens.Lens' CreateService (Lude.Maybe Lude.Int)
+csfHealthCheckGracePeriodSeconds = Lens.lens (healthCheckGracePeriodSeconds :: CreateService -> Lude.Maybe Lude.Int) (\s a -> s {healthCheckGracePeriodSeconds = a} :: CreateService)
+{-# DEPRECATED csfHealthCheckGracePeriodSeconds "Use generic-lens or generic-optics with 'healthCheckGracePeriodSeconds' instead." #-}
 
 -- | The network configuration for the service. This parameter is required for task definitions that use the @awsvpc@ network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'networkConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creNetworkConfiguration :: Lens.Lens' CreateService (Lude.Maybe NetworkConfiguration)
-creNetworkConfiguration = Lens.lens (networkConfiguration :: CreateService -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: CreateService)
-{-# DEPRECATED creNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
+csfNetworkConfiguration :: Lens.Lens' CreateService (Lude.Maybe NetworkConfiguration)
+csfNetworkConfiguration = Lens.lens (networkConfiguration :: CreateService -> Lude.Maybe NetworkConfiguration) (\s a -> s {networkConfiguration = a} :: CreateService)
+{-# DEPRECATED csfNetworkConfiguration "Use generic-lens or generic-optics with 'networkConfiguration' instead." #-}
 
 -- | The details of the service discovery registries to assign to this service. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery> .
 --
 -- /Note:/ Consider using 'serviceRegistries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creServiceRegistries :: Lens.Lens' CreateService (Lude.Maybe [ServiceRegistry])
-creServiceRegistries = Lens.lens (serviceRegistries :: CreateService -> Lude.Maybe [ServiceRegistry]) (\s a -> s {serviceRegistries = a} :: CreateService)
-{-# DEPRECATED creServiceRegistries "Use generic-lens or generic-optics with 'serviceRegistries' instead." #-}
+csfServiceRegistries :: Lens.Lens' CreateService (Lude.Maybe [ServiceRegistry])
+csfServiceRegistries = Lens.lens (serviceRegistries :: CreateService -> Lude.Maybe [ServiceRegistry]) (\s a -> s {serviceRegistries = a} :: CreateService)
+{-# DEPRECATED csfServiceRegistries "Use generic-lens or generic-optics with 'serviceRegistries' instead." #-}
 
 -- | The capacity provider strategy to use for the service.
 --
@@ -383,9 +457,9 @@ creServiceRegistries = Lens.lens (serviceRegistries :: CreateService -> Lude.May
 -- The 'PutClusterCapacityProviders' API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
 --
 -- /Note:/ Consider using 'capacityProviderStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creCapacityProviderStrategy :: Lens.Lens' CreateService (Lude.Maybe [CapacityProviderStrategyItem])
-creCapacityProviderStrategy = Lens.lens (capacityProviderStrategy :: CreateService -> Lude.Maybe [CapacityProviderStrategyItem]) (\s a -> s {capacityProviderStrategy = a} :: CreateService)
-{-# DEPRECATED creCapacityProviderStrategy "Use generic-lens or generic-optics with 'capacityProviderStrategy' instead." #-}
+csfCapacityProviderStrategy :: Lens.Lens' CreateService (Lude.Maybe [CapacityProviderStrategyItem])
+csfCapacityProviderStrategy = Lens.lens (capacityProviderStrategy :: CreateService -> Lude.Maybe [CapacityProviderStrategyItem]) (\s a -> s {capacityProviderStrategy = a} :: CreateService)
+{-# DEPRECATED csfCapacityProviderStrategy "Use generic-lens or generic-optics with 'capacityProviderStrategy' instead." #-}
 
 -- | The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
 --
@@ -414,23 +488,16 @@ creCapacityProviderStrategy = Lens.lens (capacityProviderStrategy :: CreateServi
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creTags :: Lens.Lens' CreateService (Lude.Maybe [Tag])
-creTags = Lens.lens (tags :: CreateService -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateService)
-{-# DEPRECATED creTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+csfTags :: Lens.Lens' CreateService (Lude.Maybe [Tag])
+csfTags = Lens.lens (tags :: CreateService -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateService)
+{-# DEPRECATED csfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 --
 -- /Note:/ Consider using 'deploymentConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creDeploymentConfiguration :: Lens.Lens' CreateService (Lude.Maybe DeploymentConfiguration)
-creDeploymentConfiguration = Lens.lens (deploymentConfiguration :: CreateService -> Lude.Maybe DeploymentConfiguration) (\s a -> s {deploymentConfiguration = a} :: CreateService)
-{-# DEPRECATED creDeploymentConfiguration "Use generic-lens or generic-optics with 'deploymentConfiguration' instead." #-}
-
--- | The name of your service. Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creServiceName :: Lens.Lens' CreateService Lude.Text
-creServiceName = Lens.lens (serviceName :: CreateService -> Lude.Text) (\s a -> s {serviceName = a} :: CreateService)
-{-# DEPRECATED creServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+csfDeploymentConfiguration :: Lens.Lens' CreateService (Lude.Maybe DeploymentConfiguration)
+csfDeploymentConfiguration = Lens.lens (deploymentConfiguration :: CreateService -> Lude.Maybe DeploymentConfiguration) (\s a -> s {deploymentConfiguration = a} :: CreateService)
+{-# DEPRECATED csfDeploymentConfiguration "Use generic-lens or generic-optics with 'deploymentConfiguration' instead." #-}
 
 instance Lude.AWSRequest CreateService where
   type Rs CreateService = CreateServiceResponse
@@ -469,6 +536,7 @@ instance Lude.ToJSON CreateService where
             ("role" Lude..=) Lude.<$> role',
             ("placementConstraints" Lude..=) Lude.<$> placementConstraints,
             ("placementStrategy" Lude..=) Lude.<$> placementStrategy,
+            Lude.Just ("serviceName" Lude..= serviceName),
             ("deploymentController" Lude..=) Lude.<$> deploymentController,
             ("launchType" Lude..=) Lude.<$> launchType,
             ("taskDefinition" Lude..=) Lude.<$> taskDefinition,
@@ -481,8 +549,7 @@ instance Lude.ToJSON CreateService where
               Lude.<$> capacityProviderStrategy,
             ("tags" Lude..=) Lude.<$> tags,
             ("deploymentConfiguration" Lude..=)
-              Lude.<$> deploymentConfiguration,
-            Lude.Just ("serviceName" Lude..= serviceName)
+              Lude.<$> deploymentConfiguration
           ]
       )
 
@@ -494,26 +561,24 @@ instance Lude.ToQuery CreateService where
 
 -- | /See:/ 'mkCreateServiceResponse' smart constructor.
 data CreateServiceResponse = CreateServiceResponse'
-  { service ::
-      Lude.Maybe ContainerService,
+  { -- | The full description of your service following the create call.
+    --
+    -- If a service is using the @ECS@ deployment controller, the @deploymentController@ and @taskSets@ parameters will not be returned.
+    -- If the service is using the @CODE_DEPLOY@ deployment controller, the @deploymentController@ , @taskSets@ and @deployments@ parameters will be returned, however the @deployments@ parameter will be an empty list.
+    service :: Lude.Maybe ContainerService,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateServiceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'service' - The full description of your service following the create call.
 --
 -- If a service is using the @ECS@ deployment controller, the @deploymentController@ and @taskSets@ parameters will not be returned.
 -- If the service is using the @CODE_DEPLOY@ deployment controller, the @deploymentController@ , @taskSets@ and @deployments@ parameters will be returned, however the @deployments@ parameter will be an empty list.
+-- * 'responseStatus' - The response status code.
 mkCreateServiceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

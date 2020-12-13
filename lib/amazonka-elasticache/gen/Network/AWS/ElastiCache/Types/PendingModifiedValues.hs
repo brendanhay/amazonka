@@ -33,29 +33,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPendingModifiedValues' smart constructor.
 data PendingModifiedValues = PendingModifiedValues'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The new cache engine version that the cluster runs.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The cache node type that this cluster or replication group is scaled to.
     cacheNodeType :: Lude.Maybe Lude.Text,
-    authTokenStatus ::
-      Lude.Maybe AuthTokenUpdateStatus,
+    -- | The auth token status
+    authTokenStatus :: Lude.Maybe AuthTokenUpdateStatus,
+    -- | A list of cache node IDs that are being removed (or will be removed) from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002, etc.).
     cacheNodeIdsToRemove :: Lude.Maybe [Lude.Text],
+    -- | The new number of cache nodes for the cluster.
+    --
+    -- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
     numCacheNodes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
+-- * 'engineVersion' - The new cache engine version that the cluster runs.
+-- * 'cacheNodeType' - The cache node type that this cluster or replication group is scaled to.
 -- * 'authTokenStatus' - The auth token status
 -- * 'cacheNodeIdsToRemove' - A list of cache node IDs that are being removed (or will be removed) from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002, etc.).
--- * 'cacheNodeType' - The cache node type that this cluster or replication group is scaled to.
--- * 'engineVersion' - The new cache engine version that the cluster runs.
 -- * 'numCacheNodes' - The new number of cache nodes for the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.

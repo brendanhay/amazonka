@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,8 +37,9 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDeleteFolder' smart constructor.
 data DeleteFolder = DeleteFolder'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the folder.
     folderId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -93,13 +95,7 @@ instance Lude.ToQuery DeleteFolder where
 
 -- | /See:/ 'mkDeleteFolderResponse' smart constructor.
 data DeleteFolderResponse = DeleteFolderResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFolderResponse' with the minimum fields required to make a request.

@@ -13,13 +13,13 @@
 module Network.AWS.Pinpoint.Types.DeliveryStatus
   ( DeliveryStatus
       ( DeliveryStatus',
-        Duplicate,
-        OptOut,
-        PermanentFailure,
         Successful,
-        TemporaryFailure,
         Throttled,
-        UnknownFailure
+        TemporaryFailure,
+        PermanentFailure,
+        UnknownFailure,
+        OptOut,
+        Duplicate
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype DeliveryStatus = DeliveryStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Duplicate :: DeliveryStatus
-pattern Duplicate = DeliveryStatus' "DUPLICATE"
-
-pattern OptOut :: DeliveryStatus
-pattern OptOut = DeliveryStatus' "OPT_OUT"
-
-pattern PermanentFailure :: DeliveryStatus
-pattern PermanentFailure = DeliveryStatus' "PERMANENT_FAILURE"
-
 pattern Successful :: DeliveryStatus
 pattern Successful = DeliveryStatus' "SUCCESSFUL"
-
-pattern TemporaryFailure :: DeliveryStatus
-pattern TemporaryFailure = DeliveryStatus' "TEMPORARY_FAILURE"
 
 pattern Throttled :: DeliveryStatus
 pattern Throttled = DeliveryStatus' "THROTTLED"
 
+pattern TemporaryFailure :: DeliveryStatus
+pattern TemporaryFailure = DeliveryStatus' "TEMPORARY_FAILURE"
+
+pattern PermanentFailure :: DeliveryStatus
+pattern PermanentFailure = DeliveryStatus' "PERMANENT_FAILURE"
+
 pattern UnknownFailure :: DeliveryStatus
 pattern UnknownFailure = DeliveryStatus' "UNKNOWN_FAILURE"
 
+pattern OptOut :: DeliveryStatus
+pattern OptOut = DeliveryStatus' "OPT_OUT"
+
+pattern Duplicate :: DeliveryStatus
+pattern Duplicate = DeliveryStatus' "DUPLICATE"
+
 {-# COMPLETE
-  Duplicate,
-  OptOut,
-  PermanentFailure,
   Successful,
-  TemporaryFailure,
   Throttled,
+  TemporaryFailure,
+  PermanentFailure,
   UnknownFailure,
+  OptOut,
+  Duplicate,
   DeliveryStatus'
   #-}

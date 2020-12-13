@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Snowball.CreateReturnShippingLabel
     mkCreateReturnShippingLabel,
 
     -- ** Request lenses
-    crslShippingOption,
     crslJobId,
+    crslShippingOption,
 
     -- * Destructuring the response
     CreateReturnShippingLabelResponse (..),
@@ -40,17 +41,12 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkCreateReturnShippingLabel' smart constructor.
 data CreateReturnShippingLabel = CreateReturnShippingLabel'
-  { shippingOption ::
-      Lude.Maybe ShippingOption,
-    jobId :: Lude.Text
+  { -- | The ID for a job that you want to create the return shipping label for. For example @JID123e4567-e89b-12d3-a456-426655440000@ .
+    jobId :: Lude.Text,
+    -- | The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to AWS. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
+    shippingOption :: Lude.Maybe ShippingOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReturnShippingLabel' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkCreateReturnShippingLabel ::
   CreateReturnShippingLabel
 mkCreateReturnShippingLabel pJobId_ =
   CreateReturnShippingLabel'
-    { shippingOption = Lude.Nothing,
-      jobId = pJobId_
+    { jobId = pJobId_,
+      shippingOption = Lude.Nothing
     }
-
--- | The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to AWS. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
---
--- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crslShippingOption :: Lens.Lens' CreateReturnShippingLabel (Lude.Maybe ShippingOption)
-crslShippingOption = Lens.lens (shippingOption :: CreateReturnShippingLabel -> Lude.Maybe ShippingOption) (\s a -> s {shippingOption = a} :: CreateReturnShippingLabel)
-{-# DEPRECATED crslShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
 
 -- | The ID for a job that you want to create the return shipping label for. For example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
@@ -80,6 +69,13 @@ crslShippingOption = Lens.lens (shippingOption :: CreateReturnShippingLabel -> L
 crslJobId :: Lens.Lens' CreateReturnShippingLabel Lude.Text
 crslJobId = Lens.lens (jobId :: CreateReturnShippingLabel -> Lude.Text) (\s a -> s {jobId = a} :: CreateReturnShippingLabel)
 {-# DEPRECATED crslJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+-- | The shipping speed for a particular job. This speed doesn't dictate how soon the device is returned to AWS. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
+--
+-- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crslShippingOption :: Lens.Lens' CreateReturnShippingLabel (Lude.Maybe ShippingOption)
+crslShippingOption = Lens.lens (shippingOption :: CreateReturnShippingLabel -> Lude.Maybe ShippingOption) (\s a -> s {shippingOption = a} :: CreateReturnShippingLabel)
+{-# DEPRECATED crslShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
 
 instance Lude.AWSRequest CreateReturnShippingLabel where
   type
@@ -110,8 +106,8 @@ instance Lude.ToJSON CreateReturnShippingLabel where
   toJSON CreateReturnShippingLabel' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ShippingOption" Lude..=) Lude.<$> shippingOption,
-            Lude.Just ("JobId" Lude..= jobId)
+          [ Lude.Just ("JobId" Lude..= jobId),
+            ("ShippingOption" Lude..=) Lude.<$> shippingOption
           ]
       )
 
@@ -123,25 +119,18 @@ instance Lude.ToQuery CreateReturnShippingLabel where
 
 -- | /See:/ 'mkCreateReturnShippingLabelResponse' smart constructor.
 data CreateReturnShippingLabelResponse = CreateReturnShippingLabelResponse'
-  { status ::
-      Lude.Maybe
-        ShippingLabelStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The status information of the task on a Snow device that is being returned to AWS.
+    status :: Lude.Maybe ShippingLabelStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateReturnShippingLabelResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status information of the task on a Snow device that is being returned to AWS.
+-- * 'responseStatus' - The response status code.
 mkCreateReturnShippingLabelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

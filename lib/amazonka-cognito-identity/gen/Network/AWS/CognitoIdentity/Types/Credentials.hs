@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCredentials' smart constructor.
 data Credentials = Credentials'
-  { sessionToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The Session Token portion of the credentials
+    sessionToken :: Lude.Maybe Lude.Text,
+    -- | The date at which these credentials will expire.
     expiration :: Lude.Maybe Lude.Timestamp,
+    -- | The Secret Access Key portion of the credentials
     secretKey :: Lude.Maybe Lude.Text,
+    -- | The Access Key portion of the credentials.
     accessKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Credentials' with the minimum fields required to make a request.
 --
--- * 'accessKeyId' - The Access Key portion of the credentials.
+-- * 'sessionToken' - The Session Token portion of the credentials
 -- * 'expiration' - The date at which these credentials will expire.
 -- * 'secretKey' - The Secret Access Key portion of the credentials
--- * 'sessionToken' - The Session Token portion of the credentials
+-- * 'accessKeyId' - The Access Key portion of the credentials.
 mkCredentials ::
   Credentials
 mkCredentials =

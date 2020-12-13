@@ -14,8 +14,8 @@ module Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
   ( PredictiveScalingMaxCapacityBehavior
       ( PredictiveScalingMaxCapacityBehavior',
         SetForecastCapacityToMaxCapacity,
-        SetMaxCapacityAboveForecastCapacity,
-        SetMaxCapacityToForecastCapacity
+        SetMaxCapacityToForecastCapacity,
+        SetMaxCapacityAboveForecastCapacity
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype PredictiveScalingMaxCapacityBehavior = PredictiveScalingMaxCapacityBehav
 pattern SetForecastCapacityToMaxCapacity :: PredictiveScalingMaxCapacityBehavior
 pattern SetForecastCapacityToMaxCapacity = PredictiveScalingMaxCapacityBehavior' "SetForecastCapacityToMaxCapacity"
 
-pattern SetMaxCapacityAboveForecastCapacity :: PredictiveScalingMaxCapacityBehavior
-pattern SetMaxCapacityAboveForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityAboveForecastCapacity"
-
 pattern SetMaxCapacityToForecastCapacity :: PredictiveScalingMaxCapacityBehavior
 pattern SetMaxCapacityToForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityToForecastCapacity"
 
+pattern SetMaxCapacityAboveForecastCapacity :: PredictiveScalingMaxCapacityBehavior
+pattern SetMaxCapacityAboveForecastCapacity = PredictiveScalingMaxCapacityBehavior' "SetMaxCapacityAboveForecastCapacity"
+
 {-# COMPLETE
   SetForecastCapacityToMaxCapacity,
-  SetMaxCapacityAboveForecastCapacity,
   SetMaxCapacityToForecastCapacity,
+  SetMaxCapacityAboveForecastCapacity,
   PredictiveScalingMaxCapacityBehavior'
   #-}

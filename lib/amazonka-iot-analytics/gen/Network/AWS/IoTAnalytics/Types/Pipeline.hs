@@ -35,31 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipeline' smart constructor.
 data Pipeline = Pipeline'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the pipeline was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the pipeline.
     arn :: Lude.Maybe Lude.Text,
+    -- | The activities that perform transformations on the messages.
     activities :: Lude.Maybe (Lude.NonEmpty PipelineActivity),
+    -- | The name of the pipeline.
     name :: Lude.Maybe Lude.Text,
+    -- | A summary of information about the pipeline reprocessing.
     reprocessingSummaries :: Lude.Maybe [ReprocessingSummary],
+    -- | The last time the pipeline was updated.
     lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Pipeline' with the minimum fields required to make a request.
 --
--- * 'activities' - The activities that perform transformations on the messages.
--- * 'arn' - The ARN of the pipeline.
 -- * 'creationTime' - When the pipeline was created.
--- * 'lastUpdateTime' - The last time the pipeline was updated.
+-- * 'arn' - The ARN of the pipeline.
+-- * 'activities' - The activities that perform transformations on the messages.
 -- * 'name' - The name of the pipeline.
 -- * 'reprocessingSummaries' - A summary of information about the pipeline reprocessing.
+-- * 'lastUpdateTime' - The last time the pipeline was updated.
 mkPipeline ::
   Pipeline
 mkPipeline =

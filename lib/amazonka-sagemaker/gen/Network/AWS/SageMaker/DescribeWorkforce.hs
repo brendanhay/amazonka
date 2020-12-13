@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.SageMaker.DescribeWorkforce
     mkDescribeWorkforceResponse,
 
     -- ** Response lenses
-    dwrsResponseStatus,
     dwrsWorkforce,
+    dwrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeWorkforce' smart constructor.
 newtype DescribeWorkforce = DescribeWorkforce'
-  { workforceName ::
-      Lude.Text
+  { -- | The name of the private workforce whose access you want to restrict. @WorkforceName@ is automatically set to @default@ when a workforce is created and cannot be modified.
+    workforceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkforce' with the minimum fields required to make a request.
@@ -77,7 +72,7 @@ instance Lude.AWSRequest DescribeWorkforce where
     Res.receiveJSON
       ( \s h x ->
           DescribeWorkforceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Workforce")
+            Lude.<$> (x Lude..:> "Workforce") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeWorkforce where
@@ -106,41 +101,29 @@ instance Lude.ToQuery DescribeWorkforce where
 
 -- | /See:/ 'mkDescribeWorkforceResponse' smart constructor.
 data DescribeWorkforceResponse = DescribeWorkforceResponse'
-  { responseStatus ::
-      Lude.Int,
-    workforce :: Workforce
+  { -- | A single private workforce, which is automatically created when you create your first private work team. You can create one private work force in each AWS Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce> .
+    workforce :: Workforce,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkforceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'workforce' - A single private workforce, which is automatically created when you create your first private work team. You can create one private work force in each AWS Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce> .
+-- * 'responseStatus' - The response status code.
 mkDescribeWorkforceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'workforce'
   Workforce ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeWorkforceResponse
-mkDescribeWorkforceResponse pResponseStatus_ pWorkforce_ =
+mkDescribeWorkforceResponse pWorkforce_ pResponseStatus_ =
   DescribeWorkforceResponse'
-    { responseStatus = pResponseStatus_,
-      workforce = pWorkforce_
+    { workforce = pWorkforce_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwrsResponseStatus :: Lens.Lens' DescribeWorkforceResponse Lude.Int
-dwrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkforceResponse)
-{-# DEPRECATED dwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A single private workforce, which is automatically created when you create your first private work team. You can create one private work force in each AWS Region. By default, any workforce-related API operation used in a specific region will apply to the workforce created in that region. To learn how to create a private workforce, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce> .
 --
@@ -148,3 +131,10 @@ dwrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkforceResponse -> L
 dwrsWorkforce :: Lens.Lens' DescribeWorkforceResponse Workforce
 dwrsWorkforce = Lens.lens (workforce :: DescribeWorkforceResponse -> Workforce) (\s a -> s {workforce = a} :: DescribeWorkforceResponse)
 {-# DEPRECATED dwrsWorkforce "Use generic-lens or generic-optics with 'workforce' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwrsResponseStatus :: Lens.Lens' DescribeWorkforceResponse Lude.Int
+dwrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkforceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkforceResponse)
+{-# DEPRECATED dwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

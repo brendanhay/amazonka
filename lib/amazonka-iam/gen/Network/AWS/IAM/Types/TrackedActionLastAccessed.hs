@@ -33,31 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTrackedActionLastAccessed' smart constructor.
 data TrackedActionLastAccessed = TrackedActionLastAccessed'
-  { lastAccessedTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the tracked service. AWS does not report unauthenticated requests.
+    --
+    -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+    lastAccessedTime :: Lude.Maybe Lude.DateTime,
+    -- | The name of the tracked action to which access was attempted. Tracked actions are actions that report activity to IAM.
     actionName :: Lude.Maybe Lude.Text,
-    lastAccessedEntity ::
-      Lude.Maybe Lude.Text,
-    lastAccessedRegion ::
-      Lude.Maybe Lude.Text
+    lastAccessedEntity :: Lude.Maybe Lude.Text,
+    -- | The Region from which the authenticated entity (user or role) last attempted to access the tracked action. AWS does not report unauthenticated requests.
+    --
+    -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
+    lastAccessedRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrackedActionLastAccessed' with the minimum fields required to make a request.
 --
--- * 'actionName' - The name of the tracked action to which access was attempted. Tracked actions are actions that report activity to IAM.
--- * 'lastAccessedEntity' - Undocumented field.
--- * 'lastAccessedRegion' - The Region from which the authenticated entity (user or role) last attempted to access the tracked action. AWS does not report unauthenticated requests.
+-- * 'lastAccessedTime' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the tracked service. AWS does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
--- * 'lastAccessedTime' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when an authenticated entity most recently attempted to access the tracked service. AWS does not report unauthenticated requests.
+-- * 'actionName' - The name of the tracked action to which access was attempted. Tracked actions are actions that report activity to IAM.
+-- * 'lastAccessedEntity' -
+-- * 'lastAccessedRegion' - The Region from which the authenticated entity (user or role) last attempted to access the tracked action. AWS does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
 mkTrackedActionLastAccessed ::

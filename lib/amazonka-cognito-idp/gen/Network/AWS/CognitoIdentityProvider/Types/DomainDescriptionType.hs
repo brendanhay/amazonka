@@ -37,36 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainDescriptionType' smart constructor.
 data DomainDescriptionType = DomainDescriptionType'
-  { status ::
-      Lude.Maybe DomainStatusType,
+  { -- | The domain status.
+    status :: Lude.Maybe DomainStatusType,
+    -- | The ARN of the CloudFront distribution.
     cloudFrontDistribution :: Lude.Maybe Lude.Text,
+    -- | The user pool ID.
     userPoolId :: Lude.Maybe Lude.Text,
+    -- | The domain string.
     domain :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID for the user pool owner.
     awsAccountId :: Lude.Maybe Lude.Text,
-    customDomainConfig ::
-      Lude.Maybe CustomDomainConfigType,
+    -- | The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+    customDomainConfig :: Lude.Maybe CustomDomainConfigType,
+    -- | The app version.
     version :: Lude.Maybe Lude.Text,
+    -- | The S3 bucket where the static files for this domain are stored.
     s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainDescriptionType' with the minimum fields required to make a request.
 --
--- * 'awsAccountId' - The AWS account ID for the user pool owner.
--- * 'cloudFrontDistribution' - The ARN of the CloudFront distribution.
--- * 'customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
--- * 'domain' - The domain string.
--- * 's3Bucket' - The S3 bucket where the static files for this domain are stored.
 -- * 'status' - The domain status.
+-- * 'cloudFrontDistribution' - The ARN of the CloudFront distribution.
 -- * 'userPoolId' - The user pool ID.
+-- * 'domain' - The domain string.
+-- * 'awsAccountId' - The AWS account ID for the user pool owner.
+-- * 'customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
 -- * 'version' - The app version.
+-- * 's3Bucket' - The S3 bucket where the static files for this domain are stored.
 mkDomainDescriptionType ::
   DomainDescriptionType
 mkDomainDescriptionType =

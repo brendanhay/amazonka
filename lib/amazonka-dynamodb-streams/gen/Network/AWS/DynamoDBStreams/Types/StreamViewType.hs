@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDBStreams.Types.StreamViewType
   ( StreamViewType
       ( StreamViewType',
-        KeysOnly,
-        NewAndOldImages,
         NewImage,
-        OldImage
+        OldImage,
+        NewAndOldImages,
+        KeysOnly
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype StreamViewType = StreamViewType' Lude.Text
       Lude.ToHeader
     )
 
-pattern KeysOnly :: StreamViewType
-pattern KeysOnly = StreamViewType' "KEYS_ONLY"
-
-pattern NewAndOldImages :: StreamViewType
-pattern NewAndOldImages = StreamViewType' "NEW_AND_OLD_IMAGES"
-
 pattern NewImage :: StreamViewType
 pattern NewImage = StreamViewType' "NEW_IMAGE"
 
 pattern OldImage :: StreamViewType
 pattern OldImage = StreamViewType' "OLD_IMAGE"
 
+pattern NewAndOldImages :: StreamViewType
+pattern NewAndOldImages = StreamViewType' "NEW_AND_OLD_IMAGES"
+
+pattern KeysOnly :: StreamViewType
+pattern KeysOnly = StreamViewType' "KEYS_ONLY"
+
 {-# COMPLETE
-  KeysOnly,
-  NewAndOldImages,
   NewImage,
   OldImage,
+  NewAndOldImages,
+  KeysOnly,
   StreamViewType'
   #-}

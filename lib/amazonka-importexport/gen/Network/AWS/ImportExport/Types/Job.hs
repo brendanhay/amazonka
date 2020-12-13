@@ -37,21 +37,15 @@ data Job = Job'
     isCanceled :: Lude.Bool,
     creationDate :: Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- * 'creationDate' - Undocumented field.
--- * 'isCanceled' - Undocumented field.
--- * 'jobId' - Undocumented field.
--- * 'jobType' - Undocumented field.
+-- * 'jobType' -
+-- * 'jobId' -
+-- * 'isCanceled' -
+-- * 'creationDate' -
 mkJob ::
   -- | 'jobType'
   JobType ->

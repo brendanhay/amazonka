@@ -17,9 +17,9 @@ module Network.AWS.KinesisAnalytics.Types.RecordColumn
     mkRecordColumn,
 
     -- * Lenses
+    rcSqlType,
     rcMapping,
     rcName,
-    rcSqlType,
   )
 where
 
@@ -32,36 +32,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecordColumn' smart constructor.
 data RecordColumn = RecordColumn'
-  { mapping :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
-    sqlType :: Lude.Text
+  { -- | Type of column created in the in-application input stream or reference table.
+    sqlType :: Lude.Text,
+    -- | Reference to the data element in the streaming input or the reference data source. This element is required if the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel RecordFormatType> is @JSON@ .
+    mapping :: Lude.Maybe Lude.Text,
+    -- | Name of the column created in the in-application input stream or reference table.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordColumn' with the minimum fields required to make a request.
 --
+-- * 'sqlType' - Type of column created in the in-application input stream or reference table.
 -- * 'mapping' - Reference to the data element in the streaming input or the reference data source. This element is required if the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel RecordFormatType> is @JSON@ .
 -- * 'name' - Name of the column created in the in-application input stream or reference table.
--- * 'sqlType' - Type of column created in the in-application input stream or reference table.
 mkRecordColumn ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'sqlType'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   RecordColumn
-mkRecordColumn pName_ pSqlType_ =
+mkRecordColumn pSqlType_ pName_ =
   RecordColumn'
-    { mapping = Lude.Nothing,
-      name = pName_,
-      sqlType = pSqlType_
+    { sqlType = pSqlType_,
+      mapping = Lude.Nothing,
+      name = pName_
     }
+
+-- | Type of column created in the in-application input stream or reference table.
+--
+-- /Note:/ Consider using 'sqlType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcSqlType :: Lens.Lens' RecordColumn Lude.Text
+rcSqlType = Lens.lens (sqlType :: RecordColumn -> Lude.Text) (\s a -> s {sqlType = a} :: RecordColumn)
+{-# DEPRECATED rcSqlType "Use generic-lens or generic-optics with 'sqlType' instead." #-}
 
 -- | Reference to the data element in the streaming input or the reference data source. This element is required if the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel RecordFormatType> is @JSON@ .
 --
@@ -77,30 +81,23 @@ rcName :: Lens.Lens' RecordColumn Lude.Text
 rcName = Lens.lens (name :: RecordColumn -> Lude.Text) (\s a -> s {name = a} :: RecordColumn)
 {-# DEPRECATED rcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Type of column created in the in-application input stream or reference table.
---
--- /Note:/ Consider using 'sqlType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcSqlType :: Lens.Lens' RecordColumn Lude.Text
-rcSqlType = Lens.lens (sqlType :: RecordColumn -> Lude.Text) (\s a -> s {sqlType = a} :: RecordColumn)
-{-# DEPRECATED rcSqlType "Use generic-lens or generic-optics with 'sqlType' instead." #-}
-
 instance Lude.FromJSON RecordColumn where
   parseJSON =
     Lude.withObject
       "RecordColumn"
       ( \x ->
           RecordColumn'
-            Lude.<$> (x Lude..:? "Mapping")
+            Lude.<$> (x Lude..: "SqlType")
+            Lude.<*> (x Lude..:? "Mapping")
             Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "SqlType")
       )
 
 instance Lude.ToJSON RecordColumn where
   toJSON RecordColumn' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Mapping" Lude..=) Lude.<$> mapping,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("SqlType" Lude..= sqlType)
+          [ Lude.Just ("SqlType" Lude..= sqlType),
+            ("Mapping" Lude..=) Lude.<$> mapping,
+            Lude.Just ("Name" Lude..= name)
           ]
       )

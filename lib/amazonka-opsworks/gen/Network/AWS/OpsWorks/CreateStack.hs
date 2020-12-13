@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,6 +22,8 @@ module Network.AWS.OpsWorks.CreateStack
     mkCreateStack,
 
     -- ** Request lenses
+    csDefaultInstanceProfileARN,
+    csServiceRoleARN,
     csDefaultRootDeviceType,
     csVPCId,
     csChefConfiguration,
@@ -30,16 +33,14 @@ module Network.AWS.OpsWorks.CreateStack
     csCustomCookbooksSource,
     csDefaultAvailabilityZone,
     csAttributes,
+    csName,
     csDefaultOS,
     csUseOpsworksSecurityGroups,
     csUseCustomCookbooks,
     csDefaultSubnetId,
+    csRegion,
     csConfigurationManager,
     csHostnameTheme,
-    csName,
-    csRegion,
-    csServiceRoleARN,
-    csDefaultInstanceProfileARN,
 
     -- * Destructuring the response
     CreateStackResponse (..),
@@ -59,39 +60,170 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateStack' smart constructor.
 data CreateStack = CreateStack'
-  { defaultRootDeviceType ::
-      Lude.Maybe RootDeviceType,
-    vpcId :: Lude.Maybe Lude.Text,
-    chefConfiguration :: Lude.Maybe ChefConfiguration,
-    agentVersion :: Lude.Maybe Lude.Text,
-    defaultSSHKeyName :: Lude.Maybe Lude.Text,
-    customJSON :: Lude.Maybe Lude.Text,
-    customCookbooksSource :: Lude.Maybe Source,
-    defaultAvailabilityZone :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap StackAttributesKeys (Maybe Text)),
-    defaultOS :: Lude.Maybe Lude.Text,
-    useOpsworksSecurityGroups :: Lude.Maybe Lude.Bool,
-    useCustomCookbooks :: Lude.Maybe Lude.Bool,
-    defaultSubnetId :: Lude.Maybe Lude.Text,
-    configurationManager :: Lude.Maybe StackConfigurationManager,
-    hostnameTheme :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
-    region :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+    defaultInstanceProfileARN :: Lude.Text,
+    -- | The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
     serviceRoleARN :: Lude.Text,
-    defaultInstanceProfileARN :: Lude.Text
+    -- | The default root device type. This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is @instance-store@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
+    defaultRootDeviceType :: Lude.Maybe RootDeviceType,
+    -- | The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.
+    --
+    --
+    --     * If your account supports EC2-Classic, the default value is @no VPC@ .
+    --
+    --
+    --     * If your account does not support EC2-Classic, the default value is the default VPC for the specified region.
+    --
+    --
+    -- If the VPC ID corresponds to a default VPC and you have specified either the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only, AWS OpsWorks Stacks infers the value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks sets these parameters to the first valid Availability Zone for the specified region and the corresponding default VPC subnet ID, respectively.
+    -- If you specify a nondefault VPC ID, note the following:
+    --
+    --     * It must belong to a VPC in your account that is in the specified region.
+    --
+    --
+    --     * You must specify a value for @DefaultSubnetId@ .
+    --
+    --
+    -- For more information about how to use AWS OpsWorks Stacks with a VPC, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC> . For more information about default VPC and EC2-Classic, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> .
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
+    chefConfiguration :: Lude.Maybe ChefConfiguration,
+    -- | The default AWS OpsWorks Stacks agent version. You have the following options:
+    --
+    --
+    --     * Auto-update - Set this parameter to @LATEST@ . AWS OpsWorks Stacks automatically installs new agent versions on the stack's instances as soon as they are available.
+    --
+    --
+    --     * Fixed version - Set this parameter to your preferred agent version. To update the agent version, you must edit the stack configuration and specify a new version. AWS OpsWorks Stacks then automatically installs that version on the stack's instances.
+    --
+    --
+    -- The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call 'DescribeAgentVersions' . AgentVersion cannot be set to Chef 12.2.
+    agentVersion :: Lude.Maybe Lude.Text,
+    -- | A default Amazon EC2 key pair name. The default value is none. If you specify a key pair name, AWS OpsWorks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html Using SSH to Communicate with an Instance> and <https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access> . You can override this setting by specifying a different key pair, or no key pair, when you <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance> .
+    defaultSSHKeyName :: Lude.Maybe Lude.Text,
+    -- | A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
+    --
+    -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
+    -- For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
+    customJSON :: Lude.Maybe Lude.Text,
+    -- | Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
+    customCookbooksSource :: Lude.Maybe Source,
+    -- | The stack's default Availability Zone, which must be in the specified region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> . If you also specify a value for @DefaultSubnetId@ , the subnet must be in the same zone. For more information, see the @VpcId@ parameter description.
+    defaultAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | One or more user-defined key-value pairs to be added to the stack attributes.
+    attributes :: Lude.Maybe (Lude.HashMap StackAttributesKeys (Maybe Text)),
+    -- | The stack name.
+    name :: Lude.Text,
+    -- | The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
+    --
+    --
+    --     * A supported Linux operating system: An Amazon Linux version, such as @Amazon Linux 2018.03@ , @Amazon Linux 2017.09@ , @Amazon Linux 2017.03@ , @Amazon Linux 2016.09@ , @Amazon Linux 2016.03@ , @Amazon Linux 2015.09@ , or @Amazon Linux 2015.03@ .
+    --
+    --
+    --     * A supported Ubuntu operating system, such as @Ubuntu 16.04 LTS@ , @Ubuntu 14.04 LTS@ , or @Ubuntu 12.04 LTS@ .
+    --
+    --
+    --     * @CentOS Linux 7@
+    --
+    --
+    --     * @Red Hat Enterprise Linux 7@
+    --
+    --
+    --     * A supported Windows operating system, such as @Microsoft Windows Server 2012 R2 Base@ , @Microsoft Windows Server 2012 R2 with SQL Server Express@ , @Microsoft Windows Server 2012 R2 with SQL Server Standard@ , or @Microsoft Windows Server 2012 R2 with SQL Server Web@ .
+    --
+    --
+    --     * A custom AMI: @Custom@ . You specify the custom AMI you want to use when you create instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs> .
+    --
+    --
+    -- The default option is the current Amazon Linux version. For more information about supported operating systems, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems> .
+    defaultOS :: Lude.Maybe Lude.Text,
+    -- | Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+    --
+    -- AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With @UseOpsworksSecurityGroups@ you can instead provide your own custom security groups. @UseOpsworksSecurityGroups@ has the following settings:
+    --
+    --     * True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.
+    --
+    --
+    --     * False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.
+    --
+    --
+    -- For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
+    useOpsworksSecurityGroups :: Lude.Maybe Lude.Bool,
+    -- | Whether the stack uses custom cookbooks.
+    useCustomCookbooks :: Lude.Maybe Lude.Bool,
+    -- | The stack's default VPC subnet ID. This parameter is required if you specify a value for the @VpcId@ parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for @DefaultAvailabilityZone@ , the subnet must be in that zone. For information on default values and when this parameter is required, see the @VpcId@ parameter description.
+    defaultSubnetId :: Lude.Maybe Lude.Text,
+    -- | The stack's AWS region, such as @ap-south-1@ . For more information about Amazon regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+    region :: Lude.Text,
+    -- | The configuration manager. When you create a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.
+    configurationManager :: Lude.Maybe StackConfigurationManager,
+    -- | The stack's host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, @HostnameTheme@ is set to @Layer_Dependent@ , which creates host names by appending integers to the layer's short name. The other themes are:
+    --
+    --
+    --     * @Baked_Goods@
+    --
+    --
+    --     * @Clouds@
+    --
+    --
+    --     * @Europe_Cities@
+    --
+    --
+    --     * @Fruits@
+    --
+    --
+    --     * @Greek_Deities_and_Titans@
+    --
+    --
+    --     * @Legendary_creatures_from_Japan@
+    --
+    --
+    --     * @Planets_and_Moons@
+    --
+    --
+    --     * @Roman_Deities@
+    --
+    --
+    --     * @Scottish_Islands@
+    --
+    --
+    --     * @US_Cities@
+    --
+    --
+    --     * @Wild_Cats@
+    --
+    --
+    -- To obtain a generated host name, call @GetHostNameSuggestion@ , which returns a host name based on the current theme.
+    hostnameTheme :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStack' with the minimum fields required to make a request.
 --
+-- * 'defaultInstanceProfileARN' - The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'serviceRoleARN' - The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'defaultRootDeviceType' - The default root device type. This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is @instance-store@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
+-- * 'vpcId' - The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.
+--
+--
+--     * If your account supports EC2-Classic, the default value is @no VPC@ .
+--
+--
+--     * If your account does not support EC2-Classic, the default value is the default VPC for the specified region.
+--
+--
+-- If the VPC ID corresponds to a default VPC and you have specified either the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only, AWS OpsWorks Stacks infers the value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks sets these parameters to the first valid Availability Zone for the specified region and the corresponding default VPC subnet ID, respectively.
+-- If you specify a nondefault VPC ID, note the following:
+--
+--     * It must belong to a VPC in your account that is in the specified region.
+--
+--
+--     * You must specify a value for @DefaultSubnetId@ .
+--
+--
+-- For more information about how to use AWS OpsWorks Stacks with a VPC, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC> . For more information about default VPC and EC2-Classic, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> .
+-- * 'chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
 -- * 'agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following options:
 --
 --
@@ -102,16 +234,15 @@ data CreateStack = CreateStack'
 --
 --
 -- The default setting is the most recent release of the agent. To specify an agent version, you must use the complete version number, not the abbreviated number shown on the console. For a list of available agent version numbers, call 'DescribeAgentVersions' . AgentVersion cannot be set to Chef 12.2.
--- * 'attributes' - One or more user-defined key-value pairs to be added to the stack attributes.
--- * 'chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version on Chef 11.10 stacks. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
--- * 'configurationManager' - The configuration manager. When you create a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.
--- * 'customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
+-- * 'defaultSSHKeyName' - A default Amazon EC2 key pair name. The default value is none. If you specify a key pair name, AWS OpsWorks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html Using SSH to Communicate with an Instance> and <https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access> . You can override this setting by specifying a different key pair, or no key pair, when you <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance> .
 -- * 'customJSON' - A string that contains user-defined, custom JSON. It can be used to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
 --
 -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
 -- For more information about custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
+-- * 'customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
 -- * 'defaultAvailabilityZone' - The stack's default Availability Zone, which must be in the specified region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> . If you also specify a value for @DefaultSubnetId@ , the subnet must be in the same zone. For more information, see the @VpcId@ parameter description.
--- * 'defaultInstanceProfileARN' - The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'attributes' - One or more user-defined key-value pairs to be added to the stack attributes.
+-- * 'name' - The stack name.
 -- * 'defaultOS' - The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
 --
 --
@@ -134,9 +265,21 @@ data CreateStack = CreateStack'
 --
 --
 -- The default option is the current Amazon Linux version. For more information about supported operating systems, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems> .
--- * 'defaultRootDeviceType' - The default root device type. This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is @instance-store@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
--- * 'defaultSSHKeyName' - A default Amazon EC2 key pair name. The default value is none. If you specify a key pair name, AWS OpsWorks installs the public key on the instance and you can use the private key with an SSH client to log in to the instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html Using SSH to Communicate with an Instance> and <https://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access> . You can override this setting by specifying a different key pair, or no key pair, when you <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance> .
+-- * 'useOpsworksSecurityGroups' - Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+--
+-- AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With @UseOpsworksSecurityGroups@ you can instead provide your own custom security groups. @UseOpsworksSecurityGroups@ has the following settings:
+--
+--     * True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.
+--
+--
+--     * False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.
+--
+--
+-- For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
+-- * 'useCustomCookbooks' - Whether the stack uses custom cookbooks.
 -- * 'defaultSubnetId' - The stack's default VPC subnet ID. This parameter is required if you specify a value for the @VpcId@ parameter. All instances are launched into this subnet unless you specify otherwise when you create the instance. If you also specify a value for @DefaultAvailabilityZone@ , the subnet must be in that zone. For information on default values and when this parameter is required, see the @VpcId@ parameter description.
+-- * 'region' - The stack's AWS region, such as @ap-south-1@ . For more information about Amazon regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+-- * 'configurationManager' - The configuration manager. When you create a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.
 -- * 'hostnameTheme' - The stack's host name theme, with spaces replaced by underscores. The theme is used to generate host names for the stack's instances. By default, @HostnameTheme@ is set to @Layer_Dependent@ , which creates host names by appending integers to the layer's short name. The other themes are:
 --
 --
@@ -174,57 +317,26 @@ data CreateStack = CreateStack'
 --
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@ , which returns a host name based on the current theme.
--- * 'name' - The stack name.
--- * 'region' - The stack's AWS region, such as @ap-south-1@ . For more information about Amazon regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'serviceRoleARN' - The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'useCustomCookbooks' - Whether the stack uses custom cookbooks.
--- * 'useOpsworksSecurityGroups' - Whether to associate the AWS OpsWorks Stacks built-in security groups with the stack's layers.
---
--- AWS OpsWorks Stacks provides a standard set of built-in security groups, one for each layer, which are associated with layers by default. With @UseOpsworksSecurityGroups@ you can instead provide your own custom security groups. @UseOpsworksSecurityGroups@ has the following settings:
---
---     * True - AWS OpsWorks Stacks automatically associates the appropriate built-in security group with each layer (default setting). You can associate additional security groups with a layer after you create it, but you cannot delete the built-in security group.
---
---
---     * False - AWS OpsWorks Stacks does not associate built-in security groups with layers. You must create appropriate EC2 security groups and associate a security group with each layer that you create. However, you can still manually associate a built-in security group with a layer on creation; custom security groups are required only for those layers that need custom settings.
---
---
--- For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
--- * 'vpcId' - The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's region. All instances are launched into this VPC. You cannot change the ID later.
---
---
---     * If your account supports EC2-Classic, the default value is @no VPC@ .
---
---
---     * If your account does not support EC2-Classic, the default value is the default VPC for the specified region.
---
---
--- If the VPC ID corresponds to a default VPC and you have specified either the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only, AWS OpsWorks Stacks infers the value of the other parameter. If you specify neither parameter, AWS OpsWorks Stacks sets these parameters to the first valid Availability Zone for the specified region and the corresponding default VPC subnet ID, respectively.
--- If you specify a nondefault VPC ID, note the following:
---
---     * It must belong to a VPC in your account that is in the specified region.
---
---
---     * You must specify a value for @DefaultSubnetId@ .
---
---
--- For more information about how to use AWS OpsWorks Stacks with a VPC, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC> . For more information about default VPC and EC2-Classic, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms> .
 mkCreateStack ::
+  -- | 'defaultInstanceProfileARN'
+  Lude.Text ->
+  -- | 'serviceRoleARN'
+  Lude.Text ->
   -- | 'name'
   Lude.Text ->
   -- | 'region'
   Lude.Text ->
-  -- | 'serviceRoleARN'
-  Lude.Text ->
-  -- | 'defaultInstanceProfileARN'
-  Lude.Text ->
   CreateStack
 mkCreateStack
-  pName_
-  pRegion_
+  pDefaultInstanceProfileARN_
   pServiceRoleARN_
-  pDefaultInstanceProfileARN_ =
+  pName_
+  pRegion_ =
     CreateStack'
-      { defaultRootDeviceType = Lude.Nothing,
+      { defaultInstanceProfileARN =
+          pDefaultInstanceProfileARN_,
+        serviceRoleARN = pServiceRoleARN_,
+        defaultRootDeviceType = Lude.Nothing,
         vpcId = Lude.Nothing,
         chefConfiguration = Lude.Nothing,
         agentVersion = Lude.Nothing,
@@ -233,17 +345,29 @@ mkCreateStack
         customCookbooksSource = Lude.Nothing,
         defaultAvailabilityZone = Lude.Nothing,
         attributes = Lude.Nothing,
+        name = pName_,
         defaultOS = Lude.Nothing,
         useOpsworksSecurityGroups = Lude.Nothing,
         useCustomCookbooks = Lude.Nothing,
         defaultSubnetId = Lude.Nothing,
-        configurationManager = Lude.Nothing,
-        hostnameTheme = Lude.Nothing,
-        name = pName_,
         region = pRegion_,
-        serviceRoleARN = pServiceRoleARN_,
-        defaultInstanceProfileARN = pDefaultInstanceProfileARN_
+        configurationManager = Lude.Nothing,
+        hostnameTheme = Lude.Nothing
       }
+
+-- | The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+--
+-- /Note:/ Consider using 'defaultInstanceProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csDefaultInstanceProfileARN :: Lens.Lens' CreateStack Lude.Text
+csDefaultInstanceProfileARN = Lens.lens (defaultInstanceProfileARN :: CreateStack -> Lude.Text) (\s a -> s {defaultInstanceProfileARN = a} :: CreateStack)
+{-# DEPRECATED csDefaultInstanceProfileARN "Use generic-lens or generic-optics with 'defaultInstanceProfileARN' instead." #-}
+
+-- | The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+--
+-- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csServiceRoleARN :: Lens.Lens' CreateStack Lude.Text
+csServiceRoleARN = Lens.lens (serviceRoleARN :: CreateStack -> Lude.Text) (\s a -> s {serviceRoleARN = a} :: CreateStack)
+{-# DEPRECATED csServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
 
 -- | The default root device type. This value is the default for all instances in the stack, but you can override it when you create an instance. The default option is @instance-store@ . For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
 --
@@ -338,6 +462,13 @@ csAttributes :: Lens.Lens' CreateStack (Lude.Maybe (Lude.HashMap StackAttributes
 csAttributes = Lens.lens (attributes :: CreateStack -> Lude.Maybe (Lude.HashMap StackAttributesKeys (Maybe Text))) (\s a -> s {attributes = a} :: CreateStack)
 {-# DEPRECATED csAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
+-- | The stack name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' CreateStack Lude.Text
+csName = Lens.lens (name :: CreateStack -> Lude.Text) (\s a -> s {name = a} :: CreateStack)
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The stack's default operating system, which is installed on every instance unless you specify a different operating system when you create the instance. You can specify one of the following.
 --
 --
@@ -397,6 +528,13 @@ csDefaultSubnetId :: Lens.Lens' CreateStack (Lude.Maybe Lude.Text)
 csDefaultSubnetId = Lens.lens (defaultSubnetId :: CreateStack -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubnetId = a} :: CreateStack)
 {-# DEPRECATED csDefaultSubnetId "Use generic-lens or generic-optics with 'defaultSubnetId' instead." #-}
 
+-- | The stack's AWS region, such as @ap-south-1@ . For more information about Amazon regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csRegion :: Lens.Lens' CreateStack Lude.Text
+csRegion = Lens.lens (region :: CreateStack -> Lude.Text) (\s a -> s {region = a} :: CreateStack)
+{-# DEPRECATED csRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
 -- | The configuration manager. When you create a stack we recommend that you use the configuration manager to specify the Chef version: 12, 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for Linux stacks is currently 12.
 --
 -- /Note:/ Consider using 'configurationManager' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -447,34 +585,6 @@ csHostnameTheme :: Lens.Lens' CreateStack (Lude.Maybe Lude.Text)
 csHostnameTheme = Lens.lens (hostnameTheme :: CreateStack -> Lude.Maybe Lude.Text) (\s a -> s {hostnameTheme = a} :: CreateStack)
 {-# DEPRECATED csHostnameTheme "Use generic-lens or generic-optics with 'hostnameTheme' instead." #-}
 
--- | The stack name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' CreateStack Lude.Text
-csName = Lens.lens (name :: CreateStack -> Lude.Text) (\s a -> s {name = a} :: CreateStack)
-{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The stack's AWS region, such as @ap-south-1@ . For more information about Amazon regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csRegion :: Lens.Lens' CreateStack Lude.Text
-csRegion = Lens.lens (region :: CreateStack -> Lude.Text) (\s a -> s {region = a} :: CreateStack)
-{-# DEPRECATED csRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
--- | The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks Stacks to work with AWS resources on your behalf. You must set this parameter to the Amazon Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
---
--- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csServiceRoleARN :: Lens.Lens' CreateStack Lude.Text
-csServiceRoleARN = Lens.lens (serviceRoleARN :: CreateStack -> Lude.Text) (\s a -> s {serviceRoleARN = a} :: CreateStack)
-{-# DEPRECATED csServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
-
--- | The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
---
--- /Note:/ Consider using 'defaultInstanceProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csDefaultInstanceProfileARN :: Lens.Lens' CreateStack Lude.Text
-csDefaultInstanceProfileARN = Lens.lens (defaultInstanceProfileARN :: CreateStack -> Lude.Text) (\s a -> s {defaultInstanceProfileARN = a} :: CreateStack)
-{-# DEPRECATED csDefaultInstanceProfileARN "Use generic-lens or generic-optics with 'defaultInstanceProfileARN' instead." #-}
-
 instance Lude.AWSRequest CreateStack where
   type Rs CreateStack = CreateStackResponse
   request = Req.postJSON opsWorksService
@@ -500,7 +610,10 @@ instance Lude.ToJSON CreateStack where
   toJSON CreateStack' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DefaultRootDeviceType" Lude..=) Lude.<$> defaultRootDeviceType,
+          [ Lude.Just
+              ("DefaultInstanceProfileArn" Lude..= defaultInstanceProfileARN),
+            Lude.Just ("ServiceRoleArn" Lude..= serviceRoleARN),
+            ("DefaultRootDeviceType" Lude..=) Lude.<$> defaultRootDeviceType,
             ("VpcId" Lude..=) Lude.<$> vpcId,
             ("ChefConfiguration" Lude..=) Lude.<$> chefConfiguration,
             ("AgentVersion" Lude..=) Lude.<$> agentVersion,
@@ -510,18 +623,15 @@ instance Lude.ToJSON CreateStack where
             ("DefaultAvailabilityZone" Lude..=)
               Lude.<$> defaultAvailabilityZone,
             ("Attributes" Lude..=) Lude.<$> attributes,
+            Lude.Just ("Name" Lude..= name),
             ("DefaultOs" Lude..=) Lude.<$> defaultOS,
             ("UseOpsworksSecurityGroups" Lude..=)
               Lude.<$> useOpsworksSecurityGroups,
             ("UseCustomCookbooks" Lude..=) Lude.<$> useCustomCookbooks,
             ("DefaultSubnetId" Lude..=) Lude.<$> defaultSubnetId,
-            ("ConfigurationManager" Lude..=) Lude.<$> configurationManager,
-            ("HostnameTheme" Lude..=) Lude.<$> hostnameTheme,
-            Lude.Just ("Name" Lude..= name),
             Lude.Just ("Region" Lude..= region),
-            Lude.Just ("ServiceRoleArn" Lude..= serviceRoleARN),
-            Lude.Just
-              ("DefaultInstanceProfileArn" Lude..= defaultInstanceProfileARN)
+            ("ConfigurationManager" Lude..=) Lude.<$> configurationManager,
+            ("HostnameTheme" Lude..=) Lude.<$> hostnameTheme
           ]
       )
 
@@ -535,23 +645,18 @@ instance Lude.ToQuery CreateStack where
 --
 -- /See:/ 'mkCreateStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
-  { stackId ::
-      Lude.Maybe Lude.Text,
+  { -- | The stack ID, which is an opaque string that you use to identify the stack when performing actions such as @DescribeStacks@ .
+    stackId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStackResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stackId' - The stack ID, which is an opaque string that you use to identify the stack when performing actions such as @DescribeStacks@ .
+-- * 'responseStatus' - The response status code.
 mkCreateStackResponse ::
   -- | 'responseStatus'
   Lude.Int ->

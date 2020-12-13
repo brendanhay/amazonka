@@ -29,16 +29,10 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkResumeClusterMessage' smart constructor.
 newtype ResumeClusterMessage = ResumeClusterMessage'
-  { clusterIdentifier ::
-      Lude.Text
+  { -- | The identifier of the cluster to be resumed.
+    clusterIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeClusterMessage' with the minimum fields required to make a request.

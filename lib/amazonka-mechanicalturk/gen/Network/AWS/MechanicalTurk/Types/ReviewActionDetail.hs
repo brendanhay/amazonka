@@ -36,35 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReviewActionDetail' smart constructor.
 data ReviewActionDetail = ReviewActionDetail'
-  { status ::
-      Lude.Maybe ReviewActionStatus,
+  { -- | The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
+    status :: Lude.Maybe ReviewActionStatus,
+    -- | The specific HITId or AssignmentID targeted by the action.
     targetId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the action.
     actionId :: Lude.Maybe Lude.Text,
+    -- | The type of object in TargetId.
     targetType :: Lude.Maybe Lude.Text,
+    -- | A description of the outcome of the review.
     result :: Lude.Maybe Lude.Text,
+    -- | The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary.
     actionName :: Lude.Maybe Lude.Text,
+    -- | The date when the action was completed.
     completeTime :: Lude.Maybe Lude.Timestamp,
+    -- | Present only when the Results have a FAILED Status.
     errorCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewActionDetail' with the minimum fields required to make a request.
 --
+-- * 'status' - The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
+-- * 'targetId' - The specific HITId or AssignmentID targeted by the action.
 -- * 'actionId' - The unique identifier for the action.
+-- * 'targetType' - The type of object in TargetId.
+-- * 'result' - A description of the outcome of the review.
 -- * 'actionName' - The nature of the action itself. The Review Policy is responsible for examining the HIT and Assignments, emitting results, and deciding which other actions will be necessary.
 -- * 'completeTime' - The date when the action was completed.
 -- * 'errorCode' - Present only when the Results have a FAILED Status.
--- * 'result' - A description of the outcome of the review.
--- * 'status' - The current disposition of the action: INTENDED, SUCCEEDED, FAILED, or CANCELLED.
--- * 'targetId' - The specific HITId or AssignmentID targeted by the action.
--- * 'targetType' - The type of object in TargetId.
 mkReviewActionDetail ::
   ReviewActionDetail
 mkReviewActionDetail =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.EMR.DescribeStudio
     mkDescribeStudio,
 
     -- ** Request lenses
-    dsStudioId,
+    dStudioId,
 
     -- * Destructuring the response
     DescribeStudioResponse (..),
     mkDescribeStudioResponse,
 
     -- ** Response lenses
-    desrsStudio,
-    desrsResponseStatus,
+    dsrsStudio,
+    dsrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStudio' smart constructor.
-newtype DescribeStudio = DescribeStudio' {studioId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeStudio = DescribeStudio'
+  { -- | The Amazon EMR Studio ID.
+    studioId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStudio' with the minimum fields required to make a request.
@@ -61,9 +59,9 @@ mkDescribeStudio pStudioId_ =
 -- | The Amazon EMR Studio ID.
 --
 -- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsStudioId :: Lens.Lens' DescribeStudio Lude.Text
-dsStudioId = Lens.lens (studioId :: DescribeStudio -> Lude.Text) (\s a -> s {studioId = a} :: DescribeStudio)
-{-# DEPRECATED dsStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
+dStudioId :: Lens.Lens' DescribeStudio Lude.Text
+dStudioId = Lens.lens (studioId :: DescribeStudio -> Lude.Text) (\s a -> s {studioId = a} :: DescribeStudio)
+{-# DEPRECATED dStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
 instance Lude.AWSRequest DescribeStudio where
   type Rs DescribeStudio = DescribeStudioResponse
@@ -99,23 +97,18 @@ instance Lude.ToQuery DescribeStudio where
 
 -- | /See:/ 'mkDescribeStudioResponse' smart constructor.
 data DescribeStudioResponse = DescribeStudioResponse'
-  { studio ::
-      Lude.Maybe Studio,
+  { -- | The Amazon EMR Studio details.
+    studio :: Lude.Maybe Studio,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStudioResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'studio' - The Amazon EMR Studio details.
+-- * 'responseStatus' - The response status code.
 mkDescribeStudioResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -129,13 +122,13 @@ mkDescribeStudioResponse pResponseStatus_ =
 -- | The Amazon EMR Studio details.
 --
 -- /Note:/ Consider using 'studio' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsStudio :: Lens.Lens' DescribeStudioResponse (Lude.Maybe Studio)
-desrsStudio = Lens.lens (studio :: DescribeStudioResponse -> Lude.Maybe Studio) (\s a -> s {studio = a} :: DescribeStudioResponse)
-{-# DEPRECATED desrsStudio "Use generic-lens or generic-optics with 'studio' instead." #-}
+dsrsStudio :: Lens.Lens' DescribeStudioResponse (Lude.Maybe Studio)
+dsrsStudio = Lens.lens (studio :: DescribeStudioResponse -> Lude.Maybe Studio) (\s a -> s {studio = a} :: DescribeStudioResponse)
+{-# DEPRECATED dsrsStudio "Use generic-lens or generic-optics with 'studio' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeStudioResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeStudioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStudioResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrsResponseStatus :: Lens.Lens' DescribeStudioResponse Lude.Int
+dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStudioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStudioResponse)
+{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -33,34 +33,27 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
 --
 -- /See:/ 'mkFailedServiceActionAssociation' smart constructor.
 data FailedServiceActionAssociation = FailedServiceActionAssociation'
-  { provisioningArtifactId ::
-      Lude.Maybe Lude.Text,
-    errorCode ::
-      Lude.Maybe
-        ServiceActionAssociationErrorCode,
-    errorMessage ::
-      Lude.Maybe Lude.Text,
-    serviceActionId ::
-      Lude.Maybe Lude.Text,
-    productId ::
-      Lude.Maybe Lude.Text
+  { -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | The error code. Valid values are listed below.
+    errorCode :: Lude.Maybe ServiceActionAssociationErrorCode,
+    -- | A text description of the error.
+    errorMessage :: Lude.Maybe Lude.Text,
+    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+    serviceActionId :: Lude.Maybe Lude.Text,
+    -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
+    productId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedServiceActionAssociation' with the minimum fields required to make a request.
 --
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 -- * 'errorCode' - The error code. Valid values are listed below.
 -- * 'errorMessage' - A text description of the error.
--- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
 -- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+-- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
 mkFailedServiceActionAssociation ::
   FailedServiceActionAssociation
 mkFailedServiceActionAssociation =

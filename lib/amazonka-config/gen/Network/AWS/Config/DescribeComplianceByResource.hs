@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -62,33 +63,31 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
-    resourceType ::
-      Lude.Maybe Lude.Text,
-    complianceTypes ::
-      Lude.Maybe [ComplianceType],
+  { -- | The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | Filters the results by compliance.
+    --
+    -- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
+    complianceTypes :: Lude.Maybe [ComplianceType],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeComplianceByResource' with the minimum fields required to make a request.
 --
+-- * 'resourceId' - The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
+-- * 'resourceType' - The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
 -- * 'complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ , @NON_COMPLIANT@ , and @INSUFFICIENT_DATA@ .
--- * 'limit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'resourceId' - The ID of the AWS resource for which you want compliance information. You can specify only one resource ID. If you specify a resource ID, you must also specify a type for @ResourceType@ .
--- * 'resourceType' - The types of AWS resources for which you want compliance information (for example, @AWS::EC2::Instance@ ). For this action, you can specify that the resource type is an AWS account by specifying @AWS::::Account@ .
+-- * 'limit' - The maximum number of evaluation results returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 mkDescribeComplianceByResource ::
   DescribeComplianceByResource
 mkDescribeComplianceByResource =
@@ -195,22 +194,14 @@ instance Lude.ToQuery DescribeComplianceByResource where
 --
 -- /See:/ 'mkDescribeComplianceByResourceResponse' smart constructor.
 data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse'
-  { complianceByResources ::
-      Lude.Maybe
-        [ComplianceByResource],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Indicates whether the specified AWS resource complies with all of the AWS Config rules that evaluate it.
+    complianceByResources :: Lude.Maybe [ComplianceByResource],
+    -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeComplianceByResourceResponse' with the minimum fields required to make a request.

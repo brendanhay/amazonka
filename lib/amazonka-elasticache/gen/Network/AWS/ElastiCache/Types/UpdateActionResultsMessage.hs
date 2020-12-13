@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkUpdateActionResultsMessage' smart constructor.
 data UpdateActionResultsMessage = UpdateActionResultsMessage'
-  { unprocessedUpdateActions ::
-      Lude.Maybe [UnprocessedUpdateAction],
-    processedUpdateActions ::
-      Lude.Maybe [ProcessedUpdateAction]
+  { -- | Update actions that haven't been processed successfully
+    unprocessedUpdateActions :: Lude.Maybe [UnprocessedUpdateAction],
+    -- | Update actions that have been processed successfully
+    processedUpdateActions :: Lude.Maybe [ProcessedUpdateAction]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateActionResultsMessage' with the minimum fields required to make a request.
 --
--- * 'processedUpdateActions' - Update actions that have been processed successfully
 -- * 'unprocessedUpdateActions' - Update actions that haven't been processed successfully
+-- * 'processedUpdateActions' - Update actions that have been processed successfully
 mkUpdateActionResultsMessage ::
   UpdateActionResultsMessage
 mkUpdateActionResultsMessage =

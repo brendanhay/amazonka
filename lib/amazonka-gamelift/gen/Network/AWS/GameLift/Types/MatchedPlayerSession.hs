@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMatchedPlayerSession' smart constructor.
 data MatchedPlayerSession = MatchedPlayerSession'
-  { playerSessionId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for a player session
+    playerSessionId :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a player
     playerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MatchedPlayerSession' with the minimum fields required to make a request.
 --
--- * 'playerId' - A unique identifier for a player
 -- * 'playerSessionId' - A unique identifier for a player session
+-- * 'playerId' - A unique identifier for a player
 mkMatchedPlayerSession ::
   MatchedPlayerSession
 mkMatchedPlayerSession =

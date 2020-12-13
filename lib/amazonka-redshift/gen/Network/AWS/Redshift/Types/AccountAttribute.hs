@@ -31,23 +31,18 @@ import Network.AWS.Redshift.Types.AttributeValueTarget
 --
 -- /See:/ 'mkAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { attributeValues ::
-      Lude.Maybe [AttributeValueTarget],
+  { -- | A list of attribute values.
+    attributeValues :: Lude.Maybe [AttributeValueTarget],
+    -- | The name of the attribute.
     attributeName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the attribute.
 -- * 'attributeValues' - A list of attribute values.
+-- * 'attributeName' - The name of the attribute.
 mkAccountAttribute ::
   AccountAttribute
 mkAccountAttribute =

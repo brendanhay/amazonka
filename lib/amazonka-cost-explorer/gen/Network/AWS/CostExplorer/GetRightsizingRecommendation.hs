@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.CostExplorer.GetRightsizingRecommendation
 
     -- ** Request lenses
     grrNextPageToken,
+    grrService,
     grrConfiguration,
     grrFilter,
     grrPageSize,
-    grrService,
 
     -- * Destructuring the response
     GetRightsizingRecommendationResponse (..),
@@ -49,32 +50,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRightsizingRecommendation' smart constructor.
 data GetRightsizingRecommendation = GetRightsizingRecommendation'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    configuration ::
-      Lude.Maybe
-        RightsizingRecommendationConfiguration,
+  { -- | The pagination token that indicates the next set of results that you want to retrieve.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The specific service that you want recommendations for. The only valid value for @GetRightsizingRecommendation@ is "@AmazonEC2@ ".
+    service :: Lude.Text,
+    -- | Enables you to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings associated with recommendations with consideration of existing Savings Plans or RI benefits, or neither.
+    configuration :: Lude.Maybe RightsizingRecommendationConfiguration,
     filter :: Lude.Maybe Expression,
-    pageSize ::
-      Lude.Maybe Lude.Natural,
-    service :: Lude.Text
+    -- | The number of recommendations that you want returned in a single response object.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRightsizingRecommendation' with the minimum fields required to make a request.
 --
--- * 'configuration' - Enables you to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings associated with recommendations with consideration of existing Savings Plans or RI benefits, or neither.
--- * 'filter' - Undocumented field.
 -- * 'nextPageToken' - The pagination token that indicates the next set of results that you want to retrieve.
--- * 'pageSize' - The number of recommendations that you want returned in a single response object.
 -- * 'service' - The specific service that you want recommendations for. The only valid value for @GetRightsizingRecommendation@ is "@AmazonEC2@ ".
+-- * 'configuration' - Enables you to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings associated with recommendations with consideration of existing Savings Plans or RI benefits, or neither.
+-- * 'filter' -
+-- * 'pageSize' - The number of recommendations that you want returned in a single response object.
 mkGetRightsizingRecommendation ::
   -- | 'service'
   Lude.Text ->
@@ -82,10 +77,10 @@ mkGetRightsizingRecommendation ::
 mkGetRightsizingRecommendation pService_ =
   GetRightsizingRecommendation'
     { nextPageToken = Lude.Nothing,
+      service = pService_,
       configuration = Lude.Nothing,
       filter = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      service = pService_
+      pageSize = Lude.Nothing
     }
 
 -- | The pagination token that indicates the next set of results that you want to retrieve.
@@ -94,6 +89,13 @@ mkGetRightsizingRecommendation pService_ =
 grrNextPageToken :: Lens.Lens' GetRightsizingRecommendation (Lude.Maybe Lude.Text)
 grrNextPageToken = Lens.lens (nextPageToken :: GetRightsizingRecommendation -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetRightsizingRecommendation)
 {-# DEPRECATED grrNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+
+-- | The specific service that you want recommendations for. The only valid value for @GetRightsizingRecommendation@ is "@AmazonEC2@ ".
+--
+-- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrService :: Lens.Lens' GetRightsizingRecommendation Lude.Text
+grrService = Lens.lens (service :: GetRightsizingRecommendation -> Lude.Text) (\s a -> s {service = a} :: GetRightsizingRecommendation)
+{-# DEPRECATED grrService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | Enables you to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings associated with recommendations with consideration of existing Savings Plans or RI benefits, or neither.
 --
@@ -115,13 +117,6 @@ grrFilter = Lens.lens (filter :: GetRightsizingRecommendation -> Lude.Maybe Expr
 grrPageSize :: Lens.Lens' GetRightsizingRecommendation (Lude.Maybe Lude.Natural)
 grrPageSize = Lens.lens (pageSize :: GetRightsizingRecommendation -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: GetRightsizingRecommendation)
 {-# DEPRECATED grrPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The specific service that you want recommendations for. The only valid value for @GetRightsizingRecommendation@ is "@AmazonEC2@ ".
---
--- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrService :: Lens.Lens' GetRightsizingRecommendation Lude.Text
-grrService = Lens.lens (service :: GetRightsizingRecommendation -> Lude.Text) (\s a -> s {service = a} :: GetRightsizingRecommendation)
-{-# DEPRECATED grrService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 instance Lude.AWSRequest GetRightsizingRecommendation where
   type
@@ -158,10 +153,10 @@ instance Lude.ToJSON GetRightsizingRecommendation where
     Lude.object
       ( Lude.catMaybes
           [ ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            Lude.Just ("Service" Lude..= service),
             ("Configuration" Lude..=) Lude.<$> configuration,
             ("Filter" Lude..=) Lude.<$> filter,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("Service" Lude..= service)
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
@@ -173,41 +168,30 @@ instance Lude.ToQuery GetRightsizingRecommendation where
 
 -- | /See:/ 'mkGetRightsizingRecommendationResponse' smart constructor.
 data GetRightsizingRecommendationResponse = GetRightsizingRecommendationResponse'
-  { summary ::
-      Lude.Maybe
-        RightsizingRecommendationSummary,
-    nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    rightsizingRecommendations ::
-      Lude.Maybe
-        [RightsizingRecommendation],
-    metadata ::
-      Lude.Maybe
-        RightsizingRecommendationMetadata,
-    configuration ::
-      Lude.Maybe
-        RightsizingRecommendationConfiguration,
-    responseStatus ::
-      Lude.Int
+  { -- | Summary of this recommendation set.
+    summary :: Lude.Maybe RightsizingRecommendationSummary,
+    -- | The token to retrieve the next set of results.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Recommendations to rightsize resources.
+    rightsizingRecommendations :: Lude.Maybe [RightsizingRecommendation],
+    -- | Information regarding this specific recommendation set.
+    metadata :: Lude.Maybe RightsizingRecommendationMetadata,
+    -- | Enables you to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings associated with recommendations with consideration of existing Savings Plans or RI benefits, or neither.
+    configuration :: Lude.Maybe RightsizingRecommendationConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRightsizingRecommendationResponse' with the minimum fields required to make a request.
 --
--- * 'configuration' - Enables you to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings associated with recommendations with consideration of existing Savings Plans or RI benefits, or neither.
--- * 'metadata' - Information regarding this specific recommendation set.
--- * 'nextPageToken' - The token to retrieve the next set of results.
--- * 'responseStatus' - The response status code.
--- * 'rightsizingRecommendations' - Recommendations to rightsize resources.
 -- * 'summary' - Summary of this recommendation set.
+-- * 'nextPageToken' - The token to retrieve the next set of results.
+-- * 'rightsizingRecommendations' - Recommendations to rightsize resources.
+-- * 'metadata' - Information regarding this specific recommendation set.
+-- * 'configuration' - Enables you to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings associated with recommendations with consideration of existing Savings Plans or RI benefits, or neither.
+-- * 'responseStatus' - The response status code.
 mkGetRightsizingRecommendationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

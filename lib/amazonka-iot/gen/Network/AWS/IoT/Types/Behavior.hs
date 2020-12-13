@@ -19,8 +19,8 @@ module Network.AWS.IoT.Types.Behavior
     -- * Lenses
     bMetricDimension,
     bMetric,
-    bCriteria,
     bName,
+    bCriteria,
   )
 where
 
@@ -33,27 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBehavior' smart constructor.
 data Behavior = Behavior'
-  { metricDimension ::
-      Lude.Maybe MetricDimension,
+  { -- | The dimension for a metric in your behavior. For example, using a @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.
+    metricDimension :: Lude.Maybe MetricDimension,
+    -- | What is measured by the behavior.
     metric :: Lude.Maybe Lude.Text,
-    criteria :: Lude.Maybe BehaviorCriteria,
-    name :: Lude.Text
+    -- | The name you have given to the behavior.
+    name :: Lude.Text,
+    -- | The criteria that determine if a device is behaving normally in regard to the @metric@ .
+    criteria :: Lude.Maybe BehaviorCriteria
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Behavior' with the minimum fields required to make a request.
 --
--- * 'criteria' - The criteria that determine if a device is behaving normally in regard to the @metric@ .
--- * 'metric' - What is measured by the behavior.
 -- * 'metricDimension' - The dimension for a metric in your behavior. For example, using a @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.
+-- * 'metric' - What is measured by the behavior.
 -- * 'name' - The name you have given to the behavior.
+-- * 'criteria' - The criteria that determine if a device is behaving normally in regard to the @metric@ .
 mkBehavior ::
   -- | 'name'
   Lude.Text ->
@@ -62,8 +59,8 @@ mkBehavior pName_ =
   Behavior'
     { metricDimension = Lude.Nothing,
       metric = Lude.Nothing,
-      criteria = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      criteria = Lude.Nothing
     }
 
 -- | The dimension for a metric in your behavior. For example, using a @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.
@@ -80,19 +77,19 @@ bMetric :: Lens.Lens' Behavior (Lude.Maybe Lude.Text)
 bMetric = Lens.lens (metric :: Behavior -> Lude.Maybe Lude.Text) (\s a -> s {metric = a} :: Behavior)
 {-# DEPRECATED bMetric "Use generic-lens or generic-optics with 'metric' instead." #-}
 
--- | The criteria that determine if a device is behaving normally in regard to the @metric@ .
---
--- /Note:/ Consider using 'criteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bCriteria :: Lens.Lens' Behavior (Lude.Maybe BehaviorCriteria)
-bCriteria = Lens.lens (criteria :: Behavior -> Lude.Maybe BehaviorCriteria) (\s a -> s {criteria = a} :: Behavior)
-{-# DEPRECATED bCriteria "Use generic-lens or generic-optics with 'criteria' instead." #-}
-
 -- | The name you have given to the behavior.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 bName :: Lens.Lens' Behavior Lude.Text
 bName = Lens.lens (name :: Behavior -> Lude.Text) (\s a -> s {name = a} :: Behavior)
 {-# DEPRECATED bName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The criteria that determine if a device is behaving normally in regard to the @metric@ .
+--
+-- /Note:/ Consider using 'criteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bCriteria :: Lens.Lens' Behavior (Lude.Maybe BehaviorCriteria)
+bCriteria = Lens.lens (criteria :: Behavior -> Lude.Maybe BehaviorCriteria) (\s a -> s {criteria = a} :: Behavior)
+{-# DEPRECATED bCriteria "Use generic-lens or generic-optics with 'criteria' instead." #-}
 
 instance Lude.FromJSON Behavior where
   parseJSON =
@@ -102,8 +99,8 @@ instance Lude.FromJSON Behavior where
           Behavior'
             Lude.<$> (x Lude..:? "metricDimension")
             Lude.<*> (x Lude..:? "metric")
-            Lude.<*> (x Lude..:? "criteria")
             Lude.<*> (x Lude..: "name")
+            Lude.<*> (x Lude..:? "criteria")
       )
 
 instance Lude.ToJSON Behavior where
@@ -112,7 +109,7 @@ instance Lude.ToJSON Behavior where
       ( Lude.catMaybes
           [ ("metricDimension" Lude..=) Lude.<$> metricDimension,
             ("metric" Lude..=) Lude.<$> metric,
-            ("criteria" Lude..=) Lude.<$> criteria,
-            Lude.Just ("name" Lude..= name)
+            Lude.Just ("name" Lude..= name),
+            ("criteria" Lude..=) Lude.<$> criteria
           ]
       )

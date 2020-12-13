@@ -30,18 +30,12 @@ import Network.AWS.SageMaker.Types.AlgorithmStatusItem
 --
 -- /See:/ 'mkAlgorithmStatusDetails' smart constructor.
 data AlgorithmStatusDetails = AlgorithmStatusDetails'
-  { imageScanStatuses ::
-      Lude.Maybe [AlgorithmStatusItem],
-    validationStatuses ::
-      Lude.Maybe [AlgorithmStatusItem]
+  { -- | The status of the scan of the algorithm's Docker image container.
+    imageScanStatuses :: Lude.Maybe [AlgorithmStatusItem],
+    -- | The status of algorithm validation.
+    validationStatuses :: Lude.Maybe [AlgorithmStatusItem]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlgorithmStatusDetails' with the minimum fields required to make a request.

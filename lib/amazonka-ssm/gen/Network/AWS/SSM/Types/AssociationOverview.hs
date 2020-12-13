@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssociationOverview' smart constructor.
 data AssociationOverview = AssociationOverview'
-  { detailedStatus ::
-      Lude.Maybe Lude.Text,
+  { -- | A detailed status of the association.
+    detailedStatus :: Lude.Maybe Lude.Text,
+    -- | The status of the association. Status can be: Pending, Success, or Failed.
     status :: Lude.Maybe Lude.Text,
-    associationStatusAggregatedCount ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
+    -- | Returns the number of targets for the association status. For example, if you created an association with two instances, and one of them was successful, this would return the count of instances by status.
+    associationStatusAggregatedCount :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationOverview' with the minimum fields required to make a request.
 --
--- * 'associationStatusAggregatedCount' - Returns the number of targets for the association status. For example, if you created an association with two instances, and one of them was successful, this would return the count of instances by status.
 -- * 'detailedStatus' - A detailed status of the association.
 -- * 'status' - The status of the association. Status can be: Pending, Success, or Failed.
+-- * 'associationStatusAggregatedCount' - Returns the number of targets for the association status. For example, if you created an association with two instances, and one of them was successful, this would return the count of instances by status.
 mkAssociationOverview ::
   AssociationOverview
 mkAssociationOverview =

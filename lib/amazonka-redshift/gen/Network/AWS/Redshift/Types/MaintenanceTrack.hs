@@ -32,18 +32,14 @@ import Network.AWS.Redshift.Types.UpdateTarget
 --
 -- /See:/ 'mkMaintenanceTrack' smart constructor.
 data MaintenanceTrack = MaintenanceTrack'
-  { databaseVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version number for the cluster release.
+    databaseVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the maintenance track. Possible values are @current@ and @trailing@ .
     maintenanceTrackName :: Lude.Maybe Lude.Text,
+    -- | An array of 'UpdateTarget' objects to update with the maintenance track.
     updateTargets :: Lude.Maybe [UpdateTarget]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceTrack' with the minimum fields required to make a request.

@@ -33,31 +33,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainEntry' smart constructor.
 data DomainEntry = DomainEntry'
-  { isAlias :: Lude.Maybe Lude.Bool,
+  { -- | When @true@ , specifies whether the domain entry is an alias used by the Lightsail load balancer. You can include an alias (A type) record in your request, which points to a load balancer DNS name and routes traffic to your load balancer.
+    isAlias :: Lude.Maybe Lude.Bool,
+    -- | The name of the domain.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the domain recordset entry.
     id :: Lude.Maybe Lude.Text,
+    -- | (Deprecated) The options for the domain entry.
     options :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).
+    --
+    -- The following domain entry types can be used:
+    --
+    --     * @A@
+    --
+    --
+    --     * @CNAME@
+    --
+    --
+    --     * @MX@
+    --
+    --
+    --     * @NS@
+    --
+    --
+    --     * @SOA@
+    --
+    --
+    --     * @SRV@
+    --
+    --
+    --     * @TXT@
     type' :: Lude.Maybe Lude.Text,
+    -- | The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
+    --
+    -- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
     target :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainEntry' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the domain recordset entry.
 -- * 'isAlias' - When @true@ , specifies whether the domain entry is an alias used by the Lightsail load balancer. You can include an alias (A type) record in your request, which points to a load balancer DNS name and routes traffic to your load balancer.
 -- * 'name' - The name of the domain.
+-- * 'id' - The ID of the domain recordset entry.
 -- * 'options' - (Deprecated) The options for the domain entry.
--- * 'target' - The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
---
--- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
 -- * 'type'' - The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).
 --
 -- The following domain entry types can be used:
@@ -81,6 +102,11 @@ data DomainEntry = DomainEntry'
 --
 --
 --     * @TXT@
+--
+--
+-- * 'target' - The target AWS name server (e.g., @ns-111.awsdns-22.com.@ ).
+--
+-- For Lightsail load balancers, the value looks like @ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com@ . Be sure to also set @isAlias@ to @true@ when setting up an A record for a load balancer.
 mkDomainEntry ::
   DomainEntry
 mkDomainEntry =

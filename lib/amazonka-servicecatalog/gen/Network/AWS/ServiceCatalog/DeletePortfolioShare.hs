@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.ServiceCatalog.DeletePortfolioShare
     mkDeletePortfolioShare,
 
     -- ** Request lenses
+    dpsPortfolioId,
     dpsAccountId,
     dpsAcceptLanguage,
     dpsOrganizationNode,
-    dpsPortfolioId,
 
     -- * Destructuring the response
     DeletePortfolioShareResponse (..),
@@ -44,23 +45,31 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDeletePortfolioShare' smart constructor.
 data DeletePortfolioShare = DeletePortfolioShare'
-  { accountId ::
-      Lude.Maybe Lude.Text,
+  { -- | The portfolio identifier.
+    portfolioId :: Lude.Text,
+    -- | The AWS account ID.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
-    organizationNode :: Lude.Maybe OrganizationNode,
-    portfolioId :: Lude.Text
+    -- | The organization node to whom you are going to stop sharing.
+    organizationNode :: Lude.Maybe OrganizationNode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePortfolioShare' with the minimum fields required to make a request.
 --
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'accountId' - The AWS account ID.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -73,20 +82,25 @@ data DeletePortfolioShare = DeletePortfolioShare'
 --     * @zh@ - Chinese
 --
 --
--- * 'accountId' - The AWS account ID.
 -- * 'organizationNode' - The organization node to whom you are going to stop sharing.
--- * 'portfolioId' - The portfolio identifier.
 mkDeletePortfolioShare ::
   -- | 'portfolioId'
   Lude.Text ->
   DeletePortfolioShare
 mkDeletePortfolioShare pPortfolioId_ =
   DeletePortfolioShare'
-    { accountId = Lude.Nothing,
+    { portfolioId = pPortfolioId_,
+      accountId = Lude.Nothing,
       acceptLanguage = Lude.Nothing,
-      organizationNode = Lude.Nothing,
-      portfolioId = pPortfolioId_
+      organizationNode = Lude.Nothing
     }
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpsPortfolioId :: Lens.Lens' DeletePortfolioShare Lude.Text
+dpsPortfolioId = Lens.lens (portfolioId :: DeletePortfolioShare -> Lude.Text) (\s a -> s {portfolioId = a} :: DeletePortfolioShare)
+{-# DEPRECATED dpsPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The AWS account ID.
 --
@@ -120,13 +134,6 @@ dpsOrganizationNode :: Lens.Lens' DeletePortfolioShare (Lude.Maybe OrganizationN
 dpsOrganizationNode = Lens.lens (organizationNode :: DeletePortfolioShare -> Lude.Maybe OrganizationNode) (\s a -> s {organizationNode = a} :: DeletePortfolioShare)
 {-# DEPRECATED dpsOrganizationNode "Use generic-lens or generic-optics with 'organizationNode' instead." #-}
 
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsPortfolioId :: Lens.Lens' DeletePortfolioShare Lude.Text
-dpsPortfolioId = Lens.lens (portfolioId :: DeletePortfolioShare -> Lude.Text) (\s a -> s {portfolioId = a} :: DeletePortfolioShare)
-{-# DEPRECATED dpsPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
-
 instance Lude.AWSRequest DeletePortfolioShare where
   type Rs DeletePortfolioShare = DeletePortfolioShareResponse
   request = Req.postJSON serviceCatalogService
@@ -155,10 +162,10 @@ instance Lude.ToJSON DeletePortfolioShare where
   toJSON DeletePortfolioShare' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AccountId" Lude..=) Lude.<$> accountId,
+          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
+            ("AccountId" Lude..=) Lude.<$> accountId,
             ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("OrganizationNode" Lude..=) Lude.<$> organizationNode,
-            Lude.Just ("PortfolioId" Lude..= portfolioId)
+            ("OrganizationNode" Lude..=) Lude.<$> organizationNode
           ]
       )
 
@@ -170,17 +177,12 @@ instance Lude.ToQuery DeletePortfolioShare where
 
 -- | /See:/ 'mkDeletePortfolioShareResponse' smart constructor.
 data DeletePortfolioShareResponse = DeletePortfolioShareResponse'
-  { portfolioShareToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The portfolio share unique identifier. This will only be returned if delete is made to an organization node.
+    portfolioShareToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePortfolioShareResponse' with the minimum fields required to make a request.

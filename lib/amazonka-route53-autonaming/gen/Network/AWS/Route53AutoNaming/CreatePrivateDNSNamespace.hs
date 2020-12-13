@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.Route53AutoNaming.CreatePrivateDNSNamespace
     mkCreatePrivateDNSNamespace,
 
     -- ** Request lenses
-    cpdnsnCreatorRequestId,
-    cpdnsnDescription,
-    cpdnsnTags,
-    cpdnsnName,
-    cpdnsnVPC,
+    cpdnCreatorRequestId,
+    cpdnName,
+    cpdnVPC,
+    cpdnDescription,
+    cpdnTags,
 
     -- * Destructuring the response
     CreatePrivateDNSNamespaceResponse (..),
@@ -43,29 +44,27 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'mkCreatePrivateDNSNamespace' smart constructor.
 data CreatePrivateDNSNamespace = CreatePrivateDNSNamespace'
-  { creatorRequestId ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | A unique string that identifies the request and that allows failed @CreatePrivateDnsNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
+    creatorRequestId :: Lude.Maybe Lude.Text,
+    -- | The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
     name :: Lude.Text,
-    vpc :: Lude.Text
+    -- | The ID of the Amazon VPC that you want to associate the namespace with.
+    vpc :: Lude.Text,
+    -- | A description for the namespace.
+    description :: Lude.Maybe Lude.Text,
+    -- | The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePrivateDNSNamespace' with the minimum fields required to make a request.
 --
 -- * 'creatorRequestId' - A unique string that identifies the request and that allows failed @CreatePrivateDnsNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
--- * 'description' - A description for the namespace.
 -- * 'name' - The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
--- * 'tags' - The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 -- * 'vpc' - The ID of the Amazon VPC that you want to associate the namespace with.
+-- * 'description' - A description for the namespace.
+-- * 'tags' - The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
 mkCreatePrivateDNSNamespace ::
   -- | 'name'
   Lude.Text ->
@@ -75,46 +74,46 @@ mkCreatePrivateDNSNamespace ::
 mkCreatePrivateDNSNamespace pName_ pVPC_ =
   CreatePrivateDNSNamespace'
     { creatorRequestId = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
       name = pName_,
-      vpc = pVPC_
+      vpc = pVPC_,
+      description = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A unique string that identifies the request and that allows failed @CreatePrivateDnsNamespace@ requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
 --
 -- /Note:/ Consider using 'creatorRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdnsnCreatorRequestId :: Lens.Lens' CreatePrivateDNSNamespace (Lude.Maybe Lude.Text)
-cpdnsnCreatorRequestId = Lens.lens (creatorRequestId :: CreatePrivateDNSNamespace -> Lude.Maybe Lude.Text) (\s a -> s {creatorRequestId = a} :: CreatePrivateDNSNamespace)
-{-# DEPRECATED cpdnsnCreatorRequestId "Use generic-lens or generic-optics with 'creatorRequestId' instead." #-}
-
--- | A description for the namespace.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdnsnDescription :: Lens.Lens' CreatePrivateDNSNamespace (Lude.Maybe Lude.Text)
-cpdnsnDescription = Lens.lens (description :: CreatePrivateDNSNamespace -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePrivateDNSNamespace)
-{-# DEPRECATED cpdnsnDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdnsnTags :: Lens.Lens' CreatePrivateDNSNamespace (Lude.Maybe [Tag])
-cpdnsnTags = Lens.lens (tags :: CreatePrivateDNSNamespace -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePrivateDNSNamespace)
-{-# DEPRECATED cpdnsnTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cpdnCreatorRequestId :: Lens.Lens' CreatePrivateDNSNamespace (Lude.Maybe Lude.Text)
+cpdnCreatorRequestId = Lens.lens (creatorRequestId :: CreatePrivateDNSNamespace -> Lude.Maybe Lude.Text) (\s a -> s {creatorRequestId = a} :: CreatePrivateDNSNamespace)
+{-# DEPRECATED cpdnCreatorRequestId "Use generic-lens or generic-optics with 'creatorRequestId' instead." #-}
 
 -- | The name that you want to assign to this namespace. When you create a private DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdnsnName :: Lens.Lens' CreatePrivateDNSNamespace Lude.Text
-cpdnsnName = Lens.lens (name :: CreatePrivateDNSNamespace -> Lude.Text) (\s a -> s {name = a} :: CreatePrivateDNSNamespace)
-{-# DEPRECATED cpdnsnName "Use generic-lens or generic-optics with 'name' instead." #-}
+cpdnName :: Lens.Lens' CreatePrivateDNSNamespace Lude.Text
+cpdnName = Lens.lens (name :: CreatePrivateDNSNamespace -> Lude.Text) (\s a -> s {name = a} :: CreatePrivateDNSNamespace)
+{-# DEPRECATED cpdnName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the Amazon VPC that you want to associate the namespace with.
 --
 -- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpdnsnVPC :: Lens.Lens' CreatePrivateDNSNamespace Lude.Text
-cpdnsnVPC = Lens.lens (vpc :: CreatePrivateDNSNamespace -> Lude.Text) (\s a -> s {vpc = a} :: CreatePrivateDNSNamespace)
-{-# DEPRECATED cpdnsnVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
+cpdnVPC :: Lens.Lens' CreatePrivateDNSNamespace Lude.Text
+cpdnVPC = Lens.lens (vpc :: CreatePrivateDNSNamespace -> Lude.Text) (\s a -> s {vpc = a} :: CreatePrivateDNSNamespace)
+{-# DEPRECATED cpdnVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
+
+-- | A description for the namespace.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnDescription :: Lens.Lens' CreatePrivateDNSNamespace (Lude.Maybe Lude.Text)
+cpdnDescription = Lens.lens (description :: CreatePrivateDNSNamespace -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePrivateDNSNamespace)
+{-# DEPRECATED cpdnDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The tags to add to the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpdnTags :: Lens.Lens' CreatePrivateDNSNamespace (Lude.Maybe [Tag])
+cpdnTags = Lens.lens (tags :: CreatePrivateDNSNamespace -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePrivateDNSNamespace)
+{-# DEPRECATED cpdnTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreatePrivateDNSNamespace where
   type
@@ -146,10 +145,10 @@ instance Lude.ToJSON CreatePrivateDNSNamespace where
     Lude.object
       ( Lude.catMaybes
           [ ("CreatorRequestId" Lude..=) Lude.<$> creatorRequestId,
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Vpc" Lude..= vpc)
+            Lude.Just ("Vpc" Lude..= vpc),
+            ("Description" Lude..=) Lude.<$> description,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -161,18 +160,12 @@ instance Lude.ToQuery CreatePrivateDNSNamespace where
 
 -- | /See:/ 'mkCreatePrivateDNSNamespaceResponse' smart constructor.
 data CreatePrivateDNSNamespaceResponse = CreatePrivateDNSNamespaceResponse'
-  { operationId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation> .
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePrivateDNSNamespaceResponse' with the minimum fields required to make a request.

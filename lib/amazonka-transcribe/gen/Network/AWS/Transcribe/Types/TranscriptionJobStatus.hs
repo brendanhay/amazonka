@@ -13,10 +13,10 @@
 module Network.AWS.Transcribe.Types.TranscriptionJobStatus
   ( TranscriptionJobStatus
       ( TranscriptionJobStatus',
-        TJSCompleted,
-        TJSFailed,
+        TJSQueued,
         TJSInProgress,
-        TJSQueued
+        TJSFailed,
+        TJSCompleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TranscriptionJobStatus = TranscriptionJobStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern TJSCompleted :: TranscriptionJobStatus
-pattern TJSCompleted = TranscriptionJobStatus' "COMPLETED"
-
-pattern TJSFailed :: TranscriptionJobStatus
-pattern TJSFailed = TranscriptionJobStatus' "FAILED"
+pattern TJSQueued :: TranscriptionJobStatus
+pattern TJSQueued = TranscriptionJobStatus' "QUEUED"
 
 pattern TJSInProgress :: TranscriptionJobStatus
 pattern TJSInProgress = TranscriptionJobStatus' "IN_PROGRESS"
 
-pattern TJSQueued :: TranscriptionJobStatus
-pattern TJSQueued = TranscriptionJobStatus' "QUEUED"
+pattern TJSFailed :: TranscriptionJobStatus
+pattern TJSFailed = TranscriptionJobStatus' "FAILED"
+
+pattern TJSCompleted :: TranscriptionJobStatus
+pattern TJSCompleted = TranscriptionJobStatus' "COMPLETED"
 
 {-# COMPLETE
-  TJSCompleted,
-  TJSFailed,
-  TJSInProgress,
   TJSQueued,
+  TJSInProgress,
+  TJSFailed,
+  TJSCompleted,
   TranscriptionJobStatus'
   #-}

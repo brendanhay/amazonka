@@ -13,10 +13,10 @@
 module Network.AWS.WorkDocs.Types.UserType
   ( UserType
       ( UserType',
-        UTAdmin,
-        UTMinimaluser,
-        UTPoweruser,
         UTUser,
+        UTAdmin,
+        UTPoweruser,
+        UTMinimaluser,
         UTWorkspacesuser
       ),
   )
@@ -48,26 +48,26 @@ newtype UserType = UserType' Lude.Text
       Lude.ToHeader
     )
 
+pattern UTUser :: UserType
+pattern UTUser = UserType' "USER"
+
 pattern UTAdmin :: UserType
 pattern UTAdmin = UserType' "ADMIN"
-
-pattern UTMinimaluser :: UserType
-pattern UTMinimaluser = UserType' "MINIMALUSER"
 
 pattern UTPoweruser :: UserType
 pattern UTPoweruser = UserType' "POWERUSER"
 
-pattern UTUser :: UserType
-pattern UTUser = UserType' "USER"
+pattern UTMinimaluser :: UserType
+pattern UTMinimaluser = UserType' "MINIMALUSER"
 
 pattern UTWorkspacesuser :: UserType
 pattern UTWorkspacesuser = UserType' "WORKSPACESUSER"
 
 {-# COMPLETE
-  UTAdmin,
-  UTMinimaluser,
-  UTPoweruser,
   UTUser,
+  UTAdmin,
+  UTPoweruser,
+  UTMinimaluser,
   UTWorkspacesuser,
   UserType'
   #-}

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceCreditSpecification' smart constructor.
 data InstanceCreditSpecification = InstanceCreditSpecification'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ .
     cpuCredits :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceCreditSpecification' with the minimum fields required to make a request.
 --
--- * 'cpuCredits' - The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ .
 -- * 'instanceId' - The ID of the instance.
+-- * 'cpuCredits' - The credit option for CPU usage of the instance. Valid values are @standard@ and @unlimited@ .
 mkInstanceCreditSpecification ::
   InstanceCreditSpecification
 mkInstanceCreditSpecification =

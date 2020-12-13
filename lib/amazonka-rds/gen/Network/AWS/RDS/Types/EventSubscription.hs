@@ -37,43 +37,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the RDS event notification subscription.
+    --
+    -- Constraints:
+    -- Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
+    -- The status "no-permission" indicates that RDS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+    status :: Lude.Maybe Lude.Text,
+    -- | The AWS customer account associated with the RDS event notification subscription.
     customerAWSId :: Lude.Maybe Lude.Text,
+    -- | The RDS event notification subscription Id.
     custSubscriptionId :: Lude.Maybe Lude.Text,
+    -- | The topic ARN of the RDS event notification subscription.
     snsTopicARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the event subscription.
     eventSubscriptionARN :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | The source type for the RDS event notification subscription.
     sourceType :: Lude.Maybe Lude.Text,
+    -- | The time the RDS event notification subscription was created.
     subscriptionCreationTime :: Lude.Maybe Lude.Text,
+    -- | A list of event categories for the RDS event notification subscription.
     eventCategoriesList :: Lude.Maybe [Lude.Text],
+    -- | A list of source IDs for the RDS event notification subscription.
     sourceIdsList :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
--- * 'custSubscriptionId' - The RDS event notification subscription Id.
--- * 'customerAWSId' - The AWS customer account associated with the RDS event notification subscription.
--- * 'enabled' - A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
--- * 'eventCategoriesList' - A list of event categories for the RDS event notification subscription.
--- * 'eventSubscriptionARN' - The Amazon Resource Name (ARN) for the event subscription.
--- * 'snsTopicARN' - The topic ARN of the RDS event notification subscription.
--- * 'sourceIdsList' - A list of source IDs for the RDS event notification subscription.
--- * 'sourceType' - The source type for the RDS event notification subscription.
 -- * 'status' - The status of the RDS event notification subscription.
 --
 -- Constraints:
 -- Can be one of the following: creating | modifying | deleting | active | no-permission | topic-not-exist
 -- The status "no-permission" indicates that RDS no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created.
+-- * 'customerAWSId' - The AWS customer account associated with the RDS event notification subscription.
+-- * 'custSubscriptionId' - The RDS event notification subscription Id.
+-- * 'snsTopicARN' - The topic ARN of the RDS event notification subscription.
+-- * 'eventSubscriptionARN' - The Amazon Resource Name (ARN) for the event subscription.
+-- * 'enabled' - A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled.
+-- * 'sourceType' - The source type for the RDS event notification subscription.
 -- * 'subscriptionCreationTime' - The time the RDS event notification subscription was created.
+-- * 'eventCategoriesList' - A list of event categories for the RDS event notification subscription.
+-- * 'sourceIdsList' - A list of source IDs for the RDS event notification subscription.
 mkEventSubscription ::
   EventSubscription
 mkEventSubscription =

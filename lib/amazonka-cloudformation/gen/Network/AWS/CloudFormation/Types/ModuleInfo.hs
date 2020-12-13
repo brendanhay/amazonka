@@ -31,30 +31,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModuleInfo' smart constructor.
 data ModuleInfo = ModuleInfo'
-  { typeHierarchy ::
-      Lude.Maybe Lude.Text,
+  { -- | A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
+    --
+    -- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
+    -- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
+    typeHierarchy :: Lude.Maybe Lude.Text,
+    -- | A concantenated list of the logical IDs of the module or modules containing the resource. Modules are listed starting with the inner-most nested module, and separated by @/@ .
+    --
+    -- In the following example, the resource was created from a module, @moduleA@ , that is nested inside a parent module, @moduleB@ .
+    -- @moduleA/moduleB@
+    -- For more information, see <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module> in the /CloudFormation User Guide/ .
     logicalIdHierarchy :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModuleInfo' with the minimum fields required to make a request.
 --
+-- * 'typeHierarchy' - A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
+--
+-- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
+-- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
 -- * 'logicalIdHierarchy' - A concantenated list of the logical IDs of the module or modules containing the resource. Modules are listed starting with the inner-most nested module, and separated by @/@ .
 --
 -- In the following example, the resource was created from a module, @moduleA@ , that is nested inside a parent module, @moduleB@ .
 -- @moduleA/moduleB@
 -- For more information, see <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module> in the /CloudFormation User Guide/ .
--- * 'typeHierarchy' - A concantenated list of the the module type or types containing the resource. Module types are listed starting with the inner-most nested module, and separated by @/@ .
---
--- In the following example, the resource was created from a module of type @AWS::First::Example::MODULE@ , that is nested inside a parent module of type @AWS::Second::Example::MODULE@ .
--- @AWS::First::Example::MODULE/AWS::Second::Example::MODULE@
 mkModuleInfo ::
   ModuleInfo
 mkModuleInfo =

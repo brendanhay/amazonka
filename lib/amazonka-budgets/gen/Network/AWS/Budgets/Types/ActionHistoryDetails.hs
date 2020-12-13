@@ -17,8 +17,8 @@ module Network.AWS.Budgets.Types.ActionHistoryDetails
     mkActionHistoryDetails,
 
     -- * Lenses
-    ahdMessage,
     ahdAction,
+    ahdMessage,
   )
 where
 
@@ -30,9 +30,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionHistoryDetails' smart constructor.
 data ActionHistoryDetails = ActionHistoryDetails'
-  { message ::
-      Lude.Text,
-    action :: Action
+  { -- | The budget action resource.
+    action :: Action,
+    message :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -40,22 +40,15 @@ data ActionHistoryDetails = ActionHistoryDetails'
 -- | Creates a value of 'ActionHistoryDetails' with the minimum fields required to make a request.
 --
 -- * 'action' - The budget action resource.
--- * 'message' - Undocumented field.
+-- * 'message' -
 mkActionHistoryDetails ::
-  -- | 'message'
-  Lude.Text ->
   -- | 'action'
   Action ->
+  -- | 'message'
+  Lude.Text ->
   ActionHistoryDetails
-mkActionHistoryDetails pMessage_ pAction_ =
-  ActionHistoryDetails' {message = pMessage_, action = pAction_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahdMessage :: Lens.Lens' ActionHistoryDetails Lude.Text
-ahdMessage = Lens.lens (message :: ActionHistoryDetails -> Lude.Text) (\s a -> s {message = a} :: ActionHistoryDetails)
-{-# DEPRECATED ahdMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+mkActionHistoryDetails pAction_ pMessage_ =
+  ActionHistoryDetails' {action = pAction_, message = pMessage_}
 
 -- | The budget action resource.
 --
@@ -64,11 +57,18 @@ ahdAction :: Lens.Lens' ActionHistoryDetails Action
 ahdAction = Lens.lens (action :: ActionHistoryDetails -> Action) (\s a -> s {action = a} :: ActionHistoryDetails)
 {-# DEPRECATED ahdAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahdMessage :: Lens.Lens' ActionHistoryDetails Lude.Text
+ahdMessage = Lens.lens (message :: ActionHistoryDetails -> Lude.Text) (\s a -> s {message = a} :: ActionHistoryDetails)
+{-# DEPRECATED ahdMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
 instance Lude.FromJSON ActionHistoryDetails where
   parseJSON =
     Lude.withObject
       "ActionHistoryDetails"
       ( \x ->
           ActionHistoryDetails'
-            Lude.<$> (x Lude..: "Message") Lude.<*> (x Lude..: "Action")
+            Lude.<$> (x Lude..: "Action") Lude.<*> (x Lude..: "Message")
       )

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.TtmlStylePassthrough
   ( TtmlStylePassthrough
       ( TtmlStylePassthrough',
-        Disabled,
-        Enabled
+        TSPEnabled,
+        TSPDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype TtmlStylePassthrough = TtmlStylePassthrough' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: TtmlStylePassthrough
-pattern Disabled = TtmlStylePassthrough' "DISABLED"
+pattern TSPEnabled :: TtmlStylePassthrough
+pattern TSPEnabled = TtmlStylePassthrough' "ENABLED"
 
-pattern Enabled :: TtmlStylePassthrough
-pattern Enabled = TtmlStylePassthrough' "ENABLED"
+pattern TSPDisabled :: TtmlStylePassthrough
+pattern TSPDisabled = TtmlStylePassthrough' "DISABLED"
 
 {-# COMPLETE
-  Disabled,
-  Enabled,
+  TSPEnabled,
+  TSPDisabled,
   TtmlStylePassthrough'
   #-}

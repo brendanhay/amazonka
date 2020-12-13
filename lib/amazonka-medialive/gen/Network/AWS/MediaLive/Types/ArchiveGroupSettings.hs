@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArchiveGroupSettings' smart constructor.
 data ArchiveGroupSettings = ArchiveGroupSettings'
-  { rolloverInterval ::
-      Lude.Maybe Lude.Natural,
+  { -- | Number of seconds to write to archive file before closing and starting a new one.
+    rolloverInterval :: Lude.Maybe Lude.Natural,
+    -- | A directory and base filename where archive files should be written.
     destination :: OutputLocationRef
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveGroupSettings' with the minimum fields required to make a request.
 --
--- * 'destination' - A directory and base filename where archive files should be written.
 -- * 'rolloverInterval' - Number of seconds to write to archive file before closing and starting a new one.
+-- * 'destination' - A directory and base filename where archive files should be written.
 mkArchiveGroupSettings ::
   -- | 'destination'
   OutputLocationRef ->

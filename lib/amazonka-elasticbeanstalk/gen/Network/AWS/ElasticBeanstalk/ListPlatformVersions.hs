@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,27 +48,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListPlatformVersions' smart constructor.
 data ListPlatformVersions = ListPlatformVersions'
-  { filters ::
-      Lude.Maybe [PlatformFilter],
+  { -- | Criteria for restricting the resulting list of platform versions. The filter is interpreted as a logical conjunction (AND) of the separate @PlatformFilter@ terms.
+    filters :: Lude.Maybe [PlatformFilter],
+    -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
+    --
+    -- If no @NextToken@ is specified, the first page is retrieved.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of platform version values returned in one call.
     maxRecords :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPlatformVersions' with the minimum fields required to make a request.
 --
 -- * 'filters' - Criteria for restricting the resulting list of platform versions. The filter is interpreted as a logical conjunction (AND) of the separate @PlatformFilter@ terms.
--- * 'maxRecords' - The maximum number of platform version values returned in one call.
 -- * 'nextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
+-- * 'maxRecords' - The maximum number of platform version values returned in one call.
 mkListPlatformVersions ::
   ListPlatformVersions
 mkListPlatformVersions =
@@ -143,19 +142,14 @@ instance Lude.ToQuery ListPlatformVersions where
 
 -- | /See:/ 'mkListPlatformVersionsResponse' smart constructor.
 data ListPlatformVersionsResponse = ListPlatformVersionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    platformSummaryList ::
-      Lude.Maybe [PlatformSummary],
+  { -- | In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Summary information about the platform versions.
+    platformSummaryList :: Lude.Maybe [PlatformSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPlatformVersionsResponse' with the minimum fields required to make a request.

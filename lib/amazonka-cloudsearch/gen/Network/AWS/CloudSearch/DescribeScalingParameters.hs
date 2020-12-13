@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     mkDescribeScalingParametersResponse,
 
     -- ** Response lenses
-    dsprsResponseStatus,
     dsprsScalingParameters,
+    dsprsResponseStatus,
   )
 where
 
@@ -41,21 +42,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeScalingParameters' smart constructor.
 newtype DescribeScalingParameters = DescribeScalingParameters'
-  { domainName ::
-      Lude.Text
+  { domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingParameters' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
+-- * 'domainName' -
 mkDescribeScalingParameters ::
   -- | 'domainName'
   Lude.Text ->
@@ -80,8 +74,8 @@ instance Lude.AWSRequest DescribeScalingParameters where
       "DescribeScalingParametersResult"
       ( \s h x ->
           DescribeScalingParametersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "ScalingParameters")
+            Lude.<$> (x Lude..@ "ScalingParameters")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeScalingParameters where
@@ -102,45 +96,31 @@ instance Lude.ToQuery DescribeScalingParameters where
 --
 -- /See:/ 'mkDescribeScalingParametersResponse' smart constructor.
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
-  { responseStatus ::
-      Lude.Int,
-    scalingParameters ::
-      ScalingParametersStatus
+  { scalingParameters :: ScalingParametersStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingParametersResponse' with the minimum fields required to make a request.
 --
+-- * 'scalingParameters' -
 -- * 'responseStatus' - The response status code.
--- * 'scalingParameters' - Undocumented field.
 mkDescribeScalingParametersResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'scalingParameters'
   ScalingParametersStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeScalingParametersResponse
 mkDescribeScalingParametersResponse
-  pResponseStatus_
-  pScalingParameters_ =
+  pScalingParameters_
+  pResponseStatus_ =
     DescribeScalingParametersResponse'
-      { responseStatus =
-          pResponseStatus_,
-        scalingParameters = pScalingParameters_
+      { scalingParameters =
+          pScalingParameters_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsResponseStatus :: Lens.Lens' DescribeScalingParametersResponse Lude.Int
-dsprsResponseStatus = Lens.lens (responseStatus :: DescribeScalingParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScalingParametersResponse)
-{-# DEPRECATED dsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -148,3 +128,10 @@ dsprsResponseStatus = Lens.lens (responseStatus :: DescribeScalingParametersResp
 dsprsScalingParameters :: Lens.Lens' DescribeScalingParametersResponse ScalingParametersStatus
 dsprsScalingParameters = Lens.lens (scalingParameters :: DescribeScalingParametersResponse -> ScalingParametersStatus) (\s a -> s {scalingParameters = a} :: DescribeScalingParametersResponse)
 {-# DEPRECATED dsprsScalingParameters "Use generic-lens or generic-optics with 'scalingParameters' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprsResponseStatus :: Lens.Lens' DescribeScalingParametersResponse Lude.Int
+dsprsResponseStatus = Lens.lens (responseStatus :: DescribeScalingParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScalingParametersResponse)
+{-# DEPRECATED dsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

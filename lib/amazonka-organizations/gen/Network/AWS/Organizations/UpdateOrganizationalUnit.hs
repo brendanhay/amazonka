@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateOrganizationalUnit' smart constructor.
 data UpdateOrganizationalUnit = UpdateOrganizationalUnit'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The new name that you want to assign to the OU.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+    name :: Lude.Maybe Lude.Text,
+    -- | The unique identifier (ID) of the OU that you want to rename. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
     organizationalUnitId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationalUnit' with the minimum fields required to make a request.
@@ -132,19 +132,12 @@ instance Lude.ToQuery UpdateOrganizationalUnit where
 
 -- | /See:/ 'mkUpdateOrganizationalUnitResponse' smart constructor.
 data UpdateOrganizationalUnitResponse = UpdateOrganizationalUnitResponse'
-  { organizationalUnit ::
-      Lude.Maybe
-        OrganizationalUnit,
-    responseStatus ::
-      Lude.Int
+  { -- | A structure that contains the details about the specified OU, including its new name.
+    organizationalUnit :: Lude.Maybe OrganizationalUnit,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOrganizationalUnitResponse' with the minimum fields required to make a request.

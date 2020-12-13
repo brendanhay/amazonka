@@ -13,8 +13,8 @@
 module Network.AWS.SMS.Types.AppLaunchConfigurationStatus
   ( AppLaunchConfigurationStatus
       ( AppLaunchConfigurationStatus',
-        ALCSConfigured,
-        ALCSNotConfigured
+        ALCSNotConfigured,
+        ALCSConfigured
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AppLaunchConfigurationStatus = AppLaunchConfigurationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ALCSConfigured :: AppLaunchConfigurationStatus
-pattern ALCSConfigured = AppLaunchConfigurationStatus' "CONFIGURED"
-
 pattern ALCSNotConfigured :: AppLaunchConfigurationStatus
 pattern ALCSNotConfigured = AppLaunchConfigurationStatus' "NOT_CONFIGURED"
 
+pattern ALCSConfigured :: AppLaunchConfigurationStatus
+pattern ALCSConfigured = AppLaunchConfigurationStatus' "CONFIGURED"
+
 {-# COMPLETE
-  ALCSConfigured,
   ALCSNotConfigured,
+  ALCSConfigured,
   AppLaunchConfigurationStatus'
   #-}

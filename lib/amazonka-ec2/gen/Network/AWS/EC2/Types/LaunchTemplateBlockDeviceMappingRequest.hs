@@ -32,34 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateBlockDeviceMappingRequest' smart constructor.
 data LaunchTemplateBlockDeviceMappingRequest = LaunchTemplateBlockDeviceMappingRequest'
-  { virtualName ::
-      Lude.Maybe
-        Lude.Text,
-    noDevice ::
-      Lude.Maybe
-        Lude.Text,
-    ebs ::
-      Lude.Maybe
-        LaunchTemplateEBSBlockDeviceRequest,
-    deviceName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+    virtualName :: Lude.Maybe Lude.Text,
+    -- | Suppresses the specified device included in the block device mapping of the AMI.
+    noDevice :: Lude.Maybe Lude.Text,
+    -- | Parameters used to automatically set up EBS volumes when the instance is launched.
+    ebs :: Lude.Maybe LaunchTemplateEBSBlockDeviceRequest,
+    -- | The device name (for example, /dev/sdh or xvdh).
+    deviceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateBlockDeviceMappingRequest' with the minimum fields required to make a request.
 --
--- * 'deviceName' - The device name (for example, /dev/sdh or xvdh).
--- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
--- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
 -- * 'virtualName' - The virtual device name (ephemeralN). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for ephemeral0 and ephemeral1. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
+-- * 'noDevice' - Suppresses the specified device included in the block device mapping of the AMI.
+-- * 'ebs' - Parameters used to automatically set up EBS volumes when the instance is launched.
+-- * 'deviceName' - The device name (for example, /dev/sdh or xvdh).
 mkLaunchTemplateBlockDeviceMappingRequest ::
   LaunchTemplateBlockDeviceMappingRequest
 mkLaunchTemplateBlockDeviceMappingRequest =

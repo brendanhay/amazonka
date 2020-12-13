@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
-  { keyId :: Lude.Maybe Lude.Text,
+  { -- | Unique identifier of the key.
+    keyId :: Lude.Maybe Lude.Text,
+    -- | ARN of the key.
     keyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyListEntry' with the minimum fields required to make a request.
 --
--- * 'keyARN' - ARN of the key.
 -- * 'keyId' - Unique identifier of the key.
+-- * 'keyARN' - ARN of the key.
 mkKeyListEntry ::
   KeyListEntry
 mkKeyListEntry =

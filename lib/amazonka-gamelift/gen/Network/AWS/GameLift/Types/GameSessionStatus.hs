@@ -13,11 +13,11 @@
 module Network.AWS.GameLift.Types.GameSessionStatus
   ( GameSessionStatus
       ( GameSessionStatus',
-        GSSActivating,
         GSSActive,
-        GSSError,
+        GSSActivating,
         GSSTerminated,
-        GSSTerminating
+        GSSTerminating,
+        GSSError
       ),
   )
 where
@@ -48,14 +48,11 @@ newtype GameSessionStatus = GameSessionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern GSSActivating :: GameSessionStatus
-pattern GSSActivating = GameSessionStatus' "ACTIVATING"
-
 pattern GSSActive :: GameSessionStatus
 pattern GSSActive = GameSessionStatus' "ACTIVE"
 
-pattern GSSError :: GameSessionStatus
-pattern GSSError = GameSessionStatus' "ERROR"
+pattern GSSActivating :: GameSessionStatus
+pattern GSSActivating = GameSessionStatus' "ACTIVATING"
 
 pattern GSSTerminated :: GameSessionStatus
 pattern GSSTerminated = GameSessionStatus' "TERMINATED"
@@ -63,11 +60,14 @@ pattern GSSTerminated = GameSessionStatus' "TERMINATED"
 pattern GSSTerminating :: GameSessionStatus
 pattern GSSTerminating = GameSessionStatus' "TERMINATING"
 
+pattern GSSError :: GameSessionStatus
+pattern GSSError = GameSessionStatus' "ERROR"
+
 {-# COMPLETE
-  GSSActivating,
   GSSActive,
-  GSSError,
+  GSSActivating,
   GSSTerminated,
   GSSTerminating,
+  GSSError,
   GameSessionStatus'
   #-}

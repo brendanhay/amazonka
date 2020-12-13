@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParticipantDetails' smart constructor.
 newtype ParticipantDetails = ParticipantDetails'
-  { displayName ::
-      Lude.Text
+  { -- | Display name of the participant.
+    displayName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParticipantDetails' with the minimum fields required to make a request.

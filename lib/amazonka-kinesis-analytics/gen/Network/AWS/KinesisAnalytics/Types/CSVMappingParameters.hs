@@ -32,23 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCSVMappingParameters' smart constructor.
 data CSVMappingParameters = CSVMappingParameters'
-  { recordRowDelimiter ::
-      Lude.Text,
+  { -- | Row delimiter. For example, in a CSV format, /'\n'/ is the typical row delimiter.
+    recordRowDelimiter :: Lude.Text,
+    -- | Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
     recordColumnDelimiter :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CSVMappingParameters' with the minimum fields required to make a request.
 --
--- * 'recordColumnDelimiter' - Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
 -- * 'recordRowDelimiter' - Row delimiter. For example, in a CSV format, /'\n'/ is the typical row delimiter.
+-- * 'recordColumnDelimiter' - Column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
 mkCSVMappingParameters ::
   -- | 'recordRowDelimiter'
   Lude.Text ->

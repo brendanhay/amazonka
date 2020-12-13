@@ -18,8 +18,8 @@ module Network.AWS.WAFRegional.Types.IPSet
 
     -- * Lenses
     isName,
-    isIPSetId,
     isIPSetDescriptors,
+    isIPSetId,
   )
 where
 
@@ -33,26 +33,25 @@ import Network.AWS.WAFRegional.Types.IPSetDescriptor
 --
 -- /See:/ 'mkIPSet' smart constructor.
 data IPSet = IPSet'
-  { name :: Lude.Maybe Lude.Text,
-    ipSetId :: Lude.Text,
-    ipSetDescriptors :: [IPSetDescriptor]
+  { -- | A friendly name or description of the 'IPSet' . You can't change the name of an @IPSet@ after you create it.
+    name :: Lude.Maybe Lude.Text,
+    -- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.
+    ipSetDescriptors :: [IPSetDescriptor],
+    -- | The @IPSetId@ for an @IPSet@ . You use @IPSetId@ to get information about an @IPSet@ (see 'GetIPSet' ), update an @IPSet@ (see 'UpdateIPSet' ), insert an @IPSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @IPSet@ from AWS WAF (see 'DeleteIPSet' ).
+    --
+    -- @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
+    ipSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPSet' with the minimum fields required to make a request.
 --
+-- * 'name' - A friendly name or description of the 'IPSet' . You can't change the name of an @IPSet@ after you create it.
 -- * 'ipSetDescriptors' - The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.
 -- * 'ipSetId' - The @IPSetId@ for an @IPSet@ . You use @IPSetId@ to get information about an @IPSet@ (see 'GetIPSet' ), update an @IPSet@ (see 'UpdateIPSet' ), insert an @IPSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @IPSet@ from AWS WAF (see 'DeleteIPSet' ).
 --
 -- @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
--- * 'name' - A friendly name or description of the 'IPSet' . You can't change the name of an @IPSet@ after you create it.
 mkIPSet ::
   -- | 'ipSetId'
   Lude.Text ->
@@ -60,8 +59,8 @@ mkIPSet ::
 mkIPSet pIPSetId_ =
   IPSet'
     { name = Lude.Nothing,
-      ipSetId = pIPSetId_,
-      ipSetDescriptors = Lude.mempty
+      ipSetDescriptors = Lude.mempty,
+      ipSetId = pIPSetId_
     }
 
 -- | A friendly name or description of the 'IPSet' . You can't change the name of an @IPSet@ after you create it.
@@ -70,6 +69,13 @@ mkIPSet pIPSetId_ =
 isName :: Lens.Lens' IPSet (Lude.Maybe Lude.Text)
 isName = Lens.lens (name :: IPSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: IPSet)
 {-# DEPRECATED isName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.
+--
+-- /Note:/ Consider using 'ipSetDescriptors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isIPSetDescriptors :: Lens.Lens' IPSet [IPSetDescriptor]
+isIPSetDescriptors = Lens.lens (ipSetDescriptors :: IPSet -> [IPSetDescriptor]) (\s a -> s {ipSetDescriptors = a} :: IPSet)
+{-# DEPRECATED isIPSetDescriptors "Use generic-lens or generic-optics with 'ipSetDescriptors' instead." #-}
 
 -- | The @IPSetId@ for an @IPSet@ . You use @IPSetId@ to get information about an @IPSet@ (see 'GetIPSet' ), update an @IPSet@ (see 'UpdateIPSet' ), insert an @IPSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @IPSet@ from AWS WAF (see 'DeleteIPSet' ).
 --
@@ -80,13 +86,6 @@ isIPSetId :: Lens.Lens' IPSet Lude.Text
 isIPSetId = Lens.lens (ipSetId :: IPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: IPSet)
 {-# DEPRECATED isIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
 
--- | The IP address type (@IPV4@ or @IPV6@ ) and the IP address range (in CIDR notation) that web requests originate from. If the @WebACL@ is associated with a CloudFront distribution and the viewer did not use an HTTP proxy or a load balancer to send the request, this is the value of the c-ip field in the CloudFront access logs.
---
--- /Note:/ Consider using 'ipSetDescriptors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isIPSetDescriptors :: Lens.Lens' IPSet [IPSetDescriptor]
-isIPSetDescriptors = Lens.lens (ipSetDescriptors :: IPSet -> [IPSetDescriptor]) (\s a -> s {ipSetDescriptors = a} :: IPSet)
-{-# DEPRECATED isIPSetDescriptors "Use generic-lens or generic-optics with 'ipSetDescriptors' instead." #-}
-
 instance Lude.FromJSON IPSet where
   parseJSON =
     Lude.withObject
@@ -94,6 +93,6 @@ instance Lude.FromJSON IPSet where
       ( \x ->
           IPSet'
             Lude.<$> (x Lude..:? "Name")
-            Lude.<*> (x Lude..: "IPSetId")
             Lude.<*> (x Lude..:? "IPSetDescriptors" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "IPSetId")
       )

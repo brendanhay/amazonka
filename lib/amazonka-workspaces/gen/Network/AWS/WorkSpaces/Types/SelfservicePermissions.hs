@@ -33,30 +33,27 @@ import Network.AWS.WorkSpaces.Types.ReconnectEnum
 --
 -- /See:/ 'mkSelfservicePermissions' smart constructor.
 data SelfservicePermissions = SelfservicePermissions'
-  { restartWorkspace ::
-      Lude.Maybe ReconnectEnum,
+  { -- | Specifies whether users can restart their WorkSpace.
+    restartWorkspace :: Lude.Maybe ReconnectEnum,
+    -- | Specifies whether users can change the compute type (bundle) for their WorkSpace.
     changeComputeType :: Lude.Maybe ReconnectEnum,
+    -- | Specifies whether users can switch the running mode of their WorkSpace.
     switchRunningMode :: Lude.Maybe ReconnectEnum,
+    -- | Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
     rebuildWorkspace :: Lude.Maybe ReconnectEnum,
-    increaseVolumeSize ::
-      Lude.Maybe ReconnectEnum
+    -- | Specifies whether users can increase the volume size of the drives on their WorkSpace.
+    increaseVolumeSize :: Lude.Maybe ReconnectEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelfservicePermissions' with the minimum fields required to make a request.
 --
--- * 'changeComputeType' - Specifies whether users can change the compute type (bundle) for their WorkSpace.
--- * 'increaseVolumeSize' - Specifies whether users can increase the volume size of the drives on their WorkSpace.
--- * 'rebuildWorkspace' - Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
 -- * 'restartWorkspace' - Specifies whether users can restart their WorkSpace.
+-- * 'changeComputeType' - Specifies whether users can change the compute type (bundle) for their WorkSpace.
 -- * 'switchRunningMode' - Specifies whether users can switch the running mode of their WorkSpace.
+-- * 'rebuildWorkspace' - Specifies whether users can rebuild the operating system of a WorkSpace to its original state.
+-- * 'increaseVolumeSize' - Specifies whether users can increase the volume size of the drives on their WorkSpace.
 mkSelfservicePermissions ::
   SelfservicePermissions
 mkSelfservicePermissions =

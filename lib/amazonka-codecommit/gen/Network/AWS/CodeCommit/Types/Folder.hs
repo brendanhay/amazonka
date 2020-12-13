@@ -17,9 +17,9 @@ module Network.AWS.CodeCommit.Types.Folder
     mkFolder,
 
     -- * Lenses
-    folAbsolutePath,
-    folTreeId,
-    folRelativePath,
+    ffAbsolutePath,
+    ffTreeId,
+    ffRelativePath,
   )
 where
 
@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFolder' smart constructor.
 data Folder = Folder'
-  { absolutePath :: Lude.Maybe Lude.Text,
+  { -- | The fully qualified path of the folder in the repository.
+    absolutePath :: Lude.Maybe Lude.Text,
+    -- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
     treeId :: Lude.Maybe Lude.Text,
+    -- | The relative path of the specified folder from the folder where the query originated.
     relativePath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Folder' with the minimum fields required to make a request.
 --
 -- * 'absolutePath' - The fully qualified path of the folder in the repository.
--- * 'relativePath' - The relative path of the specified folder from the folder where the query originated.
 -- * 'treeId' - The full SHA-1 pointer of the tree information for the commit that contains the folder.
+-- * 'relativePath' - The relative path of the specified folder from the folder where the query originated.
 mkFolder ::
   Folder
 mkFolder =
@@ -60,23 +57,23 @@ mkFolder =
 -- | The fully qualified path of the folder in the repository.
 --
 -- /Note:/ Consider using 'absolutePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-folAbsolutePath :: Lens.Lens' Folder (Lude.Maybe Lude.Text)
-folAbsolutePath = Lens.lens (absolutePath :: Folder -> Lude.Maybe Lude.Text) (\s a -> s {absolutePath = a} :: Folder)
-{-# DEPRECATED folAbsolutePath "Use generic-lens or generic-optics with 'absolutePath' instead." #-}
+ffAbsolutePath :: Lens.Lens' Folder (Lude.Maybe Lude.Text)
+ffAbsolutePath = Lens.lens (absolutePath :: Folder -> Lude.Maybe Lude.Text) (\s a -> s {absolutePath = a} :: Folder)
+{-# DEPRECATED ffAbsolutePath "Use generic-lens or generic-optics with 'absolutePath' instead." #-}
 
 -- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
 --
 -- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-folTreeId :: Lens.Lens' Folder (Lude.Maybe Lude.Text)
-folTreeId = Lens.lens (treeId :: Folder -> Lude.Maybe Lude.Text) (\s a -> s {treeId = a} :: Folder)
-{-# DEPRECATED folTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
+ffTreeId :: Lens.Lens' Folder (Lude.Maybe Lude.Text)
+ffTreeId = Lens.lens (treeId :: Folder -> Lude.Maybe Lude.Text) (\s a -> s {treeId = a} :: Folder)
+{-# DEPRECATED ffTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
 
 -- | The relative path of the specified folder from the folder where the query originated.
 --
 -- /Note:/ Consider using 'relativePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-folRelativePath :: Lens.Lens' Folder (Lude.Maybe Lude.Text)
-folRelativePath = Lens.lens (relativePath :: Folder -> Lude.Maybe Lude.Text) (\s a -> s {relativePath = a} :: Folder)
-{-# DEPRECATED folRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
+ffRelativePath :: Lens.Lens' Folder (Lude.Maybe Lude.Text)
+ffRelativePath = Lens.lens (relativePath :: Folder -> Lude.Maybe Lude.Text) (\s a -> s {relativePath = a} :: Folder)
+{-# DEPRECATED ffRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
 
 instance Lude.FromJSON Folder where
   parseJSON =

@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.M3u8TimedMetadataBehavior
   ( M3u8TimedMetadataBehavior
       ( M3u8TimedMetadataBehavior',
-        M3uNoPassthrough,
-        M3uPassthrough
+        MTMBfNoPassthrough,
+        MTMBfPassthrough
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M3u8TimedMetadataBehavior = M3u8TimedMetadataBehavior' Lude.Text
       Lude.ToHeader
     )
 
-pattern M3uNoPassthrough :: M3u8TimedMetadataBehavior
-pattern M3uNoPassthrough = M3u8TimedMetadataBehavior' "NO_PASSTHROUGH"
+pattern MTMBfNoPassthrough :: M3u8TimedMetadataBehavior
+pattern MTMBfNoPassthrough = M3u8TimedMetadataBehavior' "NO_PASSTHROUGH"
 
-pattern M3uPassthrough :: M3u8TimedMetadataBehavior
-pattern M3uPassthrough = M3u8TimedMetadataBehavior' "PASSTHROUGH"
+pattern MTMBfPassthrough :: M3u8TimedMetadataBehavior
+pattern MTMBfPassthrough = M3u8TimedMetadataBehavior' "PASSTHROUGH"
 
 {-# COMPLETE
-  M3uNoPassthrough,
-  M3uPassthrough,
+  MTMBfNoPassthrough,
+  MTMBfPassthrough,
   M3u8TimedMetadataBehavior'
   #-}

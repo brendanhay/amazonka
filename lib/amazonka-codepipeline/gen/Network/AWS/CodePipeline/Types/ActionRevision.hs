@@ -17,9 +17,9 @@ module Network.AWS.CodePipeline.Types.ActionRevision
     mkActionRevision,
 
     -- * Lenses
-    aRevisionId,
-    aRevisionChangeId,
     aCreated,
+    aRevisionChangeId,
+    aRevisionId,
   )
 where
 
@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionRevision' smart constructor.
 data ActionRevision = ActionRevision'
-  { revisionId :: Lude.Text,
+  { -- | The date and time when the most recent version of the action was created, in timestamp format.
+    created :: Lude.Timestamp,
+    -- | The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).
     revisionChangeId :: Lude.Text,
-    created :: Lude.Timestamp
+    -- | The system-generated unique ID that identifies the revision number of the action.
+    revisionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionRevision' with the minimum fields required to make a request.
@@ -49,33 +46,19 @@ data ActionRevision = ActionRevision'
 -- * 'revisionChangeId' - The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).
 -- * 'revisionId' - The system-generated unique ID that identifies the revision number of the action.
 mkActionRevision ::
-  -- | 'revisionId'
-  Lude.Text ->
-  -- | 'revisionChangeId'
-  Lude.Text ->
   -- | 'created'
   Lude.Timestamp ->
+  -- | 'revisionChangeId'
+  Lude.Text ->
+  -- | 'revisionId'
+  Lude.Text ->
   ActionRevision
-mkActionRevision pRevisionId_ pRevisionChangeId_ pCreated_ =
+mkActionRevision pCreated_ pRevisionChangeId_ pRevisionId_ =
   ActionRevision'
-    { revisionId = pRevisionId_,
+    { created = pCreated_,
       revisionChangeId = pRevisionChangeId_,
-      created = pCreated_
+      revisionId = pRevisionId_
     }
-
--- | The system-generated unique ID that identifies the revision number of the action.
---
--- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aRevisionId :: Lens.Lens' ActionRevision Lude.Text
-aRevisionId = Lens.lens (revisionId :: ActionRevision -> Lude.Text) (\s a -> s {revisionId = a} :: ActionRevision)
-{-# DEPRECATED aRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
-
--- | The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).
---
--- /Note:/ Consider using 'revisionChangeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aRevisionChangeId :: Lens.Lens' ActionRevision Lude.Text
-aRevisionChangeId = Lens.lens (revisionChangeId :: ActionRevision -> Lude.Text) (\s a -> s {revisionChangeId = a} :: ActionRevision)
-{-# DEPRECATED aRevisionChangeId "Use generic-lens or generic-optics with 'revisionChangeId' instead." #-}
 
 -- | The date and time when the most recent version of the action was created, in timestamp format.
 --
@@ -84,23 +67,37 @@ aCreated :: Lens.Lens' ActionRevision Lude.Timestamp
 aCreated = Lens.lens (created :: ActionRevision -> Lude.Timestamp) (\s a -> s {created = a} :: ActionRevision)
 {-# DEPRECATED aCreated "Use generic-lens or generic-optics with 'created' instead." #-}
 
+-- | The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp).
+--
+-- /Note:/ Consider using 'revisionChangeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRevisionChangeId :: Lens.Lens' ActionRevision Lude.Text
+aRevisionChangeId = Lens.lens (revisionChangeId :: ActionRevision -> Lude.Text) (\s a -> s {revisionChangeId = a} :: ActionRevision)
+{-# DEPRECATED aRevisionChangeId "Use generic-lens or generic-optics with 'revisionChangeId' instead." #-}
+
+-- | The system-generated unique ID that identifies the revision number of the action.
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aRevisionId :: Lens.Lens' ActionRevision Lude.Text
+aRevisionId = Lens.lens (revisionId :: ActionRevision -> Lude.Text) (\s a -> s {revisionId = a} :: ActionRevision)
+{-# DEPRECATED aRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
+
 instance Lude.FromJSON ActionRevision where
   parseJSON =
     Lude.withObject
       "ActionRevision"
       ( \x ->
           ActionRevision'
-            Lude.<$> (x Lude..: "revisionId")
+            Lude.<$> (x Lude..: "created")
             Lude.<*> (x Lude..: "revisionChangeId")
-            Lude.<*> (x Lude..: "created")
+            Lude.<*> (x Lude..: "revisionId")
       )
 
 instance Lude.ToJSON ActionRevision where
   toJSON ActionRevision' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("revisionId" Lude..= revisionId),
+          [ Lude.Just ("created" Lude..= created),
             Lude.Just ("revisionChangeId" Lude..= revisionChangeId),
-            Lude.Just ("created" Lude..= created)
+            Lude.Just ("revisionId" Lude..= revisionId)
           ]
       )

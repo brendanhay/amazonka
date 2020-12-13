@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Connect.CreateInstance
     -- ** Request lenses
     ciDirectoryId,
     ciClientToken,
+    ciOutboundCallsEnabled,
+    ciInboundCallsEnabled,
     ciInstanceAlias,
     ciIdentityManagementType,
-    ciInboundCallsEnabled,
-    ciOutboundCallsEnabled,
 
     -- * Destructuring the response
     CreateInstanceResponse (..),
@@ -45,44 +46,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateInstance' smart constructor.
 data CreateInstance = CreateInstance'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier for the directory.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The idempotency token.
     clientToken :: Lude.Maybe Lude.Text,
-    instanceAlias :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    identityManagementType :: DirectoryType,
+    -- | Whether your contact center allows outbound calls.
+    outboundCallsEnabled :: Lude.Bool,
+    -- | Whether your contact center handles incoming contacts.
     inboundCallsEnabled :: Lude.Bool,
-    outboundCallsEnabled :: Lude.Bool
+    -- | The name for your instance.
+    instanceAlias :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The type of identity management for your Amazon Connect users.
+    identityManagementType :: DirectoryType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstance' with the minimum fields required to make a request.
 --
--- * 'clientToken' - The idempotency token.
 -- * 'directoryId' - The identifier for the directory.
--- * 'identityManagementType' - The type of identity management for your Amazon Connect users.
+-- * 'clientToken' - The idempotency token.
+-- * 'outboundCallsEnabled' - Whether your contact center allows outbound calls.
 -- * 'inboundCallsEnabled' - Whether your contact center handles incoming contacts.
 -- * 'instanceAlias' - The name for your instance.
--- * 'outboundCallsEnabled' - Whether your contact center allows outbound calls.
+-- * 'identityManagementType' - The type of identity management for your Amazon Connect users.
 mkCreateInstance ::
-  -- | 'identityManagementType'
-  DirectoryType ->
-  -- | 'inboundCallsEnabled'
-  Lude.Bool ->
   -- | 'outboundCallsEnabled'
   Lude.Bool ->
+  -- | 'inboundCallsEnabled'
+  Lude.Bool ->
+  -- | 'identityManagementType'
+  DirectoryType ->
   CreateInstance
 mkCreateInstance
-  pIdentityManagementType_
+  pOutboundCallsEnabled_
   pInboundCallsEnabled_
-  pOutboundCallsEnabled_ =
+  pIdentityManagementType_ =
     CreateInstance'
       { directoryId = Lude.Nothing,
         clientToken = Lude.Nothing,
-        instanceAlias = Lude.Nothing,
-        identityManagementType = pIdentityManagementType_,
+        outboundCallsEnabled = pOutboundCallsEnabled_,
         inboundCallsEnabled = pInboundCallsEnabled_,
-        outboundCallsEnabled = pOutboundCallsEnabled_
+        instanceAlias = Lude.Nothing,
+        identityManagementType = pIdentityManagementType_
       }
 
 -- | The identifier for the directory.
@@ -99,6 +105,20 @@ ciClientToken :: Lens.Lens' CreateInstance (Lude.Maybe Lude.Text)
 ciClientToken = Lens.lens (clientToken :: CreateInstance -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateInstance)
 {-# DEPRECATED ciClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
+-- | Whether your contact center allows outbound calls.
+--
+-- /Note:/ Consider using 'outboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciOutboundCallsEnabled :: Lens.Lens' CreateInstance Lude.Bool
+ciOutboundCallsEnabled = Lens.lens (outboundCallsEnabled :: CreateInstance -> Lude.Bool) (\s a -> s {outboundCallsEnabled = a} :: CreateInstance)
+{-# DEPRECATED ciOutboundCallsEnabled "Use generic-lens or generic-optics with 'outboundCallsEnabled' instead." #-}
+
+-- | Whether your contact center handles incoming contacts.
+--
+-- /Note:/ Consider using 'inboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciInboundCallsEnabled :: Lens.Lens' CreateInstance Lude.Bool
+ciInboundCallsEnabled = Lens.lens (inboundCallsEnabled :: CreateInstance -> Lude.Bool) (\s a -> s {inboundCallsEnabled = a} :: CreateInstance)
+{-# DEPRECATED ciInboundCallsEnabled "Use generic-lens or generic-optics with 'inboundCallsEnabled' instead." #-}
+
 -- | The name for your instance.
 --
 -- /Note:/ Consider using 'instanceAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -112,20 +132,6 @@ ciInstanceAlias = Lens.lens (instanceAlias :: CreateInstance -> Lude.Maybe (Lude
 ciIdentityManagementType :: Lens.Lens' CreateInstance DirectoryType
 ciIdentityManagementType = Lens.lens (identityManagementType :: CreateInstance -> DirectoryType) (\s a -> s {identityManagementType = a} :: CreateInstance)
 {-# DEPRECATED ciIdentityManagementType "Use generic-lens or generic-optics with 'identityManagementType' instead." #-}
-
--- | Whether your contact center handles incoming contacts.
---
--- /Note:/ Consider using 'inboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciInboundCallsEnabled :: Lens.Lens' CreateInstance Lude.Bool
-ciInboundCallsEnabled = Lens.lens (inboundCallsEnabled :: CreateInstance -> Lude.Bool) (\s a -> s {inboundCallsEnabled = a} :: CreateInstance)
-{-# DEPRECATED ciInboundCallsEnabled "Use generic-lens or generic-optics with 'inboundCallsEnabled' instead." #-}
-
--- | Whether your contact center allows outbound calls.
---
--- /Note:/ Consider using 'outboundCallsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciOutboundCallsEnabled :: Lens.Lens' CreateInstance Lude.Bool
-ciOutboundCallsEnabled = Lens.lens (outboundCallsEnabled :: CreateInstance -> Lude.Bool) (\s a -> s {outboundCallsEnabled = a} :: CreateInstance)
-{-# DEPRECATED ciOutboundCallsEnabled "Use generic-lens or generic-optics with 'outboundCallsEnabled' instead." #-}
 
 instance Lude.AWSRequest CreateInstance where
   type Rs CreateInstance = CreateInstanceResponse
@@ -154,11 +160,11 @@ instance Lude.ToJSON CreateInstance where
       ( Lude.catMaybes
           [ ("DirectoryId" Lude..=) Lude.<$> directoryId,
             ("ClientToken" Lude..=) Lude.<$> clientToken,
+            Lude.Just ("OutboundCallsEnabled" Lude..= outboundCallsEnabled),
+            Lude.Just ("InboundCallsEnabled" Lude..= inboundCallsEnabled),
             ("InstanceAlias" Lude..=) Lude.<$> instanceAlias,
             Lude.Just
-              ("IdentityManagementType" Lude..= identityManagementType),
-            Lude.Just ("InboundCallsEnabled" Lude..= inboundCallsEnabled),
-            Lude.Just ("OutboundCallsEnabled" Lude..= outboundCallsEnabled)
+              ("IdentityManagementType" Lude..= identityManagementType)
           ]
       )
 
@@ -170,18 +176,14 @@ instance Lude.ToQuery CreateInstance where
 
 -- | /See:/ 'mkCreateInstanceResponse' smart constructor.
 data CreateInstanceResponse = CreateInstanceResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the instance.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The identifier for the instance.
     id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstanceResponse' with the minimum fields required to make a request.

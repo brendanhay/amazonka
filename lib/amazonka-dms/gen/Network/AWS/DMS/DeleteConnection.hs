@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DMS.DeleteConnection
     mkDeleteConnection,
 
     -- ** Request lenses
-    dcEndpointARN,
     dcReplicationInstanceARN,
+    dcEndpointARN,
 
     -- * Destructuring the response
     DeleteConnectionResponse (..),
@@ -42,40 +43,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteConnection' smart constructor.
 data DeleteConnection = DeleteConnection'
-  { endpointARN :: Lude.Text,
-    replicationInstanceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+    endpointARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnection' with the minimum fields required to make a request.
 --
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 -- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 mkDeleteConnection ::
-  -- | 'endpointARN'
-  Lude.Text ->
   -- | 'replicationInstanceARN'
   Lude.Text ->
+  -- | 'endpointARN'
+  Lude.Text ->
   DeleteConnection
-mkDeleteConnection pEndpointARN_ pReplicationInstanceARN_ =
+mkDeleteConnection pReplicationInstanceARN_ pEndpointARN_ =
   DeleteConnection'
-    { endpointARN = pEndpointARN_,
-      replicationInstanceARN = pReplicationInstanceARN_
+    { replicationInstanceARN =
+        pReplicationInstanceARN_,
+      endpointARN = pEndpointARN_
     }
-
--- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
---
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcEndpointARN :: Lens.Lens' DeleteConnection Lude.Text
-dcEndpointARN = Lens.lens (endpointARN :: DeleteConnection -> Lude.Text) (\s a -> s {endpointARN = a} :: DeleteConnection)
-{-# DEPRECATED dcEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 --
@@ -83,6 +74,13 @@ dcEndpointARN = Lens.lens (endpointARN :: DeleteConnection -> Lude.Text) (\s a -
 dcReplicationInstanceARN :: Lens.Lens' DeleteConnection Lude.Text
 dcReplicationInstanceARN = Lens.lens (replicationInstanceARN :: DeleteConnection -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: DeleteConnection)
 {-# DEPRECATED dcReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
+
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+--
+-- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcEndpointARN :: Lens.Lens' DeleteConnection Lude.Text
+dcEndpointARN = Lens.lens (endpointARN :: DeleteConnection -> Lude.Text) (\s a -> s {endpointARN = a} :: DeleteConnection)
+{-# DEPRECATED dcEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
 
 instance Lude.AWSRequest DeleteConnection where
   type Rs DeleteConnection = DeleteConnectionResponse
@@ -109,9 +107,9 @@ instance Lude.ToJSON DeleteConnection where
   toJSON DeleteConnection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("EndpointArn" Lude..= endpointARN),
-            Lude.Just
-              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
+          [ Lude.Just
+              ("ReplicationInstanceArn" Lude..= replicationInstanceARN),
+            Lude.Just ("EndpointArn" Lude..= endpointARN)
           ]
       )
 
@@ -125,17 +123,12 @@ instance Lude.ToQuery DeleteConnection where
 --
 -- /See:/ 'mkDeleteConnectionResponse' smart constructor.
 data DeleteConnectionResponse = DeleteConnectionResponse'
-  { connection ::
-      Lude.Maybe Connection,
+  { -- | The connection that is being deleted.
+    connection :: Lude.Maybe Connection,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConnectionResponse' with the minimum fields required to make a request.

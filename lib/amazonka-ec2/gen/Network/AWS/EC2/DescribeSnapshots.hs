@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -69,27 +70,65 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSnapshots' smart constructor.
 data DescribeSnapshots = DescribeSnapshots'
-  { ownerIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | Scopes the results to snapshots with the specified owners. You can specify a combination of AWS account IDs, @self@ , and @amazon@ .
+    ownerIds :: Lude.Maybe [Lude.Text],
+    -- | The filters.
+    --
+    --
+    --     * @description@ - A description of the snapshot.
+    --
+    --
+    --     * @encrypted@ - Indicates whether the snapshot is encrypted (@true@ | @false@ )
+    --
+    --
+    --     * @owner-alias@ - The owner alias, from an Amazon-maintained list (@amazon@ ). This is not the user-configured AWS account alias set using the IAM console. We recommend that you use the related parameter instead of this filter.
+    --
+    --
+    --     * @owner-id@ - The AWS account ID of the owner. We recommend that you use the related parameter instead of this filter.
+    --
+    --
+    --     * @progress@ - The progress of the snapshot, as a percentage (for example, 80%).
+    --
+    --
+    --     * @snapshot-id@ - The snapshot ID.
+    --
+    --
+    --     * @start-time@ - The time stamp when the snapshot was initiated.
+    --
+    --
+    --     * @status@ - The status of the snapshot (@pending@ | @completed@ | @error@ ).
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    --
+    --
+    --     * @volume-id@ - The ID of the volume the snapshot is for.
+    --
+    --
+    --     * @volume-size@ - The size of the volume, in GiB.
     filters :: Lude.Maybe [Filter],
+    -- | The @NextToken@ value returned from a previous paginated @DescribeSnapshots@ request where @MaxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The snapshot IDs.
+    --
+    -- Default: Describes the snapshots for which you have create volume permissions.
     snapshotIds :: Lude.Maybe [Lude.Text],
+    -- | The IDs of the AWS accounts that can create volumes from the snapshot.
     restorableByUserIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of snapshot results returned by @DescribeSnapshots@ in paginated output. When this parameter is used, @DescribeSnapshots@ only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeSnapshots@ request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeSnapshots@ returns all results. You cannot specify this parameter and the snapshot IDs parameter in the same request.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshots' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'ownerIds' - Scopes the results to snapshots with the specified owners. You can specify a combination of AWS account IDs, @self@ , and @amazon@ .
 -- * 'filters' - The filters.
 --
 --
@@ -129,13 +168,13 @@ data DescribeSnapshots = DescribeSnapshots'
 --     * @volume-size@ - The size of the volume, in GiB.
 --
 --
--- * 'maxResults' - The maximum number of snapshot results returned by @DescribeSnapshots@ in paginated output. When this parameter is used, @DescribeSnapshots@ only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeSnapshots@ request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeSnapshots@ returns all results. You cannot specify this parameter and the snapshot IDs parameter in the same request.
 -- * 'nextToken' - The @NextToken@ value returned from a previous paginated @DescribeSnapshots@ request where @MaxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @NextToken@ value. This value is @null@ when there are no more results to return.
--- * 'ownerIds' - Scopes the results to snapshots with the specified owners. You can specify a combination of AWS account IDs, @self@ , and @amazon@ .
--- * 'restorableByUserIds' - The IDs of the AWS accounts that can create volumes from the snapshot.
 -- * 'snapshotIds' - The snapshot IDs.
 --
 -- Default: Describes the snapshots for which you have create volume permissions.
+-- * 'restorableByUserIds' - The IDs of the AWS accounts that can create volumes from the snapshot.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of snapshot results returned by @DescribeSnapshots@ in paginated output. When this parameter is used, @DescribeSnapshots@ only returns @MaxResults@ results in a single page along with a @NextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeSnapshots@ request with the returned @NextToken@ value. This value can be between 5 and 1000; if @MaxResults@ is given a value larger than 1000, only 1000 results are returned. If this parameter is not used, then @DescribeSnapshots@ returns all results. You cannot specify this parameter and the snapshot IDs parameter in the same request.
 mkDescribeSnapshots ::
   DescribeSnapshots
 mkDescribeSnapshots =
@@ -284,25 +323,21 @@ instance Lude.ToQuery DescribeSnapshots where
 
 -- | /See:/ 'mkDescribeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @NextToken@ value to include in a future @DescribeSnapshots@ request. When the results of a @DescribeSnapshots@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the snapshots.
     snapshots :: Lude.Maybe [Snapshot],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The @NextToken@ value to include in a future @DescribeSnapshots@ request. When the results of a @DescribeSnapshots@ request exceed @MaxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'snapshots' - Information about the snapshots.
+-- * 'responseStatus' - The response status code.
 mkDescribeSnapshotsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

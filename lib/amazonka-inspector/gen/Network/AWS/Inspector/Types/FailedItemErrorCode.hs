@@ -13,12 +13,12 @@
 module Network.AWS.Inspector.Types.FailedItemErrorCode
   ( FailedItemErrorCode
       ( FailedItemErrorCode',
-        FIECAccessDenied,
-        FIECDuplicateARN,
-        FIECInternalError,
         FIECInvalidARN,
+        FIECDuplicateARN,
         FIECItemDoesNotExist,
-        FIECLimitExceeded
+        FIECAccessDenied,
+        FIECLimitExceeded,
+        FIECInternalError
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype FailedItemErrorCode = FailedItemErrorCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern FIECAccessDenied :: FailedItemErrorCode
-pattern FIECAccessDenied = FailedItemErrorCode' "ACCESS_DENIED"
+pattern FIECInvalidARN :: FailedItemErrorCode
+pattern FIECInvalidARN = FailedItemErrorCode' "INVALID_ARN"
 
 pattern FIECDuplicateARN :: FailedItemErrorCode
 pattern FIECDuplicateARN = FailedItemErrorCode' "DUPLICATE_ARN"
 
-pattern FIECInternalError :: FailedItemErrorCode
-pattern FIECInternalError = FailedItemErrorCode' "INTERNAL_ERROR"
-
-pattern FIECInvalidARN :: FailedItemErrorCode
-pattern FIECInvalidARN = FailedItemErrorCode' "INVALID_ARN"
-
 pattern FIECItemDoesNotExist :: FailedItemErrorCode
 pattern FIECItemDoesNotExist = FailedItemErrorCode' "ITEM_DOES_NOT_EXIST"
+
+pattern FIECAccessDenied :: FailedItemErrorCode
+pattern FIECAccessDenied = FailedItemErrorCode' "ACCESS_DENIED"
 
 pattern FIECLimitExceeded :: FailedItemErrorCode
 pattern FIECLimitExceeded = FailedItemErrorCode' "LIMIT_EXCEEDED"
 
+pattern FIECInternalError :: FailedItemErrorCode
+pattern FIECInternalError = FailedItemErrorCode' "INTERNAL_ERROR"
+
 {-# COMPLETE
-  FIECAccessDenied,
-  FIECDuplicateARN,
-  FIECInternalError,
   FIECInvalidARN,
+  FIECDuplicateARN,
   FIECItemDoesNotExist,
+  FIECAccessDenied,
   FIECLimitExceeded,
+  FIECInternalError,
   FailedItemErrorCode'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ImageTypeValues
   ( ImageTypeValues
       ( ImageTypeValues',
-        ITVKernel,
         ITVMachine,
+        ITVKernel,
         ITVRAMDisk
       ),
   )
@@ -46,18 +46,18 @@ newtype ImageTypeValues = ImageTypeValues' Lude.Text
       Lude.ToHeader
     )
 
-pattern ITVKernel :: ImageTypeValues
-pattern ITVKernel = ImageTypeValues' "kernel"
-
 pattern ITVMachine :: ImageTypeValues
 pattern ITVMachine = ImageTypeValues' "machine"
+
+pattern ITVKernel :: ImageTypeValues
+pattern ITVKernel = ImageTypeValues' "kernel"
 
 pattern ITVRAMDisk :: ImageTypeValues
 pattern ITVRAMDisk = ImageTypeValues' "ramdisk"
 
 {-# COMPLETE
-  ITVKernel,
   ITVMachine,
+  ITVKernel,
   ITVRAMDisk,
   ImageTypeValues'
   #-}

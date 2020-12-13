@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,35 +48,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTestGridSessions' smart constructor.
 data ListTestGridSessions = ListTestGridSessions'
-  { status ::
-      Lude.Maybe TestGridSessionStatus,
+  { -- | Return only sessions in this state.
+    status :: Lude.Maybe TestGridSessionStatus,
+    -- | Return only this many results at a time.
     maxResult :: Lude.Maybe Lude.Natural,
+    -- | Return only sessions created after this time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Return only sessions that ended before this time.
     endTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | Return only sessions that ended after this time.
     endTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Pagination token.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Return only sessions created before this time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | ARN of a 'TestGridProject' .
     projectARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridSessions' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - Return only sessions created after this time.
--- * 'creationTimeBefore' - Return only sessions created before this time.
--- * 'endTimeAfter' - Return only sessions that ended after this time.
--- * 'endTimeBefore' - Return only sessions that ended before this time.
--- * 'maxResult' - Return only this many results at a time.
--- * 'nextToken' - Pagination token.
--- * 'projectARN' - ARN of a 'TestGridProject' .
 -- * 'status' - Return only sessions in this state.
+-- * 'maxResult' - Return only this many results at a time.
+-- * 'creationTimeAfter' - Return only sessions created after this time.
+-- * 'endTimeBefore' - Return only sessions that ended before this time.
+-- * 'endTimeAfter' - Return only sessions that ended after this time.
+-- * 'nextToken' - Pagination token.
+-- * 'creationTimeBefore' - Return only sessions created before this time.
+-- * 'projectARN' - ARN of a 'TestGridProject' .
 mkListTestGridSessions ::
   -- | 'projectARN'
   Lude.Text ->
@@ -194,26 +196,21 @@ instance Lude.ToQuery ListTestGridSessions where
 
 -- | /See:/ 'mkListTestGridSessionsResponse' smart constructor.
 data ListTestGridSessionsResponse = ListTestGridSessionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    testGridSessions ::
-      Lude.Maybe [TestGridSession],
+  { -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The sessions that match the criteria in a 'ListTestGridSessionsRequest' .
+    testGridSessions :: Lude.Maybe [TestGridSession],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestGridSessionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Pagination token.
--- * 'responseStatus' - The response status code.
 -- * 'testGridSessions' - The sessions that match the criteria in a 'ListTestGridSessionsRequest' .
+-- * 'responseStatus' - The response status code.
 mkListTestGridSessionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

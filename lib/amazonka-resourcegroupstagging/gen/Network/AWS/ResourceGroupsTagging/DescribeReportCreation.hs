@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,13 +41,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeReportCreation' smart constructor.
 data DescribeReportCreation = DescribeReportCreation'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReportCreation' with the minimum fields required to make a request.
@@ -91,28 +86,33 @@ instance Lude.ToQuery DescribeReportCreation where
 
 -- | /See:/ 'mkDescribeReportCreationResponse' smart constructor.
 data DescribeReportCreationResponse = DescribeReportCreationResponse'
-  { status ::
-      Lude.Maybe Lude.Text,
-    s3Location ::
-      Lude.Maybe Lude.Text,
-    errorMessage ::
-      Lude.Maybe Lude.Text,
+  { -- | Reports the status of the operation.
+    --
+    -- The operation status can be one of the following:
+    --
+    --     * @RUNNING@ - Report creation is in progress.
+    --
+    --
+    --     * @SUCCEEDED@ - Report creation is complete. You can open the report from the Amazon S3 bucket that you specified when you ran @StartReportCreation@ .
+    --
+    --
+    --     * @FAILED@ - Report creation timed out or the Amazon S3 bucket is not accessible.
+    --
+    --
+    --     * @NO REPORT@ - No report was generated in the last 90 days.
+    status :: Lude.Maybe Lude.Text,
+    -- | The path to the Amazon S3 bucket where the report was stored on creation.
+    s3Location :: Lude.Maybe Lude.Text,
+    -- | Details of the common errors that all operations return.
+    errorMessage :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReportCreationResponse' with the minimum fields required to make a request.
 --
--- * 'errorMessage' - Details of the common errors that all operations return.
--- * 'responseStatus' - The response status code.
--- * 's3Location' - The path to the Amazon S3 bucket where the report was stored on creation.
 -- * 'status' - Reports the status of the operation.
 --
 -- The operation status can be one of the following:
@@ -127,6 +127,11 @@ data DescribeReportCreationResponse = DescribeReportCreationResponse'
 --
 --
 --     * @NO REPORT@ - No report was generated in the last 90 days.
+--
+--
+-- * 's3Location' - The path to the Amazon S3 bucket where the report was stored on creation.
+-- * 'errorMessage' - Details of the common errors that all operations return.
+-- * 'responseStatus' - The response status code.
 mkDescribeReportCreationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

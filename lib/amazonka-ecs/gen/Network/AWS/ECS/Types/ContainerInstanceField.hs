@@ -13,7 +13,7 @@
 module Network.AWS.ECS.Types.ContainerInstanceField
   ( ContainerInstanceField
       ( ContainerInstanceField',
-        CIFTags
+        Tags
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype ContainerInstanceField = ContainerInstanceField' Lude.Text
       Lude.ToHeader
     )
 
-pattern CIFTags :: ContainerInstanceField
-pattern CIFTags = ContainerInstanceField' "TAGS"
+pattern Tags :: ContainerInstanceField
+pattern Tags = ContainerInstanceField' "TAGS"
 
 {-# COMPLETE
-  CIFTags,
+  Tags,
   ContainerInstanceField'
   #-}

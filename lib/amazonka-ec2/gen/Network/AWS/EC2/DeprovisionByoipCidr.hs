@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.EC2.DeprovisionByoipCidr
     mkDeprovisionByoipCidr,
 
     -- ** Request lenses
-    depDryRun,
-    depCidr,
+    dbcCidr,
+    dbcDryRun,
 
     -- * Destructuring the response
     DeprovisionByoipCidrResponse (..),
     mkDeprovisionByoipCidrResponse,
 
     -- ** Response lenses
-    deprsByoipCidr,
-    deprsResponseStatus,
+    dbcrsByoipCidr,
+    dbcrsResponseStatus,
   )
 where
 
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeprovisionByoipCidr' smart constructor.
 data DeprovisionByoipCidr = DeprovisionByoipCidr'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    cidr :: Lude.Text
+  { -- | The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.
+    cidr :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprovisionByoipCidr' with the minimum fields required to make a request.
@@ -64,21 +60,21 @@ mkDeprovisionByoipCidr ::
   Lude.Text ->
   DeprovisionByoipCidr
 mkDeprovisionByoipCidr pCidr_ =
-  DeprovisionByoipCidr' {dryRun = Lude.Nothing, cidr = pCidr_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-depDryRun :: Lens.Lens' DeprovisionByoipCidr (Lude.Maybe Lude.Bool)
-depDryRun = Lens.lens (dryRun :: DeprovisionByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeprovisionByoipCidr)
-{-# DEPRECATED depDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  DeprovisionByoipCidr' {cidr = pCidr_, dryRun = Lude.Nothing}
 
 -- | The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.
 --
 -- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-depCidr :: Lens.Lens' DeprovisionByoipCidr Lude.Text
-depCidr = Lens.lens (cidr :: DeprovisionByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: DeprovisionByoipCidr)
-{-# DEPRECATED depCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
+dbcCidr :: Lens.Lens' DeprovisionByoipCidr Lude.Text
+dbcCidr = Lens.lens (cidr :: DeprovisionByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: DeprovisionByoipCidr)
+{-# DEPRECATED dbcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcDryRun :: Lens.Lens' DeprovisionByoipCidr (Lude.Maybe Lude.Bool)
+dbcDryRun = Lens.lens (dryRun :: DeprovisionByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeprovisionByoipCidr)
+{-# DEPRECATED dbcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeprovisionByoipCidr where
   type Rs DeprovisionByoipCidr = DeprovisionByoipCidrResponse
@@ -101,23 +97,18 @@ instance Lude.ToQuery DeprovisionByoipCidr where
     Lude.mconcat
       [ "Action" Lude.=: ("DeprovisionByoipCidr" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "Cidr" Lude.=: cidr
+        "Cidr" Lude.=: cidr,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeprovisionByoipCidrResponse' smart constructor.
 data DeprovisionByoipCidrResponse = DeprovisionByoipCidrResponse'
-  { byoipCidr ::
-      Lude.Maybe ByoipCidr,
+  { -- | Information about the address range.
+    byoipCidr :: Lude.Maybe ByoipCidr,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeprovisionByoipCidrResponse' with the minimum fields required to make a request.
@@ -137,13 +128,13 @@ mkDeprovisionByoipCidrResponse pResponseStatus_ =
 -- | Information about the address range.
 --
 -- /Note:/ Consider using 'byoipCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deprsByoipCidr :: Lens.Lens' DeprovisionByoipCidrResponse (Lude.Maybe ByoipCidr)
-deprsByoipCidr = Lens.lens (byoipCidr :: DeprovisionByoipCidrResponse -> Lude.Maybe ByoipCidr) (\s a -> s {byoipCidr = a} :: DeprovisionByoipCidrResponse)
-{-# DEPRECATED deprsByoipCidr "Use generic-lens or generic-optics with 'byoipCidr' instead." #-}
+dbcrsByoipCidr :: Lens.Lens' DeprovisionByoipCidrResponse (Lude.Maybe ByoipCidr)
+dbcrsByoipCidr = Lens.lens (byoipCidr :: DeprovisionByoipCidrResponse -> Lude.Maybe ByoipCidr) (\s a -> s {byoipCidr = a} :: DeprovisionByoipCidrResponse)
+{-# DEPRECATED dbcrsByoipCidr "Use generic-lens or generic-optics with 'byoipCidr' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deprsResponseStatus :: Lens.Lens' DeprovisionByoipCidrResponse Lude.Int
-deprsResponseStatus = Lens.lens (responseStatus :: DeprovisionByoipCidrResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeprovisionByoipCidrResponse)
-{-# DEPRECATED deprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbcrsResponseStatus :: Lens.Lens' DeprovisionByoipCidrResponse Lude.Int
+dbcrsResponseStatus = Lens.lens (responseStatus :: DeprovisionByoipCidrResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeprovisionByoipCidrResponse)
+{-# DEPRECATED dbcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

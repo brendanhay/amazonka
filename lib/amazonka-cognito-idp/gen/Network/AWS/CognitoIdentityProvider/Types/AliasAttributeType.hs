@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType
   ( AliasAttributeType
       ( AliasAttributeType',
-        AATEmail,
         AATPhoneNumber,
+        AATEmail,
         AATPreferredUsername
       ),
   )
@@ -46,18 +46,18 @@ newtype AliasAttributeType = AliasAttributeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AATEmail :: AliasAttributeType
-pattern AATEmail = AliasAttributeType' "email"
-
 pattern AATPhoneNumber :: AliasAttributeType
 pattern AATPhoneNumber = AliasAttributeType' "phone_number"
+
+pattern AATEmail :: AliasAttributeType
+pattern AATEmail = AliasAttributeType' "email"
 
 pattern AATPreferredUsername :: AliasAttributeType
 pattern AATPreferredUsername = AliasAttributeType' "preferred_username"
 
 {-# COMPLETE
-  AATEmail,
   AATPhoneNumber,
+  AATEmail,
   AATPreferredUsername,
   AliasAttributeType'
   #-}

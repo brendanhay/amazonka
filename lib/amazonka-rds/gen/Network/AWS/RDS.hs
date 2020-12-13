@@ -917,13 +917,13 @@ module Network.AWS.RDS
     -- ** DBSecurityGroup
     DBSecurityGroup (..),
     mkDBSecurityGroup,
-    dbsgVPCId,
-    dbsgOwnerId,
-    dbsgDBSecurityGroupARN,
-    dbsgIPRanges,
-    dbsgDBSecurityGroupName,
-    dbsgEC2SecurityGroups,
-    dbsgDBSecurityGroupDescription,
+    dsgVPCId,
+    dsgOwnerId,
+    dsgDBSecurityGroupARN,
+    dsgIPRanges,
+    dsgDBSecurityGroupName,
+    dsgEC2SecurityGroups,
+    dsgDBSecurityGroupDescription,
 
     -- ** DBSecurityGroupMembership
     DBSecurityGroupMembership (..),
@@ -979,12 +979,12 @@ module Network.AWS.RDS
     -- ** DBSubnetGroup
     DBSubnetGroup (..),
     mkDBSubnetGroup,
-    dsgDBSubnetGroupName,
-    dsgVPCId,
-    dsgSubnets,
-    dsgDBSubnetGroupDescription,
-    dsgDBSubnetGroupARN,
-    dsgSubnetGroupStatus,
+    dbsgDBSubnetGroupName,
+    dbsgVPCId,
+    dbsgSubnets,
+    dbsgDBSubnetGroupDescription,
+    dbsgDBSubnetGroupARN,
+    dbsgSubnetGroupStatus,
 
     -- ** DescribeDBLogFilesDetails
     DescribeDBLogFilesDetails (..),
@@ -1081,8 +1081,8 @@ module Network.AWS.RDS
     -- ** Filter
     Filter (..),
     mkFilter,
-    fName,
     fValues,
+    fName,
 
     -- ** GlobalCluster
     GlobalCluster (..),
@@ -1151,12 +1151,12 @@ module Network.AWS.RDS
     -- ** OptionConfiguration
     OptionConfiguration (..),
     mkOptionConfiguration,
+    ocOptionName,
     ocOptionSettings,
     ocVPCSecurityGroupMemberships,
     ocDBSecurityGroupMemberships,
     ocOptionVersion,
     ocPort,
-    ocOptionName,
 
     -- ** OptionGroup
     OptionGroup (..),

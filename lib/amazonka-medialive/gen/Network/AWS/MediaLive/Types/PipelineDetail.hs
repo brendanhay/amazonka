@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineDetail' smart constructor.
 data PipelineDetail = PipelineDetail'
-  { pipelineId ::
-      Lude.Maybe Lude.Text,
+  { -- | Pipeline ID
+    pipelineId :: Lude.Maybe Lude.Text,
+    -- | The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
     activeInputSwitchActionName :: Lude.Maybe Lude.Text,
+    -- | The name of the active input attachment currently being ingested by this pipeline.
     activeInputAttachmentName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineDetail' with the minimum fields required to make a request.
 --
--- * 'activeInputAttachmentName' - The name of the active input attachment currently being ingested by this pipeline.
--- * 'activeInputSwitchActionName' - The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
 -- * 'pipelineId' - Pipeline ID
+-- * 'activeInputSwitchActionName' - The name of the input switch schedule action that occurred most recently and that resulted in the switch to the current input attachment for this pipeline.
+-- * 'activeInputAttachmentName' - The name of the active input attachment currently being ingested by this pipeline.
 mkPipelineDetail ::
   PipelineDetail
 mkPipelineDetail =

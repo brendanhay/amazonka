@@ -35,32 +35,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPut' smart constructor.
 data Put = Put'
-  { expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    expressionAttributeValues ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    returnValuesOnConditionCheckFailure ::
-      Lude.Maybe ReturnValuesOnConditionCheckFailure,
+  { -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+    returnValuesOnConditionCheckFailure :: Lude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | A condition that must be satisfied in order for a conditional update to succeed.
     conditionExpression :: Lude.Maybe Lude.Text,
+    -- | A map of attribute name to attribute values, representing the primary key of the item to be written by @PutItem@ . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.
     item :: Lude.HashMap Lude.Text (AttributeValue),
+    -- | Name of the table in which to write the item.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Put' with the minimum fields required to make a request.
 --
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
--- * 'item' - A map of attribute name to attribute values, representing the primary key of the item to be written by @PutItem@ . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.
 -- * 'returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+-- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
+-- * 'item' - A map of attribute name to attribute values, representing the primary key of the item to be written by @PutItem@ . All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.
 -- * 'tableName' - Name of the table in which to write the item.
 mkPut ::
   -- | 'tableName'

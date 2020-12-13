@@ -13,9 +13,9 @@
 module Network.AWS.CognitoIdentityProvider.Types.OAuthFlowType
   ( OAuthFlowType
       ( OAuthFlowType',
-        ClientCredentials,
         Code,
-        Implicit
+        Implicit,
+        ClientCredentials
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OAuthFlowType = OAuthFlowType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ClientCredentials :: OAuthFlowType
-pattern ClientCredentials = OAuthFlowType' "client_credentials"
-
 pattern Code :: OAuthFlowType
 pattern Code = OAuthFlowType' "code"
 
 pattern Implicit :: OAuthFlowType
 pattern Implicit = OAuthFlowType' "implicit"
 
+pattern ClientCredentials :: OAuthFlowType
+pattern ClientCredentials = OAuthFlowType' "client_credentials"
+
 {-# COMPLETE
-  ClientCredentials,
   Code,
   Implicit,
+  ClientCredentials,
   OAuthFlowType'
   #-}

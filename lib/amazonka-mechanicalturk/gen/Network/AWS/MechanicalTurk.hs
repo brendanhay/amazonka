@@ -236,22 +236,22 @@ module Network.AWS.MechanicalTurk
     -- ** HITLayoutParameter
     HITLayoutParameter (..),
     mkHITLayoutParameter,
-    hitlpName,
     hitlpValue,
+    hitlpName,
 
     -- ** Locale
     Locale (..),
     mkLocale,
-    lSubdivision,
     lCountry,
+    lSubdivision,
 
     -- ** NotificationSpecification
     NotificationSpecification (..),
     mkNotificationSpecification,
     nsDestination,
-    nsTransport,
-    nsVersion,
     nsEventTypes,
+    nsVersion,
+    nsTransport,
 
     -- ** NotifyWorkersFailureStatus
     NotifyWorkersFailureStatus (..),
@@ -286,22 +286,22 @@ module Network.AWS.MechanicalTurk
     -- ** QualificationRequest
     QualificationRequest (..),
     mkQualificationRequest,
-    quaQualificationRequestId,
-    quaTest,
-    quaQualificationTypeId,
-    quaAnswer,
-    quaWorkerId,
-    quaSubmitTime,
+    qrfQualificationRequestId,
+    qrfTest,
+    qrfQualificationTypeId,
+    qrfAnswer,
+    qrfWorkerId,
+    qrfSubmitTime,
 
     -- ** QualificationRequirement
     QualificationRequirement (..),
     mkQualificationRequirement,
     qrLocaleValues,
     qrActionsGuarded,
-    qrRequiredToPreview,
-    qrIntegerValues,
     qrQualificationTypeId,
     qrComparator,
+    qrRequiredToPreview,
+    qrIntegerValues,
 
     -- ** QualificationType
     QualificationType (..),
@@ -335,8 +335,8 @@ module Network.AWS.MechanicalTurk
     -- ** ReviewPolicy
     ReviewPolicy (..),
     mkReviewPolicy,
-    rpParameters,
     rpPolicyName,
+    rpParameters,
 
     -- ** ReviewReport
     ReviewReport (..),

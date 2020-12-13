@@ -30,23 +30,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionThreshold' smart constructor.
 data ActionThreshold = ActionThreshold'
-  { actionThresholdValue ::
-      Lude.Double,
+  { actionThresholdValue :: Lude.Double,
     actionThresholdType :: ThresholdType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionThreshold' with the minimum fields required to make a request.
 --
--- * 'actionThresholdType' - Undocumented field.
--- * 'actionThresholdValue' - Undocumented field.
+-- * 'actionThresholdValue' -
+-- * 'actionThresholdType' -
 mkActionThreshold ::
   -- | 'actionThresholdValue'
   Lude.Double ->

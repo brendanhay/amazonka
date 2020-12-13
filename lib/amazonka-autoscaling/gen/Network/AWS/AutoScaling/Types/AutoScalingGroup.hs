@@ -19,16 +19,24 @@ module Network.AWS.AutoScaling.Types.AutoScalingGroup
     -- * Lenses
     asgStatus,
     asgTerminationPolicies,
+    asgCreatedTime,
     asgHealthCheckGracePeriod,
     asgServiceLinkedRoleARN,
     asgNewInstancesProtectedFromScaleIn,
     asgVPCZoneIdentifier,
     asgTargetGroupARNs,
     asgMaxInstanceLifetime,
+    asgDefaultCooldown,
+    asgMaxSize,
+    asgAvailabilityZones,
+    asgDesiredCapacity,
     asgMixedInstancesPolicy,
+    asgMinSize,
     asgEnabledMetrics,
+    asgAutoScalingGroupName,
     asgLaunchConfigurationName,
     asgInstances,
+    asgHealthCheckType,
     asgLaunchTemplate,
     asgCapacityRebalance,
     asgAutoScalingGroupARN,
@@ -36,14 +44,6 @@ module Network.AWS.AutoScaling.Types.AutoScalingGroup
     asgSuspendedProcesses,
     asgLoadBalancerNames,
     asgTags,
-    asgAutoScalingGroupName,
-    asgMinSize,
-    asgMaxSize,
-    asgDesiredCapacity,
-    asgDefaultCooldown,
-    asgAvailabilityZones,
-    asgHealthCheckType,
-    asgCreatedTime,
   )
 where
 
@@ -60,130 +60,152 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The current state of the group when the 'DeleteAutoScalingGroup' operation is in progress.
+    status :: Lude.Maybe Lude.Text,
+    -- | The termination policies for the group.
     terminationPolicies :: Lude.Maybe [Lude.Text],
+    -- | The date and time the group was created.
+    createdTime :: Lude.DateTime,
+    -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
     healthCheckGracePeriod :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
     serviceLinkedRoleARN :: Lude.Maybe Lude.Text,
+    -- | Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
     newInstancesProtectedFromScaleIn :: Lude.Maybe Lude.Bool,
+    -- | One or more subnet IDs, if applicable, separated by commas.
     vpcZoneIdentifier :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Names (ARN) of the target groups for your load balancer.
     targetGroupARNs :: Lude.Maybe [Lude.Text],
+    -- | The maximum amount of time, in seconds, that an instance can be in service.
+    --
+    -- Valid Range: Minimum value of 0.
     maxInstanceLifetime :: Lude.Maybe Lude.Int,
-    mixedInstancesPolicy :: Lude.Maybe MixedInstancesPolicy,
-    enabledMetrics :: Lude.Maybe [EnabledMetric],
-    launchConfigurationName :: Lude.Maybe Lude.Text,
-    instances :: Lude.Maybe [Instance],
-    launchTemplate :: Lude.Maybe LaunchTemplateSpecification,
-    capacityRebalance :: Lude.Maybe Lude.Bool,
-    autoScalingGroupARN :: Lude.Maybe Lude.Text,
-    placementGroup :: Lude.Maybe Lude.Text,
-    suspendedProcesses :: Lude.Maybe [SuspendedProcess],
-    loadBalancerNames :: Lude.Maybe [Lude.Text],
-    tags :: Lude.Maybe [TagDescription],
-    autoScalingGroupName :: Lude.Text,
-    minSize :: Lude.Int,
-    maxSize :: Lude.Int,
-    desiredCapacity :: Lude.Int,
+    -- | The duration of the default cooldown period, in seconds.
     defaultCooldown :: Lude.Int,
+    -- | The maximum size of the group.
+    maxSize :: Lude.Int,
+    -- | One or more Availability Zones for the group.
     availabilityZones :: Lude.NonEmpty Lude.Text,
+    -- | The desired size of the group.
+    desiredCapacity :: Lude.Int,
+    -- | The mixed instances policy for the group.
+    mixedInstancesPolicy :: Lude.Maybe MixedInstancesPolicy,
+    -- | The minimum size of the group.
+    minSize :: Lude.Int,
+    -- | The metrics enabled for the group.
+    enabledMetrics :: Lude.Maybe [EnabledMetric],
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | The name of the associated launch configuration.
+    launchConfigurationName :: Lude.Maybe Lude.Text,
+    -- | The EC2 instances associated with the group.
+    instances :: Lude.Maybe [Instance],
+    -- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
     healthCheckType :: Lude.Text,
-    createdTime :: Lude.DateTime
+    -- | The launch template for the group.
+    launchTemplate :: Lude.Maybe LaunchTemplateSpecification,
+    -- | Indicates whether Capacity Rebalancing is enabled.
+    capacityRebalance :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
+    autoScalingGroupARN :: Lude.Maybe Lude.Text,
+    -- | The name of the placement group into which to launch your instances, if any.
+    placementGroup :: Lude.Maybe Lude.Text,
+    -- | The suspended processes associated with the group.
+    suspendedProcesses :: Lude.Maybe [SuspendedProcess],
+    -- | One or more load balancers associated with the group.
+    loadBalancerNames :: Lude.Maybe [Lude.Text],
+    -- | The tags for the group.
+    tags :: Lude.Maybe [TagDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupARN' - The Amazon Resource Name (ARN) of the Auto Scaling group.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'availabilityZones' - One or more Availability Zones for the group.
--- * 'capacityRebalance' - Indicates whether Capacity Rebalancing is enabled.
+-- * 'status' - The current state of the group when the 'DeleteAutoScalingGroup' operation is in progress.
+-- * 'terminationPolicies' - The termination policies for the group.
 -- * 'createdTime' - The date and time the group was created.
--- * 'defaultCooldown' - The duration of the default cooldown period, in seconds.
--- * 'desiredCapacity' - The desired size of the group.
--- * 'enabledMetrics' - The metrics enabled for the group.
 -- * 'healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
--- * 'healthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
--- * 'instances' - The EC2 instances associated with the group.
--- * 'launchConfigurationName' - The name of the associated launch configuration.
--- * 'launchTemplate' - The launch template for the group.
--- * 'loadBalancerNames' - One or more load balancers associated with the group.
+-- * 'serviceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
+-- * 'newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+-- * 'vpcZoneIdentifier' - One or more subnet IDs, if applicable, separated by commas.
+-- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups for your load balancer.
 -- * 'maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in service.
 --
 -- Valid Range: Minimum value of 0.
+-- * 'defaultCooldown' - The duration of the default cooldown period, in seconds.
 -- * 'maxSize' - The maximum size of the group.
--- * 'minSize' - The minimum size of the group.
+-- * 'availabilityZones' - One or more Availability Zones for the group.
+-- * 'desiredCapacity' - The desired size of the group.
 -- * 'mixedInstancesPolicy' - The mixed instances policy for the group.
--- * 'newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+-- * 'minSize' - The minimum size of the group.
+-- * 'enabledMetrics' - The metrics enabled for the group.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'launchConfigurationName' - The name of the associated launch configuration.
+-- * 'instances' - The EC2 instances associated with the group.
+-- * 'healthCheckType' - The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
+-- * 'launchTemplate' - The launch template for the group.
+-- * 'capacityRebalance' - Indicates whether Capacity Rebalancing is enabled.
+-- * 'autoScalingGroupARN' - The Amazon Resource Name (ARN) of the Auto Scaling group.
 -- * 'placementGroup' - The name of the placement group into which to launch your instances, if any.
--- * 'serviceLinkedRoleARN' - The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
--- * 'status' - The current state of the group when the 'DeleteAutoScalingGroup' operation is in progress.
 -- * 'suspendedProcesses' - The suspended processes associated with the group.
+-- * 'loadBalancerNames' - One or more load balancers associated with the group.
 -- * 'tags' - The tags for the group.
--- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups for your load balancer.
--- * 'terminationPolicies' - The termination policies for the group.
--- * 'vpcZoneIdentifier' - One or more subnet IDs, if applicable, separated by commas.
 mkAutoScalingGroup ::
-  -- | 'autoScalingGroupName'
-  Lude.Text ->
-  -- | 'minSize'
+  -- | 'createdTime'
+  Lude.DateTime ->
+  -- | 'defaultCooldown'
   Lude.Int ->
   -- | 'maxSize'
   Lude.Int ->
-  -- | 'desiredCapacity'
-  Lude.Int ->
-  -- | 'defaultCooldown'
-  Lude.Int ->
   -- | 'availabilityZones'
   Lude.NonEmpty Lude.Text ->
+  -- | 'desiredCapacity'
+  Lude.Int ->
+  -- | 'minSize'
+  Lude.Int ->
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   -- | 'healthCheckType'
   Lude.Text ->
-  -- | 'createdTime'
-  Lude.DateTime ->
   AutoScalingGroup
 mkAutoScalingGroup
-  pAutoScalingGroupName_
-  pMinSize_
-  pMaxSize_
-  pDesiredCapacity_
+  pCreatedTime_
   pDefaultCooldown_
+  pMaxSize_
   pAvailabilityZones_
-  pHealthCheckType_
-  pCreatedTime_ =
+  pDesiredCapacity_
+  pMinSize_
+  pAutoScalingGroupName_
+  pHealthCheckType_ =
     AutoScalingGroup'
       { status = Lude.Nothing,
         terminationPolicies = Lude.Nothing,
+        createdTime = pCreatedTime_,
         healthCheckGracePeriod = Lude.Nothing,
         serviceLinkedRoleARN = Lude.Nothing,
         newInstancesProtectedFromScaleIn = Lude.Nothing,
         vpcZoneIdentifier = Lude.Nothing,
         targetGroupARNs = Lude.Nothing,
         maxInstanceLifetime = Lude.Nothing,
+        defaultCooldown = pDefaultCooldown_,
+        maxSize = pMaxSize_,
+        availabilityZones = pAvailabilityZones_,
+        desiredCapacity = pDesiredCapacity_,
         mixedInstancesPolicy = Lude.Nothing,
+        minSize = pMinSize_,
         enabledMetrics = Lude.Nothing,
+        autoScalingGroupName = pAutoScalingGroupName_,
         launchConfigurationName = Lude.Nothing,
         instances = Lude.Nothing,
+        healthCheckType = pHealthCheckType_,
         launchTemplate = Lude.Nothing,
         capacityRebalance = Lude.Nothing,
         autoScalingGroupARN = Lude.Nothing,
         placementGroup = Lude.Nothing,
         suspendedProcesses = Lude.Nothing,
         loadBalancerNames = Lude.Nothing,
-        tags = Lude.Nothing,
-        autoScalingGroupName = pAutoScalingGroupName_,
-        minSize = pMinSize_,
-        maxSize = pMaxSize_,
-        desiredCapacity = pDesiredCapacity_,
-        defaultCooldown = pDefaultCooldown_,
-        availabilityZones = pAvailabilityZones_,
-        healthCheckType = pHealthCheckType_,
-        createdTime = pCreatedTime_
+        tags = Lude.Nothing
       }
 
 -- | The current state of the group when the 'DeleteAutoScalingGroup' operation is in progress.
@@ -199,6 +221,13 @@ asgStatus = Lens.lens (status :: AutoScalingGroup -> Lude.Maybe Lude.Text) (\s a
 asgTerminationPolicies :: Lens.Lens' AutoScalingGroup (Lude.Maybe [Lude.Text])
 asgTerminationPolicies = Lens.lens (terminationPolicies :: AutoScalingGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {terminationPolicies = a} :: AutoScalingGroup)
 {-# DEPRECATED asgTerminationPolicies "Use generic-lens or generic-optics with 'terminationPolicies' instead." #-}
+
+-- | The date and time the group was created.
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgCreatedTime :: Lens.Lens' AutoScalingGroup Lude.DateTime
+asgCreatedTime = Lens.lens (createdTime :: AutoScalingGroup -> Lude.DateTime) (\s a -> s {createdTime = a} :: AutoScalingGroup)
+{-# DEPRECATED asgCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
 --
@@ -244,6 +273,34 @@ asgMaxInstanceLifetime :: Lens.Lens' AutoScalingGroup (Lude.Maybe Lude.Int)
 asgMaxInstanceLifetime = Lens.lens (maxInstanceLifetime :: AutoScalingGroup -> Lude.Maybe Lude.Int) (\s a -> s {maxInstanceLifetime = a} :: AutoScalingGroup)
 {-# DEPRECATED asgMaxInstanceLifetime "Use generic-lens or generic-optics with 'maxInstanceLifetime' instead." #-}
 
+-- | The duration of the default cooldown period, in seconds.
+--
+-- /Note:/ Consider using 'defaultCooldown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgDefaultCooldown :: Lens.Lens' AutoScalingGroup Lude.Int
+asgDefaultCooldown = Lens.lens (defaultCooldown :: AutoScalingGroup -> Lude.Int) (\s a -> s {defaultCooldown = a} :: AutoScalingGroup)
+{-# DEPRECATED asgDefaultCooldown "Use generic-lens or generic-optics with 'defaultCooldown' instead." #-}
+
+-- | The maximum size of the group.
+--
+-- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgMaxSize :: Lens.Lens' AutoScalingGroup Lude.Int
+asgMaxSize = Lens.lens (maxSize :: AutoScalingGroup -> Lude.Int) (\s a -> s {maxSize = a} :: AutoScalingGroup)
+{-# DEPRECATED asgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
+
+-- | One or more Availability Zones for the group.
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgAvailabilityZones :: Lens.Lens' AutoScalingGroup (Lude.NonEmpty Lude.Text)
+asgAvailabilityZones = Lens.lens (availabilityZones :: AutoScalingGroup -> Lude.NonEmpty Lude.Text) (\s a -> s {availabilityZones = a} :: AutoScalingGroup)
+{-# DEPRECATED asgAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+
+-- | The desired size of the group.
+--
+-- /Note:/ Consider using 'desiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgDesiredCapacity :: Lens.Lens' AutoScalingGroup Lude.Int
+asgDesiredCapacity = Lens.lens (desiredCapacity :: AutoScalingGroup -> Lude.Int) (\s a -> s {desiredCapacity = a} :: AutoScalingGroup)
+{-# DEPRECATED asgDesiredCapacity "Use generic-lens or generic-optics with 'desiredCapacity' instead." #-}
+
 -- | The mixed instances policy for the group.
 --
 -- /Note:/ Consider using 'mixedInstancesPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -251,12 +308,26 @@ asgMixedInstancesPolicy :: Lens.Lens' AutoScalingGroup (Lude.Maybe MixedInstance
 asgMixedInstancesPolicy = Lens.lens (mixedInstancesPolicy :: AutoScalingGroup -> Lude.Maybe MixedInstancesPolicy) (\s a -> s {mixedInstancesPolicy = a} :: AutoScalingGroup)
 {-# DEPRECATED asgMixedInstancesPolicy "Use generic-lens or generic-optics with 'mixedInstancesPolicy' instead." #-}
 
+-- | The minimum size of the group.
+--
+-- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgMinSize :: Lens.Lens' AutoScalingGroup Lude.Int
+asgMinSize = Lens.lens (minSize :: AutoScalingGroup -> Lude.Int) (\s a -> s {minSize = a} :: AutoScalingGroup)
+{-# DEPRECATED asgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
+
 -- | The metrics enabled for the group.
 --
 -- /Note:/ Consider using 'enabledMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 asgEnabledMetrics :: Lens.Lens' AutoScalingGroup (Lude.Maybe [EnabledMetric])
 asgEnabledMetrics = Lens.lens (enabledMetrics :: AutoScalingGroup -> Lude.Maybe [EnabledMetric]) (\s a -> s {enabledMetrics = a} :: AutoScalingGroup)
 {-# DEPRECATED asgEnabledMetrics "Use generic-lens or generic-optics with 'enabledMetrics' instead." #-}
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgAutoScalingGroupName :: Lens.Lens' AutoScalingGroup Lude.Text
+asgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: AutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: AutoScalingGroup)
+{-# DEPRECATED asgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The name of the associated launch configuration.
 --
@@ -271,6 +342,13 @@ asgLaunchConfigurationName = Lens.lens (launchConfigurationName :: AutoScalingGr
 asgInstances :: Lens.Lens' AutoScalingGroup (Lude.Maybe [Instance])
 asgInstances = Lens.lens (instances :: AutoScalingGroup -> Lude.Maybe [Instance]) (\s a -> s {instances = a} :: AutoScalingGroup)
 {-# DEPRECATED asgInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+
+-- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
+--
+-- /Note:/ Consider using 'healthCheckType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgHealthCheckType :: Lens.Lens' AutoScalingGroup Lude.Text
+asgHealthCheckType = Lens.lens (healthCheckType :: AutoScalingGroup -> Lude.Text) (\s a -> s {healthCheckType = a} :: AutoScalingGroup)
+{-# DEPRECATED asgHealthCheckType "Use generic-lens or generic-optics with 'healthCheckType' instead." #-}
 
 -- | The launch template for the group.
 --
@@ -321,62 +399,6 @@ asgTags :: Lens.Lens' AutoScalingGroup (Lude.Maybe [TagDescription])
 asgTags = Lens.lens (tags :: AutoScalingGroup -> Lude.Maybe [TagDescription]) (\s a -> s {tags = a} :: AutoScalingGroup)
 {-# DEPRECATED asgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgAutoScalingGroupName :: Lens.Lens' AutoScalingGroup Lude.Text
-asgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: AutoScalingGroup -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: AutoScalingGroup)
-{-# DEPRECATED asgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
--- | The minimum size of the group.
---
--- /Note:/ Consider using 'minSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgMinSize :: Lens.Lens' AutoScalingGroup Lude.Int
-asgMinSize = Lens.lens (minSize :: AutoScalingGroup -> Lude.Int) (\s a -> s {minSize = a} :: AutoScalingGroup)
-{-# DEPRECATED asgMinSize "Use generic-lens or generic-optics with 'minSize' instead." #-}
-
--- | The maximum size of the group.
---
--- /Note:/ Consider using 'maxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgMaxSize :: Lens.Lens' AutoScalingGroup Lude.Int
-asgMaxSize = Lens.lens (maxSize :: AutoScalingGroup -> Lude.Int) (\s a -> s {maxSize = a} :: AutoScalingGroup)
-{-# DEPRECATED asgMaxSize "Use generic-lens or generic-optics with 'maxSize' instead." #-}
-
--- | The desired size of the group.
---
--- /Note:/ Consider using 'desiredCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgDesiredCapacity :: Lens.Lens' AutoScalingGroup Lude.Int
-asgDesiredCapacity = Lens.lens (desiredCapacity :: AutoScalingGroup -> Lude.Int) (\s a -> s {desiredCapacity = a} :: AutoScalingGroup)
-{-# DEPRECATED asgDesiredCapacity "Use generic-lens or generic-optics with 'desiredCapacity' instead." #-}
-
--- | The duration of the default cooldown period, in seconds.
---
--- /Note:/ Consider using 'defaultCooldown' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgDefaultCooldown :: Lens.Lens' AutoScalingGroup Lude.Int
-asgDefaultCooldown = Lens.lens (defaultCooldown :: AutoScalingGroup -> Lude.Int) (\s a -> s {defaultCooldown = a} :: AutoScalingGroup)
-{-# DEPRECATED asgDefaultCooldown "Use generic-lens or generic-optics with 'defaultCooldown' instead." #-}
-
--- | One or more Availability Zones for the group.
---
--- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgAvailabilityZones :: Lens.Lens' AutoScalingGroup (Lude.NonEmpty Lude.Text)
-asgAvailabilityZones = Lens.lens (availabilityZones :: AutoScalingGroup -> Lude.NonEmpty Lude.Text) (\s a -> s {availabilityZones = a} :: AutoScalingGroup)
-{-# DEPRECATED asgAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
-
--- | The service to use for the health checks. The valid values are @EC2@ and @ELB@ . If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.
---
--- /Note:/ Consider using 'healthCheckType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgHealthCheckType :: Lens.Lens' AutoScalingGroup Lude.Text
-asgHealthCheckType = Lens.lens (healthCheckType :: AutoScalingGroup -> Lude.Text) (\s a -> s {healthCheckType = a} :: AutoScalingGroup)
-{-# DEPRECATED asgHealthCheckType "Use generic-lens or generic-optics with 'healthCheckType' instead." #-}
-
--- | The date and time the group was created.
---
--- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgCreatedTime :: Lens.Lens' AutoScalingGroup Lude.DateTime
-asgCreatedTime = Lens.lens (createdTime :: AutoScalingGroup -> Lude.DateTime) (\s a -> s {createdTime = a} :: AutoScalingGroup)
-{-# DEPRECATED asgCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
-
 instance Lude.FromXML AutoScalingGroup where
   parseXML x =
     AutoScalingGroup'
@@ -384,6 +406,7 @@ instance Lude.FromXML AutoScalingGroup where
       Lude.<*> ( x Lude..@? "TerminationPolicies" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
+      Lude.<*> (x Lude..@ "CreatedTime")
       Lude.<*> (x Lude..@? "HealthCheckGracePeriod")
       Lude.<*> (x Lude..@? "ServiceLinkedRoleARN")
       Lude.<*> (x Lude..@? "NewInstancesProtectedFromScaleIn")
@@ -392,14 +415,23 @@ instance Lude.FromXML AutoScalingGroup where
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
       Lude.<*> (x Lude..@? "MaxInstanceLifetime")
+      Lude.<*> (x Lude..@ "DefaultCooldown")
+      Lude.<*> (x Lude..@ "MaxSize")
+      Lude.<*> ( x Lude..@? "AvailabilityZones" Lude..!@ Lude.mempty
+                   Lude.>>= Lude.parseXMLNonEmpty "member"
+               )
+      Lude.<*> (x Lude..@ "DesiredCapacity")
       Lude.<*> (x Lude..@? "MixedInstancesPolicy")
+      Lude.<*> (x Lude..@ "MinSize")
       Lude.<*> ( x Lude..@? "EnabledMetrics" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
+      Lude.<*> (x Lude..@ "AutoScalingGroupName")
       Lude.<*> (x Lude..@? "LaunchConfigurationName")
       Lude.<*> ( x Lude..@? "Instances" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
+      Lude.<*> (x Lude..@ "HealthCheckType")
       Lude.<*> (x Lude..@? "LaunchTemplate")
       Lude.<*> (x Lude..@? "CapacityRebalance")
       Lude.<*> (x Lude..@? "AutoScalingGroupARN")
@@ -413,13 +445,3 @@ instance Lude.FromXML AutoScalingGroup where
       Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "member")
                )
-      Lude.<*> (x Lude..@ "AutoScalingGroupName")
-      Lude.<*> (x Lude..@ "MinSize")
-      Lude.<*> (x Lude..@ "MaxSize")
-      Lude.<*> (x Lude..@ "DesiredCapacity")
-      Lude.<*> (x Lude..@ "DefaultCooldown")
-      Lude.<*> ( x Lude..@? "AvailabilityZones" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.parseXMLNonEmpty "member"
-               )
-      Lude.<*> (x Lude..@ "HealthCheckType")
-      Lude.<*> (x Lude..@ "CreatedTime")

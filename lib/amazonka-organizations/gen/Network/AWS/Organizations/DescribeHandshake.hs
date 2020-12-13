@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,7 +23,7 @@ module Network.AWS.Organizations.DescribeHandshake
     mkDescribeHandshake,
 
     -- ** Request lenses
-    dhHandshakeId,
+    dHandshakeId,
 
     -- * Destructuring the response
     DescribeHandshakeResponse (..),
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeHandshake' smart constructor.
 newtype DescribeHandshake = DescribeHandshake'
-  { handshakeId ::
-      Lude.Text
+  { -- | The unique identifier (ID) of the handshake that you want information about. You can get the ID from the original call to 'InviteAccountToOrganization' , or from a call to 'ListHandshakesForAccount' or 'ListHandshakesForOrganization' .
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+    handshakeId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeHandshake' with the minimum fields required to make a request.
@@ -71,9 +68,9 @@ mkDescribeHandshake pHandshakeId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'handshakeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhHandshakeId :: Lens.Lens' DescribeHandshake Lude.Text
-dhHandshakeId = Lens.lens (handshakeId :: DescribeHandshake -> Lude.Text) (\s a -> s {handshakeId = a} :: DescribeHandshake)
-{-# DEPRECATED dhHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
+dHandshakeId :: Lens.Lens' DescribeHandshake Lude.Text
+dHandshakeId = Lens.lens (handshakeId :: DescribeHandshake -> Lude.Text) (\s a -> s {handshakeId = a} :: DescribeHandshake)
+{-# DEPRECATED dHandshakeId "Use generic-lens or generic-optics with 'handshakeId' instead." #-}
 
 instance Lude.AWSRequest DescribeHandshake where
   type Rs DescribeHandshake = DescribeHandshakeResponse
@@ -109,8 +106,9 @@ instance Lude.ToQuery DescribeHandshake where
 
 -- | /See:/ 'mkDescribeHandshakeResponse' smart constructor.
 data DescribeHandshakeResponse = DescribeHandshakeResponse'
-  { handshake ::
-      Lude.Maybe Handshake,
+  { -- | A structure that contains information about the specified handshake.
+    handshake :: Lude.Maybe Handshake,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

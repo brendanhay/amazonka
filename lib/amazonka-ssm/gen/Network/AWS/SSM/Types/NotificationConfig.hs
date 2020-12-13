@@ -32,25 +32,21 @@ import Network.AWS.SSM.Types.NotificationType
 --
 -- /See:/ 'mkNotificationConfig' smart constructor.
 data NotificationConfig = NotificationConfig'
-  { notificationEvents ::
-      Lude.Maybe [NotificationEvent],
+  { -- | The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications> in the /AWS Systems Manager User Guide/ .
+    notificationEvents :: Lude.Maybe [NotificationEvent],
+    -- | Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
     notificationType :: Lude.Maybe NotificationType,
+    -- | An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
     notificationARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationConfig' with the minimum fields required to make a request.
 --
--- * 'notificationARN' - An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
 -- * 'notificationEvents' - The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html Monitoring Systems Manager status changes using Amazon SNS notifications> in the /AWS Systems Manager User Guide/ .
 -- * 'notificationType' - Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
+-- * 'notificationARN' - An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
 mkNotificationConfig ::
   NotificationConfig
 mkNotificationConfig =

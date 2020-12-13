@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode
   ( NetworkInterfacePermissionStateCode
       ( NetworkInterfacePermissionStateCode',
-        NIPSCGranted,
         NIPSCPending,
-        NIPSCRevoked,
-        NIPSCRevoking
+        NIPSCGranted,
+        NIPSCRevoking,
+        NIPSCRevoked
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype NetworkInterfacePermissionStateCode = NetworkInterfacePermissionStateCod
       Lude.ToHeader
     )
 
-pattern NIPSCGranted :: NetworkInterfacePermissionStateCode
-pattern NIPSCGranted = NetworkInterfacePermissionStateCode' "granted"
-
 pattern NIPSCPending :: NetworkInterfacePermissionStateCode
 pattern NIPSCPending = NetworkInterfacePermissionStateCode' "pending"
 
-pattern NIPSCRevoked :: NetworkInterfacePermissionStateCode
-pattern NIPSCRevoked = NetworkInterfacePermissionStateCode' "revoked"
+pattern NIPSCGranted :: NetworkInterfacePermissionStateCode
+pattern NIPSCGranted = NetworkInterfacePermissionStateCode' "granted"
 
 pattern NIPSCRevoking :: NetworkInterfacePermissionStateCode
 pattern NIPSCRevoking = NetworkInterfacePermissionStateCode' "revoking"
 
+pattern NIPSCRevoked :: NetworkInterfacePermissionStateCode
+pattern NIPSCRevoked = NetworkInterfacePermissionStateCode' "revoked"
+
 {-# COMPLETE
-  NIPSCGranted,
   NIPSCPending,
-  NIPSCRevoked,
+  NIPSCGranted,
   NIPSCRevoking,
+  NIPSCRevoked,
   NetworkInterfacePermissionStateCode'
   #-}

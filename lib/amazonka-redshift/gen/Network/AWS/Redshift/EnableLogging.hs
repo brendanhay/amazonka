@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,35 +48,48 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkEnableLogging' smart constructor.
 data EnableLogging = EnableLogging'
-  { s3KeyPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix applied to the log file names.
+    --
+    -- Constraints:
+    --
+    --     * Cannot exceed 512 characters
+    --
+    --
+    --     * Cannot contain spaces( ), double quotes ("), single quotes ('), a backslash (\), or control characters. The hexadecimal codes for invalid characters are:
+    --
+    --     * x00 to x20
+    --
+    --
+    --     * x22
+    --
+    --
+    --     * x27
+    --
+    --
+    --     * x5c
+    --
+    --
+    --     * x7f or larger
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The identifier of the cluster on which logging is to be started.
+    --
+    -- Example: @examplecluster@
     clusterIdentifier :: Lude.Text,
+    -- | The name of an existing S3 bucket where the log files are to be stored.
+    --
+    -- Constraints:
+    --
+    --     * Must be in the same region as the cluster
+    --
+    --
+    --     * The cluster must have read bucket and put object permissions
     bucketName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableLogging' with the minimum fields required to make a request.
 --
--- * 'bucketName' - The name of an existing S3 bucket where the log files are to be stored.
---
--- Constraints:
---
---     * Must be in the same region as the cluster
---
---
---     * The cluster must have read bucket and put object permissions
---
---
--- * 'clusterIdentifier' - The identifier of the cluster on which logging is to be started.
---
--- Example: @examplecluster@
 -- * 's3KeyPrefix' - The prefix applied to the log file names.
 --
 -- Constraints:
@@ -98,6 +112,21 @@ data EnableLogging = EnableLogging'
 --
 --
 --     * x7f or larger
+--
+--
+--
+--
+-- * 'clusterIdentifier' - The identifier of the cluster on which logging is to be started.
+--
+-- Example: @examplecluster@
+-- * 'bucketName' - The name of an existing S3 bucket where the log files are to be stored.
+--
+-- Constraints:
+--
+--     * Must be in the same region as the cluster
+--
+--
+--     * The cluster must have read bucket and put object permissions
 mkEnableLogging ::
   -- | 'clusterIdentifier'
   Lude.Text ->

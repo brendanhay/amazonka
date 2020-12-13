@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppSync.DeleteType
     mkDeleteType,
 
     -- ** Request lenses
-    dtApiId,
     dtTypeName,
+    dtApiId,
 
     -- * Destructuring the response
     DeleteTypeResponse (..),
@@ -39,37 +40,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteType' smart constructor.
 data DeleteType = DeleteType'
-  { apiId :: Lude.Text,
-    typeName :: Lude.Text
+  { -- | The type name.
+    typeName :: Lude.Text,
+    -- | The API ID.
+    apiId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteType' with the minimum fields required to make a request.
 --
--- * 'apiId' - The API ID.
 -- * 'typeName' - The type name.
+-- * 'apiId' - The API ID.
 mkDeleteType ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'typeName'
   Lude.Text ->
+  -- | 'apiId'
+  Lude.Text ->
   DeleteType
-mkDeleteType pApiId_ pTypeName_ =
-  DeleteType' {apiId = pApiId_, typeName = pTypeName_}
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtApiId :: Lens.Lens' DeleteType Lude.Text
-dtApiId = Lens.lens (apiId :: DeleteType -> Lude.Text) (\s a -> s {apiId = a} :: DeleteType)
-{-# DEPRECATED dtApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+mkDeleteType pTypeName_ pApiId_ =
+  DeleteType' {typeName = pTypeName_, apiId = pApiId_}
 
 -- | The type name.
 --
@@ -77,6 +67,13 @@ dtApiId = Lens.lens (apiId :: DeleteType -> Lude.Text) (\s a -> s {apiId = a} ::
 dtTypeName :: Lens.Lens' DeleteType Lude.Text
 dtTypeName = Lens.lens (typeName :: DeleteType -> Lude.Text) (\s a -> s {typeName = a} :: DeleteType)
 {-# DEPRECATED dtTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtApiId :: Lens.Lens' DeleteType Lude.Text
+dtApiId = Lens.lens (apiId :: DeleteType -> Lude.Text) (\s a -> s {apiId = a} :: DeleteType)
+{-# DEPRECATED dtApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 instance Lude.AWSRequest DeleteType where
   type Rs DeleteType = DeleteTypeResponse
@@ -106,16 +103,10 @@ instance Lude.ToQuery DeleteType where
 
 -- | /See:/ 'mkDeleteTypeResponse' smart constructor.
 newtype DeleteTypeResponse = DeleteTypeResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTypeResponse' with the minimum fields required to make a request.

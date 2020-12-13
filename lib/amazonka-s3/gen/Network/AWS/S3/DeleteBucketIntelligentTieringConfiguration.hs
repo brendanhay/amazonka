@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,18 +50,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeleteBucketIntelligentTieringConfiguration' smart constructor.
 data DeleteBucketIntelligentTieringConfiguration = DeleteBucketIntelligentTieringConfiguration'
-  { bucket ::
-      BucketName,
-    id ::
-      Lude.Text
+  { -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
+    bucket :: BucketName,
+    -- | The ID used to identify the S3 Intelligent-Tiering configuration.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketIntelligentTieringConfiguration' with the minimum fields required to make a request.
@@ -118,17 +113,8 @@ instance Lude.ToQuery DeleteBucketIntelligentTieringConfiguration where
 
 -- | /See:/ 'mkDeleteBucketIntelligentTieringConfigurationResponse' smart constructor.
 data DeleteBucketIntelligentTieringConfigurationResponse = DeleteBucketIntelligentTieringConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketIntelligentTieringConfigurationResponse' with the minimum fields required to make a request.
 mkDeleteBucketIntelligentTieringConfigurationResponse ::

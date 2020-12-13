@@ -13,11 +13,11 @@
 module Network.AWS.MQ.Types.BrokerState
   ( BrokerState
       ( BrokerState',
-        CreationFailed,
         CreationInProgress,
+        CreationFailed,
         DeletionInProgress,
-        RebootInProgress,
-        Running
+        Running,
+        RebootInProgress
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype BrokerState = BrokerState' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreationFailed :: BrokerState
-pattern CreationFailed = BrokerState' "CREATION_FAILED"
-
 pattern CreationInProgress :: BrokerState
 pattern CreationInProgress = BrokerState' "CREATION_IN_PROGRESS"
+
+pattern CreationFailed :: BrokerState
+pattern CreationFailed = BrokerState' "CREATION_FAILED"
 
 pattern DeletionInProgress :: BrokerState
 pattern DeletionInProgress = BrokerState' "DELETION_IN_PROGRESS"
 
-pattern RebootInProgress :: BrokerState
-pattern RebootInProgress = BrokerState' "REBOOT_IN_PROGRESS"
-
 pattern Running :: BrokerState
 pattern Running = BrokerState' "RUNNING"
 
+pattern RebootInProgress :: BrokerState
+pattern RebootInProgress = BrokerState' "REBOOT_IN_PROGRESS"
+
 {-# COMPLETE
-  CreationFailed,
   CreationInProgress,
+  CreationFailed,
   DeletionInProgress,
-  RebootInProgress,
   Running,
+  RebootInProgress,
   BrokerState'
   #-}

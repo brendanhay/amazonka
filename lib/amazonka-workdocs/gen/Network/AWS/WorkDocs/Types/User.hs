@@ -46,48 +46,57 @@ import Network.AWS.WorkDocs.Types.UserType
 --
 -- /See:/ 'mkUser' smart constructor.
 data User = User'
-  { givenName :: Lude.Maybe Lude.Text,
+  { -- | The given name of the user.
+    givenName :: Lude.Maybe Lude.Text,
+    -- | The status of the user.
     status :: Lude.Maybe UserStatusType,
+    -- | The locale of the user.
     locale :: Lude.Maybe LocaleType,
+    -- | The login name of the user.
     username :: Lude.Maybe Lude.Text,
+    -- | The storage for the user.
     storage :: Lude.Maybe UserStorageMetadata,
+    -- | The time when the user was modified.
     modifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The email address of the user.
     emailAddress :: Lude.Maybe Lude.Text,
+    -- | The ID of the user.
     id :: Lude.Maybe Lude.Text,
+    -- | The ID of the root folder.
     rootFolderId :: Lude.Maybe Lude.Text,
+    -- | The type of user.
     type' :: Lude.Maybe UserType,
+    -- | The surname of the user.
     surname :: Lude.Maybe Lude.Text,
+    -- | The time zone ID of the user.
     timeZoneId :: Lude.Maybe Lude.Text,
+    -- | The time when the user was created.
     createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the organization.
     organizationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the recycle bin folder.
     recycleBinFolderId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- * 'createdTimestamp' - The time when the user was created.
--- * 'emailAddress' - The email address of the user.
 -- * 'givenName' - The given name of the user.
--- * 'id' - The ID of the user.
--- * 'locale' - The locale of the user.
--- * 'modifiedTimestamp' - The time when the user was modified.
--- * 'organizationId' - The ID of the organization.
--- * 'recycleBinFolderId' - The ID of the recycle bin folder.
--- * 'rootFolderId' - The ID of the root folder.
 -- * 'status' - The status of the user.
+-- * 'locale' - The locale of the user.
+-- * 'username' - The login name of the user.
 -- * 'storage' - The storage for the user.
+-- * 'modifiedTimestamp' - The time when the user was modified.
+-- * 'emailAddress' - The email address of the user.
+-- * 'id' - The ID of the user.
+-- * 'rootFolderId' - The ID of the root folder.
+-- * 'type'' - The type of user.
 -- * 'surname' - The surname of the user.
 -- * 'timeZoneId' - The time zone ID of the user.
--- * 'type'' - The type of user.
--- * 'username' - The login name of the user.
+-- * 'createdTimestamp' - The time when the user was created.
+-- * 'organizationId' - The ID of the organization.
+-- * 'recycleBinFolderId' - The ID of the recycle bin folder.
 mkUser ::
   User
 mkUser =

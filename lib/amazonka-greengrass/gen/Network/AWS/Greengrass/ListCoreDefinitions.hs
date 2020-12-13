@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Greengrass.ListCoreDefinitions
     mkListCoreDefinitions,
 
     -- ** Request lenses
-    lcdNextToken,
-    lcdMaxResults,
+    lcdsNextToken,
+    lcdsMaxResults,
 
     -- * Destructuring the response
     ListCoreDefinitionsResponse (..),
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCoreDefinitions' smart constructor.
 data ListCoreDefinitions = ListCoreDefinitions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to be returned per request.
     maxResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCoreDefinitions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to be returned per request.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListCoreDefinitions ::
   ListCoreDefinitions
 mkListCoreDefinitions =
@@ -72,16 +68,16 @@ mkListCoreDefinitions =
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcdNextToken :: Lens.Lens' ListCoreDefinitions (Lude.Maybe Lude.Text)
-lcdNextToken = Lens.lens (nextToken :: ListCoreDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCoreDefinitions)
-{-# DEPRECATED lcdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcdsNextToken :: Lens.Lens' ListCoreDefinitions (Lude.Maybe Lude.Text)
+lcdsNextToken = Lens.lens (nextToken :: ListCoreDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCoreDefinitions)
+{-# DEPRECATED lcdsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcdMaxResults :: Lens.Lens' ListCoreDefinitions (Lude.Maybe Lude.Text)
-lcdMaxResults = Lens.lens (maxResults :: ListCoreDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListCoreDefinitions)
-{-# DEPRECATED lcdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lcdsMaxResults :: Lens.Lens' ListCoreDefinitions (Lude.Maybe Lude.Text)
+lcdsMaxResults = Lens.lens (maxResults :: ListCoreDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListCoreDefinitions)
+{-# DEPRECATED lcdsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListCoreDefinitions where
   page rq rs
@@ -90,7 +86,7 @@ instance Page.AWSPager ListCoreDefinitions where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lcdNextToken Lens..~ rs Lens.^. lcdrsNextToken
+          Lude.& lcdsNextToken Lens..~ rs Lens.^. lcdrsNextToken
 
 instance Lude.AWSRequest ListCoreDefinitions where
   type Rs ListCoreDefinitions = ListCoreDefinitionsResponse
@@ -123,25 +119,20 @@ instance Lude.ToQuery ListCoreDefinitions where
 
 -- | /See:/ 'mkListCoreDefinitionsResponse' smart constructor.
 data ListCoreDefinitionsResponse = ListCoreDefinitionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    definitions ::
-      Lude.Maybe [DefinitionInformation],
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about a definition.
+    definitions :: Lude.Maybe [DefinitionInformation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCoreDefinitionsResponse' with the minimum fields required to make a request.
 --
--- * 'definitions' - Information about a definition.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'definitions' - Information about a definition.
 -- * 'responseStatus' - The response status code.
 mkListCoreDefinitionsResponse ::
   -- | 'responseStatus'

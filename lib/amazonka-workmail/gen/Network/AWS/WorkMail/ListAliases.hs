@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.WorkMail.ListAliases
 
     -- ** Request lenses
     laNextToken,
+    laEntityId,
     laMaxResults,
     laOrganizationId,
-    laEntityId,
 
     -- * Destructuring the response
     ListAliasesResponse (..),
@@ -46,38 +47,36 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The identifier for the entity for which to list the aliases.
+    entityId :: Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural,
-    organizationId :: Lude.Text,
-    entityId :: Lude.Text
+    -- | The identifier for the organization under which the entity exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
 -- * 'entityId' - The identifier for the entity for which to list the aliases.
 -- * 'maxResults' - The maximum number of results to return in a single call.
--- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
 -- * 'organizationId' - The identifier for the organization under which the entity exists.
 mkListAliases ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'entityId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   ListAliases
-mkListAliases pOrganizationId_ pEntityId_ =
+mkListAliases pEntityId_ pOrganizationId_ =
   ListAliases'
     { nextToken = Lude.Nothing,
+      entityId = pEntityId_,
       maxResults = Lude.Nothing,
-      organizationId = pOrganizationId_,
-      entityId = pEntityId_
+      organizationId = pOrganizationId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
@@ -86,6 +85,13 @@ mkListAliases pOrganizationId_ pEntityId_ =
 laNextToken :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
 laNextToken = Lens.lens (nextToken :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAliases)
 {-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The identifier for the entity for which to list the aliases.
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laEntityId :: Lens.Lens' ListAliases Lude.Text
+laEntityId = Lens.lens (entityId :: ListAliases -> Lude.Text) (\s a -> s {entityId = a} :: ListAliases)
+{-# DEPRECATED laEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The maximum number of results to return in a single call.
 --
@@ -100,13 +106,6 @@ laMaxResults = Lens.lens (maxResults :: ListAliases -> Lude.Maybe Lude.Natural) 
 laOrganizationId :: Lens.Lens' ListAliases Lude.Text
 laOrganizationId = Lens.lens (organizationId :: ListAliases -> Lude.Text) (\s a -> s {organizationId = a} :: ListAliases)
 {-# DEPRECATED laOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The identifier for the entity for which to list the aliases.
---
--- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laEntityId :: Lens.Lens' ListAliases Lude.Text
-laEntityId = Lens.lens (entityId :: ListAliases -> Lude.Text) (\s a -> s {entityId = a} :: ListAliases)
-{-# DEPRECATED laEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 instance Page.AWSPager ListAliases where
   page rq rs
@@ -145,9 +144,9 @@ instance Lude.ToJSON ListAliases where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("EntityId" Lude..= entityId),
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("EntityId" Lude..= entityId)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -159,18 +158,14 @@ instance Lude.ToQuery ListAliases where
 
 -- | /See:/ 'mkListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { aliases ::
-      Lude.Maybe [Lude.Text],
+  { -- | The entity's paginated aliases.
+    aliases :: Lude.Maybe [Lude.Text],
+    -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.

@@ -382,9 +382,9 @@ module Network.AWS.Greengrass
     -- ** Connector
     Connector (..),
     mkConnector,
-    conParameters,
-    conConnectorARN,
-    conId,
+    cfConnectorARN,
+    cfParameters,
+    cfId,
 
     -- ** ConnectorDefinitionVersion
     ConnectorDefinitionVersion (..),
@@ -394,10 +394,10 @@ module Network.AWS.Greengrass
     -- ** Core
     Core (..),
     mkCore,
-    cSyncShadow,
-    cThingARN,
-    cId,
     cCertificateARN,
+    cThingARN,
+    cSyncShadow,
+    cId,
 
     -- ** CoreDefinitionVersion
     CoreDefinitionVersion (..),
@@ -428,10 +428,10 @@ module Network.AWS.Greengrass
     -- ** Device
     Device (..),
     mkDevice,
-    dSyncShadow,
-    dThingARN,
-    dId,
     dCertificateARN,
+    dThingARN,
+    dSyncShadow,
+    dId,
 
     -- ** DeviceDefinitionVersion
     DeviceDefinitionVersion (..),
@@ -503,10 +503,10 @@ module Network.AWS.Greengrass
     GreengrassLogger (..),
     mkGreengrassLogger,
     glSpace,
+    glComponent,
+    glId,
     glType,
     glLevel,
-    glId,
-    glComponent,
 
     -- ** GroupCertificateAuthorityProperties
     GroupCertificateAuthorityProperties (..),
@@ -564,14 +564,14 @@ module Network.AWS.Greengrass
     Resource (..),
     mkResource,
     rResourceDataContainer,
-    rId,
     rName,
+    rId,
 
     -- ** ResourceAccessPolicy
     ResourceAccessPolicy (..),
     mkResourceAccessPolicy,
-    rapPermission,
     rapResourceId,
+    rapPermission,
 
     -- ** ResourceDataContainer
     ResourceDataContainer (..),
@@ -621,10 +621,10 @@ module Network.AWS.Greengrass
     -- ** Subscription
     Subscription (..),
     mkSubscription,
-    sTarget,
-    sId,
     sSubject,
     sSource,
+    sId,
+    sTarget,
 
     -- ** SubscriptionDefinitionVersion
     SubscriptionDefinitionVersion (..),
@@ -634,8 +634,8 @@ module Network.AWS.Greengrass
     -- ** TelemetryConfiguration
     TelemetryConfiguration (..),
     mkTelemetryConfiguration,
-    tcConfigurationSyncStatus,
     tcTelemetry,
+    tcConfigurationSyncStatus,
 
     -- ** TelemetryConfigurationUpdate
     TelemetryConfigurationUpdate (..),

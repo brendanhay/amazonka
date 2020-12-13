@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SecretsManager.ValidateResourcePolicy
     mkValidateResourcePolicy,
 
     -- ** Request lenses
-    vrpSecretId,
     vrpResourcePolicy,
+    vrpSecretId,
 
     -- * Destructuring the response
     ValidateResourcePolicyResponse (..),
@@ -41,17 +42,12 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkValidateResourcePolicy' smart constructor.
 data ValidateResourcePolicy = ValidateResourcePolicy'
-  { secretId ::
-      Lude.Maybe Lude.Text,
-    resourcePolicy :: Lude.Text
+  { -- | Identifies the Resource Policy attached to the secret.
+    resourcePolicy :: Lude.Text,
+    -- | The identifier for the secret that you want to validate a resource policy. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateResourcePolicy' with the minimum fields required to make a request.
@@ -64,16 +60,9 @@ mkValidateResourcePolicy ::
   ValidateResourcePolicy
 mkValidateResourcePolicy pResourcePolicy_ =
   ValidateResourcePolicy'
-    { secretId = Lude.Nothing,
-      resourcePolicy = pResourcePolicy_
+    { resourcePolicy = pResourcePolicy_,
+      secretId = Lude.Nothing
     }
-
--- | The identifier for the secret that you want to validate a resource policy. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
---
--- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vrpSecretId :: Lens.Lens' ValidateResourcePolicy (Lude.Maybe Lude.Text)
-vrpSecretId = Lens.lens (secretId :: ValidateResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {secretId = a} :: ValidateResourcePolicy)
-{-# DEPRECATED vrpSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 -- | Identifies the Resource Policy attached to the secret.
 --
@@ -81,6 +70,13 @@ vrpSecretId = Lens.lens (secretId :: ValidateResourcePolicy -> Lude.Maybe Lude.T
 vrpResourcePolicy :: Lens.Lens' ValidateResourcePolicy Lude.Text
 vrpResourcePolicy = Lens.lens (resourcePolicy :: ValidateResourcePolicy -> Lude.Text) (\s a -> s {resourcePolicy = a} :: ValidateResourcePolicy)
 {-# DEPRECATED vrpResourcePolicy "Use generic-lens or generic-optics with 'resourcePolicy' instead." #-}
+
+-- | The identifier for the secret that you want to validate a resource policy. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vrpSecretId :: Lens.Lens' ValidateResourcePolicy (Lude.Maybe Lude.Text)
+vrpSecretId = Lens.lens (secretId :: ValidateResourcePolicy -> Lude.Maybe Lude.Text) (\s a -> s {secretId = a} :: ValidateResourcePolicy)
+{-# DEPRECATED vrpSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 instance Lude.AWSRequest ValidateResourcePolicy where
   type Rs ValidateResourcePolicy = ValidateResourcePolicyResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON ValidateResourcePolicy where
   toJSON ValidateResourcePolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SecretId" Lude..=) Lude.<$> secretId,
-            Lude.Just ("ResourcePolicy" Lude..= resourcePolicy)
+          [ Lude.Just ("ResourcePolicy" Lude..= resourcePolicy),
+            ("SecretId" Lude..=) Lude.<$> secretId
           ]
       )
 
@@ -122,27 +118,21 @@ instance Lude.ToQuery ValidateResourcePolicy where
 
 -- | /See:/ 'mkValidateResourcePolicyResponse' smart constructor.
 data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
-  { validationErrors ::
-      Lude.Maybe
-        [ValidationErrorsEntry],
-    policyValidationPassed ::
-      Lude.Maybe Lude.Bool,
+  { -- | Returns an error message if your policy doesn't pass validatation.
+    validationErrors :: Lude.Maybe [ValidationErrorsEntry],
+    -- | Returns a message stating that your Reource Policy passed validation.
+    policyValidationPassed :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateResourcePolicyResponse' with the minimum fields required to make a request.
 --
+-- * 'validationErrors' - Returns an error message if your policy doesn't pass validatation.
 -- * 'policyValidationPassed' - Returns a message stating that your Reource Policy passed validation.
 -- * 'responseStatus' - The response status code.
--- * 'validationErrors' - Returns an error message if your policy doesn't pass validatation.
 mkValidateResourcePolicyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

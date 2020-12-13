@@ -13,19 +13,19 @@
 module Network.AWS.Snowball.Types.JobState
   ( JobState
       ( JobState',
-        JSCancelled,
-        JSComplete,
-        JSInProgress,
-        JSInTransitToAWS,
-        JSInTransitToCustomer,
-        JSListing,
-        JSNew,
-        JSPending,
-        JSPreparingAppliance,
-        JSPreparingShipment,
-        JSWithAWS,
-        JSWithAWSSortingFacility,
-        JSWithCustomer
+        New,
+        PreparingAppliance,
+        PreparingShipment,
+        InTransitToCustomer,
+        WithCustomer,
+        InTransitToAWS,
+        WithAWSSortingFacility,
+        WithAWS,
+        InProgress,
+        Complete,
+        Cancelled,
+        Listing,
+        Pending
       ),
   )
 where
@@ -56,58 +56,58 @@ newtype JobState = JobState' Lude.Text
       Lude.ToHeader
     )
 
-pattern JSCancelled :: JobState
-pattern JSCancelled = JobState' "Cancelled"
+pattern New :: JobState
+pattern New = JobState' "New"
 
-pattern JSComplete :: JobState
-pattern JSComplete = JobState' "Complete"
+pattern PreparingAppliance :: JobState
+pattern PreparingAppliance = JobState' "PreparingAppliance"
 
-pattern JSInProgress :: JobState
-pattern JSInProgress = JobState' "InProgress"
+pattern PreparingShipment :: JobState
+pattern PreparingShipment = JobState' "PreparingShipment"
 
-pattern JSInTransitToAWS :: JobState
-pattern JSInTransitToAWS = JobState' "InTransitToAWS"
+pattern InTransitToCustomer :: JobState
+pattern InTransitToCustomer = JobState' "InTransitToCustomer"
 
-pattern JSInTransitToCustomer :: JobState
-pattern JSInTransitToCustomer = JobState' "InTransitToCustomer"
+pattern WithCustomer :: JobState
+pattern WithCustomer = JobState' "WithCustomer"
 
-pattern JSListing :: JobState
-pattern JSListing = JobState' "Listing"
+pattern InTransitToAWS :: JobState
+pattern InTransitToAWS = JobState' "InTransitToAWS"
 
-pattern JSNew :: JobState
-pattern JSNew = JobState' "New"
+pattern WithAWSSortingFacility :: JobState
+pattern WithAWSSortingFacility = JobState' "WithAWSSortingFacility"
 
-pattern JSPending :: JobState
-pattern JSPending = JobState' "Pending"
+pattern WithAWS :: JobState
+pattern WithAWS = JobState' "WithAWS"
 
-pattern JSPreparingAppliance :: JobState
-pattern JSPreparingAppliance = JobState' "PreparingAppliance"
+pattern InProgress :: JobState
+pattern InProgress = JobState' "InProgress"
 
-pattern JSPreparingShipment :: JobState
-pattern JSPreparingShipment = JobState' "PreparingShipment"
+pattern Complete :: JobState
+pattern Complete = JobState' "Complete"
 
-pattern JSWithAWS :: JobState
-pattern JSWithAWS = JobState' "WithAWS"
+pattern Cancelled :: JobState
+pattern Cancelled = JobState' "Cancelled"
 
-pattern JSWithAWSSortingFacility :: JobState
-pattern JSWithAWSSortingFacility = JobState' "WithAWSSortingFacility"
+pattern Listing :: JobState
+pattern Listing = JobState' "Listing"
 
-pattern JSWithCustomer :: JobState
-pattern JSWithCustomer = JobState' "WithCustomer"
+pattern Pending :: JobState
+pattern Pending = JobState' "Pending"
 
 {-# COMPLETE
-  JSCancelled,
-  JSComplete,
-  JSInProgress,
-  JSInTransitToAWS,
-  JSInTransitToCustomer,
-  JSListing,
-  JSNew,
-  JSPending,
-  JSPreparingAppliance,
-  JSPreparingShipment,
-  JSWithAWS,
-  JSWithAWSSortingFacility,
-  JSWithCustomer,
+  New,
+  PreparingAppliance,
+  PreparingShipment,
+  InTransitToCustomer,
+  WithCustomer,
+  InTransitToAWS,
+  WithAWSSortingFacility,
+  WithAWS,
+  InProgress,
+  Complete,
+  Cancelled,
+  Listing,
+  Pending,
   JobState'
   #-}

@@ -31,24 +31,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentLifecycle' smart constructor.
 data EnvironmentLifecycle = EnvironmentLifecycle'
-  { status ::
-      Lude.Maybe EnvironmentLifecycleStatus,
+  { -- | The current creation or deletion lifecycle state of the environment.
+    --
+    --
+    --     * @CREATING@ : The environment is in the process of being created.
+    --
+    --
+    --     * @CREATED@ : The environment was successfully created.
+    --
+    --
+    --     * @CREATE_FAILED@ : The environment failed to be created.
+    --
+    --
+    --     * @DELETING@ : The environment is in the process of being deleted.
+    --
+    --
+    --     * @DELETE_FAILED@ : The environment failed to delete.
+    status :: Lude.Maybe EnvironmentLifecycleStatus,
+    -- | If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
     failureResource :: Lude.Maybe Lude.Text,
+    -- | Any informational message about the lifecycle state of the environment.
     reason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentLifecycle' with the minimum fields required to make a request.
 --
--- * 'failureResource' - If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
--- * 'reason' - Any informational message about the lifecycle state of the environment.
 -- * 'status' - The current creation or deletion lifecycle state of the environment.
 --
 --
@@ -65,6 +74,10 @@ data EnvironmentLifecycle = EnvironmentLifecycle'
 --
 --
 --     * @DELETE_FAILED@ : The environment failed to delete.
+--
+--
+-- * 'failureResource' - If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.
+-- * 'reason' - Any informational message about the lifecycle state of the environment.
 mkEnvironmentLifecycle ::
   EnvironmentLifecycle
 mkEnvironmentLifecycle =

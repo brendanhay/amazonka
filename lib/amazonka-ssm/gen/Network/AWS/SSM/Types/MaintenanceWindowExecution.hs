@@ -34,33 +34,29 @@ import Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
 --
 -- /See:/ 'mkMaintenanceWindowExecution' smart constructor.
 data MaintenanceWindowExecution = MaintenanceWindowExecution'
-  { status ::
-      Lude.Maybe
-        MaintenanceWindowExecutionStatus,
-    startTime ::
-      Lude.Maybe Lude.Timestamp,
-    windowExecutionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the execution.
+    status :: Lude.Maybe MaintenanceWindowExecutionStatus,
+    -- | The time the execution started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the maintenance window execution.
+    windowExecutionId :: Lude.Maybe Lude.Text,
+    -- | The details explaining the Status. Only available for certain status values.
     statusDetails :: Lude.Maybe Lude.Text,
+    -- | The time the execution finished.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the maintenance window.
     windowId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowExecution' with the minimum fields required to make a request.
 --
--- * 'endTime' - The time the execution finished.
--- * 'startTime' - The time the execution started.
 -- * 'status' - The status of the execution.
--- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
+-- * 'startTime' - The time the execution started.
 -- * 'windowExecutionId' - The ID of the maintenance window execution.
+-- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
+-- * 'endTime' - The time the execution finished.
 -- * 'windowId' - The ID of the maintenance window.
 mkMaintenanceWindowExecution ::
   MaintenanceWindowExecution

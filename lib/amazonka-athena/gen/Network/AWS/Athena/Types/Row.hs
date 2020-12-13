@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The rows that comprise a query result table.
 --
 -- /See:/ 'mkRow' smart constructor.
-newtype Row = Row' {data' :: Lude.Maybe [Datum]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Row = Row'
+  { -- | The data that populates a row in a query result table.
+    data' :: Lude.Maybe [Datum]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Row' with the minimum fields required to make a request.

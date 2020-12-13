@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.Firehose.DescribeDeliveryStream
     mkDescribeDeliveryStream,
 
     -- ** Request lenses
-    ddsExclusiveStartDestinationId,
-    ddsLimit,
-    ddsDeliveryStreamName,
+    dExclusiveStartDestinationId,
+    dDeliveryStreamName,
+    dLimit,
 
     -- * Destructuring the response
     DescribeDeliveryStreamResponse (..),
     mkDescribeDeliveryStreamResponse,
 
     -- ** Response lenses
-    ddsrsResponseStatus,
     ddsrsDeliveryStreamDescription,
+    ddsrsResponseStatus,
   )
 where
 
@@ -43,24 +44,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
-  { exclusiveStartDestinationId ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    deliveryStreamName :: Lude.Text
+  { -- | The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
+    exclusiveStartDestinationId :: Lude.Maybe Lude.Text,
+    -- | The name of the delivery stream.
+    deliveryStreamName :: Lude.Text,
+    -- | The limit on the number of destinations to return. You can have one destination per delivery stream.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeliveryStream' with the minimum fields required to make a request.
 --
--- * 'deliveryStreamName' - The name of the delivery stream.
 -- * 'exclusiveStartDestinationId' - The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
+-- * 'deliveryStreamName' - The name of the delivery stream.
 -- * 'limit' - The limit on the number of destinations to return. You can have one destination per delivery stream.
 mkDescribeDeliveryStream ::
   -- | 'deliveryStreamName'
@@ -70,30 +67,30 @@ mkDescribeDeliveryStream pDeliveryStreamName_ =
   DescribeDeliveryStream'
     { exclusiveStartDestinationId =
         Lude.Nothing,
-      limit = Lude.Nothing,
-      deliveryStreamName = pDeliveryStreamName_
+      deliveryStreamName = pDeliveryStreamName_,
+      limit = Lude.Nothing
     }
 
 -- | The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
 --
 -- /Note:/ Consider using 'exclusiveStartDestinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsExclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Text)
-ddsExclusiveStartDestinationId = Lens.lens (exclusiveStartDestinationId :: DescribeDeliveryStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartDestinationId = a} :: DescribeDeliveryStream)
-{-# DEPRECATED ddsExclusiveStartDestinationId "Use generic-lens or generic-optics with 'exclusiveStartDestinationId' instead." #-}
-
--- | The limit on the number of destinations to return. You can have one destination per delivery stream.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsLimit :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Natural)
-ddsLimit = Lens.lens (limit :: DescribeDeliveryStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeDeliveryStream)
-{-# DEPRECATED ddsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+dExclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Text)
+dExclusiveStartDestinationId = Lens.lens (exclusiveStartDestinationId :: DescribeDeliveryStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartDestinationId = a} :: DescribeDeliveryStream)
+{-# DEPRECATED dExclusiveStartDestinationId "Use generic-lens or generic-optics with 'exclusiveStartDestinationId' instead." #-}
 
 -- | The name of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsDeliveryStreamName :: Lens.Lens' DescribeDeliveryStream Lude.Text
-ddsDeliveryStreamName = Lens.lens (deliveryStreamName :: DescribeDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DescribeDeliveryStream)
-{-# DEPRECATED ddsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+dDeliveryStreamName :: Lens.Lens' DescribeDeliveryStream Lude.Text
+dDeliveryStreamName = Lens.lens (deliveryStreamName :: DescribeDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DescribeDeliveryStream)
+{-# DEPRECATED dDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+
+-- | The limit on the number of destinations to return. You can have one destination per delivery stream.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLimit :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Natural)
+dLimit = Lens.lens (limit :: DescribeDeliveryStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeDeliveryStream)
+{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Lude.AWSRequest DescribeDeliveryStream where
   type Rs DescribeDeliveryStream = DescribeDeliveryStreamResponse
@@ -102,8 +99,8 @@ instance Lude.AWSRequest DescribeDeliveryStream where
     Res.receiveJSON
       ( \s h x ->
           DescribeDeliveryStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "DeliveryStreamDescription")
+            Lude.<$> (x Lude..:> "DeliveryStreamDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeDeliveryStream where
@@ -123,8 +120,8 @@ instance Lude.ToJSON DescribeDeliveryStream where
       ( Lude.catMaybes
           [ ("ExclusiveStartDestinationId" Lude..=)
               Lude.<$> exclusiveStartDestinationId,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
+            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -136,10 +133,10 @@ instance Lude.ToQuery DescribeDeliveryStream where
 
 -- | /See:/ 'mkDescribeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
-  { responseStatus ::
-      Lude.Int,
-    deliveryStreamDescription ::
-      DeliveryStreamDescription
+  { -- | Information about the delivery stream.
+    deliveryStreamDescription :: DeliveryStreamDescription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -149,26 +146,19 @@ data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
 -- * 'deliveryStreamDescription' - Information about the delivery stream.
 -- * 'responseStatus' - The response status code.
 mkDescribeDeliveryStreamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'deliveryStreamDescription'
   DeliveryStreamDescription ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeDeliveryStreamResponse
 mkDescribeDeliveryStreamResponse
-  pResponseStatus_
-  pDeliveryStreamDescription_ =
+  pDeliveryStreamDescription_
+  pResponseStatus_ =
     DescribeDeliveryStreamResponse'
-      { responseStatus =
-          pResponseStatus_,
-        deliveryStreamDescription = pDeliveryStreamDescription_
+      { deliveryStreamDescription =
+          pDeliveryStreamDescription_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsrsResponseStatus :: Lens.Lens' DescribeDeliveryStreamResponse Lude.Int
-ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDeliveryStreamResponse)
-{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the delivery stream.
 --
@@ -176,3 +166,10 @@ ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDeliveryStreamRespons
 ddsrsDeliveryStreamDescription :: Lens.Lens' DescribeDeliveryStreamResponse DeliveryStreamDescription
 ddsrsDeliveryStreamDescription = Lens.lens (deliveryStreamDescription :: DescribeDeliveryStreamResponse -> DeliveryStreamDescription) (\s a -> s {deliveryStreamDescription = a} :: DescribeDeliveryStreamResponse)
 {-# DEPRECATED ddsrsDeliveryStreamDescription "Use generic-lens or generic-optics with 'deliveryStreamDescription' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsrsResponseStatus :: Lens.Lens' DescribeDeliveryStreamResponse Lude.Int
+ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDeliveryStreamResponse)
+{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

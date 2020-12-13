@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisioningArtifactPreferences' smart constructor.
 data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
-  { stackSetRegions ::
-      Lude.Maybe [Lude.Text],
-    stackSetAccounts ::
-      Lude.Maybe [Lude.Text]
+  { -- | One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in @ProvisioningPreferences$StackSetRegions@ and @UpdateProvisioningPreferences$StackSetRegions@ .
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    stackSetRegions :: Lude.Maybe [Lude.Text],
+    -- | One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in @ProvisioningPreferences$StackSetAccounts@ and @UpdateProvisioningPreferences$StackSetAccounts@ .
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    stackSetAccounts :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifactPreferences' with the minimum fields required to make a request.
 --
--- * 'stackSetAccounts' - One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in @ProvisioningPreferences$StackSetAccounts@ and @UpdateProvisioningPreferences$StackSetAccounts@ .
+-- * 'stackSetRegions' - One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in @ProvisioningPreferences$StackSetRegions@ and @UpdateProvisioningPreferences$StackSetRegions@ .
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
--- * 'stackSetRegions' - One or more AWS Regions where stack instances are deployed from the stack set. These regions can be scoped in @ProvisioningPreferences$StackSetRegions@ and @UpdateProvisioningPreferences$StackSetRegions@ .
+-- * 'stackSetAccounts' - One or more AWS accounts where stack instances are deployed from the stack set. These accounts can be scoped in @ProvisioningPreferences$StackSetAccounts@ and @UpdateProvisioningPreferences$StackSetAccounts@ .
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 mkProvisioningArtifactPreferences ::

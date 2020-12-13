@@ -33,25 +33,21 @@ import Network.AWS.Route53.Types.StatusReport
 --
 -- /See:/ 'mkHealthCheckObservation' smart constructor.
 data HealthCheckObservation = HealthCheckObservation'
-  { ipAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
+    ipAddress :: Lude.Maybe Lude.Text,
+    -- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
     statusReport :: Lude.Maybe StatusReport,
+    -- | The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
     region :: Lude.Maybe HealthCheckRegion
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HealthCheckObservation' with the minimum fields required to make a request.
 --
 -- * 'ipAddress' - The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
--- * 'region' - The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
 -- * 'statusReport' - A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
+-- * 'region' - The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
 mkHealthCheckObservation ::
   HealthCheckObservation
 mkHealthCheckObservation =

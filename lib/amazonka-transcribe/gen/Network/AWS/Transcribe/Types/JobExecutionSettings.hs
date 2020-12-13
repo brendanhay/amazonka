@@ -29,25 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecutionSettings' smart constructor.
 data JobExecutionSettings = JobExecutionSettings'
-  { dataAccessRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well.
+    --
+    -- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
+    dataAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the @AllowDeferredExecution@ field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a @LimitExceededException@ exception.
+    --
+    -- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
     allowDeferredExecution :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecutionSettings' with the minimum fields required to make a request.
 --
--- * 'allowDeferredExecution' - Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the @AllowDeferredExecution@ field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a @LimitExceededException@ exception.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well.
 --
 -- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results, this role should have access to the output bucket as well.
+-- * 'allowDeferredExecution' - Indicates whether a job should be queued by Amazon Transcribe when the concurrent execution limit is exceeded. When the @AllowDeferredExecution@ field is true, jobs are queued and executed when the number of executing jobs falls below the concurrent execution limit. If the field is false, Amazon Transcribe returns a @LimitExceededException@ exception.
 --
 -- If you specify the @AllowDeferredExecution@ field, you must specify the @DataAccessRoleArn@ field.
 mkJobExecutionSettings ::

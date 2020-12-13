@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
-  { bindIP ::
-      Lude.Maybe Lude.Text,
+  { -- | The IP address that the container is bound to on the container instance.
+    bindIP :: Lude.Maybe Lude.Text,
+    -- | The protocol used for the network binding.
     protocol :: Lude.Maybe TransportProtocol,
+    -- | The port number on the host that is used with the network binding.
     hostPort :: Lude.Maybe Lude.Int,
+    -- | The port number on the container that is used with the network binding.
     containerPort :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkBinding' with the minimum fields required to make a request.
 --
 -- * 'bindIP' - The IP address that the container is bound to on the container instance.
--- * 'containerPort' - The port number on the container that is used with the network binding.
--- * 'hostPort' - The port number on the host that is used with the network binding.
 -- * 'protocol' - The protocol used for the network binding.
+-- * 'hostPort' - The port number on the host that is used with the network binding.
+-- * 'containerPort' - The port number on the container that is used with the network binding.
 mkNetworkBinding ::
   NetworkBinding
 mkNetworkBinding =

@@ -13,13 +13,13 @@
 module Network.AWS.Comprehend.Types.ModelStatus
   ( ModelStatus
       ( ModelStatus',
+        MSSubmitted,
+        MSTraining,
         MSDeleting,
-        MSInError,
         MSStopRequested,
         MSStopped,
-        MSSubmitted,
-        MSTrained,
-        MSTraining
+        MSInError,
+        MSTrained
       ),
   )
 where
@@ -50,11 +50,14 @@ newtype ModelStatus = ModelStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern MSSubmitted :: ModelStatus
+pattern MSSubmitted = ModelStatus' "SUBMITTED"
+
+pattern MSTraining :: ModelStatus
+pattern MSTraining = ModelStatus' "TRAINING"
+
 pattern MSDeleting :: ModelStatus
 pattern MSDeleting = ModelStatus' "DELETING"
-
-pattern MSInError :: ModelStatus
-pattern MSInError = ModelStatus' "IN_ERROR"
 
 pattern MSStopRequested :: ModelStatus
 pattern MSStopRequested = ModelStatus' "STOP_REQUESTED"
@@ -62,22 +65,19 @@ pattern MSStopRequested = ModelStatus' "STOP_REQUESTED"
 pattern MSStopped :: ModelStatus
 pattern MSStopped = ModelStatus' "STOPPED"
 
-pattern MSSubmitted :: ModelStatus
-pattern MSSubmitted = ModelStatus' "SUBMITTED"
+pattern MSInError :: ModelStatus
+pattern MSInError = ModelStatus' "IN_ERROR"
 
 pattern MSTrained :: ModelStatus
 pattern MSTrained = ModelStatus' "TRAINED"
 
-pattern MSTraining :: ModelStatus
-pattern MSTraining = ModelStatus' "TRAINING"
-
 {-# COMPLETE
+  MSSubmitted,
+  MSTraining,
   MSDeleting,
-  MSInError,
   MSStopRequested,
   MSStopped,
-  MSSubmitted,
+  MSInError,
   MSTrained,
-  MSTraining,
   ModelStatus'
   #-}

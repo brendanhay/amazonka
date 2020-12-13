@@ -35,33 +35,33 @@ import Network.AWS.SageMaker.Types.DomainStatus
 --
 -- /See:/ 'mkDomainDetails' smart constructor.
 data DomainDetails = DomainDetails'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status.
     status :: Lude.Maybe DomainStatus,
+    -- | The domain's Amazon Resource Name (ARN).
     domainARN :: Lude.Maybe Lude.Text,
+    -- | The domain's URL.
     url :: Lude.Maybe Lude.Text,
+    -- | The last modified time.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The domain name.
     domainName :: Lude.Maybe Lude.Text,
+    -- | The domain ID.
     domainId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainDetails' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time.
--- * 'domainARN' - The domain's Amazon Resource Name (ARN).
--- * 'domainId' - The domain ID.
--- * 'domainName' - The domain name.
--- * 'lastModifiedTime' - The last modified time.
 -- * 'status' - The status.
+-- * 'domainARN' - The domain's Amazon Resource Name (ARN).
 -- * 'url' - The domain's URL.
+-- * 'lastModifiedTime' - The last modified time.
+-- * 'domainName' - The domain name.
+-- * 'domainId' - The domain ID.
 mkDomainDetails ::
   DomainDetails
 mkDomainDetails =

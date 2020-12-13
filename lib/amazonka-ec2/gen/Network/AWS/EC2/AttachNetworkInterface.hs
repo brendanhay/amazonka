@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.EC2.AttachNetworkInterface
     mkAttachNetworkInterface,
 
     -- ** Request lenses
+    aniInstanceId,
+    aniNetworkInterfaceId,
     aniNetworkCardIndex,
     aniDryRun,
     aniDeviceIndex,
-    aniInstanceId,
-    aniNetworkInterfaceId,
 
     -- * Destructuring the response
     AttachNetworkInterfaceResponse (..),
@@ -46,48 +47,60 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAttachNetworkInterface' smart constructor.
 data AttachNetworkInterface = AttachNetworkInterface'
-  { networkCardIndex ::
-      Lude.Maybe Lude.Int,
-    dryRun :: Lude.Maybe Lude.Bool,
-    deviceIndex :: Lude.Int,
+  { -- | The ID of the instance.
     instanceId :: Lude.Text,
-    networkInterfaceId :: Lude.Text
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Text,
+    -- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+    networkCardIndex :: Lude.Maybe Lude.Int,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The index of the device for the network interface attachment.
+    deviceIndex :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachNetworkInterface' with the minimum fields required to make a request.
 --
--- * 'deviceIndex' - The index of the device for the network interface attachment.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceId' - The ID of the instance.
--- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
 -- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'networkCardIndex' - The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'deviceIndex' - The index of the device for the network interface attachment.
 mkAttachNetworkInterface ::
-  -- | 'deviceIndex'
-  Lude.Int ->
   -- | 'instanceId'
   Lude.Text ->
   -- | 'networkInterfaceId'
   Lude.Text ->
+  -- | 'deviceIndex'
+  Lude.Int ->
   AttachNetworkInterface
 mkAttachNetworkInterface
-  pDeviceIndex_
   pInstanceId_
-  pNetworkInterfaceId_ =
+  pNetworkInterfaceId_
+  pDeviceIndex_ =
     AttachNetworkInterface'
-      { networkCardIndex = Lude.Nothing,
+      { instanceId = pInstanceId_,
+        networkInterfaceId = pNetworkInterfaceId_,
+        networkCardIndex = Lude.Nothing,
         dryRun = Lude.Nothing,
-        deviceIndex = pDeviceIndex_,
-        instanceId = pInstanceId_,
-        networkInterfaceId = pNetworkInterfaceId_
+        deviceIndex = pDeviceIndex_
       }
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aniInstanceId :: Lens.Lens' AttachNetworkInterface Lude.Text
+aniInstanceId = Lens.lens (instanceId :: AttachNetworkInterface -> Lude.Text) (\s a -> s {instanceId = a} :: AttachNetworkInterface)
+{-# DEPRECATED aniInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The ID of the network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aniNetworkInterfaceId :: Lens.Lens' AttachNetworkInterface Lude.Text
+aniNetworkInterfaceId = Lens.lens (networkInterfaceId :: AttachNetworkInterface -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: AttachNetworkInterface)
+{-# DEPRECATED aniNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
 --
@@ -109,20 +122,6 @@ aniDryRun = Lens.lens (dryRun :: AttachNetworkInterface -> Lude.Maybe Lude.Bool)
 aniDeviceIndex :: Lens.Lens' AttachNetworkInterface Lude.Int
 aniDeviceIndex = Lens.lens (deviceIndex :: AttachNetworkInterface -> Lude.Int) (\s a -> s {deviceIndex = a} :: AttachNetworkInterface)
 {-# DEPRECATED aniDeviceIndex "Use generic-lens or generic-optics with 'deviceIndex' instead." #-}
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aniInstanceId :: Lens.Lens' AttachNetworkInterface Lude.Text
-aniInstanceId = Lens.lens (instanceId :: AttachNetworkInterface -> Lude.Text) (\s a -> s {instanceId = a} :: AttachNetworkInterface)
-{-# DEPRECATED aniInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The ID of the network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aniNetworkInterfaceId :: Lens.Lens' AttachNetworkInterface Lude.Text
-aniNetworkInterfaceId = Lens.lens (networkInterfaceId :: AttachNetworkInterface -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: AttachNetworkInterface)
-{-# DEPRECATED aniNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 instance Lude.AWSRequest AttachNetworkInterface where
   type Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
@@ -147,30 +146,25 @@ instance Lude.ToQuery AttachNetworkInterface where
     Lude.mconcat
       [ "Action" Lude.=: ("AttachNetworkInterface" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceId" Lude.=: instanceId,
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
         "NetworkCardIndex" Lude.=: networkCardIndex,
         "DryRun" Lude.=: dryRun,
-        "DeviceIndex" Lude.=: deviceIndex,
-        "InstanceId" Lude.=: instanceId,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId
+        "DeviceIndex" Lude.=: deviceIndex
       ]
 
 -- | Contains the output of AttachNetworkInterface.
 --
 -- /See:/ 'mkAttachNetworkInterfaceResponse' smart constructor.
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
-  { attachmentId ::
-      Lude.Maybe Lude.Text,
-    networkCardIndex ::
-      Lude.Maybe Lude.Int,
+  { -- | The ID of the network interface attachment.
+    attachmentId :: Lude.Maybe Lude.Text,
+    -- | The index of the network card.
+    networkCardIndex :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachNetworkInterfaceResponse' with the minimum fields required to make a request.

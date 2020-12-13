@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
     mkVPCDerivedInfoStatus,
 
     -- * Lenses
-    vdisOptions,
     vdisStatus,
+    vdisOptions,
   )
 where
 
@@ -31,38 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCDerivedInfoStatus' smart constructor.
 data VPCDerivedInfoStatus = VPCDerivedInfoStatus'
-  { options ::
-      VPCDerivedInfo,
-    status :: OptionStatus
+  { -- | Specifies the status of the VPC options for the specified Elasticsearch domain.
+    status :: OptionStatus,
+    -- | Specifies the VPC options for the specified Elasticsearch domain.
+    options :: VPCDerivedInfo
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCDerivedInfoStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Specifies the VPC options for the specified Elasticsearch domain.
 -- * 'status' - Specifies the status of the VPC options for the specified Elasticsearch domain.
+-- * 'options' - Specifies the VPC options for the specified Elasticsearch domain.
 mkVPCDerivedInfoStatus ::
-  -- | 'options'
-  VPCDerivedInfo ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  VPCDerivedInfo ->
   VPCDerivedInfoStatus
-mkVPCDerivedInfoStatus pOptions_ pStatus_ =
-  VPCDerivedInfoStatus' {options = pOptions_, status = pStatus_}
-
--- | Specifies the VPC options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdisOptions :: Lens.Lens' VPCDerivedInfoStatus VPCDerivedInfo
-vdisOptions = Lens.lens (options :: VPCDerivedInfoStatus -> VPCDerivedInfo) (\s a -> s {options = a} :: VPCDerivedInfoStatus)
-{-# DEPRECATED vdisOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkVPCDerivedInfoStatus pStatus_ pOptions_ =
+  VPCDerivedInfoStatus' {status = pStatus_, options = pOptions_}
 
 -- | Specifies the status of the VPC options for the specified Elasticsearch domain.
 --
@@ -71,11 +59,18 @@ vdisStatus :: Lens.Lens' VPCDerivedInfoStatus OptionStatus
 vdisStatus = Lens.lens (status :: VPCDerivedInfoStatus -> OptionStatus) (\s a -> s {status = a} :: VPCDerivedInfoStatus)
 {-# DEPRECATED vdisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Specifies the VPC options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdisOptions :: Lens.Lens' VPCDerivedInfoStatus VPCDerivedInfo
+vdisOptions = Lens.lens (options :: VPCDerivedInfoStatus -> VPCDerivedInfo) (\s a -> s {options = a} :: VPCDerivedInfoStatus)
+{-# DEPRECATED vdisOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromJSON VPCDerivedInfoStatus where
   parseJSON =
     Lude.withObject
       "VPCDerivedInfoStatus"
       ( \x ->
           VPCDerivedInfoStatus'
-            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
       )

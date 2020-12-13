@@ -30,30 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCPeeringConnectionOptionsDescription' smart constructor.
 data VPCPeeringConnectionOptionsDescription = VPCPeeringConnectionOptionsDescription'
-  { allowEgressFromLocalVPCToRemoteClassicLink ::
-      Lude.Maybe
-        Lude.Bool,
-    allowEgressFromLocalClassicLinkToRemoteVPC ::
-      Lude.Maybe
-        Lude.Bool,
-    allowDNSResolutionFromRemoteVPC ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
+    allowEgressFromLocalVPCToRemoteClassicLink :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
+    allowEgressFromLocalClassicLinkToRemoteVPC :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
+    allowDNSResolutionFromRemoteVPC :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCPeeringConnectionOptionsDescription' with the minimum fields required to make a request.
 --
--- * 'allowDNSResolutionFromRemoteVPC' - Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
--- * 'allowEgressFromLocalClassicLinkToRemoteVPC' - Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
 -- * 'allowEgressFromLocalVPCToRemoteClassicLink' - Indicates whether a local VPC can communicate with a ClassicLink connection in the peer VPC over the VPC peering connection.
+-- * 'allowEgressFromLocalClassicLinkToRemoteVPC' - Indicates whether a local ClassicLink connection can communicate with the peer VPC over the VPC peering connection.
+-- * 'allowDNSResolutionFromRemoteVPC' - Indicates whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 mkVPCPeeringConnectionOptionsDescription ::
   VPCPeeringConnectionOptionsDescription
 mkVPCPeeringConnectionOptionsDescription =

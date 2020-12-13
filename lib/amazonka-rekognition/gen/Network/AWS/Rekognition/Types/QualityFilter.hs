@@ -13,11 +13,11 @@
 module Network.AWS.Rekognition.Types.QualityFilter
   ( QualityFilter
       ( QualityFilter',
+        None,
         Auto,
-        High,
         Low,
         Medium,
-        None
+        High
       ),
   )
 where
@@ -48,11 +48,11 @@ newtype QualityFilter = QualityFilter' Lude.Text
       Lude.ToHeader
     )
 
+pattern None :: QualityFilter
+pattern None = QualityFilter' "NONE"
+
 pattern Auto :: QualityFilter
 pattern Auto = QualityFilter' "AUTO"
-
-pattern High :: QualityFilter
-pattern High = QualityFilter' "HIGH"
 
 pattern Low :: QualityFilter
 pattern Low = QualityFilter' "LOW"
@@ -60,14 +60,14 @@ pattern Low = QualityFilter' "LOW"
 pattern Medium :: QualityFilter
 pattern Medium = QualityFilter' "MEDIUM"
 
-pattern None :: QualityFilter
-pattern None = QualityFilter' "NONE"
+pattern High :: QualityFilter
+pattern High = QualityFilter' "HIGH"
 
 {-# COMPLETE
+  None,
   Auto,
-  High,
   Low,
   Medium,
-  None,
+  High,
   QualityFilter'
   #-}

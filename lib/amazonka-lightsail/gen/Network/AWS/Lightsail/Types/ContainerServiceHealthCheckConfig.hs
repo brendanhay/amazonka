@@ -33,34 +33,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerServiceHealthCheckConfig' smart constructor.
 data ContainerServiceHealthCheckConfig = ContainerServiceHealthCheckConfig'
-  { healthyThreshold ::
-      Lude.Maybe Lude.Int,
-    path ::
-      Lude.Maybe Lude.Text,
-    successCodes ::
-      Lude.Maybe Lude.Text,
-    intervalSeconds ::
-      Lude.Maybe Lude.Int,
-    timeoutSeconds ::
-      Lude.Maybe Lude.Int,
-    unhealthyThreshold ::
-      Lude.Maybe Lude.Int
+  { -- | The number of consecutive health checks successes required before moving the container to the @Healthy@ state.
+    healthyThreshold :: Lude.Maybe Lude.Int,
+    -- | The path on the container on which to perform the health check.
+    path :: Lude.Maybe Lude.Text,
+    -- | The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499.
+    successCodes :: Lude.Maybe Lude.Text,
+    -- | The approximate interval, in seconds, between health checks of an individual container. You may specify between 5 and 300 seconds.
+    intervalSeconds :: Lude.Maybe Lude.Int,
+    -- | The amount of time, in seconds, during which no response means a failed health check. You may specify between 2 and 60 seconds.
+    timeoutSeconds :: Lude.Maybe Lude.Int,
+    -- | The number of consecutive health check failures required before moving the container to the @Unhealthy@ state.
+    unhealthyThreshold :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServiceHealthCheckConfig' with the minimum fields required to make a request.
 --
 -- * 'healthyThreshold' - The number of consecutive health checks successes required before moving the container to the @Healthy@ state.
--- * 'intervalSeconds' - The approximate interval, in seconds, between health checks of an individual container. You may specify between 5 and 300 seconds.
 -- * 'path' - The path on the container on which to perform the health check.
 -- * 'successCodes' - The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499.
+-- * 'intervalSeconds' - The approximate interval, in seconds, between health checks of an individual container. You may specify between 5 and 300 seconds.
 -- * 'timeoutSeconds' - The amount of time, in seconds, during which no response means a failed health check. You may specify between 2 and 60 seconds.
 -- * 'unhealthyThreshold' - The number of consecutive health check failures required before moving the container to the @Unhealthy@ state.
 mkContainerServiceHealthCheckConfig ::

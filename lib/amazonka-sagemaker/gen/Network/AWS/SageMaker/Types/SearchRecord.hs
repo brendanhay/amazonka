@@ -35,27 +35,24 @@ import Network.AWS.SageMaker.Types.TrialComponent
 --
 -- /See:/ 'mkSearchRecord' smart constructor.
 data SearchRecord = SearchRecord'
-  { trainingJob ::
-      Lude.Maybe TrainingJob,
+  { -- | The properties of a training job.
+    trainingJob :: Lude.Maybe TrainingJob,
+    -- | The properties of a trial.
     trial :: Lude.Maybe Trial,
+    -- | The properties of a trial component.
     trialComponent :: Lude.Maybe TrialComponent,
+    -- | The properties of an experiment.
     experiment :: Lude.Maybe Experiment
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchRecord' with the minimum fields required to make a request.
 --
--- * 'experiment' - The properties of an experiment.
 -- * 'trainingJob' - The properties of a training job.
 -- * 'trial' - The properties of a trial.
 -- * 'trialComponent' - The properties of a trial component.
+-- * 'experiment' - The properties of an experiment.
 mkSearchRecord ::
   SearchRecord
 mkSearchRecord =

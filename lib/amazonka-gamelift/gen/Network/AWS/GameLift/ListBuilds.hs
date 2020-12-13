@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -67,23 +68,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-  { status :: Lude.Maybe BuildStatus,
+  { -- | Build status to filter results by. To retrieve all builds, leave this parameter empty.
+    --
+    -- Possible build statuses include the following:
+    --
+    --     * __INITIALIZED__ -- A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value.
+    --
+    --
+    --     * __READY__ -- The game build has been successfully uploaded. You can now create new fleets for this build.
+    --
+    --
+    --     * __FAILED__ -- The game build upload failed. You cannot create new fleets for this build.
+    status :: Lude.Maybe BuildStatus,
+    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuilds' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
--- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 -- * 'status' - Build status to filter results by. To retrieve all builds, leave this parameter empty.
 --
 -- Possible build statuses include the following:
@@ -95,6 +101,10 @@ data ListBuilds = ListBuilds'
 --
 --
 --     * __FAILED__ -- The game build upload failed. You cannot create new fleets for this build.
+--
+--
+-- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 mkListBuilds ::
   ListBuilds
 mkListBuilds =
@@ -188,18 +198,14 @@ instance Lude.ToQuery ListBuilds where
 --
 -- /See:/ 'mkListBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-  { builds ::
-      Lude.Maybe [Build],
+  { -- | A collection of build resources that match the request.
+    builds :: Lude.Maybe [Build],
+    -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuildsResponse' with the minimum fields required to make a request.

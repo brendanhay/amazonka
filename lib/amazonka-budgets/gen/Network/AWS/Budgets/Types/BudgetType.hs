@@ -13,12 +13,12 @@
 module Network.AWS.Budgets.Types.BudgetType
   ( BudgetType
       ( BudgetType',
+        Usage,
         Cost,
-        RiCoverage,
         RiUtilization,
-        SavingsPlansCoverage,
+        RiCoverage,
         SavingsPlansUtilization,
-        Usage
+        SavingsPlansCoverage
       ),
   )
 where
@@ -52,30 +52,30 @@ newtype BudgetType = BudgetType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Usage :: BudgetType
+pattern Usage = BudgetType' "USAGE"
+
 pattern Cost :: BudgetType
 pattern Cost = BudgetType' "COST"
-
-pattern RiCoverage :: BudgetType
-pattern RiCoverage = BudgetType' "RI_COVERAGE"
 
 pattern RiUtilization :: BudgetType
 pattern RiUtilization = BudgetType' "RI_UTILIZATION"
 
-pattern SavingsPlansCoverage :: BudgetType
-pattern SavingsPlansCoverage = BudgetType' "SAVINGS_PLANS_COVERAGE"
+pattern RiCoverage :: BudgetType
+pattern RiCoverage = BudgetType' "RI_COVERAGE"
 
 pattern SavingsPlansUtilization :: BudgetType
 pattern SavingsPlansUtilization = BudgetType' "SAVINGS_PLANS_UTILIZATION"
 
-pattern Usage :: BudgetType
-pattern Usage = BudgetType' "USAGE"
+pattern SavingsPlansCoverage :: BudgetType
+pattern SavingsPlansCoverage = BudgetType' "SAVINGS_PLANS_COVERAGE"
 
 {-# COMPLETE
-  Cost,
-  RiCoverage,
-  RiUtilization,
-  SavingsPlansCoverage,
-  SavingsPlansUtilization,
   Usage,
+  Cost,
+  RiUtilization,
+  RiCoverage,
+  SavingsPlansUtilization,
+  SavingsPlansCoverage,
   BudgetType'
   #-}

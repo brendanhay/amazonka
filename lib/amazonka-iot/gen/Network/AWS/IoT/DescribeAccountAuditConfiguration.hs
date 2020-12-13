@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAccountAuditConfiguration' smart constructor.
 data DescribeAccountAuditConfiguration = DescribeAccountAuditConfiguration'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAuditConfiguration' with the minimum fields required to make a request.
@@ -81,41 +76,28 @@ instance Lude.ToQuery DescribeAccountAuditConfiguration where
 
 -- | /See:/ 'mkDescribeAccountAuditConfigurationResponse' smart constructor.
 data DescribeAccountAuditConfigurationResponse = DescribeAccountAuditConfigurationResponse'
-  { auditCheckConfigurations ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (AuditCheckConfiguration)
-        ),
-    auditNotificationTargetConfigurations ::
-      Lude.Maybe
-        ( Lude.HashMap
-            AuditNotificationType
-            (AuditNotificationTarget)
-        ),
-    roleARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Which audit checks are enabled and disabled for this account.
+    auditCheckConfigurations :: Lude.Maybe (Lude.HashMap Lude.Text (AuditCheckConfiguration)),
+    -- | Information about the targets to which audit notifications are sent for this account.
+    auditNotificationTargetConfigurations :: Lude.Maybe (Lude.HashMap AuditNotificationType (AuditNotificationTarget)),
+    -- | The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.
+    --
+    -- On the first call to @UpdateAccountAuditConfiguration@ , this parameter is required.
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAccountAuditConfigurationResponse' with the minimum fields required to make a request.
 --
 -- * 'auditCheckConfigurations' - Which audit checks are enabled and disabled for this account.
 -- * 'auditNotificationTargetConfigurations' - Information about the targets to which audit notifications are sent for this account.
--- * 'responseStatus' - The response status code.
 -- * 'roleARN' - The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.
 --
 -- On the first call to @UpdateAccountAuditConfiguration@ , this parameter is required.
+-- * 'responseStatus' - The response status code.
 mkDescribeAccountAuditConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

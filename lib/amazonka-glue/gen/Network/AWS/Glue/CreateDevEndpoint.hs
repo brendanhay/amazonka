@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,6 +20,7 @@ module Network.AWS.Glue.CreateDevEndpoint
     mkCreateDevEndpoint,
 
     -- ** Request lenses
+    cdeEndpointName,
     cdeNumberOfWorkers,
     cdeExtraPythonLibsS3Path,
     cdeSecurityGroupIds,
@@ -32,7 +34,6 @@ module Network.AWS.Glue.CreateDevEndpoint
     cdeNumberOfNodes,
     cdeExtraJARsS3Path,
     cdeTags,
-    cdeEndpointName,
     cdeRoleARN,
 
     -- * Destructuring the response
@@ -71,55 +72,68 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDevEndpoint' smart constructor.
 data CreateDevEndpoint = CreateDevEndpoint'
-  { numberOfWorkers ::
-      Lude.Maybe Lude.Int,
-    extraPythonLibsS3Path :: Lude.Maybe Lude.Text,
-    securityGroupIds :: Lude.Maybe [Lude.Text],
-    publicKeys :: Lude.Maybe [Lude.Text],
-    arguments ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    workerType :: Lude.Maybe WorkerType,
-    securityConfiguration :: Lude.Maybe Lude.Text,
-    publicKey :: Lude.Maybe Lude.Text,
-    subnetId :: Lude.Maybe Lude.Text,
-    glueVersion :: Lude.Maybe Lude.Text,
-    numberOfNodes :: Lude.Maybe Lude.Int,
-    extraJARsS3Path :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The name to be assigned to the new @DevEndpoint@ .
     endpointName :: Lude.Text,
+    -- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
+    --
+    -- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+    numberOfWorkers :: Lude.Maybe Lude.Int,
+    -- | The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
+    extraPythonLibsS3Path :: Lude.Maybe Lude.Text,
+    -- | Security group IDs for the security groups to be used by the new @DevEndpoint@ .
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | A list of public keys to be used by the development endpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
+    publicKeys :: Lude.Maybe [Lude.Text],
+    -- | A map of arguments used to configure the @DevEndpoint@ .
+    arguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.
+    --
+    --
+    --     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+    --
+    --
+    --     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+    --
+    --
+    --     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+    --
+    --
+    -- Known issue: when a development endpoint is created with the @G.2X@ @WorkerType@ configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
+    workerType :: Lude.Maybe WorkerType,
+    -- | The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
+    securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
+    publicKey :: Lude.Maybe Lude.Text,
+    -- | The subnet ID for the new @DevEndpoint@ to use.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
+    --
+    -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+    -- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
+    -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+    glueVersion :: Lude.Maybe Lude.Text,
+    -- | The number of AWS Glue Data Processing Units (DPUs) to allocate to this @DevEndpoint@ .
+    numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
+    extraJARsS3Path :: Lude.Maybe Lude.Text,
+    -- | The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The IAM role for the @DevEndpoint@ .
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDevEndpoint' with the minimum fields required to make a request.
 --
--- * 'arguments' - A map of arguments used to configure the @DevEndpoint@ .
 -- * 'endpointName' - The name to be assigned to the new @DevEndpoint@ .
--- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
--- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
--- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
---
--- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
--- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
--- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
--- * 'numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) to allocate to this @DevEndpoint@ .
 -- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to the development endpoint.
 --
 -- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
--- * 'publicKey' - The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
--- * 'publicKeys' - A list of public keys to be used by the development endpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
--- * 'roleARN' - The IAM role for the @DevEndpoint@ .
--- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
+-- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in your @DevEndpoint@ . Multiple values must be complete paths separated by a comma.
 -- * 'securityGroupIds' - Security group IDs for the security groups to be used by the new @DevEndpoint@ .
--- * 'subnetId' - The subnet ID for the new @DevEndpoint@ to use.
--- * 'tags' - The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
+-- * 'publicKeys' - A list of public keys to be used by the development endpoints for authentication. The use of this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.
+-- * 'arguments' - A map of arguments used to configure the @DevEndpoint@ .
 -- * 'workerType' - The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.
 --
 --
@@ -133,6 +147,18 @@ data CreateDevEndpoint = CreateDevEndpoint'
 --
 --
 -- Known issue: when a development endpoint is created with the @G.2X@ @WorkerType@ configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
+-- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this @DevEndpoint@ .
+-- * 'publicKey' - The public key to be used by this @DevEndpoint@ for authentication. This attribute is provided for backward compatibility because the recommended attribute to use is public keys.
+-- * 'subnetId' - The subnet ID for the new @DevEndpoint@ to use.
+-- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
+--
+-- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+-- Development endpoints that are created without specifying a Glue version default to Glue 0.9.
+-- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+-- * 'numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) to allocate to this @DevEndpoint@ .
+-- * 'extraJARsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be loaded in your @DevEndpoint@ .
+-- * 'tags' - The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
+-- * 'roleARN' - The IAM role for the @DevEndpoint@ .
 mkCreateDevEndpoint ::
   -- | 'endpointName'
   Lude.Text ->
@@ -141,7 +167,8 @@ mkCreateDevEndpoint ::
   CreateDevEndpoint
 mkCreateDevEndpoint pEndpointName_ pRoleARN_ =
   CreateDevEndpoint'
-    { numberOfWorkers = Lude.Nothing,
+    { endpointName = pEndpointName_,
+      numberOfWorkers = Lude.Nothing,
       extraPythonLibsS3Path = Lude.Nothing,
       securityGroupIds = Lude.Nothing,
       publicKeys = Lude.Nothing,
@@ -154,9 +181,15 @@ mkCreateDevEndpoint pEndpointName_ pRoleARN_ =
       numberOfNodes = Lude.Nothing,
       extraJARsS3Path = Lude.Nothing,
       tags = Lude.Nothing,
-      endpointName = pEndpointName_,
       roleARN = pRoleARN_
     }
+
+-- | The name to be assigned to the new @DevEndpoint@ .
+--
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdeEndpointName :: Lens.Lens' CreateDevEndpoint Lude.Text
+cdeEndpointName = Lens.lens (endpointName :: CreateDevEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: CreateDevEndpoint)
+{-# DEPRECATED cdeEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
 --
@@ -267,13 +300,6 @@ cdeTags :: Lens.Lens' CreateDevEndpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lud
 cdeTags = Lens.lens (tags :: CreateDevEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateDevEndpoint)
 {-# DEPRECATED cdeTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name to be assigned to the new @DevEndpoint@ .
---
--- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdeEndpointName :: Lens.Lens' CreateDevEndpoint Lude.Text
-cdeEndpointName = Lens.lens (endpointName :: CreateDevEndpoint -> Lude.Text) (\s a -> s {endpointName = a} :: CreateDevEndpoint)
-{-# DEPRECATED cdeEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
-
 -- | The IAM role for the @DevEndpoint@ .
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -325,7 +351,8 @@ instance Lude.ToJSON CreateDevEndpoint where
   toJSON CreateDevEndpoint' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NumberOfWorkers" Lude..=) Lude.<$> numberOfWorkers,
+          [ Lude.Just ("EndpointName" Lude..= endpointName),
+            ("NumberOfWorkers" Lude..=) Lude.<$> numberOfWorkers,
             ("ExtraPythonLibsS3Path" Lude..=) Lude.<$> extraPythonLibsS3Path,
             ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
             ("PublicKeys" Lude..=) Lude.<$> publicKeys,
@@ -338,7 +365,6 @@ instance Lude.ToJSON CreateDevEndpoint where
             ("NumberOfNodes" Lude..=) Lude.<$> numberOfNodes,
             ("ExtraJarsS3Path" Lude..=) Lude.<$> extraJARsS3Path,
             ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("EndpointName" Lude..= endpointName),
             Lude.Just ("RoleArn" Lude..= roleARN)
           ]
       )
@@ -351,48 +377,72 @@ instance Lude.ToQuery CreateDevEndpoint where
 
 -- | /See:/ 'mkCreateDevEndpointResponse' smart constructor.
 data CreateDevEndpointResponse = CreateDevEndpointResponse'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The current status of the new @DevEndpoint@ .
+    status :: Lude.Maybe Lude.Text,
+    -- | The reason for a current failure in this @DevEndpoint@ .
     failureReason :: Lude.Maybe Lude.Text,
+    -- | The name assigned to the new @DevEndpoint@ .
     endpointName :: Lude.Maybe Lude.Text,
+    -- | The number of workers of a defined @workerType@ that are allocated to the development endpoint.
     numberOfWorkers :: Lude.Maybe Lude.Int,
-    extraPythonLibsS3Path ::
-      Lude.Maybe Lude.Text,
-    securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+    -- | The paths to one or more Python libraries in an S3 bucket that will be loaded in your @DevEndpoint@ .
+    extraPythonLibsS3Path :: Lude.Maybe Lude.Text,
+    -- | The security groups assigned to the new @DevEndpoint@ .
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
     vpcId :: Lude.Maybe Lude.Text,
-    arguments ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The map of arguments used to configure this @DevEndpoint@ .
+    --
+    -- Valid arguments are:
+    --
+    --     * @"--enable-glue-datacatalog": ""@
+    --
+    --
+    --     * @"GLUE_PYTHON_VERSION": "3"@
+    --
+    --
+    --     * @"GLUE_PYTHON_VERSION": "2"@
+    --
+    --
+    -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
+    arguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.
     workerType :: Lude.Maybe WorkerType,
-    securityConfiguration ::
-      Lude.Maybe Lude.Text,
+    -- | The name of the @SecurityConfiguration@ structure being used with this @DevEndpoint@ .
+    securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | The subnet ID assigned to the new @DevEndpoint@ .
     subnetId :: Lude.Maybe Lude.Text,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
     glueVersion :: Lude.Maybe Lude.Text,
+    -- | The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
     numberOfNodes :: Lude.Maybe Lude.Int,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
-    zeppelinRemoteSparkInterpreterPort ::
-      Lude.Maybe Lude.Int,
+    -- | The AWS Availability Zone where this @DevEndpoint@ is located.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
+    zeppelinRemoteSparkInterpreterPort :: Lude.Maybe Lude.Int,
+    -- | Path to one or more Java @.jar@ files in an S3 bucket that will be loaded in your @DevEndpoint@ .
     extraJARsS3Path :: Lude.Maybe Lude.Text,
-    createdTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    yarnEndpointAddress ::
-      Lude.Maybe Lude.Text,
+    -- | The point in time at which this @DevEndpoint@ was created.
+    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The address of the YARN endpoint used by this @DevEndpoint@ .
+    yarnEndpointAddress :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the role assigned to the new @DevEndpoint@ .
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDevEndpointResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The current status of the new @DevEndpoint@ .
+-- * 'failureReason' - The reason for a current failure in this @DevEndpoint@ .
+-- * 'endpointName' - The name assigned to the new @DevEndpoint@ .
+-- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to the development endpoint.
+-- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an S3 bucket that will be loaded in your @DevEndpoint@ .
+-- * 'securityGroupIds' - The security groups assigned to the new @DevEndpoint@ .
+-- * 'vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
 -- * 'arguments' - The map of arguments used to configure this @DevEndpoint@ .
 --
 -- Valid arguments are:
@@ -407,25 +457,18 @@ data CreateDevEndpointResponse = CreateDevEndpointResponse'
 --
 --
 -- You can specify a version of Python support for development endpoints by using the @Arguments@ parameter in the @CreateDevEndpoint@ or @UpdateDevEndpoint@ APIs. If no arguments are provided, the version defaults to Python 2.
--- * 'availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
--- * 'createdTimestamp' - The point in time at which this @DevEndpoint@ was created.
--- * 'endpointName' - The name assigned to the new @DevEndpoint@ .
--- * 'extraJARsS3Path' - Path to one or more Java @.jar@ files in an S3 bucket that will be loaded in your @DevEndpoint@ .
--- * 'extraPythonLibsS3Path' - The paths to one or more Python libraries in an S3 bucket that will be loaded in your @DevEndpoint@ .
--- * 'failureReason' - The reason for a current failure in this @DevEndpoint@ .
+-- * 'workerType' - The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.
+-- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure being used with this @DevEndpoint@ .
+-- * 'subnetId' - The subnet ID assigned to the new @DevEndpoint@ .
 -- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints.
 -- * 'numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
--- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to the development endpoint.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role assigned to the new @DevEndpoint@ .
--- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure being used with this @DevEndpoint@ .
--- * 'securityGroupIds' - The security groups assigned to the new @DevEndpoint@ .
--- * 'status' - The current status of the new @DevEndpoint@ .
--- * 'subnetId' - The subnet ID assigned to the new @DevEndpoint@ .
--- * 'vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@ .
--- * 'workerType' - The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.
--- * 'yarnEndpointAddress' - The address of the YARN endpoint used by this @DevEndpoint@ .
+-- * 'availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
 -- * 'zeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
+-- * 'extraJARsS3Path' - Path to one or more Java @.jar@ files in an S3 bucket that will be loaded in your @DevEndpoint@ .
+-- * 'createdTimestamp' - The point in time at which this @DevEndpoint@ was created.
+-- * 'yarnEndpointAddress' - The address of the YARN endpoint used by this @DevEndpoint@ .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role assigned to the new @DevEndpoint@ .
+-- * 'responseStatus' - The response status code.
 mkCreateDevEndpointResponse ::
   -- | 'responseStatus'
   Lude.Int ->

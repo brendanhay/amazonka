@@ -37,35 +37,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerServiceDeployment' smart constructor.
 data ContainerServiceDeployment = ContainerServiceDeployment'
-  { state ::
-      Lude.Maybe
-        ContainerServiceDeploymentState,
-    publicEndpoint ::
-      Lude.Maybe ContainerServiceEndpoint,
-    createdAt ::
-      Lude.Maybe Lude.Timestamp,
-    containers ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Container)
-        ),
+  { -- | The state of the deployment.
+    --
+    -- A deployment can be in one of the following states:
+    --
+    --     * @Activating@ - The deployment is being created.
+    --
+    --
+    --     * @Active@ - The deployment was successfully created, and it's currently running on the container service. The container service can have only one deployment in an active state at a time.
+    --
+    --
+    --     * @Inactive@ - The deployment was previously successfully created, but it is not currently running on the container service.
+    --
+    --
+    --     * @Failed@ - The deployment failed. Use the @GetContainerLog@ action to view the log events for the containers in the deployment to try to determine the reason for the failure.
+    state :: Lude.Maybe ContainerServiceDeploymentState,
+    -- | An object that describes the endpoint of the deployment.
+    publicEndpoint :: Lude.Maybe ContainerServiceEndpoint,
+    -- | The timestamp when the deployment was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | An object that describes the configuration for the containers of the deployment.
+    containers :: Lude.Maybe (Lude.HashMap Lude.Text (Container)),
+    -- | The version number of the deployment.
     version :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServiceDeployment' with the minimum fields required to make a request.
 --
--- * 'containers' - An object that describes the configuration for the containers of the deployment.
--- * 'createdAt' - The timestamp when the deployment was created.
--- * 'publicEndpoint' - An object that describes the endpoint of the deployment.
 -- * 'state' - The state of the deployment.
 --
 -- A deployment can be in one of the following states:
@@ -82,6 +82,9 @@ data ContainerServiceDeployment = ContainerServiceDeployment'
 --     * @Failed@ - The deployment failed. Use the @GetContainerLog@ action to view the log events for the containers in the deployment to try to determine the reason for the failure.
 --
 --
+-- * 'publicEndpoint' - An object that describes the endpoint of the deployment.
+-- * 'createdAt' - The timestamp when the deployment was created.
+-- * 'containers' - An object that describes the configuration for the containers of the deployment.
 -- * 'version' - The version number of the deployment.
 mkContainerServiceDeployment ::
   ContainerServiceDeployment

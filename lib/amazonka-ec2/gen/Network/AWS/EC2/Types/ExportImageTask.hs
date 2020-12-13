@@ -37,35 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportImageTask' smart constructor.
 data ExportImageTask = ExportImageTask'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the export image task. The possible values are @active@ , @completed@ , @deleting@ , and @deleted@ .
+    status :: Lude.Maybe Lude.Text,
+    -- | The percent complete of the export image task.
     progress :: Lude.Maybe Lude.Text,
+    -- | The ID of the export image task.
     exportImageTaskId :: Lude.Maybe Lude.Text,
+    -- | The status message for the export image task.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the image.
     imageId :: Lude.Maybe Lude.Text,
+    -- | A description of the image being exported.
     description :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the image being exported.
     tags :: Lude.Maybe [Tag],
+    -- | Information about the destination Amazon S3 bucket.
     s3ExportLocation :: Lude.Maybe ExportTaskS3Location
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportImageTask' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the image being exported.
--- * 'exportImageTaskId' - The ID of the export image task.
--- * 'imageId' - The ID of the image.
--- * 'progress' - The percent complete of the export image task.
--- * 's3ExportLocation' - Information about the destination Amazon S3 bucket.
 -- * 'status' - The status of the export image task. The possible values are @active@ , @completed@ , @deleting@ , and @deleted@ .
+-- * 'progress' - The percent complete of the export image task.
+-- * 'exportImageTaskId' - The ID of the export image task.
 -- * 'statusMessage' - The status message for the export image task.
+-- * 'imageId' - The ID of the image.
+-- * 'description' - A description of the image being exported.
 -- * 'tags' - Any tags assigned to the image being exported.
+-- * 's3ExportLocation' - Information about the destination Amazon S3 bucket.
 mkExportImageTask ::
   ExportImageTask
 mkExportImageTask =

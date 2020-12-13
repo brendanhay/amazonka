@@ -97,38 +97,56 @@ import Network.AWS.Support.Types.RecentCaseCommunications
 --
 -- /See:/ 'mkCaseDetails' smart constructor.
 data CaseDetails = CaseDetails'
-  { subject :: Lude.Maybe Lude.Text,
+  { -- | The subject line for the case in the AWS Support Center.
+    subject :: Lude.Maybe Lude.Text,
+    -- | The status of the case.
+    --
+    -- Valid values:
+    --
+    --     * @opened@
+    --
+    --
+    --     * @pending-customer-action@
+    --
+    --
+    --     * @reopened@
+    --
+    --
+    --     * @resolved@
+    --
+    --
+    --     * @unassigned@
+    --
+    --
+    --     * @work-in-progress@
     status :: Lude.Maybe Lude.Text,
+    -- | The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
     recentCommunications :: Lude.Maybe RecentCaseCommunications,
+    -- | The code for the severity level returned by the call to 'DescribeSeverityLevels' .
     severityCode :: Lude.Maybe Lude.Text,
+    -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Lude.Maybe Lude.Text,
+    -- | The email addresses that receive copies of communication about the case.
     ccEmailAddresses :: Lude.Maybe [Lude.Text],
+    -- | The ID displayed for the case in the AWS Support Center. This is a numeric string.
     displayId :: Lude.Maybe Lude.Text,
+    -- | The email address of the account that submitted the case.
     submittedBy :: Lude.Maybe Lude.Text,
+    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
     language :: Lude.Maybe Lude.Text,
+    -- | The time that the case was created in the AWS Support Center.
     timeCreated :: Lude.Maybe Lude.Text,
+    -- | The category of problem for the AWS Support case.
     categoryCode :: Lude.Maybe Lude.Text,
+    -- | The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
     serviceCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaseDetails' with the minimum fields required to make a request.
 --
--- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
--- * 'categoryCode' - The category of problem for the AWS Support case.
--- * 'ccEmailAddresses' - The email addresses that receive copies of communication about the case.
--- * 'displayId' - The ID displayed for the case in the AWS Support Center. This is a numeric string.
--- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
--- * 'recentCommunications' - The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
--- * 'serviceCode' - The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
--- * 'severityCode' - The code for the severity level returned by the call to 'DescribeSeverityLevels' .
+-- * 'subject' - The subject line for the case in the AWS Support Center.
 -- * 'status' - The status of the case.
 --
 -- Valid values:
@@ -151,9 +169,16 @@ data CaseDetails = CaseDetails'
 --     * @work-in-progress@
 --
 --
--- * 'subject' - The subject line for the case in the AWS Support Center.
+-- * 'recentCommunications' - The five most recent communications between you and AWS Support Center, including the IDs of any attachments to the communications. Also includes a @nextToken@ that you can use to retrieve earlier communications.
+-- * 'severityCode' - The code for the severity level returned by the call to 'DescribeSeverityLevels' .
+-- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+-- * 'ccEmailAddresses' - The email addresses that receive copies of communication about the case.
+-- * 'displayId' - The ID displayed for the case in the AWS Support Center. This is a numeric string.
 -- * 'submittedBy' - The email address of the account that submitted the case.
+-- * 'language' - The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 -- * 'timeCreated' - The time that the case was created in the AWS Support Center.
+-- * 'categoryCode' - The category of problem for the AWS Support case.
+-- * 'serviceCode' - The code for the AWS service. You can get a list of codes and the corresponding service names by calling 'DescribeServices' .
 mkCaseDetails ::
   CaseDetails
 mkCaseDetails =

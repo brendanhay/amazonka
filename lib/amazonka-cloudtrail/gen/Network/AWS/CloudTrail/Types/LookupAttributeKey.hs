@@ -13,14 +13,14 @@
 module Network.AWS.CloudTrail.Types.LookupAttributeKey
   ( LookupAttributeKey
       ( LookupAttributeKey',
-        AccessKeyId,
         EventId,
         EventName,
-        EventSource,
         ReadOnly,
-        ResourceName,
+        Username,
         ResourceType,
-        Username
+        ResourceName,
+        EventSource,
+        AccessKeyId
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype LookupAttributeKey = LookupAttributeKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern AccessKeyId :: LookupAttributeKey
-pattern AccessKeyId = LookupAttributeKey' "AccessKeyId"
-
 pattern EventId :: LookupAttributeKey
 pattern EventId = LookupAttributeKey' "EventId"
 
 pattern EventName :: LookupAttributeKey
 pattern EventName = LookupAttributeKey' "EventName"
 
-pattern EventSource :: LookupAttributeKey
-pattern EventSource = LookupAttributeKey' "EventSource"
-
 pattern ReadOnly :: LookupAttributeKey
 pattern ReadOnly = LookupAttributeKey' "ReadOnly"
-
-pattern ResourceName :: LookupAttributeKey
-pattern ResourceName = LookupAttributeKey' "ResourceName"
-
-pattern ResourceType :: LookupAttributeKey
-pattern ResourceType = LookupAttributeKey' "ResourceType"
 
 pattern Username :: LookupAttributeKey
 pattern Username = LookupAttributeKey' "Username"
 
+pattern ResourceType :: LookupAttributeKey
+pattern ResourceType = LookupAttributeKey' "ResourceType"
+
+pattern ResourceName :: LookupAttributeKey
+pattern ResourceName = LookupAttributeKey' "ResourceName"
+
+pattern EventSource :: LookupAttributeKey
+pattern EventSource = LookupAttributeKey' "EventSource"
+
+pattern AccessKeyId :: LookupAttributeKey
+pattern AccessKeyId = LookupAttributeKey' "AccessKeyId"
+
 {-# COMPLETE
-  AccessKeyId,
   EventId,
   EventName,
-  EventSource,
   ReadOnly,
-  ResourceName,
-  ResourceType,
   Username,
+  ResourceType,
+  ResourceName,
+  EventSource,
+  AccessKeyId,
   LookupAttributeKey'
   #-}

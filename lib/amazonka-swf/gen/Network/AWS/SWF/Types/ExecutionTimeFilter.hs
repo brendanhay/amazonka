@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExecutionTimeFilter' smart constructor.
 data ExecutionTimeFilter = ExecutionTimeFilter'
-  { latestDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Specifies the latest start or close date and time to return.
+    latestDate :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies the oldest start or close date and time to return.
     oldestDate :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExecutionTimeFilter' with the minimum fields required to make a request.

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputLocation' smart constructor.
 newtype OutputLocation = OutputLocation'
-  { s3 ::
-      Lude.Maybe S3Location
+  { -- | Describes an S3 location that will receive the results of the job request.
+    s3 :: Lude.Maybe S3Location
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputLocation' with the minimum fields required to make a request.

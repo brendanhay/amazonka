@@ -17,9 +17,9 @@ module Network.AWS.WAF.Types.ByteMatchSet
     mkByteMatchSet,
 
     -- * Lenses
-    bmsName,
-    bmsByteMatchSetId,
     bmsByteMatchTuples,
+    bmsByteMatchSetId,
+    bmsName,
   )
 where
 
@@ -33,25 +33,24 @@ import Network.AWS.WAF.Types.ByteMatchTuple
 --
 -- /See:/ 'mkByteMatchSet' smart constructor.
 data ByteMatchSet = ByteMatchSet'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
+    byteMatchTuples :: [ByteMatchTuple],
+    -- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ (see 'GetByteMatchSet' ), update a @ByteMatchSet@ (see 'UpdateByteMatchSet' ), insert a @ByteMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @ByteMatchSet@ from AWS WAF (see 'DeleteByteMatchSet' ).
+    --
+    -- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
     byteMatchSetId :: Lude.Text,
-    byteMatchTuples :: [ByteMatchTuple]
+    -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ByteMatchSet' with the minimum fields required to make a request.
 --
+-- * 'byteMatchTuples' - Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
 -- * 'byteMatchSetId' - The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ (see 'GetByteMatchSet' ), update a @ByteMatchSet@ (see 'UpdateByteMatchSet' ), insert a @ByteMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @ByteMatchSet@ from AWS WAF (see 'DeleteByteMatchSet' ).
 --
 -- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
--- * 'byteMatchTuples' - Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
 -- * 'name' - A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
 mkByteMatchSet ::
   -- | 'byteMatchSetId'
@@ -59,17 +58,17 @@ mkByteMatchSet ::
   ByteMatchSet
 mkByteMatchSet pByteMatchSetId_ =
   ByteMatchSet'
-    { name = Lude.Nothing,
+    { byteMatchTuples = Lude.mempty,
       byteMatchSetId = pByteMatchSetId_,
-      byteMatchTuples = Lude.mempty
+      name = Lude.Nothing
     }
 
--- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
+-- | Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmsName :: Lens.Lens' ByteMatchSet (Lude.Maybe Lude.Text)
-bmsName = Lens.lens (name :: ByteMatchSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ByteMatchSet)
-{-# DEPRECATED bmsName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'byteMatchTuples' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmsByteMatchTuples :: Lens.Lens' ByteMatchSet [ByteMatchTuple]
+bmsByteMatchTuples = Lens.lens (byteMatchTuples :: ByteMatchSet -> [ByteMatchTuple]) (\s a -> s {byteMatchTuples = a} :: ByteMatchSet)
+{-# DEPRECATED bmsByteMatchTuples "Use generic-lens or generic-optics with 'byteMatchTuples' instead." #-}
 
 -- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ (see 'GetByteMatchSet' ), update a @ByteMatchSet@ (see 'UpdateByteMatchSet' ), insert a @ByteMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @ByteMatchSet@ from AWS WAF (see 'DeleteByteMatchSet' ).
 --
@@ -80,12 +79,12 @@ bmsByteMatchSetId :: Lens.Lens' ByteMatchSet Lude.Text
 bmsByteMatchSetId = Lens.lens (byteMatchSetId :: ByteMatchSet -> Lude.Text) (\s a -> s {byteMatchSetId = a} :: ByteMatchSet)
 {-# DEPRECATED bmsByteMatchSetId "Use generic-lens or generic-optics with 'byteMatchSetId' instead." #-}
 
--- | Specifies the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings.
+-- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
 --
--- /Note:/ Consider using 'byteMatchTuples' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmsByteMatchTuples :: Lens.Lens' ByteMatchSet [ByteMatchTuple]
-bmsByteMatchTuples = Lens.lens (byteMatchTuples :: ByteMatchSet -> [ByteMatchTuple]) (\s a -> s {byteMatchTuples = a} :: ByteMatchSet)
-{-# DEPRECATED bmsByteMatchTuples "Use generic-lens or generic-optics with 'byteMatchTuples' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmsName :: Lens.Lens' ByteMatchSet (Lude.Maybe Lude.Text)
+bmsName = Lens.lens (name :: ByteMatchSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ByteMatchSet)
+{-# DEPRECATED bmsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.FromJSON ByteMatchSet where
   parseJSON =
@@ -93,7 +92,7 @@ instance Lude.FromJSON ByteMatchSet where
       "ByteMatchSet"
       ( \x ->
           ByteMatchSet'
-            Lude.<$> (x Lude..:? "Name")
+            Lude.<$> (x Lude..:? "ByteMatchTuples" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "ByteMatchSetId")
-            Lude.<*> (x Lude..:? "ByteMatchTuples" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
       )

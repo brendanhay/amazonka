@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.AssociationExecutionFilterKey
   ( AssociationExecutionFilterKey
       ( AssociationExecutionFilterKey',
-        CreatedTime,
         ExecutionId,
-        Status
+        Status,
+        CreatedTime
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AssociationExecutionFilterKey = AssociationExecutionFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreatedTime :: AssociationExecutionFilterKey
-pattern CreatedTime = AssociationExecutionFilterKey' "CreatedTime"
-
 pattern ExecutionId :: AssociationExecutionFilterKey
 pattern ExecutionId = AssociationExecutionFilterKey' "ExecutionId"
 
 pattern Status :: AssociationExecutionFilterKey
 pattern Status = AssociationExecutionFilterKey' "Status"
 
+pattern CreatedTime :: AssociationExecutionFilterKey
+pattern CreatedTime = AssociationExecutionFilterKey' "CreatedTime"
+
 {-# COMPLETE
-  CreatedTime,
   ExecutionId,
   Status,
+  CreatedTime,
   AssociationExecutionFilterKey'
   #-}

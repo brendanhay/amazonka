@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCapacityReservationTargetResponse' smart constructor.
 data CapacityReservationTargetResponse = CapacityReservationTargetResponse'
-  { capacityReservationId ::
-      Lude.Maybe Lude.Text,
-    capacityReservationResourceGroupARN ::
-      Lude.Maybe Lude.Text
+  { -- | The ID of the targeted Capacity Reservation.
+    capacityReservationId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the targeted Capacity Reservation group.
+    capacityReservationResourceGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CapacityReservationTargetResponse' with the minimum fields required to make a request.

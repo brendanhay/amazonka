@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,35 +58,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAllocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
-  { networkBorderGroup ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
+    --
+    -- Use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html DescribeAvailabilityZones> to view the network border groups.
+    networkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.
+    --
+    -- Default: If the Region supports EC2-Classic, the default is @standard@ . Otherwise, the default is @vpc@ .
     domain :: Lude.Maybe DomainType,
+    -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
     address :: Lude.Maybe Lude.Text,
+    -- | The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the @Address@ parameter instead.
     publicIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
     customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateAddress' with the minimum fields required to make a request.
 --
--- * 'address' - [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
--- * 'customerOwnedIPv4Pool' - The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
--- * 'domain' - Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.
---
--- Default: If the Region supports EC2-Classic, the default is @standard@ . Otherwise, the default is @vpc@ .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'networkBorderGroup' - A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 --
 -- Use <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html DescribeAvailabilityZones> to view the network border groups.
+-- * 'domain' - Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.
+--
+-- Default: If the Region supports EC2-Classic, the default is @standard@ . Otherwise, the default is @vpc@ .
+-- * 'address' - [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.
 -- * 'publicIPv4Pool' - The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the @Address@ parameter instead.
+-- * 'customerOwnedIPv4Pool' - The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select an address from the address pool. Alternatively, specify a specific address from the address pool.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkAllocateAddress ::
   AllocateAddress
 mkAllocateAddress =
@@ -183,37 +187,38 @@ instance Lude.ToQuery AllocateAddress where
 
 -- | /See:/ 'mkAllocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
-  { allocationId ::
-      Lude.Maybe Lude.Text,
+  { -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
+    allocationId :: Lude.Maybe Lude.Text,
+    -- | The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
     carrierIP :: Lude.Maybe Lude.Text,
+    -- | The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
     networkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the Elastic IP address is for use with instances in a VPC (@vpc@ ) or instances in EC2-Classic (@standard@ ).
     domain :: Lude.Maybe DomainType,
+    -- | The ID of an address pool.
     publicIPv4Pool :: Lude.Maybe Lude.Text,
-    customerOwnedIPv4Pool ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the customer-owned address pool.
+    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | The customer-owned IP address.
     customerOwnedIP :: Lude.Maybe Lude.Text,
+    -- | The Elastic IP address.
     publicIP :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocateAddressResponse' with the minimum fields required to make a request.
 --
 -- * 'allocationId' - [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
 -- * 'carrierIP' - The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
--- * 'customerOwnedIP' - The customer-owned IP address.
--- * 'customerOwnedIPv4Pool' - The ID of the customer-owned address pool.
--- * 'domain' - Indicates whether the Elastic IP address is for use with instances in a VPC (@vpc@ ) or instances in EC2-Classic (@standard@ ).
 -- * 'networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
--- * 'publicIP' - The Elastic IP address.
+-- * 'domain' - Indicates whether the Elastic IP address is for use with instances in a VPC (@vpc@ ) or instances in EC2-Classic (@standard@ ).
 -- * 'publicIPv4Pool' - The ID of an address pool.
+-- * 'customerOwnedIPv4Pool' - The ID of the customer-owned address pool.
+-- * 'customerOwnedIP' - The customer-owned IP address.
+-- * 'publicIP' - The Elastic IP address.
 -- * 'responseStatus' - The response status code.
 mkAllocateAddressResponse ::
   -- | 'responseStatus'

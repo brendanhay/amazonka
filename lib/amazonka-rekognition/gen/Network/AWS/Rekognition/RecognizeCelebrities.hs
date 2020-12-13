@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,16 +49,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRecognizeCelebrities' smart constructor.
 newtype RecognizeCelebrities = RecognizeCelebrities'
-  { image ::
-      Image
+  { -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+    --
+    -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+    image :: Image
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecognizeCelebrities' with the minimum fields required to make a request.
@@ -117,29 +114,24 @@ instance Lude.ToQuery RecognizeCelebrities where
 
 -- | /See:/ 'mkRecognizeCelebritiesResponse' smart constructor.
 data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
-  { celebrityFaces ::
-      Lude.Maybe [Celebrity],
-    orientationCorrection ::
-      Lude.Maybe OrientationCorrection,
-    unrecognizedFaces ::
-      Lude.Maybe [ComparedFace],
+  { -- | Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.
+    celebrityFaces :: Lude.Maybe [Celebrity],
+    -- | The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in @CelebrityFaces@ and @UnrecognizedFaces@ represent face locations before the image orientation is corrected.
+    orientationCorrection :: Lude.Maybe OrientationCorrection,
+    -- | Details about each unrecognized face in the image.
+    unrecognizedFaces :: Lude.Maybe [ComparedFace],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecognizeCelebritiesResponse' with the minimum fields required to make a request.
 --
 -- * 'celebrityFaces' - Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.
 -- * 'orientationCorrection' - The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in @CelebrityFaces@ and @UnrecognizedFaces@ represent face locations before the image orientation is corrected.
--- * 'responseStatus' - The response status code.
 -- * 'unrecognizedFaces' - Details about each unrecognized face in the image.
+-- * 'responseStatus' - The response status code.
 mkRecognizeCelebritiesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

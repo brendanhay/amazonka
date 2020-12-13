@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.CloudFormation.DeleteChangeSet
     mkDeleteChangeSet,
 
     -- ** Request lenses
-    dcsStackName,
-    dcsChangeSetName,
+    dcsfChangeSetName,
+    dcsfStackName,
 
     -- * Destructuring the response
     DeleteChangeSetResponse (..),
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteChangeSet' smart constructor.
 data DeleteChangeSet = DeleteChangeSet'
-  { stackName ::
-      Lude.Maybe Lude.Text,
-    changeSetName :: Lude.Text
+  { -- | The name or Amazon Resource Name (ARN) of the change set that you want to delete.
+    changeSetName :: Lude.Text,
+    -- | If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
+    stackName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteChangeSet' with the minimum fields required to make a request.
@@ -67,23 +63,23 @@ mkDeleteChangeSet ::
   DeleteChangeSet
 mkDeleteChangeSet pChangeSetName_ =
   DeleteChangeSet'
-    { stackName = Lude.Nothing,
-      changeSetName = pChangeSetName_
+    { changeSetName = pChangeSetName_,
+      stackName = Lude.Nothing
     }
-
--- | If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
---
--- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsStackName :: Lens.Lens' DeleteChangeSet (Lude.Maybe Lude.Text)
-dcsStackName = Lens.lens (stackName :: DeleteChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DeleteChangeSet)
-{-# DEPRECATED dcsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 -- | The name or Amazon Resource Name (ARN) of the change set that you want to delete.
 --
 -- /Note:/ Consider using 'changeSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsChangeSetName :: Lens.Lens' DeleteChangeSet Lude.Text
-dcsChangeSetName = Lens.lens (changeSetName :: DeleteChangeSet -> Lude.Text) (\s a -> s {changeSetName = a} :: DeleteChangeSet)
-{-# DEPRECATED dcsChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
+dcsfChangeSetName :: Lens.Lens' DeleteChangeSet Lude.Text
+dcsfChangeSetName = Lens.lens (changeSetName :: DeleteChangeSet -> Lude.Text) (\s a -> s {changeSetName = a} :: DeleteChangeSet)
+{-# DEPRECATED dcsfChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
+
+-- | If you specified the name of a change set to delete, specify the stack name or ID (ARN) that is associated with it.
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsfStackName :: Lens.Lens' DeleteChangeSet (Lude.Maybe Lude.Text)
+dcsfStackName = Lens.lens (stackName :: DeleteChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DeleteChangeSet)
+{-# DEPRECATED dcsfStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 instance Lude.AWSRequest DeleteChangeSet where
   type Rs DeleteChangeSet = DeleteChangeSetResponse
@@ -106,24 +102,18 @@ instance Lude.ToQuery DeleteChangeSet where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteChangeSet" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "StackName" Lude.=: stackName,
-        "ChangeSetName" Lude.=: changeSetName
+        "ChangeSetName" Lude.=: changeSetName,
+        "StackName" Lude.=: stackName
       ]
 
 -- | The output for the 'DeleteChangeSet' action.
 --
 -- /See:/ 'mkDeleteChangeSetResponse' smart constructor.
 newtype DeleteChangeSetResponse = DeleteChangeSetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteChangeSetResponse' with the minimum fields required to make a request.

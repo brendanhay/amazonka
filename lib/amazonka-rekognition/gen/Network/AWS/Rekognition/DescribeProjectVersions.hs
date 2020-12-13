@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.Rekognition.DescribeProjectVersions
 
     -- ** Request lenses
     dpvNextToken,
+    dpvProjectARN,
     dpvVersionNames,
     dpvMaxResults,
-    dpvProjectARN,
 
     -- * Destructuring the response
     DescribeProjectVersionsResponse (..),
@@ -48,28 +49,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeProjectVersions' smart constructor.
 data DescribeProjectVersions = DescribeProjectVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    versionNames ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    maxResults :: Lude.Maybe Lude.Natural,
-    projectARN :: Lude.Text
+  { -- | If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the project that contains the models you want to describe.
+    projectARN :: Lude.Text,
+    -- | A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the version name in the following ARN. @arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version//my-model.2020-01-21T09.10.15/ /1234567890123@ .
+    versionNames :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProjectVersions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.
 -- * 'nextToken' - If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
 -- * 'projectARN' - The Amazon Resource Name (ARN) of the project that contains the models you want to describe.
 -- * 'versionNames' - A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the version name in the following ARN. @arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version//my-model.2020-01-21T09.10.15/ /1234567890123@ .
+-- * 'maxResults' - The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100.
 mkDescribeProjectVersions ::
   -- | 'projectARN'
   Lude.Text ->
@@ -77,9 +74,9 @@ mkDescribeProjectVersions ::
 mkDescribeProjectVersions pProjectARN_ =
   DescribeProjectVersions'
     { nextToken = Lude.Nothing,
+      projectARN = pProjectARN_,
       versionNames = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      projectARN = pProjectARN_
+      maxResults = Lude.Nothing
     }
 
 -- | If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
@@ -88,6 +85,13 @@ mkDescribeProjectVersions pProjectARN_ =
 dpvNextToken :: Lens.Lens' DescribeProjectVersions (Lude.Maybe Lude.Text)
 dpvNextToken = Lens.lens (nextToken :: DescribeProjectVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeProjectVersions)
 {-# DEPRECATED dpvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the project that contains the models you want to describe.
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpvProjectARN :: Lens.Lens' DescribeProjectVersions Lude.Text
+dpvProjectARN = Lens.lens (projectARN :: DescribeProjectVersions -> Lude.Text) (\s a -> s {projectARN = a} :: DescribeProjectVersions)
+{-# DEPRECATED dpvProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 -- | A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the version name in the following ARN. @arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version//my-model.2020-01-21T09.10.15/ /1234567890123@ .
 --
@@ -102,13 +106,6 @@ dpvVersionNames = Lens.lens (versionNames :: DescribeProjectVersions -> Lude.May
 dpvMaxResults :: Lens.Lens' DescribeProjectVersions (Lude.Maybe Lude.Natural)
 dpvMaxResults = Lens.lens (maxResults :: DescribeProjectVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeProjectVersions)
 {-# DEPRECATED dpvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the project that contains the models you want to describe.
---
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvProjectARN :: Lens.Lens' DescribeProjectVersions Lude.Text
-dpvProjectARN = Lens.lens (projectARN :: DescribeProjectVersions -> Lude.Text) (\s a -> s {projectARN = a} :: DescribeProjectVersions)
-{-# DEPRECATED dpvProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 instance Page.AWSPager DescribeProjectVersions where
   page rq rs
@@ -148,9 +145,9 @@ instance Lude.ToJSON DescribeProjectVersions where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("ProjectArn" Lude..= projectARN),
             ("VersionNames" Lude..=) Lude.<$> versionNames,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ProjectArn" Lude..= projectARN)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -162,20 +159,14 @@ instance Lude.ToQuery DescribeProjectVersions where
 
 -- | /See:/ 'mkDescribeProjectVersionsResponse' smart constructor.
 data DescribeProjectVersionsResponse = DescribeProjectVersionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    projectVersionDescriptions ::
-      Lude.Maybe
-        [ProjectVersionDescription],
+  { -- | If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of model descriptions. The list is sorted by the creation date and time of the model versions, latest to earliest.
+    projectVersionDescriptions :: Lude.Maybe [ProjectVersionDescription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProjectVersionsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.CodeCommit.GetCommentsForPullRequest
 
     -- ** Request lenses
     gcfprAfterCommitId,
+    gcfprPullRequestId,
     gcfprNextToken,
     gcfprBeforeCommitId,
     gcfprRepositoryName,
     gcfprMaxResults,
-    gcfprPullRequestId,
 
     -- * Destructuring the response
     GetCommentsForPullRequestResponse (..),
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCommentsForPullRequest' smart constructor.
 data GetCommentsForPullRequest = GetCommentsForPullRequest'
-  { afterCommitId ::
-      Lude.Maybe Lude.Text,
+  { -- | The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made.
+    afterCommitId :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+    pullRequestId :: Lude.Text,
+    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.
     beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that contains the pull request.
     repositoryName :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    pullRequestId :: Lude.Text
+    -- | A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments. You can return up to 500 comments with a single request.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentsForPullRequest' with the minimum fields required to make a request.
 --
 -- * 'afterCommitId' - The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made.
--- * 'beforeCommitId' - The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments. You can return up to 500 comments with a single request.
--- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
 -- * 'pullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+-- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
+-- * 'beforeCommitId' - The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created.
 -- * 'repositoryName' - The name of the repository that contains the pull request.
+-- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments. You can return up to 500 comments with a single request.
 mkGetCommentsForPullRequest ::
   -- | 'pullRequestId'
   Lude.Text ->
@@ -80,11 +80,11 @@ mkGetCommentsForPullRequest ::
 mkGetCommentsForPullRequest pPullRequestId_ =
   GetCommentsForPullRequest'
     { afterCommitId = Lude.Nothing,
+      pullRequestId = pPullRequestId_,
       nextToken = Lude.Nothing,
       beforeCommitId = Lude.Nothing,
       repositoryName = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      pullRequestId = pPullRequestId_
+      maxResults = Lude.Nothing
     }
 
 -- | The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made.
@@ -93,6 +93,13 @@ mkGetCommentsForPullRequest pPullRequestId_ =
 gcfprAfterCommitId :: Lens.Lens' GetCommentsForPullRequest (Lude.Maybe Lude.Text)
 gcfprAfterCommitId = Lens.lens (afterCommitId :: GetCommentsForPullRequest -> Lude.Maybe Lude.Text) (\s a -> s {afterCommitId = a} :: GetCommentsForPullRequest)
 {-# DEPRECATED gcfprAfterCommitId "Use generic-lens or generic-optics with 'afterCommitId' instead." #-}
+
+-- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfprPullRequestId :: Lens.Lens' GetCommentsForPullRequest Lude.Text
+gcfprPullRequestId = Lens.lens (pullRequestId :: GetCommentsForPullRequest -> Lude.Text) (\s a -> s {pullRequestId = a} :: GetCommentsForPullRequest)
+{-# DEPRECATED gcfprPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 -- | An enumeration token that, when provided in a request, returns the next batch of the results.
 --
@@ -121,13 +128,6 @@ gcfprRepositoryName = Lens.lens (repositoryName :: GetCommentsForPullRequest -> 
 gcfprMaxResults :: Lens.Lens' GetCommentsForPullRequest (Lude.Maybe Lude.Int)
 gcfprMaxResults = Lens.lens (maxResults :: GetCommentsForPullRequest -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetCommentsForPullRequest)
 {-# DEPRECATED gcfprMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
---
--- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfprPullRequestId :: Lens.Lens' GetCommentsForPullRequest Lude.Text
-gcfprPullRequestId = Lens.lens (pullRequestId :: GetCommentsForPullRequest -> Lude.Text) (\s a -> s {pullRequestId = a} :: GetCommentsForPullRequest)
-{-# DEPRECATED gcfprPullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 instance Page.AWSPager GetCommentsForPullRequest where
   page rq rs
@@ -171,11 +171,11 @@ instance Lude.ToJSON GetCommentsForPullRequest where
     Lude.object
       ( Lude.catMaybes
           [ ("afterCommitId" Lude..=) Lude.<$> afterCommitId,
+            Lude.Just ("pullRequestId" Lude..= pullRequestId),
             ("nextToken" Lude..=) Lude.<$> nextToken,
             ("beforeCommitId" Lude..=) Lude.<$> beforeCommitId,
             ("repositoryName" Lude..=) Lude.<$> repositoryName,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("pullRequestId" Lude..= pullRequestId)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -187,21 +187,14 @@ instance Lude.ToQuery GetCommentsForPullRequest where
 
 -- | /See:/ 'mkGetCommentsForPullRequestResponse' smart constructor.
 data GetCommentsForPullRequestResponse = GetCommentsForPullRequestResponse'
-  { commentsForPullRequestData ::
-      Lude.Maybe
-        [CommentsForPullRequest],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of comment objects on the pull request.
+    commentsForPullRequestData :: Lude.Maybe [CommentsForPullRequest],
+    -- | An enumeration token that can be used in a request to return the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentsForPullRequestResponse' with the minimum fields required to make a request.

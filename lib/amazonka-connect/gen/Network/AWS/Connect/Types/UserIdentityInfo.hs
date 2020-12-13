@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserIdentityInfo' smart constructor.
 data UserIdentityInfo = UserIdentityInfo'
-  { email ::
-      Lude.Maybe Lude.Text,
+  { -- | The email address. If you are using SAML for identity management and include this parameter, an error is returned.
+    email :: Lude.Maybe Lude.Text,
+    -- | The last name. This is required if you are using Amazon Connect or SAML for identity management.
     lastName :: Lude.Maybe Lude.Text,
+    -- | The first name. This is required if you are using Amazon Connect or SAML for identity management.
     firstName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserIdentityInfo' with the minimum fields required to make a request.
 --
 -- * 'email' - The email address. If you are using SAML for identity management and include this parameter, an error is returned.
--- * 'firstName' - The first name. This is required if you are using Amazon Connect or SAML for identity management.
 -- * 'lastName' - The last name. This is required if you are using Amazon Connect or SAML for identity management.
+-- * 'firstName' - The first name. This is required if you are using Amazon Connect or SAML for identity management.
 mkUserIdentityInfo ::
   UserIdentityInfo
 mkUserIdentityInfo =

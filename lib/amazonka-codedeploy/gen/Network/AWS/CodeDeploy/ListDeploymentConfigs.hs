@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,16 +46,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListDeploymentConfigs' smart constructor.
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | An identifier returned from the previous @ListDeploymentConfigs@ call. It can be used to return the next set of deployment configurations in the list.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentConfigs' with the minimum fields required to make a request.
@@ -119,25 +114,20 @@ instance Lude.ToQuery ListDeploymentConfigs where
 --
 -- /See:/ 'mkListDeploymentConfigsResponse' smart constructor.
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    deploymentConfigsList ::
-      Lude.Maybe [Lude.Text],
+  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of deployment configurations, including built-in configurations such as @CodeDeployDefault.OneAtATime@ .
+    deploymentConfigsList :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentConfigsResponse' with the minimum fields required to make a request.
 --
--- * 'deploymentConfigsList' - A list of deployment configurations, including built-in configurations such as @CodeDeployDefault.OneAtATime@ .
 -- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list.
+-- * 'deploymentConfigsList' - A list of deployment configurations, including built-in configurations such as @CodeDeployDefault.OneAtATime@ .
 -- * 'responseStatus' - The response status code.
 mkListDeploymentConfigsResponse ::
   -- | 'responseStatus'

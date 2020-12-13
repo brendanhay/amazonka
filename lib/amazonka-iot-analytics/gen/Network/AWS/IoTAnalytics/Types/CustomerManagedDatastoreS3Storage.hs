@@ -17,8 +17,8 @@ module Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
     mkCustomerManagedDatastoreS3Storage,
 
     -- * Lenses
-    cmdssKeyPrefix,
     cmdssBucket,
+    cmdssKeyPrefix,
     cmdssRoleARN,
   )
 where
@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomerManagedDatastoreS3Storage' smart constructor.
 data CustomerManagedDatastoreS3Storage = CustomerManagedDatastoreS3Storage'
-  { keyPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the S3 bucket in which data store data is stored.
     bucket :: Lude.Text,
+    -- | Optional. The prefix used to create the keys of the data store data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+    keyPrefix :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomerManagedDatastoreS3Storage' with the minimum fields required to make a request.
@@ -57,17 +53,10 @@ mkCustomerManagedDatastoreS3Storage ::
   CustomerManagedDatastoreS3Storage
 mkCustomerManagedDatastoreS3Storage pBucket_ pRoleARN_ =
   CustomerManagedDatastoreS3Storage'
-    { keyPrefix = Lude.Nothing,
-      bucket = pBucket_,
+    { bucket = pBucket_,
+      keyPrefix = Lude.Nothing,
       roleARN = pRoleARN_
     }
-
--- | Optional. The prefix used to create the keys of the data store data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
---
--- /Note:/ Consider using 'keyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdssKeyPrefix :: Lens.Lens' CustomerManagedDatastoreS3Storage (Lude.Maybe Lude.Text)
-cmdssKeyPrefix = Lens.lens (keyPrefix :: CustomerManagedDatastoreS3Storage -> Lude.Maybe Lude.Text) (\s a -> s {keyPrefix = a} :: CustomerManagedDatastoreS3Storage)
-{-# DEPRECATED cmdssKeyPrefix "Use generic-lens or generic-optics with 'keyPrefix' instead." #-}
 
 -- | The name of the S3 bucket in which data store data is stored.
 --
@@ -75,6 +64,13 @@ cmdssKeyPrefix = Lens.lens (keyPrefix :: CustomerManagedDatastoreS3Storage -> Lu
 cmdssBucket :: Lens.Lens' CustomerManagedDatastoreS3Storage Lude.Text
 cmdssBucket = Lens.lens (bucket :: CustomerManagedDatastoreS3Storage -> Lude.Text) (\s a -> s {bucket = a} :: CustomerManagedDatastoreS3Storage)
 {-# DEPRECATED cmdssBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Optional. The prefix used to create the keys of the data store data objects. Each object in an S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
+--
+-- /Note:/ Consider using 'keyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmdssKeyPrefix :: Lens.Lens' CustomerManagedDatastoreS3Storage (Lude.Maybe Lude.Text)
+cmdssKeyPrefix = Lens.lens (keyPrefix :: CustomerManagedDatastoreS3Storage -> Lude.Maybe Lude.Text) (\s a -> s {keyPrefix = a} :: CustomerManagedDatastoreS3Storage)
+{-# DEPRECATED cmdssKeyPrefix "Use generic-lens or generic-optics with 'keyPrefix' instead." #-}
 
 -- | The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
 --
@@ -89,8 +85,8 @@ instance Lude.FromJSON CustomerManagedDatastoreS3Storage where
       "CustomerManagedDatastoreS3Storage"
       ( \x ->
           CustomerManagedDatastoreS3Storage'
-            Lude.<$> (x Lude..:? "keyPrefix")
-            Lude.<*> (x Lude..: "bucket")
+            Lude.<$> (x Lude..: "bucket")
+            Lude.<*> (x Lude..:? "keyPrefix")
             Lude.<*> (x Lude..: "roleArn")
       )
 
@@ -98,8 +94,8 @@ instance Lude.ToJSON CustomerManagedDatastoreS3Storage where
   toJSON CustomerManagedDatastoreS3Storage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("keyPrefix" Lude..=) Lude.<$> keyPrefix,
-            Lude.Just ("bucket" Lude..= bucket),
+          [ Lude.Just ("bucket" Lude..= bucket),
+            ("keyPrefix" Lude..=) Lude.<$> keyPrefix,
             Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

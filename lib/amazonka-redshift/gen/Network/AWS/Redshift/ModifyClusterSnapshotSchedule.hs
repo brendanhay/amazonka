@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Redshift.ModifyClusterSnapshotSchedule
 
     -- ** Request lenses
     mcssDisassociateSchedule,
-    mcssScheduleIdentifier,
     mcssClusterIdentifier,
+    mcssScheduleIdentifier,
 
     -- * Destructuring the response
     ModifyClusterSnapshotScheduleResponse (..),
@@ -37,25 +38,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyClusterSnapshotSchedule' smart constructor.
 data ModifyClusterSnapshotSchedule = ModifyClusterSnapshotSchedule'
-  { disassociateSchedule ::
-      Lude.Maybe Lude.Bool,
-    scheduleIdentifier ::
-      Lude.Maybe Lude.Text,
-    clusterIdentifier :: Lude.Text
+  { -- | A boolean to indicate whether to remove the assoiciation between the cluster and the schedule.
+    disassociateSchedule :: Lude.Maybe Lude.Bool,
+    -- | A unique identifier for the cluster whose snapshot schedule you want to modify.
+    clusterIdentifier :: Lude.Text,
+    -- | A unique alphanumeric identifier for the schedule that you want to associate with the cluster.
+    scheduleIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterSnapshotSchedule' with the minimum fields required to make a request.
 --
--- * 'clusterIdentifier' - A unique identifier for the cluster whose snapshot schedule you want to modify.
 -- * 'disassociateSchedule' - A boolean to indicate whether to remove the assoiciation between the cluster and the schedule.
+-- * 'clusterIdentifier' - A unique identifier for the cluster whose snapshot schedule you want to modify.
 -- * 'scheduleIdentifier' - A unique alphanumeric identifier for the schedule that you want to associate with the cluster.
 mkModifyClusterSnapshotSchedule ::
   -- | 'clusterIdentifier'
@@ -65,8 +61,8 @@ mkModifyClusterSnapshotSchedule pClusterIdentifier_ =
   ModifyClusterSnapshotSchedule'
     { disassociateSchedule =
         Lude.Nothing,
-      scheduleIdentifier = Lude.Nothing,
-      clusterIdentifier = pClusterIdentifier_
+      clusterIdentifier = pClusterIdentifier_,
+      scheduleIdentifier = Lude.Nothing
     }
 
 -- | A boolean to indicate whether to remove the assoiciation between the cluster and the schedule.
@@ -76,19 +72,19 @@ mcssDisassociateSchedule :: Lens.Lens' ModifyClusterSnapshotSchedule (Lude.Maybe
 mcssDisassociateSchedule = Lens.lens (disassociateSchedule :: ModifyClusterSnapshotSchedule -> Lude.Maybe Lude.Bool) (\s a -> s {disassociateSchedule = a} :: ModifyClusterSnapshotSchedule)
 {-# DEPRECATED mcssDisassociateSchedule "Use generic-lens or generic-optics with 'disassociateSchedule' instead." #-}
 
--- | A unique alphanumeric identifier for the schedule that you want to associate with the cluster.
---
--- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcssScheduleIdentifier :: Lens.Lens' ModifyClusterSnapshotSchedule (Lude.Maybe Lude.Text)
-mcssScheduleIdentifier = Lens.lens (scheduleIdentifier :: ModifyClusterSnapshotSchedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleIdentifier = a} :: ModifyClusterSnapshotSchedule)
-{-# DEPRECATED mcssScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
-
 -- | A unique identifier for the cluster whose snapshot schedule you want to modify.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mcssClusterIdentifier :: Lens.Lens' ModifyClusterSnapshotSchedule Lude.Text
 mcssClusterIdentifier = Lens.lens (clusterIdentifier :: ModifyClusterSnapshotSchedule -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: ModifyClusterSnapshotSchedule)
 {-# DEPRECATED mcssClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+
+-- | A unique alphanumeric identifier for the schedule that you want to associate with the cluster.
+--
+-- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcssScheduleIdentifier :: Lens.Lens' ModifyClusterSnapshotSchedule (Lude.Maybe Lude.Text)
+mcssScheduleIdentifier = Lens.lens (scheduleIdentifier :: ModifyClusterSnapshotSchedule -> Lude.Maybe Lude.Text) (\s a -> s {scheduleIdentifier = a} :: ModifyClusterSnapshotSchedule)
+{-# DEPRECATED mcssScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
 
 instance Lude.AWSRequest ModifyClusterSnapshotSchedule where
   type
@@ -110,19 +106,13 @@ instance Lude.ToQuery ModifyClusterSnapshotSchedule where
           Lude.=: ("ModifyClusterSnapshotSchedule" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
         "DisassociateSchedule" Lude.=: disassociateSchedule,
-        "ScheduleIdentifier" Lude.=: scheduleIdentifier,
-        "ClusterIdentifier" Lude.=: clusterIdentifier
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
+        "ScheduleIdentifier" Lude.=: scheduleIdentifier
       ]
 
 -- | /See:/ 'mkModifyClusterSnapshotScheduleResponse' smart constructor.
 data ModifyClusterSnapshotScheduleResponse = ModifyClusterSnapshotScheduleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyClusterSnapshotScheduleResponse' with the minimum fields required to make a request.

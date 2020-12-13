@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetRepositoryPolicy' smart constructor.
 data SetRepositoryPolicy = SetRepositoryPolicy'
-  { force ::
-      Lude.Maybe Lude.Bool,
+  { -- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
+    force :: Lude.Maybe Lude.Bool,
+    -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
     registryId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository to receive the policy.
     repositoryName :: Lude.Text,
+    -- | The JSON repository policy text to apply to the repository. For more information, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies> in the /Amazon Elastic Container Registry User Guide/ .
     policyText :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetRepositoryPolicy' with the minimum fields required to make a request.
 --
 -- * 'force' - If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
--- * 'policyText' - The JSON repository policy text to apply to the repository. For more information, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies> in the /Amazon Elastic Container Registry User Guide/ .
 -- * 'registryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
 -- * 'repositoryName' - The name of the repository to receive the policy.
+-- * 'policyText' - The JSON repository policy text to apply to the repository. For more information, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies> in the /Amazon Elastic Container Registry User Guide/ .
 mkSetRepositoryPolicy ::
   -- | 'repositoryName'
   Lude.Text ->
@@ -152,27 +150,23 @@ instance Lude.ToQuery SetRepositoryPolicy where
 
 -- | /See:/ 'mkSetRepositoryPolicyResponse' smart constructor.
 data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The JSON repository policy text applied to the repository.
     policyText :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetRepositoryPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'policyText' - The JSON repository policy text applied to the repository.
 -- * 'registryId' - The registry ID associated with the request.
 -- * 'repositoryName' - The repository name associated with the request.
+-- * 'policyText' - The JSON repository policy text applied to the repository.
 -- * 'responseStatus' - The response status code.
 mkSetRepositoryPolicyResponse ::
   -- | 'responseStatus'

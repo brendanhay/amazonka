@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceImageRequiredTenancy
   ( WorkspaceImageRequiredTenancy
       ( WorkspaceImageRequiredTenancy',
-        WIRTDedicated,
-        WIRTDefault
+        WIRTDefault,
+        WIRTDedicated
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype WorkspaceImageRequiredTenancy = WorkspaceImageRequiredTenancy' Lude.Text
       Lude.ToHeader
     )
 
-pattern WIRTDedicated :: WorkspaceImageRequiredTenancy
-pattern WIRTDedicated = WorkspaceImageRequiredTenancy' "DEDICATED"
-
 pattern WIRTDefault :: WorkspaceImageRequiredTenancy
 pattern WIRTDefault = WorkspaceImageRequiredTenancy' "DEFAULT"
 
+pattern WIRTDedicated :: WorkspaceImageRequiredTenancy
+pattern WIRTDedicated = WorkspaceImageRequiredTenancy' "DEDICATED"
+
 {-# COMPLETE
-  WIRTDedicated,
   WIRTDefault,
+  WIRTDedicated,
   WorkspaceImageRequiredTenancy'
   #-}

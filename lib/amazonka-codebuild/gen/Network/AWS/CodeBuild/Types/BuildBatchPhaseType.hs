@@ -13,13 +13,13 @@
 module Network.AWS.CodeBuild.Types.BuildBatchPhaseType
   ( BuildBatchPhaseType
       ( BuildBatchPhaseType',
-        BBPTCombineArtifacts,
-        BBPTDownloadBatchspec,
-        BBPTFailed,
-        BBPTInProgress,
-        BBPTStopped,
         BBPTSubmitted,
-        BBPTSucceeded
+        BBPTDownloadBatchspec,
+        BBPTInProgress,
+        BBPTCombineArtifacts,
+        BBPTSucceeded,
+        BBPTFailed,
+        BBPTStopped
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype BuildBatchPhaseType = BuildBatchPhaseType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BBPTCombineArtifacts :: BuildBatchPhaseType
-pattern BBPTCombineArtifacts = BuildBatchPhaseType' "COMBINE_ARTIFACTS"
+pattern BBPTSubmitted :: BuildBatchPhaseType
+pattern BBPTSubmitted = BuildBatchPhaseType' "SUBMITTED"
 
 pattern BBPTDownloadBatchspec :: BuildBatchPhaseType
 pattern BBPTDownloadBatchspec = BuildBatchPhaseType' "DOWNLOAD_BATCHSPEC"
 
-pattern BBPTFailed :: BuildBatchPhaseType
-pattern BBPTFailed = BuildBatchPhaseType' "FAILED"
-
 pattern BBPTInProgress :: BuildBatchPhaseType
 pattern BBPTInProgress = BuildBatchPhaseType' "IN_PROGRESS"
 
-pattern BBPTStopped :: BuildBatchPhaseType
-pattern BBPTStopped = BuildBatchPhaseType' "STOPPED"
-
-pattern BBPTSubmitted :: BuildBatchPhaseType
-pattern BBPTSubmitted = BuildBatchPhaseType' "SUBMITTED"
+pattern BBPTCombineArtifacts :: BuildBatchPhaseType
+pattern BBPTCombineArtifacts = BuildBatchPhaseType' "COMBINE_ARTIFACTS"
 
 pattern BBPTSucceeded :: BuildBatchPhaseType
 pattern BBPTSucceeded = BuildBatchPhaseType' "SUCCEEDED"
 
+pattern BBPTFailed :: BuildBatchPhaseType
+pattern BBPTFailed = BuildBatchPhaseType' "FAILED"
+
+pattern BBPTStopped :: BuildBatchPhaseType
+pattern BBPTStopped = BuildBatchPhaseType' "STOPPED"
+
 {-# COMPLETE
-  BBPTCombineArtifacts,
-  BBPTDownloadBatchspec,
-  BBPTFailed,
-  BBPTInProgress,
-  BBPTStopped,
   BBPTSubmitted,
+  BBPTDownloadBatchspec,
+  BBPTInProgress,
+  BBPTCombineArtifacts,
   BBPTSucceeded,
+  BBPTFailed,
+  BBPTStopped,
   BuildBatchPhaseType'
   #-}

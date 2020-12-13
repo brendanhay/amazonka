@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAuthorizationToken' smart constructor.
 newtype GetAuthorizationToken = GetAuthorizationToken'
-  { registryIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text)
+  { -- | A list of AWS account IDs that are associated with the registries for which to get AuthorizationData objects. If you do not specify a registry, the default registry is assumed.
+    registryIds :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAuthorizationToken' with the minimum fields required to make a request.
@@ -105,17 +100,12 @@ instance Lude.ToQuery GetAuthorizationToken where
 
 -- | /See:/ 'mkGetAuthorizationTokenResponse' smart constructor.
 data GetAuthorizationTokenResponse = GetAuthorizationTokenResponse'
-  { authorizationData ::
-      Lude.Maybe [AuthorizationData],
+  { -- | A list of authorization token data objects that correspond to the @registryIds@ values in the request.
+    authorizationData :: Lude.Maybe [AuthorizationData],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAuthorizationTokenResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,12 +29,12 @@ module Network.AWS.XRay.GetTraceSummaries
 
     -- ** Request lenses
     gtsFilterExpression,
+    gtsStartTime,
     gtsNextToken,
     gtsTimeRangeType,
+    gtsEndTime,
     gtsSamplingStrategy,
     gtsSampling,
-    gtsStartTime,
-    gtsEndTime,
 
     -- * Destructuring the response
     GetTraceSummariesResponse (..),
@@ -57,33 +58,33 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetTraceSummaries' smart constructor.
 data GetTraceSummaries = GetTraceSummaries'
-  { filterExpression ::
-      Lude.Maybe Lude.Text,
-    nextToken :: Lude.Maybe Lude.Text,
-    timeRangeType :: Lude.Maybe TimeRangeType,
-    samplingStrategy :: Lude.Maybe SamplingStrategy,
-    sampling :: Lude.Maybe Lude.Bool,
+  { -- | Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.
+    filterExpression :: Lude.Maybe Lude.Text,
+    -- | The start of the time frame for which to retrieve traces.
     startTime :: Lude.Timestamp,
-    endTime :: Lude.Timestamp
+    -- | Specify the pagination token returned by a previous request to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A parameter to indicate whether to query trace summaries by TraceId or Event time.
+    timeRangeType :: Lude.Maybe TimeRangeType,
+    -- | The end of the time frame for which to retrieve traces.
+    endTime :: Lude.Timestamp,
+    -- | A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.
+    samplingStrategy :: Lude.Maybe SamplingStrategy,
+    -- | Set to @true@ to get summaries for only a subset of available traces.
+    sampling :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTraceSummaries' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end of the time frame for which to retrieve traces.
 -- * 'filterExpression' - Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.
--- * 'nextToken' - Specify the pagination token returned by a previous request to retrieve the next page of results.
--- * 'sampling' - Set to @true@ to get summaries for only a subset of available traces.
--- * 'samplingStrategy' - A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.
 -- * 'startTime' - The start of the time frame for which to retrieve traces.
+-- * 'nextToken' - Specify the pagination token returned by a previous request to retrieve the next page of results.
 -- * 'timeRangeType' - A parameter to indicate whether to query trace summaries by TraceId or Event time.
+-- * 'endTime' - The end of the time frame for which to retrieve traces.
+-- * 'samplingStrategy' - A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.
+-- * 'sampling' - Set to @true@ to get summaries for only a subset of available traces.
 mkGetTraceSummaries ::
   -- | 'startTime'
   Lude.Timestamp ->
@@ -93,12 +94,12 @@ mkGetTraceSummaries ::
 mkGetTraceSummaries pStartTime_ pEndTime_ =
   GetTraceSummaries'
     { filterExpression = Lude.Nothing,
+      startTime = pStartTime_,
       nextToken = Lude.Nothing,
       timeRangeType = Lude.Nothing,
+      endTime = pEndTime_,
       samplingStrategy = Lude.Nothing,
-      sampling = Lude.Nothing,
-      startTime = pStartTime_,
-      endTime = pEndTime_
+      sampling = Lude.Nothing
     }
 
 -- | Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements.
@@ -107,6 +108,13 @@ mkGetTraceSummaries pStartTime_ pEndTime_ =
 gtsFilterExpression :: Lens.Lens' GetTraceSummaries (Lude.Maybe Lude.Text)
 gtsFilterExpression = Lens.lens (filterExpression :: GetTraceSummaries -> Lude.Maybe Lude.Text) (\s a -> s {filterExpression = a} :: GetTraceSummaries)
 {-# DEPRECATED gtsFilterExpression "Use generic-lens or generic-optics with 'filterExpression' instead." #-}
+
+-- | The start of the time frame for which to retrieve traces.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsStartTime :: Lens.Lens' GetTraceSummaries Lude.Timestamp
+gtsStartTime = Lens.lens (startTime :: GetTraceSummaries -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetTraceSummaries)
+{-# DEPRECATED gtsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Specify the pagination token returned by a previous request to retrieve the next page of results.
 --
@@ -122,6 +130,13 @@ gtsTimeRangeType :: Lens.Lens' GetTraceSummaries (Lude.Maybe TimeRangeType)
 gtsTimeRangeType = Lens.lens (timeRangeType :: GetTraceSummaries -> Lude.Maybe TimeRangeType) (\s a -> s {timeRangeType = a} :: GetTraceSummaries)
 {-# DEPRECATED gtsTimeRangeType "Use generic-lens or generic-optics with 'timeRangeType' instead." #-}
 
+-- | The end of the time frame for which to retrieve traces.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsEndTime :: Lens.Lens' GetTraceSummaries Lude.Timestamp
+gtsEndTime = Lens.lens (endTime :: GetTraceSummaries -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetTraceSummaries)
+{-# DEPRECATED gtsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
 -- | A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and Value.
 --
 -- /Note:/ Consider using 'samplingStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -135,20 +150,6 @@ gtsSamplingStrategy = Lens.lens (samplingStrategy :: GetTraceSummaries -> Lude.M
 gtsSampling :: Lens.Lens' GetTraceSummaries (Lude.Maybe Lude.Bool)
 gtsSampling = Lens.lens (sampling :: GetTraceSummaries -> Lude.Maybe Lude.Bool) (\s a -> s {sampling = a} :: GetTraceSummaries)
 {-# DEPRECATED gtsSampling "Use generic-lens or generic-optics with 'sampling' instead." #-}
-
--- | The start of the time frame for which to retrieve traces.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsStartTime :: Lens.Lens' GetTraceSummaries Lude.Timestamp
-gtsStartTime = Lens.lens (startTime :: GetTraceSummaries -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetTraceSummaries)
-{-# DEPRECATED gtsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The end of the time frame for which to retrieve traces.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsEndTime :: Lens.Lens' GetTraceSummaries Lude.Timestamp
-gtsEndTime = Lens.lens (endTime :: GetTraceSummaries -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetTraceSummaries)
-{-# DEPRECATED gtsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 instance Page.AWSPager GetTraceSummaries where
   page rq rs
@@ -181,12 +182,12 @@ instance Lude.ToJSON GetTraceSummaries where
     Lude.object
       ( Lude.catMaybes
           [ ("FilterExpression" Lude..=) Lude.<$> filterExpression,
+            Lude.Just ("StartTime" Lude..= startTime),
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("TimeRangeType" Lude..=) Lude.<$> timeRangeType,
+            Lude.Just ("EndTime" Lude..= endTime),
             ("SamplingStrategy" Lude..=) Lude.<$> samplingStrategy,
-            ("Sampling" Lude..=) Lude.<$> sampling,
-            Lude.Just ("StartTime" Lude..= startTime),
-            Lude.Just ("EndTime" Lude..= endTime)
+            ("Sampling" Lude..=) Lude.<$> sampling
           ]
       )
 
@@ -198,31 +199,27 @@ instance Lude.ToQuery GetTraceSummaries where
 
 -- | /See:/ 'mkGetTraceSummariesResponse' smart constructor.
 data GetTraceSummariesResponse = GetTraceSummariesResponse'
-  { tracesProcessedCount ::
-      Lude.Maybe Lude.Integer,
+  { -- | The total number of traces processed, including traces that did not match the specified filter expression.
+    tracesProcessedCount :: Lude.Maybe Lude.Integer,
+    -- | If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most recent results, closest to the end of the time frame.
     nextToken :: Lude.Maybe Lude.Text,
-    approximateTime ::
-      Lude.Maybe Lude.Timestamp,
-    traceSummaries ::
-      Lude.Maybe [TraceSummary],
+    -- | The start time of this page of results.
+    approximateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Trace IDs and annotations for traces that were found in the specified time frame.
+    traceSummaries :: Lude.Maybe [TraceSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTraceSummariesResponse' with the minimum fields required to make a request.
 --
--- * 'approximateTime' - The start time of this page of results.
--- * 'nextToken' - If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most recent results, closest to the end of the time frame.
--- * 'responseStatus' - The response status code.
--- * 'traceSummaries' - Trace IDs and annotations for traces that were found in the specified time frame.
 -- * 'tracesProcessedCount' - The total number of traces processed, including traces that did not match the specified filter expression.
+-- * 'nextToken' - If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most recent results, closest to the end of the time frame.
+-- * 'approximateTime' - The start time of this page of results.
+-- * 'traceSummaries' - Trace IDs and annotations for traces that were found in the specified time frame.
+-- * 'responseStatus' - The response status code.
 mkGetTraceSummariesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

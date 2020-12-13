@@ -40,27 +40,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheSettings' smart constructor.
 data CacheSettings = CacheSettings'
-  { maximumTTL ::
-      Lude.Maybe Lude.Integer,
+  { -- | The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+    --
+    -- The value specified applies only when the origin adds HTTP headers such as @Cache-Control max-age@ , @Cache-Control s-maxage@ , and @Expires@ to objects.
+    maximumTTL :: Lude.Maybe Lude.Integer,
+    -- | The HTTP method responses that are cached by your distribution.
+    --
+    -- You can specify the following options:
+    --
+    --     * @GET,HEAD@ - The distribution caches responses to the @GET@ and @HEAD@ methods.
+    --
+    --
+    --     * @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@ , @HEAD@ , and @OPTIONS@ methods.
     cachedHTTPMethods :: Lude.Maybe Lude.Text,
+    -- | An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
     forwardedCookies :: Lude.Maybe CookieObject,
+    -- | The HTTP methods that are processed and forwarded to the distribution's origin.
+    --
+    -- You can specify the following options:
+    --
+    --     * @GET,HEAD@ - The distribution forwards the @GET@ and @HEAD@ methods.
+    --
+    --
+    --     * @GET,HEAD,OPTIONS@ - The distribution forwards the @GET@ , @HEAD@ , and @OPTIONS@ methods.
+    --
+    --
+    --     * @GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE@ - The distribution forwards the @GET@ , @HEAD@ , @OPTIONS@ , @PUT@ , @PATCH@ , @POST@ , and @DELETE@ methods.
+    --
+    --
+    -- If you specify the third option, you might need to restrict access to your distribution's origin so users can't perform operations that you don't want them to. For example, you might not want users to have permission to delete objects from your origin.
     allowedHTTPMethods :: Lude.Maybe Lude.Text,
+    -- | The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
     defaultTTL :: Lude.Maybe Lude.Integer,
+    -- | The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+    --
+    -- A value of @0@ must be specified for @minimumTTL@ if the distribution is configured to forward all headers to the origin.
     minimumTTL :: Lude.Maybe Lude.Integer,
+    -- | An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
     forwardedHeaders :: Lude.Maybe HeaderObject,
+    -- | An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
     forwardedQueryStrings :: Lude.Maybe QueryStringObject
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheSettings' with the minimum fields required to make a request.
 --
+-- * 'maximumTTL' - The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+--
+-- The value specified applies only when the origin adds HTTP headers such as @Cache-Control max-age@ , @Cache-Control s-maxage@ , and @Expires@ to objects.
+-- * 'cachedHTTPMethods' - The HTTP method responses that are cached by your distribution.
+--
+-- You can specify the following options:
+--
+--     * @GET,HEAD@ - The distribution caches responses to the @GET@ and @HEAD@ methods.
+--
+--
+--     * @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@ , @HEAD@ , and @OPTIONS@ methods.
+--
+--
+-- * 'forwardedCookies' - An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
 -- * 'allowedHTTPMethods' - The HTTP methods that are processed and forwarded to the distribution's origin.
 --
 -- You can specify the following options:
@@ -75,26 +114,12 @@ data CacheSettings = CacheSettings'
 --
 --
 -- If you specify the third option, you might need to restrict access to your distribution's origin so users can't perform operations that you don't want them to. For example, you might not want users to have permission to delete objects from your origin.
--- * 'cachedHTTPMethods' - The HTTP method responses that are cached by your distribution.
---
--- You can specify the following options:
---
---     * @GET,HEAD@ - The distribution caches responses to the @GET@ and @HEAD@ methods.
---
---
---     * @GET,HEAD,OPTIONS@ - The distribution caches responses to the @GET@ , @HEAD@ , and @OPTIONS@ methods.
---
---
 -- * 'defaultTTL' - The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
--- * 'forwardedCookies' - An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded.
--- * 'forwardedHeaders' - An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
--- * 'forwardedQueryStrings' - An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
--- * 'maximumTTL' - The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
---
--- The value specified applies only when the origin adds HTTP headers such as @Cache-Control max-age@ , @Cache-Control s-maxage@ , and @Expires@ to objects.
 -- * 'minimumTTL' - The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
 --
 -- A value of @0@ must be specified for @minimumTTL@ if the distribution is configured to forward all headers to the origin.
+-- * 'forwardedHeaders' - An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded.
+-- * 'forwardedQueryStrings' - An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded.
 mkCacheSettings ::
   CacheSettings
 mkCacheSettings =

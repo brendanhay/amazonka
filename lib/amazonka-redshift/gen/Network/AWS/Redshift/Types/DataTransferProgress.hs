@@ -34,33 +34,30 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkDataTransferProgress' smart constructor.
 data DataTransferProgress = DataTransferProgress'
-  { currentRateInMegaBytesPerSecond ::
-      Lude.Maybe Lude.Double,
+  { -- | Describes the data transfer rate in MB's per second.
+    currentRateInMegaBytesPerSecond :: Lude.Maybe Lude.Double,
+    -- | Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
     status :: Lude.Maybe Lude.Text,
-    estimatedTimeToCompletionInSeconds ::
-      Lude.Maybe Lude.Integer,
-    dataTransferredInMegaBytes ::
-      Lude.Maybe Lude.Integer,
+    -- | Describes the estimated number of seconds remaining to complete the transfer.
+    estimatedTimeToCompletionInSeconds :: Lude.Maybe Lude.Integer,
+    -- | Describes the total amount of data that has been transfered in MB's.
+    dataTransferredInMegaBytes :: Lude.Maybe Lude.Integer,
+    -- | Describes the total amount of data to be transfered in megabytes.
     totalDataInMegaBytes :: Lude.Maybe Lude.Integer,
+    -- | Describes the number of seconds that have elapsed during the data transfer.
     elapsedTimeInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataTransferProgress' with the minimum fields required to make a request.
 --
 -- * 'currentRateInMegaBytesPerSecond' - Describes the data transfer rate in MB's per second.
--- * 'dataTransferredInMegaBytes' - Describes the total amount of data that has been transfered in MB's.
--- * 'elapsedTimeInSeconds' - Describes the number of seconds that have elapsed during the data transfer.
--- * 'estimatedTimeToCompletionInSeconds' - Describes the estimated number of seconds remaining to complete the transfer.
 -- * 'status' - Describes the status of the cluster. While the transfer is in progress the status is @transferringdata@ .
+-- * 'estimatedTimeToCompletionInSeconds' - Describes the estimated number of seconds remaining to complete the transfer.
+-- * 'dataTransferredInMegaBytes' - Describes the total amount of data that has been transfered in MB's.
 -- * 'totalDataInMegaBytes' - Describes the total amount of data to be transfered in megabytes.
+-- * 'elapsedTimeInSeconds' - Describes the number of seconds that have elapsed during the data transfer.
 mkDataTransferProgress ::
   DataTransferProgress
 mkDataTransferProgress =

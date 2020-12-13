@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountLevelPermissions' smart constructor.
 newtype AccountLevelPermissions = AccountLevelPermissions'
-  { blockPublicAccess ::
-      Lude.Maybe BlockPublicAccess
+  { -- | Describes the S3 Block Public Access settings of the bucket's parent account.
+    blockPublicAccess :: Lude.Maybe BlockPublicAccess
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountLevelPermissions' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,35 +50,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { status :: Lude.Maybe JobStatus,
+  { -- | An optional filter that lets you search for jobs that have the specified status.
+    status :: Lude.Maybe JobStatus,
+    -- | A filter that limits the returned jobs to those for the specified group.
     thingGroupId :: Lude.Maybe Lude.Text,
+    -- | The namespace used to indicate that a job is a customer-managed job.
+    --
+    -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+    -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
     namespaceId :: Lude.Maybe Lude.Text,
+    -- | The token to retrieve the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A filter that limits the returned jobs to those for the specified group.
     thingGroupName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return per request.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
     targetSelection :: Lude.Maybe TargetSelection
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return per request.
+-- * 'status' - An optional filter that lets you search for jobs that have the specified status.
+-- * 'thingGroupId' - A filter that limits the returned jobs to those for the specified group.
 -- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
 -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
 -- * 'nextToken' - The token to retrieve the next set of results.
--- * 'status' - An optional filter that lets you search for jobs that have the specified status.
--- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
--- * 'thingGroupId' - A filter that limits the returned jobs to those for the specified group.
 -- * 'thingGroupName' - A filter that limits the returned jobs to those for the specified group.
+-- * 'maxResults' - The maximum number of results to return per request.
+-- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
 mkListJobs ::
   ListJobs
 mkListJobs =
@@ -184,18 +189,14 @@ instance Lude.ToQuery ListJobs where
 
 -- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { jobs ::
-      Lude.Maybe [JobSummary],
+  { -- | A list of jobs.
+    jobs :: Lude.Maybe [JobSummary],
+    -- | The token for the next set of results, or __null__ if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.

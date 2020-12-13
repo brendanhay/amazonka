@@ -38,36 +38,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStaticIP' smart constructor.
 data StaticIP = StaticIP'
-  { ipAddress :: Lude.Maybe Lude.Text,
+  { -- | The static IP address.
+    ipAddress :: Lude.Maybe Lude.Text,
+    -- | The resource type (usually @StaticIp@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the static IP (e.g., @arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE@ ).
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the static IP was created (e.g., @1479735304.222@ ).
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The region and Availability Zone where the static IP was created.
     location :: Lude.Maybe ResourceLocation,
+    -- | A Boolean value indicating whether the static IP is attached.
     isAttached :: Lude.Maybe Lude.Bool,
+    -- | The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@ ).
     name :: Lude.Maybe Lude.Text,
+    -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | The instance where the static IP is attached (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
     attachedTo :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticIP' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the static IP (e.g., @arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE@ ).
--- * 'attachedTo' - The instance where the static IP is attached (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
--- * 'createdAt' - The timestamp when the static IP was created (e.g., @1479735304.222@ ).
 -- * 'ipAddress' - The static IP address.
--- * 'isAttached' - A Boolean value indicating whether the static IP is attached.
--- * 'location' - The region and Availability Zone where the static IP was created.
--- * 'name' - The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@ ).
 -- * 'resourceType' - The resource type (usually @StaticIp@ ).
+-- * 'arn' - The Amazon Resource Name (ARN) of the static IP (e.g., @arn:aws:lightsail:us-east-2:123456789101:StaticIp/9cbb4a9e-f8e3-4dfe-b57e-12345EXAMPLE@ ).
+-- * 'createdAt' - The timestamp when the static IP was created (e.g., @1479735304.222@ ).
+-- * 'location' - The region and Availability Zone where the static IP was created.
+-- * 'isAttached' - A Boolean value indicating whether the static IP is attached.
+-- * 'name' - The name of the static IP (e.g., @StaticIP-Ohio-EXAMPLE@ ).
 -- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+-- * 'attachedTo' - The instance where the static IP is attached (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
 mkStaticIP ::
   StaticIP
 mkStaticIP =

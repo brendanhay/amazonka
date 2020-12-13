@@ -13,12 +13,12 @@
 module Network.AWS.IoT.Types.MitigationActionType
   ( MitigationActionType
       ( MitigationActionType',
-        AddThingsToThingGroup,
-        EnableIotLogging,
-        PublishFindingToSNS,
-        ReplaceDefaultPolicyVersion,
+        UpdateDeviceCertificate,
         UpdateCaCertificate,
-        UpdateDeviceCertificate
+        AddThingsToThingGroup,
+        ReplaceDefaultPolicyVersion,
+        EnableIotLogging,
+        PublishFindingToSNS
       ),
   )
 where
@@ -49,8 +49,17 @@ newtype MitigationActionType = MitigationActionType' Lude.Text
       Lude.ToHeader
     )
 
+pattern UpdateDeviceCertificate :: MitigationActionType
+pattern UpdateDeviceCertificate = MitigationActionType' "UPDATE_DEVICE_CERTIFICATE"
+
+pattern UpdateCaCertificate :: MitigationActionType
+pattern UpdateCaCertificate = MitigationActionType' "UPDATE_CA_CERTIFICATE"
+
 pattern AddThingsToThingGroup :: MitigationActionType
 pattern AddThingsToThingGroup = MitigationActionType' "ADD_THINGS_TO_THING_GROUP"
+
+pattern ReplaceDefaultPolicyVersion :: MitigationActionType
+pattern ReplaceDefaultPolicyVersion = MitigationActionType' "REPLACE_DEFAULT_POLICY_VERSION"
 
 pattern EnableIotLogging :: MitigationActionType
 pattern EnableIotLogging = MitigationActionType' "ENABLE_IOT_LOGGING"
@@ -58,21 +67,12 @@ pattern EnableIotLogging = MitigationActionType' "ENABLE_IOT_LOGGING"
 pattern PublishFindingToSNS :: MitigationActionType
 pattern PublishFindingToSNS = MitigationActionType' "PUBLISH_FINDING_TO_SNS"
 
-pattern ReplaceDefaultPolicyVersion :: MitigationActionType
-pattern ReplaceDefaultPolicyVersion = MitigationActionType' "REPLACE_DEFAULT_POLICY_VERSION"
-
-pattern UpdateCaCertificate :: MitigationActionType
-pattern UpdateCaCertificate = MitigationActionType' "UPDATE_CA_CERTIFICATE"
-
-pattern UpdateDeviceCertificate :: MitigationActionType
-pattern UpdateDeviceCertificate = MitigationActionType' "UPDATE_DEVICE_CERTIFICATE"
-
 {-# COMPLETE
+  UpdateDeviceCertificate,
+  UpdateCaCertificate,
   AddThingsToThingGroup,
+  ReplaceDefaultPolicyVersion,
   EnableIotLogging,
   PublishFindingToSNS,
-  ReplaceDefaultPolicyVersion,
-  UpdateCaCertificate,
-  UpdateDeviceCertificate,
   MitigationActionType'
   #-}

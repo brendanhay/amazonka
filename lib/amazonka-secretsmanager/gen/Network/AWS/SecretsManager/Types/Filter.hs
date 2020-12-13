@@ -30,23 +30,18 @@ import Network.AWS.SecretsManager.Types.FilterNameStringType
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { values ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | Filters your list of secrets by a specific value.
+    values :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Filters your list of secrets by a specific key.
     key :: Lude.Maybe FilterNameStringType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- * 'key' - Filters your list of secrets by a specific key.
 -- * 'values' - Filters your list of secrets by a specific value.
+-- * 'key' - Filters your list of secrets by a specific key.
 mkFilter ::
   Filter
 mkFilter = Filter' {values = Lude.Nothing, key = Lude.Nothing}

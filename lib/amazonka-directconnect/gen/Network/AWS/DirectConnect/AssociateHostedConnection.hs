@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DirectConnect.AssociateHostedConnection
     mkAssociateHostedConnection,
 
     -- ** Request lenses
-    assConnectionId,
-    assParentConnectionId,
+    ahcfParentConnectionId,
+    ahcfConnectionId,
 
     -- * Destructuring the response
     Connection (..),
@@ -55,48 +56,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateHostedConnection' smart constructor.
 data AssociateHostedConnection = AssociateHostedConnection'
-  { connectionId ::
-      Lude.Text,
-    parentConnectionId :: Lude.Text
+  { -- | The ID of the interconnect or the LAG.
+    parentConnectionId :: Lude.Text,
+    -- | The ID of the hosted connection.
+    connectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateHostedConnection' with the minimum fields required to make a request.
 --
--- * 'connectionId' - The ID of the hosted connection.
 -- * 'parentConnectionId' - The ID of the interconnect or the LAG.
+-- * 'connectionId' - The ID of the hosted connection.
 mkAssociateHostedConnection ::
-  -- | 'connectionId'
-  Lude.Text ->
   -- | 'parentConnectionId'
   Lude.Text ->
+  -- | 'connectionId'
+  Lude.Text ->
   AssociateHostedConnection
-mkAssociateHostedConnection pConnectionId_ pParentConnectionId_ =
+mkAssociateHostedConnection pParentConnectionId_ pConnectionId_ =
   AssociateHostedConnection'
-    { connectionId = pConnectionId_,
-      parentConnectionId = pParentConnectionId_
+    { parentConnectionId =
+        pParentConnectionId_,
+      connectionId = pConnectionId_
     }
-
--- | The ID of the hosted connection.
---
--- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assConnectionId :: Lens.Lens' AssociateHostedConnection Lude.Text
-assConnectionId = Lens.lens (connectionId :: AssociateHostedConnection -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateHostedConnection)
-{-# DEPRECATED assConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the interconnect or the LAG.
 --
 -- /Note:/ Consider using 'parentConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assParentConnectionId :: Lens.Lens' AssociateHostedConnection Lude.Text
-assParentConnectionId = Lens.lens (parentConnectionId :: AssociateHostedConnection -> Lude.Text) (\s a -> s {parentConnectionId = a} :: AssociateHostedConnection)
-{-# DEPRECATED assParentConnectionId "Use generic-lens or generic-optics with 'parentConnectionId' instead." #-}
+ahcfParentConnectionId :: Lens.Lens' AssociateHostedConnection Lude.Text
+ahcfParentConnectionId = Lens.lens (parentConnectionId :: AssociateHostedConnection -> Lude.Text) (\s a -> s {parentConnectionId = a} :: AssociateHostedConnection)
+{-# DEPRECATED ahcfParentConnectionId "Use generic-lens or generic-optics with 'parentConnectionId' instead." #-}
+
+-- | The ID of the hosted connection.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahcfConnectionId :: Lens.Lens' AssociateHostedConnection Lude.Text
+ahcfConnectionId = Lens.lens (connectionId :: AssociateHostedConnection -> Lude.Text) (\s a -> s {connectionId = a} :: AssociateHostedConnection)
+{-# DEPRECATED ahcfConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 instance Lude.AWSRequest AssociateHostedConnection where
   type Rs AssociateHostedConnection = Connection
@@ -118,8 +115,8 @@ instance Lude.ToJSON AssociateHostedConnection where
   toJSON AssociateHostedConnection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just ("parentConnectionId" Lude..= parentConnectionId)
+          [ Lude.Just ("parentConnectionId" Lude..= parentConnectionId),
+            Lude.Just ("connectionId" Lude..= connectionId)
           ]
       )
 

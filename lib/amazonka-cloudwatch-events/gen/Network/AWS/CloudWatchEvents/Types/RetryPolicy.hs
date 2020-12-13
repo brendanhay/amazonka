@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRetryPolicy' smart constructor.
 data RetryPolicy = RetryPolicy'
-  { maximumEventAgeInSeconds ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum amount of time, in seconds, to continue to make retry attempts.
+    maximumEventAgeInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of retry attempts to make before the request fails. Retry attempts continue until either the maximum number of attempts is made or until the duration of the @MaximumEventAgeInSeconds@ is met.
     maximumRetryAttempts :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetryPolicy' with the minimum fields required to make a request.

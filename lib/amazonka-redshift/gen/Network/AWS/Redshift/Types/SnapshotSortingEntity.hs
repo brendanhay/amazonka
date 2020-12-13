@@ -17,8 +17,8 @@ module Network.AWS.Redshift.Types.SnapshotSortingEntity
     mkSnapshotSortingEntity,
 
     -- * Lenses
-    sseSortOrder,
     sseAttribute,
+    sseSortOrder,
   )
 where
 
@@ -32,17 +32,12 @@ import Network.AWS.Redshift.Types.SortByOrder
 --
 -- /See:/ 'mkSnapshotSortingEntity' smart constructor.
 data SnapshotSortingEntity = SnapshotSortingEntity'
-  { sortOrder ::
-      Lude.Maybe SortByOrder,
-    attribute :: SnapshotAttributeToSortBy
+  { -- | The category for sorting the snapshots.
+    attribute :: SnapshotAttributeToSortBy,
+    -- | The order for listing the attributes.
+    sortOrder :: Lude.Maybe SortByOrder
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotSortingEntity' with the minimum fields required to make a request.
@@ -55,16 +50,9 @@ mkSnapshotSortingEntity ::
   SnapshotSortingEntity
 mkSnapshotSortingEntity pAttribute_ =
   SnapshotSortingEntity'
-    { sortOrder = Lude.Nothing,
-      attribute = pAttribute_
+    { attribute = pAttribute_,
+      sortOrder = Lude.Nothing
     }
-
--- | The order for listing the attributes.
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sseSortOrder :: Lens.Lens' SnapshotSortingEntity (Lude.Maybe SortByOrder)
-sseSortOrder = Lens.lens (sortOrder :: SnapshotSortingEntity -> Lude.Maybe SortByOrder) (\s a -> s {sortOrder = a} :: SnapshotSortingEntity)
-{-# DEPRECATED sseSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | The category for sorting the snapshots.
 --
@@ -73,7 +61,14 @@ sseAttribute :: Lens.Lens' SnapshotSortingEntity SnapshotAttributeToSortBy
 sseAttribute = Lens.lens (attribute :: SnapshotSortingEntity -> SnapshotAttributeToSortBy) (\s a -> s {attribute = a} :: SnapshotSortingEntity)
 {-# DEPRECATED sseAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
+-- | The order for listing the attributes.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseSortOrder :: Lens.Lens' SnapshotSortingEntity (Lude.Maybe SortByOrder)
+sseSortOrder = Lens.lens (sortOrder :: SnapshotSortingEntity -> Lude.Maybe SortByOrder) (\s a -> s {sortOrder = a} :: SnapshotSortingEntity)
+{-# DEPRECATED sseSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+
 instance Lude.ToQuery SnapshotSortingEntity where
   toQuery SnapshotSortingEntity' {..} =
     Lude.mconcat
-      ["SortOrder" Lude.=: sortOrder, "Attribute" Lude.=: attribute]
+      ["Attribute" Lude.=: attribute, "SortOrder" Lude.=: sortOrder]

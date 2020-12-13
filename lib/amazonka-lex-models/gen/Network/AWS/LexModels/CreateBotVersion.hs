@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -59,17 +60,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateBotVersion' smart constructor.
 data CreateBotVersion = CreateBotVersion'
-  { checksum ::
-      Lude.Maybe Lude.Text,
+  { -- | Identifies a specific revision of the @> LATEST@ version of the bot. If you specify a checksum and the @> LATEST@ version of the bot has a different checksum, a @PreconditionFailedException@ exception is returned and Amazon Lex doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The name of the bot that you want to create a new version of. The name is case sensitive.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBotVersion' with the minimum fields required to make a request.
@@ -147,60 +143,70 @@ instance Lude.ToQuery CreateBotVersion where
 
 -- | /See:/ 'mkCreateBotVersionResponse' smart constructor.
 data CreateBotVersionResponse = CreateBotVersionResponse'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
+  { -- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to build the bot.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | When you send a request to create or update a bot, Amazon Lex sets the @status@ response element to @BUILDING@ . After Amazon Lex builds the bot, it sets @status@ to @READY@ . If Amazon Lex can't build the bot, it sets @status@ to @FAILED@ . Amazon Lex returns the reason for the failure in the @failureReason@ response element.
     status :: Lude.Maybe LexStatus,
+    -- | The message that Amazon Lex uses to cancel a conversation. For more information, see 'PutBot' .
     abortStatement :: Lude.Maybe Statement,
+    -- | An array of @Intent@ objects. For more information, see 'PutBot' .
     intents :: Lude.Maybe [Intent],
+    -- | Checksum identifying the version of the bot that was created.
     checksum :: Lude.Maybe Lude.Text,
-    enableModelImprovements ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether the bot uses accuracy improvements. @true@ indicates that the bot is using the improvements, otherwise, @false@ .
+    enableModelImprovements :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether utterances entered by the user should be sent to Amazon Comprehend for sentiment analysis.
     detectSentiment :: Lude.Maybe Lude.Bool,
+    -- | Specifies the target locale for the bot.
     locale :: Lude.Maybe Locale,
+    -- | The date when the bot version was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the bot.
     name :: Lude.Maybe Lude.Text,
+    -- | The version of the bot.
     version :: Lude.Maybe Lude.Text,
-    idleSessionTTLInSeconds ::
-      Lude.Maybe Lude.Natural,
+    -- | The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see 'PutBot' .
+    idleSessionTTLInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The message that Amazon Lex uses when it doesn't understand the user's request. For more information, see 'PutBot' .
     clarificationPrompt :: Lude.Maybe Prompt,
+    -- | The Amazon Polly voice ID that Amazon Lex uses for voice interactions with the user.
     voiceId :: Lude.Maybe Lude.Text,
-    lastUpdatedDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date when the @> LATEST@ version of this bot was updated.
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying @true@ or @false@ in the @childDirected@ field. By specifying @true@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying @false@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is not__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the @childDirected@ field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
+    --
+    -- If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
     childDirected :: Lude.Maybe Lude.Bool,
+    -- | A description of the bot.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBotVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'failureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to build the bot.
+-- * 'status' - When you send a request to create or update a bot, Amazon Lex sets the @status@ response element to @BUILDING@ . After Amazon Lex builds the bot, it sets @status@ to @READY@ . If Amazon Lex can't build the bot, it sets @status@ to @FAILED@ . Amazon Lex returns the reason for the failure in the @failureReason@ response element.
 -- * 'abortStatement' - The message that Amazon Lex uses to cancel a conversation. For more information, see 'PutBot' .
+-- * 'intents' - An array of @Intent@ objects. For more information, see 'PutBot' .
 -- * 'checksum' - Checksum identifying the version of the bot that was created.
+-- * 'enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates that the bot is using the improvements, otherwise, @false@ .
+-- * 'detectSentiment' - Indicates whether utterances entered by the user should be sent to Amazon Comprehend for sentiment analysis.
+-- * 'locale' - Specifies the target locale for the bot.
+-- * 'createdDate' - The date when the bot version was created.
+-- * 'name' - The name of the bot.
+-- * 'version' - The version of the bot.
+-- * 'idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see 'PutBot' .
+-- * 'clarificationPrompt' - The message that Amazon Lex uses when it doesn't understand the user's request. For more information, see 'PutBot' .
+-- * 'voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interactions with the user.
+-- * 'lastUpdatedDate' - The date when the @> LATEST@ version of this bot was updated.
 -- * 'childDirected' - For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying @true@ or @false@ in the @childDirected@ field. By specifying @true@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. By specifying @false@ in the @childDirected@ field, you confirm that your use of Amazon Lex __is not__ related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. You may not specify a default value for the @childDirected@ field that does not accurately reflect whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA.
 --
 -- If your use of Amazon Lex relates to a website, program, or other application that is directed in whole or in part, to children under age 13, you must obtain any required verifiable parental consent under COPPA. For information regarding the use of Amazon Lex in connection with websites, programs, or other applications that are directed or targeted, in whole or in part, to children under age 13, see the <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ.>
--- * 'clarificationPrompt' - The message that Amazon Lex uses when it doesn't understand the user's request. For more information, see 'PutBot' .
--- * 'createdDate' - The date when the bot version was created.
 -- * 'description' - A description of the bot.
--- * 'detectSentiment' - Indicates whether utterances entered by the user should be sent to Amazon Comprehend for sentiment analysis.
--- * 'enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates that the bot is using the improvements, otherwise, @false@ .
--- * 'failureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to build the bot.
--- * 'idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. For more information, see 'PutBot' .
--- * 'intents' - An array of @Intent@ objects. For more information, see 'PutBot' .
--- * 'lastUpdatedDate' - The date when the @> LATEST@ version of this bot was updated.
--- * 'locale' - Specifies the target locale for the bot.
--- * 'name' - The name of the bot.
 -- * 'responseStatus' - The response status code.
--- * 'status' - When you send a request to create or update a bot, Amazon Lex sets the @status@ response element to @BUILDING@ . After Amazon Lex builds the bot, it sets @status@ to @READY@ . If Amazon Lex can't build the bot, it sets @status@ to @FAILED@ . Amazon Lex returns the reason for the failure in the @failureReason@ response element.
--- * 'version' - The version of the bot.
--- * 'voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interactions with the user.
 mkCreateBotVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

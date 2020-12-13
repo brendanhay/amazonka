@@ -13,14 +13,14 @@
 module Network.AWS.Glue.Types.TriggerState
   ( TriggerState
       ( TriggerState',
-        TSActivated,
-        TSActivating,
-        TSCreated,
-        TSCreating,
-        TSDeactivated,
-        TSDeactivating,
-        TSDeleting,
-        TSUpdating
+        Creating,
+        Created,
+        Activating,
+        Activated,
+        Deactivating,
+        Deactivated,
+        Deleting,
+        Updating
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype TriggerState = TriggerState' Lude.Text
       Lude.ToHeader
     )
 
-pattern TSActivated :: TriggerState
-pattern TSActivated = TriggerState' "ACTIVATED"
+pattern Creating :: TriggerState
+pattern Creating = TriggerState' "CREATING"
 
-pattern TSActivating :: TriggerState
-pattern TSActivating = TriggerState' "ACTIVATING"
+pattern Created :: TriggerState
+pattern Created = TriggerState' "CREATED"
 
-pattern TSCreated :: TriggerState
-pattern TSCreated = TriggerState' "CREATED"
+pattern Activating :: TriggerState
+pattern Activating = TriggerState' "ACTIVATING"
 
-pattern TSCreating :: TriggerState
-pattern TSCreating = TriggerState' "CREATING"
+pattern Activated :: TriggerState
+pattern Activated = TriggerState' "ACTIVATED"
 
-pattern TSDeactivated :: TriggerState
-pattern TSDeactivated = TriggerState' "DEACTIVATED"
+pattern Deactivating :: TriggerState
+pattern Deactivating = TriggerState' "DEACTIVATING"
 
-pattern TSDeactivating :: TriggerState
-pattern TSDeactivating = TriggerState' "DEACTIVATING"
+pattern Deactivated :: TriggerState
+pattern Deactivated = TriggerState' "DEACTIVATED"
 
-pattern TSDeleting :: TriggerState
-pattern TSDeleting = TriggerState' "DELETING"
+pattern Deleting :: TriggerState
+pattern Deleting = TriggerState' "DELETING"
 
-pattern TSUpdating :: TriggerState
-pattern TSUpdating = TriggerState' "UPDATING"
+pattern Updating :: TriggerState
+pattern Updating = TriggerState' "UPDATING"
 
 {-# COMPLETE
-  TSActivated,
-  TSActivating,
-  TSCreated,
-  TSCreating,
-  TSDeactivated,
-  TSDeactivating,
-  TSDeleting,
-  TSUpdating,
+  Creating,
+  Created,
+  Activating,
+  Activated,
+  Deactivating,
+  Deactivated,
+  Deleting,
+  Updating,
   TriggerState'
   #-}

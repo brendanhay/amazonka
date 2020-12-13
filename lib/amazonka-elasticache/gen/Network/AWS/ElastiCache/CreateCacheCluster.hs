@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,6 +30,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     cccOutpostMode,
     cccCacheParameterGroupName,
     cccSnapshotWindow,
+    cccCacheClusterId,
     cccAuthToken,
     cccEngine,
     cccPreferredAvailabilityZones,
@@ -46,7 +48,6 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     cccTags,
     cccPort,
     cccCacheSecurityGroupNames,
-    cccCacheClusterId,
 
     -- * Destructuring the response
     CreateCacheClusterResponse (..),
@@ -68,77 +69,207 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateCacheCluster' smart constructor.
 data CreateCacheCluster = CreateCacheCluster'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version number of the cache engine to be used for this cluster. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
+    --
+    -- __Important:__ You can upgrade to a newer engine version (see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version> ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The compute and memory capacity of the nodes in the node group (shard).
+    --
+    -- The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
+    --
+    --     * General purpose:
+    --
+    --     * Current generation:
+    -- __M6g node types__ (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).
+    -- @cache.m6g.large@ , @cache.m6g.xlarge@ , @cache.m6g.2xlarge@ , @cache.m6g.4xlarge@ , @cache.m6g.8xlarge@ , @cache.m6g.12xlarge@ , @cache.m6g.16xlarge@
+    -- __M5 node types:__ @cache.m5.large@ , @cache.m5.xlarge@ , @cache.m5.2xlarge@ , @cache.m5.4xlarge@ , @cache.m5.12xlarge@ , @cache.m5.24xlarge@
+    -- __M4 node types:__ @cache.m4.large@ , @cache.m4.xlarge@ , @cache.m4.2xlarge@ , @cache.m4.4xlarge@ , @cache.m4.10xlarge@
+    -- __T3 node types:__ @cache.t3.micro@ , @cache.t3.small@ , @cache.t3.medium@
+    -- __T2 node types:__ @cache.t2.micro@ , @cache.t2.small@ , @cache.t2.medium@
+    --
+    --
+    --     * Previous generation: (not recommended)
+    -- __T1 node types:__ @cache.t1.micro@
+    -- __M1 node types:__ @cache.m1.small@ , @cache.m1.medium@ , @cache.m1.large@ , @cache.m1.xlarge@
+    -- __M3 node types:__ @cache.m3.medium@ , @cache.m3.large@ , @cache.m3.xlarge@ , @cache.m3.2xlarge@
+    --
+    --
+    --
+    --
+    --     * Compute optimized:
+    --
+    --     * Previous generation: (not recommended)
+    -- __C1 node types:__ @cache.c1.xlarge@
+    --
+    --
+    --
+    --
+    --     * Memory optimized:
+    --
+    --     * Current generation:
+    -- __R6g node types__ (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).
+    -- @cache.r6g.large@ , @cache.r6g.xlarge@ , @cache.r6g.2xlarge@ , @cache.r6g.4xlarge@ , @cache.r6g.8xlarge@ , @cache.r6g.12xlarge@ , @cache.r6g.16xlarge@
+    -- __R5 node types:__ @cache.r5.large@ , @cache.r5.xlarge@ , @cache.r5.2xlarge@ , @cache.r5.4xlarge@ , @cache.r5.12xlarge@ , @cache.r5.24xlarge@
+    -- __R4 node types:__ @cache.r4.large@ , @cache.r4.xlarge@ , @cache.r4.2xlarge@ , @cache.r4.4xlarge@ , @cache.r4.8xlarge@ , @cache.r4.16xlarge@
+    --
+    --
+    --     * Previous generation: (not recommended)
+    -- __M2 node types:__ @cache.m2.xlarge@ , @cache.m2.2xlarge@ , @cache.m2.4xlarge@
+    -- __R3 node types:__ @cache.r3.large@ , @cache.r3.xlarge@ , @cache.r3.2xlarge@ , @cache.r3.4xlarge@ , @cache.r3.8xlarge@
+    --
+    --
+    --
+    --
+    -- __Additional node type info__
+    --
+    --     * All current generation instance types are created in Amazon VPC by default.
+    --
+    --
+    --     * Redis append-only files (AOF) are not supported for T1 or T2 instances.
+    --
+    --
+    --     * Redis Multi-AZ with automatic failover is not supported on T1 instances.
+    --
+    --
+    --     * Redis configuration variables @appendonly@ and @appendfsync@ are not supported on Redis version 2.8.22 and later.
     cacheNodeType :: Lude.Maybe Lude.Text,
+    -- | One or more VPC security groups associated with the cluster.
+    --
+    -- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
     securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file is used to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain any commas.
+    --
+    -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@
     snapshotARNs :: Lude.Maybe [Lude.Text],
+    -- | This parameter is currently disabled.
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the nodes in the cluster are created in a single outpost or across multiple outposts.
     outpostMode :: Lude.Maybe OutpostMode,
+    -- | The name of the parameter group to associate with this cluster. If this argument is omitted, the default parameter group for the specified engine is used. You cannot use any parameter group which has @cluster-enabled='yes'@ when creating a cluster.
     cacheParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+    --
+    -- Example: @05:00-09:00@
+    -- If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
     snapshotWindow :: Lude.Maybe Lude.Text,
+    -- | The node group (shard) identifier. This parameter is stored as a lowercase string.
+    --
+    -- __Constraints:__
+    --
+    --     * A name must contain from 1 to 50 alphanumeric characters or hyphens.
+    --
+    --
+    --     * The first character must be a letter.
+    --
+    --
+    --     * A name cannot end with a hyphen or contain two consecutive hyphens.
+    cacheClusterId :: Lude.Text,
+    -- | __Reserved parameter.__ The password used to access a password protected server.
+    --
+    -- Password constraints:
+    --
+    --     * Must be only printable ASCII characters.
+    --
+    --
+    --     * Must be at least 16 characters and no more than 128 characters in length.
+    --
+    --
+    --     * The only permitted printable special characters are !, &, #, $, ^, <, >, and -. Other printable special characters cannot be used in the AUTH token.
+    --
+    --
+    -- For more information, see <http://redis.io/commands/AUTH AUTH password> at http://redis.io/commands/AUTH.
     authToken :: Lude.Maybe Lude.Text,
+    -- | The name of the cache engine to be used for this cluster.
+    --
+    -- Valid values for this parameter are: @memcached@ | @redis@
     engine :: Lude.Maybe Lude.Text,
+    -- | A list of the Availability Zones in which cache nodes are created. The order of the zones in the list is not important.
+    --
+    -- This option is only supported on Memcached.
+    -- If you want all the nodes in the same Availability Zone, use @PreferredAvailabilityZone@ instead, or repeat the Availability Zone multiple times in the list.
+    -- Default: System chosen Availability Zones.
     preferredAvailabilityZones :: Lude.Maybe [Lude.Text],
+    -- | Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for @ddd@ are:
+    --
+    -- Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
+    -- Valid values for @ddd@ are:
+    --
+    --     * @sun@
+    --
+    --
+    --     * @mon@
+    --
+    --
+    --     * @tue@
+    --
+    --
+    --     * @wed@
+    --
+    --
+    --     * @thu@
+    --
+    --
+    --     * @fri@
+    --
+    --
+    --     * @sat@
+    --
+    --
+    -- Example: @sun:23:00-mon:01:30@
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The name of the subnet group to be used for the cluster.
+    --
+    -- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
+    -- /Important:/ If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups> .
     cacheSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The EC2 Availability Zone in which the cluster is created.
+    --
+    -- All nodes belonging to this cluster are placed in the preferred Availability Zone. If you want to create your nodes across multiple Availability Zones, use @PreferredAvailabilityZones@ .
+    -- Default: System chosen Availability Zone.
     preferredAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | The number of days for which ElastiCache retains automatic snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot taken today is retained for 5 days before being deleted.
+    --
+    -- Default: 0 (i.e., automatic backups are disabled for this cache cluster).
     snapshotRetentionLimit :: Lude.Maybe Lude.Int,
+    -- | The outpost ARNs in which the cache cluster is created.
     preferredOutpostARNs :: Lude.Maybe [Lude.Text],
+    -- | Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
+    --
+    -- This parameter is only supported for Memcached clusters.
+    -- If the @AZMode@ and @PreferredAvailabilityZones@ are not specified, ElastiCache assumes @single-az@ mode.
     aZMode :: Lude.Maybe AZMode,
+    -- | The name of a Redis snapshot from which to restore data into the new node group (shard). The snapshot status changes to @restoring@ while the new node group (shard) is being created.
     snapshotName :: Lude.Maybe Lude.Text,
+    -- | The outpost ARN in which the cache cluster is created.
     preferredOutpostARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
+    --
+    -- If the specified replication group is Multi-AZ enabled and the Availability Zone is not specified, the cluster is created in Availability Zones that provide the best spread of read replicas across Availability Zones.
     replicationGroupId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
     notificationTopicARN :: Lude.Maybe Lude.Text,
+    -- | The initial number of cache nodes that the cluster has.
+    --
+    -- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+    -- If you need more than 20 nodes for your Memcached cluster, please fill out the ElastiCache Limit Increase Request form at <http://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/> .
     numCacheNodes :: Lude.Maybe Lude.Int,
+    -- | A list of cost allocation tags to be added to this resource.
     tags :: Lude.Maybe [Tag],
+    -- | The port number on which each of the cache nodes accepts connections.
     port :: Lude.Maybe Lude.Int,
-    cacheSecurityGroupNames :: Lude.Maybe [Lude.Text],
-    cacheClusterId :: Lude.Text
+    -- | A list of security group names to associate with this cluster.
+    --
+    -- Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).
+    cacheSecurityGroupNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCacheCluster' with the minimum fields required to make a request.
 --
--- * 'aZMode' - Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
+-- * 'engineVersion' - The version number of the cache engine to be used for this cluster. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
 --
--- This parameter is only supported for Memcached clusters.
--- If the @AZMode@ and @PreferredAvailabilityZones@ are not specified, ElastiCache assumes @single-az@ mode.
--- * 'authToken' - __Reserved parameter.__ The password used to access a password protected server.
---
--- Password constraints:
---
---     * Must be only printable ASCII characters.
---
---
---     * Must be at least 16 characters and no more than 128 characters in length.
---
---
---     * The only permitted printable special characters are !, &, #, $, ^, <, >, and -. Other printable special characters cannot be used in the AUTH token.
---
---
--- For more information, see <http://redis.io/commands/AUTH AUTH password> at http://redis.io/commands/AUTH.
--- * 'autoMinorVersionUpgrade' - This parameter is currently disabled.
--- * 'cacheClusterId' - The node group (shard) identifier. This parameter is stored as a lowercase string.
---
--- __Constraints:__
---
---     * A name must contain from 1 to 50 alphanumeric characters or hyphens.
---
---
---     * The first character must be a letter.
---
---
---     * A name cannot end with a hyphen or contain two consecutive hyphens.
---
---
+-- __Important:__ You can upgrade to a newer engine version (see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version> ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
 -- * 'cacheNodeType' - The compute and memory capacity of the nodes in the node group (shard).
 --
 -- The following node types are supported by ElastiCache. Generally speaking, the current generation types provide more memory and computational power at lower cost when compared to their equivalent previous generation counterparts.
@@ -200,31 +331,49 @@ data CreateCacheCluster = CreateCacheCluster'
 --     * Redis configuration variables @appendonly@ and @appendfsync@ are not supported on Redis version 2.8.22 and later.
 --
 --
--- * 'cacheParameterGroupName' - The name of the parameter group to associate with this cluster. If this argument is omitted, the default parameter group for the specified engine is used. You cannot use any parameter group which has @cluster-enabled='yes'@ when creating a cluster.
--- * 'cacheSecurityGroupNames' - A list of security group names to associate with this cluster.
---
--- Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).
--- * 'cacheSubnetGroupName' - The name of the subnet group to be used for the cluster.
+-- * 'securityGroupIds' - One or more VPC security groups associated with the cluster.
 --
 -- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
--- /Important:/ If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups> .
+-- * 'snapshotARNs' - A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file is used to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain any commas.
+--
+-- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@
+-- * 'autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- * 'outpostMode' - Specifies whether the nodes in the cluster are created in a single outpost or across multiple outposts.
+-- * 'cacheParameterGroupName' - The name of the parameter group to associate with this cluster. If this argument is omitted, the default parameter group for the specified engine is used. You cannot use any parameter group which has @cluster-enabled='yes'@ when creating a cluster.
+-- * 'snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+--
+-- Example: @05:00-09:00@
+-- If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
+-- * 'cacheClusterId' - The node group (shard) identifier. This parameter is stored as a lowercase string.
+--
+-- __Constraints:__
+--
+--     * A name must contain from 1 to 50 alphanumeric characters or hyphens.
+--
+--
+--     * The first character must be a letter.
+--
+--
+--     * A name cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- * 'authToken' - __Reserved parameter.__ The password used to access a password protected server.
+--
+-- Password constraints:
+--
+--     * Must be only printable ASCII characters.
+--
+--
+--     * Must be at least 16 characters and no more than 128 characters in length.
+--
+--
+--     * The only permitted printable special characters are !, &, #, $, ^, <, >, and -. Other printable special characters cannot be used in the AUTH token.
+--
+--
+-- For more information, see <http://redis.io/commands/AUTH AUTH password> at http://redis.io/commands/AUTH.
 -- * 'engine' - The name of the cache engine to be used for this cluster.
 --
 -- Valid values for this parameter are: @memcached@ | @redis@
--- * 'engineVersion' - The version number of the cache engine to be used for this cluster. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
---
--- __Important:__ You can upgrade to a newer engine version (see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version> ), but you cannot downgrade to an earlier engine version. If you want to use an earlier engine version, you must delete the existing cluster or replication group and create it anew with the earlier engine version.
--- * 'notificationTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
--- * 'numCacheNodes' - The initial number of cache nodes that the cluster has.
---
--- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
--- If you need more than 20 nodes for your Memcached cluster, please fill out the ElastiCache Limit Increase Request form at <http://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/> .
--- * 'outpostMode' - Specifies whether the nodes in the cluster are created in a single outpost or across multiple outposts.
--- * 'port' - The port number on which each of the cache nodes accepts connections.
--- * 'preferredAvailabilityZone' - The EC2 Availability Zone in which the cluster is created.
---
--- All nodes belonging to this cluster are placed in the preferred Availability Zone. If you want to create your nodes across multiple Availability Zones, use @PreferredAvailabilityZones@ .
--- Default: System chosen Availability Zone.
 -- * 'preferredAvailabilityZones' - A list of the Availability Zones in which cache nodes are created. The order of the zones in the list is not important.
 --
 -- This option is only supported on Memcached.
@@ -257,26 +406,37 @@ data CreateCacheCluster = CreateCacheCluster'
 --
 --
 -- Example: @sun:23:00-mon:01:30@
--- * 'preferredOutpostARN' - The outpost ARN in which the cache cluster is created.
--- * 'preferredOutpostARNs' - The outpost ARNs in which the cache cluster is created.
--- * 'replicationGroupId' - The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
---
--- If the specified replication group is Multi-AZ enabled and the Availability Zone is not specified, the cluster is created in Availability Zones that provide the best spread of read replicas across Availability Zones.
--- * 'securityGroupIds' - One or more VPC security groups associated with the cluster.
+-- * 'cacheSubnetGroupName' - The name of the subnet group to be used for the cluster.
 --
 -- Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).
--- * 'snapshotARNs' - A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file is used to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain any commas.
+-- /Important:/ If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups> .
+-- * 'preferredAvailabilityZone' - The EC2 Availability Zone in which the cluster is created.
 --
--- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket/snapshot1.rdb@
--- * 'snapshotName' - The name of a Redis snapshot from which to restore data into the new node group (shard). The snapshot status changes to @restoring@ while the new node group (shard) is being created.
+-- All nodes belonging to this cluster are placed in the preferred Availability Zone. If you want to create your nodes across multiple Availability Zones, use @PreferredAvailabilityZones@ .
+-- Default: System chosen Availability Zone.
 -- * 'snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot taken today is retained for 5 days before being deleted.
 --
 -- Default: 0 (i.e., automatic backups are disabled for this cache cluster).
--- * 'snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+-- * 'preferredOutpostARNs' - The outpost ARNs in which the cache cluster is created.
+-- * 'aZMode' - Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.
 --
--- Example: @05:00-09:00@
--- If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
+-- This parameter is only supported for Memcached clusters.
+-- If the @AZMode@ and @PreferredAvailabilityZones@ are not specified, ElastiCache assumes @single-az@ mode.
+-- * 'snapshotName' - The name of a Redis snapshot from which to restore data into the new node group (shard). The snapshot status changes to @restoring@ while the new node group (shard) is being created.
+-- * 'preferredOutpostARN' - The outpost ARN in which the cache cluster is created.
+-- * 'replicationGroupId' - The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
+--
+-- If the specified replication group is Multi-AZ enabled and the Availability Zone is not specified, the cluster is created in Availability Zones that provide the best spread of read replicas across Availability Zones.
+-- * 'notificationTopicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
+-- * 'numCacheNodes' - The initial number of cache nodes that the cluster has.
+--
+-- For clusters running Redis, this value must be 1. For clusters running Memcached, this value must be between 1 and 20.
+-- If you need more than 20 nodes for your Memcached cluster, please fill out the ElastiCache Limit Increase Request form at <http://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/> .
 -- * 'tags' - A list of cost allocation tags to be added to this resource.
+-- * 'port' - The port number on which each of the cache nodes accepts connections.
+-- * 'cacheSecurityGroupNames' - A list of security group names to associate with this cluster.
+--
+-- Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).
 mkCreateCacheCluster ::
   -- | 'cacheClusterId'
   Lude.Text ->
@@ -291,6 +451,7 @@ mkCreateCacheCluster pCacheClusterId_ =
       outpostMode = Lude.Nothing,
       cacheParameterGroupName = Lude.Nothing,
       snapshotWindow = Lude.Nothing,
+      cacheClusterId = pCacheClusterId_,
       authToken = Lude.Nothing,
       engine = Lude.Nothing,
       preferredAvailabilityZones = Lude.Nothing,
@@ -307,8 +468,7 @@ mkCreateCacheCluster pCacheClusterId_ =
       numCacheNodes = Lude.Nothing,
       tags = Lude.Nothing,
       port = Lude.Nothing,
-      cacheSecurityGroupNames = Lude.Nothing,
-      cacheClusterId = pCacheClusterId_
+      cacheSecurityGroupNames = Lude.Nothing
     }
 
 -- | The version number of the cache engine to be used for this cluster. To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.
@@ -435,6 +595,25 @@ cccCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: CreateCacheCl
 cccSnapshotWindow :: Lens.Lens' CreateCacheCluster (Lude.Maybe Lude.Text)
 cccSnapshotWindow = Lens.lens (snapshotWindow :: CreateCacheCluster -> Lude.Maybe Lude.Text) (\s a -> s {snapshotWindow = a} :: CreateCacheCluster)
 {-# DEPRECATED cccSnapshotWindow "Use generic-lens or generic-optics with 'snapshotWindow' instead." #-}
+
+-- | The node group (shard) identifier. This parameter is stored as a lowercase string.
+--
+-- __Constraints:__
+--
+--     * A name must contain from 1 to 50 alphanumeric characters or hyphens.
+--
+--
+--     * The first character must be a letter.
+--
+--
+--     * A name cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--
+-- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccCacheClusterId :: Lens.Lens' CreateCacheCluster Lude.Text
+cccCacheClusterId = Lens.lens (cacheClusterId :: CreateCacheCluster -> Lude.Text) (\s a -> s {cacheClusterId = a} :: CreateCacheCluster)
+{-# DEPRECATED cccCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | __Reserved parameter.__ The password used to access a password protected server.
 --
@@ -618,25 +797,6 @@ cccCacheSecurityGroupNames :: Lens.Lens' CreateCacheCluster (Lude.Maybe [Lude.Te
 cccCacheSecurityGroupNames = Lens.lens (cacheSecurityGroupNames :: CreateCacheCluster -> Lude.Maybe [Lude.Text]) (\s a -> s {cacheSecurityGroupNames = a} :: CreateCacheCluster)
 {-# DEPRECATED cccCacheSecurityGroupNames "Use generic-lens or generic-optics with 'cacheSecurityGroupNames' instead." #-}
 
--- | The node group (shard) identifier. This parameter is stored as a lowercase string.
---
--- __Constraints:__
---
---     * A name must contain from 1 to 50 alphanumeric characters or hyphens.
---
---
---     * The first character must be a letter.
---
---
---     * A name cannot end with a hyphen or contain two consecutive hyphens.
---
---
---
--- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cccCacheClusterId :: Lens.Lens' CreateCacheCluster Lude.Text
-cccCacheClusterId = Lens.lens (cacheClusterId :: CreateCacheCluster -> Lude.Text) (\s a -> s {cacheClusterId = a} :: CreateCacheCluster)
-{-# DEPRECATED cccCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
-
 instance Lude.AWSRequest CreateCacheCluster where
   type Rs CreateCacheCluster = CreateCacheClusterResponse
   request = Req.postQuery elastiCacheService
@@ -671,6 +831,7 @@ instance Lude.ToQuery CreateCacheCluster where
         "OutpostMode" Lude.=: outpostMode,
         "CacheParameterGroupName" Lude.=: cacheParameterGroupName,
         "SnapshotWindow" Lude.=: snapshotWindow,
+        "CacheClusterId" Lude.=: cacheClusterId,
         "AuthToken" Lude.=: authToken,
         "Engine" Lude.=: engine,
         "PreferredAvailabilityZones"
@@ -699,28 +860,21 @@ instance Lude.ToQuery CreateCacheCluster where
           Lude.=: Lude.toQuery
             ( Lude.toQueryList "CacheSecurityGroupName"
                 Lude.<$> cacheSecurityGroupNames
-            ),
-        "CacheClusterId" Lude.=: cacheClusterId
+            )
       ]
 
 -- | /See:/ 'mkCreateCacheClusterResponse' smart constructor.
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
-  { cacheCluster ::
-      Lude.Maybe CacheCluster,
+  { cacheCluster :: Lude.Maybe CacheCluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCacheClusterResponse' with the minimum fields required to make a request.
 --
--- * 'cacheCluster' - Undocumented field.
+-- * 'cacheCluster' -
 -- * 'responseStatus' - The response status code.
 mkCreateCacheClusterResponse ::
   -- | 'responseStatus'

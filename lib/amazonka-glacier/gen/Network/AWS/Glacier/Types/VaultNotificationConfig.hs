@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVaultNotificationConfig' smart constructor.
 data VaultNotificationConfig = VaultNotificationConfig'
-  { snsTopic ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).
+    snsTopic :: Lude.Maybe Lude.Text,
+    -- | A list of one or more events for which Amazon S3 Glacier will send a notification to the specified Amazon SNS topic.
     events :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VaultNotificationConfig' with the minimum fields required to make a request.
 --
--- * 'events' - A list of one or more events for which Amazon S3 Glacier will send a notification to the specified Amazon SNS topic.
 -- * 'snsTopic' - The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).
+-- * 'events' - A list of one or more events for which Amazon S3 Glacier will send a notification to the specified Amazon SNS topic.
 mkVaultNotificationConfig ::
   VaultNotificationConfig
 mkVaultNotificationConfig =

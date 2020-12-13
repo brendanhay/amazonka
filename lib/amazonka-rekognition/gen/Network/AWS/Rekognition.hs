@@ -386,8 +386,8 @@ module Network.AWS.Rekognition
     -- ** Eyeglasses
     Eyeglasses (..),
     mkEyeglasses,
-    eyeValue,
-    eyeConfidence,
+    efValue,
+    efConfidence,
 
     -- ** Face
     Face (..),
@@ -468,8 +468,8 @@ module Network.AWS.Rekognition
     -- ** HumanLoopConfig
     HumanLoopConfig (..),
     mkHumanLoopConfig,
-    hlcDataAttributes,
     hlcHumanLoopName,
+    hlcDataAttributes,
     hlcFlowDefinitionARN,
 
     -- ** HumanLoopDataAttributes
@@ -636,8 +636,8 @@ module Network.AWS.Rekognition
     -- ** ProtectiveEquipmentSummarizationAttributes
     ProtectiveEquipmentSummarizationAttributes (..),
     mkProtectiveEquipmentSummarizationAttributes,
-    pesaMinConfidence,
     pesaRequiredEquipmentTypes,
+    pesaMinConfidence,
 
     -- ** ProtectiveEquipmentSummary
     ProtectiveEquipmentSummary (..),
@@ -686,8 +686,8 @@ module Network.AWS.Rekognition
     -- ** Smile
     Smile (..),
     mkSmile,
-    smiValue,
-    smiConfidence,
+    sfValue,
+    sfConfidence,
 
     -- ** StartSegmentDetectionFilters
     StartSegmentDetectionFilters (..),

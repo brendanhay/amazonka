@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,27 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListCommands' smart constructor.
 data ListCommands = ListCommands'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | (Optional) Lists commands issued against this instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | (Optional) One or more filters. Use a filter to return a more specific list of results.
     filters :: Lude.Maybe (Lude.NonEmpty CommandFilter),
+    -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) If provided, lists only the specified command.
     commandId :: Lude.Maybe Lude.Text,
+    -- | (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCommands' with the minimum fields required to make a request.
 --
--- * 'commandId' - (Optional) If provided, lists only the specified command.
--- * 'filters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
 -- * 'instanceId' - (Optional) Lists commands issued against this instance ID.
--- * 'maxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'filters' - (Optional) One or more filters. Use a filter to return a more specific list of results.
 -- * 'nextToken' - (Optional) The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'commandId' - (Optional) If provided, lists only the specified command.
+-- * 'maxResults' - (Optional) The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListCommands ::
   ListCommands
 mkListCommands =
@@ -168,18 +167,14 @@ instance Lude.ToQuery ListCommands where
 
 -- | /See:/ 'mkListCommandsResponse' smart constructor.
 data ListCommandsResponse = ListCommandsResponse'
-  { commands ::
-      Lude.Maybe [Command],
+  { -- | (Optional) The list of commands requested by the user.
+    commands :: Lude.Maybe [Command],
+    -- | (Optional) The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCommandsResponse' with the minimum fields required to make a request.

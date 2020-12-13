@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.GetRequestValidator
     mkGetRequestValidator,
 
     -- ** Request lenses
-    grvrRestAPIId,
-    grvrRequestValidatorId,
+    grvRequestValidatorId,
+    grvRestAPIId,
 
     -- * Destructuring the response
     RequestValidator (..),
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetRequestValidator' smart constructor.
 data GetRequestValidator = GetRequestValidator'
-  { restAPIId ::
-      Lude.Text,
-    requestValidatorId :: Lude.Text
+  { -- | [Required] The identifier of the 'RequestValidator' to be retrieved.
+    requestValidatorId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRequestValidator' with the minimum fields required to make a request.
@@ -62,30 +58,30 @@ data GetRequestValidator = GetRequestValidator'
 -- * 'requestValidatorId' - [Required] The identifier of the 'RequestValidator' to be retrieved.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetRequestValidator ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'requestValidatorId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetRequestValidator
-mkGetRequestValidator pRestAPIId_ pRequestValidatorId_ =
+mkGetRequestValidator pRequestValidatorId_ pRestAPIId_ =
   GetRequestValidator'
-    { restAPIId = pRestAPIId_,
-      requestValidatorId = pRequestValidatorId_
+    { requestValidatorId = pRequestValidatorId_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grvrRestAPIId :: Lens.Lens' GetRequestValidator Lude.Text
-grvrRestAPIId = Lens.lens (restAPIId :: GetRequestValidator -> Lude.Text) (\s a -> s {restAPIId = a} :: GetRequestValidator)
-{-# DEPRECATED grvrRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'RequestValidator' to be retrieved.
 --
 -- /Note:/ Consider using 'requestValidatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grvrRequestValidatorId :: Lens.Lens' GetRequestValidator Lude.Text
-grvrRequestValidatorId = Lens.lens (requestValidatorId :: GetRequestValidator -> Lude.Text) (\s a -> s {requestValidatorId = a} :: GetRequestValidator)
-{-# DEPRECATED grvrRequestValidatorId "Use generic-lens or generic-optics with 'requestValidatorId' instead." #-}
+grvRequestValidatorId :: Lens.Lens' GetRequestValidator Lude.Text
+grvRequestValidatorId = Lens.lens (requestValidatorId :: GetRequestValidator -> Lude.Text) (\s a -> s {requestValidatorId = a} :: GetRequestValidator)
+{-# DEPRECATED grvRequestValidatorId "Use generic-lens or generic-optics with 'requestValidatorId' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grvRestAPIId :: Lens.Lens' GetRequestValidator Lude.Text
+grvRestAPIId = Lens.lens (restAPIId :: GetRequestValidator -> Lude.Text) (\s a -> s {restAPIId = a} :: GetRequestValidator)
+{-# DEPRECATED grvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetRequestValidator where
   type Rs GetRequestValidator = RequestValidator

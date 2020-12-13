@@ -40,42 +40,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayRequestOptions' smart constructor.
 data TransitGatewayRequestOptions = TransitGatewayRequestOptions'
-  { vpnEcmpSupport ::
-      Lude.Maybe VPNEcmpSupportValue,
-    autoAcceptSharedAttachments ::
-      Lude.Maybe
-        AutoAcceptSharedAttachmentsValue,
-    defaultRouteTableAssociation ::
-      Lude.Maybe
-        DefaultRouteTableAssociationValue,
-    amazonSideASN ::
-      Lude.Maybe Lude.Integer,
-    defaultRouteTablePropagation ::
-      Lude.Maybe
-        DefaultRouteTablePropagationValue,
-    multicastSupport ::
-      Lude.Maybe MulticastSupportValue,
-    dnsSupport ::
-      Lude.Maybe DNSSupportValue
+  { -- | Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+    vpnEcmpSupport :: Lude.Maybe VPNEcmpSupportValue,
+    -- | Enable or disable automatic acceptance of attachment requests. Disabled by default.
+    autoAcceptSharedAttachments :: Lude.Maybe AutoAcceptSharedAttachmentsValue,
+    -- | Enable or disable automatic association with the default association route table. Enabled by default.
+    defaultRouteTableAssociation :: Lude.Maybe DefaultRouteTableAssociationValue,
+    -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is @64512@ .
+    amazonSideASN :: Lude.Maybe Lude.Integer,
+    -- | Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
+    defaultRouteTablePropagation :: Lude.Maybe DefaultRouteTablePropagationValue,
+    -- | Indicates whether multicast is enabled on the transit gateway
+    multicastSupport :: Lude.Maybe MulticastSupportValue,
+    -- | Enable or disable DNS support. Enabled by default.
+    dnsSupport :: Lude.Maybe DNSSupportValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayRequestOptions' with the minimum fields required to make a request.
 --
--- * 'amazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is @64512@ .
+-- * 'vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
 -- * 'autoAcceptSharedAttachments' - Enable or disable automatic acceptance of attachment requests. Disabled by default.
 -- * 'defaultRouteTableAssociation' - Enable or disable automatic association with the default association route table. Enabled by default.
+-- * 'amazonSideASN' - A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is @64512@ .
 -- * 'defaultRouteTablePropagation' - Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.
--- * 'dnsSupport' - Enable or disable DNS support. Enabled by default.
 -- * 'multicastSupport' - Indicates whether multicast is enabled on the transit gateway
--- * 'vpnEcmpSupport' - Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
+-- * 'dnsSupport' - Enable or disable DNS support. Enabled by default.
 mkTransitGatewayRequestOptions ::
   TransitGatewayRequestOptions
 mkTransitGatewayRequestOptions =

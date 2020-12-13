@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
     mkAnalysisSchemeStatus,
 
     -- * Lenses
-    assOptions,
     assStatus,
+    assOptions,
   )
 where
 
@@ -31,38 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAnalysisSchemeStatus' smart constructor.
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
-  { options ::
-      AnalysisScheme,
-    status :: OptionStatus
+  { status :: OptionStatus,
+    options :: AnalysisScheme
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AnalysisSchemeStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Undocumented field.
--- * 'status' - Undocumented field.
+-- * 'status' -
+-- * 'options' -
 mkAnalysisSchemeStatus ::
-  -- | 'options'
-  AnalysisScheme ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  AnalysisScheme ->
   AnalysisSchemeStatus
-mkAnalysisSchemeStatus pOptions_ pStatus_ =
-  AnalysisSchemeStatus' {options = pOptions_, status = pStatus_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assOptions :: Lens.Lens' AnalysisSchemeStatus AnalysisScheme
-assOptions = Lens.lens (options :: AnalysisSchemeStatus -> AnalysisScheme) (\s a -> s {options = a} :: AnalysisSchemeStatus)
-{-# DEPRECATED assOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkAnalysisSchemeStatus pStatus_ pOptions_ =
+  AnalysisSchemeStatus' {status = pStatus_, options = pOptions_}
 
 -- | Undocumented field.
 --
@@ -71,7 +57,14 @@ assStatus :: Lens.Lens' AnalysisSchemeStatus OptionStatus
 assStatus = Lens.lens (status :: AnalysisSchemeStatus -> OptionStatus) (\s a -> s {status = a} :: AnalysisSchemeStatus)
 {-# DEPRECATED assStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assOptions :: Lens.Lens' AnalysisSchemeStatus AnalysisScheme
+assOptions = Lens.lens (options :: AnalysisSchemeStatus -> AnalysisScheme) (\s a -> s {options = a} :: AnalysisSchemeStatus)
+{-# DEPRECATED assOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromXML AnalysisSchemeStatus where
   parseXML x =
     AnalysisSchemeStatus'
-      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")

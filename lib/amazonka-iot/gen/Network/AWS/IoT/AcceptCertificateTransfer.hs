@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.AcceptCertificateTransfer
     mkAcceptCertificateTransfer,
 
     -- ** Request lenses
-    actSetAsActive,
     actCertificateId,
+    actSetAsActive,
 
     -- * Destructuring the response
     AcceptCertificateTransferResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAcceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
-  { setAsActive ::
-      Lude.Maybe Lude.Bool,
-    certificateId :: Lude.Text
+  { -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+    certificateId :: Lude.Text,
+    -- | Specifies whether the certificate is active.
+    setAsActive :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptCertificateTransfer' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkAcceptCertificateTransfer ::
   AcceptCertificateTransfer
 mkAcceptCertificateTransfer pCertificateId_ =
   AcceptCertificateTransfer'
-    { setAsActive = Lude.Nothing,
-      certificateId = pCertificateId_
+    { certificateId = pCertificateId_,
+      setAsActive = Lude.Nothing
     }
-
--- | Specifies whether the certificate is active.
---
--- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actSetAsActive :: Lens.Lens' AcceptCertificateTransfer (Lude.Maybe Lude.Bool)
-actSetAsActive = Lens.lens (setAsActive :: AcceptCertificateTransfer -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: AcceptCertificateTransfer)
-{-# DEPRECATED actSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
@@ -80,6 +69,13 @@ actSetAsActive = Lens.lens (setAsActive :: AcceptCertificateTransfer -> Lude.May
 actCertificateId :: Lens.Lens' AcceptCertificateTransfer Lude.Text
 actCertificateId = Lens.lens (certificateId :: AcceptCertificateTransfer -> Lude.Text) (\s a -> s {certificateId = a} :: AcceptCertificateTransfer)
 {-# DEPRECATED actCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | Specifies whether the certificate is active.
+--
+-- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+actSetAsActive :: Lens.Lens' AcceptCertificateTransfer (Lude.Maybe Lude.Bool)
+actSetAsActive = Lens.lens (setAsActive :: AcceptCertificateTransfer -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: AcceptCertificateTransfer)
+{-# DEPRECATED actSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
 
 instance Lude.AWSRequest AcceptCertificateTransfer where
   type
@@ -105,13 +101,7 @@ instance Lude.ToQuery AcceptCertificateTransfer where
 
 -- | /See:/ 'mkAcceptCertificateTransferResponse' smart constructor.
 data AcceptCertificateTransferResponse = AcceptCertificateTransferResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptCertificateTransferResponse' with the minimum fields required to make a request.

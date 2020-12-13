@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.Glue.StartTrigger
     mkStartTrigger,
 
     -- ** Request lenses
-    staName,
+    stName,
 
     -- * Destructuring the response
     StartTriggerResponse (..),
     mkStartTriggerResponse,
 
     -- ** Response lenses
-    starsName,
-    starsResponseStatus,
+    stfrsName,
+    stfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartTrigger' smart constructor.
-newtype StartTrigger = StartTrigger' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StartTrigger = StartTrigger'
+  { -- | The name of the trigger to start.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTrigger' with the minimum fields required to make a request.
@@ -60,9 +58,9 @@ mkStartTrigger pName_ = StartTrigger' {name = pName_}
 -- | The name of the trigger to start.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staName :: Lens.Lens' StartTrigger Lude.Text
-staName = Lens.lens (name :: StartTrigger -> Lude.Text) (\s a -> s {name = a} :: StartTrigger)
-{-# DEPRECATED staName "Use generic-lens or generic-optics with 'name' instead." #-}
+stName :: Lens.Lens' StartTrigger Lude.Text
+stName = Lens.lens (name :: StartTrigger -> Lude.Text) (\s a -> s {name = a} :: StartTrigger)
+{-# DEPRECATED stName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StartTrigger where
   type Rs StartTrigger = StartTriggerResponse
@@ -97,17 +95,12 @@ instance Lude.ToQuery StartTrigger where
 
 -- | /See:/ 'mkStartTriggerResponse' smart constructor.
 data StartTriggerResponse = StartTriggerResponse'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the trigger that was started.
+    name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartTriggerResponse' with the minimum fields required to make a request.
@@ -127,13 +120,13 @@ mkStartTriggerResponse pResponseStatus_ =
 -- | The name of the trigger that was started.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-starsName :: Lens.Lens' StartTriggerResponse (Lude.Maybe Lude.Text)
-starsName = Lens.lens (name :: StartTriggerResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartTriggerResponse)
-{-# DEPRECATED starsName "Use generic-lens or generic-optics with 'name' instead." #-}
+stfrsName :: Lens.Lens' StartTriggerResponse (Lude.Maybe Lude.Text)
+stfrsName = Lens.lens (name :: StartTriggerResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StartTriggerResponse)
+{-# DEPRECATED stfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-starsResponseStatus :: Lens.Lens' StartTriggerResponse Lude.Int
-starsResponseStatus = Lens.lens (responseStatus :: StartTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTriggerResponse)
-{-# DEPRECATED starsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+stfrsResponseStatus :: Lens.Lens' StartTriggerResponse Lude.Int
+stfrsResponseStatus = Lens.lens (responseStatus :: StartTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartTriggerResponse)
+{-# DEPRECATED stfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.SageMaker.CreateHumanTaskUi
     mkCreateHumanTaskUi,
 
     -- ** Request lenses
-    chtuTags,
-    chtuHumanTaskUiName,
     chtuUiTemplate,
+    chtuHumanTaskUiName,
+    chtuTags,
 
     -- * Destructuring the response
     CreateHumanTaskUiResponse (..),
     mkCreateHumanTaskUiResponse,
 
     -- ** Response lenses
-    chtursResponseStatus,
     chtursHumanTaskUiARN,
+    chtursResponseStatus,
   )
 where
 
@@ -41,51 +42,32 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateHumanTaskUi' smart constructor.
 data CreateHumanTaskUi = CreateHumanTaskUi'
-  { tags ::
-      Lude.Maybe [Tag],
+  { uiTemplate :: UiTemplate,
+    -- | The name of the user interface you are creating.
     humanTaskUiName :: Lude.Text,
-    uiTemplate :: UiTemplate
+    -- | An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHumanTaskUi' with the minimum fields required to make a request.
 --
+-- * 'uiTemplate' -
 -- * 'humanTaskUiName' - The name of the user interface you are creating.
 -- * 'tags' - An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.
--- * 'uiTemplate' - Undocumented field.
 mkCreateHumanTaskUi ::
-  -- | 'humanTaskUiName'
-  Lude.Text ->
   -- | 'uiTemplate'
   UiTemplate ->
+  -- | 'humanTaskUiName'
+  Lude.Text ->
   CreateHumanTaskUi
-mkCreateHumanTaskUi pHumanTaskUiName_ pUiTemplate_ =
+mkCreateHumanTaskUi pUiTemplate_ pHumanTaskUiName_ =
   CreateHumanTaskUi'
-    { tags = Lude.Nothing,
+    { uiTemplate = pUiTemplate_,
       humanTaskUiName = pHumanTaskUiName_,
-      uiTemplate = pUiTemplate_
+      tags = Lude.Nothing
     }
-
--- | An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chtuTags :: Lens.Lens' CreateHumanTaskUi (Lude.Maybe [Tag])
-chtuTags = Lens.lens (tags :: CreateHumanTaskUi -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHumanTaskUi)
-{-# DEPRECATED chtuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the user interface you are creating.
---
--- /Note:/ Consider using 'humanTaskUiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chtuHumanTaskUiName :: Lens.Lens' CreateHumanTaskUi Lude.Text
-chtuHumanTaskUiName = Lens.lens (humanTaskUiName :: CreateHumanTaskUi -> Lude.Text) (\s a -> s {humanTaskUiName = a} :: CreateHumanTaskUi)
-{-# DEPRECATED chtuHumanTaskUiName "Use generic-lens or generic-optics with 'humanTaskUiName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -94,6 +76,20 @@ chtuUiTemplate :: Lens.Lens' CreateHumanTaskUi UiTemplate
 chtuUiTemplate = Lens.lens (uiTemplate :: CreateHumanTaskUi -> UiTemplate) (\s a -> s {uiTemplate = a} :: CreateHumanTaskUi)
 {-# DEPRECATED chtuUiTemplate "Use generic-lens or generic-optics with 'uiTemplate' instead." #-}
 
+-- | The name of the user interface you are creating.
+--
+-- /Note:/ Consider using 'humanTaskUiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chtuHumanTaskUiName :: Lens.Lens' CreateHumanTaskUi Lude.Text
+chtuHumanTaskUiName = Lens.lens (humanTaskUiName :: CreateHumanTaskUi -> Lude.Text) (\s a -> s {humanTaskUiName = a} :: CreateHumanTaskUi)
+{-# DEPRECATED chtuHumanTaskUiName "Use generic-lens or generic-optics with 'humanTaskUiName' instead." #-}
+
+-- | An array of key-value pairs that contain metadata to help you categorize and organize a human review workflow user interface. Each tag consists of a key and a value, both of which you define.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chtuTags :: Lens.Lens' CreateHumanTaskUi (Lude.Maybe [Tag])
+chtuTags = Lens.lens (tags :: CreateHumanTaskUi -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHumanTaskUi)
+{-# DEPRECATED chtuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
 instance Lude.AWSRequest CreateHumanTaskUi where
   type Rs CreateHumanTaskUi = CreateHumanTaskUiResponse
   request = Req.postJSON sageMakerService
@@ -101,8 +97,8 @@ instance Lude.AWSRequest CreateHumanTaskUi where
     Res.receiveJSON
       ( \s h x ->
           CreateHumanTaskUiResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "HumanTaskUiArn")
+            Lude.<$> (x Lude..:> "HumanTaskUiArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateHumanTaskUi where
@@ -120,9 +116,9 @@ instance Lude.ToJSON CreateHumanTaskUi where
   toJSON CreateHumanTaskUi' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("UiTemplate" Lude..= uiTemplate),
             Lude.Just ("HumanTaskUiName" Lude..= humanTaskUiName),
-            Lude.Just ("UiTemplate" Lude..= uiTemplate)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -134,17 +130,12 @@ instance Lude.ToQuery CreateHumanTaskUi where
 
 -- | /See:/ 'mkCreateHumanTaskUiResponse' smart constructor.
 data CreateHumanTaskUiResponse = CreateHumanTaskUiResponse'
-  { responseStatus ::
-      Lude.Int,
-    humanTaskUiARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the human review workflow user interface you create.
+    humanTaskUiARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHumanTaskUiResponse' with the minimum fields required to make a request.
@@ -152,23 +143,16 @@ data CreateHumanTaskUiResponse = CreateHumanTaskUiResponse'
 -- * 'humanTaskUiARN' - The Amazon Resource Name (ARN) of the human review workflow user interface you create.
 -- * 'responseStatus' - The response status code.
 mkCreateHumanTaskUiResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'humanTaskUiARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateHumanTaskUiResponse
-mkCreateHumanTaskUiResponse pResponseStatus_ pHumanTaskUiARN_ =
+mkCreateHumanTaskUiResponse pHumanTaskUiARN_ pResponseStatus_ =
   CreateHumanTaskUiResponse'
-    { responseStatus = pResponseStatus_,
-      humanTaskUiARN = pHumanTaskUiARN_
+    { humanTaskUiARN = pHumanTaskUiARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chtursResponseStatus :: Lens.Lens' CreateHumanTaskUiResponse Lude.Int
-chtursResponseStatus = Lens.lens (responseStatus :: CreateHumanTaskUiResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHumanTaskUiResponse)
-{-# DEPRECATED chtursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the human review workflow user interface you create.
 --
@@ -176,3 +160,10 @@ chtursResponseStatus = Lens.lens (responseStatus :: CreateHumanTaskUiResponse ->
 chtursHumanTaskUiARN :: Lens.Lens' CreateHumanTaskUiResponse Lude.Text
 chtursHumanTaskUiARN = Lens.lens (humanTaskUiARN :: CreateHumanTaskUiResponse -> Lude.Text) (\s a -> s {humanTaskUiARN = a} :: CreateHumanTaskUiResponse)
 {-# DEPRECATED chtursHumanTaskUiARN "Use generic-lens or generic-optics with 'humanTaskUiARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chtursResponseStatus :: Lens.Lens' CreateHumanTaskUiResponse Lude.Int
+chtursResponseStatus = Lens.lens (responseStatus :: CreateHumanTaskUiResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHumanTaskUiResponse)
+{-# DEPRECATED chtursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

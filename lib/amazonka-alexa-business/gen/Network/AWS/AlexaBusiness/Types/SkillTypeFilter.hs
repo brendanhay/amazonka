@@ -13,9 +13,9 @@
 module Network.AWS.AlexaBusiness.Types.SkillTypeFilter
   ( SkillTypeFilter
       ( SkillTypeFilter',
-        STFAll,
+        STFPublic,
         STFPrivate,
-        STFPublic
+        STFAll
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype SkillTypeFilter = SkillTypeFilter' Lude.Text
       Lude.ToHeader
     )
 
-pattern STFAll :: SkillTypeFilter
-pattern STFAll = SkillTypeFilter' "ALL"
+pattern STFPublic :: SkillTypeFilter
+pattern STFPublic = SkillTypeFilter' "PUBLIC"
 
 pattern STFPrivate :: SkillTypeFilter
 pattern STFPrivate = SkillTypeFilter' "PRIVATE"
 
-pattern STFPublic :: SkillTypeFilter
-pattern STFPublic = SkillTypeFilter' "PUBLIC"
+pattern STFAll :: SkillTypeFilter
+pattern STFAll = SkillTypeFilter' "ALL"
 
 {-# COMPLETE
-  STFAll,
-  STFPrivate,
   STFPublic,
+  STFPrivate,
+  STFAll,
   SkillTypeFilter'
   #-}

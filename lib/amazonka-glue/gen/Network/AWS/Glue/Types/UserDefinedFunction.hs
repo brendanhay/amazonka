@@ -37,35 +37,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserDefinedFunction' smart constructor.
 data UserDefinedFunction = UserDefinedFunction'
-  { ownerName ::
-      Lude.Maybe Lude.Text,
+  { -- | The owner of the function.
+    ownerName :: Lude.Maybe Lude.Text,
+    -- | The ID of the Data Catalog in which the function resides.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | The resource URIs for the function.
     resourceURIs :: Lude.Maybe [ResourceURI],
+    -- | The name of the catalog database that contains the function.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | The name of the function.
     functionName :: Lude.Maybe Lude.Text,
+    -- | The owner type.
     ownerType :: Lude.Maybe PrincipalType,
+    -- | The time at which the function was created.
     createTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Java class that contains the function code.
     className :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserDefinedFunction' with the minimum fields required to make a request.
 --
+-- * 'ownerName' - The owner of the function.
 -- * 'catalogId' - The ID of the Data Catalog in which the function resides.
--- * 'className' - The Java class that contains the function code.
--- * 'createTime' - The time at which the function was created.
+-- * 'resourceURIs' - The resource URIs for the function.
 -- * 'databaseName' - The name of the catalog database that contains the function.
 -- * 'functionName' - The name of the function.
--- * 'ownerName' - The owner of the function.
 -- * 'ownerType' - The owner type.
--- * 'resourceURIs' - The resource URIs for the function.
+-- * 'createTime' - The time at which the function was created.
+-- * 'className' - The Java class that contains the function code.
 mkUserDefinedFunction ::
   UserDefinedFunction
 mkUserDefinedFunction =

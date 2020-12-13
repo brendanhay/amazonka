@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,11 +46,15 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkGetResources' smart constructor.
 data GetResources = GetResources'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The user ID for the resource collection. This is a required field for accessing the API operation using IAM credentials.
     userId :: Lude.Maybe Lude.Text,
+    -- | The marker for the next set of results. This marker was received from a previous call.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of resources to return.
     limit :: Lude.Maybe Lude.Natural,
+    -- | The collection type.
     collectionType :: Lude.Maybe ResourceCollectionType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -58,10 +63,10 @@ data GetResources = GetResources'
 -- | Creates a value of 'GetResources' with the minimum fields required to make a request.
 --
 -- * 'authenticationToken' - The Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'collectionType' - The collection type.
--- * 'limit' - The maximum number of resources to return.
--- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
 -- * 'userId' - The user ID for the resource collection. This is a required field for accessing the API operation using IAM credentials.
+-- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
+-- * 'limit' - The maximum number of resources to return.
+-- * 'collectionType' - The collection type.
 mkGetResources ::
   GetResources
 mkGetResources =
@@ -143,10 +148,13 @@ instance Lude.ToQuery GetResources where
 
 -- | /See:/ 'mkGetResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-  { folders ::
-      Lude.Maybe [FolderMetadata],
+  { -- | The folders in the specified folder.
+    folders :: Lude.Maybe [FolderMetadata],
+    -- | The documents in the specified collection.
     documents :: Lude.Maybe [DocumentMetadata],
+    -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -154,8 +162,8 @@ data GetResourcesResponse = GetResourcesResponse'
 
 -- | Creates a value of 'GetResourcesResponse' with the minimum fields required to make a request.
 --
--- * 'documents' - The documents in the specified collection.
 -- * 'folders' - The folders in the specified folder.
+-- * 'documents' - The documents in the specified collection.
 -- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 -- * 'responseStatus' - The response status code.
 mkGetResourcesResponse ::

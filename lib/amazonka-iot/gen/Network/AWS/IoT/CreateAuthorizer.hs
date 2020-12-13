@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.IoT.CreateAuthorizer
     -- ** Request lenses
     caStatus,
     caSigningDisabled,
+    caAuthorizerName,
+    caAuthorizerFunctionARN,
     caTokenSigningPublicKeys,
     caTokenKeyName,
     caTags,
-    caAuthorizerName,
-    caAuthorizerFunctionARN,
 
     -- * Destructuring the response
     CreateAuthorizerResponse (..),
@@ -46,34 +47,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
-  { status ::
-      Lude.Maybe AuthorizerStatus,
+  { -- | The status of the create authorizer request.
+    status :: Lude.Maybe AuthorizerStatus,
+    -- | Specifies whether AWS IoT validates the token signature in an authorization request.
     signingDisabled :: Lude.Maybe Lude.Bool,
-    tokenSigningPublicKeys ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    tokenKeyName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+    -- | The authorizer name.
     authorizerName :: Lude.Text,
-    authorizerFunctionARN :: Lude.Text
+    -- | The ARN of the authorizer's Lambda function.
+    authorizerFunctionARN :: Lude.Text,
+    -- | The public keys used to verify the digital signature returned by your custom authentication service.
+    tokenSigningPublicKeys :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the token key used to extract the token from the HTTP headers.
+    tokenKeyName :: Lude.Maybe Lude.Text,
+    -- | Metadata which can be used to manage the custom authorizer.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAuthorizer' with the minimum fields required to make a request.
 --
--- * 'authorizerFunctionARN' - The ARN of the authorizer's Lambda function.
--- * 'authorizerName' - The authorizer name.
--- * 'signingDisabled' - Specifies whether AWS IoT validates the token signature in an authorization request.
 -- * 'status' - The status of the create authorizer request.
--- * 'tags' - Metadata which can be used to manage the custom authorizer.
--- * 'tokenKeyName' - The name of the token key used to extract the token from the HTTP headers.
+-- * 'signingDisabled' - Specifies whether AWS IoT validates the token signature in an authorization request.
+-- * 'authorizerName' - The authorizer name.
+-- * 'authorizerFunctionARN' - The ARN of the authorizer's Lambda function.
 -- * 'tokenSigningPublicKeys' - The public keys used to verify the digital signature returned by your custom authentication service.
+-- * 'tokenKeyName' - The name of the token key used to extract the token from the HTTP headers.
+-- * 'tags' - Metadata which can be used to manage the custom authorizer.
 mkCreateAuthorizer ::
   -- | 'authorizerName'
   Lude.Text ->
@@ -84,11 +84,11 @@ mkCreateAuthorizer pAuthorizerName_ pAuthorizerFunctionARN_ =
   CreateAuthorizer'
     { status = Lude.Nothing,
       signingDisabled = Lude.Nothing,
+      authorizerName = pAuthorizerName_,
+      authorizerFunctionARN = pAuthorizerFunctionARN_,
       tokenSigningPublicKeys = Lude.Nothing,
       tokenKeyName = Lude.Nothing,
-      tags = Lude.Nothing,
-      authorizerName = pAuthorizerName_,
-      authorizerFunctionARN = pAuthorizerFunctionARN_
+      tags = Lude.Nothing
     }
 
 -- | The status of the create authorizer request.
@@ -104,6 +104,20 @@ caStatus = Lens.lens (status :: CreateAuthorizer -> Lude.Maybe AuthorizerStatus)
 caSigningDisabled :: Lens.Lens' CreateAuthorizer (Lude.Maybe Lude.Bool)
 caSigningDisabled = Lens.lens (signingDisabled :: CreateAuthorizer -> Lude.Maybe Lude.Bool) (\s a -> s {signingDisabled = a} :: CreateAuthorizer)
 {-# DEPRECATED caSigningDisabled "Use generic-lens or generic-optics with 'signingDisabled' instead." #-}
+
+-- | The authorizer name.
+--
+-- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAuthorizerName :: Lens.Lens' CreateAuthorizer Lude.Text
+caAuthorizerName = Lens.lens (authorizerName :: CreateAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: CreateAuthorizer)
+{-# DEPRECATED caAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
+
+-- | The ARN of the authorizer's Lambda function.
+--
+-- /Note:/ Consider using 'authorizerFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAuthorizerFunctionARN :: Lens.Lens' CreateAuthorizer Lude.Text
+caAuthorizerFunctionARN = Lens.lens (authorizerFunctionARN :: CreateAuthorizer -> Lude.Text) (\s a -> s {authorizerFunctionARN = a} :: CreateAuthorizer)
+{-# DEPRECATED caAuthorizerFunctionARN "Use generic-lens or generic-optics with 'authorizerFunctionARN' instead." #-}
 
 -- | The public keys used to verify the digital signature returned by your custom authentication service.
 --
@@ -126,20 +140,6 @@ caTags :: Lens.Lens' CreateAuthorizer (Lude.Maybe [Tag])
 caTags = Lens.lens (tags :: CreateAuthorizer -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateAuthorizer)
 {-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The authorizer name.
---
--- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAuthorizerName :: Lens.Lens' CreateAuthorizer Lude.Text
-caAuthorizerName = Lens.lens (authorizerName :: CreateAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: CreateAuthorizer)
-{-# DEPRECATED caAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
-
--- | The ARN of the authorizer's Lambda function.
---
--- /Note:/ Consider using 'authorizerFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAuthorizerFunctionARN :: Lens.Lens' CreateAuthorizer Lude.Text
-caAuthorizerFunctionARN = Lens.lens (authorizerFunctionARN :: CreateAuthorizer -> Lude.Text) (\s a -> s {authorizerFunctionARN = a} :: CreateAuthorizer)
-{-# DEPRECATED caAuthorizerFunctionARN "Use generic-lens or generic-optics with 'authorizerFunctionARN' instead." #-}
-
 instance Lude.AWSRequest CreateAuthorizer where
   type Rs CreateAuthorizer = CreateAuthorizerResponse
   request = Req.postJSON ioTService
@@ -161,10 +161,10 @@ instance Lude.ToJSON CreateAuthorizer where
       ( Lude.catMaybes
           [ ("status" Lude..=) Lude.<$> status,
             ("signingDisabled" Lude..=) Lude.<$> signingDisabled,
+            Lude.Just ("authorizerFunctionArn" Lude..= authorizerFunctionARN),
             ("tokenSigningPublicKeys" Lude..=) Lude.<$> tokenSigningPublicKeys,
             ("tokenKeyName" Lude..=) Lude.<$> tokenKeyName,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("authorizerFunctionArn" Lude..= authorizerFunctionARN)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -177,24 +177,20 @@ instance Lude.ToQuery CreateAuthorizer where
 
 -- | /See:/ 'mkCreateAuthorizerResponse' smart constructor.
 data CreateAuthorizerResponse = CreateAuthorizerResponse'
-  { authorizerName ::
-      Lude.Maybe Lude.Text,
+  { -- | The authorizer's name.
+    authorizerName :: Lude.Maybe Lude.Text,
+    -- | The authorizer ARN.
     authorizerARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAuthorizerResponse' with the minimum fields required to make a request.
 --
--- * 'authorizerARN' - The authorizer ARN.
 -- * 'authorizerName' - The authorizer's name.
+-- * 'authorizerARN' - The authorizer ARN.
 -- * 'responseStatus' - The response status code.
 mkCreateAuthorizerResponse ::
   -- | 'responseStatus'

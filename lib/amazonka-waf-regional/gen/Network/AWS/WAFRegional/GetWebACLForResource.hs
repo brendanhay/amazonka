@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,17 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetWebACLForResource' smart constructor.
 newtype GetWebACLForResource = GetWebACLForResource'
-  { resourceARN ::
-      Lude.Text
+  { -- | The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.
+    --
+    -- The ARN should be in one of the following formats:
+    --
+    --     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+    --
+    --
+    --     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACLForResource' with the minimum fields required to make a request.
@@ -121,23 +123,18 @@ instance Lude.ToQuery GetWebACLForResource where
 
 -- | /See:/ 'mkGetWebACLForResourceResponse' smart constructor.
 data GetWebACLForResourceResponse = GetWebACLForResourceResponse'
-  { webACLSummary ::
-      Lude.Maybe WebACLSummary,
+  { -- | Information about the web ACL that you specified in the @GetWebACLForResource@ request. If there is no associated resource, a null WebACLSummary is returned.
+    webACLSummary :: Lude.Maybe WebACLSummary,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACLForResourceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'webACLSummary' - Information about the web ACL that you specified in the @GetWebACLForResource@ request. If there is no associated resource, a null WebACLSummary is returned.
+-- * 'responseStatus' - The response status code.
 mkGetWebACLForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

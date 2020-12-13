@@ -32,26 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUdpGroupSettings' smart constructor.
 data UdpGroupSettings = UdpGroupSettings'
-  { timedMetadataId3Period ::
-      Lude.Maybe Lude.Natural,
+  { -- | Timed Metadata interval in seconds.
+    timedMetadataId3Period :: Lude.Maybe Lude.Natural,
+    -- | Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
     inputLossAction :: Lude.Maybe InputLossActionForUdpOut,
-    timedMetadataId3Frame ::
-      Lude.Maybe UdpTimedMetadataId3Frame
+    -- | Indicates ID3 frame that has the timecode.
+    timedMetadataId3Frame :: Lude.Maybe UdpTimedMetadataId3Frame
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UdpGroupSettings' with the minimum fields required to make a request.
 --
+-- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
 -- * 'inputLossAction' - Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
 -- * 'timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
--- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
 mkUdpGroupSettings ::
   UdpGroupSettings
 mkUdpGroupSettings =

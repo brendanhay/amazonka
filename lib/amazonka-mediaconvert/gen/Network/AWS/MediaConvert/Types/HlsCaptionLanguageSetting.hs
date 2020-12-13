@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.HlsCaptionLanguageSetting
   ( HlsCaptionLanguageSetting
       ( HlsCaptionLanguageSetting',
         HCLSInsert,
-        HCLSNone,
-        HCLSOmit
+        HCLSOmit,
+        HCLSNone
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting' Lude.Text
 pattern HCLSInsert :: HlsCaptionLanguageSetting
 pattern HCLSInsert = HlsCaptionLanguageSetting' "INSERT"
 
-pattern HCLSNone :: HlsCaptionLanguageSetting
-pattern HCLSNone = HlsCaptionLanguageSetting' "NONE"
-
 pattern HCLSOmit :: HlsCaptionLanguageSetting
 pattern HCLSOmit = HlsCaptionLanguageSetting' "OMIT"
 
+pattern HCLSNone :: HlsCaptionLanguageSetting
+pattern HCLSNone = HlsCaptionLanguageSetting' "NONE"
+
 {-# COMPLETE
   HCLSInsert,
-  HCLSNone,
   HCLSOmit,
+  HCLSNone,
   HlsCaptionLanguageSetting'
   #-}

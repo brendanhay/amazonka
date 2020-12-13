@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAutoSnapshots' smart constructor.
 newtype GetAutoSnapshots = GetAutoSnapshots'
-  { resourceName ::
-      Lude.Text
+  { -- | The name of the source instance or disk from which to get automatic snapshot information.
+    resourceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutoSnapshots' with the minimum fields required to make a request.
@@ -107,27 +102,23 @@ instance Lude.ToQuery GetAutoSnapshots where
 
 -- | /See:/ 'mkGetAutoSnapshotsResponse' smart constructor.
 data GetAutoSnapshotsResponse = GetAutoSnapshotsResponse'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The resource type (e.g., @Instance@ or @Disk@ ).
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The name of the source instance or disk for the automatic snapshots.
     resourceName :: Lude.Maybe Lude.Text,
-    autoSnapshots ::
-      Lude.Maybe [AutoSnapshotDetails],
+    -- | An array of objects that describe the automatic snapshots that are available for the specified source instance or disk.
+    autoSnapshots :: Lude.Maybe [AutoSnapshotDetails],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAutoSnapshotsResponse' with the minimum fields required to make a request.
 --
--- * 'autoSnapshots' - An array of objects that describe the automatic snapshots that are available for the specified source instance or disk.
--- * 'resourceName' - The name of the source instance or disk for the automatic snapshots.
 -- * 'resourceType' - The resource type (e.g., @Instance@ or @Disk@ ).
+-- * 'resourceName' - The name of the source instance or disk for the automatic snapshots.
+-- * 'autoSnapshots' - An array of objects that describe the automatic snapshots that are available for the specified source instance or disk.
 -- * 'responseStatus' - The response status code.
 mkGetAutoSnapshotsResponse ::
   -- | 'responseStatus'

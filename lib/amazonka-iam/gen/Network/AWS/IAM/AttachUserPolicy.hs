@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,26 +40,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachUserPolicy' smart constructor.
 data AttachUserPolicy = AttachUserPolicy'
-  { userName :: Lude.Text,
+  { -- | The name (friendly name, not ARN) of the IAM user to attach the policy to.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
     policyARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachUserPolicy' with the minimum fields required to make a request.
 --
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 -- * 'userName' - The name (friendly name, not ARN) of the IAM user to attach the policy to.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 mkAttachUserPolicy ::
   -- | 'userName'
   Lude.Text ->
@@ -108,13 +109,7 @@ instance Lude.ToQuery AttachUserPolicy where
 
 -- | /See:/ 'mkAttachUserPolicyResponse' smart constructor.
 data AttachUserPolicyResponse = AttachUserPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachUserPolicyResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppStream.CreateImageBuilderStreamingURL
     mkCreateImageBuilderStreamingURL,
 
     -- ** Request lenses
-    cibsuValidity,
     cibsuName,
+    cibsuValidity,
 
     -- * Destructuring the response
     CreateImageBuilderStreamingURLResponse (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateImageBuilderStreamingURL' smart constructor.
 data CreateImageBuilderStreamingURL = CreateImageBuilderStreamingURL'
-  { validity ::
-      Lude.Maybe Lude.Integer,
-    name :: Lude.Text
+  { -- | The name of the image builder.
+    name :: Lude.Text,
+    -- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
+    validity :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateImageBuilderStreamingURL' with the minimum fields required to make a request.
@@ -64,16 +60,9 @@ mkCreateImageBuilderStreamingURL ::
   CreateImageBuilderStreamingURL
 mkCreateImageBuilderStreamingURL pName_ =
   CreateImageBuilderStreamingURL'
-    { validity = Lude.Nothing,
-      name = pName_
+    { name = pName_,
+      validity = Lude.Nothing
     }
-
--- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
---
--- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cibsuValidity :: Lens.Lens' CreateImageBuilderStreamingURL (Lude.Maybe Lude.Integer)
-cibsuValidity = Lens.lens (validity :: CreateImageBuilderStreamingURL -> Lude.Maybe Lude.Integer) (\s a -> s {validity = a} :: CreateImageBuilderStreamingURL)
-{-# DEPRECATED cibsuValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
 
 -- | The name of the image builder.
 --
@@ -81,6 +70,13 @@ cibsuValidity = Lens.lens (validity :: CreateImageBuilderStreamingURL -> Lude.Ma
 cibsuName :: Lens.Lens' CreateImageBuilderStreamingURL Lude.Text
 cibsuName = Lens.lens (name :: CreateImageBuilderStreamingURL -> Lude.Text) (\s a -> s {name = a} :: CreateImageBuilderStreamingURL)
 {-# DEPRECATED cibsuName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
+--
+-- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cibsuValidity :: Lens.Lens' CreateImageBuilderStreamingURL (Lude.Maybe Lude.Integer)
+cibsuValidity = Lens.lens (validity :: CreateImageBuilderStreamingURL -> Lude.Maybe Lude.Integer) (\s a -> s {validity = a} :: CreateImageBuilderStreamingURL)
+{-# DEPRECATED cibsuValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
 
 instance Lude.AWSRequest CreateImageBuilderStreamingURL where
   type
@@ -113,8 +109,8 @@ instance Lude.ToJSON CreateImageBuilderStreamingURL where
   toJSON CreateImageBuilderStreamingURL' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Validity" Lude..=) Lude.<$> validity,
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            ("Validity" Lude..=) Lude.<$> validity
           ]
       )
 
@@ -126,29 +122,21 @@ instance Lude.ToQuery CreateImageBuilderStreamingURL where
 
 -- | /See:/ 'mkCreateImageBuilderStreamingURLResponse' smart constructor.
 data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResponse'
-  { streamingURL ::
-      Lude.Maybe
-        Lude.Text,
-    expires ::
-      Lude.Maybe
-        Lude.Timestamp,
-    responseStatus ::
-      Lude.Int
+  { -- | The URL to start the AppStream 2.0 streaming session.
+    streamingURL :: Lude.Maybe Lude.Text,
+    -- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
+    expires :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateImageBuilderStreamingURLResponse' with the minimum fields required to make a request.
 --
+-- * 'streamingURL' - The URL to start the AppStream 2.0 streaming session.
 -- * 'expires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
 -- * 'responseStatus' - The response status code.
--- * 'streamingURL' - The URL to start the AppStream 2.0 streaming session.
 mkCreateImageBuilderStreamingURLResponse ::
   -- | 'responseStatus'
   Lude.Int ->

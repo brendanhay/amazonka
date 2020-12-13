@@ -40,43 +40,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkProfile' smart constructor.
 data NetworkProfile = NetworkProfile'
-  { uplinkJitterMs ::
-      Lude.Maybe Lude.Integer,
+  { -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+    uplinkJitterMs :: Lude.Maybe Lude.Integer,
+    -- | The Amazon Resource Name (ARN) of the network profile.
     arn :: Lude.Maybe Lude.Text,
+    -- | Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
     uplinkLossPercent :: Lude.Maybe Lude.Natural,
+    -- | Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
     downlinkJitterMs :: Lude.Maybe Lude.Integer,
+    -- | The name of the network profile.
     name :: Lude.Maybe Lude.Text,
+    -- | Proportion of received packets that fail to arrive from 0 to 100 percent.
     downlinkLossPercent :: Lude.Maybe Lude.Natural,
+    -- | The type of network profile. Valid values are listed here.
     type' :: Lude.Maybe NetworkProfileType,
+    -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
     uplinkDelayMs :: Lude.Maybe Lude.Integer,
+    -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
     uplinkBandwidthBits :: Lude.Maybe Lude.Integer,
+    -- | The description of the network profile.
     description :: Lude.Maybe Lude.Text,
+    -- | Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
     downlinkDelayMs :: Lude.Maybe Lude.Integer,
+    -- | The data throughput rate in bits per second, as an integer from 0 to 104857600.
     downlinkBandwidthBits :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkProfile' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the network profile.
--- * 'description' - The description of the network profile.
--- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
--- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
--- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
--- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
--- * 'name' - The name of the network profile.
--- * 'type'' - The type of network profile. Valid values are listed here.
--- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
--- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
 -- * 'uplinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'arn' - The Amazon Resource Name (ARN) of the network profile.
 -- * 'uplinkLossPercent' - Proportion of transmitted packets that fail to arrive from 0 to 100 percent.
+-- * 'downlinkJitterMs' - Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
+-- * 'name' - The name of the network profile.
+-- * 'downlinkLossPercent' - Proportion of received packets that fail to arrive from 0 to 100 percent.
+-- * 'type'' - The type of network profile. Valid values are listed here.
+-- * 'uplinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'uplinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
+-- * 'description' - The description of the network profile.
+-- * 'downlinkDelayMs' - Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
+-- * 'downlinkBandwidthBits' - The data throughput rate in bits per second, as an integer from 0 to 104857600.
 mkNetworkProfile ::
   NetworkProfile
 mkNetworkProfile =

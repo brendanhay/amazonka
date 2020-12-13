@@ -32,33 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomVerificationEmailTemplate' smart constructor.
 data CustomVerificationEmailTemplate = CustomVerificationEmailTemplate'
-  { fromEmailAddress ::
-      Lude.Maybe Lude.Text,
-    templateName ::
-      Lude.Maybe Lude.Text,
-    failureRedirectionURL ::
-      Lude.Maybe Lude.Text,
-    templateSubject ::
-      Lude.Maybe Lude.Text,
-    successRedirectionURL ::
-      Lude.Maybe Lude.Text
+  { -- | The email address that the custom verification email is sent from.
+    fromEmailAddress :: Lude.Maybe Lude.Text,
+    -- | The name of the custom verification email template.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
+    failureRedirectionURL :: Lude.Maybe Lude.Text,
+    -- | The subject line of the custom verification email.
+    templateSubject :: Lude.Maybe Lude.Text,
+    -- | The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
+    successRedirectionURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomVerificationEmailTemplate' with the minimum fields required to make a request.
 --
--- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
 -- * 'fromEmailAddress' - The email address that the custom verification email is sent from.
--- * 'successRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 -- * 'templateName' - The name of the custom verification email template.
+-- * 'failureRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.
 -- * 'templateSubject' - The subject line of the custom verification email.
+-- * 'successRedirectionURL' - The URL that the recipient of the verification email is sent to if his or her address is successfully verified.
 mkCustomVerificationEmailTemplate ::
   CustomVerificationEmailTemplate
 mkCustomVerificationEmailTemplate =

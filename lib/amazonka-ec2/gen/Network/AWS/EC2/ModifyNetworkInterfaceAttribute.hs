@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     -- ** Request lenses
     mniaGroups,
     mniaSourceDestCheck,
+    mniaNetworkInterfaceId,
     mniaAttachment,
     mniaDescription,
     mniaDryRun,
-    mniaNetworkInterfaceId,
 
     -- * Destructuring the response
     ModifyNetworkInterfaceAttributeResponse (..),
@@ -42,38 +43,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyNetworkInterfaceAttribute' smart constructor.
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
-  { groups ::
-      Lude.Maybe [Lude.Text],
-    sourceDestCheck ::
-      Lude.Maybe
-        AttributeBooleanValue,
-    attachment ::
-      Lude.Maybe
-        NetworkInterfaceAttachmentChanges,
-    description ::
-      Lude.Maybe AttributeValue,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    networkInterfaceId ::
-      Lude.Text
+  { -- | Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether source/destination checking is enabled. A value of @true@ means checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+    sourceDestCheck :: Lude.Maybe AttributeBooleanValue,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Text,
+    -- | Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.
+    attachment :: Lude.Maybe NetworkInterfaceAttachmentChanges,
+    -- | A description for the network interface.
+    description :: Lude.Maybe AttributeValue,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyNetworkInterfaceAttribute' with the minimum fields required to make a request.
 --
+-- * 'groups' - Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.
+-- * 'sourceDestCheck' - Indicates whether source/destination checking is enabled. A value of @true@ means checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+-- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'attachment' - Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.
 -- * 'description' - A description for the network interface.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'groups' - Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'sourceDestCheck' - Indicates whether source/destination checking is enabled. A value of @true@ means checking is enabled, and @false@ means checking is disabled. This value must be @false@ for a NAT instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
 mkModifyNetworkInterfaceAttribute ::
   -- | 'networkInterfaceId'
   Lude.Text ->
@@ -82,10 +75,10 @@ mkModifyNetworkInterfaceAttribute pNetworkInterfaceId_ =
   ModifyNetworkInterfaceAttribute'
     { groups = Lude.Nothing,
       sourceDestCheck = Lude.Nothing,
+      networkInterfaceId = pNetworkInterfaceId_,
       attachment = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      networkInterfaceId = pNetworkInterfaceId_
+      dryRun = Lude.Nothing
     }
 
 -- | Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.
@@ -101,6 +94,13 @@ mniaGroups = Lens.lens (groups :: ModifyNetworkInterfaceAttribute -> Lude.Maybe 
 mniaSourceDestCheck :: Lens.Lens' ModifyNetworkInterfaceAttribute (Lude.Maybe AttributeBooleanValue)
 mniaSourceDestCheck = Lens.lens (sourceDestCheck :: ModifyNetworkInterfaceAttribute -> Lude.Maybe AttributeBooleanValue) (\s a -> s {sourceDestCheck = a} :: ModifyNetworkInterfaceAttribute)
 {-# DEPRECATED mniaSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
+
+-- | The ID of the network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mniaNetworkInterfaceId :: Lens.Lens' ModifyNetworkInterfaceAttribute Lude.Text
+mniaNetworkInterfaceId = Lens.lens (networkInterfaceId :: ModifyNetworkInterfaceAttribute -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: ModifyNetworkInterfaceAttribute)
+{-# DEPRECATED mniaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.
 --
@@ -123,13 +123,6 @@ mniaDryRun :: Lens.Lens' ModifyNetworkInterfaceAttribute (Lude.Maybe Lude.Bool)
 mniaDryRun = Lens.lens (dryRun :: ModifyNetworkInterfaceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyNetworkInterfaceAttribute)
 {-# DEPRECATED mniaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mniaNetworkInterfaceId :: Lens.Lens' ModifyNetworkInterfaceAttribute Lude.Text
-mniaNetworkInterfaceId = Lens.lens (networkInterfaceId :: ModifyNetworkInterfaceAttribute -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: ModifyNetworkInterfaceAttribute)
-{-# DEPRECATED mniaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
 instance Lude.AWSRequest ModifyNetworkInterfaceAttribute where
   type
     Rs ModifyNetworkInterfaceAttribute =
@@ -151,21 +144,15 @@ instance Lude.ToQuery ModifyNetworkInterfaceAttribute where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery (Lude.toQueryList "SecurityGroupId" Lude.<$> groups),
         "SourceDestCheck" Lude.=: sourceDestCheck,
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
         "Attachment" Lude.=: attachment,
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyNetworkInterfaceAttributeResponse' smart constructor.
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,8 +46,8 @@ module Network.AWS.WAFRegional.UpdateXSSMatchSet
 
     -- ** Request lenses
     uxmsXSSMatchSetId,
-    uxmsChangeToken,
     uxmsUpdates,
+    uxmsChangeToken,
 
     -- * Destructuring the response
     UpdateXSSMatchSetResponse (..),
@@ -68,23 +69,28 @@ import Network.AWS.WAFRegional.Types
 --
 -- /See:/ 'mkUpdateXSSMatchSet' smart constructor.
 data UpdateXSSMatchSet = UpdateXSSMatchSet'
-  { xssMatchSetId ::
-      Lude.Text,
-    changeToken :: Lude.Text,
-    updates :: Lude.NonEmpty XSSMatchSetUpdate
+  { -- | The @XssMatchSetId@ of the @XssMatchSet@ that you want to update. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
+    xssMatchSetId :: Lude.Text,
+    -- | An array of @XssMatchSetUpdate@ objects that you want to insert into or delete from an 'XssMatchSet' . For more information, see the applicable data types:
+    --
+    --
+    --     * 'XssMatchSetUpdate' : Contains @Action@ and @XssMatchTuple@
+    --
+    --
+    --     * 'XssMatchTuple' : Contains @FieldToMatch@ and @TextTransformation@
+    --
+    --
+    --     * 'FieldToMatch' : Contains @Data@ and @Type@
+    updates :: Lude.NonEmpty XSSMatchSetUpdate,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateXSSMatchSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'xssMatchSetId' - The @XssMatchSetId@ of the @XssMatchSet@ that you want to update. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
 -- * 'updates' - An array of @XssMatchSetUpdate@ objects that you want to insert into or delete from an 'XssMatchSet' . For more information, see the applicable data types:
 --
 --
@@ -97,20 +103,20 @@ data UpdateXSSMatchSet = UpdateXSSMatchSet'
 --     * 'FieldToMatch' : Contains @Data@ and @Type@
 --
 --
--- * 'xssMatchSetId' - The @XssMatchSetId@ of the @XssMatchSet@ that you want to update. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkUpdateXSSMatchSet ::
   -- | 'xssMatchSetId'
   Lude.Text ->
-  -- | 'changeToken'
-  Lude.Text ->
   -- | 'updates'
   Lude.NonEmpty XSSMatchSetUpdate ->
+  -- | 'changeToken'
+  Lude.Text ->
   UpdateXSSMatchSet
-mkUpdateXSSMatchSet pXSSMatchSetId_ pChangeToken_ pUpdates_ =
+mkUpdateXSSMatchSet pXSSMatchSetId_ pUpdates_ pChangeToken_ =
   UpdateXSSMatchSet'
     { xssMatchSetId = pXSSMatchSetId_,
-      changeToken = pChangeToken_,
-      updates = pUpdates_
+      updates = pUpdates_,
+      changeToken = pChangeToken_
     }
 
 -- | The @XssMatchSetId@ of the @XssMatchSet@ that you want to update. @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
@@ -119,13 +125,6 @@ mkUpdateXSSMatchSet pXSSMatchSetId_ pChangeToken_ pUpdates_ =
 uxmsXSSMatchSetId :: Lens.Lens' UpdateXSSMatchSet Lude.Text
 uxmsXSSMatchSetId = Lens.lens (xssMatchSetId :: UpdateXSSMatchSet -> Lude.Text) (\s a -> s {xssMatchSetId = a} :: UpdateXSSMatchSet)
 {-# DEPRECATED uxmsXSSMatchSetId "Use generic-lens or generic-optics with 'xssMatchSetId' instead." #-}
-
--- | The value returned by the most recent call to 'GetChangeToken' .
---
--- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uxmsChangeToken :: Lens.Lens' UpdateXSSMatchSet Lude.Text
-uxmsChangeToken = Lens.lens (changeToken :: UpdateXSSMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateXSSMatchSet)
-{-# DEPRECATED uxmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @XssMatchSetUpdate@ objects that you want to insert into or delete from an 'XssMatchSet' . For more information, see the applicable data types:
 --
@@ -144,6 +143,13 @@ uxmsChangeToken = Lens.lens (changeToken :: UpdateXSSMatchSet -> Lude.Text) (\s 
 uxmsUpdates :: Lens.Lens' UpdateXSSMatchSet (Lude.NonEmpty XSSMatchSetUpdate)
 uxmsUpdates = Lens.lens (updates :: UpdateXSSMatchSet -> Lude.NonEmpty XSSMatchSetUpdate) (\s a -> s {updates = a} :: UpdateXSSMatchSet)
 {-# DEPRECATED uxmsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
+
+-- | The value returned by the most recent call to 'GetChangeToken' .
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uxmsChangeToken :: Lens.Lens' UpdateXSSMatchSet Lude.Text
+uxmsChangeToken = Lens.lens (changeToken :: UpdateXSSMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateXSSMatchSet)
+{-# DEPRECATED uxmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 instance Lude.AWSRequest UpdateXSSMatchSet where
   type Rs UpdateXSSMatchSet = UpdateXSSMatchSetResponse
@@ -171,8 +177,8 @@ instance Lude.ToJSON UpdateXSSMatchSet where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("XssMatchSetId" Lude..= xssMatchSetId),
-            Lude.Just ("ChangeToken" Lude..= changeToken),
-            Lude.Just ("Updates" Lude..= updates)
+            Lude.Just ("Updates" Lude..= updates),
+            Lude.Just ("ChangeToken" Lude..= changeToken)
           ]
       )
 
@@ -186,17 +192,12 @@ instance Lude.ToQuery UpdateXSSMatchSet where
 --
 -- /See:/ 'mkUpdateXSSMatchSetResponse' smart constructor.
 data UpdateXSSMatchSetResponse = UpdateXSSMatchSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @UpdateXssMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateXSSMatchSetResponse' with the minimum fields required to make a request.

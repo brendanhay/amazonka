@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnprocessedNamedQueryId' smart constructor.
 data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
-  { namedQueryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier of the named query.
+    namedQueryId :: Lude.Maybe Lude.Text,
+    -- | The error code returned when the processing request for the named query failed, if applicable.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message returned when the processing request for the named query failed, if applicable.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnprocessedNamedQueryId' with the minimum fields required to make a request.
 --
+-- * 'namedQueryId' - The unique identifier of the named query.
 -- * 'errorCode' - The error code returned when the processing request for the named query failed, if applicable.
 -- * 'errorMessage' - The error message returned when the processing request for the named query failed, if applicable.
--- * 'namedQueryId' - The unique identifier of the named query.
 mkUnprocessedNamedQueryId ::
   UnprocessedNamedQueryId
 mkUnprocessedNamedQueryId =

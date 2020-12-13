@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.StorageGateway.CancelArchival
     mkCancelArchival,
 
     -- ** Request lenses
-    caGatewayARN,
     caTapeARN,
+    caGatewayARN,
 
     -- * Destructuring the response
     CancelArchivalResponse (..),
@@ -42,37 +43,25 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkCancelArchival' smart constructor.
 data CancelArchival = CancelArchival'
-  { gatewayARN :: Lude.Text,
-    tapeARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
+    tapeARN :: Lude.Text,
+    gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelArchival' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
 -- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
+-- * 'gatewayARN' -
 mkCancelArchival ::
-  -- | 'gatewayARN'
-  Lude.Text ->
   -- | 'tapeARN'
   Lude.Text ->
+  -- | 'gatewayARN'
+  Lude.Text ->
   CancelArchival
-mkCancelArchival pGatewayARN_ pTapeARN_ =
-  CancelArchival' {gatewayARN = pGatewayARN_, tapeARN = pTapeARN_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caGatewayARN :: Lens.Lens' CancelArchival Lude.Text
-caGatewayARN = Lens.lens (gatewayARN :: CancelArchival -> Lude.Text) (\s a -> s {gatewayARN = a} :: CancelArchival)
-{-# DEPRECATED caGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+mkCancelArchival pTapeARN_ pGatewayARN_ =
+  CancelArchival' {tapeARN = pTapeARN_, gatewayARN = pGatewayARN_}
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
 --
@@ -80,6 +69,13 @@ caGatewayARN = Lens.lens (gatewayARN :: CancelArchival -> Lude.Text) (\s a -> s 
 caTapeARN :: Lens.Lens' CancelArchival Lude.Text
 caTapeARN = Lens.lens (tapeARN :: CancelArchival -> Lude.Text) (\s a -> s {tapeARN = a} :: CancelArchival)
 {-# DEPRECATED caTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caGatewayARN :: Lens.Lens' CancelArchival Lude.Text
+caGatewayARN = Lens.lens (gatewayARN :: CancelArchival -> Lude.Text) (\s a -> s {gatewayARN = a} :: CancelArchival)
+{-# DEPRECATED caGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 instance Lude.AWSRequest CancelArchival where
   type Rs CancelArchival = CancelArchivalResponse
@@ -106,8 +102,8 @@ instance Lude.ToJSON CancelArchival where
   toJSON CancelArchival' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("TapeARN" Lude..= tapeARN)
+          [ Lude.Just ("TapeARN" Lude..= tapeARN),
+            Lude.Just ("GatewayARN" Lude..= gatewayARN)
           ]
       )
 
@@ -121,23 +117,18 @@ instance Lude.ToQuery CancelArchival where
 --
 -- /See:/ 'mkCancelArchivalResponse' smart constructor.
 data CancelArchivalResponse = CancelArchivalResponse'
-  { tapeARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
+    tapeARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelArchivalResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
+-- * 'responseStatus' - The response status code.
 mkCancelArchivalResponse ::
   -- | 'responseStatus'
   Lude.Int ->

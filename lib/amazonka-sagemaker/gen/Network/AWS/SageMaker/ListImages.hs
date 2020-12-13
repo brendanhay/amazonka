@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,36 +52,39 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListImages' smart constructor.
 data ListImages = ListImages'
-  { nameContains :: Lude.Maybe Lude.Text,
+  { -- | A filter that returns only images whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only images modified on or before the specified time.
     lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only images created on or after the specified time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the previous call to @ListImages@ didn't return the full set of images, the call returns a token for getting the next set of images.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order. The default value is @DESCENDING@ .
     sortOrder :: Lude.Maybe ImageSortOrder,
+    -- | A filter that returns only images modified on or after the specified time.
     lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only images created on or before the specified time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of images to return in the response. The default value is 10.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The property used to sort results. The default value is @CREATION_TIME@ .
     sortBy :: Lude.Maybe ImageSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImages' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only images created on or after the specified time.
--- * 'creationTimeBefore' - A filter that returns only images created on or before the specified time.
--- * 'lastModifiedTimeAfter' - A filter that returns only images modified on or after the specified time.
--- * 'lastModifiedTimeBefore' - A filter that returns only images modified on or before the specified time.
--- * 'maxResults' - The maximum number of images to return in the response. The default value is 10.
 -- * 'nameContains' - A filter that returns only images whose name contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only images modified on or before the specified time.
+-- * 'creationTimeAfter' - A filter that returns only images created on or after the specified time.
 -- * 'nextToken' - If the previous call to @ListImages@ didn't return the full set of images, the call returns a token for getting the next set of images.
--- * 'sortBy' - The property used to sort results. The default value is @CREATION_TIME@ .
 -- * 'sortOrder' - The sort order. The default value is @DESCENDING@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns only images modified on or after the specified time.
+-- * 'creationTimeBefore' - A filter that returns only images created on or before the specified time.
+-- * 'maxResults' - The maximum number of images to return in the response. The default value is 10.
+-- * 'sortBy' - The property used to sort results. The default value is @CREATION_TIME@ .
 mkListImages ::
   ListImages
 mkListImages =
@@ -215,18 +219,14 @@ instance Lude.ToQuery ListImages where
 
 -- | /See:/ 'mkListImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-  { images ::
-      Lude.Maybe [Image],
+  { -- | A list of images and their properties.
+    images :: Lude.Maybe [Image],
+    -- | A token for getting the next set of images, if there are any.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImagesResponse' with the minimum fields required to make a request.

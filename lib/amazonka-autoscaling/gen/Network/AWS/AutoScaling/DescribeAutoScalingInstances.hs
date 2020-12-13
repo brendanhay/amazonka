@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,26 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    instanceIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+    instanceIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @50@ .
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutoScalingInstances' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'instanceIds' - The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
 -- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @50@ .
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 mkDescribeAutoScalingInstances ::
   DescribeAutoScalingInstances
 mkDescribeAutoScalingInstances =
@@ -141,28 +137,20 @@ instance Lude.ToQuery DescribeAutoScalingInstances where
 
 -- | /See:/ 'mkDescribeAutoScalingInstancesResponse' smart constructor.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    autoScalingInstances ::
-      Lude.Maybe
-        [AutoScalingInstanceDetails],
-    responseStatus ::
-      Lude.Int
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The instances.
+    autoScalingInstances :: Lude.Maybe [AutoScalingInstanceDetails],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutoScalingInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'autoScalingInstances' - The instances.
 -- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+-- * 'autoScalingInstances' - The instances.
 -- * 'responseStatus' - The response status code.
 mkDescribeAutoScalingInstancesResponse ::
   -- | 'responseStatus'

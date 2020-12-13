@@ -13,10 +13,10 @@
 module Network.AWS.ElasticSearch.Types.UpgradeStatus
   ( UpgradeStatus
       ( UpgradeStatus',
-        USFailed,
         USInProgress,
         USSucceeded,
-        USSucceededWithIssues
+        USSucceededWithIssues,
+        USFailed
       ),
   )
 where
@@ -47,9 +47,6 @@ newtype UpgradeStatus = UpgradeStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern USFailed :: UpgradeStatus
-pattern USFailed = UpgradeStatus' "FAILED"
-
 pattern USInProgress :: UpgradeStatus
 pattern USInProgress = UpgradeStatus' "IN_PROGRESS"
 
@@ -59,10 +56,13 @@ pattern USSucceeded = UpgradeStatus' "SUCCEEDED"
 pattern USSucceededWithIssues :: UpgradeStatus
 pattern USSucceededWithIssues = UpgradeStatus' "SUCCEEDED_WITH_ISSUES"
 
+pattern USFailed :: UpgradeStatus
+pattern USFailed = UpgradeStatus' "FAILED"
+
 {-# COMPLETE
-  USFailed,
   USInProgress,
   USSucceeded,
   USSucceededWithIssues,
+  USFailed,
   UpgradeStatus'
   #-}

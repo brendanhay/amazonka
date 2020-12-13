@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
 
     -- ** Response lenses
     dasgrsNextToken,
-    dasgrsResponseStatus,
     dasgrsAutoScalingGroups,
+    dasgrsResponseStatus,
   )
 where
 
@@ -45,18 +46,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAutoScalingGroups' smart constructor.
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
-  { autoScalingGroupNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the @MaxRecords@ parameter.
+    --
+    -- If you omit this parameter, all Auto Scaling groups are described.
+    autoScalingGroupNames :: Lude.Maybe [Lude.Text],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutoScalingGroups' with the minimum fields required to make a request.
@@ -64,8 +63,8 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
 -- * 'autoScalingGroupNames' - The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can optionally increase this limit using the @MaxRecords@ parameter.
 --
 -- If you omit this parameter, all Auto Scaling groups are described.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 mkDescribeAutoScalingGroups ::
   DescribeAutoScalingGroups
 mkDescribeAutoScalingGroups =
@@ -118,10 +117,10 @@ instance Lude.AWSRequest DescribeAutoScalingGroups where
       ( \s h x ->
           DescribeAutoScalingGroupsResponse'
             Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "AutoScalingGroups" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeAutoScalingGroups where
@@ -144,26 +143,20 @@ instance Lude.ToQuery DescribeAutoScalingGroups where
 
 -- | /See:/ 'mkDescribeAutoScalingGroupsResponse' smart constructor.
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    autoScalingGroups ::
-      [AutoScalingGroup]
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The groups.
+    autoScalingGroups :: [AutoScalingGroup],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutoScalingGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroups' - The groups.
 -- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+-- * 'autoScalingGroups' - The groups.
 -- * 'responseStatus' - The response status code.
 mkDescribeAutoScalingGroupsResponse ::
   -- | 'responseStatus'
@@ -172,8 +165,8 @@ mkDescribeAutoScalingGroupsResponse ::
 mkDescribeAutoScalingGroupsResponse pResponseStatus_ =
   DescribeAutoScalingGroupsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      autoScalingGroups = Lude.mempty
+      autoScalingGroups = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
@@ -183,16 +176,16 @@ dasgrsNextToken :: Lens.Lens' DescribeAutoScalingGroupsResponse (Lude.Maybe Lude
 dasgrsNextToken = Lens.lens (nextToken :: DescribeAutoScalingGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAutoScalingGroupsResponse)
 {-# DEPRECATED dasgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasgrsResponseStatus :: Lens.Lens' DescribeAutoScalingGroupsResponse Lude.Int
-dasgrsResponseStatus = Lens.lens (responseStatus :: DescribeAutoScalingGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAutoScalingGroupsResponse)
-{-# DEPRECATED dasgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The groups.
 --
 -- /Note:/ Consider using 'autoScalingGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dasgrsAutoScalingGroups :: Lens.Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
 dasgrsAutoScalingGroups = Lens.lens (autoScalingGroups :: DescribeAutoScalingGroupsResponse -> [AutoScalingGroup]) (\s a -> s {autoScalingGroups = a} :: DescribeAutoScalingGroupsResponse)
 {-# DEPRECATED dasgrsAutoScalingGroups "Use generic-lens or generic-optics with 'autoScalingGroups' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasgrsResponseStatus :: Lens.Lens' DescribeAutoScalingGroupsResponse Lude.Int
+dasgrsResponseStatus = Lens.lens (responseStatus :: DescribeAutoScalingGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAutoScalingGroupsResponse)
+{-# DEPRECATED dasgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

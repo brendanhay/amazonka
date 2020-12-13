@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentity.Types.RoleMappingType
   ( RoleMappingType
       ( RoleMappingType',
-        Rules,
-        Token
+        Token,
+        Rules
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RoleMappingType = RoleMappingType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Rules :: RoleMappingType
-pattern Rules = RoleMappingType' "Rules"
-
 pattern Token :: RoleMappingType
 pattern Token = RoleMappingType' "Token"
 
+pattern Rules :: RoleMappingType
+pattern Rules = RoleMappingType' "Rules"
+
 {-# COMPLETE
-  Rules,
   Token,
+  Rules,
   RoleMappingType'
   #-}

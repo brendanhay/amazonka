@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { sL :: Lude.Maybe [Lude.Text],
+  { -- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
+    sL :: Lude.Maybe [Lude.Text],
+    -- | For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
     sDM :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    -- | For number values, expressed as double.
     n :: Lude.Maybe Lude.Double,
+    -- | For single string values. Maximum string length is 100 characters.
     s :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
+-- * 'sL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
+-- * 'sDM' - For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
 -- * 'n' - For number values, expressed as double.
 -- * 's' - For single string values. Maximum string length is 100 characters.
--- * 'sDM' - For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
--- * 'sL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
 mkAttributeValue ::
   AttributeValue
 mkAttributeValue =

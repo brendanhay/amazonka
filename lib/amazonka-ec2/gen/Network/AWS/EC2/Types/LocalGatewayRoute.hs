@@ -36,34 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalGatewayRoute' smart constructor.
 data LocalGatewayRoute = LocalGatewayRoute'
-  { state ::
-      Lude.Maybe LocalGatewayRouteState,
+  { -- | The state of the route.
+    state :: Lude.Maybe LocalGatewayRouteState,
+    -- | The Amazon Resource Name (ARN) of the local gateway route table.
     localGatewayRouteTableARN :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID that owns the local gateway route.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The route type.
     type' :: Lude.Maybe LocalGatewayRouteType,
-    localGatewayVirtualInterfaceGroupId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the virtual interface group.
+    localGatewayVirtualInterfaceGroupId :: Lude.Maybe Lude.Text,
+    -- | The CIDR block used for destination matches.
     destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalGatewayRoute' with the minimum fields required to make a request.
 --
--- * 'destinationCidrBlock' - The CIDR block used for destination matches.
--- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table.
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
--- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
--- * 'ownerId' - The AWS account ID that owns the local gateway route.
 -- * 'state' - The state of the route.
+-- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table.
+-- * 'ownerId' - The AWS account ID that owns the local gateway route.
+-- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
 -- * 'type'' - The route type.
+-- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
+-- * 'destinationCidrBlock' - The CIDR block used for destination matches.
 mkLocalGatewayRoute ::
   LocalGatewayRoute
 mkLocalGatewayRoute =

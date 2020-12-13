@@ -54,33 +54,106 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPoolClientType' smart constructor.
 data UserPoolClientType = UserPoolClientType'
-  { refreshTokenValidity ::
-      Lude.Maybe Lude.Natural,
+  { -- | The time limit, in days, after which the refresh token is no longer valid and cannot be used.
+    refreshTokenValidity :: Lude.Maybe Lude.Natural,
+    -- | The ID of the client associated with the user pool.
     clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    explicitAuthFlows ::
-      Lude.Maybe [ExplicitAuthFlowsType],
+    -- | The authentication flows that are supported by the user pool clients. Flow names without the @ALLOW_@ prefix are deprecated in favor of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix cannot be used along with values without @ALLOW_@ prefix.
+    --
+    -- Valid values include:
+    --
+    --     * @ALLOW_ADMIN_USER_PASSWORD_AUTH@ : Enable admin based user password authentication flow @ADMIN_USER_PASSWORD_AUTH@ . This setting replaces the @ADMIN_NO_SRP_AUTH@ setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.
+    --
+    --
+    --     * @ALLOW_CUSTOM_AUTH@ : Enable Lambda trigger based authentication.
+    --
+    --
+    --     * @ALLOW_USER_PASSWORD_AUTH@ : Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
+    --
+    --
+    --     * @ALLOW_USER_SRP_AUTH@ : Enable SRP based authentication.
+    --
+    --
+    --     * @ALLOW_REFRESH_TOKEN_AUTH@ : Enable authflow to refresh tokens.
+    explicitAuthFlows :: Lude.Maybe [ExplicitAuthFlowsType],
+    -- | The client secret from the user pool request of the client type.
     clientSecret :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The date the user pool client was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A list of provider names for the identity providers that are supported on this client.
     supportedIdentityProviders :: Lude.Maybe [Lude.Text],
+    -- | A list of allowed logout URLs for the identity providers.
     logoutURLs :: Lude.Maybe [Lude.Text],
-    allowedOAuthFlowsUserPoolClient ::
-      Lude.Maybe Lude.Bool,
+    -- | Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+    allowedOAuthFlowsUserPoolClient :: Lude.Maybe Lude.Bool,
+    -- | The user pool ID for the user pool client.
     userPoolId :: Lude.Maybe Lude.Text,
+    -- | The time limit, specified by tokenValidityUnits, defaulting to hours, after which the refresh token is no longer valid and cannot be used.
     idTokenValidity :: Lude.Maybe Lude.Natural,
-    tokenValidityUnits ::
-      Lude.Maybe TokenValidityUnitsType,
+    -- | The time units used to specify the token validity times of their respective token.
+    tokenValidityUnits :: Lude.Maybe TokenValidityUnitsType,
+    -- | The default redirect URI. Must be in the @CallbackURLs@ list.
+    --
+    -- A redirect URI must:
+    --
+    --     * Be an absolute URI.
+    --
+    --
+    --     * Be registered with the authorization server.
+    --
+    --
+    --     * Not include a fragment component.
+    --
+    --
+    -- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+    -- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+    -- App callback URLs such as myapp://example are also supported.
     defaultRedirectURI :: Lude.Maybe Lude.Text,
+    -- | The writeable attributes.
     writeAttributes :: Lude.Maybe [Lude.Text],
-    preventUserExistenceErrors ::
-      Lude.Maybe PreventUserExistenceErrorTypes,
+    -- | Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to @ENABLED@ and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to @LEGACY@ , those APIs will return a @UserNotFoundException@ exception if the user does not exist in the user pool.
+    --
+    -- Valid values include:
+    --
+    --     * @ENABLED@ - This prevents user existence-related errors.
+    --
+    --
+    --     * @LEGACY@ - This represents the old behavior of Cognito where user existence related errors are not prevented.
+    preventUserExistenceErrors :: Lude.Maybe PreventUserExistenceErrorTypes,
+    -- | The time limit, specified by tokenValidityUnits, defaulting to hours, after which the access token is no longer valid and cannot be used.
     accessTokenValidity :: Lude.Maybe Lude.Natural,
+    -- | The date the user pool client was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The Read-only attributes.
     readAttributes :: Lude.Maybe [Lude.Text],
+    -- | The allowed OAuth scopes. Possible values provided by OAuth are: @phone@ , @email@ , @openid@ , and @profile@ . Possible values provided by AWS are: @aws.cognito.signin.user.admin@ . Custom scopes created in Resource Servers are also supported.
     allowedOAuthScopes :: Lude.Maybe [Lude.Text],
+    -- | The allowed OAuth flows.
+    --
+    -- Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
+    -- Set to @implicit@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+    -- Set to @client_credentials@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
     allowedOAuthFlows :: Lude.Maybe [OAuthFlowType],
-    analyticsConfiguration ::
-      Lude.Maybe AnalyticsConfigurationType,
+    -- | The Amazon Pinpoint analytics configuration for the user pool client.
+    analyticsConfiguration :: Lude.Maybe AnalyticsConfigurationType,
+    -- | The client name from the user pool request of the client type.
     clientName :: Lude.Maybe Lude.Text,
+    -- | A list of allowed redirect (callback) URLs for the identity providers.
+    --
+    -- A redirect URI must:
+    --
+    --     * Be an absolute URI.
+    --
+    --
+    --     * Be registered with the authorization server.
+    --
+    --
+    --     * Not include a fragment component.
+    --
+    --
+    -- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+    -- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+    -- App callback URLs such as myapp://example are also supported.
     callbackURLs :: Lude.Maybe [Lude.Text]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -88,51 +161,8 @@ data UserPoolClientType = UserPoolClientType'
 
 -- | Creates a value of 'UserPoolClientType' with the minimum fields required to make a request.
 --
--- * 'accessTokenValidity' - The time limit, specified by tokenValidityUnits, defaulting to hours, after which the access token is no longer valid and cannot be used.
--- * 'allowedOAuthFlows' - The allowed OAuth flows.
---
--- Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
--- Set to @implicit@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
--- Set to @client_credentials@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
--- * 'allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
--- * 'allowedOAuthScopes' - The allowed OAuth scopes. Possible values provided by OAuth are: @phone@ , @email@ , @openid@ , and @profile@ . Possible values provided by AWS are: @aws.cognito.signin.user.admin@ . Custom scopes created in Resource Servers are also supported.
--- * 'analyticsConfiguration' - The Amazon Pinpoint analytics configuration for the user pool client.
--- * 'callbackURLs' - A list of allowed redirect (callback) URLs for the identity providers.
---
--- A redirect URI must:
---
---     * Be an absolute URI.
---
---
---     * Be registered with the authorization server.
---
---
---     * Not include a fragment component.
---
---
--- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
--- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
--- App callback URLs such as myapp://example are also supported.
+-- * 'refreshTokenValidity' - The time limit, in days, after which the refresh token is no longer valid and cannot be used.
 -- * 'clientId' - The ID of the client associated with the user pool.
--- * 'clientName' - The client name from the user pool request of the client type.
--- * 'clientSecret' - The client secret from the user pool request of the client type.
--- * 'creationDate' - The date the user pool client was created.
--- * 'defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
---
--- A redirect URI must:
---
---     * Be an absolute URI.
---
---
---     * Be registered with the authorization server.
---
---
---     * Not include a fragment component.
---
---
--- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
--- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
--- App callback URLs such as myapp://example are also supported.
 -- * 'explicitAuthFlows' - The authentication flows that are supported by the user pool clients. Flow names without the @ALLOW_@ prefix are deprecated in favor of new names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix cannot be used along with values without @ALLOW_@ prefix.
 --
 -- Valid values include:
@@ -152,9 +182,31 @@ data UserPoolClientType = UserPoolClientType'
 --     * @ALLOW_REFRESH_TOKEN_AUTH@ : Enable authflow to refresh tokens.
 --
 --
--- * 'idTokenValidity' - The time limit, specified by tokenValidityUnits, defaulting to hours, after which the refresh token is no longer valid and cannot be used.
+-- * 'clientSecret' - The client secret from the user pool request of the client type.
 -- * 'lastModifiedDate' - The date the user pool client was last modified.
+-- * 'supportedIdentityProviders' - A list of provider names for the identity providers that are supported on this client.
 -- * 'logoutURLs' - A list of allowed logout URLs for the identity providers.
+-- * 'allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
+-- * 'userPoolId' - The user pool ID for the user pool client.
+-- * 'idTokenValidity' - The time limit, specified by tokenValidityUnits, defaulting to hours, after which the refresh token is no longer valid and cannot be used.
+-- * 'tokenValidityUnits' - The time units used to specify the token validity times of their respective token.
+-- * 'defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
+--
+-- A redirect URI must:
+--
+--     * Be an absolute URI.
+--
+--
+--     * Be registered with the authorization server.
+--
+--
+--     * Not include a fragment component.
+--
+--
+-- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+-- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+-- App callback URLs such as myapp://example are also supported.
+-- * 'writeAttributes' - The writeable attributes.
 -- * 'preventUserExistenceErrors' - Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to @ENABLED@ and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to @LEGACY@ , those APIs will return a @UserNotFoundException@ exception if the user does not exist in the user pool.
 --
 -- Valid values include:
@@ -165,12 +217,33 @@ data UserPoolClientType = UserPoolClientType'
 --     * @LEGACY@ - This represents the old behavior of Cognito where user existence related errors are not prevented.
 --
 --
+-- * 'accessTokenValidity' - The time limit, specified by tokenValidityUnits, defaulting to hours, after which the access token is no longer valid and cannot be used.
+-- * 'creationDate' - The date the user pool client was created.
 -- * 'readAttributes' - The Read-only attributes.
--- * 'refreshTokenValidity' - The time limit, in days, after which the refresh token is no longer valid and cannot be used.
--- * 'supportedIdentityProviders' - A list of provider names for the identity providers that are supported on this client.
--- * 'tokenValidityUnits' - The time units used to specify the token validity times of their respective token.
--- * 'userPoolId' - The user pool ID for the user pool client.
--- * 'writeAttributes' - The writeable attributes.
+-- * 'allowedOAuthScopes' - The allowed OAuth scopes. Possible values provided by OAuth are: @phone@ , @email@ , @openid@ , and @profile@ . Possible values provided by AWS are: @aws.cognito.signin.user.admin@ . Custom scopes created in Resource Servers are also supported.
+-- * 'allowedOAuthFlows' - The allowed OAuth flows.
+--
+-- Set to @code@ to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.
+-- Set to @implicit@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.
+-- Set to @client_credentials@ to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.
+-- * 'analyticsConfiguration' - The Amazon Pinpoint analytics configuration for the user pool client.
+-- * 'clientName' - The client name from the user pool request of the client type.
+-- * 'callbackURLs' - A list of allowed redirect (callback) URLs for the identity providers.
+--
+-- A redirect URI must:
+--
+--     * Be an absolute URI.
+--
+--
+--     * Be registered with the authorization server.
+--
+--
+--     * Not include a fragment component.
+--
+--
+-- See <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint> .
+-- Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
+-- App callback URLs such as myapp://example are also supported.
 mkUserPoolClientType ::
   UserPoolClientType
 mkUserPoolClientType =

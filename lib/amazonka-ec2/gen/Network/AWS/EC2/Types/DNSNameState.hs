@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.DNSNameState
   ( DNSNameState
       ( DNSNameState',
-        DNSFailed,
         DNSPendingVerification,
-        DNSVerified
+        DNSVerified,
+        DNSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DNSNameState = DNSNameState' Lude.Text
       Lude.ToHeader
     )
 
-pattern DNSFailed :: DNSNameState
-pattern DNSFailed = DNSNameState' "failed"
-
 pattern DNSPendingVerification :: DNSNameState
 pattern DNSPendingVerification = DNSNameState' "pendingVerification"
 
 pattern DNSVerified :: DNSNameState
 pattern DNSVerified = DNSNameState' "verified"
 
+pattern DNSFailed :: DNSNameState
+pattern DNSFailed = DNSNameState' "failed"
+
 {-# COMPLETE
-  DNSFailed,
   DNSPendingVerification,
   DNSVerified,
+  DNSFailed,
   DNSNameState'
   #-}

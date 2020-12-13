@@ -17,11 +17,11 @@ module Network.AWS.Inspector.Types.ExclusionPreview
     mkExclusionPreview,
 
     -- * Lenses
+    epScopes,
     epAttributes,
     epTitle,
     epDescription,
     epRecommendation,
-    epScopes,
   )
 where
 
@@ -34,47 +34,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExclusionPreview' smart constructor.
 data ExclusionPreview = ExclusionPreview'
-  { attributes ::
-      Lude.Maybe [Attribute],
+  { -- | The AWS resources for which the exclusion preview pertains.
+    scopes :: Lude.NonEmpty Scope,
+    -- | The system-defined attributes for the exclusion preview.
+    attributes :: Lude.Maybe [Attribute],
+    -- | The name of the exclusion preview.
     title :: Lude.Text,
+    -- | The description of the exclusion preview.
     description :: Lude.Text,
-    recommendation :: Lude.Text,
-    scopes :: Lude.NonEmpty Scope
+    -- | The recommendation for the exclusion preview.
+    recommendation :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExclusionPreview' with the minimum fields required to make a request.
 --
+-- * 'scopes' - The AWS resources for which the exclusion preview pertains.
 -- * 'attributes' - The system-defined attributes for the exclusion preview.
+-- * 'title' - The name of the exclusion preview.
 -- * 'description' - The description of the exclusion preview.
 -- * 'recommendation' - The recommendation for the exclusion preview.
--- * 'scopes' - The AWS resources for which the exclusion preview pertains.
--- * 'title' - The name of the exclusion preview.
 mkExclusionPreview ::
+  -- | 'scopes'
+  Lude.NonEmpty Scope ->
   -- | 'title'
   Lude.Text ->
   -- | 'description'
   Lude.Text ->
   -- | 'recommendation'
   Lude.Text ->
-  -- | 'scopes'
-  Lude.NonEmpty Scope ->
   ExclusionPreview
-mkExclusionPreview pTitle_ pDescription_ pRecommendation_ pScopes_ =
+mkExclusionPreview pScopes_ pTitle_ pDescription_ pRecommendation_ =
   ExclusionPreview'
-    { attributes = Lude.Nothing,
+    { scopes = pScopes_,
+      attributes = Lude.Nothing,
       title = pTitle_,
       description = pDescription_,
-      recommendation = pRecommendation_,
-      scopes = pScopes_
+      recommendation = pRecommendation_
     }
+
+-- | The AWS resources for which the exclusion preview pertains.
+--
+-- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epScopes :: Lens.Lens' ExclusionPreview (Lude.NonEmpty Scope)
+epScopes = Lens.lens (scopes :: ExclusionPreview -> Lude.NonEmpty Scope) (\s a -> s {scopes = a} :: ExclusionPreview)
+{-# DEPRECATED epScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
 
 -- | The system-defined attributes for the exclusion preview.
 --
@@ -104,22 +109,15 @@ epRecommendation :: Lens.Lens' ExclusionPreview Lude.Text
 epRecommendation = Lens.lens (recommendation :: ExclusionPreview -> Lude.Text) (\s a -> s {recommendation = a} :: ExclusionPreview)
 {-# DEPRECATED epRecommendation "Use generic-lens or generic-optics with 'recommendation' instead." #-}
 
--- | The AWS resources for which the exclusion preview pertains.
---
--- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epScopes :: Lens.Lens' ExclusionPreview (Lude.NonEmpty Scope)
-epScopes = Lens.lens (scopes :: ExclusionPreview -> Lude.NonEmpty Scope) (\s a -> s {scopes = a} :: ExclusionPreview)
-{-# DEPRECATED epScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
-
 instance Lude.FromJSON ExclusionPreview where
   parseJSON =
     Lude.withObject
       "ExclusionPreview"
       ( \x ->
           ExclusionPreview'
-            Lude.<$> (x Lude..:? "attributes" Lude..!= Lude.mempty)
+            Lude.<$> (x Lude..: "scopes")
+            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "title")
             Lude.<*> (x Lude..: "description")
             Lude.<*> (x Lude..: "recommendation")
-            Lude.<*> (x Lude..: "scopes")
       )

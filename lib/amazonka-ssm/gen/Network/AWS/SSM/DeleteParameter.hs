@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.SSM.DeleteParameter
     mkDeleteParameter,
 
     -- ** Request lenses
-    delName,
+    dName,
 
     -- * Destructuring the response
     DeleteParameterResponse (..),
     mkDeleteParameterResponse,
 
     -- ** Response lenses
-    delersResponseStatus,
+    dpfrsResponseStatus,
   )
 where
 
@@ -37,14 +38,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDeleteParameter' smart constructor.
-newtype DeleteParameter = DeleteParameter' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteParameter = DeleteParameter'
+  { -- | The name of the parameter to delete.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteParameter' with the minimum fields required to make a request.
@@ -59,9 +57,9 @@ mkDeleteParameter pName_ = DeleteParameter' {name = pName_}
 -- | The name of the parameter to delete.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delName :: Lens.Lens' DeleteParameter Lude.Text
-delName = Lens.lens (name :: DeleteParameter -> Lude.Text) (\s a -> s {name = a} :: DeleteParameter)
-{-# DEPRECATED delName "Use generic-lens or generic-optics with 'name' instead." #-}
+dName :: Lens.Lens' DeleteParameter Lude.Text
+dName = Lens.lens (name :: DeleteParameter -> Lude.Text) (\s a -> s {name = a} :: DeleteParameter)
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeleteParameter where
   type Rs DeleteParameter = DeleteParameterResponse
@@ -95,16 +93,10 @@ instance Lude.ToQuery DeleteParameter where
 
 -- | /See:/ 'mkDeleteParameterResponse' smart constructor.
 newtype DeleteParameterResponse = DeleteParameterResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteParameterResponse' with the minimum fields required to make a request.
@@ -120,6 +112,6 @@ mkDeleteParameterResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delersResponseStatus :: Lens.Lens' DeleteParameterResponse Lude.Int
-delersResponseStatus = Lens.lens (responseStatus :: DeleteParameterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteParameterResponse)
-{-# DEPRECATED delersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpfrsResponseStatus :: Lens.Lens' DeleteParameterResponse Lude.Int
+dpfrsResponseStatus = Lens.lens (responseStatus :: DeleteParameterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteParameterResponse)
+{-# DEPRECATED dpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

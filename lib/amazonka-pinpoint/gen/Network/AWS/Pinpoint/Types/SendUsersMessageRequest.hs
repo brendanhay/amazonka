@@ -19,9 +19,9 @@ module Network.AWS.Pinpoint.Types.SendUsersMessageRequest
     -- * Lenses
     sumrTraceId,
     sumrContext,
+    sumrUsers,
     sumrTemplateConfiguration,
     sumrMessageConfiguration,
-    sumrUsers,
   )
 where
 
@@ -35,36 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSendUsersMessageRequest' smart constructor.
 data SendUsersMessageRequest = SendUsersMessageRequest'
-  { traceId ::
-      Lude.Maybe Lude.Text,
-    context ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    templateConfiguration ::
-      Lude.Maybe TemplateConfiguration,
-    messageConfiguration ::
-      DirectMessageConfiguration,
-    users ::
-      Lude.HashMap
-        Lude.Text
-        (EndpointSendConfiguration)
+  { -- | The unique identifier for tracing the message. This identifier is visible to message recipients.
+    traceId :: Lude.Maybe Lude.Text,
+    -- | A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
+    context :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
+    users :: Lude.HashMap Lude.Text (EndpointSendConfiguration),
+    -- | The message template to use for the message.
+    templateConfiguration :: Lude.Maybe TemplateConfiguration,
+    -- | The settings and content for the default message and any default messages that you defined for specific channels.
+    messageConfiguration :: DirectMessageConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendUsersMessageRequest' with the minimum fields required to make a request.
 --
--- * 'context' - A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
--- * 'messageConfiguration' - The settings and content for the default message and any default messages that you defined for specific channels.
--- * 'templateConfiguration' - The message template to use for the message.
 -- * 'traceId' - The unique identifier for tracing the message. This identifier is visible to message recipients.
+-- * 'context' - A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.
 -- * 'users' - A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
+-- * 'templateConfiguration' - The message template to use for the message.
+-- * 'messageConfiguration' - The settings and content for the default message and any default messages that you defined for specific channels.
 mkSendUsersMessageRequest ::
   -- | 'messageConfiguration'
   DirectMessageConfiguration ->
@@ -73,9 +64,9 @@ mkSendUsersMessageRequest pMessageConfiguration_ =
   SendUsersMessageRequest'
     { traceId = Lude.Nothing,
       context = Lude.Nothing,
+      users = Lude.mempty,
       templateConfiguration = Lude.Nothing,
-      messageConfiguration = pMessageConfiguration_,
-      users = Lude.mempty
+      messageConfiguration = pMessageConfiguration_
     }
 
 -- | The unique identifier for tracing the message. This identifier is visible to message recipients.
@@ -92,6 +83,13 @@ sumrContext :: Lens.Lens' SendUsersMessageRequest (Lude.Maybe (Lude.HashMap Lude
 sumrContext = Lens.lens (context :: SendUsersMessageRequest -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {context = a} :: SendUsersMessageRequest)
 {-# DEPRECATED sumrContext "Use generic-lens or generic-optics with 'context' instead." #-}
 
+-- | A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrUsers :: Lens.Lens' SendUsersMessageRequest (Lude.HashMap Lude.Text (EndpointSendConfiguration))
+sumrUsers = Lens.lens (users :: SendUsersMessageRequest -> Lude.HashMap Lude.Text (EndpointSendConfiguration)) (\s a -> s {users = a} :: SendUsersMessageRequest)
+{-# DEPRECATED sumrUsers "Use generic-lens or generic-optics with 'users' instead." #-}
+
 -- | The message template to use for the message.
 --
 -- /Note:/ Consider using 'templateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -106,21 +104,14 @@ sumrMessageConfiguration :: Lens.Lens' SendUsersMessageRequest DirectMessageConf
 sumrMessageConfiguration = Lens.lens (messageConfiguration :: SendUsersMessageRequest -> DirectMessageConfiguration) (\s a -> s {messageConfiguration = a} :: SendUsersMessageRequest)
 {-# DEPRECATED sumrMessageConfiguration "Use generic-lens or generic-optics with 'messageConfiguration' instead." #-}
 
--- | A map that associates user IDs with <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> objects. You can use an <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration EndpointSendConfiguration> object to tailor the message for a user by specifying settings such as content overrides and message variables.
---
--- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumrUsers :: Lens.Lens' SendUsersMessageRequest (Lude.HashMap Lude.Text (EndpointSendConfiguration))
-sumrUsers = Lens.lens (users :: SendUsersMessageRequest -> Lude.HashMap Lude.Text (EndpointSendConfiguration)) (\s a -> s {users = a} :: SendUsersMessageRequest)
-{-# DEPRECATED sumrUsers "Use generic-lens or generic-optics with 'users' instead." #-}
-
 instance Lude.ToJSON SendUsersMessageRequest where
   toJSON SendUsersMessageRequest' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("TraceId" Lude..=) Lude.<$> traceId,
             ("Context" Lude..=) Lude.<$> context,
+            Lude.Just ("Users" Lude..= users),
             ("TemplateConfiguration" Lude..=) Lude.<$> templateConfiguration,
-            Lude.Just ("MessageConfiguration" Lude..= messageConfiguration),
-            Lude.Just ("Users" Lude..= users)
+            Lude.Just ("MessageConfiguration" Lude..= messageConfiguration)
           ]
       )

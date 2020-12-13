@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.Kinesis.DeleteStream
     mkDeleteStream,
 
     -- ** Request lenses
-    dsEnforceConsumerDeletion,
-    dsStreamName,
+    dEnforceConsumerDeletion,
+    dStreamName,
 
     -- * Destructuring the response
     DeleteStreamResponse (..),
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
-  { enforceConsumerDeletion ::
-      Lude.Maybe Lude.Bool,
+  { -- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
+    enforceConsumerDeletion :: Lude.Maybe Lude.Bool,
+    -- | The name of the stream to delete.
     streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
@@ -74,16 +70,16 @@ mkDeleteStream pStreamName_ =
 -- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
 --
 -- /Note:/ Consider using 'enforceConsumerDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsEnforceConsumerDeletion :: Lens.Lens' DeleteStream (Lude.Maybe Lude.Bool)
-dsEnforceConsumerDeletion = Lens.lens (enforceConsumerDeletion :: DeleteStream -> Lude.Maybe Lude.Bool) (\s a -> s {enforceConsumerDeletion = a} :: DeleteStream)
-{-# DEPRECATED dsEnforceConsumerDeletion "Use generic-lens or generic-optics with 'enforceConsumerDeletion' instead." #-}
+dEnforceConsumerDeletion :: Lens.Lens' DeleteStream (Lude.Maybe Lude.Bool)
+dEnforceConsumerDeletion = Lens.lens (enforceConsumerDeletion :: DeleteStream -> Lude.Maybe Lude.Bool) (\s a -> s {enforceConsumerDeletion = a} :: DeleteStream)
+{-# DEPRECATED dEnforceConsumerDeletion "Use generic-lens or generic-optics with 'enforceConsumerDeletion' instead." #-}
 
 -- | The name of the stream to delete.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsStreamName :: Lens.Lens' DeleteStream Lude.Text
-dsStreamName = Lens.lens (streamName :: DeleteStream -> Lude.Text) (\s a -> s {streamName = a} :: DeleteStream)
-{-# DEPRECATED dsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+dStreamName :: Lens.Lens' DeleteStream Lude.Text
+dStreamName = Lens.lens (streamName :: DeleteStream -> Lude.Text) (\s a -> s {streamName = a} :: DeleteStream)
+{-# DEPRECATED dStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Lude.AWSRequest DeleteStream where
   type Rs DeleteStream = DeleteStreamResponse
@@ -119,13 +115,7 @@ instance Lude.ToQuery DeleteStream where
 
 -- | /See:/ 'mkDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.

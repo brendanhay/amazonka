@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H265DynamicSubGop
   ( H265DynamicSubGop
       ( H265DynamicSubGop',
-        Adaptive,
-        Static
+        HDSGAdaptive,
+        HDSGStatic
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H265DynamicSubGop = H265DynamicSubGop' Lude.Text
       Lude.ToHeader
     )
 
-pattern Adaptive :: H265DynamicSubGop
-pattern Adaptive = H265DynamicSubGop' "ADAPTIVE"
+pattern HDSGAdaptive :: H265DynamicSubGop
+pattern HDSGAdaptive = H265DynamicSubGop' "ADAPTIVE"
 
-pattern Static :: H265DynamicSubGop
-pattern Static = H265DynamicSubGop' "STATIC"
+pattern HDSGStatic :: H265DynamicSubGop
+pattern HDSGStatic = H265DynamicSubGop' "STATIC"
 
 {-# COMPLETE
-  Adaptive,
-  Static,
+  HDSGAdaptive,
+  HDSGStatic,
   H265DynamicSubGop'
   #-}

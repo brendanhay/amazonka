@@ -13,7 +13,7 @@
 module Network.AWS.Glue.Types.TransformType
   ( TransformType
       ( TransformType',
-        FindMatches
+        TTFindMatches
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype TransformType = TransformType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FindMatches :: TransformType
-pattern FindMatches = TransformType' "FIND_MATCHES"
+pattern TTFindMatches :: TransformType
+pattern TTFindMatches = TransformType' "FIND_MATCHES"
 
 {-# COMPLETE
-  FindMatches,
+  TTFindMatches,
   TransformType'
   #-}

@@ -29,26 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationTaskAssessmentRunProgress' smart constructor.
 data ReplicationTaskAssessmentRunProgress = ReplicationTaskAssessmentRunProgress'
-  { individualAssessmentCount ::
-      Lude.Maybe
-        Lude.Int,
-    individualAssessmentCompletedCount ::
-      Lude.Maybe
-        Lude.Int
+  { -- | The number of individual assessments that are specified to run.
+    individualAssessmentCount :: Lude.Maybe Lude.Int,
+    -- | The number of individual assessments that have completed, successfully or not.
+    individualAssessmentCompletedCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTaskAssessmentRunProgress' with the minimum fields required to make a request.
 --
--- * 'individualAssessmentCompletedCount' - The number of individual assessments that have completed, successfully or not.
 -- * 'individualAssessmentCount' - The number of individual assessments that are specified to run.
+-- * 'individualAssessmentCompletedCount' - The number of individual assessments that have completed, successfully or not.
 mkReplicationTaskAssessmentRunProgress ::
   ReplicationTaskAssessmentRunProgress
 mkReplicationTaskAssessmentRunProgress =

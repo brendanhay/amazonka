@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,23 +46,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListWorkerBlocks' smart constructor.
 data ListWorkerBlocks = ListWorkerBlocks'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Pagination token
+    nextToken :: Lude.Maybe Lude.Text,
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkerBlocks' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Undocumented field.
 -- * 'nextToken' - Pagination token
+-- * 'maxResults' -
 mkListWorkerBlocks ::
   ListWorkerBlocks
 mkListWorkerBlocks =
@@ -136,27 +131,23 @@ instance Lude.ToQuery ListWorkerBlocks where
 
 -- | /See:/ 'mkListWorkerBlocksResponse' smart constructor.
 data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
-  { workerBlocks ::
-      Lude.Maybe [WorkerBlock],
+  { -- | The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
+    workerBlocks :: Lude.Maybe [WorkerBlock],
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
     numResults :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkerBlocksResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
+-- * 'workerBlocks' - The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
+-- * 'nextToken' -
 -- * 'numResults' - The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
 -- * 'responseStatus' - The response status code.
--- * 'workerBlocks' - The list of WorkerBlocks, containing the collection of Worker IDs and reasons for blocking.
 mkListWorkerBlocksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

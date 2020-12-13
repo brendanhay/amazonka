@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,8 +56,8 @@ module Network.AWS.IAM.GenerateOrganizationsAccessReport
     mkGenerateOrganizationsAccessReport,
 
     -- ** Request lenses
-    goarOrganizationsPolicyId,
     goarEntityPath,
+    goarOrganizationsPolicyId,
 
     -- * Destructuring the response
     GenerateOrganizationsAccessReportResponse (..),
@@ -76,17 +77,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGenerateOrganizationsAccessReport' smart constructor.
 data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
-  { organizationsPolicyId ::
-      Lude.Maybe Lude.Text,
-    entityPath :: Lude.Text
+  { -- | The path of the AWS Organizations entity (root, OU, or account). You can build an entity path using the known structure of your organization. For example, assume that your account ID is @123456789012@ and its parent OU ID is @ou-rge0-awsabcde@ . The organization root ID is @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@ . Your entity path is @o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012@ .
+    entityPath :: Lude.Text,
+    -- | The identifier of the AWS Organizations service control policy (SCP). This parameter is optional.
+    --
+    -- This ID is used to generate information about when an account principal that is limited by the SCP attempted to access an AWS service.
+    organizationsPolicyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateOrganizationsAccessReport' with the minimum fields required to make a request.
@@ -101,10 +99,16 @@ mkGenerateOrganizationsAccessReport ::
   GenerateOrganizationsAccessReport
 mkGenerateOrganizationsAccessReport pEntityPath_ =
   GenerateOrganizationsAccessReport'
-    { organizationsPolicyId =
-        Lude.Nothing,
-      entityPath = pEntityPath_
+    { entityPath = pEntityPath_,
+      organizationsPolicyId = Lude.Nothing
     }
+
+-- | The path of the AWS Organizations entity (root, OU, or account). You can build an entity path using the known structure of your organization. For example, assume that your account ID is @123456789012@ and its parent OU ID is @ou-rge0-awsabcde@ . The organization root ID is @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@ . Your entity path is @o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012@ .
+--
+-- /Note:/ Consider using 'entityPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+goarEntityPath :: Lens.Lens' GenerateOrganizationsAccessReport Lude.Text
+goarEntityPath = Lens.lens (entityPath :: GenerateOrganizationsAccessReport -> Lude.Text) (\s a -> s {entityPath = a} :: GenerateOrganizationsAccessReport)
+{-# DEPRECATED goarEntityPath "Use generic-lens or generic-optics with 'entityPath' instead." #-}
 
 -- | The identifier of the AWS Organizations service control policy (SCP). This parameter is optional.
 --
@@ -114,13 +118,6 @@ mkGenerateOrganizationsAccessReport pEntityPath_ =
 goarOrganizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Lude.Maybe Lude.Text)
 goarOrganizationsPolicyId = Lens.lens (organizationsPolicyId :: GenerateOrganizationsAccessReport -> Lude.Maybe Lude.Text) (\s a -> s {organizationsPolicyId = a} :: GenerateOrganizationsAccessReport)
 {-# DEPRECATED goarOrganizationsPolicyId "Use generic-lens or generic-optics with 'organizationsPolicyId' instead." #-}
-
--- | The path of the AWS Organizations entity (root, OU, or account). You can build an entity path using the known structure of your organization. For example, assume that your account ID is @123456789012@ and its parent OU ID is @ou-rge0-awsabcde@ . The organization root ID is @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@ . Your entity path is @o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-rge0-awsabcde/123456789012@ .
---
--- /Note:/ Consider using 'entityPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-goarEntityPath :: Lens.Lens' GenerateOrganizationsAccessReport Lude.Text
-goarEntityPath = Lens.lens (entityPath :: GenerateOrganizationsAccessReport -> Lude.Text) (\s a -> s {entityPath = a} :: GenerateOrganizationsAccessReport)
-{-# DEPRECATED goarEntityPath "Use generic-lens or generic-optics with 'entityPath' instead." #-}
 
 instance Lude.AWSRequest GenerateOrganizationsAccessReport where
   type
@@ -147,25 +144,18 @@ instance Lude.ToQuery GenerateOrganizationsAccessReport where
       [ "Action"
           Lude.=: ("GenerateOrganizationsAccessReport" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "OrganizationsPolicyId" Lude.=: organizationsPolicyId,
-        "EntityPath" Lude.=: entityPath
+        "EntityPath" Lude.=: entityPath,
+        "OrganizationsPolicyId" Lude.=: organizationsPolicyId
       ]
 
 -- | /See:/ 'mkGenerateOrganizationsAccessReportResponse' smart constructor.
 data GenerateOrganizationsAccessReportResponse = GenerateOrganizationsAccessReportResponse'
-  { jobId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The job identifier that you can use in the 'GetOrganizationsAccessReport' operation.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateOrganizationsAccessReportResponse' with the minimum fields required to make a request.

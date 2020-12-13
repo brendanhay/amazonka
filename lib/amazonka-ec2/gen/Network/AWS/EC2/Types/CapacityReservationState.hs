@@ -14,10 +14,10 @@ module Network.AWS.EC2.Types.CapacityReservationState
   ( CapacityReservationState
       ( CapacityReservationState',
         CRSActive,
-        CRSCancelled,
         CRSExpired,
-        CRSFailed,
-        CRSPending
+        CRSCancelled,
+        CRSPending,
+        CRSFailed
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype CapacityReservationState = CapacityReservationState' Lude.Text
 pattern CRSActive :: CapacityReservationState
 pattern CRSActive = CapacityReservationState' "active"
 
-pattern CRSCancelled :: CapacityReservationState
-pattern CRSCancelled = CapacityReservationState' "cancelled"
-
 pattern CRSExpired :: CapacityReservationState
 pattern CRSExpired = CapacityReservationState' "expired"
 
-pattern CRSFailed :: CapacityReservationState
-pattern CRSFailed = CapacityReservationState' "failed"
+pattern CRSCancelled :: CapacityReservationState
+pattern CRSCancelled = CapacityReservationState' "cancelled"
 
 pattern CRSPending :: CapacityReservationState
 pattern CRSPending = CapacityReservationState' "pending"
 
+pattern CRSFailed :: CapacityReservationState
+pattern CRSFailed = CapacityReservationState' "failed"
+
 {-# COMPLETE
   CRSActive,
-  CRSCancelled,
   CRSExpired,
-  CRSFailed,
+  CRSCancelled,
   CRSPending,
+  CRSFailed,
   CapacityReservationState'
   #-}

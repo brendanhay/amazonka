@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.WorkSpaces.MigrateWorkspace
     mkMigrateWorkspace,
 
     -- ** Request lenses
-    mwSourceWorkspaceId,
     mwBundleId,
+    mwSourceWorkspaceId,
 
     -- * Destructuring the response
     MigrateWorkspaceResponse (..),
@@ -44,17 +45,12 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkMigrateWorkspace' smart constructor.
 data MigrateWorkspace = MigrateWorkspace'
-  { sourceWorkspaceId ::
-      Lude.Text,
-    bundleId :: Lude.Text
+  { -- | The identifier of the target bundle type to migrate the WorkSpace to.
+    bundleId :: Lude.Text,
+    -- | The identifier of the WorkSpace to migrate from.
+    sourceWorkspaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MigrateWorkspace' with the minimum fields required to make a request.
@@ -62,23 +58,16 @@ data MigrateWorkspace = MigrateWorkspace'
 -- * 'bundleId' - The identifier of the target bundle type to migrate the WorkSpace to.
 -- * 'sourceWorkspaceId' - The identifier of the WorkSpace to migrate from.
 mkMigrateWorkspace ::
-  -- | 'sourceWorkspaceId'
-  Lude.Text ->
   -- | 'bundleId'
   Lude.Text ->
+  -- | 'sourceWorkspaceId'
+  Lude.Text ->
   MigrateWorkspace
-mkMigrateWorkspace pSourceWorkspaceId_ pBundleId_ =
+mkMigrateWorkspace pBundleId_ pSourceWorkspaceId_ =
   MigrateWorkspace'
-    { sourceWorkspaceId = pSourceWorkspaceId_,
-      bundleId = pBundleId_
+    { bundleId = pBundleId_,
+      sourceWorkspaceId = pSourceWorkspaceId_
     }
-
--- | The identifier of the WorkSpace to migrate from.
---
--- /Note:/ Consider using 'sourceWorkspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwSourceWorkspaceId :: Lens.Lens' MigrateWorkspace Lude.Text
-mwSourceWorkspaceId = Lens.lens (sourceWorkspaceId :: MigrateWorkspace -> Lude.Text) (\s a -> s {sourceWorkspaceId = a} :: MigrateWorkspace)
-{-# DEPRECATED mwSourceWorkspaceId "Use generic-lens or generic-optics with 'sourceWorkspaceId' instead." #-}
 
 -- | The identifier of the target bundle type to migrate the WorkSpace to.
 --
@@ -86,6 +75,13 @@ mwSourceWorkspaceId = Lens.lens (sourceWorkspaceId :: MigrateWorkspace -> Lude.T
 mwBundleId :: Lens.Lens' MigrateWorkspace Lude.Text
 mwBundleId = Lens.lens (bundleId :: MigrateWorkspace -> Lude.Text) (\s a -> s {bundleId = a} :: MigrateWorkspace)
 {-# DEPRECATED mwBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | The identifier of the WorkSpace to migrate from.
+--
+-- /Note:/ Consider using 'sourceWorkspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwSourceWorkspaceId :: Lens.Lens' MigrateWorkspace Lude.Text
+mwSourceWorkspaceId = Lens.lens (sourceWorkspaceId :: MigrateWorkspace -> Lude.Text) (\s a -> s {sourceWorkspaceId = a} :: MigrateWorkspace)
+{-# DEPRECATED mwSourceWorkspaceId "Use generic-lens or generic-optics with 'sourceWorkspaceId' instead." #-}
 
 instance Lude.AWSRequest MigrateWorkspace where
   type Rs MigrateWorkspace = MigrateWorkspaceResponse
@@ -114,8 +110,8 @@ instance Lude.ToJSON MigrateWorkspace where
   toJSON MigrateWorkspace' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SourceWorkspaceId" Lude..= sourceWorkspaceId),
-            Lude.Just ("BundleId" Lude..= bundleId)
+          [ Lude.Just ("BundleId" Lude..= bundleId),
+            Lude.Just ("SourceWorkspaceId" Lude..= sourceWorkspaceId)
           ]
       )
 
@@ -127,25 +123,21 @@ instance Lude.ToQuery MigrateWorkspace where
 
 -- | /See:/ 'mkMigrateWorkspaceResponse' smart constructor.
 data MigrateWorkspaceResponse = MigrateWorkspaceResponse'
-  { sourceWorkspaceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The original identifier of the WorkSpace that is being migrated.
+    sourceWorkspaceId :: Lude.Maybe Lude.Text,
+    -- | The new identifier of the WorkSpace that is being migrated. If the migration does not succeed, the target WorkSpace ID will not be used, and the WorkSpace will still have the original WorkSpace ID.
     targetWorkspaceId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MigrateWorkspaceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sourceWorkspaceId' - The original identifier of the WorkSpace that is being migrated.
 -- * 'targetWorkspaceId' - The new identifier of the WorkSpace that is being migrated. If the migration does not succeed, the target WorkSpace ID will not be used, and the WorkSpace will still have the original WorkSpace ID.
+-- * 'responseStatus' - The response status code.
 mkMigrateWorkspaceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

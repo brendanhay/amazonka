@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,14 +39,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkGetWebACL' smart constructor.
-newtype GetWebACL = GetWebACL' {webACLId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetWebACL = GetWebACL'
+  { -- | The @WebACLId@ of the 'WebACL' that you want to get. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
+    webACLId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACL' with the minimum fields required to make a request.
@@ -98,22 +96,28 @@ instance Lude.ToQuery GetWebACL where
 
 -- | /See:/ 'mkGetWebACLResponse' smart constructor.
 data GetWebACLResponse = GetWebACLResponse'
-  { webACL ::
-      Lude.Maybe WebACL,
+  { -- | Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:
+    --
+    --
+    --     * 'WebACL' : Contains @DefaultAction@ , @MetricName@ , @Name@ , an array of @Rule@ objects, and @WebACLId@
+    --
+    --
+    --     * @DefaultAction@ (Data type is 'WafAction' ): Contains @Type@
+    --
+    --
+    --     * @Rules@ : Contains an array of @ActivatedRule@ objects, which contain @Action@ , @Priority@ , and @RuleId@
+    --
+    --
+    --     * @Action@ : Contains @Type@
+    webACL :: Lude.Maybe WebACL,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetWebACLResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'webACL' - Information about the 'WebACL' that you specified in the @GetWebACL@ request. For more information, see the following topics:
 --
 --
@@ -127,6 +131,9 @@ data GetWebACLResponse = GetWebACLResponse'
 --
 --
 --     * @Action@ : Contains @Type@
+--
+--
+-- * 'responseStatus' - The response status code.
 mkGetWebACLResponse ::
   -- | 'responseStatus'
   Lude.Int ->

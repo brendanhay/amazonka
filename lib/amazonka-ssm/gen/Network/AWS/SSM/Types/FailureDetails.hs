@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { failureType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+    failureType :: Lude.Maybe Lude.Text,
+    -- | The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
     failureStage :: Lude.Maybe Lude.Text,
+    -- | Detailed information about the Automation step failure.
     details :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
 --
--- * 'details' - Detailed information about the Automation step failure.
--- * 'failureStage' - The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
 -- * 'failureType' - The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+-- * 'failureStage' - The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
+-- * 'details' - Detailed information about the Automation step failure.
 mkFailureDetails ::
   FailureDetails
 mkFailureDetails =

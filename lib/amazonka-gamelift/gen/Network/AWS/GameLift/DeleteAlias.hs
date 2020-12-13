@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,7 +38,7 @@ module Network.AWS.GameLift.DeleteAlias
     mkDeleteAlias,
 
     -- ** Request lenses
-    daAliasId,
+    dAliasId,
 
     -- * Destructuring the response
     DeleteAliasResponse (..),
@@ -54,14 +55,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDeleteAlias' smart constructor.
-newtype DeleteAlias = DeleteAlias' {aliasId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteAlias = DeleteAlias'
+  { -- | A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
+    aliasId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
@@ -76,9 +74,9 @@ mkDeleteAlias pAliasId_ = DeleteAlias' {aliasId = pAliasId_}
 -- | A unique identifier of the alias that you want to delete. You can use either the alias ID or ARN value.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAliasId :: Lens.Lens' DeleteAlias Lude.Text
-daAliasId = Lens.lens (aliasId :: DeleteAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteAlias)
-{-# DEPRECATED daAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
+dAliasId :: Lens.Lens' DeleteAlias Lude.Text
+dAliasId = Lens.lens (aliasId :: DeleteAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteAlias)
+{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 instance Lude.AWSRequest DeleteAlias where
   type Rs DeleteAlias = DeleteAliasResponse
@@ -109,13 +107,7 @@ instance Lude.ToQuery DeleteAlias where
 
 -- | /See:/ 'mkDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.

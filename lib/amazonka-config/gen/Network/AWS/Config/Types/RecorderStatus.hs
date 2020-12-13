@@ -13,9 +13,9 @@
 module Network.AWS.Config.Types.RecorderStatus
   ( RecorderStatus
       ( RecorderStatus',
-        RSFailure,
         RSPending,
-        RSSuccess
+        RSSuccess,
+        RSFailure
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RecorderStatus = RecorderStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSFailure :: RecorderStatus
-pattern RSFailure = RecorderStatus' "Failure"
-
 pattern RSPending :: RecorderStatus
 pattern RSPending = RecorderStatus' "Pending"
 
 pattern RSSuccess :: RecorderStatus
 pattern RSSuccess = RecorderStatus' "Success"
 
+pattern RSFailure :: RecorderStatus
+pattern RSFailure = RecorderStatus' "Failure"
+
 {-# COMPLETE
-  RSFailure,
   RSPending,
   RSSuccess,
+  RSFailure,
   RecorderStatus'
   #-}

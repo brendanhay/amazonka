@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeOrganizationConfigRules' smart constructor.
 data DescribeOrganizationConfigRules = DescribeOrganizationConfigRules'
-  { organizationConfigRuleNames ::
-      Lude.Maybe [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe Lude.Natural
+  { -- | The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.
+    organizationConfigRuleNames :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConfigRules' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConfigRuleNames' - The names of organization config rules for which you want details. If you do not specify any names, AWS Config returns details for all your organization config rules.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of organization config rules returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
 mkDescribeOrganizationConfigRules ::
   DescribeOrganizationConfigRules
 mkDescribeOrganizationConfigRules =
@@ -142,28 +137,20 @@ instance Lude.ToQuery DescribeOrganizationConfigRules where
 
 -- | /See:/ 'mkDescribeOrganizationConfigRulesResponse' smart constructor.
 data DescribeOrganizationConfigRulesResponse = DescribeOrganizationConfigRulesResponse'
-  { organizationConfigRules ::
-      Lude.Maybe
-        [OrganizationConfigRule],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a list of @OrganizationConfigRule@ objects.
+    organizationConfigRules :: Lude.Maybe [OrganizationConfigRule],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConfigRulesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConfigRules' - Returns a list of @OrganizationConfigRule@ objects.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'responseStatus' - The response status code.
 mkDescribeOrganizationConfigRulesResponse ::
   -- | 'responseStatus'

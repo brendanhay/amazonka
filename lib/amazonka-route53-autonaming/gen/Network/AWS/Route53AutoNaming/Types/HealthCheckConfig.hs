@@ -54,18 +54,32 @@ import Network.AWS.Route53AutoNaming.Types.HealthCheckType
 --
 -- /See:/ 'mkHealthCheckConfig' smart constructor.
 data HealthCheckConfig = HealthCheckConfig'
-  { failureThreshold ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
+    failureThreshold :: Lude.Maybe Lude.Natural,
+    -- | The path that you want Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the file @/docs/route53-health-check.html@ . Route 53 automatically adds the DNS name for the service. If you don't specify a value for @ResourcePath@ , the default value is @/@ .
+    --
+    -- If you specify @TCP@ for @Type@ , you must /not/ specify a value for @ResourcePath@ .
     resourcePath :: Lude.Maybe Lude.Text,
+    -- | The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
+    --
+    -- /Important:/ You can't change the value of @Type@ after you create a health check.
+    -- You can create the following types of health checks:
+    --
+    --     * __HTTP__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400.
+    --
+    --
+    --     * __HTTPS__ : Route 53 tries to establish a TCP connection. If successful, Route 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and less than 400.
+    -- /Important:/ If you specify HTTPS for the value of @Type@ , the endpoint must support TLS v1.0 or later.
+    --
+    --
+    --     * __TCP__ : Route 53 tries to establish a TCP connection.
+    -- If you specify @TCP@ for @Type@ , don't specify a value for @ResourcePath@ .
+    --
+    --
+    -- For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy> in the /Route 53 Developer Guide/ .
     type' :: HealthCheckType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HealthCheckConfig' with the minimum fields required to make a request.

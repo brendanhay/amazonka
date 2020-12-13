@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.AppSync.CreateGraphqlAPI
     cgaXrayEnabled,
     cgaOpenIdConnectConfig,
     cgaAdditionalAuthenticationProviders,
+    cgaName,
     cgaUserPoolConfig,
+    cgaAuthenticationType,
     cgaLogConfig,
     cgaTags,
-    cgaName,
-    cgaAuthenticationType,
 
     -- * Destructuring the response
     CreateGraphqlAPIResponse (..),
@@ -46,36 +47,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGraphqlAPI' smart constructor.
 data CreateGraphqlAPI = CreateGraphqlAPI'
-  { xrayEnabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
+    xrayEnabled :: Lude.Maybe Lude.Bool,
+    -- | The OpenID Connect configuration.
     openIdConnectConfig :: Lude.Maybe OpenIdConnectConfig,
-    additionalAuthenticationProviders ::
-      Lude.Maybe [AdditionalAuthenticationProvider],
-    userPoolConfig :: Lude.Maybe UserPoolConfig,
-    logConfig :: Lude.Maybe LogConfig,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A list of additional authentication providers for the @GraphqlApi@ API.
+    additionalAuthenticationProviders :: Lude.Maybe [AdditionalAuthenticationProvider],
+    -- | A user-supplied name for the @GraphqlApi@ .
     name :: Lude.Text,
-    authenticationType :: AuthenticationType
+    -- | The Amazon Cognito user pool configuration.
+    userPoolConfig :: Lude.Maybe UserPoolConfig,
+    -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
+    authenticationType :: AuthenticationType,
+    -- | The Amazon CloudWatch Logs configuration.
+    logConfig :: Lude.Maybe LogConfig,
+    -- | A @TagMap@ object.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGraphqlAPI' with the minimum fields required to make a request.
 --
+-- * 'xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
+-- * 'openIdConnectConfig' - The OpenID Connect configuration.
 -- * 'additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
+-- * 'name' - A user-supplied name for the @GraphqlApi@ .
+-- * 'userPoolConfig' - The Amazon Cognito user pool configuration.
 -- * 'authenticationType' - The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
 -- * 'logConfig' - The Amazon CloudWatch Logs configuration.
--- * 'name' - A user-supplied name for the @GraphqlApi@ .
--- * 'openIdConnectConfig' - The OpenID Connect configuration.
 -- * 'tags' - A @TagMap@ object.
--- * 'userPoolConfig' - The Amazon Cognito user pool configuration.
--- * 'xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
 mkCreateGraphqlAPI ::
   -- | 'name'
   Lude.Text ->
@@ -87,11 +88,11 @@ mkCreateGraphqlAPI pName_ pAuthenticationType_ =
     { xrayEnabled = Lude.Nothing,
       openIdConnectConfig = Lude.Nothing,
       additionalAuthenticationProviders = Lude.Nothing,
-      userPoolConfig = Lude.Nothing,
-      logConfig = Lude.Nothing,
-      tags = Lude.Nothing,
       name = pName_,
-      authenticationType = pAuthenticationType_
+      userPoolConfig = Lude.Nothing,
+      authenticationType = pAuthenticationType_,
+      logConfig = Lude.Nothing,
+      tags = Lude.Nothing
     }
 
 -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
@@ -115,12 +116,26 @@ cgaAdditionalAuthenticationProviders :: Lens.Lens' CreateGraphqlAPI (Lude.Maybe 
 cgaAdditionalAuthenticationProviders = Lens.lens (additionalAuthenticationProviders :: CreateGraphqlAPI -> Lude.Maybe [AdditionalAuthenticationProvider]) (\s a -> s {additionalAuthenticationProviders = a} :: CreateGraphqlAPI)
 {-# DEPRECATED cgaAdditionalAuthenticationProviders "Use generic-lens or generic-optics with 'additionalAuthenticationProviders' instead." #-}
 
+-- | A user-supplied name for the @GraphqlApi@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgaName :: Lens.Lens' CreateGraphqlAPI Lude.Text
+cgaName = Lens.lens (name :: CreateGraphqlAPI -> Lude.Text) (\s a -> s {name = a} :: CreateGraphqlAPI)
+{-# DEPRECATED cgaName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The Amazon Cognito user pool configuration.
 --
 -- /Note:/ Consider using 'userPoolConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cgaUserPoolConfig :: Lens.Lens' CreateGraphqlAPI (Lude.Maybe UserPoolConfig)
 cgaUserPoolConfig = Lens.lens (userPoolConfig :: CreateGraphqlAPI -> Lude.Maybe UserPoolConfig) (\s a -> s {userPoolConfig = a} :: CreateGraphqlAPI)
 {-# DEPRECATED cgaUserPoolConfig "Use generic-lens or generic-optics with 'userPoolConfig' instead." #-}
+
+-- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
+--
+-- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgaAuthenticationType :: Lens.Lens' CreateGraphqlAPI AuthenticationType
+cgaAuthenticationType = Lens.lens (authenticationType :: CreateGraphqlAPI -> AuthenticationType) (\s a -> s {authenticationType = a} :: CreateGraphqlAPI)
+{-# DEPRECATED cgaAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
 -- | The Amazon CloudWatch Logs configuration.
 --
@@ -135,20 +150,6 @@ cgaLogConfig = Lens.lens (logConfig :: CreateGraphqlAPI -> Lude.Maybe LogConfig)
 cgaTags :: Lens.Lens' CreateGraphqlAPI (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 cgaTags = Lens.lens (tags :: CreateGraphqlAPI -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateGraphqlAPI)
 {-# DEPRECATED cgaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | A user-supplied name for the @GraphqlApi@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgaName :: Lens.Lens' CreateGraphqlAPI Lude.Text
-cgaName = Lens.lens (name :: CreateGraphqlAPI -> Lude.Text) (\s a -> s {name = a} :: CreateGraphqlAPI)
-{-# DEPRECATED cgaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.
---
--- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgaAuthenticationType :: Lens.Lens' CreateGraphqlAPI AuthenticationType
-cgaAuthenticationType = Lens.lens (authenticationType :: CreateGraphqlAPI -> AuthenticationType) (\s a -> s {authenticationType = a} :: CreateGraphqlAPI)
-{-# DEPRECATED cgaAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
 instance Lude.AWSRequest CreateGraphqlAPI where
   type Rs CreateGraphqlAPI = CreateGraphqlAPIResponse
@@ -177,11 +178,11 @@ instance Lude.ToJSON CreateGraphqlAPI where
             ("openIDConnectConfig" Lude..=) Lude.<$> openIdConnectConfig,
             ("additionalAuthenticationProviders" Lude..=)
               Lude.<$> additionalAuthenticationProviders,
-            ("userPoolConfig" Lude..=) Lude.<$> userPoolConfig,
-            ("logConfig" Lude..=) Lude.<$> logConfig,
-            ("tags" Lude..=) Lude.<$> tags,
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("authenticationType" Lude..= authenticationType)
+            ("userPoolConfig" Lude..=) Lude.<$> userPoolConfig,
+            Lude.Just ("authenticationType" Lude..= authenticationType),
+            ("logConfig" Lude..=) Lude.<$> logConfig,
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -193,17 +194,12 @@ instance Lude.ToQuery CreateGraphqlAPI where
 
 -- | /See:/ 'mkCreateGraphqlAPIResponse' smart constructor.
 data CreateGraphqlAPIResponse = CreateGraphqlAPIResponse'
-  { graphqlAPI ::
-      Lude.Maybe GraphqlAPI,
+  { -- | The @GraphqlApi@ .
+    graphqlAPI :: Lude.Maybe GraphqlAPI,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGraphqlAPIResponse' with the minimum fields required to make a request.

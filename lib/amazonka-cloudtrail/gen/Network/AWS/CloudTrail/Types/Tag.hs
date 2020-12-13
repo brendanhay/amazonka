@@ -28,20 +28,19 @@ import qualified Network.AWS.Prelude as Lude
 -- | A custom key-value pair associated with a resource such as a CloudTrail trail.
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {value :: Lude.Maybe Lude.Text, key :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | The value in a key-value pair of a tag. The value must be no longer than 256 Unicode characters.
+    value :: Lude.Maybe Lude.Text,
+    -- | The key in a key-value pair. The key must be must be no longer than 128 Unicode characters. The key must be unique for the resource to which it applies.
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - The key in a key-value pair. The key must be must be no longer than 128 Unicode characters. The key must be unique for the resource to which it applies.
 -- * 'value' - The value in a key-value pair of a tag. The value must be no longer than 256 Unicode characters.
+-- * 'key' - The key in a key-value pair. The key must be must be no longer than 128 Unicode characters. The key must be unique for the resource to which it applies.
 mkTag ::
   -- | 'key'
   Lude.Text ->

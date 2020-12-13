@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListObjectParentPathsResponse' smart constructor.
 data BatchListObjectParentPathsResponse = BatchListObjectParentPathsResponse'
-  { pathToObjectIdentifiersList ::
-      Lude.Maybe
-        [PathToObjectIdentifiers],
-    nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
+    pathToObjectIdentifiersList :: Lude.Maybe [PathToObjectIdentifiers],
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectParentPathsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The pagination token.
 -- * 'pathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the directory.
+-- * 'nextToken' - The pagination token.
 mkBatchListObjectParentPathsResponse ::
   BatchListObjectParentPathsResponse
 mkBatchListObjectParentPathsResponse =

@@ -35,36 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkGetLayerVersionResponse' smart constructor.
 data GetLayerVersionResponse = GetLayerVersionResponse'
-  { layerVersionARN ::
-      Lude.Maybe Lude.Text,
-    content ::
-      Lude.Maybe LayerVersionContentOutput,
+  { -- | The ARN of the layer version.
+    layerVersionARN :: Lude.Maybe Lude.Text,
+    -- | Details about the layer version.
+    content :: Lude.Maybe LayerVersionContentOutput,
+    -- | The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
     createdDate :: Lude.Maybe Lude.Text,
+    -- | The version number.
     version :: Lude.Maybe Lude.Integer,
+    -- | The layer's software license.
     licenseInfo :: Lude.Maybe Lude.Text,
+    -- | The ARN of the layer.
     layerARN :: Lude.Maybe Lude.Text,
+    -- | The description of the version.
     description :: Lude.Maybe Lude.Text,
+    -- | The layer's compatible runtimes.
     compatibleRuntimes :: Lude.Maybe [Runtime]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLayerVersionResponse' with the minimum fields required to make a request.
 --
--- * 'compatibleRuntimes' - The layer's compatible runtimes.
+-- * 'layerVersionARN' - The ARN of the layer version.
 -- * 'content' - Details about the layer version.
 -- * 'createdDate' - The date that the layer version was created, in <https://www.w3.org/TR/NOTE-datetime ISO-8601 format> (YYYY-MM-DDThh:mm:ss.sTZD).
--- * 'description' - The description of the version.
--- * 'layerARN' - The ARN of the layer.
--- * 'layerVersionARN' - The ARN of the layer version.
--- * 'licenseInfo' - The layer's software license.
 -- * 'version' - The version number.
+-- * 'licenseInfo' - The layer's software license.
+-- * 'layerARN' - The ARN of the layer.
+-- * 'description' - The description of the version.
+-- * 'compatibleRuntimes' - The layer's compatible runtimes.
 mkGetLayerVersionResponse ::
   GetLayerVersionResponse
 mkGetLayerVersionResponse =

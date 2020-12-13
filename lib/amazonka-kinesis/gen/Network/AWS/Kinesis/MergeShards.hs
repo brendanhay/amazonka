@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,9 +28,9 @@ module Network.AWS.Kinesis.MergeShards
     mkMergeShards,
 
     -- ** Request lenses
-    msStreamName,
     msShardToMerge,
     msAdjacentShardToMerge,
+    msStreamName,
 
     -- * Destructuring the response
     MergeShardsResponse (..),
@@ -47,45 +48,35 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkMergeShards' smart constructor.
 data MergeShards = MergeShards'
-  { streamName :: Lude.Text,
+  { -- | The shard ID of the shard to combine with the adjacent shard for the merge.
     shardToMerge :: Lude.Text,
-    adjacentShardToMerge :: Lude.Text
+    -- | The shard ID of the adjacent shard for the merge.
+    adjacentShardToMerge :: Lude.Text,
+    -- | The name of the stream for the merge.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeShards' with the minimum fields required to make a request.
 --
--- * 'adjacentShardToMerge' - The shard ID of the adjacent shard for the merge.
 -- * 'shardToMerge' - The shard ID of the shard to combine with the adjacent shard for the merge.
+-- * 'adjacentShardToMerge' - The shard ID of the adjacent shard for the merge.
 -- * 'streamName' - The name of the stream for the merge.
 mkMergeShards ::
-  -- | 'streamName'
-  Lude.Text ->
   -- | 'shardToMerge'
   Lude.Text ->
   -- | 'adjacentShardToMerge'
   Lude.Text ->
+  -- | 'streamName'
+  Lude.Text ->
   MergeShards
-mkMergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ =
+mkMergeShards pShardToMerge_ pAdjacentShardToMerge_ pStreamName_ =
   MergeShards'
-    { streamName = pStreamName_,
-      shardToMerge = pShardToMerge_,
-      adjacentShardToMerge = pAdjacentShardToMerge_
+    { shardToMerge = pShardToMerge_,
+      adjacentShardToMerge = pAdjacentShardToMerge_,
+      streamName = pStreamName_
     }
-
--- | The name of the stream for the merge.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msStreamName :: Lens.Lens' MergeShards Lude.Text
-msStreamName = Lens.lens (streamName :: MergeShards -> Lude.Text) (\s a -> s {streamName = a} :: MergeShards)
-{-# DEPRECATED msStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The shard ID of the shard to combine with the adjacent shard for the merge.
 --
@@ -100,6 +91,13 @@ msShardToMerge = Lens.lens (shardToMerge :: MergeShards -> Lude.Text) (\s a -> s
 msAdjacentShardToMerge :: Lens.Lens' MergeShards Lude.Text
 msAdjacentShardToMerge = Lens.lens (adjacentShardToMerge :: MergeShards -> Lude.Text) (\s a -> s {adjacentShardToMerge = a} :: MergeShards)
 {-# DEPRECATED msAdjacentShardToMerge "Use generic-lens or generic-optics with 'adjacentShardToMerge' instead." #-}
+
+-- | The name of the stream for the merge.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msStreamName :: Lens.Lens' MergeShards Lude.Text
+msStreamName = Lens.lens (streamName :: MergeShards -> Lude.Text) (\s a -> s {streamName = a} :: MergeShards)
+{-# DEPRECATED msStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Lude.AWSRequest MergeShards where
   type Rs MergeShards = MergeShardsResponse
@@ -121,9 +119,9 @@ instance Lude.ToJSON MergeShards where
   toJSON MergeShards' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StreamName" Lude..= streamName),
-            Lude.Just ("ShardToMerge" Lude..= shardToMerge),
-            Lude.Just ("AdjacentShardToMerge" Lude..= adjacentShardToMerge)
+          [ Lude.Just ("ShardToMerge" Lude..= shardToMerge),
+            Lude.Just ("AdjacentShardToMerge" Lude..= adjacentShardToMerge),
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
@@ -135,13 +133,7 @@ instance Lude.ToQuery MergeShards where
 
 -- | /See:/ 'mkMergeShardsResponse' smart constructor.
 data MergeShardsResponse = MergeShardsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeShardsResponse' with the minimum fields required to make a request.

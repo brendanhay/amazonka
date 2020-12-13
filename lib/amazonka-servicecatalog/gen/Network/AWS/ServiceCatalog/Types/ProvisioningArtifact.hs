@@ -33,30 +33,27 @@ import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
 --
 -- /See:/ 'mkProvisioningArtifact' smart constructor.
 data ProvisioningArtifact = ProvisioningArtifact'
-  { createdTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The UTC time stamp of the creation time.
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the provisioning artifact.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioning artifact.
     id :: Lude.Maybe Lude.Text,
-    guidance ::
-      Lude.Maybe ProvisioningArtifactGuidance,
+    -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+    guidance :: Lude.Maybe ProvisioningArtifactGuidance,
+    -- | The description of the provisioning artifact.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisioningArtifact' with the minimum fields required to make a request.
 --
 -- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'description' - The description of the provisioning artifact.
--- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
--- * 'id' - The identifier of the provisioning artifact.
 -- * 'name' - The name of the provisioning artifact.
+-- * 'id' - The identifier of the provisioning artifact.
+-- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+-- * 'description' - The description of the provisioning artifact.
 mkProvisioningArtifact ::
   ProvisioningArtifact
 mkProvisioningArtifact =

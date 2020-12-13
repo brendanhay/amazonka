@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSnapshotLimits' smart constructor.
 data SnapshotLimits = SnapshotLimits'
-  { manualSnapshotsLimitReached ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates if the manual snapshot limit has been reached.
+    manualSnapshotsLimitReached :: Lude.Maybe Lude.Bool,
+    -- | The current number of manual snapshots of the directory.
     manualSnapshotsCurrentCount :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of manual snapshots allowed.
     manualSnapshotsLimit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SnapshotLimits' with the minimum fields required to make a request.
 --
+-- * 'manualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
 -- * 'manualSnapshotsCurrentCount' - The current number of manual snapshots of the directory.
 -- * 'manualSnapshotsLimit' - The maximum number of manual snapshots allowed.
--- * 'manualSnapshotsLimitReached' - Indicates if the manual snapshot limit has been reached.
 mkSnapshotLimits ::
   SnapshotLimits
 mkSnapshotLimits =

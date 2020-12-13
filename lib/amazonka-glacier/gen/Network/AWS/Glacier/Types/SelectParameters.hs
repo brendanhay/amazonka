@@ -34,27 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSelectParameters' smart constructor.
 data SelectParameters = SelectParameters'
-  { expressionType ::
-      Lude.Maybe ExpressionType,
+  { -- | The type of the provided expression, for example @SQL@ .
+    expressionType :: Lude.Maybe ExpressionType,
+    -- | Describes how the results of the select job are serialized.
     outputSerialization :: Lude.Maybe OutputSerialization,
+    -- | The expression that is used to select the object.
     expression :: Lude.Maybe Lude.Text,
+    -- | Describes the serialization format of the object.
     inputSerialization :: Lude.Maybe InputSerialization
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectParameters' with the minimum fields required to make a request.
 --
--- * 'expression' - The expression that is used to select the object.
 -- * 'expressionType' - The type of the provided expression, for example @SQL@ .
--- * 'inputSerialization' - Describes the serialization format of the object.
 -- * 'outputSerialization' - Describes how the results of the select job are serialized.
+-- * 'expression' - The expression that is used to select the object.
+-- * 'inputSerialization' - Describes the serialization format of the object.
 mkSelectParameters ::
   SelectParameters
 mkSelectParameters =

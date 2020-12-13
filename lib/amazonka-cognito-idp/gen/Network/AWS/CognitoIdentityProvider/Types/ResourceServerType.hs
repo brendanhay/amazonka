@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceServerType' smart constructor.
 data ResourceServerType = ResourceServerType'
-  { userPoolId ::
-      Lude.Maybe Lude.Text,
+  { -- | The user pool ID for the user pool that hosts the resource server.
+    userPoolId :: Lude.Maybe Lude.Text,
+    -- | The identifier for the resource server.
     identifier :: Lude.Maybe Lude.Text,
+    -- | A list of scopes that are defined for the resource server.
     scopes :: Lude.Maybe [ResourceServerScopeType],
+    -- | The name of the resource server.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceServerType' with the minimum fields required to make a request.
 --
--- * 'identifier' - The identifier for the resource server.
--- * 'name' - The name of the resource server.
--- * 'scopes' - A list of scopes that are defined for the resource server.
 -- * 'userPoolId' - The user pool ID for the user pool that hosts the resource server.
+-- * 'identifier' - The identifier for the resource server.
+-- * 'scopes' - A list of scopes that are defined for the resource server.
+-- * 'name' - The name of the resource server.
 mkResourceServerType ::
   ResourceServerType
 mkResourceServerType =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,18 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartRemediationExecution' smart constructor.
 data StartRemediationExecution = StartRemediationExecution'
-  { configRuleName ::
-      Lude.Text,
-    resourceKeys ::
-      Lude.NonEmpty ResourceKey
+  { -- | The list of names of AWS Config rules that you want to run remediation execution for.
+    configRuleName :: Lude.Text,
+    -- | A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+    resourceKeys :: Lude.NonEmpty ResourceKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartRemediationExecution' with the minimum fields required to make a request.
@@ -131,29 +126,20 @@ instance Lude.ToQuery StartRemediationExecution where
 
 -- | /See:/ 'mkStartRemediationExecutionResponse' smart constructor.
 data StartRemediationExecutionResponse = StartRemediationExecutionResponse'
-  { failureMessage ::
-      Lude.Maybe Lude.Text,
-    failedItems ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ResourceKey
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a failure message. For example, the resource is already compliant.
+    failureMessage :: Lude.Maybe Lude.Text,
+    -- | For resources that have failed to start execution, the API returns a resource key object.
+    failedItems :: Lude.Maybe (Lude.NonEmpty ResourceKey),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartRemediationExecutionResponse' with the minimum fields required to make a request.
 --
--- * 'failedItems' - For resources that have failed to start execution, the API returns a resource key object.
 -- * 'failureMessage' - Returns a failure message. For example, the resource is already compliant.
+-- * 'failedItems' - For resources that have failed to start execution, the API returns a resource key object.
 -- * 'responseStatus' - The response status code.
 mkStartRemediationExecutionResponse ::
   -- | 'responseStatus'

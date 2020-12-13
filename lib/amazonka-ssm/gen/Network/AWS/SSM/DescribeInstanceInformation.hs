@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,31 +49,24 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeInstanceInformation' smart constructor.
 data DescribeInstanceInformation = DescribeInstanceInformation'
-  { instanceInformationFilterList ::
-      Lude.Maybe
-        [InstanceInformationFilter],
-    filters ::
-      Lude.Maybe
-        [InstanceInformationStringFilter],
+  { -- | This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
+    instanceInformationFilterList :: Lude.Maybe [InstanceInformationFilter],
+    -- | One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
+    filters :: Lude.Maybe [InstanceInformationStringFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceInformation' with the minimum fields required to make a request.
 --
--- * 'filters' - One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
 -- * 'instanceInformationFilterList' - This is a legacy method. We recommend that you don't use this method. Instead, use the @Filters@ data type. @Filters@ enables you to return instance information by filtering based on tags applied to managed instances.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- * 'filters' - One or more filters. Use a filter to return a more specific list of instances. You can filter based on tags applied to EC2 instances. Use this @Filters@ data type instead of @InstanceInformationFilterList@ , which is deprecated.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeInstanceInformation ::
   DescribeInstanceInformation
 mkDescribeInstanceInformation =
@@ -167,28 +161,20 @@ instance Lude.ToQuery DescribeInstanceInformation where
 
 -- | /See:/ 'mkDescribeInstanceInformationResponse' smart constructor.
 data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    instanceInformationList ::
-      Lude.Maybe
-        [InstanceInformation],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The instance information list.
+    instanceInformationList :: Lude.Maybe [InstanceInformation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceInformationResponse' with the minimum fields required to make a request.
 --
--- * 'instanceInformationList' - The instance information list.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'instanceInformationList' - The instance information list.
 -- * 'responseStatus' - The response status code.
 mkDescribeInstanceInformationResponse ::
   -- | 'responseStatus'

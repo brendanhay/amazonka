@@ -17,23 +17,23 @@ module Network.AWS.Lightsail.Types.Disk
     mkDisk,
 
     -- * Lenses
-    dState,
-    dResourceType,
-    dArn,
-    dPath,
-    dCreatedAt,
-    dLocation,
-    dIops,
-    dIsAttached,
-    dAddOns,
-    dAttachmentState,
-    dName,
-    dSizeInGb,
-    dSupportCode,
-    dIsSystemDisk,
-    dAttachedTo,
-    dGbInUse,
-    dTags,
+    dfState,
+    dfResourceType,
+    dfArn,
+    dfPath,
+    dfCreatedAt,
+    dfLocation,
+    dfIops,
+    dfIsAttached,
+    dfAddOns,
+    dfAttachmentState,
+    dfName,
+    dfSizeInGb,
+    dfSupportCode,
+    dfIsSystemDisk,
+    dfAttachedTo,
+    dfGbInUse,
+    dfTags,
   )
 where
 
@@ -49,51 +49,62 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDisk' smart constructor.
 data Disk = Disk'
-  { state :: Lude.Maybe DiskState,
+  { -- | Describes the status of the disk.
+    state :: Lude.Maybe DiskState,
+    -- | The Lightsail resource type (e.g., @Disk@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the disk.
     arn :: Lude.Maybe Lude.Text,
+    -- | The disk path.
     path :: Lude.Maybe Lude.Text,
+    -- | The date when the disk was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS Region and Availability Zone where the disk is located.
     location :: Lude.Maybe ResourceLocation,
+    -- | The input/output operations per second (IOPS) of the disk.
     iops :: Lude.Maybe Lude.Int,
+    -- | A Boolean value indicating whether the disk is attached.
     isAttached :: Lude.Maybe Lude.Bool,
+    -- | An array of objects representing the add-ons enabled on the disk.
     addOns :: Lude.Maybe [AddOn],
+    -- | (Deprecated) The attachment state of the disk.
     attachmentState :: Lude.Maybe Lude.Text,
+    -- | The unique name of the disk.
     name :: Lude.Maybe Lude.Text,
+    -- | The size of the disk in GB.
     sizeInGb :: Lude.Maybe Lude.Int,
+    -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
     isSystemDisk :: Lude.Maybe Lude.Bool,
+    -- | The resources to which the disk is attached.
     attachedTo :: Lude.Maybe Lude.Text,
+    -- | (Deprecated) The number of GB in use by the disk.
     gbInUse :: Lude.Maybe Lude.Int,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Disk' with the minimum fields required to make a request.
 --
--- * 'addOns' - An array of objects representing the add-ons enabled on the disk.
+-- * 'state' - Describes the status of the disk.
+-- * 'resourceType' - The Lightsail resource type (e.g., @Disk@ ).
 -- * 'arn' - The Amazon Resource Name (ARN) of the disk.
--- * 'attachedTo' - The resources to which the disk is attached.
--- * 'attachmentState' - (Deprecated) The attachment state of the disk.
+-- * 'path' - The disk path.
 -- * 'createdAt' - The date when the disk was created.
--- * 'gbInUse' - (Deprecated) The number of GB in use by the disk.
+-- * 'location' - The AWS Region and Availability Zone where the disk is located.
 -- * 'iops' - The input/output operations per second (IOPS) of the disk.
 -- * 'isAttached' - A Boolean value indicating whether the disk is attached.
--- * 'isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
--- * 'location' - The AWS Region and Availability Zone where the disk is located.
+-- * 'addOns' - An array of objects representing the add-ons enabled on the disk.
+-- * 'attachmentState' - (Deprecated) The attachment state of the disk.
 -- * 'name' - The unique name of the disk.
--- * 'path' - The disk path.
--- * 'resourceType' - The Lightsail resource type (e.g., @Disk@ ).
 -- * 'sizeInGb' - The size of the disk in GB.
--- * 'state' - Describes the status of the disk.
 -- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+-- * 'isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
+-- * 'attachedTo' - The resources to which the disk is attached.
+-- * 'gbInUse' - (Deprecated) The number of GB in use by the disk.
 -- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkDisk ::
   Disk
@@ -121,121 +132,121 @@ mkDisk =
 -- | Describes the status of the disk.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dState :: Lens.Lens' Disk (Lude.Maybe DiskState)
-dState = Lens.lens (state :: Disk -> Lude.Maybe DiskState) (\s a -> s {state = a} :: Disk)
-{-# DEPRECATED dState "Use generic-lens or generic-optics with 'state' instead." #-}
+dfState :: Lens.Lens' Disk (Lude.Maybe DiskState)
+dfState = Lens.lens (state :: Disk -> Lude.Maybe DiskState) (\s a -> s {state = a} :: Disk)
+{-# DEPRECATED dfState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The Lightsail resource type (e.g., @Disk@ ).
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dResourceType :: Lens.Lens' Disk (Lude.Maybe ResourceType)
-dResourceType = Lens.lens (resourceType :: Disk -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: Disk)
-{-# DEPRECATED dResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+dfResourceType :: Lens.Lens' Disk (Lude.Maybe ResourceType)
+dfResourceType = Lens.lens (resourceType :: Disk -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: Disk)
+{-# DEPRECATED dfResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the disk.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dArn :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
-dArn = Lens.lens (arn :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Disk)
-{-# DEPRECATED dArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+dfArn :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dfArn = Lens.lens (arn :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Disk)
+{-# DEPRECATED dfArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The disk path.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPath :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
-dPath = Lens.lens (path :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: Disk)
-{-# DEPRECATED dPath "Use generic-lens or generic-optics with 'path' instead." #-}
+dfPath :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dfPath = Lens.lens (path :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: Disk)
+{-# DEPRECATED dfPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The date when the disk was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCreatedAt :: Lens.Lens' Disk (Lude.Maybe Lude.Timestamp)
-dCreatedAt = Lens.lens (createdAt :: Disk -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Disk)
-{-# DEPRECATED dCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+dfCreatedAt :: Lens.Lens' Disk (Lude.Maybe Lude.Timestamp)
+dfCreatedAt = Lens.lens (createdAt :: Disk -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Disk)
+{-# DEPRECATED dfCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The AWS Region and Availability Zone where the disk is located.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLocation :: Lens.Lens' Disk (Lude.Maybe ResourceLocation)
-dLocation = Lens.lens (location :: Disk -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: Disk)
-{-# DEPRECATED dLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+dfLocation :: Lens.Lens' Disk (Lude.Maybe ResourceLocation)
+dfLocation = Lens.lens (location :: Disk -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: Disk)
+{-# DEPRECATED dfLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The input/output operations per second (IOPS) of the disk.
 --
 -- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dIops :: Lens.Lens' Disk (Lude.Maybe Lude.Int)
-dIops = Lens.lens (iops :: Disk -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: Disk)
-{-# DEPRECATED dIops "Use generic-lens or generic-optics with 'iops' instead." #-}
+dfIops :: Lens.Lens' Disk (Lude.Maybe Lude.Int)
+dfIops = Lens.lens (iops :: Disk -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: Disk)
+{-# DEPRECATED dfIops "Use generic-lens or generic-optics with 'iops' instead." #-}
 
 -- | A Boolean value indicating whether the disk is attached.
 --
 -- /Note:/ Consider using 'isAttached' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dIsAttached :: Lens.Lens' Disk (Lude.Maybe Lude.Bool)
-dIsAttached = Lens.lens (isAttached :: Disk -> Lude.Maybe Lude.Bool) (\s a -> s {isAttached = a} :: Disk)
-{-# DEPRECATED dIsAttached "Use generic-lens or generic-optics with 'isAttached' instead." #-}
+dfIsAttached :: Lens.Lens' Disk (Lude.Maybe Lude.Bool)
+dfIsAttached = Lens.lens (isAttached :: Disk -> Lude.Maybe Lude.Bool) (\s a -> s {isAttached = a} :: Disk)
+{-# DEPRECATED dfIsAttached "Use generic-lens or generic-optics with 'isAttached' instead." #-}
 
 -- | An array of objects representing the add-ons enabled on the disk.
 --
 -- /Note:/ Consider using 'addOns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAddOns :: Lens.Lens' Disk (Lude.Maybe [AddOn])
-dAddOns = Lens.lens (addOns :: Disk -> Lude.Maybe [AddOn]) (\s a -> s {addOns = a} :: Disk)
-{-# DEPRECATED dAddOns "Use generic-lens or generic-optics with 'addOns' instead." #-}
+dfAddOns :: Lens.Lens' Disk (Lude.Maybe [AddOn])
+dfAddOns = Lens.lens (addOns :: Disk -> Lude.Maybe [AddOn]) (\s a -> s {addOns = a} :: Disk)
+{-# DEPRECATED dfAddOns "Use generic-lens or generic-optics with 'addOns' instead." #-}
 
 -- | (Deprecated) The attachment state of the disk.
 --
 -- /Note:/ Consider using 'attachmentState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAttachmentState :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
-dAttachmentState = Lens.lens (attachmentState :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {attachmentState = a} :: Disk)
-{-# DEPRECATED dAttachmentState "Use generic-lens or generic-optics with 'attachmentState' instead." #-}
+dfAttachmentState :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dfAttachmentState = Lens.lens (attachmentState :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {attachmentState = a} :: Disk)
+{-# DEPRECATED dfAttachmentState "Use generic-lens or generic-optics with 'attachmentState' instead." #-}
 
 -- | The unique name of the disk.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
-dName = Lens.lens (name :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Disk)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+dfName :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dfName = Lens.lens (name :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Disk)
+{-# DEPRECATED dfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The size of the disk in GB.
 --
 -- /Note:/ Consider using 'sizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSizeInGb :: Lens.Lens' Disk (Lude.Maybe Lude.Int)
-dSizeInGb = Lens.lens (sizeInGb :: Disk -> Lude.Maybe Lude.Int) (\s a -> s {sizeInGb = a} :: Disk)
-{-# DEPRECATED dSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
+dfSizeInGb :: Lens.Lens' Disk (Lude.Maybe Lude.Int)
+dfSizeInGb = Lens.lens (sizeInGb :: Disk -> Lude.Maybe Lude.Int) (\s a -> s {sizeInGb = a} :: Disk)
+{-# DEPRECATED dfSizeInGb "Use generic-lens or generic-optics with 'sizeInGb' instead." #-}
 
 -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 --
 -- /Note:/ Consider using 'supportCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSupportCode :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
-dSupportCode = Lens.lens (supportCode :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: Disk)
-{-# DEPRECATED dSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
+dfSupportCode :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dfSupportCode = Lens.lens (supportCode :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {supportCode = a} :: Disk)
+{-# DEPRECATED dfSupportCode "Use generic-lens or generic-optics with 'supportCode' instead." #-}
 
 -- | A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
 --
 -- /Note:/ Consider using 'isSystemDisk' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dIsSystemDisk :: Lens.Lens' Disk (Lude.Maybe Lude.Bool)
-dIsSystemDisk = Lens.lens (isSystemDisk :: Disk -> Lude.Maybe Lude.Bool) (\s a -> s {isSystemDisk = a} :: Disk)
-{-# DEPRECATED dIsSystemDisk "Use generic-lens or generic-optics with 'isSystemDisk' instead." #-}
+dfIsSystemDisk :: Lens.Lens' Disk (Lude.Maybe Lude.Bool)
+dfIsSystemDisk = Lens.lens (isSystemDisk :: Disk -> Lude.Maybe Lude.Bool) (\s a -> s {isSystemDisk = a} :: Disk)
+{-# DEPRECATED dfIsSystemDisk "Use generic-lens or generic-optics with 'isSystemDisk' instead." #-}
 
 -- | The resources to which the disk is attached.
 --
 -- /Note:/ Consider using 'attachedTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAttachedTo :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
-dAttachedTo = Lens.lens (attachedTo :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {attachedTo = a} :: Disk)
-{-# DEPRECATED dAttachedTo "Use generic-lens or generic-optics with 'attachedTo' instead." #-}
+dfAttachedTo :: Lens.Lens' Disk (Lude.Maybe Lude.Text)
+dfAttachedTo = Lens.lens (attachedTo :: Disk -> Lude.Maybe Lude.Text) (\s a -> s {attachedTo = a} :: Disk)
+{-# DEPRECATED dfAttachedTo "Use generic-lens or generic-optics with 'attachedTo' instead." #-}
 
 -- | (Deprecated) The number of GB in use by the disk.
 --
 -- /Note:/ Consider using 'gbInUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGbInUse :: Lens.Lens' Disk (Lude.Maybe Lude.Int)
-dGbInUse = Lens.lens (gbInUse :: Disk -> Lude.Maybe Lude.Int) (\s a -> s {gbInUse = a} :: Disk)
-{-# DEPRECATED dGbInUse "Use generic-lens or generic-optics with 'gbInUse' instead." #-}
+dfGbInUse :: Lens.Lens' Disk (Lude.Maybe Lude.Int)
+dfGbInUse = Lens.lens (gbInUse :: Disk -> Lude.Maybe Lude.Int) (\s a -> s {gbInUse = a} :: Disk)
+{-# DEPRECATED dfGbInUse "Use generic-lens or generic-optics with 'gbInUse' instead." #-}
 
 -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTags :: Lens.Lens' Disk (Lude.Maybe [Tag])
-dTags = Lens.lens (tags :: Disk -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Disk)
-{-# DEPRECATED dTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dfTags :: Lens.Lens' Disk (Lude.Maybe [Tag])
+dfTags = Lens.lens (tags :: Disk -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Disk)
+{-# DEPRECATED dfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.FromJSON Disk where
   parseJSON =

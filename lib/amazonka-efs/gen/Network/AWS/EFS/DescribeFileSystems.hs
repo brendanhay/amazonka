@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,25 +55,22 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeFileSystems' smart constructor.
 data DescribeFileSystems = DescribeFileSystems'
-  { fileSystemId ::
-      Lude.Maybe Lude.Text,
+  { -- | (Optional) ID of the file system whose description you want to retrieve (String).
+    fileSystemId :: Lude.Maybe Lude.Text,
+    -- | (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
     creationToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
     marker :: Lude.Maybe Lude.Text,
+    -- | (Optional) Specifies the maximum number of file systems to return in the response (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFileSystems' with the minimum fields required to make a request.
 --
--- * 'creationToken' - (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
 -- * 'fileSystemId' - (Optional) ID of the file system whose description you want to retrieve (String).
+-- * 'creationToken' - (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
 -- * 'marker' - (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
 -- * 'maxItems' - (Optional) Specifies the maximum number of file systems to return in the response (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
 mkDescribeFileSystems ::
@@ -152,19 +150,16 @@ instance Lude.ToQuery DescribeFileSystems where
 
 -- | /See:/ 'mkDescribeFileSystemsResponse' smart constructor.
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-  { fileSystems ::
-      Lude.Maybe [FileSystemDescription],
+  { -- | An array of file system descriptions.
+    fileSystems :: Lude.Maybe [FileSystemDescription],
+    -- | Present if provided by caller in the request (String).
     marker :: Lude.Maybe Lude.Text,
+    -- | Present if there are more file systems than returned in the response (String). You can use the @NextMarker@ in the subsequent request to fetch the descriptions.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFileSystemsResponse' with the minimum fields required to make a request.

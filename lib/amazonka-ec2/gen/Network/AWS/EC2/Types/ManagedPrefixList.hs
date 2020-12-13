@@ -39,39 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedPrefixList' smart constructor.
 data ManagedPrefixList = ManagedPrefixList'
-  { stateMessage ::
-      Lude.Maybe Lude.Text,
+  { -- | The state message.
+    stateMessage :: Lude.Maybe Lude.Text,
+    -- | The state of the prefix list.
     state :: Lude.Maybe PrefixListState,
+    -- | The Amazon Resource Name (ARN) for the prefix list.
     prefixListARN :: Lude.Maybe Lude.Text,
+    -- | The IP address version.
     addressFamily :: Lude.Maybe Lude.Text,
+    -- | The ID of the owner of the prefix list.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the prefix list.
     prefixListId :: Lude.Maybe Lude.Text,
+    -- | The version of the prefix list.
     version :: Lude.Maybe Lude.Integer,
+    -- | The name of the prefix list.
     prefixListName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of entries for the prefix list.
     maxEntries :: Lude.Maybe Lude.Int,
+    -- | The tags for the prefix list.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedPrefixList' with the minimum fields required to make a request.
 --
--- * 'addressFamily' - The IP address version.
--- * 'maxEntries' - The maximum number of entries for the prefix list.
--- * 'ownerId' - The ID of the owner of the prefix list.
--- * 'prefixListARN' - The Amazon Resource Name (ARN) for the prefix list.
--- * 'prefixListId' - The ID of the prefix list.
--- * 'prefixListName' - The name of the prefix list.
--- * 'state' - The state of the prefix list.
 -- * 'stateMessage' - The state message.
--- * 'tags' - The tags for the prefix list.
+-- * 'state' - The state of the prefix list.
+-- * 'prefixListARN' - The Amazon Resource Name (ARN) for the prefix list.
+-- * 'addressFamily' - The IP address version.
+-- * 'ownerId' - The ID of the owner of the prefix list.
+-- * 'prefixListId' - The ID of the prefix list.
 -- * 'version' - The version of the prefix list.
+-- * 'prefixListName' - The name of the prefix list.
+-- * 'maxEntries' - The maximum number of entries for the prefix list.
+-- * 'tags' - The tags for the prefix list.
 mkManagedPrefixList ::
   ManagedPrefixList
 mkManagedPrefixList =

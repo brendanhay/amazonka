@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,13 +37,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUnpeerVPC' smart constructor.
 data UnpeerVPC = UnpeerVPC'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnpeerVPC' with the minimum fields required to make a request.
@@ -82,17 +77,12 @@ instance Lude.ToQuery UnpeerVPC where
 
 -- | /See:/ 'mkUnpeerVPCResponse' smart constructor.
 data UnpeerVPCResponse = UnpeerVPCResponse'
-  { operation ::
-      Lude.Maybe Operation,
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operation :: Lude.Maybe Operation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnpeerVPCResponse' with the minimum fields required to make a request.

@@ -34,35 +34,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAction' smart constructor.
 data Action = Action'
-  { notificationProperty ::
-      Lude.Maybe NotificationProperty,
+  { -- | Specifies configuration properties of a job run notification.
+    notificationProperty :: Lude.Maybe NotificationProperty,
+    -- | The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
+    --
+    -- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+    -- For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
+    -- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
     arguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of a job to be executed.
     jobName :: Lude.Maybe Lude.Text,
+    -- | The name of the @SecurityConfiguration@ structure to be used with this action.
     securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
     timeout :: Lude.Maybe Lude.Natural,
+    -- | The name of the crawler to be used with this action.
     crawlerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Action' with the minimum fields required to make a request.
 --
+-- * 'notificationProperty' - Specifies configuration properties of a job run notification.
 -- * 'arguments' - The job arguments used when this trigger fires. For this job run, they replace the default arguments set in the job definition itself.
 --
 -- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
 -- For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
 -- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
--- * 'crawlerName' - The name of the crawler to be used with this action.
 -- * 'jobName' - The name of a job to be executed.
--- * 'notificationProperty' - Specifies configuration properties of a job run notification.
 -- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this action.
 -- * 'timeout' - The @JobRun@ timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours). This overrides the timeout value set in the parent job.
+-- * 'crawlerName' - The name of the crawler to be used with this action.
 mkAction ::
   Action
 mkAction =

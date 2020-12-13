@@ -39,14 +39,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 --
 -- /See:/ 'mkMeetingSetting' smart constructor.
-newtype MeetingSetting = MeetingSetting' {requirePin :: RequirePin}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype MeetingSetting = MeetingSetting'
+  { -- | The values that indicate whether the pin is always required.
+    requirePin :: RequirePin
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MeetingSetting' with the minimum fields required to make a request.

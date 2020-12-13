@@ -30,23 +30,18 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkObjectIdentifier' smart constructor.
 data ObjectIdentifier = ObjectIdentifier'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
+  { -- | VersionId for the specific version of the object to delete.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | Key name of the object to delete.
     key :: ObjectKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectIdentifier' with the minimum fields required to make a request.
 --
--- * 'key' - Key name of the object to delete.
 -- * 'versionId' - VersionId for the specific version of the object to delete.
+-- * 'key' - Key name of the object to delete.
 mkObjectIdentifier ::
   -- | 'key'
   ObjectKey ->

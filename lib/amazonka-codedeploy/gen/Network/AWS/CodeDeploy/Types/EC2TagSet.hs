@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2TagSet' smart constructor.
 newtype EC2TagSet = EC2TagSet'
-  { ec2TagSetList ::
-      Lude.Maybe [[EC2TagFilter]]
+  { -- | A list that contains other lists of EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+    ec2TagSetList :: Lude.Maybe [[EC2TagFilter]]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2TagSet' with the minimum fields required to make a request.

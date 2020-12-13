@@ -33,30 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestination' smart constructor.
 data Destination = Destination'
-  { targetARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     creationTime :: Lude.Maybe Lude.Natural,
+    -- | The ARN of this destination.
     arn :: Lude.Maybe Lude.Text,
+    -- | An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
     accessPolicy :: Lude.Maybe Lude.Text,
+    -- | The name of the destination.
     destinationName :: Lude.Maybe Lude.Text,
+    -- | A role for impersonation, used when delivering log events to the target.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
--- * 'accessPolicy' - An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
--- * 'arn' - The ARN of this destination.
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
 -- * 'creationTime' - The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- * 'arn' - The ARN of this destination.
+-- * 'accessPolicy' - An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 -- * 'destinationName' - The name of the destination.
 -- * 'roleARN' - A role for impersonation, used when delivering log events to the target.
--- * 'targetARN' - The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
 mkDestination ::
   Destination
 mkDestination =

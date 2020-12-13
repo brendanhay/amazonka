@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Lambda.ListAliases
     -- ** Request lenses
     laMarker,
     laMaxItems,
-    laFunctionVersion,
     laFunctionName,
+    laFunctionVersion,
 
     -- * Destructuring the response
     ListAliasesResponse (..),
@@ -46,22 +47,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { marker :: Lude.Maybe Lude.Text,
+  { -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Limit the number of aliases returned.
     maxItems :: Lude.Maybe Lude.Natural,
-    functionVersion :: Lude.Maybe Lude.Text,
-    functionName :: Lude.Text
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | Specify a function version to only list aliases that invoke that version.
+    functionVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
 --
+-- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
+-- * 'maxItems' - Limit the number of aliases returned.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -77,8 +91,6 @@ data ListAliases = ListAliases'
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 -- * 'functionVersion' - Specify a function version to only list aliases that invoke that version.
--- * 'marker' - Specify the pagination token that's returned by a previous request to retrieve the next page of results.
--- * 'maxItems' - Limit the number of aliases returned.
 mkListAliases ::
   -- | 'functionName'
   Lude.Text ->
@@ -87,8 +99,8 @@ mkListAliases pFunctionName_ =
   ListAliases'
     { marker = Lude.Nothing,
       maxItems = Lude.Nothing,
-      functionVersion = Lude.Nothing,
-      functionName = pFunctionName_
+      functionName = pFunctionName_,
+      functionVersion = Lude.Nothing
     }
 
 -- | Specify the pagination token that's returned by a previous request to retrieve the next page of results.
@@ -104,13 +116,6 @@ laMarker = Lens.lens (marker :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s 
 laMaxItems :: Lens.Lens' ListAliases (Lude.Maybe Lude.Natural)
 laMaxItems = Lens.lens (maxItems :: ListAliases -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListAliases)
 {-# DEPRECATED laMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
--- | Specify a function version to only list aliases that invoke that version.
---
--- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laFunctionVersion :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
-laFunctionVersion = Lens.lens (functionVersion :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {functionVersion = a} :: ListAliases)
-{-# DEPRECATED laFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -131,6 +136,13 @@ laFunctionVersion = Lens.lens (functionVersion :: ListAliases -> Lude.Maybe Lude
 laFunctionName :: Lens.Lens' ListAliases Lude.Text
 laFunctionName = Lens.lens (functionName :: ListAliases -> Lude.Text) (\s a -> s {functionName = a} :: ListAliases)
 {-# DEPRECATED laFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | Specify a function version to only list aliases that invoke that version.
+--
+-- /Note:/ Consider using 'functionVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laFunctionVersion :: Lens.Lens' ListAliases (Lude.Maybe Lude.Text)
+laFunctionVersion = Lens.lens (functionVersion :: ListAliases -> Lude.Maybe Lude.Text) (\s a -> s {functionVersion = a} :: ListAliases)
+{-# DEPRECATED laFunctionVersion "Use generic-lens or generic-optics with 'functionVersion' instead." #-}
 
 instance Page.AWSPager ListAliases where
   page rq rs
@@ -171,18 +183,14 @@ instance Lude.ToQuery ListAliases where
 
 -- | /See:/ 'mkListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { aliases ::
-      Lude.Maybe [AliasConfiguration],
+  { -- | A list of aliases.
+    aliases :: Lude.Maybe [AliasConfiguration],
+    -- | The pagination token that's included if more results are available.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.

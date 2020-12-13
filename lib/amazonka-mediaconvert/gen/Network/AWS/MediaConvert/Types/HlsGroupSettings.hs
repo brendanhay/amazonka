@@ -70,75 +70,90 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsGroupSettings' smart constructor.
 data HlsGroupSettings = HlsGroupSettings'
-  { directoryStructure ::
-      Lude.Maybe HlsDirectoryStructure,
+  { -- | Indicates whether segments should be placed in subdirectories.
+    directoryStructure :: Lude.Maybe HlsDirectoryStructure,
+    -- | When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
     segmentControl :: Lude.Maybe HlsSegmentControl,
+    -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
     destination :: Lude.Maybe Lude.Text,
+    -- | Timed Metadata interval in seconds.
     timedMetadataId3Period :: Lude.Maybe Lude.Int,
+    -- | By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
     additionalManifests :: Lude.Maybe [HlsAdditionalManifest],
+    -- | When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
     minSegmentLength :: Lude.Maybe Lude.Natural,
+    -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
     programDateTime :: Lude.Maybe HlsProgramDateTime,
+    -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
     programDateTimePeriod :: Lude.Maybe Lude.Natural,
+    -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
     codecSpecification :: Lude.Maybe HlsCodecSpecification,
-    captionLanguageMappings ::
-      Lude.Maybe [HlsCaptionLanguageMapping],
+    -- | Language to be used on Caption outputs
+    captionLanguageMappings :: Lude.Maybe [HlsCaptionLanguageMapping],
+    -- | A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
     baseURL :: Lude.Maybe Lude.Text,
+    -- | Settings associated with the destination. Will vary based on the type of destination
     destinationSettings :: Lude.Maybe DestinationSettings,
+    -- | Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
     minFinalSegmentLength :: Lude.Maybe Lude.Double,
+    -- | Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
     adMarkers :: Lude.Maybe [HlsAdMarkers],
+    -- | DRM settings.
     encryption :: Lude.Maybe HlsEncryptionSettings,
+    -- | Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
     segmentLength :: Lude.Maybe Lude.Natural,
-    timedMetadataId3Frame ::
-      Lude.Maybe HlsTimedMetadataId3Frame,
+    -- | Indicates ID3 frame that has the timecode.
+    timedMetadataId3Frame :: Lude.Maybe HlsTimedMetadataId3Frame,
+    -- | Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
     outputSelection :: Lude.Maybe HlsOutputSelection,
-    captionLanguageSetting ::
-      Lude.Maybe HlsCaptionLanguageSetting,
+    -- | Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
+    captionLanguageSetting :: Lude.Maybe HlsCaptionLanguageSetting,
+    -- | Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
     segmentsPerSubdirectory :: Lude.Maybe Lude.Natural,
-    manifestDurationFormat ::
-      Lude.Maybe HlsManifestDurationFormat,
+    -- | Indicates whether the output manifest should use floating point values for segment duration.
+    manifestDurationFormat :: Lude.Maybe HlsManifestDurationFormat,
+    -- | Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
     audioOnlyHeader :: Lude.Maybe HlsAudioOnlyHeader,
+    -- | Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.
     clientCache :: Lude.Maybe HlsClientCache,
+    -- | Provides an extra millisecond delta offset to fine tune the timestamps.
     timestampDeltaMilliseconds :: Lude.Maybe Lude.Int,
+    -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
     streamInfResolution :: Lude.Maybe HlsStreamInfResolution,
+    -- | When set to GZIP, compresses HLS playlist.
     manifestCompression :: Lude.Maybe HlsManifestCompression
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsGroupSettings' with the minimum fields required to make a request.
 --
--- * 'adMarkers' - Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
--- * 'additionalManifests' - By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
--- * 'audioOnlyHeader' - Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
--- * 'baseURL' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
--- * 'captionLanguageMappings' - Language to be used on Caption outputs
--- * 'captionLanguageSetting' - Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
--- * 'clientCache' - Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.
--- * 'codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
--- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
--- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
 -- * 'directoryStructure' - Indicates whether segments should be placed in subdirectories.
--- * 'encryption' - DRM settings.
--- * 'manifestCompression' - When set to GZIP, compresses HLS playlist.
--- * 'manifestDurationFormat' - Indicates whether the output manifest should use floating point values for segment duration.
--- * 'minFinalSegmentLength' - Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
+-- * 'segmentControl' - When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
+-- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+-- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
+-- * 'additionalManifests' - By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
 -- * 'minSegmentLength' - When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
--- * 'outputSelection' - Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
 -- * 'programDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
 -- * 'programDateTimePeriod' - Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
--- * 'segmentControl' - When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
+-- * 'codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+-- * 'captionLanguageMappings' - Language to be used on Caption outputs
+-- * 'baseURL' - A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
+-- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
+-- * 'minFinalSegmentLength' - Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
+-- * 'adMarkers' - Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
+-- * 'encryption' - DRM settings.
 -- * 'segmentLength' - Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
--- * 'segmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
--- * 'streamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
 -- * 'timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
--- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
+-- * 'outputSelection' - Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
+-- * 'captionLanguageSetting' - Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
+-- * 'segmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
+-- * 'manifestDurationFormat' - Indicates whether the output manifest should use floating point values for segment duration.
+-- * 'audioOnlyHeader' - Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
+-- * 'clientCache' - Disable this setting only when your workflow requires the #EXT-X-ALLOW-CACHE:no tag. Otherwise, keep the default value Enabled (ENABLED) and control caching in your video distribution set up. For example, use the Cache-Control http header.
 -- * 'timestampDeltaMilliseconds' - Provides an extra millisecond delta offset to fine tune the timestamps.
+-- * 'streamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
+-- * 'manifestCompression' - When set to GZIP, compresses HLS playlist.
 mkHlsGroupSettings ::
   HlsGroupSettings
 mkHlsGroupSettings =

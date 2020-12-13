@@ -13,9 +13,9 @@
 module Network.AWS.Route53AutoNaming.Types.FilterCondition
   ( FilterCondition
       ( FilterCondition',
-        Between,
         EQ,
-        IN
+        IN,
+        Between
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FilterCondition = FilterCondition' Lude.Text
       Lude.ToHeader
     )
 
-pattern Between :: FilterCondition
-pattern Between = FilterCondition' "BETWEEN"
-
 pattern EQ :: FilterCondition
 pattern EQ = FilterCondition' "EQ"
 
 pattern IN :: FilterCondition
 pattern IN = FilterCondition' "IN"
 
+pattern Between :: FilterCondition
+pattern Between = FilterCondition' "BETWEEN"
+
 {-# COMPLETE
-  Between,
   EQ,
   IN,
+  Between,
   FilterCondition'
   #-}

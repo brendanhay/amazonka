@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.EC2.GetConsoleOutput
     mkGetConsoleOutput,
 
     -- ** Request lenses
+    gcoInstanceId,
     gcoLatest,
     gcoDryRun,
-    gcoInstanceId,
 
     -- * Destructuring the response
     GetConsoleOutputResponse (..),
@@ -47,37 +48,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConsoleOutput' smart constructor.
 data GetConsoleOutput = GetConsoleOutput'
-  { latest ::
-      Lude.Maybe Lude.Bool,
-    dryRun :: Lude.Maybe Lude.Bool,
-    instanceId :: Lude.Text
+  { -- | The ID of the instance.
+    instanceId :: Lude.Text,
+    -- | When enabled, retrieves the latest console output for the instance.
+    --
+    -- Default: disabled (@false@ )
+    latest :: Lude.Maybe Lude.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConsoleOutput' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceId' - The ID of the instance.
 -- * 'latest' - When enabled, retrieves the latest console output for the instance.
 --
 -- Default: disabled (@false@ )
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkGetConsoleOutput ::
   -- | 'instanceId'
   Lude.Text ->
   GetConsoleOutput
 mkGetConsoleOutput pInstanceId_ =
   GetConsoleOutput'
-    { latest = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      latest = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcoInstanceId :: Lens.Lens' GetConsoleOutput Lude.Text
+gcoInstanceId = Lens.lens (instanceId :: GetConsoleOutput -> Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleOutput)
+{-# DEPRECATED gcoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | When enabled, retrieves the latest console output for the instance.
 --
@@ -94,13 +100,6 @@ gcoLatest = Lens.lens (latest :: GetConsoleOutput -> Lude.Maybe Lude.Bool) (\s a
 gcoDryRun :: Lens.Lens' GetConsoleOutput (Lude.Maybe Lude.Bool)
 gcoDryRun = Lens.lens (dryRun :: GetConsoleOutput -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetConsoleOutput)
 {-# DEPRECATED gcoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcoInstanceId :: Lens.Lens' GetConsoleOutput Lude.Text
-gcoInstanceId = Lens.lens (instanceId :: GetConsoleOutput -> Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleOutput)
-{-# DEPRECATED gcoInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest GetConsoleOutput where
   type Rs GetConsoleOutput = GetConsoleOutputResponse
@@ -126,34 +125,31 @@ instance Lude.ToQuery GetConsoleOutput where
     Lude.mconcat
       [ "Action" Lude.=: ("GetConsoleOutput" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceId" Lude.=: instanceId,
         "Latest" Lude.=: latest,
-        "DryRun" Lude.=: dryRun,
-        "InstanceId" Lude.=: instanceId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkGetConsoleOutputResponse' smart constructor.
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The console output, base64-encoded. If you are using a command line tool, the tool decodes the output for you.
     output :: Lude.Maybe Lude.Text,
+    -- | The time at which the output was last updated.
     timestamp :: Lude.Maybe Lude.DateTime,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConsoleOutputResponse' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The ID of the instance.
 -- * 'output' - The console output, base64-encoded. If you are using a command line tool, the tool decodes the output for you.
--- * 'responseStatus' - The response status code.
 -- * 'timestamp' - The time at which the output was last updated.
+-- * 'responseStatus' - The response status code.
 mkGetConsoleOutputResponse ::
   -- | 'responseStatus'
   Lude.Int ->

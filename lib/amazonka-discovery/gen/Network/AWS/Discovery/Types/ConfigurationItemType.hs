@@ -13,10 +13,10 @@
 module Network.AWS.Discovery.Types.ConfigurationItemType
   ( ConfigurationItemType
       ( ConfigurationItemType',
-        Application,
-        Connection,
+        Server,
         Process,
-        Server
+        Connection,
+        Application
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ConfigurationItemType = ConfigurationItemType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Application :: ConfigurationItemType
-pattern Application = ConfigurationItemType' "APPLICATION"
-
-pattern Connection :: ConfigurationItemType
-pattern Connection = ConfigurationItemType' "CONNECTION"
+pattern Server :: ConfigurationItemType
+pattern Server = ConfigurationItemType' "SERVER"
 
 pattern Process :: ConfigurationItemType
 pattern Process = ConfigurationItemType' "PROCESS"
 
-pattern Server :: ConfigurationItemType
-pattern Server = ConfigurationItemType' "SERVER"
+pattern Connection :: ConfigurationItemType
+pattern Connection = ConfigurationItemType' "CONNECTION"
+
+pattern Application :: ConfigurationItemType
+pattern Application = ConfigurationItemType' "APPLICATION"
 
 {-# COMPLETE
-  Application,
-  Connection,
-  Process,
   Server,
+  Process,
+  Connection,
+  Application,
   ConfigurationItemType'
   #-}

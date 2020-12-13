@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.AlexaBusiness.UpdateGateway
     mkUpdateGateway,
 
     -- ** Request lenses
+    ugGatewayARN,
     ugName,
     ugSoftwareVersion,
     ugDescription,
-    ugGatewayARN,
 
     -- * Destructuring the response
     UpdateGatewayResponse (..),
@@ -41,37 +42,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGateway' smart constructor.
 data UpdateGateway = UpdateGateway'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the gateway to update.
+    gatewayARN :: Lude.Text,
+    -- | The updated name of the gateway.
+    name :: Lude.Maybe Lude.Text,
+    -- | The updated software version of the gateway. The gateway automatically updates its software version during normal operation.
     softwareVersion :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    gatewayARN :: Lude.Text
+    -- | The updated description of the gateway.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGateway' with the minimum fields required to make a request.
 --
--- * 'description' - The updated description of the gateway.
 -- * 'gatewayARN' - The ARN of the gateway to update.
 -- * 'name' - The updated name of the gateway.
 -- * 'softwareVersion' - The updated software version of the gateway. The gateway automatically updates its software version during normal operation.
+-- * 'description' - The updated description of the gateway.
 mkUpdateGateway ::
   -- | 'gatewayARN'
   Lude.Text ->
   UpdateGateway
 mkUpdateGateway pGatewayARN_ =
   UpdateGateway'
-    { name = Lude.Nothing,
+    { gatewayARN = pGatewayARN_,
+      name = Lude.Nothing,
       softwareVersion = Lude.Nothing,
-      description = Lude.Nothing,
-      gatewayARN = pGatewayARN_
+      description = Lude.Nothing
     }
+
+-- | The ARN of the gateway to update.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugGatewayARN :: Lens.Lens' UpdateGateway Lude.Text
+ugGatewayARN = Lens.lens (gatewayARN :: UpdateGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGateway)
+{-# DEPRECATED ugGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The updated name of the gateway.
 --
@@ -93,13 +99,6 @@ ugSoftwareVersion = Lens.lens (softwareVersion :: UpdateGateway -> Lude.Maybe Lu
 ugDescription :: Lens.Lens' UpdateGateway (Lude.Maybe Lude.Text)
 ugDescription = Lens.lens (description :: UpdateGateway -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateGateway)
 {-# DEPRECATED ugDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The ARN of the gateway to update.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugGatewayARN :: Lens.Lens' UpdateGateway Lude.Text
-ugGatewayARN = Lens.lens (gatewayARN :: UpdateGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGateway)
-{-# DEPRECATED ugGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 instance Lude.AWSRequest UpdateGateway where
   type Rs UpdateGateway = UpdateGatewayResponse
@@ -125,10 +124,10 @@ instance Lude.ToJSON UpdateGateway where
   toJSON UpdateGateway' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Name" Lude..=) Lude.<$> name,
+          [ Lude.Just ("GatewayArn" Lude..= gatewayARN),
+            ("Name" Lude..=) Lude.<$> name,
             ("SoftwareVersion" Lude..=) Lude.<$> softwareVersion,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("GatewayArn" Lude..= gatewayARN)
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -140,16 +139,10 @@ instance Lude.ToQuery UpdateGateway where
 
 -- | /See:/ 'mkUpdateGatewayResponse' smart constructor.
 newtype UpdateGatewayResponse = UpdateGatewayResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGatewayResponse' with the minimum fields required to make a request.

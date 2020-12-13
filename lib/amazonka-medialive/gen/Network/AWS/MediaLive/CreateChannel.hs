@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,45 +53,50 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateChannel' smart constructor.
 data CreateChannel = CreateChannel'
-  { requestId ::
-      Lude.Maybe Lude.Text,
+  { -- | Unique request ID to be specified. This is needed to prevent retries from
+    --
+    -- creating multiple resources.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | The log level to write to CloudWatch Logs.
     logLevel :: Lude.Maybe LogLevel,
+    -- | Specification of network and file inputs for this channel
     inputSpecification :: Lude.Maybe InputSpecification,
+    -- | List of input attachments for channel.
     inputAttachments :: Lude.Maybe [InputAttachment],
+    -- | Deprecated field that's only usable by whitelisted customers.
     reserved :: Lude.Maybe Lude.Text,
     destinations :: Lude.Maybe [OutputDestination],
+    -- | Name of channel.
     name :: Lude.Maybe Lude.Text,
+    -- | Specification of CDI inputs for this channel
     cdiInputSpecification :: Lude.Maybe CdiInputSpecification,
+    -- | The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
     channelClass :: Lude.Maybe ChannelClass,
+    -- | A collection of key-value pairs.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
     encoderSettings :: Lude.Maybe EncoderSettings,
+    -- | An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannel' with the minimum fields required to make a request.
 --
--- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
--- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
--- * 'destinations' - Undocumented field.
--- * 'encoderSettings' - Undocumented field.
--- * 'inputAttachments' - List of input attachments for channel.
--- * 'inputSpecification' - Specification of network and file inputs for this channel
--- * 'logLevel' - The log level to write to CloudWatch Logs.
--- * 'name' - Name of channel.
 -- * 'requestId' - Unique request ID to be specified. This is needed to prevent retries from
 --
 -- creating multiple resources.
+-- * 'logLevel' - The log level to write to CloudWatch Logs.
+-- * 'inputSpecification' - Specification of network and file inputs for this channel
+-- * 'inputAttachments' - List of input attachments for channel.
 -- * 'reserved' - Deprecated field that's only usable by whitelisted customers.
--- * 'roleARN' - An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
+-- * 'destinations' -
+-- * 'name' - Name of channel.
+-- * 'cdiInputSpecification' - Specification of CDI inputs for this channel
+-- * 'channelClass' - The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
 -- * 'tags' - A collection of key-value pairs.
+-- * 'encoderSettings' -
+-- * 'roleARN' - An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
 mkCreateChannel ::
   CreateChannel
 mkCreateChannel =
@@ -243,22 +249,16 @@ instance Lude.ToQuery CreateChannel where
 --
 -- /See:/ 'mkCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { channel ::
-      Lude.Maybe Channel,
+  { channel :: Lude.Maybe Channel,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateChannelResponse' with the minimum fields required to make a request.
 --
--- * 'channel' - Undocumented field.
+-- * 'channel' -
 -- * 'responseStatus' - The response status code.
 mkCreateChannelResponse ::
   -- | 'responseStatus'

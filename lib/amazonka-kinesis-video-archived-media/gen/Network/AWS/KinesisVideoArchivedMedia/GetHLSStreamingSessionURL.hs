@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -110,67 +111,89 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetHLSStreamingSessionURL' smart constructor.
 data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
-  { displayFragmentTimestamp ::
-      Lude.Maybe HLSDisplayFragmentTimestamp,
-    hLSFragmentSelector ::
-      Lude.Maybe HLSFragmentSelector,
+  { -- | Specifies when the fragment start timestamps should be included in the HLS media playlist. Typically, media players report the playhead position as a time relative to the start of the first fragment in the playback session. However, when the start timestamps are included in the HLS media playlist, some media players might report the current playhead as an absolute time based on the fragment timestamps. This can be useful for creating a playback experience that shows viewers the wall-clock time of the media.
+    --
+    -- The default is @NEVER@ . When 'HLSFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'HLSFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
+    displayFragmentTimestamp :: Lude.Maybe HLSDisplayFragmentTimestamp,
+    -- | The time range of the requested fragment and the source of the timestamps.
+    --
+    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
+    hLSFragmentSelector :: Lude.Maybe HLSFragmentSelector,
+    -- | The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
+    --
+    -- When a session expires, no new calls to @GetHLSMasterPlaylist@ , @GetHLSMediaPlaylist@ , @GetMP4InitFragment@ , @GetMP4MediaFragment@ , or @GetTSFragment@ can be made for that session.
+    -- The default is 300 (5 minutes).
     expires :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@ .
     streamARN :: Lude.Maybe Lude.Text,
-    playbackMode ::
-      Lude.Maybe HLSPlaybackMode,
-    containerFormat ::
-      Lude.Maybe ContainerFormat,
-    maxMediaPlaylistFragmentResults ::
-      Lude.Maybe Lude.Natural,
-    discontinuityMode ::
-      Lude.Maybe HLSDiscontinuityMode,
+    -- | Whether to retrieve live, live replay, or archived, on-demand data.
+    --
+    -- Features of the three types of sessions include the following:
+    --
+    --     * __@LIVE@ __ : For sessions of this type, the HLS media playlist is continually updated with the latest fragments as they become available. We recommend that the media player retrieve a new playlist on a one-second interval. When this type of session is played in a media player, the user interface typically displays a "live" notification, with no scrubber control for choosing the position in the playback window to display.
+    --
+    --
+    --     * __@LIVE_REPLAY@ __ : For sessions of this type, the HLS media playlist is updated similarly to how it is updated for @LIVE@ mode except that it starts by including fragments from a given start time. Instead of fragments being added as they are ingested, fragments are added as the duration of the next fragment elapses. For example, if the fragments in the session are two seconds long, then a new fragment is added to the media playlist every two seconds. This mode is useful to be able to start playback from when an event is detected and continue live streaming media that has not yet been ingested as of the time of the session creation. This mode is also useful to stream previously archived media without being limited by the 1,000 fragment limit in the @ON_DEMAND@ mode.
+    --
+    --
+    --     * __@ON_DEMAND@ __ : For sessions of this type, the HLS media playlist contains all the fragments for the session, up to the number that is specified in @MaxMediaPlaylistFragmentResults@ . The playlist must be retrieved only once for each session. When this type of session is played in a media player, the user interface typically displays a scrubber control for choosing the position in the playback window to display.
+    --
+    --
+    -- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the HLS media playlist. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the HLS media playlist. This can lead to unexpected behavior in the media player.
+    -- The default is @LIVE@ .
+    playbackMode :: Lude.Maybe HLSPlaybackMode,
+    -- | Specifies which format should be used for packaging the media. Specifying the @FRAGMENTED_MP4@ container format packages the media into MP4 fragments (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging overhead. The other container format option is @MPEG_TS@ . HLS has supported MPEG TS chunks since it was released and is sometimes the only supported packaging on older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.
+    --
+    -- The default is @FRAGMENTED_MP4@ .
+    containerFormat :: Lude.Maybe ContainerFormat,
+    -- | The maximum number of fragments that are returned in the HLS media playlists.
+    --
+    -- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
+    -- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
+    -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
+    -- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
+    maxMediaPlaylistFragmentResults :: Lude.Maybe Lude.Natural,
+    -- | Specifies when flags marking discontinuities between fragments are added to the media playlists.
+    --
+    -- Media players typically build a timeline of media content to play, based on the timestamps of each fragment. This means that if there is any overlap or gap between fragments (as is typical if 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ ), the media player timeline will also have small gaps between fragments in some places, and will overwrite frames in other places. Gaps in the media player timeline can cause playback to stall and overlaps can cause playback to be jittery. When there are discontinuity flags between fragments, the media player is expected to reset the timeline, resulting in the next fragment being played immediately after the previous fragment.
+    -- The following modes are supported:
+    --
+    --     * @ALWAYS@ : a discontinuity marker is placed between every fragment in the HLS media playlist. It is recommended to use a value of @ALWAYS@ if the fragment timestamps are not accurate.
+    --
+    --
+    --     * @NEVER@ : no discontinuity markers are placed anywhere. It is recommended to use a value of @NEVER@ to ensure the media player timeline most accurately maps to the producer timestamps.
+    --
+    --
+    --     * @ON_DISCONTIUNITY@ : a discontinuity marker is placed between fragments that have a gap or overlap of more than 50 milliseconds. For most playback scenarios, it is recommended to use a value of @ON_DISCONTINUITY@ so that the media player timeline is only reset when there is a significant issue with the media timeline (e.g. a missing fragment).
+    --
+    --
+    -- The default is @ALWAYS@ when 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ , and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@ .
+    discontinuityMode :: Lude.Maybe HLSDiscontinuityMode,
+    -- | The name of the stream for which to retrieve the HLS master playlist URL.
+    --
+    -- You must specify either the @StreamName@ or the @StreamARN@ .
     streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHLSStreamingSessionURL' with the minimum fields required to make a request.
 --
--- * 'containerFormat' - Specifies which format should be used for packaging the media. Specifying the @FRAGMENTED_MP4@ container format packages the media into MP4 fragments (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging overhead. The other container format option is @MPEG_TS@ . HLS has supported MPEG TS chunks since it was released and is sometimes the only supported packaging on older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.
---
--- The default is @FRAGMENTED_MP4@ .
--- * 'discontinuityMode' - Specifies when flags marking discontinuities between fragments are added to the media playlists.
---
--- Media players typically build a timeline of media content to play, based on the timestamps of each fragment. This means that if there is any overlap or gap between fragments (as is typical if 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ ), the media player timeline will also have small gaps between fragments in some places, and will overwrite frames in other places. Gaps in the media player timeline can cause playback to stall and overlaps can cause playback to be jittery. When there are discontinuity flags between fragments, the media player is expected to reset the timeline, resulting in the next fragment being played immediately after the previous fragment.
--- The following modes are supported:
---
---     * @ALWAYS@ : a discontinuity marker is placed between every fragment in the HLS media playlist. It is recommended to use a value of @ALWAYS@ if the fragment timestamps are not accurate.
---
---
---     * @NEVER@ : no discontinuity markers are placed anywhere. It is recommended to use a value of @NEVER@ to ensure the media player timeline most accurately maps to the producer timestamps.
---
---
---     * @ON_DISCONTIUNITY@ : a discontinuity marker is placed between fragments that have a gap or overlap of more than 50 milliseconds. For most playback scenarios, it is recommended to use a value of @ON_DISCONTINUITY@ so that the media player timeline is only reset when there is a significant issue with the media timeline (e.g. a missing fragment).
---
---
--- The default is @ALWAYS@ when 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ , and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@ .
 -- * 'displayFragmentTimestamp' - Specifies when the fragment start timestamps should be included in the HLS media playlist. Typically, media players report the playhead position as a time relative to the start of the first fragment in the playback session. However, when the start timestamps are included in the HLS media playlist, some media players might report the current playhead as an absolute time based on the fragment timestamps. This can be useful for creating a playback experience that shows viewers the wall-clock time of the media.
 --
 -- The default is @NEVER@ . When 'HLSFragmentSelector' is @SERVER_TIMESTAMP@ , the timestamps will be the server start timestamps. Similarly, when 'HLSFragmentSelector' is @PRODUCER_TIMESTAMP@ , the timestamps will be the producer start timestamps.
+-- * 'hLSFragmentSelector' - The time range of the requested fragment and the source of the timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
 -- * 'expires' - The time in seconds until the requested session expires. This value can be between 300 (5 minutes) and 43200 (12 hours).
 --
 -- When a session expires, no new calls to @GetHLSMasterPlaylist@ , @GetHLSMediaPlaylist@ , @GetMP4InitFragment@ , @GetMP4MediaFragment@ , or @GetTSFragment@ can be made for that session.
 -- The default is 300 (5 minutes).
--- * 'hLSFragmentSelector' - The time range of the requested fragment and the source of the timestamps.
+-- * 'streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
 --
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ . This parameter is optional if PlaybackMode is@LIVE@ . If @PlaybackMode@ is @LIVE@ , the @FragmentSelectorType@ can be set, but the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@ or @LIVE_REPLAY@ , both @FragmentSelectorType@ and @TimestampRange@ must be set.
--- * 'maxMediaPlaylistFragmentResults' - The maximum number of fragments that are returned in the HLS media playlists.
---
--- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
--- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
--- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
--- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
+-- You must specify either the @StreamName@ or the @StreamARN@ .
 -- * 'playbackMode' - Whether to retrieve live, live replay, or archived, on-demand data.
 --
 -- Features of the three types of sessions include the following:
@@ -186,9 +209,30 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 --
 -- In all playback modes, if @FragmentSelectorType@ is @PRODUCER_TIMESTAMP@ , and if there are multiple fragments with the same start timestamp, the fragment that has the larger fragment number (that is, the newer fragment) is included in the HLS media playlist. The other fragments are not included. Fragments that have different timestamps but have overlapping durations are still included in the HLS media playlist. This can lead to unexpected behavior in the media player.
 -- The default is @LIVE@ .
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master playlist URL.
+-- * 'containerFormat' - Specifies which format should be used for packaging the media. Specifying the @FRAGMENTED_MP4@ container format packages the media into MP4 fragments (fMP4 or CMAF). This is the recommended packaging because there is minimal packaging overhead. The other container format option is @MPEG_TS@ . HLS has supported MPEG TS chunks since it was released and is sometimes the only supported packaging on older HLS players. MPEG TS typically has a 5-25 percent packaging overhead. This means MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.
 --
--- You must specify either the @StreamName@ or the @StreamARN@ .
+-- The default is @FRAGMENTED_MP4@ .
+-- * 'maxMediaPlaylistFragmentResults' - The maximum number of fragments that are returned in the HLS media playlists.
+--
+-- When the @PlaybackMode@ is @LIVE@ , the most recent fragments are returned up to this value. When the @PlaybackMode@ is @ON_DEMAND@ , the oldest fragments are returned, up to this maximum number.
+-- When there are a higher number of fragments available in a live HLS media playlist, video players often buffer content before starting playback. Increasing the buffer size increases the playback latency, but it decreases the likelihood that rebuffering will occur during playback. We recommend that a live HLS media playlist have a minimum of 3 fragments and a maximum of 10 fragments.
+-- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@ , and 1,000 if @PlaybackMode@ is @ON_DEMAND@ .
+-- The maximum value of 1,000 fragments corresponds to more than 16 minutes of video on streams with 1-second fragments, and more than 2 1/2 hours of video on streams with 10-second fragments.
+-- * 'discontinuityMode' - Specifies when flags marking discontinuities between fragments are added to the media playlists.
+--
+-- Media players typically build a timeline of media content to play, based on the timestamps of each fragment. This means that if there is any overlap or gap between fragments (as is typical if 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ ), the media player timeline will also have small gaps between fragments in some places, and will overwrite frames in other places. Gaps in the media player timeline can cause playback to stall and overlaps can cause playback to be jittery. When there are discontinuity flags between fragments, the media player is expected to reset the timeline, resulting in the next fragment being played immediately after the previous fragment.
+-- The following modes are supported:
+--
+--     * @ALWAYS@ : a discontinuity marker is placed between every fragment in the HLS media playlist. It is recommended to use a value of @ALWAYS@ if the fragment timestamps are not accurate.
+--
+--
+--     * @NEVER@ : no discontinuity markers are placed anywhere. It is recommended to use a value of @NEVER@ to ensure the media player timeline most accurately maps to the producer timestamps.
+--
+--
+--     * @ON_DISCONTIUNITY@ : a discontinuity marker is placed between fragments that have a gap or overlap of more than 50 milliseconds. For most playback scenarios, it is recommended to use a value of @ON_DISCONTINUITY@ so that the media player timeline is only reset when there is a significant issue with the media timeline (e.g. a missing fragment).
+--
+--
+-- The default is @ALWAYS@ when 'HLSFragmentSelector' is set to @SERVER_TIMESTAMP@ , and @NEVER@ when it is set to @PRODUCER_TIMESTAMP@ .
 -- * 'streamName' - The name of the stream for which to retrieve the HLS master playlist URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@ .
@@ -359,18 +403,12 @@ instance Lude.ToQuery GetHLSStreamingSessionURL where
 
 -- | /See:/ 'mkGetHLSStreamingSessionURLResponse' smart constructor.
 data GetHLSStreamingSessionURLResponse = GetHLSStreamingSessionURLResponse'
-  { hLSStreamingSessionURL ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The URL (containing the session token) that a media player can use to retrieve the HLS master playlist.
+    hLSStreamingSessionURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHLSStreamingSessionURLResponse' with the minimum fields required to make a request.

@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
 --
 -- /See:/ 'mkToolchainSource' smart constructor.
-newtype ToolchainSource = ToolchainSource' {s3 :: S3Location}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ToolchainSource = ToolchainSource'
+  { -- | The Amazon S3 bucket where the toolchain template file provided with the project request is stored.
+    s3 :: S3Location
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ToolchainSource' with the minimum fields required to make a request.

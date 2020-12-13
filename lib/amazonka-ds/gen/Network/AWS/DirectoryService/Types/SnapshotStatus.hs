@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.SnapshotStatus
   ( SnapshotStatus
       ( SnapshotStatus',
-        SSCompleted,
         SSCreating,
+        SSCompleted,
         SSFailed
       ),
   )
@@ -46,18 +46,18 @@ newtype SnapshotStatus = SnapshotStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSCompleted :: SnapshotStatus
-pattern SSCompleted = SnapshotStatus' "Completed"
-
 pattern SSCreating :: SnapshotStatus
 pattern SSCreating = SnapshotStatus' "Creating"
+
+pattern SSCompleted :: SnapshotStatus
+pattern SSCompleted = SnapshotStatus' "Completed"
 
 pattern SSFailed :: SnapshotStatus
 pattern SSFailed = SnapshotStatus' "Failed"
 
 {-# COMPLETE
-  SSCompleted,
   SSCreating,
+  SSCompleted,
   SSFailed,
   SnapshotStatus'
   #-}

@@ -30,24 +30,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJourneySchedule' smart constructor.
 data JourneySchedule = JourneySchedule'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The scheduled time, in ISO 8601 format, when the journey began or will begin.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The scheduled time, in ISO 8601 format, when the journey ended or will end.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The starting UTC offset for the journey schedule, if the value of the journey's LocalTime property is true. Valid values are: UTC,
+    --
+    --                   UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30,
+    --                   UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+08:45, UTC+09, UTC+09:30,
+    --                   UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+12:45, UTC+13, UTC+13:45, UTC-02,
+    --                   UTC-02:30, UTC-03, UTC-03:30, UTC-04, UTC-05, UTC-06, UTC-07, UTC-08, UTC-09,
+    --                   UTC-09:30, UTC-10, and UTC-11.
     timezone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneySchedule' with the minimum fields required to make a request.
 --
--- * 'endTime' - The scheduled time, in ISO 8601 format, when the journey ended or will end.
 -- * 'startTime' - The scheduled time, in ISO 8601 format, when the journey began or will begin.
+-- * 'endTime' - The scheduled time, in ISO 8601 format, when the journey ended or will end.
 -- * 'timezone' - The starting UTC offset for the journey schedule, if the value of the journey's LocalTime property is true. Valid values are: UTC,
 --
 --                   UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30,

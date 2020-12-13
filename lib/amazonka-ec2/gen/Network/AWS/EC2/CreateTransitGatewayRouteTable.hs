@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.EC2.CreateTransitGatewayRouteTable
 
     -- ** Request lenses
     ctgrtTagSpecifications,
-    ctgrtDryRun,
     ctgrtTransitGatewayId,
+    ctgrtDryRun,
 
     -- * Destructuring the response
     CreateTransitGatewayRouteTableResponse (..),
@@ -41,26 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTransitGatewayRouteTable' smart constructor.
 data CreateTransitGatewayRouteTable = CreateTransitGatewayRouteTable'
-  { tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    transitGatewayId :: Lude.Text
+  { -- | The tags to apply to the transit gateway route table.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The ID of the transit gateway.
+    transitGatewayId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayRouteTable' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'tagSpecifications' - The tags to apply to the transit gateway route table.
 -- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateTransitGatewayRouteTable ::
   -- | 'transitGatewayId'
   Lude.Text ->
@@ -68,8 +64,8 @@ mkCreateTransitGatewayRouteTable ::
 mkCreateTransitGatewayRouteTable pTransitGatewayId_ =
   CreateTransitGatewayRouteTable'
     { tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      transitGatewayId = pTransitGatewayId_
+      transitGatewayId = pTransitGatewayId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The tags to apply to the transit gateway route table.
@@ -79,19 +75,19 @@ ctgrtTagSpecifications :: Lens.Lens' CreateTransitGatewayRouteTable (Lude.Maybe 
 ctgrtTagSpecifications = Lens.lens (tagSpecifications :: CreateTransitGatewayRouteTable -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTransitGatewayRouteTable)
 {-# DEPRECATED ctgrtTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrtDryRun :: Lens.Lens' CreateTransitGatewayRouteTable (Lude.Maybe Lude.Bool)
-ctgrtDryRun = Lens.lens (dryRun :: CreateTransitGatewayRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayRouteTable)
-{-# DEPRECATED ctgrtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the transit gateway.
 --
 -- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctgrtTransitGatewayId :: Lens.Lens' CreateTransitGatewayRouteTable Lude.Text
 ctgrtTransitGatewayId = Lens.lens (transitGatewayId :: CreateTransitGatewayRouteTable -> Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateTransitGatewayRouteTable)
 {-# DEPRECATED ctgrtTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrtDryRun :: Lens.Lens' CreateTransitGatewayRouteTable (Lude.Maybe Lude.Bool)
+ctgrtDryRun = Lens.lens (dryRun :: CreateTransitGatewayRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayRouteTable)
+{-# DEPRECATED ctgrtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateTransitGatewayRouteTable where
   type
@@ -120,31 +116,24 @@ instance Lude.ToQuery CreateTransitGatewayRouteTable where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery
           (Lude.toQueryList "TagSpecifications" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        "TransitGatewayId" Lude.=: transitGatewayId
+        "TransitGatewayId" Lude.=: transitGatewayId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateTransitGatewayRouteTableResponse' smart constructor.
 data CreateTransitGatewayRouteTableResponse = CreateTransitGatewayRouteTableResponse'
-  { transitGatewayRouteTable ::
-      Lude.Maybe
-        TransitGatewayRouteTable,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the transit gateway route table.
+    transitGatewayRouteTable :: Lude.Maybe TransitGatewayRouteTable,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTransitGatewayRouteTableResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayRouteTable' - Information about the transit gateway route table.
+-- * 'responseStatus' - The response status code.
 mkCreateTransitGatewayRouteTableResponse ::
   -- | 'responseStatus'
   Lude.Int ->

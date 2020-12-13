@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Glue.CreatePartition
     mkCreatePartition,
 
     -- ** Request lenses
+    cpPartitionInput,
     cpCatalogId,
     cpDatabaseName,
     cpTableName,
-    cpPartitionInput,
 
     -- * Destructuring the response
     CreatePartitionResponse (..),
@@ -41,42 +42,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePartition' smart constructor.
 data CreatePartition = CreatePartition'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | A @PartitionInput@ structure defining the partition to be created.
+    partitionInput :: PartitionInput,
+    -- | The AWS account ID of the catalog in which the partition is to be created.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the metadata database in which the partition is to be created.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    partitionInput :: PartitionInput
+    -- | The name of the metadata table in which the partition is to be created.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartition' with the minimum fields required to make a request.
 --
+-- * 'partitionInput' - A @PartitionInput@ structure defining the partition to be created.
 -- * 'catalogId' - The AWS account ID of the catalog in which the partition is to be created.
 -- * 'databaseName' - The name of the metadata database in which the partition is to be created.
--- * 'partitionInput' - A @PartitionInput@ structure defining the partition to be created.
 -- * 'tableName' - The name of the metadata table in which the partition is to be created.
 mkCreatePartition ::
+  -- | 'partitionInput'
+  PartitionInput ->
   -- | 'databaseName'
   Lude.Text ->
   -- | 'tableName'
   Lude.Text ->
-  -- | 'partitionInput'
-  PartitionInput ->
   CreatePartition
-mkCreatePartition pDatabaseName_ pTableName_ pPartitionInput_ =
+mkCreatePartition pPartitionInput_ pDatabaseName_ pTableName_ =
   CreatePartition'
-    { catalogId = Lude.Nothing,
+    { partitionInput = pPartitionInput_,
+      catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      partitionInput = pPartitionInput_
+      tableName = pTableName_
     }
+
+-- | A @PartitionInput@ structure defining the partition to be created.
+--
+-- /Note:/ Consider using 'partitionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPartitionInput :: Lens.Lens' CreatePartition PartitionInput
+cpPartitionInput = Lens.lens (partitionInput :: CreatePartition -> PartitionInput) (\s a -> s {partitionInput = a} :: CreatePartition)
+{-# DEPRECATED cpPartitionInput "Use generic-lens or generic-optics with 'partitionInput' instead." #-}
 
 -- | The AWS account ID of the catalog in which the partition is to be created.
 --
@@ -98,13 +103,6 @@ cpDatabaseName = Lens.lens (databaseName :: CreatePartition -> Lude.Text) (\s a 
 cpTableName :: Lens.Lens' CreatePartition Lude.Text
 cpTableName = Lens.lens (tableName :: CreatePartition -> Lude.Text) (\s a -> s {tableName = a} :: CreatePartition)
 {-# DEPRECATED cpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | A @PartitionInput@ structure defining the partition to be created.
---
--- /Note:/ Consider using 'partitionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPartitionInput :: Lens.Lens' CreatePartition PartitionInput
-cpPartitionInput = Lens.lens (partitionInput :: CreatePartition -> PartitionInput) (\s a -> s {partitionInput = a} :: CreatePartition)
-{-# DEPRECATED cpPartitionInput "Use generic-lens or generic-optics with 'partitionInput' instead." #-}
 
 instance Lude.AWSRequest CreatePartition where
   type Rs CreatePartition = CreatePartitionResponse
@@ -130,10 +128,10 @@ instance Lude.ToJSON CreatePartition where
   toJSON CreatePartition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+          [ Lude.Just ("PartitionInput" Lude..= partitionInput),
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("PartitionInput" Lude..= partitionInput)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -145,16 +143,10 @@ instance Lude.ToQuery CreatePartition where
 
 -- | /See:/ 'mkCreatePartitionResponse' smart constructor.
 newtype CreatePartitionResponse = CreatePartitionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartitionResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,16 +21,16 @@ module Network.AWS.Pinpoint.GetSegments
 
     -- ** Request lenses
     gssToken,
-    gssPageSize,
     gssApplicationId,
+    gssPageSize,
 
     -- * Destructuring the response
     GetSegmentsResponse (..),
     mkGetSegmentsResponse,
 
     -- ** Response lenses
-    gsrsResponseStatus,
     gsrsSegmentsResponse,
+    gsrsResponseStatus,
   )
 where
 
@@ -41,24 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSegments' smart constructor.
 data GetSegments = GetSegments'
-  { token :: Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Text,
-    applicationId :: Lude.Text
+  { -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    pageSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegments' with the minimum fields required to make a request.
 --
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
--- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 mkGetSegments ::
   -- | 'applicationId'
   Lude.Text ->
@@ -66,8 +64,8 @@ mkGetSegments ::
 mkGetSegments pApplicationId_ =
   GetSegments'
     { token = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      applicationId = pApplicationId_
+      applicationId = pApplicationId_,
+      pageSize = Lude.Nothing
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
@@ -77,19 +75,19 @@ gssToken :: Lens.Lens' GetSegments (Lude.Maybe Lude.Text)
 gssToken = Lens.lens (token :: GetSegments -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetSegments)
 {-# DEPRECATED gssToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
--- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssPageSize :: Lens.Lens' GetSegments (Lude.Maybe Lude.Text)
-gssPageSize = Lens.lens (pageSize :: GetSegments -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetSegments)
-{-# DEPRECATED gssPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gssApplicationId :: Lens.Lens' GetSegments Lude.Text
 gssApplicationId = Lens.lens (applicationId :: GetSegments -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegments)
 {-# DEPRECATED gssApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gssPageSize :: Lens.Lens' GetSegments (Lude.Maybe Lude.Text)
+gssPageSize = Lens.lens (pageSize :: GetSegments -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetSegments)
+{-# DEPRECATED gssPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 instance Lude.AWSRequest GetSegments where
   type Rs GetSegments = GetSegmentsResponse
@@ -98,7 +96,7 @@ instance Lude.AWSRequest GetSegments where
     Res.receiveJSON
       ( \s h x ->
           GetSegmentsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetSegments where
@@ -121,41 +119,28 @@ instance Lude.ToQuery GetSegments where
 
 -- | /See:/ 'mkGetSegmentsResponse' smart constructor.
 data GetSegmentsResponse = GetSegmentsResponse'
-  { responseStatus ::
-      Lude.Int,
-    segmentsResponse :: SegmentsResponse
+  { segmentsResponse :: SegmentsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSegmentsResponse' with the minimum fields required to make a request.
 --
+-- * 'segmentsResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'segmentsResponse' - Undocumented field.
 mkGetSegmentsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'segmentsResponse'
   SegmentsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetSegmentsResponse
-mkGetSegmentsResponse pResponseStatus_ pSegmentsResponse_ =
+mkGetSegmentsResponse pSegmentsResponse_ pResponseStatus_ =
   GetSegmentsResponse'
-    { responseStatus = pResponseStatus_,
-      segmentsResponse = pSegmentsResponse_
+    { segmentsResponse = pSegmentsResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsrsResponseStatus :: Lens.Lens' GetSegmentsResponse Lude.Int
-gsrsResponseStatus = Lens.lens (responseStatus :: GetSegmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentsResponse)
-{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -163,3 +148,10 @@ gsrsResponseStatus = Lens.lens (responseStatus :: GetSegmentsResponse -> Lude.In
 gsrsSegmentsResponse :: Lens.Lens' GetSegmentsResponse SegmentsResponse
 gsrsSegmentsResponse = Lens.lens (segmentsResponse :: GetSegmentsResponse -> SegmentsResponse) (\s a -> s {segmentsResponse = a} :: GetSegmentsResponse)
 {-# DEPRECATED gsrsSegmentsResponse "Use generic-lens or generic-optics with 'segmentsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsrsResponseStatus :: Lens.Lens' GetSegmentsResponse Lude.Int
+gsrsResponseStatus = Lens.lens (responseStatus :: GetSegmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentsResponse)
+{-# DEPRECATED gsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

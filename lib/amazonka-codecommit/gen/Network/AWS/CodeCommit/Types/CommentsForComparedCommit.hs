@@ -36,33 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCommentsForComparedCommit' smart constructor.
 data CommentsForComparedCommit = CommentsForComparedCommit'
-  { beforeBlobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The full blob ID of the commit used to establish the before of the comparison.
+    beforeBlobId :: Lude.Maybe Lude.Text,
+    -- | Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is BEFORE or AFTER.
     location :: Lude.Maybe Location,
+    -- | The full commit ID of the commit used to establish the after of the comparison.
     afterCommitId :: Lude.Maybe Lude.Text,
+    -- | The full blob ID of the commit used to establish the after of the comparison.
     afterBlobId :: Lude.Maybe Lude.Text,
+    -- | The full commit ID of the commit used to establish the before of the comparison.
     beforeCommitId :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that contains the compared commits.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | An array of comment objects. Each comment object contains information about a comment on the comparison between commits.
     comments :: Lude.Maybe [Comment]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommentsForComparedCommit' with the minimum fields required to make a request.
 --
--- * 'afterBlobId' - The full blob ID of the commit used to establish the after of the comparison.
--- * 'afterCommitId' - The full commit ID of the commit used to establish the after of the comparison.
 -- * 'beforeBlobId' - The full blob ID of the commit used to establish the before of the comparison.
--- * 'beforeCommitId' - The full commit ID of the commit used to establish the before of the comparison.
--- * 'comments' - An array of comment objects. Each comment object contains information about a comment on the comparison between commits.
 -- * 'location' - Location information about the comment on the comparison, including the file name, line number, and whether the version of the file where the comment was made is BEFORE or AFTER.
+-- * 'afterCommitId' - The full commit ID of the commit used to establish the after of the comparison.
+-- * 'afterBlobId' - The full blob ID of the commit used to establish the after of the comparison.
+-- * 'beforeCommitId' - The full commit ID of the commit used to establish the before of the comparison.
 -- * 'repositoryName' - The name of the repository that contains the compared commits.
+-- * 'comments' - An array of comment objects. Each comment object contains information about a comment on the comparison between commits.
 mkCommentsForComparedCommit ::
   CommentsForComparedCommit
 mkCommentsForComparedCommit =

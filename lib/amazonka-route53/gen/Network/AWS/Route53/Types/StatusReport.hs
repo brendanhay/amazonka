@@ -30,22 +30,18 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkStatusReport' smart constructor.
 data StatusReport = StatusReport'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | A description of the status of the health check endpoint as reported by one of the Amazon Route 53 health checkers.
+    status :: Lude.Maybe Lude.Text,
+    -- | The date and time that the health checker performed the health check in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
     checkedTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatusReport' with the minimum fields required to make a request.
 --
--- * 'checkedTime' - The date and time that the health checker performed the health check in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
 -- * 'status' - A description of the status of the health check endpoint as reported by one of the Amazon Route 53 health checkers.
+-- * 'checkedTime' - The date and time that the health checker performed the health check in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@ represents March 27, 2017 at 17:48:16.751 UTC.
 mkStatusReport ::
   StatusReport
 mkStatusReport =

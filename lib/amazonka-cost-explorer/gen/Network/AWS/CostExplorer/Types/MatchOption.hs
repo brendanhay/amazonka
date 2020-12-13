@@ -13,12 +13,12 @@
 module Network.AWS.CostExplorer.Types.MatchOption
   ( MatchOption
       ( MatchOption',
-        CaseInsensitive,
-        CaseSensitive,
-        Contains,
-        EndsWith,
         Equals,
-        StartsWith
+        StartsWith,
+        EndsWith,
+        Contains,
+        CaseSensitive,
+        CaseInsensitive
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype MatchOption = MatchOption' Lude.Text
       Lude.ToHeader
     )
 
-pattern CaseInsensitive :: MatchOption
-pattern CaseInsensitive = MatchOption' "CASE_INSENSITIVE"
-
-pattern CaseSensitive :: MatchOption
-pattern CaseSensitive = MatchOption' "CASE_SENSITIVE"
-
-pattern Contains :: MatchOption
-pattern Contains = MatchOption' "CONTAINS"
-
-pattern EndsWith :: MatchOption
-pattern EndsWith = MatchOption' "ENDS_WITH"
-
 pattern Equals :: MatchOption
 pattern Equals = MatchOption' "EQUALS"
 
 pattern StartsWith :: MatchOption
 pattern StartsWith = MatchOption' "STARTS_WITH"
 
+pattern EndsWith :: MatchOption
+pattern EndsWith = MatchOption' "ENDS_WITH"
+
+pattern Contains :: MatchOption
+pattern Contains = MatchOption' "CONTAINS"
+
+pattern CaseSensitive :: MatchOption
+pattern CaseSensitive = MatchOption' "CASE_SENSITIVE"
+
+pattern CaseInsensitive :: MatchOption
+pattern CaseInsensitive = MatchOption' "CASE_INSENSITIVE"
+
 {-# COMPLETE
-  CaseInsensitive,
-  CaseSensitive,
-  Contains,
-  EndsWith,
   Equals,
   StartsWith,
+  EndsWith,
+  Contains,
+  CaseSensitive,
+  CaseInsensitive,
   MatchOption'
   #-}

@@ -38,22 +38,16 @@ data Resource = Resource'
     attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- * 'arn' - Undocumented field.
--- * 'attributes' - Undocumented field.
--- * 'feature' - Undocumented field.
--- * 'name' - Undocumented field.
--- * 'type'' - Undocumented field.
+-- * 'feature' -
+-- * 'arn' -
+-- * 'name' -
+-- * 'attributes' -
+-- * 'type'' -
 mkResource ::
   Resource
 mkResource =

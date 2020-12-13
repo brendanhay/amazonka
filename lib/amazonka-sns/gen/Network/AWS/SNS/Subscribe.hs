@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.SNS.Subscribe
     mkSubscribe,
 
     -- ** Request lenses
-    subReturnSubscriptionARN,
-    subAttributes,
-    subEndpoint,
-    subTopicARN,
-    subProtocol,
+    sfReturnSubscriptionARN,
+    sfProtocol,
+    sfTopicARN,
+    sfAttributes,
+    sfEndpoint,
 
     -- * Destructuring the response
     SubscribeResponse (..),
@@ -48,24 +49,120 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkSubscribe' smart constructor.
 data Subscribe = Subscribe'
-  { returnSubscriptionARN ::
-      Lude.Maybe Lude.Bool,
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    endpoint :: Lude.Maybe Lude.Text,
+  { -- | Sets whether the response from the @Subscribe@ request includes the subscription ARN, even if the subscription is not yet confirmed.
+    --
+    -- If you set this parameter to @true@ , the response includes the ARN in all cases, even if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response also includes the @pending subscription@ ARN value for subscriptions that aren't yet confirmed. A subscription becomes confirmed when the subscriber calls the @ConfirmSubscription@ action with a confirmation token.
+    --
+    -- The default value is @false@ .
+    returnSubscriptionARN :: Lude.Maybe Lude.Bool,
+    -- | The protocol you want to use. Supported protocols include:
+    --
+    --
+    --     * @http@ – delivery of JSON-encoded message via HTTP POST
+    --
+    --
+    --     * @https@ – delivery of JSON-encoded message via HTTPS POST
+    --
+    --
+    --     * @email@ – delivery of message via SMTP
+    --
+    --
+    --     * @email-json@ – delivery of JSON-encoded message via SMTP
+    --
+    --
+    --     * @sms@ – delivery of message via SMS
+    --
+    --
+    --     * @sqs@ – delivery of JSON-encoded message to an Amazon SQS queue
+    --
+    --
+    --     * @application@ – delivery of JSON-encoded message to an EndpointArn for a mobile app and device.
+    --
+    --
+    --     * @lambda@ – delivery of JSON-encoded message to an Amazon Lambda function.
+    protocol :: Lude.Text,
+    -- | The ARN of the topic you want to subscribe to.
     topicARN :: Lude.Text,
-    protocol :: Lude.Text
+    -- | A map of attributes with their corresponding values.
+    --
+    -- The following lists the names, descriptions, and values of the special request parameters that the @SetTopicAttributes@ action uses:
+    --
+    --     * @DeliveryPolicy@ – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
+    --
+    --
+    --     * @FilterPolicy@ – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.
+    --
+    --
+    --     * @RawMessageDelivery@ – When set to @true@ , enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.
+    --
+    --
+    --     * @RedrivePolicy@ – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The endpoint that you want to receive notifications. Endpoints vary by protocol:
+    --
+    --
+    --     * For the @http@ protocol, the (public) endpoint is a URL beginning with @http://@
+    --
+    --
+    --     * For the @https@ protocol, the (public) endpoint is a URL beginning with @https://@
+    --
+    --
+    --     * For the @email@ protocol, the endpoint is an email address
+    --
+    --
+    --     * For the @email-json@ protocol, the endpoint is an email address
+    --
+    --
+    --     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device
+    --
+    --
+    --     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue
+    --
+    --
+    --     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.
+    --
+    --
+    --     * For the @lambda@ protocol, the endpoint is the ARN of an Amazon Lambda function.
+    endpoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscribe' with the minimum fields required to make a request.
 --
+-- * 'returnSubscriptionARN' - Sets whether the response from the @Subscribe@ request includes the subscription ARN, even if the subscription is not yet confirmed.
+--
+-- If you set this parameter to @true@ , the response includes the ARN in all cases, even if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response also includes the @pending subscription@ ARN value for subscriptions that aren't yet confirmed. A subscription becomes confirmed when the subscriber calls the @ConfirmSubscription@ action with a confirmation token.
+--
+-- The default value is @false@ .
+-- * 'protocol' - The protocol you want to use. Supported protocols include:
+--
+--
+--     * @http@ – delivery of JSON-encoded message via HTTP POST
+--
+--
+--     * @https@ – delivery of JSON-encoded message via HTTPS POST
+--
+--
+--     * @email@ – delivery of message via SMTP
+--
+--
+--     * @email-json@ – delivery of JSON-encoded message via SMTP
+--
+--
+--     * @sms@ – delivery of message via SMS
+--
+--
+--     * @sqs@ – delivery of JSON-encoded message to an Amazon SQS queue
+--
+--
+--     * @application@ – delivery of JSON-encoded message to an EndpointArn for a mobile app and device.
+--
+--
+--     * @lambda@ – delivery of JSON-encoded message to an Amazon Lambda function.
+--
+--
+-- * 'topicARN' - The ARN of the topic you want to subscribe to.
 -- * 'attributes' - A map of attributes with their corresponding values.
 --
 -- The following lists the names, descriptions, and values of the special request parameters that the @SetTopicAttributes@ action uses:
@@ -107,54 +204,19 @@ data Subscribe = Subscribe'
 --
 --
 --     * For the @lambda@ protocol, the endpoint is the ARN of an Amazon Lambda function.
---
---
--- * 'protocol' - The protocol you want to use. Supported protocols include:
---
---
---     * @http@ – delivery of JSON-encoded message via HTTP POST
---
---
---     * @https@ – delivery of JSON-encoded message via HTTPS POST
---
---
---     * @email@ – delivery of message via SMTP
---
---
---     * @email-json@ – delivery of JSON-encoded message via SMTP
---
---
---     * @sms@ – delivery of message via SMS
---
---
---     * @sqs@ – delivery of JSON-encoded message to an Amazon SQS queue
---
---
---     * @application@ – delivery of JSON-encoded message to an EndpointArn for a mobile app and device.
---
---
---     * @lambda@ – delivery of JSON-encoded message to an Amazon Lambda function.
---
---
--- * 'returnSubscriptionARN' - Sets whether the response from the @Subscribe@ request includes the subscription ARN, even if the subscription is not yet confirmed.
---
--- If you set this parameter to @true@ , the response includes the ARN in all cases, even if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response also includes the @pending subscription@ ARN value for subscriptions that aren't yet confirmed. A subscription becomes confirmed when the subscriber calls the @ConfirmSubscription@ action with a confirmation token.
---
--- The default value is @false@ .
--- * 'topicARN' - The ARN of the topic you want to subscribe to.
 mkSubscribe ::
-  -- | 'topicARN'
-  Lude.Text ->
   -- | 'protocol'
   Lude.Text ->
+  -- | 'topicARN'
+  Lude.Text ->
   Subscribe
-mkSubscribe pTopicARN_ pProtocol_ =
+mkSubscribe pProtocol_ pTopicARN_ =
   Subscribe'
     { returnSubscriptionARN = Lude.Nothing,
-      attributes = Lude.Nothing,
-      endpoint = Lude.Nothing,
+      protocol = pProtocol_,
       topicARN = pTopicARN_,
-      protocol = pProtocol_
+      attributes = Lude.Nothing,
+      endpoint = Lude.Nothing
     }
 
 -- | Sets whether the response from the @Subscribe@ request includes the subscription ARN, even if the subscription is not yet confirmed.
@@ -164,71 +226,9 @@ mkSubscribe pTopicARN_ pProtocol_ =
 -- The default value is @false@ .
 --
 -- /Note:/ Consider using 'returnSubscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subReturnSubscriptionARN :: Lens.Lens' Subscribe (Lude.Maybe Lude.Bool)
-subReturnSubscriptionARN = Lens.lens (returnSubscriptionARN :: Subscribe -> Lude.Maybe Lude.Bool) (\s a -> s {returnSubscriptionARN = a} :: Subscribe)
-{-# DEPRECATED subReturnSubscriptionARN "Use generic-lens or generic-optics with 'returnSubscriptionARN' instead." #-}
-
--- | A map of attributes with their corresponding values.
---
--- The following lists the names, descriptions, and values of the special request parameters that the @SetTopicAttributes@ action uses:
---
---     * @DeliveryPolicy@ – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
---
---
---     * @FilterPolicy@ – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.
---
---
---     * @RawMessageDelivery@ – When set to @true@ , enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.
---
---
---     * @RedrivePolicy@ – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
---
---
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subAttributes :: Lens.Lens' Subscribe (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-subAttributes = Lens.lens (attributes :: Subscribe -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: Subscribe)
-{-# DEPRECATED subAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The endpoint that you want to receive notifications. Endpoints vary by protocol:
---
---
---     * For the @http@ protocol, the (public) endpoint is a URL beginning with @http://@
---
---
---     * For the @https@ protocol, the (public) endpoint is a URL beginning with @https://@
---
---
---     * For the @email@ protocol, the endpoint is an email address
---
---
---     * For the @email-json@ protocol, the endpoint is an email address
---
---
---     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device
---
---
---     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue
---
---
---     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.
---
---
---     * For the @lambda@ protocol, the endpoint is the ARN of an Amazon Lambda function.
---
---
---
--- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subEndpoint :: Lens.Lens' Subscribe (Lude.Maybe Lude.Text)
-subEndpoint = Lens.lens (endpoint :: Subscribe -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: Subscribe)
-{-# DEPRECATED subEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
-
--- | The ARN of the topic you want to subscribe to.
---
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subTopicARN :: Lens.Lens' Subscribe Lude.Text
-subTopicARN = Lens.lens (topicARN :: Subscribe -> Lude.Text) (\s a -> s {topicARN = a} :: Subscribe)
-{-# DEPRECATED subTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+sfReturnSubscriptionARN :: Lens.Lens' Subscribe (Lude.Maybe Lude.Bool)
+sfReturnSubscriptionARN = Lens.lens (returnSubscriptionARN :: Subscribe -> Lude.Maybe Lude.Bool) (\s a -> s {returnSubscriptionARN = a} :: Subscribe)
+{-# DEPRECATED sfReturnSubscriptionARN "Use generic-lens or generic-optics with 'returnSubscriptionARN' instead." #-}
 
 -- | The protocol you want to use. Supported protocols include:
 --
@@ -259,9 +259,71 @@ subTopicARN = Lens.lens (topicARN :: Subscribe -> Lude.Text) (\s a -> s {topicAR
 --
 --
 -- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subProtocol :: Lens.Lens' Subscribe Lude.Text
-subProtocol = Lens.lens (protocol :: Subscribe -> Lude.Text) (\s a -> s {protocol = a} :: Subscribe)
-{-# DEPRECATED subProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+sfProtocol :: Lens.Lens' Subscribe Lude.Text
+sfProtocol = Lens.lens (protocol :: Subscribe -> Lude.Text) (\s a -> s {protocol = a} :: Subscribe)
+{-# DEPRECATED sfProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+-- | The ARN of the topic you want to subscribe to.
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfTopicARN :: Lens.Lens' Subscribe Lude.Text
+sfTopicARN = Lens.lens (topicARN :: Subscribe -> Lude.Text) (\s a -> s {topicARN = a} :: Subscribe)
+{-# DEPRECATED sfTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+
+-- | A map of attributes with their corresponding values.
+--
+-- The following lists the names, descriptions, and values of the special request parameters that the @SetTopicAttributes@ action uses:
+--
+--     * @DeliveryPolicy@ – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
+--
+--
+--     * @FilterPolicy@ – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.
+--
+--
+--     * @RawMessageDelivery@ – When set to @true@ , enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.
+--
+--
+--     * @RedrivePolicy@ – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.
+--
+--
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfAttributes :: Lens.Lens' Subscribe (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+sfAttributes = Lens.lens (attributes :: Subscribe -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: Subscribe)
+{-# DEPRECATED sfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The endpoint that you want to receive notifications. Endpoints vary by protocol:
+--
+--
+--     * For the @http@ protocol, the (public) endpoint is a URL beginning with @http://@
+--
+--
+--     * For the @https@ protocol, the (public) endpoint is a URL beginning with @https://@
+--
+--
+--     * For the @email@ protocol, the endpoint is an email address
+--
+--
+--     * For the @email-json@ protocol, the endpoint is an email address
+--
+--
+--     * For the @sms@ protocol, the endpoint is a phone number of an SMS-enabled device
+--
+--
+--     * For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS queue
+--
+--
+--     * For the @application@ protocol, the endpoint is the EndpointArn of a mobile app and device.
+--
+--
+--     * For the @lambda@ protocol, the endpoint is the ARN of an Amazon Lambda function.
+--
+--
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfEndpoint :: Lens.Lens' Subscribe (Lude.Maybe Lude.Text)
+sfEndpoint = Lens.lens (endpoint :: Subscribe -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: Subscribe)
+{-# DEPRECATED sfEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 instance Lude.AWSRequest Subscribe where
   type Rs Subscribe = SubscribeResponse
@@ -287,35 +349,30 @@ instance Lude.ToQuery Subscribe where
       [ "Action" Lude.=: ("Subscribe" :: Lude.ByteString),
         "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
         "ReturnSubscriptionArn" Lude.=: returnSubscriptionARN,
+        "Protocol" Lude.=: protocol,
+        "TopicArn" Lude.=: topicARN,
         "Attributes"
           Lude.=: Lude.toQuery
             (Lude.toQueryMap "entry" "key" "value" Lude.<$> attributes),
-        "Endpoint" Lude.=: endpoint,
-        "TopicArn" Lude.=: topicARN,
-        "Protocol" Lude.=: protocol
+        "Endpoint" Lude.=: endpoint
       ]
 
 -- | Response for Subscribe action.
 --
 -- /See:/ 'mkSubscribeResponse' smart constructor.
 data SubscribeResponse = SubscribeResponse'
-  { subscriptionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires confirmation. However, if the API request parameter @ReturnSubscriptionArn@ is true, then the value is always the subscription ARN, even if the subscription requires confirmation.
+    subscriptionARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'subscriptionARN' - The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires confirmation. However, if the API request parameter @ReturnSubscriptionArn@ is true, then the value is always the subscription ARN, even if the subscription requires confirmation.
+-- * 'responseStatus' - The response status code.
 mkSubscribeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

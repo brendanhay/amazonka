@@ -67,9 +67,9 @@ module Network.AWS.CodePipeline.Types
     -- * AWSSessionCredentials
     AWSSessionCredentials (..),
     mkAWSSessionCredentials,
-    ascAccessKeyId,
     ascSecretAccessKey,
     ascSessionToken,
+    ascAccessKeyId,
 
     -- * ActionConfiguration
     ActionConfiguration (..),
@@ -80,12 +80,12 @@ module Network.AWS.CodePipeline.Types
     ActionConfigurationProperty (..),
     mkActionConfigurationProperty,
     acpQueryable,
-    acpType,
-    acpDescription,
-    acpName,
+    acpSecret,
     acpRequired,
     acpKey,
-    acpSecret,
+    acpName,
+    acpType,
+    acpDescription,
 
     -- * ActionContext
     ActionContext (..),
@@ -99,12 +99,12 @@ module Network.AWS.CodePipeline.Types
     adOutputArtifacts,
     adNamespace,
     adRunOrder,
+    adName,
     adRegion,
     adConfiguration,
+    adActionTypeId,
     adInputArtifacts,
     adRoleARN,
-    adName,
-    adActionTypeId,
 
     -- * ActionExecution
     ActionExecution (..),
@@ -167,9 +167,9 @@ module Network.AWS.CodePipeline.Types
     -- * ActionRevision
     ActionRevision (..),
     mkActionRevision,
-    aRevisionId,
-    aRevisionChangeId,
     aCreated,
+    aRevisionChangeId,
+    aRevisionId,
 
     -- * ActionState
     ActionState (..),
@@ -184,18 +184,18 @@ module Network.AWS.CodePipeline.Types
     ActionType (..),
     mkActionType,
     atSettings,
-    atActionConfigurationProperties,
-    atId,
-    atInputArtifactDetails,
     atOutputArtifactDetails,
+    atActionConfigurationProperties,
+    atInputArtifactDetails,
+    atId,
 
     -- * ActionTypeId
     ActionTypeId (..),
     mkActionTypeId,
     atiCategory,
     atiOwner,
-    atiProvider,
     atiVersion,
+    atiProvider,
 
     -- * ActionTypeSettings
     ActionTypeSettings (..),
@@ -214,9 +214,9 @@ module Network.AWS.CodePipeline.Types
     -- * Artifact
     Artifact (..),
     mkArtifact,
-    artLocation,
-    artName,
-    artRevision,
+    afLocation,
+    afName,
+    afRevision,
 
     -- * ArtifactDetail
     ArtifactDetail (..),
@@ -227,8 +227,8 @@ module Network.AWS.CodePipeline.Types
     -- * ArtifactDetails
     ArtifactDetails (..),
     mkArtifactDetails,
-    adMinimumCount,
     adMaximumCount,
+    adMinimumCount,
 
     -- * ArtifactLocation
     ArtifactLocation (..),
@@ -249,9 +249,9 @@ module Network.AWS.CodePipeline.Types
     -- * ArtifactStore
     ArtifactStore (..),
     mkArtifactStore,
+    asLocation,
     asEncryptionKey,
     asType,
-    asLocation,
 
     -- * BlockerDeclaration
     BlockerDeclaration (..),
@@ -264,8 +264,8 @@ module Network.AWS.CodePipeline.Types
     mkCurrentRevision,
     crRevisionSummary,
     crCreated,
-    crRevision,
     crChangeIdentifier,
+    crRevision,
 
     -- * EncryptionKey
     EncryptionKey (..),
@@ -335,12 +335,12 @@ module Network.AWS.CodePipeline.Types
     ListWebhookItem (..),
     mkListWebhookItem,
     lwiArn,
+    lwiDefinition,
+    lwiUrl,
     lwiErrorCode,
     lwiLastTriggered,
     lwiErrorMessage,
     lwiTags,
-    lwiDefinition,
-    lwiUrl,
 
     -- * OutputArtifact
     OutputArtifact (..),
@@ -361,10 +361,10 @@ module Network.AWS.CodePipeline.Types
     mkPipelineDeclaration,
     pdArtifactStores,
     pdArtifactStore,
-    pdVersion,
     pdName,
-    pdRoleARN,
     pdStages,
+    pdVersion,
+    pdRoleARN,
 
     -- * PipelineExecution
     PipelineExecution (..),
@@ -418,8 +418,8 @@ module Network.AWS.CodePipeline.Types
     mkSourceRevision,
     srRevisionSummary,
     srRevisionURL,
-    srRevisionId,
     srActionName,
+    srRevisionId,
 
     -- * StageContext
     StageContext (..),
@@ -429,15 +429,15 @@ module Network.AWS.CodePipeline.Types
     -- * StageDeclaration
     StageDeclaration (..),
     mkStageDeclaration,
+    sdActions,
     sdBlockers,
     sdName,
-    sdActions,
 
     -- * StageExecution
     StageExecution (..),
     mkStageExecution,
-    sePipelineExecutionId,
     seStatus,
+    sePipelineExecutionId,
 
     -- * StageState
     StageState (..),
@@ -456,8 +456,8 @@ module Network.AWS.CodePipeline.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * ThirdPartyJob
     ThirdPartyJob (..),
@@ -501,11 +501,11 @@ module Network.AWS.CodePipeline.Types
     -- * WebhookDefinition
     WebhookDefinition (..),
     mkWebhookDefinition,
-    wdName,
-    wdTargetPipeline,
     wdTargetAction,
-    wdFilters,
     wdAuthentication,
+    wdFilters,
+    wdTargetPipeline,
+    wdName,
     wdAuthenticationConfiguration,
 
     -- * WebhookFilterRule

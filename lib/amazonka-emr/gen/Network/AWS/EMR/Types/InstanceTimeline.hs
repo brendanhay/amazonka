@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceTimeline' smart constructor.
 data InstanceTimeline = InstanceTimeline'
-  { readyDateTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when the instance was ready to perform tasks.
+    readyDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The creation date and time of the instance.
     creationDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time when the instance was terminated.
     endDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTimeline' with the minimum fields required to make a request.
 --
+-- * 'readyDateTime' - The date and time when the instance was ready to perform tasks.
 -- * 'creationDateTime' - The creation date and time of the instance.
 -- * 'endDateTime' - The date and time when the instance was terminated.
--- * 'readyDateTime' - The date and time when the instance was ready to perform tasks.
 mkInstanceTimeline ::
   InstanceTimeline
 mkInstanceTimeline =

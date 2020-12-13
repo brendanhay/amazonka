@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.LogsConfigStatusType
   ( LogsConfigStatusType
       ( LogsConfigStatusType',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype LogsConfigStatusType = LogsConfigStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: LogsConfigStatusType
-pattern Disabled = LogsConfigStatusType' "DISABLED"
-
 pattern Enabled :: LogsConfigStatusType
 pattern Enabled = LogsConfigStatusType' "ENABLED"
 
+pattern Disabled :: LogsConfigStatusType
+pattern Disabled = LogsConfigStatusType' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   LogsConfigStatusType'
   #-}

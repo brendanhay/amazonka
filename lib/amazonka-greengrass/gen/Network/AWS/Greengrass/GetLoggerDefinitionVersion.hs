@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Greengrass.GetLoggerDefinitionVersion
     mkGetLoggerDefinitionVersion,
 
     -- ** Request lenses
+    gldvLoggerDefinitionId,
     gldvNextToken,
     gldvLoggerDefinitionVersionId,
-    gldvLoggerDefinitionId,
 
     -- * Destructuring the response
     GetLoggerDefinitionVersionResponse (..),
@@ -45,40 +46,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLoggerDefinitionVersion' smart constructor.
 data GetLoggerDefinitionVersion = GetLoggerDefinitionVersion'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    loggerDefinitionVersionId ::
-      Lude.Text,
-    loggerDefinitionId :: Lude.Text
+  { -- | The ID of the logger definition.
+    loggerDefinitionId :: Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the logger definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListLoggerDefinitionVersions'' requests. If the version is the last one that was associated with a logger definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+    loggerDefinitionVersionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggerDefinitionVersion' with the minimum fields required to make a request.
 --
 -- * 'loggerDefinitionId' - The ID of the logger definition.
--- * 'loggerDefinitionVersionId' - The ID of the logger definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListLoggerDefinitionVersions'' requests. If the version is the last one that was associated with a logger definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'loggerDefinitionVersionId' - The ID of the logger definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListLoggerDefinitionVersions'' requests. If the version is the last one that was associated with a logger definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 mkGetLoggerDefinitionVersion ::
-  -- | 'loggerDefinitionVersionId'
-  Lude.Text ->
   -- | 'loggerDefinitionId'
+  Lude.Text ->
+  -- | 'loggerDefinitionVersionId'
   Lude.Text ->
   GetLoggerDefinitionVersion
 mkGetLoggerDefinitionVersion
-  pLoggerDefinitionVersionId_
-  pLoggerDefinitionId_ =
+  pLoggerDefinitionId_
+  pLoggerDefinitionVersionId_ =
     GetLoggerDefinitionVersion'
-      { nextToken = Lude.Nothing,
-        loggerDefinitionVersionId = pLoggerDefinitionVersionId_,
-        loggerDefinitionId = pLoggerDefinitionId_
+      { loggerDefinitionId =
+          pLoggerDefinitionId_,
+        nextToken = Lude.Nothing,
+        loggerDefinitionVersionId = pLoggerDefinitionVersionId_
       }
+
+-- | The ID of the logger definition.
+--
+-- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gldvLoggerDefinitionId :: Lens.Lens' GetLoggerDefinitionVersion Lude.Text
+gldvLoggerDefinitionId = Lens.lens (loggerDefinitionId :: GetLoggerDefinitionVersion -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: GetLoggerDefinitionVersion)
+{-# DEPRECATED gldvLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -93,13 +97,6 @@ gldvNextToken = Lens.lens (nextToken :: GetLoggerDefinitionVersion -> Lude.Maybe
 gldvLoggerDefinitionVersionId :: Lens.Lens' GetLoggerDefinitionVersion Lude.Text
 gldvLoggerDefinitionVersionId = Lens.lens (loggerDefinitionVersionId :: GetLoggerDefinitionVersion -> Lude.Text) (\s a -> s {loggerDefinitionVersionId = a} :: GetLoggerDefinitionVersion)
 {-# DEPRECATED gldvLoggerDefinitionVersionId "Use generic-lens or generic-optics with 'loggerDefinitionVersionId' instead." #-}
-
--- | The ID of the logger definition.
---
--- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gldvLoggerDefinitionId :: Lens.Lens' GetLoggerDefinitionVersion Lude.Text
-gldvLoggerDefinitionId = Lens.lens (loggerDefinitionId :: GetLoggerDefinitionVersion -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: GetLoggerDefinitionVersion)
-{-# DEPRECATED gldvLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
 instance Lude.AWSRequest GetLoggerDefinitionVersion where
   type
@@ -142,37 +139,30 @@ instance Lude.ToQuery GetLoggerDefinitionVersion where
 
 -- | /See:/ 'mkGetLoggerDefinitionVersionResponse' smart constructor.
 data GetLoggerDefinitionVersionResponse = GetLoggerDefinitionVersionResponse'
-  { definition ::
-      Lude.Maybe
-        LoggerDefinitionVersion,
-    arn ::
-      Lude.Maybe Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe Lude.Text,
-    version ::
-      Lude.Maybe Lude.Text,
-    id ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the logger definition version.
+    definition :: Lude.Maybe LoggerDefinitionVersion,
+    -- | The ARN of the logger definition version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the logger definition version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The version of the logger definition version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the logger definition version.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoggerDefinitionVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'definition' - Information about the logger definition version.
 -- * 'arn' - The ARN of the logger definition version.
 -- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the logger definition version was created.
--- * 'definition' - Information about the logger definition version.
+-- * 'version' - The version of the logger definition version.
 -- * 'id' - The ID of the logger definition version.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The version of the logger definition version.
 mkGetLoggerDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

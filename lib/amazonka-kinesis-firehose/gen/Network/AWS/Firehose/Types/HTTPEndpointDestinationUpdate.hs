@@ -44,29 +44,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPEndpointDestinationUpdate' smart constructor.
 data HTTPEndpointDestinationUpdate = HTTPEndpointDestinationUpdate'
-  { s3BackupMode ::
-      Lude.Maybe
-        HTTPEndpointS3BackupMode,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe
-        CloudWatchLoggingOptions,
-    s3Update ::
-      Lude.Maybe S3DestinationUpdate,
-    bufferingHints ::
-      Lude.Maybe
-        HTTPEndpointBufferingHints,
-    retryOptions ::
-      Lude.Maybe
-        HTTPEndpointRetryOptions,
-    endpointConfiguration ::
-      Lude.Maybe
-        HTTPEndpointConfiguration,
-    processingConfiguration ::
-      Lude.Maybe
-        ProcessingConfiguration,
-    requestConfiguration ::
-      Lude.Maybe
-        HTTPEndpointRequestConfiguration,
+  { -- | Describes the S3 bucket backup options for the data that Kinesis Firehose delivers to the HTTP endpoint destination. You can back up all documents (@AllData@ ) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (@FailedDataOnly@ ).
+    s3BackupMode :: Lude.Maybe HTTPEndpointS3BackupMode,
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    s3Update :: Lude.Maybe S3DestinationUpdate,
+    -- | Describes buffering options that can be applied to the data before it is delivered to the HTTPS endpoint destination. Kinesis Data Firehose teats these options as hints, and it might choose to use more optimal values. The @SizeInMBs@ and @IntervalInSeconds@ parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.
+    bufferingHints :: Lude.Maybe HTTPEndpointBufferingHints,
+    -- | Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
+    retryOptions :: Lude.Maybe HTTPEndpointRetryOptions,
+    -- | Describes the configuration of the HTTP endpoint destination.
+    endpointConfiguration :: Lude.Maybe HTTPEndpointConfiguration,
+    processingConfiguration :: Lude.Maybe ProcessingConfiguration,
+    -- | The configuration of the request sent to the HTTP endpoint specified as the destination.
+    requestConfiguration :: Lude.Maybe HTTPEndpointRequestConfiguration,
+    -- | Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
     roleARN :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -74,15 +65,15 @@ data HTTPEndpointDestinationUpdate = HTTPEndpointDestinationUpdate'
 
 -- | Creates a value of 'HTTPEndpointDestinationUpdate' with the minimum fields required to make a request.
 --
--- * 'bufferingHints' - Describes buffering options that can be applied to the data before it is delivered to the HTTPS endpoint destination. Kinesis Data Firehose teats these options as hints, and it might choose to use more optimal values. The @SizeInMBs@ and @IntervalInSeconds@ parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.
--- * 'cloudWatchLoggingOptions' - Undocumented field.
--- * 'endpointConfiguration' - Describes the configuration of the HTTP endpoint destination.
--- * 'processingConfiguration' - Undocumented field.
--- * 'requestConfiguration' - The configuration of the request sent to the HTTP endpoint specified as the destination.
--- * 'retryOptions' - Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
--- * 'roleARN' - Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
 -- * 's3BackupMode' - Describes the S3 bucket backup options for the data that Kinesis Firehose delivers to the HTTP endpoint destination. You can back up all documents (@AllData@ ) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (@FailedDataOnly@ ).
--- * 's3Update' - Undocumented field.
+-- * 'cloudWatchLoggingOptions' -
+-- * 's3Update' -
+-- * 'bufferingHints' - Describes buffering options that can be applied to the data before it is delivered to the HTTPS endpoint destination. Kinesis Data Firehose teats these options as hints, and it might choose to use more optimal values. The @SizeInMBs@ and @IntervalInSeconds@ parameters are optional. However, if specify a value for one of them, you must also provide a value for the other.
+-- * 'retryOptions' - Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
+-- * 'endpointConfiguration' - Describes the configuration of the HTTP endpoint destination.
+-- * 'processingConfiguration' -
+-- * 'requestConfiguration' - The configuration of the request sent to the HTTP endpoint specified as the destination.
+-- * 'roleARN' - Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
 mkHTTPEndpointDestinationUpdate ::
   HTTPEndpointDestinationUpdate
 mkHTTPEndpointDestinationUpdate =

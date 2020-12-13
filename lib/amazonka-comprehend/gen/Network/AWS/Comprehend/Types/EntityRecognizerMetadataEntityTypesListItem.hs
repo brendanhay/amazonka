@@ -31,30 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityRecognizerMetadataEntityTypesListItem' smart constructor.
 data EntityRecognizerMetadataEntityTypesListItem = EntityRecognizerMetadataEntityTypesListItem'
-  { evaluationMetrics ::
-      Lude.Maybe
-        EntityTypesEvaluationMetrics,
-    type' ::
-      Lude.Maybe
-        Lude.Text,
-    numberOfTrainMentions ::
-      Lude.Maybe
-        Lude.Int
+  { -- | Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types.
+    evaluationMetrics :: Lude.Maybe EntityTypesEvaluationMetrics,
+    -- | Type of entity from the list of entity types in the metadata of an entity recognizer.
+    type' :: Lude.Maybe Lude.Text,
+    -- | Indicates the number of times the given entity type was seen in the training data.
+    numberOfTrainMentions :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerMetadataEntityTypesListItem' with the minimum fields required to make a request.
 --
 -- * 'evaluationMetrics' - Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types.
--- * 'numberOfTrainMentions' - Indicates the number of times the given entity type was seen in the training data.
 -- * 'type'' - Type of entity from the list of entity types in the metadata of an entity recognizer.
+-- * 'numberOfTrainMentions' - Indicates the number of times the given entity type was seen in the training data.
 mkEntityRecognizerMetadataEntityTypesListItem ::
   EntityRecognizerMetadataEntityTypesListItem
 mkEntityRecognizerMetadataEntityTypesListItem =

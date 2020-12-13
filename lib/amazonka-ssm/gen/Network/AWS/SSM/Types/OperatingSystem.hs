@@ -13,15 +13,15 @@
 module Network.AWS.SSM.Types.OperatingSystem
   ( OperatingSystem
       ( OperatingSystem',
-        AmazonLinux,
-        AmazonLinux2,
-        Centos,
-        Debian,
-        OracleLinux,
-        RedhatEnterpriseLinux,
-        Suse,
-        Ubuntu,
-        Windows
+        OSWindows,
+        OSAmazonLinux,
+        OSAmazonLinux2,
+        OSUbuntu,
+        OSRedhatEnterpriseLinux,
+        OSSuse,
+        OSCentos,
+        OSOracleLinux,
+        OSDebian
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype OperatingSystem = OperatingSystem' Lude.Text
       Lude.ToHeader
     )
 
-pattern AmazonLinux :: OperatingSystem
-pattern AmazonLinux = OperatingSystem' "AMAZON_LINUX"
+pattern OSWindows :: OperatingSystem
+pattern OSWindows = OperatingSystem' "WINDOWS"
 
-pattern AmazonLinux2 :: OperatingSystem
-pattern AmazonLinux2 = OperatingSystem' "AMAZON_LINUX_2"
+pattern OSAmazonLinux :: OperatingSystem
+pattern OSAmazonLinux = OperatingSystem' "AMAZON_LINUX"
 
-pattern Centos :: OperatingSystem
-pattern Centos = OperatingSystem' "CENTOS"
+pattern OSAmazonLinux2 :: OperatingSystem
+pattern OSAmazonLinux2 = OperatingSystem' "AMAZON_LINUX_2"
 
-pattern Debian :: OperatingSystem
-pattern Debian = OperatingSystem' "DEBIAN"
+pattern OSUbuntu :: OperatingSystem
+pattern OSUbuntu = OperatingSystem' "UBUNTU"
 
-pattern OracleLinux :: OperatingSystem
-pattern OracleLinux = OperatingSystem' "ORACLE_LINUX"
+pattern OSRedhatEnterpriseLinux :: OperatingSystem
+pattern OSRedhatEnterpriseLinux = OperatingSystem' "REDHAT_ENTERPRISE_LINUX"
 
-pattern RedhatEnterpriseLinux :: OperatingSystem
-pattern RedhatEnterpriseLinux = OperatingSystem' "REDHAT_ENTERPRISE_LINUX"
+pattern OSSuse :: OperatingSystem
+pattern OSSuse = OperatingSystem' "SUSE"
 
-pattern Suse :: OperatingSystem
-pattern Suse = OperatingSystem' "SUSE"
+pattern OSCentos :: OperatingSystem
+pattern OSCentos = OperatingSystem' "CENTOS"
 
-pattern Ubuntu :: OperatingSystem
-pattern Ubuntu = OperatingSystem' "UBUNTU"
+pattern OSOracleLinux :: OperatingSystem
+pattern OSOracleLinux = OperatingSystem' "ORACLE_LINUX"
 
-pattern Windows :: OperatingSystem
-pattern Windows = OperatingSystem' "WINDOWS"
+pattern OSDebian :: OperatingSystem
+pattern OSDebian = OperatingSystem' "DEBIAN"
 
 {-# COMPLETE
-  AmazonLinux,
-  AmazonLinux2,
-  Centos,
-  Debian,
-  OracleLinux,
-  RedhatEnterpriseLinux,
-  Suse,
-  Ubuntu,
-  Windows,
+  OSWindows,
+  OSAmazonLinux,
+  OSAmazonLinux2,
+  OSUbuntu,
+  OSRedhatEnterpriseLinux,
+  OSSuse,
+  OSCentos,
+  OSOracleLinux,
+  OSDebian,
   OperatingSystem'
   #-}

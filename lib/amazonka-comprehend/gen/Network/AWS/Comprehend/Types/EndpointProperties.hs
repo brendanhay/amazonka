@@ -36,35 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointProperties' smart constructor.
 data EndpointProperties = EndpointProperties'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation date and time of the endpoint.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so customers will need to wait for the endpoint to be @Ready@ status before making inference requests.
     status :: Lude.Maybe EndpointStatus,
+    -- | The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
     modelARN :: Lude.Maybe Lude.Text,
+    -- | The date and time that the endpoint was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
     desiredInferenceUnits :: Lude.Maybe Lude.Natural,
+    -- | The number of inference units currently used by the model using this endpoint.
     currentInferenceUnits :: Lude.Maybe Lude.Natural,
+    -- | Specifies a reason for failure in cases of @Failed@ status.
     message :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Number (ARN) of the endpoint.
     endpointARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointProperties' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation date and time of the endpoint.
--- * 'currentInferenceUnits' - The number of inference units currently used by the model using this endpoint.
--- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
--- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint.
--- * 'lastModifiedTime' - The date and time that the endpoint was last modified.
--- * 'message' - Specifies a reason for failure in cases of @Failed@ status.
--- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
 -- * 'status' - Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so customers will need to wait for the endpoint to be @Ready@ status before making inference requests.
+-- * 'modelARN' - The Amazon Resource Number (ARN) of the model to which the endpoint is attached.
+-- * 'lastModifiedTime' - The date and time that the endpoint was last modified.
+-- * 'desiredInferenceUnits' - The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.
+-- * 'currentInferenceUnits' - The number of inference units currently used by the model using this endpoint.
+-- * 'message' - Specifies a reason for failure in cases of @Failed@ status.
+-- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint.
 mkEndpointProperties ::
   EndpointProperties
 mkEndpointProperties =

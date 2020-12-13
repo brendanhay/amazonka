@@ -13,8 +13,8 @@
 module Network.AWS.Lambda.Types.CodeSigningPolicy
   ( CodeSigningPolicy
       ( CodeSigningPolicy',
-        Enforce,
-        Warn
+        Warn,
+        Enforce
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CodeSigningPolicy = CodeSigningPolicy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Enforce :: CodeSigningPolicy
-pattern Enforce = CodeSigningPolicy' "Enforce"
-
 pattern Warn :: CodeSigningPolicy
 pattern Warn = CodeSigningPolicy' "Warn"
 
+pattern Enforce :: CodeSigningPolicy
+pattern Enforce = CodeSigningPolicy' "Enforce"
+
 {-# COMPLETE
-  Enforce,
   Warn,
+  Enforce,
   CodeSigningPolicy'
   #-}

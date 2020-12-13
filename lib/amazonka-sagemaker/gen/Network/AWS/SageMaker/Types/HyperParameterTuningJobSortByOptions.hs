@@ -13,9 +13,9 @@
 module Network.AWS.SageMaker.Types.HyperParameterTuningJobSortByOptions
   ( HyperParameterTuningJobSortByOptions
       ( HyperParameterTuningJobSortByOptions',
-        HPTJSBOCreationTime,
         HPTJSBOName,
-        HPTJSBOStatus
+        HPTJSBOStatus,
+        HPTJSBOCreationTime
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype HyperParameterTuningJobSortByOptions = HyperParameterTuningJobSortByOpti
       Lude.ToHeader
     )
 
-pattern HPTJSBOCreationTime :: HyperParameterTuningJobSortByOptions
-pattern HPTJSBOCreationTime = HyperParameterTuningJobSortByOptions' "CreationTime"
-
 pattern HPTJSBOName :: HyperParameterTuningJobSortByOptions
 pattern HPTJSBOName = HyperParameterTuningJobSortByOptions' "Name"
 
 pattern HPTJSBOStatus :: HyperParameterTuningJobSortByOptions
 pattern HPTJSBOStatus = HyperParameterTuningJobSortByOptions' "Status"
 
+pattern HPTJSBOCreationTime :: HyperParameterTuningJobSortByOptions
+pattern HPTJSBOCreationTime = HyperParameterTuningJobSortByOptions' "CreationTime"
+
 {-# COMPLETE
-  HPTJSBOCreationTime,
   HPTJSBOName,
   HPTJSBOStatus,
+  HPTJSBOCreationTime,
   HyperParameterTuningJobSortByOptions'
   #-}

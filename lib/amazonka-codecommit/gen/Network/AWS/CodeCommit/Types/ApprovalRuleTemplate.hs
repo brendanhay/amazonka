@@ -35,37 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApprovalRuleTemplate' smart constructor.
 data ApprovalRuleTemplate = ApprovalRuleTemplate'
-  { ruleContentSha256 ::
-      Lude.Maybe Lude.Text,
+  { -- | The SHA-256 hash signature for the content of the approval rule template.
+    ruleContentSha256 :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the approval rule template.
     approvalRuleTemplateId :: Lude.Maybe Lude.Text,
+    -- | The date the approval rule template was most recently changed, in timestamp format.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    approvalRuleTemplateDescription ::
-      Lude.Maybe Lude.Text,
-    approvalRuleTemplateContent ::
-      Lude.Maybe Lude.Text,
+    -- | The description of the approval rule template.
+    approvalRuleTemplateDescription :: Lude.Maybe Lude.Text,
+    -- | The content of the approval rule template.
+    approvalRuleTemplateContent :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
     lastModifiedUser :: Lude.Maybe Lude.Text,
+    -- | The date the approval rule template was created, in timestamp format.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the approval rule template.
     approvalRuleTemplateName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApprovalRuleTemplate' with the minimum fields required to make a request.
 --
--- * 'approvalRuleTemplateContent' - The content of the approval rule template.
--- * 'approvalRuleTemplateDescription' - The description of the approval rule template.
--- * 'approvalRuleTemplateId' - The system-generated ID of the approval rule template.
--- * 'approvalRuleTemplateName' - The name of the approval rule template.
--- * 'creationDate' - The date the approval rule template was created, in timestamp format.
--- * 'lastModifiedDate' - The date the approval rule template was most recently changed, in timestamp format.
--- * 'lastModifiedUser' - The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
 -- * 'ruleContentSha256' - The SHA-256 hash signature for the content of the approval rule template.
+-- * 'approvalRuleTemplateId' - The system-generated ID of the approval rule template.
+-- * 'lastModifiedDate' - The date the approval rule template was most recently changed, in timestamp format.
+-- * 'approvalRuleTemplateDescription' - The description of the approval rule template.
+-- * 'approvalRuleTemplateContent' - The content of the approval rule template.
+-- * 'lastModifiedUser' - The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+-- * 'creationDate' - The date the approval rule template was created, in timestamp format.
+-- * 'approvalRuleTemplateName' - The name of the approval rule template.
 mkApprovalRuleTemplate ::
   ApprovalRuleTemplate
 mkApprovalRuleTemplate =

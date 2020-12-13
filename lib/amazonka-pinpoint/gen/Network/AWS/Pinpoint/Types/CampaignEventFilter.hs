@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCampaignEventFilter' smart constructor.
 data CampaignEventFilter = CampaignEventFilter'
-  { filterType ::
-      FilterType,
+  { -- | The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<link>Events resource) occurs.
+    filterType :: FilterType,
+    -- | The dimension settings of the event filter for the campaign.
     dimensions :: EventDimensions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignEventFilter' with the minimum fields required to make a request.
 --
--- * 'dimensions' - The dimension settings of the event filter for the campaign.
 -- * 'filterType' - The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<link>Events resource) occurs.
+-- * 'dimensions' - The dimension settings of the event filter for the campaign.
 mkCampaignEventFilter ::
   -- | 'filterType'
   FilterType ->

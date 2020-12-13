@@ -37,37 +37,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamInfo' smart constructor.
 data StreamInfo = StreamInfo'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A time stamp that indicates when the stream was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the stream.
     status :: Lude.Maybe StreamStatus,
+    -- | The @MediaType@ of the stream.
     mediaType :: Lude.Maybe Lude.Text,
+    -- | How long the stream retains data, in hours.
     dataRetentionInHours :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the stream.
     streamARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The name of the device that is associated with the stream.
     deviceName :: Lude.Maybe Lude.Text,
+    -- | The version of the stream.
     version :: Lude.Maybe Lude.Text,
+    -- | The name of the stream.
     streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamInfo' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - A time stamp that indicates when the stream was created.
--- * 'dataRetentionInHours' - How long the stream retains data, in hours.
--- * 'deviceName' - The name of the device that is associated with the stream.
--- * 'kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
--- * 'mediaType' - The @MediaType@ of the stream.
 -- * 'status' - The status of the stream.
+-- * 'mediaType' - The @MediaType@ of the stream.
+-- * 'dataRetentionInHours' - How long the stream retains data, in hours.
 -- * 'streamARN' - The Amazon Resource Name (ARN) of the stream.
--- * 'streamName' - The name of the stream.
+-- * 'kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
+-- * 'deviceName' - The name of the device that is associated with the stream.
 -- * 'version' - The version of the stream.
+-- * 'streamName' - The name of the stream.
 mkStreamInfo ::
   StreamInfo
 mkStreamInfo =

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceCredentials' smart constructor.
 data InstanceCredentials = InstanceCredentials'
-  { userName ::
-      Lude.Maybe Lude.Text,
+  { -- | User login string.
+    userName :: Lude.Maybe Lude.Text,
+    -- | Secret string. For Windows instances, the secret is a password for use with Windows Remote Desktop. For Linux instances, it is a private key (which must be saved as a @.pem@ file) for use with SSH.
     secret :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceCredentials' with the minimum fields required to make a request.
 --
--- * 'secret' - Secret string. For Windows instances, the secret is a password for use with Windows Remote Desktop. For Linux instances, it is a private key (which must be saved as a @.pem@ file) for use with SSH.
 -- * 'userName' - User login string.
+-- * 'secret' - Secret string. For Windows instances, the secret is a password for use with Windows Remote Desktop. For Linux instances, it is a private key (which must be saved as a @.pem@ file) for use with SSH.
 mkInstanceCredentials ::
   InstanceCredentials
 mkInstanceCredentials =

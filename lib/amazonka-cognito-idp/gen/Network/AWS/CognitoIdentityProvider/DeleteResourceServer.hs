@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,23 +37,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteResourceServer' smart constructor.
 data DeleteResourceServer = DeleteResourceServer'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The user pool ID for the user pool that hosts the resource server.
+    userPoolId :: Lude.Text,
+    -- | The identifier for the resource server.
     identifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceServer' with the minimum fields required to make a request.
 --
--- * 'identifier' - The identifier for the resource server.
 -- * 'userPoolId' - The user pool ID for the user pool that hosts the resource server.
+-- * 'identifier' - The identifier for the resource server.
 mkDeleteResourceServer ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -114,13 +110,7 @@ instance Lude.ToQuery DeleteResourceServer where
 
 -- | /See:/ 'mkDeleteResourceServerResponse' smart constructor.
 data DeleteResourceServerResponse = DeleteResourceServerResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceServerResponse' with the minimum fields required to make a request.

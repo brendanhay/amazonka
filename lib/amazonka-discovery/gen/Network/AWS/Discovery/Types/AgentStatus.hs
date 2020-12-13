@@ -13,12 +13,12 @@
 module Network.AWS.Discovery.Types.AgentStatus
   ( AgentStatus
       ( AgentStatus',
-        Blacklisted,
         Healthy,
-        Running,
-        Shutdown,
         Unhealthy,
-        Unknown
+        Running,
+        Unknown,
+        Blacklisted,
+        Shutdown
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype AgentStatus = AgentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Blacklisted :: AgentStatus
-pattern Blacklisted = AgentStatus' "BLACKLISTED"
-
 pattern Healthy :: AgentStatus
 pattern Healthy = AgentStatus' "HEALTHY"
-
-pattern Running :: AgentStatus
-pattern Running = AgentStatus' "RUNNING"
-
-pattern Shutdown :: AgentStatus
-pattern Shutdown = AgentStatus' "SHUTDOWN"
 
 pattern Unhealthy :: AgentStatus
 pattern Unhealthy = AgentStatus' "UNHEALTHY"
 
+pattern Running :: AgentStatus
+pattern Running = AgentStatus' "RUNNING"
+
 pattern Unknown :: AgentStatus
 pattern Unknown = AgentStatus' "UNKNOWN"
 
+pattern Blacklisted :: AgentStatus
+pattern Blacklisted = AgentStatus' "BLACKLISTED"
+
+pattern Shutdown :: AgentStatus
+pattern Shutdown = AgentStatus' "SHUTDOWN"
+
 {-# COMPLETE
-  Blacklisted,
   Healthy,
-  Running,
-  Shutdown,
   Unhealthy,
+  Running,
   Unknown,
+  Blacklisted,
+  Shutdown,
   AgentStatus'
   #-}

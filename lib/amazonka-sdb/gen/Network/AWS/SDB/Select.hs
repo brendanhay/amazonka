@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.SDB.Select
     mkSelect,
 
     -- ** Request lenses
+    sSelectExpression,
     sConsistentRead,
     sNextToken,
-    sSelectExpression,
 
     -- * Destructuring the response
     SelectResponse (..),
@@ -48,34 +49,38 @@ import Network.AWS.SDB.Types
 
 -- | /See:/ 'mkSelect' smart constructor.
 data Select = Select'
-  { consistentRead :: Lude.Maybe Lude.Bool,
-    nextToken :: Lude.Maybe Lude.Text,
-    selectExpression :: Lude.Text
+  { -- | The expression used to query the domain.
+    selectExpression :: Lude.Text,
+    -- | @true@
+    consistentRead :: Lude.Maybe Lude.Bool,
+    -- | @ItemNames@
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Select' with the minimum fields required to make a request.
 --
+-- * 'selectExpression' - The expression used to query the domain.
 -- * 'consistentRead' - @true@
 -- * 'nextToken' - @ItemNames@
--- * 'selectExpression' - The expression used to query the domain.
 mkSelect ::
   -- | 'selectExpression'
   Lude.Text ->
   Select
 mkSelect pSelectExpression_ =
   Select'
-    { consistentRead = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      selectExpression = pSelectExpression_
+    { selectExpression = pSelectExpression_,
+      consistentRead = Lude.Nothing,
+      nextToken = Lude.Nothing
     }
+
+-- | The expression used to query the domain.
+--
+-- /Note:/ Consider using 'selectExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSelectExpression :: Lens.Lens' Select Lude.Text
+sSelectExpression = Lens.lens (selectExpression :: Select -> Lude.Text) (\s a -> s {selectExpression = a} :: Select)
+{-# DEPRECATED sSelectExpression "Use generic-lens or generic-optics with 'selectExpression' instead." #-}
 
 -- | @true@
 --
@@ -90,13 +95,6 @@ sConsistentRead = Lens.lens (consistentRead :: Select -> Lude.Maybe Lude.Bool) (
 sNextToken :: Lens.Lens' Select (Lude.Maybe Lude.Text)
 sNextToken = Lens.lens (nextToken :: Select -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: Select)
 {-# DEPRECATED sNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The expression used to query the domain.
---
--- /Note:/ Consider using 'selectExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSelectExpression :: Lens.Lens' Select Lude.Text
-sSelectExpression = Lens.lens (selectExpression :: Select -> Lude.Text) (\s a -> s {selectExpression = a} :: Select)
-{-# DEPRECATED sSelectExpression "Use generic-lens or generic-optics with 'selectExpression' instead." #-}
 
 instance Page.AWSPager Select where
   page rq rs
@@ -131,24 +129,21 @@ instance Lude.ToQuery Select where
     Lude.mconcat
       [ "Action" Lude.=: ("Select" :: Lude.ByteString),
         "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
+        "SelectExpression" Lude.=: selectExpression,
         "ConsistentRead" Lude.=: consistentRead,
-        "NextToken" Lude.=: nextToken,
-        "SelectExpression" Lude.=: selectExpression
+        "NextToken" Lude.=: nextToken
       ]
 
 -- | /See:/ 'mkSelectResponse' smart constructor.
 data SelectResponse = SelectResponse'
-  { items :: Lude.Maybe [Item],
+  { -- | A list of items that match the select expression.
+    items :: Lude.Maybe [Item],
+    -- | @MaxNumberOfItems@
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectResponse' with the minimum fields required to make a request.

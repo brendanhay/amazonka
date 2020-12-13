@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListStudioSessionMappings' smart constructor.
 data ListStudioSessionMappings = ListStudioSessionMappings'
-  { studioId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Amazon EMR Studio.
+    studioId :: Lude.Maybe Lude.Text,
+    -- | Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.
     identityType :: Lude.Maybe IdentityType,
+    -- | The pagination token that indicates the set of results to retrieve.
     marker :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStudioSessionMappings' with the minimum fields required to make a request.
 --
+-- * 'studioId' - The ID of the Amazon EMR Studio.
 -- * 'identityType' - Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.
 -- * 'marker' - The pagination token that indicates the set of results to retrieve.
--- * 'studioId' - The ID of the Amazon EMR Studio.
 mkListStudioSessionMappings ::
   ListStudioSessionMappings
 mkListStudioSessionMappings =
@@ -146,28 +143,21 @@ instance Lude.ToQuery ListStudioSessionMappings where
 
 -- | /See:/ 'mkListStudioSessionMappingsResponse' smart constructor.
 data ListStudioSessionMappingsResponse = ListStudioSessionMappingsResponse'
-  { sessionMappings ::
-      Lude.Maybe
-        [SessionMappingSummary],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
+    sessionMappings :: Lude.Maybe [SessionMappingSummary],
+    -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStudioSessionMappingsResponse' with the minimum fields required to make a request.
 --
+-- * 'sessionMappings' - A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
 -- * 'marker' - The pagination token that indicates the next set of results to retrieve.
 -- * 'responseStatus' - The response status code.
--- * 'sessionMappings' - A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
 mkListStudioSessionMappingsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DMS.DescribeEndpoints
     mkDescribeEndpoints,
 
     -- ** Request lenses
-    desFilters,
-    desMarker,
-    desMaxRecords,
+    deFilters,
+    deMarker,
+    deMaxRecords,
 
     -- * Destructuring the response
     DescribeEndpointsResponse (..),
@@ -47,18 +48,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | Filters applied to the endpoints.
+    --
+    -- Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
@@ -85,16 +87,16 @@ mkDescribeEndpoints =
 -- Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desFilters :: Lens.Lens' DescribeEndpoints (Lude.Maybe [Filter])
-desFilters = Lens.lens (filters :: DescribeEndpoints -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEndpoints)
-{-# DEPRECATED desFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+deFilters :: Lens.Lens' DescribeEndpoints (Lude.Maybe [Filter])
+deFilters = Lens.lens (filters :: DescribeEndpoints -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEndpoints)
+{-# DEPRECATED deFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desMarker :: Lens.Lens' DescribeEndpoints (Lude.Maybe Lude.Text)
-desMarker = Lens.lens (marker :: DescribeEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEndpoints)
-{-# DEPRECATED desMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+deMarker :: Lens.Lens' DescribeEndpoints (Lude.Maybe Lude.Text)
+deMarker = Lens.lens (marker :: DescribeEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEndpoints)
+{-# DEPRECATED deMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -102,16 +104,16 @@ desMarker = Lens.lens (marker :: DescribeEndpoints -> Lude.Maybe Lude.Text) (\s 
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desMaxRecords :: Lens.Lens' DescribeEndpoints (Lude.Maybe Lude.Int)
-desMaxRecords = Lens.lens (maxRecords :: DescribeEndpoints -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEndpoints)
-{-# DEPRECATED desMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+deMaxRecords :: Lens.Lens' DescribeEndpoints (Lude.Maybe Lude.Int)
+deMaxRecords = Lens.lens (maxRecords :: DescribeEndpoints -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEndpoints)
+{-# DEPRECATED deMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Page.AWSPager DescribeEndpoints where
   page rq rs
     | Page.stop (rs Lens.^. dersMarker) = Lude.Nothing
     | Page.stop (rs Lens.^. dersEndpoints) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& desMarker Lens..~ rs Lens.^. dersMarker
+      Lude.Just Lude.$ rq Lude.& deMarker Lens..~ rs Lens.^. dersMarker
 
 instance Lude.AWSRequest DescribeEndpoints where
   type Rs DescribeEndpoints = DescribeEndpointsResponse
@@ -156,9 +158,11 @@ instance Lude.ToQuery DescribeEndpoints where
 --
 -- /See:/ 'mkDescribeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | Endpoint description.
     endpoints :: Lude.Maybe [Endpoint],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -166,8 +170,8 @@ data DescribeEndpointsResponse = DescribeEndpointsResponse'
 
 -- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
 --
--- * 'endpoints' - Endpoint description.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'endpoints' - Endpoint description.
 -- * 'responseStatus' - The response status code.
 mkDescribeEndpointsResponse ::
   -- | 'responseStatus'

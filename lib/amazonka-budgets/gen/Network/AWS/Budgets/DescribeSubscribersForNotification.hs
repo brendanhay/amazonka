@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.Budgets.DescribeSubscribersForNotification
     mkDescribeSubscribersForNotification,
 
     -- ** Request lenses
-    dsfnNextToken,
-    dsfnMaxResults,
-    dsfnAccountId,
-    dsfnBudgetName,
     dsfnNotification,
+    dsfnAccountId,
+    dsfnNextToken,
+    dsfnBudgetName,
+    dsfnMaxResults,
 
     -- * Destructuring the response
     DescribeSubscribersForNotificationResponse (..),
@@ -49,67 +50,54 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSubscribersForNotification' smart constructor.
 data DescribeSubscribersForNotification = DescribeSubscribersForNotification'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    accountId ::
-      Lude.Text,
-    budgetName ::
-      Lude.Text,
-    notification ::
-      Notification
+  { -- | The notification whose subscribers you want to list.
+    notification :: Notification,
+    -- | The @accountId@ that is associated with the budget whose subscribers you want descriptions of.
+    accountId :: Lude.Text,
+    -- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the budget whose subscribers you want descriptions of.
+    budgetName :: Lude.Text,
+    -- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscribersForNotification' with the minimum fields required to make a request.
 --
+-- * 'notification' - The notification whose subscribers you want to list.
 -- * 'accountId' - The @accountId@ that is associated with the budget whose subscribers you want descriptions of.
+-- * 'nextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
 -- * 'budgetName' - The name of the budget whose subscribers you want descriptions of.
 -- * 'maxResults' - An optional integer that represents how many entries a paginated response contains. The maximum is 100.
--- * 'nextToken' - The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
--- * 'notification' - The notification whose subscribers you want to list.
 mkDescribeSubscribersForNotification ::
+  -- | 'notification'
+  Notification ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'notification'
-  Notification ->
   DescribeSubscribersForNotification
 mkDescribeSubscribersForNotification
+  pNotification_
   pAccountId_
-  pBudgetName_
-  pNotification_ =
+  pBudgetName_ =
     DescribeSubscribersForNotification'
-      { nextToken = Lude.Nothing,
-        maxResults = Lude.Nothing,
+      { notification =
+          pNotification_,
         accountId = pAccountId_,
+        nextToken = Lude.Nothing,
         budgetName = pBudgetName_,
-        notification = pNotification_
+        maxResults = Lude.Nothing
       }
 
--- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+-- | The notification whose subscribers you want to list.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfnNextToken :: Lens.Lens' DescribeSubscribersForNotification (Lude.Maybe Lude.Text)
-dsfnNextToken = Lens.lens (nextToken :: DescribeSubscribersForNotification -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSubscribersForNotification)
-{-# DEPRECATED dsfnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfnMaxResults :: Lens.Lens' DescribeSubscribersForNotification (Lude.Maybe Lude.Natural)
-dsfnMaxResults = Lens.lens (maxResults :: DescribeSubscribersForNotification -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSubscribersForNotification)
-{-# DEPRECATED dsfnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfnNotification :: Lens.Lens' DescribeSubscribersForNotification Notification
+dsfnNotification = Lens.lens (notification :: DescribeSubscribersForNotification -> Notification) (\s a -> s {notification = a} :: DescribeSubscribersForNotification)
+{-# DEPRECATED dsfnNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | The @accountId@ that is associated with the budget whose subscribers you want descriptions of.
 --
@@ -118,6 +106,13 @@ dsfnAccountId :: Lens.Lens' DescribeSubscribersForNotification Lude.Text
 dsfnAccountId = Lens.lens (accountId :: DescribeSubscribersForNotification -> Lude.Text) (\s a -> s {accountId = a} :: DescribeSubscribersForNotification)
 {-# DEPRECATED dsfnAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
+-- | The pagination token that you include in your request to indicate the next set of results that you want to retrieve.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfnNextToken :: Lens.Lens' DescribeSubscribersForNotification (Lude.Maybe Lude.Text)
+dsfnNextToken = Lens.lens (nextToken :: DescribeSubscribersForNotification -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSubscribersForNotification)
+{-# DEPRECATED dsfnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
 -- | The name of the budget whose subscribers you want descriptions of.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -125,12 +120,12 @@ dsfnBudgetName :: Lens.Lens' DescribeSubscribersForNotification Lude.Text
 dsfnBudgetName = Lens.lens (budgetName :: DescribeSubscribersForNotification -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeSubscribersForNotification)
 {-# DEPRECATED dsfnBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
--- | The notification whose subscribers you want to list.
+-- | An optional integer that represents how many entries a paginated response contains. The maximum is 100.
 --
--- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfnNotification :: Lens.Lens' DescribeSubscribersForNotification Notification
-dsfnNotification = Lens.lens (notification :: DescribeSubscribersForNotification -> Notification) (\s a -> s {notification = a} :: DescribeSubscribersForNotification)
-{-# DEPRECATED dsfnNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsfnMaxResults :: Lens.Lens' DescribeSubscribersForNotification (Lude.Maybe Lude.Natural)
+dsfnMaxResults = Lens.lens (maxResults :: DescribeSubscribersForNotification -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSubscribersForNotification)
+{-# DEPRECATED dsfnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeSubscribersForNotification where
   page rq rs
@@ -172,11 +167,11 @@ instance Lude.ToJSON DescribeSubscribersForNotification where
   toJSON DescribeSubscribersForNotification' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
+          [ Lude.Just ("Notification" Lude..= notification),
             Lude.Just ("AccountId" Lude..= accountId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("Notification" Lude..= notification)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -190,30 +185,21 @@ instance Lude.ToQuery DescribeSubscribersForNotification where
 --
 -- /See:/ 'mkDescribeSubscribersForNotificationResponse' smart constructor.
 data DescribeSubscribersForNotificationResponse = DescribeSubscribersForNotificationResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    subscribers ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            Subscriber
-        ),
-    responseStatus ::
-      Lude.Int
+  { -- | The pagination token in the service response that indicates the next set of results that you can retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of subscribers that are associated with a notification.
+    subscribers :: Lude.Maybe (Lude.NonEmpty Subscriber),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubscribersForNotificationResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The pagination token in the service response that indicates the next set of results that you can retrieve.
--- * 'responseStatus' - The response status code.
 -- * 'subscribers' - A list of subscribers that are associated with a notification.
+-- * 'responseStatus' - The response status code.
 mkDescribeSubscribersForNotificationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

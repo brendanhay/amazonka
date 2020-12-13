@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceCount' smart constructor.
 data InstanceCount = InstanceCount'
-  { state ::
-      Lude.Maybe ListingState,
+  { -- | The states of the listed Reserved Instances.
+    state :: Lude.Maybe ListingState,
+    -- | The number of listed Reserved Instances in the state specified by the @state@ .
     instanceCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceCount' with the minimum fields required to make a request.
 --
--- * 'instanceCount' - The number of listed Reserved Instances in the state specified by the @state@ .
 -- * 'state' - The states of the listed Reserved Instances.
+-- * 'instanceCount' - The number of listed Reserved Instances in the state specified by the @state@ .
 mkInstanceCount ::
   InstanceCount
 mkInstanceCount =

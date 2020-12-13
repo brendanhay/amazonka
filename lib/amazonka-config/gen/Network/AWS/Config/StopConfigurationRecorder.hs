@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Config.StopConfigurationRecorder
     mkStopConfigurationRecorder,
 
     -- ** Request lenses
-    scrConfigurationRecorderName,
+    sConfigurationRecorderName,
 
     -- * Destructuring the response
     StopConfigurationRecorderResponse (..),
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStopConfigurationRecorder' smart constructor.
 newtype StopConfigurationRecorder = StopConfigurationRecorder'
-  { configurationRecorderName ::
-      Lude.Text
+  { -- | The name of the recorder object that records each configuration change made to the resources.
+    configurationRecorderName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopConfigurationRecorder' with the minimum fields required to make a request.
@@ -65,9 +60,9 @@ mkStopConfigurationRecorder pConfigurationRecorderName_ =
 -- | The name of the recorder object that records each configuration change made to the resources.
 --
 -- /Note:/ Consider using 'configurationRecorderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrConfigurationRecorderName :: Lens.Lens' StopConfigurationRecorder Lude.Text
-scrConfigurationRecorderName = Lens.lens (configurationRecorderName :: StopConfigurationRecorder -> Lude.Text) (\s a -> s {configurationRecorderName = a} :: StopConfigurationRecorder)
-{-# DEPRECATED scrConfigurationRecorderName "Use generic-lens or generic-optics with 'configurationRecorderName' instead." #-}
+sConfigurationRecorderName :: Lens.Lens' StopConfigurationRecorder Lude.Text
+sConfigurationRecorderName = Lens.lens (configurationRecorderName :: StopConfigurationRecorder -> Lude.Text) (\s a -> s {configurationRecorderName = a} :: StopConfigurationRecorder)
+{-# DEPRECATED sConfigurationRecorderName "Use generic-lens or generic-optics with 'configurationRecorderName' instead." #-}
 
 instance Lude.AWSRequest StopConfigurationRecorder where
   type
@@ -106,13 +101,7 @@ instance Lude.ToQuery StopConfigurationRecorder where
 
 -- | /See:/ 'mkStopConfigurationRecorderResponse' smart constructor.
 data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopConfigurationRecorderResponse' with the minimum fields required to make a request.

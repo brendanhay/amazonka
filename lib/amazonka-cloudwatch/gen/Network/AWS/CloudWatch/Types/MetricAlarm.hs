@@ -60,72 +60,93 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetricAlarm' smart constructor.
 data MetricAlarm = MetricAlarm'
-  { alarmName :: Lude.Maybe Lude.Text,
+  { -- | The name of the alarm.
+    alarmName :: Lude.Maybe Lude.Text,
+    -- | The time stamp of the last update to the alarm state.
     stateUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
     metrics :: Lude.Maybe [MetricDataQuery],
+    -- | Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
     treatMissingData :: Lude.Maybe Lude.Text,
+    -- | The period, in seconds, over which the statistic is applied.
     period :: Lude.Maybe Lude.Natural,
+    -- | The description of the alarm.
     alarmDescription :: Lude.Maybe Lude.Text,
+    -- | The number of periods over which data is compared to the specified threshold.
     evaluationPeriods :: Lude.Maybe Lude.Natural,
+    -- | The name of the metric associated with the alarm, if this is an alarm based on a single metric.
     metricName :: Lude.Maybe Lude.Text,
+    -- | The namespace of the metric associated with the alarm.
     namespace :: Lude.Maybe Lude.Text,
+    -- | In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
     thresholdMetricId :: Lude.Maybe Lude.Text,
+    -- | The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
     comparisonOperator :: Lude.Maybe ComparisonOperator,
+    -- | The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
     okActions :: Lude.Maybe [Lude.Text],
+    -- | Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
     evaluateLowSampleCountPercentile :: Lude.Maybe Lude.Text,
+    -- | The state value for the alarm.
     stateValue :: Lude.Maybe StateValue,
+    -- | The number of data points that must be breaching to trigger the alarm.
     datapointsToAlarm :: Lude.Maybe Lude.Natural,
+    -- | The value to compare with the specified statistic.
     threshold :: Lude.Maybe Lude.Double,
+    -- | The time stamp of the last update to the alarm configuration.
     alarmConfigurationUpdatedTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | Indicates whether actions should be executed during any changes to the alarm state.
     actionsEnabled :: Lude.Maybe Lude.Bool,
+    -- | The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
     insufficientDataActions :: Lude.Maybe [Lude.Text],
+    -- | An explanation for the alarm state, in text format.
     stateReason :: Lude.Maybe Lude.Text,
+    -- | An explanation for the alarm state, in JSON format.
     stateReasonData :: Lude.Maybe Lude.Text,
+    -- | The dimensions for the metric associated with the alarm.
     dimensions :: Lude.Maybe [Dimension],
+    -- | The Amazon Resource Name (ARN) of the alarm.
     alarmARN :: Lude.Maybe Lude.Text,
+    -- | The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
     alarmActions :: Lude.Maybe [Lude.Text],
+    -- | The unit of the metric associated with the alarm.
     unit :: Lude.Maybe StandardUnit,
+    -- | The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
     statistic :: Lude.Maybe Statistic,
+    -- | The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
     extendedStatistic :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricAlarm' with the minimum fields required to make a request.
 --
--- * 'actionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
--- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
--- * 'alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
--- * 'alarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
--- * 'alarmDescription' - The description of the alarm.
 -- * 'alarmName' - The name of the alarm.
--- * 'comparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
--- * 'datapointsToAlarm' - The number of data points that must be breaching to trigger the alarm.
--- * 'dimensions' - The dimensions for the metric associated with the alarm.
--- * 'evaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
--- * 'evaluationPeriods' - The number of periods over which data is compared to the specified threshold.
--- * 'extendedStatistic' - The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
--- * 'insufficientDataActions' - The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
--- * 'metricName' - The name of the metric associated with the alarm, if this is an alarm based on a single metric.
+-- * 'stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
 -- * 'metrics' - An array of MetricDataQuery structures, used in an alarm based on a metric math expression. Each structure either retrieves a metric or performs a math expression. One item in the Metrics array is the math expression that the alarm watches. This expression by designated by having @ReturnData@ set to true.
--- * 'namespace' - The namespace of the metric associated with the alarm.
--- * 'okActions' - The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'treatMissingData' - Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
 -- * 'period' - The period, in seconds, over which the statistic is applied.
+-- * 'alarmDescription' - The description of the alarm.
+-- * 'evaluationPeriods' - The number of periods over which data is compared to the specified threshold.
+-- * 'metricName' - The name of the metric associated with the alarm, if this is an alarm based on a single metric.
+-- * 'namespace' - The namespace of the metric associated with the alarm.
+-- * 'thresholdMetricId' - In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
+-- * 'comparisonOperator' - The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
+-- * 'okActions' - The actions to execute when this alarm transitions to the @OK@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+-- * 'evaluateLowSampleCountPercentile' - Used only for alarms based on percentiles. If @ignore@ , the alarm state does not change during periods with too few data points to be statistically significant. If @evaluate@ or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
+-- * 'stateValue' - The state value for the alarm.
+-- * 'datapointsToAlarm' - The number of data points that must be breaching to trigger the alarm.
+-- * 'threshold' - The value to compare with the specified statistic.
+-- * 'alarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
+-- * 'actionsEnabled' - Indicates whether actions should be executed during any changes to the alarm state.
+-- * 'insufficientDataActions' - The actions to execute when this alarm transitions to the @INSUFFICIENT_DATA@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 -- * 'stateReason' - An explanation for the alarm state, in text format.
 -- * 'stateReasonData' - An explanation for the alarm state, in JSON format.
--- * 'stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
--- * 'stateValue' - The state value for the alarm.
--- * 'statistic' - The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
--- * 'threshold' - The value to compare with the specified statistic.
--- * 'thresholdMetricId' - In an alarm based on an anomaly detection model, this is the ID of the @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
--- * 'treatMissingData' - Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of @missing@ is used.
+-- * 'dimensions' - The dimensions for the metric associated with the alarm.
+-- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
+-- * 'alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state from any other state. Each action is specified as an Amazon Resource Name (ARN).
 -- * 'unit' - The unit of the metric associated with the alarm.
+-- * 'statistic' - The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use @ExtendedStatistic@ .
+-- * 'extendedStatistic' - The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 mkMetricAlarm ::
   MetricAlarm
 mkMetricAlarm =

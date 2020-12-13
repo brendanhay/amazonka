@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrderByElement' smart constructor.
 data OrderByElement = OrderByElement'
-  { sortOrder ::
-      Lude.Maybe OrderString,
+  { -- | Ordering direction.
+    sortOrder :: Lude.Maybe OrderString,
+    -- | The field on which to order.
     fieldName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrderByElement' with the minimum fields required to make a request.
 --
--- * 'fieldName' - The field on which to order.
 -- * 'sortOrder' - Ordering direction.
+-- * 'fieldName' - The field on which to order.
 mkOrderByElement ::
   -- | 'fieldName'
   Lude.Text ->

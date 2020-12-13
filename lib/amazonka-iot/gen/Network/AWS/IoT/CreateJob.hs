@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,17 +21,17 @@ module Network.AWS.IoT.CreateJob
 
     -- ** Request lenses
     cjJobExecutionsRolloutConfig,
+    cjJobId,
     cjDocumentSource,
     cjAbortConfig,
     cjNamespaceId,
     cjPresignedURLConfig,
     cjDocument,
+    cjTargets,
     cjDescription,
     cjTargetSelection,
     cjTimeoutConfig,
     cjTags,
-    cjJobId,
-    cjTargets,
 
     -- * Destructuring the response
     CreateJobResponse (..),
@@ -52,46 +53,54 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { jobExecutionsRolloutConfig ::
-      Lude.Maybe JobExecutionsRolloutConfig,
-    documentSource :: Lude.Maybe Lude.Text,
-    abortConfig :: Lude.Maybe AbortConfig,
-    namespaceId :: Lude.Maybe Lude.Text,
-    presignedURLConfig :: Lude.Maybe PresignedURLConfig,
-    document :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    targetSelection :: Lude.Maybe TargetSelection,
-    timeoutConfig :: Lude.Maybe TimeoutConfig,
-    tags :: Lude.Maybe [Tag],
+  { -- | Allows you to create a staged rollout of the job.
+    jobExecutionsRolloutConfig :: Lude.Maybe JobExecutionsRolloutConfig,
+    -- | A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
     jobId :: Lude.Text,
-    targets :: Lude.NonEmpty Lude.Text
+    -- | An S3 link to the job document.
+    documentSource :: Lude.Maybe Lude.Text,
+    -- | Allows you to create criteria to abort a job.
+    abortConfig :: Lude.Maybe AbortConfig,
+    -- | The namespace used to indicate that a job is a customer-managed job.
+    --
+    -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+    -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+    namespaceId :: Lude.Maybe Lude.Text,
+    -- | Configuration information for pre-signed S3 URLs.
+    presignedURLConfig :: Lude.Maybe PresignedURLConfig,
+    -- | The job document.
+    document :: Lude.Maybe Lude.Text,
+    -- | A list of things and thing groups to which the job should be sent.
+    targets :: Lude.NonEmpty Lude.Text,
+    -- | A short text description of the job.
+    description :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
+    targetSelection :: Lude.Maybe TargetSelection,
+    -- | Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
+    timeoutConfig :: Lude.Maybe TimeoutConfig,
+    -- | Metadata which can be used to manage the job.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
--- * 'abortConfig' - Allows you to create criteria to abort a job.
--- * 'description' - A short text description of the job.
--- * 'document' - The job document.
--- * 'documentSource' - An S3 link to the job document.
 -- * 'jobExecutionsRolloutConfig' - Allows you to create a staged rollout of the job.
 -- * 'jobId' - A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
+-- * 'documentSource' - An S3 link to the job document.
+-- * 'abortConfig' - Allows you to create criteria to abort a job.
 -- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
 -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
 -- * 'presignedURLConfig' - Configuration information for pre-signed S3 URLs.
--- * 'tags' - Metadata which can be used to manage the job.
--- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
+-- * 'document' - The job document.
 -- * 'targets' - A list of things and thing groups to which the job should be sent.
+-- * 'description' - A short text description of the job.
+-- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
 -- * 'timeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
+-- * 'tags' - Metadata which can be used to manage the job.
 mkCreateJob ::
   -- | 'jobId'
   Lude.Text ->
@@ -101,17 +110,17 @@ mkCreateJob ::
 mkCreateJob pJobId_ pTargets_ =
   CreateJob'
     { jobExecutionsRolloutConfig = Lude.Nothing,
+      jobId = pJobId_,
       documentSource = Lude.Nothing,
       abortConfig = Lude.Nothing,
       namespaceId = Lude.Nothing,
       presignedURLConfig = Lude.Nothing,
       document = Lude.Nothing,
+      targets = pTargets_,
       description = Lude.Nothing,
       targetSelection = Lude.Nothing,
       timeoutConfig = Lude.Nothing,
-      tags = Lude.Nothing,
-      jobId = pJobId_,
-      targets = pTargets_
+      tags = Lude.Nothing
     }
 
 -- | Allows you to create a staged rollout of the job.
@@ -120,6 +129,13 @@ mkCreateJob pJobId_ pTargets_ =
 cjJobExecutionsRolloutConfig :: Lens.Lens' CreateJob (Lude.Maybe JobExecutionsRolloutConfig)
 cjJobExecutionsRolloutConfig = Lens.lens (jobExecutionsRolloutConfig :: CreateJob -> Lude.Maybe JobExecutionsRolloutConfig) (\s a -> s {jobExecutionsRolloutConfig = a} :: CreateJob)
 {-# DEPRECATED cjJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'jobExecutionsRolloutConfig' instead." #-}
+
+-- | A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjJobId :: Lens.Lens' CreateJob Lude.Text
+cjJobId = Lens.lens (jobId :: CreateJob -> Lude.Text) (\s a -> s {jobId = a} :: CreateJob)
+{-# DEPRECATED cjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | An S3 link to the job document.
 --
@@ -159,6 +175,13 @@ cjDocument :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
 cjDocument = Lens.lens (document :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: CreateJob)
 {-# DEPRECATED cjDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
+-- | A list of things and thing groups to which the job should be sent.
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjTargets :: Lens.Lens' CreateJob (Lude.NonEmpty Lude.Text)
+cjTargets = Lens.lens (targets :: CreateJob -> Lude.NonEmpty Lude.Text) (\s a -> s {targets = a} :: CreateJob)
+{-# DEPRECATED cjTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
+
 -- | A short text description of the job.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -187,20 +210,6 @@ cjTags :: Lens.Lens' CreateJob (Lude.Maybe [Tag])
 cjTags = Lens.lens (tags :: CreateJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateJob)
 {-# DEPRECATED cjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjJobId :: Lens.Lens' CreateJob Lude.Text
-cjJobId = Lens.lens (jobId :: CreateJob -> Lude.Text) (\s a -> s {jobId = a} :: CreateJob)
-{-# DEPRECATED cjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | A list of things and thing groups to which the job should be sent.
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjTargets :: Lens.Lens' CreateJob (Lude.NonEmpty Lude.Text)
-cjTargets = Lens.lens (targets :: CreateJob -> Lude.NonEmpty Lude.Text) (\s a -> s {targets = a} :: CreateJob)
-{-# DEPRECATED cjTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
-
 instance Lude.AWSRequest CreateJob where
   type Rs CreateJob = CreateJobResponse
   request = Req.putJSON ioTService
@@ -228,11 +237,11 @@ instance Lude.ToJSON CreateJob where
             ("namespaceId" Lude..=) Lude.<$> namespaceId,
             ("presignedUrlConfig" Lude..=) Lude.<$> presignedURLConfig,
             ("document" Lude..=) Lude.<$> document,
+            Lude.Just ("targets" Lude..= targets),
             ("description" Lude..=) Lude.<$> description,
             ("targetSelection" Lude..=) Lude.<$> targetSelection,
             ("timeoutConfig" Lude..=) Lude.<$> timeoutConfig,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("targets" Lude..= targets)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -244,26 +253,23 @@ instance Lude.ToQuery CreateJob where
 
 -- | /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier you assigned to this job.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The job ARN.
     jobARN :: Lude.Maybe Lude.Text,
+    -- | The job description.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
 --
--- * 'description' - The job description.
--- * 'jobARN' - The job ARN.
 -- * 'jobId' - The unique identifier you assigned to this job.
+-- * 'jobARN' - The job ARN.
+-- * 'description' - The job description.
 -- * 'responseStatus' - The response status code.
 mkCreateJobResponse ::
   -- | 'responseStatus'

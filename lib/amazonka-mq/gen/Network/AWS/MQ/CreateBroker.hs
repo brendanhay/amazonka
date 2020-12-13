@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,57 +61,69 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateBroker' smart constructor.
 data CreateBroker = CreateBroker'
-  { brokerName ::
-      Lude.Maybe Lude.Text,
+  { -- | Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
+    brokerName :: Lude.Maybe Lude.Text,
+    -- | Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
     engineVersion :: Lude.Maybe Lude.Text,
+    -- | Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
     publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
     autoMinorVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
     users :: Lude.Maybe [User],
+    -- | The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.
     creatorRequestId :: Lude.Maybe Lude.Text,
+    -- | The authentication strategy used to secure the broker.
     authenticationStrategy :: Lude.Maybe AuthenticationStrategy,
+    -- | The metadata of the LDAP server used to authenticate and authorize connections to the broker.
     ldapServerMetadata :: Lude.Maybe LdapServerMetadataInput,
+    -- | The parameters that determine the WeeklyStartTime.
     maintenanceWindowStartTime :: Lude.Maybe WeeklyStartTime,
+    -- | Enables Amazon CloudWatch logging for brokers.
     logs :: Lude.Maybe Logs,
+    -- | Encryption options for the broker.
     encryptionOptions :: Lude.Maybe EncryptionOptions,
+    -- | Required. The deployment mode of the broker.
     deploymentMode :: Lude.Maybe DeploymentMode,
+    -- | A list of information about the configuration.
     configuration :: Lude.Maybe ConfigurationId,
+    -- | Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
     engineType :: Lude.Maybe EngineType,
+    -- | Create tags when creating the broker.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Required. The broker's instance type.
     hostInstanceType :: Lude.Maybe Lude.Text,
+    -- | The broker's storage type.
     storageType :: Lude.Maybe BrokerStorageType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBroker' with the minimum fields required to make a request.
 --
--- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
--- * 'autoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
 -- * 'brokerName' - Required. The name of the broker. This value must be unique in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain whitespaces, brackets, wildcard characters, or special characters.
--- * 'configuration' - A list of information about the configuration.
--- * 'creatorRequestId' - The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.
--- * 'deploymentMode' - Required. The deployment mode of the broker.
--- * 'encryptionOptions' - Encryption options for the broker.
--- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
 -- * 'engineVersion' - Required. The version of the broker engine. For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
--- * 'hostInstanceType' - Required. The broker's instance type.
--- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
--- * 'logs' - Enables Amazon CloudWatch logging for brokers.
--- * 'maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
 -- * 'publiclyAccessible' - Required. Enables connections from applications outside of the VPC that hosts the broker's subnets.
+-- * 'autoMinorVersionUpgrade' - Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
 -- * 'securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.
--- * 'storageType' - The broker's storage type.
--- * 'subnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
--- * 'tags' - Create tags when creating the broker.
 -- * 'users' - Required. The list of broker users (persons or applications) who can access queues and topics. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ Web Console. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.
+-- * 'subnetIds' - The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment (ACTIVEMQ) requires two subnets. A CLUSTER_MULTI_AZ deployment (RABBITMQ) has no subnet requirements when deployed with public accessibility, deployment without public accessibility requires at least one subnet.
+-- * 'creatorRequestId' - The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action. Note: We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.
+-- * 'authenticationStrategy' - The authentication strategy used to secure the broker.
+-- * 'ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize connections to the broker.
+-- * 'maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
+-- * 'logs' - Enables Amazon CloudWatch logging for brokers.
+-- * 'encryptionOptions' - Encryption options for the broker.
+-- * 'deploymentMode' - Required. The deployment mode of the broker.
+-- * 'configuration' - A list of information about the configuration.
+-- * 'engineType' - Required. The type of broker engine. Note: Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.
+-- * 'tags' - Create tags when creating the broker.
+-- * 'hostInstanceType' - Required. The broker's instance type.
+-- * 'storageType' - The broker's storage type.
 mkCreateBroker ::
   CreateBroker
 mkCreateBroker =
@@ -326,24 +339,20 @@ instance Lude.ToQuery CreateBroker where
 
 -- | /See:/ 'mkCreateBrokerResponse' smart constructor.
 data CreateBrokerResponse = CreateBrokerResponse'
-  { brokerId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the broker.
     brokerARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBrokerResponse' with the minimum fields required to make a request.
 --
--- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
 -- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- * 'brokerARN' - The Amazon Resource Name (ARN) of the broker.
 -- * 'responseStatus' - The response status code.
 mkCreateBrokerResponse ::
   -- | 'responseStatus'

@@ -28,16 +28,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkObjectReference' smart constructor.
 newtype ObjectReference = ObjectReference'
-  { selector ::
-      Lude.Maybe Lude.Text
+  { -- | A path selector supports easy selection of an object by the parent/child links leading to it from the directory root. Use the link names from each parent/child link to construct the path. Path selectors start with a slash (/) and link names are separated by slashes. For more information about paths, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html Access Objects> . You can identify an object in one of the following ways:
+    --
+    --
+    --     * /> ObjectIdentifier/ - An object identifier is an opaque string provided by Amazon Cloud Directory. When creating objects, the system will provide you with the identifier of the created object. An object’s identifier is immutable and no two objects will ever share the same object identifier
+    --
+    --
+    --     * /\/some\/path/ - Identifies the object based on path
+    --
+    --
+    --     * /#SomeBatchReference/ - Identifies the object in a batch call
+    selector :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectReference' with the minimum fields required to make a request.

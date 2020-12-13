@@ -35,28 +35,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNoiseReducer' smart constructor.
 data NoiseReducer = NoiseReducer'
-  { temporalFilterSettings ::
-      Lude.Maybe NoiseReducerTemporalFilterSettings,
-    spatialFilterSettings ::
-      Lude.Maybe NoiseReducerSpatialFilterSettings,
+  { -- | Noise reducer filter settings for temporal filter.
+    temporalFilterSettings :: Lude.Maybe NoiseReducerTemporalFilterSettings,
+    -- | Noise reducer filter settings for spatial filter.
+    spatialFilterSettings :: Lude.Maybe NoiseReducerSpatialFilterSettings,
+    -- | Settings for a noise reducer filter
     filterSettings :: Lude.Maybe NoiseReducerFilterSettings,
+    -- | Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
     filter :: Lude.Maybe NoiseReducerFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NoiseReducer' with the minimum fields required to make a request.
 --
--- * 'filter' - Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
--- * 'filterSettings' - Settings for a noise reducer filter
--- * 'spatialFilterSettings' - Noise reducer filter settings for spatial filter.
 -- * 'temporalFilterSettings' - Noise reducer filter settings for temporal filter.
+-- * 'spatialFilterSettings' - Noise reducer filter settings for spatial filter.
+-- * 'filterSettings' - Settings for a noise reducer filter
+-- * 'filter' - Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
 mkNoiseReducer ::
   NoiseReducer
 mkNoiseReducer =

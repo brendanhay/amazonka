@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SSM.DescribeDocumentPermission
     mkDescribeDocumentPermission,
 
     -- ** Request lenses
-    ddpName,
     ddpPermissionType,
+    ddpName,
 
     -- * Destructuring the response
     DescribeDocumentPermissionResponse (..),
@@ -41,42 +42,29 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeDocumentPermission' smart constructor.
 data DescribeDocumentPermission = DescribeDocumentPermission'
-  { name ::
-      Lude.Text,
-    permissionType ::
-      DocumentPermissionType
+  { -- | The permission type for the document. The permission type can be /Share/ .
+    permissionType :: DocumentPermissionType,
+    -- | The name of the document for which you are the owner.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentPermission' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the document for which you are the owner.
 -- * 'permissionType' - The permission type for the document. The permission type can be /Share/ .
+-- * 'name' - The name of the document for which you are the owner.
 mkDescribeDocumentPermission ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'permissionType'
   DocumentPermissionType ->
+  -- | 'name'
+  Lude.Text ->
   DescribeDocumentPermission
-mkDescribeDocumentPermission pName_ pPermissionType_ =
+mkDescribeDocumentPermission pPermissionType_ pName_ =
   DescribeDocumentPermission'
-    { name = pName_,
-      permissionType = pPermissionType_
+    { permissionType = pPermissionType_,
+      name = pName_
     }
-
--- | The name of the document for which you are the owner.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpName :: Lens.Lens' DescribeDocumentPermission Lude.Text
-ddpName = Lens.lens (name :: DescribeDocumentPermission -> Lude.Text) (\s a -> s {name = a} :: DescribeDocumentPermission)
-{-# DEPRECATED ddpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The permission type for the document. The permission type can be /Share/ .
 --
@@ -84,6 +72,13 @@ ddpName = Lens.lens (name :: DescribeDocumentPermission -> Lude.Text) (\s a -> s
 ddpPermissionType :: Lens.Lens' DescribeDocumentPermission DocumentPermissionType
 ddpPermissionType = Lens.lens (permissionType :: DescribeDocumentPermission -> DocumentPermissionType) (\s a -> s {permissionType = a} :: DescribeDocumentPermission)
 {-# DEPRECATED ddpPermissionType "Use generic-lens or generic-optics with 'permissionType' instead." #-}
+
+-- | The name of the document for which you are the owner.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpName :: Lens.Lens' DescribeDocumentPermission Lude.Text
+ddpName = Lens.lens (name :: DescribeDocumentPermission -> Lude.Text) (\s a -> s {name = a} :: DescribeDocumentPermission)
+{-# DEPRECATED ddpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DescribeDocumentPermission where
   type
@@ -114,8 +109,8 @@ instance Lude.ToJSON DescribeDocumentPermission where
   toJSON DescribeDocumentPermission' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("PermissionType" Lude..= permissionType)
+          [ Lude.Just ("PermissionType" Lude..= permissionType),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -127,22 +122,14 @@ instance Lude.ToQuery DescribeDocumentPermission where
 
 -- | /See:/ 'mkDescribeDocumentPermissionResponse' smart constructor.
 data DescribeDocumentPermissionResponse = DescribeDocumentPermissionResponse'
-  { accountIds ::
-      Lude.Maybe
-        [Lude.Text],
-    accountSharingInfoList ::
-      Lude.Maybe
-        [AccountSharingInfo],
-    responseStatus ::
-      Lude.Int
+  { -- | The account IDs that have permission to use this document. The ID can be either an AWS account or /All/ .
+    accountIds :: Lude.Maybe [Lude.Text],
+    -- | A list of AWS accounts where the current document is shared and the version shared with each account.
+    accountSharingInfoList :: Lude.Maybe [AccountSharingInfo],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDocumentPermissionResponse' with the minimum fields required to make a request.

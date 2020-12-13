@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDiskInfo' smart constructor.
 data DiskInfo = DiskInfo'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The disk path.
+    path :: Lude.Maybe Lude.Text,
+    -- | The disk name.
     name :: Lude.Maybe Lude.Text,
+    -- | The size of the disk in GB (e.g., @32@ ).
     sizeInGb :: Lude.Maybe Lude.Int,
+    -- | A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
     isSystemDisk :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiskInfo' with the minimum fields required to make a request.
 --
--- * 'isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
--- * 'name' - The disk name.
 -- * 'path' - The disk path.
+-- * 'name' - The disk name.
 -- * 'sizeInGb' - The size of the disk in GB (e.g., @32@ ).
+-- * 'isSystemDisk' - A Boolean value indicating whether this disk is a system disk (has an operating system loaded on it).
 mkDiskInfo ::
   DiskInfo
 mkDiskInfo =

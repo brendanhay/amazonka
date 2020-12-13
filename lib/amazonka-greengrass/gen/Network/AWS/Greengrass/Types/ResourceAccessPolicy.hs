@@ -17,8 +17,8 @@ module Network.AWS.Greengrass.Types.ResourceAccessPolicy
     mkResourceAccessPolicy,
 
     -- * Lenses
-    rapPermission,
     rapResourceId,
+    rapPermission,
   )
 where
 
@@ -30,39 +30,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceAccessPolicy' smart constructor.
 data ResourceAccessPolicy = ResourceAccessPolicy'
-  { permission ::
-      Lude.Maybe Permission,
-    resourceId :: Lude.Text
+  { -- | The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
+    resourceId :: Lude.Text,
+    -- | The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
+    permission :: Lude.Maybe Permission
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceAccessPolicy' with the minimum fields required to make a request.
 --
--- * 'permission' - The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
 -- * 'resourceId' - The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
+-- * 'permission' - The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
 mkResourceAccessPolicy ::
   -- | 'resourceId'
   Lude.Text ->
   ResourceAccessPolicy
 mkResourceAccessPolicy pResourceId_ =
   ResourceAccessPolicy'
-    { permission = Lude.Nothing,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      permission = Lude.Nothing
     }
-
--- | The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
---
--- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rapPermission :: Lens.Lens' ResourceAccessPolicy (Lude.Maybe Permission)
-rapPermission = Lens.lens (permission :: ResourceAccessPolicy -> Lude.Maybe Permission) (\s a -> s {permission = a} :: ResourceAccessPolicy)
-{-# DEPRECATED rapPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
 
 -- | The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
 --
@@ -71,20 +59,27 @@ rapResourceId :: Lens.Lens' ResourceAccessPolicy Lude.Text
 rapResourceId = Lens.lens (resourceId :: ResourceAccessPolicy -> Lude.Text) (\s a -> s {resourceId = a} :: ResourceAccessPolicy)
 {-# DEPRECATED rapResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
+-- | The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
+--
+-- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rapPermission :: Lens.Lens' ResourceAccessPolicy (Lude.Maybe Permission)
+rapPermission = Lens.lens (permission :: ResourceAccessPolicy -> Lude.Maybe Permission) (\s a -> s {permission = a} :: ResourceAccessPolicy)
+{-# DEPRECATED rapPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
+
 instance Lude.FromJSON ResourceAccessPolicy where
   parseJSON =
     Lude.withObject
       "ResourceAccessPolicy"
       ( \x ->
           ResourceAccessPolicy'
-            Lude.<$> (x Lude..:? "Permission") Lude.<*> (x Lude..: "ResourceId")
+            Lude.<$> (x Lude..: "ResourceId") Lude.<*> (x Lude..:? "Permission")
       )
 
 instance Lude.ToJSON ResourceAccessPolicy where
   toJSON ResourceAccessPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Permission" Lude..=) Lude.<$> permission,
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            ("Permission" Lude..=) Lude.<$> permission
           ]
       )

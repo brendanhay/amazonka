@@ -30,16 +30,10 @@ import Network.AWS.S3.Types.DefaultRetention
 --
 -- /See:/ 'mkObjectLockRule' smart constructor.
 newtype ObjectLockRule = ObjectLockRule'
-  { defaultRetention ::
-      Lude.Maybe DefaultRetention
+  { -- | The default retention period that you want to apply to new objects placed in the specified bucket.
+    defaultRetention :: Lude.Maybe DefaultRetention
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectLockRule' with the minimum fields required to make a request.

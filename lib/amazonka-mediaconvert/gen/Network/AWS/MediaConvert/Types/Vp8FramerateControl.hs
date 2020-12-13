@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Vp8FramerateControl
   ( Vp8FramerateControl
       ( Vp8FramerateControl',
-        Vp8InitializeFromSource,
-        Vp8Specified
+        VFCfInitializeFromSource,
+        VFCfSpecified
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Vp8FramerateControl = Vp8FramerateControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern Vp8InitializeFromSource :: Vp8FramerateControl
-pattern Vp8InitializeFromSource = Vp8FramerateControl' "INITIALIZE_FROM_SOURCE"
+pattern VFCfInitializeFromSource :: Vp8FramerateControl
+pattern VFCfInitializeFromSource = Vp8FramerateControl' "INITIALIZE_FROM_SOURCE"
 
-pattern Vp8Specified :: Vp8FramerateControl
-pattern Vp8Specified = Vp8FramerateControl' "SPECIFIED"
+pattern VFCfSpecified :: Vp8FramerateControl
+pattern VFCfSpecified = Vp8FramerateControl' "SPECIFIED"
 
 {-# COMPLETE
-  Vp8InitializeFromSource,
-  Vp8Specified,
+  VFCfInitializeFromSource,
+  VFCfSpecified,
   Vp8FramerateControl'
   #-}

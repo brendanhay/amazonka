@@ -41,44 +41,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigRuleEvaluationStatus' smart constructor.
 data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
-  { lastErrorCode ::
-      Lude.Maybe Lude.Text,
-    lastFailedEvaluationTime ::
-      Lude.Maybe Lude.Timestamp,
-    firstActivatedTime ::
-      Lude.Maybe Lude.Timestamp,
-    lastSuccessfulEvaluationTime ::
-      Lude.Maybe Lude.Timestamp,
-    lastDeactivatedTime ::
-      Lude.Maybe Lude.Timestamp,
-    configRuleName ::
-      Lude.Maybe Lude.Text,
-    lastErrorMessage ::
-      Lude.Maybe Lude.Text,
+  { -- | The error code that AWS Config returned when the rule last failed.
+    lastErrorCode :: Lude.Maybe Lude.Text,
+    -- | The time that AWS Config last failed to evaluate your AWS resources against the rule.
+    lastFailedEvaluationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time that you first activated the AWS Config rule.
+    firstActivatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time that AWS Config last successfully evaluated your AWS resources against the rule.
+    lastSuccessfulEvaluationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time that you last turned off the AWS Config rule.
+    lastDeactivatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the AWS Config rule.
+    configRuleName :: Lude.Maybe Lude.Text,
+    -- | The error message that AWS Config returned when the rule last failed.
+    lastErrorMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS Config rule.
     configRuleId :: Lude.Maybe Lude.Text,
-    lastFailedInvocationTime ::
-      Lude.Maybe Lude.Timestamp,
-    firstEvaluationStarted ::
-      Lude.Maybe Lude.Bool,
-    lastSuccessfulInvocationTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
+    lastFailedInvocationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether AWS Config has evaluated your resources against the rule at least once.
+    --
+    --
+    --     * @true@ - AWS Config has evaluated your AWS resources against the rule at least once.
+    --
+    --
+    --     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
+    firstEvaluationStarted :: Lude.Maybe Lude.Bool,
+    -- | The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.
+    lastSuccessfulInvocationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the AWS Config rule.
     configRuleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigRuleEvaluationStatus' with the minimum fields required to make a request.
 --
--- * 'configRuleARN' - The Amazon Resource Name (ARN) of the AWS Config rule.
--- * 'configRuleId' - The ID of the AWS Config rule.
--- * 'configRuleName' - The name of the AWS Config rule.
+-- * 'lastErrorCode' - The error code that AWS Config returned when the rule last failed.
+-- * 'lastFailedEvaluationTime' - The time that AWS Config last failed to evaluate your AWS resources against the rule.
 -- * 'firstActivatedTime' - The time that you first activated the AWS Config rule.
+-- * 'lastSuccessfulEvaluationTime' - The time that AWS Config last successfully evaluated your AWS resources against the rule.
+-- * 'lastDeactivatedTime' - The time that you last turned off the AWS Config rule.
+-- * 'configRuleName' - The name of the AWS Config rule.
+-- * 'lastErrorMessage' - The error message that AWS Config returned when the rule last failed.
+-- * 'configRuleId' - The ID of the AWS Config rule.
+-- * 'lastFailedInvocationTime' - The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
 -- * 'firstEvaluationStarted' - Indicates whether AWS Config has evaluated your resources against the rule at least once.
 --
 --
@@ -88,13 +95,8 @@ data ConfigRuleEvaluationStatus = ConfigRuleEvaluationStatus'
 --     * @false@ - AWS Config has not once finished evaluating your AWS resources against the rule.
 --
 --
--- * 'lastDeactivatedTime' - The time that you last turned off the AWS Config rule.
--- * 'lastErrorCode' - The error code that AWS Config returned when the rule last failed.
--- * 'lastErrorMessage' - The error message that AWS Config returned when the rule last failed.
--- * 'lastFailedEvaluationTime' - The time that AWS Config last failed to evaluate your AWS resources against the rule.
--- * 'lastFailedInvocationTime' - The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources.
--- * 'lastSuccessfulEvaluationTime' - The time that AWS Config last successfully evaluated your AWS resources against the rule.
 -- * 'lastSuccessfulInvocationTime' - The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources.
+-- * 'configRuleARN' - The Amazon Resource Name (ARN) of the AWS Config rule.
 mkConfigRuleEvaluationStatus ::
   ConfigRuleEvaluationStatus
 mkConfigRuleEvaluationStatus =

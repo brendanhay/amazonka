@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     mkReplaceRouteTableAssociation,
 
     -- ** Request lenses
-    rrtaDryRun,
     rrtaAssociationId,
     rrtaRouteTableId,
+    rrtaDryRun,
 
     -- * Destructuring the response
     ReplaceRouteTableAssociationResponse (..),
@@ -44,25 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkReplaceRouteTableAssociation' smart constructor.
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The association ID.
     associationId :: Lude.Text,
-    routeTableId :: Lude.Text
+    -- | The ID of the new route table to associate with the subnet.
+    routeTableId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceRouteTableAssociation' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The association ID.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'routeTableId' - The ID of the new route table to associate with the subnet.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkReplaceRouteTableAssociation ::
   -- | 'associationId'
   Lude.Text ->
@@ -71,17 +68,10 @@ mkReplaceRouteTableAssociation ::
   ReplaceRouteTableAssociation
 mkReplaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
   ReplaceRouteTableAssociation'
-    { dryRun = Lude.Nothing,
-      associationId = pAssociationId_,
-      routeTableId = pRouteTableId_
+    { associationId = pAssociationId_,
+      routeTableId = pRouteTableId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtaDryRun :: Lens.Lens' ReplaceRouteTableAssociation (Lude.Maybe Lude.Bool)
-rrtaDryRun = Lens.lens (dryRun :: ReplaceRouteTableAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReplaceRouteTableAssociation)
-{-# DEPRECATED rrtaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The association ID.
 --
@@ -96,6 +86,13 @@ rrtaAssociationId = Lens.lens (associationId :: ReplaceRouteTableAssociation -> 
 rrtaRouteTableId :: Lens.Lens' ReplaceRouteTableAssociation Lude.Text
 rrtaRouteTableId = Lens.lens (routeTableId :: ReplaceRouteTableAssociation -> Lude.Text) (\s a -> s {routeTableId = a} :: ReplaceRouteTableAssociation)
 {-# DEPRECATED rrtaRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrtaDryRun :: Lens.Lens' ReplaceRouteTableAssociation (Lude.Maybe Lude.Bool)
+rrtaDryRun = Lens.lens (dryRun :: ReplaceRouteTableAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ReplaceRouteTableAssociation)
+{-# DEPRECATED rrtaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ReplaceRouteTableAssociation where
   type
@@ -123,35 +120,27 @@ instance Lude.ToQuery ReplaceRouteTableAssociation where
       [ "Action"
           Lude.=: ("ReplaceRouteTableAssociation" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "AssociationId" Lude.=: associationId,
-        "RouteTableId" Lude.=: routeTableId
+        "RouteTableId" Lude.=: routeTableId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkReplaceRouteTableAssociationResponse' smart constructor.
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
-  { newAssociationId ::
-      Lude.Maybe
-        Lude.Text,
-    associationState ::
-      Lude.Maybe
-        RouteTableAssociationState,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the new association.
+    newAssociationId :: Lude.Maybe Lude.Text,
+    -- | The state of the association.
+    associationState :: Lude.Maybe RouteTableAssociationState,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplaceRouteTableAssociationResponse' with the minimum fields required to make a request.
 --
--- * 'associationState' - The state of the association.
 -- * 'newAssociationId' - The ID of the new association.
+-- * 'associationState' - The state of the association.
 -- * 'responseStatus' - The response status code.
 mkReplaceRouteTableAssociationResponse ::
   -- | 'responseStatus'

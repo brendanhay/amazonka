@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProviderDescription' smart constructor.
 data ProviderDescription = ProviderDescription'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the provider was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The identity provider type.
     providerType :: Lude.Maybe IdentityProviderTypeType,
+    -- | The date the provider was added to the user pool.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The identity provider name.
     providerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProviderDescription' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date the provider was added to the user pool.
 -- * 'lastModifiedDate' - The date the provider was last modified.
--- * 'providerName' - The identity provider name.
 -- * 'providerType' - The identity provider type.
+-- * 'creationDate' - The date the provider was added to the user pool.
+-- * 'providerName' - The identity provider name.
 mkProviderDescription ::
   ProviderDescription
 mkProviderDescription =

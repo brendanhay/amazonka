@@ -31,24 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlarmConfiguration' smart constructor.
 data AlarmConfiguration = AlarmConfiguration'
-  { ignorePollAlarmFailure ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
+    --
+    --
+    --     * @true@ : The deployment proceeds even if alarm status information can't be retrieved from Amazon CloudWatch.
+    --
+    --
+    --     * @false@ : The deployment stops if alarm status information can't be retrieved from Amazon CloudWatch.
+    ignorePollAlarmFailure :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether the alarm configuration is enabled.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
     alarms :: Lude.Maybe [Alarm]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlarmConfiguration' with the minimum fields required to make a request.
 --
--- * 'alarms' - A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
--- * 'enabled' - Indicates whether the alarm configuration is enabled.
 -- * 'ignorePollAlarmFailure' - Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
 --
 --
@@ -56,6 +56,10 @@ data AlarmConfiguration = AlarmConfiguration'
 --
 --
 --     * @false@ : The deployment stops if alarm status information can't be retrieved from Amazon CloudWatch.
+--
+--
+-- * 'enabled' - Indicates whether the alarm configuration is enabled.
+-- * 'alarms' - A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group.
 mkAlarmConfiguration ::
   AlarmConfiguration
 mkAlarmConfiguration =

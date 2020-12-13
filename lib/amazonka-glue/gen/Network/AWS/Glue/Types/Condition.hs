@@ -35,28 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
-  { crawlState :: Lude.Maybe CrawlState,
+  { -- | The state of the crawler to which this condition applies.
+    crawlState :: Lude.Maybe CrawlState,
+    -- | The condition state. Currently, the only job states that a trigger can listen for are @SUCCEEDED@ , @STOPPED@ , @FAILED@ , and @TIMEOUT@ . The only crawler states that a trigger can listen for are @SUCCEEDED@ , @FAILED@ , and @CANCELLED@ .
     state :: Lude.Maybe JobRunState,
+    -- | The name of the job whose @JobRuns@ this condition applies to, and on which this trigger waits.
     jobName :: Lude.Maybe Lude.Text,
+    -- | A logical operator.
     logicalOperator :: Lude.Maybe LogicalOperator,
+    -- | The name of the crawler to which this condition applies.
     crawlerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Condition' with the minimum fields required to make a request.
 --
 -- * 'crawlState' - The state of the crawler to which this condition applies.
--- * 'crawlerName' - The name of the crawler to which this condition applies.
+-- * 'state' - The condition state. Currently, the only job states that a trigger can listen for are @SUCCEEDED@ , @STOPPED@ , @FAILED@ , and @TIMEOUT@ . The only crawler states that a trigger can listen for are @SUCCEEDED@ , @FAILED@ , and @CANCELLED@ .
 -- * 'jobName' - The name of the job whose @JobRuns@ this condition applies to, and on which this trigger waits.
 -- * 'logicalOperator' - A logical operator.
--- * 'state' - The condition state. Currently, the only job states that a trigger can listen for are @SUCCEEDED@ , @STOPPED@ , @FAILED@ , and @TIMEOUT@ . The only crawler states that a trigger can listen for are @SUCCEEDED@ , @FAILED@ , and @CANCELLED@ .
+-- * 'crawlerName' - The name of the crawler to which this condition applies.
 mkCondition ::
   Condition
 mkCondition =

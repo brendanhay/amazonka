@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.SageMaker.DeleteTrial
     mkDeleteTrial,
 
     -- ** Request lenses
-    dTrialName,
+    dtTrialName,
 
     -- * Destructuring the response
     DeleteTrialResponse (..),
     mkDeleteTrialResponse,
 
     -- ** Response lenses
-    drsTrialARN,
-    drsResponseStatus,
+    dtfrsTrialARN,
+    dtfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteTrial' smart constructor.
-newtype DeleteTrial = DeleteTrial' {trialName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteTrial = DeleteTrial'
+  { -- | The name of the trial to delete.
+    trialName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrial' with the minimum fields required to make a request.
@@ -60,9 +58,9 @@ mkDeleteTrial pTrialName_ = DeleteTrial' {trialName = pTrialName_}
 -- | The name of the trial to delete.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTrialName :: Lens.Lens' DeleteTrial Lude.Text
-dTrialName = Lens.lens (trialName :: DeleteTrial -> Lude.Text) (\s a -> s {trialName = a} :: DeleteTrial)
-{-# DEPRECATED dTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
+dtTrialName :: Lens.Lens' DeleteTrial Lude.Text
+dtTrialName = Lens.lens (trialName :: DeleteTrial -> Lude.Text) (\s a -> s {trialName = a} :: DeleteTrial)
+{-# DEPRECATED dtTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
 instance Lude.AWSRequest DeleteTrial where
   type Rs DeleteTrial = DeleteTrialResponse
@@ -98,23 +96,18 @@ instance Lude.ToQuery DeleteTrial where
 
 -- | /See:/ 'mkDeleteTrialResponse' smart constructor.
 data DeleteTrialResponse = DeleteTrialResponse'
-  { trialARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the trial that is being deleted.
+    trialARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrialResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trialARN' - The Amazon Resource Name (ARN) of the trial that is being deleted.
+-- * 'responseStatus' - The response status code.
 mkDeleteTrialResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -128,13 +121,13 @@ mkDeleteTrialResponse pResponseStatus_ =
 -- | The Amazon Resource Name (ARN) of the trial that is being deleted.
 --
 -- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsTrialARN :: Lens.Lens' DeleteTrialResponse (Lude.Maybe Lude.Text)
-drsTrialARN = Lens.lens (trialARN :: DeleteTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: DeleteTrialResponse)
-{-# DEPRECATED drsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
+dtfrsTrialARN :: Lens.Lens' DeleteTrialResponse (Lude.Maybe Lude.Text)
+dtfrsTrialARN = Lens.lens (trialARN :: DeleteTrialResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: DeleteTrialResponse)
+{-# DEPRECATED dtfrsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteTrialResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteTrialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrialResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtfrsResponseStatus :: Lens.Lens' DeleteTrialResponse Lude.Int
+dtfrsResponseStatus = Lens.lens (responseStatus :: DeleteTrialResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrialResponse)
+{-# DEPRECATED dtfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

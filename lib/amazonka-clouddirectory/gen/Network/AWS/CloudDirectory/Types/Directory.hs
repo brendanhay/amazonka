@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectory' smart constructor.
 data Directory = Directory'
-  { directoryARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
+    directoryARN :: Lude.Maybe Lude.Text,
+    -- | The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
     state :: Lude.Maybe DirectoryState,
+    -- | The name of the directory.
     name :: Lude.Maybe Lude.Text,
+    -- | The date and time when the directory was created.
     creationDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Directory' with the minimum fields required to make a request.
 --
--- * 'creationDateTime' - The date and time when the directory was created.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the directory. For more information, see 'arns' .
--- * 'name' - The name of the directory.
 -- * 'state' - The state of the directory. Can be either @Enabled@ , @Disabled@ , or @Deleted@ .
+-- * 'name' - The name of the directory.
+-- * 'creationDateTime' - The date and time when the directory was created.
 mkDirectory ::
   Directory
 mkDirectory =

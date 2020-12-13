@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,9 +29,9 @@ module Network.AWS.Route53.GetAccountLimit
     mkGetAccountLimitResponse,
 
     -- ** Response lenses
-    galrsResponseStatus,
-    galrsLimit,
     galrsCount,
+    galrsLimit,
+    galrsResponseStatus,
   )
 where
 
@@ -44,16 +45,25 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetAccountLimit' smart constructor.
 newtype GetAccountLimit = GetAccountLimit'
-  { type' ::
-      AccountLimitType
+  { -- | The limit that you want to get. Valid values include the following:
+    --
+    --
+    --     * __MAX_HEALTH_CHECKS_BY_OWNER__ : The maximum number of health checks that you can create using the current account.
+    --
+    --
+    --     * __MAX_HOSTED_ZONES_BY_OWNER__ : The maximum number of hosted zones that you can create using the current account.
+    --
+    --
+    --     * __MAX_REUSABLE_DELEGATION_SETS_BY_OWNER__ : The maximum number of reusable delegation sets that you can create using the current account.
+    --
+    --
+    --     * __MAX_TRAFFIC_POLICIES_BY_OWNER__ : The maximum number of traffic policies that you can create using the current account.
+    --
+    --
+    --     * __MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER__ : The maximum number of traffic policy instances that you can create using the current account. (Traffic policy instances are referred to as traffic flow policy records in the Amazon Route 53 console.)
+    type' :: AccountLimitType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountLimit' with the minimum fields required to make a request.
@@ -111,9 +121,9 @@ instance Lude.AWSRequest GetAccountLimit where
     Res.receiveXML
       ( \s h x ->
           GetAccountLimitResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..@ "Count")
             Lude.<*> (x Lude..@ "Limit")
-            Lude.<*> (x Lude..@ "Count")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetAccountLimit where
@@ -130,18 +140,14 @@ instance Lude.ToQuery GetAccountLimit where
 --
 -- /See:/ 'mkGetAccountLimitResponse' smart constructor.
 data GetAccountLimitResponse = GetAccountLimitResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | The current number of entities that you have created of the specified type. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the request, the value of @Count@ is the current number of health checks that you have created using the current account.
+    count :: Lude.Natural,
+    -- | The current setting for the specified limit. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the request, the value of @Limit@ is the maximum number of health checks that you can create using the current account.
     limit :: AccountLimit,
-    count :: Lude.Natural
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccountLimitResponse' with the minimum fields required to make a request.
@@ -150,26 +156,26 @@ data GetAccountLimitResponse = GetAccountLimitResponse'
 -- * 'limit' - The current setting for the specified limit. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the request, the value of @Limit@ is the maximum number of health checks that you can create using the current account.
 -- * 'responseStatus' - The response status code.
 mkGetAccountLimitResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'limit'
-  AccountLimit ->
   -- | 'count'
   Lude.Natural ->
+  -- | 'limit'
+  AccountLimit ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAccountLimitResponse
-mkGetAccountLimitResponse pResponseStatus_ pLimit_ pCount_ =
+mkGetAccountLimitResponse pCount_ pLimit_ pResponseStatus_ =
   GetAccountLimitResponse'
-    { responseStatus = pResponseStatus_,
+    { count = pCount_,
       limit = pLimit_,
-      count = pCount_
+      responseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | The current number of entities that you have created of the specified type. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the request, the value of @Count@ is the current number of health checks that you have created using the current account.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-galrsResponseStatus :: Lens.Lens' GetAccountLimitResponse Lude.Int
-galrsResponseStatus = Lens.lens (responseStatus :: GetAccountLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountLimitResponse)
-{-# DEPRECATED galrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galrsCount :: Lens.Lens' GetAccountLimitResponse Lude.Natural
+galrsCount = Lens.lens (count :: GetAccountLimitResponse -> Lude.Natural) (\s a -> s {count = a} :: GetAccountLimitResponse)
+{-# DEPRECATED galrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The current setting for the specified limit. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the request, the value of @Limit@ is the maximum number of health checks that you can create using the current account.
 --
@@ -178,9 +184,9 @@ galrsLimit :: Lens.Lens' GetAccountLimitResponse AccountLimit
 galrsLimit = Lens.lens (limit :: GetAccountLimitResponse -> AccountLimit) (\s a -> s {limit = a} :: GetAccountLimitResponse)
 {-# DEPRECATED galrsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The current number of entities that you have created of the specified type. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the request, the value of @Count@ is the current number of health checks that you have created using the current account.
+-- | The response status code.
 --
--- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-galrsCount :: Lens.Lens' GetAccountLimitResponse Lude.Natural
-galrsCount = Lens.lens (count :: GetAccountLimitResponse -> Lude.Natural) (\s a -> s {count = a} :: GetAccountLimitResponse)
-{-# DEPRECATED galrsCount "Use generic-lens or generic-optics with 'count' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galrsResponseStatus :: Lens.Lens' GetAccountLimitResponse Lude.Int
+galrsResponseStatus = Lens.lens (responseStatus :: GetAccountLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountLimitResponse)
+{-# DEPRECATED galrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

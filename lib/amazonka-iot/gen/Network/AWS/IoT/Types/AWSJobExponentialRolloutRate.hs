@@ -31,19 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSJobExponentialRolloutRate' smart constructor.
 data AWSJobExponentialRolloutRate = AWSJobExponentialRolloutRate'
-  { baseRatePerMinute ::
-      Lude.Natural,
+  { -- | The minimum number of things that will be notified of a pending job, per minute, at the start of the job rollout. This is the initial rate of the rollout.
+    baseRatePerMinute :: Lude.Natural,
+    -- | The rate of increase for a job rollout. The number of things notified is multiplied by this factor.
     incrementFactor :: Lude.Double,
-    rateIncreaseCriteria ::
-      AWSJobRateIncreaseCriteria
+    -- | The criteria to initiate the increase in rate of rollout for a job.
+    --
+    -- AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).
+    rateIncreaseCriteria :: AWSJobRateIncreaseCriteria
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSJobExponentialRolloutRate' with the minimum fields required to make a request.

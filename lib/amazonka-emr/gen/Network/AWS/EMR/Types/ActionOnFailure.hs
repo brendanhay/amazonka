@@ -13,10 +13,10 @@
 module Network.AWS.EMR.Types.ActionOnFailure
   ( ActionOnFailure
       ( ActionOnFailure',
-        CancelAndWait,
-        Continue,
-        TerminateCluster,
-        TerminateJobFlow
+        AOFTerminateJobFlow,
+        AOFTerminateCluster,
+        AOFCancelAndWait,
+        AOFContinue
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ActionOnFailure = ActionOnFailure' Lude.Text
       Lude.ToHeader
     )
 
-pattern CancelAndWait :: ActionOnFailure
-pattern CancelAndWait = ActionOnFailure' "CANCEL_AND_WAIT"
+pattern AOFTerminateJobFlow :: ActionOnFailure
+pattern AOFTerminateJobFlow = ActionOnFailure' "TERMINATE_JOB_FLOW"
 
-pattern Continue :: ActionOnFailure
-pattern Continue = ActionOnFailure' "CONTINUE"
+pattern AOFTerminateCluster :: ActionOnFailure
+pattern AOFTerminateCluster = ActionOnFailure' "TERMINATE_CLUSTER"
 
-pattern TerminateCluster :: ActionOnFailure
-pattern TerminateCluster = ActionOnFailure' "TERMINATE_CLUSTER"
+pattern AOFCancelAndWait :: ActionOnFailure
+pattern AOFCancelAndWait = ActionOnFailure' "CANCEL_AND_WAIT"
 
-pattern TerminateJobFlow :: ActionOnFailure
-pattern TerminateJobFlow = ActionOnFailure' "TERMINATE_JOB_FLOW"
+pattern AOFContinue :: ActionOnFailure
+pattern AOFContinue = ActionOnFailure' "CONTINUE"
 
 {-# COMPLETE
-  CancelAndWait,
-  Continue,
-  TerminateCluster,
-  TerminateJobFlow,
+  AOFTerminateJobFlow,
+  AOFTerminateCluster,
+  AOFCancelAndWait,
+  AOFContinue,
   ActionOnFailure'
   #-}

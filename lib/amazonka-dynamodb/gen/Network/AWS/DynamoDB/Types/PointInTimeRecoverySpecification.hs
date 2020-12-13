@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPointInTimeRecoverySpecification' smart constructor.
 newtype PointInTimeRecoverySpecification = PointInTimeRecoverySpecification'
-  { pointInTimeRecoveryEnabled ::
-      Lude.Bool
+  { -- | Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+    pointInTimeRecoveryEnabled :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PointInTimeRecoverySpecification' with the minimum fields required to make a request.

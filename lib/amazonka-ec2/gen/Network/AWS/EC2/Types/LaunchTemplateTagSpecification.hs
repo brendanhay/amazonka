@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateTagSpecification' smart constructor.
 data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The type of resource.
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The tags for the resource.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateTagSpecification' with the minimum fields required to make a request.

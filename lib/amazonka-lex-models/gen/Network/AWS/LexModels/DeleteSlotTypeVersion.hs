@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSlotTypeVersion' smart constructor.
 data DeleteSlotTypeVersion = DeleteSlotTypeVersion'
-  { name ::
-      Lude.Text,
+  { -- | The name of the slot type.
+    name :: Lude.Text,
+    -- | The version of the slot type to delete. You cannot delete the @> LATEST@ version of the slot type. To delete the @> LATEST@ version, use the 'DeleteSlotType' operation.
     version :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSlotTypeVersion' with the minimum fields required to make a request.
@@ -102,13 +98,7 @@ instance Lude.ToQuery DeleteSlotTypeVersion where
 
 -- | /See:/ 'mkDeleteSlotTypeVersionResponse' smart constructor.
 data DeleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSlotTypeVersionResponse' with the minimum fields required to make a request.

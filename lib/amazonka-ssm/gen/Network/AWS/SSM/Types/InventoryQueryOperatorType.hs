@@ -13,12 +13,12 @@
 module Network.AWS.SSM.Types.InventoryQueryOperatorType
   ( InventoryQueryOperatorType
       ( InventoryQueryOperatorType',
-        IQOTBeginWith,
         IQOTEqual,
-        IQOTExists,
-        IQOTGreaterThan,
+        IQOTNotEqual,
+        IQOTBeginWith,
         IQOTLessThan,
-        IQOTNotEqual
+        IQOTGreaterThan,
+        IQOTExists
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype InventoryQueryOperatorType = InventoryQueryOperatorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern IQOTBeginWith :: InventoryQueryOperatorType
-pattern IQOTBeginWith = InventoryQueryOperatorType' "BeginWith"
-
 pattern IQOTEqual :: InventoryQueryOperatorType
 pattern IQOTEqual = InventoryQueryOperatorType' "Equal"
-
-pattern IQOTExists :: InventoryQueryOperatorType
-pattern IQOTExists = InventoryQueryOperatorType' "Exists"
-
-pattern IQOTGreaterThan :: InventoryQueryOperatorType
-pattern IQOTGreaterThan = InventoryQueryOperatorType' "GreaterThan"
-
-pattern IQOTLessThan :: InventoryQueryOperatorType
-pattern IQOTLessThan = InventoryQueryOperatorType' "LessThan"
 
 pattern IQOTNotEqual :: InventoryQueryOperatorType
 pattern IQOTNotEqual = InventoryQueryOperatorType' "NotEqual"
 
+pattern IQOTBeginWith :: InventoryQueryOperatorType
+pattern IQOTBeginWith = InventoryQueryOperatorType' "BeginWith"
+
+pattern IQOTLessThan :: InventoryQueryOperatorType
+pattern IQOTLessThan = InventoryQueryOperatorType' "LessThan"
+
+pattern IQOTGreaterThan :: InventoryQueryOperatorType
+pattern IQOTGreaterThan = InventoryQueryOperatorType' "GreaterThan"
+
+pattern IQOTExists :: InventoryQueryOperatorType
+pattern IQOTExists = InventoryQueryOperatorType' "Exists"
+
 {-# COMPLETE
-  IQOTBeginWith,
   IQOTEqual,
-  IQOTExists,
-  IQOTGreaterThan,
-  IQOTLessThan,
   IQOTNotEqual,
+  IQOTBeginWith,
+  IQOTLessThan,
+  IQOTGreaterThan,
+  IQOTExists,
   InventoryQueryOperatorType'
   #-}

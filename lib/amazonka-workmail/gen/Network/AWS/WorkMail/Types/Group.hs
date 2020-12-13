@@ -34,30 +34,30 @@ import Network.AWS.WorkMail.Types.EntityState
 --
 -- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { email :: Lude.Maybe Lude.Text,
+  { -- | The email of the group.
+    email :: Lude.Maybe Lude.Text,
+    -- | The state of the group, which can be ENABLED, DISABLED, or DELETED.
     state :: Lude.Maybe EntityState,
+    -- | The date indicating when the group was disabled from Amazon WorkMail use.
     disabledDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the group.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the group.
     id :: Lude.Maybe Lude.Text,
+    -- | The date indicating when the group was enabled for Amazon WorkMail use.
     enabledDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Group' with the minimum fields required to make a request.
 --
--- * 'disabledDate' - The date indicating when the group was disabled from Amazon WorkMail use.
 -- * 'email' - The email of the group.
--- * 'enabledDate' - The date indicating when the group was enabled for Amazon WorkMail use.
--- * 'id' - The identifier of the group.
--- * 'name' - The name of the group.
 -- * 'state' - The state of the group, which can be ENABLED, DISABLED, or DELETED.
+-- * 'disabledDate' - The date indicating when the group was disabled from Amazon WorkMail use.
+-- * 'name' - The name of the group.
+-- * 'id' - The identifier of the group.
+-- * 'enabledDate' - The date indicating when the group was enabled for Amazon WorkMail use.
 mkGroup ::
   Group
 mkGroup =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.ServiceCatalog.DeleteProduct
     mkDeleteProduct,
 
     -- ** Request lenses
-    dppAcceptLanguage,
-    dppId,
+    dpAcceptLanguage,
+    dpId,
 
     -- * Destructuring the response
     DeleteProductResponse (..),
     mkDeleteProductResponse,
 
     -- ** Response lenses
-    delersResponseStatus,
+    drsResponseStatus,
   )
 where
 
@@ -42,17 +43,21 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDeleteProduct' smart constructor.
 data DeleteProduct = DeleteProduct'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProduct' with the minimum fields required to make a request.
@@ -91,16 +96,16 @@ mkDeleteProduct pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppAcceptLanguage :: Lens.Lens' DeleteProduct (Lude.Maybe Lude.Text)
-dppAcceptLanguage = Lens.lens (acceptLanguage :: DeleteProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteProduct)
-{-# DEPRECATED dppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dpAcceptLanguage :: Lens.Lens' DeleteProduct (Lude.Maybe Lude.Text)
+dpAcceptLanguage = Lens.lens (acceptLanguage :: DeleteProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteProduct)
+{-# DEPRECATED dpAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The product identifier.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppId :: Lens.Lens' DeleteProduct Lude.Text
-dppId = Lens.lens (id :: DeleteProduct -> Lude.Text) (\s a -> s {id = a} :: DeleteProduct)
-{-# DEPRECATED dppId "Use generic-lens or generic-optics with 'id' instead." #-}
+dpId :: Lens.Lens' DeleteProduct Lude.Text
+dpId = Lens.lens (id :: DeleteProduct -> Lude.Text) (\s a -> s {id = a} :: DeleteProduct)
+{-# DEPRECATED dpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DeleteProduct where
   type Rs DeleteProduct = DeleteProductResponse
@@ -139,16 +144,10 @@ instance Lude.ToQuery DeleteProduct where
 
 -- | /See:/ 'mkDeleteProductResponse' smart constructor.
 newtype DeleteProductResponse = DeleteProductResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProductResponse' with the minimum fields required to make a request.
@@ -164,6 +163,6 @@ mkDeleteProductResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delersResponseStatus :: Lens.Lens' DeleteProductResponse Lude.Int
-delersResponseStatus = Lens.lens (responseStatus :: DeleteProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProductResponse)
-{-# DEPRECATED delersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteProductResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProductResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

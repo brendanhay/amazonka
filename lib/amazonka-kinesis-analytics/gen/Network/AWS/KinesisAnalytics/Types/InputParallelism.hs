@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputParallelism' smart constructor.
 newtype InputParallelism = InputParallelism'
-  { count ::
-      Lude.Maybe Lude.Natural
+  { -- | Number of in-application streams to create. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits> .
+    count :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputParallelism' with the minimum fields required to make a request.

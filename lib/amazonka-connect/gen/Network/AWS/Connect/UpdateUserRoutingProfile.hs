@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Connect.UpdateUserRoutingProfile
     mkUpdateUserRoutingProfile,
 
     -- ** Request lenses
+    uurpInstanceId,
     uurpRoutingProfileId,
     uurpUserId,
-    uurpInstanceId,
 
     -- * Destructuring the response
     UpdateUserRoutingProfileResponse (..),
@@ -37,18 +38,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateUserRoutingProfile' smart constructor.
 data UpdateUserRoutingProfile = UpdateUserRoutingProfile'
-  { routingProfileId ::
-      Lude.Text,
-    userId :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the routing profile for the user.
+    routingProfileId :: Lude.Text,
+    -- | The identifier of the user account.
+    userId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserRoutingProfile' with the minimum fields required to make a request.
@@ -57,19 +54,26 @@ data UpdateUserRoutingProfile = UpdateUserRoutingProfile'
 -- * 'routingProfileId' - The identifier of the routing profile for the user.
 -- * 'userId' - The identifier of the user account.
 mkUpdateUserRoutingProfile ::
+  -- | 'instanceId'
+  Lude.Text ->
   -- | 'routingProfileId'
   Lude.Text ->
   -- | 'userId'
   Lude.Text ->
-  -- | 'instanceId'
-  Lude.Text ->
   UpdateUserRoutingProfile
-mkUpdateUserRoutingProfile pRoutingProfileId_ pUserId_ pInstanceId_ =
+mkUpdateUserRoutingProfile pInstanceId_ pRoutingProfileId_ pUserId_ =
   UpdateUserRoutingProfile'
-    { routingProfileId = pRoutingProfileId_,
-      userId = pUserId_,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      routingProfileId = pRoutingProfileId_,
+      userId = pUserId_
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uurpInstanceId :: Lens.Lens' UpdateUserRoutingProfile Lude.Text
+uurpInstanceId = Lens.lens (instanceId :: UpdateUserRoutingProfile -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserRoutingProfile)
+{-# DEPRECATED uurpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile for the user.
 --
@@ -84,13 +88,6 @@ uurpRoutingProfileId = Lens.lens (routingProfileId :: UpdateUserRoutingProfile -
 uurpUserId :: Lens.Lens' UpdateUserRoutingProfile Lude.Text
 uurpUserId = Lens.lens (userId :: UpdateUserRoutingProfile -> Lude.Text) (\s a -> s {userId = a} :: UpdateUserRoutingProfile)
 {-# DEPRECATED uurpUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uurpInstanceId :: Lens.Lens' UpdateUserRoutingProfile Lude.Text
-uurpInstanceId = Lens.lens (instanceId :: UpdateUserRoutingProfile -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserRoutingProfile)
-{-# DEPRECATED uurpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest UpdateUserRoutingProfile where
   type Rs UpdateUserRoutingProfile = UpdateUserRoutingProfileResponse
@@ -128,13 +125,7 @@ instance Lude.ToQuery UpdateUserRoutingProfile where
 
 -- | /See:/ 'mkUpdateUserRoutingProfileResponse' smart constructor.
 data UpdateUserRoutingProfileResponse = UpdateUserRoutingProfileResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserRoutingProfileResponse' with the minimum fields required to make a request.

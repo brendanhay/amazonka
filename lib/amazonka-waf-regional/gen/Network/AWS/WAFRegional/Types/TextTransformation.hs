@@ -13,11 +13,11 @@
 module Network.AWS.WAFRegional.Types.TextTransformation
   ( TextTransformation
       ( TextTransformation',
-        CmdLine,
+        None,
         CompressWhiteSpace,
         HTMLEntityDecode,
         Lowercase,
-        None,
+        CmdLine,
         URLDecode
       ),
   )
@@ -49,8 +49,8 @@ newtype TextTransformation = TextTransformation' Lude.Text
       Lude.ToHeader
     )
 
-pattern CmdLine :: TextTransformation
-pattern CmdLine = TextTransformation' "CMD_LINE"
+pattern None :: TextTransformation
+pattern None = TextTransformation' "NONE"
 
 pattern CompressWhiteSpace :: TextTransformation
 pattern CompressWhiteSpace = TextTransformation' "COMPRESS_WHITE_SPACE"
@@ -61,18 +61,18 @@ pattern HTMLEntityDecode = TextTransformation' "HTML_ENTITY_DECODE"
 pattern Lowercase :: TextTransformation
 pattern Lowercase = TextTransformation' "LOWERCASE"
 
-pattern None :: TextTransformation
-pattern None = TextTransformation' "NONE"
+pattern CmdLine :: TextTransformation
+pattern CmdLine = TextTransformation' "CMD_LINE"
 
 pattern URLDecode :: TextTransformation
 pattern URLDecode = TextTransformation' "URL_DECODE"
 
 {-# COMPLETE
-  CmdLine,
+  None,
   CompressWhiteSpace,
   HTMLEntityDecode,
   Lowercase,
-  None,
+  CmdLine,
   URLDecode,
   TextTransformation'
   #-}

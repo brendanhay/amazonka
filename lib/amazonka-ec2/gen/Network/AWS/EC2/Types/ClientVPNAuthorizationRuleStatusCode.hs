@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatusCode
   ( ClientVPNAuthorizationRuleStatusCode
       ( ClientVPNAuthorizationRuleStatusCode',
-        CVARSCActive,
         CVARSCAuthorizing,
+        CVARSCActive,
         CVARSCFailed,
         CVARSCRevoking
       ),
@@ -47,11 +47,11 @@ newtype ClientVPNAuthorizationRuleStatusCode = ClientVPNAuthorizationRuleStatusC
       Lude.ToHeader
     )
 
-pattern CVARSCActive :: ClientVPNAuthorizationRuleStatusCode
-pattern CVARSCActive = ClientVPNAuthorizationRuleStatusCode' "active"
-
 pattern CVARSCAuthorizing :: ClientVPNAuthorizationRuleStatusCode
 pattern CVARSCAuthorizing = ClientVPNAuthorizationRuleStatusCode' "authorizing"
+
+pattern CVARSCActive :: ClientVPNAuthorizationRuleStatusCode
+pattern CVARSCActive = ClientVPNAuthorizationRuleStatusCode' "active"
 
 pattern CVARSCFailed :: ClientVPNAuthorizationRuleStatusCode
 pattern CVARSCFailed = ClientVPNAuthorizationRuleStatusCode' "failed"
@@ -60,8 +60,8 @@ pattern CVARSCRevoking :: ClientVPNAuthorizationRuleStatusCode
 pattern CVARSCRevoking = ClientVPNAuthorizationRuleStatusCode' "revoking"
 
 {-# COMPLETE
-  CVARSCActive,
   CVARSCAuthorizing,
+  CVARSCActive,
   CVARSCFailed,
   CVARSCRevoking,
   ClientVPNAuthorizationRuleStatusCode'

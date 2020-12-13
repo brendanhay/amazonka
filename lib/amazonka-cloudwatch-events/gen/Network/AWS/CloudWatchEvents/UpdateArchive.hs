@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.CloudWatchEvents.UpdateArchive
 
     -- ** Request lenses
     uaEventPattern,
+    uaArchiveName,
     uaRetentionDays,
     uaDescription,
-    uaArchiveName,
 
     -- * Destructuring the response
     UpdateArchiveResponse (..),
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateArchive' smart constructor.
 data UpdateArchive = UpdateArchive'
-  { eventPattern ::
-      Lude.Maybe Lude.Text,
+  { -- | The event pattern to use to filter events sent to the archive.
+    eventPattern :: Lude.Maybe Lude.Text,
+    -- | The name of the archive to update.
+    archiveName :: Lude.Text,
+    -- | The number of days to retain events in the archive.
     retentionDays :: Lude.Maybe Lude.Natural,
-    description :: Lude.Maybe Lude.Text,
-    archiveName :: Lude.Text
+    -- | The description for the archive.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateArchive' with the minimum fields required to make a request.
 --
--- * 'archiveName' - The name of the archive to update.
--- * 'description' - The description for the archive.
 -- * 'eventPattern' - The event pattern to use to filter events sent to the archive.
+-- * 'archiveName' - The name of the archive to update.
 -- * 'retentionDays' - The number of days to retain events in the archive.
+-- * 'description' - The description for the archive.
 mkUpdateArchive ::
   -- | 'archiveName'
   Lude.Text ->
@@ -73,9 +71,9 @@ mkUpdateArchive ::
 mkUpdateArchive pArchiveName_ =
   UpdateArchive'
     { eventPattern = Lude.Nothing,
+      archiveName = pArchiveName_,
       retentionDays = Lude.Nothing,
-      description = Lude.Nothing,
-      archiveName = pArchiveName_
+      description = Lude.Nothing
     }
 
 -- | The event pattern to use to filter events sent to the archive.
@@ -84,6 +82,13 @@ mkUpdateArchive pArchiveName_ =
 uaEventPattern :: Lens.Lens' UpdateArchive (Lude.Maybe Lude.Text)
 uaEventPattern = Lens.lens (eventPattern :: UpdateArchive -> Lude.Maybe Lude.Text) (\s a -> s {eventPattern = a} :: UpdateArchive)
 {-# DEPRECATED uaEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
+
+-- | The name of the archive to update.
+--
+-- /Note:/ Consider using 'archiveName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaArchiveName :: Lens.Lens' UpdateArchive Lude.Text
+uaArchiveName = Lens.lens (archiveName :: UpdateArchive -> Lude.Text) (\s a -> s {archiveName = a} :: UpdateArchive)
+{-# DEPRECATED uaArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
 
 -- | The number of days to retain events in the archive.
 --
@@ -98,13 +103,6 @@ uaRetentionDays = Lens.lens (retentionDays :: UpdateArchive -> Lude.Maybe Lude.N
 uaDescription :: Lens.Lens' UpdateArchive (Lude.Maybe Lude.Text)
 uaDescription = Lens.lens (description :: UpdateArchive -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateArchive)
 {-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the archive to update.
---
--- /Note:/ Consider using 'archiveName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaArchiveName :: Lens.Lens' UpdateArchive Lude.Text
-uaArchiveName = Lens.lens (archiveName :: UpdateArchive -> Lude.Text) (\s a -> s {archiveName = a} :: UpdateArchive)
-{-# DEPRECATED uaArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
 
 instance Lude.AWSRequest UpdateArchive where
   type Rs UpdateArchive = UpdateArchiveResponse
@@ -136,9 +134,9 @@ instance Lude.ToJSON UpdateArchive where
     Lude.object
       ( Lude.catMaybes
           [ ("EventPattern" Lude..=) Lude.<$> eventPattern,
+            Lude.Just ("ArchiveName" Lude..= archiveName),
             ("RetentionDays" Lude..=) Lude.<$> retentionDays,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("ArchiveName" Lude..= archiveName)
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -150,29 +148,27 @@ instance Lude.ToQuery UpdateArchive where
 
 -- | /See:/ 'mkUpdateArchiveResponse' smart constructor.
 data UpdateArchiveResponse = UpdateArchiveResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time at which the archive was updated.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The state of the archive.
     state :: Lude.Maybe ArchiveState,
+    -- | The ARN of the archive.
     archiveARN :: Lude.Maybe Lude.Text,
+    -- | The reason that the archive is in the current state.
     stateReason :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateArchiveResponse' with the minimum fields required to make a request.
 --
--- * 'archiveARN' - The ARN of the archive.
 -- * 'creationTime' - The time at which the archive was updated.
--- * 'responseStatus' - The response status code.
 -- * 'state' - The state of the archive.
+-- * 'archiveARN' - The ARN of the archive.
 -- * 'stateReason' - The reason that the archive is in the current state.
+-- * 'responseStatus' - The response status code.
 mkUpdateArchiveResponse ::
   -- | 'responseStatus'
   Lude.Int ->

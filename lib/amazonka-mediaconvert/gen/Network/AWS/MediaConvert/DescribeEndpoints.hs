@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  { mode ::
-      Lude.Maybe DescribeEndpointsMode,
+  { -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
+    mode :: Lude.Maybe DescribeEndpointsMode,
+    -- | Use this string, provided with the response to a previous request, to request the next batch of endpoints.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Optional. Max number of endpoints, up to twenty, that will be returned at one time.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Optional. Max number of endpoints, up to twenty, that will be returned at one time.
 -- * 'mode' - Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
 -- * 'nextToken' - Use this string, provided with the response to a previous request, to request the next batch of endpoints.
+-- * 'maxResults' - Optional. Max number of endpoints, up to twenty, that will be returned at one time.
 mkDescribeEndpoints ::
   DescribeEndpoints
 mkDescribeEndpoints =
@@ -144,24 +141,20 @@ instance Lude.ToQuery DescribeEndpoints where
 
 -- | /See:/ 'mkDescribeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Use this string to request the next batch of endpoints.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of endpoints
     endpoints :: Lude.Maybe [Endpoint],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
 --
--- * 'endpoints' - List of endpoints
 -- * 'nextToken' - Use this string to request the next batch of endpoints.
+-- * 'endpoints' - List of endpoints
 -- * 'responseStatus' - The response status code.
 mkDescribeEndpointsResponse ::
   -- | 'responseStatus'

@@ -37,15 +37,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocDBSettings' smart constructor.
 data DocDBSettings = DocDBSettings'
-  { serverName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the server on the DocumentDB source endpoint.
+    serverName :: Lude.Maybe Lude.Text,
+    -- | The user name you use to access the DocumentDB source endpoint.
     username :: Lude.Maybe Lude.Text,
+    -- | The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The password for the user account you use to access the DocumentDB source endpoint.
     password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Specifies either document or table mode.
+    --
+    -- Default value is @"none"@ . Specify @"none"@ to use document mode. Specify @"one"@ to use table mode.
     nestingLevel :: Lude.Maybe NestingLevelValue,
+    -- | The database name on the DocumentDB source endpoint.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | Indicates the number of documents to preview to determine the document organization. Use this setting when @NestingLevel@ is set to @"one"@ .
+    --
+    -- Must be a positive value greater than @0@ . Default value is @1000@ .
     docsToInvestigate :: Lude.Maybe Lude.Int,
+    -- | Specifies the document ID. Use this setting when @NestingLevel@ is set to @"none"@ .
+    --
+    -- Default value is @"false"@ .
     extractDocId :: Lude.Maybe Lude.Bool,
+    -- | The port value for the DocumentDB source endpoint.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -53,6 +67,13 @@ data DocDBSettings = DocDBSettings'
 
 -- | Creates a value of 'DocDBSettings' with the minimum fields required to make a request.
 --
+-- * 'serverName' - The name of the server on the DocumentDB source endpoint.
+-- * 'username' - The user name you use to access the DocumentDB source endpoint.
+-- * 'kmsKeyId' - The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
+-- * 'password' - The password for the user account you use to access the DocumentDB source endpoint.
+-- * 'nestingLevel' - Specifies either document or table mode.
+--
+-- Default value is @"none"@ . Specify @"none"@ to use document mode. Specify @"one"@ to use table mode.
 -- * 'databaseName' - The database name on the DocumentDB source endpoint.
 -- * 'docsToInvestigate' - Indicates the number of documents to preview to determine the document organization. Use this setting when @NestingLevel@ is set to @"one"@ .
 --
@@ -60,14 +81,7 @@ data DocDBSettings = DocDBSettings'
 -- * 'extractDocId' - Specifies the document ID. Use this setting when @NestingLevel@ is set to @"none"@ .
 --
 -- Default value is @"false"@ .
--- * 'kmsKeyId' - The AWS KMS key identifier that is used to encrypt the content on the replication instance. If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
--- * 'nestingLevel' - Specifies either document or table mode.
---
--- Default value is @"none"@ . Specify @"none"@ to use document mode. Specify @"one"@ to use table mode.
--- * 'password' - The password for the user account you use to access the DocumentDB source endpoint.
 -- * 'port' - The port value for the DocumentDB source endpoint.
--- * 'serverName' - The name of the server on the DocumentDB source endpoint.
--- * 'username' - The user name you use to access the DocumentDB source endpoint.
 mkDocDBSettings ::
   DocDBSettings
 mkDocDBSettings =

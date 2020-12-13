@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,28 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTrafficMirrorFilter' smart constructor.
 data CreateTrafficMirrorFilter = CreateTrafficMirrorFilter'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The tags to assign to a Traffic Mirror filter.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The description of the Traffic Mirror filter.
     description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficMirrorFilter' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'tagSpecifications' - The tags to assign to a Traffic Mirror filter.
 -- * 'description' - The description of the Traffic Mirror filter.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'tagSpecifications' - The tags to assign to a Traffic Mirror filter.
 mkCreateTrafficMirrorFilter ::
   CreateTrafficMirrorFilter
 mkCreateTrafficMirrorFilter =
@@ -140,28 +137,21 @@ instance Lude.ToQuery CreateTrafficMirrorFilter where
 
 -- | /See:/ 'mkCreateTrafficMirrorFilterResponse' smart constructor.
 data CreateTrafficMirrorFilterResponse = CreateTrafficMirrorFilterResponse'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    trafficMirrorFilter ::
-      Lude.Maybe
-        TrafficMirrorFilter,
-    responseStatus ::
-      Lude.Int
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | Information about the Traffic Mirror filter.
+    trafficMirrorFilter :: Lude.Maybe TrafficMirrorFilter,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficMirrorFilterResponse' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'responseStatus' - The response status code.
 -- * 'trafficMirrorFilter' - Information about the Traffic Mirror filter.
+-- * 'responseStatus' - The response status code.
 mkCreateTrafficMirrorFilterResponse ::
   -- | 'responseStatus'
   Lude.Int ->

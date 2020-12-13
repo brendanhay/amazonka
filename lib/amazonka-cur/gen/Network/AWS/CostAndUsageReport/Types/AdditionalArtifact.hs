@@ -13,9 +13,9 @@
 module Network.AWS.CostAndUsageReport.Types.AdditionalArtifact
   ( AdditionalArtifact
       ( AdditionalArtifact',
-        Athena,
+        Redshift,
         Quicksight,
-        Redshift
+        Athena
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype AdditionalArtifact = AdditionalArtifact' Lude.Text
       Lude.ToHeader
     )
 
-pattern Athena :: AdditionalArtifact
-pattern Athena = AdditionalArtifact' "ATHENA"
+pattern Redshift :: AdditionalArtifact
+pattern Redshift = AdditionalArtifact' "REDSHIFT"
 
 pattern Quicksight :: AdditionalArtifact
 pattern Quicksight = AdditionalArtifact' "QUICKSIGHT"
 
-pattern Redshift :: AdditionalArtifact
-pattern Redshift = AdditionalArtifact' "REDSHIFT"
+pattern Athena :: AdditionalArtifact
+pattern Athena = AdditionalArtifact' "ATHENA"
 
 {-# COMPLETE
-  Athena,
-  Quicksight,
   Redshift,
+  Quicksight,
+  Athena,
   AdditionalArtifact'
   #-}

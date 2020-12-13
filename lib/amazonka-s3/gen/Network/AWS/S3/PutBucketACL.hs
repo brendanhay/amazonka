@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -79,6 +80,7 @@ module Network.AWS.S3.PutBucketACL
 
     -- ** Request lenses
     pbaGrantReadACP,
+    pbaBucket,
     pbaGrantWriteACP,
     pbaGrantRead,
     pbaGrantFullControl,
@@ -87,7 +89,6 @@ module Network.AWS.S3.PutBucketACL
     pbaGrantWrite,
     pbaACL,
     pbaExpectedBucketOwner,
-    pbaBucket,
 
     -- * Destructuring the response
     PutBucketACLResponse (..),
@@ -103,41 +104,46 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutBucketACL' smart constructor.
 data PutBucketACL = PutBucketACL'
-  { grantReadACP ::
-      Lude.Maybe Lude.Text,
+  { -- | Allows grantee to read the bucket ACL.
+    grantReadACP :: Lude.Maybe Lude.Text,
+    -- | The bucket to which to apply the ACL.
+    bucket :: BucketName,
+    -- | Allows grantee to write the ACL for the applicable bucket.
     grantWriteACP :: Lude.Maybe Lude.Text,
+    -- | Allows grantee to list the objects in the bucket.
     grantRead :: Lude.Maybe Lude.Text,
+    -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
     grantFullControl :: Lude.Maybe Lude.Text,
+    -- | The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
     contentMD5 :: Lude.Maybe Lude.Text,
+    -- | Contains the elements that set the ACL permissions for an object per grantee.
     accessControlPolicy :: Lude.Maybe AccessControlPolicy,
+    -- | Allows grantee to create, overwrite, and delete any object in the bucket.
     grantWrite :: Lude.Maybe Lude.Text,
+    -- | The canned ACL to apply to the bucket.
     acl :: Lude.Maybe BucketCannedACL,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    bucket :: BucketName
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketACL' with the minimum fields required to make a request.
 --
--- * 'accessControlPolicy' - Contains the elements that set the ACL permissions for an object per grantee.
--- * 'acl' - The canned ACL to apply to the bucket.
+-- * 'grantReadACP' - Allows grantee to read the bucket ACL.
 -- * 'bucket' - The bucket to which to apply the ACL.
+-- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
+-- * 'grantRead' - Allows grantee to list the objects in the bucket.
+-- * 'grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 -- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
--- * 'grantRead' - Allows grantee to list the objects in the bucket.
--- * 'grantReadACP' - Allows grantee to read the bucket ACL.
+-- * 'accessControlPolicy' - Contains the elements that set the ACL permissions for an object per grantee.
 -- * 'grantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
--- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
+-- * 'acl' - The canned ACL to apply to the bucket.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkPutBucketACL ::
   -- | 'bucket'
   BucketName ->
@@ -145,6 +151,7 @@ mkPutBucketACL ::
 mkPutBucketACL pBucket_ =
   PutBucketACL'
     { grantReadACP = Lude.Nothing,
+      bucket = pBucket_,
       grantWriteACP = Lude.Nothing,
       grantRead = Lude.Nothing,
       grantFullControl = Lude.Nothing,
@@ -152,8 +159,7 @@ mkPutBucketACL pBucket_ =
       accessControlPolicy = Lude.Nothing,
       grantWrite = Lude.Nothing,
       acl = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | Allows grantee to read the bucket ACL.
@@ -162,6 +168,13 @@ mkPutBucketACL pBucket_ =
 pbaGrantReadACP :: Lens.Lens' PutBucketACL (Lude.Maybe Lude.Text)
 pbaGrantReadACP = Lens.lens (grantReadACP :: PutBucketACL -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: PutBucketACL)
 {-# DEPRECATED pbaGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
+
+-- | The bucket to which to apply the ACL.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbaBucket :: Lens.Lens' PutBucketACL BucketName
+pbaBucket = Lens.lens (bucket :: PutBucketACL -> BucketName) (\s a -> s {bucket = a} :: PutBucketACL)
+{-# DEPRECATED pbaBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 --
@@ -221,13 +234,6 @@ pbaExpectedBucketOwner :: Lens.Lens' PutBucketACL (Lude.Maybe Lude.Text)
 pbaExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketACL -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketACL)
 {-# DEPRECATED pbaExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | The bucket to which to apply the ACL.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbaBucket :: Lens.Lens' PutBucketACL BucketName
-pbaBucket = Lens.lens (bucket :: PutBucketACL -> BucketName) (\s a -> s {bucket = a} :: PutBucketACL)
-{-# DEPRECATED pbaBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
 instance Lude.AWSRequest PutBucketACL where
   type Rs PutBucketACL = PutBucketACLResponse
   request = Req.putXML s3Service
@@ -260,13 +266,7 @@ instance Lude.ToQuery PutBucketACL where
 
 -- | /See:/ 'mkPutBucketACLResponse' smart constructor.
 data PutBucketACLResponse = PutBucketACLResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutBucketACLResponse' with the minimum fields required to make a request.

@@ -14,8 +14,8 @@ module Network.AWS.CloudFront.Types.SSLSupportMethod
   ( SSLSupportMethod
       ( SSLSupportMethod',
         SNIOnly,
-        StaticIP,
-        VIP
+        VIP,
+        StaticIP
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype SSLSupportMethod = SSLSupportMethod' Lude.Text
 pattern SNIOnly :: SSLSupportMethod
 pattern SNIOnly = SSLSupportMethod' "sni-only"
 
-pattern StaticIP :: SSLSupportMethod
-pattern StaticIP = SSLSupportMethod' "static-ip"
-
 pattern VIP :: SSLSupportMethod
 pattern VIP = SSLSupportMethod' "vip"
 
+pattern StaticIP :: SSLSupportMethod
+pattern StaticIP = SSLSupportMethod' "static-ip"
+
 {-# COMPLETE
   SNIOnly,
-  StaticIP,
   VIP,
+  StaticIP,
   SSLSupportMethod'
   #-}

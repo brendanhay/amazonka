@@ -13,8 +13,8 @@
 module Network.AWS.XRay.Types.SamplingStrategyName
   ( SamplingStrategyName
       ( SamplingStrategyName',
-        FixedRate,
-        PartialScan
+        PartialScan,
+        FixedRate
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SamplingStrategyName = SamplingStrategyName' Lude.Text
       Lude.ToHeader
     )
 
-pattern FixedRate :: SamplingStrategyName
-pattern FixedRate = SamplingStrategyName' "FixedRate"
-
 pattern PartialScan :: SamplingStrategyName
 pattern PartialScan = SamplingStrategyName' "PartialScan"
 
+pattern FixedRate :: SamplingStrategyName
+pattern FixedRate = SamplingStrategyName' "FixedRate"
+
 {-# COMPLETE
-  FixedRate,
   PartialScan,
+  FixedRate,
   SamplingStrategyName'
   #-}

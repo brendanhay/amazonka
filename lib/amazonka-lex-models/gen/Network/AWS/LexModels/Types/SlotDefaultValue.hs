@@ -28,16 +28,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSlotDefaultValue' smart constructor.
 newtype SlotDefaultValue = SlotDefaultValue'
-  { defaultValue ::
-      Lude.Text
+  { -- | The default value for the slot. You can specify one of the following:
+    --
+    --
+    --     * @#context-name.slot-name@ - The slot value "slot-name" in the context "context-name."
+    --
+    --
+    --     * @{attribute}@ - The slot value of the session attribute "attribute."
+    --
+    --
+    --     * @'value'@ - The discrete value "value."
+    defaultValue :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SlotDefaultValue' with the minimum fields required to make a request.

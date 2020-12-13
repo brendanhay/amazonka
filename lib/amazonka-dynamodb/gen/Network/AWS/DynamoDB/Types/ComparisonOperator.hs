@@ -13,19 +13,19 @@
 module Network.AWS.DynamoDB.Types.ComparisonOperator
   ( ComparisonOperator
       ( ComparisonOperator',
-        BeginsWith,
-        Between,
-        Contains,
         EQ,
-        GE,
-        GT,
+        NE,
         IN,
         LE,
         LT,
-        NE,
-        NotContains,
+        GE,
+        GT,
+        Between,
         NotNull,
-        Null
+        Null,
+        Contains,
+        NotContains,
+        BeginsWith
       ),
   )
 where
@@ -56,23 +56,11 @@ newtype ComparisonOperator = ComparisonOperator' Lude.Text
       Lude.ToHeader
     )
 
-pattern BeginsWith :: ComparisonOperator
-pattern BeginsWith = ComparisonOperator' "BEGINS_WITH"
-
-pattern Between :: ComparisonOperator
-pattern Between = ComparisonOperator' "BETWEEN"
-
-pattern Contains :: ComparisonOperator
-pattern Contains = ComparisonOperator' "CONTAINS"
-
 pattern EQ :: ComparisonOperator
 pattern EQ = ComparisonOperator' "EQ"
 
-pattern GE :: ComparisonOperator
-pattern GE = ComparisonOperator' "GE"
-
-pattern GT :: ComparisonOperator
-pattern GT = ComparisonOperator' "GT"
+pattern NE :: ComparisonOperator
+pattern NE = ComparisonOperator' "NE"
 
 pattern IN :: ComparisonOperator
 pattern IN = ComparisonOperator' "IN"
@@ -83,11 +71,14 @@ pattern LE = ComparisonOperator' "LE"
 pattern LT :: ComparisonOperator
 pattern LT = ComparisonOperator' "LT"
 
-pattern NE :: ComparisonOperator
-pattern NE = ComparisonOperator' "NE"
+pattern GE :: ComparisonOperator
+pattern GE = ComparisonOperator' "GE"
 
-pattern NotContains :: ComparisonOperator
-pattern NotContains = ComparisonOperator' "NOT_CONTAINS"
+pattern GT :: ComparisonOperator
+pattern GT = ComparisonOperator' "GT"
+
+pattern Between :: ComparisonOperator
+pattern Between = ComparisonOperator' "BETWEEN"
 
 pattern NotNull :: ComparisonOperator
 pattern NotNull = ComparisonOperator' "NOT_NULL"
@@ -95,19 +86,28 @@ pattern NotNull = ComparisonOperator' "NOT_NULL"
 pattern Null :: ComparisonOperator
 pattern Null = ComparisonOperator' "NULL"
 
+pattern Contains :: ComparisonOperator
+pattern Contains = ComparisonOperator' "CONTAINS"
+
+pattern NotContains :: ComparisonOperator
+pattern NotContains = ComparisonOperator' "NOT_CONTAINS"
+
+pattern BeginsWith :: ComparisonOperator
+pattern BeginsWith = ComparisonOperator' "BEGINS_WITH"
+
 {-# COMPLETE
-  BeginsWith,
-  Between,
-  Contains,
   EQ,
-  GE,
-  GT,
+  NE,
   IN,
   LE,
   LT,
-  NE,
-  NotContains,
+  GE,
+  GT,
+  Between,
   NotNull,
   Null,
+  Contains,
+  NotContains,
+  BeginsWith,
   ComparisonOperator'
   #-}

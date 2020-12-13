@@ -31,10 +31,13 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionCode' smart constructor.
 data FunctionCode = FunctionCode'
-  { s3ObjectVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | For versioned objects, the version of the deployment package object to use.
+    s3ObjectVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 key of the deployment package.
     s3Key :: Lude.Maybe Lude.Text,
+    -- | The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.
     zipFile :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
     s3Bucket :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -42,14 +45,10 @@ data FunctionCode = FunctionCode'
 
 -- | Creates a value of 'FunctionCode' with the minimum fields required to make a request.
 --
--- * 's3Bucket' - An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
--- * 's3Key' - The Amazon S3 key of the deployment package.
 -- * 's3ObjectVersion' - For versioned objects, the version of the deployment package object to use.
--- * 'zipFile' - The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 's3Key' - The Amazon S3 key of the deployment package.
+-- * 'zipFile' - The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.
+-- * 's3Bucket' - An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
 mkFunctionCode ::
   FunctionCode
 mkFunctionCode =

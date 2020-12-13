@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCertificateAuthorityCSR' smart constructor.
 newtype GetCertificateAuthorityCSR = GetCertificateAuthorityCSR'
-  { certificateAuthorityARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) that was returned when you called the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action. This must be of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+    certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificateAuthorityCSR' with the minimum fields required to make a request.
@@ -115,18 +112,12 @@ instance Lude.ToQuery GetCertificateAuthorityCSR where
 
 -- | /See:/ 'mkGetCertificateAuthorityCSRResponse' smart constructor.
 data GetCertificateAuthorityCSRResponse = GetCertificateAuthorityCSRResponse'
-  { cSR ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
+    cSR :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificateAuthorityCSRResponse' with the minimum fields required to make a request.

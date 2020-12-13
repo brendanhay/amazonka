@@ -13,9 +13,9 @@
 module Network.AWS.Lightsail.Types.ContactMethodStatus
   ( ContactMethodStatus
       ( ContactMethodStatus',
-        Invalid,
         PendingVerification,
-        Valid
+        Valid,
+        Invalid
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ContactMethodStatus = ContactMethodStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Invalid :: ContactMethodStatus
-pattern Invalid = ContactMethodStatus' "Invalid"
-
 pattern PendingVerification :: ContactMethodStatus
 pattern PendingVerification = ContactMethodStatus' "PendingVerification"
 
 pattern Valid :: ContactMethodStatus
 pattern Valid = ContactMethodStatus' "Valid"
 
+pattern Invalid :: ContactMethodStatus
+pattern Invalid = ContactMethodStatus' "Invalid"
+
 {-# COMPLETE
-  Invalid,
   PendingVerification,
   Valid,
+  Invalid,
   ContactMethodStatus'
   #-}

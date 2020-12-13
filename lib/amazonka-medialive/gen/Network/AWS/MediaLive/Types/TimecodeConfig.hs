@@ -17,8 +17,8 @@ module Network.AWS.MediaLive.Types.TimecodeConfig
     mkTimecodeConfig,
 
     -- * Lenses
-    tcSyncThreshold,
     tcSource,
+    tcSyncThreshold,
   )
 where
 
@@ -30,17 +30,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimecodeConfig' smart constructor.
 data TimecodeConfig = TimecodeConfig'
-  { syncThreshold ::
-      Lude.Maybe Lude.Natural,
-    source :: TimecodeConfigSource
+  { -- | Identifies the source for the timecode that will be associated with the events outputs.
+    --
+    -- -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
+    -- -System Clock (systemclock): Use the UTC time.
+    -- -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
+    source :: TimecodeConfigSource,
+    -- | Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
+    syncThreshold :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimecodeConfig' with the minimum fields required to make a request.
@@ -56,14 +55,7 @@ mkTimecodeConfig ::
   TimecodeConfigSource ->
   TimecodeConfig
 mkTimecodeConfig pSource_ =
-  TimecodeConfig' {syncThreshold = Lude.Nothing, source = pSource_}
-
--- | Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
---
--- /Note:/ Consider using 'syncThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcSyncThreshold :: Lens.Lens' TimecodeConfig (Lude.Maybe Lude.Natural)
-tcSyncThreshold = Lens.lens (syncThreshold :: TimecodeConfig -> Lude.Maybe Lude.Natural) (\s a -> s {syncThreshold = a} :: TimecodeConfig)
-{-# DEPRECATED tcSyncThreshold "Use generic-lens or generic-optics with 'syncThreshold' instead." #-}
+  TimecodeConfig' {source = pSource_, syncThreshold = Lude.Nothing}
 
 -- | Identifies the source for the timecode that will be associated with the events outputs.
 --
@@ -76,20 +68,27 @@ tcSource :: Lens.Lens' TimecodeConfig TimecodeConfigSource
 tcSource = Lens.lens (source :: TimecodeConfig -> TimecodeConfigSource) (\s a -> s {source = a} :: TimecodeConfig)
 {-# DEPRECATED tcSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
+-- | Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
+--
+-- /Note:/ Consider using 'syncThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcSyncThreshold :: Lens.Lens' TimecodeConfig (Lude.Maybe Lude.Natural)
+tcSyncThreshold = Lens.lens (syncThreshold :: TimecodeConfig -> Lude.Maybe Lude.Natural) (\s a -> s {syncThreshold = a} :: TimecodeConfig)
+{-# DEPRECATED tcSyncThreshold "Use generic-lens or generic-optics with 'syncThreshold' instead." #-}
+
 instance Lude.FromJSON TimecodeConfig where
   parseJSON =
     Lude.withObject
       "TimecodeConfig"
       ( \x ->
           TimecodeConfig'
-            Lude.<$> (x Lude..:? "syncThreshold") Lude.<*> (x Lude..: "source")
+            Lude.<$> (x Lude..: "source") Lude.<*> (x Lude..:? "syncThreshold")
       )
 
 instance Lude.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("syncThreshold" Lude..=) Lude.<$> syncThreshold,
-            Lude.Just ("source" Lude..= source)
+          [ Lude.Just ("source" Lude..= source),
+            ("syncThreshold" Lude..=) Lude.<$> syncThreshold
           ]
       )

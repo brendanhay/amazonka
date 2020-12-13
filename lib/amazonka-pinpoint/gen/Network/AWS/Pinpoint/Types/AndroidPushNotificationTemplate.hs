@@ -37,34 +37,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAndroidPushNotificationTemplate' smart constructor.
 data AndroidPushNotificationTemplate = AndroidPushNotificationTemplate'
-  { imageIconURL ::
-      Lude.Maybe Lude.Text,
-    rawContent ::
-      Lude.Maybe Lude.Text,
-    smallImageIconURL ::
-      Lude.Maybe Lude.Text,
-    body ::
-      Lude.Maybe Lude.Text,
+  { -- | The URL of the large icon image to display in the content view of a push notification that's based on the message template.
+    imageIconURL :: Lude.Maybe Lude.Text,
+    -- | The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.
+    rawContent :: Lude.Maybe Lude.Text,
+    -- | The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+    smallImageIconURL :: Lude.Maybe Lude.Text,
+    -- | The message body to use in a push notification that's based on the message template.
+    body :: Lude.Maybe Lude.Text,
+    -- | The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.
     url :: Lude.Maybe Lude.Text,
-    sound ::
-      Lude.Maybe Lude.Text,
+    -- | The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
+    sound :: Lude.Maybe Lude.Text,
+    -- | The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:
+    --
+    --
+    --     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+    --
+    --
+    --     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
+    --
+    --
+    --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
     action :: Lude.Maybe Action,
-    imageURL ::
-      Lude.Maybe Lude.Text,
-    title ::
-      Lude.Maybe Lude.Text
+    -- | The URL of an image to display in a push notification that's based on the message template.
+    imageURL :: Lude.Maybe Lude.Text,
+    -- | The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.
+    title :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AndroidPushNotificationTemplate' with the minimum fields required to make a request.
 --
+-- * 'imageIconURL' - The URL of the large icon image to display in the content view of a push notification that's based on the message template.
+-- * 'rawContent' - The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.
+-- * 'smallImageIconURL' - The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
+-- * 'body' - The message body to use in a push notification that's based on the message template.
+-- * 'url' - The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.
+-- * 'sound' - The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
 -- * 'action' - The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:
 --
 --
@@ -77,14 +88,8 @@ data AndroidPushNotificationTemplate = AndroidPushNotificationTemplate'
 --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
 --
 --
--- * 'body' - The message body to use in a push notification that's based on the message template.
--- * 'imageIconURL' - The URL of the large icon image to display in the content view of a push notification that's based on the message template.
 -- * 'imageURL' - The URL of an image to display in a push notification that's based on the message template.
--- * 'rawContent' - The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.
--- * 'smallImageIconURL' - The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.
--- * 'sound' - The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
 -- * 'title' - The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.
--- * 'url' - The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.
 mkAndroidPushNotificationTemplate ::
   AndroidPushNotificationTemplate
 mkAndroidPushNotificationTemplate =

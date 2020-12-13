@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchArrayProperties' smart constructor.
 newtype BatchArrayProperties = BatchArrayProperties'
-  { size ::
-      Lude.Maybe Lude.Int
+  { -- | The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+    size :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchArrayProperties' with the minimum fields required to make a request.

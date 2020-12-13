@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
     mkDisassociateTagOptionFromResource,
 
     -- ** Request lenses
-    dtofrResourceId,
     dtofrTagOptionId,
+    dtofrResourceId,
 
     -- * Destructuring the response
     DisassociateTagOptionFromResourceResponse (..),
@@ -39,42 +40,29 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDisassociateTagOptionFromResource' smart constructor.
 data DisassociateTagOptionFromResource = DisassociateTagOptionFromResource'
-  { resourceId ::
-      Lude.Text,
-    tagOptionId ::
-      Lude.Text
+  { -- | The TagOption identifier.
+    tagOptionId :: Lude.Text,
+    -- | The resource identifier.
+    resourceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTagOptionFromResource' with the minimum fields required to make a request.
 --
--- * 'resourceId' - The resource identifier.
 -- * 'tagOptionId' - The TagOption identifier.
+-- * 'resourceId' - The resource identifier.
 mkDisassociateTagOptionFromResource ::
-  -- | 'resourceId'
-  Lude.Text ->
   -- | 'tagOptionId'
   Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   DisassociateTagOptionFromResource
-mkDisassociateTagOptionFromResource pResourceId_ pTagOptionId_ =
+mkDisassociateTagOptionFromResource pTagOptionId_ pResourceId_ =
   DisassociateTagOptionFromResource'
-    { resourceId = pResourceId_,
-      tagOptionId = pTagOptionId_
+    { tagOptionId = pTagOptionId_,
+      resourceId = pResourceId_
     }
-
--- | The resource identifier.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtofrResourceId :: Lens.Lens' DisassociateTagOptionFromResource Lude.Text
-dtofrResourceId = Lens.lens (resourceId :: DisassociateTagOptionFromResource -> Lude.Text) (\s a -> s {resourceId = a} :: DisassociateTagOptionFromResource)
-{-# DEPRECATED dtofrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The TagOption identifier.
 --
@@ -82,6 +70,13 @@ dtofrResourceId = Lens.lens (resourceId :: DisassociateTagOptionFromResource -> 
 dtofrTagOptionId :: Lens.Lens' DisassociateTagOptionFromResource Lude.Text
 dtofrTagOptionId = Lens.lens (tagOptionId :: DisassociateTagOptionFromResource -> Lude.Text) (\s a -> s {tagOptionId = a} :: DisassociateTagOptionFromResource)
 {-# DEPRECATED dtofrTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
+
+-- | The resource identifier.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtofrResourceId :: Lens.Lens' DisassociateTagOptionFromResource Lude.Text
+dtofrResourceId = Lens.lens (resourceId :: DisassociateTagOptionFromResource -> Lude.Text) (\s a -> s {resourceId = a} :: DisassociateTagOptionFromResource)
+{-# DEPRECATED dtofrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 instance Lude.AWSRequest DisassociateTagOptionFromResource where
   type
@@ -112,8 +107,8 @@ instance Lude.ToJSON DisassociateTagOptionFromResource where
   toJSON DisassociateTagOptionFromResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("TagOptionId" Lude..= tagOptionId)
+          [ Lude.Just ("TagOptionId" Lude..= tagOptionId),
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
@@ -125,16 +120,10 @@ instance Lude.ToQuery DisassociateTagOptionFromResource where
 
 -- | /See:/ 'mkDisassociateTagOptionFromResourceResponse' smart constructor.
 newtype DisassociateTagOptionFromResourceResponse = DisassociateTagOptionFromResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateTagOptionFromResourceResponse' with the minimum fields required to make a request.

@@ -13,10 +13,10 @@
 module Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
   ( AuditMitigationActionsTaskStatus
       ( AuditMitigationActionsTaskStatus',
-        Canceled,
-        Completed,
-        Failed,
-        InProgress
+        AMATSInProgress,
+        AMATSCompleted,
+        AMATSFailed,
+        AMATSCanceled
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AuditMitigationActionsTaskStatus = AuditMitigationActionsTaskStatus' Lud
       Lude.ToHeader
     )
 
-pattern Canceled :: AuditMitigationActionsTaskStatus
-pattern Canceled = AuditMitigationActionsTaskStatus' "CANCELED"
+pattern AMATSInProgress :: AuditMitigationActionsTaskStatus
+pattern AMATSInProgress = AuditMitigationActionsTaskStatus' "IN_PROGRESS"
 
-pattern Completed :: AuditMitigationActionsTaskStatus
-pattern Completed = AuditMitigationActionsTaskStatus' "COMPLETED"
+pattern AMATSCompleted :: AuditMitigationActionsTaskStatus
+pattern AMATSCompleted = AuditMitigationActionsTaskStatus' "COMPLETED"
 
-pattern Failed :: AuditMitigationActionsTaskStatus
-pattern Failed = AuditMitigationActionsTaskStatus' "FAILED"
+pattern AMATSFailed :: AuditMitigationActionsTaskStatus
+pattern AMATSFailed = AuditMitigationActionsTaskStatus' "FAILED"
 
-pattern InProgress :: AuditMitigationActionsTaskStatus
-pattern InProgress = AuditMitigationActionsTaskStatus' "IN_PROGRESS"
+pattern AMATSCanceled :: AuditMitigationActionsTaskStatus
+pattern AMATSCanceled = AuditMitigationActionsTaskStatus' "CANCELED"
 
 {-# COMPLETE
-  Canceled,
-  Completed,
-  Failed,
-  InProgress,
+  AMATSInProgress,
+  AMATSCompleted,
+  AMATSFailed,
+  AMATSCanceled,
   AuditMitigationActionsTaskStatus'
   #-}

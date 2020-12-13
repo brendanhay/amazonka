@@ -15,18 +15,18 @@ module Network.AWS.MediaConvert.Types.StatusUpdateInterval
       ( StatusUpdateInterval',
         Seconds10,
         Seconds12,
-        Seconds120,
         Seconds15,
-        Seconds180,
         Seconds20,
-        Seconds240,
         Seconds30,
+        Seconds60,
+        Seconds120,
+        Seconds180,
+        Seconds240,
         Seconds300,
         Seconds360,
         Seconds420,
         Seconds480,
         Seconds540,
-        Seconds60,
         Seconds600
       ),
   )
@@ -65,23 +65,26 @@ pattern Seconds10 = StatusUpdateInterval' "SECONDS_10"
 pattern Seconds12 :: StatusUpdateInterval
 pattern Seconds12 = StatusUpdateInterval' "SECONDS_12"
 
-pattern Seconds120 :: StatusUpdateInterval
-pattern Seconds120 = StatusUpdateInterval' "SECONDS_120"
-
 pattern Seconds15 :: StatusUpdateInterval
 pattern Seconds15 = StatusUpdateInterval' "SECONDS_15"
-
-pattern Seconds180 :: StatusUpdateInterval
-pattern Seconds180 = StatusUpdateInterval' "SECONDS_180"
 
 pattern Seconds20 :: StatusUpdateInterval
 pattern Seconds20 = StatusUpdateInterval' "SECONDS_20"
 
-pattern Seconds240 :: StatusUpdateInterval
-pattern Seconds240 = StatusUpdateInterval' "SECONDS_240"
-
 pattern Seconds30 :: StatusUpdateInterval
 pattern Seconds30 = StatusUpdateInterval' "SECONDS_30"
+
+pattern Seconds60 :: StatusUpdateInterval
+pattern Seconds60 = StatusUpdateInterval' "SECONDS_60"
+
+pattern Seconds120 :: StatusUpdateInterval
+pattern Seconds120 = StatusUpdateInterval' "SECONDS_120"
+
+pattern Seconds180 :: StatusUpdateInterval
+pattern Seconds180 = StatusUpdateInterval' "SECONDS_180"
+
+pattern Seconds240 :: StatusUpdateInterval
+pattern Seconds240 = StatusUpdateInterval' "SECONDS_240"
 
 pattern Seconds300 :: StatusUpdateInterval
 pattern Seconds300 = StatusUpdateInterval' "SECONDS_300"
@@ -98,27 +101,24 @@ pattern Seconds480 = StatusUpdateInterval' "SECONDS_480"
 pattern Seconds540 :: StatusUpdateInterval
 pattern Seconds540 = StatusUpdateInterval' "SECONDS_540"
 
-pattern Seconds60 :: StatusUpdateInterval
-pattern Seconds60 = StatusUpdateInterval' "SECONDS_60"
-
 pattern Seconds600 :: StatusUpdateInterval
 pattern Seconds600 = StatusUpdateInterval' "SECONDS_600"
 
 {-# COMPLETE
   Seconds10,
   Seconds12,
-  Seconds120,
   Seconds15,
-  Seconds180,
   Seconds20,
-  Seconds240,
   Seconds30,
+  Seconds60,
+  Seconds120,
+  Seconds180,
+  Seconds240,
   Seconds300,
   Seconds360,
   Seconds420,
   Seconds480,
   Seconds540,
-  Seconds60,
   Seconds600,
   StatusUpdateInterval'
   #-}

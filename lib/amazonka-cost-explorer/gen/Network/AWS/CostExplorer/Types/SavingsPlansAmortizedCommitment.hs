@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansAmortizedCommitment' smart constructor.
 data SavingsPlansAmortizedCommitment = SavingsPlansAmortizedCommitment'
-  { amortizedUpfrontCommitment ::
-      Lude.Maybe Lude.Text,
-    totalAmortizedCommitment ::
-      Lude.Maybe Lude.Text,
-    amortizedRecurringCommitment ::
-      Lude.Maybe Lude.Text
+  { -- | The amortized amount of your Savings Plans commitment that was purchased with an @Upfront@ or @PartialUpfront@ Savings Plans.
+    amortizedUpfrontCommitment :: Lude.Maybe Lude.Text,
+    -- | The total amortized amount of your Savings Plans commitment, regardless of your Savings Plans purchase method.
+    totalAmortizedCommitment :: Lude.Maybe Lude.Text,
+    -- | The amortized amount of your Savings Plans commitment that was purchased with either a @Partial@ or a @NoUpfront@ .
+    amortizedRecurringCommitment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansAmortizedCommitment' with the minimum fields required to make a request.
 --
--- * 'amortizedRecurringCommitment' - The amortized amount of your Savings Plans commitment that was purchased with either a @Partial@ or a @NoUpfront@ .
 -- * 'amortizedUpfrontCommitment' - The amortized amount of your Savings Plans commitment that was purchased with an @Upfront@ or @PartialUpfront@ Savings Plans.
 -- * 'totalAmortizedCommitment' - The total amortized amount of your Savings Plans commitment, regardless of your Savings Plans purchase method.
+-- * 'amortizedRecurringCommitment' - The amortized amount of your Savings Plans commitment that was purchased with either a @Partial@ or a @NoUpfront@ .
 mkSavingsPlansAmortizedCommitment ::
   SavingsPlansAmortizedCommitment
 mkSavingsPlansAmortizedCommitment =

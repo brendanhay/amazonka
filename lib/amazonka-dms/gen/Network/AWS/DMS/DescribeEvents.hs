@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,24 +22,24 @@ module Network.AWS.DMS.DescribeEvents
     mkDescribeEvents,
 
     -- ** Request lenses
-    deStartTime,
-    deSourceType,
-    deFilters,
-    deSourceIdentifier,
-    deEventCategories,
-    deMarker,
-    deMaxRecords,
-    deEndTime,
-    deDuration,
+    defStartTime,
+    defSourceType,
+    defFilters,
+    defSourceIdentifier,
+    defEventCategories,
+    defMarker,
+    defMaxRecords,
+    defEndTime,
+    defDuration,
 
     -- * Destructuring the response
     DescribeEventsResponse (..),
     mkDescribeEventsResponse,
 
     -- ** Response lenses
-    deersEvents,
-    deersMarker,
-    deersResponseStatus,
+    degrsEvents,
+    degrsMarker,
+    degrsResponseStatus,
   )
 where
 
@@ -53,42 +54,49 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The start time for the events to be listed.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The type of AWS DMS resource that generates events.
+    --
+    -- Valid values: replication-instance | replication-task
     sourceType :: Lude.Maybe SourceType,
+    -- | Filters applied to events.
     filters :: Lude.Maybe [Filter],
+    -- | The identifier of an event source.
     sourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | A list of event categories for the source type that you've chosen.
     eventCategories :: Lude.Maybe [Lude.Text],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | The end time for the events to be listed.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The duration of the events to be listed.
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- * 'duration' - The duration of the events to be listed.
--- * 'endTime' - The end time for the events to be listed.
--- * 'eventCategories' - A list of event categories for the source type that you've chosen.
+-- * 'startTime' - The start time for the events to be listed.
+-- * 'sourceType' - The type of AWS DMS resource that generates events.
+--
+-- Valid values: replication-instance | replication-task
 -- * 'filters' - Filters applied to events.
+-- * 'sourceIdentifier' - The identifier of an event source.
+-- * 'eventCategories' - A list of event categories for the source type that you've chosen.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
--- * 'sourceIdentifier' - The identifier of an event source.
--- * 'sourceType' - The type of AWS DMS resource that generates events.
---
--- Valid values: replication-instance | replication-task
--- * 'startTime' - The start time for the events to be listed.
+-- * 'endTime' - The end time for the events to be listed.
+-- * 'duration' - The duration of the events to be listed.
 mkDescribeEvents ::
   DescribeEvents
 mkDescribeEvents =
@@ -107,46 +115,46 @@ mkDescribeEvents =
 -- | The start time for the events to be listed.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Timestamp)
-deStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeEvents)
-{-# DEPRECATED deStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+defStartTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Timestamp)
+defStartTime = Lens.lens (startTime :: DescribeEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeEvents)
+{-# DEPRECATED defStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The type of AWS DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
 --
 -- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSourceType :: Lens.Lens' DescribeEvents (Lude.Maybe SourceType)
-deSourceType = Lens.lens (sourceType :: DescribeEvents -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: DescribeEvents)
-{-# DEPRECATED deSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
+defSourceType :: Lens.Lens' DescribeEvents (Lude.Maybe SourceType)
+defSourceType = Lens.lens (sourceType :: DescribeEvents -> Lude.Maybe SourceType) (\s a -> s {sourceType = a} :: DescribeEvents)
+{-# DEPRECATED defSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | Filters applied to events.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deFilters :: Lens.Lens' DescribeEvents (Lude.Maybe [Filter])
-deFilters = Lens.lens (filters :: DescribeEvents -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEvents)
-{-# DEPRECATED deFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+defFilters :: Lens.Lens' DescribeEvents (Lude.Maybe [Filter])
+defFilters = Lens.lens (filters :: DescribeEvents -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEvents)
+{-# DEPRECATED defFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The identifier of an event source.
 --
 -- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSourceIdentifier :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deSourceIdentifier = Lens.lens (sourceIdentifier :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: DescribeEvents)
-{-# DEPRECATED deSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
+defSourceIdentifier :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+defSourceIdentifier = Lens.lens (sourceIdentifier :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {sourceIdentifier = a} :: DescribeEvents)
+{-# DEPRECATED defSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
 -- | A list of event categories for the source type that you've chosen.
 --
 -- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEventCategories :: Lens.Lens' DescribeEvents (Lude.Maybe [Lude.Text])
-deEventCategories = Lens.lens (eventCategories :: DescribeEvents -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: DescribeEvents)
-{-# DEPRECATED deEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
+defEventCategories :: Lens.Lens' DescribeEvents (Lude.Maybe [Lude.Text])
+defEventCategories = Lens.lens (eventCategories :: DescribeEvents -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: DescribeEvents)
+{-# DEPRECATED defEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deMarker :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
-deMarker = Lens.lens (marker :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEvents)
-{-# DEPRECATED deMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+defMarker :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Text)
+defMarker = Lens.lens (marker :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEvents)
+{-# DEPRECATED defMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -154,30 +162,30 @@ deMarker = Lens.lens (marker :: DescribeEvents -> Lude.Maybe Lude.Text) (\s a ->
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deMaxRecords :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
-deMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEvents)
-{-# DEPRECATED deMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+defMaxRecords :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
+defMaxRecords = Lens.lens (maxRecords :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEvents)
+{-# DEPRECATED defMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The end time for the events to be listed.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Timestamp)
-deEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeEvents)
-{-# DEPRECATED deEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+defEndTime :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Timestamp)
+defEndTime = Lens.lens (endTime :: DescribeEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeEvents)
+{-# DEPRECATED defEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The duration of the events to be listed.
 --
 -- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deDuration :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
-deDuration = Lens.lens (duration :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: DescribeEvents)
-{-# DEPRECATED deDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
+defDuration :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Int)
+defDuration = Lens.lens (duration :: DescribeEvents -> Lude.Maybe Lude.Int) (\s a -> s {duration = a} :: DescribeEvents)
+{-# DEPRECATED defDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 instance Page.AWSPager DescribeEvents where
   page rq rs
-    | Page.stop (rs Lens.^. deersMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. deersEvents) = Lude.Nothing
+    | Page.stop (rs Lens.^. degrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. degrsEvents) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& deMarker Lens..~ rs Lens.^. deersMarker
+      Lude.Just Lude.$ rq Lude.& defMarker Lens..~ rs Lens.^. degrsMarker
 
 instance Lude.AWSRequest DescribeEvents where
   type Rs DescribeEvents = DescribeEventsResponse
@@ -228,18 +236,14 @@ instance Lude.ToQuery DescribeEvents where
 --
 -- /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { events ::
-      Lude.Maybe [Event],
+  { -- | The events described.
+    events :: Lude.Maybe [Event],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
@@ -261,20 +265,20 @@ mkDescribeEventsResponse pResponseStatus_ =
 -- | The events described.
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deersEvents :: Lens.Lens' DescribeEventsResponse (Lude.Maybe [Event])
-deersEvents = Lens.lens (events :: DescribeEventsResponse -> Lude.Maybe [Event]) (\s a -> s {events = a} :: DescribeEventsResponse)
-{-# DEPRECATED deersEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+degrsEvents :: Lens.Lens' DescribeEventsResponse (Lude.Maybe [Event])
+degrsEvents = Lens.lens (events :: DescribeEventsResponse -> Lude.Maybe [Event]) (\s a -> s {events = a} :: DescribeEventsResponse)
+{-# DEPRECATED degrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deersMarker :: Lens.Lens' DescribeEventsResponse (Lude.Maybe Lude.Text)
-deersMarker = Lens.lens (marker :: DescribeEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventsResponse)
-{-# DEPRECATED deersMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+degrsMarker :: Lens.Lens' DescribeEventsResponse (Lude.Maybe Lude.Text)
+degrsMarker = Lens.lens (marker :: DescribeEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventsResponse)
+{-# DEPRECATED degrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deersResponseStatus :: Lens.Lens' DescribeEventsResponse Lude.Int
-deersResponseStatus = Lens.lens (responseStatus :: DescribeEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventsResponse)
-{-# DEPRECATED deersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+degrsResponseStatus :: Lens.Lens' DescribeEventsResponse Lude.Int
+degrsResponseStatus = Lens.lens (responseStatus :: DescribeEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventsResponse)
+{-# DEPRECATED degrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

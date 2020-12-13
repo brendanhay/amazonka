@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayer' smart constructor.
 data Layer = Layer'
-  { mediaType :: Lude.Maybe Lude.Text,
+  { -- | The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
+    mediaType :: Lude.Maybe Lude.Text,
+    -- | The @sha256@ digest of the image layer.
     layerDigest :: Lude.Maybe Lude.Text,
+    -- | The size, in bytes, of the image layer.
     layerSize :: Lude.Maybe Lude.Integer,
+    -- | The availability status of the image layer.
     layerAvailability :: Lude.Maybe LayerAvailability
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
--- * 'layerAvailability' - The availability status of the image layer.
+-- * 'mediaType' - The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
 -- * 'layerDigest' - The @sha256@ digest of the image layer.
 -- * 'layerSize' - The size, in bytes, of the image layer.
--- * 'mediaType' - The media type of the layer, such as @application/vnd.docker.image.rootfs.diff.tar.gzip@ or @application/vnd.oci.image.layer.v1.tar+gzip@ .
+-- * 'layerAvailability' - The availability status of the image layer.
 mkLayer ::
   Layer
 mkLayer =

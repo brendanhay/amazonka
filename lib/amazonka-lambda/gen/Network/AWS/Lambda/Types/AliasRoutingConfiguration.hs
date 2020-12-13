@@ -28,20 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAliasRoutingConfiguration' smart constructor.
 newtype AliasRoutingConfiguration = AliasRoutingConfiguration'
-  { additionalVersionWeights ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Double)
-        )
+  { -- | The second version, and the percentage of traffic that's routed to it.
+    additionalVersionWeights :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AliasRoutingConfiguration' with the minimum fields required to make a request.

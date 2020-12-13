@@ -38,32 +38,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyPair' smart constructor.
 data KeyPair = KeyPair'
-  { resourceType :: Lude.Maybe ResourceType,
+  { -- | The resource type (usually @KeyPair@ ).
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the key pair (e.g., @arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE@ ).
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the key pair was created (e.g., @1479816991.349@ ).
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The region name and Availability Zone where the key pair was created.
     location :: Lude.Maybe ResourceLocation,
+    -- | The RSA fingerprint of the key pair.
     fingerprint :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the SSH key pair.
     name :: Lude.Maybe Lude.Text,
+    -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyPair' with the minimum fields required to make a request.
 --
+-- * 'resourceType' - The resource type (usually @KeyPair@ ).
 -- * 'arn' - The Amazon Resource Name (ARN) of the key pair (e.g., @arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE@ ).
 -- * 'createdAt' - The timestamp when the key pair was created (e.g., @1479816991.349@ ).
--- * 'fingerprint' - The RSA fingerprint of the key pair.
 -- * 'location' - The region name and Availability Zone where the key pair was created.
+-- * 'fingerprint' - The RSA fingerprint of the key pair.
 -- * 'name' - The friendly name of the SSH key pair.
--- * 'resourceType' - The resource type (usually @KeyPair@ ).
 -- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
 -- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkKeyPair ::

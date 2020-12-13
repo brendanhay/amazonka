@@ -38,37 +38,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportTask' smart constructor.
 data ExportTask = ExportTask'
-  { destinationPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix that was used as the start of Amazon S3 key for every object exported.
+    destinationPrefix :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket to which the log data was exported.
     destination :: Lude.Maybe Lude.Text,
+    -- | The status of the export task.
     status :: Lude.Maybe ExportTaskStatus,
+    -- | The name of the export task.
     taskName :: Lude.Maybe Lude.Text,
+    -- | The ID of the export task.
     taskId :: Lude.Maybe Lude.Text,
+    -- | The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
     to :: Lude.Maybe Lude.Natural,
+    -- | The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
     from :: Lude.Maybe Lude.Natural,
+    -- | The name of the log group from which logs data was exported.
     logGroupName :: Lude.Maybe Lude.Text,
+    -- | Execution information about the export task.
     executionInfo :: Lude.Maybe ExportTaskExecutionInfo
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTask' with the minimum fields required to make a request.
 --
--- * 'destination' - The name of the S3 bucket to which the log data was exported.
 -- * 'destinationPrefix' - The prefix that was used as the start of Amazon S3 key for every object exported.
--- * 'executionInfo' - Execution information about the export task.
+-- * 'destination' - The name of the S3 bucket to which the log data was exported.
+-- * 'status' - The status of the export task.
+-- * 'taskName' - The name of the export task.
+-- * 'taskId' - The ID of the export task.
+-- * 'to' - The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 -- * 'from' - The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not exported.
 -- * 'logGroupName' - The name of the log group from which logs data was exported.
--- * 'status' - The status of the export task.
--- * 'taskId' - The ID of the export task.
--- * 'taskName' - The name of the export task.
--- * 'to' - The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
+-- * 'executionInfo' - Execution information about the export task.
 mkExportTask ::
   ExportTask
 mkExportTask =

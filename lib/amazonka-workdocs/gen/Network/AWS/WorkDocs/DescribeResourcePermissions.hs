@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.WorkDocs.DescribeResourcePermissions
 
     -- ** Request lenses
     drpPrincipalId,
+    drpResourceId,
     drpAuthenticationToken,
     drpMarker,
     drpLimit,
-    drpResourceId,
 
     -- * Destructuring the response
     DescribeResourcePermissionsResponse (..),
@@ -47,25 +48,27 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDescribeResourcePermissions' smart constructor.
 data DescribeResourcePermissions = DescribeResourcePermissions'
-  { principalId ::
-      Lude.Maybe Lude.Text,
-    authenticationToken ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
+  { -- | The ID of the principal to filter permissions by.
+    principalId :: Lude.Maybe Lude.Text,
+    -- | The ID of the resource.
+    resourceId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The marker for the next set of results. (You received this marker from a previous call)
     marker :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    resourceId :: Lude.Text
+    -- | The maximum number of items to return with this call.
+    limit :: Lude.Maybe Lude.Natural
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResourcePermissions' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'limit' - The maximum number of items to return with this call.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call)
 -- * 'principalId' - The ID of the principal to filter permissions by.
 -- * 'resourceId' - The ID of the resource.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'marker' - The marker for the next set of results. (You received this marker from a previous call)
+-- * 'limit' - The maximum number of items to return with this call.
 mkDescribeResourcePermissions ::
   -- | 'resourceId'
   Lude.Text ->
@@ -73,10 +76,10 @@ mkDescribeResourcePermissions ::
 mkDescribeResourcePermissions pResourceId_ =
   DescribeResourcePermissions'
     { principalId = Lude.Nothing,
+      resourceId = pResourceId_,
       authenticationToken = Lude.Nothing,
       marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      resourceId = pResourceId_
+      limit = Lude.Nothing
     }
 
 -- | The ID of the principal to filter permissions by.
@@ -85,6 +88,13 @@ mkDescribeResourcePermissions pResourceId_ =
 drpPrincipalId :: Lens.Lens' DescribeResourcePermissions (Lude.Maybe Lude.Text)
 drpPrincipalId = Lens.lens (principalId :: DescribeResourcePermissions -> Lude.Maybe Lude.Text) (\s a -> s {principalId = a} :: DescribeResourcePermissions)
 {-# DEPRECATED drpPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
+
+-- | The ID of the resource.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drpResourceId :: Lens.Lens' DescribeResourcePermissions Lude.Text
+drpResourceId = Lens.lens (resourceId :: DescribeResourcePermissions -> Lude.Text) (\s a -> s {resourceId = a} :: DescribeResourcePermissions)
+{-# DEPRECATED drpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -106,13 +116,6 @@ drpMarker = Lens.lens (marker :: DescribeResourcePermissions -> Lude.Maybe Lude.
 drpLimit :: Lens.Lens' DescribeResourcePermissions (Lude.Maybe Lude.Natural)
 drpLimit = Lens.lens (limit :: DescribeResourcePermissions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeResourcePermissions)
 {-# DEPRECATED drpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The ID of the resource.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpResourceId :: Lens.Lens' DescribeResourcePermissions Lude.Text
-drpResourceId = Lens.lens (resourceId :: DescribeResourcePermissions -> Lude.Text) (\s a -> s {resourceId = a} :: DescribeResourcePermissions)
-{-# DEPRECATED drpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 instance Page.AWSPager DescribeResourcePermissions where
   page rq rs
@@ -158,28 +161,20 @@ instance Lude.ToQuery DescribeResourcePermissions where
 
 -- | /See:/ 'mkDescribeResourcePermissionsResponse' smart constructor.
 data DescribeResourcePermissionsResponse = DescribeResourcePermissionsResponse'
-  { principals ::
-      Lude.Maybe
-        [Principal],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The principals.
+    principals :: Lude.Maybe [Principal],
+    -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeResourcePermissionsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 -- * 'principals' - The principals.
+-- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 -- * 'responseStatus' - The response status code.
 mkDescribeResourcePermissionsResponse ::
   -- | 'responseStatus'

@@ -32,18 +32,14 @@ import Network.AWS.S3.Types.ObjectLockRetentionMode
 --
 -- /See:/ 'mkDefaultRetention' smart constructor.
 data DefaultRetention = DefaultRetention'
-  { days ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of days that you want to specify for the default retention period.
+    days :: Lude.Maybe Lude.Int,
+    -- | The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.
     mode :: Lude.Maybe ObjectLockRetentionMode,
+    -- | The number of years that you want to specify for the default retention period.
     years :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultRetention' with the minimum fields required to make a request.

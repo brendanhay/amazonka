@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Greengrass.ListSubscriptionDefinitionVersions
     mkListSubscriptionDefinitionVersions,
 
     -- ** Request lenses
+    lsdvSubscriptionDefinitionId,
     lsdvNextToken,
     lsdvMaxResults,
-    lsdvSubscriptionDefinitionId,
 
     -- * Destructuring the response
     ListSubscriptionDefinitionVersionsResponse (..),
@@ -45,37 +46,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSubscriptionDefinitionVersions' smart constructor.
 data ListSubscriptionDefinitionVersions = ListSubscriptionDefinitionVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Text,
-    subscriptionDefinitionId ::
-      Lude.Text
+  { -- | The ID of the subscription definition.
+    subscriptionDefinitionId :: Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionDefinitionVersions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to be returned per request.
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'subscriptionDefinitionId' - The ID of the subscription definition.
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListSubscriptionDefinitionVersions ::
   -- | 'subscriptionDefinitionId'
   Lude.Text ->
   ListSubscriptionDefinitionVersions
 mkListSubscriptionDefinitionVersions pSubscriptionDefinitionId_ =
   ListSubscriptionDefinitionVersions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      subscriptionDefinitionId = pSubscriptionDefinitionId_
+    { subscriptionDefinitionId =
+        pSubscriptionDefinitionId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the subscription definition.
+--
+-- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsdvSubscriptionDefinitionId :: Lens.Lens' ListSubscriptionDefinitionVersions Lude.Text
+lsdvSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: ListSubscriptionDefinitionVersions -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: ListSubscriptionDefinitionVersions)
+{-# DEPRECATED lsdvSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -90,13 +93,6 @@ lsdvNextToken = Lens.lens (nextToken :: ListSubscriptionDefinitionVersions -> Lu
 lsdvMaxResults :: Lens.Lens' ListSubscriptionDefinitionVersions (Lude.Maybe Lude.Text)
 lsdvMaxResults = Lens.lens (maxResults :: ListSubscriptionDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListSubscriptionDefinitionVersions)
 {-# DEPRECATED lsdvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the subscription definition.
---
--- /Note:/ Consider using 'subscriptionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsdvSubscriptionDefinitionId :: Lens.Lens' ListSubscriptionDefinitionVersions Lude.Text
-lsdvSubscriptionDefinitionId = Lens.lens (subscriptionDefinitionId :: ListSubscriptionDefinitionVersions -> Lude.Text) (\s a -> s {subscriptionDefinitionId = a} :: ListSubscriptionDefinitionVersions)
-{-# DEPRECATED lsdvSubscriptionDefinitionId "Use generic-lens or generic-optics with 'subscriptionDefinitionId' instead." #-}
 
 instance Page.AWSPager ListSubscriptionDefinitionVersions where
   page rq rs
@@ -145,29 +141,21 @@ instance Lude.ToQuery ListSubscriptionDefinitionVersions where
 
 -- | /See:/ 'mkListSubscriptionDefinitionVersionsResponse' smart constructor.
 data ListSubscriptionDefinitionVersionsResponse = ListSubscriptionDefinitionVersionsResponse'
-  { versions ::
-      Lude.Maybe
-        [VersionInformation],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about a version.
+    versions :: Lude.Maybe [VersionInformation],
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
+-- * 'versions' - Information about a version.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'versions' - Information about a version.
 mkListSubscriptionDefinitionVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

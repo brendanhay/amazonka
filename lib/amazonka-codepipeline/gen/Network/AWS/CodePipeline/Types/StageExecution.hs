@@ -17,8 +17,8 @@ module Network.AWS.CodePipeline.Types.StageExecution
     mkStageExecution,
 
     -- * Lenses
-    sePipelineExecutionId,
     seStatus,
+    sePipelineExecutionId,
   )
 where
 
@@ -30,41 +30,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStageExecution' smart constructor.
 data StageExecution = StageExecution'
-  { pipelineExecutionId ::
-      Lude.Text,
-    status :: StageExecutionStatus
+  { -- | The status of the stage, or for a completed stage, the last status of the stage.
+    status :: StageExecutionStatus,
+    -- | The ID of the pipeline execution associated with the stage.
+    pipelineExecutionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StageExecution' with the minimum fields required to make a request.
 --
--- * 'pipelineExecutionId' - The ID of the pipeline execution associated with the stage.
 -- * 'status' - The status of the stage, or for a completed stage, the last status of the stage.
+-- * 'pipelineExecutionId' - The ID of the pipeline execution associated with the stage.
 mkStageExecution ::
-  -- | 'pipelineExecutionId'
-  Lude.Text ->
   -- | 'status'
   StageExecutionStatus ->
+  -- | 'pipelineExecutionId'
+  Lude.Text ->
   StageExecution
-mkStageExecution pPipelineExecutionId_ pStatus_ =
+mkStageExecution pStatus_ pPipelineExecutionId_ =
   StageExecution'
-    { pipelineExecutionId = pPipelineExecutionId_,
-      status = pStatus_
+    { status = pStatus_,
+      pipelineExecutionId = pPipelineExecutionId_
     }
-
--- | The ID of the pipeline execution associated with the stage.
---
--- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sePipelineExecutionId :: Lens.Lens' StageExecution Lude.Text
-sePipelineExecutionId = Lens.lens (pipelineExecutionId :: StageExecution -> Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StageExecution)
-{-# DEPRECATED sePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
 -- | The status of the stage, or for a completed stage, the last status of the stage.
 --
@@ -73,11 +61,18 @@ seStatus :: Lens.Lens' StageExecution StageExecutionStatus
 seStatus = Lens.lens (status :: StageExecution -> StageExecutionStatus) (\s a -> s {status = a} :: StageExecution)
 {-# DEPRECATED seStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | The ID of the pipeline execution associated with the stage.
+--
+-- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sePipelineExecutionId :: Lens.Lens' StageExecution Lude.Text
+sePipelineExecutionId = Lens.lens (pipelineExecutionId :: StageExecution -> Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StageExecution)
+{-# DEPRECATED sePipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
+
 instance Lude.FromJSON StageExecution where
   parseJSON =
     Lude.withObject
       "StageExecution"
       ( \x ->
           StageExecution'
-            Lude.<$> (x Lude..: "pipelineExecutionId") Lude.<*> (x Lude..: "status")
+            Lude.<$> (x Lude..: "status") Lude.<*> (x Lude..: "pipelineExecutionId")
       )

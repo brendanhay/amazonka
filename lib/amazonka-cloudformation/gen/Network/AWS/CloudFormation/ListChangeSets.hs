@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListChangeSets' smart constructor.
 data ListChangeSets = ListChangeSets'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string (provided by the 'ListChangeSets' response output) that identifies the next page of change sets that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name or the Amazon Resource Name (ARN) of the stack for which you want to list change sets.
     stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChangeSets' with the minimum fields required to make a request.
@@ -130,25 +126,21 @@ instance Lude.ToQuery ListChangeSets where
 --
 -- /See:/ 'mkListChangeSetsResponse' smart constructor.
 data ListChangeSetsResponse = ListChangeSetsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
     summaries :: Lude.Maybe [ChangeSetSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListChangeSetsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the output exceeds 1 MB, a string that identifies the next page of change sets. If there is no additional page, this value is null.
--- * 'responseStatus' - The response status code.
 -- * 'summaries' - A list of @ChangeSetSummary@ structures that provides the ID and status of each change set for the specified stack.
+-- * 'responseStatus' - The response status code.
 mkListChangeSetsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

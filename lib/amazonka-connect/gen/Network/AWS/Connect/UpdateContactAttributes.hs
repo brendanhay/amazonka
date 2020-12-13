@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.Connect.UpdateContactAttributes
     mkUpdateContactAttributes,
 
     -- ** Request lenses
-    ucaInitialContactId,
     ucaInstanceId,
     ucaAttributes,
+    ucaInitialContactId,
 
     -- * Destructuring the response
     UpdateContactAttributesResponse (..),
@@ -44,47 +45,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateContactAttributes' smart constructor.
 data UpdateContactAttributes = UpdateContactAttributes'
-  { initialContactId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
     instanceId :: Lude.Text,
-    attributes ::
-      Lude.HashMap Lude.Text (Lude.Text)
+    -- | The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes.
+    --
+    -- You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
+    attributes :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
+    initialContactId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactAttributes' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The identifier of the Amazon Connect instance.
 -- * 'attributes' - The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes.
 --
 -- You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.
 -- * 'initialContactId' - The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
 mkUpdateContactAttributes ::
-  -- | 'initialContactId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'initialContactId'
+  Lude.Text ->
   UpdateContactAttributes
-mkUpdateContactAttributes pInitialContactId_ pInstanceId_ =
+mkUpdateContactAttributes pInstanceId_ pInitialContactId_ =
   UpdateContactAttributes'
-    { initialContactId = pInitialContactId_,
-      instanceId = pInstanceId_,
-      attributes = Lude.mempty
+    { instanceId = pInstanceId_,
+      attributes = Lude.mempty,
+      initialContactId = pInitialContactId_
     }
-
--- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
---
--- /Note:/ Consider using 'initialContactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucaInitialContactId :: Lens.Lens' UpdateContactAttributes Lude.Text
-ucaInitialContactId = Lens.lens (initialContactId :: UpdateContactAttributes -> Lude.Text) (\s a -> s {initialContactId = a} :: UpdateContactAttributes)
-{-# DEPRECATED ucaInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -101,6 +92,13 @@ ucaInstanceId = Lens.lens (instanceId :: UpdateContactAttributes -> Lude.Text) (
 ucaAttributes :: Lens.Lens' UpdateContactAttributes (Lude.HashMap Lude.Text (Lude.Text))
 ucaAttributes = Lens.lens (attributes :: UpdateContactAttributes -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {attributes = a} :: UpdateContactAttributes)
 {-# DEPRECATED ucaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.
+--
+-- /Note:/ Consider using 'initialContactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaInitialContactId :: Lens.Lens' UpdateContactAttributes Lude.Text
+ucaInitialContactId = Lens.lens (initialContactId :: UpdateContactAttributes -> Lude.Text) (\s a -> s {initialContactId = a} :: UpdateContactAttributes)
+{-# DEPRECATED ucaInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
 
 instance Lude.AWSRequest UpdateContactAttributes where
   type Rs UpdateContactAttributes = UpdateContactAttributesResponse
@@ -125,9 +123,9 @@ instance Lude.ToJSON UpdateContactAttributes where
   toJSON UpdateContactAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("InitialContactId" Lude..= initialContactId),
-            Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("Attributes" Lude..= attributes)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("Attributes" Lude..= attributes),
+            Lude.Just ("InitialContactId" Lude..= initialContactId)
           ]
       )
 
@@ -139,16 +137,10 @@ instance Lude.ToQuery UpdateContactAttributes where
 
 -- | /See:/ 'mkUpdateContactAttributesResponse' smart constructor.
 newtype UpdateContactAttributesResponse = UpdateContactAttributesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateContactAttributesResponse' with the minimum fields required to make a request.

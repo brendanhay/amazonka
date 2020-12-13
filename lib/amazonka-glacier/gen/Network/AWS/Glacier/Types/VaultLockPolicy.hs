@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVaultLockPolicy' smart constructor.
 newtype VaultLockPolicy = VaultLockPolicy'
-  { policy ::
-      Lude.Maybe Lude.Text
+  { -- | The vault lock policy.
+    policy :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VaultLockPolicy' with the minimum fields required to make a request.

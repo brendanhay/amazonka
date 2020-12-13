@@ -28,16 +28,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRotationRulesType' smart constructor.
 newtype RotationRulesType = RotationRulesType'
-  { automaticallyAfterDays ::
-      Lude.Maybe Lude.Natural
+  { -- | Specifies the number of days between automatic scheduled rotations of the secret.
+    --
+    -- Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.
+    automaticallyAfterDays :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RotationRulesType' with the minimum fields required to make a request.

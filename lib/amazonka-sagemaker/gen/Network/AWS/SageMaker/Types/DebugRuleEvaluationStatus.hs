@@ -33,32 +33,27 @@ import Network.AWS.SageMaker.Types.RuleEvaluationStatus
 --
 -- /See:/ 'mkDebugRuleEvaluationStatus' smart constructor.
 data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
-  { lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Timestamp when the rule evaluation status was last modified.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Details from the rule evaluation.
     statusDetails :: Lude.Maybe Lude.Text,
-    ruleEvaluationStatus ::
-      Lude.Maybe RuleEvaluationStatus,
-    ruleEvaluationJobARN ::
-      Lude.Maybe Lude.Text,
-    ruleConfigurationName ::
-      Lude.Maybe Lude.Text
+    -- | Status of the rule evaluation.
+    ruleEvaluationStatus :: Lude.Maybe RuleEvaluationStatus,
+    -- | The Amazon Resource Name (ARN) of the rule evaluation job.
+    ruleEvaluationJobARN :: Lude.Maybe Lude.Text,
+    -- | The name of the rule configuration
+    ruleConfigurationName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DebugRuleEvaluationStatus' with the minimum fields required to make a request.
 --
 -- * 'lastModifiedTime' - Timestamp when the rule evaluation status was last modified.
--- * 'ruleConfigurationName' - The name of the rule configuration
--- * 'ruleEvaluationJobARN' - The Amazon Resource Name (ARN) of the rule evaluation job.
--- * 'ruleEvaluationStatus' - Status of the rule evaluation.
 -- * 'statusDetails' - Details from the rule evaluation.
+-- * 'ruleEvaluationStatus' - Status of the rule evaluation.
+-- * 'ruleEvaluationJobARN' - The Amazon Resource Name (ARN) of the rule evaluation job.
+-- * 'ruleConfigurationName' - The name of the rule configuration
 mkDebugRuleEvaluationStatus ::
   DebugRuleEvaluationStatus
 mkDebugRuleEvaluationStatus =

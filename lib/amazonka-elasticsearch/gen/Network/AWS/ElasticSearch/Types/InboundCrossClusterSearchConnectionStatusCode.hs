@@ -13,12 +13,12 @@
 module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
   ( InboundCrossClusterSearchConnectionStatusCode
       ( InboundCrossClusterSearchConnectionStatusCode',
-        Approved,
-        Deleted,
-        Deleting,
         PendingAcceptance,
+        Approved,
+        Rejecting,
         Rejected,
-        Rejecting
+        Deleting,
+        Deleted
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype InboundCrossClusterSearchConnectionStatusCode = InboundCrossClusterSearc
       Lude.ToHeader
     )
 
-pattern Approved :: InboundCrossClusterSearchConnectionStatusCode
-pattern Approved = InboundCrossClusterSearchConnectionStatusCode' "APPROVED"
-
-pattern Deleted :: InboundCrossClusterSearchConnectionStatusCode
-pattern Deleted = InboundCrossClusterSearchConnectionStatusCode' "DELETED"
-
-pattern Deleting :: InboundCrossClusterSearchConnectionStatusCode
-pattern Deleting = InboundCrossClusterSearchConnectionStatusCode' "DELETING"
-
 pattern PendingAcceptance :: InboundCrossClusterSearchConnectionStatusCode
 pattern PendingAcceptance = InboundCrossClusterSearchConnectionStatusCode' "PENDING_ACCEPTANCE"
 
-pattern Rejected :: InboundCrossClusterSearchConnectionStatusCode
-pattern Rejected = InboundCrossClusterSearchConnectionStatusCode' "REJECTED"
+pattern Approved :: InboundCrossClusterSearchConnectionStatusCode
+pattern Approved = InboundCrossClusterSearchConnectionStatusCode' "APPROVED"
 
 pattern Rejecting :: InboundCrossClusterSearchConnectionStatusCode
 pattern Rejecting = InboundCrossClusterSearchConnectionStatusCode' "REJECTING"
 
+pattern Rejected :: InboundCrossClusterSearchConnectionStatusCode
+pattern Rejected = InboundCrossClusterSearchConnectionStatusCode' "REJECTED"
+
+pattern Deleting :: InboundCrossClusterSearchConnectionStatusCode
+pattern Deleting = InboundCrossClusterSearchConnectionStatusCode' "DELETING"
+
+pattern Deleted :: InboundCrossClusterSearchConnectionStatusCode
+pattern Deleted = InboundCrossClusterSearchConnectionStatusCode' "DELETED"
+
 {-# COMPLETE
-  Approved,
-  Deleted,
-  Deleting,
   PendingAcceptance,
-  Rejected,
+  Approved,
   Rejecting,
+  Rejected,
+  Deleting,
+  Deleted,
   InboundCrossClusterSearchConnectionStatusCode'
   #-}

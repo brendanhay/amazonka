@@ -13,8 +13,8 @@
 module Network.AWS.GuardDuty.Types.Feedback
   ( Feedback
       ( Feedback',
-        NotUseful,
-        Useful
+        Useful,
+        NotUseful
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Feedback = Feedback' Lude.Text
       Lude.ToHeader
     )
 
-pattern NotUseful :: Feedback
-pattern NotUseful = Feedback' "NOT_USEFUL"
-
 pattern Useful :: Feedback
 pattern Useful = Feedback' "USEFUL"
 
+pattern NotUseful :: Feedback
+pattern NotUseful = Feedback' "NOT_USEFUL"
+
 {-# COMPLETE
-  NotUseful,
   Useful,
+  NotUseful,
   Feedback'
   #-}

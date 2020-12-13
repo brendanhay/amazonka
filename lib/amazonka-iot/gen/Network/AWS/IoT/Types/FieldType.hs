@@ -13,9 +13,9 @@
 module Network.AWS.IoT.Types.FieldType
   ( FieldType
       ( FieldType',
-        Boolean,
         Number,
-        String
+        String,
+        Boolean
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FieldType = FieldType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Boolean :: FieldType
-pattern Boolean = FieldType' "Boolean"
-
 pattern Number :: FieldType
 pattern Number = FieldType' "Number"
 
 pattern String :: FieldType
 pattern String = FieldType' "String"
 
+pattern Boolean :: FieldType
+pattern Boolean = FieldType' "Boolean"
+
 {-# COMPLETE
-  Boolean,
   Number,
   String,
+  Boolean,
   FieldType'
   #-}

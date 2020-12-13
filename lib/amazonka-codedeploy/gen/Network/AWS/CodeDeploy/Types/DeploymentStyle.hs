@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentStyle' smart constructor.
 data DeploymentStyle = DeploymentStyle'
-  { deploymentOption ::
-      Lude.Maybe DeploymentOption,
+  { -- | Indicates whether to route deployment traffic behind a load balancer.
+    deploymentOption :: Lude.Maybe DeploymentOption,
+    -- | Indicates whether to run an in-place deployment or a blue/green deployment.
     deploymentType :: Lude.Maybe DeploymentType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentStyle' with the minimum fields required to make a request.

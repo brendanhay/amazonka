@@ -32,23 +32,20 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkIPRange' smart constructor.
 data IPRange = IPRange'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The status of the IP range, for example, "authorized".
+    status :: Lude.Maybe Lude.Text,
+    -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
     cIdRIP :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the IP range.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRange' with the minimum fields required to make a request.
 --
--- * 'cIdRIP' - The IP range in Classless Inter-Domain Routing (CIDR) notation.
 -- * 'status' - The status of the IP range, for example, "authorized".
+-- * 'cIdRIP' - The IP range in Classless Inter-Domain Routing (CIDR) notation.
 -- * 'tags' - The list of tags for the IP range.
 mkIPRange ::
   IPRange

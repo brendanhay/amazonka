@@ -13,11 +13,11 @@
 module Network.AWS.Firehose.Types.ProcessorParameterName
   ( ProcessorParameterName
       ( ProcessorParameterName',
-        BufferIntervalInSeconds,
-        BufferSizeInMBs,
         LambdaARN,
         NumberOfRetries,
-        RoleARN
+        RoleARN,
+        BufferSizeInMBs,
+        BufferIntervalInSeconds
       ),
   )
 where
@@ -48,12 +48,6 @@ newtype ProcessorParameterName = ProcessorParameterName' Lude.Text
       Lude.ToHeader
     )
 
-pattern BufferIntervalInSeconds :: ProcessorParameterName
-pattern BufferIntervalInSeconds = ProcessorParameterName' "BufferIntervalInSeconds"
-
-pattern BufferSizeInMBs :: ProcessorParameterName
-pattern BufferSizeInMBs = ProcessorParameterName' "BufferSizeInMBs"
-
 pattern LambdaARN :: ProcessorParameterName
 pattern LambdaARN = ProcessorParameterName' "LambdaArn"
 
@@ -63,11 +57,17 @@ pattern NumberOfRetries = ProcessorParameterName' "NumberOfRetries"
 pattern RoleARN :: ProcessorParameterName
 pattern RoleARN = ProcessorParameterName' "RoleArn"
 
+pattern BufferSizeInMBs :: ProcessorParameterName
+pattern BufferSizeInMBs = ProcessorParameterName' "BufferSizeInMBs"
+
+pattern BufferIntervalInSeconds :: ProcessorParameterName
+pattern BufferIntervalInSeconds = ProcessorParameterName' "BufferIntervalInSeconds"
+
 {-# COMPLETE
-  BufferIntervalInSeconds,
-  BufferSizeInMBs,
   LambdaARN,
   NumberOfRetries,
   RoleARN,
+  BufferSizeInMBs,
+  BufferIntervalInSeconds,
   ProcessorParameterName'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -72,17 +73,17 @@ module Network.AWS.S3.PutObjectACL
     -- ** Request lenses
     poaVersionId,
     poaGrantReadACP,
+    poaBucket,
     poaRequestPayer,
     poaGrantWriteACP,
     poaGrantRead,
+    poaKey,
     poaGrantFullControl,
     poaContentMD5,
     poaAccessControlPolicy,
     poaGrantWrite,
     poaACL,
     poaExpectedBucketOwner,
-    poaBucket,
-    poaKey,
 
     -- * Destructuring the response
     PutObjectACLResponse (..),
@@ -102,60 +103,80 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutObjectACL' smart constructor.
 data PutObjectACL = PutObjectACL'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
+  { -- | VersionId used to reference a specific version of the object.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | Allows grantee to read the bucket ACL.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantReadACP :: Lude.Maybe Lude.Text,
-    requestPayer :: Lude.Maybe RequestPayer,
-    grantWriteACP :: Lude.Maybe Lude.Text,
-    grantRead :: Lude.Maybe Lude.Text,
-    grantFullControl :: Lude.Maybe Lude.Text,
-    contentMD5 :: Lude.Maybe Lude.Text,
-    accessControlPolicy :: Lude.Maybe AccessControlPolicy,
-    grantWrite :: Lude.Maybe Lude.Text,
-    acl :: Lude.Maybe ObjectCannedACL,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    -- | The bucket name that contains the object to which you want to attach the ACL.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
-    key :: ObjectKey
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | Allows grantee to write the ACL for the applicable bucket.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantWriteACP :: Lude.Maybe Lude.Text,
+    -- | Allows grantee to list the objects in the bucket.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantRead :: Lude.Maybe Lude.Text,
+    -- | Key for which the PUT operation was initiated.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    key :: ObjectKey,
+    -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantFullControl :: Lude.Maybe Lude.Text,
+    -- | The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>>
+    --
+    -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | Contains the elements that set the ACL permissions for an object per grantee.
+    accessControlPolicy :: Lude.Maybe AccessControlPolicy,
+    -- | Allows grantee to create, overwrite, and delete any object in the bucket.
+    grantWrite :: Lude.Maybe Lude.Text,
+    -- | The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
+    acl :: Lude.Maybe ObjectCannedACL,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutObjectACL' with the minimum fields required to make a request.
 --
--- * 'accessControlPolicy' - Contains the elements that set the ACL permissions for an object per grantee.
--- * 'acl' - The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
--- * 'bucket' - The bucket name that contains the object to which you want to attach the ACL.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>>
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'grantRead' - Allows grantee to list the objects in the bucket.
---
--- This action is not supported by Amazon S3 on Outposts.
+-- * 'versionId' - VersionId used to reference a specific version of the object.
 -- * 'grantReadACP' - Allows grantee to read the bucket ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
--- * 'grantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
+-- * 'bucket' - The bucket name that contains the object to which you want to attach the ACL.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'requestPayer' -
 -- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'grantRead' - Allows grantee to list the objects in the bucket.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 -- * 'key' - Key for which the PUT operation was initiated.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'requestPayer' - Undocumented field.
--- * 'versionId' - VersionId used to reference a specific version of the object.
+-- * 'grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>>
+--
+-- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
+-- * 'accessControlPolicy' - Contains the elements that set the ACL permissions for an object per grantee.
+-- * 'grantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
+-- * 'acl' - The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkPutObjectACL ::
   -- | 'bucket'
   BucketName ->
@@ -166,17 +187,17 @@ mkPutObjectACL pBucket_ pKey_ =
   PutObjectACL'
     { versionId = Lude.Nothing,
       grantReadACP = Lude.Nothing,
+      bucket = pBucket_,
       requestPayer = Lude.Nothing,
       grantWriteACP = Lude.Nothing,
       grantRead = Lude.Nothing,
+      key = pKey_,
       grantFullControl = Lude.Nothing,
       contentMD5 = Lude.Nothing,
       accessControlPolicy = Lude.Nothing,
       grantWrite = Lude.Nothing,
       acl = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
-      key = pKey_
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | VersionId used to reference a specific version of the object.
@@ -194,6 +215,15 @@ poaVersionId = Lens.lens (versionId :: PutObjectACL -> Lude.Maybe ObjectVersionI
 poaGrantReadACP :: Lens.Lens' PutObjectACL (Lude.Maybe Lude.Text)
 poaGrantReadACP = Lens.lens (grantReadACP :: PutObjectACL -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: PutObjectACL)
 {-# DEPRECATED poaGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
+
+-- | The bucket name that contains the object to which you want to attach the ACL.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poaBucket :: Lens.Lens' PutObjectACL BucketName
+poaBucket = Lens.lens (bucket :: PutObjectACL -> BucketName) (\s a -> s {bucket = a} :: PutObjectACL)
+{-# DEPRECATED poaBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Undocumented field.
 --
@@ -219,6 +249,16 @@ poaGrantWriteACP = Lens.lens (grantWriteACP :: PutObjectACL -> Lude.Maybe Lude.T
 poaGrantRead :: Lens.Lens' PutObjectACL (Lude.Maybe Lude.Text)
 poaGrantRead = Lens.lens (grantRead :: PutObjectACL -> Lude.Maybe Lude.Text) (\s a -> s {grantRead = a} :: PutObjectACL)
 {-# DEPRECATED poaGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
+
+-- | Key for which the PUT operation was initiated.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poaKey :: Lens.Lens' PutObjectACL ObjectKey
+poaKey = Lens.lens (key :: PutObjectACL -> ObjectKey) (\s a -> s {key = a} :: PutObjectACL)
+{-# DEPRECATED poaKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
 --
@@ -266,25 +306,6 @@ poaExpectedBucketOwner :: Lens.Lens' PutObjectACL (Lude.Maybe Lude.Text)
 poaExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutObjectACL -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutObjectACL)
 {-# DEPRECATED poaExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
--- | The bucket name that contains the object to which you want to attach the ACL.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poaBucket :: Lens.Lens' PutObjectACL BucketName
-poaBucket = Lens.lens (bucket :: PutObjectACL -> BucketName) (\s a -> s {bucket = a} :: PutObjectACL)
-{-# DEPRECATED poaBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Key for which the PUT operation was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poaKey :: Lens.Lens' PutObjectACL ObjectKey
-poaKey = Lens.lens (key :: PutObjectACL -> ObjectKey) (\s a -> s {key = a} :: PutObjectACL)
-{-# DEPRECATED poaKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
 instance Lude.AWSRequest PutObjectACL where
   type Rs PutObjectACL = PutObjectACLResponse
   request = Req.putXML s3Service
@@ -326,22 +347,16 @@ instance Lude.ToQuery PutObjectACL where
 
 -- | /See:/ 'mkPutObjectACLResponse' smart constructor.
 data PutObjectACLResponse = PutObjectACLResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutObjectACLResponse' with the minimum fields required to make a request.
 --
--- * 'requestCharged' - Undocumented field.
+-- * 'requestCharged' -
 -- * 'responseStatus' - The response status code.
 mkPutObjectACLResponse ::
   -- | 'responseStatus'

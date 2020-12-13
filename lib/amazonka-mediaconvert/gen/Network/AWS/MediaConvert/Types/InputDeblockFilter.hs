@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.InputDeblockFilter
   ( InputDeblockFilter
       ( InputDeblockFilter',
-        IDFDisabled,
-        IDFEnabled
+        IDFEnabled,
+        IDFDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype InputDeblockFilter = InputDeblockFilter' Lude.Text
       Lude.ToHeader
     )
 
-pattern IDFDisabled :: InputDeblockFilter
-pattern IDFDisabled = InputDeblockFilter' "DISABLED"
-
 pattern IDFEnabled :: InputDeblockFilter
 pattern IDFEnabled = InputDeblockFilter' "ENABLED"
 
+pattern IDFDisabled :: InputDeblockFilter
+pattern IDFDisabled = InputDeblockFilter' "DISABLED"
+
 {-# COMPLETE
-  IDFDisabled,
   IDFEnabled,
+  IDFDisabled,
   InputDeblockFilter'
   #-}

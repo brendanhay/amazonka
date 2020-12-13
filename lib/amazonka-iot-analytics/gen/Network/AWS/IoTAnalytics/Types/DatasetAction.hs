@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatasetAction' smart constructor.
 data DatasetAction = DatasetAction'
-  { queryAction ::
-      Lude.Maybe SqlQueryDatasetAction,
+  { -- | An @SqlQueryDatasetAction@ object that uses an SQL query to automatically create data set contents.
+    queryAction :: Lude.Maybe SqlQueryDatasetAction,
+    -- | The name of the data set action by which data set contents are automatically created.
     actionName :: Lude.Maybe Lude.Text,
+    -- | Information that allows the system to run a containerized application to create the dataset contents. The application must be in a Docker container along with any required support libraries.
     containerAction :: Lude.Maybe ContainerDatasetAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetAction' with the minimum fields required to make a request.
 --
+-- * 'queryAction' - An @SqlQueryDatasetAction@ object that uses an SQL query to automatically create data set contents.
 -- * 'actionName' - The name of the data set action by which data set contents are automatically created.
 -- * 'containerAction' - Information that allows the system to run a containerized application to create the dataset contents. The application must be in a Docker container along with any required support libraries.
--- * 'queryAction' - An @SqlQueryDatasetAction@ object that uses an SQL query to automatically create data set contents.
 mkDatasetAction ::
   DatasetAction
 mkDatasetAction =

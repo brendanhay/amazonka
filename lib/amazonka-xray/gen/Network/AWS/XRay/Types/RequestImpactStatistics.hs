@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRequestImpactStatistics' smart constructor.
 data RequestImpactStatistics = RequestImpactStatistics'
-  { okCount ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of successful requests.
+    okCount :: Lude.Maybe Lude.Integer,
+    -- | The number of requests that have resulted in a fault,
     faultCount :: Lude.Maybe Lude.Integer,
+    -- | The total number of requests to the service.
     totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestImpactStatistics' with the minimum fields required to make a request.
 --
--- * 'faultCount' - The number of requests that have resulted in a fault,
 -- * 'okCount' - The number of successful requests.
+-- * 'faultCount' - The number of requests that have resulted in a fault,
 -- * 'totalCount' - The total number of requests to the service.
 mkRequestImpactStatistics ::
   RequestImpactStatistics

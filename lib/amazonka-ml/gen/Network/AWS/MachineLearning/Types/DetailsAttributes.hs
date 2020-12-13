@@ -13,8 +13,8 @@
 module Network.AWS.MachineLearning.Types.DetailsAttributes
   ( DetailsAttributes
       ( DetailsAttributes',
-        Algorithm,
-        PredictiveModelType
+        PredictiveModelType,
+        Algorithm
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype DetailsAttributes = DetailsAttributes' Lude.Text
       Lude.ToHeader
     )
 
-pattern Algorithm :: DetailsAttributes
-pattern Algorithm = DetailsAttributes' "Algorithm"
-
 pattern PredictiveModelType :: DetailsAttributes
 pattern PredictiveModelType = DetailsAttributes' "PredictiveModelType"
 
+pattern Algorithm :: DetailsAttributes
+pattern Algorithm = DetailsAttributes' "Algorithm"
+
 {-# COMPLETE
-  Algorithm,
   PredictiveModelType,
+  Algorithm,
   DetailsAttributes'
   #-}

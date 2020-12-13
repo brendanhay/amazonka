@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264FramerateControl
   ( H264FramerateControl
       ( H264FramerateControl',
-        H26InitializeFromSource,
-        H26Specified
+        HFCfInitializeFromSource,
+        HFCfSpecified
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264FramerateControl = H264FramerateControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern H26InitializeFromSource :: H264FramerateControl
-pattern H26InitializeFromSource = H264FramerateControl' "INITIALIZE_FROM_SOURCE"
+pattern HFCfInitializeFromSource :: H264FramerateControl
+pattern HFCfInitializeFromSource = H264FramerateControl' "INITIALIZE_FROM_SOURCE"
 
-pattern H26Specified :: H264FramerateControl
-pattern H26Specified = H264FramerateControl' "SPECIFIED"
+pattern HFCfSpecified :: H264FramerateControl
+pattern HFCfSpecified = H264FramerateControl' "SPECIFIED"
 
 {-# COMPLETE
-  H26InitializeFromSource,
-  H26Specified,
+  HFCfInitializeFromSource,
+  HFCfSpecified,
   H264FramerateControl'
   #-}

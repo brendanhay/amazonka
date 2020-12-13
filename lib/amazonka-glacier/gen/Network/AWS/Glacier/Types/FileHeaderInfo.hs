@@ -13,9 +13,9 @@
 module Network.AWS.Glacier.Types.FileHeaderInfo
   ( FileHeaderInfo
       ( FileHeaderInfo',
+        Use,
         Ignore,
-        None,
-        Use
+        None
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FileHeaderInfo = FileHeaderInfo' Lude.Text
       Lude.ToHeader
     )
 
+pattern Use :: FileHeaderInfo
+pattern Use = FileHeaderInfo' "USE"
+
 pattern Ignore :: FileHeaderInfo
 pattern Ignore = FileHeaderInfo' "IGNORE"
 
 pattern None :: FileHeaderInfo
 pattern None = FileHeaderInfo' "NONE"
 
-pattern Use :: FileHeaderInfo
-pattern Use = FileHeaderInfo' "USE"
-
 {-# COMPLETE
+  Use,
   Ignore,
   None,
-  Use,
   FileHeaderInfo'
   #-}

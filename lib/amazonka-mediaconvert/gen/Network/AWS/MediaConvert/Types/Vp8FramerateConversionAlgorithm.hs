@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.Vp8FramerateConversionAlgorithm
   ( Vp8FramerateConversionAlgorithm
       ( Vp8FramerateConversionAlgorithm',
         VDuplicateDrop,
-        VFrameformer,
-        VInterpolate
+        VInterpolate,
+        VFrameformer
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype Vp8FramerateConversionAlgorithm = Vp8FramerateConversionAlgorithm' Lude.
 pattern VDuplicateDrop :: Vp8FramerateConversionAlgorithm
 pattern VDuplicateDrop = Vp8FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern VFrameformer :: Vp8FramerateConversionAlgorithm
-pattern VFrameformer = Vp8FramerateConversionAlgorithm' "FRAMEFORMER"
-
 pattern VInterpolate :: Vp8FramerateConversionAlgorithm
 pattern VInterpolate = Vp8FramerateConversionAlgorithm' "INTERPOLATE"
 
+pattern VFrameformer :: Vp8FramerateConversionAlgorithm
+pattern VFrameformer = Vp8FramerateConversionAlgorithm' "FRAMEFORMER"
+
 {-# COMPLETE
   VDuplicateDrop,
-  VFrameformer,
   VInterpolate,
+  VFrameformer,
   Vp8FramerateConversionAlgorithm'
   #-}

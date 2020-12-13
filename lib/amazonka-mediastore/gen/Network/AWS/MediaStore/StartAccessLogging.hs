@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.MediaStore.StartAccessLogging
     mkStartAccessLoggingResponse,
 
     -- ** Response lenses
-    srsResponseStatus,
+    salrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartAccessLogging' smart constructor.
 newtype StartAccessLogging = StartAccessLogging'
-  { containerName ::
-      Lude.Text
+  { -- | The name of the container that you want to start access logging on.
+    containerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAccessLogging' with the minimum fields required to make a request.
@@ -102,16 +97,10 @@ instance Lude.ToQuery StartAccessLogging where
 
 -- | /See:/ 'mkStartAccessLoggingResponse' smart constructor.
 newtype StartAccessLoggingResponse = StartAccessLoggingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAccessLoggingResponse' with the minimum fields required to make a request.
@@ -127,6 +116,6 @@ mkStartAccessLoggingResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartAccessLoggingResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartAccessLoggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAccessLoggingResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+salrsResponseStatus :: Lens.Lens' StartAccessLoggingResponse Lude.Int
+salrsResponseStatus = Lens.lens (responseStatus :: StartAccessLoggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartAccessLoggingResponse)
+{-# DEPRECATED salrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

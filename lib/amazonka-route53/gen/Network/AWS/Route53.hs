@@ -255,21 +255,21 @@ module Network.AWS.Route53
     -- ** AccountLimit
     AccountLimit (..),
     mkAccountLimit,
-    alType,
     alValue,
+    alType,
 
     -- ** AlarmIdentifier
     AlarmIdentifier (..),
     mkAlarmIdentifier,
-    aiRegion,
     aiName,
+    aiRegion,
 
     -- ** AliasTarget
     AliasTarget (..),
     mkAliasTarget,
     atHostedZoneId,
-    atDNSName,
     atEvaluateTargetHealth,
+    atDNSName,
 
     -- ** Change
     Change (..),
@@ -280,27 +280,27 @@ module Network.AWS.Route53
     -- ** ChangeBatch
     ChangeBatch (..),
     mkChangeBatch,
-    cbComment,
     cbChanges,
+    cbComment,
 
     -- ** ChangeInfo
     ChangeInfo (..),
     mkChangeInfo,
-    ciComment,
-    ciId,
     ciStatus,
     ciSubmittedAt,
+    ciId,
+    ciComment,
 
     -- ** CloudWatchAlarmConfiguration
     CloudWatchAlarmConfiguration (..),
     mkCloudWatchAlarmConfiguration,
-    cwacDimensions,
-    cwacEvaluationPeriods,
-    cwacThreshold,
-    cwacComparisonOperator,
     cwacPeriod,
+    cwacEvaluationPeriods,
     cwacMetricName,
     cwacNamespace,
+    cwacComparisonOperator,
+    cwacThreshold,
+    cwacDimensions,
     cwacStatistic,
 
     -- ** DelegationSet
@@ -313,8 +313,8 @@ module Network.AWS.Route53
     -- ** Dimension
     Dimension (..),
     mkDimension,
-    dName,
     dValue,
+    dName,
 
     -- ** GeoLocation
     GeoLocation (..),
@@ -337,11 +337,11 @@ module Network.AWS.Route53
     HealthCheck (..),
     mkHealthCheck,
     hcLinkedService,
+    hcHealthCheckConfig,
     hcCloudWatchAlarmConfiguration,
     hcId,
-    hcCallerReference,
-    hcHealthCheckConfig,
     hcHealthCheckVersion,
+    hcCallerReference,
 
     -- ** HealthCheckConfig
     HealthCheckConfig (..),
@@ -355,6 +355,7 @@ module Network.AWS.Route53
     hccRegions,
     hccResourcePath,
     hccInsufficientDataHealthStatus,
+    hccType,
     hccAlarmIdentifier,
     hccMeasureLatency,
     hccInverted,
@@ -362,7 +363,6 @@ module Network.AWS.Route53
     hccChildHealthChecks,
     hccRequestInterval,
     hccPort,
-    hccType,
 
     -- ** HealthCheckObservation
     HealthCheckObservation (..),
@@ -376,9 +376,9 @@ module Network.AWS.Route53
     mkHostedZone,
     hzLinkedService,
     hzConfig,
-    hzResourceRecordSetCount,
-    hzId,
     hzName,
+    hzId,
+    hzResourceRecordSetCount,
     hzCallerReference,
 
     -- ** HostedZoneConfig
@@ -390,8 +390,8 @@ module Network.AWS.Route53
     -- ** HostedZoneLimit
     HostedZoneLimit (..),
     mkHostedZoneLimit,
-    hzlType,
     hzlValue,
+    hzlType,
 
     -- ** HostedZoneOwner
     HostedZoneOwner (..),
@@ -403,8 +403,8 @@ module Network.AWS.Route53
     HostedZoneSummary (..),
     mkHostedZoneSummary,
     hzsHostedZoneId,
-    hzsName,
     hzsOwner,
+    hzsName,
 
     -- ** LinkedService
     LinkedService (..),
@@ -415,9 +415,9 @@ module Network.AWS.Route53
     -- ** QueryLoggingConfig
     QueryLoggingConfig (..),
     mkQueryLoggingConfig,
-    qlcId,
     qlcHostedZoneId,
     qlcCloudWatchLogsLogGroupARN,
+    qlcId,
 
     -- ** ResourceRecord
     ResourceRecord (..),
@@ -434,12 +434,12 @@ module Network.AWS.Route53
     rrsTrafficPolicyInstanceId,
     rrsSetIdentifier,
     rrsFailover,
+    rrsName,
     rrsHealthCheckId,
     rrsRegion,
+    rrsType,
     rrsGeoLocation,
     rrsMultiValueAnswer,
-    rrsName,
-    rrsType,
 
     -- ** ResourceTagSet
     ResourceTagSet (..),
@@ -451,8 +451,8 @@ module Network.AWS.Route53
     -- ** ReusableDelegationSetLimit
     ReusableDelegationSetLimit (..),
     mkReusableDelegationSetLimit,
-    rdslType,
     rdslValue,
+    rdslType,
 
     -- ** StatusReport
     StatusReport (..),
@@ -469,34 +469,34 @@ module Network.AWS.Route53
     -- ** TrafficPolicy
     TrafficPolicy (..),
     mkTrafficPolicy,
-    tpComment,
-    tpId,
-    tpVersion,
-    tpName,
-    tpType,
     tpDocument,
+    tpName,
+    tpVersion,
+    tpId,
+    tpType,
+    tpComment,
 
     -- ** TrafficPolicyInstance
     TrafficPolicyInstance (..),
     mkTrafficPolicyInstance,
-    tpiId,
-    tpiHostedZoneId,
-    tpiName,
     tpiTTL,
     tpiState,
-    tpiMessage,
-    tpiTrafficPolicyId,
     tpiTrafficPolicyVersion,
+    tpiHostedZoneId,
+    tpiName,
+    tpiId,
     tpiTrafficPolicyType,
+    tpiTrafficPolicyId,
+    tpiMessage,
 
     -- ** TrafficPolicySummary
     TrafficPolicySummary (..),
     mkTrafficPolicySummary,
-    tpsId,
+    tpsTrafficPolicyCount,
     tpsName,
+    tpsId,
     tpsType,
     tpsLatestVersion,
-    tpsTrafficPolicyCount,
 
     -- ** VPC
     VPC (..),

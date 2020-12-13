@@ -17,23 +17,23 @@ module Network.AWS.EC2.Types.Subnet
     mkSubnet,
 
     -- * Lenses
-    subIPv6CidrBlockAssociationSet,
-    subAvailabilityZoneId,
-    subOutpostARN,
-    subAssignIPv6AddressOnCreation,
-    subSubnetARN,
-    subOwnerId,
-    subCustomerOwnedIPv4Pool,
-    subMapCustomerOwnedIPOnLaunch,
-    subMapPublicIPOnLaunch,
-    subDefaultForAz,
-    subTags,
-    subAvailabilityZone,
-    subAvailableIPAddressCount,
-    subCidrBlock,
-    subState,
-    subSubnetId,
-    subVPCId,
+    sState,
+    sIPv6CidrBlockAssociationSet,
+    sAvailabilityZoneId,
+    sAvailableIPAddressCount,
+    sVPCId,
+    sOutpostARN,
+    sAssignIPv6AddressOnCreation,
+    sSubnetId,
+    sSubnetARN,
+    sOwnerId,
+    sCustomerOwnedIPv4Pool,
+    sAvailabilityZone,
+    sMapCustomerOwnedIPOnLaunch,
+    sCidrBlock,
+    sMapPublicIPOnLaunch,
+    sDefaultForAz,
+    sTags,
   )
 where
 
@@ -47,234 +47,244 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { ipv6CidrBlockAssociationSet ::
-      Lude.Maybe [SubnetIPv6CidrBlockAssociation],
-    availabilityZoneId :: Lude.Maybe Lude.Text,
-    outpostARN :: Lude.Maybe Lude.Text,
-    assignIPv6AddressOnCreation :: Lude.Maybe Lude.Bool,
-    subnetARN :: Lude.Maybe Lude.Text,
-    ownerId :: Lude.Maybe Lude.Text,
-    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
-    mapCustomerOwnedIPOnLaunch :: Lude.Maybe Lude.Bool,
-    mapPublicIPOnLaunch :: Lude.Maybe Lude.Bool,
-    defaultForAz :: Lude.Maybe Lude.Bool,
-    tags :: Lude.Maybe [Tag],
-    availabilityZone :: Lude.Text,
-    availableIPAddressCount :: Lude.Int,
-    cidrBlock :: Lude.Text,
+  { -- | The current state of the subnet.
     state :: SubnetState,
+    -- | Information about the IPv6 CIDR blocks associated with the subnet.
+    ipv6CidrBlockAssociationSet :: Lude.Maybe [SubnetIPv6CidrBlockAssociation],
+    -- | The AZ ID of the subnet.
+    availabilityZoneId :: Lude.Maybe Lude.Text,
+    -- | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable.
+    availableIPAddressCount :: Lude.Int,
+    -- | The ID of the VPC the subnet is in.
+    vpcId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Outpost.
+    outpostARN :: Lude.Maybe Lude.Text,
+    -- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
+    assignIPv6AddressOnCreation :: Lude.Maybe Lude.Bool,
+    -- | The ID of the subnet.
     subnetId :: Lude.Text,
-    vpcId :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the subnet.
+    subnetARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the subnet.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The customer-owned IPv4 address pool associated with the subnet.
+    customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of the subnet.
+    availabilityZone :: Lude.Text,
+    -- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives a customer-owned IPv4 address.
+    mapCustomerOwnedIPOnLaunch :: Lude.Maybe Lude.Bool,
+    -- | The IPv4 CIDR block assigned to the subnet.
+    cidrBlock :: Lude.Text,
+    -- | Indicates whether instances launched in this subnet receive a public IPv4 address.
+    mapPublicIPOnLaunch :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether this is the default subnet for the Availability Zone.
+    defaultForAz :: Lude.Maybe Lude.Bool,
+    -- | Any tags assigned to the subnet.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
--- * 'assignIPv6AddressOnCreation' - Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
--- * 'availabilityZone' - The Availability Zone of the subnet.
+-- * 'state' - The current state of the subnet.
+-- * 'ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the subnet.
 -- * 'availabilityZoneId' - The AZ ID of the subnet.
 -- * 'availableIPAddressCount' - The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable.
--- * 'cidrBlock' - The IPv4 CIDR block assigned to the subnet.
--- * 'customerOwnedIPv4Pool' - The customer-owned IPv4 address pool associated with the subnet.
--- * 'defaultForAz' - Indicates whether this is the default subnet for the Availability Zone.
--- * 'ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the subnet.
--- * 'mapCustomerOwnedIPOnLaunch' - Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives a customer-owned IPv4 address.
--- * 'mapPublicIPOnLaunch' - Indicates whether instances launched in this subnet receive a public IPv4 address.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'ownerId' - The ID of the AWS account that owns the subnet.
--- * 'state' - The current state of the subnet.
--- * 'subnetARN' - The Amazon Resource Name (ARN) of the subnet.
--- * 'subnetId' - The ID of the subnet.
--- * 'tags' - Any tags assigned to the subnet.
 -- * 'vpcId' - The ID of the VPC the subnet is in.
+-- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
+-- * 'assignIPv6AddressOnCreation' - Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
+-- * 'subnetId' - The ID of the subnet.
+-- * 'subnetARN' - The Amazon Resource Name (ARN) of the subnet.
+-- * 'ownerId' - The ID of the AWS account that owns the subnet.
+-- * 'customerOwnedIPv4Pool' - The customer-owned IPv4 address pool associated with the subnet.
+-- * 'availabilityZone' - The Availability Zone of the subnet.
+-- * 'mapCustomerOwnedIPOnLaunch' - Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives a customer-owned IPv4 address.
+-- * 'cidrBlock' - The IPv4 CIDR block assigned to the subnet.
+-- * 'mapPublicIPOnLaunch' - Indicates whether instances launched in this subnet receive a public IPv4 address.
+-- * 'defaultForAz' - Indicates whether this is the default subnet for the Availability Zone.
+-- * 'tags' - Any tags assigned to the subnet.
 mkSubnet ::
-  -- | 'availabilityZone'
-  Lude.Text ->
-  -- | 'availableIPAddressCount'
-  Lude.Int ->
-  -- | 'cidrBlock'
-  Lude.Text ->
   -- | 'state'
   SubnetState ->
+  -- | 'availableIPAddressCount'
+  Lude.Int ->
+  -- | 'vpcId'
+  Lude.Text ->
   -- | 'subnetId'
   Lude.Text ->
-  -- | 'vpcId'
+  -- | 'availabilityZone'
+  Lude.Text ->
+  -- | 'cidrBlock'
   Lude.Text ->
   Subnet
 mkSubnet
-  pAvailabilityZone_
-  pAvailableIPAddressCount_
-  pCidrBlock_
   pState_
+  pAvailableIPAddressCount_
+  pVPCId_
   pSubnetId_
-  pVPCId_ =
+  pAvailabilityZone_
+  pCidrBlock_ =
     Subnet'
-      { ipv6CidrBlockAssociationSet = Lude.Nothing,
+      { state = pState_,
+        ipv6CidrBlockAssociationSet = Lude.Nothing,
         availabilityZoneId = Lude.Nothing,
+        availableIPAddressCount = pAvailableIPAddressCount_,
+        vpcId = pVPCId_,
         outpostARN = Lude.Nothing,
         assignIPv6AddressOnCreation = Lude.Nothing,
+        subnetId = pSubnetId_,
         subnetARN = Lude.Nothing,
         ownerId = Lude.Nothing,
         customerOwnedIPv4Pool = Lude.Nothing,
+        availabilityZone = pAvailabilityZone_,
         mapCustomerOwnedIPOnLaunch = Lude.Nothing,
+        cidrBlock = pCidrBlock_,
         mapPublicIPOnLaunch = Lude.Nothing,
         defaultForAz = Lude.Nothing,
-        tags = Lude.Nothing,
-        availabilityZone = pAvailabilityZone_,
-        availableIPAddressCount = pAvailableIPAddressCount_,
-        cidrBlock = pCidrBlock_,
-        state = pState_,
-        subnetId = pSubnetId_,
-        vpcId = pVPCId_
+        tags = Lude.Nothing
       }
-
--- | Information about the IPv6 CIDR blocks associated with the subnet.
---
--- /Note:/ Consider using 'ipv6CidrBlockAssociationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subIPv6CidrBlockAssociationSet :: Lens.Lens' Subnet (Lude.Maybe [SubnetIPv6CidrBlockAssociation])
-subIPv6CidrBlockAssociationSet = Lens.lens (ipv6CidrBlockAssociationSet :: Subnet -> Lude.Maybe [SubnetIPv6CidrBlockAssociation]) (\s a -> s {ipv6CidrBlockAssociationSet = a} :: Subnet)
-{-# DEPRECATED subIPv6CidrBlockAssociationSet "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociationSet' instead." #-}
-
--- | The AZ ID of the subnet.
---
--- /Note:/ Consider using 'availabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subAvailabilityZoneId :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-subAvailabilityZoneId = Lens.lens (availabilityZoneId :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneId = a} :: Subnet)
-{-# DEPRECATED subAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Outpost.
---
--- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subOutpostARN :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-subOutpostARN = Lens.lens (outpostARN :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: Subnet)
-{-# DEPRECATED subOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
-
--- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
---
--- /Note:/ Consider using 'assignIPv6AddressOnCreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subAssignIPv6AddressOnCreation :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
-subAssignIPv6AddressOnCreation = Lens.lens (assignIPv6AddressOnCreation :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {assignIPv6AddressOnCreation = a} :: Subnet)
-{-# DEPRECATED subAssignIPv6AddressOnCreation "Use generic-lens or generic-optics with 'assignIPv6AddressOnCreation' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the subnet.
---
--- /Note:/ Consider using 'subnetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subSubnetARN :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-subSubnetARN = Lens.lens (subnetARN :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {subnetARN = a} :: Subnet)
-{-# DEPRECATED subSubnetARN "Use generic-lens or generic-optics with 'subnetARN' instead." #-}
-
--- | The ID of the AWS account that owns the subnet.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subOwnerId :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-subOwnerId = Lens.lens (ownerId :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: Subnet)
-{-# DEPRECATED subOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | The customer-owned IPv4 address pool associated with the subnet.
---
--- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subCustomerOwnedIPv4Pool :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
-subCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: Subnet)
-{-# DEPRECATED subCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
-
--- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives a customer-owned IPv4 address.
---
--- /Note:/ Consider using 'mapCustomerOwnedIPOnLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subMapCustomerOwnedIPOnLaunch :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
-subMapCustomerOwnedIPOnLaunch = Lens.lens (mapCustomerOwnedIPOnLaunch :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {mapCustomerOwnedIPOnLaunch = a} :: Subnet)
-{-# DEPRECATED subMapCustomerOwnedIPOnLaunch "Use generic-lens or generic-optics with 'mapCustomerOwnedIPOnLaunch' instead." #-}
-
--- | Indicates whether instances launched in this subnet receive a public IPv4 address.
---
--- /Note:/ Consider using 'mapPublicIPOnLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subMapPublicIPOnLaunch :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
-subMapPublicIPOnLaunch = Lens.lens (mapPublicIPOnLaunch :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {mapPublicIPOnLaunch = a} :: Subnet)
-{-# DEPRECATED subMapPublicIPOnLaunch "Use generic-lens or generic-optics with 'mapPublicIPOnLaunch' instead." #-}
-
--- | Indicates whether this is the default subnet for the Availability Zone.
---
--- /Note:/ Consider using 'defaultForAz' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subDefaultForAz :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
-subDefaultForAz = Lens.lens (defaultForAz :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {defaultForAz = a} :: Subnet)
-{-# DEPRECATED subDefaultForAz "Use generic-lens or generic-optics with 'defaultForAz' instead." #-}
-
--- | Any tags assigned to the subnet.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subTags :: Lens.Lens' Subnet (Lude.Maybe [Tag])
-subTags = Lens.lens (tags :: Subnet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Subnet)
-{-# DEPRECATED subTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The Availability Zone of the subnet.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subAvailabilityZone :: Lens.Lens' Subnet Lude.Text
-subAvailabilityZone = Lens.lens (availabilityZone :: Subnet -> Lude.Text) (\s a -> s {availabilityZone = a} :: Subnet)
-{-# DEPRECATED subAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable.
---
--- /Note:/ Consider using 'availableIPAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subAvailableIPAddressCount :: Lens.Lens' Subnet Lude.Int
-subAvailableIPAddressCount = Lens.lens (availableIPAddressCount :: Subnet -> Lude.Int) (\s a -> s {availableIPAddressCount = a} :: Subnet)
-{-# DEPRECATED subAvailableIPAddressCount "Use generic-lens or generic-optics with 'availableIPAddressCount' instead." #-}
-
--- | The IPv4 CIDR block assigned to the subnet.
---
--- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subCidrBlock :: Lens.Lens' Subnet Lude.Text
-subCidrBlock = Lens.lens (cidrBlock :: Subnet -> Lude.Text) (\s a -> s {cidrBlock = a} :: Subnet)
-{-# DEPRECATED subCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
 -- | The current state of the subnet.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subState :: Lens.Lens' Subnet SubnetState
-subState = Lens.lens (state :: Subnet -> SubnetState) (\s a -> s {state = a} :: Subnet)
-{-# DEPRECATED subState "Use generic-lens or generic-optics with 'state' instead." #-}
+sState :: Lens.Lens' Subnet SubnetState
+sState = Lens.lens (state :: Subnet -> SubnetState) (\s a -> s {state = a} :: Subnet)
+{-# DEPRECATED sState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | The ID of the subnet.
+-- | Information about the IPv6 CIDR blocks associated with the subnet.
 --
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subSubnetId :: Lens.Lens' Subnet Lude.Text
-subSubnetId = Lens.lens (subnetId :: Subnet -> Lude.Text) (\s a -> s {subnetId = a} :: Subnet)
-{-# DEPRECATED subSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+-- /Note:/ Consider using 'ipv6CidrBlockAssociationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sIPv6CidrBlockAssociationSet :: Lens.Lens' Subnet (Lude.Maybe [SubnetIPv6CidrBlockAssociation])
+sIPv6CidrBlockAssociationSet = Lens.lens (ipv6CidrBlockAssociationSet :: Subnet -> Lude.Maybe [SubnetIPv6CidrBlockAssociation]) (\s a -> s {ipv6CidrBlockAssociationSet = a} :: Subnet)
+{-# DEPRECATED sIPv6CidrBlockAssociationSet "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociationSet' instead." #-}
+
+-- | The AZ ID of the subnet.
+--
+-- /Note:/ Consider using 'availabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAvailabilityZoneId :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
+sAvailabilityZoneId = Lens.lens (availabilityZoneId :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneId = a} :: Subnet)
+{-# DEPRECATED sAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
+
+-- | The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable.
+--
+-- /Note:/ Consider using 'availableIPAddressCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAvailableIPAddressCount :: Lens.Lens' Subnet Lude.Int
+sAvailableIPAddressCount = Lens.lens (availableIPAddressCount :: Subnet -> Lude.Int) (\s a -> s {availableIPAddressCount = a} :: Subnet)
+{-# DEPRECATED sAvailableIPAddressCount "Use generic-lens or generic-optics with 'availableIPAddressCount' instead." #-}
 
 -- | The ID of the VPC the subnet is in.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-subVPCId :: Lens.Lens' Subnet Lude.Text
-subVPCId = Lens.lens (vpcId :: Subnet -> Lude.Text) (\s a -> s {vpcId = a} :: Subnet)
-{-# DEPRECATED subVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+sVPCId :: Lens.Lens' Subnet Lude.Text
+sVPCId = Lens.lens (vpcId :: Subnet -> Lude.Text) (\s a -> s {vpcId = a} :: Subnet)
+{-# DEPRECATED sVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Outpost.
+--
+-- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOutpostARN :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
+sOutpostARN = Lens.lens (outpostARN :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: Subnet)
+{-# DEPRECATED sOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
+
+-- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives an IPv6 address.
+--
+-- /Note:/ Consider using 'assignIPv6AddressOnCreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAssignIPv6AddressOnCreation :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
+sAssignIPv6AddressOnCreation = Lens.lens (assignIPv6AddressOnCreation :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {assignIPv6AddressOnCreation = a} :: Subnet)
+{-# DEPRECATED sAssignIPv6AddressOnCreation "Use generic-lens or generic-optics with 'assignIPv6AddressOnCreation' instead." #-}
+
+-- | The ID of the subnet.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetId :: Lens.Lens' Subnet Lude.Text
+sSubnetId = Lens.lens (subnetId :: Subnet -> Lude.Text) (\s a -> s {subnetId = a} :: Subnet)
+{-# DEPRECATED sSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the subnet.
+--
+-- /Note:/ Consider using 'subnetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSubnetARN :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
+sSubnetARN = Lens.lens (subnetARN :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {subnetARN = a} :: Subnet)
+{-# DEPRECATED sSubnetARN "Use generic-lens or generic-optics with 'subnetARN' instead." #-}
+
+-- | The ID of the AWS account that owns the subnet.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOwnerId :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
+sOwnerId = Lens.lens (ownerId :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: Subnet)
+{-# DEPRECATED sOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The customer-owned IPv4 address pool associated with the subnet.
+--
+-- /Note:/ Consider using 'customerOwnedIPv4Pool' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCustomerOwnedIPv4Pool :: Lens.Lens' Subnet (Lude.Maybe Lude.Text)
+sCustomerOwnedIPv4Pool = Lens.lens (customerOwnedIPv4Pool :: Subnet -> Lude.Maybe Lude.Text) (\s a -> s {customerOwnedIPv4Pool = a} :: Subnet)
+{-# DEPRECATED sCustomerOwnedIPv4Pool "Use generic-lens or generic-optics with 'customerOwnedIPv4Pool' instead." #-}
+
+-- | The Availability Zone of the subnet.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAvailabilityZone :: Lens.Lens' Subnet Lude.Text
+sAvailabilityZone = Lens.lens (availabilityZone :: Subnet -> Lude.Text) (\s a -> s {availabilityZone = a} :: Subnet)
+{-# DEPRECATED sAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | Indicates whether a network interface created in this subnet (including a network interface created by 'RunInstances' ) receives a customer-owned IPv4 address.
+--
+-- /Note:/ Consider using 'mapCustomerOwnedIPOnLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMapCustomerOwnedIPOnLaunch :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
+sMapCustomerOwnedIPOnLaunch = Lens.lens (mapCustomerOwnedIPOnLaunch :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {mapCustomerOwnedIPOnLaunch = a} :: Subnet)
+{-# DEPRECATED sMapCustomerOwnedIPOnLaunch "Use generic-lens or generic-optics with 'mapCustomerOwnedIPOnLaunch' instead." #-}
+
+-- | The IPv4 CIDR block assigned to the subnet.
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCidrBlock :: Lens.Lens' Subnet Lude.Text
+sCidrBlock = Lens.lens (cidrBlock :: Subnet -> Lude.Text) (\s a -> s {cidrBlock = a} :: Subnet)
+{-# DEPRECATED sCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
+
+-- | Indicates whether instances launched in this subnet receive a public IPv4 address.
+--
+-- /Note:/ Consider using 'mapPublicIPOnLaunch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMapPublicIPOnLaunch :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
+sMapPublicIPOnLaunch = Lens.lens (mapPublicIPOnLaunch :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {mapPublicIPOnLaunch = a} :: Subnet)
+{-# DEPRECATED sMapPublicIPOnLaunch "Use generic-lens or generic-optics with 'mapPublicIPOnLaunch' instead." #-}
+
+-- | Indicates whether this is the default subnet for the Availability Zone.
+--
+-- /Note:/ Consider using 'defaultForAz' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDefaultForAz :: Lens.Lens' Subnet (Lude.Maybe Lude.Bool)
+sDefaultForAz = Lens.lens (defaultForAz :: Subnet -> Lude.Maybe Lude.Bool) (\s a -> s {defaultForAz = a} :: Subnet)
+{-# DEPRECATED sDefaultForAz "Use generic-lens or generic-optics with 'defaultForAz' instead." #-}
+
+-- | Any tags assigned to the subnet.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTags :: Lens.Lens' Subnet (Lude.Maybe [Tag])
+sTags = Lens.lens (tags :: Subnet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Subnet)
+{-# DEPRECATED sTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.FromXML Subnet where
   parseXML x =
     Subnet'
-      Lude.<$> ( x Lude..@? "ipv6CidrBlockAssociationSet" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "state")
+      Lude.<*> ( x Lude..@? "ipv6CidrBlockAssociationSet" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
       Lude.<*> (x Lude..@? "availabilityZoneId")
+      Lude.<*> (x Lude..@ "availableIpAddressCount")
+      Lude.<*> (x Lude..@ "vpcId")
       Lude.<*> (x Lude..@? "outpostArn")
       Lude.<*> (x Lude..@? "assignIpv6AddressOnCreation")
+      Lude.<*> (x Lude..@ "subnetId")
       Lude.<*> (x Lude..@? "subnetArn")
       Lude.<*> (x Lude..@? "ownerId")
       Lude.<*> (x Lude..@? "customerOwnedIpv4Pool")
+      Lude.<*> (x Lude..@ "availabilityZone")
       Lude.<*> (x Lude..@? "mapCustomerOwnedIpOnLaunch")
+      Lude.<*> (x Lude..@ "cidrBlock")
       Lude.<*> (x Lude..@? "mapPublicIpOnLaunch")
       Lude.<*> (x Lude..@? "defaultForAz")
       Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
-      Lude.<*> (x Lude..@ "availabilityZone")
-      Lude.<*> (x Lude..@ "availableIpAddressCount")
-      Lude.<*> (x Lude..@ "cidrBlock")
-      Lude.<*> (x Lude..@ "state")
-      Lude.<*> (x Lude..@ "subnetId")
-      Lude.<*> (x Lude..@ "vpcId")

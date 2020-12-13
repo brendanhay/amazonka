@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.MachineLearning.UpdateDataSource
     mkUpdateDataSource,
 
     -- ** Request lenses
-    udsDataSourceId,
     udsDataSourceName,
+    udsDataSourceId,
 
     -- * Destructuring the response
     UpdateDataSourceResponse (..),
@@ -42,41 +43,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-  { dataSourceId ::
-      Lude.Text,
-    dataSourceName :: Lude.Text
+  { -- | A new user-supplied name or description of the @DataSource@ that will replace the current description.
+    dataSourceName :: Lude.Text,
+    -- | The ID assigned to the @DataSource@ during creation.
+    dataSourceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDataSource' with the minimum fields required to make a request.
 --
--- * 'dataSourceId' - The ID assigned to the @DataSource@ during creation.
 -- * 'dataSourceName' - A new user-supplied name or description of the @DataSource@ that will replace the current description.
+-- * 'dataSourceId' - The ID assigned to the @DataSource@ during creation.
 mkUpdateDataSource ::
-  -- | 'dataSourceId'
-  Lude.Text ->
   -- | 'dataSourceName'
   Lude.Text ->
+  -- | 'dataSourceId'
+  Lude.Text ->
   UpdateDataSource
-mkUpdateDataSource pDataSourceId_ pDataSourceName_ =
+mkUpdateDataSource pDataSourceName_ pDataSourceId_ =
   UpdateDataSource'
-    { dataSourceId = pDataSourceId_,
-      dataSourceName = pDataSourceName_
+    { dataSourceName = pDataSourceName_,
+      dataSourceId = pDataSourceId_
     }
-
--- | The ID assigned to the @DataSource@ during creation.
---
--- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsDataSourceId :: Lens.Lens' UpdateDataSource Lude.Text
-udsDataSourceId = Lens.lens (dataSourceId :: UpdateDataSource -> Lude.Text) (\s a -> s {dataSourceId = a} :: UpdateDataSource)
-{-# DEPRECATED udsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 -- | A new user-supplied name or description of the @DataSource@ that will replace the current description.
 --
@@ -84,6 +73,13 @@ udsDataSourceId = Lens.lens (dataSourceId :: UpdateDataSource -> Lude.Text) (\s 
 udsDataSourceName :: Lens.Lens' UpdateDataSource Lude.Text
 udsDataSourceName = Lens.lens (dataSourceName :: UpdateDataSource -> Lude.Text) (\s a -> s {dataSourceName = a} :: UpdateDataSource)
 {-# DEPRECATED udsDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
+
+-- | The ID assigned to the @DataSource@ during creation.
+--
+-- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsDataSourceId :: Lens.Lens' UpdateDataSource Lude.Text
+udsDataSourceId = Lens.lens (dataSourceId :: UpdateDataSource -> Lude.Text) (\s a -> s {dataSourceId = a} :: UpdateDataSource)
+{-# DEPRECATED udsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 instance Lude.AWSRequest UpdateDataSource where
   type Rs UpdateDataSource = UpdateDataSourceResponse
@@ -110,8 +106,8 @@ instance Lude.ToJSON UpdateDataSource where
   toJSON UpdateDataSource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("DataSourceId" Lude..= dataSourceId),
-            Lude.Just ("DataSourceName" Lude..= dataSourceName)
+          [ Lude.Just ("DataSourceName" Lude..= dataSourceName),
+            Lude.Just ("DataSourceId" Lude..= dataSourceId)
           ]
       )
 
@@ -127,17 +123,12 @@ instance Lude.ToQuery UpdateDataSource where
 --
 -- /See:/ 'mkUpdateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-  { dataSourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
+    dataSourceId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDataSourceResponse' with the minimum fields required to make a request.

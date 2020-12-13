@@ -171,30 +171,30 @@ module Network.AWS.Budgets
     -- ** Action
     Action (..),
     mkAction,
-    aActionId,
-    aBudgetName,
-    aNotificationType,
-    aActionType,
-    aActionThreshold,
+    aStatus,
     aDefinition,
     aExecutionRoleARN,
+    aActionId,
+    aActionThreshold,
+    aBudgetName,
+    aNotificationType,
     aApprovalModel,
-    aStatus,
+    aActionType,
     aSubscribers,
 
     -- ** ActionHistory
     ActionHistory (..),
     mkActionHistory,
-    ahTimestamp,
     ahStatus,
     ahEventType,
     ahActionHistoryDetails,
+    ahTimestamp,
 
     -- ** ActionHistoryDetails
     ActionHistoryDetails (..),
     mkActionHistoryDetails,
-    ahdMessage,
     ahdAction,
+    ahdMessage,
 
     -- ** ActionThreshold
     ActionThreshold (..),
@@ -210,11 +210,11 @@ module Network.AWS.Budgets
     bLastUpdatedTime,
     bBudgetLimit,
     bTimePeriod,
+    bTimeUnit,
+    bBudgetName,
+    bBudgetType,
     bCostTypes,
     bCostFilters,
-    bBudgetName,
-    bTimeUnit,
-    bBudgetType,
 
     -- ** BudgetPerformanceHistory
     BudgetPerformanceHistory (..),
@@ -273,10 +273,10 @@ module Network.AWS.Budgets
     Notification (..),
     mkNotification,
     nThresholdType,
-    nNotificationState,
-    nNotificationType,
     nComparisonOperator,
     nThreshold,
+    nNotificationState,
+    nNotificationType,
 
     -- ** NotificationWithSubscribers
     NotificationWithSubscribers (..),
@@ -300,8 +300,8 @@ module Network.AWS.Budgets
     SsmActionDefinition (..),
     mkSsmActionDefinition,
     sadActionSubType,
-    sadRegion,
     sadInstanceIds,
+    sadRegion,
 
     -- ** Subscriber
     Subscriber (..),

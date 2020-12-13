@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.IAM.CreateUser
 
     -- ** Request lenses
     cuPath,
+    cuUserName,
     cuPermissionsBoundary,
     cuTags,
-    cuUserName,
 
     -- * Destructuring the response
     CreateUserResponse (..),
@@ -44,18 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path for the user name. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    --
+    -- This parameter is optional. If it is not included, it defaults to a slash (/).
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+    path :: Lude.Maybe Lude.Text,
+    -- | The name of the user to create.
+    --
+    -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+    userName :: Lude.Text,
+    -- | The ARN of the policy that is used to set the permissions boundary for the user.
     permissionsBoundary :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    userName :: Lude.Text
+    -- | A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
@@ -64,11 +68,11 @@ data CreateUser = CreateUser'
 --
 -- This parameter is optional. If it is not included, it defaults to a slash (/).
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
--- * 'permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for the user.
--- * 'tags' - A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 -- * 'userName' - The name of the user to create.
 --
 -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+-- * 'permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for the user.
+-- * 'tags' - A list of tags that you want to attach to the newly created user. Each tag consists of a key name and an associated value. For more information about tagging, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM Identities> in the /IAM User Guide/ .
 mkCreateUser ::
   -- | 'userName'
   Lude.Text ->
@@ -76,9 +80,9 @@ mkCreateUser ::
 mkCreateUser pUserName_ =
   CreateUser'
     { path = Lude.Nothing,
+      userName = pUserName_,
       permissionsBoundary = Lude.Nothing,
-      tags = Lude.Nothing,
-      userName = pUserName_
+      tags = Lude.Nothing
     }
 
 -- | The path for the user name. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
@@ -90,6 +94,15 @@ mkCreateUser pUserName_ =
 cuPath :: Lens.Lens' CreateUser (Lude.Maybe Lude.Text)
 cuPath = Lens.lens (path :: CreateUser -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: CreateUser)
 {-# DEPRECATED cuPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+-- | The name of the user to create.
+--
+-- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUserName :: Lens.Lens' CreateUser Lude.Text
+cuUserName = Lens.lens (userName :: CreateUser -> Lude.Text) (\s a -> s {userName = a} :: CreateUser)
+{-# DEPRECATED cuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The ARN of the policy that is used to set the permissions boundary for the user.
 --
@@ -104,15 +117,6 @@ cuPermissionsBoundary = Lens.lens (permissionsBoundary :: CreateUser -> Lude.May
 cuTags :: Lens.Lens' CreateUser (Lude.Maybe [Tag])
 cuTags = Lens.lens (tags :: CreateUser -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateUser)
 {-# DEPRECATED cuTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the user to create.
---
--- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuUserName :: Lens.Lens' CreateUser Lude.Text
-cuUserName = Lens.lens (userName :: CreateUser -> Lude.Text) (\s a -> s {userName = a} :: CreateUser)
-{-# DEPRECATED cuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 instance Lude.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
@@ -137,33 +141,28 @@ instance Lude.ToQuery CreateUser where
       [ "Action" Lude.=: ("CreateUser" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
         "Path" Lude.=: path,
+        "UserName" Lude.=: userName,
         "PermissionsBoundary" Lude.=: permissionsBoundary,
         "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "UserName" Lude.=: userName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
       ]
 
 -- | Contains the response to a successful 'CreateUser' request.
 --
 -- /See:/ 'mkCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { user ::
-      Lude.Maybe User,
+  { -- | A structure with details about the new IAM user.
+    user :: Lude.Maybe User,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'user' - A structure with details about the new IAM user.
+-- * 'responseStatus' - The response status code.
 mkCreateUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

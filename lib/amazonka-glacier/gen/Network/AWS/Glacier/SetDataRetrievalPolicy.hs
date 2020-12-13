@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Glacier.SetDataRetrievalPolicy
     mkSetDataRetrievalPolicy,
 
     -- ** Request lenses
-    sdrpPolicy,
     sdrpAccountId,
+    sdrpPolicy,
 
     -- * Destructuring the response
     SetDataRetrievalPolicyResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetDataRetrievalPolicy' smart constructor.
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
-  { policy ::
-      Lude.Maybe DataRetrievalPolicy,
-    accountId :: Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text,
+    -- | The data retrieval policy in JSON format.
+    policy :: Lude.Maybe DataRetrievalPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDataRetrievalPolicy' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkSetDataRetrievalPolicy ::
   SetDataRetrievalPolicy
 mkSetDataRetrievalPolicy pAccountId_ =
   SetDataRetrievalPolicy'
-    { policy = Lude.Nothing,
-      accountId = pAccountId_
+    { accountId = pAccountId_,
+      policy = Lude.Nothing
     }
-
--- | The data retrieval policy in JSON format.
---
--- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdrpPolicy :: Lens.Lens' SetDataRetrievalPolicy (Lude.Maybe DataRetrievalPolicy)
-sdrpPolicy = Lens.lens (policy :: SetDataRetrievalPolicy -> Lude.Maybe DataRetrievalPolicy) (\s a -> s {policy = a} :: SetDataRetrievalPolicy)
-{-# DEPRECATED sdrpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
 --
@@ -80,6 +69,13 @@ sdrpPolicy = Lens.lens (policy :: SetDataRetrievalPolicy -> Lude.Maybe DataRetri
 sdrpAccountId :: Lens.Lens' SetDataRetrievalPolicy Lude.Text
 sdrpAccountId = Lens.lens (accountId :: SetDataRetrievalPolicy -> Lude.Text) (\s a -> s {accountId = a} :: SetDataRetrievalPolicy)
 {-# DEPRECATED sdrpAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The data retrieval policy in JSON format.
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdrpPolicy :: Lens.Lens' SetDataRetrievalPolicy (Lude.Maybe DataRetrievalPolicy)
+sdrpPolicy = Lens.lens (policy :: SetDataRetrievalPolicy -> Lude.Maybe DataRetrievalPolicy) (\s a -> s {policy = a} :: SetDataRetrievalPolicy)
+{-# DEPRECATED sdrpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 instance Lude.AWSRequest SetDataRetrievalPolicy where
   type Rs SetDataRetrievalPolicy = SetDataRetrievalPolicyResponse
@@ -103,13 +99,7 @@ instance Lude.ToQuery SetDataRetrievalPolicy where
 
 -- | /See:/ 'mkSetDataRetrievalPolicyResponse' smart constructor.
 data SetDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDataRetrievalPolicyResponse' with the minimum fields required to make a request.

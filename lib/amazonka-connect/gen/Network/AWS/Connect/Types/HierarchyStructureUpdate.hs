@@ -33,33 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHierarchyStructureUpdate' smart constructor.
 data HierarchyStructureUpdate = HierarchyStructureUpdate'
-  { levelFive ::
-      Lude.Maybe HierarchyLevelUpdate,
-    levelThree ::
-      Lude.Maybe HierarchyLevelUpdate,
-    levelFour ::
-      Lude.Maybe HierarchyLevelUpdate,
-    levelTwo ::
-      Lude.Maybe HierarchyLevelUpdate,
-    levelOne ::
-      Lude.Maybe HierarchyLevelUpdate
+  { -- | The update for level five.
+    levelFive :: Lude.Maybe HierarchyLevelUpdate,
+    -- | The update for level three.
+    levelThree :: Lude.Maybe HierarchyLevelUpdate,
+    -- | The update for level four.
+    levelFour :: Lude.Maybe HierarchyLevelUpdate,
+    -- | The update for level two.
+    levelTwo :: Lude.Maybe HierarchyLevelUpdate,
+    -- | The update for level one.
+    levelOne :: Lude.Maybe HierarchyLevelUpdate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HierarchyStructureUpdate' with the minimum fields required to make a request.
 --
 -- * 'levelFive' - The update for level five.
--- * 'levelFour' - The update for level four.
--- * 'levelOne' - The update for level one.
 -- * 'levelThree' - The update for level three.
+-- * 'levelFour' - The update for level four.
 -- * 'levelTwo' - The update for level two.
+-- * 'levelOne' - The update for level one.
 mkHierarchyStructureUpdate ::
   HierarchyStructureUpdate
 mkHierarchyStructureUpdate =

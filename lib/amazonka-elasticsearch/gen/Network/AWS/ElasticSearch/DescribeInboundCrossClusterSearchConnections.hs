@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeInboundCrossClusterSearchConnections' smart constructor.
 data DescribeInboundCrossClusterSearchConnections = DescribeInboundCrossClusterSearchConnections'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int
+  { -- | A list of filters used to match properties for inbound cross-cluster search connection. Available @'Filter' @ names for this operation are:
+    --
+    --     * cross-cluster-search-connection-id
+    --
+    --     * source-domain-info.domain-name
+    --
+    --     * source-domain-info.owner-id
+    --
+    --     * source-domain-info.region
+    --
+    --     * destination-domain-info.domain-name
+    filters :: Lude.Maybe [Filter],
+    -- | NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInboundCrossClusterSearchConnections' with the minimum fields required to make a request.
@@ -78,8 +80,8 @@ data DescribeInboundCrossClusterSearchConnections = DescribeInboundCrossClusterS
 --     * destination-domain-info.domain-name
 --
 --
--- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
 -- * 'nextToken' - NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.
+-- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
 mkDescribeInboundCrossClusterSearchConnections ::
   DescribeInboundCrossClusterSearchConnections
 mkDescribeInboundCrossClusterSearchConnections =
@@ -166,26 +168,15 @@ instance Lude.ToQuery DescribeInboundCrossClusterSearchConnections where
 --
 -- /See:/ 'mkDescribeInboundCrossClusterSearchConnectionsResponse' smart constructor.
 data DescribeInboundCrossClusterSearchConnectionsResponse = DescribeInboundCrossClusterSearchConnectionsResponse'
-  { crossClusterSearchConnections ::
-      Lude.Maybe
-        [InboundCrossClusterSearchConnection],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Consists of list of @'InboundCrossClusterSearchConnection' @ matching the specified filter criteria.
+    crossClusterSearchConnections :: Lude.Maybe [InboundCrossClusterSearchConnection],
+    -- | If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInboundCrossClusterSearchConnectionsResponse' with the minimum fields required to make a request.
 --

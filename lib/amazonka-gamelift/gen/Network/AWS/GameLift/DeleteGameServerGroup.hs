@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,8 +61,8 @@ module Network.AWS.GameLift.DeleteGameServerGroup
     mkDeleteGameServerGroup,
 
     -- ** Request lenses
-    dgsgDeleteOption,
-    dgsgGameServerGroupName,
+    dgsgfDeleteOption,
+    dgsgfGameServerGroupName,
 
     -- * Destructuring the response
     DeleteGameServerGroupResponse (..),
@@ -81,17 +82,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteGameServerGroup' smart constructor.
 data DeleteGameServerGroup = DeleteGameServerGroup'
-  { deleteOption ::
-      Lude.Maybe GameServerGroupDeleteOption,
+  { -- | The type of delete to perform. Options include the following:
+    --
+    --
+    --     * @SAFE_DELETE@ – (default) Terminates the game server group and EC2 Auto Scaling group only when it has no game servers that are in @UTILIZED@ status.
+    --
+    --
+    --     * @FORCE_DELETE@ – Terminates the game server group, including all active game servers regardless of their utilization status, and the EC2 Auto Scaling group.
+    --
+    --
+    --     * @RETAIN@ – Does a safe delete of the game server group but retains the EC2 Auto Scaling group as is.
+    deleteOption :: Lude.Maybe GameServerGroupDeleteOption,
+    -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
     gameServerGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGameServerGroup' with the minimum fields required to make a request.
@@ -133,16 +138,16 @@ mkDeleteGameServerGroup pGameServerGroupName_ =
 --
 --
 -- /Note:/ Consider using 'deleteOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsgDeleteOption :: Lens.Lens' DeleteGameServerGroup (Lude.Maybe GameServerGroupDeleteOption)
-dgsgDeleteOption = Lens.lens (deleteOption :: DeleteGameServerGroup -> Lude.Maybe GameServerGroupDeleteOption) (\s a -> s {deleteOption = a} :: DeleteGameServerGroup)
-{-# DEPRECATED dgsgDeleteOption "Use generic-lens or generic-optics with 'deleteOption' instead." #-}
+dgsgfDeleteOption :: Lens.Lens' DeleteGameServerGroup (Lude.Maybe GameServerGroupDeleteOption)
+dgsgfDeleteOption = Lens.lens (deleteOption :: DeleteGameServerGroup -> Lude.Maybe GameServerGroupDeleteOption) (\s a -> s {deleteOption = a} :: DeleteGameServerGroup)
+{-# DEPRECATED dgsgfDeleteOption "Use generic-lens or generic-optics with 'deleteOption' instead." #-}
 
 -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsgGameServerGroupName :: Lens.Lens' DeleteGameServerGroup Lude.Text
-dgsgGameServerGroupName = Lens.lens (gameServerGroupName :: DeleteGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DeleteGameServerGroup)
-{-# DEPRECATED dgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
+dgsgfGameServerGroupName :: Lens.Lens' DeleteGameServerGroup Lude.Text
+dgsgfGameServerGroupName = Lens.lens (gameServerGroupName :: DeleteGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DeleteGameServerGroup)
+{-# DEPRECATED dgsgfGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 instance Lude.AWSRequest DeleteGameServerGroup where
   type Rs DeleteGameServerGroup = DeleteGameServerGroupResponse
@@ -183,17 +188,12 @@ instance Lude.ToQuery DeleteGameServerGroup where
 
 -- | /See:/ 'mkDeleteGameServerGroupResponse' smart constructor.
 data DeleteGameServerGroupResponse = DeleteGameServerGroupResponse'
-  { gameServerGroup ::
-      Lude.Maybe GameServerGroup,
+  { -- | An object that describes the deleted game server group resource, with status updated to @DELETE_SCHEDULED@ .
+    gameServerGroup :: Lude.Maybe GameServerGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteGameServerGroupResponse' with the minimum fields required to make a request.

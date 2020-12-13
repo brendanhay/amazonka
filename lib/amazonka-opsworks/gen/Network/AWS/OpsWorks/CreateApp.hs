@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,11 +29,11 @@ module Network.AWS.OpsWorks.CreateApp
     caDataSources,
     caAppSource,
     caAttributes,
-    caDomains,
-    caDescription,
-    caStackId,
     caName,
     caType,
+    caStackId,
+    caDomains,
+    caDescription,
 
     -- * Destructuring the response
     CreateAppResponse (..),
@@ -52,55 +53,61 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { sslConfiguration ::
-      Lude.Maybe SSLConfiguration,
+  { -- | An @SslConfiguration@ object with the SSL configuration.
+    sslConfiguration :: Lude.Maybe SSLConfiguration,
+    -- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
+    --
+    -- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
     environment :: Lude.Maybe [EnvironmentVariable],
+    -- | Whether to enable SSL for the app.
     enableSSL :: Lude.Maybe Lude.Bool,
+    -- | The app's short name.
     shortname :: Lude.Maybe Lude.Text,
+    -- | The app's data source.
     dataSources :: Lude.Maybe [DataSource],
+    -- | A @Source@ object that specifies the app repository.
     appSource :: Lude.Maybe Source,
-    attributes ::
-      Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
-    domains :: Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
-    stackId :: Lude.Text,
+    -- | One or more user-defined key/value pairs to be added to the stack attributes.
+    attributes :: Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
+    -- | The app name.
     name :: Lude.Text,
-    type' :: AppType
+    -- | The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
+    type' :: AppType,
+    -- | The stack ID.
+    stackId :: Lude.Text,
+    -- | The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+    domains :: Lude.Maybe [Lude.Text],
+    -- | A description of the app.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
--- * 'appSource' - A @Source@ object that specifies the app repository.
--- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
--- * 'dataSources' - The app's data source.
--- * 'description' - A description of the app.
--- * 'domains' - The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
--- * 'enableSSL' - Whether to enable SSL for the app.
+-- * 'sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 -- * 'environment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instance. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
 --
 -- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20KB)."
--- * 'name' - The app name.
+-- * 'enableSSL' - Whether to enable SSL for the app.
 -- * 'shortname' - The app's short name.
--- * 'sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
--- * 'stackId' - The stack ID.
+-- * 'dataSources' - The app's data source.
+-- * 'appSource' - A @Source@ object that specifies the app repository.
+-- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
+-- * 'name' - The app name.
 -- * 'type'' - The app type. Each supported type is associated with a particular layer. For example, PHP applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application to those instances that are members of the corresponding layer. If your app isn't one of the standard types, or you prefer to implement your own Deploy recipes, specify @other@ .
+-- * 'stackId' - The stack ID.
+-- * 'domains' - The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+-- * 'description' - A description of the app.
 mkCreateApp ::
-  -- | 'stackId'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
   -- | 'type''
   AppType ->
+  -- | 'stackId'
+  Lude.Text ->
   CreateApp
-mkCreateApp pStackId_ pName_ pType_ =
+mkCreateApp pName_ pType_ pStackId_ =
   CreateApp'
     { sslConfiguration = Lude.Nothing,
       environment = Lude.Nothing,
@@ -109,11 +116,11 @@ mkCreateApp pStackId_ pName_ pType_ =
       dataSources = Lude.Nothing,
       appSource = Lude.Nothing,
       attributes = Lude.Nothing,
-      domains = Lude.Nothing,
-      description = Lude.Nothing,
-      stackId = pStackId_,
       name = pName_,
-      type' = pType_
+      type' = pType_,
+      stackId = pStackId_,
+      domains = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
@@ -167,27 +174,6 @@ caAttributes :: Lens.Lens' CreateApp (Lude.Maybe (Lude.HashMap AppAttributesKeys
 caAttributes = Lens.lens (attributes :: CreateApp -> Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text))) (\s a -> s {attributes = a} :: CreateApp)
 {-# DEPRECATED caAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
--- | The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
---
--- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDomains :: Lens.Lens' CreateApp (Lude.Maybe [Lude.Text])
-caDomains = Lens.lens (domains :: CreateApp -> Lude.Maybe [Lude.Text]) (\s a -> s {domains = a} :: CreateApp)
-{-# DEPRECATED caDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
-
--- | A description of the app.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDescription :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
-caDescription = Lens.lens (description :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApp)
-{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The stack ID.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caStackId :: Lens.Lens' CreateApp Lude.Text
-caStackId = Lens.lens (stackId :: CreateApp -> Lude.Text) (\s a -> s {stackId = a} :: CreateApp)
-{-# DEPRECATED caStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
-
 -- | The app name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -201,6 +187,27 @@ caName = Lens.lens (name :: CreateApp -> Lude.Text) (\s a -> s {name = a} :: Cre
 caType :: Lens.Lens' CreateApp AppType
 caType = Lens.lens (type' :: CreateApp -> AppType) (\s a -> s {type' = a} :: CreateApp)
 {-# DEPRECATED caType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The stack ID.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caStackId :: Lens.Lens' CreateApp Lude.Text
+caStackId = Lens.lens (stackId :: CreateApp -> Lude.Text) (\s a -> s {stackId = a} :: CreateApp)
+{-# DEPRECATED caStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+
+-- | The app virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+--
+-- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDomains :: Lens.Lens' CreateApp (Lude.Maybe [Lude.Text])
+caDomains = Lens.lens (domains :: CreateApp -> Lude.Maybe [Lude.Text]) (\s a -> s {domains = a} :: CreateApp)
+{-# DEPRECATED caDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
+
+-- | A description of the app.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caDescription :: Lens.Lens' CreateApp (Lude.Maybe Lude.Text)
+caDescription = Lens.lens (description :: CreateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateApp)
+{-# DEPRECATED caDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest CreateApp where
   type Rs CreateApp = CreateAppResponse
@@ -234,11 +241,11 @@ instance Lude.ToJSON CreateApp where
             ("DataSources" Lude..=) Lude.<$> dataSources,
             ("AppSource" Lude..=) Lude.<$> appSource,
             ("Attributes" Lude..=) Lude.<$> attributes,
-            ("Domains" Lude..=) Lude.<$> domains,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("StackId" Lude..= stackId),
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Type" Lude..= type')
+            Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("StackId" Lude..= stackId),
+            ("Domains" Lude..=) Lude.<$> domains,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -252,17 +259,12 @@ instance Lude.ToQuery CreateApp where
 --
 -- /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { appId ::
-      Lude.Maybe Lude.Text,
+  { -- | The app ID.
+    appId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.

@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerServiceLogEvent' smart constructor.
 data ContainerServiceLogEvent = ContainerServiceLogEvent'
-  { createdAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp when the container service log event was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The message of the container service log event.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServiceLogEvent' with the minimum fields required to make a request.

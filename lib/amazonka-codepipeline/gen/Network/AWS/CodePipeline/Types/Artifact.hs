@@ -17,9 +17,9 @@ module Network.AWS.CodePipeline.Types.Artifact
     mkArtifact,
 
     -- * Lenses
-    artLocation,
-    artName,
-    artRevision,
+    afLocation,
+    afName,
+    afRevision,
   )
 where
 
@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArtifact' smart constructor.
 data Artifact = Artifact'
-  { location :: Lude.Maybe ArtifactLocation,
+  { -- | The location of an artifact.
+    location :: Lude.Maybe ArtifactLocation,
+    -- | The artifact's name.
     name :: Lude.Maybe Lude.Text,
+    -- | The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
     revision :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Artifact' with the minimum fields required to make a request.
@@ -61,23 +58,23 @@ mkArtifact =
 -- | The location of an artifact.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artLocation :: Lens.Lens' Artifact (Lude.Maybe ArtifactLocation)
-artLocation = Lens.lens (location :: Artifact -> Lude.Maybe ArtifactLocation) (\s a -> s {location = a} :: Artifact)
-{-# DEPRECATED artLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+afLocation :: Lens.Lens' Artifact (Lude.Maybe ArtifactLocation)
+afLocation = Lens.lens (location :: Artifact -> Lude.Maybe ArtifactLocation) (\s a -> s {location = a} :: Artifact)
+{-# DEPRECATED afLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The artifact's name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artName :: Lens.Lens' Artifact (Lude.Maybe Lude.Text)
-artName = Lens.lens (name :: Artifact -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Artifact)
-{-# DEPRECATED artName "Use generic-lens or generic-optics with 'name' instead." #-}
+afName :: Lens.Lens' Artifact (Lude.Maybe Lude.Text)
+afName = Lens.lens (name :: Artifact -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Artifact)
+{-# DEPRECATED afName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3).
 --
 -- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artRevision :: Lens.Lens' Artifact (Lude.Maybe Lude.Text)
-artRevision = Lens.lens (revision :: Artifact -> Lude.Maybe Lude.Text) (\s a -> s {revision = a} :: Artifact)
-{-# DEPRECATED artRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
+afRevision :: Lens.Lens' Artifact (Lude.Maybe Lude.Text)
+afRevision = Lens.lens (revision :: Artifact -> Lude.Maybe Lude.Text) (\s a -> s {revision = a} :: Artifact)
+{-# DEPRECATED afRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
 
 instance Lude.FromJSON Artifact where
   parseJSON =

@@ -34,40 +34,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserIdGroupPair' smart constructor.
 data UserIdGroupPair = UserIdGroupPair'
-  { vpcPeeringConnectionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VPC peering connection, if applicable.
+    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC for the referenced security group, if applicable.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of an AWS account.
+    --
+    -- For a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned.
+    -- [EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account.
     userId :: Lude.Maybe Lude.Text,
+    -- | The ID of the security group.
     groupId :: Lude.Maybe Lude.Text,
+    -- | The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.
+    --
+    -- For a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.
     groupName :: Lude.Maybe Lude.Text,
+    -- | A description for the security group rule that references this user ID group pair.
+    --
+    -- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
     description :: Lude.Maybe Lude.Text,
+    -- | The status of a VPC peering connection, if applicable.
     peeringStatus :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserIdGroupPair' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the security group rule that references this user ID group pair.
---
--- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
--- * 'groupId' - The ID of the security group.
--- * 'groupName' - The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.
---
--- For a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.
--- * 'peeringStatus' - The status of a VPC peering connection, if applicable.
+-- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection, if applicable.
+-- * 'vpcId' - The ID of the VPC for the referenced security group, if applicable.
 -- * 'userId' - The ID of an AWS account.
 --
 -- For a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned.
 -- [EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account.
--- * 'vpcId' - The ID of the VPC for the referenced security group, if applicable.
--- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection, if applicable.
+-- * 'groupId' - The ID of the security group.
+-- * 'groupName' - The name of the security group. In a request, use this parameter for a security group in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the security group ID.
+--
+-- For a referenced security group in another VPC, this value is not returned if the referenced security group is deleted.
+-- * 'description' - A description for the security group rule that references this user ID group pair.
+--
+-- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
+-- * 'peeringStatus' - The status of a VPC peering connection, if applicable.
 mkUserIdGroupPair ::
   UserIdGroupPair
 mkUserIdGroupPair =

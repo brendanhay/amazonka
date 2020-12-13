@@ -51,69 +51,81 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCapacityReservation' smart constructor.
 data CapacityReservation = CapacityReservation'
-  { state ::
-      Lude.Maybe CapacityReservationState,
+  { -- | The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
+    --
+    --
+    --     * @active@ - The Capacity Reservation is active and the capacity is available for your use.
+    --
+    --
+    --     * @expired@ - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.
+    --
+    --
+    --     * @cancelled@ - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.
+    --
+    --
+    --     * @pending@ - The Capacity Reservation request was successful but the capacity provisioning is still pending.
+    --
+    --
+    --     * @failed@ - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.
+    state :: Lude.Maybe CapacityReservationState,
+    -- | The Availability Zone ID of the Capacity Reservation.
     availabilityZoneId :: Lude.Maybe Lude.Text,
+    -- | The date and time at which the Capacity Reservation was created.
     createDate :: Lude.Maybe Lude.DateTime,
+    -- | The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
     endDate :: Lude.Maybe Lude.DateTime,
+    -- | The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
     availableInstanceCount :: Lude.Maybe Lude.Int,
+    -- | Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
     ephemeralStorage :: Lude.Maybe Lude.Bool,
-    instancePlatform ::
-      Lude.Maybe CapacityReservationInstancePlatform,
-    instanceMatchCriteria ::
-      Lude.Maybe InstanceMatchCriteria,
+    -- | The type of operating system for which the Capacity Reservation reserves capacity.
+    instancePlatform :: Lude.Maybe CapacityReservationInstancePlatform,
+    -- | Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+    --
+    --
+    --     * @open@ - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.
+    --
+    --
+    --     * @targeted@ - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+    instanceMatchCriteria :: Lude.Maybe InstanceMatchCriteria,
+    -- | The ID of the Capacity Reservation.
     capacityReservationId :: Lude.Maybe Lude.Text,
+    -- | The type of instance for which the Capacity Reservation reserves capacity.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
     ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The ID of the AWS account that owns the Capacity Reservation.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone in which the capacity is reserved.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
+    --
+    --
+    --     * @default@ - The Capacity Reservation is created on hardware that is shared with other AWS accounts.
+    --
+    --
+    --     * @dedicated@ - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.
     tenancy :: Lude.Maybe CapacityReservationTenancy,
+    -- | The total number of instances for which the Capacity Reservation reserves capacity.
     totalInstanceCount :: Lude.Maybe Lude.Int,
+    -- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+    --
+    --
+    --     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it.
+    --
+    --
+    --     * @limited@ - The Capacity Reservation expires automatically at a specified date and time.
     endDateType :: Lude.Maybe EndDateType,
+    -- | Any tags assigned to the Capacity Reservation.
     tags :: Lude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the Capacity Reservation.
     capacityReservationARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CapacityReservation' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which the capacity is reserved.
--- * 'availabilityZoneId' - The Availability Zone ID of the Capacity Reservation.
--- * 'availableInstanceCount' - The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
--- * 'capacityReservationARN' - The Amazon Resource Name (ARN) of the Capacity Reservation.
--- * 'capacityReservationId' - The ID of the Capacity Reservation.
--- * 'createDate' - The date and time at which the Capacity Reservation was created.
--- * 'ebsOptimized' - Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
--- * 'endDate' - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
--- * 'endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
---
---
---     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it.
---
---
---     * @limited@ - The Capacity Reservation expires automatically at a specified date and time.
---
---
--- * 'ephemeralStorage' - Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
--- * 'instanceMatchCriteria' - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
---
---
---     * @open@ - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.
---
---
---     * @targeted@ - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
---
---
--- * 'instancePlatform' - The type of operating system for which the Capacity Reservation reserves capacity.
--- * 'instanceType' - The type of instance for which the Capacity Reservation reserves capacity.
--- * 'ownerId' - The ID of the AWS account that owns the Capacity Reservation.
 -- * 'state' - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:
 --
 --
@@ -132,7 +144,26 @@ data CapacityReservation = CapacityReservation'
 --     * @failed@ - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.
 --
 --
--- * 'tags' - Any tags assigned to the Capacity Reservation.
+-- * 'availabilityZoneId' - The Availability Zone ID of the Capacity Reservation.
+-- * 'createDate' - The date and time at which the Capacity Reservation was created.
+-- * 'endDate' - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
+-- * 'availableInstanceCount' - The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.
+-- * 'ephemeralStorage' - Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
+-- * 'instancePlatform' - The type of operating system for which the Capacity Reservation reserves capacity.
+-- * 'instanceMatchCriteria' - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
+--
+--
+--     * @open@ - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.
+--
+--
+--     * @targeted@ - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+--
+--
+-- * 'capacityReservationId' - The ID of the Capacity Reservation.
+-- * 'instanceType' - The type of instance for which the Capacity Reservation reserves capacity.
+-- * 'ebsOptimized' - Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+-- * 'ownerId' - The ID of the AWS account that owns the Capacity Reservation.
+-- * 'availabilityZone' - The Availability Zone in which the capacity is reserved.
 -- * 'tenancy' - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
 --
 --
@@ -143,6 +174,17 @@ data CapacityReservation = CapacityReservation'
 --
 --
 -- * 'totalInstanceCount' - The total number of instances for which the Capacity Reservation reserves capacity.
+-- * 'endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+--
+--
+--     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it.
+--
+--
+--     * @limited@ - The Capacity Reservation expires automatically at a specified date and time.
+--
+--
+-- * 'tags' - Any tags assigned to the Capacity Reservation.
+-- * 'capacityReservationARN' - The Amazon Resource Name (ARN) of the Capacity Reservation.
 mkCapacityReservation ::
   CapacityReservation
 mkCapacityReservation =

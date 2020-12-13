@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Connect.UpdateRoutingProfileName
     mkUpdateRoutingProfileName,
 
     -- ** Request lenses
-    urpnName,
-    urpnDescription,
     urpnInstanceId,
     urpnRoutingProfileId,
+    urpnName,
+    urpnDescription,
 
     -- * Destructuring the response
     UpdateRoutingProfileNameResponse (..),
@@ -38,27 +39,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRoutingProfileName' smart constructor.
 data UpdateRoutingProfileName = UpdateRoutingProfileName'
-  { name ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
     instanceId :: Lude.Text,
-    routingProfileId :: Lude.Text
+    -- | The identifier of the routing profile.
+    routingProfileId :: Lude.Text,
+    -- | The name of the routing profile. Must not be more than 127 characters.
+    name :: Lude.Maybe Lude.Text,
+    -- | The description of the routing profile. Must not be more than 250 characters.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoutingProfileName' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the routing profile. Must not be more than 250 characters.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'name' - The name of the routing profile. Must not be more than 127 characters.
 -- * 'routingProfileId' - The identifier of the routing profile.
+-- * 'name' - The name of the routing profile. Must not be more than 127 characters.
+-- * 'description' - The description of the routing profile. Must not be more than 250 characters.
 mkUpdateRoutingProfileName ::
   -- | 'instanceId'
   Lude.Text ->
@@ -67,25 +65,11 @@ mkUpdateRoutingProfileName ::
   UpdateRoutingProfileName
 mkUpdateRoutingProfileName pInstanceId_ pRoutingProfileId_ =
   UpdateRoutingProfileName'
-    { name = Lude.Nothing,
-      description = Lude.Nothing,
-      instanceId = pInstanceId_,
-      routingProfileId = pRoutingProfileId_
+    { instanceId = pInstanceId_,
+      routingProfileId = pRoutingProfileId_,
+      name = Lude.Nothing,
+      description = Lude.Nothing
     }
-
--- | The name of the routing profile. Must not be more than 127 characters.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urpnName :: Lens.Lens' UpdateRoutingProfileName (Lude.Maybe Lude.Text)
-urpnName = Lens.lens (name :: UpdateRoutingProfileName -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateRoutingProfileName)
-{-# DEPRECATED urpnName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The description of the routing profile. Must not be more than 250 characters.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urpnDescription :: Lens.Lens' UpdateRoutingProfileName (Lude.Maybe Lude.Text)
-urpnDescription = Lens.lens (description :: UpdateRoutingProfileName -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateRoutingProfileName)
-{-# DEPRECATED urpnDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
@@ -100,6 +84,20 @@ urpnInstanceId = Lens.lens (instanceId :: UpdateRoutingProfileName -> Lude.Text)
 urpnRoutingProfileId :: Lens.Lens' UpdateRoutingProfileName Lude.Text
 urpnRoutingProfileId = Lens.lens (routingProfileId :: UpdateRoutingProfileName -> Lude.Text) (\s a -> s {routingProfileId = a} :: UpdateRoutingProfileName)
 {-# DEPRECATED urpnRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
+
+-- | The name of the routing profile. Must not be more than 127 characters.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpnName :: Lens.Lens' UpdateRoutingProfileName (Lude.Maybe Lude.Text)
+urpnName = Lens.lens (name :: UpdateRoutingProfileName -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateRoutingProfileName)
+{-# DEPRECATED urpnName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The description of the routing profile. Must not be more than 250 characters.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urpnDescription :: Lens.Lens' UpdateRoutingProfileName (Lude.Maybe Lude.Text)
+urpnDescription = Lens.lens (description :: UpdateRoutingProfileName -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateRoutingProfileName)
+{-# DEPRECATED urpnDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateRoutingProfileName where
   type Rs UpdateRoutingProfileName = UpdateRoutingProfileNameResponse
@@ -139,13 +137,7 @@ instance Lude.ToQuery UpdateRoutingProfileName where
 
 -- | /See:/ 'mkUpdateRoutingProfileNameResponse' smart constructor.
 data UpdateRoutingProfileNameResponse = UpdateRoutingProfileNameResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoutingProfileNameResponse' with the minimum fields required to make a request.

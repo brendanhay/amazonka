@@ -13,11 +13,11 @@
 module Network.AWS.EMR.Types.Statistic
   ( Statistic
       ( Statistic',
-        Average,
-        Maximum,
-        Minimum,
         SampleCount,
-        Sum
+        Average,
+        Sum,
+        Minimum,
+        Maximum
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype Statistic = Statistic' Lude.Text
       Lude.ToHeader
     )
 
-pattern Average :: Statistic
-pattern Average = Statistic' "AVERAGE"
-
-pattern Maximum :: Statistic
-pattern Maximum = Statistic' "MAXIMUM"
-
-pattern Minimum :: Statistic
-pattern Minimum = Statistic' "MINIMUM"
-
 pattern SampleCount :: Statistic
 pattern SampleCount = Statistic' "SAMPLE_COUNT"
+
+pattern Average :: Statistic
+pattern Average = Statistic' "AVERAGE"
 
 pattern Sum :: Statistic
 pattern Sum = Statistic' "SUM"
 
+pattern Minimum :: Statistic
+pattern Minimum = Statistic' "MINIMUM"
+
+pattern Maximum :: Statistic
+pattern Maximum = Statistic' "MAXIMUM"
+
 {-# COMPLETE
-  Average,
-  Maximum,
-  Minimum,
   SampleCount,
+  Average,
   Sum,
+  Minimum,
+  Maximum,
   Statistic'
   #-}

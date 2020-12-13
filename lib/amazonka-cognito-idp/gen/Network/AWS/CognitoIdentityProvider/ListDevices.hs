@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CognitoIdentityProvider.ListDevices
 
     -- ** Request lenses
     ldPaginationToken,
-    ldLimit,
     ldAccessToken,
+    ldLimit,
 
     -- * Destructuring the response
     ListDevicesResponse (..),
@@ -44,19 +45,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListDevices' smart constructor.
 data ListDevices = ListDevices'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    accessToken :: Lude.Sensitive Lude.Text
+  { -- | The pagination token for the list request.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | The access tokens for the request to list devices.
+    accessToken :: Lude.Sensitive Lude.Text,
+    -- | The limit of the device request.
+    limit :: Lude.Maybe Lude.Natural
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDevices' with the minimum fields required to make a request.
 --
+-- * 'paginationToken' - The pagination token for the list request.
 -- * 'accessToken' - The access tokens for the request to list devices.
 -- * 'limit' - The limit of the device request.
--- * 'paginationToken' - The pagination token for the list request.
 mkListDevices ::
   -- | 'accessToken'
   Lude.Sensitive Lude.Text ->
@@ -64,8 +67,8 @@ mkListDevices ::
 mkListDevices pAccessToken_ =
   ListDevices'
     { paginationToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      accessToken = pAccessToken_
+      accessToken = pAccessToken_,
+      limit = Lude.Nothing
     }
 
 -- | The pagination token for the list request.
@@ -75,19 +78,19 @@ ldPaginationToken :: Lens.Lens' ListDevices (Lude.Maybe Lude.Text)
 ldPaginationToken = Lens.lens (paginationToken :: ListDevices -> Lude.Maybe Lude.Text) (\s a -> s {paginationToken = a} :: ListDevices)
 {-# DEPRECATED ldPaginationToken "Use generic-lens or generic-optics with 'paginationToken' instead." #-}
 
--- | The limit of the device request.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldLimit :: Lens.Lens' ListDevices (Lude.Maybe Lude.Natural)
-ldLimit = Lens.lens (limit :: ListDevices -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListDevices)
-{-# DEPRECATED ldLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
 -- | The access tokens for the request to list devices.
 --
 -- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldAccessToken :: Lens.Lens' ListDevices (Lude.Sensitive Lude.Text)
 ldAccessToken = Lens.lens (accessToken :: ListDevices -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: ListDevices)
 {-# DEPRECATED ldAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
+
+-- | The limit of the device request.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldLimit :: Lens.Lens' ListDevices (Lude.Maybe Lude.Natural)
+ldLimit = Lens.lens (limit :: ListDevices -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListDevices)
+{-# DEPRECATED ldLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Lude.AWSRequest ListDevices where
   type Rs ListDevices = ListDevicesResponse
@@ -119,8 +122,8 @@ instance Lude.ToJSON ListDevices where
     Lude.object
       ( Lude.catMaybes
           [ ("PaginationToken" Lude..=) Lude.<$> paginationToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("AccessToken" Lude..= accessToken)
+            Lude.Just ("AccessToken" Lude..= accessToken),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -134,9 +137,11 @@ instance Lude.ToQuery ListDevices where
 --
 -- /See:/ 'mkListDevicesResponse' smart constructor.
 data ListDevicesResponse = ListDevicesResponse'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token for the list device response.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | The devices returned in the list devices response.
     devices :: Lude.Maybe [DeviceType],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -144,8 +149,8 @@ data ListDevicesResponse = ListDevicesResponse'
 
 -- | Creates a value of 'ListDevicesResponse' with the minimum fields required to make a request.
 --
--- * 'devices' - The devices returned in the list devices response.
 -- * 'paginationToken' - The pagination token for the list device response.
+-- * 'devices' - The devices returned in the list devices response.
 -- * 'responseStatus' - The response status code.
 mkListDevicesResponse ::
   -- | 'responseStatus'

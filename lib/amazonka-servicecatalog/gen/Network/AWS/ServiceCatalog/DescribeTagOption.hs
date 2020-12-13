@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.ServiceCatalog.DescribeTagOption
     mkDescribeTagOptionResponse,
 
     -- ** Response lenses
-    dtorsTagOptionDetail,
-    dtorsResponseStatus,
+    dtofrsTagOptionDetail,
+    dtofrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeTagOption' smart constructor.
-newtype DescribeTagOption = DescribeTagOption' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeTagOption = DescribeTagOption'
+  { -- | The TagOption identifier.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagOption' with the minimum fields required to make a request.
@@ -100,23 +98,18 @@ instance Lude.ToQuery DescribeTagOption where
 
 -- | /See:/ 'mkDescribeTagOptionResponse' smart constructor.
 data DescribeTagOptionResponse = DescribeTagOptionResponse'
-  { tagOptionDetail ::
-      Lude.Maybe TagOptionDetail,
+  { -- | Information about the TagOption.
+    tagOptionDetail :: Lude.Maybe TagOptionDetail,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagOptionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagOptionDetail' - Information about the TagOption.
+-- * 'responseStatus' - The response status code.
 mkDescribeTagOptionResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -130,13 +123,13 @@ mkDescribeTagOptionResponse pResponseStatus_ =
 -- | Information about the TagOption.
 --
 -- /Note:/ Consider using 'tagOptionDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtorsTagOptionDetail :: Lens.Lens' DescribeTagOptionResponse (Lude.Maybe TagOptionDetail)
-dtorsTagOptionDetail = Lens.lens (tagOptionDetail :: DescribeTagOptionResponse -> Lude.Maybe TagOptionDetail) (\s a -> s {tagOptionDetail = a} :: DescribeTagOptionResponse)
-{-# DEPRECATED dtorsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
+dtofrsTagOptionDetail :: Lens.Lens' DescribeTagOptionResponse (Lude.Maybe TagOptionDetail)
+dtofrsTagOptionDetail = Lens.lens (tagOptionDetail :: DescribeTagOptionResponse -> Lude.Maybe TagOptionDetail) (\s a -> s {tagOptionDetail = a} :: DescribeTagOptionResponse)
+{-# DEPRECATED dtofrsTagOptionDetail "Use generic-lens or generic-optics with 'tagOptionDetail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtorsResponseStatus :: Lens.Lens' DescribeTagOptionResponse Lude.Int
-dtorsResponseStatus = Lens.lens (responseStatus :: DescribeTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagOptionResponse)
-{-# DEPRECATED dtorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtofrsResponseStatus :: Lens.Lens' DescribeTagOptionResponse Lude.Int
+dtofrsResponseStatus = Lens.lens (responseStatus :: DescribeTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagOptionResponse)
+{-# DEPRECATED dtofrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

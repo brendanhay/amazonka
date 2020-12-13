@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     mkRequestEnvironmentInfo,
 
     -- ** Request lenses
-    reiEnvironmentName,
-    reiEnvironmentId,
-    reiInfoType,
+    rInfoType,
+    rEnvironmentName,
+    rEnvironmentId,
 
     -- * Destructuring the response
     RequestEnvironmentInfoResponse (..),
@@ -46,41 +47,50 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRequestEnvironmentInfo' smart constructor.
 data RequestEnvironmentInfo = RequestEnvironmentInfo'
-  { environmentName ::
-      Lude.Maybe Lude.Text,
-    environmentId :: Lude.Maybe Lude.Text,
-    infoType :: EnvironmentInfoType
+  { -- | The type of information to request.
+    infoType :: EnvironmentInfoType,
+    -- | The name of the environment of the requested data.
+    --
+    -- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The ID of the environment of the requested data.
+    --
+    -- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
+    -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestEnvironmentInfo' with the minimum fields required to make a request.
 --
--- * 'environmentId' - The ID of the environment of the requested data.
---
--- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- * 'infoType' - The type of information to request.
 -- * 'environmentName' - The name of the environment of the requested data.
 --
 -- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
 -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'infoType' - The type of information to request.
+-- * 'environmentId' - The ID of the environment of the requested data.
+--
+-- If no such environment is found, @RequestEnvironmentInfo@ returns an @InvalidParameterValue@ error.
+-- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 mkRequestEnvironmentInfo ::
   -- | 'infoType'
   EnvironmentInfoType ->
   RequestEnvironmentInfo
 mkRequestEnvironmentInfo pInfoType_ =
   RequestEnvironmentInfo'
-    { environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing,
-      infoType = pInfoType_
+    { infoType = pInfoType_,
+      environmentName = Lude.Nothing,
+      environmentId = Lude.Nothing
     }
+
+-- | The type of information to request.
+--
+-- /Note:/ Consider using 'infoType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInfoType :: Lens.Lens' RequestEnvironmentInfo EnvironmentInfoType
+rInfoType = Lens.lens (infoType :: RequestEnvironmentInfo -> EnvironmentInfoType) (\s a -> s {infoType = a} :: RequestEnvironmentInfo)
+{-# DEPRECATED rInfoType "Use generic-lens or generic-optics with 'infoType' instead." #-}
 
 -- | The name of the environment of the requested data.
 --
@@ -88,9 +98,9 @@ mkRequestEnvironmentInfo pInfoType_ =
 -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reiEnvironmentName :: Lens.Lens' RequestEnvironmentInfo (Lude.Maybe Lude.Text)
-reiEnvironmentName = Lens.lens (environmentName :: RequestEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: RequestEnvironmentInfo)
-{-# DEPRECATED reiEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+rEnvironmentName :: Lens.Lens' RequestEnvironmentInfo (Lude.Maybe Lude.Text)
+rEnvironmentName = Lens.lens (environmentName :: RequestEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: RequestEnvironmentInfo)
+{-# DEPRECATED rEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The ID of the environment of the requested data.
 --
@@ -98,16 +108,9 @@ reiEnvironmentName = Lens.lens (environmentName :: RequestEnvironmentInfo -> Lud
 -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reiEnvironmentId :: Lens.Lens' RequestEnvironmentInfo (Lude.Maybe Lude.Text)
-reiEnvironmentId = Lens.lens (environmentId :: RequestEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: RequestEnvironmentInfo)
-{-# DEPRECATED reiEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
-
--- | The type of information to request.
---
--- /Note:/ Consider using 'infoType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reiInfoType :: Lens.Lens' RequestEnvironmentInfo EnvironmentInfoType
-reiInfoType = Lens.lens (infoType :: RequestEnvironmentInfo -> EnvironmentInfoType) (\s a -> s {infoType = a} :: RequestEnvironmentInfo)
-{-# DEPRECATED reiInfoType "Use generic-lens or generic-optics with 'infoType' instead." #-}
+rEnvironmentId :: Lens.Lens' RequestEnvironmentInfo (Lude.Maybe Lude.Text)
+rEnvironmentId = Lens.lens (environmentId :: RequestEnvironmentInfo -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: RequestEnvironmentInfo)
+{-# DEPRECATED rEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 instance Lude.AWSRequest RequestEnvironmentInfo where
   type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse
@@ -125,20 +128,14 @@ instance Lude.ToQuery RequestEnvironmentInfo where
     Lude.mconcat
       [ "Action" Lude.=: ("RequestEnvironmentInfo" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "InfoType" Lude.=: infoType,
         "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId,
-        "InfoType" Lude.=: infoType
+        "EnvironmentId" Lude.=: environmentId
       ]
 
 -- | /See:/ 'mkRequestEnvironmentInfoResponse' smart constructor.
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestEnvironmentInfoResponse' with the minimum fields required to make a request.

@@ -39,42 +39,49 @@ import Network.AWS.Redshift.Types.ScheduledActionType
 --
 -- /See:/ 'mkScheduledAction' smart constructor.
 data ScheduledAction = ScheduledAction'
-  { state ::
-      Lude.Maybe ScheduledActionState,
+  { -- | The state of the scheduled action. For example, @DISABLED@ .
+    state :: Lude.Maybe ScheduledActionState,
+    -- | A JSON format string of the Amazon Redshift API operation with input parameters.
+    --
+    -- "@{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}@ ".
     targetAction :: Lude.Maybe ScheduledActionType,
+    -- | The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
     startTime :: Lude.Maybe Lude.DateTime,
+    -- | The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.
+    --
+    -- Format of at expressions is "@at(yyyy-mm-ddThh:mm:ss)@ ". For example, "@at(2016-03-04T17:27:00)@ ".
+    -- Format of cron expressions is "@cron(Minutes Hours Day-of-month Month Day-of-week Year)@ ". For example, "@cron(0 10 ? * MON *)@ ". For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions> in the /Amazon CloudWatch Events User Guide/ .
     schedule :: Lude.Maybe Lude.Text,
+    -- | The name of the scheduled action.
     scheduledActionName :: Lude.Maybe Lude.Text,
+    -- | The description of the scheduled action.
     scheduledActionDescription :: Lude.Maybe Lude.Text,
+    -- | List of times when the scheduled action will run.
     nextInvocations :: Lude.Maybe [Lude.DateTime],
+    -- | The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
     endTime :: Lude.Maybe Lude.DateTime,
+    -- | The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
     iamRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledAction' with the minimum fields required to make a request.
 --
--- * 'endTime' - The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
--- * 'iamRole' - The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
--- * 'nextInvocations' - List of times when the scheduled action will run.
--- * 'schedule' - The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.
---
--- Format of at expressions is "@at(yyyy-mm-ddThh:mm:ss)@ ". For example, "@at(2016-03-04T17:27:00)@ ".
--- Format of cron expressions is "@cron(Minutes Hours Day-of-month Month Day-of-week Year)@ ". For example, "@cron(0 10 ? * MON *)@ ". For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions> in the /Amazon CloudWatch Events User Guide/ .
--- * 'scheduledActionDescription' - The description of the scheduled action.
--- * 'scheduledActionName' - The name of the scheduled action.
--- * 'startTime' - The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
 -- * 'state' - The state of the scheduled action. For example, @DISABLED@ .
 -- * 'targetAction' - A JSON format string of the Amazon Redshift API operation with input parameters.
 --
 -- "@{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}@ ".
+-- * 'startTime' - The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
+-- * 'schedule' - The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.
+--
+-- Format of at expressions is "@at(yyyy-mm-ddThh:mm:ss)@ ". For example, "@at(2016-03-04T17:27:00)@ ".
+-- Format of cron expressions is "@cron(Minutes Hours Day-of-month Month Day-of-week Year)@ ". For example, "@cron(0 10 ? * MON *)@ ". For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions> in the /Amazon CloudWatch Events User Guide/ .
+-- * 'scheduledActionName' - The name of the scheduled action.
+-- * 'scheduledActionDescription' - The description of the scheduled action.
+-- * 'nextInvocations' - List of times when the scheduled action will run.
+-- * 'endTime' - The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
+-- * 'iamRole' - The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
 mkScheduledAction ::
   ScheduledAction
 mkScheduledAction =

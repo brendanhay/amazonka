@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingDocument' smart constructor.
 data ThingDocument = ThingDocument'
-  { thingGroupNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | Thing group names.
+    thingGroupNames :: Lude.Maybe [Lude.Text],
+    -- | The thing type name.
     thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The shadow.
     shadow :: Lude.Maybe Lude.Text,
+    -- | The attributes.
     attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Indicates whether the thing is connected to the AWS IoT service.
     connectivity :: Lude.Maybe ThingConnectivity,
+    -- | The thing name.
     thingName :: Lude.Maybe Lude.Text,
+    -- | The thing ID.
     thingId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingDocument' with the minimum fields required to make a request.
 --
+-- * 'thingGroupNames' - Thing group names.
+-- * 'thingTypeName' - The thing type name.
+-- * 'shadow' - The shadow.
 -- * 'attributes' - The attributes.
 -- * 'connectivity' - Indicates whether the thing is connected to the AWS IoT service.
--- * 'shadow' - The shadow.
--- * 'thingGroupNames' - Thing group names.
--- * 'thingId' - The thing ID.
 -- * 'thingName' - The thing name.
--- * 'thingTypeName' - The thing type name.
+-- * 'thingId' - The thing ID.
 mkThingDocument ::
   ThingDocument
 mkThingDocument =

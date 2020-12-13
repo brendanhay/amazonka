@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBasePathMapping' smart constructor.
 data BasePathMapping = BasePathMapping'
-  { stage ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the associated stage.
+    stage :: Lude.Maybe Lude.Text,
+    -- | The base path name that callers of the API must provide as part of the URL after the domain name.
     basePath :: Lude.Maybe Lude.Text,
+    -- | The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BasePathMapping' with the minimum fields required to make a request.
 --
+-- * 'stage' - The name of the associated stage.
 -- * 'basePath' - The base path name that callers of the API must provide as part of the URL after the domain name.
 -- * 'restAPIId' - The string identifier of the associated 'RestApi' .
--- * 'stage' - The name of the associated stage.
 mkBasePathMapping ::
   BasePathMapping
 mkBasePathMapping =

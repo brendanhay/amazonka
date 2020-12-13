@@ -77,22 +77,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTarget' smart constructor.
 data Target = Target'
-  { values :: Lude.Maybe [Lude.Text],
+  { -- | User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to run a command on instances that include EC2 tags of @ServerRole,WebServer@ .
+    values :: Lude.Maybe [Lude.Text],
+    -- | User-defined criteria for sending commands that target instances that meet the criteria.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Target' with the minimum fields required to make a request.
 --
--- * 'key' - User-defined criteria for sending commands that target instances that meet the criteria.
 -- * 'values' - User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to run a command on instances that include EC2 tags of @ServerRole,WebServer@ .
+-- * 'key' - User-defined criteria for sending commands that target instances that meet the criteria.
 mkTarget ::
   Target
 mkTarget = Target' {values = Lude.Nothing, key = Lude.Nothing}

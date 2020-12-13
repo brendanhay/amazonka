@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.InputDenoiseFilter
   ( InputDenoiseFilter
       ( InputDenoiseFilter',
-        IDisabled,
-        IEnabled
+        IEnabled,
+        IDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype InputDenoiseFilter = InputDenoiseFilter' Lude.Text
       Lude.ToHeader
     )
 
-pattern IDisabled :: InputDenoiseFilter
-pattern IDisabled = InputDenoiseFilter' "DISABLED"
-
 pattern IEnabled :: InputDenoiseFilter
 pattern IEnabled = InputDenoiseFilter' "ENABLED"
 
+pattern IDisabled :: InputDenoiseFilter
+pattern IDisabled = InputDenoiseFilter' "DISABLED"
+
 {-# COMPLETE
-  IDisabled,
   IEnabled,
+  IDisabled,
   InputDenoiseFilter'
   #-}

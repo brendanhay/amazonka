@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudWatchLogsConfiguration' smart constructor.
 data CloudWatchLogsConfiguration = CloudWatchLogsConfiguration'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    logStreams ::
-      Lude.Maybe
-        [CloudWatchLogsLogStream]
+  { -- | Whether CloudWatch Logs is enabled for a layer.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | A list of configuration options for CloudWatch Logs.
+    logStreams :: Lude.Maybe [CloudWatchLogsLogStream]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchLogsConfiguration' with the minimum fields required to make a request.

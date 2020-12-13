@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListProgressUpdateStreams' smart constructor.
 data ListProgressUpdateStreams = ListProgressUpdateStreams'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filter to limit the maximum number of results to list per page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProgressUpdateStreams' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Filter to limit the maximum number of results to list per page.
 -- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+-- * 'maxResults' - Filter to limit the maximum number of results to list per page.
 mkListProgressUpdateStreams ::
   ListProgressUpdateStreams
 mkListProgressUpdateStreams =
@@ -135,27 +131,20 @@ instance Lude.ToQuery ListProgressUpdateStreams where
 
 -- | /See:/ 'mkListProgressUpdateStreamsResponse' smart constructor.
 data ListProgressUpdateStreamsResponse = ListProgressUpdateStreamsResponse'
-  { progressUpdateStreamSummaryList ::
-      Lude.Maybe
-        [ProgressUpdateStreamSummary],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | List of progress update streams up to the max number of results passed in the input.
+    progressUpdateStreamSummaryList :: Lude.Maybe [ProgressUpdateStreamSummary],
+    -- | If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProgressUpdateStreamsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
 -- * 'progressUpdateStreamSummaryList' - List of progress update streams up to the max number of results passed in the input.
+-- * 'nextToken' - If there are more streams created than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
 -- * 'responseStatus' - The response status code.
 mkListProgressUpdateStreamsResponse ::
   -- | 'responseStatus'

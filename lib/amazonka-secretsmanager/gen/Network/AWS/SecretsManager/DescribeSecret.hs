@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,7 +39,7 @@ module Network.AWS.SecretsManager.DescribeSecret
     mkDescribeSecret,
 
     -- ** Request lenses
-    dSecretId,
+    dsSecretId,
 
     -- * Destructuring the response
     DescribeSecretResponse (..),
@@ -71,14 +72,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkDescribeSecret' smart constructor.
-newtype DescribeSecret = DescribeSecret' {secretId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeSecret = DescribeSecret'
+  { -- | The identifier of the secret whose details you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecret' with the minimum fields required to make a request.
@@ -94,9 +92,9 @@ mkDescribeSecret pSecretId_ =
 -- | The identifier of the secret whose details you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
 -- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSecretId :: Lens.Lens' DescribeSecret Lude.Text
-dSecretId = Lens.lens (secretId :: DescribeSecret -> Lude.Text) (\s a -> s {secretId = a} :: DescribeSecret)
-{-# DEPRECATED dSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
+dsSecretId :: Lens.Lens' DescribeSecret Lude.Text
+dsSecretId = Lens.lens (secretId :: DescribeSecret -> Lude.Text) (\s a -> s {secretId = a} :: DescribeSecret)
+{-# DEPRECATED dsSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 instance Lude.AWSRequest DescribeSecret where
   type Rs DescribeSecret = DescribeSecretResponse
@@ -147,60 +145,68 @@ instance Lude.ToQuery DescribeSecret where
 
 -- | /See:/ 'mkDescribeSecretResponse' smart constructor.
 data DescribeSecretResponse = DescribeSecretResponse'
-  { lastChangedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The last date and time that this secret was modified in any way.
+    lastChangedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the secret.
     arn :: Lude.Maybe Lude.Text,
+    -- | A structure that contains the rotation configuration for this secret.
     rotationRules :: Lude.Maybe RotationRulesType,
+    -- | This value exists if the secret is scheduled for deletion. Some time after the specified date and time, Secrets Manager deletes the secret and all of its versions.
+    --
+    -- If a secret is scheduled for deletion, then its details, including the encrypted secret information, is not accessible. To cancel a scheduled deletion and restore access, use 'RestoreSecret' .
     deletedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether automatic rotation is enabled for this secret.
+    --
+    -- To enable rotation, use 'RotateSecret' with @AutomaticallyRotateAfterDays@ set to a value greater than 0. To disable rotation, use 'CancelRotateSecret' .
     rotationEnabled :: Lude.Maybe Lude.Bool,
+    -- | The date that the secret was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the @SecretString@ or @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default AWS KMS CMK (the one named @awssecretsmanager@ ) for this account.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The user-provided friendly name of the secret.
     name :: Lude.Maybe Lude.Text,
-    versionIdsToStages ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.NonEmpty Lude.Text)
-        ),
+    -- | A list of all of the currently assigned @VersionStage@ staging labels and the @VersionId@ that each is attached to. Staging labels are used to keep track of the different versions during the rotation process.
+    versionIdsToStages :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text)),
+    -- | Returns the name of the service that created this secret.
     owningService :: Lude.Maybe Lude.Text,
+    -- | The most recent date and time that the Secrets Manager rotation process was successfully completed. This value is null if the secret has never rotated.
     lastRotatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
     lastAccessedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The user-provided description of the secret.
     description :: Lude.Maybe Lude.Text,
+    -- | The ARN of a Lambda function that's invoked by Secrets Manager to rotate the secret either automatically per the schedule or manually by a call to @RotateSecret@ .
     rotationLambdaARN :: Lude.Maybe Lude.Text,
+    -- | The list of user-defined tags that are associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSecretResponse' with the minimum fields required to make a request.
 --
+-- * 'lastChangedDate' - The last date and time that this secret was modified in any way.
 -- * 'arn' - The ARN of the secret.
--- * 'createdDate' - The date that the secret was created.
+-- * 'rotationRules' - A structure that contains the rotation configuration for this secret.
 -- * 'deletedDate' - This value exists if the secret is scheduled for deletion. Some time after the specified date and time, Secrets Manager deletes the secret and all of its versions.
 --
 -- If a secret is scheduled for deletion, then its details, including the encrypted secret information, is not accessible. To cancel a scheduled deletion and restore access, use 'RestoreSecret' .
--- * 'description' - The user-provided description of the secret.
--- * 'kmsKeyId' - The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the @SecretString@ or @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default AWS KMS CMK (the one named @awssecretsmanager@ ) for this account.
--- * 'lastAccessedDate' - The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
--- * 'lastChangedDate' - The last date and time that this secret was modified in any way.
--- * 'lastRotatedDate' - The most recent date and time that the Secrets Manager rotation process was successfully completed. This value is null if the secret has never rotated.
--- * 'name' - The user-provided friendly name of the secret.
--- * 'owningService' - Returns the name of the service that created this secret.
--- * 'responseStatus' - The response status code.
 -- * 'rotationEnabled' - Specifies whether automatic rotation is enabled for this secret.
 --
 -- To enable rotation, use 'RotateSecret' with @AutomaticallyRotateAfterDays@ set to a value greater than 0. To disable rotation, use 'CancelRotateSecret' .
--- * 'rotationLambdaARN' - The ARN of a Lambda function that's invoked by Secrets Manager to rotate the secret either automatically per the schedule or manually by a call to @RotateSecret@ .
--- * 'rotationRules' - A structure that contains the rotation configuration for this secret.
--- * 'tags' - The list of user-defined tags that are associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
+-- * 'createdDate' - The date that the secret was created.
+-- * 'kmsKeyId' - The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the @SecretString@ or @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default AWS KMS CMK (the one named @awssecretsmanager@ ) for this account.
+-- * 'name' - The user-provided friendly name of the secret.
 -- * 'versionIdsToStages' - A list of all of the currently assigned @VersionStage@ staging labels and the @VersionId@ that each is attached to. Staging labels are used to keep track of the different versions during the rotation process.
+-- * 'owningService' - Returns the name of the service that created this secret.
+-- * 'lastRotatedDate' - The most recent date and time that the Secrets Manager rotation process was successfully completed. This value is null if the secret has never rotated.
+-- * 'lastAccessedDate' - The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
+-- * 'description' - The user-provided description of the secret.
+-- * 'rotationLambdaARN' - The ARN of a Lambda function that's invoked by Secrets Manager to rotate the secret either automatically per the schedule or manually by a call to @RotateSecret@ .
+-- * 'tags' - The list of user-defined tags that are associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
+-- * 'responseStatus' - The response status code.
 mkDescribeSecretResponse ::
   -- | 'responseStatus'
   Lude.Int ->

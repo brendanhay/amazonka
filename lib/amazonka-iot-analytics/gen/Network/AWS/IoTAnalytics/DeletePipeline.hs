@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoTAnalytics.DeletePipeline
     mkDeletePipeline,
 
     -- ** Request lenses
-    dPipelineName,
+    dpPipelineName,
 
     -- * Destructuring the response
     DeletePipelineResponse (..),
@@ -34,14 +35,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePipeline' smart constructor.
-newtype DeletePipeline = DeletePipeline' {pipelineName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeletePipeline = DeletePipeline'
+  { -- | The name of the pipeline to delete.
+    pipelineName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
@@ -57,9 +55,9 @@ mkDeletePipeline pPipelineName_ =
 -- | The name of the pipeline to delete.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPipelineName :: Lens.Lens' DeletePipeline Lude.Text
-dPipelineName = Lens.lens (pipelineName :: DeletePipeline -> Lude.Text) (\s a -> s {pipelineName = a} :: DeletePipeline)
-{-# DEPRECATED dPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
+dpPipelineName :: Lens.Lens' DeletePipeline Lude.Text
+dpPipelineName = Lens.lens (pipelineName :: DeletePipeline -> Lude.Text) (\s a -> s {pipelineName = a} :: DeletePipeline)
+{-# DEPRECATED dpPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 instance Lude.AWSRequest DeletePipeline where
   type Rs DeletePipeline = DeletePipelineResponse
@@ -78,13 +76,7 @@ instance Lude.ToQuery DeletePipeline where
 
 -- | /See:/ 'mkDeletePipelineResponse' smart constructor.
 data DeletePipelineResponse = DeletePipelineResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.

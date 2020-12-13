@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.RDS.ModifyDBClusterSnapshotAttribute
     mkModifyDBClusterSnapshotAttribute,
 
     -- ** Request lenses
+    mdcsaDBClusterSnapshotIdentifier,
     mdcsaValuesToAdd,
     mdcsaValuesToRemove,
-    mdcsaDBClusterSnapshotIdentifier,
     mdcsaAttributeName,
 
     -- * Destructuring the response
@@ -48,29 +49,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyDBClusterSnapshotAttribute' smart constructor.
 data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
-  { valuesToAdd ::
-      Lude.Maybe [Lude.Text],
-    valuesToRemove ::
-      Lude.Maybe [Lude.Text],
-    dbClusterSnapshotIdentifier ::
-      Lude.Text,
-    attributeName ::
-      Lude.Text
+  { -- | The identifier for the DB cluster snapshot to modify the attributes for.
+    dbClusterSnapshotIdentifier :: Lude.Text,
+    -- | A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ .
+    --
+    -- To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account IDs, or @all@ to make the manual DB cluster snapshot restorable by any AWS account. Do not add the @all@ value for any manual DB cluster snapshots that contain private information that you don't want available to all AWS accounts.
+    valuesToAdd :: Lude.Maybe [Lude.Text],
+    -- | A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ .
+    --
+    -- To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
+    valuesToRemove :: Lude.Maybe [Lude.Text],
+    -- | The name of the DB cluster snapshot attribute to modify.
+    --
+    -- To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
+    attributeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBClusterSnapshotAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the DB cluster snapshot attribute to modify.
---
--- To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
 -- * 'dbClusterSnapshotIdentifier' - The identifier for the DB cluster snapshot to modify the attributes for.
 -- * 'valuesToAdd' - A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ .
 --
@@ -78,6 +76,9 @@ data ModifyDBClusterSnapshotAttribute = ModifyDBClusterSnapshotAttribute'
 -- * 'valuesToRemove' - A list of DB cluster snapshot attributes to remove from the attribute specified by @AttributeName@ .
 --
 -- To remove authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this list to include one or more AWS account identifiers, or @all@ to remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you specify @all@ , an AWS account whose account ID is explicitly added to the @restore@ attribute can still copy or restore a manual DB cluster snapshot.
+-- * 'attributeName' - The name of the DB cluster snapshot attribute to modify.
+--
+-- To manage authorization for other AWS accounts to copy or restore a manual DB cluster snapshot, set this value to @restore@ .
 mkModifyDBClusterSnapshotAttribute ::
   -- | 'dbClusterSnapshotIdentifier'
   Lude.Text ->
@@ -88,11 +89,19 @@ mkModifyDBClusterSnapshotAttribute
   pDBClusterSnapshotIdentifier_
   pAttributeName_ =
     ModifyDBClusterSnapshotAttribute'
-      { valuesToAdd = Lude.Nothing,
+      { dbClusterSnapshotIdentifier =
+          pDBClusterSnapshotIdentifier_,
+        valuesToAdd = Lude.Nothing,
         valuesToRemove = Lude.Nothing,
-        dbClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_,
         attributeName = pAttributeName_
       }
+
+-- | The identifier for the DB cluster snapshot to modify the attributes for.
+--
+-- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdcsaDBClusterSnapshotIdentifier :: Lens.Lens' ModifyDBClusterSnapshotAttribute Lude.Text
+mdcsaDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: ModifyDBClusterSnapshotAttribute -> Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: ModifyDBClusterSnapshotAttribute)
+{-# DEPRECATED mdcsaDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
 
 -- | A list of DB cluster snapshot attributes to add to the attribute specified by @AttributeName@ .
 --
@@ -111,13 +120,6 @@ mdcsaValuesToAdd = Lens.lens (valuesToAdd :: ModifyDBClusterSnapshotAttribute ->
 mdcsaValuesToRemove :: Lens.Lens' ModifyDBClusterSnapshotAttribute (Lude.Maybe [Lude.Text])
 mdcsaValuesToRemove = Lens.lens (valuesToRemove :: ModifyDBClusterSnapshotAttribute -> Lude.Maybe [Lude.Text]) (\s a -> s {valuesToRemove = a} :: ModifyDBClusterSnapshotAttribute)
 {-# DEPRECATED mdcsaValuesToRemove "Use generic-lens or generic-optics with 'valuesToRemove' instead." #-}
-
--- | The identifier for the DB cluster snapshot to modify the attributes for.
---
--- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdcsaDBClusterSnapshotIdentifier :: Lens.Lens' ModifyDBClusterSnapshotAttribute Lude.Text
-mdcsaDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: ModifyDBClusterSnapshotAttribute -> Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: ModifyDBClusterSnapshotAttribute)
-{-# DEPRECATED mdcsaDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
 
 -- | The name of the DB cluster snapshot attribute to modify.
 --
@@ -154,36 +156,28 @@ instance Lude.ToQuery ModifyDBClusterSnapshotAttribute where
       [ "Action"
           Lude.=: ("ModifyDBClusterSnapshotAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "DBClusterSnapshotIdentifier" Lude.=: dbClusterSnapshotIdentifier,
         "ValuesToAdd"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "AttributeValue" Lude.<$> valuesToAdd),
         "ValuesToRemove"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "AttributeValue" Lude.<$> valuesToRemove),
-        "DBClusterSnapshotIdentifier" Lude.=: dbClusterSnapshotIdentifier,
         "AttributeName" Lude.=: attributeName
       ]
 
 -- | /See:/ 'mkModifyDBClusterSnapshotAttributeResponse' smart constructor.
 data ModifyDBClusterSnapshotAttributeResponse = ModifyDBClusterSnapshotAttributeResponse'
-  { dbClusterSnapshotAttributesResult ::
-      Lude.Maybe
-        DBClusterSnapshotAttributesResult,
-    responseStatus ::
-      Lude.Int
+  { dbClusterSnapshotAttributesResult :: Lude.Maybe DBClusterSnapshotAttributesResult,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyDBClusterSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
--- * 'dbClusterSnapshotAttributesResult' - Undocumented field.
+-- * 'dbClusterSnapshotAttributesResult' -
 -- * 'responseStatus' - The response status code.
 mkModifyDBClusterSnapshotAttributeResponse ::
   -- | 'responseStatus'

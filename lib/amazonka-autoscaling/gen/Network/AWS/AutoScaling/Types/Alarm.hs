@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlarm' smart constructor.
 data Alarm = Alarm'
-  { alarmName :: Lude.Maybe Lude.Text,
+  { -- | The name of the alarm.
+    alarmName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the alarm.
     alarmARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Alarm' with the minimum fields required to make a request.
 --
--- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
 -- * 'alarmName' - The name of the alarm.
+-- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
 mkAlarm ::
   Alarm
 mkAlarm = Alarm' {alarmName = Lude.Nothing, alarmARN = Lude.Nothing}

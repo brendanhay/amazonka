@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,18 +22,18 @@ module Network.AWS.CognitoIdentityProvider.ListResourceServers
     mkListResourceServers,
 
     -- ** Request lenses
+    lrsUserPoolId,
     lrsNextToken,
     lrsMaxResults,
-    lrsUserPoolId,
 
     -- * Destructuring the response
     ListResourceServersResponse (..),
     mkListResourceServersResponse,
 
     -- ** Response lenses
+    lrsrsResourceServers,
     lrsrsNextToken,
     lrsrsResponseStatus,
-    lrsrsResourceServers,
   )
 where
 
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListResourceServers' smart constructor.
 data ListResourceServers = ListResourceServers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    userPoolId :: Lude.Text
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Lude.Text,
+    -- | A pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of resource servers to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceServers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of resource servers to return.
--- * 'nextToken' - A pagination token.
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'nextToken' - A pagination token.
+-- * 'maxResults' - The maximum number of resource servers to return.
 mkListResourceServers ::
   -- | 'userPoolId'
   Lude.Text ->
   ListResourceServers
 mkListResourceServers pUserPoolId_ =
   ListResourceServers'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      userPoolId = pUserPoolId_
+    { userPoolId = pUserPoolId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The user pool ID for the user pool.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsUserPoolId :: Lens.Lens' ListResourceServers Lude.Text
+lrsUserPoolId = Lens.lens (userPoolId :: ListResourceServers -> Lude.Text) (\s a -> s {userPoolId = a} :: ListResourceServers)
+{-# DEPRECATED lrsUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | A pagination token.
 --
@@ -88,13 +92,6 @@ lrsNextToken = Lens.lens (nextToken :: ListResourceServers -> Lude.Maybe Lude.Te
 lrsMaxResults :: Lens.Lens' ListResourceServers (Lude.Maybe Lude.Natural)
 lrsMaxResults = Lens.lens (maxResults :: ListResourceServers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListResourceServers)
 {-# DEPRECATED lrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The user pool ID for the user pool.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsUserPoolId :: Lens.Lens' ListResourceServers Lude.Text
-lrsUserPoolId = Lens.lens (userPoolId :: ListResourceServers -> Lude.Text) (\s a -> s {userPoolId = a} :: ListResourceServers)
-{-# DEPRECATED lrsUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Page.AWSPager ListResourceServers where
   page rq rs
@@ -112,9 +109,9 @@ instance Lude.AWSRequest ListResourceServers where
     Res.receiveJSON
       ( \s h x ->
           ListResourceServersResponse'
-            Lude.<$> (x Lude..?> "NextToken")
+            Lude.<$> (x Lude..?> "ResourceServers" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "ResourceServers" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListResourceServers where
@@ -134,9 +131,9 @@ instance Lude.ToJSON ListResourceServers where
   toJSON ListResourceServers' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -148,25 +145,20 @@ instance Lude.ToQuery ListResourceServers where
 
 -- | /See:/ 'mkListResourceServersResponse' smart constructor.
 data ListResourceServersResponse = ListResourceServersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    resourceServers ::
-      [ResourceServerType]
+  { -- | The resource servers.
+    resourceServers :: [ResourceServerType],
+    -- | A pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListResourceServersResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - A pagination token.
 -- * 'resourceServers' - The resource servers.
+-- * 'nextToken' - A pagination token.
 -- * 'responseStatus' - The response status code.
 mkListResourceServersResponse ::
   -- | 'responseStatus'
@@ -174,10 +166,17 @@ mkListResourceServersResponse ::
   ListResourceServersResponse
 mkListResourceServersResponse pResponseStatus_ =
   ListResourceServersResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      resourceServers = Lude.mempty
+    { resourceServers = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The resource servers.
+--
+-- /Note:/ Consider using 'resourceServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsrsResourceServers :: Lens.Lens' ListResourceServersResponse [ResourceServerType]
+lrsrsResourceServers = Lens.lens (resourceServers :: ListResourceServersResponse -> [ResourceServerType]) (\s a -> s {resourceServers = a} :: ListResourceServersResponse)
+{-# DEPRECATED lrsrsResourceServers "Use generic-lens or generic-optics with 'resourceServers' instead." #-}
 
 -- | A pagination token.
 --
@@ -192,10 +191,3 @@ lrsrsNextToken = Lens.lens (nextToken :: ListResourceServersResponse -> Lude.May
 lrsrsResponseStatus :: Lens.Lens' ListResourceServersResponse Lude.Int
 lrsrsResponseStatus = Lens.lens (responseStatus :: ListResourceServersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourceServersResponse)
 {-# DEPRECATED lrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The resource servers.
---
--- /Note:/ Consider using 'resourceServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsrsResourceServers :: Lens.Lens' ListResourceServersResponse [ResourceServerType]
-lrsrsResourceServers = Lens.lens (resourceServers :: ListResourceServersResponse -> [ResourceServerType]) (\s a -> s {resourceServers = a} :: ListResourceServersResponse)
-{-# DEPRECATED lrsrsResourceServers "Use generic-lens or generic-optics with 'resourceServers' instead." #-}

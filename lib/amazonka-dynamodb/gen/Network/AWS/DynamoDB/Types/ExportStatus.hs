@@ -13,9 +13,9 @@
 module Network.AWS.DynamoDB.Types.ExportStatus
   ( ExportStatus
       ( ExportStatus',
+        InProgress,
         Completed,
-        Failed,
-        InProgress
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ExportStatus = ExportStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern InProgress :: ExportStatus
+pattern InProgress = ExportStatus' "IN_PROGRESS"
+
 pattern Completed :: ExportStatus
 pattern Completed = ExportStatus' "COMPLETED"
 
 pattern Failed :: ExportStatus
 pattern Failed = ExportStatus' "FAILED"
 
-pattern InProgress :: ExportStatus
-pattern InProgress = ExportStatus' "IN_PROGRESS"
-
 {-# COMPLETE
+  InProgress,
   Completed,
   Failed,
-  InProgress,
   ExportStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MediaPackage.UpdateChannel
     mkUpdateChannel,
 
     -- ** Request lenses
-    ucDescription,
     ucId,
+    ucDescription,
 
     -- * Destructuring the response
     UpdateChannelResponse (..),
@@ -48,36 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { description ::
-      Lude.Maybe Lude.Text,
-    id :: Lude.Text
+  { -- | The ID of the Channel to update.
+    id :: Lude.Text,
+    -- | A short text description of the Channel.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannel' with the minimum fields required to make a request.
 --
--- * 'description' - A short text description of the Channel.
 -- * 'id' - The ID of the Channel to update.
+-- * 'description' - A short text description of the Channel.
 mkUpdateChannel ::
   -- | 'id'
   Lude.Text ->
   UpdateChannel
 mkUpdateChannel pId_ =
-  UpdateChannel' {description = Lude.Nothing, id = pId_}
-
--- | A short text description of the Channel.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucDescription :: Lens.Lens' UpdateChannel (Lude.Maybe Lude.Text)
-ucDescription = Lens.lens (description :: UpdateChannel -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateChannel)
-{-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+  UpdateChannel' {id = pId_, description = Lude.Nothing}
 
 -- | The ID of the Channel to update.
 --
@@ -85,6 +74,13 @@ ucDescription = Lens.lens (description :: UpdateChannel -> Lude.Maybe Lude.Text)
 ucId :: Lens.Lens' UpdateChannel Lude.Text
 ucId = Lens.lens (id :: UpdateChannel -> Lude.Text) (\s a -> s {id = a} :: UpdateChannel)
 {-# DEPRECATED ucId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A short text description of the Channel.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucDescription :: Lens.Lens' UpdateChannel (Lude.Maybe Lude.Text)
+ucDescription = Lens.lens (description :: UpdateChannel -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateChannel)
+{-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateChannel where
   type Rs UpdateChannel = UpdateChannelResponse
@@ -126,36 +122,32 @@ instance Lude.ToQuery UpdateChannel where
 
 -- | /See:/ 'mkUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  { ingressAccessLogs ::
-      Lude.Maybe IngressAccessLogs,
+  { ingressAccessLogs :: Lude.Maybe IngressAccessLogs,
     hlsIngest :: Lude.Maybe HlsIngest,
+    -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the Channel.
     id :: Lude.Maybe Lude.Text,
+    -- | A short text description of the Channel.
     description :: Lude.Maybe Lude.Text,
     egressAccessLogs :: Lude.Maybe EgressAccessLogs,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateChannelResponse' with the minimum fields required to make a request.
 --
+-- * 'ingressAccessLogs' -
+-- * 'hlsIngest' -
 -- * 'arn' - The Amazon Resource Name (ARN) assigned to the Channel.
--- * 'description' - A short text description of the Channel.
--- * 'egressAccessLogs' - Undocumented field.
--- * 'hlsIngest' - Undocumented field.
 -- * 'id' - The ID of the Channel.
--- * 'ingressAccessLogs' - Undocumented field.
+-- * 'description' - A short text description of the Channel.
+-- * 'egressAccessLogs' -
+-- * 'tags' -
 -- * 'responseStatus' - The response status code.
--- * 'tags' - Undocumented field.
 mkUpdateChannelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

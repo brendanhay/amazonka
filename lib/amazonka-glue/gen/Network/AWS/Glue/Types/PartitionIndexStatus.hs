@@ -13,8 +13,8 @@
 module Network.AWS.Glue.Types.PartitionIndexStatus
   ( PartitionIndexStatus
       ( PartitionIndexStatus',
-        PISActive,
         PISCreating,
+        PISActive,
         PISDeleting,
         PISFailed
       ),
@@ -47,11 +47,11 @@ newtype PartitionIndexStatus = PartitionIndexStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern PISActive :: PartitionIndexStatus
-pattern PISActive = PartitionIndexStatus' "ACTIVE"
-
 pattern PISCreating :: PartitionIndexStatus
 pattern PISCreating = PartitionIndexStatus' "CREATING"
+
+pattern PISActive :: PartitionIndexStatus
+pattern PISActive = PartitionIndexStatus' "ACTIVE"
 
 pattern PISDeleting :: PartitionIndexStatus
 pattern PISDeleting = PartitionIndexStatus' "DELETING"
@@ -60,8 +60,8 @@ pattern PISFailed :: PartitionIndexStatus
 pattern PISFailed = PartitionIndexStatus' "FAILED"
 
 {-# COMPLETE
-  PISActive,
   PISCreating,
+  PISActive,
   PISDeleting,
   PISFailed,
   PartitionIndexStatus'

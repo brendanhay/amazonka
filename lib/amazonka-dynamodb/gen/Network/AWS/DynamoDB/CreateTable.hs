@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,16 +24,16 @@ module Network.AWS.DynamoDB.CreateTable
     mkCreateTable,
 
     -- ** Request lenses
+    ctAttributeDefinitions,
     ctProvisionedThroughput,
     ctSSESpecification,
+    ctKeySchema,
     ctGlobalSecondaryIndexes,
     ctLocalSecondaryIndexes,
     ctBillingMode,
+    ctTableName,
     ctTags,
     ctStreamSpecification,
-    ctAttributeDefinitions,
-    ctTableName,
-    ctKeySchema,
 
     -- * Destructuring the response
     CreateTableResponse (..),
@@ -54,39 +55,159 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { provisionedThroughput ::
-      Lude.Maybe ProvisionedThroughput,
-    sSESpecification :: Lude.Maybe SSESpecification,
-    globalSecondaryIndexes :: Lude.Maybe [GlobalSecondaryIndex],
-    localSecondaryIndexes :: Lude.Maybe [LocalSecondaryIndex],
-    billingMode :: Lude.Maybe BillingMode,
-    tags :: Lude.Maybe [Tag],
-    streamSpecification :: Lude.Maybe StreamSpecification,
+  { -- | An array of attributes that describe the key schema for the table and indexes.
     attributeDefinitions :: [AttributeDefinition],
+    -- | Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation.
+    --
+    -- If you set BillingMode as @PROVISIONED@ , you must specify this property. If you set BillingMode as @PAY_PER_REQUEST@ , you cannot specify this property.
+    -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+    provisionedThroughput :: Lude.Maybe ProvisionedThroughput,
+    -- | Represents the settings used to enable server-side encryption.
+    sSESpecification :: Lude.Maybe SSESpecification,
+    -- | Specifies the attributes that make up the primary key for a table or an index. The attributes in @KeySchema@ must also be defined in the @AttributeDefinitions@ array. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ .
+    --
+    -- Each @KeySchemaElement@ in the array is composed of:
+    --
+    --     * @AttributeName@ - The name of this key attribute.
+    --
+    --
+    --     * @KeyType@ - The role that the key attribute will assume:
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    --
+    --
+    --
+    --
+    -- For a simple primary key (partition key), you must provide exactly one element with a @KeyType@ of @HASH@ .
+    -- For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a @KeyType@ of @HASH@ , and the second element must have a @KeyType@ of @RANGE@ .
+    -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables> in the /Amazon DynamoDB Developer Guide/ .
+    keySchema :: Lude.NonEmpty KeySchemaElement,
+    -- | One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:
+    --
+    --
+    --     * @IndexName@ - The name of the global secondary index. Must be unique only for this table.
+    --
+    --
+    --
+    --     * @KeySchema@ - Specifies the key schema for the global secondary index.
+    --
+    --
+    --     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
+    --
+    --     * @ProjectionType@ - One of the following:
+    --
+    --     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
+    --
+    --
+    --     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes is in @NonKeyAttributes@ .
+    --
+    --
+    --     * @ALL@ - All of the table attributes are projected into the index.
+    --
+    --
+    --
+    --
+    --     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+    --
+    --
+    --
+    --
+    --     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
+    globalSecondaryIndexes :: Lude.Maybe [GlobalSecondaryIndex],
+    -- | One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.
+    --
+    -- Each local secondary index in the array includes the following:
+    --
+    --     * @IndexName@ - The name of the local secondary index. Must be unique only for this table.
+    --
+    --
+    --
+    --     * @KeySchema@ - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.
+    --
+    --
+    --     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
+    --
+    --     * @ProjectionType@ - One of the following:
+    --
+    --     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
+    --
+    --
+    --     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes is in @NonKeyAttributes@ .
+    --
+    --
+    --     * @ALL@ - All of the table attributes are projected into the index.
+    --
+    --
+    --
+    --
+    --     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+    localSecondaryIndexes :: Lude.Maybe [LocalSecondaryIndex],
+    -- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
+    --
+    --
+    --     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
+    --
+    --
+    --     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
+    billingMode :: Lude.Maybe BillingMode,
+    -- | The name of the table to create.
     tableName :: Lude.Text,
-    keySchema :: Lude.NonEmpty KeySchemaElement
+    -- | A list of key-value pairs to label the table. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB> .
+    tags :: Lude.Maybe [Tag],
+    -- | The settings for DynamoDB Streams on the table. These settings consist of:
+    --
+    --
+    --     * @StreamEnabled@ - Indicates whether DynamoDB Streams is to be enabled (true) or disabled (false).
+    --
+    --
+    --     * @StreamViewType@ - When an item in the table is modified, @StreamViewType@ determines what information is written to the table's stream. Valid values for @StreamViewType@ are:
+    --
+    --     * @KEYS_ONLY@ - Only the key attributes of the modified item are written to the stream.
+    --
+    --
+    --     * @NEW_IMAGE@ - The entire item, as it appears after it was modified, is written to the stream.
+    --
+    --
+    --     * @OLD_IMAGE@ - The entire item, as it appeared before it was modified, is written to the stream.
+    --
+    --
+    --     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
+    streamSpecification :: Lude.Maybe StreamSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTable' with the minimum fields required to make a request.
 --
 -- * 'attributeDefinitions' - An array of attributes that describe the key schema for the table and indexes.
--- * 'billingMode' - Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
+-- * 'provisionedThroughput' - Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation.
+--
+-- If you set BillingMode as @PROVISIONED@ , you must specify this property. If you set BillingMode as @PAY_PER_REQUEST@ , you cannot specify this property.
+-- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'sSESpecification' - Represents the settings used to enable server-side encryption.
+-- * 'keySchema' - Specifies the attributes that make up the primary key for a table or an index. The attributes in @KeySchema@ must also be defined in the @AttributeDefinitions@ array. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- Each @KeySchemaElement@ in the array is composed of:
+--
+--     * @AttributeName@ - The name of this key attribute.
 --
 --
---     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
+--     * @KeyType@ - The role that the key attribute will assume:
+--
+--     * @HASH@ - partition key
 --
 --
---     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
+--     * @RANGE@ - sort key
 --
 --
+--
+--
+-- For a simple primary key (partition key), you must provide exactly one element with a @KeyType@ of @HASH@ .
+-- For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a @KeyType@ of @HASH@ , and the second element must have a @KeyType@ of @RANGE@ .
+-- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'globalSecondaryIndexes' - One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:
 --
 --
@@ -120,26 +241,6 @@ data CreateTable = CreateTable'
 --     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.
 --
 --
--- * 'keySchema' - Specifies the attributes that make up the primary key for a table or an index. The attributes in @KeySchema@ must also be defined in the @AttributeDefinitions@ array. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ .
---
--- Each @KeySchemaElement@ in the array is composed of:
---
---     * @AttributeName@ - The name of this key attribute.
---
---
---     * @KeyType@ - The role that the key attribute will assume:
---
---     * @HASH@ - partition key
---
---
---     * @RANGE@ - sort key
---
---
---
---
--- For a simple primary key (partition key), you must provide exactly one element with a @KeyType@ of @HASH@ .
--- For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a @KeyType@ of @HASH@ , and the second element must have a @KeyType@ of @RANGE@ .
--- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'localSecondaryIndexes' - One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.
 --
 -- Each local secondary index in the array includes the following:
@@ -171,11 +272,17 @@ data CreateTable = CreateTable'
 --
 --
 --
--- * 'provisionedThroughput' - Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation.
+-- * 'billingMode' - Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
 --
--- If you set BillingMode as @PROVISIONED@ , you must specify this property. If you set BillingMode as @PAY_PER_REQUEST@ , you cannot specify this property.
--- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
--- * 'sSESpecification' - Represents the settings used to enable server-side encryption.
+--
+--     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
+--
+--
+--     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
+--
+--
+-- * 'tableName' - The name of the table to create.
+-- * 'tags' - A list of key-value pairs to label the table. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB> .
 -- * 'streamSpecification' - The settings for DynamoDB Streams on the table. These settings consist of:
 --
 --
@@ -194,31 +301,32 @@ data CreateTable = CreateTable'
 --
 --
 --     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
---
---
---
---
--- * 'tableName' - The name of the table to create.
--- * 'tags' - A list of key-value pairs to label the table. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB> .
 mkCreateTable ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'keySchema'
   Lude.NonEmpty KeySchemaElement ->
+  -- | 'tableName'
+  Lude.Text ->
   CreateTable
-mkCreateTable pTableName_ pKeySchema_ =
+mkCreateTable pKeySchema_ pTableName_ =
   CreateTable'
-    { provisionedThroughput = Lude.Nothing,
+    { attributeDefinitions = Lude.mempty,
+      provisionedThroughput = Lude.Nothing,
       sSESpecification = Lude.Nothing,
+      keySchema = pKeySchema_,
       globalSecondaryIndexes = Lude.Nothing,
       localSecondaryIndexes = Lude.Nothing,
       billingMode = Lude.Nothing,
-      tags = Lude.Nothing,
-      streamSpecification = Lude.Nothing,
-      attributeDefinitions = Lude.mempty,
       tableName = pTableName_,
-      keySchema = pKeySchema_
+      tags = Lude.Nothing,
+      streamSpecification = Lude.Nothing
     }
+
+-- | An array of attributes that describe the key schema for the table and indexes.
+--
+-- /Note:/ Consider using 'attributeDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctAttributeDefinitions :: Lens.Lens' CreateTable [AttributeDefinition]
+ctAttributeDefinitions = Lens.lens (attributeDefinitions :: CreateTable -> [AttributeDefinition]) (\s a -> s {attributeDefinitions = a} :: CreateTable)
+{-# DEPRECATED ctAttributeDefinitions "Use generic-lens or generic-optics with 'attributeDefinitions' instead." #-}
 
 -- | Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the @UpdateTable@ operation.
 --
@@ -236,6 +344,32 @@ ctProvisionedThroughput = Lens.lens (provisionedThroughput :: CreateTable -> Lud
 ctSSESpecification :: Lens.Lens' CreateTable (Lude.Maybe SSESpecification)
 ctSSESpecification = Lens.lens (sSESpecification :: CreateTable -> Lude.Maybe SSESpecification) (\s a -> s {sSESpecification = a} :: CreateTable)
 {-# DEPRECATED ctSSESpecification "Use generic-lens or generic-optics with 'sSESpecification' instead." #-}
+
+-- | Specifies the attributes that make up the primary key for a table or an index. The attributes in @KeySchema@ must also be defined in the @AttributeDefinitions@ array. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- Each @KeySchemaElement@ in the array is composed of:
+--
+--     * @AttributeName@ - The name of this key attribute.
+--
+--
+--     * @KeyType@ - The role that the key attribute will assume:
+--
+--     * @HASH@ - partition key
+--
+--
+--     * @RANGE@ - sort key
+--
+--
+--
+--
+-- For a simple primary key (partition key), you must provide exactly one element with a @KeyType@ of @HASH@ .
+-- For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a @KeyType@ of @HASH@ , and the second element must have a @KeyType@ of @RANGE@ .
+-- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctKeySchema :: Lens.Lens' CreateTable (Lude.NonEmpty KeySchemaElement)
+ctKeySchema = Lens.lens (keySchema :: CreateTable -> Lude.NonEmpty KeySchemaElement) (\s a -> s {keySchema = a} :: CreateTable)
+{-# DEPRECATED ctKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
 
 -- | One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:
 --
@@ -328,6 +462,13 @@ ctBillingMode :: Lens.Lens' CreateTable (Lude.Maybe BillingMode)
 ctBillingMode = Lens.lens (billingMode :: CreateTable -> Lude.Maybe BillingMode) (\s a -> s {billingMode = a} :: CreateTable)
 {-# DEPRECATED ctBillingMode "Use generic-lens or generic-optics with 'billingMode' instead." #-}
 
+-- | The name of the table to create.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTableName :: Lens.Lens' CreateTable Lude.Text
+ctTableName = Lens.lens (tableName :: CreateTable -> Lude.Text) (\s a -> s {tableName = a} :: CreateTable)
+{-# DEPRECATED ctTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
 -- | A list of key-value pairs to label the table. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB> .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -363,46 +504,6 @@ ctStreamSpecification :: Lens.Lens' CreateTable (Lude.Maybe StreamSpecification)
 ctStreamSpecification = Lens.lens (streamSpecification :: CreateTable -> Lude.Maybe StreamSpecification) (\s a -> s {streamSpecification = a} :: CreateTable)
 {-# DEPRECATED ctStreamSpecification "Use generic-lens or generic-optics with 'streamSpecification' instead." #-}
 
--- | An array of attributes that describe the key schema for the table and indexes.
---
--- /Note:/ Consider using 'attributeDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctAttributeDefinitions :: Lens.Lens' CreateTable [AttributeDefinition]
-ctAttributeDefinitions = Lens.lens (attributeDefinitions :: CreateTable -> [AttributeDefinition]) (\s a -> s {attributeDefinitions = a} :: CreateTable)
-{-# DEPRECATED ctAttributeDefinitions "Use generic-lens or generic-optics with 'attributeDefinitions' instead." #-}
-
--- | The name of the table to create.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTableName :: Lens.Lens' CreateTable Lude.Text
-ctTableName = Lens.lens (tableName :: CreateTable -> Lude.Text) (\s a -> s {tableName = a} :: CreateTable)
-{-# DEPRECATED ctTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | Specifies the attributes that make up the primary key for a table or an index. The attributes in @KeySchema@ must also be defined in the @AttributeDefinitions@ array. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html Data Model> in the /Amazon DynamoDB Developer Guide/ .
---
--- Each @KeySchemaElement@ in the array is composed of:
---
---     * @AttributeName@ - The name of this key attribute.
---
---
---     * @KeyType@ - The role that the key attribute will assume:
---
---     * @HASH@ - partition key
---
---
---     * @RANGE@ - sort key
---
---
---
---
--- For a simple primary key (partition key), you must provide exactly one element with a @KeyType@ of @HASH@ .
--- For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a @KeyType@ of @HASH@ , and the second element must have a @KeyType@ of @RANGE@ .
--- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables> in the /Amazon DynamoDB Developer Guide/ .
---
--- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctKeySchema :: Lens.Lens' CreateTable (Lude.NonEmpty KeySchemaElement)
-ctKeySchema = Lens.lens (keySchema :: CreateTable -> Lude.NonEmpty KeySchemaElement) (\s a -> s {keySchema = a} :: CreateTable)
-{-# DEPRECATED ctKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
-
 instance Lude.AWSRequest CreateTable where
   type Rs CreateTable = CreateTableResponse
   request = Req.postJSON dynamoDBService
@@ -429,16 +530,16 @@ instance Lude.ToJSON CreateTable where
   toJSON CreateTable' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ProvisionedThroughput" Lude..=) Lude.<$> provisionedThroughput,
+          [ Lude.Just ("AttributeDefinitions" Lude..= attributeDefinitions),
+            ("ProvisionedThroughput" Lude..=) Lude.<$> provisionedThroughput,
             ("SSESpecification" Lude..=) Lude.<$> sSESpecification,
+            Lude.Just ("KeySchema" Lude..= keySchema),
             ("GlobalSecondaryIndexes" Lude..=) Lude.<$> globalSecondaryIndexes,
             ("LocalSecondaryIndexes" Lude..=) Lude.<$> localSecondaryIndexes,
             ("BillingMode" Lude..=) Lude.<$> billingMode,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("StreamSpecification" Lude..=) Lude.<$> streamSpecification,
-            Lude.Just ("AttributeDefinitions" Lude..= attributeDefinitions),
             Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("KeySchema" Lude..= keySchema)
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("StreamSpecification" Lude..=) Lude.<$> streamSpecification
           ]
       )
 
@@ -452,23 +553,18 @@ instance Lude.ToQuery CreateTable where
 --
 -- /See:/ 'mkCreateTableResponse' smart constructor.
 data CreateTableResponse = CreateTableResponse'
-  { tableDescription ::
-      Lude.Maybe TableDescription,
+  { -- | Represents the properties of the table.
+    tableDescription :: Lude.Maybe TableDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tableDescription' - Represents the properties of the table.
+-- * 'responseStatus' - The response status code.
 mkCreateTableResponse ::
   -- | 'responseStatus'
   Lude.Int ->

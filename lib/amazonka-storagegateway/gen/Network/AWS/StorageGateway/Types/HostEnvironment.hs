@@ -13,11 +13,11 @@
 module Network.AWS.StorageGateway.Types.HostEnvironment
   ( HostEnvironment
       ( HostEnvironment',
-        EC2,
+        VMware,
         HyperV,
+        EC2,
         Kvm,
-        Other,
-        VMware
+        Other
       ),
   )
 where
@@ -48,11 +48,14 @@ newtype HostEnvironment = HostEnvironment' Lude.Text
       Lude.ToHeader
     )
 
-pattern EC2 :: HostEnvironment
-pattern EC2 = HostEnvironment' "EC2"
+pattern VMware :: HostEnvironment
+pattern VMware = HostEnvironment' "VMWARE"
 
 pattern HyperV :: HostEnvironment
 pattern HyperV = HostEnvironment' "HYPER-V"
+
+pattern EC2 :: HostEnvironment
+pattern EC2 = HostEnvironment' "EC2"
 
 pattern Kvm :: HostEnvironment
 pattern Kvm = HostEnvironment' "KVM"
@@ -60,14 +63,11 @@ pattern Kvm = HostEnvironment' "KVM"
 pattern Other :: HostEnvironment
 pattern Other = HostEnvironment' "OTHER"
 
-pattern VMware :: HostEnvironment
-pattern VMware = HostEnvironment' "VMWARE"
-
 {-# COMPLETE
-  EC2,
+  VMware,
   HyperV,
+  EC2,
   Kvm,
   Other,
-  VMware,
   HostEnvironment'
   #-}

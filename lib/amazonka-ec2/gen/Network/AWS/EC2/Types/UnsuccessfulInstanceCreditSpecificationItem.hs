@@ -30,26 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnsuccessfulInstanceCreditSpecificationItem' smart constructor.
 data UnsuccessfulInstanceCreditSpecificationItem = UnsuccessfulInstanceCreditSpecificationItem'
-  { instanceId ::
-      Lude.Maybe
-        Lude.Text,
-    error ::
-      Lude.Maybe
-        UnsuccessfulInstanceCreditSpecificationItemError
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The applicable error for the burstable performance instance whose credit option for CPU usage was not modified.
+    error :: Lude.Maybe UnsuccessfulInstanceCreditSpecificationItemError
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnsuccessfulInstanceCreditSpecificationItem' with the minimum fields required to make a request.
 --
--- * 'error' - The applicable error for the burstable performance instance whose credit option for CPU usage was not modified.
 -- * 'instanceId' - The ID of the instance.
+-- * 'error' - The applicable error for the burstable performance instance whose credit option for CPU usage was not modified.
 mkUnsuccessfulInstanceCreditSpecificationItem ::
   UnsuccessfulInstanceCreditSpecificationItem
 mkUnsuccessfulInstanceCreditSpecificationItem =

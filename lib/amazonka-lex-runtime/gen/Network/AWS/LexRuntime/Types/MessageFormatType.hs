@@ -13,10 +13,10 @@
 module Network.AWS.LexRuntime.Types.MessageFormatType
   ( MessageFormatType
       ( MessageFormatType',
-        Composite,
-        CustomPayload,
         PlainText,
-        Ssml
+        CustomPayload,
+        Ssml,
+        Composite
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype MessageFormatType = MessageFormatType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Composite :: MessageFormatType
-pattern Composite = MessageFormatType' "Composite"
+pattern PlainText :: MessageFormatType
+pattern PlainText = MessageFormatType' "PlainText"
 
 pattern CustomPayload :: MessageFormatType
 pattern CustomPayload = MessageFormatType' "CustomPayload"
 
-pattern PlainText :: MessageFormatType
-pattern PlainText = MessageFormatType' "PlainText"
-
 pattern Ssml :: MessageFormatType
 pattern Ssml = MessageFormatType' "SSML"
 
+pattern Composite :: MessageFormatType
+pattern Composite = MessageFormatType' "Composite"
+
 {-# COMPLETE
-  Composite,
-  CustomPayload,
   PlainText,
+  CustomPayload,
   Ssml,
+  Composite,
   MessageFormatType'
   #-}

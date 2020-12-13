@@ -30,26 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheParameterGroupStatus' smart constructor.
 data CacheParameterGroupStatus = CacheParameterGroupStatus'
-  { cacheParameterGroupName ::
-      Lude.Maybe Lude.Text,
-    cacheNodeIdsToReboot ::
-      Lude.Maybe [Lude.Text],
-    parameterApplyStatus ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the cache parameter group.
+    cacheParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | A list of the cache node IDs which need to be rebooted for parameter changes to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
+    cacheNodeIdsToReboot :: Lude.Maybe [Lude.Text],
+    -- | The status of parameter updates.
+    parameterApplyStatus :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheParameterGroupStatus' with the minimum fields required to make a request.
 --
--- * 'cacheNodeIdsToReboot' - A list of the cache node IDs which need to be rebooted for parameter changes to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
 -- * 'cacheParameterGroupName' - The name of the cache parameter group.
+-- * 'cacheNodeIdsToReboot' - A list of the cache node IDs which need to be rebooted for parameter changes to be applied. A node ID is a numeric identifier (0001, 0002, etc.).
 -- * 'parameterApplyStatus' - The status of parameter updates.
 mkCacheParameterGroupStatus ::
   CacheParameterGroupStatus

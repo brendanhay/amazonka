@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkCheckIfPhoneNumberIsOptedOut' smart constructor.
 newtype CheckIfPhoneNumberIsOptedOut = CheckIfPhoneNumberIsOptedOut'
-  { phoneNumber ::
-      Lude.Text
+  { -- | The phone number for which you want to check the opt out status.
+    phoneNumber :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckIfPhoneNumberIsOptedOut' with the minimum fields required to make a request.
@@ -104,19 +99,18 @@ instance Lude.ToQuery CheckIfPhoneNumberIsOptedOut where
 --
 -- /See:/ 'mkCheckIfPhoneNumberIsOptedOutResponse' smart constructor.
 data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse'
-  { isOptedOut ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Indicates whether the phone number is opted out:
+    --
+    --
+    --     * @true@ – The phone number is opted out, meaning you cannot publish SMS messages to it.
+    --
+    --
+    --     * @false@ – The phone number is opted in, meaning you can publish SMS messages to it.
+    isOptedOut :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CheckIfPhoneNumberIsOptedOutResponse' with the minimum fields required to make a request.

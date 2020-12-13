@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Glue.BatchDeletePartition
     -- ** Request lenses
     bdpCatalogId,
     bdpDatabaseName,
-    bdpTableName,
     bdpPartitionsToDelete,
+    bdpTableName,
 
     -- * Destructuring the response
     BatchDeletePartitionResponse (..),
@@ -42,19 +43,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchDeletePartition' smart constructor.
 data BatchDeletePartition = BatchDeletePartition'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database in which the table in question resides.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    partitionsToDelete :: [PartitionValueList]
+    -- | A list of @PartitionInput@ structures that define the partitions to be deleted.
+    partitionsToDelete :: [PartitionValueList],
+    -- | The name of the table that contains the partitions to be deleted.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeletePartition' with the minimum fields required to make a request.
@@ -73,8 +71,8 @@ mkBatchDeletePartition pDatabaseName_ pTableName_ =
   BatchDeletePartition'
     { catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      partitionsToDelete = Lude.mempty
+      partitionsToDelete = Lude.mempty,
+      tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If none is provided, the AWS account ID is used by default.
@@ -91,19 +89,19 @@ bdpDatabaseName :: Lens.Lens' BatchDeletePartition Lude.Text
 bdpDatabaseName = Lens.lens (databaseName :: BatchDeletePartition -> Lude.Text) (\s a -> s {databaseName = a} :: BatchDeletePartition)
 {-# DEPRECATED bdpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
--- | The name of the table that contains the partitions to be deleted.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdpTableName :: Lens.Lens' BatchDeletePartition Lude.Text
-bdpTableName = Lens.lens (tableName :: BatchDeletePartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchDeletePartition)
-{-# DEPRECATED bdpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
 -- | A list of @PartitionInput@ structures that define the partitions to be deleted.
 --
 -- /Note:/ Consider using 'partitionsToDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 bdpPartitionsToDelete :: Lens.Lens' BatchDeletePartition [PartitionValueList]
 bdpPartitionsToDelete = Lens.lens (partitionsToDelete :: BatchDeletePartition -> [PartitionValueList]) (\s a -> s {partitionsToDelete = a} :: BatchDeletePartition)
 {-# DEPRECATED bdpPartitionsToDelete "Use generic-lens or generic-optics with 'partitionsToDelete' instead." #-}
+
+-- | The name of the table that contains the partitions to be deleted.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdpTableName :: Lens.Lens' BatchDeletePartition Lude.Text
+bdpTableName = Lens.lens (tableName :: BatchDeletePartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchDeletePartition)
+{-# DEPRECATED bdpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest BatchDeletePartition where
   type Rs BatchDeletePartition = BatchDeletePartitionResponse
@@ -133,8 +131,8 @@ instance Lude.ToJSON BatchDeletePartition where
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("PartitionsToDelete" Lude..= partitionsToDelete)
+            Lude.Just ("PartitionsToDelete" Lude..= partitionsToDelete),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -146,17 +144,12 @@ instance Lude.ToQuery BatchDeletePartition where
 
 -- | /See:/ 'mkBatchDeletePartitionResponse' smart constructor.
 data BatchDeletePartitionResponse = BatchDeletePartitionResponse'
-  { errors ::
-      Lude.Maybe [PartitionError],
+  { -- | The errors encountered when trying to delete the requested partitions.
+    errors :: Lude.Maybe [PartitionError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeletePartitionResponse' with the minimum fields required to make a request.

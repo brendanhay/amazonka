@@ -30,23 +30,18 @@ import Network.AWS.SSM.Types.InventoryAttributeDataType
 --
 -- /See:/ 'mkInventoryItemAttribute' smart constructor.
 data InventoryItemAttribute = InventoryItemAttribute'
-  { name ::
-      Lude.Text,
+  { -- | Name of the inventory item attribute.
+    name :: Lude.Text,
+    -- | The data type of the inventory item attribute.
     dataType :: InventoryAttributeDataType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryItemAttribute' with the minimum fields required to make a request.
 --
--- * 'dataType' - The data type of the inventory item attribute.
 -- * 'name' - Name of the inventory item attribute.
+-- * 'dataType' - The data type of the inventory item attribute.
 mkInventoryItemAttribute ::
   -- | 'name'
   Lude.Text ->

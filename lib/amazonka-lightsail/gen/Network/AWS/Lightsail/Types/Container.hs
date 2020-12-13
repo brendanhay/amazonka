@@ -32,28 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainer' smart constructor.
 data Container = Container'
-  { image :: Lude.Maybe Lude.Text,
+  { -- | The name of the image used for the container.
+    --
+    -- Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (@:@ ). For example, @:container-service-1.mystaticwebsite.1@ . Container images sourced from a public registry like Docker Hub don't start with a colon. For example, @nginx:latest@ or @nginx@ .
+    image :: Lude.Maybe Lude.Text,
+    -- | The launch command for the container.
     command :: Lude.Maybe [Lude.Text],
+    -- | The environment variables of the container.
     environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    ports ::
-      Lude.Maybe (Lude.HashMap Lude.Text (ContainerServiceProtocol))
+    -- | The open firewall ports of the container.
+    ports :: Lude.Maybe (Lude.HashMap Lude.Text (ContainerServiceProtocol))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Container' with the minimum fields required to make a request.
 --
--- * 'command' - The launch command for the container.
--- * 'environment' - The environment variables of the container.
 -- * 'image' - The name of the image used for the container.
 --
 -- Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (@:@ ). For example, @:container-service-1.mystaticwebsite.1@ . Container images sourced from a public registry like Docker Hub don't start with a colon. For example, @nginx:latest@ or @nginx@ .
+-- * 'command' - The launch command for the container.
+-- * 'environment' - The environment variables of the container.
 -- * 'ports' - The open firewall ports of the container.
 mkContainer ::
   Container

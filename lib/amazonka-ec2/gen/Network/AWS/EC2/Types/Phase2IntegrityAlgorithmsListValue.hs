@@ -17,7 +17,7 @@ module Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsListValue
     mkPhase2IntegrityAlgorithmsListValue,
 
     -- * Lenses
-    phaValue,
+    pialvfValue,
   )
 where
 
@@ -28,17 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhase2IntegrityAlgorithmsListValue' smart constructor.
 newtype Phase2IntegrityAlgorithmsListValue = Phase2IntegrityAlgorithmsListValue'
-  { value ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The integrity algorithm.
+    value :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Phase2IntegrityAlgorithmsListValue' with the minimum fields required to make a request.
@@ -52,9 +45,9 @@ mkPhase2IntegrityAlgorithmsListValue =
 -- | The integrity algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-phaValue :: Lens.Lens' Phase2IntegrityAlgorithmsListValue (Lude.Maybe Lude.Text)
-phaValue = Lens.lens (value :: Phase2IntegrityAlgorithmsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase2IntegrityAlgorithmsListValue)
-{-# DEPRECATED phaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+pialvfValue :: Lens.Lens' Phase2IntegrityAlgorithmsListValue (Lude.Maybe Lude.Text)
+pialvfValue = Lens.lens (value :: Phase2IntegrityAlgorithmsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase2IntegrityAlgorithmsListValue)
+{-# DEPRECATED pialvfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 instance Lude.FromXML Phase2IntegrityAlgorithmsListValue where
   parseXML x =

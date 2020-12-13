@@ -13,8 +13,8 @@
 module Network.AWS.Route53AutoNaming.Types.NamespaceType
   ( NamespaceType
       ( NamespaceType',
-        NTDNSPrivate,
         NTDNSPublic,
+        NTDNSPrivate,
         NTHTTP
       ),
   )
@@ -46,18 +46,18 @@ newtype NamespaceType = NamespaceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern NTDNSPrivate :: NamespaceType
-pattern NTDNSPrivate = NamespaceType' "DNS_PRIVATE"
-
 pattern NTDNSPublic :: NamespaceType
 pattern NTDNSPublic = NamespaceType' "DNS_PUBLIC"
+
+pattern NTDNSPrivate :: NamespaceType
+pattern NTDNSPrivate = NamespaceType' "DNS_PRIVATE"
 
 pattern NTHTTP :: NamespaceType
 pattern NTHTTP = NamespaceType' "HTTP"
 
 {-# COMPLETE
-  NTDNSPrivate,
   NTDNSPublic,
+  NTDNSPrivate,
   NTHTTP,
   NamespaceType'
   #-}

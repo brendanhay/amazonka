@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.MigrationHub.DeleteProgressUpdateStream
     mkDeleteProgressUpdateStream,
 
     -- ** Request lenses
-    dpusDryRun,
     dpusProgressUpdateStreamName,
+    dpusDryRun,
 
     -- * Destructuring the response
     DeleteProgressUpdateStreamResponse (..),
@@ -54,39 +55,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteProgressUpdateStream' smart constructor.
 data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    progressUpdateStreamName :: Lude.Text
+  { -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
+    progressUpdateStreamName :: Lude.Text,
+    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProgressUpdateStream' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 -- * 'progressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in this field./
+-- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 mkDeleteProgressUpdateStream ::
   -- | 'progressUpdateStreamName'
   Lude.Text ->
   DeleteProgressUpdateStream
 mkDeleteProgressUpdateStream pProgressUpdateStreamName_ =
   DeleteProgressUpdateStream'
-    { dryRun = Lude.Nothing,
-      progressUpdateStreamName = pProgressUpdateStreamName_
+    { progressUpdateStreamName =
+        pProgressUpdateStreamName_,
+      dryRun = Lude.Nothing
     }
-
--- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpusDryRun :: Lens.Lens' DeleteProgressUpdateStream (Lude.Maybe Lude.Bool)
-dpusDryRun = Lens.lens (dryRun :: DeleteProgressUpdateStream -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteProgressUpdateStream)
-{-# DEPRECATED dpusDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
 --
@@ -94,6 +84,13 @@ dpusDryRun = Lens.lens (dryRun :: DeleteProgressUpdateStream -> Lude.Maybe Lude.
 dpusProgressUpdateStreamName :: Lens.Lens' DeleteProgressUpdateStream Lude.Text
 dpusProgressUpdateStreamName = Lens.lens (progressUpdateStreamName :: DeleteProgressUpdateStream -> Lude.Text) (\s a -> s {progressUpdateStreamName = a} :: DeleteProgressUpdateStream)
 {-# DEPRECATED dpusProgressUpdateStreamName "Use generic-lens or generic-optics with 'progressUpdateStreamName' instead." #-}
+
+-- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpusDryRun :: Lens.Lens' DeleteProgressUpdateStream (Lude.Maybe Lude.Bool)
+dpusDryRun = Lens.lens (dryRun :: DeleteProgressUpdateStream -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteProgressUpdateStream)
+{-# DEPRECATED dpusDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteProgressUpdateStream where
   type
@@ -122,9 +119,9 @@ instance Lude.ToJSON DeleteProgressUpdateStream where
   toJSON DeleteProgressUpdateStream' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DryRun" Lude..=) Lude.<$> dryRun,
-            Lude.Just
-              ("ProgressUpdateStreamName" Lude..= progressUpdateStreamName)
+          [ Lude.Just
+              ("ProgressUpdateStreamName" Lude..= progressUpdateStreamName),
+            ("DryRun" Lude..=) Lude.<$> dryRun
           ]
       )
 
@@ -136,16 +133,10 @@ instance Lude.ToQuery DeleteProgressUpdateStream where
 
 -- | /See:/ 'mkDeleteProgressUpdateStreamResponse' smart constructor.
 newtype DeleteProgressUpdateStreamResponse = DeleteProgressUpdateStreamResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProgressUpdateStreamResponse' with the minimum fields required to make a request.

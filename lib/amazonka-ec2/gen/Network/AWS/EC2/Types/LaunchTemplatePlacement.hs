@@ -36,36 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplatePlacement' smart constructor.
 data LaunchTemplatePlacement = LaunchTemplatePlacement'
-  { affinity ::
-      Lude.Maybe Lude.Text,
+  { -- | The affinity setting for the instance on the Dedicated Host.
+    affinity :: Lude.Maybe Lude.Text,
+    -- | The ID of the Dedicated Host for the instance.
     hostId :: Lude.Maybe Lude.Text,
+    -- | The number of the partition the instance should launch in. Valid only if the placement group strategy is set to @partition@ .
     partitionNumber :: Lude.Maybe Lude.Int,
+    -- | Reserved for future use.
     spreadDomain :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone of the instance.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware.
     tenancy :: Lude.Maybe Tenancy,
+    -- | The name of the placement group for the instance.
     groupName :: Lude.Maybe Lude.Text,
-    hostResourceGroupARN ::
-      Lude.Maybe Lude.Text
+    -- | The ARN of the host resource group in which to launch the instances.
+    hostResourceGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplatePlacement' with the minimum fields required to make a request.
 --
 -- * 'affinity' - The affinity setting for the instance on the Dedicated Host.
--- * 'availabilityZone' - The Availability Zone of the instance.
--- * 'groupName' - The name of the placement group for the instance.
 -- * 'hostId' - The ID of the Dedicated Host for the instance.
--- * 'hostResourceGroupARN' - The ARN of the host resource group in which to launch the instances.
 -- * 'partitionNumber' - The number of the partition the instance should launch in. Valid only if the placement group strategy is set to @partition@ .
 -- * 'spreadDomain' - Reserved for future use.
+-- * 'availabilityZone' - The Availability Zone of the instance.
 -- * 'tenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware.
+-- * 'groupName' - The name of the placement group for the instance.
+-- * 'hostResourceGroupARN' - The ARN of the host resource group in which to launch the instances.
 mkLaunchTemplatePlacement ::
   LaunchTemplatePlacement
 mkLaunchTemplatePlacement =

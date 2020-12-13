@@ -35,38 +35,32 @@ import Network.AWS.WorkSpaces.Types.AccessPropertyValue
 --
 -- /See:/ 'mkWorkspaceAccessProperties' smart constructor.
 data WorkspaceAccessProperties = WorkspaceAccessProperties'
-  { deviceTypeWindows ::
-      Lude.Maybe AccessPropertyValue,
-    deviceTypeWeb ::
-      Lude.Maybe AccessPropertyValue,
-    deviceTypeAndroid ::
-      Lude.Maybe AccessPropertyValue,
-    deviceTypeOSx ::
-      Lude.Maybe AccessPropertyValue,
-    deviceTypeChromeOS ::
-      Lude.Maybe AccessPropertyValue,
-    deviceTypeIOS ::
-      Lude.Maybe AccessPropertyValue,
-    deviceTypeZeroClient ::
-      Lude.Maybe AccessPropertyValue
+  { -- | Indicates whether users can use Windows clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of @TRUST@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices> .
+    deviceTypeWindows :: Lude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can access their WorkSpaces through a web browser.
+    deviceTypeWeb :: Lude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use Android devices to access their WorkSpaces.
+    deviceTypeAndroid :: Lude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use macOS clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of @TRUST@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices> .
+    deviceTypeOSx :: Lude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use Chromebooks to access their WorkSpaces.
+    deviceTypeChromeOS :: Lude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use iOS devices to access their WorkSpaces.
+    deviceTypeIOS :: Lude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use zero client devices to access their WorkSpaces.
+    deviceTypeZeroClient :: Lude.Maybe AccessPropertyValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceAccessProperties' with the minimum fields required to make a request.
 --
+-- * 'deviceTypeWindows' - Indicates whether users can use Windows clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of @TRUST@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices> .
+-- * 'deviceTypeWeb' - Indicates whether users can access their WorkSpaces through a web browser.
 -- * 'deviceTypeAndroid' - Indicates whether users can use Android devices to access their WorkSpaces.
+-- * 'deviceTypeOSx' - Indicates whether users can use macOS clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of @TRUST@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices> .
 -- * 'deviceTypeChromeOS' - Indicates whether users can use Chromebooks to access their WorkSpaces.
 -- * 'deviceTypeIOS' - Indicates whether users can use iOS devices to access their WorkSpaces.
--- * 'deviceTypeOSx' - Indicates whether users can use macOS clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of @TRUST@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices> .
--- * 'deviceTypeWeb' - Indicates whether users can access their WorkSpaces through a web browser.
--- * 'deviceTypeWindows' - Indicates whether users can use Windows clients to access their WorkSpaces. To restrict WorkSpaces access to trusted devices (also known as managed devices) with valid certificates, specify a value of @TRUST@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices> .
 -- * 'deviceTypeZeroClient' - Indicates whether users can use zero client devices to access their WorkSpaces.
 mkWorkspaceAccessProperties ::
   WorkspaceAccessProperties

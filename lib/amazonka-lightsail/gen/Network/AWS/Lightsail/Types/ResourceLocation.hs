@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceLocation' smart constructor.
 data ResourceLocation = ResourceLocation'
-  { regionName ::
-      Lude.Maybe RegionName,
+  { -- | The AWS Region name.
+    regionName :: Lude.Maybe RegionName,
+    -- | The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
     availabilityZone :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceLocation' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
 -- * 'regionName' - The AWS Region name.
+-- * 'availabilityZone' - The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
 mkResourceLocation ::
   ResourceLocation
 mkResourceLocation =

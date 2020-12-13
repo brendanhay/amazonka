@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSJobPresignedURLConfig' smart constructor.
 newtype AWSJobPresignedURLConfig = AWSJobPresignedURLConfig'
-  { expiresInSec ::
-      Lude.Maybe Lude.Integer
+  { -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.
+    expiresInSec :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSJobPresignedURLConfig' with the minimum fields required to make a request.

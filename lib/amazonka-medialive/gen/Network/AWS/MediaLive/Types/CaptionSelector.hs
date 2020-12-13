@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionSelector' smart constructor.
 data CaptionSelector = CaptionSelector'
-  { languageCode ::
-      Lude.Maybe Lude.Text,
+  { -- | When specified this field indicates the three letter language code of the caption track to extract from the source.
+    languageCode :: Lude.Maybe Lude.Text,
+    -- | Caption selector settings.
     selectorSettings :: Lude.Maybe CaptionSelectorSettings,
+    -- | Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSelector' with the minimum fields required to make a request.
 --
 -- * 'languageCode' - When specified this field indicates the three letter language code of the caption track to extract from the source.
--- * 'name' - Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
 -- * 'selectorSettings' - Caption selector settings.
+-- * 'name' - Name identifier for a caption selector.  This name is used to associate this caption selector with one or more caption descriptions.  Names must be unique within an event.
 mkCaptionSelector ::
   -- | 'name'
   Lude.Text ->

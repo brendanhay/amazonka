@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,25 +37,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
-  { pipelineName :: Lude.Text,
+  { -- | The name of the pipeline to update.
+    pipelineName :: Lude.Text,
+    -- | A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+    --
+    -- The list can be 2-25 @PipelineActivity@ objects and must contain both a @channel@ and a @datastore@ activity. Each entry in the list must contain only one activity. For example:
+    -- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
     pipelineActivities :: Lude.NonEmpty PipelineActivity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipeline' with the minimum fields required to make a request.
 --
+-- * 'pipelineName' - The name of the pipeline to update.
 -- * 'pipelineActivities' - A list of @PipelineActivity@ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
 --
 -- The list can be 2-25 @PipelineActivity@ objects and must contain both a @channel@ and a @datastore@ activity. Each entry in the list must contain only one activity. For example:
 -- @pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]@
--- * 'pipelineName' - The name of the pipeline to update.
 mkUpdatePipeline ::
   -- | 'pipelineName'
   Lude.Text ->
@@ -108,13 +108,7 @@ instance Lude.ToQuery UpdatePipeline where
 
 -- | /See:/ 'mkUpdatePipelineResponse' smart constructor.
 data UpdatePipelineResponse = UpdatePipelineResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.

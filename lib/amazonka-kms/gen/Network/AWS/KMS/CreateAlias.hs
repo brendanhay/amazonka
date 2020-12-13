@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,8 +49,8 @@ module Network.AWS.KMS.CreateAlias
     mkCreateAlias,
 
     -- ** Request lenses
-    caAliasName,
     caTargetKeyId,
+    caAliasName,
 
     -- * Destructuring the response
     CreateAliasResponse (..),
@@ -65,40 +66,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
-  { aliasName :: Lude.Text,
-    targetKeyId :: Lude.Text
+  { -- | Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
+    targetKeyId :: Lude.Text,
+    -- | Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
+    aliasName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
 --
--- * 'aliasName' - Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
 -- * 'targetKeyId' - Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
+-- * 'aliasName' - Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
 mkCreateAlias ::
-  -- | 'aliasName'
-  Lude.Text ->
   -- | 'targetKeyId'
   Lude.Text ->
+  -- | 'aliasName'
+  Lude.Text ->
   CreateAlias
-mkCreateAlias pAliasName_ pTargetKeyId_ =
+mkCreateAlias pTargetKeyId_ pAliasName_ =
   CreateAlias'
-    { aliasName = pAliasName_,
-      targetKeyId = pTargetKeyId_
+    { targetKeyId = pTargetKeyId_,
+      aliasName = pAliasName_
     }
-
--- | Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
---
--- /Note:/ Consider using 'aliasName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAliasName :: Lens.Lens' CreateAlias Lude.Text
-caAliasName = Lens.lens (aliasName :: CreateAlias -> Lude.Text) (\s a -> s {aliasName = a} :: CreateAlias)
-{-# DEPRECATED caAliasName "Use generic-lens or generic-optics with 'aliasName' instead." #-}
 
 -- | Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN, see <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn Finding the Key ID and ARN> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -106,6 +96,13 @@ caAliasName = Lens.lens (aliasName :: CreateAlias -> Lude.Text) (\s a -> s {alia
 caTargetKeyId :: Lens.Lens' CreateAlias Lude.Text
 caTargetKeyId = Lens.lens (targetKeyId :: CreateAlias -> Lude.Text) (\s a -> s {targetKeyId = a} :: CreateAlias)
 {-# DEPRECATED caTargetKeyId "Use generic-lens or generic-optics with 'targetKeyId' instead." #-}
+
+-- | Specifies the alias name. This value must begin with @alias/@ followed by a name, such as @alias/ExampleAlias@ . The alias name cannot begin with @alias/aws/@ . The @alias/aws/@ prefix is reserved for AWS managed CMKs.
+--
+-- /Note:/ Consider using 'aliasName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAliasName :: Lens.Lens' CreateAlias Lude.Text
+caAliasName = Lens.lens (aliasName :: CreateAlias -> Lude.Text) (\s a -> s {aliasName = a} :: CreateAlias)
+{-# DEPRECATED caAliasName "Use generic-lens or generic-optics with 'aliasName' instead." #-}
 
 instance Lude.AWSRequest CreateAlias where
   type Rs CreateAlias = CreateAliasResponse
@@ -127,8 +124,8 @@ instance Lude.ToJSON CreateAlias where
   toJSON CreateAlias' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AliasName" Lude..= aliasName),
-            Lude.Just ("TargetKeyId" Lude..= targetKeyId)
+          [ Lude.Just ("TargetKeyId" Lude..= targetKeyId),
+            Lude.Just ("AliasName" Lude..= aliasName)
           ]
       )
 
@@ -140,13 +137,7 @@ instance Lude.ToQuery CreateAlias where
 
 -- | /See:/ 'mkCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.

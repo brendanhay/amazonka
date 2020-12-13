@@ -13,18 +13,18 @@
 module Network.AWS.ELBv2.Types.TargetHealthReasonEnum
   ( TargetHealthReasonEnum
       ( TargetHealthReasonEnum',
-        Elb_InitialHealthChecking,
-        Elb_InternalError,
         Elb_RegistrationInProgress,
-        Target_DeregistrationInProgress,
-        Target_FailedHealthChecks,
-        Target_HealthCheckDisabled,
-        Target_IPUnusable,
-        Target_InvalidState,
-        Target_NotInUse,
-        Target_NotRegistered,
+        Elb_InitialHealthChecking,
         Target_ResponseCodeMismatch,
-        Target_Timeout
+        Target_Timeout,
+        Target_FailedHealthChecks,
+        Target_NotRegistered,
+        Target_NotInUse,
+        Target_DeregistrationInProgress,
+        Target_InvalidState,
+        Target_IPUnusable,
+        Target_HealthCheckDisabled,
+        Elb_InternalError
       ),
   )
 where
@@ -55,35 +55,11 @@ newtype TargetHealthReasonEnum = TargetHealthReasonEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Elb_InitialHealthChecking :: TargetHealthReasonEnum
-pattern Elb_InitialHealthChecking = TargetHealthReasonEnum' "Elb.InitialHealthChecking"
-
-pattern Elb_InternalError :: TargetHealthReasonEnum
-pattern Elb_InternalError = TargetHealthReasonEnum' "Elb.InternalError"
-
 pattern Elb_RegistrationInProgress :: TargetHealthReasonEnum
 pattern Elb_RegistrationInProgress = TargetHealthReasonEnum' "Elb.RegistrationInProgress"
 
-pattern Target_DeregistrationInProgress :: TargetHealthReasonEnum
-pattern Target_DeregistrationInProgress = TargetHealthReasonEnum' "Target.DeregistrationInProgress"
-
-pattern Target_FailedHealthChecks :: TargetHealthReasonEnum
-pattern Target_FailedHealthChecks = TargetHealthReasonEnum' "Target.FailedHealthChecks"
-
-pattern Target_HealthCheckDisabled :: TargetHealthReasonEnum
-pattern Target_HealthCheckDisabled = TargetHealthReasonEnum' "Target.HealthCheckDisabled"
-
-pattern Target_IPUnusable :: TargetHealthReasonEnum
-pattern Target_IPUnusable = TargetHealthReasonEnum' "Target.IpUnusable"
-
-pattern Target_InvalidState :: TargetHealthReasonEnum
-pattern Target_InvalidState = TargetHealthReasonEnum' "Target.InvalidState"
-
-pattern Target_NotInUse :: TargetHealthReasonEnum
-pattern Target_NotInUse = TargetHealthReasonEnum' "Target.NotInUse"
-
-pattern Target_NotRegistered :: TargetHealthReasonEnum
-pattern Target_NotRegistered = TargetHealthReasonEnum' "Target.NotRegistered"
+pattern Elb_InitialHealthChecking :: TargetHealthReasonEnum
+pattern Elb_InitialHealthChecking = TargetHealthReasonEnum' "Elb.InitialHealthChecking"
 
 pattern Target_ResponseCodeMismatch :: TargetHealthReasonEnum
 pattern Target_ResponseCodeMismatch = TargetHealthReasonEnum' "Target.ResponseCodeMismatch"
@@ -91,18 +67,42 @@ pattern Target_ResponseCodeMismatch = TargetHealthReasonEnum' "Target.ResponseCo
 pattern Target_Timeout :: TargetHealthReasonEnum
 pattern Target_Timeout = TargetHealthReasonEnum' "Target.Timeout"
 
+pattern Target_FailedHealthChecks :: TargetHealthReasonEnum
+pattern Target_FailedHealthChecks = TargetHealthReasonEnum' "Target.FailedHealthChecks"
+
+pattern Target_NotRegistered :: TargetHealthReasonEnum
+pattern Target_NotRegistered = TargetHealthReasonEnum' "Target.NotRegistered"
+
+pattern Target_NotInUse :: TargetHealthReasonEnum
+pattern Target_NotInUse = TargetHealthReasonEnum' "Target.NotInUse"
+
+pattern Target_DeregistrationInProgress :: TargetHealthReasonEnum
+pattern Target_DeregistrationInProgress = TargetHealthReasonEnum' "Target.DeregistrationInProgress"
+
+pattern Target_InvalidState :: TargetHealthReasonEnum
+pattern Target_InvalidState = TargetHealthReasonEnum' "Target.InvalidState"
+
+pattern Target_IPUnusable :: TargetHealthReasonEnum
+pattern Target_IPUnusable = TargetHealthReasonEnum' "Target.IpUnusable"
+
+pattern Target_HealthCheckDisabled :: TargetHealthReasonEnum
+pattern Target_HealthCheckDisabled = TargetHealthReasonEnum' "Target.HealthCheckDisabled"
+
+pattern Elb_InternalError :: TargetHealthReasonEnum
+pattern Elb_InternalError = TargetHealthReasonEnum' "Elb.InternalError"
+
 {-# COMPLETE
-  Elb_InitialHealthChecking,
-  Elb_InternalError,
   Elb_RegistrationInProgress,
-  Target_DeregistrationInProgress,
-  Target_FailedHealthChecks,
-  Target_HealthCheckDisabled,
-  Target_IPUnusable,
-  Target_InvalidState,
-  Target_NotInUse,
-  Target_NotRegistered,
+  Elb_InitialHealthChecking,
   Target_ResponseCodeMismatch,
   Target_Timeout,
+  Target_FailedHealthChecks,
+  Target_NotRegistered,
+  Target_NotInUse,
+  Target_DeregistrationInProgress,
+  Target_InvalidState,
+  Target_IPUnusable,
+  Target_HealthCheckDisabled,
+  Elb_InternalError,
   TargetHealthReasonEnum'
   #-}

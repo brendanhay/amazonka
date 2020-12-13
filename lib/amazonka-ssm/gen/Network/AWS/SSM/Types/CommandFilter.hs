@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.CommandFilter
     mkCommandFilter,
 
     -- * Lenses
-    cfKey,
     cfValue,
+    cfKey,
   )
 where
 
@@ -30,21 +30,58 @@ import Network.AWS.SSM.Types.CommandFilterKey
 --
 -- /See:/ 'mkCommandFilter' smart constructor.
 data CommandFilter = CommandFilter'
-  { key :: CommandFilterKey,
-    value :: Lude.Text
+  { -- | The filter value. Valid values for each filter key are as follows:
+    --
+    --
+    --     * __InvokedAfter__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions occurring July 7, 2018, and later.
+    --
+    --
+    --     * __InvokedBefore__ : Specify a timestamp to limit your results. For example, specify @2018-07-07T00:00:00Z@ to see a list of command executions from before July 7, 2018.
+    --
+    --
+    --     * __Status__ : Specify a valid command status to see a list of all command executions with that status. Status values you can specify include:
+    --
+    --     * @Pending@
+    --
+    --
+    --     * @InProgress@
+    --
+    --
+    --     * @Success@
+    --
+    --
+    --     * @Cancelled@
+    --
+    --
+    --     * @Failed@
+    --
+    --
+    --     * @TimedOut@
+    --
+    --
+    --     * @Cancelling@
+    --
+    --
+    --
+    --
+    --     * __DocumentName__ : Specify name of the SSM document for which you want to see command execution results. For example, specify @AWS-RunPatchBaseline@ to see command executions that used this SSM document to perform security patching operations on instances.
+    --
+    --
+    --     * __ExecutionStage__ : Specify one of the following values:
+    --
+    --     * @Executing@ : Returns a list of command executions that are currently still running.
+    --
+    --
+    --     * @Complete@ : Returns a list of command executions that have already completed.
+    value :: Lude.Text,
+    -- | The name of the filter.
+    key :: CommandFilterKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CommandFilter' with the minimum fields required to make a request.
 --
--- * 'key' - The name of the filter.
 -- * 'value' - The filter value. Valid values for each filter key are as follows:
 --
 --
@@ -88,21 +125,19 @@ data CommandFilter = CommandFilter'
 --
 --
 --     * @Complete@ : Returns a list of command executions that have already completed.
+--
+--
+--
+--
+-- * 'key' - The name of the filter.
 mkCommandFilter ::
-  -- | 'key'
-  CommandFilterKey ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  CommandFilterKey ->
   CommandFilter
-mkCommandFilter pKey_ pValue_ =
-  CommandFilter' {key = pKey_, value = pValue_}
-
--- | The name of the filter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfKey :: Lens.Lens' CommandFilter CommandFilterKey
-cfKey = Lens.lens (key :: CommandFilter -> CommandFilterKey) (\s a -> s {key = a} :: CommandFilter)
-{-# DEPRECATED cfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkCommandFilter pValue_ pKey_ =
+  CommandFilter' {value = pValue_, key = pKey_}
 
 -- | The filter value. Valid values for each filter key are as follows:
 --
@@ -157,9 +192,16 @@ cfValue :: Lens.Lens' CommandFilter Lude.Text
 cfValue = Lens.lens (value :: CommandFilter -> Lude.Text) (\s a -> s {value = a} :: CommandFilter)
 {-# DEPRECATED cfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfKey :: Lens.Lens' CommandFilter CommandFilterKey
+cfKey = Lens.lens (key :: CommandFilter -> CommandFilterKey) (\s a -> s {key = a} :: CommandFilter)
+{-# DEPRECATED cfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.ToJSON CommandFilter where
   toJSON CommandFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [Lude.Just ("key" Lude..= key), Lude.Just ("value" Lude..= value)]
+          [Lude.Just ("value" Lude..= value), Lude.Just ("key" Lude..= key)]
       )

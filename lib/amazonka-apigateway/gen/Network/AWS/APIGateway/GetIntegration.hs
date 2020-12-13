@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.GetIntegration
     mkGetIntegration,
 
     -- ** Request lenses
-    giRestAPIId,
-    giResourceId,
-    giHttpMethod,
+    gifResourceId,
+    gifHttpMethod,
+    gifRestAPIId,
 
     -- * Destructuring the response
     Integration (..),
@@ -56,59 +57,56 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetIntegration' smart constructor.
 data GetIntegration = GetIntegration'
-  { restAPIId :: Lude.Text,
+  { -- | [Required] Specifies a get integration request's resource identifier
     resourceId :: Lude.Text,
-    httpMethod :: Lude.Text
+    -- | [Required] Specifies a get integration request's HTTP method.
+    httpMethod :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntegration' with the minimum fields required to make a request.
 --
--- * 'httpMethod' - [Required] Specifies a get integration request's HTTP method.
 -- * 'resourceId' - [Required] Specifies a get integration request's resource identifier
+-- * 'httpMethod' - [Required] Specifies a get integration request's HTTP method.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetIntegration ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'httpMethod'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetIntegration
-mkGetIntegration pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkGetIntegration pResourceId_ pHttpMethod_ pRestAPIId_ =
   GetIntegration'
-    { restAPIId = pRestAPIId_,
-      resourceId = pResourceId_,
-      httpMethod = pHttpMethod_
+    { resourceId = pResourceId_,
+      httpMethod = pHttpMethod_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giRestAPIId :: Lens.Lens' GetIntegration Lude.Text
-giRestAPIId = Lens.lens (restAPIId :: GetIntegration -> Lude.Text) (\s a -> s {restAPIId = a} :: GetIntegration)
-{-# DEPRECATED giRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] Specifies a get integration request's resource identifier
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giResourceId :: Lens.Lens' GetIntegration Lude.Text
-giResourceId = Lens.lens (resourceId :: GetIntegration -> Lude.Text) (\s a -> s {resourceId = a} :: GetIntegration)
-{-# DEPRECATED giResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+gifResourceId :: Lens.Lens' GetIntegration Lude.Text
+gifResourceId = Lens.lens (resourceId :: GetIntegration -> Lude.Text) (\s a -> s {resourceId = a} :: GetIntegration)
+{-# DEPRECATED gifResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies a get integration request's HTTP method.
 --
 -- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giHttpMethod :: Lens.Lens' GetIntegration Lude.Text
-giHttpMethod = Lens.lens (httpMethod :: GetIntegration -> Lude.Text) (\s a -> s {httpMethod = a} :: GetIntegration)
-{-# DEPRECATED giHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+gifHttpMethod :: Lens.Lens' GetIntegration Lude.Text
+gifHttpMethod = Lens.lens (httpMethod :: GetIntegration -> Lude.Text) (\s a -> s {httpMethod = a} :: GetIntegration)
+{-# DEPRECATED gifHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gifRestAPIId :: Lens.Lens' GetIntegration Lude.Text
+gifRestAPIId = Lens.lens (restAPIId :: GetIntegration -> Lude.Text) (\s a -> s {restAPIId = a} :: GetIntegration)
+{-# DEPRECATED gifRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetIntegration where
   type Rs GetIntegration = Integration

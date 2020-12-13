@@ -30,19 +30,12 @@ import Network.AWS.SSM.Types.PatchBaselineIdentity
 --
 -- /See:/ 'mkPatchGroupPatchBaselineMapping' smart constructor.
 data PatchGroupPatchBaselineMapping = PatchGroupPatchBaselineMapping'
-  { baselineIdentity ::
-      Lude.Maybe
-        PatchBaselineIdentity,
-    patchGroup ::
-      Lude.Maybe Lude.Text
+  { -- | The patch baseline the patch group is registered with.
+    baselineIdentity :: Lude.Maybe PatchBaselineIdentity,
+    -- | The name of the patch group registered with the patch baseline.
+    patchGroup :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchGroupPatchBaselineMapping' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.GameLift.GetInstanceAccess
     mkGetInstanceAccess,
 
     -- ** Request lenses
-    giaFleetId,
     giaInstanceId,
+    giaFleetId,
 
     -- * Destructuring the response
     GetInstanceAccessResponse (..),
@@ -54,40 +55,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetInstanceAccess' smart constructor.
 data GetInstanceAccess = GetInstanceAccess'
-  { fleetId :: Lude.Text,
-    instanceId :: Lude.Text
+  { -- | A unique identifier for an instance you want to get access to. You can access an instance in any status.
+    instanceId :: Lude.Text,
+    -- | A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
+    fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceAccess' with the minimum fields required to make a request.
 --
--- * 'fleetId' - A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
 -- * 'instanceId' - A unique identifier for an instance you want to get access to. You can access an instance in any status.
+-- * 'fleetId' - A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
 mkGetInstanceAccess ::
-  -- | 'fleetId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'fleetId'
+  Lude.Text ->
   GetInstanceAccess
-mkGetInstanceAccess pFleetId_ pInstanceId_ =
+mkGetInstanceAccess pInstanceId_ pFleetId_ =
   GetInstanceAccess'
-    { fleetId = pFleetId_,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      fleetId = pFleetId_
     }
-
--- | A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giaFleetId :: Lens.Lens' GetInstanceAccess Lude.Text
-giaFleetId = Lens.lens (fleetId :: GetInstanceAccess -> Lude.Text) (\s a -> s {fleetId = a} :: GetInstanceAccess)
-{-# DEPRECATED giaFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | A unique identifier for an instance you want to get access to. You can access an instance in any status.
 --
@@ -95,6 +85,13 @@ giaFleetId = Lens.lens (fleetId :: GetInstanceAccess -> Lude.Text) (\s a -> s {f
 giaInstanceId :: Lens.Lens' GetInstanceAccess Lude.Text
 giaInstanceId = Lens.lens (instanceId :: GetInstanceAccess -> Lude.Text) (\s a -> s {instanceId = a} :: GetInstanceAccess)
 {-# DEPRECATED giaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | A unique identifier for a fleet that contains the instance you want access to. You can use either the fleet ID or ARN value. The fleet can be in any of the following statuses: @ACTIVATING@ , @ACTIVE@ , or @ERROR@ . Fleets with an @ERROR@ status may be accessible for a short time before they are deleted.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giaFleetId :: Lens.Lens' GetInstanceAccess Lude.Text
+giaFleetId = Lens.lens (fleetId :: GetInstanceAccess -> Lude.Text) (\s a -> s {fleetId = a} :: GetInstanceAccess)
+{-# DEPRECATED giaFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 instance Lude.AWSRequest GetInstanceAccess where
   type Rs GetInstanceAccess = GetInstanceAccessResponse
@@ -122,8 +119,8 @@ instance Lude.ToJSON GetInstanceAccess where
   toJSON GetInstanceAccess' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("FleetId" Lude..= fleetId),
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("FleetId" Lude..= fleetId)
           ]
       )
 
@@ -137,17 +134,12 @@ instance Lude.ToQuery GetInstanceAccess where
 --
 -- /See:/ 'mkGetInstanceAccessResponse' smart constructor.
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
-  { instanceAccess ::
-      Lude.Maybe InstanceAccess,
+  { -- | The connection information for a fleet instance, including IP address and access credentials.
+    instanceAccess :: Lude.Maybe InstanceAccess,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceAccessResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +20,19 @@ module Network.AWS.DAX.CreateCluster
     mkCreateCluster,
 
     -- ** Request lenses
+    ccIAMRoleARN,
     ccSecurityGroupIds,
     ccSSESpecification,
     ccSubnetGroupName,
     ccPreferredMaintenanceWindow,
     ccAvailabilityZones,
+    ccClusterName,
+    ccNodeType,
     ccDescription,
+    ccReplicationFactor,
     ccNotificationTopicARN,
     ccTags,
     ccParameterGroupName,
-    ccClusterName,
-    ccNodeType,
-    ccReplicationFactor,
-    ccIAMRoleARN,
 
     -- * Destructuring the response
     CreateClusterResponse (..),
@@ -51,51 +52,84 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+    iamRoleARN :: Lude.Text,
+    -- | A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)
+    --
+    -- If this parameter is not specified, DAX assigns the default VPC security group to each node.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Represents the settings used to enable server-side encryption on the cluster.
     sSESpecification :: Lude.Maybe SSESpecification,
+    -- | The name of the subnet group to be used for the replication group.
+    --
+    -- /Important:/ DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
     subnetGroupName :: Lude.Maybe Lude.Text,
+    -- | Specifies the weekly time range during which maintenance on the DAX cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for @ddd@ are:
+    --
+    --
+    --     * @sun@
+    --
+    --
+    --     * @mon@
+    --
+    --
+    --     * @tue@
+    --
+    --
+    --     * @wed@
+    --
+    --
+    --     * @thu@
+    --
+    --
+    --     * @fri@
+    --
+    --
+    --     * @sat@
+    --
+    --
+    -- Example: @sun:05:00-sun:09:00@
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated. If provided, the length of this list must equal the @ReplicationFactor@ parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.
     availabilityZones :: Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
-    notificationTopicARN :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    parameterGroupName :: Lude.Maybe Lude.Text,
+    -- | The cluster identifier. This parameter is stored as a lowercase string.
+    --
+    -- __Constraints:__
+    --
+    --     * A name must contain from 1 to 20 alphanumeric characters or hyphens.
+    --
+    --
+    --     * The first character must be a letter.
+    --
+    --
+    --     * A name cannot end with a hyphen or contain two consecutive hyphens.
     clusterName :: Lude.Text,
+    -- | The compute and memory capacity of the nodes in the cluster.
     nodeType :: Lude.Text,
+    -- | A description of the cluster.
+    description :: Lude.Maybe Lude.Text,
+    -- | The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set @ReplicationFactor@ to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). @If the AvailabilityZones@ parameter is provided, its length must equal the @ReplicationFactor@ .
     replicationFactor :: Lude.Int,
-    iamRoleARN :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
+    notificationTopicARN :: Lude.Maybe Lude.Text,
+    -- | A set of tags to associate with the DAX cluster.
+    tags :: Lude.Maybe [Tag],
+    -- | The parameter group to be associated with the DAX cluster.
+    parameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated. If provided, the length of this list must equal the @ReplicationFactor@ parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.
--- * 'clusterName' - The cluster identifier. This parameter is stored as a lowercase string.
---
--- __Constraints:__
---
---     * A name must contain from 1 to 20 alphanumeric characters or hyphens.
---
---
---     * The first character must be a letter.
---
---
---     * A name cannot end with a hyphen or contain two consecutive hyphens.
---
---
--- * 'description' - A description of the cluster.
 -- * 'iamRoleARN' - A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
--- * 'nodeType' - The compute and memory capacity of the nodes in the cluster.
--- * 'notificationTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
--- * 'parameterGroupName' - The parameter group to be associated with the DAX cluster.
+-- * 'securityGroupIds' - A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)
+--
+-- If this parameter is not specified, DAX assigns the default VPC security group to each node.
+-- * 'sSESpecification' - Represents the settings used to enable server-side encryption on the cluster.
+-- * 'subnetGroupName' - The name of the subnet group to be used for the replication group.
+--
+-- /Important:/ DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
 -- * 'preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the DAX cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for @ddd@ are:
 --
 --
@@ -121,45 +155,63 @@ data CreateCluster = CreateCluster'
 --
 --
 -- Example: @sun:05:00-sun:09:00@
+-- * 'availabilityZones' - The Availability Zones (AZs) in which the cluster nodes will reside after the cluster has been created or updated. If provided, the length of this list must equal the @ReplicationFactor@ parameter. If you omit this parameter, DAX will spread the nodes across Availability Zones for the highest availability.
+-- * 'clusterName' - The cluster identifier. This parameter is stored as a lowercase string.
+--
+-- __Constraints:__
+--
+--     * A name must contain from 1 to 20 alphanumeric characters or hyphens.
+--
+--
+--     * The first character must be a letter.
+--
+--
+--     * A name cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- * 'nodeType' - The compute and memory capacity of the nodes in the cluster.
+-- * 'description' - A description of the cluster.
 -- * 'replicationFactor' - The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set @ReplicationFactor@ to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). @If the AvailabilityZones@ parameter is provided, its length must equal the @ReplicationFactor@ .
--- * 'sSESpecification' - Represents the settings used to enable server-side encryption on the cluster.
--- * 'securityGroupIds' - A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)
---
--- If this parameter is not specified, DAX assigns the default VPC security group to each node.
--- * 'subnetGroupName' - The name of the subnet group to be used for the replication group.
---
--- /Important:/ DAX clusters can only run in an Amazon VPC environment. All of the subnets that you specify in a subnet group must exist in the same VPC.
+-- * 'notificationTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
 -- * 'tags' - A set of tags to associate with the DAX cluster.
+-- * 'parameterGroupName' - The parameter group to be associated with the DAX cluster.
 mkCreateCluster ::
+  -- | 'iamRoleARN'
+  Lude.Text ->
   -- | 'clusterName'
   Lude.Text ->
   -- | 'nodeType'
   Lude.Text ->
   -- | 'replicationFactor'
   Lude.Int ->
-  -- | 'iamRoleARN'
-  Lude.Text ->
   CreateCluster
 mkCreateCluster
+  pIAMRoleARN_
   pClusterName_
   pNodeType_
-  pReplicationFactor_
-  pIAMRoleARN_ =
+  pReplicationFactor_ =
     CreateCluster'
-      { securityGroupIds = Lude.Nothing,
+      { iamRoleARN = pIAMRoleARN_,
+        securityGroupIds = Lude.Nothing,
         sSESpecification = Lude.Nothing,
         subnetGroupName = Lude.Nothing,
         preferredMaintenanceWindow = Lude.Nothing,
         availabilityZones = Lude.Nothing,
-        description = Lude.Nothing,
-        notificationTopicARN = Lude.Nothing,
-        tags = Lude.Nothing,
-        parameterGroupName = Lude.Nothing,
         clusterName = pClusterName_,
         nodeType = pNodeType_,
+        description = Lude.Nothing,
         replicationFactor = pReplicationFactor_,
-        iamRoleARN = pIAMRoleARN_
+        notificationTopicARN = Lude.Nothing,
+        tags = Lude.Nothing,
+        parameterGroupName = Lude.Nothing
       }
+
+-- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+--
+-- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccIAMRoleARN :: Lens.Lens' CreateCluster Lude.Text
+ccIAMRoleARN = Lens.lens (iamRoleARN :: CreateCluster -> Lude.Text) (\s a -> s {iamRoleARN = a} :: CreateCluster)
+{-# DEPRECATED ccIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
 
 -- | A list of security group IDs to be assigned to each node in the DAX cluster. (Each of the security group ID is system-generated.)
 --
@@ -224,34 +276,6 @@ ccAvailabilityZones :: Lens.Lens' CreateCluster (Lude.Maybe [Lude.Text])
 ccAvailabilityZones = Lens.lens (availabilityZones :: CreateCluster -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: CreateCluster)
 {-# DEPRECATED ccAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
--- | A description of the cluster.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDescription :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
-ccDescription = Lens.lens (description :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateCluster)
-{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
---
--- /Note:/ Consider using 'notificationTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccNotificationTopicARN :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
-ccNotificationTopicARN = Lens.lens (notificationTopicARN :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {notificationTopicARN = a} :: CreateCluster)
-{-# DEPRECATED ccNotificationTopicARN "Use generic-lens or generic-optics with 'notificationTopicARN' instead." #-}
-
--- | A set of tags to associate with the DAX cluster.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccTags :: Lens.Lens' CreateCluster (Lude.Maybe [Tag])
-ccTags = Lens.lens (tags :: CreateCluster -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCluster)
-{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The parameter group to be associated with the DAX cluster.
---
--- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccParameterGroupName :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
-ccParameterGroupName = Lens.lens (parameterGroupName :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: CreateCluster)
-{-# DEPRECATED ccParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
-
 -- | The cluster identifier. This parameter is stored as a lowercase string.
 --
 -- __Constraints:__
@@ -278,6 +302,13 @@ ccNodeType :: Lens.Lens' CreateCluster Lude.Text
 ccNodeType = Lens.lens (nodeType :: CreateCluster -> Lude.Text) (\s a -> s {nodeType = a} :: CreateCluster)
 {-# DEPRECATED ccNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
+-- | A description of the cluster.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDescription :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccDescription = Lens.lens (description :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateCluster)
+{-# DEPRECATED ccDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 -- | The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node cluster, without any read replicas. For additional fault tolerance, you can create a multiple node cluster with one or more read replicas. To do this, set @ReplicationFactor@ to a number between 3 (one primary and two read replicas) and 10 (one primary and nine read replicas). @If the AvailabilityZones@ parameter is provided, its length must equal the @ReplicationFactor@ .
 --
 -- /Note:/ Consider using 'replicationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -285,12 +316,26 @@ ccReplicationFactor :: Lens.Lens' CreateCluster Lude.Int
 ccReplicationFactor = Lens.lens (replicationFactor :: CreateCluster -> Lude.Int) (\s a -> s {replicationFactor = a} :: CreateCluster)
 {-# DEPRECATED ccReplicationFactor "Use generic-lens or generic-optics with 'replicationFactor' instead." #-}
 
--- | A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX will assume this role and use the role's permissions to access DynamoDB on your behalf.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will be sent.
 --
--- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccIAMRoleARN :: Lens.Lens' CreateCluster Lude.Text
-ccIAMRoleARN = Lens.lens (iamRoleARN :: CreateCluster -> Lude.Text) (\s a -> s {iamRoleARN = a} :: CreateCluster)
-{-# DEPRECATED ccIAMRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
+-- /Note:/ Consider using 'notificationTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccNotificationTopicARN :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccNotificationTopicARN = Lens.lens (notificationTopicARN :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {notificationTopicARN = a} :: CreateCluster)
+{-# DEPRECATED ccNotificationTopicARN "Use generic-lens or generic-optics with 'notificationTopicARN' instead." #-}
+
+-- | A set of tags to associate with the DAX cluster.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccTags :: Lens.Lens' CreateCluster (Lude.Maybe [Tag])
+ccTags = Lens.lens (tags :: CreateCluster -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCluster)
+{-# DEPRECATED ccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The parameter group to be associated with the DAX cluster.
+--
+-- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccParameterGroupName :: Lens.Lens' CreateCluster (Lude.Maybe Lude.Text)
+ccParameterGroupName = Lens.lens (parameterGroupName :: CreateCluster -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: CreateCluster)
+{-# DEPRECATED ccParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
 instance Lude.AWSRequest CreateCluster where
   type Rs CreateCluster = CreateClusterResponse
@@ -317,20 +362,20 @@ instance Lude.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
+          [ Lude.Just ("IamRoleArn" Lude..= iamRoleARN),
+            ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
             ("SSESpecification" Lude..=) Lude.<$> sSESpecification,
             ("SubnetGroupName" Lude..=) Lude.<$> subnetGroupName,
             ("PreferredMaintenanceWindow" Lude..=)
               Lude.<$> preferredMaintenanceWindow,
             ("AvailabilityZones" Lude..=) Lude.<$> availabilityZones,
-            ("Description" Lude..=) Lude.<$> description,
-            ("NotificationTopicArn" Lude..=) Lude.<$> notificationTopicARN,
-            ("Tags" Lude..=) Lude.<$> tags,
-            ("ParameterGroupName" Lude..=) Lude.<$> parameterGroupName,
             Lude.Just ("ClusterName" Lude..= clusterName),
             Lude.Just ("NodeType" Lude..= nodeType),
+            ("Description" Lude..=) Lude.<$> description,
             Lude.Just ("ReplicationFactor" Lude..= replicationFactor),
-            Lude.Just ("IamRoleArn" Lude..= iamRoleARN)
+            ("NotificationTopicArn" Lude..=) Lude.<$> notificationTopicARN,
+            ("Tags" Lude..=) Lude.<$> tags,
+            ("ParameterGroupName" Lude..=) Lude.<$> parameterGroupName
           ]
       )
 
@@ -342,17 +387,12 @@ instance Lude.ToQuery CreateCluster where
 
 -- | /See:/ 'mkCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
+  { -- | A description of the DAX cluster that you have created.
+    cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.

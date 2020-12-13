@@ -33,30 +33,27 @@ import Network.AWS.SageMaker.Types.KernelGatewayImageConfig
 --
 -- /See:/ 'mkAppImageConfigDetails' smart constructor.
 data AppImageConfigDetails = AppImageConfigDetails'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the AppImageConfig was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the AppImageConfig. Must be unique to your account.
     appImageConfigName :: Lude.Maybe Lude.Text,
+    -- | When the AppImageConfig was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    kernelGatewayImageConfig ::
-      Lude.Maybe KernelGatewayImageConfig,
+    -- | The configuration for the file system and kernels in the SageMaker image.
+    kernelGatewayImageConfig :: Lude.Maybe KernelGatewayImageConfig,
+    -- | The Amazon Resource Name (ARN) of the AppImageConfig.
     appImageConfigARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppImageConfigDetails' with the minimum fields required to make a request.
 --
--- * 'appImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
--- * 'appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
 -- * 'creationTime' - When the AppImageConfig was created.
--- * 'kernelGatewayImageConfig' - The configuration for the file system and kernels in the SageMaker image.
+-- * 'appImageConfigName' - The name of the AppImageConfig. Must be unique to your account.
 -- * 'lastModifiedTime' - When the AppImageConfig was last modified.
+-- * 'kernelGatewayImageConfig' - The configuration for the file system and kernels in the SageMaker image.
+-- * 'appImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
 mkAppImageConfigDetails ::
   AppImageConfigDetails
 mkAppImageConfigDetails =

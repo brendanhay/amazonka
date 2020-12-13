@@ -56,73 +56,91 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayer' smart constructor.
 data Layer = Layer'
-  { customInstanceProfileARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+    customInstanceProfileARN :: Lude.Maybe Lude.Text,
+    -- | An array containing the layer's custom security group IDs.
     customSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
     installUpdatesOnBoot :: Lude.Maybe Lude.Bool,
-    cloudWatchLogsConfiguration ::
-      Lude.Maybe CloudWatchLogsConfiguration,
-    lifecycleEventConfiguration ::
-      Lude.Maybe LifecycleEventConfiguration,
+    -- | The Amazon CloudWatch Logs configuration settings for the layer.
+    cloudWatchLogsConfiguration :: Lude.Maybe CloudWatchLogsConfiguration,
+    -- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
+    lifecycleEventConfiguration :: Lude.Maybe LifecycleEventConfiguration,
+    -- | The Amazon Resource Number (ARN) of a layer.
     arn :: Lude.Maybe Lude.Text,
+    -- | Date when the layer was created.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The layer short name.
     shortname :: Lude.Maybe Lude.Text,
+    -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. You can also provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
+    --
+    -- To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the @.rb@ extension. For example: @phpapp2::dbsetup@ specifies the @dbsetup.rb@ recipe in the repository's @phpapp2@ folder.
     defaultRecipes :: Lude.Maybe Recipes,
+    -- | A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
     customRecipes :: Lude.Maybe Recipes,
+    -- | A JSON formatted string containing the layer's custom stack configuration and deployment attributes.
     customJSON :: Lude.Maybe Lude.Text,
+    -- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
     volumeConfigurations :: Lude.Maybe [VolumeConfiguration],
+    -- | Whether auto healing is disabled for the layer.
     enableAutoHealing :: Lude.Maybe Lude.Bool,
+    -- | An array of @Package@ objects that describe the layer's packages.
     packages :: Lude.Maybe [Lude.Text],
-    attributes ::
-      Lude.Maybe (Lude.HashMap LayerAttributesKeys (Maybe Text)),
+    -- | The layer attributes.
+    --
+    -- For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value
+    -- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@ attribute is set to the cluster's ARN.
+    attributes :: Lude.Maybe (Lude.HashMap LayerAttributesKeys (Maybe Text)),
+    -- | The layer name.
     name :: Lude.Maybe Lude.Text,
+    -- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
     autoAssignPublicIPs :: Lude.Maybe Lude.Bool,
+    -- | The layer type.
     type' :: Lude.Maybe LayerType,
+    -- | Whether the layer uses Amazon EBS-optimized instances.
     useEBSOptimizedInstances :: Lude.Maybe Lude.Bool,
+    -- | The layer stack ID.
     stackId :: Lude.Maybe Lude.Text,
+    -- | The layer ID.
     layerId :: Lude.Maybe Lude.Text,
+    -- | An array containing the layer's security group names.
     defaultSecurityGroupNames :: Lude.Maybe [Lude.Text],
+    -- | Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
     autoAssignElasticIPs :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
+-- * 'customInstanceProfileARN' - The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'customSecurityGroupIds' - An array containing the layer's custom security group IDs.
+-- * 'installUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
+-- * 'cloudWatchLogsConfiguration' - The Amazon CloudWatch Logs configuration settings for the layer.
+-- * 'lifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
 -- * 'arn' - The Amazon Resource Number (ARN) of a layer.
+-- * 'createdAt' - Date when the layer was created.
+-- * 'shortname' - The layer short name.
+-- * 'defaultRecipes' - AWS OpsWorks Stacks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. You can also provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
+--
+-- To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the @.rb@ extension. For example: @phpapp2::dbsetup@ specifies the @dbsetup.rb@ recipe in the repository's @phpapp2@ folder.
+-- * 'customRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
+-- * 'customJSON' - A JSON formatted string containing the layer's custom stack configuration and deployment attributes.
+-- * 'volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
+-- * 'enableAutoHealing' - Whether auto healing is disabled for the layer.
+-- * 'packages' - An array of @Package@ objects that describe the layer's packages.
 -- * 'attributes' - The layer attributes.
 --
 -- For the @HaproxyStatsPassword@ , @MysqlRootPassword@ , and @GangliaPassword@ attributes, AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value
 -- For an ECS Cluster layer, AWS OpsWorks Stacks the @EcsClusterArn@ attribute is set to the cluster's ARN.
--- * 'autoAssignElasticIPs' - Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
--- * 'autoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
--- * 'cloudWatchLogsConfiguration' - The Amazon CloudWatch Logs configuration settings for the layer.
--- * 'createdAt' - Date when the layer was created.
--- * 'customInstanceProfileARN' - The ARN of the default IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'customJSON' - A JSON formatted string containing the layer's custom stack configuration and deployment attributes.
--- * 'customRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
--- * 'customSecurityGroupIds' - An array containing the layer's custom security group IDs.
--- * 'defaultRecipes' - AWS OpsWorks Stacks supports five lifecycle events: __setup__ , __configuration__ , __deploy__ , __undeploy__ , and __shutdown__ . For each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. You can also provide custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event recipes after the standard recipes. @LayerCustomRecipes@ specifies the custom recipes for a particular layer to be run in response to each of the five events.
---
--- To specify a recipe, use the cookbook's directory name in the repository followed by two colons and the recipe name, which is the recipe's file name without the @.rb@ extension. For example: @phpapp2::dbsetup@ specifies the @dbsetup.rb@ recipe in the repository's @phpapp2@ folder.
--- * 'defaultSecurityGroupNames' - An array containing the layer's security group names.
--- * 'enableAutoHealing' - Whether auto healing is disabled for the layer.
--- * 'installUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . If this value is set to @false@ , you must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
--- * 'layerId' - The layer ID.
--- * 'lifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that specifies the Shutdown event configuration.
 -- * 'name' - The layer name.
--- * 'packages' - An array of @Package@ objects that describe the layer's packages.
--- * 'shortname' - The layer short name.
--- * 'stackId' - The layer stack ID.
+-- * 'autoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 -- * 'type'' - The layer type.
 -- * 'useEBSOptimizedInstances' - Whether the layer uses Amazon EBS-optimized instances.
--- * 'volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
+-- * 'stackId' - The layer stack ID.
+-- * 'layerId' - The layer ID.
+-- * 'defaultSecurityGroupNames' - An array containing the layer's security group names.
+-- * 'autoAssignElasticIPs' - Whether to automatically assign an <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
 mkLayer ::
   Layer
 mkLayer =

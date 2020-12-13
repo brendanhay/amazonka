@@ -42,33 +42,59 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBaiduMessage' smart constructor.
 data BaiduMessage = BaiduMessage'
-  { substitutions ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | The default message variables to use in the notification message. You can override the default variables with individual address variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
     silentPush :: Lude.Maybe Lude.Bool,
+    -- | The URL of the large icon image to display in the content view of the push notification.
     imageIconURL :: Lude.Maybe Lude.Text,
+    -- | The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
     rawContent :: Lude.Maybe Lude.Text,
+    -- | The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
     data' :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The URL of the small icon image to display in the status bar and the content view of the push notification.
     smallImageIconURL :: Lude.Maybe Lude.Text,
+    -- | The body of the notification message.
     body :: Lude.Maybe Lude.Text,
+    -- | The amount of time, in seconds, that the Baidu Cloud Push service should store the message if the recipient's device is offline. The default value and maximum supported time is 604,800 seconds (7 days).
     timeToLive :: Lude.Maybe Lude.Int,
+    -- | The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
     url :: Lude.Maybe Lude.Text,
+    -- | The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
     sound :: Lude.Maybe Lude.Text,
+    -- | The action to occur if the recipient taps the push notification. Valid values are:
+    --
+    --
+    --     * OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.
+    --
+    --
+    --     * DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.
+    --
+    --
+    --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
     action :: Lude.Maybe Action,
+    -- | The URL of an image to display in the push notification.
     imageURL :: Lude.Maybe Lude.Text,
+    -- | The title to display above the notification message on the recipient's device.
     title :: Lude.Maybe Lude.Text,
+    -- | The icon image name of the asset saved in your app.
     iconReference :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BaiduMessage' with the minimum fields required to make a request.
 --
+-- * 'substitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
+-- * 'silentPush' - Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
+-- * 'imageIconURL' - The URL of the large icon image to display in the content view of the push notification.
+-- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
+-- * 'data'' - The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
+-- * 'smallImageIconURL' - The URL of the small icon image to display in the status bar and the content view of the push notification.
+-- * 'body' - The body of the notification message.
+-- * 'timeToLive' - The amount of time, in seconds, that the Baidu Cloud Push service should store the message if the recipient's device is offline. The default value and maximum supported time is 604,800 seconds (7 days).
+-- * 'url' - The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+-- * 'sound' - The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
 -- * 'action' - The action to occur if the recipient taps the push notification. Valid values are:
 --
 --
@@ -81,19 +107,9 @@ data BaiduMessage = BaiduMessage'
 --     * URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.
 --
 --
--- * 'body' - The body of the notification message.
--- * 'data'' - The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.
--- * 'iconReference' - The icon image name of the asset saved in your app.
--- * 'imageIconURL' - The URL of the large icon image to display in the content view of the push notification.
 -- * 'imageURL' - The URL of an image to display in the push notification.
--- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.
--- * 'silentPush' - Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.
--- * 'smallImageIconURL' - The URL of the small icon image to display in the status bar and the content view of the push notification.
--- * 'sound' - The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.
--- * 'substitutions' - The default message variables to use in the notification message. You can override the default variables with individual address variables.
--- * 'timeToLive' - The amount of time, in seconds, that the Baidu Cloud Push service should store the message if the recipient's device is offline. The default value and maximum supported time is 604,800 seconds (7 days).
 -- * 'title' - The title to display above the notification message on the recipient's device.
--- * 'url' - The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.
+-- * 'iconReference' - The icon image name of the asset saved in your app.
 mkBaiduMessage ::
   BaiduMessage
 mkBaiduMessage =

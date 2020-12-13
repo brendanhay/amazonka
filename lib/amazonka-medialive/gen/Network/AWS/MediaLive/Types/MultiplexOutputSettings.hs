@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexOutputSettings' smart constructor.
 newtype MultiplexOutputSettings = MultiplexOutputSettings'
-  { destination ::
-      OutputLocationRef
+  { -- | Destination is a Multiplex.
+    destination :: OutputLocationRef
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexOutputSettings' with the minimum fields required to make a request.

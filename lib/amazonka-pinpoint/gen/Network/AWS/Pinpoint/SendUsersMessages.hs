@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.SendUsersMessages
     mkSendUsersMessages,
 
     -- ** Request lenses
-    sumsApplicationId,
     sumsSendUsersMessageRequest,
+    sumsApplicationId,
 
     -- * Destructuring the response
     SendUsersMessagesResponse (..),
     mkSendUsersMessagesResponse,
 
     -- ** Response lenses
-    sumrsResponseStatus,
     sumrsSendUsersMessageResponse,
+    sumrsResponseStatus,
   )
 where
 
@@ -40,41 +41,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSendUsersMessages' smart constructor.
 data SendUsersMessages = SendUsersMessages'
-  { applicationId ::
-      Lude.Text,
-    sendUsersMessageRequest :: SendUsersMessageRequest
+  { sendUsersMessageRequest :: SendUsersMessageRequest,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendUsersMessages' with the minimum fields required to make a request.
 --
+-- * 'sendUsersMessageRequest' -
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'sendUsersMessageRequest' - Undocumented field.
 mkSendUsersMessages ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'sendUsersMessageRequest'
   SendUsersMessageRequest ->
+  -- | 'applicationId'
+  Lude.Text ->
   SendUsersMessages
-mkSendUsersMessages pApplicationId_ pSendUsersMessageRequest_ =
+mkSendUsersMessages pSendUsersMessageRequest_ pApplicationId_ =
   SendUsersMessages'
-    { applicationId = pApplicationId_,
-      sendUsersMessageRequest = pSendUsersMessageRequest_
+    { sendUsersMessageRequest =
+        pSendUsersMessageRequest_,
+      applicationId = pApplicationId_
     }
-
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumsApplicationId :: Lens.Lens' SendUsersMessages Lude.Text
-sumsApplicationId = Lens.lens (applicationId :: SendUsersMessages -> Lude.Text) (\s a -> s {applicationId = a} :: SendUsersMessages)
-{-# DEPRECATED sumsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -83,6 +72,13 @@ sumsSendUsersMessageRequest :: Lens.Lens' SendUsersMessages SendUsersMessageRequ
 sumsSendUsersMessageRequest = Lens.lens (sendUsersMessageRequest :: SendUsersMessages -> SendUsersMessageRequest) (\s a -> s {sendUsersMessageRequest = a} :: SendUsersMessages)
 {-# DEPRECATED sumsSendUsersMessageRequest "Use generic-lens or generic-optics with 'sendUsersMessageRequest' instead." #-}
 
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumsApplicationId :: Lens.Lens' SendUsersMessages Lude.Text
+sumsApplicationId = Lens.lens (applicationId :: SendUsersMessages -> Lude.Text) (\s a -> s {applicationId = a} :: SendUsersMessages)
+{-# DEPRECATED sumsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
 instance Lude.AWSRequest SendUsersMessages where
   type Rs SendUsersMessages = SendUsersMessagesResponse
   request = Req.postJSON pinpointService
@@ -90,7 +86,7 @@ instance Lude.AWSRequest SendUsersMessages where
     Res.receiveJSON
       ( \s h x ->
           SendUsersMessagesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders SendUsersMessages where
@@ -121,44 +117,31 @@ instance Lude.ToQuery SendUsersMessages where
 
 -- | /See:/ 'mkSendUsersMessagesResponse' smart constructor.
 data SendUsersMessagesResponse = SendUsersMessagesResponse'
-  { responseStatus ::
-      Lude.Int,
-    sendUsersMessageResponse ::
-      SendUsersMessageResponse
+  { sendUsersMessageResponse :: SendUsersMessageResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendUsersMessagesResponse' with the minimum fields required to make a request.
 --
+-- * 'sendUsersMessageResponse' -
 -- * 'responseStatus' - The response status code.
--- * 'sendUsersMessageResponse' - Undocumented field.
 mkSendUsersMessagesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'sendUsersMessageResponse'
   SendUsersMessageResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   SendUsersMessagesResponse
 mkSendUsersMessagesResponse
-  pResponseStatus_
-  pSendUsersMessageResponse_ =
+  pSendUsersMessageResponse_
+  pResponseStatus_ =
     SendUsersMessagesResponse'
-      { responseStatus = pResponseStatus_,
-        sendUsersMessageResponse = pSendUsersMessageResponse_
+      { sendUsersMessageResponse =
+          pSendUsersMessageResponse_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumrsResponseStatus :: Lens.Lens' SendUsersMessagesResponse Lude.Int
-sumrsResponseStatus = Lens.lens (responseStatus :: SendUsersMessagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendUsersMessagesResponse)
-{-# DEPRECATED sumrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -166,3 +149,10 @@ sumrsResponseStatus = Lens.lens (responseStatus :: SendUsersMessagesResponse -> 
 sumrsSendUsersMessageResponse :: Lens.Lens' SendUsersMessagesResponse SendUsersMessageResponse
 sumrsSendUsersMessageResponse = Lens.lens (sendUsersMessageResponse :: SendUsersMessagesResponse -> SendUsersMessageResponse) (\s a -> s {sendUsersMessageResponse = a} :: SendUsersMessagesResponse)
 {-# DEPRECATED sumrsSendUsersMessageResponse "Use generic-lens or generic-optics with 'sendUsersMessageResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumrsResponseStatus :: Lens.Lens' SendUsersMessagesResponse Lude.Int
+sumrsResponseStatus = Lens.lens (responseStatus :: SendUsersMessagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendUsersMessagesResponse)
+{-# DEPRECATED sumrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

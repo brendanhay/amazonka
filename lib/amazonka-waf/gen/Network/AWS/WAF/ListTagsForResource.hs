@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.WAF.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
+    ltfrResourceARN,
     ltfrNextMarker,
     ltfrLimit,
-    ltfrResourceARN,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -44,35 +45,38 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    resourceARN :: Lude.Text
+  { -- |
+    resourceARN :: Lude.Text,
+    -- |
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- |
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'limit' -
--- * 'nextMarker' -
 -- * 'resourceARN' -
+-- * 'nextMarker' -
+-- * 'limit' -
 mkListTagsForResource ::
   -- | 'resourceARN'
   Lude.Text ->
   ListTagsForResource
 mkListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { nextMarker = Lude.Nothing,
-      limit = Lude.Nothing,
-      resourceARN = pResourceARN_
+    { resourceARN = pResourceARN_,
+      nextMarker = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- |
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- |
 --
@@ -87,13 +91,6 @@ ltfrNextMarker = Lens.lens (nextMarker :: ListTagsForResource -> Lude.Maybe Lude
 ltfrLimit :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
 ltfrLimit = Lens.lens (limit :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- |
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
-ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
@@ -122,9 +119,9 @@ instance Lude.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ResourceARN" Lude..= resourceARN)
+          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
+            ("NextMarker" Lude..=) Lude.<$> nextMarker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -136,25 +133,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { tagInfoForResource ::
-      Lude.Maybe TagInfoForResource,
+  { -- |
+    tagInfoForResource :: Lude.Maybe TagInfoForResource,
+    -- |
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
+-- * 'tagInfoForResource' -
 -- * 'nextMarker' -
 -- * 'responseStatus' - The response status code.
--- * 'tagInfoForResource' -
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateBudget' smart constructor.
 data UpdateBudget = UpdateBudget'
-  { accountId :: Lude.Text,
+  { -- | The @accountId@ that is associated with the budget that you want to update.
+    accountId :: Lude.Text,
+    -- | The budget that you want to update your budget to.
     newBudget :: Budget
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBudget' with the minimum fields required to make a request.
@@ -121,16 +118,10 @@ instance Lude.ToQuery UpdateBudget where
 --
 -- /See:/ 'mkUpdateBudgetResponse' smart constructor.
 newtype UpdateBudgetResponse = UpdateBudgetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBudgetResponse' with the minimum fields required to make a request.

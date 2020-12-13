@@ -38,46 +38,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedInstancesModification' smart constructor.
 data ReservedInstancesModification = ReservedInstancesModification'
-  { modificationResults ::
-      Lude.Maybe
-        [ReservedInstancesModificationResult],
+  { -- | Contains target configurations along with their corresponding new Reserved Instance IDs.
+    modificationResults :: Lude.Maybe [ReservedInstancesModificationResult],
+    -- | The status of the Reserved Instances modification request.
     status :: Lude.Maybe Lude.Text,
-    clientToken ::
-      Lude.Maybe Lude.Text,
-    updateDate ::
-      Lude.Maybe Lude.DateTime,
-    createDate ::
-      Lude.Maybe Lude.DateTime,
-    effectiveDate ::
-      Lude.Maybe Lude.DateTime,
-    statusMessage ::
-      Lude.Maybe Lude.Text,
-    reservedInstancesModificationId ::
-      Lude.Maybe Lude.Text,
-    reservedInstancesIds ::
-      Lude.Maybe
-        [ReservedInstancesId]
+    -- | A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The time when the modification request was last updated.
+    updateDate :: Lude.Maybe Lude.DateTime,
+    -- | The time when the modification request was created.
+    createDate :: Lude.Maybe Lude.DateTime,
+    -- | The time for the modification to become effective.
+    effectiveDate :: Lude.Maybe Lude.DateTime,
+    -- | The reason for the status.
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | A unique ID for the Reserved Instance modification.
+    reservedInstancesModificationId :: Lude.Maybe Lude.Text,
+    -- | The IDs of one or more Reserved Instances.
+    reservedInstancesIds :: Lude.Maybe [ReservedInstancesId]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesModification' with the minimum fields required to make a request.
 --
+-- * 'modificationResults' - Contains target configurations along with their corresponding new Reserved Instance IDs.
+-- * 'status' - The status of the Reserved Instances modification request.
 -- * 'clientToken' - A unique, case-sensitive key supplied by the client to ensure that the request is idempotent. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- * 'updateDate' - The time when the modification request was last updated.
 -- * 'createDate' - The time when the modification request was created.
 -- * 'effectiveDate' - The time for the modification to become effective.
--- * 'modificationResults' - Contains target configurations along with their corresponding new Reserved Instance IDs.
--- * 'reservedInstancesIds' - The IDs of one or more Reserved Instances.
--- * 'reservedInstancesModificationId' - A unique ID for the Reserved Instance modification.
--- * 'status' - The status of the Reserved Instances modification request.
 -- * 'statusMessage' - The reason for the status.
--- * 'updateDate' - The time when the modification request was last updated.
+-- * 'reservedInstancesModificationId' - A unique ID for the Reserved Instance modification.
+-- * 'reservedInstancesIds' - The IDs of one or more Reserved Instances.
 mkReservedInstancesModification ::
   ReservedInstancesModification
 mkReservedInstancesModification =

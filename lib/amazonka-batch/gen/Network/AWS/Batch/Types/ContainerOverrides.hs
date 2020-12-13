@@ -35,31 +35,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerOverrides' smart constructor.
 data ContainerOverrides = ContainerOverrides'
-  { command ::
-      Lude.Maybe [Lude.Text],
+  { -- | The command to send to the container that overrides the default command from the Docker image or the job definition.
+    command :: Lude.Maybe [Lude.Text],
+    -- | The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the job definition.
     environment :: Lude.Maybe [KeyValuePair],
-    resourceRequirements ::
-      Lude.Maybe [ResourceRequirement],
+    -- | The type and amount of a resource to assign to a container. This value overrides the value set in the job definition. Currently, the only supported resource is @GPU@ .
+    resourceRequirements :: Lude.Maybe [ResourceRequirement],
+    -- | The instance type to use for a multi-node parallel job. This parameter is not valid for single-node container jobs.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The number of MiB of memory reserved for the job. This value overrides the value set in the job definition.
     memory :: Lude.Maybe Lude.Int,
+    -- | The number of vCPUs to reserve for the container. This value overrides the value set in the job definition.
     vcpus :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerOverrides' with the minimum fields required to make a request.
 --
 -- * 'command' - The command to send to the container that overrides the default command from the Docker image or the job definition.
 -- * 'environment' - The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the job definition.
+-- * 'resourceRequirements' - The type and amount of a resource to assign to a container. This value overrides the value set in the job definition. Currently, the only supported resource is @GPU@ .
 -- * 'instanceType' - The instance type to use for a multi-node parallel job. This parameter is not valid for single-node container jobs.
 -- * 'memory' - The number of MiB of memory reserved for the job. This value overrides the value set in the job definition.
--- * 'resourceRequirements' - The type and amount of a resource to assign to a container. This value overrides the value set in the job definition. Currently, the only supported resource is @GPU@ .
 -- * 'vcpus' - The number of vCPUs to reserve for the container. This value overrides the value set in the job definition.
 mkContainerOverrides ::
   ContainerOverrides

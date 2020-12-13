@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,6 +53,7 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     mkCreateEventSourceMapping,
 
     -- ** Request lenses
+    cesmEventSourceARN,
     cesmStartingPositionTimestamp,
     cesmTopics,
     cesmQueues,
@@ -63,10 +65,9 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     cesmMaximumBatchingWindowInSeconds,
     cesmSourceAccessConfigurations,
     cesmMaximumRecordAgeInSeconds,
+    cesmFunctionName,
     cesmDestinationConfig,
     cesmStartingPosition,
-    cesmEventSourceARN,
-    cesmFunctionName,
 
     -- * Destructuring the response
     EventSourceMappingConfiguration (..),
@@ -103,65 +104,85 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateEventSourceMapping' smart constructor.
 data CreateEventSourceMapping = CreateEventSourceMapping'
-  { startingPositionTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    topics ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    queues ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    enabled :: Lude.Maybe Lude.Bool,
-    bisectBatchOnFunctionError ::
-      Lude.Maybe Lude.Bool,
-    parallelizationFactor ::
-      Lude.Maybe Lude.Natural,
-    maximumRetryAttempts ::
-      Lude.Maybe Lude.Int,
-    batchSize :: Lude.Maybe Lude.Natural,
-    maximumBatchingWindowInSeconds ::
-      Lude.Maybe Lude.Natural,
-    sourceAccessConfigurations ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            SourceAccessConfiguration
-        ),
-    maximumRecordAgeInSeconds ::
-      Lude.Maybe Lude.Int,
-    destinationConfig ::
-      Lude.Maybe DestinationConfig,
-    startingPosition ::
-      Lude.Maybe EventSourcePosition,
+  { -- | The Amazon Resource Name (ARN) of the event source.
+    --
+    --
+    --     * __Amazon Kinesis__ - The ARN of the data stream or a stream consumer.
+    --
+    --
+    --     * __Amazon DynamoDB Streams__ - The ARN of the stream.
+    --
+    --
+    --     * __Amazon Simple Queue Service__ - The ARN of the queue.
+    --
+    --
+    --     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
     eventSourceARN :: Lude.Text,
-    functionName :: Lude.Text
+    -- | With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
+    startingPositionTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | (MSK) The name of the Kafka topic.
+    topics :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | (MQ) The name of the Amazon MQ broker destination queue to consume.
+    queues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | If true, the event source mapping is active. Set to false to pause polling and invocation.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | (Streams) If the function returns an error, split the batch in two and retry.
+    bisectBatchOnFunctionError :: Lude.Maybe Lude.Bool,
+    -- | (Streams) The number of batches to process from each shard concurrently.
+    parallelizationFactor :: Lude.Maybe Lude.Natural,
+    -- | (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
+    maximumRetryAttempts :: Lude.Maybe Lude.Int,
+    -- | The maximum number of items to retrieve in a single batch.
+    --
+    --
+    --     * __Amazon Kinesis__ - Default 100. Max 10,000.
+    --
+    --
+    --     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+    --
+    --
+    --     * __Amazon Simple Queue Service__ - Default 10. Max 10.
+    --
+    --
+    --     * __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max 10,000.
+    batchSize :: Lude.Maybe Lude.Natural,
+    -- | (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+    maximumBatchingWindowInSeconds :: Lude.Maybe Lude.Natural,
+    -- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
+    --
+    -- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+    -- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+    sourceAccessConfigurations :: Lude.Maybe (Lude.NonEmpty SourceAccessConfiguration),
+    -- | (Streams) Discard records older than the specified age. The default value is infinite (-1).
+    maximumRecordAgeInSeconds :: Lude.Maybe Lude.Int,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+    destinationConfig :: Lude.Maybe DestinationConfig,
+    -- | The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+    startingPosition :: Lude.Maybe EventSourcePosition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEventSourceMapping' with the minimum fields required to make a request.
 --
--- * 'batchSize' - The maximum number of items to retrieve in a single batch.
---
---
---     * __Amazon Kinesis__ - Default 100. Max 10,000.
---
---
---     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
---
---
---     * __Amazon Simple Queue Service__ - Default 10. Max 10.
---
---
---     * __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max 10,000.
---
---
--- * 'bisectBatchOnFunctionError' - (Streams) If the function returns an error, split the batch in two and retry.
--- * 'destinationConfig' - (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
--- * 'enabled' - If true, the event source mapping is active. Set to false to pause polling and invocation.
 -- * 'eventSourceARN' - The Amazon Resource Name (ARN) of the event source.
 --
 --
@@ -177,6 +198,34 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
 --
 --
+-- * 'startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
+-- * 'topics' - (MSK) The name of the Kafka topic.
+-- * 'queues' - (MQ) The name of the Amazon MQ broker destination queue to consume.
+-- * 'enabled' - If true, the event source mapping is active. Set to false to pause polling and invocation.
+-- * 'bisectBatchOnFunctionError' - (Streams) If the function returns an error, split the batch in two and retry.
+-- * 'parallelizationFactor' - (Streams) The number of batches to process from each shard concurrently.
+-- * 'maximumRetryAttempts' - (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
+-- * 'batchSize' - The maximum number of items to retrieve in a single batch.
+--
+--
+--     * __Amazon Kinesis__ - Default 100. Max 10,000.
+--
+--
+--     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
+--
+--
+--     * __Amazon Simple Queue Service__ - Default 10. Max 10.
+--
+--
+--     * __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max 10,000.
+--
+--
+-- * 'maximumBatchingWindowInSeconds' - (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+-- * 'sourceAccessConfigurations' - (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
+--
+-- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+-- * 'maximumRecordAgeInSeconds' - (Streams) Discard records older than the specified age. The default value is infinite (-1).
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -194,18 +243,8 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
--- * 'maximumBatchingWindowInSeconds' - (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
--- * 'maximumRecordAgeInSeconds' - (Streams) Discard records older than the specified age. The default value is infinite (-1).
--- * 'maximumRetryAttempts' - (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
--- * 'parallelizationFactor' - (Streams) The number of batches to process from each shard concurrently.
--- * 'queues' - (MQ) The name of the Amazon MQ broker destination queue to consume.
--- * 'sourceAccessConfigurations' - (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
---
--- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
--- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+-- * 'destinationConfig' - (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 -- * 'startingPosition' - The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
--- * 'startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
--- * 'topics' - (MSK) The name of the Kafka topic.
 mkCreateEventSourceMapping ::
   -- | 'eventSourceARN'
   Lude.Text ->
@@ -214,8 +253,8 @@ mkCreateEventSourceMapping ::
   CreateEventSourceMapping
 mkCreateEventSourceMapping pEventSourceARN_ pFunctionName_ =
   CreateEventSourceMapping'
-    { startingPositionTimestamp =
-        Lude.Nothing,
+    { eventSourceARN = pEventSourceARN_,
+      startingPositionTimestamp = Lude.Nothing,
       topics = Lude.Nothing,
       queues = Lude.Nothing,
       enabled = Lude.Nothing,
@@ -226,11 +265,31 @@ mkCreateEventSourceMapping pEventSourceARN_ pFunctionName_ =
       maximumBatchingWindowInSeconds = Lude.Nothing,
       sourceAccessConfigurations = Lude.Nothing,
       maximumRecordAgeInSeconds = Lude.Nothing,
+      functionName = pFunctionName_,
       destinationConfig = Lude.Nothing,
-      startingPosition = Lude.Nothing,
-      eventSourceARN = pEventSourceARN_,
-      functionName = pFunctionName_
+      startingPosition = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the event source.
+--
+--
+--     * __Amazon Kinesis__ - The ARN of the data stream or a stream consumer.
+--
+--
+--     * __Amazon DynamoDB Streams__ - The ARN of the stream.
+--
+--
+--     * __Amazon Simple Queue Service__ - The ARN of the queue.
+--
+--
+--     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
+--
+--
+--
+-- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesmEventSourceARN :: Lens.Lens' CreateEventSourceMapping Lude.Text
+cesmEventSourceARN = Lens.lens (eventSourceARN :: CreateEventSourceMapping -> Lude.Text) (\s a -> s {eventSourceARN = a} :: CreateEventSourceMapping)
+{-# DEPRECATED cesmEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
 
 -- | With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
 --
@@ -326,41 +385,6 @@ cesmMaximumRecordAgeInSeconds :: Lens.Lens' CreateEventSourceMapping (Lude.Maybe
 cesmMaximumRecordAgeInSeconds = Lens.lens (maximumRecordAgeInSeconds :: CreateEventSourceMapping -> Lude.Maybe Lude.Int) (\s a -> s {maximumRecordAgeInSeconds = a} :: CreateEventSourceMapping)
 {-# DEPRECATED cesmMaximumRecordAgeInSeconds "Use generic-lens or generic-optics with 'maximumRecordAgeInSeconds' instead." #-}
 
--- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
---
--- /Note:/ Consider using 'destinationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cesmDestinationConfig :: Lens.Lens' CreateEventSourceMapping (Lude.Maybe DestinationConfig)
-cesmDestinationConfig = Lens.lens (destinationConfig :: CreateEventSourceMapping -> Lude.Maybe DestinationConfig) (\s a -> s {destinationConfig = a} :: CreateEventSourceMapping)
-{-# DEPRECATED cesmDestinationConfig "Use generic-lens or generic-optics with 'destinationConfig' instead." #-}
-
--- | The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
---
--- /Note:/ Consider using 'startingPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cesmStartingPosition :: Lens.Lens' CreateEventSourceMapping (Lude.Maybe EventSourcePosition)
-cesmStartingPosition = Lens.lens (startingPosition :: CreateEventSourceMapping -> Lude.Maybe EventSourcePosition) (\s a -> s {startingPosition = a} :: CreateEventSourceMapping)
-{-# DEPRECATED cesmStartingPosition "Use generic-lens or generic-optics with 'startingPosition' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the event source.
---
---
---     * __Amazon Kinesis__ - The ARN of the data stream or a stream consumer.
---
---
---     * __Amazon DynamoDB Streams__ - The ARN of the stream.
---
---
---     * __Amazon Simple Queue Service__ - The ARN of the queue.
---
---
---     * __Amazon Managed Streaming for Apache Kafka__ - The ARN of the cluster.
---
---
---
--- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cesmEventSourceARN :: Lens.Lens' CreateEventSourceMapping Lude.Text
-cesmEventSourceARN = Lens.lens (eventSourceARN :: CreateEventSourceMapping -> Lude.Text) (\s a -> s {eventSourceARN = a} :: CreateEventSourceMapping)
-{-# DEPRECATED cesmEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
-
 -- | The name of the Lambda function.
 --
 -- __Name formats__
@@ -384,6 +408,20 @@ cesmFunctionName :: Lens.Lens' CreateEventSourceMapping Lude.Text
 cesmFunctionName = Lens.lens (functionName :: CreateEventSourceMapping -> Lude.Text) (\s a -> s {functionName = a} :: CreateEventSourceMapping)
 {-# DEPRECATED cesmFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
+-- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+--
+-- /Note:/ Consider using 'destinationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesmDestinationConfig :: Lens.Lens' CreateEventSourceMapping (Lude.Maybe DestinationConfig)
+cesmDestinationConfig = Lens.lens (destinationConfig :: CreateEventSourceMapping -> Lude.Maybe DestinationConfig) (\s a -> s {destinationConfig = a} :: CreateEventSourceMapping)
+{-# DEPRECATED cesmDestinationConfig "Use generic-lens or generic-optics with 'destinationConfig' instead." #-}
+
+-- | The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+--
+-- /Note:/ Consider using 'startingPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cesmStartingPosition :: Lens.Lens' CreateEventSourceMapping (Lude.Maybe EventSourcePosition)
+cesmStartingPosition = Lens.lens (startingPosition :: CreateEventSourceMapping -> Lude.Maybe EventSourcePosition) (\s a -> s {startingPosition = a} :: CreateEventSourceMapping)
+{-# DEPRECATED cesmStartingPosition "Use generic-lens or generic-optics with 'startingPosition' instead." #-}
+
 instance Lude.AWSRequest CreateEventSourceMapping where
   type Rs CreateEventSourceMapping = EventSourceMappingConfiguration
   request = Req.postJSON lambdaService
@@ -396,7 +434,8 @@ instance Lude.ToJSON CreateEventSourceMapping where
   toJSON CreateEventSourceMapping' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("StartingPositionTimestamp" Lude..=)
+          [ Lude.Just ("EventSourceArn" Lude..= eventSourceARN),
+            ("StartingPositionTimestamp" Lude..=)
               Lude.<$> startingPositionTimestamp,
             ("Topics" Lude..=) Lude.<$> topics,
             ("Queues" Lude..=) Lude.<$> queues,
@@ -412,10 +451,9 @@ instance Lude.ToJSON CreateEventSourceMapping where
               Lude.<$> sourceAccessConfigurations,
             ("MaximumRecordAgeInSeconds" Lude..=)
               Lude.<$> maximumRecordAgeInSeconds,
+            Lude.Just ("FunctionName" Lude..= functionName),
             ("DestinationConfig" Lude..=) Lude.<$> destinationConfig,
-            ("StartingPosition" Lude..=) Lude.<$> startingPosition,
-            Lude.Just ("EventSourceArn" Lude..= eventSourceARN),
-            Lude.Just ("FunctionName" Lude..= functionName)
+            ("StartingPosition" Lude..=) Lude.<$> startingPosition
           ]
       )
 

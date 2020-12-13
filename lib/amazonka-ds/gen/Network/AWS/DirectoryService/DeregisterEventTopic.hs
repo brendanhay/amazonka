@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,7 +28,7 @@ module Network.AWS.DirectoryService.DeregisterEventTopic
     mkDeregisterEventTopicResponse,
 
     -- ** Response lenses
-    derrsResponseStatus,
+    detrsResponseStatus,
   )
 where
 
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeregisterEventTopic' smart constructor.
 data DeregisterEventTopic = DeregisterEventTopic'
-  { directoryId ::
-      Lude.Text,
+  { -- | The Directory ID to remove as a publisher. This directory will no longer send messages to the specified SNS topic.
+    directoryId :: Lude.Text,
+    -- | The name of the SNS topic from which to remove the directory as a publisher.
     topicName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterEventTopic' with the minimum fields required to make a request.
@@ -126,16 +122,10 @@ instance Lude.ToQuery DeregisterEventTopic where
 --
 -- /See:/ 'mkDeregisterEventTopicResponse' smart constructor.
 newtype DeregisterEventTopicResponse = DeregisterEventTopicResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterEventTopicResponse' with the minimum fields required to make a request.
@@ -151,6 +141,6 @@ mkDeregisterEventTopicResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsResponseStatus :: Lens.Lens' DeregisterEventTopicResponse Lude.Int
-derrsResponseStatus = Lens.lens (responseStatus :: DeregisterEventTopicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterEventTopicResponse)
-{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+detrsResponseStatus :: Lens.Lens' DeregisterEventTopicResponse Lude.Int
+detrsResponseStatus = Lens.lens (responseStatus :: DeregisterEventTopicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterEventTopicResponse)
+{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

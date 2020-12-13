@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkDescribeJob' smart constructor.
-newtype DescribeJob = DescribeJob' {jobId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeJob = DescribeJob'
+  { -- | The automatically generated ID for a job, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+    jobId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJob' with the minimum fields required to make a request.
@@ -102,25 +100,21 @@ instance Lude.ToQuery DescribeJob where
 
 -- | /See:/ 'mkDescribeJobResponse' smart constructor.
 data DescribeJobResponse = DescribeJobResponse'
-  { jobMetadata ::
-      Lude.Maybe JobMetadata,
+  { -- | Information about a specific job, including shipping information, job status, and other important metadata.
+    jobMetadata :: Lude.Maybe JobMetadata,
+    -- | Information about a specific job part (in the case of an export job), including shipping information, job status, and other important metadata.
     subJobMetadata :: Lude.Maybe [JobMetadata],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobResponse' with the minimum fields required to make a request.
 --
 -- * 'jobMetadata' - Information about a specific job, including shipping information, job status, and other important metadata.
--- * 'responseStatus' - The response status code.
 -- * 'subJobMetadata' - Information about a specific job part (in the case of an export job), including shipping information, job status, and other important metadata.
+-- * 'responseStatus' - The response status code.
 mkDescribeJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

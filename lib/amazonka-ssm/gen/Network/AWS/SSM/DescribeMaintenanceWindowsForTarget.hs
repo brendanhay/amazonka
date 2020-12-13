@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.SSM.DescribeMaintenanceWindowsForTarget
     mkDescribeMaintenanceWindowsForTarget,
 
     -- ** Request lenses
-    dmwftNextToken,
-    dmwftMaxResults,
-    dmwftTargets,
     dmwftResourceType,
+    dmwftNextToken,
+    dmwftTargets,
+    dmwftMaxResults,
 
     -- * Destructuring the response
     DescribeMaintenanceWindowsForTargetResponse (..),
@@ -46,42 +47,43 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeMaintenanceWindowsForTarget' smart constructor.
 data DescribeMaintenanceWindowsForTarget = DescribeMaintenanceWindowsForTarget'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
+  { -- | The type of resource you want to retrieve information about. For example, "INSTANCE".
+    resourceType :: MaintenanceWindowResourceType,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The instance ID or key/value pair to retrieve information about.
     targets :: [Target],
-    resourceType ::
-      MaintenanceWindowResourceType
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowsForTarget' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'resourceType' - The type of resource you want to retrieve information about. For example, "INSTANCE".
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'targets' - The instance ID or key/value pair to retrieve information about.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeMaintenanceWindowsForTarget ::
   -- | 'resourceType'
   MaintenanceWindowResourceType ->
   DescribeMaintenanceWindowsForTarget
 mkDescribeMaintenanceWindowsForTarget pResourceType_ =
   DescribeMaintenanceWindowsForTarget'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
+    { resourceType =
+        pResourceType_,
+      nextToken = Lude.Nothing,
       targets = Lude.mempty,
-      resourceType = pResourceType_
+      maxResults = Lude.Nothing
     }
+
+-- | The type of resource you want to retrieve information about. For example, "INSTANCE".
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwftResourceType :: Lens.Lens' DescribeMaintenanceWindowsForTarget MaintenanceWindowResourceType
+dmwftResourceType = Lens.lens (resourceType :: DescribeMaintenanceWindowsForTarget -> MaintenanceWindowResourceType) (\s a -> s {resourceType = a} :: DescribeMaintenanceWindowsForTarget)
+{-# DEPRECATED dmwftResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -90,13 +92,6 @@ dmwftNextToken :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Lude.Maybe Lud
 dmwftNextToken = Lens.lens (nextToken :: DescribeMaintenanceWindowsForTarget -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMaintenanceWindowsForTarget)
 {-# DEPRECATED dmwftNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwftMaxResults :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Lude.Maybe Lude.Natural)
-dmwftMaxResults = Lens.lens (maxResults :: DescribeMaintenanceWindowsForTarget -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeMaintenanceWindowsForTarget)
-{-# DEPRECATED dmwftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The instance ID or key/value pair to retrieve information about.
 --
 -- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -104,12 +99,12 @@ dmwftTargets :: Lens.Lens' DescribeMaintenanceWindowsForTarget [Target]
 dmwftTargets = Lens.lens (targets :: DescribeMaintenanceWindowsForTarget -> [Target]) (\s a -> s {targets = a} :: DescribeMaintenanceWindowsForTarget)
 {-# DEPRECATED dmwftTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
--- | The type of resource you want to retrieve information about. For example, "INSTANCE".
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwftResourceType :: Lens.Lens' DescribeMaintenanceWindowsForTarget MaintenanceWindowResourceType
-dmwftResourceType = Lens.lens (resourceType :: DescribeMaintenanceWindowsForTarget -> MaintenanceWindowResourceType) (\s a -> s {resourceType = a} :: DescribeMaintenanceWindowsForTarget)
-{-# DEPRECATED dmwftResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwftMaxResults :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Lude.Maybe Lude.Natural)
+dmwftMaxResults = Lens.lens (maxResults :: DescribeMaintenanceWindowsForTarget -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeMaintenanceWindowsForTarget)
+{-# DEPRECATED dmwftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeMaintenanceWindowsForTarget where
   page rq rs
@@ -151,10 +146,10 @@ instance Lude.ToJSON DescribeMaintenanceWindowsForTarget where
   toJSON DescribeMaintenanceWindowsForTarget' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
+          [ Lude.Just ("ResourceType" Lude..= resourceType),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             Lude.Just ("Targets" Lude..= targets),
-            Lude.Just ("ResourceType" Lude..= resourceType)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -166,29 +161,21 @@ instance Lude.ToQuery DescribeMaintenanceWindowsForTarget where
 
 -- | /See:/ 'mkDescribeMaintenanceWindowsForTargetResponse' smart constructor.
 data DescribeMaintenanceWindowsForTargetResponse = DescribeMaintenanceWindowsForTargetResponse'
-  { windowIdentities ::
-      Lude.Maybe
-        [MaintenanceWindowIdentityForTarget],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the maintenance window targets and tasks an instance is associated with.
+    windowIdentities :: Lude.Maybe [MaintenanceWindowIdentityForTarget],
+    -- | The token for the next set of items to return. (You use this token in the next call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowsForTargetResponse' with the minimum fields required to make a request.
 --
+-- * 'windowIdentities' - Information about the maintenance window targets and tasks an instance is associated with.
 -- * 'nextToken' - The token for the next set of items to return. (You use this token in the next call.)
 -- * 'responseStatus' - The response status code.
--- * 'windowIdentities' - Information about the maintenance window targets and tasks an instance is associated with.
 mkDescribeMaintenanceWindowsForTargetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -30,24 +30,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPredefinedScalingMetricSpecification' smart constructor.
 data PredefinedScalingMetricSpecification = PredefinedScalingMetricSpecification'
-  { resourceLabel ::
-      Lude.Maybe
-        Lude.Text,
-    predefinedScalingMetricType ::
-      ScalingMetricType
+  { -- | Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+    --
+    -- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
+    --
+    --     * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN.
+    --
+    --
+    --     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+    resourceLabel :: Lude.Maybe Lude.Text,
+    -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
+    predefinedScalingMetricType :: ScalingMetricType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PredefinedScalingMetricSpecification' with the minimum fields required to make a request.
 --
--- * 'predefinedScalingMetricType' - The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
 -- * 'resourceLabel' - Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
 --
 -- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
@@ -56,6 +55,9 @@ data PredefinedScalingMetricSpecification = PredefinedScalingMetricSpecification
 --
 --
 --     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
+--
+--
+-- * 'predefinedScalingMetricType' - The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
 mkPredefinedScalingMetricSpecification ::
   -- | 'predefinedScalingMetricType'
   ScalingMetricType ->

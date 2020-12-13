@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,16 +45,10 @@ import Network.AWS.SSM.Types
 --
 -- /See:/ 'mkGetServiceSetting' smart constructor.
 newtype GetServiceSetting = GetServiceSetting'
-  { settingId ::
-      Lude.Text
+  { -- | The ID of the service setting to get. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ .
+    settingId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceSetting' with the minimum fields required to make a request.
@@ -110,23 +105,18 @@ instance Lude.ToQuery GetServiceSetting where
 --
 -- /See:/ 'mkGetServiceSettingResponse' smart constructor.
 data GetServiceSettingResponse = GetServiceSettingResponse'
-  { serviceSetting ::
-      Lude.Maybe ServiceSetting,
+  { -- | The query result of the current service setting.
+    serviceSetting :: Lude.Maybe ServiceSetting,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceSettingResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'serviceSetting' - The query result of the current service setting.
+-- * 'responseStatus' - The response status code.
 mkGetServiceSettingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

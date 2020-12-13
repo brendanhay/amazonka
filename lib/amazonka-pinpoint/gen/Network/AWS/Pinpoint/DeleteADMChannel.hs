@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.DeleteADMChannel
     mkDeleteADMChannelResponse,
 
     -- ** Response lenses
-    dadmcrsResponseStatus,
     dadmcrsADMChannelResponse,
+    dadmcrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteADMChannel' smart constructor.
 newtype DeleteADMChannel = DeleteADMChannel'
-  { applicationId ::
-      Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteADMChannel' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DeleteADMChannel where
     Res.receiveJSON
       ( \s h x ->
           DeleteADMChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteADMChannel where
@@ -97,41 +92,29 @@ instance Lude.ToQuery DeleteADMChannel where
 
 -- | /See:/ 'mkDeleteADMChannelResponse' smart constructor.
 data DeleteADMChannelResponse = DeleteADMChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    aDMChannelResponse :: ADMChannelResponse
+  { aDMChannelResponse :: ADMChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteADMChannelResponse' with the minimum fields required to make a request.
 --
--- * 'aDMChannelResponse' - Undocumented field.
+-- * 'aDMChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkDeleteADMChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'aDMChannelResponse'
   ADMChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteADMChannelResponse
-mkDeleteADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
+mkDeleteADMChannelResponse pADMChannelResponse_ pResponseStatus_ =
   DeleteADMChannelResponse'
-    { responseStatus = pResponseStatus_,
-      aDMChannelResponse = pADMChannelResponse_
+    { aDMChannelResponse =
+        pADMChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dadmcrsResponseStatus :: Lens.Lens' DeleteADMChannelResponse Lude.Int
-dadmcrsResponseStatus = Lens.lens (responseStatus :: DeleteADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteADMChannelResponse)
-{-# DEPRECATED dadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -139,3 +122,10 @@ dadmcrsResponseStatus = Lens.lens (responseStatus :: DeleteADMChannelResponse ->
 dadmcrsADMChannelResponse :: Lens.Lens' DeleteADMChannelResponse ADMChannelResponse
 dadmcrsADMChannelResponse = Lens.lens (aDMChannelResponse :: DeleteADMChannelResponse -> ADMChannelResponse) (\s a -> s {aDMChannelResponse = a} :: DeleteADMChannelResponse)
 {-# DEPRECATED dadmcrsADMChannelResponse "Use generic-lens or generic-optics with 'aDMChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dadmcrsResponseStatus :: Lens.Lens' DeleteADMChannelResponse Lude.Int
+dadmcrsResponseStatus = Lens.lens (responseStatus :: DeleteADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteADMChannelResponse)
+{-# DEPRECATED dadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

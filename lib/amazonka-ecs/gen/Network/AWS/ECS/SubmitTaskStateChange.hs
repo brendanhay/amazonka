@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,38 +48,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSubmitTaskStateChange' smart constructor.
 data SubmitTaskStateChange = SubmitTaskStateChange'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the state change request.
+    status :: Lude.Maybe Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
     cluster :: Lude.Maybe Lude.Text,
-    attachments ::
-      Lude.Maybe [AttachmentStateChange],
+    -- | Any attachments associated with the state change request.
+    attachments :: Lude.Maybe [AttachmentStateChange],
+    -- | The Unix timestamp for when the task execution stopped.
     executionStoppedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The Unix timestamp for when the container image pull completed.
     pullStoppedAt :: Lude.Maybe Lude.Timestamp,
+    -- | Any containers associated with the state change request.
     containers :: Lude.Maybe [ContainerStateChange],
+    -- | The reason for the state change request.
     reason :: Lude.Maybe Lude.Text,
+    -- | The task ID or full ARN of the task in the state change request.
     task :: Lude.Maybe Lude.Text,
+    -- | The Unix timestamp for when the container image pull began.
     pullStartedAt :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubmitTaskStateChange' with the minimum fields required to make a request.
 --
--- * 'attachments' - Any attachments associated with the state change request.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
--- * 'containers' - Any containers associated with the state change request.
--- * 'executionStoppedAt' - The Unix timestamp for when the task execution stopped.
--- * 'pullStartedAt' - The Unix timestamp for when the container image pull began.
--- * 'pullStoppedAt' - The Unix timestamp for when the container image pull completed.
--- * 'reason' - The reason for the state change request.
 -- * 'status' - The status of the state change request.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.
+-- * 'attachments' - Any attachments associated with the state change request.
+-- * 'executionStoppedAt' - The Unix timestamp for when the task execution stopped.
+-- * 'pullStoppedAt' - The Unix timestamp for when the container image pull completed.
+-- * 'containers' - Any containers associated with the state change request.
+-- * 'reason' - The reason for the state change request.
 -- * 'task' - The task ID or full ARN of the task in the state change request.
+-- * 'pullStartedAt' - The Unix timestamp for when the container image pull began.
 mkSubmitTaskStateChange ::
   SubmitTaskStateChange
 mkSubmitTaskStateChange =
@@ -205,17 +207,12 @@ instance Lude.ToQuery SubmitTaskStateChange where
 
 -- | /See:/ 'mkSubmitTaskStateChangeResponse' smart constructor.
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
-  { acknowledgment ::
-      Lude.Maybe Lude.Text,
+  { -- | Acknowledgement of the state change.
+    acknowledgment :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubmitTaskStateChangeResponse' with the minimum fields required to make a request.

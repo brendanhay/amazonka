@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.DeleteCertificate
     mkDeleteCertificate,
 
     -- ** Request lenses
-    dcForceDelete,
     dcCertificateId,
+    dcForceDelete,
 
     -- * Destructuring the response
     DeleteCertificateResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteCertificate' smart constructor.
 data DeleteCertificate = DeleteCertificate'
-  { forceDelete ::
-      Lude.Maybe Lude.Bool,
-    certificateId :: Lude.Text
+  { -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+    certificateId :: Lude.Text,
+    -- | Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.
+    forceDelete :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkDeleteCertificate ::
   DeleteCertificate
 mkDeleteCertificate pCertificateId_ =
   DeleteCertificate'
-    { forceDelete = Lude.Nothing,
-      certificateId = pCertificateId_
+    { certificateId = pCertificateId_,
+      forceDelete = Lude.Nothing
     }
-
--- | Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.
---
--- /Note:/ Consider using 'forceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcForceDelete :: Lens.Lens' DeleteCertificate (Lude.Maybe Lude.Bool)
-dcForceDelete = Lens.lens (forceDelete :: DeleteCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {forceDelete = a} :: DeleteCertificate)
-{-# DEPRECATED dcForceDelete "Use generic-lens or generic-optics with 'forceDelete' instead." #-}
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
@@ -80,6 +69,13 @@ dcForceDelete = Lens.lens (forceDelete :: DeleteCertificate -> Lude.Maybe Lude.B
 dcCertificateId :: Lens.Lens' DeleteCertificate Lude.Text
 dcCertificateId = Lens.lens (certificateId :: DeleteCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DeleteCertificate)
 {-# DEPRECATED dcCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.
+--
+-- /Note:/ Consider using 'forceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcForceDelete :: Lens.Lens' DeleteCertificate (Lude.Maybe Lude.Bool)
+dcForceDelete = Lens.lens (forceDelete :: DeleteCertificate -> Lude.Maybe Lude.Bool) (\s a -> s {forceDelete = a} :: DeleteCertificate)
+{-# DEPRECATED dcForceDelete "Use generic-lens or generic-optics with 'forceDelete' instead." #-}
 
 instance Lude.AWSRequest DeleteCertificate where
   type Rs DeleteCertificate = DeleteCertificateResponse
@@ -99,13 +95,7 @@ instance Lude.ToQuery DeleteCertificate where
 
 -- | /See:/ 'mkDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.

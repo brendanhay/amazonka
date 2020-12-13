@@ -13,11 +13,11 @@
 module Network.AWS.CloudDirectory.Types.FacetAttributeType
   ( FacetAttributeType
       ( FacetAttributeType',
+        String,
         Binary,
         Boolean,
-        Datetime,
         Number,
-        String,
+        Datetime,
         Variant
       ),
   )
@@ -49,30 +49,30 @@ newtype FacetAttributeType = FacetAttributeType' Lude.Text
       Lude.ToHeader
     )
 
+pattern String :: FacetAttributeType
+pattern String = FacetAttributeType' "STRING"
+
 pattern Binary :: FacetAttributeType
 pattern Binary = FacetAttributeType' "BINARY"
 
 pattern Boolean :: FacetAttributeType
 pattern Boolean = FacetAttributeType' "BOOLEAN"
 
-pattern Datetime :: FacetAttributeType
-pattern Datetime = FacetAttributeType' "DATETIME"
-
 pattern Number :: FacetAttributeType
 pattern Number = FacetAttributeType' "NUMBER"
 
-pattern String :: FacetAttributeType
-pattern String = FacetAttributeType' "STRING"
+pattern Datetime :: FacetAttributeType
+pattern Datetime = FacetAttributeType' "DATETIME"
 
 pattern Variant :: FacetAttributeType
 pattern Variant = FacetAttributeType' "VARIANT"
 
 {-# COMPLETE
+  String,
   Binary,
   Boolean,
-  Datetime,
   Number,
-  String,
+  Datetime,
   Variant,
   FacetAttributeType'
   #-}

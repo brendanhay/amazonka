@@ -30,17 +30,12 @@ import Network.AWS.Rekognition.Types.TextDetection
 --
 -- /See:/ 'mkTextDetectionResult' smart constructor.
 data TextDetectionResult = TextDetectionResult'
-  { textDetection ::
-      Lude.Maybe TextDetection,
+  { -- | Details about text detected in a video.
+    textDetection :: Lude.Maybe TextDetection,
+    -- | The time, in milliseconds from the start of the video, that the text was detected.
     timestamp :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TextDetectionResult' with the minimum fields required to make a request.

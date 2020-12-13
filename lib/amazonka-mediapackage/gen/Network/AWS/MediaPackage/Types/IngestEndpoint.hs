@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIngestEndpoint' smart constructor.
 data IngestEndpoint = IngestEndpoint'
-  { url :: Lude.Maybe Lude.Text,
+  { -- | The ingest URL to which the source stream should be sent.
+    url :: Lude.Maybe Lude.Text,
+    -- | The system generated username for ingest authentication.
     username :: Lude.Maybe Lude.Text,
+    -- | The system generated password for ingest authentication.
     password :: Lude.Maybe Lude.Text,
+    -- | The system generated unique identifier for the IngestEndpoint
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IngestEndpoint' with the minimum fields required to make a request.
 --
--- * 'id' - The system generated unique identifier for the IngestEndpoint
--- * 'password' - The system generated password for ingest authentication.
 -- * 'url' - The ingest URL to which the source stream should be sent.
 -- * 'username' - The system generated username for ingest authentication.
+-- * 'password' - The system generated password for ingest authentication.
+-- * 'id' - The system generated unique identifier for the IngestEndpoint
 mkIngestEndpoint ::
   IngestEndpoint
 mkIngestEndpoint =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,24 +50,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
     ascendingOrder :: Lude.Maybe Lude.Bool,
+    -- | The result page size.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
--- * 'ascendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 -- * 'marker' - The marker for the next set of results.
+-- * 'ascendingOrder' - Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.
 -- * 'pageSize' - The result page size.
 mkListCertificates ::
   ListCertificates
@@ -137,18 +134,14 @@ instance Lude.ToQuery ListCertificates where
 --
 -- /See:/ 'mkListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { certificates ::
-      Lude.Maybe [Certificate],
+  { -- | The descriptions of the certificates.
+    certificates :: Lude.Maybe [Certificate],
+    -- | The marker for the next set of results, or null if there are no additional results.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.

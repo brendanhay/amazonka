@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.BundleInstance
     mkBundleInstance,
 
     -- ** Request lenses
-    biDryRun,
     biInstanceId,
     biStorage,
+    biDryRun,
 
     -- * Destructuring the response
     BundleInstanceResponse (..),
@@ -45,29 +46,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBundleInstance' smart constructor.
 data BundleInstance = BundleInstance'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the instance to bundle.
+    --
+    -- Type: String
+    -- Default: None
+    -- Required: Yes
     instanceId :: Lude.Text,
-    storage :: Storage
+    -- | The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
+    storage :: Storage,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BundleInstance' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceId' - The ID of the instance to bundle.
 --
 -- Type: String
 -- Default: None
 -- Required: Yes
 -- * 'storage' - The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkBundleInstance ::
   -- | 'instanceId'
   Lude.Text ->
@@ -76,17 +77,10 @@ mkBundleInstance ::
   BundleInstance
 mkBundleInstance pInstanceId_ pStorage_ =
   BundleInstance'
-    { dryRun = Lude.Nothing,
-      instanceId = pInstanceId_,
-      storage = pStorage_
+    { instanceId = pInstanceId_,
+      storage = pStorage_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biDryRun :: Lens.Lens' BundleInstance (Lude.Maybe Lude.Bool)
-biDryRun = Lens.lens (dryRun :: BundleInstance -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: BundleInstance)
-{-# DEPRECATED biDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the instance to bundle.
 --
@@ -105,6 +99,13 @@ biInstanceId = Lens.lens (instanceId :: BundleInstance -> Lude.Text) (\s a -> s 
 biStorage :: Lens.Lens' BundleInstance Storage
 biStorage = Lens.lens (storage :: BundleInstance -> Storage) (\s a -> s {storage = a} :: BundleInstance)
 {-# DEPRECATED biStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+biDryRun :: Lens.Lens' BundleInstance (Lude.Maybe Lude.Bool)
+biDryRun = Lens.lens (dryRun :: BundleInstance -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: BundleInstance)
+{-# DEPRECATED biDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest BundleInstance where
   type Rs BundleInstance = BundleInstanceResponse
@@ -128,26 +129,21 @@ instance Lude.ToQuery BundleInstance where
     Lude.mconcat
       [ "Action" Lude.=: ("BundleInstance" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "InstanceId" Lude.=: instanceId,
-        "Storage" Lude.=: storage
+        "Storage" Lude.=: storage,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of BundleInstance.
 --
 -- /See:/ 'mkBundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
-  { bundleTask ::
-      Lude.Maybe BundleTask,
+  { -- | Information about the bundle task.
+    bundleTask :: Lude.Maybe BundleTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BundleInstanceResponse' with the minimum fields required to make a request.

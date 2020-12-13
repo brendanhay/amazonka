@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScope' smart constructor.
 data Scope = Scope'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The resource identifier for the specified scope type.
+    value :: Lude.Maybe Lude.Text,
+    -- | The type of the scope.
     key :: Lude.Maybe ScopeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scope' with the minimum fields required to make a request.
 --
--- * 'key' - The type of the scope.
 -- * 'value' - The resource identifier for the specified scope type.
+-- * 'key' - The type of the scope.
 mkScope ::
   Scope
 mkScope = Scope' {value = Lude.Nothing, key = Lude.Nothing}

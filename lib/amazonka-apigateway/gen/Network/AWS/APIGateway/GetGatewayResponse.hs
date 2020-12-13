@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.GetGatewayResponse
     mkGetGatewayResponse,
 
     -- ** Request lenses
-    gggRestAPIId,
-    gggResponseType,
+    ggRestAPIId,
+    ggResponseType,
 
     -- * Destructuring the response
     GatewayResponse (..),
@@ -45,21 +46,57 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetGatewayResponse' smart constructor.
 data GetGatewayResponse = GetGatewayResponse'
-  { restAPIId ::
-      Lude.Text,
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
+    --
+    --     * ACCESS_DENIED
+    --
+    --     * API_CONFIGURATION_ERROR
+    --
+    --     * AUTHORIZER_FAILURE
+    --
+    --     * AUTHORIZER_CONFIGURATION_ERROR
+    --
+    --     * BAD_REQUEST_PARAMETERS
+    --
+    --     * BAD_REQUEST_BODY
+    --
+    --     * DEFAULT_4XX
+    --
+    --     * DEFAULT_5XX
+    --
+    --     * EXPIRED_TOKEN
+    --
+    --     * INVALID_SIGNATURE
+    --
+    --     * INTEGRATION_FAILURE
+    --
+    --     * INTEGRATION_TIMEOUT
+    --
+    --     * INVALID_API_KEY
+    --
+    --     * MISSING_AUTHENTICATION_TOKEN
+    --
+    --     * QUOTA_EXCEEDED
+    --
+    --     * REQUEST_TOO_LARGE
+    --
+    --     * RESOURCE_NOT_FOUND
+    --
+    --     * THROTTLED
+    --
+    --     * UNAUTHORIZED
+    --
+    --     * UNSUPPORTED_MEDIA_TYPE
     responseType :: GatewayResponseType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetGatewayResponse' with the minimum fields required to make a request.
 --
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'responseType' - [Required] The response type of the associated 'GatewayResponse' . Valid values are
 --
 --     * ACCESS_DENIED
@@ -101,10 +138,6 @@ data GetGatewayResponse = GetGatewayResponse'
 --     * UNAUTHORIZED
 --
 --     * UNSUPPORTED_MEDIA_TYPE
---
---
---
--- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetGatewayResponse ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -120,9 +153,9 @@ mkGetGatewayResponse pRestAPIId_ pResponseType_ =
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gggRestAPIId :: Lens.Lens' GetGatewayResponse Lude.Text
-gggRestAPIId = Lens.lens (restAPIId :: GetGatewayResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: GetGatewayResponse)
-{-# DEPRECATED gggRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+ggRestAPIId :: Lens.Lens' GetGatewayResponse Lude.Text
+ggRestAPIId = Lens.lens (restAPIId :: GetGatewayResponse -> Lude.Text) (\s a -> s {restAPIId = a} :: GetGatewayResponse)
+{-# DEPRECATED ggRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The response type of the associated 'GatewayResponse' . Valid values are
 --
@@ -170,9 +203,9 @@ gggRestAPIId = Lens.lens (restAPIId :: GetGatewayResponse -> Lude.Text) (\s a ->
 --
 --
 -- /Note:/ Consider using 'responseType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gggResponseType :: Lens.Lens' GetGatewayResponse GatewayResponseType
-gggResponseType = Lens.lens (responseType :: GetGatewayResponse -> GatewayResponseType) (\s a -> s {responseType = a} :: GetGatewayResponse)
-{-# DEPRECATED gggResponseType "Use generic-lens or generic-optics with 'responseType' instead." #-}
+ggResponseType :: Lens.Lens' GetGatewayResponse GatewayResponseType
+ggResponseType = Lens.lens (responseType :: GetGatewayResponse -> GatewayResponseType) (\s a -> s {responseType = a} :: GetGatewayResponse)
+{-# DEPRECATED ggResponseType "Use generic-lens or generic-optics with 'responseType' instead." #-}
 
 instance Lude.AWSRequest GetGatewayResponse where
   type Rs GetGatewayResponse = GatewayResponse

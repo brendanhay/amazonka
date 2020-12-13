@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,24 +37,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeletePendingAggregationRequest' smart constructor.
 data DeletePendingAggregationRequest = DeletePendingAggregationRequest'
-  { requesterAccountId ::
-      Lude.Text,
-    requesterAWSRegion ::
-      Lude.Text
+  { -- | The 12-digit account ID of the account requesting to aggregate data.
+    requesterAccountId :: Lude.Text,
+    -- | The region requesting to aggregate data.
+    requesterAWSRegion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePendingAggregationRequest' with the minimum fields required to make a request.
 --
--- * 'requesterAWSRegion' - The region requesting to aggregate data.
 -- * 'requesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
+-- * 'requesterAWSRegion' - The region requesting to aggregate data.
 mkDeletePendingAggregationRequest ::
   -- | 'requesterAccountId'
   Lude.Text ->
@@ -120,13 +115,7 @@ instance Lude.ToQuery DeletePendingAggregationRequest where
 
 -- | /See:/ 'mkDeletePendingAggregationRequestResponse' smart constructor.
 data DeletePendingAggregationRequestResponse = DeletePendingAggregationRequestResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePendingAggregationRequestResponse' with the minimum fields required to make a request.

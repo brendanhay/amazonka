@@ -36,36 +36,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobProcessDetails' smart constructor.
 data JobProcessDetails = JobProcessDetails'
-  { numberOfRemovedThings ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of things that are no longer scheduled to execute the job because they have been deleted or have been removed from the group that was a target of the job.
+    numberOfRemovedThings :: Lude.Maybe Lude.Int,
+    -- | The number of things that are awaiting execution of the job.
     numberOfQueuedThings :: Lude.Maybe Lude.Int,
+    -- | The number of things that failed executing the job.
     numberOfFailedThings :: Lude.Maybe Lude.Int,
+    -- | The number of things which successfully completed the job.
     numberOfSucceededThings :: Lude.Maybe Lude.Int,
+    -- | The number of things currently executing the job.
     numberOfInProgressThings :: Lude.Maybe Lude.Int,
+    -- | The number of things that cancelled the job.
     numberOfCanceledThings :: Lude.Maybe Lude.Int,
+    -- | The number of things whose job execution status is @TIMED_OUT@ .
     numberOfTimedOutThings :: Lude.Maybe Lude.Int,
+    -- | The number of things that rejected the job.
     numberOfRejectedThings :: Lude.Maybe Lude.Int,
+    -- | The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.
     processingTargets :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobProcessDetails' with the minimum fields required to make a request.
 --
--- * 'numberOfCanceledThings' - The number of things that cancelled the job.
--- * 'numberOfFailedThings' - The number of things that failed executing the job.
--- * 'numberOfInProgressThings' - The number of things currently executing the job.
--- * 'numberOfQueuedThings' - The number of things that are awaiting execution of the job.
--- * 'numberOfRejectedThings' - The number of things that rejected the job.
 -- * 'numberOfRemovedThings' - The number of things that are no longer scheduled to execute the job because they have been deleted or have been removed from the group that was a target of the job.
+-- * 'numberOfQueuedThings' - The number of things that are awaiting execution of the job.
+-- * 'numberOfFailedThings' - The number of things that failed executing the job.
 -- * 'numberOfSucceededThings' - The number of things which successfully completed the job.
+-- * 'numberOfInProgressThings' - The number of things currently executing the job.
+-- * 'numberOfCanceledThings' - The number of things that cancelled the job.
 -- * 'numberOfTimedOutThings' - The number of things whose job execution status is @TIMED_OUT@ .
+-- * 'numberOfRejectedThings' - The number of things that rejected the job.
 -- * 'processingTargets' - The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.
 mkJobProcessDetails ::
   JobProcessDetails

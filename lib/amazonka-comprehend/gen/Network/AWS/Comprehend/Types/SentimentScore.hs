@@ -31,19 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSentimentScore' smart constructor.
 data SentimentScore = SentimentScore'
-  { mixed ::
-      Lude.Maybe Lude.Double,
+  { -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @MIXED@ sentiment.
+    mixed :: Lude.Maybe Lude.Double,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEGATIVE@ sentiment.
     negative :: Lude.Maybe Lude.Double,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEUTRAL@ sentiment.
     neutral :: Lude.Maybe Lude.Double,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @POSITIVE@ sentiment.
     positive :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SentimentScore' with the minimum fields required to make a request.

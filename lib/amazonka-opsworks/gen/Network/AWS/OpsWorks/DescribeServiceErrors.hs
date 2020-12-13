@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,25 +45,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeServiceErrors' smart constructor.
 data DescribeServiceErrors = DescribeServiceErrors'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified stack.
     stackId :: Lude.Maybe Lude.Text,
+    -- | An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
     serviceErrorIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceErrors' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The instance ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified instance.
--- * 'serviceErrorIds' - An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
 -- * 'stackId' - The stack ID. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the errors associated with the specified stack.
+-- * 'serviceErrorIds' - An array of service error IDs. If you use this parameter, @DescribeServiceErrors@ returns descriptions of the specified errors. Otherwise, it returns a description of every error.
 mkDescribeServiceErrors ::
   DescribeServiceErrors
 mkDescribeServiceErrors =
@@ -135,23 +132,18 @@ instance Lude.ToQuery DescribeServiceErrors where
 --
 -- /See:/ 'mkDescribeServiceErrorsResponse' smart constructor.
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
-  { serviceErrors ::
-      Lude.Maybe [ServiceError'],
+  { -- | An array of @ServiceError@ objects that describe the specified service errors.
+    serviceErrors :: Lude.Maybe [ServiceError'],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceErrorsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'serviceErrors' - An array of @ServiceError@ objects that describe the specified service errors.
+-- * 'responseStatus' - The response status code.
 mkDescribeServiceErrorsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

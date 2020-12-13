@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.APIGateway.GetExport
     mkGetExport,
 
     -- ** Request lenses
-    geParameters,
-    geAccepts,
-    geRestAPIId,
-    geStageName,
     geExportType,
+    geParameters,
+    geRestAPIId,
+    geAccepts,
+    geStageName,
 
     -- * Destructuring the response
     GetExportResponse (..),
@@ -47,45 +48,50 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetExport' smart constructor.
 data GetExport = GetExport'
-  { parameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    accepts :: Lude.Maybe Lude.Text,
+  { -- | [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
+    exportType :: Lude.Text,
+    -- | A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    stageName :: Lude.Text,
-    exportType :: Lude.Text
+    -- | The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
+    accepts :: Lude.Maybe Lude.Text,
+    -- | [Required] The name of the 'Stage' that will be exported.
+    stageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetExport' with the minimum fields required to make a request.
 --
--- * 'accepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
 -- * 'exportType' - [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
 -- * 'parameters' - A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'accepts' - The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
 -- * 'stageName' - [Required] The name of the 'Stage' that will be exported.
 mkGetExport ::
+  -- | 'exportType'
+  Lude.Text ->
   -- | 'restAPIId'
   Lude.Text ->
   -- | 'stageName'
   Lude.Text ->
-  -- | 'exportType'
-  Lude.Text ->
   GetExport
-mkGetExport pRestAPIId_ pStageName_ pExportType_ =
+mkGetExport pExportType_ pRestAPIId_ pStageName_ =
   GetExport'
-    { parameters = Lude.Nothing,
-      accepts = Lude.Nothing,
+    { exportType = pExportType_,
+      parameters = Lude.Nothing,
       restAPIId = pRestAPIId_,
-      stageName = pStageName_,
-      exportType = pExportType_
+      accepts = Lude.Nothing,
+      stageName = pStageName_
     }
+
+-- | [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
+--
+-- /Note:/ Consider using 'exportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geExportType :: Lens.Lens' GetExport Lude.Text
+geExportType = Lens.lens (exportType :: GetExport -> Lude.Text) (\s a -> s {exportType = a} :: GetExport)
+{-# DEPRECATED geExportType "Use generic-lens or generic-optics with 'exportType' instead." #-}
 
 -- | A key-value map of query string parameters that specify properties of the export, depending on the requested @exportType@ . For @exportType@ @oas30@ and @swagger@ , any combination of the following parameters are supported: @extensions='integrations'@ or @extensions='apigateway'@ will export the API with x-amazon-apigateway-integration extensions. @extensions='authorizers'@ will export the API with x-amazon-apigateway-authorizer extensions. @postman@ will export the API with Postman extensions, allowing for import to the Postman tool
 --
@@ -94,13 +100,6 @@ geParameters :: Lens.Lens' GetExport (Lude.Maybe (Lude.HashMap Lude.Text (Lude.T
 geParameters = Lens.lens (parameters :: GetExport -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: GetExport)
 {-# DEPRECATED geParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
---
--- /Note:/ Consider using 'accepts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geAccepts :: Lens.Lens' GetExport (Lude.Maybe Lude.Text)
-geAccepts = Lens.lens (accepts :: GetExport -> Lude.Maybe Lude.Text) (\s a -> s {accepts = a} :: GetExport)
-{-# DEPRECATED geAccepts "Use generic-lens or generic-optics with 'accepts' instead." #-}
-
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -108,19 +107,19 @@ geRestAPIId :: Lens.Lens' GetExport Lude.Text
 geRestAPIId = Lens.lens (restAPIId :: GetExport -> Lude.Text) (\s a -> s {restAPIId = a} :: GetExport)
 {-# DEPRECATED geRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
+-- | The content-type of the export, for example @application/json@ . Currently @application/json@ and @application/yaml@ are supported for @exportType@ of@oas30@ and @swagger@ . This should be specified in the @Accept@ header for direct API requests.
+--
+-- /Note:/ Consider using 'accepts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+geAccepts :: Lens.Lens' GetExport (Lude.Maybe Lude.Text)
+geAccepts = Lens.lens (accepts :: GetExport -> Lude.Maybe Lude.Text) (\s a -> s {accepts = a} :: GetExport)
+{-# DEPRECATED geAccepts "Use generic-lens or generic-optics with 'accepts' instead." #-}
+
 -- | [Required] The name of the 'Stage' that will be exported.
 --
 -- /Note:/ Consider using 'stageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 geStageName :: Lens.Lens' GetExport Lude.Text
 geStageName = Lens.lens (stageName :: GetExport -> Lude.Text) (\s a -> s {stageName = a} :: GetExport)
 {-# DEPRECATED geStageName "Use generic-lens or generic-optics with 'stageName' instead." #-}
-
--- | [Required] The type of export. Acceptable values are 'oas30' for OpenAPI 3.0.x and 'swagger' for Swagger/OpenAPI 2.0.
---
--- /Note:/ Consider using 'exportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geExportType :: Lens.Lens' GetExport Lude.Text
-geExportType = Lens.lens (exportType :: GetExport -> Lude.Text) (\s a -> s {exportType = a} :: GetExport)
-{-# DEPRECATED geExportType "Use generic-lens or generic-optics with 'exportType' instead." #-}
 
 instance Lude.AWSRequest GetExport where
   type Rs GetExport = GetExportResponse
@@ -165,10 +164,13 @@ instance Lude.ToQuery GetExport where
 --
 -- /See:/ 'mkGetExportResponse' smart constructor.
 data GetExportResponse = GetExportResponse'
-  { body ::
-      Lude.Maybe Lude.ByteString,
+  { -- | The binary blob response to 'GetExport' , which contains the export.
+    body :: Lude.Maybe Lude.ByteString,
+    -- | The content-disposition header value in the HTTP response.
     contentDisposition :: Lude.Maybe Lude.Text,
+    -- | The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.
     contentType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)

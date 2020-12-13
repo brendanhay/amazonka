@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContextEntry' smart constructor.
 data ContextEntry = ContextEntry'
-  { contextKeyValues ::
-      Lude.Maybe [Lude.Text],
+  { -- | The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a @Condition@ element in an input policy.
+    contextKeyValues :: Lude.Maybe [Lude.Text],
+    -- | The full name of a condition context key, including the service prefix. For example, @aws:SourceIp@ or @s3:VersionId@ .
     contextKeyName :: Lude.Maybe Lude.Text,
+    -- | The data type of the value (or values) specified in the @ContextKeyValues@ parameter.
     contextKeyType :: Lude.Maybe ContextKeyTypeEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContextEntry' with the minimum fields required to make a request.
 --
+-- * 'contextKeyValues' - The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a @Condition@ element in an input policy.
 -- * 'contextKeyName' - The full name of a condition context key, including the service prefix. For example, @aws:SourceIp@ or @s3:VersionId@ .
 -- * 'contextKeyType' - The data type of the value (or values) specified in the @ContextKeyValues@ parameter.
--- * 'contextKeyValues' - The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a @Condition@ element in an input policy.
 mkContextEntry ::
   ContextEntry
 mkContextEntry =

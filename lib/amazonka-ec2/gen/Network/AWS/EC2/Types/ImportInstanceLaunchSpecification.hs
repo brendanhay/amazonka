@@ -43,53 +43,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportInstanceLaunchSpecification' smart constructor.
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
-  { additionalInfo ::
-      Lude.Maybe Lude.Text,
-    groupNames ::
-      Lude.Maybe [Lude.Text],
-    subnetId ::
-      Lude.Maybe Lude.Text,
-    instanceType ::
-      Lude.Maybe InstanceType,
-    groupIds ::
-      Lude.Maybe [Lude.Text],
-    userData ::
-      Lude.Maybe UserData,
-    monitoring ::
-      Lude.Maybe Lude.Bool,
-    privateIPAddress ::
-      Lude.Maybe Lude.Text,
-    instanceInitiatedShutdownBehavior ::
-      Lude.Maybe
-        ShutdownBehavior,
-    architecture ::
-      Lude.Maybe
-        ArchitectureValues,
-    placement ::
-      Lude.Maybe Placement
+  { -- | Reserved.
+    additionalInfo :: Lude.Maybe Lude.Text,
+    -- | The security group names.
+    groupNames :: Lude.Maybe [Lude.Text],
+    -- | [EC2-VPC] The ID of the subnet in which to launch the instance.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The instance type. For more information about the instance types that you can import, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types Instance Types> in the VM Import/Export User Guide.
+    instanceType :: Lude.Maybe InstanceType,
+    -- | The security group IDs.
+    groupIds :: Lude.Maybe [Lude.Text],
+    -- | The Base64-encoded user data to make available to the instance.
+    userData :: Lude.Maybe UserData,
+    -- | Indicates whether monitoring is enabled.
+    monitoring :: Lude.Maybe Lude.Bool,
+    -- | [EC2-VPC] An available IP address from the IP address range of the subnet.
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+    instanceInitiatedShutdownBehavior :: Lude.Maybe ShutdownBehavior,
+    -- | The architecture of the instance.
+    architecture :: Lude.Maybe ArchitectureValues,
+    -- | The placement information for the instance.
+    placement :: Lude.Maybe Placement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportInstanceLaunchSpecification' with the minimum fields required to make a request.
 --
 -- * 'additionalInfo' - Reserved.
--- * 'architecture' - The architecture of the instance.
--- * 'groupIds' - The security group IDs.
 -- * 'groupNames' - The security group names.
--- * 'instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
--- * 'instanceType' - The instance type. For more information about the instance types that you can import, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types Instance Types> in the VM Import/Export User Guide.
--- * 'monitoring' - Indicates whether monitoring is enabled.
--- * 'placement' - The placement information for the instance.
--- * 'privateIPAddress' - [EC2-VPC] An available IP address from the IP address range of the subnet.
 -- * 'subnetId' - [EC2-VPC] The ID of the subnet in which to launch the instance.
+-- * 'instanceType' - The instance type. For more information about the instance types that you can import, see <https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types Instance Types> in the VM Import/Export User Guide.
+-- * 'groupIds' - The security group IDs.
 -- * 'userData' - The Base64-encoded user data to make available to the instance.
+-- * 'monitoring' - Indicates whether monitoring is enabled.
+-- * 'privateIPAddress' - [EC2-VPC] An available IP address from the IP address range of the subnet.
+-- * 'instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+-- * 'architecture' - The architecture of the instance.
+-- * 'placement' - The placement information for the instance.
 mkImportInstanceLaunchSpecification ::
   ImportInstanceLaunchSpecification
 mkImportInstanceLaunchSpecification =

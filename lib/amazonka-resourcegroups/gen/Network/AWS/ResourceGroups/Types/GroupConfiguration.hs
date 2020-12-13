@@ -33,28 +33,24 @@ import Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
 --
 -- /See:/ 'mkGroupConfiguration' smart constructor.
 data GroupConfiguration = GroupConfiguration'
-  { status ::
-      Lude.Maybe GroupConfigurationStatus,
+  { -- | The current status of an attempt to update the group configuration.
+    status :: Lude.Maybe GroupConfigurationStatus,
+    -- | If present, the reason why a request to update the group configuration failed.
     failureReason :: Lude.Maybe Lude.Text,
-    proposedConfiguration ::
-      Lude.Maybe [GroupConfigurationItem],
+    -- | If present, the new configuration that is in the process of being applied to the group.
+    proposedConfiguration :: Lude.Maybe [GroupConfigurationItem],
+    -- | The configuration currently associated with the group and in effect.
     configuration :: Lude.Maybe [GroupConfigurationItem]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GroupConfiguration' with the minimum fields required to make a request.
 --
--- * 'configuration' - The configuration currently associated with the group and in effect.
+-- * 'status' - The current status of an attempt to update the group configuration.
 -- * 'failureReason' - If present, the reason why a request to update the group configuration failed.
 -- * 'proposedConfiguration' - If present, the new configuration that is in the process of being applied to the group.
--- * 'status' - The current status of an attempt to update the group configuration.
+-- * 'configuration' - The configuration currently associated with the group and in effect.
 mkGroupConfiguration ::
   GroupConfiguration
 mkGroupConfiguration =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.TerminateClientVPNConnections
     -- ** Request lenses
     tcvcConnectionId,
     tcvcUsername,
-    tcvcDryRun,
     tcvcClientVPNEndpointId,
+    tcvcDryRun,
 
     -- * Destructuring the response
     TerminateClientVPNConnectionsResponse (..),
@@ -44,29 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTerminateClientVPNConnections' smart constructor.
 data TerminateClientVPNConnections = TerminateClientVPNConnections'
-  { connectionId ::
-      Lude.Maybe Lude.Text,
-    username ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    clientVPNEndpointId ::
-      Lude.Text
+  { -- | The ID of the client connection to be terminated.
+    connectionId :: Lude.Maybe Lude.Text,
+    -- | The name of the user who initiated the connection. Use this option to terminate all active connections for the specified user. This option can only be used if the user has established up to five connections.
+    username :: Lude.Maybe Lude.Text,
+    -- | The ID of the Client VPN endpoint to which the client is connected.
+    clientVPNEndpointId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateClientVPNConnections' with the minimum fields required to make a request.
 --
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint to which the client is connected.
 -- * 'connectionId' - The ID of the client connection to be terminated.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'username' - The name of the user who initiated the connection. Use this option to terminate all active connections for the specified user. This option can only be used if the user has established up to five connections.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint to which the client is connected.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkTerminateClientVPNConnections ::
   -- | 'clientVPNEndpointId'
   Lude.Text ->
@@ -75,8 +71,8 @@ mkTerminateClientVPNConnections pClientVPNEndpointId_ =
   TerminateClientVPNConnections'
     { connectionId = Lude.Nothing,
       username = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      clientVPNEndpointId = pClientVPNEndpointId_
+      clientVPNEndpointId = pClientVPNEndpointId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The ID of the client connection to be terminated.
@@ -93,19 +89,19 @@ tcvcUsername :: Lens.Lens' TerminateClientVPNConnections (Lude.Maybe Lude.Text)
 tcvcUsername = Lens.lens (username :: TerminateClientVPNConnections -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: TerminateClientVPNConnections)
 {-# DEPRECATED tcvcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcvcDryRun :: Lens.Lens' TerminateClientVPNConnections (Lude.Maybe Lude.Bool)
-tcvcDryRun = Lens.lens (dryRun :: TerminateClientVPNConnections -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: TerminateClientVPNConnections)
-{-# DEPRECATED tcvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the Client VPN endpoint to which the client is connected.
 --
 -- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tcvcClientVPNEndpointId :: Lens.Lens' TerminateClientVPNConnections Lude.Text
 tcvcClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: TerminateClientVPNConnections -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: TerminateClientVPNConnections)
 {-# DEPRECATED tcvcClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcvcDryRun :: Lens.Lens' TerminateClientVPNConnections (Lude.Maybe Lude.Bool)
+tcvcDryRun = Lens.lens (dryRun :: TerminateClientVPNConnections -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: TerminateClientVPNConnections)
+{-# DEPRECATED tcvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest TerminateClientVPNConnections where
   type
@@ -138,39 +134,30 @@ instance Lude.ToQuery TerminateClientVPNConnections where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ConnectionId" Lude.=: connectionId,
         "Username" Lude.=: username,
-        "DryRun" Lude.=: dryRun,
-        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkTerminateClientVPNConnectionsResponse' smart constructor.
 data TerminateClientVPNConnectionsResponse = TerminateClientVPNConnectionsResponse'
-  { connectionStatuses ::
-      Lude.Maybe
-        [TerminateConnectionStatus],
-    username ::
-      Lude.Maybe
-        Lude.Text,
-    clientVPNEndpointId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The current state of the client connections.
+    connectionStatuses :: Lude.Maybe [TerminateConnectionStatus],
+    -- | The user who established the terminated client connections.
+    username :: Lude.Maybe Lude.Text,
+    -- | The ID of the Client VPN endpoint.
+    clientVPNEndpointId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TerminateClientVPNConnectionsResponse' with the minimum fields required to make a request.
 --
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
 -- * 'connectionStatuses' - The current state of the client connections.
--- * 'responseStatus' - The response status code.
 -- * 'username' - The user who established the terminated client connections.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
+-- * 'responseStatus' - The response status code.
 mkTerminateClientVPNConnectionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

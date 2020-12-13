@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.TransitGatewayRouteState
   ( TransitGatewayRouteState
       ( TransitGatewayRouteState',
+        TGRSPending,
         TGRSActive,
         TGRSBlackhole,
-        TGRSDeleted,
         TGRSDeleting,
-        TGRSPending
+        TGRSDeleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TransitGatewayRouteState = TransitGatewayRouteState' Lude.Text
       Lude.ToHeader
     )
 
+pattern TGRSPending :: TransitGatewayRouteState
+pattern TGRSPending = TransitGatewayRouteState' "pending"
+
 pattern TGRSActive :: TransitGatewayRouteState
 pattern TGRSActive = TransitGatewayRouteState' "active"
 
 pattern TGRSBlackhole :: TransitGatewayRouteState
 pattern TGRSBlackhole = TransitGatewayRouteState' "blackhole"
 
-pattern TGRSDeleted :: TransitGatewayRouteState
-pattern TGRSDeleted = TransitGatewayRouteState' "deleted"
-
 pattern TGRSDeleting :: TransitGatewayRouteState
 pattern TGRSDeleting = TransitGatewayRouteState' "deleting"
 
-pattern TGRSPending :: TransitGatewayRouteState
-pattern TGRSPending = TransitGatewayRouteState' "pending"
+pattern TGRSDeleted :: TransitGatewayRouteState
+pattern TGRSDeleted = TransitGatewayRouteState' "deleted"
 
 {-# COMPLETE
+  TGRSPending,
   TGRSActive,
   TGRSBlackhole,
-  TGRSDeleted,
   TGRSDeleting,
-  TGRSPending,
+  TGRSDeleted,
   TransitGatewayRouteState'
   #-}

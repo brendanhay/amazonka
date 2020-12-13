@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingGroupProperties' smart constructor.
 data ThingGroupProperties = ThingGroupProperties'
-  { attributePayload ::
-      Lude.Maybe AttributePayload,
+  { -- | The thing group attributes in JSON format.
+    attributePayload :: Lude.Maybe AttributePayload,
+    -- | The thing group description.
     thingGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingGroupProperties' with the minimum fields required to make a request.

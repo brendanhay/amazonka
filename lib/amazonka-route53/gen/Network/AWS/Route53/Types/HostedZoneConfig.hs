@@ -30,23 +30,18 @@ import Network.AWS.Route53.Internal
 --
 -- /See:/ 'mkHostedZoneConfig' smart constructor.
 data HostedZoneConfig = HostedZoneConfig'
-  { privateZone ::
-      Lude.Maybe Lude.Bool,
+  { -- | A value that indicates whether this is a private hosted zone.
+    privateZone :: Lude.Maybe Lude.Bool,
+    -- | Any comments that you want to include about the hosted zone.
     comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostedZoneConfig' with the minimum fields required to make a request.
 --
--- * 'comment' - Any comments that you want to include about the hosted zone.
 -- * 'privateZone' - A value that indicates whether this is a private hosted zone.
+-- * 'comment' - Any comments that you want to include about the hosted zone.
 mkHostedZoneConfig ::
   HostedZoneConfig
 mkHostedZoneConfig =

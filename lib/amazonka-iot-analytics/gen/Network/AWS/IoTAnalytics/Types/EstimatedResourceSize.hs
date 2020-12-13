@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEstimatedResourceSize' smart constructor.
 data EstimatedResourceSize = EstimatedResourceSize'
-  { estimatedOn ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time when the estimate of the size of the resource was made.
+    estimatedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The estimated size of the resource, in bytes.
     estimatedSizeInBytes :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EstimatedResourceSize' with the minimum fields required to make a request.

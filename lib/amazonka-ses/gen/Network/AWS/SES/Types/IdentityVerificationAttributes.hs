@@ -30,24 +30,18 @@ import Network.AWS.SES.Types.VerificationStatus
 --
 -- /See:/ 'mkIdentityVerificationAttributes' smart constructor.
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
-  { verificationToken ::
-      Lude.Maybe Lude.Text,
-    verificationStatus ::
-      VerificationStatus
+  { -- | The verification token for a domain identity. Null for email address identities.
+    verificationToken :: Lude.Maybe Lude.Text,
+    -- | The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
+    verificationStatus :: VerificationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IdentityVerificationAttributes' with the minimum fields required to make a request.
 --
--- * 'verificationStatus' - The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
 -- * 'verificationToken' - The verification token for a domain identity. Null for email address identities.
+-- * 'verificationStatus' - The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
 mkIdentityVerificationAttributes ::
   -- | 'verificationStatus'
   VerificationStatus ->

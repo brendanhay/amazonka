@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInternetGatewayAttachment' smart constructor.
 data InternetGatewayAttachment = InternetGatewayAttachment'
-  { state ::
-      AttachmentStatus,
+  { -- | The current state of the attachment. For an internet gateway, the state is @available@ when attached to a VPC; otherwise, this value is not returned.
+    state :: AttachmentStatus,
+    -- | The ID of the VPC.
     vpcId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InternetGatewayAttachment' with the minimum fields required to make a request.

@@ -17,9 +17,9 @@ module Network.AWS.CloudFront.Types.KeyGroupConfig
     mkKeyGroupConfig,
 
     -- * Lenses
-    kgcComment,
-    kgcName,
     kgcItems,
+    kgcName,
+    kgcComment,
   )
 where
 
@@ -32,49 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeyGroupConfig' smart constructor.
 data KeyGroupConfig = KeyGroupConfig'
-  { comment ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of the identifiers of the public keys in the key group.
+    items :: [Lude.Text],
+    -- | A name to identify the key group.
     name :: Lude.Text,
-    items :: [Lude.Text]
+    -- | A comment to describe the key group.
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KeyGroupConfig' with the minimum fields required to make a request.
 --
--- * 'comment' - A comment to describe the key group.
 -- * 'items' - A list of the identifiers of the public keys in the key group.
 -- * 'name' - A name to identify the key group.
+-- * 'comment' - A comment to describe the key group.
 mkKeyGroupConfig ::
   -- | 'name'
   Lude.Text ->
   KeyGroupConfig
 mkKeyGroupConfig pName_ =
   KeyGroupConfig'
-    { comment = Lude.Nothing,
+    { items = Lude.mempty,
       name = pName_,
-      items = Lude.mempty
+      comment = Lude.Nothing
     }
-
--- | A comment to describe the key group.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgcComment :: Lens.Lens' KeyGroupConfig (Lude.Maybe Lude.Text)
-kgcComment = Lens.lens (comment :: KeyGroupConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: KeyGroupConfig)
-{-# DEPRECATED kgcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
-
--- | A name to identify the key group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgcName :: Lens.Lens' KeyGroupConfig Lude.Text
-kgcName = Lens.lens (name :: KeyGroupConfig -> Lude.Text) (\s a -> s {name = a} :: KeyGroupConfig)
-{-# DEPRECATED kgcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of the identifiers of the public keys in the key group.
 --
@@ -83,19 +65,33 @@ kgcItems :: Lens.Lens' KeyGroupConfig [Lude.Text]
 kgcItems = Lens.lens (items :: KeyGroupConfig -> [Lude.Text]) (\s a -> s {items = a} :: KeyGroupConfig)
 {-# DEPRECATED kgcItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
+-- | A name to identify the key group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgcName :: Lens.Lens' KeyGroupConfig Lude.Text
+kgcName = Lens.lens (name :: KeyGroupConfig -> Lude.Text) (\s a -> s {name = a} :: KeyGroupConfig)
+{-# DEPRECATED kgcName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A comment to describe the key group.
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kgcComment :: Lens.Lens' KeyGroupConfig (Lude.Maybe Lude.Text)
+kgcComment = Lens.lens (comment :: KeyGroupConfig -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: KeyGroupConfig)
+{-# DEPRECATED kgcComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+
 instance Lude.FromXML KeyGroupConfig where
   parseXML x =
     KeyGroupConfig'
-      Lude.<$> (x Lude..@? "Comment")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.parseXMLList "PublicKey"
                )
+      Lude.<*> (x Lude..@ "Name")
+      Lude.<*> (x Lude..@? "Comment")
 
 instance Lude.ToXML KeyGroupConfig where
   toXML KeyGroupConfig' {..} =
     Lude.mconcat
-      [ "Comment" Lude.@= comment,
+      [ "Items" Lude.@= Lude.toXMLList "PublicKey" items,
         "Name" Lude.@= name,
-        "Items" Lude.@= Lude.toXMLList "PublicKey" items
+        "Comment" Lude.@= comment
       ]

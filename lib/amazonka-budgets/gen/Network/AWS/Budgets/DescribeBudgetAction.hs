@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,19 +20,19 @@ module Network.AWS.Budgets.DescribeBudgetAction
     mkDescribeBudgetAction,
 
     -- ** Request lenses
-    dbabAccountId,
-    dbabBudgetName,
-    dbabActionId,
+    dbaActionId,
+    dbaAccountId,
+    dbaBudgetName,
 
     -- * Destructuring the response
     DescribeBudgetActionResponse (..),
     mkDescribeBudgetActionResponse,
 
     -- ** Response lenses
-    dbarsResponseStatus,
+    dbarsAction,
     dbarsAccountId,
     dbarsBudgetName,
-    dbarsAction,
+    dbarsResponseStatus,
   )
 where
 
@@ -43,60 +44,54 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBudgetAction' smart constructor.
 data DescribeBudgetAction = DescribeBudgetAction'
-  { accountId ::
-      Lude.Text,
-    budgetName :: Lude.Text,
-    actionId :: Lude.Text
+  { -- | A system-generated universally unique identifier (UUID) for the action.
+    actionId :: Lude.Text,
+    accountId :: Lude.Text,
+    budgetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetAction' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
 -- * 'actionId' - A system-generated universally unique identifier (UUID) for the action.
--- * 'budgetName' - Undocumented field.
+-- * 'accountId' -
+-- * 'budgetName' -
 mkDescribeBudgetAction ::
+  -- | 'actionId'
+  Lude.Text ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'actionId'
-  Lude.Text ->
   DescribeBudgetAction
-mkDescribeBudgetAction pAccountId_ pBudgetName_ pActionId_ =
+mkDescribeBudgetAction pActionId_ pAccountId_ pBudgetName_ =
   DescribeBudgetAction'
-    { accountId = pAccountId_,
-      budgetName = pBudgetName_,
-      actionId = pActionId_
+    { actionId = pActionId_,
+      accountId = pAccountId_,
+      budgetName = pBudgetName_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbabAccountId :: Lens.Lens' DescribeBudgetAction Lude.Text
-dbabAccountId = Lens.lens (accountId :: DescribeBudgetAction -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetAction)
-{-# DEPRECATED dbabAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbabBudgetName :: Lens.Lens' DescribeBudgetAction Lude.Text
-dbabBudgetName = Lens.lens (budgetName :: DescribeBudgetAction -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudgetAction)
-{-# DEPRECATED dbabBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | A system-generated universally unique identifier (UUID) for the action.
 --
 -- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbabActionId :: Lens.Lens' DescribeBudgetAction Lude.Text
-dbabActionId = Lens.lens (actionId :: DescribeBudgetAction -> Lude.Text) (\s a -> s {actionId = a} :: DescribeBudgetAction)
-{-# DEPRECATED dbabActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
+dbaActionId :: Lens.Lens' DescribeBudgetAction Lude.Text
+dbaActionId = Lens.lens (actionId :: DescribeBudgetAction -> Lude.Text) (\s a -> s {actionId = a} :: DescribeBudgetAction)
+{-# DEPRECATED dbaActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbaAccountId :: Lens.Lens' DescribeBudgetAction Lude.Text
+dbaAccountId = Lens.lens (accountId :: DescribeBudgetAction -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetAction)
+{-# DEPRECATED dbaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbaBudgetName :: Lens.Lens' DescribeBudgetAction Lude.Text
+dbaBudgetName = Lens.lens (budgetName :: DescribeBudgetAction -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudgetAction)
+{-# DEPRECATED dbaBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 instance Lude.AWSRequest DescribeBudgetAction where
   type Rs DescribeBudgetAction = DescribeBudgetActionResponse
@@ -105,10 +100,10 @@ instance Lude.AWSRequest DescribeBudgetAction where
     Res.receiveJSON
       ( \s h x ->
           DescribeBudgetActionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "Action")
             Lude.<*> (x Lude..:> "AccountId")
             Lude.<*> (x Lude..:> "BudgetName")
-            Lude.<*> (x Lude..:> "Action")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeBudgetAction where
@@ -128,9 +123,9 @@ instance Lude.ToJSON DescribeBudgetAction where
   toJSON DescribeBudgetAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("ActionId" Lude..= actionId)
+          [ Lude.Just ("ActionId" Lude..= actionId),
+            Lude.Just ("AccountId" Lude..= accountId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
@@ -142,49 +137,50 @@ instance Lude.ToQuery DescribeBudgetAction where
 
 -- | /See:/ 'mkDescribeBudgetActionResponse' smart constructor.
 data DescribeBudgetActionResponse = DescribeBudgetActionResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | A budget action resource.
+    action :: Action,
     accountId :: Lude.Text,
     budgetName :: Lude.Text,
-    action :: Action
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBudgetActionResponse' with the minimum fields required to make a request.
 --
--- * 'accountId' - Undocumented field.
 -- * 'action' - A budget action resource.
--- * 'budgetName' - Undocumented field.
+-- * 'accountId' -
+-- * 'budgetName' -
 -- * 'responseStatus' - The response status code.
 mkDescribeBudgetActionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
+  -- | 'action'
+  Action ->
   -- | 'accountId'
   Lude.Text ->
   -- | 'budgetName'
   Lude.Text ->
-  -- | 'action'
-  Action ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeBudgetActionResponse
 mkDescribeBudgetActionResponse
-  pResponseStatus_
+  pAction_
   pAccountId_
   pBudgetName_
-  pAction_ =
+  pResponseStatus_ =
     DescribeBudgetActionResponse'
-      { responseStatus = pResponseStatus_,
+      { action = pAction_,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
-        action = pAction_
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | A budget action resource.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbarsResponseStatus :: Lens.Lens' DescribeBudgetActionResponse Lude.Int
-dbarsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetActionResponse)
-{-# DEPRECATED dbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbarsAction :: Lens.Lens' DescribeBudgetActionResponse Action
+dbarsAction = Lens.lens (action :: DescribeBudgetActionResponse -> Action) (\s a -> s {action = a} :: DescribeBudgetActionResponse)
+{-# DEPRECATED dbarsAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Undocumented field.
 --
@@ -200,9 +196,9 @@ dbarsBudgetName :: Lens.Lens' DescribeBudgetActionResponse Lude.Text
 dbarsBudgetName = Lens.lens (budgetName :: DescribeBudgetActionResponse -> Lude.Text) (\s a -> s {budgetName = a} :: DescribeBudgetActionResponse)
 {-# DEPRECATED dbarsBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
--- | A budget action resource.
+-- | The response status code.
 --
--- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbarsAction :: Lens.Lens' DescribeBudgetActionResponse Action
-dbarsAction = Lens.lens (action :: DescribeBudgetActionResponse -> Action) (\s a -> s {action = a} :: DescribeBudgetActionResponse)
-{-# DEPRECATED dbarsAction "Use generic-lens or generic-optics with 'action' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbarsResponseStatus :: Lens.Lens' DescribeBudgetActionResponse Lude.Int
+dbarsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetActionResponse)
+{-# DEPRECATED dbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

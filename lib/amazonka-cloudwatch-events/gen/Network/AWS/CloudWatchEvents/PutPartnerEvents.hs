@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutPartnerEvents' smart constructor.
 newtype PutPartnerEvents = PutPartnerEvents'
-  { entries ::
-      Lude.NonEmpty PutPartnerEventsRequestEntry
+  { -- | The list of events to write to the event bus.
+    entries :: Lude.NonEmpty PutPartnerEventsRequestEntry
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPartnerEvents' with the minimum fields required to make a request.
@@ -105,25 +100,20 @@ instance Lude.ToQuery PutPartnerEvents where
 
 -- | /See:/ 'mkPutPartnerEventsResponse' smart constructor.
 data PutPartnerEventsResponse = PutPartnerEventsResponse'
-  { failedEntryCount ::
-      Lude.Maybe Lude.Int,
-    entries ::
-      Lude.Maybe [PutPartnerEventsResultEntry],
+  { -- | The number of events from this operation that could not be written to the partner event bus.
+    failedEntryCount :: Lude.Maybe Lude.Int,
+    -- | The list of events from this operation that were successfully written to the partner event bus.
+    entries :: Lude.Maybe [PutPartnerEventsResultEntry],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPartnerEventsResponse' with the minimum fields required to make a request.
 --
--- * 'entries' - The list of events from this operation that were successfully written to the partner event bus.
 -- * 'failedEntryCount' - The number of events from this operation that could not be written to the partner event bus.
+-- * 'entries' - The list of events from this operation that were successfully written to the partner event bus.
 -- * 'responseStatus' - The response status code.
 mkPutPartnerEventsResponse ::
   -- | 'responseStatus'

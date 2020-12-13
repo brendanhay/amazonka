@@ -30,22 +30,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamSpecification' smart constructor.
 data StreamSpecification = StreamSpecification'
-  { streamViewType ::
-      Lude.Maybe StreamViewType,
+  { -- | When an item in the table is modified, @StreamViewType@ determines what information is written to the stream for this table. Valid values for @StreamViewType@ are:
+    --
+    --
+    --     * @KEYS_ONLY@ - Only the key attributes of the modified item are written to the stream.
+    --
+    --
+    --     * @NEW_IMAGE@ - The entire item, as it appears after it was modified, is written to the stream.
+    --
+    --
+    --     * @OLD_IMAGE@ - The entire item, as it appeared before it was modified, is written to the stream.
+    --
+    --
+    --     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
+    streamViewType :: Lude.Maybe StreamViewType,
+    -- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
     streamEnabled :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamSpecification' with the minimum fields required to make a request.
 --
--- * 'streamEnabled' - Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
 -- * 'streamViewType' - When an item in the table is modified, @StreamViewType@ determines what information is written to the stream for this table. Valid values for @StreamViewType@ are:
 --
 --
@@ -59,6 +65,9 @@ data StreamSpecification = StreamSpecification'
 --
 --
 --     * @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of the item are written to the stream.
+--
+--
+-- * 'streamEnabled' - Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.
 mkStreamSpecification ::
   -- | 'streamEnabled'
   Lude.Bool ->

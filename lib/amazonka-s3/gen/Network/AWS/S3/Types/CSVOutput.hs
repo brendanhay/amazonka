@@ -34,26 +34,29 @@ import Network.AWS.S3.Types.QuoteFields
 --
 -- /See:/ 'mkCSVOutput' smart constructor.
 data CSVOutput = CSVOutput'
-  { quoteCharacter :: Lude.Maybe Lude.Text,
+  { -- | A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
+    quoteCharacter :: Lude.Maybe Lude.Text,
+    -- | Indicates whether to use quotation marks around output fields.
+    --
+    --
+    --     * @ALWAYS@ : Always use quotation marks for output fields.
+    --
+    --
+    --     * @ASNEEDED@ : Use quotation marks for output fields when needed.
     quoteFields :: Lude.Maybe QuoteFields,
+    -- | A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.
     recordDelimiter :: Lude.Maybe Lude.Text,
+    -- | The single character used for escaping the quote character inside an already escaped value.
     quoteEscapeCharacter :: Lude.Maybe Lude.Text,
+    -- | The value used to separate individual fields in a record. You can specify an arbitrary delimiter.
     fieldDelimiter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CSVOutput' with the minimum fields required to make a request.
 --
--- * 'fieldDelimiter' - The value used to separate individual fields in a record. You can specify an arbitrary delimiter.
 -- * 'quoteCharacter' - A single character used for escaping when the field delimiter is part of the value. For example, if the value is @a, b@ , Amazon S3 wraps this field value in quotation marks, as follows: @" a , b "@ .
--- * 'quoteEscapeCharacter' - The single character used for escaping the quote character inside an already escaped value.
 -- * 'quoteFields' - Indicates whether to use quotation marks around output fields.
 --
 --
@@ -64,6 +67,8 @@ data CSVOutput = CSVOutput'
 --
 --
 -- * 'recordDelimiter' - A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.
+-- * 'quoteEscapeCharacter' - The single character used for escaping the quote character inside an already escaped value.
+-- * 'fieldDelimiter' - The value used to separate individual fields in a record. You can specify an arbitrary delimiter.
 mkCSVOutput ::
   CSVOutput
 mkCSVOutput =

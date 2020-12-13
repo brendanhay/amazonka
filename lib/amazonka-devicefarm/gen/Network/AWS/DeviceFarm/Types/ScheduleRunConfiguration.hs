@@ -40,39 +40,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduleRunConfiguration' smart constructor.
 data ScheduleRunConfiguration = ScheduleRunConfiguration'
-  { billingMethod ::
-      Lude.Maybe BillingMethod,
-    customerArtifactPaths ::
-      Lude.Maybe CustomerArtifactPaths,
+  { -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
+    billingMethod :: Lude.Maybe BillingMethod,
+    -- | Input @CustomerArtifactPaths@ object for the scheduled run configuration.
+    customerArtifactPaths :: Lude.Maybe CustomerArtifactPaths,
+    -- | Information about the radio states for the run.
     radios :: Lude.Maybe Radios,
+    -- | Information about the location that is used for the run.
     location :: Lude.Maybe Location,
+    -- | Information about the locale that is used for the run.
     locale :: Lude.Maybe Lude.Text,
+    -- | Reserved for internal use.
     networkProfileARN :: Lude.Maybe Lude.Text,
-    extraDataPackageARN ::
-      Lude.Maybe Lude.Text,
+    -- | The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
+    extraDataPackageARN :: Lude.Maybe Lude.Text,
+    -- | A list of upload ARNs for app packages to be installed with your app.
     auxiliaryApps :: Lude.Maybe [Lude.Text],
-    vpceConfigurationARNs ::
-      Lude.Maybe [Lude.Text]
+    -- | An array of ARNs for your VPC endpoint configurations.
+    vpceConfigurationARNs :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleRunConfiguration' with the minimum fields required to make a request.
 --
--- * 'auxiliaryApps' - A list of upload ARNs for app packages to be installed with your app.
 -- * 'billingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
 -- * 'customerArtifactPaths' - Input @CustomerArtifactPaths@ object for the scheduled run configuration.
--- * 'extraDataPackageARN' - The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
--- * 'locale' - Information about the locale that is used for the run.
--- * 'location' - Information about the location that is used for the run.
--- * 'networkProfileARN' - Reserved for internal use.
 -- * 'radios' - Information about the radio states for the run.
+-- * 'location' - Information about the location that is used for the run.
+-- * 'locale' - Information about the locale that is used for the run.
+-- * 'networkProfileARN' - Reserved for internal use.
+-- * 'extraDataPackageARN' - The ARN of the extra data for the run. The extra data is a .zip file that AWS Device Farm extracts to external data for Android or the app's sandbox for iOS.
+-- * 'auxiliaryApps' - A list of upload ARNs for app packages to be installed with your app.
 -- * 'vpceConfigurationARNs' - An array of ARNs for your VPC endpoint configurations.
 mkScheduleRunConfiguration ::
   ScheduleRunConfiguration

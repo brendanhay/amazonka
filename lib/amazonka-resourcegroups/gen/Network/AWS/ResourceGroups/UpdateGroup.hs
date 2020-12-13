@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,24 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { group :: Lude.Maybe Lude.Text,
+  { -- | The name or the ARN of the resource group to modify.
+    group :: Lude.Maybe Lude.Text,
+    -- | Don't use this parameter. Use @Group@ instead.
     groupName :: Lude.Maybe Lude.Text,
+    -- | The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
 --
--- * 'description' - The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
 -- * 'group' - The name or the ARN of the resource group to modify.
 -- * 'groupName' - Don't use this parameter. Use @Group@ instead.
+-- * 'description' - The new description that you want to update the resource group with. Descriptions can contain letters, numbers, hyphens, underscores, periods, and spaces.
 mkUpdateGroup ::
   UpdateGroup
 mkUpdateGroup =
@@ -120,17 +118,12 @@ instance Lude.ToQuery UpdateGroup where
 
 -- | /See:/ 'mkUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
-  { group ::
-      Lude.Maybe Group,
+  { -- | The update description of the resource group.
+    group :: Lude.Maybe Group,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.

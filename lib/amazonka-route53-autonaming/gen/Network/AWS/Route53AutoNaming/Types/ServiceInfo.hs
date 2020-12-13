@@ -41,45 +41,53 @@ import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
 --
 -- /See:/ 'mkServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { instanceCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
+    instanceCount :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
     arn :: Lude.Maybe Lude.Text,
+    -- | /Public DNS and HTTP namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in @DnsConfig@ .
+    --
+    -- For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
     healthCheckConfig :: Lude.Maybe HealthCheckConfig,
+    -- | A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
     creatorRequestId :: Lude.Maybe Lude.Text,
+    -- | The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
     createDate :: Lude.Maybe Lude.Timestamp,
+    -- | A complex type that contains information about an optional custom health check.
+    --
+    -- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
     healthCheckCustomConfig :: Lude.Maybe HealthCheckCustomConfig,
+    -- | The ID of the namespace that was used to create the service.
     namespaceId :: Lude.Maybe Lude.Text,
+    -- | The name of the service.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID that AWS Cloud Map assigned to the service when you created it.
     id :: Lude.Maybe Lude.Text,
+    -- | A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
     dnsConfig :: Lude.Maybe DNSConfig,
+    -- | The description of the service.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceInfo' with the minimum fields required to make a request.
 --
+-- * 'instanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
 -- * 'arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
--- * 'createDate' - The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
--- * 'creatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
--- * 'description' - The description of the service.
--- * 'dnsConfig' - A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
 -- * 'healthCheckConfig' - /Public DNS and HTTP namespaces only./ A complex type that contains settings for an optional health check. If you specify settings for a health check, AWS Cloud Map associates the health check with the records that you specify in @DnsConfig@ .
 --
 -- For information about the charges for health checks, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing> .
+-- * 'creatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing the operation twice. @CreatorRequestId@ can be any unique string, for example, a date/time stamp.
+-- * 'createDate' - The date and time that the service was created, in Unix format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 -- * 'healthCheckCustomConfig' - A complex type that contains information about an optional custom health check.
 --
 -- /Important:/ If you specify a health check configuration, you can specify either @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
--- * 'id' - The ID that AWS Cloud Map assigned to the service when you created it.
--- * 'instanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
--- * 'name' - The name of the service.
 -- * 'namespaceId' - The ID of the namespace that was used to create the service.
+-- * 'name' - The name of the service.
+-- * 'id' - The ID that AWS Cloud Map assigned to the service when you created it.
+-- * 'dnsConfig' - A complex type that contains information about the Route 53 DNS records that you want AWS Cloud Map to create when you register an instance.
+-- * 'description' - The description of the service.
 mkServiceInfo ::
   ServiceInfo
 mkServiceInfo =

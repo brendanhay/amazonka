@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetUserPoolMFAConfig' smart constructor.
 newtype GetUserPoolMFAConfig = GetUserPoolMFAConfig'
-  { userPoolId ::
-      Lude.Text
+  { -- | The user pool ID.
+    userPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserPoolMFAConfig' with the minimum fields required to make a request.
@@ -109,26 +104,31 @@ instance Lude.ToQuery GetUserPoolMFAConfig where
 
 -- | /See:/ 'mkGetUserPoolMFAConfigResponse' smart constructor.
 data GetUserPoolMFAConfigResponse = GetUserPoolMFAConfigResponse'
-  { smsMFAConfiguration ::
-      Lude.Maybe SmsMFAConfigType,
-    softwareTokenMFAConfiguration ::
-      Lude.Maybe
-        SoftwareTokenMFAConfigType,
-    mfaConfiguration ::
-      Lude.Maybe UserPoolMFAType,
+  { -- | The SMS text message multi-factor (MFA) configuration.
+    smsMFAConfiguration :: Lude.Maybe SmsMFAConfigType,
+    -- | The software token multi-factor (MFA) configuration.
+    softwareTokenMFAConfiguration :: Lude.Maybe SoftwareTokenMFAConfigType,
+    -- | The multi-factor (MFA) configuration. Valid values include:
+    --
+    --
+    --     * @OFF@ MFA will not be used for any users.
+    --
+    --
+    --     * @ON@ MFA is required for all users to sign in.
+    --
+    --
+    --     * @OPTIONAL@ MFA will be required only for individual users who have an MFA factor enabled.
+    mfaConfiguration :: Lude.Maybe UserPoolMFAType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUserPoolMFAConfigResponse' with the minimum fields required to make a request.
 --
+-- * 'smsMFAConfiguration' - The SMS text message multi-factor (MFA) configuration.
+-- * 'softwareTokenMFAConfiguration' - The software token multi-factor (MFA) configuration.
 -- * 'mfaConfiguration' - The multi-factor (MFA) configuration. Valid values include:
 --
 --
@@ -142,8 +142,6 @@ data GetUserPoolMFAConfigResponse = GetUserPoolMFAConfigResponse'
 --
 --
 -- * 'responseStatus' - The response status code.
--- * 'smsMFAConfiguration' - The SMS text message multi-factor (MFA) configuration.
--- * 'softwareTokenMFAConfiguration' - The software token multi-factor (MFA) configuration.
 mkGetUserPoolMFAConfigResponse ::
   -- | 'responseStatus'
   Lude.Int ->

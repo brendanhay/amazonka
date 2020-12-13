@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState
   ( TransitGatewayMulitcastDomainAssociationState
       ( TransitGatewayMulitcastDomainAssociationState',
-        Associated,
-        Associating,
-        Disassociated,
-        Disassociating
+        TGMDASAssociating,
+        TGMDASAssociated,
+        TGMDASDisassociating,
+        TGMDASDisassociated
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TransitGatewayMulitcastDomainAssociationState = TransitGatewayMulitcastD
       Lude.ToHeader
     )
 
-pattern Associated :: TransitGatewayMulitcastDomainAssociationState
-pattern Associated = TransitGatewayMulitcastDomainAssociationState' "associated"
+pattern TGMDASAssociating :: TransitGatewayMulitcastDomainAssociationState
+pattern TGMDASAssociating = TransitGatewayMulitcastDomainAssociationState' "associating"
 
-pattern Associating :: TransitGatewayMulitcastDomainAssociationState
-pattern Associating = TransitGatewayMulitcastDomainAssociationState' "associating"
+pattern TGMDASAssociated :: TransitGatewayMulitcastDomainAssociationState
+pattern TGMDASAssociated = TransitGatewayMulitcastDomainAssociationState' "associated"
 
-pattern Disassociated :: TransitGatewayMulitcastDomainAssociationState
-pattern Disassociated = TransitGatewayMulitcastDomainAssociationState' "disassociated"
+pattern TGMDASDisassociating :: TransitGatewayMulitcastDomainAssociationState
+pattern TGMDASDisassociating = TransitGatewayMulitcastDomainAssociationState' "disassociating"
 
-pattern Disassociating :: TransitGatewayMulitcastDomainAssociationState
-pattern Disassociating = TransitGatewayMulitcastDomainAssociationState' "disassociating"
+pattern TGMDASDisassociated :: TransitGatewayMulitcastDomainAssociationState
+pattern TGMDASDisassociated = TransitGatewayMulitcastDomainAssociationState' "disassociated"
 
 {-# COMPLETE
-  Associated,
-  Associating,
-  Disassociated,
-  Disassociating,
+  TGMDASAssociating,
+  TGMDASAssociated,
+  TGMDASDisassociating,
+  TGMDASDisassociated,
   TransitGatewayMulitcastDomainAssociationState'
   #-}

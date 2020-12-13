@@ -17,9 +17,9 @@ module Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity
     mkDeviceRegistryEnrichActivity,
 
     -- * Lenses
+    dreaAttribute,
     dreaNext,
     dreaName,
-    dreaAttribute,
     dreaThingName,
     dreaRoleARN,
   )
@@ -32,33 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceRegistryEnrichActivity' smart constructor.
 data DeviceRegistryEnrichActivity = DeviceRegistryEnrichActivity'
-  { next ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text,
+  { -- | The name of the attribute that is added to the message.
     attribute :: Lude.Text,
+    -- | The next activity in the pipeline.
+    next :: Lude.Maybe Lude.Text,
+    -- | The name of the @deviceRegistryEnrich@ activity.
+    name :: Lude.Text,
+    -- | The name of the IoT device whose registry information is added to the message.
     thingName :: Lude.Text,
+    -- | The ARN of the role that allows access to the device's registry information.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceRegistryEnrichActivity' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The name of the attribute that is added to the message.
--- * 'name' - The name of the @deviceRegistryEnrich@ activity.
 -- * 'next' - The next activity in the pipeline.
--- * 'roleARN' - The ARN of the role that allows access to the device's registry information.
+-- * 'name' - The name of the @deviceRegistryEnrich@ activity.
 -- * 'thingName' - The name of the IoT device whose registry information is added to the message.
+-- * 'roleARN' - The ARN of the role that allows access to the device's registry information.
 mkDeviceRegistryEnrichActivity ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'attribute'
+  Lude.Text ->
+  -- | 'name'
   Lude.Text ->
   -- | 'thingName'
   Lude.Text ->
@@ -66,17 +64,24 @@ mkDeviceRegistryEnrichActivity ::
   Lude.Text ->
   DeviceRegistryEnrichActivity
 mkDeviceRegistryEnrichActivity
-  pName_
   pAttribute_
+  pName_
   pThingName_
   pRoleARN_ =
     DeviceRegistryEnrichActivity'
-      { next = Lude.Nothing,
+      { attribute = pAttribute_,
+        next = Lude.Nothing,
         name = pName_,
-        attribute = pAttribute_,
         thingName = pThingName_,
         roleARN = pRoleARN_
       }
+
+-- | The name of the attribute that is added to the message.
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreaAttribute :: Lens.Lens' DeviceRegistryEnrichActivity Lude.Text
+dreaAttribute = Lens.lens (attribute :: DeviceRegistryEnrichActivity -> Lude.Text) (\s a -> s {attribute = a} :: DeviceRegistryEnrichActivity)
+{-# DEPRECATED dreaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The next activity in the pipeline.
 --
@@ -91,13 +96,6 @@ dreaNext = Lens.lens (next :: DeviceRegistryEnrichActivity -> Lude.Maybe Lude.Te
 dreaName :: Lens.Lens' DeviceRegistryEnrichActivity Lude.Text
 dreaName = Lens.lens (name :: DeviceRegistryEnrichActivity -> Lude.Text) (\s a -> s {name = a} :: DeviceRegistryEnrichActivity)
 {-# DEPRECATED dreaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The name of the attribute that is added to the message.
---
--- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dreaAttribute :: Lens.Lens' DeviceRegistryEnrichActivity Lude.Text
-dreaAttribute = Lens.lens (attribute :: DeviceRegistryEnrichActivity -> Lude.Text) (\s a -> s {attribute = a} :: DeviceRegistryEnrichActivity)
-{-# DEPRECATED dreaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The name of the IoT device whose registry information is added to the message.
 --
@@ -119,9 +117,9 @@ instance Lude.FromJSON DeviceRegistryEnrichActivity where
       "DeviceRegistryEnrichActivity"
       ( \x ->
           DeviceRegistryEnrichActivity'
-            Lude.<$> (x Lude..:? "next")
+            Lude.<$> (x Lude..: "attribute")
+            Lude.<*> (x Lude..:? "next")
             Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "attribute")
             Lude.<*> (x Lude..: "thingName")
             Lude.<*> (x Lude..: "roleArn")
       )
@@ -130,9 +128,9 @@ instance Lude.ToJSON DeviceRegistryEnrichActivity where
   toJSON DeviceRegistryEnrichActivity' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("next" Lude..=) Lude.<$> next,
+          [ Lude.Just ("attribute" Lude..= attribute),
+            ("next" Lude..=) Lude.<$> next,
             Lude.Just ("name" Lude..= name),
-            Lude.Just ("attribute" Lude..= attribute),
             Lude.Just ("thingName" Lude..= thingName),
             Lude.Just ("roleArn" Lude..= roleARN)
           ]

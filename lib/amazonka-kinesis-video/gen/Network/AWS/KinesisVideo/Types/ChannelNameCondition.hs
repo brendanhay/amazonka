@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelNameCondition' smart constructor.
 data ChannelNameCondition = ChannelNameCondition'
-  { comparisonOperator ::
-      Lude.Maybe ComparisonOperator,
+  { -- | A comparison operator. Currently, you can only specify the @BEGINS_WITH@ operator, which finds signaling channels whose names begin with a given prefix.
+    comparisonOperator :: Lude.Maybe ComparisonOperator,
+    -- | A value to compare.
     comparisonValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelNameCondition' with the minimum fields required to make a request.

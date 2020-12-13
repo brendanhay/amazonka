@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.DomainType
   ( DomainType
       ( DomainType',
-        DTStandard,
-        DTVPC
+        DTVPC,
+        DTStandard
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DomainType = DomainType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DTStandard :: DomainType
-pattern DTStandard = DomainType' "standard"
-
 pattern DTVPC :: DomainType
 pattern DTVPC = DomainType' "vpc"
 
+pattern DTStandard :: DomainType
+pattern DTStandard = DomainType' "standard"
+
 {-# COMPLETE
-  DTStandard,
   DTVPC,
+  DTStandard,
   DomainType'
   #-}

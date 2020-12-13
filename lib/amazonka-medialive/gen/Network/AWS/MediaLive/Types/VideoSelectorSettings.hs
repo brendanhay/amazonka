@@ -31,23 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVideoSelectorSettings' smart constructor.
 data VideoSelectorSettings = VideoSelectorSettings'
-  { videoSelectorProgramId ::
-      Lude.Maybe VideoSelectorProgramId,
+  { videoSelectorProgramId :: Lude.Maybe VideoSelectorProgramId,
     videoSelectorPid :: Lude.Maybe VideoSelectorPid
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoSelectorSettings' with the minimum fields required to make a request.
 --
--- * 'videoSelectorPid' - Undocumented field.
--- * 'videoSelectorProgramId' - Undocumented field.
+-- * 'videoSelectorProgramId' -
+-- * 'videoSelectorPid' -
 mkVideoSelectorSettings ::
   VideoSelectorSettings
 mkVideoSelectorSettings =

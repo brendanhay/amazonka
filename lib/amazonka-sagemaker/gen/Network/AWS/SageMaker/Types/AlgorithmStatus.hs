@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.AlgorithmStatus
   ( AlgorithmStatus
       ( AlgorithmStatus',
-        ACompleted,
-        ADeleting,
-        AFailed,
+        APending,
         AInProgress,
-        APending
+        ACompleted,
+        AFailed,
+        ADeleting
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype AlgorithmStatus = AlgorithmStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ACompleted :: AlgorithmStatus
-pattern ACompleted = AlgorithmStatus' "Completed"
-
-pattern ADeleting :: AlgorithmStatus
-pattern ADeleting = AlgorithmStatus' "Deleting"
-
-pattern AFailed :: AlgorithmStatus
-pattern AFailed = AlgorithmStatus' "Failed"
+pattern APending :: AlgorithmStatus
+pattern APending = AlgorithmStatus' "Pending"
 
 pattern AInProgress :: AlgorithmStatus
 pattern AInProgress = AlgorithmStatus' "InProgress"
 
-pattern APending :: AlgorithmStatus
-pattern APending = AlgorithmStatus' "Pending"
+pattern ACompleted :: AlgorithmStatus
+pattern ACompleted = AlgorithmStatus' "Completed"
+
+pattern AFailed :: AlgorithmStatus
+pattern AFailed = AlgorithmStatus' "Failed"
+
+pattern ADeleting :: AlgorithmStatus
+pattern ADeleting = AlgorithmStatus' "Deleting"
 
 {-# COMPLETE
-  ACompleted,
-  ADeleting,
-  AFailed,
-  AInProgress,
   APending,
+  AInProgress,
+  ACompleted,
+  AFailed,
+  ADeleting,
   AlgorithmStatus'
   #-}

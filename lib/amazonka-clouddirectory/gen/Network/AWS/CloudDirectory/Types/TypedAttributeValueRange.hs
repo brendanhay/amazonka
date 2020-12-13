@@ -33,28 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypedAttributeValueRange' smart constructor.
 data TypedAttributeValueRange = TypedAttributeValueRange'
-  { endValue ::
-      Lude.Maybe TypedAttributeValue,
-    startValue ::
-      Lude.Maybe TypedAttributeValue,
+  { -- | The attribute value to terminate the range at.
+    endValue :: Lude.Maybe TypedAttributeValue,
+    -- | The value to start the range at.
+    startValue :: Lude.Maybe TypedAttributeValue,
+    -- | The inclusive or exclusive range start.
     startMode :: RangeMode,
+    -- | The inclusive or exclusive range end.
     endMode :: RangeMode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedAttributeValueRange' with the minimum fields required to make a request.
 --
--- * 'endMode' - The inclusive or exclusive range end.
 -- * 'endValue' - The attribute value to terminate the range at.
--- * 'startMode' - The inclusive or exclusive range start.
 -- * 'startValue' - The value to start the range at.
+-- * 'startMode' - The inclusive or exclusive range start.
+-- * 'endMode' - The inclusive or exclusive range end.
 mkTypedAttributeValueRange ::
   -- | 'startMode'
   RangeMode ->

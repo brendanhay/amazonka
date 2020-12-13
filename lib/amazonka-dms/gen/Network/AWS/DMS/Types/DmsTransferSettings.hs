@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDmsTransferSettings' smart constructor.
 data DmsTransferSettings = DmsTransferSettings'
-  { serviceAccessRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The IAM role that has permission to access the Amazon S3 bucket.
+    serviceAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket to use.
     bucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DmsTransferSettings' with the minimum fields required to make a request.
 --
--- * 'bucketName' - The name of the S3 bucket to use.
 -- * 'serviceAccessRoleARN' - The IAM role that has permission to access the Amazon S3 bucket.
+-- * 'bucketName' - The name of the S3 bucket to use.
 mkDmsTransferSettings ::
   DmsTransferSettings
 mkDmsTransferSettings =

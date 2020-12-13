@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Discovery.UpdateApplication
     mkUpdateApplication,
 
     -- ** Request lenses
+    uaConfigurationId,
     uaName,
     uaDescription,
-    uaConfigurationId,
 
     -- * Destructuring the response
     UpdateApplicationResponse (..),
@@ -40,35 +41,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { name ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    configurationId :: Lude.Text
+  { -- | Configuration ID of the application to be updated.
+    configurationId :: Lude.Text,
+    -- | New name of the application to be updated.
+    name :: Lude.Maybe Lude.Text,
+    -- | New description of the application to be updated.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
 --
 -- * 'configurationId' - Configuration ID of the application to be updated.
--- * 'description' - New description of the application to be updated.
 -- * 'name' - New name of the application to be updated.
+-- * 'description' - New description of the application to be updated.
 mkUpdateApplication ::
   -- | 'configurationId'
   Lude.Text ->
   UpdateApplication
 mkUpdateApplication pConfigurationId_ =
   UpdateApplication'
-    { name = Lude.Nothing,
-      description = Lude.Nothing,
-      configurationId = pConfigurationId_
+    { configurationId = pConfigurationId_,
+      name = Lude.Nothing,
+      description = Lude.Nothing
     }
+
+-- | Configuration ID of the application to be updated.
+--
+-- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaConfigurationId :: Lens.Lens' UpdateApplication Lude.Text
+uaConfigurationId = Lens.lens (configurationId :: UpdateApplication -> Lude.Text) (\s a -> s {configurationId = a} :: UpdateApplication)
+{-# DEPRECATED uaConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | New name of the application to be updated.
 --
@@ -83,13 +87,6 @@ uaName = Lens.lens (name :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> 
 uaDescription :: Lens.Lens' UpdateApplication (Lude.Maybe Lude.Text)
 uaDescription = Lens.lens (description :: UpdateApplication -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplication)
 {-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Configuration ID of the application to be updated.
---
--- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaConfigurationId :: Lens.Lens' UpdateApplication Lude.Text
-uaConfigurationId = Lens.lens (configurationId :: UpdateApplication -> Lude.Text) (\s a -> s {configurationId = a} :: UpdateApplication)
-{-# DEPRECATED uaConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 instance Lude.AWSRequest UpdateApplication where
   type Rs UpdateApplication = UpdateApplicationResponse
@@ -117,9 +114,9 @@ instance Lude.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("name" Lude..=) Lude.<$> name,
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("configurationId" Lude..= configurationId)
+          [ Lude.Just ("configurationId" Lude..= configurationId),
+            ("name" Lude..=) Lude.<$> name,
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -131,16 +128,10 @@ instance Lude.ToQuery UpdateApplication where
 
 -- | /See:/ 'mkUpdateApplicationResponse' smart constructor.
 newtype UpdateApplicationResponse = UpdateApplicationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.

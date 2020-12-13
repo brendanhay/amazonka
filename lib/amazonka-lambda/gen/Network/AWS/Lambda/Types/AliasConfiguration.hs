@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAliasConfiguration' smart constructor.
 data AliasConfiguration = AliasConfiguration'
-  { routingConfig ::
-      Lude.Maybe AliasRoutingConfiguration,
+  { -- | The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
+    routingConfig :: Lude.Maybe AliasRoutingConfiguration,
+    -- | The name of the alias.
     name :: Lude.Maybe Lude.Text,
+    -- | The function version that the alias invokes.
     functionVersion :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the alias.
     aliasARN :: Lude.Maybe Lude.Text,
+    -- | A description of the alias.
     description :: Lude.Maybe Lude.Text,
+    -- | A unique identifier that changes when you update the alias.
     revisionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AliasConfiguration' with the minimum fields required to make a request.
 --
+-- * 'routingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
+-- * 'name' - The name of the alias.
+-- * 'functionVersion' - The function version that the alias invokes.
 -- * 'aliasARN' - The Amazon Resource Name (ARN) of the alias.
 -- * 'description' - A description of the alias.
--- * 'functionVersion' - The function version that the alias invokes.
--- * 'name' - The name of the alias.
 -- * 'revisionId' - A unique identifier that changes when you update the alias.
--- * 'routingConfig' - The <https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html routing configuration> of the alias.
 mkAliasConfiguration ::
   AliasConfiguration
 mkAliasConfiguration =

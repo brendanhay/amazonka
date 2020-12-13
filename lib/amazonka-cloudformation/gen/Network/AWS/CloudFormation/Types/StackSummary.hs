@@ -17,6 +17,8 @@ module Network.AWS.CloudFormation.Types.StackSummary
     mkStackSummary,
 
     -- * Lenses
+    ssCreationTime,
+    ssStackStatus,
     ssLastUpdatedTime,
     ssRootId,
     ssStackStatusReason,
@@ -26,8 +28,6 @@ module Network.AWS.CloudFormation.Types.StackSummary
     ssStackId,
     ssParentId,
     ssStackName,
-    ssCreationTime,
-    ssStackStatus,
   )
 where
 
@@ -40,56 +40,66 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackSummary' smart constructor.
 data StackSummary = StackSummary'
-  { lastUpdatedTime ::
-      Lude.Maybe Lude.DateTime,
-    rootId :: Lude.Maybe Lude.Text,
-    stackStatusReason :: Lude.Maybe Lude.Text,
-    templateDescription :: Lude.Maybe Lude.Text,
-    driftInformation :: Lude.Maybe StackDriftInformationSummary,
-    deletionTime :: Lude.Maybe Lude.DateTime,
-    stackId :: Lude.Maybe Lude.Text,
-    parentId :: Lude.Maybe Lude.Text,
-    stackName :: Lude.Text,
+  { -- | The time the stack was created.
     creationTime :: Lude.DateTime,
-    stackStatus :: StackStatus
+    -- | The current status of the stack.
+    stackStatus :: StackStatus,
+    -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+    lastUpdatedTime :: Lude.Maybe Lude.DateTime,
+    -- | For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
+    --
+    -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+    rootId :: Lude.Maybe Lude.Text,
+    -- | Success/Failure message associated with the stack status.
+    stackStatusReason :: Lude.Maybe Lude.Text,
+    -- | The template description of the template used to create the stack.
+    templateDescription :: Lude.Maybe Lude.Text,
+    -- | Summarizes information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+    driftInformation :: Lude.Maybe StackDriftInformationSummary,
+    -- | The time the stack was deleted.
+    deletionTime :: Lude.Maybe Lude.DateTime,
+    -- | Unique stack identifier.
+    stackId :: Lude.Maybe Lude.Text,
+    -- | For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
+    --
+    -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+    parentId :: Lude.Maybe Lude.Text,
+    -- | The name associated with the stack.
+    stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The time the stack was created.
--- * 'deletionTime' - The time the stack was deleted.
--- * 'driftInformation' - Summarizes information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+-- * 'stackStatus' - The current status of the stack.
 -- * 'lastUpdatedTime' - The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
--- * 'parentId' - For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
---
--- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
 -- * 'rootId' - For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
--- * 'stackId' - Unique stack identifier.
--- * 'stackName' - The name associated with the stack.
--- * 'stackStatus' - The current status of the stack.
 -- * 'stackStatusReason' - Success/Failure message associated with the stack status.
 -- * 'templateDescription' - The template description of the template used to create the stack.
+-- * 'driftInformation' - Summarizes information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+-- * 'deletionTime' - The time the stack was deleted.
+-- * 'stackId' - Unique stack identifier.
+-- * 'parentId' - For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+-- * 'stackName' - The name associated with the stack.
 mkStackSummary ::
-  -- | 'stackName'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.DateTime ->
   -- | 'stackStatus'
   StackStatus ->
+  -- | 'stackName'
+  Lude.Text ->
   StackSummary
-mkStackSummary pStackName_ pCreationTime_ pStackStatus_ =
+mkStackSummary pCreationTime_ pStackStatus_ pStackName_ =
   StackSummary'
-    { lastUpdatedTime = Lude.Nothing,
+    { creationTime = pCreationTime_,
+      stackStatus = pStackStatus_,
+      lastUpdatedTime = Lude.Nothing,
       rootId = Lude.Nothing,
       stackStatusReason = Lude.Nothing,
       templateDescription = Lude.Nothing,
@@ -97,10 +107,22 @@ mkStackSummary pStackName_ pCreationTime_ pStackStatus_ =
       deletionTime = Lude.Nothing,
       stackId = Lude.Nothing,
       parentId = Lude.Nothing,
-      stackName = pStackName_,
-      creationTime = pCreationTime_,
-      stackStatus = pStackStatus_
+      stackName = pStackName_
     }
+
+-- | The time the stack was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssCreationTime :: Lens.Lens' StackSummary Lude.DateTime
+ssCreationTime = Lens.lens (creationTime :: StackSummary -> Lude.DateTime) (\s a -> s {creationTime = a} :: StackSummary)
+{-# DEPRECATED ssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | The current status of the stack.
+--
+-- /Note:/ Consider using 'stackStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStackStatus :: Lens.Lens' StackSummary StackStatus
+ssStackStatus = Lens.lens (stackStatus :: StackSummary -> StackStatus) (\s a -> s {stackStatus = a} :: StackSummary)
+{-# DEPRECATED ssStackStatus "Use generic-lens or generic-optics with 'stackStatus' instead." #-}
 
 -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 --
@@ -169,24 +191,12 @@ ssStackName :: Lens.Lens' StackSummary Lude.Text
 ssStackName = Lens.lens (stackName :: StackSummary -> Lude.Text) (\s a -> s {stackName = a} :: StackSummary)
 {-# DEPRECATED ssStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
--- | The time the stack was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssCreationTime :: Lens.Lens' StackSummary Lude.DateTime
-ssCreationTime = Lens.lens (creationTime :: StackSummary -> Lude.DateTime) (\s a -> s {creationTime = a} :: StackSummary)
-{-# DEPRECATED ssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The current status of the stack.
---
--- /Note:/ Consider using 'stackStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStackStatus :: Lens.Lens' StackSummary StackStatus
-ssStackStatus = Lens.lens (stackStatus :: StackSummary -> StackStatus) (\s a -> s {stackStatus = a} :: StackSummary)
-{-# DEPRECATED ssStackStatus "Use generic-lens or generic-optics with 'stackStatus' instead." #-}
-
 instance Lude.FromXML StackSummary where
   parseXML x =
     StackSummary'
-      Lude.<$> (x Lude..@? "LastUpdatedTime")
+      Lude.<$> (x Lude..@ "CreationTime")
+      Lude.<*> (x Lude..@ "StackStatus")
+      Lude.<*> (x Lude..@? "LastUpdatedTime")
       Lude.<*> (x Lude..@? "RootId")
       Lude.<*> (x Lude..@? "StackStatusReason")
       Lude.<*> (x Lude..@? "TemplateDescription")
@@ -195,5 +205,3 @@ instance Lude.FromXML StackSummary where
       Lude.<*> (x Lude..@? "StackId")
       Lude.<*> (x Lude..@? "ParentId")
       Lude.<*> (x Lude..@ "StackName")
-      Lude.<*> (x Lude..@ "CreationTime")
-      Lude.<*> (x Lude..@ "StackStatus")

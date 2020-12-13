@@ -15,8 +15,8 @@ module Network.AWS.AutoScalingPlans.Types.ForecastDataType
       ( ForecastDataType',
         CapacityForecast,
         LoadForecast,
-        ScheduledActionMaxCapacity,
-        ScheduledActionMinCapacity
+        ScheduledActionMinCapacity,
+        ScheduledActionMaxCapacity
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern CapacityForecast = ForecastDataType' "CapacityForecast"
 pattern LoadForecast :: ForecastDataType
 pattern LoadForecast = ForecastDataType' "LoadForecast"
 
-pattern ScheduledActionMaxCapacity :: ForecastDataType
-pattern ScheduledActionMaxCapacity = ForecastDataType' "ScheduledActionMaxCapacity"
-
 pattern ScheduledActionMinCapacity :: ForecastDataType
 pattern ScheduledActionMinCapacity = ForecastDataType' "ScheduledActionMinCapacity"
+
+pattern ScheduledActionMaxCapacity :: ForecastDataType
+pattern ScheduledActionMaxCapacity = ForecastDataType' "ScheduledActionMaxCapacity"
 
 {-# COMPLETE
   CapacityForecast,
   LoadForecast,
-  ScheduledActionMaxCapacity,
   ScheduledActionMinCapacity,
+  ScheduledActionMaxCapacity,
   ForecastDataType'
   #-}

@@ -13,12 +13,12 @@
 module Network.AWS.SageMaker.Types.LabelingJobStatus
   ( LabelingJobStatus
       ( LabelingJobStatus',
+        LJSInitializing,
+        LJSInProgress,
         LJSCompleted,
         LJSFailed,
-        LJSInProgress,
-        LJSInitializing,
-        LJSStopped,
-        LJSStopping
+        LJSStopping,
+        LJSStopped
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype LabelingJobStatus = LabelingJobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern LJSInitializing :: LabelingJobStatus
+pattern LJSInitializing = LabelingJobStatus' "Initializing"
+
+pattern LJSInProgress :: LabelingJobStatus
+pattern LJSInProgress = LabelingJobStatus' "InProgress"
+
 pattern LJSCompleted :: LabelingJobStatus
 pattern LJSCompleted = LabelingJobStatus' "Completed"
 
 pattern LJSFailed :: LabelingJobStatus
 pattern LJSFailed = LabelingJobStatus' "Failed"
 
-pattern LJSInProgress :: LabelingJobStatus
-pattern LJSInProgress = LabelingJobStatus' "InProgress"
-
-pattern LJSInitializing :: LabelingJobStatus
-pattern LJSInitializing = LabelingJobStatus' "Initializing"
+pattern LJSStopping :: LabelingJobStatus
+pattern LJSStopping = LabelingJobStatus' "Stopping"
 
 pattern LJSStopped :: LabelingJobStatus
 pattern LJSStopped = LabelingJobStatus' "Stopped"
 
-pattern LJSStopping :: LabelingJobStatus
-pattern LJSStopping = LabelingJobStatus' "Stopping"
-
 {-# COMPLETE
+  LJSInitializing,
+  LJSInProgress,
   LJSCompleted,
   LJSFailed,
-  LJSInProgress,
-  LJSInitializing,
-  LJSStopped,
   LJSStopping,
+  LJSStopped,
   LabelingJobStatus'
   #-}

@@ -13,12 +13,12 @@
 module Network.AWS.Greengrass.Types.BulkDeploymentStatus
   ( BulkDeploymentStatus
       ( BulkDeploymentStatus',
-        Completed,
-        Failed,
         Initializing,
         Running,
+        Completed,
+        Stopping,
         Stopped,
-        Stopping
+        Failed
       ),
   )
 where
@@ -50,30 +50,30 @@ newtype BulkDeploymentStatus = BulkDeploymentStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Completed :: BulkDeploymentStatus
-pattern Completed = BulkDeploymentStatus' "Completed"
-
-pattern Failed :: BulkDeploymentStatus
-pattern Failed = BulkDeploymentStatus' "Failed"
-
 pattern Initializing :: BulkDeploymentStatus
 pattern Initializing = BulkDeploymentStatus' "Initializing"
 
 pattern Running :: BulkDeploymentStatus
 pattern Running = BulkDeploymentStatus' "Running"
 
-pattern Stopped :: BulkDeploymentStatus
-pattern Stopped = BulkDeploymentStatus' "Stopped"
+pattern Completed :: BulkDeploymentStatus
+pattern Completed = BulkDeploymentStatus' "Completed"
 
 pattern Stopping :: BulkDeploymentStatus
 pattern Stopping = BulkDeploymentStatus' "Stopping"
 
+pattern Stopped :: BulkDeploymentStatus
+pattern Stopped = BulkDeploymentStatus' "Stopped"
+
+pattern Failed :: BulkDeploymentStatus
+pattern Failed = BulkDeploymentStatus' "Failed"
+
 {-# COMPLETE
-  Completed,
-  Failed,
   Initializing,
   Running,
-  Stopped,
+  Completed,
   Stopping,
+  Stopped,
+  Failed,
   BulkDeploymentStatus'
   #-}

@@ -37,32 +37,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotFleetRequestConfig' smart constructor.
 data SpotFleetRequestConfig = SpotFleetRequestConfig'
-  { spotFleetRequestConfig ::
-      Lude.Maybe SpotFleetRequestConfigData,
+  { -- | The configuration of the Spot Fleet request.
+    spotFleetRequestConfig :: Lude.Maybe SpotFleetRequestConfigData,
+    -- | The ID of the Spot Fleet request.
     spotFleetRequestId :: Lude.Maybe Lude.Text,
-    spotFleetRequestState ::
-      Lude.Maybe BatchState,
+    -- | The state of the Spot Fleet request.
+    spotFleetRequestState :: Lude.Maybe BatchState,
+    -- | The creation date and time of the request.
     createTime :: Lude.Maybe Lude.DateTime,
+    -- | The tags for a Spot Fleet resource.
     tags :: Lude.Maybe [Tag],
+    -- | The progress of the Spot Fleet request. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot Instances are terminating.
     activityStatus :: Lude.Maybe ActivityStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotFleetRequestConfig' with the minimum fields required to make a request.
 --
--- * 'activityStatus' - The progress of the Spot Fleet request. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot Instances are terminating.
--- * 'createTime' - The creation date and time of the request.
 -- * 'spotFleetRequestConfig' - The configuration of the Spot Fleet request.
 -- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
 -- * 'spotFleetRequestState' - The state of the Spot Fleet request.
+-- * 'createTime' - The creation date and time of the request.
 -- * 'tags' - The tags for a Spot Fleet resource.
+-- * 'activityStatus' - The progress of the Spot Fleet request. If there is an error, the status is @error@ . After all requests are placed, the status is @pending_fulfillment@ . If the size of the fleet is equal to or greater than its target capacity, the status is @fulfilled@ . If the size of the fleet is decreased, the status is @pending_termination@ while Spot Instances are terminating.
 mkSpotFleetRequestConfig ::
   SpotFleetRequestConfig
 mkSpotFleetRequestConfig =

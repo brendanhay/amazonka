@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionExecutionResult' smart constructor.
 data ActionExecutionResult = ActionExecutionResult'
-  { externalExecutionURL ::
-      Lude.Maybe Lude.Text,
+  { -- | The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
+    externalExecutionURL :: Lude.Maybe Lude.Text,
+    -- | The action provider's external ID for the action execution.
     externalExecutionId :: Lude.Maybe Lude.Text,
-    externalExecutionSummary ::
-      Lude.Maybe Lude.Text
+    -- | The action provider's summary for the action execution.
+    externalExecutionSummary :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionExecutionResult' with the minimum fields required to make a request.
 --
+-- * 'externalExecutionURL' - The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
 -- * 'externalExecutionId' - The action provider's external ID for the action execution.
 -- * 'externalExecutionSummary' - The action provider's summary for the action execution.
--- * 'externalExecutionURL' - The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action.
 mkActionExecutionResult ::
   ActionExecutionResult
 mkActionExecutionResult =

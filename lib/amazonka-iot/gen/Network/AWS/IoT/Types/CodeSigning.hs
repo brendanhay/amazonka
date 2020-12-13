@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeSigning' smart constructor.
 data CodeSigning = CodeSigning'
-  { customCodeSigning ::
-      Lude.Maybe CustomCodeSigning,
+  { -- | A custom method for code signing a file.
+    customCodeSigning :: Lude.Maybe CustomCodeSigning,
+    -- | Describes the code-signing job.
     startSigningJobParameter :: Lude.Maybe StartSigningJobParameter,
+    -- | The ID of the AWSSignerJob which was created to sign the file.
     awsSignerJobId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigning' with the minimum fields required to make a request.
 --
--- * 'awsSignerJobId' - The ID of the AWSSignerJob which was created to sign the file.
 -- * 'customCodeSigning' - A custom method for code signing a file.
 -- * 'startSigningJobParameter' - Describes the code-signing job.
+-- * 'awsSignerJobId' - The ID of the AWSSignerJob which was created to sign the file.
 mkCodeSigning ::
   CodeSigning
 mkCodeSigning =

@@ -13,8 +13,8 @@
 module Network.AWS.WorkMail.Types.RetentionAction
   ( RetentionAction
       ( RetentionAction',
-        Delete,
         None,
+        Delete,
         PermanentlyDelete
       ),
   )
@@ -46,18 +46,18 @@ newtype RetentionAction = RetentionAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Delete :: RetentionAction
-pattern Delete = RetentionAction' "DELETE"
-
 pattern None :: RetentionAction
 pattern None = RetentionAction' "NONE"
+
+pattern Delete :: RetentionAction
+pattern Delete = RetentionAction' "DELETE"
 
 pattern PermanentlyDelete :: RetentionAction
 pattern PermanentlyDelete = RetentionAction' "PERMANENTLY_DELETE"
 
 {-# COMPLETE
-  Delete,
   None,
+  Delete,
   PermanentlyDelete,
   RetentionAction'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,23 +49,18 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkListConfigurationSets' smart constructor.
 data ListConfigurationSets = ListConfigurationSets'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of configuration sets to return.
     maxItems :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurationSets' with the minimum fields required to make a request.
 --
--- * 'maxItems' - The number of configuration sets to return.
 -- * 'nextToken' - A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
+-- * 'maxItems' - The number of configuration sets to return.
 mkListConfigurationSets ::
   ListConfigurationSets
 mkListConfigurationSets =
@@ -130,19 +126,14 @@ instance Lude.ToQuery ListConfigurationSets where
 --
 -- /See:/ 'mkListConfigurationSetsResponse' smart constructor.
 data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
-  { configurationSets ::
-      Lude.Maybe [ConfigurationSet],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of configuration sets.
+    configurationSets :: Lude.Maybe [ConfigurationSet],
+    -- | A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of @ListConfigurationSets@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurationSetsResponse' with the minimum fields required to make a request.

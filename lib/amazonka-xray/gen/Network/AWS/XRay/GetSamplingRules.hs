@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetSamplingRules' smart constructor.
 newtype GetSamplingRules = GetSamplingRules'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingRules' with the minimum fields required to make a request.
@@ -106,25 +101,21 @@ instance Lude.ToQuery GetSamplingRules where
 
 -- | /See:/ 'mkGetSamplingRulesResponse' smart constructor.
 data GetSamplingRulesResponse = GetSamplingRulesResponse'
-  { samplingRuleRecords ::
-      Lude.Maybe [SamplingRuleRecord],
+  { -- | Rule definitions and metadata.
+    samplingRuleRecords :: Lude.Maybe [SamplingRuleRecord],
+    -- | Pagination token.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingRulesResponse' with the minimum fields required to make a request.
 --
+-- * 'samplingRuleRecords' - Rule definitions and metadata.
 -- * 'nextToken' - Pagination token.
 -- * 'responseStatus' - The response status code.
--- * 'samplingRuleRecords' - Rule definitions and metadata.
 mkGetSamplingRulesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

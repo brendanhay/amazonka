@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttemptContainerDetail' smart constructor.
 data AttemptContainerDetail = AttemptContainerDetail'
-  { networkInterfaces ::
-      Lude.Maybe [NetworkInterface],
+  { -- | The network interfaces associated with the job attempt.
+    networkInterfaces :: Lude.Maybe [NetworkInterface],
+    -- | The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
     taskARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
     containerInstanceARN :: Lude.Maybe Lude.Text,
+    -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
     reason :: Lude.Maybe Lude.Text,
+    -- | The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
     logStreamName :: Lude.Maybe Lude.Text,
+    -- | The exit code for the job attempt. A non-zero exit code is considered a failure.
     exitCode :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttemptContainerDetail' with the minimum fields required to make a request.
 --
--- * 'containerInstanceARN' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
--- * 'exitCode' - The exit code for the job attempt. A non-zero exit code is considered a failure.
--- * 'logStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
 -- * 'networkInterfaces' - The network interfaces associated with the job attempt.
--- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
 -- * 'taskARN' - The Amazon Resource Name (ARN) of the Amazon ECS task that is associated with the job attempt. Each container attempt receives a task ARN when they reach the @STARTING@ status.
+-- * 'containerInstanceARN' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that hosts the job attempt.
+-- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+-- * 'logStreamName' - The name of the CloudWatch Logs log stream associated with the container. The log group for AWS Batch jobs is @/aws/batch/job@ . Each container attempt receives a log stream name when they reach the @RUNNING@ status.
+-- * 'exitCode' - The exit code for the job attempt. A non-zero exit code is considered a failure.
 mkAttemptContainerDetail ::
   AttemptContainerDetail
 mkAttemptContainerDetail =

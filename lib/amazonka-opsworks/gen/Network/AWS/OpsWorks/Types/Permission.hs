@@ -32,26 +32,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPermission' smart constructor.
 data Permission = Permission'
-  { iamUserARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+    iamUserARN :: Lude.Maybe Lude.Text,
+    -- | Whether the user can use __sudo__ .
     allowSudo :: Lude.Maybe Lude.Bool,
+    -- | A stack ID.
     stackId :: Lude.Maybe Lude.Text,
+    -- | The user's permission level, which must be the following:
+    --
+    --
+    --     * @deny@
+    --
+    --
+    --     * @show@
+    --
+    --
+    --     * @deploy@
+    --
+    --
+    --     * @manage@
+    --
+    --
+    --     * @iam_only@
+    --
+    --
+    -- For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
     level :: Lude.Maybe Lude.Text,
+    -- | Whether the user can use SSH.
     allowSSH :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Permission' with the minimum fields required to make a request.
 --
--- * 'allowSSH' - Whether the user can use SSH.
--- * 'allowSudo' - Whether the user can use __sudo__ .
 -- * 'iamUserARN' - The Amazon Resource Name (ARN) for an AWS Identity and Access Management (IAM) role. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+-- * 'allowSudo' - Whether the user can use __sudo__ .
+-- * 'stackId' - A stack ID.
 -- * 'level' - The user's permission level, which must be the following:
 --
 --
@@ -71,7 +88,7 @@ data Permission = Permission'
 --
 --
 -- For more information on the permissions associated with these levels, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
--- * 'stackId' - A stack ID.
+-- * 'allowSSH' - Whether the user can use SSH.
 mkPermission ::
   Permission
 mkPermission =

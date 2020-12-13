@@ -32,28 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoom' smart constructor.
 data Room = Room'
-  { profileARN :: Lude.Maybe Lude.Text,
+  { -- | The profile ARN of a room.
+    profileARN :: Lude.Maybe Lude.Text,
+    -- | The provider calendar ARN of a room.
     providerCalendarId :: Lude.Maybe Lude.Text,
+    -- | The ARN of a room.
     roomARN :: Lude.Maybe Lude.Text,
+    -- | The name of a room.
     roomName :: Lude.Maybe Lude.Text,
+    -- | The description of a room.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Room' with the minimum fields required to make a request.
 --
--- * 'description' - The description of a room.
 -- * 'profileARN' - The profile ARN of a room.
 -- * 'providerCalendarId' - The provider calendar ARN of a room.
 -- * 'roomARN' - The ARN of a room.
 -- * 'roomName' - The name of a room.
+-- * 'description' - The description of a room.
 mkRoom ::
   Room
 mkRoom =

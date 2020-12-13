@@ -13,11 +13,11 @@
 module Network.AWS.Glue.Types.TransformSortColumnType
   ( TransformSortColumnType
       ( TransformSortColumnType',
-        Created,
-        LastModified,
-        Name,
-        Status,
-        TransformType
+        TSCTName,
+        TSCTTransformType,
+        TSCTStatus,
+        TSCTCreated,
+        TSCTLastModified
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TransformSortColumnType = TransformSortColumnType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Created :: TransformSortColumnType
-pattern Created = TransformSortColumnType' "CREATED"
+pattern TSCTName :: TransformSortColumnType
+pattern TSCTName = TransformSortColumnType' "NAME"
 
-pattern LastModified :: TransformSortColumnType
-pattern LastModified = TransformSortColumnType' "LAST_MODIFIED"
+pattern TSCTTransformType :: TransformSortColumnType
+pattern TSCTTransformType = TransformSortColumnType' "TRANSFORM_TYPE"
 
-pattern Name :: TransformSortColumnType
-pattern Name = TransformSortColumnType' "NAME"
+pattern TSCTStatus :: TransformSortColumnType
+pattern TSCTStatus = TransformSortColumnType' "STATUS"
 
-pattern Status :: TransformSortColumnType
-pattern Status = TransformSortColumnType' "STATUS"
+pattern TSCTCreated :: TransformSortColumnType
+pattern TSCTCreated = TransformSortColumnType' "CREATED"
 
-pattern TransformType :: TransformSortColumnType
-pattern TransformType = TransformSortColumnType' "TRANSFORM_TYPE"
+pattern TSCTLastModified :: TransformSortColumnType
+pattern TSCTLastModified = TransformSortColumnType' "LAST_MODIFIED"
 
 {-# COMPLETE
-  Created,
-  LastModified,
-  Name,
-  Status,
-  TransformType,
+  TSCTName,
+  TSCTTransformType,
+  TSCTStatus,
+  TSCTCreated,
+  TSCTLastModified,
   TransformSortColumnType'
   #-}

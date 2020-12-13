@@ -17,8 +17,8 @@ module Network.AWS.Comprehend.Types.AugmentedManifestsListItem
     mkAugmentedManifestsListItem,
 
     -- * Lenses
-    amliS3URI,
     amliAttributeNames,
+    amliS3URI,
   )
 where
 
@@ -29,17 +29,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAugmentedManifestsListItem' smart constructor.
 data AugmentedManifestsListItem = AugmentedManifestsListItem'
-  { s3URI ::
-      Lude.Text,
-    attributeNames :: [Lude.Text]
+  { -- | The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
+    --
+    -- If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.
+    -- If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.
+    attributeNames :: [Lude.Text],
+    -- | The Amazon S3 location of the augmented manifest file.
+    s3URI :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AugmentedManifestsListItem' with the minimum fields required to make a request.
@@ -55,16 +53,9 @@ mkAugmentedManifestsListItem ::
   AugmentedManifestsListItem
 mkAugmentedManifestsListItem pS3URI_ =
   AugmentedManifestsListItem'
-    { s3URI = pS3URI_,
-      attributeNames = Lude.mempty
+    { attributeNames = Lude.mempty,
+      s3URI = pS3URI_
     }
-
--- | The Amazon S3 location of the augmented manifest file.
---
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amliS3URI :: Lens.Lens' AugmentedManifestsListItem Lude.Text
-amliS3URI = Lens.lens (s3URI :: AugmentedManifestsListItem -> Lude.Text) (\s a -> s {s3URI = a} :: AugmentedManifestsListItem)
-{-# DEPRECATED amliS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
 
 -- | The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.
 --
@@ -76,21 +67,28 @@ amliAttributeNames :: Lens.Lens' AugmentedManifestsListItem [Lude.Text]
 amliAttributeNames = Lens.lens (attributeNames :: AugmentedManifestsListItem -> [Lude.Text]) (\s a -> s {attributeNames = a} :: AugmentedManifestsListItem)
 {-# DEPRECATED amliAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
+-- | The Amazon S3 location of the augmented manifest file.
+--
+-- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amliS3URI :: Lens.Lens' AugmentedManifestsListItem Lude.Text
+amliS3URI = Lens.lens (s3URI :: AugmentedManifestsListItem -> Lude.Text) (\s a -> s {s3URI = a} :: AugmentedManifestsListItem)
+{-# DEPRECATED amliS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+
 instance Lude.FromJSON AugmentedManifestsListItem where
   parseJSON =
     Lude.withObject
       "AugmentedManifestsListItem"
       ( \x ->
           AugmentedManifestsListItem'
-            Lude.<$> (x Lude..: "S3Uri")
-            Lude.<*> (x Lude..:? "AttributeNames" Lude..!= Lude.mempty)
+            Lude.<$> (x Lude..:? "AttributeNames" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "S3Uri")
       )
 
 instance Lude.ToJSON AugmentedManifestsListItem where
   toJSON AugmentedManifestsListItem' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("S3Uri" Lude..= s3URI),
-            Lude.Just ("AttributeNames" Lude..= attributeNames)
+          [ Lude.Just ("AttributeNames" Lude..= attributeNames),
+            Lude.Just ("S3Uri" Lude..= s3URI)
           ]
       )

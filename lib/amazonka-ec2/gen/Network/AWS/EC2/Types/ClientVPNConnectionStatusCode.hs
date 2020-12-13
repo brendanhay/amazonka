@@ -15,8 +15,8 @@ module Network.AWS.EC2.Types.ClientVPNConnectionStatusCode
       ( ClientVPNConnectionStatusCode',
         CVCSCActive,
         CVCSCFailedToTerminate,
-        CVCSCTerminated,
-        CVCSCTerminating
+        CVCSCTerminating,
+        CVCSCTerminated
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern CVCSCActive = ClientVPNConnectionStatusCode' "active"
 pattern CVCSCFailedToTerminate :: ClientVPNConnectionStatusCode
 pattern CVCSCFailedToTerminate = ClientVPNConnectionStatusCode' "failed-to-terminate"
 
-pattern CVCSCTerminated :: ClientVPNConnectionStatusCode
-pattern CVCSCTerminated = ClientVPNConnectionStatusCode' "terminated"
-
 pattern CVCSCTerminating :: ClientVPNConnectionStatusCode
 pattern CVCSCTerminating = ClientVPNConnectionStatusCode' "terminating"
+
+pattern CVCSCTerminated :: ClientVPNConnectionStatusCode
+pattern CVCSCTerminated = ClientVPNConnectionStatusCode' "terminated"
 
 {-# COMPLETE
   CVCSCActive,
   CVCSCFailedToTerminate,
-  CVCSCTerminated,
   CVCSCTerminating,
+  CVCSCTerminated,
   ClientVPNConnectionStatusCode'
   #-}

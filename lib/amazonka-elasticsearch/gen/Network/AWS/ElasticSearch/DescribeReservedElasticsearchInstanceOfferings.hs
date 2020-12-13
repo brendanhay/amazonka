@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,33 +48,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReservedElasticsearchInstanceOfferings' smart constructor.
 data DescribeReservedElasticsearchInstanceOfferings = DescribeReservedElasticsearchInstanceOfferings'
-  { reservedElasticsearchInstanceOfferingId ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int
+  { -- | The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
+    reservedElasticsearchInstanceOfferingId :: Lude.Maybe Lude.Text,
+    -- | NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedElasticsearchInstanceOfferings' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
--- * 'nextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
 -- * 'reservedElasticsearchInstanceOfferingId' - The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.
+-- * 'nextToken' - NextToken should be sent in case if earlier API call produced result containing NextToken. It is used for pagination.
+-- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
 mkDescribeReservedElasticsearchInstanceOfferings ::
   DescribeReservedElasticsearchInstanceOfferings
 mkDescribeReservedElasticsearchInstanceOfferings =
@@ -162,31 +151,20 @@ instance
 --
 -- /See:/ 'mkDescribeReservedElasticsearchInstanceOfferingsResponse' smart constructor.
 data DescribeReservedElasticsearchInstanceOfferingsResponse = DescribeReservedElasticsearchInstanceOfferingsResponse'
-  { reservedElasticsearchInstanceOfferings ::
-      Lude.Maybe
-        [ReservedElasticsearchInstanceOffering],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | List of reserved Elasticsearch instance offerings
+    reservedElasticsearchInstanceOfferings :: Lude.Maybe [ReservedElasticsearchInstanceOffering],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReservedElasticsearchInstanceOfferingsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
 -- * 'reservedElasticsearchInstanceOfferings' - List of reserved Elasticsearch instance offerings
+-- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
 -- * 'responseStatus' - The response status code.
 mkDescribeReservedElasticsearchInstanceOfferingsResponse ::
   -- | 'responseStatus'

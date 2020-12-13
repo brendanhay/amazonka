@@ -38,39 +38,37 @@ import Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource
 --
 -- /See:/ 'mkResourceDataSyncSourceWithState' smart constructor.
 data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
-  { state ::
-      Lude.Maybe Lude.Text,
-    includeFutureRegions ::
-      Lude.Maybe Lude.Bool,
-    sourceType ::
-      Lude.Maybe Lude.Text,
-    awsOrganizationsSource ::
-      Lude.Maybe
-        ResourceDataSyncAWSOrganizationsSource,
-    sourceRegions ::
-      Lude.Maybe [Lude.Text]
+  { -- | The data type name for including resource data sync state. There are four sync states:
+    --
+    -- @OrganizationNotExists@ : Your organization doesn't exist.
+    -- @NoPermissions@ : The system can't locate the service-linked role. This role is automatically created when a user creates a resource data sync in Explorer.
+    -- @InvalidOrganizationalUnit@ : You specified or selected an invalid unit in the resource data sync configuration.
+    -- @TrustedAccessDisabled@ : You disabled Systems Manager access in the organization in AWS Organizations.
+    state :: Lude.Maybe Lude.Text,
+    -- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+    includeFutureRegions :: Lude.Maybe Lude.Bool,
+    -- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
+    sourceType :: Lude.Maybe Lude.Text,
+    -- | The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
+    awsOrganizationsSource :: Lude.Maybe ResourceDataSyncAWSOrganizationsSource,
+    -- | The @SyncSource@ AWS Regions included in the resource data sync.
+    sourceRegions :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataSyncSourceWithState' with the minimum fields required to make a request.
 --
--- * 'awsOrganizationsSource' - The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
--- * 'includeFutureRegions' - Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
--- * 'sourceRegions' - The @SyncSource@ AWS Regions included in the resource data sync.
--- * 'sourceType' - The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
 -- * 'state' - The data type name for including resource data sync state. There are four sync states:
 --
 -- @OrganizationNotExists@ : Your organization doesn't exist.
 -- @NoPermissions@ : The system can't locate the service-linked role. This role is automatically created when a user creates a resource data sync in Explorer.
 -- @InvalidOrganizationalUnit@ : You specified or selected an invalid unit in the resource data sync configuration.
 -- @TrustedAccessDisabled@ : You disabled Systems Manager access in the organization in AWS Organizations.
+-- * 'includeFutureRegions' - Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+-- * 'sourceType' - The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
+-- * 'awsOrganizationsSource' - The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
+-- * 'sourceRegions' - The @SyncSource@ AWS Regions included in the resource data sync.
 mkResourceDataSyncSourceWithState ::
   ResourceDataSyncSourceWithState
 mkResourceDataSyncSourceWithState =

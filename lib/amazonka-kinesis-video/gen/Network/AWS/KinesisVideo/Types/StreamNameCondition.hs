@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamNameCondition' smart constructor.
 data StreamNameCondition = StreamNameCondition'
-  { comparisonOperator ::
-      Lude.Maybe ComparisonOperator,
+  { -- | A comparison operator. Currently, you can specify only the @BEGINS_WITH@ operator, which finds streams whose names start with a given prefix.
+    comparisonOperator :: Lude.Maybe ComparisonOperator,
+    -- | A value to compare.
     comparisonValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamNameCondition' with the minimum fields required to make a request.

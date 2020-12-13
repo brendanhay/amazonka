@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDurationRange' smart constructor.
 data DurationRange = DurationRange'
-  { minSeconds ::
-      Lude.Maybe Lude.Natural,
+  { -- | The minimum value of the duration range. Must be greater than zero.
+    minSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
     maxSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DurationRange' with the minimum fields required to make a request.
 --
--- * 'maxSeconds' - The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
 -- * 'minSeconds' - The minimum value of the duration range. Must be greater than zero.
+-- * 'maxSeconds' - The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week).
 mkDurationRange ::
   DurationRange
 mkDurationRange =

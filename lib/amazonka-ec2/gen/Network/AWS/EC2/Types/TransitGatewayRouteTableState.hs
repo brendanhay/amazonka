@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.TransitGatewayRouteTableState
   ( TransitGatewayRouteTableState
       ( TransitGatewayRouteTableState',
+        TGRTSPending,
         TGRTSAvailable,
-        TGRTSDeleted,
         TGRTSDeleting,
-        TGRTSPending
+        TGRTSDeleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TransitGatewayRouteTableState = TransitGatewayRouteTableState' Lude.Text
       Lude.ToHeader
     )
 
+pattern TGRTSPending :: TransitGatewayRouteTableState
+pattern TGRTSPending = TransitGatewayRouteTableState' "pending"
+
 pattern TGRTSAvailable :: TransitGatewayRouteTableState
 pattern TGRTSAvailable = TransitGatewayRouteTableState' "available"
-
-pattern TGRTSDeleted :: TransitGatewayRouteTableState
-pattern TGRTSDeleted = TransitGatewayRouteTableState' "deleted"
 
 pattern TGRTSDeleting :: TransitGatewayRouteTableState
 pattern TGRTSDeleting = TransitGatewayRouteTableState' "deleting"
 
-pattern TGRTSPending :: TransitGatewayRouteTableState
-pattern TGRTSPending = TransitGatewayRouteTableState' "pending"
+pattern TGRTSDeleted :: TransitGatewayRouteTableState
+pattern TGRTSDeleted = TransitGatewayRouteTableState' "deleted"
 
 {-# COMPLETE
-  TGRTSAvailable,
-  TGRTSDeleted,
-  TGRTSDeleting,
   TGRTSPending,
+  TGRTSAvailable,
+  TGRTSDeleting,
+  TGRTSDeleted,
   TransitGatewayRouteTableState'
   #-}

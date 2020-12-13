@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,27 +38,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateRoutingProfileQueues' smart constructor.
 data UpdateRoutingProfileQueues = UpdateRoutingProfileQueues'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the routing profile.
     routingProfileId :: Lude.Text,
-    queueConfigs ::
-      Lude.NonEmpty
-        RoutingProfileQueueConfig
+    -- | The queues to be updated for this routing profile.
+    queueConfigs :: Lude.NonEmpty RoutingProfileQueueConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoutingProfileQueues' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'queueConfigs' - The queues to be updated for this routing profile.
 -- * 'routingProfileId' - The identifier of the routing profile.
+-- * 'queueConfigs' - The queues to be updated for this routing profile.
 mkUpdateRoutingProfileQueues ::
   -- | 'instanceId'
   Lude.Text ->
@@ -133,13 +128,7 @@ instance Lude.ToQuery UpdateRoutingProfileQueues where
 
 -- | /See:/ 'mkUpdateRoutingProfileQueuesResponse' smart constructor.
 data UpdateRoutingProfileQueuesResponse = UpdateRoutingProfileQueuesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRoutingProfileQueuesResponse' with the minimum fields required to make a request.

@@ -17,12 +17,12 @@ module Network.AWS.EC2.Types.VPCPeeringConnection
     mkVPCPeeringConnection,
 
     -- * Lenses
-    vpcpcVPCPeeringConnectionId,
-    vpcpcStatus,
-    vpcpcAccepterVPCInfo,
-    vpcpcRequesterVPCInfo,
-    vpcpcExpirationTime,
-    vpcpcTags,
+    vpcVPCPeeringConnectionId,
+    vpcStatus,
+    vpcAccepterVPCInfo,
+    vpcRequesterVPCInfo,
+    vpcExpirationTime,
+    vpcTags,
   )
 where
 
@@ -36,34 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCPeeringConnection' smart constructor.
 data VPCPeeringConnection = VPCPeeringConnection'
-  { vpcPeeringConnectionId ::
-      Lude.Maybe Lude.Text,
-    status ::
-      Lude.Maybe VPCPeeringConnectionStateReason,
-    accepterVPCInfo ::
-      Lude.Maybe VPCPeeringConnectionVPCInfo,
-    requesterVPCInfo ::
-      Lude.Maybe VPCPeeringConnectionVPCInfo,
+  { -- | The ID of the VPC peering connection.
+    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+    -- | The status of the VPC peering connection.
+    status :: Lude.Maybe VPCPeeringConnectionStateReason,
+    -- | Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.
+    accepterVPCInfo :: Lude.Maybe VPCPeeringConnectionVPCInfo,
+    -- | Information about the requester VPC. CIDR block information is only returned when describing an active VPC peering connection.
+    requesterVPCInfo :: Lude.Maybe VPCPeeringConnectionVPCInfo,
+    -- | The time that an unaccepted VPC peering connection will expire.
     expirationTime :: Lude.Maybe Lude.DateTime,
+    -- | Any tags assigned to the resource.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCPeeringConnection' with the minimum fields required to make a request.
 --
--- * 'accepterVPCInfo' - Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.
--- * 'expirationTime' - The time that an unaccepted VPC peering connection will expire.
--- * 'requesterVPCInfo' - Information about the requester VPC. CIDR block information is only returned when describing an active VPC peering connection.
--- * 'status' - The status of the VPC peering connection.
--- * 'tags' - Any tags assigned to the resource.
 -- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection.
+-- * 'status' - The status of the VPC peering connection.
+-- * 'accepterVPCInfo' - Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.
+-- * 'requesterVPCInfo' - Information about the requester VPC. CIDR block information is only returned when describing an active VPC peering connection.
+-- * 'expirationTime' - The time that an unaccepted VPC peering connection will expire.
+-- * 'tags' - Any tags assigned to the resource.
 mkVPCPeeringConnection ::
   VPCPeeringConnection
 mkVPCPeeringConnection =
@@ -79,44 +75,44 @@ mkVPCPeeringConnection =
 -- | The ID of the VPC peering connection.
 --
 -- /Note:/ Consider using 'vpcPeeringConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcpcVPCPeeringConnectionId :: Lens.Lens' VPCPeeringConnection (Lude.Maybe Lude.Text)
-vpcpcVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: VPCPeeringConnection -> Lude.Maybe Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: VPCPeeringConnection)
-{-# DEPRECATED vpcpcVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
+vpcVPCPeeringConnectionId :: Lens.Lens' VPCPeeringConnection (Lude.Maybe Lude.Text)
+vpcVPCPeeringConnectionId = Lens.lens (vpcPeeringConnectionId :: VPCPeeringConnection -> Lude.Maybe Lude.Text) (\s a -> s {vpcPeeringConnectionId = a} :: VPCPeeringConnection)
+{-# DEPRECATED vpcVPCPeeringConnectionId "Use generic-lens or generic-optics with 'vpcPeeringConnectionId' instead." #-}
 
 -- | The status of the VPC peering connection.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcpcStatus :: Lens.Lens' VPCPeeringConnection (Lude.Maybe VPCPeeringConnectionStateReason)
-vpcpcStatus = Lens.lens (status :: VPCPeeringConnection -> Lude.Maybe VPCPeeringConnectionStateReason) (\s a -> s {status = a} :: VPCPeeringConnection)
-{-# DEPRECATED vpcpcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+vpcStatus :: Lens.Lens' VPCPeeringConnection (Lude.Maybe VPCPeeringConnectionStateReason)
+vpcStatus = Lens.lens (status :: VPCPeeringConnection -> Lude.Maybe VPCPeeringConnectionStateReason) (\s a -> s {status = a} :: VPCPeeringConnection)
+{-# DEPRECATED vpcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Information about the accepter VPC. CIDR block information is only returned when describing an active VPC peering connection.
 --
 -- /Note:/ Consider using 'accepterVPCInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcpcAccepterVPCInfo :: Lens.Lens' VPCPeeringConnection (Lude.Maybe VPCPeeringConnectionVPCInfo)
-vpcpcAccepterVPCInfo = Lens.lens (accepterVPCInfo :: VPCPeeringConnection -> Lude.Maybe VPCPeeringConnectionVPCInfo) (\s a -> s {accepterVPCInfo = a} :: VPCPeeringConnection)
-{-# DEPRECATED vpcpcAccepterVPCInfo "Use generic-lens or generic-optics with 'accepterVPCInfo' instead." #-}
+vpcAccepterVPCInfo :: Lens.Lens' VPCPeeringConnection (Lude.Maybe VPCPeeringConnectionVPCInfo)
+vpcAccepterVPCInfo = Lens.lens (accepterVPCInfo :: VPCPeeringConnection -> Lude.Maybe VPCPeeringConnectionVPCInfo) (\s a -> s {accepterVPCInfo = a} :: VPCPeeringConnection)
+{-# DEPRECATED vpcAccepterVPCInfo "Use generic-lens or generic-optics with 'accepterVPCInfo' instead." #-}
 
 -- | Information about the requester VPC. CIDR block information is only returned when describing an active VPC peering connection.
 --
 -- /Note:/ Consider using 'requesterVPCInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcpcRequesterVPCInfo :: Lens.Lens' VPCPeeringConnection (Lude.Maybe VPCPeeringConnectionVPCInfo)
-vpcpcRequesterVPCInfo = Lens.lens (requesterVPCInfo :: VPCPeeringConnection -> Lude.Maybe VPCPeeringConnectionVPCInfo) (\s a -> s {requesterVPCInfo = a} :: VPCPeeringConnection)
-{-# DEPRECATED vpcpcRequesterVPCInfo "Use generic-lens or generic-optics with 'requesterVPCInfo' instead." #-}
+vpcRequesterVPCInfo :: Lens.Lens' VPCPeeringConnection (Lude.Maybe VPCPeeringConnectionVPCInfo)
+vpcRequesterVPCInfo = Lens.lens (requesterVPCInfo :: VPCPeeringConnection -> Lude.Maybe VPCPeeringConnectionVPCInfo) (\s a -> s {requesterVPCInfo = a} :: VPCPeeringConnection)
+{-# DEPRECATED vpcRequesterVPCInfo "Use generic-lens or generic-optics with 'requesterVPCInfo' instead." #-}
 
 -- | The time that an unaccepted VPC peering connection will expire.
 --
 -- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcpcExpirationTime :: Lens.Lens' VPCPeeringConnection (Lude.Maybe Lude.DateTime)
-vpcpcExpirationTime = Lens.lens (expirationTime :: VPCPeeringConnection -> Lude.Maybe Lude.DateTime) (\s a -> s {expirationTime = a} :: VPCPeeringConnection)
-{-# DEPRECATED vpcpcExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+vpcExpirationTime :: Lens.Lens' VPCPeeringConnection (Lude.Maybe Lude.DateTime)
+vpcExpirationTime = Lens.lens (expirationTime :: VPCPeeringConnection -> Lude.Maybe Lude.DateTime) (\s a -> s {expirationTime = a} :: VPCPeeringConnection)
+{-# DEPRECATED vpcExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
 
 -- | Any tags assigned to the resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcpcTags :: Lens.Lens' VPCPeeringConnection (Lude.Maybe [Tag])
-vpcpcTags = Lens.lens (tags :: VPCPeeringConnection -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: VPCPeeringConnection)
-{-# DEPRECATED vpcpcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+vpcTags :: Lens.Lens' VPCPeeringConnection (Lude.Maybe [Tag])
+vpcTags = Lens.lens (tags :: VPCPeeringConnection -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: VPCPeeringConnection)
+{-# DEPRECATED vpcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.FromXML VPCPeeringConnection where
   parseXML x =

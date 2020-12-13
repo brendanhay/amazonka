@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,6 +32,7 @@ module Network.AWS.StorageGateway.UpdateSMBFileShare
     usmbfsCacheAttributes,
     usmbfsObjectACL,
     usmbfsKMSEncrypted,
+    usmbfsFileShareARN,
     usmbfsDefaultStorageClass,
     usmbfsFileShareName,
     usmbfsSMBACLEnabled,
@@ -39,7 +41,6 @@ module Network.AWS.StorageGateway.UpdateSMBFileShare
     usmbfsGuessMIMETypeEnabled,
     usmbfsReadOnly,
     usmbfsCaseSensitivity,
-    usmbfsFileShareARN,
 
     -- * Destructuring the response
     UpdateSMBFileShareResponse (..),
@@ -61,33 +62,57 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkUpdateSMBFileShare' smart constructor.
 data UpdateSMBFileShare = UpdateSMBFileShare'
-  { accessBasedEnumeration ::
-      Lude.Maybe Lude.Bool,
+  { -- | The files and folders on this share will only be visible to users with read access.
+    accessBasedEnumeration :: Lude.Maybe Lude.Bool,
+    -- | A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
     adminUserList :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
     auditDestinationARN :: Lude.Maybe Lude.Text,
+    -- | A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
     invalidUserList :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
     kmsKey :: Lude.Maybe Lude.Text,
+    -- | A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
     validUserList :: Lude.Maybe [Lude.Text],
+    -- | Refresh cache information.
     cacheAttributes :: Lude.Maybe CacheAttributes,
+    -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
     objectACL :: Lude.Maybe ObjectACL,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
     kmsEncrypted :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the SMB file share that you want to update.
+    fileShareARN :: Lude.Text,
+    -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
+    --
+    -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
     defaultStorageClass :: Lude.Maybe Lude.Text,
+    -- | The name of the file share. Optional.
     fileShareName :: Lude.Maybe Lude.Text,
+    -- | Set this value to @true@ to enable access control list (ACL) on the SMB file share. Set it to @false@ to map file and directory permissions to the POSIX permissions.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ .
+    -- Valid Values: @true@ | @false@
     sMBACLEnabled :: Lude.Maybe Lude.Bool,
+    -- | The notification policy of the file share.
     notificationPolicy :: Lude.Maybe Lude.Text,
+    -- | A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+    --
+    -- Valid Values: @true@ | @false@
     requesterPays :: Lude.Maybe Lude.Bool,
+    -- | A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+    --
+    -- Valid Values: @true@ | @false@
     guessMIMETypeEnabled :: Lude.Maybe Lude.Bool,
+    -- | A value that sets the write status of a file share. Set this value to @true@ to set write status to read-only, otherwise set to @false@ .
+    --
+    -- Valid Values: @true@ | @false@
     readOnly :: Lude.Maybe Lude.Bool,
-    caseSensitivity :: Lude.Maybe CaseSensitivity,
-    fileShareARN :: Lude.Text
+    -- | The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
+    caseSensitivity :: Lude.Maybe CaseSensitivity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSMBFileShare' with the minimum fields required to make a request.
@@ -95,34 +120,34 @@ data UpdateSMBFileShare = UpdateSMBFileShare'
 -- * 'accessBasedEnumeration' - The files and folders on this share will only be visible to users with read access.
 -- * 'adminUserList' - A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
 -- * 'auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
--- * 'cacheAttributes' - Refresh cache information.
--- * 'caseSensitivity' - The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
--- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
---
--- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
--- * 'fileShareARN' - The Amazon Resource Name (ARN) of the SMB file share that you want to update.
--- * 'fileShareName' - The name of the file share. Optional.
--- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
---
--- Valid Values: @true@ | @false@
 -- * 'invalidUserList' - A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+-- * 'validUserList' - A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- * 'cacheAttributes' - Refresh cache information.
+-- * 'objectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
 -- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
--- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
--- * 'notificationPolicy' - The notification policy of the file share.
--- * 'objectACL' - A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
--- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set write status to read-only, otherwise set to @false@ .
+-- * 'fileShareARN' - The Amazon Resource Name (ARN) of the SMB file share that you want to update.
+-- * 'defaultStorageClass' - The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
--- Valid Values: @true@ | @false@
--- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
---
--- Valid Values: @true@ | @false@
+-- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ | @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
+-- * 'fileShareName' - The name of the file share. Optional.
 -- * 'sMBACLEnabled' - Set this value to @true@ to enable access control list (ACL) on the SMB file share. Set it to @false@ to map file and directory permissions to the POSIX permissions.
 --
 -- For more information, see <https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html Using Microsoft Windows ACLs to control access to an SMB file share> in the /AWS Storage Gateway User Guide/ .
 -- Valid Values: @true@ | @false@
--- * 'validUserList' - A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: @DOMAIN\User1@ , @user1@ , @@group1@ , and @@DOMAIN\group1@ . Can only be set if Authentication is set to @ActiveDirectory@ .
+-- * 'notificationPolicy' - The notification policy of the file share.
+-- * 'requesterPays' - A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to @true@ , the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data.
+--
+-- Valid Values: @true@ | @false@
+-- * 'guessMIMETypeEnabled' - A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to @true@ to enable MIME type guessing, otherwise set to @false@ . The default value is @true@ .
+--
+-- Valid Values: @true@ | @false@
+-- * 'readOnly' - A value that sets the write status of a file share. Set this value to @true@ to set write status to read-only, otherwise set to @false@ .
+--
+-- Valid Values: @true@ | @false@
+-- * 'caseSensitivity' - The case of an object name in an Amazon S3 bucket. For @ClientSpecified@ , the client determines the case sensitivity. For @CaseSensitive@ , the gateway determines the case sensitivity. The default value is @ClientSpecified@ .
 mkUpdateSMBFileShare ::
   -- | 'fileShareARN'
   Lude.Text ->
@@ -138,6 +163,7 @@ mkUpdateSMBFileShare pFileShareARN_ =
       cacheAttributes = Lude.Nothing,
       objectACL = Lude.Nothing,
       kmsEncrypted = Lude.Nothing,
+      fileShareARN = pFileShareARN_,
       defaultStorageClass = Lude.Nothing,
       fileShareName = Lude.Nothing,
       sMBACLEnabled = Lude.Nothing,
@@ -145,8 +171,7 @@ mkUpdateSMBFileShare pFileShareARN_ =
       requesterPays = Lude.Nothing,
       guessMIMETypeEnabled = Lude.Nothing,
       readOnly = Lude.Nothing,
-      caseSensitivity = Lude.Nothing,
-      fileShareARN = pFileShareARN_
+      caseSensitivity = Lude.Nothing
     }
 
 -- | The files and folders on this share will only be visible to users with read access.
@@ -213,6 +238,13 @@ usmbfsObjectACL = Lens.lens (objectACL :: UpdateSMBFileShare -> Lude.Maybe Objec
 usmbfsKMSEncrypted :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe Lude.Bool)
 usmbfsKMSEncrypted = Lens.lens (kmsEncrypted :: UpdateSMBFileShare -> Lude.Maybe Lude.Bool) (\s a -> s {kmsEncrypted = a} :: UpdateSMBFileShare)
 {-# DEPRECATED usmbfsKMSEncrypted "Use generic-lens or generic-optics with 'kmsEncrypted' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the SMB file share that you want to update.
+--
+-- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmbfsFileShareARN :: Lens.Lens' UpdateSMBFileShare Lude.Text
+usmbfsFileShareARN = Lens.lens (fileShareARN :: UpdateSMBFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateSMBFileShare)
+{-# DEPRECATED usmbfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
 
 -- | The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is @S3_INTELLIGENT_TIERING@ . Optional.
 --
@@ -281,13 +313,6 @@ usmbfsCaseSensitivity :: Lens.Lens' UpdateSMBFileShare (Lude.Maybe CaseSensitivi
 usmbfsCaseSensitivity = Lens.lens (caseSensitivity :: UpdateSMBFileShare -> Lude.Maybe CaseSensitivity) (\s a -> s {caseSensitivity = a} :: UpdateSMBFileShare)
 {-# DEPRECATED usmbfsCaseSensitivity "Use generic-lens or generic-optics with 'caseSensitivity' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the SMB file share that you want to update.
---
--- /Note:/ Consider using 'fileShareARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmbfsFileShareARN :: Lens.Lens' UpdateSMBFileShare Lude.Text
-usmbfsFileShareARN = Lens.lens (fileShareARN :: UpdateSMBFileShare -> Lude.Text) (\s a -> s {fileShareARN = a} :: UpdateSMBFileShare)
-{-# DEPRECATED usmbfsFileShareARN "Use generic-lens or generic-optics with 'fileShareARN' instead." #-}
-
 instance Lude.AWSRequest UpdateSMBFileShare where
   type Rs UpdateSMBFileShare = UpdateSMBFileShareResponse
   request = Req.postJSON storageGatewayService
@@ -323,6 +348,7 @@ instance Lude.ToJSON UpdateSMBFileShare where
             ("CacheAttributes" Lude..=) Lude.<$> cacheAttributes,
             ("ObjectACL" Lude..=) Lude.<$> objectACL,
             ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
+            Lude.Just ("FileShareARN" Lude..= fileShareARN),
             ("DefaultStorageClass" Lude..=) Lude.<$> defaultStorageClass,
             ("FileShareName" Lude..=) Lude.<$> fileShareName,
             ("SMBACLEnabled" Lude..=) Lude.<$> sMBACLEnabled,
@@ -330,8 +356,7 @@ instance Lude.ToJSON UpdateSMBFileShare where
             ("RequesterPays" Lude..=) Lude.<$> requesterPays,
             ("GuessMIMETypeEnabled" Lude..=) Lude.<$> guessMIMETypeEnabled,
             ("ReadOnly" Lude..=) Lude.<$> readOnly,
-            ("CaseSensitivity" Lude..=) Lude.<$> caseSensitivity,
-            Lude.Just ("FileShareARN" Lude..= fileShareARN)
+            ("CaseSensitivity" Lude..=) Lude.<$> caseSensitivity
           ]
       )
 
@@ -345,17 +370,12 @@ instance Lude.ToQuery UpdateSMBFileShare where
 --
 -- /See:/ 'mkUpdateSMBFileShareResponse' smart constructor.
 data UpdateSMBFileShareResponse = UpdateSMBFileShareResponse'
-  { fileShareARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the updated SMB file share.
+    fileShareARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSMBFileShareResponse' with the minimum fields required to make a request.

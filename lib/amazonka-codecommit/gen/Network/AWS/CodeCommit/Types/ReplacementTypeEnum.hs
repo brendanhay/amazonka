@@ -14,8 +14,8 @@ module Network.AWS.CodeCommit.Types.ReplacementTypeEnum
   ( ReplacementTypeEnum
       ( ReplacementTypeEnum',
         KeepBase,
-        KeepDestination,
         KeepSource,
+        KeepDestination,
         UseNewContent
       ),
   )
@@ -50,19 +50,19 @@ newtype ReplacementTypeEnum = ReplacementTypeEnum' Lude.Text
 pattern KeepBase :: ReplacementTypeEnum
 pattern KeepBase = ReplacementTypeEnum' "KEEP_BASE"
 
-pattern KeepDestination :: ReplacementTypeEnum
-pattern KeepDestination = ReplacementTypeEnum' "KEEP_DESTINATION"
-
 pattern KeepSource :: ReplacementTypeEnum
 pattern KeepSource = ReplacementTypeEnum' "KEEP_SOURCE"
+
+pattern KeepDestination :: ReplacementTypeEnum
+pattern KeepDestination = ReplacementTypeEnum' "KEEP_DESTINATION"
 
 pattern UseNewContent :: ReplacementTypeEnum
 pattern UseNewContent = ReplacementTypeEnum' "USE_NEW_CONTENT"
 
 {-# COMPLETE
   KeepBase,
-  KeepDestination,
   KeepSource,
+  KeepDestination,
   UseNewContent,
   ReplacementTypeEnum'
   #-}

@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceMinutes' smart constructor.
 data DeviceMinutes = DeviceMinutes'
-  { metered ::
-      Lude.Maybe Lude.Double,
+  { -- | When specified, represents only the sum of metered minutes used by the resource to run tests.
+    metered :: Lude.Maybe Lude.Double,
+    -- | When specified, represents the total minutes used by the resource to run tests.
     total :: Lude.Maybe Lude.Double,
+    -- | When specified, represents only the sum of unmetered minutes used by the resource to run tests.
     unmetered :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceMinutes' with the minimum fields required to make a request.

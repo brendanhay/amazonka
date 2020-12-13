@@ -43,46 +43,46 @@ import Network.AWS.SMS.Types.UserData
 --
 -- /See:/ 'mkServerLaunchConfiguration' smart constructor.
 data ServerLaunchConfiguration = ServerLaunchConfiguration'
-  { ec2KeyName ::
-      Lude.Maybe Lude.Text,
-    configureScriptType ::
-      Lude.Maybe ScriptType,
-    associatePublicIPAddress ::
-      Lude.Maybe Lude.Bool,
-    iamInstanceProfileName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the Amazon EC2 SSH key to be used for connecting to the launched server.
+    ec2KeyName :: Lude.Maybe Lude.Text,
+    -- | The type of configuration script.
+    configureScriptType :: Lude.Maybe ScriptType,
+    -- | Indicates whether a publicly accessible IP address is created when launching the server.
+    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    -- | The name of the IAM instance profile.
+    iamInstanceProfileName :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet the server should be launched into.
     subnet :: Lude.Maybe Lude.Text,
+    -- | The logical ID of the server in the AWS CloudFormation template.
     logicalId :: Lude.Maybe Lude.Text,
+    -- | The ID of the security group that applies to the launched server.
     securityGroup :: Lude.Maybe Lude.Text,
+    -- | Location of the user-data script to be executed when launching the server.
     userData :: Lude.Maybe UserData,
+    -- | The instance type to use when launching the server.
     instanceType :: Lude.Maybe Lude.Text,
-    configureScript ::
-      Lude.Maybe S3Location,
+    configureScript :: Lude.Maybe S3Location,
+    -- | The ID of the server with which the launch configuration is associated.
     server :: Lude.Maybe Server,
+    -- | The ID of the VPC into which the server should be launched.
     vpc :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerLaunchConfiguration' with the minimum fields required to make a request.
 --
--- * 'associatePublicIPAddress' - Indicates whether a publicly accessible IP address is created when launching the server.
--- * 'configureScript' - Undocumented field.
--- * 'configureScriptType' - The type of configuration script.
 -- * 'ec2KeyName' - The name of the Amazon EC2 SSH key to be used for connecting to the launched server.
+-- * 'configureScriptType' - The type of configuration script.
+-- * 'associatePublicIPAddress' - Indicates whether a publicly accessible IP address is created when launching the server.
 -- * 'iamInstanceProfileName' - The name of the IAM instance profile.
--- * 'instanceType' - The instance type to use when launching the server.
+-- * 'subnet' - The ID of the subnet the server should be launched into.
 -- * 'logicalId' - The logical ID of the server in the AWS CloudFormation template.
 -- * 'securityGroup' - The ID of the security group that applies to the launched server.
--- * 'server' - The ID of the server with which the launch configuration is associated.
--- * 'subnet' - The ID of the subnet the server should be launched into.
 -- * 'userData' - Location of the user-data script to be executed when launching the server.
+-- * 'instanceType' - The instance type to use when launching the server.
+-- * 'configureScript' -
+-- * 'server' - The ID of the server with which the launch configuration is associated.
 -- * 'vpc' - The ID of the VPC into which the server should be launched.
 mkServerLaunchConfiguration ::
   ServerLaunchConfiguration

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchStopJobRun' smart constructor.
 data BatchStopJobRun = BatchStopJobRun'
-  { jobName :: Lude.Text,
+  { -- | The name of the job definition for which to stop job runs.
+    jobName :: Lude.Text,
+    -- | A list of the @JobRunIds@ that should be stopped for that job definition.
     jobRunIds :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStopJobRun' with the minimum fields required to make a request.
@@ -120,26 +117,21 @@ instance Lude.ToQuery BatchStopJobRun where
 
 -- | /See:/ 'mkBatchStopJobRunResponse' smart constructor.
 data BatchStopJobRunResponse = BatchStopJobRunResponse'
-  { successfulSubmissions ::
-      Lude.Maybe
-        [BatchStopJobRunSuccessfulSubmission],
+  { -- | A list of the JobRuns that were successfully submitted for stopping.
+    successfulSubmissions :: Lude.Maybe [BatchStopJobRunSuccessfulSubmission],
+    -- | A list of the errors that were encountered in trying to stop @JobRuns@ , including the @JobRunId@ for which each error was encountered and details about the error.
     errors :: Lude.Maybe [BatchStopJobRunError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStopJobRunResponse' with the minimum fields required to make a request.
 --
+-- * 'successfulSubmissions' - A list of the JobRuns that were successfully submitted for stopping.
 -- * 'errors' - A list of the errors that were encountered in trying to stop @JobRuns@ , including the @JobRunId@ for which each error was encountered and details about the error.
 -- * 'responseStatus' - The response status code.
--- * 'successfulSubmissions' - A list of the JobRuns that were successfully submitted for stopping.
 mkBatchStopJobRunResponse ::
   -- | 'responseStatus'
   Lude.Int ->

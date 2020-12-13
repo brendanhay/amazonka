@@ -13,8 +13,8 @@
 module Network.AWS.Budgets.Types.SubscriptionType
   ( SubscriptionType
       ( SubscriptionType',
-        Email,
-        SNS
+        SNS,
+        Email
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype SubscriptionType = SubscriptionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Email :: SubscriptionType
-pattern Email = SubscriptionType' "EMAIL"
-
 pattern SNS :: SubscriptionType
 pattern SNS = SubscriptionType' "SNS"
 
+pattern Email :: SubscriptionType
+pattern Email = SubscriptionType' "EMAIL"
+
 {-# COMPLETE
-  Email,
   SNS,
+  Email,
   SubscriptionType'
   #-}

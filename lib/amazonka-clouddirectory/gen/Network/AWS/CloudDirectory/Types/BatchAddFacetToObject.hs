@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchAddFacetToObject' smart constructor.
 data BatchAddFacetToObject = BatchAddFacetToObject'
-  { schemaFacet ::
-      SchemaFacet,
+  { -- | Represents the facet being added to the object.
+    schemaFacet :: SchemaFacet,
+    -- | The attributes to set on the object.
     objectAttributeList :: [AttributeKeyAndValue],
+    -- | A reference to the object being mutated.
     objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAddFacetToObject' with the minimum fields required to make a request.
 --
+-- * 'schemaFacet' - Represents the facet being added to the object.
 -- * 'objectAttributeList' - The attributes to set on the object.
 -- * 'objectReference' - A reference to the object being mutated.
--- * 'schemaFacet' - Represents the facet being added to the object.
 mkBatchAddFacetToObject ::
   -- | 'schemaFacet'
   SchemaFacet ->

@@ -35,13 +35,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSAMLOptionsInput' smart constructor.
 data SAMLOptionsInput = SAMLOptionsInput'
-  { masterUserName ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
+    masterUserName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | True if SAML is enabled.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies the SAML Identity Provider's information.
     idp :: Lude.Maybe SAMLIdp,
+    -- | The key to use for matching the SAML Roles attribute.
     rolesKey :: Lude.Maybe Lude.Text,
+    -- | The backend role to which the SAML master user is mapped to.
     masterBackendRole :: Lude.Maybe Lude.Text,
+    -- | The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
     sessionTimeoutMinutes :: Lude.Maybe Lude.Int,
+    -- | The key to use for matching the SAML Subject attribute.
     subjectKey :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -49,11 +55,11 @@ data SAMLOptionsInput = SAMLOptionsInput'
 
 -- | Creates a value of 'SAMLOptionsInput' with the minimum fields required to make a request.
 --
+-- * 'masterUserName' - The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
 -- * 'enabled' - True if SAML is enabled.
 -- * 'idp' - Specifies the SAML Identity Provider's information.
--- * 'masterBackendRole' - The backend role to which the SAML master user is mapped to.
--- * 'masterUserName' - The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
 -- * 'rolesKey' - The key to use for matching the SAML Roles attribute.
+-- * 'masterBackendRole' - The backend role to which the SAML master user is mapped to.
 -- * 'sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
 -- * 'subjectKey' - The key to use for matching the SAML Subject attribute.
 mkSAMLOptionsInput ::

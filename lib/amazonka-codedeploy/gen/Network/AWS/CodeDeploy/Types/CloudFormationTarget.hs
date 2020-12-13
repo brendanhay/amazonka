@@ -36,32 +36,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudFormationTarget' smart constructor.
 data CloudFormationTarget = CloudFormationTarget'
-  { targetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID of a deployment target that has a type of @CloudFormationTarget@ .
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The status of an AWS CloudFormation blue/green deployment's target application.
     status :: Lude.Maybe TargetStatus,
+    -- | The unique ID of an AWS CloudFormation blue/green deployment.
     deploymentId :: Lude.Maybe Lude.Text,
+    -- | The resource type for the AWS CloudFormation blue/green deployment.
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The date and time when the target application was updated by an AWS CloudFormation blue/green deployment.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The lifecycle events of the AWS CloudFormation blue/green deployment to this target application.
     lifecycleEvents :: Lude.Maybe [LifecycleEvent],
+    -- | The percentage of production traffic that the target version of an AWS CloudFormation blue/green deployment receives.
     targetVersionWeight :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudFormationTarget' with the minimum fields required to make a request.
 --
+-- * 'targetId' - The unique ID of a deployment target that has a type of @CloudFormationTarget@ .
+-- * 'status' - The status of an AWS CloudFormation blue/green deployment's target application.
 -- * 'deploymentId' - The unique ID of an AWS CloudFormation blue/green deployment.
+-- * 'resourceType' - The resource type for the AWS CloudFormation blue/green deployment.
 -- * 'lastUpdatedAt' - The date and time when the target application was updated by an AWS CloudFormation blue/green deployment.
 -- * 'lifecycleEvents' - The lifecycle events of the AWS CloudFormation blue/green deployment to this target application.
--- * 'resourceType' - The resource type for the AWS CloudFormation blue/green deployment.
--- * 'status' - The status of an AWS CloudFormation blue/green deployment's target application.
--- * 'targetId' - The unique ID of a deployment target that has a type of @CloudFormationTarget@ .
 -- * 'targetVersionWeight' - The percentage of production traffic that the target version of an AWS CloudFormation blue/green deployment receives.
 mkCloudFormationTarget ::
   CloudFormationTarget

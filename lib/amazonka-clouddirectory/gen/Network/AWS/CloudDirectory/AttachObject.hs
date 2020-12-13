@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,26 +49,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachObject' smart constructor.
 data AttachObject = AttachObject'
-  { directoryARN :: Lude.Text,
+  { -- | Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
+    directoryARN :: Lude.Text,
+    -- | The parent object reference.
     parentReference :: ObjectReference,
+    -- | The child object reference to be attached to the object.
     childReference :: ObjectReference,
+    -- | The link name with which the child object is attached to the parent.
     linkName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachObject' with the minimum fields required to make a request.
 --
--- * 'childReference' - The child object reference to be attached to the object.
 -- * 'directoryARN' - Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
--- * 'linkName' - The link name with which the child object is attached to the parent.
 -- * 'parentReference' - The parent object reference.
+-- * 'childReference' - The child object reference to be attached to the object.
+-- * 'linkName' - The link name with which the child object is attached to the parent.
 mkAttachObject ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -152,17 +151,12 @@ instance Lude.ToQuery AttachObject where
 
 -- | /See:/ 'mkAttachObjectResponse' smart constructor.
 data AttachObjectResponse = AttachObjectResponse'
-  { attachedObjectIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
+    attachedObjectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachObjectResponse' with the minimum fields required to make a request.

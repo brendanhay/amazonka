@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.SortBy
   ( SortBy
       ( SortBy',
-        SBCreationTime,
         SBName,
+        SBCreationTime,
         SBStatus
       ),
   )
@@ -46,18 +46,18 @@ newtype SortBy = SortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern SBCreationTime :: SortBy
-pattern SBCreationTime = SortBy' "CreationTime"
-
 pattern SBName :: SortBy
 pattern SBName = SortBy' "Name"
+
+pattern SBCreationTime :: SortBy
+pattern SBCreationTime = SortBy' "CreationTime"
 
 pattern SBStatus :: SortBy
 pattern SBStatus = SortBy' "Status"
 
 {-# COMPLETE
-  SBCreationTime,
   SBName,
+  SBCreationTime,
   SBStatus,
   SortBy'
   #-}

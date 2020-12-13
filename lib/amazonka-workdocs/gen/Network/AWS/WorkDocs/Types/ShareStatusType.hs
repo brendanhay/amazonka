@@ -13,8 +13,8 @@
 module Network.AWS.WorkDocs.Types.ShareStatusType
   ( ShareStatusType
       ( ShareStatusType',
-        Failure,
-        Success
+        Success,
+        Failure
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ShareStatusType = ShareStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failure :: ShareStatusType
-pattern Failure = ShareStatusType' "FAILURE"
-
 pattern Success :: ShareStatusType
 pattern Success = ShareStatusType' "SUCCESS"
 
+pattern Failure :: ShareStatusType
+pattern Failure = ShareStatusType' "FAILURE"
+
 {-# COMPLETE
-  Failure,
   Success,
+  Failure,
   ShareStatusType'
   #-}

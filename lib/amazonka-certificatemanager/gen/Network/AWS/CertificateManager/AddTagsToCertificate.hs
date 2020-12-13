@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,17 +40,15 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddTagsToCertificate' smart constructor.
 data AddTagsToCertificate = AddTagsToCertificate'
-  { certificateARN ::
-      Lude.Text,
+  { -- | String that contains the ARN of the ACM certificate to which the tag is to be applied. This must be of the form:
+    --
+    -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    certificateARN :: Lude.Text,
+    -- | The key-value pair that defines the tag. The tag value is optional.
     tags :: Lude.NonEmpty Tag
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToCertificate' with the minimum fields required to make a request.
@@ -121,13 +120,7 @@ instance Lude.ToQuery AddTagsToCertificate where
 
 -- | /See:/ 'mkAddTagsToCertificateResponse' smart constructor.
 data AddTagsToCertificateResponse = AddTagsToCertificateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToCertificateResponse' with the minimum fields required to make a request.

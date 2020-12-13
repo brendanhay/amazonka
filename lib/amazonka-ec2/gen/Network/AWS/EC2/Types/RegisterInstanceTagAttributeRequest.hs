@@ -29,20 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegisterInstanceTagAttributeRequest' smart constructor.
 data RegisterInstanceTagAttributeRequest = RegisterInstanceTagAttributeRequest'
-  { includeAllTagsOfInstance ::
-      Lude.Maybe
-        Lude.Bool,
-    instanceTagKeys ::
-      Lude.Maybe
-        [Lude.Text]
+  { -- | Indicates whether to register all tag keys in the current Region. Specify @true@ to register all tag keys.
+    includeAllTagsOfInstance :: Lude.Maybe Lude.Bool,
+    -- | The tag keys to register.
+    instanceTagKeys :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterInstanceTagAttributeRequest' with the minimum fields required to make a request.

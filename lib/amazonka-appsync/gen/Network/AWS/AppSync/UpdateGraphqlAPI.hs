@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,13 +21,13 @@ module Network.AWS.AppSync.UpdateGraphqlAPI
 
     -- ** Request lenses
     ugaXrayEnabled,
+    ugaApiId,
     ugaOpenIdConnectConfig,
     ugaAdditionalAuthenticationProviders,
+    ugaName,
     ugaUserPoolConfig,
     ugaAuthenticationType,
     ugaLogConfig,
-    ugaApiId,
-    ugaName,
 
     -- * Destructuring the response
     UpdateGraphqlAPIResponse (..),
@@ -46,36 +47,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGraphqlAPI' smart constructor.
 data UpdateGraphqlAPI = UpdateGraphqlAPI'
-  { xrayEnabled ::
-      Lude.Maybe Lude.Bool,
-    openIdConnectConfig :: Lude.Maybe OpenIdConnectConfig,
-    additionalAuthenticationProviders ::
-      Lude.Maybe [AdditionalAuthenticationProvider],
-    userPoolConfig :: Lude.Maybe UserPoolConfig,
-    authenticationType :: Lude.Maybe AuthenticationType,
-    logConfig :: Lude.Maybe LogConfig,
+  { -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
+    xrayEnabled :: Lude.Maybe Lude.Bool,
+    -- | The API ID.
     apiId :: Lude.Text,
-    name :: Lude.Text
+    -- | The OpenID Connect configuration for the @GraphqlApi@ object.
+    openIdConnectConfig :: Lude.Maybe OpenIdConnectConfig,
+    -- | A list of additional authentication providers for the @GraphqlApi@ API.
+    additionalAuthenticationProviders :: Lude.Maybe [AdditionalAuthenticationProvider],
+    -- | The new name for the @GraphqlApi@ object.
+    name :: Lude.Text,
+    -- | The new Amazon Cognito user pool configuration for the @GraphqlApi@ object.
+    userPoolConfig :: Lude.Maybe UserPoolConfig,
+    -- | The new authentication type for the @GraphqlApi@ object.
+    authenticationType :: Lude.Maybe AuthenticationType,
+    -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
+    logConfig :: Lude.Maybe LogConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGraphqlAPI' with the minimum fields required to make a request.
 --
--- * 'additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
+-- * 'xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
 -- * 'apiId' - The API ID.
+-- * 'openIdConnectConfig' - The OpenID Connect configuration for the @GraphqlApi@ object.
+-- * 'additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
+-- * 'name' - The new name for the @GraphqlApi@ object.
+-- * 'userPoolConfig' - The new Amazon Cognito user pool configuration for the @GraphqlApi@ object.
 -- * 'authenticationType' - The new authentication type for the @GraphqlApi@ object.
 -- * 'logConfig' - The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
--- * 'name' - The new name for the @GraphqlApi@ object.
--- * 'openIdConnectConfig' - The OpenID Connect configuration for the @GraphqlApi@ object.
--- * 'userPoolConfig' - The new Amazon Cognito user pool configuration for the @GraphqlApi@ object.
--- * 'xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
 mkUpdateGraphqlAPI ::
   -- | 'apiId'
   Lude.Text ->
@@ -85,13 +86,13 @@ mkUpdateGraphqlAPI ::
 mkUpdateGraphqlAPI pApiId_ pName_ =
   UpdateGraphqlAPI'
     { xrayEnabled = Lude.Nothing,
+      apiId = pApiId_,
       openIdConnectConfig = Lude.Nothing,
       additionalAuthenticationProviders = Lude.Nothing,
+      name = pName_,
       userPoolConfig = Lude.Nothing,
       authenticationType = Lude.Nothing,
-      logConfig = Lude.Nothing,
-      apiId = pApiId_,
-      name = pName_
+      logConfig = Lude.Nothing
     }
 
 -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@ .
@@ -100,6 +101,13 @@ mkUpdateGraphqlAPI pApiId_ pName_ =
 ugaXrayEnabled :: Lens.Lens' UpdateGraphqlAPI (Lude.Maybe Lude.Bool)
 ugaXrayEnabled = Lens.lens (xrayEnabled :: UpdateGraphqlAPI -> Lude.Maybe Lude.Bool) (\s a -> s {xrayEnabled = a} :: UpdateGraphqlAPI)
 {-# DEPRECATED ugaXrayEnabled "Use generic-lens or generic-optics with 'xrayEnabled' instead." #-}
+
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugaApiId :: Lens.Lens' UpdateGraphqlAPI Lude.Text
+ugaApiId = Lens.lens (apiId :: UpdateGraphqlAPI -> Lude.Text) (\s a -> s {apiId = a} :: UpdateGraphqlAPI)
+{-# DEPRECATED ugaApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The OpenID Connect configuration for the @GraphqlApi@ object.
 --
@@ -114,6 +122,13 @@ ugaOpenIdConnectConfig = Lens.lens (openIdConnectConfig :: UpdateGraphqlAPI -> L
 ugaAdditionalAuthenticationProviders :: Lens.Lens' UpdateGraphqlAPI (Lude.Maybe [AdditionalAuthenticationProvider])
 ugaAdditionalAuthenticationProviders = Lens.lens (additionalAuthenticationProviders :: UpdateGraphqlAPI -> Lude.Maybe [AdditionalAuthenticationProvider]) (\s a -> s {additionalAuthenticationProviders = a} :: UpdateGraphqlAPI)
 {-# DEPRECATED ugaAdditionalAuthenticationProviders "Use generic-lens or generic-optics with 'additionalAuthenticationProviders' instead." #-}
+
+-- | The new name for the @GraphqlApi@ object.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugaName :: Lens.Lens' UpdateGraphqlAPI Lude.Text
+ugaName = Lens.lens (name :: UpdateGraphqlAPI -> Lude.Text) (\s a -> s {name = a} :: UpdateGraphqlAPI)
+{-# DEPRECATED ugaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new Amazon Cognito user pool configuration for the @GraphqlApi@ object.
 --
@@ -135,20 +150,6 @@ ugaAuthenticationType = Lens.lens (authenticationType :: UpdateGraphqlAPI -> Lud
 ugaLogConfig :: Lens.Lens' UpdateGraphqlAPI (Lude.Maybe LogConfig)
 ugaLogConfig = Lens.lens (logConfig :: UpdateGraphqlAPI -> Lude.Maybe LogConfig) (\s a -> s {logConfig = a} :: UpdateGraphqlAPI)
 {-# DEPRECATED ugaLogConfig "Use generic-lens or generic-optics with 'logConfig' instead." #-}
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugaApiId :: Lens.Lens' UpdateGraphqlAPI Lude.Text
-ugaApiId = Lens.lens (apiId :: UpdateGraphqlAPI -> Lude.Text) (\s a -> s {apiId = a} :: UpdateGraphqlAPI)
-{-# DEPRECATED ugaApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
-
--- | The new name for the @GraphqlApi@ object.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugaName :: Lens.Lens' UpdateGraphqlAPI Lude.Text
-ugaName = Lens.lens (name :: UpdateGraphqlAPI -> Lude.Text) (\s a -> s {name = a} :: UpdateGraphqlAPI)
-{-# DEPRECATED ugaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest UpdateGraphqlAPI where
   type Rs UpdateGraphqlAPI = UpdateGraphqlAPIResponse
@@ -177,10 +178,10 @@ instance Lude.ToJSON UpdateGraphqlAPI where
             ("openIDConnectConfig" Lude..=) Lude.<$> openIdConnectConfig,
             ("additionalAuthenticationProviders" Lude..=)
               Lude.<$> additionalAuthenticationProviders,
+            Lude.Just ("name" Lude..= name),
             ("userPoolConfig" Lude..=) Lude.<$> userPoolConfig,
             ("authenticationType" Lude..=) Lude.<$> authenticationType,
-            ("logConfig" Lude..=) Lude.<$> logConfig,
-            Lude.Just ("name" Lude..= name)
+            ("logConfig" Lude..=) Lude.<$> logConfig
           ]
       )
 
@@ -193,17 +194,12 @@ instance Lude.ToQuery UpdateGraphqlAPI where
 
 -- | /See:/ 'mkUpdateGraphqlAPIResponse' smart constructor.
 data UpdateGraphqlAPIResponse = UpdateGraphqlAPIResponse'
-  { graphqlAPI ::
-      Lude.Maybe GraphqlAPI,
+  { -- | The updated @GraphqlApi@ object.
+    graphqlAPI :: Lude.Maybe GraphqlAPI,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGraphqlAPIResponse' with the minimum fields required to make a request.

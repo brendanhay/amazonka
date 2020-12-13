@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.Mpeg2Telecine
   ( Mpeg2Telecine
       ( Mpeg2Telecine',
-        MTHard,
         MTNone,
-        MTSoft
+        MTSoft,
+        MTHard
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype Mpeg2Telecine = Mpeg2Telecine' Lude.Text
       Lude.ToHeader
     )
 
-pattern MTHard :: Mpeg2Telecine
-pattern MTHard = Mpeg2Telecine' "HARD"
-
 pattern MTNone :: Mpeg2Telecine
 pattern MTNone = Mpeg2Telecine' "NONE"
 
 pattern MTSoft :: Mpeg2Telecine
 pattern MTSoft = Mpeg2Telecine' "SOFT"
 
+pattern MTHard :: Mpeg2Telecine
+pattern MTHard = Mpeg2Telecine' "HARD"
+
 {-# COMPLETE
-  MTHard,
   MTNone,
   MTSoft,
+  MTHard,
   Mpeg2Telecine'
   #-}

@@ -32,24 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPNStaticRoute' smart constructor.
 data VPNStaticRoute = VPNStaticRoute'
-  { state :: Lude.Maybe VPNState,
+  { -- | The current state of the static route.
+    state :: Lude.Maybe VPNState,
+    -- | Indicates how the routes were provided.
     source :: Lude.Maybe VPNStaticRouteSource,
+    -- | The CIDR block associated with the local subnet of the customer data center.
     destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPNStaticRoute' with the minimum fields required to make a request.
 --
--- * 'destinationCidrBlock' - The CIDR block associated with the local subnet of the customer data center.
--- * 'source' - Indicates how the routes were provided.
 -- * 'state' - The current state of the static route.
+-- * 'source' - Indicates how the routes were provided.
+-- * 'destinationCidrBlock' - The CIDR block associated with the local subnet of the customer data center.
 mkVPNStaticRoute ::
   VPNStaticRoute
 mkVPNStaticRoute =

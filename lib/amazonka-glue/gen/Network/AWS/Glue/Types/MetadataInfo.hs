@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMetadataInfo' smart constructor.
 data MetadataInfo = MetadataInfo'
-  { createdTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The time at which the entry was created.
+    createdTime :: Lude.Maybe Lude.Text,
+    -- | The metadata key’s corresponding value.
     metadataValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetadataInfo' with the minimum fields required to make a request.

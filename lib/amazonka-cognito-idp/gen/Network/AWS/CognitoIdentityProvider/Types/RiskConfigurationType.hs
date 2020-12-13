@@ -36,29 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRiskConfigurationType' smart constructor.
 data RiskConfigurationType = RiskConfigurationType'
-  { riskExceptionConfiguration ::
-      Lude.Maybe RiskExceptionConfigurationType,
-    clientId ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    accountTakeoverRiskConfiguration ::
-      Lude.Maybe AccountTakeoverRiskConfigurationType,
+  { -- | The configuration to override the risk decision.
+    riskExceptionConfiguration :: Lude.Maybe RiskExceptionConfigurationType,
+    -- | The app client ID.
+    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The account takeover risk configuration object including the @NotifyConfiguration@ object and @Actions@ to take in the case of an account takeover.
+    accountTakeoverRiskConfiguration :: Lude.Maybe AccountTakeoverRiskConfigurationType,
+    -- | The last modified date.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The user pool ID.
     userPoolId :: Lude.Maybe Lude.Text,
-    compromisedCredentialsRiskConfiguration ::
-      Lude.Maybe
-        CompromisedCredentialsRiskConfigurationType
+    -- | The compromised credentials risk configuration object including the @EventFilter@ and the @EventAction@
+    compromisedCredentialsRiskConfiguration :: Lude.Maybe CompromisedCredentialsRiskConfigurationType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RiskConfigurationType' with the minimum fields required to make a request.
 --
--- * 'accountTakeoverRiskConfiguration' - The account takeover risk configuration object including the @NotifyConfiguration@ object and @Actions@ to take in the case of an account takeover.
--- * 'clientId' - The app client ID.
--- * 'compromisedCredentialsRiskConfiguration' - The compromised credentials risk configuration object including the @EventFilter@ and the @EventAction@
--- * 'lastModifiedDate' - The last modified date.
 -- * 'riskExceptionConfiguration' - The configuration to override the risk decision.
+-- * 'clientId' - The app client ID.
+-- * 'accountTakeoverRiskConfiguration' - The account takeover risk configuration object including the @NotifyConfiguration@ object and @Actions@ to take in the case of an account takeover.
+-- * 'lastModifiedDate' - The last modified date.
 -- * 'userPoolId' - The user pool ID.
+-- * 'compromisedCredentialsRiskConfiguration' - The compromised credentials risk configuration object including the @EventFilter@ and the @EventAction@
 mkRiskConfigurationType ::
   RiskConfigurationType
 mkRiskConfigurationType =

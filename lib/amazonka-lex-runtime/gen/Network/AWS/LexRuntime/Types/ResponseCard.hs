@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResponseCard' smart constructor.
 data ResponseCard = ResponseCard'
-  { genericAttachments ::
-      Lude.Maybe [GenericAttachment],
+  { -- | An array of attachment objects representing options.
+    genericAttachments :: Lude.Maybe [GenericAttachment],
+    -- | The version of the response card format.
     version :: Lude.Maybe Lude.Text,
+    -- | The content type of the response.
     contentType :: Lude.Maybe ContentType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseCard' with the minimum fields required to make a request.
 --
--- * 'contentType' - The content type of the response.
 -- * 'genericAttachments' - An array of attachment objects representing options.
 -- * 'version' - The version of the response card format.
+-- * 'contentType' - The content type of the response.
 mkResponseCard ::
   ResponseCard
 mkResponseCard =

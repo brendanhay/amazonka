@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,26 +40,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkPutThirdPartyJobFailureResult' smart constructor.
 data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
-  { jobId ::
-      Lude.Text,
+  { -- | The ID of the job that failed. This is the same ID returned from @PollForThirdPartyJobs@ .
+    jobId :: Lude.Text,
+    -- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
     clientToken :: Lude.Text,
-    failureDetails ::
-      FailureDetails
+    -- | Represents information about failure details.
+    failureDetails :: FailureDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutThirdPartyJobFailureResult' with the minimum fields required to make a request.
 --
+-- * 'jobId' - The ID of the job that failed. This is the same ID returned from @PollForThirdPartyJobs@ .
 -- * 'clientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
 -- * 'failureDetails' - Represents information about failure details.
--- * 'jobId' - The ID of the job that failed. This is the same ID returned from @PollForThirdPartyJobs@ .
 mkPutThirdPartyJobFailureResult ::
   -- | 'jobId'
   Lude.Text ->
@@ -136,13 +132,7 @@ instance Lude.ToQuery PutThirdPartyJobFailureResult where
 
 -- | /See:/ 'mkPutThirdPartyJobFailureResultResponse' smart constructor.
 data PutThirdPartyJobFailureResultResponse = PutThirdPartyJobFailureResultResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutThirdPartyJobFailureResultResponse' with the minimum fields required to make a request.

@@ -38,34 +38,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineExecutionSummary' smart constructor.
 data PipelineExecutionSummary = PipelineExecutionSummary'
-  { status ::
-      Lude.Maybe PipelineExecutionStatus,
+  { -- | The status of the pipeline execution.
+    --
+    --
+    --     * InProgress: The pipeline execution is currently running.
+    --
+    --
+    --     * Stopped: The pipeline execution was manually stopped. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions> .
+    --
+    --
+    --     * Stopping: The pipeline execution received a request to be manually stopped. Depending on the selected stop mode, the execution is either completing or abandoning in-progress actions. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions> .
+    --
+    --
+    --     * Succeeded: The pipeline execution was completed successfully.
+    --
+    --
+    --     * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions> .
+    --
+    --
+    --     * Failed: The pipeline execution was not completed successfully.
+    status :: Lude.Maybe PipelineExecutionStatus,
+    -- | The date and time when the pipeline execution began, in timestamp format.
     startTime :: Lude.Maybe Lude.Timestamp,
-    stopTrigger ::
-      Lude.Maybe StopExecutionTrigger,
-    pipelineExecutionId ::
-      Lude.Maybe Lude.Text,
-    sourceRevisions ::
-      Lude.Maybe [SourceRevision],
+    -- | The interaction that stopped a pipeline execution.
+    stopTrigger :: Lude.Maybe StopExecutionTrigger,
+    -- | The ID of the pipeline execution.
+    pipelineExecutionId :: Lude.Maybe Lude.Text,
+    -- | A list of the source artifact revisions that initiated a pipeline execution.
+    sourceRevisions :: Lude.Maybe [SourceRevision],
+    -- | The interaction or event that started a pipeline execution, such as automated change detection or a @StartPipelineExecution@ API call.
     trigger :: Lude.Maybe ExecutionTrigger,
-    lastUpdateTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | The date and time of the last change to the pipeline execution, in timestamp format.
+    lastUpdateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineExecutionSummary' with the minimum fields required to make a request.
 --
--- * 'lastUpdateTime' - The date and time of the last change to the pipeline execution, in timestamp format.
--- * 'pipelineExecutionId' - The ID of the pipeline execution.
--- * 'sourceRevisions' - A list of the source artifact revisions that initiated a pipeline execution.
--- * 'startTime' - The date and time when the pipeline execution began, in timestamp format.
 -- * 'status' - The status of the pipeline execution.
 --
 --
@@ -87,8 +97,12 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
 --     * Failed: The pipeline execution was not completed successfully.
 --
 --
+-- * 'startTime' - The date and time when the pipeline execution began, in timestamp format.
 -- * 'stopTrigger' - The interaction that stopped a pipeline execution.
+-- * 'pipelineExecutionId' - The ID of the pipeline execution.
+-- * 'sourceRevisions' - A list of the source artifact revisions that initiated a pipeline execution.
 -- * 'trigger' - The interaction or event that started a pipeline execution, such as automated change detection or a @StartPipelineExecution@ API call.
+-- * 'lastUpdateTime' - The date and time of the last change to the pipeline execution, in timestamp format.
 mkPipelineExecutionSummary ::
   PipelineExecutionSummary
 mkPipelineExecutionSummary =

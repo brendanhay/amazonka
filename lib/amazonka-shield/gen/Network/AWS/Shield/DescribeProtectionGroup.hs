@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Shield.DescribeProtectionGroup
     mkDescribeProtectionGroupResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
     drsProtectionGroup,
+    drsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkDescribeProtectionGroup' smart constructor.
 newtype DescribeProtectionGroup = DescribeProtectionGroup'
-  { protectionGroupId ::
-      Lude.Text
+  { -- | The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.
+    protectionGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProtectionGroup' with the minimum fields required to make a request.
@@ -75,8 +70,8 @@ instance Lude.AWSRequest DescribeProtectionGroup where
     Res.receiveJSON
       ( \s h x ->
           DescribeProtectionGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ProtectionGroup")
+            Lude.<$> (x Lude..:> "ProtectionGroup")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeProtectionGroup where
@@ -105,18 +100,12 @@ instance Lude.ToQuery DescribeProtectionGroup where
 
 -- | /See:/ 'mkDescribeProtectionGroupResponse' smart constructor.
 data DescribeProtectionGroupResponse = DescribeProtectionGroupResponse'
-  { responseStatus ::
-      Lude.Int,
-    protectionGroup ::
-      ProtectionGroup
+  { -- | A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
+    protectionGroup :: ProtectionGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProtectionGroupResponse' with the minimum fields required to make a request.
@@ -124,26 +113,19 @@ data DescribeProtectionGroupResponse = DescribeProtectionGroupResponse'
 -- * 'protectionGroup' - A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
 -- * 'responseStatus' - The response status code.
 mkDescribeProtectionGroupResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'protectionGroup'
   ProtectionGroup ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeProtectionGroupResponse
 mkDescribeProtectionGroupResponse
-  pResponseStatus_
-  pProtectionGroup_ =
+  pProtectionGroup_
+  pResponseStatus_ =
     DescribeProtectionGroupResponse'
-      { responseStatus =
-          pResponseStatus_,
-        protectionGroup = pProtectionGroup_
+      { protectionGroup =
+          pProtectionGroup_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeProtectionGroupResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeProtectionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProtectionGroupResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A grouping of protected resources that you and AWS Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
 --
@@ -151,3 +133,10 @@ drsResponseStatus = Lens.lens (responseStatus :: DescribeProtectionGroupResponse
 drsProtectionGroup :: Lens.Lens' DescribeProtectionGroupResponse ProtectionGroup
 drsProtectionGroup = Lens.lens (protectionGroup :: DescribeProtectionGroupResponse -> ProtectionGroup) (\s a -> s {protectionGroup = a} :: DescribeProtectionGroupResponse)
 {-# DEPRECATED drsProtectionGroup "Use generic-lens or generic-optics with 'protectionGroup' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsResponseStatus :: Lens.Lens' DescribeProtectionGroupResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DescribeProtectionGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProtectionGroupResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

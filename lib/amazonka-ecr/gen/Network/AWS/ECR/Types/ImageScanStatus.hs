@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImageScanStatus' smart constructor.
 data ImageScanStatus = ImageScanStatus'
-  { status ::
-      Lude.Maybe ScanStatus,
+  { -- | The current state of an image scan.
+    status :: Lude.Maybe ScanStatus,
+    -- | The description of the image scan status.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageScanStatus' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the image scan status.
 -- * 'status' - The current state of an image scan.
+-- * 'description' - The description of the image scan status.
 mkImageScanStatus ::
   ImageScanStatus
 mkImageScanStatus =

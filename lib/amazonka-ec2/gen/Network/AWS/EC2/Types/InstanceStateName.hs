@@ -16,9 +16,9 @@ module Network.AWS.EC2.Types.InstanceStateName
         ISNPending,
         ISNRunning,
         ISNShuttingDown,
-        ISNStopped,
+        ISNTerminated,
         ISNStopping,
-        ISNTerminated
+        ISNStopped
       ),
   )
 where
@@ -58,21 +58,21 @@ pattern ISNRunning = InstanceStateName' "running"
 pattern ISNShuttingDown :: InstanceStateName
 pattern ISNShuttingDown = InstanceStateName' "shutting-down"
 
-pattern ISNStopped :: InstanceStateName
-pattern ISNStopped = InstanceStateName' "stopped"
+pattern ISNTerminated :: InstanceStateName
+pattern ISNTerminated = InstanceStateName' "terminated"
 
 pattern ISNStopping :: InstanceStateName
 pattern ISNStopping = InstanceStateName' "stopping"
 
-pattern ISNTerminated :: InstanceStateName
-pattern ISNTerminated = InstanceStateName' "terminated"
+pattern ISNStopped :: InstanceStateName
+pattern ISNStopped = InstanceStateName' "stopped"
 
 {-# COMPLETE
   ISNPending,
   ISNRunning,
   ISNShuttingDown,
-  ISNStopped,
-  ISNStopping,
   ISNTerminated,
+  ISNStopping,
+  ISNStopped,
   InstanceStateName'
   #-}

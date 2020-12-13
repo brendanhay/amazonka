@@ -58,29 +58,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameSessionQueue' smart constructor.
 data GameSessionQueue = GameSessionQueue'
-  { gameSessionQueueARN ::
-      Lude.Maybe Lude.Text,
+  { -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift game session queue ARN, the resource ID matches the /Name/ value.
+    gameSessionQueueARN :: Lude.Maybe Lude.Text,
+    -- | A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement.
     playerLatencyPolicies :: Lude.Maybe [PlayerLatencyPolicy],
+    -- | The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
     timeoutInSeconds :: Lude.Maybe Lude.Natural,
+    -- | A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
     destinations :: Lude.Maybe [GameSessionQueueDestination],
+    -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionQueue' with the minimum fields required to make a request.
 --
--- * 'destinations' - A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
 -- * 'gameSessionQueueARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift game session queue resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift game session queue ARN, the resource ID matches the /Name/ value.
--- * 'name' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
 -- * 'playerLatencyPolicies' - A collection of latency policies to apply when processing game sessions placement requests with player latency information. Multiple policies are evaluated in order of the maximum latency value, starting with the lowest latency values. With just one policy, the policy is enforced at the start of the game session placement for the duration period. With multiple policies, each policy is enforced consecutively for its duration period. For example, a queue might enforce a 60-second policy followed by a 120-second policy, and then no policy for the remainder of the placement.
 -- * 'timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a @TIMED_OUT@ status.
+-- * 'destinations' - A list of fleets that can be used to fulfill game session placement requests in the queue. Fleets are identified by either a fleet ARN or a fleet alias ARN. Destinations are listed in default preference order.
+-- * 'name' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
 mkGameSessionQueue ::
   GameSessionQueue
 mkGameSessionQueue =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     mkCreateSnapshotFromVolumeRecoveryPoint,
 
     -- ** Request lenses
-    csfvrpTags,
-    csfvrpVolumeARN,
     csfvrpSnapshotDescription,
+    csfvrpVolumeARN,
+    csfvrpTags,
 
     -- * Destructuring the response
     CreateSnapshotFromVolumeRecoveryPointResponse (..),
@@ -46,49 +47,43 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkCreateSnapshotFromVolumeRecoveryPoint' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
-  { tags ::
-      Lude.Maybe
-        [Tag],
-    volumeARN ::
-      Lude.Text,
-    snapshotDescription ::
-      Lude.Text
+  { -- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
+    snapshotDescription :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+    volumeARN :: Lude.Text,
+    -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPoint' with the minimum fields required to make a request.
 --
 -- * 'snapshotDescription' - Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
--- * 'tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+-- * 'tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
 mkCreateSnapshotFromVolumeRecoveryPoint ::
-  -- | 'volumeARN'
-  Lude.Text ->
   -- | 'snapshotDescription'
+  Lude.Text ->
+  -- | 'volumeARN'
   Lude.Text ->
   CreateSnapshotFromVolumeRecoveryPoint
 mkCreateSnapshotFromVolumeRecoveryPoint
-  pVolumeARN_
-  pSnapshotDescription_ =
+  pSnapshotDescription_
+  pVolumeARN_ =
     CreateSnapshotFromVolumeRecoveryPoint'
-      { tags = Lude.Nothing,
+      { snapshotDescription =
+          pSnapshotDescription_,
         volumeARN = pVolumeARN_,
-        snapshotDescription = pSnapshotDescription_
+        tags = Lude.Nothing
       }
 
--- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
+-- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrpTags :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint (Lude.Maybe [Tag])
-csfvrpTags = Lens.lens (tags :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSnapshotFromVolumeRecoveryPoint)
-{-# DEPRECATED csfvrpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'snapshotDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfvrpSnapshotDescription :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Lude.Text
+csfvrpSnapshotDescription = Lens.lens (snapshotDescription :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Text) (\s a -> s {snapshotDescription = a} :: CreateSnapshotFromVolumeRecoveryPoint)
+{-# DEPRECATED csfvrpSnapshotDescription "Use generic-lens or generic-optics with 'snapshotDescription' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 --
@@ -97,12 +92,12 @@ csfvrpVolumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Lude.Text
 csfvrpVolumeARN = Lens.lens (volumeARN :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Text) (\s a -> s {volumeARN = a} :: CreateSnapshotFromVolumeRecoveryPoint)
 {-# DEPRECATED csfvrpVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
--- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
+-- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
 --
--- /Note:/ Consider using 'snapshotDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrpSnapshotDescription :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Lude.Text
-csfvrpSnapshotDescription = Lens.lens (snapshotDescription :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Text) (\s a -> s {snapshotDescription = a} :: CreateSnapshotFromVolumeRecoveryPoint)
-{-# DEPRECATED csfvrpSnapshotDescription "Use generic-lens or generic-optics with 'snapshotDescription' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfvrpTags :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint (Lude.Maybe [Tag])
+csfvrpTags = Lens.lens (tags :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSnapshotFromVolumeRecoveryPoint)
+{-# DEPRECATED csfvrpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
   type
@@ -136,9 +131,9 @@ instance Lude.ToJSON CreateSnapshotFromVolumeRecoveryPoint where
   toJSON CreateSnapshotFromVolumeRecoveryPoint' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("SnapshotDescription" Lude..= snapshotDescription),
             Lude.Just ("VolumeARN" Lude..= volumeARN),
-            Lude.Just ("SnapshotDescription" Lude..= snapshotDescription)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -150,36 +145,24 @@ instance Lude.ToQuery CreateSnapshotFromVolumeRecoveryPoint where
 
 -- | /See:/ 'mkCreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
-  { volumeRecoveryPointTime ::
-      Lude.Maybe
-        Lude.Text,
-    volumeARN ::
-      Lude.Maybe
-        Lude.Text,
-    snapshotId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The time the volume was created from the recovery point.
+    volumeRecoveryPointTime :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+    volumeARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the snapshot.
+    snapshotId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPointResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'snapshotId' - The ID of the snapshot.
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 -- * 'volumeRecoveryPointTime' - The time the volume was created from the recovery point.
+-- * 'volumeARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+-- * 'snapshotId' - The ID of the snapshot.
+-- * 'responseStatus' - The response status code.
 mkCreateSnapshotFromVolumeRecoveryPointResponse ::
   -- | 'responseStatus'
   Lude.Int ->

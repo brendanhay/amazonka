@@ -37,12 +37,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserType' smart constructor.
 data UserType = UserType'
-  { enabled :: Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the user is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The user status. Can be one of the following:
+    --
+    --
+    --     * UNCONFIRMED - User has been created but not confirmed.
+    --
+    --
+    --     * CONFIRMED - User has been confirmed.
+    --
+    --
+    --     * ARCHIVED - User is no longer active.
+    --
+    --
+    --     * COMPROMISED - User is disabled due to a potential security threat.
+    --
+    --
+    --     * UNKNOWN - User status is not known.
+    --
+    --
+    --     * RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in.
+    --
+    --
+    --     * FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else.
     userStatus :: Lude.Maybe UserStatusType,
+    -- | The user name of the user you wish to describe.
     username :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The creation date of the user.
     userCreateDate :: Lude.Maybe Lude.Timestamp,
+    -- | A container with information about the user type attributes.
     attributes :: Lude.Maybe [AttributeType],
+    -- | The MFA options for the user.
     mfaOptions :: Lude.Maybe [MFAOptionType],
+    -- | The last modified date of the user.
     userLastModifiedDate :: Lude.Maybe Lude.Timestamp
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -50,11 +78,7 @@ data UserType = UserType'
 
 -- | Creates a value of 'UserType' with the minimum fields required to make a request.
 --
--- * 'attributes' - A container with information about the user type attributes.
 -- * 'enabled' - Specifies whether the user is enabled.
--- * 'mfaOptions' - The MFA options for the user.
--- * 'userCreateDate' - The creation date of the user.
--- * 'userLastModifiedDate' - The last modified date of the user.
 -- * 'userStatus' - The user status. Can be one of the following:
 --
 --
@@ -80,6 +104,10 @@ data UserType = UserType'
 --
 --
 -- * 'username' - The user name of the user you wish to describe.
+-- * 'userCreateDate' - The creation date of the user.
+-- * 'attributes' - A container with information about the user type attributes.
+-- * 'mfaOptions' - The MFA options for the user.
+-- * 'userLastModifiedDate' - The last modified date of the user.
 mkUserType ::
   UserType
 mkUserType =

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVCPUInfo' smart constructor.
 data VCPUInfo = VCPUInfo'
-  { validThreadsPerCore ::
-      Lude.Maybe [Lude.Int],
+  { -- | The valid number of threads per core that can be configured for the instance type.
+    validThreadsPerCore :: Lude.Maybe [Lude.Int],
+    -- | The default number of threads per core for the instance type.
     defaultThreadsPerCore :: Lude.Maybe Lude.Int,
+    -- | The default number of vCPUs for the instance type.
     defaultVCPUs :: Lude.Maybe Lude.Int,
+    -- | The default number of cores for the instance type.
     defaultCores :: Lude.Maybe Lude.Int,
+    -- | The valid number of cores that can be configured for the instance type.
     validCores :: Lude.Maybe [Lude.Int]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VCPUInfo' with the minimum fields required to make a request.
 --
--- * 'defaultCores' - The default number of cores for the instance type.
+-- * 'validThreadsPerCore' - The valid number of threads per core that can be configured for the instance type.
 -- * 'defaultThreadsPerCore' - The default number of threads per core for the instance type.
 -- * 'defaultVCPUs' - The default number of vCPUs for the instance type.
+-- * 'defaultCores' - The default number of cores for the instance type.
 -- * 'validCores' - The valid number of cores that can be configured for the instance type.
--- * 'validThreadsPerCore' - The valid number of threads per core that can be configured for the instance type.
 mkVCPUInfo ::
   VCPUInfo
 mkVCPUInfo =

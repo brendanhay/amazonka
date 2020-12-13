@@ -13,18 +13,18 @@
 module Network.AWS.EC2.Types.PrefixListState
   ( PrefixListState
       ( PrefixListState',
+        CreateInProgress,
         CreateComplete,
         CreateFailed,
-        CreateInProgress,
-        DeleteComplete,
-        DeleteFailed,
-        DeleteInProgress,
+        ModifyInProgress,
         ModifyComplete,
         ModifyFailed,
-        ModifyInProgress,
+        RestoreInProgress,
         RestoreComplete,
         RestoreFailed,
-        RestoreInProgress
+        DeleteInProgress,
+        DeleteComplete,
+        DeleteFailed
       ),
   )
 where
@@ -55,23 +55,17 @@ newtype PrefixListState = PrefixListState' Lude.Text
       Lude.ToHeader
     )
 
+pattern CreateInProgress :: PrefixListState
+pattern CreateInProgress = PrefixListState' "create-in-progress"
+
 pattern CreateComplete :: PrefixListState
 pattern CreateComplete = PrefixListState' "create-complete"
 
 pattern CreateFailed :: PrefixListState
 pattern CreateFailed = PrefixListState' "create-failed"
 
-pattern CreateInProgress :: PrefixListState
-pattern CreateInProgress = PrefixListState' "create-in-progress"
-
-pattern DeleteComplete :: PrefixListState
-pattern DeleteComplete = PrefixListState' "delete-complete"
-
-pattern DeleteFailed :: PrefixListState
-pattern DeleteFailed = PrefixListState' "delete-failed"
-
-pattern DeleteInProgress :: PrefixListState
-pattern DeleteInProgress = PrefixListState' "delete-in-progress"
+pattern ModifyInProgress :: PrefixListState
+pattern ModifyInProgress = PrefixListState' "modify-in-progress"
 
 pattern ModifyComplete :: PrefixListState
 pattern ModifyComplete = PrefixListState' "modify-complete"
@@ -79,8 +73,8 @@ pattern ModifyComplete = PrefixListState' "modify-complete"
 pattern ModifyFailed :: PrefixListState
 pattern ModifyFailed = PrefixListState' "modify-failed"
 
-pattern ModifyInProgress :: PrefixListState
-pattern ModifyInProgress = PrefixListState' "modify-in-progress"
+pattern RestoreInProgress :: PrefixListState
+pattern RestoreInProgress = PrefixListState' "restore-in-progress"
 
 pattern RestoreComplete :: PrefixListState
 pattern RestoreComplete = PrefixListState' "restore-complete"
@@ -88,21 +82,27 @@ pattern RestoreComplete = PrefixListState' "restore-complete"
 pattern RestoreFailed :: PrefixListState
 pattern RestoreFailed = PrefixListState' "restore-failed"
 
-pattern RestoreInProgress :: PrefixListState
-pattern RestoreInProgress = PrefixListState' "restore-in-progress"
+pattern DeleteInProgress :: PrefixListState
+pattern DeleteInProgress = PrefixListState' "delete-in-progress"
+
+pattern DeleteComplete :: PrefixListState
+pattern DeleteComplete = PrefixListState' "delete-complete"
+
+pattern DeleteFailed :: PrefixListState
+pattern DeleteFailed = PrefixListState' "delete-failed"
 
 {-# COMPLETE
+  CreateInProgress,
   CreateComplete,
   CreateFailed,
-  CreateInProgress,
-  DeleteComplete,
-  DeleteFailed,
-  DeleteInProgress,
+  ModifyInProgress,
   ModifyComplete,
   ModifyFailed,
-  ModifyInProgress,
+  RestoreInProgress,
   RestoreComplete,
   RestoreFailed,
-  RestoreInProgress,
+  DeleteInProgress,
+  DeleteComplete,
+  DeleteFailed,
   PrefixListState'
   #-}

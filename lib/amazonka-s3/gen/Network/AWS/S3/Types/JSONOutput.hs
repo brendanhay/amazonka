@@ -29,16 +29,10 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkJSONOutput' smart constructor.
 newtype JSONOutput = JSONOutput'
-  { recordDelimiter ::
-      Lude.Maybe Lude.Text
+  { -- | The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').
+    recordDelimiter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JSONOutput' with the minimum fields required to make a request.

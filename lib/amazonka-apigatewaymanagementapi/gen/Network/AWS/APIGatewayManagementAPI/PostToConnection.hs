@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGatewayManagementAPI.PostToConnection
     mkPostToConnection,
 
     -- ** Request lenses
-    ptcConnectionId,
     ptcData,
+    ptcConnectionId,
 
     -- * Destructuring the response
     PostToConnectionResponse (..),
@@ -36,38 +37,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPostToConnection' smart constructor.
 data PostToConnection = PostToConnection'
-  { connectionId ::
-      Lude.Text,
-    data' :: Lude.ByteString
+  { -- | The data to be sent to the client specified by its connection id.
+    data' :: Lude.ByteString,
+    -- | The identifier of the connection that a specific client is using.
+    connectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostToConnection' with the minimum fields required to make a request.
 --
--- * 'connectionId' - The identifier of the connection that a specific client is using.
 -- * 'data'' - The data to be sent to the client specified by its connection id.
+-- * 'connectionId' - The identifier of the connection that a specific client is using.
 mkPostToConnection ::
-  -- | 'connectionId'
-  Lude.Text ->
   -- | 'data''
   Lude.ByteString ->
+  -- | 'connectionId'
+  Lude.Text ->
   PostToConnection
-mkPostToConnection pConnectionId_ pData_ =
-  PostToConnection' {connectionId = pConnectionId_, data' = pData_}
-
--- | The identifier of the connection that a specific client is using.
---
--- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptcConnectionId :: Lens.Lens' PostToConnection Lude.Text
-ptcConnectionId = Lens.lens (connectionId :: PostToConnection -> Lude.Text) (\s a -> s {connectionId = a} :: PostToConnection)
-{-# DEPRECATED ptcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
+mkPostToConnection pData_ pConnectionId_ =
+  PostToConnection' {data' = pData_, connectionId = pConnectionId_}
 
 -- | The data to be sent to the client specified by its connection id.
 --
@@ -75,6 +64,13 @@ ptcConnectionId = Lens.lens (connectionId :: PostToConnection -> Lude.Text) (\s 
 ptcData :: Lens.Lens' PostToConnection Lude.ByteString
 ptcData = Lens.lens (data' :: PostToConnection -> Lude.ByteString) (\s a -> s {data' = a} :: PostToConnection)
 {-# DEPRECATED ptcData "Use generic-lens or generic-optics with 'data'' instead." #-}
+
+-- | The identifier of the connection that a specific client is using.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptcConnectionId :: Lens.Lens' PostToConnection Lude.Text
+ptcConnectionId = Lens.lens (connectionId :: PostToConnection -> Lude.Text) (\s a -> s {connectionId = a} :: PostToConnection)
+{-# DEPRECATED ptcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 instance Lude.AWSRequest PostToConnection where
   type Rs PostToConnection = PostToConnectionResponse
@@ -102,13 +98,7 @@ instance Lude.ToQuery PostToConnection where
 
 -- | /See:/ 'mkPostToConnectionResponse' smart constructor.
 data PostToConnectionResponse = PostToConnectionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostToConnectionResponse' with the minimum fields required to make a request.

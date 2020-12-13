@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Discovery.DeleteTags
     mkDeleteTags,
 
     -- ** Request lenses
-    dtTags,
     dtConfigurationIds,
+    dtTags,
 
     -- * Destructuring the response
     DeleteTagsResponse (..),
@@ -39,16 +40,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { tags :: Lude.Maybe [Tag],
-    configurationIds :: [Lude.Text]
+  { -- | A list of configuration items with tags that you want to delete.
+    configurationIds :: [Lude.Text],
+    -- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example:
+    --
+    -- @{"key": "serverType", "value": "webServer"}@
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
@@ -60,7 +59,14 @@ data DeleteTags = DeleteTags'
 mkDeleteTags ::
   DeleteTags
 mkDeleteTags =
-  DeleteTags' {tags = Lude.Nothing, configurationIds = Lude.mempty}
+  DeleteTags' {configurationIds = Lude.mempty, tags = Lude.Nothing}
+
+-- | A list of configuration items with tags that you want to delete.
+--
+-- /Note:/ Consider using 'configurationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtConfigurationIds :: Lens.Lens' DeleteTags [Lude.Text]
+dtConfigurationIds = Lens.lens (configurationIds :: DeleteTags -> [Lude.Text]) (\s a -> s {configurationIds = a} :: DeleteTags)
+{-# DEPRECATED dtConfigurationIds "Use generic-lens or generic-optics with 'configurationIds' instead." #-}
 
 -- | Tags that you want to delete from one or more configuration items. Specify the tags that you want to delete in a /key/ -/value/ format. For example:
 --
@@ -70,13 +76,6 @@ mkDeleteTags =
 dtTags :: Lens.Lens' DeleteTags (Lude.Maybe [Tag])
 dtTags = Lens.lens (tags :: DeleteTags -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DeleteTags)
 {-# DEPRECATED dtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | A list of configuration items with tags that you want to delete.
---
--- /Note:/ Consider using 'configurationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtConfigurationIds :: Lens.Lens' DeleteTags [Lude.Text]
-dtConfigurationIds = Lens.lens (configurationIds :: DeleteTags -> [Lude.Text]) (\s a -> s {configurationIds = a} :: DeleteTags)
-{-# DEPRECATED dtConfigurationIds "Use generic-lens or generic-optics with 'configurationIds' instead." #-}
 
 instance Lude.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
@@ -102,8 +101,8 @@ instance Lude.ToJSON DeleteTags where
   toJSON DeleteTags' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("configurationIds" Lude..= configurationIds)
+          [ Lude.Just ("configurationIds" Lude..= configurationIds),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -115,16 +114,10 @@ instance Lude.ToQuery DeleteTags where
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.

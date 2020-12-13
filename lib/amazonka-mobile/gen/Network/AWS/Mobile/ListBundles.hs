@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,22 +47,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListBundles' smart constructor.
 data ListBundles = ListBundles'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of records to list in a single response.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBundles' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of records to list in a single response.
 -- * 'nextToken' - Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
+-- * 'maxResults' - Maximum number of records to list in a single response.
 mkListBundles ::
   ListBundles
 mkListBundles =
@@ -123,18 +120,14 @@ instance Lude.ToQuery ListBundles where
 --
 -- /See:/ 'mkListBundlesResponse' smart constructor.
 data ListBundlesResponse = ListBundlesResponse'
-  { bundleList ::
-      Lude.Maybe [BundleDetails],
+  { -- | A list of bundles.
+    bundleList :: Lude.Maybe [BundleDetails],
+    -- | Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBundlesResponse' with the minimum fields required to make a request.

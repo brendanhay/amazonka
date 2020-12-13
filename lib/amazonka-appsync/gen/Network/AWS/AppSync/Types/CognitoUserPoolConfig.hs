@@ -17,9 +17,9 @@ module Network.AWS.AppSync.Types.CognitoUserPoolConfig
     mkCognitoUserPoolConfig,
 
     -- * Lenses
-    cupcAppIdClientRegex,
     cupcUserPoolId,
     cupcAwsRegion,
+    cupcAppIdClientRegex,
   )
 where
 
@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCognitoUserPoolConfig' smart constructor.
 data CognitoUserPoolConfig = CognitoUserPoolConfig'
-  { appIdClientRegex ::
-      Lude.Maybe Lude.Text,
+  { -- | The user pool ID.
     userPoolId :: Lude.Text,
-    awsRegion :: Lude.Text
+    -- | The AWS Region in which the user pool was created.
+    awsRegion :: Lude.Text,
+    -- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+    appIdClientRegex :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoUserPoolConfig' with the minimum fields required to make a request.
 --
--- * 'appIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user pool app client ID.
--- * 'awsRegion' - The AWS Region in which the user pool was created.
 -- * 'userPoolId' - The user pool ID.
+-- * 'awsRegion' - The AWS Region in which the user pool was created.
+-- * 'appIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user pool app client ID.
 mkCognitoUserPoolConfig ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -57,17 +53,10 @@ mkCognitoUserPoolConfig ::
   CognitoUserPoolConfig
 mkCognitoUserPoolConfig pUserPoolId_ pAwsRegion_ =
   CognitoUserPoolConfig'
-    { appIdClientRegex = Lude.Nothing,
-      userPoolId = pUserPoolId_,
-      awsRegion = pAwsRegion_
+    { userPoolId = pUserPoolId_,
+      awsRegion = pAwsRegion_,
+      appIdClientRegex = Lude.Nothing
     }
-
--- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
---
--- /Note:/ Consider using 'appIdClientRegex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupcAppIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Lude.Maybe Lude.Text)
-cupcAppIdClientRegex = Lens.lens (appIdClientRegex :: CognitoUserPoolConfig -> Lude.Maybe Lude.Text) (\s a -> s {appIdClientRegex = a} :: CognitoUserPoolConfig)
-{-# DEPRECATED cupcAppIdClientRegex "Use generic-lens or generic-optics with 'appIdClientRegex' instead." #-}
 
 -- | The user pool ID.
 --
@@ -83,23 +72,30 @@ cupcAwsRegion :: Lens.Lens' CognitoUserPoolConfig Lude.Text
 cupcAwsRegion = Lens.lens (awsRegion :: CognitoUserPoolConfig -> Lude.Text) (\s a -> s {awsRegion = a} :: CognitoUserPoolConfig)
 {-# DEPRECATED cupcAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
+-- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+--
+-- /Note:/ Consider using 'appIdClientRegex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupcAppIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Lude.Maybe Lude.Text)
+cupcAppIdClientRegex = Lens.lens (appIdClientRegex :: CognitoUserPoolConfig -> Lude.Maybe Lude.Text) (\s a -> s {appIdClientRegex = a} :: CognitoUserPoolConfig)
+{-# DEPRECATED cupcAppIdClientRegex "Use generic-lens or generic-optics with 'appIdClientRegex' instead." #-}
+
 instance Lude.FromJSON CognitoUserPoolConfig where
   parseJSON =
     Lude.withObject
       "CognitoUserPoolConfig"
       ( \x ->
           CognitoUserPoolConfig'
-            Lude.<$> (x Lude..:? "appIdClientRegex")
-            Lude.<*> (x Lude..: "userPoolId")
+            Lude.<$> (x Lude..: "userPoolId")
             Lude.<*> (x Lude..: "awsRegion")
+            Lude.<*> (x Lude..:? "appIdClientRegex")
       )
 
 instance Lude.ToJSON CognitoUserPoolConfig where
   toJSON CognitoUserPoolConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("appIdClientRegex" Lude..=) Lude.<$> appIdClientRegex,
-            Lude.Just ("userPoolId" Lude..= userPoolId),
-            Lude.Just ("awsRegion" Lude..= awsRegion)
+          [ Lude.Just ("userPoolId" Lude..= userPoolId),
+            Lude.Just ("awsRegion" Lude..= awsRegion),
+            ("appIdClientRegex" Lude..=) Lude.<$> appIdClientRegex
           ]
       )

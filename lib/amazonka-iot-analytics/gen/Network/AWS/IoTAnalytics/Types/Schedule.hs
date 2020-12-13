@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The schedule for when to trigger an update.
 --
 -- /See:/ 'mkSchedule' smart constructor.
-newtype Schedule = Schedule' {expression :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Schedule = Schedule'
+  { -- | The expression that defines when to trigger an update. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules> in the /Amazon CloudWatch Events User Guide/ .
+    expression :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Schedule' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,16 +49,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeThingGroup' smart constructor.
 newtype DescribeThingGroup = DescribeThingGroup'
-  { thingGroupName ::
-      Lude.Text
+  { -- | The name of the thing group.
+    thingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingGroup' with the minimum fields required to make a request.
@@ -109,44 +104,45 @@ instance Lude.ToQuery DescribeThingGroup where
 
 -- | /See:/ 'mkDescribeThingGroupResponse' smart constructor.
 data DescribeThingGroupResponse = DescribeThingGroupResponse'
-  { status ::
-      Lude.Maybe DynamicGroupStatus,
+  { -- | The dynamic thing group status.
+    status :: Lude.Maybe DynamicGroupStatus,
+    -- | The dynamic thing group query version.
     queryVersion :: Lude.Maybe Lude.Text,
+    -- | The thing group ARN.
     thingGroupARN :: Lude.Maybe Lude.Text,
+    -- | The thing group ID.
     thingGroupId :: Lude.Maybe Lude.Text,
-    thingGroupMetadata ::
-      Lude.Maybe ThingGroupMetadata,
-    thingGroupName ::
-      Lude.Maybe Lude.Text,
+    -- | Thing group metadata.
+    thingGroupMetadata :: Lude.Maybe ThingGroupMetadata,
+    -- | The name of the thing group.
+    thingGroupName :: Lude.Maybe Lude.Text,
+    -- | The dynamic thing group search query string.
     queryString :: Lude.Maybe Lude.Text,
+    -- | The version of the thing group.
     version :: Lude.Maybe Lude.Integer,
-    thingGroupProperties ::
-      Lude.Maybe ThingGroupProperties,
+    -- | The thing group properties.
+    thingGroupProperties :: Lude.Maybe ThingGroupProperties,
+    -- | The dynamic thing group index name.
     indexName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingGroupResponse' with the minimum fields required to make a request.
 --
--- * 'indexName' - The dynamic thing group index name.
--- * 'queryString' - The dynamic thing group search query string.
--- * 'queryVersion' - The dynamic thing group query version.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The dynamic thing group status.
+-- * 'queryVersion' - The dynamic thing group query version.
 -- * 'thingGroupARN' - The thing group ARN.
 -- * 'thingGroupId' - The thing group ID.
 -- * 'thingGroupMetadata' - Thing group metadata.
 -- * 'thingGroupName' - The name of the thing group.
--- * 'thingGroupProperties' - The thing group properties.
+-- * 'queryString' - The dynamic thing group search query string.
 -- * 'version' - The version of the thing group.
+-- * 'thingGroupProperties' - The thing group properties.
+-- * 'indexName' - The dynamic thing group index name.
+-- * 'responseStatus' - The response status code.
 mkDescribeThingGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

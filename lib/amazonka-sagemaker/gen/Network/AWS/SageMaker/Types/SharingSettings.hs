@@ -31,25 +31,21 @@ import Network.AWS.SageMaker.Types.NotebookOutputOption
 --
 -- /See:/ 'mkSharingSettings' smart constructor.
 data SharingSettings = SharingSettings'
-  { s3KMSKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | When @NotebookOutputOption@ is @Allowed@ , the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+    s3KMSKeyId :: Lude.Maybe Lude.Text,
+    -- | When @NotebookOutputOption@ is @Allowed@ , the Amazon S3 bucket used to save the notebook cell output.
     s3OutputPath :: Lude.Maybe Lude.Text,
+    -- | Whether to include the notebook cell output when sharing the notebook. The default is @Disabled@ .
     notebookOutputOption :: Lude.Maybe NotebookOutputOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SharingSettings' with the minimum fields required to make a request.
 --
--- * 'notebookOutputOption' - Whether to include the notebook cell output when sharing the notebook. The default is @Disabled@ .
 -- * 's3KMSKeyId' - When @NotebookOutputOption@ is @Allowed@ , the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 -- * 's3OutputPath' - When @NotebookOutputOption@ is @Allowed@ , the Amazon S3 bucket used to save the notebook cell output.
+-- * 'notebookOutputOption' - Whether to include the notebook cell output when sharing the notebook. The default is @Disabled@ .
 mkSharingSettings ::
   SharingSettings
 mkSharingSettings =

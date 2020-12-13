@@ -33,27 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputAttachment' smart constructor.
 data InputAttachment = InputAttachment'
-  { inputAttachmentName ::
-      Lude.Maybe Lude.Text,
+  { -- | User-specified name for the attachment. This is required if the user wants to use this input in an input switch action.
+    inputAttachmentName :: Lude.Maybe Lude.Text,
+    -- | The ID of the input
     inputId :: Lude.Maybe Lude.Text,
-    automaticInputFailoverSettings ::
-      Lude.Maybe AutomaticInputFailoverSettings,
+    -- | User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
+    automaticInputFailoverSettings :: Lude.Maybe AutomaticInputFailoverSettings,
+    -- | Settings of an input (caption selector, etc.)
     inputSettings :: Lude.Maybe InputSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputAttachment' with the minimum fields required to make a request.
 --
--- * 'automaticInputFailoverSettings' - User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
 -- * 'inputAttachmentName' - User-specified name for the attachment. This is required if the user wants to use this input in an input switch action.
 -- * 'inputId' - The ID of the input
+-- * 'automaticInputFailoverSettings' - User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input.
 -- * 'inputSettings' - Settings of an input (caption selector, etc.)
 mkInputAttachment ::
   InputAttachment

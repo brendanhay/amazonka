@@ -13,8 +13,8 @@
 module Network.AWS.CloudFormation.Types.ResourceSignalStatus
   ( ResourceSignalStatus
       ( ResourceSignalStatus',
-        Failure,
-        Success
+        Success,
+        Failure
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ResourceSignalStatus = ResourceSignalStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failure :: ResourceSignalStatus
-pattern Failure = ResourceSignalStatus' "FAILURE"
-
 pattern Success :: ResourceSignalStatus
 pattern Success = ResourceSignalStatus' "SUCCESS"
 
+pattern Failure :: ResourceSignalStatus
+pattern Failure = ResourceSignalStatus' "FAILURE"
+
 {-# COMPLETE
-  Failure,
   Success,
+  Failure,
   ResourceSignalStatus'
   #-}

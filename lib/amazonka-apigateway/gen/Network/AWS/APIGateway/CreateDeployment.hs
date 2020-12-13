@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.APIGateway.CreateDeployment
     cdStageDescription,
     cdVariables,
     cdTracingEnabled,
+    cdRestAPIId,
     cdCacheClusterSize,
     cdCanarySettings,
     cdCacheClusterEnabled,
     cdStageName,
     cdDescription,
-    cdRestAPIId,
 
     -- * Destructuring the response
     Deployment (..),
@@ -51,38 +52,39 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateDeployment' smart constructor.
 data CreateDeployment = CreateDeployment'
-  { stageDescription ::
-      Lude.Maybe Lude.Text,
-    variables ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The description of the 'Stage' resource for the 'Deployment' resource to create.
+    stageDescription :: Lude.Maybe Lude.Text,
+    -- | A map that defines the stage variables for the 'Stage' resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+    variables :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Specifies whether active tracing with X-ray is enabled for the 'Stage' .
     tracingEnabled :: Lude.Maybe Lude.Bool,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | Specifies the cache cluster size for the 'Stage' resource specified in the input, if a cache cluster is enabled.
     cacheClusterSize :: Lude.Maybe CacheClusterSize,
+    -- | The input configuration for the canary deployment when the deployment is a canary release deployment.
     canarySettings :: Lude.Maybe DeploymentCanarySettings,
+    -- | Enables a cache cluster for the 'Stage' resource specified in the input.
     cacheClusterEnabled :: Lude.Maybe Lude.Bool,
+    -- | The name of the 'Stage' resource for the 'Deployment' resource to create.
     stageName :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    restAPIId :: Lude.Text
+    -- | The description for the 'Deployment' resource to create.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
--- * 'cacheClusterEnabled' - Enables a cache cluster for the 'Stage' resource specified in the input.
+-- * 'stageDescription' - The description of the 'Stage' resource for the 'Deployment' resource to create.
+-- * 'variables' - A map that defines the stage variables for the 'Stage' resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+-- * 'tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
+-- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'cacheClusterSize' - Specifies the cache cluster size for the 'Stage' resource specified in the input, if a cache cluster is enabled.
 -- * 'canarySettings' - The input configuration for the canary deployment when the deployment is a canary release deployment.
--- * 'description' - The description for the 'Deployment' resource to create.
--- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
--- * 'stageDescription' - The description of the 'Stage' resource for the 'Deployment' resource to create.
+-- * 'cacheClusterEnabled' - Enables a cache cluster for the 'Stage' resource specified in the input.
 -- * 'stageName' - The name of the 'Stage' resource for the 'Deployment' resource to create.
--- * 'tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the 'Stage' .
--- * 'variables' - A map that defines the stage variables for the 'Stage' resource that is associated with the new deployment. Variable names can have alphanumeric and underscore characters, and the values must match @[A-Za-z0-9-._~:/?#&=,]+@ .
+-- * 'description' - The description for the 'Deployment' resource to create.
 mkCreateDeployment ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -92,12 +94,12 @@ mkCreateDeployment pRestAPIId_ =
     { stageDescription = Lude.Nothing,
       variables = Lude.Nothing,
       tracingEnabled = Lude.Nothing,
+      restAPIId = pRestAPIId_,
       cacheClusterSize = Lude.Nothing,
       canarySettings = Lude.Nothing,
       cacheClusterEnabled = Lude.Nothing,
       stageName = Lude.Nothing,
-      description = Lude.Nothing,
-      restAPIId = pRestAPIId_
+      description = Lude.Nothing
     }
 
 -- | The description of the 'Stage' resource for the 'Deployment' resource to create.
@@ -120,6 +122,13 @@ cdVariables = Lens.lens (variables :: CreateDeployment -> Lude.Maybe (Lude.HashM
 cdTracingEnabled :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Bool)
 cdTracingEnabled = Lens.lens (tracingEnabled :: CreateDeployment -> Lude.Maybe Lude.Bool) (\s a -> s {tracingEnabled = a} :: CreateDeployment)
 {-# DEPRECATED cdTracingEnabled "Use generic-lens or generic-optics with 'tracingEnabled' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdRestAPIId :: Lens.Lens' CreateDeployment Lude.Text
+cdRestAPIId = Lens.lens (restAPIId :: CreateDeployment -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateDeployment)
+{-# DEPRECATED cdRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | Specifies the cache cluster size for the 'Stage' resource specified in the input, if a cache cluster is enabled.
 --
@@ -155,13 +164,6 @@ cdStageName = Lens.lens (stageName :: CreateDeployment -> Lude.Maybe Lude.Text) 
 cdDescription :: Lens.Lens' CreateDeployment (Lude.Maybe Lude.Text)
 cdDescription = Lens.lens (description :: CreateDeployment -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateDeployment)
 {-# DEPRECATED cdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdRestAPIId :: Lens.Lens' CreateDeployment Lude.Text
-cdRestAPIId = Lens.lens (restAPIId :: CreateDeployment -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateDeployment)
-{-# DEPRECATED cdRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest CreateDeployment where
   type Rs CreateDeployment = Deployment

@@ -36,36 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { iamRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the IAM role that has overly permissive actions.
+    iamRoleARN :: Lude.Maybe Lude.Text,
+    -- | The client ID.
     clientId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role alias that has overly permissive actions.
     roleAliasARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the CA certificate used to authorize the certificate.
     caCertificateId :: Lude.Maybe Lude.Text,
+    -- | The ID of the certificate attached to the resource.
     deviceCertificateId :: Lude.Maybe Lude.Text,
+    -- | The account with which the resource is associated.
     account :: Lude.Maybe Lude.Text,
-    policyVersionIdentifier ::
-      Lude.Maybe PolicyVersionIdentifier,
+    -- | The version of the policy associated with the resource.
+    policyVersionIdentifier :: Lude.Maybe PolicyVersionIdentifier,
+    -- | The ID of the Amazon Cognito identity pool.
     cognitoIdentityPoolId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
 --
--- * 'account' - The account with which the resource is associated.
--- * 'caCertificateId' - The ID of the CA certificate used to authorize the certificate.
--- * 'clientId' - The client ID.
--- * 'cognitoIdentityPoolId' - The ID of the Amazon Cognito identity pool.
--- * 'deviceCertificateId' - The ID of the certificate attached to the resource.
 -- * 'iamRoleARN' - The ARN of the IAM role that has overly permissive actions.
--- * 'policyVersionIdentifier' - The version of the policy associated with the resource.
+-- * 'clientId' - The client ID.
 -- * 'roleAliasARN' - The ARN of the role alias that has overly permissive actions.
+-- * 'caCertificateId' - The ID of the CA certificate used to authorize the certificate.
+-- * 'deviceCertificateId' - The ID of the certificate attached to the resource.
+-- * 'account' - The account with which the resource is associated.
+-- * 'policyVersionIdentifier' - The version of the policy associated with the resource.
+-- * 'cognitoIdentityPoolId' - The ID of the Amazon Cognito identity pool.
 mkResourceIdentifier ::
   ResourceIdentifier
 mkResourceIdentifier =

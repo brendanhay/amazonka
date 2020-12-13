@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -74,51 +75,62 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { templateName ::
-      Lude.Maybe Lude.Text,
+  { -- | If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | A list of custom user-defined configuration options to remove from the configuration set for this environment.
     optionsToRemove :: Lude.Maybe [OptionSpecification],
-    optionSettings ::
-      Lude.Maybe [ConfigurationOptionSetting],
+    -- | If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
+    optionSettings :: Lude.Maybe [ConfigurationOptionSetting],
+    -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
     versionLabel :: Lude.Maybe Lude.Text,
+    -- | The ARN of the platform, if used.
     platformARN :: Lude.Maybe Lude.Text,
+    -- | This specifies the tier to use to update the environment.
+    --
+    -- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
     tier :: Lude.Maybe EnvironmentTier,
+    -- | The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
     environmentName :: Lude.Maybe Lude.Text,
+    -- | The name of the application with which the environment is associated.
     applicationName :: Lude.Maybe Lude.Text,
+    -- | This specifies the platform version that the environment will run after the environment is updated.
     solutionStackName :: Lude.Maybe Lude.Text,
+    -- | The ID of the environment to update.
+    --
+    -- If no environment with this ID exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+    -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
     environmentId :: Lude.Maybe Lude.Text,
+    -- | The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
     groupName :: Lude.Maybe Lude.Text,
+    -- | If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateEnvironment' with the minimum fields required to make a request.
 --
+-- * 'templateName' - If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+-- * 'optionsToRemove' - A list of custom user-defined configuration options to remove from the configuration set for this environment.
+-- * 'optionSettings' - If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
+-- * 'versionLabel' - If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
+-- * 'platformARN' - The ARN of the platform, if used.
+-- * 'tier' - This specifies the tier to use to update the environment.
+--
+-- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
+-- * 'environmentName' - The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 -- * 'applicationName' - The name of the application with which the environment is associated.
--- * 'description' - If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
+-- * 'solutionStackName' - This specifies the platform version that the environment will run after the environment is updated.
 -- * 'environmentId' - The ID of the environment to update.
 --
 -- If no environment with this ID exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
 -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'environmentName' - The name of the environment to update. If no environment with this name exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 -- * 'groupName' - The name of the group to which the target environment belongs. Specify a group name only if the environment's name is specified in an environment manifest and not with the environment name or environment ID parameters. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
--- * 'optionSettings' - If specified, AWS Elastic Beanstalk updates the configuration set associated with the running environment and sets the specified configuration options to the requested value.
--- * 'optionsToRemove' - A list of custom user-defined configuration options to remove from the configuration set for this environment.
--- * 'platformARN' - The ARN of the platform, if used.
--- * 'solutionStackName' - This specifies the platform version that the environment will run after the environment is updated.
--- * 'templateName' - If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template to the environment. If no such configuration template is found, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
--- * 'tier' - This specifies the tier to use to update the environment.
---
--- Condition: At this time, if you change the tier version, name, or type, AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
--- * 'versionLabel' - If this parameter is specified, AWS Elastic Beanstalk deploys the named application version to the environment. If no such application version is found, returns an @InvalidParameterValue@ error.
+-- * 'description' - If this parameter is specified, AWS Elastic Beanstalk updates the description of this environment.
 mkUpdateEnvironment ::
   UpdateEnvironment
 mkUpdateEnvironment =

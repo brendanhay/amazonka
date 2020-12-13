@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueue' smart constructor.
 data Queue = Queue'
-  { url :: Lude.Maybe Lude.Text,
+  { -- | The URL of the queue.
+    url :: Lude.Maybe Lude.Text,
+    -- | The name of the queue.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Queue' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the queue.
 -- * 'url' - The URL of the queue.
+-- * 'name' - The name of the queue.
 mkQueue ::
   Queue
 mkQueue = Queue' {url = Lude.Nothing, name = Lude.Nothing}

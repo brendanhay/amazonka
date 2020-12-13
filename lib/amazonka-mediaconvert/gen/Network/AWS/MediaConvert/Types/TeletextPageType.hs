@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.TeletextPageType
   ( TeletextPageType
       ( TeletextPageType',
-        PageTypeAddlInfo,
-        PageTypeHearingImpairedSubtitle,
         PageTypeInitial,
+        PageTypeSubtitle,
+        PageTypeAddlInfo,
         PageTypeProgramSchedule,
-        PageTypeSubtitle
+        PageTypeHearingImpairedSubtitle
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype TeletextPageType = TeletextPageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PageTypeAddlInfo :: TeletextPageType
-pattern PageTypeAddlInfo = TeletextPageType' "PAGE_TYPE_ADDL_INFO"
-
-pattern PageTypeHearingImpairedSubtitle :: TeletextPageType
-pattern PageTypeHearingImpairedSubtitle = TeletextPageType' "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE"
-
 pattern PageTypeInitial :: TeletextPageType
 pattern PageTypeInitial = TeletextPageType' "PAGE_TYPE_INITIAL"
-
-pattern PageTypeProgramSchedule :: TeletextPageType
-pattern PageTypeProgramSchedule = TeletextPageType' "PAGE_TYPE_PROGRAM_SCHEDULE"
 
 pattern PageTypeSubtitle :: TeletextPageType
 pattern PageTypeSubtitle = TeletextPageType' "PAGE_TYPE_SUBTITLE"
 
+pattern PageTypeAddlInfo :: TeletextPageType
+pattern PageTypeAddlInfo = TeletextPageType' "PAGE_TYPE_ADDL_INFO"
+
+pattern PageTypeProgramSchedule :: TeletextPageType
+pattern PageTypeProgramSchedule = TeletextPageType' "PAGE_TYPE_PROGRAM_SCHEDULE"
+
+pattern PageTypeHearingImpairedSubtitle :: TeletextPageType
+pattern PageTypeHearingImpairedSubtitle = TeletextPageType' "PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE"
+
 {-# COMPLETE
-  PageTypeAddlInfo,
-  PageTypeHearingImpairedSubtitle,
   PageTypeInitial,
-  PageTypeProgramSchedule,
   PageTypeSubtitle,
+  PageTypeAddlInfo,
+  PageTypeProgramSchedule,
+  PageTypeHearingImpairedSubtitle,
   TeletextPageType'
   #-}

@@ -17,8 +17,8 @@ module Network.AWS.IoT.Types.EnableIOTLoggingParams
     mkEnableIOTLoggingParams,
 
     -- * Lenses
-    eiotlpRoleARNForLogging,
     eiotlpLogLevel,
+    eiotlpRoleARNForLogging,
   )
 where
 
@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnableIOTLoggingParams' smart constructor.
 data EnableIOTLoggingParams = EnableIOTLoggingParams'
-  { roleARNForLogging ::
-      Lude.Text,
-    logLevel :: LogLevel
+  { -- | Specifies the types of information to be logged.
+    logLevel :: LogLevel,
+    -- | The ARN of the IAM role used for logging.
+    roleARNForLogging :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableIOTLoggingParams' with the minimum fields required to make a request.
@@ -48,23 +43,16 @@ data EnableIOTLoggingParams = EnableIOTLoggingParams'
 -- * 'logLevel' - Specifies the types of information to be logged.
 -- * 'roleARNForLogging' - The ARN of the IAM role used for logging.
 mkEnableIOTLoggingParams ::
-  -- | 'roleARNForLogging'
-  Lude.Text ->
   -- | 'logLevel'
   LogLevel ->
+  -- | 'roleARNForLogging'
+  Lude.Text ->
   EnableIOTLoggingParams
-mkEnableIOTLoggingParams pRoleARNForLogging_ pLogLevel_ =
+mkEnableIOTLoggingParams pLogLevel_ pRoleARNForLogging_ =
   EnableIOTLoggingParams'
-    { roleARNForLogging = pRoleARNForLogging_,
-      logLevel = pLogLevel_
+    { logLevel = pLogLevel_,
+      roleARNForLogging = pRoleARNForLogging_
     }
-
--- | The ARN of the IAM role used for logging.
---
--- /Note:/ Consider using 'roleARNForLogging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiotlpRoleARNForLogging :: Lens.Lens' EnableIOTLoggingParams Lude.Text
-eiotlpRoleARNForLogging = Lens.lens (roleARNForLogging :: EnableIOTLoggingParams -> Lude.Text) (\s a -> s {roleARNForLogging = a} :: EnableIOTLoggingParams)
-{-# DEPRECATED eiotlpRoleARNForLogging "Use generic-lens or generic-optics with 'roleARNForLogging' instead." #-}
 
 -- | Specifies the types of information to be logged.
 --
@@ -73,20 +61,27 @@ eiotlpLogLevel :: Lens.Lens' EnableIOTLoggingParams LogLevel
 eiotlpLogLevel = Lens.lens (logLevel :: EnableIOTLoggingParams -> LogLevel) (\s a -> s {logLevel = a} :: EnableIOTLoggingParams)
 {-# DEPRECATED eiotlpLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
+-- | The ARN of the IAM role used for logging.
+--
+-- /Note:/ Consider using 'roleARNForLogging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiotlpRoleARNForLogging :: Lens.Lens' EnableIOTLoggingParams Lude.Text
+eiotlpRoleARNForLogging = Lens.lens (roleARNForLogging :: EnableIOTLoggingParams -> Lude.Text) (\s a -> s {roleARNForLogging = a} :: EnableIOTLoggingParams)
+{-# DEPRECATED eiotlpRoleARNForLogging "Use generic-lens or generic-optics with 'roleARNForLogging' instead." #-}
+
 instance Lude.FromJSON EnableIOTLoggingParams where
   parseJSON =
     Lude.withObject
       "EnableIOTLoggingParams"
       ( \x ->
           EnableIOTLoggingParams'
-            Lude.<$> (x Lude..: "roleArnForLogging") Lude.<*> (x Lude..: "logLevel")
+            Lude.<$> (x Lude..: "logLevel") Lude.<*> (x Lude..: "roleArnForLogging")
       )
 
 instance Lude.ToJSON EnableIOTLoggingParams where
   toJSON EnableIOTLoggingParams' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("roleArnForLogging" Lude..= roleARNForLogging),
-            Lude.Just ("logLevel" Lude..= logLevel)
+          [ Lude.Just ("logLevel" Lude..= logLevel),
+            Lude.Just ("roleArnForLogging" Lude..= roleARNForLogging)
           ]
       )

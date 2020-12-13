@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.TelemetryStatus
   ( TelemetryStatus
       ( TelemetryStatus',
-        Down,
-        UP
+        UP,
+        Down
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TelemetryStatus = TelemetryStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Down :: TelemetryStatus
-pattern Down = TelemetryStatus' "DOWN"
-
 pattern UP :: TelemetryStatus
 pattern UP = TelemetryStatus' "UP"
 
+pattern Down :: TelemetryStatus
+pattern Down = TelemetryStatus' "DOWN"
+
 {-# COMPLETE
-  Down,
   UP,
+  Down,
   TelemetryStatus'
   #-}

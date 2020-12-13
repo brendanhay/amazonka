@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.DirectoryService.DeleteTrust
     mkDeleteTrustResponse,
 
     -- ** Response lenses
-    dttrsTrustId,
-    dttrsResponseStatus,
+    dtrsTrustId,
+    dtrsResponseStatus,
   )
 where
 
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteTrust' smart constructor.
 data DeleteTrust = DeleteTrust'
-  { deleteAssociatedConditionalForwarder ::
-      Lude.Maybe Lude.Bool,
+  { -- | Delete a conditional forwarder as part of a DeleteTrustRequest.
+    deleteAssociatedConditionalForwarder :: Lude.Maybe Lude.Bool,
+    -- | The Trust ID of the trust relationship to be deleted.
     trustId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrust' with the minimum fields required to make a request.
@@ -124,23 +120,18 @@ instance Lude.ToQuery DeleteTrust where
 --
 -- /See:/ 'mkDeleteTrustResponse' smart constructor.
 data DeleteTrustResponse = DeleteTrustResponse'
-  { trustId ::
-      Lude.Maybe Lude.Text,
+  { -- | The Trust ID of the trust relationship that was deleted.
+    trustId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrustResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trustId' - The Trust ID of the trust relationship that was deleted.
+-- * 'responseStatus' - The response status code.
 mkDeleteTrustResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -154,13 +145,13 @@ mkDeleteTrustResponse pResponseStatus_ =
 -- | The Trust ID of the trust relationship that was deleted.
 --
 -- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttrsTrustId :: Lens.Lens' DeleteTrustResponse (Lude.Maybe Lude.Text)
-dttrsTrustId = Lens.lens (trustId :: DeleteTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: DeleteTrustResponse)
-{-# DEPRECATED dttrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
+dtrsTrustId :: Lens.Lens' DeleteTrustResponse (Lude.Maybe Lude.Text)
+dtrsTrustId = Lens.lens (trustId :: DeleteTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: DeleteTrustResponse)
+{-# DEPRECATED dtrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttrsResponseStatus :: Lens.Lens' DeleteTrustResponse Lude.Int
-dttrsResponseStatus = Lens.lens (responseStatus :: DeleteTrustResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrustResponse)
-{-# DEPRECATED dttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrsResponseStatus :: Lens.Lens' DeleteTrustResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DeleteTrustResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrustResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

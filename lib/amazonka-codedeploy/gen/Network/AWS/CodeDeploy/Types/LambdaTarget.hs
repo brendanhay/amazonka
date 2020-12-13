@@ -37,33 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaTarget' smart constructor.
 data LambdaTarget = LambdaTarget'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the target.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The unique ID of a deployment target that has a type of @lambdaTarget@ .
     targetId :: Lude.Maybe Lude.Text,
+    -- | The status an AWS Lambda deployment's target Lambda function.
     status :: Lude.Maybe TargetStatus,
+    -- | The unique ID of a deployment.
     deploymentId :: Lude.Maybe Lude.Text,
+    -- | The date and time when the target Lambda function was updated by a deployment.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The lifecycle events of the deployment to this target Lambda function.
     lifecycleEvents :: Lude.Maybe [LifecycleEvent],
+    -- | A @LambdaFunctionInfo@ object that describes a target Lambda function.
     lambdaFunctionInfo :: Lude.Maybe LambdaFunctionInfo
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaTarget' with the minimum fields required to make a request.
 --
--- * 'deploymentId' - The unique ID of a deployment.
--- * 'lambdaFunctionInfo' - A @LambdaFunctionInfo@ object that describes a target Lambda function.
--- * 'lastUpdatedAt' - The date and time when the target Lambda function was updated by a deployment.
--- * 'lifecycleEvents' - The lifecycle events of the deployment to this target Lambda function.
--- * 'status' - The status an AWS Lambda deployment's target Lambda function.
 -- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
 -- * 'targetId' - The unique ID of a deployment target that has a type of @lambdaTarget@ .
+-- * 'status' - The status an AWS Lambda deployment's target Lambda function.
+-- * 'deploymentId' - The unique ID of a deployment.
+-- * 'lastUpdatedAt' - The date and time when the target Lambda function was updated by a deployment.
+-- * 'lifecycleEvents' - The lifecycle events of the deployment to this target Lambda function.
+-- * 'lambdaFunctionInfo' - A @LambdaFunctionInfo@ object that describes a target Lambda function.
 mkLambdaTarget ::
   LambdaTarget
 mkLambdaTarget =

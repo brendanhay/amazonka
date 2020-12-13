@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.AlexaBusiness.PutInvitationConfiguration
 
     -- ** Request lenses
     picContactEmail,
-    picPrivateSkillIds,
     picOrganizationName,
+    picPrivateSkillIds,
 
     -- * Destructuring the response
     PutInvitationConfigurationResponse (..),
@@ -40,19 +41,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutInvitationConfiguration' smart constructor.
 data PutInvitationConfiguration = PutInvitationConfiguration'
-  { contactEmail ::
-      Lude.Maybe Lude.Text,
-    privateSkillIds ::
-      Lude.Maybe [Lude.Text],
-    organizationName :: Lude.Text
+  { -- | The email ID of the organization or individual contact that the enrolled user can use.
+    contactEmail :: Lude.Maybe Lude.Text,
+    -- | The name of the organization sending the enrollment invite to a user.
+    organizationName :: Lude.Text,
+    -- | The list of private skill IDs that you want to recommend to the user to enable in the invitation.
+    privateSkillIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInvitationConfiguration' with the minimum fields required to make a request.
@@ -67,8 +63,8 @@ mkPutInvitationConfiguration ::
 mkPutInvitationConfiguration pOrganizationName_ =
   PutInvitationConfiguration'
     { contactEmail = Lude.Nothing,
-      privateSkillIds = Lude.Nothing,
-      organizationName = pOrganizationName_
+      organizationName = pOrganizationName_,
+      privateSkillIds = Lude.Nothing
     }
 
 -- | The email ID of the organization or individual contact that the enrolled user can use.
@@ -78,19 +74,19 @@ picContactEmail :: Lens.Lens' PutInvitationConfiguration (Lude.Maybe Lude.Text)
 picContactEmail = Lens.lens (contactEmail :: PutInvitationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {contactEmail = a} :: PutInvitationConfiguration)
 {-# DEPRECATED picContactEmail "Use generic-lens or generic-optics with 'contactEmail' instead." #-}
 
--- | The list of private skill IDs that you want to recommend to the user to enable in the invitation.
---
--- /Note:/ Consider using 'privateSkillIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-picPrivateSkillIds :: Lens.Lens' PutInvitationConfiguration (Lude.Maybe [Lude.Text])
-picPrivateSkillIds = Lens.lens (privateSkillIds :: PutInvitationConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {privateSkillIds = a} :: PutInvitationConfiguration)
-{-# DEPRECATED picPrivateSkillIds "Use generic-lens or generic-optics with 'privateSkillIds' instead." #-}
-
 -- | The name of the organization sending the enrollment invite to a user.
 --
 -- /Note:/ Consider using 'organizationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 picOrganizationName :: Lens.Lens' PutInvitationConfiguration Lude.Text
 picOrganizationName = Lens.lens (organizationName :: PutInvitationConfiguration -> Lude.Text) (\s a -> s {organizationName = a} :: PutInvitationConfiguration)
 {-# DEPRECATED picOrganizationName "Use generic-lens or generic-optics with 'organizationName' instead." #-}
+
+-- | The list of private skill IDs that you want to recommend to the user to enable in the invitation.
+--
+-- /Note:/ Consider using 'privateSkillIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+picPrivateSkillIds :: Lens.Lens' PutInvitationConfiguration (Lude.Maybe [Lude.Text])
+picPrivateSkillIds = Lens.lens (privateSkillIds :: PutInvitationConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {privateSkillIds = a} :: PutInvitationConfiguration)
+{-# DEPRECATED picPrivateSkillIds "Use generic-lens or generic-optics with 'privateSkillIds' instead." #-}
 
 instance Lude.AWSRequest PutInvitationConfiguration where
   type
@@ -120,8 +116,8 @@ instance Lude.ToJSON PutInvitationConfiguration where
     Lude.object
       ( Lude.catMaybes
           [ ("ContactEmail" Lude..=) Lude.<$> contactEmail,
-            ("PrivateSkillIds" Lude..=) Lude.<$> privateSkillIds,
-            Lude.Just ("OrganizationName" Lude..= organizationName)
+            Lude.Just ("OrganizationName" Lude..= organizationName),
+            ("PrivateSkillIds" Lude..=) Lude.<$> privateSkillIds
           ]
       )
 
@@ -133,16 +129,10 @@ instance Lude.ToQuery PutInvitationConfiguration where
 
 -- | /See:/ 'mkPutInvitationConfigurationResponse' smart constructor.
 newtype PutInvitationConfigurationResponse = PutInvitationConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutInvitationConfigurationResponse' with the minimum fields required to make a request.

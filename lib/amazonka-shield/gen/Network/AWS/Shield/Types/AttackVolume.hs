@@ -31,25 +31,21 @@ import Network.AWS.Shield.Types.AttackVolumeStatistics
 --
 -- /See:/ 'mkAttackVolume' smart constructor.
 data AttackVolume = AttackVolume'
-  { packetsPerSecond ::
-      Lude.Maybe AttackVolumeStatistics,
+  { -- | A statistics object that uses packets per second as the unit. This is included for network level attacks.
+    packetsPerSecond :: Lude.Maybe AttackVolumeStatistics,
+    -- | A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.
     requestsPerSecond :: Lude.Maybe AttackVolumeStatistics,
+    -- | A statistics object that uses bits per second as the unit. This is included for network level attacks.
     bitsPerSecond :: Lude.Maybe AttackVolumeStatistics
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackVolume' with the minimum fields required to make a request.
 --
--- * 'bitsPerSecond' - A statistics object that uses bits per second as the unit. This is included for network level attacks.
 -- * 'packetsPerSecond' - A statistics object that uses packets per second as the unit. This is included for network level attacks.
 -- * 'requestsPerSecond' - A statistics object that uses requests per second as the unit. This is included for application level attacks, and is only available for accounts that are subscribed to Shield Advanced.
+-- * 'bitsPerSecond' - A statistics object that uses bits per second as the unit. This is included for network level attacks.
 mkAttackVolume ::
   AttackVolume
 mkAttackVolume =

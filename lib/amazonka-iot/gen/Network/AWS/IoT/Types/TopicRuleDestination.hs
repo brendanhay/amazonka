@@ -33,26 +33,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTopicRuleDestination' smart constructor.
 data TopicRuleDestination = TopicRuleDestination'
-  { status ::
-      Lude.Maybe TopicRuleDestinationStatus,
-    httpURLProperties ::
-      Lude.Maybe HTTPURLDestinationProperties,
+  { -- | The status of the topic rule destination. Valid values are:
+    --
+    --
+    --     * IN_PROGRESS
+    --
+    --     * A topic rule destination was created but has not been confirmed. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+    --
+    --
+    --     * ENABLED
+    --
+    --     * Confirmation was completed, and traffic to this destination is allowed. You can set @status@ to @DISABLED@ by calling @UpdateTopicRuleDestination@ .
+    --
+    --
+    --     * DISABLED
+    --
+    --     * Confirmation was completed, and traffic to this destination is not allowed. You can set @status@ to @ENABLED@ by calling @UpdateTopicRuleDestination@ .
+    --
+    --
+    --     * ERROR
+    --
+    --     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+    status :: Lude.Maybe TopicRuleDestinationStatus,
+    -- | Properties of the HTTP URL.
+    httpURLProperties :: Lude.Maybe HTTPURLDestinationProperties,
+    -- | The topic rule destination URL.
     arn :: Lude.Maybe Lude.Text,
+    -- | Additional details or reason why the topic rule destination is in the current status.
     statusReason :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicRuleDestination' with the minimum fields required to make a request.
 --
--- * 'arn' - The topic rule destination URL.
--- * 'httpURLProperties' - Properties of the HTTP URL.
 -- * 'status' - The status of the topic rule destination. Valid values are:
 --
 --
@@ -76,6 +90,8 @@ data TopicRuleDestination = TopicRuleDestination'
 --     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
 --
 --
+-- * 'httpURLProperties' - Properties of the HTTP URL.
+-- * 'arn' - The topic rule destination URL.
 -- * 'statusReason' - Additional details or reason why the topic rule destination is in the current status.
 mkTopicRuleDestination ::
   TopicRuleDestination

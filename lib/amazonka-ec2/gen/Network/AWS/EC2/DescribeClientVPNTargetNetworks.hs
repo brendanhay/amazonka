@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.EC2.DescribeClientVPNTargetNetworks
     mkDescribeClientVPNTargetNetworks,
 
     -- ** Request lenses
-    dcvtnFilters,
-    dcvtnNextToken,
-    dcvtnAssociationIds,
-    dcvtnDryRun,
-    dcvtnMaxResults,
-    dcvtnClientVPNEndpointId,
+    dcvpntnFilters,
+    dcvpntnNextToken,
+    dcvpntnAssociationIds,
+    dcvpntnClientVPNEndpointId,
+    dcvpntnDryRun,
+    dcvpntnMaxResults,
 
     -- * Destructuring the response
     DescribeClientVPNTargetNetworksResponse (..),
@@ -48,33 +49,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeClientVPNTargetNetworks' smart constructor.
 data DescribeClientVPNTargetNetworks = DescribeClientVPNTargetNetworks'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    associationIds ::
-      Lude.Maybe [Lude.Text],
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    clientVPNEndpointId ::
-      Lude.Text
+  { -- | One or more filters. Filter names and values are case-sensitive.
+    --
+    --
+    --     * @association-id@ - The ID of the association.
+    --
+    --
+    --     * @target-network-id@ - The ID of the subnet specified as the target network.
+    --
+    --
+    --     * @vpc-id@ - The ID of the VPC in which the target network is located.
+    filters :: Lude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The IDs of the target network associations.
+    associationIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the Client VPN endpoint.
+    clientVPNEndpointId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientVPNTargetNetworks' with the minimum fields required to make a request.
 --
--- * 'associationIds' - The IDs of the target network associations.
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. Filter names and values are case-sensitive.
 --
 --
@@ -87,8 +88,11 @@ data DescribeClientVPNTargetNetworks = DescribeClientVPNTargetNetworks'
 --     * @vpc-id@ - The ID of the VPC in which the target network is located.
 --
 --
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
 -- * 'nextToken' - The token to retrieve the next page of results.
+-- * 'associationIds' - The IDs of the target network associations.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
 mkDescribeClientVPNTargetNetworks ::
   -- | 'clientVPNEndpointId'
   Lude.Text ->
@@ -98,9 +102,9 @@ mkDescribeClientVPNTargetNetworks pClientVPNEndpointId_ =
     { filters = Lude.Nothing,
       nextToken = Lude.Nothing,
       associationIds = Lude.Nothing,
+      clientVPNEndpointId = pClientVPNEndpointId_,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      clientVPNEndpointId = pClientVPNEndpointId_
+      maxResults = Lude.Nothing
     }
 
 -- | One or more filters. Filter names and values are case-sensitive.
@@ -117,44 +121,44 @@ mkDescribeClientVPNTargetNetworks pClientVPNEndpointId_ =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvtnFilters :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe [Filter])
-dcvtnFilters = Lens.lens (filters :: DescribeClientVPNTargetNetworks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeClientVPNTargetNetworks)
-{-# DEPRECATED dcvtnFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dcvpntnFilters :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe [Filter])
+dcvpntnFilters = Lens.lens (filters :: DescribeClientVPNTargetNetworks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeClientVPNTargetNetworks)
+{-# DEPRECATED dcvpntnFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to retrieve the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvtnNextToken :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe Lude.Text)
-dcvtnNextToken = Lens.lens (nextToken :: DescribeClientVPNTargetNetworks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNTargetNetworks)
-{-# DEPRECATED dcvtnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcvpntnNextToken :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe Lude.Text)
+dcvpntnNextToken = Lens.lens (nextToken :: DescribeClientVPNTargetNetworks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNTargetNetworks)
+{-# DEPRECATED dcvpntnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The IDs of the target network associations.
 --
 -- /Note:/ Consider using 'associationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvtnAssociationIds :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe [Lude.Text])
-dcvtnAssociationIds = Lens.lens (associationIds :: DescribeClientVPNTargetNetworks -> Lude.Maybe [Lude.Text]) (\s a -> s {associationIds = a} :: DescribeClientVPNTargetNetworks)
-{-# DEPRECATED dcvtnAssociationIds "Use generic-lens or generic-optics with 'associationIds' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvtnDryRun :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe Lude.Bool)
-dcvtnDryRun = Lens.lens (dryRun :: DescribeClientVPNTargetNetworks -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeClientVPNTargetNetworks)
-{-# DEPRECATED dcvtnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvtnMaxResults :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe Lude.Natural)
-dcvtnMaxResults = Lens.lens (maxResults :: DescribeClientVPNTargetNetworks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeClientVPNTargetNetworks)
-{-# DEPRECATED dcvtnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dcvpntnAssociationIds :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe [Lude.Text])
+dcvpntnAssociationIds = Lens.lens (associationIds :: DescribeClientVPNTargetNetworks -> Lude.Maybe [Lude.Text]) (\s a -> s {associationIds = a} :: DescribeClientVPNTargetNetworks)
+{-# DEPRECATED dcvpntnAssociationIds "Use generic-lens or generic-optics with 'associationIds' instead." #-}
 
 -- | The ID of the Client VPN endpoint.
 --
 -- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcvtnClientVPNEndpointId :: Lens.Lens' DescribeClientVPNTargetNetworks Lude.Text
-dcvtnClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: DescribeClientVPNTargetNetworks -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: DescribeClientVPNTargetNetworks)
-{-# DEPRECATED dcvtnClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
+dcvpntnClientVPNEndpointId :: Lens.Lens' DescribeClientVPNTargetNetworks Lude.Text
+dcvpntnClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: DescribeClientVPNTargetNetworks -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: DescribeClientVPNTargetNetworks)
+{-# DEPRECATED dcvpntnClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvpntnDryRun :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe Lude.Bool)
+dcvpntnDryRun = Lens.lens (dryRun :: DescribeClientVPNTargetNetworks -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeClientVPNTargetNetworks)
+{-# DEPRECATED dcvpntnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcvpntnMaxResults :: Lens.Lens' DescribeClientVPNTargetNetworks (Lude.Maybe Lude.Natural)
+dcvpntnMaxResults = Lens.lens (maxResults :: DescribeClientVPNTargetNetworks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeClientVPNTargetNetworks)
+{-# DEPRECATED dcvpntnMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeClientVPNTargetNetworks where
   page rq rs
@@ -164,7 +168,7 @@ instance Page.AWSPager DescribeClientVPNTargetNetworks where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dcvtnNextToken Lens..~ rs Lens.^. dcvtnrsNextToken
+          Lude.& dcvpntnNextToken Lens..~ rs Lens.^. dcvtnrsNextToken
 
 instance Lude.AWSRequest DescribeClientVPNTargetNetworks where
   type
@@ -198,29 +202,21 @@ instance Lude.ToQuery DescribeClientVPNTargetNetworks where
         "NextToken" Lude.=: nextToken,
         Lude.toQuery
           (Lude.toQueryList "AssociationIds" Lude.<$> associationIds),
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkDescribeClientVPNTargetNetworksResponse' smart constructor.
 data DescribeClientVPNTargetNetworksResponse = DescribeClientVPNTargetNetworksResponse'
-  { clientVPNTargetNetworks ::
-      Lude.Maybe
-        [TargetNetwork],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the associated target networks.
+    clientVPNTargetNetworks :: Lude.Maybe [TargetNetwork],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientVPNTargetNetworksResponse' with the minimum fields required to make a request.

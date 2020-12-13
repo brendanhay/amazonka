@@ -17,8 +17,8 @@ module Network.AWS.GuardDuty.Types.MemberDataSourceConfiguration
     mkMemberDataSourceConfiguration,
 
     -- * Lenses
-    mdscAccountId,
     mdscDataSources,
+    mdscAccountId,
   )
 where
 
@@ -30,42 +30,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMemberDataSourceConfiguration' smart constructor.
 data MemberDataSourceConfiguration = MemberDataSourceConfiguration'
-  { accountId ::
-      Lude.Text,
-    dataSources ::
-      DataSourceConfigurationsResult
+  { -- | Contains information on the status of data sources for the account.
+    dataSources :: DataSourceConfigurationsResult,
+    -- | The account ID for the member account.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MemberDataSourceConfiguration' with the minimum fields required to make a request.
 --
--- * 'accountId' - The account ID for the member account.
 -- * 'dataSources' - Contains information on the status of data sources for the account.
+-- * 'accountId' - The account ID for the member account.
 mkMemberDataSourceConfiguration ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'dataSources'
   DataSourceConfigurationsResult ->
+  -- | 'accountId'
+  Lude.Text ->
   MemberDataSourceConfiguration
-mkMemberDataSourceConfiguration pAccountId_ pDataSources_ =
+mkMemberDataSourceConfiguration pDataSources_ pAccountId_ =
   MemberDataSourceConfiguration'
-    { accountId = pAccountId_,
-      dataSources = pDataSources_
+    { dataSources = pDataSources_,
+      accountId = pAccountId_
     }
-
--- | The account ID for the member account.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdscAccountId :: Lens.Lens' MemberDataSourceConfiguration Lude.Text
-mdscAccountId = Lens.lens (accountId :: MemberDataSourceConfiguration -> Lude.Text) (\s a -> s {accountId = a} :: MemberDataSourceConfiguration)
-{-# DEPRECATED mdscAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Contains information on the status of data sources for the account.
 --
@@ -74,11 +61,18 @@ mdscDataSources :: Lens.Lens' MemberDataSourceConfiguration DataSourceConfigurat
 mdscDataSources = Lens.lens (dataSources :: MemberDataSourceConfiguration -> DataSourceConfigurationsResult) (\s a -> s {dataSources = a} :: MemberDataSourceConfiguration)
 {-# DEPRECATED mdscDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
+-- | The account ID for the member account.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdscAccountId :: Lens.Lens' MemberDataSourceConfiguration Lude.Text
+mdscAccountId = Lens.lens (accountId :: MemberDataSourceConfiguration -> Lude.Text) (\s a -> s {accountId = a} :: MemberDataSourceConfiguration)
+{-# DEPRECATED mdscAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
 instance Lude.FromJSON MemberDataSourceConfiguration where
   parseJSON =
     Lude.withObject
       "MemberDataSourceConfiguration"
       ( \x ->
           MemberDataSourceConfiguration'
-            Lude.<$> (x Lude..: "accountId") Lude.<*> (x Lude..: "dataSources")
+            Lude.<$> (x Lude..: "dataSources") Lude.<*> (x Lude..: "accountId")
       )

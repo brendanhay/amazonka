@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkField' smart constructor.
 data Field = Field'
-  { refValue :: Lude.Maybe Lude.Text,
+  { -- | The field value, expressed as the identifier of another object.
+    refValue :: Lude.Maybe Lude.Text,
+    -- | The field value, expressed as a String.
     stringValue :: Lude.Maybe Lude.Text,
+    -- | The field identifier.
     key :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Field' with the minimum fields required to make a request.
 --
--- * 'key' - The field identifier.
 -- * 'refValue' - The field value, expressed as the identifier of another object.
 -- * 'stringValue' - The field value, expressed as a String.
+-- * 'key' - The field identifier.
 mkField ::
   -- | 'key'
   Lude.Text ->

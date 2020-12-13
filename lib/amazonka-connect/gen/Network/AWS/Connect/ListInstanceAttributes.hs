@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Connect.ListInstanceAttributes
     mkListInstanceAttributes,
 
     -- ** Request lenses
+    liaInstanceId,
     liaNextToken,
     liaMaxResults,
-    liaInstanceId,
 
     -- * Destructuring the response
     ListInstanceAttributesResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListInstanceAttributes' smart constructor.
 data ListInstanceAttributes = ListInstanceAttributes'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    instanceId :: Lude.Text
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximimum number of results to return per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceAttributes' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'maxResults' - The maximimum number of results to return per page.
 -- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+-- * 'maxResults' - The maximimum number of results to return per page.
 mkListInstanceAttributes ::
   -- | 'instanceId'
   Lude.Text ->
   ListInstanceAttributes
 mkListInstanceAttributes pInstanceId_ =
   ListInstanceAttributes'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liaInstanceId :: Lens.Lens' ListInstanceAttributes Lude.Text
+liaInstanceId = Lens.lens (instanceId :: ListInstanceAttributes -> Lude.Text) (\s a -> s {instanceId = a} :: ListInstanceAttributes)
+{-# DEPRECATED liaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
@@ -88,13 +92,6 @@ liaNextToken = Lens.lens (nextToken :: ListInstanceAttributes -> Lude.Maybe Lude
 liaMaxResults :: Lens.Lens' ListInstanceAttributes (Lude.Maybe Lude.Natural)
 liaMaxResults = Lens.lens (maxResults :: ListInstanceAttributes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstanceAttributes)
 {-# DEPRECATED liaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liaInstanceId :: Lens.Lens' ListInstanceAttributes Lude.Text
-liaInstanceId = Lens.lens (instanceId :: ListInstanceAttributes -> Lude.Text) (\s a -> s {instanceId = a} :: ListInstanceAttributes)
-{-# DEPRECATED liaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager ListInstanceAttributes where
   page rq rs
@@ -137,25 +134,20 @@ instance Lude.ToQuery ListInstanceAttributes where
 
 -- | /See:/ 'mkListInstanceAttributesResponse' smart constructor.
 data ListInstanceAttributesResponse = ListInstanceAttributesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe [Attribute],
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The attribute types.
+    attributes :: Lude.Maybe [Attribute],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attribute types.
 -- * 'nextToken' - If there are additional results, this is the token for the next set of results.
+-- * 'attributes' - The attribute types.
 -- * 'responseStatus' - The response status code.
 mkListInstanceAttributesResponse ::
   -- | 'responseStatus'

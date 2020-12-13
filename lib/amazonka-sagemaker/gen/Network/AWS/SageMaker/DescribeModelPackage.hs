@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,24 +22,24 @@ module Network.AWS.SageMaker.DescribeModelPackage
     mkDescribeModelPackage,
 
     -- ** Request lenses
-    dModelPackageName,
+    dmpModelPackageName,
 
     -- * Destructuring the response
     DescribeModelPackageResponse (..),
     mkDescribeModelPackageResponse,
 
     -- ** Response lenses
+    dmprsCreationTime,
     dmprsSourceAlgorithmSpecification,
+    dmprsModelPackageName,
+    dmprsModelPackageARN,
     dmprsModelPackageDescription,
     dmprsValidationSpecification,
     dmprsInferenceSpecification,
     dmprsCertifyForMarketplace,
-    dmprsResponseStatus,
-    dmprsModelPackageName,
-    dmprsModelPackageARN,
-    dmprsCreationTime,
-    dmprsModelPackageStatus,
     dmprsModelPackageStatusDetails,
+    dmprsModelPackageStatus,
+    dmprsResponseStatus,
   )
 where
 
@@ -50,16 +51,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeModelPackage' smart constructor.
 newtype DescribeModelPackage = DescribeModelPackage'
-  { modelPackageName ::
-      Lude.Text
+  { -- | The name of the model package to describe.
+    modelPackageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeModelPackage' with the minimum fields required to make a request.
@@ -75,9 +70,9 @@ mkDescribeModelPackage pModelPackageName_ =
 -- | The name of the model package to describe.
 --
 -- /Note:/ Consider using 'modelPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dModelPackageName :: Lens.Lens' DescribeModelPackage Lude.Text
-dModelPackageName = Lens.lens (modelPackageName :: DescribeModelPackage -> Lude.Text) (\s a -> s {modelPackageName = a} :: DescribeModelPackage)
-{-# DEPRECATED dModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
+dmpModelPackageName :: Lens.Lens' DescribeModelPackage Lude.Text
+dmpModelPackageName = Lens.lens (modelPackageName :: DescribeModelPackage -> Lude.Text) (\s a -> s {modelPackageName = a} :: DescribeModelPackage)
+{-# DEPRECATED dmpModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
 
 instance Lude.AWSRequest DescribeModelPackage where
   type Rs DescribeModelPackage = DescribeModelPackageResponse
@@ -86,17 +81,17 @@ instance Lude.AWSRequest DescribeModelPackage where
     Res.receiveJSON
       ( \s h x ->
           DescribeModelPackageResponse'
-            Lude.<$> (x Lude..?> "SourceAlgorithmSpecification")
+            Lude.<$> (x Lude..:> "CreationTime")
+            Lude.<*> (x Lude..?> "SourceAlgorithmSpecification")
+            Lude.<*> (x Lude..:> "ModelPackageName")
+            Lude.<*> (x Lude..:> "ModelPackageArn")
             Lude.<*> (x Lude..?> "ModelPackageDescription")
             Lude.<*> (x Lude..?> "ValidationSpecification")
             Lude.<*> (x Lude..?> "InferenceSpecification")
             Lude.<*> (x Lude..?> "CertifyForMarketplace")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ModelPackageName")
-            Lude.<*> (x Lude..:> "ModelPackageArn")
-            Lude.<*> (x Lude..:> "CreationTime")
-            Lude.<*> (x Lude..:> "ModelPackageStatus")
             Lude.<*> (x Lude..:> "ModelPackageStatusDetails")
+            Lude.<*> (x Lude..:> "ModelPackageStatus")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeModelPackage where
@@ -125,84 +120,86 @@ instance Lude.ToQuery DescribeModelPackage where
 
 -- | /See:/ 'mkDescribeModelPackageResponse' smart constructor.
 data DescribeModelPackageResponse = DescribeModelPackageResponse'
-  { sourceAlgorithmSpecification ::
-      Lude.Maybe
-        SourceAlgorithmSpecification,
-    modelPackageDescription ::
-      Lude.Maybe Lude.Text,
-    validationSpecification ::
-      Lude.Maybe
-        ModelPackageValidationSpecification,
-    inferenceSpecification ::
-      Lude.Maybe InferenceSpecification,
-    certifyForMarketplace ::
-      Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    modelPackageName :: Lude.Text,
-    modelPackageARN :: Lude.Text,
+  { -- | A timestamp specifying when the model package was created.
     creationTime :: Lude.Timestamp,
-    modelPackageStatus ::
-      ModelPackageStatus,
-    modelPackageStatusDetails ::
-      ModelPackageStatusDetails
+    -- | Details about the algorithm that was used to create the model package.
+    sourceAlgorithmSpecification :: Lude.Maybe SourceAlgorithmSpecification,
+    -- | The name of the model package being described.
+    modelPackageName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the model package.
+    modelPackageARN :: Lude.Text,
+    -- | A brief summary of the model package.
+    modelPackageDescription :: Lude.Maybe Lude.Text,
+    -- | Configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+    validationSpecification :: Lude.Maybe ModelPackageValidationSpecification,
+    -- | Details about inference jobs that can be run with models based on this model package.
+    inferenceSpecification :: Lude.Maybe InferenceSpecification,
+    -- | Whether the model package is certified for listing on AWS Marketplace.
+    certifyForMarketplace :: Lude.Maybe Lude.Bool,
+    -- | Details about the current status of the model package.
+    modelPackageStatusDetails :: ModelPackageStatusDetails,
+    -- | The current status of the model package.
+    modelPackageStatus :: ModelPackageStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeModelPackageResponse' with the minimum fields required to make a request.
 --
--- * 'certifyForMarketplace' - Whether the model package is certified for listing on AWS Marketplace.
 -- * 'creationTime' - A timestamp specifying when the model package was created.
--- * 'inferenceSpecification' - Details about inference jobs that can be run with models based on this model package.
+-- * 'sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
+-- * 'modelPackageName' - The name of the model package being described.
 -- * 'modelPackageARN' - The Amazon Resource Name (ARN) of the model package.
 -- * 'modelPackageDescription' - A brief summary of the model package.
--- * 'modelPackageName' - The name of the model package being described.
--- * 'modelPackageStatus' - The current status of the model package.
--- * 'modelPackageStatusDetails' - Details about the current status of the model package.
--- * 'responseStatus' - The response status code.
--- * 'sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
 -- * 'validationSpecification' - Configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
+-- * 'inferenceSpecification' - Details about inference jobs that can be run with models based on this model package.
+-- * 'certifyForMarketplace' - Whether the model package is certified for listing on AWS Marketplace.
+-- * 'modelPackageStatusDetails' - Details about the current status of the model package.
+-- * 'modelPackageStatus' - The current status of the model package.
+-- * 'responseStatus' - The response status code.
 mkDescribeModelPackageResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
+  -- | 'creationTime'
+  Lude.Timestamp ->
   -- | 'modelPackageName'
   Lude.Text ->
   -- | 'modelPackageARN'
   Lude.Text ->
-  -- | 'creationTime'
-  Lude.Timestamp ->
-  -- | 'modelPackageStatus'
-  ModelPackageStatus ->
   -- | 'modelPackageStatusDetails'
   ModelPackageStatusDetails ->
+  -- | 'modelPackageStatus'
+  ModelPackageStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeModelPackageResponse
 mkDescribeModelPackageResponse
-  pResponseStatus_
+  pCreationTime_
   pModelPackageName_
   pModelPackageARN_
-  pCreationTime_
+  pModelPackageStatusDetails_
   pModelPackageStatus_
-  pModelPackageStatusDetails_ =
+  pResponseStatus_ =
     DescribeModelPackageResponse'
-      { sourceAlgorithmSpecification =
-          Lude.Nothing,
+      { creationTime = pCreationTime_,
+        sourceAlgorithmSpecification = Lude.Nothing,
+        modelPackageName = pModelPackageName_,
+        modelPackageARN = pModelPackageARN_,
         modelPackageDescription = Lude.Nothing,
         validationSpecification = Lude.Nothing,
         inferenceSpecification = Lude.Nothing,
         certifyForMarketplace = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        modelPackageName = pModelPackageName_,
-        modelPackageARN = pModelPackageARN_,
-        creationTime = pCreationTime_,
+        modelPackageStatusDetails = pModelPackageStatusDetails_,
         modelPackageStatus = pModelPackageStatus_,
-        modelPackageStatusDetails = pModelPackageStatusDetails_
+        responseStatus = pResponseStatus_
       }
+
+-- | A timestamp specifying when the model package was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsCreationTime :: Lens.Lens' DescribeModelPackageResponse Lude.Timestamp
+dmprsCreationTime = Lens.lens (creationTime :: DescribeModelPackageResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeModelPackageResponse)
+{-# DEPRECATED dmprsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Details about the algorithm that was used to create the model package.
 --
@@ -210,6 +207,20 @@ mkDescribeModelPackageResponse
 dmprsSourceAlgorithmSpecification :: Lens.Lens' DescribeModelPackageResponse (Lude.Maybe SourceAlgorithmSpecification)
 dmprsSourceAlgorithmSpecification = Lens.lens (sourceAlgorithmSpecification :: DescribeModelPackageResponse -> Lude.Maybe SourceAlgorithmSpecification) (\s a -> s {sourceAlgorithmSpecification = a} :: DescribeModelPackageResponse)
 {-# DEPRECATED dmprsSourceAlgorithmSpecification "Use generic-lens or generic-optics with 'sourceAlgorithmSpecification' instead." #-}
+
+-- | The name of the model package being described.
+--
+-- /Note:/ Consider using 'modelPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsModelPackageName :: Lens.Lens' DescribeModelPackageResponse Lude.Text
+dmprsModelPackageName = Lens.lens (modelPackageName :: DescribeModelPackageResponse -> Lude.Text) (\s a -> s {modelPackageName = a} :: DescribeModelPackageResponse)
+{-# DEPRECATED dmprsModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the model package.
+--
+-- /Note:/ Consider using 'modelPackageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsModelPackageARN :: Lens.Lens' DescribeModelPackageResponse Lude.Text
+dmprsModelPackageARN = Lens.lens (modelPackageARN :: DescribeModelPackageResponse -> Lude.Text) (\s a -> s {modelPackageARN = a} :: DescribeModelPackageResponse)
+{-# DEPRECATED dmprsModelPackageARN "Use generic-lens or generic-optics with 'modelPackageARN' instead." #-}
 
 -- | A brief summary of the model package.
 --
@@ -239,33 +250,12 @@ dmprsCertifyForMarketplace :: Lens.Lens' DescribeModelPackageResponse (Lude.Mayb
 dmprsCertifyForMarketplace = Lens.lens (certifyForMarketplace :: DescribeModelPackageResponse -> Lude.Maybe Lude.Bool) (\s a -> s {certifyForMarketplace = a} :: DescribeModelPackageResponse)
 {-# DEPRECATED dmprsCertifyForMarketplace "Use generic-lens or generic-optics with 'certifyForMarketplace' instead." #-}
 
--- | The response status code.
+-- | Details about the current status of the model package.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmprsResponseStatus :: Lens.Lens' DescribeModelPackageResponse Lude.Int
-dmprsResponseStatus = Lens.lens (responseStatus :: DescribeModelPackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeModelPackageResponse)
-{-# DEPRECATED dmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The name of the model package being described.
---
--- /Note:/ Consider using 'modelPackageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmprsModelPackageName :: Lens.Lens' DescribeModelPackageResponse Lude.Text
-dmprsModelPackageName = Lens.lens (modelPackageName :: DescribeModelPackageResponse -> Lude.Text) (\s a -> s {modelPackageName = a} :: DescribeModelPackageResponse)
-{-# DEPRECATED dmprsModelPackageName "Use generic-lens or generic-optics with 'modelPackageName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the model package.
---
--- /Note:/ Consider using 'modelPackageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmprsModelPackageARN :: Lens.Lens' DescribeModelPackageResponse Lude.Text
-dmprsModelPackageARN = Lens.lens (modelPackageARN :: DescribeModelPackageResponse -> Lude.Text) (\s a -> s {modelPackageARN = a} :: DescribeModelPackageResponse)
-{-# DEPRECATED dmprsModelPackageARN "Use generic-lens or generic-optics with 'modelPackageARN' instead." #-}
-
--- | A timestamp specifying when the model package was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmprsCreationTime :: Lens.Lens' DescribeModelPackageResponse Lude.Timestamp
-dmprsCreationTime = Lens.lens (creationTime :: DescribeModelPackageResponse -> Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeModelPackageResponse)
-{-# DEPRECATED dmprsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+-- /Note:/ Consider using 'modelPackageStatusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsModelPackageStatusDetails :: Lens.Lens' DescribeModelPackageResponse ModelPackageStatusDetails
+dmprsModelPackageStatusDetails = Lens.lens (modelPackageStatusDetails :: DescribeModelPackageResponse -> ModelPackageStatusDetails) (\s a -> s {modelPackageStatusDetails = a} :: DescribeModelPackageResponse)
+{-# DEPRECATED dmprsModelPackageStatusDetails "Use generic-lens or generic-optics with 'modelPackageStatusDetails' instead." #-}
 
 -- | The current status of the model package.
 --
@@ -274,9 +264,9 @@ dmprsModelPackageStatus :: Lens.Lens' DescribeModelPackageResponse ModelPackageS
 dmprsModelPackageStatus = Lens.lens (modelPackageStatus :: DescribeModelPackageResponse -> ModelPackageStatus) (\s a -> s {modelPackageStatus = a} :: DescribeModelPackageResponse)
 {-# DEPRECATED dmprsModelPackageStatus "Use generic-lens or generic-optics with 'modelPackageStatus' instead." #-}
 
--- | Details about the current status of the model package.
+-- | The response status code.
 --
--- /Note:/ Consider using 'modelPackageStatusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmprsModelPackageStatusDetails :: Lens.Lens' DescribeModelPackageResponse ModelPackageStatusDetails
-dmprsModelPackageStatusDetails = Lens.lens (modelPackageStatusDetails :: DescribeModelPackageResponse -> ModelPackageStatusDetails) (\s a -> s {modelPackageStatusDetails = a} :: DescribeModelPackageResponse)
-{-# DEPRECATED dmprsModelPackageStatusDetails "Use generic-lens or generic-optics with 'modelPackageStatusDetails' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmprsResponseStatus :: Lens.Lens' DescribeModelPackageResponse Lude.Int
+dmprsResponseStatus = Lens.lens (responseStatus :: DescribeModelPackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeModelPackageResponse)
+{-# DEPRECATED dmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

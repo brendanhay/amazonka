@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.LexModels.DeleteBotAlias
     mkDeleteBotAlias,
 
     -- ** Request lenses
-    dbaName,
     dbaBotName,
+    dbaName,
 
     -- * Destructuring the response
     DeleteBotAliasResponse (..),
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteBotAlias' smart constructor.
 data DeleteBotAlias = DeleteBotAlias'
-  { name :: Lude.Text,
-    botName :: Lude.Text
+  { -- | The name of the bot that the alias points to.
+    botName :: Lude.Text,
+    -- | The name of the alias to delete. The name is case sensitive.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotAlias' with the minimum fields required to make a request.
@@ -55,20 +52,13 @@ data DeleteBotAlias = DeleteBotAlias'
 -- * 'botName' - The name of the bot that the alias points to.
 -- * 'name' - The name of the alias to delete. The name is case sensitive.
 mkDeleteBotAlias ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'botName'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   DeleteBotAlias
-mkDeleteBotAlias pName_ pBotName_ =
-  DeleteBotAlias' {name = pName_, botName = pBotName_}
-
--- | The name of the alias to delete. The name is case sensitive.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbaName :: Lens.Lens' DeleteBotAlias Lude.Text
-dbaName = Lens.lens (name :: DeleteBotAlias -> Lude.Text) (\s a -> s {name = a} :: DeleteBotAlias)
-{-# DEPRECATED dbaName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkDeleteBotAlias pBotName_ pName_ =
+  DeleteBotAlias' {botName = pBotName_, name = pName_}
 
 -- | The name of the bot that the alias points to.
 --
@@ -76,6 +66,13 @@ dbaName = Lens.lens (name :: DeleteBotAlias -> Lude.Text) (\s a -> s {name = a} 
 dbaBotName :: Lens.Lens' DeleteBotAlias Lude.Text
 dbaBotName = Lens.lens (botName :: DeleteBotAlias -> Lude.Text) (\s a -> s {botName = a} :: DeleteBotAlias)
 {-# DEPRECATED dbaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+
+-- | The name of the alias to delete. The name is case sensitive.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbaName :: Lens.Lens' DeleteBotAlias Lude.Text
+dbaName = Lens.lens (name :: DeleteBotAlias -> Lude.Text) (\s a -> s {name = a} :: DeleteBotAlias)
+{-# DEPRECATED dbaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeleteBotAlias where
   type Rs DeleteBotAlias = DeleteBotAliasResponse
@@ -101,13 +98,7 @@ instance Lude.ToQuery DeleteBotAlias where
 
 -- | /See:/ 'mkDeleteBotAliasResponse' smart constructor.
 data DeleteBotAliasResponse = DeleteBotAliasResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBotAliasResponse' with the minimum fields required to make a request.

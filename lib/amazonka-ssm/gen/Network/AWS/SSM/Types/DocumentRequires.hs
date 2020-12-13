@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.DocumentRequires
     mkDocumentRequires,
 
     -- * Lenses
-    drVersion,
     drName,
+    drVersion,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocumentRequires' smart constructor.
 data DocumentRequires = DocumentRequires'
-  { version ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
+    name :: Lude.Text,
+    -- | The document version required by the current document.
+    version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentRequires' with the minimum fields required to make a request.
@@ -51,14 +46,7 @@ mkDocumentRequires ::
   Lude.Text ->
   DocumentRequires
 mkDocumentRequires pName_ =
-  DocumentRequires' {version = Lude.Nothing, name = pName_}
-
--- | The document version required by the current document.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drVersion :: Lens.Lens' DocumentRequires (Lude.Maybe Lude.Text)
-drVersion = Lens.lens (version :: DocumentRequires -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DocumentRequires)
-{-# DEPRECATED drVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+  DocumentRequires' {name = pName_, version = Lude.Nothing}
 
 -- | The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
 --
@@ -67,20 +55,27 @@ drName :: Lens.Lens' DocumentRequires Lude.Text
 drName = Lens.lens (name :: DocumentRequires -> Lude.Text) (\s a -> s {name = a} :: DocumentRequires)
 {-# DEPRECATED drName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | The document version required by the current document.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drVersion :: Lens.Lens' DocumentRequires (Lude.Maybe Lude.Text)
+drVersion = Lens.lens (version :: DocumentRequires -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DocumentRequires)
+{-# DEPRECATED drVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
 instance Lude.FromJSON DocumentRequires where
   parseJSON =
     Lude.withObject
       "DocumentRequires"
       ( \x ->
           DocumentRequires'
-            Lude.<$> (x Lude..:? "Version") Lude.<*> (x Lude..: "Name")
+            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..:? "Version")
       )
 
 instance Lude.ToJSON DocumentRequires where
   toJSON DocumentRequires' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Version" Lude..=) Lude.<$> version,
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            ("Version" Lude..=) Lude.<$> version
           ]
       )

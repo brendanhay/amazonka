@@ -30,23 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlias' smart constructor.
 data Alias = Alias'
-  { names :: Lude.Maybe [Lude.Text],
+  { -- | A list of names for the alias, including the canonical name.
+    names :: Lude.Maybe [Lude.Text],
+    -- | The canonical name of the alias.
     name :: Lude.Maybe Lude.Text,
+    -- | The type of the alias.
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Alias' with the minimum fields required to make a request.
 --
--- * 'name' - The canonical name of the alias.
 -- * 'names' - A list of names for the alias, including the canonical name.
+-- * 'name' - The canonical name of the alias.
 -- * 'type'' - The type of the alias.
 mkAlias ::
   Alias

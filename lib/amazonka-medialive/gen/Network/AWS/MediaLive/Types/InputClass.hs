@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.InputClass
   ( InputClass
       ( InputClass',
-        ICSinglePipeline,
-        ICStandard
+        ICStandard,
+        ICSinglePipeline
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype InputClass = InputClass' Lude.Text
       Lude.ToHeader
     )
 
-pattern ICSinglePipeline :: InputClass
-pattern ICSinglePipeline = InputClass' "SINGLE_PIPELINE"
-
 pattern ICStandard :: InputClass
 pattern ICStandard = InputClass' "STANDARD"
 
+pattern ICSinglePipeline :: InputClass
+pattern ICSinglePipeline = InputClass' "SINGLE_PIPELINE"
+
 {-# COMPLETE
-  ICSinglePipeline,
   ICStandard,
+  ICSinglePipeline,
   InputClass'
   #-}

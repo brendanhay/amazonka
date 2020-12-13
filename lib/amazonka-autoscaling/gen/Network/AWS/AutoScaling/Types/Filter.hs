@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { values :: Lude.Maybe [Lude.Text],
+  { -- | One or more filter values. Filter values are case-sensitive.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The name of the filter. The valid values are: @auto-scaling-group@ , @key@ , @value@ , and @propagate-at-launch@ .
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the filter. The valid values are: @auto-scaling-group@ , @key@ , @value@ , and @propagate-at-launch@ .
 -- * 'values' - One or more filter values. Filter values are case-sensitive.
+-- * 'name' - The name of the filter. The valid values are: @auto-scaling-group@ , @key@ , @value@ , and @propagate-at-launch@ .
 mkFilter ::
   -- | 'name'
   Lude.Text ->

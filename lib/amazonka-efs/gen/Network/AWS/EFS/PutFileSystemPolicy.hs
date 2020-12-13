@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EFS.PutFileSystemPolicy
     mkPutFileSystemPolicy,
 
     -- ** Request lenses
-    pfspBypassPolicyLockoutSafetyCheck,
     pfspFileSystemId,
+    pfspBypassPolicyLockoutSafetyCheck,
     pfspPolicy,
 
     -- * Destructuring the response
@@ -43,24 +44,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutFileSystemPolicy' smart constructor.
 data PutFileSystemPolicy = PutFileSystemPolicy'
-  { bypassPolicyLockoutSafetyCheck ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the EFS file system that you want to create or update the @FileSystemPolicy@ for.
     fileSystemId :: Lude.Text,
+    -- | (Optional) A flag to indicate whether to bypass the @FileSystemPolicy@ lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future @PutFileSystemPolicy@ requests on the file system. Set @BypassPolicyLockoutSafetyCheck@ to @True@ only when you intend to prevent the principal that is making the request from making a subsequent @PutFileSystemPolicy@ request on the file system. The default value is False.
+    bypassPolicyLockoutSafetyCheck :: Lude.Maybe Lude.Bool,
+    -- | The @FileSystemPolicy@ that you're creating. Accepts a JSON formatted policy definition. To find out more about the elements that make up a file system policy, see <https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies EFS Resource-based Policies> .
     policy :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutFileSystemPolicy' with the minimum fields required to make a request.
 --
--- * 'bypassPolicyLockoutSafetyCheck' - (Optional) A flag to indicate whether to bypass the @FileSystemPolicy@ lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future @PutFileSystemPolicy@ requests on the file system. Set @BypassPolicyLockoutSafetyCheck@ to @True@ only when you intend to prevent the principal that is making the request from making a subsequent @PutFileSystemPolicy@ request on the file system. The default value is False.
 -- * 'fileSystemId' - The ID of the EFS file system that you want to create or update the @FileSystemPolicy@ for.
+-- * 'bypassPolicyLockoutSafetyCheck' - (Optional) A flag to indicate whether to bypass the @FileSystemPolicy@ lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future @PutFileSystemPolicy@ requests on the file system. Set @BypassPolicyLockoutSafetyCheck@ to @True@ only when you intend to prevent the principal that is making the request from making a subsequent @PutFileSystemPolicy@ request on the file system. The default value is False.
 -- * 'policy' - The @FileSystemPolicy@ that you're creating. Accepts a JSON formatted policy definition. To find out more about the elements that make up a file system policy, see <https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies EFS Resource-based Policies> .
 mkPutFileSystemPolicy ::
   -- | 'fileSystemId'
@@ -70,18 +67,10 @@ mkPutFileSystemPolicy ::
   PutFileSystemPolicy
 mkPutFileSystemPolicy pFileSystemId_ pPolicy_ =
   PutFileSystemPolicy'
-    { bypassPolicyLockoutSafetyCheck =
-        Lude.Nothing,
-      fileSystemId = pFileSystemId_,
+    { fileSystemId = pFileSystemId_,
+      bypassPolicyLockoutSafetyCheck = Lude.Nothing,
       policy = pPolicy_
     }
-
--- | (Optional) A flag to indicate whether to bypass the @FileSystemPolicy@ lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future @PutFileSystemPolicy@ requests on the file system. Set @BypassPolicyLockoutSafetyCheck@ to @True@ only when you intend to prevent the principal that is making the request from making a subsequent @PutFileSystemPolicy@ request on the file system. The default value is False.
---
--- /Note:/ Consider using 'bypassPolicyLockoutSafetyCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfspBypassPolicyLockoutSafetyCheck :: Lens.Lens' PutFileSystemPolicy (Lude.Maybe Lude.Bool)
-pfspBypassPolicyLockoutSafetyCheck = Lens.lens (bypassPolicyLockoutSafetyCheck :: PutFileSystemPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutFileSystemPolicy)
-{-# DEPRECATED pfspBypassPolicyLockoutSafetyCheck "Use generic-lens or generic-optics with 'bypassPolicyLockoutSafetyCheck' instead." #-}
 
 -- | The ID of the EFS file system that you want to create or update the @FileSystemPolicy@ for.
 --
@@ -89,6 +78,13 @@ pfspBypassPolicyLockoutSafetyCheck = Lens.lens (bypassPolicyLockoutSafetyCheck :
 pfspFileSystemId :: Lens.Lens' PutFileSystemPolicy Lude.Text
 pfspFileSystemId = Lens.lens (fileSystemId :: PutFileSystemPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: PutFileSystemPolicy)
 {-# DEPRECATED pfspFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+
+-- | (Optional) A flag to indicate whether to bypass the @FileSystemPolicy@ lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future @PutFileSystemPolicy@ requests on the file system. Set @BypassPolicyLockoutSafetyCheck@ to @True@ only when you intend to prevent the principal that is making the request from making a subsequent @PutFileSystemPolicy@ request on the file system. The default value is False.
+--
+-- /Note:/ Consider using 'bypassPolicyLockoutSafetyCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfspBypassPolicyLockoutSafetyCheck :: Lens.Lens' PutFileSystemPolicy (Lude.Maybe Lude.Bool)
+pfspBypassPolicyLockoutSafetyCheck = Lens.lens (bypassPolicyLockoutSafetyCheck :: PutFileSystemPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutFileSystemPolicy)
+{-# DEPRECATED pfspBypassPolicyLockoutSafetyCheck "Use generic-lens or generic-optics with 'bypassPolicyLockoutSafetyCheck' instead." #-}
 
 -- | The @FileSystemPolicy@ that you're creating. Accepts a JSON formatted policy definition. To find out more about the elements that make up a file system policy, see <https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies EFS Resource-based Policies> .
 --

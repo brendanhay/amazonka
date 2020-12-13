@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CognitoIdentityProvider.StopUserImportJob
     mkStopUserImportJob,
 
     -- ** Request lenses
-    sUserPoolId,
     sJobId,
+    sUserPoolId,
 
     -- * Destructuring the response
     StopUserImportJobResponse (..),
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStopUserImportJob' smart constructor.
 data StopUserImportJob = StopUserImportJob'
-  { userPoolId ::
-      Lude.Text,
-    jobId :: Lude.Text
+  { -- | The job ID for the user import job.
+    jobId :: Lude.Text,
+    -- | The user pool ID for the user pool that the users are being imported into.
+    userPoolId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopUserImportJob' with the minimum fields required to make a request.
@@ -60,20 +56,13 @@ data StopUserImportJob = StopUserImportJob'
 -- * 'jobId' - The job ID for the user import job.
 -- * 'userPoolId' - The user pool ID for the user pool that the users are being imported into.
 mkStopUserImportJob ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'jobId'
   Lude.Text ->
+  -- | 'userPoolId'
+  Lude.Text ->
   StopUserImportJob
-mkStopUserImportJob pUserPoolId_ pJobId_ =
-  StopUserImportJob' {userPoolId = pUserPoolId_, jobId = pJobId_}
-
--- | The user pool ID for the user pool that the users are being imported into.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sUserPoolId :: Lens.Lens' StopUserImportJob Lude.Text
-sUserPoolId = Lens.lens (userPoolId :: StopUserImportJob -> Lude.Text) (\s a -> s {userPoolId = a} :: StopUserImportJob)
-{-# DEPRECATED sUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+mkStopUserImportJob pJobId_ pUserPoolId_ =
+  StopUserImportJob' {jobId = pJobId_, userPoolId = pUserPoolId_}
 
 -- | The job ID for the user import job.
 --
@@ -81,6 +70,13 @@ sUserPoolId = Lens.lens (userPoolId :: StopUserImportJob -> Lude.Text) (\s a -> 
 sJobId :: Lens.Lens' StopUserImportJob Lude.Text
 sJobId = Lens.lens (jobId :: StopUserImportJob -> Lude.Text) (\s a -> s {jobId = a} :: StopUserImportJob)
 {-# DEPRECATED sJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+-- | The user pool ID for the user pool that the users are being imported into.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sUserPoolId :: Lens.Lens' StopUserImportJob Lude.Text
+sUserPoolId = Lens.lens (userPoolId :: StopUserImportJob -> Lude.Text) (\s a -> s {userPoolId = a} :: StopUserImportJob)
+{-# DEPRECATED sUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest StopUserImportJob where
   type Rs StopUserImportJob = StopUserImportJobResponse
@@ -110,8 +106,8 @@ instance Lude.ToJSON StopUserImportJob where
   toJSON StopUserImportJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("JobId" Lude..= jobId)
+          [ Lude.Just ("JobId" Lude..= jobId),
+            Lude.Just ("UserPoolId" Lude..= userPoolId)
           ]
       )
 
@@ -125,23 +121,18 @@ instance Lude.ToQuery StopUserImportJob where
 --
 -- /See:/ 'mkStopUserImportJobResponse' smart constructor.
 data StopUserImportJobResponse = StopUserImportJobResponse'
-  { userImportJob ::
-      Lude.Maybe UserImportJobType,
+  { -- | The job object that represents the user import job.
+    userImportJob :: Lude.Maybe UserImportJobType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopUserImportJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userImportJob' - The job object that represents the user import job.
+-- * 'responseStatus' - The response status code.
 mkStopUserImportJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

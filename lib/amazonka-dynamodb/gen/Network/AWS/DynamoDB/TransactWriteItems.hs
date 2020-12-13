@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,10 +53,10 @@ module Network.AWS.DynamoDB.TransactWriteItems
     mkTransactWriteItems,
 
     -- ** Request lenses
+    twiTransactItems,
     twiReturnConsumedCapacity,
     twiReturnItemCollectionMetrics,
     twiClientRequestToken,
-    twiTransactItems,
 
     -- * Destructuring the response
     TransactWriteItemsResponse (..),
@@ -76,43 +77,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTransactWriteItems' smart constructor.
 data TransactWriteItems = TransactWriteItems'
-  { returnConsumedCapacity ::
-      Lude.Maybe ReturnConsumedCapacity,
-    returnItemCollectionMetrics ::
-      Lude.Maybe ReturnItemCollectionMetrics,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    transactItems :: Lude.NonEmpty TransactWriteItem
+  { -- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which contains a @ConditionCheck@ , @Put@ , @Update@ , or @Delete@ object. These can operate on items in different tables, but the tables must reside in the same AWS account and Region, and no two of them can operate on the same item.
+    transactItems :: Lude.NonEmpty TransactWriteItem,
+    returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity,
+    -- | Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections (if any), that were modified during the operation and are returned in the response. If set to @NONE@ (the default), no statistics are returned.
+    returnItemCollectionMetrics :: Lude.Maybe ReturnItemCollectionMetrics,
+    -- | Providing a @ClientRequestToken@ makes the call to @TransactWriteItems@ idempotent, meaning that multiple identical calls have the same effect as one single call.
+    --
+    -- Although multiple identical calls using the same client request token produce the same result on the server (no side effects), the responses to the calls might not be the same. If the @ReturnConsumedCapacity>@ parameter is set, then the initial @TransactWriteItems@ call returns the amount of write capacity units consumed in making the changes. Subsequent @TransactWriteItems@ calls with the same client token return the number of read capacity units consumed in reading the item.
+    -- A client request token is valid for 10 minutes after the first request that uses it is completed. After 10 minutes, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 10 minutes, or the result might not be idempotent.
+    -- If you submit a request with the same client token but a change in other parameters within the 10-minute idempotency window, DynamoDB returns an @IdempotentParameterMismatch@ exception.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransactWriteItems' with the minimum fields required to make a request.
 --
+-- * 'transactItems' - An ordered array of up to 25 @TransactWriteItem@ objects, each of which contains a @ConditionCheck@ , @Put@ , @Update@ , or @Delete@ object. These can operate on items in different tables, but the tables must reside in the same AWS account and Region, and no two of them can operate on the same item.
+-- * 'returnConsumedCapacity' -
+-- * 'returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections (if any), that were modified during the operation and are returned in the response. If set to @NONE@ (the default), no statistics are returned.
 -- * 'clientRequestToken' - Providing a @ClientRequestToken@ makes the call to @TransactWriteItems@ idempotent, meaning that multiple identical calls have the same effect as one single call.
 --
 -- Although multiple identical calls using the same client request token produce the same result on the server (no side effects), the responses to the calls might not be the same. If the @ReturnConsumedCapacity>@ parameter is set, then the initial @TransactWriteItems@ call returns the amount of write capacity units consumed in making the changes. Subsequent @TransactWriteItems@ calls with the same client token return the number of read capacity units consumed in reading the item.
 -- A client request token is valid for 10 minutes after the first request that uses it is completed. After 10 minutes, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 10 minutes, or the result might not be idempotent.
 -- If you submit a request with the same client token but a change in other parameters within the 10-minute idempotency window, DynamoDB returns an @IdempotentParameterMismatch@ exception.
--- * 'returnConsumedCapacity' - Undocumented field.
--- * 'returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to @SIZE@ , the response includes statistics about item collections (if any), that were modified during the operation and are returned in the response. If set to @NONE@ (the default), no statistics are returned.
--- * 'transactItems' - An ordered array of up to 25 @TransactWriteItem@ objects, each of which contains a @ConditionCheck@ , @Put@ , @Update@ , or @Delete@ object. These can operate on items in different tables, but the tables must reside in the same AWS account and Region, and no two of them can operate on the same item.
 mkTransactWriteItems ::
   -- | 'transactItems'
   Lude.NonEmpty TransactWriteItem ->
   TransactWriteItems
 mkTransactWriteItems pTransactItems_ =
   TransactWriteItems'
-    { returnConsumedCapacity = Lude.Nothing,
+    { transactItems = pTransactItems_,
+      returnConsumedCapacity = Lude.Nothing,
       returnItemCollectionMetrics = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
-      transactItems = pTransactItems_
+      clientRequestToken = Lude.Nothing
     }
+
+-- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which contains a @ConditionCheck@ , @Put@ , @Update@ , or @Delete@ object. These can operate on items in different tables, but the tables must reside in the same AWS account and Region, and no two of them can operate on the same item.
+--
+-- /Note:/ Consider using 'transactItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+twiTransactItems :: Lens.Lens' TransactWriteItems (Lude.NonEmpty TransactWriteItem)
+twiTransactItems = Lens.lens (transactItems :: TransactWriteItems -> Lude.NonEmpty TransactWriteItem) (\s a -> s {transactItems = a} :: TransactWriteItems)
+{-# DEPRECATED twiTransactItems "Use generic-lens or generic-optics with 'transactItems' instead." #-}
 
 -- | Undocumented field.
 --
@@ -138,13 +145,6 @@ twiReturnItemCollectionMetrics = Lens.lens (returnItemCollectionMetrics :: Trans
 twiClientRequestToken :: Lens.Lens' TransactWriteItems (Lude.Maybe Lude.Text)
 twiClientRequestToken = Lens.lens (clientRequestToken :: TransactWriteItems -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: TransactWriteItems)
 {-# DEPRECATED twiClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | An ordered array of up to 25 @TransactWriteItem@ objects, each of which contains a @ConditionCheck@ , @Put@ , @Update@ , or @Delete@ object. These can operate on items in different tables, but the tables must reside in the same AWS account and Region, and no two of them can operate on the same item.
---
--- /Note:/ Consider using 'transactItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twiTransactItems :: Lens.Lens' TransactWriteItems (Lude.NonEmpty TransactWriteItem)
-twiTransactItems = Lens.lens (transactItems :: TransactWriteItems -> Lude.NonEmpty TransactWriteItem) (\s a -> s {transactItems = a} :: TransactWriteItems)
-{-# DEPRECATED twiTransactItems "Use generic-lens or generic-optics with 'transactItems' instead." #-}
 
 instance Lude.AWSRequest TransactWriteItems where
   type Rs TransactWriteItems = TransactWriteItemsResponse
@@ -173,12 +173,11 @@ instance Lude.ToJSON TransactWriteItems where
   toJSON TransactWriteItems' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ReturnConsumedCapacity" Lude..=)
-              Lude.<$> returnConsumedCapacity,
+          [ Lude.Just ("TransactItems" Lude..= transactItems),
+            ("ReturnConsumedCapacity" Lude..=) Lude.<$> returnConsumedCapacity,
             ("ReturnItemCollectionMetrics" Lude..=)
               Lude.<$> returnItemCollectionMetrics,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("TransactItems" Lude..= transactItems)
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -190,29 +189,20 @@ instance Lude.ToQuery TransactWriteItems where
 
 -- | /See:/ 'mkTransactWriteItemsResponse' smart constructor.
 data TransactWriteItemsResponse = TransactWriteItemsResponse'
-  { itemCollectionMetrics ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([ItemCollectionMetrics])
-        ),
-    consumedCapacity ::
-      Lude.Maybe [ConsumedCapacity],
+  { -- | A list of tables that were processed by @TransactWriteItems@ and, for each table, information about any item collections that were affected by individual @UpdateItem@ , @PutItem@ , or @DeleteItem@ operations.
+    itemCollectionMetrics :: Lude.Maybe (Lude.HashMap Lude.Text ([ItemCollectionMetrics])),
+    -- | The capacity units consumed by the entire @TransactWriteItems@ operation. The values of the list are ordered according to the ordering of the @TransactItems@ request parameter.
+    consumedCapacity :: Lude.Maybe [ConsumedCapacity],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransactWriteItemsResponse' with the minimum fields required to make a request.
 --
--- * 'consumedCapacity' - The capacity units consumed by the entire @TransactWriteItems@ operation. The values of the list are ordered according to the ordering of the @TransactItems@ request parameter.
 -- * 'itemCollectionMetrics' - A list of tables that were processed by @TransactWriteItems@ and, for each table, information about any item collections that were affected by individual @UpdateItem@ , @PutItem@ , or @DeleteItem@ operations.
+-- * 'consumedCapacity' - The capacity units consumed by the entire @TransactWriteItems@ operation. The values of the list are ordered according to the ordering of the @TransactItems@ request parameter.
 -- * 'responseStatus' - The response status code.
 mkTransactWriteItemsResponse ::
   -- | 'responseStatus'

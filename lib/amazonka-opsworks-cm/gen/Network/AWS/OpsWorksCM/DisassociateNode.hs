@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.OpsWorksCM.DisassociateNode
     mkDisassociateNode,
 
     -- ** Request lenses
-    dnEngineAttributes,
     dnServerName,
+    dnEngineAttributes,
     dnNodeName,
 
     -- * Destructuring the response
@@ -43,9 +44,15 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateNode' smart constructor.
 data DisassociateNode = DisassociateNode'
-  { engineAttributes ::
-      Lude.Maybe [EngineAttribute],
+  { -- | The name of the server from which to disassociate the node.
     serverName :: Lude.Text,
+    -- | Engine attributes that are used for disassociating the node. No attributes are required for Puppet.
+    --
+    -- __Attributes required in a DisassociateNode request for Chef__
+    --
+    --     * @CHEF_ORGANIZATION@ : The Chef organization with which the node was associated. By default only one organization named @default@ can exist.
+    engineAttributes :: Lude.Maybe [EngineAttribute],
+    -- | The name of the client node.
     nodeName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -53,6 +60,7 @@ data DisassociateNode = DisassociateNode'
 
 -- | Creates a value of 'DisassociateNode' with the minimum fields required to make a request.
 --
+-- * 'serverName' - The name of the server from which to disassociate the node.
 -- * 'engineAttributes' - Engine attributes that are used for disassociating the node. No attributes are required for Puppet.
 --
 -- __Attributes required in a DisassociateNode request for Chef__
@@ -61,7 +69,6 @@ data DisassociateNode = DisassociateNode'
 --
 --
 -- * 'nodeName' - The name of the client node.
--- * 'serverName' - The name of the server from which to disassociate the node.
 mkDisassociateNode ::
   -- | 'serverName'
   Lude.Text ->
@@ -70,10 +77,17 @@ mkDisassociateNode ::
   DisassociateNode
 mkDisassociateNode pServerName_ pNodeName_ =
   DisassociateNode'
-    { engineAttributes = Lude.Nothing,
-      serverName = pServerName_,
+    { serverName = pServerName_,
+      engineAttributes = Lude.Nothing,
       nodeName = pNodeName_
     }
+
+-- | The name of the server from which to disassociate the node.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnServerName :: Lens.Lens' DisassociateNode Lude.Text
+dnServerName = Lens.lens (serverName :: DisassociateNode -> Lude.Text) (\s a -> s {serverName = a} :: DisassociateNode)
+{-# DEPRECATED dnServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | Engine attributes that are used for disassociating the node. No attributes are required for Puppet.
 --
@@ -87,13 +101,6 @@ mkDisassociateNode pServerName_ pNodeName_ =
 dnEngineAttributes :: Lens.Lens' DisassociateNode (Lude.Maybe [EngineAttribute])
 dnEngineAttributes = Lens.lens (engineAttributes :: DisassociateNode -> Lude.Maybe [EngineAttribute]) (\s a -> s {engineAttributes = a} :: DisassociateNode)
 {-# DEPRECATED dnEngineAttributes "Use generic-lens or generic-optics with 'engineAttributes' instead." #-}
-
--- | The name of the server from which to disassociate the node.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnServerName :: Lens.Lens' DisassociateNode Lude.Text
-dnServerName = Lens.lens (serverName :: DisassociateNode -> Lude.Text) (\s a -> s {serverName = a} :: DisassociateNode)
-{-# DEPRECATED dnServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The name of the client node.
 --
@@ -128,8 +135,8 @@ instance Lude.ToJSON DisassociateNode where
   toJSON DisassociateNode' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EngineAttributes" Lude..=) Lude.<$> engineAttributes,
-            Lude.Just ("ServerName" Lude..= serverName),
+          [ Lude.Just ("ServerName" Lude..= serverName),
+            ("EngineAttributes" Lude..=) Lude.<$> engineAttributes,
             Lude.Just ("NodeName" Lude..= nodeName)
           ]
       )
@@ -142,17 +149,12 @@ instance Lude.ToQuery DisassociateNode where
 
 -- | /See:/ 'mkDisassociateNodeResponse' smart constructor.
 data DisassociateNodeResponse = DisassociateNodeResponse'
-  { nodeAssociationStatusToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the disassociation request.
+    nodeAssociationStatusToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateNodeResponse' with the minimum fields required to make a request.

@@ -36,27 +36,24 @@ import Network.AWS.S3.Types.ParquetInput
 --
 -- /See:/ 'mkInputSerialization' smart constructor.
 data InputSerialization = InputSerialization'
-  { json ::
-      Lude.Maybe JSONInput,
+  { -- | Specifies JSON as object's input serialization format.
+    json :: Lude.Maybe JSONInput,
+    -- | Describes the serialization of a CSV-encoded object.
     csv :: Lude.Maybe CSVInput,
+    -- | Specifies Parquet as object's input serialization format.
     parquet :: Lude.Maybe ParquetInput,
+    -- | Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
     compressionType :: Lude.Maybe CompressionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSerialization' with the minimum fields required to make a request.
 --
--- * 'compressionType' - Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
--- * 'csv' - Describes the serialization of a CSV-encoded object.
 -- * 'json' - Specifies JSON as object's input serialization format.
+-- * 'csv' - Describes the serialization of a CSV-encoded object.
 -- * 'parquet' - Specifies Parquet as object's input serialization format.
+-- * 'compressionType' - Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
 mkInputSerialization ::
   InputSerialization
 mkInputSerialization =

@@ -32,28 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProjectBuildBatchConfig' smart constructor.
 data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
-  { combineArtifacts ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+    combineArtifacts :: Lude.Maybe Lude.Bool,
+    -- | Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
     timeoutInMins :: Lude.Maybe Lude.Int,
-    restrictions ::
-      Lude.Maybe BatchRestrictions,
+    -- | A @BatchRestrictions@ object that specifies the restrictions for the batch build.
+    restrictions :: Lude.Maybe BatchRestrictions,
+    -- | Specifies the service role ARN for the batch build project.
     serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectBuildBatchConfig' with the minimum fields required to make a request.
 --
 -- * 'combineArtifacts' - Specifies if the build artifacts for the batch build should be combined into a single artifact location.
+-- * 'timeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
 -- * 'restrictions' - A @BatchRestrictions@ object that specifies the restrictions for the batch build.
 -- * 'serviceRole' - Specifies the service role ARN for the batch build project.
--- * 'timeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
 mkProjectBuildBatchConfig ::
   ProjectBuildBatchConfig
 mkProjectBuildBatchConfig =

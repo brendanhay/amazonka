@@ -44,51 +44,53 @@ import Network.AWS.Transcribe.Types.TranscriptionJobStatus
 --
 -- /See:/ 'mkTranscriptionJobSummary' smart constructor.
 data TranscriptionJobSummary = TranscriptionJobSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A timestamp that shows when the job was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
     failureReason :: Lude.Maybe Lude.Text,
-    contentRedaction ::
-      Lude.Maybe ContentRedaction,
-    identifiedLanguageScore ::
-      Lude.Maybe Lude.Double,
+    -- | The content redaction settings of the transcription job.
+    contentRedaction :: Lude.Maybe ContentRedaction,
+    -- | A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.
+    identifiedLanguageScore :: Lude.Maybe Lude.Double,
+    -- | The language code for the input speech.
     languageCode :: Lude.Maybe LanguageCode,
-    outputLocationType ::
-      Lude.Maybe OutputLocationType,
+    -- | Indicates the location of the output of the transcription job.
+    --
+    -- If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation.
+    -- If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
+    outputLocationType :: Lude.Maybe OutputLocationType,
+    -- | A timestamp that shows when the job started processing.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | A timestamp that shows when the job was completed.
     completionTime :: Lude.Maybe Lude.Timestamp,
     modelSettings :: Lude.Maybe ModelSettings,
-    transcriptionJobStatus ::
-      Lude.Maybe TranscriptionJobStatus,
-    transcriptionJobName ::
-      Lude.Maybe Lude.Text,
+    -- | The status of the transcription job. When the status is @COMPLETED@ , use the @GetTranscriptionJob@ operation to get the results of the transcription.
+    transcriptionJobStatus :: Lude.Maybe TranscriptionJobStatus,
+    -- | The name of the transcription job.
+    transcriptionJobName :: Lude.Maybe Lude.Text,
+    -- | Whether automatic language identification was enabled for a transcription job.
     identifyLanguage :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TranscriptionJobSummary' with the minimum fields required to make a request.
 --
--- * 'completionTime' - A timestamp that shows when the job was completed.
--- * 'contentRedaction' - The content redaction settings of the transcription job.
 -- * 'creationTime' - A timestamp that shows when the job was created.
 -- * 'failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@ , a description of the error.
+-- * 'contentRedaction' - The content redaction settings of the transcription job.
 -- * 'identifiedLanguageScore' - A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.
--- * 'identifyLanguage' - Whether automatic language identification was enabled for a transcription job.
 -- * 'languageCode' - The language code for the input speech.
--- * 'modelSettings' - Undocumented field.
 -- * 'outputLocationType' - Indicates the location of the output of the transcription job.
 --
 -- If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket specified in the @outputBucketName@ field when the transcription job was started with the @StartTranscriptionJob@ operation.
 -- If the value is @SERVICE_BUCKET@ then the output is stored by Amazon Transcribe and can be retrieved using the URI in the @GetTranscriptionJob@ response's @TranscriptFileUri@ field.
 -- * 'startTime' - A timestamp that shows when the job started processing.
--- * 'transcriptionJobName' - The name of the transcription job.
+-- * 'completionTime' - A timestamp that shows when the job was completed.
+-- * 'modelSettings' -
 -- * 'transcriptionJobStatus' - The status of the transcription job. When the status is @COMPLETED@ , use the @GetTranscriptionJob@ operation to get the results of the transcription.
+-- * 'transcriptionJobName' - The name of the transcription job.
+-- * 'identifyLanguage' - Whether automatic language identification was enabled for a transcription job.
 mkTranscriptionJobSummary ::
   TranscriptionJobSummary
 mkTranscriptionJobSummary =

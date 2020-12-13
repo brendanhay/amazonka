@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.FleetType
   ( FleetType
       ( FleetType',
-        FTInstant,
+        FTRequest,
         FTMaintain,
-        FTRequest
+        FTInstant
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FleetType = FleetType' Lude.Text
       Lude.ToHeader
     )
 
-pattern FTInstant :: FleetType
-pattern FTInstant = FleetType' "instant"
+pattern FTRequest :: FleetType
+pattern FTRequest = FleetType' "request"
 
 pattern FTMaintain :: FleetType
 pattern FTMaintain = FleetType' "maintain"
 
-pattern FTRequest :: FleetType
-pattern FTRequest = FleetType' "request"
+pattern FTInstant :: FleetType
+pattern FTInstant = FleetType' "instant"
 
 {-# COMPLETE
-  FTInstant,
-  FTMaintain,
   FTRequest,
+  FTMaintain,
+  FTInstant,
   FleetType'
   #-}

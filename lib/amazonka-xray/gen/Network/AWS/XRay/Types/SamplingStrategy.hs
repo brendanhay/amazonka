@@ -30,23 +30,18 @@ import Network.AWS.XRay.Types.SamplingStrategyName
 --
 -- /See:/ 'mkSamplingStrategy' smart constructor.
 data SamplingStrategy = SamplingStrategy'
-  { value ::
-      Lude.Maybe Lude.Double,
+  { -- | The value of a sampling rule.
+    value :: Lude.Maybe Lude.Double,
+    -- | The name of a sampling rule.
     name :: Lude.Maybe SamplingStrategyName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingStrategy' with the minimum fields required to make a request.
 --
--- * 'name' - The name of a sampling rule.
 -- * 'value' - The value of a sampling rule.
+-- * 'name' - The name of a sampling rule.
 mkSamplingStrategy ::
   SamplingStrategy
 mkSamplingStrategy =

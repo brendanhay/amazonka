@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CloudFormation.DescribeStacks
     mkDescribeStacks,
 
     -- ** Request lenses
-    dNextToken,
-    dStackName,
+    dsNextToken,
+    dsStackName,
 
     -- * Destructuring the response
     DescribeStacksResponse (..),
@@ -46,17 +47,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeStacks' smart constructor.
 data DescribeStacks = DescribeStacks'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that identifies the next page of stacks that you want to retrieve.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
+    --
+    --
+    --     * Running stacks: You can specify either the stack's name or its unique stack ID.
+    --
+    --
+    --     * Deleted stacks: You must specify the unique stack ID.
+    --
+    --
+    -- Default: There is no default value.
     stackName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
@@ -83,9 +88,9 @@ mkDescribeStacks =
 -- | A string that identifies the next page of stacks that you want to retrieve.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNextToken :: Lens.Lens' DescribeStacks (Lude.Maybe Lude.Text)
-dNextToken = Lens.lens (nextToken :: DescribeStacks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeStacks)
-{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsNextToken :: Lens.Lens' DescribeStacks (Lude.Maybe Lude.Text)
+dsNextToken = Lens.lens (nextToken :: DescribeStacks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeStacks)
+{-# DEPRECATED dsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name or the unique stack ID that is associated with the stack, which are not always interchangeable:
 --
@@ -99,9 +104,9 @@ dNextToken = Lens.lens (nextToken :: DescribeStacks -> Lude.Maybe Lude.Text) (\s
 -- Default: There is no default value.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStackName :: Lens.Lens' DescribeStacks (Lude.Maybe Lude.Text)
-dStackName = Lens.lens (stackName :: DescribeStacks -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DescribeStacks)
-{-# DEPRECATED dStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
+dsStackName :: Lens.Lens' DescribeStacks (Lude.Maybe Lude.Text)
+dsStackName = Lens.lens (stackName :: DescribeStacks -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DescribeStacks)
+{-# DEPRECATED dsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 instance Page.AWSPager DescribeStacks where
   page rq rs
@@ -110,7 +115,7 @@ instance Page.AWSPager DescribeStacks where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dNextToken Lens..~ rs Lens.^. dsrsNextToken
+          Lude.& dsNextToken Lens..~ rs Lens.^. dsrsNextToken
 
 instance Lude.AWSRequest DescribeStacks where
   type Rs DescribeStacks = DescribeStacksResponse
@@ -146,25 +151,21 @@ instance Lude.ToQuery DescribeStacks where
 --
 -- /See:/ 'mkDescribeStacksResponse' smart constructor.
 data DescribeStacksResponse = DescribeStacksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of stack structures.
     stacks :: Lude.Maybe [Stack],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If no additional page exists, this value is null.
--- * 'responseStatus' - The response status code.
 -- * 'stacks' - A list of stack structures.
+-- * 'responseStatus' - The response status code.
 mkDescribeStacksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

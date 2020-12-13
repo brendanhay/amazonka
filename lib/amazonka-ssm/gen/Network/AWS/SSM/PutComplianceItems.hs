@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -65,13 +66,13 @@ module Network.AWS.SSM.PutComplianceItems
     mkPutComplianceItems,
 
     -- ** Request lenses
-    pciUploadType,
-    pciItemContentHash,
     pciResourceId,
     pciResourceType,
-    pciComplianceType,
+    pciUploadType,
     pciExecutionSummary,
     pciItems,
+    pciComplianceType,
+    pciItemContentHash,
 
     -- * Destructuring the response
     PutComplianceItemsResponse (..),
@@ -90,75 +91,61 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkPutComplianceItems' smart constructor.
 data PutComplianceItems = PutComplianceItems'
-  { uploadType ::
-      Lude.Maybe ComplianceUploadType,
-    itemContentHash :: Lude.Maybe Lude.Text,
+  { -- | Specify an ID for this resource. For a managed instance, this is the instance ID.
     resourceId :: Lude.Text,
+    -- | Specify the type of resource. @ManagedInstance@ is currently the only supported resource type.
     resourceType :: Lude.Text,
-    complianceType :: Lude.Text,
+    -- | The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.
+    --
+    -- In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
+    uploadType :: Lude.Maybe ComplianceUploadType,
+    -- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
     executionSummary :: ComplianceExecutionSummary,
-    items :: [ComplianceItemEntry]
+    -- | Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
+    items :: [ComplianceItemEntry],
+    -- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
+    complianceType :: Lude.Text,
+    -- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
+    itemContentHash :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutComplianceItems' with the minimum fields required to make a request.
 --
--- * 'complianceType' - Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
--- * 'executionSummary' - A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
--- * 'itemContentHash' - MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
--- * 'items' - Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
 -- * 'resourceId' - Specify an ID for this resource. For a managed instance, this is the instance ID.
 -- * 'resourceType' - Specify the type of resource. @ManagedInstance@ is currently the only supported resource type.
 -- * 'uploadType' - The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.
 --
 -- In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
+-- * 'executionSummary' - A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
+-- * 'items' - Information about the compliance as defined by the resource type. For example, for a patch compliance type, @Items@ includes information about the PatchSeverity, Classification, and so on.
+-- * 'complianceType' - Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
+-- * 'itemContentHash' - MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
 mkPutComplianceItems ::
   -- | 'resourceId'
   Lude.Text ->
   -- | 'resourceType'
   Lude.Text ->
-  -- | 'complianceType'
-  Lude.Text ->
   -- | 'executionSummary'
   ComplianceExecutionSummary ->
+  -- | 'complianceType'
+  Lude.Text ->
   PutComplianceItems
 mkPutComplianceItems
   pResourceId_
   pResourceType_
-  pComplianceType_
-  pExecutionSummary_ =
+  pExecutionSummary_
+  pComplianceType_ =
     PutComplianceItems'
-      { uploadType = Lude.Nothing,
-        itemContentHash = Lude.Nothing,
-        resourceId = pResourceId_,
+      { resourceId = pResourceId_,
         resourceType = pResourceType_,
-        complianceType = pComplianceType_,
+        uploadType = Lude.Nothing,
         executionSummary = pExecutionSummary_,
-        items = Lude.mempty
+        items = Lude.mempty,
+        complianceType = pComplianceType_,
+        itemContentHash = Lude.Nothing
       }
-
--- | The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.
---
--- In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
---
--- /Note:/ Consider using 'uploadType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciUploadType :: Lens.Lens' PutComplianceItems (Lude.Maybe ComplianceUploadType)
-pciUploadType = Lens.lens (uploadType :: PutComplianceItems -> Lude.Maybe ComplianceUploadType) (\s a -> s {uploadType = a} :: PutComplianceItems)
-{-# DEPRECATED pciUploadType "Use generic-lens or generic-optics with 'uploadType' instead." #-}
-
--- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
---
--- /Note:/ Consider using 'itemContentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciItemContentHash :: Lens.Lens' PutComplianceItems (Lude.Maybe Lude.Text)
-pciItemContentHash = Lens.lens (itemContentHash :: PutComplianceItems -> Lude.Maybe Lude.Text) (\s a -> s {itemContentHash = a} :: PutComplianceItems)
-{-# DEPRECATED pciItemContentHash "Use generic-lens or generic-optics with 'itemContentHash' instead." #-}
 
 -- | Specify an ID for this resource. For a managed instance, this is the instance ID.
 --
@@ -174,12 +161,14 @@ pciResourceType :: Lens.Lens' PutComplianceItems Lude.Text
 pciResourceType = Lens.lens (resourceType :: PutComplianceItems -> Lude.Text) (\s a -> s {resourceType = a} :: PutComplianceItems)
 {-# DEPRECATED pciResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
+-- | The mode for uploading compliance items. You can specify @COMPLETE@ or @PARTIAL@ . In @COMPLETE@ mode, the system overwrites all existing compliance information for the resource. You must provide a full list of compliance items each time you send the request.
 --
--- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pciComplianceType :: Lens.Lens' PutComplianceItems Lude.Text
-pciComplianceType = Lens.lens (complianceType :: PutComplianceItems -> Lude.Text) (\s a -> s {complianceType = a} :: PutComplianceItems)
-{-# DEPRECATED pciComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
+-- In @PARTIAL@ mode, the system overwrites compliance information for a specific association. The association must be configured with @SyncCompliance@ set to @MANUAL@ . By default, all requests use @COMPLETE@ mode.
+--
+-- /Note:/ Consider using 'uploadType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pciUploadType :: Lens.Lens' PutComplianceItems (Lude.Maybe ComplianceUploadType)
+pciUploadType = Lens.lens (uploadType :: PutComplianceItems -> Lude.Maybe ComplianceUploadType) (\s a -> s {uploadType = a} :: PutComplianceItems)
+{-# DEPRECATED pciUploadType "Use generic-lens or generic-optics with 'uploadType' instead." #-}
 
 -- | A summary of the call execution that includes an execution ID, the type of execution (for example, @Command@ ), and the date/time of the execution using a datetime object that is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.
 --
@@ -194,6 +183,20 @@ pciExecutionSummary = Lens.lens (executionSummary :: PutComplianceItems -> Compl
 pciItems :: Lens.Lens' PutComplianceItems [ComplianceItemEntry]
 pciItems = Lens.lens (items :: PutComplianceItems -> [ComplianceItemEntry]) (\s a -> s {items = a} :: PutComplianceItems)
 {-# DEPRECATED pciItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
+-- | Specify the compliance type. For example, specify Association (for a State Manager association), Patch, or Custom:@string@ .
+--
+-- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pciComplianceType :: Lens.Lens' PutComplianceItems Lude.Text
+pciComplianceType = Lens.lens (complianceType :: PutComplianceItems -> Lude.Text) (\s a -> s {complianceType = a} :: PutComplianceItems)
+{-# DEPRECATED pciComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
+
+-- | MD5 or SHA-256 content hash. The content hash is used to determine if existing information should be overwritten or ignored. If the content hashes match, the request to put compliance information is ignored.
+--
+-- /Note:/ Consider using 'itemContentHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pciItemContentHash :: Lens.Lens' PutComplianceItems (Lude.Maybe Lude.Text)
+pciItemContentHash = Lens.lens (itemContentHash :: PutComplianceItems -> Lude.Maybe Lude.Text) (\s a -> s {itemContentHash = a} :: PutComplianceItems)
+{-# DEPRECATED pciItemContentHash "Use generic-lens or generic-optics with 'itemContentHash' instead." #-}
 
 instance Lude.AWSRequest PutComplianceItems where
   type Rs PutComplianceItems = PutComplianceItemsResponse
@@ -219,13 +222,13 @@ instance Lude.ToJSON PutComplianceItems where
   toJSON PutComplianceItems' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("UploadType" Lude..=) Lude.<$> uploadType,
-            ("ItemContentHash" Lude..=) Lude.<$> itemContentHash,
-            Lude.Just ("ResourceId" Lude..= resourceId),
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
             Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("ComplianceType" Lude..= complianceType),
+            ("UploadType" Lude..=) Lude.<$> uploadType,
             Lude.Just ("ExecutionSummary" Lude..= executionSummary),
-            Lude.Just ("Items" Lude..= items)
+            Lude.Just ("Items" Lude..= items),
+            Lude.Just ("ComplianceType" Lude..= complianceType),
+            ("ItemContentHash" Lude..=) Lude.<$> itemContentHash
           ]
       )
 
@@ -237,16 +240,10 @@ instance Lude.ToQuery PutComplianceItems where
 
 -- | /See:/ 'mkPutComplianceItemsResponse' smart constructor.
 newtype PutComplianceItemsResponse = PutComplianceItemsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutComplianceItemsResponse' with the minimum fields required to make a request.

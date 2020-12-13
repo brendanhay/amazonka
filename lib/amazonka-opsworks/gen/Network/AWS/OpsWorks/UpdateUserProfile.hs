@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,27 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { allowSelfManagement ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
+    allowSelfManagement :: Lude.Maybe Lude.Bool,
+    -- | The user's new SSH public key.
     sshPublicKey :: Lude.Maybe Lude.Text,
+    -- | The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
     sshUsername :: Lude.Maybe Lude.Text,
+    -- | The user IAM ARN. This can also be a federated user's ARN.
     iamUserARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
 --
 -- * 'allowSelfManagement' - Whether users can specify their own SSH public key through the My Settings page. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions> .
--- * 'iamUserARN' - The user IAM ARN. This can also be a federated user's ARN.
 -- * 'sshPublicKey' - The user's new SSH public key.
 -- * 'sshUsername' - The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and '_'. If the specified name includes other punctuation marks, AWS OpsWorks Stacks removes them. For example, @my.name@ will be changed to @myname@ . If you do not specify an SSH user name, AWS OpsWorks Stacks generates one from the IAM user name.
+-- * 'iamUserARN' - The user IAM ARN. This can also be a federated user's ARN.
 mkUpdateUserProfile ::
   -- | 'iamUserARN'
   Lude.Text ->
@@ -136,13 +134,7 @@ instance Lude.ToQuery UpdateUserProfile where
 
 -- | /See:/ 'mkUpdateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.

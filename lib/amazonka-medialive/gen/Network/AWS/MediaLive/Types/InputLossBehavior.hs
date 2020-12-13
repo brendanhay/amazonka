@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputLossBehavior' smart constructor.
 data InputLossBehavior = InputLossBehavior'
-  { inputLossImageColor ::
-      Lude.Maybe Lude.Text,
+  { -- | When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
+    inputLossImageColor :: Lude.Maybe Lude.Text,
+    -- | Documentation update needed
     blackFrameMsec :: Lude.Maybe Lude.Natural,
+    -- | Documentation update needed
     repeatFrameMsec :: Lude.Maybe Lude.Natural,
+    -- | Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
     inputLossImageType :: Lude.Maybe InputLossImageType,
+    -- | When input loss image type is "slate" these fields specify the parameters for accessing the slate.
     inputLossImageSlate :: Lude.Maybe InputLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputLossBehavior' with the minimum fields required to make a request.
 --
--- * 'blackFrameMsec' - Documentation update needed
 -- * 'inputLossImageColor' - When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
--- * 'inputLossImageSlate' - When input loss image type is "slate" these fields specify the parameters for accessing the slate.
--- * 'inputLossImageType' - Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+-- * 'blackFrameMsec' - Documentation update needed
 -- * 'repeatFrameMsec' - Documentation update needed
+-- * 'inputLossImageType' - Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+-- * 'inputLossImageSlate' - When input loss image type is "slate" these fields specify the parameters for accessing the slate.
 mkInputLossBehavior ::
   InputLossBehavior
 mkInputLossBehavior =

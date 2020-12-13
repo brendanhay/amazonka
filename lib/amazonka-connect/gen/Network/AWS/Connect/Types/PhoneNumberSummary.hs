@@ -34,30 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhoneNumberSummary' smart constructor.
 data PhoneNumberSummary = PhoneNumberSummary'
-  { phoneNumberType ::
-      Lude.Maybe PhoneNumberType,
+  { -- | The type of phone number.
+    phoneNumberType :: Lude.Maybe PhoneNumberType,
+    -- | The Amazon Resource Name (ARN) of the phone number.
     arn :: Lude.Maybe Lude.Text,
+    -- | The phone number.
     phoneNumber :: Lude.Maybe Lude.Text,
-    phoneNumberCountryCode ::
-      Lude.Maybe PhoneNumberCountryCode,
+    -- | The ISO country code.
+    phoneNumberCountryCode :: Lude.Maybe PhoneNumberCountryCode,
+    -- | The identifier of the phone number.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhoneNumberSummary' with the minimum fields required to make a request.
 --
+-- * 'phoneNumberType' - The type of phone number.
 -- * 'arn' - The Amazon Resource Name (ARN) of the phone number.
--- * 'id' - The identifier of the phone number.
 -- * 'phoneNumber' - The phone number.
 -- * 'phoneNumberCountryCode' - The ISO country code.
--- * 'phoneNumberType' - The type of phone number.
+-- * 'id' - The identifier of the phone number.
 mkPhoneNumberSummary ::
   PhoneNumberSummary
 mkPhoneNumberSummary =

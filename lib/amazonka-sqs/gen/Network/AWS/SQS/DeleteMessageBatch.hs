@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,17 +25,17 @@ module Network.AWS.SQS.DeleteMessageBatch
     mkDeleteMessageBatch,
 
     -- ** Request lenses
-    dmbQueueURL,
     dmbEntries,
+    dmbQueueURL,
 
     -- * Destructuring the response
     DeleteMessageBatchResponse (..),
     mkDeleteMessageBatchResponse,
 
     -- ** Response lenses
-    dmbrsResponseStatus,
     dmbrsSuccessful,
     dmbrsFailed,
+    dmbrsResponseStatus,
   )
 where
 
@@ -48,17 +49,14 @@ import Network.AWS.SQS.Types
 --
 -- /See:/ 'mkDeleteMessageBatch' smart constructor.
 data DeleteMessageBatch = DeleteMessageBatch'
-  { queueURL ::
-      Lude.Text,
-    entries :: [DeleteMessageBatchRequestEntry]
+  { -- | A list of receipt handles for the messages to be deleted.
+    entries :: [DeleteMessageBatchRequestEntry],
+    -- | The URL of the Amazon SQS queue from which messages are deleted.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueURL :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMessageBatch' with the minimum fields required to make a request.
@@ -72,7 +70,14 @@ mkDeleteMessageBatch ::
   Lude.Text ->
   DeleteMessageBatch
 mkDeleteMessageBatch pQueueURL_ =
-  DeleteMessageBatch' {queueURL = pQueueURL_, entries = Lude.mempty}
+  DeleteMessageBatch' {entries = Lude.mempty, queueURL = pQueueURL_}
+
+-- | A list of receipt handles for the messages to be deleted.
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmbEntries :: Lens.Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
+dmbEntries = Lens.lens (entries :: DeleteMessageBatch -> [DeleteMessageBatchRequestEntry]) (\s a -> s {entries = a} :: DeleteMessageBatch)
+{-# DEPRECATED dmbEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
 -- | The URL of the Amazon SQS queue from which messages are deleted.
 --
@@ -83,13 +88,6 @@ dmbQueueURL :: Lens.Lens' DeleteMessageBatch Lude.Text
 dmbQueueURL = Lens.lens (queueURL :: DeleteMessageBatch -> Lude.Text) (\s a -> s {queueURL = a} :: DeleteMessageBatch)
 {-# DEPRECATED dmbQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
 
--- | A list of receipt handles for the messages to be deleted.
---
--- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmbEntries :: Lens.Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-dmbEntries = Lens.lens (entries :: DeleteMessageBatch -> [DeleteMessageBatchRequestEntry]) (\s a -> s {entries = a} :: DeleteMessageBatch)
-{-# DEPRECATED dmbEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
-
 instance Lude.AWSRequest DeleteMessageBatch where
   type Rs DeleteMessageBatch = DeleteMessageBatchResponse
   request = Req.postQuery sqsService
@@ -98,9 +96,9 @@ instance Lude.AWSRequest DeleteMessageBatch where
       "DeleteMessageBatchResult"
       ( \s h x ->
           DeleteMessageBatchResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.parseXMLList "DeleteMessageBatchResultEntry" x)
+            Lude.<$> (Lude.parseXMLList "DeleteMessageBatchResultEntry" x)
             Lude.<*> (Lude.parseXMLList "BatchResultErrorEntry" x)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteMessageBatch where
@@ -114,51 +112,39 @@ instance Lude.ToQuery DeleteMessageBatch where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteMessageBatch" :: Lude.ByteString),
         "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "QueueUrl" Lude.=: queueURL,
-        Lude.toQueryList "DeleteMessageBatchRequestEntry" entries
+        Lude.toQueryList "DeleteMessageBatchRequestEntry" entries,
+        "QueueUrl" Lude.=: queueURL
       ]
 
 -- | For each message in the batch, the response contains a @'DeleteMessageBatchResultEntry' @ tag if the message is deleted or a @'BatchResultErrorEntry' @ tag if the message can't be deleted.
 --
 -- /See:/ 'mkDeleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
-  { responseStatus ::
-      Lude.Int,
-    successful ::
-      [DeleteMessageBatchResultEntry],
-    failed :: [BatchResultErrorEntry]
+  { -- | A list of @'DeleteMessageBatchResultEntry' @ items.
+    successful :: [DeleteMessageBatchResultEntry],
+    -- | A list of @'BatchResultErrorEntry' @ items.
+    failed :: [BatchResultErrorEntry],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMessageBatchResponse' with the minimum fields required to make a request.
 --
+-- * 'successful' - A list of @'DeleteMessageBatchResultEntry' @ items.
 -- * 'failed' - A list of @'BatchResultErrorEntry' @ items.
 -- * 'responseStatus' - The response status code.
--- * 'successful' - A list of @'DeleteMessageBatchResultEntry' @ items.
 mkDeleteMessageBatchResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   DeleteMessageBatchResponse
 mkDeleteMessageBatchResponse pResponseStatus_ =
   DeleteMessageBatchResponse'
-    { responseStatus = pResponseStatus_,
-      successful = Lude.mempty,
-      failed = Lude.mempty
+    { successful = Lude.mempty,
+      failed = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmbrsResponseStatus :: Lens.Lens' DeleteMessageBatchResponse Lude.Int
-dmbrsResponseStatus = Lens.lens (responseStatus :: DeleteMessageBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMessageBatchResponse)
-{-# DEPRECATED dmbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of @'DeleteMessageBatchResultEntry' @ items.
 --
@@ -173,3 +159,10 @@ dmbrsSuccessful = Lens.lens (successful :: DeleteMessageBatchResponse -> [Delete
 dmbrsFailed :: Lens.Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrsFailed = Lens.lens (failed :: DeleteMessageBatchResponse -> [BatchResultErrorEntry]) (\s a -> s {failed = a} :: DeleteMessageBatchResponse)
 {-# DEPRECATED dmbrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmbrsResponseStatus :: Lens.Lens' DeleteMessageBatchResponse Lude.Int
+dmbrsResponseStatus = Lens.lens (responseStatus :: DeleteMessageBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMessageBatchResponse)
+{-# DEPRECATED dmbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

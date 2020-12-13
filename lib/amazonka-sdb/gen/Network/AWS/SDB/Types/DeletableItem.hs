@@ -28,23 +28,16 @@ import Network.AWS.SDB.Types.Attribute
 
 -- | /See:/ 'mkDeletableItem' smart constructor.
 data DeletableItem = DeletableItem'
-  { attributes ::
-      Lude.Maybe [Attribute],
+  { attributes :: Lude.Maybe [Attribute],
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletableItem' with the minimum fields required to make a request.
 --
--- * 'attributes' - Undocumented field.
--- * 'name' - Undocumented field.
+-- * 'attributes' -
+-- * 'name' -
 mkDeletableItem ::
   -- | 'name'
   Lude.Text ->

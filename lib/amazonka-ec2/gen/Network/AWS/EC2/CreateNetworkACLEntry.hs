@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,14 +26,14 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     -- ** Request lenses
     cnaeIPv6CidrBlock,
     cnaeICMPTypeCode,
+    cnaeNetworkACLId,
+    cnaeRuleNumber,
+    cnaeRuleAction,
+    cnaeProtocol,
     cnaePortRange,
     cnaeCidrBlock,
-    cnaeDryRun,
     cnaeEgress,
-    cnaeNetworkACLId,
-    cnaeProtocol,
-    cnaeRuleAction,
-    cnaeRuleNumber,
+    cnaeDryRun,
 
     -- * Destructuring the response
     CreateNetworkACLEntryResponse (..),
@@ -48,70 +49,75 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateNetworkACLEntry' smart constructor.
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
-  { ipv6CidrBlock ::
-      Lude.Maybe Lude.Text,
+  { -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:db8:1234:1a00::/64@ ).
+    ipv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
     icmpTypeCode :: Lude.Maybe ICMPTypeCode,
-    portRange :: Lude.Maybe PortRange,
-    cidrBlock :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    egress :: Lude.Bool,
+    -- | The ID of the network ACL.
     networkACLId :: Lude.Text,
-    protocol :: Lude.Text,
+    -- | The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+    --
+    -- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
+    ruleNumber :: Lude.Int,
+    -- | Indicates whether to allow or deny the traffic that matches the rule.
     ruleAction :: RuleAction,
-    ruleNumber :: Lude.Int
+    -- | The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+    protocol :: Lude.Text,
+    -- | TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
+    portRange :: Lude.Maybe PortRange,
+    -- | The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ). We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
+    cidrBlock :: Lude.Maybe Lude.Text,
+    -- | Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).
+    egress :: Lude.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkACLEntry' with the minimum fields required to make a request.
 --
--- * 'cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ). We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'egress' - Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).
--- * 'icmpTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 -- * 'ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation (for example @2001:db8:1234:1a00::/64@ ).
+-- * 'icmpTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 -- * 'networkACLId' - The ID of the network ACL.
--- * 'portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
--- * 'protocol' - The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
--- * 'ruleAction' - Indicates whether to allow or deny the traffic that matches the rule.
 -- * 'ruleNumber' - The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
 --
 -- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
+-- * 'ruleAction' - Indicates whether to allow or deny the traffic that matches the rule.
+-- * 'protocol' - The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+-- * 'portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
+-- * 'cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation (for example @172.16.0.0/24@ ). We modify the specified CIDR block to its canonical form; for example, if you specify @100.68.0.18/18@ , we modify it to @100.68.0.0/18@ .
+-- * 'egress' - Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateNetworkACLEntry ::
-  -- | 'egress'
-  Lude.Bool ->
   -- | 'networkACLId'
   Lude.Text ->
-  -- | 'protocol'
-  Lude.Text ->
-  -- | 'ruleAction'
-  RuleAction ->
   -- | 'ruleNumber'
   Lude.Int ->
+  -- | 'ruleAction'
+  RuleAction ->
+  -- | 'protocol'
+  Lude.Text ->
+  -- | 'egress'
+  Lude.Bool ->
   CreateNetworkACLEntry
 mkCreateNetworkACLEntry
-  pEgress_
   pNetworkACLId_
-  pProtocol_
+  pRuleNumber_
   pRuleAction_
-  pRuleNumber_ =
+  pProtocol_
+  pEgress_ =
     CreateNetworkACLEntry'
       { ipv6CidrBlock = Lude.Nothing,
         icmpTypeCode = Lude.Nothing,
+        networkACLId = pNetworkACLId_,
+        ruleNumber = pRuleNumber_,
+        ruleAction = pRuleAction_,
+        protocol = pProtocol_,
         portRange = Lude.Nothing,
         cidrBlock = Lude.Nothing,
-        dryRun = Lude.Nothing,
         egress = pEgress_,
-        networkACLId = pNetworkACLId_,
-        protocol = pProtocol_,
-        ruleAction = pRuleAction_,
-        ruleNumber = pRuleNumber_
+        dryRun = Lude.Nothing
       }
 
 -- | The IPv6 network range to allow or deny, in CIDR notation (for example @2001:db8:1234:1a00::/64@ ).
@@ -128,6 +134,36 @@ cnaeICMPTypeCode :: Lens.Lens' CreateNetworkACLEntry (Lude.Maybe ICMPTypeCode)
 cnaeICMPTypeCode = Lens.lens (icmpTypeCode :: CreateNetworkACLEntry -> Lude.Maybe ICMPTypeCode) (\s a -> s {icmpTypeCode = a} :: CreateNetworkACLEntry)
 {-# DEPRECATED cnaeICMPTypeCode "Use generic-lens or generic-optics with 'icmpTypeCode' instead." #-}
 
+-- | The ID of the network ACL.
+--
+-- /Note:/ Consider using 'networkACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnaeNetworkACLId :: Lens.Lens' CreateNetworkACLEntry Lude.Text
+cnaeNetworkACLId = Lens.lens (networkACLId :: CreateNetworkACLEntry -> Lude.Text) (\s a -> s {networkACLId = a} :: CreateNetworkACLEntry)
+{-# DEPRECATED cnaeNetworkACLId "Use generic-lens or generic-optics with 'networkACLId' instead." #-}
+
+-- | The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
+--
+-- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
+--
+-- /Note:/ Consider using 'ruleNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnaeRuleNumber :: Lens.Lens' CreateNetworkACLEntry Lude.Int
+cnaeRuleNumber = Lens.lens (ruleNumber :: CreateNetworkACLEntry -> Lude.Int) (\s a -> s {ruleNumber = a} :: CreateNetworkACLEntry)
+{-# DEPRECATED cnaeRuleNumber "Use generic-lens or generic-optics with 'ruleNumber' instead." #-}
+
+-- | Indicates whether to allow or deny the traffic that matches the rule.
+--
+-- /Note:/ Consider using 'ruleAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnaeRuleAction :: Lens.Lens' CreateNetworkACLEntry RuleAction
+cnaeRuleAction = Lens.lens (ruleAction :: CreateNetworkACLEntry -> RuleAction) (\s a -> s {ruleAction = a} :: CreateNetworkACLEntry)
+{-# DEPRECATED cnaeRuleAction "Use generic-lens or generic-optics with 'ruleAction' instead." #-}
+
+-- | The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnaeProtocol :: Lens.Lens' CreateNetworkACLEntry Lude.Text
+cnaeProtocol = Lens.lens (protocol :: CreateNetworkACLEntry -> Lude.Text) (\s a -> s {protocol = a} :: CreateNetworkACLEntry)
+{-# DEPRECATED cnaeProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
 -- | TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).
 --
 -- /Note:/ Consider using 'portRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -142,13 +178,6 @@ cnaeCidrBlock :: Lens.Lens' CreateNetworkACLEntry (Lude.Maybe Lude.Text)
 cnaeCidrBlock = Lens.lens (cidrBlock :: CreateNetworkACLEntry -> Lude.Maybe Lude.Text) (\s a -> s {cidrBlock = a} :: CreateNetworkACLEntry)
 {-# DEPRECATED cnaeCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnaeDryRun :: Lens.Lens' CreateNetworkACLEntry (Lude.Maybe Lude.Bool)
-cnaeDryRun = Lens.lens (dryRun :: CreateNetworkACLEntry -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNetworkACLEntry)
-{-# DEPRECATED cnaeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).
 --
 -- /Note:/ Consider using 'egress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -156,35 +185,12 @@ cnaeEgress :: Lens.Lens' CreateNetworkACLEntry Lude.Bool
 cnaeEgress = Lens.lens (egress :: CreateNetworkACLEntry -> Lude.Bool) (\s a -> s {egress = a} :: CreateNetworkACLEntry)
 {-# DEPRECATED cnaeEgress "Use generic-lens or generic-optics with 'egress' instead." #-}
 
--- | The ID of the network ACL.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'networkACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnaeNetworkACLId :: Lens.Lens' CreateNetworkACLEntry Lude.Text
-cnaeNetworkACLId = Lens.lens (networkACLId :: CreateNetworkACLEntry -> Lude.Text) (\s a -> s {networkACLId = a} :: CreateNetworkACLEntry)
-{-# DEPRECATED cnaeNetworkACLId "Use generic-lens or generic-optics with 'networkACLId' instead." #-}
-
--- | The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnaeProtocol :: Lens.Lens' CreateNetworkACLEntry Lude.Text
-cnaeProtocol = Lens.lens (protocol :: CreateNetworkACLEntry -> Lude.Text) (\s a -> s {protocol = a} :: CreateNetworkACLEntry)
-{-# DEPRECATED cnaeProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
-
--- | Indicates whether to allow or deny the traffic that matches the rule.
---
--- /Note:/ Consider using 'ruleAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnaeRuleAction :: Lens.Lens' CreateNetworkACLEntry RuleAction
-cnaeRuleAction = Lens.lens (ruleAction :: CreateNetworkACLEntry -> RuleAction) (\s a -> s {ruleAction = a} :: CreateNetworkACLEntry)
-{-# DEPRECATED cnaeRuleAction "Use generic-lens or generic-optics with 'ruleAction' instead." #-}
-
--- | The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
---
--- Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.
---
--- /Note:/ Consider using 'ruleNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnaeRuleNumber :: Lens.Lens' CreateNetworkACLEntry Lude.Int
-cnaeRuleNumber = Lens.lens (ruleNumber :: CreateNetworkACLEntry -> Lude.Int) (\s a -> s {ruleNumber = a} :: CreateNetworkACLEntry)
-{-# DEPRECATED cnaeRuleNumber "Use generic-lens or generic-optics with 'ruleNumber' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnaeDryRun :: Lens.Lens' CreateNetworkACLEntry (Lude.Maybe Lude.Bool)
+cnaeDryRun = Lens.lens (dryRun :: CreateNetworkACLEntry -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateNetworkACLEntry)
+{-# DEPRECATED cnaeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateNetworkACLEntry where
   type Rs CreateNetworkACLEntry = CreateNetworkACLEntryResponse
@@ -204,25 +210,19 @@ instance Lude.ToQuery CreateNetworkACLEntry where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "Ipv6CidrBlock" Lude.=: ipv6CidrBlock,
         "Icmp" Lude.=: icmpTypeCode,
+        "NetworkAclId" Lude.=: networkACLId,
+        "RuleNumber" Lude.=: ruleNumber,
+        "RuleAction" Lude.=: ruleAction,
+        "Protocol" Lude.=: protocol,
         "PortRange" Lude.=: portRange,
         "CidrBlock" Lude.=: cidrBlock,
-        "DryRun" Lude.=: dryRun,
         "Egress" Lude.=: egress,
-        "NetworkAclId" Lude.=: networkACLId,
-        "Protocol" Lude.=: protocol,
-        "RuleAction" Lude.=: ruleAction,
-        "RuleNumber" Lude.=: ruleNumber
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateNetworkACLEntryResponse' smart constructor.
 data CreateNetworkACLEntryResponse = CreateNetworkACLEntryResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateNetworkACLEntryResponse' with the minimum fields required to make a request.

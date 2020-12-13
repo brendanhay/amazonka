@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.SelectiveAuth
   ( SelectiveAuth
       ( SelectiveAuth',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SelectiveAuth = SelectiveAuth' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: SelectiveAuth
-pattern Disabled = SelectiveAuth' "Disabled"
-
 pattern Enabled :: SelectiveAuth
 pattern Enabled = SelectiveAuth' "Enabled"
 
+pattern Disabled :: SelectiveAuth
+pattern Disabled = SelectiveAuth' "Disabled"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   SelectiveAuth'
   #-}

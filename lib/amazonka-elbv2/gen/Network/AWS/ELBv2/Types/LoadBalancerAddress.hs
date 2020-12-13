@@ -31,26 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerAddress' smart constructor.
 data LoadBalancerAddress = LoadBalancerAddress'
-  { ipv6Address ::
-      Lude.Maybe Lude.Text,
+  { -- | [Network Load Balancers] The IPv6 address.
+    ipv6Address :: Lude.Maybe Lude.Text,
+    -- | The static IP address.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | [Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.
     allocationId :: Lude.Maybe Lude.Text,
+    -- | [Network Load Balancers] The private IPv4 address for an internal load balancer.
     privateIPv4Address :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerAddress' with the minimum fields required to make a request.
 --
--- * 'allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.
--- * 'ipAddress' - The static IP address.
 -- * 'ipv6Address' - [Network Load Balancers] The IPv6 address.
+-- * 'ipAddress' - The static IP address.
+-- * 'allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.
 -- * 'privateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load balancer.
 mkLoadBalancerAddress ::
   LoadBalancerAddress

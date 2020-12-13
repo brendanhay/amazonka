@@ -14,13 +14,13 @@ module Network.AWS.Route53Domains.Types.DomainAvailability
   ( DomainAvailability
       ( DomainAvailability',
         DAAvailable,
-        DAAvailablePreorder,
         DAAvailableReserved,
-        DADontKnow,
-        DAReserved,
+        DAAvailablePreorder,
         DAUnavailable,
         DAUnavailablePremium,
-        DAUnavailableRestricted
+        DAUnavailableRestricted,
+        DAReserved,
+        DADontKnow
       ),
   )
 where
@@ -54,17 +54,11 @@ newtype DomainAvailability = DomainAvailability' Lude.Text
 pattern DAAvailable :: DomainAvailability
 pattern DAAvailable = DomainAvailability' "AVAILABLE"
 
-pattern DAAvailablePreorder :: DomainAvailability
-pattern DAAvailablePreorder = DomainAvailability' "AVAILABLE_PREORDER"
-
 pattern DAAvailableReserved :: DomainAvailability
 pattern DAAvailableReserved = DomainAvailability' "AVAILABLE_RESERVED"
 
-pattern DADontKnow :: DomainAvailability
-pattern DADontKnow = DomainAvailability' "DONT_KNOW"
-
-pattern DAReserved :: DomainAvailability
-pattern DAReserved = DomainAvailability' "RESERVED"
+pattern DAAvailablePreorder :: DomainAvailability
+pattern DAAvailablePreorder = DomainAvailability' "AVAILABLE_PREORDER"
 
 pattern DAUnavailable :: DomainAvailability
 pattern DAUnavailable = DomainAvailability' "UNAVAILABLE"
@@ -75,14 +69,20 @@ pattern DAUnavailablePremium = DomainAvailability' "UNAVAILABLE_PREMIUM"
 pattern DAUnavailableRestricted :: DomainAvailability
 pattern DAUnavailableRestricted = DomainAvailability' "UNAVAILABLE_RESTRICTED"
 
+pattern DAReserved :: DomainAvailability
+pattern DAReserved = DomainAvailability' "RESERVED"
+
+pattern DADontKnow :: DomainAvailability
+pattern DADontKnow = DomainAvailability' "DONT_KNOW"
+
 {-# COMPLETE
   DAAvailable,
-  DAAvailablePreorder,
   DAAvailableReserved,
-  DADontKnow,
-  DAReserved,
+  DAAvailablePreorder,
   DAUnavailable,
   DAUnavailablePremium,
   DAUnavailableRestricted,
+  DAReserved,
+  DADontKnow,
   DomainAvailability'
   #-}

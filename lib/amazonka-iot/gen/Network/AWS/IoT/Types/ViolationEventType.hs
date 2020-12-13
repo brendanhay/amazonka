@@ -13,9 +13,9 @@
 module Network.AWS.IoT.Types.ViolationEventType
   ( ViolationEventType
       ( ViolationEventType',
+        InAlarm,
         AlarmCleared,
-        AlarmInvalidated,
-        InAlarm
+        AlarmInvalidated
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ViolationEventType = ViolationEventType' Lude.Text
       Lude.ToHeader
     )
 
+pattern InAlarm :: ViolationEventType
+pattern InAlarm = ViolationEventType' "in-alarm"
+
 pattern AlarmCleared :: ViolationEventType
 pattern AlarmCleared = ViolationEventType' "alarm-cleared"
 
 pattern AlarmInvalidated :: ViolationEventType
 pattern AlarmInvalidated = ViolationEventType' "alarm-invalidated"
 
-pattern InAlarm :: ViolationEventType
-pattern InAlarm = ViolationEventType' "in-alarm"
-
 {-# COMPLETE
+  InAlarm,
   AlarmCleared,
   AlarmInvalidated,
-  InAlarm,
   ViolationEventType'
   #-}

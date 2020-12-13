@@ -30,21 +30,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBillingModeSummary' smart constructor.
 data BillingModeSummary = BillingModeSummary'
-  { lastUpdateToPayPerRequestDateTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
+    lastUpdateToPayPerRequestDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
+    --
+    --
+    --     * @PROVISIONED@ - Sets the read/write capacity mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.
+    --
+    --
+    --     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
     billingMode :: Lude.Maybe BillingMode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BillingModeSummary' with the minimum fields required to make a request.
 --
+-- * 'lastUpdateToPayPerRequestDateTime' - Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
 -- * 'billingMode' - Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
 --
 --
@@ -52,9 +54,6 @@ data BillingModeSummary = BillingModeSummary'
 --
 --
 --     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
---
---
--- * 'lastUpdateToPayPerRequestDateTime' - Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
 mkBillingModeSummary ::
   BillingModeSummary
 mkBillingModeSummary =

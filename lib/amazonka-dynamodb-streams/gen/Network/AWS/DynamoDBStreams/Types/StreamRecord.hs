@@ -36,32 +36,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamRecord' smart constructor.
 data StreamRecord = StreamRecord'
-  { sizeBytes ::
-      Lude.Maybe Lude.Natural,
+  { -- | The size of the stream record, in bytes.
+    sizeBytes :: Lude.Maybe Lude.Natural,
+    -- | The sequence number of the stream record.
     sequenceNumber :: Lude.Maybe Lude.Text,
+    -- | The approximate date and time when the stream record was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
     approximateCreationDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The type of data from the modified DynamoDB item that was captured in this stream record:
+    --
+    --
+    --     * @KEYS_ONLY@ - only the key attributes of the modified item.
+    --
+    --
+    --     * @NEW_IMAGE@ - the entire item, as it appeared after it was modified.
+    --
+    --
+    --     * @OLD_IMAGE@ - the entire item, as it appeared before it was modified.
+    --
+    --
+    --     * @NEW_AND_OLD_IMAGES@ - both the new and the old item images of the item.
     streamViewType :: Lude.Maybe StreamViewType,
+    -- | The primary key attribute(s) for the DynamoDB item that was modified.
     keys :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | The item in the DynamoDB table as it appeared before it was modified.
     oldImage :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | The item in the DynamoDB table as it appeared after it was modified.
     newImage :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamRecord' with the minimum fields required to make a request.
 --
--- * 'approximateCreationDateTime' - The approximate date and time when the stream record was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
--- * 'keys' - The primary key attribute(s) for the DynamoDB item that was modified.
--- * 'newImage' - The item in the DynamoDB table as it appeared after it was modified.
--- * 'oldImage' - The item in the DynamoDB table as it appeared before it was modified.
--- * 'sequenceNumber' - The sequence number of the stream record.
 -- * 'sizeBytes' - The size of the stream record, in bytes.
+-- * 'sequenceNumber' - The sequence number of the stream record.
+-- * 'approximateCreationDateTime' - The approximate date and time when the stream record was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
 -- * 'streamViewType' - The type of data from the modified DynamoDB item that was captured in this stream record:
 --
 --
@@ -75,6 +84,11 @@ data StreamRecord = StreamRecord'
 --
 --
 --     * @NEW_AND_OLD_IMAGES@ - both the new and the old item images of the item.
+--
+--
+-- * 'keys' - The primary key attribute(s) for the DynamoDB item that was modified.
+-- * 'oldImage' - The item in the DynamoDB table as it appeared before it was modified.
+-- * 'newImage' - The item in the DynamoDB table as it appeared after it was modified.
 mkStreamRecord ::
   StreamRecord
 mkStreamRecord =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.GetStatistics
     -- ** Request lenses
     gsQueryVersion,
     gsAggregationField,
-    gsIndexName,
     gsQueryString,
+    gsIndexName,
 
     -- * Destructuring the response
     GetStatisticsResponse (..),
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetStatistics' smart constructor.
 data GetStatistics = GetStatistics'
-  { queryVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the query used to search.
+    queryVersion :: Lude.Maybe Lude.Text,
+    -- | The aggregation field name.
     aggregationField :: Lude.Maybe Lude.Text,
-    indexName :: Lude.Maybe Lude.Text,
-    queryString :: Lude.Text
+    -- | The query used to search. You can specify "*" for the query string to get the count of all indexed things in your AWS account.
+    queryString :: Lude.Text,
+    -- | The name of the index to search. The default value is @AWS_Things@ .
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatistics' with the minimum fields required to make a request.
 --
--- * 'aggregationField' - The aggregation field name.
--- * 'indexName' - The name of the index to search. The default value is @AWS_Things@ .
--- * 'queryString' - The query used to search. You can specify "*" for the query string to get the count of all indexed things in your AWS account.
 -- * 'queryVersion' - The version of the query used to search.
+-- * 'aggregationField' - The aggregation field name.
+-- * 'queryString' - The query used to search. You can specify "*" for the query string to get the count of all indexed things in your AWS account.
+-- * 'indexName' - The name of the index to search. The default value is @AWS_Things@ .
 mkGetStatistics ::
   -- | 'queryString'
   Lude.Text ->
@@ -71,8 +69,8 @@ mkGetStatistics pQueryString_ =
   GetStatistics'
     { queryVersion = Lude.Nothing,
       aggregationField = Lude.Nothing,
-      indexName = Lude.Nothing,
-      queryString = pQueryString_
+      queryString = pQueryString_,
+      indexName = Lude.Nothing
     }
 
 -- | The version of the query used to search.
@@ -89,19 +87,19 @@ gsAggregationField :: Lens.Lens' GetStatistics (Lude.Maybe Lude.Text)
 gsAggregationField = Lens.lens (aggregationField :: GetStatistics -> Lude.Maybe Lude.Text) (\s a -> s {aggregationField = a} :: GetStatistics)
 {-# DEPRECATED gsAggregationField "Use generic-lens or generic-optics with 'aggregationField' instead." #-}
 
--- | The name of the index to search. The default value is @AWS_Things@ .
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsIndexName :: Lens.Lens' GetStatistics (Lude.Maybe Lude.Text)
-gsIndexName = Lens.lens (indexName :: GetStatistics -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetStatistics)
-{-# DEPRECATED gsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
 -- | The query used to search. You can specify "*" for the query string to get the count of all indexed things in your AWS account.
 --
 -- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gsQueryString :: Lens.Lens' GetStatistics Lude.Text
 gsQueryString = Lens.lens (queryString :: GetStatistics -> Lude.Text) (\s a -> s {queryString = a} :: GetStatistics)
 {-# DEPRECATED gsQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
+-- | The name of the index to search. The default value is @AWS_Things@ .
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsIndexName :: Lens.Lens' GetStatistics (Lude.Maybe Lude.Text)
+gsIndexName = Lens.lens (indexName :: GetStatistics -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetStatistics)
+{-# DEPRECATED gsIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 instance Lude.AWSRequest GetStatistics where
   type Rs GetStatistics = GetStatisticsResponse
@@ -122,8 +120,8 @@ instance Lude.ToJSON GetStatistics where
       ( Lude.catMaybes
           [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
             ("aggregationField" Lude..=) Lude.<$> aggregationField,
-            ("indexName" Lude..=) Lude.<$> indexName,
-            Lude.Just ("queryString" Lude..= queryString)
+            Lude.Just ("queryString" Lude..= queryString),
+            ("indexName" Lude..=) Lude.<$> indexName
           ]
       )
 
@@ -135,23 +133,18 @@ instance Lude.ToQuery GetStatistics where
 
 -- | /See:/ 'mkGetStatisticsResponse' smart constructor.
 data GetStatisticsResponse = GetStatisticsResponse'
-  { statistics ::
-      Lude.Maybe Statistics,
+  { -- | The statistics returned by the Fleet Indexing service based on the query and aggregation field.
+    statistics :: Lude.Maybe Statistics,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetStatisticsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'statistics' - The statistics returned by the Fleet Indexing service based on the query and aggregation field.
+-- * 'responseStatus' - The response status code.
 mkGetStatisticsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

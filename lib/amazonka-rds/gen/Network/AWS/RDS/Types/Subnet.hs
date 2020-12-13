@@ -33,28 +33,27 @@ import Network.AWS.RDS.Types.Outpost
 --
 -- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { subnetStatus :: Lude.Maybe Lude.Text,
+  { -- | The status of the subnet.
+    subnetStatus :: Lude.Maybe Lude.Text,
+    -- | The identifier of the subnet.
     subnetIdentifier :: Lude.Maybe Lude.Text,
     subnetAvailabilityZone :: Lude.Maybe AvailabilityZone,
+    -- | If the subnet is associated with an Outpost, this value specifies the Outpost.
+    --
+    -- For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
     subnetOutpost :: Lude.Maybe Outpost
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
--- * 'subnetAvailabilityZone' - Undocumented field.
+-- * 'subnetStatus' - The status of the subnet.
 -- * 'subnetIdentifier' - The identifier of the subnet.
+-- * 'subnetAvailabilityZone' -
 -- * 'subnetOutpost' - If the subnet is associated with an Outpost, this value specifies the Outpost.
 --
 -- For more information about RDS on Outposts, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Amazon RDS on AWS Outposts> in the /Amazon RDS User Guide./
--- * 'subnetStatus' - The status of the subnet.
 mkSubnet ::
   Subnet
 mkSubnet =

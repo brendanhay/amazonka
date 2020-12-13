@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.KinesisVideo.CreateStream
     csDataRetentionInHours,
     csKMSKeyId,
     csDeviceName,
-    csTags,
     csStreamName,
+    csTags,
 
     -- * Destructuring the response
     CreateStreamResponse (..),
@@ -49,38 +50,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { mediaType ::
-      Lude.Maybe Lude.Text,
+  { -- | The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
+    --
+    -- Example valid values include "video/h264" and "video/h264,audio/aac".
+    -- This parameter is optional; the default value is @null@ (or empty in JSON).
+    mediaType :: Lude.Maybe Lude.Text,
+    -- | The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+    --
+    -- The default value is 0, indicating that the stream does not persist data.
+    -- When the @DataRetentionInHours@ value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.
     dataRetentionInHours :: Lude.Maybe Lude.Natural,
+    -- | The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.
+    --
+    -- If no key ID is specified, the default, Kinesis Video-managed key (@aws/kinesisvideo@ ) is used.
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey> .
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The name of the device that is writing to the stream.
     deviceName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    streamName :: Lude.Text
+    -- | A name for the stream that you are creating.
+    --
+    -- The stream name is an identifier for the stream, and must be unique for each account and region.
+    streamName :: Lude.Text,
+    -- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStream' with the minimum fields required to make a request.
 --
--- * 'dataRetentionInHours' - The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
---
--- The default value is 0, indicating that the stream does not persist data.
--- When the @DataRetentionInHours@ value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.
--- * 'deviceName' - The name of the device that is writing to the stream.
--- * 'kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.
---
--- If no key ID is specified, the default, Kinesis Video-managed key (@aws/kinesisvideo@ ) is used.
--- For more information, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey> .
 -- * 'mediaType' - The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
 --
 -- Example valid values include "video/h264" and "video/h264,audio/aac".
 -- This parameter is optional; the default value is @null@ (or empty in JSON).
+-- * 'dataRetentionInHours' - The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.
+--
+-- The default value is 0, indicating that the stream does not persist data.
+-- When the @DataRetentionInHours@ value is 0, consumers can still consume the fragments that remain in the service host buffer, which has a retention time limit of 5 minutes and a retention memory limit of 200 MB. Fragments are removed from the buffer when either limit is reached.
+-- * 'kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.
+--
+-- If no key ID is specified, the default, Kinesis Video-managed key (@aws/kinesisvideo@ ) is used.
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey> .
+-- * 'deviceName' - The name of the device that is writing to the stream.
 -- * 'streamName' - A name for the stream that you are creating.
 --
 -- The stream name is an identifier for the stream, and must be unique for each account and region.
@@ -95,8 +106,8 @@ mkCreateStream pStreamName_ =
       dataRetentionInHours = Lude.Nothing,
       kmsKeyId = Lude.Nothing,
       deviceName = Lude.Nothing,
-      tags = Lude.Nothing,
-      streamName = pStreamName_
+      streamName = pStreamName_,
+      tags = Lude.Nothing
     }
 
 -- | The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <http://www.iana.org/assignments/media-types/media-types.xhtml Media Types> . If you choose to specify the @MediaType@ , see <https://tools.ietf.org/html/rfc6838#section-4.2 Naming Requirements> for guidelines.
@@ -136,13 +147,6 @@ csDeviceName :: Lens.Lens' CreateStream (Lude.Maybe Lude.Text)
 csDeviceName = Lens.lens (deviceName :: CreateStream -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: CreateStream)
 {-# DEPRECATED csDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
--- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csTags :: Lens.Lens' CreateStream (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-csTags = Lens.lens (tags :: CreateStream -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateStream)
-{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | A name for the stream that you are creating.
 --
 -- The stream name is an identifier for the stream, and must be unique for each account and region.
@@ -151,6 +155,13 @@ csTags = Lens.lens (tags :: CreateStream -> Lude.Maybe (Lude.HashMap Lude.Text (
 csStreamName :: Lens.Lens' CreateStream Lude.Text
 csStreamName = Lens.lens (streamName :: CreateStream -> Lude.Text) (\s a -> s {streamName = a} :: CreateStream)
 {-# DEPRECATED csStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+
+-- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' CreateStream (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+csTags = Lens.lens (tags :: CreateStream -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateStream)
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateStream where
   type Rs CreateStream = CreateStreamResponse
@@ -173,8 +184,8 @@ instance Lude.ToJSON CreateStream where
             ("DataRetentionInHours" Lude..=) Lude.<$> dataRetentionInHours,
             ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
             ("DeviceName" Lude..=) Lude.<$> deviceName,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("StreamName" Lude..= streamName)
+            Lude.Just ("StreamName" Lude..= streamName),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -186,23 +197,18 @@ instance Lude.ToQuery CreateStream where
 
 -- | /See:/ 'mkCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
-  { streamARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the stream.
+    streamARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateStreamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'streamARN' - The Amazon Resource Name (ARN) of the stream.
+-- * 'responseStatus' - The response status code.
 mkCreateStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->

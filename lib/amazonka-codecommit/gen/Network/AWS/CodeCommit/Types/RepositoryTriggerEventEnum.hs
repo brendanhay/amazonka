@@ -14,9 +14,9 @@ module Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum
   ( RepositoryTriggerEventEnum
       ( RepositoryTriggerEventEnum',
         All,
+        UpdateReference,
         CreateReference,
-        DeleteReference,
-        UpdateReference
+        DeleteReference
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype RepositoryTriggerEventEnum = RepositoryTriggerEventEnum' Lude.Text
 pattern All :: RepositoryTriggerEventEnum
 pattern All = RepositoryTriggerEventEnum' "all"
 
+pattern UpdateReference :: RepositoryTriggerEventEnum
+pattern UpdateReference = RepositoryTriggerEventEnum' "updateReference"
+
 pattern CreateReference :: RepositoryTriggerEventEnum
 pattern CreateReference = RepositoryTriggerEventEnum' "createReference"
 
 pattern DeleteReference :: RepositoryTriggerEventEnum
 pattern DeleteReference = RepositoryTriggerEventEnum' "deleteReference"
 
-pattern UpdateReference :: RepositoryTriggerEventEnum
-pattern UpdateReference = RepositoryTriggerEventEnum' "updateReference"
-
 {-# COMPLETE
   All,
+  UpdateReference,
   CreateReference,
   DeleteReference,
-  UpdateReference,
   RepositoryTriggerEventEnum'
   #-}

@@ -13,16 +13,16 @@
 module Network.AWS.Budgets.Types.ActionStatus
   ( ActionStatus
       ( ActionStatus',
-        ExecutionFailure,
+        Standby,
+        Pending,
         ExecutionInProgress,
         ExecutionSuccess,
-        Pending,
-        ResetFailure,
-        ResetInProgress,
-        ReverseFailure,
+        ExecutionFailure,
         ReverseInProgress,
         ReverseSuccess,
-        Standby
+        ReverseFailure,
+        ResetInProgress,
+        ResetFailure
       ),
   )
 where
@@ -53,8 +53,11 @@ newtype ActionStatus = ActionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ExecutionFailure :: ActionStatus
-pattern ExecutionFailure = ActionStatus' "EXECUTION_FAILURE"
+pattern Standby :: ActionStatus
+pattern Standby = ActionStatus' "STANDBY"
+
+pattern Pending :: ActionStatus
+pattern Pending = ActionStatus' "PENDING"
 
 pattern ExecutionInProgress :: ActionStatus
 pattern ExecutionInProgress = ActionStatus' "EXECUTION_IN_PROGRESS"
@@ -62,17 +65,8 @@ pattern ExecutionInProgress = ActionStatus' "EXECUTION_IN_PROGRESS"
 pattern ExecutionSuccess :: ActionStatus
 pattern ExecutionSuccess = ActionStatus' "EXECUTION_SUCCESS"
 
-pattern Pending :: ActionStatus
-pattern Pending = ActionStatus' "PENDING"
-
-pattern ResetFailure :: ActionStatus
-pattern ResetFailure = ActionStatus' "RESET_FAILURE"
-
-pattern ResetInProgress :: ActionStatus
-pattern ResetInProgress = ActionStatus' "RESET_IN_PROGRESS"
-
-pattern ReverseFailure :: ActionStatus
-pattern ReverseFailure = ActionStatus' "REVERSE_FAILURE"
+pattern ExecutionFailure :: ActionStatus
+pattern ExecutionFailure = ActionStatus' "EXECUTION_FAILURE"
 
 pattern ReverseInProgress :: ActionStatus
 pattern ReverseInProgress = ActionStatus' "REVERSE_IN_PROGRESS"
@@ -80,19 +74,25 @@ pattern ReverseInProgress = ActionStatus' "REVERSE_IN_PROGRESS"
 pattern ReverseSuccess :: ActionStatus
 pattern ReverseSuccess = ActionStatus' "REVERSE_SUCCESS"
 
-pattern Standby :: ActionStatus
-pattern Standby = ActionStatus' "STANDBY"
+pattern ReverseFailure :: ActionStatus
+pattern ReverseFailure = ActionStatus' "REVERSE_FAILURE"
+
+pattern ResetInProgress :: ActionStatus
+pattern ResetInProgress = ActionStatus' "RESET_IN_PROGRESS"
+
+pattern ResetFailure :: ActionStatus
+pattern ResetFailure = ActionStatus' "RESET_FAILURE"
 
 {-# COMPLETE
-  ExecutionFailure,
+  Standby,
+  Pending,
   ExecutionInProgress,
   ExecutionSuccess,
-  Pending,
-  ResetFailure,
-  ResetInProgress,
-  ReverseFailure,
+  ExecutionFailure,
   ReverseInProgress,
   ReverseSuccess,
-  Standby,
+  ReverseFailure,
+  ResetInProgress,
+  ResetFailure,
   ActionStatus'
   #-}

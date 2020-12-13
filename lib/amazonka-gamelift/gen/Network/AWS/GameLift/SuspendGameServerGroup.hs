@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -73,18 +74,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSuspendGameServerGroup' smart constructor.
 data SuspendGameServerGroup = SuspendGameServerGroup'
-  { gameServerGroupName ::
-      Lude.Text,
-    suspendActions ::
-      Lude.NonEmpty GameServerGroupAction
+  { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+    gameServerGroupName :: Lude.Text,
+    -- | The activity to suspend for this game server group.
+    suspendActions :: Lude.NonEmpty GameServerGroupAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuspendGameServerGroup' with the minimum fields required to make a request.
@@ -157,17 +152,12 @@ instance Lude.ToQuery SuspendGameServerGroup where
 
 -- | /See:/ 'mkSuspendGameServerGroupResponse' smart constructor.
 data SuspendGameServerGroupResponse = SuspendGameServerGroupResponse'
-  { gameServerGroup ::
-      Lude.Maybe GameServerGroup,
+  { -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the suspended activity.
+    gameServerGroup :: Lude.Maybe GameServerGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuspendGameServerGroupResponse' with the minimum fields required to make a request.

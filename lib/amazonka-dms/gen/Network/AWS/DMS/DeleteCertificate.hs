@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.DMS.DeleteCertificate
     mkDeleteCertificateResponse,
 
     -- ** Response lenses
-    dccrsCertificate,
-    dccrsResponseStatus,
+    dcfrsCertificate,
+    dcfrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteCertificate' smart constructor.
 newtype DeleteCertificate = DeleteCertificate'
-  { certificateARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the deleted certificate.
+    certificateARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
@@ -104,17 +99,12 @@ instance Lude.ToQuery DeleteCertificate where
 
 -- | /See:/ 'mkDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
-  { certificate ::
-      Lude.Maybe Certificate,
+  { -- | The Secure Sockets Layer (SSL) certificate.
+    certificate :: Lude.Maybe Certificate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.
@@ -134,13 +124,13 @@ mkDeleteCertificateResponse pResponseStatus_ =
 -- | The Secure Sockets Layer (SSL) certificate.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsCertificate :: Lens.Lens' DeleteCertificateResponse (Lude.Maybe Certificate)
-dccrsCertificate = Lens.lens (certificate :: DeleteCertificateResponse -> Lude.Maybe Certificate) (\s a -> s {certificate = a} :: DeleteCertificateResponse)
-{-# DEPRECATED dccrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+dcfrsCertificate :: Lens.Lens' DeleteCertificateResponse (Lude.Maybe Certificate)
+dcfrsCertificate = Lens.lens (certificate :: DeleteCertificateResponse -> Lude.Maybe Certificate) (\s a -> s {certificate = a} :: DeleteCertificateResponse)
+{-# DEPRECATED dcfrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsResponseStatus :: Lens.Lens' DeleteCertificateResponse Lude.Int
-dccrsResponseStatus = Lens.lens (responseStatus :: DeleteCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCertificateResponse)
-{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcfrsResponseStatus :: Lens.Lens' DeleteCertificateResponse Lude.Int
+dcfrsResponseStatus = Lens.lens (responseStatus :: DeleteCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCertificateResponse)
+{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

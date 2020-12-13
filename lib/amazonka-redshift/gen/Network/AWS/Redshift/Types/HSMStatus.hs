@@ -31,26 +31,25 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkHSMStatus' smart constructor.
 data HSMStatus = HSMStatus'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
+    --
+    -- Values: active, applying
+    status :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
     hsmConfigurationIdentifier :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
     hsmClientCertificateIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HSMStatus' with the minimum fields required to make a request.
 --
--- * 'hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
--- * 'hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 -- * 'status' - Reports whether the Amazon Redshift cluster has finished applying any HSM settings changes specified in a modify cluster command.
 --
 -- Values: active, applying
+-- * 'hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+-- * 'hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 mkHSMStatus ::
   HSMStatus
 mkHSMStatus =

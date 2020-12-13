@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArtifactRevision' smart constructor.
 data ArtifactRevision = ArtifactRevision'
-  { revisionSummary ::
-      Lude.Maybe Lude.Text,
+  { -- | Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
+    revisionSummary :: Lude.Maybe Lude.Text,
+    -- | The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
     revisionURL :: Lude.Maybe Lude.Text,
+    -- | The date and time when the most recent revision of the artifact was created, in timestamp format.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The name of an artifact. This name might be system-generated, such as "MyApp", or defined by the user when an action is created.
     name :: Lude.Maybe Lude.Text,
+    -- | The revision ID of the artifact.
     revisionId :: Lude.Maybe Lude.Text,
+    -- | An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
     revisionChangeIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArtifactRevision' with the minimum fields required to make a request.
 --
--- * 'created' - The date and time when the most recent revision of the artifact was created, in timestamp format.
--- * 'name' - The name of an artifact. This name might be system-generated, such as "MyApp", or defined by the user when an action is created.
--- * 'revisionChangeIdentifier' - An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
--- * 'revisionId' - The revision ID of the artifact.
 -- * 'revisionSummary' - Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a @codepipeline-artifact-revision-summary@ key specified in the object metadata.
 -- * 'revisionURL' - The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page.
+-- * 'created' - The date and time when the most recent revision of the artifact was created, in timestamp format.
+-- * 'name' - The name of an artifact. This name might be system-generated, such as "MyApp", or defined by the user when an action is created.
+-- * 'revisionId' - The revision ID of the artifact.
+-- * 'revisionChangeIdentifier' - An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value.
 mkArtifactRevision ::
   ArtifactRevision
 mkArtifactRevision =

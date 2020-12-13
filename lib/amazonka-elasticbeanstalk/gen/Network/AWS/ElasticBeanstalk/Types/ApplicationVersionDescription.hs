@@ -40,48 +40,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationVersionDescription' smart constructor.
 data ApplicationVersionDescription = ApplicationVersionDescription'
-  { status ::
-      Lude.Maybe
-        ApplicationVersionStatus,
-    sourceBundle ::
-      Lude.Maybe S3Location,
-    dateUpdated ::
-      Lude.Maybe Lude.DateTime,
-    dateCreated ::
-      Lude.Maybe Lude.DateTime,
-    versionLabel ::
-      Lude.Maybe Lude.Text,
-    sourceBuildInformation ::
-      Lude.Maybe
-        SourceBuildInformation,
-    applicationName ::
-      Lude.Maybe Lude.Text,
-    applicationVersionARN ::
-      Lude.Maybe Lude.Text,
-    buildARN ::
-      Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text
+  { -- | The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified @True@ for the @Process@ parameter of the @CreateApplicationVersion@ action. The following list describes the possible values.
+    --
+    --
+    --     * @Unprocessed@ – Application version wasn't pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment.
+    --
+    --
+    --     * @Processing@ – Elastic Beanstalk is currently processing the application version.
+    --
+    --
+    --     * @Building@ – Application version is currently undergoing an AWS CodeBuild build.
+    --
+    --
+    --     * @Processed@ – Elastic Beanstalk was successfully pre-processed and validated.
+    --
+    --
+    --     * @Failed@ – Either the AWS CodeBuild build failed or configuration files didn't pass validation. This application version isn't usable.
+    status :: Lude.Maybe ApplicationVersionStatus,
+    -- | The storage location of the application version's source bundle in Amazon S3.
+    sourceBundle :: Lude.Maybe S3Location,
+    -- | The last modified date of the application version.
+    dateUpdated :: Lude.Maybe Lude.DateTime,
+    -- | The creation date of the application version.
+    dateCreated :: Lude.Maybe Lude.DateTime,
+    -- | A unique identifier for the application version.
+    versionLabel :: Lude.Maybe Lude.Text,
+    -- | If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
+    sourceBuildInformation :: Lude.Maybe SourceBuildInformation,
+    -- | The name of the application to which the application version belongs.
+    applicationName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the application version.
+    applicationVersionARN :: Lude.Maybe Lude.Text,
+    -- | Reference to the artifact from the AWS CodeBuild build.
+    buildARN :: Lude.Maybe Lude.Text,
+    -- | The description of the application version.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationVersionDescription' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application to which the application version belongs.
--- * 'applicationVersionARN' - The Amazon Resource Name (ARN) of the application version.
--- * 'buildARN' - Reference to the artifact from the AWS CodeBuild build.
--- * 'dateCreated' - The creation date of the application version.
--- * 'dateUpdated' - The last modified date of the application version.
--- * 'description' - The description of the application version.
--- * 'sourceBuildInformation' - If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
--- * 'sourceBundle' - The storage location of the application version's source bundle in Amazon S3.
 -- * 'status' - The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified @True@ for the @Process@ parameter of the @CreateApplicationVersion@ action. The following list describes the possible values.
 --
 --
@@ -100,7 +99,15 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
 --     * @Failed@ – Either the AWS CodeBuild build failed or configuration files didn't pass validation. This application version isn't usable.
 --
 --
+-- * 'sourceBundle' - The storage location of the application version's source bundle in Amazon S3.
+-- * 'dateUpdated' - The last modified date of the application version.
+-- * 'dateCreated' - The creation date of the application version.
 -- * 'versionLabel' - A unique identifier for the application version.
+-- * 'sourceBuildInformation' - If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
+-- * 'applicationName' - The name of the application to which the application version belongs.
+-- * 'applicationVersionARN' - The Amazon Resource Name (ARN) of the application version.
+-- * 'buildARN' - Reference to the artifact from the AWS CodeBuild build.
+-- * 'description' - The description of the application version.
 mkApplicationVersionDescription ::
   ApplicationVersionDescription
 mkApplicationVersionDescription =

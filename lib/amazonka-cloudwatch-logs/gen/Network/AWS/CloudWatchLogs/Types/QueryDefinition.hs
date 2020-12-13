@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryDefinition' smart constructor.
 data QueryDefinition = QueryDefinition'
-  { logGroupNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | If this query definition contains a list of log groups that it is limited to, that list appears here.
+    logGroupNames :: Lude.Maybe [Lude.Text],
+    -- | The unique ID of the query definition.
     queryDefinitionId :: Lude.Maybe Lude.Text,
+    -- | The name of the query definition.
     name :: Lude.Maybe Lude.Text,
+    -- | The query string to use for this definition. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
     queryString :: Lude.Maybe Lude.Text,
+    -- | The date that the query definition was most recently modified.
     lastModified :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryDefinition' with the minimum fields required to make a request.
 --
--- * 'lastModified' - The date that the query definition was most recently modified.
 -- * 'logGroupNames' - If this query definition contains a list of log groups that it is limited to, that list appears here.
--- * 'name' - The name of the query definition.
 -- * 'queryDefinitionId' - The unique ID of the query definition.
+-- * 'name' - The name of the query definition.
 -- * 'queryString' - The query string to use for this definition. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
+-- * 'lastModified' - The date that the query definition was most recently modified.
 mkQueryDefinition ::
   QueryDefinition
 mkQueryDefinition =

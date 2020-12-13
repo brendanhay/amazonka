@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.ELBv2.DescribeListenerCertificates
     mkDescribeListenerCertificates,
 
     -- ** Request lenses
+    dlcListenerARN,
     dlcMarker,
     dlcPageSize,
-    dlcListenerARN,
 
     -- * Destructuring the response
     DescribeListenerCertificatesResponse (..),
@@ -48,19 +49,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeListenerCertificates' smart constructor.
 data DescribeListenerCertificates = DescribeListenerCertificates'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    pageSize ::
-      Lude.Maybe Lude.Natural,
-    listenerARN :: Lude.Text
+  { -- | The Amazon Resource Names (ARN) of the listener.
+    listenerARN :: Lude.Text,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeListenerCertificates' with the minimum fields required to make a request.
@@ -74,10 +70,17 @@ mkDescribeListenerCertificates ::
   DescribeListenerCertificates
 mkDescribeListenerCertificates pListenerARN_ =
   DescribeListenerCertificates'
-    { marker = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      listenerARN = pListenerARN_
+    { listenerARN = pListenerARN_,
+      marker = Lude.Nothing,
+      pageSize = Lude.Nothing
     }
+
+-- | The Amazon Resource Names (ARN) of the listener.
+--
+-- /Note:/ Consider using 'listenerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcListenerARN :: Lens.Lens' DescribeListenerCertificates Lude.Text
+dlcListenerARN = Lens.lens (listenerARN :: DescribeListenerCertificates -> Lude.Text) (\s a -> s {listenerARN = a} :: DescribeListenerCertificates)
+{-# DEPRECATED dlcListenerARN "Use generic-lens or generic-optics with 'listenerARN' instead." #-}
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 --
@@ -92,13 +95,6 @@ dlcMarker = Lens.lens (marker :: DescribeListenerCertificates -> Lude.Maybe Lude
 dlcPageSize :: Lens.Lens' DescribeListenerCertificates (Lude.Maybe Lude.Natural)
 dlcPageSize = Lens.lens (pageSize :: DescribeListenerCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeListenerCertificates)
 {-# DEPRECATED dlcPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
-
--- | The Amazon Resource Names (ARN) of the listener.
---
--- /Note:/ Consider using 'listenerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcListenerARN :: Lens.Lens' DescribeListenerCertificates Lude.Text
-dlcListenerARN = Lens.lens (listenerARN :: DescribeListenerCertificates -> Lude.Text) (\s a -> s {listenerARN = a} :: DescribeListenerCertificates)
-{-# DEPRECATED dlcListenerARN "Use generic-lens or generic-optics with 'listenerARN' instead." #-}
 
 instance Page.AWSPager DescribeListenerCertificates where
   page rq rs
@@ -138,29 +134,21 @@ instance Lude.ToQuery DescribeListenerCertificates where
       [ "Action"
           Lude.=: ("DescribeListenerCertificates" :: Lude.ByteString),
         "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
+        "ListenerArn" Lude.=: listenerARN,
         "Marker" Lude.=: marker,
-        "PageSize" Lude.=: pageSize,
-        "ListenerArn" Lude.=: listenerARN
+        "PageSize" Lude.=: pageSize
       ]
 
 -- | /See:/ 'mkDescribeListenerCertificatesResponse' smart constructor.
 data DescribeListenerCertificatesResponse = DescribeListenerCertificatesResponse'
-  { certificates ::
-      Lude.Maybe
-        [Certificate],
-    nextMarker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the certificates.
+    certificates :: Lude.Maybe [Certificate],
+    -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeListenerCertificatesResponse' with the minimum fields required to make a request.

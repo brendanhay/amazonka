@@ -31,25 +31,21 @@ import Network.AWS.Rekognition.Types.ProjectStatus
 --
 -- /See:/ 'mkProjectDescription' smart constructor.
 data ProjectDescription = ProjectDescription'
-  { status ::
-      Lude.Maybe ProjectStatus,
+  { -- | The current status of the project.
+    status :: Lude.Maybe ProjectStatus,
+    -- | The Unix timestamp for the date and time that the project was created.
     creationTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the project.
     projectARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectDescription' with the minimum fields required to make a request.
 --
+-- * 'status' - The current status of the project.
 -- * 'creationTimestamp' - The Unix timestamp for the date and time that the project was created.
 -- * 'projectARN' - The Amazon Resource Name (ARN) of the project.
--- * 'status' - The current status of the project.
 mkProjectDescription ::
   ProjectDescription
 mkProjectDescription =

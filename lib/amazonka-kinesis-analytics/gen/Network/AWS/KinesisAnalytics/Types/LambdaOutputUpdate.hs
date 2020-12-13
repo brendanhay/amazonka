@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaOutputUpdate' smart constructor.
 data LambdaOutputUpdate = LambdaOutputUpdate'
-  { roleARNUpdate ::
-      Lude.Maybe Lude.Text,
+  { -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role.
+    roleARNUpdate :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (ARN) of the destination Lambda function.
     resourceARNUpdate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaOutputUpdate' with the minimum fields required to make a request.
 --
--- * 'resourceARNUpdate' - Amazon Resource Name (ARN) of the destination Lambda function.
 -- * 'roleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role.
+-- * 'resourceARNUpdate' - Amazon Resource Name (ARN) of the destination Lambda function.
 mkLambdaOutputUpdate ::
   LambdaOutputUpdate
 mkLambdaOutputUpdate =

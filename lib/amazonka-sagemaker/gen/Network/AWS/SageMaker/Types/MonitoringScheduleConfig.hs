@@ -31,24 +31,18 @@ import Network.AWS.SageMaker.Types.ScheduleConfig
 --
 -- /See:/ 'mkMonitoringScheduleConfig' smart constructor.
 data MonitoringScheduleConfig = MonitoringScheduleConfig'
-  { scheduleConfig ::
-      Lude.Maybe ScheduleConfig,
-    monitoringJobDefinition ::
-      MonitoringJobDefinition
+  { -- | Configures the monitoring schedule.
+    scheduleConfig :: Lude.Maybe ScheduleConfig,
+    -- | Defines the monitoring job.
+    monitoringJobDefinition :: MonitoringJobDefinition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoringScheduleConfig' with the minimum fields required to make a request.
 --
--- * 'monitoringJobDefinition' - Defines the monitoring job.
 -- * 'scheduleConfig' - Configures the monitoring schedule.
+-- * 'monitoringJobDefinition' - Defines the monitoring job.
 mkMonitoringScheduleConfig ::
   -- | 'monitoringJobDefinition'
   MonitoringJobDefinition ->

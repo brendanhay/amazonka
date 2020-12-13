@@ -17,8 +17,8 @@ module Network.AWS.RDS.Types.Filter
     mkFilter,
 
     -- * Lenses
-    fName,
     fValues,
+    fName,
   )
 where
 
@@ -46,32 +46,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 --
 -- /See:/ 'mkFilter' smart constructor.
-data Filter = Filter' {name :: Lude.Text, values :: [Lude.Text]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Filter = Filter'
+  { -- | One or more filter values. Filter values are case-sensitive.
+    values :: [Lude.Text],
+    -- | The name of the filter. Filter names are case-sensitive.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the filter. Filter names are case-sensitive.
 -- * 'values' - One or more filter values. Filter values are case-sensitive.
+-- * 'name' - The name of the filter. Filter names are case-sensitive.
 mkFilter ::
   -- | 'name'
   Lude.Text ->
   Filter
-mkFilter pName_ = Filter' {name = pName_, values = Lude.mempty}
-
--- | The name of the filter. Filter names are case-sensitive.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Filter Lude.Text
-fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
-{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkFilter pName_ = Filter' {values = Lude.mempty, name = pName_}
 
 -- | One or more filter values. Filter values are case-sensitive.
 --
@@ -80,9 +72,16 @@ fValues :: Lens.Lens' Filter [Lude.Text]
 fValues = Lens.lens (values :: Filter -> [Lude.Text]) (\s a -> s {values = a} :: Filter)
 {-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | The name of the filter. Filter names are case-sensitive.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fName :: Lens.Lens' Filter Lude.Text
+fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
+{-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.ToQuery Filter where
   toQuery Filter' {..} =
     Lude.mconcat
-      [ "Name" Lude.=: name,
-        "Values" Lude.=: Lude.toQueryList "Value" values
+      [ "Values" Lude.=: Lude.toQueryList "Value" values,
+        "Name" Lude.=: name
       ]

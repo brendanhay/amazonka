@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.StepFunctions.ListActivities
     mkListActivitiesResponse,
 
     -- ** Response lenses
+    larsActivities,
     larsNextToken,
     larsResponseStatus,
-    larsActivities,
   )
 where
 
@@ -46,25 +47,22 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'mkListActivities' smart constructor.
 data ListActivities = ListActivities'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
+    --
+    -- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActivities' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
 -- * 'maxResults' - The maximum number of results that are returned per call. You can use @nextToken@ to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.
 --
 -- This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.
--- * 'nextToken' - If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
 mkListActivities ::
   ListActivities
 mkListActivities =
@@ -105,9 +103,9 @@ instance Lude.AWSRequest ListActivities where
     Res.receiveJSON
       ( \s h x ->
           ListActivitiesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "activities" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "activities" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListActivities where
@@ -138,18 +136,14 @@ instance Lude.ToQuery ListActivities where
 
 -- | /See:/ 'mkListActivitiesResponse' smart constructor.
 data ListActivitiesResponse = ListActivitiesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    activities :: [ActivityListItem]
+  { -- | The list of activities.
+    activities :: [ActivityListItem],
+    -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListActivitiesResponse' with the minimum fields required to make a request.
@@ -163,10 +157,17 @@ mkListActivitiesResponse ::
   ListActivitiesResponse
 mkListActivitiesResponse pResponseStatus_ =
   ListActivitiesResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      activities = Lude.mempty
+    { activities = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The list of activities.
+--
+-- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larsActivities :: Lens.Lens' ListActivitiesResponse [ActivityListItem]
+larsActivities = Lens.lens (activities :: ListActivitiesResponse -> [ActivityListItem]) (\s a -> s {activities = a} :: ListActivitiesResponse)
+{-# DEPRECATED larsActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
 
 -- | If @nextToken@ is returned, there are more results available. The value of @nextToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an /HTTP 400 InvalidToken/ error.
 --
@@ -181,10 +182,3 @@ larsNextToken = Lens.lens (nextToken :: ListActivitiesResponse -> Lude.Maybe Lud
 larsResponseStatus :: Lens.Lens' ListActivitiesResponse Lude.Int
 larsResponseStatus = Lens.lens (responseStatus :: ListActivitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListActivitiesResponse)
 {-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The list of activities.
---
--- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsActivities :: Lens.Lens' ListActivitiesResponse [ActivityListItem]
-larsActivities = Lens.lens (activities :: ListActivitiesResponse -> [ActivityListItem]) (\s a -> s {activities = a} :: ListActivitiesResponse)
-{-# DEPRECATED larsActivities "Use generic-lens or generic-optics with 'activities' instead." #-}

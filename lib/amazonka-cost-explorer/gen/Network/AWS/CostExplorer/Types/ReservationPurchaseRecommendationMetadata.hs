@@ -29,26 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationPurchaseRecommendationMetadata' smart constructor.
 data ReservationPurchaseRecommendationMetadata = ReservationPurchaseRecommendationMetadata'
-  { recommendationId ::
-      Lude.Maybe
-        Lude.Text,
-    generationTimestamp ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The ID for this specific recommendation.
+    recommendationId :: Lude.Maybe Lude.Text,
+    -- | The timestamp for when AWS made this recommendation.
+    generationTimestamp :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationPurchaseRecommendationMetadata' with the minimum fields required to make a request.
 --
--- * 'generationTimestamp' - The timestamp for when AWS made this recommendation.
 -- * 'recommendationId' - The ID for this specific recommendation.
+-- * 'generationTimestamp' - The timestamp for when AWS made this recommendation.
 mkReservationPurchaseRecommendationMetadata ::
   ReservationPurchaseRecommendationMetadata
 mkReservationPurchaseRecommendationMetadata =

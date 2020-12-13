@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,21 +47,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeMaintenanceStartTime' smart constructor.
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceStartTime' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeMaintenanceStartTime ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -138,45 +132,32 @@ instance Lude.ToQuery DescribeMaintenanceStartTime where
 --
 -- /See:/ 'mkDescribeMaintenanceStartTimeResponse' smart constructor.
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
-  { gatewayARN ::
-      Lude.Maybe
-        Lude.Text,
-    minuteOfHour ::
-      Lude.Maybe
-        Lude.Natural,
-    dayOfMonth ::
-      Lude.Maybe
-        Lude.Natural,
-    hourOfDay ::
-      Lude.Maybe
-        Lude.Natural,
-    timezone ::
-      Lude.Maybe
-        Lude.Text,
-    dayOfWeek ::
-      Lude.Maybe
-        Lude.Natural,
-    responseStatus ::
-      Lude.Int
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
+    minuteOfHour :: Lude.Maybe Lude.Natural,
+    -- | The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+    dayOfMonth :: Lude.Maybe Lude.Natural,
+    -- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
+    hourOfDay :: Lude.Maybe Lude.Natural,
+    -- | A value that indicates the time zone that is set for the gateway. The start time and day of week specified should be in the time zone of the gateway.
+    timezone :: Lude.Maybe Lude.Text,
+    -- | An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
+    dayOfWeek :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceStartTimeResponse' with the minimum fields required to make a request.
 --
--- * 'dayOfMonth' - The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
--- * 'dayOfWeek' - An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
--- * 'gatewayARN' - Undocumented field.
--- * 'hourOfDay' - The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
+-- * 'gatewayARN' -
 -- * 'minuteOfHour' - The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (0 to 59). The minute of the hour is in the time zone of the gateway.
--- * 'responseStatus' - The response status code.
+-- * 'dayOfMonth' - The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+-- * 'hourOfDay' - The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (0 to 23). The hour of the day is in the time zone of the gateway.
 -- * 'timezone' - A value that indicates the time zone that is set for the gateway. The start time and day of week specified should be in the time zone of the gateway.
+-- * 'dayOfWeek' - An ordinal number between 0 and 6 that represents the day of the week, where 0 represents Sunday and 6 represents Saturday. The day of week is in the time zone of the gateway.
+-- * 'responseStatus' - The response status code.
 mkDescribeMaintenanceStartTimeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

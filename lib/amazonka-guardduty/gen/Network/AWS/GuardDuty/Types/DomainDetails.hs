@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainDetails' smart constructor.
 newtype DomainDetails = DomainDetails'
-  { domain ::
-      Lude.Maybe Lude.Text
+  { -- | The domain information for the AWS API call.
+    domain :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainDetails' with the minimum fields required to make a request.

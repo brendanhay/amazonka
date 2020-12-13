@@ -14,8 +14,8 @@ module Network.AWS.Glue.Types.SchemaStatus
   ( SchemaStatus
       ( SchemaStatus',
         SSAvailable,
-        SSDeleting,
-        SSPending
+        SSPending,
+        SSDeleting
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype SchemaStatus = SchemaStatus' Lude.Text
 pattern SSAvailable :: SchemaStatus
 pattern SSAvailable = SchemaStatus' "AVAILABLE"
 
-pattern SSDeleting :: SchemaStatus
-pattern SSDeleting = SchemaStatus' "DELETING"
-
 pattern SSPending :: SchemaStatus
 pattern SSPending = SchemaStatus' "PENDING"
 
+pattern SSDeleting :: SchemaStatus
+pattern SSDeleting = SchemaStatus' "DELETING"
+
 {-# COMPLETE
   SSAvailable,
-  SSDeleting,
   SSPending,
+  SSDeleting,
   SchemaStatus'
   #-}

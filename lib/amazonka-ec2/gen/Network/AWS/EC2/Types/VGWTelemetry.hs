@@ -34,30 +34,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVGWTelemetry' smart constructor.
 data VGWTelemetry = VGWTelemetry'
-  { status ::
-      Lude.Maybe TelemetryStatus,
+  { -- | The status of the VPN tunnel.
+    status :: Lude.Maybe TelemetryStatus,
+    -- | The Internet-routable IP address of the virtual private gateway's outside interface.
     outsideIPAddress :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The date and time of the last change in status.
     lastStatusChange :: Lude.Maybe Lude.DateTime,
+    -- | The number of accepted routes.
     acceptedRouteCount :: Lude.Maybe Lude.Int,
+    -- | If an error occurs, a description of the error.
     statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VGWTelemetry' with the minimum fields required to make a request.
 --
--- * 'acceptedRouteCount' - The number of accepted routes.
+-- * 'status' - The status of the VPN tunnel.
+-- * 'outsideIPAddress' - The Internet-routable IP address of the virtual private gateway's outside interface.
 -- * 'certificateARN' - The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
 -- * 'lastStatusChange' - The date and time of the last change in status.
--- * 'outsideIPAddress' - The Internet-routable IP address of the virtual private gateway's outside interface.
--- * 'status' - The status of the VPN tunnel.
+-- * 'acceptedRouteCount' - The number of accepted routes.
 -- * 'statusMessage' - If an error occurs, a description of the error.
 mkVGWTelemetry ::
   VGWTelemetry

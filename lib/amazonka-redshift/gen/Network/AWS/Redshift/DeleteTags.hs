@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Redshift.DeleteTags
     mkDeleteTags,
 
     -- ** Request lenses
-    dtsResourceName,
-    dtsTagKeys,
+    dResourceName,
+    dTagKeys,
 
     -- * Destructuring the response
     DeleteTagsResponse (..),
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { resourceName :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
+    resourceName :: Lude.Text,
+    -- | The tag key that you want to delete.
     tagKeys :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
@@ -64,16 +61,16 @@ mkDeleteTags pResourceName_ =
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsResourceName :: Lens.Lens' DeleteTags Lude.Text
-dtsResourceName = Lens.lens (resourceName :: DeleteTags -> Lude.Text) (\s a -> s {resourceName = a} :: DeleteTags)
-{-# DEPRECATED dtsResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+dResourceName :: Lens.Lens' DeleteTags Lude.Text
+dResourceName = Lens.lens (resourceName :: DeleteTags -> Lude.Text) (\s a -> s {resourceName = a} :: DeleteTags)
+{-# DEPRECATED dResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The tag key that you want to delete.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsTagKeys :: Lens.Lens' DeleteTags [Lude.Text]
-dtsTagKeys = Lens.lens (tagKeys :: DeleteTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: DeleteTags)
-{-# DEPRECATED dtsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+dTagKeys :: Lens.Lens' DeleteTags [Lude.Text]
+dTagKeys = Lens.lens (tagKeys :: DeleteTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: DeleteTags)
+{-# DEPRECATED dTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 instance Lude.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
@@ -97,13 +94,7 @@ instance Lude.ToQuery DeleteTags where
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.

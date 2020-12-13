@@ -13,12 +13,12 @@
 module Network.AWS.Transcribe.Types.MediaFormat
   ( MediaFormat
       ( MediaFormat',
-        Amr,
-        Flac,
         MP3,
         MP4,
-        Ogg,
         Wav,
+        Flac,
+        Ogg,
+        Amr,
         Webm
       ),
   )
@@ -50,34 +50,34 @@ newtype MediaFormat = MediaFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern Amr :: MediaFormat
-pattern Amr = MediaFormat' "amr"
-
-pattern Flac :: MediaFormat
-pattern Flac = MediaFormat' "flac"
-
 pattern MP3 :: MediaFormat
 pattern MP3 = MediaFormat' "mp3"
 
 pattern MP4 :: MediaFormat
 pattern MP4 = MediaFormat' "mp4"
 
+pattern Wav :: MediaFormat
+pattern Wav = MediaFormat' "wav"
+
+pattern Flac :: MediaFormat
+pattern Flac = MediaFormat' "flac"
+
 pattern Ogg :: MediaFormat
 pattern Ogg = MediaFormat' "ogg"
 
-pattern Wav :: MediaFormat
-pattern Wav = MediaFormat' "wav"
+pattern Amr :: MediaFormat
+pattern Amr = MediaFormat' "amr"
 
 pattern Webm :: MediaFormat
 pattern Webm = MediaFormat' "webm"
 
 {-# COMPLETE
-  Amr,
-  Flac,
   MP3,
   MP4,
-  Ogg,
   Wav,
+  Flac,
+  Ogg,
+  Amr,
   Webm,
   MediaFormat'
   #-}

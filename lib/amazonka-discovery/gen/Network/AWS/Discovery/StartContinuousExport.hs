@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,13 +41,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartContinuousExport' smart constructor.
 data StartContinuousExport = StartContinuousExport'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartContinuousExport' with the minimum fields required to make a request.
@@ -93,44 +88,38 @@ instance Lude.ToQuery StartContinuousExport where
 
 -- | /See:/ 'mkStartContinuousExportResponse' smart constructor.
 data StartContinuousExportResponse = StartContinuousExportResponse'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
-    schemaStorageConfig ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    dataSource ::
-      Lude.Maybe DataSource,
-    s3Bucket ::
-      Lude.Maybe Lude.Text,
-    exportId ::
-      Lude.Maybe Lude.Text,
+  { -- | The timestamp representing when the continuous export was started.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | A dictionary which describes how the data is stored.
+    --
+    --
+    --     * @databaseName@ - the name of the Glue database used to store the schema.
+    schemaStorageConfig :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of data collector used to gather this data (currently only offered for AGENT).
+    dataSource :: Lude.Maybe DataSource,
+    -- | The name of the s3 bucket where the export data parquet files are stored.
+    s3Bucket :: Lude.Maybe Lude.Text,
+    -- | The unique ID assigned to this export.
+    exportId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartContinuousExportResponse' with the minimum fields required to make a request.
 --
--- * 'dataSource' - The type of data collector used to gather this data (currently only offered for AGENT).
--- * 'exportId' - The unique ID assigned to this export.
--- * 'responseStatus' - The response status code.
--- * 's3Bucket' - The name of the s3 bucket where the export data parquet files are stored.
+-- * 'startTime' - The timestamp representing when the continuous export was started.
 -- * 'schemaStorageConfig' - A dictionary which describes how the data is stored.
 --
 --
 --     * @databaseName@ - the name of the Glue database used to store the schema.
 --
 --
--- * 'startTime' - The timestamp representing when the continuous export was started.
+-- * 'dataSource' - The type of data collector used to gather this data (currently only offered for AGENT).
+-- * 's3Bucket' - The name of the s3 bucket where the export data parquet files are stored.
+-- * 'exportId' - The unique ID assigned to this export.
+-- * 'responseStatus' - The response status code.
 mkStartContinuousExportResponse ::
   -- | 'responseStatus'
   Lude.Int ->

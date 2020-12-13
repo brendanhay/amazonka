@@ -39,54 +39,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPushNotificationTemplateRequest' smart constructor.
 data PushNotificationTemplateRequest = PushNotificationTemplateRequest'
-  { default' ::
-      Lude.Maybe
-        DefaultPushNotificationTemplate,
-    templateDescription ::
-      Lude.Maybe Lude.Text,
-    gcm ::
-      Lude.Maybe
-        AndroidPushNotificationTemplate,
-    apns ::
-      Lude.Maybe
-        APNSPushNotificationTemplate,
-    defaultSubstitutions ::
-      Lude.Maybe Lude.Text,
-    aDM ::
-      Lude.Maybe
-        AndroidPushNotificationTemplate,
-    baidu ::
-      Lude.Maybe
-        AndroidPushNotificationTemplate,
-    recommenderId ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        )
+  { -- | The default message template to use for push notification channels.
+    default' :: Lude.Maybe DefaultPushNotificationTemplate,
+    -- | A custom description of the message template.
+    templateDescription :: Lude.Maybe Lude.Text,
+    -- | The message template to use for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+    gcm :: Lude.Maybe AndroidPushNotificationTemplate,
+    -- | The message template to use for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+    apns :: Lude.Maybe APNSPushNotificationTemplate,
+    -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+    defaultSubstitutions :: Lude.Maybe Lude.Text,
+    -- | The message template to use for the ADM (Amazon Device Messaging) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+    aDM :: Lude.Maybe AndroidPushNotificationTemplate,
+    -- | The message template to use for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+    baidu :: Lude.Maybe AndroidPushNotificationTemplate,
+    -- | The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+    recommenderId :: Lude.Maybe Lude.Text,
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PushNotificationTemplateRequest' with the minimum fields required to make a request.
 --
--- * 'aDM' - The message template to use for the ADM (Amazon Device Messaging) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
--- * 'apns' - The message template to use for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
--- * 'baidu' - The message template to use for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
 -- * 'default'' - The default message template to use for push notification channels.
--- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+-- * 'templateDescription' - A custom description of the message template.
 -- * 'gcm' - The message template to use for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+-- * 'apns' - The message template to use for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+-- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+-- * 'aDM' - The message template to use for the ADM (Amazon Device Messaging) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
+-- * 'baidu' - The message template to use for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).
 -- * 'recommenderId' - The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
 -- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
--- * 'templateDescription' - A custom description of the message template.
 mkPushNotificationTemplateRequest ::
   PushNotificationTemplateRequest
 mkPushNotificationTemplateRequest =

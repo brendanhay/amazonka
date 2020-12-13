@@ -17,8 +17,8 @@ module Network.AWS.AlexaBusiness.Types.Filter
     mkFilter,
 
     -- * Lenses
-    fKey,
     fValues,
+    fKey,
   )
 where
 
@@ -28,32 +28,24 @@ import qualified Network.AWS.Prelude as Lude
 -- | A filter name and value pair that is used to return a more specific list of results. Filters can be used to match a set of resources by various criteria.
 --
 -- /See:/ 'mkFilter' smart constructor.
-data Filter = Filter' {key :: Lude.Text, values :: [Lude.Text]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Filter = Filter'
+  { -- | The values of a filter.
+    values :: [Lude.Text],
+    -- | The key of a filter.
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Filter' with the minimum fields required to make a request.
 --
--- * 'key' - The key of a filter.
 -- * 'values' - The values of a filter.
+-- * 'key' - The key of a filter.
 mkFilter ::
   -- | 'key'
   Lude.Text ->
   Filter
-mkFilter pKey_ = Filter' {key = pKey_, values = Lude.mempty}
-
--- | The key of a filter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fKey :: Lens.Lens' Filter Lude.Text
-fKey = Lens.lens (key :: Filter -> Lude.Text) (\s a -> s {key = a} :: Filter)
-{-# DEPRECATED fKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkFilter pKey_ = Filter' {values = Lude.mempty, key = pKey_}
 
 -- | The values of a filter.
 --
@@ -62,11 +54,18 @@ fValues :: Lens.Lens' Filter [Lude.Text]
 fValues = Lens.lens (values :: Filter -> [Lude.Text]) (\s a -> s {values = a} :: Filter)
 {-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | The key of a filter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fKey :: Lens.Lens' Filter Lude.Text
+fKey = Lens.lens (key :: Filter -> Lude.Text) (\s a -> s {key = a} :: Filter)
+{-# DEPRECATED fKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.ToJSON Filter where
   toJSON Filter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Values" Lude..= values)
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Key" Lude..= key)
           ]
       )

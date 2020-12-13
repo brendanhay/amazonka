@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGatewayGroups' smart constructor.
 data ListGatewayGroups = ListGatewayGroups'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token used to paginate though multiple pages of gateway group summaries.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of gateway group summaries to return. The default is 50.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGatewayGroups' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of gateway group summaries to return. The default is 50.
 -- * 'nextToken' - The token used to paginate though multiple pages of gateway group summaries.
+-- * 'maxResults' - The maximum number of gateway group summaries to return. The default is 50.
 mkListGatewayGroups ::
   ListGatewayGroups
 mkListGatewayGroups =
@@ -120,18 +116,14 @@ instance Lude.ToQuery ListGatewayGroups where
 
 -- | /See:/ 'mkListGatewayGroupsResponse' smart constructor.
 data ListGatewayGroupsResponse = ListGatewayGroupsResponse'
-  { gatewayGroups ::
-      Lude.Maybe [GatewayGroupSummary],
+  { -- | The gateway groups in the list.
+    gatewayGroups :: Lude.Maybe [GatewayGroupSummary],
+    -- | The token used to paginate though multiple pages of gateway group summaries.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGatewayGroupsResponse' with the minimum fields required to make a request.

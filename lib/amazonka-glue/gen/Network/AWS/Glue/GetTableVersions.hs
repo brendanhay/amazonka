@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.Glue.GetTableVersions
     mkGetTableVersions,
 
     -- ** Request lenses
-    gtvsCatalogId,
-    gtvsNextToken,
-    gtvsMaxResults,
-    gtvsDatabaseName,
-    gtvsTableName,
+    gtvCatalogId,
+    gtvNextToken,
+    gtvDatabaseName,
+    gtvMaxResults,
+    gtvTableName,
 
     -- * Destructuring the response
     GetTableVersionsResponse (..),
@@ -47,28 +48,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTableVersions' smart constructor.
 data GetTableVersions = GetTableVersions'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | A continuation token, if this is not the first call.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
     databaseName :: Lude.Text,
+    -- | The maximum number of table versions to return in one response.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The name of the table. For Hive compatibility, this name is entirely lowercase.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableVersions' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
+-- * 'nextToken' - A continuation token, if this is not the first call.
 -- * 'databaseName' - The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
 -- * 'maxResults' - The maximum number of table versions to return in one response.
--- * 'nextToken' - A continuation token, if this is not the first call.
 -- * 'tableName' - The name of the table. For Hive compatibility, this name is entirely lowercase.
 mkGetTableVersions ::
   -- | 'databaseName'
@@ -80,45 +79,45 @@ mkGetTableVersions pDatabaseName_ pTableName_ =
   GetTableVersions'
     { catalogId = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
       databaseName = pDatabaseName_,
+      maxResults = Lude.Nothing,
       tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvsCatalogId :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Text)
-gtvsCatalogId = Lens.lens (catalogId :: GetTableVersions -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTableVersions)
-{-# DEPRECATED gtvsCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+gtvCatalogId :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Text)
+gtvCatalogId = Lens.lens (catalogId :: GetTableVersions -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTableVersions)
+{-# DEPRECATED gtvCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A continuation token, if this is not the first call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvsNextToken :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Text)
-gtvsNextToken = Lens.lens (nextToken :: GetTableVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTableVersions)
-{-# DEPRECATED gtvsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of table versions to return in one response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvsMaxResults :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Natural)
-gtvsMaxResults = Lens.lens (maxResults :: GetTableVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTableVersions)
-{-# DEPRECATED gtvsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+gtvNextToken :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Text)
+gtvNextToken = Lens.lens (nextToken :: GetTableVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTableVersions)
+{-# DEPRECATED gtvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvsDatabaseName :: Lens.Lens' GetTableVersions Lude.Text
-gtvsDatabaseName = Lens.lens (databaseName :: GetTableVersions -> Lude.Text) (\s a -> s {databaseName = a} :: GetTableVersions)
-{-# DEPRECATED gtvsDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+gtvDatabaseName :: Lens.Lens' GetTableVersions Lude.Text
+gtvDatabaseName = Lens.lens (databaseName :: GetTableVersions -> Lude.Text) (\s a -> s {databaseName = a} :: GetTableVersions)
+{-# DEPRECATED gtvDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+
+-- | The maximum number of table versions to return in one response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtvMaxResults :: Lens.Lens' GetTableVersions (Lude.Maybe Lude.Natural)
+gtvMaxResults = Lens.lens (maxResults :: GetTableVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTableVersions)
+{-# DEPRECATED gtvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The name of the table. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtvsTableName :: Lens.Lens' GetTableVersions Lude.Text
-gtvsTableName = Lens.lens (tableName :: GetTableVersions -> Lude.Text) (\s a -> s {tableName = a} :: GetTableVersions)
-{-# DEPRECATED gtvsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+gtvTableName :: Lens.Lens' GetTableVersions Lude.Text
+gtvTableName = Lens.lens (tableName :: GetTableVersions -> Lude.Text) (\s a -> s {tableName = a} :: GetTableVersions)
+{-# DEPRECATED gtvTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Page.AWSPager GetTableVersions where
   page rq rs
@@ -127,7 +126,7 @@ instance Page.AWSPager GetTableVersions where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gtvsNextToken Lens..~ rs Lens.^. gtvsrsNextToken
+          Lude.& gtvNextToken Lens..~ rs Lens.^. gtvsrsNextToken
 
 instance Lude.AWSRequest GetTableVersions where
   type Rs GetTableVersions = GetTableVersionsResponse
@@ -158,8 +157,8 @@ instance Lude.ToJSON GetTableVersions where
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("DatabaseName" Lude..= databaseName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just ("TableName" Lude..= tableName)
           ]
       )
@@ -172,25 +171,21 @@ instance Lude.ToQuery GetTableVersions where
 
 -- | /See:/ 'mkGetTableVersionsResponse' smart constructor.
 data GetTableVersionsResponse = GetTableVersionsResponse'
-  { tableVersions ::
-      Lude.Maybe [TableVersion],
+  { -- | A list of strings identifying available versions of the specified table.
+    tableVersions :: Lude.Maybe [TableVersion],
+    -- | A continuation token, if the list of available versions does not include the last one.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableVersionsResponse' with the minimum fields required to make a request.
 --
+-- * 'tableVersions' - A list of strings identifying available versions of the specified table.
 -- * 'nextToken' - A continuation token, if the list of available versions does not include the last one.
 -- * 'responseStatus' - The response status code.
--- * 'tableVersions' - A list of strings identifying available versions of the specified table.
 mkGetTableVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

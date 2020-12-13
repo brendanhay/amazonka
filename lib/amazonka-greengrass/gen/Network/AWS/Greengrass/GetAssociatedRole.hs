@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAssociatedRole' smart constructor.
 newtype GetAssociatedRole = GetAssociatedRole'
-  { groupId ::
-      Lude.Text
+  { -- | The ID of the Greengrass group.
+    groupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedRole' with the minimum fields required to make a request.
@@ -99,25 +94,21 @@ instance Lude.ToQuery GetAssociatedRole where
 
 -- | /See:/ 'mkGetAssociatedRoleResponse' smart constructor.
 data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
-  { associatedAt ::
-      Lude.Maybe Lude.Text,
+  { -- | The time when the role was associated with the group.
+    associatedAt :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role that is associated with the group.
     roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAssociatedRoleResponse' with the minimum fields required to make a request.
 --
 -- * 'associatedAt' - The time when the role was associated with the group.
--- * 'responseStatus' - The response status code.
 -- * 'roleARN' - The ARN of the role that is associated with the group.
+-- * 'responseStatus' - The response status code.
 mkGetAssociatedRoleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

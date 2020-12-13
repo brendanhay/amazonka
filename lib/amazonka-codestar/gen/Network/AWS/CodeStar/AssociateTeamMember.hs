@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.CodeStar.AssociateTeamMember
     mkAssociateTeamMember,
 
     -- ** Request lenses
+    atmUserARN,
+    atmProjectId,
     atmRemoteAccessAllowed,
     atmClientRequestToken,
-    atmProjectId,
-    atmUserARN,
     atmProjectRole,
 
     -- * Destructuring the response
@@ -43,45 +44,57 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateTeamMember' smart constructor.
 data AssociateTeamMember = AssociateTeamMember'
-  { remoteAccessAllowed ::
-      Lude.Maybe Lude.Bool,
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    projectId :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
     userARN :: Lude.Text,
+    -- | The ID of the project to which you will add the IAM user.
+    projectId :: Lude.Text,
+    -- | Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
+    remoteAccessAllowed :: Lude.Maybe Lude.Bool,
+    -- | A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
     projectRole :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTeamMember' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.
--- * 'projectId' - The ID of the project to which you will add the IAM user.
--- * 'projectRole' - The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
--- * 'remoteAccessAllowed' - Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
 -- * 'userARN' - The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
+-- * 'projectId' - The ID of the project to which you will add the IAM user.
+-- * 'remoteAccessAllowed' - Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
+-- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested the team member association to the project. This token can be used to repeat the request.
+-- * 'projectRole' - The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
 mkAssociateTeamMember ::
-  -- | 'projectId'
-  Lude.Text ->
   -- | 'userARN'
+  Lude.Text ->
+  -- | 'projectId'
   Lude.Text ->
   -- | 'projectRole'
   Lude.Text ->
   AssociateTeamMember
-mkAssociateTeamMember pProjectId_ pUserARN_ pProjectRole_ =
+mkAssociateTeamMember pUserARN_ pProjectId_ pProjectRole_ =
   AssociateTeamMember'
-    { remoteAccessAllowed = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
+    { userARN = pUserARN_,
       projectId = pProjectId_,
-      userARN = pUserARN_,
+      remoteAccessAllowed = Lude.Nothing,
+      clientRequestToken = Lude.Nothing,
       projectRole = pProjectRole_
     }
+
+-- | The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
+--
+-- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmUserARN :: Lens.Lens' AssociateTeamMember Lude.Text
+atmUserARN = Lens.lens (userARN :: AssociateTeamMember -> Lude.Text) (\s a -> s {userARN = a} :: AssociateTeamMember)
+{-# DEPRECATED atmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+
+-- | The ID of the project to which you will add the IAM user.
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atmProjectId :: Lens.Lens' AssociateTeamMember Lude.Text
+atmProjectId = Lens.lens (projectId :: AssociateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: AssociateTeamMember)
+{-# DEPRECATED atmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 -- | Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
 --
@@ -96,20 +109,6 @@ atmRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: AssociateTeamMember -
 atmClientRequestToken :: Lens.Lens' AssociateTeamMember (Lude.Maybe Lude.Text)
 atmClientRequestToken = Lens.lens (clientRequestToken :: AssociateTeamMember -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: AssociateTeamMember)
 {-# DEPRECATED atmClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | The ID of the project to which you will add the IAM user.
---
--- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atmProjectId :: Lens.Lens' AssociateTeamMember Lude.Text
-atmProjectId = Lens.lens (projectId :: AssociateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: AssociateTeamMember)
-{-# DEPRECATED atmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar project.
---
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atmUserARN :: Lens.Lens' AssociateTeamMember Lude.Text
-atmUserARN = Lens.lens (userARN :: AssociateTeamMember -> Lude.Text) (\s a -> s {userARN = a} :: AssociateTeamMember)
-{-# DEPRECATED atmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The AWS CodeStar project role that will apply to this user. This role determines what actions a user can take in an AWS CodeStar project.
 --
@@ -144,10 +143,10 @@ instance Lude.ToJSON AssociateTeamMember where
   toJSON AssociateTeamMember' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("remoteAccessAllowed" Lude..=) Lude.<$> remoteAccessAllowed,
-            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+          [ Lude.Just ("userArn" Lude..= userARN),
             Lude.Just ("projectId" Lude..= projectId),
-            Lude.Just ("userArn" Lude..= userARN),
+            ("remoteAccessAllowed" Lude..=) Lude.<$> remoteAccessAllowed,
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
             Lude.Just ("projectRole" Lude..= projectRole)
           ]
       )
@@ -160,17 +159,12 @@ instance Lude.ToQuery AssociateTeamMember where
 
 -- | /See:/ 'mkAssociateTeamMemberResponse' smart constructor.
 data AssociateTeamMemberResponse = AssociateTeamMemberResponse'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The user- or system-generated token from the initial request that can be used to repeat the request.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTeamMemberResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.ImportAPIKeys
     mkImportAPIKeys,
 
     -- ** Request lenses
-    iakFailOnWarnings,
     iakBody,
     iakFormat,
+    iakFailOnWarnings,
 
     -- * Destructuring the response
     ImportAPIKeysResponse (..),
@@ -44,10 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkImportAPIKeys' smart constructor.
 data ImportAPIKeys = ImportAPIKeys'
-  { failOnWarnings ::
-      Lude.Maybe Lude.Bool,
+  { -- | The payload of the POST request to import API keys. For the payload format, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
     body :: Lude.ByteString,
-    format :: APIKeysFormat
+    -- | A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.
+    format :: APIKeysFormat,
+    -- | A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
+    failOnWarnings :: Lude.Maybe Lude.Bool
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -55,8 +58,8 @@ data ImportAPIKeys = ImportAPIKeys'
 -- | Creates a value of 'ImportAPIKeys' with the minimum fields required to make a request.
 --
 -- * 'body' - The payload of the POST request to import API keys. For the payload format, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
--- * 'failOnWarnings' - A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
 -- * 'format' - A query parameter to specify the input format to imported API keys. Currently, only the @csv@ format is supported.
+-- * 'failOnWarnings' - A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
 mkImportAPIKeys ::
   -- | 'body'
   Lude.ByteString ->
@@ -65,17 +68,10 @@ mkImportAPIKeys ::
   ImportAPIKeys
 mkImportAPIKeys pBody_ pFormat_ =
   ImportAPIKeys'
-    { failOnWarnings = Lude.Nothing,
-      body = pBody_,
-      format = pFormat_
+    { body = pBody_,
+      format = pFormat_,
+      failOnWarnings = Lude.Nothing
     }
-
--- | A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
---
--- /Note:/ Consider using 'failOnWarnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iakFailOnWarnings :: Lens.Lens' ImportAPIKeys (Lude.Maybe Lude.Bool)
-iakFailOnWarnings = Lens.lens (failOnWarnings :: ImportAPIKeys -> Lude.Maybe Lude.Bool) (\s a -> s {failOnWarnings = a} :: ImportAPIKeys)
-{-# DEPRECATED iakFailOnWarnings "Use generic-lens or generic-optics with 'failOnWarnings' instead." #-}
 
 -- | The payload of the POST request to import API keys. For the payload format, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html API Key File Format> .
 --
@@ -90,6 +86,13 @@ iakBody = Lens.lens (body :: ImportAPIKeys -> Lude.ByteString) (\s a -> s {body 
 iakFormat :: Lens.Lens' ImportAPIKeys APIKeysFormat
 iakFormat = Lens.lens (format :: ImportAPIKeys -> APIKeysFormat) (\s a -> s {format = a} :: ImportAPIKeys)
 {-# DEPRECATED iakFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+
+-- | A query parameter to indicate whether to rollback 'ApiKey' importation (@true@ ) or not (@false@ ) when error is encountered.
+--
+-- /Note:/ Consider using 'failOnWarnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iakFailOnWarnings :: Lens.Lens' ImportAPIKeys (Lude.Maybe Lude.Bool)
+iakFailOnWarnings = Lens.lens (failOnWarnings :: ImportAPIKeys -> Lude.Maybe Lude.Bool) (\s a -> s {failOnWarnings = a} :: ImportAPIKeys)
+{-# DEPRECATED iakFailOnWarnings "Use generic-lens or generic-optics with 'failOnWarnings' instead." #-}
 
 instance Lude.AWSRequest ImportAPIKeys where
   type Rs ImportAPIKeys = ImportAPIKeysResponse
@@ -119,8 +122,8 @@ instance Lude.ToPath ImportAPIKeys where
 instance Lude.ToQuery ImportAPIKeys where
   toQuery ImportAPIKeys' {..} =
     Lude.mconcat
-      [ "failonwarnings" Lude.=: failOnWarnings,
-        "format" Lude.=: format,
+      [ "format" Lude.=: format,
+        "failonwarnings" Lude.=: failOnWarnings,
         "mode=import"
       ]
 
@@ -128,25 +131,21 @@ instance Lude.ToQuery ImportAPIKeys where
 --
 -- /See:/ 'mkImportAPIKeysResponse' smart constructor.
 data ImportAPIKeysResponse = ImportAPIKeysResponse'
-  { ids ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of all the 'ApiKey' identifiers.
+    ids :: Lude.Maybe [Lude.Text],
+    -- | A list of warning messages.
     warnings :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportAPIKeysResponse' with the minimum fields required to make a request.
 --
 -- * 'ids' - A list of all the 'ApiKey' identifiers.
--- * 'responseStatus' - The response status code.
 -- * 'warnings' - A list of warning messages.
+-- * 'responseStatus' - The response status code.
 mkImportAPIKeysResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,12 +21,15 @@ module Network.AWS.Glue.CreateJob
 
     -- ** Request lenses
     cjNumberOfWorkers,
+    cjCommand,
     cjNotificationProperty,
     cjConnections,
     cjWorkerType,
     cjSecurityConfiguration,
     cjGlueVersion,
     cjNonOverridableArguments,
+    cjRole,
+    cjName,
     cjLogURI,
     cjMaxRetries,
     cjExecutionProperty,
@@ -35,9 +39,6 @@ module Network.AWS.Glue.CreateJob
     cjDefaultArguments,
     cjDescription,
     cjTags,
-    cjName,
-    cjRole,
-    cjCommand,
 
     -- * Destructuring the response
     CreateJobResponse (..),
@@ -57,56 +58,110 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { numberOfWorkers :: Lude.Maybe Lude.Int,
+  { -- | The number of workers of a defined @workerType@ that are allocated when a job runs.
+    --
+    -- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
+    numberOfWorkers :: Lude.Maybe Lude.Int,
+    -- | The @JobCommand@ that executes this job.
+    command :: JobCommand,
+    -- | Specifies configuration properties of a job notification.
     notificationProperty :: Lude.Maybe NotificationProperty,
+    -- | The connections used for this job.
     connections :: Lude.Maybe ConnectionsList,
+    -- | The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+    --
+    --
+    --     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+    --
+    --
+    --     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+    --
+    --
+    --     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
     workerType :: Lude.Maybe WorkerType,
+    -- | The name of the @SecurityConfiguration@ structure to be used with this job.
     securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.
+    --
+    -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
+    -- Jobs that are created without specifying a Glue version default to Glue 0.9.
     glueVersion :: Lude.Maybe Lude.Text,
-    nonOverridableArguments ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    logURI :: Lude.Maybe Lude.Text,
-    maxRetries :: Lude.Maybe Lude.Int,
-    executionProperty :: Lude.Maybe ExecutionProperty,
-    allocatedCapacity :: Lude.Maybe Lude.Int,
-    maxCapacity :: Lude.Maybe Lude.Double,
-    timeout :: Lude.Maybe Lude.Natural,
-    defaultArguments ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    name :: Lude.Text,
+    -- | Non-overridable arguments for this job, specified as name-value pairs.
+    nonOverridableArguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
     role' :: Lude.Text,
-    command :: JobCommand
+    -- | The name you assign to this job definition. It must be unique in your account.
+    name :: Lude.Text,
+    -- | This field is reserved for future use.
+    logURI :: Lude.Maybe Lude.Text,
+    -- | The maximum number of times to retry this job if it fails.
+    maxRetries :: Lude.Maybe Lude.Int,
+    -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs allowed for this job.
+    executionProperty :: Lude.Maybe ExecutionProperty,
+    -- | This parameter is deprecated. Use @MaxCapacity@ instead.
+    --
+    -- The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+    allocatedCapacity :: Lude.Maybe Lude.Int,
+    -- | The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+    --
+    -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ .
+    -- The value that can be allocated for @MaxCapacity@ depends on whether you are running a Python shell job or an Apache Spark ETL job:
+    --
+    --     * When you specify a Python shell job (@JobCommand.Name@ ="pythonshell"), you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.
+    --
+    --
+    --     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl") or Apache Spark streaming ETL job (@JobCommand.Name@ ="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
+    maxCapacity :: Lude.Maybe Lude.Double,
+    -- | The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
+    timeout :: Lude.Maybe Lude.Natural,
+    -- | The default arguments for this job.
+    --
+    -- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+    -- For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
+    -- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
+    defaultArguments :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Description of the job being defined.
+    description :: Lude.Maybe Lude.Text,
+    -- | The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
--- * 'allocatedCapacity' - This parameter is deprecated. Use @MaxCapacity@ instead.
+-- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when a job runs.
 --
--- The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
+-- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
 -- * 'command' - The @JobCommand@ that executes this job.
+-- * 'notificationProperty' - Specifies configuration properties of a job notification.
 -- * 'connections' - The connections used for this job.
--- * 'defaultArguments' - The default arguments for this job.
+-- * 'workerType' - The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
 --
--- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
--- For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
--- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
--- * 'description' - Description of the job being defined.
--- * 'executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs allowed for this job.
+--
+--     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+--
+--
+--     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+--
+--
+--     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+--
+--
+-- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this job.
 -- * 'glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark.
 --
 -- For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version> in the developer guide.
 -- Jobs that are created without specifying a Glue version default to Glue 0.9.
+-- * 'nonOverridableArguments' - Non-overridable arguments for this job, specified as name-value pairs.
+-- * 'role'' - The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
+-- * 'name' - The name you assign to this job definition. It must be unique in your account.
 -- * 'logURI' - This field is reserved for future use.
+-- * 'maxRetries' - The maximum number of times to retry this job if it fails.
+-- * 'executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs allowed for this job.
+-- * 'allocatedCapacity' - This parameter is deprecated. Use @MaxCapacity@ instead.
+--
+-- The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 -- * 'maxCapacity' - The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page> .
 --
 -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@ .
@@ -118,44 +173,34 @@ data CreateJob = CreateJob'
 --     * When you specify an Apache Spark ETL job (@JobCommand.Name@ ="glueetl") or Apache Spark streaming ETL job (@JobCommand.Name@ ="gluestreaming"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.
 --
 --
--- * 'maxRetries' - The maximum number of times to retry this job if it fails.
--- * 'name' - The name you assign to this job definition. It must be unique in your account.
--- * 'nonOverridableArguments' - Non-overridable arguments for this job, specified as name-value pairs.
--- * 'notificationProperty' - Specifies configuration properties of a job notification.
--- * 'numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when a job runs.
---
--- The maximum number of workers you can define are 299 for @G.1X@ , and 149 for @G.2X@ .
--- * 'role'' - The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
--- * 'securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this job.
--- * 'tags' - The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
 -- * 'timeout' - The job timeout in minutes. This is the maximum time that a job run can consume resources before it is terminated and enters @TIMEOUT@ status. The default is 2,880 minutes (48 hours).
--- * 'workerType' - The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+-- * 'defaultArguments' - The default arguments for this job.
 --
---
---     * For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
---
---
---     * For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
---
---
---     * For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.
+-- You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+-- For information about how to specify and consume your own Job arguments, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python> topic in the developer guide.
+-- For information about the key-value pairs that AWS Glue consumes to set up your job, see the <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue> topic in the developer guide.
+-- * 'description' - Description of the job being defined.
+-- * 'tags' - The tags to use with this job. You may use tags to limit access to the job. For more information about tags in AWS Glue, see <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue> in the developer guide.
 mkCreateJob ::
-  -- | 'name'
-  Lude.Text ->
-  -- | 'role''
-  Lude.Text ->
   -- | 'command'
   JobCommand ->
+  -- | 'role''
+  Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateJob
-mkCreateJob pName_ pRole_ pCommand_ =
+mkCreateJob pCommand_ pRole_ pName_ =
   CreateJob'
     { numberOfWorkers = Lude.Nothing,
+      command = pCommand_,
       notificationProperty = Lude.Nothing,
       connections = Lude.Nothing,
       workerType = Lude.Nothing,
       securityConfiguration = Lude.Nothing,
       glueVersion = Lude.Nothing,
       nonOverridableArguments = Lude.Nothing,
+      role' = pRole_,
+      name = pName_,
       logURI = Lude.Nothing,
       maxRetries = Lude.Nothing,
       executionProperty = Lude.Nothing,
@@ -164,10 +209,7 @@ mkCreateJob pName_ pRole_ pCommand_ =
       timeout = Lude.Nothing,
       defaultArguments = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_,
-      role' = pRole_,
-      command = pCommand_
+      tags = Lude.Nothing
     }
 
 -- | The number of workers of a defined @workerType@ that are allocated when a job runs.
@@ -178,6 +220,13 @@ mkCreateJob pName_ pRole_ pCommand_ =
 cjNumberOfWorkers :: Lens.Lens' CreateJob (Lude.Maybe Lude.Int)
 cjNumberOfWorkers = Lens.lens (numberOfWorkers :: CreateJob -> Lude.Maybe Lude.Int) (\s a -> s {numberOfWorkers = a} :: CreateJob)
 {-# DEPRECATED cjNumberOfWorkers "Use generic-lens or generic-optics with 'numberOfWorkers' instead." #-}
+
+-- | The @JobCommand@ that executes this job.
+--
+-- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjCommand :: Lens.Lens' CreateJob JobCommand
+cjCommand = Lens.lens (command :: CreateJob -> JobCommand) (\s a -> s {command = a} :: CreateJob)
+{-# DEPRECATED cjCommand "Use generic-lens or generic-optics with 'command' instead." #-}
 
 -- | Specifies configuration properties of a job notification.
 --
@@ -234,6 +283,20 @@ cjGlueVersion = Lens.lens (glueVersion :: CreateJob -> Lude.Maybe Lude.Text) (\s
 cjNonOverridableArguments :: Lens.Lens' CreateJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 cjNonOverridableArguments = Lens.lens (nonOverridableArguments :: CreateJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {nonOverridableArguments = a} :: CreateJob)
 {-# DEPRECATED cjNonOverridableArguments "Use generic-lens or generic-optics with 'nonOverridableArguments' instead." #-}
+
+-- | The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
+--
+-- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjRole :: Lens.Lens' CreateJob Lude.Text
+cjRole = Lens.lens (role' :: CreateJob -> Lude.Text) (\s a -> s {role' = a} :: CreateJob)
+{-# DEPRECATED cjRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+
+-- | The name you assign to this job definition. It must be unique in your account.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjName :: Lens.Lens' CreateJob Lude.Text
+cjName = Lens.lens (name :: CreateJob -> Lude.Text) (\s a -> s {name = a} :: CreateJob)
+{-# DEPRECATED cjName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | This field is reserved for future use.
 --
@@ -314,27 +377,6 @@ cjTags :: Lens.Lens' CreateJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
 cjTags = Lens.lens (tags :: CreateJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateJob)
 {-# DEPRECATED cjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The name you assign to this job definition. It must be unique in your account.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjName :: Lens.Lens' CreateJob Lude.Text
-cjName = Lens.lens (name :: CreateJob -> Lude.Text) (\s a -> s {name = a} :: CreateJob)
-{-# DEPRECATED cjName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The name or Amazon Resource Name (ARN) of the IAM role associated with this job.
---
--- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjRole :: Lens.Lens' CreateJob Lude.Text
-cjRole = Lens.lens (role' :: CreateJob -> Lude.Text) (\s a -> s {role' = a} :: CreateJob)
-{-# DEPRECATED cjRole "Use generic-lens or generic-optics with 'role'' instead." #-}
-
--- | The @JobCommand@ that executes this job.
---
--- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjCommand :: Lens.Lens' CreateJob JobCommand
-cjCommand = Lens.lens (command :: CreateJob -> JobCommand) (\s a -> s {command = a} :: CreateJob)
-{-# DEPRECATED cjCommand "Use generic-lens or generic-optics with 'command' instead." #-}
-
 instance Lude.AWSRequest CreateJob where
   type Rs CreateJob = CreateJobResponse
   request = Req.postJSON glueService
@@ -360,6 +402,7 @@ instance Lude.ToJSON CreateJob where
     Lude.object
       ( Lude.catMaybes
           [ ("NumberOfWorkers" Lude..=) Lude.<$> numberOfWorkers,
+            Lude.Just ("Command" Lude..= command),
             ("NotificationProperty" Lude..=) Lude.<$> notificationProperty,
             ("Connections" Lude..=) Lude.<$> connections,
             ("WorkerType" Lude..=) Lude.<$> workerType,
@@ -367,6 +410,8 @@ instance Lude.ToJSON CreateJob where
             ("GlueVersion" Lude..=) Lude.<$> glueVersion,
             ("NonOverridableArguments" Lude..=)
               Lude.<$> nonOverridableArguments,
+            Lude.Just ("Role" Lude..= role'),
+            Lude.Just ("Name" Lude..= name),
             ("LogUri" Lude..=) Lude.<$> logURI,
             ("MaxRetries" Lude..=) Lude.<$> maxRetries,
             ("ExecutionProperty" Lude..=) Lude.<$> executionProperty,
@@ -375,10 +420,7 @@ instance Lude.ToJSON CreateJob where
             ("Timeout" Lude..=) Lude.<$> timeout,
             ("DefaultArguments" Lude..=) Lude.<$> defaultArguments,
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Role" Lude..= role'),
-            Lude.Just ("Command" Lude..= command)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -390,17 +432,12 @@ instance Lude.ToQuery CreateJob where
 
 -- | /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique name that was provided for this job definition.
+    name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
   ( TestGridSessionArtifactType
       ( TestGridSessionArtifactType',
-        SeleniumLog,
-        Unknown,
-        Video
+        TGSATUnknown,
+        TGSATVideo,
+        TGSATSeleniumLog
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TestGridSessionArtifactType = TestGridSessionArtifactType' Lude.Text
       Lude.ToHeader
     )
 
-pattern SeleniumLog :: TestGridSessionArtifactType
-pattern SeleniumLog = TestGridSessionArtifactType' "SELENIUM_LOG"
+pattern TGSATUnknown :: TestGridSessionArtifactType
+pattern TGSATUnknown = TestGridSessionArtifactType' "UNKNOWN"
 
-pattern Unknown :: TestGridSessionArtifactType
-pattern Unknown = TestGridSessionArtifactType' "UNKNOWN"
+pattern TGSATVideo :: TestGridSessionArtifactType
+pattern TGSATVideo = TestGridSessionArtifactType' "VIDEO"
 
-pattern Video :: TestGridSessionArtifactType
-pattern Video = TestGridSessionArtifactType' "VIDEO"
+pattern TGSATSeleniumLog :: TestGridSessionArtifactType
+pattern TGSATSeleniumLog = TestGridSessionArtifactType' "SELENIUM_LOG"
 
 {-# COMPLETE
-  SeleniumLog,
-  Unknown,
-  Video,
+  TGSATUnknown,
+  TGSATVideo,
+  TGSATSeleniumLog,
   TestGridSessionArtifactType'
   #-}

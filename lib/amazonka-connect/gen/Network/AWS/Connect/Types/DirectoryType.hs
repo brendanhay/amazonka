@@ -13,9 +13,9 @@
 module Network.AWS.Connect.Types.DirectoryType
   ( DirectoryType
       ( DirectoryType',
+        Saml,
         ConnectManaged,
-        ExistingDirectory,
-        Saml
+        ExistingDirectory
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DirectoryType = DirectoryType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Saml :: DirectoryType
+pattern Saml = DirectoryType' "SAML"
+
 pattern ConnectManaged :: DirectoryType
 pattern ConnectManaged = DirectoryType' "CONNECT_MANAGED"
 
 pattern ExistingDirectory :: DirectoryType
 pattern ExistingDirectory = DirectoryType' "EXISTING_DIRECTORY"
 
-pattern Saml :: DirectoryType
-pattern Saml = DirectoryType' "SAML"
-
 {-# COMPLETE
+  Saml,
   ConnectManaged,
   ExistingDirectory,
-  Saml,
   DirectoryType'
   #-}

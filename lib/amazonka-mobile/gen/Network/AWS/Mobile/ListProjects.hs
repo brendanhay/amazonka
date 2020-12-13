@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of records to list in a single response.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of records to list in a single response.
 -- * 'nextToken' - Pagination token. Set to null to start listing projects from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more projects.
+-- * 'maxResults' - Maximum number of records to list in a single response.
 mkListProjects ::
   ListProjects
 mkListProjects =
@@ -127,24 +123,18 @@ instance Lude.ToQuery ListProjects where
 --
 -- /See:/ 'mkListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { nextToken :: Lude.Maybe Lude.Text,
     projects :: Lude.Maybe [ProjectSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
--- * 'projects' - Undocumented field.
+-- * 'nextToken' -
+-- * 'projects' -
 -- * 'responseStatus' - The response status code.
 mkListProjectsResponse ::
   -- | 'responseStatus'

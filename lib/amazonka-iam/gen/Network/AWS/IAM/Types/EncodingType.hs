@@ -13,8 +13,8 @@
 module Network.AWS.IAM.Types.EncodingType
   ( EncodingType
       ( EncodingType',
-        Pem,
-        SSH
+        SSH,
+        Pem
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EncodingType = EncodingType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Pem :: EncodingType
-pattern Pem = EncodingType' "PEM"
-
 pattern SSH :: EncodingType
 pattern SSH = EncodingType' "SSH"
 
+pattern Pem :: EncodingType
+pattern Pem = EncodingType' "PEM"
+
 {-# COMPLETE
-  Pem,
   SSH,
+  Pem,
   EncodingType'
   #-}

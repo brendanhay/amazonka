@@ -32,33 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisionedThroughputDescription' smart constructor.
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
-  { readCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    lastDecreaseDateTime ::
-      Lude.Maybe Lude.Timestamp,
-    writeCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    numberOfDecreasesToday ::
-      Lude.Maybe Lude.Natural,
-    lastIncreaseDateTime ::
-      Lude.Maybe Lude.Timestamp
+  { -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent @ReadCapacityUnits@ per second.
+    readCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The date and time of the last provisioned throughput decrease for this table.
+    lastDecreaseDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ .
+    writeCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+    numberOfDecreasesToday :: Lude.Maybe Lude.Natural,
+    -- | The date and time of the last provisioned throughput increase for this table.
+    lastIncreaseDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedThroughputDescription' with the minimum fields required to make a request.
 --
--- * 'lastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this table.
--- * 'lastIncreaseDateTime' - The date and time of the last provisioned throughput increase for this table.
--- * 'numberOfDecreasesToday' - The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'readCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . Eventually consistent reads require less effort than strongly consistent reads, so a setting of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent @ReadCapacityUnits@ per second.
+-- * 'lastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this table.
 -- * 'writeCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException@ .
+-- * 'numberOfDecreasesToday' - The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'lastIncreaseDateTime' - The date and time of the last provisioned throughput increase for this table.
 mkProvisionedThroughputDescription ::
   ProvisionedThroughputDescription
 mkProvisionedThroughputDescription =

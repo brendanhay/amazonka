@@ -49,45 +49,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackSet' smart constructor.
 data StackSet = StackSet'
-  { stackSetDriftDetectionDetails ::
-      Lude.Maybe StackSetDriftDetectionDetails,
+  { -- | Detailed information about the drift status of the stack set.
+    --
+    -- For stack sets, contains information about the last /completed/ drift operation performed on the stack set. Information about drift operations currently in progress is not included.
+    stackSetDriftDetectionDetails :: Lude.Maybe StackSetDriftDetectionDetails,
+    -- | The status of the stack set.
     status :: Lude.Maybe StackSetStatus,
+    -- | The Amazon Resource Number (ARN) of the IAM role used to create or update the stack set.
+    --
+    -- Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations> in the /AWS CloudFormation User Guide/ .
     administrationRoleARN :: Lude.Maybe Lude.Text,
+    -- | [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
     autoDeployment :: Lude.Maybe AutoDeployment,
+    -- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
     organizationalUnitIds :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Number (ARN) of the stack set.
     stackSetARN :: Lude.Maybe Lude.Text,
+    -- | Describes how the IAM roles required for stack set operations are created.
+    --
+    --
+    --     * With @self-managed@ permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions> .
+    --
+    --
+    --     * With @service-managed@ permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions> .
     permissionModel :: Lude.Maybe PermissionModels,
+    -- | A list of input parameters for a stack set.
     parameters :: Lude.Maybe [Parameter],
+    -- | The structure that contains the body of the template that was used to create or update the stack set.
     templateBody :: Lude.Maybe Lude.Text,
+    -- | The name that's associated with the stack set.
     stackSetName :: Lude.Maybe Lude.Text,
+    -- | A description of the stack set that you specify when the stack set is created or updated.
     description :: Lude.Maybe Lude.Text,
+    -- | The capabilities that are allowed in the stack set. Some stack set templates might include resources that can affect permissions in your AWS account—for example, by creating new AWS Identity and Access Management (IAM) users. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
     capabilities :: Lude.Maybe [Capability],
+    -- | A list of tags that specify information about the stack set. A maximum number of 50 tags can be specified.
     tags :: Lude.Maybe [Tag],
+    -- | The ID of the stack set.
     stackSetId :: Lude.Maybe Lude.Text,
+    -- | The name of the IAM execution role used to create or update the stack set.
+    --
+    -- Use customized execution roles to control which stack resources users and groups can include in their stack sets.
     executionRoleName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackSet' with the minimum fields required to make a request.
 --
+-- * 'stackSetDriftDetectionDetails' - Detailed information about the drift status of the stack set.
+--
+-- For stack sets, contains information about the last /completed/ drift operation performed on the stack set. Information about drift operations currently in progress is not included.
+-- * 'status' - The status of the stack set.
 -- * 'administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role used to create or update the stack set.
 --
 -- Use customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations> in the /AWS CloudFormation User Guide/ .
 -- * 'autoDeployment' - [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).
--- * 'capabilities' - The capabilities that are allowed in the stack set. Some stack set templates might include resources that can affect permissions in your AWS account—for example, by creating new AWS Identity and Access Management (IAM) users. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
--- * 'description' - A description of the stack set that you specify when the stack set is created or updated.
--- * 'executionRoleName' - The name of the IAM execution role used to create or update the stack set.
---
--- Use customized execution roles to control which stack resources users and groups can include in their stack sets.
 -- * 'organizationalUnitIds' - [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
--- * 'parameters' - A list of input parameters for a stack set.
+-- * 'stackSetARN' - The Amazon Resource Number (ARN) of the stack set.
 -- * 'permissionModel' - Describes how the IAM roles required for stack set operations are created.
 --
 --
@@ -97,15 +116,16 @@ data StackSet = StackSet'
 --     * With @service-managed@ permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions> .
 --
 --
--- * 'stackSetARN' - The Amazon Resource Number (ARN) of the stack set.
--- * 'stackSetDriftDetectionDetails' - Detailed information about the drift status of the stack set.
---
--- For stack sets, contains information about the last /completed/ drift operation performed on the stack set. Information about drift operations currently in progress is not included.
--- * 'stackSetId' - The ID of the stack set.
--- * 'stackSetName' - The name that's associated with the stack set.
--- * 'status' - The status of the stack set.
--- * 'tags' - A list of tags that specify information about the stack set. A maximum number of 50 tags can be specified.
+-- * 'parameters' - A list of input parameters for a stack set.
 -- * 'templateBody' - The structure that contains the body of the template that was used to create or update the stack set.
+-- * 'stackSetName' - The name that's associated with the stack set.
+-- * 'description' - A description of the stack set that you specify when the stack set is created or updated.
+-- * 'capabilities' - The capabilities that are allowed in the stack set. Some stack set templates might include resources that can affect permissions in your AWS account—for example, by creating new AWS Identity and Access Management (IAM) users. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
+-- * 'tags' - A list of tags that specify information about the stack set. A maximum number of 50 tags can be specified.
+-- * 'stackSetId' - The ID of the stack set.
+-- * 'executionRoleName' - The name of the IAM execution role used to create or update the stack set.
+--
+-- Use customized execution roles to control which stack resources users and groups can include in their stack sets.
 mkStackSet ::
   StackSet
 mkStackSet =

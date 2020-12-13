@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.MFADeleteStatus
   ( MFADeleteStatus
       ( MFADeleteStatus',
-        MDSDisabled,
-        MDSEnabled
+        MDSEnabled,
+        MDSDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MFADeleteStatus = MFADeleteStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MDSDisabled :: MFADeleteStatus
-pattern MDSDisabled = MFADeleteStatus' "Disabled"
-
 pattern MDSEnabled :: MFADeleteStatus
 pattern MDSEnabled = MFADeleteStatus' "Enabled"
 
+pattern MDSDisabled :: MFADeleteStatus
+pattern MDSDisabled = MFADeleteStatus' "Disabled"
+
 {-# COMPLETE
-  MDSDisabled,
   MDSEnabled,
+  MDSDisabled,
   MFADeleteStatus'
   #-}

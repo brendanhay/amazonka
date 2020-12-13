@@ -13,8 +13,8 @@
 module Network.AWS.LexModels.Types.SlotConstraint
   ( SlotConstraint
       ( SlotConstraint',
-        Optional,
-        Required
+        Required,
+        Optional
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SlotConstraint = SlotConstraint' Lude.Text
       Lude.ToHeader
     )
 
-pattern Optional :: SlotConstraint
-pattern Optional = SlotConstraint' "Optional"
-
 pattern Required :: SlotConstraint
 pattern Required = SlotConstraint' "Required"
 
+pattern Optional :: SlotConstraint
+pattern Optional = SlotConstraint' "Optional"
+
 {-# COMPLETE
-  Optional,
   Required,
+  Optional,
   SlotConstraint'
   #-}

@@ -13,17 +13,17 @@
 module Network.AWS.WorkDocs.Types.LocaleType
   ( LocaleType
       ( LocaleType',
-        DE,
-        Default,
         EN,
-        ES,
         FR,
-        JA,
         KO,
-        PtBr,
+        DE,
+        ES,
+        JA,
         RU,
         ZhCn,
-        ZhTw
+        ZhTw,
+        PtBr,
+        Default
       ),
   )
 where
@@ -54,29 +54,23 @@ newtype LocaleType = LocaleType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DE :: LocaleType
-pattern DE = LocaleType' "de"
-
-pattern Default :: LocaleType
-pattern Default = LocaleType' "default"
-
 pattern EN :: LocaleType
 pattern EN = LocaleType' "en"
-
-pattern ES :: LocaleType
-pattern ES = LocaleType' "es"
 
 pattern FR :: LocaleType
 pattern FR = LocaleType' "fr"
 
-pattern JA :: LocaleType
-pattern JA = LocaleType' "ja"
-
 pattern KO :: LocaleType
 pattern KO = LocaleType' "ko"
 
-pattern PtBr :: LocaleType
-pattern PtBr = LocaleType' "pt_BR"
+pattern DE :: LocaleType
+pattern DE = LocaleType' "de"
+
+pattern ES :: LocaleType
+pattern ES = LocaleType' "es"
+
+pattern JA :: LocaleType
+pattern JA = LocaleType' "ja"
 
 pattern RU :: LocaleType
 pattern RU = LocaleType' "ru"
@@ -87,17 +81,23 @@ pattern ZhCn = LocaleType' "zh_CN"
 pattern ZhTw :: LocaleType
 pattern ZhTw = LocaleType' "zh_TW"
 
+pattern PtBr :: LocaleType
+pattern PtBr = LocaleType' "pt_BR"
+
+pattern Default :: LocaleType
+pattern Default = LocaleType' "default"
+
 {-# COMPLETE
-  DE,
-  Default,
   EN,
-  ES,
   FR,
-  JA,
   KO,
-  PtBr,
+  DE,
+  ES,
+  JA,
   RU,
   ZhCn,
   ZhTw,
+  PtBr,
+  Default,
   LocaleType'
   #-}

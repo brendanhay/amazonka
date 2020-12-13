@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,17 +42,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTableMetadata' smart constructor.
 data GetTableMetadata = GetTableMetadata'
-  { catalogName :: Lude.Text,
+  { -- | The name of the data catalog that contains the database and table metadata to return.
+    catalogName :: Lude.Text,
+    -- | The name of the database that contains the table metadata to return.
     databaseName :: Lude.Text,
+    -- | The name of the table for which metadata is returned.
     tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableMetadata' with the minimum fields required to make a request.
@@ -135,23 +133,18 @@ instance Lude.ToQuery GetTableMetadata where
 
 -- | /See:/ 'mkGetTableMetadataResponse' smart constructor.
 data GetTableMetadataResponse = GetTableMetadataResponse'
-  { tableMetadata ::
-      Lude.Maybe TableMetadata,
+  { -- | An object that contains table metadata.
+    tableMetadata :: Lude.Maybe TableMetadata,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTableMetadataResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tableMetadata' - An object that contains table metadata.
+-- * 'responseStatus' - The response status code.
 mkGetTableMetadataResponse ::
   -- | 'responseStatus'
   Lude.Int ->

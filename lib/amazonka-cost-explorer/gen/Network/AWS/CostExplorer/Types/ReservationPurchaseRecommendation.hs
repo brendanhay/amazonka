@@ -41,44 +41,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationPurchaseRecommendation' smart constructor.
 data ReservationPurchaseRecommendation = ReservationPurchaseRecommendation'
-  { termInYears ::
-      Lude.Maybe TermInYears,
-    recommendationSummary ::
-      Lude.Maybe
-        ReservationPurchaseRecommendationSummary,
-    serviceSpecification ::
-      Lude.Maybe
-        ServiceSpecification,
-    accountScope ::
-      Lude.Maybe AccountScope,
-    recommendationDetails ::
-      Lude.Maybe
-        [ReservationPurchaseRecommendationDetail],
-    lookbackPeriodInDays ::
-      Lude.Maybe
-        LookbackPeriodInDays,
-    paymentOption ::
-      Lude.Maybe
-        PaymentOption
+  { -- | The term of the reservation that you want recommendations for, in years.
+    termInYears :: Lude.Maybe TermInYears,
+    -- | A summary about the recommended purchase.
+    recommendationSummary :: Lude.Maybe ReservationPurchaseRecommendationSummary,
+    -- | Hardware specifications for the service that you want recommendations for.
+    serviceSpecification :: Lude.Maybe ServiceSpecification,
+    -- | The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations.
+    accountScope :: Lude.Maybe AccountScope,
+    -- | Details about the recommended purchases.
+    recommendationDetails :: Lude.Maybe [ReservationPurchaseRecommendationDetail],
+    -- | How many days of previous usage that AWS considers when making this recommendation.
+    lookbackPeriodInDays :: Lude.Maybe LookbackPeriodInDays,
+    -- | The payment option for the reservation. For example, @AllUpfront@ or @NoUpfront@ .
+    paymentOption :: Lude.Maybe PaymentOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationPurchaseRecommendation' with the minimum fields required to make a request.
 --
--- * 'accountScope' - The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations.
--- * 'lookbackPeriodInDays' - How many days of previous usage that AWS considers when making this recommendation.
--- * 'paymentOption' - The payment option for the reservation. For example, @AllUpfront@ or @NoUpfront@ .
--- * 'recommendationDetails' - Details about the recommended purchases.
+-- * 'termInYears' - The term of the reservation that you want recommendations for, in years.
 -- * 'recommendationSummary' - A summary about the recommended purchase.
 -- * 'serviceSpecification' - Hardware specifications for the service that you want recommendations for.
--- * 'termInYears' - The term of the reservation that you want recommendations for, in years.
+-- * 'accountScope' - The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations.
+-- * 'recommendationDetails' - Details about the recommended purchases.
+-- * 'lookbackPeriodInDays' - How many days of previous usage that AWS considers when making this recommendation.
+-- * 'paymentOption' - The payment option for the reservation. For example, @AllUpfront@ or @NoUpfront@ .
 mkReservationPurchaseRecommendation ::
   ReservationPurchaseRecommendation
 mkReservationPurchaseRecommendation =

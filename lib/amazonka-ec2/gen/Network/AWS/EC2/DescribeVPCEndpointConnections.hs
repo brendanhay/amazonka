@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVPCEndpointConnections' smart constructor.
 data DescribeVPCEndpointConnections = DescribeVPCEndpointConnections'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Int
+  { -- | One or more filters.
+    --
+    --
+    --     * @service-id@ - The ID of the service.
+    --
+    --
+    --     * @vpc-endpoint-owner@ - The AWS account number of the owner of the endpoint.
+    --
+    --
+    --     * @vpc-endpoint-state@ - The state of the endpoint (@pendingAcceptance@ | @pending@ | @available@ | @deleting@ | @deleted@ | @rejected@ | @failed@ ).
+    --
+    --
+    --     * @vpc-endpoint-id@ - The ID of the endpoint.
+    filters :: Lude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointConnections' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -82,8 +88,9 @@ data DescribeVPCEndpointConnections = DescribeVPCEndpointConnections'
 --     * @vpc-endpoint-id@ - The ID of the endpoint.
 --
 --
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
 -- * 'nextToken' - The token to retrieve the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. This value can be between 5 and 1,000; if @MaxResults@ is given a value larger than 1,000, only 1,000 results are returned.
 mkDescribeVPCEndpointConnections ::
   DescribeVPCEndpointConnections
 mkDescribeVPCEndpointConnections =
@@ -182,29 +189,21 @@ instance Lude.ToQuery DescribeVPCEndpointConnections where
 
 -- | /See:/ 'mkDescribeVPCEndpointConnectionsResponse' smart constructor.
 data DescribeVPCEndpointConnectionsResponse = DescribeVPCEndpointConnectionsResponse'
-  { vpcEndpointConnections ::
-      Lude.Maybe
-        [VPCEndpointConnection],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about one or more VPC endpoint connections.
+    vpcEndpointConnections :: Lude.Maybe [VPCEndpointConnection],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCEndpointConnectionsResponse' with the minimum fields required to make a request.
 --
+-- * 'vpcEndpointConnections' - Information about one or more VPC endpoint connections.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'vpcEndpointConnections' - Information about one or more VPC endpoint connections.
 mkDescribeVPCEndpointConnectionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

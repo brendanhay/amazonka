@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,12 +21,12 @@ module Network.AWS.IoT.UpdateJob
 
     -- ** Request lenses
     ujJobExecutionsRolloutConfig,
+    ujJobId,
     ujAbortConfig,
     ujNamespaceId,
     ujPresignedURLConfig,
     ujDescription,
     ujTimeoutConfig,
-    ujJobId,
 
     -- * Destructuring the response
     UpdateJobResponse (..),
@@ -41,35 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { jobExecutionsRolloutConfig ::
-      Lude.Maybe JobExecutionsRolloutConfig,
+  { -- | Allows you to create a staged rollout of the job.
+    jobExecutionsRolloutConfig :: Lude.Maybe JobExecutionsRolloutConfig,
+    -- | The ID of the job to be updated.
+    jobId :: Lude.Text,
+    -- | Allows you to create criteria to abort a job.
     abortConfig :: Lude.Maybe AbortConfig,
+    -- | The namespace used to indicate that a job is a customer-managed job.
+    --
+    -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+    -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
     namespaceId :: Lude.Maybe Lude.Text,
+    -- | Configuration information for pre-signed S3 URLs.
     presignedURLConfig :: Lude.Maybe PresignedURLConfig,
+    -- | A short text description of the job.
     description :: Lude.Maybe Lude.Text,
-    timeoutConfig :: Lude.Maybe TimeoutConfig,
-    jobId :: Lude.Text
+    -- | Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
+    timeoutConfig :: Lude.Maybe TimeoutConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
--- * 'abortConfig' - Allows you to create criteria to abort a job.
--- * 'description' - A short text description of the job.
 -- * 'jobExecutionsRolloutConfig' - Allows you to create a staged rollout of the job.
 -- * 'jobId' - The ID of the job to be updated.
+-- * 'abortConfig' - Allows you to create criteria to abort a job.
 -- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
 -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
 -- * 'presignedURLConfig' - Configuration information for pre-signed S3 URLs.
+-- * 'description' - A short text description of the job.
 -- * 'timeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
 mkUpdateJob ::
   -- | 'jobId'
@@ -78,12 +82,12 @@ mkUpdateJob ::
 mkUpdateJob pJobId_ =
   UpdateJob'
     { jobExecutionsRolloutConfig = Lude.Nothing,
+      jobId = pJobId_,
       abortConfig = Lude.Nothing,
       namespaceId = Lude.Nothing,
       presignedURLConfig = Lude.Nothing,
       description = Lude.Nothing,
-      timeoutConfig = Lude.Nothing,
-      jobId = pJobId_
+      timeoutConfig = Lude.Nothing
     }
 
 -- | Allows you to create a staged rollout of the job.
@@ -92,6 +96,13 @@ mkUpdateJob pJobId_ =
 ujJobExecutionsRolloutConfig :: Lens.Lens' UpdateJob (Lude.Maybe JobExecutionsRolloutConfig)
 ujJobExecutionsRolloutConfig = Lens.lens (jobExecutionsRolloutConfig :: UpdateJob -> Lude.Maybe JobExecutionsRolloutConfig) (\s a -> s {jobExecutionsRolloutConfig = a} :: UpdateJob)
 {-# DEPRECATED ujJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'jobExecutionsRolloutConfig' instead." #-}
+
+-- | The ID of the job to be updated.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujJobId :: Lens.Lens' UpdateJob Lude.Text
+ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJob)
+{-# DEPRECATED ujJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Allows you to create criteria to abort a job.
 --
@@ -131,13 +142,6 @@ ujTimeoutConfig :: Lens.Lens' UpdateJob (Lude.Maybe TimeoutConfig)
 ujTimeoutConfig = Lens.lens (timeoutConfig :: UpdateJob -> Lude.Maybe TimeoutConfig) (\s a -> s {timeoutConfig = a} :: UpdateJob)
 {-# DEPRECATED ujTimeoutConfig "Use generic-lens or generic-optics with 'timeoutConfig' instead." #-}
 
--- | The ID of the job to be updated.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujJobId :: Lens.Lens' UpdateJob Lude.Text
-ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJob)
-{-# DEPRECATED ujJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
 instance Lude.AWSRequest UpdateJob where
   type Rs UpdateJob = UpdateJobResponse
   request = Req.patchJSON ioTService
@@ -168,13 +172,7 @@ instance Lude.ToQuery UpdateJob where
 
 -- | /See:/ 'mkUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.

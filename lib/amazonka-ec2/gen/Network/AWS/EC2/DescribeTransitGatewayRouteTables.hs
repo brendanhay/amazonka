@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.EC2.DescribeTransitGatewayRouteTables
     mkDescribeTransitGatewayRouteTablesResponse,
 
     -- ** Response lenses
-    dtgrtsrsTransitGatewayRouteTables,
-    dtgrtsrsNextToken,
-    dtgrtsrsResponseStatus,
+    dtgrtrsTransitGatewayRouteTables,
+    dtgrtrsNextToken,
+    dtgrtrsResponseStatus,
   )
 where
 
@@ -47,29 +48,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTransitGatewayRouteTables' smart constructor.
 data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    transitGatewayRouteTableIds ::
-      Lude.Maybe [Lude.Text],
-    maxResults ::
-      Lude.Maybe Lude.Natural
+  { -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @default-association-route-table@ - Indicates whether this is the default association route table for the transit gateway (@true@ | @false@ ).
+    --
+    --
+    --     * @default-propagation-route-table@ - Indicates whether this is the default propagation route table for the transit gateway (@true@ | @false@ ).
+    --
+    --
+    --     * @state@ - The state of the route table (@available@ | @deleting@ | @deleted@ | @pending@ ).
+    --
+    --
+    --     * @transit-gateway-id@ - The ID of the transit gateway.
+    --
+    --
+    --     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The IDs of the transit gateway route tables.
+    transitGatewayRouteTableIds :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayRouteTables' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -88,9 +97,10 @@ data DescribeTransitGatewayRouteTables = DescribeTransitGatewayRouteTables'
 --     * @transit-gateway-route-table-id@ - The ID of the transit gateway route table.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'transitGatewayRouteTableIds' - The IDs of the transit gateway route tables.
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeTransitGatewayRouteTables ::
   DescribeTransitGatewayRouteTables
 mkDescribeTransitGatewayRouteTables =
@@ -156,13 +166,13 @@ dtgrtsMaxResults = Lens.lens (maxResults :: DescribeTransitGatewayRouteTables ->
 
 instance Page.AWSPager DescribeTransitGatewayRouteTables where
   page rq rs
-    | Page.stop (rs Lens.^. dtgrtsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtgrtsrsTransitGatewayRouteTables) =
+    | Page.stop (rs Lens.^. dtgrtrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dtgrtrsTransitGatewayRouteTables) =
       Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dtgrtsNextToken Lens..~ rs Lens.^. dtgrtsrsNextToken
+          Lude.& dtgrtsNextToken Lens..~ rs Lens.^. dtgrtrsNextToken
 
 instance Lude.AWSRequest DescribeTransitGatewayRouteTables where
   type
@@ -204,29 +214,21 @@ instance Lude.ToQuery DescribeTransitGatewayRouteTables where
 
 -- | /See:/ 'mkDescribeTransitGatewayRouteTablesResponse' smart constructor.
 data DescribeTransitGatewayRouteTablesResponse = DescribeTransitGatewayRouteTablesResponse'
-  { transitGatewayRouteTables ::
-      Lude.Maybe
-        [TransitGatewayRouteTable],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the transit gateway route tables.
+    transitGatewayRouteTables :: Lude.Maybe [TransitGatewayRouteTable],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewayRouteTablesResponse' with the minimum fields required to make a request.
 --
+-- * 'transitGatewayRouteTables' - Information about the transit gateway route tables.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'transitGatewayRouteTables' - Information about the transit gateway route tables.
 mkDescribeTransitGatewayRouteTablesResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -242,20 +244,20 @@ mkDescribeTransitGatewayRouteTablesResponse pResponseStatus_ =
 -- | Information about the transit gateway route tables.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTables' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrtsrsTransitGatewayRouteTables :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Lude.Maybe [TransitGatewayRouteTable])
-dtgrtsrsTransitGatewayRouteTables = Lens.lens (transitGatewayRouteTables :: DescribeTransitGatewayRouteTablesResponse -> Lude.Maybe [TransitGatewayRouteTable]) (\s a -> s {transitGatewayRouteTables = a} :: DescribeTransitGatewayRouteTablesResponse)
-{-# DEPRECATED dtgrtsrsTransitGatewayRouteTables "Use generic-lens or generic-optics with 'transitGatewayRouteTables' instead." #-}
+dtgrtrsTransitGatewayRouteTables :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Lude.Maybe [TransitGatewayRouteTable])
+dtgrtrsTransitGatewayRouteTables = Lens.lens (transitGatewayRouteTables :: DescribeTransitGatewayRouteTablesResponse -> Lude.Maybe [TransitGatewayRouteTable]) (\s a -> s {transitGatewayRouteTables = a} :: DescribeTransitGatewayRouteTablesResponse)
+{-# DEPRECATED dtgrtrsTransitGatewayRouteTables "Use generic-lens or generic-optics with 'transitGatewayRouteTables' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrtsrsNextToken :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Lude.Maybe Lude.Text)
-dtgrtsrsNextToken = Lens.lens (nextToken :: DescribeTransitGatewayRouteTablesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayRouteTablesResponse)
-{-# DEPRECATED dtgrtsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtgrtrsNextToken :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse (Lude.Maybe Lude.Text)
+dtgrtrsNextToken = Lens.lens (nextToken :: DescribeTransitGatewayRouteTablesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTransitGatewayRouteTablesResponse)
+{-# DEPRECATED dtgrtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrtsrsResponseStatus :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse Lude.Int
-dtgrtsrsResponseStatus = Lens.lens (responseStatus :: DescribeTransitGatewayRouteTablesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTransitGatewayRouteTablesResponse)
-{-# DEPRECATED dtgrtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgrtrsResponseStatus :: Lens.Lens' DescribeTransitGatewayRouteTablesResponse Lude.Int
+dtgrtrsResponseStatus = Lens.lens (responseStatus :: DescribeTransitGatewayRouteTablesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTransitGatewayRouteTablesResponse)
+{-# DEPRECATED dtgrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

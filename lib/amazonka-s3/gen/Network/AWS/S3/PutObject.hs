@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,13 +42,16 @@ module Network.AWS.S3.PutObject
     poContentLength,
     poObjectLockMode,
     poExpires,
+    poBody,
     poGrantReadACP,
+    poBucket,
     poSSECustomerAlgorithm,
     poSSECustomerKey,
     poRequestPayer,
     poGrantWriteACP,
     poWebsiteRedirectLocation,
     poGrantRead,
+    poKey,
     poStorageClass,
     poSSECustomerKeyMD5,
     poSSEKMSKeyId,
@@ -66,9 +70,6 @@ module Network.AWS.S3.PutObject
     poExpectedBucketOwner,
     poServerSideEncryption,
     poContentType,
-    poBucket,
-    poKey,
-    poBody,
 
     -- * Destructuring the response
     PutObjectResponse (..),
@@ -96,88 +97,110 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkPutObject' smart constructor.
 data PutObject = PutObject'
-  { contentLength ::
-      Lude.Maybe Lude.Integer,
+  { -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
+    contentLength :: Lude.Maybe Lude.Integer,
+    -- | The Object Lock mode that you want to apply to this object.
     objectLockMode :: Lude.Maybe ObjectLockMode,
+    -- | The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
     expires :: Lude.Maybe Lude.DateTime,
+    -- | Object data.
+    body :: Lude.RqBody,
+    -- | Allows grantee to read the object ACL.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantReadACP :: Lude.Maybe Lude.Text,
+    -- | The bucket name to which the PUT operation was initiated.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: BucketName,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
     sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
     requestPayer :: Lude.Maybe RequestPayer,
+    -- | Allows grantee to write the ACL for the applicable object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantWriteACP :: Lude.Maybe Lude.Text,
+    -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html Object Key and Metadata> .
+    --
+    -- In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:
+    -- @x-amz-website-redirect-location: /anotherPage.html@
+    -- In the following example, the request header sets the object redirect to another website:
+    -- @x-amz-website-redirect-location: http://www.example.com/@
+    -- For more information about website hosting in Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html How to Configure Website Page Redirects> .
     websiteRedirectLocation :: Lude.Maybe Lude.Text,
+    -- | Allows grantee to read the object data and its metadata.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantRead :: Lude.Maybe Lude.Text,
-    storageClass :: Lude.Maybe StorageClass,
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    grantFullControl :: Lude.Maybe Lude.Text,
-    contentEncoding :: Lude.Maybe Lude.Text,
-    tagging :: Lude.Maybe Lude.Text,
-    contentMD5 :: Lude.Maybe Lude.Text,
-    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
-    metadata :: Lude.HashMap Lude.Text (Lude.Text),
-    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    cacheControl :: Lude.Maybe Lude.Text,
-    contentLanguage :: Lude.Maybe Lude.Text,
-    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
-    acl :: Lude.Maybe ObjectCannedACL,
-    contentDisposition :: Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
-    contentType :: Lude.Maybe Lude.Text,
-    bucket :: BucketName,
+    -- | Object key for which the PUT operation was initiated.
     key :: ObjectKey,
-    body :: Lude.RqBody
+    -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+    storageClass :: Lude.Maybe StorageClass,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
+    --
+    -- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
+    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    grantFullControl :: Lude.Maybe Lude.Text,
+    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
+    contentEncoding :: Lude.Maybe Lude.Text,
+    -- | The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+    tagging :: Lude.Maybe Lude.Text,
+    -- | The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
+    contentMD5 :: Lude.Maybe Lude.Text,
+    -- | The date and time when you want this object's Object Lock to expire.
+    objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
+    -- | A map of metadata to store with the object in S3.
+    metadata :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
+    cacheControl :: Lude.Maybe Lude.Text,
+    -- | The language the content is in.
+    contentLanguage :: Lude.Maybe Lude.Text,
+    -- | Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
+    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
+    -- | The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    acl :: Lude.Maybe ObjectCannedACL,
+    -- | Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
+    contentDisposition :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    -- | A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
+    contentType :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'PutObject' with the minimum fields required to make a request.
 --
--- * 'acl' - The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
+-- * 'contentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
+-- * 'objectLockMode' - The Object Lock mode that you want to apply to this object.
+-- * 'expires' - The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
+-- * 'body' - Object data.
+-- * 'grantReadACP' - Allows grantee to read the object ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
--- * 'body' - Object data.
 -- * 'bucket' - The bucket name to which the PUT operation was initiated.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'cacheControl' - Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
--- * 'contentDisposition' - Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
--- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
--- * 'contentLanguage' - The language the content is in.
--- * 'contentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
--- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
--- * 'contentType' - A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'expires' - The date and time at which the object is no longer cacheable. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21> .
--- * 'grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'grantRead' - Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'grantReadACP' - Allows grantee to read the object ACL.
---
--- This action is not supported by Amazon S3 on Outposts.
+-- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
+-- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+-- * 'requestPayer' -
 -- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable object.
 --
 -- This action is not supported by Amazon S3 on Outposts.
--- * 'key' - Object key for which the PUT operation was initiated.
--- * 'metadata' - A map of metadata to store with the object in S3.
--- * 'objectLockLegalHoldStatus' - Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
--- * 'objectLockMode' - The Object Lock mode that you want to apply to this object.
--- * 'objectLockRetainUntilDate' - The date and time when you want this object's Object Lock to expire.
--- * 'requestPayer' - Undocumented field.
--- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
--- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
--- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'sSEKMSEncryptionContext' - Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
--- * 'sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
---
--- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
--- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
--- * 'tagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
 -- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html Object Key and Metadata> .
 --
 -- In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:
@@ -185,26 +208,57 @@ data PutObject = PutObject'
 -- In the following example, the request header sets the object redirect to another website:
 -- @x-amz-website-redirect-location: http://www.example.com/@
 -- For more information about website hosting in Amazon S3, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html How to Configure Website Page Redirects> .
+-- * 'grantRead' - Allows grantee to read the object data and its metadata.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'key' - Object key for which the PUT operation was initiated.
+-- * 'storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+-- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+-- * 'sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.
+--
+-- If the value of @x-amz-server-side-encryption@ is @aws:kms@ , this header specifies the ID of the symmetric customer managed AWS KMS CMK that will be used for the object. If you specify @x-amz-server-side-encryption:aws:kms@ , but do not provide@x-amz-server-side-encryption-aws-kms-key-id@ , Amazon S3 uses the AWS managed CMK in AWS to protect the data.
+-- * 'grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11> .
+-- * 'tagging' - The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")
+-- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> .
+-- * 'objectLockRetainUntilDate' - The date and time when you want this object's Object Lock to expire.
+-- * 'metadata' - A map of metadata to store with the object in S3.
+-- * 'sSEKMSEncryptionContext' - Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+-- * 'cacheControl' - Can be used to specify caching behavior along the request/reply chain. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> .
+-- * 'contentLanguage' - The language the content is in.
+-- * 'objectLockLegalHoldStatus' - Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock> .
+-- * 'acl' - The canned ACL to apply to the object. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL> .
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'contentDisposition' - Specifies presentational information for the object. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1 http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1> .
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+-- * 'contentType' - A standard MIME type describing the format of the contents. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17> .
 mkPutObject ::
+  -- | 'body'
+  Lude.RqBody ->
   -- | 'bucket'
   BucketName ->
   -- | 'key'
   ObjectKey ->
-  -- | 'body'
-  Lude.RqBody ->
   PutObject
-mkPutObject pBucket_ pKey_ pBody_ =
+mkPutObject pBody_ pBucket_ pKey_ =
   PutObject'
     { contentLength = Lude.Nothing,
       objectLockMode = Lude.Nothing,
       expires = Lude.Nothing,
+      body = pBody_,
       grantReadACP = Lude.Nothing,
+      bucket = pBucket_,
       sSECustomerAlgorithm = Lude.Nothing,
       sSECustomerKey = Lude.Nothing,
       requestPayer = Lude.Nothing,
       grantWriteACP = Lude.Nothing,
       websiteRedirectLocation = Lude.Nothing,
       grantRead = Lude.Nothing,
+      key = pKey_,
       storageClass = Lude.Nothing,
       sSECustomerKeyMD5 = Lude.Nothing,
       sSEKMSKeyId = Lude.Nothing,
@@ -222,10 +276,7 @@ mkPutObject pBucket_ pKey_ pBody_ =
       contentDisposition = Lude.Nothing,
       expectedBucketOwner = Lude.Nothing,
       serverSideEncryption = Lude.Nothing,
-      contentType = Lude.Nothing,
-      bucket = pBucket_,
-      key = pKey_,
-      body = pBody_
+      contentType = Lude.Nothing
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13 http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13> .
@@ -249,6 +300,13 @@ poExpires :: Lens.Lens' PutObject (Lude.Maybe Lude.DateTime)
 poExpires = Lens.lens (expires :: PutObject -> Lude.Maybe Lude.DateTime) (\s a -> s {expires = a} :: PutObject)
 {-# DEPRECATED poExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
 
+-- | Object data.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poBody :: Lens.Lens' PutObject Lude.RqBody
+poBody = Lens.lens (body :: PutObject -> Lude.RqBody) (\s a -> s {body = a} :: PutObject)
+{-# DEPRECATED poBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
 -- | Allows grantee to read the object ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
@@ -257,6 +315,16 @@ poExpires = Lens.lens (expires :: PutObject -> Lude.Maybe Lude.DateTime) (\s a -
 poGrantReadACP :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
 poGrantReadACP = Lens.lens (grantReadACP :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: PutObject)
 {-# DEPRECATED poGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
+
+-- | The bucket name to which the PUT operation was initiated.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poBucket :: Lens.Lens' PutObject BucketName
+poBucket = Lens.lens (bucket :: PutObject -> BucketName) (\s a -> s {bucket = a} :: PutObject)
+{-# DEPRECATED poBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
 --
@@ -309,6 +377,13 @@ poWebsiteRedirectLocation = Lens.lens (websiteRedirectLocation :: PutObject -> L
 poGrantRead :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
 poGrantRead = Lens.lens (grantRead :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {grantRead = a} :: PutObject)
 {-# DEPRECATED poGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
+
+-- | Object key for which the PUT operation was initiated.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poKey :: Lens.Lens' PutObject ObjectKey
+poKey = Lens.lens (key :: PutObject -> ObjectKey) (\s a -> s {key = a} :: PutObject)
+{-# DEPRECATED poKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
 --
@@ -442,30 +517,6 @@ poContentType :: Lens.Lens' PutObject (Lude.Maybe Lude.Text)
 poContentType = Lens.lens (contentType :: PutObject -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: PutObject)
 {-# DEPRECATED poContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | The bucket name to which the PUT operation was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poBucket :: Lens.Lens' PutObject BucketName
-poBucket = Lens.lens (bucket :: PutObject -> BucketName) (\s a -> s {bucket = a} :: PutObject)
-{-# DEPRECATED poBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Object key for which the PUT operation was initiated.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poKey :: Lens.Lens' PutObject ObjectKey
-poKey = Lens.lens (key :: PutObject -> ObjectKey) (\s a -> s {key = a} :: PutObject)
-{-# DEPRECATED poKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
--- | Object data.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poBody :: Lens.Lens' PutObject Lude.RqBody
-poBody = Lens.lens (body :: PutObject -> Lude.RqBody) (\s a -> s {body = a} :: PutObject)
-{-# DEPRECATED poBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
 instance Lude.AWSRequest PutObject where
   type Rs PutObject = PutObjectResponse
   request = expectHeader Lude.. Req.putBody s3Service
@@ -534,17 +585,24 @@ instance Lude.ToQuery PutObject where
 
 -- | /See:/ 'mkPutObjectResponse' smart constructor.
 data PutObjectResponse = PutObjectResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | Entity tag for the uploaded object.
     eTag :: Lude.Maybe ETag,
+    -- | Version of the object.
     versionId :: Lude.Maybe ObjectVersionId,
+    -- | If the expiration is configured for the object (see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration> ), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.
     expiration :: Lude.Maybe Lude.Text,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
     sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    sSEKMSEncryptionContext ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | If you specified server-side encryption either with an AWS KMS customer master key (CMK) or Amazon S3-managed encryption key in your PUT request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
     serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -552,16 +610,16 @@ data PutObjectResponse = PutObjectResponse'
 
 -- | Creates a value of 'PutObjectResponse' with the minimum fields required to make a request.
 --
+-- * 'requestCharged' -
 -- * 'eTag' - Entity tag for the uploaded object.
+-- * 'versionId' - Version of the object.
 -- * 'expiration' - If the expiration is configured for the object (see <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration> ), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.
--- * 'requestCharged' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 -- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
--- * 'sSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
 -- * 'sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of @aws:kms@ , this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+-- * 'sSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
 -- * 'serverSideEncryption' - If you specified server-side encryption either with an AWS KMS customer master key (CMK) or Amazon S3-managed encryption key in your PUT request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
--- * 'versionId' - Version of the object.
+-- * 'responseStatus' - The response status code.
 mkPutObjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

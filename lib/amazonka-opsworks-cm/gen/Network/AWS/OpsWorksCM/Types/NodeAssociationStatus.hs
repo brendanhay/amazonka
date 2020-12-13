@@ -13,9 +13,9 @@
 module Network.AWS.OpsWorksCM.Types.NodeAssociationStatus
   ( NodeAssociationStatus
       ( NodeAssociationStatus',
+        NASSuccess,
         NASFailed,
-        NASInProgress,
-        NASSuccess
+        NASInProgress
       ),
   )
 where
@@ -57,18 +57,18 @@ newtype NodeAssociationStatus = NodeAssociationStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern NASSuccess :: NodeAssociationStatus
+pattern NASSuccess = NodeAssociationStatus' "SUCCESS"
+
 pattern NASFailed :: NodeAssociationStatus
 pattern NASFailed = NodeAssociationStatus' "FAILED"
 
 pattern NASInProgress :: NodeAssociationStatus
 pattern NASInProgress = NodeAssociationStatus' "IN_PROGRESS"
 
-pattern NASSuccess :: NodeAssociationStatus
-pattern NASSuccess = NodeAssociationStatus' "SUCCESS"
-
 {-# COMPLETE
+  NASSuccess,
   NASFailed,
   NASInProgress,
-  NASSuccess,
   NodeAssociationStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     mkCopyClusterSnapshot,
 
     -- ** Request lenses
-    copManualSnapshotRetentionPeriod,
-    copSourceSnapshotClusterIdentifier,
-    copSourceSnapshotIdentifier,
-    copTargetSnapshotIdentifier,
+    ccsfManualSnapshotRetentionPeriod,
+    ccsfSourceSnapshotClusterIdentifier,
+    ccsfTargetSnapshotIdentifier,
+    ccsfSourceSnapshotIdentifier,
 
     -- * Destructuring the response
     CopyClusterSnapshotResponse (..),
@@ -47,20 +48,43 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCopyClusterSnapshot' smart constructor.
 data CopyClusterSnapshot = CopyClusterSnapshot'
-  { manualSnapshotRetentionPeriod ::
-      Lude.Maybe Lude.Int,
-    sourceSnapshotClusterIdentifier ::
-      Lude.Maybe Lude.Text,
-    sourceSnapshotIdentifier :: Lude.Text,
-    targetSnapshotIdentifier :: Lude.Text
+  { -- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    -- The default value is -1.
+    manualSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+    --
+    -- Constraints:
+    --
+    --     * Must be the identifier for a valid cluster.
+    sourceSnapshotClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The identifier given to the new manual snapshot.
+    --
+    -- Constraints:
+    --
+    --     * Cannot be null, empty, or blank.
+    --
+    --
+    --     * Must contain from 1 to 255 alphanumeric characters or hyphens.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    --
+    --     * Must be unique for the AWS account that is making the request.
+    targetSnapshotIdentifier :: Lude.Text,
+    -- | The identifier for the source snapshot.
+    --
+    -- Constraints:
+    --
+    --     * Must be the identifier for a valid automated snapshot whose state is @available@ .
+    sourceSnapshotIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyClusterSnapshot' with the minimum fields required to make a request.
@@ -74,13 +98,6 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 -- Constraints:
 --
 --     * Must be the identifier for a valid cluster.
---
---
--- * 'sourceSnapshotIdentifier' - The identifier for the source snapshot.
---
--- Constraints:
---
---     * Must be the identifier for a valid automated snapshot whose state is @available@ .
 --
 --
 -- * 'targetSnapshotIdentifier' - The identifier given to the new manual snapshot.
@@ -100,21 +117,28 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 --
 --
 --     * Must be unique for the AWS account that is making the request.
+--
+--
+-- * 'sourceSnapshotIdentifier' - The identifier for the source snapshot.
+--
+-- Constraints:
+--
+--     * Must be the identifier for a valid automated snapshot whose state is @available@ .
 mkCopyClusterSnapshot ::
-  -- | 'sourceSnapshotIdentifier'
-  Lude.Text ->
   -- | 'targetSnapshotIdentifier'
+  Lude.Text ->
+  -- | 'sourceSnapshotIdentifier'
   Lude.Text ->
   CopyClusterSnapshot
 mkCopyClusterSnapshot
-  pSourceSnapshotIdentifier_
-  pTargetSnapshotIdentifier_ =
+  pTargetSnapshotIdentifier_
+  pSourceSnapshotIdentifier_ =
     CopyClusterSnapshot'
       { manualSnapshotRetentionPeriod =
           Lude.Nothing,
         sourceSnapshotClusterIdentifier = Lude.Nothing,
-        sourceSnapshotIdentifier = pSourceSnapshotIdentifier_,
-        targetSnapshotIdentifier = pTargetSnapshotIdentifier_
+        targetSnapshotIdentifier = pTargetSnapshotIdentifier_,
+        sourceSnapshotIdentifier = pSourceSnapshotIdentifier_
       }
 
 -- | The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely.
@@ -123,9 +147,9 @@ mkCopyClusterSnapshot
 -- The default value is -1.
 --
 -- /Note:/ Consider using 'manualSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copManualSnapshotRetentionPeriod :: Lens.Lens' CopyClusterSnapshot (Lude.Maybe Lude.Int)
-copManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: CopyClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {manualSnapshotRetentionPeriod = a} :: CopyClusterSnapshot)
-{-# DEPRECATED copManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
+ccsfManualSnapshotRetentionPeriod :: Lens.Lens' CopyClusterSnapshot (Lude.Maybe Lude.Int)
+ccsfManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: CopyClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {manualSnapshotRetentionPeriod = a} :: CopyClusterSnapshot)
+{-# DEPRECATED ccsfManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
 
 -- | The identifier of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 --
@@ -136,22 +160,9 @@ copManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: C
 --
 --
 -- /Note:/ Consider using 'sourceSnapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copSourceSnapshotClusterIdentifier :: Lens.Lens' CopyClusterSnapshot (Lude.Maybe Lude.Text)
-copSourceSnapshotClusterIdentifier = Lens.lens (sourceSnapshotClusterIdentifier :: CopyClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {sourceSnapshotClusterIdentifier = a} :: CopyClusterSnapshot)
-{-# DEPRECATED copSourceSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'sourceSnapshotClusterIdentifier' instead." #-}
-
--- | The identifier for the source snapshot.
---
--- Constraints:
---
---     * Must be the identifier for a valid automated snapshot whose state is @available@ .
---
---
---
--- /Note:/ Consider using 'sourceSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copSourceSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Lude.Text
-copSourceSnapshotIdentifier = Lens.lens (sourceSnapshotIdentifier :: CopyClusterSnapshot -> Lude.Text) (\s a -> s {sourceSnapshotIdentifier = a} :: CopyClusterSnapshot)
-{-# DEPRECATED copSourceSnapshotIdentifier "Use generic-lens or generic-optics with 'sourceSnapshotIdentifier' instead." #-}
+ccsfSourceSnapshotClusterIdentifier :: Lens.Lens' CopyClusterSnapshot (Lude.Maybe Lude.Text)
+ccsfSourceSnapshotClusterIdentifier = Lens.lens (sourceSnapshotClusterIdentifier :: CopyClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {sourceSnapshotClusterIdentifier = a} :: CopyClusterSnapshot)
+{-# DEPRECATED ccsfSourceSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'sourceSnapshotClusterIdentifier' instead." #-}
 
 -- | The identifier given to the new manual snapshot.
 --
@@ -174,9 +185,22 @@ copSourceSnapshotIdentifier = Lens.lens (sourceSnapshotIdentifier :: CopyCluster
 --
 --
 -- /Note:/ Consider using 'targetSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-copTargetSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Lude.Text
-copTargetSnapshotIdentifier = Lens.lens (targetSnapshotIdentifier :: CopyClusterSnapshot -> Lude.Text) (\s a -> s {targetSnapshotIdentifier = a} :: CopyClusterSnapshot)
-{-# DEPRECATED copTargetSnapshotIdentifier "Use generic-lens or generic-optics with 'targetSnapshotIdentifier' instead." #-}
+ccsfTargetSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Lude.Text
+ccsfTargetSnapshotIdentifier = Lens.lens (targetSnapshotIdentifier :: CopyClusterSnapshot -> Lude.Text) (\s a -> s {targetSnapshotIdentifier = a} :: CopyClusterSnapshot)
+{-# DEPRECATED ccsfTargetSnapshotIdentifier "Use generic-lens or generic-optics with 'targetSnapshotIdentifier' instead." #-}
+
+-- | The identifier for the source snapshot.
+--
+-- Constraints:
+--
+--     * Must be the identifier for a valid automated snapshot whose state is @available@ .
+--
+--
+--
+-- /Note:/ Consider using 'sourceSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccsfSourceSnapshotIdentifier :: Lens.Lens' CopyClusterSnapshot Lude.Text
+ccsfSourceSnapshotIdentifier = Lens.lens (sourceSnapshotIdentifier :: CopyClusterSnapshot -> Lude.Text) (\s a -> s {sourceSnapshotIdentifier = a} :: CopyClusterSnapshot)
+{-# DEPRECATED ccsfSourceSnapshotIdentifier "Use generic-lens or generic-optics with 'sourceSnapshotIdentifier' instead." #-}
 
 instance Lude.AWSRequest CopyClusterSnapshot where
   type Rs CopyClusterSnapshot = CopyClusterSnapshotResponse
@@ -204,29 +228,23 @@ instance Lude.ToQuery CopyClusterSnapshot where
           Lude.=: manualSnapshotRetentionPeriod,
         "SourceSnapshotClusterIdentifier"
           Lude.=: sourceSnapshotClusterIdentifier,
-        "SourceSnapshotIdentifier" Lude.=: sourceSnapshotIdentifier,
-        "TargetSnapshotIdentifier" Lude.=: targetSnapshotIdentifier
+        "TargetSnapshotIdentifier" Lude.=: targetSnapshotIdentifier,
+        "SourceSnapshotIdentifier" Lude.=: sourceSnapshotIdentifier
       ]
 
 -- | /See:/ 'mkCopyClusterSnapshotResponse' smart constructor.
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
-  { snapshot ::
-      Lude.Maybe Snapshot,
+  { snapshot :: Lude.Maybe Snapshot,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyClusterSnapshotResponse' with the minimum fields required to make a request.
 --
+-- * 'snapshot' -
 -- * 'responseStatus' - The response status code.
--- * 'snapshot' - Undocumented field.
 mkCopyClusterSnapshotResponse ::
   -- | 'responseStatus'
   Lude.Int ->

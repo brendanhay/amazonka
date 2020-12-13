@@ -17,12 +17,12 @@ module Network.AWS.Lambda.Types.CodeSigningConfig
     mkCodeSigningConfig,
 
     -- * Lenses
-    cscDescription,
-    cscCodeSigningConfigId,
-    cscCodeSigningConfigARN,
     cscAllowedPublishers,
     cscCodeSigningPolicies,
+    cscCodeSigningConfigARN,
     cscLastModified,
+    cscDescription,
+    cscCodeSigningConfigId,
   )
 where
 
@@ -35,78 +35,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeSigningConfig' smart constructor.
 data CodeSigningConfig = CodeSigningConfig'
-  { description ::
-      Lude.Maybe Lude.Text,
-    codeSigningConfigId :: Lude.Text,
-    codeSigningConfigARN :: Lude.Text,
+  { -- | List of allowed publishers.
     allowedPublishers :: AllowedPublishers,
+    -- | The code signing policy controls the validation failure action for signature mismatch or expiry.
     codeSigningPolicies :: CodeSigningPolicies,
-    lastModified :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the Code signing configuration.
+    codeSigningConfigARN :: Lude.Text,
+    -- | The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
+    lastModified :: Lude.Text,
+    -- | Code signing configuration description.
+    description :: Lude.Maybe Lude.Text,
+    -- | Unique identifer for the Code signing configuration.
+    codeSigningConfigId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSigningConfig' with the minimum fields required to make a request.
 --
 -- * 'allowedPublishers' - List of allowed publishers.
--- * 'codeSigningConfigARN' - The Amazon Resource Name (ARN) of the Code signing configuration.
--- * 'codeSigningConfigId' - Unique identifer for the Code signing configuration.
 -- * 'codeSigningPolicies' - The code signing policy controls the validation failure action for signature mismatch or expiry.
--- * 'description' - Code signing configuration description.
+-- * 'codeSigningConfigARN' - The Amazon Resource Name (ARN) of the Code signing configuration.
 -- * 'lastModified' - The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
+-- * 'description' - Code signing configuration description.
+-- * 'codeSigningConfigId' - Unique identifer for the Code signing configuration.
 mkCodeSigningConfig ::
-  -- | 'codeSigningConfigId'
-  Lude.Text ->
-  -- | 'codeSigningConfigARN'
-  Lude.Text ->
   -- | 'allowedPublishers'
   AllowedPublishers ->
   -- | 'codeSigningPolicies'
   CodeSigningPolicies ->
+  -- | 'codeSigningConfigARN'
+  Lude.Text ->
   -- | 'lastModified'
+  Lude.Text ->
+  -- | 'codeSigningConfigId'
   Lude.Text ->
   CodeSigningConfig
 mkCodeSigningConfig
-  pCodeSigningConfigId_
-  pCodeSigningConfigARN_
   pAllowedPublishers_
   pCodeSigningPolicies_
-  pLastModified_ =
+  pCodeSigningConfigARN_
+  pLastModified_
+  pCodeSigningConfigId_ =
     CodeSigningConfig'
-      { description = Lude.Nothing,
-        codeSigningConfigId = pCodeSigningConfigId_,
-        codeSigningConfigARN = pCodeSigningConfigARN_,
-        allowedPublishers = pAllowedPublishers_,
+      { allowedPublishers = pAllowedPublishers_,
         codeSigningPolicies = pCodeSigningPolicies_,
-        lastModified = pLastModified_
+        codeSigningConfigARN = pCodeSigningConfigARN_,
+        lastModified = pLastModified_,
+        description = Lude.Nothing,
+        codeSigningConfigId = pCodeSigningConfigId_
       }
-
--- | Code signing configuration description.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscDescription :: Lens.Lens' CodeSigningConfig (Lude.Maybe Lude.Text)
-cscDescription = Lens.lens (description :: CodeSigningConfig -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CodeSigningConfig)
-{-# DEPRECATED cscDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Unique identifer for the Code signing configuration.
---
--- /Note:/ Consider using 'codeSigningConfigId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscCodeSigningConfigId :: Lens.Lens' CodeSigningConfig Lude.Text
-cscCodeSigningConfigId = Lens.lens (codeSigningConfigId :: CodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigId = a} :: CodeSigningConfig)
-{-# DEPRECATED cscCodeSigningConfigId "Use generic-lens or generic-optics with 'codeSigningConfigId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Code signing configuration.
---
--- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscCodeSigningConfigARN :: Lens.Lens' CodeSigningConfig Lude.Text
-cscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: CodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: CodeSigningConfig)
-{-# DEPRECATED cscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
 -- | List of allowed publishers.
 --
@@ -122,6 +100,13 @@ cscCodeSigningPolicies :: Lens.Lens' CodeSigningConfig CodeSigningPolicies
 cscCodeSigningPolicies = Lens.lens (codeSigningPolicies :: CodeSigningConfig -> CodeSigningPolicies) (\s a -> s {codeSigningPolicies = a} :: CodeSigningConfig)
 {-# DEPRECATED cscCodeSigningPolicies "Use generic-lens or generic-optics with 'codeSigningPolicies' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the Code signing configuration.
+--
+-- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscCodeSigningConfigARN :: Lens.Lens' CodeSigningConfig Lude.Text
+cscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: CodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: CodeSigningConfig)
+{-# DEPRECATED cscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
+
 -- | The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD).
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -129,16 +114,30 @@ cscLastModified :: Lens.Lens' CodeSigningConfig Lude.Text
 cscLastModified = Lens.lens (lastModified :: CodeSigningConfig -> Lude.Text) (\s a -> s {lastModified = a} :: CodeSigningConfig)
 {-# DEPRECATED cscLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
+-- | Code signing configuration description.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscDescription :: Lens.Lens' CodeSigningConfig (Lude.Maybe Lude.Text)
+cscDescription = Lens.lens (description :: CodeSigningConfig -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CodeSigningConfig)
+{-# DEPRECATED cscDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Unique identifer for the Code signing configuration.
+--
+-- /Note:/ Consider using 'codeSigningConfigId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscCodeSigningConfigId :: Lens.Lens' CodeSigningConfig Lude.Text
+cscCodeSigningConfigId = Lens.lens (codeSigningConfigId :: CodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigId = a} :: CodeSigningConfig)
+{-# DEPRECATED cscCodeSigningConfigId "Use generic-lens or generic-optics with 'codeSigningConfigId' instead." #-}
+
 instance Lude.FromJSON CodeSigningConfig where
   parseJSON =
     Lude.withObject
       "CodeSigningConfig"
       ( \x ->
           CodeSigningConfig'
-            Lude.<$> (x Lude..:? "Description")
-            Lude.<*> (x Lude..: "CodeSigningConfigId")
-            Lude.<*> (x Lude..: "CodeSigningConfigArn")
-            Lude.<*> (x Lude..: "AllowedPublishers")
+            Lude.<$> (x Lude..: "AllowedPublishers")
             Lude.<*> (x Lude..: "CodeSigningPolicies")
+            Lude.<*> (x Lude..: "CodeSigningConfigArn")
             Lude.<*> (x Lude..: "LastModified")
+            Lude.<*> (x Lude..:? "Description")
+            Lude.<*> (x Lude..: "CodeSigningConfigId")
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,12 +37,12 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     mkPutSubscriptionFilter,
 
     -- ** Request lenses
-    psfDistribution,
-    psfRoleARN,
-    psfLogGroupName,
     psfFilterName,
-    psfFilterPattern,
+    psfDistribution,
     psfDestinationARN,
+    psfLogGroupName,
+    psfFilterPattern,
+    psfRoleARN,
 
     -- * Destructuring the response
     PutSubscriptionFilterResponse (..),
@@ -57,25 +58,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutSubscriptionFilter' smart constructor.
 data PutSubscriptionFilter = PutSubscriptionFilter'
-  { distribution ::
-      Lude.Maybe Distribution,
-    roleARN :: Lude.Maybe Lude.Text,
-    logGroupName :: Lude.Text,
+  { -- | A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html DescribeSubscriptionFilters> .
     filterName :: Lude.Text,
+    -- | The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
+    distribution :: Lude.Maybe Distribution,
+    -- | The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:
+    --
+    --
+    --     * An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.
+    --
+    --
+    --     * A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.
+    --
+    --
+    --     * An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.
+    --
+    --
+    --     * An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.
+    destinationARN :: Lude.Text,
+    -- | The name of the log group.
+    logGroupName :: Lude.Text,
+    -- | A filter pattern for subscribing to a filtered stream of log events.
     filterPattern :: Lude.Text,
-    destinationARN :: Lude.Text
+    -- | The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSubscriptionFilter' with the minimum fields required to make a request.
 --
+-- * 'filterName' - A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html DescribeSubscriptionFilters> .
+-- * 'distribution' - The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
 -- * 'destinationARN' - The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:
 --
 --
@@ -91,55 +105,32 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
 --     * An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.
 --
 --
--- * 'distribution' - The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
--- * 'filterName' - A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html DescribeSubscriptionFilters> .
--- * 'filterPattern' - A filter pattern for subscribing to a filtered stream of log events.
 -- * 'logGroupName' - The name of the log group.
+-- * 'filterPattern' - A filter pattern for subscribing to a filtered stream of log events.
 -- * 'roleARN' - The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
 mkPutSubscriptionFilter ::
-  -- | 'logGroupName'
-  Lude.Text ->
   -- | 'filterName'
-  Lude.Text ->
-  -- | 'filterPattern'
   Lude.Text ->
   -- | 'destinationARN'
   Lude.Text ->
+  -- | 'logGroupName'
+  Lude.Text ->
+  -- | 'filterPattern'
+  Lude.Text ->
   PutSubscriptionFilter
 mkPutSubscriptionFilter
-  pLogGroupName_
   pFilterName_
-  pFilterPattern_
-  pDestinationARN_ =
+  pDestinationARN_
+  pLogGroupName_
+  pFilterPattern_ =
     PutSubscriptionFilter'
-      { distribution = Lude.Nothing,
-        roleARN = Lude.Nothing,
+      { filterName = pFilterName_,
+        distribution = Lude.Nothing,
+        destinationARN = pDestinationARN_,
         logGroupName = pLogGroupName_,
-        filterName = pFilterName_,
         filterPattern = pFilterPattern_,
-        destinationARN = pDestinationARN_
+        roleARN = Lude.Nothing
       }
-
--- | The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
---
--- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psfDistribution :: Lens.Lens' PutSubscriptionFilter (Lude.Maybe Distribution)
-psfDistribution = Lens.lens (distribution :: PutSubscriptionFilter -> Lude.Maybe Distribution) (\s a -> s {distribution = a} :: PutSubscriptionFilter)
-{-# DEPRECATED psfDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
-
--- | The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psfRoleARN :: Lens.Lens' PutSubscriptionFilter (Lude.Maybe Lude.Text)
-psfRoleARN = Lens.lens (roleARN :: PutSubscriptionFilter -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: PutSubscriptionFilter)
-{-# DEPRECATED psfRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The name of the log group.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psfLogGroupName :: Lens.Lens' PutSubscriptionFilter Lude.Text
-psfLogGroupName = Lens.lens (logGroupName :: PutSubscriptionFilter -> Lude.Text) (\s a -> s {logGroupName = a} :: PutSubscriptionFilter)
-{-# DEPRECATED psfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in @filterName@ . Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html DescribeSubscriptionFilters> .
 --
@@ -148,12 +139,12 @@ psfFilterName :: Lens.Lens' PutSubscriptionFilter Lude.Text
 psfFilterName = Lens.lens (filterName :: PutSubscriptionFilter -> Lude.Text) (\s a -> s {filterName = a} :: PutSubscriptionFilter)
 {-# DEPRECATED psfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
 
--- | A filter pattern for subscribing to a filtered stream of log events.
+-- | The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
 --
--- /Note:/ Consider using 'filterPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psfFilterPattern :: Lens.Lens' PutSubscriptionFilter Lude.Text
-psfFilterPattern = Lens.lens (filterPattern :: PutSubscriptionFilter -> Lude.Text) (\s a -> s {filterPattern = a} :: PutSubscriptionFilter)
-{-# DEPRECATED psfFilterPattern "Use generic-lens or generic-optics with 'filterPattern' instead." #-}
+-- /Note:/ Consider using 'distribution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfDistribution :: Lens.Lens' PutSubscriptionFilter (Lude.Maybe Distribution)
+psfDistribution = Lens.lens (distribution :: PutSubscriptionFilter -> Lude.Maybe Distribution) (\s a -> s {distribution = a} :: PutSubscriptionFilter)
+{-# DEPRECATED psfDistribution "Use generic-lens or generic-optics with 'distribution' instead." #-}
 
 -- | The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:
 --
@@ -176,6 +167,27 @@ psfDestinationARN :: Lens.Lens' PutSubscriptionFilter Lude.Text
 psfDestinationARN = Lens.lens (destinationARN :: PutSubscriptionFilter -> Lude.Text) (\s a -> s {destinationARN = a} :: PutSubscriptionFilter)
 {-# DEPRECATED psfDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
 
+-- | The name of the log group.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfLogGroupName :: Lens.Lens' PutSubscriptionFilter Lude.Text
+psfLogGroupName = Lens.lens (logGroupName :: PutSubscriptionFilter -> Lude.Text) (\s a -> s {logGroupName = a} :: PutSubscriptionFilter)
+{-# DEPRECATED psfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
+
+-- | A filter pattern for subscribing to a filtered stream of log events.
+--
+-- /Note:/ Consider using 'filterPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfFilterPattern :: Lens.Lens' PutSubscriptionFilter Lude.Text
+psfFilterPattern = Lens.lens (filterPattern :: PutSubscriptionFilter -> Lude.Text) (\s a -> s {filterPattern = a} :: PutSubscriptionFilter)
+{-# DEPRECATED psfFilterPattern "Use generic-lens or generic-optics with 'filterPattern' instead." #-}
+
+-- | The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psfRoleARN :: Lens.Lens' PutSubscriptionFilter (Lude.Maybe Lude.Text)
+psfRoleARN = Lens.lens (roleARN :: PutSubscriptionFilter -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: PutSubscriptionFilter)
+{-# DEPRECATED psfRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+
 instance Lude.AWSRequest PutSubscriptionFilter where
   type Rs PutSubscriptionFilter = PutSubscriptionFilterResponse
   request = Req.postJSON cloudWatchLogsService
@@ -196,12 +208,12 @@ instance Lude.ToJSON PutSubscriptionFilter where
   toJSON PutSubscriptionFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("distribution" Lude..=) Lude.<$> distribution,
-            ("roleArn" Lude..=) Lude.<$> roleARN,
+          [ Lude.Just ("filterName" Lude..= filterName),
+            ("distribution" Lude..=) Lude.<$> distribution,
+            Lude.Just ("destinationArn" Lude..= destinationARN),
             Lude.Just ("logGroupName" Lude..= logGroupName),
-            Lude.Just ("filterName" Lude..= filterName),
             Lude.Just ("filterPattern" Lude..= filterPattern),
-            Lude.Just ("destinationArn" Lude..= destinationARN)
+            ("roleArn" Lude..=) Lude.<$> roleARN
           ]
       )
 
@@ -213,13 +225,7 @@ instance Lude.ToQuery PutSubscriptionFilter where
 
 -- | /See:/ 'mkPutSubscriptionFilterResponse' smart constructor.
 data PutSubscriptionFilterResponse = PutSubscriptionFilterResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSubscriptionFilterResponse' with the minimum fields required to make a request.

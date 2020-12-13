@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTestGridSession' smart constructor.
 data TestGridSession = TestGridSession'
-  { status ::
-      Lude.Maybe TestGridSessionStatus,
+  { -- | The state of the session.
+    status :: Lude.Maybe TestGridSessionStatus,
+    -- | The ARN of the session.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time that the session was started.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The number of billed minutes that were used for this session.
     billingMinutes :: Lude.Maybe Lude.Double,
+    -- | The time the session ended.
     ended :: Lude.Maybe Lude.Timestamp,
+    -- | A JSON object of options and parameters passed to the Selenium WebDriver.
     seleniumProperties :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestGridSession' with the minimum fields required to make a request.
 --
+-- * 'status' - The state of the session.
 -- * 'arn' - The ARN of the session.
--- * 'billingMinutes' - The number of billed minutes that were used for this session.
 -- * 'created' - The time that the session was started.
+-- * 'billingMinutes' - The number of billed minutes that were used for this session.
 -- * 'ended' - The time the session ended.
 -- * 'seleniumProperties' - A JSON object of options and parameters passed to the Selenium WebDriver.
--- * 'status' - The state of the session.
 mkTestGridSession ::
   TestGridSession
 mkTestGridSession =

@@ -29,20 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSInstanceBlockDeviceSpecification' smart constructor.
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
-  { deleteOnTermination ::
-      Lude.Maybe
-        Lude.Bool,
-    volumeId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Indicates whether the volume is deleted on instance termination.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The ID of the EBS volume.
+    volumeId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSInstanceBlockDeviceSpecification' with the minimum fields required to make a request.

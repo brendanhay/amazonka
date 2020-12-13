@@ -34,16 +34,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthenticationResultType' smart constructor.
 data AuthenticationResultType = AuthenticationResultType'
-  { accessToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    refreshToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    newDeviceMetadata ::
-      Lude.Maybe NewDeviceMetadataType,
+  { -- | The access token.
+    accessToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The refresh token.
+    refreshToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The new device metadata from an authentication result.
+    newDeviceMetadata :: Lude.Maybe NewDeviceMetadataType,
+    -- | The expiration period of the authentication result in seconds.
     expiresIn :: Lude.Maybe Lude.Int,
+    -- | The token type.
     tokenType :: Lude.Maybe Lude.Text,
-    idToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text)
+    -- | The ID token.
+    idToken :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -51,11 +53,11 @@ data AuthenticationResultType = AuthenticationResultType'
 -- | Creates a value of 'AuthenticationResultType' with the minimum fields required to make a request.
 --
 -- * 'accessToken' - The access token.
--- * 'expiresIn' - The expiration period of the authentication result in seconds.
--- * 'idToken' - The ID token.
--- * 'newDeviceMetadata' - The new device metadata from an authentication result.
 -- * 'refreshToken' - The refresh token.
+-- * 'newDeviceMetadata' - The new device metadata from an authentication result.
+-- * 'expiresIn' - The expiration period of the authentication result in seconds.
 -- * 'tokenType' - The token type.
+-- * 'idToken' - The ID token.
 mkAuthenticationResultType ::
   AuthenticationResultType
 mkAuthenticationResultType =

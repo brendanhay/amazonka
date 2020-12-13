@@ -17,9 +17,9 @@ module Network.AWS.ResourceGroups.Types.Group
     mkGroup,
 
     -- * Lenses
-    gDescription,
-    gGroupARN,
     gName,
+    gGroupARN,
+    gDescription,
   )
 where
 
@@ -38,50 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { description :: Lude.Maybe Lude.Text,
+  { -- | The name of the resource group.
+    name :: Lude.Text,
+    -- | The ARN of the resource group.
     groupARN :: Lude.Text,
-    name :: Lude.Text
+    -- | The description of the resource group.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Group' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the resource group.
--- * 'groupARN' - The ARN of the resource group.
 -- * 'name' - The name of the resource group.
+-- * 'groupARN' - The ARN of the resource group.
+-- * 'description' - The description of the resource group.
 mkGroup ::
-  -- | 'groupARN'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'groupARN'
+  Lude.Text ->
   Group
-mkGroup pGroupARN_ pName_ =
+mkGroup pName_ pGroupARN_ =
   Group'
-    { description = Lude.Nothing,
+    { name = pName_,
       groupARN = pGroupARN_,
-      name = pName_
+      description = Lude.Nothing
     }
-
--- | The description of the resource group.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gDescription :: Lens.Lens' Group (Lude.Maybe Lude.Text)
-gDescription = Lens.lens (description :: Group -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Group)
-{-# DEPRECATED gDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The ARN of the resource group.
---
--- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gGroupARN :: Lens.Lens' Group Lude.Text
-gGroupARN = Lens.lens (groupARN :: Group -> Lude.Text) (\s a -> s {groupARN = a} :: Group)
-{-# DEPRECATED gGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
 
 -- | The name of the resource group.
 --
@@ -90,13 +73,27 @@ gName :: Lens.Lens' Group Lude.Text
 gName = Lens.lens (name :: Group -> Lude.Text) (\s a -> s {name = a} :: Group)
 {-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
 
+-- | The ARN of the resource group.
+--
+-- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gGroupARN :: Lens.Lens' Group Lude.Text
+gGroupARN = Lens.lens (groupARN :: Group -> Lude.Text) (\s a -> s {groupARN = a} :: Group)
+{-# DEPRECATED gGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
+
+-- | The description of the resource group.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gDescription :: Lens.Lens' Group (Lude.Maybe Lude.Text)
+gDescription = Lens.lens (description :: Group -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Group)
+{-# DEPRECATED gDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
 instance Lude.FromJSON Group where
   parseJSON =
     Lude.withObject
       "Group"
       ( \x ->
           Group'
-            Lude.<$> (x Lude..:? "Description")
+            Lude.<$> (x Lude..: "Name")
             Lude.<*> (x Lude..: "GroupArn")
-            Lude.<*> (x Lude..: "Name")
+            Lude.<*> (x Lude..:? "Description")
       )

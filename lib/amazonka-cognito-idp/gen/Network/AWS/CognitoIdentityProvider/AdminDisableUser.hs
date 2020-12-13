@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CognitoIdentityProvider.AdminDisableUser
     mkAdminDisableUser,
 
     -- ** Request lenses
-    aduUserPoolId,
-    aduUsername,
+    aUserPoolId,
+    aUsername,
 
     -- * Destructuring the response
     AdminDisableUserResponse (..),
@@ -43,7 +44,9 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAdminDisableUser' smart constructor.
 data AdminDisableUser = AdminDisableUser'
-  { userPoolId :: Lude.Text,
+  { -- | The user pool ID for the user pool where you want to disable the user.
+    userPoolId :: Lude.Text,
+    -- | The user name of the user you wish to disable.
     username :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -68,16 +71,16 @@ mkAdminDisableUser pUserPoolId_ pUsername_ =
 -- | The user pool ID for the user pool where you want to disable the user.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aduUserPoolId :: Lens.Lens' AdminDisableUser Lude.Text
-aduUserPoolId = Lens.lens (userPoolId :: AdminDisableUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminDisableUser)
-{-# DEPRECATED aduUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+aUserPoolId :: Lens.Lens' AdminDisableUser Lude.Text
+aUserPoolId = Lens.lens (userPoolId :: AdminDisableUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminDisableUser)
+{-# DEPRECATED aUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name of the user you wish to disable.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aduUsername :: Lens.Lens' AdminDisableUser (Lude.Sensitive Lude.Text)
-aduUsername = Lens.lens (username :: AdminDisableUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminDisableUser)
-{-# DEPRECATED aduUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+aUsername :: Lens.Lens' AdminDisableUser (Lude.Sensitive Lude.Text)
+aUsername = Lens.lens (username :: AdminDisableUser -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminDisableUser)
+{-# DEPRECATED aUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 instance Lude.AWSRequest AdminDisableUser where
   type Rs AdminDisableUser = AdminDisableUserResponse
@@ -120,16 +123,10 @@ instance Lude.ToQuery AdminDisableUser where
 --
 -- /See:/ 'mkAdminDisableUserResponse' smart constructor.
 newtype AdminDisableUserResponse = AdminDisableUserResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminDisableUserResponse' with the minimum fields required to make a request.

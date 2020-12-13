@@ -17,8 +17,8 @@ module Network.AWS.Pinpoint.Types.GCMChannelRequest
     mkGCMChannelRequest,
 
     -- * Lenses
-    gcrEnabled,
     gcrAPIKey,
+    gcrEnabled,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGCMChannelRequest' smart constructor.
 data GCMChannelRequest = GCMChannelRequest'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    apiKey :: Lude.Text
+  { -- | The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
+    apiKey :: Lude.Text,
+    -- | Specifies whether to enable the GCM channel for the application.
+    enabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GCMChannelRequest' with the minimum fields required to make a request.
@@ -51,14 +46,7 @@ mkGCMChannelRequest ::
   Lude.Text ->
   GCMChannelRequest
 mkGCMChannelRequest pAPIKey_ =
-  GCMChannelRequest' {enabled = Lude.Nothing, apiKey = pAPIKey_}
-
--- | Specifies whether to enable the GCM channel for the application.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrEnabled :: Lens.Lens' GCMChannelRequest (Lude.Maybe Lude.Bool)
-gcrEnabled = Lens.lens (enabled :: GCMChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: GCMChannelRequest)
-{-# DEPRECATED gcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+  GCMChannelRequest' {apiKey = pAPIKey_, enabled = Lude.Nothing}
 
 -- | The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
 --
@@ -67,11 +55,18 @@ gcrAPIKey :: Lens.Lens' GCMChannelRequest Lude.Text
 gcrAPIKey = Lens.lens (apiKey :: GCMChannelRequest -> Lude.Text) (\s a -> s {apiKey = a} :: GCMChannelRequest)
 {-# DEPRECATED gcrAPIKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
+-- | Specifies whether to enable the GCM channel for the application.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrEnabled :: Lens.Lens' GCMChannelRequest (Lude.Maybe Lude.Bool)
+gcrEnabled = Lens.lens (enabled :: GCMChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: GCMChannelRequest)
+{-# DEPRECATED gcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
 instance Lude.ToJSON GCMChannelRequest where
   toJSON GCMChannelRequest' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            Lude.Just ("ApiKey" Lude..= apiKey)
+          [ Lude.Just ("ApiKey" Lude..= apiKey),
+            ("Enabled" Lude..=) Lude.<$> enabled
           ]
       )

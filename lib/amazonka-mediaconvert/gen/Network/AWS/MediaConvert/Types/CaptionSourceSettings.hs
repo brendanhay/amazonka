@@ -41,38 +41,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionSourceSettings' smart constructor.
 data CaptionSourceSettings = CaptionSourceSettings'
-  { teletextSourceSettings ::
-      Lude.Maybe TeletextSourceSettings,
+  { -- | Settings specific to Teletext caption sources, including Page number.
+    teletextSourceSettings :: Lude.Maybe TeletextSourceSettings,
+    -- | Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.
     sourceType :: Lude.Maybe CaptionSourceType,
-    fileSourceSettings ::
-      Lude.Maybe FileSourceSettings,
-    dvbSubSourceSettings ::
-      Lude.Maybe DvbSubSourceSettings,
-    trackSourceSettings ::
-      Lude.Maybe TrackSourceSettings,
-    ancillarySourceSettings ::
-      Lude.Maybe AncillarySourceSettings,
-    embeddedSourceSettings ::
-      Lude.Maybe EmbeddedSourceSettings
+    -- | If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
+    fileSourceSettings :: Lude.Maybe FileSourceSettings,
+    -- | DVB Sub Source Settings
+    dvbSubSourceSettings :: Lude.Maybe DvbSubSourceSettings,
+    -- | Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
+    trackSourceSettings :: Lude.Maybe TrackSourceSettings,
+    -- | Settings for ancillary captions source.
+    ancillarySourceSettings :: Lude.Maybe AncillarySourceSettings,
+    -- | Settings for embedded captions Source
+    embeddedSourceSettings :: Lude.Maybe EmbeddedSourceSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSourceSettings' with the minimum fields required to make a request.
 --
--- * 'ancillarySourceSettings' - Settings for ancillary captions source.
--- * 'dvbSubSourceSettings' - DVB Sub Source Settings
--- * 'embeddedSourceSettings' - Settings for embedded captions Source
--- * 'fileSourceSettings' - If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
--- * 'sourceType' - Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.
 -- * 'teletextSourceSettings' - Settings specific to Teletext caption sources, including Page number.
+-- * 'sourceType' - Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.
+-- * 'fileSourceSettings' - If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
+-- * 'dvbSubSourceSettings' - DVB Sub Source Settings
 -- * 'trackSourceSettings' - Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
+-- * 'ancillarySourceSettings' - Settings for ancillary captions source.
+-- * 'embeddedSourceSettings' - Settings for embedded captions Source
 mkCaptionSourceSettings ::
   CaptionSourceSettings
 mkCaptionSourceSettings =

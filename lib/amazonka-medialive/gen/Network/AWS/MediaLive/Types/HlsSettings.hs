@@ -33,25 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsSettings' smart constructor.
 data HlsSettings = HlsSettings'
-  { fmp4HlsSettings ::
-      Lude.Maybe Fmp4HlsSettings,
+  { fmp4HlsSettings :: Lude.Maybe Fmp4HlsSettings,
     audioOnlyHlsSettings :: Lude.Maybe AudioOnlyHlsSettings,
     standardHlsSettings :: Lude.Maybe StandardHlsSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsSettings' with the minimum fields required to make a request.
 --
--- * 'audioOnlyHlsSettings' - Undocumented field.
--- * 'fmp4HlsSettings' - Undocumented field.
--- * 'standardHlsSettings' - Undocumented field.
+-- * 'fmp4HlsSettings' -
+-- * 'audioOnlyHlsSettings' -
+-- * 'standardHlsSettings' -
 mkHlsSettings ::
   HlsSettings
 mkHlsSettings =

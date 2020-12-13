@@ -30,17 +30,12 @@ import Network.AWS.WorkDocs.Types.StorageType
 --
 -- /See:/ 'mkStorageRuleType' smart constructor.
 data StorageRuleType = StorageRuleType'
-  { storageAllocatedInBytes ::
-      Lude.Maybe Lude.Natural,
+  { -- | The amount of storage allocated, in bytes.
+    storageAllocatedInBytes :: Lude.Maybe Lude.Natural,
+    -- | The type of storage.
     storageType :: Lude.Maybe StorageType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageRuleType' with the minimum fields required to make a request.

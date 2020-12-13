@@ -40,70 +40,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexProgramPacketIdentifiersMap' smart constructor.
 data MultiplexProgramPacketIdentifiersMap = MultiplexProgramPacketIdentifiersMap'
-  { pmtPid ::
-      Lude.Maybe
-        Lude.Int,
-    etvSignalPid ::
-      Lude.Maybe
-        Lude.Int,
-    videoPid ::
-      Lude.Maybe
-        Lude.Int,
-    scte35Pid ::
-      Lude.Maybe
-        Lude.Int,
-    privateMetadataPid ::
-      Lude.Maybe
-        Lude.Int,
-    timedMetadataPid ::
-      Lude.Maybe
-        Lude.Int,
-    pcrPid ::
-      Lude.Maybe
-        Lude.Int,
-    klvDataPids ::
-      Lude.Maybe
-        [Lude.Int],
-    dvbSubPids ::
-      Lude.Maybe
-        [Lude.Int],
-    scte27Pids ::
-      Lude.Maybe
-        [Lude.Int],
-    etvPlatformPid ::
-      Lude.Maybe
-        Lude.Int,
-    audioPids ::
-      Lude.Maybe
-        [Lude.Int],
-    dvbTeletextPid ::
-      Lude.Maybe
-        Lude.Int
+  { pmtPid :: Lude.Maybe Lude.Int,
+    etvSignalPid :: Lude.Maybe Lude.Int,
+    videoPid :: Lude.Maybe Lude.Int,
+    scte35Pid :: Lude.Maybe Lude.Int,
+    privateMetadataPid :: Lude.Maybe Lude.Int,
+    timedMetadataPid :: Lude.Maybe Lude.Int,
+    pcrPid :: Lude.Maybe Lude.Int,
+    klvDataPids :: Lude.Maybe [Lude.Int],
+    dvbSubPids :: Lude.Maybe [Lude.Int],
+    scte27Pids :: Lude.Maybe [Lude.Int],
+    etvPlatformPid :: Lude.Maybe Lude.Int,
+    audioPids :: Lude.Maybe [Lude.Int],
+    dvbTeletextPid :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexProgramPacketIdentifiersMap' with the minimum fields required to make a request.
 --
--- * 'audioPids' - Undocumented field.
--- * 'dvbSubPids' - Undocumented field.
--- * 'dvbTeletextPid' - Undocumented field.
--- * 'etvPlatformPid' - Undocumented field.
--- * 'etvSignalPid' - Undocumented field.
--- * 'klvDataPids' - Undocumented field.
--- * 'pcrPid' - Undocumented field.
--- * 'pmtPid' - Undocumented field.
--- * 'privateMetadataPid' - Undocumented field.
--- * 'scte27Pids' - Undocumented field.
--- * 'scte35Pid' - Undocumented field.
--- * 'timedMetadataPid' - Undocumented field.
--- * 'videoPid' - Undocumented field.
+-- * 'pmtPid' -
+-- * 'etvSignalPid' -
+-- * 'videoPid' -
+-- * 'scte35Pid' -
+-- * 'privateMetadataPid' -
+-- * 'timedMetadataPid' -
+-- * 'pcrPid' -
+-- * 'klvDataPids' -
+-- * 'dvbSubPids' -
+-- * 'scte27Pids' -
+-- * 'etvPlatformPid' -
+-- * 'audioPids' -
+-- * 'dvbTeletextPid' -
 mkMultiplexProgramPacketIdentifiersMap ::
   MultiplexProgramPacketIdentifiersMap
 mkMultiplexProgramPacketIdentifiersMap =

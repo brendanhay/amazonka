@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSBlockDevice' smart constructor.
 data EBSBlockDevice = EBSBlockDevice'
-  { device ::
-      Lude.Maybe Lude.Text,
+  { -- | The device name that is exposed to the instance, such as /dev/sdh.
+    device :: Lude.Maybe Lude.Text,
+    -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
     volumeSpecification :: Lude.Maybe VolumeSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.

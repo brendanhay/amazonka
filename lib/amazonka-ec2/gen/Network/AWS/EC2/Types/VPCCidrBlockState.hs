@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCCidrBlockState' smart constructor.
 data VPCCidrBlockState = VPCCidrBlockState'
-  { state ::
-      Lude.Maybe VPCCidrBlockStateCode,
+  { -- | The state of the CIDR block.
+    state :: Lude.Maybe VPCCidrBlockStateCode,
+    -- | A message about the status of the CIDR block, if applicable.
     statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCCidrBlockState' with the minimum fields required to make a request.

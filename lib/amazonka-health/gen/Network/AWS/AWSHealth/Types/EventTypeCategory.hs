@@ -13,10 +13,10 @@
 module Network.AWS.AWSHealth.Types.EventTypeCategory
   ( EventTypeCategory
       ( EventTypeCategory',
-        AccountNotification,
-        Investigation,
         Issue,
-        ScheduledChange
+        AccountNotification,
+        ScheduledChange,
+        Investigation
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype EventTypeCategory = EventTypeCategory' Lude.Text
       Lude.ToHeader
     )
 
-pattern AccountNotification :: EventTypeCategory
-pattern AccountNotification = EventTypeCategory' "accountNotification"
-
-pattern Investigation :: EventTypeCategory
-pattern Investigation = EventTypeCategory' "investigation"
-
 pattern Issue :: EventTypeCategory
 pattern Issue = EventTypeCategory' "issue"
+
+pattern AccountNotification :: EventTypeCategory
+pattern AccountNotification = EventTypeCategory' "accountNotification"
 
 pattern ScheduledChange :: EventTypeCategory
 pattern ScheduledChange = EventTypeCategory' "scheduledChange"
 
+pattern Investigation :: EventTypeCategory
+pattern Investigation = EventTypeCategory' "investigation"
+
 {-# COMPLETE
-  AccountNotification,
-  Investigation,
   Issue,
+  AccountNotification,
   ScheduledChange,
+  Investigation,
   EventTypeCategory'
   #-}

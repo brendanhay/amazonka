@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CognitoIdentityProvider.UpdateUserPoolDomain
     mkUpdateUserPoolDomain,
 
     -- ** Request lenses
-    uupdDomain,
     uupdUserPoolId,
+    uupdDomain,
     uupdCustomDomainConfig,
 
     -- * Destructuring the response
@@ -51,41 +52,46 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateUserPoolDomain' smart constructor.
 data UpdateUserPoolDomain = UpdateUserPoolDomain'
-  { domain ::
-      Lude.Text,
+  { -- | The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
     userPoolId :: Lude.Text,
+    -- | The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: @auth.example.com@ .
+    --
+    -- This string can include only lowercase letters, numbers, and hyphens. Do not use a hyphen for the first or last character. Use periods to separate subdomain names.
+    domain :: Lude.Text,
+    -- | The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
     customDomainConfig :: CustomDomainConfigType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserPoolDomain' with the minimum fields required to make a request.
 --
--- * 'customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+-- * 'userPoolId' - The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
 -- * 'domain' - The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: @auth.example.com@ .
 --
 -- This string can include only lowercase letters, numbers, and hyphens. Do not use a hyphen for the first or last character. Use periods to separate subdomain names.
--- * 'userPoolId' - The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
+-- * 'customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 mkUpdateUserPoolDomain ::
-  -- | 'domain'
-  Lude.Text ->
   -- | 'userPoolId'
+  Lude.Text ->
+  -- | 'domain'
   Lude.Text ->
   -- | 'customDomainConfig'
   CustomDomainConfigType ->
   UpdateUserPoolDomain
-mkUpdateUserPoolDomain pDomain_ pUserPoolId_ pCustomDomainConfig_ =
+mkUpdateUserPoolDomain pUserPoolId_ pDomain_ pCustomDomainConfig_ =
   UpdateUserPoolDomain'
-    { domain = pDomain_,
-      userPoolId = pUserPoolId_,
+    { userPoolId = pUserPoolId_,
+      domain = pDomain_,
       customDomainConfig = pCustomDomainConfig_
     }
+
+-- | The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupdUserPoolId :: Lens.Lens' UpdateUserPoolDomain Lude.Text
+uupdUserPoolId = Lens.lens (userPoolId :: UpdateUserPoolDomain -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateUserPoolDomain)
+{-# DEPRECATED uupdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: @auth.example.com@ .
 --
@@ -95,13 +101,6 @@ mkUpdateUserPoolDomain pDomain_ pUserPoolId_ pCustomDomainConfig_ =
 uupdDomain :: Lens.Lens' UpdateUserPoolDomain Lude.Text
 uupdDomain = Lens.lens (domain :: UpdateUserPoolDomain -> Lude.Text) (\s a -> s {domain = a} :: UpdateUserPoolDomain)
 {-# DEPRECATED uupdDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
--- | The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupdUserPoolId :: Lens.Lens' UpdateUserPoolDomain Lude.Text
-uupdUserPoolId = Lens.lens (userPoolId :: UpdateUserPoolDomain -> Lude.Text) (\s a -> s {userPoolId = a} :: UpdateUserPoolDomain)
-{-# DEPRECATED uupdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 --
@@ -138,8 +137,8 @@ instance Lude.ToJSON UpdateUserPoolDomain where
   toJSON UpdateUserPoolDomain' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Domain" Lude..= domain),
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+            Lude.Just ("Domain" Lude..= domain),
             Lude.Just ("CustomDomainConfig" Lude..= customDomainConfig)
           ]
       )
@@ -154,17 +153,12 @@ instance Lude.ToQuery UpdateUserPoolDomain where
 --
 -- /See:/ 'mkUpdateUserPoolDomainResponse' smart constructor.
 data UpdateUserPoolDomainResponse = UpdateUserPoolDomainResponse'
-  { cloudFrontDomain ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom domain to your user pool.
+    cloudFrontDomain :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserPoolDomainResponse' with the minimum fields required to make a request.

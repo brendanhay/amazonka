@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPredicate' smart constructor.
 data Predicate = Predicate'
-  { logical :: Lude.Maybe Logical,
+  { -- | An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
+    logical :: Lude.Maybe Logical,
+    -- | A list of the conditions that determine when the trigger will fire.
     conditions :: Lude.Maybe [Condition]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Predicate' with the minimum fields required to make a request.
 --
--- * 'conditions' - A list of the conditions that determine when the trigger will fire.
 -- * 'logical' - An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.
+-- * 'conditions' - A list of the conditions that determine when the trigger will fire.
 mkPredicate ::
   Predicate
 mkPredicate =

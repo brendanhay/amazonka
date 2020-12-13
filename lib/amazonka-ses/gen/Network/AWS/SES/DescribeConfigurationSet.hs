@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.SES.DescribeConfigurationSet
     mkDescribeConfigurationSet,
 
     -- ** Request lenses
-    dcsConfigurationSetAttributeNames,
-    dcsConfigurationSetName,
+    dConfigurationSetAttributeNames,
+    dConfigurationSetName,
 
     -- * Destructuring the response
     DescribeConfigurationSetResponse (..),
@@ -48,17 +49,12 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkDescribeConfigurationSet' smart constructor.
 data DescribeConfigurationSet = DescribeConfigurationSet'
-  { configurationSetAttributeNames ::
-      Lude.Maybe [ConfigurationSetAttribute],
+  { -- | A list of configuration set attributes to return.
+    configurationSetAttributeNames :: Lude.Maybe [ConfigurationSetAttribute],
+    -- | The name of the configuration set to describe.
     configurationSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationSet' with the minimum fields required to make a request.
@@ -79,16 +75,16 @@ mkDescribeConfigurationSet pConfigurationSetName_ =
 -- | A list of configuration set attributes to return.
 --
 -- /Note:/ Consider using 'configurationSetAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsConfigurationSetAttributeNames :: Lens.Lens' DescribeConfigurationSet (Lude.Maybe [ConfigurationSetAttribute])
-dcsConfigurationSetAttributeNames = Lens.lens (configurationSetAttributeNames :: DescribeConfigurationSet -> Lude.Maybe [ConfigurationSetAttribute]) (\s a -> s {configurationSetAttributeNames = a} :: DescribeConfigurationSet)
-{-# DEPRECATED dcsConfigurationSetAttributeNames "Use generic-lens or generic-optics with 'configurationSetAttributeNames' instead." #-}
+dConfigurationSetAttributeNames :: Lens.Lens' DescribeConfigurationSet (Lude.Maybe [ConfigurationSetAttribute])
+dConfigurationSetAttributeNames = Lens.lens (configurationSetAttributeNames :: DescribeConfigurationSet -> Lude.Maybe [ConfigurationSetAttribute]) (\s a -> s {configurationSetAttributeNames = a} :: DescribeConfigurationSet)
+{-# DEPRECATED dConfigurationSetAttributeNames "Use generic-lens or generic-optics with 'configurationSetAttributeNames' instead." #-}
 
 -- | The name of the configuration set to describe.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsConfigurationSetName :: Lens.Lens' DescribeConfigurationSet Lude.Text
-dcsConfigurationSetName = Lens.lens (configurationSetName :: DescribeConfigurationSet -> Lude.Text) (\s a -> s {configurationSetName = a} :: DescribeConfigurationSet)
-{-# DEPRECATED dcsConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
+dConfigurationSetName :: Lens.Lens' DescribeConfigurationSet Lude.Text
+dConfigurationSetName = Lens.lens (configurationSetName :: DescribeConfigurationSet -> Lude.Text) (\s a -> s {configurationSetName = a} :: DescribeConfigurationSet)
+{-# DEPRECATED dConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 instance Lude.AWSRequest DescribeConfigurationSet where
   type Rs DescribeConfigurationSet = DescribeConfigurationSetResponse
@@ -131,41 +127,29 @@ instance Lude.ToQuery DescribeConfigurationSet where
 --
 -- /See:/ 'mkDescribeConfigurationSetResponse' smart constructor.
 data DescribeConfigurationSetResponse = DescribeConfigurationSetResponse'
-  { deliveryOptions ::
-      Lude.Maybe
-        DeliveryOptions,
-    trackingOptions ::
-      Lude.Maybe
-        TrackingOptions,
-    configurationSet ::
-      Lude.Maybe
-        ConfigurationSet,
-    reputationOptions ::
-      Lude.Maybe
-        ReputationOptions,
-    eventDestinations ::
-      Lude.Maybe
-        [EventDestination],
-    responseStatus ::
-      Lude.Int
+  { deliveryOptions :: Lude.Maybe DeliveryOptions,
+    -- | The name of the custom open and click tracking domain associated with the configuration set.
+    trackingOptions :: Lude.Maybe TrackingOptions,
+    -- | The configuration set object associated with the specified configuration set.
+    configurationSet :: Lude.Maybe ConfigurationSet,
+    -- | An object that represents the reputation settings for the configuration set.
+    reputationOptions :: Lude.Maybe ReputationOptions,
+    -- | A list of event destinations associated with the configuration set.
+    eventDestinations :: Lude.Maybe [EventDestination],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationSetResponse' with the minimum fields required to make a request.
 --
--- * 'configurationSet' - The configuration set object associated with the specified configuration set.
--- * 'deliveryOptions' - Undocumented field.
--- * 'eventDestinations' - A list of event destinations associated with the configuration set.
--- * 'reputationOptions' - An object that represents the reputation settings for the configuration set.
--- * 'responseStatus' - The response status code.
+-- * 'deliveryOptions' -
 -- * 'trackingOptions' - The name of the custom open and click tracking domain associated with the configuration set.
+-- * 'configurationSet' - The configuration set object associated with the specified configuration set.
+-- * 'reputationOptions' - An object that represents the reputation settings for the configuration set.
+-- * 'eventDestinations' - A list of event destinations associated with the configuration set.
+-- * 'responseStatus' - The response status code.
 mkDescribeConfigurationSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

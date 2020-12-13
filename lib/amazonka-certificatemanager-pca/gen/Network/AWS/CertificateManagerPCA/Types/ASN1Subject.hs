@@ -41,46 +41,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkASN1Subject' smart constructor.
 data ASN1Subject = ASN1Subject'
-  { givenName :: Lude.Maybe Lude.Text,
+  { -- | First name.
+    givenName :: Lude.Maybe Lude.Text,
+    -- | State in which the subject of the certificate is located.
     state :: Lude.Maybe Lude.Text,
+    -- | Fully qualified domain name (FQDN) associated with the certificate subject.
     commonName :: Lude.Maybe Lude.Text,
+    -- | A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
     organizationalUnit :: Lude.Maybe Lude.Text,
+    -- | Two-digit code that specifies the country in which the certificate subject located.
     country :: Lude.Maybe Lude.Text,
+    -- | Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
     generationQualifier :: Lude.Maybe Lude.Text,
+    -- | The locality (such as a city or town) in which the certificate subject is located.
     locality :: Lude.Maybe Lude.Text,
+    -- | Typically a shortened version of a longer __GivenName__ . For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
     pseudonym :: Lude.Maybe Lude.Text,
+    -- | Concatenation that typically contains the first letter of the __GivenName__ , the first letter of the middle name if one exists, and the first letter of the __SurName__ .
     initials :: Lude.Maybe Lude.Text,
+    -- | A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
     title :: Lude.Maybe Lude.Text,
+    -- | Legal name of the organization with which the certificate subject is affiliated.
     organization :: Lude.Maybe Lude.Text,
+    -- | The certificate serial number.
     serialNumber :: Lude.Maybe Lude.Text,
+    -- | Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
     surname :: Lude.Maybe Lude.Text,
+    -- | Disambiguating information for the certificate subject.
     distinguishedNameQualifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ASN1Subject' with the minimum fields required to make a request.
 --
--- * 'commonName' - Fully qualified domain name (FQDN) associated with the certificate subject.
--- * 'country' - Two-digit code that specifies the country in which the certificate subject located.
--- * 'distinguishedNameQualifier' - Disambiguating information for the certificate subject.
--- * 'generationQualifier' - Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
 -- * 'givenName' - First name.
--- * 'initials' - Concatenation that typically contains the first letter of the __GivenName__ , the first letter of the middle name if one exists, and the first letter of the __SurName__ .
--- * 'locality' - The locality (such as a city or town) in which the certificate subject is located.
--- * 'organization' - Legal name of the organization with which the certificate subject is affiliated.
--- * 'organizationalUnit' - A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
--- * 'pseudonym' - Typically a shortened version of a longer __GivenName__ . For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
--- * 'serialNumber' - The certificate serial number.
 -- * 'state' - State in which the subject of the certificate is located.
--- * 'surname' - Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+-- * 'commonName' - Fully qualified domain name (FQDN) associated with the certificate subject.
+-- * 'organizationalUnit' - A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
+-- * 'country' - Two-digit code that specifies the country in which the certificate subject located.
+-- * 'generationQualifier' - Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
+-- * 'locality' - The locality (such as a city or town) in which the certificate subject is located.
+-- * 'pseudonym' - Typically a shortened version of a longer __GivenName__ . For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
+-- * 'initials' - Concatenation that typically contains the first letter of the __GivenName__ , the first letter of the middle name if one exists, and the first letter of the __SurName__ .
 -- * 'title' - A title such as Mr. or Ms., which is pre-pended to the name to refer formally to the certificate subject.
+-- * 'organization' - Legal name of the organization with which the certificate subject is affiliated.
+-- * 'serialNumber' - The certificate serial number.
+-- * 'surname' - Family name. In the US and the UK, for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.
+-- * 'distinguishedNameQualifier' - Disambiguating information for the certificate subject.
 mkASN1Subject ::
   ASN1Subject
 mkASN1Subject =

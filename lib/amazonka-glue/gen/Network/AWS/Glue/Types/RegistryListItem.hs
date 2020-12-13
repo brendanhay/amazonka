@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegistryListItem' smart constructor.
 data RegistryListItem = RegistryListItem'
-  { status ::
-      Lude.Maybe RegistryStatus,
+  { -- | The status of the registry.
+    status :: Lude.Maybe RegistryStatus,
+    -- | The name of the registry.
     registryName :: Lude.Maybe Lude.Text,
+    -- | The data the registry was created.
     createdTime :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the registry.
     registryARN :: Lude.Maybe Lude.Text,
+    -- | The date the registry was updated.
     updatedTime :: Lude.Maybe Lude.Text,
+    -- | A description of the registry.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegistryListItem' with the minimum fields required to make a request.
 --
--- * 'createdTime' - The data the registry was created.
--- * 'description' - A description of the registry.
--- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
--- * 'registryName' - The name of the registry.
 -- * 'status' - The status of the registry.
+-- * 'registryName' - The name of the registry.
+-- * 'createdTime' - The data the registry was created.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
 -- * 'updatedTime' - The date the registry was updated.
+-- * 'description' - A description of the registry.
 mkRegistryListItem ::
   RegistryListItem
 mkRegistryListItem =

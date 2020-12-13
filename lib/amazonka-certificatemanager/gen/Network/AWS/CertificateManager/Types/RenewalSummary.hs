@@ -17,10 +17,10 @@ module Network.AWS.CertificateManager.Types.RenewalSummary
     mkRenewalSummary,
 
     -- * Lenses
-    rsRenewalStatusReason,
     rsRenewalStatus,
-    rsDomainValidationOptions,
     rsUpdatedAt,
+    rsDomainValidationOptions,
+    rsRenewalStatusReason,
   )
 where
 
@@ -34,52 +34,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRenewalSummary' smart constructor.
 data RenewalSummary = RenewalSummary'
-  { renewalStatusReason ::
-      Lude.Maybe FailureReason,
+  { -- | The status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
     renewalStatus :: RenewalStatus,
+    -- | The time at which the renewal summary was last updated.
+    updatedAt :: Lude.Timestamp,
+    -- | Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
     domainValidationOptions :: Lude.NonEmpty DomainValidation,
-    updatedAt :: Lude.Timestamp
+    -- | The reason that a renewal request was unsuccessful.
+    renewalStatusReason :: Lude.Maybe FailureReason
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewalSummary' with the minimum fields required to make a request.
 --
--- * 'domainValidationOptions' - Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
 -- * 'renewalStatus' - The status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
--- * 'renewalStatusReason' - The reason that a renewal request was unsuccessful.
 -- * 'updatedAt' - The time at which the renewal summary was last updated.
+-- * 'domainValidationOptions' - Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+-- * 'renewalStatusReason' - The reason that a renewal request was unsuccessful.
 mkRenewalSummary ::
   -- | 'renewalStatus'
   RenewalStatus ->
-  -- | 'domainValidationOptions'
-  Lude.NonEmpty DomainValidation ->
   -- | 'updatedAt'
   Lude.Timestamp ->
+  -- | 'domainValidationOptions'
+  Lude.NonEmpty DomainValidation ->
   RenewalSummary
 mkRenewalSummary
   pRenewalStatus_
-  pDomainValidationOptions_
-  pUpdatedAt_ =
+  pUpdatedAt_
+  pDomainValidationOptions_ =
     RenewalSummary'
-      { renewalStatusReason = Lude.Nothing,
-        renewalStatus = pRenewalStatus_,
+      { renewalStatus = pRenewalStatus_,
+        updatedAt = pUpdatedAt_,
         domainValidationOptions = pDomainValidationOptions_,
-        updatedAt = pUpdatedAt_
+        renewalStatusReason = Lude.Nothing
       }
-
--- | The reason that a renewal request was unsuccessful.
---
--- /Note:/ Consider using 'renewalStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsRenewalStatusReason :: Lens.Lens' RenewalSummary (Lude.Maybe FailureReason)
-rsRenewalStatusReason = Lens.lens (renewalStatusReason :: RenewalSummary -> Lude.Maybe FailureReason) (\s a -> s {renewalStatusReason = a} :: RenewalSummary)
-{-# DEPRECATED rsRenewalStatusReason "Use generic-lens or generic-optics with 'renewalStatusReason' instead." #-}
 
 -- | The status of ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> of the certificate.
 --
@@ -88,13 +78,6 @@ rsRenewalStatus :: Lens.Lens' RenewalSummary RenewalStatus
 rsRenewalStatus = Lens.lens (renewalStatus :: RenewalSummary -> RenewalStatus) (\s a -> s {renewalStatus = a} :: RenewalSummary)
 {-# DEPRECATED rsRenewalStatus "Use generic-lens or generic-optics with 'renewalStatus' instead." #-}
 
--- | Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
---
--- /Note:/ Consider using 'domainValidationOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsDomainValidationOptions :: Lens.Lens' RenewalSummary (Lude.NonEmpty DomainValidation)
-rsDomainValidationOptions = Lens.lens (domainValidationOptions :: RenewalSummary -> Lude.NonEmpty DomainValidation) (\s a -> s {domainValidationOptions = a} :: RenewalSummary)
-{-# DEPRECATED rsDomainValidationOptions "Use generic-lens or generic-optics with 'domainValidationOptions' instead." #-}
-
 -- | The time at which the renewal summary was last updated.
 --
 -- /Note:/ Consider using 'updatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -102,14 +85,28 @@ rsUpdatedAt :: Lens.Lens' RenewalSummary Lude.Timestamp
 rsUpdatedAt = Lens.lens (updatedAt :: RenewalSummary -> Lude.Timestamp) (\s a -> s {updatedAt = a} :: RenewalSummary)
 {-# DEPRECATED rsUpdatedAt "Use generic-lens or generic-optics with 'updatedAt' instead." #-}
 
+-- | Contains information about the validation of each domain name in the certificate, as it pertains to ACM's <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal> . This is different from the initial validation that occurs as a result of the 'RequestCertificate' request. This field exists only when the certificate type is @AMAZON_ISSUED@ .
+--
+-- /Note:/ Consider using 'domainValidationOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsDomainValidationOptions :: Lens.Lens' RenewalSummary (Lude.NonEmpty DomainValidation)
+rsDomainValidationOptions = Lens.lens (domainValidationOptions :: RenewalSummary -> Lude.NonEmpty DomainValidation) (\s a -> s {domainValidationOptions = a} :: RenewalSummary)
+{-# DEPRECATED rsDomainValidationOptions "Use generic-lens or generic-optics with 'domainValidationOptions' instead." #-}
+
+-- | The reason that a renewal request was unsuccessful.
+--
+-- /Note:/ Consider using 'renewalStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsRenewalStatusReason :: Lens.Lens' RenewalSummary (Lude.Maybe FailureReason)
+rsRenewalStatusReason = Lens.lens (renewalStatusReason :: RenewalSummary -> Lude.Maybe FailureReason) (\s a -> s {renewalStatusReason = a} :: RenewalSummary)
+{-# DEPRECATED rsRenewalStatusReason "Use generic-lens or generic-optics with 'renewalStatusReason' instead." #-}
+
 instance Lude.FromJSON RenewalSummary where
   parseJSON =
     Lude.withObject
       "RenewalSummary"
       ( \x ->
           RenewalSummary'
-            Lude.<$> (x Lude..:? "RenewalStatusReason")
-            Lude.<*> (x Lude..: "RenewalStatus")
-            Lude.<*> (x Lude..: "DomainValidationOptions")
+            Lude.<$> (x Lude..: "RenewalStatus")
             Lude.<*> (x Lude..: "UpdatedAt")
+            Lude.<*> (x Lude..: "DomainValidationOptions")
+            Lude.<*> (x Lude..:? "RenewalStatusReason")
       )

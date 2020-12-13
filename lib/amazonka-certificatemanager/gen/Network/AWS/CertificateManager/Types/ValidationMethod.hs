@@ -13,8 +13,8 @@
 module Network.AWS.CertificateManager.Types.ValidationMethod
   ( ValidationMethod
       ( ValidationMethod',
-        DNS,
-        Email
+        Email,
+        DNS
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ValidationMethod = ValidationMethod' Lude.Text
       Lude.ToHeader
     )
 
-pattern DNS :: ValidationMethod
-pattern DNS = ValidationMethod' "DNS"
-
 pattern Email :: ValidationMethod
 pattern Email = ValidationMethod' "EMAIL"
 
+pattern DNS :: ValidationMethod
+pattern DNS = ValidationMethod' "DNS"
+
 {-# COMPLETE
-  DNS,
   Email,
+  DNS,
   ValidationMethod'
   #-}

@@ -39,38 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTaskRun' smart constructor.
 data TaskRun = TaskRun'
-  { completedOn :: Lude.Maybe Lude.Timestamp,
+  { -- | The last point in time that the requested task run was completed.
+    completedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The current status of the requested task run.
     status :: Lude.Maybe TaskStatusType,
+    -- | The last point in time that the requested task run was updated.
     lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The list of error strings associated with this task run.
     errorString :: Lude.Maybe Lude.Text,
+    -- | The date and time that this task run started.
     startedOn :: Lude.Maybe Lude.Timestamp,
+    -- | The names of the log group for secure logging, associated with this task run.
     logGroupName :: Lude.Maybe Lude.Text,
+    -- | The amount of time (in seconds) that the task run consumed resources.
     executionTime :: Lude.Maybe Lude.Int,
+    -- | Specifies configuration properties associated with this task run.
     properties :: Lude.Maybe TaskRunProperties,
+    -- | The unique identifier for the transform.
     transformId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for this task run.
     taskRunId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TaskRun' with the minimum fields required to make a request.
 --
 -- * 'completedOn' - The last point in time that the requested task run was completed.
--- * 'errorString' - The list of error strings associated with this task run.
--- * 'executionTime' - The amount of time (in seconds) that the task run consumed resources.
--- * 'lastModifiedOn' - The last point in time that the requested task run was updated.
--- * 'logGroupName' - The names of the log group for secure logging, associated with this task run.
--- * 'properties' - Specifies configuration properties associated with this task run.
--- * 'startedOn' - The date and time that this task run started.
 -- * 'status' - The current status of the requested task run.
--- * 'taskRunId' - The unique identifier for this task run.
+-- * 'lastModifiedOn' - The last point in time that the requested task run was updated.
+-- * 'errorString' - The list of error strings associated with this task run.
+-- * 'startedOn' - The date and time that this task run started.
+-- * 'logGroupName' - The names of the log group for secure logging, associated with this task run.
+-- * 'executionTime' - The amount of time (in seconds) that the task run consumed resources.
+-- * 'properties' - Specifies configuration properties associated with this task run.
 -- * 'transformId' - The unique identifier for the transform.
+-- * 'taskRunId' - The unique identifier for this task run.
 mkTaskRun ::
   TaskRun
 mkTaskRun =

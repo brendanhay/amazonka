@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ContentClassifier
   ( ContentClassifier
       ( ContentClassifier',
-        FreeOfAdultContent,
-        FreeOfPersonallyIdentifiableInformation
+        FreeOfPersonallyIdentifiableInformation,
+        FreeOfAdultContent
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ContentClassifier = ContentClassifier' Lude.Text
       Lude.ToHeader
     )
 
-pattern FreeOfAdultContent :: ContentClassifier
-pattern FreeOfAdultContent = ContentClassifier' "FreeOfAdultContent"
-
 pattern FreeOfPersonallyIdentifiableInformation :: ContentClassifier
 pattern FreeOfPersonallyIdentifiableInformation = ContentClassifier' "FreeOfPersonallyIdentifiableInformation"
 
+pattern FreeOfAdultContent :: ContentClassifier
+pattern FreeOfAdultContent = ContentClassifier' "FreeOfAdultContent"
+
 {-# COMPLETE
-  FreeOfAdultContent,
   FreeOfPersonallyIdentifiableInformation,
+  FreeOfAdultContent,
   ContentClassifier'
   #-}

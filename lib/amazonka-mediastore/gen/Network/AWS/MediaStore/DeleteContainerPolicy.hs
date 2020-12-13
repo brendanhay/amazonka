@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.MediaStore.DeleteContainerPolicy
     mkDeleteContainerPolicy,
 
     -- ** Request lenses
-    delContainerName,
+    dcpfContainerName,
 
     -- * Destructuring the response
     DeleteContainerPolicyResponse (..),
     mkDeleteContainerPolicyResponse,
 
     -- ** Response lenses
-    dcprsResponseStatus,
+    dcpfrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteContainerPolicy' smart constructor.
 newtype DeleteContainerPolicy = DeleteContainerPolicy'
-  { containerName ::
-      Lude.Text
+  { -- | The name of the container that holds the policy.
+    containerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteContainerPolicy' with the minimum fields required to make a request.
@@ -63,9 +58,9 @@ mkDeleteContainerPolicy pContainerName_ =
 -- | The name of the container that holds the policy.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delContainerName :: Lens.Lens' DeleteContainerPolicy Lude.Text
-delContainerName = Lens.lens (containerName :: DeleteContainerPolicy -> Lude.Text) (\s a -> s {containerName = a} :: DeleteContainerPolicy)
-{-# DEPRECATED delContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+dcpfContainerName :: Lens.Lens' DeleteContainerPolicy Lude.Text
+dcpfContainerName = Lens.lens (containerName :: DeleteContainerPolicy -> Lude.Text) (\s a -> s {containerName = a} :: DeleteContainerPolicy)
+{-# DEPRECATED dcpfContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 instance Lude.AWSRequest DeleteContainerPolicy where
   type Rs DeleteContainerPolicy = DeleteContainerPolicyResponse
@@ -103,16 +98,10 @@ instance Lude.ToQuery DeleteContainerPolicy where
 
 -- | /See:/ 'mkDeleteContainerPolicyResponse' smart constructor.
 newtype DeleteContainerPolicyResponse = DeleteContainerPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteContainerPolicyResponse' with the minimum fields required to make a request.
@@ -128,6 +117,6 @@ mkDeleteContainerPolicyResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcprsResponseStatus :: Lens.Lens' DeleteContainerPolicyResponse Lude.Int
-dcprsResponseStatus = Lens.lens (responseStatus :: DeleteContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteContainerPolicyResponse)
-{-# DEPRECATED dcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcpfrsResponseStatus :: Lens.Lens' DeleteContainerPolicyResponse Lude.Int
+dcpfrsResponseStatus = Lens.lens (responseStatus :: DeleteContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteContainerPolicyResponse)
+{-# DEPRECATED dcpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

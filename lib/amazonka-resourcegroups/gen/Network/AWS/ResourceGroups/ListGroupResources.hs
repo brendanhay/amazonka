@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,24 +49,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGroupResources' smart constructor.
 data ListGroupResources = ListGroupResources'
-  { group ::
-      Lude.Maybe Lude.Text,
+  { -- | The name or the ARN of the resource group
+    group :: Lude.Maybe Lude.Text,
+    -- | Filters, formatted as 'ResourceFilter' objects, that you want to apply to a @ListGroupResources@ operation. Filters the results to include only those of the specified resource types.
+    --
+    --
+    --     * @resource-type@ - Filter resources by their type. Specify up to five resource types in the format @AWS::ServiceCode::ResourceType@ . For example, @AWS::EC2::Instance@ , or @AWS::S3::Bucket@ .
+    --
+    --
+    -- When you specify a @resource-type@ filter for @ListGroupResources@ , AWS Resource Groups validates your filter resource types against the types that are defined in the query associated with the group. For example, if a group contains only S3 buckets because its query specifies only that resource type, but your @resource-type@ filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances. In this case, a @ListGroupResources@ request returns a @BadRequestException@ error with a message similar to the following:
+    -- @The resource types specified as filters in the request are not valid.@
+    -- The error includes a list of resource types that failed the validation because they are not part of the query associated with the group. This validation doesn't occur when the group query specifies @AWS::AllSupported@ , because a group based on such a query can contain any of the allowed resource types for the query type (tag-based or AWS CloudFormation stack-based queries).
     filters :: Lude.Maybe [ResourceFilter],
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Don't use this parameter. Use @Group@ instead.
     groupName :: Lude.Maybe Lude.Text,
+    -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupResources' with the minimum fields required to make a request.
 --
+-- * 'group' - The name or the ARN of the resource group
 -- * 'filters' - Filters, formatted as 'ResourceFilter' objects, that you want to apply to a @ListGroupResources@ operation. Filters the results to include only those of the specified resource types.
 --
 --
@@ -75,10 +83,9 @@ data ListGroupResources = ListGroupResources'
 -- When you specify a @resource-type@ filter for @ListGroupResources@ , AWS Resource Groups validates your filter resource types against the types that are defined in the query associated with the group. For example, if a group contains only S3 buckets because its query specifies only that resource type, but your @resource-type@ filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances. In this case, a @ListGroupResources@ request returns a @BadRequestException@ error with a message similar to the following:
 -- @The resource types specified as filters in the request are not valid.@
 -- The error includes a list of resource types that failed the validation because they are not part of the query associated with the group. This validation doesn't occur when the group query specifies @AWS::AllSupported@ , because a group based on such a query can contain any of the allowed resource types for the query type (tag-based or AWS CloudFormation stack-based queries).
--- * 'group' - The name or the ARN of the resource group
+-- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
 -- * 'groupName' - Don't use this parameter. Use @Group@ instead.
 -- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
 mkListGroupResources ::
   ListGroupResources
 mkListGroupResources =
@@ -178,26 +185,22 @@ instance Lude.ToQuery ListGroupResources where
 
 -- | /See:/ 'mkListGroupResourcesResponse' smart constructor.
 data ListGroupResourcesResponse = ListGroupResourcesResponse'
-  { queryErrors ::
-      Lude.Maybe [QueryError],
+  { -- | A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
+    queryErrors :: Lude.Maybe [QueryError],
+    -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
     nextToken :: Lude.Maybe Lude.Text,
-    resourceIdentifiers ::
-      Lude.Maybe [ResourceIdentifier],
+    -- | The ARNs and resource types of resources that are members of the group that you specified.
+    resourceIdentifiers :: Lude.Maybe [ResourceIdentifier],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupResourcesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 -- * 'queryErrors' - A list of @QueryError@ objects. Each error is an object that contains @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@ are @CLOUDFORMATION_STACK_INACTIVE@ and @CLOUDFORMATION_STACK_NOT_EXISTING@ .
+-- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 -- * 'resourceIdentifiers' - The ARNs and resource types of resources that are members of the group that you specified.
 -- * 'responseStatus' - The response status code.
 mkListGroupResourcesResponse ::

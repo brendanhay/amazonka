@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImagePermission' smart constructor.
 newtype ImagePermission = ImagePermission'
-  { sharedAccountId ::
-      Lude.Maybe Lude.Text
+  { -- | The identifier of the AWS account that an image has been shared with.
+    sharedAccountId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImagePermission' with the minimum fields required to make a request.

@@ -36,34 +36,98 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAPICache' smart constructor.
 data APICache = APICache'
-  { ttl :: Lude.Maybe Lude.Integer,
+  { -- | TTL in seconds for cache entries.
+    --
+    -- Valid values are between 1 and 3600 seconds.
+    ttl :: Lude.Maybe Lude.Integer,
+    -- | The cache instance status.
+    --
+    --
+    --     * __AVAILABLE__ : The instance is available for use.
+    --
+    --
+    --     * __CREATING__ : The instance is currently creating.
+    --
+    --
+    --     * __DELETING__ : The instance is currently deleting.
+    --
+    --
+    --     * __MODIFYING__ : The instance is currently modifying.
+    --
+    --
+    --     * __FAILED__ : The instance has failed creation.
     status :: Lude.Maybe APICacheStatus,
+    -- | At rest encryption flag for cache. This setting cannot be updated after creation.
     atRestEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
     transitEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | Caching behavior.
+    --
+    --
+    --     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
+    --
+    --
+    --     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
     apiCachingBehavior :: Lude.Maybe APICachingBehavior,
+    -- | The cache instance type. Valid values are
+    --
+    --
+    --     * @SMALL@
+    --
+    --
+    --     * @MEDIUM@
+    --
+    --
+    --     * @LARGE@
+    --
+    --
+    --     * @XLARGE@
+    --
+    --
+    --     * @LARGE_2X@
+    --
+    --
+    --     * @LARGE_4X@
+    --
+    --
+    --     * @LARGE_8X@ (not available in all regions)
+    --
+    --
+    --     * @LARGE_12X@
+    --
+    --
+    -- Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.
+    -- The following legacy instance types are available, but their use is discouraged:
+    --
+    --     * __T2_SMALL__ : A t2.small instance type.
+    --
+    --
+    --     * __T2_MEDIUM__ : A t2.medium instance type.
+    --
+    --
+    --     * __R4_LARGE__ : A r4.large instance type.
+    --
+    --
+    --     * __R4_XLARGE__ : A r4.xlarge instance type.
+    --
+    --
+    --     * __R4_2XLARGE__ : A r4.2xlarge instance type.
+    --
+    --
+    --     * __R4_4XLARGE__ : A r4.4xlarge instance type.
+    --
+    --
+    --     * __R4_8XLARGE__ : A r4.8xlarge instance type.
     type' :: Lude.Maybe APICacheType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'APICache' with the minimum fields required to make a request.
 --
--- * 'apiCachingBehavior' - Caching behavior.
+-- * 'ttl' - TTL in seconds for cache entries.
 --
---
---     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
---
---
---     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
---
---
--- * 'atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after creation.
+-- Valid values are between 1 and 3600 seconds.
 -- * 'status' - The cache instance status.
 --
 --
@@ -82,10 +146,17 @@ data APICache = APICache'
 --     * __FAILED__ : The instance has failed creation.
 --
 --
+-- * 'atRestEncryptionEnabled' - At rest encryption flag for cache. This setting cannot be updated after creation.
 -- * 'transitEncryptionEnabled' - Transit encryption flag when connecting to cache. This setting cannot be updated after creation.
--- * 'ttl' - TTL in seconds for cache entries.
+-- * 'apiCachingBehavior' - Caching behavior.
 --
--- Valid values are between 1 and 3600 seconds.
+--
+--     * __FULL_REQUEST_CACHING__ : All requests are fully cached.
+--
+--
+--     * __PER_RESOLVER_CACHING__ : Individual resolvers that you specify are cached.
+--
+--
 -- * 'type'' - The cache instance type. Valid values are
 --
 --

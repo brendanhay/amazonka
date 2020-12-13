@@ -17,11 +17,11 @@ module Network.AWS.Config.Types.RemediationException
     mkRemediationException,
 
     -- * Lenses
+    reResourceId,
+    reResourceType,
+    reConfigRuleName,
     reMessage,
     reExpirationTime,
-    reConfigRuleName,
-    reResourceType,
-    reResourceId,
   )
 where
 
@@ -32,45 +32,64 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemediationException' smart constructor.
 data RemediationException = RemediationException'
-  { message ::
-      Lude.Maybe Lude.Text,
-    expirationTime :: Lude.Maybe Lude.Timestamp,
-    configRuleName :: Lude.Text,
+  { -- | The ID of the resource (for example., sg-xxxxxx).
+    resourceId :: Lude.Text,
+    -- | The type of a resource.
     resourceType :: Lude.Text,
-    resourceId :: Lude.Text
+    -- | The name of the AWS Config rule.
+    configRuleName :: Lude.Text,
+    -- | An explanation of an remediation exception.
+    message :: Lude.Maybe Lude.Text,
+    -- | The time when the remediation exception will be deleted.
+    expirationTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationException' with the minimum fields required to make a request.
 --
--- * 'configRuleName' - The name of the AWS Config rule.
--- * 'expirationTime' - The time when the remediation exception will be deleted.
--- * 'message' - An explanation of an remediation exception.
 -- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
 -- * 'resourceType' - The type of a resource.
+-- * 'configRuleName' - The name of the AWS Config rule.
+-- * 'message' - An explanation of an remediation exception.
+-- * 'expirationTime' - The time when the remediation exception will be deleted.
 mkRemediationException ::
-  -- | 'configRuleName'
+  -- | 'resourceId'
   Lude.Text ->
   -- | 'resourceType'
   Lude.Text ->
-  -- | 'resourceId'
+  -- | 'configRuleName'
   Lude.Text ->
   RemediationException
-mkRemediationException pConfigRuleName_ pResourceType_ pResourceId_ =
+mkRemediationException pResourceId_ pResourceType_ pConfigRuleName_ =
   RemediationException'
-    { message = Lude.Nothing,
-      expirationTime = Lude.Nothing,
-      configRuleName = pConfigRuleName_,
+    { resourceId = pResourceId_,
       resourceType = pResourceType_,
-      resourceId = pResourceId_
+      configRuleName = pConfigRuleName_,
+      message = Lude.Nothing,
+      expirationTime = Lude.Nothing
     }
+
+-- | The ID of the resource (for example., sg-xxxxxx).
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reResourceId :: Lens.Lens' RemediationException Lude.Text
+reResourceId = Lens.lens (resourceId :: RemediationException -> Lude.Text) (\s a -> s {resourceId = a} :: RemediationException)
+{-# DEPRECATED reResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The type of a resource.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reResourceType :: Lens.Lens' RemediationException Lude.Text
+reResourceType = Lens.lens (resourceType :: RemediationException -> Lude.Text) (\s a -> s {resourceType = a} :: RemediationException)
+{-# DEPRECATED reResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | The name of the AWS Config rule.
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+reConfigRuleName :: Lens.Lens' RemediationException Lude.Text
+reConfigRuleName = Lens.lens (configRuleName :: RemediationException -> Lude.Text) (\s a -> s {configRuleName = a} :: RemediationException)
+{-# DEPRECATED reConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | An explanation of an remediation exception.
 --
@@ -86,36 +105,15 @@ reExpirationTime :: Lens.Lens' RemediationException (Lude.Maybe Lude.Timestamp)
 reExpirationTime = Lens.lens (expirationTime :: RemediationException -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationTime = a} :: RemediationException)
 {-# DEPRECATED reExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
 
--- | The name of the AWS Config rule.
---
--- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reConfigRuleName :: Lens.Lens' RemediationException Lude.Text
-reConfigRuleName = Lens.lens (configRuleName :: RemediationException -> Lude.Text) (\s a -> s {configRuleName = a} :: RemediationException)
-{-# DEPRECATED reConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
-
--- | The type of a resource.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reResourceType :: Lens.Lens' RemediationException Lude.Text
-reResourceType = Lens.lens (resourceType :: RemediationException -> Lude.Text) (\s a -> s {resourceType = a} :: RemediationException)
-{-# DEPRECATED reResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The ID of the resource (for example., sg-xxxxxx).
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reResourceId :: Lens.Lens' RemediationException Lude.Text
-reResourceId = Lens.lens (resourceId :: RemediationException -> Lude.Text) (\s a -> s {resourceId = a} :: RemediationException)
-{-# DEPRECATED reResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
 instance Lude.FromJSON RemediationException where
   parseJSON =
     Lude.withObject
       "RemediationException"
       ( \x ->
           RemediationException'
-            Lude.<$> (x Lude..:? "Message")
-            Lude.<*> (x Lude..:? "ExpirationTime")
-            Lude.<*> (x Lude..: "ConfigRuleName")
+            Lude.<$> (x Lude..: "ResourceId")
             Lude.<*> (x Lude..: "ResourceType")
-            Lude.<*> (x Lude..: "ResourceId")
+            Lude.<*> (x Lude..: "ConfigRuleName")
+            Lude.<*> (x Lude..:? "Message")
+            Lude.<*> (x Lude..:? "ExpirationTime")
       )

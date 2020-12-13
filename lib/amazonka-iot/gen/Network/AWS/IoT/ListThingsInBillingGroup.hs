@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.IoT.ListThingsInBillingGroup
 
     -- ** Request lenses
     ltibgNextToken,
-    ltibgMaxResults,
     ltibgBillingGroupName,
+    ltibgMaxResults,
 
     -- * Destructuring the response
     ListThingsInBillingGroupResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListThingsInBillingGroup' smart constructor.
 data ListThingsInBillingGroup = ListThingsInBillingGroup'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    billingGroupName :: Lude.Text
+  { -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the billing group.
+    billingGroupName :: Lude.Text,
+    -- | The maximum number of results to return per request.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingsInBillingGroup' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'billingGroupName' - The name of the billing group.
 -- * 'maxResults' - The maximum number of results to return per request.
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 mkListThingsInBillingGroup ::
   -- | 'billingGroupName'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListThingsInBillingGroup ::
 mkListThingsInBillingGroup pBillingGroupName_ =
   ListThingsInBillingGroup'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      billingGroupName = pBillingGroupName_
+      billingGroupName = pBillingGroupName_,
+      maxResults = Lude.Nothing
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
@@ -82,19 +79,19 @@ ltibgNextToken :: Lens.Lens' ListThingsInBillingGroup (Lude.Maybe Lude.Text)
 ltibgNextToken = Lens.lens (nextToken :: ListThingsInBillingGroup -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingsInBillingGroup)
 {-# DEPRECATED ltibgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return per request.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltibgMaxResults :: Lens.Lens' ListThingsInBillingGroup (Lude.Maybe Lude.Natural)
-ltibgMaxResults = Lens.lens (maxResults :: ListThingsInBillingGroup -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingsInBillingGroup)
-{-# DEPRECATED ltibgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the billing group.
 --
 -- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltibgBillingGroupName :: Lens.Lens' ListThingsInBillingGroup Lude.Text
 ltibgBillingGroupName = Lens.lens (billingGroupName :: ListThingsInBillingGroup -> Lude.Text) (\s a -> s {billingGroupName = a} :: ListThingsInBillingGroup)
 {-# DEPRECATED ltibgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
+
+-- | The maximum number of results to return per request.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltibgMaxResults :: Lens.Lens' ListThingsInBillingGroup (Lude.Maybe Lude.Natural)
+ltibgMaxResults = Lens.lens (maxResults :: ListThingsInBillingGroup -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingsInBillingGroup)
+{-# DEPRECATED ltibgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListThingsInBillingGroup where
   page rq rs
@@ -132,27 +129,21 @@ instance Lude.ToQuery ListThingsInBillingGroup where
 
 -- | /See:/ 'mkListThingsInBillingGroupResponse' smart constructor.
 data ListThingsInBillingGroupResponse = ListThingsInBillingGroupResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    things ::
-      Lude.Maybe [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to get the next set of results. Will not be returned if operation has returned all results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of things in the billing group.
+    things :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingsInBillingGroupResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to get the next set of results. Will not be returned if operation has returned all results.
--- * 'responseStatus' - The response status code.
 -- * 'things' - A list of things in the billing group.
+-- * 'responseStatus' - The response status code.
 mkListThingsInBillingGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

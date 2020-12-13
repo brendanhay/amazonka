@@ -13,9 +13,9 @@
 module Network.AWS.Connect.Types.VoiceRecordingTrack
   ( VoiceRecordingTrack
       ( VoiceRecordingTrack',
-        All,
         FromAgent,
-        ToAgent
+        ToAgent,
+        All
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype VoiceRecordingTrack = VoiceRecordingTrack' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: VoiceRecordingTrack
-pattern All = VoiceRecordingTrack' "ALL"
-
 pattern FromAgent :: VoiceRecordingTrack
 pattern FromAgent = VoiceRecordingTrack' "FROM_AGENT"
 
 pattern ToAgent :: VoiceRecordingTrack
 pattern ToAgent = VoiceRecordingTrack' "TO_AGENT"
 
+pattern All :: VoiceRecordingTrack
+pattern All = VoiceRecordingTrack' "ALL"
+
 {-# COMPLETE
-  All,
   FromAgent,
   ToAgent,
+  All,
   VoiceRecordingTrack'
   #-}

@@ -43,43 +43,61 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBaseConfigurationItem' smart constructor.
 data BaseConfigurationItem = BaseConfigurationItem'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource (for example., sg-xxxxxx).
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of AWS resource.
     resourceType :: Lude.Maybe ResourceType,
+    -- | An identifier that indicates the ordering of the configuration items of a resource.
     configurationStateId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource.
     arn :: Lude.Maybe Lude.Text,
+    -- | The custom name of the resource, if available.
     resourceName :: Lude.Maybe Lude.Text,
-    resourceCreationTime ::
-      Lude.Maybe Lude.Timestamp,
-    configurationItemStatus ::
-      Lude.Maybe ConfigurationItemStatus,
-    configurationItemCaptureTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The time stamp when the resource was created.
+    resourceCreationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The configuration item status. The valid values are:
+    --
+    --
+    --     * OK – The resource configuration has been updated
+    --
+    --
+    --     * ResourceDiscovered – The resource was newly discovered
+    --
+    --
+    --     * ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type
+    --
+    --
+    --     * ResourceDeleted – The resource was deleted
+    --
+    --
+    --     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
+    configurationItemStatus :: Lude.Maybe ConfigurationItemStatus,
+    -- | The time when the configuration recording was initiated.
+    configurationItemCaptureTime :: Lude.Maybe Lude.Timestamp,
+    -- | The 12-digit AWS account ID associated with the resource.
     accountId :: Lude.Maybe Lude.Text,
-    supplementaryConfiguration ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter.
+    supplementaryConfiguration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The Availability Zone associated with the resource.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The version number of the resource configuration.
     version :: Lude.Maybe Lude.Text,
+    -- | The region where the resource resides.
     awsRegion :: Lude.Maybe Lude.Text,
+    -- | The description of the resource configuration.
     configuration :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BaseConfigurationItem' with the minimum fields required to make a request.
 --
--- * 'accountId' - The 12-digit AWS account ID associated with the resource.
+-- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
+-- * 'resourceType' - The type of AWS resource.
+-- * 'configurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
 -- * 'arn' - The Amazon Resource Name (ARN) of the resource.
--- * 'availabilityZone' - The Availability Zone associated with the resource.
--- * 'awsRegion' - The region where the resource resides.
--- * 'configuration' - The description of the resource configuration.
--- * 'configurationItemCaptureTime' - The time when the configuration recording was initiated.
+-- * 'resourceName' - The custom name of the resource, if available.
+-- * 'resourceCreationTime' - The time stamp when the resource was created.
 -- * 'configurationItemStatus' - The configuration item status. The valid values are:
 --
 --
@@ -98,13 +116,13 @@ data BaseConfigurationItem = BaseConfigurationItem'
 --     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
 --
 --
--- * 'configurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
--- * 'resourceCreationTime' - The time stamp when the resource was created.
--- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
--- * 'resourceName' - The custom name of the resource, if available.
--- * 'resourceType' - The type of AWS resource.
+-- * 'configurationItemCaptureTime' - The time when the configuration recording was initiated.
+-- * 'accountId' - The 12-digit AWS account ID associated with the resource.
 -- * 'supplementaryConfiguration' - Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter.
+-- * 'availabilityZone' - The Availability Zone associated with the resource.
 -- * 'version' - The version number of the resource configuration.
+-- * 'awsRegion' - The region where the resource resides.
+-- * 'configuration' - The description of the resource configuration.
 mkBaseConfigurationItem ::
   BaseConfigurationItem
 mkBaseConfigurationItem =

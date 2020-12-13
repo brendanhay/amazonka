@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.SES.VerifyDomainIdentity
     mkVerifyDomainIdentityResponse,
 
     -- ** Response lenses
-    vdirsResponseStatus,
     vdirsVerificationToken,
+    vdirsResponseStatus,
   )
 where
 
@@ -43,16 +44,10 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkVerifyDomainIdentity' smart constructor.
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
-  { domain ::
-      Lude.Text
+  { -- | The domain to be verified.
+    domain :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifyDomainIdentity' with the minimum fields required to make a request.
@@ -80,8 +75,8 @@ instance Lude.AWSRequest VerifyDomainIdentity where
       "VerifyDomainIdentityResult"
       ( \s h x ->
           VerifyDomainIdentityResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "VerificationToken")
+            Lude.<$> (x Lude..@ "VerificationToken")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders VerifyDomainIdentity where
@@ -102,43 +97,34 @@ instance Lude.ToQuery VerifyDomainIdentity where
 --
 -- /See:/ 'mkVerifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-  { responseStatus ::
-      Lude.Int,
-    verificationToken :: Lude.Text
+  { -- | A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.
+    --
+    -- As Amazon SES searches for the TXT record, the domain's verification status is "Pending". When Amazon SES detects the record, the domain's verification status changes to "Success". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to "Failed." In that case, if you still want to verify the domain, you must restart the verification process from the beginning.
+    verificationToken :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VerifyDomainIdentityResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'verificationToken' - A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.
 --
 -- As Amazon SES searches for the TXT record, the domain's verification status is "Pending". When Amazon SES detects the record, the domain's verification status changes to "Success". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to "Failed." In that case, if you still want to verify the domain, you must restart the verification process from the beginning.
+-- * 'responseStatus' - The response status code.
 mkVerifyDomainIdentityResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'verificationToken'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   VerifyDomainIdentityResponse
-mkVerifyDomainIdentityResponse pResponseStatus_ pVerificationToken_ =
+mkVerifyDomainIdentityResponse pVerificationToken_ pResponseStatus_ =
   VerifyDomainIdentityResponse'
-    { responseStatus = pResponseStatus_,
-      verificationToken = pVerificationToken_
+    { verificationToken =
+        pVerificationToken_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdirsResponseStatus :: Lens.Lens' VerifyDomainIdentityResponse Lude.Int
-vdirsResponseStatus = Lens.lens (responseStatus :: VerifyDomainIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifyDomainIdentityResponse)
-{-# DEPRECATED vdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.
 --
@@ -148,3 +134,10 @@ vdirsResponseStatus = Lens.lens (responseStatus :: VerifyDomainIdentityResponse 
 vdirsVerificationToken :: Lens.Lens' VerifyDomainIdentityResponse Lude.Text
 vdirsVerificationToken = Lens.lens (verificationToken :: VerifyDomainIdentityResponse -> Lude.Text) (\s a -> s {verificationToken = a} :: VerifyDomainIdentityResponse)
 {-# DEPRECATED vdirsVerificationToken "Use generic-lens or generic-optics with 'verificationToken' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdirsResponseStatus :: Lens.Lens' VerifyDomainIdentityResponse Lude.Int
+vdirsResponseStatus = Lens.lens (responseStatus :: VerifyDomainIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifyDomainIdentityResponse)
+{-# DEPRECATED vdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
 --
 -- /See:/ 'mkCodeSource' smart constructor.
-newtype CodeSource = CodeSource' {s3 :: S3Location}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype CodeSource = CodeSource'
+  { -- | Information about the Amazon S3 location where the source code files provided with the project request are stored.
+    s3 :: S3Location
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeSource' with the minimum fields required to make a request.

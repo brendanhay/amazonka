@@ -24,12 +24,12 @@ module Network.AWS.AppStream.Types.Stack
     sCreatedTime,
     sStorageConnectors,
     sAccessEndpoints,
+    sName,
     sDisplayName,
     sStackErrors,
     sEmbedHostDomains,
     sDescription,
     sRedirectURL,
-    sName,
   )
 where
 
@@ -45,45 +45,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStack' smart constructor.
 data Stack = Stack'
-  { userSettings ::
-      Lude.Maybe (Lude.NonEmpty UserSetting),
+  { -- | The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.
+    userSettings :: Lude.Maybe (Lude.NonEmpty UserSetting),
+    -- | The persistent application settings for users of the stack.
     applicationSettings :: Lude.Maybe ApplicationSettingsResponse,
+    -- | The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
     feedbackURL :: Lude.Maybe Lude.Text,
+    -- | The ARN of the stack.
     arn :: Lude.Maybe Lude.Text,
+    -- | The time the stack was created.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The storage connectors to enable.
     storageConnectors :: Lude.Maybe [StorageConnector],
+    -- | The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
     accessEndpoints :: Lude.Maybe (Lude.NonEmpty AccessEndpoint),
+    -- | The name of the stack.
+    name :: Lude.Text,
+    -- | The stack name to display.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The errors for the stack.
     stackErrors :: Lude.Maybe [StackError],
+    -- | The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
     embedHostDomains :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The description to display.
     description :: Lude.Maybe Lude.Text,
-    redirectURL :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The URL that users are redirected to after their streaming session ends.
+    redirectURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stack' with the minimum fields required to make a request.
 --
--- * 'accessEndpoints' - The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+-- * 'userSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.
 -- * 'applicationSettings' - The persistent application settings for users of the stack.
+-- * 'feedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
 -- * 'arn' - The ARN of the stack.
 -- * 'createdTime' - The time the stack was created.
--- * 'description' - The description to display.
--- * 'displayName' - The stack name to display.
--- * 'embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
--- * 'feedbackURL' - The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
--- * 'name' - The name of the stack.
--- * 'redirectURL' - The URL that users are redirected to after their streaming session ends.
--- * 'stackErrors' - The errors for the stack.
 -- * 'storageConnectors' - The storage connectors to enable.
--- * 'userSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.
+-- * 'accessEndpoints' - The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+-- * 'name' - The name of the stack.
+-- * 'displayName' - The stack name to display.
+-- * 'stackErrors' - The errors for the stack.
+-- * 'embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+-- * 'description' - The description to display.
+-- * 'redirectURL' - The URL that users are redirected to after their streaming session ends.
 mkStack ::
   -- | 'name'
   Lude.Text ->
@@ -97,12 +103,12 @@ mkStack pName_ =
       createdTime = Lude.Nothing,
       storageConnectors = Lude.Nothing,
       accessEndpoints = Lude.Nothing,
+      name = pName_,
       displayName = Lude.Nothing,
       stackErrors = Lude.Nothing,
       embedHostDomains = Lude.Nothing,
       description = Lude.Nothing,
-      redirectURL = Lude.Nothing,
-      name = pName_
+      redirectURL = Lude.Nothing
     }
 
 -- | The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.
@@ -154,6 +160,13 @@ sAccessEndpoints :: Lens.Lens' Stack (Lude.Maybe (Lude.NonEmpty AccessEndpoint))
 sAccessEndpoints = Lens.lens (accessEndpoints :: Stack -> Lude.Maybe (Lude.NonEmpty AccessEndpoint)) (\s a -> s {accessEndpoints = a} :: Stack)
 {-# DEPRECATED sAccessEndpoints "Use generic-lens or generic-optics with 'accessEndpoints' instead." #-}
 
+-- | The name of the stack.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' Stack Lude.Text
+sName = Lens.lens (name :: Stack -> Lude.Text) (\s a -> s {name = a} :: Stack)
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The stack name to display.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -189,13 +202,6 @@ sRedirectURL :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
 sRedirectURL = Lens.lens (redirectURL :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {redirectURL = a} :: Stack)
 {-# DEPRECATED sRedirectURL "Use generic-lens or generic-optics with 'redirectURL' instead." #-}
 
--- | The name of the stack.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' Stack Lude.Text
-sName = Lens.lens (name :: Stack -> Lude.Text) (\s a -> s {name = a} :: Stack)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON Stack where
   parseJSON =
     Lude.withObject
@@ -209,10 +215,10 @@ instance Lude.FromJSON Stack where
             Lude.<*> (x Lude..:? "CreatedTime")
             Lude.<*> (x Lude..:? "StorageConnectors" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "AccessEndpoints")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "DisplayName")
             Lude.<*> (x Lude..:? "StackErrors" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "EmbedHostDomains")
             Lude.<*> (x Lude..:? "Description")
             Lude.<*> (x Lude..:? "RedirectURL")
-            Lude.<*> (x Lude..: "Name")
       )

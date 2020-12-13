@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.ServiceCatalog.DeletePortfolio
     mkDeletePortfolio,
 
     -- ** Request lenses
-    ddAcceptLanguage,
-    ddId,
+    dpfAcceptLanguage,
+    dpfId,
 
     -- * Destructuring the response
     DeletePortfolioResponse (..),
     mkDeletePortfolioResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
+    dprsResponseStatus,
   )
 where
 
@@ -42,17 +43,21 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDeletePortfolio' smart constructor.
 data DeletePortfolio = DeletePortfolio'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The portfolio identifier.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePortfolio' with the minimum fields required to make a request.
@@ -91,16 +96,16 @@ mkDeletePortfolio pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddAcceptLanguage :: Lens.Lens' DeletePortfolio (Lude.Maybe Lude.Text)
-ddAcceptLanguage = Lens.lens (acceptLanguage :: DeletePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeletePortfolio)
-{-# DEPRECATED ddAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dpfAcceptLanguage :: Lens.Lens' DeletePortfolio (Lude.Maybe Lude.Text)
+dpfAcceptLanguage = Lens.lens (acceptLanguage :: DeletePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeletePortfolio)
+{-# DEPRECATED dpfAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The portfolio identifier.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddId :: Lens.Lens' DeletePortfolio Lude.Text
-ddId = Lens.lens (id :: DeletePortfolio -> Lude.Text) (\s a -> s {id = a} :: DeletePortfolio)
-{-# DEPRECATED ddId "Use generic-lens or generic-optics with 'id' instead." #-}
+dpfId :: Lens.Lens' DeletePortfolio Lude.Text
+dpfId = Lens.lens (id :: DeletePortfolio -> Lude.Text) (\s a -> s {id = a} :: DeletePortfolio)
+{-# DEPRECATED dpfId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DeletePortfolio where
   type Rs DeletePortfolio = DeletePortfolioResponse
@@ -139,16 +144,10 @@ instance Lude.ToQuery DeletePortfolio where
 
 -- | /See:/ 'mkDeletePortfolioResponse' smart constructor.
 newtype DeletePortfolioResponse = DeletePortfolioResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePortfolioResponse' with the minimum fields required to make a request.
@@ -164,6 +163,6 @@ mkDeletePortfolioResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeletePortfolioResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeletePortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePortfolioResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprsResponseStatus :: Lens.Lens' DeletePortfolioResponse Lude.Int
+dprsResponseStatus = Lens.lens (responseStatus :: DeletePortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePortfolioResponse)
+{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Lightsail.CreateInstanceSnapshot
     mkCreateInstanceSnapshot,
 
     -- ** Request lenses
-    cisTags,
     cisInstanceSnapshotName,
     cisInstanceName,
+    cisTags,
 
     -- * Destructuring the response
     CreateInstanceSnapshotResponse (..),
@@ -43,24 +44,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateInstanceSnapshot' smart constructor.
 data CreateInstanceSnapshot = CreateInstanceSnapshot'
-  { tags ::
-      Lude.Maybe [Tag],
+  { -- | The name for your new snapshot.
     instanceSnapshotName :: Lude.Text,
-    instanceName :: Lude.Text
+    -- | The Lightsail instance on which to base your snapshot.
+    instanceName :: Lude.Text,
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstanceSnapshot' with the minimum fields required to make a request.
 --
--- * 'instanceName' - The Lightsail instance on which to base your snapshot.
 -- * 'instanceSnapshotName' - The name for your new snapshot.
+-- * 'instanceName' - The Lightsail instance on which to base your snapshot.
 -- * 'tags' - The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
@@ -72,19 +71,11 @@ mkCreateInstanceSnapshot ::
   CreateInstanceSnapshot
 mkCreateInstanceSnapshot pInstanceSnapshotName_ pInstanceName_ =
   CreateInstanceSnapshot'
-    { tags = Lude.Nothing,
-      instanceSnapshotName = pInstanceSnapshotName_,
-      instanceName = pInstanceName_
+    { instanceSnapshotName =
+        pInstanceSnapshotName_,
+      instanceName = pInstanceName_,
+      tags = Lude.Nothing
     }
-
--- | The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisTags :: Lens.Lens' CreateInstanceSnapshot (Lude.Maybe [Tag])
-cisTags = Lens.lens (tags :: CreateInstanceSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateInstanceSnapshot)
-{-# DEPRECATED cisTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The name for your new snapshot.
 --
@@ -99,6 +90,15 @@ cisInstanceSnapshotName = Lens.lens (instanceSnapshotName :: CreateInstanceSnaps
 cisInstanceName :: Lens.Lens' CreateInstanceSnapshot Lude.Text
 cisInstanceName = Lens.lens (instanceName :: CreateInstanceSnapshot -> Lude.Text) (\s a -> s {instanceName = a} :: CreateInstanceSnapshot)
 {-# DEPRECATED cisInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
+
+-- | The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cisTags :: Lens.Lens' CreateInstanceSnapshot (Lude.Maybe [Tag])
+cisTags = Lens.lens (tags :: CreateInstanceSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateInstanceSnapshot)
+{-# DEPRECATED cisTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateInstanceSnapshot where
   type Rs CreateInstanceSnapshot = CreateInstanceSnapshotResponse
@@ -126,9 +126,9 @@ instance Lude.ToJSON CreateInstanceSnapshot where
   toJSON CreateInstanceSnapshot' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("instanceSnapshotName" Lude..= instanceSnapshotName),
-            Lude.Just ("instanceName" Lude..= instanceName)
+          [ Lude.Just ("instanceSnapshotName" Lude..= instanceSnapshotName),
+            Lude.Just ("instanceName" Lude..= instanceName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -140,17 +140,12 @@ instance Lude.ToQuery CreateInstanceSnapshot where
 
 -- | /See:/ 'mkCreateInstanceSnapshotResponse' smart constructor.
 data CreateInstanceSnapshotResponse = CreateInstanceSnapshotResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateInstanceSnapshotResponse' with the minimum fields required to make a request.

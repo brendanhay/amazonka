@@ -31,22 +31,18 @@ import Network.AWS.Rekognition.Types.FaceDetail
 --
 -- /See:/ 'mkFaceRecord' smart constructor.
 data FaceRecord = FaceRecord'
-  { faceDetail :: Lude.Maybe FaceDetail,
+  { -- | Structure containing attributes of the face that the algorithm detected.
+    faceDetail :: Lude.Maybe FaceDetail,
+    -- | Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
     face :: Lude.Maybe Face
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceRecord' with the minimum fields required to make a request.
 --
--- * 'face' - Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 -- * 'faceDetail' - Structure containing attributes of the face that the algorithm detected.
+-- * 'face' - Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned.
 mkFaceRecord ::
   FaceRecord
 mkFaceRecord =

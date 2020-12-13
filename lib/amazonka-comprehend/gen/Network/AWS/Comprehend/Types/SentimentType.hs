@@ -13,10 +13,10 @@
 module Network.AWS.Comprehend.Types.SentimentType
   ( SentimentType
       ( SentimentType',
-        Mixed,
+        Positive,
         Negative,
         Neutral,
-        Positive
+        Mixed
       ),
   )
 where
@@ -47,8 +47,8 @@ newtype SentimentType = SentimentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Mixed :: SentimentType
-pattern Mixed = SentimentType' "MIXED"
+pattern Positive :: SentimentType
+pattern Positive = SentimentType' "POSITIVE"
 
 pattern Negative :: SentimentType
 pattern Negative = SentimentType' "NEGATIVE"
@@ -56,13 +56,13 @@ pattern Negative = SentimentType' "NEGATIVE"
 pattern Neutral :: SentimentType
 pattern Neutral = SentimentType' "NEUTRAL"
 
-pattern Positive :: SentimentType
-pattern Positive = SentimentType' "POSITIVE"
+pattern Mixed :: SentimentType
+pattern Mixed = SentimentType' "MIXED"
 
 {-# COMPLETE
-  Mixed,
+  Positive,
   Negative,
   Neutral,
-  Positive,
+  Mixed,
   SentimentType'
   #-}

@@ -45,53 +45,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityRecognizerProperties' smart constructor.
 data EntityRecognizerProperties = EntityRecognizerProperties'
-  { status ::
-      Lude.Maybe ModelStatus,
-    languageCode ::
-      Lude.Maybe LanguageCode,
-    trainingEndTime ::
-      Lude.Maybe Lude.Timestamp,
-    entityRecognizerARN ::
-      Lude.Maybe Lude.Text,
-    inputDataConfig ::
-      Lude.Maybe
-        EntityRecognizerInputDataConfig,
+  { -- | Provides the status of the entity recognizer.
+    status :: Lude.Maybe ModelStatus,
+    -- | The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The time that training of the entity recognizer was completed.
+    trainingEndTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
+    entityRecognizerARN :: Lude.Maybe Lude.Text,
+    -- | The input data properties of an entity recognizer.
+    inputDataConfig :: Lude.Maybe EntityRecognizerInputDataConfig,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
     vpcConfig :: Lude.Maybe VPCConfig,
-    volumeKMSKeyId ::
-      Lude.Maybe Lude.Text,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+    --
+    --
+    --     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+    --
+    --
+    --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+    volumeKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The time that the recognizer creation completed.
     endTime :: Lude.Maybe Lude.Timestamp,
-    trainingStartTime ::
-      Lude.Maybe Lude.Timestamp,
-    dataAccessRoleARN ::
-      Lude.Maybe Lude.Text,
-    recognizerMetadata ::
-      Lude.Maybe EntityRecognizerMetadata,
+    -- | The time that training of the entity recognizer started.
+    trainingStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+    dataAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | Provides information about an entity recognizer.
+    recognizerMetadata :: Lude.Maybe EntityRecognizerMetadata,
+    -- | A description of the status of the recognizer.
     message :: Lude.Maybe Lude.Text,
-    submitTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | The time that the recognizer was submitted for processing.
+    submitTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerProperties' with the minimum fields required to make a request.
 --
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
--- * 'endTime' - The time that the recognizer creation completed.
+-- * 'status' - Provides the status of the entity recognizer.
+-- * 'languageCode' - The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported.
+-- * 'trainingEndTime' - The time that training of the entity recognizer was completed.
 -- * 'entityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
 -- * 'inputDataConfig' - The input data properties of an entity recognizer.
--- * 'languageCode' - The language of the input documents. All documents must be in the same language. Only English ("en") is currently supported.
--- * 'message' - A description of the status of the recognizer.
--- * 'recognizerMetadata' - Provides information about an entity recognizer.
--- * 'status' - Provides the status of the entity recognizer.
--- * 'submitTime' - The time that the recognizer was submitted for processing.
--- * 'trainingEndTime' - The time that training of the entity recognizer was completed.
--- * 'trainingStartTime' - The time that training of the entity recognizer started.
+-- * 'vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 -- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
 --
@@ -101,7 +98,12 @@ data EntityRecognizerProperties = EntityRecognizerProperties'
 --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
 --
--- * 'vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom entity recognizer. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- * 'endTime' - The time that the recognizer creation completed.
+-- * 'trainingStartTime' - The time that training of the entity recognizer started.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.
+-- * 'recognizerMetadata' - Provides information about an entity recognizer.
+-- * 'message' - A description of the status of the recognizer.
+-- * 'submitTime' - The time that the recognizer was submitted for processing.
 mkEntityRecognizerProperties ::
   EntityRecognizerProperties
 mkEntityRecognizerProperties =

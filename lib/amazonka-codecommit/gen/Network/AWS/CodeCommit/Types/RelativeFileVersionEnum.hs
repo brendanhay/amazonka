@@ -13,8 +13,8 @@
 module Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
   ( RelativeFileVersionEnum
       ( RelativeFileVersionEnum',
-        After,
-        Before
+        Before,
+        After
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RelativeFileVersionEnum = RelativeFileVersionEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern After :: RelativeFileVersionEnum
-pattern After = RelativeFileVersionEnum' "AFTER"
-
 pattern Before :: RelativeFileVersionEnum
 pattern Before = RelativeFileVersionEnum' "BEFORE"
 
+pattern After :: RelativeFileVersionEnum
+pattern After = RelativeFileVersionEnum' "AFTER"
+
 {-# COMPLETE
-  After,
   Before,
+  After,
   RelativeFileVersionEnum'
   #-}

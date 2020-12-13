@@ -37,14 +37,21 @@ import Network.AWS.WorkDocs.Types.ResourceStateType
 --
 -- /See:/ 'mkDocumentMetadata' smart constructor.
 data DocumentMetadata = DocumentMetadata'
-  { latestVersionMetadata ::
-      Lude.Maybe DocumentVersionMetadata,
+  { -- | The latest version of the document.
+    latestVersionMetadata :: Lude.Maybe DocumentVersionMetadata,
+    -- | The ID of the parent folder.
     parentFolderId :: Lude.Maybe Lude.Text,
+    -- | The time when the document was updated.
     modifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the document.
     id :: Lude.Maybe Lude.Text,
+    -- | List of labels on the document.
     labels :: Lude.Maybe [Lude.Text],
+    -- | The resource state.
     resourceState :: Lude.Maybe ResourceStateType,
+    -- | The time when the document was created.
     createdTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the creator.
     creatorId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -52,14 +59,14 @@ data DocumentMetadata = DocumentMetadata'
 
 -- | Creates a value of 'DocumentMetadata' with the minimum fields required to make a request.
 --
--- * 'createdTimestamp' - The time when the document was created.
--- * 'creatorId' - The ID of the creator.
+-- * 'latestVersionMetadata' - The latest version of the document.
+-- * 'parentFolderId' - The ID of the parent folder.
+-- * 'modifiedTimestamp' - The time when the document was updated.
 -- * 'id' - The ID of the document.
 -- * 'labels' - List of labels on the document.
--- * 'latestVersionMetadata' - The latest version of the document.
--- * 'modifiedTimestamp' - The time when the document was updated.
--- * 'parentFolderId' - The ID of the parent folder.
 -- * 'resourceState' - The resource state.
+-- * 'createdTimestamp' - The time when the document was created.
+-- * 'creatorId' - The ID of the creator.
 mkDocumentMetadata ::
   DocumentMetadata
 mkDocumentMetadata =

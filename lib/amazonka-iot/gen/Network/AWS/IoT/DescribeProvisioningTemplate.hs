@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,16 +49,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeProvisioningTemplate' smart constructor.
 newtype DescribeProvisioningTemplate = DescribeProvisioningTemplate'
-  { templateName ::
-      Lude.Text
+  { -- | The name of the fleet provisioning template.
+    templateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplate' with the minimum fields required to make a request.
@@ -111,61 +106,45 @@ instance Lude.ToQuery DescribeProvisioningTemplate where
 
 -- | /See:/ 'mkDescribeProvisioningTemplateResponse' smart constructor.
 data DescribeProvisioningTemplateResponse = DescribeProvisioningTemplateResponse'
-  { lastModifiedDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    templateName ::
-      Lude.Maybe
-        Lude.Text,
-    preProvisioningHook ::
-      Lude.Maybe
-        ProvisioningHook,
-    enabled ::
-      Lude.Maybe
-        Lude.Bool,
-    provisioningRoleARN ::
-      Lude.Maybe
-        Lude.Text,
-    defaultVersionId ::
-      Lude.Maybe
-        Lude.Int,
-    creationDate ::
-      Lude.Maybe
-        Lude.Timestamp,
-    templateARN ::
-      Lude.Maybe
-        Lude.Text,
-    templateBody ::
-      Lude.Maybe
-        Lude.Text,
-    description ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The date when the fleet provisioning template was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the fleet provisioning template.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | Gets information about a pre-provisioned hook.
+    preProvisioningHook :: Lude.Maybe ProvisioningHook,
+    -- | True if the fleet provisioning template is enabled, otherwise false.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
+    provisioningRoleARN :: Lude.Maybe Lude.Text,
+    -- | The default fleet template version ID.
+    defaultVersionId :: Lude.Maybe Lude.Int,
+    -- | The date when the fleet provisioning template was created.
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the fleet provisioning template.
+    templateARN :: Lude.Maybe Lude.Text,
+    -- | The JSON formatted contents of the fleet provisioning template.
+    templateBody :: Lude.Maybe Lude.Text,
+    -- | The description of the fleet provisioning template.
+    description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProvisioningTemplateResponse' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The date when the fleet provisioning template was created.
--- * 'defaultVersionId' - The default fleet template version ID.
--- * 'description' - The description of the fleet provisioning template.
--- * 'enabled' - True if the fleet provisioning template is enabled, otherwise false.
 -- * 'lastModifiedDate' - The date when the fleet provisioning template was last modified.
+-- * 'templateName' - The name of the fleet provisioning template.
 -- * 'preProvisioningHook' - Gets information about a pre-provisioned hook.
+-- * 'enabled' - True if the fleet provisioning template is enabled, otherwise false.
 -- * 'provisioningRoleARN' - The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.
--- * 'responseStatus' - The response status code.
+-- * 'defaultVersionId' - The default fleet template version ID.
+-- * 'creationDate' - The date when the fleet provisioning template was created.
 -- * 'templateARN' - The ARN of the fleet provisioning template.
 -- * 'templateBody' - The JSON formatted contents of the fleet provisioning template.
--- * 'templateName' - The name of the fleet provisioning template.
+-- * 'description' - The description of the fleet provisioning template.
+-- * 'responseStatus' - The response status code.
 mkDescribeProvisioningTemplateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

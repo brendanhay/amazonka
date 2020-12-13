@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
-  { pendingMaintenanceActionDetails ::
-      Lude.Maybe
-        [PendingMaintenanceAction],
-    resourceIdentifier ::
-      Lude.Maybe Lude.Text
+  { -- | Detailed information about the pending maintenance action.
+    pendingMaintenanceActionDetails :: Lude.Maybe [PendingMaintenanceAction],
+    -- | The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS> in the DMS documentation.
+    resourceIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourcePendingMaintenanceActions' with the minimum fields required to make a request.

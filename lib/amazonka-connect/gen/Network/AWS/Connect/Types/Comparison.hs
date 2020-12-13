@@ -13,7 +13,7 @@
 module Network.AWS.Connect.Types.Comparison
   ( Comparison
       ( Comparison',
-        LT
+        CLT
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype Comparison = Comparison' Lude.Text
       Lude.ToHeader
     )
 
-pattern LT :: Comparison
-pattern LT = Comparison' "LT"
+pattern CLT :: Comparison
+pattern CLT = Comparison' "LT"
 
 {-# COMPLETE
-  LT,
+  CLT,
   Comparison'
   #-}

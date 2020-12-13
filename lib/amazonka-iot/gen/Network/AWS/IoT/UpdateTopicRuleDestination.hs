@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.UpdateTopicRuleDestination
     mkUpdateTopicRuleDestination,
 
     -- ** Request lenses
-    utrdArn,
     utrdStatus,
+    utrdArn,
 
     -- * Destructuring the response
     UpdateTopicRuleDestinationResponse (..),
@@ -39,22 +40,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateTopicRuleDestination' smart constructor.
 data UpdateTopicRuleDestination = UpdateTopicRuleDestination'
-  { arn ::
-      Lude.Text,
-    status :: TopicRuleDestinationStatus
+  { -- | The status of the topic rule destination. Valid values are:
+    --
+    --
+    --     * IN_PROGRESS
+    --
+    --     * A topic rule destination was created but has not been confirmed. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+    --
+    --
+    --     * ENABLED
+    --
+    --     * Confirmation was completed, and traffic to this destination is allowed. You can set @status@ to @DISABLED@ by calling @UpdateTopicRuleDestination@ .
+    --
+    --
+    --     * DISABLED
+    --
+    --     * Confirmation was completed, and traffic to this destination is not allowed. You can set @status@ to @ENABLED@ by calling @UpdateTopicRuleDestination@ .
+    --
+    --
+    --     * ERROR
+    --
+    --     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+    status :: TopicRuleDestinationStatus,
+    -- | The ARN of the topic rule destination.
+    arn :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTopicRuleDestination' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the topic rule destination.
 -- * 'status' - The status of the topic rule destination. Valid values are:
 --
 --
@@ -76,21 +91,17 @@ data UpdateTopicRuleDestination = UpdateTopicRuleDestination'
 --     * ERROR
 --
 --     * Confirmation could not be completed, for example if the confirmation timed out. You can call @GetTopicRuleDestination@ for details about the error. You can set @status@ to @IN_PROGRESS@ by calling @UpdateTopicRuleDestination@ . Calling @UpdateTopicRuleDestination@ causes a new confirmation challenge to be sent to your confirmation endpoint.
+--
+--
+-- * 'arn' - The ARN of the topic rule destination.
 mkUpdateTopicRuleDestination ::
-  -- | 'arn'
-  Lude.Text ->
   -- | 'status'
   TopicRuleDestinationStatus ->
+  -- | 'arn'
+  Lude.Text ->
   UpdateTopicRuleDestination
-mkUpdateTopicRuleDestination pArn_ pStatus_ =
-  UpdateTopicRuleDestination' {arn = pArn_, status = pStatus_}
-
--- | The ARN of the topic rule destination.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrdArn :: Lens.Lens' UpdateTopicRuleDestination Lude.Text
-utrdArn = Lens.lens (arn :: UpdateTopicRuleDestination -> Lude.Text) (\s a -> s {arn = a} :: UpdateTopicRuleDestination)
-{-# DEPRECATED utrdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+mkUpdateTopicRuleDestination pStatus_ pArn_ =
+  UpdateTopicRuleDestination' {status = pStatus_, arn = pArn_}
 
 -- | The status of the topic rule destination. Valid values are:
 --
@@ -121,6 +132,13 @@ utrdStatus :: Lens.Lens' UpdateTopicRuleDestination TopicRuleDestinationStatus
 utrdStatus = Lens.lens (status :: UpdateTopicRuleDestination -> TopicRuleDestinationStatus) (\s a -> s {status = a} :: UpdateTopicRuleDestination)
 {-# DEPRECATED utrdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | The ARN of the topic rule destination.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrdArn :: Lens.Lens' UpdateTopicRuleDestination Lude.Text
+utrdArn = Lens.lens (arn :: UpdateTopicRuleDestination -> Lude.Text) (\s a -> s {arn = a} :: UpdateTopicRuleDestination)
+{-# DEPRECATED utrdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
 instance Lude.AWSRequest UpdateTopicRuleDestination where
   type
     Rs UpdateTopicRuleDestination =
@@ -140,8 +158,8 @@ instance Lude.ToJSON UpdateTopicRuleDestination where
   toJSON UpdateTopicRuleDestination' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("arn" Lude..= arn),
-            Lude.Just ("status" Lude..= status)
+          [ Lude.Just ("status" Lude..= status),
+            Lude.Just ("arn" Lude..= arn)
           ]
       )
 
@@ -153,16 +171,10 @@ instance Lude.ToQuery UpdateTopicRuleDestination where
 
 -- | /See:/ 'mkUpdateTopicRuleDestinationResponse' smart constructor.
 newtype UpdateTopicRuleDestinationResponse = UpdateTopicRuleDestinationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTopicRuleDestinationResponse' with the minimum fields required to make a request.

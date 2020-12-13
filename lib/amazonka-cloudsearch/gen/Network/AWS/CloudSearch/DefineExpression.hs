@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CloudSearch.DefineExpression
     mkDefineExpression,
 
     -- ** Request lenses
-    dDomainName,
-    dExpression,
+    defDomainName,
+    defExpression,
 
     -- * Destructuring the response
     DefineExpressionResponse (..),
     mkDefineExpressionResponse,
 
     -- ** Response lenses
-    dersResponseStatus,
     dersExpression,
+    dersResponseStatus,
   )
 where
 
@@ -45,19 +46,13 @@ data DefineExpression = DefineExpression'
   { domainName :: Lude.Text,
     expression :: Expression
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefineExpression' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
--- * 'expression' - Undocumented field.
+-- * 'domainName' -
+-- * 'expression' -
 mkDefineExpression ::
   -- | 'domainName'
   Lude.Text ->
@@ -73,16 +68,16 @@ mkDefineExpression pDomainName_ pExpression_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDomainName :: Lens.Lens' DefineExpression Lude.Text
-dDomainName = Lens.lens (domainName :: DefineExpression -> Lude.Text) (\s a -> s {domainName = a} :: DefineExpression)
-{-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+defDomainName :: Lens.Lens' DefineExpression Lude.Text
+defDomainName = Lens.lens (domainName :: DefineExpression -> Lude.Text) (\s a -> s {domainName = a} :: DefineExpression)
+{-# DEPRECATED defDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExpression :: Lens.Lens' DefineExpression Expression
-dExpression = Lens.lens (expression :: DefineExpression -> Expression) (\s a -> s {expression = a} :: DefineExpression)
-{-# DEPRECATED dExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+defExpression :: Lens.Lens' DefineExpression Expression
+defExpression = Lens.lens (expression :: DefineExpression -> Expression) (\s a -> s {expression = a} :: DefineExpression)
+{-# DEPRECATED defExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 instance Lude.AWSRequest DefineExpression where
   type Rs DefineExpression = DefineExpressionResponse
@@ -92,7 +87,7 @@ instance Lude.AWSRequest DefineExpression where
       "DefineExpressionResult"
       ( \s h x ->
           DefineExpressionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "Expression")
+            Lude.<$> (x Lude..@ "Expression") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DefineExpression where
@@ -114,41 +109,28 @@ instance Lude.ToQuery DefineExpression where
 --
 -- /See:/ 'mkDefineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
-  { responseStatus ::
-      Lude.Int,
-    expression :: ExpressionStatus
+  { expression :: ExpressionStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefineExpressionResponse' with the minimum fields required to make a request.
 --
--- * 'expression' - Undocumented field.
+-- * 'expression' -
 -- * 'responseStatus' - The response status code.
 mkDefineExpressionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'expression'
   ExpressionStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DefineExpressionResponse
-mkDefineExpressionResponse pResponseStatus_ pExpression_ =
+mkDefineExpressionResponse pExpression_ pResponseStatus_ =
   DefineExpressionResponse'
-    { responseStatus = pResponseStatus_,
-      expression = pExpression_
+    { expression = pExpression_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DefineExpressionResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DefineExpressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineExpressionResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -156,3 +138,10 @@ dersResponseStatus = Lens.lens (responseStatus :: DefineExpressionResponse -> Lu
 dersExpression :: Lens.Lens' DefineExpressionResponse ExpressionStatus
 dersExpression = Lens.lens (expression :: DefineExpressionResponse -> ExpressionStatus) (\s a -> s {expression = a} :: DefineExpressionResponse)
 {-# DEPRECATED dersExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dersResponseStatus :: Lens.Lens' DefineExpressionResponse Lude.Int
+dersResponseStatus = Lens.lens (responseStatus :: DefineExpressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineExpressionResponse)
+{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

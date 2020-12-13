@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceStatusDetail' smart constructor.
 data DeviceStatusDetail = DeviceStatusDetail'
-  { feature ::
-      Lude.Maybe Feature,
+  { -- | The list of available features on the device.
+    feature :: Lude.Maybe Feature,
+    -- | The device status detail code.
     code :: Lude.Maybe DeviceStatusDetailCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceStatusDetail' with the minimum fields required to make a request.
 --
--- * 'code' - The device status detail code.
 -- * 'feature' - The list of available features on the device.
+-- * 'code' - The device status detail code.
 mkDeviceStatusDetail ::
   DeviceStatusDetail
 mkDeviceStatusDetail =

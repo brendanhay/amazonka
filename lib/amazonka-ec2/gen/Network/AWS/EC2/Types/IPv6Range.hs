@@ -29,16 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPv6Range' smart constructor.
 data IPv6Range = IPv6Range'
-  { cidrIPv6 :: Lude.Maybe Lude.Text,
+  { -- | The IPv6 CIDR range. You can either specify a CIDR range or a source security group, not both. To specify a single IPv6 address, use the /128 prefix length.
+    cidrIPv6 :: Lude.Maybe Lude.Text,
+    -- | A description for the security group rule that references this IPv6 address range.
+    --
+    -- Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPv6Range' with the minimum fields required to make a request.

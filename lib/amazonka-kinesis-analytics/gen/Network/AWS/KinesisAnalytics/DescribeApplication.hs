@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,15 +23,15 @@ module Network.AWS.KinesisAnalytics.DescribeApplication
     mkDescribeApplication,
 
     -- ** Request lenses
-    daApplicationName,
+    dApplicationName,
 
     -- * Destructuring the response
     DescribeApplicationResponse (..),
     mkDescribeApplicationResponse,
 
     -- ** Response lenses
-    darsResponseStatus,
     darsApplicationDetail,
+    darsResponseStatus,
   )
 where
 
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeApplication' smart constructor.
 newtype DescribeApplication = DescribeApplication'
-  { applicationName ::
-      Lude.Text
+  { -- | Name of the application.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplication' with the minimum fields required to make a request.
@@ -69,9 +64,9 @@ mkDescribeApplication pApplicationName_ =
 -- | Name of the application.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daApplicationName :: Lens.Lens' DescribeApplication Lude.Text
-daApplicationName = Lens.lens (applicationName :: DescribeApplication -> Lude.Text) (\s a -> s {applicationName = a} :: DescribeApplication)
-{-# DEPRECATED daApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+dApplicationName :: Lens.Lens' DescribeApplication Lude.Text
+dApplicationName = Lens.lens (applicationName :: DescribeApplication -> Lude.Text) (\s a -> s {applicationName = a} :: DescribeApplication)
+{-# DEPRECATED dApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Lude.AWSRequest DescribeApplication where
   type Rs DescribeApplication = DescribeApplicationResponse
@@ -80,8 +75,8 @@ instance Lude.AWSRequest DescribeApplication where
     Res.receiveJSON
       ( \s h x ->
           DescribeApplicationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ApplicationDetail")
+            Lude.<$> (x Lude..:> "ApplicationDetail")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeApplication where
@@ -114,18 +109,12 @@ instance Lude.ToQuery DescribeApplication where
 --
 -- /See:/ 'mkDescribeApplicationResponse' smart constructor.
 data DescribeApplicationResponse = DescribeApplicationResponse'
-  { responseStatus ::
-      Lude.Int,
-    applicationDetail ::
-      ApplicationDetail
+  { -- | Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
+    applicationDetail :: ApplicationDetail,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicationResponse' with the minimum fields required to make a request.
@@ -133,23 +122,17 @@ data DescribeApplicationResponse = DescribeApplicationResponse'
 -- * 'applicationDetail' - Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
 -- * 'responseStatus' - The response status code.
 mkDescribeApplicationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'applicationDetail'
   ApplicationDetail ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeApplicationResponse
-mkDescribeApplicationResponse pResponseStatus_ pApplicationDetail_ =
+mkDescribeApplicationResponse pApplicationDetail_ pResponseStatus_ =
   DescribeApplicationResponse'
-    { responseStatus = pResponseStatus_,
-      applicationDetail = pApplicationDetail_
+    { applicationDetail =
+        pApplicationDetail_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeApplicationResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeApplicationResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.
 --
@@ -157,3 +140,10 @@ darsResponseStatus = Lens.lens (responseStatus :: DescribeApplicationResponse ->
 darsApplicationDetail :: Lens.Lens' DescribeApplicationResponse ApplicationDetail
 darsApplicationDetail = Lens.lens (applicationDetail :: DescribeApplicationResponse -> ApplicationDetail) (\s a -> s {applicationDetail = a} :: DescribeApplicationResponse)
 {-# DEPRECATED darsApplicationDetail "Use generic-lens or generic-optics with 'applicationDetail' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darsResponseStatus :: Lens.Lens' DescribeApplicationResponse Lude.Int
+darsResponseStatus = Lens.lens (responseStatus :: DescribeApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeApplicationResponse)
+{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,8 +13,8 @@
 module Network.AWS.AlexaBusiness.Types.SkillType
   ( SkillType
       ( SkillType',
-        Private,
-        Public
+        Public,
+        Private
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SkillType = SkillType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Private :: SkillType
-pattern Private = SkillType' "PRIVATE"
-
 pattern Public :: SkillType
 pattern Public = SkillType' "PUBLIC"
 
+pattern Private :: SkillType
+pattern Private = SkillType' "PRIVATE"
+
 {-# COMPLETE
-  Private,
   Public,
+  Private,
   SkillType'
   #-}

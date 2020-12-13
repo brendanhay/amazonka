@@ -35,35 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterfacePermission' smart constructor.
 data NetworkInterfacePermission = NetworkInterfacePermission'
-  { permissionState ::
-      Lude.Maybe
-        NetworkInterfacePermissionState,
-    networkInterfacePermissionId ::
-      Lude.Maybe Lude.Text,
-    networkInterfaceId ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the state of the permission.
+    permissionState :: Lude.Maybe NetworkInterfacePermissionState,
+    -- | The ID of the network interface permission.
+    networkInterfacePermissionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID.
     awsAccountId :: Lude.Maybe Lude.Text,
+    -- | The AWS service.
     awsService :: Lude.Maybe Lude.Text,
-    permission ::
-      Lude.Maybe InterfacePermissionType
+    -- | The type of permission.
+    permission :: Lude.Maybe InterfacePermissionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfacePermission' with the minimum fields required to make a request.
 --
+-- * 'permissionState' - Information about the state of the permission.
+-- * 'networkInterfacePermissionId' - The ID of the network interface permission.
+-- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'awsAccountId' - The AWS account ID.
 -- * 'awsService' - The AWS service.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'networkInterfacePermissionId' - The ID of the network interface permission.
 -- * 'permission' - The type of permission.
--- * 'permissionState' - Information about the state of the permission.
 mkNetworkInterfacePermission ::
   NetworkInterfacePermission
 mkNetworkInterfacePermission =

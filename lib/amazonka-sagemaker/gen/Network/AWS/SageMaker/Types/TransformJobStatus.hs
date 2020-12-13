@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.TransformJobStatus
   ( TransformJobStatus
       ( TransformJobStatus',
+        TInProgress,
         TCompleted,
         TFailed,
-        TInProgress,
-        TStopped,
-        TStopping
+        TStopping,
+        TStopped
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TransformJobStatus = TransformJobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern TInProgress :: TransformJobStatus
+pattern TInProgress = TransformJobStatus' "InProgress"
+
 pattern TCompleted :: TransformJobStatus
 pattern TCompleted = TransformJobStatus' "Completed"
 
 pattern TFailed :: TransformJobStatus
 pattern TFailed = TransformJobStatus' "Failed"
 
-pattern TInProgress :: TransformJobStatus
-pattern TInProgress = TransformJobStatus' "InProgress"
+pattern TStopping :: TransformJobStatus
+pattern TStopping = TransformJobStatus' "Stopping"
 
 pattern TStopped :: TransformJobStatus
 pattern TStopped = TransformJobStatus' "Stopped"
 
-pattern TStopping :: TransformJobStatus
-pattern TStopping = TransformJobStatus' "Stopping"
-
 {-# COMPLETE
+  TInProgress,
   TCompleted,
   TFailed,
-  TInProgress,
-  TStopped,
   TStopping,
+  TStopped,
   TransformJobStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DirectoryService.ListSchemaExtensions
     mkListSchemaExtensions,
 
     -- ** Request lenses
+    lseDirectoryId,
     lseNextToken,
     lseLimit,
-    lseDirectoryId,
 
     -- * Destructuring the response
     ListSchemaExtensionsResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSchemaExtensions' smart constructor.
 data ListSchemaExtensions = ListSchemaExtensions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    directoryId :: Lude.Text
+  { -- | The identifier of the directory from which to retrieve the schema extension information.
+    directoryId :: Lude.Text,
+    -- | The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSchemaExtensions' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The identifier of the directory from which to retrieve the schema extension information.
--- * 'limit' - The maximum number of items to return.
 -- * 'nextToken' - The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
+-- * 'limit' - The maximum number of items to return.
 mkListSchemaExtensions ::
   -- | 'directoryId'
   Lude.Text ->
   ListSchemaExtensions
 mkListSchemaExtensions pDirectoryId_ =
   ListSchemaExtensions'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      directoryId = pDirectoryId_
+    { directoryId = pDirectoryId_,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The identifier of the directory from which to retrieve the schema extension information.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lseDirectoryId :: Lens.Lens' ListSchemaExtensions Lude.Text
+lseDirectoryId = Lens.lens (directoryId :: ListSchemaExtensions -> Lude.Text) (\s a -> s {directoryId = a} :: ListSchemaExtensions)
+{-# DEPRECATED lseDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The @ListSchemaExtensions.NextToken@ value from a previous call to @ListSchemaExtensions@ . Pass null if this is the first call.
 --
@@ -88,13 +92,6 @@ lseNextToken = Lens.lens (nextToken :: ListSchemaExtensions -> Lude.Maybe Lude.T
 lseLimit :: Lens.Lens' ListSchemaExtensions (Lude.Maybe Lude.Natural)
 lseLimit = Lens.lens (limit :: ListSchemaExtensions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListSchemaExtensions)
 {-# DEPRECATED lseLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The identifier of the directory from which to retrieve the schema extension information.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lseDirectoryId :: Lens.Lens' ListSchemaExtensions Lude.Text
-lseDirectoryId = Lens.lens (directoryId :: ListSchemaExtensions -> Lude.Text) (\s a -> s {directoryId = a} :: ListSchemaExtensions)
-{-# DEPRECATED lseDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 instance Page.AWSPager ListSchemaExtensions where
   page rq rs
@@ -134,9 +131,9 @@ instance Lude.ToJSON ListSchemaExtensions where
   toJSON ListSchemaExtensions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("DirectoryId" Lude..= directoryId)
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -148,25 +145,21 @@ instance Lude.ToQuery ListSchemaExtensions where
 
 -- | /See:/ 'mkListSchemaExtensionsResponse' smart constructor.
 data ListSchemaExtensionsResponse = ListSchemaExtensionsResponse'
-  { schemaExtensionsInfo ::
-      Lude.Maybe [SchemaExtensionInfo],
+  { -- | Information about the schema extensions applied to the directory.
+    schemaExtensionsInfo :: Lude.Maybe [SchemaExtensionInfo],
+    -- | If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to retrieve the next set of items.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSchemaExtensionsResponse' with the minimum fields required to make a request.
 --
+-- * 'schemaExtensionsInfo' - Information about the schema extensions applied to the directory.
 -- * 'nextToken' - If not null, more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to @ListSchemaExtensions@ to retrieve the next set of items.
 -- * 'responseStatus' - The response status code.
--- * 'schemaExtensionsInfo' - Information about the schema extensions applied to the directory.
 mkListSchemaExtensionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

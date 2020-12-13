@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,13 +38,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGenerateCredentialReport' smart constructor.
 data GenerateCredentialReport = GenerateCredentialReport'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateCredentialReport' with the minimum fields required to make a request.
@@ -83,28 +78,21 @@ instance Lude.ToQuery GenerateCredentialReport where
 --
 -- /See:/ 'mkGenerateCredentialReportResponse' smart constructor.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
-  { state ::
-      Lude.Maybe
-        ReportStateType,
-    description ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the state of the credential report.
+    state :: Lude.Maybe ReportStateType,
+    -- | Information about the credential report.
+    description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GenerateCredentialReportResponse' with the minimum fields required to make a request.
 --
+-- * 'state' - Information about the state of the credential report.
 -- * 'description' - Information about the credential report.
 -- * 'responseStatus' - The response status code.
--- * 'state' - Information about the state of the credential report.
 mkGenerateCredentialReportResponse ::
   -- | 'responseStatus'
   Lude.Int ->

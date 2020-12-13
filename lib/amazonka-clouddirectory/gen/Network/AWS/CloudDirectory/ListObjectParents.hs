@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,12 +20,12 @@ module Network.AWS.CloudDirectory.ListObjectParents
     mkListObjectParents,
 
     -- ** Request lenses
+    lopDirectoryARN,
     lopConsistencyLevel,
     lopIncludeAllLinksToEachParent,
     lopNextToken,
-    lopMaxResults,
-    lopDirectoryARN,
     lopObjectReference,
+    lopMaxResults,
 
     -- * Destructuring the response
     ListObjectParentsResponse (..),
@@ -46,31 +47,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListObjectParents' smart constructor.
 data ListObjectParents = ListObjectParents'
-  { consistencyLevel ::
-      Lude.Maybe ConsistencyLevel,
-    includeAllLinksToEachParent :: Lude.Maybe Lude.Bool,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
     directoryARN :: Lude.Text,
-    objectReference :: ObjectReference
+    -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | When set to True, returns all 'ListObjectParentsResponse$ParentLinks' . There could be multiple links between a parent-child pair.
+    includeAllLinksToEachParent :: Lude.Maybe Lude.Bool,
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The reference that identifies the object for which parent objects are being listed.
+    objectReference :: ObjectReference,
+    -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectParents' with the minimum fields required to make a request.
 --
--- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 -- * 'includeAllLinksToEachParent' - When set to True, returns all 'ListObjectParentsResponse$ParentLinks' . There could be multiple links between a parent-child pair.
--- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 -- * 'nextToken' - The pagination token.
 -- * 'objectReference' - The reference that identifies the object for which parent objects are being listed.
+-- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
 mkListObjectParents ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -79,13 +79,20 @@ mkListObjectParents ::
   ListObjectParents
 mkListObjectParents pDirectoryARN_ pObjectReference_ =
   ListObjectParents'
-    { consistencyLevel = Lude.Nothing,
+    { directoryARN = pDirectoryARN_,
+      consistencyLevel = Lude.Nothing,
       includeAllLinksToEachParent = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
-      objectReference = pObjectReference_
+      objectReference = pObjectReference_,
+      maxResults = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopDirectoryARN :: Lens.Lens' ListObjectParents Lude.Text
+lopDirectoryARN = Lens.lens (directoryARN :: ListObjectParents -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectParents)
+{-# DEPRECATED lopDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
 --
@@ -108,26 +115,19 @@ lopNextToken :: Lens.Lens' ListObjectParents (Lude.Maybe Lude.Text)
 lopNextToken = Lens.lens (nextToken :: ListObjectParents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListObjectParents)
 {-# DEPRECATED lopNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to be retrieved in a single call. This is an approximate number.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopMaxResults :: Lens.Lens' ListObjectParents (Lude.Maybe Lude.Natural)
-lopMaxResults = Lens.lens (maxResults :: ListObjectParents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectParents)
-{-# DEPRECATED lopMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
---
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopDirectoryARN :: Lens.Lens' ListObjectParents Lude.Text
-lopDirectoryARN = Lens.lens (directoryARN :: ListObjectParents -> Lude.Text) (\s a -> s {directoryARN = a} :: ListObjectParents)
-{-# DEPRECATED lopDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
 -- | The reference that identifies the object for which parent objects are being listed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lopObjectReference :: Lens.Lens' ListObjectParents ObjectReference
 lopObjectReference = Lens.lens (objectReference :: ListObjectParents -> ObjectReference) (\s a -> s {objectReference = a} :: ListObjectParents)
 {-# DEPRECATED lopObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
+-- | The maximum number of items to be retrieved in a single call. This is an approximate number.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopMaxResults :: Lens.Lens' ListObjectParents (Lude.Maybe Lude.Natural)
+lopMaxResults = Lens.lens (maxResults :: ListObjectParents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListObjectParents)
+{-# DEPRECATED lopMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListObjectParents where
   type Rs ListObjectParents = ListObjectParentsResponse
@@ -145,8 +145,8 @@ instance Lude.AWSRequest ListObjectParents where
 instance Lude.ToHeaders ListObjectParents where
   toHeaders ListObjectParents' {..} =
     Lude.mconcat
-      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
-        "x-amz-data-partition" Lude.=# directoryARN
+      [ "x-amz-data-partition" Lude.=# directoryARN,
+        "x-amz-consistency-level" Lude.=# consistencyLevel
       ]
 
 instance Lude.ToJSON ListObjectParents where
@@ -156,8 +156,8 @@ instance Lude.ToJSON ListObjectParents where
           [ ("IncludeAllLinksToEachParent" Lude..=)
               Lude.<$> includeAllLinksToEachParent,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+            Lude.Just ("ObjectReference" Lude..= objectReference),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -170,30 +170,23 @@ instance Lude.ToQuery ListObjectParents where
 
 -- | /See:/ 'mkListObjectParentsResponse' smart constructor.
 data ListObjectParentsResponse = ListObjectParentsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    parents ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    parentLinks ::
-      Lude.Maybe
-        [ObjectIdentifierAndLinkNameTuple],
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
+    parents :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Returns a list of parent reference and LinkName Tuples.
+    parentLinks :: Lude.Maybe [ObjectIdentifierAndLinkNameTuple],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectParentsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The pagination token.
--- * 'parentLinks' - Returns a list of parent reference and LinkName Tuples.
 -- * 'parents' - The parent structure, which is a map with key as the @ObjectIdentifier@ and LinkName as the value.
+-- * 'parentLinks' - Returns a list of parent reference and LinkName Tuples.
 -- * 'responseStatus' - The response status code.
 mkListObjectParentsResponse ::
   -- | 'responseStatus'

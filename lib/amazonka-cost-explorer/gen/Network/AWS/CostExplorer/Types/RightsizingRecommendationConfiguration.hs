@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRightsizingRecommendationConfiguration' smart constructor.
 data RightsizingRecommendationConfiguration = RightsizingRecommendationConfiguration'
-  { recommendationTarget ::
-      RecommendationTarget,
-    benefitsConsidered ::
-      Lude.Bool
+  { -- | The option to see recommendations within the same instance family, or recommendations for instances across other families. The default value is @SAME_INSTANCE_FAMILY@ .
+    recommendationTarget :: RecommendationTarget,
+    -- | The option to consider RI or Savings Plans discount benefits in your savings calculation. The default value is @TRUE@ .
+    benefitsConsidered :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RightsizingRecommendationConfiguration' with the minimum fields required to make a request.
 --
--- * 'benefitsConsidered' - The option to consider RI or Savings Plans discount benefits in your savings calculation. The default value is @TRUE@ .
 -- * 'recommendationTarget' - The option to see recommendations within the same instance family, or recommendations for instances across other families. The default value is @SAME_INSTANCE_FAMILY@ .
+-- * 'benefitsConsidered' - The option to consider RI or Savings Plans discount benefits in your savings calculation. The default value is @TRUE@ .
 mkRightsizingRecommendationConfiguration ::
   -- | 'recommendationTarget'
   RecommendationTarget ->

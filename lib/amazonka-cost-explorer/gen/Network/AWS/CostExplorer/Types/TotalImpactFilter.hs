@@ -18,8 +18,8 @@ module Network.AWS.CostExplorer.Types.TotalImpactFilter
 
     -- * Lenses
     tifEndValue,
-    tifNumericOperator,
     tifStartValue,
+    tifNumericOperator,
   )
 where
 
@@ -31,36 +31,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTotalImpactFilter' smart constructor.
 data TotalImpactFilter = TotalImpactFilter'
-  { endValue ::
-      Lude.Maybe Lude.Double,
-    numericOperator :: NumericOperator,
-    startValue :: Lude.Double
+  { -- | The upper bound dollar value used in the filter.
+    endValue :: Lude.Maybe Lude.Double,
+    -- | The lower bound dollar value used in the filter.
+    startValue :: Lude.Double,
+    -- | The comparing value used in the filter.
+    numericOperator :: NumericOperator
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TotalImpactFilter' with the minimum fields required to make a request.
 --
 -- * 'endValue' - The upper bound dollar value used in the filter.
--- * 'numericOperator' - The comparing value used in the filter.
 -- * 'startValue' - The lower bound dollar value used in the filter.
+-- * 'numericOperator' - The comparing value used in the filter.
 mkTotalImpactFilter ::
-  -- | 'numericOperator'
-  NumericOperator ->
   -- | 'startValue'
   Lude.Double ->
+  -- | 'numericOperator'
+  NumericOperator ->
   TotalImpactFilter
-mkTotalImpactFilter pNumericOperator_ pStartValue_ =
+mkTotalImpactFilter pStartValue_ pNumericOperator_ =
   TotalImpactFilter'
     { endValue = Lude.Nothing,
-      numericOperator = pNumericOperator_,
-      startValue = pStartValue_
+      startValue = pStartValue_,
+      numericOperator = pNumericOperator_
     }
 
 -- | The upper bound dollar value used in the filter.
@@ -70,13 +66,6 @@ tifEndValue :: Lens.Lens' TotalImpactFilter (Lude.Maybe Lude.Double)
 tifEndValue = Lens.lens (endValue :: TotalImpactFilter -> Lude.Maybe Lude.Double) (\s a -> s {endValue = a} :: TotalImpactFilter)
 {-# DEPRECATED tifEndValue "Use generic-lens or generic-optics with 'endValue' instead." #-}
 
--- | The comparing value used in the filter.
---
--- /Note:/ Consider using 'numericOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tifNumericOperator :: Lens.Lens' TotalImpactFilter NumericOperator
-tifNumericOperator = Lens.lens (numericOperator :: TotalImpactFilter -> NumericOperator) (\s a -> s {numericOperator = a} :: TotalImpactFilter)
-{-# DEPRECATED tifNumericOperator "Use generic-lens or generic-optics with 'numericOperator' instead." #-}
-
 -- | The lower bound dollar value used in the filter.
 --
 -- /Note:/ Consider using 'startValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -84,12 +73,19 @@ tifStartValue :: Lens.Lens' TotalImpactFilter Lude.Double
 tifStartValue = Lens.lens (startValue :: TotalImpactFilter -> Lude.Double) (\s a -> s {startValue = a} :: TotalImpactFilter)
 {-# DEPRECATED tifStartValue "Use generic-lens or generic-optics with 'startValue' instead." #-}
 
+-- | The comparing value used in the filter.
+--
+-- /Note:/ Consider using 'numericOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tifNumericOperator :: Lens.Lens' TotalImpactFilter NumericOperator
+tifNumericOperator = Lens.lens (numericOperator :: TotalImpactFilter -> NumericOperator) (\s a -> s {numericOperator = a} :: TotalImpactFilter)
+{-# DEPRECATED tifNumericOperator "Use generic-lens or generic-optics with 'numericOperator' instead." #-}
+
 instance Lude.ToJSON TotalImpactFilter where
   toJSON TotalImpactFilter' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("EndValue" Lude..=) Lude.<$> endValue,
-            Lude.Just ("NumericOperator" Lude..= numericOperator),
-            Lude.Just ("StartValue" Lude..= startValue)
+            Lude.Just ("StartValue" Lude..= startValue),
+            Lude.Just ("NumericOperator" Lude..= numericOperator)
           ]
       )

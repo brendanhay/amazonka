@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.LexModels.StartImport
     mkStartImport,
 
     -- ** Request lenses
-    siTags,
-    siPayload,
     siResourceType,
+    siPayload,
     siMergeStrategy,
+    siTags,
 
     -- * Destructuring the response
     StartImportResponse (..),
@@ -48,34 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartImport' smart constructor.
 data StartImport = StartImport'
-  { tags :: Lude.Maybe [Tag],
-    payload :: Lude.Base64,
+  { -- | Specifies the type of resource to export. Each resource also exports any resources that it depends on.
+    --
+    --
+    --     * A bot exports dependent intents.
+    --
+    --
+    --     * An intent exports dependent slot types.
     resourceType :: ResourceType,
-    mergeStrategy :: MergeStrategy
+    -- | A zip archive in binary format. The archive should contain one file, a JSON file containing the resource to import. The resource should match the type specified in the @resourceType@ field.
+    payload :: Lude.Base64,
+    -- | Specifies the action that the @StartImport@ operation should take when there is an existing resource with the same name.
+    --
+    --
+    --     * FAIL_ON_CONFLICT - The import operation is stopped on the first conflict between a resource in the import file and an existing resource. The name of the resource causing the conflict is in the @failureReason@ field of the response to the @GetImport@ operation.
+    -- OVERWRITE_LATEST - The import operation proceeds even if there is a conflict with an existing resource. The $LASTEST version of the existing resource is overwritten with the data from the import file.
+    mergeStrategy :: MergeStrategy,
+    -- | A list of tags to add to the imported bot. You can only add tags when you import a bot, you can't add tags to an intent or slot type.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImport' with the minimum fields required to make a request.
 --
--- * 'mergeStrategy' - Specifies the action that the @StartImport@ operation should take when there is an existing resource with the same name.
---
---
---     * FAIL_ON_CONFLICT - The import operation is stopped on the first conflict between a resource in the import file and an existing resource. The name of the resource causing the conflict is in the @failureReason@ field of the response to the @GetImport@ operation.
--- OVERWRITE_LATEST - The import operation proceeds even if there is a conflict with an existing resource. The $LASTEST version of the existing resource is overwritten with the data from the import file.
---
---
--- * 'payload' - A zip archive in binary format. The archive should contain one file, a JSON file containing the resource to import. The resource should match the type specified in the @resourceType@ field.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'resourceType' - Specifies the type of resource to export. Each resource also exports any resources that it depends on.
 --
 --
@@ -85,40 +82,30 @@ data StartImport = StartImport'
 --     * An intent exports dependent slot types.
 --
 --
+-- * 'payload' - A zip archive in binary format. The archive should contain one file, a JSON file containing the resource to import. The resource should match the type specified in the @resourceType@ field.
+-- * 'mergeStrategy' - Specifies the action that the @StartImport@ operation should take when there is an existing resource with the same name.
+--
+--
+--     * FAIL_ON_CONFLICT - The import operation is stopped on the first conflict between a resource in the import file and an existing resource. The name of the resource causing the conflict is in the @failureReason@ field of the response to the @GetImport@ operation.
+-- OVERWRITE_LATEST - The import operation proceeds even if there is a conflict with an existing resource. The $LASTEST version of the existing resource is overwritten with the data from the import file.
+--
+--
 -- * 'tags' - A list of tags to add to the imported bot. You can only add tags when you import a bot, you can't add tags to an intent or slot type.
 mkStartImport ::
-  -- | 'payload'
-  Lude.Base64 ->
   -- | 'resourceType'
   ResourceType ->
+  -- | 'payload'
+  Lude.Base64 ->
   -- | 'mergeStrategy'
   MergeStrategy ->
   StartImport
-mkStartImport pPayload_ pResourceType_ pMergeStrategy_ =
+mkStartImport pResourceType_ pPayload_ pMergeStrategy_ =
   StartImport'
-    { tags = Lude.Nothing,
+    { resourceType = pResourceType_,
       payload = pPayload_,
-      resourceType = pResourceType_,
-      mergeStrategy = pMergeStrategy_
+      mergeStrategy = pMergeStrategy_,
+      tags = Lude.Nothing
     }
-
--- | A list of tags to add to the imported bot. You can only add tags when you import a bot, you can't add tags to an intent or slot type.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siTags :: Lens.Lens' StartImport (Lude.Maybe [Tag])
-siTags = Lens.lens (tags :: StartImport -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: StartImport)
-{-# DEPRECATED siTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | A zip archive in binary format. The archive should contain one file, a JSON file containing the resource to import. The resource should match the type specified in the @resourceType@ field.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siPayload :: Lens.Lens' StartImport Lude.Base64
-siPayload = Lens.lens (payload :: StartImport -> Lude.Base64) (\s a -> s {payload = a} :: StartImport)
-{-# DEPRECATED siPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
 
 -- | Specifies the type of resource to export. Each resource also exports any resources that it depends on.
 --
@@ -135,6 +122,17 @@ siResourceType :: Lens.Lens' StartImport ResourceType
 siResourceType = Lens.lens (resourceType :: StartImport -> ResourceType) (\s a -> s {resourceType = a} :: StartImport)
 {-# DEPRECATED siResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
+-- | A zip archive in binary format. The archive should contain one file, a JSON file containing the resource to import. The resource should match the type specified in the @resourceType@ field.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siPayload :: Lens.Lens' StartImport Lude.Base64
+siPayload = Lens.lens (payload :: StartImport -> Lude.Base64) (\s a -> s {payload = a} :: StartImport)
+{-# DEPRECATED siPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+
 -- | Specifies the action that the @StartImport@ operation should take when there is an existing resource with the same name.
 --
 --
@@ -147,6 +145,13 @@ siResourceType = Lens.lens (resourceType :: StartImport -> ResourceType) (\s a -
 siMergeStrategy :: Lens.Lens' StartImport MergeStrategy
 siMergeStrategy = Lens.lens (mergeStrategy :: StartImport -> MergeStrategy) (\s a -> s {mergeStrategy = a} :: StartImport)
 {-# DEPRECATED siMergeStrategy "Use generic-lens or generic-optics with 'mergeStrategy' instead." #-}
+
+-- | A list of tags to add to the imported bot. You can only add tags when you import a bot, you can't add tags to an intent or slot type.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siTags :: Lens.Lens' StartImport (Lude.Maybe [Tag])
+siTags = Lens.lens (tags :: StartImport -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: StartImport)
+{-# DEPRECATED siTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest StartImport where
   type Rs StartImport = StartImportResponse
@@ -178,10 +183,10 @@ instance Lude.ToJSON StartImport where
   toJSON StartImport' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("resourceType" Lude..= resourceType),
             Lude.Just ("payload" Lude..= payload),
-            Lude.Just ("resourceType" Lude..= resourceType),
-            Lude.Just ("mergeStrategy" Lude..= mergeStrategy)
+            Lude.Just ("mergeStrategy" Lude..= mergeStrategy),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -193,35 +198,36 @@ instance Lude.ToQuery StartImport where
 
 -- | /See:/ 'mkStartImportResponse' smart constructor.
 data StartImportResponse = StartImportResponse'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The type of resource to import.
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The identifier for the specific import job.
     importId :: Lude.Maybe Lude.Text,
+    -- | A timestamp for the date and time that the import job was requested.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name given to the import job.
     name :: Lude.Maybe Lude.Text,
+    -- | The action to take when there is a merge conflict.
     mergeStrategy :: Lude.Maybe MergeStrategy,
+    -- | The status of the import job. If the status is @FAILED@ , you can get the reason for the failure using the @GetImport@ operation.
     importStatus :: Lude.Maybe ImportStatus,
+    -- | A list of tags added to the imported bot.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImportResponse' with the minimum fields required to make a request.
 --
--- * 'createdDate' - A timestamp for the date and time that the import job was requested.
--- * 'importId' - The identifier for the specific import job.
--- * 'importStatus' - The status of the import job. If the status is @FAILED@ , you can get the reason for the failure using the @GetImport@ operation.
--- * 'mergeStrategy' - The action to take when there is a merge conflict.
--- * 'name' - The name given to the import job.
 -- * 'resourceType' - The type of resource to import.
--- * 'responseStatus' - The response status code.
+-- * 'importId' - The identifier for the specific import job.
+-- * 'createdDate' - A timestamp for the date and time that the import job was requested.
+-- * 'name' - The name given to the import job.
+-- * 'mergeStrategy' - The action to take when there is a merge conflict.
+-- * 'importStatus' - The status of the import job. If the status is @FAILED@ , you can get the reason for the failure using the @GetImport@ operation.
 -- * 'tags' - A list of tags added to the imported bot.
+-- * 'responseStatus' - The response status code.
 mkStartImportResponse ::
   -- | 'responseStatus'
   Lude.Int ->

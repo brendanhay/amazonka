@@ -28,17 +28,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBClusterParameterGroupNameMessage' smart constructor.
 newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
-  { dbClusterParameterGroupName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The name of the DB cluster parameter group.
+    --
+    -- Constraints:
+    --
+    --     * Must be 1 to 255 letters or numbers.
+    --
+    --
+    --     * First character must be a letter
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens
+    dbClusterParameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBClusterParameterGroupNameMessage' with the minimum fields required to make a request.

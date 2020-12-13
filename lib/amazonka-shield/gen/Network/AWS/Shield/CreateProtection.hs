@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Shield.CreateProtection
     mkCreateProtection,
 
     -- ** Request lenses
-    cpName,
     cpResourceARN,
+    cpName,
 
     -- * Destructuring the response
     CreateProtectionResponse (..),
@@ -42,21 +43,35 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkCreateProtection' smart constructor.
 data CreateProtection = CreateProtection'
-  { name :: Lude.Text,
-    resourceARN :: Lude.Text
+  { -- | The ARN (Amazon Resource Name) of the resource to be protected.
+    --
+    -- The ARN should be in one of the following formats:
+    --
+    --     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+    --
+    --
+    --     * For an Elastic Load Balancer (Classic Load Balancer): @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer//load-balancer-name/ @
+    --
+    --
+    --     * For an AWS CloudFront distribution: @arn:aws:cloudfront::/account-id/ :distribution//distribution-id/ @
+    --
+    --
+    --     * For an AWS Global Accelerator accelerator: @arn:aws:globalaccelerator::/account-id/ :accelerator//accelerator-id/ @
+    --
+    --
+    --     * For Amazon Route 53: @arn:aws:route53:::hostedzone//hosted-zone-id/ @
+    --
+    --
+    --     * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
+    resourceARN :: Lude.Text,
+    -- | Friendly name for the @Protection@ you are creating.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProtection' with the minimum fields required to make a request.
 --
--- * 'name' - Friendly name for the @Protection@ you are creating.
 -- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource to be protected.
 --
 -- The ARN should be in one of the following formats:
@@ -77,21 +92,17 @@ data CreateProtection = CreateProtection'
 --
 --
 --     * For an Elastic IP address: @arn:aws:ec2:/region/ :/account-id/ :eip-allocation//allocation-id/ @
+--
+--
+-- * 'name' - Friendly name for the @Protection@ you are creating.
 mkCreateProtection ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'resourceARN'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreateProtection
-mkCreateProtection pName_ pResourceARN_ =
-  CreateProtection' {name = pName_, resourceARN = pResourceARN_}
-
--- | Friendly name for the @Protection@ you are creating.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpName :: Lens.Lens' CreateProtection Lude.Text
-cpName = Lens.lens (name :: CreateProtection -> Lude.Text) (\s a -> s {name = a} :: CreateProtection)
-{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkCreateProtection pResourceARN_ pName_ =
+  CreateProtection' {resourceARN = pResourceARN_, name = pName_}
 
 -- | The ARN (Amazon Resource Name) of the resource to be protected.
 --
@@ -121,6 +132,13 @@ cpResourceARN :: Lens.Lens' CreateProtection Lude.Text
 cpResourceARN = Lens.lens (resourceARN :: CreateProtection -> Lude.Text) (\s a -> s {resourceARN = a} :: CreateProtection)
 {-# DEPRECATED cpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
+-- | Friendly name for the @Protection@ you are creating.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpName :: Lens.Lens' CreateProtection Lude.Text
+cpName = Lens.lens (name :: CreateProtection -> Lude.Text) (\s a -> s {name = a} :: CreateProtection)
+{-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.AWSRequest CreateProtection where
   type Rs CreateProtection = CreateProtectionResponse
   request = Req.postJSON shieldService
@@ -146,8 +164,8 @@ instance Lude.ToJSON CreateProtection where
   toJSON CreateProtection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ResourceArn" Lude..= resourceARN)
+          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -159,17 +177,12 @@ instance Lude.ToQuery CreateProtection where
 
 -- | /See:/ 'mkCreateProtectionResponse' smart constructor.
 data CreateProtectionResponse = CreateProtectionResponse'
-  { protectionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier (ID) for the 'Protection' object that is created.
+    protectionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProtectionResponse' with the minimum fields required to make a request.

@@ -44,44 +44,47 @@ import Network.AWS.XRay.Types.ServiceId
 --
 -- /See:/ 'mkInsight' smart constructor.
 data Insight = Insight'
-  { summary :: Lude.Maybe Lude.Text,
+  { -- | A brief description of the insight.
+    summary :: Lude.Maybe Lude.Text,
+    -- | The current state of the insight.
     state :: Lude.Maybe InsightState,
+    -- | The time, in Unix seconds, at which the insight began.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The insights unique identifier.
     insightId :: Lude.Maybe Lude.Text,
+    -- | The categories that label and describe the type of insight.
     categories :: Lude.Maybe [InsightCategory],
-    rootCauseServiceRequestImpactStatistics ::
-      Lude.Maybe RequestImpactStatistics,
+    -- | The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+    rootCauseServiceRequestImpactStatistics :: Lude.Maybe RequestImpactStatistics,
+    -- | The service within the insight that is most impacted by the incident.
     topAnomalousServices :: Lude.Maybe [AnomalousService],
     rootCauseServiceId :: Lude.Maybe ServiceId,
-    clientRequestImpactStatistics ::
-      Lude.Maybe RequestImpactStatistics,
+    -- | The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
+    clientRequestImpactStatistics :: Lude.Maybe RequestImpactStatistics,
+    -- | The time, in Unix seconds, at which the insight ended.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the group that the insight belongs to.
     groupARN :: Lude.Maybe Lude.Text,
+    -- | The name of the group that the insight belongs to.
     groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Insight' with the minimum fields required to make a request.
 --
+-- * 'summary' - A brief description of the insight.
+-- * 'state' - The current state of the insight.
+-- * 'startTime' - The time, in Unix seconds, at which the insight began.
+-- * 'insightId' - The insights unique identifier.
 -- * 'categories' - The categories that label and describe the type of insight.
+-- * 'rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
+-- * 'topAnomalousServices' - The service within the insight that is most impacted by the incident.
+-- * 'rootCauseServiceId' -
 -- * 'clientRequestImpactStatistics' - The impact statistics of the client side service. This includes the number of requests to the client service and whether the requests were faults or okay.
 -- * 'endTime' - The time, in Unix seconds, at which the insight ended.
 -- * 'groupARN' - The Amazon Resource Name (ARN) of the group that the insight belongs to.
 -- * 'groupName' - The name of the group that the insight belongs to.
--- * 'insightId' - The insights unique identifier.
--- * 'rootCauseServiceId' - Undocumented field.
--- * 'rootCauseServiceRequestImpactStatistics' - The impact statistics of the root cause service. This includes the number of requests to the client service and whether the requests were faults or okay.
--- * 'startTime' - The time, in Unix seconds, at which the insight began.
--- * 'state' - The current state of the insight.
--- * 'summary' - A brief description of the insight.
--- * 'topAnomalousServices' - The service within the insight that is most impacted by the incident.
 mkInsight ::
   Insight
 mkInsight =

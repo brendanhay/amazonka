@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.DeleteJourney
     mkDeleteJourney,
 
     -- ** Request lenses
-    djJourneyId,
     djApplicationId,
+    djJourneyId,
 
     -- * Destructuring the response
     DeleteJourneyResponse (..),
     mkDeleteJourneyResponse,
 
     -- ** Response lenses
-    djrsResponseStatus,
     djrsJourneyResponse,
+    djrsResponseStatus,
   )
 where
 
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteJourney' smart constructor.
 data DeleteJourney = DeleteJourney'
-  { journeyId :: Lude.Text,
-    applicationId :: Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
+    -- | The unique identifier for the journey.
+    journeyId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteJourney' with the minimum fields required to make a request.
@@ -57,23 +54,16 @@ data DeleteJourney = DeleteJourney'
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'journeyId' - The unique identifier for the journey.
 mkDeleteJourney ::
-  -- | 'journeyId'
-  Lude.Text ->
   -- | 'applicationId'
   Lude.Text ->
+  -- | 'journeyId'
+  Lude.Text ->
   DeleteJourney
-mkDeleteJourney pJourneyId_ pApplicationId_ =
+mkDeleteJourney pApplicationId_ pJourneyId_ =
   DeleteJourney'
-    { journeyId = pJourneyId_,
-      applicationId = pApplicationId_
+    { applicationId = pApplicationId_,
+      journeyId = pJourneyId_
     }
-
--- | The unique identifier for the journey.
---
--- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djJourneyId :: Lens.Lens' DeleteJourney Lude.Text
-djJourneyId = Lens.lens (journeyId :: DeleteJourney -> Lude.Text) (\s a -> s {journeyId = a} :: DeleteJourney)
-{-# DEPRECATED djJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
@@ -82,6 +72,13 @@ djApplicationId :: Lens.Lens' DeleteJourney Lude.Text
 djApplicationId = Lens.lens (applicationId :: DeleteJourney -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteJourney)
 {-# DEPRECATED djApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
+-- | The unique identifier for the journey.
+--
+-- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djJourneyId :: Lens.Lens' DeleteJourney Lude.Text
+djJourneyId = Lens.lens (journeyId :: DeleteJourney -> Lude.Text) (\s a -> s {journeyId = a} :: DeleteJourney)
+{-# DEPRECATED djJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
+
 instance Lude.AWSRequest DeleteJourney where
   type Rs DeleteJourney = DeleteJourneyResponse
   request = Req.delete pinpointService
@@ -89,7 +86,7 @@ instance Lude.AWSRequest DeleteJourney where
     Res.receiveJSON
       ( \s h x ->
           DeleteJourneyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteJourney where
@@ -115,41 +112,28 @@ instance Lude.ToQuery DeleteJourney where
 
 -- | /See:/ 'mkDeleteJourneyResponse' smart constructor.
 data DeleteJourneyResponse = DeleteJourneyResponse'
-  { responseStatus ::
-      Lude.Int,
-    journeyResponse :: JourneyResponse
+  { journeyResponse :: JourneyResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteJourneyResponse' with the minimum fields required to make a request.
 --
--- * 'journeyResponse' - Undocumented field.
+-- * 'journeyResponse' -
 -- * 'responseStatus' - The response status code.
 mkDeleteJourneyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'journeyResponse'
   JourneyResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteJourneyResponse
-mkDeleteJourneyResponse pResponseStatus_ pJourneyResponse_ =
+mkDeleteJourneyResponse pJourneyResponse_ pResponseStatus_ =
   DeleteJourneyResponse'
-    { responseStatus = pResponseStatus_,
-      journeyResponse = pJourneyResponse_
+    { journeyResponse = pJourneyResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djrsResponseStatus :: Lens.Lens' DeleteJourneyResponse Lude.Int
-djrsResponseStatus = Lens.lens (responseStatus :: DeleteJourneyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteJourneyResponse)
-{-# DEPRECATED djrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -157,3 +141,10 @@ djrsResponseStatus = Lens.lens (responseStatus :: DeleteJourneyResponse -> Lude.
 djrsJourneyResponse :: Lens.Lens' DeleteJourneyResponse JourneyResponse
 djrsJourneyResponse = Lens.lens (journeyResponse :: DeleteJourneyResponse -> JourneyResponse) (\s a -> s {journeyResponse = a} :: DeleteJourneyResponse)
 {-# DEPRECATED djrsJourneyResponse "Use generic-lens or generic-optics with 'journeyResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djrsResponseStatus :: Lens.Lens' DeleteJourneyResponse Lude.Int
+djrsResponseStatus = Lens.lens (responseStatus :: DeleteJourneyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteJourneyResponse)
+{-# DEPRECATED djrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

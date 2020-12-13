@@ -14,10 +14,10 @@ module Network.AWS.MediaConvert.Types.ColorSpace
   ( ColorSpace
       ( ColorSpace',
         Follow,
-        HDR10,
-        Hlg2020,
         Rec601,
-        Rec709
+        Rec709,
+        HDR10,
+        Hlg2020
       ),
   )
 where
@@ -52,23 +52,23 @@ newtype ColorSpace = ColorSpace' Lude.Text
 pattern Follow :: ColorSpace
 pattern Follow = ColorSpace' "FOLLOW"
 
-pattern HDR10 :: ColorSpace
-pattern HDR10 = ColorSpace' "HDR10"
-
-pattern Hlg2020 :: ColorSpace
-pattern Hlg2020 = ColorSpace' "HLG_2020"
-
 pattern Rec601 :: ColorSpace
 pattern Rec601 = ColorSpace' "REC_601"
 
 pattern Rec709 :: ColorSpace
 pattern Rec709 = ColorSpace' "REC_709"
 
+pattern HDR10 :: ColorSpace
+pattern HDR10 = ColorSpace' "HDR10"
+
+pattern Hlg2020 :: ColorSpace
+pattern Hlg2020 = ColorSpace' "HLG_2020"
+
 {-# COMPLETE
   Follow,
-  HDR10,
-  Hlg2020,
   Rec601,
   Rec709,
+  HDR10,
+  Hlg2020,
   ColorSpace'
   #-}

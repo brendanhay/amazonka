@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
     mkAdvancedSecurityOptionsStatus,
 
     -- * Lenses
-    asosOptions,
     asosStatus,
+    asosOptions,
   )
 where
 
@@ -31,41 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdvancedSecurityOptionsStatus' smart constructor.
 data AdvancedSecurityOptionsStatus = AdvancedSecurityOptionsStatus'
-  { options ::
-      AdvancedSecurityOptions,
-    status :: OptionStatus
+  { -- | Status of the advanced security options for the specified Elasticsearch domain.
+    status :: OptionStatus,
+    -- | Specifies advanced security options for the specified Elasticsearch domain.
+    options :: AdvancedSecurityOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvancedSecurityOptionsStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Specifies advanced security options for the specified Elasticsearch domain.
 -- * 'status' - Status of the advanced security options for the specified Elasticsearch domain.
+-- * 'options' - Specifies advanced security options for the specified Elasticsearch domain.
 mkAdvancedSecurityOptionsStatus ::
-  -- | 'options'
-  AdvancedSecurityOptions ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  AdvancedSecurityOptions ->
   AdvancedSecurityOptionsStatus
-mkAdvancedSecurityOptionsStatus pOptions_ pStatus_ =
+mkAdvancedSecurityOptionsStatus pStatus_ pOptions_ =
   AdvancedSecurityOptionsStatus'
-    { options = pOptions_,
-      status = pStatus_
+    { status = pStatus_,
+      options = pOptions_
     }
-
--- | Specifies advanced security options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asosOptions :: Lens.Lens' AdvancedSecurityOptionsStatus AdvancedSecurityOptions
-asosOptions = Lens.lens (options :: AdvancedSecurityOptionsStatus -> AdvancedSecurityOptions) (\s a -> s {options = a} :: AdvancedSecurityOptionsStatus)
-{-# DEPRECATED asosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
 -- | Status of the advanced security options for the specified Elasticsearch domain.
 --
@@ -74,11 +62,18 @@ asosStatus :: Lens.Lens' AdvancedSecurityOptionsStatus OptionStatus
 asosStatus = Lens.lens (status :: AdvancedSecurityOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: AdvancedSecurityOptionsStatus)
 {-# DEPRECATED asosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Specifies advanced security options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asosOptions :: Lens.Lens' AdvancedSecurityOptionsStatus AdvancedSecurityOptions
+asosOptions = Lens.lens (options :: AdvancedSecurityOptionsStatus -> AdvancedSecurityOptions) (\s a -> s {options = a} :: AdvancedSecurityOptionsStatus)
+{-# DEPRECATED asosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromJSON AdvancedSecurityOptionsStatus where
   parseJSON =
     Lude.withObject
       "AdvancedSecurityOptionsStatus"
       ( \x ->
           AdvancedSecurityOptionsStatus'
-            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Pinpoint.GetADMChannel
     mkGetADMChannelResponse,
 
     -- ** Response lenses
-    gadmcrsResponseStatus,
     gadmcrsADMChannelResponse,
+    gadmcrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetADMChannel' smart constructor.
-newtype GetADMChannel = GetADMChannel' {applicationId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetADMChannel = GetADMChannel'
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetADMChannel' with the minimum fields required to make a request.
@@ -72,7 +70,7 @@ instance Lude.AWSRequest GetADMChannel where
     Res.receiveJSON
       ( \s h x ->
           GetADMChannelResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetADMChannel where
@@ -94,41 +92,28 @@ instance Lude.ToQuery GetADMChannel where
 
 -- | /See:/ 'mkGetADMChannelResponse' smart constructor.
 data GetADMChannelResponse = GetADMChannelResponse'
-  { responseStatus ::
-      Lude.Int,
-    aDMChannelResponse :: ADMChannelResponse
+  { aDMChannelResponse :: ADMChannelResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetADMChannelResponse' with the minimum fields required to make a request.
 --
--- * 'aDMChannelResponse' - Undocumented field.
+-- * 'aDMChannelResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetADMChannelResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'aDMChannelResponse'
   ADMChannelResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetADMChannelResponse
-mkGetADMChannelResponse pResponseStatus_ pADMChannelResponse_ =
+mkGetADMChannelResponse pADMChannelResponse_ pResponseStatus_ =
   GetADMChannelResponse'
-    { responseStatus = pResponseStatus_,
-      aDMChannelResponse = pADMChannelResponse_
+    { aDMChannelResponse = pADMChannelResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gadmcrsResponseStatus :: Lens.Lens' GetADMChannelResponse Lude.Int
-gadmcrsResponseStatus = Lens.lens (responseStatus :: GetADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetADMChannelResponse)
-{-# DEPRECATED gadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -136,3 +121,10 @@ gadmcrsResponseStatus = Lens.lens (responseStatus :: GetADMChannelResponse -> Lu
 gadmcrsADMChannelResponse :: Lens.Lens' GetADMChannelResponse ADMChannelResponse
 gadmcrsADMChannelResponse = Lens.lens (aDMChannelResponse :: GetADMChannelResponse -> ADMChannelResponse) (\s a -> s {aDMChannelResponse = a} :: GetADMChannelResponse)
 {-# DEPRECATED gadmcrsADMChannelResponse "Use generic-lens or generic-optics with 'aDMChannelResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadmcrsResponseStatus :: Lens.Lens' GetADMChannelResponse Lude.Int
+gadmcrsResponseStatus = Lens.lens (responseStatus :: GetADMChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetADMChannelResponse)
+{-# DEPRECATED gadmcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputClippingSettings' smart constructor.
 data InputClippingSettings = InputClippingSettings'
-  { stopTimecode ::
-      Lude.Maybe StopTimecode,
+  { -- | Settings to identify the end of the clip.
+    stopTimecode :: Lude.Maybe StopTimecode,
+    -- | Settings to identify the start of the clip.
     startTimecode :: Lude.Maybe StartTimecode,
+    -- | The source of the timecodes in the source being clipped.
     inputTimecodeSource :: InputTimecodeSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputClippingSettings' with the minimum fields required to make a request.
 --
--- * 'inputTimecodeSource' - The source of the timecodes in the source being clipped.
--- * 'startTimecode' - Settings to identify the start of the clip.
 -- * 'stopTimecode' - Settings to identify the end of the clip.
+-- * 'startTimecode' - Settings to identify the start of the clip.
+-- * 'inputTimecodeSource' - The source of the timecodes in the source being clipped.
 mkInputClippingSettings ::
   -- | 'inputTimecodeSource'
   InputTimecodeSource ->

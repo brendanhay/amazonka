@@ -39,37 +39,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputDeviceHdSettings' smart constructor.
 data InputDeviceHdSettings = InputDeviceHdSettings'
-  { framerate ::
-      Lude.Maybe Lude.Double,
+  { -- | The frame rate of the video source.
+    framerate :: Lude.Maybe Lude.Double,
+    -- | The scan type of the video source.
     scanType :: Lude.Maybe InputDeviceScanType,
+    -- | The state of the input device.
     deviceState :: Lude.Maybe InputDeviceState,
+    -- | The height of the video source, in pixels.
     height :: Lude.Maybe Lude.Int,
-    activeInput ::
-      Lude.Maybe InputDeviceActiveInput,
+    -- | If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
+    activeInput :: Lude.Maybe InputDeviceActiveInput,
+    -- | The width of the video source, in pixels.
     width :: Lude.Maybe Lude.Int,
-    configuredInput ::
-      Lude.Maybe InputDeviceConfiguredInput,
+    -- | The source at the input device that is currently active. You can specify this source.
+    configuredInput :: Lude.Maybe InputDeviceConfiguredInput,
+    -- | The current maximum bitrate for ingesting this source, in bits per second. You can specify this maximum.
     maxBitrate :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputDeviceHdSettings' with the minimum fields required to make a request.
 --
--- * 'activeInput' - If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
--- * 'configuredInput' - The source at the input device that is currently active. You can specify this source.
--- * 'deviceState' - The state of the input device.
 -- * 'framerate' - The frame rate of the video source.
--- * 'height' - The height of the video source, in pixels.
--- * 'maxBitrate' - The current maximum bitrate for ingesting this source, in bits per second. You can specify this maximum.
 -- * 'scanType' - The scan type of the video source.
+-- * 'deviceState' - The state of the input device.
+-- * 'height' - The height of the video source, in pixels.
+-- * 'activeInput' - If you specified Auto as the configured input, specifies which of the sources is currently active (SDI or HDMI).
 -- * 'width' - The width of the video source, in pixels.
+-- * 'configuredInput' - The source at the input device that is currently active. You can specify this source.
+-- * 'maxBitrate' - The current maximum bitrate for ingesting this source, in bits per second. You can specify this maximum.
 mkInputDeviceHdSettings ::
   InputDeviceHdSettings
 mkInputDeviceHdSettings =

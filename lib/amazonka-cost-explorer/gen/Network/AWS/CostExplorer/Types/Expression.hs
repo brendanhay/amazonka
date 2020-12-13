@@ -48,29 +48,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExpression' smart constructor.
 data Expression = Expression'
-  { not :: Lude.Maybe Expression,
+  { -- | Return results that don't match a @Dimension@ object.
+    not :: Lude.Maybe Expression,
+    -- | Return results that match both @Dimension@ objects.
     and :: Lude.Maybe [Expression],
+    -- | Return results that match either @Dimension@ object.
     or :: Lude.Maybe [Expression],
+    -- | The filter based on @CostCategory@ values.
     costCategories :: Lude.Maybe CostCategoryValues,
+    -- | The specific @Dimension@ to use for @Expression@ .
     dimensions :: Lude.Maybe DimensionValues,
+    -- | The specific @Tag@ to use for @Expression@ .
     tags :: Lude.Maybe TagValues
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Expression' with the minimum fields required to make a request.
 --
+-- * 'not' - Return results that don't match a @Dimension@ object.
 -- * 'and' - Return results that match both @Dimension@ objects.
+-- * 'or' - Return results that match either @Dimension@ object.
 -- * 'costCategories' - The filter based on @CostCategory@ values.
 -- * 'dimensions' - The specific @Dimension@ to use for @Expression@ .
--- * 'not' - Return results that don't match a @Dimension@ object.
--- * 'or' - Return results that match either @Dimension@ object.
 -- * 'tags' - The specific @Tag@ to use for @Expression@ .
 mkExpression ::
   Expression

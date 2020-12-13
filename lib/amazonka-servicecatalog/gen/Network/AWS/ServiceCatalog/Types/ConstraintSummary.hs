@@ -29,22 +29,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConstraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
-  { type' ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of constraint.
+    --
+    --
+    --     * @LAUNCH@
+    --
+    --
+    --     * @NOTIFICATION@
+    --
+    --
+    --     * STACKSET
+    --
+    --
+    --     * @TEMPLATE@
+    type' :: Lude.Maybe Lude.Text,
+    -- | The description of the constraint.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConstraintSummary' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the constraint.
 -- * 'type'' - The type of constraint.
 --
 --
@@ -58,6 +64,9 @@ data ConstraintSummary = ConstraintSummary'
 --
 --
 --     * @TEMPLATE@
+--
+--
+-- * 'description' - The description of the constraint.
 mkConstraintSummary ::
   ConstraintSummary
 mkConstraintSummary =

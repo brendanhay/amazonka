@@ -13,9 +13,9 @@
 module Network.AWS.ServiceCatalog.Types.OrganizationNodeType
   ( OrganizationNodeType
       ( OrganizationNodeType',
-        ONTAccount,
         ONTOrganization,
-        ONTOrganizationalUnit
+        ONTOrganizationalUnit,
+        ONTAccount
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OrganizationNodeType = OrganizationNodeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ONTAccount :: OrganizationNodeType
-pattern ONTAccount = OrganizationNodeType' "ACCOUNT"
-
 pattern ONTOrganization :: OrganizationNodeType
 pattern ONTOrganization = OrganizationNodeType' "ORGANIZATION"
 
 pattern ONTOrganizationalUnit :: OrganizationNodeType
 pattern ONTOrganizationalUnit = OrganizationNodeType' "ORGANIZATIONAL_UNIT"
 
+pattern ONTAccount :: OrganizationNodeType
+pattern ONTAccount = OrganizationNodeType' "ACCOUNT"
+
 {-# COMPLETE
-  ONTAccount,
   ONTOrganization,
   ONTOrganizationalUnit,
+  ONTAccount,
   OrganizationNodeType'
   #-}

@@ -333,16 +333,16 @@ module Network.AWS.CloudFront
     -- ** ActiveTrustedKeyGroups
     ActiveTrustedKeyGroups (..),
     mkActiveTrustedKeyGroups,
-    atkgItems,
     atkgEnabled,
     atkgQuantity,
+    atkgItems,
 
     -- ** ActiveTrustedSigners
     ActiveTrustedSigners (..),
     mkActiveTrustedSigners,
-    atsItems,
     atsEnabled,
     atsQuantity,
+    atsItems,
 
     -- ** AliasICPRecordal
     AliasICPRecordal (..),
@@ -353,22 +353,24 @@ module Network.AWS.CloudFront
     -- ** Aliases
     Aliases (..),
     mkAliases,
-    aItems,
     aQuantity,
+    aItems,
 
     -- ** AllowedMethods
     AllowedMethods (..),
     mkAllowedMethods,
-    amCachedMethods,
     amQuantity,
     amItems,
+    amCachedMethods,
 
     -- ** CacheBehavior
     CacheBehavior (..),
     mkCacheBehavior,
     cbAllowedMethods,
+    cbViewerProtocolPolicy,
     cbLambdaFunctionAssociations,
     cbMaxTTL,
+    cbTargetOriginId,
     cbMinTTL,
     cbCompress,
     cbSmoothStreaming,
@@ -377,24 +379,22 @@ module Network.AWS.CloudFront
     cbDefaultTTL,
     cbForwardedValues,
     cbTrustedSigners,
+    cbPathPattern,
     cbOriginRequestPolicyId,
     cbFieldLevelEncryptionId,
     cbCachePolicyId,
-    cbPathPattern,
-    cbTargetOriginId,
-    cbViewerProtocolPolicy,
 
     -- ** CacheBehaviors
     CacheBehaviors (..),
     mkCacheBehaviors,
-    cbItems,
     cbQuantity,
+    cbItems,
 
     -- ** CachePolicy
     CachePolicy (..),
     mkCachePolicy,
-    cpId,
     cpLastModifiedTime,
+    cpId,
     cpCachePolicyConfig,
 
     -- ** CachePolicyConfig
@@ -402,10 +402,10 @@ module Network.AWS.CloudFront
     mkCachePolicyConfig,
     cpcMaxTTL,
     cpcParametersInCacheKeyAndForwardedToOrigin,
+    cpcMinTTL,
+    cpcName,
     cpcDefaultTTL,
     cpcComment,
-    cpcName,
-    cpcMinTTL,
 
     -- ** CachePolicyCookiesConfig
     CachePolicyCookiesConfig (..),
@@ -416,28 +416,28 @@ module Network.AWS.CloudFront
     -- ** CachePolicyHeadersConfig
     CachePolicyHeadersConfig (..),
     mkCachePolicyHeadersConfig,
-    cphcHeaders,
     cphcHeaderBehavior,
+    cphcHeaders,
 
     -- ** CachePolicyList
     CachePolicyList (..),
     mkCachePolicyList,
-    cplItems,
-    cplNextMarker,
-    cplMaxItems,
     cplQuantity,
+    cplItems,
+    cplMaxItems,
+    cplNextMarker,
 
     -- ** CachePolicyQueryStringsConfig
     CachePolicyQueryStringsConfig (..),
     mkCachePolicyQueryStringsConfig,
-    cpqscQueryStrings,
     cpqscQueryStringBehavior,
+    cpqscQueryStrings,
 
     -- ** CachePolicySummary
     CachePolicySummary (..),
     mkCachePolicySummary,
-    cpsType,
     cpsCachePolicy,
+    cpsType,
 
     -- ** CachedMethods
     CachedMethods (..),
@@ -455,50 +455,50 @@ module Network.AWS.CloudFront
     -- ** CloudFrontOriginAccessIdentityConfig
     CloudFrontOriginAccessIdentityConfig (..),
     mkCloudFrontOriginAccessIdentityConfig,
-    cfoaicCallerReference,
     cfoaicComment,
+    cfoaicCallerReference,
 
     -- ** CloudFrontOriginAccessIdentityList
     CloudFrontOriginAccessIdentityList (..),
     mkCloudFrontOriginAccessIdentityList,
+    cfoailQuantity,
     cfoailItems,
-    cfoailNextMarker,
     cfoailMarker,
     cfoailMaxItems,
+    cfoailNextMarker,
     cfoailIsTruncated,
-    cfoailQuantity,
 
     -- ** CloudFrontOriginAccessIdentitySummary
     CloudFrontOriginAccessIdentitySummary (..),
     mkCloudFrontOriginAccessIdentitySummary,
     cfoaisId,
-    cfoaisS3CanonicalUserId,
     cfoaisComment,
+    cfoaisS3CanonicalUserId,
 
     -- ** ContentTypeProfile
     ContentTypeProfile (..),
     mkContentTypeProfile,
-    ctpProfileId,
     ctpFormat,
+    ctpProfileId,
     ctpContentType,
 
     -- ** ContentTypeProfileConfig
     ContentTypeProfileConfig (..),
     mkContentTypeProfileConfig,
-    ctpcContentTypeProfiles,
     ctpcForwardWhenContentTypeIsUnknown,
+    ctpcContentTypeProfiles,
 
     -- ** ContentTypeProfiles
     ContentTypeProfiles (..),
     mkContentTypeProfiles,
-    ctpItems,
     ctpQuantity,
+    ctpItems,
 
     -- ** CookieNames
     CookieNames (..),
     mkCookieNames,
-    cnItems,
     cnQuantity,
+    cnItems,
 
     -- ** CookiePreference
     CookiePreference (..),
@@ -517,31 +517,33 @@ module Network.AWS.CloudFront
     -- ** CustomErrorResponses
     CustomErrorResponses (..),
     mkCustomErrorResponses,
-    cerItems,
     cerQuantity,
+    cerItems,
 
     -- ** CustomHeaders
     CustomHeaders (..),
     mkCustomHeaders,
-    chItems,
     chQuantity,
+    chItems,
 
     -- ** CustomOriginConfig
     CustomOriginConfig (..),
     mkCustomOriginConfig,
+    cocOriginProtocolPolicy,
     cocOriginKeepaliveTimeout,
-    cocOriginReadTimeout,
-    cocOriginSSLProtocols,
     cocHTTPPort,
     cocHTTPSPort,
-    cocOriginProtocolPolicy,
+    cocOriginReadTimeout,
+    cocOriginSSLProtocols,
 
     -- ** DefaultCacheBehavior
     DefaultCacheBehavior (..),
     mkDefaultCacheBehavior,
     dcbAllowedMethods,
+    dcbViewerProtocolPolicy,
     dcbLambdaFunctionAssociations,
     dcbMaxTTL,
+    dcbTargetOriginId,
     dcbMinTTL,
     dcbCompress,
     dcbSmoothStreaming,
@@ -553,27 +555,26 @@ module Network.AWS.CloudFront
     dcbOriginRequestPolicyId,
     dcbFieldLevelEncryptionId,
     dcbCachePolicyId,
-    dcbTargetOriginId,
-    dcbViewerProtocolPolicy,
 
     -- ** Distribution
     Distribution (..),
     mkDistribution,
-    dActiveTrustedKeyGroups,
-    dAliasICPRecordals,
-    dActiveTrustedSigners,
-    dId,
-    dARN,
-    dStatus,
-    dLastModifiedTime,
     dInProgressInvalidationBatches,
-    dDomainName,
+    dStatus,
+    dActiveTrustedKeyGroups,
+    dARN,
     dDistributionConfig,
+    dLastModifiedTime,
+    dDomainName,
+    dAliasICPRecordals,
+    dId,
+    dActiveTrustedSigners,
 
     -- ** DistributionConfig
     DistributionConfig (..),
     mkDistributionConfig,
     dcHTTPVersion,
+    dcEnabled,
     dcOriginGroups,
     dcAliases,
     dcDefaultRootObject,
@@ -582,14 +583,13 @@ module Network.AWS.CloudFront
     dcWebACLId,
     dcViewerCertificate,
     dcRestrictions,
+    dcOrigins,
     dcLogging,
     dcCacheBehaviors,
-    dcIsIPV6Enabled,
-    dcCallerReference,
-    dcOrigins,
     dcDefaultCacheBehavior,
     dcComment,
-    dcEnabled,
+    dcCallerReference,
+    dcIsIPV6Enabled,
 
     -- ** DistributionConfigWithTags
     DistributionConfigWithTags (..),
@@ -600,58 +600,58 @@ module Network.AWS.CloudFront
     -- ** DistributionIdList
     DistributionIdList (..),
     mkDistributionIdList,
+    dilQuantity,
     dilItems,
-    dilNextMarker,
     dilMarker,
     dilMaxItems,
+    dilNextMarker,
     dilIsTruncated,
-    dilQuantity,
 
     -- ** DistributionList
     DistributionList (..),
     mkDistributionList,
+    dlQuantity,
     dlItems,
-    dlNextMarker,
     dlMarker,
     dlMaxItems,
+    dlNextMarker,
     dlIsTruncated,
-    dlQuantity,
 
     -- ** DistributionSummary
     DistributionSummary (..),
     mkDistributionSummary,
+    dsStatus,
+    dsHTTPVersion,
+    dsEnabled,
+    dsARN,
     dsOriginGroups,
+    dsAliases,
+    dsPriceClass,
+    dsCustomErrorResponses,
+    dsWebACLId,
+    dsLastModifiedTime,
+    dsViewerCertificate,
+    dsDomainName,
+    dsRestrictions,
+    dsOrigins,
     dsAliasICPRecordals,
     dsId,
-    dsARN,
-    dsStatus,
-    dsLastModifiedTime,
-    dsDomainName,
-    dsAliases,
-    dsOrigins,
-    dsDefaultCacheBehavior,
     dsCacheBehaviors,
-    dsCustomErrorResponses,
+    dsDefaultCacheBehavior,
     dsComment,
-    dsPriceClass,
-    dsEnabled,
-    dsViewerCertificate,
-    dsRestrictions,
-    dsWebACLId,
-    dsHTTPVersion,
     dsIsIPV6Enabled,
 
     -- ** EncryptionEntities
     EncryptionEntities (..),
     mkEncryptionEntities,
-    eeItems,
     eeQuantity,
+    eeItems,
 
     -- ** EncryptionEntity
     EncryptionEntity (..),
     mkEncryptionEntity,
-    eePublicKeyId,
     eeProviderId,
+    eePublicKeyId,
     eeFieldPatterns,
 
     -- ** EndPoint
@@ -663,8 +663,8 @@ module Network.AWS.CloudFront
     -- ** FieldLevelEncryption
     FieldLevelEncryption (..),
     mkFieldLevelEncryption,
-    fleId,
     fleLastModifiedTime,
+    fleId,
     fleFieldLevelEncryptionConfig,
 
     -- ** FieldLevelEncryptionConfig
@@ -678,109 +678,109 @@ module Network.AWS.CloudFront
     -- ** FieldLevelEncryptionList
     FieldLevelEncryptionList (..),
     mkFieldLevelEncryptionList,
-    flelItems,
-    flelNextMarker,
-    flelMaxItems,
     flelQuantity,
+    flelItems,
+    flelMaxItems,
+    flelNextMarker,
 
     -- ** FieldLevelEncryptionProfile
     FieldLevelEncryptionProfile (..),
     mkFieldLevelEncryptionProfile,
-    flepId,
-    flepLastModifiedTime,
     flepFieldLevelEncryptionProfileConfig,
+    flepLastModifiedTime,
+    flepId,
 
     -- ** FieldLevelEncryptionProfileConfig
     FieldLevelEncryptionProfileConfig (..),
     mkFieldLevelEncryptionProfileConfig,
-    flepcComment,
     flepcName,
-    flepcCallerReference,
     flepcEncryptionEntities,
+    flepcComment,
+    flepcCallerReference,
 
     -- ** FieldLevelEncryptionProfileList
     FieldLevelEncryptionProfileList (..),
     mkFieldLevelEncryptionProfileList,
-    fleplItems,
-    fleplNextMarker,
-    fleplMaxItems,
     fleplQuantity,
+    fleplItems,
+    fleplMaxItems,
+    fleplNextMarker,
 
     -- ** FieldLevelEncryptionProfileSummary
     FieldLevelEncryptionProfileSummary (..),
     mkFieldLevelEncryptionProfileSummary,
-    flepsComment,
-    flepsId,
     flepsLastModifiedTime,
     flepsName,
     flepsEncryptionEntities,
+    flepsId,
+    flepsComment,
 
     -- ** FieldLevelEncryptionSummary
     FieldLevelEncryptionSummary (..),
     mkFieldLevelEncryptionSummary,
     flesQueryArgProfileConfig,
     flesContentTypeProfileConfig,
-    flesComment,
-    flesId,
     flesLastModifiedTime,
+    flesId,
+    flesComment,
 
     -- ** FieldPatterns
     FieldPatterns (..),
     mkFieldPatterns,
-    fpItems,
     fpQuantity,
+    fpItems,
 
     -- ** ForwardedValues
     ForwardedValues (..),
     mkForwardedValues,
     fvQueryStringCacheKeys,
     fvHeaders,
-    fvQueryString,
     fvCookies,
+    fvQueryString,
 
     -- ** GeoRestriction
     GeoRestriction (..),
     mkGeoRestriction,
+    grQuantity,
     grItems,
     grRestrictionType,
-    grQuantity,
 
     -- ** Headers
     Headers (..),
     mkHeaders,
-    hItems,
     hQuantity,
+    hItems,
 
     -- ** Invalidation
     Invalidation (..),
     mkInvalidation,
-    iId,
     iStatus,
-    iCreateTime,
     iInvalidationBatch,
+    iId,
+    iCreateTime,
 
     -- ** InvalidationBatch
     InvalidationBatch (..),
     mkInvalidationBatch,
-    ibPaths,
     ibCallerReference,
+    ibPaths,
 
     -- ** InvalidationList
     InvalidationList (..),
     mkInvalidationList,
+    ilQuantity,
     ilItems,
-    ilNextMarker,
     ilMarker,
     ilMaxItems,
+    ilNextMarker,
     ilIsTruncated,
-    ilQuantity,
 
     -- ** InvalidationSummary
     InvalidationSummary (..),
     mkInvalidationSummary,
+    isStatus,
     isId,
     isCreateTime,
-    isStatus,
 
     -- ** KGKeyPairIds
     KGKeyPairIds (..),
@@ -791,24 +791,24 @@ module Network.AWS.CloudFront
     -- ** KeyGroup
     KeyGroup (..),
     mkKeyGroup,
-    kgId,
-    kgLastModifiedTime,
     kgKeyGroupConfig,
+    kgLastModifiedTime,
+    kgId,
 
     -- ** KeyGroupConfig
     KeyGroupConfig (..),
     mkKeyGroupConfig,
-    kgcComment,
-    kgcName,
     kgcItems,
+    kgcName,
+    kgcComment,
 
     -- ** KeyGroupList
     KeyGroupList (..),
     mkKeyGroupList,
-    kglItems,
-    kglNextMarker,
-    kglMaxItems,
     kglQuantity,
+    kglItems,
+    kglMaxItems,
+    kglNextMarker,
 
     -- ** KeyGroupSummary
     KeyGroupSummary (..),
@@ -818,14 +818,14 @@ module Network.AWS.CloudFront
     -- ** KeyPairIds
     KeyPairIds (..),
     mkKeyPairIds,
-    kpiItems,
     kpiQuantity,
+    kpiItems,
 
     -- ** KinesisStreamConfig
     KinesisStreamConfig (..),
     mkKinesisStreamConfig,
-    kscRoleARN,
     kscStreamARN,
+    kscRoleARN,
 
     -- ** LambdaFunctionAssociation
     LambdaFunctionAssociation (..),
@@ -837,16 +837,16 @@ module Network.AWS.CloudFront
     -- ** LambdaFunctionAssociations
     LambdaFunctionAssociations (..),
     mkLambdaFunctionAssociations,
-    lfaItems,
     lfaQuantity,
+    lfaItems,
 
     -- ** LoggingConfig
     LoggingConfig (..),
     mkLoggingConfig,
     lcEnabled,
-    lcIncludeCookies,
-    lcBucket,
     lcPrefix,
+    lcBucket,
+    lcIncludeCookies,
 
     -- ** MonitoringSubscription
     MonitoringSubscription (..),
@@ -862,22 +862,22 @@ module Network.AWS.CloudFront
     oConnectionAttempts,
     oS3OriginConfig,
     oOriginPath,
-    oOriginShield,
-    oId,
     oDomainName,
+    oId,
+    oOriginShield,
 
     -- ** OriginCustomHeader
     OriginCustomHeader (..),
     mkOriginCustomHeader,
-    ochHeaderName,
     ochHeaderValue,
+    ochHeaderName,
 
     -- ** OriginGroup
     OriginGroup (..),
     mkOriginGroup,
-    ogId,
     ogFailoverCriteria,
     ogMembers,
+    ogId,
 
     -- ** OriginGroupFailoverCriteria
     OriginGroupFailoverCriteria (..),
@@ -898,24 +898,24 @@ module Network.AWS.CloudFront
     -- ** OriginGroups
     OriginGroups (..),
     mkOriginGroups,
-    ogItems,
     ogQuantity,
+    ogItems,
 
     -- ** OriginRequestPolicy
     OriginRequestPolicy (..),
     mkOriginRequestPolicy,
-    orpId,
-    orpLastModifiedTime,
     orpOriginRequestPolicyConfig,
+    orpLastModifiedTime,
+    orpId,
 
     -- ** OriginRequestPolicyConfig
     OriginRequestPolicyConfig (..),
     mkOriginRequestPolicyConfig,
-    orpcComment,
-    orpcName,
-    orpcHeadersConfig,
-    orpcCookiesConfig,
     orpcQueryStringsConfig,
+    orpcHeadersConfig,
+    orpcName,
+    orpcCookiesConfig,
+    orpcComment,
 
     -- ** OriginRequestPolicyCookiesConfig
     OriginRequestPolicyCookiesConfig (..),
@@ -926,28 +926,28 @@ module Network.AWS.CloudFront
     -- ** OriginRequestPolicyHeadersConfig
     OriginRequestPolicyHeadersConfig (..),
     mkOriginRequestPolicyHeadersConfig,
-    orphcHeaders,
     orphcHeaderBehavior,
+    orphcHeaders,
 
     -- ** OriginRequestPolicyList
     OriginRequestPolicyList (..),
     mkOriginRequestPolicyList,
-    orplItems,
-    orplNextMarker,
-    orplMaxItems,
     orplQuantity,
+    orplItems,
+    orplMaxItems,
+    orplNextMarker,
 
     -- ** OriginRequestPolicyQueryStringsConfig
     OriginRequestPolicyQueryStringsConfig (..),
     mkOriginRequestPolicyQueryStringsConfig,
-    orpqscQueryStrings,
     orpqscQueryStringBehavior,
+    orpqscQueryStrings,
 
     -- ** OriginRequestPolicySummary
     OriginRequestPolicySummary (..),
     mkOriginRequestPolicySummary,
-    orpsType,
     orpsOriginRequestPolicy,
+    orpsType,
 
     -- ** OriginSSLProtocols
     OriginSSLProtocols (..),
@@ -958,8 +958,8 @@ module Network.AWS.CloudFront
     -- ** OriginShield
     OriginShield (..),
     mkOriginShield,
-    osOriginShieldRegion,
     osEnabled,
+    osOriginShieldRegion,
 
     -- ** Origins
     Origins (..),
@@ -970,86 +970,86 @@ module Network.AWS.CloudFront
     -- ** ParametersInCacheKeyAndForwardedToOrigin
     ParametersInCacheKeyAndForwardedToOrigin (..),
     mkParametersInCacheKeyAndForwardedToOrigin,
-    pickaftoEnableAcceptEncodingBrotli,
-    pickaftoEnableAcceptEncodingGzip,
-    pickaftoHeadersConfig,
-    pickaftoCookiesConfig,
     pickaftoQueryStringsConfig,
+    pickaftoHeadersConfig,
+    pickaftoEnableAcceptEncodingBrotli,
+    pickaftoCookiesConfig,
+    pickaftoEnableAcceptEncodingGzip,
 
     -- ** Paths
     Paths (..),
     mkPaths,
-    pItems,
     pQuantity,
+    pItems,
 
     -- ** PublicKey
     PublicKey (..),
     mkPublicKey,
-    pkId,
     pkCreatedTime,
     pkPublicKeyConfig,
+    pkId,
 
     -- ** PublicKeyConfig
     PublicKeyConfig (..),
     mkPublicKeyConfig,
+    pkcEncodedKey,
+    pkcName,
     pkcComment,
     pkcCallerReference,
-    pkcName,
-    pkcEncodedKey,
 
     -- ** PublicKeyList
     PublicKeyList (..),
     mkPublicKeyList,
-    pklItems,
-    pklNextMarker,
-    pklMaxItems,
     pklQuantity,
+    pklItems,
+    pklMaxItems,
+    pklNextMarker,
 
     -- ** PublicKeySummary
     PublicKeySummary (..),
     mkPublicKeySummary,
-    pksComment,
-    pksId,
-    pksName,
-    pksCreatedTime,
     pksEncodedKey,
+    pksCreatedTime,
+    pksName,
+    pksId,
+    pksComment,
 
     -- ** QueryArgProfile
     QueryArgProfile (..),
     mkQueryArgProfile,
-    qapQueryArg,
     qapProfileId,
+    qapQueryArg,
 
     -- ** QueryArgProfileConfig
     QueryArgProfileConfig (..),
     mkQueryArgProfileConfig,
-    qapcQueryArgProfiles,
     qapcForwardWhenQueryArgProfileIsUnknown,
+    qapcQueryArgProfiles,
 
     -- ** QueryArgProfiles
     QueryArgProfiles (..),
     mkQueryArgProfiles,
-    qapItems,
     qapQuantity,
+    qapItems,
 
     -- ** QueryStringCacheKeys
     QueryStringCacheKeys (..),
     mkQueryStringCacheKeys,
-    qsckItems,
     qsckQuantity,
+    qsckItems,
 
     -- ** QueryStringNames
     QueryStringNames (..),
     mkQueryStringNames,
-    qsnItems,
     qsnQuantity,
+    qsnItems,
 
     -- ** RealtimeLogConfig
     RealtimeLogConfig (..),
     mkRealtimeLogConfig,
     rlcARN,
-    rlcName,
     rlcSamplingRate,
+    rlcName,
     rlcEndPoints,
     rlcFields,
 
@@ -1057,10 +1057,10 @@ module Network.AWS.CloudFront
     RealtimeLogConfigs (..),
     mkRealtimeLogConfigs,
     rlcItems,
-    rlcNextMarker,
-    rlcMaxItems,
-    rlcIsTruncated,
     rlcMarker,
+    rlcMaxItems,
+    rlcNextMarker,
+    rlcIsTruncated,
 
     -- ** RealtimeMetricsSubscriptionConfig
     RealtimeMetricsSubscriptionConfig (..),
@@ -1098,25 +1098,25 @@ module Network.AWS.CloudFront
     -- ** StreamingDistribution
     StreamingDistribution (..),
     mkStreamingDistribution,
-    sdLastModifiedTime,
-    sdId,
-    sdARN,
     sdStatus,
-    sdDomainName,
-    sdActiveTrustedSigners,
     sdStreamingDistributionConfig,
+    sdARN,
+    sdLastModifiedTime,
+    sdDomainName,
+    sdId,
+    sdActiveTrustedSigners,
 
     -- ** StreamingDistributionConfig
     StreamingDistributionConfig (..),
     mkStreamingDistributionConfig,
+    sdcEnabled,
     sdcAliases,
     sdcPriceClass,
-    sdcLogging,
-    sdcCallerReference,
     sdcS3Origin,
-    sdcComment,
     sdcTrustedSigners,
-    sdcEnabled,
+    sdcLogging,
+    sdcComment,
+    sdcCallerReference,
 
     -- ** StreamingDistributionConfigWithTags
     StreamingDistributionConfigWithTags (..),
@@ -1127,34 +1127,34 @@ module Network.AWS.CloudFront
     -- ** StreamingDistributionList
     StreamingDistributionList (..),
     mkStreamingDistributionList,
+    sdlQuantity,
     sdlItems,
-    sdlNextMarker,
     sdlMarker,
     sdlMaxItems,
+    sdlNextMarker,
     sdlIsTruncated,
-    sdlQuantity,
 
     -- ** StreamingDistributionSummary
     StreamingDistributionSummary (..),
     mkStreamingDistributionSummary,
-    sdsId,
-    sdsARN,
     sdsStatus,
-    sdsLastModifiedTime,
-    sdsDomainName,
-    sdsS3Origin,
-    sdsAliases,
-    sdsTrustedSigners,
-    sdsComment,
-    sdsPriceClass,
     sdsEnabled,
+    sdsARN,
+    sdsAliases,
+    sdsPriceClass,
+    sdsLastModifiedTime,
+    sdsS3Origin,
+    sdsDomainName,
+    sdsTrustedSigners,
+    sdsId,
+    sdsComment,
 
     -- ** StreamingLoggingConfig
     StreamingLoggingConfig (..),
     mkStreamingLoggingConfig,
     slcEnabled,
-    slcBucket,
     slcPrefix,
+    slcBucket,
 
     -- ** Tag
     Tag (..),
@@ -1175,16 +1175,16 @@ module Network.AWS.CloudFront
     -- ** TrustedKeyGroups
     TrustedKeyGroups (..),
     mkTrustedKeyGroups,
-    tkgItems,
     tkgEnabled,
     tkgQuantity,
+    tkgItems,
 
     -- ** TrustedSigners
     TrustedSigners (..),
     mkTrustedSigners,
-    tsItems,
     tsEnabled,
     tsQuantity,
+    tsItems,
 
     -- ** ViewerCertificate
     ViewerCertificate (..),

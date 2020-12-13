@@ -36,33 +36,33 @@ import Network.AWS.WorkDocs.Types.UserMetadata
 --
 -- /See:/ 'mkResourceMetadata' smart constructor.
 data ResourceMetadata = ResourceMetadata'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The version ID of the resource. This is an optional field and is filled for action on document version.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The owner of the resource.
     owner :: Lude.Maybe UserMetadata,
+    -- | The name of the resource.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the resource.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of resource.
     type' :: Lude.Maybe ResourceType,
+    -- | The original name of the resource before a rename operation.
     originalName :: Lude.Maybe Lude.Text,
+    -- | The parent ID of the resource before a rename operation.
     parentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceMetadata' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the resource.
--- * 'name' - The name of the resource.
--- * 'originalName' - The original name of the resource before a rename operation.
--- * 'owner' - The owner of the resource.
--- * 'parentId' - The parent ID of the resource before a rename operation.
--- * 'type'' - The type of resource.
 -- * 'versionId' - The version ID of the resource. This is an optional field and is filled for action on document version.
+-- * 'owner' - The owner of the resource.
+-- * 'name' - The name of the resource.
+-- * 'id' - The ID of the resource.
+-- * 'type'' - The type of resource.
+-- * 'originalName' - The original name of the resource before a rename operation.
+-- * 'parentId' - The parent ID of the resource before a rename operation.
 mkResourceMetadata ::
   ResourceMetadata
 mkResourceMetadata =

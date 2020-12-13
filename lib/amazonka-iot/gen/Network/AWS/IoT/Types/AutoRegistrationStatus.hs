@@ -13,8 +13,8 @@
 module Network.AWS.IoT.Types.AutoRegistrationStatus
   ( AutoRegistrationStatus
       ( AutoRegistrationStatus',
-        Disable,
-        Enable
+        Enable,
+        Disable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AutoRegistrationStatus = AutoRegistrationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disable :: AutoRegistrationStatus
-pattern Disable = AutoRegistrationStatus' "DISABLE"
-
 pattern Enable :: AutoRegistrationStatus
 pattern Enable = AutoRegistrationStatus' "ENABLE"
 
+pattern Disable :: AutoRegistrationStatus
+pattern Disable = AutoRegistrationStatus' "DISABLE"
+
 {-# COMPLETE
-  Disable,
   Enable,
+  Disable,
   AutoRegistrationStatus'
   #-}

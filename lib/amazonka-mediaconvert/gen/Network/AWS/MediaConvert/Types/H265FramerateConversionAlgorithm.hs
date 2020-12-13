@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.H265FramerateConversionAlgorithm
   ( H265FramerateConversionAlgorithm
       ( H265FramerateConversionAlgorithm',
         HFCADuplicateDrop,
-        HFCAFrameformer,
-        HFCAInterpolate
+        HFCAInterpolate,
+        HFCAFrameformer
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype H265FramerateConversionAlgorithm = H265FramerateConversionAlgorithm' Lud
 pattern HFCADuplicateDrop :: H265FramerateConversionAlgorithm
 pattern HFCADuplicateDrop = H265FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern HFCAFrameformer :: H265FramerateConversionAlgorithm
-pattern HFCAFrameformer = H265FramerateConversionAlgorithm' "FRAMEFORMER"
-
 pattern HFCAInterpolate :: H265FramerateConversionAlgorithm
 pattern HFCAInterpolate = H265FramerateConversionAlgorithm' "INTERPOLATE"
 
+pattern HFCAFrameformer :: H265FramerateConversionAlgorithm
+pattern HFCAFrameformer = H265FramerateConversionAlgorithm' "FRAMEFORMER"
+
 {-# COMPLETE
   HFCADuplicateDrop,
-  HFCAFrameformer,
   HFCAInterpolate,
+  HFCAFrameformer,
   H265FramerateConversionAlgorithm'
   #-}

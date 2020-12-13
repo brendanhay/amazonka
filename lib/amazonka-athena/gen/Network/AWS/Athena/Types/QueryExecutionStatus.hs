@@ -32,27 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryExecutionStatus' smart constructor.
 data QueryExecutionStatus = QueryExecutionStatus'
-  { state ::
-      Lude.Maybe QueryExecutionState,
+  { -- | The state of query execution. @QUEUED@ indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. @RUNNING@ indicates that the query is in execution phase. @SUCCEEDED@ indicates that the query completed without errors. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that a user input interrupted query execution.
+    state :: Lude.Maybe QueryExecutionState,
+    -- | Further detail about the status of the query.
     stateChangeReason :: Lude.Maybe Lude.Text,
+    -- | The date and time that the query was submitted.
     submissionDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the query completed.
     completionDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryExecutionStatus' with the minimum fields required to make a request.
 --
--- * 'completionDateTime' - The date and time that the query completed.
 -- * 'state' - The state of query execution. @QUEUED@ indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. @RUNNING@ indicates that the query is in execution phase. @SUCCEEDED@ indicates that the query completed without errors. @FAILED@ indicates that the query experienced an error and did not complete processing. @CANCELLED@ indicates that a user input interrupted query execution.
 -- * 'stateChangeReason' - Further detail about the status of the query.
 -- * 'submissionDateTime' - The date and time that the query was submitted.
+-- * 'completionDateTime' - The date and time that the query completed.
 mkQueryExecutionStatus ::
   QueryExecutionStatus
 mkQueryExecutionStatus =

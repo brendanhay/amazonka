@@ -14,8 +14,8 @@ module Network.AWS.Cloud9.Types.Permissions
   ( Permissions
       ( Permissions',
         Owner,
-        ReadOnly,
-        ReadWrite
+        ReadWrite,
+        ReadOnly
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype Permissions = Permissions' Lude.Text
 pattern Owner :: Permissions
 pattern Owner = Permissions' "owner"
 
-pattern ReadOnly :: Permissions
-pattern ReadOnly = Permissions' "read-only"
-
 pattern ReadWrite :: Permissions
 pattern ReadWrite = Permissions' "read-write"
 
+pattern ReadOnly :: Permissions
+pattern ReadOnly = Permissions' "read-only"
+
 {-# COMPLETE
   Owner,
-  ReadOnly,
   ReadWrite,
+  ReadOnly,
   Permissions'
   #-}

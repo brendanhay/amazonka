@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.IoT.DeleteProvisioningTemplateVersion
     mkDeleteProvisioningTemplateVersion,
 
     -- ** Request lenses
-    delTemplateName,
-    delVersionId,
+    dVersionId,
+    dTemplateName,
 
     -- * Destructuring the response
     DeleteProvisioningTemplateVersionResponse (..),
     mkDeleteProvisioningTemplateVersionResponse,
 
     -- ** Response lenses
-    dptvprsResponseStatus,
+    dptvfrsResponseStatus,
   )
 where
 
@@ -39,48 +40,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteProvisioningTemplateVersion' smart constructor.
 data DeleteProvisioningTemplateVersion = DeleteProvisioningTemplateVersion'
-  { templateName ::
-      Lude.Text,
-    versionId :: Lude.Int
+  { -- | The fleet provisioning template version ID to delete.
+    versionId :: Lude.Int,
+    -- | The name of the fleet provisioning template version to delete.
+    templateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProvisioningTemplateVersion' with the minimum fields required to make a request.
 --
--- * 'templateName' - The name of the fleet provisioning template version to delete.
 -- * 'versionId' - The fleet provisioning template version ID to delete.
+-- * 'templateName' - The name of the fleet provisioning template version to delete.
 mkDeleteProvisioningTemplateVersion ::
-  -- | 'templateName'
-  Lude.Text ->
   -- | 'versionId'
   Lude.Int ->
+  -- | 'templateName'
+  Lude.Text ->
   DeleteProvisioningTemplateVersion
-mkDeleteProvisioningTemplateVersion pTemplateName_ pVersionId_ =
+mkDeleteProvisioningTemplateVersion pVersionId_ pTemplateName_ =
   DeleteProvisioningTemplateVersion'
-    { templateName = pTemplateName_,
-      versionId = pVersionId_
+    { versionId = pVersionId_,
+      templateName = pTemplateName_
     }
-
--- | The name of the fleet provisioning template version to delete.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delTemplateName :: Lens.Lens' DeleteProvisioningTemplateVersion Lude.Text
-delTemplateName = Lens.lens (templateName :: DeleteProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateName = a} :: DeleteProvisioningTemplateVersion)
-{-# DEPRECATED delTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The fleet provisioning template version ID to delete.
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delVersionId :: Lens.Lens' DeleteProvisioningTemplateVersion Lude.Int
-delVersionId = Lens.lens (versionId :: DeleteProvisioningTemplateVersion -> Lude.Int) (\s a -> s {versionId = a} :: DeleteProvisioningTemplateVersion)
-{-# DEPRECATED delVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+dVersionId :: Lens.Lens' DeleteProvisioningTemplateVersion Lude.Int
+dVersionId = Lens.lens (versionId :: DeleteProvisioningTemplateVersion -> Lude.Int) (\s a -> s {versionId = a} :: DeleteProvisioningTemplateVersion)
+{-# DEPRECATED dVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The name of the fleet provisioning template version to delete.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTemplateName :: Lens.Lens' DeleteProvisioningTemplateVersion Lude.Text
+dTemplateName = Lens.lens (templateName :: DeleteProvisioningTemplateVersion -> Lude.Text) (\s a -> s {templateName = a} :: DeleteProvisioningTemplateVersion)
+{-# DEPRECATED dTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 instance Lude.AWSRequest DeleteProvisioningTemplateVersion where
   type
@@ -111,16 +107,10 @@ instance Lude.ToQuery DeleteProvisioningTemplateVersion where
 
 -- | /See:/ 'mkDeleteProvisioningTemplateVersionResponse' smart constructor.
 newtype DeleteProvisioningTemplateVersionResponse = DeleteProvisioningTemplateVersionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteProvisioningTemplateVersionResponse' with the minimum fields required to make a request.
@@ -139,6 +129,6 @@ mkDeleteProvisioningTemplateVersionResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptvprsResponseStatus :: Lens.Lens' DeleteProvisioningTemplateVersionResponse Lude.Int
-dptvprsResponseStatus = Lens.lens (responseStatus :: DeleteProvisioningTemplateVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProvisioningTemplateVersionResponse)
-{-# DEPRECATED dptvprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dptvfrsResponseStatus :: Lens.Lens' DeleteProvisioningTemplateVersionResponse Lude.Int
+dptvfrsResponseStatus = Lens.lens (responseStatus :: DeleteProvisioningTemplateVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProvisioningTemplateVersionResponse)
+{-# DEPRECATED dptvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.ProresInterlaceMode
   ( ProresInterlaceMode
       ( ProresInterlaceMode',
-        PIMBottomField,
-        PIMFollowBottomField,
-        PIMFollowTopField,
         PIMProgressive,
-        PIMTopField
+        PIMTopField,
+        PIMBottomField,
+        PIMFollowTopField,
+        PIMFollowBottomField
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype ProresInterlaceMode = ProresInterlaceMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern PIMBottomField :: ProresInterlaceMode
-pattern PIMBottomField = ProresInterlaceMode' "BOTTOM_FIELD"
-
-pattern PIMFollowBottomField :: ProresInterlaceMode
-pattern PIMFollowBottomField = ProresInterlaceMode' "FOLLOW_BOTTOM_FIELD"
-
-pattern PIMFollowTopField :: ProresInterlaceMode
-pattern PIMFollowTopField = ProresInterlaceMode' "FOLLOW_TOP_FIELD"
-
 pattern PIMProgressive :: ProresInterlaceMode
 pattern PIMProgressive = ProresInterlaceMode' "PROGRESSIVE"
 
 pattern PIMTopField :: ProresInterlaceMode
 pattern PIMTopField = ProresInterlaceMode' "TOP_FIELD"
 
+pattern PIMBottomField :: ProresInterlaceMode
+pattern PIMBottomField = ProresInterlaceMode' "BOTTOM_FIELD"
+
+pattern PIMFollowTopField :: ProresInterlaceMode
+pattern PIMFollowTopField = ProresInterlaceMode' "FOLLOW_TOP_FIELD"
+
+pattern PIMFollowBottomField :: ProresInterlaceMode
+pattern PIMFollowBottomField = ProresInterlaceMode' "FOLLOW_BOTTOM_FIELD"
+
 {-# COMPLETE
-  PIMBottomField,
-  PIMFollowBottomField,
-  PIMFollowTopField,
   PIMProgressive,
   PIMTopField,
+  PIMBottomField,
+  PIMFollowTopField,
+  PIMFollowBottomField,
   ProresInterlaceMode'
   #-}

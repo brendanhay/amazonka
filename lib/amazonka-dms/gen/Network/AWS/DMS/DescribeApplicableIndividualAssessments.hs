@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,46 +53,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeApplicableIndividualAssessments' smart constructor.
 data DescribeApplicableIndividualAssessments = DescribeApplicableIndividualAssessments'
-  { migrationType ::
-      Lude.Maybe
-        MigrationTypeValue,
-    sourceEngineName ::
-      Lude.Maybe
-        Lude.Text,
-    replicationTaskARN ::
-      Lude.Maybe
-        Lude.Text,
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxRecords ::
-      Lude.Maybe
-        Lude.Int,
-    targetEngineName ::
-      Lude.Maybe
-        Lude.Text,
-    replicationInstanceARN ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Name of the migration type that each provided individual assessment must support.
+    migrationType :: Lude.Maybe MigrationTypeValue,
+    -- | Name of a database engine that the specified replication instance supports as a source.
+    sourceEngineName :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (ARN) of a migration task on which you want to base the default list of individual assessments.
+    replicationTaskARN :: Lude.Maybe Lude.Text,
+    -- | Optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | Maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    maxRecords :: Lude.Maybe Lude.Int,
+    -- | Name of a database engine that the specified replication instance supports as a target.
+    targetEngineName :: Lude.Maybe Lude.Text,
+    -- | ARN of a replication instance on which you want to base the default list of individual assessments.
+    replicationInstanceARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicableIndividualAssessments' with the minimum fields required to make a request.
 --
+-- * 'migrationType' - Name of the migration type that each provided individual assessment must support.
+-- * 'sourceEngineName' - Name of a database engine that the specified replication instance supports as a source.
+-- * 'replicationTaskARN' - Amazon Resource Name (ARN) of a migration task on which you want to base the default list of individual assessments.
 -- * 'marker' - Optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - Maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
--- * 'migrationType' - Name of the migration type that each provided individual assessment must support.
--- * 'replicationInstanceARN' - ARN of a replication instance on which you want to base the default list of individual assessments.
--- * 'replicationTaskARN' - Amazon Resource Name (ARN) of a migration task on which you want to base the default list of individual assessments.
--- * 'sourceEngineName' - Name of a database engine that the specified replication instance supports as a source.
 -- * 'targetEngineName' - Name of a database engine that the specified replication instance supports as a target.
+-- * 'replicationInstanceARN' - ARN of a replication instance on which you want to base the default list of individual assessments.
 mkDescribeApplicableIndividualAssessments ::
   DescribeApplicableIndividualAssessments
 mkDescribeApplicableIndividualAssessments =
@@ -207,31 +195,20 @@ instance Lude.ToQuery DescribeApplicableIndividualAssessments where
 --
 -- /See:/ 'mkDescribeApplicableIndividualAssessmentsResponse' smart constructor.
 data DescribeApplicableIndividualAssessmentsResponse = DescribeApplicableIndividualAssessmentsResponse'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    individualAssessmentNames ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | Pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | List of names for the individual assessments supported by the premigration assessment run that you start based on the specified request parameters. For more information on the available individual assessments, including compatibility with different migration task configurations, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs> in the /AWS Database Migration Service User Guide./
+    individualAssessmentNames :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApplicableIndividualAssessmentsResponse' with the minimum fields required to make a request.
 --
--- * 'individualAssessmentNames' - List of names for the individual assessments supported by the premigration assessment run that you start based on the specified request parameters. For more information on the available individual assessments, including compatibility with different migration task configurations, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs> in the /AWS Database Migration Service User Guide./
 -- * 'marker' - Pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
+-- * 'individualAssessmentNames' - List of names for the individual assessments supported by the premigration assessment run that you start based on the specified request parameters. For more information on the available individual assessments, including compatibility with different migration task configurations, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Working with premigration assessment runs> in the /AWS Database Migration Service User Guide./
 -- * 'responseStatus' - The response status code.
 mkDescribeApplicableIndividualAssessmentsResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkSpaces.ModifyWorkspaceProperties
     mkModifyWorkspaceProperties,
 
     -- ** Request lenses
-    mwpWorkspaceId,
     mwpWorkspaceProperties,
+    mwpWorkspaceId,
 
     -- * Destructuring the response
     ModifyWorkspacePropertiesResponse (..),
@@ -39,42 +40,30 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkModifyWorkspaceProperties' smart constructor.
 data ModifyWorkspaceProperties = ModifyWorkspaceProperties'
-  { workspaceId ::
-      Lude.Text,
-    workspaceProperties ::
-      WorkspaceProperties
+  { -- | The properties of the WorkSpace.
+    workspaceProperties :: WorkspaceProperties,
+    -- | The identifier of the WorkSpace.
+    workspaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspaceProperties' with the minimum fields required to make a request.
 --
--- * 'workspaceId' - The identifier of the WorkSpace.
 -- * 'workspaceProperties' - The properties of the WorkSpace.
+-- * 'workspaceId' - The identifier of the WorkSpace.
 mkModifyWorkspaceProperties ::
-  -- | 'workspaceId'
-  Lude.Text ->
   -- | 'workspaceProperties'
   WorkspaceProperties ->
+  -- | 'workspaceId'
+  Lude.Text ->
   ModifyWorkspaceProperties
-mkModifyWorkspaceProperties pWorkspaceId_ pWorkspaceProperties_ =
+mkModifyWorkspaceProperties pWorkspaceProperties_ pWorkspaceId_ =
   ModifyWorkspaceProperties'
-    { workspaceId = pWorkspaceId_,
-      workspaceProperties = pWorkspaceProperties_
+    { workspaceProperties =
+        pWorkspaceProperties_,
+      workspaceId = pWorkspaceId_
     }
-
--- | The identifier of the WorkSpace.
---
--- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwpWorkspaceId :: Lens.Lens' ModifyWorkspaceProperties Lude.Text
-mwpWorkspaceId = Lens.lens (workspaceId :: ModifyWorkspaceProperties -> Lude.Text) (\s a -> s {workspaceId = a} :: ModifyWorkspaceProperties)
-{-# DEPRECATED mwpWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
 -- | The properties of the WorkSpace.
 --
@@ -82,6 +71,13 @@ mwpWorkspaceId = Lens.lens (workspaceId :: ModifyWorkspaceProperties -> Lude.Tex
 mwpWorkspaceProperties :: Lens.Lens' ModifyWorkspaceProperties WorkspaceProperties
 mwpWorkspaceProperties = Lens.lens (workspaceProperties :: ModifyWorkspaceProperties -> WorkspaceProperties) (\s a -> s {workspaceProperties = a} :: ModifyWorkspaceProperties)
 {-# DEPRECATED mwpWorkspaceProperties "Use generic-lens or generic-optics with 'workspaceProperties' instead." #-}
+
+-- | The identifier of the WorkSpace.
+--
+-- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwpWorkspaceId :: Lens.Lens' ModifyWorkspaceProperties Lude.Text
+mwpWorkspaceId = Lens.lens (workspaceId :: ModifyWorkspaceProperties -> Lude.Text) (\s a -> s {workspaceId = a} :: ModifyWorkspaceProperties)
+{-# DEPRECATED mwpWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
 instance Lude.AWSRequest ModifyWorkspaceProperties where
   type
@@ -110,8 +106,8 @@ instance Lude.ToJSON ModifyWorkspaceProperties where
   toJSON ModifyWorkspaceProperties' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("WorkspaceId" Lude..= workspaceId),
-            Lude.Just ("WorkspaceProperties" Lude..= workspaceProperties)
+          [ Lude.Just ("WorkspaceProperties" Lude..= workspaceProperties),
+            Lude.Just ("WorkspaceId" Lude..= workspaceId)
           ]
       )
 
@@ -123,16 +119,10 @@ instance Lude.ToQuery ModifyWorkspaceProperties where
 
 -- | /See:/ 'mkModifyWorkspacePropertiesResponse' smart constructor.
 newtype ModifyWorkspacePropertiesResponse = ModifyWorkspacePropertiesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyWorkspacePropertiesResponse' with the minimum fields required to make a request.

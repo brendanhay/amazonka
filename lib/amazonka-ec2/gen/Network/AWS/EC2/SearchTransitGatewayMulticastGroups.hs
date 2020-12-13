@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,33 +48,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchTransitGatewayMulticastGroups' smart constructor.
 data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
-  { filters ::
-      Lude.Maybe [Filter],
-    transitGatewayMulticastDomainId ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @group-ip-address@ - The IP address of the transit gateway multicast group.
+    --
+    --
+    --     * @is-group-member@ - The resource is a group member. Valid values are @true@ | @false@ .
+    --
+    --
+    --     * @is-group-source@ - The resource is a group source. Valid values are @true@ | @false@ .
+    --
+    --
+    --     * @member-type@ - The member type. Valid values are @igmp@ | @static@ .
+    --
+    --
+    --     * @resource-id@ - The ID of the resource.
+    --
+    --
+    --     * @resource-type@ - The type of resource. Valid values are @vpc@ | @vpn@ | @direct-connect-gateway@ | @tgw-peering@ .
+    --
+    --
+    --     * @source-type@ - The source type. Valid values are @igmp@ | @static@ .
+    --
+    --
+    --     * @state@ - The state of the subnet association. Valid values are @associated@ | @associated@ | @disassociated@ | @disassociating@ .
+    --
+    --
+    --     * @subnet-id@ - The ID of the subnet.
+    --
+    --
+    --     * @transit-gateway-attachment-id@ - The id of the transit gateway attachment.
+    filters :: Lude.Maybe [Filter],
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Lude.Maybe Lude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTransitGatewayMulticastGroups' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -107,9 +127,10 @@ data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
 --     * @transit-gateway-attachment-id@ - The id of the transit gateway attachment.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'nextToken' - The token for the next page of results.
 -- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkSearchTransitGatewayMulticastGroups ::
   SearchTransitGatewayMulticastGroups
 mkSearchTransitGatewayMulticastGroups =
@@ -235,28 +256,20 @@ instance Lude.ToQuery SearchTransitGatewayMulticastGroups where
 
 -- | /See:/ 'mkSearchTransitGatewayMulticastGroupsResponse' smart constructor.
 data SearchTransitGatewayMulticastGroupsResponse = SearchTransitGatewayMulticastGroupsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    multicastGroups ::
-      Lude.Maybe
-        [TransitGatewayMulticastGroup],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the transit gateway multicast group.
+    multicastGroups :: Lude.Maybe [TransitGatewayMulticastGroup],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchTransitGatewayMulticastGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'multicastGroups' - Information about the transit gateway multicast group.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'multicastGroups' - Information about the transit gateway multicast group.
 -- * 'responseStatus' - The response status code.
 mkSearchTransitGatewayMulticastGroupsResponse ::
   -- | 'responseStatus'

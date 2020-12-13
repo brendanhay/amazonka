@@ -17,6 +17,7 @@ module Network.AWS.Pinpoint.Types.VoiceChannelResponse
     mkVoiceChannelResponse,
 
     -- * Lenses
+    vcPlatform,
     vcLastModifiedDate,
     vcEnabled,
     vcIsArchived,
@@ -26,7 +27,6 @@ module Network.AWS.Pinpoint.Types.VoiceChannelResponse
     vcCreationDate,
     vcLastModifiedBy,
     vcHasCredential,
-    vcPlatform,
   )
 where
 
@@ -37,46 +37,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVoiceChannelResponse' smart constructor.
 data VoiceChannelResponse = VoiceChannelResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of messaging or notification platform for the channel. For the voice channel, this value is VOICE.
+    platform :: Lude.Text,
+    -- | The date and time, in ISO 8601 format, when the voice channel was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the voice channel is enabled for the application.
     enabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the voice channel is archived.
     isArchived :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the application that the voice channel applies to.
     applicationId :: Lude.Maybe Lude.Text,
+    -- | The current version of the voice channel.
     version :: Lude.Maybe Lude.Int,
+    -- | (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
     id :: Lude.Maybe Lude.Text,
+    -- | The date and time, in ISO 8601 format, when the voice channel was enabled.
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The user who last modified the voice channel.
     lastModifiedBy :: Lude.Maybe Lude.Text,
-    hasCredential :: Lude.Maybe Lude.Bool,
-    platform :: Lude.Text
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VoiceChannelResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the voice channel applies to.
--- * 'creationDate' - The date and time, in ISO 8601 format, when the voice channel was enabled.
--- * 'enabled' - Specifies whether the voice channel is enabled for the application.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
--- * 'id' - (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
--- * 'isArchived' - Specifies whether the voice channel is archived.
--- * 'lastModifiedBy' - The user who last modified the voice channel.
--- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the voice channel was last modified.
 -- * 'platform' - The type of messaging or notification platform for the channel. For the voice channel, this value is VOICE.
+-- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the voice channel was last modified.
+-- * 'enabled' - Specifies whether the voice channel is enabled for the application.
+-- * 'isArchived' - Specifies whether the voice channel is archived.
+-- * 'applicationId' - The unique identifier for the application that the voice channel applies to.
 -- * 'version' - The current version of the voice channel.
+-- * 'id' - (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
+-- * 'creationDate' - The date and time, in ISO 8601 format, when the voice channel was enabled.
+-- * 'lastModifiedBy' - The user who last modified the voice channel.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
 mkVoiceChannelResponse ::
   -- | 'platform'
   Lude.Text ->
   VoiceChannelResponse
 mkVoiceChannelResponse pPlatform_ =
   VoiceChannelResponse'
-    { lastModifiedDate = Lude.Nothing,
+    { platform = pPlatform_,
+      lastModifiedDate = Lude.Nothing,
       enabled = Lude.Nothing,
       isArchived = Lude.Nothing,
       applicationId = Lude.Nothing,
@@ -84,9 +88,15 @@ mkVoiceChannelResponse pPlatform_ =
       id = Lude.Nothing,
       creationDate = Lude.Nothing,
       lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing,
-      platform = pPlatform_
+      hasCredential = Lude.Nothing
     }
+
+-- | The type of messaging or notification platform for the channel. For the voice channel, this value is VOICE.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcPlatform :: Lens.Lens' VoiceChannelResponse Lude.Text
+vcPlatform = Lens.lens (platform :: VoiceChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: VoiceChannelResponse)
+{-# DEPRECATED vcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when the voice channel was last modified.
 --
@@ -151,20 +161,14 @@ vcHasCredential :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Bool)
 vcHasCredential = Lens.lens (hasCredential :: VoiceChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: VoiceChannelResponse)
 {-# DEPRECATED vcHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
--- | The type of messaging or notification platform for the channel. For the voice channel, this value is VOICE.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcPlatform :: Lens.Lens' VoiceChannelResponse Lude.Text
-vcPlatform = Lens.lens (platform :: VoiceChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
 instance Lude.FromJSON VoiceChannelResponse where
   parseJSON =
     Lude.withObject
       "VoiceChannelResponse"
       ( \x ->
           VoiceChannelResponse'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<$> (x Lude..: "Platform")
+            Lude.<*> (x Lude..:? "LastModifiedDate")
             Lude.<*> (x Lude..:? "Enabled")
             Lude.<*> (x Lude..:? "IsArchived")
             Lude.<*> (x Lude..:? "ApplicationId")
@@ -173,5 +177,4 @@ instance Lude.FromJSON VoiceChannelResponse where
             Lude.<*> (x Lude..:? "CreationDate")
             Lude.<*> (x Lude..:? "LastModifiedBy")
             Lude.<*> (x Lude..:? "HasCredential")
-            Lude.<*> (x Lude..: "Platform")
       )

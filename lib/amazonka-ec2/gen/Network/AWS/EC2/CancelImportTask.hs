@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCancelImportTask' smart constructor.
 data CancelImportTask = CancelImportTask'
-  { cancelReason ::
-      Lude.Maybe Lude.Text,
+  { -- | The reason for canceling the task.
+    cancelReason :: Lude.Maybe Lude.Text,
+    -- | The ID of the import image or import snapshot task to be canceled.
     importTaskId :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelImportTask' with the minimum fields required to make a request.
 --
 -- * 'cancelReason' - The reason for canceling the task.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'importTaskId' - The ID of the import image or import snapshot task to be canceled.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCancelImportTask ::
   CancelImportTask
 mkCancelImportTask =
@@ -123,27 +120,24 @@ instance Lude.ToQuery CancelImportTask where
 
 -- | /See:/ 'mkCancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
-  { state ::
-      Lude.Maybe Lude.Text,
+  { -- | The current state of the task being canceled.
+    state :: Lude.Maybe Lude.Text,
+    -- | The ID of the task being canceled.
     importTaskId :: Lude.Maybe Lude.Text,
+    -- | The current state of the task being canceled.
     previousState :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelImportTaskResponse' with the minimum fields required to make a request.
 --
+-- * 'state' - The current state of the task being canceled.
 -- * 'importTaskId' - The ID of the task being canceled.
 -- * 'previousState' - The current state of the task being canceled.
 -- * 'responseStatus' - The response status code.
--- * 'state' - The current state of the task being canceled.
 mkCancelImportTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

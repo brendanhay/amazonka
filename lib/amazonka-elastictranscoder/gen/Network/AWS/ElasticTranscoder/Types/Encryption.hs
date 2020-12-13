@@ -31,28 +31,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEncryption' smart constructor.
 data Encryption = Encryption'
-  { mode :: Lude.Maybe Lude.Text,
+  { -- | The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting your input files or encrypting your output files. Elastic Transcoder supports the following options:
+    --
+    --
+    --     * __s3:__ Amazon S3 creates and manages the keys used for encrypting your files.
+    --
+    --
+    --     * __s3-aws-kms:__ Amazon S3 calls the Amazon Key Management Service, which creates and manages the keys that are used for encrypting your files. If you specify @s3-aws-kms@ and you don't want to use the default key, you must add the AWS-KMS key that you want to use to your pipeline.
+    --
+    --
+    --     * __aes-cbc-pkcs7:__ A padded cipher-block mode of operation originally used for HLS files.
+    --
+    --
+    --     * __aes-ctr:__ AES Counter Mode.
+    --
+    --
+    --     * __aes-gcm:__ AES Galois Counter Mode, a mode of operation that is an authenticated encryption format, meaning that a file, key, or initialization vector that has been tampered with fails the decryption process.
+    --
+    --
+    -- For all three AES options, you must provide the following settings, which must be base64-encoded:
+    --
+    --     * __Key__
+    --
+    --
+    --     * __Key MD5__
+    --
+    --
+    --     * __Initialization Vector__
+    --
+    --
+    -- /Important:/ For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+    mode :: Lude.Maybe Lude.Text,
+    -- | The MD5 digest of the key that you used to encrypt your input file, or that you want Elastic Transcoder to use to encrypt your output file. Elastic Transcoder uses the key digest as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
     keyMD5 :: Lude.Maybe Lude.Text,
+    -- | The data encryption key that you want Elastic Transcoder to use to encrypt your output file, or that was used to encrypt your input file. The key must be base64-encoded and it must be one of the following bit lengths before being base64-encoded:
+    --
+    -- @128@ , @192@ , or @256@ .
+    -- The key must also be encrypted by using the Amazon Key Management Service.
     key :: Lude.Maybe Lude.Text,
+    -- | The series of random bits created by a random bit generator, unique for every encryption operation, that you used to encrypt your input files or that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
     initializationVector :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Encryption' with the minimum fields required to make a request.
 --
--- * 'initializationVector' - The series of random bits created by a random bit generator, unique for every encryption operation, that you used to encrypt your input files or that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
--- * 'key' - The data encryption key that you want Elastic Transcoder to use to encrypt your output file, or that was used to encrypt your input file. The key must be base64-encoded and it must be one of the following bit lengths before being base64-encoded:
---
--- @128@ , @192@ , or @256@ .
--- The key must also be encrypted by using the Amazon Key Management Service.
--- * 'keyMD5' - The MD5 digest of the key that you used to encrypt your input file, or that you want Elastic Transcoder to use to encrypt your output file. Elastic Transcoder uses the key digest as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
 -- * 'mode' - The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting your input files or encrypting your output files. Elastic Transcoder supports the following options:
 --
 --
@@ -83,6 +107,12 @@ data Encryption = Encryption'
 --
 --
 -- /Important:/ For the AES modes, your private encryption keys and your unencrypted data are never stored by AWS; therefore, it is important that you safely manage your encryption keys. If you lose them, you won't be able to unencrypt your data.
+-- * 'keyMD5' - The MD5 digest of the key that you used to encrypt your input file, or that you want Elastic Transcoder to use to encrypt your output file. Elastic Transcoder uses the key digest as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
+-- * 'key' - The data encryption key that you want Elastic Transcoder to use to encrypt your output file, or that was used to encrypt your input file. The key must be base64-encoded and it must be one of the following bit lengths before being base64-encoded:
+--
+-- @128@ , @192@ , or @256@ .
+-- The key must also be encrypted by using the Amazon Key Management Service.
+-- * 'initializationVector' - The series of random bits created by a random bit generator, unique for every encryption operation, that you used to encrypt your input files or that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes long before being base64-encoded.
 mkEncryption ::
   Encryption
 mkEncryption =

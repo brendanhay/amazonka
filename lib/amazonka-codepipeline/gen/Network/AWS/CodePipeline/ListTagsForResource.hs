@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.CodePipeline.ListTagsForResource
 
     -- ** Request lenses
     ltfrNextToken,
-    ltfrMaxResults,
     ltfrResourceARN,
+    ltfrMaxResults,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    resourceARN :: Lude.Text
+  { -- | The token that was returned from the previous API call, which would be used to return the next page of the list. The ListTagsforResource call lists all available tags in one call and does not use pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the resource to get tags for.
+    resourceARN :: Lude.Text,
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'nextToken' - The token that was returned from the previous API call, which would be used to return the next page of the list. The ListTagsforResource call lists all available tags in one call and does not use pagination.
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource to get tags for.
+-- * 'maxResults' - The maximum number of results to return in a single call.
 mkListTagsForResource ::
   -- | 'resourceARN'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListTagsForResource ::
 mkListTagsForResource pResourceARN_ =
   ListTagsForResource'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      resourceARN = pResourceARN_
+      resourceARN = pResourceARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | The token that was returned from the previous API call, which would be used to return the next page of the list. The ListTagsforResource call lists all available tags in one call and does not use pagination.
@@ -82,19 +79,19 @@ ltfrNextToken :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Text)
 ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return in a single call.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrMaxResults :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
-ltfrMaxResults = Lens.lens (maxResults :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The Amazon Resource Name (ARN) of the resource to get tags for.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
 ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | The maximum number of results to return in a single call.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrMaxResults :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
+ltfrMaxResults = Lens.lens (maxResults :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListTagsForResource where
   page rq rs
@@ -133,8 +130,8 @@ instance Lude.ToJSON ListTagsForResource where
     Lude.object
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("resourceArn" Lude..= resourceARN)
+            Lude.Just ("resourceArn" Lude..= resourceARN),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -146,25 +143,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent API call to return the next page of the list. The ListTagsforResource call lists all available tags in one call and does not use pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The tags for the resource.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent API call to return the next page of the list. The ListTagsforResource call lists all available tags in one call and does not use pagination.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags for the resource.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

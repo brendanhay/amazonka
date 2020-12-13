@@ -29,16 +29,10 @@ import Network.AWS.SMS.Types.SSMOutput
 --
 -- /See:/ 'mkAppValidationOutput' smart constructor.
 newtype AppValidationOutput = AppValidationOutput'
-  { ssmOutput ::
-      Lude.Maybe SSMOutput
+  { -- | Output from using SSM to validate the application.
+    ssmOutput :: Lude.Maybe SSMOutput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppValidationOutput' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,18 +21,18 @@ module Network.AWS.EC2.CreateSnapshots
 
     -- ** Request lenses
     csTagSpecifications,
+    csInstanceSpecification,
     csCopyTagsFromSource,
     csDescription,
     csDryRun,
-    csInstanceSpecification,
 
     -- * Destructuring the response
     CreateSnapshotsResponse (..),
     mkCreateSnapshotsResponse,
 
     -- ** Response lenses
-    crsSnapshots,
-    crsResponseStatus,
+    csrsSnapshots,
+    csrsResponseStatus,
   )
 where
 
@@ -43,29 +44,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSnapshots' smart constructor.
 data CreateSnapshots = CreateSnapshots'
-  { tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+  { -- | Tags to apply to every snapshot specified by the instance.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The instance to specify which volumes should be included in the snapshots.
+    instanceSpecification :: InstanceSpecification,
+    -- | Copies the tags from the specified volume to corresponding snapshot.
     copyTagsFromSource :: Lude.Maybe CopyTagsFromSource,
+    -- | A description propagated to every snapshot specified by the instance.
     description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    instanceSpecification :: InstanceSpecification
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshots' with the minimum fields required to make a request.
 --
+-- * 'tagSpecifications' - Tags to apply to every snapshot specified by the instance.
+-- * 'instanceSpecification' - The instance to specify which volumes should be included in the snapshots.
 -- * 'copyTagsFromSource' - Copies the tags from the specified volume to corresponding snapshot.
 -- * 'description' - A description propagated to every snapshot specified by the instance.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'instanceSpecification' - The instance to specify which volumes should be included in the snapshots.
--- * 'tagSpecifications' - Tags to apply to every snapshot specified by the instance.
 mkCreateSnapshots ::
   -- | 'instanceSpecification'
   InstanceSpecification ->
@@ -73,10 +72,10 @@ mkCreateSnapshots ::
 mkCreateSnapshots pInstanceSpecification_ =
   CreateSnapshots'
     { tagSpecifications = Lude.Nothing,
+      instanceSpecification = pInstanceSpecification_,
       copyTagsFromSource = Lude.Nothing,
       description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceSpecification = pInstanceSpecification_
+      dryRun = Lude.Nothing
     }
 
 -- | Tags to apply to every snapshot specified by the instance.
@@ -85,6 +84,13 @@ mkCreateSnapshots pInstanceSpecification_ =
 csTagSpecifications :: Lens.Lens' CreateSnapshots (Lude.Maybe [TagSpecification])
 csTagSpecifications = Lens.lens (tagSpecifications :: CreateSnapshots -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSnapshots)
 {-# DEPRECATED csTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+-- | The instance to specify which volumes should be included in the snapshots.
+--
+-- /Note:/ Consider using 'instanceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csInstanceSpecification :: Lens.Lens' CreateSnapshots InstanceSpecification
+csInstanceSpecification = Lens.lens (instanceSpecification :: CreateSnapshots -> InstanceSpecification) (\s a -> s {instanceSpecification = a} :: CreateSnapshots)
+{-# DEPRECATED csInstanceSpecification "Use generic-lens or generic-optics with 'instanceSpecification' instead." #-}
 
 -- | Copies the tags from the specified volume to corresponding snapshot.
 --
@@ -106,13 +112,6 @@ csDescription = Lens.lens (description :: CreateSnapshots -> Lude.Maybe Lude.Tex
 csDryRun :: Lens.Lens' CreateSnapshots (Lude.Maybe Lude.Bool)
 csDryRun = Lens.lens (dryRun :: CreateSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSnapshots)
 {-# DEPRECATED csDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The instance to specify which volumes should be included in the snapshots.
---
--- /Note:/ Consider using 'instanceSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csInstanceSpecification :: Lens.Lens' CreateSnapshots InstanceSpecification
-csInstanceSpecification = Lens.lens (instanceSpecification :: CreateSnapshots -> InstanceSpecification) (\s a -> s {instanceSpecification = a} :: CreateSnapshots)
-{-# DEPRECATED csInstanceSpecification "Use generic-lens or generic-optics with 'instanceSpecification' instead." #-}
 
 instance Lude.AWSRequest CreateSnapshots where
   type Rs CreateSnapshots = CreateSnapshotsResponse
@@ -140,31 +139,26 @@ instance Lude.ToQuery CreateSnapshots where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "InstanceSpecification" Lude.=: instanceSpecification,
         "CopyTagsFromSource" Lude.=: copyTagsFromSource,
         "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "InstanceSpecification" Lude.=: instanceSpecification
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateSnapshotsResponse' smart constructor.
 data CreateSnapshotsResponse = CreateSnapshotsResponse'
-  { snapshots ::
-      Lude.Maybe [SnapshotInfo],
+  { -- | List of snapshots.
+    snapshots :: Lude.Maybe [SnapshotInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSnapshotsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'snapshots' - List of snapshots.
+-- * 'responseStatus' - The response status code.
 mkCreateSnapshotsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -178,13 +172,13 @@ mkCreateSnapshotsResponse pResponseStatus_ =
 -- | List of snapshots.
 --
 -- /Note:/ Consider using 'snapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSnapshots :: Lens.Lens' CreateSnapshotsResponse (Lude.Maybe [SnapshotInfo])
-crsSnapshots = Lens.lens (snapshots :: CreateSnapshotsResponse -> Lude.Maybe [SnapshotInfo]) (\s a -> s {snapshots = a} :: CreateSnapshotsResponse)
-{-# DEPRECATED crsSnapshots "Use generic-lens or generic-optics with 'snapshots' instead." #-}
+csrsSnapshots :: Lens.Lens' CreateSnapshotsResponse (Lude.Maybe [SnapshotInfo])
+csrsSnapshots = Lens.lens (snapshots :: CreateSnapshotsResponse -> Lude.Maybe [SnapshotInfo]) (\s a -> s {snapshots = a} :: CreateSnapshotsResponse)
+{-# DEPRECATED csrsSnapshots "Use generic-lens or generic-optics with 'snapshots' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CreateSnapshotsResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CreateSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSnapshotsResponse)
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrsResponseStatus :: Lens.Lens' CreateSnapshotsResponse Lude.Int
+csrsResponseStatus = Lens.lens (responseStatus :: CreateSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSnapshotsResponse)
+{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

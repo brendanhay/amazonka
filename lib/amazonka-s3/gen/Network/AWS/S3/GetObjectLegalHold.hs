@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.S3.GetObjectLegalHold
 
     -- ** Request lenses
     golhVersionId,
-    golhRequestPayer,
-    golhExpectedBucketOwner,
     golhBucket,
+    golhRequestPayer,
     golhKey,
+    golhExpectedBucketOwner,
 
     -- * Destructuring the response
     GetObjectLegalHoldResponse (..),
@@ -45,31 +46,30 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetObjectLegalHold' smart constructor.
 data GetObjectLegalHold = GetObjectLegalHold'
-  { versionId ::
-      Lude.Maybe ObjectVersionId,
-    requestPayer :: Lude.Maybe RequestPayer,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | The version ID of the object whose Legal Hold status you want to retrieve.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The bucket name containing the object whose Legal Hold status you want to retrieve.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     bucket :: BucketName,
-    key :: ObjectKey
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | The key name for the object whose Legal Hold status you want to retrieve.
+    key :: ObjectKey,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectLegalHold' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The version ID of the object whose Legal Hold status you want to retrieve.
 -- * 'bucket' - The bucket name containing the object whose Legal Hold status you want to retrieve.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'requestPayer' -
 -- * 'key' - The key name for the object whose Legal Hold status you want to retrieve.
--- * 'requestPayer' - Undocumented field.
--- * 'versionId' - The version ID of the object whose Legal Hold status you want to retrieve.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkGetObjectLegalHold ::
   -- | 'bucket'
   BucketName ->
@@ -79,10 +79,10 @@ mkGetObjectLegalHold ::
 mkGetObjectLegalHold pBucket_ pKey_ =
   GetObjectLegalHold'
     { versionId = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
       bucket = pBucket_,
-      key = pKey_
+      requestPayer = Lude.Nothing,
+      key = pKey_,
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | The version ID of the object whose Legal Hold status you want to retrieve.
@@ -91,20 +91,6 @@ mkGetObjectLegalHold pBucket_ pKey_ =
 golhVersionId :: Lens.Lens' GetObjectLegalHold (Lude.Maybe ObjectVersionId)
 golhVersionId = Lens.lens (versionId :: GetObjectLegalHold -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: GetObjectLegalHold)
 {-# DEPRECATED golhVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-golhRequestPayer :: Lens.Lens' GetObjectLegalHold (Lude.Maybe RequestPayer)
-golhRequestPayer = Lens.lens (requestPayer :: GetObjectLegalHold -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: GetObjectLegalHold)
-{-# DEPRECATED golhRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-golhExpectedBucketOwner :: Lens.Lens' GetObjectLegalHold (Lude.Maybe Lude.Text)
-golhExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectLegalHold -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectLegalHold)
-{-# DEPRECATED golhExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name containing the object whose Legal Hold status you want to retrieve.
 --
@@ -115,12 +101,26 @@ golhBucket :: Lens.Lens' GetObjectLegalHold BucketName
 golhBucket = Lens.lens (bucket :: GetObjectLegalHold -> BucketName) (\s a -> s {bucket = a} :: GetObjectLegalHold)
 {-# DEPRECATED golhBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhRequestPayer :: Lens.Lens' GetObjectLegalHold (Lude.Maybe RequestPayer)
+golhRequestPayer = Lens.lens (requestPayer :: GetObjectLegalHold -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: GetObjectLegalHold)
+{-# DEPRECATED golhRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
 -- | The key name for the object whose Legal Hold status you want to retrieve.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 golhKey :: Lens.Lens' GetObjectLegalHold ObjectKey
 golhKey = Lens.lens (key :: GetObjectLegalHold -> ObjectKey) (\s a -> s {key = a} :: GetObjectLegalHold)
 {-# DEPRECATED golhKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+golhExpectedBucketOwner :: Lens.Lens' GetObjectLegalHold (Lude.Maybe Lude.Text)
+golhExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetObjectLegalHold -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetObjectLegalHold)
+{-# DEPRECATED golhExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetObjectLegalHold where
   type Rs GetObjectLegalHold = GetObjectLegalHoldResponse
@@ -149,17 +149,12 @@ instance Lude.ToQuery GetObjectLegalHold where
 
 -- | /See:/ 'mkGetObjectLegalHoldResponse' smart constructor.
 data GetObjectLegalHoldResponse = GetObjectLegalHoldResponse'
-  { legalHold ::
-      Lude.Maybe ObjectLockLegalHold,
+  { -- | The current Legal Hold status for the specified object.
+    legalHold :: Lude.Maybe ObjectLockLegalHold,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetObjectLegalHoldResponse' with the minimum fields required to make a request.

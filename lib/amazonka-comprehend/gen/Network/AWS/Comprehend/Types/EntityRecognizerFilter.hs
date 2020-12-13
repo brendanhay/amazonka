@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityRecognizerFilter' smart constructor.
 data EntityRecognizerFilter = EntityRecognizerFilter'
-  { status ::
-      Lude.Maybe ModelStatus,
+  { -- | The status of an entity recognizer.
+    status :: Lude.Maybe ModelStatus,
+    -- | Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.
     submitTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | Filters the list of entities based on the time that the list was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.
     submitTimeBefore :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerFilter' with the minimum fields required to make a request.

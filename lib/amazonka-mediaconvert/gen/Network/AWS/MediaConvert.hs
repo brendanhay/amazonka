@@ -1821,6 +1821,7 @@ module Network.AWS.MediaConvert
     jAccelerationSettings,
     jPriority,
     jStatusUpdateInterval,
+    jSettings,
     jARN,
     jCreatedAt,
     jHopDestinations,
@@ -1829,6 +1830,7 @@ module Network.AWS.MediaConvert
     jCurrentPhase,
     jQueue,
     jUserMetadata,
+    jRole,
     jBillingTagsSource,
     jOutputGroupDetails,
     jErrorCode,
@@ -1839,8 +1841,6 @@ module Network.AWS.MediaConvert
     jMessages,
     jErrorMessage,
     jAccelerationStatus,
-    jRole,
-    jSettings,
 
     -- ** JobMessages
     JobMessages (..),
@@ -1869,15 +1869,15 @@ module Network.AWS.MediaConvert
     jtLastUpdated,
     jtPriority,
     jtStatusUpdateInterval,
+    jtSettings,
     jtARN,
     jtCreatedAt,
     jtCategory,
     jtHopDestinations,
     jtQueue,
+    jtName,
     jtType,
     jtDescription,
-    jtSettings,
-    jtName,
 
     -- ** JobTemplateSettings
     JobTemplateSettings (..),
@@ -2001,11 +2001,11 @@ module Network.AWS.MediaConvert
     -- ** Mp3Settings
     Mp3Settings (..),
     mkMp3Settings,
-    mp3Channels,
-    mp3RateControlMode,
-    mp3SampleRate,
-    mp3Bitrate,
-    mp3VbrQuality,
+    msfChannels,
+    msfRateControlMode,
+    msfSampleRate,
+    msfBitrate,
+    msfVbrQuality,
 
     -- ** Mp4Settings
     Mp4Settings (..),
@@ -2020,11 +2020,11 @@ module Network.AWS.MediaConvert
     -- ** MpdSettings
     MpdSettings (..),
     mkMpdSettings,
-    mpdScte35Esam,
-    mpdAudioDuration,
-    mpdScte35Source,
-    mpdAccessibilityCaptionHints,
-    mpdCaptionContainerType,
+    msfScte35Esam,
+    msfAudioDuration,
+    msfScte35Source,
+    msfAccessibilityCaptionHints,
+    msfCaptionContainerType,
 
     -- ** Mpeg2Settings
     Mpeg2Settings (..),
@@ -2214,13 +2214,13 @@ module Network.AWS.MediaConvert
     Preset (..),
     mkPreset,
     pLastUpdated,
+    pSettings,
     pARN,
     pCreatedAt,
     pCategory,
+    pName,
     pType,
     pDescription,
-    pSettings,
-    pName,
 
     -- ** PresetSettings
     PresetSettings (..),
@@ -2255,10 +2255,10 @@ module Network.AWS.MediaConvert
     qReservationPlan,
     qPricingPlan,
     qSubmittedJobsCount,
+    qName,
     qProgressingJobsCount,
     qType,
     qDescription,
-    qName,
 
     -- ** QueueTransition
     QueueTransition (..),

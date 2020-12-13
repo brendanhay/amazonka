@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,7 +28,7 @@ module Network.AWS.ELBv2.DeregisterTargets
     mkDeregisterTargetsResponse,
 
     -- ** Response lenses
-    dtsrsResponseStatus,
+    dtrsResponseStatus,
   )
 where
 
@@ -39,17 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterTargets' smart constructor.
 data DeregisterTargets = DeregisterTargets'
-  { targetGroupARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupARN :: Lude.Text,
+    -- | The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.
     targets :: [TargetDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTargets' with the minimum fields required to make a request.
@@ -107,16 +103,10 @@ instance Lude.ToQuery DeregisterTargets where
 
 -- | /See:/ 'mkDeregisterTargetsResponse' smart constructor.
 newtype DeregisterTargetsResponse = DeregisterTargetsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTargetsResponse' with the minimum fields required to make a request.
@@ -132,6 +122,6 @@ mkDeregisterTargetsResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsResponseStatus :: Lens.Lens' DeregisterTargetsResponse Lude.Int
-dtsrsResponseStatus = Lens.lens (responseStatus :: DeregisterTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTargetsResponse)
-{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrsResponseStatus :: Lens.Lens' DeregisterTargetsResponse Lude.Int
+dtrsResponseStatus = Lens.lens (responseStatus :: DeregisterTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTargetsResponse)
+{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

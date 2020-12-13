@@ -17,11 +17,11 @@ module Network.AWS.IoT.Types.PutAssetPropertyValueEntry
     mkPutAssetPropertyValueEntry,
 
     -- * Lenses
+    papvePropertyValues,
     papveEntryId,
     papvePropertyAlias,
     papvePropertyId,
     papveAssetId,
-    papvePropertyValues,
   )
 where
 
@@ -33,42 +33,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPutAssetPropertyValueEntry' smart constructor.
 data PutAssetPropertyValueEntry = PutAssetPropertyValueEntry'
-  { entryId ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+    propertyValues :: Lude.NonEmpty AssetPropertyValue,
+    -- | Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
+    entryId :: Lude.Maybe Lude.Text,
+    -- | The name of the property alias associated with your asset property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
     propertyAlias :: Lude.Maybe Lude.Text,
+    -- | The ID of the asset's property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
     propertyId :: Lude.Maybe Lude.Text,
-    assetId :: Lude.Maybe Lude.Text,
-    propertyValues ::
-      Lude.NonEmpty AssetPropertyValue
+    -- | The ID of the AWS IoT SiteWise asset. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
+    assetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAssetPropertyValueEntry' with the minimum fields required to make a request.
 --
--- * 'assetId' - The ID of the AWS IoT SiteWise asset. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
+-- * 'propertyValues' - A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
 -- * 'entryId' - Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
 -- * 'propertyAlias' - The name of the property alias associated with your asset property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
 -- * 'propertyId' - The ID of the asset's property. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
--- * 'propertyValues' - A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+-- * 'assetId' - The ID of the AWS IoT SiteWise asset. You must specify either a @propertyAlias@ or both an @aliasId@ and a @propertyId@ . Accepts substitution templates.
 mkPutAssetPropertyValueEntry ::
   -- | 'propertyValues'
   Lude.NonEmpty AssetPropertyValue ->
   PutAssetPropertyValueEntry
 mkPutAssetPropertyValueEntry pPropertyValues_ =
   PutAssetPropertyValueEntry'
-    { entryId = Lude.Nothing,
+    { propertyValues = pPropertyValues_,
+      entryId = Lude.Nothing,
       propertyAlias = Lude.Nothing,
       propertyId = Lude.Nothing,
-      assetId = Lude.Nothing,
-      propertyValues = pPropertyValues_
+      assetId = Lude.Nothing
     }
+
+-- | A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
+--
+-- /Note:/ Consider using 'propertyValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+papvePropertyValues :: Lens.Lens' PutAssetPropertyValueEntry (Lude.NonEmpty AssetPropertyValue)
+papvePropertyValues = Lens.lens (propertyValues :: PutAssetPropertyValueEntry -> Lude.NonEmpty AssetPropertyValue) (\s a -> s {propertyValues = a} :: PutAssetPropertyValueEntry)
+{-# DEPRECATED papvePropertyValues "Use generic-lens or generic-optics with 'propertyValues' instead." #-}
 
 -- | Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
 --
@@ -98,34 +102,27 @@ papveAssetId :: Lens.Lens' PutAssetPropertyValueEntry (Lude.Maybe Lude.Text)
 papveAssetId = Lens.lens (assetId :: PutAssetPropertyValueEntry -> Lude.Maybe Lude.Text) (\s a -> s {assetId = a} :: PutAssetPropertyValueEntry)
 {-# DEPRECATED papveAssetId "Use generic-lens or generic-optics with 'assetId' instead." #-}
 
--- | A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
---
--- /Note:/ Consider using 'propertyValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-papvePropertyValues :: Lens.Lens' PutAssetPropertyValueEntry (Lude.NonEmpty AssetPropertyValue)
-papvePropertyValues = Lens.lens (propertyValues :: PutAssetPropertyValueEntry -> Lude.NonEmpty AssetPropertyValue) (\s a -> s {propertyValues = a} :: PutAssetPropertyValueEntry)
-{-# DEPRECATED papvePropertyValues "Use generic-lens or generic-optics with 'propertyValues' instead." #-}
-
 instance Lude.FromJSON PutAssetPropertyValueEntry where
   parseJSON =
     Lude.withObject
       "PutAssetPropertyValueEntry"
       ( \x ->
           PutAssetPropertyValueEntry'
-            Lude.<$> (x Lude..:? "entryId")
+            Lude.<$> (x Lude..: "propertyValues")
+            Lude.<*> (x Lude..:? "entryId")
             Lude.<*> (x Lude..:? "propertyAlias")
             Lude.<*> (x Lude..:? "propertyId")
             Lude.<*> (x Lude..:? "assetId")
-            Lude.<*> (x Lude..: "propertyValues")
       )
 
 instance Lude.ToJSON PutAssetPropertyValueEntry where
   toJSON PutAssetPropertyValueEntry' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("entryId" Lude..=) Lude.<$> entryId,
+          [ Lude.Just ("propertyValues" Lude..= propertyValues),
+            ("entryId" Lude..=) Lude.<$> entryId,
             ("propertyAlias" Lude..=) Lude.<$> propertyAlias,
             ("propertyId" Lude..=) Lude.<$> propertyId,
-            ("assetId" Lude..=) Lude.<$> assetId,
-            Lude.Just ("propertyValues" Lude..= propertyValues)
+            ("assetId" Lude..=) Lude.<$> assetId
           ]
       )

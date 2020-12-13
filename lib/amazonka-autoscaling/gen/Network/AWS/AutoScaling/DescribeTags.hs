@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,24 +50,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { filters :: Lude.Maybe [Filter],
+  { -- | One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, @auto-scaling-group@ ) is 1000.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
 -- * 'filters' - One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, @auto-scaling-group@ ) is 1000.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 mkDescribeTags ::
   DescribeTags
 mkDescribeTags =
@@ -140,25 +138,21 @@ instance Lude.ToQuery DescribeTags where
 
 -- | /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | One or more tags.
     tags :: Lude.Maybe [TagDescription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - One or more tags.
+-- * 'responseStatus' - The response status code.
 mkDescribeTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

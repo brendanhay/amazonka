@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.ElastiCache.IncreaseNodeGroupsInGlobalReplicationGroup
     mkIncreaseNodeGroupsInGlobalReplicationGroup,
 
     -- ** Request lenses
-    ingigrgRegionalConfigurations,
-    ingigrgGlobalReplicationGroupId,
     ingigrgNodeGroupCount,
+    ingigrgGlobalReplicationGroupId,
     ingigrgApplyImmediately,
+    ingigrgRegionalConfigurations,
 
     -- * Destructuring the response
     IncreaseNodeGroupsInGlobalReplicationGroupResponse (..),
@@ -42,65 +43,44 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkIncreaseNodeGroupsInGlobalReplicationGroup' smart constructor.
 data IncreaseNodeGroupsInGlobalReplicationGroup = IncreaseNodeGroupsInGlobalReplicationGroup'
-  { regionalConfigurations ::
-      Lude.Maybe
-        [RegionalConfiguration],
-    globalReplicationGroupId ::
-      Lude.Text,
-    nodeGroupCount ::
-      Lude.Int,
-    applyImmediately ::
-      Lude.Bool
+  { -- | The number of node groups you wish to add
+    nodeGroupCount :: Lude.Int,
+    -- | The name of the Global Datastore
+    globalReplicationGroupId :: Lude.Text,
+    -- | Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.
+    applyImmediately :: Lude.Bool,
+    -- | Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
+    regionalConfigurations :: Lude.Maybe [RegionalConfiguration]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncreaseNodeGroupsInGlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- * 'applyImmediately' - Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.
--- * 'globalReplicationGroupId' - The name of the Global Datastore
 -- * 'nodeGroupCount' - The number of node groups you wish to add
+-- * 'globalReplicationGroupId' - The name of the Global Datastore
+-- * 'applyImmediately' - Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.
 -- * 'regionalConfigurations' - Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
 mkIncreaseNodeGroupsInGlobalReplicationGroup ::
-  -- | 'globalReplicationGroupId'
-  Lude.Text ->
   -- | 'nodeGroupCount'
   Lude.Int ->
+  -- | 'globalReplicationGroupId'
+  Lude.Text ->
   -- | 'applyImmediately'
   Lude.Bool ->
   IncreaseNodeGroupsInGlobalReplicationGroup
 mkIncreaseNodeGroupsInGlobalReplicationGroup
-  pGlobalReplicationGroupId_
   pNodeGroupCount_
+  pGlobalReplicationGroupId_
   pApplyImmediately_ =
     IncreaseNodeGroupsInGlobalReplicationGroup'
-      { regionalConfigurations =
-          Lude.Nothing,
+      { nodeGroupCount =
+          pNodeGroupCount_,
         globalReplicationGroupId =
           pGlobalReplicationGroupId_,
-        nodeGroupCount = pNodeGroupCount_,
-        applyImmediately = pApplyImmediately_
+        applyImmediately = pApplyImmediately_,
+        regionalConfigurations = Lude.Nothing
       }
-
--- | Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
---
--- /Note:/ Consider using 'regionalConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ingigrgRegionalConfigurations :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup (Lude.Maybe [RegionalConfiguration])
-ingigrgRegionalConfigurations = Lens.lens (regionalConfigurations :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Maybe [RegionalConfiguration]) (\s a -> s {regionalConfigurations = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
-{-# DEPRECATED ingigrgRegionalConfigurations "Use generic-lens or generic-optics with 'regionalConfigurations' instead." #-}
-
--- | The name of the Global Datastore
---
--- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ingigrgGlobalReplicationGroupId :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup Lude.Text
-ingigrgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
-{-# DEPRECATED ingigrgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
 
 -- | The number of node groups you wish to add
 --
@@ -109,12 +89,26 @@ ingigrgNodeGroupCount :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup L
 ingigrgNodeGroupCount = Lens.lens (nodeGroupCount :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Int) (\s a -> s {nodeGroupCount = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
 {-# DEPRECATED ingigrgNodeGroupCount "Use generic-lens or generic-optics with 'nodeGroupCount' instead." #-}
 
+-- | The name of the Global Datastore
+--
+-- /Note:/ Consider using 'globalReplicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgGlobalReplicationGroupId :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup Lude.Text
+ingigrgGlobalReplicationGroupId = Lens.lens (globalReplicationGroupId :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Text) (\s a -> s {globalReplicationGroupId = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
+{-# DEPRECATED ingigrgGlobalReplicationGroupId "Use generic-lens or generic-optics with 'globalReplicationGroupId' instead." #-}
+
 -- | Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.
 --
 -- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ingigrgApplyImmediately :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup Lude.Bool
 ingigrgApplyImmediately = Lens.lens (applyImmediately :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Bool) (\s a -> s {applyImmediately = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
 {-# DEPRECATED ingigrgApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
+
+-- | Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
+--
+-- /Note:/ Consider using 'regionalConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ingigrgRegionalConfigurations :: Lens.Lens' IncreaseNodeGroupsInGlobalReplicationGroup (Lude.Maybe [RegionalConfiguration])
+ingigrgRegionalConfigurations = Lens.lens (regionalConfigurations :: IncreaseNodeGroupsInGlobalReplicationGroup -> Lude.Maybe [RegionalConfiguration]) (\s a -> s {regionalConfigurations = a} :: IncreaseNodeGroupsInGlobalReplicationGroup)
+{-# DEPRECATED ingigrgRegionalConfigurations "Use generic-lens or generic-optics with 'regionalConfigurations' instead." #-}
 
 instance Lude.AWSRequest IncreaseNodeGroupsInGlobalReplicationGroup where
   type
@@ -142,39 +136,28 @@ instance Lude.ToQuery IncreaseNodeGroupsInGlobalReplicationGroup where
       [ "Action"
           Lude.=: ("IncreaseNodeGroupsInGlobalReplicationGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
+        "NodeGroupCount" Lude.=: nodeGroupCount,
+        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
+        "ApplyImmediately" Lude.=: applyImmediately,
         "RegionalConfigurations"
           Lude.=: Lude.toQuery
             ( Lude.toQueryList "RegionalConfiguration"
                 Lude.<$> regionalConfigurations
-            ),
-        "GlobalReplicationGroupId" Lude.=: globalReplicationGroupId,
-        "NodeGroupCount" Lude.=: nodeGroupCount,
-        "ApplyImmediately" Lude.=: applyImmediately
+            )
       ]
 
 -- | /See:/ 'mkIncreaseNodeGroupsInGlobalReplicationGroupResponse' smart constructor.
 data IncreaseNodeGroupsInGlobalReplicationGroupResponse = IncreaseNodeGroupsInGlobalReplicationGroupResponse'
-  { globalReplicationGroup ::
-      Lude.Maybe
-        GlobalReplicationGroup,
-    responseStatus ::
-      Lude.Int
+  { globalReplicationGroup :: Lude.Maybe GlobalReplicationGroup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncreaseNodeGroupsInGlobalReplicationGroupResponse' with the minimum fields required to make a request.
 --
--- * 'globalReplicationGroup' - Undocumented field.
+-- * 'globalReplicationGroup' -
 -- * 'responseStatus' - The response status code.
 mkIncreaseNodeGroupsInGlobalReplicationGroupResponse ::
   -- | 'responseStatus'

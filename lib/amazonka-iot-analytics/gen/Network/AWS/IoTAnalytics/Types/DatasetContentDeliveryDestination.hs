@@ -31,26 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatasetContentDeliveryDestination' smart constructor.
 data DatasetContentDeliveryDestination = DatasetContentDeliveryDestination'
-  { s3DestinationConfiguration ::
-      Lude.Maybe
-        S3DestinationConfiguration,
-    iotEventsDestinationConfiguration ::
-      Lude.Maybe
-        IotEventsDestinationConfiguration
+  { -- | Configuration information for delivery of dataset contents to Amazon S3.
+    s3DestinationConfiguration :: Lude.Maybe S3DestinationConfiguration,
+    -- | Configuration information for delivery of dataset contents to AWS IoT Events.
+    iotEventsDestinationConfiguration :: Lude.Maybe IotEventsDestinationConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DatasetContentDeliveryDestination' with the minimum fields required to make a request.
 --
--- * 'iotEventsDestinationConfiguration' - Configuration information for delivery of dataset contents to AWS IoT Events.
 -- * 's3DestinationConfiguration' - Configuration information for delivery of dataset contents to Amazon S3.
+-- * 'iotEventsDestinationConfiguration' - Configuration information for delivery of dataset contents to AWS IoT Events.
 mkDatasetContentDeliveryDestination ::
   DatasetContentDeliveryDestination
 mkDatasetContentDeliveryDestination =

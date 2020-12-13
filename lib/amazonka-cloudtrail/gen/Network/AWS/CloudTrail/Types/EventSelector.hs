@@ -35,19 +35,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventSelector' smart constructor.
 data EventSelector = EventSelector'
-  { dataResources ::
-      Lude.Maybe [DataResource],
+  { -- | CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events> and <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in AWS CloudTrail> in the /AWS CloudTrail User Guide/ .
+    dataResources :: Lude.Maybe [DataResource],
+    -- | Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only API operation and @RunInstances@ is a write-only API operation.
+    --
+    -- By default, the value is @All@ .
     readWriteType :: Lude.Maybe ReadWriteType,
+    -- | An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing @"kms.amazonaws.com"@ . By default, @ExcludeManagementEventSources@ is empty, and AWS KMS events are included in events that are logged to your trail.
     excludeManagementEventSources :: Lude.Maybe [Lude.Text],
+    -- | Specify if you want your event selector to include management events for your trail.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events> in the /AWS CloudTrail User Guide/ .
+    -- By default, the value is @true@ .
+    -- The first copy of management events is free. You are charged for additional copies of management events that you are logging on any subsequent trail in the same region. For more information about CloudTrail pricing, see <http://aws.amazon.com/cloudtrail/pricing/ AWS CloudTrail Pricing> .
     includeManagementEvents :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSelector' with the minimum fields required to make a request.
@@ -55,15 +60,15 @@ data EventSelector = EventSelector'
 -- * 'dataResources' - CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 --
 -- For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events Data Events> and <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Limits in AWS CloudTrail> in the /AWS CloudTrail User Guide/ .
+-- * 'readWriteType' - Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only API operation and @RunInstances@ is a write-only API operation.
+--
+-- By default, the value is @All@ .
 -- * 'excludeManagementEventSources' - An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing @"kms.amazonaws.com"@ . By default, @ExcludeManagementEventSources@ is empty, and AWS KMS events are included in events that are logged to your trail.
 -- * 'includeManagementEvents' - Specify if you want your event selector to include management events for your trail.
 --
 -- For more information, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events Management Events> in the /AWS CloudTrail User Guide/ .
 -- By default, the value is @true@ .
 -- The first copy of management events is free. You are charged for additional copies of management events that you are logging on any subsequent trail in the same region. For more information about CloudTrail pricing, see <http://aws.amazon.com/cloudtrail/pricing/ AWS CloudTrail Pricing> .
--- * 'readWriteType' - Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 @GetConsoleOutput@ is a read-only API operation and @RunInstances@ is a write-only API operation.
---
--- By default, the value is @All@ .
 mkEventSelector ::
   EventSelector
 mkEventSelector =

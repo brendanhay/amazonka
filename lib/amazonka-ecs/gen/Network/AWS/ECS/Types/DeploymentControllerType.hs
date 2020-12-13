@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.DeploymentControllerType
   ( DeploymentControllerType
       ( DeploymentControllerType',
-        CodeDeploy,
         Ecs,
+        CodeDeploy,
         External
       ),
   )
@@ -46,18 +46,18 @@ newtype DeploymentControllerType = DeploymentControllerType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CodeDeploy :: DeploymentControllerType
-pattern CodeDeploy = DeploymentControllerType' "CODE_DEPLOY"
-
 pattern Ecs :: DeploymentControllerType
 pattern Ecs = DeploymentControllerType' "ECS"
+
+pattern CodeDeploy :: DeploymentControllerType
+pattern CodeDeploy = DeploymentControllerType' "CODE_DEPLOY"
 
 pattern External :: DeploymentControllerType
 pattern External = DeploymentControllerType' "EXTERNAL"
 
 {-# COMPLETE
-  CodeDeploy,
   Ecs,
+  CodeDeploy,
   External,
   DeploymentControllerType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.DataPipeline.QueryObjects
     mkQueryObjects,
 
     -- ** Request lenses
+    qoPipelineId,
+    qoSphere,
     qoQuery,
     qoMarker,
     qoLimit,
-    qoPipelineId,
-    qoSphere,
 
     -- * Destructuring the response
     QueryObjectsResponse (..),
@@ -50,28 +51,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkQueryObjects' smart constructor.
 data QueryObjects = QueryObjects'
-  { query :: Lude.Maybe Query,
-    marker :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Int,
+  { -- | The ID of the pipeline.
     pipelineId :: Lude.Text,
-    sphere :: Lude.Text
+    -- | Indicates whether the query applies to components or instances. The possible values are: @COMPONENT@ , @INSTANCE@ , and @ATTEMPT@ .
+    sphere :: Lude.Text,
+    -- | The query that defines the objects to be returned. The @Query@ object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.
+    query :: Lude.Maybe Query,
+    -- | The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @QueryObjects@ with the marker value from the previous call to retrieve the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of object names that @QueryObjects@ will return in a single call. The default value is 100.
+    limit :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryObjects' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of object names that @QueryObjects@ will return in a single call. The default value is 100.
--- * 'marker' - The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @QueryObjects@ with the marker value from the previous call to retrieve the next set of results.
 -- * 'pipelineId' - The ID of the pipeline.
--- * 'query' - The query that defines the objects to be returned. The @Query@ object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.
 -- * 'sphere' - Indicates whether the query applies to components or instances. The possible values are: @COMPONENT@ , @INSTANCE@ , and @ATTEMPT@ .
+-- * 'query' - The query that defines the objects to be returned. The @Query@ object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.
+-- * 'marker' - The starting point for the results to be returned. For the first call, this value should be empty. As long as there are more results, continue to call @QueryObjects@ with the marker value from the previous call to retrieve the next set of results.
+-- * 'limit' - The maximum number of object names that @QueryObjects@ will return in a single call. The default value is 100.
 mkQueryObjects ::
   -- | 'pipelineId'
   Lude.Text ->
@@ -80,12 +80,26 @@ mkQueryObjects ::
   QueryObjects
 mkQueryObjects pPipelineId_ pSphere_ =
   QueryObjects'
-    { query = Lude.Nothing,
+    { pipelineId = pPipelineId_,
+      sphere = pSphere_,
+      query = Lude.Nothing,
       marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      pipelineId = pPipelineId_,
-      sphere = pSphere_
+      limit = Lude.Nothing
     }
+
+-- | The ID of the pipeline.
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qoPipelineId :: Lens.Lens' QueryObjects Lude.Text
+qoPipelineId = Lens.lens (pipelineId :: QueryObjects -> Lude.Text) (\s a -> s {pipelineId = a} :: QueryObjects)
+{-# DEPRECATED qoPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+
+-- | Indicates whether the query applies to components or instances. The possible values are: @COMPONENT@ , @INSTANCE@ , and @ATTEMPT@ .
+--
+-- /Note:/ Consider using 'sphere' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qoSphere :: Lens.Lens' QueryObjects Lude.Text
+qoSphere = Lens.lens (sphere :: QueryObjects -> Lude.Text) (\s a -> s {sphere = a} :: QueryObjects)
+{-# DEPRECATED qoSphere "Use generic-lens or generic-optics with 'sphere' instead." #-}
 
 -- | The query that defines the objects to be returned. The @Query@ object can contain a maximum of ten selectors. The conditions in the query are limited to top-level String fields in the object. These filters can be applied to components, instances, and attempts.
 --
@@ -107,20 +121,6 @@ qoMarker = Lens.lens (marker :: QueryObjects -> Lude.Maybe Lude.Text) (\s a -> s
 qoLimit :: Lens.Lens' QueryObjects (Lude.Maybe Lude.Int)
 qoLimit = Lens.lens (limit :: QueryObjects -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: QueryObjects)
 {-# DEPRECATED qoLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The ID of the pipeline.
---
--- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qoPipelineId :: Lens.Lens' QueryObjects Lude.Text
-qoPipelineId = Lens.lens (pipelineId :: QueryObjects -> Lude.Text) (\s a -> s {pipelineId = a} :: QueryObjects)
-{-# DEPRECATED qoPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
-
--- | Indicates whether the query applies to components or instances. The possible values are: @COMPONENT@ , @INSTANCE@ , and @ATTEMPT@ .
---
--- /Note:/ Consider using 'sphere' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qoSphere :: Lens.Lens' QueryObjects Lude.Text
-qoSphere = Lens.lens (sphere :: QueryObjects -> Lude.Text) (\s a -> s {sphere = a} :: QueryObjects)
-{-# DEPRECATED qoSphere "Use generic-lens or generic-optics with 'sphere' instead." #-}
 
 instance Page.AWSPager QueryObjects where
   page rq rs
@@ -157,11 +157,11 @@ instance Lude.ToJSON QueryObjects where
   toJSON QueryObjects' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("query" Lude..=) Lude.<$> query,
+          [ Lude.Just ("pipelineId" Lude..= pipelineId),
+            Lude.Just ("sphere" Lude..= sphere),
+            ("query" Lude..=) Lude.<$> query,
             ("marker" Lude..=) Lude.<$> marker,
-            ("limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("pipelineId" Lude..= pipelineId),
-            Lude.Just ("sphere" Lude..= sphere)
+            ("limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -175,19 +175,16 @@ instance Lude.ToQuery QueryObjects where
 --
 -- /See:/ 'mkQueryObjectsResponse' smart constructor.
 data QueryObjectsResponse = QueryObjectsResponse'
-  { hasMoreResults ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether there are more results that can be obtained by a subsequent call.
+    hasMoreResults :: Lude.Maybe Lude.Bool,
+    -- | The identifiers that match the query selectors.
     ids :: Lude.Maybe [Lude.Text],
+    -- | The starting point for the next page of results. To view the next page of results, call @QueryObjects@ again with this marker value. If the value is null, there are no more results.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryObjectsResponse' with the minimum fields required to make a request.

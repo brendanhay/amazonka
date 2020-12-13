@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.EC2.DescribeFleetHistory
     mkDescribeFleetHistory,
 
     -- ** Request lenses
+    dfhStartTime,
     dfhNextToken,
     dfhEventType,
+    dfhFleetId,
     dfhDryRun,
     dfhMaxResults,
-    dfhFleetId,
-    dfhStartTime,
 
     -- * Destructuring the response
     DescribeFleetHistoryResponse (..),
@@ -50,46 +51,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeFleetHistory' smart constructor.
 data DescribeFleetHistory = DescribeFleetHistory'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    startTime :: Lude.DateTime,
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The type of events to describe. By default, all events are described.
     eventType :: Lude.Maybe FleetEventType,
-    dryRun :: Lude.Maybe Lude.Bool,
-    maxResults :: Lude.Maybe Lude.Int,
+    -- | The ID of the EC2 Fleet.
     fleetId :: Lude.Text,
-    startTime :: Lude.DateTime
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetHistory' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'startTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'nextToken' - The token for the next set of results.
 -- * 'eventType' - The type of events to describe. By default, all events are described.
 -- * 'fleetId' - The ID of the EC2 Fleet.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned @NextToken@ value.
--- * 'nextToken' - The token for the next set of results.
--- * 'startTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 mkDescribeFleetHistory ::
-  -- | 'fleetId'
-  Lude.Text ->
   -- | 'startTime'
   Lude.DateTime ->
+  -- | 'fleetId'
+  Lude.Text ->
   DescribeFleetHistory
-mkDescribeFleetHistory pFleetId_ pStartTime_ =
+mkDescribeFleetHistory pStartTime_ pFleetId_ =
   DescribeFleetHistory'
-    { nextToken = Lude.Nothing,
+    { startTime = pStartTime_,
+      nextToken = Lude.Nothing,
       eventType = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
       fleetId = pFleetId_,
-      startTime = pStartTime_
+      dryRun = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhStartTime :: Lens.Lens' DescribeFleetHistory Lude.DateTime
+dfhStartTime = Lens.lens (startTime :: DescribeFleetHistory -> Lude.DateTime) (\s a -> s {startTime = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The token for the next set of results.
 --
@@ -105,6 +112,13 @@ dfhEventType :: Lens.Lens' DescribeFleetHistory (Lude.Maybe FleetEventType)
 dfhEventType = Lens.lens (eventType :: DescribeFleetHistory -> Lude.Maybe FleetEventType) (\s a -> s {eventType = a} :: DescribeFleetHistory)
 {-# DEPRECATED dfhEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
 
+-- | The ID of the EC2 Fleet.
+--
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfhFleetId :: Lens.Lens' DescribeFleetHistory Lude.Text
+dfhFleetId = Lens.lens (fleetId :: DescribeFleetHistory -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetHistory)
+{-# DEPRECATED dfhFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -118,20 +132,6 @@ dfhDryRun = Lens.lens (dryRun :: DescribeFleetHistory -> Lude.Maybe Lude.Bool) (
 dfhMaxResults :: Lens.Lens' DescribeFleetHistory (Lude.Maybe Lude.Int)
 dfhMaxResults = Lens.lens (maxResults :: DescribeFleetHistory -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeFleetHistory)
 {-# DEPRECATED dfhMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the EC2 Fleet.
---
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfhFleetId :: Lens.Lens' DescribeFleetHistory Lude.Text
-dfhFleetId = Lens.lens (fleetId :: DescribeFleetHistory -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetHistory)
-{-# DEPRECATED dfhFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
-
--- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfhStartTime :: Lens.Lens' DescribeFleetHistory Lude.DateTime
-dfhStartTime = Lens.lens (startTime :: DescribeFleetHistory -> Lude.DateTime) (\s a -> s {startTime = a} :: DescribeFleetHistory)
-{-# DEPRECATED dfhStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 instance Lude.AWSRequest DescribeFleetHistory where
   type Rs DescribeFleetHistory = DescribeFleetHistoryResponse
@@ -161,45 +161,44 @@ instance Lude.ToQuery DescribeFleetHistory where
     Lude.mconcat
       [ "Action" Lude.=: ("DescribeFleetHistory" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "StartTime" Lude.=: startTime,
         "NextToken" Lude.=: nextToken,
         "EventType" Lude.=: eventType,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
         "FleetId" Lude.=: fleetId,
-        "StartTime" Lude.=: startTime
+        "DryRun" Lude.=: dryRun,
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkDescribeFleetHistoryResponse' smart constructor.
 data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
-  { startTime ::
-      Lude.Maybe Lude.DateTime,
-    lastEvaluatedTime ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    startTime :: Lude.Maybe Lude.DateTime,
+    -- | The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
+    --
+    -- If @nextToken@ indicates that there are more results, this value is not present.
+    lastEvaluatedTime :: Lude.Maybe Lude.DateTime,
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
-    historyRecords ::
-      Lude.Maybe [HistoryRecordEntry],
+    -- | Information about the events in the history of the EC2 Fleet.
+    historyRecords :: Lude.Maybe [HistoryRecordEntry],
+    -- | The ID of the EC Fleet.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetHistoryResponse' with the minimum fields required to make a request.
 --
--- * 'fleetId' - The ID of the EC Fleet.
--- * 'historyRecords' - Information about the events in the history of the EC2 Fleet.
+-- * 'startTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 -- * 'lastEvaluatedTime' - The last date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). All records up to this time were retrieved.
 --
 -- If @nextToken@ indicates that there are more results, this value is not present.
 -- * 'nextToken' - The token for the next set of results.
+-- * 'historyRecords' - Information about the events in the history of the EC2 Fleet.
+-- * 'fleetId' - The ID of the EC Fleet.
 -- * 'responseStatus' - The response status code.
--- * 'startTime' - The start date and time for the events, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 mkDescribeFleetHistoryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

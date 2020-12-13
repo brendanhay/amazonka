@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,11 +23,11 @@ module Network.AWS.ECR.UploadLayerPart
 
     -- ** Request lenses
     ulpRegistryId,
+    ulpPartFirstByte,
+    ulpLayerPartBlob,
+    ulpPartLastByte,
     ulpRepositoryName,
     ulpUploadId,
-    ulpPartFirstByte,
-    ulpPartLastByte,
-    ulpLayerPartBlob,
 
     -- * Destructuring the response
     UploadLayerPartResponse (..),
@@ -49,60 +50,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUploadLayerPart' smart constructor.
 data UploadLayerPart = UploadLayerPart'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName :: Lude.Text,
-    uploadId :: Lude.Text,
+  { -- | The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The position of the first byte of the layer part witin the overall image layer.
     partFirstByte :: Lude.Natural,
+    -- | The base64-encoded layer part payload.
+    layerPartBlob :: Lude.Base64,
+    -- | The position of the last byte of the layer part within the overall image layer.
     partLastByte :: Lude.Natural,
-    layerPartBlob :: Lude.Base64
+    -- | The name of the repository to which you are uploading layer parts.
+    repositoryName :: Lude.Text,
+    -- | The upload ID from a previous 'InitiateLayerUpload' operation to associate with the layer part upload.
+    uploadId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadLayerPart' with the minimum fields required to make a request.
 --
--- * 'layerPartBlob' - The base64-encoded layer part payload.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'partFirstByte' - The position of the first byte of the layer part witin the overall image layer.
--- * 'partLastByte' - The position of the last byte of the layer part within the overall image layer.
 -- * 'registryId' - The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed.
+-- * 'partFirstByte' - The position of the first byte of the layer part witin the overall image layer.
+-- * 'layerPartBlob' - The base64-encoded layer part payload.
+-- * 'partLastByte' - The position of the last byte of the layer part within the overall image layer.
 -- * 'repositoryName' - The name of the repository to which you are uploading layer parts.
 -- * 'uploadId' - The upload ID from a previous 'InitiateLayerUpload' operation to associate with the layer part upload.
 mkUploadLayerPart ::
+  -- | 'partFirstByte'
+  Lude.Natural ->
+  -- | 'layerPartBlob'
+  Lude.Base64 ->
+  -- | 'partLastByte'
+  Lude.Natural ->
   -- | 'repositoryName'
   Lude.Text ->
   -- | 'uploadId'
   Lude.Text ->
-  -- | 'partFirstByte'
-  Lude.Natural ->
-  -- | 'partLastByte'
-  Lude.Natural ->
-  -- | 'layerPartBlob'
-  Lude.Base64 ->
   UploadLayerPart
 mkUploadLayerPart
-  pRepositoryName_
-  pUploadId_
   pPartFirstByte_
+  pLayerPartBlob_
   pPartLastByte_
-  pLayerPartBlob_ =
+  pRepositoryName_
+  pUploadId_ =
     UploadLayerPart'
       { registryId = Lude.Nothing,
-        repositoryName = pRepositoryName_,
-        uploadId = pUploadId_,
         partFirstByte = pPartFirstByte_,
+        layerPartBlob = pLayerPartBlob_,
         partLastByte = pPartLastByte_,
-        layerPartBlob = pLayerPartBlob_
+        repositoryName = pRepositoryName_,
+        uploadId = pUploadId_
       }
 
 -- | The AWS account ID associated with the registry to which you are uploading layer parts. If you do not specify a registry, the default registry is assumed.
@@ -111,6 +107,31 @@ mkUploadLayerPart
 ulpRegistryId :: Lens.Lens' UploadLayerPart (Lude.Maybe Lude.Text)
 ulpRegistryId = Lens.lens (registryId :: UploadLayerPart -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: UploadLayerPart)
 {-# DEPRECATED ulpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+-- | The position of the first byte of the layer part witin the overall image layer.
+--
+-- /Note:/ Consider using 'partFirstByte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulpPartFirstByte :: Lens.Lens' UploadLayerPart Lude.Natural
+ulpPartFirstByte = Lens.lens (partFirstByte :: UploadLayerPart -> Lude.Natural) (\s a -> s {partFirstByte = a} :: UploadLayerPart)
+{-# DEPRECATED ulpPartFirstByte "Use generic-lens or generic-optics with 'partFirstByte' instead." #-}
+
+-- | The base64-encoded layer part payload.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'layerPartBlob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulpLayerPartBlob :: Lens.Lens' UploadLayerPart Lude.Base64
+ulpLayerPartBlob = Lens.lens (layerPartBlob :: UploadLayerPart -> Lude.Base64) (\s a -> s {layerPartBlob = a} :: UploadLayerPart)
+{-# DEPRECATED ulpLayerPartBlob "Use generic-lens or generic-optics with 'layerPartBlob' instead." #-}
+
+-- | The position of the last byte of the layer part within the overall image layer.
+--
+-- /Note:/ Consider using 'partLastByte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ulpPartLastByte :: Lens.Lens' UploadLayerPart Lude.Natural
+ulpPartLastByte = Lens.lens (partLastByte :: UploadLayerPart -> Lude.Natural) (\s a -> s {partLastByte = a} :: UploadLayerPart)
+{-# DEPRECATED ulpPartLastByte "Use generic-lens or generic-optics with 'partLastByte' instead." #-}
 
 -- | The name of the repository to which you are uploading layer parts.
 --
@@ -125,31 +146,6 @@ ulpRepositoryName = Lens.lens (repositoryName :: UploadLayerPart -> Lude.Text) (
 ulpUploadId :: Lens.Lens' UploadLayerPart Lude.Text
 ulpUploadId = Lens.lens (uploadId :: UploadLayerPart -> Lude.Text) (\s a -> s {uploadId = a} :: UploadLayerPart)
 {-# DEPRECATED ulpUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
-
--- | The position of the first byte of the layer part witin the overall image layer.
---
--- /Note:/ Consider using 'partFirstByte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulpPartFirstByte :: Lens.Lens' UploadLayerPart Lude.Natural
-ulpPartFirstByte = Lens.lens (partFirstByte :: UploadLayerPart -> Lude.Natural) (\s a -> s {partFirstByte = a} :: UploadLayerPart)
-{-# DEPRECATED ulpPartFirstByte "Use generic-lens or generic-optics with 'partFirstByte' instead." #-}
-
--- | The position of the last byte of the layer part within the overall image layer.
---
--- /Note:/ Consider using 'partLastByte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulpPartLastByte :: Lens.Lens' UploadLayerPart Lude.Natural
-ulpPartLastByte = Lens.lens (partLastByte :: UploadLayerPart -> Lude.Natural) (\s a -> s {partLastByte = a} :: UploadLayerPart)
-{-# DEPRECATED ulpPartLastByte "Use generic-lens or generic-optics with 'partLastByte' instead." #-}
-
--- | The base64-encoded layer part payload.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'layerPartBlob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulpLayerPartBlob :: Lens.Lens' UploadLayerPart Lude.Base64
-ulpLayerPartBlob = Lens.lens (layerPartBlob :: UploadLayerPart -> Lude.Base64) (\s a -> s {layerPartBlob = a} :: UploadLayerPart)
-{-# DEPRECATED ulpLayerPartBlob "Use generic-lens or generic-optics with 'layerPartBlob' instead." #-}
 
 instance Lude.AWSRequest UploadLayerPart where
   type Rs UploadLayerPart = UploadLayerPartResponse
@@ -183,11 +179,11 @@ instance Lude.ToJSON UploadLayerPart where
     Lude.object
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("uploadId" Lude..= uploadId),
             Lude.Just ("partFirstByte" Lude..= partFirstByte),
+            Lude.Just ("layerPartBlob" Lude..= layerPartBlob),
             Lude.Just ("partLastByte" Lude..= partLastByte),
-            Lude.Just ("layerPartBlob" Lude..= layerPartBlob)
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("uploadId" Lude..= uploadId)
           ]
       )
 
@@ -199,29 +195,27 @@ instance Lude.ToQuery UploadLayerPart where
 
 -- | /See:/ 'mkUploadLayerPartResponse' smart constructor.
 data UploadLayerPartResponse = UploadLayerPartResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The integer value of the last byte received in the request.
     lastByteReceived :: Lude.Maybe Lude.Natural,
+    -- | The repository name associated with the request.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | The upload ID associated with the request.
     uploadId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadLayerPartResponse' with the minimum fields required to make a request.
 --
--- * 'lastByteReceived' - The integer value of the last byte received in the request.
 -- * 'registryId' - The registry ID associated with the request.
+-- * 'lastByteReceived' - The integer value of the last byte received in the request.
 -- * 'repositoryName' - The repository name associated with the request.
--- * 'responseStatus' - The response status code.
 -- * 'uploadId' - The upload ID associated with the request.
+-- * 'responseStatus' - The response status code.
 mkUploadLayerPartResponse ::
   -- | 'responseStatus'
   Lude.Int ->

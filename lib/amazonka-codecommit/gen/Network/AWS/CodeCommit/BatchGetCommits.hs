@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetCommits' smart constructor.
 data BatchGetCommits = BatchGetCommits'
-  { commitIds :: [Lude.Text],
+  { -- | The full commit IDs of the commits to get information about.
+    commitIds :: [Lude.Text],
+    -- | The name of the repository that contains the commits.
     repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetCommits' with the minimum fields required to make a request.
@@ -121,18 +118,14 @@ instance Lude.ToQuery BatchGetCommits where
 
 -- | /See:/ 'mkBatchGetCommitsResponse' smart constructor.
 data BatchGetCommitsResponse = BatchGetCommitsResponse'
-  { commits ::
-      Lude.Maybe [Commit],
+  { -- | An array of commit data type objects, each of which contains information about a specified commit.
+    commits :: Lude.Maybe [Commit],
+    -- | Returns any commit IDs for which information could not be found. For example, if one of the commit IDs was a shortened SHA ID or that commit was not found in the specified repository, the ID returns an error object with more information.
     errors :: Lude.Maybe [BatchGetCommitsError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetCommitsResponse' with the minimum fields required to make a request.

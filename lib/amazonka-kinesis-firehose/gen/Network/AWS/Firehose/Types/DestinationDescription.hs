@@ -40,19 +40,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestinationDescription' smart constructor.
 data DestinationDescription = DestinationDescription'
-  { splunkDestinationDescription ::
-      Lude.Maybe SplunkDestinationDescription,
-    hTTPEndpointDestinationDescription ::
-      Lude.Maybe HTTPEndpointDestinationDescription,
-    s3DestinationDescription ::
-      Lude.Maybe S3DestinationDescription,
-    extendedS3DestinationDescription ::
-      Lude.Maybe ExtendedS3DestinationDescription,
-    elasticsearchDestinationDescription ::
-      Lude.Maybe
-        ElasticsearchDestinationDescription,
-    redshiftDestinationDescription ::
-      Lude.Maybe RedshiftDestinationDescription,
+  { -- | The destination in Splunk.
+    splunkDestinationDescription :: Lude.Maybe SplunkDestinationDescription,
+    -- | Describes the specified HTTP endpoint destination.
+    hTTPEndpointDestinationDescription :: Lude.Maybe HTTPEndpointDestinationDescription,
+    -- | [Deprecated] The destination in Amazon S3.
+    s3DestinationDescription :: Lude.Maybe S3DestinationDescription,
+    -- | The destination in Amazon S3.
+    extendedS3DestinationDescription :: Lude.Maybe ExtendedS3DestinationDescription,
+    -- | The destination in Amazon ES.
+    elasticsearchDestinationDescription :: Lude.Maybe ElasticsearchDestinationDescription,
+    -- | The destination in Amazon Redshift.
+    redshiftDestinationDescription :: Lude.Maybe RedshiftDestinationDescription,
+    -- | The ID of the destination.
     destinationId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -60,13 +60,13 @@ data DestinationDescription = DestinationDescription'
 
 -- | Creates a value of 'DestinationDescription' with the minimum fields required to make a request.
 --
--- * 'destinationId' - The ID of the destination.
--- * 'elasticsearchDestinationDescription' - The destination in Amazon ES.
--- * 'extendedS3DestinationDescription' - The destination in Amazon S3.
--- * 'hTTPEndpointDestinationDescription' - Describes the specified HTTP endpoint destination.
--- * 'redshiftDestinationDescription' - The destination in Amazon Redshift.
--- * 's3DestinationDescription' - [Deprecated] The destination in Amazon S3.
 -- * 'splunkDestinationDescription' - The destination in Splunk.
+-- * 'hTTPEndpointDestinationDescription' - Describes the specified HTTP endpoint destination.
+-- * 's3DestinationDescription' - [Deprecated] The destination in Amazon S3.
+-- * 'extendedS3DestinationDescription' - The destination in Amazon S3.
+-- * 'elasticsearchDestinationDescription' - The destination in Amazon ES.
+-- * 'redshiftDestinationDescription' - The destination in Amazon Redshift.
+-- * 'destinationId' - The ID of the destination.
 mkDestinationDescription ::
   -- | 'destinationId'
   Lude.Text ->

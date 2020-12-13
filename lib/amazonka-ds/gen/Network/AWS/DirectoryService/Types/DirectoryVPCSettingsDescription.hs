@@ -31,30 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectoryVPCSettingsDescription' smart constructor.
 data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
-  { subnetIds ::
-      Lude.Maybe [Lude.Text],
-    vpcId ::
-      Lude.Maybe Lude.Text,
-    securityGroupId ::
-      Lude.Maybe Lude.Text,
-    availabilityZones ::
-      Lude.Maybe [Lude.Text]
+  { -- | The identifiers of the subnets for the directory servers.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The identifier of the VPC that the directory is in.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | The domain controller security group identifier for the directory.
+    securityGroupId :: Lude.Maybe Lude.Text,
+    -- | The list of Availability Zones that the directory is in.
+    availabilityZones :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryVPCSettingsDescription' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - The list of Availability Zones that the directory is in.
--- * 'securityGroupId' - The domain controller security group identifier for the directory.
 -- * 'subnetIds' - The identifiers of the subnets for the directory servers.
 -- * 'vpcId' - The identifier of the VPC that the directory is in.
+-- * 'securityGroupId' - The domain controller security group identifier for the directory.
+-- * 'availabilityZones' - The list of Availability Zones that the directory is in.
 mkDirectoryVPCSettingsDescription ::
   DirectoryVPCSettingsDescription
 mkDirectoryVPCSettingsDescription =

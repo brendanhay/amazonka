@@ -35,40 +35,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFieldStats' smart constructor.
 data FieldStats = FieldStats'
-  { max :: Lude.Maybe Lude.Text,
+  { -- | The maximum value found in the specified field in the result set.
+    --
+    -- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+    max :: Lude.Maybe Lude.Text,
+    -- | The average of the values found in the specified field in the result set.
+    --
+    -- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
     mean :: Lude.Maybe Lude.Text,
+    -- | The number of documents that contain a value in the specified field in the result set.
     count :: Lude.Maybe Lude.Integer,
+    -- | The number of documents that do not contain a value in the specified field in the result set.
     missing :: Lude.Maybe Lude.Integer,
+    -- | The standard deviation of the values in the specified field in the result set.
     stddev :: Lude.Maybe Lude.Double,
+    -- | The minimum value found in the specified field in the result set.
+    --
+    -- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
     min :: Lude.Maybe Lude.Text,
+    -- | The sum of all field values in the result set squared.
     sumOfSquares :: Lude.Maybe Lude.Double,
+    -- | The sum of the field values across the documents in the result set. @null@ for date fields.
     sum :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FieldStats' with the minimum fields required to make a request.
 --
--- * 'count' - The number of documents that contain a value in the specified field in the result set.
 -- * 'max' - The maximum value found in the specified field in the result set.
 --
 -- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @max@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @max@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
 -- * 'mean' - The average of the values found in the specified field in the result set.
 --
 -- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @mean@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @mean@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
+-- * 'count' - The number of documents that contain a value in the specified field in the result set.
+-- * 'missing' - The number of documents that do not contain a value in the specified field in the result set.
+-- * 'stddev' - The standard deviation of the values in the specified field in the result set.
 -- * 'min' - The minimum value found in the specified field in the result set.
 --
 -- If the field is numeric (@int@ , @int-array@ , @double@ , or @double-array@ ), @min@ is the string representation of a double-precision 64-bit floating point value. If the field is @date@ or @date-array@ , @min@ is the string representation of a date with the format specified in <http://tools.ietf.org/html/rfc3339 IETF RFC3339> : yyyy-mm-ddTHH:mm:ss.SSSZ.
--- * 'missing' - The number of documents that do not contain a value in the specified field in the result set.
--- * 'stddev' - The standard deviation of the values in the specified field in the result set.
--- * 'sum' - The sum of the field values across the documents in the result set. @null@ for date fields.
 -- * 'sumOfSquares' - The sum of all field values in the result set squared.
+-- * 'sum' - The sum of the field values across the documents in the result set. @null@ for date fields.
 mkFieldStats ::
   FieldStats
 mkFieldStats =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.LexRuntime.GetSession
     mkGetSession,
 
     -- ** Request lenses
-    gsCheckpointLabelFilter,
-    gsBotName,
     gsBotAlias,
+    gsBotName,
     gsUserId,
+    gsCheckpointLabelFilter,
 
     -- * Destructuring the response
     GetSessionResponse (..),
@@ -46,44 +47,64 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSession' smart constructor.
 data GetSession = GetSession'
-  { checkpointLabelFilter ::
-      Lude.Maybe Lude.Text,
-    botName :: Lude.Text,
+  { -- | The alias in use for the bot that contains the session data.
     botAlias :: Lude.Text,
-    userId :: Lude.Text
+    -- | The name of the bot that contains the session data.
+    botName :: Lude.Text,
+    -- | The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
+    userId :: Lude.Text,
+    -- | A string used to filter the intents returned in the @recentIntentSummaryView@ structure.
+    --
+    -- When you specify a filter, only intents with their @checkpointLabel@ field set to that string are returned.
+    checkpointLabelFilter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSession' with the minimum fields required to make a request.
 --
 -- * 'botAlias' - The alias in use for the bot that contains the session data.
 -- * 'botName' - The name of the bot that contains the session data.
+-- * 'userId' - The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
 -- * 'checkpointLabelFilter' - A string used to filter the intents returned in the @recentIntentSummaryView@ structure.
 --
 -- When you specify a filter, only intents with their @checkpointLabel@ field set to that string are returned.
--- * 'userId' - The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
 mkGetSession ::
-  -- | 'botName'
-  Lude.Text ->
   -- | 'botAlias'
+  Lude.Text ->
+  -- | 'botName'
   Lude.Text ->
   -- | 'userId'
   Lude.Text ->
   GetSession
-mkGetSession pBotName_ pBotAlias_ pUserId_ =
+mkGetSession pBotAlias_ pBotName_ pUserId_ =
   GetSession'
-    { checkpointLabelFilter = Lude.Nothing,
+    { botAlias = pBotAlias_,
       botName = pBotName_,
-      botAlias = pBotAlias_,
-      userId = pUserId_
+      userId = pUserId_,
+      checkpointLabelFilter = Lude.Nothing
     }
+
+-- | The alias in use for the bot that contains the session data.
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsBotAlias :: Lens.Lens' GetSession Lude.Text
+gsBotAlias = Lens.lens (botAlias :: GetSession -> Lude.Text) (\s a -> s {botAlias = a} :: GetSession)
+{-# DEPRECATED gsBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
+
+-- | The name of the bot that contains the session data.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsBotName :: Lens.Lens' GetSession Lude.Text
+gsBotName = Lens.lens (botName :: GetSession -> Lude.Text) (\s a -> s {botName = a} :: GetSession)
+{-# DEPRECATED gsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+
+-- | The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsUserId :: Lens.Lens' GetSession Lude.Text
+gsUserId = Lens.lens (userId :: GetSession -> Lude.Text) (\s a -> s {userId = a} :: GetSession)
+{-# DEPRECATED gsUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | A string used to filter the intents returned in the @recentIntentSummaryView@ structure.
 --
@@ -93,27 +114,6 @@ mkGetSession pBotName_ pBotAlias_ pUserId_ =
 gsCheckpointLabelFilter :: Lens.Lens' GetSession (Lude.Maybe Lude.Text)
 gsCheckpointLabelFilter = Lens.lens (checkpointLabelFilter :: GetSession -> Lude.Maybe Lude.Text) (\s a -> s {checkpointLabelFilter = a} :: GetSession)
 {-# DEPRECATED gsCheckpointLabelFilter "Use generic-lens or generic-optics with 'checkpointLabelFilter' instead." #-}
-
--- | The name of the bot that contains the session data.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsBotName :: Lens.Lens' GetSession Lude.Text
-gsBotName = Lens.lens (botName :: GetSession -> Lude.Text) (\s a -> s {botName = a} :: GetSession)
-{-# DEPRECATED gsBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
-
--- | The alias in use for the bot that contains the session data.
---
--- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsBotAlias :: Lens.Lens' GetSession Lude.Text
-gsBotAlias = Lens.lens (botAlias :: GetSession -> Lude.Text) (\s a -> s {botAlias = a} :: GetSession)
-{-# DEPRECATED gsBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
-
--- | The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsUserId :: Lens.Lens' GetSession Lude.Text
-gsUserId = Lens.lens (userId :: GetSession -> Lude.Text) (\s a -> s {userId = a} :: GetSession)
-{-# DEPRECATED gsUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 instance Lude.AWSRequest GetSession where
   type Rs GetSession = GetSessionResponse
@@ -158,13 +158,21 @@ instance Lude.ToQuery GetSession where
 
 -- | /See:/ 'mkGetSessionResponse' smart constructor.
 data GetSessionResponse = GetSessionResponse'
-  { activeContexts ::
-      Lude.Maybe [ActiveContext],
+  { -- | A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the @PostContent@ , @PostText@ , or @PutSession@ operation.
+    --
+    -- You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.
+    activeContexts :: Lude.Maybe [ActiveContext],
+    -- | A unique identifier for the session.
     sessionId :: Lude.Maybe Lude.Text,
+    -- | An array of information about the intents used in the session. The array can contain a maximum of three summaries. If more than three intents are used in the session, the @recentIntentSummaryView@ operation contains information about the last three intents used.
+    --
+    -- If you set the @checkpointLabelFilter@ parameter in the request, the array contains only the intents with the specified label.
     recentIntentSummaryView :: Lude.Maybe [IntentSummary],
+    -- | Describes the current state of the bot.
     dialogAction :: Lude.Maybe DialogAction,
-    sessionAttributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Map of key/value pairs representing the session-specific context information. It contains application information passed between Amazon Lex and a client application.
+    sessionAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -175,13 +183,13 @@ data GetSessionResponse = GetSessionResponse'
 -- * 'activeContexts' - A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the @PostContent@ , @PostText@ , or @PutSession@ operation.
 --
 -- You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.
--- * 'dialogAction' - Describes the current state of the bot.
+-- * 'sessionId' - A unique identifier for the session.
 -- * 'recentIntentSummaryView' - An array of information about the intents used in the session. The array can contain a maximum of three summaries. If more than three intents are used in the session, the @recentIntentSummaryView@ operation contains information about the last three intents used.
 --
 -- If you set the @checkpointLabelFilter@ parameter in the request, the array contains only the intents with the specified label.
--- * 'responseStatus' - The response status code.
+-- * 'dialogAction' - Describes the current state of the bot.
 -- * 'sessionAttributes' - Map of key/value pairs representing the session-specific context information. It contains application information passed between Amazon Lex and a client application.
--- * 'sessionId' - A unique identifier for the session.
+-- * 'responseStatus' - The response status code.
 mkGetSessionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

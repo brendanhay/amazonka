@@ -31,25 +31,21 @@ import Network.AWS.XRay.Types.SamplingRule
 --
 -- /See:/ 'mkSamplingRuleRecord' smart constructor.
 data SamplingRuleRecord = SamplingRuleRecord'
-  { modifiedAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the rule was last modified.
+    modifiedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The sampling rule.
     samplingRule :: Lude.Maybe SamplingRule,
+    -- | When the rule was created.
     createdAt :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingRuleRecord' with the minimum fields required to make a request.
 --
--- * 'createdAt' - When the rule was created.
 -- * 'modifiedAt' - When the rule was last modified.
 -- * 'samplingRule' - The sampling rule.
+-- * 'createdAt' - When the rule was created.
 mkSamplingRuleRecord ::
   SamplingRuleRecord
 mkSamplingRuleRecord =

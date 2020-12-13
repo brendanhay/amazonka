@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,23 +46,20 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The identifier for the organization under which the groups exist.
     organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- * 'maxResults' - The maximum number of results to return in a single call.
 -- * 'organizationId' - The identifier for the organization under which the groups exist.
 mkListGroups ::
   -- | 'organizationId'
@@ -145,18 +143,14 @@ instance Lude.ToQuery ListGroups where
 
 -- | /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { groups ::
-      Lude.Maybe [Group],
+  { -- | The overview of groups for an organization.
+    groups :: Lude.Maybe [Group],
+    -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.

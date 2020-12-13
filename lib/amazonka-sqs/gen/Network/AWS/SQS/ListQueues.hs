@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,27 +50,25 @@ import Network.AWS.SQS.Types
 --
 -- /See:/ 'mkListQueues' smart constructor.
 data ListQueues = ListQueues'
-  { queueNamePrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueNamePrefix :: Lude.Maybe Lude.Text,
+    -- | Pagination token to request the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
--- * 'nextToken' - Pagination token to request the next set of results.
 -- * 'queueNamePrefix' - A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.
 --
 -- Queue URLs and names are case-sensitive.
+-- * 'nextToken' - Pagination token to request the next set of results.
+-- * 'maxResults' - Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
 mkListQueues ::
   ListQueues
 mkListQueues =
@@ -144,24 +143,20 @@ instance Lude.ToQuery ListQueues where
 --
 -- /See:/ 'mkListQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-  { queueURLs ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of queue URLs, up to 1,000 entries, or the value of MaxResults that you sent in the request.
+    queueURLs :: Lude.Maybe [Lude.Text],
+    -- | Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
 -- * 'queueURLs' - A list of queue URLs, up to 1,000 entries, or the value of MaxResults that you sent in the request.
+-- * 'nextToken' - Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
 -- * 'responseStatus' - The response status code.
 mkListQueuesResponse ::
   -- | 'responseStatus'

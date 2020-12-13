@@ -29,24 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRuleSummary' smart constructor.
 data RuleSummary = RuleSummary'
-  { ruleId :: Lude.Text,
+  { -- | A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
+    --
+    -- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
+    ruleId :: Lude.Text,
+    -- | A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleSummary' with the minimum fields required to make a request.
 --
--- * 'name' - A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 -- * 'ruleId' - A unique identifier for a @Rule@ . You use @RuleId@ to get more information about a @Rule@ (see 'GetRule' ), update a @Rule@ (see 'UpdateRule' ), insert a @Rule@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @Rule@ from AWS WAF (see 'DeleteRule' ).
 --
 -- @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
+-- * 'name' - A friendly name or description of the 'Rule' . You can't change the name of a @Rule@ after you create it.
 mkRuleSummary ::
   -- | 'ruleId'
   Lude.Text ->

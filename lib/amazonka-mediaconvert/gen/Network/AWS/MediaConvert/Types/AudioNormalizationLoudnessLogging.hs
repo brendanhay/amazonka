@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging
   ( AudioNormalizationLoudnessLogging
       ( AudioNormalizationLoudnessLogging',
-        DontLog,
-        Log
+        Log,
+        DontLog
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype AudioNormalizationLoudnessLogging = AudioNormalizationLoudnessLogging' L
       Lude.ToHeader
     )
 
-pattern DontLog :: AudioNormalizationLoudnessLogging
-pattern DontLog = AudioNormalizationLoudnessLogging' "DONT_LOG"
-
 pattern Log :: AudioNormalizationLoudnessLogging
 pattern Log = AudioNormalizationLoudnessLogging' "LOG"
 
+pattern DontLog :: AudioNormalizationLoudnessLogging
+pattern DontLog = AudioNormalizationLoudnessLogging' "DONT_LOG"
+
 {-# COMPLETE
-  DontLog,
   Log,
+  DontLog,
   AudioNormalizationLoudnessLogging'
   #-}

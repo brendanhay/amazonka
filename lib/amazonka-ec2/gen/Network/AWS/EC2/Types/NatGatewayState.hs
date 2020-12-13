@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.NatGatewayState
   ( NatGatewayState
       ( NatGatewayState',
-        NGSAvailable,
-        NGSDeleted,
-        NGSDeleting,
+        NGSPending,
         NGSFailed,
-        NGSPending
+        NGSAvailable,
+        NGSDeleting,
+        NGSDeleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype NatGatewayState = NatGatewayState' Lude.Text
       Lude.ToHeader
     )
 
-pattern NGSAvailable :: NatGatewayState
-pattern NGSAvailable = NatGatewayState' "available"
-
-pattern NGSDeleted :: NatGatewayState
-pattern NGSDeleted = NatGatewayState' "deleted"
-
-pattern NGSDeleting :: NatGatewayState
-pattern NGSDeleting = NatGatewayState' "deleting"
+pattern NGSPending :: NatGatewayState
+pattern NGSPending = NatGatewayState' "pending"
 
 pattern NGSFailed :: NatGatewayState
 pattern NGSFailed = NatGatewayState' "failed"
 
-pattern NGSPending :: NatGatewayState
-pattern NGSPending = NatGatewayState' "pending"
+pattern NGSAvailable :: NatGatewayState
+pattern NGSAvailable = NatGatewayState' "available"
+
+pattern NGSDeleting :: NatGatewayState
+pattern NGSDeleting = NatGatewayState' "deleting"
+
+pattern NGSDeleted :: NatGatewayState
+pattern NGSDeleted = NatGatewayState' "deleted"
 
 {-# COMPLETE
-  NGSAvailable,
-  NGSDeleted,
-  NGSDeleting,
-  NGSFailed,
   NGSPending,
+  NGSFailed,
+  NGSAvailable,
+  NGSDeleting,
+  NGSDeleted,
   NatGatewayState'
   #-}

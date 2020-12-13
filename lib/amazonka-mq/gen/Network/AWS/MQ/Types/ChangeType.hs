@@ -14,8 +14,8 @@ module Network.AWS.MQ.Types.ChangeType
   ( ChangeType
       ( ChangeType',
         Create,
-        Delete,
-        Update
+        Update,
+        Delete
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype ChangeType = ChangeType' Lude.Text
 pattern Create :: ChangeType
 pattern Create = ChangeType' "CREATE"
 
-pattern Delete :: ChangeType
-pattern Delete = ChangeType' "DELETE"
-
 pattern Update :: ChangeType
 pattern Update = ChangeType' "UPDATE"
 
+pattern Delete :: ChangeType
+pattern Delete = ChangeType' "DELETE"
+
 {-# COMPLETE
   Create,
-  Delete,
   Update,
+  Delete,
   ChangeType'
   #-}

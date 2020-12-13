@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,7 +27,7 @@ module Network.AWS.AppStream.DeleteDirectoryConfig
     mkDeleteDirectoryConfigResponse,
 
     -- ** Response lenses
-    ddcdrsResponseStatus,
+    ddcfrsResponseStatus,
   )
 where
 
@@ -38,16 +39,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDirectoryConfig' smart constructor.
 newtype DeleteDirectoryConfig = DeleteDirectoryConfig'
-  { directoryName ::
-      Lude.Text
+  { -- | The name of the directory configuration.
+    directoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectoryConfig' with the minimum fields required to make a request.
@@ -105,16 +100,10 @@ instance Lude.ToQuery DeleteDirectoryConfig where
 
 -- | /See:/ 'mkDeleteDirectoryConfigResponse' smart constructor.
 newtype DeleteDirectoryConfigResponse = DeleteDirectoryConfigResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDirectoryConfigResponse' with the minimum fields required to make a request.
@@ -130,6 +119,6 @@ mkDeleteDirectoryConfigResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcdrsResponseStatus :: Lens.Lens' DeleteDirectoryConfigResponse Lude.Int
-ddcdrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryConfigResponse)
-{-# DEPRECATED ddcdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcfrsResponseStatus :: Lens.Lens' DeleteDirectoryConfigResponse Lude.Int
+ddcfrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryConfigResponse)
+{-# DEPRECATED ddcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

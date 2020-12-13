@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,7 +39,7 @@ module Network.AWS.GameLift.DescribeAlias
     mkDescribeAlias,
 
     -- ** Request lenses
-    dAliasId,
+    daAliasId,
 
     -- * Destructuring the response
     DescribeAliasResponse (..),
@@ -59,14 +60,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeAlias' smart constructor.
-newtype DescribeAlias = DescribeAlias' {aliasId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeAlias = DescribeAlias'
+  { -- | The unique identifier for the fleet alias that you want to retrieve. You can use either the alias ID or ARN value.
+    aliasId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlias' with the minimum fields required to make a request.
@@ -81,9 +79,9 @@ mkDescribeAlias pAliasId_ = DescribeAlias' {aliasId = pAliasId_}
 -- | The unique identifier for the fleet alias that you want to retrieve. You can use either the alias ID or ARN value.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAliasId :: Lens.Lens' DescribeAlias Lude.Text
-dAliasId = Lens.lens (aliasId :: DescribeAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DescribeAlias)
-{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
+daAliasId :: Lens.Lens' DescribeAlias Lude.Text
+daAliasId = Lens.lens (aliasId :: DescribeAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DescribeAlias)
+{-# DEPRECATED daAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 instance Lude.AWSRequest DescribeAlias where
   type Rs DescribeAlias = DescribeAliasResponse
@@ -121,17 +119,12 @@ instance Lude.ToQuery DescribeAlias where
 --
 -- /See:/ 'mkDescribeAliasResponse' smart constructor.
 data DescribeAliasResponse = DescribeAliasResponse'
-  { alias ::
-      Lude.Maybe Alias,
+  { -- | The requested alias resource.
+    alias :: Lude.Maybe Alias,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAliasResponse' with the minimum fields required to make a request.

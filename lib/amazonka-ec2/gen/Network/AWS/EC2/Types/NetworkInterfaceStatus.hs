@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.NetworkInterfaceStatus
   ( NetworkInterfaceStatus
       ( NetworkInterfaceStatus',
+        NISAvailable,
         NISAssociated,
         NISAttaching,
-        NISAvailable,
-        NISDetaching,
-        NISInUse
+        NISInUse,
+        NISDetaching
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype NetworkInterfaceStatus = NetworkInterfaceStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern NISAvailable :: NetworkInterfaceStatus
+pattern NISAvailable = NetworkInterfaceStatus' "available"
+
 pattern NISAssociated :: NetworkInterfaceStatus
 pattern NISAssociated = NetworkInterfaceStatus' "associated"
 
 pattern NISAttaching :: NetworkInterfaceStatus
 pattern NISAttaching = NetworkInterfaceStatus' "attaching"
 
-pattern NISAvailable :: NetworkInterfaceStatus
-pattern NISAvailable = NetworkInterfaceStatus' "available"
+pattern NISInUse :: NetworkInterfaceStatus
+pattern NISInUse = NetworkInterfaceStatus' "in-use"
 
 pattern NISDetaching :: NetworkInterfaceStatus
 pattern NISDetaching = NetworkInterfaceStatus' "detaching"
 
-pattern NISInUse :: NetworkInterfaceStatus
-pattern NISInUse = NetworkInterfaceStatus' "in-use"
-
 {-# COMPLETE
+  NISAvailable,
   NISAssociated,
   NISAttaching,
-  NISAvailable,
-  NISDetaching,
   NISInUse,
+  NISDetaching,
   NetworkInterfaceStatus'
   #-}

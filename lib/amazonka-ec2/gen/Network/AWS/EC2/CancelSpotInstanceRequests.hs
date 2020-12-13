@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     mkCancelSpotInstanceRequests,
 
     -- ** Request lenses
-    csirDryRun,
     csirSpotInstanceRequestIds,
+    csirDryRun,
 
     -- * Destructuring the response
     CancelSpotInstanceRequestsResponse (..),
@@ -44,37 +45,25 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCancelSpotInstanceRequests' smart constructor.
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    spotInstanceRequestIds :: [Lude.Text]
+  { -- | One or more Spot Instance request IDs.
+    spotInstanceRequestIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotInstanceRequests' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'spotInstanceRequestIds' - One or more Spot Instance request IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCancelSpotInstanceRequests ::
   CancelSpotInstanceRequests
 mkCancelSpotInstanceRequests =
   CancelSpotInstanceRequests'
-    { dryRun = Lude.Nothing,
-      spotInstanceRequestIds = Lude.mempty
+    { spotInstanceRequestIds = Lude.mempty,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csirDryRun :: Lens.Lens' CancelSpotInstanceRequests (Lude.Maybe Lude.Bool)
-csirDryRun = Lens.lens (dryRun :: CancelSpotInstanceRequests -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelSpotInstanceRequests)
-{-# DEPRECATED csirDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more Spot Instance request IDs.
 --
@@ -82,6 +71,13 @@ csirDryRun = Lens.lens (dryRun :: CancelSpotInstanceRequests -> Lude.Maybe Lude.
 csirSpotInstanceRequestIds :: Lens.Lens' CancelSpotInstanceRequests [Lude.Text]
 csirSpotInstanceRequestIds = Lens.lens (spotInstanceRequestIds :: CancelSpotInstanceRequests -> [Lude.Text]) (\s a -> s {spotInstanceRequestIds = a} :: CancelSpotInstanceRequests)
 {-# DEPRECATED csirSpotInstanceRequestIds "Use generic-lens or generic-optics with 'spotInstanceRequestIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csirDryRun :: Lens.Lens' CancelSpotInstanceRequests (Lude.Maybe Lude.Bool)
+csirDryRun = Lens.lens (dryRun :: CancelSpotInstanceRequests -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CancelSpotInstanceRequests)
+{-# DEPRECATED csirDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CancelSpotInstanceRequests where
   type
@@ -110,27 +106,20 @@ instance Lude.ToQuery CancelSpotInstanceRequests where
       [ "Action"
           Lude.=: ("CancelSpotInstanceRequests" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "SpotInstanceRequestId" spotInstanceRequestIds
+        Lude.toQueryList "SpotInstanceRequestId" spotInstanceRequestIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of CancelSpotInstanceRequests.
 --
 -- /See:/ 'mkCancelSpotInstanceRequestsResponse' smart constructor.
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
-  { cancelledSpotInstanceRequests ::
-      Lude.Maybe
-        [CancelledSpotInstanceRequest],
-    responseStatus ::
-      Lude.Int
+  { -- | One or more Spot Instance requests.
+    cancelledSpotInstanceRequests :: Lude.Maybe [CancelledSpotInstanceRequest],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSpotInstanceRequestsResponse' with the minimum fields required to make a request.

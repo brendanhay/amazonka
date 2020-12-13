@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBillingDetails' smart constructor.
 data BillingDetails = BillingDetails'
-  { billedMemoryUsedInMB ::
-      Lude.Maybe Lude.Natural,
+  { -- | Billed memory consumption of your workflow, in MB.
+    billedMemoryUsedInMB :: Lude.Maybe Lude.Natural,
+    -- | Billed duration of your workflow, in milliseconds.
     billedDurationInMilliseconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BillingDetails' with the minimum fields required to make a request.
 --
--- * 'billedDurationInMilliseconds' - Billed duration of your workflow, in milliseconds.
 -- * 'billedMemoryUsedInMB' - Billed memory consumption of your workflow, in MB.
+-- * 'billedDurationInMilliseconds' - Billed duration of your workflow, in milliseconds.
 mkBillingDetails ::
   BillingDetails
 mkBillingDetails =

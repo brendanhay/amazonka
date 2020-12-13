@@ -26,25 +26,14 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkBlobAttributeValue' smart constructor.
 newtype BlobAttributeValue = BlobAttributeValue'
-  { value ::
-      Lude.Maybe Lude.Base64
+  { value :: Lude.Maybe Lude.Base64
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlobAttributeValue' with the minimum fields required to make a request.
 --
--- * 'value' - Undocumented field.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'value' -
 mkBlobAttributeValue ::
   BlobAttributeValue
 mkBlobAttributeValue = BlobAttributeValue' {value = Lude.Nothing}

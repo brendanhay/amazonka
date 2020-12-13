@@ -36,29 +36,29 @@ import Network.AWS.XRay.Types.HistogramEntry
 --
 -- /See:/ 'mkEdge' smart constructor.
 data Edge = Edge'
-  { startTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The start time of the first segment on the edge.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Aliases for the edge.
     aliases :: Lude.Maybe [Alias],
+    -- | A histogram that maps the spread of client response times on an edge.
     responseTimeHistogram :: Lude.Maybe [HistogramEntry],
+    -- | Identifier of the edge. Unique within a service map.
     referenceId :: Lude.Maybe Lude.Int,
+    -- | The end time of the last segment on the edge.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | Response statistics for segments on the edge.
     summaryStatistics :: Lude.Maybe EdgeStatistics
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Edge' with the minimum fields required to make a request.
 --
--- * 'aliases' - Aliases for the edge.
--- * 'endTime' - The end time of the last segment on the edge.
--- * 'referenceId' - Identifier of the edge. Unique within a service map.
--- * 'responseTimeHistogram' - A histogram that maps the spread of client response times on an edge.
 -- * 'startTime' - The start time of the first segment on the edge.
+-- * 'aliases' - Aliases for the edge.
+-- * 'responseTimeHistogram' - A histogram that maps the spread of client response times on an edge.
+-- * 'referenceId' - Identifier of the edge. Unique within a service map.
+-- * 'endTime' - The end time of the last segment on the edge.
 -- * 'summaryStatistics' - Response statistics for segments on the edge.
 mkEdge ::
   Edge

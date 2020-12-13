@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputLambdaProcessorUpdate' smart constructor.
 data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
-  { roleARNUpdate ::
-      Lude.Maybe Lude.Text,
-    resourceARNUpdate ::
-      Lude.Maybe Lude.Text
+  { -- | The ARN of the new IAM role that is used to access the AWS Lambda function.
+    roleARNUpdate :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+    resourceARNUpdate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputLambdaProcessorUpdate' with the minimum fields required to make a request.
 --
--- * 'resourceARNUpdate' - The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
 -- * 'roleARNUpdate' - The ARN of the new IAM role that is used to access the AWS Lambda function.
+-- * 'resourceARNUpdate' - The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
 mkInputLambdaProcessorUpdate ::
   InputLambdaProcessorUpdate
 mkInputLambdaProcessorUpdate =

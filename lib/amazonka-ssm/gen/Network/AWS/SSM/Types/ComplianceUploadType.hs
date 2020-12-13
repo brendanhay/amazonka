@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.ComplianceUploadType
   ( ComplianceUploadType
       ( ComplianceUploadType',
-        Complete,
-        Partial
+        CUTComplete,
+        CUTPartial
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ComplianceUploadType = ComplianceUploadType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Complete :: ComplianceUploadType
-pattern Complete = ComplianceUploadType' "COMPLETE"
+pattern CUTComplete :: ComplianceUploadType
+pattern CUTComplete = ComplianceUploadType' "COMPLETE"
 
-pattern Partial :: ComplianceUploadType
-pattern Partial = ComplianceUploadType' "PARTIAL"
+pattern CUTPartial :: ComplianceUploadType
+pattern CUTPartial = ComplianceUploadType' "PARTIAL"
 
 {-# COMPLETE
-  Complete,
-  Partial,
+  CUTComplete,
+  CUTPartial,
   ComplianceUploadType'
   #-}

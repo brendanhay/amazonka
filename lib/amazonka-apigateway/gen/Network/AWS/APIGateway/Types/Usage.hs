@@ -34,28 +34,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUsage' smart constructor.
 data Usage = Usage'
-  { usagePlanId :: Lude.Maybe Lude.Text,
+  { -- | The plan Id associated with this usage data.
+    usagePlanId :: Lude.Maybe Lude.Text,
+    -- | The ending date of the usage data.
     endDate :: Lude.Maybe Lude.Text,
+    -- | The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, @{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}@ , where @{api_key}@ stands for an API key value and the daily log entry is of the format @[used quota, remaining quota]@ .
     items :: Lude.Maybe (Lude.HashMap Lude.Text ([[Lude.Integer]])),
+    -- | The starting date of the usage data.
     startDate :: Lude.Maybe Lude.Text,
     position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Usage' with the minimum fields required to make a request.
 --
+-- * 'usagePlanId' - The plan Id associated with this usage data.
 -- * 'endDate' - The ending date of the usage data.
 -- * 'items' - The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, @{..., "values" : { "{api_key}" : [ [0, 100], [10, 90], [100, 10]]}@ , where @{api_key}@ stands for an API key value and the daily log entry is of the format @[used quota, remaining quota]@ .
--- * 'position' - Undocumented field.
 -- * 'startDate' - The starting date of the usage data.
--- * 'usagePlanId' - The plan Id associated with this usage data.
+-- * 'position' -
 mkUsage ::
   Usage
 mkUsage =

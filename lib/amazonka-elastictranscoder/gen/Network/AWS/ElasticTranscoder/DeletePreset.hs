@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     mkDeletePreset,
 
     -- ** Request lenses
-    dpId,
+    dId,
 
     -- * Destructuring the response
     DeletePresetResponse (..),
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 -- | The @DeletePresetRequest@ structure.
 --
 -- /See:/ 'mkDeletePreset' smart constructor.
-newtype DeletePreset = DeletePreset' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeletePreset = DeletePreset'
+  { -- | The identifier of the preset for which you want to get detailed information.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePreset' with the minimum fields required to make a request.
@@ -61,9 +59,9 @@ mkDeletePreset pId_ = DeletePreset' {id = pId_}
 -- | The identifier of the preset for which you want to get detailed information.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpId :: Lens.Lens' DeletePreset Lude.Text
-dpId = Lens.lens (id :: DeletePreset -> Lude.Text) (\s a -> s {id = a} :: DeletePreset)
-{-# DEPRECATED dpId "Use generic-lens or generic-optics with 'id' instead." #-}
+dId :: Lens.Lens' DeletePreset Lude.Text
+dId = Lens.lens (id :: DeletePreset -> Lude.Text) (\s a -> s {id = a} :: DeletePreset)
+{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DeletePreset where
   type Rs DeletePreset = DeletePresetResponse
@@ -88,16 +86,10 @@ instance Lude.ToQuery DeletePreset where
 --
 -- /See:/ 'mkDeletePresetResponse' smart constructor.
 newtype DeletePresetResponse = DeletePresetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeletePresetResponse' with the minimum fields required to make a request.

@@ -32,20 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEbuTtDDestinationSettings' smart constructor.
 data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
-  { fillLineGap ::
-      Lude.Maybe EbuTtDFillLineGapControl,
+  { -- | Specifies how to handle the gap between the lines (in multi-line captions).
+    --
+    --
+    -- - enabled: Fill with the captions background color (as specified in the input captions).
+    -- - disabled: Leave the gap unfilled.
+    fillLineGap :: Lude.Maybe EbuTtDFillLineGapControl,
+    -- | Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to "monospaced". (If styleControl is set to exclude, the font family is always set to "monospaced".)
+    --
+    --
+    -- You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size.
+    --
+    -- - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font).
+    -- - Leave blank to set the family to “monospace”.
     fontFamily :: Lude.Maybe Lude.Text,
-    styleControl ::
-      Lude.Maybe
-        EbuTtDDestinationStyleControl
+    -- | Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions.
+    --
+    --
+    -- - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext.
+    -- - exclude: In the font data attached to the EBU-TT captions, set the font family to "monospaced". Do not include any other style information.
+    styleControl :: Lude.Maybe EbuTtDDestinationStyleControl
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EbuTtDDestinationSettings' with the minimum fields required to make a request.

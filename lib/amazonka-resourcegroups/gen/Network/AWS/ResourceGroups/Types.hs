@@ -38,9 +38,9 @@ module Network.AWS.ResourceGroups.Types
     -- * Group
     Group (..),
     mkGroup,
-    gDescription,
-    gGroupARN,
     gName,
+    gGroupARN,
+    gDescription,
 
     -- * GroupConfiguration
     GroupConfiguration (..),
@@ -65,8 +65,8 @@ module Network.AWS.ResourceGroups.Types
     -- * GroupFilter
     GroupFilter (..),
     mkGroupFilter,
-    gfName,
     gfValues,
+    gfName,
 
     -- * GroupIdentifier
     GroupIdentifier (..),
@@ -77,8 +77,8 @@ module Network.AWS.ResourceGroups.Types
     -- * GroupQuery
     GroupQuery (..),
     mkGroupQuery,
-    gqGroupName,
     gqResourceQuery,
+    gqGroupName,
 
     -- * QueryError
     QueryError (..),
@@ -89,8 +89,8 @@ module Network.AWS.ResourceGroups.Types
     -- * ResourceFilter
     ResourceFilter (..),
     mkResourceFilter,
-    rfName,
     rfValues,
+    rfName,
 
     -- * ResourceIdentifier
     ResourceIdentifier (..),
@@ -101,8 +101,8 @@ module Network.AWS.ResourceGroups.Types
     -- * ResourceQuery
     ResourceQuery (..),
     mkResourceQuery,
-    rqType,
     rqSearchQuery,
+    rqType,
   )
 where
 

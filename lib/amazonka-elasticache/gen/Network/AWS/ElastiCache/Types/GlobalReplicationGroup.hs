@@ -47,56 +47,61 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalReplicationGroup' smart constructor.
 data GlobalReplicationGroup = GlobalReplicationGroup'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The Elasticache Redis engine version.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The status of the Global Datastore
     status :: Lude.Maybe Lude.Text,
+    -- | The cache node type of the Global Datastore
     cacheNodeType :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether the Global Datastore is cluster enabled.
     clusterEnabled :: Lude.Maybe Lude.Bool,
-    atRestEncryptionEnabled ::
-      Lude.Maybe Lude.Bool,
+    -- | A flag that enables encryption at rest when set to @true@ .
+    --
+    -- You cannot modify the value of @AtRestEncryptionEnabled@ after the replication group is created. To enable encryption at rest on a replication group you must set @AtRestEncryptionEnabled@ to @true@ when you create the replication group.
+    -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+    atRestEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The ARN (Amazon Resource Name) of the global replication group.
     arn :: Lude.Maybe Lude.Text,
-    transitEncryptionEnabled ::
-      Lude.Maybe Lude.Bool,
-    members ::
-      Lude.Maybe [GlobalReplicationGroupMember],
+    -- | A flag that enables in-transit encryption when set to true. You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to true when you create a cluster.
+    transitEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The replication groups that comprise the Global Datastore.
+    members :: Lude.Maybe [GlobalReplicationGroupMember],
+    -- | The Elasticache engine. For Redis only.
     engine :: Lude.Maybe Lude.Text,
+    -- | A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
+    --
+    -- Default: @false@
     authTokenEnabled :: Lude.Maybe Lude.Bool,
-    globalNodeGroups ::
-      Lude.Maybe [GlobalNodeGroup],
-    globalReplicationGroupId ::
-      Lude.Maybe Lude.Text,
-    globalReplicationGroupDescription ::
-      Lude.Maybe Lude.Text
+    -- | Indicates the slot configuration and global identifier for each slice group.
+    globalNodeGroups :: Lude.Maybe [GlobalNodeGroup],
+    -- | The name of the Global Datastore
+    globalReplicationGroupId :: Lude.Maybe Lude.Text,
+    -- | The optional description of the Global Datastore
+    globalReplicationGroupDescription :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalReplicationGroup' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN (Amazon Resource Name) of the global replication group.
+-- * 'engineVersion' - The Elasticache Redis engine version.
+-- * 'status' - The status of the Global Datastore
+-- * 'cacheNodeType' - The cache node type of the Global Datastore
+-- * 'clusterEnabled' - A flag that indicates whether the Global Datastore is cluster enabled.
 -- * 'atRestEncryptionEnabled' - A flag that enables encryption at rest when set to @true@ .
 --
 -- You cannot modify the value of @AtRestEncryptionEnabled@ after the replication group is created. To enable encryption at rest on a replication group you must set @AtRestEncryptionEnabled@ to @true@ when you create the replication group.
 -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+-- * 'arn' - The ARN (Amazon Resource Name) of the global replication group.
+-- * 'transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to true when you create a cluster.
+-- * 'members' - The replication groups that comprise the Global Datastore.
+-- * 'engine' - The Elasticache engine. For Redis only.
 -- * 'authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
 --
 -- Default: @false@
--- * 'cacheNodeType' - The cache node type of the Global Datastore
--- * 'clusterEnabled' - A flag that indicates whether the Global Datastore is cluster enabled.
--- * 'engine' - The Elasticache engine. For Redis only.
--- * 'engineVersion' - The Elasticache Redis engine version.
 -- * 'globalNodeGroups' - Indicates the slot configuration and global identifier for each slice group.
--- * 'globalReplicationGroupDescription' - The optional description of the Global Datastore
 -- * 'globalReplicationGroupId' - The name of the Global Datastore
--- * 'members' - The replication groups that comprise the Global Datastore.
--- * 'status' - The status of the Global Datastore
--- * 'transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to true when you create a cluster.
+-- * 'globalReplicationGroupDescription' - The optional description of the Global Datastore
 mkGlobalReplicationGroup ::
   GlobalReplicationGroup
 mkGlobalReplicationGroup =

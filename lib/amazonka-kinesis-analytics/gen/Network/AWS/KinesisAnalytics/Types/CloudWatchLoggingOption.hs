@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudWatchLoggingOption' smart constructor.
 data CloudWatchLoggingOption = CloudWatchLoggingOption'
-  { logStreamARN ::
-      Lude.Text,
+  { -- | ARN of the CloudWatch log to receive application messages.
+    logStreamARN :: Lude.Text,
+    -- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role that is used must have the @PutLogEvents@ policy action enabled.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudWatchLoggingOption' with the minimum fields required to make a request.

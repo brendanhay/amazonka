@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSigner' smart constructor.
 data Signer = Signer'
-  { awsAccountNumber :: Lude.Maybe Lude.Text,
+  { -- | An AWS account number that contains active CloudFront key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies. If the AWS account that owns the key pairs is the same account that owns the CloudFront distribution, the value of this field is @self@ .
+    awsAccountNumber :: Lude.Maybe Lude.Text,
+    -- | A list of CloudFront key pair identifiers.
     keyPairIds :: Lude.Maybe KeyPairIds
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Signer' with the minimum fields required to make a request.

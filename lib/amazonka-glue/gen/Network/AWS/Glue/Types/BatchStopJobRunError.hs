@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchStopJobRunError' smart constructor.
 data BatchStopJobRunError = BatchStopJobRunError'
-  { jobName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the job definition that is used in the job run in question.
+    jobName :: Lude.Maybe Lude.Text,
+    -- | The @JobRunId@ of the job run in question.
     jobRunId :: Lude.Maybe Lude.Text,
+    -- | Specifies details about the error that was encountered.
     errorDetail :: Lude.Maybe ErrorDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStopJobRunError' with the minimum fields required to make a request.
 --
--- * 'errorDetail' - Specifies details about the error that was encountered.
 -- * 'jobName' - The name of the job definition that is used in the job run in question.
 -- * 'jobRunId' - The @JobRunId@ of the job run in question.
+-- * 'errorDetail' - Specifies details about the error that was encountered.
 mkBatchStopJobRunError ::
   BatchStopJobRunError
 mkBatchStopJobRunError =

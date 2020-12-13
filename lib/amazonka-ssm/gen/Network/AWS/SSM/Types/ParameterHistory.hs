@@ -43,49 +43,59 @@ import Network.AWS.SSM.Types.ParameterType
 --
 -- /See:/ 'mkParameterHistory' smart constructor.
 data ParameterHistory = ParameterHistory'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Date the parameter was last changed or updated.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the query key used for this parameter.
     keyId :: Lude.Maybe Lude.Text,
+    -- | The parameter value.
     value :: Lude.Maybe Lude.Text,
+    -- | The name of the parameter.
     name :: Lude.Maybe Lude.Text,
+    -- | The parameter tier.
     tier :: Lude.Maybe ParameterTier,
+    -- | The parameter version.
     version :: Lude.Maybe Lude.Integer,
+    -- | Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
     lastModifiedUser :: Lude.Maybe Lude.Text,
+    -- | Labels assigned to the parameter version.
     labels :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Parameter names can include the following letters and symbols.
+    --
+    -- a-zA-Z0-9_.-
     allowedPattern :: Lude.Maybe Lude.Text,
+    -- | The type of parameter used.
     type' :: Lude.Maybe ParameterType,
+    -- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
     dataType :: Lude.Maybe Lude.Text,
+    -- | Information about the parameter.
     description :: Lude.Maybe Lude.Text,
+    -- | Information about the policies assigned to a parameter.
+    --
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html Assigning parameter policies> in the /AWS Systems Manager User Guide/ .
     policies :: Lude.Maybe [ParameterInlinePolicy]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterHistory' with the minimum fields required to make a request.
 --
+-- * 'lastModifiedDate' - Date the parameter was last changed or updated.
+-- * 'keyId' - The ID of the query key used for this parameter.
+-- * 'value' - The parameter value.
+-- * 'name' - The name of the parameter.
+-- * 'tier' - The parameter tier.
+-- * 'version' - The parameter version.
+-- * 'lastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
+-- * 'labels' - Labels assigned to the parameter version.
 -- * 'allowedPattern' - Parameter names can include the following letters and symbols.
 --
 -- a-zA-Z0-9_.-
+-- * 'type'' - The type of parameter used.
 -- * 'dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
 -- * 'description' - Information about the parameter.
--- * 'keyId' - The ID of the query key used for this parameter.
--- * 'labels' - Labels assigned to the parameter version.
--- * 'lastModifiedDate' - Date the parameter was last changed or updated.
--- * 'lastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the parameter.
--- * 'name' - The name of the parameter.
 -- * 'policies' - Information about the policies assigned to a parameter.
 --
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html Assigning parameter policies> in the /AWS Systems Manager User Guide/ .
--- * 'tier' - The parameter tier.
--- * 'type'' - The type of parameter used.
--- * 'value' - The parameter value.
--- * 'version' - The parameter version.
 mkParameterHistory ::
   ParameterHistory
 mkParameterHistory =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.ImportExport.CreateJob
     mkCreateJob,
 
     -- ** Request lenses
-    cjAPIVersion,
-    cjManifestAddendum,
     cjJobType,
-    cjManifest,
     cjValidateOnly,
+    cjAPIVersion,
+    cjManifest,
+    cjManifestAddendum,
 
     -- * Destructuring the response
     CreateJobResponse (..),
@@ -50,58 +51,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { apiVersion :: Lude.Maybe Lude.Text,
-    manifestAddendum :: Lude.Maybe Lude.Text,
-    jobType :: JobType,
+  { jobType :: JobType,
+    validateOnly :: Lude.Bool,
+    apiVersion :: Lude.Maybe Lude.Text,
     manifest :: Lude.Text,
-    validateOnly :: Lude.Bool
+    manifestAddendum :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
--- * 'apiVersion' - Undocumented field.
--- * 'jobType' - Undocumented field.
--- * 'manifest' - Undocumented field.
--- * 'manifestAddendum' - Undocumented field.
--- * 'validateOnly' - Undocumented field.
+-- * 'jobType' -
+-- * 'validateOnly' -
+-- * 'apiVersion' -
+-- * 'manifest' -
+-- * 'manifestAddendum' -
 mkCreateJob ::
   -- | 'jobType'
   JobType ->
-  -- | 'manifest'
-  Lude.Text ->
   -- | 'validateOnly'
   Lude.Bool ->
+  -- | 'manifest'
+  Lude.Text ->
   CreateJob
-mkCreateJob pJobType_ pManifest_ pValidateOnly_ =
+mkCreateJob pJobType_ pValidateOnly_ pManifest_ =
   CreateJob'
-    { apiVersion = Lude.Nothing,
-      manifestAddendum = Lude.Nothing,
-      jobType = pJobType_,
+    { jobType = pJobType_,
+      validateOnly = pValidateOnly_,
+      apiVersion = Lude.Nothing,
       manifest = pManifest_,
-      validateOnly = pValidateOnly_
+      manifestAddendum = Lude.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjAPIVersion :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjAPIVersion = Lens.lens (apiVersion :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: CreateJob)
-{-# DEPRECATED cjAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'manifestAddendum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjManifestAddendum :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjManifestAddendum = Lens.lens (manifestAddendum :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {manifestAddendum = a} :: CreateJob)
-{-# DEPRECATED cjManifestAddendum "Use generic-lens or generic-optics with 'manifestAddendum' instead." #-}
 
 -- | Undocumented field.
 --
@@ -112,6 +93,20 @@ cjJobType = Lens.lens (jobType :: CreateJob -> JobType) (\s a -> s {jobType = a}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'validateOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjValidateOnly :: Lens.Lens' CreateJob Lude.Bool
+cjValidateOnly = Lens.lens (validateOnly :: CreateJob -> Lude.Bool) (\s a -> s {validateOnly = a} :: CreateJob)
+{-# DEPRECATED cjValidateOnly "Use generic-lens or generic-optics with 'validateOnly' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjAPIVersion :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
+cjAPIVersion = Lens.lens (apiVersion :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: CreateJob)
+{-# DEPRECATED cjAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'manifest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cjManifest :: Lens.Lens' CreateJob Lude.Text
 cjManifest = Lens.lens (manifest :: CreateJob -> Lude.Text) (\s a -> s {manifest = a} :: CreateJob)
@@ -119,10 +114,10 @@ cjManifest = Lens.lens (manifest :: CreateJob -> Lude.Text) (\s a -> s {manifest
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'validateOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjValidateOnly :: Lens.Lens' CreateJob Lude.Bool
-cjValidateOnly = Lens.lens (validateOnly :: CreateJob -> Lude.Bool) (\s a -> s {validateOnly = a} :: CreateJob)
-{-# DEPRECATED cjValidateOnly "Use generic-lens or generic-optics with 'validateOnly' instead." #-}
+-- /Note:/ Consider using 'manifestAddendum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjManifestAddendum :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
+cjManifestAddendum = Lens.lens (manifestAddendum :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {manifestAddendum = a} :: CreateJob)
+{-# DEPRECATED cjManifestAddendum "Use generic-lens or generic-optics with 'manifestAddendum' instead." #-}
 
 instance Lude.AWSRequest CreateJob where
   type Rs CreateJob = CreateJobResponse
@@ -155,44 +150,38 @@ instance Lude.ToQuery CreateJob where
       [ "Operation=CreateJob",
         "Action" Lude.=: ("CreateJob" :: Lude.ByteString),
         "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
-        "APIVersion" Lude.=: apiVersion,
-        "ManifestAddendum" Lude.=: manifestAddendum,
         "JobType" Lude.=: jobType,
+        "ValidateOnly" Lude.=: validateOnly,
+        "APIVersion" Lude.=: apiVersion,
         "Manifest" Lude.=: manifest,
-        "ValidateOnly" Lude.=: validateOnly
+        "ManifestAddendum" Lude.=: manifestAddendum
       ]
 
 -- | Output structure for the CreateJob operation.
 --
 -- /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { signature ::
-      Lude.Maybe Lude.Text,
+  { signature :: Lude.Maybe Lude.Text,
     jobType :: Lude.Maybe JobType,
     jobId :: Lude.Maybe Lude.Text,
     signatureFileContents :: Lude.Maybe Lude.Text,
     warningMessage :: Lude.Maybe Lude.Text,
     artifactList :: Lude.Maybe [Artifact],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
 --
--- * 'artifactList' - Undocumented field.
--- * 'jobId' - Undocumented field.
--- * 'jobType' - Undocumented field.
+-- * 'signature' -
+-- * 'jobType' -
+-- * 'jobId' -
+-- * 'signatureFileContents' -
+-- * 'warningMessage' -
+-- * 'artifactList' -
 -- * 'responseStatus' - The response status code.
--- * 'signature' - Undocumented field.
--- * 'signatureFileContents' - Undocumented field.
--- * 'warningMessage' - Undocumented field.
 mkCreateJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

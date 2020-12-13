@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.AWSManagedHumanLoopRequestSource
 --
 -- /See:/ 'mkHumanLoopRequestSource' smart constructor.
 newtype HumanLoopRequestSource = HumanLoopRequestSource'
-  { awsManagedHumanLoopRequestSource ::
-      AWSManagedHumanLoopRequestSource
+  { -- | Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. The default field settings and JSON parsing rules are different based on the integration source. Valid values:
+    awsManagedHumanLoopRequestSource :: AWSManagedHumanLoopRequestSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HumanLoopRequestSource' with the minimum fields required to make a request.

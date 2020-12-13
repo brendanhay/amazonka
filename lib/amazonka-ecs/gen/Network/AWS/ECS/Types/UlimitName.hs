@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.UlimitName
   ( UlimitName
       ( UlimitName',
-        CPU,
         Core,
+        CPU,
         Data,
         Fsize,
         Locks,
@@ -58,11 +58,11 @@ newtype UlimitName = UlimitName' Lude.Text
       Lude.ToHeader
     )
 
-pattern CPU :: UlimitName
-pattern CPU = UlimitName' "cpu"
-
 pattern Core :: UlimitName
 pattern Core = UlimitName' "core"
+
+pattern CPU :: UlimitName
+pattern CPU = UlimitName' "cpu"
 
 pattern Data :: UlimitName
 pattern Data = UlimitName' "data"
@@ -104,8 +104,8 @@ pattern Stack :: UlimitName
 pattern Stack = UlimitName' "stack"
 
 {-# COMPLETE
-  CPU,
   Core,
+  CPU,
   Data,
   Fsize,
   Locks,

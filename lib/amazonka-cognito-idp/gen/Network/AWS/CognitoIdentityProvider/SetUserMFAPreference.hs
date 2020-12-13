@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CognitoIdentityProvider.SetUserMFAPreference
     mkSetUserMFAPreference,
 
     -- ** Request lenses
+    sumpAccessToken,
     sumpSMSMFASettings,
     sumpSoftwareTokenMFASettings,
-    sumpAccessToken,
 
     -- * Destructuring the response
     SetUserMFAPreferenceResponse (..),
@@ -40,11 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetUserMFAPreference' smart constructor.
 data SetUserMFAPreference = SetUserMFAPreference'
-  { sMSMFASettings ::
-      Lude.Maybe SMSMFASettingsType,
-    softwareTokenMFASettings ::
-      Lude.Maybe SoftwareTokenMFASettingsType,
-    accessToken :: Lude.Sensitive Lude.Text
+  { -- | The access token for the user.
+    accessToken :: Lude.Sensitive Lude.Text,
+    -- | The SMS text message multi-factor authentication (MFA) settings.
+    sMSMFASettings :: Lude.Maybe SMSMFASettingsType,
+    -- | The time-based one-time password software token MFA settings.
+    softwareTokenMFASettings :: Lude.Maybe SoftwareTokenMFASettingsType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -60,10 +62,17 @@ mkSetUserMFAPreference ::
   SetUserMFAPreference
 mkSetUserMFAPreference pAccessToken_ =
   SetUserMFAPreference'
-    { sMSMFASettings = Lude.Nothing,
-      softwareTokenMFASettings = Lude.Nothing,
-      accessToken = pAccessToken_
+    { accessToken = pAccessToken_,
+      sMSMFASettings = Lude.Nothing,
+      softwareTokenMFASettings = Lude.Nothing
     }
+
+-- | The access token for the user.
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sumpAccessToken :: Lens.Lens' SetUserMFAPreference (Lude.Sensitive Lude.Text)
+sumpAccessToken = Lens.lens (accessToken :: SetUserMFAPreference -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: SetUserMFAPreference)
+{-# DEPRECATED sumpAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | The SMS text message multi-factor authentication (MFA) settings.
 --
@@ -78,13 +87,6 @@ sumpSMSMFASettings = Lens.lens (sMSMFASettings :: SetUserMFAPreference -> Lude.M
 sumpSoftwareTokenMFASettings :: Lens.Lens' SetUserMFAPreference (Lude.Maybe SoftwareTokenMFASettingsType)
 sumpSoftwareTokenMFASettings = Lens.lens (softwareTokenMFASettings :: SetUserMFAPreference -> Lude.Maybe SoftwareTokenMFASettingsType) (\s a -> s {softwareTokenMFASettings = a} :: SetUserMFAPreference)
 {-# DEPRECATED sumpSoftwareTokenMFASettings "Use generic-lens or generic-optics with 'softwareTokenMFASettings' instead." #-}
-
--- | The access token for the user.
---
--- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sumpAccessToken :: Lens.Lens' SetUserMFAPreference (Lude.Sensitive Lude.Text)
-sumpAccessToken = Lens.lens (accessToken :: SetUserMFAPreference -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: SetUserMFAPreference)
-{-# DEPRECATED sumpAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 instance Lude.AWSRequest SetUserMFAPreference where
   type Rs SetUserMFAPreference = SetUserMFAPreferenceResponse
@@ -113,10 +115,10 @@ instance Lude.ToJSON SetUserMFAPreference where
   toJSON SetUserMFAPreference' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SMSMfaSettings" Lude..=) Lude.<$> sMSMFASettings,
+          [ Lude.Just ("AccessToken" Lude..= accessToken),
+            ("SMSMfaSettings" Lude..=) Lude.<$> sMSMFASettings,
             ("SoftwareTokenMfaSettings" Lude..=)
-              Lude.<$> softwareTokenMFASettings,
-            Lude.Just ("AccessToken" Lude..= accessToken)
+              Lude.<$> softwareTokenMFASettings
           ]
       )
 
@@ -128,16 +130,10 @@ instance Lude.ToQuery SetUserMFAPreference where
 
 -- | /See:/ 'mkSetUserMFAPreferenceResponse' smart constructor.
 newtype SetUserMFAPreferenceResponse = SetUserMFAPreferenceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetUserMFAPreferenceResponse' with the minimum fields required to make a request.

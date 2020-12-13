@@ -32,18 +32,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameServerGroupAutoScalingPolicy' smart constructor.
 data GameServerGroupAutoScalingPolicy = GameServerGroupAutoScalingPolicy'
-  { estimatedInstanceWarmup ::
-      Lude.Maybe Lude.Natural,
-    targetTrackingConfiguration ::
-      TargetTrackingConfiguration
+  { -- | Length of time, in seconds, it takes for a new instance to start new game server processes and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
+    estimatedInstanceWarmup :: Lude.Maybe Lude.Natural,
+    -- | Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric @"PercentUtilizedGameServers"@ and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+    targetTrackingConfiguration :: TargetTrackingConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameServerGroupAutoScalingPolicy' with the minimum fields required to make a request.

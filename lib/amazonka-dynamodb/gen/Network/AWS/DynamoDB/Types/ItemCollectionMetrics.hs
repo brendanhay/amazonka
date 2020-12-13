@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkItemCollectionMetrics' smart constructor.
 data ItemCollectionMetrics = ItemCollectionMetrics'
-  { itemCollectionKey ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (AttributeValue)),
+  { -- | The partition key value of the item collection. This value is the same as the partition key value of the item.
+    itemCollectionKey :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.
+    --
+    -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
     sizeEstimateRangeGB :: Lude.Maybe [Lude.Double]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ItemCollectionMetrics' with the minimum fields required to make a request.

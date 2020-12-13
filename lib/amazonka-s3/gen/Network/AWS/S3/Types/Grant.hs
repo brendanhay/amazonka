@@ -32,22 +32,18 @@ import Network.AWS.S3.Types.Permission
 --
 -- /See:/ 'mkGrant' smart constructor.
 data Grant = Grant'
-  { permission :: Lude.Maybe Permission,
+  { -- | Specifies the permission given to the grantee.
+    permission :: Lude.Maybe Permission,
+    -- | The person being granted permissions.
     grantee :: Lude.Maybe Grantee
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Grant' with the minimum fields required to make a request.
 --
--- * 'grantee' - The person being granted permissions.
 -- * 'permission' - Specifies the permission given to the grantee.
+-- * 'grantee' - The person being granted permissions.
 mkGrant ::
   Grant
 mkGrant = Grant' {permission = Lude.Nothing, grantee = Lude.Nothing}

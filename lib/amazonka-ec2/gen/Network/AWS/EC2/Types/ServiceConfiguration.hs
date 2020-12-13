@@ -44,45 +44,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceConfiguration' smart constructor.
 data ServiceConfiguration = ServiceConfiguration'
-  { networkLoadBalancerARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.
+    networkLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | The DNS names for the service.
     baseEndpointDNSNames :: Lude.Maybe [Lude.Text],
+    -- | The Availability Zones in which the service is available.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.
     gatewayLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
     managesVPCEndpoints :: Lude.Maybe Lude.Bool,
+    -- | The name of the service.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | The service state.
     serviceState :: Lude.Maybe ServiceState,
+    -- | The type of service.
     serviceType :: Lude.Maybe [ServiceTypeDetail],
+    -- | Indicates whether requests from other AWS accounts to create an endpoint to the service must first be accepted.
     acceptanceRequired :: Lude.Maybe Lude.Bool,
+    -- | The ID of the service.
     serviceId :: Lude.Maybe Lude.Text,
+    -- | The private DNS name for the service.
     privateDNSName :: Lude.Maybe Lude.Text,
-    privateDNSNameConfiguration ::
-      Lude.Maybe PrivateDNSNameConfiguration,
+    -- | Information about the endpoint service private DNS name configuration.
+    privateDNSNameConfiguration :: Lude.Maybe PrivateDNSNameConfiguration,
+    -- | Any tags assigned to the service.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceConfiguration' with the minimum fields required to make a request.
 --
--- * 'acceptanceRequired' - Indicates whether requests from other AWS accounts to create an endpoint to the service must first be accepted.
--- * 'availabilityZones' - The Availability Zones in which the service is available.
+-- * 'networkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.
 -- * 'baseEndpointDNSNames' - The DNS names for the service.
+-- * 'availabilityZones' - The Availability Zones in which the service is available.
 -- * 'gatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.
 -- * 'managesVPCEndpoints' - Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
--- * 'networkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.
--- * 'privateDNSName' - The private DNS name for the service.
--- * 'privateDNSNameConfiguration' - Information about the endpoint service private DNS name configuration.
--- * 'serviceId' - The ID of the service.
 -- * 'serviceName' - The name of the service.
 -- * 'serviceState' - The service state.
 -- * 'serviceType' - The type of service.
+-- * 'acceptanceRequired' - Indicates whether requests from other AWS accounts to create an endpoint to the service must first be accepted.
+-- * 'serviceId' - The ID of the service.
+-- * 'privateDNSName' - The private DNS name for the service.
+-- * 'privateDNSNameConfiguration' - Information about the endpoint service private DNS name configuration.
 -- * 'tags' - Any tags assigned to the service.
 mkServiceConfiguration ::
   ServiceConfiguration

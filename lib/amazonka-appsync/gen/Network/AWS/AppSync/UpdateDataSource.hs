@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,14 +22,14 @@ module Network.AWS.AppSync.UpdateDataSource
     -- ** Request lenses
     udsServiceRoleARN,
     udsRelationalDatabaseConfig,
+    udsApiId,
     udsDynamodbConfig,
+    udsName,
     udsHttpConfig,
     udsLambdaConfig,
+    udsType,
     udsDescription,
     udsElasticsearchConfig,
-    udsApiId,
-    udsName,
-    udsType,
 
     -- * Destructuring the response
     UpdateDataSourceResponse (..),
@@ -48,41 +49,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
-    relationalDatabaseConfig ::
-      Lude.Maybe RelationalDatabaseDataSourceConfig,
-    dynamodbConfig :: Lude.Maybe DynamodbDataSourceConfig,
-    httpConfig :: Lude.Maybe HTTPDataSourceConfig,
-    lambdaConfig :: Lude.Maybe LambdaDataSourceConfig,
-    description :: Lude.Maybe Lude.Text,
-    elasticsearchConfig ::
-      Lude.Maybe ElasticsearchDataSourceConfig,
+  { -- | The new service role ARN for the data source.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | The new relational database configuration.
+    relationalDatabaseConfig :: Lude.Maybe RelationalDatabaseDataSourceConfig,
+    -- | The API ID.
     apiId :: Lude.Text,
+    -- | The new Amazon DynamoDB configuration.
+    dynamodbConfig :: Lude.Maybe DynamodbDataSourceConfig,
+    -- | The new name for the data source.
     name :: Lude.Text,
-    type' :: DataSourceType
+    -- | The new HTTP endpoint configuration.
+    httpConfig :: Lude.Maybe HTTPDataSourceConfig,
+    -- | The new AWS Lambda configuration.
+    lambdaConfig :: Lude.Maybe LambdaDataSourceConfig,
+    -- | The new data source type.
+    type' :: DataSourceType,
+    -- | The new description for the data source.
+    description :: Lude.Maybe Lude.Text,
+    -- | The new Elasticsearch Service configuration.
+    elasticsearchConfig :: Lude.Maybe ElasticsearchDataSourceConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDataSource' with the minimum fields required to make a request.
 --
+-- * 'serviceRoleARN' - The new service role ARN for the data source.
+-- * 'relationalDatabaseConfig' - The new relational database configuration.
 -- * 'apiId' - The API ID.
--- * 'description' - The new description for the data source.
 -- * 'dynamodbConfig' - The new Amazon DynamoDB configuration.
--- * 'elasticsearchConfig' - The new Elasticsearch Service configuration.
+-- * 'name' - The new name for the data source.
 -- * 'httpConfig' - The new HTTP endpoint configuration.
 -- * 'lambdaConfig' - The new AWS Lambda configuration.
--- * 'name' - The new name for the data source.
--- * 'relationalDatabaseConfig' - The new relational database configuration.
--- * 'serviceRoleARN' - The new service role ARN for the data source.
 -- * 'type'' - The new data source type.
+-- * 'description' - The new description for the data source.
+-- * 'elasticsearchConfig' - The new Elasticsearch Service configuration.
 mkUpdateDataSource ::
   -- | 'apiId'
   Lude.Text ->
@@ -95,14 +97,14 @@ mkUpdateDataSource pApiId_ pName_ pType_ =
   UpdateDataSource'
     { serviceRoleARN = Lude.Nothing,
       relationalDatabaseConfig = Lude.Nothing,
+      apiId = pApiId_,
       dynamodbConfig = Lude.Nothing,
+      name = pName_,
       httpConfig = Lude.Nothing,
       lambdaConfig = Lude.Nothing,
+      type' = pType_,
       description = Lude.Nothing,
-      elasticsearchConfig = Lude.Nothing,
-      apiId = pApiId_,
-      name = pName_,
-      type' = pType_
+      elasticsearchConfig = Lude.Nothing
     }
 
 -- | The new service role ARN for the data source.
@@ -119,12 +121,26 @@ udsRelationalDatabaseConfig :: Lens.Lens' UpdateDataSource (Lude.Maybe Relationa
 udsRelationalDatabaseConfig = Lens.lens (relationalDatabaseConfig :: UpdateDataSource -> Lude.Maybe RelationalDatabaseDataSourceConfig) (\s a -> s {relationalDatabaseConfig = a} :: UpdateDataSource)
 {-# DEPRECATED udsRelationalDatabaseConfig "Use generic-lens or generic-optics with 'relationalDatabaseConfig' instead." #-}
 
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsApiId :: Lens.Lens' UpdateDataSource Lude.Text
+udsApiId = Lens.lens (apiId :: UpdateDataSource -> Lude.Text) (\s a -> s {apiId = a} :: UpdateDataSource)
+{-# DEPRECATED udsApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+
 -- | The new Amazon DynamoDB configuration.
 --
 -- /Note:/ Consider using 'dynamodbConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 udsDynamodbConfig :: Lens.Lens' UpdateDataSource (Lude.Maybe DynamodbDataSourceConfig)
 udsDynamodbConfig = Lens.lens (dynamodbConfig :: UpdateDataSource -> Lude.Maybe DynamodbDataSourceConfig) (\s a -> s {dynamodbConfig = a} :: UpdateDataSource)
 {-# DEPRECATED udsDynamodbConfig "Use generic-lens or generic-optics with 'dynamodbConfig' instead." #-}
+
+-- | The new name for the data source.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsName :: Lens.Lens' UpdateDataSource Lude.Text
+udsName = Lens.lens (name :: UpdateDataSource -> Lude.Text) (\s a -> s {name = a} :: UpdateDataSource)
+{-# DEPRECATED udsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new HTTP endpoint configuration.
 --
@@ -140,6 +156,13 @@ udsLambdaConfig :: Lens.Lens' UpdateDataSource (Lude.Maybe LambdaDataSourceConfi
 udsLambdaConfig = Lens.lens (lambdaConfig :: UpdateDataSource -> Lude.Maybe LambdaDataSourceConfig) (\s a -> s {lambdaConfig = a} :: UpdateDataSource)
 {-# DEPRECATED udsLambdaConfig "Use generic-lens or generic-optics with 'lambdaConfig' instead." #-}
 
+-- | The new data source type.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udsType :: Lens.Lens' UpdateDataSource DataSourceType
+udsType = Lens.lens (type' :: UpdateDataSource -> DataSourceType) (\s a -> s {type' = a} :: UpdateDataSource)
+{-# DEPRECATED udsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 -- | The new description for the data source.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -153,27 +176,6 @@ udsDescription = Lens.lens (description :: UpdateDataSource -> Lude.Maybe Lude.T
 udsElasticsearchConfig :: Lens.Lens' UpdateDataSource (Lude.Maybe ElasticsearchDataSourceConfig)
 udsElasticsearchConfig = Lens.lens (elasticsearchConfig :: UpdateDataSource -> Lude.Maybe ElasticsearchDataSourceConfig) (\s a -> s {elasticsearchConfig = a} :: UpdateDataSource)
 {-# DEPRECATED udsElasticsearchConfig "Use generic-lens or generic-optics with 'elasticsearchConfig' instead." #-}
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsApiId :: Lens.Lens' UpdateDataSource Lude.Text
-udsApiId = Lens.lens (apiId :: UpdateDataSource -> Lude.Text) (\s a -> s {apiId = a} :: UpdateDataSource)
-{-# DEPRECATED udsApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
-
--- | The new name for the data source.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsName :: Lens.Lens' UpdateDataSource Lude.Text
-udsName = Lens.lens (name :: UpdateDataSource -> Lude.Text) (\s a -> s {name = a} :: UpdateDataSource)
-{-# DEPRECATED udsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The new data source type.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udsType :: Lens.Lens' UpdateDataSource DataSourceType
-udsType = Lens.lens (type' :: UpdateDataSource -> DataSourceType) (\s a -> s {type' = a} :: UpdateDataSource)
-{-# DEPRECATED udsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 instance Lude.AWSRequest UpdateDataSource where
   type Rs UpdateDataSource = UpdateDataSourceResponse
@@ -204,9 +206,9 @@ instance Lude.ToJSON UpdateDataSource where
             ("dynamodbConfig" Lude..=) Lude.<$> dynamodbConfig,
             ("httpConfig" Lude..=) Lude.<$> httpConfig,
             ("lambdaConfig" Lude..=) Lude.<$> lambdaConfig,
+            Lude.Just ("type" Lude..= type'),
             ("description" Lude..=) Lude.<$> description,
-            ("elasticsearchConfig" Lude..=) Lude.<$> elasticsearchConfig,
-            Lude.Just ("type" Lude..= type')
+            ("elasticsearchConfig" Lude..=) Lude.<$> elasticsearchConfig
           ]
       )
 
@@ -220,17 +222,12 @@ instance Lude.ToQuery UpdateDataSource where
 
 -- | /See:/ 'mkUpdateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-  { dataSource ::
-      Lude.Maybe DataSource,
+  { -- | The updated @DataSource@ object.
+    dataSource :: Lude.Maybe DataSource,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDataSourceResponse' with the minimum fields required to make a request.

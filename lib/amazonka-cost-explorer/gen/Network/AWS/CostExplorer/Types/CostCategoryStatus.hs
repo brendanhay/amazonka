@@ -13,8 +13,8 @@
 module Network.AWS.CostExplorer.Types.CostCategoryStatus
   ( CostCategoryStatus
       ( CostCategoryStatus',
-        Applied,
-        Processing
+        Processing,
+        Applied
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CostCategoryStatus = CostCategoryStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Applied :: CostCategoryStatus
-pattern Applied = CostCategoryStatus' "APPLIED"
-
 pattern Processing :: CostCategoryStatus
 pattern Processing = CostCategoryStatus' "PROCESSING"
 
+pattern Applied :: CostCategoryStatus
+pattern Applied = CostCategoryStatus' "APPLIED"
+
 {-# COMPLETE
-  Applied,
   Processing,
+  Applied,
   CostCategoryStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,9 +32,9 @@ module Network.AWS.ELBv2.DescribeLoadBalancers
     mkDescribeLoadBalancersResponse,
 
     -- ** Response lenses
-    dlbrsLoadBalancers,
-    dlbrsNextMarker,
-    dlbrsResponseStatus,
+    dlbsrsLoadBalancers,
+    dlbsrsNextMarker,
+    dlbsrsResponseStatus,
   )
 where
 
@@ -46,26 +47,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLoadBalancers' smart constructor.
 data DescribeLoadBalancers = DescribeLoadBalancers'
-  { names ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the load balancers.
+    names :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
     loadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with this call.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
 --
+-- * 'names' - The names of the load balancers.
 -- * 'loadBalancerARNs' - The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.
 -- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'names' - The names of the load balancers.
 -- * 'pageSize' - The maximum number of results to return with this call.
 mkDescribeLoadBalancers ::
   DescribeLoadBalancers
@@ -107,12 +105,12 @@ dlbPageSize = Lens.lens (pageSize :: DescribeLoadBalancers -> Lude.Maybe Lude.Na
 
 instance Page.AWSPager DescribeLoadBalancers where
   page rq rs
-    | Page.stop (rs Lens.^. dlbrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlbrsLoadBalancers) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlbsrsNextMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. dlbsrsLoadBalancers) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dlbMarker Lens..~ rs Lens.^. dlbrsNextMarker
+          Lude.& dlbMarker Lens..~ rs Lens.^. dlbsrsNextMarker
 
 instance Lude.AWSRequest DescribeLoadBalancers where
   type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
@@ -150,19 +148,14 @@ instance Lude.ToQuery DescribeLoadBalancers where
 
 -- | /See:/ 'mkDescribeLoadBalancersResponse' smart constructor.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-  { loadBalancers ::
-      Lude.Maybe [LoadBalancer],
-    nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the load balancers.
+    loadBalancers :: Lude.Maybe [LoadBalancer],
+    -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
@@ -184,20 +177,20 @@ mkDescribeLoadBalancersResponse pResponseStatus_ =
 -- | Information about the load balancers.
 --
 -- /Note:/ Consider using 'loadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsLoadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe [LoadBalancer])
-dlbrsLoadBalancers = Lens.lens (loadBalancers :: DescribeLoadBalancersResponse -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
+dlbsrsLoadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe [LoadBalancer])
+dlbsrsLoadBalancers = Lens.lens (loadBalancers :: DescribeLoadBalancersResponse -> Lude.Maybe [LoadBalancer]) (\s a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse)
+{-# DEPRECATED dlbsrsLoadBalancers "Use generic-lens or generic-optics with 'loadBalancers' instead." #-}
 
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsNextMarker :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe Lude.Text)
-dlbrsNextMarker = Lens.lens (nextMarker :: DescribeLoadBalancersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+dlbsrsNextMarker :: Lens.Lens' DescribeLoadBalancersResponse (Lude.Maybe Lude.Text)
+dlbsrsNextMarker = Lens.lens (nextMarker :: DescribeLoadBalancersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeLoadBalancersResponse)
+{-# DEPRECATED dlbsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbrsResponseStatus :: Lens.Lens' DescribeLoadBalancersResponse Lude.Int
-dlbrsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancersResponse)
-{-# DEPRECATED dlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbsrsResponseStatus :: Lens.Lens' DescribeLoadBalancersResponse Lude.Int
+dlbsrsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancersResponse)
+{-# DEPRECATED dlbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

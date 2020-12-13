@@ -28,14 +28,11 @@ import Network.AWS.S3.Internal
 -- | Container for the @Suffix@ element.
 --
 -- /See:/ 'mkIndexDocument' smart constructor.
-newtype IndexDocument = IndexDocument' {suffix :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype IndexDocument = IndexDocument'
+  { -- | A suffix that is appended to a request that is for a directory on the website endpoint (for example,if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.
+    suffix :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IndexDocument' with the minimum fields required to make a request.

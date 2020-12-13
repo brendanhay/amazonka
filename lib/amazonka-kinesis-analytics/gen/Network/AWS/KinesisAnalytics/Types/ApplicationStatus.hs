@@ -14,10 +14,10 @@ module Network.AWS.KinesisAnalytics.Types.ApplicationStatus
   ( ApplicationStatus
       ( ApplicationStatus',
         Deleting,
-        Ready,
-        Running,
         Starting,
         Stopping,
+        Ready,
+        Running,
         Updating
       ),
   )
@@ -52,27 +52,27 @@ newtype ApplicationStatus = ApplicationStatus' Lude.Text
 pattern Deleting :: ApplicationStatus
 pattern Deleting = ApplicationStatus' "DELETING"
 
-pattern Ready :: ApplicationStatus
-pattern Ready = ApplicationStatus' "READY"
-
-pattern Running :: ApplicationStatus
-pattern Running = ApplicationStatus' "RUNNING"
-
 pattern Starting :: ApplicationStatus
 pattern Starting = ApplicationStatus' "STARTING"
 
 pattern Stopping :: ApplicationStatus
 pattern Stopping = ApplicationStatus' "STOPPING"
 
+pattern Ready :: ApplicationStatus
+pattern Ready = ApplicationStatus' "READY"
+
+pattern Running :: ApplicationStatus
+pattern Running = ApplicationStatus' "RUNNING"
+
 pattern Updating :: ApplicationStatus
 pattern Updating = ApplicationStatus' "UPDATING"
 
 {-# COMPLETE
   Deleting,
-  Ready,
-  Running,
   Starting,
   Stopping,
+  Ready,
+  Running,
   Updating,
   ApplicationStatus'
   #-}

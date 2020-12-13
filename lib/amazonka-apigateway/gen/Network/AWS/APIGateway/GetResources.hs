@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.APIGateway.GetResources
     mkGetResources,
 
     -- ** Request lenses
-    grsEmbed,
-    grsLimit,
-    grsPosition,
-    grsRestAPIId,
+    grEmbed,
+    grLimit,
+    grRestAPIId,
+    grPosition,
 
     -- * Destructuring the response
     GetResourcesResponse (..),
@@ -48,26 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetResources' smart constructor.
 data GetResources = GetResources'
-  { embed :: Lude.Maybe [Lude.Text],
+  { -- | A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
+    embed :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
     limit :: Lude.Maybe Lude.Int,
-    position :: Lude.Maybe Lude.Text,
-    restAPIId :: Lude.Text
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | The current pagination position in the paged result set.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResources' with the minimum fields required to make a request.
 --
 -- * 'embed' - A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
 -- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
--- * 'position' - The current pagination position in the paged result set.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'position' - The current pagination position in the paged result set.
 mkGetResources ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -76,37 +75,37 @@ mkGetResources pRestAPIId_ =
   GetResources'
     { embed = Lude.Nothing,
       limit = Lude.Nothing,
-      position = Lude.Nothing,
-      restAPIId = pRestAPIId_
+      restAPIId = pRestAPIId_,
+      position = Lude.Nothing
     }
 
 -- | A query parameter used to retrieve the specified resources embedded in the returned 'Resources' resource in the response. This @embed@ parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded 'Method' resources this way. The query parameter value must be a single-valued list and contain the @"methods"@ string. For example, @GET /restapis/{restapi_id}/resources?embed=methods@ .
 --
 -- /Note:/ Consider using 'embed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsEmbed :: Lens.Lens' GetResources (Lude.Maybe [Lude.Text])
-grsEmbed = Lens.lens (embed :: GetResources -> Lude.Maybe [Lude.Text]) (\s a -> s {embed = a} :: GetResources)
-{-# DEPRECATED grsEmbed "Use generic-lens or generic-optics with 'embed' instead." #-}
+grEmbed :: Lens.Lens' GetResources (Lude.Maybe [Lude.Text])
+grEmbed = Lens.lens (embed :: GetResources -> Lude.Maybe [Lude.Text]) (\s a -> s {embed = a} :: GetResources)
+{-# DEPRECATED grEmbed "Use generic-lens or generic-optics with 'embed' instead." #-}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsLimit :: Lens.Lens' GetResources (Lude.Maybe Lude.Int)
-grsLimit = Lens.lens (limit :: GetResources -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetResources)
-{-# DEPRECATED grsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The current pagination position in the paged result set.
---
--- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsPosition :: Lens.Lens' GetResources (Lude.Maybe Lude.Text)
-grsPosition = Lens.lens (position :: GetResources -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetResources)
-{-# DEPRECATED grsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
+grLimit :: Lens.Lens' GetResources (Lude.Maybe Lude.Int)
+grLimit = Lens.lens (limit :: GetResources -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetResources)
+{-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsRestAPIId :: Lens.Lens' GetResources Lude.Text
-grsRestAPIId = Lens.lens (restAPIId :: GetResources -> Lude.Text) (\s a -> s {restAPIId = a} :: GetResources)
-{-# DEPRECATED grsRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+grRestAPIId :: Lens.Lens' GetResources Lude.Text
+grRestAPIId = Lens.lens (restAPIId :: GetResources -> Lude.Text) (\s a -> s {restAPIId = a} :: GetResources)
+{-# DEPRECATED grRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | The current pagination position in the paged result set.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grPosition :: Lens.Lens' GetResources (Lude.Maybe Lude.Text)
+grPosition = Lens.lens (position :: GetResources -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetResources)
+{-# DEPRECATED grPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 instance Page.AWSPager GetResources where
   page rq rs
@@ -115,7 +114,7 @@ instance Page.AWSPager GetResources where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& grsPosition Lens..~ rs Lens.^. grrsPosition
+          Lude.& grPosition Lens..~ rs Lens.^. grrsPosition
 
 instance Lude.AWSRequest GetResources where
   type Rs GetResources = GetResourcesResponse
@@ -155,24 +154,19 @@ instance Lude.ToQuery GetResources where
 --
 -- /See:/ 'mkGetResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'
-  { items ::
-      Lude.Maybe [Resource],
+  { -- | The current page of elements from this collection.
+    items :: Lude.Maybe [Resource],
     position :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourcesResponse' with the minimum fields required to make a request.
 --
 -- * 'items' - The current page of elements from this collection.
--- * 'position' - Undocumented field.
+-- * 'position' -
 -- * 'responseStatus' - The response status code.
 mkGetResourcesResponse ::
   -- | 'responseStatus'

@@ -33,29 +33,22 @@ import Network.AWS.StorageGateway.Types.FileShareType
 --
 -- /See:/ 'mkFileShareInfo' smart constructor.
 data FileShareInfo = FileShareInfo'
-  { fileShareStatus ::
-      Lude.Maybe Lude.Text,
+  { fileShareStatus :: Lude.Maybe Lude.Text,
     gatewayARN :: Lude.Maybe Lude.Text,
     fileShareId :: Lude.Maybe Lude.Text,
     fileShareARN :: Lude.Maybe Lude.Text,
     fileShareType :: Lude.Maybe FileShareType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileShareInfo' with the minimum fields required to make a request.
 --
--- * 'fileShareARN' - Undocumented field.
--- * 'fileShareId' - Undocumented field.
--- * 'fileShareStatus' - Undocumented field.
--- * 'fileShareType' - Undocumented field.
--- * 'gatewayARN' - Undocumented field.
+-- * 'fileShareStatus' -
+-- * 'gatewayARN' -
+-- * 'fileShareId' -
+-- * 'fileShareARN' -
+-- * 'fileShareType' -
 mkFileShareInfo ::
   FileShareInfo
 mkFileShareInfo =

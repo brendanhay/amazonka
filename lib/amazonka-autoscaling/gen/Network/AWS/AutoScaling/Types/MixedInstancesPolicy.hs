@@ -33,24 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMixedInstancesPolicy' smart constructor.
 data MixedInstancesPolicy = MixedInstancesPolicy'
-  { launchTemplate ::
-      Lude.Maybe LaunchTemplate,
-    instancesDistribution ::
-      Lude.Maybe InstancesDistribution
+  { -- | Specifies the launch template to use and optionally the instance types (overrides) that are used to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when creating a mixed instances policy.
+    launchTemplate :: Lude.Maybe LaunchTemplate,
+    -- | Specifies the instances distribution. If not provided, the value for each parameter in @InstancesDistribution@ uses a default value.
+    instancesDistribution :: Lude.Maybe InstancesDistribution
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MixedInstancesPolicy' with the minimum fields required to make a request.
 --
--- * 'instancesDistribution' - Specifies the instances distribution. If not provided, the value for each parameter in @InstancesDistribution@ uses a default value.
 -- * 'launchTemplate' - Specifies the launch template to use and optionally the instance types (overrides) that are used to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when creating a mixed instances policy.
+-- * 'instancesDistribution' - Specifies the instances distribution. If not provided, the value for each parameter in @InstancesDistribution@ uses a default value.
 mkMixedInstancesPolicy ::
   MixedInstancesPolicy
 mkMixedInstancesPolicy =

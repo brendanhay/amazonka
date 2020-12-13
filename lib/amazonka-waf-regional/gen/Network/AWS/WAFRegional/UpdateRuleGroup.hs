@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,27 +61,27 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkUpdateRuleGroup' smart constructor.
 data UpdateRuleGroup = UpdateRuleGroup'
-  { ruleGroupId :: Lude.Text,
+  { -- | The @RuleGroupId@ of the 'RuleGroup' that you want to update. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+    ruleGroupId :: Lude.Text,
+    -- | An array of @RuleGroupUpdate@ objects that you want to insert into or delete from a 'RuleGroup' .
+    --
+    -- You can only insert @REGULAR@ rules into a rule group.
+    -- @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .
     updates :: Lude.NonEmpty RuleGroupUpdate,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRuleGroup' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'ruleGroupId' - The @RuleGroupId@ of the 'RuleGroup' that you want to update. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
 -- * 'updates' - An array of @RuleGroupUpdate@ objects that you want to insert into or delete from a 'RuleGroup' .
 --
 -- You can only insert @REGULAR@ rules into a rule group.
 -- @ActivatedRule|OverrideAction@ applies only when updating or adding a @RuleGroup@ to a @WebACL@ . In this case you do not use @ActivatedRule|Action@ . For all other update requests, @ActivatedRule|Action@ is used instead of @ActivatedRule|OverrideAction@ .
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 mkUpdateRuleGroup ::
   -- | 'ruleGroupId'
   Lude.Text ->
@@ -159,17 +160,12 @@ instance Lude.ToQuery UpdateRuleGroup where
 
 -- | /See:/ 'mkUpdateRuleGroupResponse' smart constructor.
 data UpdateRuleGroupResponse = UpdateRuleGroupResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @UpdateRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRuleGroupResponse' with the minimum fields required to make a request.

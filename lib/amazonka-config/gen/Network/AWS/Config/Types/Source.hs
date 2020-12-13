@@ -17,9 +17,9 @@ module Network.AWS.Config.Types.Source
     mkSource,
 
     -- * Lenses
-    sSourceDetails,
-    sOwner,
     sSourceIdentifier,
+    sOwner,
+    sSourceDetails,
   )
 where
 
@@ -32,52 +32,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSource' smart constructor.
 data Source = Source'
-  { sourceDetails :: Lude.Maybe [SourceDetail],
+  { -- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
+    --
+    -- For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
+    sourceIdentifier :: Lude.Text,
+    -- | Indicates whether AWS or the customer owns and manages the AWS Config rule.
     owner :: Owner,
-    sourceIdentifier :: Lude.Text
+    -- | Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
+    sourceDetails :: Lude.Maybe [SourceDetail]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Source' with the minimum fields required to make a request.
 --
--- * 'owner' - Indicates whether AWS or the customer owns and manages the AWS Config rule.
--- * 'sourceDetails' - Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
 -- * 'sourceIdentifier' - For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
 --
 -- For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@ .
+-- * 'owner' - Indicates whether AWS or the customer owns and manages the AWS Config rule.
+-- * 'sourceDetails' - Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
 mkSource ::
-  -- | 'owner'
-  Owner ->
   -- | 'sourceIdentifier'
   Lude.Text ->
+  -- | 'owner'
+  Owner ->
   Source
-mkSource pOwner_ pSourceIdentifier_ =
+mkSource pSourceIdentifier_ pOwner_ =
   Source'
-    { sourceDetails = Lude.Nothing,
+    { sourceIdentifier = pSourceIdentifier_,
       owner = pOwner_,
-      sourceIdentifier = pSourceIdentifier_
+      sourceDetails = Lude.Nothing
     }
-
--- | Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
---
--- /Note:/ Consider using 'sourceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSourceDetails :: Lens.Lens' Source (Lude.Maybe [SourceDetail])
-sSourceDetails = Lens.lens (sourceDetails :: Source -> Lude.Maybe [SourceDetail]) (\s a -> s {sourceDetails = a} :: Source)
-{-# DEPRECATED sSourceDetails "Use generic-lens or generic-optics with 'sourceDetails' instead." #-}
-
--- | Indicates whether AWS or the customer owns and manages the AWS Config rule.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sOwner :: Lens.Lens' Source Owner
-sOwner = Lens.lens (owner :: Source -> Owner) (\s a -> s {owner = a} :: Source)
-{-# DEPRECATED sOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | For AWS Config managed rules, a predefined identifier from a list. For example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed rule, see <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using AWS Managed Config Rules> .
 --
@@ -88,23 +73,37 @@ sSourceIdentifier :: Lens.Lens' Source Lude.Text
 sSourceIdentifier = Lens.lens (sourceIdentifier :: Source -> Lude.Text) (\s a -> s {sourceIdentifier = a} :: Source)
 {-# DEPRECATED sSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
+-- | Indicates whether AWS or the customer owns and manages the AWS Config rule.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOwner :: Lens.Lens' Source Owner
+sOwner = Lens.lens (owner :: Source -> Owner) (\s a -> s {owner = a} :: Source)
+{-# DEPRECATED sOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | Provides the source and type of the event that causes AWS Config to evaluate your AWS resources.
+--
+-- /Note:/ Consider using 'sourceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSourceDetails :: Lens.Lens' Source (Lude.Maybe [SourceDetail])
+sSourceDetails = Lens.lens (sourceDetails :: Source -> Lude.Maybe [SourceDetail]) (\s a -> s {sourceDetails = a} :: Source)
+{-# DEPRECATED sSourceDetails "Use generic-lens or generic-optics with 'sourceDetails' instead." #-}
+
 instance Lude.FromJSON Source where
   parseJSON =
     Lude.withObject
       "Source"
       ( \x ->
           Source'
-            Lude.<$> (x Lude..:? "SourceDetails" Lude..!= Lude.mempty)
+            Lude.<$> (x Lude..: "SourceIdentifier")
             Lude.<*> (x Lude..: "Owner")
-            Lude.<*> (x Lude..: "SourceIdentifier")
+            Lude.<*> (x Lude..:? "SourceDetails" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON Source where
   toJSON Source' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("SourceDetails" Lude..=) Lude.<$> sourceDetails,
+          [ Lude.Just ("SourceIdentifier" Lude..= sourceIdentifier),
             Lude.Just ("Owner" Lude..= owner),
-            Lude.Just ("SourceIdentifier" Lude..= sourceIdentifier)
+            ("SourceDetails" Lude..=) Lude.<$> sourceDetails
           ]
       )

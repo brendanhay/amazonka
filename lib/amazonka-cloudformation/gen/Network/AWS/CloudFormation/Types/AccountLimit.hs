@@ -42,24 +42,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-  { value :: Lude.Maybe Lude.Int,
+  { -- | The value that is associated with the account limit name.
+    value :: Lude.Maybe Lude.Int,
+    -- | The name of the account limit.
+    --
+    -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountLimit' with the minimum fields required to make a request.
 --
+-- * 'value' - The value that is associated with the account limit name.
 -- * 'name' - The name of the account limit.
 --
 -- Values: @ConcurrentResourcesLimit@ | @StackLimit@ | @StackOutputsLimit@
--- * 'value' - The value that is associated with the account limit name.
 mkAccountLimit ::
   AccountLimit
 mkAccountLimit =

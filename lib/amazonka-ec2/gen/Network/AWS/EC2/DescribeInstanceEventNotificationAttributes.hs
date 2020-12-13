@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.EC2.DescribeInstanceEventNotificationAttributes
     mkDescribeInstanceEventNotificationAttributes,
 
     -- ** Request lenses
-    dienasDryRun,
+    dienaDryRun,
 
     -- * Destructuring the response
     DescribeInstanceEventNotificationAttributesResponse (..),
@@ -39,21 +40,11 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstanceEventNotificationAttributes' smart constructor.
 newtype DescribeInstanceEventNotificationAttributes = DescribeInstanceEventNotificationAttributes'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceEventNotificationAttributes' with the minimum fields required to make a request.
 --
@@ -69,9 +60,9 @@ mkDescribeInstanceEventNotificationAttributes =
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dienasDryRun :: Lens.Lens' DescribeInstanceEventNotificationAttributes (Lude.Maybe Lude.Bool)
-dienasDryRun = Lens.lens (dryRun :: DescribeInstanceEventNotificationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInstanceEventNotificationAttributes)
-{-# DEPRECATED dienasDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dienaDryRun :: Lens.Lens' DescribeInstanceEventNotificationAttributes (Lude.Maybe Lude.Bool)
+dienaDryRun = Lens.lens (dryRun :: DescribeInstanceEventNotificationAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInstanceEventNotificationAttributes)
+{-# DEPRECATED dienaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -106,23 +97,13 @@ instance Lude.ToQuery DescribeInstanceEventNotificationAttributes where
 
 -- | /See:/ 'mkDescribeInstanceEventNotificationAttributesResponse' smart constructor.
 data DescribeInstanceEventNotificationAttributesResponse = DescribeInstanceEventNotificationAttributesResponse'
-  { instanceTagAttribute ::
-      Lude.Maybe
-        InstanceTagNotificationAttribute,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the registered tag keys.
+    instanceTagAttribute :: Lude.Maybe InstanceTagNotificationAttribute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceEventNotificationAttributesResponse' with the minimum fields required to make a request.
 --

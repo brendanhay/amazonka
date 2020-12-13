@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.EC2.ExportTransitGatewayRoutes
     mkExportTransitGatewayRoutes,
 
     -- ** Request lenses
-    etgrFilters,
-    etgrDryRun,
     etgrTransitGatewayRouteTableId,
+    etgrFilters,
     etgrS3Bucket,
+    etgrDryRun,
 
     -- * Destructuring the response
     ExportTransitGatewayRoutesResponse (..),
@@ -44,25 +45,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExportTransitGatewayRoutes' smart constructor.
 data ExportTransitGatewayRoutes = ExportTransitGatewayRoutes'
-  { filters ::
-      Lude.Maybe [Filter],
-    dryRun :: Lude.Maybe Lude.Bool,
-    transitGatewayRouteTableId ::
-      Lude.Text,
-    s3Bucket :: Lude.Text
+  { -- | The ID of the route table.
+    transitGatewayRouteTableId :: Lude.Text,
+    -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @attachment.transit-gateway-attachment-id@ - The id of the transit gateway attachment.
+    --
+    --
+    --     * @attachment.resource-id@ - The resource id of the transit gateway attachment.
+    --
+    --
+    --     * @route-search.exact-match@ - The exact match of the specified filter.
+    --
+    --
+    --     * @route-search.longest-prefix-match@ - The longest prefix that matches the route.
+    --
+    --
+    --     * @route-search.subnet-of-match@ - The routes with a subnet that match the specified CIDR filter.
+    --
+    --
+    --     * @route-search.supernet-of-match@ - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.
+    --
+    --
+    --     * @state@ - The state of the route (@active@ | @blackhole@ ).
+    --
+    --
+    --     * @transit-gateway-route-destination-cidr-block@ - The CIDR range.
+    --
+    --
+    --     * @type@ - The type of route (@propagated@ | @static@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The name of the S3 bucket.
+    s3Bucket :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTransitGatewayRoutes' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'transitGatewayRouteTableId' - The ID of the route table.
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -94,7 +118,7 @@ data ExportTransitGatewayRoutes = ExportTransitGatewayRoutes'
 --
 --
 -- * 's3Bucket' - The name of the S3 bucket.
--- * 'transitGatewayRouteTableId' - The ID of the route table.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkExportTransitGatewayRoutes ::
   -- | 'transitGatewayRouteTableId'
   Lude.Text ->
@@ -105,11 +129,19 @@ mkExportTransitGatewayRoutes
   pTransitGatewayRouteTableId_
   pS3Bucket_ =
     ExportTransitGatewayRoutes'
-      { filters = Lude.Nothing,
-        dryRun = Lude.Nothing,
-        transitGatewayRouteTableId = pTransitGatewayRouteTableId_,
-        s3Bucket = pS3Bucket_
+      { transitGatewayRouteTableId =
+          pTransitGatewayRouteTableId_,
+        filters = Lude.Nothing,
+        s3Bucket = pS3Bucket_,
+        dryRun = Lude.Nothing
       }
+
+-- | The ID of the route table.
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrTransitGatewayRouteTableId :: Lens.Lens' ExportTransitGatewayRoutes Lude.Text
+etgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: ExportTransitGatewayRoutes -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: ExportTransitGatewayRoutes)
+{-# DEPRECATED etgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | One or more filters. The possible values are:
 --
@@ -147,26 +179,19 @@ etgrFilters :: Lens.Lens' ExportTransitGatewayRoutes (Lude.Maybe [Filter])
 etgrFilters = Lens.lens (filters :: ExportTransitGatewayRoutes -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: ExportTransitGatewayRoutes)
 {-# DEPRECATED etgrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etgrDryRun :: Lens.Lens' ExportTransitGatewayRoutes (Lude.Maybe Lude.Bool)
-etgrDryRun = Lens.lens (dryRun :: ExportTransitGatewayRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportTransitGatewayRoutes)
-{-# DEPRECATED etgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the route table.
---
--- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etgrTransitGatewayRouteTableId :: Lens.Lens' ExportTransitGatewayRoutes Lude.Text
-etgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: ExportTransitGatewayRoutes -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: ExportTransitGatewayRoutes)
-{-# DEPRECATED etgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
-
 -- | The name of the S3 bucket.
 --
 -- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 etgrS3Bucket :: Lens.Lens' ExportTransitGatewayRoutes Lude.Text
 etgrS3Bucket = Lens.lens (s3Bucket :: ExportTransitGatewayRoutes -> Lude.Text) (\s a -> s {s3Bucket = a} :: ExportTransitGatewayRoutes)
 {-# DEPRECATED etgrS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etgrDryRun :: Lens.Lens' ExportTransitGatewayRoutes (Lude.Maybe Lude.Bool)
+etgrDryRun = Lens.lens (dryRun :: ExportTransitGatewayRoutes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportTransitGatewayRoutes)
+{-# DEPRECATED etgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ExportTransitGatewayRoutes where
   type
@@ -192,32 +217,26 @@ instance Lude.ToQuery ExportTransitGatewayRoutes where
       [ "Action"
           Lude.=: ("ExportTransitGatewayRoutes" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "DryRun" Lude.=: dryRun,
         "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
-        "S3Bucket" Lude.=: s3Bucket
+        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "S3Bucket" Lude.=: s3Bucket,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkExportTransitGatewayRoutesResponse' smart constructor.
 data ExportTransitGatewayRoutesResponse = ExportTransitGatewayRoutesResponse'
-  { s3Location ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The URL of the exported file in Amazon S3. For example, s3:///bucket_name/ /VPCTransitGateway/TransitGatewayRouteTables//file_name/ .
+    s3Location :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTransitGatewayRoutesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 's3Location' - The URL of the exported file in Amazon S3. For example, s3:///bucket_name/ /VPCTransitGateway/TransitGatewayRouteTables//file_name/ .
+-- * 'responseStatus' - The response status code.
 mkExportTransitGatewayRoutesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

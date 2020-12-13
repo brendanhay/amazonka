@@ -293,8 +293,8 @@ module Network.AWS.SES
     -- ** AddHeaderAction
     AddHeaderAction (..),
     mkAddHeaderAction,
-    ahaHeaderName,
     ahaHeaderValue,
+    ahaHeaderName,
 
     -- ** Body
     Body (..),
@@ -305,26 +305,26 @@ module Network.AWS.SES
     -- ** BounceAction
     BounceAction (..),
     mkBounceAction,
-    baTopicARN,
-    baStatusCode,
     baSmtpReplyCode,
-    baMessage,
     baSender,
+    baTopicARN,
+    baMessage,
+    baStatusCode,
 
     -- ** BouncedRecipientInfo
     BouncedRecipientInfo (..),
     mkBouncedRecipientInfo,
     briBounceType,
     briRecipientDsnFields,
-    briRecipientARN,
     briRecipient,
+    briRecipientARN,
 
     -- ** BulkEmailDestination
     BulkEmailDestination (..),
     mkBulkEmailDestination,
+    bedDestination,
     bedReplacementTemplateData,
     bedReplacementTags,
-    bedDestination,
 
     -- ** BulkEmailDestinationStatus
     BulkEmailDestinationStatus (..),
@@ -341,9 +341,9 @@ module Network.AWS.SES
     -- ** CloudWatchDimensionConfiguration
     CloudWatchDimensionConfiguration (..),
     mkCloudWatchDimensionConfiguration,
-    cwdcDimensionName,
-    cwdcDimensionValueSource,
     cwdcDefaultDimensionValue,
+    cwdcDimensionValueSource,
+    cwdcDimensionName,
 
     -- ** ConfigurationSet
     ConfigurationSet (..),
@@ -353,8 +353,8 @@ module Network.AWS.SES
     -- ** Content
     Content (..),
     mkContent,
-    cCharset,
     cData,
+    cCharset,
 
     -- ** CustomVerificationEmailTemplate
     CustomVerificationEmailTemplate (..),
@@ -380,18 +380,18 @@ module Network.AWS.SES
     -- ** EventDestination
     EventDestination (..),
     mkEventDestination,
+    edMatchingEventTypes,
     edEnabled,
     edKinesisFirehoseDestination,
     edCloudWatchDestination,
-    edSNSDestination,
     edName,
-    edMatchingEventTypes,
+    edSNSDestination,
 
     -- ** ExtensionField
     ExtensionField (..),
     mkExtensionField,
-    efName,
     efValue,
+    efName,
 
     -- ** IdentityDkimAttributes
     IdentityDkimAttributes (..),
@@ -412,10 +412,10 @@ module Network.AWS.SES
     mkIdentityNotificationAttributes,
     inaHeadersInDeliveryNotificationsEnabled,
     inaHeadersInComplaintNotificationsEnabled,
+    inaDeliveryTopic,
     inaHeadersInBounceNotificationsEnabled,
     inaBounceTopic,
     inaComplaintTopic,
-    inaDeliveryTopic,
     inaForwardingEnabled,
 
     -- ** IdentityVerificationAttributes
@@ -433,9 +433,9 @@ module Network.AWS.SES
     -- ** LambdaAction
     LambdaAction (..),
     mkLambdaAction,
+    laFunctionARN,
     laInvocationType,
     laTopicARN,
-    laFunctionARN,
 
     -- ** Message
     Message (..),
@@ -453,8 +453,8 @@ module Network.AWS.SES
     -- ** MessageTag
     MessageTag (..),
     mkMessageTag,
-    mtName,
     mtValue,
+    mtName,
 
     -- ** RawMessage
     RawMessage (..),
@@ -481,8 +481,8 @@ module Network.AWS.SES
     -- ** ReceiptIPFilter
     ReceiptIPFilter (..),
     mkReceiptIPFilter,
-    rifPolicy,
     rifCidr,
+    rifPolicy,
 
     -- ** ReceiptRule
     ReceiptRule (..),
@@ -490,9 +490,9 @@ module Network.AWS.SES
     rrScanEnabled,
     rrEnabled,
     rrActions,
+    rrName,
     rrRecipients,
     rrTLSPolicy,
-    rrName,
 
     -- ** ReceiptRuleSetMetadata
     ReceiptRuleSetMetadata (..),
@@ -503,13 +503,13 @@ module Network.AWS.SES
     -- ** RecipientDsnFields
     RecipientDsnFields (..),
     mkRecipientDsnFields,
+    rdfStatus,
     rdfDiagnosticCode,
+    rdfAction,
     rdfRemoteMta,
     rdfFinalRecipient,
     rdfExtensionFields,
     rdfLastAttemptDate,
-    rdfAction,
-    rdfStatus,
 
     -- ** ReputationOptions
     ReputationOptions (..),
@@ -521,16 +521,16 @@ module Network.AWS.SES
     -- ** S3Action
     S3Action (..),
     mkS3Action,
-    s3KMSKeyARN,
-    s3TopicARN,
-    s3ObjectKeyPrefix,
-    s3BucketName,
+    safKMSKeyARN,
+    safBucketName,
+    safTopicARN,
+    safObjectKeyPrefix,
 
     -- ** SNSAction
     SNSAction (..),
     mkSNSAction,
-    saEncoding,
     saTopicARN,
+    saEncoding,
 
     -- ** SNSDestination
     SNSDestination (..),
@@ -555,10 +555,10 @@ module Network.AWS.SES
     -- ** Template
     Template (..),
     mkTemplate,
+    tTemplateName,
     tTextPart,
     tSubjectPart,
     tHTMLPart,
-    tTemplateName,
 
     -- ** TemplateMetadata
     TemplateMetadata (..),

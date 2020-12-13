@@ -33,32 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVoiceTemplateRequest' smart constructor.
 data VoiceTemplateRequest = VoiceTemplateRequest'
-  { languageCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
+    languageCode :: Lude.Maybe Lude.Text,
+    -- | The text of the script to use in messages that are based on the message template, in plain text format.
     body :: Lude.Maybe Lude.Text,
+    -- | A custom description of the message template.
     templateDescription :: Lude.Maybe Lude.Text,
+    -- | A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
     defaultSubstitutions :: Lude.Maybe Lude.Text,
+    -- | The name of the voice to use when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
     voiceId :: Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    -- | A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VoiceTemplateRequest' with the minimum fields required to make a request.
 --
--- * 'body' - The text of the script to use in messages that are based on the message template, in plain text format.
--- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 -- * 'languageCode' - The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
--- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
+-- * 'body' - The text of the script to use in messages that are based on the message template, in plain text format.
 -- * 'templateDescription' - A custom description of the message template.
+-- * 'defaultSubstitutions' - A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
 -- * 'voiceId' - The name of the voice to use when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
+-- * 'tags' - A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.
 mkVoiceTemplateRequest ::
   VoiceTemplateRequest
 mkVoiceTemplateRequest =

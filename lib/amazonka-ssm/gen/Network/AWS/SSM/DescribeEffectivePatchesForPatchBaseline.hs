@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
 
     -- ** Request lenses
     depfpbNextToken,
-    depfpbMaxResults,
     depfpbBaselineId,
+    depfpbMaxResults,
 
     -- * Destructuring the response
     DescribeEffectivePatchesForPatchBaselineResponse (..),
@@ -45,29 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeEffectivePatchesForPatchBaseline' smart constructor.
 data DescribeEffectivePatchesForPatchBaseline = DescribeEffectivePatchesForPatchBaseline'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    baselineId ::
-      Lude.Text
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the patch baseline to retrieve the effective patches for.
+    baselineId :: Lude.Text,
+    -- | The maximum number of patches to return (per page).
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEffectivePatchesForPatchBaseline' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'baselineId' - The ID of the patch baseline to retrieve the effective patches for.
 -- * 'maxResults' - The maximum number of patches to return (per page).
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 mkDescribeEffectivePatchesForPatchBaseline ::
   -- | 'baselineId'
   Lude.Text ->
@@ -76,8 +69,8 @@ mkDescribeEffectivePatchesForPatchBaseline pBaselineId_ =
   DescribeEffectivePatchesForPatchBaseline'
     { nextToken =
         Lude.Nothing,
-      maxResults = Lude.Nothing,
-      baselineId = pBaselineId_
+      baselineId = pBaselineId_,
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
@@ -87,19 +80,19 @@ depfpbNextToken :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Lude.May
 depfpbNextToken = Lens.lens (nextToken :: DescribeEffectivePatchesForPatchBaseline -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEffectivePatchesForPatchBaseline)
 {-# DEPRECATED depfpbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of patches to return (per page).
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-depfpbMaxResults :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Lude.Maybe Lude.Natural)
-depfpbMaxResults = Lens.lens (maxResults :: DescribeEffectivePatchesForPatchBaseline -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEffectivePatchesForPatchBaseline)
-{-# DEPRECATED depfpbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ID of the patch baseline to retrieve the effective patches for.
 --
 -- /Note:/ Consider using 'baselineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 depfpbBaselineId :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline Lude.Text
 depfpbBaselineId = Lens.lens (baselineId :: DescribeEffectivePatchesForPatchBaseline -> Lude.Text) (\s a -> s {baselineId = a} :: DescribeEffectivePatchesForPatchBaseline)
 {-# DEPRECATED depfpbBaselineId "Use generic-lens or generic-optics with 'baselineId' instead." #-}
+
+-- | The maximum number of patches to return (per page).
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+depfpbMaxResults :: Lens.Lens' DescribeEffectivePatchesForPatchBaseline (Lude.Maybe Lude.Natural)
+depfpbMaxResults = Lens.lens (maxResults :: DescribeEffectivePatchesForPatchBaseline -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEffectivePatchesForPatchBaseline)
+{-# DEPRECATED depfpbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeEffectivePatchesForPatchBaseline where
   page rq rs
@@ -142,8 +135,8 @@ instance Lude.ToJSON DescribeEffectivePatchesForPatchBaseline where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("BaselineId" Lude..= baselineId)
+            Lude.Just ("BaselineId" Lude..= baselineId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -155,26 +148,15 @@ instance Lude.ToQuery DescribeEffectivePatchesForPatchBaseline where
 
 -- | /See:/ 'mkDescribeEffectivePatchesForPatchBaselineResponse' smart constructor.
 data DescribeEffectivePatchesForPatchBaselineResponse = DescribeEffectivePatchesForPatchBaselineResponse'
-  { effectivePatches ::
-      Lude.Maybe
-        [EffectivePatch],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | An array of patches and patch status.
+    effectivePatches :: Lude.Maybe [EffectivePatch],
+    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEffectivePatchesForPatchBaselineResponse' with the minimum fields required to make a request.
 --

@@ -32,19 +32,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssociatedGateway' smart constructor.
 data AssociatedGateway = AssociatedGateway'
-  { id ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the associated gateway.
+    id :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
     ownerAccount :: Lude.Maybe Lude.Text,
+    -- | The Region where the associated gateway is located.
     region :: Lude.Maybe Lude.Text,
+    -- | The type of associated gateway.
     type' :: Lude.Maybe GatewayType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociatedGateway' with the minimum fields required to make a request.

@@ -43,49 +43,58 @@ import Network.AWS.Redshift.Types.TableRestoreStatusType
 --
 -- /See:/ 'mkTableRestoreStatus' smart constructor.
 data TableRestoreStatus = TableRestoreStatus'
-  { status ::
-      Lude.Maybe TableRestoreStatusType,
+  { -- | A value that describes the current state of the table restore request.
+    --
+    -- Valid Values: @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@
+    status :: Lude.Maybe TableRestoreStatusType,
+    -- | The name of the schema to restore the table to.
     targetSchemaName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the snapshot that the table is being restored from.
     snapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | The name of the source database that contains the table being restored.
     sourceDatabaseName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the table restore request.
     tableRestoreRequestId :: Lude.Maybe Lude.Text,
+    -- | The name of the table to create as a result of the table restore request.
     newTableName :: Lude.Maybe Lude.Text,
+    -- | The name of the database to restore the table to.
     targetDatabaseName :: Lude.Maybe Lude.Text,
+    -- | The name of the source schema that contains the table being restored.
     sourceSchemaName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the Amazon Redshift cluster that the table is being restored to.
     clusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The time that the table restore request was made, in Universal Coordinated Time (UTC).
     requestTime :: Lude.Maybe Lude.DateTime,
+    -- | The name of the source table being restored.
     sourceTableName :: Lude.Maybe Lude.Text,
+    -- | The total amount of data to restore to the new table, in megabytes (MB).
     totalDataInMegaBytes :: Lude.Maybe Lude.Integer,
+    -- | The amount of data restored to the new table so far, in megabytes (MB).
     progressInMegaBytes :: Lude.Maybe Lude.Integer,
+    -- | A description of the status of the table restore request. Status values include @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@ .
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableRestoreStatus' with the minimum fields required to make a request.
 --
--- * 'clusterIdentifier' - The identifier of the Amazon Redshift cluster that the table is being restored to.
--- * 'message' - A description of the status of the table restore request. Status values include @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@ .
--- * 'newTableName' - The name of the table to create as a result of the table restore request.
--- * 'progressInMegaBytes' - The amount of data restored to the new table so far, in megabytes (MB).
--- * 'requestTime' - The time that the table restore request was made, in Universal Coordinated Time (UTC).
--- * 'snapshotIdentifier' - The identifier of the snapshot that the table is being restored from.
--- * 'sourceDatabaseName' - The name of the source database that contains the table being restored.
--- * 'sourceSchemaName' - The name of the source schema that contains the table being restored.
--- * 'sourceTableName' - The name of the source table being restored.
 -- * 'status' - A value that describes the current state of the table restore request.
 --
 -- Valid Values: @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@
--- * 'tableRestoreRequestId' - The unique identifier for the table restore request.
--- * 'targetDatabaseName' - The name of the database to restore the table to.
 -- * 'targetSchemaName' - The name of the schema to restore the table to.
+-- * 'snapshotIdentifier' - The identifier of the snapshot that the table is being restored from.
+-- * 'sourceDatabaseName' - The name of the source database that contains the table being restored.
+-- * 'tableRestoreRequestId' - The unique identifier for the table restore request.
+-- * 'newTableName' - The name of the table to create as a result of the table restore request.
+-- * 'targetDatabaseName' - The name of the database to restore the table to.
+-- * 'sourceSchemaName' - The name of the source schema that contains the table being restored.
+-- * 'clusterIdentifier' - The identifier of the Amazon Redshift cluster that the table is being restored to.
+-- * 'requestTime' - The time that the table restore request was made, in Universal Coordinated Time (UTC).
+-- * 'sourceTableName' - The name of the source table being restored.
 -- * 'totalDataInMegaBytes' - The total amount of data to restore to the new table, in megabytes (MB).
+-- * 'progressInMegaBytes' - The amount of data restored to the new table so far, in megabytes (MB).
+-- * 'message' - A description of the status of the table restore request. Status values include @SUCCEEDED@ , @FAILED@ , @CANCELED@ , @PENDING@ , @IN_PROGRESS@ .
 mkTableRestoreStatus ::
   TableRestoreStatus
 mkTableRestoreStatus =

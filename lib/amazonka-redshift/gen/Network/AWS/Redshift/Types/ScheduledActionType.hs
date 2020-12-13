@@ -34,25 +34,21 @@ import Network.AWS.Redshift.Types.ResumeClusterMessage
 --
 -- /See:/ 'mkScheduledActionType' smart constructor.
 data ScheduledActionType = ScheduledActionType'
-  { resizeCluster ::
-      Lude.Maybe ResizeClusterMessage,
+  { -- | An action that runs a @ResizeCluster@ API operation.
+    resizeCluster :: Lude.Maybe ResizeClusterMessage,
+    -- | An action that runs a @ResumeCluster@ API operation.
     resumeCluster :: Lude.Maybe ResumeClusterMessage,
+    -- | An action that runs a @PauseCluster@ API operation.
     pauseCluster :: Lude.Maybe PauseClusterMessage
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledActionType' with the minimum fields required to make a request.
 --
--- * 'pauseCluster' - An action that runs a @PauseCluster@ API operation.
 -- * 'resizeCluster' - An action that runs a @ResizeCluster@ API operation.
 -- * 'resumeCluster' - An action that runs a @ResumeCluster@ API operation.
+-- * 'pauseCluster' - An action that runs a @PauseCluster@ API operation.
 mkScheduledActionType ::
   ScheduledActionType
 mkScheduledActionType =

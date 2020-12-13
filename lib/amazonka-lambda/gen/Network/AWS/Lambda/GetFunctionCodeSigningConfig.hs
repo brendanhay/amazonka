@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Lambda.GetFunctionCodeSigningConfig
     mkGetFunctionCodeSigningConfigResponse,
 
     -- ** Response lenses
-    gfcscrsResponseStatus,
     gfcscrsCodeSigningConfigARN,
     gfcscrsFunctionName,
+    gfcscrsResponseStatus,
   )
 where
 
@@ -40,16 +41,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFunctionCodeSigningConfig' smart constructor.
 newtype GetFunctionCodeSigningConfig = GetFunctionCodeSigningConfig'
-  { functionName ::
-      Lude.Text
+  { -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionCodeSigningConfig' with the minimum fields required to make a request.
@@ -104,9 +112,9 @@ instance Lude.AWSRequest GetFunctionCodeSigningConfig where
     Res.receiveJSON
       ( \s h x ->
           GetFunctionCodeSigningConfigResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "CodeSigningConfigArn")
+            Lude.<$> (x Lude..:> "CodeSigningConfigArn")
             Lude.<*> (x Lude..:> "FunctionName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetFunctionCodeSigningConfig where
@@ -125,20 +133,27 @@ instance Lude.ToQuery GetFunctionCodeSigningConfig where
 
 -- | /See:/ 'mkGetFunctionCodeSigningConfigResponse' smart constructor.
 data GetFunctionCodeSigningConfigResponse = GetFunctionCodeSigningConfigResponse'
-  { responseStatus ::
-      Lude.Int,
-    codeSigningConfigARN ::
-      Lude.Text,
-    functionName ::
-      Lude.Text
+  { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
+    codeSigningConfigARN :: Lude.Text,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @MyFunction@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:MyFunction@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionCodeSigningConfigResponse' with the minimum fields required to make a request.
@@ -160,30 +175,23 @@ data GetFunctionCodeSigningConfigResponse = GetFunctionCodeSigningConfigResponse
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 -- * 'responseStatus' - The response status code.
 mkGetFunctionCodeSigningConfigResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'codeSigningConfigARN'
   Lude.Text ->
   -- | 'functionName'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetFunctionCodeSigningConfigResponse
 mkGetFunctionCodeSigningConfigResponse
-  pResponseStatus_
   pCodeSigningConfigARN_
-  pFunctionName_ =
+  pFunctionName_
+  pResponseStatus_ =
     GetFunctionCodeSigningConfigResponse'
-      { responseStatus =
-          pResponseStatus_,
-        codeSigningConfigARN = pCodeSigningConfigARN_,
-        functionName = pFunctionName_
+      { codeSigningConfigARN =
+          pCodeSigningConfigARN_,
+        functionName = pFunctionName_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfcscrsResponseStatus :: Lens.Lens' GetFunctionCodeSigningConfigResponse Lude.Int
-gfcscrsResponseStatus = Lens.lens (responseStatus :: GetFunctionCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFunctionCodeSigningConfigResponse)
-{-# DEPRECATED gfcscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
 --
@@ -211,3 +219,10 @@ gfcscrsCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: GetFunctionCode
 gfcscrsFunctionName :: Lens.Lens' GetFunctionCodeSigningConfigResponse Lude.Text
 gfcscrsFunctionName = Lens.lens (functionName :: GetFunctionCodeSigningConfigResponse -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionCodeSigningConfigResponse)
 {-# DEPRECATED gfcscrsFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfcscrsResponseStatus :: Lens.Lens' GetFunctionCodeSigningConfigResponse Lude.Int
+gfcscrsResponseStatus = Lens.lens (responseStatus :: GetFunctionCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFunctionCodeSigningConfigResponse)
+{-# DEPRECATED gfcscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,8 +17,8 @@ module Network.AWS.CloudTrail.Types.AdvancedEventSelector
     mkAdvancedEventSelector,
 
     -- * Lenses
-    aesName,
     aesFieldSelectors,
+    aesName,
   )
 where
 
@@ -28,42 +28,27 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkAdvancedEventSelector' smart constructor.
 data AdvancedEventSelector = AdvancedEventSelector'
-  { name ::
-      Lude.Text,
-    fieldSelectors ::
-      Lude.NonEmpty AdvancedFieldSelector
+  { fieldSelectors :: Lude.NonEmpty AdvancedFieldSelector,
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvancedEventSelector' with the minimum fields required to make a request.
 --
--- * 'fieldSelectors' - Undocumented field.
--- * 'name' - Undocumented field.
+-- * 'fieldSelectors' -
+-- * 'name' -
 mkAdvancedEventSelector ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'fieldSelectors'
   Lude.NonEmpty AdvancedFieldSelector ->
+  -- | 'name'
+  Lude.Text ->
   AdvancedEventSelector
-mkAdvancedEventSelector pName_ pFieldSelectors_ =
+mkAdvancedEventSelector pFieldSelectors_ pName_ =
   AdvancedEventSelector'
-    { name = pName_,
-      fieldSelectors = pFieldSelectors_
+    { fieldSelectors = pFieldSelectors_,
+      name = pName_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aesName :: Lens.Lens' AdvancedEventSelector Lude.Text
-aesName = Lens.lens (name :: AdvancedEventSelector -> Lude.Text) (\s a -> s {name = a} :: AdvancedEventSelector)
-{-# DEPRECATED aesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Undocumented field.
 --
@@ -72,20 +57,27 @@ aesFieldSelectors :: Lens.Lens' AdvancedEventSelector (Lude.NonEmpty AdvancedFie
 aesFieldSelectors = Lens.lens (fieldSelectors :: AdvancedEventSelector -> Lude.NonEmpty AdvancedFieldSelector) (\s a -> s {fieldSelectors = a} :: AdvancedEventSelector)
 {-# DEPRECATED aesFieldSelectors "Use generic-lens or generic-optics with 'fieldSelectors' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aesName :: Lens.Lens' AdvancedEventSelector Lude.Text
+aesName = Lens.lens (name :: AdvancedEventSelector -> Lude.Text) (\s a -> s {name = a} :: AdvancedEventSelector)
+{-# DEPRECATED aesName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.FromJSON AdvancedEventSelector where
   parseJSON =
     Lude.withObject
       "AdvancedEventSelector"
       ( \x ->
           AdvancedEventSelector'
-            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "FieldSelectors")
+            Lude.<$> (x Lude..: "FieldSelectors") Lude.<*> (x Lude..: "Name")
       )
 
 instance Lude.ToJSON AdvancedEventSelector where
   toJSON AdvancedEventSelector' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("FieldSelectors" Lude..= fieldSelectors)
+          [ Lude.Just ("FieldSelectors" Lude..= fieldSelectors),
+            Lude.Just ("Name" Lude..= name)
           ]
       )

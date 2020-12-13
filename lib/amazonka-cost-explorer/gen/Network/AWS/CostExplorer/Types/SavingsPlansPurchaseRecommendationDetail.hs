@@ -44,82 +44,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSavingsPlansPurchaseRecommendationDetail' smart constructor.
 data SavingsPlansPurchaseRecommendationDetail = SavingsPlansPurchaseRecommendationDetail'
-  { currencyCode ::
-      Lude.Maybe
-        Lude.Text,
-    currentAverageHourlyOnDemandSpend ::
-      Lude.Maybe
-        Lude.Text,
-    savingsPlansDetails ::
-      Lude.Maybe
-        SavingsPlansDetails,
-    currentMinimumHourlyOnDemandSpend ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedROI ::
-      Lude.Maybe
-        Lude.Text,
-    currentMaximumHourlyOnDemandSpend ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedSavingsAmount ::
-      Lude.Maybe
-        Lude.Text,
-    accountId ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedMonthlySavingsAmount ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedOnDemandCost ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedOnDemandCostWithCurrentCommitment ::
-      Lude.Maybe
-        Lude.Text,
-    upfrontCost ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedSPCost ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedSavingsPercentage ::
-      Lude.Maybe
-        Lude.Text,
-    estimatedAverageUtilization ::
-      Lude.Maybe
-        Lude.Text,
-    hourlyCommitmentToPurchase ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The currency code AWS used to generate the recommendations and present potential savings.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | The average value of hourly On-Demand spend over the lookback period of the applicable usage type.
+    currentAverageHourlyOnDemandSpend :: Lude.Maybe Lude.Text,
+    -- | Details for your recommended Savings Plans.
+    savingsPlansDetails :: Lude.Maybe SavingsPlansDetails,
+    -- | The lowest value of hourly On-Demand spend over the lookback period of the applicable usage type.
+    currentMinimumHourlyOnDemandSpend :: Lude.Maybe Lude.Text,
+    -- | The estimated return on investment based on the recommended Savings Plans purchased. This is calculated as @estimatedSavingsAmount@ / @estimatedSPCost@ *100.
+    estimatedROI :: Lude.Maybe Lude.Text,
+    -- | The highest value of hourly On-Demand spend over the lookback period of the applicable usage type.
+    currentMaximumHourlyOnDemandSpend :: Lude.Maybe Lude.Text,
+    -- | The estimated savings amount based on the recommended Savings Plans over the length of the lookback period.
+    estimatedSavingsAmount :: Lude.Maybe Lude.Text,
+    -- | The @AccountID@ the recommendation is generated for.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | The estimated monthly savings amount, based on the recommended Savings Plans.
+    estimatedMonthlySavingsAmount :: Lude.Maybe Lude.Text,
+    -- | The remaining On-Demand cost estimated to not be covered by the recommended Savings Plans, over the length of the lookback period.
+    estimatedOnDemandCost :: Lude.Maybe Lude.Text,
+    -- | The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
+    estimatedOnDemandCostWithCurrentCommitment :: Lude.Maybe Lude.Text,
+    -- | The upfront cost of the recommended Savings Plans, based on the selected payment option.
+    upfrontCost :: Lude.Maybe Lude.Text,
+    -- | The cost of the recommended Savings Plans over the length of the lookback period.
+    estimatedSPCost :: Lude.Maybe Lude.Text,
+    -- | The estimated savings percentage relative to the total cost of applicable On-Demand usage over the lookback period.
+    estimatedSavingsPercentage :: Lude.Maybe Lude.Text,
+    -- | The estimated utilization of the recommended Savings Plans.
+    estimatedAverageUtilization :: Lude.Maybe Lude.Text,
+    -- | The recommended hourly commitment level for the Savings Plans type, and configuration based on the usage during the lookback period.
+    hourlyCommitmentToPurchase :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SavingsPlansPurchaseRecommendationDetail' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountID@ the recommendation is generated for.
 -- * 'currencyCode' - The currency code AWS used to generate the recommendations and present potential savings.
 -- * 'currentAverageHourlyOnDemandSpend' - The average value of hourly On-Demand spend over the lookback period of the applicable usage type.
--- * 'currentMaximumHourlyOnDemandSpend' - The highest value of hourly On-Demand spend over the lookback period of the applicable usage type.
+-- * 'savingsPlansDetails' - Details for your recommended Savings Plans.
 -- * 'currentMinimumHourlyOnDemandSpend' - The lowest value of hourly On-Demand spend over the lookback period of the applicable usage type.
--- * 'estimatedAverageUtilization' - The estimated utilization of the recommended Savings Plans.
+-- * 'estimatedROI' - The estimated return on investment based on the recommended Savings Plans purchased. This is calculated as @estimatedSavingsAmount@ / @estimatedSPCost@ *100.
+-- * 'currentMaximumHourlyOnDemandSpend' - The highest value of hourly On-Demand spend over the lookback period of the applicable usage type.
+-- * 'estimatedSavingsAmount' - The estimated savings amount based on the recommended Savings Plans over the length of the lookback period.
+-- * 'accountId' - The @AccountID@ the recommendation is generated for.
 -- * 'estimatedMonthlySavingsAmount' - The estimated monthly savings amount, based on the recommended Savings Plans.
 -- * 'estimatedOnDemandCost' - The remaining On-Demand cost estimated to not be covered by the recommended Savings Plans, over the length of the lookback period.
 -- * 'estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own.
--- * 'estimatedROI' - The estimated return on investment based on the recommended Savings Plans purchased. This is calculated as @estimatedSavingsAmount@ / @estimatedSPCost@ *100.
--- * 'estimatedSPCost' - The cost of the recommended Savings Plans over the length of the lookback period.
--- * 'estimatedSavingsAmount' - The estimated savings amount based on the recommended Savings Plans over the length of the lookback period.
--- * 'estimatedSavingsPercentage' - The estimated savings percentage relative to the total cost of applicable On-Demand usage over the lookback period.
--- * 'hourlyCommitmentToPurchase' - The recommended hourly commitment level for the Savings Plans type, and configuration based on the usage during the lookback period.
--- * 'savingsPlansDetails' - Details for your recommended Savings Plans.
 -- * 'upfrontCost' - The upfront cost of the recommended Savings Plans, based on the selected payment option.
+-- * 'estimatedSPCost' - The cost of the recommended Savings Plans over the length of the lookback period.
+-- * 'estimatedSavingsPercentage' - The estimated savings percentage relative to the total cost of applicable On-Demand usage over the lookback period.
+-- * 'estimatedAverageUtilization' - The estimated utilization of the recommended Savings Plans.
+-- * 'hourlyCommitmentToPurchase' - The recommended hourly commitment level for the Savings Plans type, and configuration based on the usage during the lookback period.
 mkSavingsPlansPurchaseRecommendationDetail ::
   SavingsPlansPurchaseRecommendationDetail
 mkSavingsPlansPurchaseRecommendationDetail =

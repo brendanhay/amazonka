@@ -196,10 +196,10 @@ module Network.AWS.Organizations.Types
     -- * PolicyTargetSummary
     PolicyTargetSummary (..),
     mkPolicyTargetSummary,
-    polTargetId,
-    polARN,
-    polName,
-    polType,
+    ptsfTargetId,
+    ptsfARN,
+    ptsfName,
+    ptsfType,
 
     -- * PolicyTypeSummary
     PolicyTypeSummary (..),
@@ -218,8 +218,8 @@ module Network.AWS.Organizations.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

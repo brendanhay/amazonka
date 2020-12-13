@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkINDTaxDocuments' smart constructor.
 newtype INDTaxDocuments = INDTaxDocuments'
-  { gSTIN ::
-      Lude.Maybe Lude.Text
+  { -- | The Goods and Services Tax (GST) documents required in AWS Regions in India.
+    gSTIN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'INDTaxDocuments' with the minimum fields required to make a request.

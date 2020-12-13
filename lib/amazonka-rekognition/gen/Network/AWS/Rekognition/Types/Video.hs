@@ -28,14 +28,11 @@ import Network.AWS.Rekognition.Types.S3Object
 -- | Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as 'StartLabelDetection' use @Video@ to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.
 --
 -- /See:/ 'mkVideo' smart constructor.
-newtype Video = Video' {s3Object :: Lude.Maybe S3Object}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Video = Video'
+  { -- | The Amazon S3 bucket name and file name for the video.
+    s3Object :: Lude.Maybe S3Object
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Video' with the minimum fields required to make a request.

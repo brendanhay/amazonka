@@ -41,45 +41,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { state ::
-      Lude.Maybe AvailabilityZoneState,
+  { -- | The state of the Availability Zone, Local Zone, or Wavelength Zone.
+    state :: Lude.Maybe AvailabilityZoneState,
+    -- | The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
     parentZoneId :: Lude.Maybe Lude.Text,
+    -- | The name of the Region.
     regionName :: Lude.Maybe Lude.Text,
+    -- | The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
     parentZoneName :: Lude.Maybe Lude.Text,
+    -- | The name of the network border group.
     networkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | The ID of the Availability Zone, Local Zone, or Wavelength Zone.
     zoneId :: Lude.Maybe Lude.Text,
+    -- | The name of the Availability Zone, Local Zone, or Wavelength Zone.
     zoneName :: Lude.Maybe Lude.Text,
+    -- | For Availability Zones, this parameter always has the value of @opt-in-not-required@ .
+    --
+    -- For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are @opted-in@ , and @not-opted-in@ .
     optInStatus :: Lude.Maybe AvailabilityZoneOptInStatus,
+    -- | Any messages about the Availability Zone, Local Zone, or Wavelength Zone.
     messages :: Lude.Maybe [AvailabilityZoneMessage],
+    -- | For Availability Zones, this parameter has the same value as the Region name.
+    --
+    -- For Local Zones, the name of the associated group, for example @us-west-2-lax-1@ .
+    -- For Wavelength Zones, the name of the associated group, for example @us-east-1-wl1-bos-wlz-1@ .
     groupName :: Lude.Maybe Lude.Text,
+    -- | The type of zone. The valid values are @availability-zone@ , @local-zone@ , and @wavelength-zone@ .
     zoneType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
+-- * 'state' - The state of the Availability Zone, Local Zone, or Wavelength Zone.
+-- * 'parentZoneId' - The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+-- * 'regionName' - The name of the Region.
+-- * 'parentZoneName' - The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
+-- * 'networkBorderGroup' - The name of the network border group.
+-- * 'zoneId' - The ID of the Availability Zone, Local Zone, or Wavelength Zone.
+-- * 'zoneName' - The name of the Availability Zone, Local Zone, or Wavelength Zone.
+-- * 'optInStatus' - For Availability Zones, this parameter always has the value of @opt-in-not-required@ .
+--
+-- For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are @opted-in@ , and @not-opted-in@ .
+-- * 'messages' - Any messages about the Availability Zone, Local Zone, or Wavelength Zone.
 -- * 'groupName' - For Availability Zones, this parameter has the same value as the Region name.
 --
 -- For Local Zones, the name of the associated group, for example @us-west-2-lax-1@ .
 -- For Wavelength Zones, the name of the associated group, for example @us-east-1-wl1-bos-wlz-1@ .
--- * 'messages' - Any messages about the Availability Zone, Local Zone, or Wavelength Zone.
--- * 'networkBorderGroup' - The name of the network border group.
--- * 'optInStatus' - For Availability Zones, this parameter always has the value of @opt-in-not-required@ .
---
--- For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are @opted-in@ , and @not-opted-in@ .
--- * 'parentZoneId' - The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
--- * 'parentZoneName' - The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
--- * 'regionName' - The name of the Region.
--- * 'state' - The state of the Availability Zone, Local Zone, or Wavelength Zone.
--- * 'zoneId' - The ID of the Availability Zone, Local Zone, or Wavelength Zone.
--- * 'zoneName' - The name of the Availability Zone, Local Zone, or Wavelength Zone.
 -- * 'zoneType' - The type of zone. The valid values are @availability-zone@ , @local-zone@ , and @wavelength-zone@ .
 mkAvailabilityZone ::
   AvailabilityZone

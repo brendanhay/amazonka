@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkGetDefaultRetentionPolicy' smart constructor.
 newtype GetDefaultRetentionPolicy = GetDefaultRetentionPolicy'
-  { organizationId ::
-      Lude.Text
+  { -- | The organization ID.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultRetentionPolicy' with the minimum fields required to make a request.
@@ -113,33 +108,26 @@ instance Lude.ToQuery GetDefaultRetentionPolicy where
 
 -- | /See:/ 'mkGetDefaultRetentionPolicyResponse' smart constructor.
 data GetDefaultRetentionPolicyResponse = GetDefaultRetentionPolicyResponse'
-  { name ::
-      Lude.Maybe Lude.Text,
-    id ::
-      Lude.Maybe Lude.Text,
-    folderConfigurations ::
-      Lude.Maybe
-        [FolderConfiguration],
-    description ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The retention policy name.
+    name :: Lude.Maybe Lude.Text,
+    -- | The retention policy ID.
+    id :: Lude.Maybe Lude.Text,
+    -- | The retention policy folder configurations.
+    folderConfigurations :: Lude.Maybe [FolderConfiguration],
+    -- | The retention policy description.
+    description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDefaultRetentionPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'description' - The retention policy description.
--- * 'folderConfigurations' - The retention policy folder configurations.
--- * 'id' - The retention policy ID.
 -- * 'name' - The retention policy name.
+-- * 'id' - The retention policy ID.
+-- * 'folderConfigurations' - The retention policy folder configurations.
+-- * 'description' - The retention policy description.
 -- * 'responseStatus' - The response status code.
 mkGetDefaultRetentionPolicyResponse ::
   -- | 'responseStatus'

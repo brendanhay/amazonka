@@ -32,34 +32,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlockDeviceMapping' smart constructor.
 data BlockDeviceMapping = BlockDeviceMapping'
-  { virtualName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the virtual device (for example, @ephemeral0@ ).
+    --
+    -- You can specify either @VirtualName@ or @Ebs@ , but not both.
+    virtualName :: Lude.Maybe Lude.Text,
+    -- | Setting this value to @true@ suppresses the specified device included in the block device mapping of the AMI.
+    --
+    -- If @NoDevice@ is @true@ for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
+    -- If you specify @NoDevice@ , you cannot specify @Ebs@ .
     noDevice :: Lude.Maybe Lude.Bool,
+    -- | Parameters used to automatically set up EBS volumes when an instance is launched.
+    --
+    -- You can specify either @VirtualName@ or @Ebs@ , but not both.
     ebs :: Lude.Maybe EBS,
+    -- | The device name exposed to the EC2 instance (for example, @/dev/sdh@ or @xvdh@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
     deviceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
--- * 'deviceName' - The device name exposed to the EC2 instance (for example, @/dev/sdh@ or @xvdh@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
--- * 'ebs' - Parameters used to automatically set up EBS volumes when an instance is launched.
+-- * 'virtualName' - The name of the virtual device (for example, @ephemeral0@ ).
 --
 -- You can specify either @VirtualName@ or @Ebs@ , but not both.
 -- * 'noDevice' - Setting this value to @true@ suppresses the specified device included in the block device mapping of the AMI.
 --
 -- If @NoDevice@ is @true@ for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.
 -- If you specify @NoDevice@ , you cannot specify @Ebs@ .
--- * 'virtualName' - The name of the virtual device (for example, @ephemeral0@ ).
+-- * 'ebs' - Parameters used to automatically set up EBS volumes when an instance is launched.
 --
 -- You can specify either @VirtualName@ or @Ebs@ , but not both.
+-- * 'deviceName' - The device name exposed to the EC2 instance (for example, @/dev/sdh@ or @xvdh@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html Device Naming on Linux Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
 mkBlockDeviceMapping ::
   -- | 'deviceName'
   Lude.Text ->

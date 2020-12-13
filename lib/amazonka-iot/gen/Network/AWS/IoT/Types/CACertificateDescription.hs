@@ -41,45 +41,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCACertificateDescription' smart constructor.
 data CACertificateDescription = CACertificateDescription'
-  { status ::
-      Lude.Maybe CACertificateStatus,
+  { -- | The status of a CA certificate.
+    status :: Lude.Maybe CACertificateStatus,
+    -- | The owner of the CA certificate.
     ownedBy :: Lude.Maybe Lude.Text,
-    lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date the CA certificate was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The CA certificate data, in PEM format.
     certificatePem :: Lude.Maybe Lude.Text,
+    -- | The CA certificate ARN.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The CA certificate ID.
     certificateId :: Lude.Maybe Lude.Text,
-    validity ::
-      Lude.Maybe CertificateValidity,
-    autoRegistrationStatus ::
-      Lude.Maybe AutoRegistrationStatus,
+    -- | When the CA certificate is valid.
+    validity :: Lude.Maybe CertificateValidity,
+    -- | Whether the CA certificate configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE"
+    autoRegistrationStatus :: Lude.Maybe AutoRegistrationStatus,
+    -- | The date the CA certificate was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The generation ID of the CA certificate.
     generationId :: Lude.Maybe Lude.Text,
-    customerVersion ::
-      Lude.Maybe Lude.Natural
+    -- | The customer version of the CA certificate.
+    customerVersion :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CACertificateDescription' with the minimum fields required to make a request.
 --
--- * 'autoRegistrationStatus' - Whether the CA certificate configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE"
+-- * 'status' - The status of a CA certificate.
+-- * 'ownedBy' - The owner of the CA certificate.
+-- * 'lastModifiedDate' - The date the CA certificate was last modified.
+-- * 'certificatePem' - The CA certificate data, in PEM format.
 -- * 'certificateARN' - The CA certificate ARN.
 -- * 'certificateId' - The CA certificate ID.
--- * 'certificatePem' - The CA certificate data, in PEM format.
--- * 'creationDate' - The date the CA certificate was created.
--- * 'customerVersion' - The customer version of the CA certificate.
--- * 'generationId' - The generation ID of the CA certificate.
--- * 'lastModifiedDate' - The date the CA certificate was last modified.
--- * 'ownedBy' - The owner of the CA certificate.
--- * 'status' - The status of a CA certificate.
 -- * 'validity' - When the CA certificate is valid.
+-- * 'autoRegistrationStatus' - Whether the CA certificate configured for auto registration of device certificates. Valid values are "ENABLE" and "DISABLE"
+-- * 'creationDate' - The date the CA certificate was created.
+-- * 'generationId' - The generation ID of the CA certificate.
+-- * 'customerVersion' - The customer version of the CA certificate.
 mkCACertificateDescription ::
   CACertificateDescription
 mkCACertificateDescription =

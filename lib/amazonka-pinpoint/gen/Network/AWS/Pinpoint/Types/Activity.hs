@@ -46,39 +46,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActivity' smart constructor.
 data Activity = Activity'
-  { conditionalSplit ::
-      Lude.Maybe ConditionalSplitActivity,
+  { -- | The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.
+    conditionalSplit :: Lude.Maybe ConditionalSplitActivity,
+    -- | The settings for an email activity. This type of activity sends an email message to participants.
     eMAIL :: Lude.Maybe EmailMessageActivity,
+    -- | The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default /Else/ path) in a journey, based on conditions that you specify.
     multiCondition :: Lude.Maybe MultiConditionalSplitActivity,
+    -- | The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.
     cUSTOM :: Lude.Maybe CustomMessageActivity,
+    -- | The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
     wait :: Lude.Maybe WaitActivity,
+    -- | The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.
     randomSplit :: Lude.Maybe RandomSplitActivity,
+    -- | The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.
     holdout :: Lude.Maybe HoldoutActivity,
+    -- | The settings for an SMS activity. This type of activity sends a text message to participants.
     sMS :: Lude.Maybe SMSMessageActivity,
+    -- | The settings for a push notification activity. This type of activity sends a push notification to participants.
     pUSH :: Lude.Maybe PushMessageActivity,
+    -- | The custom description of the activity.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Activity' with the minimum fields required to make a request.
 --
--- * 'cUSTOM' - The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.
 -- * 'conditionalSplit' - The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.
--- * 'description' - The custom description of the activity.
 -- * 'eMAIL' - The settings for an email activity. This type of activity sends an email message to participants.
--- * 'holdout' - The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.
 -- * 'multiCondition' - The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default /Else/ path) in a journey, based on conditions that you specify.
--- * 'pUSH' - The settings for a push notification activity. This type of activity sends a push notification to participants.
--- * 'randomSplit' - The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.
--- * 'sMS' - The settings for an SMS activity. This type of activity sends a text message to participants.
+-- * 'cUSTOM' - The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.
 -- * 'wait' - The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
+-- * 'randomSplit' - The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.
+-- * 'holdout' - The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.
+-- * 'sMS' - The settings for an SMS activity. This type of activity sends a text message to participants.
+-- * 'pUSH' - The settings for a push notification activity. This type of activity sends a push notification to participants.
+-- * 'description' - The custom description of the activity.
 mkActivity ::
   Activity
 mkActivity =

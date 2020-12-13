@@ -13,8 +13,8 @@
 module Network.AWS.Config.Types.ChronologicalOrder
   ( ChronologicalOrder
       ( ChronologicalOrder',
-        Forward,
-        Reverse
+        Reverse,
+        Forward
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ChronologicalOrder = ChronologicalOrder' Lude.Text
       Lude.ToHeader
     )
 
-pattern Forward :: ChronologicalOrder
-pattern Forward = ChronologicalOrder' "Forward"
-
 pattern Reverse :: ChronologicalOrder
 pattern Reverse = ChronologicalOrder' "Reverse"
 
+pattern Forward :: ChronologicalOrder
+pattern Forward = ChronologicalOrder' "Forward"
+
 {-# COMPLETE
-  Forward,
   Reverse,
+  Forward,
   ChronologicalOrder'
   #-}

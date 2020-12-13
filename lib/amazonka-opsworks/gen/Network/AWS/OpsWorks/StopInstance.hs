@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.OpsWorks.StopInstance
     mkStopInstance,
 
     -- ** Request lenses
-    siForce,
     siInstanceId,
+    siForce,
 
     -- * Destructuring the response
     StopInstanceResponse (..),
@@ -38,35 +39,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopInstance' smart constructor.
 data StopInstance = StopInstance'
-  { force :: Lude.Maybe Lude.Bool,
-    instanceId :: Lude.Text
+  { -- | The instance ID.
+    instanceId :: Lude.Text,
+    -- | Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
+    force :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopInstance' with the minimum fields required to make a request.
 --
--- * 'force' - Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
 -- * 'instanceId' - The instance ID.
+-- * 'force' - Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
 mkStopInstance ::
   -- | 'instanceId'
   Lude.Text ->
   StopInstance
 mkStopInstance pInstanceId_ =
-  StopInstance' {force = Lude.Nothing, instanceId = pInstanceId_}
-
--- | Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
---
--- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siForce :: Lens.Lens' StopInstance (Lude.Maybe Lude.Bool)
-siForce = Lens.lens (force :: StopInstance -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: StopInstance)
-{-# DEPRECATED siForce "Use generic-lens or generic-optics with 'force' instead." #-}
+  StopInstance' {instanceId = pInstanceId_, force = Lude.Nothing}
 
 -- | The instance ID.
 --
@@ -74,6 +64,13 @@ siForce = Lens.lens (force :: StopInstance -> Lude.Maybe Lude.Bool) (\s a -> s {
 siInstanceId :: Lens.Lens' StopInstance Lude.Text
 siInstanceId = Lens.lens (instanceId :: StopInstance -> Lude.Text) (\s a -> s {instanceId = a} :: StopInstance)
 {-# DEPRECATED siInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siForce :: Lens.Lens' StopInstance (Lude.Maybe Lude.Bool)
+siForce = Lens.lens (force :: StopInstance -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: StopInstance)
+{-# DEPRECATED siForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 instance Lude.AWSRequest StopInstance where
   type Rs StopInstance = StopInstanceResponse
@@ -95,8 +92,8 @@ instance Lude.ToJSON StopInstance where
   toJSON StopInstance' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Force" Lude..=) Lude.<$> force,
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("Force" Lude..=) Lude.<$> force
           ]
       )
 
@@ -108,13 +105,7 @@ instance Lude.ToQuery StopInstance where
 
 -- | /See:/ 'mkStopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopInstanceResponse' with the minimum fields required to make a request.

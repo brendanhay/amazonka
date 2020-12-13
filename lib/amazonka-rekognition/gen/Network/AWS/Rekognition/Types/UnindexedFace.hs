@@ -31,21 +31,34 @@ import Network.AWS.Rekognition.Types.Reason
 --
 -- /See:/ 'mkUnindexedFace' smart constructor.
 data UnindexedFace = UnindexedFace'
-  { reasons :: Lude.Maybe [Reason],
+  { -- | An array of reasons that specify why a face wasn't indexed.
+    --
+    --
+    --     * EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.
+    --
+    --
+    --     * EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the @MaxFaces@ input parameter for @IndexFaces@ .
+    --
+    --
+    --     * LOW_BRIGHTNESS - The image is too dark.
+    --
+    --
+    --     * LOW_SHARPNESS - The image is too blurry.
+    --
+    --
+    --     * LOW_CONFIDENCE - The face was detected with a low confidence.
+    --
+    --
+    --     * SMALL_BOUNDING_BOX - The bounding box around the face is too small.
+    reasons :: Lude.Maybe [Reason],
+    -- | The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
     faceDetail :: Lude.Maybe FaceDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnindexedFace' with the minimum fields required to make a request.
 --
--- * 'faceDetail' - The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
 -- * 'reasons' - An array of reasons that specify why a face wasn't indexed.
 --
 --
@@ -65,6 +78,9 @@ data UnindexedFace = UnindexedFace'
 --
 --
 --     * SMALL_BOUNDING_BOX - The bounding box around the face is too small.
+--
+--
+-- * 'faceDetail' - The structure that contains attributes of a face that @IndexFaces@ detected, but didn't index.
 mkUnindexedFace ::
   UnindexedFace
 mkUnindexedFace =

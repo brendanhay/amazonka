@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,14 +42,13 @@ import Network.AWS.SQS.Types
 -- |
 --
 -- /See:/ 'mkPurgeQueue' smart constructor.
-newtype PurgeQueue = PurgeQueue' {queueURL :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype PurgeQueue = PurgeQueue'
+  { -- | The URL of the queue from which the @PurgeQueue@ action deletes messages.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueURL :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurgeQueue' with the minimum fields required to make a request.
@@ -92,13 +92,7 @@ instance Lude.ToQuery PurgeQueue where
 
 -- | /See:/ 'mkPurgeQueueResponse' smart constructor.
 data PurgeQueueResponse = PurgeQueueResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PurgeQueueResponse' with the minimum fields required to make a request.

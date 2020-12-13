@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,12 +21,12 @@ module Network.AWS.Comprehend.StartDominantLanguageDetectionJob
 
     -- ** Request lenses
     sdldjJobName,
+    sdldjInputDataConfig,
     sdldjVPCConfig,
     sdldjVolumeKMSKeyId,
-    sdldjClientRequestToken,
-    sdldjInputDataConfig,
     sdldjOutputDataConfig,
     sdldjDataAccessRoleARN,
+    sdldjClientRequestToken,
 
     -- * Destructuring the response
     StartDominantLanguageDetectionJobResponse (..),
@@ -46,37 +47,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartDominantLanguageDetectionJob' smart constructor.
 data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
-  { jobName ::
-      Lude.Maybe Lude.Text,
-    vpcConfig ::
-      Lude.Maybe VPCConfig,
-    volumeKMSKeyId ::
-      Lude.Maybe Lude.Text,
-    clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    inputDataConfig ::
-      InputDataConfig,
-    outputDataConfig ::
-      OutputDataConfig,
-    dataAccessRoleARN ::
-      Lude.Text
+  { -- | An identifier for the job.
+    jobName :: Lude.Maybe Lude.Text,
+    -- | Specifies the format and location of the input data for the job.
+    inputDataConfig :: InputDataConfig,
+    -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+    vpcConfig :: Lude.Maybe VPCConfig,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
+    --
+    --
+    --     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
+    --
+    --
+    --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
+    volumeKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies where to send the output files.
+    outputDataConfig :: OutputDataConfig,
+    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
+    dataAccessRoleARN :: Lude.Text,
+    -- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDominantLanguageDetectionJob' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
--- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
 -- * 'jobName' - An identifier for the job.
--- * 'outputDataConfig' - Specifies where to send the output files.
+-- * 'inputDataConfig' - Specifies the format and location of the input data for the job.
+-- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 -- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
 --
@@ -86,7 +85,9 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
 --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
 --
 --
--- * 'vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- * 'outputDataConfig' - Specifies where to send the output files.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. For more information, see <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions> .
+-- * 'clientRequestToken' - A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
 mkStartDominantLanguageDetectionJob ::
   -- | 'inputDataConfig'
   InputDataConfig ->
@@ -101,12 +102,12 @@ mkStartDominantLanguageDetectionJob
   pDataAccessRoleARN_ =
     StartDominantLanguageDetectionJob'
       { jobName = Lude.Nothing,
+        inputDataConfig = pInputDataConfig_,
         vpcConfig = Lude.Nothing,
         volumeKMSKeyId = Lude.Nothing,
-        clientRequestToken = Lude.Nothing,
-        inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
-        dataAccessRoleARN = pDataAccessRoleARN_
+        dataAccessRoleARN = pDataAccessRoleARN_,
+        clientRequestToken = Lude.Nothing
       }
 
 -- | An identifier for the job.
@@ -115,6 +116,13 @@ mkStartDominantLanguageDetectionJob
 sdldjJobName :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe Lude.Text)
 sdldjJobName = Lens.lens (jobName :: StartDominantLanguageDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: StartDominantLanguageDetectionJob)
 {-# DEPRECATED sdldjJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+
+-- | Specifies the format and location of the input data for the job.
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjInputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob InputDataConfig
+sdldjInputDataConfig = Lens.lens (inputDataConfig :: StartDominantLanguageDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartDominantLanguageDetectionJob)
+{-# DEPRECATED sdldjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 --
@@ -138,20 +146,6 @@ sdldjVolumeKMSKeyId :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe 
 sdldjVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: StartDominantLanguageDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: StartDominantLanguageDetectionJob)
 {-# DEPRECATED sdldjVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
--- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjClientRequestToken :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe Lude.Text)
-sdldjClientRequestToken = Lens.lens (clientRequestToken :: StartDominantLanguageDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
--- | Specifies the format and location of the input data for the job.
---
--- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdldjInputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob InputDataConfig
-sdldjInputDataConfig = Lens.lens (inputDataConfig :: StartDominantLanguageDetectionJob -> InputDataConfig) (\s a -> s {inputDataConfig = a} :: StartDominantLanguageDetectionJob)
-{-# DEPRECATED sdldjInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
-
 -- | Specifies where to send the output files.
 --
 -- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -165,6 +159,13 @@ sdldjOutputDataConfig = Lens.lens (outputDataConfig :: StartDominantLanguageDete
 sdldjDataAccessRoleARN :: Lens.Lens' StartDominantLanguageDetectionJob Lude.Text
 sdldjDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: StartDominantLanguageDetectionJob -> Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: StartDominantLanguageDetectionJob)
 {-# DEPRECATED sdldjDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
+
+-- | A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdldjClientRequestToken :: Lens.Lens' StartDominantLanguageDetectionJob (Lude.Maybe Lude.Text)
+sdldjClientRequestToken = Lens.lens (clientRequestToken :: StartDominantLanguageDetectionJob -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartDominantLanguageDetectionJob)
+{-# DEPRECATED sdldjClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest StartDominantLanguageDetectionJob where
   type
@@ -198,12 +199,12 @@ instance Lude.ToJSON StartDominantLanguageDetectionJob where
     Lude.object
       ( Lude.catMaybes
           [ ("JobName" Lude..=) Lude.<$> jobName,
+            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
             ("VpcConfig" Lude..=) Lude.<$> vpcConfig,
             ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("InputDataConfig" Lude..= inputDataConfig),
             Lude.Just ("OutputDataConfig" Lude..= outputDataConfig),
-            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN)
+            Lude.Just ("DataAccessRoleArn" Lude..= dataAccessRoleARN),
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -215,22 +216,26 @@ instance Lude.ToQuery StartDominantLanguageDetectionJob where
 
 -- | /See:/ 'mkStartDominantLanguageDetectionJobResponse' smart constructor.
 data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJobResponse'
-  { jobId ::
-      Lude.Maybe
-        Lude.Text,
-    jobStatus ::
-      Lude.Maybe
-        JobStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier generated for the job. To get the status of a job, use this identifier with the operation.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The status of the job.
+    --
+    --
+    --     * SUBMITTED - The job has been received and is queued for processing.
+    --
+    --
+    --     * IN_PROGRESS - Amazon Comprehend is processing the job.
+    --
+    --
+    --     * COMPLETED - The job was successfully completed and the output is available.
+    --
+    --
+    --     * FAILED - The job did not complete. To get details, use the operation.
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDominantLanguageDetectionJobResponse' with the minimum fields required to make a request.

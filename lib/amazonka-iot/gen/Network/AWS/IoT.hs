@@ -827,9 +827,9 @@ module Network.AWS.IoT
     -- ** AWSJobAbortCriteria
     AWSJobAbortCriteria (..),
     mkAWSJobAbortCriteria,
+    ajacThresholdPercentage,
     ajacFailureType,
     ajacAction,
-    ajacThresholdPercentage,
     ajacMinNumberOfExecutedThings,
 
     -- ** AWSJobExecutionsRolloutConfig
@@ -869,9 +869,9 @@ module Network.AWS.IoT
     -- ** AbortCriteria
     AbortCriteria (..),
     mkAbortCriteria,
+    acThresholdPercentage,
     acFailureType,
     acAction,
-    acThresholdPercentage,
     acMinNumberOfExecutedThings,
 
     -- ** Action
@@ -912,8 +912,8 @@ module Network.AWS.IoT
     -- ** AddThingsToThingGroupParams
     AddThingsToThingGroupParams (..),
     mkAddThingsToThingGroupParams,
-    atttgpOverrideDynamicGroups,
     atttgpThingGroupNames,
+    atttgpOverrideDynamicGroups,
 
     -- ** AlertTarget
     AlertTarget (..),
@@ -929,14 +929,14 @@ module Network.AWS.IoT
     -- ** AssetPropertyTimestamp
     AssetPropertyTimestamp (..),
     mkAssetPropertyTimestamp,
-    aptOffsetInNanos,
     aptTimeInSeconds,
+    aptOffsetInNanos,
 
     -- ** AssetPropertyValue
     AssetPropertyValue (..),
     mkAssetPropertyValue,
-    apvQuality,
     apvValue,
+    apvQuality,
     apvTimestamp,
 
     -- ** AssetPropertyVariant
@@ -1021,10 +1021,10 @@ module Network.AWS.IoT
     -- ** AuditSuppression
     AuditSuppression (..),
     mkAuditSuppression,
+    asCheckName,
     asExpirationDate,
     asSuppressIndefinitely,
     asDescription,
-    asCheckName,
     asResourceIdentifier,
 
     -- ** AuditTaskMetadata
@@ -1037,8 +1037,8 @@ module Network.AWS.IoT
     -- ** AuthInfo
     AuthInfo (..),
     mkAuthInfo,
-    aiActionType,
     aiResources,
+    aiActionType,
 
     -- ** AuthResult
     AuthResult (..),
@@ -1079,8 +1079,8 @@ module Network.AWS.IoT
     mkBehavior,
     bMetricDimension,
     bMetric,
-    bCriteria,
     bName,
+    bCriteria,
 
     -- ** BehaviorCriteria
     BehaviorCriteria (..),
@@ -1161,26 +1161,26 @@ module Network.AWS.IoT
     -- ** CloudwatchAlarmAction
     CloudwatchAlarmAction (..),
     mkCloudwatchAlarmAction,
-    caaRoleARN,
     caaAlarmName,
-    caaStateReason,
     caaStateValue,
+    caaStateReason,
+    caaRoleARN,
 
     -- ** CloudwatchLogsAction
     CloudwatchLogsAction (..),
     mkCloudwatchLogsAction,
-    claRoleARN,
     claLogGroupName,
+    claRoleARN,
 
     -- ** CloudwatchMetricAction
     CloudwatchMetricAction (..),
     mkCloudwatchMetricAction,
-    cmaMetricTimestamp,
-    cmaRoleARN,
-    cmaMetricNamespace,
     cmaMetricName,
+    cmaMetricNamespace,
     cmaMetricValue,
+    cmaMetricTimestamp,
     cmaMetricUnit,
+    cmaRoleARN,
 
     -- ** CodeSigning
     CodeSigning (..),
@@ -1234,22 +1234,22 @@ module Network.AWS.IoT
     -- ** DynamoDBAction
     DynamoDBAction (..),
     mkDynamoDBAction,
+    ddbaHashKeyField,
     ddbaHashKeyType,
     ddbaOperation,
     ddbaRangeKeyType,
     ddbaPayloadField,
     ddbaRangeKeyField,
     ddbaRangeKeyValue,
+    ddbaHashKeyValue,
     ddbaTableName,
     ddbaRoleARN,
-    ddbaHashKeyField,
-    ddbaHashKeyValue,
 
     -- ** DynamoDBv2Action
     DynamoDBv2Action (..),
     mkDynamoDBv2Action,
-    ddaRoleARN,
     ddaPutItem,
+    ddaRoleARN,
 
     -- ** EffectivePolicy
     EffectivePolicy (..),
@@ -1261,17 +1261,17 @@ module Network.AWS.IoT
     -- ** ElasticsearchAction
     ElasticsearchAction (..),
     mkElasticsearchAction,
-    eaRoleARN,
+    eaId,
+    eaType,
     eaEndpoint,
     eaIndex,
-    eaType,
-    eaId,
+    eaRoleARN,
 
     -- ** EnableIOTLoggingParams
     EnableIOTLoggingParams (..),
     mkEnableIOTLoggingParams,
-    eiotlpRoleARNForLogging,
     eiotlpLogLevel,
+    eiotlpRoleARNForLogging,
 
     -- ** ErrorInfo
     ErrorInfo (..),
@@ -1308,8 +1308,8 @@ module Network.AWS.IoT
     mkFirehoseAction,
     faBatchMode,
     faSeparator,
-    faRoleARN,
     faDeliveryStreamName,
+    faRoleARN,
 
     -- ** GroupNameAndARN
     GroupNameAndARN (..),
@@ -1322,14 +1322,14 @@ module Network.AWS.IoT
     mkHTTPAction,
     httpaConfirmationURL,
     httpaAuth,
-    httpaHeaders,
     httpaUrl,
+    httpaHeaders,
 
     -- ** HTTPActionHeader
     HTTPActionHeader (..),
     mkHTTPActionHeader,
-    httpahKey,
     httpahValue,
+    httpahKey,
 
     -- ** HTTPAuthorization
     HTTPAuthorization (..),
@@ -1374,8 +1374,8 @@ module Network.AWS.IoT
     IotEventsAction (..),
     mkIotEventsAction,
     ieaBatchMode,
-    ieaMessageId,
     ieaInputName,
+    ieaMessageId,
     ieaRoleARN,
 
     -- ** IotSiteWiseAction
@@ -1488,8 +1488,8 @@ module Network.AWS.IoT
     KinesisAction (..),
     mkKinesisAction,
     kaPartitionKey,
-    kaRoleARN,
     kaStreamName,
+    kaRoleARN,
 
     -- ** LambdaAction
     LambdaAction (..),
@@ -1499,8 +1499,8 @@ module Network.AWS.IoT
     -- ** LogTarget
     LogTarget (..),
     mkLogTarget,
-    ltTargetName,
     ltTargetType,
+    ltTargetName,
 
     -- ** LogTargetConfiguration
     LogTargetConfiguration (..),
@@ -1653,8 +1653,8 @@ module Network.AWS.IoT
     -- ** ProvisioningHook
     ProvisioningHook (..),
     mkProvisioningHook,
-    phPayloadVersion,
     phTargetARN,
+    phPayloadVersion,
 
     -- ** ProvisioningTemplateSummary
     ProvisioningTemplateSummary (..),
@@ -1681,11 +1681,11 @@ module Network.AWS.IoT
     -- ** PutAssetPropertyValueEntry
     PutAssetPropertyValueEntry (..),
     mkPutAssetPropertyValueEntry,
+    papvePropertyValues,
     papveEntryId,
     papvePropertyAlias,
     papvePropertyId,
     papveAssetId,
-    papvePropertyValues,
 
     -- ** PutItemInput
     PutItemInput (..),
@@ -1719,9 +1719,9 @@ module Network.AWS.IoT
     -- ** RepublishAction
     RepublishAction (..),
     mkRepublishAction,
+    raTopic,
     raQos,
     raRoleARN,
-    raTopic,
 
     -- ** ResourceIdentifier
     ResourceIdentifier (..),
@@ -1750,9 +1750,9 @@ module Network.AWS.IoT
     S3Action (..),
     mkS3Action,
     sCannedACL,
-    sRoleARN,
     sBucketName,
     sKey,
+    sRoleARN,
 
     -- ** S3Destination
     S3Destination (..),
@@ -1770,15 +1770,15 @@ module Network.AWS.IoT
     -- ** SNSAction
     SNSAction (..),
     mkSNSAction,
-    snsaMessageFormat,
     snsaTargetARN,
+    snsaMessageFormat,
     snsaRoleARN,
 
     -- ** SalesforceAction
     SalesforceAction (..),
     mkSalesforceAction,
-    saToken,
     saUrl,
+    saToken,
 
     -- ** ScheduledAuditMetadata
     ScheduledAuditMetadata (..),
@@ -1792,8 +1792,8 @@ module Network.AWS.IoT
     -- ** SecurityProfileIdentifier
     SecurityProfileIdentifier (..),
     mkSecurityProfileIdentifier,
-    spiName,
     spiArn,
+    spiName,
 
     -- ** SecurityProfileTarget
     SecurityProfileTarget (..),
@@ -1816,8 +1816,8 @@ module Network.AWS.IoT
     -- ** SigV4Authorization
     SigV4Authorization (..),
     mkSigV4Authorization,
-    svaSigningRegion,
     svaServiceName,
+    svaSigningRegion,
     svaRoleARN,
 
     -- ** SigningProfileParameter
@@ -1831,8 +1831,8 @@ module Network.AWS.IoT
     SqsAction (..),
     mkSqsAction,
     saUseBase64,
-    saRoleARN,
     saQueueURL,
+    saRoleARN,
 
     -- ** StartSigningJobParameter
     StartSigningJobParameter (..),
@@ -1986,10 +1986,10 @@ module Network.AWS.IoT
     -- ** ThingIndexingConfiguration
     ThingIndexingConfiguration (..),
     mkThingIndexingConfiguration,
+    ticThingIndexingMode,
     ticManagedFields,
     ticThingConnectivityIndexingMode,
     ticCustomFields,
-    ticThingIndexingMode,
 
     -- ** ThingTypeDefinition
     ThingTypeDefinition (..),
@@ -2020,17 +2020,17 @@ module Network.AWS.IoT
     -- ** TimestreamAction
     TimestreamAction (..),
     mkTimestreamAction,
-    taTimestamp,
-    taRoleARN,
     taDatabaseName,
-    taTableName,
     taDimensions,
+    taTimestamp,
+    taTableName,
+    taRoleARN,
 
     -- ** TimestreamDimension
     TimestreamDimension (..),
     mkTimestreamDimension,
-    tdName,
     tdValue,
+    tdName,
 
     -- ** TimestreamTimestamp
     TimestreamTimestamp (..),
@@ -2083,12 +2083,12 @@ module Network.AWS.IoT
     -- ** TopicRulePayload
     TopicRulePayload (..),
     mkTopicRulePayload,
+    trpActions,
     trpAwsIotSqlVersion,
     trpErrorAction,
     trpRuleDisabled,
-    trpDescription,
     trpSql,
-    trpActions,
+    trpDescription,
 
     -- ** TransferData
     TransferData (..),

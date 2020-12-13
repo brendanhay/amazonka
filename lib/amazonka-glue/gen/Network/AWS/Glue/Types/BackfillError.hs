@@ -49,23 +49,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackfillError' smart constructor.
 data BackfillError = BackfillError'
-  { partitions ::
-      Lude.Maybe [PartitionValueList],
+  { -- | A list of a limited number of partitions in the response.
+    partitions :: Lude.Maybe [PartitionValueList],
+    -- | The error code for an error that occurred when registering partition indexes for an existing table.
     code :: Lude.Maybe BackfillErrorCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackfillError' with the minimum fields required to make a request.
 --
--- * 'code' - The error code for an error that occurred when registering partition indexes for an existing table.
 -- * 'partitions' - A list of a limited number of partitions in the response.
+-- * 'code' - The error code for an error that occurred when registering partition indexes for an existing table.
 mkBackfillError ::
   BackfillError
 mkBackfillError =

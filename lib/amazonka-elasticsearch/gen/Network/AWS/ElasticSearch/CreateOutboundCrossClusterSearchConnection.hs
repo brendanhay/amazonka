@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.ElasticSearch.CreateOutboundCrossClusterSearchConnection
     mkCreateOutboundCrossClusterSearchConnection,
 
     -- ** Request lenses
-    coccscSourceDomainInfo,
     coccscDestinationDomainInfo,
     coccscConnectionAlias,
+    coccscSourceDomainInfo,
 
     -- * Destructuring the response
     CreateOutboundCrossClusterSearchConnectionResponse (..),
@@ -47,52 +48,39 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateOutboundCrossClusterSearchConnection' smart constructor.
 data CreateOutboundCrossClusterSearchConnection = CreateOutboundCrossClusterSearchConnection'
-  { sourceDomainInfo ::
-      DomainInformation,
-    destinationDomainInfo ::
-      DomainInformation,
-    connectionAlias ::
-      Lude.Text
+  { -- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
+    destinationDomainInfo :: DomainInformation,
+    -- | Specifies the connection alias that will be used by the customer for this connection.
+    connectionAlias :: Lude.Text,
+    -- | Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
+    sourceDomainInfo :: DomainInformation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOutboundCrossClusterSearchConnection' with the minimum fields required to make a request.
 --
--- * 'connectionAlias' - Specifies the connection alias that will be used by the customer for this connection.
 -- * 'destinationDomainInfo' - Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
+-- * 'connectionAlias' - Specifies the connection alias that will be used by the customer for this connection.
 -- * 'sourceDomainInfo' - Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
 mkCreateOutboundCrossClusterSearchConnection ::
-  -- | 'sourceDomainInfo'
-  DomainInformation ->
   -- | 'destinationDomainInfo'
   DomainInformation ->
   -- | 'connectionAlias'
   Lude.Text ->
+  -- | 'sourceDomainInfo'
+  DomainInformation ->
   CreateOutboundCrossClusterSearchConnection
 mkCreateOutboundCrossClusterSearchConnection
-  pSourceDomainInfo_
   pDestinationDomainInfo_
-  pConnectionAlias_ =
+  pConnectionAlias_
+  pSourceDomainInfo_ =
     CreateOutboundCrossClusterSearchConnection'
-      { sourceDomainInfo =
-          pSourceDomainInfo_,
-        destinationDomainInfo = pDestinationDomainInfo_,
-        connectionAlias = pConnectionAlias_
+      { destinationDomainInfo =
+          pDestinationDomainInfo_,
+        connectionAlias = pConnectionAlias_,
+        sourceDomainInfo = pSourceDomainInfo_
       }
-
--- | Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
---
--- /Note:/ Consider using 'sourceDomainInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coccscSourceDomainInfo :: Lens.Lens' CreateOutboundCrossClusterSearchConnection DomainInformation
-coccscSourceDomainInfo = Lens.lens (sourceDomainInfo :: CreateOutboundCrossClusterSearchConnection -> DomainInformation) (\s a -> s {sourceDomainInfo = a} :: CreateOutboundCrossClusterSearchConnection)
-{-# DEPRECATED coccscSourceDomainInfo "Use generic-lens or generic-optics with 'sourceDomainInfo' instead." #-}
 
 -- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
 --
@@ -107,6 +95,13 @@ coccscDestinationDomainInfo = Lens.lens (destinationDomainInfo :: CreateOutbound
 coccscConnectionAlias :: Lens.Lens' CreateOutboundCrossClusterSearchConnection Lude.Text
 coccscConnectionAlias = Lens.lens (connectionAlias :: CreateOutboundCrossClusterSearchConnection -> Lude.Text) (\s a -> s {connectionAlias = a} :: CreateOutboundCrossClusterSearchConnection)
 {-# DEPRECATED coccscConnectionAlias "Use generic-lens or generic-optics with 'connectionAlias' instead." #-}
+
+-- | Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
+--
+-- /Note:/ Consider using 'sourceDomainInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coccscSourceDomainInfo :: Lens.Lens' CreateOutboundCrossClusterSearchConnection DomainInformation
+coccscSourceDomainInfo = Lens.lens (sourceDomainInfo :: CreateOutboundCrossClusterSearchConnection -> DomainInformation) (\s a -> s {sourceDomainInfo = a} :: CreateOutboundCrossClusterSearchConnection)
+{-# DEPRECATED coccscSourceDomainInfo "Use generic-lens or generic-optics with 'sourceDomainInfo' instead." #-}
 
 instance Lude.AWSRequest CreateOutboundCrossClusterSearchConnection where
   type
@@ -132,9 +127,9 @@ instance Lude.ToJSON CreateOutboundCrossClusterSearchConnection where
   toJSON CreateOutboundCrossClusterSearchConnection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SourceDomainInfo" Lude..= sourceDomainInfo),
-            Lude.Just ("DestinationDomainInfo" Lude..= destinationDomainInfo),
-            Lude.Just ("ConnectionAlias" Lude..= connectionAlias)
+          [ Lude.Just ("DestinationDomainInfo" Lude..= destinationDomainInfo),
+            Lude.Just ("ConnectionAlias" Lude..= connectionAlias),
+            Lude.Just ("SourceDomainInfo" Lude..= sourceDomainInfo)
           ]
       )
 
@@ -148,44 +143,30 @@ instance Lude.ToQuery CreateOutboundCrossClusterSearchConnection where
 --
 -- /See:/ 'mkCreateOutboundCrossClusterSearchConnectionResponse' smart constructor.
 data CreateOutboundCrossClusterSearchConnectionResponse = CreateOutboundCrossClusterSearchConnectionResponse'
-  { destinationDomainInfo ::
-      Lude.Maybe
-        DomainInformation,
-    connectionAlias ::
-      Lude.Maybe
-        Lude.Text,
-    crossClusterSearchConnectionId ::
-      Lude.Maybe
-        Lude.Text,
-    connectionStatus ::
-      Lude.Maybe
-        OutboundCrossClusterSearchConnectionStatus,
-    sourceDomainInfo ::
-      Lude.Maybe
-        DomainInformation,
-    responseStatus ::
-      Lude.Int
+  { -- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
+    destinationDomainInfo :: Lude.Maybe DomainInformation,
+    -- | Specifies the connection alias provided during the create connection request.
+    connectionAlias :: Lude.Maybe Lude.Text,
+    -- | Unique id for the created outbound connection, which is used for subsequent operations on connection.
+    crossClusterSearchConnectionId :: Lude.Maybe Lude.Text,
+    -- | Specifies the @'OutboundCrossClusterSearchConnectionStatus' @ for the newly created connection.
+    connectionStatus :: Lude.Maybe OutboundCrossClusterSearchConnectionStatus,
+    -- | Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
+    sourceDomainInfo :: Lude.Maybe DomainInformation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOutboundCrossClusterSearchConnectionResponse' with the minimum fields required to make a request.
 --
--- * 'connectionAlias' - Specifies the connection alias provided during the create connection request.
--- * 'connectionStatus' - Specifies the @'OutboundCrossClusterSearchConnectionStatus' @ for the newly created connection.
--- * 'crossClusterSearchConnectionId' - Unique id for the created outbound connection, which is used for subsequent operations on connection.
 -- * 'destinationDomainInfo' - Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
--- * 'responseStatus' - The response status code.
+-- * 'connectionAlias' - Specifies the connection alias provided during the create connection request.
+-- * 'crossClusterSearchConnectionId' - Unique id for the created outbound connection, which is used for subsequent operations on connection.
+-- * 'connectionStatus' - Specifies the @'OutboundCrossClusterSearchConnectionStatus' @ for the newly created connection.
 -- * 'sourceDomainInfo' - Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
+-- * 'responseStatus' - The response status code.
 mkCreateOutboundCrossClusterSearchConnectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

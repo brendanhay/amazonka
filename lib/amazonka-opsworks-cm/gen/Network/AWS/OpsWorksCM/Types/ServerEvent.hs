@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServerEvent' smart constructor.
 data ServerEvent = ServerEvent'
-  { logURL :: Lude.Maybe Lude.Text,
+  { -- | The Amazon S3 URL of the event's log file.
+    logURL :: Lude.Maybe Lude.Text,
+    -- | The name of the server on or for which the event occurred.
     serverName :: Lude.Maybe Lude.Text,
+    -- | The time when the event occurred.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | A human-readable informational or status message.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerEvent' with the minimum fields required to make a request.
 --
--- * 'createdAt' - The time when the event occurred.
 -- * 'logURL' - The Amazon S3 URL of the event's log file.
--- * 'message' - A human-readable informational or status message.
 -- * 'serverName' - The name of the server on or for which the event occurred.
+-- * 'createdAt' - The time when the event occurred.
+-- * 'message' - A human-readable informational or status message.
 mkServerEvent ::
   ServerEvent
 mkServerEvent =

@@ -13,12 +13,12 @@
 module Network.AWS.SSM.Types.CommandPluginStatus
   ( CommandPluginStatus
       ( CommandPluginStatus',
-        CPSCancelled,
-        CPSFailed,
-        CPSInProgress,
         CPSPending,
+        CPSInProgress,
         CPSSuccess,
-        CPSTimedOut
+        CPSTimedOut,
+        CPSCancelled,
+        CPSFailed
       ),
   )
 where
@@ -49,17 +49,11 @@ newtype CommandPluginStatus = CommandPluginStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CPSCancelled :: CommandPluginStatus
-pattern CPSCancelled = CommandPluginStatus' "Cancelled"
-
-pattern CPSFailed :: CommandPluginStatus
-pattern CPSFailed = CommandPluginStatus' "Failed"
+pattern CPSPending :: CommandPluginStatus
+pattern CPSPending = CommandPluginStatus' "Pending"
 
 pattern CPSInProgress :: CommandPluginStatus
 pattern CPSInProgress = CommandPluginStatus' "InProgress"
-
-pattern CPSPending :: CommandPluginStatus
-pattern CPSPending = CommandPluginStatus' "Pending"
 
 pattern CPSSuccess :: CommandPluginStatus
 pattern CPSSuccess = CommandPluginStatus' "Success"
@@ -67,12 +61,18 @@ pattern CPSSuccess = CommandPluginStatus' "Success"
 pattern CPSTimedOut :: CommandPluginStatus
 pattern CPSTimedOut = CommandPluginStatus' "TimedOut"
 
+pattern CPSCancelled :: CommandPluginStatus
+pattern CPSCancelled = CommandPluginStatus' "Cancelled"
+
+pattern CPSFailed :: CommandPluginStatus
+pattern CPSFailed = CommandPluginStatus' "Failed"
+
 {-# COMPLETE
-  CPSCancelled,
-  CPSFailed,
-  CPSInProgress,
   CPSPending,
+  CPSInProgress,
   CPSSuccess,
   CPSTimedOut,
+  CPSCancelled,
+  CPSFailed,
   CommandPluginStatus'
   #-}

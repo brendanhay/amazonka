@@ -13,8 +13,8 @@
 module Network.AWS.SES.Types.IdentityType
   ( IdentityType
       ( IdentityType',
-        Domain,
-        EmailAddress
+        EmailAddress,
+        Domain
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype IdentityType = IdentityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Domain :: IdentityType
-pattern Domain = IdentityType' "Domain"
-
 pattern EmailAddress :: IdentityType
 pattern EmailAddress = IdentityType' "EmailAddress"
 
+pattern Domain :: IdentityType
+pattern Domain = IdentityType' "Domain"
+
 {-# COMPLETE
-  Domain,
   EmailAddress,
+  Domain,
   IdentityType'
   #-}

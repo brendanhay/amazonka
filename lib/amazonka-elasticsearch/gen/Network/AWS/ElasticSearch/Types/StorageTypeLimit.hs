@@ -29,17 +29,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStorageTypeLimit' smart constructor.
 data StorageTypeLimit = StorageTypeLimit'
-  { limitName ::
-      Lude.Maybe Lude.Text,
+  { -- | Name of storage limits that are applicable for given storage type. If @'StorageType' @ is ebs, following storage options are applicable
+    --
+    --     * MinimumVolumeSize
+    -- Minimum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.
+    --     * MaximumVolumeSize
+    -- Maximum amount of volume size that is applicable for given storage type.It can be empty if it is not applicable.
+    --     * MaximumIops
+    -- Maximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+    --     * MinimumIops
+    -- Minimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+    limitName :: Lude.Maybe Lude.Text,
+    -- | Values for the @'StorageTypeLimit$LimitName' @ .
     limitValues :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StorageTypeLimit' with the minimum fields required to make a request.

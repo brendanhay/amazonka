@@ -33,27 +33,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMonitoredResourceInfo' smart constructor.
 data MonitoredResourceInfo = MonitoredResourceInfo'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The Lightsail resource type of the resource being monitored.
+    --
+    -- Instances, load balancers, and relational databases are the only Lightsail resources that can currently be monitored by alarms.
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the resource being monitored.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name of the Lightsail resource being monitored.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MonitoredResourceInfo' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the resource being monitored.
--- * 'name' - The name of the Lightsail resource being monitored.
 -- * 'resourceType' - The Lightsail resource type of the resource being monitored.
 --
 -- Instances, load balancers, and relational databases are the only Lightsail resources that can currently be monitored by alarms.
+-- * 'arn' - The Amazon Resource Name (ARN) of the resource being monitored.
+-- * 'name' - The name of the Lightsail resource being monitored.
 mkMonitoredResourceInfo ::
   MonitoredResourceInfo
 mkMonitoredResourceInfo =

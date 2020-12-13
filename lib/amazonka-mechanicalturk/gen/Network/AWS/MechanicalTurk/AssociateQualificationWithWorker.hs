@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
 
     -- ** Request lenses
     aqwwIntegerValue,
-    aqwwSendNotification,
     aqwwQualificationTypeId,
     aqwwWorkerId,
+    aqwwSendNotification,
 
     -- * Destructuring the response
     AssociateQualificationWithWorkerResponse (..),
@@ -43,29 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateQualificationWithWorker' smart constructor.
 data AssociateQualificationWithWorker = AssociateQualificationWithWorker'
-  { integerValue ::
-      Lude.Maybe Lude.Int,
-    sendNotification ::
-      Lude.Maybe Lude.Bool,
-    qualificationTypeId ::
-      Lude.Text,
-    workerId :: Lude.Text
+  { -- | The value of the Qualification to assign.
+    integerValue :: Lude.Maybe Lude.Int,
+    -- | The ID of the Qualification type to use for the assigned Qualification.
+    qualificationTypeId :: Lude.Text,
+    -- | The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests.
+    workerId :: Lude.Text,
+    -- | Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default.
+    sendNotification :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateQualificationWithWorker' with the minimum fields required to make a request.
 --
 -- * 'integerValue' - The value of the Qualification to assign.
 -- * 'qualificationTypeId' - The ID of the Qualification type to use for the assigned Qualification.
--- * 'sendNotification' - Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default.
 -- * 'workerId' - The ID of the Worker to whom the Qualification is being assigned. Worker IDs are included with submitted HIT assignments and Qualification requests.
+-- * 'sendNotification' - Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default.
 mkAssociateQualificationWithWorker ::
   -- | 'qualificationTypeId'
   Lude.Text ->
@@ -75,9 +71,9 @@ mkAssociateQualificationWithWorker ::
 mkAssociateQualificationWithWorker pQualificationTypeId_ pWorkerId_ =
   AssociateQualificationWithWorker'
     { integerValue = Lude.Nothing,
-      sendNotification = Lude.Nothing,
       qualificationTypeId = pQualificationTypeId_,
-      workerId = pWorkerId_
+      workerId = pWorkerId_,
+      sendNotification = Lude.Nothing
     }
 
 -- | The value of the Qualification to assign.
@@ -86,13 +82,6 @@ mkAssociateQualificationWithWorker pQualificationTypeId_ pWorkerId_ =
 aqwwIntegerValue :: Lens.Lens' AssociateQualificationWithWorker (Lude.Maybe Lude.Int)
 aqwwIntegerValue = Lens.lens (integerValue :: AssociateQualificationWithWorker -> Lude.Maybe Lude.Int) (\s a -> s {integerValue = a} :: AssociateQualificationWithWorker)
 {-# DEPRECATED aqwwIntegerValue "Use generic-lens or generic-optics with 'integerValue' instead." #-}
-
--- | Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default.
---
--- /Note:/ Consider using 'sendNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aqwwSendNotification :: Lens.Lens' AssociateQualificationWithWorker (Lude.Maybe Lude.Bool)
-aqwwSendNotification = Lens.lens (sendNotification :: AssociateQualificationWithWorker -> Lude.Maybe Lude.Bool) (\s a -> s {sendNotification = a} :: AssociateQualificationWithWorker)
-{-# DEPRECATED aqwwSendNotification "Use generic-lens or generic-optics with 'sendNotification' instead." #-}
 
 -- | The ID of the Qualification type to use for the assigned Qualification.
 --
@@ -107,6 +96,13 @@ aqwwQualificationTypeId = Lens.lens (qualificationTypeId :: AssociateQualificati
 aqwwWorkerId :: Lens.Lens' AssociateQualificationWithWorker Lude.Text
 aqwwWorkerId = Lens.lens (workerId :: AssociateQualificationWithWorker -> Lude.Text) (\s a -> s {workerId = a} :: AssociateQualificationWithWorker)
 {-# DEPRECATED aqwwWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
+
+-- | Specifies whether to send a notification email message to the Worker saying that the qualification was assigned to the Worker. Note: this is true by default.
+--
+-- /Note:/ Consider using 'sendNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aqwwSendNotification :: Lens.Lens' AssociateQualificationWithWorker (Lude.Maybe Lude.Bool)
+aqwwSendNotification = Lens.lens (sendNotification :: AssociateQualificationWithWorker -> Lude.Maybe Lude.Bool) (\s a -> s {sendNotification = a} :: AssociateQualificationWithWorker)
+{-# DEPRECATED aqwwSendNotification "Use generic-lens or generic-optics with 'sendNotification' instead." #-}
 
 instance Lude.AWSRequest AssociateQualificationWithWorker where
   type
@@ -138,9 +134,9 @@ instance Lude.ToJSON AssociateQualificationWithWorker where
     Lude.object
       ( Lude.catMaybes
           [ ("IntegerValue" Lude..=) Lude.<$> integerValue,
-            ("SendNotification" Lude..=) Lude.<$> sendNotification,
             Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
-            Lude.Just ("WorkerId" Lude..= workerId)
+            Lude.Just ("WorkerId" Lude..= workerId),
+            ("SendNotification" Lude..=) Lude.<$> sendNotification
           ]
       )
 
@@ -152,16 +148,10 @@ instance Lude.ToQuery AssociateQualificationWithWorker where
 
 -- | /See:/ 'mkAssociateQualificationWithWorkerResponse' smart constructor.
 newtype AssociateQualificationWithWorkerResponse = AssociateQualificationWithWorkerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateQualificationWithWorkerResponse' with the minimum fields required to make a request.

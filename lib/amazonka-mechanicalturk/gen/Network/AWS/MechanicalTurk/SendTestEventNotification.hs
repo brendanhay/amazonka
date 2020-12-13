@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.MechanicalTurk.SendTestEventNotification
     mkSendTestEventNotification,
 
     -- ** Request lenses
-    stenNotification,
     stenTestEventType,
+    stenNotification,
 
     -- * Destructuring the response
     SendTestEventNotificationResponse (..),
@@ -39,41 +40,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSendTestEventNotification' smart constructor.
 data SendTestEventNotification = SendTestEventNotification'
-  { notification ::
-      NotificationSpecification,
-    testEventType :: EventType
+  { -- | The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
+    testEventType :: EventType,
+    -- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
+    notification :: NotificationSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendTestEventNotification' with the minimum fields required to make a request.
 --
--- * 'notification' - The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
 -- * 'testEventType' - The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
+-- * 'notification' - The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
 mkSendTestEventNotification ::
-  -- | 'notification'
-  NotificationSpecification ->
   -- | 'testEventType'
   EventType ->
+  -- | 'notification'
+  NotificationSpecification ->
   SendTestEventNotification
-mkSendTestEventNotification pNotification_ pTestEventType_ =
+mkSendTestEventNotification pTestEventType_ pNotification_ =
   SendTestEventNotification'
-    { notification = pNotification_,
-      testEventType = pTestEventType_
+    { testEventType = pTestEventType_,
+      notification = pNotification_
     }
-
--- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
---
--- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stenNotification :: Lens.Lens' SendTestEventNotification NotificationSpecification
-stenNotification = Lens.lens (notification :: SendTestEventNotification -> NotificationSpecification) (\s a -> s {notification = a} :: SendTestEventNotification)
-{-# DEPRECATED stenNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
 --
@@ -81,6 +70,13 @@ stenNotification = Lens.lens (notification :: SendTestEventNotification -> Notif
 stenTestEventType :: Lens.Lens' SendTestEventNotification EventType
 stenTestEventType = Lens.lens (testEventType :: SendTestEventNotification -> EventType) (\s a -> s {testEventType = a} :: SendTestEventNotification)
 {-# DEPRECATED stenTestEventType "Use generic-lens or generic-optics with 'testEventType' instead." #-}
+
+-- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stenNotification :: Lens.Lens' SendTestEventNotification NotificationSpecification
+stenNotification = Lens.lens (notification :: SendTestEventNotification -> NotificationSpecification) (\s a -> s {notification = a} :: SendTestEventNotification)
+{-# DEPRECATED stenNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 instance Lude.AWSRequest SendTestEventNotification where
   type
@@ -111,8 +107,8 @@ instance Lude.ToJSON SendTestEventNotification where
   toJSON SendTestEventNotification' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Notification" Lude..= notification),
-            Lude.Just ("TestEventType" Lude..= testEventType)
+          [ Lude.Just ("TestEventType" Lude..= testEventType),
+            Lude.Just ("Notification" Lude..= notification)
           ]
       )
 
@@ -124,16 +120,10 @@ instance Lude.ToQuery SendTestEventNotification where
 
 -- | /See:/ 'mkSendTestEventNotificationResponse' smart constructor.
 newtype SendTestEventNotificationResponse = SendTestEventNotificationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendTestEventNotificationResponse' with the minimum fields required to make a request.

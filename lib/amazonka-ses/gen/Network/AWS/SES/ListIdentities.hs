@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,8 +34,8 @@ module Network.AWS.SES.ListIdentities
 
     -- ** Response lenses
     lirsNextToken,
-    lirsResponseStatus,
     lirsIdentities,
+    lirsResponseStatus,
   )
 where
 
@@ -49,25 +50,21 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { identityType ::
-      Lude.Maybe IdentityType,
+  { -- | The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
+    identityType :: Lude.Maybe IdentityType,
+    -- | The token to use for pagination.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of identities per page. Possible values are 1-1000 inclusive.
     maxItems :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
 --
 -- * 'identityType' - The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.
--- * 'maxItems' - The maximum number of identities per page. Possible values are 1-1000 inclusive.
 -- * 'nextToken' - The token to use for pagination.
+-- * 'maxItems' - The maximum number of identities per page. Possible values are 1-1000 inclusive.
 mkListIdentities ::
   ListIdentities
 mkListIdentities =
@@ -116,10 +113,10 @@ instance Lude.AWSRequest ListIdentities where
       ( \s h x ->
           ListIdentitiesResponse'
             Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "Identities" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListIdentities where
@@ -142,24 +139,20 @@ instance Lude.ToQuery ListIdentities where
 --
 -- /See:/ 'mkListIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    identities :: [Lude.Text]
+  { -- | The token used for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of identities.
+    identities :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
 --
--- * 'identities' - A list of identities.
 -- * 'nextToken' - The token used for pagination.
+-- * 'identities' - A list of identities.
 -- * 'responseStatus' - The response status code.
 mkListIdentitiesResponse ::
   -- | 'responseStatus'
@@ -168,8 +161,8 @@ mkListIdentitiesResponse ::
 mkListIdentitiesResponse pResponseStatus_ =
   ListIdentitiesResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      identities = Lude.mempty
+      identities = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token used for pagination.
@@ -179,16 +172,16 @@ lirsNextToken :: Lens.Lens' ListIdentitiesResponse (Lude.Maybe Lude.Text)
 lirsNextToken = Lens.lens (nextToken :: ListIdentitiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentitiesResponse)
 {-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsResponseStatus :: Lens.Lens' ListIdentitiesResponse Lude.Int
-lirsResponseStatus = Lens.lens (responseStatus :: ListIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIdentitiesResponse)
-{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of identities.
 --
 -- /Note:/ Consider using 'identities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lirsIdentities :: Lens.Lens' ListIdentitiesResponse [Lude.Text]
 lirsIdentities = Lens.lens (identities :: ListIdentitiesResponse -> [Lude.Text]) (\s a -> s {identities = a} :: ListIdentitiesResponse)
 {-# DEPRECATED lirsIdentities "Use generic-lens or generic-optics with 'identities' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListIdentitiesResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListIdentitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListIdentitiesResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

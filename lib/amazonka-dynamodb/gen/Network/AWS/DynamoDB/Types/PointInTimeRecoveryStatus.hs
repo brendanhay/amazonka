@@ -13,8 +13,8 @@
 module Network.AWS.DynamoDB.Types.PointInTimeRecoveryStatus
   ( PointInTimeRecoveryStatus
       ( PointInTimeRecoveryStatus',
-        PITRSDisabled,
-        PITRSEnabled
+        PITRSEnabled,
+        PITRSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PointInTimeRecoveryStatus = PointInTimeRecoveryStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern PITRSDisabled :: PointInTimeRecoveryStatus
-pattern PITRSDisabled = PointInTimeRecoveryStatus' "DISABLED"
-
 pattern PITRSEnabled :: PointInTimeRecoveryStatus
 pattern PITRSEnabled = PointInTimeRecoveryStatus' "ENABLED"
 
+pattern PITRSDisabled :: PointInTimeRecoveryStatus
+pattern PITRSDisabled = PointInTimeRecoveryStatus' "DISABLED"
+
 {-# COMPLETE
-  PITRSDisabled,
   PITRSEnabled,
+  PITRSDisabled,
   PointInTimeRecoveryStatus'
   #-}

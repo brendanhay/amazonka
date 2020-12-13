@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
 
     -- ** Request lenses
     dogoFilters,
+    dogoEngineName,
     dogoMajorEngineVersion,
     dogoMarker,
     dogoMaxRecords,
-    dogoEngineName,
 
     -- * Destructuring the response
     DescribeOptionGroupOptionsResponse (..),
@@ -49,27 +50,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeOptionGroupOptions' smart constructor.
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
-  { filters ::
-      Lude.Maybe [Filter],
-    majorEngineVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | A required parameter. Options available for the given engine name are described.
+    engineName :: Lude.Text,
+    -- | If specified, filters the results to include only options for the specified major engine version.
+    majorEngineVersion :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
-    maxRecords :: Lude.Maybe Lude.Int,
-    engineName :: Lude.Text
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOptionGroupOptions' with the minimum fields required to make a request.
 --
--- * 'engineName' - A required parameter. Options available for the given engine name are described.
 -- * 'filters' - This parameter isn't currently supported.
+-- * 'engineName' - A required parameter. Options available for the given engine name are described.
 -- * 'majorEngineVersion' - If specified, filters the results to include only options for the specified major engine version.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
@@ -83,10 +84,10 @@ mkDescribeOptionGroupOptions ::
 mkDescribeOptionGroupOptions pEngineName_ =
   DescribeOptionGroupOptions'
     { filters = Lude.Nothing,
+      engineName = pEngineName_,
       majorEngineVersion = Lude.Nothing,
       marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      engineName = pEngineName_
+      maxRecords = Lude.Nothing
     }
 
 -- | This parameter isn't currently supported.
@@ -95,6 +96,13 @@ mkDescribeOptionGroupOptions pEngineName_ =
 dogoFilters :: Lens.Lens' DescribeOptionGroupOptions (Lude.Maybe [Filter])
 dogoFilters = Lens.lens (filters :: DescribeOptionGroupOptions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeOptionGroupOptions)
 {-# DEPRECATED dogoFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | A required parameter. Options available for the given engine name are described.
+--
+-- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dogoEngineName :: Lens.Lens' DescribeOptionGroupOptions Lude.Text
+dogoEngineName = Lens.lens (engineName :: DescribeOptionGroupOptions -> Lude.Text) (\s a -> s {engineName = a} :: DescribeOptionGroupOptions)
+{-# DEPRECATED dogoEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
 
 -- | If specified, filters the results to include only options for the specified major engine version.
 --
@@ -119,13 +127,6 @@ dogoMarker = Lens.lens (marker :: DescribeOptionGroupOptions -> Lude.Maybe Lude.
 dogoMaxRecords :: Lens.Lens' DescribeOptionGroupOptions (Lude.Maybe Lude.Int)
 dogoMaxRecords = Lens.lens (maxRecords :: DescribeOptionGroupOptions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeOptionGroupOptions)
 {-# DEPRECATED dogoMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | A required parameter. Options available for the given engine name are described.
---
--- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dogoEngineName :: Lens.Lens' DescribeOptionGroupOptions Lude.Text
-dogoEngineName = Lens.lens (engineName :: DescribeOptionGroupOptions -> Lude.Text) (\s a -> s {engineName = a} :: DescribeOptionGroupOptions)
-{-# DEPRECATED dogoEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
 
 instance Page.AWSPager DescribeOptionGroupOptions where
   page rq rs
@@ -167,37 +168,29 @@ instance Lude.ToQuery DescribeOptionGroupOptions where
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "Filters"
           Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "EngineName" Lude.=: engineName,
         "MajorEngineVersion" Lude.=: majorEngineVersion,
         "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "EngineName" Lude.=: engineName
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- |
 --
 -- /See:/ 'mkDescribeOptionGroupOptionsResponse' smart constructor.
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
-  { optionGroupOptions ::
-      Lude.Maybe
-        [OptionGroupOption],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { optionGroupOptions :: Lude.Maybe [OptionGroupOption],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOptionGroupOptionsResponse' with the minimum fields required to make a request.
 --
+-- * 'optionGroupOptions' -
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'optionGroupOptions' - Undocumented field.
 -- * 'responseStatus' - The response status code.
 mkDescribeOptionGroupOptionsResponse ::
   -- | 'responseStatus'

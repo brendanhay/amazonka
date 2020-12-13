@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,17 +26,17 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
 
     -- ** Request lenses
     ldlsqNextToken,
-    ldlsqMaxResults,
     ldlsqQueueURL,
+    ldlsqMaxResults,
 
     -- * Destructuring the response
     ListDeadLetterSourceQueuesResponse (..),
     mkListDeadLetterSourceQueuesResponse,
 
     -- ** Response lenses
+    ldlsqrsQueueURLs,
     ldlsqrsNextToken,
     ldlsqrsResponseStatus,
-    ldlsqrsQueueURLs,
   )
 where
 
@@ -50,27 +51,25 @@ import Network.AWS.SQS.Types
 --
 -- /See:/ 'mkListDeadLetterSourceQueues' smart constructor.
 data ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    queueURL :: Lude.Text
+  { -- | Pagination token to request the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The URL of a dead-letter queue.
+    --
+    -- Queue URLs and names are case-sensitive.
+    queueURL :: Lude.Text,
+    -- | Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeadLetterSourceQueues' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
 -- * 'nextToken' - Pagination token to request the next set of results.
 -- * 'queueURL' - The URL of a dead-letter queue.
 --
 -- Queue URLs and names are case-sensitive.
+-- * 'maxResults' - Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
 mkListDeadLetterSourceQueues ::
   -- | 'queueURL'
   Lude.Text ->
@@ -78,8 +77,8 @@ mkListDeadLetterSourceQueues ::
 mkListDeadLetterSourceQueues pQueueURL_ =
   ListDeadLetterSourceQueues'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      queueURL = pQueueURL_
+      queueURL = pQueueURL_,
+      maxResults = Lude.Nothing
     }
 
 -- | Pagination token to request the next set of results.
@@ -89,13 +88,6 @@ ldlsqNextToken :: Lens.Lens' ListDeadLetterSourceQueues (Lude.Maybe Lude.Text)
 ldlsqNextToken = Lens.lens (nextToken :: ListDeadLetterSourceQueues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeadLetterSourceQueues)
 {-# DEPRECATED ldlsqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldlsqMaxResults :: Lens.Lens' ListDeadLetterSourceQueues (Lude.Maybe Lude.Int)
-ldlsqMaxResults = Lens.lens (maxResults :: ListDeadLetterSourceQueues -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListDeadLetterSourceQueues)
-{-# DEPRECATED ldlsqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The URL of a dead-letter queue.
 --
 -- Queue URLs and names are case-sensitive.
@@ -104,6 +96,13 @@ ldlsqMaxResults = Lens.lens (maxResults :: ListDeadLetterSourceQueues -> Lude.Ma
 ldlsqQueueURL :: Lens.Lens' ListDeadLetterSourceQueues Lude.Text
 ldlsqQueueURL = Lens.lens (queueURL :: ListDeadLetterSourceQueues -> Lude.Text) (\s a -> s {queueURL = a} :: ListDeadLetterSourceQueues)
 {-# DEPRECATED ldlsqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+
+-- | Maximum number of results to include in the response. Value range is 1 to 1000. You must set @MaxResults@ to receive a value for @NextToken@ in the response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldlsqMaxResults :: Lens.Lens' ListDeadLetterSourceQueues (Lude.Maybe Lude.Int)
+ldlsqMaxResults = Lens.lens (maxResults :: ListDeadLetterSourceQueues -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListDeadLetterSourceQueues)
+{-# DEPRECATED ldlsqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListDeadLetterSourceQueues where
   page rq rs
@@ -124,9 +123,9 @@ instance Lude.AWSRequest ListDeadLetterSourceQueues where
       "ListDeadLetterSourceQueuesResult"
       ( \s h x ->
           ListDeadLetterSourceQueuesResponse'
-            Lude.<$> (x Lude..@? "NextToken")
+            Lude.<$> (Lude.parseXMLList "QueueUrl" x)
+            Lude.<*> (x Lude..@? "NextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.parseXMLList "QueueUrl" x)
       )
 
 instance Lude.ToHeaders ListDeadLetterSourceQueues where
@@ -142,34 +141,28 @@ instance Lude.ToQuery ListDeadLetterSourceQueues where
           Lude.=: ("ListDeadLetterSourceQueues" :: Lude.ByteString),
         "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
         "NextToken" Lude.=: nextToken,
-        "MaxResults" Lude.=: maxResults,
-        "QueueUrl" Lude.=: queueURL
+        "QueueUrl" Lude.=: queueURL,
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | A list of your dead letter source queues.
 --
 -- /See:/ 'mkListDeadLetterSourceQueuesResponse' smart constructor.
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    queueURLs ::
-      [Lude.Text]
+  { -- | A list of source queue URLs that have the @RedrivePolicy@ queue attribute configured with a dead-letter queue.
+    queueURLs :: [Lude.Text],
+    -- | Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeadLetterSourceQueuesResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
 -- * 'queueURLs' - A list of source queue URLs that have the @RedrivePolicy@ queue attribute configured with a dead-letter queue.
+-- * 'nextToken' - Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
 -- * 'responseStatus' - The response status code.
 mkListDeadLetterSourceQueuesResponse ::
   -- | 'responseStatus'
@@ -177,10 +170,17 @@ mkListDeadLetterSourceQueuesResponse ::
   ListDeadLetterSourceQueuesResponse
 mkListDeadLetterSourceQueuesResponse pResponseStatus_ =
   ListDeadLetterSourceQueuesResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      queueURLs = Lude.mempty
+    { queueURLs = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of source queue URLs that have the @RedrivePolicy@ queue attribute configured with a dead-letter queue.
+--
+-- /Note:/ Consider using 'queueURLs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldlsqrsQueueURLs :: Lens.Lens' ListDeadLetterSourceQueuesResponse [Lude.Text]
+ldlsqrsQueueURLs = Lens.lens (queueURLs :: ListDeadLetterSourceQueuesResponse -> [Lude.Text]) (\s a -> s {queueURLs = a} :: ListDeadLetterSourceQueuesResponse)
+{-# DEPRECATED ldlsqrsQueueURLs "Use generic-lens or generic-optics with 'queueURLs' instead." #-}
 
 -- | Pagination token to include in the next request. Token value is @null@ if there are no additional results to request, or if you did not set @MaxResults@ in the request.
 --
@@ -195,10 +195,3 @@ ldlsqrsNextToken = Lens.lens (nextToken :: ListDeadLetterSourceQueuesResponse ->
 ldlsqrsResponseStatus :: Lens.Lens' ListDeadLetterSourceQueuesResponse Lude.Int
 ldlsqrsResponseStatus = Lens.lens (responseStatus :: ListDeadLetterSourceQueuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeadLetterSourceQueuesResponse)
 {-# DEPRECATED ldlsqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of source queue URLs that have the @RedrivePolicy@ queue attribute configured with a dead-letter queue.
---
--- /Note:/ Consider using 'queueURLs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldlsqrsQueueURLs :: Lens.Lens' ListDeadLetterSourceQueuesResponse [Lude.Text]
-ldlsqrsQueueURLs = Lens.lens (queueURLs :: ListDeadLetterSourceQueuesResponse -> [Lude.Text]) (\s a -> s {queueURLs = a} :: ListDeadLetterSourceQueuesResponse)
-{-# DEPRECATED ldlsqrsQueueURLs "Use generic-lens or generic-optics with 'queueURLs' instead." #-}

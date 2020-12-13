@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageData' smart constructor.
 data MessageData = MessageData'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The message text.
+    value :: Lude.Maybe Lude.Text,
+    -- | The error code or status code associated with the message.
     code :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageData' with the minimum fields required to make a request.
 --
--- * 'code' - The error code or status code associated with the message.
 -- * 'value' - The message text.
+-- * 'code' - The error code or status code associated with the message.
 mkMessageData ::
   MessageData
 mkMessageData =

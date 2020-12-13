@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.IoT.ListThingGroupsForThing
 
     -- ** Request lenses
     ltgftNextToken,
-    ltgftMaxResults,
     ltgftThingName,
+    ltgftMaxResults,
 
     -- * Destructuring the response
     ListThingGroupsForThingResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListThingGroupsForThing' smart constructor.
 data ListThingGroupsForThing = ListThingGroupsForThing'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    thingName :: Lude.Text
+  { -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The thing name.
+    thingName :: Lude.Text,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingGroupsForThing' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
 -- * 'thingName' - The thing name.
+-- * 'maxResults' - The maximum number of results to return at one time.
 mkListThingGroupsForThing ::
   -- | 'thingName'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListThingGroupsForThing ::
 mkListThingGroupsForThing pThingName_ =
   ListThingGroupsForThing'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      thingName = pThingName_
+      thingName = pThingName_,
+      maxResults = Lude.Nothing
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
@@ -82,19 +79,19 @@ ltgftNextToken :: Lens.Lens' ListThingGroupsForThing (Lude.Maybe Lude.Text)
 ltgftNextToken = Lens.lens (nextToken :: ListThingGroupsForThing -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingGroupsForThing)
 {-# DEPRECATED ltgftNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to return at one time.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltgftMaxResults :: Lens.Lens' ListThingGroupsForThing (Lude.Maybe Lude.Natural)
-ltgftMaxResults = Lens.lens (maxResults :: ListThingGroupsForThing -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingGroupsForThing)
-{-# DEPRECATED ltgftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The thing name.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltgftThingName :: Lens.Lens' ListThingGroupsForThing Lude.Text
 ltgftThingName = Lens.lens (thingName :: ListThingGroupsForThing -> Lude.Text) (\s a -> s {thingName = a} :: ListThingGroupsForThing)
 {-# DEPRECATED ltgftThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+
+-- | The maximum number of results to return at one time.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltgftMaxResults :: Lens.Lens' ListThingGroupsForThing (Lude.Maybe Lude.Natural)
+ltgftMaxResults = Lens.lens (maxResults :: ListThingGroupsForThing -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingGroupsForThing)
+{-# DEPRECATED ltgftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListThingGroupsForThing where
   page rq rs
@@ -131,27 +128,21 @@ instance Lude.ToQuery ListThingGroupsForThing where
 
 -- | /See:/ 'mkListThingGroupsForThingResponse' smart constructor.
 data ListThingGroupsForThingResponse = ListThingGroupsForThingResponse'
-  { thingGroups ::
-      Lude.Maybe
-        [GroupNameAndARN],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The thing groups.
+    thingGroups :: Lude.Maybe [GroupNameAndARN],
+    -- | The token to use to get the next set of results, or __null__ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListThingGroupsForThingResponse' with the minimum fields required to make a request.
 --
+-- * 'thingGroups' - The thing groups.
 -- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'thingGroups' - The thing groups.
 mkListThingGroupsForThingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A parent label for a label. A label can have 0, 1, or more parents.
 --
 -- /See:/ 'mkParent' smart constructor.
-newtype Parent = Parent' {name :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Parent = Parent'
+  { -- | The name of the parent label.
+    name :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parent' with the minimum fields required to make a request.

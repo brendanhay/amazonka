@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -59,11 +60,11 @@ module Network.AWS.CertificateManager.ImportCertificate
     mkImportCertificate,
 
     -- ** Request lenses
+    icPrivateKey,
     icCertificateARN,
+    icCertificate,
     icCertificateChain,
     icTags,
-    icCertificate,
-    icPrivateKey,
 
     -- * Destructuring the response
     ImportCertificateResponse (..),
@@ -83,51 +84,56 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-  { certificateARN ::
-      Lude.Maybe Lude.Text,
-    certificateChain :: Lude.Maybe Lude.Base64,
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+  { -- | The private key that matches the public key in the certificate.
+    privateKey :: Lude.Sensitive Lude.Base64,
+    -- | The <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | The certificate to import.
     certificate :: Lude.Base64,
-    privateKey :: Lude.Sensitive Lude.Base64
+    -- | The PEM encoded certificate chain.
+    certificateChain :: Lude.Maybe Lude.Base64,
+    -- | One or more resource tags to associate with the imported certificate.
+    --
+    -- Note: You cannot apply tags when reimporting a certificate.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportCertificate' with the minimum fields required to make a request.
 --
--- * 'certificate' - The certificate to import.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'privateKey' - The private key that matches the public key in the certificate.
 -- * 'certificateARN' - The <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
--- * 'certificateChain' - The PEM encoded certificate chain.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'privateKey' - The private key that matches the public key in the certificate.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'certificate' - The certificate to import.
+-- * 'certificateChain' - The PEM encoded certificate chain.
 -- * 'tags' - One or more resource tags to associate with the imported certificate.
 --
 -- Note: You cannot apply tags when reimporting a certificate.
 mkImportCertificate ::
-  -- | 'certificate'
-  Lude.Base64 ->
   -- | 'privateKey'
   Lude.Sensitive Lude.Base64 ->
+  -- | 'certificate'
+  Lude.Base64 ->
   ImportCertificate
-mkImportCertificate pCertificate_ pPrivateKey_ =
+mkImportCertificate pPrivateKey_ pCertificate_ =
   ImportCertificate'
-    { certificateARN = Lude.Nothing,
-      certificateChain = Lude.Nothing,
-      tags = Lude.Nothing,
+    { privateKey = pPrivateKey_,
+      certificateARN = Lude.Nothing,
       certificate = pCertificate_,
-      privateKey = pPrivateKey_
+      certificateChain = Lude.Nothing,
+      tags = Lude.Nothing
     }
+
+-- | The private key that matches the public key in the certificate.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icPrivateKey :: Lens.Lens' ImportCertificate (Lude.Sensitive Lude.Base64)
+icPrivateKey = Lens.lens (privateKey :: ImportCertificate -> Lude.Sensitive Lude.Base64) (\s a -> s {privateKey = a} :: ImportCertificate)
+{-# DEPRECATED icPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | The <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
 --
@@ -135,6 +141,17 @@ mkImportCertificate pCertificate_ pPrivateKey_ =
 icCertificateARN :: Lens.Lens' ImportCertificate (Lude.Maybe Lude.Text)
 icCertificateARN = Lens.lens (certificateARN :: ImportCertificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateARN = a} :: ImportCertificate)
 {-# DEPRECATED icCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+
+-- | The certificate to import.--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+icCertificate :: Lens.Lens' ImportCertificate Lude.Base64
+icCertificate = Lens.lens (certificate :: ImportCertificate -> Lude.Base64) (\s a -> s {certificate = a} :: ImportCertificate)
+{-# DEPRECATED icCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The PEM encoded certificate chain.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -155,28 +172,6 @@ icCertificateChain = Lens.lens (certificateChain :: ImportCertificate -> Lude.Ma
 icTags :: Lens.Lens' ImportCertificate (Lude.Maybe (Lude.NonEmpty Tag))
 icTags = Lens.lens (tags :: ImportCertificate -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: ImportCertificate)
 {-# DEPRECATED icTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The certificate to import.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icCertificate :: Lens.Lens' ImportCertificate Lude.Base64
-icCertificate = Lens.lens (certificate :: ImportCertificate -> Lude.Base64) (\s a -> s {certificate = a} :: ImportCertificate)
-{-# DEPRECATED icCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
-
--- | The private key that matches the public key in the certificate.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
---
--- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icPrivateKey :: Lens.Lens' ImportCertificate (Lude.Sensitive Lude.Base64)
-icPrivateKey = Lens.lens (privateKey :: ImportCertificate -> Lude.Sensitive Lude.Base64) (\s a -> s {privateKey = a} :: ImportCertificate)
-{-# DEPRECATED icPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 instance Lude.AWSRequest ImportCertificate where
   type Rs ImportCertificate = ImportCertificateResponse
@@ -204,11 +199,11 @@ instance Lude.ToJSON ImportCertificate where
   toJSON ImportCertificate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CertificateArn" Lude..=) Lude.<$> certificateARN,
-            ("CertificateChain" Lude..=) Lude.<$> certificateChain,
-            ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("PrivateKey" Lude..= privateKey),
+            ("CertificateArn" Lude..=) Lude.<$> certificateARN,
             Lude.Just ("Certificate" Lude..= certificate),
-            Lude.Just ("PrivateKey" Lude..= privateKey)
+            ("CertificateChain" Lude..=) Lude.<$> certificateChain,
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -220,17 +215,12 @@ instance Lude.ToQuery ImportCertificate where
 
 -- | /See:/ 'mkImportCertificateResponse' smart constructor.
 data ImportCertificateResponse = ImportCertificateResponse'
-  { certificateARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportCertificateResponse' with the minimum fields required to make a request.

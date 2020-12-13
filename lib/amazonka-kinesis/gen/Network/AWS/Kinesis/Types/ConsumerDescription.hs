@@ -17,11 +17,11 @@ module Network.AWS.Kinesis.Types.ConsumerDescription
     mkConsumerDescription,
 
     -- * Lenses
-    cdConsumerName,
-    cdConsumerARN,
     cdConsumerStatus,
-    cdConsumerCreationTimestamp,
+    cdConsumerARN,
     cdStreamARN,
+    cdConsumerName,
+    cdConsumerCreationTimestamp,
   )
 where
 
@@ -33,63 +33,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConsumerDescription' smart constructor.
 data ConsumerDescription = ConsumerDescription'
-  { consumerName ::
-      Lude.Text,
-    consumerARN :: Lude.Text,
+  { -- | A consumer can't read data while in the @CREATING@ or @DELETING@ states.
     consumerStatus :: ConsumerStatus,
-    consumerCreationTimestamp :: Lude.Timestamp,
-    streamARN :: Lude.Text
+    -- | When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call 'SubscribeToShard' .
+    --
+    -- If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
+    consumerARN :: Lude.Text,
+    -- | The ARN of the stream with which you registered the consumer.
+    streamARN :: Lude.Text,
+    -- | The name of the consumer is something you choose when you register the consumer.
+    consumerName :: Lude.Text,
+    -- |
+    consumerCreationTimestamp :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConsumerDescription' with the minimum fields required to make a request.
 --
+-- * 'consumerStatus' - A consumer can't read data while in the @CREATING@ or @DELETING@ states.
 -- * 'consumerARN' - When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call 'SubscribeToShard' .
 --
 -- If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.
--- * 'consumerCreationTimestamp' -
--- * 'consumerName' - The name of the consumer is something you choose when you register the consumer.
--- * 'consumerStatus' - A consumer can't read data while in the @CREATING@ or @DELETING@ states.
 -- * 'streamARN' - The ARN of the stream with which you registered the consumer.
+-- * 'consumerName' - The name of the consumer is something you choose when you register the consumer.
+-- * 'consumerCreationTimestamp' -
 mkConsumerDescription ::
-  -- | 'consumerName'
-  Lude.Text ->
-  -- | 'consumerARN'
-  Lude.Text ->
   -- | 'consumerStatus'
   ConsumerStatus ->
-  -- | 'consumerCreationTimestamp'
-  Lude.Timestamp ->
+  -- | 'consumerARN'
+  Lude.Text ->
   -- | 'streamARN'
   Lude.Text ->
+  -- | 'consumerName'
+  Lude.Text ->
+  -- | 'consumerCreationTimestamp'
+  Lude.Timestamp ->
   ConsumerDescription
 mkConsumerDescription
-  pConsumerName_
-  pConsumerARN_
   pConsumerStatus_
-  pConsumerCreationTimestamp_
-  pStreamARN_ =
+  pConsumerARN_
+  pStreamARN_
+  pConsumerName_
+  pConsumerCreationTimestamp_ =
     ConsumerDescription'
-      { consumerName = pConsumerName_,
+      { consumerStatus = pConsumerStatus_,
         consumerARN = pConsumerARN_,
-        consumerStatus = pConsumerStatus_,
-        consumerCreationTimestamp = pConsumerCreationTimestamp_,
-        streamARN = pStreamARN_
+        streamARN = pStreamARN_,
+        consumerName = pConsumerName_,
+        consumerCreationTimestamp = pConsumerCreationTimestamp_
       }
 
--- | The name of the consumer is something you choose when you register the consumer.
+-- | A consumer can't read data while in the @CREATING@ or @DELETING@ states.
 --
--- /Note:/ Consider using 'consumerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdConsumerName :: Lens.Lens' ConsumerDescription Lude.Text
-cdConsumerName = Lens.lens (consumerName :: ConsumerDescription -> Lude.Text) (\s a -> s {consumerName = a} :: ConsumerDescription)
-{-# DEPRECATED cdConsumerName "Use generic-lens or generic-optics with 'consumerName' instead." #-}
+-- /Note:/ Consider using 'consumerStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdConsumerStatus :: Lens.Lens' ConsumerDescription ConsumerStatus
+cdConsumerStatus = Lens.lens (consumerStatus :: ConsumerDescription -> ConsumerStatus) (\s a -> s {consumerStatus = a} :: ConsumerDescription)
+{-# DEPRECATED cdConsumerStatus "Use generic-lens or generic-optics with 'consumerStatus' instead." #-}
 
 -- | When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call 'SubscribeToShard' .
 --
@@ -100,12 +100,19 @@ cdConsumerARN :: Lens.Lens' ConsumerDescription Lude.Text
 cdConsumerARN = Lens.lens (consumerARN :: ConsumerDescription -> Lude.Text) (\s a -> s {consumerARN = a} :: ConsumerDescription)
 {-# DEPRECATED cdConsumerARN "Use generic-lens or generic-optics with 'consumerARN' instead." #-}
 
--- | A consumer can't read data while in the @CREATING@ or @DELETING@ states.
+-- | The ARN of the stream with which you registered the consumer.
 --
--- /Note:/ Consider using 'consumerStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdConsumerStatus :: Lens.Lens' ConsumerDescription ConsumerStatus
-cdConsumerStatus = Lens.lens (consumerStatus :: ConsumerDescription -> ConsumerStatus) (\s a -> s {consumerStatus = a} :: ConsumerDescription)
-{-# DEPRECATED cdConsumerStatus "Use generic-lens or generic-optics with 'consumerStatus' instead." #-}
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdStreamARN :: Lens.Lens' ConsumerDescription Lude.Text
+cdStreamARN = Lens.lens (streamARN :: ConsumerDescription -> Lude.Text) (\s a -> s {streamARN = a} :: ConsumerDescription)
+{-# DEPRECATED cdStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+
+-- | The name of the consumer is something you choose when you register the consumer.
+--
+-- /Note:/ Consider using 'consumerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdConsumerName :: Lens.Lens' ConsumerDescription Lude.Text
+cdConsumerName = Lens.lens (consumerName :: ConsumerDescription -> Lude.Text) (\s a -> s {consumerName = a} :: ConsumerDescription)
+{-# DEPRECATED cdConsumerName "Use generic-lens or generic-optics with 'consumerName' instead." #-}
 
 -- |
 --
@@ -114,22 +121,15 @@ cdConsumerCreationTimestamp :: Lens.Lens' ConsumerDescription Lude.Timestamp
 cdConsumerCreationTimestamp = Lens.lens (consumerCreationTimestamp :: ConsumerDescription -> Lude.Timestamp) (\s a -> s {consumerCreationTimestamp = a} :: ConsumerDescription)
 {-# DEPRECATED cdConsumerCreationTimestamp "Use generic-lens or generic-optics with 'consumerCreationTimestamp' instead." #-}
 
--- | The ARN of the stream with which you registered the consumer.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdStreamARN :: Lens.Lens' ConsumerDescription Lude.Text
-cdStreamARN = Lens.lens (streamARN :: ConsumerDescription -> Lude.Text) (\s a -> s {streamARN = a} :: ConsumerDescription)
-{-# DEPRECATED cdStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
-
 instance Lude.FromJSON ConsumerDescription where
   parseJSON =
     Lude.withObject
       "ConsumerDescription"
       ( \x ->
           ConsumerDescription'
-            Lude.<$> (x Lude..: "ConsumerName")
+            Lude.<$> (x Lude..: "ConsumerStatus")
             Lude.<*> (x Lude..: "ConsumerARN")
-            Lude.<*> (x Lude..: "ConsumerStatus")
-            Lude.<*> (x Lude..: "ConsumerCreationTimestamp")
             Lude.<*> (x Lude..: "StreamARN")
+            Lude.<*> (x Lude..: "ConsumerName")
+            Lude.<*> (x Lude..: "ConsumerCreationTimestamp")
       )

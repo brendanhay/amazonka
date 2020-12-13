@@ -13,8 +13,8 @@
 module Network.AWS.SMS.Types.ScriptType
   ( ScriptType
       ( ScriptType',
-        PowershellScript,
-        ShellScript
+        ShellScript,
+        PowershellScript
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ScriptType = ScriptType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PowershellScript :: ScriptType
-pattern PowershellScript = ScriptType' "POWERSHELL_SCRIPT"
-
 pattern ShellScript :: ScriptType
 pattern ShellScript = ScriptType' "SHELL_SCRIPT"
 
+pattern PowershellScript :: ScriptType
+pattern PowershellScript = ScriptType' "POWERSHELL_SCRIPT"
+
 {-# COMPLETE
-  PowershellScript,
   ShellScript,
+  PowershellScript,
   ScriptType'
   #-}

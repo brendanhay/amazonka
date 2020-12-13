@@ -13,9 +13,9 @@
 module Network.AWS.CodeBuild.Types.CacheMode
   ( CacheMode
       ( CacheMode',
-        LocalCustomCache,
         LocalDockerLayerCache,
-        LocalSourceCache
+        LocalSourceCache,
+        LocalCustomCache
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CacheMode = CacheMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern LocalCustomCache :: CacheMode
-pattern LocalCustomCache = CacheMode' "LOCAL_CUSTOM_CACHE"
-
 pattern LocalDockerLayerCache :: CacheMode
 pattern LocalDockerLayerCache = CacheMode' "LOCAL_DOCKER_LAYER_CACHE"
 
 pattern LocalSourceCache :: CacheMode
 pattern LocalSourceCache = CacheMode' "LOCAL_SOURCE_CACHE"
 
+pattern LocalCustomCache :: CacheMode
+pattern LocalCustomCache = CacheMode' "LOCAL_CUSTOM_CACHE"
+
 {-# COMPLETE
-  LocalCustomCache,
   LocalDockerLayerCache,
   LocalSourceCache,
+  LocalCustomCache,
   CacheMode'
   #-}

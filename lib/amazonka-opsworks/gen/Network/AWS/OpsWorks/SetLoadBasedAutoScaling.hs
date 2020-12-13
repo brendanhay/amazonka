@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,28 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetLoadBasedAutoScaling' smart constructor.
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
-  { upScaling ::
-      Lude.Maybe AutoScalingThresholds,
+  { -- | An @AutoScalingThresholds@ object with the upscaling threshold configuration. If the load exceeds these thresholds for a specified amount of time, AWS OpsWorks Stacks starts a specified number of instances.
+    upScaling :: Lude.Maybe AutoScalingThresholds,
+    -- | Enables load-based auto scaling for the layer.
     enable :: Lude.Maybe Lude.Bool,
-    downScaling ::
-      Lude.Maybe AutoScalingThresholds,
+    -- | An @AutoScalingThresholds@ object with the downscaling threshold configuration. If the load falls below these thresholds for a specified amount of time, AWS OpsWorks Stacks stops a specified number of instances.
+    downScaling :: Lude.Maybe AutoScalingThresholds,
+    -- | The layer ID.
     layerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBasedAutoScaling' with the minimum fields required to make a request.
 --
--- * 'downScaling' - An @AutoScalingThresholds@ object with the downscaling threshold configuration. If the load falls below these thresholds for a specified amount of time, AWS OpsWorks Stacks stops a specified number of instances.
--- * 'enable' - Enables load-based auto scaling for the layer.
--- * 'layerId' - The layer ID.
 -- * 'upScaling' - An @AutoScalingThresholds@ object with the upscaling threshold configuration. If the load exceeds these thresholds for a specified amount of time, AWS OpsWorks Stacks starts a specified number of instances.
+-- * 'enable' - Enables load-based auto scaling for the layer.
+-- * 'downScaling' - An @AutoScalingThresholds@ object with the downscaling threshold configuration. If the load falls below these thresholds for a specified amount of time, AWS OpsWorks Stacks stops a specified number of instances.
+-- * 'layerId' - The layer ID.
 mkSetLoadBasedAutoScaling ::
   -- | 'layerId'
   Lude.Text ->
@@ -137,13 +134,7 @@ instance Lude.ToQuery SetLoadBasedAutoScaling where
 
 -- | /See:/ 'mkSetLoadBasedAutoScalingResponse' smart constructor.
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoadBasedAutoScalingResponse' with the minimum fields required to make a request.

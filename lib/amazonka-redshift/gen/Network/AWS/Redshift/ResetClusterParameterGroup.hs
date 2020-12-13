@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,29 +44,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkResetClusterParameterGroup' smart constructor.
 data ResetClusterParameterGroup = ResetClusterParameterGroup'
-  { resetAllParameters ::
-      Lude.Maybe Lude.Bool,
+  { -- | If @true@ , all parameters in the specified parameter group will be reset to their default values.
+    --
+    -- Default: @true@
+    resetAllParameters :: Lude.Maybe Lude.Bool,
+    -- | An array of names of parameters to be reset. If /ResetAllParameters/ option is not used, then at least one parameter name must be supplied.
+    --
+    -- Constraints: A maximum of 20 parameters can be reset in a single request.
     parameters :: Lude.Maybe [Parameter],
+    -- | The name of the cluster parameter group to be reset.
     parameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetClusterParameterGroup' with the minimum fields required to make a request.
 --
--- * 'parameterGroupName' - The name of the cluster parameter group to be reset.
--- * 'parameters' - An array of names of parameters to be reset. If /ResetAllParameters/ option is not used, then at least one parameter name must be supplied.
---
--- Constraints: A maximum of 20 parameters can be reset in a single request.
 -- * 'resetAllParameters' - If @true@ , all parameters in the specified parameter group will be reset to their default values.
 --
 -- Default: @true@
+-- * 'parameters' - An array of names of parameters to be reset. If /ResetAllParameters/ option is not used, then at least one parameter name must be supplied.
+--
+-- Constraints: A maximum of 20 parameters can be reset in a single request.
+-- * 'parameterGroupName' - The name of the cluster parameter group to be reset.
 mkResetClusterParameterGroup ::
   -- | 'parameterGroupName'
   Lude.Text ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SSM.GetMaintenanceWindowTask
     mkGetMaintenanceWindowTask,
 
     -- ** Request lenses
-    gmwtWindowId,
     gmwtWindowTaskId,
+    gmwtWindowId,
 
     -- * Destructuring the response
     GetMaintenanceWindowTaskResponse (..),
@@ -53,41 +54,29 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetMaintenanceWindowTask' smart constructor.
 data GetMaintenanceWindowTask = GetMaintenanceWindowTask'
-  { windowId ::
-      Lude.Text,
-    windowTaskId :: Lude.Text
+  { -- | The maintenance window task ID to retrieve.
+    windowTaskId :: Lude.Text,
+    -- | The maintenance window ID that includes the task to retrieve.
+    windowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowTask' with the minimum fields required to make a request.
 --
--- * 'windowId' - The maintenance window ID that includes the task to retrieve.
 -- * 'windowTaskId' - The maintenance window task ID to retrieve.
+-- * 'windowId' - The maintenance window ID that includes the task to retrieve.
 mkGetMaintenanceWindowTask ::
-  -- | 'windowId'
-  Lude.Text ->
   -- | 'windowTaskId'
   Lude.Text ->
+  -- | 'windowId'
+  Lude.Text ->
   GetMaintenanceWindowTask
-mkGetMaintenanceWindowTask pWindowId_ pWindowTaskId_ =
+mkGetMaintenanceWindowTask pWindowTaskId_ pWindowId_ =
   GetMaintenanceWindowTask'
-    { windowId = pWindowId_,
-      windowTaskId = pWindowTaskId_
+    { windowTaskId = pWindowTaskId_,
+      windowId = pWindowId_
     }
-
--- | The maintenance window ID that includes the task to retrieve.
---
--- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmwtWindowId :: Lens.Lens' GetMaintenanceWindowTask Lude.Text
-gmwtWindowId = Lens.lens (windowId :: GetMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowId = a} :: GetMaintenanceWindowTask)
-{-# DEPRECATED gmwtWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | The maintenance window task ID to retrieve.
 --
@@ -95,6 +84,13 @@ gmwtWindowId = Lens.lens (windowId :: GetMaintenanceWindowTask -> Lude.Text) (\s
 gmwtWindowTaskId :: Lens.Lens' GetMaintenanceWindowTask Lude.Text
 gmwtWindowTaskId = Lens.lens (windowTaskId :: GetMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowTaskId = a} :: GetMaintenanceWindowTask)
 {-# DEPRECATED gmwtWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
+
+-- | The maintenance window ID that includes the task to retrieve.
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmwtWindowId :: Lens.Lens' GetMaintenanceWindowTask Lude.Text
+gmwtWindowId = Lens.lens (windowId :: GetMaintenanceWindowTask -> Lude.Text) (\s a -> s {windowId = a} :: GetMaintenanceWindowTask)
+{-# DEPRECATED gmwtWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 instance Lude.AWSRequest GetMaintenanceWindowTask where
   type Rs GetMaintenanceWindowTask = GetMaintenanceWindowTaskResponse
@@ -135,8 +131,8 @@ instance Lude.ToJSON GetMaintenanceWindowTask where
   toJSON GetMaintenanceWindowTask' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("WindowId" Lude..= windowId),
-            Lude.Just ("WindowTaskId" Lude..= windowTaskId)
+          [ Lude.Just ("WindowTaskId" Lude..= windowTaskId),
+            Lude.Just ("WindowId" Lude..= windowId)
           ]
       )
 
@@ -148,71 +144,57 @@ instance Lude.ToQuery GetMaintenanceWindowTask where
 
 -- | /See:/ 'mkGetMaintenanceWindowTaskResponse' smart constructor.
 data GetMaintenanceWindowTaskResponse = GetMaintenanceWindowTaskResponse'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
-    windowTaskId ::
-      Lude.Maybe Lude.Text,
-    taskParameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (MaintenanceWindowTaskParameterValueExpression)
-        ),
-    priority ::
-      Lude.Maybe Lude.Natural,
-    taskType ::
-      Lude.Maybe
-        MaintenanceWindowTaskType,
-    taskARN ::
-      Lude.Maybe Lude.Text,
-    maxErrors ::
-      Lude.Maybe Lude.Text,
-    taskInvocationParameters ::
-      Lude.Maybe
-        MaintenanceWindowTaskInvocationParameters,
-    name ::
-      Lude.Maybe Lude.Text,
-    targets ::
-      Lude.Maybe [Target],
-    loggingInfo ::
-      Lude.Maybe LoggingInfo,
-    description ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    maxConcurrency ::
-      Lude.Maybe Lude.Text,
-    windowId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | The retrieved maintenance window task ID.
+    windowTaskId :: Lude.Maybe Lude.Text,
+    -- | The parameters to pass to the task when it runs.
+    taskParameters :: Lude.Maybe (Lude.HashMap Lude.Text (MaintenanceWindowTaskParameterValueExpression)),
+    -- | The priority of the task when it runs. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+    priority :: Lude.Maybe Lude.Natural,
+    -- | The type of task to run.
+    taskType :: Lude.Maybe MaintenanceWindowTaskType,
+    -- | The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the Systems Manager Document name/ARN. For LAMBDA tasks, the value is the function name/ARN. For STEP_FUNCTIONS tasks, the value is the state machine ARN.
+    taskARN :: Lude.Maybe Lude.Text,
+    -- | The maximum number of errors allowed before the task stops being scheduled.
+    maxErrors :: Lude.Maybe Lude.Text,
+    -- | The parameters to pass to the task when it runs.
+    taskInvocationParameters :: Lude.Maybe MaintenanceWindowTaskInvocationParameters,
+    -- | The retrieved task name.
+    name :: Lude.Maybe Lude.Text,
+    -- | The targets where the task should run.
+    targets :: Lude.Maybe [Target],
+    -- | The location in Amazon S3 where the task results are logged.
+    loggingInfo :: Lude.Maybe LoggingInfo,
+    -- | The retrieved task description.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The maximum number of targets allowed to run this task in parallel.
+    maxConcurrency :: Lude.Maybe Lude.Text,
+    -- | The retrieved maintenance window ID.
+    windowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMaintenanceWindowTaskResponse' with the minimum fields required to make a request.
 --
--- * 'description' - The retrieved task description.
--- * 'loggingInfo' - The location in Amazon S3 where the task results are logged.
--- * 'maxConcurrency' - The maximum number of targets allowed to run this task in parallel.
--- * 'maxErrors' - The maximum number of errors allowed before the task stops being scheduled.
--- * 'name' - The retrieved task name.
--- * 'priority' - The priority of the task when it runs. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
--- * 'responseStatus' - The response status code.
 -- * 'serviceRoleARN' - The ARN of the IAM service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
--- * 'targets' - The targets where the task should run.
--- * 'taskARN' - The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the Systems Manager Document name/ARN. For LAMBDA tasks, the value is the function name/ARN. For STEP_FUNCTIONS tasks, the value is the state machine ARN.
--- * 'taskInvocationParameters' - The parameters to pass to the task when it runs.
--- * 'taskParameters' - The parameters to pass to the task when it runs.
--- * 'taskType' - The type of task to run.
--- * 'windowId' - The retrieved maintenance window ID.
 -- * 'windowTaskId' - The retrieved maintenance window task ID.
+-- * 'taskParameters' - The parameters to pass to the task when it runs.
+-- * 'priority' - The priority of the task when it runs. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
+-- * 'taskType' - The type of task to run.
+-- * 'taskARN' - The resource that the task used during execution. For RUN_COMMAND and AUTOMATION task types, the TaskArn is the Systems Manager Document name/ARN. For LAMBDA tasks, the value is the function name/ARN. For STEP_FUNCTIONS tasks, the value is the state machine ARN.
+-- * 'maxErrors' - The maximum number of errors allowed before the task stops being scheduled.
+-- * 'taskInvocationParameters' - The parameters to pass to the task when it runs.
+-- * 'name' - The retrieved task name.
+-- * 'targets' - The targets where the task should run.
+-- * 'loggingInfo' - The location in Amazon S3 where the task results are logged.
+-- * 'description' - The retrieved task description.
+-- * 'maxConcurrency' - The maximum number of targets allowed to run this task in parallel.
+-- * 'windowId' - The retrieved maintenance window ID.
+-- * 'responseStatus' - The response status code.
 mkGetMaintenanceWindowTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

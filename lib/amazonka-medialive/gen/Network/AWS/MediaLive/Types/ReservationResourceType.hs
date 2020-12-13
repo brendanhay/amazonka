@@ -13,10 +13,10 @@
 module Network.AWS.MediaLive.Types.ReservationResourceType
   ( ReservationResourceType
       ( ReservationResourceType',
-        RRTChannel,
         RRTInput,
+        RRTOutput,
         RRTMultiplex,
-        RRTOutput
+        RRTChannel
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype ReservationResourceType = ReservationResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RRTChannel :: ReservationResourceType
-pattern RRTChannel = ReservationResourceType' "CHANNEL"
-
 pattern RRTInput :: ReservationResourceType
 pattern RRTInput = ReservationResourceType' "INPUT"
-
-pattern RRTMultiplex :: ReservationResourceType
-pattern RRTMultiplex = ReservationResourceType' "MULTIPLEX"
 
 pattern RRTOutput :: ReservationResourceType
 pattern RRTOutput = ReservationResourceType' "OUTPUT"
 
+pattern RRTMultiplex :: ReservationResourceType
+pattern RRTMultiplex = ReservationResourceType' "MULTIPLEX"
+
+pattern RRTChannel :: ReservationResourceType
+pattern RRTChannel = ReservationResourceType' "CHANNEL"
+
 {-# COMPLETE
-  RRTChannel,
   RRTInput,
-  RRTMultiplex,
   RRTOutput,
+  RRTMultiplex,
+  RRTChannel,
   ReservationResourceType'
   #-}

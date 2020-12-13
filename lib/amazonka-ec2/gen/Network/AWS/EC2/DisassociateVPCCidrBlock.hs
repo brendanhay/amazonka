@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDisassociateVPCCidrBlock' smart constructor.
 newtype DisassociateVPCCidrBlock = DisassociateVPCCidrBlock'
-  { associationId ::
-      Lude.Text
+  { -- | The association ID for the CIDR block.
+    associationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateVPCCidrBlock' with the minimum fields required to make a request.
@@ -101,32 +96,24 @@ instance Lude.ToQuery DisassociateVPCCidrBlock where
 
 -- | /See:/ 'mkDisassociateVPCCidrBlockResponse' smart constructor.
 data DisassociateVPCCidrBlockResponse = DisassociateVPCCidrBlockResponse'
-  { vpcId ::
-      Lude.Maybe Lude.Text,
-    cidrBlockAssociation ::
-      Lude.Maybe
-        VPCCidrBlockAssociation,
-    ipv6CidrBlockAssociation ::
-      Lude.Maybe
-        VPCIPv6CidrBlockAssociation,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | Information about the IPv4 CIDR block association.
+    cidrBlockAssociation :: Lude.Maybe VPCCidrBlockAssociation,
+    -- | Information about the IPv6 CIDR block association.
+    ipv6CidrBlockAssociation :: Lude.Maybe VPCIPv6CidrBlockAssociation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateVPCCidrBlockResponse' with the minimum fields required to make a request.
 --
+-- * 'vpcId' - The ID of the VPC.
 -- * 'cidrBlockAssociation' - Information about the IPv4 CIDR block association.
 -- * 'ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 -- * 'responseStatus' - The response status code.
--- * 'vpcId' - The ID of the VPC.
 mkDisassociateVPCCidrBlockResponse ::
   -- | 'responseStatus'
   Lude.Int ->

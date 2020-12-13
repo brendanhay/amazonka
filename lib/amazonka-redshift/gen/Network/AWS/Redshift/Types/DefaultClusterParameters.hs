@@ -32,26 +32,21 @@ import Network.AWS.Redshift.Types.Parameter
 --
 -- /See:/ 'mkDefaultClusterParameters' smart constructor.
 data DefaultClusterParameters = DefaultClusterParameters'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The list of cluster default parameters.
     parameters :: Lude.Maybe [Parameter],
-    parameterGroupFamily ::
-      Lude.Maybe Lude.Text
+    -- | The name of the cluster parameter group family to which the engine default parameters apply.
+    parameterGroupFamily :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultClusterParameters' with the minimum fields required to make a request.
 --
 -- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'parameterGroupFamily' - The name of the cluster parameter group family to which the engine default parameters apply.
 -- * 'parameters' - The list of cluster default parameters.
+-- * 'parameterGroupFamily' - The name of the cluster parameter group family to which the engine default parameters apply.
 mkDefaultClusterParameters ::
   DefaultClusterParameters
 mkDefaultClusterParameters =

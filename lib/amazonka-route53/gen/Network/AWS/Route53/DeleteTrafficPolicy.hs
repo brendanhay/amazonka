@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.Route53.DeleteTrafficPolicy
     mkDeleteTrafficPolicy,
 
     -- ** Request lenses
-    dtpId,
     dtpVersion,
+    dtpId,
 
     -- * Destructuring the response
     DeleteTrafficPolicyResponse (..),
@@ -51,37 +52,26 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkDeleteTrafficPolicy' smart constructor.
 data DeleteTrafficPolicy = DeleteTrafficPolicy'
-  { id :: Lude.Text,
-    version :: Lude.Natural
+  { -- | The version number of the traffic policy that you want to delete.
+    version :: Lude.Natural,
+    -- | The ID of the traffic policy that you want to delete.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficPolicy' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the traffic policy that you want to delete.
 -- * 'version' - The version number of the traffic policy that you want to delete.
+-- * 'id' - The ID of the traffic policy that you want to delete.
 mkDeleteTrafficPolicy ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'version'
   Lude.Natural ->
+  -- | 'id'
+  Lude.Text ->
   DeleteTrafficPolicy
-mkDeleteTrafficPolicy pId_ pVersion_ =
-  DeleteTrafficPolicy' {id = pId_, version = pVersion_}
-
--- | The ID of the traffic policy that you want to delete.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpId :: Lens.Lens' DeleteTrafficPolicy Lude.Text
-dtpId = Lens.lens (id :: DeleteTrafficPolicy -> Lude.Text) (\s a -> s {id = a} :: DeleteTrafficPolicy)
-{-# DEPRECATED dtpId "Use generic-lens or generic-optics with 'id' instead." #-}
+mkDeleteTrafficPolicy pVersion_ pId_ =
+  DeleteTrafficPolicy' {version = pVersion_, id = pId_}
 
 -- | The version number of the traffic policy that you want to delete.
 --
@@ -89,6 +79,13 @@ dtpId = Lens.lens (id :: DeleteTrafficPolicy -> Lude.Text) (\s a -> s {id = a} :
 dtpVersion :: Lens.Lens' DeleteTrafficPolicy Lude.Natural
 dtpVersion = Lens.lens (version :: DeleteTrafficPolicy -> Lude.Natural) (\s a -> s {version = a} :: DeleteTrafficPolicy)
 {-# DEPRECATED dtpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The ID of the traffic policy that you want to delete.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtpId :: Lens.Lens' DeleteTrafficPolicy Lude.Text
+dtpId = Lens.lens (id :: DeleteTrafficPolicy -> Lude.Text) (\s a -> s {id = a} :: DeleteTrafficPolicy)
+{-# DEPRECATED dtpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DeleteTrafficPolicy where
   type Rs DeleteTrafficPolicy = DeleteTrafficPolicyResponse
@@ -119,16 +116,10 @@ instance Lude.ToQuery DeleteTrafficPolicy where
 --
 -- /See:/ 'mkDeleteTrafficPolicyResponse' smart constructor.
 newtype DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficPolicyResponse' with the minimum fields required to make a request.

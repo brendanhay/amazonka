@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,11 +40,11 @@ module Network.AWS.SWF.PollForDecisionTask
 
     -- ** Request lenses
     pfdtNextPageToken,
+    pfdtDomain,
     pfdtReverseOrder,
+    pfdtTaskList,
     pfdtMaximumPageSize,
     pfdtIdentity,
-    pfdtDomain,
-    pfdtTaskList,
 
     -- * Destructuring the response
     PollForDecisionTaskResponse (..),
@@ -54,10 +55,10 @@ module Network.AWS.SWF.PollForDecisionTask
     pfdtrsWorkflowType,
     pfdtrsPreviousStartedEventId,
     pfdtrsEvents,
+    pfdtrsStartedEventId,
     pfdtrsTaskToken,
     pfdtrsWorkflowExecution,
     pfdtrsResponseStatus,
-    pfdtrsStartedEventId,
   )
 where
 
@@ -70,37 +71,42 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkPollForDecisionTask' smart constructor.
 data PollForDecisionTask = PollForDecisionTask'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    reverseOrder :: Lude.Maybe Lude.Bool,
-    maximumPageSize :: Lude.Maybe Lude.Natural,
-    identity :: Lude.Maybe Lude.Text,
+  { -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
+    --
+    -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The name of the domain containing the task lists to poll.
     domain :: Lude.Text,
-    taskList :: TaskList
+    -- | When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimestamp@ of the events.
+    reverseOrder :: Lude.Maybe Lude.Bool,
+    -- | Specifies the task list to poll for decision tasks.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
+    taskList :: TaskList,
+    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+    --
+    -- This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+    maximumPageSize :: Lude.Maybe Lude.Natural,
+    -- | Identity of the decider making the request, which is recorded in the DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
+    identity :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForDecisionTask' with the minimum fields required to make a request.
 --
--- * 'domain' - The name of the domain containing the task lists to poll.
--- * 'identity' - Identity of the decider making the request, which is recorded in the DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
--- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
---
--- This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
 -- * 'nextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+-- * 'domain' - The name of the domain containing the task lists to poll.
 -- * 'reverseOrder' - When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimestamp@ of the events.
 -- * 'taskList' - Specifies the task list to poll for decision tasks.
 --
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
+-- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+--
+-- This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- * 'identity' - Identity of the decider making the request, which is recorded in the DecisionTaskStarted event in the workflow history. This enables diagnostic tracing when problems arise. The form of this identity is user defined.
 mkPollForDecisionTask ::
   -- | 'domain'
   Lude.Text ->
@@ -110,11 +116,11 @@ mkPollForDecisionTask ::
 mkPollForDecisionTask pDomain_ pTaskList_ =
   PollForDecisionTask'
     { nextPageToken = Lude.Nothing,
-      reverseOrder = Lude.Nothing,
-      maximumPageSize = Lude.Nothing,
-      identity = Lude.Nothing,
       domain = pDomain_,
-      taskList = pTaskList_
+      reverseOrder = Lude.Nothing,
+      taskList = pTaskList_,
+      maximumPageSize = Lude.Nothing,
+      identity = Lude.Nothing
     }
 
 -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
@@ -126,12 +132,28 @@ pfdtNextPageToken :: Lens.Lens' PollForDecisionTask (Lude.Maybe Lude.Text)
 pfdtNextPageToken = Lens.lens (nextPageToken :: PollForDecisionTask -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: PollForDecisionTask)
 {-# DEPRECATED pfdtNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
+-- | The name of the domain containing the task lists to poll.
+--
+-- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfdtDomain :: Lens.Lens' PollForDecisionTask Lude.Text
+pfdtDomain = Lens.lens (domain :: PollForDecisionTask -> Lude.Text) (\s a -> s {domain = a} :: PollForDecisionTask)
+{-# DEPRECATED pfdtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+
 -- | When set to @true@ , returns the events in reverse order. By default the results are returned in ascending order of the @eventTimestamp@ of the events.
 --
 -- /Note:/ Consider using 'reverseOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pfdtReverseOrder :: Lens.Lens' PollForDecisionTask (Lude.Maybe Lude.Bool)
 pfdtReverseOrder = Lens.lens (reverseOrder :: PollForDecisionTask -> Lude.Maybe Lude.Bool) (\s a -> s {reverseOrder = a} :: PollForDecisionTask)
 {-# DEPRECATED pfdtReverseOrder "Use generic-lens or generic-optics with 'reverseOrder' instead." #-}
+
+-- | Specifies the task list to poll for decision tasks.
+--
+-- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
+--
+-- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfdtTaskList :: Lens.Lens' PollForDecisionTask TaskList
+pfdtTaskList = Lens.lens (taskList :: PollForDecisionTask -> TaskList) (\s a -> s {taskList = a} :: PollForDecisionTask)
+{-# DEPRECATED pfdtTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
 
 -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
 --
@@ -148,22 +170,6 @@ pfdtMaximumPageSize = Lens.lens (maximumPageSize :: PollForDecisionTask -> Lude.
 pfdtIdentity :: Lens.Lens' PollForDecisionTask (Lude.Maybe Lude.Text)
 pfdtIdentity = Lens.lens (identity :: PollForDecisionTask -> Lude.Maybe Lude.Text) (\s a -> s {identity = a} :: PollForDecisionTask)
 {-# DEPRECATED pfdtIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
-
--- | The name of the domain containing the task lists to poll.
---
--- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfdtDomain :: Lens.Lens' PollForDecisionTask Lude.Text
-pfdtDomain = Lens.lens (domain :: PollForDecisionTask -> Lude.Text) (\s a -> s {domain = a} :: PollForDecisionTask)
-{-# DEPRECATED pfdtDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
--- | Specifies the task list to poll for decision tasks.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
---
--- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfdtTaskList :: Lens.Lens' PollForDecisionTask TaskList
-pfdtTaskList = Lens.lens (taskList :: PollForDecisionTask -> TaskList) (\s a -> s {taskList = a} :: PollForDecisionTask)
-{-# DEPRECATED pfdtTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
 
 instance Page.AWSPager PollForDecisionTask where
   page rq rs
@@ -185,10 +191,10 @@ instance Lude.AWSRequest PollForDecisionTask where
             Lude.<*> (x Lude..?> "workflowType")
             Lude.<*> (x Lude..?> "previousStartedEventId")
             Lude.<*> (x Lude..?> "events" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..:> "startedEventId")
             Lude.<*> (x Lude..?> "taskToken")
             Lude.<*> (x Lude..?> "workflowExecution")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "startedEventId")
       )
 
 instance Lude.ToHeaders PollForDecisionTask where
@@ -207,11 +213,11 @@ instance Lude.ToJSON PollForDecisionTask where
     Lude.object
       ( Lude.catMaybes
           [ ("nextPageToken" Lude..=) Lude.<$> nextPageToken,
-            ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
-            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize,
-            ("identity" Lude..=) Lude.<$> identity,
             Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("taskList" Lude..= taskList)
+            ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
+            Lude.Just ("taskList" Lude..= taskList),
+            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize,
+            ("identity" Lude..=) Lude.<$> identity
           ]
       )
 
@@ -225,56 +231,56 @@ instance Lude.ToQuery PollForDecisionTask where
 --
 -- /See:/ 'mkPollForDecisionTaskResponse' smart constructor.
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    workflowType ::
-      Lude.Maybe WorkflowType,
-    previousStartedEventId ::
-      Lude.Maybe Lude.Integer,
+  { -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
+    --
+    -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The type of the workflow execution for which this decision task was created.
+    workflowType :: Lude.Maybe WorkflowType,
+    -- | The ID of the DecisionTaskStarted event of the previous decision task of this workflow execution that was processed by the decider. This can be used to determine the events in the history new since the last decision task received by the decider.
+    previousStartedEventId :: Lude.Maybe Lude.Integer,
+    -- | A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.
     events :: Lude.Maybe [HistoryEvent],
+    -- | The ID of the @DecisionTaskStarted@ event recorded in the history.
+    startedEventId :: Lude.Integer,
+    -- | The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
     taskToken :: Lude.Maybe Lude.Text,
-    workflowExecution ::
-      Lude.Maybe WorkflowExecution,
-    responseStatus :: Lude.Int,
-    startedEventId :: Lude.Integer
+    -- | The workflow execution for which this decision task was created.
+    workflowExecution :: Lude.Maybe WorkflowExecution,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PollForDecisionTaskResponse' with the minimum fields required to make a request.
 --
--- * 'events' - A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.
 -- * 'nextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+-- * 'workflowType' - The type of the workflow execution for which this decision task was created.
 -- * 'previousStartedEventId' - The ID of the DecisionTaskStarted event of the previous decision task of this workflow execution that was processed by the decider. This can be used to determine the events in the history new since the last decision task received by the decider.
--- * 'responseStatus' - The response status code.
+-- * 'events' - A paginated list of history events of the workflow execution. The decider uses this during the processing of the decision task.
 -- * 'startedEventId' - The ID of the @DecisionTaskStarted@ event recorded in the history.
 -- * 'taskToken' - The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
 -- * 'workflowExecution' - The workflow execution for which this decision task was created.
--- * 'workflowType' - The type of the workflow execution for which this decision task was created.
+-- * 'responseStatus' - The response status code.
 mkPollForDecisionTaskResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'startedEventId'
   Lude.Integer ->
+  -- | 'responseStatus'
+  Lude.Int ->
   PollForDecisionTaskResponse
-mkPollForDecisionTaskResponse pResponseStatus_ pStartedEventId_ =
+mkPollForDecisionTaskResponse pStartedEventId_ pResponseStatus_ =
   PollForDecisionTaskResponse'
     { nextPageToken = Lude.Nothing,
       workflowType = Lude.Nothing,
       previousStartedEventId = Lude.Nothing,
       events = Lude.Nothing,
+      startedEventId = pStartedEventId_,
       taskToken = Lude.Nothing,
       workflowExecution = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      startedEventId = pStartedEventId_
+      responseStatus = pResponseStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
@@ -307,6 +313,13 @@ pfdtrsEvents :: Lens.Lens' PollForDecisionTaskResponse (Lude.Maybe [HistoryEvent
 pfdtrsEvents = Lens.lens (events :: PollForDecisionTaskResponse -> Lude.Maybe [HistoryEvent]) (\s a -> s {events = a} :: PollForDecisionTaskResponse)
 {-# DEPRECATED pfdtrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
+-- | The ID of the @DecisionTaskStarted@ event recorded in the history.
+--
+-- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfdtrsStartedEventId :: Lens.Lens' PollForDecisionTaskResponse Lude.Integer
+pfdtrsStartedEventId = Lens.lens (startedEventId :: PollForDecisionTaskResponse -> Lude.Integer) (\s a -> s {startedEventId = a} :: PollForDecisionTaskResponse)
+{-# DEPRECATED pfdtrsStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
+
 -- | The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.
 --
 -- /Note:/ Consider using 'taskToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -327,10 +340,3 @@ pfdtrsWorkflowExecution = Lens.lens (workflowExecution :: PollForDecisionTaskRes
 pfdtrsResponseStatus :: Lens.Lens' PollForDecisionTaskResponse Lude.Int
 pfdtrsResponseStatus = Lens.lens (responseStatus :: PollForDecisionTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PollForDecisionTaskResponse)
 {-# DEPRECATED pfdtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The ID of the @DecisionTaskStarted@ event recorded in the history.
---
--- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfdtrsStartedEventId :: Lens.Lens' PollForDecisionTaskResponse Lude.Integer
-pfdtrsStartedEventId = Lens.lens (startedEventId :: PollForDecisionTaskResponse -> Lude.Integer) (\s a -> s {startedEventId = a} :: PollForDecisionTaskResponse)
-{-# DEPRECATED pfdtrsStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}

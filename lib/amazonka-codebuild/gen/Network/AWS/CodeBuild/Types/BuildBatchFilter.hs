@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildBatchFilter' smart constructor.
 newtype BuildBatchFilter = BuildBatchFilter'
-  { status ::
-      Lude.Maybe StatusType
+  { -- | The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.
+    status :: Lude.Maybe StatusType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildBatchFilter' with the minimum fields required to make a request.

@@ -33,32 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityRecognizerMetadata' smart constructor.
 data EntityRecognizerMetadata = EntityRecognizerMetadata'
-  { entityTypes ::
-      Lude.Maybe
-        [EntityRecognizerMetadataEntityTypesListItem],
-    evaluationMetrics ::
-      Lude.Maybe
-        EntityRecognizerEvaluationMetrics,
-    numberOfTrainedDocuments ::
-      Lude.Maybe Lude.Int,
-    numberOfTestDocuments ::
-      Lude.Maybe Lude.Int
+  { -- | Entity types from the metadata of an entity recognizer.
+    entityTypes :: Lude.Maybe [EntityRecognizerMetadataEntityTypesListItem],
+    -- | Detailed information about the accuracy of an entity recognizer.
+    evaluationMetrics :: Lude.Maybe EntityRecognizerEvaluationMetrics,
+    -- | The number of documents in the input data that were used to train the entity recognizer. Typically this is 80 to 90 percent of the input documents.
+    numberOfTrainedDocuments :: Lude.Maybe Lude.Int,
+    -- | The number of documents in the input data that were used to test the entity recognizer. Typically this is 10 to 20 percent of the input documents.
+    numberOfTestDocuments :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EntityRecognizerMetadata' with the minimum fields required to make a request.
 --
 -- * 'entityTypes' - Entity types from the metadata of an entity recognizer.
 -- * 'evaluationMetrics' - Detailed information about the accuracy of an entity recognizer.
--- * 'numberOfTestDocuments' - The number of documents in the input data that were used to test the entity recognizer. Typically this is 10 to 20 percent of the input documents.
 -- * 'numberOfTrainedDocuments' - The number of documents in the input data that were used to train the entity recognizer. Typically this is 80 to 90 percent of the input documents.
+-- * 'numberOfTestDocuments' - The number of documents in the input data that were used to test the entity recognizer. Typically this is 10 to 20 percent of the input documents.
 mkEntityRecognizerMetadata ::
   EntityRecognizerMetadata
 mkEntityRecognizerMetadata =

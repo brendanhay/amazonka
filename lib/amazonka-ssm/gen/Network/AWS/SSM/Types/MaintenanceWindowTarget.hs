@@ -36,15 +36,24 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'mkMaintenanceWindowTarget' smart constructor.
 data MaintenanceWindowTarget = MaintenanceWindowTarget'
-  { resourceType ::
-      Lude.Maybe MaintenanceWindowResourceType,
-    ownerInformation ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The type of target that is being registered with the maintenance window.
+    resourceType :: Lude.Maybe MaintenanceWindowResourceType,
+    -- | A user-provided value that will be included in any CloudWatch events that are raised while running tasks for these targets in this maintenance window.
+    ownerInformation :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the target.
     windowTargetId :: Lude.Maybe Lude.Text,
+    -- | The name for the maintenance window target.
     name :: Lude.Maybe Lude.Text,
+    -- | The targets, either instances or tags.
+    --
+    -- Specify instances using the following format:
+    -- @Key=instanceids,Values=<instanceid1>,<instanceid2>@
+    -- Tags are specified using the following format:
+    -- @Key=<tag name>,Values=<tag value>@ .
     targets :: Lude.Maybe [Target],
-    description ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A description for the target.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the maintenance window to register the target with.
     windowId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -52,18 +61,18 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
 
 -- | Creates a value of 'MaintenanceWindowTarget' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the target.
--- * 'name' - The name for the maintenance window target.
--- * 'ownerInformation' - A user-provided value that will be included in any CloudWatch events that are raised while running tasks for these targets in this maintenance window.
 -- * 'resourceType' - The type of target that is being registered with the maintenance window.
+-- * 'ownerInformation' - A user-provided value that will be included in any CloudWatch events that are raised while running tasks for these targets in this maintenance window.
+-- * 'windowTargetId' - The ID of the target.
+-- * 'name' - The name for the maintenance window target.
 -- * 'targets' - The targets, either instances or tags.
 --
 -- Specify instances using the following format:
 -- @Key=instanceids,Values=<instanceid1>,<instanceid2>@
 -- Tags are specified using the following format:
 -- @Key=<tag name>,Values=<tag value>@ .
+-- * 'description' - A description for the target.
 -- * 'windowId' - The ID of the maintenance window to register the target with.
--- * 'windowTargetId' - The ID of the target.
 mkMaintenanceWindowTarget ::
   MaintenanceWindowTarget
 mkMaintenanceWindowTarget =

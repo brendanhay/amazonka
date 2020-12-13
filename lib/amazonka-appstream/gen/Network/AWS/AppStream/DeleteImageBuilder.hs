@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.AppStream.DeleteImageBuilder
     mkDeleteImageBuilderResponse,
 
     -- ** Response lenses
-    dibrsImageBuilder,
-    dibrsResponseStatus,
+    dibfrsImageBuilder,
+    dibfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteImageBuilder' smart constructor.
-newtype DeleteImageBuilder = DeleteImageBuilder' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteImageBuilder = DeleteImageBuilder'
+  { -- | The name of the image builder.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImageBuilder' with the minimum fields required to make a request.
@@ -97,17 +95,12 @@ instance Lude.ToQuery DeleteImageBuilder where
 
 -- | /See:/ 'mkDeleteImageBuilderResponse' smart constructor.
 data DeleteImageBuilderResponse = DeleteImageBuilderResponse'
-  { imageBuilder ::
-      Lude.Maybe ImageBuilder,
+  { -- | Information about the image builder.
+    imageBuilder :: Lude.Maybe ImageBuilder,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImageBuilderResponse' with the minimum fields required to make a request.
@@ -127,13 +120,13 @@ mkDeleteImageBuilderResponse pResponseStatus_ =
 -- | Information about the image builder.
 --
 -- /Note:/ Consider using 'imageBuilder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibrsImageBuilder :: Lens.Lens' DeleteImageBuilderResponse (Lude.Maybe ImageBuilder)
-dibrsImageBuilder = Lens.lens (imageBuilder :: DeleteImageBuilderResponse -> Lude.Maybe ImageBuilder) (\s a -> s {imageBuilder = a} :: DeleteImageBuilderResponse)
-{-# DEPRECATED dibrsImageBuilder "Use generic-lens or generic-optics with 'imageBuilder' instead." #-}
+dibfrsImageBuilder :: Lens.Lens' DeleteImageBuilderResponse (Lude.Maybe ImageBuilder)
+dibfrsImageBuilder = Lens.lens (imageBuilder :: DeleteImageBuilderResponse -> Lude.Maybe ImageBuilder) (\s a -> s {imageBuilder = a} :: DeleteImageBuilderResponse)
+{-# DEPRECATED dibfrsImageBuilder "Use generic-lens or generic-optics with 'imageBuilder' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dibrsResponseStatus :: Lens.Lens' DeleteImageBuilderResponse Lude.Int
-dibrsResponseStatus = Lens.lens (responseStatus :: DeleteImageBuilderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteImageBuilderResponse)
-{-# DEPRECATED dibrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dibfrsResponseStatus :: Lens.Lens' DeleteImageBuilderResponse Lude.Int
+dibfrsResponseStatus = Lens.lens (responseStatus :: DeleteImageBuilderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteImageBuilderResponse)
+{-# DEPRECATED dibfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

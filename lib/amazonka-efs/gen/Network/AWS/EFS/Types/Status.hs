@@ -13,10 +13,10 @@
 module Network.AWS.EFS.Types.Status
   ( Status
       ( Status',
-        Disabled,
-        Disabling,
         Enabled,
-        Enabling
+        Enabling,
+        Disabled,
+        Disabling
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype Status = Status' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: Status
-pattern Disabled = Status' "DISABLED"
-
-pattern Disabling :: Status
-pattern Disabling = Status' "DISABLING"
-
 pattern Enabled :: Status
 pattern Enabled = Status' "ENABLED"
 
 pattern Enabling :: Status
 pattern Enabling = Status' "ENABLING"
 
+pattern Disabled :: Status
+pattern Disabled = Status' "DISABLED"
+
+pattern Disabling :: Status
+pattern Disabling = Status' "DISABLING"
+
 {-# COMPLETE
-  Disabled,
-  Disabling,
   Enabled,
   Enabling,
+  Disabled,
+  Disabling,
   Status'
   #-}

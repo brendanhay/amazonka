@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The rule to exclude from a rule group. This is applicable only when the @ActivatedRule@ refers to a @RuleGroup@ . The rule must belong to the @RuleGroup@ that is specified by the @ActivatedRule@ .
 --
 -- /See:/ 'mkExcludedRule' smart constructor.
-newtype ExcludedRule = ExcludedRule' {ruleId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ExcludedRule = ExcludedRule'
+  { -- | The unique identifier for the rule to exclude from the rule group.
+    ruleId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExcludedRule' with the minimum fields required to make a request.

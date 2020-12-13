@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApp' smart constructor.
 data App = App'
-  { appName :: Lude.Text,
+  { -- | The application's name.
+    appName :: Lude.Text,
+    -- | The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
     protocol :: Lude.Text,
+    -- | The application's port number, for example @80@ .
     port :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'App' with the minimum fields required to make a request.
 --
 -- * 'appName' - The application's name.
--- * 'port' - The application's port number, for example @80@ .
 -- * 'protocol' - The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
+-- * 'port' - The application's port number, for example @80@ .
 mkApp ::
   -- | 'appName'
   Lude.Text ->

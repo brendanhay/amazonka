@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.APIGateway.GetDocumentationParts
     mkGetDocumentationParts,
 
     -- ** Request lenses
-    gdpPath,
-    gdpLocationStatus,
-    gdpNameQuery,
-    gdpLimit,
-    gdpType,
-    gdpPosition,
-    gdpRestAPIId,
+    gdpsPath,
+    gdpsLocationStatus,
+    gdpsNameQuery,
+    gdpsLimit,
+    gdpsRestAPIId,
+    gdpsType,
+    gdpsPosition,
 
     -- * Destructuring the response
     GetDocumentationPartsResponse (..),
@@ -51,33 +52,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetDocumentationParts' smart constructor.
 data GetDocumentationParts = GetDocumentationParts'
-  { path ::
-      Lude.Maybe Lude.Text,
+  { -- | The path of API entities of the to-be-retrieved documentation parts.
+    path :: Lude.Maybe Lude.Text,
+    -- | The status of the API documentation parts to retrieve. Valid values are @DOCUMENTED@ for retrieving 'DocumentationPart' resources with content and @UNDOCUMENTED@ for 'DocumentationPart' resources without content.
     locationStatus :: Lude.Maybe LocationStatusType,
+    -- | The name of API entities of the to-be-retrieved documentation parts.
     nameQuery :: Lude.Maybe Lude.Text,
+    -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
     limit :: Lude.Maybe Lude.Int,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text,
+    -- | The type of API entities of the to-be-retrieved documentation parts.
     type' :: Lude.Maybe DocumentationPartType,
-    position :: Lude.Maybe Lude.Text,
-    restAPIId :: Lude.Text
+    -- | The current pagination position in the paged result set.
+    position :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationParts' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- * 'path' - The path of API entities of the to-be-retrieved documentation parts.
 -- * 'locationStatus' - The status of the API documentation parts to retrieve. Valid values are @DOCUMENTED@ for retrieving 'DocumentationPart' resources with content and @UNDOCUMENTED@ for 'DocumentationPart' resources without content.
 -- * 'nameQuery' - The name of API entities of the to-be-retrieved documentation parts.
--- * 'path' - The path of API entities of the to-be-retrieved documentation parts.
--- * 'position' - The current pagination position in the paged result set.
+-- * 'limit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 -- * 'type'' - The type of API entities of the to-be-retrieved documentation parts.
+-- * 'position' - The current pagination position in the paged result set.
 mkGetDocumentationParts ::
   -- | 'restAPIId'
   Lude.Text ->
@@ -88,59 +89,59 @@ mkGetDocumentationParts pRestAPIId_ =
       locationStatus = Lude.Nothing,
       nameQuery = Lude.Nothing,
       limit = Lude.Nothing,
+      restAPIId = pRestAPIId_,
       type' = Lude.Nothing,
-      position = Lude.Nothing,
-      restAPIId = pRestAPIId_
+      position = Lude.Nothing
     }
 
 -- | The path of API entities of the to-be-retrieved documentation parts.
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpPath :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Text)
-gdpPath = Lens.lens (path :: GetDocumentationParts -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: GetDocumentationParts)
-{-# DEPRECATED gdpPath "Use generic-lens or generic-optics with 'path' instead." #-}
+gdpsPath :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Text)
+gdpsPath = Lens.lens (path :: GetDocumentationParts -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: GetDocumentationParts)
+{-# DEPRECATED gdpsPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The status of the API documentation parts to retrieve. Valid values are @DOCUMENTED@ for retrieving 'DocumentationPart' resources with content and @UNDOCUMENTED@ for 'DocumentationPart' resources without content.
 --
 -- /Note:/ Consider using 'locationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpLocationStatus :: Lens.Lens' GetDocumentationParts (Lude.Maybe LocationStatusType)
-gdpLocationStatus = Lens.lens (locationStatus :: GetDocumentationParts -> Lude.Maybe LocationStatusType) (\s a -> s {locationStatus = a} :: GetDocumentationParts)
-{-# DEPRECATED gdpLocationStatus "Use generic-lens or generic-optics with 'locationStatus' instead." #-}
+gdpsLocationStatus :: Lens.Lens' GetDocumentationParts (Lude.Maybe LocationStatusType)
+gdpsLocationStatus = Lens.lens (locationStatus :: GetDocumentationParts -> Lude.Maybe LocationStatusType) (\s a -> s {locationStatus = a} :: GetDocumentationParts)
+{-# DEPRECATED gdpsLocationStatus "Use generic-lens or generic-optics with 'locationStatus' instead." #-}
 
 -- | The name of API entities of the to-be-retrieved documentation parts.
 --
 -- /Note:/ Consider using 'nameQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpNameQuery :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Text)
-gdpNameQuery = Lens.lens (nameQuery :: GetDocumentationParts -> Lude.Maybe Lude.Text) (\s a -> s {nameQuery = a} :: GetDocumentationParts)
-{-# DEPRECATED gdpNameQuery "Use generic-lens or generic-optics with 'nameQuery' instead." #-}
+gdpsNameQuery :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Text)
+gdpsNameQuery = Lens.lens (nameQuery :: GetDocumentationParts -> Lude.Maybe Lude.Text) (\s a -> s {nameQuery = a} :: GetDocumentationParts)
+{-# DEPRECATED gdpsNameQuery "Use generic-lens or generic-optics with 'nameQuery' instead." #-}
 
 -- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpLimit :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Int)
-gdpLimit = Lens.lens (limit :: GetDocumentationParts -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetDocumentationParts)
-{-# DEPRECATED gdpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The type of API entities of the to-be-retrieved documentation parts.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpType :: Lens.Lens' GetDocumentationParts (Lude.Maybe DocumentationPartType)
-gdpType = Lens.lens (type' :: GetDocumentationParts -> Lude.Maybe DocumentationPartType) (\s a -> s {type' = a} :: GetDocumentationParts)
-{-# DEPRECATED gdpType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The current pagination position in the paged result set.
---
--- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpPosition :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Text)
-gdpPosition = Lens.lens (position :: GetDocumentationParts -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDocumentationParts)
-{-# DEPRECATED gdpPosition "Use generic-lens or generic-optics with 'position' instead." #-}
+gdpsLimit :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Int)
+gdpsLimit = Lens.lens (limit :: GetDocumentationParts -> Lude.Maybe Lude.Int) (\s a -> s {limit = a} :: GetDocumentationParts)
+{-# DEPRECATED gdpsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
 -- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpRestAPIId :: Lens.Lens' GetDocumentationParts Lude.Text
-gdpRestAPIId = Lens.lens (restAPIId :: GetDocumentationParts -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDocumentationParts)
-{-# DEPRECATED gdpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+gdpsRestAPIId :: Lens.Lens' GetDocumentationParts Lude.Text
+gdpsRestAPIId = Lens.lens (restAPIId :: GetDocumentationParts -> Lude.Text) (\s a -> s {restAPIId = a} :: GetDocumentationParts)
+{-# DEPRECATED gdpsRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
+
+-- | The type of API entities of the to-be-retrieved documentation parts.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsType :: Lens.Lens' GetDocumentationParts (Lude.Maybe DocumentationPartType)
+gdpsType = Lens.lens (type' :: GetDocumentationParts -> Lude.Maybe DocumentationPartType) (\s a -> s {type' = a} :: GetDocumentationParts)
+{-# DEPRECATED gdpsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The current pagination position in the paged result set.
+--
+-- /Note:/ Consider using 'position' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpsPosition :: Lens.Lens' GetDocumentationParts (Lude.Maybe Lude.Text)
+gdpsPosition = Lens.lens (position :: GetDocumentationParts -> Lude.Maybe Lude.Text) (\s a -> s {position = a} :: GetDocumentationParts)
+{-# DEPRECATED gdpsPosition "Use generic-lens or generic-optics with 'position' instead." #-}
 
 instance Page.AWSPager GetDocumentationParts where
   page rq rs
@@ -149,7 +150,7 @@ instance Page.AWSPager GetDocumentationParts where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gdpPosition Lens..~ rs Lens.^. gdprsPosition
+          Lude.& gdpsPosition Lens..~ rs Lens.^. gdprsPosition
 
 instance Lude.AWSRequest GetDocumentationParts where
   type Rs GetDocumentationParts = GetDocumentationPartsResponse
@@ -192,25 +193,19 @@ instance Lude.ToQuery GetDocumentationParts where
 --
 -- /See:/ 'mkGetDocumentationPartsResponse' smart constructor.
 data GetDocumentationPartsResponse = GetDocumentationPartsResponse'
-  { items ::
-      Lude.Maybe [DocumentationPart],
-    position ::
-      Lude.Maybe Lude.Text,
+  { -- | The current page of elements from this collection.
+    items :: Lude.Maybe [DocumentationPart],
+    position :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDocumentationPartsResponse' with the minimum fields required to make a request.
 --
 -- * 'items' - The current page of elements from this collection.
--- * 'position' - Undocumented field.
+-- * 'position' -
 -- * 'responseStatus' - The response status code.
 mkGetDocumentationPartsResponse ::
   -- | 'responseStatus'

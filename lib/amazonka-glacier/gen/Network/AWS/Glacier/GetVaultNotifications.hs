@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Glacier.GetVaultNotifications
     mkGetVaultNotifications,
 
     -- ** Request lenses
-    gvnAccountId,
     gvnVaultName,
+    gvnAccountId,
 
     -- * Destructuring the response
     GetVaultNotificationsResponse (..),
@@ -46,41 +47,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetVaultNotifications' smart constructor.
 data GetVaultNotifications = GetVaultNotifications'
-  { accountId ::
-      Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultNotifications' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 mkGetVaultNotifications ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   GetVaultNotifications
-mkGetVaultNotifications pAccountId_ pVaultName_ =
+mkGetVaultNotifications pVaultName_ pAccountId_ =
   GetVaultNotifications'
-    { accountId = pAccountId_,
-      vaultName = pVaultName_
+    { vaultName = pVaultName_,
+      accountId = pAccountId_
     }
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvnAccountId :: Lens.Lens' GetVaultNotifications Lude.Text
-gvnAccountId = Lens.lens (accountId :: GetVaultNotifications -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultNotifications)
-{-# DEPRECATED gvnAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
 --
@@ -88,6 +77,13 @@ gvnAccountId = Lens.lens (accountId :: GetVaultNotifications -> Lude.Text) (\s a
 gvnVaultName :: Lens.Lens' GetVaultNotifications Lude.Text
 gvnVaultName = Lens.lens (vaultName :: GetVaultNotifications -> Lude.Text) (\s a -> s {vaultName = a} :: GetVaultNotifications)
 {-# DEPRECATED gvnVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvnAccountId :: Lens.Lens' GetVaultNotifications Lude.Text
+gvnAccountId = Lens.lens (accountId :: GetVaultNotifications -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultNotifications)
+{-# DEPRECATED gvnAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest GetVaultNotifications where
   type Rs GetVaultNotifications = GetVaultNotificationsResponse
@@ -119,24 +115,18 @@ instance Lude.ToQuery GetVaultNotifications where
 --
 -- /See:/ 'mkGetVaultNotificationsResponse' smart constructor.
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
-  { vaultNotificationConfig ::
-      Lude.Maybe
-        VaultNotificationConfig,
+  { -- | Returns the notification configuration set on the vault.
+    vaultNotificationConfig :: Lude.Maybe VaultNotificationConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultNotificationsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vaultNotificationConfig' - Returns the notification configuration set on the vault.
+-- * 'responseStatus' - The response status code.
 mkGetVaultNotificationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

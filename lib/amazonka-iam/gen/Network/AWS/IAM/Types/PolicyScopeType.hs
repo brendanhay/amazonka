@@ -13,8 +13,8 @@
 module Network.AWS.IAM.Types.PolicyScopeType
   ( PolicyScopeType
       ( PolicyScopeType',
-        AWS,
         All,
+        AWS,
         Local
       ),
   )
@@ -46,18 +46,18 @@ newtype PolicyScopeType = PolicyScopeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWS :: PolicyScopeType
-pattern AWS = PolicyScopeType' "AWS"
-
 pattern All :: PolicyScopeType
 pattern All = PolicyScopeType' "All"
+
+pattern AWS :: PolicyScopeType
+pattern AWS = PolicyScopeType' "AWS"
 
 pattern Local :: PolicyScopeType
 pattern Local = PolicyScopeType' "Local"
 
 {-# COMPLETE
-  AWS,
   All,
+  AWS,
   Local,
   PolicyScopeType'
   #-}

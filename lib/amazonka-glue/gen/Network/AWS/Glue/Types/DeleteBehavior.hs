@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.DeleteBehavior
   ( DeleteBehavior
       ( DeleteBehavior',
+        Log,
         DeleteFromDatabase,
-        DeprecateInDatabase,
-        Log
+        DeprecateInDatabase
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DeleteBehavior = DeleteBehavior' Lude.Text
       Lude.ToHeader
     )
 
+pattern Log :: DeleteBehavior
+pattern Log = DeleteBehavior' "LOG"
+
 pattern DeleteFromDatabase :: DeleteBehavior
 pattern DeleteFromDatabase = DeleteBehavior' "DELETE_FROM_DATABASE"
 
 pattern DeprecateInDatabase :: DeleteBehavior
 pattern DeprecateInDatabase = DeleteBehavior' "DEPRECATE_IN_DATABASE"
 
-pattern Log :: DeleteBehavior
-pattern Log = DeleteBehavior' "LOG"
-
 {-# COMPLETE
+  Log,
   DeleteFromDatabase,
   DeprecateInDatabase,
-  Log,
   DeleteBehavior'
   #-}

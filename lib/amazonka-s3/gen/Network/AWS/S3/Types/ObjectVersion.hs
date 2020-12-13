@@ -38,34 +38,36 @@ import Network.AWS.S3.Types.Owner
 --
 -- /See:/ 'mkObjectVersion' smart constructor.
 data ObjectVersion = ObjectVersion'
-  { eTag :: Lude.Maybe ETag,
+  { -- | The entity tag is an MD5 hash of that version of the object.
+    eTag :: Lude.Maybe ETag,
+    -- | Version ID of an object.
     versionId :: Lude.Maybe ObjectVersionId,
+    -- | Size in bytes of the object.
     size :: Lude.Maybe Lude.Int,
+    -- | Specifies whether the object is (true) or is not (false) the latest version of an object.
     isLatest :: Lude.Maybe Lude.Bool,
+    -- | Specifies the owner of the object.
     owner :: Lude.Maybe Owner,
+    -- | The object key.
     key :: Lude.Maybe ObjectKey,
+    -- | The class of storage used to store the object.
     storageClass :: Lude.Maybe ObjectVersionStorageClass,
+    -- | Date and time the object was last modified.
     lastModified :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectVersion' with the minimum fields required to make a request.
 --
 -- * 'eTag' - The entity tag is an MD5 hash of that version of the object.
--- * 'isLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
--- * 'key' - The object key.
--- * 'lastModified' - Date and time the object was last modified.
--- * 'owner' - Specifies the owner of the object.
--- * 'size' - Size in bytes of the object.
--- * 'storageClass' - The class of storage used to store the object.
 -- * 'versionId' - Version ID of an object.
+-- * 'size' - Size in bytes of the object.
+-- * 'isLatest' - Specifies whether the object is (true) or is not (false) the latest version of an object.
+-- * 'owner' - Specifies the owner of the object.
+-- * 'key' - The object key.
+-- * 'storageClass' - The class of storage used to store the object.
+-- * 'lastModified' - Date and time the object was last modified.
 mkObjectVersion ::
   ObjectVersion
 mkObjectVersion =

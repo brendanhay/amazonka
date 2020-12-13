@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeNatGateways' smart constructor.
 data DescribeNatGateways = DescribeNatGateways'
-  { natGatewayIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | One or more NAT gateway IDs.
+    natGatewayIds :: Lude.Maybe [Lude.Text],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | One or more filters.
+    --
+    --
+    --     * @nat-gateway-id@ - The ID of the NAT gateway.
+    --
+    --
+    --     * @state@ - The state of the NAT gateway (@pending@ | @failed@ | @available@ | @deleting@ | @deleted@ ).
+    --
+    --
+    --     * @subnet-id@ - The ID of the subnet in which the NAT gateway resides.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    --
+    --
+    --     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
     filter :: Lude.Maybe [Filter],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNatGateways' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'natGatewayIds' - One or more NAT gateway IDs.
+-- * 'nextToken' - The token for the next page of results.
 -- * 'filter' - One or more filters.
 --
 --
@@ -87,9 +105,8 @@ data DescribeNatGateways = DescribeNatGateways'
 --     * @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
 --
 --
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'natGatewayIds' - One or more NAT gateway IDs.
--- * 'nextToken' - The token for the next page of results.
 mkDescribeNatGateways ::
   DescribeNatGateways
 mkDescribeNatGateways =
@@ -200,18 +217,14 @@ instance Lude.ToQuery DescribeNatGateways where
 
 -- | /See:/ 'mkDescribeNatGatewaysResponse' smart constructor.
 data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
-  { natGateways ::
-      Lude.Maybe [NatGateway],
+  { -- | Information about the NAT gateways.
+    natGateways :: Lude.Maybe [NatGateway],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNatGatewaysResponse' with the minimum fields required to make a request.

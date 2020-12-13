@@ -34,28 +34,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineExecution' smart constructor.
 data PipelineExecution = PipelineExecution'
-  { status ::
-      Lude.Maybe PipelineExecutionStatus,
+  { -- | The status of the pipeline execution.
+    --
+    --
+    --     * InProgress: The pipeline execution is currently running.
+    --
+    --
+    --     * Stopped: The pipeline execution was manually stopped. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions> .
+    --
+    --
+    --     * Stopping: The pipeline execution received a request to be manually stopped. Depending on the selected stop mode, the execution is either completing or abandoning in-progress actions. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions> .
+    --
+    --
+    --     * Succeeded: The pipeline execution was completed successfully.
+    --
+    --
+    --     * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions> .
+    --
+    --
+    --     * Failed: The pipeline execution was not completed successfully.
+    status :: Lude.Maybe PipelineExecutionStatus,
+    -- | The name of the pipeline with the specified pipeline execution.
     pipelineName :: Lude.Maybe Lude.Text,
+    -- | The version number of the pipeline with the specified pipeline execution.
     pipelineVersion :: Lude.Maybe Lude.Natural,
+    -- | The ID of the pipeline execution.
     pipelineExecutionId :: Lude.Maybe Lude.Text,
+    -- | A list of @ArtifactRevision@ objects included in a pipeline execution.
     artifactRevisions :: Lude.Maybe [ArtifactRevision]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineExecution' with the minimum fields required to make a request.
 --
--- * 'artifactRevisions' - A list of @ArtifactRevision@ objects included in a pipeline execution.
--- * 'pipelineExecutionId' - The ID of the pipeline execution.
--- * 'pipelineName' - The name of the pipeline with the specified pipeline execution.
--- * 'pipelineVersion' - The version number of the pipeline with the specified pipeline execution.
 -- * 'status' - The status of the pipeline execution.
 --
 --
@@ -75,6 +87,12 @@ data PipelineExecution = PipelineExecution'
 --
 --
 --     * Failed: The pipeline execution was not completed successfully.
+--
+--
+-- * 'pipelineName' - The name of the pipeline with the specified pipeline execution.
+-- * 'pipelineVersion' - The version number of the pipeline with the specified pipeline execution.
+-- * 'pipelineExecutionId' - The ID of the pipeline execution.
+-- * 'artifactRevisions' - A list of @ArtifactRevision@ objects included in a pipeline execution.
 mkPipelineExecution ::
   PipelineExecution
 mkPipelineExecution =

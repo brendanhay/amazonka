@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.AutoScaling.DescribeLoadBalancerTargetGroups
     mkDescribeLoadBalancerTargetGroups,
 
     -- ** Request lenses
-    dlbtgsNextToken,
-    dlbtgsMaxRecords,
-    dlbtgsAutoScalingGroupName,
+    dlbtgNextToken,
+    dlbtgAutoScalingGroupName,
+    dlbtgMaxRecords,
 
     -- * Destructuring the response
     DescribeLoadBalancerTargetGroupsResponse (..),
@@ -45,27 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLoadBalancerTargetGroups' smart constructor.
 data DescribeLoadBalancerTargetGroups = DescribeLoadBalancerTargetGroups'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    autoScalingGroupName ::
-      Lude.Text
+  { -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'maxRecords' - The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 mkDescribeLoadBalancerTargetGroups ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
@@ -73,30 +68,30 @@ mkDescribeLoadBalancerTargetGroups ::
 mkDescribeLoadBalancerTargetGroups pAutoScalingGroupName_ =
   DescribeLoadBalancerTargetGroups'
     { nextToken = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
+      autoScalingGroupName = pAutoScalingGroupName_,
+      maxRecords = Lude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbtgsNextToken :: Lens.Lens' DescribeLoadBalancerTargetGroups (Lude.Maybe Lude.Text)
-dlbtgsNextToken = Lens.lens (nextToken :: DescribeLoadBalancerTargetGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroups)
-{-# DEPRECATED dlbtgsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
---
--- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbtgsMaxRecords :: Lens.Lens' DescribeLoadBalancerTargetGroups (Lude.Maybe Lude.Int)
-dlbtgsMaxRecords = Lens.lens (maxRecords :: DescribeLoadBalancerTargetGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeLoadBalancerTargetGroups)
-{-# DEPRECATED dlbtgsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dlbtgNextToken :: Lens.Lens' DescribeLoadBalancerTargetGroups (Lude.Maybe Lude.Text)
+dlbtgNextToken = Lens.lens (nextToken :: DescribeLoadBalancerTargetGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbtgsAutoScalingGroupName :: Lens.Lens' DescribeLoadBalancerTargetGroups Lude.Text
-dlbtgsAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeLoadBalancerTargetGroups -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeLoadBalancerTargetGroups)
-{-# DEPRECATED dlbtgsAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+dlbtgAutoScalingGroupName :: Lens.Lens' DescribeLoadBalancerTargetGroups Lude.Text
+dlbtgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribeLoadBalancerTargetGroups -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribeLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+
+-- | The maximum number of items to return with this call. The default value is @100@ and the maximum value is @100@ .
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbtgMaxRecords :: Lens.Lens' DescribeLoadBalancerTargetGroups (Lude.Maybe Lude.Int)
+dlbtgMaxRecords = Lens.lens (maxRecords :: DescribeLoadBalancerTargetGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeLoadBalancerTargetGroups)
+{-# DEPRECATED dlbtgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Page.AWSPager DescribeLoadBalancerTargetGroups where
   page rq rs
@@ -106,7 +101,7 @@ instance Page.AWSPager DescribeLoadBalancerTargetGroups where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dlbtgsNextToken Lens..~ rs Lens.^. dlbtgsrsNextToken
+          Lude.& dlbtgNextToken Lens..~ rs Lens.^. dlbtgsrsNextToken
 
 instance Lude.AWSRequest DescribeLoadBalancerTargetGroups where
   type
@@ -138,28 +133,20 @@ instance Lude.ToQuery DescribeLoadBalancerTargetGroups where
           Lude.=: ("DescribeLoadBalancerTargetGroups" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "NextToken" Lude.=: nextToken,
-        "MaxRecords" Lude.=: maxRecords,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | /See:/ 'mkDescribeLoadBalancerTargetGroupsResponse' smart constructor.
 data DescribeLoadBalancerTargetGroupsResponse = DescribeLoadBalancerTargetGroupsResponse'
-  { loadBalancerTargetGroups ::
-      Lude.Maybe
-        [LoadBalancerTargetGroupState],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the target groups.
+    loadBalancerTargetGroups :: Lude.Maybe [LoadBalancerTargetGroupState],
+    -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,11 +50,11 @@ module Network.AWS.STS.AssumeRoleWithSAML
 
     -- ** Request lenses
     arwsamlPolicyARNs,
+    arwsamlPrincipalARN,
     arwsamlDurationSeconds,
     arwsamlPolicy,
-    arwsamlRoleARN,
-    arwsamlPrincipalARN,
     arwsamlSAMLAssertion,
+    arwsamlRoleARN,
 
     -- * Destructuring the response
     AssumeRoleWithSAMLResponse (..),
@@ -80,25 +81,39 @@ import Network.AWS.STS.Types
 
 -- | /See:/ 'mkAssumeRoleWithSAML' smart constructor.
 data AssumeRoleWithSAML = AssumeRoleWithSAML'
-  { policyARNs ::
-      Lude.Maybe [PolicyDescriptorType],
-    durationSeconds :: Lude.Maybe Lude.Natural,
-    policy :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Text,
+  { -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
+    --
+    -- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
+    -- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+    policyARNs :: Lude.Maybe [PolicyDescriptorType],
+    -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.
     principalARN :: Lude.Text,
-    sAMLAssertion :: Lude.Text
+    -- | The duration, in seconds, of the role session. Your role session lasts for the duration that you specify for the @DurationSeconds@ parameter, or until the time specified in the SAML authentication response's @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
+    --
+    -- By default, the value is set to @3600@ seconds.
+    durationSeconds :: Lude.Maybe Lude.Natural,
+    -- | An IAM policy in JSON format that you want to use as an inline session policy.
+    --
+    -- This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+    -- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
+    policy :: Lude.Maybe Lude.Text,
+    -- | The base-64 encoded SAML authentication response provided by the IdP.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims> in the /IAM User Guide/ .
+    sAMLAssertion :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssumeRoleWithSAML' with the minimum fields required to make a request.
 --
+-- * 'policyARNs' - The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
+--
+-- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
+-- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+-- * 'principalARN' - The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.
 -- * 'durationSeconds' - The duration, in seconds, of the role session. Your role session lasts for the duration that you specify for the @DurationSeconds@ parameter, or until the time specified in the SAML authentication response's @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
 --
 -- By default, the value is set to @3600@ seconds.
@@ -106,31 +121,26 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 --
 -- This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
 -- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
--- * 'policyARNs' - The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
---
--- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
--- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
--- * 'principalARN' - The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role that the caller is assuming.
 -- * 'sAMLAssertion' - The base-64 encoded SAML authentication response provided by the IdP.
 --
 -- For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims> in the /IAM User Guide/ .
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role that the caller is assuming.
 mkAssumeRoleWithSAML ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'principalARN'
   Lude.Text ->
   -- | 'sAMLAssertion'
   Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   AssumeRoleWithSAML
-mkAssumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
+mkAssumeRoleWithSAML pPrincipalARN_ pSAMLAssertion_ pRoleARN_ =
   AssumeRoleWithSAML'
     { policyARNs = Lude.Nothing,
+      principalARN = pPrincipalARN_,
       durationSeconds = Lude.Nothing,
       policy = Lude.Nothing,
-      roleARN = pRoleARN_,
-      principalARN = pPrincipalARN_,
-      sAMLAssertion = pSAMLAssertion_
+      sAMLAssertion = pSAMLAssertion_,
+      roleARN = pRoleARN_
     }
 
 -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
@@ -142,6 +152,13 @@ mkAssumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
 arwsamlPolicyARNs :: Lens.Lens' AssumeRoleWithSAML (Lude.Maybe [PolicyDescriptorType])
 arwsamlPolicyARNs = Lens.lens (policyARNs :: AssumeRoleWithSAML -> Lude.Maybe [PolicyDescriptorType]) (\s a -> s {policyARNs = a} :: AssumeRoleWithSAML)
 {-# DEPRECATED arwsamlPolicyARNs "Use generic-lens or generic-optics with 'policyARNs' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.
+--
+-- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwsamlPrincipalARN :: Lens.Lens' AssumeRoleWithSAML Lude.Text
+arwsamlPrincipalARN = Lens.lens (principalARN :: AssumeRoleWithSAML -> Lude.Text) (\s a -> s {principalARN = a} :: AssumeRoleWithSAML)
+{-# DEPRECATED arwsamlPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
 -- | The duration, in seconds, of the role session. Your role session lasts for the duration that you specify for the @DurationSeconds@ parameter, or until the time specified in the SAML authentication response's @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
 --
@@ -162,20 +179,6 @@ arwsamlPolicy :: Lens.Lens' AssumeRoleWithSAML (Lude.Maybe Lude.Text)
 arwsamlPolicy = Lens.lens (policy :: AssumeRoleWithSAML -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: AssumeRoleWithSAML)
 {-# DEPRECATED arwsamlPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwsamlRoleARN :: Lens.Lens' AssumeRoleWithSAML Lude.Text
-arwsamlRoleARN = Lens.lens (roleARN :: AssumeRoleWithSAML -> Lude.Text) (\s a -> s {roleARN = a} :: AssumeRoleWithSAML)
-{-# DEPRECATED arwsamlRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.
---
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arwsamlPrincipalARN :: Lens.Lens' AssumeRoleWithSAML Lude.Text
-arwsamlPrincipalARN = Lens.lens (principalARN :: AssumeRoleWithSAML -> Lude.Text) (\s a -> s {principalARN = a} :: AssumeRoleWithSAML)
-{-# DEPRECATED arwsamlPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
-
 -- | The base-64 encoded SAML authentication response provided by the IdP.
 --
 -- For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims> in the /IAM User Guide/ .
@@ -184,6 +187,13 @@ arwsamlPrincipalARN = Lens.lens (principalARN :: AssumeRoleWithSAML -> Lude.Text
 arwsamlSAMLAssertion :: Lens.Lens' AssumeRoleWithSAML Lude.Text
 arwsamlSAMLAssertion = Lens.lens (sAMLAssertion :: AssumeRoleWithSAML -> Lude.Text) (\s a -> s {sAMLAssertion = a} :: AssumeRoleWithSAML)
 {-# DEPRECATED arwsamlSAMLAssertion "Use generic-lens or generic-optics with 'sAMLAssertion' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arwsamlRoleARN :: Lens.Lens' AssumeRoleWithSAML Lude.Text
+arwsamlRoleARN = Lens.lens (roleARN :: AssumeRoleWithSAML -> Lude.Text) (\s a -> s {roleARN = a} :: AssumeRoleWithSAML)
+{-# DEPRECATED arwsamlRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.AWSRequest AssumeRoleWithSAML where
   type Rs AssumeRoleWithSAML = AssumeRoleWithSAMLResponse
@@ -217,28 +227,39 @@ instance Lude.ToQuery AssumeRoleWithSAML where
         "Version" Lude.=: ("2011-06-15" :: Lude.ByteString),
         "PolicyArns"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> policyARNs),
+        "PrincipalArn" Lude.=: principalARN,
         "DurationSeconds" Lude.=: durationSeconds,
         "Policy" Lude.=: policy,
-        "RoleArn" Lude.=: roleARN,
-        "PrincipalArn" Lude.=: principalARN,
-        "SAMLAssertion" Lude.=: sAMLAssertion
+        "SAMLAssertion" Lude.=: sAMLAssertion,
+        "RoleArn" Lude.=: roleARN
       ]
 
 -- | Contains the response to a successful 'AssumeRoleWithSAML' request, including temporary AWS credentials that can be used to make AWS requests.
 --
 -- /See:/ 'mkAssumeRoleWithSAMLResponse' smart constructor.
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-  { subject ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the @NameID@ element in the @Subject@ element of the SAML assertion.
+    subject :: Lude.Maybe Lude.Text,
+    -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@ element of the SAML assertion.
     audience :: Lude.Maybe Lude.Text,
-    packedPolicySize ::
-      Lude.Maybe Lude.Natural,
+    -- | A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
+    packedPolicySize :: Lude.Maybe Lude.Natural,
+    -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
     credentials :: Lude.Maybe AuthEnv,
+    -- | The format of the name ID, as defined by the @Format@ attribute in the @NameID@ element of the SAML assertion. Typical examples of the format are @transient@ or @persistent@ .
+    --
+    -- If the format includes the prefix @urn:oasis:names:tc:SAML:2.0:nameid-format@ , that prefix is removed. For example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is returned as @transient@ . If the format includes any other prefix, the format is returned with no modifications.
     subjectType :: Lude.Maybe Lude.Text,
+    -- | A hash value based on the concatenation of the @Issuer@ response value, the AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in IAM. The combination of @NameQualifier@ and @Subject@ can be used to uniquely identify a federated user.
+    --
+    -- The following pseudocode shows how the hash value is calculated:
+    -- @BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )@
     nameQualifier :: Lude.Maybe Lude.Text,
-    assumedRoleUser ::
-      Lude.Maybe AssumedRoleUser,
+    -- | The identifiers for the temporary security credentials that the operation returns.
+    assumedRoleUser :: Lude.Maybe AssumedRoleUser,
+    -- | The value of the @Issuer@ element of the SAML assertion.
     issuer :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -246,20 +267,20 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 
 -- | Creates a value of 'AssumeRoleWithSAMLResponse' with the minimum fields required to make a request.
 --
--- * 'assumedRoleUser' - The identifiers for the temporary security credentials that the operation returns.
+-- * 'subject' - The value of the @NameID@ element in the @Subject@ element of the SAML assertion.
 -- * 'audience' - The value of the @Recipient@ attribute of the @SubjectConfirmationData@ element of the SAML assertion.
+-- * 'packedPolicySize' - A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
 -- * 'credentials' - The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
--- * 'issuer' - The value of the @Issuer@ element of the SAML assertion.
+-- * 'subjectType' - The format of the name ID, as defined by the @Format@ attribute in the @NameID@ element of the SAML assertion. Typical examples of the format are @transient@ or @persistent@ .
+--
+-- If the format includes the prefix @urn:oasis:names:tc:SAML:2.0:nameid-format@ , that prefix is removed. For example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is returned as @transient@ . If the format includes any other prefix, the format is returned with no modifications.
 -- * 'nameQualifier' - A hash value based on the concatenation of the @Issuer@ response value, the AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in IAM. The combination of @NameQualifier@ and @Subject@ can be used to uniquely identify a federated user.
 --
 -- The following pseudocode shows how the hash value is calculated:
 -- @BASE64 ( SHA1 ( "https://example.com/saml" + "123456789012" + "/MySAMLIdP" ) )@
--- * 'packedPolicySize' - A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
+-- * 'assumedRoleUser' - The identifiers for the temporary security credentials that the operation returns.
+-- * 'issuer' - The value of the @Issuer@ element of the SAML assertion.
 -- * 'responseStatus' - The response status code.
--- * 'subject' - The value of the @NameID@ element in the @Subject@ element of the SAML assertion.
--- * 'subjectType' - The format of the name ID, as defined by the @Format@ attribute in the @NameID@ element of the SAML assertion. Typical examples of the format are @transient@ or @persistent@ .
---
--- If the format includes the prefix @urn:oasis:names:tc:SAML:2.0:nameid-format@ , that prefix is removed. For example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is returned as @transient@ . If the format includes any other prefix, the format is returned with no modifications.
 mkAssumeRoleWithSAMLResponse ::
   -- | 'responseStatus'
   Lude.Int ->

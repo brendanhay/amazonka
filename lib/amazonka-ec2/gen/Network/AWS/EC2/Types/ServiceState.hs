@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.ServiceState
   ( ServiceState
       ( ServiceState',
-        SerAvailable,
-        SerDeleted,
-        SerDeleting,
-        SerFailed,
-        SerPending
+        SSfPending,
+        SSfAvailable,
+        SSfDeleting,
+        SSfDeleted,
+        SSfFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ServiceState = ServiceState' Lude.Text
       Lude.ToHeader
     )
 
-pattern SerAvailable :: ServiceState
-pattern SerAvailable = ServiceState' "Available"
+pattern SSfPending :: ServiceState
+pattern SSfPending = ServiceState' "Pending"
 
-pattern SerDeleted :: ServiceState
-pattern SerDeleted = ServiceState' "Deleted"
+pattern SSfAvailable :: ServiceState
+pattern SSfAvailable = ServiceState' "Available"
 
-pattern SerDeleting :: ServiceState
-pattern SerDeleting = ServiceState' "Deleting"
+pattern SSfDeleting :: ServiceState
+pattern SSfDeleting = ServiceState' "Deleting"
 
-pattern SerFailed :: ServiceState
-pattern SerFailed = ServiceState' "Failed"
+pattern SSfDeleted :: ServiceState
+pattern SSfDeleted = ServiceState' "Deleted"
 
-pattern SerPending :: ServiceState
-pattern SerPending = ServiceState' "Pending"
+pattern SSfFailed :: ServiceState
+pattern SSfFailed = ServiceState' "Failed"
 
 {-# COMPLETE
-  SerAvailable,
-  SerDeleted,
-  SerDeleting,
-  SerFailed,
-  SerPending,
+  SSfPending,
+  SSfAvailable,
+  SSfDeleting,
+  SSfDeleted,
+  SSfFailed,
   ServiceState'
   #-}

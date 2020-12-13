@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Lambda.PutProvisionedConcurrencyConfig
     mkPutProvisionedConcurrencyConfig,
 
     -- ** Request lenses
+    ppccProvisionedConcurrentExecutions,
     ppccFunctionName,
     ppccQualifier,
-    ppccProvisionedConcurrentExecutions,
 
     -- * Destructuring the response
     PutProvisionedConcurrencyConfigResponse (..),
@@ -46,23 +47,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutProvisionedConcurrencyConfig' smart constructor.
 data PutProvisionedConcurrencyConfig = PutProvisionedConcurrencyConfig'
-  { functionName ::
-      Lude.Text,
-    qualifier :: Lude.Text,
-    provisionedConcurrentExecutions ::
-      Lude.Natural
+  { -- | The amount of provisioned concurrency to allocate for the version or alias.
+    provisionedConcurrentExecutions :: Lude.Natural,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text,
+    -- | The version number or alias name.
+    qualifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProvisionedConcurrencyConfig' with the minimum fields required to make a request.
 --
+-- * 'provisionedConcurrentExecutions' - The amount of provisioned concurrency to allocate for the version or alias.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -77,26 +87,32 @@ data PutProvisionedConcurrencyConfig = PutProvisionedConcurrencyConfig'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'provisionedConcurrentExecutions' - The amount of provisioned concurrency to allocate for the version or alias.
 -- * 'qualifier' - The version number or alias name.
 mkPutProvisionedConcurrencyConfig ::
+  -- | 'provisionedConcurrentExecutions'
+  Lude.Natural ->
   -- | 'functionName'
   Lude.Text ->
   -- | 'qualifier'
   Lude.Text ->
-  -- | 'provisionedConcurrentExecutions'
-  Lude.Natural ->
   PutProvisionedConcurrencyConfig
 mkPutProvisionedConcurrencyConfig
+  pProvisionedConcurrentExecutions_
   pFunctionName_
-  pQualifier_
-  pProvisionedConcurrentExecutions_ =
+  pQualifier_ =
     PutProvisionedConcurrencyConfig'
-      { functionName = pFunctionName_,
-        qualifier = pQualifier_,
-        provisionedConcurrentExecutions =
-          pProvisionedConcurrentExecutions_
+      { provisionedConcurrentExecutions =
+          pProvisionedConcurrentExecutions_,
+        functionName = pFunctionName_,
+        qualifier = pQualifier_
       }
+
+-- | The amount of provisioned concurrency to allocate for the version or alias.
+--
+-- /Note:/ Consider using 'provisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppccProvisionedConcurrentExecutions :: Lens.Lens' PutProvisionedConcurrencyConfig Lude.Natural
+ppccProvisionedConcurrentExecutions = Lens.lens (provisionedConcurrentExecutions :: PutProvisionedConcurrencyConfig -> Lude.Natural) (\s a -> s {provisionedConcurrentExecutions = a} :: PutProvisionedConcurrencyConfig)
+{-# DEPRECATED ppccProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'provisionedConcurrentExecutions' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -124,13 +140,6 @@ ppccFunctionName = Lens.lens (functionName :: PutProvisionedConcurrencyConfig ->
 ppccQualifier :: Lens.Lens' PutProvisionedConcurrencyConfig Lude.Text
 ppccQualifier = Lens.lens (qualifier :: PutProvisionedConcurrencyConfig -> Lude.Text) (\s a -> s {qualifier = a} :: PutProvisionedConcurrencyConfig)
 {-# DEPRECATED ppccQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
-
--- | The amount of provisioned concurrency to allocate for the version or alias.
---
--- /Note:/ Consider using 'provisionedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppccProvisionedConcurrentExecutions :: Lens.Lens' PutProvisionedConcurrencyConfig Lude.Natural
-ppccProvisionedConcurrentExecutions = Lens.lens (provisionedConcurrentExecutions :: PutProvisionedConcurrencyConfig -> Lude.Natural) (\s a -> s {provisionedConcurrentExecutions = a} :: PutProvisionedConcurrencyConfig)
-{-# DEPRECATED ppccProvisionedConcurrentExecutions "Use generic-lens or generic-optics with 'provisionedConcurrentExecutions' instead." #-}
 
 instance Lude.AWSRequest PutProvisionedConcurrencyConfig where
   type
@@ -178,45 +187,33 @@ instance Lude.ToQuery PutProvisionedConcurrencyConfig where
 
 -- | /See:/ 'mkPutProvisionedConcurrencyConfigResponse' smart constructor.
 data PutProvisionedConcurrencyConfigResponse = PutProvisionedConcurrencyConfigResponse'
-  { status ::
-      Lude.Maybe
-        ProvisionedConcurrencyStatusEnum,
-    requestedProvisionedConcurrentExecutions ::
-      Lude.Maybe
-        Lude.Natural,
-    availableProvisionedConcurrentExecutions ::
-      Lude.Maybe
-        Lude.Natural,
-    statusReason ::
-      Lude.Maybe
-        Lude.Text,
-    allocatedProvisionedConcurrentExecutions ::
-      Lude.Maybe
-        Lude.Natural,
-    lastModified ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the allocation process.
+    status :: Lude.Maybe ProvisionedConcurrencyStatusEnum,
+    -- | The amount of provisioned concurrency requested.
+    requestedProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | The amount of provisioned concurrency available.
+    availableProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | For failed allocations, the reason that provisioned concurrency could not be allocated.
+    statusReason :: Lude.Maybe Lude.Text,
+    -- | The amount of provisioned concurrency allocated.
+    allocatedProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
+    lastModified :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutProvisionedConcurrencyConfigResponse' with the minimum fields required to make a request.
 --
--- * 'allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
--- * 'availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
--- * 'lastModified' - The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
--- * 'requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the allocation process.
+-- * 'requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
+-- * 'availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
 -- * 'statusReason' - For failed allocations, the reason that provisioned concurrency could not be allocated.
+-- * 'allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
+-- * 'lastModified' - The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
+-- * 'responseStatus' - The response status code.
 mkPutProvisionedConcurrencyConfigResponse ::
   -- | 'responseStatus'
   Lude.Int ->

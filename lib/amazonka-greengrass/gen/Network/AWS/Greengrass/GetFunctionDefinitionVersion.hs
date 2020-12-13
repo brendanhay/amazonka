@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,26 +47,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFunctionDefinitionVersion' smart constructor.
 data GetFunctionDefinitionVersion = GetFunctionDefinitionVersion'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the Lambda function definition.
     functionDefinitionId :: Lude.Text,
-    functionDefinitionVersionId ::
-      Lude.Text
+    -- | The ID of the function definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListFunctionDefinitionVersions'' requests. If the version is the last one that was associated with a function definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+    functionDefinitionVersionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionDefinitionVersion' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'functionDefinitionId' - The ID of the Lambda function definition.
 -- * 'functionDefinitionVersionId' - The ID of the function definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListFunctionDefinitionVersions'' requests. If the version is the last one that was associated with a function definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 mkGetFunctionDefinitionVersion ::
   -- | 'functionDefinitionId'
   Lude.Text ->
@@ -144,45 +140,33 @@ instance Lude.ToQuery GetFunctionDefinitionVersion where
 
 -- | /See:/ 'mkGetFunctionDefinitionVersionResponse' smart constructor.
 data GetFunctionDefinitionVersionResponse = GetFunctionDefinitionVersionResponse'
-  { definition ::
-      Lude.Maybe
-        FunctionDefinitionVersion,
-    arn ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information on the definition.
+    definition :: Lude.Maybe FunctionDefinitionVersion,
+    -- | The ARN of the function definition version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the function definition version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The version of the function definition version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the function definition version.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFunctionDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the function definition version.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the function definition version was created.
 -- * 'definition' - Information on the definition.
--- * 'id' - The ID of the function definition version.
+-- * 'arn' - The ARN of the function definition version.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the function definition version was created.
 -- * 'version' - The version of the function definition version.
+-- * 'id' - The ID of the function definition version.
+-- * 'responseStatus' - The response status code.
 mkGetFunctionDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

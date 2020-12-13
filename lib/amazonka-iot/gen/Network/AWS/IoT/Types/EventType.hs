@@ -13,17 +13,17 @@
 module Network.AWS.IoT.Types.EventType
   ( EventType
       ( EventType',
-        CaCertificate,
-        Certificate,
+        Thing,
+        ThingGroup,
+        ThingType,
+        ThingGroupMembership,
+        ThingGroupHierarchy,
+        ThingTypeAssociation,
         Job,
         JobExecution,
         Policy,
-        Thing,
-        ThingGroup,
-        ThingGroupHierarchy,
-        ThingGroupMembership,
-        ThingType,
-        ThingTypeAssociation
+        Certificate,
+        CaCertificate
       ),
   )
 where
@@ -54,11 +54,23 @@ newtype EventType = EventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CaCertificate :: EventType
-pattern CaCertificate = EventType' "CA_CERTIFICATE"
+pattern Thing :: EventType
+pattern Thing = EventType' "THING"
 
-pattern Certificate :: EventType
-pattern Certificate = EventType' "CERTIFICATE"
+pattern ThingGroup :: EventType
+pattern ThingGroup = EventType' "THING_GROUP"
+
+pattern ThingType :: EventType
+pattern ThingType = EventType' "THING_TYPE"
+
+pattern ThingGroupMembership :: EventType
+pattern ThingGroupMembership = EventType' "THING_GROUP_MEMBERSHIP"
+
+pattern ThingGroupHierarchy :: EventType
+pattern ThingGroupHierarchy = EventType' "THING_GROUP_HIERARCHY"
+
+pattern ThingTypeAssociation :: EventType
+pattern ThingTypeAssociation = EventType' "THING_TYPE_ASSOCIATION"
 
 pattern Job :: EventType
 pattern Job = EventType' "JOB"
@@ -69,35 +81,23 @@ pattern JobExecution = EventType' "JOB_EXECUTION"
 pattern Policy :: EventType
 pattern Policy = EventType' "POLICY"
 
-pattern Thing :: EventType
-pattern Thing = EventType' "THING"
+pattern Certificate :: EventType
+pattern Certificate = EventType' "CERTIFICATE"
 
-pattern ThingGroup :: EventType
-pattern ThingGroup = EventType' "THING_GROUP"
-
-pattern ThingGroupHierarchy :: EventType
-pattern ThingGroupHierarchy = EventType' "THING_GROUP_HIERARCHY"
-
-pattern ThingGroupMembership :: EventType
-pattern ThingGroupMembership = EventType' "THING_GROUP_MEMBERSHIP"
-
-pattern ThingType :: EventType
-pattern ThingType = EventType' "THING_TYPE"
-
-pattern ThingTypeAssociation :: EventType
-pattern ThingTypeAssociation = EventType' "THING_TYPE_ASSOCIATION"
+pattern CaCertificate :: EventType
+pattern CaCertificate = EventType' "CA_CERTIFICATE"
 
 {-# COMPLETE
-  CaCertificate,
-  Certificate,
+  Thing,
+  ThingGroup,
+  ThingType,
+  ThingGroupMembership,
+  ThingGroupHierarchy,
+  ThingTypeAssociation,
   Job,
   JobExecution,
   Policy,
-  Thing,
-  ThingGroup,
-  ThingGroupHierarchy,
-  ThingGroupMembership,
-  ThingType,
-  ThingTypeAssociation,
+  Certificate,
+  CaCertificate,
   EventType'
   #-}

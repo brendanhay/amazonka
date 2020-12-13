@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,23 +46,47 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeVPNGateways' smart constructor.
 data DescribeVPNGateways = DescribeVPNGateways'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters.
+    --
+    --
+    --     * @amazon-side-asn@ - The Autonomous System Number (ASN) for the Amazon side of the gateway.
+    --
+    --
+    --     * @attachment.state@ - The current state of the attachment between the gateway and the VPC (@attaching@ | @attached@ | @detaching@ | @detached@ ).
+    --
+    --
+    --     * @attachment.vpc-id@ - The ID of an attached VPC.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone for the virtual private gateway (if applicable).
+    --
+    --
+    --     * @state@ - The state of the virtual private gateway (@pending@ | @available@ | @deleting@ | @deleted@ ).
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    --
+    --
+    --     * @type@ - The type of virtual private gateway. Currently the only supported type is @ipsec.1@ .
+    --
+    --
+    --     * @vpn-gateway-id@ - The ID of the virtual private gateway.
+    filters :: Lude.Maybe [Filter],
+    -- | One or more virtual private gateway IDs.
+    --
+    -- Default: Describes all your virtual private gateways.
     vpnGatewayIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPNGateways' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -95,6 +120,7 @@ data DescribeVPNGateways = DescribeVPNGateways'
 -- * 'vpnGatewayIds' - One or more virtual private gateway IDs.
 --
 -- Default: Describes all your virtual private gateways.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeVPNGateways ::
   DescribeVPNGateways
 mkDescribeVPNGateways =
@@ -190,23 +216,18 @@ instance Lude.ToQuery DescribeVPNGateways where
 --
 -- /See:/ 'mkDescribeVPNGatewaysResponse' smart constructor.
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
-  { vpnGateways ::
-      Lude.Maybe [VPNGateway],
+  { -- | Information about one or more virtual private gateways.
+    vpnGateways :: Lude.Maybe [VPNGateway],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPNGatewaysResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpnGateways' - Information about one or more virtual private gateways.
+-- * 'responseStatus' - The response status code.
 mkDescribeVPNGatewaysResponse ::
   -- | 'responseStatus'
   Lude.Int ->

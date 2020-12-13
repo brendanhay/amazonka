@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,10 +27,10 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     mvePrivateDNSEnabled,
     mveAddSubnetIds,
     mveRemoveSubnetIds,
+    mveVPCEndpointId,
     mveAddSecurityGroupIds,
     mveDryRun,
     mveRemoveSecurityGroupIds,
-    mveVPCEndpointId,
 
     -- * Destructuring the response
     ModifyVPCEndpointResponse (..),
@@ -51,41 +52,45 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyVPCEndpoint' smart constructor.
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-  { policyDocument ::
-      Lude.Maybe Lude.Text,
+  { -- | (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.
+    policyDocument :: Lude.Maybe Lude.Text,
+    -- | (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
     removeRouteTableIds :: Lude.Maybe [Lude.Text],
+    -- | (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
     resetPolicy :: Lude.Maybe Lude.Bool,
+    -- | (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
     addRouteTableIds :: Lude.Maybe [Lude.Text],
+    -- | (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.
     privateDNSEnabled :: Lude.Maybe Lude.Bool,
+    -- | (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
     addSubnetIds :: Lude.Maybe [Lude.Text],
+    -- | (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
     removeSubnetIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the endpoint.
+    vpcEndpointId :: Lude.Text,
+    -- | (Interface endpoint) One or more security group IDs to associate with the network interface.
     addSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    removeSecurityGroupIds :: Lude.Maybe [Lude.Text],
-    vpcEndpointId :: Lude.Text
+    -- | (Interface endpoint) One or more security group IDs to disassociate from the network interface.
+    removeSecurityGroupIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpoint' with the minimum fields required to make a request.
 --
--- * 'addRouteTableIds' - (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
--- * 'addSecurityGroupIds' - (Interface endpoint) One or more security group IDs to associate with the network interface.
--- * 'addSubnetIds' - (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'policyDocument' - (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.
--- * 'privateDNSEnabled' - (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.
 -- * 'removeRouteTableIds' - (Gateway endpoint) One or more route table IDs to disassociate from the endpoint.
--- * 'removeSecurityGroupIds' - (Interface endpoint) One or more security group IDs to disassociate from the network interface.
--- * 'removeSubnetIds' - (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
 -- * 'resetPolicy' - (Gateway endpoint) Specify @true@ to reset the policy document to the default policy. The default policy allows full access to the service.
+-- * 'addRouteTableIds' - (Gateway endpoint) One or more route tables IDs to associate with the endpoint.
+-- * 'privateDNSEnabled' - (Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.
+-- * 'addSubnetIds' - (Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
+-- * 'removeSubnetIds' - (Interface endpoint) One or more subnets IDs in which to remove the endpoint.
 -- * 'vpcEndpointId' - The ID of the endpoint.
+-- * 'addSecurityGroupIds' - (Interface endpoint) One or more security group IDs to associate with the network interface.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'removeSecurityGroupIds' - (Interface endpoint) One or more security group IDs to disassociate from the network interface.
 mkModifyVPCEndpoint ::
   -- | 'vpcEndpointId'
   Lude.Text ->
@@ -99,10 +104,10 @@ mkModifyVPCEndpoint pVPCEndpointId_ =
       privateDNSEnabled = Lude.Nothing,
       addSubnetIds = Lude.Nothing,
       removeSubnetIds = Lude.Nothing,
+      vpcEndpointId = pVPCEndpointId_,
       addSecurityGroupIds = Lude.Nothing,
       dryRun = Lude.Nothing,
-      removeSecurityGroupIds = Lude.Nothing,
-      vpcEndpointId = pVPCEndpointId_
+      removeSecurityGroupIds = Lude.Nothing
     }
 
 -- | (Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.
@@ -154,6 +159,13 @@ mveRemoveSubnetIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
 mveRemoveSubnetIds = Lens.lens (removeSubnetIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {removeSubnetIds = a} :: ModifyVPCEndpoint)
 {-# DEPRECATED mveRemoveSubnetIds "Use generic-lens or generic-optics with 'removeSubnetIds' instead." #-}
 
+-- | The ID of the endpoint.
+--
+-- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mveVPCEndpointId :: Lens.Lens' ModifyVPCEndpoint Lude.Text
+mveVPCEndpointId = Lens.lens (vpcEndpointId :: ModifyVPCEndpoint -> Lude.Text) (\s a -> s {vpcEndpointId = a} :: ModifyVPCEndpoint)
+{-# DEPRECATED mveVPCEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
+
 -- | (Interface endpoint) One or more security group IDs to associate with the network interface.
 --
 -- /Note:/ Consider using 'addSecurityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -174,13 +186,6 @@ mveDryRun = Lens.lens (dryRun :: ModifyVPCEndpoint -> Lude.Maybe Lude.Bool) (\s 
 mveRemoveSecurityGroupIds :: Lens.Lens' ModifyVPCEndpoint (Lude.Maybe [Lude.Text])
 mveRemoveSecurityGroupIds = Lens.lens (removeSecurityGroupIds :: ModifyVPCEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {removeSecurityGroupIds = a} :: ModifyVPCEndpoint)
 {-# DEPRECATED mveRemoveSecurityGroupIds "Use generic-lens or generic-optics with 'removeSecurityGroupIds' instead." #-}
-
--- | The ID of the endpoint.
---
--- /Note:/ Consider using 'vpcEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mveVPCEndpointId :: Lens.Lens' ModifyVPCEndpoint Lude.Text
-mveVPCEndpointId = Lens.lens (vpcEndpointId :: ModifyVPCEndpoint -> Lude.Text) (\s a -> s {vpcEndpointId = a} :: ModifyVPCEndpoint)
-{-# DEPRECATED mveVPCEndpointId "Use generic-lens or generic-optics with 'vpcEndpointId' instead." #-}
 
 instance Lude.AWSRequest ModifyVPCEndpoint where
   type Rs ModifyVPCEndpoint = ModifyVPCEndpointResponse
@@ -216,6 +221,7 @@ instance Lude.ToQuery ModifyVPCEndpoint where
           (Lude.toQueryList "AddSubnetId" Lude.<$> addSubnetIds),
         Lude.toQuery
           (Lude.toQueryList "RemoveSubnetId" Lude.<$> removeSubnetIds),
+        "VpcEndpointId" Lude.=: vpcEndpointId,
         Lude.toQuery
           ( Lude.toQueryList "AddSecurityGroupId"
               Lude.<$> addSecurityGroupIds
@@ -224,29 +230,23 @@ instance Lude.ToQuery ModifyVPCEndpoint where
         Lude.toQuery
           ( Lude.toQueryList "RemoveSecurityGroupId"
               Lude.<$> removeSecurityGroupIds
-          ),
-        "VpcEndpointId" Lude.=: vpcEndpointId
+          )
       ]
 
 -- | /See:/ 'mkModifyVPCEndpointResponse' smart constructor.
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkModifyVPCEndpointResponse ::
   -- | 'responseStatus'
   Lude.Int ->

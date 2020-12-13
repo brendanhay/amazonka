@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoMLJobCompletionCriteria' smart constructor.
 data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
-  { maxCandidates ::
-      Lude.Maybe Lude.Natural,
-    maxRuntimePerTrainingJobInSeconds ::
-      Lude.Maybe Lude.Natural,
-    maxAutoMLJobRuntimeInSeconds ::
-      Lude.Maybe Lude.Natural
+  { -- | The maximum number of times a training job is allowed to run.
+    maxCandidates :: Lude.Maybe Lude.Natural,
+    -- | The maximum time, in seconds, a job is allowed to run.
+    maxRuntimePerTrainingJobInSeconds :: Lude.Maybe Lude.Natural,
+    -- | The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
+    maxAutoMLJobRuntimeInSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLJobCompletionCriteria' with the minimum fields required to make a request.
 --
--- * 'maxAutoMLJobRuntimeInSeconds' - The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
 -- * 'maxCandidates' - The maximum number of times a training job is allowed to run.
 -- * 'maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, a job is allowed to run.
+-- * 'maxAutoMLJobRuntimeInSeconds' - The maximum time, in seconds, an AutoML job is allowed to wait for a trial to complete. It must be equal to or greater than MaxRuntimePerTrainingJobInSeconds.
 mkAutoMLJobCompletionCriteria ::
   AutoMLJobCompletionCriteria
 mkAutoMLJobCompletionCriteria =

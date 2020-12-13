@@ -30,22 +30,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatusDetailFilters' smart constructor.
 data StatusDetailFilters = StatusDetailFilters'
-  { memberAccountRuleStatus ::
-      Lude.Maybe MemberAccountRuleStatus,
+  { -- | Indicates deployment status for config rule in the member account. When master account calls @PutOrganizationConfigRule@ action for the first time, config rule status is created in the member account. When master account calls @PutOrganizationConfigRule@ action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes @OrganizationConfigRule@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
+    --
+    -- AWS Config sets the state of the rule to:
+    --
+    --     * @CREATE_SUCCESSFUL@ when config rule has been created in the member account.
+    --
+    --
+    --     * @CREATE_IN_PROGRESS@ when config rule is being created in the member account.
+    --
+    --
+    --     * @CREATE_FAILED@ when config rule creation has failed in the member account.
+    --
+    --
+    --     * @DELETE_FAILED@ when config rule deletion has failed in the member account.
+    --
+    --
+    --     * @DELETE_IN_PROGRESS@ when config rule is being deleted in the member account.
+    --
+    --
+    --     * @DELETE_SUCCESSFUL@ when config rule has been deleted in the member account.
+    --
+    --
+    --     * @UPDATE_SUCCESSFUL@ when config rule has been updated in the member account.
+    --
+    --
+    --     * @UPDATE_IN_PROGRESS@ when config rule is being updated in the member account.
+    --
+    --
+    --     * @UPDATE_FAILED@ when config rule deletion has failed in the member account.
+    memberAccountRuleStatus :: Lude.Maybe MemberAccountRuleStatus,
+    -- | The 12-digit account ID of the member account within an organization.
     accountId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatusDetailFilters' with the minimum fields required to make a request.
 --
--- * 'accountId' - The 12-digit account ID of the member account within an organization.
 -- * 'memberAccountRuleStatus' - Indicates deployment status for config rule in the member account. When master account calls @PutOrganizationConfigRule@ action for the first time, config rule status is created in the member account. When master account calls @PutOrganizationConfigRule@ action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes @OrganizationConfigRule@ and disables service access for @config-multiaccountsetup.amazonaws.com@ .
 --
 -- AWS Config sets the state of the rule to:
@@ -75,6 +97,9 @@ data StatusDetailFilters = StatusDetailFilters'
 --
 --
 --     * @UPDATE_FAILED@ when config rule deletion has failed in the member account.
+--
+--
+-- * 'accountId' - The 12-digit account ID of the member account within an organization.
 mkStatusDetailFilters ::
   StatusDetailFilters
 mkStatusDetailFilters =

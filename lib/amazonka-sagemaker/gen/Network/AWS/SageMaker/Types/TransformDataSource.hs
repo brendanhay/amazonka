@@ -29,16 +29,10 @@ import Network.AWS.SageMaker.Types.TransformS3DataSource
 --
 -- /See:/ 'mkTransformDataSource' smart constructor.
 newtype TransformDataSource = TransformDataSource'
-  { s3DataSource ::
-      TransformS3DataSource
+  { -- | The S3 location of the data source that is associated with a channel.
+    s3DataSource :: TransformS3DataSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformDataSource' with the minimum fields required to make a request.

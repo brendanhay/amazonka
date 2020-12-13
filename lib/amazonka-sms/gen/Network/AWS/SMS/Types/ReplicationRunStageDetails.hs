@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationRunStageDetails' smart constructor.
 data ReplicationRunStageDetails = ReplicationRunStageDetails'
-  { stage ::
-      Lude.Maybe Lude.Text,
+  { -- | The current stage of a replication run.
+    stage :: Lude.Maybe Lude.Text,
+    -- | The progress of the current stage of a replication run.
     stageProgress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRunStageDetails' with the minimum fields required to make a request.

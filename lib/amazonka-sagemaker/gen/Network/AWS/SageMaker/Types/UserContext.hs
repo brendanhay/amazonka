@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserContext' smart constructor.
 data UserContext = UserContext'
-  { userProfileName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the user's profile.
+    userProfileName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the user's profile.
     userProfileARN :: Lude.Maybe Lude.Text,
+    -- | The domain associated with the user.
     domainId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserContext' with the minimum fields required to make a request.
 --
--- * 'domainId' - The domain associated with the user.
--- * 'userProfileARN' - The Amazon Resource Name (ARN) of the user's profile.
 -- * 'userProfileName' - The name of the user's profile.
+-- * 'userProfileARN' - The Amazon Resource Name (ARN) of the user's profile.
+-- * 'domainId' - The domain associated with the user.
 mkUserContext ::
   UserContext
 mkUserContext =

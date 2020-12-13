@@ -45,48 +45,57 @@ import Network.AWS.WorkSpaces.Types.WorkspaceState
 --
 -- /See:/ 'mkWorkspace' smart constructor.
 data Workspace = Workspace'
-  { directoryId :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the AWS Directory Service directory for the WorkSpace.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The operational state of the WorkSpace.
     state :: Lude.Maybe WorkspaceState,
+    -- | The IP address of the WorkSpace.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | The modification states of the WorkSpace.
     modificationStates :: Lude.Maybe [ModificationState],
+    -- | The user for the WorkSpace.
     userName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the subnet for the WorkSpace.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the bundle used to create the WorkSpace.
     bundleId :: Lude.Maybe Lude.Text,
+    -- | The properties of the WorkSpace.
     workspaceProperties :: Lude.Maybe WorkspaceProperties,
+    -- | Indicates whether the data stored on the root volume is encrypted.
     rootVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The error code that is returned if the WorkSpace cannot be created.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
     volumeEncryptionKey :: Lude.Maybe Lude.Text,
+    -- | The name of the WorkSpace, as seen by the operating system. The format of this name varies. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html Launch a WorkSpace> .
     computerName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the WorkSpace.
     workspaceId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the data stored on the user volume is encrypted.
     userVolumeEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The text of the error message that is returned if the WorkSpace cannot be created.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Workspace' with the minimum fields required to make a request.
 --
--- * 'bundleId' - The identifier of the bundle used to create the WorkSpace.
--- * 'computerName' - The name of the WorkSpace, as seen by the operating system. The format of this name varies. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html Launch a WorkSpace> .
 -- * 'directoryId' - The identifier of the AWS Directory Service directory for the WorkSpace.
--- * 'errorCode' - The error code that is returned if the WorkSpace cannot be created.
--- * 'errorMessage' - The text of the error message that is returned if the WorkSpace cannot be created.
+-- * 'state' - The operational state of the WorkSpace.
 -- * 'ipAddress' - The IP address of the WorkSpace.
 -- * 'modificationStates' - The modification states of the WorkSpace.
--- * 'rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
--- * 'state' - The operational state of the WorkSpace.
--- * 'subnetId' - The identifier of the subnet for the WorkSpace.
 -- * 'userName' - The user for the WorkSpace.
--- * 'userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
--- * 'volumeEncryptionKey' - The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
--- * 'workspaceId' - The identifier of the WorkSpace.
+-- * 'subnetId' - The identifier of the subnet for the WorkSpace.
+-- * 'bundleId' - The identifier of the bundle used to create the WorkSpace.
 -- * 'workspaceProperties' - The properties of the WorkSpace.
+-- * 'rootVolumeEncryptionEnabled' - Indicates whether the data stored on the root volume is encrypted.
+-- * 'errorCode' - The error code that is returned if the WorkSpace cannot be created.
+-- * 'volumeEncryptionKey' - The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
+-- * 'computerName' - The name of the WorkSpace, as seen by the operating system. The format of this name varies. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html Launch a WorkSpace> .
+-- * 'workspaceId' - The identifier of the WorkSpace.
+-- * 'userVolumeEncryptionEnabled' - Indicates whether the data stored on the user volume is encrypted.
+-- * 'errorMessage' - The text of the error message that is returned if the WorkSpace cannot be created.
 mkWorkspace ::
   Workspace
 mkWorkspace =

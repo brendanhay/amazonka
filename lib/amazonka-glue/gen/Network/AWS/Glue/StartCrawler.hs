@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Glue.StartCrawler
     mkStartCrawler,
 
     -- ** Request lenses
-    scName,
+    scgName,
 
     -- * Destructuring the response
     StartCrawlerResponse (..),
@@ -37,14 +38,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartCrawler' smart constructor.
-newtype StartCrawler = StartCrawler' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StartCrawler = StartCrawler'
+  { -- | Name of the crawler to start.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartCrawler' with the minimum fields required to make a request.
@@ -59,9 +57,9 @@ mkStartCrawler pName_ = StartCrawler' {name = pName_}
 -- | Name of the crawler to start.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scName :: Lens.Lens' StartCrawler Lude.Text
-scName = Lens.lens (name :: StartCrawler -> Lude.Text) (\s a -> s {name = a} :: StartCrawler)
-{-# DEPRECATED scName "Use generic-lens or generic-optics with 'name' instead." #-}
+scgName :: Lens.Lens' StartCrawler Lude.Text
+scgName = Lens.lens (name :: StartCrawler -> Lude.Text) (\s a -> s {name = a} :: StartCrawler)
+{-# DEPRECATED scgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StartCrawler where
   type Rs StartCrawler = StartCrawlerResponse
@@ -95,16 +93,10 @@ instance Lude.ToQuery StartCrawler where
 
 -- | /See:/ 'mkStartCrawlerResponse' smart constructor.
 newtype StartCrawlerResponse = StartCrawlerResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartCrawlerResponse' with the minimum fields required to make a request.

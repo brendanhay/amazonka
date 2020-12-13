@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,9 +34,9 @@ module Network.AWS.Kinesis.ListStreams
     mkListStreamsResponse,
 
     -- ** Response lenses
-    lsrsResponseStatus,
-    lsrsStreamNames,
     lsrsHasMoreStreams,
+    lsrsStreamNames,
+    lsrsResponseStatus,
   )
 where
 
@@ -50,22 +51,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { limit :: Lude.Maybe Lude.Natural,
+  { -- | The maximum number of streams to list.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The name of the stream to start the list with.
     exclusiveStartStreamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
 --
--- * 'exclusiveStartStreamName' - The name of the stream to start the list with.
 -- * 'limit' - The maximum number of streams to list.
+-- * 'exclusiveStartStreamName' - The name of the stream to start the list with.
 mkListStreams ::
   ListStreams
 mkListStreams =
@@ -106,9 +103,9 @@ instance Lude.AWSRequest ListStreams where
     Res.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (x Lude..:> "HasMoreStreams")
             Lude.<*> (x Lude..?> "StreamNames" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "HasMoreStreams")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListStreams where
@@ -142,44 +139,40 @@ instance Lude.ToQuery ListStreams where
 --
 -- /See:/ 'mkListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | If set to @true@ , there are more streams available to list.
+    hasMoreStreams :: Lude.Bool,
+    -- | The names of the streams that are associated with the AWS account making the @ListStreams@ request.
     streamNames :: [Lude.Text],
-    hasMoreStreams :: Lude.Bool
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
 --
 -- * 'hasMoreStreams' - If set to @true@ , there are more streams available to list.
--- * 'responseStatus' - The response status code.
 -- * 'streamNames' - The names of the streams that are associated with the AWS account making the @ListStreams@ request.
+-- * 'responseStatus' - The response status code.
 mkListStreamsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hasMoreStreams'
   Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListStreamsResponse
-mkListStreamsResponse pResponseStatus_ pHasMoreStreams_ =
+mkListStreamsResponse pHasMoreStreams_ pResponseStatus_ =
   ListStreamsResponse'
-    { responseStatus = pResponseStatus_,
+    { hasMoreStreams = pHasMoreStreams_,
       streamNames = Lude.mempty,
-      hasMoreStreams = pHasMoreStreams_
+      responseStatus = pResponseStatus_
     }
 
--- | The response status code.
+-- | If set to @true@ , there are more streams available to list.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListStreamsResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'hasMoreStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsHasMoreStreams :: Lens.Lens' ListStreamsResponse Lude.Bool
+lsrsHasMoreStreams = Lens.lens (hasMoreStreams :: ListStreamsResponse -> Lude.Bool) (\s a -> s {hasMoreStreams = a} :: ListStreamsResponse)
+{-# DEPRECATED lsrsHasMoreStreams "Use generic-lens or generic-optics with 'hasMoreStreams' instead." #-}
 
 -- | The names of the streams that are associated with the AWS account making the @ListStreams@ request.
 --
@@ -188,9 +181,9 @@ lsrsStreamNames :: Lens.Lens' ListStreamsResponse [Lude.Text]
 lsrsStreamNames = Lens.lens (streamNames :: ListStreamsResponse -> [Lude.Text]) (\s a -> s {streamNames = a} :: ListStreamsResponse)
 {-# DEPRECATED lsrsStreamNames "Use generic-lens or generic-optics with 'streamNames' instead." #-}
 
--- | If set to @true@ , there are more streams available to list.
+-- | The response status code.
 --
--- /Note:/ Consider using 'hasMoreStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsHasMoreStreams :: Lens.Lens' ListStreamsResponse Lude.Bool
-lsrsHasMoreStreams = Lens.lens (hasMoreStreams :: ListStreamsResponse -> Lude.Bool) (\s a -> s {hasMoreStreams = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsHasMoreStreams "Use generic-lens or generic-optics with 'hasMoreStreams' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrsResponseStatus :: Lens.Lens' ListStreamsResponse Lude.Int
+lsrsResponseStatus = Lens.lens (responseStatus :: ListStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamsResponse)
+{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

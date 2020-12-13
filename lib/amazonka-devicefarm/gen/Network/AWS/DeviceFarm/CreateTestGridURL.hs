@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DeviceFarm.CreateTestGridURL
     mkCreateTestGridURL,
 
     -- ** Request lenses
-    ctguProjectARN,
     ctguExpiresInSeconds,
+    ctguProjectARN,
 
     -- * Destructuring the response
     CreateTestGridURLResponse (..),
@@ -41,17 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTestGridURL' smart constructor.
 data CreateTestGridURL = CreateTestGridURL'
-  { projectARN ::
-      Lude.Text,
-    expiresInSeconds :: Lude.Natural
+  { -- | Lifetime, in seconds, of the URL.
+    expiresInSeconds :: Lude.Natural,
+    -- | ARN (from 'CreateTestGridProject' or 'ListTestGridProjects' ) to associate with the short-term URL.
+    projectARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridURL' with the minimum fields required to make a request.
@@ -59,23 +55,16 @@ data CreateTestGridURL = CreateTestGridURL'
 -- * 'expiresInSeconds' - Lifetime, in seconds, of the URL.
 -- * 'projectARN' - ARN (from 'CreateTestGridProject' or 'ListTestGridProjects' ) to associate with the short-term URL.
 mkCreateTestGridURL ::
-  -- | 'projectARN'
-  Lude.Text ->
   -- | 'expiresInSeconds'
   Lude.Natural ->
+  -- | 'projectARN'
+  Lude.Text ->
   CreateTestGridURL
-mkCreateTestGridURL pProjectARN_ pExpiresInSeconds_ =
+mkCreateTestGridURL pExpiresInSeconds_ pProjectARN_ =
   CreateTestGridURL'
-    { projectARN = pProjectARN_,
-      expiresInSeconds = pExpiresInSeconds_
+    { expiresInSeconds = pExpiresInSeconds_,
+      projectARN = pProjectARN_
     }
-
--- | ARN (from 'CreateTestGridProject' or 'ListTestGridProjects' ) to associate with the short-term URL.
---
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctguProjectARN :: Lens.Lens' CreateTestGridURL Lude.Text
-ctguProjectARN = Lens.lens (projectARN :: CreateTestGridURL -> Lude.Text) (\s a -> s {projectARN = a} :: CreateTestGridURL)
-{-# DEPRECATED ctguProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 -- | Lifetime, in seconds, of the URL.
 --
@@ -83,6 +72,13 @@ ctguProjectARN = Lens.lens (projectARN :: CreateTestGridURL -> Lude.Text) (\s a 
 ctguExpiresInSeconds :: Lens.Lens' CreateTestGridURL Lude.Natural
 ctguExpiresInSeconds = Lens.lens (expiresInSeconds :: CreateTestGridURL -> Lude.Natural) (\s a -> s {expiresInSeconds = a} :: CreateTestGridURL)
 {-# DEPRECATED ctguExpiresInSeconds "Use generic-lens or generic-optics with 'expiresInSeconds' instead." #-}
+
+-- | ARN (from 'CreateTestGridProject' or 'ListTestGridProjects' ) to associate with the short-term URL.
+--
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctguProjectARN :: Lens.Lens' CreateTestGridURL Lude.Text
+ctguProjectARN = Lens.lens (projectARN :: CreateTestGridURL -> Lude.Text) (\s a -> s {projectARN = a} :: CreateTestGridURL)
+{-# DEPRECATED ctguProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 instance Lude.AWSRequest CreateTestGridURL where
   type Rs CreateTestGridURL = CreateTestGridURLResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON CreateTestGridURL where
   toJSON CreateTestGridURL' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("projectArn" Lude..= projectARN),
-            Lude.Just ("expiresInSeconds" Lude..= expiresInSeconds)
+          [ Lude.Just ("expiresInSeconds" Lude..= expiresInSeconds),
+            Lude.Just ("projectArn" Lude..= projectARN)
           ]
       )
 
@@ -124,25 +120,21 @@ instance Lude.ToQuery CreateTestGridURL where
 
 -- | /See:/ 'mkCreateTestGridURLResponse' smart constructor.
 data CreateTestGridURLResponse = CreateTestGridURLResponse'
-  { expires ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The number of seconds the URL from 'CreateTestGridUrlResult$url' stays active.
+    expires :: Lude.Maybe Lude.Timestamp,
+    -- | A signed URL, expiring in 'CreateTestGridUrlRequest$expiresInSeconds' seconds, to be passed to a @RemoteWebDriver@ .
     url :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTestGridURLResponse' with the minimum fields required to make a request.
 --
 -- * 'expires' - The number of seconds the URL from 'CreateTestGridUrlResult$url' stays active.
--- * 'responseStatus' - The response status code.
 -- * 'url' - A signed URL, expiring in 'CreateTestGridUrlRequest$expiresInSeconds' seconds, to be passed to a @RemoteWebDriver@ .
+-- * 'responseStatus' - The response status code.
 mkCreateTestGridURLResponse ::
   -- | 'responseStatus'
   Lude.Int ->

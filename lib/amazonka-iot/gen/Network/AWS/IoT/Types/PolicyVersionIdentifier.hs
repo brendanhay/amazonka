@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyVersionIdentifier' smart constructor.
 data PolicyVersionIdentifier = PolicyVersionIdentifier'
-  { policyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the policy.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | The ID of the version of the policy associated with the resource.
     policyVersionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyVersionIdentifier' with the minimum fields required to make a request.

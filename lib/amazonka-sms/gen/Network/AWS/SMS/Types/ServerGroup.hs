@@ -31,24 +31,21 @@ import Network.AWS.SMS.Types.Server
 --
 -- /See:/ 'mkServerGroup' smart constructor.
 data ServerGroup = ServerGroup'
-  { serverList :: Lude.Maybe [Server],
+  { -- | The servers that belong to a server group.
+    serverList :: Lude.Maybe [Server],
+    -- | The name of a server group.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of a server group.
     serverGroupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerGroup' with the minimum fields required to make a request.
 --
+-- * 'serverList' - The servers that belong to a server group.
 -- * 'name' - The name of a server group.
 -- * 'serverGroupId' - The ID of a server group.
--- * 'serverList' - The servers that belong to a server group.
 mkServerGroup ::
   ServerGroup
 mkServerGroup =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,27 +50,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEcsClusters' smart constructor.
 data DescribeEcsClusters = DescribeEcsClusters'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the previous paginated request did not return all of the remaining results, the response object's@NextToken@ parameter value is set to a token. To retrieve the next set of results, call @DescribeEcsClusters@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A stack ID. @DescribeEcsClusters@ returns a description of the cluster that is registered with the stack.
     stackId :: Lude.Maybe Lude.Text,
+    -- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
     maxResults :: Lude.Maybe Lude.Int,
+    -- | A list of ARNs, one for each cluster to be described.
     ecsClusterARNs :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEcsClusters' with the minimum fields required to make a request.
 --
--- * 'ecsClusterARNs' - A list of ARNs, one for each cluster to be described.
--- * 'maxResults' - To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 -- * 'nextToken' - If the previous paginated request did not return all of the remaining results, the response object's@NextToken@ parameter value is set to a token. To retrieve the next set of results, call @DescribeEcsClusters@ again and assign that token to the request object's @NextToken@ parameter. If there are no remaining results, the previous response object's @NextToken@ parameter is set to @null@ .
 -- * 'stackId' - A stack ID. @DescribeEcsClusters@ returns a description of the cluster that is registered with the stack.
+-- * 'maxResults' - To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+-- * 'ecsClusterARNs' - A list of ARNs, one for each cluster to be described.
 mkDescribeEcsClusters ::
   DescribeEcsClusters
 mkDescribeEcsClusters =
@@ -161,25 +159,20 @@ instance Lude.ToQuery DescribeEcsClusters where
 --
 -- /See:/ 'mkDescribeEcsClustersResponse' smart constructor.
 data DescribeEcsClustersResponse = DescribeEcsClustersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    ecsClusters ::
-      Lude.Maybe [EcsCluster],
+  { -- | If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @EcsCluster@ objects containing the cluster descriptions.
+    ecsClusters :: Lude.Maybe [EcsCluster],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEcsClustersResponse' with the minimum fields required to make a request.
 --
--- * 'ecsClusters' - A list of @EcsCluster@ objects containing the cluster descriptions.
 -- * 'nextToken' - If a paginated request does not return all of the remaining results, this parameter is set to a token that you can assign to the request object's @NextToken@ parameter to retrieve the next set of results. If the previous paginated request returned all of the remaining results, this parameter is set to @null@ .
+-- * 'ecsClusters' - A list of @EcsCluster@ objects containing the cluster descriptions.
 -- * 'responseStatus' - The response status code.
 mkDescribeEcsClustersResponse ::
   -- | 'responseStatus'

@@ -34,28 +34,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectConnectGateway' smart constructor.
 data DirectConnectGateway = DirectConnectGateway'
-  { directConnectGatewayId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    -- | The error message if the state of an object failed to advance.
     stateChangeError :: Lude.Maybe Lude.Text,
+    -- | The autonomous system number (ASN) for the Amazon side of the connection.
     amazonSideASN :: Lude.Maybe Lude.Integer,
+    -- | The name of the Direct Connect gateway.
     directConnectGatewayName :: Lude.Maybe Lude.Text,
-    directConnectGatewayState ::
-      Lude.Maybe DirectConnectGatewayState,
+    -- | The state of the Direct Connect gateway. The following are the possible values:
+    --
+    --
+    --     * @pending@ : The initial state after calling 'CreateDirectConnectGateway' .
+    --
+    --
+    --     * @available@ : The Direct Connect gateway is ready for use.
+    --
+    --
+    --     * @deleting@ : The initial state after calling 'DeleteDirectConnectGateway' .
+    --
+    --
+    --     * @deleted@ : The Direct Connect gateway is deleted and cannot pass traffic.
+    directConnectGatewayState :: Lude.Maybe DirectConnectGatewayState,
+    -- | The ID of the AWS account that owns the Direct Connect gateway.
     ownerAccount :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectConnectGateway' with the minimum fields required to make a request.
 --
--- * 'amazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
 -- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'stateChangeError' - The error message if the state of an object failed to advance.
+-- * 'amazonSideASN' - The autonomous system number (ASN) for the Amazon side of the connection.
 -- * 'directConnectGatewayName' - The name of the Direct Connect gateway.
 -- * 'directConnectGatewayState' - The state of the Direct Connect gateway. The following are the possible values:
 --
@@ -73,7 +84,6 @@ data DirectConnectGateway = DirectConnectGateway'
 --
 --
 -- * 'ownerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
--- * 'stateChangeError' - The error message if the state of an object failed to advance.
 mkDirectConnectGateway ::
   DirectConnectGateway
 mkDirectConnectGateway =

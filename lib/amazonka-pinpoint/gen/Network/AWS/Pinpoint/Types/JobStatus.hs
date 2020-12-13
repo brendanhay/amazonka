@@ -13,15 +13,15 @@
 module Network.AWS.Pinpoint.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        JSCompleted,
-        JSCompleting,
         JSCreated,
-        JSFailed,
-        JSFailing,
-        JSInitializing,
-        JSPendingJob,
         JSPreparingForInitialization,
-        JSProcessing
+        JSInitializing,
+        JSProcessing,
+        JSPendingJob,
+        JSCompleting,
+        JSCompleted,
+        JSFailing,
+        JSFailed
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype JobStatus = JobStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern JSCompleted :: JobStatus
-pattern JSCompleted = JobStatus' "COMPLETED"
-
-pattern JSCompleting :: JobStatus
-pattern JSCompleting = JobStatus' "COMPLETING"
-
 pattern JSCreated :: JobStatus
 pattern JSCreated = JobStatus' "CREATED"
-
-pattern JSFailed :: JobStatus
-pattern JSFailed = JobStatus' "FAILED"
-
-pattern JSFailing :: JobStatus
-pattern JSFailing = JobStatus' "FAILING"
-
-pattern JSInitializing :: JobStatus
-pattern JSInitializing = JobStatus' "INITIALIZING"
-
-pattern JSPendingJob :: JobStatus
-pattern JSPendingJob = JobStatus' "PENDING_JOB"
 
 pattern JSPreparingForInitialization :: JobStatus
 pattern JSPreparingForInitialization = JobStatus' "PREPARING_FOR_INITIALIZATION"
 
+pattern JSInitializing :: JobStatus
+pattern JSInitializing = JobStatus' "INITIALIZING"
+
 pattern JSProcessing :: JobStatus
 pattern JSProcessing = JobStatus' "PROCESSING"
 
+pattern JSPendingJob :: JobStatus
+pattern JSPendingJob = JobStatus' "PENDING_JOB"
+
+pattern JSCompleting :: JobStatus
+pattern JSCompleting = JobStatus' "COMPLETING"
+
+pattern JSCompleted :: JobStatus
+pattern JSCompleted = JobStatus' "COMPLETED"
+
+pattern JSFailing :: JobStatus
+pattern JSFailing = JobStatus' "FAILING"
+
+pattern JSFailed :: JobStatus
+pattern JSFailed = JobStatus' "FAILED"
+
 {-# COMPLETE
-  JSCompleted,
-  JSCompleting,
   JSCreated,
-  JSFailed,
-  JSFailing,
-  JSInitializing,
-  JSPendingJob,
   JSPreparingForInitialization,
+  JSInitializing,
   JSProcessing,
+  JSPendingJob,
+  JSCompleting,
+  JSCompleted,
+  JSFailing,
+  JSFailed,
   JobStatus'
   #-}

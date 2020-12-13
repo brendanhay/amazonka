@@ -32,21 +32,25 @@ import Network.AWS.SES.Types.ReceiptIPFilter
 --
 -- /See:/ 'mkReceiptFilter' smart constructor.
 data ReceiptFilter = ReceiptFilter'
-  { name :: Lude.Text,
+  { -- | The name of the IP address filter. The name must:
+    --
+    --
+    --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+    --
+    --
+    --     * Start and end with a letter or number.
+    --
+    --
+    --     * Contain less than 64 characters.
+    name :: Lude.Text,
+    -- | A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
     ipFilter :: ReceiptIPFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReceiptFilter' with the minimum fields required to make a request.
 --
--- * 'ipFilter' - A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
 -- * 'name' - The name of the IP address filter. The name must:
 --
 --
@@ -57,6 +61,9 @@ data ReceiptFilter = ReceiptFilter'
 --
 --
 --     * Contain less than 64 characters.
+--
+--
+-- * 'ipFilter' - A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
 mkReceiptFilter ::
   -- | 'name'
   Lude.Text ->

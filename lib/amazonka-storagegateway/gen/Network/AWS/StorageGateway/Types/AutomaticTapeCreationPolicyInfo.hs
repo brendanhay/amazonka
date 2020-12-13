@@ -30,27 +30,17 @@ import Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule
 --
 -- /See:/ 'mkAutomaticTapeCreationPolicyInfo' smart constructor.
 data AutomaticTapeCreationPolicyInfo = AutomaticTapeCreationPolicyInfo'
-  { gatewayARN ::
-      Lude.Maybe Lude.Text,
-    automaticTapeCreationRules ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            AutomaticTapeCreationRule
-        )
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | An automatic tape creation policy consists of a list of automatic tape creation rules. This returns the rules that determine when and how to automatically create new tapes.
+    automaticTapeCreationRules :: Lude.Maybe (Lude.NonEmpty AutomaticTapeCreationRule)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutomaticTapeCreationPolicyInfo' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' -
 -- * 'automaticTapeCreationRules' - An automatic tape creation policy consists of a list of automatic tape creation rules. This returns the rules that determine when and how to automatically create new tapes.
--- * 'gatewayARN' - Undocumented field.
 mkAutomaticTapeCreationPolicyInfo ::
   AutomaticTapeCreationPolicyInfo
 mkAutomaticTapeCreationPolicyInfo =

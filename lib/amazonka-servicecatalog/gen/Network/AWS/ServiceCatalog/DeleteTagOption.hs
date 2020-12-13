@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,14 +22,14 @@ module Network.AWS.ServiceCatalog.DeleteTagOption
     mkDeleteTagOption,
 
     -- ** Request lenses
-    delId,
+    dtofId,
 
     -- * Destructuring the response
     DeleteTagOptionResponse (..),
     mkDeleteTagOptionResponse,
 
     -- ** Response lenses
-    dtotrsResponseStatus,
+    dtorsResponseStatus,
   )
 where
 
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDeleteTagOption' smart constructor.
-newtype DeleteTagOption = DeleteTagOption' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteTagOption = DeleteTagOption'
+  { -- | The TagOption identifier.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagOption' with the minimum fields required to make a request.
@@ -61,9 +59,9 @@ mkDeleteTagOption pId_ = DeleteTagOption' {id = pId_}
 -- | The TagOption identifier.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delId :: Lens.Lens' DeleteTagOption Lude.Text
-delId = Lens.lens (id :: DeleteTagOption -> Lude.Text) (\s a -> s {id = a} :: DeleteTagOption)
-{-# DEPRECATED delId "Use generic-lens or generic-optics with 'id' instead." #-}
+dtofId :: Lens.Lens' DeleteTagOption Lude.Text
+dtofId = Lens.lens (id :: DeleteTagOption -> Lude.Text) (\s a -> s {id = a} :: DeleteTagOption)
+{-# DEPRECATED dtofId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DeleteTagOption where
   type Rs DeleteTagOption = DeleteTagOptionResponse
@@ -97,16 +95,10 @@ instance Lude.ToQuery DeleteTagOption where
 
 -- | /See:/ 'mkDeleteTagOptionResponse' smart constructor.
 newtype DeleteTagOptionResponse = DeleteTagOptionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTagOptionResponse' with the minimum fields required to make a request.
@@ -122,6 +114,6 @@ mkDeleteTagOptionResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtotrsResponseStatus :: Lens.Lens' DeleteTagOptionResponse Lude.Int
-dtotrsResponseStatus = Lens.lens (responseStatus :: DeleteTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTagOptionResponse)
-{-# DEPRECATED dtotrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtorsResponseStatus :: Lens.Lens' DeleteTagOptionResponse Lude.Int
+dtorsResponseStatus = Lens.lens (responseStatus :: DeleteTagOptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTagOptionResponse)
+{-# DEPRECATED dtorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

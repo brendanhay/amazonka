@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteNetworkInterface
     mkDeleteNetworkInterface,
 
     -- ** Request lenses
-    dninDryRun,
-    dninNetworkInterfaceId,
+    dnifNetworkInterfaceId,
+    dnifDryRun,
 
     -- * Destructuring the response
     DeleteNetworkInterfaceResponse (..),
@@ -38,46 +39,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteNetworkInterface' smart constructor.
 data DeleteNetworkInterface = DeleteNetworkInterface'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    networkInterfaceId :: Lude.Text
+  { -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkInterface' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteNetworkInterface ::
   -- | 'networkInterfaceId'
   Lude.Text ->
   DeleteNetworkInterface
 mkDeleteNetworkInterface pNetworkInterfaceId_ =
   DeleteNetworkInterface'
-    { dryRun = Lude.Nothing,
-      networkInterfaceId = pNetworkInterfaceId_
+    { networkInterfaceId =
+        pNetworkInterfaceId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dninDryRun :: Lens.Lens' DeleteNetworkInterface (Lude.Maybe Lude.Bool)
-dninDryRun = Lens.lens (dryRun :: DeleteNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNetworkInterface)
-{-# DEPRECATED dninDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the network interface.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dninNetworkInterfaceId :: Lens.Lens' DeleteNetworkInterface Lude.Text
-dninNetworkInterfaceId = Lens.lens (networkInterfaceId :: DeleteNetworkInterface -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: DeleteNetworkInterface)
-{-# DEPRECATED dninNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+dnifNetworkInterfaceId :: Lens.Lens' DeleteNetworkInterface Lude.Text
+dnifNetworkInterfaceId = Lens.lens (networkInterfaceId :: DeleteNetworkInterface -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: DeleteNetworkInterface)
+{-# DEPRECATED dnifNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnifDryRun :: Lens.Lens' DeleteNetworkInterface (Lude.Maybe Lude.Bool)
+dnifDryRun = Lens.lens (dryRun :: DeleteNetworkInterface -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteNetworkInterface)
+{-# DEPRECATED dnifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteNetworkInterface where
   type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
@@ -95,19 +92,13 @@ instance Lude.ToQuery DeleteNetworkInterface where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteNetworkInterface" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteNetworkInterfaceResponse' smart constructor.
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteNetworkInterfaceResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkUpdateSamplingRule' smart constructor.
 newtype UpdateSamplingRule = UpdateSamplingRule'
-  { samplingRuleUpdate ::
-      SamplingRuleUpdate
+  { -- | The rule and fields to change.
+    samplingRuleUpdate :: SamplingRuleUpdate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSamplingRule' with the minimum fields required to make a request.
@@ -97,23 +92,18 @@ instance Lude.ToQuery UpdateSamplingRule where
 
 -- | /See:/ 'mkUpdateSamplingRuleResponse' smart constructor.
 data UpdateSamplingRuleResponse = UpdateSamplingRuleResponse'
-  { samplingRuleRecord ::
-      Lude.Maybe SamplingRuleRecord,
+  { -- | The updated rule definition and metadata.
+    samplingRuleRecord :: Lude.Maybe SamplingRuleRecord,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSamplingRuleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'samplingRuleRecord' - The updated rule definition and metadata.
+-- * 'responseStatus' - The response status code.
 mkUpdateSamplingRuleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

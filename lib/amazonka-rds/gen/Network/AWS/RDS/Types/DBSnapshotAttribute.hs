@@ -31,27 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBSnapshotAttribute' smart constructor.
 data DBSnapshotAttribute = DBSnapshotAttribute'
-  { attributeValues ::
-      Lude.Maybe [Lude.Text],
+  { -- | The value or values for the manual DB snapshot attribute.
+    --
+    -- If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB snapshot. If a value of @all@ is in the list, then the manual DB snapshot is public and available for any AWS account to copy or restore.
+    attributeValues :: Lude.Maybe [Lude.Text],
+    -- | The name of the manual DB snapshot attribute.
+    --
+    -- The attribute named @restore@ refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the @ModifyDBSnapshotAttribute@ API action.
     attributeName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBSnapshotAttribute' with the minimum fields required to make a request.
 --
--- * 'attributeName' - The name of the manual DB snapshot attribute.
---
--- The attribute named @restore@ refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the @ModifyDBSnapshotAttribute@ API action.
 -- * 'attributeValues' - The value or values for the manual DB snapshot attribute.
 --
 -- If the @AttributeName@ field is set to @restore@ , then this element returns a list of IDs of the AWS accounts that are authorized to copy or restore the manual DB snapshot. If a value of @all@ is in the list, then the manual DB snapshot is public and available for any AWS account to copy or restore.
+-- * 'attributeName' - The name of the manual DB snapshot attribute.
+--
+-- The attribute named @restore@ refers to the list of AWS accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the @ModifyDBSnapshotAttribute@ API action.
 mkDBSnapshotAttribute ::
   DBSnapshotAttribute
 mkDBSnapshotAttribute =

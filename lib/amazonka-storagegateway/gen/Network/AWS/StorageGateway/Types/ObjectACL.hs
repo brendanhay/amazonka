@@ -13,13 +13,13 @@
 module Network.AWS.StorageGateway.Types.ObjectACL
   ( ObjectACL
       ( ObjectACL',
-        AWSExecRead,
-        AuthenticatedRead,
-        BucketOwnerFullControl,
-        BucketOwnerRead,
         Private,
         PublicRead,
-        PublicReadWrite
+        PublicReadWrite,
+        AuthenticatedRead,
+        BucketOwnerRead,
+        BucketOwnerFullControl,
+        AWSExecRead
       ),
   )
 where
@@ -51,18 +51,6 @@ newtype ObjectACL = ObjectACL' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWSExecRead :: ObjectACL
-pattern AWSExecRead = ObjectACL' "aws-exec-read"
-
-pattern AuthenticatedRead :: ObjectACL
-pattern AuthenticatedRead = ObjectACL' "authenticated-read"
-
-pattern BucketOwnerFullControl :: ObjectACL
-pattern BucketOwnerFullControl = ObjectACL' "bucket-owner-full-control"
-
-pattern BucketOwnerRead :: ObjectACL
-pattern BucketOwnerRead = ObjectACL' "bucket-owner-read"
-
 pattern Private :: ObjectACL
 pattern Private = ObjectACL' "private"
 
@@ -72,13 +60,25 @@ pattern PublicRead = ObjectACL' "public-read"
 pattern PublicReadWrite :: ObjectACL
 pattern PublicReadWrite = ObjectACL' "public-read-write"
 
+pattern AuthenticatedRead :: ObjectACL
+pattern AuthenticatedRead = ObjectACL' "authenticated-read"
+
+pattern BucketOwnerRead :: ObjectACL
+pattern BucketOwnerRead = ObjectACL' "bucket-owner-read"
+
+pattern BucketOwnerFullControl :: ObjectACL
+pattern BucketOwnerFullControl = ObjectACL' "bucket-owner-full-control"
+
+pattern AWSExecRead :: ObjectACL
+pattern AWSExecRead = ObjectACL' "aws-exec-read"
+
 {-# COMPLETE
-  AWSExecRead,
-  AuthenticatedRead,
-  BucketOwnerFullControl,
-  BucketOwnerRead,
   Private,
   PublicRead,
   PublicReadWrite,
+  AuthenticatedRead,
+  BucketOwnerRead,
+  BucketOwnerFullControl,
+  AWSExecRead,
   ObjectACL'
   #-}

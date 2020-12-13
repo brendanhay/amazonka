@@ -33,25 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSimpleCondition' smart constructor.
 data SimpleCondition = SimpleCondition'
-  { segmentDimensions ::
-      Lude.Maybe SegmentDimensions,
+  { -- | The dimension settings for the segment that's associated with the activity.
+    segmentDimensions :: Lude.Maybe SegmentDimensions,
+    -- | The dimension settings for the event that's associated with the activity.
     eventCondition :: Lude.Maybe EventCondition,
+    -- | The segment that's associated with the activity.
     segmentCondition :: Lude.Maybe SegmentCondition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SimpleCondition' with the minimum fields required to make a request.
 --
+-- * 'segmentDimensions' - The dimension settings for the segment that's associated with the activity.
 -- * 'eventCondition' - The dimension settings for the event that's associated with the activity.
 -- * 'segmentCondition' - The segment that's associated with the activity.
--- * 'segmentDimensions' - The dimension settings for the segment that's associated with the activity.
 mkSimpleCondition ::
   SimpleCondition
 mkSimpleCondition =

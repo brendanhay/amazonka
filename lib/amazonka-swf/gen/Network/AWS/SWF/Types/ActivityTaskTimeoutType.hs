@@ -13,10 +13,10 @@
 module Network.AWS.SWF.Types.ActivityTaskTimeoutType
   ( ActivityTaskTimeoutType
       ( ActivityTaskTimeoutType',
-        ATTTHeartbeat,
-        ATTTScheduleToClose,
+        ATTTStartToClose,
         ATTTScheduleToStart,
-        ATTTStartToClose
+        ATTTScheduleToClose,
+        ATTTHeartbeat
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ActivityTaskTimeoutType = ActivityTaskTimeoutType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ATTTHeartbeat :: ActivityTaskTimeoutType
-pattern ATTTHeartbeat = ActivityTaskTimeoutType' "HEARTBEAT"
-
-pattern ATTTScheduleToClose :: ActivityTaskTimeoutType
-pattern ATTTScheduleToClose = ActivityTaskTimeoutType' "SCHEDULE_TO_CLOSE"
+pattern ATTTStartToClose :: ActivityTaskTimeoutType
+pattern ATTTStartToClose = ActivityTaskTimeoutType' "START_TO_CLOSE"
 
 pattern ATTTScheduleToStart :: ActivityTaskTimeoutType
 pattern ATTTScheduleToStart = ActivityTaskTimeoutType' "SCHEDULE_TO_START"
 
-pattern ATTTStartToClose :: ActivityTaskTimeoutType
-pattern ATTTStartToClose = ActivityTaskTimeoutType' "START_TO_CLOSE"
+pattern ATTTScheduleToClose :: ActivityTaskTimeoutType
+pattern ATTTScheduleToClose = ActivityTaskTimeoutType' "SCHEDULE_TO_CLOSE"
+
+pattern ATTTHeartbeat :: ActivityTaskTimeoutType
+pattern ATTTHeartbeat = ActivityTaskTimeoutType' "HEARTBEAT"
 
 {-# COMPLETE
-  ATTTHeartbeat,
-  ATTTScheduleToClose,
-  ATTTScheduleToStart,
   ATTTStartToClose,
+  ATTTScheduleToStart,
+  ATTTScheduleToClose,
+  ATTTHeartbeat,
   ActivityTaskTimeoutType'
   #-}

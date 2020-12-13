@@ -38,32 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRouteTable' smart constructor.
 data RouteTable = RouteTable'
-  { routeTableId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the route table.
+    routeTableId :: Lude.Maybe Lude.Text,
+    -- | The routes in the route table.
     routes :: Lude.Maybe [Route],
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | Any virtual private gateway (VGW) propagating routes.
     propagatingVGWs :: Lude.Maybe [PropagatingVGW],
+    -- | The ID of the AWS account that owns the route table.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The associations between the route table and one or more subnets or a gateway.
     associations :: Lude.Maybe [RouteTableAssociation],
+    -- | Any tags assigned to the route table.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RouteTable' with the minimum fields required to make a request.
 --
--- * 'associations' - The associations between the route table and one or more subnets or a gateway.
--- * 'ownerId' - The ID of the AWS account that owns the route table.
--- * 'propagatingVGWs' - Any virtual private gateway (VGW) propagating routes.
 -- * 'routeTableId' - The ID of the route table.
 -- * 'routes' - The routes in the route table.
--- * 'tags' - Any tags assigned to the route table.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'propagatingVGWs' - Any virtual private gateway (VGW) propagating routes.
+-- * 'ownerId' - The ID of the AWS account that owns the route table.
+-- * 'associations' - The associations between the route table and one or more subnets or a gateway.
+-- * 'tags' - Any tags assigned to the route table.
 mkRouteTable ::
   RouteTable
 mkRouteTable =

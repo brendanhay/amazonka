@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.UploadSSHPublicKey
     mkUploadSSHPublicKey,
 
     -- ** Request lenses
-    usshpkUserName,
-    usshpkSSHPublicKeyBody,
+    uspkUserName,
+    uspkSSHPublicKeyBody,
 
     -- * Destructuring the response
     UploadSSHPublicKeyResponse (..),
@@ -42,21 +43,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUploadSSHPublicKey' smart constructor.
 data UploadSSHPublicKey = UploadSSHPublicKey'
-  { userName ::
-      Lude.Text,
+  { -- | The name of the IAM user to associate the SSH public key with.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text,
+    -- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
+    --
+    --     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+    --
+    --
+    --     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+    --
+    --
+    --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
     sshPublicKeyBody :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadSSHPublicKey' with the minimum fields required to make a request.
 --
+-- * 'userName' - The name of the IAM user to associate the SSH public key with.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'sshPublicKeyBody' - The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
@@ -68,11 +79,6 @@ data UploadSSHPublicKey = UploadSSHPublicKey'
 --
 --
 --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
---
---
--- * 'userName' - The name of the IAM user to associate the SSH public key with.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkUploadSSHPublicKey ::
   -- | 'userName'
   Lude.Text ->
@@ -90,9 +96,9 @@ mkUploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usshpkUserName :: Lens.Lens' UploadSSHPublicKey Lude.Text
-usshpkUserName = Lens.lens (userName :: UploadSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: UploadSSHPublicKey)
-{-# DEPRECATED usshpkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+uspkUserName :: Lens.Lens' UploadSSHPublicKey Lude.Text
+uspkUserName = Lens.lens (userName :: UploadSSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: UploadSSHPublicKey)
+{-# DEPRECATED uspkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The SSH public key. The public key must be encoded in ssh-rsa format or PEM format. The minimum bit-length of the public key is 2048 bits. For example, you can generate a 2048-bit key, and the resulting PEM file is 1679 bytes long.
 --
@@ -109,9 +115,9 @@ usshpkUserName = Lens.lens (userName :: UploadSSHPublicKey -> Lude.Text) (\s a -
 --
 --
 -- /Note:/ Consider using 'sshPublicKeyBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usshpkSSHPublicKeyBody :: Lens.Lens' UploadSSHPublicKey Lude.Text
-usshpkSSHPublicKeyBody = Lens.lens (sshPublicKeyBody :: UploadSSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyBody = a} :: UploadSSHPublicKey)
-{-# DEPRECATED usshpkSSHPublicKeyBody "Use generic-lens or generic-optics with 'sshPublicKeyBody' instead." #-}
+uspkSSHPublicKeyBody :: Lens.Lens' UploadSSHPublicKey Lude.Text
+uspkSSHPublicKeyBody = Lens.lens (sshPublicKeyBody :: UploadSSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyBody = a} :: UploadSSHPublicKey)
+{-# DEPRECATED uspkSSHPublicKeyBody "Use generic-lens or generic-optics with 'sshPublicKeyBody' instead." #-}
 
 instance Lude.AWSRequest UploadSSHPublicKey where
   type Rs UploadSSHPublicKey = UploadSSHPublicKeyResponse
@@ -143,23 +149,18 @@ instance Lude.ToQuery UploadSSHPublicKey where
 --
 -- /See:/ 'mkUploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
-  { sshPublicKey ::
-      Lude.Maybe SSHPublicKey,
+  { -- | Contains information about the SSH public key.
+    sshPublicKey :: Lude.Maybe SSHPublicKey,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UploadSSHPublicKeyResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sshPublicKey' - Contains information about the SSH public key.
+-- * 'responseStatus' - The response status code.
 mkUploadSSHPublicKeyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

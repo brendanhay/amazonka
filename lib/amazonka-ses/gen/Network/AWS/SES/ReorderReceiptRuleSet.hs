@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.SES.ReorderReceiptRuleSet
     mkReorderReceiptRuleSet,
 
     -- ** Request lenses
-    rrrsRuleSetName,
     rrrsRuleNames,
+    rrrsRuleSetName,
 
     -- * Destructuring the response
     ReorderReceiptRuleSetResponse (..),
@@ -44,17 +45,12 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkReorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
-  { ruleSetName ::
-      Lude.Text,
-    ruleNames :: [Lude.Text]
+  { -- | A list of the specified receipt rule set's receipt rules in the order that you want to put them.
+    ruleNames :: [Lude.Text],
+    -- | The name of the receipt rule set to reorder.
+    ruleSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReorderReceiptRuleSet' with the minimum fields required to make a request.
@@ -67,16 +63,9 @@ mkReorderReceiptRuleSet ::
   ReorderReceiptRuleSet
 mkReorderReceiptRuleSet pRuleSetName_ =
   ReorderReceiptRuleSet'
-    { ruleSetName = pRuleSetName_,
-      ruleNames = Lude.mempty
+    { ruleNames = Lude.mempty,
+      ruleSetName = pRuleSetName_
     }
-
--- | The name of the receipt rule set to reorder.
---
--- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrrsRuleSetName :: Lens.Lens' ReorderReceiptRuleSet Lude.Text
-rrrsRuleSetName = Lens.lens (ruleSetName :: ReorderReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: ReorderReceiptRuleSet)
-{-# DEPRECATED rrrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | A list of the specified receipt rule set's receipt rules in the order that you want to put them.
 --
@@ -84,6 +73,13 @@ rrrsRuleSetName = Lens.lens (ruleSetName :: ReorderReceiptRuleSet -> Lude.Text) 
 rrrsRuleNames :: Lens.Lens' ReorderReceiptRuleSet [Lude.Text]
 rrrsRuleNames = Lens.lens (ruleNames :: ReorderReceiptRuleSet -> [Lude.Text]) (\s a -> s {ruleNames = a} :: ReorderReceiptRuleSet)
 {-# DEPRECATED rrrsRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
+
+-- | The name of the receipt rule set to reorder.
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrrsRuleSetName :: Lens.Lens' ReorderReceiptRuleSet Lude.Text
+rrrsRuleSetName = Lens.lens (ruleSetName :: ReorderReceiptRuleSet -> Lude.Text) (\s a -> s {ruleSetName = a} :: ReorderReceiptRuleSet)
+{-# DEPRECATED rrrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 instance Lude.AWSRequest ReorderReceiptRuleSet where
   type Rs ReorderReceiptRuleSet = ReorderReceiptRuleSetResponse
@@ -107,24 +103,18 @@ instance Lude.ToQuery ReorderReceiptRuleSet where
     Lude.mconcat
       [ "Action" Lude.=: ("ReorderReceiptRuleSet" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "RuleSetName" Lude.=: ruleSetName,
-        "RuleNames" Lude.=: Lude.toQueryList "member" ruleNames
+        "RuleNames" Lude.=: Lude.toQueryList "member" ruleNames,
+        "RuleSetName" Lude.=: ruleSetName
       ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkReorderReceiptRuleSetResponse' smart constructor.
 newtype ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReorderReceiptRuleSetResponse' with the minimum fields required to make a request.

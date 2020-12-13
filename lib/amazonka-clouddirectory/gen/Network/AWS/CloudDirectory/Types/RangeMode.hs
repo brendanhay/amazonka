@@ -13,11 +13,11 @@
 module Network.AWS.CloudDirectory.Types.RangeMode
   ( RangeMode
       ( RangeMode',
-        Exclusive,
         First,
-        Inclusive,
         Last,
-        LastBeforeMissingValues
+        LastBeforeMissingValues,
+        Inclusive,
+        Exclusive
       ),
   )
 where
@@ -48,14 +48,8 @@ newtype RangeMode = RangeMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Exclusive :: RangeMode
-pattern Exclusive = RangeMode' "EXCLUSIVE"
-
 pattern First :: RangeMode
 pattern First = RangeMode' "FIRST"
-
-pattern Inclusive :: RangeMode
-pattern Inclusive = RangeMode' "INCLUSIVE"
 
 pattern Last :: RangeMode
 pattern Last = RangeMode' "LAST"
@@ -63,11 +57,17 @@ pattern Last = RangeMode' "LAST"
 pattern LastBeforeMissingValues :: RangeMode
 pattern LastBeforeMissingValues = RangeMode' "LAST_BEFORE_MISSING_VALUES"
 
+pattern Inclusive :: RangeMode
+pattern Inclusive = RangeMode' "INCLUSIVE"
+
+pattern Exclusive :: RangeMode
+pattern Exclusive = RangeMode' "EXCLUSIVE"
+
 {-# COMPLETE
-  Exclusive,
   First,
-  Inclusive,
   Last,
   LastBeforeMissingValues,
+  Inclusive,
+  Exclusive,
   RangeMode'
   #-}

@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchStatementError' smart constructor.
 data BatchStatementError = BatchStatementError'
-  { code ::
-      Lude.Maybe BatchStatementErrorCodeEnum,
+  { -- | The error code associated with the failed PartiQL batch statement.
+    code :: Lude.Maybe BatchStatementErrorCodeEnum,
+    -- | The error message associated with the PartiQL batch resposne.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchStatementError' with the minimum fields required to make a request.

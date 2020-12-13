@@ -13,7 +13,7 @@
 module Network.AWS.IoT.Types.AlertTargetType
   ( AlertTargetType
       ( AlertTargetType',
-        SNS
+        ATTSNS
       ),
   )
 where
@@ -45,10 +45,10 @@ newtype AlertTargetType = AlertTargetType' Lude.Text
       Lude.ToHeader
     )
 
-pattern SNS :: AlertTargetType
-pattern SNS = AlertTargetType' "SNS"
+pattern ATTSNS :: AlertTargetType
+pattern ATTSNS = AlertTargetType' "SNS"
 
 {-# COMPLETE
-  SNS,
+  ATTSNS,
   AlertTargetType'
   #-}

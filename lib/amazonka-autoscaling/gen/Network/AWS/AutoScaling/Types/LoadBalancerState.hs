@@ -32,22 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
-  { state ::
-      Lude.Maybe Lude.Text,
+  { -- | One of the following load balancer states:
+    --
+    --
+    --     * @Adding@ - The instances in the group are being registered with the load balancer.
+    --
+    --
+    --     * @Added@ - All instances in the group are registered with the load balancer.
+    --
+    --
+    --     * @InService@ - At least one instance in the group passed an ELB health check.
+    --
+    --
+    --     * @Removing@ - The instances in the group are being deregistered from the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.
+    --
+    --
+    --     * @Removed@ - All instances in the group are deregistered from the load balancer.
+    state :: Lude.Maybe Lude.Text,
+    -- | The name of the load balancer.
     loadBalancerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerState' with the minimum fields required to make a request.
 --
--- * 'loadBalancerName' - The name of the load balancer.
 -- * 'state' - One of the following load balancer states:
 --
 --
@@ -64,6 +73,9 @@ data LoadBalancerState = LoadBalancerState'
 --
 --
 --     * @Removed@ - All instances in the group are deregistered from the load balancer.
+--
+--
+-- * 'loadBalancerName' - The name of the load balancer.
 mkLoadBalancerState ::
   LoadBalancerState
 mkLoadBalancerState =

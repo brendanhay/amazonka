@@ -94,19 +94,19 @@ module Network.AWS.AppStream.Types
     -- * Application
     Application (..),
     mkApplication,
-    appEnabled,
-    appLaunchPath,
-    appLaunchParameters,
-    appName,
-    appDisplayName,
-    appMetadata,
-    appIconURL,
+    afEnabled,
+    afLaunchPath,
+    afLaunchParameters,
+    afName,
+    afDisplayName,
+    afMetadata,
+    afIconURL,
 
     -- * ApplicationSettings
     ApplicationSettings (..),
     mkApplicationSettings,
-    aSettingsGroup,
     aEnabled,
+    aSettingsGroup,
 
     -- * ApplicationSettingsResponse
     ApplicationSettingsResponse (..),
@@ -124,9 +124,9 @@ module Network.AWS.AppStream.Types
     ComputeCapacityStatus (..),
     mkComputeCapacityStatus,
     ccsInUse,
+    ccsDesired,
     ccsRunning,
     ccsAvailable,
-    ccsDesired,
 
     -- * DirectoryConfig
     DirectoryConfig (..),
@@ -147,24 +147,24 @@ module Network.AWS.AppStream.Types
     mkFleet,
     fDomainJoinInfo,
     fIAMRoleARN,
+    fState,
     fDisconnectTimeoutInSeconds,
     fMaxUserDurationInSeconds,
+    fARN,
     fCreatedTime,
     fIdleDisconnectTimeoutInSeconds,
     fFleetType,
+    fInstanceType,
     fVPCConfig,
+    fName,
     fImageARN,
+    fComputeCapacityStatus,
     fFleetErrors,
     fDisplayName,
     fEnableDefaultInternetAccess,
     fImageName,
     fDescription,
     fStreamView,
-    fARN,
-    fName,
-    fInstanceType,
-    fComputeCapacityStatus,
-    fState,
 
     -- * FleetError
     FleetError (..),
@@ -186,11 +186,11 @@ module Network.AWS.AppStream.Types
     iVisibility,
     iImageBuilderName,
     iBaseImageARN,
+    iName,
     iDisplayName,
     iDescription,
     iAppstreamAgentVersion,
     iApplications,
-    iName,
 
     -- * ImageBuilder
     ImageBuilder (..),
@@ -207,12 +207,12 @@ module Network.AWS.AppStream.Types
     ibInstanceType,
     ibAccessEndpoints,
     ibVPCConfig,
+    ibName,
     ibImageARN,
     ibDisplayName,
     ibEnableDefaultInternetAccess,
     ibDescription,
     ibAppstreamAgentVersion,
-    ibName,
 
     -- * ImageBuilderStateChangeReason
     ImageBuilderStateChangeReason (..),
@@ -260,22 +260,22 @@ module Network.AWS.AppStream.Types
     -- * Session
     Session (..),
     mkSession,
+    sState,
     sNetworkAccessConfiguration,
     sMaxExpirationTime,
     sStartTime,
+    sUserId,
+    sId,
     sAuthenticationType,
     sConnectionState,
-    sId,
-    sUserId,
-    sStackName,
     sFleetName,
-    sState,
+    sStackName,
 
     -- * SharedImagePermissions
     SharedImagePermissions (..),
     mkSharedImagePermissions,
-    sipSharedAccountId,
     sipImagePermissions,
+    sipSharedAccountId,
 
     -- * Stack
     Stack (..),
@@ -287,12 +287,12 @@ module Network.AWS.AppStream.Types
     sCreatedTime,
     sStorageConnectors,
     sAccessEndpoints,
+    sName,
     sDisplayName,
     sStackErrors,
     sEmbedHostDomains,
     sDescription,
     sRedirectURL,
-    sName,
 
     -- * StackError
     StackError (..),
@@ -303,9 +303,9 @@ module Network.AWS.AppStream.Types
     -- * StorageConnector
     StorageConnector (..),
     mkStorageConnector,
+    scConnectorType,
     scDomains,
     scResourceIdentifier,
-    scConnectorType,
 
     -- * UsageReportSubscription
     UsageReportSubscription (..),
@@ -336,10 +336,10 @@ module Network.AWS.AppStream.Types
     -- * UserStackAssociation
     UserStackAssociation (..),
     mkUserStackAssociation,
-    usaSendEmailNotification,
-    usaStackName,
     usaUserName,
+    usaSendEmailNotification,
     usaAuthenticationType,
+    usaStackName,
 
     -- * UserStackAssociationError
     UserStackAssociationError (..),

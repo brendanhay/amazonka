@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,9 +31,9 @@ module Network.AWS.Firehose.ListDeliveryStreams
     mkListDeliveryStreamsResponse,
 
     -- ** Response lenses
-    ldsrsResponseStatus,
     ldsrsDeliveryStreamNames,
     ldsrsHasMoreDeliveryStreams,
+    ldsrsResponseStatus,
   )
 where
 
@@ -44,23 +45,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDeliveryStreams' smart constructor.
 data ListDeliveryStreams = ListDeliveryStreams'
-  { limit ::
-      Lude.Maybe Lude.Natural,
+  { -- | The maximum number of delivery streams to list. The default value is 10.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The delivery stream type. This can be one of the following values:
+    --
+    --
+    --     * @DirectPut@ : Provider applications access the delivery stream directly.
+    --
+    --
+    --     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source.
+    --
+    --
+    -- This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
     deliveryStreamType :: Lude.Maybe DeliveryStreamType,
-    exclusiveStartDeliveryStreamName ::
-      Lude.Maybe Lude.Text
+    -- | The list of delivery streams returned by this call to @ListDeliveryStreams@ will start with the delivery stream whose name comes alphabetically immediately after the name you specify in @ExclusiveStartDeliveryStreamName@ .
+    exclusiveStartDeliveryStreamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeliveryStreams' with the minimum fields required to make a request.
 --
+-- * 'limit' - The maximum number of delivery streams to list. The default value is 10.
 -- * 'deliveryStreamType' - The delivery stream type. This can be one of the following values:
 --
 --
@@ -72,7 +78,6 @@ data ListDeliveryStreams = ListDeliveryStreams'
 --
 -- This parameter is optional. If this parameter is omitted, delivery streams of all types are returned.
 -- * 'exclusiveStartDeliveryStreamName' - The list of delivery streams returned by this call to @ListDeliveryStreams@ will start with the delivery stream whose name comes alphabetically immediately after the name you specify in @ExclusiveStartDeliveryStreamName@ .
--- * 'limit' - The maximum number of delivery streams to list. The default value is 10.
 mkListDeliveryStreams ::
   ListDeliveryStreams
 mkListDeliveryStreams =
@@ -119,9 +124,9 @@ instance Lude.AWSRequest ListDeliveryStreams where
     Res.receiveJSON
       ( \s h x ->
           ListDeliveryStreamsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "DeliveryStreamNames" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "DeliveryStreamNames" Lude..!@ Lude.mempty)
             Lude.<*> (x Lude..:> "HasMoreDeliveryStreams")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListDeliveryStreams where
@@ -154,18 +159,14 @@ instance Lude.ToQuery ListDeliveryStreams where
 
 -- | /See:/ 'mkListDeliveryStreamsResponse' smart constructor.
 data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
-  { responseStatus ::
-      Lude.Int,
+  { -- | The names of the delivery streams.
     deliveryStreamNames :: [Lude.Text],
-    hasMoreDeliveryStreams :: Lude.Bool
+    -- | Indicates whether there are more delivery streams available to list.
+    hasMoreDeliveryStreams :: Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeliveryStreamsResponse' with the minimum fields required to make a request.
@@ -174,26 +175,19 @@ data ListDeliveryStreamsResponse = ListDeliveryStreamsResponse'
 -- * 'hasMoreDeliveryStreams' - Indicates whether there are more delivery streams available to list.
 -- * 'responseStatus' - The response status code.
 mkListDeliveryStreamsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'hasMoreDeliveryStreams'
   Lude.Bool ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDeliveryStreamsResponse
 mkListDeliveryStreamsResponse
-  pResponseStatus_
-  pHasMoreDeliveryStreams_ =
+  pHasMoreDeliveryStreams_
+  pResponseStatus_ =
     ListDeliveryStreamsResponse'
-      { responseStatus = pResponseStatus_,
-        deliveryStreamNames = Lude.mempty,
-        hasMoreDeliveryStreams = pHasMoreDeliveryStreams_
+      { deliveryStreamNames = Lude.mempty,
+        hasMoreDeliveryStreams = pHasMoreDeliveryStreams_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldsrsResponseStatus :: Lens.Lens' ListDeliveryStreamsResponse Lude.Int
-ldsrsResponseStatus = Lens.lens (responseStatus :: ListDeliveryStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeliveryStreamsResponse)
-{-# DEPRECATED ldsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The names of the delivery streams.
 --
@@ -208,3 +202,10 @@ ldsrsDeliveryStreamNames = Lens.lens (deliveryStreamNames :: ListDeliveryStreams
 ldsrsHasMoreDeliveryStreams :: Lens.Lens' ListDeliveryStreamsResponse Lude.Bool
 ldsrsHasMoreDeliveryStreams = Lens.lens (hasMoreDeliveryStreams :: ListDeliveryStreamsResponse -> Lude.Bool) (\s a -> s {hasMoreDeliveryStreams = a} :: ListDeliveryStreamsResponse)
 {-# DEPRECATED ldsrsHasMoreDeliveryStreams "Use generic-lens or generic-optics with 'hasMoreDeliveryStreams' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldsrsResponseStatus :: Lens.Lens' ListDeliveryStreamsResponse Lude.Int
+ldsrsResponseStatus = Lens.lens (responseStatus :: ListDeliveryStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeliveryStreamsResponse)
+{-# DEPRECATED ldsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -36,35 +36,36 @@ import Network.AWS.RDS.Types.Option
 --
 -- /See:/ 'mkOptionGroup' smart constructor.
 data OptionGroup = OptionGroup'
-  { optionGroupDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | Provides a description of the option group.
+    optionGroupDescription :: Lude.Maybe Lude.Text,
+    -- | If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether this option group can be applied to both VPC and non-VPC instances. The value @true@ indicates the option group can be applied to both VPC and non-VPC instances.
     allowsVPCAndNonVPCInstanceMemberships :: Lude.Maybe Lude.Bool,
+    -- | Indicates the name of the engine that this option group can be applied to.
     engineName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the option group.
     optionGroupARN :: Lude.Maybe Lude.Text,
+    -- | Indicates the major engine version associated with this option group.
     majorEngineVersion :: Lude.Maybe Lude.Text,
+    -- | Indicates what options are available in the option group.
     options :: Lude.Maybe [Option],
+    -- | Specifies the name of the option group.
     optionGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionGroup' with the minimum fields required to make a request.
 --
+-- * 'optionGroupDescription' - Provides a description of the option group.
+-- * 'vpcId' - If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
 -- * 'allowsVPCAndNonVPCInstanceMemberships' - Indicates whether this option group can be applied to both VPC and non-VPC instances. The value @true@ indicates the option group can be applied to both VPC and non-VPC instances.
 -- * 'engineName' - Indicates the name of the engine that this option group can be applied to.
--- * 'majorEngineVersion' - Indicates the major engine version associated with this option group.
 -- * 'optionGroupARN' - The Amazon Resource Name (ARN) for the option group.
--- * 'optionGroupDescription' - Provides a description of the option group.
--- * 'optionGroupName' - Specifies the name of the option group.
+-- * 'majorEngineVersion' - Indicates the major engine version associated with this option group.
 -- * 'options' - Indicates what options are available in the option group.
--- * 'vpcId' - If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@ , this field is blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this field is blank, then this option group can be applied to both VPC and non-VPC instances. If this field contains a value, then this option group can only be applied to instances that are in the VPC indicated by this field.
+-- * 'optionGroupName' - Specifies the name of the option group.
 mkOptionGroup ::
   OptionGroup
 mkOptionGroup =

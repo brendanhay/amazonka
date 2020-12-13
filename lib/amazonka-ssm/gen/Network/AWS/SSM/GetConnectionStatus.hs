@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetConnectionStatus' smart constructor.
 newtype GetConnectionStatus = GetConnectionStatus'
-  { target ::
-      Lude.Text
+  { -- | The ID of the instance.
+    target :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionStatus' with the minimum fields required to make a request.
@@ -105,25 +100,21 @@ instance Lude.ToQuery GetConnectionStatus where
 
 -- | /See:/ 'mkGetConnectionStatusResponse' smart constructor.
 data GetConnectionStatusResponse = GetConnectionStatusResponse'
-  { status ::
-      Lude.Maybe ConnectionStatus,
+  { -- | The status of the connection to the instance. For example, 'Connected' or 'Not Connected'.
+    status :: Lude.Maybe ConnectionStatus,
+    -- | The ID of the instance to check connection status.
     target :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionStatusResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the connection to the instance. For example, 'Connected' or 'Not Connected'.
 -- * 'target' - The ID of the instance to check connection status.
+-- * 'responseStatus' - The response status code.
 mkGetConnectionStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

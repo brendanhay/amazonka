@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetRegexPatternSet' smart constructor.
 newtype GetRegexPatternSet = GetRegexPatternSet'
-  { regexPatternSetId ::
-      Lude.Text
+  { -- | The @RegexPatternSetId@ of the 'RegexPatternSet' that you want to get. @RegexPatternSetId@ is returned by 'CreateRegexPatternSet' and by 'ListRegexPatternSets' .
+    regexPatternSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegexPatternSet' with the minimum fields required to make a request.
@@ -105,17 +100,12 @@ instance Lude.ToQuery GetRegexPatternSet where
 
 -- | /See:/ 'mkGetRegexPatternSetResponse' smart constructor.
 data GetRegexPatternSetResponse = GetRegexPatternSetResponse'
-  { regexPatternSet ::
-      Lude.Maybe RegexPatternSet,
+  { -- | Information about the 'RegexPatternSet' that you specified in the @GetRegexPatternSet@ request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for.
+    regexPatternSet :: Lude.Maybe RegexPatternSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegexPatternSetResponse' with the minimum fields required to make a request.

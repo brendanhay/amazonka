@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGroupCertificateAuthorities' smart constructor.
 newtype ListGroupCertificateAuthorities = ListGroupCertificateAuthorities'
-  { groupId ::
-      Lude.Text
+  { -- | The ID of the Greengrass group.
+    groupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupCertificateAuthorities' with the minimum fields required to make a request.
@@ -103,19 +98,12 @@ instance Lude.ToQuery ListGroupCertificateAuthorities where
 
 -- | /See:/ 'mkListGroupCertificateAuthoritiesResponse' smart constructor.
 data ListGroupCertificateAuthoritiesResponse = ListGroupCertificateAuthoritiesResponse'
-  { groupCertificateAuthorities ::
-      Lude.Maybe
-        [GroupCertificateAuthorityProperties],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of certificate authorities associated with the group.
+    groupCertificateAuthorities :: Lude.Maybe [GroupCertificateAuthorityProperties],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupCertificateAuthoritiesResponse' with the minimum fields required to make a request.

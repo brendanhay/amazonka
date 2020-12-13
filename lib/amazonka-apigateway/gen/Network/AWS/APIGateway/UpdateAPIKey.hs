@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.UpdateAPIKey
     mkUpdateAPIKey,
 
     -- ** Request lenses
-    uakPatchOperations,
     uakApiKey,
+    uakPatchOperations,
 
     -- * Destructuring the response
     APIKey (..),
@@ -50,17 +51,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateAPIKey' smart constructor.
 data UpdateAPIKey = UpdateAPIKey'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
-    apiKey :: Lude.Text
+  { -- | [Required] The identifier of the 'ApiKey' resource to be updated.
+    apiKey :: Lude.Text,
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAPIKey' with the minimum fields required to make a request.
@@ -72,14 +68,7 @@ mkUpdateAPIKey ::
   Lude.Text ->
   UpdateAPIKey
 mkUpdateAPIKey pApiKey_ =
-  UpdateAPIKey' {patchOperations = Lude.Nothing, apiKey = pApiKey_}
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uakPatchOperations :: Lens.Lens' UpdateAPIKey (Lude.Maybe [PatchOperation])
-uakPatchOperations = Lens.lens (patchOperations :: UpdateAPIKey -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateAPIKey)
-{-# DEPRECATED uakPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
+  UpdateAPIKey' {apiKey = pApiKey_, patchOperations = Lude.Nothing}
 
 -- | [Required] The identifier of the 'ApiKey' resource to be updated.
 --
@@ -87,6 +76,13 @@ uakPatchOperations = Lens.lens (patchOperations :: UpdateAPIKey -> Lude.Maybe [P
 uakApiKey :: Lens.Lens' UpdateAPIKey Lude.Text
 uakApiKey = Lens.lens (apiKey :: UpdateAPIKey -> Lude.Text) (\s a -> s {apiKey = a} :: UpdateAPIKey)
 {-# DEPRECATED uakApiKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uakPatchOperations :: Lens.Lens' UpdateAPIKey (Lude.Maybe [PatchOperation])
+uakPatchOperations = Lens.lens (patchOperations :: UpdateAPIKey -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateAPIKey)
+{-# DEPRECATED uakPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateAPIKey where
   type Rs UpdateAPIKey = APIKey

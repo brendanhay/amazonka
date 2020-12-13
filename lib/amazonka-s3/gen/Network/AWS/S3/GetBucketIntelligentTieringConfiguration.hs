@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,18 +54,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetBucketIntelligentTieringConfiguration' smart constructor.
 data GetBucketIntelligentTieringConfiguration = GetBucketIntelligentTieringConfiguration'
-  { bucket ::
-      BucketName,
-    id ::
-      Lude.Text
+  { -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
+    bucket :: BucketName,
+    -- | The ID used to identify the S3 Intelligent-Tiering configuration.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketIntelligentTieringConfiguration' with the minimum fields required to make a request.
@@ -122,23 +117,13 @@ instance Lude.ToQuery GetBucketIntelligentTieringConfiguration where
 
 -- | /See:/ 'mkGetBucketIntelligentTieringConfigurationResponse' smart constructor.
 data GetBucketIntelligentTieringConfigurationResponse = GetBucketIntelligentTieringConfigurationResponse'
-  { intelligentTieringConfiguration ::
-      Lude.Maybe
-        IntelligentTieringConfiguration,
-    responseStatus ::
-      Lude.Int
+  { -- | Container for S3 Intelligent-Tiering configuration.
+    intelligentTieringConfiguration :: Lude.Maybe IntelligentTieringConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBucketIntelligentTieringConfigurationResponse' with the minimum fields required to make a request.
 --

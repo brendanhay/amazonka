@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,17 +45,12 @@ import Network.AWS.SDB.Types
 
 -- | /See:/ 'mkListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { maxNumberOfDomains ::
-      Lude.Maybe Lude.Int,
+  { -- | The maximum number of domain names you want returned. The range is 1 to 100. The default setting is 100.
+    maxNumberOfDomains :: Lude.Maybe Lude.Int,
+    -- | A string informing Amazon SimpleDB where to start the next list of domain names.
     nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
@@ -122,18 +118,14 @@ instance Lude.ToQuery ListDomains where
 
 -- | /See:/ 'mkListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { domainNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of domain names that match the expression.
+    domainNames :: Lude.Maybe [Lude.Text],
+    -- | @MaxNumberOfDomains@
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.

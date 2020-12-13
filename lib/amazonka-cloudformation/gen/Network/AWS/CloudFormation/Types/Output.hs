@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { outputValue :: Lude.Maybe Lude.Text,
+  { -- | The value associated with the output.
+    outputValue :: Lude.Maybe Lude.Text,
+    -- | The key associated with the output.
     outputKey :: Lude.Maybe Lude.Text,
+    -- | The name of the export associated with the output.
     exportName :: Lude.Maybe Lude.Text,
+    -- | User defined description associated with the output.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Output' with the minimum fields required to make a request.
 --
--- * 'description' - User defined description associated with the output.
--- * 'exportName' - The name of the export associated with the output.
--- * 'outputKey' - The key associated with the output.
 -- * 'outputValue' - The value associated with the output.
+-- * 'outputKey' - The key associated with the output.
+-- * 'exportName' - The name of the export associated with the output.
+-- * 'description' - User defined description associated with the output.
 mkOutput ::
   Output
 mkOutput =

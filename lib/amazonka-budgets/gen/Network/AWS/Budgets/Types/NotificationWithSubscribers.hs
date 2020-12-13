@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotificationWithSubscribers' smart constructor.
 data NotificationWithSubscribers = NotificationWithSubscribers'
-  { notification ::
-      Notification,
-    subscribers ::
-      Lude.NonEmpty Subscriber
+  { -- | The notification that is associated with a budget.
+    notification :: Notification,
+    -- | A list of subscribers who are subscribed to this notification.
+    subscribers :: Lude.NonEmpty Subscriber
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)

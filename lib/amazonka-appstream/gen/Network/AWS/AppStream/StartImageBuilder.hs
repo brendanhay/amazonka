@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppStream.StartImageBuilder
     mkStartImageBuilder,
 
     -- ** Request lenses
-    sibAppstreamAgentVersion,
     sibName,
+    sibAppstreamAgentVersion,
 
     -- * Destructuring the response
     StartImageBuilderResponse (..),
@@ -40,39 +41,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartImageBuilder' smart constructor.
 data StartImageBuilder = StartImageBuilder'
-  { appstreamAgentVersion ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the image builder.
+    name :: Lude.Text,
+    -- | The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+    appstreamAgentVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImageBuilder' with the minimum fields required to make a request.
 --
--- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 -- * 'name' - The name of the image builder.
+-- * 'appstreamAgentVersion' - The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 mkStartImageBuilder ::
   -- | 'name'
   Lude.Text ->
   StartImageBuilder
 mkStartImageBuilder pName_ =
   StartImageBuilder'
-    { appstreamAgentVersion = Lude.Nothing,
-      name = pName_
+    { name = pName_,
+      appstreamAgentVersion = Lude.Nothing
     }
-
--- | The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
---
--- /Note:/ Consider using 'appstreamAgentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sibAppstreamAgentVersion :: Lens.Lens' StartImageBuilder (Lude.Maybe Lude.Text)
-sibAppstreamAgentVersion = Lens.lens (appstreamAgentVersion :: StartImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {appstreamAgentVersion = a} :: StartImageBuilder)
-{-# DEPRECATED sibAppstreamAgentVersion "Use generic-lens or generic-optics with 'appstreamAgentVersion' instead." #-}
 
 -- | The name of the image builder.
 --
@@ -80,6 +69,13 @@ sibAppstreamAgentVersion = Lens.lens (appstreamAgentVersion :: StartImageBuilder
 sibName :: Lens.Lens' StartImageBuilder Lude.Text
 sibName = Lens.lens (name :: StartImageBuilder -> Lude.Text) (\s a -> s {name = a} :: StartImageBuilder)
 {-# DEPRECATED sibName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+--
+-- /Note:/ Consider using 'appstreamAgentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sibAppstreamAgentVersion :: Lens.Lens' StartImageBuilder (Lude.Maybe Lude.Text)
+sibAppstreamAgentVersion = Lens.lens (appstreamAgentVersion :: StartImageBuilder -> Lude.Maybe Lude.Text) (\s a -> s {appstreamAgentVersion = a} :: StartImageBuilder)
+{-# DEPRECATED sibAppstreamAgentVersion "Use generic-lens or generic-optics with 'appstreamAgentVersion' instead." #-}
 
 instance Lude.AWSRequest StartImageBuilder where
   type Rs StartImageBuilder = StartImageBuilderResponse
@@ -106,8 +102,8 @@ instance Lude.ToJSON StartImageBuilder where
   toJSON StartImageBuilder' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AppstreamAgentVersion" Lude..=) Lude.<$> appstreamAgentVersion,
-            Lude.Just ("Name" Lude..= name)
+          [ Lude.Just ("Name" Lude..= name),
+            ("AppstreamAgentVersion" Lude..=) Lude.<$> appstreamAgentVersion
           ]
       )
 
@@ -119,17 +115,12 @@ instance Lude.ToQuery StartImageBuilder where
 
 -- | /See:/ 'mkStartImageBuilderResponse' smart constructor.
 data StartImageBuilderResponse = StartImageBuilderResponse'
-  { imageBuilder ::
-      Lude.Maybe ImageBuilder,
+  { -- | Information about the image builder.
+    imageBuilder :: Lude.Maybe ImageBuilder,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartImageBuilderResponse' with the minimum fields required to make a request.

@@ -35,22 +35,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientVPNAuthentication' smart constructor.
 data ClientVPNAuthentication = ClientVPNAuthentication'
-  { activeDirectory ::
-      Lude.Maybe DirectoryServiceAuthentication,
-    federatedAuthentication ::
-      Lude.Maybe FederatedAuthentication,
-    mutualAuthentication ::
-      Lude.Maybe CertificateAuthentication,
-    type' ::
-      Lude.Maybe ClientVPNAuthenticationType
+  { -- | Information about the Active Directory, if applicable.
+    activeDirectory :: Lude.Maybe DirectoryServiceAuthentication,
+    -- | Information about the IAM SAML identity provider, if applicable.
+    federatedAuthentication :: Lude.Maybe FederatedAuthentication,
+    -- | Information about the authentication certificates, if applicable.
+    mutualAuthentication :: Lude.Maybe CertificateAuthentication,
+    -- | The authentication type used.
+    type' :: Lude.Maybe ClientVPNAuthenticationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNAuthentication' with the minimum fields required to make a request.

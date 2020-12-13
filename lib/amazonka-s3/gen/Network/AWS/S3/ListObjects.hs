@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,12 +43,12 @@ module Network.AWS.S3.ListObjects
     -- ** Request lenses
     loPrefix,
     loEncodingType,
+    loBucket,
     loRequestPayer,
     loMarker,
     loMaxKeys,
     loDelimiter,
     loExpectedBucketOwner,
-    loBucket,
 
     -- * Destructuring the response
     ListObjectsResponse (..),
@@ -77,37 +78,41 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkListObjects' smart constructor.
 data ListObjects = ListObjects'
-  { prefix :: Lude.Maybe Lude.Text,
+  { -- | Limits the response to keys that begin with the specified prefix.
+    prefix :: Lude.Maybe Lude.Text,
     encodingType :: Lude.Maybe EncodingType,
+    -- | The name of the bucket containing the objects.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: BucketName,
+    -- | Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
     requestPayer :: Lude.Maybe RequestPayer,
+    -- | Specifies the key to start with when listing objects in a bucket.
     marker :: Lude.Maybe Lude.Text,
+    -- | Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.
     maxKeys :: Lude.Maybe Lude.Int,
+    -- | A delimiter is a character you use to group keys.
     delimiter :: Lude.Maybe Delimiter,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    bucket :: BucketName
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjects' with the minimum fields required to make a request.
 --
+-- * 'prefix' - Limits the response to keys that begin with the specified prefix.
+-- * 'encodingType' -
 -- * 'bucket' - The name of the bucket containing the objects.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'delimiter' - A delimiter is a character you use to group keys.
--- * 'encodingType' - Undocumented field.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'requestPayer' - Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
 -- * 'marker' - Specifies the key to start with when listing objects in a bucket.
 -- * 'maxKeys' - Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.
--- * 'prefix' - Limits the response to keys that begin with the specified prefix.
--- * 'requestPayer' - Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
+-- * 'delimiter' - A delimiter is a character you use to group keys.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkListObjects ::
   -- | 'bucket'
   BucketName ->
@@ -116,12 +121,12 @@ mkListObjects pBucket_ =
   ListObjects'
     { prefix = Lude.Nothing,
       encodingType = Lude.Nothing,
+      bucket = pBucket_,
       requestPayer = Lude.Nothing,
       marker = Lude.Nothing,
       maxKeys = Lude.Nothing,
       delimiter = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+      expectedBucketOwner = Lude.Nothing
     }
 
 -- | Limits the response to keys that begin with the specified prefix.
@@ -137,6 +142,16 @@ loPrefix = Lens.lens (prefix :: ListObjects -> Lude.Maybe Lude.Text) (\s a -> s 
 loEncodingType :: Lens.Lens' ListObjects (Lude.Maybe EncodingType)
 loEncodingType = Lens.lens (encodingType :: ListObjects -> Lude.Maybe EncodingType) (\s a -> s {encodingType = a} :: ListObjects)
 {-# DEPRECATED loEncodingType "Use generic-lens or generic-optics with 'encodingType' instead." #-}
+
+-- | The name of the bucket containing the objects.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loBucket :: Lens.Lens' ListObjects BucketName
+loBucket = Lens.lens (bucket :: ListObjects -> BucketName) (\s a -> s {bucket = a} :: ListObjects)
+{-# DEPRECATED loBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.
 --
@@ -172,16 +187,6 @@ loDelimiter = Lens.lens (delimiter :: ListObjects -> Lude.Maybe Delimiter) (\s a
 loExpectedBucketOwner :: Lens.Lens' ListObjects (Lude.Maybe Lude.Text)
 loExpectedBucketOwner = Lens.lens (expectedBucketOwner :: ListObjects -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: ListObjects)
 {-# DEPRECATED loExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
--- | The name of the bucket containing the objects.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loBucket :: Lens.Lens' ListObjects BucketName
-loBucket = Lens.lens (bucket :: ListObjects -> BucketName) (\s a -> s {bucket = a} :: ListObjects)
-{-# DEPRECATED loBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 instance Page.AWSPager ListObjects where
   page rq rs
@@ -244,45 +249,54 @@ instance Lude.ToQuery ListObjects where
 
 -- | /See:/ 'mkListObjectsResponse' smart constructor.
 data ListObjectsResponse = ListObjectsResponse'
-  { contents ::
-      Lude.Maybe [Object],
+  { -- | Metadata about each object returned.
+    contents :: Lude.Maybe [Object],
+    -- | Keys that begin with the indicated prefix.
     prefix :: Lude.Maybe Lude.Text,
+    -- | All of the keys rolled up in a common prefix count as a single return when calculating the number of returns.
+    --
+    -- A response can contain CommonPrefixes only if you specify a delimiter.
+    -- CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.
+    -- CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.
+    -- For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.
     commonPrefixes :: Lude.Maybe [CommonPrefix],
+    -- | Encoding type used by Amazon S3 to encode object keys in the response.
     encodingType :: Lude.Maybe EncodingType,
+    -- | The bucket name.
     name :: Lude.Maybe BucketName,
+    -- | Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.
     marker :: Lude.Maybe Lude.Text,
+    -- | When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of keys returned in the response body.
     maxKeys :: Lude.Maybe Lude.Int,
+    -- | A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.
     isTruncated :: Lude.Maybe Lude.Bool,
+    -- | Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the @CommonPrefixes@ collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the @MaxKeys@ value.
     delimiter :: Lude.Maybe Delimiter,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListObjectsResponse' with the minimum fields required to make a request.
 --
+-- * 'contents' - Metadata about each object returned.
+-- * 'prefix' - Keys that begin with the indicated prefix.
 -- * 'commonPrefixes' - All of the keys rolled up in a common prefix count as a single return when calculating the number of returns.
 --
 -- A response can contain CommonPrefixes only if you specify a delimiter.
 -- CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by the delimiter.
 -- CommonPrefixes lists keys that act like subdirectories in the directory specified by Prefix.
 -- For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.
--- * 'contents' - Metadata about each object returned.
--- * 'delimiter' - Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the @CommonPrefixes@ collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the @MaxKeys@ value.
 -- * 'encodingType' - Encoding type used by Amazon S3 to encode object keys in the response.
--- * 'isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.
--- * 'marker' - Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.
--- * 'maxKeys' - The maximum number of keys returned in the response body.
 -- * 'name' - The bucket name.
+-- * 'marker' - Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.
 -- * 'nextMarker' - When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.
--- * 'prefix' - Keys that begin with the indicated prefix.
+-- * 'maxKeys' - The maximum number of keys returned in the response body.
+-- * 'isTruncated' - A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.
+-- * 'delimiter' - Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the @CommonPrefixes@ collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the @MaxKeys@ value.
 -- * 'responseStatus' - The response status code.
 mkListObjectsResponse ::
   -- | 'responseStatus'

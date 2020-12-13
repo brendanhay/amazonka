@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeveloperInfo' smart constructor.
 data DeveloperInfo = DeveloperInfo'
-  { email :: Lude.Maybe Lude.Text,
+  { -- | The email of the developer.
+    email :: Lude.Maybe Lude.Text,
+    -- | The website of the developer.
     url :: Lude.Maybe Lude.Text,
+    -- | The URL of the privacy policy.
     privacyPolicy :: Lude.Maybe Lude.Text,
+    -- | The name of the developer.
     developerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeveloperInfo' with the minimum fields required to make a request.
 --
--- * 'developerName' - The name of the developer.
 -- * 'email' - The email of the developer.
--- * 'privacyPolicy' - The URL of the privacy policy.
 -- * 'url' - The website of the developer.
+-- * 'privacyPolicy' - The URL of the privacy policy.
+-- * 'developerName' - The name of the developer.
 mkDeveloperInfo ::
   DeveloperInfo
 mkDeveloperInfo =

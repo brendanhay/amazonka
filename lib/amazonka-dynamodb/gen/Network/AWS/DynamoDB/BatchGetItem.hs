@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,21 +56,60 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBatchGetItem' smart constructor.
 data BatchGetItem = BatchGetItem'
-  { returnConsumedCapacity ::
-      Lude.Maybe ReturnConsumedCapacity,
+  { returnConsumedCapacity :: Lude.Maybe ReturnConsumedCapacity,
+    -- | A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per @BatchGetItem@ request.
+    --
+    -- Each element in the map of items to retrieve consists of the following:
+    --
+    --     * @ConsistentRead@ - If @true@ , a strongly consistent read is used; if @false@ (the default), an eventually consistent read is used.
+    --
+    --
+    --     * @ExpressionAttributeNames@ - One or more substitution tokens for attribute names in the @ProjectionExpression@ parameter. The following are some use cases for using @ExpressionAttributeNames@ :
+    --
+    --     * To access an attribute whose name conflicts with a DynamoDB reserved word.
+    --
+    --
+    --     * To create a placeholder for repeating occurrences of an attribute name in an expression.
+    --
+    --
+    --     * To prevent special characters in an attribute name from being misinterpreted in an expression.
+    --
+    --
+    -- Use the __#__ character in an expression to dereference an attribute name. For example, consider the following attribute name:
+    --
+    --     * @Percentile@
+    --
+    --
+    -- The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/ ). To work around this, you could specify the following for @ExpressionAttributeNames@ :
+    --
+    --     * @{"#P":"Percentile"}@
+    --
+    --
+    -- You could then use this substitution in an expression, as in this example:
+    --
+    --     * @#P = :val@
+    --
+    --
+    -- For more information about expression attribute names, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    --
+    --
+    --     * @Keys@ - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide /all/ of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide /both/ the partition key value and the sort key value.
+    --
+    --
+    --     * @ProjectionExpression@ - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
+    -- If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+    -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDB Developer Guide/ .
+    --
+    --
+    --     * @AttributesToGet@ - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
     requestItems :: Lude.HashMap Lude.Text (KeysAndAttributes)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetItem' with the minimum fields required to make a request.
 --
+-- * 'returnConsumedCapacity' -
 -- * 'requestItems' - A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per @BatchGetItem@ request.
 --
 -- Each element in the map of items to retrieve consists of the following:
@@ -115,9 +155,6 @@ data BatchGetItem = BatchGetItem'
 --
 --
 --     * @AttributesToGet@ - This is a legacy parameter. Use @ProjectionExpression@ instead. For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet> in the /Amazon DynamoDB Developer Guide/ .
---
---
--- * 'returnConsumedCapacity' - Undocumented field.
 mkBatchGetItem ::
   BatchGetItem
 mkBatchGetItem =
@@ -230,41 +267,40 @@ instance Lude.ToQuery BatchGetItem where
 --
 -- /See:/ 'mkBatchGetItemResponse' smart constructor.
 data BatchGetItemResponse = BatchGetItemResponse'
-  { unprocessedKeys ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (KeysAndAttributes)),
-    responses ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ([Lude.HashMap Lude.Text (AttributeValue)])
-        ),
+  { -- | A map of tables and their respective keys that were not processed with the current response. The @UnprocessedKeys@ value is in the same form as @RequestItems@ , so the value can be provided directly to a subsequent @BatchGetItem@ operation. For more information, see @RequestItems@ in the Request Parameters section.
+    --
+    -- Each element consists of:
+    --
+    --     * @Keys@ - An array of primary key attribute values that define specific items in the table.
+    --
+    --
+    --     * @ProjectionExpression@ - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a requested attribute is not found, it does not appear in the result.
+    --
+    --
+    --     * @ConsistentRead@ - The consistency of a read operation. If set to @true@ , then a strongly consistent read is used; otherwise, an eventually consistent read is used.
+    --
+    --
+    -- If there are no unprocessed keys remaining, the response contains an empty @UnprocessedKeys@ map.
+    unprocessedKeys :: Lude.Maybe (Lude.HashMap Lude.Text (KeysAndAttributes)),
+    -- | A map of table name to a list of items. Each object in @Responses@ consists of a table name, along with a map of attribute data consisting of the data type and attribute value.
+    responses :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.HashMap Lude.Text (AttributeValue)])),
+    -- | The read capacity units consumed by the entire @BatchGetItem@ operation.
+    --
+    -- Each element consists of:
+    --
+    --     * @TableName@ - The table that consumed the provisioned throughput.
+    --
+    --
+    --     * @CapacityUnits@ - The total number of capacity units consumed.
     consumedCapacity :: Lude.Maybe [ConsumedCapacity],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetItemResponse' with the minimum fields required to make a request.
 --
--- * 'consumedCapacity' - The read capacity units consumed by the entire @BatchGetItem@ operation.
---
--- Each element consists of:
---
---     * @TableName@ - The table that consumed the provisioned throughput.
---
---
---     * @CapacityUnits@ - The total number of capacity units consumed.
---
---
--- * 'responseStatus' - The response status code.
--- * 'responses' - A map of table name to a list of items. Each object in @Responses@ consists of a table name, along with a map of attribute data consisting of the data type and attribute value.
 -- * 'unprocessedKeys' - A map of tables and their respective keys that were not processed with the current response. The @UnprocessedKeys@ value is in the same form as @RequestItems@ , so the value can be provided directly to a subsequent @BatchGetItem@ operation. For more information, see @RequestItems@ in the Request Parameters section.
 --
 -- Each element consists of:
@@ -279,6 +315,18 @@ data BatchGetItemResponse = BatchGetItemResponse'
 --
 --
 -- If there are no unprocessed keys remaining, the response contains an empty @UnprocessedKeys@ map.
+-- * 'responses' - A map of table name to a list of items. Each object in @Responses@ consists of a table name, along with a map of attribute data consisting of the data type and attribute value.
+-- * 'consumedCapacity' - The read capacity units consumed by the entire @BatchGetItem@ operation.
+--
+-- Each element consists of:
+--
+--     * @TableName@ - The table that consumed the provisioned throughput.
+--
+--
+--     * @CapacityUnits@ - The total number of capacity units consumed.
+--
+--
+-- * 'responseStatus' - The response status code.
 mkBatchGetItemResponse ::
   -- | 'responseStatus'
   Lude.Int ->

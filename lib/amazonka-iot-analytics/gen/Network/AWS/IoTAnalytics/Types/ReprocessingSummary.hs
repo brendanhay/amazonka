@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReprocessingSummary' smart constructor.
 data ReprocessingSummary = ReprocessingSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time the pipeline reprocessing was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The status of the pipeline reprocessing.
     status :: Lude.Maybe ReprocessingStatus,
+    -- | The @reprocessingId@ returned by @StartPipelineReprocessing@ .
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReprocessingSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The time the pipeline reprocessing was created.
--- * 'id' - The @reprocessingId@ returned by @StartPipelineReprocessing@ .
 -- * 'status' - The status of the pipeline reprocessing.
+-- * 'id' - The @reprocessingId@ returned by @StartPipelineReprocessing@ .
 mkReprocessingSummary ::
   ReprocessingSummary
 mkReprocessingSummary =

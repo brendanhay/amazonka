@@ -55,12 +55,12 @@ module Network.AWS.AWSHealth.Types
     -- * EntityFilter
     EntityFilter (..),
     mkEntityFilter,
+    eEventARNs,
     eStatusCodes,
     eEntityARNs,
     eEntityValues,
     eTags,
     eLastUpdatedTimes,
-    eEventARNs,
 
     -- * Event
     Event (..),

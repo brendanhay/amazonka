@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLifecyclePolicyRuleAction' smart constructor.
 newtype LifecyclePolicyRuleAction = LifecyclePolicyRuleAction'
-  { type' ::
-      Lude.Maybe ImageActionType
+  { -- | The type of action to be taken.
+    type' :: Lude.Maybe ImageActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecyclePolicyRuleAction' with the minimum fields required to make a request.

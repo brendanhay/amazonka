@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIAMActionDefinition' smart constructor.
 data IAMActionDefinition = IAMActionDefinition'
-  { groups ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | A list of groups to be attached. There must be at least one group.
+    groups :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of roles to be attached. There must be at least one role.
     roles :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of users to be attached. There must be at least one user.
     users :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The Amazon Resource Name (ARN) of the policy to be attached.
     policyARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IAMActionDefinition' with the minimum fields required to make a request.
 --
 -- * 'groups' - A list of groups to be attached. There must be at least one group.
--- * 'policyARN' - The Amazon Resource Name (ARN) of the policy to be attached.
 -- * 'roles' - A list of roles to be attached. There must be at least one role.
 -- * 'users' - A list of users to be attached. There must be at least one user.
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the policy to be attached.
 mkIAMActionDefinition ::
   -- | 'policyARN'
   Lude.Text ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -62,25 +63,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMLModel' smart constructor.
 data GetMLModel = GetMLModel'
-  { verbose :: Lude.Maybe Lude.Bool,
+  { -- | Specifies whether the @GetMLModel@ operation should return @Recipe@ .
+    --
+    -- If true, @Recipe@ is returned.
+    -- If false, @Recipe@ is not returned.
+    verbose :: Lude.Maybe Lude.Bool,
+    -- | The ID assigned to the @MLModel@ at creation.
     mLModelId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLModel' with the minimum fields required to make a request.
 --
--- * 'mLModelId' - The ID assigned to the @MLModel@ at creation.
 -- * 'verbose' - Specifies whether the @GetMLModel@ operation should return @Recipe@ .
 --
 -- If true, @Recipe@ is returned.
 -- If false, @Recipe@ is not returned.
+-- * 'mLModelId' - The ID assigned to the @MLModel@ at creation.
 mkGetMLModel ::
   -- | 'mLModelId'
   Lude.Text ->
@@ -166,72 +166,94 @@ instance Lude.ToQuery GetMLModel where
 --
 -- /See:/ 'mkGetMLModelResponse' smart constructor.
 data GetMLModelResponse = GetMLModelResponse'
-  { status ::
-      Lude.Maybe EntityStatus,
+  { -- | The current status of the @MLModel@ . This element can have one of the following values:
+    --
+    --
+    --     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to describe a @MLModel@ .
+    --
+    --     * @INPROGRESS@ - The request is processing.
+    --
+    --     * @FAILED@ - The request did not run to completion. The ML model isn't usable.
+    --
+    --     * @COMPLETED@ - The request completed successfully.
+    --
+    --     * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
+    status :: Lude.Maybe EntityStatus,
+    -- | The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    trainingParameters ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    scoreThresholdLastUpdatedAt ::
-      Lude.Maybe Lude.Timestamp,
+    -- | A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs.
+    --
+    -- The following is the current set of training parameters:
+    --
+    --     * @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model. Depending on the input data, the size of the model might affect its performance.
+    -- The value is an integer that ranges from @100000@ to @2147483648@ . The default value is @33554432@ .
+    --
+    --
+    --     * @sgd.maxPasses@ - The number of times that the training process traverses the observations to build the @MLModel@ . The value is an integer that ranges from @1@ to @10000@ . The default value is @10@ .
+    --
+    --
+    --     * @sgd.shuffleType@ - Whether Amazon ML shuffles the training data. Shuffling data improves a model's ability to find the optimal solution for a variety of data types. The valid values are @auto@ and @none@ . The default value is @none@ . We strongly recommend that you shuffle your data.
+    --
+    --
+    --     * @sgd.l1RegularizationAmount@ - The coefficient regularization L1 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to zero, resulting in a sparse feature set. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+    -- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L1 normalization. This parameter can't be used when @L2@ is specified. Use this parameter sparingly.
+    --
+    --
+    --     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
+    -- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
+    trainingParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
+    scoreThresholdLastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time that the @MLModel@ was created. The time is expressed in epoch time.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @MLModel@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @MLModel@ is in the @COMPLETED@ state.
     computeTime :: Lude.Maybe Lude.Integer,
+    -- | The recipe to use when training the @MLModel@ . The @Recipe@ provides detailed information about the observation data to use during training, and manipulations to perform on the observation data during training.
     recipe :: Lude.Maybe Lude.Text,
+    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
     inputDataLocationS3 :: Lude.Maybe Lude.Text,
+    -- | The MLModel ID, which is same as the @MLModelId@ in the request.
     mLModelId :: Lude.Maybe Lude.Text,
     sizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The schema used by all of the data files referenced by the @DataSource@ .
     schema :: Lude.Maybe Lude.Text,
+    -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as @INPROGRESS@ . @StartedAt@ isn't available if the @MLModel@ is in the @PENDING@ state.
     startedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The scoring threshold is used in binary classification @MLModel@ models. It marks the boundary between a positive prediction and a negative prediction.
+    --
+    -- Output values greater than or equal to the threshold receive a positive result from the MLModel, such as @true@ . Output values less than the threshold receive a negative response from the MLModel, such as @false@ .
     scoreThreshold :: Lude.Maybe Lude.Double,
+    -- | The epoch time when Amazon Machine Learning marked the @MLModel@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
     finishedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
     createdByIAMUser :: Lude.Maybe Lude.Text,
+    -- | A user-supplied name or description of the @MLModel@ .
     name :: Lude.Maybe Lude.Text,
+    -- | A link to the file that contains logs of the @CreateMLModel@ operation.
     logURI :: Lude.Maybe Lude.Text,
+    -- | The current endpoint of the @MLModel@
     endpointInfo :: Lude.Maybe RealtimeEndpointInfo,
+    -- | The ID of the training @DataSource@ .
     trainingDataSourceId :: Lude.Maybe Lude.Text,
+    -- | A description of the most recent details about accessing the @MLModel@ .
     message :: Lude.Maybe Lude.Text,
+    -- | Identifies the @MLModel@ category. The following are the available types:
+    --
+    --
+    --     * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"
+    --
+    --     * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"
+    --
+    --     * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
     mLModelType :: Lude.Maybe MLModelType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMLModelResponse' with the minimum fields required to make a request.
 --
--- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @MLModel@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @MLModel@ is in the @COMPLETED@ state.
--- * 'createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch time.
--- * 'createdByIAMUser' - The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'endpointInfo' - The current endpoint of the @MLModel@
--- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
--- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
--- * 'lastUpdatedAt' - The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
--- * 'logURI' - A link to the file that contains logs of the @CreateMLModel@ operation.
--- * 'mLModelId' - The MLModel ID, which is same as the @MLModelId@ in the request.
--- * 'mLModelType' - Identifies the @MLModel@ category. The following are the available types:
---
---
---     * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"
---
---     * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"
---
---     * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
---
--- * 'message' - A description of the most recent details about accessing the @MLModel@ .
--- * 'name' - A user-supplied name or description of the @MLModel@ .
--- * 'recipe' - The recipe to use when training the @MLModel@ . The @Recipe@ provides detailed information about the observation data to use during training, and manipulations to perform on the observation data during training.
--- * 'responseStatus' - The response status code.
--- * 'schema' - The schema used by all of the data files referenced by the @DataSource@ .
--- * 'scoreThreshold' - The scoring threshold is used in binary classification @MLModel@ models. It marks the boundary between a positive prediction and a negative prediction.
---
--- Output values greater than or equal to the threshold receive a positive result from the MLModel, such as @true@ . Output values less than the threshold receive a negative response from the MLModel, such as @false@ .
--- * 'scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
--- * 'sizeInBytes' - Undocumented field.
--- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @INPROGRESS@ . @StartedAt@ isn't available if the @MLModel@ is in the @PENDING@ state.
 -- * 'status' - The current status of the @MLModel@ . This element can have one of the following values:
 --
 --
@@ -245,7 +267,7 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 --     * @DELETED@ - The @MLModel@ is marked as deleted. It isn't usable.
 --
--- * 'trainingDataSourceId' - The ID of the training @DataSource@ .
+-- * 'lastUpdatedAt' - The time of the most recent edit to the @MLModel@ . The time is expressed in epoch time.
 -- * 'trainingParameters' - A list of the training parameters in the @MLModel@ . The list is implemented as a map of key-value pairs.
 --
 -- The following is the current set of training parameters:
@@ -266,6 +288,37 @@ data GetMLModelResponse = GetMLModelResponse'
 --
 --     * @sgd.l2RegularizationAmount@ - The coefficient regularization L2 norm. It controls overfitting the data by penalizing large coefficients. This tends to drive coefficients to small, nonzero values. If you use this parameter, start by specifying a small value, such as @1.0E-08@ .
 -- The value is a double that ranges from @0@ to @MAX_DOUBLE@ . The default is to not use L2 normalization. This parameter can't be used when @L1@ is specified. Use this parameter sparingly.
+--
+--
+-- * 'scoreThresholdLastUpdatedAt' - The time of the most recent edit to the @ScoreThreshold@ . The time is expressed in epoch time.
+-- * 'createdAt' - The time that the @MLModel@ was created. The time is expressed in epoch time.
+-- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @MLModel@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @MLModel@ is in the @COMPLETED@ state.
+-- * 'recipe' - The recipe to use when training the @MLModel@ . The @Recipe@ provides detailed information about the observation data to use during training, and manipulations to perform on the observation data during training.
+-- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+-- * 'mLModelId' - The MLModel ID, which is same as the @MLModelId@ in the request.
+-- * 'sizeInBytes' -
+-- * 'schema' - The schema used by all of the data files referenced by the @DataSource@ .
+-- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @INPROGRESS@ . @StartedAt@ isn't available if the @MLModel@ is in the @PENDING@ state.
+-- * 'scoreThreshold' - The scoring threshold is used in binary classification @MLModel@ models. It marks the boundary between a positive prediction and a negative prediction.
+--
+-- Output values greater than or equal to the threshold receive a positive result from the MLModel, such as @true@ . Output values less than the threshold receive a negative response from the MLModel, such as @false@ .
+-- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @MLModel@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @MLModel@ is in the @COMPLETED@ or @FAILED@ state.
+-- * 'createdByIAMUser' - The AWS user account from which the @MLModel@ was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'name' - A user-supplied name or description of the @MLModel@ .
+-- * 'logURI' - A link to the file that contains logs of the @CreateMLModel@ operation.
+-- * 'endpointInfo' - The current endpoint of the @MLModel@
+-- * 'trainingDataSourceId' - The ID of the training @DataSource@ .
+-- * 'message' - A description of the most recent details about accessing the @MLModel@ .
+-- * 'mLModelType' - Identifies the @MLModel@ category. The following are the available types:
+--
+--
+--     * REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"
+--
+--     * BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"
+--
+--     * MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"
+--
+-- * 'responseStatus' - The response status code.
 mkGetMLModelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

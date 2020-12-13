@@ -39,37 +39,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPackageDetails' smart constructor.
 data PackageDetails = PackageDetails'
-  { packageId ::
-      Lude.Maybe Lude.Text,
+  { -- | Internal ID of the package.
+    packageId :: Lude.Maybe Lude.Text,
+    -- | Currently supports only TXT-DICTIONARY.
     packageType :: Lude.Maybe PackageType,
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | Timestamp which tells creation date of the package.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | User specified name of the package.
     packageName :: Lude.Maybe Lude.Text,
+    -- | Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
     packageStatus :: Lude.Maybe PackageStatus,
+    -- | User-specified description of the package.
     packageDescription :: Lude.Maybe Lude.Text,
+    -- | Additional information if the package is in an error state. Null otherwise.
     errorDetails :: Lude.Maybe ErrorDetails,
     availablePackageVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PackageDetails' with the minimum fields required to make a request.
 --
--- * 'availablePackageVersion' - Undocumented field.
--- * 'createdAt' - Timestamp which tells creation date of the package.
--- * 'errorDetails' - Additional information if the package is in an error state. Null otherwise.
--- * 'lastUpdatedAt' - Undocumented field.
--- * 'packageDescription' - User-specified description of the package.
 -- * 'packageId' - Internal ID of the package.
+-- * 'packageType' - Currently supports only TXT-DICTIONARY.
+-- * 'lastUpdatedAt' -
+-- * 'createdAt' - Timestamp which tells creation date of the package.
 -- * 'packageName' - User specified name of the package.
 -- * 'packageStatus' - Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
--- * 'packageType' - Currently supports only TXT-DICTIONARY.
+-- * 'packageDescription' - User-specified description of the package.
+-- * 'errorDetails' - Additional information if the package is in an error state. Null otherwise.
+-- * 'availablePackageVersion' -
 mkPackageDetails ::
   PackageDetails
 mkPackageDetails =

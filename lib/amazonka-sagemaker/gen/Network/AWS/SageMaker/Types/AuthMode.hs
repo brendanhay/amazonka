@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.AuthMode
   ( AuthMode
       ( AuthMode',
-        IAM,
-        SSO
+        SSO,
+        IAM
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AuthMode = AuthMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern IAM :: AuthMode
-pattern IAM = AuthMode' "IAM"
-
 pattern SSO :: AuthMode
 pattern SSO = AuthMode' "SSO"
 
+pattern IAM :: AuthMode
+pattern IAM = AuthMode' "IAM"
+
 {-# COMPLETE
-  IAM,
   SSO,
+  IAM,
   AuthMode'
   #-}

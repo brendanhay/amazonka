@@ -55,80 +55,92 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'mkAssociationDescription' smart constructor.
 data AssociationDescription = AssociationDescription'
-  { associationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The association ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the instance.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | The association status.
     status :: Lude.Maybe AssociationStatus,
-    applyOnlyAtCronInterval ::
-      Lude.Maybe Lude.Bool,
-    lastSuccessfulExecutionDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
+    applyOnlyAtCronInterval :: Lude.Maybe Lude.Bool,
+    -- | The last date on which the association was successfully run.
+    lastSuccessfulExecutionDate :: Lude.Maybe Lude.Timestamp,
+    -- | Information about the association.
     overview :: Lude.Maybe AssociationOverview,
-    lastUpdateAssociationDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date when the association was last updated.
+    lastUpdateAssociationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date when the association was made.
     date :: Lude.Maybe Lude.Timestamp,
-    lastExecutionDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date on which the association was last run.
+    lastExecutionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
+    --
+    -- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
     maxErrors :: Lude.Maybe Lude.Text,
+    -- | A cron expression that specifies a schedule when the association runs.
     scheduleExpression :: Lude.Maybe Lude.Text,
+    -- | The name of the Systems Manager document.
     name :: Lude.Maybe Lude.Text,
-    outputLocation ::
-      Lude.Maybe InstanceAssociationOutputLocation,
-    syncCompliance ::
-      Lude.Maybe AssociationSyncCompliance,
+    -- | An S3 bucket where you want to store the output details of the request.
+    outputLocation :: Lude.Maybe InstanceAssociationOutputLocation,
+    -- | The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
+    --
+    -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
+    -- By default, all associations use @AUTO@ mode.
+    syncCompliance :: Lude.Maybe AssociationSyncCompliance,
+    -- | The instances targeted by the request.
     targets :: Lude.Maybe [Target],
-    parameters ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | A description of the parameters for a document.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The document version.
     documentVersion :: Lude.Maybe Lude.Text,
-    automationTargetParameterName ::
-      Lude.Maybe Lude.Text,
+    -- | Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+    automationTargetParameterName :: Lude.Maybe Lude.Text,
+    -- | The association version.
     associationVersion :: Lude.Maybe Lude.Text,
+    -- | The association name.
     associationName :: Lude.Maybe Lude.Text,
-    complianceSeverity ::
-      Lude.Maybe AssociationComplianceSeverity,
+    -- | The severity level that is assigned to the association.
+    complianceSeverity :: Lude.Maybe AssociationComplianceSeverity,
+    -- | The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+    --
+    -- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
     maxConcurrency :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationDescription' with the minimum fields required to make a request.
 --
--- * 'applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
 -- * 'associationId' - The association ID.
--- * 'associationName' - The association name.
--- * 'associationVersion' - The association version.
--- * 'automationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
--- * 'complianceSeverity' - The severity level that is assigned to the association.
--- * 'date' - The date when the association was made.
--- * 'documentVersion' - The document version.
 -- * 'instanceId' - The ID of the instance.
--- * 'lastExecutionDate' - The date on which the association was last run.
+-- * 'status' - The association status.
+-- * 'applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it.
 -- * 'lastSuccessfulExecutionDate' - The last date on which the association was successfully run.
+-- * 'overview' - Information about the association.
 -- * 'lastUpdateAssociationDate' - The date when the association was last updated.
--- * 'maxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
---
--- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
+-- * 'date' - The date when the association was made.
+-- * 'lastExecutionDate' - The date on which the association was last run.
 -- * 'maxErrors' - The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.
 --
 -- Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.
+-- * 'scheduleExpression' - A cron expression that specifies a schedule when the association runs.
 -- * 'name' - The name of the Systems Manager document.
 -- * 'outputLocation' - An S3 bucket where you want to store the output details of the request.
--- * 'overview' - Information about the association.
--- * 'parameters' - A description of the parameters for a document.
--- * 'scheduleExpression' - A cron expression that specifies a schedule when the association runs.
--- * 'status' - The association status.
 -- * 'syncCompliance' - The mode for generating association compliance. You can specify @AUTO@ or @MANUAL@ . In @AUTO@ mode, the system uses the status of the association execution to determine the compliance status. If the association execution runs successfully, then the association is @COMPLIANT@ . If the association execution doesn't run successfully, the association is @NON-COMPLIANT@ .
 --
 -- In @MANUAL@ mode, you must specify the @AssociationId@ as a parameter for the 'PutComplianceItems' API action. In this case, compliance data is not managed by State Manager. It is managed by your direct call to the 'PutComplianceItems' API action.
 -- By default, all associations use @AUTO@ mode.
 -- * 'targets' - The instances targeted by the request.
+-- * 'parameters' - A description of the parameters for a document.
+-- * 'documentVersion' - The document version.
+-- * 'automationTargetParameterName' - Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.
+-- * 'associationVersion' - The association version.
+-- * 'associationName' - The association name.
+-- * 'complianceSeverity' - The severity level that is assigned to the association.
+-- * 'maxConcurrency' - The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
+--
+-- If a new instance starts and attempts to run an association while Systems Manager is running MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.
 mkAssociationDescription ::
   AssociationDescription
 mkAssociationDescription =

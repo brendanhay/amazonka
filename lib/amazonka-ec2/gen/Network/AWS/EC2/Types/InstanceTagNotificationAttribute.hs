@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceTagNotificationAttribute' smart constructor.
 data InstanceTagNotificationAttribute = InstanceTagNotificationAttribute'
-  { includeAllTagsOfInstance ::
-      Lude.Maybe Lude.Bool,
-    instanceTagKeys ::
-      Lude.Maybe [Lude.Text]
+  { -- | Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications. @true@ indicates that all tag keys in the current Region are registered.
+    includeAllTagsOfInstance :: Lude.Maybe Lude.Bool,
+    -- | The registered tag keys.
+    instanceTagKeys :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTagNotificationAttribute' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,18 +24,18 @@ module Network.AWS.CodeCommit.ListPullRequests
     -- ** Request lenses
     lprAuthorARN,
     lprNextToken,
+    lprRepositoryName,
     lprPullRequestStatus,
     lprMaxResults,
-    lprRepositoryName,
 
     -- * Destructuring the response
     ListPullRequestsResponse (..),
     mkListPullRequestsResponse,
 
     -- ** Response lenses
+    lprrsPullRequestIds,
     lprrsNextToken,
     lprrsResponseStatus,
-    lprrsPullRequestIds,
   )
 where
 
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListPullRequests' smart constructor.
 data ListPullRequests = ListPullRequests'
-  { authorARN ::
-      Lude.Maybe Lude.Text,
+  { -- | Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results to pull requests created by that user.
+    authorARN :: Lude.Maybe Lude.Text,
+    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the repository for which you want to list pull requests.
+    repositoryName :: Lude.Text,
+    -- | Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.
     pullRequestStatus :: Lude.Maybe PullRequestStatusEnum,
-    maxResults :: Lude.Maybe Lude.Int,
-    repositoryName :: Lude.Text
+    -- | A non-zero, non-negative integer used to limit the number of returned results.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPullRequests' with the minimum fields required to make a request.
 --
 -- * 'authorARN' - Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results to pull requests created by that user.
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results.
 -- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
--- * 'pullRequestStatus' - Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.
 -- * 'repositoryName' - The name of the repository for which you want to list pull requests.
+-- * 'pullRequestStatus' - Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.
+-- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results.
 mkListPullRequests ::
   -- | 'repositoryName'
   Lude.Text ->
@@ -78,9 +77,9 @@ mkListPullRequests pRepositoryName_ =
   ListPullRequests'
     { authorARN = Lude.Nothing,
       nextToken = Lude.Nothing,
+      repositoryName = pRepositoryName_,
       pullRequestStatus = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      repositoryName = pRepositoryName_
+      maxResults = Lude.Nothing
     }
 
 -- | Optional. The Amazon Resource Name (ARN) of the user who created the pull request. If used, this filters the results to pull requests created by that user.
@@ -97,6 +96,13 @@ lprNextToken :: Lens.Lens' ListPullRequests (Lude.Maybe Lude.Text)
 lprNextToken = Lens.lens (nextToken :: ListPullRequests -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPullRequests)
 {-# DEPRECATED lprNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
+-- | The name of the repository for which you want to list pull requests.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprRepositoryName :: Lens.Lens' ListPullRequests Lude.Text
+lprRepositoryName = Lens.lens (repositoryName :: ListPullRequests -> Lude.Text) (\s a -> s {repositoryName = a} :: ListPullRequests)
+{-# DEPRECATED lprRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
 -- | Optional. The status of the pull request. If used, this refines the results to the pull requests that match the specified status.
 --
 -- /Note:/ Consider using 'pullRequestStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -110,13 +116,6 @@ lprPullRequestStatus = Lens.lens (pullRequestStatus :: ListPullRequests -> Lude.
 lprMaxResults :: Lens.Lens' ListPullRequests (Lude.Maybe Lude.Int)
 lprMaxResults = Lens.lens (maxResults :: ListPullRequests -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListPullRequests)
 {-# DEPRECATED lprMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The name of the repository for which you want to list pull requests.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprRepositoryName :: Lens.Lens' ListPullRequests Lude.Text
-lprRepositoryName = Lens.lens (repositoryName :: ListPullRequests -> Lude.Text) (\s a -> s {repositoryName = a} :: ListPullRequests)
-{-# DEPRECATED lprRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Page.AWSPager ListPullRequests where
   page rq rs
@@ -134,9 +133,9 @@ instance Lude.AWSRequest ListPullRequests where
     Res.receiveJSON
       ( \s h x ->
           ListPullRequestsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "pullRequestIds" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "pullRequestIds" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders ListPullRequests where
@@ -156,9 +155,9 @@ instance Lude.ToJSON ListPullRequests where
       ( Lude.catMaybes
           [ ("authorArn" Lude..=) Lude.<$> authorARN,
             ("nextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
             ("pullRequestStatus" Lude..=) Lude.<$> pullRequestStatus,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("repositoryName" Lude..= repositoryName)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -170,24 +169,20 @@ instance Lude.ToQuery ListPullRequests where
 
 -- | /See:/ 'mkListPullRequestsResponse' smart constructor.
 data ListPullRequestsResponse = ListPullRequestsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    pullRequestIds :: [Lude.Text]
+  { -- | The system-generated IDs of the pull requests.
+    pullRequestIds :: [Lude.Text],
+    -- | An enumeration token that allows the operation to batch the next results of the operation.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPullRequestsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - An enumeration token that allows the operation to batch the next results of the operation.
 -- * 'pullRequestIds' - The system-generated IDs of the pull requests.
+-- * 'nextToken' - An enumeration token that allows the operation to batch the next results of the operation.
 -- * 'responseStatus' - The response status code.
 mkListPullRequestsResponse ::
   -- | 'responseStatus'
@@ -195,10 +190,17 @@ mkListPullRequestsResponse ::
   ListPullRequestsResponse
 mkListPullRequestsResponse pResponseStatus_ =
   ListPullRequestsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      pullRequestIds = Lude.mempty
+    { pullRequestIds = Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The system-generated IDs of the pull requests.
+--
+-- /Note:/ Consider using 'pullRequestIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lprrsPullRequestIds :: Lens.Lens' ListPullRequestsResponse [Lude.Text]
+lprrsPullRequestIds = Lens.lens (pullRequestIds :: ListPullRequestsResponse -> [Lude.Text]) (\s a -> s {pullRequestIds = a} :: ListPullRequestsResponse)
+{-# DEPRECATED lprrsPullRequestIds "Use generic-lens or generic-optics with 'pullRequestIds' instead." #-}
 
 -- | An enumeration token that allows the operation to batch the next results of the operation.
 --
@@ -213,10 +215,3 @@ lprrsNextToken = Lens.lens (nextToken :: ListPullRequestsResponse -> Lude.Maybe 
 lprrsResponseStatus :: Lens.Lens' ListPullRequestsResponse Lude.Int
 lprrsResponseStatus = Lens.lens (responseStatus :: ListPullRequestsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPullRequestsResponse)
 {-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The system-generated IDs of the pull requests.
---
--- /Note:/ Consider using 'pullRequestIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprrsPullRequestIds :: Lens.Lens' ListPullRequestsResponse [Lude.Text]
-lprrsPullRequestIds = Lens.lens (pullRequestIds :: ListPullRequestsResponse -> [Lude.Text]) (\s a -> s {pullRequestIds = a} :: ListPullRequestsResponse)
-{-# DEPRECATED lprrsPullRequestIds "Use generic-lens or generic-optics with 'pullRequestIds' instead." #-}

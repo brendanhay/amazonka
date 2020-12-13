@@ -33,28 +33,24 @@ import Network.AWS.Redshift.Types.Mode
 --
 -- /See:/ 'mkNodeConfigurationOption' smart constructor.
 data NodeConfigurationOption = NodeConfigurationOption'
-  { mode ::
-      Lude.Maybe Mode,
+  { -- | The category of the node configuration recommendation.
+    mode :: Lude.Maybe Mode,
+    -- | The number of nodes.
     numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The node type, such as, "ds2.8xlarge".
     nodeType :: Lude.Maybe Lude.Text,
-    estimatedDiskUtilizationPercent ::
-      Lude.Maybe Lude.Double
+    -- | The estimated disk utilizaton percentage.
+    estimatedDiskUtilizationPercent :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeConfigurationOption' with the minimum fields required to make a request.
 --
--- * 'estimatedDiskUtilizationPercent' - The estimated disk utilizaton percentage.
 -- * 'mode' - The category of the node configuration recommendation.
--- * 'nodeType' - The node type, such as, "ds2.8xlarge".
 -- * 'numberOfNodes' - The number of nodes.
+-- * 'nodeType' - The node type, such as, "ds2.8xlarge".
+-- * 'estimatedDiskUtilizationPercent' - The estimated disk utilizaton percentage.
 mkNodeConfigurationOption ::
   NodeConfigurationOption
 mkNodeConfigurationOption =

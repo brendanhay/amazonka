@@ -31,17 +31,12 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'mkIntelligentTieringAndOperator' smart constructor.
 data IntelligentTieringAndOperator = IntelligentTieringAndOperator'
-  { prefix ::
-      Lude.Maybe Lude.Text,
+  { -- | An object key name prefix that identifies the subset of objects to which the configuration applies.
+    prefix :: Lude.Maybe Lude.Text,
+    -- | All of these tags must exist in the object's tag set in order for the configuration to apply.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IntelligentTieringAndOperator' with the minimum fields required to make a request.

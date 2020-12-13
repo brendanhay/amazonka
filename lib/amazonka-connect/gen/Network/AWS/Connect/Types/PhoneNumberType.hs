@@ -13,8 +13,8 @@
 module Network.AWS.Connect.Types.PhoneNumberType
   ( PhoneNumberType
       ( PhoneNumberType',
-        Did,
-        TollFree
+        TollFree,
+        Did
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PhoneNumberType = PhoneNumberType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Did :: PhoneNumberType
-pattern Did = PhoneNumberType' "DID"
-
 pattern TollFree :: PhoneNumberType
 pattern TollFree = PhoneNumberType' "TOLL_FREE"
 
+pattern Did :: PhoneNumberType
+pattern Did = PhoneNumberType' "DID"
+
 {-# COMPLETE
-  Did,
   TollFree,
+  Did,
   PhoneNumberType'
   #-}

@@ -16,9 +16,9 @@ module Network.AWS.SSM.Types.SessionStatus
         SSConnected,
         SSConnecting,
         SSDisconnected,
-        SSFailed,
         SSTerminated,
-        SSTerminating
+        SSTerminating,
+        SSFailed
       ),
   )
 where
@@ -58,21 +58,21 @@ pattern SSConnecting = SessionStatus' "Connecting"
 pattern SSDisconnected :: SessionStatus
 pattern SSDisconnected = SessionStatus' "Disconnected"
 
-pattern SSFailed :: SessionStatus
-pattern SSFailed = SessionStatus' "Failed"
-
 pattern SSTerminated :: SessionStatus
 pattern SSTerminated = SessionStatus' "Terminated"
 
 pattern SSTerminating :: SessionStatus
 pattern SSTerminating = SessionStatus' "Terminating"
 
+pattern SSFailed :: SessionStatus
+pattern SSFailed = SessionStatus' "Failed"
+
 {-# COMPLETE
   SSConnected,
   SSConnecting,
   SSDisconnected,
-  SSFailed,
   SSTerminated,
   SSTerminating,
+  SSFailed,
   SessionStatus'
   #-}

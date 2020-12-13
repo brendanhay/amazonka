@@ -29,28 +29,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value of a tag.
+    --
+    -- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
+    -- Constraints: Each value can be 0-256 characters long.
+    value :: Lude.Maybe Lude.Text,
+    -- | The key (name) of a tag.
+    --
+    -- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
+    -- Constraints: Each key can be 1-128 characters long.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - The key (name) of a tag.
---
--- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
--- Constraints: Each key can be 1-128 characters long.
 -- * 'value' - The value of a tag.
 --
 -- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
 -- Constraints: Each value can be 0-256 characters long.
+-- * 'key' - The key (name) of a tag.
+--
+-- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
+-- Constraints: Each key can be 1-128 characters long.
 mkTag ::
   Tag
 mkTag = Tag' {value = Lude.Nothing, key = Lude.Nothing}

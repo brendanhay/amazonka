@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,12 +40,12 @@ module Network.AWS.CloudWatch.GetMetricData
     mkGetMetricData,
 
     -- ** Request lenses
+    gmdStartTime,
     gmdMaxDatapoints,
     gmdNextToken,
     gmdScanBy,
-    gmdMetricDataQueries,
-    gmdStartTime,
     gmdEndTime,
+    gmdMetricDataQueries,
 
     -- * Destructuring the response
     GetMetricDataResponse (..),
@@ -67,33 +68,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMetricData' smart constructor.
 data GetMetricData = GetMetricData'
-  { maxDatapoints ::
-      Lude.Maybe Lude.Int,
-    nextToken :: Lude.Maybe Lude.Text,
-    scanBy :: Lude.Maybe ScanBy,
-    metricDataQueries :: [MetricDataQuery],
+  { -- | The time stamp indicating the earliest data to be returned.
+    --
+    -- The value specified is inclusive; results include data points with the specified time stamp.
+    -- CloudWatch rounds the specified time stamp as follows:
+    --
+    --     * Start time less than 15 days ago - Round down to the nearest whole minute. For example, 12:32:34 is rounded down to 12:32:00.
+    --
+    --
+    --     * Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval. For example, 12:32:34 is rounded down to 12:30:00.
+    --
+    --
+    --     * Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval. For example, 12:32:34 is rounded down to 12:00:00.
+    --
+    --
+    -- If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
+    -- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @StartTime@ .
     startTime :: Lude.DateTime,
-    endTime :: Lude.DateTime
+    -- | The maximum number of data points the request should return before paginating. If you omit this, the default of 100,800 is used.
+    maxDatapoints :: Lude.Maybe Lude.Int,
+    -- | Include this value, if it was returned by the previous @GetMetricData@ operation, to get the next set of data points.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The order in which data points should be returned. @TimestampDescending@ returns the newest data first and paginates when the @MaxDatapoints@ limit is reached. @TimestampAscending@ returns the oldest data first and paginates when the @MaxDatapoints@ limit is reached.
+    scanBy :: Lude.Maybe ScanBy,
+    -- | The time stamp indicating the latest data to be returned.
+    --
+    -- The value specified is exclusive; results include data points up to the specified time stamp.
+    -- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @EndTime@ .
+    endTime :: Lude.DateTime,
+    -- | The metric queries to be returned. A single @GetMetricData@ call can include as many as 500 @MetricDataQuery@ structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.
+    metricDataQueries :: [MetricDataQuery]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMetricData' with the minimum fields required to make a request.
 --
--- * 'endTime' - The time stamp indicating the latest data to be returned.
---
--- The value specified is exclusive; results include data points up to the specified time stamp.
--- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @EndTime@ .
--- * 'maxDatapoints' - The maximum number of data points the request should return before paginating. If you omit this, the default of 100,800 is used.
--- * 'metricDataQueries' - The metric queries to be returned. A single @GetMetricData@ call can include as many as 500 @MetricDataQuery@ structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.
--- * 'nextToken' - Include this value, if it was returned by the previous @GetMetricData@ operation, to get the next set of data points.
--- * 'scanBy' - The order in which data points should be returned. @TimestampDescending@ returns the newest data first and paginates when the @MaxDatapoints@ limit is reached. @TimestampAscending@ returns the oldest data first and paginates when the @MaxDatapoints@ limit is reached.
 -- * 'startTime' - The time stamp indicating the earliest data to be returned.
 --
 -- The value specified is inclusive; results include data points with the specified time stamp.
@@ -110,6 +120,14 @@ data GetMetricData = GetMetricData'
 --
 -- If you set @Period@ to 5, 10, or 30, the start time of your request is rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous 10-second period, the start time of your request is rounded down and you receive data from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes of data, using a period of 5 seconds, you receive data timestamped between 15:02:15 and 15:07:15.
 -- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @StartTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @StartTime@ .
+-- * 'maxDatapoints' - The maximum number of data points the request should return before paginating. If you omit this, the default of 100,800 is used.
+-- * 'nextToken' - Include this value, if it was returned by the previous @GetMetricData@ operation, to get the next set of data points.
+-- * 'scanBy' - The order in which data points should be returned. @TimestampDescending@ returns the newest data first and paginates when the @MaxDatapoints@ limit is reached. @TimestampAscending@ returns the oldest data first and paginates when the @MaxDatapoints@ limit is reached.
+-- * 'endTime' - The time stamp indicating the latest data to be returned.
+--
+-- The value specified is exclusive; results include data points up to the specified time stamp.
+-- For better performance, specify @StartTime@ and @EndTime@ values that align with the value of the metric's @Period@ and sync up with the beginning and end of an hour. For example, if the @Period@ of a metric is 5 minutes, specifying 12:05 or 12:30 as @EndTime@ can get a faster response from CloudWatch than setting 12:07 or 12:29 as the @EndTime@ .
+-- * 'metricDataQueries' - The metric queries to be returned. A single @GetMetricData@ call can include as many as 500 @MetricDataQuery@ structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.
 mkGetMetricData ::
   -- | 'startTime'
   Lude.DateTime ->
@@ -118,41 +136,13 @@ mkGetMetricData ::
   GetMetricData
 mkGetMetricData pStartTime_ pEndTime_ =
   GetMetricData'
-    { maxDatapoints = Lude.Nothing,
+    { startTime = pStartTime_,
+      maxDatapoints = Lude.Nothing,
       nextToken = Lude.Nothing,
       scanBy = Lude.Nothing,
-      metricDataQueries = Lude.mempty,
-      startTime = pStartTime_,
-      endTime = pEndTime_
+      endTime = pEndTime_,
+      metricDataQueries = Lude.mempty
     }
-
--- | The maximum number of data points the request should return before paginating. If you omit this, the default of 100,800 is used.
---
--- /Note:/ Consider using 'maxDatapoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdMaxDatapoints :: Lens.Lens' GetMetricData (Lude.Maybe Lude.Int)
-gmdMaxDatapoints = Lens.lens (maxDatapoints :: GetMetricData -> Lude.Maybe Lude.Int) (\s a -> s {maxDatapoints = a} :: GetMetricData)
-{-# DEPRECATED gmdMaxDatapoints "Use generic-lens or generic-optics with 'maxDatapoints' instead." #-}
-
--- | Include this value, if it was returned by the previous @GetMetricData@ operation, to get the next set of data points.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdNextToken :: Lens.Lens' GetMetricData (Lude.Maybe Lude.Text)
-gmdNextToken = Lens.lens (nextToken :: GetMetricData -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetMetricData)
-{-# DEPRECATED gmdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The order in which data points should be returned. @TimestampDescending@ returns the newest data first and paginates when the @MaxDatapoints@ limit is reached. @TimestampAscending@ returns the oldest data first and paginates when the @MaxDatapoints@ limit is reached.
---
--- /Note:/ Consider using 'scanBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdScanBy :: Lens.Lens' GetMetricData (Lude.Maybe ScanBy)
-gmdScanBy = Lens.lens (scanBy :: GetMetricData -> Lude.Maybe ScanBy) (\s a -> s {scanBy = a} :: GetMetricData)
-{-# DEPRECATED gmdScanBy "Use generic-lens or generic-optics with 'scanBy' instead." #-}
-
--- | The metric queries to be returned. A single @GetMetricData@ call can include as many as 500 @MetricDataQuery@ structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.
---
--- /Note:/ Consider using 'metricDataQueries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdMetricDataQueries :: Lens.Lens' GetMetricData [MetricDataQuery]
-gmdMetricDataQueries = Lens.lens (metricDataQueries :: GetMetricData -> [MetricDataQuery]) (\s a -> s {metricDataQueries = a} :: GetMetricData)
-{-# DEPRECATED gmdMetricDataQueries "Use generic-lens or generic-optics with 'metricDataQueries' instead." #-}
 
 -- | The time stamp indicating the earliest data to be returned.
 --
@@ -176,6 +166,27 @@ gmdStartTime :: Lens.Lens' GetMetricData Lude.DateTime
 gmdStartTime = Lens.lens (startTime :: GetMetricData -> Lude.DateTime) (\s a -> s {startTime = a} :: GetMetricData)
 {-# DEPRECATED gmdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
+-- | The maximum number of data points the request should return before paginating. If you omit this, the default of 100,800 is used.
+--
+-- /Note:/ Consider using 'maxDatapoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdMaxDatapoints :: Lens.Lens' GetMetricData (Lude.Maybe Lude.Int)
+gmdMaxDatapoints = Lens.lens (maxDatapoints :: GetMetricData -> Lude.Maybe Lude.Int) (\s a -> s {maxDatapoints = a} :: GetMetricData)
+{-# DEPRECATED gmdMaxDatapoints "Use generic-lens or generic-optics with 'maxDatapoints' instead." #-}
+
+-- | Include this value, if it was returned by the previous @GetMetricData@ operation, to get the next set of data points.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdNextToken :: Lens.Lens' GetMetricData (Lude.Maybe Lude.Text)
+gmdNextToken = Lens.lens (nextToken :: GetMetricData -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetMetricData)
+{-# DEPRECATED gmdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The order in which data points should be returned. @TimestampDescending@ returns the newest data first and paginates when the @MaxDatapoints@ limit is reached. @TimestampAscending@ returns the oldest data first and paginates when the @MaxDatapoints@ limit is reached.
+--
+-- /Note:/ Consider using 'scanBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdScanBy :: Lens.Lens' GetMetricData (Lude.Maybe ScanBy)
+gmdScanBy = Lens.lens (scanBy :: GetMetricData -> Lude.Maybe ScanBy) (\s a -> s {scanBy = a} :: GetMetricData)
+{-# DEPRECATED gmdScanBy "Use generic-lens or generic-optics with 'scanBy' instead." #-}
+
 -- | The time stamp indicating the latest data to be returned.
 --
 -- The value specified is exclusive; results include data points up to the specified time stamp.
@@ -185,6 +196,13 @@ gmdStartTime = Lens.lens (startTime :: GetMetricData -> Lude.DateTime) (\s a -> 
 gmdEndTime :: Lens.Lens' GetMetricData Lude.DateTime
 gmdEndTime = Lens.lens (endTime :: GetMetricData -> Lude.DateTime) (\s a -> s {endTime = a} :: GetMetricData)
 {-# DEPRECATED gmdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The metric queries to be returned. A single @GetMetricData@ call can include as many as 500 @MetricDataQuery@ structures. Each of these structures can specify either a metric to retrieve, or a math expression to perform on retrieved data.
+--
+-- /Note:/ Consider using 'metricDataQueries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdMetricDataQueries :: Lens.Lens' GetMetricData [MetricDataQuery]
+gmdMetricDataQueries = Lens.lens (metricDataQueries :: GetMetricData -> [MetricDataQuery]) (\s a -> s {metricDataQueries = a} :: GetMetricData)
+{-# DEPRECATED gmdMetricDataQueries "Use generic-lens or generic-optics with 'metricDataQueries' instead." #-}
 
 instance Page.AWSPager GetMetricData where
   page rq rs
@@ -225,39 +243,38 @@ instance Lude.ToQuery GetMetricData where
     Lude.mconcat
       [ "Action" Lude.=: ("GetMetricData" :: Lude.ByteString),
         "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
+        "StartTime" Lude.=: startTime,
         "MaxDatapoints" Lude.=: maxDatapoints,
         "NextToken" Lude.=: nextToken,
         "ScanBy" Lude.=: scanBy,
+        "EndTime" Lude.=: endTime,
         "MetricDataQueries"
-          Lude.=: Lude.toQueryList "member" metricDataQueries,
-        "StartTime" Lude.=: startTime,
-        "EndTime" Lude.=: endTime
+          Lude.=: Lude.toQueryList "member" metricDataQueries
       ]
 
 -- | /See:/ 'mkGetMetricDataResponse' smart constructor.
 data GetMetricDataResponse = GetMetricDataResponse'
-  { metricDataResults ::
-      Lude.Maybe [MetricDataResult],
+  { -- | The metrics that are returned, including the metric name, namespace, and dimensions.
+    metricDataResults :: Lude.Maybe [MetricDataResult],
+    -- | A token that marks the next batch of returned results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Contains a message about this @GetMetricData@ operation, if the operation results in such a message. An example of a message that might be returned is @Maximum number of allowed metrics exceeded@ . If there is a message, as much of the operation as possible is still executed.
+    --
+    -- A message appears here only if it is related to the global @GetMetricData@ operation. Any message about a specific metric returned by the operation appears in the @MetricDataResult@ object returned for that metric.
     messages :: Lude.Maybe [MessageData],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMetricDataResponse' with the minimum fields required to make a request.
 --
+-- * 'metricDataResults' - The metrics that are returned, including the metric name, namespace, and dimensions.
+-- * 'nextToken' - A token that marks the next batch of returned results.
 -- * 'messages' - Contains a message about this @GetMetricData@ operation, if the operation results in such a message. An example of a message that might be returned is @Maximum number of allowed metrics exceeded@ . If there is a message, as much of the operation as possible is still executed.
 --
 -- A message appears here only if it is related to the global @GetMetricData@ operation. Any message about a specific metric returned by the operation appears in the @MetricDataResult@ object returned for that metric.
--- * 'metricDataResults' - The metrics that are returned, including the metric name, namespace, and dimensions.
--- * 'nextToken' - A token that marks the next batch of returned results.
 -- * 'responseStatus' - The response status code.
 mkGetMetricDataResponse ::
   -- | 'responseStatus'

@@ -40,37 +40,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsEncryptionSettings' smart constructor.
 data HlsEncryptionSettings = HlsEncryptionSettings'
-  { offlineEncrypted ::
-      Lude.Maybe HlsOfflineEncrypted,
-    encryptionMethod ::
-      Lude.Maybe HlsEncryptionType,
-    constantInitializationVector ::
-      Lude.Maybe Lude.Text,
+  { -- | Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
+    offlineEncrypted :: Lude.Maybe HlsOfflineEncrypted,
+    -- | Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+    encryptionMethod :: Lude.Maybe HlsEncryptionType,
+    -- | This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
+    constantInitializationVector :: Lude.Maybe Lude.Text,
+    -- | Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
     type' :: Lude.Maybe HlsKeyProviderType,
-    staticKeyProvider ::
-      Lude.Maybe StaticKeyProvider,
+    -- | Use these settings to set up encryption with a static key provider.
+    staticKeyProvider :: Lude.Maybe StaticKeyProvider,
+    -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
     spekeKeyProvider :: Lude.Maybe SpekeKeyProvider,
-    initializationVectorInManifest ::
-      Lude.Maybe HlsInitializationVectorInManifest
+    -- | The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
+    initializationVectorInManifest :: Lude.Maybe HlsInitializationVectorInManifest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsEncryptionSettings' with the minimum fields required to make a request.
 --
--- * 'constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
--- * 'encryptionMethod' - Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
--- * 'initializationVectorInManifest' - The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
 -- * 'offlineEncrypted' - Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
--- * 'spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
--- * 'staticKeyProvider' - Use these settings to set up encryption with a static key provider.
+-- * 'encryptionMethod' - Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
+-- * 'constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
 -- * 'type'' - Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
+-- * 'staticKeyProvider' - Use these settings to set up encryption with a static key provider.
+-- * 'spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+-- * 'initializationVectorInManifest' - The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
 mkHlsEncryptionSettings ::
   HlsEncryptionSettings
 mkHlsEncryptionSettings =

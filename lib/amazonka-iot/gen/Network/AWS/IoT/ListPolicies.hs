@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,23 +48,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { marker :: Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies the order for results. If true, the results are returned in ascending creation order.
     ascendingOrder :: Lude.Maybe Lude.Bool,
+    -- | The result page size.
     pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
 --
--- * 'ascendingOrder' - Specifies the order for results. If true, the results are returned in ascending creation order.
 -- * 'marker' - The marker for the next set of results.
+-- * 'ascendingOrder' - Specifies the order for results. If true, the results are returned in ascending creation order.
 -- * 'pageSize' - The result page size.
 mkListPolicies ::
   ListPolicies
@@ -134,18 +132,14 @@ instance Lude.ToQuery ListPolicies where
 --
 -- /See:/ 'mkListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results, or null if there are no additional results.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | The descriptions of the policies.
     policies :: Lude.Maybe [Policy],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.

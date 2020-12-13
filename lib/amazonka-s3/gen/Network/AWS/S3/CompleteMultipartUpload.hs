@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -82,28 +83,28 @@ module Network.AWS.S3.CompleteMultipartUpload
     mkCompleteMultipartUpload,
 
     -- ** Request lenses
-    cRequestPayer,
-    cMultipartUpload,
-    cExpectedBucketOwner,
-    cBucket,
-    cKey,
-    cUploadId,
+    cmuBucket,
+    cmuRequestPayer,
+    cmuKey,
+    cmuMultipartUpload,
+    cmuUploadId,
+    cmuExpectedBucketOwner,
 
     -- * Destructuring the response
     CompleteMultipartUploadResponse (..),
     mkCompleteMultipartUploadResponse,
 
     -- ** Response lenses
-    crsRequestCharged,
-    crsETag,
-    crsVersionId,
-    crsLocation,
-    crsExpiration,
-    crsBucket,
-    crsKey,
-    crsSSEKMSKeyId,
-    crsServerSideEncryption,
-    crsResponseStatus,
+    cmursRequestCharged,
+    cmursETag,
+    cmursVersionId,
+    cmursLocation,
+    cmursExpiration,
+    cmursBucket,
+    cmursKey,
+    cmursSSEKMSKeyId,
+    cmursServerSideEncryption,
+    cmursResponseStatus,
   )
 where
 
@@ -115,32 +116,29 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkCompleteMultipartUpload' smart constructor.
 data CompleteMultipartUpload = CompleteMultipartUpload'
-  { requestPayer ::
-      Lude.Maybe RequestPayer,
-    multipartUpload ::
-      Lude.Maybe CompletedMultipartUpload,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
+  { -- | Name of the bucket to which the multipart upload was initiated.
     bucket :: BucketName,
+    requestPayer :: Lude.Maybe RequestPayer,
+    -- | Object key for which the multipart upload was initiated.
     key :: ObjectKey,
-    uploadId :: Lude.Text
+    -- | The container for the multipart upload request information.
+    multipartUpload :: Lude.Maybe CompletedMultipartUpload,
+    -- | ID for the initiated multipart upload.
+    uploadId :: Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteMultipartUpload' with the minimum fields required to make a request.
 --
 -- * 'bucket' - Name of the bucket to which the multipart upload was initiated.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'requestPayer' -
 -- * 'key' - Object key for which the multipart upload was initiated.
 -- * 'multipartUpload' - The container for the multipart upload request information.
--- * 'requestPayer' - Undocumented field.
 -- * 'uploadId' - ID for the initiated multipart upload.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkCompleteMultipartUpload ::
   -- | 'bucket'
   BucketName ->
@@ -151,55 +149,55 @@ mkCompleteMultipartUpload ::
   CompleteMultipartUpload
 mkCompleteMultipartUpload pBucket_ pKey_ pUploadId_ =
   CompleteMultipartUpload'
-    { requestPayer = Lude.Nothing,
-      multipartUpload = Lude.Nothing,
-      expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_,
+    { bucket = pBucket_,
+      requestPayer = Lude.Nothing,
       key = pKey_,
-      uploadId = pUploadId_
+      multipartUpload = Lude.Nothing,
+      uploadId = pUploadId_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cRequestPayer :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe RequestPayer)
-cRequestPayer = Lens.lens (requestPayer :: CompleteMultipartUpload -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | The container for the multipart upload request information.
---
--- /Note:/ Consider using 'multipartUpload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cMultipartUpload :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe CompletedMultipartUpload)
-cMultipartUpload = Lens.lens (multipartUpload :: CompleteMultipartUpload -> Lude.Maybe CompletedMultipartUpload) (\s a -> s {multipartUpload = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cMultipartUpload "Use generic-lens or generic-optics with 'multipartUpload' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cExpectedBucketOwner :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe Lude.Text)
-cExpectedBucketOwner = Lens.lens (expectedBucketOwner :: CompleteMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | Name of the bucket to which the multipart upload was initiated.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cBucket :: Lens.Lens' CompleteMultipartUpload BucketName
-cBucket = Lens.lens (bucket :: CompleteMultipartUpload -> BucketName) (\s a -> s {bucket = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+cmuBucket :: Lens.Lens' CompleteMultipartUpload BucketName
+cmuBucket = Lens.lens (bucket :: CompleteMultipartUpload -> BucketName) (\s a -> s {bucket = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuRequestPayer :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe RequestPayer)
+cmuRequestPayer = Lens.lens (requestPayer :: CompleteMultipartUpload -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | Object key for which the multipart upload was initiated.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cKey :: Lens.Lens' CompleteMultipartUpload ObjectKey
-cKey = Lens.lens (key :: CompleteMultipartUpload -> ObjectKey) (\s a -> s {key = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cKey "Use generic-lens or generic-optics with 'key' instead." #-}
+cmuKey :: Lens.Lens' CompleteMultipartUpload ObjectKey
+cmuKey = Lens.lens (key :: CompleteMultipartUpload -> ObjectKey) (\s a -> s {key = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The container for the multipart upload request information.
+--
+-- /Note:/ Consider using 'multipartUpload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuMultipartUpload :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe CompletedMultipartUpload)
+cmuMultipartUpload = Lens.lens (multipartUpload :: CompleteMultipartUpload -> Lude.Maybe CompletedMultipartUpload) (\s a -> s {multipartUpload = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuMultipartUpload "Use generic-lens or generic-optics with 'multipartUpload' instead." #-}
 
 -- | ID for the initiated multipart upload.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cUploadId :: Lens.Lens' CompleteMultipartUpload Lude.Text
-cUploadId = Lens.lens (uploadId :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {uploadId = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+cmuUploadId :: Lens.Lens' CompleteMultipartUpload Lude.Text
+cmuUploadId = Lens.lens (uploadId :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {uploadId = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuExpectedBucketOwner :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe Lude.Text)
+cmuExpectedBucketOwner = Lens.lens (expectedBucketOwner :: CompleteMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest CompleteMultipartUpload where
   type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
@@ -243,26 +241,27 @@ instance Lude.ToQuery CompleteMultipartUpload where
 
 -- | /See:/ 'mkCompleteMultipartUploadResponse' smart constructor.
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits.
     eTag :: Lude.Maybe ETag,
-    versionId ::
-      Lude.Maybe ObjectVersionId,
-    location ::
-      Lude.Maybe Lude.Text,
-    expiration ::
-      Lude.Maybe Lude.Text,
-    bucket ::
-      Lude.Maybe BucketName,
+    -- | Version ID of the newly created object, in case the bucket has versioning turned on.
+    versionId :: Lude.Maybe ObjectVersionId,
+    -- | The URI that identifies the newly created object.
+    location :: Lude.Maybe Lude.Text,
+    -- | If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
+    expiration :: Lude.Maybe Lude.Text,
+    -- | The name of the bucket that contains the newly created object.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: Lude.Maybe BucketName,
+    -- | The object key of the newly created object.
     key :: Lude.Maybe ObjectKey,
-    sSEKMSKeyId ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    serverSideEncryption ::
-      Lude.Maybe
-        ServerSideEncryption,
+    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | If you specified server-side encryption either with an Amazon S3-managed encryption key or an AWS KMS customer master key (CMK) in your initiate multipart upload request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
+    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -270,19 +269,19 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 
 -- | Creates a value of 'CompleteMultipartUploadResponse' with the minimum fields required to make a request.
 --
+-- * 'requestCharged' -
+-- * 'eTag' - Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits.
+-- * 'versionId' - Version ID of the newly created object, in case the bucket has versioning turned on.
+-- * 'location' - The URI that identifies the newly created object.
+-- * 'expiration' - If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 -- * 'bucket' - The name of the bucket that contains the newly created object.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'eTag' - Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits.
--- * 'expiration' - If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 -- * 'key' - The object key of the newly created object.
--- * 'location' - The URI that identifies the newly created object.
--- * 'requestCharged' - Undocumented field.
--- * 'responseStatus' - The response status code.
 -- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
 -- * 'serverSideEncryption' - If you specified server-side encryption either with an Amazon S3-managed encryption key or an AWS KMS customer master key (CMK) in your initiate multipart upload request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
--- * 'versionId' - Version ID of the newly created object, in case the bucket has versioning turned on.
+-- * 'responseStatus' - The response status code.
 mkCompleteMultipartUploadResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -304,37 +303,37 @@ mkCompleteMultipartUploadResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsRequestCharged :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe RequestCharged)
-crsRequestCharged = Lens.lens (requestCharged :: CompleteMultipartUploadResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
+cmursRequestCharged :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe RequestCharged)
+cmursRequestCharged = Lens.lens (requestCharged :: CompleteMultipartUploadResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsETag :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ETag)
-crsETag = Lens.lens (eTag :: CompleteMultipartUploadResponse -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+cmursETag :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ETag)
+cmursETag = Lens.lens (eTag :: CompleteMultipartUploadResponse -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Version ID of the newly created object, in case the bucket has versioning turned on.
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsVersionId :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ObjectVersionId)
-crsVersionId = Lens.lens (versionId :: CompleteMultipartUploadResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+cmursVersionId :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ObjectVersionId)
+cmursVersionId = Lens.lens (versionId :: CompleteMultipartUploadResponse -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The URI that identifies the newly created object.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsLocation :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe Lude.Text)
-crsLocation = Lens.lens (location :: CompleteMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+cmursLocation :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe Lude.Text)
+cmursLocation = Lens.lens (location :: CompleteMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 --
 -- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsExpiration :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe Lude.Text)
-crsExpiration = Lens.lens (expiration :: CompleteMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {expiration = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
+cmursExpiration :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe Lude.Text)
+cmursExpiration = Lens.lens (expiration :: CompleteMultipartUploadResponse -> Lude.Maybe Lude.Text) (\s a -> s {expiration = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
 
 -- | The name of the bucket that contains the newly created object.
 --
@@ -342,34 +341,34 @@ crsExpiration = Lens.lens (expiration :: CompleteMultipartUploadResponse -> Lude
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsBucket :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe BucketName)
-crsBucket = Lens.lens (bucket :: CompleteMultipartUploadResponse -> Lude.Maybe BucketName) (\s a -> s {bucket = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+cmursBucket :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe BucketName)
+cmursBucket = Lens.lens (bucket :: CompleteMultipartUploadResponse -> Lude.Maybe BucketName) (\s a -> s {bucket = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The object key of the newly created object.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsKey :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ObjectKey)
-crsKey = Lens.lens (key :: CompleteMultipartUploadResponse -> Lude.Maybe ObjectKey) (\s a -> s {key = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsKey "Use generic-lens or generic-optics with 'key' instead." #-}
+cmursKey :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ObjectKey)
+cmursKey = Lens.lens (key :: CompleteMultipartUploadResponse -> Lude.Maybe ObjectKey) (\s a -> s {key = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
 --
 -- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSSEKMSKeyId :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-crsSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: CompleteMultipartUploadResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
+cmursSSEKMSKeyId :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
+cmursSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: CompleteMultipartUploadResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
 
 -- | If you specified server-side encryption either with an Amazon S3-managed encryption key or an AWS KMS customer master key (CMK) in your initiate multipart upload request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.
 --
 -- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsServerSideEncryption :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ServerSideEncryption)
-crsServerSideEncryption = Lens.lens (serverSideEncryption :: CompleteMultipartUploadResponse -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+cmursServerSideEncryption :: Lens.Lens' CompleteMultipartUploadResponse (Lude.Maybe ServerSideEncryption)
+cmursServerSideEncryption = Lens.lens (serverSideEncryption :: CompleteMultipartUploadResponse -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CompleteMultipartUploadResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CompleteMultipartUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CompleteMultipartUploadResponse)
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmursResponseStatus :: Lens.Lens' CompleteMultipartUploadResponse Lude.Int
+cmursResponseStatus = Lens.lens (responseStatus :: CompleteMultipartUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CompleteMultipartUploadResponse)
+{-# DEPRECATED cmursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

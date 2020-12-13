@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.AacVbrQuality
   ( AacVbrQuality
       ( AacVbrQuality',
-        AVQHigh,
         AVQLow,
+        AVQMediumLow,
         AVQMediumHigh,
-        AVQMediumLow
+        AVQHigh
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype AacVbrQuality = AacVbrQuality' Lude.Text
       Lude.ToHeader
     )
 
-pattern AVQHigh :: AacVbrQuality
-pattern AVQHigh = AacVbrQuality' "HIGH"
-
 pattern AVQLow :: AacVbrQuality
 pattern AVQLow = AacVbrQuality' "LOW"
-
-pattern AVQMediumHigh :: AacVbrQuality
-pattern AVQMediumHigh = AacVbrQuality' "MEDIUM_HIGH"
 
 pattern AVQMediumLow :: AacVbrQuality
 pattern AVQMediumLow = AacVbrQuality' "MEDIUM_LOW"
 
+pattern AVQMediumHigh :: AacVbrQuality
+pattern AVQMediumHigh = AacVbrQuality' "MEDIUM_HIGH"
+
+pattern AVQHigh :: AacVbrQuality
+pattern AVQHigh = AacVbrQuality' "HIGH"
+
 {-# COMPLETE
-  AVQHigh,
   AVQLow,
-  AVQMediumHigh,
   AVQMediumLow,
+  AVQMediumHigh,
+  AVQHigh,
   AacVbrQuality'
   #-}

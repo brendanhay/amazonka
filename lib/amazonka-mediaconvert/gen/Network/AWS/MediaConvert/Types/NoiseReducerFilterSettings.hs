@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNoiseReducerFilterSettings' smart constructor.
 newtype NoiseReducerFilterSettings = NoiseReducerFilterSettings'
-  { strength ::
-      Lude.Maybe Lude.Natural
+  { -- | Relative strength of noise reducing filter. Higher values produce stronger filtering.
+    strength :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NoiseReducerFilterSettings' with the minimum fields required to make a request.

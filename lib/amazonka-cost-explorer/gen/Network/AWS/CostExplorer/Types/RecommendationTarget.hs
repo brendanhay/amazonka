@@ -13,8 +13,8 @@
 module Network.AWS.CostExplorer.Types.RecommendationTarget
   ( RecommendationTarget
       ( RecommendationTarget',
-        CrossInstanceFamily,
-        SameInstanceFamily
+        SameInstanceFamily,
+        CrossInstanceFamily
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RecommendationTarget = RecommendationTarget' Lude.Text
       Lude.ToHeader
     )
 
-pattern CrossInstanceFamily :: RecommendationTarget
-pattern CrossInstanceFamily = RecommendationTarget' "CROSS_INSTANCE_FAMILY"
-
 pattern SameInstanceFamily :: RecommendationTarget
 pattern SameInstanceFamily = RecommendationTarget' "SAME_INSTANCE_FAMILY"
 
+pattern CrossInstanceFamily :: RecommendationTarget
+pattern CrossInstanceFamily = RecommendationTarget' "CROSS_INSTANCE_FAMILY"
+
 {-# COMPLETE
-  CrossInstanceFamily,
   SameInstanceFamily,
+  CrossInstanceFamily,
   RecommendationTarget'
   #-}

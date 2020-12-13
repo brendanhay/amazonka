@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkSetReceiptRulePosition' smart constructor.
 data SetReceiptRulePosition = SetReceiptRulePosition'
-  { after ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the receipt rule after which to place the specified receipt rule.
+    after :: Lude.Maybe Lude.Text,
+    -- | The name of the receipt rule set that contains the receipt rule to reposition.
     ruleSetName :: Lude.Text,
+    -- | The name of the receipt rule to reposition.
     ruleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetReceiptRulePosition' with the minimum fields required to make a request.
 --
 -- * 'after' - The name of the receipt rule after which to place the specified receipt rule.
--- * 'ruleName' - The name of the receipt rule to reposition.
 -- * 'ruleSetName' - The name of the receipt rule set that contains the receipt rule to reposition.
+-- * 'ruleName' - The name of the receipt rule to reposition.
 mkSetReceiptRulePosition ::
   -- | 'ruleSetName'
   Lude.Text ->
@@ -129,16 +126,10 @@ instance Lude.ToQuery SetReceiptRulePosition where
 --
 -- /See:/ 'mkSetReceiptRulePositionResponse' smart constructor.
 newtype SetReceiptRulePositionResponse = SetReceiptRulePositionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetReceiptRulePositionResponse' with the minimum fields required to make a request.

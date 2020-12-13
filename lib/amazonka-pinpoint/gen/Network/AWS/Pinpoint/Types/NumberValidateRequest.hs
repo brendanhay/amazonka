@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNumberValidateRequest' smart constructor.
 data NumberValidateRequest = NumberValidateRequest'
-  { isoCountryCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
+    isoCountryCode :: Lude.Maybe Lude.Text,
+    -- | The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.
     phoneNumber :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NumberValidateRequest' with the minimum fields required to make a request.

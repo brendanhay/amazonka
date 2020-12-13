@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFieldLevelEncryptionConfig' smart constructor.
 newtype GetFieldLevelEncryptionConfig = GetFieldLevelEncryptionConfig'
-  { id ::
-      Lude.Text
+  { -- | Request the ID for the field-level encryption configuration information.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryptionConfig' with the minimum fields required to make a request.
@@ -96,22 +91,14 @@ instance Lude.ToQuery GetFieldLevelEncryptionConfig where
 
 -- | /See:/ 'mkGetFieldLevelEncryptionConfigResponse' smart constructor.
 data GetFieldLevelEncryptionConfigResponse = GetFieldLevelEncryptionConfigResponse'
-  { eTag ::
-      Lude.Maybe
-        Lude.Text,
-    fieldLevelEncryptionConfig ::
-      Lude.Maybe
-        FieldLevelEncryptionConfig,
-    responseStatus ::
-      Lude.Int
+  { -- | The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | Return the field-level encryption configuration information.
+    fieldLevelEncryptionConfig :: Lude.Maybe FieldLevelEncryptionConfig,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryptionConfigResponse' with the minimum fields required to make a request.

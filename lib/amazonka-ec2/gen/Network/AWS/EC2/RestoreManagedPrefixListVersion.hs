@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.EC2.RestoreManagedPrefixListVersion
     mkRestoreManagedPrefixListVersion,
 
     -- ** Request lenses
-    rmplvDryRun,
+    rmplvCurrentVersion,
     rmplvPrefixListId,
     rmplvPreviousVersion,
-    rmplvCurrentVersion,
+    rmplvDryRun,
 
     -- * Destructuring the response
     RestoreManagedPrefixListVersionResponse (..),
@@ -42,54 +43,50 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRestoreManagedPrefixListVersion' smart constructor.
 data RestoreManagedPrefixListVersion = RestoreManagedPrefixListVersion'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The current version number for the prefix list.
+    currentVersion :: Lude.Integer,
+    -- | The ID of the prefix list.
     prefixListId :: Lude.Text,
-    previousVersion ::
-      Lude.Integer,
-    currentVersion ::
-      Lude.Integer
+    -- | The version to restore.
+    previousVersion :: Lude.Integer,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreManagedPrefixListVersion' with the minimum fields required to make a request.
 --
 -- * 'currentVersion' - The current version number for the prefix list.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'prefixListId' - The ID of the prefix list.
 -- * 'previousVersion' - The version to restore.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRestoreManagedPrefixListVersion ::
+  -- | 'currentVersion'
+  Lude.Integer ->
   -- | 'prefixListId'
   Lude.Text ->
   -- | 'previousVersion'
   Lude.Integer ->
-  -- | 'currentVersion'
-  Lude.Integer ->
   RestoreManagedPrefixListVersion
 mkRestoreManagedPrefixListVersion
+  pCurrentVersion_
   pPrefixListId_
-  pPreviousVersion_
-  pCurrentVersion_ =
+  pPreviousVersion_ =
     RestoreManagedPrefixListVersion'
-      { dryRun = Lude.Nothing,
+      { currentVersion =
+          pCurrentVersion_,
         prefixListId = pPrefixListId_,
         previousVersion = pPreviousVersion_,
-        currentVersion = pCurrentVersion_
+        dryRun = Lude.Nothing
       }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The current version number for the prefix list.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmplvDryRun :: Lens.Lens' RestoreManagedPrefixListVersion (Lude.Maybe Lude.Bool)
-rmplvDryRun = Lens.lens (dryRun :: RestoreManagedPrefixListVersion -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RestoreManagedPrefixListVersion)
-{-# DEPRECATED rmplvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmplvCurrentVersion :: Lens.Lens' RestoreManagedPrefixListVersion Lude.Integer
+rmplvCurrentVersion = Lens.lens (currentVersion :: RestoreManagedPrefixListVersion -> Lude.Integer) (\s a -> s {currentVersion = a} :: RestoreManagedPrefixListVersion)
+{-# DEPRECATED rmplvCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
 
 -- | The ID of the prefix list.
 --
@@ -105,12 +102,12 @@ rmplvPreviousVersion :: Lens.Lens' RestoreManagedPrefixListVersion Lude.Integer
 rmplvPreviousVersion = Lens.lens (previousVersion :: RestoreManagedPrefixListVersion -> Lude.Integer) (\s a -> s {previousVersion = a} :: RestoreManagedPrefixListVersion)
 {-# DEPRECATED rmplvPreviousVersion "Use generic-lens or generic-optics with 'previousVersion' instead." #-}
 
--- | The current version number for the prefix list.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'currentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmplvCurrentVersion :: Lens.Lens' RestoreManagedPrefixListVersion Lude.Integer
-rmplvCurrentVersion = Lens.lens (currentVersion :: RestoreManagedPrefixListVersion -> Lude.Integer) (\s a -> s {currentVersion = a} :: RestoreManagedPrefixListVersion)
-{-# DEPRECATED rmplvCurrentVersion "Use generic-lens or generic-optics with 'currentVersion' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmplvDryRun :: Lens.Lens' RestoreManagedPrefixListVersion (Lude.Maybe Lude.Bool)
+rmplvDryRun = Lens.lens (dryRun :: RestoreManagedPrefixListVersion -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RestoreManagedPrefixListVersion)
+{-# DEPRECATED rmplvDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest RestoreManagedPrefixListVersion where
   type
@@ -136,27 +133,20 @@ instance Lude.ToQuery RestoreManagedPrefixListVersion where
       [ "Action"
           Lude.=: ("RestoreManagedPrefixListVersion" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        "CurrentVersion" Lude.=: currentVersion,
         "PrefixListId" Lude.=: prefixListId,
         "PreviousVersion" Lude.=: previousVersion,
-        "CurrentVersion" Lude.=: currentVersion
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkRestoreManagedPrefixListVersionResponse' smart constructor.
 data RestoreManagedPrefixListVersionResponse = RestoreManagedPrefixListVersionResponse'
-  { prefixList ::
-      Lude.Maybe
-        ManagedPrefixList,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the prefix list.
+    prefixList :: Lude.Maybe ManagedPrefixList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreManagedPrefixListVersionResponse' with the minimum fields required to make a request.

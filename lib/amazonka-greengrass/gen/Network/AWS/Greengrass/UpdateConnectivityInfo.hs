@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Greengrass.UpdateConnectivityInfo
     mkUpdateConnectivityInfo,
 
     -- ** Request lenses
-    uciConnectivityInfo,
     uciThingName,
+    uciConnectivityInfo,
 
     -- * Destructuring the response
     UpdateConnectivityInfoResponse (..),
@@ -43,39 +44,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateConnectivityInfo' smart constructor.
 data UpdateConnectivityInfo = UpdateConnectivityInfo'
-  { connectivityInfo ::
-      Lude.Maybe [ConnectivityInfo],
-    thingName :: Lude.Text
+  { -- | The thing name.
+    thingName :: Lude.Text,
+    -- | A list of connectivity info.
+    connectivityInfo :: Lude.Maybe [ConnectivityInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConnectivityInfo' with the minimum fields required to make a request.
 --
--- * 'connectivityInfo' - A list of connectivity info.
 -- * 'thingName' - The thing name.
+-- * 'connectivityInfo' - A list of connectivity info.
 mkUpdateConnectivityInfo ::
   -- | 'thingName'
   Lude.Text ->
   UpdateConnectivityInfo
 mkUpdateConnectivityInfo pThingName_ =
   UpdateConnectivityInfo'
-    { connectivityInfo = Lude.Nothing,
-      thingName = pThingName_
+    { thingName = pThingName_,
+      connectivityInfo = Lude.Nothing
     }
-
--- | A list of connectivity info.
---
--- /Note:/ Consider using 'connectivityInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uciConnectivityInfo :: Lens.Lens' UpdateConnectivityInfo (Lude.Maybe [ConnectivityInfo])
-uciConnectivityInfo = Lens.lens (connectivityInfo :: UpdateConnectivityInfo -> Lude.Maybe [ConnectivityInfo]) (\s a -> s {connectivityInfo = a} :: UpdateConnectivityInfo)
-{-# DEPRECATED uciConnectivityInfo "Use generic-lens or generic-optics with 'connectivityInfo' instead." #-}
 
 -- | The thing name.
 --
@@ -83,6 +72,13 @@ uciConnectivityInfo = Lens.lens (connectivityInfo :: UpdateConnectivityInfo -> L
 uciThingName :: Lens.Lens' UpdateConnectivityInfo Lude.Text
 uciThingName = Lens.lens (thingName :: UpdateConnectivityInfo -> Lude.Text) (\s a -> s {thingName = a} :: UpdateConnectivityInfo)
 {-# DEPRECATED uciThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+
+-- | A list of connectivity info.
+--
+-- /Note:/ Consider using 'connectivityInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uciConnectivityInfo :: Lens.Lens' UpdateConnectivityInfo (Lude.Maybe [ConnectivityInfo])
+uciConnectivityInfo = Lens.lens (connectivityInfo :: UpdateConnectivityInfo -> Lude.Maybe [ConnectivityInfo]) (\s a -> s {connectivityInfo = a} :: UpdateConnectivityInfo)
+{-# DEPRECATED uciConnectivityInfo "Use generic-lens or generic-optics with 'connectivityInfo' instead." #-}
 
 instance Lude.AWSRequest UpdateConnectivityInfo where
   type Rs UpdateConnectivityInfo = UpdateConnectivityInfoResponse
@@ -122,26 +118,21 @@ instance Lude.ToQuery UpdateConnectivityInfo where
 
 -- | /See:/ 'mkUpdateConnectivityInfoResponse' smart constructor.
 data UpdateConnectivityInfoResponse = UpdateConnectivityInfoResponse'
-  { version ::
-      Lude.Maybe Lude.Text,
-    message ::
-      Lude.Maybe Lude.Text,
+  { -- | The new version of the connectivity info.
+    version :: Lude.Maybe Lude.Text,
+    -- | A message about the connectivity info update request.
+    message :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConnectivityInfoResponse' with the minimum fields required to make a request.
 --
+-- * 'version' - The new version of the connectivity info.
 -- * 'message' - A message about the connectivity info update request.
 -- * 'responseStatus' - The response status code.
--- * 'version' - The new version of the connectivity info.
 mkUpdateConnectivityInfoResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Glacier.CompleteMultipartUpload
 
     -- ** Request lenses
     cmuChecksum,
-    cmuArchiveSize,
-    cmuAccountId,
     cmuVaultName,
+    cmuAccountId,
+    cmuArchiveSize,
     cmuUploadId,
 
     -- * Destructuring the response
@@ -52,43 +53,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCompleteMultipartUpload' smart constructor.
 data CompleteMultipartUpload = CompleteMultipartUpload'
-  { checksum ::
-      Lude.Maybe Lude.Text,
-    archiveSize :: Lude.Maybe Lude.Text,
-    accountId :: Lude.Text,
+  { -- | The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The name of the vault.
     vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text,
+    -- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
+    archiveSize :: Lude.Maybe Lude.Text,
+    -- | The upload ID of the multipart upload.
     uploadId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteMultipartUpload' with the minimum fields required to make a request.
 --
+-- * 'checksum' - The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
+-- * 'vaultName' - The name of the vault.
 -- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'archiveSize' - The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
--- * 'checksum' - The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
 -- * 'uploadId' - The upload ID of the multipart upload.
--- * 'vaultName' - The name of the vault.
 mkCompleteMultipartUpload ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
+  Lude.Text ->
+  -- | 'accountId'
   Lude.Text ->
   -- | 'uploadId'
   Lude.Text ->
   CompleteMultipartUpload
-mkCompleteMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
+mkCompleteMultipartUpload pVaultName_ pAccountId_ pUploadId_ =
   CompleteMultipartUpload'
     { checksum = Lude.Nothing,
-      archiveSize = Lude.Nothing,
-      accountId = pAccountId_,
       vaultName = pVaultName_,
+      accountId = pAccountId_,
+      archiveSize = Lude.Nothing,
       uploadId = pUploadId_
     }
 
@@ -99,12 +98,12 @@ cmuChecksum :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe Lude.Text)
 cmuChecksum = Lens.lens (checksum :: CompleteMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: CompleteMultipartUpload)
 {-# DEPRECATED cmuChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
--- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'archiveSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuArchiveSize :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe Lude.Text)
-cmuArchiveSize = Lens.lens (archiveSize :: CompleteMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {archiveSize = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cmuArchiveSize "Use generic-lens or generic-optics with 'archiveSize' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuVaultName :: Lens.Lens' CompleteMultipartUpload Lude.Text
+cmuVaultName = Lens.lens (vaultName :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {vaultName = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
@@ -113,12 +112,12 @@ cmuAccountId :: Lens.Lens' CompleteMultipartUpload Lude.Text
 cmuAccountId = Lens.lens (accountId :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {accountId = a} :: CompleteMultipartUpload)
 {-# DEPRECATED cmuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | The name of the vault.
+-- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
 --
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuVaultName :: Lens.Lens' CompleteMultipartUpload Lude.Text
-cmuVaultName = Lens.lens (vaultName :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {vaultName = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+-- /Note:/ Consider using 'archiveSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuArchiveSize :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe Lude.Text)
+cmuArchiveSize = Lens.lens (archiveSize :: CompleteMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {archiveSize = a} :: CompleteMultipartUpload)
+{-# DEPRECATED cmuArchiveSize "Use generic-lens or generic-optics with 'archiveSize' instead." #-}
 
 -- | The upload ID of the multipart upload.
 --

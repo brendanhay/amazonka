@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,26 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListApplicationStates' smart constructor.
 data ListApplicationStates = ListApplicationStates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    applicationIds ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The configurationIds from the Application Discovery Service that uniquely identifies your applications.
+    applicationIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Maximum number of results to be returned per page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationStates' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 -- * 'applicationIds' - The configurationIds from the Application Discovery Service that uniquely identifies your applications.
 -- * 'maxResults' - Maximum number of results to be returned per page.
--- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 mkListApplicationStates ::
   ListApplicationStates
 mkListApplicationStates =
@@ -145,19 +141,14 @@ instance Lude.ToQuery ListApplicationStates where
 
 -- | /See:/ 'mkListApplicationStatesResponse' smart constructor.
 data ListApplicationStatesResponse = ListApplicationStatesResponse'
-  { applicationStateList ::
-      Lude.Maybe [ApplicationState],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of Applications that exist in Application Discovery Service.
+    applicationStateList :: Lude.Maybe [ApplicationState],
+    -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListApplicationStatesResponse' with the minimum fields required to make a request.

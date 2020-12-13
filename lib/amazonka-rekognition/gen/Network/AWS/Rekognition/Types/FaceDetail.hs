@@ -70,48 +70,57 @@ import Network.AWS.Rekognition.Types.Sunglasses
 --
 -- /See:/ 'mkFaceDetail' smart constructor.
 data FaceDetail = FaceDetail'
-  { ageRange :: Lude.Maybe AgeRange,
+  { -- | The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
+    ageRange :: Lude.Maybe AgeRange,
+    -- | Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
     sunglasses :: Lude.Maybe Sunglasses,
+    -- | Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
     mouthOpen :: Lude.Maybe MouthOpen,
+    -- | Bounding box of the face. Default attribute.
     boundingBox :: Lude.Maybe BoundingBox,
+    -- | The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.
     emotions :: Lude.Maybe [Emotion],
+    -- | Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
     eyesOpen :: Lude.Maybe EyeOpen,
+    -- | Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.
     pose :: Lude.Maybe Pose,
+    -- | Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.
     confidence :: Lude.Maybe Lude.Double,
+    -- | The predicted gender of a detected face.
     gender :: Lude.Maybe Gender,
+    -- | Identifies image brightness and sharpness. Default attribute.
     quality :: Lude.Maybe ImageQuality,
+    -- | Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.
     eyeglasses :: Lude.Maybe Eyeglasses,
+    -- | Indicates whether or not the face has a beard, and the confidence level in the determination.
     beard :: Lude.Maybe Beard,
+    -- | Indicates whether or not the face has a mustache, and the confidence level in the determination.
     mustache :: Lude.Maybe Mustache,
+    -- | Indicates whether or not the face is smiling, and the confidence level in the determination.
     smile :: Lude.Maybe Smile,
+    -- | Indicates the location of landmarks on the face. Default attribute.
     landmarks :: Lude.Maybe [Landmark]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceDetail' with the minimum fields required to make a request.
 --
 -- * 'ageRange' - The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.
--- * 'beard' - Indicates whether or not the face has a beard, and the confidence level in the determination.
--- * 'boundingBox' - Bounding box of the face. Default attribute.
--- * 'confidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.
--- * 'emotions' - The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.
--- * 'eyeglasses' - Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.
--- * 'eyesOpen' - Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
--- * 'gender' - The predicted gender of a detected face.
--- * 'landmarks' - Indicates the location of landmarks on the face. Default attribute.
--- * 'mouthOpen' - Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
--- * 'mustache' - Indicates whether or not the face has a mustache, and the confidence level in the determination.
--- * 'pose' - Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.
--- * 'quality' - Identifies image brightness and sharpness. Default attribute.
--- * 'smile' - Indicates whether or not the face is smiling, and the confidence level in the determination.
 -- * 'sunglasses' - Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.
+-- * 'mouthOpen' - Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
+-- * 'boundingBox' - Bounding box of the face. Default attribute.
+-- * 'emotions' - The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.
+-- * 'eyesOpen' - Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
+-- * 'pose' - Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.
+-- * 'confidence' - Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.
+-- * 'gender' - The predicted gender of a detected face.
+-- * 'quality' - Identifies image brightness and sharpness. Default attribute.
+-- * 'eyeglasses' - Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.
+-- * 'beard' - Indicates whether or not the face has a beard, and the confidence level in the determination.
+-- * 'mustache' - Indicates whether or not the face has a mustache, and the confidence level in the determination.
+-- * 'smile' - Indicates whether or not the face is smiling, and the confidence level in the determination.
+-- * 'landmarks' - Indicates the location of landmarks on the face. Default attribute.
 mkFaceDetail ::
   FaceDetail
 mkFaceDetail =

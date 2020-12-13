@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.EC2.AssociateVPCCidrBlock
 
     -- ** Request lenses
     avcbIPv6CidrBlock,
+    avcbVPCId,
     avcbIPv6CidrBlockNetworkBorderGroup,
     avcbCidrBlock,
     avcbIPv6Pool,
     avcbAmazonProvidedIPv6CidrBlock,
-    avcbVPCId,
 
     -- * Destructuring the response
     AssociateVPCCidrBlockResponse (..),
@@ -49,38 +50,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateVPCCidrBlock' smart constructor.
 data AssociateVPCCidrBlock = AssociateVPCCidrBlock'
-  { ipv6CidrBlock ::
-      Lude.Maybe Lude.Text,
-    ipv6CidrBlockNetworkBorderGroup ::
-      Lude.Maybe Lude.Text,
+  { -- | An IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
+    --
+    -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+    ipv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC.
+    vpcId :: Lude.Text,
+    -- | The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.
+    --
+    -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter.
+    -- You can have one IPv6 CIDR block association per network border group.
+    ipv6CidrBlockNetworkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | An IPv4 CIDR block to associate with the VPC.
     cidrBlock :: Lude.Maybe Lude.Text,
+    -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
     ipv6Pool :: Lude.Maybe Lude.Text,
-    amazonProvidedIPv6CidrBlock ::
-      Lude.Maybe Lude.Bool,
-    vpcId :: Lude.Text
+    -- | Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
+    amazonProvidedIPv6CidrBlock :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateVPCCidrBlock' with the minimum fields required to make a request.
 --
--- * 'amazonProvidedIPv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
--- * 'cidrBlock' - An IPv4 CIDR block to associate with the VPC.
 -- * 'ipv6CidrBlock' - An IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
 --
 -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
+-- * 'vpcId' - The ID of the VPC.
 -- * 'ipv6CidrBlockNetworkBorderGroup' - The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.
 --
 -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this parameter.
 -- You can have one IPv6 CIDR block association per network border group.
+-- * 'cidrBlock' - An IPv4 CIDR block to associate with the VPC.
 -- * 'ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
--- * 'vpcId' - The ID of the VPC.
+-- * 'amazonProvidedIPv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.
 mkAssociateVPCCidrBlock ::
   -- | 'vpcId'
   Lude.Text ->
@@ -88,11 +91,11 @@ mkAssociateVPCCidrBlock ::
 mkAssociateVPCCidrBlock pVPCId_ =
   AssociateVPCCidrBlock'
     { ipv6CidrBlock = Lude.Nothing,
+      vpcId = pVPCId_,
       ipv6CidrBlockNetworkBorderGroup = Lude.Nothing,
       cidrBlock = Lude.Nothing,
       ipv6Pool = Lude.Nothing,
-      amazonProvidedIPv6CidrBlock = Lude.Nothing,
-      vpcId = pVPCId_
+      amazonProvidedIPv6CidrBlock = Lude.Nothing
     }
 
 -- | An IPv6 CIDR block from the IPv6 address pool. You must also specify @Ipv6Pool@ in the request.
@@ -103,6 +106,13 @@ mkAssociateVPCCidrBlock pVPCId_ =
 avcbIPv6CidrBlock :: Lens.Lens' AssociateVPCCidrBlock (Lude.Maybe Lude.Text)
 avcbIPv6CidrBlock = Lens.lens (ipv6CidrBlock :: AssociateVPCCidrBlock -> Lude.Maybe Lude.Text) (\s a -> s {ipv6CidrBlock = a} :: AssociateVPCCidrBlock)
 {-# DEPRECATED avcbIPv6CidrBlock "Use generic-lens or generic-optics with 'ipv6CidrBlock' instead." #-}
+
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcbVPCId :: Lens.Lens' AssociateVPCCidrBlock Lude.Text
+avcbVPCId = Lens.lens (vpcId :: AssociateVPCCidrBlock -> Lude.Text) (\s a -> s {vpcId = a} :: AssociateVPCCidrBlock)
+{-# DEPRECATED avcbVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.
 --
@@ -135,13 +145,6 @@ avcbAmazonProvidedIPv6CidrBlock :: Lens.Lens' AssociateVPCCidrBlock (Lude.Maybe 
 avcbAmazonProvidedIPv6CidrBlock = Lens.lens (amazonProvidedIPv6CidrBlock :: AssociateVPCCidrBlock -> Lude.Maybe Lude.Bool) (\s a -> s {amazonProvidedIPv6CidrBlock = a} :: AssociateVPCCidrBlock)
 {-# DEPRECATED avcbAmazonProvidedIPv6CidrBlock "Use generic-lens or generic-optics with 'amazonProvidedIPv6CidrBlock' instead." #-}
 
--- | The ID of the VPC.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avcbVPCId :: Lens.Lens' AssociateVPCCidrBlock Lude.Text
-avcbVPCId = Lens.lens (vpcId :: AssociateVPCCidrBlock -> Lude.Text) (\s a -> s {vpcId = a} :: AssociateVPCCidrBlock)
-{-# DEPRECATED avcbVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
 instance Lude.AWSRequest AssociateVPCCidrBlock where
   type Rs AssociateVPCCidrBlock = AssociateVPCCidrBlockResponse
   request = Req.postQuery ec2Service
@@ -167,41 +170,34 @@ instance Lude.ToQuery AssociateVPCCidrBlock where
       [ "Action" Lude.=: ("AssociateVpcCidrBlock" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "Ipv6CidrBlock" Lude.=: ipv6CidrBlock,
+        "VpcId" Lude.=: vpcId,
         "Ipv6CidrBlockNetworkBorderGroup"
           Lude.=: ipv6CidrBlockNetworkBorderGroup,
         "CidrBlock" Lude.=: cidrBlock,
         "Ipv6Pool" Lude.=: ipv6Pool,
-        "AmazonProvidedIpv6CidrBlock" Lude.=: amazonProvidedIPv6CidrBlock,
-        "VpcId" Lude.=: vpcId
+        "AmazonProvidedIpv6CidrBlock" Lude.=: amazonProvidedIPv6CidrBlock
       ]
 
 -- | /See:/ 'mkAssociateVPCCidrBlockResponse' smart constructor.
 data AssociateVPCCidrBlockResponse = AssociateVPCCidrBlockResponse'
-  { vpcId ::
-      Lude.Maybe Lude.Text,
-    cidrBlockAssociation ::
-      Lude.Maybe
-        VPCCidrBlockAssociation,
-    ipv6CidrBlockAssociation ::
-      Lude.Maybe
-        VPCIPv6CidrBlockAssociation,
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | Information about the IPv4 CIDR block association.
+    cidrBlockAssociation :: Lude.Maybe VPCCidrBlockAssociation,
+    -- | Information about the IPv6 CIDR block association.
+    ipv6CidrBlockAssociation :: Lude.Maybe VPCIPv6CidrBlockAssociation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateVPCCidrBlockResponse' with the minimum fields required to make a request.
 --
+-- * 'vpcId' - The ID of the VPC.
 -- * 'cidrBlockAssociation' - Information about the IPv4 CIDR block association.
 -- * 'ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 -- * 'responseStatus' - The response status code.
--- * 'vpcId' - The ID of the VPC.
 mkAssociateVPCCidrBlockResponse ::
   -- | 'responseStatus'
   Lude.Int ->

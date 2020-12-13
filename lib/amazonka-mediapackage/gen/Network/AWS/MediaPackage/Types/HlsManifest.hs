@@ -22,9 +22,9 @@ module Network.AWS.MediaPackage.Types.HlsManifest
     hmPlaylistType,
     hmProgramDateTimeIntervalSeconds,
     hmAdMarkers,
+    hmId,
     hmIncludeIframeOnlyStream,
     hmPlaylistWindowSeconds,
-    hmId,
   )
 where
 
@@ -37,27 +37,65 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsManifest' smart constructor.
 data HlsManifest = HlsManifest'
-  { manifestName ::
-      Lude.Maybe Lude.Text,
+  { -- | An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
+    manifestName :: Lude.Maybe Lude.Text,
+    -- | The URL of the packaged OriginEndpoint for consumption.
     url :: Lude.Maybe Lude.Text,
+    -- | The HTTP Live Streaming (HLS) playlist type.
+    --
+    -- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
+    -- entry will be included in the media playlist.
     playlistType :: Lude.Maybe PlaylistType,
+    -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+    --
+    -- inserted into manifests. Additionally, when an interval is specified
+    -- ID3Timed Metadata messages will be generated every 5 seconds using the
+    -- ingest time of the content.
+    -- If the interval is not specified, or set to 0, then
+    -- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
+    -- ID3Timed Metadata messages will be generated. Note that irrespective
+    -- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
+    -- it will be passed through to HLS output.
     programDateTimeIntervalSeconds :: Lude.Maybe Lude.Int,
+    -- | This setting controls how ad markers are included in the packaged OriginEndpoint.
+    --
+    -- "NONE" will omit all SCTE-35 ad markers from the output.
+    -- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+    -- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+    -- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+    -- messages in the input source.
+    -- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+    -- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+    -- that is greater than 0.
     adMarkers :: Lude.Maybe AdMarkers,
+    -- | The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
+    id :: Lude.Text,
+    -- | When enabled, an I-Frame only stream will be included in the output.
     includeIframeOnlyStream :: Lude.Maybe Lude.Bool,
-    playlistWindowSeconds :: Lude.Maybe Lude.Int,
-    id :: Lude.Text
+    -- | Time window (in seconds) contained in each parent manifest.
+    playlistWindowSeconds :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsManifest' with the minimum fields required to make a request.
 --
+-- * 'manifestName' - An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
+-- * 'url' - The URL of the packaged OriginEndpoint for consumption.
+-- * 'playlistType' - The HTTP Live Streaming (HLS) playlist type.
+--
+-- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
+-- entry will be included in the media playlist.
+-- * 'programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+--
+-- inserted into manifests. Additionally, when an interval is specified
+-- ID3Timed Metadata messages will be generated every 5 seconds using the
+-- ingest time of the content.
+-- If the interval is not specified, or set to 0, then
+-- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
+-- ID3Timed Metadata messages will be generated. Note that irrespective
+-- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
+-- it will be passed through to HLS output.
 -- * 'adMarkers' - This setting controls how ad markers are included in the packaged OriginEndpoint.
 --
 -- "NONE" will omit all SCTE-35 ad markers from the output.
@@ -70,23 +108,7 @@ data HlsManifest = HlsManifest'
 -- that is greater than 0.
 -- * 'id' - The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 -- * 'includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
--- * 'manifestName' - An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
--- * 'playlistType' - The HTTP Live Streaming (HLS) playlist type.
---
--- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
--- entry will be included in the media playlist.
 -- * 'playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
--- * 'programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
---
--- inserted into manifests. Additionally, when an interval is specified
--- ID3Timed Metadata messages will be generated every 5 seconds using the
--- ingest time of the content.
--- If the interval is not specified, or set to 0, then
--- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
--- ID3Timed Metadata messages will be generated. Note that irrespective
--- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
--- it will be passed through to HLS output.
--- * 'url' - The URL of the packaged OriginEndpoint for consumption.
 mkHlsManifest ::
   -- | 'id'
   Lude.Text ->
@@ -98,9 +120,9 @@ mkHlsManifest pId_ =
       playlistType = Lude.Nothing,
       programDateTimeIntervalSeconds = Lude.Nothing,
       adMarkers = Lude.Nothing,
+      id = pId_,
       includeIframeOnlyStream = Lude.Nothing,
-      playlistWindowSeconds = Lude.Nothing,
-      id = pId_
+      playlistWindowSeconds = Lude.Nothing
     }
 
 -- | An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
@@ -159,6 +181,13 @@ hmAdMarkers :: Lens.Lens' HlsManifest (Lude.Maybe AdMarkers)
 hmAdMarkers = Lens.lens (adMarkers :: HlsManifest -> Lude.Maybe AdMarkers) (\s a -> s {adMarkers = a} :: HlsManifest)
 {-# DEPRECATED hmAdMarkers "Use generic-lens or generic-optics with 'adMarkers' instead." #-}
 
+-- | The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hmId :: Lens.Lens' HlsManifest Lude.Text
+hmId = Lens.lens (id :: HlsManifest -> Lude.Text) (\s a -> s {id = a} :: HlsManifest)
+{-# DEPRECATED hmId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 -- | When enabled, an I-Frame only stream will be included in the output.
 --
 -- /Note:/ Consider using 'includeIframeOnlyStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -173,13 +202,6 @@ hmPlaylistWindowSeconds :: Lens.Lens' HlsManifest (Lude.Maybe Lude.Int)
 hmPlaylistWindowSeconds = Lens.lens (playlistWindowSeconds :: HlsManifest -> Lude.Maybe Lude.Int) (\s a -> s {playlistWindowSeconds = a} :: HlsManifest)
 {-# DEPRECATED hmPlaylistWindowSeconds "Use generic-lens or generic-optics with 'playlistWindowSeconds' instead." #-}
 
--- | The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hmId :: Lens.Lens' HlsManifest Lude.Text
-hmId = Lens.lens (id :: HlsManifest -> Lude.Text) (\s a -> s {id = a} :: HlsManifest)
-{-# DEPRECATED hmId "Use generic-lens or generic-optics with 'id' instead." #-}
-
 instance Lude.FromJSON HlsManifest where
   parseJSON =
     Lude.withObject
@@ -191,7 +213,7 @@ instance Lude.FromJSON HlsManifest where
             Lude.<*> (x Lude..:? "playlistType")
             Lude.<*> (x Lude..:? "programDateTimeIntervalSeconds")
             Lude.<*> (x Lude..:? "adMarkers")
+            Lude.<*> (x Lude..: "id")
             Lude.<*> (x Lude..:? "includeIframeOnlyStream")
             Lude.<*> (x Lude..:? "playlistWindowSeconds")
-            Lude.<*> (x Lude..: "id")
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,18 +42,12 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkRegisterPatchBaselineForPatchGroup' smart constructor.
 data RegisterPatchBaselineForPatchGroup = RegisterPatchBaselineForPatchGroup'
-  { baselineId ::
-      Lude.Text,
-    patchGroup ::
-      Lude.Text
+  { -- | The ID of the patch baseline to register the patch group with.
+    baselineId :: Lude.Text,
+    -- | The name of the patch group that should be registered with the patch baseline.
+    patchGroup :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterPatchBaselineForPatchGroup' with the minimum fields required to make a request.
@@ -129,22 +124,14 @@ instance Lude.ToQuery RegisterPatchBaselineForPatchGroup where
 
 -- | /See:/ 'mkRegisterPatchBaselineForPatchGroupResponse' smart constructor.
 data RegisterPatchBaselineForPatchGroupResponse = RegisterPatchBaselineForPatchGroupResponse'
-  { baselineId ::
-      Lude.Maybe
-        Lude.Text,
-    patchGroup ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the patch baseline the patch group was registered with.
+    baselineId :: Lude.Maybe Lude.Text,
+    -- | The name of the patch group registered with the patch baseline.
+    patchGroup :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.

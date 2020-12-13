@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,12 +34,12 @@ module Network.AWS.EC2.DescribeInstanceStatus
     mkDescribeInstanceStatus,
 
     -- ** Request lenses
-    disIncludeAllInstances,
-    disFilters,
-    disNextToken,
-    disInstanceIds,
-    disDryRun,
-    disMaxResults,
+    dissIncludeAllInstances,
+    dissFilters,
+    dissNextToken,
+    dissInstanceIds,
+    dissDryRun,
+    dissMaxResults,
 
     -- * Destructuring the response
     DescribeInstanceStatusResponse (..),
@@ -60,26 +61,71 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstanceStatus' smart constructor.
 data DescribeInstanceStatus = DescribeInstanceStatus'
-  { includeAllInstances ::
-      Lude.Maybe Lude.Bool,
+  { -- | When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
+    --
+    -- Default: @false@
+    includeAllInstances :: Lude.Maybe Lude.Bool,
+    -- | The filters.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone of the instance.
+    --
+    --
+    --     * @event.code@ - The code for the scheduled event (@instance-reboot@ | @system-reboot@ | @system-maintenance@ | @instance-retirement@ | @instance-stop@ ).
+    --
+    --
+    --     * @event.description@ - A description of the event.
+    --
+    --
+    --     * @event.instance-event-id@ - The ID of the event whose date and time you are modifying.
+    --
+    --
+    --     * @event.not-after@ - The latest end time for the scheduled event (for example, @2014-09-15T17:15:20.000Z@ ).
+    --
+    --
+    --     * @event.not-before@ - The earliest start time for the scheduled event (for example, @2014-09-15T17:15:20.000Z@ ).
+    --
+    --
+    --     * @event.not-before-deadline@ - The deadline for starting the event (for example, @2014-09-15T17:15:20.000Z@ ).
+    --
+    --
+    --     * @instance-state-code@ - The code for the instance state, as a 16-bit unsigned integer. The high byte is used for internal purposes and should be ignored. The low byte is set based on the state represented. The valid values are 0 (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
+    --
+    --
+    --     * @instance-state-name@ - The state of the instance (@pending@ | @running@ | @shutting-down@ | @terminated@ | @stopping@ | @stopped@ ).
+    --
+    --
+    --     * @instance-status.reachability@ - Filters on instance status where the name is @reachability@ (@passed@ | @failed@ | @initializing@ | @insufficient-data@ ).
+    --
+    --
+    --     * @instance-status.status@ - The status of the instance (@ok@ | @impaired@ | @initializing@ | @insufficient-data@ | @not-applicable@ ).
+    --
+    --
+    --     * @system-status.reachability@ - Filters on system status where the name is @reachability@ (@passed@ | @failed@ | @initializing@ | @insufficient-data@ ).
+    --
+    --
+    --     * @system-status.status@ - The system status of the instance (@ok@ | @impaired@ | @initializing@ | @insufficient-data@ | @not-applicable@ ).
     filters :: Lude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The instance IDs.
+    --
+    -- Default: Describes all your instances.
+    -- Constraints: Maximum 100 explicitly specified instance IDs.
     instanceIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceStatus' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'includeAllInstances' - When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
+--
+-- Default: @false@
 -- * 'filters' - The filters.
 --
 --
@@ -122,15 +168,13 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
 --     * @system-status.status@ - The system status of the instance (@ok@ | @impaired@ | @initializing@ | @insufficient-data@ | @not-applicable@ ).
 --
 --
--- * 'includeAllInstances' - When @true@ , includes the health status for all instances. When @false@ , includes the health status for running instances only.
---
--- Default: @false@
+-- * 'nextToken' - The token to retrieve the next page of results.
 -- * 'instanceIds' - The instance IDs.
 --
 -- Default: Describes all your instances.
 -- Constraints: Maximum 100 explicitly specified instance IDs.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
--- * 'nextToken' - The token to retrieve the next page of results.
 mkDescribeInstanceStatus ::
   DescribeInstanceStatus
 mkDescribeInstanceStatus =
@@ -148,9 +192,9 @@ mkDescribeInstanceStatus =
 -- Default: @false@
 --
 -- /Note:/ Consider using 'includeAllInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disIncludeAllInstances :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Bool)
-disIncludeAllInstances = Lens.lens (includeAllInstances :: DescribeInstanceStatus -> Lude.Maybe Lude.Bool) (\s a -> s {includeAllInstances = a} :: DescribeInstanceStatus)
-{-# DEPRECATED disIncludeAllInstances "Use generic-lens or generic-optics with 'includeAllInstances' instead." #-}
+dissIncludeAllInstances :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Bool)
+dissIncludeAllInstances = Lens.lens (includeAllInstances :: DescribeInstanceStatus -> Lude.Maybe Lude.Bool) (\s a -> s {includeAllInstances = a} :: DescribeInstanceStatus)
+{-# DEPRECATED dissIncludeAllInstances "Use generic-lens or generic-optics with 'includeAllInstances' instead." #-}
 
 -- | The filters.
 --
@@ -196,16 +240,16 @@ disIncludeAllInstances = Lens.lens (includeAllInstances :: DescribeInstanceStatu
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disFilters :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe [Filter])
-disFilters = Lens.lens (filters :: DescribeInstanceStatus -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeInstanceStatus)
-{-# DEPRECATED disFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dissFilters :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe [Filter])
+dissFilters = Lens.lens (filters :: DescribeInstanceStatus -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeInstanceStatus)
+{-# DEPRECATED dissFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The token to retrieve the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disNextToken :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Text)
-disNextToken = Lens.lens (nextToken :: DescribeInstanceStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceStatus)
-{-# DEPRECATED disNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dissNextToken :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Text)
+dissNextToken = Lens.lens (nextToken :: DescribeInstanceStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceStatus)
+{-# DEPRECATED dissNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The instance IDs.
 --
@@ -213,23 +257,23 @@ disNextToken = Lens.lens (nextToken :: DescribeInstanceStatus -> Lude.Maybe Lude
 -- Constraints: Maximum 100 explicitly specified instance IDs.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disInstanceIds :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe [Lude.Text])
-disInstanceIds = Lens.lens (instanceIds :: DescribeInstanceStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: DescribeInstanceStatus)
-{-# DEPRECATED disInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+dissInstanceIds :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe [Lude.Text])
+dissInstanceIds = Lens.lens (instanceIds :: DescribeInstanceStatus -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: DescribeInstanceStatus)
+{-# DEPRECATED dissInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disDryRun :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Bool)
-disDryRun = Lens.lens (dryRun :: DescribeInstanceStatus -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInstanceStatus)
-{-# DEPRECATED disDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dissDryRun :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Bool)
+dissDryRun = Lens.lens (dryRun :: DescribeInstanceStatus -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeInstanceStatus)
+{-# DEPRECATED dissDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 5 and 1000. You cannot specify this parameter and the instance IDs parameter in the same call.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disMaxResults :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Int)
-disMaxResults = Lens.lens (maxResults :: DescribeInstanceStatus -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeInstanceStatus)
-{-# DEPRECATED disMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dissMaxResults :: Lens.Lens' DescribeInstanceStatus (Lude.Maybe Lude.Int)
+dissMaxResults = Lens.lens (maxResults :: DescribeInstanceStatus -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeInstanceStatus)
+{-# DEPRECATED dissMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeInstanceStatus where
   page rq rs
@@ -238,7 +282,7 @@ instance Page.AWSPager DescribeInstanceStatus where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& disNextToken Lens..~ rs Lens.^. disrsNextToken
+          Lude.& dissNextToken Lens..~ rs Lens.^. disrsNextToken
 
 instance Lude.AWSRequest DescribeInstanceStatus where
   type Rs DescribeInstanceStatus = DescribeInstanceStatusResponse
@@ -275,19 +319,14 @@ instance Lude.ToQuery DescribeInstanceStatus where
 
 -- | /See:/ 'mkDescribeInstanceStatusResponse' smart constructor.
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
-  { instanceStatuses ::
-      Lude.Maybe [InstanceStatus],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the status of the instances.
+    instanceStatuses :: Lude.Maybe [InstanceStatus],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstanceStatusResponse' with the minimum fields required to make a request.

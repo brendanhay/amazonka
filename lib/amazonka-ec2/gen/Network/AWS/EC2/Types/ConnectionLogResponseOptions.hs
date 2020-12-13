@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConnectionLogResponseOptions' smart constructor.
 data ConnectionLogResponseOptions = ConnectionLogResponseOptions'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    cloudwatchLogStream ::
-      Lude.Maybe Lude.Text,
-    cloudwatchLogGroup ::
-      Lude.Maybe Lude.Text
+  { -- | Indicates whether client connection logging is enabled for the Client VPN endpoint.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
+    cloudwatchLogStream :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
+    cloudwatchLogGroup :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionLogResponseOptions' with the minimum fields required to make a request.
 --
--- * 'cloudwatchLogGroup' - The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
--- * 'cloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
 -- * 'enabled' - Indicates whether client connection logging is enabled for the Client VPN endpoint.
+-- * 'cloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
+-- * 'cloudwatchLogGroup' - The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
 mkConnectionLogResponseOptions ::
   ConnectionLogResponseOptions
 mkConnectionLogResponseOptions =

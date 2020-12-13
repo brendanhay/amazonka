@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSerDeInfo' smart constructor.
 data SerDeInfo = SerDeInfo'
-  { serializationLibrary ::
-      Lude.Maybe Lude.Text,
+  { -- | Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
+    serializationLibrary :: Lude.Maybe Lude.Text,
+    -- | Name of the SerDe.
     name :: Lude.Maybe Lude.Text,
+    -- | These key-value pairs define initialization parameters for the SerDe.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SerDeInfo' with the minimum fields required to make a request.
 --
+-- * 'serializationLibrary' - Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
 -- * 'name' - Name of the SerDe.
 -- * 'parameters' - These key-value pairs define initialization parameters for the SerDe.
--- * 'serializationLibrary' - Usually the class that implements the SerDe. An example is @org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe@ .
 mkSerDeInfo ::
   SerDeInfo
 mkSerDeInfo =

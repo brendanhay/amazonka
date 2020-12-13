@@ -30,20 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayAttachmentPropagation' smart constructor.
 data TransitGatewayAttachmentPropagation = TransitGatewayAttachmentPropagation'
-  { state ::
-      Lude.Maybe
-        TransitGatewayPropagationState,
-    transitGatewayRouteTableId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The state of the propagation route table.
+    state :: Lude.Maybe TransitGatewayPropagationState,
+    -- | The ID of the propagation route table.
+    transitGatewayRouteTableId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayAttachmentPropagation' with the minimum fields required to make a request.

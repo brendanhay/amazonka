@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
   ( HlsOfflineEncrypted
       ( HlsOfflineEncrypted',
-        HOEDisabled,
-        HOEEnabled
+        HOEEnabled,
+        HOEDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsOfflineEncrypted = HlsOfflineEncrypted' Lude.Text
       Lude.ToHeader
     )
 
-pattern HOEDisabled :: HlsOfflineEncrypted
-pattern HOEDisabled = HlsOfflineEncrypted' "DISABLED"
-
 pattern HOEEnabled :: HlsOfflineEncrypted
 pattern HOEEnabled = HlsOfflineEncrypted' "ENABLED"
 
+pattern HOEDisabled :: HlsOfflineEncrypted
+pattern HOEDisabled = HlsOfflineEncrypted' "DISABLED"
+
 {-# COMPLETE
-  HOEDisabled,
   HOEEnabled,
+  HOEDisabled,
   HlsOfflineEncrypted'
   #-}

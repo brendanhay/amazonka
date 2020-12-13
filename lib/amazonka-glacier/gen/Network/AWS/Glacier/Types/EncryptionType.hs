@@ -13,8 +13,8 @@
 module Network.AWS.Glacier.Types.EncryptionType
   ( EncryptionType
       ( EncryptionType',
-        AES256,
-        AWSKMS
+        AWSKMS,
+        AES256
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EncryptionType = EncryptionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AES256 :: EncryptionType
-pattern AES256 = EncryptionType' "AES256"
-
 pattern AWSKMS :: EncryptionType
 pattern AWSKMS = EncryptionType' "aws:kms"
 
+pattern AES256 :: EncryptionType
+pattern AES256 = EncryptionType' "AES256"
+
 {-# COMPLETE
-  AES256,
   AWSKMS,
+  AES256,
   EncryptionType'
   #-}

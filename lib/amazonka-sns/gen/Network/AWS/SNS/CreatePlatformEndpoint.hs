@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.SNS.CreatePlatformEndpoint
 
     -- ** Request lenses
     cpeCustomUserData,
-    cpeAttributes,
     cpePlatformApplicationARN,
     cpeToken,
+    cpeAttributes,
 
     -- * Destructuring the response
     CreatePlatformEndpointResponse (..),
@@ -46,29 +47,24 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkCreatePlatformEndpoint' smart constructor.
 data CreatePlatformEndpoint = CreatePlatformEndpoint'
-  { customUserData ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
+    customUserData :: Lude.Maybe Lude.Text,
+    -- | PlatformApplicationArn returned from CreatePlatformApplication is used to create a an endpoint.
     platformApplicationARN :: Lude.Text,
-    token :: Lude.Text
+    -- | Unique identifier created by the notification service for an app on a device. The specific name for Token will vary, depending on which notification service is being used. For example, when using APNS as the notification service, you need the device token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token equivalent is called the registration ID.
+    token :: Lude.Text,
+    -- | For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes> .
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlatformEndpoint' with the minimum fields required to make a request.
 --
--- * 'attributes' - For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes> .
 -- * 'customUserData' - Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
 -- * 'platformApplicationARN' - PlatformApplicationArn returned from CreatePlatformApplication is used to create a an endpoint.
 -- * 'token' - Unique identifier created by the notification service for an app on a device. The specific name for Token will vary, depending on which notification service is being used. For example, when using APNS as the notification service, you need the device token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token equivalent is called the registration ID.
+-- * 'attributes' - For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes> .
 mkCreatePlatformEndpoint ::
   -- | 'platformApplicationARN'
   Lude.Text ->
@@ -78,9 +74,9 @@ mkCreatePlatformEndpoint ::
 mkCreatePlatformEndpoint pPlatformApplicationARN_ pToken_ =
   CreatePlatformEndpoint'
     { customUserData = Lude.Nothing,
-      attributes = Lude.Nothing,
       platformApplicationARN = pPlatformApplicationARN_,
-      token = pToken_
+      token = pToken_,
+      attributes = Lude.Nothing
     }
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.
@@ -89,13 +85,6 @@ mkCreatePlatformEndpoint pPlatformApplicationARN_ pToken_ =
 cpeCustomUserData :: Lens.Lens' CreatePlatformEndpoint (Lude.Maybe Lude.Text)
 cpeCustomUserData = Lens.lens (customUserData :: CreatePlatformEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {customUserData = a} :: CreatePlatformEndpoint)
 {-# DEPRECATED cpeCustomUserData "Use generic-lens or generic-optics with 'customUserData' instead." #-}
-
--- | For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes> .
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpeAttributes :: Lens.Lens' CreatePlatformEndpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cpeAttributes = Lens.lens (attributes :: CreatePlatformEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: CreatePlatformEndpoint)
-{-# DEPRECATED cpeAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used to create a an endpoint.
 --
@@ -110,6 +99,13 @@ cpePlatformApplicationARN = Lens.lens (platformApplicationARN :: CreatePlatformE
 cpeToken :: Lens.Lens' CreatePlatformEndpoint Lude.Text
 cpeToken = Lens.lens (token :: CreatePlatformEndpoint -> Lude.Text) (\s a -> s {token = a} :: CreatePlatformEndpoint)
 {-# DEPRECATED cpeToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+-- | For a list of attributes, see <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes> .
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpeAttributes :: Lens.Lens' CreatePlatformEndpoint (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cpeAttributes = Lens.lens (attributes :: CreatePlatformEndpoint -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: CreatePlatformEndpoint)
+{-# DEPRECATED cpeAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 instance Lude.AWSRequest CreatePlatformEndpoint where
   type Rs CreatePlatformEndpoint = CreatePlatformEndpointResponse
@@ -134,28 +130,23 @@ instance Lude.ToQuery CreatePlatformEndpoint where
       [ "Action" Lude.=: ("CreatePlatformEndpoint" :: Lude.ByteString),
         "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
         "CustomUserData" Lude.=: customUserData,
+        "PlatformApplicationArn" Lude.=: platformApplicationARN,
+        "Token" Lude.=: token,
         "Attributes"
           Lude.=: Lude.toQuery
-            (Lude.toQueryMap "entry" "key" "value" Lude.<$> attributes),
-        "PlatformApplicationArn" Lude.=: platformApplicationARN,
-        "Token" Lude.=: token
+            (Lude.toQueryMap "entry" "key" "value" Lude.<$> attributes)
       ]
 
 -- | Response from CreateEndpoint action.
 --
 -- /See:/ 'mkCreatePlatformEndpointResponse' smart constructor.
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
-  { endpointARN ::
-      Lude.Maybe Lude.Text,
+  { -- | EndpointArn returned from CreateEndpoint action.
+    endpointARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePlatformEndpointResponse' with the minimum fields required to make a request.

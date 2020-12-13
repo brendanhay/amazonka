@@ -35,37 +35,46 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkVolumeInfo' smart constructor.
 data VolumeInfo = VolumeInfo'
   { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | One of the VolumeStatus values that indicates the state of the storage volume.
     volumeAttachmentStatus :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:
+    --
+    -- @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@
+    -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
     volumeARN :: Lude.Maybe Lude.Text,
+    -- | The size of the volume in bytes.
+    --
+    -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
     volumeSizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations.
+    --
+    -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
     volumeId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
+    --
+    -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
     gatewayId :: Lude.Maybe Lude.Text,
+    -- | One of the VolumeType enumeration values describing the type of the volume.
     volumeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeInfo' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
--- * 'gatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
---
--- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
+-- * 'gatewayARN' -
+-- * 'volumeAttachmentStatus' - One of the VolumeStatus values that indicates the state of the storage volume.
 -- * 'volumeARN' - The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:
 --
 -- @arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB@
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
--- * 'volumeAttachmentStatus' - One of the VolumeStatus values that indicates the state of the storage volume.
+-- * 'volumeSizeInBytes' - The size of the volume in bytes.
+--
+-- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 -- * 'volumeId' - The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations.
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
--- * 'volumeSizeInBytes' - The size of the volume in bytes.
+-- * 'gatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).
 -- * 'volumeType' - One of the VolumeType enumeration values describing the type of the volume.

@@ -36,33 +36,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentConfigInfo' smart constructor.
 data DeploymentConfigInfo = DeploymentConfigInfo'
-  { deploymentConfigName ::
-      Lude.Maybe Lude.Text,
+  { -- | The deployment configuration name.
+    deploymentConfigName :: Lude.Maybe Lude.Text,
+    -- | The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
     computePlatform :: Lude.Maybe ComputePlatform,
-    minimumHealthyHosts ::
-      Lude.Maybe MinimumHealthyHosts,
-    trafficRoutingConfig ::
-      Lude.Maybe TrafficRoutingConfig,
+    -- | Information about the number or percentage of minimum healthy instance.
+    minimumHealthyHosts :: Lude.Maybe MinimumHealthyHosts,
+    -- | The configuration that specifies how the deployment traffic is routed. Used for deployments with a Lambda or ECS compute platform only.
+    trafficRoutingConfig :: Lude.Maybe TrafficRoutingConfig,
+    -- | The deployment configuration ID.
     deploymentConfigId :: Lude.Maybe Lude.Text,
+    -- | The time at which the deployment configuration was created.
     createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentConfigInfo' with the minimum fields required to make a request.
 --
--- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
--- * 'createTime' - The time at which the deployment configuration was created.
--- * 'deploymentConfigId' - The deployment configuration ID.
 -- * 'deploymentConfigName' - The deployment configuration name.
+-- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
 -- * 'minimumHealthyHosts' - Information about the number or percentage of minimum healthy instance.
 -- * 'trafficRoutingConfig' - The configuration that specifies how the deployment traffic is routed. Used for deployments with a Lambda or ECS compute platform only.
+-- * 'deploymentConfigId' - The deployment configuration ID.
+-- * 'createTime' - The time at which the deployment configuration was created.
 mkDeploymentConfigInfo ::
   DeploymentConfigInfo
 mkDeploymentConfigInfo =

@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.Vc3Class
   ( Vc3Class
       ( Vc3Class',
         Class1458BIT,
-        Class22010BIT,
-        Class2208BIT
+        Class2208BIT,
+        Class22010BIT
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype Vc3Class = Vc3Class' Lude.Text
 pattern Class1458BIT :: Vc3Class
 pattern Class1458BIT = Vc3Class' "CLASS_145_8BIT"
 
-pattern Class22010BIT :: Vc3Class
-pattern Class22010BIT = Vc3Class' "CLASS_220_10BIT"
-
 pattern Class2208BIT :: Vc3Class
 pattern Class2208BIT = Vc3Class' "CLASS_220_8BIT"
 
+pattern Class22010BIT :: Vc3Class
+pattern Class22010BIT = Vc3Class' "CLASS_220_10BIT"
+
 {-# COMPLETE
   Class1458BIT,
-  Class22010BIT,
   Class2208BIT,
+  Class22010BIT,
   Vc3Class'
   #-}

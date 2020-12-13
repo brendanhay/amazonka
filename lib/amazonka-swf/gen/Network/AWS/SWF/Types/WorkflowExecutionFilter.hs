@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowExecutionFilter' smart constructor.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter'
-  { workflowId ::
-      Lude.Text
+  { -- | The workflowId to pass of match the criteria of this filter.
+    workflowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionFilter' with the minimum fields required to make a request.

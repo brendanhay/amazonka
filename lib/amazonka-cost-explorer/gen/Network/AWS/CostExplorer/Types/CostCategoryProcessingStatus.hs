@@ -31,25 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCostCategoryProcessingStatus' smart constructor.
 data CostCategoryProcessingStatus = CostCategoryProcessingStatus'
-  { status ::
-      Lude.Maybe CostCategoryStatus,
-    component ::
-      Lude.Maybe
-        CostCategoryStatusComponent
+  { -- | The process status for a specific cost category.
+    status :: Lude.Maybe CostCategoryStatus,
+    -- | The Cost Management product name of the applied status.
+    component :: Lude.Maybe CostCategoryStatusComponent
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostCategoryProcessingStatus' with the minimum fields required to make a request.
 --
--- * 'component' - The Cost Management product name of the applied status.
 -- * 'status' - The process status for a specific cost category.
+-- * 'component' - The Cost Management product name of the applied status.
 mkCostCategoryProcessingStatus ::
   CostCategoryProcessingStatus
 mkCostCategoryProcessingStatus =

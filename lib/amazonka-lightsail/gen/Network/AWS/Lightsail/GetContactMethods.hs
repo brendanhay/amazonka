@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetContactMethods' smart constructor.
 newtype GetContactMethods = GetContactMethods'
-  { protocols ::
-      Lude.Maybe [ContactProtocol]
+  { -- | The protocols used to send notifications, such as @Email@ , or @SMS@ (text messaging).
+    --
+    -- Specify a protocol in your request to return information about a specific contact method protocol.
+    protocols :: Lude.Maybe [ContactProtocol]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContactMethods' with the minimum fields required to make a request.
@@ -106,17 +103,12 @@ instance Lude.ToQuery GetContactMethods where
 
 -- | /See:/ 'mkGetContactMethodsResponse' smart constructor.
 data GetContactMethodsResponse = GetContactMethodsResponse'
-  { contactMethods ::
-      Lude.Maybe [ContactMethod],
+  { -- | An array of objects that describe the contact methods.
+    contactMethods :: Lude.Maybe [ContactMethod],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContactMethodsResponse' with the minimum fields required to make a request.

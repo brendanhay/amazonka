@@ -45,7 +45,7 @@ mkClusterRestored =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcfrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. cRestoreStatus
                 Lude.. Lens._Just
@@ -58,7 +58,7 @@ mkClusterRestored =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcfrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. cClusterStatus
                 Lude.. Lens._Just
@@ -81,7 +81,7 @@ mkClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcfrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. cClusterStatus
                 Lude.. Lens._Just
@@ -92,7 +92,7 @@ mkClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcfrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. cClusterStatus
                 Lude.. Lens._Just
@@ -114,7 +114,7 @@ mkSnapshotAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcssrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcsrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. sStatus
                 Lude.. Lens._Just
@@ -125,7 +125,7 @@ mkSnapshotAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcssrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcsrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. sStatus
                 Lude.. Lens._Just
@@ -136,7 +136,7 @@ mkSnapshotAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcssrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcsrsSnapshots Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. sStatus
                 Lude.. Lens._Just
@@ -158,7 +158,7 @@ mkClusterAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcfrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. cClusterStatus
                 Lude.. Lens._Just
@@ -169,7 +169,7 @@ mkClusterAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dcrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dcfrsClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. cClusterStatus
                 Lude.. Lens._Just

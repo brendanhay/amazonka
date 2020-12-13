@@ -32,24 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHistoryRecordEntry' smart constructor.
 data HistoryRecordEntry = HistoryRecordEntry'
-  { eventType ::
-      Lude.Maybe FleetEventType,
+  { -- | The event type.
+    eventType :: Lude.Maybe FleetEventType,
+    -- | Information about the event.
     eventInformation :: Lude.Maybe EventInformation,
+    -- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
     timestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoryRecordEntry' with the minimum fields required to make a request.
 --
--- * 'eventInformation' - Information about the event.
 -- * 'eventType' - The event type.
+-- * 'eventInformation' - Information about the event.
 -- * 'timestamp' - The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 mkHistoryRecordEntry ::
   HistoryRecordEntry

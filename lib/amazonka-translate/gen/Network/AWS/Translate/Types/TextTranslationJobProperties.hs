@@ -45,58 +45,54 @@ import Network.AWS.Translate.Types.OutputDataConfig
 --
 -- /See:/ 'mkTextTranslationJobProperties' smart constructor.
 data TextTranslationJobProperties = TextTranslationJobProperties'
-  { jobId ::
-      Lude.Maybe Lude.Text,
-    targetLanguageCodes ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
+  { -- | The ID of the translation job.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The language code of the language of the target text. The language must be a language supported by Amazon Translate.
+    targetLanguageCodes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The user-defined name of the translation job.
     jobName :: Lude.Maybe Lude.Text,
-    submittedTime ::
-      Lude.Maybe Lude.Timestamp,
-    inputDataConfig ::
-      Lude.Maybe InputDataConfig,
-    parallelDataNames ::
-      Lude.Maybe [Lude.Text],
-    terminologyNames ::
-      Lude.Maybe [Lude.Text],
-    sourceLanguageCode ::
-      Lude.Maybe Lude.Text,
-    endTime ::
-      Lude.Maybe Lude.Timestamp,
-    outputDataConfig ::
-      Lude.Maybe OutputDataConfig,
-    jobDetails ::
-      Lude.Maybe JobDetails,
-    dataAccessRoleARN ::
-      Lude.Maybe Lude.Text,
+    -- | The time at which the translation job was submitted.
+    submittedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The input configuration properties that were specified when the job was requested.
+    inputDataConfig :: Lude.Maybe InputDataConfig,
+    -- | A list containing the names of the parallel data resources applied to the translation job.
+    parallelDataNames :: Lude.Maybe [Lude.Text],
+    -- | A list containing the names of the terminologies applied to a translation job. Only one terminology can be applied per 'StartTextTranslationJob' request at this time.
+    terminologyNames :: Lude.Maybe [Lude.Text],
+    -- | The language code of the language of the source text. The language must be a language supported by Amazon Translate.
+    sourceLanguageCode :: Lude.Maybe Lude.Text,
+    -- | The time at which the translation job ended.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The output configuration properties that were specified when the job was requested.
+    outputDataConfig :: Lude.Maybe OutputDataConfig,
+    -- | The number of documents successfully and unsuccessfully processed during the translation job.
+    jobDetails :: Lude.Maybe JobDetails,
+    -- | The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that granted Amazon Translate read access to the job's input data.
+    dataAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | The status of the translation job.
     jobStatus :: Lude.Maybe JobStatus,
+    -- | An explanation of any errors that may have occured during the translation job.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TextTranslationJobProperties' with the minimum fields required to make a request.
 --
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that granted Amazon Translate read access to the job's input data.
--- * 'endTime' - The time at which the translation job ended.
--- * 'inputDataConfig' - The input configuration properties that were specified when the job was requested.
--- * 'jobDetails' - The number of documents successfully and unsuccessfully processed during the translation job.
 -- * 'jobId' - The ID of the translation job.
+-- * 'targetLanguageCodes' - The language code of the language of the target text. The language must be a language supported by Amazon Translate.
 -- * 'jobName' - The user-defined name of the translation job.
+-- * 'submittedTime' - The time at which the translation job was submitted.
+-- * 'inputDataConfig' - The input configuration properties that were specified when the job was requested.
+-- * 'parallelDataNames' - A list containing the names of the parallel data resources applied to the translation job.
+-- * 'terminologyNames' - A list containing the names of the terminologies applied to a translation job. Only one terminology can be applied per 'StartTextTranslationJob' request at this time.
+-- * 'sourceLanguageCode' - The language code of the language of the source text. The language must be a language supported by Amazon Translate.
+-- * 'endTime' - The time at which the translation job ended.
+-- * 'outputDataConfig' - The output configuration properties that were specified when the job was requested.
+-- * 'jobDetails' - The number of documents successfully and unsuccessfully processed during the translation job.
+-- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role that granted Amazon Translate read access to the job's input data.
 -- * 'jobStatus' - The status of the translation job.
 -- * 'message' - An explanation of any errors that may have occured during the translation job.
--- * 'outputDataConfig' - The output configuration properties that were specified when the job was requested.
--- * 'parallelDataNames' - A list containing the names of the parallel data resources applied to the translation job.
--- * 'sourceLanguageCode' - The language code of the language of the source text. The language must be a language supported by Amazon Translate.
--- * 'submittedTime' - The time at which the translation job was submitted.
--- * 'targetLanguageCodes' - The language code of the language of the target text. The language must be a language supported by Amazon Translate.
--- * 'terminologyNames' - A list containing the names of the terminologies applied to a translation job. Only one terminology can be applied per 'StartTextTranslationJob' request at this time.
 mkTextTranslationJobProperties ::
   TextTranslationJobProperties
 mkTextTranslationJobProperties =

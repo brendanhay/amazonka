@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,11 +26,11 @@ module Network.AWS.Rekognition.StartSegmentDetection
 
     -- ** Request lenses
     ssdJobTag,
+    ssdSegmentTypes,
     ssdFilters,
     ssdNotificationChannel,
-    ssdClientRequestToken,
     ssdVideo,
-    ssdSegmentTypes,
+    ssdClientRequestToken,
 
     -- * Destructuring the response
     StartSegmentDetectionResponse (..),
@@ -49,47 +50,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartSegmentDetection' smart constructor.
 data StartSegmentDetection = StartSegmentDetection'
-  { jobTag ::
-      Lude.Maybe Lude.Text,
-    filters ::
-      Lude.Maybe StartSegmentDetectionFilters,
-    notificationChannel ::
-      Lude.Maybe NotificationChannel,
-    clientRequestToken :: Lude.Maybe Lude.Text,
+  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Lude.Maybe Lude.Text,
+    -- | An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
+    segmentTypes :: Lude.NonEmpty SegmentType,
+    -- | Filters for technical cue or shot detection.
+    filters :: Lude.Maybe StartSegmentDetectionFilters,
+    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
+    notificationChannel :: Lude.Maybe NotificationChannel,
     video :: Video,
-    segmentTypes :: Lude.NonEmpty SegmentType
+    -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSegmentDetection' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
--- * 'filters' - Filters for technical cue or shot detection.
 -- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
--- * 'notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
 -- * 'segmentTypes' - An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
--- * 'video' - Undocumented field.
+-- * 'filters' - Filters for technical cue or shot detection.
+-- * 'notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
+-- * 'video' -
+-- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 mkStartSegmentDetection ::
-  -- | 'video'
-  Video ->
   -- | 'segmentTypes'
   Lude.NonEmpty SegmentType ->
+  -- | 'video'
+  Video ->
   StartSegmentDetection
-mkStartSegmentDetection pVideo_ pSegmentTypes_ =
+mkStartSegmentDetection pSegmentTypes_ pVideo_ =
   StartSegmentDetection'
     { jobTag = Lude.Nothing,
+      segmentTypes = pSegmentTypes_,
       filters = Lude.Nothing,
       notificationChannel = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
       video = pVideo_,
-      segmentTypes = pSegmentTypes_
+      clientRequestToken = Lude.Nothing
     }
 
 -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
@@ -98,6 +95,13 @@ mkStartSegmentDetection pVideo_ pSegmentTypes_ =
 ssdJobTag :: Lens.Lens' StartSegmentDetection (Lude.Maybe Lude.Text)
 ssdJobTag = Lens.lens (jobTag :: StartSegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {jobTag = a} :: StartSegmentDetection)
 {-# DEPRECATED ssdJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
+
+-- | An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
+--
+-- /Note:/ Consider using 'segmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdSegmentTypes :: Lens.Lens' StartSegmentDetection (Lude.NonEmpty SegmentType)
+ssdSegmentTypes = Lens.lens (segmentTypes :: StartSegmentDetection -> Lude.NonEmpty SegmentType) (\s a -> s {segmentTypes = a} :: StartSegmentDetection)
+{-# DEPRECATED ssdSegmentTypes "Use generic-lens or generic-optics with 'segmentTypes' instead." #-}
 
 -- | Filters for technical cue or shot detection.
 --
@@ -113,13 +117,6 @@ ssdNotificationChannel :: Lens.Lens' StartSegmentDetection (Lude.Maybe Notificat
 ssdNotificationChannel = Lens.lens (notificationChannel :: StartSegmentDetection -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartSegmentDetection)
 {-# DEPRECATED ssdNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
--- | Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdClientRequestToken :: Lens.Lens' StartSegmentDetection (Lude.Maybe Lude.Text)
-ssdClientRequestToken = Lens.lens (clientRequestToken :: StartSegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartSegmentDetection)
-{-# DEPRECATED ssdClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
-
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -127,12 +124,12 @@ ssdVideo :: Lens.Lens' StartSegmentDetection Video
 ssdVideo = Lens.lens (video :: StartSegmentDetection -> Video) (\s a -> s {video = a} :: StartSegmentDetection)
 {-# DEPRECATED ssdVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
--- | An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
+-- | Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
--- /Note:/ Consider using 'segmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdSegmentTypes :: Lens.Lens' StartSegmentDetection (Lude.NonEmpty SegmentType)
-ssdSegmentTypes = Lens.lens (segmentTypes :: StartSegmentDetection -> Lude.NonEmpty SegmentType) (\s a -> s {segmentTypes = a} :: StartSegmentDetection)
-{-# DEPRECATED ssdSegmentTypes "Use generic-lens or generic-optics with 'segmentTypes' instead." #-}
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdClientRequestToken :: Lens.Lens' StartSegmentDetection (Lude.Maybe Lude.Text)
+ssdClientRequestToken = Lens.lens (clientRequestToken :: StartSegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartSegmentDetection)
+{-# DEPRECATED ssdClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest StartSegmentDetection where
   type Rs StartSegmentDetection = StartSegmentDetectionResponse
@@ -160,11 +157,11 @@ instance Lude.ToJSON StartSegmentDetection where
     Lude.object
       ( Lude.catMaybes
           [ ("JobTag" Lude..=) Lude.<$> jobTag,
+            Lude.Just ("SegmentTypes" Lude..= segmentTypes),
             ("Filters" Lude..=) Lude.<$> filters,
             ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
             Lude.Just ("Video" Lude..= video),
-            Lude.Just ("SegmentTypes" Lude..= segmentTypes)
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -176,17 +173,12 @@ instance Lude.ToQuery StartSegmentDetection where
 
 -- | /See:/ 'mkStartSegmentDetectionResponse' smart constructor.
 data StartSegmentDetectionResponse = StartSegmentDetectionResponse'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | Unique identifier for the segment detection job. The @JobId@ is returned from @StartSegmentDetection@ .
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartSegmentDetectionResponse' with the minimum fields required to make a request.

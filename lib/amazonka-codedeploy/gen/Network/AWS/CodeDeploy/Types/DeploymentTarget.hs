@@ -37,28 +37,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentTarget' smart constructor.
 data DeploymentTarget = DeploymentTarget'
-  { instanceTarget ::
-      Lude.Maybe InstanceTarget,
+  { -- | Information about the target for a deployment that uses the EC2/On-premises compute platform.
+    instanceTarget :: Lude.Maybe InstanceTarget,
     cloudFormationTarget :: Lude.Maybe CloudFormationTarget,
+    -- | Information about the target for a deployment that uses the Amazon ECS compute platform.
     ecsTarget :: Lude.Maybe ECSTarget,
+    -- | The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.
     deploymentTargetType :: Lude.Maybe DeploymentTargetType,
+    -- | Information about the target for a deployment that uses the AWS Lambda compute platform.
     lambdaTarget :: Lude.Maybe LambdaTarget
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentTarget' with the minimum fields required to make a request.
 --
--- * 'cloudFormationTarget' - Undocumented field.
--- * 'deploymentTargetType' - The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.
--- * 'ecsTarget' - Information about the target for a deployment that uses the Amazon ECS compute platform.
 -- * 'instanceTarget' - Information about the target for a deployment that uses the EC2/On-premises compute platform.
+-- * 'cloudFormationTarget' -
+-- * 'ecsTarget' - Information about the target for a deployment that uses the Amazon ECS compute platform.
+-- * 'deploymentTargetType' - The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update.
 -- * 'lambdaTarget' - Information about the target for a deployment that uses the AWS Lambda compute platform.
 mkDeploymentTarget ::
   DeploymentTarget

@@ -32,17 +32,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCookieObject' smart constructor.
 data CookieObject = CookieObject'
-  { cookiesAllowList ::
-      Lude.Maybe [Lude.Text],
+  { -- | The specific cookies to forward to your distribution's origin.
+    cookiesAllowList :: Lude.Maybe [Lude.Text],
+    -- | Specifies which cookies to forward to the distribution's origin for a cache behavior: @all@ , @none@ , or @allow-list@ to forward only the cookies specified in the @cookiesAllowList@ parameter.
     option :: Lude.Maybe ForwardValues
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CookieObject' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,14 +47,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeProject' smart constructor.
-newtype DescribeProject = DescribeProject' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeProject = DescribeProject'
+  { -- | The ID of the project.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProject' with the minimum fields required to make a request.
@@ -114,19 +112,25 @@ instance Lude.ToQuery DescribeProject where
 
 -- | /See:/ 'mkDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { status ::
-      Lude.Maybe ProjectStatus,
+  { -- | The project creation or deletion status.
+    status :: Lude.Maybe ProjectStatus,
+    -- | The Amazon Resource Name (ARN) for the project.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID for the AWS CodeStar project template used to create the project.
     projectTemplateId :: Lude.Maybe Lude.Text,
-    name ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The display name for the project.
+    name :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the project.
     id :: Lude.Maybe Lude.Text,
+    -- | The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
     stackId :: Lude.Maybe Lude.Text,
+    -- | A user- or system-generated token that identifies the entity that requested project creation.
     clientRequestToken :: Lude.Maybe Lude.Text,
-    createdTimeStamp ::
-      Lude.Maybe Lude.Timestamp,
-    description ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The date and time the project was created, in timestamp format.
+    createdTimeStamp :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the project, if any.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -134,16 +138,16 @@ data DescribeProjectResponse = DescribeProjectResponse'
 
 -- | Creates a value of 'DescribeProjectResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The project creation or deletion status.
 -- * 'arn' - The Amazon Resource Name (ARN) for the project.
+-- * 'projectTemplateId' - The ID for the AWS CodeStar project template used to create the project.
+-- * 'name' - The display name for the project.
+-- * 'id' - The ID of the project.
+-- * 'stackId' - The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
 -- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested project creation.
 -- * 'createdTimeStamp' - The date and time the project was created, in timestamp format.
 -- * 'description' - The description of the project, if any.
--- * 'id' - The ID of the project.
--- * 'name' - The display name for the project.
--- * 'projectTemplateId' - The ID for the AWS CodeStar project template used to create the project.
 -- * 'responseStatus' - The response status code.
--- * 'stackId' - The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
--- * 'status' - The project creation or deletion status.
 mkDescribeProjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

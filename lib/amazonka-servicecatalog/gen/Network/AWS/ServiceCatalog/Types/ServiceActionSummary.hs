@@ -32,28 +32,24 @@ import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
 --
 -- /See:/ 'mkServiceActionSummary' smart constructor.
 data ServiceActionSummary = ServiceActionSummary'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The self-service action name.
+    name :: Lude.Maybe Lude.Text,
+    -- | The self-service action identifier.
     id :: Lude.Maybe Lude.Text,
-    definitionType ::
-      Lude.Maybe ServiceActionDefinitionType,
+    -- | The self-service action definition type. For example, @SSM_AUTOMATION@ .
+    definitionType :: Lude.Maybe ServiceActionDefinitionType,
+    -- | The self-service action description.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceActionSummary' with the minimum fields required to make a request.
 --
+-- * 'name' - The self-service action name.
+-- * 'id' - The self-service action identifier.
 -- * 'definitionType' - The self-service action definition type. For example, @SSM_AUTOMATION@ .
 -- * 'description' - The self-service action description.
--- * 'id' - The self-service action identifier.
--- * 'name' - The self-service action name.
 mkServiceActionSummary ::
   ServiceActionSummary
 mkServiceActionSummary =

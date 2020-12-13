@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSVolume' smart constructor.
 data EBSVolume = EBSVolume'
-  { device :: Lude.Maybe Lude.Text,
+  { -- | The device name that is exposed to the instance, such as /dev/sdh.
+    device :: Lude.Maybe Lude.Text,
+    -- | The volume identifier of the EBS volume.
     volumeId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSVolume' with the minimum fields required to make a request.

@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPendingAggregationRequest' smart constructor.
 data PendingAggregationRequest = PendingAggregationRequest'
-  { requesterAccountId ::
-      Lude.Maybe Lude.Text,
-    requesterAWSRegion ::
-      Lude.Maybe Lude.Text
+  { -- | The 12-digit account ID of the account requesting to aggregate data.
+    requesterAccountId :: Lude.Maybe Lude.Text,
+    -- | The region requesting to aggregate data.
+    requesterAWSRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingAggregationRequest' with the minimum fields required to make a request.
 --
--- * 'requesterAWSRegion' - The region requesting to aggregate data.
 -- * 'requesterAccountId' - The 12-digit account ID of the account requesting to aggregate data.
+-- * 'requesterAWSRegion' - The region requesting to aggregate data.
 mkPendingAggregationRequest ::
   PendingAggregationRequest
 mkPendingAggregationRequest =

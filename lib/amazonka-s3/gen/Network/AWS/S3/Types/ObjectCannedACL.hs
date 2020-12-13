@@ -13,13 +13,13 @@
 module Network.AWS.S3.Types.ObjectCannedACL
   ( ObjectCannedACL
       ( ObjectCannedACL',
-        OAWSExecRead,
-        OAuthenticatedRead,
-        OBucketOwnerFullControl,
-        OBucketOwnerRead,
         OPrivate,
         OPublicRead,
-        OPublicReadWrite
+        OPublicReadWrite,
+        OAuthenticatedRead,
+        OAWSExecRead,
+        OBucketOwnerRead,
+        OBucketOwnerFullControl
       ),
   )
 where
@@ -51,18 +51,6 @@ newtype ObjectCannedACL = ObjectCannedACL' Lude.Text
       Lude.ToHeader
     )
 
-pattern OAWSExecRead :: ObjectCannedACL
-pattern OAWSExecRead = ObjectCannedACL' "aws-exec-read"
-
-pattern OAuthenticatedRead :: ObjectCannedACL
-pattern OAuthenticatedRead = ObjectCannedACL' "authenticated-read"
-
-pattern OBucketOwnerFullControl :: ObjectCannedACL
-pattern OBucketOwnerFullControl = ObjectCannedACL' "bucket-owner-full-control"
-
-pattern OBucketOwnerRead :: ObjectCannedACL
-pattern OBucketOwnerRead = ObjectCannedACL' "bucket-owner-read"
-
 pattern OPrivate :: ObjectCannedACL
 pattern OPrivate = ObjectCannedACL' "private"
 
@@ -72,13 +60,25 @@ pattern OPublicRead = ObjectCannedACL' "public-read"
 pattern OPublicReadWrite :: ObjectCannedACL
 pattern OPublicReadWrite = ObjectCannedACL' "public-read-write"
 
+pattern OAuthenticatedRead :: ObjectCannedACL
+pattern OAuthenticatedRead = ObjectCannedACL' "authenticated-read"
+
+pattern OAWSExecRead :: ObjectCannedACL
+pattern OAWSExecRead = ObjectCannedACL' "aws-exec-read"
+
+pattern OBucketOwnerRead :: ObjectCannedACL
+pattern OBucketOwnerRead = ObjectCannedACL' "bucket-owner-read"
+
+pattern OBucketOwnerFullControl :: ObjectCannedACL
+pattern OBucketOwnerFullControl = ObjectCannedACL' "bucket-owner-full-control"
+
 {-# COMPLETE
-  OAWSExecRead,
-  OAuthenticatedRead,
-  OBucketOwnerFullControl,
-  OBucketOwnerRead,
   OPrivate,
   OPublicRead,
   OPublicReadWrite,
+  OAuthenticatedRead,
+  OAWSExecRead,
+  OBucketOwnerRead,
+  OBucketOwnerFullControl,
   ObjectCannedACL'
   #-}

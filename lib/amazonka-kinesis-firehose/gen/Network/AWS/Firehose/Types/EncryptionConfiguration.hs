@@ -31,24 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { noEncryptionConfig ::
-      Lude.Maybe NoEncryptionConfig,
-    kmsEncryptionConfig ::
-      Lude.Maybe KMSEncryptionConfig
+  { -- | Specifically override existing encryption information to ensure that no encryption is used.
+    noEncryptionConfig :: Lude.Maybe NoEncryptionConfig,
+    -- | The encryption key.
+    kmsEncryptionConfig :: Lude.Maybe KMSEncryptionConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
 --
--- * 'kmsEncryptionConfig' - The encryption key.
 -- * 'noEncryptionConfig' - Specifically override existing encryption information to ensure that no encryption is used.
+-- * 'kmsEncryptionConfig' - The encryption key.
 mkEncryptionConfiguration ::
   EncryptionConfiguration
 mkEncryptionConfiguration =

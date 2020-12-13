@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.Route53Domains.Types
 
 -- | /See:/ 'mkResendContactReachabilityEmail' smart constructor.
 newtype ResendContactReachabilityEmail = ResendContactReachabilityEmail'
-  { domainName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the domain for which you want Route 53 to resend a confirmation email to the registrant contact.
+    domainName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResendContactReachabilityEmail' with the minimum fields required to make a request.
@@ -109,25 +104,16 @@ instance Lude.ToQuery ResendContactReachabilityEmail where
 
 -- | /See:/ 'mkResendContactReachabilityEmailResponse' smart constructor.
 data ResendContactReachabilityEmailResponse = ResendContactReachabilityEmailResponse'
-  { domainName ::
-      Lude.Maybe
-        Lude.Text,
-    emailAddress ::
-      Lude.Maybe
-        Lude.Text,
-    isAlreadyVerified ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | The domain name for which you requested a confirmation email.
+    domainName :: Lude.Maybe Lude.Text,
+    -- | The email address for the registrant contact at the time that we sent the verification email.
+    emailAddress :: Lude.Maybe Lude.Text,
+    -- | @True@ if the email address for the registrant contact has already been verified, and @false@ otherwise. If the email address has already been verified, we don't send another confirmation email.
+    isAlreadyVerified :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResendContactReachabilityEmailResponse' with the minimum fields required to make a request.

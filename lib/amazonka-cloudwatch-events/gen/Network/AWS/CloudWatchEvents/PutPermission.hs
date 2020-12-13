@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,35 +46,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutPermission' smart constructor.
 data PutPermission = PutPermission'
-  { action :: Lude.Maybe Lude.Text,
+  { -- | The action that you are enabling the other account to perform. Currently, this must be @events:PutEvents@ .
+    action :: Lude.Maybe Lude.Text,
+    -- | The name of the event bus associated with the rule. If you omit this, the default event bus is used.
     eventBusName :: Lude.Maybe Lude.Text,
+    -- | The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.
+    --
+    -- If you specify "*" without specifying @Condition@ , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an @account@ field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
     principal :: Lude.Maybe Lude.Text,
+    -- | A JSON string that describes the permission policy statement. You can include a @Policy@ parameter in the request instead of using the @StatementId@ , @Action@ , @Principal@ , or @Condition@ parameters.
     policy :: Lude.Maybe Lude.Text,
+    -- | An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this @StatementId@ when you run 'RemovePermission' .
     statementId :: Lude.Maybe Lude.Text,
+    -- | This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations> in the /AWS Organizations User Guide/ .
+    --
+    -- If you specify @Condition@ with an AWS organization ID, and specify "*" as the value for @Principal@ , you grant permission to all the accounts in the named organization.
+    -- The @Condition@ is a JSON string which must contain @Type@ , @Key@ , and @Value@ fields.
     condition :: Lude.Maybe Condition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPermission' with the minimum fields required to make a request.
 --
 -- * 'action' - The action that you are enabling the other account to perform. Currently, this must be @events:PutEvents@ .
+-- * 'eventBusName' - The name of the event bus associated with the rule. If you omit this, the default event bus is used.
+-- * 'principal' - The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.
+--
+-- If you specify "*" without specifying @Condition@ , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an @account@ field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
+-- * 'policy' - A JSON string that describes the permission policy statement. You can include a @Policy@ parameter in the request instead of using the @StatementId@ , @Action@ , @Principal@ , or @Condition@ parameters.
+-- * 'statementId' - An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this @StatementId@ when you run 'RemovePermission' .
 -- * 'condition' - This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html What Is AWS Organizations> in the /AWS Organizations User Guide/ .
 --
 -- If you specify @Condition@ with an AWS organization ID, and specify "*" as the value for @Principal@ , you grant permission to all the accounts in the named organization.
 -- The @Condition@ is a JSON string which must contain @Type@ , @Key@ , and @Value@ fields.
--- * 'eventBusName' - The name of the event bus associated with the rule. If you omit this, the default event bus is used.
--- * 'policy' - A JSON string that describes the permission policy statement. You can include a @Policy@ parameter in the request instead of using the @StatementId@ , @Action@ , @Principal@ , or @Condition@ parameters.
--- * 'principal' - The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify "*" to permit any account to put events to your default event bus.
---
--- If you specify "*" without specifying @Condition@ , avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an @account@ field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.
--- * 'statementId' - An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this @StatementId@ when you run 'RemovePermission' .
 mkPutPermission ::
   PutPermission
 mkPutPermission =
@@ -170,13 +176,7 @@ instance Lude.ToQuery PutPermission where
 
 -- | /See:/ 'mkPutPermissionResponse' smart constructor.
 data PutPermissionResponse = PutPermissionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutPermissionResponse' with the minimum fields required to make a request.

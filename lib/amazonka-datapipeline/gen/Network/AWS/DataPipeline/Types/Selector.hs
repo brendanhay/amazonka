@@ -31,21 +31,16 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSelector' smart constructor.
 data Selector = Selector'
   { operator :: Lude.Maybe Operator,
+    -- | The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
     fieldName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Selector' with the minimum fields required to make a request.
 --
+-- * 'operator' -
 -- * 'fieldName' - The name of the field that the operator will be applied to. The field name is the "key" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.
--- * 'operator' - Undocumented field.
 mkSelector ::
   Selector
 mkSelector =

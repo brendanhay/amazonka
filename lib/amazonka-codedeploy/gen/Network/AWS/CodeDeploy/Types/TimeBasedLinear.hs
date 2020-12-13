@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeBasedLinear' smart constructor.
 data TimeBasedLinear = TimeBasedLinear'
-  { linearInterval ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of minutes between each incremental traffic shift of a @TimeBasedLinear@ deployment.
+    linearInterval :: Lude.Maybe Lude.Int,
+    -- | The percentage of traffic that is shifted at the start of each increment of a @TimeBasedLinear@ deployment.
     linearPercentage :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeBasedLinear' with the minimum fields required to make a request.

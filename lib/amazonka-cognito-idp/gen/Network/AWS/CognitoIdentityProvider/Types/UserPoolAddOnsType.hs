@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPoolAddOnsType' smart constructor.
 newtype UserPoolAddOnsType = UserPoolAddOnsType'
-  { advancedSecurityMode ::
-      AdvancedSecurityModeType
+  { -- | The advanced security mode.
+    advancedSecurityMode :: AdvancedSecurityModeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolAddOnsType' with the minimum fields required to make a request.

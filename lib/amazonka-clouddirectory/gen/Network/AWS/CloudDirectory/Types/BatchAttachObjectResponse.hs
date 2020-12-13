@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchAttachObjectResponse' smart constructor.
 newtype BatchAttachObjectResponse = BatchAttachObjectResponse'
-  { attachedObjectIdentifier ::
-      Lude.Maybe Lude.Text
+  { -- | The @ObjectIdentifier@ of the object that has been attached.
+    attachedObjectIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachObjectResponse' with the minimum fields required to make a request.

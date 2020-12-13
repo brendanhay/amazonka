@@ -44,49 +44,62 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsPackage' smart constructor.
 data HlsPackage = HlsPackage'
-  { adsOnDeliveryRestrictions ::
-      Lude.Maybe AdsOnDeliveryRestrictions,
+  { adsOnDeliveryRestrictions :: Lude.Maybe AdsOnDeliveryRestrictions,
+    -- | When enabled, audio streams will be placed in rendition groups in the output.
     useAudioRenditionGroup :: Lude.Maybe Lude.Bool,
+    -- | The HTTP Live Streaming (HLS) playlist type.
+    --
+    -- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
+    -- entry will be included in the media playlist.
     playlistType :: Lude.Maybe PlaylistType,
+    -- | Duration (in seconds) of each fragment. Actual fragments will be
+    --
+    -- rounded to the nearest multiple of the source fragment duration.
     segmentDurationSeconds :: Lude.Maybe Lude.Int,
+    -- | The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
+    --
+    -- inserted into manifests. Additionally, when an interval is specified
+    -- ID3Timed Metadata messages will be generated every 5 seconds using the
+    -- ingest time of the content.
+    -- If the interval is not specified, or set to 0, then
+    -- no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no
+    -- ID3Timed Metadata messages will be generated. Note that irrespective
+    -- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
+    -- it will be passed through to HLS output.
     programDateTimeIntervalSeconds :: Lude.Maybe Lude.Int,
     streamSelection :: Lude.Maybe StreamSelection,
+    -- | This setting controls how ad markers are included in the packaged OriginEndpoint.
+    --
+    -- "NONE" will omit all SCTE-35 ad markers from the output.
+    -- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+    -- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+    -- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+    -- messages in the input source.
+    -- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+    -- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+    -- that is greater than 0.
     adMarkers :: Lude.Maybe AdMarkers,
     encryption :: Lude.Maybe HlsEncryption,
+    -- | When enabled, an I-Frame only stream will be included in the output.
     includeIframeOnlyStream :: Lude.Maybe Lude.Bool,
     adTriggers :: Lude.Maybe [AdTriggersElement],
+    -- | Time window (in seconds) contained in each parent manifest.
     playlistWindowSeconds :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsPackage' with the minimum fields required to make a request.
 --
--- * 'adMarkers' - This setting controls how ad markers are included in the packaged OriginEndpoint.
---
--- "NONE" will omit all SCTE-35 ad markers from the output.
--- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
--- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
--- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
--- messages in the input source.
--- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
--- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
--- that is greater than 0.
--- * 'adTriggers' - Undocumented field.
--- * 'adsOnDeliveryRestrictions' - Undocumented field.
--- * 'encryption' - Undocumented field.
--- * 'includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
+-- * 'adsOnDeliveryRestrictions' -
+-- * 'useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the output.
 -- * 'playlistType' - The HTTP Live Streaming (HLS) playlist type.
 --
 -- When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE
 -- entry will be included in the media playlist.
--- * 'playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
+-- * 'segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be
+--
+-- rounded to the nearest multiple of the source fragment duration.
 -- * 'programDateTimeIntervalSeconds' - The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag
 --
 -- inserted into manifests. Additionally, when an interval is specified
@@ -97,11 +110,21 @@ data HlsPackage = HlsPackage'
 -- ID3Timed Metadata messages will be generated. Note that irrespective
 -- of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,
 -- it will be passed through to HLS output.
--- * 'segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be
+-- * 'streamSelection' -
+-- * 'adMarkers' - This setting controls how ad markers are included in the packaged OriginEndpoint.
 --
--- rounded to the nearest multiple of the source fragment duration.
--- * 'streamSelection' - Undocumented field.
--- * 'useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the output.
+-- "NONE" will omit all SCTE-35 ad markers from the output.
+-- "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad
+-- markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest.
+-- "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
+-- messages in the input source.
+-- "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events
+-- in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value
+-- that is greater than 0.
+-- * 'encryption' -
+-- * 'includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
+-- * 'adTriggers' -
+-- * 'playlistWindowSeconds' - Time window (in seconds) contained in each parent manifest.
 mkHlsPackage ::
   HlsPackage
 mkHlsPackage =

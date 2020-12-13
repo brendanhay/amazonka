@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetError' smart constructor.
 data FleetError = FleetError'
-  { errorCode ::
-      Lude.Maybe FleetErrorCode,
+  { -- | The error code.
+    errorCode :: Lude.Maybe FleetErrorCode,
+    -- | The error message.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetError' with the minimum fields required to make a request.

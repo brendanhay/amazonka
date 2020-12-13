@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,22 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to be returned per request.
     maxResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to be returned per request.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListGroups ::
   ListGroups
 mkListGroups =
@@ -119,18 +116,14 @@ instance Lude.ToQuery ListGroups where
 
 -- | /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { groups ::
-      Lude.Maybe [GroupInformation],
+  { -- | Information about a group.
+    groups :: Lude.Maybe [GroupInformation],
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.

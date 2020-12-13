@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DMS.MoveReplicationTask
     mkMoveReplicationTask,
 
     -- ** Request lenses
-    mrtReplicationTaskARN,
-    mrtTargetReplicationInstanceARN,
+    mTargetReplicationInstanceARN,
+    mReplicationTaskARN,
 
     -- * Destructuring the response
     MoveReplicationTaskResponse (..),
@@ -42,50 +43,46 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkMoveReplicationTask' smart constructor.
 data MoveReplicationTask = MoveReplicationTask'
-  { replicationTaskARN ::
-      Lude.Text,
-    targetReplicationInstanceARN :: Lude.Text
+  { -- | The ARN of the replication instance where you want to move the task to.
+    targetReplicationInstanceARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the task that you want to move.
+    replicationTaskARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MoveReplicationTask' with the minimum fields required to make a request.
 --
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the task that you want to move.
 -- * 'targetReplicationInstanceARN' - The ARN of the replication instance where you want to move the task to.
+-- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the task that you want to move.
 mkMoveReplicationTask ::
-  -- | 'replicationTaskARN'
-  Lude.Text ->
   -- | 'targetReplicationInstanceARN'
+  Lude.Text ->
+  -- | 'replicationTaskARN'
   Lude.Text ->
   MoveReplicationTask
 mkMoveReplicationTask
-  pReplicationTaskARN_
-  pTargetReplicationInstanceARN_ =
+  pTargetReplicationInstanceARN_
+  pReplicationTaskARN_ =
     MoveReplicationTask'
-      { replicationTaskARN = pReplicationTaskARN_,
-        targetReplicationInstanceARN = pTargetReplicationInstanceARN_
+      { targetReplicationInstanceARN =
+          pTargetReplicationInstanceARN_,
+        replicationTaskARN = pReplicationTaskARN_
       }
-
--- | The Amazon Resource Name (ARN) of the task that you want to move.
---
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrtReplicationTaskARN :: Lens.Lens' MoveReplicationTask Lude.Text
-mrtReplicationTaskARN = Lens.lens (replicationTaskARN :: MoveReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: MoveReplicationTask)
-{-# DEPRECATED mrtReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | The ARN of the replication instance where you want to move the task to.
 --
 -- /Note:/ Consider using 'targetReplicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrtTargetReplicationInstanceARN :: Lens.Lens' MoveReplicationTask Lude.Text
-mrtTargetReplicationInstanceARN = Lens.lens (targetReplicationInstanceARN :: MoveReplicationTask -> Lude.Text) (\s a -> s {targetReplicationInstanceARN = a} :: MoveReplicationTask)
-{-# DEPRECATED mrtTargetReplicationInstanceARN "Use generic-lens or generic-optics with 'targetReplicationInstanceARN' instead." #-}
+mTargetReplicationInstanceARN :: Lens.Lens' MoveReplicationTask Lude.Text
+mTargetReplicationInstanceARN = Lens.lens (targetReplicationInstanceARN :: MoveReplicationTask -> Lude.Text) (\s a -> s {targetReplicationInstanceARN = a} :: MoveReplicationTask)
+{-# DEPRECATED mTargetReplicationInstanceARN "Use generic-lens or generic-optics with 'targetReplicationInstanceARN' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the task that you want to move.
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mReplicationTaskARN :: Lens.Lens' MoveReplicationTask Lude.Text
+mReplicationTaskARN = Lens.lens (replicationTaskARN :: MoveReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: MoveReplicationTask)
+{-# DEPRECATED mReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 instance Lude.AWSRequest MoveReplicationTask where
   type Rs MoveReplicationTask = MoveReplicationTaskResponse
@@ -113,11 +110,11 @@ instance Lude.ToJSON MoveReplicationTask where
   toJSON MoveReplicationTask' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN),
-            Lude.Just
+          [ Lude.Just
               ( "TargetReplicationInstanceArn"
                   Lude..= targetReplicationInstanceARN
-              )
+              ),
+            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)
           ]
       )
 
@@ -131,17 +128,12 @@ instance Lude.ToQuery MoveReplicationTask where
 --
 -- /See:/ 'mkMoveReplicationTaskResponse' smart constructor.
 data MoveReplicationTaskResponse = MoveReplicationTaskResponse'
-  { replicationTask ::
-      Lude.Maybe ReplicationTask,
+  { -- | The replication task that was moved.
+    replicationTask :: Lude.Maybe ReplicationTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MoveReplicationTaskResponse' with the minimum fields required to make a request.

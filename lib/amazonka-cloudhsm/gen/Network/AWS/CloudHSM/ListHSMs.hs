@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,16 +26,16 @@ module Network.AWS.CloudHSM.ListHSMs
     mkListHSMs,
 
     -- ** Request lenses
-    lhsmNextToken,
+    lhNextToken,
 
     -- * Destructuring the response
     ListHSMsResponse (..),
     mkListHSMsResponse,
 
     -- ** Response lenses
-    lhsmrsNextToken,
-    lhsmrsHSMList,
-    lhsmrsResponseStatus,
+    lhrsNextToken,
+    lhrsHSMList,
+    lhrsResponseStatus,
   )
 where
 
@@ -46,14 +47,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListHSMs' smart constructor.
-newtype ListHSMs = ListHSMs' {nextToken :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ListHSMs = ListHSMs'
+  { -- | The @NextToken@ value from a previous call to @ListHsms@ . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHSMs' with the minimum fields required to make a request.
@@ -66,18 +64,18 @@ mkListHSMs = ListHSMs' {nextToken = Lude.Nothing}
 -- | The @NextToken@ value from a previous call to @ListHsms@ . Pass null if this is the first call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsmNextToken :: Lens.Lens' ListHSMs (Lude.Maybe Lude.Text)
-lhsmNextToken = Lens.lens (nextToken :: ListHSMs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHSMs)
-{-# DEPRECATED lhsmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lhNextToken :: Lens.Lens' ListHSMs (Lude.Maybe Lude.Text)
+lhNextToken = Lens.lens (nextToken :: ListHSMs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHSMs)
+{-# DEPRECATED lhNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListHSMs where
   page rq rs
-    | Page.stop (rs Lens.^. lhsmrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lhsmrsHSMList) = Lude.Nothing
+    | Page.stop (rs Lens.^. lhrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lhrsHSMList) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lhsmNextToken Lens..~ rs Lens.^. lhsmrsNextToken
+          Lude.& lhNextToken Lens..~ rs Lens.^. lhrsNextToken
 
 instance Lude.AWSRequest ListHSMs where
   type Rs ListHSMs = ListHSMsResponse
@@ -117,24 +115,20 @@ instance Lude.ToQuery ListHSMs where
 --
 -- /See:/ 'mkListHSMsResponse' smart constructor.
 data ListHSMsResponse = ListHSMsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If not null, more results are available. Pass this value to @ListHsms@ to retrieve the next set of items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of ARNs that identify the HSMs.
     hsmList :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHSMsResponse' with the minimum fields required to make a request.
 --
--- * 'hsmList' - The list of ARNs that identify the HSMs.
 -- * 'nextToken' - If not null, more results are available. Pass this value to @ListHsms@ to retrieve the next set of items.
+-- * 'hsmList' - The list of ARNs that identify the HSMs.
 -- * 'responseStatus' - The response status code.
 mkListHSMsResponse ::
   -- | 'responseStatus'
@@ -150,20 +144,20 @@ mkListHSMsResponse pResponseStatus_ =
 -- | If not null, more results are available. Pass this value to @ListHsms@ to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsmrsNextToken :: Lens.Lens' ListHSMsResponse (Lude.Maybe Lude.Text)
-lhsmrsNextToken = Lens.lens (nextToken :: ListHSMsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHSMsResponse)
-{-# DEPRECATED lhsmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lhrsNextToken :: Lens.Lens' ListHSMsResponse (Lude.Maybe Lude.Text)
+lhrsNextToken = Lens.lens (nextToken :: ListHSMsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHSMsResponse)
+{-# DEPRECATED lhrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of ARNs that identify the HSMs.
 --
 -- /Note:/ Consider using 'hsmList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsmrsHSMList :: Lens.Lens' ListHSMsResponse (Lude.Maybe [Lude.Text])
-lhsmrsHSMList = Lens.lens (hsmList :: ListHSMsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {hsmList = a} :: ListHSMsResponse)
-{-# DEPRECATED lhsmrsHSMList "Use generic-lens or generic-optics with 'hsmList' instead." #-}
+lhrsHSMList :: Lens.Lens' ListHSMsResponse (Lude.Maybe [Lude.Text])
+lhrsHSMList = Lens.lens (hsmList :: ListHSMsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {hsmList = a} :: ListHSMsResponse)
+{-# DEPRECATED lhrsHSMList "Use generic-lens or generic-optics with 'hsmList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsmrsResponseStatus :: Lens.Lens' ListHSMsResponse Lude.Int
-lhsmrsResponseStatus = Lens.lens (responseStatus :: ListHSMsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHSMsResponse)
-{-# DEPRECATED lhsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lhrsResponseStatus :: Lens.Lens' ListHSMsResponse Lude.Int
+lhrsResponseStatus = Lens.lens (responseStatus :: ListHSMsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHSMsResponse)
+{-# DEPRECATED lhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

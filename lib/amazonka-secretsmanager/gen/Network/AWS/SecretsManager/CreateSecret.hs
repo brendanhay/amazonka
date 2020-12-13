@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,11 +59,11 @@ module Network.AWS.SecretsManager.CreateSecret
     -- ** Request lenses
     csSecretBinary,
     csKMSKeyId,
+    csName,
     csSecretString,
     csClientRequestToken,
     csDescription,
     csTags,
-    csName,
 
     -- * Destructuring the response
     CreateSecretResponse (..),
@@ -84,20 +85,102 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkCreateSecret' smart constructor.
 data CreateSecret = CreateSecret'
-  { secretBinary ::
-      Lude.Maybe (Lude.Sensitive Lude.Base64),
+  { -- | (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter.
+    --
+    -- Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+    -- This parameter is not available using the Secrets Manager console. It can be accessed only by using the AWS CLI or one of the AWS SDKs.
+    secretBinary :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) to be used to encrypt the @SecretString@ or @SecretBinary@ values in the versions stored in this secret.
+    --
+    -- You can specify any of the supported ways to identify a AWS KMS key ID. If you need to reference a CMK in a different account, you can use only the key ARN or the alias ARN.
+    -- If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named @aws/secretsmanager@ ). If a AWS KMS CMK with that name doesn't yet exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version's @SecretString@ or @SecretBinary@ fields.
+    -- /Important:/ You can use the account default CMK to encrypt and decrypt only if you call this operation using credentials from the same account that owns the secret. If the secret resides in a different account, then you must create a custom CMK and specify the ARN in this field.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies the friendly name of the new secret.
+    --
+    -- The secret name must be ASCII letters, digits, or the following characters : /_+=.@-
+    name :: Lude.Text,
+    -- | (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+    --
+    -- Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+    -- If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.
+    -- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example:
+    -- @{"username":"bob","password":"abc123xyz456"}@
+    -- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
     secretString :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | (Optional) If you include @SecretString@ or @SecretBinary@ , then an initial version is created as part of the secret, and this parameter specifies a unique identifier for the new version.
+    --
+    -- This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness of your versions within the specified secret.
+    --
+    --     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.
+    --
+    --
+    --     * If a version with this value already exists and the version @SecretString@ and @SecretBinary@ values are the same as those in the request, then the request is ignored.
+    --
+    --
+    --     * If a version with this value already exists and that version's @SecretString@ and @SecretBinary@ values are different from those in the request then the request fails because you cannot modify an existing version. Instead, use 'PutSecretValue' to create a new version.
+    --
+    --
+    -- This value becomes the @VersionId@ of the new version.
     clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | (Optional) Specifies a user-provided description of the secret.
     description :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    name :: Lude.Text
+    -- | (Optional) Specifies a list of user-defined tags that are attached to the secret. Each tag is a "Key" and "Value" pair of strings. This operation only appends tags to the existing list of tags. To remove tags, you must use 'UntagResource' .
+    --
+    -- /Important:/
+    --     * Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
+    --
+    --
+    --     * If you check tags in IAM policy @Condition@ elements as part of your security strategy, then adding or removing a tag can change permissions. If the successful completion of this operation would result in you losing your permissions for this secret, then this operation is blocked and returns an @Access Denied@ error.
+    --
+    --
+    -- This parameter requires a JSON text string argument. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example:
+    -- @[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]@
+    -- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
+    -- The following basic restrictions apply to tags:
+    --
+    --     * Maximum number of tags per secret—50
+    --
+    --
+    --     * Maximum key length—127 Unicode characters in UTF-8
+    --
+    --
+    --     * Maximum value length—255 Unicode characters in UTF-8
+    --
+    --
+    --     * Tag keys and values are case sensitive.
+    --
+    --
+    --     * Do not use the @aws:@ prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
+    --
+    --
+    --     * If you use your tagging schema across multiple services and resources, remember other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
+    tags :: Lude.Maybe [Tag]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecret' with the minimum fields required to make a request.
 --
+-- * 'secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter.
+--
+-- Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+-- This parameter is not available using the Secrets Manager console. It can be accessed only by using the AWS CLI or one of the AWS SDKs.
+-- * 'kmsKeyId' - (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) to be used to encrypt the @SecretString@ or @SecretBinary@ values in the versions stored in this secret.
+--
+-- You can specify any of the supported ways to identify a AWS KMS key ID. If you need to reference a CMK in a different account, you can use only the key ARN or the alias ARN.
+-- If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named @aws/secretsmanager@ ). If a AWS KMS CMK with that name doesn't yet exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version's @SecretString@ or @SecretBinary@ fields.
+-- /Important:/ You can use the account default CMK to encrypt and decrypt only if you call this operation using credentials from the same account that owns the secret. If the secret resides in a different account, then you must create a custom CMK and specify the ARN in this field.
+-- * 'name' - Specifies the friendly name of the new secret.
+--
+-- The secret name must be ASCII letters, digits, or the following characters : /_+=.@-
+-- * 'secretString' - (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+--
+-- Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+-- If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.
+-- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example:
+-- @{"username":"bob","password":"abc123xyz456"}@
+-- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
 -- * 'clientRequestToken' - (Optional) If you include @SecretString@ or @SecretBinary@ , then an initial version is created as part of the secret, and this parameter specifies a unique identifier for the new version.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness of your versions within the specified secret.
@@ -113,29 +196,6 @@ data CreateSecret = CreateSecret'
 --
 -- This value becomes the @VersionId@ of the new version.
 -- * 'description' - (Optional) Specifies a user-provided description of the secret.
--- * 'kmsKeyId' - (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) to be used to encrypt the @SecretString@ or @SecretBinary@ values in the versions stored in this secret.
---
--- You can specify any of the supported ways to identify a AWS KMS key ID. If you need to reference a CMK in a different account, you can use only the key ARN or the alias ARN.
--- If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named @aws/secretsmanager@ ). If a AWS KMS CMK with that name doesn't yet exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a version's @SecretString@ or @SecretBinary@ fields.
--- /Important:/ You can use the account default CMK to encrypt and decrypt only if you call this operation using credentials from the same account that owns the secret. If the secret resides in a different account, then you must create a custom CMK and specify the ARN in this field.
--- * 'name' - Specifies the friendly name of the new secret.
---
--- The secret name must be ASCII letters, digits, or the following characters : /_+=.@-
--- * 'secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter.
---
--- Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
--- This parameter is not available using the Secrets Manager console. It can be accessed only by using the AWS CLI or one of the AWS SDKs.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'secretString' - (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
---
--- Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
--- If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the Lambda rotation function knows how to parse.
--- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ . For example:
--- @{"username":"bob","password":"abc123xyz456"}@
--- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
 -- * 'tags' - (Optional) Specifies a list of user-defined tags that are attached to the secret. Each tag is a "Key" and "Value" pair of strings. This operation only appends tags to the existing list of tags. To remove tags, you must use 'UntagResource' .
 --
 -- /Important:/
@@ -174,11 +234,11 @@ mkCreateSecret pName_ =
   CreateSecret'
     { secretBinary = Lude.Nothing,
       kmsKeyId = Lude.Nothing,
+      name = pName_,
       secretString = Lude.Nothing,
       clientRequestToken = Lude.Nothing,
       description = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter.
@@ -205,6 +265,15 @@ csSecretBinary = Lens.lens (secretBinary :: CreateSecret -> Lude.Maybe (Lude.Sen
 csKMSKeyId :: Lens.Lens' CreateSecret (Lude.Maybe Lude.Text)
 csKMSKeyId = Lens.lens (kmsKeyId :: CreateSecret -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateSecret)
 {-# DEPRECATED csKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+
+-- | Specifies the friendly name of the new secret.
+--
+-- The secret name must be ASCII letters, digits, or the following characters : /_+=.@-
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' CreateSecret Lude.Text
+csName = Lens.lens (name :: CreateSecret -> Lude.Text) (\s a -> s {name = a} :: CreateSecret)
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
 --
@@ -284,15 +353,6 @@ csTags :: Lens.Lens' CreateSecret (Lude.Maybe [Tag])
 csTags = Lens.lens (tags :: CreateSecret -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSecret)
 {-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | Specifies the friendly name of the new secret.
---
--- The secret name must be ASCII letters, digits, or the following characters : /_+=.@-
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' CreateSecret Lude.Text
-csName = Lens.lens (name :: CreateSecret -> Lude.Text) (\s a -> s {name = a} :: CreateSecret)
-{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.AWSRequest CreateSecret where
   type Rs CreateSecret = CreateSecretResponse
   request = Req.postJSON secretsManagerService
@@ -323,11 +383,11 @@ instance Lude.ToJSON CreateSecret where
       ( Lude.catMaybes
           [ ("SecretBinary" Lude..=) Lude.<$> secretBinary,
             ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
+            Lude.Just ("Name" Lude..= name),
             ("SecretString" Lude..=) Lude.<$> secretString,
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
             ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -339,27 +399,24 @@ instance Lude.ToQuery CreateSecret where
 
 -- | /See:/ 'mkCreateSecretResponse' smart constructor.
 data CreateSecretResponse = CreateSecretResponse'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier associated with the version of the secret you just created.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the secret that you just created.
     arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret that you just created.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecretResponse' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The unique identifier associated with the version of the secret you just created.
 -- * 'arn' - The Amazon Resource Name (ARN) of the secret that you just created.
 -- * 'name' - The friendly name of the secret that you just created.
 -- * 'responseStatus' - The response status code.
--- * 'versionId' - The unique identifier associated with the version of the secret you just created.
 mkCreateSecretResponse ::
   -- | 'responseStatus'
   Lude.Int ->

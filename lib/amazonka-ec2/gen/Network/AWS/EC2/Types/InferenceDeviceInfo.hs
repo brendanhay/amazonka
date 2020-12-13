@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInferenceDeviceInfo' smart constructor.
 data InferenceDeviceInfo = InferenceDeviceInfo'
-  { manufacturer ::
-      Lude.Maybe Lude.Text,
+  { -- | The manufacturer of the Inference accelerator.
+    manufacturer :: Lude.Maybe Lude.Text,
+    -- | The number of Inference accelerators for the instance type.
     count :: Lude.Maybe Lude.Int,
+    -- | The name of the Inference accelerator.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InferenceDeviceInfo' with the minimum fields required to make a request.
 --
--- * 'count' - The number of Inference accelerators for the instance type.
 -- * 'manufacturer' - The manufacturer of the Inference accelerator.
+-- * 'count' - The number of Inference accelerators for the instance type.
 -- * 'name' - The name of the Inference accelerator.
 mkInferenceDeviceInfo ::
   InferenceDeviceInfo

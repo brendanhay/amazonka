@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DirectoryService.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
+    ltfrResourceId,
     ltfrNextToken,
     ltfrLimit,
-    ltfrResourceId,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    resourceId :: Lude.Text
+  { -- | Identifier (ID) of the directory for which you want to retrieve tags.
+    resourceId :: Lude.Text,
+    -- | Reserved for future use.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Reserved for future use.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'limit' - Reserved for future use.
--- * 'nextToken' - Reserved for future use.
 -- * 'resourceId' - Identifier (ID) of the directory for which you want to retrieve tags.
+-- * 'nextToken' - Reserved for future use.
+-- * 'limit' - Reserved for future use.
 mkListTagsForResource ::
   -- | 'resourceId'
   Lude.Text ->
   ListTagsForResource
 mkListTagsForResource pResourceId_ =
   ListTagsForResource'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | Identifier (ID) of the directory for which you want to retrieve tags.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceId :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | Reserved for future use.
 --
@@ -88,13 +92,6 @@ ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.T
 ltfrLimit :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
 ltfrLimit = Lens.lens (limit :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | Identifier (ID) of the directory for which you want to retrieve tags.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceId :: Lens.Lens' ListTagsForResource Lude.Text
-ltfrResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 instance Page.AWSPager ListTagsForResource where
   page rq rs
@@ -134,9 +131,9 @@ instance Lude.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -148,25 +145,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Reserved for future use.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of tags returned by the ListTagsForResource operation.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Reserved for future use.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - List of tags returned by the ListTagsForResource operation.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

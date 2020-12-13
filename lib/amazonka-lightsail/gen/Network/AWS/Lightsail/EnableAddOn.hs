@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,22 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEnableAddOn' smart constructor.
 data EnableAddOn = EnableAddOn'
-  { resourceName :: Lude.Text,
+  { -- | The name of the source resource for which to enable or modify the add-on.
+    resourceName :: Lude.Text,
+    -- | An array of strings representing the add-on to enable or modify.
     addOnRequest :: AddOnRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAddOn' with the minimum fields required to make a request.
 --
--- * 'addOnRequest' - An array of strings representing the add-on to enable or modify.
 -- * 'resourceName' - The name of the source resource for which to enable or modify the add-on.
+-- * 'addOnRequest' - An array of strings representing the add-on to enable or modify.
 mkEnableAddOn ::
   -- | 'resourceName'
   Lude.Text ->
@@ -121,17 +118,12 @@ instance Lude.ToQuery EnableAddOn where
 
 -- | /See:/ 'mkEnableAddOnResponse' smart constructor.
 data EnableAddOnResponse = EnableAddOnResponse'
-  { operations ::
-      Lude.Maybe [Operation],
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operations :: Lude.Maybe [Operation],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableAddOnResponse' with the minimum fields required to make a request.

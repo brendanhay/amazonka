@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRenewOffering' smart constructor.
 data RenewOffering = RenewOffering'
-  { quantity ::
-      Lude.Maybe Lude.Int,
+  { -- | The quantity requested in an offering renewal.
+    quantity :: Lude.Maybe Lude.Int,
+    -- | The ID of a request to renew an offering.
     offeringId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewOffering' with the minimum fields required to make a request.
 --
--- * 'offeringId' - The ID of a request to renew an offering.
 -- * 'quantity' - The quantity requested in an offering renewal.
+-- * 'offeringId' - The ID of a request to renew an offering.
 mkRenewOffering ::
   RenewOffering
 mkRenewOffering =
@@ -122,17 +118,12 @@ instance Lude.ToQuery RenewOffering where
 --
 -- /See:/ 'mkRenewOfferingResponse' smart constructor.
 data RenewOfferingResponse = RenewOfferingResponse'
-  { offeringTransaction ::
-      Lude.Maybe OfferingTransaction,
+  { -- | Represents the status of the offering transaction for the renewal.
+    offeringTransaction :: Lude.Maybe OfferingTransaction,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewOfferingResponse' with the minimum fields required to make a request.

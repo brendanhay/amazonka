@@ -14,8 +14,8 @@ module Network.AWS.DynamoDB.Types.AttributeAction
   ( AttributeAction
       ( AttributeAction',
         Add,
-        Delete,
-        Put
+        Put,
+        Delete
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype AttributeAction = AttributeAction' Lude.Text
 pattern Add :: AttributeAction
 pattern Add = AttributeAction' "ADD"
 
-pattern Delete :: AttributeAction
-pattern Delete = AttributeAction' "DELETE"
-
 pattern Put :: AttributeAction
 pattern Put = AttributeAction' "PUT"
 
+pattern Delete :: AttributeAction
+pattern Delete = AttributeAction' "DELETE"
+
 {-# COMPLETE
   Add,
-  Delete,
   Put,
+  Delete,
   AttributeAction'
   #-}

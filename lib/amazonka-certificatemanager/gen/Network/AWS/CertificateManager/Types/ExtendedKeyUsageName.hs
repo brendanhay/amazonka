@@ -13,18 +13,18 @@
 module Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
   ( ExtendedKeyUsageName
       ( ExtendedKeyUsageName',
-        Any,
+        TLSWebServerAuthentication,
+        TLSWebClientAuthentication,
         CodeSigning,
-        Custom,
         EmailProtection,
+        TimeStamping,
+        OcspSigning,
         IPsecEndSystem,
         IPsecTunnel,
         IPsecUser,
+        Any,
         None,
-        OcspSigning,
-        TLSWebClientAuthentication,
-        TLSWebServerAuthentication,
-        TimeStamping
+        Custom
       ),
   )
 where
@@ -55,17 +55,23 @@ newtype ExtendedKeyUsageName = ExtendedKeyUsageName' Lude.Text
       Lude.ToHeader
     )
 
-pattern Any :: ExtendedKeyUsageName
-pattern Any = ExtendedKeyUsageName' "ANY"
+pattern TLSWebServerAuthentication :: ExtendedKeyUsageName
+pattern TLSWebServerAuthentication = ExtendedKeyUsageName' "TLS_WEB_SERVER_AUTHENTICATION"
+
+pattern TLSWebClientAuthentication :: ExtendedKeyUsageName
+pattern TLSWebClientAuthentication = ExtendedKeyUsageName' "TLS_WEB_CLIENT_AUTHENTICATION"
 
 pattern CodeSigning :: ExtendedKeyUsageName
 pattern CodeSigning = ExtendedKeyUsageName' "CODE_SIGNING"
 
-pattern Custom :: ExtendedKeyUsageName
-pattern Custom = ExtendedKeyUsageName' "CUSTOM"
-
 pattern EmailProtection :: ExtendedKeyUsageName
 pattern EmailProtection = ExtendedKeyUsageName' "EMAIL_PROTECTION"
+
+pattern TimeStamping :: ExtendedKeyUsageName
+pattern TimeStamping = ExtendedKeyUsageName' "TIME_STAMPING"
+
+pattern OcspSigning :: ExtendedKeyUsageName
+pattern OcspSigning = ExtendedKeyUsageName' "OCSP_SIGNING"
 
 pattern IPsecEndSystem :: ExtendedKeyUsageName
 pattern IPsecEndSystem = ExtendedKeyUsageName' "IPSEC_END_SYSTEM"
@@ -76,33 +82,27 @@ pattern IPsecTunnel = ExtendedKeyUsageName' "IPSEC_TUNNEL"
 pattern IPsecUser :: ExtendedKeyUsageName
 pattern IPsecUser = ExtendedKeyUsageName' "IPSEC_USER"
 
+pattern Any :: ExtendedKeyUsageName
+pattern Any = ExtendedKeyUsageName' "ANY"
+
 pattern None :: ExtendedKeyUsageName
 pattern None = ExtendedKeyUsageName' "NONE"
 
-pattern OcspSigning :: ExtendedKeyUsageName
-pattern OcspSigning = ExtendedKeyUsageName' "OCSP_SIGNING"
-
-pattern TLSWebClientAuthentication :: ExtendedKeyUsageName
-pattern TLSWebClientAuthentication = ExtendedKeyUsageName' "TLS_WEB_CLIENT_AUTHENTICATION"
-
-pattern TLSWebServerAuthentication :: ExtendedKeyUsageName
-pattern TLSWebServerAuthentication = ExtendedKeyUsageName' "TLS_WEB_SERVER_AUTHENTICATION"
-
-pattern TimeStamping :: ExtendedKeyUsageName
-pattern TimeStamping = ExtendedKeyUsageName' "TIME_STAMPING"
+pattern Custom :: ExtendedKeyUsageName
+pattern Custom = ExtendedKeyUsageName' "CUSTOM"
 
 {-# COMPLETE
-  Any,
+  TLSWebServerAuthentication,
+  TLSWebClientAuthentication,
   CodeSigning,
-  Custom,
   EmailProtection,
+  TimeStamping,
+  OcspSigning,
   IPsecEndSystem,
   IPsecTunnel,
   IPsecUser,
+  Any,
   None,
-  OcspSigning,
-  TLSWebClientAuthentication,
-  TLSWebServerAuthentication,
-  TimeStamping,
+  Custom,
   ExtendedKeyUsageName'
   #-}

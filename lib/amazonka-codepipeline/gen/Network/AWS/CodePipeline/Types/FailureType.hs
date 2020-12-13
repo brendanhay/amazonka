@@ -13,8 +13,8 @@
 module Network.AWS.CodePipeline.Types.FailureType
   ( FailureType
       ( FailureType',
-        ConfigurationError,
         JobFailed,
+        ConfigurationError,
         PermissionError,
         RevisionOutOfSync,
         RevisionUnavailable,
@@ -49,11 +49,11 @@ newtype FailureType = FailureType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ConfigurationError :: FailureType
-pattern ConfigurationError = FailureType' "ConfigurationError"
-
 pattern JobFailed :: FailureType
 pattern JobFailed = FailureType' "JobFailed"
+
+pattern ConfigurationError :: FailureType
+pattern ConfigurationError = FailureType' "ConfigurationError"
 
 pattern PermissionError :: FailureType
 pattern PermissionError = FailureType' "PermissionError"
@@ -68,8 +68,8 @@ pattern SystemUnavailable :: FailureType
 pattern SystemUnavailable = FailureType' "SystemUnavailable"
 
 {-# COMPLETE
-  ConfigurationError,
   JobFailed,
+  ConfigurationError,
   PermissionError,
   RevisionOutOfSync,
   RevisionUnavailable,

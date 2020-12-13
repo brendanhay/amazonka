@@ -32,24 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFacet' smart constructor.
 data Facet = Facet'
-  { facetStyle :: Lude.Maybe FacetStyle,
+  { -- | There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
+    facetStyle :: Lude.Maybe FacetStyle,
+    -- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
     objectType :: Lude.Maybe ObjectType,
+    -- | The name of the 'Facet' .
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Facet' with the minimum fields required to make a request.
 --
 -- * 'facetStyle' - There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
--- * 'name' - The name of the 'Facet' .
 -- * 'objectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+-- * 'name' - The name of the 'Facet' .
 mkFacet ::
   Facet
 mkFacet =

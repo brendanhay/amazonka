@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetNamedQuery' smart constructor.
 newtype BatchGetNamedQuery = BatchGetNamedQuery'
-  { namedQueryIds ::
-      Lude.NonEmpty Lude.Text
+  { -- | An array of query IDs.
+    namedQueryIds :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetNamedQuery' with the minimum fields required to make a request.
@@ -107,26 +102,21 @@ instance Lude.ToQuery BatchGetNamedQuery where
 
 -- | /See:/ 'mkBatchGetNamedQueryResponse' smart constructor.
 data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
-  { namedQueries ::
-      Lude.Maybe [NamedQuery],
-    unprocessedNamedQueryIds ::
-      Lude.Maybe [UnprocessedNamedQueryId],
+  { -- | Information about the named query IDs submitted.
+    namedQueries :: Lude.Maybe [NamedQuery],
+    -- | Information about provided query IDs.
+    unprocessedNamedQueryIds :: Lude.Maybe [UnprocessedNamedQueryId],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetNamedQueryResponse' with the minimum fields required to make a request.
 --
 -- * 'namedQueries' - Information about the named query IDs submitted.
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedNamedQueryIds' - Information about provided query IDs.
+-- * 'responseStatus' - The response status code.
 mkBatchGetNamedQueryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,8 +13,8 @@
 module Network.AWS.Redshift.Types.ParameterApplyType
   ( ParameterApplyType
       ( ParameterApplyType',
-        Dynamic,
-        Static
+        Static,
+        Dynamic
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ParameterApplyType = ParameterApplyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Dynamic :: ParameterApplyType
-pattern Dynamic = ParameterApplyType' "dynamic"
-
 pattern Static :: ParameterApplyType
 pattern Static = ParameterApplyType' "static"
 
+pattern Dynamic :: ParameterApplyType
+pattern Dynamic = ParameterApplyType' "dynamic"
+
 {-# COMPLETE
-  Dynamic,
   Static,
+  Dynamic,
   ParameterApplyType'
   #-}

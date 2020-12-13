@@ -37,31 +37,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticGpus' smart constructor.
 data ElasticGpus = ElasticGpus'
-  { instanceId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the instance to which the Elastic Graphics accelerator is attached.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The type of Elastic Graphics accelerator.
     elasticGpuType :: Lude.Maybe Lude.Text,
+    -- | The ID of the Elastic Graphics accelerator.
     elasticGpuId :: Lude.Maybe Lude.Text,
+    -- | The state of the Elastic Graphics accelerator.
     elasticGpuState :: Lude.Maybe ElasticGpuState,
+    -- | The status of the Elastic Graphics accelerator.
     elasticGpuHealth :: Lude.Maybe ElasticGpuHealth,
+    -- | The Availability Zone in the which the Elastic Graphics accelerator resides.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the Elastic Graphics accelerator.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticGpus' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in the which the Elastic Graphics accelerator resides.
--- * 'elasticGpuHealth' - The status of the Elastic Graphics accelerator.
+-- * 'instanceId' - The ID of the instance to which the Elastic Graphics accelerator is attached.
+-- * 'elasticGpuType' - The type of Elastic Graphics accelerator.
 -- * 'elasticGpuId' - The ID of the Elastic Graphics accelerator.
 -- * 'elasticGpuState' - The state of the Elastic Graphics accelerator.
--- * 'elasticGpuType' - The type of Elastic Graphics accelerator.
--- * 'instanceId' - The ID of the instance to which the Elastic Graphics accelerator is attached.
+-- * 'elasticGpuHealth' - The status of the Elastic Graphics accelerator.
+-- * 'availabilityZone' - The Availability Zone in the which the Elastic Graphics accelerator resides.
 -- * 'tags' - The tags assigned to the Elastic Graphics accelerator.
 mkElasticGpus ::
   ElasticGpus

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocation' smart constructor.
 data Location = Location'
-  { availablePortSpeeds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The available port speeds for the location.
+    availablePortSpeeds :: Lude.Maybe [Lude.Text],
+    -- | The name of the location. This includes the name of the colocation partner and the physical site of the building.
     locationName :: Lude.Maybe Lude.Text,
+    -- | The code for the location.
     locationCode :: Lude.Maybe Lude.Text,
+    -- | The AWS Region for the location.
     region :: Lude.Maybe Lude.Text,
+    -- | The name of the service provider for the location.
     availableProviders :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Location' with the minimum fields required to make a request.
 --
 -- * 'availablePortSpeeds' - The available port speeds for the location.
--- * 'availableProviders' - The name of the service provider for the location.
--- * 'locationCode' - The code for the location.
 -- * 'locationName' - The name of the location. This includes the name of the colocation partner and the physical site of the building.
+-- * 'locationCode' - The code for the location.
 -- * 'region' - The AWS Region for the location.
+-- * 'availableProviders' - The name of the service provider for the location.
 mkLocation ::
   Location
 mkLocation =

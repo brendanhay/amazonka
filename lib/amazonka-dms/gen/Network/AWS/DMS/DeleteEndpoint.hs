@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.DMS.DeleteEndpoint
     mkDeleteEndpointResponse,
 
     -- ** Response lenses
-    delrsEndpoint,
-    delrsResponseStatus,
+    defrsEndpoint,
+    defrsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- |
 --
 -- /See:/ 'mkDeleteEndpoint' smart constructor.
-newtype DeleteEndpoint = DeleteEndpoint' {endpointARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteEndpoint = DeleteEndpoint'
+  { -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+    endpointARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
@@ -103,8 +101,9 @@ instance Lude.ToQuery DeleteEndpoint where
 --
 -- /See:/ 'mkDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-  { endpoint ::
-      Lude.Maybe Endpoint,
+  { -- | The endpoint that was deleted.
+    endpoint :: Lude.Maybe Endpoint,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -127,13 +126,13 @@ mkDeleteEndpointResponse pResponseStatus_ =
 -- | The endpoint that was deleted.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsEndpoint :: Lens.Lens' DeleteEndpointResponse (Lude.Maybe Endpoint)
-delrsEndpoint = Lens.lens (endpoint :: DeleteEndpointResponse -> Lude.Maybe Endpoint) (\s a -> s {endpoint = a} :: DeleteEndpointResponse)
-{-# DEPRECATED delrsEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
+defrsEndpoint :: Lens.Lens' DeleteEndpointResponse (Lude.Maybe Endpoint)
+defrsEndpoint = Lens.lens (endpoint :: DeleteEndpointResponse -> Lude.Maybe Endpoint) (\s a -> s {endpoint = a} :: DeleteEndpointResponse)
+{-# DEPRECATED defrsEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteEndpointResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEndpointResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+defrsResponseStatus :: Lens.Lens' DeleteEndpointResponse Lude.Int
+defrsResponseStatus = Lens.lens (responseStatus :: DeleteEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEndpointResponse)
+{-# DEPRECATED defrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

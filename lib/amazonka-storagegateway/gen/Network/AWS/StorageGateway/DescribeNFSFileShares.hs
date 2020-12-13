@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeNFSFileShares' smart constructor.
 newtype DescribeNFSFileShares = DescribeNFSFileShares'
-  { fileShareARNList ::
-      Lude.NonEmpty Lude.Text
+  { -- | An array containing the Amazon Resource Name (ARN) of each file share to be described.
+    fileShareARNList :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNFSFileShares' with the minimum fields required to make a request.
@@ -111,17 +106,12 @@ instance Lude.ToQuery DescribeNFSFileShares where
 --
 -- /See:/ 'mkDescribeNFSFileSharesResponse' smart constructor.
 data DescribeNFSFileSharesResponse = DescribeNFSFileSharesResponse'
-  { nFSFileShareInfoList ::
-      Lude.Maybe [NFSFileShareInfo],
+  { -- | An array containing a description for each requested file share.
+    nFSFileShareInfoList :: Lude.Maybe [NFSFileShareInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNFSFileSharesResponse' with the minimum fields required to make a request.

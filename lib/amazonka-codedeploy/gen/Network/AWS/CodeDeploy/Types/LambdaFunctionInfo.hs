@@ -32,20 +32,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaFunctionInfo' smart constructor.
 data LambdaFunctionInfo = LambdaFunctionInfo'
-  { currentVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of a Lambda function that production traffic points to.
+    currentVersion :: Lude.Maybe Lude.Text,
+    -- | The alias of a Lambda function. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases> in the /AWS Lambda Developer Guide/ .
     functionAlias :: Lude.Maybe Lude.Text,
+    -- | The name of a Lambda function.
     functionName :: Lude.Maybe Lude.Text,
+    -- | The version of a Lambda function that production traffic points to after the Lambda function is deployed.
     targetVersion :: Lude.Maybe Lude.Text,
+    -- | The percentage of production traffic that the target version of a Lambda function receives.
     targetVersionWeight :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionInfo' with the minimum fields required to make a request.

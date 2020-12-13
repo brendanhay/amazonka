@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,13 +27,13 @@ module Network.AWS.IoT.DescribeDimension
     mkDescribeDimensionResponse,
 
     -- ** Response lenses
-    dddrsLastModifiedDate,
-    dddrsArn,
-    dddrsStringValues,
-    dddrsName,
-    dddrsCreationDate,
-    dddrsType,
-    dddrsResponseStatus,
+    ddfrsLastModifiedDate,
+    ddfrsArn,
+    ddfrsStringValues,
+    ddfrsName,
+    ddfrsCreationDate,
+    ddfrsType,
+    ddfrsResponseStatus,
   )
 where
 
@@ -43,14 +44,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDimension' smart constructor.
-newtype DescribeDimension = DescribeDimension' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeDimension = DescribeDimension'
+  { -- | The unique identifier for the dimension.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDimension' with the minimum fields required to make a request.
@@ -97,35 +95,33 @@ instance Lude.ToQuery DescribeDimension where
 
 -- | /See:/ 'mkDescribeDimensionResponse' smart constructor.
 data DescribeDimensionResponse = DescribeDimensionResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date the dimension was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN (Amazon resource name) for the dimension.
     arn :: Lude.Maybe Lude.Text,
-    stringValues ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+    stringValues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The unique identifier for the dimension.
     name :: Lude.Maybe Lude.Text,
-    creationDate ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date the dimension was created.
+    creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The type of the dimension.
     type' :: Lude.Maybe DimensionType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDimensionResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN (Amazon resource name) for the dimension.
--- * 'creationDate' - The date the dimension was created.
 -- * 'lastModifiedDate' - The date the dimension was last modified.
--- * 'name' - The unique identifier for the dimension.
--- * 'responseStatus' - The response status code.
+-- * 'arn' - The ARN (Amazon resource name) for the dimension.
 -- * 'stringValues' - The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+-- * 'name' - The unique identifier for the dimension.
+-- * 'creationDate' - The date the dimension was created.
 -- * 'type'' - The type of the dimension.
+-- * 'responseStatus' - The response status code.
 mkDescribeDimensionResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -144,48 +140,48 @@ mkDescribeDimensionResponse pResponseStatus_ =
 -- | The date the dimension was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsLastModifiedDate :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Timestamp)
-dddrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeDimensionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeDimensionResponse)
-{-# DEPRECATED dddrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+ddfrsLastModifiedDate :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Timestamp)
+ddfrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeDimensionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeDimensionResponse)
+{-# DEPRECATED ddfrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The ARN (Amazon resource name) for the dimension.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsArn :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Text)
-dddrsArn = Lens.lens (arn :: DescribeDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeDimensionResponse)
-{-# DEPRECATED dddrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+ddfrsArn :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Text)
+ddfrsArn = Lens.lens (arn :: DescribeDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeDimensionResponse)
+{-# DEPRECATED ddfrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
 --
 -- /Note:/ Consider using 'stringValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsStringValues :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dddrsStringValues = Lens.lens (stringValues :: DescribeDimensionResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {stringValues = a} :: DescribeDimensionResponse)
-{-# DEPRECATED dddrsStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
+ddfrsStringValues :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
+ddfrsStringValues = Lens.lens (stringValues :: DescribeDimensionResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {stringValues = a} :: DescribeDimensionResponse)
+{-# DEPRECATED ddfrsStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
 
 -- | The unique identifier for the dimension.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsName :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Text)
-dddrsName = Lens.lens (name :: DescribeDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeDimensionResponse)
-{-# DEPRECATED dddrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+ddfrsName :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Text)
+ddfrsName = Lens.lens (name :: DescribeDimensionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeDimensionResponse)
+{-# DEPRECATED ddfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The date the dimension was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsCreationDate :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Timestamp)
-dddrsCreationDate = Lens.lens (creationDate :: DescribeDimensionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeDimensionResponse)
-{-# DEPRECATED dddrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+ddfrsCreationDate :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe Lude.Timestamp)
+ddfrsCreationDate = Lens.lens (creationDate :: DescribeDimensionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeDimensionResponse)
+{-# DEPRECATED ddfrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The type of the dimension.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsType :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe DimensionType)
-dddrsType = Lens.lens (type' :: DescribeDimensionResponse -> Lude.Maybe DimensionType) (\s a -> s {type' = a} :: DescribeDimensionResponse)
-{-# DEPRECATED dddrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+ddfrsType :: Lens.Lens' DescribeDimensionResponse (Lude.Maybe DimensionType)
+ddfrsType = Lens.lens (type' :: DescribeDimensionResponse -> Lude.Maybe DimensionType) (\s a -> s {type' = a} :: DescribeDimensionResponse)
+{-# DEPRECATED ddfrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dddrsResponseStatus :: Lens.Lens' DescribeDimensionResponse Lude.Int
-dddrsResponseStatus = Lens.lens (responseStatus :: DescribeDimensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDimensionResponse)
-{-# DEPRECATED dddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddfrsResponseStatus :: Lens.Lens' DescribeDimensionResponse Lude.Int
+ddfrsResponseStatus = Lens.lens (responseStatus :: DescribeDimensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDimensionResponse)
+{-# DEPRECATED ddfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

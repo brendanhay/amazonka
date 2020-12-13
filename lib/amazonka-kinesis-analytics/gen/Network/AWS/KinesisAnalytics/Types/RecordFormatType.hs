@@ -13,8 +13,8 @@
 module Network.AWS.KinesisAnalytics.Types.RecordFormatType
   ( RecordFormatType
       ( RecordFormatType',
-        CSV,
-        JSON
+        JSON,
+        CSV
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype RecordFormatType = RecordFormatType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSV :: RecordFormatType
-pattern CSV = RecordFormatType' "CSV"
-
 pattern JSON :: RecordFormatType
 pattern JSON = RecordFormatType' "JSON"
 
+pattern CSV :: RecordFormatType
+pattern CSV = RecordFormatType' "CSV"
+
 {-# COMPLETE
-  CSV,
   JSON,
+  CSV,
   RecordFormatType'
   #-}

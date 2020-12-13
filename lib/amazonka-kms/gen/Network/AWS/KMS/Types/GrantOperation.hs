@@ -13,20 +13,20 @@
 module Network.AWS.KMS.Types.GrantOperation
   ( GrantOperation
       ( GrantOperation',
-        CreateGrant,
         Decrypt,
-        DescribeKey,
         Encrypt,
         GenerateDataKey,
-        GenerateDataKeyPair,
-        GenerateDataKeyPairWithoutPlaintext,
         GenerateDataKeyWithoutPlaintext,
-        GetPublicKey,
         ReEncryptFrom,
         ReEncryptTo,
-        RetireGrant,
         Sign,
-        Verify
+        Verify,
+        GetPublicKey,
+        CreateGrant,
+        RetireGrant,
+        DescribeKey,
+        GenerateDataKeyPair,
+        GenerateDataKeyPairWithoutPlaintext
       ),
   )
 where
@@ -57,14 +57,8 @@ newtype GrantOperation = GrantOperation' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreateGrant :: GrantOperation
-pattern CreateGrant = GrantOperation' "CreateGrant"
-
 pattern Decrypt :: GrantOperation
 pattern Decrypt = GrantOperation' "Decrypt"
-
-pattern DescribeKey :: GrantOperation
-pattern DescribeKey = GrantOperation' "DescribeKey"
 
 pattern Encrypt :: GrantOperation
 pattern Encrypt = GrantOperation' "Encrypt"
@@ -72,17 +66,8 @@ pattern Encrypt = GrantOperation' "Encrypt"
 pattern GenerateDataKey :: GrantOperation
 pattern GenerateDataKey = GrantOperation' "GenerateDataKey"
 
-pattern GenerateDataKeyPair :: GrantOperation
-pattern GenerateDataKeyPair = GrantOperation' "GenerateDataKeyPair"
-
-pattern GenerateDataKeyPairWithoutPlaintext :: GrantOperation
-pattern GenerateDataKeyPairWithoutPlaintext = GrantOperation' "GenerateDataKeyPairWithoutPlaintext"
-
 pattern GenerateDataKeyWithoutPlaintext :: GrantOperation
 pattern GenerateDataKeyWithoutPlaintext = GrantOperation' "GenerateDataKeyWithoutPlaintext"
-
-pattern GetPublicKey :: GrantOperation
-pattern GetPublicKey = GrantOperation' "GetPublicKey"
 
 pattern ReEncryptFrom :: GrantOperation
 pattern ReEncryptFrom = GrantOperation' "ReEncryptFrom"
@@ -90,29 +75,44 @@ pattern ReEncryptFrom = GrantOperation' "ReEncryptFrom"
 pattern ReEncryptTo :: GrantOperation
 pattern ReEncryptTo = GrantOperation' "ReEncryptTo"
 
-pattern RetireGrant :: GrantOperation
-pattern RetireGrant = GrantOperation' "RetireGrant"
-
 pattern Sign :: GrantOperation
 pattern Sign = GrantOperation' "Sign"
 
 pattern Verify :: GrantOperation
 pattern Verify = GrantOperation' "Verify"
 
+pattern GetPublicKey :: GrantOperation
+pattern GetPublicKey = GrantOperation' "GetPublicKey"
+
+pattern CreateGrant :: GrantOperation
+pattern CreateGrant = GrantOperation' "CreateGrant"
+
+pattern RetireGrant :: GrantOperation
+pattern RetireGrant = GrantOperation' "RetireGrant"
+
+pattern DescribeKey :: GrantOperation
+pattern DescribeKey = GrantOperation' "DescribeKey"
+
+pattern GenerateDataKeyPair :: GrantOperation
+pattern GenerateDataKeyPair = GrantOperation' "GenerateDataKeyPair"
+
+pattern GenerateDataKeyPairWithoutPlaintext :: GrantOperation
+pattern GenerateDataKeyPairWithoutPlaintext = GrantOperation' "GenerateDataKeyPairWithoutPlaintext"
+
 {-# COMPLETE
-  CreateGrant,
   Decrypt,
-  DescribeKey,
   Encrypt,
   GenerateDataKey,
-  GenerateDataKeyPair,
-  GenerateDataKeyPairWithoutPlaintext,
   GenerateDataKeyWithoutPlaintext,
-  GetPublicKey,
   ReEncryptFrom,
   ReEncryptTo,
-  RetireGrant,
   Sign,
   Verify,
+  GetPublicKey,
+  CreateGrant,
+  RetireGrant,
+  DescribeKey,
+  GenerateDataKeyPair,
+  GenerateDataKeyPairWithoutPlaintext,
   GrantOperation'
   #-}

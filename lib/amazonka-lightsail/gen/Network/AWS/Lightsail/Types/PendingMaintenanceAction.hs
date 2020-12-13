@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
-  { action ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of pending database maintenance action.
+    action :: Lude.Maybe Lude.Text,
+    -- | Additional detail about the pending database maintenance action.
     description :: Lude.Maybe Lude.Text,
-    currentApplyDate ::
-      Lude.Maybe Lude.Timestamp
+    -- | The effective date of the pending database maintenance action.
+    currentApplyDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingMaintenanceAction' with the minimum fields required to make a request.
 --
 -- * 'action' - The type of pending database maintenance action.
--- * 'currentApplyDate' - The effective date of the pending database maintenance action.
 -- * 'description' - Additional detail about the pending database maintenance action.
+-- * 'currentApplyDate' - The effective date of the pending database maintenance action.
 mkPendingMaintenanceAction ::
   PendingMaintenanceAction
 mkPendingMaintenanceAction =

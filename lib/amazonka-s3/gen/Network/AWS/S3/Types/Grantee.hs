@@ -34,28 +34,27 @@ import Network.AWS.S3.Types.Type
 --
 -- /See:/ 'mkGrantee' smart constructor.
 data Grantee = Grantee'
-  { uri :: Lude.Maybe Lude.Text,
+  { -- | URI of the grantee group.
+    uri :: Lude.Maybe Lude.Text,
+    -- | Email address of the grantee.
     emailAddress :: Lude.Maybe Lude.Text,
+    -- | Screen name of the grantee.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The canonical user ID of the grantee.
     id :: Lude.Maybe Lude.Text,
+    -- | Type of grantee
     type' :: Type
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Grantee' with the minimum fields required to make a request.
 --
--- * 'displayName' - Screen name of the grantee.
+-- * 'uri' - URI of the grantee group.
 -- * 'emailAddress' - Email address of the grantee.
+-- * 'displayName' - Screen name of the grantee.
 -- * 'id' - The canonical user ID of the grantee.
 -- * 'type'' - Type of grantee
--- * 'uri' - URI of the grantee group.
 mkGrantee ::
   -- | 'type''
   Type ->

@@ -13,11 +13,11 @@
 module Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
   ( EnvironmentLifecycleStatus
       ( EnvironmentLifecycleStatus',
-        CreateFailed,
-        Created,
         Creating,
-        DeleteFailed,
-        Deleting
+        Created,
+        CreateFailed,
+        Deleting,
+        DeleteFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype EnvironmentLifecycleStatus = EnvironmentLifecycleStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreateFailed :: EnvironmentLifecycleStatus
-pattern CreateFailed = EnvironmentLifecycleStatus' "CREATE_FAILED"
+pattern Creating :: EnvironmentLifecycleStatus
+pattern Creating = EnvironmentLifecycleStatus' "CREATING"
 
 pattern Created :: EnvironmentLifecycleStatus
 pattern Created = EnvironmentLifecycleStatus' "CREATED"
 
-pattern Creating :: EnvironmentLifecycleStatus
-pattern Creating = EnvironmentLifecycleStatus' "CREATING"
-
-pattern DeleteFailed :: EnvironmentLifecycleStatus
-pattern DeleteFailed = EnvironmentLifecycleStatus' "DELETE_FAILED"
+pattern CreateFailed :: EnvironmentLifecycleStatus
+pattern CreateFailed = EnvironmentLifecycleStatus' "CREATE_FAILED"
 
 pattern Deleting :: EnvironmentLifecycleStatus
 pattern Deleting = EnvironmentLifecycleStatus' "DELETING"
 
+pattern DeleteFailed :: EnvironmentLifecycleStatus
+pattern DeleteFailed = EnvironmentLifecycleStatus' "DELETE_FAILED"
+
 {-# COMPLETE
-  CreateFailed,
-  Created,
   Creating,
-  DeleteFailed,
+  Created,
+  CreateFailed,
   Deleting,
+  DeleteFailed,
   EnvironmentLifecycleStatus'
   #-}

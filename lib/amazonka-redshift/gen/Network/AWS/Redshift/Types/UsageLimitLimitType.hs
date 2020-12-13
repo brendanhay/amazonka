@@ -13,8 +13,8 @@
 module Network.AWS.Redshift.Types.UsageLimitLimitType
   ( UsageLimitLimitType
       ( UsageLimitLimitType',
-        DataScanned,
-        Time
+        Time,
+        DataScanned
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype UsageLimitLimitType = UsageLimitLimitType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DataScanned :: UsageLimitLimitType
-pattern DataScanned = UsageLimitLimitType' "data-scanned"
-
 pattern Time :: UsageLimitLimitType
 pattern Time = UsageLimitLimitType' "time"
 
+pattern DataScanned :: UsageLimitLimitType
+pattern DataScanned = UsageLimitLimitType' "data-scanned"
+
 {-# COMPLETE
-  DataScanned,
   Time,
+  DataScanned,
   UsageLimitLimitType'
   #-}

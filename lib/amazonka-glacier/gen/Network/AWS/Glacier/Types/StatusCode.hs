@@ -13,9 +13,9 @@
 module Network.AWS.Glacier.Types.StatusCode
   ( StatusCode
       ( StatusCode',
-        Failed,
         InProgress,
-        Succeeded
+        Succeeded,
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype StatusCode = StatusCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: StatusCode
-pattern Failed = StatusCode' "Failed"
-
 pattern InProgress :: StatusCode
 pattern InProgress = StatusCode' "InProgress"
 
 pattern Succeeded :: StatusCode
 pattern Succeeded = StatusCode' "Succeeded"
 
+pattern Failed :: StatusCode
+pattern Failed = StatusCode' "Failed"
+
 {-# COMPLETE
-  Failed,
   InProgress,
   Succeeded,
+  Failed,
   StatusCode'
   #-}

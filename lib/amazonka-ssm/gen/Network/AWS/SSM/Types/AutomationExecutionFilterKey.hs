@@ -13,14 +13,14 @@
 module Network.AWS.SSM.Types.AutomationExecutionFilterKey
   ( AutomationExecutionFilterKey
       ( AutomationExecutionFilterKey',
-        AEFKAutomationType,
-        AEFKCurrentAction,
         AEFKDocumentNamePrefix,
-        AEFKExecutionId,
         AEFKExecutionStatus,
+        AEFKExecutionId,
         AEFKParentExecutionId,
-        AEFKStartTimeAfter,
+        AEFKCurrentAction,
         AEFKStartTimeBefore,
+        AEFKStartTimeAfter,
+        AEFKAutomationType,
         AEFKTagKey,
         AEFKTargetResourceGroup
       ),
@@ -53,29 +53,29 @@ newtype AutomationExecutionFilterKey = AutomationExecutionFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern AEFKAutomationType :: AutomationExecutionFilterKey
-pattern AEFKAutomationType = AutomationExecutionFilterKey' "AutomationType"
-
-pattern AEFKCurrentAction :: AutomationExecutionFilterKey
-pattern AEFKCurrentAction = AutomationExecutionFilterKey' "CurrentAction"
-
 pattern AEFKDocumentNamePrefix :: AutomationExecutionFilterKey
 pattern AEFKDocumentNamePrefix = AutomationExecutionFilterKey' "DocumentNamePrefix"
-
-pattern AEFKExecutionId :: AutomationExecutionFilterKey
-pattern AEFKExecutionId = AutomationExecutionFilterKey' "ExecutionId"
 
 pattern AEFKExecutionStatus :: AutomationExecutionFilterKey
 pattern AEFKExecutionStatus = AutomationExecutionFilterKey' "ExecutionStatus"
 
+pattern AEFKExecutionId :: AutomationExecutionFilterKey
+pattern AEFKExecutionId = AutomationExecutionFilterKey' "ExecutionId"
+
 pattern AEFKParentExecutionId :: AutomationExecutionFilterKey
 pattern AEFKParentExecutionId = AutomationExecutionFilterKey' "ParentExecutionId"
+
+pattern AEFKCurrentAction :: AutomationExecutionFilterKey
+pattern AEFKCurrentAction = AutomationExecutionFilterKey' "CurrentAction"
+
+pattern AEFKStartTimeBefore :: AutomationExecutionFilterKey
+pattern AEFKStartTimeBefore = AutomationExecutionFilterKey' "StartTimeBefore"
 
 pattern AEFKStartTimeAfter :: AutomationExecutionFilterKey
 pattern AEFKStartTimeAfter = AutomationExecutionFilterKey' "StartTimeAfter"
 
-pattern AEFKStartTimeBefore :: AutomationExecutionFilterKey
-pattern AEFKStartTimeBefore = AutomationExecutionFilterKey' "StartTimeBefore"
+pattern AEFKAutomationType :: AutomationExecutionFilterKey
+pattern AEFKAutomationType = AutomationExecutionFilterKey' "AutomationType"
 
 pattern AEFKTagKey :: AutomationExecutionFilterKey
 pattern AEFKTagKey = AutomationExecutionFilterKey' "TagKey"
@@ -84,14 +84,14 @@ pattern AEFKTargetResourceGroup :: AutomationExecutionFilterKey
 pattern AEFKTargetResourceGroup = AutomationExecutionFilterKey' "TargetResourceGroup"
 
 {-# COMPLETE
-  AEFKAutomationType,
-  AEFKCurrentAction,
   AEFKDocumentNamePrefix,
-  AEFKExecutionId,
   AEFKExecutionStatus,
+  AEFKExecutionId,
   AEFKParentExecutionId,
-  AEFKStartTimeAfter,
+  AEFKCurrentAction,
   AEFKStartTimeBefore,
+  AEFKStartTimeAfter,
+  AEFKAutomationType,
   AEFKTagKey,
   AEFKTargetResourceGroup,
   AutomationExecutionFilterKey'

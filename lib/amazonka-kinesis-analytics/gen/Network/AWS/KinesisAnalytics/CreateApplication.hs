@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,16 +31,16 @@ module Network.AWS.KinesisAnalytics.CreateApplication
     caCloudWatchLoggingOptions,
     caOutputs,
     caApplicationCode,
-    caTags,
     caApplicationName,
+    caTags,
 
     -- * Destructuring the response
     CreateApplicationResponse (..),
     mkCreateApplicationResponse,
 
     -- ** Response lenses
-    carsResponseStatus,
     carsApplicationSummary,
+    carsResponseStatus,
   )
 where
 
@@ -53,44 +54,54 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { applicationDescription ::
-      Lude.Maybe Lude.Text,
+  { -- | Summary description of the application.
+    applicationDescription :: Lude.Maybe Lude.Text,
+    -- | Use this parameter to configure the application input.
+    --
+    -- You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).
+    -- For the streaming source, you provide its Amazon Resource Name (ARN) and format of data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role that Amazon Kinesis Analytics can assume to read this stream on your behalf.
+    -- To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.
     inputs :: Lude.Maybe [Input],
-    cloudWatchLoggingOptions ::
-      Lude.Maybe [CloudWatchLoggingOption],
+    -- | Use this parameter to configure a CloudWatch log stream to monitor application configuration errors. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
+    cloudWatchLoggingOptions :: Lude.Maybe [CloudWatchLoggingOption],
+    -- | You can configure application output to write data from any of the in-application streams to up to three destinations.
+    --
+    -- These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery streams, AWS Lambda destinations, or any combination of the three.
+    -- In the configuration, you specify the in-application stream name, the destination stream or Lambda function Amazon Resource Name (ARN), and the format to use when writing data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the destination stream or Lambda function on your behalf.
+    -- In the output configuration, you also provide the output stream or Lambda function ARN. For stream destinations, you provide the format of data in the stream (for example, JSON, CSV). You also must provide an IAM role that Amazon Kinesis Analytics can assume to write to the stream or Lambda function on your behalf.
     outputs :: Lude.Maybe [Output],
+    -- | One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads data from one in-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in-application stream using pumps. For more information about the typical pattern, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code> .
+    --
+    -- You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps.
+    -- Note that the application code must create the streams with names specified in the @Outputs@ . For example, if your @Outputs@ defines output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@ , then your application code must create these streams.
     applicationCode :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
-    applicationName :: Lude.Text
+    -- | Name of your Amazon Kinesis Analytics application (for example, @sample-app@ ).
+    applicationName :: Lude.Text,
+    -- | A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging> .
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- * 'applicationCode' - One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads data from one in-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in-application stream using pumps. For more information about the typical pattern, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code> .
---
--- You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps.
--- Note that the application code must create the streams with names specified in the @Outputs@ . For example, if your @Outputs@ defines output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@ , then your application code must create these streams.
 -- * 'applicationDescription' - Summary description of the application.
--- * 'applicationName' - Name of your Amazon Kinesis Analytics application (for example, @sample-app@ ).
--- * 'cloudWatchLoggingOptions' - Use this parameter to configure a CloudWatch log stream to monitor application configuration errors. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
 -- * 'inputs' - Use this parameter to configure the application input.
 --
 -- You can configure your application to receive input from a single streaming source. In this configuration, you map this streaming source to an in-application stream that is created. Your application code can then query the in-application stream like a table (you can think of it as a constantly updating table).
 -- For the streaming source, you provide its Amazon Resource Name (ARN) and format of data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role that Amazon Kinesis Analytics can assume to read this stream on your behalf.
 -- To create the in-application stream, you need to specify a schema to transform your data into a schematized version used in SQL. In the schema, you provide the necessary mapping of the data elements in the streaming source to record columns in the in-app stream.
+-- * 'cloudWatchLoggingOptions' - Use this parameter to configure a CloudWatch log stream to monitor application configuration errors. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html Working with Amazon CloudWatch Logs> .
 -- * 'outputs' - You can configure application output to write data from any of the in-application streams to up to three destinations.
 --
 -- These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery streams, AWS Lambda destinations, or any combination of the three.
 -- In the configuration, you specify the in-application stream name, the destination stream or Lambda function Amazon Resource Name (ARN), and the format to use when writing data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to write to the destination stream or Lambda function on your behalf.
 -- In the output configuration, you also provide the output stream or Lambda function ARN. For stream destinations, you provide the format of data in the stream (for example, JSON, CSV). You also must provide an IAM role that Amazon Kinesis Analytics can assume to write to the stream or Lambda function on your behalf.
+-- * 'applicationCode' - One or more SQL statements that read input data, transform it, and generate output. For example, you can write a SQL statement that reads data from one in-application stream, generates a running average of the number of advertisement clicks by vendor, and insert resulting rows in another in-application stream using pumps. For more information about the typical pattern, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html Application Code> .
+--
+-- You can provide such series of SQL statements, where output of one statement can be used as the input for the next statement. You store intermediate results by creating in-application streams and pumps.
+-- Note that the application code must create the streams with names specified in the @Outputs@ . For example, if your @Outputs@ defines output streams named @ExampleOutputStream1@ and @ExampleOutputStream2@ , then your application code must create these streams.
+-- * 'applicationName' - Name of your Amazon Kinesis Analytics application (for example, @sample-app@ ).
 -- * 'tags' - A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging> .
 mkCreateApplication ::
   -- | 'applicationName'
@@ -103,8 +114,8 @@ mkCreateApplication pApplicationName_ =
       cloudWatchLoggingOptions = Lude.Nothing,
       outputs = Lude.Nothing,
       applicationCode = Lude.Nothing,
-      tags = Lude.Nothing,
-      applicationName = pApplicationName_
+      applicationName = pApplicationName_,
+      tags = Lude.Nothing
     }
 
 -- | Summary description of the application.
@@ -153,19 +164,19 @@ caApplicationCode :: Lens.Lens' CreateApplication (Lude.Maybe Lude.Text)
 caApplicationCode = Lens.lens (applicationCode :: CreateApplication -> Lude.Maybe Lude.Text) (\s a -> s {applicationCode = a} :: CreateApplication)
 {-# DEPRECATED caApplicationCode "Use generic-lens or generic-optics with 'applicationCode' instead." #-}
 
--- | A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging> .
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTags :: Lens.Lens' CreateApplication (Lude.Maybe (Lude.NonEmpty Tag))
-caTags = Lens.lens (tags :: CreateApplication -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateApplication)
-{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | Name of your Amazon Kinesis Analytics application (for example, @sample-app@ ).
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 caApplicationName :: Lens.Lens' CreateApplication Lude.Text
 caApplicationName = Lens.lens (applicationName :: CreateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplication)
 {-# DEPRECATED caApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
+-- | A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-tagging.html Using Tagging> .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateApplication (Lude.Maybe (Lude.NonEmpty Tag))
+caTags = Lens.lens (tags :: CreateApplication -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateApplication)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateApplication where
   type Rs CreateApplication = CreateApplicationResponse
@@ -174,8 +185,8 @@ instance Lude.AWSRequest CreateApplication where
     Res.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ApplicationSummary")
+            Lude.<$> (x Lude..:> "ApplicationSummary")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateApplication where
@@ -200,8 +211,8 @@ instance Lude.ToJSON CreateApplication where
               Lude.<$> cloudWatchLoggingOptions,
             ("Outputs" Lude..=) Lude.<$> outputs,
             ("ApplicationCode" Lude..=) Lude.<$> applicationCode,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("ApplicationName" Lude..= applicationName)
+            Lude.Just ("ApplicationName" Lude..= applicationName),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -215,18 +226,12 @@ instance Lude.ToQuery CreateApplication where
 --
 -- /See:/ 'mkCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { responseStatus ::
-      Lude.Int,
-    applicationSummary ::
-      ApplicationSummary
+  { -- | In response to your @CreateApplication@ request, Amazon Kinesis Analytics returns a response with a summary of the application it created, including the application Amazon Resource Name (ARN), name, and status.
+    applicationSummary :: ApplicationSummary,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
@@ -234,23 +239,17 @@ data CreateApplicationResponse = CreateApplicationResponse'
 -- * 'applicationSummary' - In response to your @CreateApplication@ request, Amazon Kinesis Analytics returns a response with a summary of the application it created, including the application Amazon Resource Name (ARN), name, and status.
 -- * 'responseStatus' - The response status code.
 mkCreateApplicationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'applicationSummary'
   ApplicationSummary ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateApplicationResponse
-mkCreateApplicationResponse pResponseStatus_ pApplicationSummary_ =
+mkCreateApplicationResponse pApplicationSummary_ pResponseStatus_ =
   CreateApplicationResponse'
-    { responseStatus = pResponseStatus_,
-      applicationSummary = pApplicationSummary_
+    { applicationSummary =
+        pApplicationSummary_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsResponseStatus :: Lens.Lens' CreateApplicationResponse Lude.Int
-carsResponseStatus = Lens.lens (responseStatus :: CreateApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateApplicationResponse)
-{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | In response to your @CreateApplication@ request, Amazon Kinesis Analytics returns a response with a summary of the application it created, including the application Amazon Resource Name (ARN), name, and status.
 --
@@ -258,3 +257,10 @@ carsResponseStatus = Lens.lens (responseStatus :: CreateApplicationResponse -> L
 carsApplicationSummary :: Lens.Lens' CreateApplicationResponse ApplicationSummary
 carsApplicationSummary = Lens.lens (applicationSummary :: CreateApplicationResponse -> ApplicationSummary) (\s a -> s {applicationSummary = a} :: CreateApplicationResponse)
 {-# DEPRECATED carsApplicationSummary "Use generic-lens or generic-optics with 'applicationSummary' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carsResponseStatus :: Lens.Lens' CreateApplicationResponse Lude.Int
+carsResponseStatus = Lens.lens (responseStatus :: CreateApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateApplicationResponse)
+{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagOptionDetail' smart constructor.
 data TagOptionDetail = TagOptionDetail'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The TagOption value.
+    value :: Lude.Maybe Lude.Text,
+    -- | The TagOption active state.
     active :: Lude.Maybe Lude.Bool,
+    -- | The TagOption key.
     key :: Lude.Maybe Lude.Text,
+    -- | The TagOption identifier.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagOptionDetail' with the minimum fields required to make a request.
 --
--- * 'active' - The TagOption active state.
--- * 'id' - The TagOption identifier.
--- * 'key' - The TagOption key.
 -- * 'value' - The TagOption value.
+-- * 'active' - The TagOption active state.
+-- * 'key' - The TagOption key.
+-- * 'id' - The TagOption identifier.
 mkTagOptionDetail ::
   TagOptionDetail
 mkTagOptionDetail =

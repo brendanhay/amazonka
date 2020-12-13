@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.RDS.AddRoleToDBInstance
 
     -- ** Request lenses
     artdiDBInstanceIdentifier,
-    artdiRoleARN,
     artdiFeatureName,
+    artdiRoleARN,
 
     -- * Destructuring the response
     AddRoleToDBInstanceResponse (..),
@@ -37,18 +38,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddRoleToDBInstance' smart constructor.
 data AddRoleToDBInstance = AddRoleToDBInstance'
-  { dbInstanceIdentifier ::
-      Lude.Text,
-    roleARN :: Lude.Text,
-    featureName :: Lude.Text
+  { -- | The name of the DB instance to associate the IAM role with.
+    dbInstanceIdentifier :: Lude.Text,
+    -- | The name of the feature for the DB instance that the IAM role is to be associated with. For the list of supported feature names, see 'DBEngineVersion' .
+    featureName :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRoleToDBInstance' with the minimum fields required to make a request.
@@ -59,20 +56,20 @@ data AddRoleToDBInstance = AddRoleToDBInstance'
 mkAddRoleToDBInstance ::
   -- | 'dbInstanceIdentifier'
   Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'featureName'
+  Lude.Text ->
+  -- | 'roleARN'
   Lude.Text ->
   AddRoleToDBInstance
 mkAddRoleToDBInstance
   pDBInstanceIdentifier_
-  pRoleARN_
-  pFeatureName_ =
+  pFeatureName_
+  pRoleARN_ =
     AddRoleToDBInstance'
       { dbInstanceIdentifier =
           pDBInstanceIdentifier_,
-        roleARN = pRoleARN_,
-        featureName = pFeatureName_
+        featureName = pFeatureName_,
+        roleARN = pRoleARN_
       }
 
 -- | The name of the DB instance to associate the IAM role with.
@@ -82,19 +79,19 @@ artdiDBInstanceIdentifier :: Lens.Lens' AddRoleToDBInstance Lude.Text
 artdiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: AddRoleToDBInstance -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: AddRoleToDBInstance)
 {-# DEPRECATED artdiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artdiRoleARN :: Lens.Lens' AddRoleToDBInstance Lude.Text
-artdiRoleARN = Lens.lens (roleARN :: AddRoleToDBInstance -> Lude.Text) (\s a -> s {roleARN = a} :: AddRoleToDBInstance)
-{-# DEPRECATED artdiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
 -- | The name of the feature for the DB instance that the IAM role is to be associated with. For the list of supported feature names, see 'DBEngineVersion' .
 --
 -- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 artdiFeatureName :: Lens.Lens' AddRoleToDBInstance Lude.Text
 artdiFeatureName = Lens.lens (featureName :: AddRoleToDBInstance -> Lude.Text) (\s a -> s {featureName = a} :: AddRoleToDBInstance)
 {-# DEPRECATED artdiFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role to associate with the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artdiRoleARN :: Lens.Lens' AddRoleToDBInstance Lude.Text
+artdiRoleARN = Lens.lens (roleARN :: AddRoleToDBInstance -> Lude.Text) (\s a -> s {roleARN = a} :: AddRoleToDBInstance)
+{-# DEPRECATED artdiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.AWSRequest AddRoleToDBInstance where
   type Rs AddRoleToDBInstance = AddRoleToDBInstanceResponse
@@ -113,19 +110,13 @@ instance Lude.ToQuery AddRoleToDBInstance where
       [ "Action" Lude.=: ("AddRoleToDBInstance" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
-        "RoleArn" Lude.=: roleARN,
-        "FeatureName" Lude.=: featureName
+        "FeatureName" Lude.=: featureName,
+        "RoleArn" Lude.=: roleARN
       ]
 
 -- | /See:/ 'mkAddRoleToDBInstanceResponse' smart constructor.
 data AddRoleToDBInstanceResponse = AddRoleToDBInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddRoleToDBInstanceResponse' with the minimum fields required to make a request.

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArrayPropertiesSummary' smart constructor.
 data ArrayPropertiesSummary = ArrayPropertiesSummary'
-  { size ::
-      Lude.Maybe Lude.Int,
+  { -- | The size of the array job. This parameter is returned for parent array jobs.
+    size :: Lude.Maybe Lude.Int,
+    -- | The job index within the array that is associated with this job. This parameter is returned for children of array jobs.
     index :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArrayPropertiesSummary' with the minimum fields required to make a request.
 --
--- * 'index' - The job index within the array that is associated with this job. This parameter is returned for children of array jobs.
 -- * 'size' - The size of the array job. This parameter is returned for parent array jobs.
+-- * 'index' - The job index within the array that is associated with this job. This parameter is returned for children of array jobs.
 mkArrayPropertiesSummary ::
   ArrayPropertiesSummary
 mkArrayPropertiesSummary =

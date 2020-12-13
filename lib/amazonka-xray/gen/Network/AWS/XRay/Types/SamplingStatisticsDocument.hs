@@ -17,11 +17,11 @@ module Network.AWS.XRay.Types.SamplingStatisticsDocument
     mkSamplingStatisticsDocument,
 
     -- * Lenses
+    ssdClientId,
+    ssdRequestCount,
     ssdBorrowCount,
     ssdRuleName,
-    ssdClientId,
     ssdTimestamp,
-    ssdRequestCount,
     ssdSampledCount,
   )
 where
@@ -33,57 +33,70 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSamplingStatisticsDocument' smart constructor.
 data SamplingStatisticsDocument = SamplingStatisticsDocument'
-  { borrowCount ::
-      Lude.Maybe Lude.Natural,
-    ruleName :: Lude.Text,
+  { -- | A unique identifier for the service in hexadecimal.
     clientId :: Lude.Text,
-    timestamp :: Lude.Timestamp,
+    -- | The number of requests that matched the rule.
     requestCount :: Lude.Natural,
+    -- | The number of requests recorded with borrowed reservoir quota.
+    borrowCount :: Lude.Maybe Lude.Natural,
+    -- | The name of the sampling rule.
+    ruleName :: Lude.Text,
+    -- | The current time.
+    timestamp :: Lude.Timestamp,
+    -- | The number of requests recorded.
     sampledCount :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingStatisticsDocument' with the minimum fields required to make a request.
 --
--- * 'borrowCount' - The number of requests recorded with borrowed reservoir quota.
 -- * 'clientId' - A unique identifier for the service in hexadecimal.
 -- * 'requestCount' - The number of requests that matched the rule.
+-- * 'borrowCount' - The number of requests recorded with borrowed reservoir quota.
 -- * 'ruleName' - The name of the sampling rule.
--- * 'sampledCount' - The number of requests recorded.
 -- * 'timestamp' - The current time.
+-- * 'sampledCount' - The number of requests recorded.
 mkSamplingStatisticsDocument ::
-  -- | 'ruleName'
-  Lude.Text ->
   -- | 'clientId'
+  Lude.Text ->
+  -- | 'requestCount'
+  Lude.Natural ->
+  -- | 'ruleName'
   Lude.Text ->
   -- | 'timestamp'
   Lude.Timestamp ->
-  -- | 'requestCount'
-  Lude.Natural ->
   -- | 'sampledCount'
   Lude.Natural ->
   SamplingStatisticsDocument
 mkSamplingStatisticsDocument
-  pRuleName_
   pClientId_
-  pTimestamp_
   pRequestCount_
+  pRuleName_
+  pTimestamp_
   pSampledCount_ =
     SamplingStatisticsDocument'
-      { borrowCount = Lude.Nothing,
-        ruleName = pRuleName_,
-        clientId = pClientId_,
-        timestamp = pTimestamp_,
+      { clientId = pClientId_,
         requestCount = pRequestCount_,
+        borrowCount = Lude.Nothing,
+        ruleName = pRuleName_,
+        timestamp = pTimestamp_,
         sampledCount = pSampledCount_
       }
+
+-- | A unique identifier for the service in hexadecimal.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdClientId :: Lens.Lens' SamplingStatisticsDocument Lude.Text
+ssdClientId = Lens.lens (clientId :: SamplingStatisticsDocument -> Lude.Text) (\s a -> s {clientId = a} :: SamplingStatisticsDocument)
+{-# DEPRECATED ssdClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+-- | The number of requests that matched the rule.
+--
+-- /Note:/ Consider using 'requestCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdRequestCount :: Lens.Lens' SamplingStatisticsDocument Lude.Natural
+ssdRequestCount = Lens.lens (requestCount :: SamplingStatisticsDocument -> Lude.Natural) (\s a -> s {requestCount = a} :: SamplingStatisticsDocument)
+{-# DEPRECATED ssdRequestCount "Use generic-lens or generic-optics with 'requestCount' instead." #-}
 
 -- | The number of requests recorded with borrowed reservoir quota.
 --
@@ -99,26 +112,12 @@ ssdRuleName :: Lens.Lens' SamplingStatisticsDocument Lude.Text
 ssdRuleName = Lens.lens (ruleName :: SamplingStatisticsDocument -> Lude.Text) (\s a -> s {ruleName = a} :: SamplingStatisticsDocument)
 {-# DEPRECATED ssdRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
--- | A unique identifier for the service in hexadecimal.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdClientId :: Lens.Lens' SamplingStatisticsDocument Lude.Text
-ssdClientId = Lens.lens (clientId :: SamplingStatisticsDocument -> Lude.Text) (\s a -> s {clientId = a} :: SamplingStatisticsDocument)
-{-# DEPRECATED ssdClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
 -- | The current time.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ssdTimestamp :: Lens.Lens' SamplingStatisticsDocument Lude.Timestamp
 ssdTimestamp = Lens.lens (timestamp :: SamplingStatisticsDocument -> Lude.Timestamp) (\s a -> s {timestamp = a} :: SamplingStatisticsDocument)
 {-# DEPRECATED ssdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
-
--- | The number of requests that matched the rule.
---
--- /Note:/ Consider using 'requestCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdRequestCount :: Lens.Lens' SamplingStatisticsDocument Lude.Natural
-ssdRequestCount = Lens.lens (requestCount :: SamplingStatisticsDocument -> Lude.Natural) (\s a -> s {requestCount = a} :: SamplingStatisticsDocument)
-{-# DEPRECATED ssdRequestCount "Use generic-lens or generic-optics with 'requestCount' instead." #-}
 
 -- | The number of requests recorded.
 --
@@ -131,11 +130,11 @@ instance Lude.ToJSON SamplingStatisticsDocument where
   toJSON SamplingStatisticsDocument' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("BorrowCount" Lude..=) Lude.<$> borrowCount,
-            Lude.Just ("RuleName" Lude..= ruleName),
-            Lude.Just ("ClientID" Lude..= clientId),
-            Lude.Just ("Timestamp" Lude..= timestamp),
+          [ Lude.Just ("ClientID" Lude..= clientId),
             Lude.Just ("RequestCount" Lude..= requestCount),
+            ("BorrowCount" Lude..=) Lude.<$> borrowCount,
+            Lude.Just ("RuleName" Lude..= ruleName),
+            Lude.Just ("Timestamp" Lude..= timestamp),
             Lude.Just ("SampledCount" Lude..= sampledCount)
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkDocs.AbortDocumentVersionUpload
     mkAbortDocumentVersionUpload,
 
     -- ** Request lenses
-    advuAuthenticationToken,
-    advuDocumentId,
     advuVersionId,
+    advuDocumentId,
+    advuAuthenticationToken,
 
     -- * Destructuring the response
     AbortDocumentVersionUploadResponse (..),
@@ -37,38 +38,40 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkAbortDocumentVersionUpload' smart constructor.
 data AbortDocumentVersionUpload = AbortDocumentVersionUpload'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The ID of the version.
+    versionId :: Lude.Text,
+    -- | The ID of the document.
     documentId :: Lude.Text,
-    versionId :: Lude.Text
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortDocumentVersionUpload' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'documentId' - The ID of the document.
 -- * 'versionId' - The ID of the version.
+-- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 mkAbortDocumentVersionUpload ::
-  -- | 'documentId'
-  Lude.Text ->
   -- | 'versionId'
   Lude.Text ->
+  -- | 'documentId'
+  Lude.Text ->
   AbortDocumentVersionUpload
-mkAbortDocumentVersionUpload pDocumentId_ pVersionId_ =
+mkAbortDocumentVersionUpload pVersionId_ pDocumentId_ =
   AbortDocumentVersionUpload'
-    { authenticationToken = Lude.Nothing,
+    { versionId = pVersionId_,
       documentId = pDocumentId_,
-      versionId = pVersionId_
+      authenticationToken = Lude.Nothing
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- | The ID of the version.
 --
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-advuAuthenticationToken :: Lens.Lens' AbortDocumentVersionUpload (Lude.Maybe (Lude.Sensitive Lude.Text))
-advuAuthenticationToken = Lens.lens (authenticationToken :: AbortDocumentVersionUpload -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: AbortDocumentVersionUpload)
-{-# DEPRECATED advuAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+advuVersionId :: Lens.Lens' AbortDocumentVersionUpload Lude.Text
+advuVersionId = Lens.lens (versionId :: AbortDocumentVersionUpload -> Lude.Text) (\s a -> s {versionId = a} :: AbortDocumentVersionUpload)
+{-# DEPRECATED advuVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The ID of the document.
 --
@@ -77,12 +80,12 @@ advuDocumentId :: Lens.Lens' AbortDocumentVersionUpload Lude.Text
 advuDocumentId = Lens.lens (documentId :: AbortDocumentVersionUpload -> Lude.Text) (\s a -> s {documentId = a} :: AbortDocumentVersionUpload)
 {-# DEPRECATED advuDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
--- | The ID of the version.
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-advuVersionId :: Lens.Lens' AbortDocumentVersionUpload Lude.Text
-advuVersionId = Lens.lens (versionId :: AbortDocumentVersionUpload -> Lude.Text) (\s a -> s {versionId = a} :: AbortDocumentVersionUpload)
-{-# DEPRECATED advuVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+advuAuthenticationToken :: Lens.Lens' AbortDocumentVersionUpload (Lude.Maybe (Lude.Sensitive Lude.Text))
+advuAuthenticationToken = Lens.lens (authenticationToken :: AbortDocumentVersionUpload -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: AbortDocumentVersionUpload)
+{-# DEPRECATED advuAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 instance Lude.AWSRequest AbortDocumentVersionUpload where
   type
@@ -113,13 +116,7 @@ instance Lude.ToQuery AbortDocumentVersionUpload where
 
 -- | /See:/ 'mkAbortDocumentVersionUploadResponse' smart constructor.
 data AbortDocumentVersionUploadResponse = AbortDocumentVersionUploadResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AbortDocumentVersionUploadResponse' with the minimum fields required to make a request.

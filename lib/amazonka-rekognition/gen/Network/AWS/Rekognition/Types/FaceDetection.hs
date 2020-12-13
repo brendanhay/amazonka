@@ -30,23 +30,18 @@ import Network.AWS.Rekognition.Types.FaceDetail
 --
 -- /See:/ 'mkFaceDetection' smart constructor.
 data FaceDetection = FaceDetection'
-  { timestamp ::
-      Lude.Maybe Lude.Integer,
+  { -- | Time, in milliseconds from the start of the video, that the face was detected.
+    timestamp :: Lude.Maybe Lude.Integer,
+    -- | The face properties for the detected face.
     face :: Lude.Maybe FaceDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceDetection' with the minimum fields required to make a request.
 --
--- * 'face' - The face properties for the detected face.
 -- * 'timestamp' - Time, in milliseconds from the start of the video, that the face was detected.
+-- * 'face' - The face properties for the detected face.
 mkFaceDetection ::
   FaceDetection
 mkFaceDetection =

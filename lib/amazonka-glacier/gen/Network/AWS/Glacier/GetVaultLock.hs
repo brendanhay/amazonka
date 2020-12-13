@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.Glacier.GetVaultLock
     mkGetVaultLock,
 
     -- ** Request lenses
-    gvlAccountId,
     gvlVaultName,
+    gvlAccountId,
 
     -- * Destructuring the response
     GetVaultLockResponse (..),
@@ -61,37 +62,26 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetVaultLock' smart constructor.
 data GetVaultLock = GetVaultLock'
-  { accountId :: Lude.Text,
-    vaultName :: Lude.Text
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultLock' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 mkGetVaultLock ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   GetVaultLock
-mkGetVaultLock pAccountId_ pVaultName_ =
-  GetVaultLock' {accountId = pAccountId_, vaultName = pVaultName_}
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlAccountId :: Lens.Lens' GetVaultLock Lude.Text
-gvlAccountId = Lens.lens (accountId :: GetVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultLock)
-{-# DEPRECATED gvlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+mkGetVaultLock pVaultName_ pAccountId_ =
+  GetVaultLock' {vaultName = pVaultName_, accountId = pAccountId_}
 
 -- | The name of the vault.
 --
@@ -99,6 +89,13 @@ gvlAccountId = Lens.lens (accountId :: GetVaultLock -> Lude.Text) (\s a -> s {ac
 gvlVaultName :: Lens.Lens' GetVaultLock Lude.Text
 gvlVaultName = Lens.lens (vaultName :: GetVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: GetVaultLock)
 {-# DEPRECATED gvlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlAccountId :: Lens.Lens' GetVaultLock Lude.Text
+gvlAccountId = Lens.lens (accountId :: GetVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultLock)
+{-# DEPRECATED gvlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 instance Lude.AWSRequest GetVaultLock where
   type Rs GetVaultLock = GetVaultLockResponse
@@ -134,29 +131,27 @@ instance Lude.ToQuery GetVaultLock where
 --
 -- /See:/ 'mkGetVaultLockResponse' smart constructor.
 data GetVaultLockResponse = GetVaultLockResponse'
-  { state ::
-      Lude.Maybe Lude.Text,
+  { -- | The state of the vault lock. @InProgress@ or @Locked@ .
+    state :: Lude.Maybe Lude.Text,
+    -- | The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
     expirationDate :: Lude.Maybe Lude.Text,
+    -- | The UTC date and time at which the vault lock was put into the @InProgress@ state.
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
     policy :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVaultLockResponse' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The UTC date and time at which the vault lock was put into the @InProgress@ state.
+-- * 'state' - The state of the vault lock. @InProgress@ or @Locked@ .
 -- * 'expirationDate' - The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
+-- * 'creationDate' - The UTC date and time at which the vault lock was put into the @InProgress@ state.
 -- * 'policy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
 -- * 'responseStatus' - The response status code.
--- * 'state' - The state of the vault lock. @InProgress@ or @Locked@ .
 mkGetVaultLockResponse ::
   -- | 'responseStatus'
   Lude.Int ->

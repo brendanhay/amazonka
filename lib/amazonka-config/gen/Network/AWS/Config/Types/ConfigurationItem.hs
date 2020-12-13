@@ -48,49 +48,74 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationItem' smart constructor.
 data ConfigurationItem = ConfigurationItem'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the resource (for example, @sg-xxxxxx@ ).
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of AWS resource.
     resourceType :: Lude.Maybe ResourceType,
+    -- | An identifier that indicates the ordering of the configuration items of a resource.
     configurationStateId :: Lude.Maybe Lude.Text,
+    -- | accoun
     arn :: Lude.Maybe Lude.Text,
+    -- | The custom name of the resource, if available.
     resourceName :: Lude.Maybe Lude.Text,
+    -- | The time stamp when the resource was created.
     resourceCreationTime :: Lude.Maybe Lude.Timestamp,
-    configurationItemStatus ::
-      Lude.Maybe ConfigurationItemStatus,
-    configurationItemCaptureTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The configuration item status. The valid values are:
+    --
+    --
+    --     * OK – The resource configuration has been updated
+    --
+    --
+    --     * ResourceDiscovered – The resource was newly discovered
+    --
+    --
+    --     * ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type
+    --
+    --
+    --     * ResourceDeleted – The resource was deleted
+    --
+    --
+    --     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
+    configurationItemStatus :: Lude.Maybe ConfigurationItemStatus,
+    -- | The time when the configuration recording was initiated.
+    configurationItemCaptureTime :: Lude.Maybe Lude.Timestamp,
+    -- | The 12-digit AWS account ID associated with the resource.
     accountId :: Lude.Maybe Lude.Text,
-    supplementaryConfiguration ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
+    supplementaryConfiguration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The Availability Zone associated with the resource.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | A list of related AWS resources.
     relationships :: Lude.Maybe [Relationship],
+    -- | The version number of the resource configuration.
     version :: Lude.Maybe Lude.Text,
+    -- | The region where the resource resides.
     awsRegion :: Lude.Maybe Lude.Text,
+    -- | A list of CloudTrail event IDs.
+    --
+    -- A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> .
+    -- An empty field indicates that the current configuration was not initiated by any event. As of Version 1.3, the relatedEvents field is empty. You can access the <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html LookupEvents API> in the /AWS CloudTrail API Reference/ to retrieve the events for the resource.
     relatedEvents :: Lude.Maybe [Lude.Text],
+    -- | The description of the resource configuration.
     configuration :: Lude.Maybe Lude.Text,
+    -- | Unique MD5 hash that represents the configuration item's state.
+    --
+    -- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
     configurationItemMD5Hash :: Lude.Maybe Lude.Text,
+    -- | A mapping of key value tags associated with the resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationItem' with the minimum fields required to make a request.
 --
--- * 'accountId' - The 12-digit AWS account ID associated with the resource.
+-- * 'resourceId' - The ID of the resource (for example, @sg-xxxxxx@ ).
+-- * 'resourceType' - The type of AWS resource.
+-- * 'configurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
 -- * 'arn' - accoun
--- * 'availabilityZone' - The Availability Zone associated with the resource.
--- * 'awsRegion' - The region where the resource resides.
--- * 'configuration' - The description of the resource configuration.
--- * 'configurationItemCaptureTime' - The time when the configuration recording was initiated.
--- * 'configurationItemMD5Hash' - Unique MD5 hash that represents the configuration item's state.
---
--- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
+-- * 'resourceName' - The custom name of the resource, if available.
+-- * 'resourceCreationTime' - The time stamp when the resource was created.
 -- * 'configurationItemStatus' - The configuration item status. The valid values are:
 --
 --
@@ -109,19 +134,22 @@ data ConfigurationItem = ConfigurationItem'
 --     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
 --
 --
--- * 'configurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
+-- * 'configurationItemCaptureTime' - The time when the configuration recording was initiated.
+-- * 'accountId' - The 12-digit AWS account ID associated with the resource.
+-- * 'supplementaryConfiguration' - Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
+-- * 'availabilityZone' - The Availability Zone associated with the resource.
+-- * 'relationships' - A list of related AWS resources.
+-- * 'version' - The version number of the resource configuration.
+-- * 'awsRegion' - The region where the resource resides.
 -- * 'relatedEvents' - A list of CloudTrail event IDs.
 --
 -- A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> .
 -- An empty field indicates that the current configuration was not initiated by any event. As of Version 1.3, the relatedEvents field is empty. You can access the <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html LookupEvents API> in the /AWS CloudTrail API Reference/ to retrieve the events for the resource.
--- * 'relationships' - A list of related AWS resources.
--- * 'resourceCreationTime' - The time stamp when the resource was created.
--- * 'resourceId' - The ID of the resource (for example, @sg-xxxxxx@ ).
--- * 'resourceName' - The custom name of the resource, if available.
--- * 'resourceType' - The type of AWS resource.
--- * 'supplementaryConfiguration' - Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
+-- * 'configuration' - The description of the resource configuration.
+-- * 'configurationItemMD5Hash' - Unique MD5 hash that represents the configuration item's state.
+--
+-- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
 -- * 'tags' - A mapping of key value tags associated with the resource.
--- * 'version' - The version number of the resource configuration.
 mkConfigurationItem ::
   ConfigurationItem
 mkConfigurationItem =

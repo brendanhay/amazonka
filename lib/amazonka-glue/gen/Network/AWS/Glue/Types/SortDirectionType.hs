@@ -13,8 +13,8 @@
 module Network.AWS.Glue.Types.SortDirectionType
   ( SortDirectionType
       ( SortDirectionType',
-        Ascending,
-        Descending
+        Descending,
+        Ascending
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SortDirectionType = SortDirectionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Ascending :: SortDirectionType
-pattern Ascending = SortDirectionType' "ASCENDING"
-
 pattern Descending :: SortDirectionType
 pattern Descending = SortDirectionType' "DESCENDING"
 
+pattern Ascending :: SortDirectionType
+pattern Ascending = SortDirectionType' "ASCENDING"
+
 {-# COMPLETE
-  Ascending,
   Descending,
+  Ascending,
   SortDirectionType'
   #-}

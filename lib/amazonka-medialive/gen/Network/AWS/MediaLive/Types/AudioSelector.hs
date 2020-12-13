@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioSelector' smart constructor.
 data AudioSelector = AudioSelector'
-  { selectorSettings ::
-      Lude.Maybe AudioSelectorSettings,
+  { -- | The audio selector settings.
+    selectorSettings :: Lude.Maybe AudioSelectorSettings,
+    -- | The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioSelector' with the minimum fields required to make a request.
 --
--- * 'name' - The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.
 -- * 'selectorSettings' - The audio selector settings.
+-- * 'name' - The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector.  Selector names should be unique per input.
 mkAudioSelector ::
   -- | 'name'
   Lude.Text ->

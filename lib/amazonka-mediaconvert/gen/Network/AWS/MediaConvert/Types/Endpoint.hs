@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes an account-specific API endpoint.
 --
 -- /See:/ 'mkEndpoint' smart constructor.
-newtype Endpoint = Endpoint' {url :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Endpoint = Endpoint'
+  { -- | URL of endpoint
+    url :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.

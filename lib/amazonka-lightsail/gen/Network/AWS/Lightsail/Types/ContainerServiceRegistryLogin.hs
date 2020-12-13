@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainerServiceRegistryLogin' smart constructor.
 data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
-  { expiresAt ::
-      Lude.Maybe Lude.Timestamp,
-    username ::
-      Lude.Maybe Lude.Text,
-    password ::
-      Lude.Maybe Lude.Text,
-    registry ::
-      Lude.Maybe Lude.Text
+  { -- | The timestamp of when the container image registry username and password expire.
+    --
+    -- The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials using the @CreateContainerServiceRegistryLogin@ action.
+    expiresAt :: Lude.Maybe Lude.Timestamp,
+    -- | The container service registry username to use to push container images to the container image registry of a Lightsail account.
+    username :: Lude.Maybe Lude.Text,
+    -- | The container service registry password to use to push container images to the container image registry of a Lightsail account
+    password :: Lude.Maybe Lude.Text,
+    -- | The address to use to push container images to the container image registry of a Lightsail account.
+    registry :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContainerServiceRegistryLogin' with the minimum fields required to make a request.
@@ -54,9 +50,9 @@ data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
 -- * 'expiresAt' - The timestamp of when the container image registry username and password expire.
 --
 -- The log in credentials expire 12 hours after they are created, at which point you will need to create a new set of log in credentials using the @CreateContainerServiceRegistryLogin@ action.
+-- * 'username' - The container service registry username to use to push container images to the container image registry of a Lightsail account.
 -- * 'password' - The container service registry password to use to push container images to the container image registry of a Lightsail account
 -- * 'registry' - The address to use to push container images to the container image registry of a Lightsail account.
--- * 'username' - The container service registry username to use to push container images to the container image registry of a Lightsail account.
 mkContainerServiceRegistryLogin ::
   ContainerServiceRegistryLogin
 mkContainerServiceRegistryLogin =

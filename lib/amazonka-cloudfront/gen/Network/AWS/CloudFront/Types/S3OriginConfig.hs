@@ -28,16 +28,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3OriginConfig' smart constructor.
 newtype S3OriginConfig = S3OriginConfig'
-  { originAccessIdentity ::
-      Lude.Text
+  { -- | The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can /only/ access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+    --
+    -- origin-access-identity/cloudfront//ID-of-origin-access-identity/
+    -- where @/ID-of-origin-access-identity/ @ is the value that CloudFront returned in the @ID@ element when you created the origin access identity.
+    -- If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty @OriginAccessIdentity@ element.
+    -- To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty @OriginAccessIdentity@ element.
+    -- To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
+    -- For more information about the origin access identity, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving Private Content through CloudFront> in the /Amazon CloudFront Developer Guide/ .
+    originAccessIdentity :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3OriginConfig' with the minimum fields required to make a request.

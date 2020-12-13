@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,13 +22,13 @@ module Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
     mkUpdateProvisioningArtifact,
 
     -- ** Request lenses
+    upaProvisioningArtifactId,
     upaActive,
     upaName,
     upaAcceptLanguage,
     upaGuidance,
     upaDescription,
     upaProductId,
-    upaProvisioningArtifactId,
 
     -- * Destructuring the response
     UpdateProvisioningArtifactResponse (..),
@@ -49,29 +50,45 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkUpdateProvisioningArtifact' smart constructor.
 data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
-  { active ::
-      Lude.Maybe Lude.Bool,
+  { -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Lude.Text,
+    -- | Indicates whether the product version is active.
+    --
+    -- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
+    active :: Lude.Maybe Lude.Bool,
+    -- | The updated name of the provisioning artifact.
     name :: Lude.Maybe Lude.Text,
-    acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    guidance ::
-      Lude.Maybe
-        ProvisioningArtifactGuidance,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+    --
+    -- The @DEFAULT@ value indicates that the product version is active.
+    -- The administrator can set the guidance to @DEPRECATED@ to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
+    guidance :: Lude.Maybe ProvisioningArtifactGuidance,
+    -- | The updated description of the provisioning artifact.
     description :: Lude.Maybe Lude.Text,
-    productId :: Lude.Text,
-    provisioningArtifactId :: Lude.Text
+    -- | The product identifier.
+    productId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisioningArtifact' with the minimum fields required to make a request.
 --
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'active' - Indicates whether the product version is active.
+--
+-- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
+-- * 'name' - The updated name of the provisioning artifact.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -84,33 +101,36 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
 --     * @zh@ - Chinese
 --
 --
--- * 'active' - Indicates whether the product version is active.
---
--- Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.
--- * 'description' - The updated description of the provisioning artifact.
 -- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
 --
 -- The @DEFAULT@ value indicates that the product version is active.
 -- The administrator can set the guidance to @DEPRECATED@ to inform users that the product version is deprecated. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
--- * 'name' - The updated name of the provisioning artifact.
+-- * 'description' - The updated description of the provisioning artifact.
 -- * 'productId' - The product identifier.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
 mkUpdateProvisioningArtifact ::
-  -- | 'productId'
-  Lude.Text ->
   -- | 'provisioningArtifactId'
   Lude.Text ->
+  -- | 'productId'
+  Lude.Text ->
   UpdateProvisioningArtifact
-mkUpdateProvisioningArtifact pProductId_ pProvisioningArtifactId_ =
+mkUpdateProvisioningArtifact pProvisioningArtifactId_ pProductId_ =
   UpdateProvisioningArtifact'
-    { active = Lude.Nothing,
+    { provisioningArtifactId =
+        pProvisioningArtifactId_,
+      active = Lude.Nothing,
       name = Lude.Nothing,
       acceptLanguage = Lude.Nothing,
       guidance = Lude.Nothing,
       description = Lude.Nothing,
-      productId = pProductId_,
-      provisioningArtifactId = pProvisioningArtifactId_
+      productId = pProductId_
     }
+
+-- | The identifier of the provisioning artifact.
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upaProvisioningArtifactId :: Lens.Lens' UpdateProvisioningArtifact Lude.Text
+upaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: UpdateProvisioningArtifact -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: UpdateProvisioningArtifact)
+{-# DEPRECATED upaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | Indicates whether the product version is active.
 --
@@ -170,13 +190,6 @@ upaProductId :: Lens.Lens' UpdateProvisioningArtifact Lude.Text
 upaProductId = Lens.lens (productId :: UpdateProvisioningArtifact -> Lude.Text) (\s a -> s {productId = a} :: UpdateProvisioningArtifact)
 {-# DEPRECATED upaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
--- | The identifier of the provisioning artifact.
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upaProvisioningArtifactId :: Lens.Lens' UpdateProvisioningArtifact Lude.Text
-upaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: UpdateProvisioningArtifact -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: UpdateProvisioningArtifact)
-{-# DEPRECATED upaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
-
 instance Lude.AWSRequest UpdateProvisioningArtifact where
   type
     Rs UpdateProvisioningArtifact =
@@ -209,14 +222,14 @@ instance Lude.ToJSON UpdateProvisioningArtifact where
   toJSON UpdateProvisioningArtifact' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Active" Lude..=) Lude.<$> active,
+          [ Lude.Just
+              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
+            ("Active" Lude..=) Lude.<$> active,
             ("Name" Lude..=) Lude.<$> name,
             ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             ("Guidance" Lude..=) Lude.<$> guidance,
             ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("ProductId" Lude..= productId),
-            Lude.Just
-              ("ProvisioningArtifactId" Lude..= provisioningArtifactId)
+            Lude.Just ("ProductId" Lude..= productId)
           ]
       )
 
@@ -228,36 +241,24 @@ instance Lude.ToQuery UpdateProvisioningArtifact where
 
 -- | /See:/ 'mkUpdateProvisioningArtifactResponse' smart constructor.
 data UpdateProvisioningArtifactResponse = UpdateProvisioningArtifactResponse'
-  { status ::
-      Lude.Maybe
-        RequestStatus,
-    info ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    provisioningArtifactDetail ::
-      Lude.Maybe
-        ProvisioningArtifactDetail,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the current request.
+    status :: Lude.Maybe RequestStatus,
+    -- | The URL of the CloudFormation template in Amazon S3.
+    info :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Information about the provisioning artifact.
+    provisioningArtifactDetail :: Lude.Maybe ProvisioningArtifactDetail,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisioningArtifactResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the current request.
 -- * 'info' - The URL of the CloudFormation template in Amazon S3.
 -- * 'provisioningArtifactDetail' - Information about the provisioning artifact.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the current request.
 mkUpdateProvisioningArtifactResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -19,9 +19,9 @@ module Network.AWS.AutoScaling.Types.TagDescription
     -- * Lenses
     tdResourceId,
     tdResourceType,
+    tdValue,
     tdKey,
     tdPropagateAtLaunch,
-    tdValue,
   )
 where
 
@@ -32,52 +32,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagDescription' smart constructor.
 data TagDescription = TagDescription'
-  { resourceId :: Lude.Text,
+  { -- | The name of the group.
+    resourceId :: Lude.Text,
+    -- | The type of resource. The only supported value is @auto-scaling-group@ .
     resourceType :: Lude.Text,
+    -- | The tag value.
+    value :: Lude.Text,
+    -- | The tag key.
     key :: Lude.Text,
-    propagateAtLaunch :: Lude.Bool,
-    value :: Lude.Text
+    -- | Determines whether the tag is added to new instances as they are launched in the group.
+    propagateAtLaunch :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
 --
--- * 'key' - The tag key.
--- * 'propagateAtLaunch' - Determines whether the tag is added to new instances as they are launched in the group.
 -- * 'resourceId' - The name of the group.
 -- * 'resourceType' - The type of resource. The only supported value is @auto-scaling-group@ .
 -- * 'value' - The tag value.
+-- * 'key' - The tag key.
+-- * 'propagateAtLaunch' - Determines whether the tag is added to new instances as they are launched in the group.
 mkTagDescription ::
   -- | 'resourceId'
   Lude.Text ->
   -- | 'resourceType'
   Lude.Text ->
+  -- | 'value'
+  Lude.Text ->
   -- | 'key'
   Lude.Text ->
   -- | 'propagateAtLaunch'
   Lude.Bool ->
-  -- | 'value'
-  Lude.Text ->
   TagDescription
 mkTagDescription
   pResourceId_
   pResourceType_
+  pValue_
   pKey_
-  pPropagateAtLaunch_
-  pValue_ =
+  pPropagateAtLaunch_ =
     TagDescription'
       { resourceId = pResourceId_,
         resourceType = pResourceType_,
+        value = pValue_,
         key = pKey_,
-        propagateAtLaunch = pPropagateAtLaunch_,
-        value = pValue_
+        propagateAtLaunch = pPropagateAtLaunch_
       }
 
 -- | The name of the group.
@@ -94,6 +93,13 @@ tdResourceType :: Lens.Lens' TagDescription Lude.Text
 tdResourceType = Lens.lens (resourceType :: TagDescription -> Lude.Text) (\s a -> s {resourceType = a} :: TagDescription)
 {-# DEPRECATED tdResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
+-- | The tag value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdValue :: Lens.Lens' TagDescription Lude.Text
+tdValue = Lens.lens (value :: TagDescription -> Lude.Text) (\s a -> s {value = a} :: TagDescription)
+{-# DEPRECATED tdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
 -- | The tag key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -108,18 +114,11 @@ tdPropagateAtLaunch :: Lens.Lens' TagDescription Lude.Bool
 tdPropagateAtLaunch = Lens.lens (propagateAtLaunch :: TagDescription -> Lude.Bool) (\s a -> s {propagateAtLaunch = a} :: TagDescription)
 {-# DEPRECATED tdPropagateAtLaunch "Use generic-lens or generic-optics with 'propagateAtLaunch' instead." #-}
 
--- | The tag value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdValue :: Lens.Lens' TagDescription Lude.Text
-tdValue = Lens.lens (value :: TagDescription -> Lude.Text) (\s a -> s {value = a} :: TagDescription)
-{-# DEPRECATED tdValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
 instance Lude.FromXML TagDescription where
   parseXML x =
     TagDescription'
       Lude.<$> (x Lude..@ "ResourceId")
       Lude.<*> (x Lude..@ "ResourceType")
+      Lude.<*> (x Lude..@ "Value")
       Lude.<*> (x Lude..@ "Key")
       Lude.<*> (x Lude..@ "PropagateAtLaunch")
-      Lude.<*> (x Lude..@ "Value")

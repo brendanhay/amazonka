@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWriteRequest' smart constructor.
 data WriteRequest = WriteRequest'
-  { deleteRequest ::
-      Lude.Maybe DeleteRequest,
+  { -- | A request to perform a @DeleteItem@ operation.
+    deleteRequest :: Lude.Maybe DeleteRequest,
+    -- | A request to perform a @PutItem@ operation.
     putRequest :: Lude.Maybe PutRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteRequest' with the minimum fields required to make a request.

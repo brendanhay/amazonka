@@ -260,21 +260,21 @@ module Network.AWS.CloudDirectory
     -- ** AttributeKey
     AttributeKey (..),
     mkAttributeKey,
-    akSchemaARN,
     akFacetName,
+    akSchemaARN,
     akName,
 
     -- ** AttributeKeyAndValue
     AttributeKeyAndValue (..),
     mkAttributeKeyAndValue,
-    akavKey,
     akavValue,
+    akavKey,
 
     -- ** AttributeNameAndValue
     AttributeNameAndValue (..),
     mkAttributeNameAndValue,
-    anavAttributeName,
     anavValue,
+    anavAttributeName,
 
     -- ** BatchAddFacetToObject
     BatchAddFacetToObject (..),
@@ -312,8 +312,8 @@ module Network.AWS.CloudDirectory
     -- ** BatchAttachToIndex
     BatchAttachToIndex (..),
     mkBatchAttachToIndex,
-    batiIndexReference,
     batiTargetReference,
+    batiIndexReference,
 
     -- ** BatchAttachToIndexResponse
     BatchAttachToIndexResponse (..),
@@ -323,10 +323,10 @@ module Network.AWS.CloudDirectory
     -- ** BatchAttachTypedLink
     BatchAttachTypedLink (..),
     mkBatchAttachTypedLink,
-    batlSourceObjectReference,
     batlTargetObjectReference,
-    batlTypedLinkFacet,
+    batlSourceObjectReference,
     batlAttributes,
+    batlTypedLinkFacet,
 
     -- ** BatchAttachTypedLinkResponse
     BatchAttachTypedLinkResponse (..),
@@ -337,9 +337,9 @@ module Network.AWS.CloudDirectory
     BatchCreateIndex (..),
     mkBatchCreateIndex,
     bciParentReference,
+    bciOrderedIndexedAttributeList,
     bciLinkName,
     bciBatchReferenceName,
-    bciOrderedIndexedAttributeList,
     bciIsUnique,
 
     -- ** BatchCreateIndexResponse
@@ -350,11 +350,11 @@ module Network.AWS.CloudDirectory
     -- ** BatchCreateObject
     BatchCreateObject (..),
     mkBatchCreateObject,
+    bcoSchemaFacet,
     bcoParentReference,
+    bcoObjectAttributeList,
     bcoLinkName,
     bcoBatchReferenceName,
-    bcoSchemaFacet,
-    bcoObjectAttributeList,
 
     -- ** BatchCreateObjectResponse
     BatchCreateObjectResponse (..),
@@ -373,8 +373,8 @@ module Network.AWS.CloudDirectory
     -- ** BatchDetachFromIndex
     BatchDetachFromIndex (..),
     mkBatchDetachFromIndex,
-    bdfiIndexReference,
     bdfiTargetReference,
+    bdfiIndexReference,
 
     -- ** BatchDetachFromIndexResponse
     BatchDetachFromIndexResponse (..),
@@ -384,9 +384,9 @@ module Network.AWS.CloudDirectory
     -- ** BatchDetachObject
     BatchDetachObject (..),
     mkBatchDetachObject,
-    bdoBatchReferenceName,
     bdoParentReference,
     bdoLinkName,
+    bdoBatchReferenceName,
 
     -- ** BatchDetachObjectResponse
     BatchDetachObjectResponse (..),
@@ -415,8 +415,8 @@ module Network.AWS.CloudDirectory
     -- ** BatchGetLinkAttributes
     BatchGetLinkAttributes (..),
     mkBatchGetLinkAttributes,
-    bglaTypedLinkSpecifier,
     bglaAttributeNames,
+    bglaTypedLinkSpecifier,
 
     -- ** BatchGetLinkAttributesResponse
     BatchGetLinkAttributesResponse (..),
@@ -426,9 +426,9 @@ module Network.AWS.CloudDirectory
     -- ** BatchGetObjectAttributes
     BatchGetObjectAttributes (..),
     mkBatchGetObjectAttributes,
-    bgoaObjectReference,
     bgoaSchemaFacet,
     bgoaAttributeNames,
+    bgoaObjectReference,
 
     -- ** BatchGetObjectAttributesResponse
     BatchGetObjectAttributesResponse (..),
@@ -449,9 +449,9 @@ module Network.AWS.CloudDirectory
     -- ** BatchListAttachedIndices
     BatchListAttachedIndices (..),
     mkBatchListAttachedIndices,
+    blaisTargetReference,
     blaisNextToken,
     blaisMaxResults,
-    blaisTargetReference,
 
     -- ** BatchListAttachedIndicesResponse
     BatchListAttachedIndicesResponse (..),
@@ -465,8 +465,8 @@ module Network.AWS.CloudDirectory
     blitlsFilterAttributeRanges,
     blitlsNextToken,
     blitlsFilterTypedLink,
-    blitlsMaxResults,
     blitlsObjectReference,
+    blitlsMaxResults,
 
     -- ** BatchListIncomingTypedLinksResponse
     BatchListIncomingTypedLinksResponse (..),
@@ -477,10 +477,10 @@ module Network.AWS.CloudDirectory
     -- ** BatchListIndex
     BatchListIndex (..),
     mkBatchListIndex,
-    batRangesOnIndexedValues,
-    batNextToken,
-    batMaxResults,
-    batIndexReference,
+    blifRangesOnIndexedValues,
+    blifIndexReference,
+    blifNextToken,
+    blifMaxResults,
 
     -- ** BatchListIndexResponse
     BatchListIndexResponse (..),
@@ -493,8 +493,8 @@ module Network.AWS.CloudDirectory
     mkBatchListObjectAttributes,
     bloaFacetFilter,
     bloaNextToken,
-    bloaMaxResults,
     bloaObjectReference,
+    bloaMaxResults,
 
     -- ** BatchListObjectAttributesResponse
     BatchListObjectAttributesResponse (..),
@@ -505,9 +505,9 @@ module Network.AWS.CloudDirectory
     -- ** BatchListObjectChildren
     BatchListObjectChildren (..),
     mkBatchListObjectChildren,
-    bloclNextToken,
-    bloclMaxResults,
-    bloclObjectReference,
+    blocfNextToken,
+    blocfObjectReference,
+    blocfMaxResults,
 
     -- ** BatchListObjectChildrenResponse
     BatchListObjectChildrenResponse (..),
@@ -519,8 +519,8 @@ module Network.AWS.CloudDirectory
     BatchListObjectParentPaths (..),
     mkBatchListObjectParentPaths,
     bloppsNextToken,
-    bloppsMaxResults,
     bloppsObjectReference,
+    bloppsMaxResults,
 
     -- ** BatchListObjectParentPathsResponse
     BatchListObjectParentPathsResponse (..),
@@ -531,9 +531,9 @@ module Network.AWS.CloudDirectory
     -- ** BatchListObjectParents
     BatchListObjectParents (..),
     mkBatchListObjectParents,
-    bloplNextToken,
-    bloplMaxResults,
-    bloplObjectReference,
+    blopfNextToken,
+    blopfObjectReference,
+    blopfMaxResults,
 
     -- ** BatchListObjectParentsResponse
     BatchListObjectParentsResponse (..),
@@ -544,9 +544,9 @@ module Network.AWS.CloudDirectory
     -- ** BatchListObjectPolicies
     BatchListObjectPolicies (..),
     mkBatchListObjectPolicies,
-    bbNextToken,
-    bbMaxResults,
-    bbObjectReference,
+    blopgNextToken,
+    blopgObjectReference,
+    blopgMaxResults,
 
     -- ** BatchListObjectPoliciesResponse
     BatchListObjectPoliciesResponse (..),
@@ -560,8 +560,8 @@ module Network.AWS.CloudDirectory
     blotlsFilterAttributeRanges,
     blotlsNextToken,
     blotlsFilterTypedLink,
-    blotlsMaxResults,
     blotlsObjectReference,
+    blotlsMaxResults,
 
     -- ** BatchListOutgoingTypedLinksResponse
     BatchListOutgoingTypedLinksResponse (..),
@@ -573,8 +573,8 @@ module Network.AWS.CloudDirectory
     BatchListPolicyAttachments (..),
     mkBatchListPolicyAttachments,
     blpasNextToken,
-    blpasMaxResults,
     blpasPolicyReference,
+    blpasMaxResults,
 
     -- ** BatchListPolicyAttachmentsResponse
     BatchListPolicyAttachmentsResponse (..),
@@ -585,9 +585,9 @@ module Network.AWS.CloudDirectory
     -- ** BatchLookupPolicy
     BatchLookupPolicy (..),
     mkBatchLookupPolicy,
-    blplNextToken,
-    blplMaxResults,
-    blplObjectReference,
+    blpfNextToken,
+    blpfObjectReference,
+    blpfMaxResults,
 
     -- ** BatchLookupPolicyResponse
     BatchLookupPolicyResponse (..),
@@ -656,8 +656,8 @@ module Network.AWS.CloudDirectory
     -- ** BatchUpdateLinkAttributes
     BatchUpdateLinkAttributes (..),
     mkBatchUpdateLinkAttributes,
-    bulaTypedLinkSpecifier,
     bulaAttributeUpdates,
+    bulaTypedLinkSpecifier,
 
     -- ** BatchUpdateLinkAttributesResponse
     BatchUpdateLinkAttributesResponse (..),
@@ -666,8 +666,8 @@ module Network.AWS.CloudDirectory
     -- ** BatchUpdateObjectAttributes
     BatchUpdateObjectAttributes (..),
     mkBatchUpdateObjectAttributes,
-    buoaObjectReference,
     buoaAttributeUpdates,
+    buoaObjectReference,
 
     -- ** BatchUpdateObjectAttributesResponse
     BatchUpdateObjectAttributesResponse (..),
@@ -732,8 +732,8 @@ module Network.AWS.CloudDirectory
     mkFacetAttribute,
     faAttributeReference,
     faAttributeDefinition,
-    faRequiredBehavior,
     faName,
+    faRequiredBehavior,
 
     -- ** FacetAttributeDefinition
     FacetAttributeDefinition (..),
@@ -860,24 +860,24 @@ module Network.AWS.CloudDirectory
     TypedLinkAttributeDefinition (..),
     mkTypedLinkAttributeDefinition,
     tladRules,
+    tladName,
+    tladRequiredBehavior,
     tladDefaultValue,
     tladIsImmutable,
-    tladName,
     tladType,
-    tladRequiredBehavior,
 
     -- ** TypedLinkAttributeRange
     TypedLinkAttributeRange (..),
     mkTypedLinkAttributeRange,
-    tlarAttributeName,
     tlarRange,
+    tlarAttributeName,
 
     -- ** TypedLinkFacet
     TypedLinkFacet (..),
     mkTypedLinkFacet,
-    tlfName,
-    tlfAttributes,
     tlfIdentityAttributeOrder,
+    tlfAttributes,
+    tlfName,
 
     -- ** TypedLinkFacetAttributeUpdate
     TypedLinkFacetAttributeUpdate (..),
@@ -894,10 +894,10 @@ module Network.AWS.CloudDirectory
     -- ** TypedLinkSpecifier
     TypedLinkSpecifier (..),
     mkTypedLinkSpecifier,
-    tlsTypedLinkFacet,
-    tlsSourceObjectReference,
     tlsTargetObjectReference,
     tlsIdentityAttributeValues,
+    tlsSourceObjectReference,
+    tlsTypedLinkFacet,
 
     -- * Serialization types
     Lude.Base64 (..),

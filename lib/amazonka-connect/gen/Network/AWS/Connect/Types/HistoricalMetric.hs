@@ -35,27 +35,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHistoricalMetric' smart constructor.
 data HistoricalMetric = HistoricalMetric'
-  { name ::
-      Lude.Maybe HistoricalMetricName,
+  { -- | The name of the metric.
+    name :: Lude.Maybe HistoricalMetricName,
+    -- | The threshold for the metric, used with service level metrics.
     threshold :: Lude.Maybe Threshold,
+    -- | The unit for the metric.
     unit :: Lude.Maybe Unit,
+    -- | The statistic for the metric.
     statistic :: Lude.Maybe Statistic
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoricalMetric' with the minimum fields required to make a request.
 --
 -- * 'name' - The name of the metric.
--- * 'statistic' - The statistic for the metric.
 -- * 'threshold' - The threshold for the metric, used with service level metrics.
 -- * 'unit' - The unit for the metric.
+-- * 'statistic' - The statistic for the metric.
 mkHistoricalMetric ::
   HistoricalMetric
 mkHistoricalMetric =

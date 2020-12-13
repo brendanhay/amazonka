@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.S3.DeleteBucketPolicy
     mkDeleteBucketPolicy,
 
     -- ** Request lenses
-    dbpExpectedBucketOwner,
     dbpBucket,
+    dbpExpectedBucketOwner,
 
     -- * Destructuring the response
     DeleteBucketPolicyResponse (..),
@@ -46,17 +47,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeleteBucketPolicy' smart constructor.
 data DeleteBucketPolicy = DeleteBucketPolicy'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The bucket name.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketPolicy' with the minimum fields required to make a request.
@@ -69,16 +65,9 @@ mkDeleteBucketPolicy ::
   DeleteBucketPolicy
 mkDeleteBucketPolicy pBucket_ =
   DeleteBucketPolicy'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpExpectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Lude.Maybe Lude.Text)
-dbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketPolicy)
-{-# DEPRECATED dbpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The bucket name.
 --
@@ -86,6 +75,13 @@ dbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketPolicy ->
 dbpBucket :: Lens.Lens' DeleteBucketPolicy BucketName
 dbpBucket = Lens.lens (bucket :: DeleteBucketPolicy -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketPolicy)
 {-# DEPRECATED dbpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpExpectedBucketOwner :: Lens.Lens' DeleteBucketPolicy (Lude.Maybe Lude.Text)
+dbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketPolicy)
+{-# DEPRECATED dbpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest DeleteBucketPolicy where
   type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
@@ -106,13 +102,7 @@ instance Lude.ToQuery DeleteBucketPolicy where
 
 -- | /See:/ 'mkDeleteBucketPolicyResponse' smart constructor.
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketPolicyResponse' with the minimum fields required to make a request.

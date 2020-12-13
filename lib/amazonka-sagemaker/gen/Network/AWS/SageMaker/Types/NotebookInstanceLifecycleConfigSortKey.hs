@@ -13,9 +13,9 @@
 module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey
   ( NotebookInstanceLifecycleConfigSortKey
       ( NotebookInstanceLifecycleConfigSortKey',
+        NILCSKName,
         NILCSKCreationTime,
-        NILCSKLastModifiedTime,
-        NILCSKName
+        NILCSKLastModifiedTime
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype NotebookInstanceLifecycleConfigSortKey = NotebookInstanceLifecycleConfig
       Lude.ToHeader
     )
 
+pattern NILCSKName :: NotebookInstanceLifecycleConfigSortKey
+pattern NILCSKName = NotebookInstanceLifecycleConfigSortKey' "Name"
+
 pattern NILCSKCreationTime :: NotebookInstanceLifecycleConfigSortKey
 pattern NILCSKCreationTime = NotebookInstanceLifecycleConfigSortKey' "CreationTime"
 
 pattern NILCSKLastModifiedTime :: NotebookInstanceLifecycleConfigSortKey
 pattern NILCSKLastModifiedTime = NotebookInstanceLifecycleConfigSortKey' "LastModifiedTime"
 
-pattern NILCSKName :: NotebookInstanceLifecycleConfigSortKey
-pattern NILCSKName = NotebookInstanceLifecycleConfigSortKey' "Name"
-
 {-# COMPLETE
+  NILCSKName,
   NILCSKCreationTime,
   NILCSKLastModifiedTime,
-  NILCSKName,
   NotebookInstanceLifecycleConfigSortKey'
   #-}

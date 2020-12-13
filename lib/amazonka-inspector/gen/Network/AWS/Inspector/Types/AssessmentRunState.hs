@@ -13,19 +13,19 @@
 module Network.AWS.Inspector.Types.AssessmentRunState
   ( AssessmentRunState
       ( AssessmentRunState',
-        Canceled,
-        CollectingData,
-        Completed,
-        CompletedWithErrors,
         Created,
+        StartDataCollectionPending,
+        StartDataCollectionInProgress,
+        CollectingData,
+        StopDataCollectionPending,
         DataCollected,
-        Error,
+        StartEvaluatingRulesPending,
         EvaluatingRules,
         Failed,
-        StartDataCollectionInProgress,
-        StartDataCollectionPending,
-        StartEvaluatingRulesPending,
-        StopDataCollectionPending
+        Error,
+        Completed,
+        CompletedWithErrors,
+        Canceled
       ),
   )
 where
@@ -56,26 +56,26 @@ newtype AssessmentRunState = AssessmentRunState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Canceled :: AssessmentRunState
-pattern Canceled = AssessmentRunState' "CANCELED"
+pattern Created :: AssessmentRunState
+pattern Created = AssessmentRunState' "CREATED"
+
+pattern StartDataCollectionPending :: AssessmentRunState
+pattern StartDataCollectionPending = AssessmentRunState' "START_DATA_COLLECTION_PENDING"
+
+pattern StartDataCollectionInProgress :: AssessmentRunState
+pattern StartDataCollectionInProgress = AssessmentRunState' "START_DATA_COLLECTION_IN_PROGRESS"
 
 pattern CollectingData :: AssessmentRunState
 pattern CollectingData = AssessmentRunState' "COLLECTING_DATA"
 
-pattern Completed :: AssessmentRunState
-pattern Completed = AssessmentRunState' "COMPLETED"
-
-pattern CompletedWithErrors :: AssessmentRunState
-pattern CompletedWithErrors = AssessmentRunState' "COMPLETED_WITH_ERRORS"
-
-pattern Created :: AssessmentRunState
-pattern Created = AssessmentRunState' "CREATED"
+pattern StopDataCollectionPending :: AssessmentRunState
+pattern StopDataCollectionPending = AssessmentRunState' "STOP_DATA_COLLECTION_PENDING"
 
 pattern DataCollected :: AssessmentRunState
 pattern DataCollected = AssessmentRunState' "DATA_COLLECTED"
 
-pattern Error :: AssessmentRunState
-pattern Error = AssessmentRunState' "ERROR"
+pattern StartEvaluatingRulesPending :: AssessmentRunState
+pattern StartEvaluatingRulesPending = AssessmentRunState' "START_EVALUATING_RULES_PENDING"
 
 pattern EvaluatingRules :: AssessmentRunState
 pattern EvaluatingRules = AssessmentRunState' "EVALUATING_RULES"
@@ -83,31 +83,31 @@ pattern EvaluatingRules = AssessmentRunState' "EVALUATING_RULES"
 pattern Failed :: AssessmentRunState
 pattern Failed = AssessmentRunState' "FAILED"
 
-pattern StartDataCollectionInProgress :: AssessmentRunState
-pattern StartDataCollectionInProgress = AssessmentRunState' "START_DATA_COLLECTION_IN_PROGRESS"
+pattern Error :: AssessmentRunState
+pattern Error = AssessmentRunState' "ERROR"
 
-pattern StartDataCollectionPending :: AssessmentRunState
-pattern StartDataCollectionPending = AssessmentRunState' "START_DATA_COLLECTION_PENDING"
+pattern Completed :: AssessmentRunState
+pattern Completed = AssessmentRunState' "COMPLETED"
 
-pattern StartEvaluatingRulesPending :: AssessmentRunState
-pattern StartEvaluatingRulesPending = AssessmentRunState' "START_EVALUATING_RULES_PENDING"
+pattern CompletedWithErrors :: AssessmentRunState
+pattern CompletedWithErrors = AssessmentRunState' "COMPLETED_WITH_ERRORS"
 
-pattern StopDataCollectionPending :: AssessmentRunState
-pattern StopDataCollectionPending = AssessmentRunState' "STOP_DATA_COLLECTION_PENDING"
+pattern Canceled :: AssessmentRunState
+pattern Canceled = AssessmentRunState' "CANCELED"
 
 {-# COMPLETE
-  Canceled,
-  CollectingData,
-  Completed,
-  CompletedWithErrors,
   Created,
+  StartDataCollectionPending,
+  StartDataCollectionInProgress,
+  CollectingData,
+  StopDataCollectionPending,
   DataCollected,
-  Error,
+  StartEvaluatingRulesPending,
   EvaluatingRules,
   Failed,
-  StartDataCollectionInProgress,
-  StartDataCollectionPending,
-  StartEvaluatingRulesPending,
-  StopDataCollectionPending,
+  Error,
+  Completed,
+  CompletedWithErrors,
+  Canceled,
   AssessmentRunState'
   #-}

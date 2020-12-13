@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUnsuccessfulItemError' smart constructor.
 data UnsuccessfulItemError = UnsuccessfulItemError'
-  { code ::
-      Lude.Maybe Lude.Text,
+  { -- | The error code.
+    code :: Lude.Maybe Lude.Text,
+    -- | The error message accompanying the error code.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UnsuccessfulItemError' with the minimum fields required to make a request.

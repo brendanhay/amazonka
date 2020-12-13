@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.WAF.DeleteIPSet
     mkDeleteIPSet,
 
     -- ** Request lenses
-    disIPSetId,
     disChangeToken,
+    disIPSetId,
 
     -- * Destructuring the response
     DeleteIPSetResponse (..),
@@ -51,16 +52,12 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkDeleteIPSet' smart constructor.
 data DeleteIPSet = DeleteIPSet'
-  { ipSetId :: Lude.Text,
-    changeToken :: Lude.Text
+  { -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Lude.Text,
+    -- | The @IPSetId@ of the 'IPSet' that you want to delete. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
+    ipSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIPSet' with the minimum fields required to make a request.
@@ -68,20 +65,13 @@ data DeleteIPSet = DeleteIPSet'
 -- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'ipSetId' - The @IPSetId@ of the 'IPSet' that you want to delete. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 mkDeleteIPSet ::
-  -- | 'ipSetId'
-  Lude.Text ->
   -- | 'changeToken'
   Lude.Text ->
+  -- | 'ipSetId'
+  Lude.Text ->
   DeleteIPSet
-mkDeleteIPSet pIPSetId_ pChangeToken_ =
-  DeleteIPSet' {ipSetId = pIPSetId_, changeToken = pChangeToken_}
-
--- | The @IPSetId@ of the 'IPSet' that you want to delete. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
---
--- /Note:/ Consider using 'ipSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disIPSetId :: Lens.Lens' DeleteIPSet Lude.Text
-disIPSetId = Lens.lens (ipSetId :: DeleteIPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: DeleteIPSet)
-{-# DEPRECATED disIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
+mkDeleteIPSet pChangeToken_ pIPSetId_ =
+  DeleteIPSet' {changeToken = pChangeToken_, ipSetId = pIPSetId_}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
@@ -89,6 +79,13 @@ disIPSetId = Lens.lens (ipSetId :: DeleteIPSet -> Lude.Text) (\s a -> s {ipSetId
 disChangeToken :: Lens.Lens' DeleteIPSet Lude.Text
 disChangeToken = Lens.lens (changeToken :: DeleteIPSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteIPSet)
 {-# DEPRECATED disChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | The @IPSetId@ of the 'IPSet' that you want to delete. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
+--
+-- /Note:/ Consider using 'ipSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disIPSetId :: Lens.Lens' DeleteIPSet Lude.Text
+disIPSetId = Lens.lens (ipSetId :: DeleteIPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: DeleteIPSet)
+{-# DEPRECATED disIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
 
 instance Lude.AWSRequest DeleteIPSet where
   type Rs DeleteIPSet = DeleteIPSetResponse
@@ -115,8 +112,8 @@ instance Lude.ToJSON DeleteIPSet where
   toJSON DeleteIPSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("IPSetId" Lude..= ipSetId),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
+          [ Lude.Just ("ChangeToken" Lude..= changeToken),
+            Lude.Just ("IPSetId" Lude..= ipSetId)
           ]
       )
 
@@ -128,17 +125,12 @@ instance Lude.ToQuery DeleteIPSet where
 
 -- | /See:/ 'mkDeleteIPSetResponse' smart constructor.
 data DeleteIPSetResponse = DeleteIPSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @DeleteIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIPSetResponse' with the minimum fields required to make a request.

@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.MonitoringScheduleSortKey
   ( MonitoringScheduleSortKey
       ( MonitoringScheduleSortKey',
-        CreationTime,
         Name,
+        CreationTime,
         Status
       ),
   )
@@ -46,18 +46,18 @@ newtype MonitoringScheduleSortKey = MonitoringScheduleSortKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern CreationTime :: MonitoringScheduleSortKey
-pattern CreationTime = MonitoringScheduleSortKey' "CreationTime"
-
 pattern Name :: MonitoringScheduleSortKey
 pattern Name = MonitoringScheduleSortKey' "Name"
+
+pattern CreationTime :: MonitoringScheduleSortKey
+pattern CreationTime = MonitoringScheduleSortKey' "CreationTime"
 
 pattern Status :: MonitoringScheduleSortKey
 pattern Status = MonitoringScheduleSortKey' "Status"
 
 {-# COMPLETE
-  CreationTime,
   Name,
+  CreationTime,
   Status,
   MonitoringScheduleSortKey'
   #-}

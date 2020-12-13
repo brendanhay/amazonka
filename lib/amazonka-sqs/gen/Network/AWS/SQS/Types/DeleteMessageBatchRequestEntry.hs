@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeleteMessageBatchRequestEntry' smart constructor.
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
-  { id ::
-      Lude.Text,
+  { -- | An identifier for this particular receipt handle. This is used to communicate the result.
+    id :: Lude.Text,
+    -- | A receipt handle.
     receiptHandle :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMessageBatchRequestEntry' with the minimum fields required to make a request.

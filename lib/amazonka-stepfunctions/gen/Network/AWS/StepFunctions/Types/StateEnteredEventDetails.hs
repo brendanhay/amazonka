@@ -31,11 +31,11 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'mkStateEnteredEventDetails' smart constructor.
 data StateEnteredEventDetails = StateEnteredEventDetails'
-  { inputDetails ::
-      Lude.Maybe
-        HistoryEventExecutionDataDetails,
-    input ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Contains details about the input for an execution history event.
+    inputDetails :: Lude.Maybe HistoryEventExecutionDataDetails,
+    -- | The string that contains the JSON input data for the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the state.
     name :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -43,8 +43,8 @@ data StateEnteredEventDetails = StateEnteredEventDetails'
 
 -- | Creates a value of 'StateEnteredEventDetails' with the minimum fields required to make a request.
 --
--- * 'input' - The string that contains the JSON input data for the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'inputDetails' - Contains details about the input for an execution history event.
+-- * 'input' - The string that contains the JSON input data for the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 -- * 'name' - The name of the state.
 mkStateEnteredEventDetails ::
   -- | 'name'

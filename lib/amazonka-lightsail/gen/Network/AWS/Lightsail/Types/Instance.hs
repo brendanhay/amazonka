@@ -54,58 +54,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { state :: Lude.Maybe InstanceState,
+  { -- | The status code and the state (e.g., @running@ ) for the instance.
+    state :: Lude.Maybe InstanceState,
+    -- | The IPv6 address of the instance.
     ipv6Address :: Lude.Maybe Lude.Text,
+    -- | The type of resource (usually @Instance@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the instance (e.g., @arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE@ ).
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the instance was created (e.g., @1479734909.17@ ) in Unix time format.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The region name and Availability Zone where the instance is located.
     location :: Lude.Maybe ResourceLocation,
+    -- | The name of the SSH key being used to connect to the instance (e.g., @LightsailDefaultKeyPair@ ).
     sshKeyName :: Lude.Maybe Lude.Text,
+    -- | An array of objects representing the add-ons enabled on the instance.
     addOns :: Lude.Maybe [AddOn],
+    -- | The user name for connecting to the instance (e.g., @ec2-user@ ).
     username :: Lude.Maybe Lude.Text,
+    -- | Information about the public ports and monthly data transfer rates for the instance.
     networking :: Lude.Maybe InstanceNetworking,
+    -- | The bundle for the instance (e.g., @micro_1_0@ ).
     bundleId :: Lude.Maybe Lude.Text,
+    -- | The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
     name :: Lude.Maybe Lude.Text,
+    -- | The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | The blueprint ID (e.g., @os_amlinux_2016_03@ ).
     blueprintId :: Lude.Maybe Lude.Text,
+    -- | The private IP address of the instance.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the blueprint (e.g., @Amazon Linux@ ).
     blueprintName :: Lude.Maybe Lude.Text,
+    -- | A Boolean value indicating whether this instance has a static IP assigned to it.
     isStaticIP :: Lude.Maybe Lude.Bool,
+    -- | The public IP address of the instance.
     publicIPAddress :: Lude.Maybe Lude.Text,
+    -- | The size of the vCPU and the amount of RAM for the instance.
     hardware :: Lude.Maybe InstanceHardware,
+    -- | The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- * 'addOns' - An array of objects representing the add-ons enabled on the instance.
--- * 'arn' - The Amazon Resource Name (ARN) of the instance (e.g., @arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE@ ).
--- * 'blueprintId' - The blueprint ID (e.g., @os_amlinux_2016_03@ ).
--- * 'blueprintName' - The friendly name of the blueprint (e.g., @Amazon Linux@ ).
--- * 'bundleId' - The bundle for the instance (e.g., @micro_1_0@ ).
--- * 'createdAt' - The timestamp when the instance was created (e.g., @1479734909.17@ ) in Unix time format.
--- * 'hardware' - The size of the vCPU and the amount of RAM for the instance.
--- * 'ipv6Address' - The IPv6 address of the instance.
--- * 'isStaticIP' - A Boolean value indicating whether this instance has a static IP assigned to it.
--- * 'location' - The region name and Availability Zone where the instance is located.
--- * 'name' - The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
--- * 'networking' - Information about the public ports and monthly data transfer rates for the instance.
--- * 'privateIPAddress' - The private IP address of the instance.
--- * 'publicIPAddress' - The public IP address of the instance.
--- * 'resourceType' - The type of resource (usually @Instance@ ).
--- * 'sshKeyName' - The name of the SSH key being used to connect to the instance (e.g., @LightsailDefaultKeyPair@ ).
 -- * 'state' - The status code and the state (e.g., @running@ ) for the instance.
--- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
--- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
+-- * 'ipv6Address' - The IPv6 address of the instance.
+-- * 'resourceType' - The type of resource (usually @Instance@ ).
+-- * 'arn' - The Amazon Resource Name (ARN) of the instance (e.g., @arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE@ ).
+-- * 'createdAt' - The timestamp when the instance was created (e.g., @1479734909.17@ ) in Unix time format.
+-- * 'location' - The region name and Availability Zone where the instance is located.
+-- * 'sshKeyName' - The name of the SSH key being used to connect to the instance (e.g., @LightsailDefaultKeyPair@ ).
+-- * 'addOns' - An array of objects representing the add-ons enabled on the instance.
 -- * 'username' - The user name for connecting to the instance (e.g., @ec2-user@ ).
+-- * 'networking' - Information about the public ports and monthly data transfer rates for the instance.
+-- * 'bundleId' - The bundle for the instance (e.g., @micro_1_0@ ).
+-- * 'name' - The name the user gave the instance (e.g., @Amazon_Linux-1GB-Ohio-1@ ).
+-- * 'supportCode' - The support code. Include this code in your email to support when you have questions about an instance or another resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
+-- * 'blueprintId' - The blueprint ID (e.g., @os_amlinux_2016_03@ ).
+-- * 'privateIPAddress' - The private IP address of the instance.
+-- * 'blueprintName' - The friendly name of the blueprint (e.g., @Amazon Linux@ ).
+-- * 'isStaticIP' - A Boolean value indicating whether this instance has a static IP assigned to it.
+-- * 'publicIPAddress' - The public IP address of the instance.
+-- * 'hardware' - The size of the vCPU and the amount of RAM for the instance.
+-- * 'tags' - The tag keys and optional values for the resource. For more information about tags in Lightsail, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide> .
 mkInstance ::
   Instance
 mkInstance =

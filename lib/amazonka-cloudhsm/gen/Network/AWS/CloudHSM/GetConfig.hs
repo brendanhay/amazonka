@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.CloudHSM.GetConfig
 
     -- ** Request lenses
     gcClientARN,
-    gcClientVersion,
     gcHAPGList,
+    gcClientVersion,
 
     -- * Destructuring the response
     GetConfigResponse (..),
@@ -46,24 +47,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConfig' smart constructor.
 data GetConfig = GetConfig'
-  { clientARN :: Lude.Text,
-    clientVersion :: ClientVersion,
-    hapgList :: [Lude.Text]
+  { -- | The ARN of the client.
+    clientARN :: Lude.Text,
+    -- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
+    hapgList :: [Lude.Text],
+    -- | The client version.
+    clientVersion :: ClientVersion
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConfig' with the minimum fields required to make a request.
 --
 -- * 'clientARN' - The ARN of the client.
--- * 'clientVersion' - The client version.
 -- * 'hapgList' - A list of ARNs that identify the high-availability partition groups that are associated with the client.
+-- * 'clientVersion' - The client version.
 mkGetConfig ::
   -- | 'clientARN'
   Lude.Text ->
@@ -73,8 +71,8 @@ mkGetConfig ::
 mkGetConfig pClientARN_ pClientVersion_ =
   GetConfig'
     { clientARN = pClientARN_,
-      clientVersion = pClientVersion_,
-      hapgList = Lude.mempty
+      hapgList = Lude.mempty,
+      clientVersion = pClientVersion_
     }
 
 -- | The ARN of the client.
@@ -84,19 +82,19 @@ gcClientARN :: Lens.Lens' GetConfig Lude.Text
 gcClientARN = Lens.lens (clientARN :: GetConfig -> Lude.Text) (\s a -> s {clientARN = a} :: GetConfig)
 {-# DEPRECATED gcClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
 
--- | The client version.
---
--- /Note:/ Consider using 'clientVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcClientVersion :: Lens.Lens' GetConfig ClientVersion
-gcClientVersion = Lens.lens (clientVersion :: GetConfig -> ClientVersion) (\s a -> s {clientVersion = a} :: GetConfig)
-{-# DEPRECATED gcClientVersion "Use generic-lens or generic-optics with 'clientVersion' instead." #-}
-
 -- | A list of ARNs that identify the high-availability partition groups that are associated with the client.
 --
 -- /Note:/ Consider using 'hapgList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gcHAPGList :: Lens.Lens' GetConfig [Lude.Text]
 gcHAPGList = Lens.lens (hapgList :: GetConfig -> [Lude.Text]) (\s a -> s {hapgList = a} :: GetConfig)
 {-# DEPRECATED gcHAPGList "Use generic-lens or generic-optics with 'hapgList' instead." #-}
+
+-- | The client version.
+--
+-- /Note:/ Consider using 'clientVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcClientVersion :: Lens.Lens' GetConfig ClientVersion
+gcClientVersion = Lens.lens (clientVersion :: GetConfig -> ClientVersion) (\s a -> s {clientVersion = a} :: GetConfig)
+{-# DEPRECATED gcClientVersion "Use generic-lens or generic-optics with 'clientVersion' instead." #-}
 
 instance Lude.AWSRequest GetConfig where
   type Rs GetConfig = GetConfigResponse
@@ -127,8 +125,8 @@ instance Lude.ToJSON GetConfig where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("ClientArn" Lude..= clientARN),
-            Lude.Just ("ClientVersion" Lude..= clientVersion),
-            Lude.Just ("HapgList" Lude..= hapgList)
+            Lude.Just ("HapgList" Lude..= hapgList),
+            Lude.Just ("ClientVersion" Lude..= clientVersion)
           ]
       )
 
@@ -140,25 +138,22 @@ instance Lude.ToQuery GetConfig where
 
 -- | /See:/ 'mkGetConfigResponse' smart constructor.
 data GetConfigResponse = GetConfigResponse'
-  { configFile ::
-      Lude.Maybe Lude.Text,
+  { -- | The chrystoki.conf configuration file.
+    configFile :: Lude.Maybe Lude.Text,
+    -- | The certificate file containing the server.pem files of the HSMs.
     configCred :: Lude.Maybe Lude.Text,
+    -- | The type of credentials.
     configType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConfigResponse' with the minimum fields required to make a request.
 --
--- * 'configCred' - The certificate file containing the server.pem files of the HSMs.
 -- * 'configFile' - The chrystoki.conf configuration file.
+-- * 'configCred' - The certificate file containing the server.pem files of the HSMs.
 -- * 'configType' - The type of credentials.
 -- * 'responseStatus' - The response status code.
 mkGetConfigResponse ::

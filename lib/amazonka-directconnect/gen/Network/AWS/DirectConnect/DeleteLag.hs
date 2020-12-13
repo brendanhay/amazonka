@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,23 +27,23 @@ module Network.AWS.DirectConnect.DeleteLag
     mkLag,
 
     -- ** Response lenses
-    lagLagId,
-    lagConnectionsBandwidth,
-    lagMinimumLinks,
-    lagLagName,
-    lagLocation,
-    lagConnections,
-    lagAwsDevice,
-    lagHasLogicalRedundancy,
-    lagAllowsHostedConnections,
-    lagNumberOfConnections,
-    lagJumboFrameCapable,
-    lagLagState,
-    lagOwnerAccount,
-    lagRegion,
-    lagProviderName,
-    lagAwsDeviceV2,
-    lagTags,
+    lfLagId,
+    lfConnectionsBandwidth,
+    lfMinimumLinks,
+    lfLagName,
+    lfLocation,
+    lfConnections,
+    lfAwsDevice,
+    lfHasLogicalRedundancy,
+    lfAllowsHostedConnections,
+    lfNumberOfConnections,
+    lfJumboFrameCapable,
+    lfLagState,
+    lfOwnerAccount,
+    lfRegion,
+    lfProviderName,
+    lfAwsDeviceV2,
+    lfTags,
   )
 where
 
@@ -53,14 +54,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteLag' smart constructor.
-newtype DeleteLag = DeleteLag' {lagId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteLag = DeleteLag'
+  { -- | The ID of the LAG.
+    lagId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteLag' with the minimum fields required to make a request.

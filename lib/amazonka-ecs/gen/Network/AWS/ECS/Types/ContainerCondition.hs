@@ -13,10 +13,10 @@
 module Network.AWS.ECS.Types.ContainerCondition
   ( ContainerCondition
       ( ContainerCondition',
-        Complete,
-        Healthy,
         Start,
-        Success
+        Complete,
+        Success,
+        Healthy
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype ContainerCondition = ContainerCondition' Lude.Text
       Lude.ToHeader
     )
 
-pattern Complete :: ContainerCondition
-pattern Complete = ContainerCondition' "COMPLETE"
-
-pattern Healthy :: ContainerCondition
-pattern Healthy = ContainerCondition' "HEALTHY"
-
 pattern Start :: ContainerCondition
 pattern Start = ContainerCondition' "START"
+
+pattern Complete :: ContainerCondition
+pattern Complete = ContainerCondition' "COMPLETE"
 
 pattern Success :: ContainerCondition
 pattern Success = ContainerCondition' "SUCCESS"
 
+pattern Healthy :: ContainerCondition
+pattern Healthy = ContainerCondition' "HEALTHY"
+
 {-# COMPLETE
-  Complete,
-  Healthy,
   Start,
+  Complete,
   Success,
+  Healthy,
   ContainerCondition'
   #-}

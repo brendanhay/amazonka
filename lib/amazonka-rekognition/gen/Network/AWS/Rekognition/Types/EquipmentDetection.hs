@@ -34,26 +34,23 @@ import Network.AWS.Rekognition.Types.ProtectiveEquipmentType
 --
 -- /See:/ 'mkEquipmentDetection' smart constructor.
 data EquipmentDetection = EquipmentDetection'
-  { boundingBox ::
-      Lude.Maybe BoundingBox,
+  { -- | A bounding box surrounding the item of detected PPE.
+    boundingBox :: Lude.Maybe BoundingBox,
+    -- | Information about the body part covered by the detected PPE.
     coversBodyPart :: Lude.Maybe CoversBodyPart,
+    -- | The confidence that Amazon Rekognition has that the bounding box (@BoundingBox@ ) contains an item of PPE.
     confidence :: Lude.Maybe Lude.Double,
+    -- | The type of detected PPE.
     type' :: Lude.Maybe ProtectiveEquipmentType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EquipmentDetection' with the minimum fields required to make a request.
 --
 -- * 'boundingBox' - A bounding box surrounding the item of detected PPE.
--- * 'confidence' - The confidence that Amazon Rekognition has that the bounding box (@BoundingBox@ ) contains an item of PPE.
 -- * 'coversBodyPart' - Information about the body part covered by the detected PPE.
+-- * 'confidence' - The confidence that Amazon Rekognition has that the bounding box (@BoundingBox@ ) contains an item of PPE.
 -- * 'type'' - The type of detected PPE.
 mkEquipmentDetection ::
   EquipmentDetection

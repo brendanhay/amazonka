@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.RDS.FailoverDBCluster
     mkFailoverDBCluster,
 
     -- ** Request lenses
-    fdcTargetDBInstanceIdentifier,
     fdcDBClusterIdentifier,
+    fdcTargetDBInstanceIdentifier,
 
     -- * Destructuring the response
     FailoverDBClusterResponse (..),
@@ -46,17 +47,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkFailoverDBCluster' smart constructor.
 data FailoverDBCluster = FailoverDBCluster'
-  { targetDBInstanceIdentifier ::
-      Lude.Maybe Lude.Text,
-    dbClusterIdentifier :: Lude.Text
+  { -- | A DB cluster identifier to force a failover for. This parameter isn't case-sensitive.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DBCluster.
+    dbClusterIdentifier :: Lude.Text,
+    -- | The name of the instance to promote to the primary instance.
+    --
+    -- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
+    targetDBInstanceIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailoverDBCluster' with the minimum fields required to make a request.
@@ -77,18 +79,9 @@ mkFailoverDBCluster ::
   FailoverDBCluster
 mkFailoverDBCluster pDBClusterIdentifier_ =
   FailoverDBCluster'
-    { targetDBInstanceIdentifier = Lude.Nothing,
-      dbClusterIdentifier = pDBClusterIdentifier_
+    { dbClusterIdentifier = pDBClusterIdentifier_,
+      targetDBInstanceIdentifier = Lude.Nothing
     }
-
--- | The name of the instance to promote to the primary instance.
---
--- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
---
--- /Note:/ Consider using 'targetDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdcTargetDBInstanceIdentifier :: Lens.Lens' FailoverDBCluster (Lude.Maybe Lude.Text)
-fdcTargetDBInstanceIdentifier = Lens.lens (targetDBInstanceIdentifier :: FailoverDBCluster -> Lude.Maybe Lude.Text) (\s a -> s {targetDBInstanceIdentifier = a} :: FailoverDBCluster)
-{-# DEPRECATED fdcTargetDBInstanceIdentifier "Use generic-lens or generic-optics with 'targetDBInstanceIdentifier' instead." #-}
 
 -- | A DB cluster identifier to force a failover for. This parameter isn't case-sensitive.
 --
@@ -102,6 +95,15 @@ fdcTargetDBInstanceIdentifier = Lens.lens (targetDBInstanceIdentifier :: Failove
 fdcDBClusterIdentifier :: Lens.Lens' FailoverDBCluster Lude.Text
 fdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: FailoverDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: FailoverDBCluster)
 {-# DEPRECATED fdcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+
+-- | The name of the instance to promote to the primary instance.
+--
+-- You must specify the instance identifier for an Aurora Replica in the DB cluster. For example, @mydbcluster-replica1@ .
+--
+-- /Note:/ Consider using 'targetDBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdcTargetDBInstanceIdentifier :: Lens.Lens' FailoverDBCluster (Lude.Maybe Lude.Text)
+fdcTargetDBInstanceIdentifier = Lens.lens (targetDBInstanceIdentifier :: FailoverDBCluster -> Lude.Maybe Lude.Text) (\s a -> s {targetDBInstanceIdentifier = a} :: FailoverDBCluster)
+{-# DEPRECATED fdcTargetDBInstanceIdentifier "Use generic-lens or generic-optics with 'targetDBInstanceIdentifier' instead." #-}
 
 instance Lude.AWSRequest FailoverDBCluster where
   type Rs FailoverDBCluster = FailoverDBClusterResponse
@@ -125,28 +127,22 @@ instance Lude.ToQuery FailoverDBCluster where
     Lude.mconcat
       [ "Action" Lude.=: ("FailoverDBCluster" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "TargetDBInstanceIdentifier" Lude.=: targetDBInstanceIdentifier,
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
+        "TargetDBInstanceIdentifier" Lude.=: targetDBInstanceIdentifier
       ]
 
 -- | /See:/ 'mkFailoverDBClusterResponse' smart constructor.
 data FailoverDBClusterResponse = FailoverDBClusterResponse'
-  { dbCluster ::
-      Lude.Maybe DBCluster,
+  { dbCluster :: Lude.Maybe DBCluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailoverDBClusterResponse' with the minimum fields required to make a request.
 --
--- * 'dbCluster' - Undocumented field.
+-- * 'dbCluster' -
 -- * 'responseStatus' - The response status code.
 mkFailoverDBClusterResponse ::
   -- | 'responseStatus'

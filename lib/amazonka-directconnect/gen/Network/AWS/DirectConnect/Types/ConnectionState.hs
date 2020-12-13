@@ -13,14 +13,14 @@
 module Network.AWS.DirectConnect.Types.ConnectionState
   ( ConnectionState
       ( ConnectionState',
-        CSAvailable,
-        CSDeleted,
-        CSDeleting,
-        CSDown,
         CSOrdering,
-        CSPending,
-        CSRejected,
         CSRequested,
+        CSPending,
+        CSAvailable,
+        CSDown,
+        CSDeleting,
+        CSDeleted,
+        CSRejected,
         CSUnknown
       ),
   )
@@ -52,42 +52,42 @@ newtype ConnectionState = ConnectionState' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSAvailable :: ConnectionState
-pattern CSAvailable = ConnectionState' "available"
-
-pattern CSDeleted :: ConnectionState
-pattern CSDeleted = ConnectionState' "deleted"
-
-pattern CSDeleting :: ConnectionState
-pattern CSDeleting = ConnectionState' "deleting"
-
-pattern CSDown :: ConnectionState
-pattern CSDown = ConnectionState' "down"
-
 pattern CSOrdering :: ConnectionState
 pattern CSOrdering = ConnectionState' "ordering"
+
+pattern CSRequested :: ConnectionState
+pattern CSRequested = ConnectionState' "requested"
 
 pattern CSPending :: ConnectionState
 pattern CSPending = ConnectionState' "pending"
 
+pattern CSAvailable :: ConnectionState
+pattern CSAvailable = ConnectionState' "available"
+
+pattern CSDown :: ConnectionState
+pattern CSDown = ConnectionState' "down"
+
+pattern CSDeleting :: ConnectionState
+pattern CSDeleting = ConnectionState' "deleting"
+
+pattern CSDeleted :: ConnectionState
+pattern CSDeleted = ConnectionState' "deleted"
+
 pattern CSRejected :: ConnectionState
 pattern CSRejected = ConnectionState' "rejected"
-
-pattern CSRequested :: ConnectionState
-pattern CSRequested = ConnectionState' "requested"
 
 pattern CSUnknown :: ConnectionState
 pattern CSUnknown = ConnectionState' "unknown"
 
 {-# COMPLETE
-  CSAvailable,
-  CSDeleted,
-  CSDeleting,
-  CSDown,
   CSOrdering,
-  CSPending,
-  CSRejected,
   CSRequested,
+  CSPending,
+  CSAvailable,
+  CSDown,
+  CSDeleting,
+  CSDeleted,
+  CSRejected,
   CSUnknown,
   ConnectionState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DMS.DescribeReplicationTaskAssessmentRuns
     mkDescribeReplicationTaskAssessmentRuns,
 
     -- ** Request lenses
-    drtarFilters,
-    drtarMarker,
-    drtarMaxRecords,
+    drtarsFilters,
+    drtarsMarker,
+    drtarsMaxRecords,
 
     -- * Destructuring the response
     DescribeReplicationTaskAssessmentRunsResponse (..),
@@ -46,23 +47,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReplicationTaskAssessmentRuns' smart constructor.
 data DescribeReplicationTaskAssessmentRuns = DescribeReplicationTaskAssessmentRuns'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxRecords ::
-      Lude.Maybe
-        Lude.Int
+  { -- | Filters applied to the premigration assessment runs described in the form of key-value pairs.
+    --
+    -- Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @replication-instance-arn@ , @status@
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationTaskAssessmentRuns' with the minimum fields required to make a request.
@@ -86,23 +80,23 @@ mkDescribeReplicationTaskAssessmentRuns =
 -- Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @replication-instance-arn@ , @status@
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarFilters :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe [Filter])
-drtarFilters = Lens.lens (filters :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReplicationTaskAssessmentRuns)
-{-# DEPRECATED drtarFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+drtarsFilters :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe [Filter])
+drtarsFilters = Lens.lens (filters :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReplicationTaskAssessmentRuns)
+{-# DEPRECATED drtarsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarMarker :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe Lude.Text)
-drtarMarker = Lens.lens (marker :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskAssessmentRuns)
-{-# DEPRECATED drtarMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drtarsMarker :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe Lude.Text)
+drtarsMarker = Lens.lens (marker :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTaskAssessmentRuns)
+{-# DEPRECATED drtarsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtarMaxRecords :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe Lude.Int)
-drtarMaxRecords = Lens.lens (maxRecords :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReplicationTaskAssessmentRuns)
-{-# DEPRECATED drtarMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+drtarsMaxRecords :: Lens.Lens' DescribeReplicationTaskAssessmentRuns (Lude.Maybe Lude.Int)
+drtarsMaxRecords = Lens.lens (maxRecords :: DescribeReplicationTaskAssessmentRuns -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReplicationTaskAssessmentRuns)
+{-# DEPRECATED drtarsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Lude.AWSRequest DescribeReplicationTaskAssessmentRuns where
   type
@@ -151,31 +145,20 @@ instance Lude.ToQuery DescribeReplicationTaskAssessmentRuns where
 --
 -- /See:/ 'mkDescribeReplicationTaskAssessmentRunsResponse' smart constructor.
 data DescribeReplicationTaskAssessmentRunsResponse = DescribeReplicationTaskAssessmentRunsResponse'
-  { replicationTaskAssessmentRuns ::
-      Lude.Maybe
-        [ReplicationTaskAssessmentRun],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | One or more premigration assessment runs as specified by @Filters@ .
+    replicationTaskAssessmentRuns :: Lude.Maybe [ReplicationTaskAssessmentRun],
+    -- | A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationTaskAssessmentRunsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
 -- * 'replicationTaskAssessmentRuns' - One or more premigration assessment runs as specified by @Filters@ .
+-- * 'marker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
 mkDescribeReplicationTaskAssessmentRunsResponse ::
   -- | 'responseStatus'

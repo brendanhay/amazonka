@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,22 +46,28 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribeProductAsAdmin' smart constructor.
 data DescribeProductAsAdmin = DescribeProductAsAdmin'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The product name.
+    name :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
     acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProductAsAdmin' with the minimum fields required to make a request.
 --
+-- * 'name' - The product name.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -74,7 +81,6 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
 --
 --
 -- * 'id' - The product identifier.
--- * 'name' - The product name.
 mkDescribeProductAsAdmin ::
   DescribeProductAsAdmin
 mkDescribeProductAsAdmin =
@@ -162,35 +168,30 @@ instance Lude.ToQuery DescribeProductAsAdmin where
 
 -- | /See:/ 'mkDescribeProductAsAdminResponse' smart constructor.
 data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
-  { productViewDetail ::
-      Lude.Maybe ProductViewDetail,
-    tagOptions ::
-      Lude.Maybe [TagOptionDetail],
-    provisioningArtifactSummaries ::
-      Lude.Maybe
-        [ProvisioningArtifactSummary],
-    budgets ::
-      Lude.Maybe [BudgetDetail],
+  { -- | Information about the product view.
+    productViewDetail :: Lude.Maybe ProductViewDetail,
+    -- | Information about the TagOptions associated with the product.
+    tagOptions :: Lude.Maybe [TagOptionDetail],
+    -- | Information about the provisioning artifacts (also known as versions) for the specified product.
+    provisioningArtifactSummaries :: Lude.Maybe [ProvisioningArtifactSummary],
+    -- | Information about the associated budgets.
+    budgets :: Lude.Maybe [BudgetDetail],
+    -- | Information about the tags associated with the product.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeProductAsAdminResponse' with the minimum fields required to make a request.
 --
--- * 'budgets' - Information about the associated budgets.
 -- * 'productViewDetail' - Information about the product view.
--- * 'provisioningArtifactSummaries' - Information about the provisioning artifacts (also known as versions) for the specified product.
--- * 'responseStatus' - The response status code.
 -- * 'tagOptions' - Information about the TagOptions associated with the product.
+-- * 'provisioningArtifactSummaries' - Information about the provisioning artifacts (also known as versions) for the specified product.
+-- * 'budgets' - Information about the associated budgets.
 -- * 'tags' - Information about the tags associated with the product.
+-- * 'responseStatus' - The response status code.
 mkDescribeProductAsAdminResponse ::
   -- | 'responseStatus'
   Lude.Int ->

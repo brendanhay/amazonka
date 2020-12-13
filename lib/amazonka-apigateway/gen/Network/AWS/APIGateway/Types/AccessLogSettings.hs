@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessLogSettings' smart constructor.
 data AccessLogSettings = AccessLogSettings'
-  { format ::
-      Lude.Maybe Lude.Text,
+  { -- | A single line format of the access logs of data, as specified by selected <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference > context variables> . The format must include at least @> context.requestId@ .
+    format :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with @amazon-apigateway-@ .
     destinationARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessLogSettings' with the minimum fields required to make a request.
 --
--- * 'destinationARN' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with @amazon-apigateway-@ .
 -- * 'format' - A single line format of the access logs of data, as specified by selected <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference > context variables> . The format must include at least @> context.requestId@ .
+-- * 'destinationARN' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with @amazon-apigateway-@ .
 mkAccessLogSettings ::
   AccessLogSettings
 mkAccessLogSettings =

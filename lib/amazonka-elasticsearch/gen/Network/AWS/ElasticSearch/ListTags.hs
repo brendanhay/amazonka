@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | Container for the parameters to the @'ListTags' @ operation. Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view are attached.
 --
 -- /See:/ 'mkListTags' smart constructor.
-newtype ListTags = ListTags' {arn :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ListTags = ListTags'
+  { -- | Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
+    arn :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
@@ -90,23 +88,18 @@ instance Lude.ToQuery ListTags where
 --
 -- /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { tagList ::
-      Lude.Maybe [Tag],
+  { -- | List of @Tag@ for the requested Elasticsearch domain.
+    tagList :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagList' - List of @Tag@ for the requested Elasticsearch domain.
+-- * 'responseStatus' - The response status code.
 mkListTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

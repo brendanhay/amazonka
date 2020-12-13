@@ -31,9 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHandshakeResource' smart constructor.
 data HandshakeResource = HandshakeResource'
-  { value ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
+    value :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | When needed, contains an additional array of @HandshakeResource@ objects.
     resources :: Lude.Maybe [HandshakeResource],
+    -- | The type of information being passed, specifying how the value is to be interpreted by the other party:
+    --
+    --
+    --     * @ACCOUNT@ - Specifies an AWS account ID number.
+    --
+    --
+    --     * @ORGANIZATION@ - Specifies an organization ID number.
+    --
+    --
+    --     * @EMAIL@ - Specifies the email address that is associated with the account that receives the handshake.
+    --
+    --
+    --     * @OWNER_EMAIL@ - Specifies the email address associated with the management account. Included as information about an organization.
+    --
+    --
+    --     * @OWNER_NAME@ - Specifies the name associated with the management account. Included as information about an organization.
+    --
+    --
+    --     * @NOTES@ - Additional text provided by the handshake initiator and intended for the recipient to read.
     type' :: Lude.Maybe HandshakeResourceType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -41,6 +61,7 @@ data HandshakeResource = HandshakeResource'
 
 -- | Creates a value of 'HandshakeResource' with the minimum fields required to make a request.
 --
+-- * 'value' - The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
 -- * 'resources' - When needed, contains an additional array of @HandshakeResource@ objects.
 -- * 'type'' - The type of information being passed, specifying how the value is to be interpreted by the other party:
 --
@@ -61,9 +82,6 @@ data HandshakeResource = HandshakeResource'
 --
 --
 --     * @NOTES@ - Additional text provided by the handshake initiator and intended for the recipient to read.
---
---
--- * 'value' - The information that is passed to the other party in the handshake. The format of the value string must match the requirements of the specified type.
 mkHandshakeResource ::
   HandshakeResource
 mkHandshakeResource =

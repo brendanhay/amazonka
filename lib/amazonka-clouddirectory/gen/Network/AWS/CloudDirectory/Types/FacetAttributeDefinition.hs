@@ -34,28 +34,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFacetAttributeDefinition' smart constructor.
 data FacetAttributeDefinition = FacetAttributeDefinition'
-  { rules ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Rule)),
-    defaultValue ::
-      Lude.Maybe TypedAttributeValue,
+  { -- | Validation rules attached to the attribute definition.
+    rules :: Lude.Maybe (Lude.HashMap Lude.Text (Rule)),
+    -- | The default value of the attribute (if configured).
+    defaultValue :: Lude.Maybe TypedAttributeValue,
+    -- | Whether the attribute is mutable or not.
     isImmutable :: Lude.Maybe Lude.Bool,
+    -- | The type of the attribute.
     type' :: FacetAttributeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FacetAttributeDefinition' with the minimum fields required to make a request.
 --
+-- * 'rules' - Validation rules attached to the attribute definition.
 -- * 'defaultValue' - The default value of the attribute (if configured).
 -- * 'isImmutable' - Whether the attribute is mutable or not.
--- * 'rules' - Validation rules attached to the attribute definition.
 -- * 'type'' - The type of the attribute.
 mkFacetAttributeDefinition ::
   -- | 'type''

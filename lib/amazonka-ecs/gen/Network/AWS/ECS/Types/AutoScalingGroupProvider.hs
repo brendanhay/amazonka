@@ -32,30 +32,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingGroupProvider' smart constructor.
 data AutoScalingGroupProvider = AutoScalingGroupProvider'
-  { managedScaling ::
-      Lude.Maybe ManagedScaling,
-    managedTerminationProtection ::
-      Lude.Maybe ManagedTerminationProtection,
+  { -- | The managed scaling settings for the Auto Scaling group capacity provider.
+    managedScaling :: Lude.Maybe ManagedScaling,
+    -- | The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection.
+    --
+    -- /Important:/ When using managed termination protection, managed scaling must also be used otherwise managed termination protection will not work.
+    -- When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions enabled as well. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /AWS Auto Scaling User Guide/ .
+    -- When managed termination protection is disabled, your Amazon EC2 instances are not protected from termination when the Auto Scaling group scales in.
+    managedTerminationProtection :: Lude.Maybe ManagedTerminationProtection,
+    -- | The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
     autoScalingGroupARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingGroupProvider' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupARN' - The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
 -- * 'managedScaling' - The managed scaling settings for the Auto Scaling group capacity provider.
 -- * 'managedTerminationProtection' - The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection.
 --
 -- /Important:/ When using managed termination protection, managed scaling must also be used otherwise managed termination protection will not work.
 -- When managed termination protection is enabled, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions enabled as well. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection Instance Protection> in the /AWS Auto Scaling User Guide/ .
 -- When managed termination protection is disabled, your Amazon EC2 instances are not protected from termination when the Auto Scaling group scales in.
+-- * 'autoScalingGroupARN' - The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
 mkAutoScalingGroupProvider ::
   -- | 'autoScalingGroupARN'
   Lude.Text ->

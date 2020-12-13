@@ -13,9 +13,9 @@
 module Network.AWS.CognitoIdentityProvider.Types.EventType
   ( EventType
       ( EventType',
-        ETForgotPassword,
         ETSignIn,
-        ETSignUp
+        ETSignUp,
+        ETForgotPassword
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EventType = EventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ETForgotPassword :: EventType
-pattern ETForgotPassword = EventType' "ForgotPassword"
-
 pattern ETSignIn :: EventType
 pattern ETSignIn = EventType' "SignIn"
 
 pattern ETSignUp :: EventType
 pattern ETSignUp = EventType' "SignUp"
 
+pattern ETForgotPassword :: EventType
+pattern ETForgotPassword = EventType' "ForgotPassword"
+
 {-# COMPLETE
-  ETForgotPassword,
   ETSignIn,
   ETSignUp,
+  ETForgotPassword,
   EventType'
   #-}

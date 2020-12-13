@@ -44,49 +44,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFlowLog' smart constructor.
 data FlowLog = FlowLog'
-  { creationTime :: Lude.Maybe Lude.DateTime,
+  { -- | The date and time the flow log was created.
+    creationTime :: Lude.Maybe Lude.DateTime,
+    -- | The format of the flow log record.
     logFormat :: Lude.Maybe Lude.Text,
+    -- | The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.
+    --
+    -- When a network interface is attached to a <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance> , the aggregation interval is always 60 seconds (1 minute) or less, regardless of the specified value.
+    -- Valid Values: @60@ | @600@
     maxAggregationInterval :: Lude.Maybe Lude.Int,
+    -- | The ID of the resource on which the flow log was created.
     resourceId :: Lude.Maybe Lude.Text,
+    -- | The status of the flow log (@ACTIVE@ ).
     flowLogStatus :: Lude.Maybe Lude.Text,
+    -- | The type of traffic captured for the flow log.
     trafficType :: Lude.Maybe TrafficType,
+    -- | Specifies the destination to which the flow log data is published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs, this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN of the Amazon S3 bucket to which the data is published.
     logDestination :: Lude.Maybe Lude.Text,
+    -- | The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
     deliverLogsStatus :: Lude.Maybe Lude.Text,
+    -- | Information about the error that occurred. @Rate limited@ indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of log groups that you can create. @Access error@ indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
     deliverLogsErrorMessage :: Lude.Maybe Lude.Text,
+    -- | The name of the flow log group.
     logGroupName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the IAM role that posts logs to CloudWatch Logs.
     deliverLogsPermissionARN :: Lude.Maybe Lude.Text,
+    -- | Specifies the type of destination to which the flow log data is published. Flow log data can be published to CloudWatch Logs or Amazon S3.
     logDestinationType :: Lude.Maybe LogDestinationType,
+    -- | The flow log ID.
     flowLogId :: Lude.Maybe Lude.Text,
+    -- | The tags for the flow log.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FlowLog' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The date and time the flow log was created.
--- * 'deliverLogsErrorMessage' - Information about the error that occurred. @Rate limited@ indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of log groups that you can create. @Access error@ indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
--- * 'deliverLogsPermissionARN' - The ARN of the IAM role that posts logs to CloudWatch Logs.
--- * 'deliverLogsStatus' - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
--- * 'flowLogId' - The flow log ID.
--- * 'flowLogStatus' - The status of the flow log (@ACTIVE@ ).
--- * 'logDestination' - Specifies the destination to which the flow log data is published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs, this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN of the Amazon S3 bucket to which the data is published.
--- * 'logDestinationType' - Specifies the type of destination to which the flow log data is published. Flow log data can be published to CloudWatch Logs or Amazon S3.
 -- * 'logFormat' - The format of the flow log record.
--- * 'logGroupName' - The name of the flow log group.
 -- * 'maxAggregationInterval' - The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.
 --
 -- When a network interface is attached to a <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instance> , the aggregation interval is always 60 seconds (1 minute) or less, regardless of the specified value.
 -- Valid Values: @60@ | @600@
 -- * 'resourceId' - The ID of the resource on which the flow log was created.
--- * 'tags' - The tags for the flow log.
+-- * 'flowLogStatus' - The status of the flow log (@ACTIVE@ ).
 -- * 'trafficType' - The type of traffic captured for the flow log.
+-- * 'logDestination' - Specifies the destination to which the flow log data is published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs, this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN of the Amazon S3 bucket to which the data is published.
+-- * 'deliverLogsStatus' - The status of the logs delivery (@SUCCESS@ | @FAILED@ ).
+-- * 'deliverLogsErrorMessage' - Information about the error that occurred. @Rate limited@ indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of log groups that you can create. @Access error@ indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. @Unknown error@ indicates an internal error.
+-- * 'logGroupName' - The name of the flow log group.
+-- * 'deliverLogsPermissionARN' - The ARN of the IAM role that posts logs to CloudWatch Logs.
+-- * 'logDestinationType' - Specifies the type of destination to which the flow log data is published. Flow log data can be published to CloudWatch Logs or Amazon S3.
+-- * 'flowLogId' - The flow log ID.
+-- * 'tags' - The tags for the flow log.
 mkFlowLog ::
   FlowLog
 mkFlowLog =

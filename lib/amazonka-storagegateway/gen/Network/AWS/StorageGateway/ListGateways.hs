@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,22 +58,18 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkListGateways' smart constructor.
 data ListGateways = ListGateways'
-  { marker :: Lude.Maybe Lude.Text,
+  { -- | An opaque string that indicates the position at which to begin the returned list of gateways.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies that the list of gateways returned be limited to the specified number of items.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGateways' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies that the list of gateways returned be limited to the specified number of items.
 -- * 'marker' - An opaque string that indicates the position at which to begin the returned list of gateways.
+-- * 'limit' - Specifies that the list of gateways returned be limited to the specified number of items.
 mkListGateways ::
   ListGateways
 mkListGateways =
@@ -139,24 +136,20 @@ instance Lude.ToQuery ListGateways where
 
 -- | /See:/ 'mkListGatewaysResponse' smart constructor.
 data ListGatewaysResponse = ListGatewaysResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
+    marker :: Lude.Maybe Lude.Text,
+    -- | An array of 'GatewayInfo' objects.
     gateways :: Lude.Maybe [GatewayInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
 --
--- * 'gateways' - An array of 'GatewayInfo' objects.
 -- * 'marker' - Use the marker in your next request to fetch the next set of gateways in the list. If there are no more gateways to list, this field does not appear in the response.
+-- * 'gateways' - An array of 'GatewayInfo' objects.
 -- * 'responseStatus' - The response status code.
 mkListGatewaysResponse ::
   -- | 'responseStatus'

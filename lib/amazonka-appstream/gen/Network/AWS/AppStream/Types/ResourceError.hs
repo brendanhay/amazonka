@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceError' smart constructor.
 data ResourceError = ResourceError'
-  { errorCode ::
-      Lude.Maybe FleetErrorCode,
+  { -- | The error code.
+    errorCode :: Lude.Maybe FleetErrorCode,
+    -- | The error message.
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The time the error occurred.
     errorTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceError' with the minimum fields required to make a request.

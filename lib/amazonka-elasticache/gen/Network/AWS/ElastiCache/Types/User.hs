@@ -34,34 +34,36 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkUser' smart constructor.
 data User = User'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | Indicates the user status. Can be "active", "modifying" or "deleting".
+    status :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the user account.
     arn :: Lude.Maybe Lude.Text,
+    -- | Returns a list of the user group IDs the user belongs to.
     userGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Denotes whether the user requires a password to authenticate.
     authentication :: Lude.Maybe Authentication,
+    -- | Must be Redis.
     engine :: Lude.Maybe Lude.Text,
+    -- | The username of the user.
     userName :: Lude.Maybe Lude.Text,
+    -- | Access permissions string used for this user account.
     accessString :: Lude.Maybe Lude.Text,
+    -- | The ID of the user.
     userId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- * 'accessString' - Access permissions string used for this user account.
+-- * 'status' - Indicates the user status. Can be "active", "modifying" or "deleting".
 -- * 'arn' - The Amazon Resource Name (ARN) of the user account.
+-- * 'userGroupIds' - Returns a list of the user group IDs the user belongs to.
 -- * 'authentication' - Denotes whether the user requires a password to authenticate.
 -- * 'engine' - Must be Redis.
--- * 'status' - Indicates the user status. Can be "active", "modifying" or "deleting".
--- * 'userGroupIds' - Returns a list of the user group IDs the user belongs to.
--- * 'userId' - The ID of the user.
 -- * 'userName' - The username of the user.
+-- * 'accessString' - Access permissions string used for this user account.
+-- * 'userId' - The ID of the user.
 mkUser ::
   User
 mkUser =

@@ -13,8 +13,8 @@
 module Network.AWS.WorkMail.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        Equipment,
-        Room
+        Room,
+        Equipment
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ResourceType = ResourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Equipment :: ResourceType
-pattern Equipment = ResourceType' "EQUIPMENT"
-
 pattern Room :: ResourceType
 pattern Room = ResourceType' "ROOM"
 
+pattern Equipment :: ResourceType
+pattern Equipment = ResourceType' "EQUIPMENT"
+
 {-# COMPLETE
-  Equipment,
   Room,
+  Equipment,
   ResourceType'
   #-}

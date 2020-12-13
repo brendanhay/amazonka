@@ -32,28 +32,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVoiceMessage' smart constructor.
 data VoiceMessage = VoiceMessage'
-  { substitutions ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | The default message variables to use in the voice message. You can override the default variables with individual address variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The code for the language to use when synthesizing the text of the message script. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
     languageCode :: Lude.Maybe Lude.Text,
+    -- | The long code to send the voice message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code in E.164 format, for example +12065550100, to ensure prompt and accurate delivery of the message.
     originationNumber :: Lude.Maybe Lude.Text,
+    -- | The text of the script to use for the voice message.
     body :: Lude.Maybe Lude.Text,
+    -- | The name of the voice to use when delivering the message. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
     voiceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VoiceMessage' with the minimum fields required to make a request.
 --
--- * 'body' - The text of the script to use for the voice message.
+-- * 'substitutions' - The default message variables to use in the voice message. You can override the default variables with individual address variables.
 -- * 'languageCode' - The code for the language to use when synthesizing the text of the message script. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
 -- * 'originationNumber' - The long code to send the voice message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code in E.164 format, for example +12065550100, to ensure prompt and accurate delivery of the message.
--- * 'substitutions' - The default message variables to use in the voice message. You can override the default variables with individual address variables.
+-- * 'body' - The text of the script to use for the voice message.
 -- * 'voiceId' - The name of the voice to use when delivering the message. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
 mkVoiceMessage ::
   VoiceMessage

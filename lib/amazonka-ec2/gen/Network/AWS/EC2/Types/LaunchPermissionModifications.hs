@@ -17,8 +17,8 @@ module Network.AWS.EC2.Types.LaunchPermissionModifications
     mkLaunchPermissionModifications,
 
     -- * Lenses
-    lRemove,
-    lAdd,
+    lpmRemove,
+    lpmAdd,
   )
 where
 
@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchPermissionModifications' smart constructor.
 data LaunchPermissionModifications = LaunchPermissionModifications'
-  { remove ::
-      Lude.Maybe [LaunchPermission],
-    add ::
-      Lude.Maybe [LaunchPermission]
+  { -- | The AWS account ID to remove from the list of launch permissions for the AMI.
+    remove :: Lude.Maybe [LaunchPermission],
+    -- | The AWS account ID to add to the list of launch permissions for the AMI.
+    add :: Lude.Maybe [LaunchPermission]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchPermissionModifications' with the minimum fields required to make a request.
 --
--- * 'add' - The AWS account ID to add to the list of launch permissions for the AMI.
 -- * 'remove' - The AWS account ID to remove from the list of launch permissions for the AMI.
+-- * 'add' - The AWS account ID to add to the list of launch permissions for the AMI.
 mkLaunchPermissionModifications ::
   LaunchPermissionModifications
 mkLaunchPermissionModifications =
@@ -59,16 +53,16 @@ mkLaunchPermissionModifications =
 -- | The AWS account ID to remove from the list of launch permissions for the AMI.
 --
 -- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lRemove :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
-lRemove = Lens.lens (remove :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {remove = a} :: LaunchPermissionModifications)
-{-# DEPRECATED lRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
+lpmRemove :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
+lpmRemove = Lens.lens (remove :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {remove = a} :: LaunchPermissionModifications)
+{-# DEPRECATED lpmRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
 
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
 --
 -- /Note:/ Consider using 'add' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lAdd :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
-lAdd = Lens.lens (add :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {add = a} :: LaunchPermissionModifications)
-{-# DEPRECATED lAdd "Use generic-lens or generic-optics with 'add' instead." #-}
+lpmAdd :: Lens.Lens' LaunchPermissionModifications (Lude.Maybe [LaunchPermission])
+lpmAdd = Lens.lens (add :: LaunchPermissionModifications -> Lude.Maybe [LaunchPermission]) (\s a -> s {add = a} :: LaunchPermissionModifications)
+{-# DEPRECATED lpmAdd "Use generic-lens or generic-optics with 'add' instead." #-}
 
 instance Lude.ToQuery LaunchPermissionModifications where
   toQuery LaunchPermissionModifications' {..} =

@@ -13,8 +13,8 @@
 module Network.AWS.GameLift.Types.ProtectionPolicy
   ( ProtectionPolicy
       ( ProtectionPolicy',
-        PPFullProtection,
-        PPNoProtection
+        NoProtection,
+        FullProtection
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ProtectionPolicy = ProtectionPolicy' Lude.Text
       Lude.ToHeader
     )
 
-pattern PPFullProtection :: ProtectionPolicy
-pattern PPFullProtection = ProtectionPolicy' "FullProtection"
+pattern NoProtection :: ProtectionPolicy
+pattern NoProtection = ProtectionPolicy' "NoProtection"
 
-pattern PPNoProtection :: ProtectionPolicy
-pattern PPNoProtection = ProtectionPolicy' "NoProtection"
+pattern FullProtection :: ProtectionPolicy
+pattern FullProtection = ProtectionPolicy' "FullProtection"
 
 {-# COMPLETE
-  PPFullProtection,
-  PPNoProtection,
+  NoProtection,
+  FullProtection,
   ProtectionPolicy'
   #-}

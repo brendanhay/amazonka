@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,10 +34,10 @@ module Network.AWS.Config.GetAggregateDiscoveredResourceCounts
 
     -- ** Response lenses
     gadrcrsGroupedResourceCounts,
+    gadrcrsTotalDiscoveredResources,
     gadrcrsNextToken,
     gadrcrsGroupByKey,
     gadrcrsResponseStatus,
-    gadrcrsTotalDiscoveredResources,
   )
 where
 
@@ -48,37 +49,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAggregateDiscoveredResourceCounts' smart constructor.
 data GetAggregateDiscoveredResourceCounts = GetAggregateDiscoveredResourceCounts'
-  { filters ::
-      Lude.Maybe
-        ResourceCountFilters,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    groupByKey ::
-      Lude.Maybe
-        ResourceCountGroupKey,
-    configurationAggregatorName ::
-      Lude.Text
+  { -- | Filters the results based on the @ResourceCountFilters@ object.
+    filters :: Lude.Maybe ResourceCountFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of 'GroupedResourceCount' objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The key to group the resource counts.
+    groupByKey :: Lude.Maybe ResourceCountGroupKey,
+    -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateDiscoveredResourceCounts' with the minimum fields required to make a request.
 --
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
 -- * 'filters' - Filters the results based on the @ResourceCountFilters@ object.
--- * 'groupByKey' - The key to group the resource counts.
--- * 'limit' - The maximum number of 'GroupedResourceCount' objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of 'GroupedResourceCount' objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, AWS Config uses the default.
+-- * 'groupByKey' - The key to group the resource counts.
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
 mkGetAggregateDiscoveredResourceCounts ::
   -- | 'configurationAggregatorName'
   Lude.Text ->
@@ -139,10 +130,10 @@ instance Lude.AWSRequest GetAggregateDiscoveredResourceCounts where
       ( \s h x ->
           GetAggregateDiscoveredResourceCountsResponse'
             Lude.<$> (x Lude..?> "GroupedResourceCounts" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..:> "TotalDiscoveredResources")
             Lude.<*> (x Lude..?> "NextToken")
             Lude.<*> (x Lude..?> "GroupByKey")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "TotalDiscoveredResources")
       )
 
 instance Lude.ToHeaders GetAggregateDiscoveredResourceCounts where
@@ -181,53 +172,44 @@ instance Lude.ToQuery GetAggregateDiscoveredResourceCounts where
 
 -- | /See:/ 'mkGetAggregateDiscoveredResourceCountsResponse' smart constructor.
 data GetAggregateDiscoveredResourceCountsResponse = GetAggregateDiscoveredResourceCountsResponse'
-  { groupedResourceCounts ::
-      Lude.Maybe
-        [GroupedResourceCount],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    groupByKey ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    totalDiscoveredResources ::
-      Lude.Integer
+  { -- | Returns a list of GroupedResourceCount objects.
+    groupedResourceCounts :: Lude.Maybe [GroupedResourceCount],
+    -- | The total number of resources that are present in an aggregator with the filters that you provide.
+    totalDiscoveredResources :: Lude.Integer,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The key passed into the request object. If @GroupByKey@ is not provided, the result will be empty.
+    groupByKey :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAggregateDiscoveredResourceCountsResponse' with the minimum fields required to make a request.
 --
--- * 'groupByKey' - The key passed into the request object. If @GroupByKey@ is not provided, the result will be empty.
 -- * 'groupedResourceCounts' - Returns a list of GroupedResourceCount objects.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
 -- * 'totalDiscoveredResources' - The total number of resources that are present in an aggregator with the filters that you provide.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'groupByKey' - The key passed into the request object. If @GroupByKey@ is not provided, the result will be empty.
+-- * 'responseStatus' - The response status code.
 mkGetAggregateDiscoveredResourceCountsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'totalDiscoveredResources'
   Lude.Integer ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetAggregateDiscoveredResourceCountsResponse
 mkGetAggregateDiscoveredResourceCountsResponse
-  pResponseStatus_
-  pTotalDiscoveredResources_ =
+  pTotalDiscoveredResources_
+  pResponseStatus_ =
     GetAggregateDiscoveredResourceCountsResponse'
       { groupedResourceCounts =
           Lude.Nothing,
+        totalDiscoveredResources =
+          pTotalDiscoveredResources_,
         nextToken = Lude.Nothing,
         groupByKey = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        totalDiscoveredResources =
-          pTotalDiscoveredResources_
+        responseStatus = pResponseStatus_
       }
 
 -- | Returns a list of GroupedResourceCount objects.
@@ -236,6 +218,13 @@ mkGetAggregateDiscoveredResourceCountsResponse
 gadrcrsGroupedResourceCounts :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Lude.Maybe [GroupedResourceCount])
 gadrcrsGroupedResourceCounts = Lens.lens (groupedResourceCounts :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Maybe [GroupedResourceCount]) (\s a -> s {groupedResourceCounts = a} :: GetAggregateDiscoveredResourceCountsResponse)
 {-# DEPRECATED gadrcrsGroupedResourceCounts "Use generic-lens or generic-optics with 'groupedResourceCounts' instead." #-}
+
+-- | The total number of resources that are present in an aggregator with the filters that you provide.
+--
+-- /Note:/ Consider using 'totalDiscoveredResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gadrcrsTotalDiscoveredResources :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Lude.Integer
+gadrcrsTotalDiscoveredResources = Lens.lens (totalDiscoveredResources :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Integer) (\s a -> s {totalDiscoveredResources = a} :: GetAggregateDiscoveredResourceCountsResponse)
+{-# DEPRECATED gadrcrsTotalDiscoveredResources "Use generic-lens or generic-optics with 'totalDiscoveredResources' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
@@ -257,10 +246,3 @@ gadrcrsGroupByKey = Lens.lens (groupByKey :: GetAggregateDiscoveredResourceCount
 gadrcrsResponseStatus :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Lude.Int
 gadrcrsResponseStatus = Lens.lens (responseStatus :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAggregateDiscoveredResourceCountsResponse)
 {-# DEPRECATED gadrcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The total number of resources that are present in an aggregator with the filters that you provide.
---
--- /Note:/ Consider using 'totalDiscoveredResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gadrcrsTotalDiscoveredResources :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Lude.Integer
-gadrcrsTotalDiscoveredResources = Lens.lens (totalDiscoveredResources :: GetAggregateDiscoveredResourceCountsResponse -> Lude.Integer) (\s a -> s {totalDiscoveredResources = a} :: GetAggregateDiscoveredResourceCountsResponse)
-{-# DEPRECATED gadrcrsTotalDiscoveredResources "Use generic-lens or generic-optics with 'totalDiscoveredResources' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPolicy' smart constructor.
-newtype GetPolicy = GetPolicy' {policyId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetPolicy = GetPolicy'
+  { -- | The ID of the AWS Firewall Manager policy that you want the details for.
+    policyId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
@@ -101,24 +99,20 @@ instance Lude.ToQuery GetPolicy where
 
 -- | /See:/ 'mkGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { policyARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the specified policy.
+    policyARN :: Lude.Maybe Lude.Text,
+    -- | Information about the specified AWS Firewall Manager policy.
     policy :: Lude.Maybe Policy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'policy' - Information about the specified AWS Firewall Manager policy.
 -- * 'policyARN' - The Amazon Resource Name (ARN) of the specified policy.
+-- * 'policy' - Information about the specified AWS Firewall Manager policy.
 -- * 'responseStatus' - The response status code.
 mkGetPolicyResponse ::
   -- | 'responseStatus'

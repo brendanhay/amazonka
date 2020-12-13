@@ -17,8 +17,8 @@ module Network.AWS.ResourceGroupsTagging.Types.Tag
     mkTag,
 
     -- * Lenses
-    tKey,
     tValue,
+    tKey,
   )
 where
 
@@ -28,34 +28,26 @@ import qualified Network.AWS.Prelude as Lude
 -- | The metadata that you apply to AWS resources to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ .
 --
 -- /See:/ 'mkTag' smart constructor.
-data Tag = Tag' {key :: Lude.Text, value :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Tag = Tag'
+  { -- | One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
+    value :: Lude.Text,
+    -- | One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
+    key :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- * 'key' - One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
 -- * 'value' - One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
+-- * 'key' - One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
 mkTag ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'value'
   Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   Tag
-mkTag pKey_ pValue_ = Tag' {key = pKey_, value = pValue_}
-
--- | One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
-{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
 
 -- | One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.
 --
@@ -64,10 +56,17 @@ tValue :: Lens.Lens' Tag Lude.Text
 tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
 {-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tKey :: Lens.Lens' Tag Lude.Text
+tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+{-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 instance Lude.FromJSON Tag where
   parseJSON =
     Lude.withObject
       "Tag"
       ( \x ->
-          Tag' Lude.<$> (x Lude..: "Key") Lude.<*> (x Lude..: "Value")
+          Tag' Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Key")
       )

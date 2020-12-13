@@ -30,24 +30,18 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'mkClusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-  { parameterGroupStatus ::
-      Lude.Maybe Lude.Text,
-    parameterGroupName ::
-      Lude.Maybe Lude.Text
+  { -- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
+    parameterGroupStatus :: Lude.Maybe Lude.Text,
+    -- | The name of the cluster parameter group.
+    parameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterParameterGroupNameMessage' with the minimum fields required to make a request.
 --
--- * 'parameterGroupName' - The name of the cluster parameter group.
 -- * 'parameterGroupStatus' - The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
+-- * 'parameterGroupName' - The name of the cluster parameter group.
 mkClusterParameterGroupNameMessage ::
   ClusterParameterGroupNameMessage
 mkClusterParameterGroupNameMessage =

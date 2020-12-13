@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,16 +48,10 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkListPhoneNumbersOptedOut' smart constructor.
 newtype ListPhoneNumbersOptedOut = ListPhoneNumbersOptedOut'
-  { nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | A @NextToken@ string is used when you call the @ListPhoneNumbersOptedOut@ action to retrieve additional records that are available after the first page of results.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPhoneNumbersOptedOut' with the minimum fields required to make a request.
@@ -116,26 +111,20 @@ instance Lude.ToQuery ListPhoneNumbersOptedOut where
 --
 -- /See:/ 'mkListPhoneNumbersOptedOutResponse' smart constructor.
 data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
-  { phoneNumbers ::
-      Lude.Maybe [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
+    phoneNumbers :: Lude.Maybe [Lude.Text],
+    -- | A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPhoneNumbersOptedOutResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
 -- * 'phoneNumbers' - A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.
+-- * 'nextToken' - A @NextToken@ string is returned when you call the @ListPhoneNumbersOptedOut@ action if additional records are available after the first page of results.
 -- * 'responseStatus' - The response status code.
 mkListPhoneNumbersOptedOutResponse ::
   -- | 'responseStatus'

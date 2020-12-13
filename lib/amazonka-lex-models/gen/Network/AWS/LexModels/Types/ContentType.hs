@@ -13,9 +13,9 @@
 module Network.AWS.LexModels.Types.ContentType
   ( ContentType
       ( ContentType',
-        CustomPayload,
         PlainText,
-        Ssml
+        Ssml,
+        CustomPayload
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ContentType = ContentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CustomPayload :: ContentType
-pattern CustomPayload = ContentType' "CustomPayload"
-
 pattern PlainText :: ContentType
 pattern PlainText = ContentType' "PlainText"
 
 pattern Ssml :: ContentType
 pattern Ssml = ContentType' "SSML"
 
+pattern CustomPayload :: ContentType
+pattern CustomPayload = ContentType' "CustomPayload"
+
 {-# COMPLETE
-  CustomPayload,
   PlainText,
   Ssml,
+  CustomPayload,
   ContentType'
   #-}

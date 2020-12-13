@@ -13,9 +13,9 @@
 module Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy
   ( ApplicationRevisionSortBy
       ( ApplicationRevisionSortBy',
+        RegisterTime,
         FirstUsedTime,
-        LastUsedTime,
-        RegisterTime
+        LastUsedTime
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ApplicationRevisionSortBy = ApplicationRevisionSortBy' Lude.Text
       Lude.ToHeader
     )
 
+pattern RegisterTime :: ApplicationRevisionSortBy
+pattern RegisterTime = ApplicationRevisionSortBy' "registerTime"
+
 pattern FirstUsedTime :: ApplicationRevisionSortBy
 pattern FirstUsedTime = ApplicationRevisionSortBy' "firstUsedTime"
 
 pattern LastUsedTime :: ApplicationRevisionSortBy
 pattern LastUsedTime = ApplicationRevisionSortBy' "lastUsedTime"
 
-pattern RegisterTime :: ApplicationRevisionSortBy
-pattern RegisterTime = ApplicationRevisionSortBy' "registerTime"
-
 {-# COMPLETE
+  RegisterTime,
   FirstUsedTime,
   LastUsedTime,
-  RegisterTime,
   ApplicationRevisionSortBy'
   #-}

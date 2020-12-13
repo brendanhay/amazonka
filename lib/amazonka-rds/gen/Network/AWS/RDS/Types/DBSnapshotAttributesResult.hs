@@ -32,24 +32,18 @@ import Network.AWS.RDS.Types.DBSnapshotAttribute
 --
 -- /See:/ 'mkDBSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
-  { dbSnapshotIdentifier ::
-      Lude.Maybe Lude.Text,
-    dbSnapshotAttributes ::
-      Lude.Maybe [DBSnapshotAttribute]
+  { -- | The identifier of the manual DB snapshot that the attributes apply to.
+    dbSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- | The list of attributes and values for the manual DB snapshot.
+    dbSnapshotAttributes :: Lude.Maybe [DBSnapshotAttribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBSnapshotAttributesResult' with the minimum fields required to make a request.
 --
--- * 'dbSnapshotAttributes' - The list of attributes and values for the manual DB snapshot.
 -- * 'dbSnapshotIdentifier' - The identifier of the manual DB snapshot that the attributes apply to.
+-- * 'dbSnapshotAttributes' - The list of attributes and values for the manual DB snapshot.
 mkDBSnapshotAttributesResult ::
   DBSnapshotAttributesResult
 mkDBSnapshotAttributesResult =

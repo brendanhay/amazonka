@@ -31,22 +31,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaFunctionAssociation' smart constructor.
 data LambdaFunctionAssociation = LambdaFunctionAssociation'
-  { includeBody ::
-      Lude.Maybe Lude.Bool,
+  { -- | A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
+    includeBody :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
     lambdaFunctionARN :: Lude.Text,
+    -- | Specifies the event type that triggers a Lambda function invocation. You can specify the following values:
+    --
+    --
+    --     * @viewer-request@ : The function executes when CloudFront receives a request from a viewer and before it checks to see whether the requested object is in the edge cache.
+    --
+    --
+    --     * @origin-request@ : The function executes only when CloudFront sends a request to your origin. When the requested object is in the edge cache, the function doesn't execute.
+    --
+    --
+    --     * @origin-response@ : The function executes after CloudFront receives a response from the origin and before it caches the object in the response. When the requested object is in the edge cache, the function doesn't execute.
+    --
+    --
+    --     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
+    -- If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
     eventType :: EventType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionAssociation' with the minimum fields required to make a request.
 --
+-- * 'includeBody' - A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
+-- * 'lambdaFunctionARN' - The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
 -- * 'eventType' - Specifies the event type that triggers a Lambda function invocation. You can specify the following values:
 --
 --
@@ -61,10 +72,6 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
 --
 --     * @viewer-response@ : The function executes before CloudFront returns the requested object to the viewer. The function executes regardless of whether the object was already in the edge cache.
 -- If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn't execute.
---
---
--- * 'includeBody' - A flag that allows a Lambda function to have read access to the body content. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option> in the Amazon CloudFront Developer Guide.
--- * 'lambdaFunctionARN' - The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias or $LATEST.
 mkLambdaFunctionAssociation ::
   -- | 'lambdaFunctionARN'
   Lude.Text ->

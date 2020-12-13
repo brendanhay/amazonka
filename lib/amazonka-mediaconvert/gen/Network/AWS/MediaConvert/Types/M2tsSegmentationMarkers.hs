@@ -13,12 +13,12 @@
 module Network.AWS.MediaConvert.Types.M2tsSegmentationMarkers
   ( M2tsSegmentationMarkers
       ( M2tsSegmentationMarkers',
-        MSMEbp,
-        MSMEbpLegacy,
         MSMNone,
-        MSMPsiSegstart,
+        MSMRaiSegstart,
         MSMRaiAdapt,
-        MSMRaiSegstart
+        MSMPsiSegstart,
+        MSMEbp,
+        MSMEbpLegacy
       ),
   )
 where
@@ -50,30 +50,30 @@ newtype M2tsSegmentationMarkers = M2tsSegmentationMarkers' Lude.Text
       Lude.ToHeader
     )
 
+pattern MSMNone :: M2tsSegmentationMarkers
+pattern MSMNone = M2tsSegmentationMarkers' "NONE"
+
+pattern MSMRaiSegstart :: M2tsSegmentationMarkers
+pattern MSMRaiSegstart = M2tsSegmentationMarkers' "RAI_SEGSTART"
+
+pattern MSMRaiAdapt :: M2tsSegmentationMarkers
+pattern MSMRaiAdapt = M2tsSegmentationMarkers' "RAI_ADAPT"
+
+pattern MSMPsiSegstart :: M2tsSegmentationMarkers
+pattern MSMPsiSegstart = M2tsSegmentationMarkers' "PSI_SEGSTART"
+
 pattern MSMEbp :: M2tsSegmentationMarkers
 pattern MSMEbp = M2tsSegmentationMarkers' "EBP"
 
 pattern MSMEbpLegacy :: M2tsSegmentationMarkers
 pattern MSMEbpLegacy = M2tsSegmentationMarkers' "EBP_LEGACY"
 
-pattern MSMNone :: M2tsSegmentationMarkers
-pattern MSMNone = M2tsSegmentationMarkers' "NONE"
-
-pattern MSMPsiSegstart :: M2tsSegmentationMarkers
-pattern MSMPsiSegstart = M2tsSegmentationMarkers' "PSI_SEGSTART"
-
-pattern MSMRaiAdapt :: M2tsSegmentationMarkers
-pattern MSMRaiAdapt = M2tsSegmentationMarkers' "RAI_ADAPT"
-
-pattern MSMRaiSegstart :: M2tsSegmentationMarkers
-pattern MSMRaiSegstart = M2tsSegmentationMarkers' "RAI_SEGSTART"
-
 {-# COMPLETE
+  MSMNone,
+  MSMRaiSegstart,
+  MSMRaiAdapt,
+  MSMPsiSegstart,
   MSMEbp,
   MSMEbpLegacy,
-  MSMNone,
-  MSMPsiSegstart,
-  MSMRaiAdapt,
-  MSMRaiSegstart,
   M2tsSegmentationMarkers'
   #-}

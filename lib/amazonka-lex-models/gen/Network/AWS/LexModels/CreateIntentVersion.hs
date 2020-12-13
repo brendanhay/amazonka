@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -60,17 +61,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateIntentVersion' smart constructor.
 data CreateIntentVersion = CreateIntentVersion'
-  { checksum ::
-      Lude.Maybe Lude.Text,
+  { -- | Checksum of the @> LATEST@ version of the intent that should be used to create the new version. If you specify a checksum and the @> LATEST@ version of the intent has a different checksum, Amazon Lex returns a @PreconditionFailedException@ exception and doesn't publish a new version. If you don't specify a checksum, Amazon Lex publishes the @> LATEST@ version.
+    checksum :: Lude.Maybe Lude.Text,
+    -- | The name of the intent that you want to create a new version of. The name is case sensitive.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIntentVersion' with the minimum fields required to make a request.
@@ -149,69 +145,69 @@ instance Lude.ToQuery CreateIntentVersion where
 
 -- | /See:/ 'mkCreateIntentVersionResponse' smart constructor.
 data CreateIntentVersionResponse = CreateIntentVersionResponse'
-  { fulfillmentActivity ::
-      Lude.Maybe FulfillmentActivity,
+  { -- | Describes how the intent is fulfilled.
+    fulfillmentActivity :: Lude.Maybe FulfillmentActivity,
+    -- | An array of slot types that defines the information required to fulfill the intent.
     slots :: Lude.Maybe [Slot],
-    rejectionStatement ::
-      Lude.Maybe Statement,
+    -- | If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
+    rejectionStatement :: Lude.Maybe Statement,
+    -- | Checksum of the intent version created.
     checksum :: Lude.Maybe Lude.Text,
-    conclusionStatement ::
-      Lude.Maybe Statement,
-    sampleUtterances ::
-      Lude.Maybe [Lude.Text],
-    parentIntentSignature ::
-      Lude.Maybe Lude.Text,
-    createdDate ::
-      Lude.Maybe Lude.Timestamp,
-    kendraConfiguration ::
-      Lude.Maybe KendraConfiguration,
+    -- | After the Lambda function specified in the @fulfillmentActivity@ field fulfills the intent, Amazon Lex conveys this statement to the user.
+    conclusionStatement :: Lude.Maybe Statement,
+    -- | An array of sample utterances configured for the intent.
+    sampleUtterances :: Lude.Maybe [Lude.Text],
+    -- | A unique identifier for a built-in intent.
+    parentIntentSignature :: Lude.Maybe Lude.Text,
+    -- | The date that the intent was created.
+    createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | Configuration information, if any, for connecting an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
+    kendraConfiguration :: Lude.Maybe KendraConfiguration,
+    -- | The name of the intent.
     name :: Lude.Maybe Lude.Text,
+    -- | The version number assigned to the new version of the intent.
     version :: Lude.Maybe Lude.Text,
-    inputContexts ::
-      Lude.Maybe [InputContext],
-    followUpPrompt ::
-      Lude.Maybe FollowUpPrompt,
-    lastUpdatedDate ::
-      Lude.Maybe Lude.Timestamp,
-    outputContexts ::
-      Lude.Maybe [OutputContext],
-    confirmationPrompt ::
-      Lude.Maybe Prompt,
-    dialogCodeHook ::
-      Lude.Maybe CodeHook,
+    -- | An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
+    inputContexts :: Lude.Maybe [InputContext],
+    -- | If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
+    followUpPrompt :: Lude.Maybe FollowUpPrompt,
+    -- | The date that the intent was updated.
+    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
+    outputContexts :: Lude.Maybe [OutputContext],
+    -- | If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it.
+    confirmationPrompt :: Lude.Maybe Prompt,
+    -- | If defined, Amazon Lex invokes this Lambda function for each user input.
+    dialogCodeHook :: Lude.Maybe CodeHook,
+    -- | A description of the intent.
     description :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateIntentVersionResponse' with the minimum fields required to make a request.
 --
+-- * 'fulfillmentActivity' - Describes how the intent is fulfilled.
+-- * 'slots' - An array of slot types that defines the information required to fulfill the intent.
+-- * 'rejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
 -- * 'checksum' - Checksum of the intent version created.
 -- * 'conclusionStatement' - After the Lambda function specified in the @fulfillmentActivity@ field fulfills the intent, Amazon Lex conveys this statement to the user.
--- * 'confirmationPrompt' - If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it.
--- * 'createdDate' - The date that the intent was created.
--- * 'description' - A description of the intent.
--- * 'dialogCodeHook' - If defined, Amazon Lex invokes this Lambda function for each user input.
--- * 'followUpPrompt' - If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
--- * 'fulfillmentActivity' - Describes how the intent is fulfilled.
--- * 'inputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
--- * 'kendraConfiguration' - Configuration information, if any, for connecting an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
--- * 'lastUpdatedDate' - The date that the intent was updated.
--- * 'name' - The name of the intent.
--- * 'outputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
--- * 'parentIntentSignature' - A unique identifier for a built-in intent.
--- * 'rejectionStatement' - If the user answers "no" to the question defined in @confirmationPrompt@ , Amazon Lex responds with this statement to acknowledge that the intent was canceled.
--- * 'responseStatus' - The response status code.
 -- * 'sampleUtterances' - An array of sample utterances configured for the intent.
--- * 'slots' - An array of slot types that defines the information required to fulfill the intent.
+-- * 'parentIntentSignature' - A unique identifier for a built-in intent.
+-- * 'createdDate' - The date that the intent was created.
+-- * 'kendraConfiguration' - Configuration information, if any, for connecting an Amazon Kendra index with the @AMAZON.KendraSearchIntent@ intent.
+-- * 'name' - The name of the intent.
 -- * 'version' - The version number assigned to the new version of the intent.
+-- * 'inputContexts' - An array of @InputContext@ objects that lists the contexts that must be active for Amazon Lex to choose the intent in a conversation with the user.
+-- * 'followUpPrompt' - If defined, Amazon Lex uses this prompt to solicit additional user activity after the intent is fulfilled.
+-- * 'lastUpdatedDate' - The date that the intent was updated.
+-- * 'outputContexts' - An array of @OutputContext@ objects that lists the contexts that the intent activates when the intent is fulfilled.
+-- * 'confirmationPrompt' - If defined, the prompt that Amazon Lex uses to confirm the user's intent before fulfilling it.
+-- * 'dialogCodeHook' - If defined, Amazon Lex invokes this Lambda function for each user input.
+-- * 'description' - A description of the intent.
+-- * 'responseStatus' - The response status code.
 mkCreateIntentVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalVolumeResourceData' smart constructor.
 data LocalVolumeResourceData = LocalVolumeResourceData'
-  { groupOwnerSetting ::
-      Lude.Maybe GroupOwnerSetting,
+  { -- | Allows you to configure additional group privileges for the Lambda process. This field is optional.
+    groupOwnerSetting :: Lude.Maybe GroupOwnerSetting,
+    -- | The absolute local path of the resource inside the Lambda environment.
     destinationPath :: Lude.Maybe Lude.Text,
+    -- | The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/sys''.
     sourcePath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalVolumeResourceData' with the minimum fields required to make a request.
 --
--- * 'destinationPath' - The absolute local path of the resource inside the Lambda environment.
 -- * 'groupOwnerSetting' - Allows you to configure additional group privileges for the Lambda process. This field is optional.
+-- * 'destinationPath' - The absolute local path of the resource inside the Lambda environment.
 -- * 'sourcePath' - The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/sys''.
 mkLocalVolumeResourceData ::
   LocalVolumeResourceData

@@ -13,8 +13,8 @@
 module Network.AWS.Glue.Types.ResourceShareType
   ( ResourceShareType
       ( ResourceShareType',
-        All,
-        Foreign
+        Foreign,
+        All
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ResourceShareType = ResourceShareType' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: ResourceShareType
-pattern All = ResourceShareType' "ALL"
-
 pattern Foreign :: ResourceShareType
 pattern Foreign = ResourceShareType' "FOREIGN"
 
+pattern All :: ResourceShareType
+pattern All = ResourceShareType' "ALL"
+
 {-# COMPLETE
-  All,
   Foreign,
+  All,
   ResourceShareType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.ECS.PutClusterCapacityProviders
 
     -- ** Request lenses
     pccpCluster,
-    pccpCapacityProviders,
     pccpDefaultCapacityProviderStrategy,
+    pccpCapacityProviders,
 
     -- * Destructuring the response
     PutClusterCapacityProvidersResponse (..),
@@ -44,32 +45,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutClusterCapacityProviders' smart constructor.
 data PutClusterCapacityProviders = PutClusterCapacityProviders'
-  { cluster ::
-      Lude.Text,
-    capacityProviders :: [Lude.Text],
-    defaultCapacityProviderStrategy ::
-      [CapacityProviderStrategyItem]
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider settings for. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Text,
+    -- | The capacity provider strategy to use by default for the cluster.
+    --
+    -- When creating a service or running a task on a cluster, if no capacity provider or launch type is specified then the default capacity provider strategy for the cluster is used.
+    -- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
+    -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+    defaultCapacityProviderStrategy :: [CapacityProviderStrategyItem],
+    -- | The name of one or more capacity providers to associate with the cluster.
+    --
+    -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+    capacityProviders :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutClusterCapacityProviders' with the minimum fields required to make a request.
 --
--- * 'capacityProviders' - The name of one or more capacity providers to associate with the cluster.
---
--- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider settings for. If you do not specify a cluster, the default cluster is assumed.
 -- * 'defaultCapacityProviderStrategy' - The capacity provider strategy to use by default for the cluster.
 --
 -- When creating a service or running a task on a cluster, if no capacity provider or launch type is specified then the default capacity provider strategy for the cluster is used.
 -- A capacity provider strategy consists of one or more capacity providers along with the @base@ and @weight@ to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The 'PutClusterCapacityProviders' API is used to associate a capacity provider with a cluster. Only capacity providers with an @ACTIVE@ or @UPDATING@ status can be used.
+-- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+-- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+-- * 'capacityProviders' - The name of one or more capacity providers to associate with the cluster.
+--
 -- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
 -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
 mkPutClusterCapacityProviders ::
@@ -79,8 +83,8 @@ mkPutClusterCapacityProviders ::
 mkPutClusterCapacityProviders pCluster_ =
   PutClusterCapacityProviders'
     { cluster = pCluster_,
-      capacityProviders = Lude.mempty,
-      defaultCapacityProviderStrategy = Lude.mempty
+      defaultCapacityProviderStrategy = Lude.mempty,
+      capacityProviders = Lude.mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider settings for. If you do not specify a cluster, the default cluster is assumed.
@@ -89,16 +93,6 @@ mkPutClusterCapacityProviders pCluster_ =
 pccpCluster :: Lens.Lens' PutClusterCapacityProviders Lude.Text
 pccpCluster = Lens.lens (cluster :: PutClusterCapacityProviders -> Lude.Text) (\s a -> s {cluster = a} :: PutClusterCapacityProviders)
 {-# DEPRECATED pccpCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
-
--- | The name of one or more capacity providers to associate with the cluster.
---
--- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
---
--- /Note:/ Consider using 'capacityProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pccpCapacityProviders :: Lens.Lens' PutClusterCapacityProviders [Lude.Text]
-pccpCapacityProviders = Lens.lens (capacityProviders :: PutClusterCapacityProviders -> [Lude.Text]) (\s a -> s {capacityProviders = a} :: PutClusterCapacityProviders)
-{-# DEPRECATED pccpCapacityProviders "Use generic-lens or generic-optics with 'capacityProviders' instead." #-}
 
 -- | The capacity provider strategy to use by default for the cluster.
 --
@@ -111,6 +105,16 @@ pccpCapacityProviders = Lens.lens (capacityProviders :: PutClusterCapacityProvid
 pccpDefaultCapacityProviderStrategy :: Lens.Lens' PutClusterCapacityProviders [CapacityProviderStrategyItem]
 pccpDefaultCapacityProviderStrategy = Lens.lens (defaultCapacityProviderStrategy :: PutClusterCapacityProviders -> [CapacityProviderStrategyItem]) (\s a -> s {defaultCapacityProviderStrategy = a} :: PutClusterCapacityProviders)
 {-# DEPRECATED pccpDefaultCapacityProviderStrategy "Use generic-lens or generic-optics with 'defaultCapacityProviderStrategy' instead." #-}
+
+-- | The name of one or more capacity providers to associate with the cluster.
+--
+-- If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must already be created. New capacity providers can be created with the 'CreateCapacityProvider' API operation.
+-- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers are available to all accounts and only need to be associated with a cluster to be used.
+--
+-- /Note:/ Consider using 'capacityProviders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pccpCapacityProviders :: Lens.Lens' PutClusterCapacityProviders [Lude.Text]
+pccpCapacityProviders = Lens.lens (capacityProviders :: PutClusterCapacityProviders -> [Lude.Text]) (\s a -> s {capacityProviders = a} :: PutClusterCapacityProviders)
+{-# DEPRECATED pccpCapacityProviders "Use generic-lens or generic-optics with 'capacityProviders' instead." #-}
 
 instance Lude.AWSRequest PutClusterCapacityProviders where
   type
@@ -142,11 +146,11 @@ instance Lude.ToJSON PutClusterCapacityProviders where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("cluster" Lude..= cluster),
-            Lude.Just ("capacityProviders" Lude..= capacityProviders),
             Lude.Just
               ( "defaultCapacityProviderStrategy"
                   Lude..= defaultCapacityProviderStrategy
-              )
+              ),
+            Lude.Just ("capacityProviders" Lude..= capacityProviders)
           ]
       )
 
@@ -158,23 +162,16 @@ instance Lude.ToQuery PutClusterCapacityProviders where
 
 -- | /See:/ 'mkPutClusterCapacityProvidersResponse' smart constructor.
 data PutClusterCapacityProvidersResponse = PutClusterCapacityProvidersResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
-    responseStatus ::
-      Lude.Int
+  { cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutClusterCapacityProvidersResponse' with the minimum fields required to make a request.
 --
--- * 'cluster' - Undocumented field.
+-- * 'cluster' -
 -- * 'responseStatus' - The response status code.
 mkPutClusterCapacityProvidersResponse ::
   -- | 'responseStatus'

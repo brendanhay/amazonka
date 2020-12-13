@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetFieldLevelEncryption' smart constructor.
 newtype GetFieldLevelEncryption = GetFieldLevelEncryption'
-  { id ::
-      Lude.Text
+  { -- | Request the ID for the field-level encryption configuration information.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryption' with the minimum fields required to make a request.
@@ -94,20 +89,14 @@ instance Lude.ToQuery GetFieldLevelEncryption where
 
 -- | /See:/ 'mkGetFieldLevelEncryptionResponse' smart constructor.
 data GetFieldLevelEncryptionResponse = GetFieldLevelEncryptionResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
-    fieldLevelEncryption ::
-      Lude.Maybe
-        FieldLevelEncryption,
+  { -- | The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Lude.Maybe Lude.Text,
+    -- | Return the field-level encryption configuration information.
+    fieldLevelEncryption :: Lude.Maybe FieldLevelEncryption,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetFieldLevelEncryptionResponse' with the minimum fields required to make a request.

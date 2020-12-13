@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.CreateDatabase
     mkCreateDatabase,
 
     -- ** Request lenses
-    cdCatalogId,
     cdDatabaseInput,
+    cdCatalogId,
 
     -- * Destructuring the response
     CreateDatabaseResponse (..),
@@ -39,39 +40,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDatabase' smart constructor.
 data CreateDatabase = CreateDatabase'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
-    databaseInput :: DatabaseInput
+  { -- | The metadata for the database.
+    databaseInput :: DatabaseInput,
+    -- | The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDatabase' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
 -- * 'databaseInput' - The metadata for the database.
+-- * 'catalogId' - The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
 mkCreateDatabase ::
   -- | 'databaseInput'
   DatabaseInput ->
   CreateDatabase
 mkCreateDatabase pDatabaseInput_ =
   CreateDatabase'
-    { catalogId = Lude.Nothing,
-      databaseInput = pDatabaseInput_
+    { databaseInput = pDatabaseInput_,
+      catalogId = Lude.Nothing
     }
-
--- | The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCatalogId :: Lens.Lens' CreateDatabase (Lude.Maybe Lude.Text)
-cdCatalogId = Lens.lens (catalogId :: CreateDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateDatabase)
-{-# DEPRECATED cdCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The metadata for the database.
 --
@@ -79,6 +68,13 @@ cdCatalogId = Lens.lens (catalogId :: CreateDatabase -> Lude.Maybe Lude.Text) (\
 cdDatabaseInput :: Lens.Lens' CreateDatabase DatabaseInput
 cdDatabaseInput = Lens.lens (databaseInput :: CreateDatabase -> DatabaseInput) (\s a -> s {databaseInput = a} :: CreateDatabase)
 {-# DEPRECATED cdDatabaseInput "Use generic-lens or generic-optics with 'databaseInput' instead." #-}
+
+-- | The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdCatalogId :: Lens.Lens' CreateDatabase (Lude.Maybe Lude.Text)
+cdCatalogId = Lens.lens (catalogId :: CreateDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateDatabase)
+{-# DEPRECATED cdCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 instance Lude.AWSRequest CreateDatabase where
   type Rs CreateDatabase = CreateDatabaseResponse
@@ -104,8 +100,8 @@ instance Lude.ToJSON CreateDatabase where
   toJSON CreateDatabase' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseInput" Lude..= databaseInput)
+          [ Lude.Just ("DatabaseInput" Lude..= databaseInput),
+            ("CatalogId" Lude..=) Lude.<$> catalogId
           ]
       )
 
@@ -117,16 +113,10 @@ instance Lude.ToQuery CreateDatabase where
 
 -- | /See:/ 'mkCreateDatabaseResponse' smart constructor.
 newtype CreateDatabaseResponse = CreateDatabaseResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDatabaseResponse' with the minimum fields required to make a request.

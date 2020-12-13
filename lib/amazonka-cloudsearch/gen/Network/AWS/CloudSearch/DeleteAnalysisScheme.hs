@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     mkDeleteAnalysisSchemeResponse,
 
     -- ** Response lenses
-    dasarsResponseStatus,
-    dasarsAnalysisScheme,
+    dasfrsAnalysisScheme,
+    dasfrsResponseStatus,
   )
 where
 
@@ -42,23 +43,17 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteAnalysisScheme' smart constructor.
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
-  { domainName ::
-      Lude.Text,
+  { domainName :: Lude.Text,
+    -- | The name of the analysis scheme you want to delete.
     analysisSchemeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAnalysisScheme' with the minimum fields required to make a request.
 --
+-- * 'domainName' -
 -- * 'analysisSchemeName' - The name of the analysis scheme you want to delete.
--- * 'domainName' - Undocumented field.
 mkDeleteAnalysisScheme ::
   -- | 'domainName'
   Lude.Text ->
@@ -93,8 +88,8 @@ instance Lude.AWSRequest DeleteAnalysisScheme where
       "DeleteAnalysisSchemeResult"
       ( \s h x ->
           DeleteAnalysisSchemeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "AnalysisScheme")
+            Lude.<$> (x Lude..@ "AnalysisScheme")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteAnalysisScheme where
@@ -116,18 +111,12 @@ instance Lude.ToQuery DeleteAnalysisScheme where
 --
 -- /See:/ 'mkDeleteAnalysisSchemeResponse' smart constructor.
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-  { responseStatus ::
-      Lude.Int,
-    analysisScheme ::
-      AnalysisSchemeStatus
+  { -- | The status of the analysis scheme being deleted.
+    analysisScheme :: AnalysisSchemeStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAnalysisSchemeResponse' with the minimum fields required to make a request.
@@ -135,27 +124,27 @@ data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
 -- * 'analysisScheme' - The status of the analysis scheme being deleted.
 -- * 'responseStatus' - The response status code.
 mkDeleteAnalysisSchemeResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'analysisScheme'
   AnalysisSchemeStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteAnalysisSchemeResponse
-mkDeleteAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
+mkDeleteAnalysisSchemeResponse pAnalysisScheme_ pResponseStatus_ =
   DeleteAnalysisSchemeResponse'
-    { responseStatus = pResponseStatus_,
-      analysisScheme = pAnalysisScheme_
+    { analysisScheme = pAnalysisScheme_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasarsResponseStatus :: Lens.Lens' DeleteAnalysisSchemeResponse Lude.Int
-dasarsResponseStatus = Lens.lens (responseStatus :: DeleteAnalysisSchemeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAnalysisSchemeResponse)
-{-# DEPRECATED dasarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the analysis scheme being deleted.
 --
 -- /Note:/ Consider using 'analysisScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasarsAnalysisScheme :: Lens.Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-dasarsAnalysisScheme = Lens.lens (analysisScheme :: DeleteAnalysisSchemeResponse -> AnalysisSchemeStatus) (\s a -> s {analysisScheme = a} :: DeleteAnalysisSchemeResponse)
-{-# DEPRECATED dasarsAnalysisScheme "Use generic-lens or generic-optics with 'analysisScheme' instead." #-}
+dasfrsAnalysisScheme :: Lens.Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
+dasfrsAnalysisScheme = Lens.lens (analysisScheme :: DeleteAnalysisSchemeResponse -> AnalysisSchemeStatus) (\s a -> s {analysisScheme = a} :: DeleteAnalysisSchemeResponse)
+{-# DEPRECATED dasfrsAnalysisScheme "Use generic-lens or generic-optics with 'analysisScheme' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasfrsResponseStatus :: Lens.Lens' DeleteAnalysisSchemeResponse Lude.Int
+dasfrsResponseStatus = Lens.lens (responseStatus :: DeleteAnalysisSchemeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAnalysisSchemeResponse)
+{-# DEPRECATED dasfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

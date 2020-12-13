@@ -46,50 +46,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContainer' smart constructor.
 data Container = Container'
-  { gpuIds :: Lude.Maybe [Lude.Text],
+  { -- | The IDs of each GPU assigned to the container.
+    gpuIds :: Lude.Maybe [Lude.Text],
+    -- | The network bindings associated with the container.
     networkBindings :: Lude.Maybe [NetworkBinding],
+    -- | The image used for the container.
     image :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the container.
     containerARN :: Lude.Maybe Lude.Text,
+    -- | The network interfaces associated with the container.
     networkInterfaces :: Lude.Maybe [NetworkInterface],
+    -- | The ARN of the task.
     taskARN :: Lude.Maybe Lude.Text,
+    -- | The last known status of the container.
     lastStatus :: Lude.Maybe Lude.Text,
+    -- | The hard limit (in MiB) of memory set for the container.
     memory :: Lude.Maybe Lude.Text,
+    -- | A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
     reason :: Lude.Maybe Lude.Text,
+    -- | The name of the container.
     name :: Lude.Maybe Lude.Text,
+    -- | The container image manifest digest.
     imageDigest :: Lude.Maybe Lude.Text,
+    -- | The exit code returned from the container.
     exitCode :: Lude.Maybe Lude.Int,
+    -- | The health status of the container. If health checks are not configured for this container in its task definition, then it reports the health status as @UNKNOWN@ .
     healthStatus :: Lude.Maybe HealthStatus,
+    -- | The number of CPU units set for the container. The value will be @0@ if no value was specified in the container definition when the task definition was registered.
     cpu :: Lude.Maybe Lude.Text,
+    -- | The ID of the Docker container.
     runtimeId :: Lude.Maybe Lude.Text,
+    -- | The soft limit (in MiB) of memory set for the container.
     memoryReservation :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Container' with the minimum fields required to make a request.
 --
--- * 'containerARN' - The Amazon Resource Name (ARN) of the container.
--- * 'cpu' - The number of CPU units set for the container. The value will be @0@ if no value was specified in the container definition when the task definition was registered.
--- * 'exitCode' - The exit code returned from the container.
 -- * 'gpuIds' - The IDs of each GPU assigned to the container.
--- * 'healthStatus' - The health status of the container. If health checks are not configured for this container in its task definition, then it reports the health status as @UNKNOWN@ .
+-- * 'networkBindings' - The network bindings associated with the container.
 -- * 'image' - The image used for the container.
--- * 'imageDigest' - The container image manifest digest.
+-- * 'containerARN' - The Amazon Resource Name (ARN) of the container.
+-- * 'networkInterfaces' - The network interfaces associated with the container.
+-- * 'taskARN' - The ARN of the task.
 -- * 'lastStatus' - The last known status of the container.
 -- * 'memory' - The hard limit (in MiB) of memory set for the container.
--- * 'memoryReservation' - The soft limit (in MiB) of memory set for the container.
--- * 'name' - The name of the container.
--- * 'networkBindings' - The network bindings associated with the container.
--- * 'networkInterfaces' - The network interfaces associated with the container.
 -- * 'reason' - A short (255 max characters) human-readable string to provide additional details about a running or stopped container.
+-- * 'name' - The name of the container.
+-- * 'imageDigest' - The container image manifest digest.
+-- * 'exitCode' - The exit code returned from the container.
+-- * 'healthStatus' - The health status of the container. If health checks are not configured for this container in its task definition, then it reports the health status as @UNKNOWN@ .
+-- * 'cpu' - The number of CPU units set for the container. The value will be @0@ if no value was specified in the container definition when the task definition was registered.
 -- * 'runtimeId' - The ID of the Docker container.
--- * 'taskARN' - The ARN of the task.
+-- * 'memoryReservation' - The soft limit (in MiB) of memory set for the container.
 mkContainer ::
   Container
 mkContainer =

@@ -42,38 +42,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudFormationStackRecord' smart constructor.
 data CloudFormationStackRecord = CloudFormationStackRecord'
-  { state ::
-      Lude.Maybe RecordState,
-    destinationInfo ::
-      Lude.Maybe DestinationInfo,
+  { -- | The current state of the CloudFormation stack record.
+    state :: Lude.Maybe RecordState,
+    -- | A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
+    destinationInfo :: Lude.Maybe DestinationInfo,
+    -- | The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the CloudFormation stack record.
     arn :: Lude.Maybe Lude.Text,
+    -- | The date when the CloudFormation stack record was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | A list of objects describing the Availability Zone and AWS Region of the CloudFormation stack record.
     location :: Lude.Maybe ResourceLocation,
+    -- | The name of the CloudFormation stack record. It starts with @CloudFormationStackRecord@ followed by a GUID.
     name :: Lude.Maybe Lude.Text,
-    sourceInfo ::
-      Lude.Maybe
-        [CloudFormationStackRecordSourceInfo]
+    -- | A list of objects describing the source of the CloudFormation stack record.
+    sourceInfo :: Lude.Maybe [CloudFormationStackRecordSourceInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudFormationStackRecord' with the minimum fields required to make a request.
 --
+-- * 'state' - The current state of the CloudFormation stack record.
+-- * 'destinationInfo' - A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
+-- * 'resourceType' - The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
 -- * 'arn' - The Amazon Resource Name (ARN) of the CloudFormation stack record.
 -- * 'createdAt' - The date when the CloudFormation stack record was created.
--- * 'destinationInfo' - A list of objects describing the destination service, which is AWS CloudFormation, and the Amazon Resource Name (ARN) of the AWS CloudFormation stack.
 -- * 'location' - A list of objects describing the Availability Zone and AWS Region of the CloudFormation stack record.
 -- * 'name' - The name of the CloudFormation stack record. It starts with @CloudFormationStackRecord@ followed by a GUID.
--- * 'resourceType' - The Lightsail resource type (e.g., @CloudFormationStackRecord@ ).
 -- * 'sourceInfo' - A list of objects describing the source of the CloudFormation stack record.
--- * 'state' - The current state of the CloudFormation stack record.
 mkCloudFormationStackRecord ::
   CloudFormationStackRecord
 mkCloudFormationStackRecord =

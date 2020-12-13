@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJourneyLimits' smart constructor.
 data JourneyLimits = JourneyLimits'
-  { messagesPerSecond ::
-      Lude.Maybe Lude.Int,
+  { -- | The maximum number of messages that the journey can send each second.
+    messagesPerSecond :: Lude.Maybe Lude.Int,
+    -- | The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.
     endpointReentryCap :: Lude.Maybe Lude.Int,
+    -- | The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.
     dailyCap :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyLimits' with the minimum fields required to make a request.
 --
--- * 'dailyCap' - The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.
--- * 'endpointReentryCap' - The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.
 -- * 'messagesPerSecond' - The maximum number of messages that the journey can send each second.
+-- * 'endpointReentryCap' - The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.
+-- * 'dailyCap' - The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.
 mkJourneyLimits ::
   JourneyLimits
 mkJourneyLimits =

@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventAggregate' smart constructor.
 data EventAggregate = EventAggregate'
-  { count :: Lude.Maybe Lude.Int,
+  { -- | The number of events of the associated issue type.
+    count :: Lude.Maybe Lude.Int,
+    -- | The issue type for the associated count.
     aggregateValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventAggregate' with the minimum fields required to make a request.
 --
--- * 'aggregateValue' - The issue type for the associated count.
 -- * 'count' - The number of events of the associated issue type.
+-- * 'aggregateValue' - The issue type for the associated count.
 mkEventAggregate ::
   EventAggregate
 mkEventAggregate =

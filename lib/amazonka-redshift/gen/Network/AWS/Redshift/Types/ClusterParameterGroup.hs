@@ -33,27 +33,24 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkClusterParameterGroup' smart constructor.
 data ClusterParameterGroup = ClusterParameterGroup'
-  { parameterGroupFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
+    parameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | The description of the parameter group.
     description :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the cluster parameter group.
     tags :: Lude.Maybe [Tag],
+    -- | The name of the cluster parameter group.
     parameterGroupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterParameterGroup' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the parameter group.
 -- * 'parameterGroupFamily' - The name of the cluster parameter group family that this cluster parameter group is compatible with.
--- * 'parameterGroupName' - The name of the cluster parameter group.
+-- * 'description' - The description of the parameter group.
 -- * 'tags' - The list of tags for the cluster parameter group.
+-- * 'parameterGroupName' - The name of the cluster parameter group.
 mkClusterParameterGroup ::
   ClusterParameterGroup
 mkClusterParameterGroup =

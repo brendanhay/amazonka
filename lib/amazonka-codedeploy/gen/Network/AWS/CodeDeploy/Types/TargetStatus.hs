@@ -13,13 +13,13 @@
 module Network.AWS.CodeDeploy.Types.TargetStatus
   ( TargetStatus
       ( TargetStatus',
-        TSFailed,
-        TSInProgress,
         TSPending,
-        TSReady,
-        TSSkipped,
+        TSInProgress,
         TSSucceeded,
-        TSUnknown
+        TSFailed,
+        TSSkipped,
+        TSUnknown,
+        TSReady
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype TargetStatus = TargetStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern TSFailed :: TargetStatus
-pattern TSFailed = TargetStatus' "Failed"
+pattern TSPending :: TargetStatus
+pattern TSPending = TargetStatus' "Pending"
 
 pattern TSInProgress :: TargetStatus
 pattern TSInProgress = TargetStatus' "InProgress"
 
-pattern TSPending :: TargetStatus
-pattern TSPending = TargetStatus' "Pending"
+pattern TSSucceeded :: TargetStatus
+pattern TSSucceeded = TargetStatus' "Succeeded"
 
-pattern TSReady :: TargetStatus
-pattern TSReady = TargetStatus' "Ready"
+pattern TSFailed :: TargetStatus
+pattern TSFailed = TargetStatus' "Failed"
 
 pattern TSSkipped :: TargetStatus
 pattern TSSkipped = TargetStatus' "Skipped"
 
-pattern TSSucceeded :: TargetStatus
-pattern TSSucceeded = TargetStatus' "Succeeded"
-
 pattern TSUnknown :: TargetStatus
 pattern TSUnknown = TargetStatus' "Unknown"
 
+pattern TSReady :: TargetStatus
+pattern TSReady = TargetStatus' "Ready"
+
 {-# COMPLETE
-  TSFailed,
-  TSInProgress,
   TSPending,
-  TSReady,
-  TSSkipped,
+  TSInProgress,
   TSSucceeded,
+  TSFailed,
+  TSSkipped,
   TSUnknown,
+  TSReady,
   TargetStatus'
   #-}

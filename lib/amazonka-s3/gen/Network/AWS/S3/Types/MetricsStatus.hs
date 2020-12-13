@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.MetricsStatus
   ( MetricsStatus
       ( MetricsStatus',
-        MSDisabled,
-        MSEnabled
+        MSEnabled,
+        MSDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MetricsStatus = MetricsStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSDisabled :: MetricsStatus
-pattern MSDisabled = MetricsStatus' "Disabled"
-
 pattern MSEnabled :: MetricsStatus
 pattern MSEnabled = MetricsStatus' "Enabled"
 
+pattern MSDisabled :: MetricsStatus
+pattern MSDisabled = MetricsStatus' "Disabled"
+
 {-# COMPLETE
-  MSDisabled,
   MSEnabled,
+  MSDisabled,
   MetricsStatus'
   #-}

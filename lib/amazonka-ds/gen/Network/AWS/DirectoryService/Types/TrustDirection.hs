@@ -13,8 +13,8 @@
 module Network.AWS.DirectoryService.Types.TrustDirection
   ( TrustDirection
       ( TrustDirection',
-        OneWayIncoming,
         OneWayOutgoing,
+        OneWayIncoming,
         TwoWay
       ),
   )
@@ -46,18 +46,18 @@ newtype TrustDirection = TrustDirection' Lude.Text
       Lude.ToHeader
     )
 
-pattern OneWayIncoming :: TrustDirection
-pattern OneWayIncoming = TrustDirection' "One-Way: Incoming"
-
 pattern OneWayOutgoing :: TrustDirection
 pattern OneWayOutgoing = TrustDirection' "One-Way: Outgoing"
+
+pattern OneWayIncoming :: TrustDirection
+pattern OneWayIncoming = TrustDirection' "One-Way: Incoming"
 
 pattern TwoWay :: TrustDirection
 pattern TwoWay = TrustDirection' "Two-Way"
 
 {-# COMPLETE
-  OneWayIncoming,
   OneWayOutgoing,
+  OneWayIncoming,
   TwoWay,
   TrustDirection'
   #-}

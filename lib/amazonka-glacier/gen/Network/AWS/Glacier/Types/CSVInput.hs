@@ -34,30 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCSVInput' smart constructor.
 data CSVInput = CSVInput'
-  { quoteCharacter :: Lude.Maybe Lude.Text,
+  { -- | A value used as an escape character where the field delimiter is part of the value.
+    quoteCharacter :: Lude.Maybe Lude.Text,
+    -- | A value used to separate individual records from each other.
     recordDelimiter :: Lude.Maybe Lude.Text,
+    -- | Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
     fileHeaderInfo :: Lude.Maybe FileHeaderInfo,
+    -- | A single character used for escaping the quotation-mark character inside an already escaped value.
     quoteEscapeCharacter :: Lude.Maybe Lude.Text,
+    -- | A single character used to indicate that a row should be ignored when the character is present at the start of that row.
     comments :: Lude.Maybe Lude.Text,
+    -- | A value used to separate individual fields from each other within a record.
     fieldDelimiter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CSVInput' with the minimum fields required to make a request.
 --
+-- * 'quoteCharacter' - A value used as an escape character where the field delimiter is part of the value.
+-- * 'recordDelimiter' - A value used to separate individual records from each other.
+-- * 'fileHeaderInfo' - Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
+-- * 'quoteEscapeCharacter' - A single character used for escaping the quotation-mark character inside an already escaped value.
 -- * 'comments' - A single character used to indicate that a row should be ignored when the character is present at the start of that row.
 -- * 'fieldDelimiter' - A value used to separate individual fields from each other within a record.
--- * 'fileHeaderInfo' - Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
--- * 'quoteCharacter' - A value used as an escape character where the field delimiter is part of the value.
--- * 'quoteEscapeCharacter' - A single character used for escaping the quotation-mark character inside an already escaped value.
--- * 'recordDelimiter' - A value used to separate individual records from each other.
 mkCSVInput ::
   CSVInput
 mkCSVInput =

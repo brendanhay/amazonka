@@ -31,24 +31,22 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCostCategoryRule' smart constructor.
 data CostCategoryRule = CostCategoryRule'
   { value :: Lude.Text,
+    -- | An <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object used to categorize costs. This supports dimensions, tags, and nested expressions. Currently the only dimensions supported are @LINKED_ACCOUNT@ , @SERVICE_CODE@ , @RECORD_TYPE@ , and @LINKED_ACCOUNT_NAME@ .
+    --
+    -- Root level @OR@ is not supported. We recommend that you create a separate rule instead.
+    -- @RECORD_TYPE@ is a dimension used for Cost Explorer APIs, and is also supported for Cost Category expressions. This dimension uses different terms, depending on whether you're using the console or API/JSON editor. For a detailed comparison, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms Term Comparisons> in the /AWS Billing and Cost Management User Guide/ .
     rule :: Expression
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostCategoryRule' with the minimum fields required to make a request.
 --
+-- * 'value' -
 -- * 'rule' - An <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object used to categorize costs. This supports dimensions, tags, and nested expressions. Currently the only dimensions supported are @LINKED_ACCOUNT@ , @SERVICE_CODE@ , @RECORD_TYPE@ , and @LINKED_ACCOUNT_NAME@ .
 --
 -- Root level @OR@ is not supported. We recommend that you create a separate rule instead.
 -- @RECORD_TYPE@ is a dimension used for Cost Explorer APIs, and is also supported for Cost Category expressions. This dimension uses different terms, depending on whether you're using the console or API/JSON editor. For a detailed comparison, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms Term Comparisons> in the /AWS Billing and Cost Management User Guide/ .
--- * 'value' - Undocumented field.
 mkCostCategoryRule ::
   -- | 'value'
   Lude.Text ->

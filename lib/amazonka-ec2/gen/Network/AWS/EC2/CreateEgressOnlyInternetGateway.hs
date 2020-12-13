@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.EC2.CreateEgressOnlyInternetGateway
 
     -- ** Request lenses
     ceoigClientToken,
+    ceoigVPCId,
     ceoigTagSpecifications,
     ceoigDryRun,
-    ceoigVPCId,
 
     -- * Destructuring the response
     CreateEgressOnlyInternetGatewayResponse (..),
@@ -43,30 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateEgressOnlyInternetGateway' smart constructor.
 data CreateEgressOnlyInternetGateway = CreateEgressOnlyInternetGateway'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe
-        [TagSpecification],
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    vpcId :: Lude.Text
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC for which to create the egress-only internet gateway.
+    vpcId :: Lude.Text,
+    -- | The tags to assign to the egress-only internet gateway.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEgressOnlyInternetGateway' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'tagSpecifications' - The tags to assign to the egress-only internet gateway.
 -- * 'vpcId' - The ID of the VPC for which to create the egress-only internet gateway.
+-- * 'tagSpecifications' - The tags to assign to the egress-only internet gateway.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateEgressOnlyInternetGateway ::
   -- | 'vpcId'
   Lude.Text ->
@@ -74,9 +69,9 @@ mkCreateEgressOnlyInternetGateway ::
 mkCreateEgressOnlyInternetGateway pVPCId_ =
   CreateEgressOnlyInternetGateway'
     { clientToken = Lude.Nothing,
+      vpcId = pVPCId_,
       tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      vpcId = pVPCId_
+      dryRun = Lude.Nothing
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
@@ -85,6 +80,13 @@ mkCreateEgressOnlyInternetGateway pVPCId_ =
 ceoigClientToken :: Lens.Lens' CreateEgressOnlyInternetGateway (Lude.Maybe Lude.Text)
 ceoigClientToken = Lens.lens (clientToken :: CreateEgressOnlyInternetGateway -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateEgressOnlyInternetGateway)
 {-# DEPRECATED ceoigClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The ID of the VPC for which to create the egress-only internet gateway.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoigVPCId :: Lens.Lens' CreateEgressOnlyInternetGateway Lude.Text
+ceoigVPCId = Lens.lens (vpcId :: CreateEgressOnlyInternetGateway -> Lude.Text) (\s a -> s {vpcId = a} :: CreateEgressOnlyInternetGateway)
+{-# DEPRECATED ceoigVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The tags to assign to the egress-only internet gateway.
 --
@@ -99,13 +101,6 @@ ceoigTagSpecifications = Lens.lens (tagSpecifications :: CreateEgressOnlyInterne
 ceoigDryRun :: Lens.Lens' CreateEgressOnlyInternetGateway (Lude.Maybe Lude.Bool)
 ceoigDryRun = Lens.lens (dryRun :: CreateEgressOnlyInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateEgressOnlyInternetGateway)
 {-# DEPRECATED ceoigDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the VPC for which to create the egress-only internet gateway.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceoigVPCId :: Lens.Lens' CreateEgressOnlyInternetGateway Lude.Text
-ceoigVPCId = Lens.lens (vpcId :: CreateEgressOnlyInternetGateway -> Lude.Text) (\s a -> s {vpcId = a} :: CreateEgressOnlyInternetGateway)
-{-# DEPRECATED ceoigVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 instance Lude.AWSRequest CreateEgressOnlyInternetGateway where
   type
@@ -134,30 +129,22 @@ instance Lude.ToQuery CreateEgressOnlyInternetGateway where
           Lude.=: ("CreateEgressOnlyInternetGateway" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "ClientToken" Lude.=: clientToken,
+        "VpcId" Lude.=: vpcId,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
-        "VpcId" Lude.=: vpcId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateEgressOnlyInternetGatewayResponse' smart constructor.
 data CreateEgressOnlyInternetGatewayResponse = CreateEgressOnlyInternetGatewayResponse'
-  { clientToken ::
-      Lude.Maybe
-        Lude.Text,
-    egressOnlyInternetGateway ::
-      Lude.Maybe
-        EgressOnlyInternetGateway,
-    responseStatus ::
-      Lude.Int
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | Information about the egress-only internet gateway.
+    egressOnlyInternetGateway :: Lude.Maybe EgressOnlyInternetGateway,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateEgressOnlyInternetGatewayResponse' with the minimum fields required to make a request.

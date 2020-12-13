@@ -21,9 +21,9 @@ module Network.AWS.Pinpoint.Types.WriteTreatmentResource
     wtrSchedule,
     wtrTemplateConfiguration,
     wtrTreatmentName,
+    wtrSizePercent,
     wtrTreatmentDescription,
     wtrMessageConfiguration,
-    wtrSizePercent,
   )
 where
 
@@ -38,35 +38,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWriteTreatmentResource' smart constructor.
 data WriteTreatmentResource = WriteTreatmentResource'
-  { customDeliveryConfiguration ::
-      Lude.Maybe CustomDeliveryConfiguration,
+  { -- | The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
+    customDeliveryConfiguration :: Lude.Maybe CustomDeliveryConfiguration,
+    -- | The schedule settings for the treatment.
     schedule :: Lude.Maybe Schedule,
-    templateConfiguration ::
-      Lude.Maybe TemplateConfiguration,
+    -- | The message template to use for the treatment.
+    templateConfiguration :: Lude.Maybe TemplateConfiguration,
+    -- | A custom name for the treatment.
     treatmentName :: Lude.Maybe Lude.Text,
+    -- | The allocated percentage of users (segment members) to send the treatment to.
+    sizePercent :: Lude.Int,
+    -- | A custom description of the treatment.
     treatmentDescription :: Lude.Maybe Lude.Text,
-    messageConfiguration ::
-      Lude.Maybe MessageConfiguration,
-    sizePercent :: Lude.Int
+    -- | The message configuration settings for the treatment.
+    messageConfiguration :: Lude.Maybe MessageConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteTreatmentResource' with the minimum fields required to make a request.
 --
 -- * 'customDeliveryConfiguration' - The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
--- * 'messageConfiguration' - The message configuration settings for the treatment.
 -- * 'schedule' - The schedule settings for the treatment.
--- * 'sizePercent' - The allocated percentage of users (segment members) to send the treatment to.
 -- * 'templateConfiguration' - The message template to use for the treatment.
--- * 'treatmentDescription' - A custom description of the treatment.
 -- * 'treatmentName' - A custom name for the treatment.
+-- * 'sizePercent' - The allocated percentage of users (segment members) to send the treatment to.
+-- * 'treatmentDescription' - A custom description of the treatment.
+-- * 'messageConfiguration' - The message configuration settings for the treatment.
 mkWriteTreatmentResource ::
   -- | 'sizePercent'
   Lude.Int ->
@@ -78,9 +76,9 @@ mkWriteTreatmentResource pSizePercent_ =
       schedule = Lude.Nothing,
       templateConfiguration = Lude.Nothing,
       treatmentName = Lude.Nothing,
+      sizePercent = pSizePercent_,
       treatmentDescription = Lude.Nothing,
-      messageConfiguration = Lude.Nothing,
-      sizePercent = pSizePercent_
+      messageConfiguration = Lude.Nothing
     }
 
 -- | The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.
@@ -111,6 +109,13 @@ wtrTreatmentName :: Lens.Lens' WriteTreatmentResource (Lude.Maybe Lude.Text)
 wtrTreatmentName = Lens.lens (treatmentName :: WriteTreatmentResource -> Lude.Maybe Lude.Text) (\s a -> s {treatmentName = a} :: WriteTreatmentResource)
 {-# DEPRECATED wtrTreatmentName "Use generic-lens or generic-optics with 'treatmentName' instead." #-}
 
+-- | The allocated percentage of users (segment members) to send the treatment to.
+--
+-- /Note:/ Consider using 'sizePercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wtrSizePercent :: Lens.Lens' WriteTreatmentResource Lude.Int
+wtrSizePercent = Lens.lens (sizePercent :: WriteTreatmentResource -> Lude.Int) (\s a -> s {sizePercent = a} :: WriteTreatmentResource)
+{-# DEPRECATED wtrSizePercent "Use generic-lens or generic-optics with 'sizePercent' instead." #-}
+
 -- | A custom description of the treatment.
 --
 -- /Note:/ Consider using 'treatmentDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -125,13 +130,6 @@ wtrMessageConfiguration :: Lens.Lens' WriteTreatmentResource (Lude.Maybe Message
 wtrMessageConfiguration = Lens.lens (messageConfiguration :: WriteTreatmentResource -> Lude.Maybe MessageConfiguration) (\s a -> s {messageConfiguration = a} :: WriteTreatmentResource)
 {-# DEPRECATED wtrMessageConfiguration "Use generic-lens or generic-optics with 'messageConfiguration' instead." #-}
 
--- | The allocated percentage of users (segment members) to send the treatment to.
---
--- /Note:/ Consider using 'sizePercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wtrSizePercent :: Lens.Lens' WriteTreatmentResource Lude.Int
-wtrSizePercent = Lens.lens (sizePercent :: WriteTreatmentResource -> Lude.Int) (\s a -> s {sizePercent = a} :: WriteTreatmentResource)
-{-# DEPRECATED wtrSizePercent "Use generic-lens or generic-optics with 'sizePercent' instead." #-}
-
 instance Lude.ToJSON WriteTreatmentResource where
   toJSON WriteTreatmentResource' {..} =
     Lude.object
@@ -141,8 +139,8 @@ instance Lude.ToJSON WriteTreatmentResource where
             ("Schedule" Lude..=) Lude.<$> schedule,
             ("TemplateConfiguration" Lude..=) Lude.<$> templateConfiguration,
             ("TreatmentName" Lude..=) Lude.<$> treatmentName,
+            Lude.Just ("SizePercent" Lude..= sizePercent),
             ("TreatmentDescription" Lude..=) Lude.<$> treatmentDescription,
-            ("MessageConfiguration" Lude..=) Lude.<$> messageConfiguration,
-            Lude.Just ("SizePercent" Lude..= sizePercent)
+            ("MessageConfiguration" Lude..=) Lude.<$> messageConfiguration
           ]
       )

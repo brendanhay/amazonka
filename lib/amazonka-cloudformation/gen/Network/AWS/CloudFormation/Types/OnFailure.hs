@@ -13,9 +13,9 @@
 module Network.AWS.CloudFormation.Types.OnFailure
   ( OnFailure
       ( OnFailure',
-        OFDelete,
-        OFDoNothing,
-        OFRollback
+        DoNothing,
+        Rollback,
+        Delete
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype OnFailure = OnFailure' Lude.Text
       Lude.ToHeader
     )
 
-pattern OFDelete :: OnFailure
-pattern OFDelete = OnFailure' "DELETE"
+pattern DoNothing :: OnFailure
+pattern DoNothing = OnFailure' "DO_NOTHING"
 
-pattern OFDoNothing :: OnFailure
-pattern OFDoNothing = OnFailure' "DO_NOTHING"
+pattern Rollback :: OnFailure
+pattern Rollback = OnFailure' "ROLLBACK"
 
-pattern OFRollback :: OnFailure
-pattern OFRollback = OnFailure' "ROLLBACK"
+pattern Delete :: OnFailure
+pattern Delete = OnFailure' "DELETE"
 
 {-# COMPLETE
-  OFDelete,
-  OFDoNothing,
-  OFRollback,
+  DoNothing,
+  Rollback,
+  Delete,
   OnFailure'
   #-}

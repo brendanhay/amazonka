@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.AWSHealth.DescribeEventDetails
     mkDescribeEventDetails,
 
     -- ** Request lenses
-    dedLocale,
     dedEventARNs,
+    dedLocale,
 
     -- * Destructuring the response
     DescribeEventDetailsResponse (..),
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEventDetails' smart constructor.
 data DescribeEventDetails = DescribeEventDetails'
-  { locale ::
-      Lude.Maybe Lude.Text,
-    eventARNs :: Lude.NonEmpty Lude.Text
+  { -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
+    eventARNs :: Lude.NonEmpty Lude.Text,
+    -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventDetails' with the minimum fields required to make a request.
@@ -66,16 +62,9 @@ mkDescribeEventDetails ::
   DescribeEventDetails
 mkDescribeEventDetails pEventARNs_ =
   DescribeEventDetails'
-    { locale = Lude.Nothing,
-      eventARNs = pEventARNs_
+    { eventARNs = pEventARNs_,
+      locale = Lude.Nothing
     }
-
--- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedLocale :: Lens.Lens' DescribeEventDetails (Lude.Maybe Lude.Text)
-dedLocale = Lens.lens (locale :: DescribeEventDetails -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: DescribeEventDetails)
-{-# DEPRECATED dedLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | A list of event ARNs (unique identifiers). For example: @"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"@
 --
@@ -83,6 +72,13 @@ dedLocale = Lens.lens (locale :: DescribeEventDetails -> Lude.Maybe Lude.Text) (
 dedEventARNs :: Lens.Lens' DescribeEventDetails (Lude.NonEmpty Lude.Text)
 dedEventARNs = Lens.lens (eventARNs :: DescribeEventDetails -> Lude.NonEmpty Lude.Text) (\s a -> s {eventARNs = a} :: DescribeEventDetails)
 {-# DEPRECATED dedEventARNs "Use generic-lens or generic-optics with 'eventARNs' instead." #-}
+
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedLocale :: Lens.Lens' DescribeEventDetails (Lude.Maybe Lude.Text)
+dedLocale = Lens.lens (locale :: DescribeEventDetails -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: DescribeEventDetails)
+{-# DEPRECATED dedLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 instance Lude.AWSRequest DescribeEventDetails where
   type Rs DescribeEventDetails = DescribeEventDetailsResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON DescribeEventDetails where
   toJSON DescribeEventDetails' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("locale" Lude..=) Lude.<$> locale,
-            Lude.Just ("eventArns" Lude..= eventARNs)
+          [ Lude.Just ("eventArns" Lude..= eventARNs),
+            ("locale" Lude..=) Lude.<$> locale
           ]
       )
 
@@ -124,27 +120,21 @@ instance Lude.ToQuery DescribeEventDetails where
 
 -- | /See:/ 'mkDescribeEventDetailsResponse' smart constructor.
 data DescribeEventDetailsResponse = DescribeEventDetailsResponse'
-  { successfulSet ::
-      Lude.Maybe [EventDetails],
-    failedSet ::
-      Lude.Maybe
-        [EventDetailsErrorItem],
+  { -- | Information about the events that could be retrieved.
+    successfulSet :: Lude.Maybe [EventDetails],
+    -- | Error messages for any events that could not be retrieved.
+    failedSet :: Lude.Maybe [EventDetailsErrorItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventDetailsResponse' with the minimum fields required to make a request.
 --
+-- * 'successfulSet' - Information about the events that could be retrieved.
 -- * 'failedSet' - Error messages for any events that could not be retrieved.
 -- * 'responseStatus' - The response status code.
--- * 'successfulSet' - Information about the events that could be retrieved.
 mkDescribeEventDetailsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

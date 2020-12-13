@@ -31,16 +31,12 @@ import Network.AWS.WAF.Types.ChangeAction
 --
 -- /See:/ 'mkWebACLUpdate' smart constructor.
 data WebACLUpdate = WebACLUpdate'
-  { action :: ChangeAction,
+  { -- | Specifies whether to insert a @Rule@ into or delete a @Rule@ from a @WebACL@ .
+    action :: ChangeAction,
+    -- | The @ActivatedRule@ object in an 'UpdateWebACL' request specifies a @Rule@ that you want to insert or delete, the priority of the @Rule@ in the @WebACL@ , and the action that you want AWS WAF to take when a web request matches the @Rule@ (@ALLOW@ , @BLOCK@ , or @COUNT@ ).
     activatedRule :: ActivatedRule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WebACLUpdate' with the minimum fields required to make a request.

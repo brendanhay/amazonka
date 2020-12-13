@@ -31,29 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticGpuAssociation' smart constructor.
 data ElasticGpuAssociation = ElasticGpuAssociation'
-  { elasticGpuId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Elastic Graphics accelerator.
+    elasticGpuId :: Lude.Maybe Lude.Text,
+    -- | The ID of the association.
     elasticGpuAssociationId :: Lude.Maybe Lude.Text,
-    elasticGpuAssociationTime ::
-      Lude.Maybe Lude.Text,
-    elasticGpuAssociationState ::
-      Lude.Maybe Lude.Text
+    -- | The time the Elastic Graphics accelerator was associated with the instance.
+    elasticGpuAssociationTime :: Lude.Maybe Lude.Text,
+    -- | The state of the association between the instance and the Elastic Graphics accelerator.
+    elasticGpuAssociationState :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticGpuAssociation' with the minimum fields required to make a request.
 --
--- * 'elasticGpuAssociationId' - The ID of the association.
--- * 'elasticGpuAssociationState' - The state of the association between the instance and the Elastic Graphics accelerator.
--- * 'elasticGpuAssociationTime' - The time the Elastic Graphics accelerator was associated with the instance.
 -- * 'elasticGpuId' - The ID of the Elastic Graphics accelerator.
+-- * 'elasticGpuAssociationId' - The ID of the association.
+-- * 'elasticGpuAssociationTime' - The time the Elastic Graphics accelerator was associated with the instance.
+-- * 'elasticGpuAssociationState' - The state of the association between the instance and the Elastic Graphics accelerator.
 mkElasticGpuAssociation ::
   ElasticGpuAssociation
 mkElasticGpuAssociation =

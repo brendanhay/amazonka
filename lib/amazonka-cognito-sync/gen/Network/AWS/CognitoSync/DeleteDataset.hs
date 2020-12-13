@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoSync.DeleteDataset
     mkDeleteDataset,
 
     -- ** Request lenses
-    delIdentityPoolId,
-    delIdentityId,
-    delDatasetName,
+    ddIdentityPoolId,
+    ddDatasetName,
+    ddIdentityId,
 
     -- * Destructuring the response
     DeleteDatasetResponse (..),
@@ -45,59 +46,56 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDataset' smart constructor.
 data DeleteDataset = DeleteDataset'
-  { identityPoolId :: Lude.Text,
-    identityId :: Lude.Text,
-    datasetName :: Lude.Text
+  { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityPoolId :: Lude.Text,
+    -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
+    datasetName :: Lude.Text,
+    -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+    identityId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataset' with the minimum fields required to make a request.
 --
+-- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 -- * 'datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 -- * 'identityId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 mkDeleteDataset ::
   -- | 'identityPoolId'
   Lude.Text ->
-  -- | 'identityId'
-  Lude.Text ->
   -- | 'datasetName'
   Lude.Text ->
+  -- | 'identityId'
+  Lude.Text ->
   DeleteDataset
-mkDeleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+mkDeleteDataset pIdentityPoolId_ pDatasetName_ pIdentityId_ =
   DeleteDataset'
     { identityPoolId = pIdentityPoolId_,
-      identityId = pIdentityId_,
-      datasetName = pDatasetName_
+      datasetName = pDatasetName_,
+      identityId = pIdentityId_
     }
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delIdentityPoolId :: Lens.Lens' DeleteDataset Lude.Text
-delIdentityPoolId = Lens.lens (identityPoolId :: DeleteDataset -> Lude.Text) (\s a -> s {identityPoolId = a} :: DeleteDataset)
-{-# DEPRECATED delIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
-
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
---
--- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delIdentityId :: Lens.Lens' DeleteDataset Lude.Text
-delIdentityId = Lens.lens (identityId :: DeleteDataset -> Lude.Text) (\s a -> s {identityId = a} :: DeleteDataset)
-{-# DEPRECATED delIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
+ddIdentityPoolId :: Lens.Lens' DeleteDataset Lude.Text
+ddIdentityPoolId = Lens.lens (identityPoolId :: DeleteDataset -> Lude.Text) (\s a -> s {identityPoolId = a} :: DeleteDataset)
+{-# DEPRECATED ddIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_' (underscore), '-' (dash), and '.' (dot).
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delDatasetName :: Lens.Lens' DeleteDataset Lude.Text
-delDatasetName = Lens.lens (datasetName :: DeleteDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DeleteDataset)
-{-# DEPRECATED delDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+ddDatasetName :: Lens.Lens' DeleteDataset Lude.Text
+ddDatasetName = Lens.lens (datasetName :: DeleteDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DeleteDataset)
+{-# DEPRECATED ddDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+
+-- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddIdentityId :: Lens.Lens' DeleteDataset Lude.Text
+ddIdentityId = Lens.lens (identityId :: DeleteDataset -> Lude.Text) (\s a -> s {identityId = a} :: DeleteDataset)
+{-# DEPRECATED ddIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 instance Lude.AWSRequest DeleteDataset where
   type Rs DeleteDataset = DeleteDatasetResponse
@@ -136,17 +134,12 @@ instance Lude.ToQuery DeleteDataset where
 --
 -- /See:/ 'mkDeleteDatasetResponse' smart constructor.
 data DeleteDatasetResponse = DeleteDatasetResponse'
-  { dataset ::
-      Lude.Maybe Dataset,
+  { -- | A collection of data for an identity pool. An identity pool can have multiple datasets. A dataset is per identity and can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don't exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
+    dataset :: Lude.Maybe Dataset,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDatasetResponse' with the minimum fields required to make a request.

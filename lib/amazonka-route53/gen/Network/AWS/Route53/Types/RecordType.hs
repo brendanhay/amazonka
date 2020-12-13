@@ -13,18 +13,18 @@
 module Network.AWS.Route53.Types.RecordType
   ( RecordType
       ( RecordType',
+        Soa,
         A,
-        Aaaa,
-        Caa,
+        Txt,
+        NS,
         Cname,
         MX,
-        NS,
         Naptr,
         Ptr,
-        Soa,
-        Spf,
         Srv,
-        Txt
+        Spf,
+        Aaaa,
+        Caa
       ),
   )
 where
@@ -56,14 +56,17 @@ newtype RecordType = RecordType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Soa :: RecordType
+pattern Soa = RecordType' "SOA"
+
 pattern A :: RecordType
 pattern A = RecordType' "A"
 
-pattern Aaaa :: RecordType
-pattern Aaaa = RecordType' "AAAA"
+pattern Txt :: RecordType
+pattern Txt = RecordType' "TXT"
 
-pattern Caa :: RecordType
-pattern Caa = RecordType' "CAA"
+pattern NS :: RecordType
+pattern NS = RecordType' "NS"
 
 pattern Cname :: RecordType
 pattern Cname = RecordType' "CNAME"
@@ -71,39 +74,36 @@ pattern Cname = RecordType' "CNAME"
 pattern MX :: RecordType
 pattern MX = RecordType' "MX"
 
-pattern NS :: RecordType
-pattern NS = RecordType' "NS"
-
 pattern Naptr :: RecordType
 pattern Naptr = RecordType' "NAPTR"
 
 pattern Ptr :: RecordType
 pattern Ptr = RecordType' "PTR"
 
-pattern Soa :: RecordType
-pattern Soa = RecordType' "SOA"
+pattern Srv :: RecordType
+pattern Srv = RecordType' "SRV"
 
 pattern Spf :: RecordType
 pattern Spf = RecordType' "SPF"
 
-pattern Srv :: RecordType
-pattern Srv = RecordType' "SRV"
+pattern Aaaa :: RecordType
+pattern Aaaa = RecordType' "AAAA"
 
-pattern Txt :: RecordType
-pattern Txt = RecordType' "TXT"
+pattern Caa :: RecordType
+pattern Caa = RecordType' "CAA"
 
 {-# COMPLETE
+  Soa,
   A,
-  Aaaa,
-  Caa,
+  Txt,
+  NS,
   Cname,
   MX,
-  NS,
   Naptr,
   Ptr,
-  Soa,
-  Spf,
   Srv,
-  Txt,
+  Spf,
+  Aaaa,
+  Caa,
   RecordType'
   #-}

@@ -29,26 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSeverityLevel' smart constructor.
 data SeverityLevel = SeverityLevel'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The name of the severity level that corresponds to the severity level code.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
+    name :: Lude.Maybe Lude.Text,
+    -- | The code for case severity level.
+    --
+    -- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
     code :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SeverityLevel' with the minimum fields required to make a request.
 --
--- * 'code' - The code for case severity level.
---
--- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
 -- * 'name' - The name of the severity level that corresponds to the severity level code.
 --
 -- For more information, see <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity> in the /AWS Support User Guide/ .
+-- * 'code' - The code for case severity level.
+--
+-- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
 mkSeverityLevel ::
   SeverityLevel
 mkSeverityLevel =

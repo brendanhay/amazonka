@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTagKeys' smart constructor.
 newtype GetTagKeys = GetTagKeys'
-  { paginationToken ::
-      Lude.Maybe Lude.Text
+  { -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
+    paginationToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagKeys' with the minimum fields required to make a request.
@@ -118,25 +113,21 @@ instance Lude.ToQuery GetTagKeys where
 
 -- | /See:/ 'mkGetTagKeysResponse' smart constructor.
 data GetTagKeysResponse = GetTagKeysResponse'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | A list of all tag keys in the AWS account.
     tagKeys :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTagKeysResponse' with the minimum fields required to make a request.
 --
 -- * 'paginationToken' - A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
--- * 'responseStatus' - The response status code.
 -- * 'tagKeys' - A list of all tag keys in the AWS account.
+-- * 'responseStatus' - The response status code.
 mkGetTagKeysResponse ::
   -- | 'responseStatus'
   Lude.Int ->

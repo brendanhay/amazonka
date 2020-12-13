@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Represents the properties of a replica.
 --
 -- /See:/ 'mkReplica' smart constructor.
-newtype Replica = Replica' {regionName :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Replica = Replica'
+  { -- | The Region where the replica needs to be created.
+    regionName :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Replica' with the minimum fields required to make a request.

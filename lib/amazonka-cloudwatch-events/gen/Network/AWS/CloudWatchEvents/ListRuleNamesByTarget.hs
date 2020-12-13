@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     mkListRuleNamesByTarget,
 
     -- ** Request lenses
+    lrnbtTargetARN,
     lrnbtNextToken,
     lrnbtEventBusName,
     lrnbtLimit,
-    lrnbtTargetARN,
 
     -- * Destructuring the response
     ListRuleNamesByTargetResponse (..),
@@ -46,38 +47,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListRuleNamesByTarget' smart constructor.
 data ListRuleNamesByTarget = ListRuleNamesByTarget'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the target resource.
+    targetARN :: Lude.Text,
+    -- | The token returned by a previous call to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name or ARN of the event bus to list rules for. If you omit this, the default event bus is used.
     eventBusName :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    targetARN :: Lude.Text
+    -- | The maximum number of results to return.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRuleNamesByTarget' with the minimum fields required to make a request.
 --
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the target resource.
+-- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
 -- * 'eventBusName' - The name or ARN of the event bus to list rules for. If you omit this, the default event bus is used.
 -- * 'limit' - The maximum number of results to return.
--- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
--- * 'targetARN' - The Amazon Resource Name (ARN) of the target resource.
 mkListRuleNamesByTarget ::
   -- | 'targetARN'
   Lude.Text ->
   ListRuleNamesByTarget
 mkListRuleNamesByTarget pTargetARN_ =
   ListRuleNamesByTarget'
-    { nextToken = Lude.Nothing,
+    { targetARN = pTargetARN_,
+      nextToken = Lude.Nothing,
       eventBusName = Lude.Nothing,
-      limit = Lude.Nothing,
-      targetARN = pTargetARN_
+      limit = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the target resource.
+--
+-- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrnbtTargetARN :: Lens.Lens' ListRuleNamesByTarget Lude.Text
+lrnbtTargetARN = Lens.lens (targetARN :: ListRuleNamesByTarget -> Lude.Text) (\s a -> s {targetARN = a} :: ListRuleNamesByTarget)
+{-# DEPRECATED lrnbtTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The token returned by a previous call to retrieve the next set of results.
 --
@@ -99,13 +104,6 @@ lrnbtEventBusName = Lens.lens (eventBusName :: ListRuleNamesByTarget -> Lude.May
 lrnbtLimit :: Lens.Lens' ListRuleNamesByTarget (Lude.Maybe Lude.Natural)
 lrnbtLimit = Lens.lens (limit :: ListRuleNamesByTarget -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListRuleNamesByTarget)
 {-# DEPRECATED lrnbtLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the target resource.
---
--- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrnbtTargetARN :: Lens.Lens' ListRuleNamesByTarget Lude.Text
-lrnbtTargetARN = Lens.lens (targetARN :: ListRuleNamesByTarget -> Lude.Text) (\s a -> s {targetARN = a} :: ListRuleNamesByTarget)
-{-# DEPRECATED lrnbtTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 instance Page.AWSPager ListRuleNamesByTarget where
   page rq rs
@@ -143,10 +141,10 @@ instance Lude.ToJSON ListRuleNamesByTarget where
   toJSON ListRuleNamesByTarget' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("TargetArn" Lude..= targetARN),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("EventBusName" Lude..=) Lude.<$> eventBusName,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("TargetArn" Lude..= targetARN)
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -158,26 +156,21 @@ instance Lude.ToQuery ListRuleNamesByTarget where
 
 -- | /See:/ 'mkListRuleNamesByTargetResponse' smart constructor.
 data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
-  { ruleNames ::
-      Lude.Maybe [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The names of the rules that can invoke the given target.
+    ruleNames :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRuleNamesByTargetResponse' with the minimum fields required to make a request.
 --
+-- * 'ruleNames' - The names of the rules that can invoke the given target.
 -- * 'nextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 -- * 'responseStatus' - The response status code.
--- * 'ruleNames' - The names of the rules that can invoke the given target.
 mkListRuleNamesByTargetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

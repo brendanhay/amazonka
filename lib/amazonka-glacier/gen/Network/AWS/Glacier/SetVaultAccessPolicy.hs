@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Glacier.SetVaultAccessPolicy
     mkSetVaultAccessPolicy,
 
     -- ** Request lenses
-    svapPolicy,
-    svapAccountId,
     svapVaultName,
+    svapAccountId,
+    svapPolicy,
 
     -- * Destructuring the response
     SetVaultAccessPolicyResponse (..),
@@ -39,44 +40,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetVaultAccessPolicy' smart constructor.
 data SetVaultAccessPolicy = SetVaultAccessPolicy'
-  { policy ::
-      Lude.Maybe VaultAccessPolicy,
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
     accountId :: Lude.Text,
-    vaultName :: Lude.Text
+    -- | The vault access policy as a JSON string.
+    policy :: Lude.Maybe VaultAccessPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetVaultAccessPolicy' with the minimum fields required to make a request.
 --
+-- * 'vaultName' - The name of the vault.
 -- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 -- * 'policy' - The vault access policy as a JSON string.
--- * 'vaultName' - The name of the vault.
 mkSetVaultAccessPolicy ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   SetVaultAccessPolicy
-mkSetVaultAccessPolicy pAccountId_ pVaultName_ =
+mkSetVaultAccessPolicy pVaultName_ pAccountId_ =
   SetVaultAccessPolicy'
-    { policy = Lude.Nothing,
+    { vaultName = pVaultName_,
       accountId = pAccountId_,
-      vaultName = pVaultName_
+      policy = Lude.Nothing
     }
 
--- | The vault access policy as a JSON string.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svapPolicy :: Lens.Lens' SetVaultAccessPolicy (Lude.Maybe VaultAccessPolicy)
-svapPolicy = Lens.lens (policy :: SetVaultAccessPolicy -> Lude.Maybe VaultAccessPolicy) (\s a -> s {policy = a} :: SetVaultAccessPolicy)
-{-# DEPRECATED svapPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svapVaultName :: Lens.Lens' SetVaultAccessPolicy Lude.Text
+svapVaultName = Lens.lens (vaultName :: SetVaultAccessPolicy -> Lude.Text) (\s a -> s {vaultName = a} :: SetVaultAccessPolicy)
+{-# DEPRECATED svapVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
@@ -85,12 +82,12 @@ svapAccountId :: Lens.Lens' SetVaultAccessPolicy Lude.Text
 svapAccountId = Lens.lens (accountId :: SetVaultAccessPolicy -> Lude.Text) (\s a -> s {accountId = a} :: SetVaultAccessPolicy)
 {-# DEPRECATED svapAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | The name of the vault.
+-- | The vault access policy as a JSON string.
 --
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svapVaultName :: Lens.Lens' SetVaultAccessPolicy Lude.Text
-svapVaultName = Lens.lens (vaultName :: SetVaultAccessPolicy -> Lude.Text) (\s a -> s {vaultName = a} :: SetVaultAccessPolicy)
-{-# DEPRECATED svapVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svapPolicy :: Lens.Lens' SetVaultAccessPolicy (Lude.Maybe VaultAccessPolicy)
+svapPolicy = Lens.lens (policy :: SetVaultAccessPolicy -> Lude.Maybe VaultAccessPolicy) (\s a -> s {policy = a} :: SetVaultAccessPolicy)
+{-# DEPRECATED svapPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 instance Lude.AWSRequest SetVaultAccessPolicy where
   type Rs SetVaultAccessPolicy = SetVaultAccessPolicyResponse
@@ -119,13 +116,7 @@ instance Lude.ToQuery SetVaultAccessPolicy where
 
 -- | /See:/ 'mkSetVaultAccessPolicyResponse' smart constructor.
 data SetVaultAccessPolicyResponse = SetVaultAccessPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetVaultAccessPolicyResponse' with the minimum fields required to make a request.

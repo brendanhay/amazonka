@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,9 +45,9 @@ module Network.AWS.WAF.UpdateSqlInjectionMatchSet
     mkUpdateSqlInjectionMatchSet,
 
     -- ** Request lenses
-    usimsSqlInjectionMatchSetId,
-    usimsChangeToken,
     usimsUpdates,
+    usimsChangeToken,
+    usimsSqlInjectionMatchSetId,
 
     -- * Destructuring the response
     UpdateSqlInjectionMatchSetResponse (..),
@@ -68,26 +69,27 @@ import Network.AWS.WAF.Types
 --
 -- /See:/ 'mkUpdateSqlInjectionMatchSet' smart constructor.
 data UpdateSqlInjectionMatchSet = UpdateSqlInjectionMatchSet'
-  { sqlInjectionMatchSetId ::
-      Lude.Text,
+  { -- | An array of @SqlInjectionMatchSetUpdate@ objects that you want to insert into or delete from a 'SqlInjectionMatchSet' . For more information, see the applicable data types:
+    --
+    --
+    --     * 'SqlInjectionMatchSetUpdate' : Contains @Action@ and @SqlInjectionMatchTuple@
+    --
+    --
+    --     * 'SqlInjectionMatchTuple' : Contains @FieldToMatch@ and @TextTransformation@
+    --
+    --
+    --     * 'FieldToMatch' : Contains @Data@ and @Type@
+    updates :: Lude.NonEmpty SqlInjectionMatchSetUpdate,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
     changeToken :: Lude.Text,
-    updates ::
-      Lude.NonEmpty
-        SqlInjectionMatchSetUpdate
+    -- | The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want to update. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
+    sqlInjectionMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSqlInjectionMatchSet' with the minimum fields required to make a request.
 --
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
--- * 'sqlInjectionMatchSetId' - The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want to update. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 -- * 'updates' - An array of @SqlInjectionMatchSetUpdate@ objects that you want to insert into or delete from a 'SqlInjectionMatchSet' . For more information, see the applicable data types:
 --
 --
@@ -98,38 +100,27 @@ data UpdateSqlInjectionMatchSet = UpdateSqlInjectionMatchSet'
 --
 --
 --     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+-- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- * 'sqlInjectionMatchSetId' - The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want to update. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
 mkUpdateSqlInjectionMatchSet ::
-  -- | 'sqlInjectionMatchSetId'
-  Lude.Text ->
-  -- | 'changeToken'
-  Lude.Text ->
   -- | 'updates'
   Lude.NonEmpty SqlInjectionMatchSetUpdate ->
+  -- | 'changeToken'
+  Lude.Text ->
+  -- | 'sqlInjectionMatchSetId'
+  Lude.Text ->
   UpdateSqlInjectionMatchSet
 mkUpdateSqlInjectionMatchSet
-  pSqlInjectionMatchSetId_
+  pUpdates_
   pChangeToken_
-  pUpdates_ =
+  pSqlInjectionMatchSetId_ =
     UpdateSqlInjectionMatchSet'
-      { sqlInjectionMatchSetId =
-          pSqlInjectionMatchSetId_,
+      { updates = pUpdates_,
         changeToken = pChangeToken_,
-        updates = pUpdates_
+        sqlInjectionMatchSetId = pSqlInjectionMatchSetId_
       }
-
--- | The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want to update. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
---
--- /Note:/ Consider using 'sqlInjectionMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usimsSqlInjectionMatchSetId :: Lens.Lens' UpdateSqlInjectionMatchSet Lude.Text
-usimsSqlInjectionMatchSetId = Lens.lens (sqlInjectionMatchSetId :: UpdateSqlInjectionMatchSet -> Lude.Text) (\s a -> s {sqlInjectionMatchSetId = a} :: UpdateSqlInjectionMatchSet)
-{-# DEPRECATED usimsSqlInjectionMatchSetId "Use generic-lens or generic-optics with 'sqlInjectionMatchSetId' instead." #-}
-
--- | The value returned by the most recent call to 'GetChangeToken' .
---
--- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usimsChangeToken :: Lens.Lens' UpdateSqlInjectionMatchSet Lude.Text
-usimsChangeToken = Lens.lens (changeToken :: UpdateSqlInjectionMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateSqlInjectionMatchSet)
-{-# DEPRECATED usimsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @SqlInjectionMatchSetUpdate@ objects that you want to insert into or delete from a 'SqlInjectionMatchSet' . For more information, see the applicable data types:
 --
@@ -148,6 +139,20 @@ usimsChangeToken = Lens.lens (changeToken :: UpdateSqlInjectionMatchSet -> Lude.
 usimsUpdates :: Lens.Lens' UpdateSqlInjectionMatchSet (Lude.NonEmpty SqlInjectionMatchSetUpdate)
 usimsUpdates = Lens.lens (updates :: UpdateSqlInjectionMatchSet -> Lude.NonEmpty SqlInjectionMatchSetUpdate) (\s a -> s {updates = a} :: UpdateSqlInjectionMatchSet)
 {-# DEPRECATED usimsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
+
+-- | The value returned by the most recent call to 'GetChangeToken' .
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usimsChangeToken :: Lens.Lens' UpdateSqlInjectionMatchSet Lude.Text
+usimsChangeToken = Lens.lens (changeToken :: UpdateSqlInjectionMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateSqlInjectionMatchSet)
+{-# DEPRECATED usimsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want to update. @SqlInjectionMatchSetId@ is returned by 'CreateSqlInjectionMatchSet' and by 'ListSqlInjectionMatchSets' .
+--
+-- /Note:/ Consider using 'sqlInjectionMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usimsSqlInjectionMatchSetId :: Lens.Lens' UpdateSqlInjectionMatchSet Lude.Text
+usimsSqlInjectionMatchSetId = Lens.lens (sqlInjectionMatchSetId :: UpdateSqlInjectionMatchSet -> Lude.Text) (\s a -> s {sqlInjectionMatchSetId = a} :: UpdateSqlInjectionMatchSet)
+{-# DEPRECATED usimsSqlInjectionMatchSetId "Use generic-lens or generic-optics with 'sqlInjectionMatchSetId' instead." #-}
 
 instance Lude.AWSRequest UpdateSqlInjectionMatchSet where
   type
@@ -176,10 +181,10 @@ instance Lude.ToJSON UpdateSqlInjectionMatchSet where
   toJSON UpdateSqlInjectionMatchSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just
-              ("SqlInjectionMatchSetId" Lude..= sqlInjectionMatchSetId),
+          [ Lude.Just ("Updates" Lude..= updates),
             Lude.Just ("ChangeToken" Lude..= changeToken),
-            Lude.Just ("Updates" Lude..= updates)
+            Lude.Just
+              ("SqlInjectionMatchSetId" Lude..= sqlInjectionMatchSetId)
           ]
       )
 
@@ -193,18 +198,12 @@ instance Lude.ToQuery UpdateSqlInjectionMatchSet where
 --
 -- /See:/ 'mkUpdateSqlInjectionMatchSetResponse' smart constructor.
 data UpdateSqlInjectionMatchSetResponse = UpdateSqlInjectionMatchSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The @ChangeToken@ that you used to submit the @UpdateSqlInjectionMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateSqlInjectionMatchSetResponse' with the minimum fields required to make a request.

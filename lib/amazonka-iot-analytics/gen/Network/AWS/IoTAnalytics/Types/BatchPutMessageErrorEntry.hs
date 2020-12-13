@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchPutMessageErrorEntry' smart constructor.
 data BatchPutMessageErrorEntry = BatchPutMessageErrorEntry'
-  { errorCode ::
-      Lude.Maybe Lude.Text,
+  { -- | The code associated with the error.
+    errorCode :: Lude.Maybe Lude.Text,
+    -- | The message associated with the error.
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the message that caused the error. See the value corresponding to the @messageId@ key in the message object.
     messageId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutMessageErrorEntry' with the minimum fields required to make a request.

@@ -19,8 +19,8 @@ module Network.AWS.IoT.Types.FirehoseAction
     -- * Lenses
     faBatchMode,
     faSeparator,
-    faRoleARN,
     faDeliveryStreamName,
+    faRoleARN,
   )
 where
 
@@ -31,19 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFirehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
-  { batchMode ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > . The default value is @false@ .
+    --
+    -- When @batchMode@ is @true@ and the rule's SQL statement evaluates to an Array, each Array element forms one record in the <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > request. The resulting array can't have more than 500 records.
+    batchMode :: Lude.Maybe Lude.Bool,
+    -- | A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
     separator :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Text,
-    deliveryStreamName :: Lude.Text
+    -- | The delivery stream name.
+    deliveryStreamName :: Lude.Text,
+    -- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FirehoseAction' with the minimum fields required to make a request.
@@ -51,21 +50,21 @@ data FirehoseAction = FirehoseAction'
 -- * 'batchMode' - Whether to deliver the Kinesis Data Firehose stream as a batch by using <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > . The default value is @false@ .
 --
 -- When @batchMode@ is @true@ and the rule's SQL statement evaluates to an Array, each Array element forms one record in the <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > request. The resulting array can't have more than 500 records.
+-- * 'separator' - A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 -- * 'deliveryStreamName' - The delivery stream name.
 -- * 'roleARN' - The IAM role that grants access to the Amazon Kinesis Firehose stream.
--- * 'separator' - A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 mkFirehoseAction ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'deliveryStreamName'
   Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   FirehoseAction
-mkFirehoseAction pRoleARN_ pDeliveryStreamName_ =
+mkFirehoseAction pDeliveryStreamName_ pRoleARN_ =
   FirehoseAction'
     { batchMode = Lude.Nothing,
       separator = Lude.Nothing,
-      roleARN = pRoleARN_,
-      deliveryStreamName = pDeliveryStreamName_
+      deliveryStreamName = pDeliveryStreamName_,
+      roleARN = pRoleARN_
     }
 
 -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > . The default value is @false@ .
@@ -84,19 +83,19 @@ faSeparator :: Lens.Lens' FirehoseAction (Lude.Maybe Lude.Text)
 faSeparator = Lens.lens (separator :: FirehoseAction -> Lude.Maybe Lude.Text) (\s a -> s {separator = a} :: FirehoseAction)
 {-# DEPRECATED faSeparator "Use generic-lens or generic-optics with 'separator' instead." #-}
 
--- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faRoleARN :: Lens.Lens' FirehoseAction Lude.Text
-faRoleARN = Lens.lens (roleARN :: FirehoseAction -> Lude.Text) (\s a -> s {roleARN = a} :: FirehoseAction)
-{-# DEPRECATED faRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
 -- | The delivery stream name.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 faDeliveryStreamName :: Lens.Lens' FirehoseAction Lude.Text
 faDeliveryStreamName = Lens.lens (deliveryStreamName :: FirehoseAction -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: FirehoseAction)
 {-# DEPRECATED faDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+
+-- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faRoleARN :: Lens.Lens' FirehoseAction Lude.Text
+faRoleARN = Lens.lens (roleARN :: FirehoseAction -> Lude.Text) (\s a -> s {roleARN = a} :: FirehoseAction)
+{-# DEPRECATED faRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.FromJSON FirehoseAction where
   parseJSON =
@@ -106,8 +105,8 @@ instance Lude.FromJSON FirehoseAction where
           FirehoseAction'
             Lude.<$> (x Lude..:? "batchMode")
             Lude.<*> (x Lude..:? "separator")
-            Lude.<*> (x Lude..: "roleArn")
             Lude.<*> (x Lude..: "deliveryStreamName")
+            Lude.<*> (x Lude..: "roleArn")
       )
 
 instance Lude.ToJSON FirehoseAction where
@@ -116,7 +115,7 @@ instance Lude.ToJSON FirehoseAction where
       ( Lude.catMaybes
           [ ("batchMode" Lude..=) Lude.<$> batchMode,
             ("separator" Lude..=) Lude.<$> separator,
-            Lude.Just ("roleArn" Lude..= roleARN),
-            Lude.Just ("deliveryStreamName" Lude..= deliveryStreamName)
+            Lude.Just ("deliveryStreamName" Lude..= deliveryStreamName),
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

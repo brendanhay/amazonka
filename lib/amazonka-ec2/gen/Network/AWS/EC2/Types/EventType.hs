@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.EventType
   ( EventType
       ( EventType',
-        ETError,
+        ETInstanceChange,
         ETFleetRequestChange,
-        ETInformation,
-        ETInstanceChange
+        ETError,
+        ETInformation
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype EventType = EventType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ETError :: EventType
-pattern ETError = EventType' "error"
+pattern ETInstanceChange :: EventType
+pattern ETInstanceChange = EventType' "instanceChange"
 
 pattern ETFleetRequestChange :: EventType
 pattern ETFleetRequestChange = EventType' "fleetRequestChange"
 
+pattern ETError :: EventType
+pattern ETError = EventType' "error"
+
 pattern ETInformation :: EventType
 pattern ETInformation = EventType' "information"
 
-pattern ETInstanceChange :: EventType
-pattern ETInstanceChange = EventType' "instanceChange"
-
 {-# COMPLETE
-  ETError,
-  ETFleetRequestChange,
-  ETInformation,
   ETInstanceChange,
+  ETFleetRequestChange,
+  ETError,
+  ETInformation,
   EventType'
   #-}

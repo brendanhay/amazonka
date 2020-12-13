@@ -13,15 +13,15 @@
 module Network.AWS.AppStream.Types.ImageBuilderState
   ( ImageBuilderState
       ( ImageBuilderState',
-        IBSDeleting,
-        IBSFailed,
         IBSPending,
-        IBSRebooting,
+        IBSUpdatingAgent,
         IBSRunning,
-        IBSSnapshotting,
-        IBSStopped,
         IBSStopping,
-        IBSUpdatingAgent
+        IBSStopped,
+        IBSRebooting,
+        IBSSnapshotting,
+        IBSDeleting,
+        IBSFailed
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype ImageBuilderState = ImageBuilderState' Lude.Text
       Lude.ToHeader
     )
 
+pattern IBSPending :: ImageBuilderState
+pattern IBSPending = ImageBuilderState' "PENDING"
+
+pattern IBSUpdatingAgent :: ImageBuilderState
+pattern IBSUpdatingAgent = ImageBuilderState' "UPDATING_AGENT"
+
+pattern IBSRunning :: ImageBuilderState
+pattern IBSRunning = ImageBuilderState' "RUNNING"
+
+pattern IBSStopping :: ImageBuilderState
+pattern IBSStopping = ImageBuilderState' "STOPPING"
+
+pattern IBSStopped :: ImageBuilderState
+pattern IBSStopped = ImageBuilderState' "STOPPED"
+
+pattern IBSRebooting :: ImageBuilderState
+pattern IBSRebooting = ImageBuilderState' "REBOOTING"
+
+pattern IBSSnapshotting :: ImageBuilderState
+pattern IBSSnapshotting = ImageBuilderState' "SNAPSHOTTING"
+
 pattern IBSDeleting :: ImageBuilderState
 pattern IBSDeleting = ImageBuilderState' "DELETING"
 
 pattern IBSFailed :: ImageBuilderState
 pattern IBSFailed = ImageBuilderState' "FAILED"
 
-pattern IBSPending :: ImageBuilderState
-pattern IBSPending = ImageBuilderState' "PENDING"
-
-pattern IBSRebooting :: ImageBuilderState
-pattern IBSRebooting = ImageBuilderState' "REBOOTING"
-
-pattern IBSRunning :: ImageBuilderState
-pattern IBSRunning = ImageBuilderState' "RUNNING"
-
-pattern IBSSnapshotting :: ImageBuilderState
-pattern IBSSnapshotting = ImageBuilderState' "SNAPSHOTTING"
-
-pattern IBSStopped :: ImageBuilderState
-pattern IBSStopped = ImageBuilderState' "STOPPED"
-
-pattern IBSStopping :: ImageBuilderState
-pattern IBSStopping = ImageBuilderState' "STOPPING"
-
-pattern IBSUpdatingAgent :: ImageBuilderState
-pattern IBSUpdatingAgent = ImageBuilderState' "UPDATING_AGENT"
-
 {-# COMPLETE
+  IBSPending,
+  IBSUpdatingAgent,
+  IBSRunning,
+  IBSStopping,
+  IBSStopped,
+  IBSRebooting,
+  IBSSnapshotting,
   IBSDeleting,
   IBSFailed,
-  IBSPending,
-  IBSRebooting,
-  IBSRunning,
-  IBSSnapshotting,
-  IBSStopped,
-  IBSStopping,
-  IBSUpdatingAgent,
   ImageBuilderState'
   #-}

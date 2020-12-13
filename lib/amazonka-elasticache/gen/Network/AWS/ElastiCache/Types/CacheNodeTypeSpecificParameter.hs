@@ -38,46 +38,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheNodeTypeSpecificParameter' smart constructor.
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
-  { cacheNodeTypeSpecificValues ::
-      Lude.Maybe
-        [CacheNodeTypeSpecificValue],
-    minimumEngineVersion ::
-      Lude.Maybe Lude.Text,
-    source ::
-      Lude.Maybe Lude.Text,
-    isModifiable ::
-      Lude.Maybe Lude.Bool,
-    dataType ::
-      Lude.Maybe Lude.Text,
-    allowedValues ::
-      Lude.Maybe Lude.Text,
-    parameterName ::
-      Lude.Maybe Lude.Text,
-    description ::
-      Lude.Maybe Lude.Text,
-    changeType ::
-      Lude.Maybe ChangeType
+  { -- | A list of cache node types and their corresponding values for this parameter.
+    cacheNodeTypeSpecificValues :: Lude.Maybe [CacheNodeTypeSpecificValue],
+    -- | The earliest cache engine version to which the parameter can apply.
+    minimumEngineVersion :: Lude.Maybe Lude.Text,
+    -- | The source of the parameter value.
+    source :: Lude.Maybe Lude.Text,
+    -- | Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+    isModifiable :: Lude.Maybe Lude.Bool,
+    -- | The valid data type for the parameter.
+    dataType :: Lude.Maybe Lude.Text,
+    -- | The valid range of values for the parameter.
+    allowedValues :: Lude.Maybe Lude.Text,
+    -- | The name of the parameter.
+    parameterName :: Lude.Maybe Lude.Text,
+    -- | A description of the parameter.
+    description :: Lude.Maybe Lude.Text,
+    -- | Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
+    changeType :: Lude.Maybe ChangeType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CacheNodeTypeSpecificParameter' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - The valid range of values for the parameter.
 -- * 'cacheNodeTypeSpecificValues' - A list of cache node types and their corresponding values for this parameter.
--- * 'changeType' - Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
--- * 'dataType' - The valid data type for the parameter.
--- * 'description' - A description of the parameter.
--- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
 -- * 'minimumEngineVersion' - The earliest cache engine version to which the parameter can apply.
--- * 'parameterName' - The name of the parameter.
 -- * 'source' - The source of the parameter value.
+-- * 'isModifiable' - Indicates whether (@true@ ) or not (@false@ ) the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+-- * 'dataType' - The valid data type for the parameter.
+-- * 'allowedValues' - The valid range of values for the parameter.
+-- * 'parameterName' - The name of the parameter.
+-- * 'description' - A description of the parameter.
+-- * 'changeType' - Indicates whether a change to the parameter is applied immediately or requires a reboot for the change to be applied. You can force a reboot or wait until the next maintenance window's reboot. For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster> .
 mkCacheNodeTypeSpecificParameter ::
   CacheNodeTypeSpecificParameter
 mkCacheNodeTypeSpecificParameter =

@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkObjectAttributeAction' smart constructor.
 data ObjectAttributeAction = ObjectAttributeAction'
-  { objectAttributeActionType ::
-      Lude.Maybe UpdateActionType,
-    objectAttributeUpdateValue ::
-      Lude.Maybe TypedAttributeValue
+  { -- | A type that can be either @Update@ or @Delete@ .
+    objectAttributeActionType :: Lude.Maybe UpdateActionType,
+    -- | The value that you want to update to.
+    objectAttributeUpdateValue :: Lude.Maybe TypedAttributeValue
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectAttributeAction' with the minimum fields required to make a request.

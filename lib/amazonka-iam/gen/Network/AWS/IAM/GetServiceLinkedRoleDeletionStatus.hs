@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
     mkGetServiceLinkedRoleDeletionStatusResponse,
 
     -- ** Response lenses
+    gslrdsrsStatus,
     gslrdsrsReason,
     gslrdsrsResponseStatus,
-    gslrdsrsStatus,
   )
 where
 
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetServiceLinkedRoleDeletionStatus' smart constructor.
 newtype GetServiceLinkedRoleDeletionStatus = GetServiceLinkedRoleDeletionStatus'
-  { deletionTaskId ::
-      Lude.Text
+  { -- | The deletion task identifier. This identifier is returned by the 'DeleteServiceLinkedRole' operation in the format @task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid>@ .
+    deletionTaskId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceLinkedRoleDeletionStatus' with the minimum fields required to make a request.
@@ -82,9 +77,9 @@ instance Lude.AWSRequest GetServiceLinkedRoleDeletionStatus where
       "GetServiceLinkedRoleDeletionStatusResult"
       ( \s h x ->
           GetServiceLinkedRoleDeletionStatusResponse'
-            Lude.<$> (x Lude..@? "Reason")
+            Lude.<$> (x Lude..@ "Status")
+            Lude.<*> (x Lude..@? "Reason")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "Status")
       )
 
 instance Lude.ToHeaders GetServiceLinkedRoleDeletionStatus where
@@ -104,43 +99,42 @@ instance Lude.ToQuery GetServiceLinkedRoleDeletionStatus where
 
 -- | /See:/ 'mkGetServiceLinkedRoleDeletionStatusResponse' smart constructor.
 data GetServiceLinkedRoleDeletionStatusResponse = GetServiceLinkedRoleDeletionStatusResponse'
-  { reason ::
-      Lude.Maybe
-        DeletionTaskFailureReasonType,
-    responseStatus ::
-      Lude.Int,
-    status ::
-      DeletionTaskStatusType
+  { -- | The status of the deletion.
+    status :: DeletionTaskStatusType,
+    -- | An object that contains details about the reason the deletion failed.
+    reason :: Lude.Maybe DeletionTaskFailureReasonType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetServiceLinkedRoleDeletionStatusResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the deletion.
 -- * 'reason' - An object that contains details about the reason the deletion failed.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the deletion.
 mkGetServiceLinkedRoleDeletionStatusResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'status'
   DeletionTaskStatusType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetServiceLinkedRoleDeletionStatusResponse
 mkGetServiceLinkedRoleDeletionStatusResponse
-  pResponseStatus_
-  pStatus_ =
+  pStatus_
+  pResponseStatus_ =
     GetServiceLinkedRoleDeletionStatusResponse'
-      { reason =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        status = pStatus_
+      { status = pStatus_,
+        reason = Lude.Nothing,
+        responseStatus = pResponseStatus_
       }
+
+-- | The status of the deletion.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gslrdsrsStatus :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse DeletionTaskStatusType
+gslrdsrsStatus = Lens.lens (status :: GetServiceLinkedRoleDeletionStatusResponse -> DeletionTaskStatusType) (\s a -> s {status = a} :: GetServiceLinkedRoleDeletionStatusResponse)
+{-# DEPRECATED gslrdsrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | An object that contains details about the reason the deletion failed.
 --
@@ -155,10 +149,3 @@ gslrdsrsReason = Lens.lens (reason :: GetServiceLinkedRoleDeletionStatusResponse
 gslrdsrsResponseStatus :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse Lude.Int
 gslrdsrsResponseStatus = Lens.lens (responseStatus :: GetServiceLinkedRoleDeletionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceLinkedRoleDeletionStatusResponse)
 {-# DEPRECATED gslrdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The status of the deletion.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gslrdsrsStatus :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse DeletionTaskStatusType
-gslrdsrsStatus = Lens.lens (status :: GetServiceLinkedRoleDeletionStatusResponse -> DeletionTaskStatusType) (\s a -> s {status = a} :: GetServiceLinkedRoleDeletionStatusResponse)
-{-# DEPRECATED gslrdsrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

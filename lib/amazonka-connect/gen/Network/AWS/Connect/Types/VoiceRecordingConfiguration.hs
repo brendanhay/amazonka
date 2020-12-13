@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVoiceRecordingConfiguration' smart constructor.
 newtype VoiceRecordingConfiguration = VoiceRecordingConfiguration'
-  { voiceRecordingTrack ::
-      Lude.Maybe VoiceRecordingTrack
+  { -- | Identifies which track is being recorded.
+    voiceRecordingTrack :: Lude.Maybe VoiceRecordingTrack
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VoiceRecordingConfiguration' with the minimum fields required to make a request.

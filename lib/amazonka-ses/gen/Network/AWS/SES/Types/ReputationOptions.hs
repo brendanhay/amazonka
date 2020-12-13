@@ -30,18 +30,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReputationOptions' smart constructor.
 data ReputationOptions = ReputationOptions'
-  { lastFreshStart ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a /fresh start/ .
+    --
+    -- When you disable email sending for a configuration set using 'UpdateConfigurationSetSendingEnabled' and later re-enable it, the reputation metrics for the configuration set (but not for the entire Amazon SES account) are reset.
+    -- If email sending for the configuration set has never been disabled and later re-enabled, the value of this attribute is @null@ .
+    lastFreshStart :: Lude.Maybe Lude.DateTime,
+    -- | Describes whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
+    --
+    -- If the value is @true@ , reputation metrics are published. If the value is @false@ , reputation metrics are not published. The default value is @false@ .
     reputationMetricsEnabled :: Lude.Maybe Lude.Bool,
+    -- | Describes whether email sending is enabled or disabled for the configuration set. If the value is @true@ , then Amazon SES will send emails that use the configuration set. If the value is @false@ , Amazon SES will not send emails that use the configuration set. The default value is @true@ . You can change this setting using 'UpdateConfigurationSetSendingEnabled' .
     sendingEnabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReputationOptions' with the minimum fields required to make a request.

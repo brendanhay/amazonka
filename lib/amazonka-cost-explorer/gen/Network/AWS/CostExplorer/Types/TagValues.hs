@@ -31,24 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTagValues' smart constructor.
 data TagValues = TagValues'
-  { values :: Lude.Maybe [Lude.Text],
+  { -- | The specific value of the tag.
+    values :: Lude.Maybe [Lude.Text],
+    -- | The key for the tag.
     key :: Lude.Maybe Lude.Text,
+    -- | The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
     matchOptions :: Lude.Maybe [MatchOption]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagValues' with the minimum fields required to make a request.
 --
+-- * 'values' - The specific value of the tag.
 -- * 'key' - The key for the tag.
 -- * 'matchOptions' - The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
--- * 'values' - The specific value of the tag.
 mkTagValues ::
   TagValues
 mkTagValues =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,33 +53,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetComplianceSummary' smart constructor.
 data GetComplianceSummary = GetComplianceSummary'
-  { groupBy ::
-      Lude.Maybe [GroupByAttribute],
+  { -- | A list of attributes to group the counts of noncompliant resources by. If supplied, the counts are sorted by those attributes.
+    groupBy :: Lude.Maybe [GroupByAttribute],
+    -- | A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
     paginationToken :: Lude.Maybe Lude.Text,
-    targetIdFilters ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The target identifiers (usually, specific account IDs) to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources with the specified target IDs.
+    targetIdFilters :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The constraints on the resources that you want returned. The format of each resource type is @service[:resourceType]@ . For example, specifying a resource type of @ec2@ returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of @ec2:instance@ returns only EC2 instances.
+    --
+    -- The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the /AWS General Reference/ for the following:
+    --
+    --     * For a list of service name strings, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> .
+    --
+    --
+    --     * For resource type strings, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax Example ARNs> .
+    --
+    --
+    --     * For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    --
+    --
+    -- You can specify multiple resource types by using an array. The array can include up to 100 items. Note that the length constraint requirement applies to each resource type filter.
     resourceTypeFilters :: Lude.Maybe [Lude.Text],
-    regionFilters ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    tagKeyFilters ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of Regions to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources in the specified Regions.
+    regionFilters :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A list of tag keys to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources that have the specified tag keys.
+    tagKeyFilters :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A limit that restricts the number of results that are returned per page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceSummary' with the minimum fields required to make a request.
 --
 -- * 'groupBy' - A list of attributes to group the counts of noncompliant resources by. If supplied, the counts are sorted by those attributes.
--- * 'maxResults' - A limit that restricts the number of results that are returned per page.
 -- * 'paginationToken' - A string that indicates that additional data is available. Leave this value empty for your initial request. If the response includes a @PaginationToken@ , use that string for this value to request an additional page of data.
--- * 'regionFilters' - A list of Regions to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources in the specified Regions.
+-- * 'targetIdFilters' - The target identifiers (usually, specific account IDs) to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources with the specified target IDs.
 -- * 'resourceTypeFilters' - The constraints on the resources that you want returned. The format of each resource type is @service[:resourceType]@ . For example, specifying a resource type of @ec2@ returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of @ec2:instance@ returns only EC2 instances.
 --
 -- The string for each service name and resource type is the same as that embedded in a resource's Amazon Resource Name (ARN). Consult the /AWS General Reference/ for the following:
@@ -93,8 +103,9 @@ data GetComplianceSummary = GetComplianceSummary'
 --
 --
 -- You can specify multiple resource types by using an array. The array can include up to 100 items. Note that the length constraint requirement applies to each resource type filter.
+-- * 'regionFilters' - A list of Regions to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources in the specified Regions.
 -- * 'tagKeyFilters' - A list of tag keys to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources that have the specified tag keys.
--- * 'targetIdFilters' - The target identifiers (usually, specific account IDs) to limit the output by. If you use this parameter, the count of returned noncompliant resources includes only resources with the specified target IDs.
+-- * 'maxResults' - A limit that restricts the number of results that are returned per page.
 mkGetComplianceSummary ::
   GetComplianceSummary
 mkGetComplianceSummary =
@@ -226,26 +237,21 @@ instance Lude.ToQuery GetComplianceSummary where
 
 -- | /See:/ 'mkGetComplianceSummaryResponse' smart constructor.
 data GetComplianceSummaryResponse = GetComplianceSummaryResponse'
-  { paginationToken ::
-      Lude.Maybe Lude.Text,
-    summaryList ::
-      Lude.Maybe [Summary],
+  { -- | A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
+    paginationToken :: Lude.Maybe Lude.Text,
+    -- | A table that shows counts of noncompliant resources.
+    summaryList :: Lude.Maybe [Summary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComplianceSummaryResponse' with the minimum fields required to make a request.
 --
 -- * 'paginationToken' - A string that indicates that the response contains more data than can be returned in a single response. To receive additional data, specify this string for the @PaginationToken@ value in a subsequent request.
--- * 'responseStatus' - The response status code.
 -- * 'summaryList' - A table that shows counts of noncompliant resources.
+-- * 'responseStatus' - The response status code.
 mkGetComplianceSummaryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

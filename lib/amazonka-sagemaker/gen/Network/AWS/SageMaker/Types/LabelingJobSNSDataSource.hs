@@ -28,16 +28,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLabelingJobSNSDataSource' smart constructor.
 newtype LabelingJobSNSDataSource = LabelingJobSNSDataSource'
-  { snsTopicARN ::
-      Lude.Text
+  { -- | The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic you will use to send new data objects to a streaming labeling job.
+    --
+    -- If you specify an input topic for @SnsTopicArn@ in @InputConfig@ , you must specify a value for @SnsTopicArn@ in @OutputConfig@ .
+    snsTopicARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelingJobSNSDataSource' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DirectoryService.DescribeRegions
     mkDescribeRegions,
 
     -- ** Request lenses
+    drsDirectoryId,
     drsRegionName,
     drsNextToken,
-    drsDirectoryId,
 
     -- * Destructuring the response
     DescribeRegionsResponse (..),
@@ -42,35 +43,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
-  { regionName ::
-      Lude.Maybe Lude.Text,
-    nextToken :: Lude.Maybe Lude.Text,
-    directoryId :: Lude.Text
+  { -- | The identifier of the directory.
+    directoryId :: Lude.Text,
+    -- | The name of the Region. For example, @us-east-1@ .
+    regionName :: Lude.Maybe Lude.Text,
+    -- | The /DescribeRegionsResult.NextToken/ value from a previous call to 'DescribeRegions' . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRegions' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The identifier of the directory.
--- * 'nextToken' - The /DescribeRegionsResult.NextToken/ value from a previous call to 'DescribeRegions' . Pass null if this is the first call.
 -- * 'regionName' - The name of the Region. For example, @us-east-1@ .
+-- * 'nextToken' - The /DescribeRegionsResult.NextToken/ value from a previous call to 'DescribeRegions' . Pass null if this is the first call.
 mkDescribeRegions ::
   -- | 'directoryId'
   Lude.Text ->
   DescribeRegions
 mkDescribeRegions pDirectoryId_ =
   DescribeRegions'
-    { regionName = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      directoryId = pDirectoryId_
+    { directoryId = pDirectoryId_,
+      regionName = Lude.Nothing,
+      nextToken = Lude.Nothing
     }
+
+-- | The identifier of the directory.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsDirectoryId :: Lens.Lens' DescribeRegions Lude.Text
+drsDirectoryId = Lens.lens (directoryId :: DescribeRegions -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeRegions)
+{-# DEPRECATED drsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the Region. For example, @us-east-1@ .
 --
@@ -85,13 +89,6 @@ drsRegionName = Lens.lens (regionName :: DescribeRegions -> Lude.Maybe Lude.Text
 drsNextToken :: Lens.Lens' DescribeRegions (Lude.Maybe Lude.Text)
 drsNextToken = Lens.lens (nextToken :: DescribeRegions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeRegions)
 {-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The identifier of the directory.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsDirectoryId :: Lens.Lens' DescribeRegions Lude.Text
-drsDirectoryId = Lens.lens (directoryId :: DescribeRegions -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeRegions)
-{-# DEPRECATED drsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 instance Lude.AWSRequest DescribeRegions where
   type Rs DescribeRegions = DescribeRegionsResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON DescribeRegions where
   toJSON DescribeRegions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RegionName" Lude..=) Lude.<$> regionName,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("DirectoryId" Lude..= directoryId)
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("RegionName" Lude..=) Lude.<$> regionName,
+            ("NextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -134,19 +131,14 @@ instance Lude.ToQuery DescribeRegions where
 
 -- | /See:/ 'mkDescribeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    regionsDescription ::
-      Lude.Maybe [RegionDescription],
+  { -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeRegions' to retrieve the next set of items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | List of regional information related to the directory per replicated Region.
+    regionsDescription :: Lude.Maybe [RegionDescription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRegionsResponse' with the minimum fields required to make a request.

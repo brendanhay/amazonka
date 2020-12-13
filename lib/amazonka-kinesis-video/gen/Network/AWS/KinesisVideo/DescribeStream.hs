@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.KinesisVideo.DescribeStream
     mkDescribeStream,
 
     -- ** Request lenses
-    dStreamARN,
-    dStreamName,
+    dsStreamARN,
+    dsStreamName,
 
     -- * Destructuring the response
     DescribeStreamResponse (..),
     mkDescribeStreamResponse,
 
     -- ** Response lenses
-    drsStreamInfo,
-    drsResponseStatus,
+    dsfrsStreamInfo,
+    dsfrsResponseStatus,
   )
 where
 
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStream' smart constructor.
 data DescribeStream = DescribeStream'
-  { streamARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the stream.
+    streamARN :: Lude.Maybe Lude.Text,
+    -- | The name of the stream.
     streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
@@ -68,16 +64,16 @@ mkDescribeStream =
 -- | The Amazon Resource Name (ARN) of the stream.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStreamARN :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
-dStreamARN = Lens.lens (streamARN :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: DescribeStream)
-{-# DEPRECATED dStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+dsStreamARN :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
+dsStreamARN = Lens.lens (streamARN :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: DescribeStream)
+{-# DEPRECATED dsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStreamName :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
-dStreamName = Lens.lens (streamName :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: DescribeStream)
-{-# DEPRECATED dStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+dsStreamName :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
+dsStreamName = Lens.lens (streamName :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: DescribeStream)
+{-# DEPRECATED dsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Lude.AWSRequest DescribeStream where
   type Rs DescribeStream = DescribeStreamResponse
@@ -109,23 +105,18 @@ instance Lude.ToQuery DescribeStream where
 
 -- | /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-  { streamInfo ::
-      Lude.Maybe StreamInfo,
+  { -- | An object that describes the stream.
+    streamInfo :: Lude.Maybe StreamInfo,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'streamInfo' - An object that describes the stream.
+-- * 'responseStatus' - The response status code.
 mkDescribeStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -139,13 +130,13 @@ mkDescribeStreamResponse pResponseStatus_ =
 -- | An object that describes the stream.
 --
 -- /Note:/ Consider using 'streamInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsStreamInfo :: Lens.Lens' DescribeStreamResponse (Lude.Maybe StreamInfo)
-drsStreamInfo = Lens.lens (streamInfo :: DescribeStreamResponse -> Lude.Maybe StreamInfo) (\s a -> s {streamInfo = a} :: DescribeStreamResponse)
-{-# DEPRECATED drsStreamInfo "Use generic-lens or generic-optics with 'streamInfo' instead." #-}
+dsfrsStreamInfo :: Lens.Lens' DescribeStreamResponse (Lude.Maybe StreamInfo)
+dsfrsStreamInfo = Lens.lens (streamInfo :: DescribeStreamResponse -> Lude.Maybe StreamInfo) (\s a -> s {streamInfo = a} :: DescribeStreamResponse)
+{-# DEPRECATED dsfrsStreamInfo "Use generic-lens or generic-optics with 'streamInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsfrsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
+dsfrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
+{-# DEPRECATED dsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

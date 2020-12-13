@@ -17,9 +17,9 @@ module Network.AWS.WAFRegional.Types.XSSMatchSet
     mkXSSMatchSet,
 
     -- * Lenses
-    xmsName,
-    xmsXSSMatchSetId,
     xmsXSSMatchTuples,
+    xmsXSSMatchSetId,
+    xmsName,
   )
 where
 
@@ -31,43 +31,42 @@ import Network.AWS.WAFRegional.Types.XSSMatchTuple
 --
 -- /See:/ 'mkXSSMatchSet' smart constructor.
 data XSSMatchSet = XSSMatchSet'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
+    xssMatchTuples :: [XSSMatchTuple],
+    -- | A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about an @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ).
+    --
+    -- @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
     xssMatchSetId :: Lude.Text,
-    xssMatchTuples :: [XSSMatchTuple]
+    -- | The name, if any, of the @XssMatchSet@ .
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'XSSMatchSet' with the minimum fields required to make a request.
 --
--- * 'name' - The name, if any, of the @XssMatchSet@ .
+-- * 'xssMatchTuples' - Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
 -- * 'xssMatchSetId' - A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about an @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ).
 --
 -- @XssMatchSetId@ is returned by 'CreateXssMatchSet' and by 'ListXssMatchSets' .
--- * 'xssMatchTuples' - Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
+-- * 'name' - The name, if any, of the @XssMatchSet@ .
 mkXSSMatchSet ::
   -- | 'xssMatchSetId'
   Lude.Text ->
   XSSMatchSet
 mkXSSMatchSet pXSSMatchSetId_ =
   XSSMatchSet'
-    { name = Lude.Nothing,
+    { xssMatchTuples = Lude.mempty,
       xssMatchSetId = pXSSMatchSetId_,
-      xssMatchTuples = Lude.mempty
+      name = Lude.Nothing
     }
 
--- | The name, if any, of the @XssMatchSet@ .
+-- | Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-xmsName :: Lens.Lens' XSSMatchSet (Lude.Maybe Lude.Text)
-xmsName = Lens.lens (name :: XSSMatchSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: XSSMatchSet)
-{-# DEPRECATED xmsName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'xssMatchTuples' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xmsXSSMatchTuples :: Lens.Lens' XSSMatchSet [XSSMatchTuple]
+xmsXSSMatchTuples = Lens.lens (xssMatchTuples :: XSSMatchSet -> [XSSMatchTuple]) (\s a -> s {xssMatchTuples = a} :: XSSMatchSet)
+{-# DEPRECATED xmsXSSMatchTuples "Use generic-lens or generic-optics with 'xssMatchTuples' instead." #-}
 
 -- | A unique identifier for an @XssMatchSet@ . You use @XssMatchSetId@ to get information about an @XssMatchSet@ (see 'GetXssMatchSet' ), update an @XssMatchSet@ (see 'UpdateXssMatchSet' ), insert an @XssMatchSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete an @XssMatchSet@ from AWS WAF (see 'DeleteXssMatchSet' ).
 --
@@ -78,12 +77,12 @@ xmsXSSMatchSetId :: Lens.Lens' XSSMatchSet Lude.Text
 xmsXSSMatchSetId = Lens.lens (xssMatchSetId :: XSSMatchSet -> Lude.Text) (\s a -> s {xssMatchSetId = a} :: XSSMatchSet)
 {-# DEPRECATED xmsXSSMatchSetId "Use generic-lens or generic-optics with 'xssMatchSetId' instead." #-}
 
--- | Specifies the parts of web requests that you want to inspect for cross-site scripting attacks.
+-- | The name, if any, of the @XssMatchSet@ .
 --
--- /Note:/ Consider using 'xssMatchTuples' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-xmsXSSMatchTuples :: Lens.Lens' XSSMatchSet [XSSMatchTuple]
-xmsXSSMatchTuples = Lens.lens (xssMatchTuples :: XSSMatchSet -> [XSSMatchTuple]) (\s a -> s {xssMatchTuples = a} :: XSSMatchSet)
-{-# DEPRECATED xmsXSSMatchTuples "Use generic-lens or generic-optics with 'xssMatchTuples' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+xmsName :: Lens.Lens' XSSMatchSet (Lude.Maybe Lude.Text)
+xmsName = Lens.lens (name :: XSSMatchSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: XSSMatchSet)
+{-# DEPRECATED xmsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.FromJSON XSSMatchSet where
   parseJSON =
@@ -91,7 +90,7 @@ instance Lude.FromJSON XSSMatchSet where
       "XSSMatchSet"
       ( \x ->
           XSSMatchSet'
-            Lude.<$> (x Lude..:? "Name")
+            Lude.<$> (x Lude..:? "XssMatchTuples" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "XssMatchSetId")
-            Lude.<*> (x Lude..:? "XssMatchTuples" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Name")
       )

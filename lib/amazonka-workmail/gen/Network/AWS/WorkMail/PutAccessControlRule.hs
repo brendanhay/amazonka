@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,14 +20,14 @@ module Network.AWS.WorkMail.PutAccessControlRule
     mkPutAccessControlRule,
 
     -- ** Request lenses
+    pacrEffect,
     pacrUserIds,
     pacrActions,
+    pacrName,
     pacrNotUserIds,
     pacrIPRanges,
     pacrNotIPRanges,
     pacrNotActions,
-    pacrName,
-    pacrEffect,
     pacrDescription,
     pacrOrganizationId,
 
@@ -47,66 +48,76 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkPutAccessControlRule' smart constructor.
 data PutAccessControlRule = PutAccessControlRule'
-  { userIds ::
-      Lude.Maybe [Lude.Text],
-    actions :: Lude.Maybe [Lude.Text],
-    notUserIds :: Lude.Maybe [Lude.Text],
-    ipRanges :: Lude.Maybe [Lude.Text],
-    notIPRanges :: Lude.Maybe [Lude.Text],
-    notActions :: Lude.Maybe [Lude.Text],
-    name :: Lude.Text,
+  { -- | The rule effect.
     effect :: AccessControlRuleEffect,
+    -- | User IDs to include in the rule.
+    userIds :: Lude.Maybe [Lude.Text],
+    -- | Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+    actions :: Lude.Maybe [Lude.Text],
+    -- | The rule name.
+    name :: Lude.Text,
+    -- | User IDs to exclude from the rule.
+    notUserIds :: Lude.Maybe [Lude.Text],
+    -- | IPv4 CIDR ranges to include in the rule.
+    ipRanges :: Lude.Maybe [Lude.Text],
+    -- | IPv4 CIDR ranges to exclude from the rule.
+    notIPRanges :: Lude.Maybe [Lude.Text],
+    -- | Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+    notActions :: Lude.Maybe [Lude.Text],
+    -- | The rule description.
     description :: Lude.Text,
+    -- | The identifier of the organization.
     organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccessControlRule' with the minimum fields required to make a request.
 --
--- * 'actions' - Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
--- * 'description' - The rule description.
 -- * 'effect' - The rule effect.
--- * 'ipRanges' - IPv4 CIDR ranges to include in the rule.
--- * 'name' - The rule name.
--- * 'notActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
--- * 'notIPRanges' - IPv4 CIDR ranges to exclude from the rule.
--- * 'notUserIds' - User IDs to exclude from the rule.
--- * 'organizationId' - The identifier of the organization.
 -- * 'userIds' - User IDs to include in the rule.
+-- * 'actions' - Access protocol actions to include in the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'name' - The rule name.
+-- * 'notUserIds' - User IDs to exclude from the rule.
+-- * 'ipRanges' - IPv4 CIDR ranges to include in the rule.
+-- * 'notIPRanges' - IPv4 CIDR ranges to exclude from the rule.
+-- * 'notActions' - Access protocol actions to exclude from the rule. Valid values include @ActiveSync@ , @AutoDiscover@ , @EWS@ , @IMAP@ , @SMTP@ , @WindowsOutlook@ , and @WebMail@ .
+-- * 'description' - The rule description.
+-- * 'organizationId' - The identifier of the organization.
 mkPutAccessControlRule ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'effect'
   AccessControlRuleEffect ->
+  -- | 'name'
+  Lude.Text ->
   -- | 'description'
   Lude.Text ->
   -- | 'organizationId'
   Lude.Text ->
   PutAccessControlRule
 mkPutAccessControlRule
-  pName_
   pEffect_
+  pName_
   pDescription_
   pOrganizationId_ =
     PutAccessControlRule'
-      { userIds = Lude.Nothing,
+      { effect = pEffect_,
+        userIds = Lude.Nothing,
         actions = Lude.Nothing,
+        name = pName_,
         notUserIds = Lude.Nothing,
         ipRanges = Lude.Nothing,
         notIPRanges = Lude.Nothing,
         notActions = Lude.Nothing,
-        name = pName_,
-        effect = pEffect_,
         description = pDescription_,
         organizationId = pOrganizationId_
       }
+
+-- | The rule effect.
+--
+-- /Note:/ Consider using 'effect' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrEffect :: Lens.Lens' PutAccessControlRule AccessControlRuleEffect
+pacrEffect = Lens.lens (effect :: PutAccessControlRule -> AccessControlRuleEffect) (\s a -> s {effect = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrEffect "Use generic-lens or generic-optics with 'effect' instead." #-}
 
 -- | User IDs to include in the rule.
 --
@@ -121,6 +132,13 @@ pacrUserIds = Lens.lens (userIds :: PutAccessControlRule -> Lude.Maybe [Lude.Tex
 pacrActions :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
 pacrActions = Lens.lens (actions :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {actions = a} :: PutAccessControlRule)
 {-# DEPRECATED pacrActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+-- | The rule name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pacrName :: Lens.Lens' PutAccessControlRule Lude.Text
+pacrName = Lens.lens (name :: PutAccessControlRule -> Lude.Text) (\s a -> s {name = a} :: PutAccessControlRule)
+{-# DEPRECATED pacrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | User IDs to exclude from the rule.
 --
@@ -149,20 +167,6 @@ pacrNotIPRanges = Lens.lens (notIPRanges :: PutAccessControlRule -> Lude.Maybe [
 pacrNotActions :: Lens.Lens' PutAccessControlRule (Lude.Maybe [Lude.Text])
 pacrNotActions = Lens.lens (notActions :: PutAccessControlRule -> Lude.Maybe [Lude.Text]) (\s a -> s {notActions = a} :: PutAccessControlRule)
 {-# DEPRECATED pacrNotActions "Use generic-lens or generic-optics with 'notActions' instead." #-}
-
--- | The rule name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pacrName :: Lens.Lens' PutAccessControlRule Lude.Text
-pacrName = Lens.lens (name :: PutAccessControlRule -> Lude.Text) (\s a -> s {name = a} :: PutAccessControlRule)
-{-# DEPRECATED pacrName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The rule effect.
---
--- /Note:/ Consider using 'effect' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pacrEffect :: Lens.Lens' PutAccessControlRule AccessControlRuleEffect
-pacrEffect = Lens.lens (effect :: PutAccessControlRule -> AccessControlRuleEffect) (\s a -> s {effect = a} :: PutAccessControlRule)
-{-# DEPRECATED pacrEffect "Use generic-lens or generic-optics with 'effect' instead." #-}
 
 -- | The rule description.
 --
@@ -203,14 +207,14 @@ instance Lude.ToJSON PutAccessControlRule where
   toJSON PutAccessControlRule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("UserIds" Lude..=) Lude.<$> userIds,
+          [ Lude.Just ("Effect" Lude..= effect),
+            ("UserIds" Lude..=) Lude.<$> userIds,
             ("Actions" Lude..=) Lude.<$> actions,
+            Lude.Just ("Name" Lude..= name),
             ("NotUserIds" Lude..=) Lude.<$> notUserIds,
             ("IpRanges" Lude..=) Lude.<$> ipRanges,
             ("NotIpRanges" Lude..=) Lude.<$> notIPRanges,
             ("NotActions" Lude..=) Lude.<$> notActions,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Effect" Lude..= effect),
             Lude.Just ("Description" Lude..= description),
             Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
@@ -224,16 +228,10 @@ instance Lude.ToQuery PutAccessControlRule where
 
 -- | /See:/ 'mkPutAccessControlRuleResponse' smart constructor.
 newtype PutAccessControlRuleResponse = PutAccessControlRuleResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutAccessControlRuleResponse' with the minimum fields required to make a request.

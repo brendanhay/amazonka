@@ -37,26 +37,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRevisionLocation' smart constructor.
 data RevisionLocation = RevisionLocation'
-  { string ::
-      Lude.Maybe RawString,
+  { -- | Information about the location of an AWS Lambda deployment revision stored as a RawString.
+    string :: Lude.Maybe RawString,
+    -- | The type of application revision:
+    --
+    --
+    --     * S3: An application revision stored in Amazon S3.
+    --
+    --
+    --     * GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).
+    --
+    --
+    --     * String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).
+    --
+    --
+    --     * AppSpecContent: An @AppSpecContent@ object that contains the contents of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML stored as a RawString.
     revisionType :: Lude.Maybe RevisionLocationType,
+    -- | Information about the location of a revision stored in Amazon S3.
     s3Location :: Lude.Maybe S3Location,
+    -- | The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
     appSpecContent :: Lude.Maybe AppSpecContent,
+    -- | Information about the location of application artifacts stored in GitHub.
     gitHubLocation :: Lude.Maybe GitHubLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevisionLocation' with the minimum fields required to make a request.
 --
--- * 'appSpecContent' - The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
--- * 'gitHubLocation' - Information about the location of application artifacts stored in GitHub.
+-- * 'string' - Information about the location of an AWS Lambda deployment revision stored as a RawString.
 -- * 'revisionType' - The type of application revision:
 --
 --
@@ -73,7 +82,8 @@ data RevisionLocation = RevisionLocation'
 --
 --
 -- * 's3Location' - Information about the location of a revision stored in Amazon S3.
--- * 'string' - Information about the location of an AWS Lambda deployment revision stored as a RawString.
+-- * 'appSpecContent' - The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString.
+-- * 'gitHubLocation' - Information about the location of application artifacts stored in GitHub.
 mkRevisionLocation ::
   RevisionLocation
 mkRevisionLocation =

@@ -44,56 +44,65 @@ import Network.AWS.ServiceCatalog.Types.RecordTag
 --
 -- /See:/ 'mkRecordDetail' smart constructor.
 data RecordDetail = RecordDetail'
-  { launchRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the launch role associated with the provisioned product.
+    launchRoleARN :: Lude.Maybe Lude.Text,
+    -- | The status of the provisioned product.
+    --
+    --
+    --     * @CREATED@ - The request was created but the operation has not started.
+    --
+    --
+    --     * @IN_PROGRESS@ - The requested operation is in progress.
+    --
+    --
+    --     * @IN_PROGRESS_IN_ERROR@ - The provisioned product is under change but the requested operation failed and some remediation is occurring. For example, a rollback.
+    --
+    --
+    --     * @SUCCEEDED@ - The requested operation has successfully completed.
+    --
+    --
+    --     * @FAILED@ - The requested operation has unsuccessfully completed. Investigate using the error messages returned.
     status :: Lude.Maybe RecordStatus,
+    -- | One or more tags.
     recordTags :: Lude.Maybe [RecordTag],
+    -- | The user-friendly name of the provisioned product.
     provisionedProductName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioning artifact.
     provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | The UTC time stamp of the creation time.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The record type.
+    --
+    --
+    --     * @PROVISION_PRODUCT@
+    --
+    --
+    --     * @UPDATE_PROVISIONED_PRODUCT@
+    --
+    --
+    --     * @TERMINATE_PROVISIONED_PRODUCT@
     recordType :: Lude.Maybe Lude.Text,
+    -- | The identifier of the record.
     recordId :: Lude.Maybe Lude.Text,
+    -- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
     provisionedProductType :: Lude.Maybe Lude.Text,
+    -- | The time when the record was last updated.
     updatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The path identifier.
     pathId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioned product.
     provisionedProductId :: Lude.Maybe Lude.Text,
+    -- | The errors that occurred.
     recordErrors :: Lude.Maybe [RecordError],
+    -- | The product identifier.
     productId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordDetail' with the minimum fields required to make a request.
 --
--- * 'createdTime' - The UTC time stamp of the creation time.
 -- * 'launchRoleARN' - The ARN of the launch role associated with the provisioned product.
--- * 'pathId' - The path identifier.
--- * 'productId' - The product identifier.
--- * 'provisionedProductId' - The identifier of the provisioned product.
--- * 'provisionedProductName' - The user-friendly name of the provisioned product.
--- * 'provisionedProductType' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'recordErrors' - The errors that occurred.
--- * 'recordId' - The identifier of the record.
--- * 'recordTags' - One or more tags.
--- * 'recordType' - The record type.
---
---
---     * @PROVISION_PRODUCT@
---
---
---     * @UPDATE_PROVISIONED_PRODUCT@
---
---
---     * @TERMINATE_PROVISIONED_PRODUCT@
---
---
 -- * 'status' - The status of the provisioned product.
 --
 --
@@ -112,7 +121,29 @@ data RecordDetail = RecordDetail'
 --     * @FAILED@ - The requested operation has unsuccessfully completed. Investigate using the error messages returned.
 --
 --
+-- * 'recordTags' - One or more tags.
+-- * 'provisionedProductName' - The user-friendly name of the provisioned product.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'recordType' - The record type.
+--
+--
+--     * @PROVISION_PRODUCT@
+--
+--
+--     * @UPDATE_PROVISIONED_PRODUCT@
+--
+--
+--     * @TERMINATE_PROVISIONED_PRODUCT@
+--
+--
+-- * 'recordId' - The identifier of the record.
+-- * 'provisionedProductType' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
 -- * 'updatedTime' - The time when the record was last updated.
+-- * 'pathId' - The path identifier.
+-- * 'provisionedProductId' - The identifier of the provisioned product.
+-- * 'recordErrors' - The errors that occurred.
+-- * 'productId' - The product identifier.
 mkRecordDetail ::
   RecordDetail
 mkRecordDetail =

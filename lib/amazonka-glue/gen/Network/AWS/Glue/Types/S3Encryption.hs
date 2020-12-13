@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Encryption' smart constructor.
 data S3Encryption = S3Encryption'
-  { s3EncryptionMode ::
-      Lude.Maybe S3EncryptionMode,
+  { -- | The encryption mode to use for Amazon S3 data.
+    s3EncryptionMode :: Lude.Maybe S3EncryptionMode,
+    -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
     kmsKeyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Encryption' with the minimum fields required to make a request.
 --
--- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 -- * 's3EncryptionMode' - The encryption mode to use for Amazon S3 data.
+-- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 mkS3Encryption ::
   S3Encryption
 mkS3Encryption =

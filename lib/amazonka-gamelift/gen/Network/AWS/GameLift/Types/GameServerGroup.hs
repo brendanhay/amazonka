@@ -72,54 +72,67 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameServerGroup' smart constructor.
 data GameServerGroup = GameServerGroup'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A timestamp that indicates when this data object was created. Format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The current status of the game server group. Possible statuses include:
+    --
+    --
+    --     * @NEW@ - GameLift FleetIQ has validated the @CreateGameServerGroup()@ request.
+    --
+    --
+    --     * @ACTIVATING@ - GameLift FleetIQ is setting up a game server group, which includes creating an Auto Scaling group in your AWS account.
+    --
+    --
+    --     * @ACTIVE@ - The game server group has been successfully created.
+    --
+    --
+    --     * @DELETE_SCHEDULED@ - A request to delete the game server group has been received.
+    --
+    --
+    --     * @DELETING@ - GameLift FleetIQ has received a valid @DeleteGameServerGroup()@ request and is processing it. GameLift FleetIQ must first complete and release hosts before it deletes the Auto Scaling group and the game server group.
+    --
+    --
+    --     * @DELETED@ - The game server group has been successfully deleted.
+    --
+    --
+    --     * @ERROR@ - The asynchronous processes of activating or deleting a game server group has failed, resulting in an error state.
     status :: Lude.Maybe GameServerGroupStatus,
-    instanceDefinitions ::
-      Lude.Maybe (Lude.NonEmpty InstanceDefinition),
+    -- | The set of EC2 instance types that GameLift FleetIQ can use when balancing and automatically scaling instances in the corresponding Auto Scaling group.
+    instanceDefinitions :: Lude.Maybe (Lude.NonEmpty InstanceDefinition),
+    -- | A timestamp that indicates when this game server group was last updated.
     lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group. Method options include the following:
+    --
+    --
+    --     * @SPOT_ONLY@ - Only Spot Instances are used in the game server group. If Spot Instances are unavailable or not viable for game hosting, the game server group provides no hosting capacity until Spot Instances can again be used. Until then, no new instances are started, and the existing nonviable Spot Instances are terminated (after current gameplay ends) and are not replaced.
+    --
+    --
+    --     * @SPOT_PREFERRED@ - (default value) Spot Instances are used whenever available in the game server group. If Spot Instances are unavailable, the game server group continues to provide hosting capacity by falling back to On-Demand Instances. Existing nonviable Spot Instances are terminated (after current gameplay ends) and are replaced with new On-Demand Instances.
+    --
+    --
+    --     * @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game server group. No Spot Instances are used, even when available, while this balancing strategy is in force.
     balancingStrategy :: Lude.Maybe BalancingStrategy,
+    -- | A developer-defined identifier for the game server group. The name is unique for each Region in each AWS account.
     gameServerGroupName :: Lude.Maybe Lude.Text,
-    suspendedActions ::
-      Lude.Maybe (Lude.NonEmpty GameServerGroupAction),
+    -- | A list of activities that are currently suspended for this game server group. If this property is empty, all activities are occurring.
+    suspendedActions :: Lude.Maybe (Lude.NonEmpty GameServerGroupAction),
+    -- | A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
     autoScalingGroupARN :: Lude.Maybe Lude.Text,
+    -- | Additional information about the current game server group status. This information might provide additional insight on groups that are in @ERROR@ status.
     statusReason :: Lude.Maybe Lude.Text,
-    gameServerProtectionPolicy ::
-      Lude.Maybe GameServerProtectionPolicy,
+    -- | A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status.
+    gameServerProtectionPolicy :: Lude.Maybe GameServerProtectionPolicy,
+    -- | A generated unique ID for the game server group.
     gameServerGroupARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameServerGroup' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupARN' - A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
--- * 'balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group. Method options include the following:
---
---
---     * @SPOT_ONLY@ - Only Spot Instances are used in the game server group. If Spot Instances are unavailable or not viable for game hosting, the game server group provides no hosting capacity until Spot Instances can again be used. Until then, no new instances are started, and the existing nonviable Spot Instances are terminated (after current gameplay ends) and are not replaced.
---
---
---     * @SPOT_PREFERRED@ - (default value) Spot Instances are used whenever available in the game server group. If Spot Instances are unavailable, the game server group continues to provide hosting capacity by falling back to On-Demand Instances. Existing nonviable Spot Instances are terminated (after current gameplay ends) and are replaced with new On-Demand Instances.
---
---
---     * @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game server group. No Spot Instances are used, even when available, while this balancing strategy is in force.
---
---
 -- * 'creationTime' - A timestamp that indicates when this data object was created. Format is a number expressed in Unix time as milliseconds (for example @"1469498468.057"@ ).
--- * 'gameServerGroupARN' - A generated unique ID for the game server group.
--- * 'gameServerGroupName' - A developer-defined identifier for the game server group. The name is unique for each Region in each AWS account.
--- * 'gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status.
--- * 'instanceDefinitions' - The set of EC2 instance types that GameLift FleetIQ can use when balancing and automatically scaling instances in the corresponding Auto Scaling group.
--- * 'lastUpdatedTime' - A timestamp that indicates when this game server group was last updated.
--- * 'roleARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 -- * 'status' - The current status of the game server group. Possible statuses include:
 --
 --
@@ -144,8 +157,27 @@ data GameServerGroup = GameServerGroup'
 --     * @ERROR@ - The asynchronous processes of activating or deleting a game server group has failed, resulting in an error state.
 --
 --
--- * 'statusReason' - Additional information about the current game server group status. This information might provide additional insight on groups that are in @ERROR@ status.
+-- * 'instanceDefinitions' - The set of EC2 instance types that GameLift FleetIQ can use when balancing and automatically scaling instances in the corresponding Auto Scaling group.
+-- * 'lastUpdatedTime' - A timestamp that indicates when this game server group was last updated.
+-- * 'balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances in the game server group. Method options include the following:
+--
+--
+--     * @SPOT_ONLY@ - Only Spot Instances are used in the game server group. If Spot Instances are unavailable or not viable for game hosting, the game server group provides no hosting capacity until Spot Instances can again be used. Until then, no new instances are started, and the existing nonviable Spot Instances are terminated (after current gameplay ends) and are not replaced.
+--
+--
+--     * @SPOT_PREFERRED@ - (default value) Spot Instances are used whenever available in the game server group. If Spot Instances are unavailable, the game server group continues to provide hosting capacity by falling back to On-Demand Instances. Existing nonviable Spot Instances are terminated (after current gameplay ends) and are replaced with new On-Demand Instances.
+--
+--
+--     * @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game server group. No Spot Instances are used, even when available, while this balancing strategy is in force.
+--
+--
+-- * 'gameServerGroupName' - A developer-defined identifier for the game server group. The name is unique for each Region in each AWS account.
 -- * 'suspendedActions' - A list of activities that are currently suspended for this game server group. If this property is empty, all activities are occurring.
+-- * 'autoScalingGroupARN' - A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
+-- * 'statusReason' - Additional information about the current game server group status. This information might provide additional insight on groups that are in @ERROR@ status.
+-- * 'gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are protected from early termination. Unprotected instances that have active game servers running might be terminated during a scale-down event, causing players to be dropped from the game. Protected instances cannot be terminated while there are active game servers running except in the event of a forced game server group deletion (see ). An exception to this is with Spot Instances, which can be terminated by AWS regardless of protection status.
+-- * 'gameServerGroupARN' - A generated unique ID for the game server group.
+-- * 'roleARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN> ) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 mkGameServerGroup ::
   GameServerGroup
 mkGameServerGroup =

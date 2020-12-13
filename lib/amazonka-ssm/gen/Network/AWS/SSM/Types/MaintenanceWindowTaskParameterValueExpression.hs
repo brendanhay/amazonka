@@ -28,22 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaintenanceWindowTaskParameterValueExpression' smart constructor.
 newtype MaintenanceWindowTaskParameterValueExpression = MaintenanceWindowTaskParameterValueExpression'
-  { values ::
-      Lude.Maybe
-        [ Lude.Sensitive
-            Lude.Text
-        ]
+  { -- | This field contains an array of 0 or more strings, each 1 to 255 characters in length.
+    values :: Lude.Maybe [Lude.Sensitive Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowTaskParameterValueExpression' with the minimum fields required to make a request.
 --

@@ -33,18 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
-  { state ::
-      Lude.Maybe ClusterState,
+  { -- | The current state of the cluster.
+    state :: Lude.Maybe ClusterState,
+    -- | The reason for the cluster status change.
     stateChangeReason :: Lude.Maybe ClusterStateChangeReason,
+    -- | A timeline that represents the status of a cluster over the lifetime of the cluster.
     timeline :: Lude.Maybe ClusterTimeline
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterStatus' with the minimum fields required to make a request.

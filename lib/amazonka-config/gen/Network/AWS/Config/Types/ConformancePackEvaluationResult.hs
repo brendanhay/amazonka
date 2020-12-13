@@ -17,11 +17,11 @@ module Network.AWS.Config.Types.ConformancePackEvaluationResult
     mkConformancePackEvaluationResult,
 
     -- * Lenses
-    cperAnnotation,
-    cperComplianceType,
     cperEvaluationResultIdentifier,
+    cperAnnotation,
     cperConfigRuleInvokedTime,
     cperResultRecordedTime,
+    cperComplianceType,
   )
 where
 
@@ -34,69 +34,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConformancePackEvaluationResult' smart constructor.
 data ConformancePackEvaluationResult = ConformancePackEvaluationResult'
-  { annotation ::
-      Lude.Maybe Lude.Text,
-    complianceType ::
-      ConformancePackComplianceType,
-    evaluationResultIdentifier ::
-      EvaluationResultIdentifier,
-    configRuleInvokedTime ::
-      Lude.Timestamp,
-    resultRecordedTime ::
-      Lude.Timestamp
+  { evaluationResultIdentifier :: EvaluationResultIdentifier,
+    -- | Supplementary information about how the evaluation determined the compliance.
+    annotation :: Lude.Maybe Lude.Text,
+    -- | The time when AWS Config rule evaluated AWS resource.
+    configRuleInvokedTime :: Lude.Timestamp,
+    -- | The time when AWS Config recorded the evaluation result.
+    resultRecordedTime :: Lude.Timestamp,
+    -- | The compliance type. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+    complianceType :: ConformancePackComplianceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConformancePackEvaluationResult' with the minimum fields required to make a request.
 --
+-- * 'evaluationResultIdentifier' -
 -- * 'annotation' - Supplementary information about how the evaluation determined the compliance.
--- * 'complianceType' - The compliance type. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 -- * 'configRuleInvokedTime' - The time when AWS Config rule evaluated AWS resource.
--- * 'evaluationResultIdentifier' - Undocumented field.
 -- * 'resultRecordedTime' - The time when AWS Config recorded the evaluation result.
+-- * 'complianceType' - The compliance type. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
 mkConformancePackEvaluationResult ::
-  -- | 'complianceType'
-  ConformancePackComplianceType ->
   -- | 'evaluationResultIdentifier'
   EvaluationResultIdentifier ->
   -- | 'configRuleInvokedTime'
   Lude.Timestamp ->
   -- | 'resultRecordedTime'
   Lude.Timestamp ->
+  -- | 'complianceType'
+  ConformancePackComplianceType ->
   ConformancePackEvaluationResult
 mkConformancePackEvaluationResult
-  pComplianceType_
   pEvaluationResultIdentifier_
   pConfigRuleInvokedTime_
-  pResultRecordedTime_ =
+  pResultRecordedTime_
+  pComplianceType_ =
     ConformancePackEvaluationResult'
-      { annotation = Lude.Nothing,
-        complianceType = pComplianceType_,
-        evaluationResultIdentifier = pEvaluationResultIdentifier_,
+      { evaluationResultIdentifier =
+          pEvaluationResultIdentifier_,
+        annotation = Lude.Nothing,
         configRuleInvokedTime = pConfigRuleInvokedTime_,
-        resultRecordedTime = pResultRecordedTime_
+        resultRecordedTime = pResultRecordedTime_,
+        complianceType = pComplianceType_
       }
-
--- | Supplementary information about how the evaluation determined the compliance.
---
--- /Note:/ Consider using 'annotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cperAnnotation :: Lens.Lens' ConformancePackEvaluationResult (Lude.Maybe Lude.Text)
-cperAnnotation = Lens.lens (annotation :: ConformancePackEvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {annotation = a} :: ConformancePackEvaluationResult)
-{-# DEPRECATED cperAnnotation "Use generic-lens or generic-optics with 'annotation' instead." #-}
-
--- | The compliance type. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
---
--- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cperComplianceType :: Lens.Lens' ConformancePackEvaluationResult ConformancePackComplianceType
-cperComplianceType = Lens.lens (complianceType :: ConformancePackEvaluationResult -> ConformancePackComplianceType) (\s a -> s {complianceType = a} :: ConformancePackEvaluationResult)
-{-# DEPRECATED cperComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
 
 -- | Undocumented field.
 --
@@ -104,6 +84,13 @@ cperComplianceType = Lens.lens (complianceType :: ConformancePackEvaluationResul
 cperEvaluationResultIdentifier :: Lens.Lens' ConformancePackEvaluationResult EvaluationResultIdentifier
 cperEvaluationResultIdentifier = Lens.lens (evaluationResultIdentifier :: ConformancePackEvaluationResult -> EvaluationResultIdentifier) (\s a -> s {evaluationResultIdentifier = a} :: ConformancePackEvaluationResult)
 {-# DEPRECATED cperEvaluationResultIdentifier "Use generic-lens or generic-optics with 'evaluationResultIdentifier' instead." #-}
+
+-- | Supplementary information about how the evaluation determined the compliance.
+--
+-- /Note:/ Consider using 'annotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cperAnnotation :: Lens.Lens' ConformancePackEvaluationResult (Lude.Maybe Lude.Text)
+cperAnnotation = Lens.lens (annotation :: ConformancePackEvaluationResult -> Lude.Maybe Lude.Text) (\s a -> s {annotation = a} :: ConformancePackEvaluationResult)
+{-# DEPRECATED cperAnnotation "Use generic-lens or generic-optics with 'annotation' instead." #-}
 
 -- | The time when AWS Config rule evaluated AWS resource.
 --
@@ -119,15 +106,22 @@ cperResultRecordedTime :: Lens.Lens' ConformancePackEvaluationResult Lude.Timest
 cperResultRecordedTime = Lens.lens (resultRecordedTime :: ConformancePackEvaluationResult -> Lude.Timestamp) (\s a -> s {resultRecordedTime = a} :: ConformancePackEvaluationResult)
 {-# DEPRECATED cperResultRecordedTime "Use generic-lens or generic-optics with 'resultRecordedTime' instead." #-}
 
+-- | The compliance type. The allowed values are @COMPLIANT@ and @NON_COMPLIANT@ .
+--
+-- /Note:/ Consider using 'complianceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cperComplianceType :: Lens.Lens' ConformancePackEvaluationResult ConformancePackComplianceType
+cperComplianceType = Lens.lens (complianceType :: ConformancePackEvaluationResult -> ConformancePackComplianceType) (\s a -> s {complianceType = a} :: ConformancePackEvaluationResult)
+{-# DEPRECATED cperComplianceType "Use generic-lens or generic-optics with 'complianceType' instead." #-}
+
 instance Lude.FromJSON ConformancePackEvaluationResult where
   parseJSON =
     Lude.withObject
       "ConformancePackEvaluationResult"
       ( \x ->
           ConformancePackEvaluationResult'
-            Lude.<$> (x Lude..:? "Annotation")
-            Lude.<*> (x Lude..: "ComplianceType")
-            Lude.<*> (x Lude..: "EvaluationResultIdentifier")
+            Lude.<$> (x Lude..: "EvaluationResultIdentifier")
+            Lude.<*> (x Lude..:? "Annotation")
             Lude.<*> (x Lude..: "ConfigRuleInvokedTime")
             Lude.<*> (x Lude..: "ResultRecordedTime")
+            Lude.<*> (x Lude..: "ComplianceType")
       )

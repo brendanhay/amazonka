@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,35 +53,36 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
-  { alarmName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the alarm.
+    alarmName :: Lude.Maybe Lude.Text,
+    -- | The type of alarm histories to retrieve.
     historyItemType :: Lude.Maybe HistoryItemType,
+    -- | Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
     alarmTypes :: Lude.Maybe [AlarmType],
+    -- | The ending date to retrieve alarm history.
     endDate :: Lude.Maybe Lude.DateTime,
+    -- | The starting date to retrieve alarm history.
     startDate :: Lude.Maybe Lude.DateTime,
+    -- | The token returned by a previous call to indicate that there is more data available.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
     scanBy :: Lude.Maybe ScanBy,
+    -- | The maximum number of alarm history records to retrieve.
     maxRecords :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlarmHistory' with the minimum fields required to make a request.
 --
 -- * 'alarmName' - The name of the alarm.
+-- * 'historyItemType' - The type of alarm histories to retrieve.
 -- * 'alarmTypes' - Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
 -- * 'endDate' - The ending date to retrieve alarm history.
--- * 'historyItemType' - The type of alarm histories to retrieve.
--- * 'maxRecords' - The maximum number of alarm history records to retrieve.
+-- * 'startDate' - The starting date to retrieve alarm history.
 -- * 'nextToken' - The token returned by a previous call to indicate that there is more data available.
 -- * 'scanBy' - Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
--- * 'startDate' - The starting date to retrieve alarm history.
+-- * 'maxRecords' - The maximum number of alarm history records to retrieve.
 mkDescribeAlarmHistory ::
   DescribeAlarmHistory
 mkDescribeAlarmHistory =
@@ -199,18 +201,14 @@ instance Lude.ToQuery DescribeAlarmHistory where
 
 -- | /See:/ 'mkDescribeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
-  { alarmHistoryItems ::
-      Lude.Maybe [AlarmHistoryItem],
+  { -- | The alarm histories, in JSON format.
+    alarmHistoryItems :: Lude.Maybe [AlarmHistoryItem],
+    -- | The token that marks the start of the next batch of returned results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAlarmHistoryResponse' with the minimum fields required to make a request.

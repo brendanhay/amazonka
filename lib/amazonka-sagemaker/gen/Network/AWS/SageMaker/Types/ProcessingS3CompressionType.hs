@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ProcessingS3CompressionType
   ( ProcessingS3CompressionType
       ( ProcessingS3CompressionType',
-        PSCTGzip,
-        PSCTNone
+        PSCTNone,
+        PSCTGzip
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ProcessingS3CompressionType = ProcessingS3CompressionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PSCTGzip :: ProcessingS3CompressionType
-pattern PSCTGzip = ProcessingS3CompressionType' "Gzip"
-
 pattern PSCTNone :: ProcessingS3CompressionType
 pattern PSCTNone = ProcessingS3CompressionType' "None"
 
+pattern PSCTGzip :: ProcessingS3CompressionType
+pattern PSCTGzip = ProcessingS3CompressionType' "Gzip"
+
 {-# COMPLETE
-  PSCTGzip,
   PSCTNone,
+  PSCTGzip,
   ProcessingS3CompressionType'
   #-}

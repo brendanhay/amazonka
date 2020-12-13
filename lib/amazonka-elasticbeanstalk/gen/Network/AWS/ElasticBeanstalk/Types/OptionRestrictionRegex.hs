@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOptionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
-  { pattern' ::
-      Lude.Maybe Lude.Text,
+  { -- | The regular expression pattern that a string configuration option value with this restriction must match.
+    pattern' :: Lude.Maybe Lude.Text,
+    -- | A unique name representing this regular expression.
     label :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionRestrictionRegex' with the minimum fields required to make a request.
 --
--- * 'label' - A unique name representing this regular expression.
 -- * 'pattern'' - The regular expression pattern that a string configuration option value with this restriction must match.
+-- * 'label' - A unique name representing this regular expression.
 mkOptionRestrictionRegex ::
   OptionRestrictionRegex
 mkOptionRestrictionRegex =

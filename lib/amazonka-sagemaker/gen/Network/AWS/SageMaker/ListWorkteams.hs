@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +22,20 @@ module Network.AWS.SageMaker.ListWorkteams
     mkListWorkteams,
 
     -- ** Request lenses
-    lwNameContains,
-    lwNextToken,
-    lwSortOrder,
-    lwMaxResults,
-    lwSortBy,
+    lNameContains,
+    lNextToken,
+    lSortOrder,
+    lMaxResults,
+    lSortBy,
 
     -- * Destructuring the response
     ListWorkteamsResponse (..),
     mkListWorkteamsResponse,
 
     -- ** Response lenses
-    lrsNextToken,
-    lrsResponseStatus,
-    lrsWorkteams,
+    lwsrsNextToken,
+    lwsrsWorkteams,
+    lwsrsResponseStatus,
   )
 where
 
@@ -47,29 +48,27 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListWorkteams' smart constructor.
 data ListWorkteams = ListWorkteams'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A string in the work team's name. This filter returns only work teams whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | If the result of the previous @ListWorkteams@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Ascending@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | The maximum number of work teams to return in each page of the response.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @CreationTime@ .
     sortBy :: Lude.Maybe ListWorkteamsSortByOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkteams' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of work teams to return in each page of the response.
 -- * 'nameContains' - A string in the work team's name. This filter returns only work teams whose name contains the specified string.
 -- * 'nextToken' - If the result of the previous @ListWorkteams@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
--- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 -- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'maxResults' - The maximum number of work teams to return in each page of the response.
+-- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 mkListWorkteams ::
   ListWorkteams
 mkListWorkteams =
@@ -84,46 +83,46 @@ mkListWorkteams =
 -- | A string in the work team's name. This filter returns only work teams whose name contains the specified string.
 --
 -- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwNameContains :: Lens.Lens' ListWorkteams (Lude.Maybe Lude.Text)
-lwNameContains = Lens.lens (nameContains :: ListWorkteams -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListWorkteams)
-{-# DEPRECATED lwNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+lNameContains :: Lens.Lens' ListWorkteams (Lude.Maybe Lude.Text)
+lNameContains = Lens.lens (nameContains :: ListWorkteams -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListWorkteams)
+{-# DEPRECATED lNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | If the result of the previous @ListWorkteams@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwNextToken :: Lens.Lens' ListWorkteams (Lude.Maybe Lude.Text)
-lwNextToken = Lens.lens (nextToken :: ListWorkteams -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkteams)
-{-# DEPRECATED lwNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lNextToken :: Lens.Lens' ListWorkteams (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListWorkteams -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkteams)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The sort order for results. The default is @Ascending@ .
 --
 -- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwSortOrder :: Lens.Lens' ListWorkteams (Lude.Maybe SortOrder)
-lwSortOrder = Lens.lens (sortOrder :: ListWorkteams -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListWorkteams)
-{-# DEPRECATED lwSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+lSortOrder :: Lens.Lens' ListWorkteams (Lude.Maybe SortOrder)
+lSortOrder = Lens.lens (sortOrder :: ListWorkteams -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListWorkteams)
+{-# DEPRECATED lSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | The maximum number of work teams to return in each page of the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwMaxResults :: Lens.Lens' ListWorkteams (Lude.Maybe Lude.Natural)
-lwMaxResults = Lens.lens (maxResults :: ListWorkteams -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkteams)
-{-# DEPRECATED lwMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lMaxResults :: Lens.Lens' ListWorkteams (Lude.Maybe Lude.Natural)
+lMaxResults = Lens.lens (maxResults :: ListWorkteams -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkteams)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The field to sort results by. The default is @CreationTime@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwSortBy :: Lens.Lens' ListWorkteams (Lude.Maybe ListWorkteamsSortByOptions)
-lwSortBy = Lens.lens (sortBy :: ListWorkteams -> Lude.Maybe ListWorkteamsSortByOptions) (\s a -> s {sortBy = a} :: ListWorkteams)
-{-# DEPRECATED lwSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
+lSortBy :: Lens.Lens' ListWorkteams (Lude.Maybe ListWorkteamsSortByOptions)
+lSortBy = Lens.lens (sortBy :: ListWorkteams -> Lude.Maybe ListWorkteamsSortByOptions) (\s a -> s {sortBy = a} :: ListWorkteams)
+{-# DEPRECATED lSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
 instance Page.AWSPager ListWorkteams where
   page rq rs
-    | Page.stop (rs Lens.^. lrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrsWorkteams) = Lude.Nothing
+    | Page.stop (rs Lens.^. lwsrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lwsrsWorkteams) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lwNextToken Lens..~ rs Lens.^. lrsNextToken
+          Lude.& lNextToken Lens..~ rs Lens.^. lwsrsNextToken
 
 instance Lude.AWSRequest ListWorkteams where
   type Rs ListWorkteams = ListWorkteamsResponse
@@ -133,8 +132,8 @@ instance Lude.AWSRequest ListWorkteams where
       ( \s h x ->
           ListWorkteamsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "Workteams" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListWorkteams where
@@ -168,25 +167,21 @@ instance Lude.ToQuery ListWorkteams where
 
 -- | /See:/ 'mkListWorkteamsResponse' smart constructor.
 data ListWorkteamsResponse = ListWorkteamsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    workteams :: [Workteam]
+  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @Workteam@ objects, each describing a work team.
+    workteams :: [Workteam],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWorkteamsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
--- * 'responseStatus' - The response status code.
 -- * 'workteams' - An array of @Workteam@ objects, each describing a work team.
+-- * 'responseStatus' - The response status code.
 mkListWorkteamsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -194,27 +189,27 @@ mkListWorkteamsResponse ::
 mkListWorkteamsResponse pResponseStatus_ =
   ListWorkteamsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      workteams = Lude.mempty
+      workteams = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsNextToken :: Lens.Lens' ListWorkteamsResponse (Lude.Maybe Lude.Text)
-lrsNextToken = Lens.lens (nextToken :: ListWorkteamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkteamsResponse)
-{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsResponseStatus :: Lens.Lens' ListWorkteamsResponse Lude.Int
-lrsResponseStatus = Lens.lens (responseStatus :: ListWorkteamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkteamsResponse)
-{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lwsrsNextToken :: Lens.Lens' ListWorkteamsResponse (Lude.Maybe Lude.Text)
+lwsrsNextToken = Lens.lens (nextToken :: ListWorkteamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkteamsResponse)
+{-# DEPRECATED lwsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @Workteam@ objects, each describing a work team.
 --
 -- /Note:/ Consider using 'workteams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsWorkteams :: Lens.Lens' ListWorkteamsResponse [Workteam]
-lrsWorkteams = Lens.lens (workteams :: ListWorkteamsResponse -> [Workteam]) (\s a -> s {workteams = a} :: ListWorkteamsResponse)
-{-# DEPRECATED lrsWorkteams "Use generic-lens or generic-optics with 'workteams' instead." #-}
+lwsrsWorkteams :: Lens.Lens' ListWorkteamsResponse [Workteam]
+lwsrsWorkteams = Lens.lens (workteams :: ListWorkteamsResponse -> [Workteam]) (\s a -> s {workteams = a} :: ListWorkteamsResponse)
+{-# DEPRECATED lwsrsWorkteams "Use generic-lens or generic-optics with 'workteams' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwsrsResponseStatus :: Lens.Lens' ListWorkteamsResponse Lude.Int
+lwsrsResponseStatus = Lens.lens (responseStatus :: ListWorkteamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkteamsResponse)
+{-# DEPRECATED lwsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Config.PutOrganizationConfigRule
 
     -- ** Request lenses
     pocrOrganizationManagedRuleMetadata,
+    pocrOrganizationConfigRuleName,
     pocrExcludedAccounts,
     pocrOrganizationCustomRuleMetadata,
-    pocrOrganizationConfigRuleName,
 
     -- * Destructuring the response
     PutOrganizationConfigRuleResponse (..),
@@ -48,31 +49,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutOrganizationConfigRule' smart constructor.
 data PutOrganizationConfigRule = PutOrganizationConfigRule'
-  { organizationManagedRuleMetadata ::
-      Lude.Maybe
-        OrganizationManagedRuleMetadata,
-    excludedAccounts ::
-      Lude.Maybe [Lude.Text],
-    organizationCustomRuleMetadata ::
-      Lude.Maybe
-        OrganizationCustomRuleMetadata,
-    organizationConfigRuleName :: Lude.Text
+  { -- | An @OrganizationManagedRuleMetadata@ object.
+    organizationManagedRuleMetadata :: Lude.Maybe OrganizationManagedRuleMetadata,
+    -- | The name that you assign to an organization config rule.
+    organizationConfigRuleName :: Lude.Text,
+    -- | A comma-separated list of accounts that you want to exclude from an organization config rule.
+    excludedAccounts :: Lude.Maybe [Lude.Text],
+    -- | An @OrganizationCustomRuleMetadata@ object.
+    organizationCustomRuleMetadata :: Lude.Maybe OrganizationCustomRuleMetadata
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutOrganizationConfigRule' with the minimum fields required to make a request.
 --
--- * 'excludedAccounts' - A comma-separated list of accounts that you want to exclude from an organization config rule.
--- * 'organizationConfigRuleName' - The name that you assign to an organization config rule.
--- * 'organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
 -- * 'organizationManagedRuleMetadata' - An @OrganizationManagedRuleMetadata@ object.
+-- * 'organizationConfigRuleName' - The name that you assign to an organization config rule.
+-- * 'excludedAccounts' - A comma-separated list of accounts that you want to exclude from an organization config rule.
+-- * 'organizationCustomRuleMetadata' - An @OrganizationCustomRuleMetadata@ object.
 mkPutOrganizationConfigRule ::
   -- | 'organizationConfigRuleName'
   Lude.Text ->
@@ -81,9 +75,9 @@ mkPutOrganizationConfigRule pOrganizationConfigRuleName_ =
   PutOrganizationConfigRule'
     { organizationManagedRuleMetadata =
         Lude.Nothing,
+      organizationConfigRuleName = pOrganizationConfigRuleName_,
       excludedAccounts = Lude.Nothing,
-      organizationCustomRuleMetadata = Lude.Nothing,
-      organizationConfigRuleName = pOrganizationConfigRuleName_
+      organizationCustomRuleMetadata = Lude.Nothing
     }
 
 -- | An @OrganizationManagedRuleMetadata@ object.
@@ -92,6 +86,13 @@ mkPutOrganizationConfigRule pOrganizationConfigRuleName_ =
 pocrOrganizationManagedRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Lude.Maybe OrganizationManagedRuleMetadata)
 pocrOrganizationManagedRuleMetadata = Lens.lens (organizationManagedRuleMetadata :: PutOrganizationConfigRule -> Lude.Maybe OrganizationManagedRuleMetadata) (\s a -> s {organizationManagedRuleMetadata = a} :: PutOrganizationConfigRule)
 {-# DEPRECATED pocrOrganizationManagedRuleMetadata "Use generic-lens or generic-optics with 'organizationManagedRuleMetadata' instead." #-}
+
+-- | The name that you assign to an organization config rule.
+--
+-- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocrOrganizationConfigRuleName :: Lens.Lens' PutOrganizationConfigRule Lude.Text
+pocrOrganizationConfigRuleName = Lens.lens (organizationConfigRuleName :: PutOrganizationConfigRule -> Lude.Text) (\s a -> s {organizationConfigRuleName = a} :: PutOrganizationConfigRule)
+{-# DEPRECATED pocrOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
 
 -- | A comma-separated list of accounts that you want to exclude from an organization config rule.
 --
@@ -106,13 +107,6 @@ pocrExcludedAccounts = Lens.lens (excludedAccounts :: PutOrganizationConfigRule 
 pocrOrganizationCustomRuleMetadata :: Lens.Lens' PutOrganizationConfigRule (Lude.Maybe OrganizationCustomRuleMetadata)
 pocrOrganizationCustomRuleMetadata = Lens.lens (organizationCustomRuleMetadata :: PutOrganizationConfigRule -> Lude.Maybe OrganizationCustomRuleMetadata) (\s a -> s {organizationCustomRuleMetadata = a} :: PutOrganizationConfigRule)
 {-# DEPRECATED pocrOrganizationCustomRuleMetadata "Use generic-lens or generic-optics with 'organizationCustomRuleMetadata' instead." #-}
-
--- | The name that you assign to an organization config rule.
---
--- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocrOrganizationConfigRuleName :: Lens.Lens' PutOrganizationConfigRule Lude.Text
-pocrOrganizationConfigRuleName = Lens.lens (organizationConfigRuleName :: PutOrganizationConfigRule -> Lude.Text) (\s a -> s {organizationConfigRuleName = a} :: PutOrganizationConfigRule)
-{-# DEPRECATED pocrOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
 
 instance Lude.AWSRequest PutOrganizationConfigRule where
   type
@@ -146,11 +140,11 @@ instance Lude.ToJSON PutOrganizationConfigRule where
       ( Lude.catMaybes
           [ ("OrganizationManagedRuleMetadata" Lude..=)
               Lude.<$> organizationManagedRuleMetadata,
+            Lude.Just
+              ("OrganizationConfigRuleName" Lude..= organizationConfigRuleName),
             ("ExcludedAccounts" Lude..=) Lude.<$> excludedAccounts,
             ("OrganizationCustomRuleMetadata" Lude..=)
-              Lude.<$> organizationCustomRuleMetadata,
-            Lude.Just
-              ("OrganizationConfigRuleName" Lude..= organizationConfigRuleName)
+              Lude.<$> organizationCustomRuleMetadata
           ]
       )
 
@@ -162,18 +156,12 @@ instance Lude.ToQuery PutOrganizationConfigRule where
 
 -- | /See:/ 'mkPutOrganizationConfigRuleResponse' smart constructor.
 data PutOrganizationConfigRuleResponse = PutOrganizationConfigRuleResponse'
-  { organizationConfigRuleARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Amazon Resource Name (ARN) of an organization config rule.
+    organizationConfigRuleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutOrganizationConfigRuleResponse' with the minimum fields required to make a request.

@@ -29,20 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnableFastSnapshotRestoreStateError' smart constructor.
 data EnableFastSnapshotRestoreStateError = EnableFastSnapshotRestoreStateError'
-  { code ::
-      Lude.Maybe
-        Lude.Text,
-    message ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The error code.
+    code :: Lude.Maybe Lude.Text,
+    -- | The error message.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableFastSnapshotRestoreStateError' with the minimum fields required to make a request.

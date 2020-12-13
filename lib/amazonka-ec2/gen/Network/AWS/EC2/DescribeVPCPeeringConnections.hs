@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,9 +33,9 @@ module Network.AWS.EC2.DescribeVPCPeeringConnections
     mkDescribeVPCPeeringConnectionsResponse,
 
     -- ** Response lenses
-    dvpcpcrsNextToken,
-    dvpcpcrsVPCPeeringConnections,
-    dvpcpcrsResponseStatus,
+    dvpcrsNextToken,
+    dvpcrsVPCPeeringConnections,
+    dvpcrsResponseStatus,
   )
 where
 
@@ -47,28 +48,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVPCPeeringConnections' smart constructor.
 data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
-  { filters ::
-      Lude.Maybe [Filter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    vpcPeeringConnectionIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | One or more filters.
+    --
+    --
+    --     * @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter VPC.
+    --
+    --
+    --     * @accepter-vpc-info.owner-id@ - The AWS account ID of the owner of the accepter VPC.
+    --
+    --
+    --     * @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.
+    --
+    --
+    --     * @expiration-time@ - The expiration date and time for the VPC peering connection.
+    --
+    --
+    --     * @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the requester's VPC.
+    --
+    --
+    --     * @requester-vpc-info.owner-id@ - The AWS account ID of the owner of the requester VPC.
+    --
+    --
+    --     * @requester-vpc-info.vpc-id@ - The ID of the requester VPC.
+    --
+    --
+    --     * @status-code@ - The status of the VPC peering connection (@pending-acceptance@ | @failed@ | @expired@ | @provisioning@ | @active@ | @deleting@ | @deleted@ | @rejected@ ).
+    --
+    --
+    --     * @status-message@ - A message that provides more information about the status of the VPC peering connection, if applicable.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    --
+    --
+    --     * @vpc-peering-connection-id@ - The ID of the VPC peering connection.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | One or more VPC peering connection IDs.
+    --
+    -- Default: Describes all your VPC peering connections.
+    vpcPeeringConnectionIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringConnections' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -108,11 +141,12 @@ data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
 --     * @vpc-peering-connection-id@ - The ID of the VPC peering connection.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
 -- * 'vpcPeeringConnectionIds' - One or more VPC peering connection IDs.
 --
 -- Default: Describes all your VPC peering connections.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeVPCPeeringConnections ::
   DescribeVPCPeeringConnections
 mkDescribeVPCPeeringConnections =
@@ -201,13 +235,12 @@ dvpcpcMaxResults = Lens.lens (maxResults :: DescribeVPCPeeringConnections -> Lud
 
 instance Page.AWSPager DescribeVPCPeeringConnections where
   page rq rs
-    | Page.stop (rs Lens.^. dvpcpcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dvpcpcrsVPCPeeringConnections) =
-      Lude.Nothing
+    | Page.stop (rs Lens.^. dvpcrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dvpcrsVPCPeeringConnections) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dvpcpcNextToken Lens..~ rs Lens.^. dvpcpcrsNextToken
+          Lude.& dvpcpcNextToken Lens..~ rs Lens.^. dvpcrsNextToken
 
 instance Lude.AWSRequest DescribeVPCPeeringConnections where
   type
@@ -249,29 +282,21 @@ instance Lude.ToQuery DescribeVPCPeeringConnections where
 
 -- | /See:/ 'mkDescribeVPCPeeringConnectionsResponse' smart constructor.
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    vpcPeeringConnections ::
-      Lude.Maybe
-        [VPCPeeringConnection],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the VPC peering connections.
+    vpcPeeringConnections :: Lude.Maybe [VPCPeeringConnection],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVPCPeeringConnectionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
 -- * 'vpcPeeringConnections' - Information about the VPC peering connections.
+-- * 'responseStatus' - The response status code.
 mkDescribeVPCPeeringConnectionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -286,20 +311,20 @@ mkDescribeVPCPeeringConnectionsResponse pResponseStatus_ =
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvpcpcrsNextToken :: Lens.Lens' DescribeVPCPeeringConnectionsResponse (Lude.Maybe Lude.Text)
-dvpcpcrsNextToken = Lens.lens (nextToken :: DescribeVPCPeeringConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCPeeringConnectionsResponse)
-{-# DEPRECATED dvpcpcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dvpcrsNextToken :: Lens.Lens' DescribeVPCPeeringConnectionsResponse (Lude.Maybe Lude.Text)
+dvpcrsNextToken = Lens.lens (nextToken :: DescribeVPCPeeringConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeVPCPeeringConnectionsResponse)
+{-# DEPRECATED dvpcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the VPC peering connections.
 --
 -- /Note:/ Consider using 'vpcPeeringConnections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvpcpcrsVPCPeeringConnections :: Lens.Lens' DescribeVPCPeeringConnectionsResponse (Lude.Maybe [VPCPeeringConnection])
-dvpcpcrsVPCPeeringConnections = Lens.lens (vpcPeeringConnections :: DescribeVPCPeeringConnectionsResponse -> Lude.Maybe [VPCPeeringConnection]) (\s a -> s {vpcPeeringConnections = a} :: DescribeVPCPeeringConnectionsResponse)
-{-# DEPRECATED dvpcpcrsVPCPeeringConnections "Use generic-lens or generic-optics with 'vpcPeeringConnections' instead." #-}
+dvpcrsVPCPeeringConnections :: Lens.Lens' DescribeVPCPeeringConnectionsResponse (Lude.Maybe [VPCPeeringConnection])
+dvpcrsVPCPeeringConnections = Lens.lens (vpcPeeringConnections :: DescribeVPCPeeringConnectionsResponse -> Lude.Maybe [VPCPeeringConnection]) (\s a -> s {vpcPeeringConnections = a} :: DescribeVPCPeeringConnectionsResponse)
+{-# DEPRECATED dvpcrsVPCPeeringConnections "Use generic-lens or generic-optics with 'vpcPeeringConnections' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvpcpcrsResponseStatus :: Lens.Lens' DescribeVPCPeeringConnectionsResponse Lude.Int
-dvpcpcrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCPeeringConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCPeeringConnectionsResponse)
-{-# DEPRECATED dvpcpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvpcrsResponseStatus :: Lens.Lens' DescribeVPCPeeringConnectionsResponse Lude.Int
+dvpcrsResponseStatus = Lens.lens (responseStatus :: DescribeVPCPeeringConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeVPCPeeringConnectionsResponse)
+{-# DEPRECATED dvpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

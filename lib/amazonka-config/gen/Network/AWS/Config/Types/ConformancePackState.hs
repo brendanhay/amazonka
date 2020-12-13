@@ -13,11 +13,11 @@
 module Network.AWS.Config.Types.ConformancePackState
   ( ConformancePackState
       ( ConformancePackState',
+        CPSCreateInProgress,
         CPSCreateComplete,
         CPSCreateFailed,
-        CPSCreateInProgress,
-        CPSDeleteFailed,
-        CPSDeleteInProgress
+        CPSDeleteInProgress,
+        CPSDeleteFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ConformancePackState = ConformancePackState' Lude.Text
       Lude.ToHeader
     )
 
+pattern CPSCreateInProgress :: ConformancePackState
+pattern CPSCreateInProgress = ConformancePackState' "CREATE_IN_PROGRESS"
+
 pattern CPSCreateComplete :: ConformancePackState
 pattern CPSCreateComplete = ConformancePackState' "CREATE_COMPLETE"
 
 pattern CPSCreateFailed :: ConformancePackState
 pattern CPSCreateFailed = ConformancePackState' "CREATE_FAILED"
 
-pattern CPSCreateInProgress :: ConformancePackState
-pattern CPSCreateInProgress = ConformancePackState' "CREATE_IN_PROGRESS"
+pattern CPSDeleteInProgress :: ConformancePackState
+pattern CPSDeleteInProgress = ConformancePackState' "DELETE_IN_PROGRESS"
 
 pattern CPSDeleteFailed :: ConformancePackState
 pattern CPSDeleteFailed = ConformancePackState' "DELETE_FAILED"
 
-pattern CPSDeleteInProgress :: ConformancePackState
-pattern CPSDeleteInProgress = ConformancePackState' "DELETE_IN_PROGRESS"
-
 {-# COMPLETE
+  CPSCreateInProgress,
   CPSCreateComplete,
   CPSCreateFailed,
-  CPSCreateInProgress,
-  CPSDeleteFailed,
   CPSDeleteInProgress,
+  CPSDeleteFailed,
   ConformancePackState'
   #-}

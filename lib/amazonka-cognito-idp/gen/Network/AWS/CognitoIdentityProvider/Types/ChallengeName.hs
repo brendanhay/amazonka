@@ -13,8 +13,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.ChallengeName
   ( ChallengeName
       ( ChallengeName',
-        MFA,
-        Password
+        Password,
+        MFA
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ChallengeName = ChallengeName' Lude.Text
       Lude.ToHeader
     )
 
-pattern MFA :: ChallengeName
-pattern MFA = ChallengeName' "Mfa"
-
 pattern Password :: ChallengeName
 pattern Password = ChallengeName' "Password"
 
+pattern MFA :: ChallengeName
+pattern MFA = ChallengeName' "Mfa"
+
 {-# COMPLETE
-  MFA,
   Password,
+  MFA,
   ChallengeName'
   #-}

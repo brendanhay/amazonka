@@ -41,41 +41,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuditFinding' smart constructor.
 data AuditFinding = AuditFinding'
-  { isSuppressed ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the audit finding was suppressed or not during reporting.
+    isSuppressed :: Lude.Maybe Lude.Bool,
+    -- | The ID of the audit that generated this result (finding).
     taskId :: Lude.Maybe Lude.Text,
+    -- | The time the result (finding) was discovered.
     findingTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time the audit started.
     taskStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | A code that indicates the reason that the resource was noncompliant.
     reasonForNonComplianceCode :: Lude.Maybe Lude.Text,
+    -- | The severity of the result (finding).
     severity :: Lude.Maybe AuditFindingSeverity,
+    -- | The list of related resources.
     relatedResources :: Lude.Maybe [RelatedResource],
+    -- | The audit check that generated this result.
     checkName :: Lude.Maybe Lude.Text,
+    -- | The resource that was found to be noncompliant with the audit check.
     nonCompliantResource :: Lude.Maybe NonCompliantResource,
+    -- | The reason the resource was noncompliant.
     reasonForNonCompliance :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.
     findingId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuditFinding' with the minimum fields required to make a request.
 --
--- * 'checkName' - The audit check that generated this result.
--- * 'findingId' - A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.
--- * 'findingTime' - The time the result (finding) was discovered.
 -- * 'isSuppressed' - Indicates whether the audit finding was suppressed or not during reporting.
+-- * 'taskId' - The ID of the audit that generated this result (finding).
+-- * 'findingTime' - The time the result (finding) was discovered.
+-- * 'taskStartTime' - The time the audit started.
+-- * 'reasonForNonComplianceCode' - A code that indicates the reason that the resource was noncompliant.
+-- * 'severity' - The severity of the result (finding).
+-- * 'relatedResources' - The list of related resources.
+-- * 'checkName' - The audit check that generated this result.
 -- * 'nonCompliantResource' - The resource that was found to be noncompliant with the audit check.
 -- * 'reasonForNonCompliance' - The reason the resource was noncompliant.
--- * 'reasonForNonComplianceCode' - A code that indicates the reason that the resource was noncompliant.
--- * 'relatedResources' - The list of related resources.
--- * 'severity' - The severity of the result (finding).
--- * 'taskId' - The ID of the audit that generated this result (finding).
--- * 'taskStartTime' - The time the audit started.
+-- * 'findingId' - A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.
 mkAuditFinding ::
   AuditFinding
 mkAuditFinding =

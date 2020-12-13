@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.AutoScaling.DescribePolicies
     mkDescribePolicies,
 
     -- ** Request lenses
-    dpsPolicyNames,
-    dpsNextToken,
-    dpsAutoScalingGroupName,
-    dpsMaxRecords,
-    dpsPolicyTypes,
+    dpPolicyNames,
+    dpNextToken,
+    dpAutoScalingGroupName,
+    dpMaxRecords,
+    dpPolicyTypes,
 
     -- * Destructuring the response
     DescribePoliciesResponse (..),
@@ -47,28 +48,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribePolicies' smart constructor.
 data DescribePolicies = DescribePolicies'
-  { policyNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of one or more policies. If you omit this parameter, all policies are described. If a group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
+    policyNames :: Lude.Maybe [Lude.Text],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to be returned with each call. The default value is @50@ and the maximum value is @100@ .
     maxRecords :: Lude.Maybe Lude.Int,
+    -- | One or more policy types. The valid values are @SimpleScaling@ , @StepScaling@ , and @TargetTrackingScaling@ .
     policyTypes :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePolicies' with the minimum fields required to make a request.
 --
+-- * 'policyNames' - The names of one or more policies. If you omit this parameter, all policies are described. If a group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'maxRecords' - The maximum number of items to be returned with each call. The default value is @50@ and the maximum value is @100@ .
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'policyNames' - The names of one or more policies. If you omit this parameter, all policies are described. If a group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
 -- * 'policyTypes' - One or more policy types. The valid values are @SimpleScaling@ , @StepScaling@ , and @TargetTrackingScaling@ .
 mkDescribePolicies ::
   DescribePolicies
@@ -84,37 +83,37 @@ mkDescribePolicies =
 -- | The names of one or more policies. If you omit this parameter, all policies are described. If a group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
 --
 -- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsPolicyNames :: Lens.Lens' DescribePolicies (Lude.Maybe [Lude.Text])
-dpsPolicyNames = Lens.lens (policyNames :: DescribePolicies -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: DescribePolicies)
-{-# DEPRECATED dpsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
+dpPolicyNames :: Lens.Lens' DescribePolicies (Lude.Maybe [Lude.Text])
+dpPolicyNames = Lens.lens (policyNames :: DescribePolicies -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: DescribePolicies)
+{-# DEPRECATED dpPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsNextToken :: Lens.Lens' DescribePolicies (Lude.Maybe Lude.Text)
-dpsNextToken = Lens.lens (nextToken :: DescribePolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePolicies)
-{-# DEPRECATED dpsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dpNextToken :: Lens.Lens' DescribePolicies (Lude.Maybe Lude.Text)
+dpNextToken = Lens.lens (nextToken :: DescribePolicies -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePolicies)
+{-# DEPRECATED dpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsAutoScalingGroupName :: Lens.Lens' DescribePolicies (Lude.Maybe Lude.Text)
-dpsAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribePolicies -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribePolicies)
-{-# DEPRECATED dpsAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+dpAutoScalingGroupName :: Lens.Lens' DescribePolicies (Lude.Maybe Lude.Text)
+dpAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DescribePolicies -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DescribePolicies)
+{-# DEPRECATED dpAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The maximum number of items to be returned with each call. The default value is @50@ and the maximum value is @100@ .
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsMaxRecords :: Lens.Lens' DescribePolicies (Lude.Maybe Lude.Int)
-dpsMaxRecords = Lens.lens (maxRecords :: DescribePolicies -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribePolicies)
-{-# DEPRECATED dpsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dpMaxRecords :: Lens.Lens' DescribePolicies (Lude.Maybe Lude.Int)
+dpMaxRecords = Lens.lens (maxRecords :: DescribePolicies -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribePolicies)
+{-# DEPRECATED dpMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | One or more policy types. The valid values are @SimpleScaling@ , @StepScaling@ , and @TargetTrackingScaling@ .
 --
 -- /Note:/ Consider using 'policyTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpsPolicyTypes :: Lens.Lens' DescribePolicies (Lude.Maybe [Lude.Text])
-dpsPolicyTypes = Lens.lens (policyTypes :: DescribePolicies -> Lude.Maybe [Lude.Text]) (\s a -> s {policyTypes = a} :: DescribePolicies)
-{-# DEPRECATED dpsPolicyTypes "Use generic-lens or generic-optics with 'policyTypes' instead." #-}
+dpPolicyTypes :: Lens.Lens' DescribePolicies (Lude.Maybe [Lude.Text])
+dpPolicyTypes = Lens.lens (policyTypes :: DescribePolicies -> Lude.Maybe [Lude.Text]) (\s a -> s {policyTypes = a} :: DescribePolicies)
+{-# DEPRECATED dpPolicyTypes "Use generic-lens or generic-optics with 'policyTypes' instead." #-}
 
 instance Page.AWSPager DescribePolicies where
   page rq rs
@@ -123,7 +122,7 @@ instance Page.AWSPager DescribePolicies where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dpsNextToken Lens..~ rs Lens.^. dprsNextToken
+          Lude.& dpNextToken Lens..~ rs Lens.^. dprsNextToken
 
 instance Lude.AWSRequest DescribePolicies where
   type Rs DescribePolicies = DescribePoliciesResponse
@@ -162,26 +161,21 @@ instance Lude.ToQuery DescribePolicies where
 
 -- | /See:/ 'mkDescribePoliciesResponse' smart constructor.
 data DescribePoliciesResponse = DescribePoliciesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    scalingPolicies ::
-      Lude.Maybe [ScalingPolicy],
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The scaling policies.
+    scalingPolicies :: Lude.Maybe [ScalingPolicy],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePoliciesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
--- * 'responseStatus' - The response status code.
 -- * 'scalingPolicies' - The scaling policies.
+-- * 'responseStatus' - The response status code.
 mkDescribePoliciesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

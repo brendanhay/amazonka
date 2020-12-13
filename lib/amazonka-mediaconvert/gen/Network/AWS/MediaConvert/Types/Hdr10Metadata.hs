@@ -39,43 +39,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHdr10Metadata' smart constructor.
 data Hdr10Metadata = Hdr10Metadata'
-  { redPrimaryX ::
-      Lude.Maybe Lude.Natural,
+  { -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+    redPrimaryX :: Lude.Maybe Lude.Natural,
+    -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
     bluePrimaryX :: Lude.Maybe Lude.Natural,
+    -- | Maximum average light level of any frame in the coded video sequence, in units of candelas per square meter. This setting doesn't have a default value; you must specify a value that is suitable for the content.
     maxFrameAverageLightLevel :: Lude.Maybe Lude.Natural,
+    -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
     whitePointY :: Lude.Maybe Lude.Natural,
+    -- | Maximum light level among all samples in the coded video sequence, in units of candelas per square meter.  This setting doesn't have a default value; you must specify a value that is suitable for the content.
     maxContentLightLevel :: Lude.Maybe Lude.Natural,
+    -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
     whitePointX :: Lude.Maybe Lude.Natural,
+    -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
     bluePrimaryY :: Lude.Maybe Lude.Natural,
+    -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
     greenPrimaryY :: Lude.Maybe Lude.Natural,
+    -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
     greenPrimaryX :: Lude.Maybe Lude.Natural,
+    -- | Nominal minimum mastering display luminance in units of of 0.0001 candelas per square meter
     minLuminance :: Lude.Maybe Lude.Natural,
+    -- | HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
     redPrimaryY :: Lude.Maybe Lude.Natural,
+    -- | Nominal maximum mastering display luminance in units of of 0.0001 candelas per square meter.
     maxLuminance :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Hdr10Metadata' with the minimum fields required to make a request.
 --
--- * 'bluePrimaryX' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
--- * 'bluePrimaryY' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
--- * 'greenPrimaryX' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
--- * 'greenPrimaryY' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
--- * 'maxContentLightLevel' - Maximum light level among all samples in the coded video sequence, in units of candelas per square meter.  This setting doesn't have a default value; you must specify a value that is suitable for the content.
--- * 'maxFrameAverageLightLevel' - Maximum average light level of any frame in the coded video sequence, in units of candelas per square meter. This setting doesn't have a default value; you must specify a value that is suitable for the content.
--- * 'maxLuminance' - Nominal maximum mastering display luminance in units of of 0.0001 candelas per square meter.
--- * 'minLuminance' - Nominal minimum mastering display luminance in units of of 0.0001 candelas per square meter
 -- * 'redPrimaryX' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
--- * 'redPrimaryY' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
--- * 'whitePointX' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'bluePrimaryX' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'maxFrameAverageLightLevel' - Maximum average light level of any frame in the coded video sequence, in units of candelas per square meter. This setting doesn't have a default value; you must specify a value that is suitable for the content.
 -- * 'whitePointY' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'maxContentLightLevel' - Maximum light level among all samples in the coded video sequence, in units of candelas per square meter.  This setting doesn't have a default value; you must specify a value that is suitable for the content.
+-- * 'whitePointX' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'bluePrimaryY' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'greenPrimaryY' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'greenPrimaryX' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'minLuminance' - Nominal minimum mastering display luminance in units of of 0.0001 candelas per square meter
+-- * 'redPrimaryY' - HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+-- * 'maxLuminance' - Nominal maximum mastering display luminance in units of of 0.0001 candelas per square meter.
 mkHdr10Metadata ::
   Hdr10Metadata
 mkHdr10Metadata =

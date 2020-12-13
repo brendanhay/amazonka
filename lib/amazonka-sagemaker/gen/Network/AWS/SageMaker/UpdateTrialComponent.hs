@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,11 +26,11 @@ module Network.AWS.SageMaker.UpdateTrialComponent
     utcStartTime,
     utcOutputArtifactsToRemove,
     utcEndTime,
+    utcTrialComponentName,
     utcParameters,
     utcDisplayName,
     utcInputArtifacts,
     utcInputArtifactsToRemove,
-    utcTrialComponentName,
 
     -- * Destructuring the response
     UpdateTrialComponentResponse (..),
@@ -49,56 +50,45 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateTrialComponent' smart constructor.
 data UpdateTrialComponent = UpdateTrialComponent'
-  { status ::
-      Lude.Maybe TrialComponentStatus,
+  { -- | The new status of the component.
+    status :: Lude.Maybe TrialComponentStatus,
+    -- | The hyperparameters to remove from the component.
     parametersToRemove :: Lude.Maybe [Lude.Text],
-    outputArtifacts ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (TrialComponentArtifact)
-        ),
+    -- | Replaces all of the component's output artifacts with the specified artifacts.
+    outputArtifacts :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | When the component started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The output artifacts to remove from the component.
     outputArtifactsToRemove :: Lude.Maybe [Lude.Text],
+    -- | When the component ended.
     endTime :: Lude.Maybe Lude.Timestamp,
-    parameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (TrialComponentParameterValue)
-        ),
+    -- | The name of the component to update.
+    trialComponentName :: Lude.Text,
+    -- | Replaces all of the component's hyperparameters with the specified hyperparameters.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentParameterValue)),
+    -- | The name of the component as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
-    inputArtifacts ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (TrialComponentArtifact)
-        ),
-    inputArtifactsToRemove :: Lude.Maybe [Lude.Text],
-    trialComponentName :: Lude.Text
+    -- | Replaces all of the component's input artifacts with the specified artifacts.
+    inputArtifacts :: Lude.Maybe (Lude.HashMap Lude.Text (TrialComponentArtifact)),
+    -- | The input artifacts to remove from the component.
+    inputArtifactsToRemove :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrialComponent' with the minimum fields required to make a request.
 --
--- * 'displayName' - The name of the component as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
+-- * 'status' - The new status of the component.
+-- * 'parametersToRemove' - The hyperparameters to remove from the component.
+-- * 'outputArtifacts' - Replaces all of the component's output artifacts with the specified artifacts.
+-- * 'startTime' - When the component started.
+-- * 'outputArtifactsToRemove' - The output artifacts to remove from the component.
 -- * 'endTime' - When the component ended.
+-- * 'trialComponentName' - The name of the component to update.
+-- * 'parameters' - Replaces all of the component's hyperparameters with the specified hyperparameters.
+-- * 'displayName' - The name of the component as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialComponentName@ is displayed.
 -- * 'inputArtifacts' - Replaces all of the component's input artifacts with the specified artifacts.
 -- * 'inputArtifactsToRemove' - The input artifacts to remove from the component.
--- * 'outputArtifacts' - Replaces all of the component's output artifacts with the specified artifacts.
--- * 'outputArtifactsToRemove' - The output artifacts to remove from the component.
--- * 'parameters' - Replaces all of the component's hyperparameters with the specified hyperparameters.
--- * 'parametersToRemove' - The hyperparameters to remove from the component.
--- * 'startTime' - When the component started.
--- * 'status' - The new status of the component.
--- * 'trialComponentName' - The name of the component to update.
 mkUpdateTrialComponent ::
   -- | 'trialComponentName'
   Lude.Text ->
@@ -111,11 +101,11 @@ mkUpdateTrialComponent pTrialComponentName_ =
       startTime = Lude.Nothing,
       outputArtifactsToRemove = Lude.Nothing,
       endTime = Lude.Nothing,
+      trialComponentName = pTrialComponentName_,
       parameters = Lude.Nothing,
       displayName = Lude.Nothing,
       inputArtifacts = Lude.Nothing,
-      inputArtifactsToRemove = Lude.Nothing,
-      trialComponentName = pTrialComponentName_
+      inputArtifactsToRemove = Lude.Nothing
     }
 
 -- | The new status of the component.
@@ -160,6 +150,13 @@ utcEndTime :: Lens.Lens' UpdateTrialComponent (Lude.Maybe Lude.Timestamp)
 utcEndTime = Lens.lens (endTime :: UpdateTrialComponent -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: UpdateTrialComponent)
 {-# DEPRECATED utcEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
+-- | The name of the component to update.
+--
+-- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utcTrialComponentName :: Lens.Lens' UpdateTrialComponent Lude.Text
+utcTrialComponentName = Lens.lens (trialComponentName :: UpdateTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: UpdateTrialComponent)
+{-# DEPRECATED utcTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
+
 -- | Replaces all of the component's hyperparameters with the specified hyperparameters.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -187,13 +184,6 @@ utcInputArtifacts = Lens.lens (inputArtifacts :: UpdateTrialComponent -> Lude.Ma
 utcInputArtifactsToRemove :: Lens.Lens' UpdateTrialComponent (Lude.Maybe [Lude.Text])
 utcInputArtifactsToRemove = Lens.lens (inputArtifactsToRemove :: UpdateTrialComponent -> Lude.Maybe [Lude.Text]) (\s a -> s {inputArtifactsToRemove = a} :: UpdateTrialComponent)
 {-# DEPRECATED utcInputArtifactsToRemove "Use generic-lens or generic-optics with 'inputArtifactsToRemove' instead." #-}
-
--- | The name of the component to update.
---
--- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utcTrialComponentName :: Lens.Lens' UpdateTrialComponent Lude.Text
-utcTrialComponentName = Lens.lens (trialComponentName :: UpdateTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: UpdateTrialComponent)
-{-# DEPRECATED utcTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
 instance Lude.AWSRequest UpdateTrialComponent where
   type Rs UpdateTrialComponent = UpdateTrialComponentResponse
@@ -228,11 +218,12 @@ instance Lude.ToJSON UpdateTrialComponent where
             ("OutputArtifactsToRemove" Lude..=)
               Lude.<$> outputArtifactsToRemove,
             ("EndTime" Lude..=) Lude.<$> endTime,
+            Lude.Just ("TrialComponentName" Lude..= trialComponentName),
             ("Parameters" Lude..=) Lude.<$> parameters,
             ("DisplayName" Lude..=) Lude.<$> displayName,
             ("InputArtifacts" Lude..=) Lude.<$> inputArtifacts,
-            ("InputArtifactsToRemove" Lude..=) Lude.<$> inputArtifactsToRemove,
-            Lude.Just ("TrialComponentName" Lude..= trialComponentName)
+            ("InputArtifactsToRemove" Lude..=)
+              Lude.<$> inputArtifactsToRemove
           ]
       )
 
@@ -244,23 +235,18 @@ instance Lude.ToQuery UpdateTrialComponent where
 
 -- | /See:/ 'mkUpdateTrialComponentResponse' smart constructor.
 data UpdateTrialComponentResponse = UpdateTrialComponentResponse'
-  { trialComponentARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the trial component.
+    trialComponentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTrialComponentResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trialComponentARN' - The Amazon Resource Name (ARN) of the trial component.
+-- * 'responseStatus' - The response status code.
 mkUpdateTrialComponentResponse ::
   -- | 'responseStatus'
   Lude.Int ->

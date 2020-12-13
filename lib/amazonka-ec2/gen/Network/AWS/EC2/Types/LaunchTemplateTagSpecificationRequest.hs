@@ -31,20 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateTagSpecificationRequest' smart constructor.
 data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationRequest'
-  { resourceType ::
-      Lude.Maybe
-        ResourceType,
-    tags ::
-      Lude.Maybe
-        [Tag]
+  { -- | The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ . To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The tags to apply to the resource.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateTagSpecificationRequest' with the minimum fields required to make a request.

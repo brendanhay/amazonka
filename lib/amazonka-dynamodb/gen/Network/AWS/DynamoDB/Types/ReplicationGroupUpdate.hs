@@ -44,20 +44,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationGroupUpdate' smart constructor.
 data ReplicationGroupUpdate = ReplicationGroupUpdate'
-  { create ::
-      Lude.Maybe CreateReplicationGroupMemberAction,
-    delete ::
-      Lude.Maybe DeleteReplicationGroupMemberAction,
-    update ::
-      Lude.Maybe UpdateReplicationGroupMemberAction
+  { -- | The parameters required for creating a replica for the table.
+    create :: Lude.Maybe CreateReplicationGroupMemberAction,
+    -- | The parameters required for deleting a replica for the table.
+    delete :: Lude.Maybe DeleteReplicationGroupMemberAction,
+    -- | The parameters required for updating a replica for the table.
+    update :: Lude.Maybe UpdateReplicationGroupMemberAction
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationGroupUpdate' with the minimum fields required to make a request.

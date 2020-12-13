@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLastCrawlInfo' smart constructor.
 data LastCrawlInfo = LastCrawlInfo'
-  { status ::
-      Lude.Maybe LastCrawlStatus,
+  { -- | Status of the last crawl.
+    status :: Lude.Maybe LastCrawlStatus,
+    -- | The time at which the crawl started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The log stream for the last crawl.
     logStream :: Lude.Maybe Lude.Text,
+    -- | The log group for the last crawl.
     logGroup :: Lude.Maybe Lude.Text,
+    -- | The prefix for a message about this crawl.
     messagePrefix :: Lude.Maybe Lude.Text,
+    -- | If an error occurred, the error information about the last crawl.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LastCrawlInfo' with the minimum fields required to make a request.
 --
--- * 'errorMessage' - If an error occurred, the error information about the last crawl.
--- * 'logGroup' - The log group for the last crawl.
--- * 'logStream' - The log stream for the last crawl.
--- * 'messagePrefix' - The prefix for a message about this crawl.
--- * 'startTime' - The time at which the crawl started.
 -- * 'status' - Status of the last crawl.
+-- * 'startTime' - The time at which the crawl started.
+-- * 'logStream' - The log stream for the last crawl.
+-- * 'logGroup' - The log group for the last crawl.
+-- * 'messagePrefix' - The prefix for a message about this crawl.
+-- * 'errorMessage' - If an error occurred, the error information about the last crawl.
 mkLastCrawlInfo ::
   LastCrawlInfo
 mkLastCrawlInfo =

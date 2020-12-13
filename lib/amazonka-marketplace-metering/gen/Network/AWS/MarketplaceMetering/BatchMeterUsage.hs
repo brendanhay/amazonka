@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,23 +50,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBatchMeterUsage' smart constructor.
 data BatchMeterUsage = BatchMeterUsage'
-  { usageRecords ::
-      [UsageRecord],
+  { -- | The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at a time.
+    usageRecords :: [UsageRecord],
+    -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
     productCode :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchMeterUsage' with the minimum fields required to make a request.
 --
--- * 'productCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 -- * 'usageRecords' - The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at a time.
+-- * 'productCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 mkBatchMeterUsage ::
   -- | 'productCode'
   Lude.Text ->
@@ -132,26 +128,21 @@ instance Lude.ToQuery BatchMeterUsage where
 --
 -- /See:/ 'mkBatchMeterUsageResponse' smart constructor.
 data BatchMeterUsageResponse = BatchMeterUsageResponse'
-  { results ::
-      Lude.Maybe [UsageRecordResult],
-    unprocessedRecords ::
-      Lude.Maybe [UsageRecord],
+  { -- | Contains all UsageRecords processed by BatchMeterUsage. These records were either honored by AWS Marketplace Metering Service or were invalid.
+    results :: Lude.Maybe [UsageRecordResult],
+    -- | Contains all UsageRecords that were not processed by BatchMeterUsage. This is a list of UsageRecords. You can retry the failed request by making another BatchMeterUsage call with this list as input in the BatchMeterUsageRequest.
+    unprocessedRecords :: Lude.Maybe [UsageRecord],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchMeterUsageResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'results' - Contains all UsageRecords processed by BatchMeterUsage. These records were either honored by AWS Marketplace Metering Service or were invalid.
 -- * 'unprocessedRecords' - Contains all UsageRecords that were not processed by BatchMeterUsage. This is a list of UsageRecords. You can retry the failed request by making another BatchMeterUsage call with this list as input in the BatchMeterUsageRequest.
+-- * 'responseStatus' - The response status code.
 mkBatchMeterUsageResponse ::
   -- | 'responseStatus'
   Lude.Int ->

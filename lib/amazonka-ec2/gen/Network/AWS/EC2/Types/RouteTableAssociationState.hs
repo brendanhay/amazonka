@@ -30,18 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRouteTableAssociationState' smart constructor.
 data RouteTableAssociationState = RouteTableAssociationState'
-  { state ::
-      Lude.Maybe
-        RouteTableAssociationStateCode,
+  { -- | The state of the association.
+    state :: Lude.Maybe RouteTableAssociationStateCode,
+    -- | The status message, if applicable.
     statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RouteTableAssociationState' with the minimum fields required to make a request.

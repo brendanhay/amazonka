@@ -32,16 +32,10 @@ import Network.AWS.S3.Types.DeleteMarkerReplicationStatus
 --
 -- /See:/ 'mkDeleteMarkerReplication' smart constructor.
 newtype DeleteMarkerReplication = DeleteMarkerReplication'
-  { status ::
-      Lude.Maybe DeleteMarkerReplicationStatus
+  { -- | Indicates whether to replicate delete markers.
+    status :: Lude.Maybe DeleteMarkerReplicationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMarkerReplication' with the minimum fields required to make a request.

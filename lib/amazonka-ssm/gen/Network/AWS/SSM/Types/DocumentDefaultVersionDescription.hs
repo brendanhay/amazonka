@@ -30,26 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDocumentDefaultVersionDescription' smart constructor.
 data DocumentDefaultVersionDescription = DocumentDefaultVersionDescription'
-  { defaultVersionName ::
-      Lude.Maybe Lude.Text,
-    defaultVersion ::
-      Lude.Maybe Lude.Text,
-    name ::
-      Lude.Maybe Lude.Text
+  { -- | The default version of the artifact associated with the document.
+    defaultVersionName :: Lude.Maybe Lude.Text,
+    -- | The default version of the document.
+    defaultVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the document.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentDefaultVersionDescription' with the minimum fields required to make a request.
 --
--- * 'defaultVersion' - The default version of the document.
 -- * 'defaultVersionName' - The default version of the artifact associated with the document.
+-- * 'defaultVersion' - The default version of the document.
 -- * 'name' - The name of the document.
 mkDocumentDefaultVersionDescription ::
   DocumentDefaultVersionDescription

@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.SortExperimentsBy
   ( SortExperimentsBy
       ( SortExperimentsBy',
-        SEBCreationTime,
-        SEBName
+        SEBName,
+        SEBCreationTime
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SortExperimentsBy = SortExperimentsBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern SEBCreationTime :: SortExperimentsBy
-pattern SEBCreationTime = SortExperimentsBy' "CreationTime"
-
 pattern SEBName :: SortExperimentsBy
 pattern SEBName = SortExperimentsBy' "Name"
 
+pattern SEBCreationTime :: SortExperimentsBy
+pattern SEBCreationTime = SortExperimentsBy' "CreationTime"
+
 {-# COMPLETE
-  SEBCreationTime,
   SEBName,
+  SEBCreationTime,
   SortExperimentsBy'
   #-}

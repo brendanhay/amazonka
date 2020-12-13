@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeltaTimeSessionWindowConfiguration' smart constructor.
 newtype DeltaTimeSessionWindowConfiguration = DeltaTimeSessionWindowConfiguration'
-  { timeoutInMinutes ::
-      Lude.Natural
+  { -- | A time interval. You can use @timeoutInMinutes@ so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+    --
+    -- For more information about how to write a timestamp expression, see <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators> , in the /Presto 0.172 Documentation/ .
+    timeoutInMinutes :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeltaTimeSessionWindowConfiguration' with the minimum fields required to make a request.

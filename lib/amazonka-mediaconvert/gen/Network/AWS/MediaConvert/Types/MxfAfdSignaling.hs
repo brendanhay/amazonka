@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MxfAfdSignaling
   ( MxfAfdSignaling
       ( MxfAfdSignaling',
-        CopyFromVideo,
-        NoCopy
+        NoCopy,
+        CopyFromVideo
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MxfAfdSignaling = MxfAfdSignaling' Lude.Text
       Lude.ToHeader
     )
 
-pattern CopyFromVideo :: MxfAfdSignaling
-pattern CopyFromVideo = MxfAfdSignaling' "COPY_FROM_VIDEO"
-
 pattern NoCopy :: MxfAfdSignaling
 pattern NoCopy = MxfAfdSignaling' "NO_COPY"
 
+pattern CopyFromVideo :: MxfAfdSignaling
+pattern CopyFromVideo = MxfAfdSignaling' "COPY_FROM_VIDEO"
+
 {-# COMPLETE
-  CopyFromVideo,
   NoCopy,
+  CopyFromVideo,
   MxfAfdSignaling'
   #-}

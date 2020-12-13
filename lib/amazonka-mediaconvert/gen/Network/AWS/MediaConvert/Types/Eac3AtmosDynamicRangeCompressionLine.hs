@@ -13,11 +13,11 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine
   ( Eac3AtmosDynamicRangeCompressionLine
       ( Eac3AtmosDynamicRangeCompressionLine',
-        EADRCLFilmLight,
-        EADRCLFilmStandard,
-        EADRCLMusicLight,
-        EADRCLMusicStandard,
         EADRCLNone,
+        EADRCLFilmStandard,
+        EADRCLFilmLight,
+        EADRCLMusicStandard,
+        EADRCLMusicLight,
         EADRCLSpeech
       ),
   )
@@ -50,30 +50,30 @@ newtype Eac3AtmosDynamicRangeCompressionLine = Eac3AtmosDynamicRangeCompressionL
       Lude.ToHeader
     )
 
-pattern EADRCLFilmLight :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLFilmLight = Eac3AtmosDynamicRangeCompressionLine' "FILM_LIGHT"
+pattern EADRCLNone :: Eac3AtmosDynamicRangeCompressionLine
+pattern EADRCLNone = Eac3AtmosDynamicRangeCompressionLine' "NONE"
 
 pattern EADRCLFilmStandard :: Eac3AtmosDynamicRangeCompressionLine
 pattern EADRCLFilmStandard = Eac3AtmosDynamicRangeCompressionLine' "FILM_STANDARD"
 
-pattern EADRCLMusicLight :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLMusicLight = Eac3AtmosDynamicRangeCompressionLine' "MUSIC_LIGHT"
+pattern EADRCLFilmLight :: Eac3AtmosDynamicRangeCompressionLine
+pattern EADRCLFilmLight = Eac3AtmosDynamicRangeCompressionLine' "FILM_LIGHT"
 
 pattern EADRCLMusicStandard :: Eac3AtmosDynamicRangeCompressionLine
 pattern EADRCLMusicStandard = Eac3AtmosDynamicRangeCompressionLine' "MUSIC_STANDARD"
 
-pattern EADRCLNone :: Eac3AtmosDynamicRangeCompressionLine
-pattern EADRCLNone = Eac3AtmosDynamicRangeCompressionLine' "NONE"
+pattern EADRCLMusicLight :: Eac3AtmosDynamicRangeCompressionLine
+pattern EADRCLMusicLight = Eac3AtmosDynamicRangeCompressionLine' "MUSIC_LIGHT"
 
 pattern EADRCLSpeech :: Eac3AtmosDynamicRangeCompressionLine
 pattern EADRCLSpeech = Eac3AtmosDynamicRangeCompressionLine' "SPEECH"
 
 {-# COMPLETE
-  EADRCLFilmLight,
-  EADRCLFilmStandard,
-  EADRCLMusicLight,
-  EADRCLMusicStandard,
   EADRCLNone,
+  EADRCLFilmStandard,
+  EADRCLFilmLight,
+  EADRCLMusicStandard,
+  EADRCLMusicLight,
   EADRCLSpeech,
   Eac3AtmosDynamicRangeCompressionLine'
   #-}

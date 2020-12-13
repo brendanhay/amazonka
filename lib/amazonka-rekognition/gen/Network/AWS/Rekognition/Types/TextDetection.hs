@@ -39,31 +39,30 @@ import Network.AWS.Rekognition.Types.TextTypes
 --
 -- /See:/ 'mkTextDetection' smart constructor.
 data TextDetection = TextDetection'
-  { detectedText ::
-      Lude.Maybe Lude.Text,
+  { -- | The word or line of text recognized by Amazon Rekognition.
+    detectedText :: Lude.Maybe Lude.Text,
+    -- | The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.
     confidence :: Lude.Maybe Lude.Double,
+    -- | The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.
     geometry :: Lude.Maybe Geometry,
+    -- | The identifier for the detected text. The identifier is only unique for a single call to @DetectText@ .
     id :: Lude.Maybe Lude.Natural,
+    -- | The type of text that was detected.
     type' :: Lude.Maybe TextTypes,
+    -- | The Parent identifier for the detected text identified by the value of @ID@ . If the type of detected text is @LINE@ , the value of @ParentId@ is @Null@ .
     parentId :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TextDetection' with the minimum fields required to make a request.
 --
--- * 'confidence' - The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.
 -- * 'detectedText' - The word or line of text recognized by Amazon Rekognition.
+-- * 'confidence' - The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.
 -- * 'geometry' - The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.
 -- * 'id' - The identifier for the detected text. The identifier is only unique for a single call to @DetectText@ .
--- * 'parentId' - The Parent identifier for the detected text identified by the value of @ID@ . If the type of detected text is @LINE@ , the value of @ParentId@ is @Null@ .
 -- * 'type'' - The type of text that was detected.
+-- * 'parentId' - The Parent identifier for the detected text identified by the value of @ID@ . If the type of detected text is @LINE@ , the value of @ParentId@ is @Null@ .
 mkTextDetection ::
   TextDetection
 mkTextDetection =

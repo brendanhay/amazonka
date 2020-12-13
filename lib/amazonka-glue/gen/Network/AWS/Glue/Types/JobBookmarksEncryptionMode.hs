@@ -13,8 +13,8 @@
 module Network.AWS.Glue.Types.JobBookmarksEncryptionMode
   ( JobBookmarksEncryptionMode
       ( JobBookmarksEncryptionMode',
-        JBEMCseKMS,
-        JBEMDisabled
+        JBEMDisabled,
+        JBEMCseKMS
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype JobBookmarksEncryptionMode = JobBookmarksEncryptionMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern JBEMCseKMS :: JobBookmarksEncryptionMode
-pattern JBEMCseKMS = JobBookmarksEncryptionMode' "CSE-KMS"
-
 pattern JBEMDisabled :: JobBookmarksEncryptionMode
 pattern JBEMDisabled = JobBookmarksEncryptionMode' "DISABLED"
 
+pattern JBEMCseKMS :: JobBookmarksEncryptionMode
+pattern JBEMCseKMS = JobBookmarksEncryptionMode' "CSE-KMS"
+
 {-# COMPLETE
-  JBEMCseKMS,
   JBEMDisabled,
+  JBEMCseKMS,
   JobBookmarksEncryptionMode'
   #-}

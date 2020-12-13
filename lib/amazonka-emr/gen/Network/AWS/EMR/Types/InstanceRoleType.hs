@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.InstanceRoleType
   ( InstanceRoleType
       ( InstanceRoleType',
-        IRTCore,
         IRTMaster,
+        IRTCore,
         IRTTask
       ),
   )
@@ -46,18 +46,18 @@ newtype InstanceRoleType = InstanceRoleType' Lude.Text
       Lude.ToHeader
     )
 
-pattern IRTCore :: InstanceRoleType
-pattern IRTCore = InstanceRoleType' "CORE"
-
 pattern IRTMaster :: InstanceRoleType
 pattern IRTMaster = InstanceRoleType' "MASTER"
+
+pattern IRTCore :: InstanceRoleType
+pattern IRTCore = InstanceRoleType' "CORE"
 
 pattern IRTTask :: InstanceRoleType
 pattern IRTTask = InstanceRoleType' "TASK"
 
 {-# COMPLETE
-  IRTCore,
   IRTMaster,
+  IRTCore,
   IRTTask,
   InstanceRoleType'
   #-}

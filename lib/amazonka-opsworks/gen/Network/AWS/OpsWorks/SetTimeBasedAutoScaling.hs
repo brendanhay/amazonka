@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     mkSetTimeBasedAutoScaling,
 
     -- ** Request lenses
-    stbasAutoScalingSchedule,
     stbasInstanceId,
+    stbasAutoScalingSchedule,
 
     -- * Destructuring the response
     SetTimeBasedAutoScalingResponse (..),
@@ -38,39 +39,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetTimeBasedAutoScaling' smart constructor.
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
-  { autoScalingSchedule ::
-      Lude.Maybe WeeklyAutoScalingSchedule,
-    instanceId :: Lude.Text
+  { -- | The instance ID.
+    instanceId :: Lude.Text,
+    -- | An @AutoScalingSchedule@ with the instance schedule.
+    autoScalingSchedule :: Lude.Maybe WeeklyAutoScalingSchedule
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTimeBasedAutoScaling' with the minimum fields required to make a request.
 --
--- * 'autoScalingSchedule' - An @AutoScalingSchedule@ with the instance schedule.
 -- * 'instanceId' - The instance ID.
+-- * 'autoScalingSchedule' - An @AutoScalingSchedule@ with the instance schedule.
 mkSetTimeBasedAutoScaling ::
   -- | 'instanceId'
   Lude.Text ->
   SetTimeBasedAutoScaling
 mkSetTimeBasedAutoScaling pInstanceId_ =
   SetTimeBasedAutoScaling'
-    { autoScalingSchedule = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      autoScalingSchedule = Lude.Nothing
     }
-
--- | An @AutoScalingSchedule@ with the instance schedule.
---
--- /Note:/ Consider using 'autoScalingSchedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stbasAutoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Lude.Maybe WeeklyAutoScalingSchedule)
-stbasAutoScalingSchedule = Lens.lens (autoScalingSchedule :: SetTimeBasedAutoScaling -> Lude.Maybe WeeklyAutoScalingSchedule) (\s a -> s {autoScalingSchedule = a} :: SetTimeBasedAutoScaling)
-{-# DEPRECATED stbasAutoScalingSchedule "Use generic-lens or generic-optics with 'autoScalingSchedule' instead." #-}
 
 -- | The instance ID.
 --
@@ -78,6 +67,13 @@ stbasAutoScalingSchedule = Lens.lens (autoScalingSchedule :: SetTimeBasedAutoSca
 stbasInstanceId :: Lens.Lens' SetTimeBasedAutoScaling Lude.Text
 stbasInstanceId = Lens.lens (instanceId :: SetTimeBasedAutoScaling -> Lude.Text) (\s a -> s {instanceId = a} :: SetTimeBasedAutoScaling)
 {-# DEPRECATED stbasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | An @AutoScalingSchedule@ with the instance schedule.
+--
+-- /Note:/ Consider using 'autoScalingSchedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stbasAutoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Lude.Maybe WeeklyAutoScalingSchedule)
+stbasAutoScalingSchedule = Lens.lens (autoScalingSchedule :: SetTimeBasedAutoScaling -> Lude.Maybe WeeklyAutoScalingSchedule) (\s a -> s {autoScalingSchedule = a} :: SetTimeBasedAutoScaling)
+{-# DEPRECATED stbasAutoScalingSchedule "Use generic-lens or generic-optics with 'autoScalingSchedule' instead." #-}
 
 instance Lude.AWSRequest SetTimeBasedAutoScaling where
   type Rs SetTimeBasedAutoScaling = SetTimeBasedAutoScalingResponse
@@ -99,8 +95,8 @@ instance Lude.ToJSON SetTimeBasedAutoScaling where
   toJSON SetTimeBasedAutoScaling' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AutoScalingSchedule" Lude..=) Lude.<$> autoScalingSchedule,
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("AutoScalingSchedule" Lude..=) Lude.<$> autoScalingSchedule
           ]
       )
 
@@ -112,13 +108,7 @@ instance Lude.ToQuery SetTimeBasedAutoScaling where
 
 -- | /See:/ 'mkSetTimeBasedAutoScalingResponse' smart constructor.
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTimeBasedAutoScalingResponse' with the minimum fields required to make a request.

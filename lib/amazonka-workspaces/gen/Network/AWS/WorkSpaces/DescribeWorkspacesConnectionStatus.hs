@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,27 +45,18 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeWorkspacesConnectionStatus' smart constructor.
 data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
-  { workspaceIds ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            Lude.Text
-        ),
-    nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+    workspaceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspacesConnectionStatus' with the minimum fields required to make a request.
 --
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 -- * 'workspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 mkDescribeWorkspacesConnectionStatus ::
   DescribeWorkspacesConnectionStatus
 mkDescribeWorkspacesConnectionStatus =
@@ -141,29 +133,21 @@ instance Lude.ToQuery DescribeWorkspacesConnectionStatus where
 
 -- | /See:/ 'mkDescribeWorkspacesConnectionStatusResponse' smart constructor.
 data DescribeWorkspacesConnectionStatusResponse = DescribeWorkspacesConnectionStatusResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    workspacesConnectionStatus ::
-      Lude.Maybe
-        [WorkspaceConnectionStatus],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the connection status of the WorkSpace.
+    workspacesConnectionStatus :: Lude.Maybe [WorkspaceConnectionStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspacesConnectionStatusResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
--- * 'responseStatus' - The response status code.
 -- * 'workspacesConnectionStatus' - Information about the connection status of the WorkSpace.
+-- * 'responseStatus' - The response status code.
 mkDescribeWorkspacesConnectionStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.LexModels.GetSlotTypeVersions
 
     -- ** Request lenses
     gstvNextToken,
-    gstvMaxResults,
     gstvName,
+    gstvMaxResults,
 
     -- * Destructuring the response
     GetSlotTypeVersionsResponse (..),
@@ -49,25 +50,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSlotTypeVersions' smart constructor.
 data GetSlotTypeVersions = GetSlotTypeVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    name :: Lude.Text
+  { -- | A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the slot type for which versions should be returned.
+    name :: Lude.Text,
+    -- | The maximum number of slot type versions to return in the response. The default is 10.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypeVersions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of slot type versions to return in the response. The default is 10.
--- * 'name' - The name of the slot type for which versions should be returned.
 -- * 'nextToken' - A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+-- * 'name' - The name of the slot type for which versions should be returned.
+-- * 'maxResults' - The maximum number of slot type versions to return in the response. The default is 10.
 mkGetSlotTypeVersions ::
   -- | 'name'
   Lude.Text ->
@@ -75,8 +72,8 @@ mkGetSlotTypeVersions ::
 mkGetSlotTypeVersions pName_ =
   GetSlotTypeVersions'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      maxResults = Lude.Nothing
     }
 
 -- | A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
@@ -86,19 +83,19 @@ gstvNextToken :: Lens.Lens' GetSlotTypeVersions (Lude.Maybe Lude.Text)
 gstvNextToken = Lens.lens (nextToken :: GetSlotTypeVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSlotTypeVersions)
 {-# DEPRECATED gstvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of slot type versions to return in the response. The default is 10.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstvMaxResults :: Lens.Lens' GetSlotTypeVersions (Lude.Maybe Lude.Natural)
-gstvMaxResults = Lens.lens (maxResults :: GetSlotTypeVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetSlotTypeVersions)
-{-# DEPRECATED gstvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the slot type for which versions should be returned.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gstvName :: Lens.Lens' GetSlotTypeVersions Lude.Text
 gstvName = Lens.lens (name :: GetSlotTypeVersions -> Lude.Text) (\s a -> s {name = a} :: GetSlotTypeVersions)
 {-# DEPRECATED gstvName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The maximum number of slot type versions to return in the response. The default is 10.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstvMaxResults :: Lens.Lens' GetSlotTypeVersions (Lude.Maybe Lude.Natural)
+gstvMaxResults = Lens.lens (maxResults :: GetSlotTypeVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetSlotTypeVersions)
+{-# DEPRECATED gstvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetSlotTypeVersions where
   page rq rs
@@ -141,26 +138,21 @@ instance Lude.ToQuery GetSlotTypeVersions where
 
 -- | /See:/ 'mkGetSlotTypeVersionsResponse' smart constructor.
 data GetSlotTypeVersionsResponse = GetSlotTypeVersionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    slotTypes ::
-      Lude.Maybe [SlotTypeMetadata],
+  { -- | A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @SlotTypeMetadata@ objects, one for each numbered version of the slot type plus one for the @> LATEST@ version.
+    slotTypes :: Lude.Maybe [SlotTypeMetadata],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSlotTypeVersionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A pagination token for fetching the next page of slot type versions. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of versions, specify the pagination token in the next request.
--- * 'responseStatus' - The response status code.
 -- * 'slotTypes' - An array of @SlotTypeMetadata@ objects, one for each numbered version of the slot type plus one for the @> LATEST@ version.
+-- * 'responseStatus' - The response status code.
 mkGetSlotTypeVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

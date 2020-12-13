@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProject' smart constructor.
 data Project = Project'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The project's ARN.
+    arn :: Lude.Maybe Lude.Text,
+    -- | When the project was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The project's name.
     name :: Lude.Maybe Lude.Text,
+    -- | The default number of minutes (at the project level) a test run executes before it times out. The default value is 150 minutes.
     defaultJobTimeoutMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Project' with the minimum fields required to make a request.
 --
 -- * 'arn' - The project's ARN.
 -- * 'created' - When the project was created.
--- * 'defaultJobTimeoutMinutes' - The default number of minutes (at the project level) a test run executes before it times out. The default value is 150 minutes.
 -- * 'name' - The project's name.
+-- * 'defaultJobTimeoutMinutes' - The default number of minutes (at the project level) a test run executes before it times out. The default value is 150 minutes.
 mkProject ::
   Project
 mkProject =

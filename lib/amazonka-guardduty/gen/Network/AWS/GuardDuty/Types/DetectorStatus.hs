@@ -13,8 +13,8 @@
 module Network.AWS.GuardDuty.Types.DetectorStatus
   ( DetectorStatus
       ( DetectorStatus',
-        DSDisabled,
-        DSEnabled
+        DSEnabled,
+        DSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DetectorStatus = DetectorStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSDisabled :: DetectorStatus
-pattern DSDisabled = DetectorStatus' "DISABLED"
-
 pattern DSEnabled :: DetectorStatus
 pattern DSEnabled = DetectorStatus' "ENABLED"
 
+pattern DSDisabled :: DetectorStatus
+pattern DSDisabled = DetectorStatus' "DISABLED"
+
 {-# COMPLETE
-  DSDisabled,
   DSEnabled,
+  DSDisabled,
   DetectorStatus'
   #-}

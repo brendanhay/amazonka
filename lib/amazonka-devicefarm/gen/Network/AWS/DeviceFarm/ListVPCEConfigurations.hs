@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListVPCEConfigurations' smart constructor.
 data ListVPCEConfigurations = ListVPCEConfigurations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An integer that specifies the maximum number of items you want to return in the API response.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVPCEConfigurations' with the minimum fields required to make a request.
 --
--- * 'maxResults' - An integer that specifies the maximum number of items you want to return in the API response.
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'maxResults' - An integer that specifies the maximum number of items you want to return in the API response.
 mkListVPCEConfigurations ::
   ListVPCEConfigurations
 mkListVPCEConfigurations =
@@ -132,27 +128,21 @@ instance Lude.ToQuery ListVPCEConfigurations where
 
 -- | /See:/ 'mkListVPCEConfigurationsResponse' smart constructor.
 data ListVPCEConfigurationsResponse = ListVPCEConfigurationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    vpceConfigurations ::
-      Lude.Maybe
-        [VPCEConfiguration],
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of @VPCEConfiguration@ objects that contain information about your VPC endpoint configuration.
+    vpceConfigurations :: Lude.Maybe [VPCEConfiguration],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListVPCEConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
 -- * 'vpceConfigurations' - An array of @VPCEConfiguration@ objects that contain information about your VPC endpoint configuration.
+-- * 'responseStatus' - The response status code.
 mkListVPCEConfigurationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

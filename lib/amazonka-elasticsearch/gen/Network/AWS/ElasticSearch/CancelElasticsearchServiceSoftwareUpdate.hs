@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCancelElasticsearchServiceSoftwareUpdate' smart constructor.
 newtype CancelElasticsearchServiceSoftwareUpdate = CancelElasticsearchServiceSoftwareUpdate'
-  { domainName ::
-      Lude.Text
+  { -- | The name of the domain that you want to stop the latest service software update on.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelElasticsearchServiceSoftwareUpdate' with the minimum fields required to make a request.
@@ -104,28 +99,18 @@ instance Lude.ToQuery CancelElasticsearchServiceSoftwareUpdate where
 --
 -- /See:/ 'mkCancelElasticsearchServiceSoftwareUpdateResponse' smart constructor.
 data CancelElasticsearchServiceSoftwareUpdateResponse = CancelElasticsearchServiceSoftwareUpdateResponse'
-  { serviceSoftwareOptions ::
-      Lude.Maybe
-        ServiceSoftwareOptions,
-    responseStatus ::
-      Lude.Int
+  { -- | The current status of the Elasticsearch service software update.
+    serviceSoftwareOptions :: Lude.Maybe ServiceSoftwareOptions,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelElasticsearchServiceSoftwareUpdateResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'serviceSoftwareOptions' - The current status of the Elasticsearch service software update.
+-- * 'responseStatus' - The response status code.
 mkCancelElasticsearchServiceSoftwareUpdateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,35 +52,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { sourceName ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
+    sourceName :: Lude.Maybe Lude.Text,
+    -- | The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The event source to retrieve events for. If no value is specified, all events are returned.
     sourceType :: Lude.Maybe SourceType,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The end of the time interval for which to retrieve events, specified in ISO 8601 format.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The number of minutes' worth of events to retrieve.
     duration :: Lude.Maybe Lude.Int,
+    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+    --
+    -- The value for @MaxResults@ must be between 20 and 100.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- * 'duration' - The number of minutes' worth of events to retrieve.
+-- * 'sourceName' - The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
+-- * 'startTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+-- * 'sourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
 -- * 'endTime' - The end of the time interval for which to retrieve events, specified in ISO 8601 format.
+-- * 'duration' - The number of minutes' worth of events to retrieve.
 -- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
--- * 'sourceName' - The identifier of the event source for which events will be returned. If not specified, then all sources are included in the response.
--- * 'sourceType' - The event source to retrieve events for. If no value is specified, all events are returned.
--- * 'startTime' - The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
 mkDescribeEvents ::
   DescribeEvents
 mkDescribeEvents =
@@ -198,24 +201,20 @@ instance Lude.ToQuery DescribeEvents where
 
 -- | /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Provides an identifier to allow retrieval of paginated results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of events. Each element in the array represents one event.
     events :: Lude.Maybe [Event],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
--- * 'events' - An array of events. Each element in the array represents one event.
 -- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
+-- * 'events' - An array of events. Each element in the array represents one event.
 -- * 'responseStatus' - The response status code.
 mkDescribeEventsResponse ::
   -- | 'responseStatus'

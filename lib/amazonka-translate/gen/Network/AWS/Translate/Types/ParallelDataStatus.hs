@@ -13,11 +13,11 @@
 module Network.AWS.Translate.Types.ParallelDataStatus
   ( ParallelDataStatus
       ( ParallelDataStatus',
-        Active,
         Creating,
+        Updating,
+        Active,
         Deleting,
-        Failed,
-        Updating
+        Failed
       ),
   )
 where
@@ -48,11 +48,14 @@ newtype ParallelDataStatus = ParallelDataStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: ParallelDataStatus
-pattern Active = ParallelDataStatus' "ACTIVE"
-
 pattern Creating :: ParallelDataStatus
 pattern Creating = ParallelDataStatus' "CREATING"
+
+pattern Updating :: ParallelDataStatus
+pattern Updating = ParallelDataStatus' "UPDATING"
+
+pattern Active :: ParallelDataStatus
+pattern Active = ParallelDataStatus' "ACTIVE"
 
 pattern Deleting :: ParallelDataStatus
 pattern Deleting = ParallelDataStatus' "DELETING"
@@ -60,14 +63,11 @@ pattern Deleting = ParallelDataStatus' "DELETING"
 pattern Failed :: ParallelDataStatus
 pattern Failed = ParallelDataStatus' "FAILED"
 
-pattern Updating :: ParallelDataStatus
-pattern Updating = ParallelDataStatus' "UPDATING"
-
 {-# COMPLETE
-  Active,
   Creating,
+  Updating,
+  Active,
   Deleting,
   Failed,
-  Updating,
   ParallelDataStatus'
   #-}

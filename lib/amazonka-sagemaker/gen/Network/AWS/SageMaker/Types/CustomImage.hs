@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.CustomImage
     mkCustomImage,
 
     -- * Lenses
+    ciAppImageConfigName,
     ciImageVersionNumber,
     ciImageName,
-    ciAppImageConfigName,
   )
 where
 
@@ -30,37 +30,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomImage' smart constructor.
 data CustomImage = CustomImage'
-  { imageVersionNumber ::
-      Lude.Maybe Lude.Natural,
-    imageName :: Lude.Text,
-    appImageConfigName :: Lude.Text
+  { -- | The name of the AppImageConfig.
+    appImageConfigName :: Lude.Text,
+    -- | The version number of the CustomImage.
+    imageVersionNumber :: Lude.Maybe Lude.Natural,
+    -- | The name of the CustomImage. Must be unique to your account.
+    imageName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomImage' with the minimum fields required to make a request.
 --
 -- * 'appImageConfigName' - The name of the AppImageConfig.
--- * 'imageName' - The name of the CustomImage. Must be unique to your account.
 -- * 'imageVersionNumber' - The version number of the CustomImage.
+-- * 'imageName' - The name of the CustomImage. Must be unique to your account.
 mkCustomImage ::
-  -- | 'imageName'
-  Lude.Text ->
   -- | 'appImageConfigName'
   Lude.Text ->
+  -- | 'imageName'
+  Lude.Text ->
   CustomImage
-mkCustomImage pImageName_ pAppImageConfigName_ =
+mkCustomImage pAppImageConfigName_ pImageName_ =
   CustomImage'
-    { imageVersionNumber = Lude.Nothing,
-      imageName = pImageName_,
-      appImageConfigName = pAppImageConfigName_
+    { appImageConfigName = pAppImageConfigName_,
+      imageVersionNumber = Lude.Nothing,
+      imageName = pImageName_
     }
+
+-- | The name of the AppImageConfig.
+--
+-- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciAppImageConfigName :: Lens.Lens' CustomImage Lude.Text
+ciAppImageConfigName = Lens.lens (appImageConfigName :: CustomImage -> Lude.Text) (\s a -> s {appImageConfigName = a} :: CustomImage)
+{-# DEPRECATED ciAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
 
 -- | The version number of the CustomImage.
 --
@@ -76,30 +79,23 @@ ciImageName :: Lens.Lens' CustomImage Lude.Text
 ciImageName = Lens.lens (imageName :: CustomImage -> Lude.Text) (\s a -> s {imageName = a} :: CustomImage)
 {-# DEPRECATED ciImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
--- | The name of the AppImageConfig.
---
--- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciAppImageConfigName :: Lens.Lens' CustomImage Lude.Text
-ciAppImageConfigName = Lens.lens (appImageConfigName :: CustomImage -> Lude.Text) (\s a -> s {appImageConfigName = a} :: CustomImage)
-{-# DEPRECATED ciAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
-
 instance Lude.FromJSON CustomImage where
   parseJSON =
     Lude.withObject
       "CustomImage"
       ( \x ->
           CustomImage'
-            Lude.<$> (x Lude..:? "ImageVersionNumber")
+            Lude.<$> (x Lude..: "AppImageConfigName")
+            Lude.<*> (x Lude..:? "ImageVersionNumber")
             Lude.<*> (x Lude..: "ImageName")
-            Lude.<*> (x Lude..: "AppImageConfigName")
       )
 
 instance Lude.ToJSON CustomImage where
   toJSON CustomImage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ImageVersionNumber" Lude..=) Lude.<$> imageVersionNumber,
-            Lude.Just ("ImageName" Lude..= imageName),
-            Lude.Just ("AppImageConfigName" Lude..= appImageConfigName)
+          [ Lude.Just ("AppImageConfigName" Lude..= appImageConfigName),
+            ("ImageVersionNumber" Lude..=) Lude.<$> imageVersionNumber,
+            Lude.Just ("ImageName" Lude..= imageName)
           ]
       )

@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttribute' smart constructor.
 data Attribute = Attribute'
-  { targetId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The value of the attribute. The @value@ must contain between 1 and 128 characters and may contain letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, back slashes, colons, or spaces. The value cannot contain any leading or trailing whitespace.
     value :: Lude.Maybe Lude.Text,
+    -- | The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full ARN.
     targetType :: Lude.Maybe TargetType,
+    -- | The name of the attribute. The @name@ must contain between 1 and 128 characters and name may contain letters (uppercase and lowercase), numbers, hyphens, underscores, forward slashes, back slashes, or periods.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Attribute' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the attribute. The @name@ must contain between 1 and 128 characters and name may contain letters (uppercase and lowercase), numbers, hyphens, underscores, forward slashes, back slashes, or periods.
 -- * 'targetId' - The ID of the target. You can specify the short form ID for a resource or the full Amazon Resource Name (ARN).
--- * 'targetType' - The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full ARN.
 -- * 'value' - The value of the attribute. The @value@ must contain between 1 and 128 characters and may contain letters (uppercase and lowercase), numbers, hyphens, underscores, periods, at signs (@), forward slashes, back slashes, colons, or spaces. The value cannot contain any leading or trailing whitespace.
+-- * 'targetType' - The type of the target with which to attach the attribute. This parameter is required if you use the short form ID for a resource instead of the full ARN.
+-- * 'name' - The name of the attribute. The @name@ must contain between 1 and 128 characters and name may contain letters (uppercase and lowercase), numbers, hyphens, underscores, forward slashes, back slashes, or periods.
 mkAttribute ::
   -- | 'name'
   Lude.Text ->

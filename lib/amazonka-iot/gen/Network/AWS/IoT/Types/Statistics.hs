@@ -35,35 +35,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatistics' smart constructor.
 data Statistics = Statistics'
-  { stdDeviation ::
-      Lude.Maybe Lude.Double,
+  { -- | The standard deviation of the aggregated field values.
+    stdDeviation :: Lude.Maybe Lude.Double,
+    -- | The maximum aggregated field value.
     maximum :: Lude.Maybe Lude.Double,
+    -- | The average of the aggregated field values.
     average :: Lude.Maybe Lude.Double,
+    -- | The count of things that match the query.
     count :: Lude.Maybe Lude.Int,
+    -- | The minimum aggregated field value.
     minimum :: Lude.Maybe Lude.Double,
+    -- | The variance of the aggregated field values.
     variance :: Lude.Maybe Lude.Double,
+    -- | The sum of the squares of the aggregated field values.
     sumOfSquares :: Lude.Maybe Lude.Double,
+    -- | The sum of the aggregated field values.
     sum :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Statistics' with the minimum fields required to make a request.
 --
+-- * 'stdDeviation' - The standard deviation of the aggregated field values.
+-- * 'maximum' - The maximum aggregated field value.
 -- * 'average' - The average of the aggregated field values.
 -- * 'count' - The count of things that match the query.
--- * 'maximum' - The maximum aggregated field value.
 -- * 'minimum' - The minimum aggregated field value.
--- * 'stdDeviation' - The standard deviation of the aggregated field values.
--- * 'sum' - The sum of the aggregated field values.
--- * 'sumOfSquares' - The sum of the squares of the aggregated field values.
 -- * 'variance' - The variance of the aggregated field values.
+-- * 'sumOfSquares' - The sum of the squares of the aggregated field values.
+-- * 'sum' - The sum of the aggregated field values.
 mkStatistics ::
   Statistics
 mkStatistics =

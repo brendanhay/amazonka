@@ -172,8 +172,8 @@ module Network.AWS.APIGateway.Types
     dplPath,
     dplName,
     dplMethod,
-    dplStatusCode,
     dplType,
+    dplStatusCode,
 
     -- * DocumentationVersion
     DocumentationVersion (..),
@@ -239,11 +239,11 @@ module Network.AWS.APIGateway.Types
     -- * IntegrationResponse
     IntegrationResponse (..),
     mkIntegrationResponse,
-    intContentHandling,
-    intResponseTemplates,
-    intSelectionPattern,
-    intStatusCode,
-    intResponseParameters,
+    ifContentHandling,
+    ifResponseTemplates,
+    ifSelectionPattern,
+    ifStatusCode,
+    ifResponseParameters,
 
     -- * Method
     Method (..),

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,7 +32,7 @@ module Network.AWS.ELBv2.RegisterTargets
     mkRegisterTargetsResponse,
 
     -- ** Response lenses
-    rrsResponseStatus,
+    rtrsResponseStatus,
   )
 where
 
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
-  { targetGroupARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupARN :: Lude.Text,
+    -- | The targets.
     targets :: [TargetDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterTargets' with the minimum fields required to make a request.
@@ -111,16 +107,10 @@ instance Lude.ToQuery RegisterTargets where
 
 -- | /See:/ 'mkRegisterTargetsResponse' smart constructor.
 newtype RegisterTargetsResponse = RegisterTargetsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterTargetsResponse' with the minimum fields required to make a request.
@@ -136,6 +126,6 @@ mkRegisterTargetsResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsResponseStatus :: Lens.Lens' RegisterTargetsResponse Lude.Int
-rrsResponseStatus = Lens.lens (responseStatus :: RegisterTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterTargetsResponse)
-{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrsResponseStatus :: Lens.Lens' RegisterTargetsResponse Lude.Int
+rtrsResponseStatus = Lens.lens (responseStatus :: RegisterTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterTargetsResponse)
+{-# DEPRECATED rtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

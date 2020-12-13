@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Mobile.ExportBundle
 
     -- ** Request lenses
     ebPlatform,
-    ebProjectId,
     ebBundleId,
+    ebProjectId,
 
     -- * Destructuring the response
     ExportBundleResponse (..),
@@ -43,23 +44,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkExportBundle' smart constructor.
 data ExportBundle = ExportBundle'
-  { platform :: Lude.Maybe Platform,
-    projectId :: Lude.Maybe Lude.Text,
-    bundleId :: Lude.Text
+  { -- | Developer desktop or target application platform.
+    platform :: Lude.Maybe Platform,
+    -- | Unique bundle identifier.
+    bundleId :: Lude.Text,
+    -- | Unique project identifier.
+    projectId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportBundle' with the minimum fields required to make a request.
 --
--- * 'bundleId' - Unique bundle identifier.
 -- * 'platform' - Developer desktop or target application platform.
+-- * 'bundleId' - Unique bundle identifier.
 -- * 'projectId' - Unique project identifier.
 mkExportBundle ::
   -- | 'bundleId'
@@ -68,8 +66,8 @@ mkExportBundle ::
 mkExportBundle pBundleId_ =
   ExportBundle'
     { platform = Lude.Nothing,
-      projectId = Lude.Nothing,
-      bundleId = pBundleId_
+      bundleId = pBundleId_,
+      projectId = Lude.Nothing
     }
 
 -- | Developer desktop or target application platform.
@@ -79,19 +77,19 @@ ebPlatform :: Lens.Lens' ExportBundle (Lude.Maybe Platform)
 ebPlatform = Lens.lens (platform :: ExportBundle -> Lude.Maybe Platform) (\s a -> s {platform = a} :: ExportBundle)
 {-# DEPRECATED ebPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
--- | Unique project identifier.
---
--- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebProjectId :: Lens.Lens' ExportBundle (Lude.Maybe Lude.Text)
-ebProjectId = Lens.lens (projectId :: ExportBundle -> Lude.Maybe Lude.Text) (\s a -> s {projectId = a} :: ExportBundle)
-{-# DEPRECATED ebProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
-
 -- | Unique bundle identifier.
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ebBundleId :: Lens.Lens' ExportBundle Lude.Text
 ebBundleId = Lens.lens (bundleId :: ExportBundle -> Lude.Text) (\s a -> s {bundleId = a} :: ExportBundle)
 {-# DEPRECATED ebBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | Unique project identifier.
+--
+-- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebProjectId :: Lens.Lens' ExportBundle (Lude.Maybe Lude.Text)
+ebProjectId = Lens.lens (projectId :: ExportBundle -> Lude.Maybe Lude.Text) (\s a -> s {projectId = a} :: ExportBundle)
+{-# DEPRECATED ebProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
 instance Lude.AWSRequest ExportBundle where
   type Rs ExportBundle = ExportBundleResponse
@@ -128,17 +126,12 @@ instance Lude.ToQuery ExportBundle where
 --
 -- /See:/ 'mkExportBundleResponse' smart constructor.
 data ExportBundleResponse = ExportBundleResponse'
-  { downloadURL ::
-      Lude.Maybe Lude.Text,
+  { -- | URL which contains the custom-generated SDK and tool packages used to integrate the client mobile app or web app with the AWS resources created by the AWS Mobile Hub project.
+    downloadURL :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportBundleResponse' with the minimum fields required to make a request.

@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationValue' smart constructor.
 data ReservationValue = ReservationValue'
-  { hourlyPrice ::
-      Lude.Maybe Lude.Text,
+  { -- | The hourly rate of the reservation.
+    hourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).
     remainingTotalValue :: Lude.Maybe Lude.Text,
+    -- | The remaining upfront cost of the reservation.
     remainingUpfrontValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationValue' with the minimum fields required to make a request.

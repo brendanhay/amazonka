@@ -13,8 +13,8 @@
 module Network.AWS.WorkSpaces.Types.OperatingSystemType
   ( OperatingSystemType
       ( OperatingSystemType',
-        Linux,
-        Windows
+        Windows,
+        Linux
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OperatingSystemType = OperatingSystemType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Linux :: OperatingSystemType
-pattern Linux = OperatingSystemType' "LINUX"
-
 pattern Windows :: OperatingSystemType
 pattern Windows = OperatingSystemType' "WINDOWS"
 
+pattern Linux :: OperatingSystemType
+pattern Linux = OperatingSystemType' "LINUX"
+
 {-# COMPLETE
-  Linux,
   Windows,
+  Linux,
   OperatingSystemType'
   #-}

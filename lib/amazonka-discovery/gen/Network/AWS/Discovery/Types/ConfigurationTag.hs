@@ -33,29 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationTag' smart constructor.
 data ConfigurationTag = ConfigurationTag'
-  { timeOfCreation ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time the configuration tag was created in Coordinated Universal Time (UTC).
+    timeOfCreation :: Lude.Maybe Lude.Timestamp,
+    -- | The configuration ID for the item to tag. You can specify a list of keys and values.
     configurationId :: Lude.Maybe Lude.Text,
+    -- | A type of IT asset to tag.
     configurationType :: Lude.Maybe ConfigurationItemType,
+    -- | A value on which to filter. For example /key = serverType/ and /value = web server/ .
     value :: Lude.Maybe Lude.Text,
+    -- | A type of tag on which to filter. For example, /serverType/ .
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationTag' with the minimum fields required to make a request.
 --
+-- * 'timeOfCreation' - The time the configuration tag was created in Coordinated Universal Time (UTC).
 -- * 'configurationId' - The configuration ID for the item to tag. You can specify a list of keys and values.
 -- * 'configurationType' - A type of IT asset to tag.
--- * 'key' - A type of tag on which to filter. For example, /serverType/ .
--- * 'timeOfCreation' - The time the configuration tag was created in Coordinated Universal Time (UTC).
 -- * 'value' - A value on which to filter. For example /key = serverType/ and /value = web server/ .
+-- * 'key' - A type of tag on which to filter. For example, /serverType/ .
 mkConfigurationTag ::
   ConfigurationTag
 mkConfigurationTag =

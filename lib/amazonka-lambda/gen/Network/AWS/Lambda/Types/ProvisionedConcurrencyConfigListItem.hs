@@ -35,46 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProvisionedConcurrencyConfigListItem' smart constructor.
 data ProvisionedConcurrencyConfigListItem = ProvisionedConcurrencyConfigListItem'
-  { status ::
-      Lude.Maybe
-        ProvisionedConcurrencyStatusEnum,
-    functionARN ::
-      Lude.Maybe
-        Lude.Text,
-    requestedProvisionedConcurrentExecutions ::
-      Lude.Maybe
-        Lude.Natural,
-    availableProvisionedConcurrentExecutions ::
-      Lude.Maybe
-        Lude.Natural,
-    statusReason ::
-      Lude.Maybe
-        Lude.Text,
-    allocatedProvisionedConcurrentExecutions ::
-      Lude.Maybe
-        Lude.Natural,
-    lastModified ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The status of the allocation process.
+    status :: Lude.Maybe ProvisionedConcurrencyStatusEnum,
+    -- | The Amazon Resource Name (ARN) of the alias or version.
+    functionARN :: Lude.Maybe Lude.Text,
+    -- | The amount of provisioned concurrency requested.
+    requestedProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | The amount of provisioned concurrency available.
+    availableProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | For failed allocations, the reason that provisioned concurrency could not be allocated.
+    statusReason :: Lude.Maybe Lude.Text,
+    -- | The amount of provisioned concurrency allocated.
+    allocatedProvisionedConcurrentExecutions :: Lude.Maybe Lude.Natural,
+    -- | The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
+    lastModified :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedConcurrencyConfigListItem' with the minimum fields required to make a request.
 --
--- * 'allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
--- * 'availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
--- * 'functionARN' - The Amazon Resource Name (ARN) of the alias or version.
--- * 'lastModified' - The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
--- * 'requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
 -- * 'status' - The status of the allocation process.
+-- * 'functionARN' - The Amazon Resource Name (ARN) of the alias or version.
+-- * 'requestedProvisionedConcurrentExecutions' - The amount of provisioned concurrency requested.
+-- * 'availableProvisionedConcurrentExecutions' - The amount of provisioned concurrency available.
 -- * 'statusReason' - For failed allocations, the reason that provisioned concurrency could not be allocated.
+-- * 'allocatedProvisionedConcurrentExecutions' - The amount of provisioned concurrency allocated.
+-- * 'lastModified' - The date and time that a user last updated the configuration, in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 format> .
 mkProvisionedConcurrencyConfigListItem ::
   ProvisionedConcurrencyConfigListItem
 mkProvisionedConcurrencyConfigListItem =

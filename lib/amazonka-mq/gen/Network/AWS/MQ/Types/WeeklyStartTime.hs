@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWeeklyStartTime' smart constructor.
 data WeeklyStartTime = WeeklyStartTime'
-  { timeOfDay ::
-      Lude.Maybe Lude.Text,
+  { -- | Required. The time, in 24-hour format.
+    timeOfDay :: Lude.Maybe Lude.Text,
+    -- | The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
     timeZone :: Lude.Maybe Lude.Text,
+    -- | Required. The day of the week.
     dayOfWeek :: Lude.Maybe DayOfWeek
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WeeklyStartTime' with the minimum fields required to make a request.
 --
--- * 'dayOfWeek' - Required. The day of the week.
 -- * 'timeOfDay' - Required. The time, in 24-hour format.
 -- * 'timeZone' - The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
+-- * 'dayOfWeek' - Required. The day of the week.
 mkWeeklyStartTime ::
   WeeklyStartTime
 mkWeeklyStartTime =

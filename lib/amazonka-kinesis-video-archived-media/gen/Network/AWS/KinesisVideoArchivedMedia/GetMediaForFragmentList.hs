@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,17 +39,17 @@ module Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
     mkGetMediaForFragmentList,
 
     -- ** Request lenses
-    gmfflStreamName,
     gmfflFragments,
+    gmfflStreamName,
 
     -- * Destructuring the response
     GetMediaForFragmentListResponse (..),
     mkGetMediaForFragmentListResponse,
 
     -- ** Response lenses
+    gmfflrsPayload,
     gmfflrsContentType,
     gmfflrsResponseStatus,
-    gmfflrsPayload,
   )
 where
 
@@ -60,17 +61,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetMediaForFragmentList' smart constructor.
 data GetMediaForFragmentList = GetMediaForFragmentList'
-  { streamName ::
-      Lude.Text,
-    fragments :: Lude.NonEmpty Lude.Text
+  { -- | A list of the numbers of fragments for which to retrieve media. You retrieve these values with 'ListFragments' .
+    fragments :: Lude.NonEmpty Lude.Text,
+    -- | The name of the stream from which to retrieve fragment media.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMediaForFragmentList' with the minimum fields required to make a request.
@@ -78,23 +74,16 @@ data GetMediaForFragmentList = GetMediaForFragmentList'
 -- * 'fragments' - A list of the numbers of fragments for which to retrieve media. You retrieve these values with 'ListFragments' .
 -- * 'streamName' - The name of the stream from which to retrieve fragment media.
 mkGetMediaForFragmentList ::
-  -- | 'streamName'
-  Lude.Text ->
   -- | 'fragments'
   Lude.NonEmpty Lude.Text ->
+  -- | 'streamName'
+  Lude.Text ->
   GetMediaForFragmentList
-mkGetMediaForFragmentList pStreamName_ pFragments_ =
+mkGetMediaForFragmentList pFragments_ pStreamName_ =
   GetMediaForFragmentList'
-    { streamName = pStreamName_,
-      fragments = pFragments_
+    { fragments = pFragments_,
+      streamName = pStreamName_
     }
-
--- | The name of the stream from which to retrieve fragment media.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmfflStreamName :: Lens.Lens' GetMediaForFragmentList Lude.Text
-gmfflStreamName = Lens.lens (streamName :: GetMediaForFragmentList -> Lude.Text) (\s a -> s {streamName = a} :: GetMediaForFragmentList)
-{-# DEPRECATED gmfflStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | A list of the numbers of fragments for which to retrieve media. You retrieve these values with 'ListFragments' .
 --
@@ -103,6 +92,13 @@ gmfflFragments :: Lens.Lens' GetMediaForFragmentList (Lude.NonEmpty Lude.Text)
 gmfflFragments = Lens.lens (fragments :: GetMediaForFragmentList -> Lude.NonEmpty Lude.Text) (\s a -> s {fragments = a} :: GetMediaForFragmentList)
 {-# DEPRECATED gmfflFragments "Use generic-lens or generic-optics with 'fragments' instead." #-}
 
+-- | The name of the stream from which to retrieve fragment media.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmfflStreamName :: Lens.Lens' GetMediaForFragmentList Lude.Text
+gmfflStreamName = Lens.lens (streamName :: GetMediaForFragmentList -> Lude.Text) (\s a -> s {streamName = a} :: GetMediaForFragmentList)
+{-# DEPRECATED gmfflStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+
 instance Lude.AWSRequest GetMediaForFragmentList where
   type Rs GetMediaForFragmentList = GetMediaForFragmentListResponse
   request = Req.postJSON kinesisVideoArchivedMediaService
@@ -110,9 +106,9 @@ instance Lude.AWSRequest GetMediaForFragmentList where
     Res.receiveBody
       ( \s h x ->
           GetMediaForFragmentListResponse'
-            Lude.<$> (h Lude..#? "Content-Type")
+            Lude.<$> (Lude.pure x)
+            Lude.<*> (h Lude..#? "Content-Type")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (Lude.pure x)
       )
 
 instance Lude.ToHeaders GetMediaForFragmentList where
@@ -122,8 +118,8 @@ instance Lude.ToJSON GetMediaForFragmentList where
   toJSON GetMediaForFragmentList' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StreamName" Lude..= streamName),
-            Lude.Just ("Fragments" Lude..= fragments)
+          [ Lude.Just ("Fragments" Lude..= fragments),
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
@@ -135,16 +131,37 @@ instance Lude.ToQuery GetMediaForFragmentList where
 
 -- | /See:/ 'mkGetMediaForFragmentListResponse' smart constructor.
 data GetMediaForFragmentListResponse = GetMediaForFragmentListResponse'
-  { contentType ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    payload :: Lude.RsBody
+  { -- | The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia> . The chunks that Kinesis Video Streams returns in the @GetMediaForFragmentList@ call also include the following additional Matroska (MKV) tags:
+    --
+    --
+    --     * AWS_KINESISVIDEO_FRAGMENT_NUMBER - Fragment number returned in the chunk.
+    --
+    --
+    --     * AWS_KINESISVIDEO_SERVER_SIDE_TIMESTAMP - Server-side timestamp of the fragment.
+    --
+    --
+    --     * AWS_KINESISVIDEO_PRODUCER_SIDE_TIMESTAMP - Producer-side timestamp of the fragment.
+    --
+    --
+    -- The following tags will be included if an exception occurs:
+    --
+    --     * AWS_KINESISVIDEO_FRAGMENT_NUMBER - The number of the fragment that threw the exception
+    --
+    --
+    --     * AWS_KINESISVIDEO_EXCEPTION_ERROR_CODE - The integer code of the exception
+    --
+    --
+    --     * AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception
+    payload :: Lude.RsBody,
+    -- | The content type of the requested media.
+    contentType :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Show, Lude.Generic)
 
 -- | Creates a value of 'GetMediaForFragmentListResponse' with the minimum fields required to make a request.
 --
--- * 'contentType' - The content type of the requested media.
 -- * 'payload' - The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia> . The chunks that Kinesis Video Streams returns in the @GetMediaForFragmentList@ call also include the following additional Matroska (MKV) tags:
 --
 --
@@ -168,33 +185,20 @@ data GetMediaForFragmentListResponse = GetMediaForFragmentListResponse'
 --     * AWS_KINESISVIDEO_EXCEPTION_MESSAGE - A text description of the exception
 --
 --
+-- * 'contentType' - The content type of the requested media.
 -- * 'responseStatus' - The response status code.
 mkGetMediaForFragmentListResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'payload'
   Lude.RsBody ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetMediaForFragmentListResponse
-mkGetMediaForFragmentListResponse pResponseStatus_ pPayload_ =
+mkGetMediaForFragmentListResponse pPayload_ pResponseStatus_ =
   GetMediaForFragmentListResponse'
-    { contentType = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      payload = pPayload_
+    { payload = pPayload_,
+      contentType = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
-
--- | The content type of the requested media.
---
--- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmfflrsContentType :: Lens.Lens' GetMediaForFragmentListResponse (Lude.Maybe Lude.Text)
-gmfflrsContentType = Lens.lens (contentType :: GetMediaForFragmentListResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetMediaForFragmentListResponse)
-{-# DEPRECATED gmfflrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmfflrsResponseStatus :: Lens.Lens' GetMediaForFragmentListResponse Lude.Int
-gmfflrsResponseStatus = Lens.lens (responseStatus :: GetMediaForFragmentListResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMediaForFragmentListResponse)
-{-# DEPRECATED gmfflrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_dataplane_PutMedia.html PutMedia> . The chunks that Kinesis Video Streams returns in the @GetMediaForFragmentList@ call also include the following additional Matroska (MKV) tags:
 --
@@ -224,3 +228,17 @@ gmfflrsResponseStatus = Lens.lens (responseStatus :: GetMediaForFragmentListResp
 gmfflrsPayload :: Lens.Lens' GetMediaForFragmentListResponse Lude.RsBody
 gmfflrsPayload = Lens.lens (payload :: GetMediaForFragmentListResponse -> Lude.RsBody) (\s a -> s {payload = a} :: GetMediaForFragmentListResponse)
 {-# DEPRECATED gmfflrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+
+-- | The content type of the requested media.
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmfflrsContentType :: Lens.Lens' GetMediaForFragmentListResponse (Lude.Maybe Lude.Text)
+gmfflrsContentType = Lens.lens (contentType :: GetMediaForFragmentListResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetMediaForFragmentListResponse)
+{-# DEPRECATED gmfflrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmfflrsResponseStatus :: Lens.Lens' GetMediaForFragmentListResponse Lude.Int
+gmfflrsResponseStatus = Lens.lens (responseStatus :: GetMediaForFragmentListResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMediaForFragmentListResponse)
+{-# DEPRECATED gmfflrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

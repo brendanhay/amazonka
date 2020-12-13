@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.AccelerationStatus
   ( AccelerationStatus
       ( AccelerationStatus',
-        Accelerated,
+        NotApplicable,
         InProgress,
-        NotAccelerated,
-        NotApplicable
+        Accelerated,
+        NotAccelerated
       ),
   )
 where
@@ -48,22 +48,22 @@ newtype AccelerationStatus = AccelerationStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Accelerated :: AccelerationStatus
-pattern Accelerated = AccelerationStatus' "ACCELERATED"
+pattern NotApplicable :: AccelerationStatus
+pattern NotApplicable = AccelerationStatus' "NOT_APPLICABLE"
 
 pattern InProgress :: AccelerationStatus
 pattern InProgress = AccelerationStatus' "IN_PROGRESS"
 
+pattern Accelerated :: AccelerationStatus
+pattern Accelerated = AccelerationStatus' "ACCELERATED"
+
 pattern NotAccelerated :: AccelerationStatus
 pattern NotAccelerated = AccelerationStatus' "NOT_ACCELERATED"
 
-pattern NotApplicable :: AccelerationStatus
-pattern NotApplicable = AccelerationStatus' "NOT_APPLICABLE"
-
 {-# COMPLETE
-  Accelerated,
-  InProgress,
-  NotAccelerated,
   NotApplicable,
+  InProgress,
+  Accelerated,
+  NotAccelerated,
   AccelerationStatus'
   #-}

@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentLanguage' smart constructor.
 data EnvironmentLanguage = EnvironmentLanguage'
-  { images ::
-      Lude.Maybe [EnvironmentImage],
+  { -- | The list of Docker images that are related by the specified programming language.
+    images :: Lude.Maybe [EnvironmentImage],
+    -- | The programming language for the Docker images.
     language :: Lude.Maybe LanguageType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentLanguage' with the minimum fields required to make a request.

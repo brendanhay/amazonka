@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SSM.UpdateAssociationStatus
     mkUpdateAssociationStatus,
 
     -- ** Request lenses
-    uasName,
     uasInstanceId,
+    uasName,
     uasAssociationStatus,
 
     -- * Destructuring the response
@@ -41,46 +42,35 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkUpdateAssociationStatus' smart constructor.
 data UpdateAssociationStatus = UpdateAssociationStatus'
-  { name ::
-      Lude.Text,
+  { -- | The ID of the instance.
     instanceId :: Lude.Text,
+    -- | The name of the Systems Manager document.
+    name :: Lude.Text,
+    -- | The association status.
     associationStatus :: AssociationStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAssociationStatus' with the minimum fields required to make a request.
 --
--- * 'associationStatus' - The association status.
 -- * 'instanceId' - The ID of the instance.
 -- * 'name' - The name of the Systems Manager document.
+-- * 'associationStatus' - The association status.
 mkUpdateAssociationStatus ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'instanceId'
+  Lude.Text ->
+  -- | 'name'
   Lude.Text ->
   -- | 'associationStatus'
   AssociationStatus ->
   UpdateAssociationStatus
-mkUpdateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
+mkUpdateAssociationStatus pInstanceId_ pName_ pAssociationStatus_ =
   UpdateAssociationStatus'
-    { name = pName_,
-      instanceId = pInstanceId_,
+    { instanceId = pInstanceId_,
+      name = pName_,
       associationStatus = pAssociationStatus_
     }
-
--- | The name of the Systems Manager document.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uasName :: Lens.Lens' UpdateAssociationStatus Lude.Text
-uasName = Lens.lens (name :: UpdateAssociationStatus -> Lude.Text) (\s a -> s {name = a} :: UpdateAssociationStatus)
-{-# DEPRECATED uasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the instance.
 --
@@ -88,6 +78,13 @@ uasName = Lens.lens (name :: UpdateAssociationStatus -> Lude.Text) (\s a -> s {n
 uasInstanceId :: Lens.Lens' UpdateAssociationStatus Lude.Text
 uasInstanceId = Lens.lens (instanceId :: UpdateAssociationStatus -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateAssociationStatus)
 {-# DEPRECATED uasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The name of the Systems Manager document.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uasName :: Lens.Lens' UpdateAssociationStatus Lude.Text
+uasName = Lens.lens (name :: UpdateAssociationStatus -> Lude.Text) (\s a -> s {name = a} :: UpdateAssociationStatus)
+{-# DEPRECATED uasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The association status.
 --
@@ -122,8 +119,8 @@ instance Lude.ToJSON UpdateAssociationStatus where
   toJSON UpdateAssociationStatus' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("InstanceId" Lude..= instanceId),
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            Lude.Just ("Name" Lude..= name),
             Lude.Just ("AssociationStatus" Lude..= associationStatus)
           ]
       )
@@ -136,18 +133,12 @@ instance Lude.ToQuery UpdateAssociationStatus where
 
 -- | /See:/ 'mkUpdateAssociationStatusResponse' smart constructor.
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
-  { associationDescription ::
-      Lude.Maybe
-        AssociationDescription,
+  { -- | Information about the association.
+    associationDescription :: Lude.Maybe AssociationDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAssociationStatusResponse' with the minimum fields required to make a request.

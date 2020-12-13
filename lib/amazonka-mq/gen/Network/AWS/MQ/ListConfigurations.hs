@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,23 +43,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListConfigurations' smart constructor.
 data ListConfigurations = ListConfigurations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurations' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 mkListConfigurations ::
   ListConfigurations
 mkListConfigurations =
@@ -113,26 +109,23 @@ instance Lude.ToQuery ListConfigurations where
 
 -- | /See:/ 'mkListConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
-  { configurations ::
-      Lude.Maybe [Configuration],
+  { -- | The list of all revisions for the specified configuration.
+    configurations :: Lude.Maybe [Configuration],
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
     maxResults :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConfigurationsResponse' with the minimum fields required to make a request.
 --
 -- * 'configurations' - The list of all revisions for the specified configuration.
--- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 -- * 'responseStatus' - The response status code.
 mkListConfigurationsResponse ::
   -- | 'responseStatus'

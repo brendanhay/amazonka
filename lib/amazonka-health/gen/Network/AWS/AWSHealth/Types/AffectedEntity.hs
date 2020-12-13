@@ -36,35 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAffectedEntity' smart constructor.
 data AffectedEntity = AffectedEntity'
-  { lastUpdatedTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The most recent time that the entity was updated.
+    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the affected entity.
     entityValue :: Lude.Maybe Lude.Text,
+    -- | The URL of the affected entity.
     entityURL :: Lude.Maybe Lude.Text,
+    -- | The 12-digit AWS account number that contains the affected entity.
     awsAccountId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     eventARN :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
     entityARN :: Lude.Maybe Lude.Text,
+    -- | A map of entity tags attached to the affected entity.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The most recent status of the entity affected by the event. The possible values are @IMPAIRED@ , @UNIMPAIRED@ , and @UNKNOWN@ .
     statusCode :: Lude.Maybe EntityStatusCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AffectedEntity' with the minimum fields required to make a request.
 --
--- * 'awsAccountId' - The 12-digit AWS account number that contains the affected entity.
--- * 'entityARN' - The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
--- * 'entityURL' - The URL of the affected entity.
--- * 'entityValue' - The ID of the affected entity.
--- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 -- * 'lastUpdatedTime' - The most recent time that the entity was updated.
--- * 'statusCode' - The most recent status of the entity affected by the event. The possible values are @IMPAIRED@ , @UNIMPAIRED@ , and @UNKNOWN@ .
+-- * 'entityValue' - The ID of the affected entity.
+-- * 'entityURL' - The URL of the affected entity.
+-- * 'awsAccountId' - The 12-digit AWS account number that contains the affected entity.
+-- * 'eventARN' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+-- * 'entityARN' - The unique identifier for the entity. Format: @arn:aws:health:/entity-region/ :/aws-account/ :entity//entity-id/ @ . Example: @arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K@
 -- * 'tags' - A map of entity tags attached to the affected entity.
+-- * 'statusCode' - The most recent status of the entity affected by the event. The possible values are @IMPAIRED@ , @UNIMPAIRED@ , and @UNKNOWN@ .
 mkAffectedEntity ::
   AffectedEntity
 mkAffectedEntity =

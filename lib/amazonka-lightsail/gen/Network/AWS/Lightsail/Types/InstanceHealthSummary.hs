@@ -32,24 +32,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceHealthSummary' smart constructor.
 data InstanceHealthSummary = InstanceHealthSummary'
-  { instanceHealth ::
-      Lude.Maybe InstanceHealthState,
+  { -- | Describes the overall instance health. Valid values are below.
+    instanceHealth :: Lude.Maybe InstanceHealthState,
+    -- | The name of the Lightsail instance for which you are requesting health check data.
     instanceName :: Lude.Maybe Lude.Text,
-    instanceHealthReason ::
-      Lude.Maybe InstanceHealthReason
+    -- | More information about the instance health. If the @instanceHealth@ is @healthy@ , then an @instanceHealthReason@ value is not provided.
+    --
+    -- If __@instanceHealth@ __ is @initial@ , the __@instanceHealthReason@ __ value can be one of the following:
+    --
+    --     * __@Lb.RegistrationInProgress@ __ - The target instance is in the process of being registered with the load balancer.
+    --
+    --
+    --     * __@Lb.InitialHealthChecking@ __ - The Lightsail load balancer is still sending the target instance the minimum number of health checks required to determine its health status.
+    --
+    --
+    -- If __@instanceHealth@ __ is @unhealthy@ , the __@instanceHealthReason@ __ value can be one of the following:
+    --
+    --     * __@Instance.ResponseCodeMismatch@ __ - The health checks did not return an expected HTTP code.
+    --
+    --
+    --     * __@Instance.Timeout@ __ - The health check requests timed out.
+    --
+    --
+    --     * __@Instance.FailedHealthChecks@ __ - The health checks failed because the connection to the target instance timed out, the target instance response was malformed, or the target instance failed the health check for an unknown reason.
+    --
+    --
+    --     * __@Lb.InternalError@ __ - The health checks failed due to an internal error.
+    --
+    --
+    -- If __@instanceHealth@ __ is @unused@ , the __@instanceHealthReason@ __ value can be one of the following:
+    --
+    --     * __@Instance.NotRegistered@ __ - The target instance is not registered with the target group.
+    --
+    --
+    --     * __@Instance.NotInUse@ __ - The target group is not used by any load balancer, or the target instance is in an Availability Zone that is not enabled for its load balancer.
+    --
+    --
+    --     * __@Instance.IpUnusable@ __ - The target IP address is reserved for use by a Lightsail load balancer.
+    --
+    --
+    --     * __@Instance.InvalidState@ __ - The target is in the stopped or terminated state.
+    --
+    --
+    -- If __@instanceHealth@ __ is @draining@ , the __@instanceHealthReason@ __ value can be one of the following:
+    --
+    --     * __@Instance.DeregistrationInProgress@ __ - The target instance is in the process of being deregistered and the deregistration delay period has not expired.
+    instanceHealthReason :: Lude.Maybe InstanceHealthReason
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceHealthSummary' with the minimum fields required to make a request.
 --
 -- * 'instanceHealth' - Describes the overall instance health. Valid values are below.
+-- * 'instanceName' - The name of the Lightsail instance for which you are requesting health check data.
 -- * 'instanceHealthReason' - More information about the instance health. If the @instanceHealth@ is @healthy@ , then an @instanceHealthReason@ value is not provided.
 --
 -- If __@instanceHealth@ __ is @initial@ , the __@instanceHealthReason@ __ value can be one of the following:
@@ -91,9 +127,6 @@ data InstanceHealthSummary = InstanceHealthSummary'
 -- If __@instanceHealth@ __ is @draining@ , the __@instanceHealthReason@ __ value can be one of the following:
 --
 --     * __@Instance.DeregistrationInProgress@ __ - The target instance is in the process of being deregistered and the deregistration delay period has not expired.
---
---
--- * 'instanceName' - The name of the Lightsail instance for which you are requesting health check data.
 mkInstanceHealthSummary ::
   InstanceHealthSummary
 mkInstanceHealthSummary =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,18 +48,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReplicationInstances' smart constructor.
 data DescribeReplicationInstances = DescribeReplicationInstances'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | Filters applied to replication instances.
+    --
+    -- Valid filter names: replication-instance-arn | replication-instance-id | replication-instance-class | engine-version
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationInstances' with the minimum fields required to make a request.
@@ -162,22 +164,14 @@ instance Lude.ToQuery DescribeReplicationInstances where
 --
 -- /See:/ 'mkDescribeReplicationInstancesResponse' smart constructor.
 data DescribeReplicationInstancesResponse = DescribeReplicationInstancesResponse'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    replicationInstances ::
-      Lude.Maybe
-        [ReplicationInstance],
-    responseStatus ::
-      Lude.Int
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The replication instances described.
+    replicationInstances :: Lude.Maybe [ReplicationInstance],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationInstancesResponse' with the minimum fields required to make a request.

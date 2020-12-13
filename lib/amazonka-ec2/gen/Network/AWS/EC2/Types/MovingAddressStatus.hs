@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMovingAddressStatus' smart constructor.
 data MovingAddressStatus = MovingAddressStatus'
-  { moveStatus ::
-      Lude.Maybe MoveStatus,
+  { -- | The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.
+    moveStatus :: Lude.Maybe MoveStatus,
+    -- | The Elastic IP address.
     publicIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MovingAddressStatus' with the minimum fields required to make a request.

@@ -33,27 +33,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptionSource' smart constructor.
 data CaptionSource = CaptionSource'
-  { timeOffset ::
-      Lude.Maybe Lude.Text,
+  { -- | For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions.
+    --
+    -- Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
+    timeOffset :: Lude.Maybe Lude.Text,
+    -- | The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you want Elastic Transcoder to apply to your caption sources.
     encryption :: Lude.Maybe Encryption,
+    -- | The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.
     key :: Lude.Maybe Lude.Text,
+    -- | A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:
+    --
+    --
+    --     * 2-character ISO 639-1 code
+    --
+    --
+    --     * 3-character ISO 639-2 code
+    --
+    --
+    -- For more information on ISO language codes and language names, see the List of ISO 639-1 codes.
     language :: Lude.Maybe Lude.Text,
+    -- | The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
     label :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptionSource' with the minimum fields required to make a request.
 --
+-- * 'timeOffset' - For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions.
+--
+-- Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
 -- * 'encryption' - The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you want Elastic Transcoder to apply to your caption sources.
 -- * 'key' - The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.
--- * 'label' - The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
 -- * 'language' - A string that specifies the language of the caption. If you specified multiple inputs with captions, the caption language must match in order to be included in the output. Specify this as one of:
 --
 --
@@ -64,9 +75,7 @@ data CaptionSource = CaptionSource'
 --
 --
 -- For more information on ISO language codes and language names, see the List of ISO 639-1 codes.
--- * 'timeOffset' - For clip generation or captions that do not start at the same time as the associated video file, the @TimeOffset@ tells Elastic Transcoder how much of the video to encode before including captions.
---
--- Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
+-- * 'label' - The label of the caption shown in the player when choosing a language. We recommend that you put the caption language name here, in the language of the captions.
 mkCaptionSource ::
   CaptionSource
 mkCaptionSource =

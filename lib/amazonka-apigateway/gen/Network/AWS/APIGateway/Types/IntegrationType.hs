@@ -13,11 +13,11 @@
 module Network.AWS.APIGateway.Types.IntegrationType
   ( IntegrationType
       ( IntegrationType',
-        AWS,
-        AWSProxy,
         HTTP,
+        AWS,
+        Mock,
         HTTPProxy,
-        Mock
+        AWSProxy
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype IntegrationType = IntegrationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AWS :: IntegrationType
-pattern AWS = IntegrationType' "AWS"
-
-pattern AWSProxy :: IntegrationType
-pattern AWSProxy = IntegrationType' "AWS_PROXY"
-
 pattern HTTP :: IntegrationType
 pattern HTTP = IntegrationType' "HTTP"
 
-pattern HTTPProxy :: IntegrationType
-pattern HTTPProxy = IntegrationType' "HTTP_PROXY"
+pattern AWS :: IntegrationType
+pattern AWS = IntegrationType' "AWS"
 
 pattern Mock :: IntegrationType
 pattern Mock = IntegrationType' "MOCK"
 
+pattern HTTPProxy :: IntegrationType
+pattern HTTPProxy = IntegrationType' "HTTP_PROXY"
+
+pattern AWSProxy :: IntegrationType
+pattern AWSProxy = IntegrationType' "AWS_PROXY"
+
 {-# COMPLETE
-  AWS,
-  AWSProxy,
   HTTP,
-  HTTPProxy,
+  AWS,
   Mock,
+  HTTPProxy,
+  AWSProxy,
   IntegrationType'
   #-}

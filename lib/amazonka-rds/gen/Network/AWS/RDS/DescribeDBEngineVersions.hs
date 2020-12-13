@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,32 +53,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDBEngineVersions' smart constructor.
 data DescribeDBEngineVersions = DescribeDBEngineVersions'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
-    listSupportedTimezones ::
-      Lude.Maybe Lude.Bool,
+  { -- | The database engine version to return.
+    --
+    -- Example: @5.1.49@
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether to list the supported time zones for each engine version.
+    --
+    -- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
+    listSupportedTimezones :: Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
     defaultOnly :: Lude.Maybe Lude.Bool,
+    -- | A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
     includeAll :: Lude.Maybe Lude.Bool,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter],
+    -- | The database engine to return.
     engine :: Lude.Maybe Lude.Text,
-    dbParameterGroupFamily ::
-      Lude.Maybe Lude.Text,
-    listSupportedCharacterSets ::
-      Lude.Maybe Lude.Bool,
+    -- | The name of a specific DB parameter group family to return details for.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match an existing DBParameterGroupFamily.
+    dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether to list the supported character sets for each engine version.
+    --
+    -- If this parameter is enabled and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
+    listSupportedCharacterSets :: Lude.Maybe Lude.Bool,
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBEngineVersions' with the minimum fields required to make a request.
 --
+-- * 'engineVersion' - The database engine version to return.
+--
+-- Example: @5.1.49@
+-- * 'listSupportedTimezones' - A value that indicates whether to list the supported time zones for each engine version.
+--
+-- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
+-- * 'defaultOnly' - A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
+-- * 'includeAll' - A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'engine' - The database engine to return.
 -- * 'dbParameterGroupFamily' - The name of a specific DB parameter group family to return details for.
 --
 -- Constraints:
@@ -85,19 +109,9 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
 --     * If supplied, must match an existing DBParameterGroupFamily.
 --
 --
--- * 'defaultOnly' - A value that indicates whether only the default version of the specified engine or engine and major version combination is returned.
--- * 'engine' - The database engine to return.
--- * 'engineVersion' - The database engine version to return.
---
--- Example: @5.1.49@
--- * 'filters' - This parameter isn't currently supported.
--- * 'includeAll' - A value that indicates whether to include engine versions that aren't available in the list. The default is to list only available engine versions.
 -- * 'listSupportedCharacterSets' - A value that indicates whether to list the supported character sets for each engine version.
 --
 -- If this parameter is enabled and the requested engine supports the @CharacterSetName@ parameter for @CreateDBInstance@ , the response includes a list of supported character sets for each engine version.
--- * 'listSupportedTimezones' - A value that indicates whether to list the supported time zones for each engine version.
---
--- If this parameter is enabled and the requested engine supports the @TimeZone@ parameter for @CreateDBInstance@ , the response includes a list of supported time zones for each engine version.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more than the @MaxRecords@ value is available, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -256,27 +270,20 @@ instance Lude.ToQuery DescribeDBEngineVersions where
 --
 -- /See:/ 'mkDescribeDBEngineVersionsResponse' smart constructor.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    dbEngineVersions ::
-      Lude.Maybe
-        [DBEngineVersion],
-    responseStatus ::
-      Lude.Int
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | A list of @DBEngineVersion@ elements.
+    dbEngineVersions :: Lude.Maybe [DBEngineVersion],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBEngineVersionsResponse' with the minimum fields required to make a request.
 --
--- * 'dbEngineVersions' - A list of @DBEngineVersion@ elements.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'dbEngineVersions' - A list of @DBEngineVersion@ elements.
 -- * 'responseStatus' - The response status code.
 mkDescribeDBEngineVersionsResponse ::
   -- | 'responseStatus'

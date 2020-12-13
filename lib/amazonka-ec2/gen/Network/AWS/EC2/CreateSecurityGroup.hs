@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,20 +26,20 @@ module Network.AWS.EC2.CreateSecurityGroup
     mkCreateSecurityGroup,
 
     -- ** Request lenses
-    csgVPCId,
-    csgTagSpecifications,
-    csgDryRun,
-    csgDescription,
-    csgGroupName,
+    csgfVPCId,
+    csgfTagSpecifications,
+    csgfGroupName,
+    csgfDescription,
+    csgfDryRun,
 
     -- * Destructuring the response
     CreateSecurityGroupResponse (..),
     mkCreateSecurityGroupResponse,
 
     -- ** Response lenses
+    csgrsGroupId,
     csgrsTags,
     csgrsResponseStatus,
-    csgrsGroupId,
   )
 where
 
@@ -50,83 +51,71 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSecurityGroup' smart constructor.
 data CreateSecurityGroup = CreateSecurityGroup'
-  { vpcId ::
-      Lude.Maybe Lude.Text,
+  { -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | The tags to assign to the security group.
     tagSpecifications :: Lude.Maybe [TagSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The name of the security group.
+    --
+    -- Constraints: Up to 255 characters in length. Cannot start with @sg-@ .
+    -- Constraints for EC2-Classic: ASCII characters
+    -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+    groupName :: Lude.Text,
+    -- | A description for the security group. This is informational only.
+    --
+    -- Constraints: Up to 255 characters in length
+    -- Constraints for EC2-Classic: ASCII characters
+    -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
     description :: Lude.Text,
-    groupName :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityGroup' with the minimum fields required to make a request.
 --
+-- * 'vpcId' - [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+-- * 'tagSpecifications' - The tags to assign to the security group.
+-- * 'groupName' - The name of the security group.
+--
+-- Constraints: Up to 255 characters in length. Cannot start with @sg-@ .
+-- Constraints for EC2-Classic: ASCII characters
+-- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 -- * 'description' - A description for the security group. This is informational only.
 --
 -- Constraints: Up to 255 characters in length
 -- Constraints for EC2-Classic: ASCII characters
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'groupName' - The name of the security group.
---
--- Constraints: Up to 255 characters in length. Cannot start with @sg-@ .
--- Constraints for EC2-Classic: ASCII characters
--- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
--- * 'tagSpecifications' - The tags to assign to the security group.
--- * 'vpcId' - [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 mkCreateSecurityGroup ::
-  -- | 'description'
-  Lude.Text ->
   -- | 'groupName'
   Lude.Text ->
+  -- | 'description'
+  Lude.Text ->
   CreateSecurityGroup
-mkCreateSecurityGroup pDescription_ pGroupName_ =
+mkCreateSecurityGroup pGroupName_ pDescription_ =
   CreateSecurityGroup'
     { vpcId = Lude.Nothing,
       tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing,
+      groupName = pGroupName_,
       description = pDescription_,
-      groupName = pGroupName_
+      dryRun = Lude.Nothing
     }
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgVPCId :: Lens.Lens' CreateSecurityGroup (Lude.Maybe Lude.Text)
-csgVPCId = Lens.lens (vpcId :: CreateSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: CreateSecurityGroup)
-{-# DEPRECATED csgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+csgfVPCId :: Lens.Lens' CreateSecurityGroup (Lude.Maybe Lude.Text)
+csgfVPCId = Lens.lens (vpcId :: CreateSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: CreateSecurityGroup)
+{-# DEPRECATED csgfVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The tags to assign to the security group.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgTagSpecifications :: Lens.Lens' CreateSecurityGroup (Lude.Maybe [TagSpecification])
-csgTagSpecifications = Lens.lens (tagSpecifications :: CreateSecurityGroup -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSecurityGroup)
-{-# DEPRECATED csgTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgDryRun :: Lens.Lens' CreateSecurityGroup (Lude.Maybe Lude.Bool)
-csgDryRun = Lens.lens (dryRun :: CreateSecurityGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSecurityGroup)
-{-# DEPRECATED csgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | A description for the security group. This is informational only.
---
--- Constraints: Up to 255 characters in length
--- Constraints for EC2-Classic: ASCII characters
--- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgDescription :: Lens.Lens' CreateSecurityGroup Lude.Text
-csgDescription = Lens.lens (description :: CreateSecurityGroup -> Lude.Text) (\s a -> s {description = a} :: CreateSecurityGroup)
-{-# DEPRECATED csgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+csgfTagSpecifications :: Lens.Lens' CreateSecurityGroup (Lude.Maybe [TagSpecification])
+csgfTagSpecifications = Lens.lens (tagSpecifications :: CreateSecurityGroup -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSecurityGroup)
+{-# DEPRECATED csgfTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The name of the security group.
 --
@@ -135,9 +124,27 @@ csgDescription = Lens.lens (description :: CreateSecurityGroup -> Lude.Text) (\s
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgGroupName :: Lens.Lens' CreateSecurityGroup Lude.Text
-csgGroupName = Lens.lens (groupName :: CreateSecurityGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateSecurityGroup)
-{-# DEPRECATED csgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+csgfGroupName :: Lens.Lens' CreateSecurityGroup Lude.Text
+csgfGroupName = Lens.lens (groupName :: CreateSecurityGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateSecurityGroup)
+{-# DEPRECATED csgfGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+-- | A description for the security group. This is informational only.
+--
+-- Constraints: Up to 255 characters in length
+-- Constraints for EC2-Classic: ASCII characters
+-- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgfDescription :: Lens.Lens' CreateSecurityGroup Lude.Text
+csgfDescription = Lens.lens (description :: CreateSecurityGroup -> Lude.Text) (\s a -> s {description = a} :: CreateSecurityGroup)
+{-# DEPRECATED csgfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgfDryRun :: Lens.Lens' CreateSecurityGroup (Lude.Maybe Lude.Bool)
+csgfDryRun = Lens.lens (dryRun :: CreateSecurityGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSecurityGroup)
+{-# DEPRECATED csgfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateSecurityGroup where
   type Rs CreateSecurityGroup = CreateSecurityGroupResponse
@@ -146,11 +153,11 @@ instance Lude.AWSRequest CreateSecurityGroup where
     Res.receiveXML
       ( \s h x ->
           CreateSecurityGroupResponse'
-            Lude.<$> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
+            Lude.<$> (x Lude..@ "groupId")
+            Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
                          Lude.>>= Lude.may (Lude.parseXMLList "item")
                      )
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "groupId")
       )
 
 instance Lude.ToHeaders CreateSecurityGroup where
@@ -167,44 +174,47 @@ instance Lude.ToQuery CreateSecurityGroup where
         "VpcId" Lude.=: vpcId,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun,
+        "GroupName" Lude.=: groupName,
         "GroupDescription" Lude.=: description,
-        "GroupName" Lude.=: groupName
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateSecurityGroupResponse' smart constructor.
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
-  { tags ::
-      Lude.Maybe [Tag],
-    responseStatus :: Lude.Int,
-    groupId :: Lude.Text
+  { -- | The ID of the security group.
+    groupId :: Lude.Text,
+    -- | The tags assigned to the security group.
+    tags :: Lude.Maybe [Tag],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSecurityGroupResponse' with the minimum fields required to make a request.
 --
 -- * 'groupId' - The ID of the security group.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags assigned to the security group.
+-- * 'responseStatus' - The response status code.
 mkCreateSecurityGroupResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'groupId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateSecurityGroupResponse
-mkCreateSecurityGroupResponse pResponseStatus_ pGroupId_ =
+mkCreateSecurityGroupResponse pGroupId_ pResponseStatus_ =
   CreateSecurityGroupResponse'
-    { tags = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      groupId = pGroupId_
+    { groupId = pGroupId_,
+      tags = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | The ID of the security group.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgrsGroupId :: Lens.Lens' CreateSecurityGroupResponse Lude.Text
+csgrsGroupId = Lens.lens (groupId :: CreateSecurityGroupResponse -> Lude.Text) (\s a -> s {groupId = a} :: CreateSecurityGroupResponse)
+{-# DEPRECATED csgrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The tags assigned to the security group.
 --
@@ -219,10 +229,3 @@ csgrsTags = Lens.lens (tags :: CreateSecurityGroupResponse -> Lude.Maybe [Tag]) 
 csgrsResponseStatus :: Lens.Lens' CreateSecurityGroupResponse Lude.Int
 csgrsResponseStatus = Lens.lens (responseStatus :: CreateSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSecurityGroupResponse)
 {-# DEPRECATED csgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The ID of the security group.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgrsGroupId :: Lens.Lens' CreateSecurityGroupResponse Lude.Text
-csgrsGroupId = Lens.lens (groupId :: CreateSecurityGroupResponse -> Lude.Text) (\s a -> s {groupId = a} :: CreateSecurityGroupResponse)
-{-# DEPRECATED csgrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}

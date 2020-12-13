@@ -34,35 +34,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-  { binaryValue ::
-      Lude.Maybe Lude.Base64,
+  { -- | Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.
+    binaryValue :: Lude.Maybe Lude.Base64,
+    -- | Not implemented. Reserved for future use.
     stringListValues :: Lude.Maybe [Lude.Text],
+    -- | Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
     stringValue :: Lude.Maybe Lude.Text,
+    -- | Not implemented. Reserved for future use.
     binaryListValues :: Lude.Maybe [Lude.Base64],
+    -- | Amazon SQS supports the following logical data types: @String@ , @Number@ , and @Binary@ . For the @Number@ data type, you must use @StringValue@ .
+    --
+    -- You can also append custom labels. For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes> in the /Amazon Simple Queue Service Developer Guide/ .
     dataType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageAttributeValue' with the minimum fields required to make a request.
 --
+-- * 'binaryValue' - Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.
+-- * 'stringListValues' - Not implemented. Reserved for future use.
+-- * 'stringValue' - Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
 -- * 'binaryListValues' - Not implemented. Reserved for future use.
--- * 'binaryValue' - Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'dataType' - Amazon SQS supports the following logical data types: @String@ , @Number@ , and @Binary@ . For the @Number@ data type, you must use @StringValue@ .
 --
 -- You can also append custom labels. For more information, see <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes> in the /Amazon Simple Queue Service Developer Guide/ .
--- * 'stringListValues' - Not implemented. Reserved for future use.
--- * 'stringValue' - Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters> .
 mkMessageAttributeValue ::
   -- | 'dataType'
   Lude.Text ->

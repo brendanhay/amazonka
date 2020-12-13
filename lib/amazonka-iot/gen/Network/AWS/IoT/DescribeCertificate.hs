@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoT.DescribeCertificate
     mkDescribeCertificate,
 
     -- ** Request lenses
-    desCertificateId,
+    dcfCertificateId,
 
     -- * Destructuring the response
     DescribeCertificateResponse (..),
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeCertificate' smart constructor.
 newtype DescribeCertificate = DescribeCertificate'
-  { certificateId ::
-      Lude.Text
+  { -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
+    certificateId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificate' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDescribeCertificate pCertificateId_ =
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desCertificateId :: Lens.Lens' DescribeCertificate Lude.Text
-desCertificateId = Lens.lens (certificateId :: DescribeCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DescribeCertificate)
-{-# DEPRECATED desCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+dcfCertificateId :: Lens.Lens' DescribeCertificate Lude.Text
+dcfCertificateId = Lens.lens (certificateId :: DescribeCertificate -> Lude.Text) (\s a -> s {certificateId = a} :: DescribeCertificate)
+{-# DEPRECATED dcfCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 instance Lude.AWSRequest DescribeCertificate where
   type Rs DescribeCertificate = DescribeCertificateResponse
@@ -95,17 +90,12 @@ instance Lude.ToQuery DescribeCertificate where
 --
 -- /See:/ 'mkDescribeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
-  { certificateDescription ::
-      Lude.Maybe CertificateDescription,
+  { -- | The description of the certificate.
+    certificateDescription :: Lude.Maybe CertificateDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCertificateResponse' with the minimum fields required to make a request.

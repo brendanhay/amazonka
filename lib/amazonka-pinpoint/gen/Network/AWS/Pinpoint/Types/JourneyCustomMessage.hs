@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJourneyCustomMessage' smart constructor.
 newtype JourneyCustomMessage = JourneyCustomMessage'
-  { data' ::
-      Lude.Maybe Lude.Text
+  { -- | The message content that's passed to an AWS Lambda function or to a web hook.
+    data' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneyCustomMessage' with the minimum fields required to make a request.

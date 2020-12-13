@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.IoT.UpdateDimension
     mkUpdateDimension,
 
     -- ** Request lenses
-    udName,
     udStringValues,
+    udName,
 
     -- * Destructuring the response
     UpdateDimensionResponse (..),
@@ -45,37 +46,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDimension' smart constructor.
 data UpdateDimension = UpdateDimension'
-  { name :: Lude.Text,
-    stringValues :: Lude.NonEmpty Lude.Text
+  { -- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
+    stringValues :: Lude.NonEmpty Lude.Text,
+    -- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDimension' with the minimum fields required to make a request.
 --
--- * 'name' - A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
 -- * 'stringValues' - Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
+-- * 'name' - A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
 mkUpdateDimension ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'stringValues'
   Lude.NonEmpty Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   UpdateDimension
-mkUpdateDimension pName_ pStringValues_ =
-  UpdateDimension' {name = pName_, stringValues = pStringValues_}
-
--- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udName :: Lens.Lens' UpdateDimension Lude.Text
-udName = Lens.lens (name :: UpdateDimension -> Lude.Text) (\s a -> s {name = a} :: UpdateDimension)
-{-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkUpdateDimension pStringValues_ pName_ =
+  UpdateDimension' {stringValues = pStringValues_, name = pName_}
 
 -- | Specifies the value or list of values for the dimension. For @TOPIC_FILTER@ dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").
 --
@@ -83,6 +73,13 @@ udName = Lens.lens (name :: UpdateDimension -> Lude.Text) (\s a -> s {name = a} 
 udStringValues :: Lens.Lens' UpdateDimension (Lude.NonEmpty Lude.Text)
 udStringValues = Lens.lens (stringValues :: UpdateDimension -> Lude.NonEmpty Lude.Text) (\s a -> s {stringValues = a} :: UpdateDimension)
 {-# DEPRECATED udStringValues "Use generic-lens or generic-optics with 'stringValues' instead." #-}
+
+-- | A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udName :: Lens.Lens' UpdateDimension Lude.Text
+udName = Lens.lens (name :: UpdateDimension -> Lude.Text) (\s a -> s {name = a} :: UpdateDimension)
+{-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest UpdateDimension where
   type Rs UpdateDimension = UpdateDimensionResponse
@@ -117,34 +114,33 @@ instance Lude.ToQuery UpdateDimension where
 
 -- | /See:/ 'mkUpdateDimensionResponse' smart constructor.
 data UpdateDimensionResponse = UpdateDimensionResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time, in milliseconds since epoch, when the dimension was most recently updated.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN (Amazon resource name) of the created dimension.
     arn :: Lude.Maybe Lude.Text,
-    stringValues ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+    stringValues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | A unique identifier for the dimension.
     name :: Lude.Maybe Lude.Text,
+    -- | The date and time, in milliseconds since epoch, when the dimension was initially created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The type of the dimension.
     type' :: Lude.Maybe DimensionType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDimensionResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN (Amazon resource name) of the created dimension.
--- * 'creationDate' - The date and time, in milliseconds since epoch, when the dimension was initially created.
 -- * 'lastModifiedDate' - The date and time, in milliseconds since epoch, when the dimension was most recently updated.
--- * 'name' - A unique identifier for the dimension.
--- * 'responseStatus' - The response status code.
+-- * 'arn' - The ARN (Amazon resource name) of the created dimension.
 -- * 'stringValues' - The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.
+-- * 'name' - A unique identifier for the dimension.
+-- * 'creationDate' - The date and time, in milliseconds since epoch, when the dimension was initially created.
 -- * 'type'' - The type of the dimension.
+-- * 'responseStatus' - The response status code.
 mkUpdateDimensionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

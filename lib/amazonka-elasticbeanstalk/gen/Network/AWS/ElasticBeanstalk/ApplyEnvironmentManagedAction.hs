@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.ElasticBeanstalk.ApplyEnvironmentManagedAction
     mkApplyEnvironmentManagedAction,
 
     -- ** Request lenses
+    aemaActionId,
     aemaEnvironmentName,
     aemaEnvironmentId,
-    aemaActionId,
 
     -- * Destructuring the response
     ApplyEnvironmentManagedActionResponse (..),
@@ -46,36 +47,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkApplyEnvironmentManagedAction' smart constructor.
 data ApplyEnvironmentManagedAction = ApplyEnvironmentManagedAction'
-  { environmentName ::
-      Lude.Maybe Lude.Text,
-    environmentId ::
-      Lude.Maybe Lude.Text,
-    actionId :: Lude.Text
+  { -- | The action ID of the scheduled managed action to execute.
+    actionId :: Lude.Text,
+    -- | The name of the target environment.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The environment ID of the target environment.
+    environmentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplyEnvironmentManagedAction' with the minimum fields required to make a request.
 --
 -- * 'actionId' - The action ID of the scheduled managed action to execute.
--- * 'environmentId' - The environment ID of the target environment.
 -- * 'environmentName' - The name of the target environment.
+-- * 'environmentId' - The environment ID of the target environment.
 mkApplyEnvironmentManagedAction ::
   -- | 'actionId'
   Lude.Text ->
   ApplyEnvironmentManagedAction
 mkApplyEnvironmentManagedAction pActionId_ =
   ApplyEnvironmentManagedAction'
-    { environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing,
-      actionId = pActionId_
+    { actionId = pActionId_,
+      environmentName = Lude.Nothing,
+      environmentId = Lude.Nothing
     }
+
+-- | The action ID of the scheduled managed action to execute.
+--
+-- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aemaActionId :: Lens.Lens' ApplyEnvironmentManagedAction Lude.Text
+aemaActionId = Lens.lens (actionId :: ApplyEnvironmentManagedAction -> Lude.Text) (\s a -> s {actionId = a} :: ApplyEnvironmentManagedAction)
+{-# DEPRECATED aemaActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 -- | The name of the target environment.
 --
@@ -90,13 +93,6 @@ aemaEnvironmentName = Lens.lens (environmentName :: ApplyEnvironmentManagedActio
 aemaEnvironmentId :: Lens.Lens' ApplyEnvironmentManagedAction (Lude.Maybe Lude.Text)
 aemaEnvironmentId = Lens.lens (environmentId :: ApplyEnvironmentManagedAction -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: ApplyEnvironmentManagedAction)
 {-# DEPRECATED aemaEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
-
--- | The action ID of the scheduled managed action to execute.
---
--- /Note:/ Consider using 'actionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aemaActionId :: Lens.Lens' ApplyEnvironmentManagedAction Lude.Text
-aemaActionId = Lens.lens (actionId :: ApplyEnvironmentManagedAction -> Lude.Text) (\s a -> s {actionId = a} :: ApplyEnvironmentManagedAction)
-{-# DEPRECATED aemaActionId "Use generic-lens or generic-optics with 'actionId' instead." #-}
 
 instance Lude.AWSRequest ApplyEnvironmentManagedAction where
   type
@@ -127,46 +123,36 @@ instance Lude.ToQuery ApplyEnvironmentManagedAction where
       [ "Action"
           Lude.=: ("ApplyEnvironmentManagedAction" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
+        "ActionId" Lude.=: actionId,
         "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId,
-        "ActionId" Lude.=: actionId
+        "EnvironmentId" Lude.=: environmentId
       ]
 
 -- | The result message containing information about the managed action.
 --
 -- /See:/ 'mkApplyEnvironmentManagedActionResponse' smart constructor.
 data ApplyEnvironmentManagedActionResponse = ApplyEnvironmentManagedActionResponse'
-  { status ::
-      Lude.Maybe
-        Lude.Text,
-    actionId ::
-      Lude.Maybe
-        Lude.Text,
-    actionDescription ::
-      Lude.Maybe
-        Lude.Text,
-    actionType ::
-      Lude.Maybe
-        ActionType,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the managed action.
+    status :: Lude.Maybe Lude.Text,
+    -- | The action ID of the managed action.
+    actionId :: Lude.Maybe Lude.Text,
+    -- | A description of the managed action.
+    actionDescription :: Lude.Maybe Lude.Text,
+    -- | The type of managed action.
+    actionType :: Lude.Maybe ActionType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplyEnvironmentManagedActionResponse' with the minimum fields required to make a request.
 --
--- * 'actionDescription' - A description of the managed action.
+-- * 'status' - The status of the managed action.
 -- * 'actionId' - The action ID of the managed action.
+-- * 'actionDescription' - A description of the managed action.
 -- * 'actionType' - The type of managed action.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the managed action.
 mkApplyEnvironmentManagedActionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

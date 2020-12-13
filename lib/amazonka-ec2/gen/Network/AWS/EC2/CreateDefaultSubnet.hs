@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.CreateDefaultSubnet
     mkCreateDefaultSubnet,
 
     -- ** Request lenses
-    cdsDryRun,
     cdsAvailabilityZone,
+    cdsDryRun,
 
     -- * Destructuring the response
     CreateDefaultSubnetResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDefaultSubnet' smart constructor.
 data CreateDefaultSubnet = CreateDefaultSubnet'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    availabilityZone :: Lude.Text
+  { -- | The Availability Zone in which to create the default subnet.
+    availabilityZone :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDefaultSubnet' with the minimum fields required to make a request.
@@ -63,16 +59,9 @@ mkCreateDefaultSubnet ::
   CreateDefaultSubnet
 mkCreateDefaultSubnet pAvailabilityZone_ =
   CreateDefaultSubnet'
-    { dryRun = Lude.Nothing,
-      availabilityZone = pAvailabilityZone_
+    { availabilityZone = pAvailabilityZone_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsDryRun :: Lens.Lens' CreateDefaultSubnet (Lude.Maybe Lude.Bool)
-cdsDryRun = Lens.lens (dryRun :: CreateDefaultSubnet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateDefaultSubnet)
-{-# DEPRECATED cdsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The Availability Zone in which to create the default subnet.
 --
@@ -80,6 +69,13 @@ cdsDryRun = Lens.lens (dryRun :: CreateDefaultSubnet -> Lude.Maybe Lude.Bool) (\
 cdsAvailabilityZone :: Lens.Lens' CreateDefaultSubnet Lude.Text
 cdsAvailabilityZone = Lens.lens (availabilityZone :: CreateDefaultSubnet -> Lude.Text) (\s a -> s {availabilityZone = a} :: CreateDefaultSubnet)
 {-# DEPRECATED cdsAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDryRun :: Lens.Lens' CreateDefaultSubnet (Lude.Maybe Lude.Bool)
+cdsDryRun = Lens.lens (dryRun :: CreateDefaultSubnet -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateDefaultSubnet)
+{-# DEPRECATED cdsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateDefaultSubnet where
   type Rs CreateDefaultSubnet = CreateDefaultSubnetResponse
@@ -102,29 +98,24 @@ instance Lude.ToQuery CreateDefaultSubnet where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateDefaultSubnet" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "AvailabilityZone" Lude.=: availabilityZone
+        "AvailabilityZone" Lude.=: availabilityZone,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateDefaultSubnetResponse' smart constructor.
 data CreateDefaultSubnetResponse = CreateDefaultSubnetResponse'
-  { subnet ::
-      Lude.Maybe Subnet,
+  { -- | Information about the subnet.
+    subnet :: Lude.Maybe Subnet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDefaultSubnetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'subnet' - Information about the subnet.
+-- * 'responseStatus' - The response status code.
 mkCreateDefaultSubnetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

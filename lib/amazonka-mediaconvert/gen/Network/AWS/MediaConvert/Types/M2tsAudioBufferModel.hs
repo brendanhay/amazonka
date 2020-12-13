@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.M2tsAudioBufferModel
   ( M2tsAudioBufferModel
       ( M2tsAudioBufferModel',
-        Atsc,
-        Dvb
+        Dvb,
+        Atsc
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M2tsAudioBufferModel = M2tsAudioBufferModel' Lude.Text
       Lude.ToHeader
     )
 
-pattern Atsc :: M2tsAudioBufferModel
-pattern Atsc = M2tsAudioBufferModel' "ATSC"
-
 pattern Dvb :: M2tsAudioBufferModel
 pattern Dvb = M2tsAudioBufferModel' "DVB"
 
+pattern Atsc :: M2tsAudioBufferModel
+pattern Atsc = M2tsAudioBufferModel' "ATSC"
+
 {-# COMPLETE
-  Atsc,
   Dvb,
+  Atsc,
   M2tsAudioBufferModel'
   #-}

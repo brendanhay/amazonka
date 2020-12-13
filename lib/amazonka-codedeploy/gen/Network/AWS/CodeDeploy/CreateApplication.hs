@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CodeDeploy.CreateApplication
 
     -- ** Request lenses
     caComputePlatform,
-    caTags,
     caApplicationName,
+    caTags,
 
     -- * Destructuring the response
     CreateApplicationResponse (..),
@@ -43,24 +44,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { computePlatform ::
-      Lude.Maybe ComputePlatform,
-    tags :: Lude.Maybe [Tag],
-    applicationName :: Lude.Text
+  { -- | The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
+    computePlatform :: Lude.Maybe ComputePlatform,
+    -- | The name of the application. This name must be unique with the applicable IAM user or AWS account.
+    applicationName :: Lude.Text,
+    -- | The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application. This name must be unique with the applicable IAM user or AWS account.
 -- * 'computePlatform' - The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
+-- * 'applicationName' - The name of the application. This name must be unique with the applicable IAM user or AWS account.
 -- * 'tags' - The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
 mkCreateApplication ::
   -- | 'applicationName'
@@ -69,8 +66,8 @@ mkCreateApplication ::
 mkCreateApplication pApplicationName_ =
   CreateApplication'
     { computePlatform = Lude.Nothing,
-      tags = Lude.Nothing,
-      applicationName = pApplicationName_
+      applicationName = pApplicationName_,
+      tags = Lude.Nothing
     }
 
 -- | The destination platform type for the deployment (@Lambda@ , @Server@ , or @ECS@ ).
@@ -80,19 +77,19 @@ caComputePlatform :: Lens.Lens' CreateApplication (Lude.Maybe ComputePlatform)
 caComputePlatform = Lens.lens (computePlatform :: CreateApplication -> Lude.Maybe ComputePlatform) (\s a -> s {computePlatform = a} :: CreateApplication)
 {-# DEPRECATED caComputePlatform "Use generic-lens or generic-optics with 'computePlatform' instead." #-}
 
--- | The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTags :: Lens.Lens' CreateApplication (Lude.Maybe [Tag])
-caTags = Lens.lens (tags :: CreateApplication -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApplication)
-{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the application. This name must be unique with the applicable IAM user or AWS account.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 caApplicationName :: Lens.Lens' CreateApplication Lude.Text
 caApplicationName = Lens.lens (applicationName :: CreateApplication -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplication)
 {-# DEPRECATED caApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
+-- | The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateApplication (Lude.Maybe [Tag])
+caTags = Lens.lens (tags :: CreateApplication -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApplication)
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateApplication where
   type Rs CreateApplication = CreateApplicationResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON CreateApplication where
     Lude.object
       ( Lude.catMaybes
           [ ("computePlatform" Lude..=) Lude.<$> computePlatform,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("applicationName" Lude..= applicationName)
+            Lude.Just ("applicationName" Lude..= applicationName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -136,17 +133,12 @@ instance Lude.ToQuery CreateApplication where
 --
 -- /See:/ 'mkCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { applicationId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique application ID.
+    applicationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.

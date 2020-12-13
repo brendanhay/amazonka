@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +25,10 @@ module Network.AWS.RDS.DescribeDBClusterBacktracks
 
     -- ** Request lenses
     ddcbBacktrackIdentifier,
+    ddcbDBClusterIdentifier,
     ddcbFilters,
     ddcbMarker,
     ddcbMaxRecords,
-    ddcbDBClusterIdentifier,
 
     -- * Destructuring the response
     DescribeDBClusterBacktracksResponse (..),
@@ -51,20 +52,61 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBClusterBacktracks' smart constructor.
 data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
-  { backtrackIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | If specified, this value is the backtrack identifier of the backtrack to be described.
+    --
+    -- Constraints:
+    --
+    --     * Must contain a valid universally unique identifier (UUID). For more information about UUIDs, see <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace> .
+    --
+    --
+    -- Example: @123e4567-e89b-12d3-a456-426655440000@
+    backtrackIdentifier :: Lude.Maybe Lude.Text,
+    -- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Can't end with a hyphen or contain two consecutive hyphens.
+    --
+    --
+    -- Example: @my-cluster1@
+    dbClusterIdentifier :: Lude.Text,
+    -- | A filter that specifies one or more DB clusters to describe. Supported filters include the following:
+    --
+    --
+    --     * @db-cluster-backtrack-id@ - Accepts backtrack identifiers. The results list includes information about only the backtracks identified by these identifiers.
+    --
+    --
+    --     * @db-cluster-backtrack-status@ - Accepts any of the following backtrack status values:
+    --
+    --     * @applying@
+    --
+    --
+    --     * @completed@
+    --
+    --
+    --     * @failed@
+    --
+    --
+    --     * @pending@
+    --
+    --
+    -- The results list includes information about only the backtracks identified by these values.
     filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous @DescribeDBClusterBacktracks@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
-    maxRecords :: Lude.Maybe Lude.Int,
-    dbClusterIdentifier :: Lude.Text
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterBacktracks' with the minimum fields required to make a request.
@@ -126,10 +168,10 @@ mkDescribeDBClusterBacktracks ::
 mkDescribeDBClusterBacktracks pDBClusterIdentifier_ =
   DescribeDBClusterBacktracks'
     { backtrackIdentifier = Lude.Nothing,
+      dbClusterIdentifier = pDBClusterIdentifier_,
       filters = Lude.Nothing,
       marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      dbClusterIdentifier = pDBClusterIdentifier_
+      maxRecords = Lude.Nothing
     }
 
 -- | If specified, this value is the backtrack identifier of the backtrack to be described.
@@ -145,6 +187,26 @@ mkDescribeDBClusterBacktracks pDBClusterIdentifier_ =
 ddcbBacktrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Lude.Maybe Lude.Text)
 ddcbBacktrackIdentifier = Lens.lens (backtrackIdentifier :: DescribeDBClusterBacktracks -> Lude.Maybe Lude.Text) (\s a -> s {backtrackIdentifier = a} :: DescribeDBClusterBacktracks)
 {-# DEPRECATED ddcbBacktrackIdentifier "Use generic-lens or generic-optics with 'backtrackIdentifier' instead." #-}
+
+-- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Can't end with a hyphen or contain two consecutive hyphens.
+--
+--
+-- Example: @my-cluster1@
+--
+-- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddcbDBClusterIdentifier :: Lens.Lens' DescribeDBClusterBacktracks Lude.Text
+ddcbDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusterBacktracks -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DescribeDBClusterBacktracks)
+{-# DEPRECATED ddcbDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | A filter that specifies one or more DB clusters to describe. Supported filters include the following:
 --
@@ -192,26 +254,6 @@ ddcbMaxRecords :: Lens.Lens' DescribeDBClusterBacktracks (Lude.Maybe Lude.Int)
 ddcbMaxRecords = Lens.lens (maxRecords :: DescribeDBClusterBacktracks -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBClusterBacktracks)
 {-# DEPRECATED ddcbMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | The DB cluster identifier of the DB cluster to be described. This parameter is stored as a lowercase string.
---
--- Constraints:
---
---     * Must contain from 1 to 63 alphanumeric characters or hyphens.
---
---
---     * First character must be a letter.
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens.
---
---
--- Example: @my-cluster1@
---
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcbDBClusterIdentifier :: Lens.Lens' DescribeDBClusterBacktracks Lude.Text
-ddcbDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusterBacktracks -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DescribeDBClusterBacktracks)
-{-# DEPRECATED ddcbDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
-
 instance Page.AWSPager DescribeDBClusterBacktracks where
   page rq rs
     | Page.stop (rs Lens.^. ddcbrsMarker) = Lude.Nothing
@@ -251,39 +293,31 @@ instance Lude.ToQuery DescribeDBClusterBacktracks where
           Lude.=: ("DescribeDBClusterBacktracks" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "BacktrackIdentifier" Lude.=: backtrackIdentifier,
+        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
         "Filters"
           Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
         "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the @DescribeDBClusterBacktracks@ action.
 --
 -- /See:/ 'mkDescribeDBClusterBacktracksResponse' smart constructor.
 data DescribeDBClusterBacktracksResponse = DescribeDBClusterBacktracksResponse'
-  { marker ::
-      Lude.Maybe
-        Lude.Text,
-    dbClusterBacktracks ::
-      Lude.Maybe
-        [DBClusterBacktrack],
-    responseStatus ::
-      Lude.Int
+  { -- | A pagination token that can be used in a later @DescribeDBClusterBacktracks@ request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Contains a list of backtracks for the user.
+    dbClusterBacktracks :: Lude.Maybe [DBClusterBacktrack],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterBacktracksResponse' with the minimum fields required to make a request.
 --
--- * 'dbClusterBacktracks' - Contains a list of backtracks for the user.
 -- * 'marker' - A pagination token that can be used in a later @DescribeDBClusterBacktracks@ request.
+-- * 'dbClusterBacktracks' - Contains a list of backtracks for the user.
 -- * 'responseStatus' - The response status code.
 mkDescribeDBClusterBacktracksResponse ::
   -- | 'responseStatus'

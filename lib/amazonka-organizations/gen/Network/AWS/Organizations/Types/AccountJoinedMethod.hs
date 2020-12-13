@@ -13,8 +13,8 @@
 module Network.AWS.Organizations.Types.AccountJoinedMethod
   ( AccountJoinedMethod
       ( AccountJoinedMethod',
-        Created,
-        Invited
+        Invited,
+        Created
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AccountJoinedMethod = AccountJoinedMethod' Lude.Text
       Lude.ToHeader
     )
 
-pattern Created :: AccountJoinedMethod
-pattern Created = AccountJoinedMethod' "CREATED"
-
 pattern Invited :: AccountJoinedMethod
 pattern Invited = AccountJoinedMethod' "INVITED"
 
+pattern Created :: AccountJoinedMethod
+pattern Created = AccountJoinedMethod' "CREATED"
+
 {-# COMPLETE
-  Created,
   Invited,
+  Created,
   AccountJoinedMethod'
   #-}

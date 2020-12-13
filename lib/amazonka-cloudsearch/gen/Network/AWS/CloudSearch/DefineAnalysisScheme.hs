@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     mkDefineAnalysisScheme,
 
     -- ** Request lenses
-    dasaDomainName,
-    dasaAnalysisScheme,
+    dasfAnalysisScheme,
+    dasfDomainName,
 
     -- * Destructuring the response
     DefineAnalysisSchemeResponse (..),
     mkDefineAnalysisSchemeResponse,
 
     -- ** Response lenses
-    defersResponseStatus,
-    defersAnalysisScheme,
+    dasgrsAnalysisScheme,
+    dasgrsResponseStatus,
   )
 where
 
@@ -42,48 +43,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDefineAnalysisScheme' smart constructor.
 data DefineAnalysisScheme = DefineAnalysisScheme'
-  { domainName ::
-      Lude.Text,
-    analysisScheme :: AnalysisScheme
+  { analysisScheme :: AnalysisScheme,
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefineAnalysisScheme' with the minimum fields required to make a request.
 --
--- * 'analysisScheme' - Undocumented field.
--- * 'domainName' - Undocumented field.
+-- * 'analysisScheme' -
+-- * 'domainName' -
 mkDefineAnalysisScheme ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'analysisScheme'
   AnalysisScheme ->
+  -- | 'domainName'
+  Lude.Text ->
   DefineAnalysisScheme
-mkDefineAnalysisScheme pDomainName_ pAnalysisScheme_ =
+mkDefineAnalysisScheme pAnalysisScheme_ pDomainName_ =
   DefineAnalysisScheme'
-    { domainName = pDomainName_,
-      analysisScheme = pAnalysisScheme_
+    { analysisScheme = pAnalysisScheme_,
+      domainName = pDomainName_
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasaDomainName :: Lens.Lens' DefineAnalysisScheme Lude.Text
-dasaDomainName = Lens.lens (domainName :: DefineAnalysisScheme -> Lude.Text) (\s a -> s {domainName = a} :: DefineAnalysisScheme)
-{-# DEPRECATED dasaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+-- /Note:/ Consider using 'analysisScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasfAnalysisScheme :: Lens.Lens' DefineAnalysisScheme AnalysisScheme
+dasfAnalysisScheme = Lens.lens (analysisScheme :: DefineAnalysisScheme -> AnalysisScheme) (\s a -> s {analysisScheme = a} :: DefineAnalysisScheme)
+{-# DEPRECATED dasfAnalysisScheme "Use generic-lens or generic-optics with 'analysisScheme' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'analysisScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasaAnalysisScheme :: Lens.Lens' DefineAnalysisScheme AnalysisScheme
-dasaAnalysisScheme = Lens.lens (analysisScheme :: DefineAnalysisScheme -> AnalysisScheme) (\s a -> s {analysisScheme = a} :: DefineAnalysisScheme)
-{-# DEPRECATED dasaAnalysisScheme "Use generic-lens or generic-optics with 'analysisScheme' instead." #-}
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasfDomainName :: Lens.Lens' DefineAnalysisScheme Lude.Text
+dasfDomainName = Lens.lens (domainName :: DefineAnalysisScheme -> Lude.Text) (\s a -> s {domainName = a} :: DefineAnalysisScheme)
+{-# DEPRECATED dasfDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest DefineAnalysisScheme where
   type Rs DefineAnalysisScheme = DefineAnalysisSchemeResponse
@@ -93,8 +87,8 @@ instance Lude.AWSRequest DefineAnalysisScheme where
       "DefineAnalysisSchemeResult"
       ( \s h x ->
           DefineAnalysisSchemeResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "AnalysisScheme")
+            Lude.<$> (x Lude..@ "AnalysisScheme")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DefineAnalysisScheme where
@@ -108,54 +102,47 @@ instance Lude.ToQuery DefineAnalysisScheme where
     Lude.mconcat
       [ "Action" Lude.=: ("DefineAnalysisScheme" :: Lude.ByteString),
         "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName,
-        "AnalysisScheme" Lude.=: analysisScheme
+        "AnalysisScheme" Lude.=: analysisScheme,
+        "DomainName" Lude.=: domainName
       ]
 
 -- | The result of a @'DefineAnalysisScheme' @ request. Contains the status of the newly-configured analysis scheme.
 --
 -- /See:/ 'mkDefineAnalysisSchemeResponse' smart constructor.
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-  { responseStatus ::
-      Lude.Int,
-    analysisScheme ::
-      AnalysisSchemeStatus
+  { analysisScheme :: AnalysisSchemeStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefineAnalysisSchemeResponse' with the minimum fields required to make a request.
 --
--- * 'analysisScheme' - Undocumented field.
+-- * 'analysisScheme' -
 -- * 'responseStatus' - The response status code.
 mkDefineAnalysisSchemeResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'analysisScheme'
   AnalysisSchemeStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DefineAnalysisSchemeResponse
-mkDefineAnalysisSchemeResponse pResponseStatus_ pAnalysisScheme_ =
+mkDefineAnalysisSchemeResponse pAnalysisScheme_ pResponseStatus_ =
   DefineAnalysisSchemeResponse'
-    { responseStatus = pResponseStatus_,
-      analysisScheme = pAnalysisScheme_
+    { analysisScheme = pAnalysisScheme_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defersResponseStatus :: Lens.Lens' DefineAnalysisSchemeResponse Lude.Int
-defersResponseStatus = Lens.lens (responseStatus :: DefineAnalysisSchemeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineAnalysisSchemeResponse)
-{-# DEPRECATED defersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'analysisScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defersAnalysisScheme :: Lens.Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-defersAnalysisScheme = Lens.lens (analysisScheme :: DefineAnalysisSchemeResponse -> AnalysisSchemeStatus) (\s a -> s {analysisScheme = a} :: DefineAnalysisSchemeResponse)
-{-# DEPRECATED defersAnalysisScheme "Use generic-lens or generic-optics with 'analysisScheme' instead." #-}
+dasgrsAnalysisScheme :: Lens.Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+dasgrsAnalysisScheme = Lens.lens (analysisScheme :: DefineAnalysisSchemeResponse -> AnalysisSchemeStatus) (\s a -> s {analysisScheme = a} :: DefineAnalysisSchemeResponse)
+{-# DEPRECATED dasgrsAnalysisScheme "Use generic-lens or generic-optics with 'analysisScheme' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasgrsResponseStatus :: Lens.Lens' DefineAnalysisSchemeResponse Lude.Int
+dasgrsResponseStatus = Lens.lens (responseStatus :: DefineAnalysisSchemeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineAnalysisSchemeResponse)
+{-# DEPRECATED dasgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

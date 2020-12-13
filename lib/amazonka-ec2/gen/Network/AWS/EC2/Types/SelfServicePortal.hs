@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.SelfServicePortal
   ( SelfServicePortal
       ( SelfServicePortal',
-        SSPDisabled,
-        SSPEnabled
+        SSPEnabled,
+        SSPDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SelfServicePortal = SelfServicePortal' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSPDisabled :: SelfServicePortal
-pattern SSPDisabled = SelfServicePortal' "disabled"
-
 pattern SSPEnabled :: SelfServicePortal
 pattern SSPEnabled = SelfServicePortal' "enabled"
 
+pattern SSPDisabled :: SelfServicePortal
+pattern SSPDisabled = SelfServicePortal' "disabled"
+
 {-# COMPLETE
-  SSPDisabled,
   SSPEnabled,
+  SSPDisabled,
   SelfServicePortal'
   #-}

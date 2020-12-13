@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Glue.UpdateDatabase
     mkUpdateDatabase,
 
     -- ** Request lenses
+    udDatabaseInput,
     udCatalogId,
     udName,
-    udDatabaseInput,
 
     -- * Destructuring the response
     UpdateDatabaseResponse (..),
@@ -40,37 +41,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateDatabase' smart constructor.
 data UpdateDatabase = UpdateDatabase'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text,
-    databaseInput :: DatabaseInput
+  { -- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
+    databaseInput :: DatabaseInput,
+    -- | The ID of the Data Catalog in which the metadata database resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDatabase' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog in which the metadata database resides. If none is provided, the AWS account ID is used by default.
 -- * 'databaseInput' - A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
+-- * 'catalogId' - The ID of the Data Catalog in which the metadata database resides. If none is provided, the AWS account ID is used by default.
 -- * 'name' - The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
 mkUpdateDatabase ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'databaseInput'
   DatabaseInput ->
+  -- | 'name'
+  Lude.Text ->
   UpdateDatabase
-mkUpdateDatabase pName_ pDatabaseInput_ =
+mkUpdateDatabase pDatabaseInput_ pName_ =
   UpdateDatabase'
-    { catalogId = Lude.Nothing,
-      name = pName_,
-      databaseInput = pDatabaseInput_
+    { databaseInput = pDatabaseInput_,
+      catalogId = Lude.Nothing,
+      name = pName_
     }
+
+-- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
+--
+-- /Note:/ Consider using 'databaseInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDatabaseInput :: Lens.Lens' UpdateDatabase DatabaseInput
+udDatabaseInput = Lens.lens (databaseInput :: UpdateDatabase -> DatabaseInput) (\s a -> s {databaseInput = a} :: UpdateDatabase)
+{-# DEPRECATED udDatabaseInput "Use generic-lens or generic-optics with 'databaseInput' instead." #-}
 
 -- | The ID of the Data Catalog in which the metadata database resides. If none is provided, the AWS account ID is used by default.
 --
@@ -85,13 +89,6 @@ udCatalogId = Lens.lens (catalogId :: UpdateDatabase -> Lude.Maybe Lude.Text) (\
 udName :: Lens.Lens' UpdateDatabase Lude.Text
 udName = Lens.lens (name :: UpdateDatabase -> Lude.Text) (\s a -> s {name = a} :: UpdateDatabase)
 {-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
---
--- /Note:/ Consider using 'databaseInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDatabaseInput :: Lens.Lens' UpdateDatabase DatabaseInput
-udDatabaseInput = Lens.lens (databaseInput :: UpdateDatabase -> DatabaseInput) (\s a -> s {databaseInput = a} :: UpdateDatabase)
-{-# DEPRECATED udDatabaseInput "Use generic-lens or generic-optics with 'databaseInput' instead." #-}
 
 instance Lude.AWSRequest UpdateDatabase where
   type Rs UpdateDatabase = UpdateDatabaseResponse
@@ -117,9 +114,9 @@ instance Lude.ToJSON UpdateDatabase where
   toJSON UpdateDatabase' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("DatabaseInput" Lude..= databaseInput)
+          [ Lude.Just ("DatabaseInput" Lude..= databaseInput),
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -131,16 +128,10 @@ instance Lude.ToQuery UpdateDatabase where
 
 -- | /See:/ 'mkUpdateDatabaseResponse' smart constructor.
 newtype UpdateDatabaseResponse = UpdateDatabaseResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDatabaseResponse' with the minimum fields required to make a request.

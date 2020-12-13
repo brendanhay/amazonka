@@ -37,46 +37,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrderableReplicationInstance' smart constructor.
 data OrderableReplicationInstance = OrderableReplicationInstance'
-  { engineVersion ::
-      Lude.Maybe Lude.Text,
-    minAllocatedStorage ::
-      Lude.Maybe Lude.Int,
-    releaseStatus ::
-      Lude.Maybe ReleaseStatusValues,
-    includedAllocatedStorage ::
-      Lude.Maybe Lude.Int,
-    availabilityZones ::
-      Lude.Maybe [Lude.Text],
-    maxAllocatedStorage ::
-      Lude.Maybe Lude.Int,
-    replicationInstanceClass ::
-      Lude.Maybe Lude.Text,
-    defaultAllocatedStorage ::
-      Lude.Maybe Lude.Int,
-    storageType ::
-      Lude.Maybe Lude.Text
+  { -- | The version of the replication engine.
+    engineVersion :: Lude.Maybe Lude.Text,
+    -- | The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
+    minAllocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The value returned when the specified @EngineVersion@ of the replication instance is in Beta or test mode. This indicates some features might not work as expected.
+    releaseStatus :: Lude.Maybe ReleaseStatusValues,
+    -- | The amount of storage (in gigabytes) that is allocated for the replication instance.
+    includedAllocatedStorage :: Lude.Maybe Lude.Int,
+    -- | List of Availability Zones for this replication instance.
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
+    maxAllocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ .
+    --
+    -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+    replicationInstanceClass :: Lude.Maybe Lude.Text,
+    -- | The default amount of storage (in gigabytes) that is allocated for the replication instance.
+    defaultAllocatedStorage :: Lude.Maybe Lude.Int,
+    -- | The type of storage used by the replication instance.
+    storageType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrderableReplicationInstance' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - List of Availability Zones for this replication instance.
--- * 'defaultAllocatedStorage' - The default amount of storage (in gigabytes) that is allocated for the replication instance.
 -- * 'engineVersion' - The version of the replication engine.
--- * 'includedAllocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
--- * 'maxAllocatedStorage' - The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
 -- * 'minAllocatedStorage' - The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
 -- * 'releaseStatus' - The value returned when the specified @EngineVersion@ of the replication instance is in Beta or test mode. This indicates some features might not work as expected.
+-- * 'includedAllocatedStorage' - The amount of storage (in gigabytes) that is allocated for the replication instance.
+-- * 'availabilityZones' - List of Availability Zones for this replication instance.
+-- * 'maxAllocatedStorage' - The minimum amount of storage (in gigabytes) that can be allocated for the replication instance.
 -- * 'replicationInstanceClass' - The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to @"dms.c4.large"@ .
 --
 -- For more information on the settings and capacities for the available replication instance classes, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration> .
+-- * 'defaultAllocatedStorage' - The default amount of storage (in gigabytes) that is allocated for the replication instance.
 -- * 'storageType' - The type of storage used by the replication instance.
 mkOrderableReplicationInstance ::
   OrderableReplicationInstance

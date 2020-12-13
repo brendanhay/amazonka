@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.
 --
 -- /See:/ 'mkClip' smart constructor.
-newtype Clip = Clip' {timeSpan :: Lude.Maybe TimeSpan}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Clip = Clip'
+  { -- | Settings that determine when a clip begins and how long it lasts.
+    timeSpan :: Lude.Maybe TimeSpan
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Clip' with the minimum fields required to make a request.

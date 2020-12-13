@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Greengrass.ListLoggerDefinitionVersions
     mkListLoggerDefinitionVersions,
 
     -- ** Request lenses
+    lldvLoggerDefinitionId,
     lldvNextToken,
     lldvMaxResults,
-    lldvLoggerDefinitionId,
 
     -- * Destructuring the response
     ListLoggerDefinitionVersionsResponse (..),
@@ -45,36 +46,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListLoggerDefinitionVersions' smart constructor.
 data ListLoggerDefinitionVersions = ListLoggerDefinitionVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Text,
-    loggerDefinitionId :: Lude.Text
+  { -- | The ID of the logger definition.
+    loggerDefinitionId :: Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLoggerDefinitionVersions' with the minimum fields required to make a request.
 --
 -- * 'loggerDefinitionId' - The ID of the logger definition.
--- * 'maxResults' - The maximum number of results to be returned per request.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListLoggerDefinitionVersions ::
   -- | 'loggerDefinitionId'
   Lude.Text ->
   ListLoggerDefinitionVersions
 mkListLoggerDefinitionVersions pLoggerDefinitionId_ =
   ListLoggerDefinitionVersions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      loggerDefinitionId = pLoggerDefinitionId_
+    { loggerDefinitionId =
+        pLoggerDefinitionId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the logger definition.
+--
+-- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lldvLoggerDefinitionId :: Lens.Lens' ListLoggerDefinitionVersions Lude.Text
+lldvLoggerDefinitionId = Lens.lens (loggerDefinitionId :: ListLoggerDefinitionVersions -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: ListLoggerDefinitionVersions)
+{-# DEPRECATED lldvLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -89,13 +93,6 @@ lldvNextToken = Lens.lens (nextToken :: ListLoggerDefinitionVersions -> Lude.May
 lldvMaxResults :: Lens.Lens' ListLoggerDefinitionVersions (Lude.Maybe Lude.Text)
 lldvMaxResults = Lens.lens (maxResults :: ListLoggerDefinitionVersions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListLoggerDefinitionVersions)
 {-# DEPRECATED lldvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the logger definition.
---
--- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lldvLoggerDefinitionId :: Lens.Lens' ListLoggerDefinitionVersions Lude.Text
-lldvLoggerDefinitionId = Lens.lens (loggerDefinitionId :: ListLoggerDefinitionVersions -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: ListLoggerDefinitionVersions)
-{-# DEPRECATED lldvLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
 instance Page.AWSPager ListLoggerDefinitionVersions where
   page rq rs
@@ -144,29 +141,21 @@ instance Lude.ToQuery ListLoggerDefinitionVersions where
 
 -- | /See:/ 'mkListLoggerDefinitionVersionsResponse' smart constructor.
 data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse'
-  { versions ::
-      Lude.Maybe
-        [VersionInformation],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about a version.
+    versions :: Lude.Maybe [VersionInformation],
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLoggerDefinitionVersionsResponse' with the minimum fields required to make a request.
 --
+-- * 'versions' - Information about a version.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
 -- * 'responseStatus' - The response status code.
--- * 'versions' - Information about a version.
 mkListLoggerDefinitionVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

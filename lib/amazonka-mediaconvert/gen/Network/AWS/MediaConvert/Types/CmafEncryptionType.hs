@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.CmafEncryptionType
   ( CmafEncryptionType
       ( CmafEncryptionType',
-        AESCtr,
-        SampleAES
+        SampleAES,
+        AESCtr
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype CmafEncryptionType = CmafEncryptionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AESCtr :: CmafEncryptionType
-pattern AESCtr = CmafEncryptionType' "AES_CTR"
-
 pattern SampleAES :: CmafEncryptionType
 pattern SampleAES = CmafEncryptionType' "SAMPLE_AES"
 
+pattern AESCtr :: CmafEncryptionType
+pattern AESCtr = CmafEncryptionType' "AES_CTR"
+
 {-# COMPLETE
-  AESCtr,
   SampleAES,
+  AESCtr,
   CmafEncryptionType'
   #-}

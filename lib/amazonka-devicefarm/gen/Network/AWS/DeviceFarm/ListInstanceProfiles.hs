@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListInstanceProfiles' smart constructor.
 data ListInstanceProfiles = ListInstanceProfiles'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An integer that specifies the maximum number of items you want to return in the API response.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceProfiles' with the minimum fields required to make a request.
 --
--- * 'maxResults' - An integer that specifies the maximum number of items you want to return in the API response.
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'maxResults' - An integer that specifies the maximum number of items you want to return in the API response.
 mkListInstanceProfiles ::
   ListInstanceProfiles
 mkListInstanceProfiles =
@@ -132,25 +128,20 @@ instance Lude.ToQuery ListInstanceProfiles where
 
 -- | /See:/ 'mkListInstanceProfilesResponse' smart constructor.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    instanceProfiles ::
-      Lude.Maybe [InstanceProfile],
+  { -- | An identifier that can be used in the next call to this operation to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An object that contains information about your instance profiles.
+    instanceProfiles :: Lude.Maybe [InstanceProfile],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInstanceProfilesResponse' with the minimum fields required to make a request.
 --
--- * 'instanceProfiles' - An object that contains information about your instance profiles.
 -- * 'nextToken' - An identifier that can be used in the next call to this operation to return the next set of items in the list.
+-- * 'instanceProfiles' - An object that contains information about your instance profiles.
 -- * 'responseStatus' - The response status code.
 mkListInstanceProfilesResponse ::
   -- | 'responseStatus'

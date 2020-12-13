@@ -32,18 +32,14 @@ import Network.AWS.Rekognition.Types.ValidationData
 --
 -- /See:/ 'mkTrainingDataResult' smart constructor.
 data TrainingDataResult = TrainingDataResult'
-  { input ::
-      Lude.Maybe TrainingData,
+  { -- | The training assets that you supplied for training.
+    input :: Lude.Maybe TrainingData,
+    -- | The images (assets) that were actually trained by Amazon Rekognition Custom Labels.
     output :: Lude.Maybe TrainingData,
+    -- | The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.
     validation :: Lude.Maybe ValidationData
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrainingDataResult' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.APIGateway.Types.EndpointType
   ( EndpointType
       ( EndpointType',
+        Regional,
         Edge,
-        Private,
-        Regional
+        Private
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype EndpointType = EndpointType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Regional :: EndpointType
+pattern Regional = EndpointType' "REGIONAL"
+
 pattern Edge :: EndpointType
 pattern Edge = EndpointType' "EDGE"
 
 pattern Private :: EndpointType
 pattern Private = EndpointType' "PRIVATE"
 
-pattern Regional :: EndpointType
-pattern Regional = EndpointType' "REGIONAL"
-
 {-# COMPLETE
+  Regional,
   Edge,
   Private,
-  Regional,
   EndpointType'
   #-}

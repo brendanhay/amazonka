@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -77,26 +78,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
-  { inboundPermissionRevocations ::
-      Lude.Maybe [IPPermission],
-    inboundPermissionAuthorizations ::
-      Lude.Maybe [IPPermission],
+  { -- | A collection of port settings to be removed from the fleet resource.
+    inboundPermissionRevocations :: Lude.Maybe [IPPermission],
+    -- | A collection of port settings to be added to the fleet resource.
+    inboundPermissionAuthorizations :: Lude.Maybe [IPPermission],
+    -- | A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
     fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFleetPortSettings' with the minimum fields required to make a request.
 --
--- * 'fleetId' - A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
--- * 'inboundPermissionAuthorizations' - A collection of port settings to be added to the fleet resource.
 -- * 'inboundPermissionRevocations' - A collection of port settings to be removed from the fleet resource.
+-- * 'inboundPermissionAuthorizations' - A collection of port settings to be added to the fleet resource.
+-- * 'fleetId' - A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
 mkUpdateFleetPortSettings ::
   -- | 'fleetId'
   Lude.Text ->
@@ -173,17 +169,12 @@ instance Lude.ToQuery UpdateFleetPortSettings where
 --
 -- /See:/ 'mkUpdateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
-  { fleetId ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for a fleet that was updated.
+    fleetId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateFleetPortSettingsResponse' with the minimum fields required to make a request.

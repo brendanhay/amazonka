@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMsSmoothEncryptionSettings' smart constructor.
 newtype MsSmoothEncryptionSettings = MsSmoothEncryptionSettings'
-  { spekeKeyProvider ::
-      Lude.Maybe SpekeKeyProvider
+  { -- | If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+    spekeKeyProvider :: Lude.Maybe SpekeKeyProvider
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MsSmoothEncryptionSettings' with the minimum fields required to make a request.

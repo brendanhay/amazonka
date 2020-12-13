@@ -34,31 +34,40 @@ import Network.AWS.XRay.Types.InsightImpactGraphEdge
 --
 -- /See:/ 'mkInsightImpactGraphService' smart constructor.
 data InsightImpactGraphService = InsightImpactGraphService'
-  { referenceId ::
-      Lude.Maybe Lude.Int,
+  { -- | Identifier for the service. Unique within the service map.
+    referenceId :: Lude.Maybe Lude.Int,
+    -- | Identifier of the AWS account in which the service runs.
     accountId :: Lude.Maybe Lude.Text,
+    -- | A list of names for the service, including the canonical name.
     names :: Lude.Maybe [Lude.Text],
+    -- | The canonical name of the service.
     name :: Lude.Maybe Lude.Text,
+    -- | Identifier for the service. Unique within the service map.
+    --
+    --
+    --     * AWS Resource - The type of an AWS resource. For example, AWS::EC2::Instance for an application running on Amazon EC2 or AWS::DynamoDB::Table for an Amazon DynamoDB table that the application used.
+    --
+    --
+    --     * AWS Service - The type of an AWS service. For example, AWS::DynamoDB for downstream calls to Amazon DynamoDB that didn't target a specific table.
+    --
+    --
+    --     * AWS Service - The type of an AWS service. For example, AWS::DynamoDB for downstream calls to Amazon DynamoDB that didn't target a specific table.
+    --
+    --
+    --     * remote - A downstream service of indeterminate type.
     type' :: Lude.Maybe Lude.Text,
-    edges ::
-      Lude.Maybe [InsightImpactGraphEdge]
+    -- | Connections to downstream services.
+    edges :: Lude.Maybe [InsightImpactGraphEdge]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InsightImpactGraphService' with the minimum fields required to make a request.
 --
--- * 'accountId' - Identifier of the AWS account in which the service runs.
--- * 'edges' - Connections to downstream services.
--- * 'name' - The canonical name of the service.
--- * 'names' - A list of names for the service, including the canonical name.
 -- * 'referenceId' - Identifier for the service. Unique within the service map.
+-- * 'accountId' - Identifier of the AWS account in which the service runs.
+-- * 'names' - A list of names for the service, including the canonical name.
+-- * 'name' - The canonical name of the service.
 -- * 'type'' - Identifier for the service. Unique within the service map.
 --
 --
@@ -72,6 +81,9 @@ data InsightImpactGraphService = InsightImpactGraphService'
 --
 --
 --     * remote - A downstream service of indeterminate type.
+--
+--
+-- * 'edges' - Connections to downstream services.
 mkInsightImpactGraphService ::
   InsightImpactGraphService
 mkInsightImpactGraphService =

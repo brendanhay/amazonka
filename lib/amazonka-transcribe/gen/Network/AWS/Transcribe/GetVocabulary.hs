@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,14 +44,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkGetVocabulary' smart constructor.
-newtype GetVocabulary = GetVocabulary' {vocabularyName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetVocabulary = GetVocabulary'
+  { -- | The name of the vocabulary to return information about. The name is case sensitive.
+    vocabularyName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVocabulary' with the minimum fields required to make a request.
@@ -112,33 +110,33 @@ instance Lude.ToQuery GetVocabulary where
 
 -- | /See:/ 'mkGetVocabularyResponse' smart constructor.
 data GetVocabularyResponse = GetVocabularyResponse'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
+  { -- | If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The language code of the vocabulary entries.
     languageCode :: Lude.Maybe LanguageCode,
+    -- | The S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. The URI is available for a limited time.
     downloadURI :: Lude.Maybe Lude.Text,
+    -- | The name of the vocabulary to return.
     vocabularyName :: Lude.Maybe Lude.Text,
+    -- | The date and time that the vocabulary was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The processing state of the vocabulary.
     vocabularyState :: Lude.Maybe VocabularyState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetVocabularyResponse' with the minimum fields required to make a request.
 --
--- * 'downloadURI' - The S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. The URI is available for a limited time.
 -- * 'failureReason' - If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
 -- * 'languageCode' - The language code of the vocabulary entries.
--- * 'lastModifiedTime' - The date and time that the vocabulary was last modified.
--- * 'responseStatus' - The response status code.
+-- * 'downloadURI' - The S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. The URI is available for a limited time.
 -- * 'vocabularyName' - The name of the vocabulary to return.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was last modified.
 -- * 'vocabularyState' - The processing state of the vocabulary.
+-- * 'responseStatus' - The response status code.
 mkGetVocabularyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

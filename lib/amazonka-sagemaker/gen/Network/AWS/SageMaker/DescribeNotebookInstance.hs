@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.SageMaker.DescribeNotebookInstance
     mkDescribeNotebookInstance,
 
     -- ** Request lenses
-    dniNotebookInstanceName,
+    dNotebookInstanceName,
 
     -- * Destructuring the response
     DescribeNotebookInstanceResponse (..),
@@ -37,6 +38,7 @@ module Network.AWS.SageMaker.DescribeNotebookInstance
     dnirsNetworkInterfaceId,
     dnirsSubnetId,
     dnirsInstanceType,
+    dnirsNotebookInstanceStatus,
     dnirsDefaultCodeRepository,
     dnirsVolumeSizeInGB,
     dnirsKMSKeyId,
@@ -46,7 +48,6 @@ module Network.AWS.SageMaker.DescribeNotebookInstance
     dnirsNotebookInstanceLifecycleConfigName,
     dnirsRoleARN,
     dnirsResponseStatus,
-    dnirsNotebookInstanceStatus,
   )
 where
 
@@ -58,16 +59,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDescribeNotebookInstance' smart constructor.
 newtype DescribeNotebookInstance = DescribeNotebookInstance'
-  { notebookInstanceName ::
-      Lude.Text
+  { -- | The name of the notebook instance that you want information about.
+    notebookInstanceName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotebookInstance' with the minimum fields required to make a request.
@@ -86,9 +81,9 @@ mkDescribeNotebookInstance pNotebookInstanceName_ =
 -- | The name of the notebook instance that you want information about.
 --
 -- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dniNotebookInstanceName :: Lens.Lens' DescribeNotebookInstance Lude.Text
-dniNotebookInstanceName = Lens.lens (notebookInstanceName :: DescribeNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: DescribeNotebookInstance)
-{-# DEPRECATED dniNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
+dNotebookInstanceName :: Lens.Lens' DescribeNotebookInstance Lude.Text
+dNotebookInstanceName = Lens.lens (notebookInstanceName :: DescribeNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: DescribeNotebookInstance)
+{-# DEPRECATED dNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
 
 instance Lude.AWSRequest DescribeNotebookInstance where
   type Rs DescribeNotebookInstance = DescribeNotebookInstanceResponse
@@ -108,6 +103,7 @@ instance Lude.AWSRequest DescribeNotebookInstance where
             Lude.<*> (x Lude..?> "NetworkInterfaceId")
             Lude.<*> (x Lude..?> "SubnetId")
             Lude.<*> (x Lude..?> "InstanceType")
+            Lude.<*> (x Lude..:> "NotebookInstanceStatus")
             Lude.<*> (x Lude..?> "DefaultCodeRepository")
             Lude.<*> (x Lude..?> "VolumeSizeInGB")
             Lude.<*> (x Lude..?> "KmsKeyId")
@@ -117,7 +113,6 @@ instance Lude.AWSRequest DescribeNotebookInstance where
             Lude.<*> (x Lude..?> "NotebookInstanceLifecycleConfigName")
             Lude.<*> (x Lude..?> "RoleArn")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "NotebookInstanceStatus")
       )
 
 instance Lude.ToHeaders DescribeNotebookInstance where
@@ -146,96 +141,92 @@ instance Lude.ToQuery DescribeNotebookInstance where
 
 -- | /See:/ 'mkDescribeNotebookInstanceResponse' smart constructor.
 data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
-    failureReason ::
-      Lude.Maybe Lude.Text,
-    acceleratorTypes ::
-      Lude.Maybe
-        [NotebookInstanceAcceleratorType],
-    notebookInstanceName ::
-      Lude.Maybe Lude.Text,
-    securityGroups ::
-      Lude.Maybe [Lude.Text],
-    additionalCodeRepositories ::
-      Lude.Maybe [Lude.Text],
-    url ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    networkInterfaceId ::
-      Lude.Maybe Lude.Text,
-    subnetId ::
-      Lude.Maybe Lude.Text,
-    instanceType ::
-      Lude.Maybe InstanceType,
-    defaultCodeRepository ::
-      Lude.Maybe Lude.Text,
-    volumeSizeInGB ::
-      Lude.Maybe Lude.Natural,
-    kmsKeyId ::
-      Lude.Maybe Lude.Text,
-    rootAccess ::
-      Lude.Maybe RootAccess,
-    directInternetAccess ::
-      Lude.Maybe
-        DirectInternetAccess,
-    notebookInstanceARN ::
-      Lude.Maybe Lude.Text,
-    notebookInstanceLifecycleConfigName ::
-      Lude.Maybe Lude.Text,
-    roleARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    notebookInstanceStatus ::
-      NotebookInstanceStatus
+  { -- | A timestamp. Use this parameter to return the time when the notebook instance was created
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | If status is @Failed@ , the reason it failed.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
+    acceleratorTypes :: Lude.Maybe [NotebookInstanceAcceleratorType],
+    -- | The name of the Amazon SageMaker notebook instance.
+    notebookInstanceName :: Lude.Maybe Lude.Text,
+    -- | The IDs of the VPC security groups.
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+    additionalCodeRepositories :: Lude.Maybe [Lude.Text],
+    -- | The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
+    url :: Lude.Maybe Lude.Text,
+    -- | A timestamp. Use this parameter to retrieve the time when the notebook instance was last modified.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The network interface IDs that Amazon SageMaker created at the time of creating the instance.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC subnet.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The type of ML compute instance running on the notebook instance.
+    instanceType :: Lude.Maybe InstanceType,
+    -- | The status of the notebook instance.
+    notebookInstanceStatus :: NotebookInstanceStatus,
+    -- | The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+    defaultCodeRepository :: Lude.Maybe Lude.Text,
+    -- | The size, in GB, of the ML storage volume attached to the notebook instance.
+    volumeSizeInGB :: Lude.Maybe Lude.Natural,
+    -- | The AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | Whether root access is enabled or disabled for users of the notebook instance.
+    rootAccess :: Lude.Maybe RootAccess,
+    -- | Describes whether Amazon SageMaker provides internet access to the notebook instance. If this value is set to /Disabled/ , the notebook instance does not have internet access, and cannot connect to Amazon SageMaker training and endpoint services.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default> .
+    directInternetAccess :: Lude.Maybe DirectInternetAccess,
+    -- | The Amazon Resource Name (ARN) of the notebook instance.
+    notebookInstanceARN :: Lude.Maybe Lude.Text,
+    -- | Returns the name of a notebook instance lifecycle configuration.
+    --
+    -- For information about notebook instance lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>
+    notebookInstanceLifecycleConfigName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role associated with the instance.
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotebookInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'acceleratorTypes' - A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
--- * 'additionalCodeRepositories' - An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
 -- * 'creationTime' - A timestamp. Use this parameter to return the time when the notebook instance was created
+-- * 'failureReason' - If status is @Failed@ , the reason it failed.
+-- * 'acceleratorTypes' - A list of the Elastic Inference (EI) instance types associated with this notebook instance. Currently only one EI instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
+-- * 'notebookInstanceName' - The name of the Amazon SageMaker notebook instance.
+-- * 'securityGroups' - The IDs of the VPC security groups.
+-- * 'additionalCodeRepositories' - An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+-- * 'url' - The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
+-- * 'lastModifiedTime' - A timestamp. Use this parameter to retrieve the time when the notebook instance was last modified.
+-- * 'networkInterfaceId' - The network interface IDs that Amazon SageMaker created at the time of creating the instance.
+-- * 'subnetId' - The ID of the VPC subnet.
+-- * 'instanceType' - The type of ML compute instance running on the notebook instance.
+-- * 'notebookInstanceStatus' - The status of the notebook instance.
 -- * 'defaultCodeRepository' - The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+-- * 'volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the notebook instance.
+-- * 'kmsKeyId' - The AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
+-- * 'rootAccess' - Whether root access is enabled or disabled for users of the notebook instance.
 -- * 'directInternetAccess' - Describes whether Amazon SageMaker provides internet access to the notebook instance. If this value is set to /Disabled/ , the notebook instance does not have internet access, and cannot connect to Amazon SageMaker training and endpoint services.
 --
 -- For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default> .
--- * 'failureReason' - If status is @Failed@ , the reason it failed.
--- * 'instanceType' - The type of ML compute instance running on the notebook instance.
--- * 'kmsKeyId' - The AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on the ML storage volume attached to the instance.
--- * 'lastModifiedTime' - A timestamp. Use this parameter to retrieve the time when the notebook instance was last modified.
--- * 'networkInterfaceId' - The network interface IDs that Amazon SageMaker created at the time of creating the instance.
 -- * 'notebookInstanceARN' - The Amazon Resource Name (ARN) of the notebook instance.
 -- * 'notebookInstanceLifecycleConfigName' - Returns the name of a notebook instance lifecycle configuration.
 --
 -- For information about notebook instance lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance>
--- * 'notebookInstanceName' - The name of the Amazon SageMaker notebook instance.
--- * 'notebookInstanceStatus' - The status of the notebook instance.
--- * 'responseStatus' - The response status code.
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role associated with the instance.
--- * 'rootAccess' - Whether root access is enabled or disabled for users of the notebook instance.
--- * 'securityGroups' - The IDs of the VPC security groups.
--- * 'subnetId' - The ID of the VPC subnet.
--- * 'url' - The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
--- * 'volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the notebook instance.
+-- * 'responseStatus' - The response status code.
 mkDescribeNotebookInstanceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'notebookInstanceStatus'
   NotebookInstanceStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeNotebookInstanceResponse
 mkDescribeNotebookInstanceResponse
-  pResponseStatus_
-  pNotebookInstanceStatus_ =
+  pNotebookInstanceStatus_
+  pResponseStatus_ =
     DescribeNotebookInstanceResponse'
       { creationTime = Lude.Nothing,
         failureReason = Lude.Nothing,
@@ -248,6 +239,7 @@ mkDescribeNotebookInstanceResponse
         networkInterfaceId = Lude.Nothing,
         subnetId = Lude.Nothing,
         instanceType = Lude.Nothing,
+        notebookInstanceStatus = pNotebookInstanceStatus_,
         defaultCodeRepository = Lude.Nothing,
         volumeSizeInGB = Lude.Nothing,
         kmsKeyId = Lude.Nothing,
@@ -256,8 +248,7 @@ mkDescribeNotebookInstanceResponse
         notebookInstanceARN = Lude.Nothing,
         notebookInstanceLifecycleConfigName = Lude.Nothing,
         roleARN = Lude.Nothing,
-        responseStatus = pResponseStatus_,
-        notebookInstanceStatus = pNotebookInstanceStatus_
+        responseStatus = pResponseStatus_
       }
 
 -- | A timestamp. Use this parameter to return the time when the notebook instance was created
@@ -337,6 +328,13 @@ dnirsInstanceType :: Lens.Lens' DescribeNotebookInstanceResponse (Lude.Maybe Ins
 dnirsInstanceType = Lens.lens (instanceType :: DescribeNotebookInstanceResponse -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: DescribeNotebookInstanceResponse)
 {-# DEPRECATED dnirsInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
+-- | The status of the notebook instance.
+--
+-- /Note:/ Consider using 'notebookInstanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnirsNotebookInstanceStatus :: Lens.Lens' DescribeNotebookInstanceResponse NotebookInstanceStatus
+dnirsNotebookInstanceStatus = Lens.lens (notebookInstanceStatus :: DescribeNotebookInstanceResponse -> NotebookInstanceStatus) (\s a -> s {notebookInstanceStatus = a} :: DescribeNotebookInstanceResponse)
+{-# DEPRECATED dnirsNotebookInstanceStatus "Use generic-lens or generic-optics with 'notebookInstanceStatus' instead." #-}
+
 -- | The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
 --
 -- /Note:/ Consider using 'defaultCodeRepository' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -403,10 +401,3 @@ dnirsRoleARN = Lens.lens (roleARN :: DescribeNotebookInstanceResponse -> Lude.Ma
 dnirsResponseStatus :: Lens.Lens' DescribeNotebookInstanceResponse Lude.Int
 dnirsResponseStatus = Lens.lens (responseStatus :: DescribeNotebookInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotebookInstanceResponse)
 {-# DEPRECATED dnirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The status of the notebook instance.
---
--- /Note:/ Consider using 'notebookInstanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnirsNotebookInstanceStatus :: Lens.Lens' DescribeNotebookInstanceResponse NotebookInstanceStatus
-dnirsNotebookInstanceStatus = Lens.lens (notebookInstanceStatus :: DescribeNotebookInstanceResponse -> NotebookInstanceStatus) (\s a -> s {notebookInstanceStatus = a} :: DescribeNotebookInstanceResponse)
-{-# DEPRECATED dnirsNotebookInstanceStatus "Use generic-lens or generic-optics with 'notebookInstanceStatus' instead." #-}

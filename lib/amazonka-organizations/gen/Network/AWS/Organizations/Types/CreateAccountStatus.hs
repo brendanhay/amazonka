@@ -37,15 +37,52 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateAccountStatus' smart constructor.
 data CreateAccountStatus = CreateAccountStatus'
-  { failureReason ::
-      Lude.Maybe CreateAccountFailureReason,
+  { -- | If the request failed, a description of the reason for the failure.
+    --
+    --
+    --     * ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have reached the limit on the number of accounts in your organization.
+    --
+    --
+    --     * CONCURRENT_ACCOUNT_MODIFICATION: You already submitted a request with the same information.
+    --
+    --
+    --     * EMAIL_ALREADY_EXISTS: The account could not be created because another AWS account with that email address already exists.
+    --
+    --
+    --     * GOVCLOUD_ACCOUNT_ALREADY_EXISTS: The account in the AWS GovCloud (US) Region could not be created because this Region already includes an account with that email address.
+    --
+    --
+    --     * INVALID_ADDRESS: The account could not be created because the address you provided is not valid.
+    --
+    --
+    --     * INVALID_EMAIL: The account could not be created because the email address you provided is not valid.
+    --
+    --
+    --     * INTERNAL_FAILURE: The account could not be created because of an internal failure. Try again later. If the problem persists, contact Customer Support.
+    --
+    --
+    --     * MISSING_BUSINESS_VALIDATION: The AWS account that owns your organization has not received Business Validation.
+    --
+    --
+    --     * MISSING_PAYMENT_INSTRUMENT: You must configure the management account with a valid payment method, such as a credit card.
+    failureReason :: Lude.Maybe CreateAccountFailureReason,
+    -- | The status of the request.
     state :: Lude.Maybe CreateAccountState,
+    -- | The date and time that the account was created and the request completed.
     completedTimestamp :: Lude.Maybe Lude.Timestamp,
-    accountName ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The account name given to the account when it was created.
+    accountName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | If the account was created successfully, the unique identifier (ID) of the new account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
     accountId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier (ID) that references this request. You get this value from the response of the initial 'CreateAccount' request to create the account.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.
     id :: Lude.Maybe Lude.Text,
+    -- | If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
     govCloudAccountId :: Lude.Maybe Lude.Text,
+    -- | The date and time that the request was made for the account creation.
     requestedTimestamp :: Lude.Maybe Lude.Timestamp
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -53,11 +90,6 @@ data CreateAccountStatus = CreateAccountStatus'
 
 -- | Creates a value of 'CreateAccountStatus' with the minimum fields required to make a request.
 --
--- * 'accountId' - If the account was created successfully, the unique identifier (ID) of the new account.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
--- * 'accountName' - The account name given to the account when it was created.
--- * 'completedTimestamp' - The date and time that the account was created and the request completed.
 -- * 'failureReason' - If the request failed, a description of the reason for the failure.
 --
 --
@@ -88,12 +120,17 @@ data CreateAccountStatus = CreateAccountStatus'
 --     * MISSING_PAYMENT_INSTRUMENT: You must configure the management account with a valid payment method, such as a credit card.
 --
 --
--- * 'govCloudAccountId' - If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
+-- * 'state' - The status of the request.
+-- * 'completedTimestamp' - The date and time that the account was created and the request completed.
+-- * 'accountName' - The account name given to the account when it was created.
+-- * 'accountId' - If the account was created successfully, the unique identifier (ID) of the new account.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
 -- * 'id' - The unique identifier (ID) that references this request. You get this value from the response of the initial 'CreateAccount' request to create the account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a create account request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.
+-- * 'govCloudAccountId' - If the account was created successfully, the unique identifier (ID) of the new account in the AWS GovCloud (US) Region.
 -- * 'requestedTimestamp' - The date and time that the request was made for the account creation.
--- * 'state' - The status of the request.
 mkCreateAccountStatus ::
   CreateAccountStatus
 mkCreateAccountStatus =

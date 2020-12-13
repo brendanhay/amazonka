@@ -34,30 +34,30 @@ import Network.AWS.RDS.Types.SourceType
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { sourceType :: Lude.Maybe SourceType,
+  { -- | Specifies the source type for this event.
+    sourceType :: Lude.Maybe SourceType,
+    -- | The Amazon Resource Name (ARN) for the event.
     sourceARN :: Lude.Maybe Lude.Text,
+    -- | Provides the identifier for the source of the event.
     sourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | Specifies the date and time of the event.
     date :: Lude.Maybe Lude.DateTime,
+    -- | Specifies the category for the event.
     eventCategories :: Lude.Maybe [Lude.Text],
+    -- | Provides the text of this event.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
+-- * 'sourceType' - Specifies the source type for this event.
+-- * 'sourceARN' - The Amazon Resource Name (ARN) for the event.
+-- * 'sourceIdentifier' - Provides the identifier for the source of the event.
 -- * 'date' - Specifies the date and time of the event.
 -- * 'eventCategories' - Specifies the category for the event.
 -- * 'message' - Provides the text of this event.
--- * 'sourceARN' - The Amazon Resource Name (ARN) for the event.
--- * 'sourceIdentifier' - Provides the identifier for the source of the event.
--- * 'sourceType' - Specifies the source type for this event.
 mkEvent ::
   Event
 mkEvent =

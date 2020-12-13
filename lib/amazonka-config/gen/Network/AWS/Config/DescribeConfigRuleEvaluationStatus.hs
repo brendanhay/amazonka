@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,32 +48,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeConfigRuleEvaluationStatus' smart constructor.
 data DescribeConfigRuleEvaluationStatus = DescribeConfigRuleEvaluationStatus'
-  { configRuleNames ::
-      Lude.Maybe
-        [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
+    configRuleNames :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of rule evaluation results that you want returned.
+    --
+    -- This parameter is required if the rule limit for your account is more than the default of 150 rules.
+    -- For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRuleEvaluationStatus' with the minimum fields required to make a request.
 --
 -- * 'configRuleNames' - The name of the AWS managed Config rules for which you want status information. If you do not specify any names, AWS Config returns status information for all AWS managed Config rules that you use.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'limit' - The number of rule evaluation results that you want returned.
 --
 -- This parameter is required if the rule limit for your account is more than the default of 150 rules.
 -- For information about requesting a rule limit increase, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config AWS Config Limits> in the /AWS General Reference Guide/ .
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 mkDescribeConfigRuleEvaluationStatus ::
   DescribeConfigRuleEvaluationStatus
 mkDescribeConfigRuleEvaluationStatus =
@@ -164,22 +160,14 @@ instance Lude.ToQuery DescribeConfigRuleEvaluationStatus where
 --
 -- /See:/ 'mkDescribeConfigRuleEvaluationStatusResponse' smart constructor.
 data DescribeConfigRuleEvaluationStatusResponse = DescribeConfigRuleEvaluationStatusResponse'
-  { configRulesEvaluationStatus ::
-      Lude.Maybe
-        [ConfigRuleEvaluationStatus],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Status information about your AWS managed Config rules.
+    configRulesEvaluationStatus :: Lude.Maybe [ConfigRuleEvaluationStatus],
+    -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRuleEvaluationStatusResponse' with the minimum fields required to make a request.

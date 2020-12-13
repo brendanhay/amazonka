@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeStatusInfo' smart constructor.
 data VolumeStatusInfo = VolumeStatusInfo'
-  { status ::
-      Lude.Maybe VolumeStatusInfoStatus,
+  { -- | The status of the volume.
+    status :: Lude.Maybe VolumeStatusInfoStatus,
+    -- | The details of the volume status.
     details :: Lude.Maybe [VolumeStatusDetails]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeStatusInfo' with the minimum fields required to make a request.
 --
--- * 'details' - The details of the volume status.
 -- * 'status' - The status of the volume.
+-- * 'details' - The details of the volume status.
 mkVolumeStatusInfo ::
   VolumeStatusInfo
 mkVolumeStatusInfo =

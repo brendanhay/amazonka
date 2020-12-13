@@ -17,8 +17,8 @@ module Network.AWS.ResourceGroups.Types.ResourceQuery
     mkResourceQuery,
 
     -- * Lenses
-    rqType,
     rqSearchQuery,
+    rqType,
   )
 where
 
@@ -56,16 +56,36 @@ import Network.AWS.ResourceGroups.Types.QueryType
 --
 -- /See:/ 'mkResourceQuery' smart constructor.
 data ResourceQuery = ResourceQuery'
-  { type' :: QueryType,
-    searchQuery :: Lude.Text
+  { -- | The query that defines a group or a search.
+    searchQuery :: Lude.Text,
+    -- | The type of the query. You can use the following values:
+    --
+    --
+    --     * /@CLOUDFORMATION_STACK_1_0:@ / Specifies that the @Query@ contains an ARN for a CloudFormation stack.
+    --
+    --
+    --     * /@TAG_FILTERS_1_0:@ / Specifies that the @Query@ parameter contains a JSON string that represents a collection of simple tag filters for resource types and tags. The JSON string uses a syntax similar to the @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html GetResources> @ operation, but uses only the @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters ResourceTypeFilters> @ and @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters TagFilters> @ fields. If you specify more than one tag key, only resources that match all tag keys, and at least one value of each specified tag key, are returned in your query. If you specify more than one value for a tag key, a resource matches the filter if it has a tag key value that matches /any/ of the specified values.
+    -- For example, consider the following sample query for resources that have two tags, @Stage@ and @Version@ , with two values each:
+    -- @[{"Stage":["Test","Deploy"]},{"Version":["1","2"]}]@
+    -- The results of this query could include the following.
+    --
+    --     * An EC2 instance that has the following two tags: @{"Stage":"Deploy"}@ , and @{"Version":"2"}@
+    --
+    --
+    --     * An S3 bucket that has the following two tags: @{"Stage":"Test"}@ , and @{"Version":"1"}@
+    --
+    --
+    -- The query would not include the following items in the results, however.
+    --
+    --     * An EC2 instance that has only the following tag: @{"Stage":"Deploy"}@ .
+    -- The instance does not have __all__ of the tag keys specified in the filter, so it is excluded from the results.
+    --
+    --
+    --     * An RDS database that has the following two tags: @{"Stage":"Archived"}@ and @{"Version":"4"}@
+    -- The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.
+    type' :: QueryType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceQuery' with the minimum fields required to make a request.
@@ -97,13 +117,20 @@ data ResourceQuery = ResourceQuery'
 --     * An RDS database that has the following two tags: @{"Stage":"Archived"}@ and @{"Version":"4"}@
 -- The database has all of the tag keys, but none of those keys has an associated value that matches at least one of the specified values in the filter.
 mkResourceQuery ::
-  -- | 'type''
-  QueryType ->
   -- | 'searchQuery'
   Lude.Text ->
+  -- | 'type''
+  QueryType ->
   ResourceQuery
-mkResourceQuery pType_ pSearchQuery_ =
-  ResourceQuery' {type' = pType_, searchQuery = pSearchQuery_}
+mkResourceQuery pSearchQuery_ pType_ =
+  ResourceQuery' {searchQuery = pSearchQuery_, type' = pType_}
+
+-- | The query that defines a group or a search.
+--
+-- /Note:/ Consider using 'searchQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rqSearchQuery :: Lens.Lens' ResourceQuery Lude.Text
+rqSearchQuery = Lens.lens (searchQuery :: ResourceQuery -> Lude.Text) (\s a -> s {searchQuery = a} :: ResourceQuery)
+{-# DEPRECATED rqSearchQuery "Use generic-lens or generic-optics with 'searchQuery' instead." #-}
 
 -- | The type of the query. You can use the following values:
 --
@@ -140,27 +167,20 @@ rqType :: Lens.Lens' ResourceQuery QueryType
 rqType = Lens.lens (type' :: ResourceQuery -> QueryType) (\s a -> s {type' = a} :: ResourceQuery)
 {-# DEPRECATED rqType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The query that defines a group or a search.
---
--- /Note:/ Consider using 'searchQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rqSearchQuery :: Lens.Lens' ResourceQuery Lude.Text
-rqSearchQuery = Lens.lens (searchQuery :: ResourceQuery -> Lude.Text) (\s a -> s {searchQuery = a} :: ResourceQuery)
-{-# DEPRECATED rqSearchQuery "Use generic-lens or generic-optics with 'searchQuery' instead." #-}
-
 instance Lude.FromJSON ResourceQuery where
   parseJSON =
     Lude.withObject
       "ResourceQuery"
       ( \x ->
           ResourceQuery'
-            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Query")
+            Lude.<$> (x Lude..: "Query") Lude.<*> (x Lude..: "Type")
       )
 
 instance Lude.ToJSON ResourceQuery where
   toJSON ResourceQuery' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("Query" Lude..= searchQuery)
+          [ Lude.Just ("Query" Lude..= searchQuery),
+            Lude.Just ("Type" Lude..= type')
           ]
       )

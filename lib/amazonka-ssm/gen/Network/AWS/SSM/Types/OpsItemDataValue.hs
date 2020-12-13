@@ -30,23 +30,18 @@ import Network.AWS.SSM.Types.OpsItemDataType
 --
 -- /See:/ 'mkOpsItemDataValue' smart constructor.
 data OpsItemDataValue = OpsItemDataValue'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of the OperationalData key.
+    value :: Lude.Maybe Lude.Text,
+    -- | The type of key-value pair. Valid types include @SearchableString@ and @String@ .
     type' :: Lude.Maybe OpsItemDataType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsItemDataValue' with the minimum fields required to make a request.
 --
--- * 'type'' - The type of key-value pair. Valid types include @SearchableString@ and @String@ .
 -- * 'value' - The value of the OperationalData key.
+-- * 'type'' - The type of key-value pair. Valid types include @SearchableString@ and @String@ .
 mkOpsItemDataValue ::
   OpsItemDataValue
 mkOpsItemDataValue =

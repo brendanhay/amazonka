@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Lambda.RemoveLayerVersionPermission
     mkRemoveLayerVersionPermission,
 
     -- ** Request lenses
-    rlvpRevisionId,
     rlvpLayerName,
     rlvpVersionNumber,
     rlvpStatementId,
+    rlvpRevisionId,
 
     -- * Destructuring the response
     RemoveLayerVersionPermissionResponse (..),
@@ -38,27 +39,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveLayerVersionPermission' smart constructor.
 data RemoveLayerVersionPermission = RemoveLayerVersionPermission'
-  { revisionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The name or Amazon Resource Name (ARN) of the layer.
     layerName :: Lude.Text,
+    -- | The version number.
     versionNumber :: Lude.Integer,
-    statementId :: Lude.Text
+    -- | The identifier that was specified when the statement was added.
+    statementId :: Lude.Text,
+    -- | Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
+    revisionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveLayerVersionPermission' with the minimum fields required to make a request.
 --
 -- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
--- * 'revisionId' - Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
--- * 'statementId' - The identifier that was specified when the statement was added.
 -- * 'versionNumber' - The version number.
+-- * 'statementId' - The identifier that was specified when the statement was added.
+-- * 'revisionId' - Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
 mkRemoveLayerVersionPermission ::
   -- | 'layerName'
   Lude.Text ->
@@ -72,18 +70,11 @@ mkRemoveLayerVersionPermission
   pVersionNumber_
   pStatementId_ =
     RemoveLayerVersionPermission'
-      { revisionId = Lude.Nothing,
-        layerName = pLayerName_,
+      { layerName = pLayerName_,
         versionNumber = pVersionNumber_,
-        statementId = pStatementId_
+        statementId = pStatementId_,
+        revisionId = Lude.Nothing
       }
-
--- | Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
---
--- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlvpRevisionId :: Lens.Lens' RemoveLayerVersionPermission (Lude.Maybe Lude.Text)
-rlvpRevisionId = Lens.lens (revisionId :: RemoveLayerVersionPermission -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: RemoveLayerVersionPermission)
-{-# DEPRECATED rlvpRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 --
@@ -105,6 +96,13 @@ rlvpVersionNumber = Lens.lens (versionNumber :: RemoveLayerVersionPermission -> 
 rlvpStatementId :: Lens.Lens' RemoveLayerVersionPermission Lude.Text
 rlvpStatementId = Lens.lens (statementId :: RemoveLayerVersionPermission -> Lude.Text) (\s a -> s {statementId = a} :: RemoveLayerVersionPermission)
 {-# DEPRECATED rlvpStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
+
+-- | Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
+--
+-- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rlvpRevisionId :: Lens.Lens' RemoveLayerVersionPermission (Lude.Maybe Lude.Text)
+rlvpRevisionId = Lens.lens (revisionId :: RemoveLayerVersionPermission -> Lude.Maybe Lude.Text) (\s a -> s {revisionId = a} :: RemoveLayerVersionPermission)
+{-# DEPRECATED rlvpRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
 
 instance Lude.AWSRequest RemoveLayerVersionPermission where
   type
@@ -133,13 +131,7 @@ instance Lude.ToQuery RemoveLayerVersionPermission where
 
 -- | /See:/ 'mkRemoveLayerVersionPermissionResponse' smart constructor.
 data RemoveLayerVersionPermissionResponse = RemoveLayerVersionPermissionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveLayerVersionPermissionResponse' with the minimum fields required to make a request.

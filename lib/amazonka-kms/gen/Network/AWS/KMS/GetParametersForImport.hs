@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,18 +50,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetParametersForImport' smart constructor.
 data GetParametersForImport = GetParametersForImport'
-  { keyId ::
-      Lude.Text,
+  { -- | The identifier of the symmetric CMK into which you will import key material. The @Origin@ of the CMK must be @EXTERNAL@ .
+    --
+    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+    keyId :: Lude.Text,
+    -- | The algorithm you will use to encrypt the key material before importing it with 'ImportKeyMaterial' . For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html Encrypt the Key Material> in the /AWS Key Management Service Developer Guide/ .
     wrappingAlgorithm :: AlgorithmSpec,
+    -- | The type of wrapping key (public key) to return in the response. Only 2048-bit RSA public keys are supported.
     wrappingKeySpec :: WrappingKeySpec
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParametersForImport' with the minimum fields required to make a request.
@@ -172,17 +180,15 @@ instance Lude.ToQuery GetParametersForImport where
 
 -- | /See:/ 'mkGetParametersForImportResponse' smart constructor.
 data GetParametersForImportResponse = GetParametersForImportResponse'
-  { keyId ::
-      Lude.Maybe Lude.Text,
-    publicKey ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Base64
-        ),
-    parametersValidTo ::
-      Lude.Maybe Lude.Timestamp,
-    importToken ::
-      Lude.Maybe Lude.Base64,
+  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
+    keyId :: Lude.Maybe Lude.Text,
+    -- | The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .
+    publicKey :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
+    parametersValidTo :: Lude.Maybe Lude.Timestamp,
+    -- | The import token to send in a subsequent 'ImportKeyMaterial' request.
+    importToken :: Lude.Maybe Lude.Base64,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -190,18 +196,10 @@ data GetParametersForImportResponse = GetParametersForImportResponse'
 
 -- | Creates a value of 'GetParametersForImportResponse' with the minimum fields required to make a request.
 --
--- * 'importToken' - The import token to send in a subsequent 'ImportKeyMaterial' request.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
 -- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the CMK to use in a subsequent 'ImportKeyMaterial' request. This is the same CMK specified in the @GetParametersForImport@ request.
+-- * 'publicKey' - The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .
 -- * 'parametersValidTo' - The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an 'ImportKeyMaterial' request and you must send another @GetParametersForImport@ request to get new ones.
--- * 'publicKey' - The public key to use to encrypt the key material before importing it with 'ImportKeyMaterial' .--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'importToken' - The import token to send in a subsequent 'ImportKeyMaterial' request.
 -- * 'responseStatus' - The response status code.
 mkGetParametersForImportResponse ::
   -- | 'responseStatus'

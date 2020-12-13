@@ -13,11 +13,11 @@
 module Network.AWS.MechanicalTurk.Types.HITStatus
   ( HITStatus
       ( HITStatus',
-        HITSAssignable,
-        HITSDisposed,
-        HITSReviewable,
-        HITSReviewing,
-        HITSUnassignable
+        Assignable,
+        Unassignable,
+        Reviewable,
+        Reviewing,
+        Disposed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype HITStatus = HITStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern HITSAssignable :: HITStatus
-pattern HITSAssignable = HITStatus' "Assignable"
+pattern Assignable :: HITStatus
+pattern Assignable = HITStatus' "Assignable"
 
-pattern HITSDisposed :: HITStatus
-pattern HITSDisposed = HITStatus' "Disposed"
+pattern Unassignable :: HITStatus
+pattern Unassignable = HITStatus' "Unassignable"
 
-pattern HITSReviewable :: HITStatus
-pattern HITSReviewable = HITStatus' "Reviewable"
+pattern Reviewable :: HITStatus
+pattern Reviewable = HITStatus' "Reviewable"
 
-pattern HITSReviewing :: HITStatus
-pattern HITSReviewing = HITStatus' "Reviewing"
+pattern Reviewing :: HITStatus
+pattern Reviewing = HITStatus' "Reviewing"
 
-pattern HITSUnassignable :: HITStatus
-pattern HITSUnassignable = HITStatus' "Unassignable"
+pattern Disposed :: HITStatus
+pattern Disposed = HITStatus' "Disposed"
 
 {-# COMPLETE
-  HITSAssignable,
-  HITSDisposed,
-  HITSReviewable,
-  HITSReviewing,
-  HITSUnassignable,
+  Assignable,
+  Unassignable,
+  Reviewable,
+  Reviewing,
+  Disposed,
   HITStatus'
   #-}

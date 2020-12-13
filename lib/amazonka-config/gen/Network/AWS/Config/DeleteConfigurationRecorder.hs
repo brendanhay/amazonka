@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteConfigurationRecorder' smart constructor.
 newtype DeleteConfigurationRecorder = DeleteConfigurationRecorder'
-  { configurationRecorderName ::
-      Lude.Text
+  { -- | The name of the configuration recorder to be deleted. You can retrieve the name of your configuration recorder by using the @DescribeConfigurationRecorders@ action.
+    configurationRecorderName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationRecorder' with the minimum fields required to make a request.
@@ -109,13 +104,7 @@ instance Lude.ToQuery DeleteConfigurationRecorder where
 
 -- | /See:/ 'mkDeleteConfigurationRecorderResponse' smart constructor.
 data DeleteConfigurationRecorderResponse = DeleteConfigurationRecorderResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationRecorderResponse' with the minimum fields required to make a request.

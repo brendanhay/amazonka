@@ -13,9 +13,9 @@
 module Network.AWS.CostExplorer.Types.AnomalyFeedbackType
   ( AnomalyFeedbackType
       ( AnomalyFeedbackType',
+        Yes,
         NO,
-        PlannedActivity,
-        Yes
+        PlannedActivity
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AnomalyFeedbackType = AnomalyFeedbackType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Yes :: AnomalyFeedbackType
+pattern Yes = AnomalyFeedbackType' "YES"
+
 pattern NO :: AnomalyFeedbackType
 pattern NO = AnomalyFeedbackType' "NO"
 
 pattern PlannedActivity :: AnomalyFeedbackType
 pattern PlannedActivity = AnomalyFeedbackType' "PLANNED_ACTIVITY"
 
-pattern Yes :: AnomalyFeedbackType
-pattern Yes = AnomalyFeedbackType' "YES"
-
 {-# COMPLETE
+  Yes,
   NO,
   PlannedActivity,
-  Yes,
   AnomalyFeedbackType'
   #-}

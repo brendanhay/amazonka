@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,11 +27,11 @@ module Network.AWS.MediaPackage.UpdateOriginEndpoint
     uoeStartoverWindowSeconds,
     uoeDashPackage,
     uoeMssPackage,
+    uoeId,
     uoeTimeDelaySeconds,
     uoeCmafPackage,
     uoeDescription,
     uoeOrigination,
-    uoeId,
 
     -- * Destructuring the response
     UpdateOriginEndpointResponse (..),
@@ -67,51 +68,57 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateOriginEndpoint' smart constructor.
 data UpdateOriginEndpoint = UpdateOriginEndpoint'
-  { whitelist ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+    whitelist :: Lude.Maybe [Lude.Text],
     hlsPackage :: Lude.Maybe HlsPackage,
+    -- | A short string that will be appended to the end of the Endpoint URL.
     manifestName :: Lude.Maybe Lude.Text,
     authorization :: Lude.Maybe Authorization,
+    -- | Maximum duration (in seconds) of content to retain for startover playback.
+    --
+    -- If not specified, startover playback will be disabled for the OriginEndpoint.
     startoverWindowSeconds :: Lude.Maybe Lude.Int,
     dashPackage :: Lude.Maybe DashPackage,
     mssPackage :: Lude.Maybe MssPackage,
+    -- | The ID of the OriginEndpoint to update.
+    id :: Lude.Text,
+    -- | Amount of delay (in seconds) to enforce on the playback of live content.
+    --
+    -- If not specified, there will be no time delay in effect for the OriginEndpoint.
     timeDelaySeconds :: Lude.Maybe Lude.Int,
-    cmafPackage ::
-      Lude.Maybe CmafPackageCreateOrUpdateParameters,
+    cmafPackage :: Lude.Maybe CmafPackageCreateOrUpdateParameters,
+    -- | A short text description of the OriginEndpoint.
     description :: Lude.Maybe Lude.Text,
-    origination :: Lude.Maybe Origination,
-    id :: Lude.Text
+    -- | Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+    --
+    -- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+    -- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+    origination :: Lude.Maybe Origination
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOriginEndpoint' with the minimum fields required to make a request.
 --
--- * 'authorization' - Undocumented field.
--- * 'cmafPackage' - Undocumented field.
--- * 'dashPackage' - Undocumented field.
--- * 'description' - A short text description of the OriginEndpoint.
--- * 'hlsPackage' - Undocumented field.
--- * 'id' - The ID of the OriginEndpoint to update.
+-- * 'whitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+-- * 'hlsPackage' -
 -- * 'manifestName' - A short string that will be appended to the end of the Endpoint URL.
--- * 'mssPackage' - Undocumented field.
+-- * 'authorization' -
+-- * 'startoverWindowSeconds' - Maximum duration (in seconds) of content to retain for startover playback.
+--
+-- If not specified, startover playback will be disabled for the OriginEndpoint.
+-- * 'dashPackage' -
+-- * 'mssPackage' -
+-- * 'id' - The ID of the OriginEndpoint to update.
+-- * 'timeDelaySeconds' - Amount of delay (in seconds) to enforce on the playback of live content.
+--
+-- If not specified, there will be no time delay in effect for the OriginEndpoint.
+-- * 'cmafPackage' -
+-- * 'description' - A short text description of the OriginEndpoint.
 -- * 'origination' - Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
 --
 -- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
 -- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
--- * 'startoverWindowSeconds' - Maximum duration (in seconds) of content to retain for startover playback.
---
--- If not specified, startover playback will be disabled for the OriginEndpoint.
--- * 'timeDelaySeconds' - Amount of delay (in seconds) to enforce on the playback of live content.
---
--- If not specified, there will be no time delay in effect for the OriginEndpoint.
--- * 'whitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
 mkUpdateOriginEndpoint ::
   -- | 'id'
   Lude.Text ->
@@ -125,11 +132,11 @@ mkUpdateOriginEndpoint pId_ =
       startoverWindowSeconds = Lude.Nothing,
       dashPackage = Lude.Nothing,
       mssPackage = Lude.Nothing,
+      id = pId_,
       timeDelaySeconds = Lude.Nothing,
       cmafPackage = Lude.Nothing,
       description = Lude.Nothing,
-      origination = Lude.Nothing,
-      id = pId_
+      origination = Lude.Nothing
     }
 
 -- | A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
@@ -183,6 +190,13 @@ uoeMssPackage :: Lens.Lens' UpdateOriginEndpoint (Lude.Maybe MssPackage)
 uoeMssPackage = Lens.lens (mssPackage :: UpdateOriginEndpoint -> Lude.Maybe MssPackage) (\s a -> s {mssPackage = a} :: UpdateOriginEndpoint)
 {-# DEPRECATED uoeMssPackage "Use generic-lens or generic-optics with 'mssPackage' instead." #-}
 
+-- | The ID of the OriginEndpoint to update.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uoeId :: Lens.Lens' UpdateOriginEndpoint Lude.Text
+uoeId = Lens.lens (id :: UpdateOriginEndpoint -> Lude.Text) (\s a -> s {id = a} :: UpdateOriginEndpoint)
+{-# DEPRECATED uoeId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 -- | Amount of delay (in seconds) to enforce on the playback of live content.
 --
 -- If not specified, there will be no time delay in effect for the OriginEndpoint.
@@ -215,13 +229,6 @@ uoeDescription = Lens.lens (description :: UpdateOriginEndpoint -> Lude.Maybe Lu
 uoeOrigination :: Lens.Lens' UpdateOriginEndpoint (Lude.Maybe Origination)
 uoeOrigination = Lens.lens (origination :: UpdateOriginEndpoint -> Lude.Maybe Origination) (\s a -> s {origination = a} :: UpdateOriginEndpoint)
 {-# DEPRECATED uoeOrigination "Use generic-lens or generic-optics with 'origination' instead." #-}
-
--- | The ID of the OriginEndpoint to update.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uoeId :: Lens.Lens' UpdateOriginEndpoint Lude.Text
-uoeId = Lens.lens (id :: UpdateOriginEndpoint -> Lude.Text) (\s a -> s {id = a} :: UpdateOriginEndpoint)
-{-# DEPRECATED uoeId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest UpdateOriginEndpoint where
   type Rs UpdateOriginEndpoint = UpdateOriginEndpointResponse
@@ -285,75 +292,71 @@ instance Lude.ToQuery UpdateOriginEndpoint where
 
 -- | /See:/ 'mkUpdateOriginEndpointResponse' smart constructor.
 data UpdateOriginEndpointResponse = UpdateOriginEndpointResponse'
-  { whitelist ::
-      Lude.Maybe [Lude.Text],
-    hlsPackage ::
-      Lude.Maybe HlsPackage,
+  { -- | A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+    whitelist :: Lude.Maybe [Lude.Text],
+    hlsPackage :: Lude.Maybe HlsPackage,
+    -- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
     arn :: Lude.Maybe Lude.Text,
-    manifestName ::
-      Lude.Maybe Lude.Text,
+    -- | A short string appended to the end of the OriginEndpoint URL.
+    manifestName :: Lude.Maybe Lude.Text,
+    -- | The URL of the packaged OriginEndpoint for consumption.
     url :: Lude.Maybe Lude.Text,
-    authorization ::
-      Lude.Maybe Authorization,
+    authorization :: Lude.Maybe Authorization,
+    -- | The ID of the Channel the OriginEndpoint is associated with.
     channelId :: Lude.Maybe Lude.Text,
-    startoverWindowSeconds ::
-      Lude.Maybe Lude.Int,
-    dashPackage ::
-      Lude.Maybe DashPackage,
-    mssPackage ::
-      Lude.Maybe MssPackage,
+    -- | Maximum duration (seconds) of content to retain for startover playback.
+    --
+    -- If not specified, startover playback will be disabled for the OriginEndpoint.
+    startoverWindowSeconds :: Lude.Maybe Lude.Int,
+    dashPackage :: Lude.Maybe DashPackage,
+    mssPackage :: Lude.Maybe MssPackage,
+    -- | The ID of the OriginEndpoint.
     id :: Lude.Maybe Lude.Text,
-    timeDelaySeconds ::
-      Lude.Maybe Lude.Int,
-    cmafPackage ::
-      Lude.Maybe CmafPackage,
-    description ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    origination ::
-      Lude.Maybe Origination,
+    -- | Amount of delay (seconds) to enforce on the playback of live content.
+    --
+    -- If not specified, there will be no time delay in effect for the OriginEndpoint.
+    timeDelaySeconds :: Lude.Maybe Lude.Int,
+    cmafPackage :: Lude.Maybe CmafPackage,
+    -- | A short text description of the OriginEndpoint.
+    description :: Lude.Maybe Lude.Text,
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
+    --
+    -- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
+    -- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+    origination :: Lude.Maybe Origination,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateOriginEndpointResponse' with the minimum fields required to make a request.
 --
+-- * 'whitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
+-- * 'hlsPackage' -
 -- * 'arn' - The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
--- * 'authorization' - Undocumented field.
--- * 'channelId' - The ID of the Channel the OriginEndpoint is associated with.
--- * 'cmafPackage' - Undocumented field.
--- * 'dashPackage' - Undocumented field.
--- * 'description' - A short text description of the OriginEndpoint.
--- * 'hlsPackage' - Undocumented field.
--- * 'id' - The ID of the OriginEndpoint.
 -- * 'manifestName' - A short string appended to the end of the OriginEndpoint URL.
--- * 'mssPackage' - Undocumented field.
+-- * 'url' - The URL of the packaged OriginEndpoint for consumption.
+-- * 'authorization' -
+-- * 'channelId' - The ID of the Channel the OriginEndpoint is associated with.
+-- * 'startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.
+--
+-- If not specified, startover playback will be disabled for the OriginEndpoint.
+-- * 'dashPackage' -
+-- * 'mssPackage' -
+-- * 'id' - The ID of the OriginEndpoint.
+-- * 'timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content.
+--
+-- If not specified, there will be no time delay in effect for the OriginEndpoint.
+-- * 'cmafPackage' -
+-- * 'description' - A short text description of the OriginEndpoint.
+-- * 'tags' -
 -- * 'origination' - Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint
 --
 -- may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be
 -- requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
 -- * 'responseStatus' - The response status code.
--- * 'startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.
---
--- If not specified, startover playback will be disabled for the OriginEndpoint.
--- * 'tags' - Undocumented field.
--- * 'timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content.
---
--- If not specified, there will be no time delay in effect for the OriginEndpoint.
--- * 'url' - The URL of the packaged OriginEndpoint for consumption.
--- * 'whitelist' - A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
 mkUpdateOriginEndpointResponse ::
   -- | 'responseStatus'
   Lude.Int ->

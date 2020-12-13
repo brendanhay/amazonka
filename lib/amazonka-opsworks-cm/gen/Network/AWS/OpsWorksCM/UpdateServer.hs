@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.OpsWorksCM.UpdateServer
 
     -- ** Request lenses
     usDisableAutomatedBackup,
+    usServerName,
     usPreferredMaintenanceWindow,
     usPreferredBackupWindow,
     usBackupRetentionCount,
-    usServerName,
 
     -- * Destructuring the response
     UpdateServerResponse (..),
@@ -45,29 +46,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateServer' smart constructor.
 data UpdateServer = UpdateServer'
-  { disableAutomatedBackup ::
-      Lude.Maybe Lude.Bool,
+  { -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
+    disableAutomatedBackup :: Lude.Maybe Lude.Bool,
+    -- | The name of the server to update.
+    serverName :: Lude.Text,
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
     preferredBackupWindow :: Lude.Maybe Lude.Text,
-    backupRetentionCount :: Lude.Maybe Lude.Int,
-    serverName :: Lude.Text
+    -- | Sets the number of automated backups that you want to keep.
+    backupRetentionCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateServer' with the minimum fields required to make a request.
 --
--- * 'backupRetentionCount' - Sets the number of automated backups that you want to keep.
 -- * 'disableAutomatedBackup' - Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
--- * 'preferredBackupWindow' - Undocumented field.
--- * 'preferredMaintenanceWindow' - Undocumented field.
 -- * 'serverName' - The name of the server to update.
+-- * 'preferredMaintenanceWindow' -
+-- * 'preferredBackupWindow' -
+-- * 'backupRetentionCount' - Sets the number of automated backups that you want to keep.
 mkUpdateServer ::
   -- | 'serverName'
   Lude.Text ->
@@ -75,10 +72,10 @@ mkUpdateServer ::
 mkUpdateServer pServerName_ =
   UpdateServer'
     { disableAutomatedBackup = Lude.Nothing,
+      serverName = pServerName_,
       preferredMaintenanceWindow = Lude.Nothing,
       preferredBackupWindow = Lude.Nothing,
-      backupRetentionCount = Lude.Nothing,
-      serverName = pServerName_
+      backupRetentionCount = Lude.Nothing
     }
 
 -- | Setting DisableAutomatedBackup to @true@ disables automated or scheduled backups. Automated backups are enabled by default.
@@ -87,6 +84,13 @@ mkUpdateServer pServerName_ =
 usDisableAutomatedBackup :: Lens.Lens' UpdateServer (Lude.Maybe Lude.Bool)
 usDisableAutomatedBackup = Lens.lens (disableAutomatedBackup :: UpdateServer -> Lude.Maybe Lude.Bool) (\s a -> s {disableAutomatedBackup = a} :: UpdateServer)
 {-# DEPRECATED usDisableAutomatedBackup "Use generic-lens or generic-optics with 'disableAutomatedBackup' instead." #-}
+
+-- | The name of the server to update.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usServerName :: Lens.Lens' UpdateServer Lude.Text
+usServerName = Lens.lens (serverName :: UpdateServer -> Lude.Text) (\s a -> s {serverName = a} :: UpdateServer)
+{-# DEPRECATED usServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | Undocumented field.
 --
@@ -108,13 +112,6 @@ usPreferredBackupWindow = Lens.lens (preferredBackupWindow :: UpdateServer -> Lu
 usBackupRetentionCount :: Lens.Lens' UpdateServer (Lude.Maybe Lude.Int)
 usBackupRetentionCount = Lens.lens (backupRetentionCount :: UpdateServer -> Lude.Maybe Lude.Int) (\s a -> s {backupRetentionCount = a} :: UpdateServer)
 {-# DEPRECATED usBackupRetentionCount "Use generic-lens or generic-optics with 'backupRetentionCount' instead." #-}
-
--- | The name of the server to update.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usServerName :: Lens.Lens' UpdateServer Lude.Text
-usServerName = Lens.lens (serverName :: UpdateServer -> Lude.Text) (\s a -> s {serverName = a} :: UpdateServer)
-{-# DEPRECATED usServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 instance Lude.AWSRequest UpdateServer where
   type Rs UpdateServer = UpdateServerResponse
@@ -143,11 +140,11 @@ instance Lude.ToJSON UpdateServer where
       ( Lude.catMaybes
           [ ("DisableAutomatedBackup" Lude..=)
               Lude.<$> disableAutomatedBackup,
+            Lude.Just ("ServerName" Lude..= serverName),
             ("PreferredMaintenanceWindow" Lude..=)
               Lude.<$> preferredMaintenanceWindow,
             ("PreferredBackupWindow" Lude..=) Lude.<$> preferredBackupWindow,
-            ("BackupRetentionCount" Lude..=) Lude.<$> backupRetentionCount,
-            Lude.Just ("ServerName" Lude..= serverName)
+            ("BackupRetentionCount" Lude..=) Lude.<$> backupRetentionCount
           ]
       )
 
@@ -159,8 +156,9 @@ instance Lude.ToQuery UpdateServer where
 
 -- | /See:/ 'mkUpdateServerResponse' smart constructor.
 data UpdateServerResponse = UpdateServerResponse'
-  { server ::
-      Lude.Maybe Server,
+  { -- | Contains the response to a @UpdateServer@ request.
+    server :: Lude.Maybe Server,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -168,8 +166,8 @@ data UpdateServerResponse = UpdateServerResponse'
 
 -- | Creates a value of 'UpdateServerResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'server' - Contains the response to a @UpdateServer@ request.
+-- * 'responseStatus' - The response status code.
 mkUpdateServerResponse ::
   -- | 'responseStatus'
   Lude.Int ->

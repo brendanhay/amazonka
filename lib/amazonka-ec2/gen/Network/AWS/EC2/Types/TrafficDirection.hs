@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.TrafficDirection
   ( TrafficDirection
       ( TrafficDirection',
-        Egress,
-        Ingress
+        Ingress,
+        Egress
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TrafficDirection = TrafficDirection' Lude.Text
       Lude.ToHeader
     )
 
-pattern Egress :: TrafficDirection
-pattern Egress = TrafficDirection' "egress"
-
 pattern Ingress :: TrafficDirection
 pattern Ingress = TrafficDirection' "ingress"
 
+pattern Egress :: TrafficDirection
+pattern Egress = TrafficDirection' "egress"
+
 {-# COMPLETE
-  Egress,
   Ingress,
+  Egress,
   TrafficDirection'
   #-}

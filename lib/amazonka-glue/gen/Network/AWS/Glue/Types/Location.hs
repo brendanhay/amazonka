@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocation' smart constructor.
 data Location = Location'
-  { dynamoDB :: Lude.Maybe [CodeGenNodeArg],
+  { -- | An Amazon DynamoDB table location.
+    dynamoDB :: Lude.Maybe [CodeGenNodeArg],
+    -- | A JDBC location.
     jdbc :: Lude.Maybe [CodeGenNodeArg],
+    -- | An Amazon Simple Storage Service (Amazon S3) location.
     s3 :: Lude.Maybe [CodeGenNodeArg]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Location' with the minimum fields required to make a request.

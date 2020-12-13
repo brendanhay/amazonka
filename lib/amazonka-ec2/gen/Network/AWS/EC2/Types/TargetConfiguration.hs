@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetConfiguration' smart constructor.
 data TargetConfiguration = TargetConfiguration'
-  { instanceCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
+    instanceCount :: Lude.Maybe Lude.Int,
+    -- | The ID of the Convertible Reserved Instance offering.
     offeringId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetConfiguration' with the minimum fields required to make a request.

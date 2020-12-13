@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateBasePathMapping' smart constructor.
 data CreateBasePathMapping = CreateBasePathMapping'
-  { stage ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.
+    stage :: Lude.Maybe Lude.Text,
+    -- | The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.
     basePath :: Lude.Maybe Lude.Text,
+    -- | [Required] The domain name of the 'BasePathMapping' resource to create.
     domainName :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBasePathMapping' with the minimum fields required to make a request.
 --
+-- * 'stage' - The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.
 -- * 'basePath' - The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.
 -- * 'domainName' - [Required] The domain name of the 'BasePathMapping' resource to create.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
--- * 'stage' - The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.
 mkCreateBasePathMapping ::
   -- | 'domainName'
   Lude.Text ->

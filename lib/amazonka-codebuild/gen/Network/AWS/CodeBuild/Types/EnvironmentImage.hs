@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentImage' smart constructor.
 data EnvironmentImage = EnvironmentImage'
-  { versions ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of environment image versions.
+    versions :: Lude.Maybe [Lude.Text],
+    -- | The name of the Docker image.
     name :: Lude.Maybe Lude.Text,
+    -- | The description of the Docker image.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentImage' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the Docker image.
--- * 'name' - The name of the Docker image.
 -- * 'versions' - A list of environment image versions.
+-- * 'name' - The name of the Docker image.
+-- * 'description' - The description of the Docker image.
 mkEnvironmentImage ::
   EnvironmentImage
 mkEnvironmentImage =

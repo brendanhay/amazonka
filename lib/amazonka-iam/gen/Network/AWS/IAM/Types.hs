@@ -77,20 +77,20 @@ module Network.AWS.IAM.Types
     AccessDetail (..),
     mkAccessDetail,
     adEntityPath,
+    adServiceNamespace,
+    adServiceName,
     adRegion,
     adLastAuthenticatedTime,
     adTotalAuthenticatedEntities,
-    adServiceName,
-    adServiceNamespace,
 
     -- * AccessKeyInfo
     AccessKeyInfo (..),
     mkAccessKeyInfo,
+    akiStatus,
+    akiSecretAccessKey,
     akiCreateDate,
     akiUserName,
     akiAccessKeyId,
-    akiStatus,
-    akiSecretAccessKey,
 
     -- * AccessKeyLastUsed
     AccessKeyLastUsed (..),
@@ -141,30 +141,30 @@ module Network.AWS.IAM.Types
     -- * EntityInfo
     EntityInfo (..),
     mkEntityInfo,
-    eiPath,
     eiARN,
+    eiPath,
     eiName,
-    eiType,
     eiId,
+    eiType,
 
     -- * ErrorDetails
     ErrorDetails (..),
     mkErrorDetails,
-    edMessage,
     edCode,
+    edMessage,
 
     -- * EvaluationResult
     EvaluationResult (..),
     mkEvaluationResult,
     erMatchedStatements,
     erEvalDecisionDetails,
+    erEvalActionName,
     erResourceSpecificResults,
     erEvalResourceName,
     erMissingContextValues,
+    erEvalDecision,
     erPermissionsBoundaryDecisionDetail,
     erOrganizationsDecisionDetail,
-    erEvalActionName,
-    erEvalDecision,
 
     -- * GetContextKeysForPolicyResponse
     GetContextKeysForPolicyResponse (..),
@@ -174,11 +174,11 @@ module Network.AWS.IAM.Types
     -- * Group
     Group (..),
     mkGroup,
-    gPath,
-    gGroupName,
-    gGroupId,
     gARN,
+    gPath,
     gCreateDate,
+    gGroupId,
+    gGroupName,
 
     -- * GroupDetail
     GroupDetail (..),
@@ -194,12 +194,12 @@ module Network.AWS.IAM.Types
     -- * InstanceProfile
     InstanceProfile (..),
     mkInstanceProfile,
-    ipPath,
-    ipInstanceProfileName,
-    ipInstanceProfileId,
-    ipARN,
-    ipCreateDate,
     ipRoles,
+    ipARN,
+    ipPath,
+    ipCreateDate,
+    ipInstanceProfileId,
+    ipInstanceProfileName,
 
     -- * ListPoliciesGrantingServiceAccessEntry
     ListPoliciesGrantingServiceAccessEntry (..),
@@ -210,16 +210,16 @@ module Network.AWS.IAM.Types
     -- * LoginProfile
     LoginProfile (..),
     mkLoginProfile,
-    lpPasswordResetRequired,
-    lpUserName,
     lpCreateDate,
+    lpUserName,
+    lpPasswordResetRequired,
 
     -- * MFADevice
     MFADevice (..),
     mkMFADevice,
     mdUserName,
-    mdSerialNumber,
     mdEnableDate,
+    mdSerialNumber,
 
     -- * ManagedPolicyDetail
     ManagedPolicyDetail (..),
@@ -291,10 +291,10 @@ module Network.AWS.IAM.Types
     PolicyGrantingServiceAccess (..),
     mkPolicyGrantingServiceAccess,
     pgsaEntityName,
-    pgsaEntityType,
-    pgsaPolicyARN,
     pgsaPolicyName,
     pgsaPolicyType,
+    pgsaEntityType,
+    pgsaPolicyARN,
 
     -- * PolicyGroup
     PolicyGroup (..),
@@ -333,25 +333,25 @@ module Network.AWS.IAM.Types
     mkResourceSpecificResult,
     rsrMatchedStatements,
     rsrEvalDecisionDetails,
+    rsrEvalResourceDecision,
+    rsrEvalResourceName,
     rsrMissingContextValues,
     rsrPermissionsBoundaryDecisionDetail,
-    rsrEvalResourceName,
-    rsrEvalResourceDecision,
 
     -- * Role
     Role (..),
     mkRole,
     rMaxSessionDuration,
     rAssumeRolePolicyDocument,
+    rARN,
+    rPath,
+    rCreateDate,
+    rRoleName,
+    rRoleId,
     rRoleLastUsed,
     rPermissionsBoundary,
     rDescription,
     rTags,
-    rPath,
-    rRoleName,
-    rRoleId,
-    rARN,
-    rCreateDate,
 
     -- * RoleDetail
     RoleDetail (..),
@@ -391,78 +391,78 @@ module Network.AWS.IAM.Types
     -- * SSHPublicKey
     SSHPublicKey (..),
     mkSSHPublicKey,
-    spkUploadDate,
-    spkUserName,
-    spkSSHPublicKeyId,
-    spkFingerprint,
-    spkSSHPublicKeyBody,
     spkStatus,
+    spkUploadDate,
+    spkFingerprint,
+    spkSSHPublicKeyId,
+    spkUserName,
+    spkSSHPublicKeyBody,
 
     -- * SSHPublicKeyMetadata
     SSHPublicKeyMetadata (..),
     mkSSHPublicKeyMetadata,
-    spkmUserName,
-    spkmSSHPublicKeyId,
     spkmStatus,
     spkmUploadDate,
+    spkmSSHPublicKeyId,
+    spkmUserName,
 
     -- * ServerCertificate
     ServerCertificate (..),
     mkServerCertificate,
-    sCertificateChain,
     sServerCertificateMetadata,
     sCertificateBody,
+    sCertificateChain,
 
     -- * ServerCertificateMetadata
     ServerCertificateMetadata (..),
     mkServerCertificateMetadata,
-    scmUploadDate,
-    scmExpiration,
-    scmPath,
     scmServerCertificateName,
+    scmUploadDate,
     scmServerCertificateId,
     scmARN,
+    scmPath,
+    scmExpiration,
 
     -- * ServiceLastAccessed
     ServiceLastAccessed (..),
     mkServiceLastAccessed,
     slaLastAuthenticated,
+    slaServiceNamespace,
     slaTrackedActionsLastAccessed,
+    slaServiceName,
     slaLastAuthenticatedEntity,
     slaLastAuthenticatedRegion,
     slaTotalAuthenticatedEntities,
-    slaServiceName,
-    slaServiceNamespace,
 
     -- * ServiceSpecificCredential
     ServiceSpecificCredential (..),
     mkServiceSpecificCredential,
+    sscStatus,
     sscCreateDate,
+    sscUserName,
     sscServiceName,
-    sscServiceUserName,
     sscServicePassword,
     sscServiceSpecificCredentialId,
-    sscUserName,
-    sscStatus,
+    sscServiceUserName,
 
     -- * ServiceSpecificCredentialMetadata
     ServiceSpecificCredentialMetadata (..),
     mkServiceSpecificCredentialMetadata,
-    sscmUserName,
     sscmStatus,
-    sscmServiceUserName,
     sscmCreateDate,
-    sscmServiceSpecificCredentialId,
+    sscmUserName,
     sscmServiceName,
+    sscmServiceSpecificCredentialId,
+    sscmServiceUserName,
 
     -- * SigningCertificate
     SigningCertificate (..),
     mkSigningCertificate,
-    scUploadDate,
-    scUserName,
-    scCertificateId,
-    scCertificateBody,
     scStatus,
+    scUploadDate,
+    scCertificateId,
+    scUserName,
+    scCertificateBody,
 
     -- * SimulatePolicyResponse
     SimulatePolicyResponse (..),
@@ -482,8 +482,8 @@ module Network.AWS.IAM.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TrackedActionLastAccessed
     TrackedActionLastAccessed (..),
@@ -497,13 +497,13 @@ module Network.AWS.IAM.Types
     User (..),
     mkUser,
     uPasswordLastUsed,
-    uPermissionsBoundary,
-    uTags,
+    uARN,
     uPath,
+    uCreateDate,
     uUserName,
     uUserId,
-    uARN,
-    uCreateDate,
+    uPermissionsBoundary,
+    uTags,
 
     -- * UserDetail
     UserDetail (..),

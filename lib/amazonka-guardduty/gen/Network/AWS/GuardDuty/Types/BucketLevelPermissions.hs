@@ -33,19 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBucketLevelPermissions' smart constructor.
 data BucketLevelPermissions = BucketLevelPermissions'
-  { accessControlList ::
-      Lude.Maybe AccessControlList,
-    blockPublicAccess ::
-      Lude.Maybe BlockPublicAccess,
+  { -- | Contains information on how Access Control Policies are applied to the bucket.
+    accessControlList :: Lude.Maybe AccessControlList,
+    -- | Contains information on which account level S3 Block Public Access settings are applied to the S3 bucket.
+    blockPublicAccess :: Lude.Maybe BlockPublicAccess,
+    -- | Contains information on the bucket policies for the S3 bucket.
     bucketPolicy :: Lude.Maybe BucketPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BucketLevelPermissions' with the minimum fields required to make a request.

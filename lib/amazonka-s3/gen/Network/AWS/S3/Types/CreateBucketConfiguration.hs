@@ -29,16 +29,10 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkCreateBucketConfiguration' smart constructor.
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
-  { locationConstraint ::
-      Lude.Maybe LocationConstraint
+  { -- | Specifies the Region where the bucket will be created. If you don't specify a Region, the bucket is created in the US East (N. Virginia) Region (us-east-1).
+    locationConstraint :: Lude.Maybe LocationConstraint
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBucketConfiguration' with the minimum fields required to make a request.

@@ -28,6 +28,7 @@ module Network.AWS.Glue.Types.Table
     tUpdateTime,
     tViewExpandedText,
     tLastAnalyzedTime,
+    tName,
     tStorageDescriptor,
     tDatabaseName,
     tParameters,
@@ -35,7 +36,6 @@ module Network.AWS.Glue.Types.Table
     tDescription,
     tPartitionKeys,
     tCreateTime,
-    tName,
   )
 where
 
@@ -49,59 +49,75 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTable' smart constructor.
 data Table = Table'
-  { retention :: Lude.Maybe Lude.Natural,
+  { -- | The retention time for this table.
+    retention :: Lude.Maybe Lude.Natural,
+    -- | A @TableIdentifier@ structure that describes a target table for resource linking.
     targetTable :: Lude.Maybe TableIdentifier,
+    -- | Indicates whether the table has been registered with AWS Lake Formation.
     isRegisteredWithLakeFormation :: Lude.Maybe Lude.Bool,
+    -- | The person or entity who created the table.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The type of this table (@EXTERNAL_TABLE@ , @VIRTUAL_VIEW@ , etc.).
     tableType :: Lude.Maybe Lude.Text,
+    -- | The ID of the Data Catalog in which the table resides.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | The owner of the table.
     owner :: Lude.Maybe Lude.Text,
+    -- | If the table is a view, the original text of the view; otherwise @null@ .
     viewOriginalText :: Lude.Maybe Lude.Text,
+    -- | The last time that the table was updated.
     updateTime :: Lude.Maybe Lude.Timestamp,
+    -- | If the table is a view, the expanded text of the view; otherwise @null@ .
     viewExpandedText :: Lude.Maybe Lude.Text,
+    -- | The last time that column statistics were computed for this table.
     lastAnalyzedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The table name. For Hive compatibility, this must be entirely lowercase.
+    name :: Lude.Text,
+    -- | A storage descriptor containing information about the physical storage of this table.
     storageDescriptor :: Lude.Maybe StorageDescriptor,
+    -- | The name of the database where the table metadata resides. For Hive compatibility, this must be all lowercase.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | These key-value pairs define properties associated with the table.
     parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The last time that the table was accessed. This is usually taken from HDFS, and might not be reliable.
     lastAccessTime :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the table.
     description :: Lude.Maybe Lude.Text,
+    -- | A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
+    --
+    -- When you create a table used by Amazon Athena, and you do not specify any @partitionKeys@ , you must at least set the value of @partitionKeys@ to an empty list. For example:
+    -- @"PartitionKeys": []@
     partitionKeys :: Lude.Maybe [Column],
-    createTime :: Lude.Maybe Lude.Timestamp,
-    name :: Lude.Text
+    -- | The time when the table definition was created in the Data Catalog.
+    createTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Table' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog in which the table resides.
--- * 'createTime' - The time when the table definition was created in the Data Catalog.
--- * 'createdBy' - The person or entity who created the table.
--- * 'databaseName' - The name of the database where the table metadata resides. For Hive compatibility, this must be all lowercase.
--- * 'description' - A description of the table.
+-- * 'retention' - The retention time for this table.
+-- * 'targetTable' - A @TableIdentifier@ structure that describes a target table for resource linking.
 -- * 'isRegisteredWithLakeFormation' - Indicates whether the table has been registered with AWS Lake Formation.
--- * 'lastAccessTime' - The last time that the table was accessed. This is usually taken from HDFS, and might not be reliable.
+-- * 'createdBy' - The person or entity who created the table.
+-- * 'tableType' - The type of this table (@EXTERNAL_TABLE@ , @VIRTUAL_VIEW@ , etc.).
+-- * 'catalogId' - The ID of the Data Catalog in which the table resides.
+-- * 'owner' - The owner of the table.
+-- * 'viewOriginalText' - If the table is a view, the original text of the view; otherwise @null@ .
+-- * 'updateTime' - The last time that the table was updated.
+-- * 'viewExpandedText' - If the table is a view, the expanded text of the view; otherwise @null@ .
 -- * 'lastAnalyzedTime' - The last time that column statistics were computed for this table.
 -- * 'name' - The table name. For Hive compatibility, this must be entirely lowercase.
--- * 'owner' - The owner of the table.
+-- * 'storageDescriptor' - A storage descriptor containing information about the physical storage of this table.
+-- * 'databaseName' - The name of the database where the table metadata resides. For Hive compatibility, this must be all lowercase.
 -- * 'parameters' - These key-value pairs define properties associated with the table.
+-- * 'lastAccessTime' - The last time that the table was accessed. This is usually taken from HDFS, and might not be reliable.
+-- * 'description' - A description of the table.
 -- * 'partitionKeys' - A list of columns by which the table is partitioned. Only primitive types are supported as partition keys.
 --
 -- When you create a table used by Amazon Athena, and you do not specify any @partitionKeys@ , you must at least set the value of @partitionKeys@ to an empty list. For example:
 -- @"PartitionKeys": []@
--- * 'retention' - The retention time for this table.
--- * 'storageDescriptor' - A storage descriptor containing information about the physical storage of this table.
--- * 'tableType' - The type of this table (@EXTERNAL_TABLE@ , @VIRTUAL_VIEW@ , etc.).
--- * 'targetTable' - A @TableIdentifier@ structure that describes a target table for resource linking.
--- * 'updateTime' - The last time that the table was updated.
--- * 'viewExpandedText' - If the table is a view, the expanded text of the view; otherwise @null@ .
--- * 'viewOriginalText' - If the table is a view, the original text of the view; otherwise @null@ .
+-- * 'createTime' - The time when the table definition was created in the Data Catalog.
 mkTable ::
   -- | 'name'
   Lude.Text ->
@@ -119,14 +135,14 @@ mkTable pName_ =
       updateTime = Lude.Nothing,
       viewExpandedText = Lude.Nothing,
       lastAnalyzedTime = Lude.Nothing,
+      name = pName_,
       storageDescriptor = Lude.Nothing,
       databaseName = Lude.Nothing,
       parameters = Lude.Nothing,
       lastAccessTime = Lude.Nothing,
       description = Lude.Nothing,
       partitionKeys = Lude.Nothing,
-      createTime = Lude.Nothing,
-      name = pName_
+      createTime = Lude.Nothing
     }
 
 -- | The retention time for this table.
@@ -206,6 +222,13 @@ tLastAnalyzedTime :: Lens.Lens' Table (Lude.Maybe Lude.Timestamp)
 tLastAnalyzedTime = Lens.lens (lastAnalyzedTime :: Table -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastAnalyzedTime = a} :: Table)
 {-# DEPRECATED tLastAnalyzedTime "Use generic-lens or generic-optics with 'lastAnalyzedTime' instead." #-}
 
+-- | The table name. For Hive compatibility, this must be entirely lowercase.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tName :: Lens.Lens' Table Lude.Text
+tName = Lens.lens (name :: Table -> Lude.Text) (\s a -> s {name = a} :: Table)
+{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | A storage descriptor containing information about the physical storage of this table.
 --
 -- /Note:/ Consider using 'storageDescriptor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -258,13 +281,6 @@ tCreateTime :: Lens.Lens' Table (Lude.Maybe Lude.Timestamp)
 tCreateTime = Lens.lens (createTime :: Table -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: Table)
 {-# DEPRECATED tCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
--- | The table name. For Hive compatibility, this must be entirely lowercase.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tName :: Lens.Lens' Table Lude.Text
-tName = Lens.lens (name :: Table -> Lude.Text) (\s a -> s {name = a} :: Table)
-{-# DEPRECATED tName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON Table where
   parseJSON =
     Lude.withObject
@@ -282,6 +298,7 @@ instance Lude.FromJSON Table where
             Lude.<*> (x Lude..:? "UpdateTime")
             Lude.<*> (x Lude..:? "ViewExpandedText")
             Lude.<*> (x Lude..:? "LastAnalyzedTime")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "StorageDescriptor")
             Lude.<*> (x Lude..:? "DatabaseName")
             Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
@@ -289,5 +306,4 @@ instance Lude.FromJSON Table where
             Lude.<*> (x Lude..:? "Description")
             Lude.<*> (x Lude..:? "PartitionKeys" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "CreateTime")
-            Lude.<*> (x Lude..: "Name")
       )

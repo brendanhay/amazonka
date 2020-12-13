@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchDeleteScheduledAction' smart constructor.
 data BatchDeleteScheduledAction = BatchDeleteScheduledAction'
-  { autoScalingGroupName ::
-      Lude.Text,
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | The names of the scheduled actions to delete. The maximum number allowed is 50.
     scheduledActionNames :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteScheduledAction' with the minimum fields required to make a request.
@@ -117,19 +113,12 @@ instance Lude.ToQuery BatchDeleteScheduledAction where
 
 -- | /See:/ 'mkBatchDeleteScheduledActionResponse' smart constructor.
 data BatchDeleteScheduledActionResponse = BatchDeleteScheduledActionResponse'
-  { failedScheduledActions ::
-      Lude.Maybe
-        [FailedScheduledUpdateGroupActionRequest],
-    responseStatus ::
-      Lude.Int
+  { -- | The names of the scheduled actions that could not be deleted, including an error message.
+    failedScheduledActions :: Lude.Maybe [FailedScheduledUpdateGroupActionRequest],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteScheduledActionResponse' with the minimum fields required to make a request.

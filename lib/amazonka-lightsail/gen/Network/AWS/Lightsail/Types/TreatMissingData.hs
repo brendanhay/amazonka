@@ -14,9 +14,9 @@ module Network.AWS.Lightsail.Types.TreatMissingData
   ( TreatMissingData
       ( TreatMissingData',
         Breaching,
+        NotBreaching,
         Ignore,
-        Missing,
-        NotBreaching
+        Missing
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype TreatMissingData = TreatMissingData' Lude.Text
 pattern Breaching :: TreatMissingData
 pattern Breaching = TreatMissingData' "breaching"
 
+pattern NotBreaching :: TreatMissingData
+pattern NotBreaching = TreatMissingData' "notBreaching"
+
 pattern Ignore :: TreatMissingData
 pattern Ignore = TreatMissingData' "ignore"
 
 pattern Missing :: TreatMissingData
 pattern Missing = TreatMissingData' "missing"
 
-pattern NotBreaching :: TreatMissingData
-pattern NotBreaching = TreatMissingData' "notBreaching"
-
 {-# COMPLETE
   Breaching,
+  NotBreaching,
   Ignore,
   Missing,
-  NotBreaching,
   TreatMissingData'
   #-}

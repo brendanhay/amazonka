@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationRecorder' smart constructor.
 data ConfigurationRecorder = ConfigurationRecorder'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the recorder. By default, AWS Config automatically assigns the name "default" when creating the configuration recorder. You cannot change the assigned name.
+    name :: Lude.Maybe Lude.Text,
+    -- | Specifies the types of AWS resources for which AWS Config records configuration changes.
     recordingGroup :: Lude.Maybe RecordingGroup,
+    -- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated with the account.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationRecorder' with the minimum fields required to make a request.

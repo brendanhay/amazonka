@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPutTargetsResultEntry' smart constructor.
 data PutTargetsResultEntry = PutTargetsResultEntry'
-  { targetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the target.
+    targetId :: Lude.Maybe Lude.Text,
+    -- | The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message that explains why the target addition failed.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutTargetsResultEntry' with the minimum fields required to make a request.
 --
+-- * 'targetId' - The ID of the target.
 -- * 'errorCode' - The error code that indicates why the target addition failed. If the value is @ConcurrentModificationException@ , too many requests were made at the same time.
 -- * 'errorMessage' - The error message that explains why the target addition failed.
--- * 'targetId' - The ID of the target.
 mkPutTargetsResultEntry ::
   PutTargetsResultEntry
 mkPutTargetsResultEntry =

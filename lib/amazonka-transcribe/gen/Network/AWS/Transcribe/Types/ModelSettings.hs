@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkModelSettings' smart constructor.
 newtype ModelSettings = ModelSettings'
-  { languageModelName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of your custom language model.
+    languageModelName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelSettings' with the minimum fields required to make a request.

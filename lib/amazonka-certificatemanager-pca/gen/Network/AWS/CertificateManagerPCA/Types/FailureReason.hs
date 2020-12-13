@@ -13,9 +13,9 @@
 module Network.AWS.CertificateManagerPCA.Types.FailureReason
   ( FailureReason
       ( FailureReason',
-        Other,
         RequestTimedOut,
-        UnsupportedAlgorithm
+        UnsupportedAlgorithm,
+        Other
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FailureReason = FailureReason' Lude.Text
       Lude.ToHeader
     )
 
-pattern Other :: FailureReason
-pattern Other = FailureReason' "OTHER"
-
 pattern RequestTimedOut :: FailureReason
 pattern RequestTimedOut = FailureReason' "REQUEST_TIMED_OUT"
 
 pattern UnsupportedAlgorithm :: FailureReason
 pattern UnsupportedAlgorithm = FailureReason' "UNSUPPORTED_ALGORITHM"
 
+pattern Other :: FailureReason
+pattern Other = FailureReason' "OTHER"
+
 {-# COMPLETE
-  Other,
   RequestTimedOut,
   UnsupportedAlgorithm,
+  Other,
   FailureReason'
   #-}

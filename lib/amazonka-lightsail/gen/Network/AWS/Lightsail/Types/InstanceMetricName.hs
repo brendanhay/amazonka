@@ -13,14 +13,14 @@
 module Network.AWS.Lightsail.Types.InstanceMetricName
   ( InstanceMetricName
       ( InstanceMetricName',
-        IMNBurstCapacityPercentage,
-        IMNBurstCapacityTime,
         IMNCPUUtilization,
         IMNNetworkIn,
         IMNNetworkOut,
         IMNStatusCheckFailed,
         IMNStatusCheckFailedInstance,
-        IMNStatusCheckFailedSystem
+        IMNStatusCheckFailedSystem,
+        IMNBurstCapacityTime,
+        IMNBurstCapacityPercentage
       ),
   )
 where
@@ -51,12 +51,6 @@ newtype InstanceMetricName = InstanceMetricName' Lude.Text
       Lude.ToHeader
     )
 
-pattern IMNBurstCapacityPercentage :: InstanceMetricName
-pattern IMNBurstCapacityPercentage = InstanceMetricName' "BurstCapacityPercentage"
-
-pattern IMNBurstCapacityTime :: InstanceMetricName
-pattern IMNBurstCapacityTime = InstanceMetricName' "BurstCapacityTime"
-
 pattern IMNCPUUtilization :: InstanceMetricName
 pattern IMNCPUUtilization = InstanceMetricName' "CPUUtilization"
 
@@ -75,14 +69,20 @@ pattern IMNStatusCheckFailedInstance = InstanceMetricName' "StatusCheckFailed_In
 pattern IMNStatusCheckFailedSystem :: InstanceMetricName
 pattern IMNStatusCheckFailedSystem = InstanceMetricName' "StatusCheckFailed_System"
 
+pattern IMNBurstCapacityTime :: InstanceMetricName
+pattern IMNBurstCapacityTime = InstanceMetricName' "BurstCapacityTime"
+
+pattern IMNBurstCapacityPercentage :: InstanceMetricName
+pattern IMNBurstCapacityPercentage = InstanceMetricName' "BurstCapacityPercentage"
+
 {-# COMPLETE
-  IMNBurstCapacityPercentage,
-  IMNBurstCapacityTime,
   IMNCPUUtilization,
   IMNNetworkIn,
   IMNNetworkOut,
   IMNStatusCheckFailed,
   IMNStatusCheckFailedInstance,
   IMNStatusCheckFailedSystem,
+  IMNBurstCapacityTime,
+  IMNBurstCapacityPercentage,
   InstanceMetricName'
   #-}

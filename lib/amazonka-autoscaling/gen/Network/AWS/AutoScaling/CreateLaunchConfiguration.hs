@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,10 +38,10 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     clcClassicLinkVPCId,
     clcIAMInstanceProfile,
     clcImageId,
+    clcLaunchConfigurationName,
     clcMetadataOptions,
     clcPlacementTenancy,
     clcBlockDeviceMappings,
-    clcLaunchConfigurationName,
 
     -- * Destructuring the response
     CreateLaunchConfigurationResponse (..),
@@ -56,81 +57,120 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateLaunchConfiguration' smart constructor.
 data CreateLaunchConfiguration = CreateLaunchConfiguration'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
-    associatePublicIPAddress ::
-      Lude.Maybe Lude.Bool,
-    securityGroups ::
-      Lude.Maybe [Lude.Text],
+  { -- | The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.
+    --
+    -- To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.
+    -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html Creating a launch configuration using an EC2 instance> in the /Amazon EC2 Auto Scaling User Guide/ .
+    -- If you do not specify @InstanceId@ , you must specify both @ImageId@ and @InstanceType@ .
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances. If you specify @true@ , each instance in the Auto Scaling group receives a unique public IP address. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+    --
+    -- If you specify this parameter, you must specify at least one subnet for @VPCZoneIdentifier@ when you create your group.
+    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    -- | A list that contains the security groups to assign to the instances in the Auto Scaling group.
+    --
+    -- [EC2-VPC] Specify the security group IDs. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+    -- [EC2-Classic] Specify either the security group names or the security group IDs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
     spotPrice :: Lude.Maybe Lude.Text,
-    instanceMonitoring ::
-      Lude.Maybe InstanceMonitoring,
+    -- | Controls whether instances in this group are launched with detailed (@true@ ) or basic (@false@ ) monitoring.
+    --
+    -- The default value is @true@ (enabled).
+    -- /Important:/ When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+    instanceMonitoring :: Lude.Maybe InstanceMonitoring,
+    -- | The name of the key pair. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in the /Amazon EC2 User Guide for Linux Instances/ .
     keyName :: Lude.Maybe Lude.Text,
-    classicLinkVPCSecurityGroups ::
-      Lude.Maybe [Lude.Text],
+    -- | The IDs of one or more security groups for the specified ClassicLink-enabled VPC. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+    --
+    -- If you specify the @ClassicLinkVPCId@ parameter, you must specify this parameter.
+    classicLinkVPCSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | The ID of the RAM disk to select.
     ramdiskId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel associated with the AMI.
     kernelId :: Lude.Maybe Lude.Text,
+    -- | Specifies the instance type of the EC2 instance.
+    --
+    -- For information about available instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types> in the /Amazon EC2 User Guide for Linux Instances./
+    -- If you do not specify @InstanceId@ , you must specify @InstanceType@ .
     instanceType :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the launch configuration is optimized for EBS I/O (@true@ ) or not (@false@ ). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
+    --
+    -- The default value is @false@ .
     ebsOptimized :: Lude.Maybe Lude.Bool,
+    -- | The Base64-encoded user data to make available to the launched EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data> in the /Amazon EC2 User Guide for Linux Instances/ .
     userData :: Lude.Maybe Lude.Text,
-    classicLinkVPCId ::
-      Lude.Maybe Lude.Text,
-    iamInstanceProfile ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+    --
+    -- This parameter can only be used if you are launching EC2-Classic instances.
+    classicLinkVPCId :: Lude.Maybe Lude.Text,
+    -- | The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+    iamInstanceProfile :: Lude.Maybe Lude.Text,
+    -- | The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon EC2 User Guide for Linux Instances/ .
+    --
+    -- If you do not specify @InstanceId@ , you must specify @ImageId@ .
     imageId :: Lude.Maybe Lude.Text,
-    metadataOptions ::
-      Lude.Maybe InstanceMetadataOptions,
-    placementTenancy ::
-      Lude.Maybe Lude.Text,
-    blockDeviceMappings ::
-      Lude.Maybe [BlockDeviceMapping],
-    launchConfigurationName :: Lude.Text
+    -- | The name of the launch configuration. This name must be unique per Region per account.
+    launchConfigurationName :: Lude.Text,
+    -- | The metadata options for the instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options> in the /Amazon EC2 Auto Scaling User Guide/ .
+    metadataOptions :: Lude.Maybe InstanceMetadataOptions,
+    -- | The tenancy of the instance. An instance with @dedicated@ tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.
+    --
+    -- To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to @default@ ), you must set the value of this parameter to @dedicated@ .
+    -- If you specify @PlacementTenancy@ , you must specify at least one subnet for @VPCZoneIdentifier@ when you create your group.
+    -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+    -- Valid Values: @default@ | @dedicated@
+    placementTenancy :: Lude.Maybe Lude.Text,
+    -- | A block device mapping, which specifies the block devices for the instance. You can specify virtual devices and EBS volumes. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /Amazon EC2 User Guide for Linux Instances/ .
+    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchConfiguration' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.
+--
+-- To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.
+-- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html Creating a launch configuration using an EC2 instance> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- If you do not specify @InstanceId@ , you must specify both @ImageId@ and @InstanceType@ .
 -- * 'associatePublicIPAddress' - For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances. If you specify @true@ , each instance in the Auto Scaling group receives a unique public IP address. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html Launching Auto Scaling instances in a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- If you specify this parameter, you must specify at least one subnet for @VPCZoneIdentifier@ when you create your group.
--- * 'blockDeviceMappings' - A block device mapping, which specifies the block devices for the instance. You can specify virtual devices and EBS volumes. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /Amazon EC2 User Guide for Linux Instances/ .
--- * 'classicLinkVPCId' - The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'securityGroups' - A list that contains the security groups to assign to the instances in the Auto Scaling group.
 --
--- This parameter can only be used if you are launching EC2-Classic instances.
+-- [EC2-VPC] Specify the security group IDs. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
+-- [EC2-Classic] Specify either the security group names or the security group IDs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'spotPrice' - The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'instanceMonitoring' - Controls whether instances in this group are launched with detailed (@true@ ) or basic (@false@ ) monitoring.
+--
+-- The default value is @true@ (enabled).
+-- /Important:/ When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'keyName' - The name of the key pair. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in the /Amazon EC2 User Guide for Linux Instances/ .
 -- * 'classicLinkVPCSecurityGroups' - The IDs of one or more security groups for the specified ClassicLink-enabled VPC. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- If you specify the @ClassicLinkVPCId@ parameter, you must specify this parameter.
+-- * 'ramdiskId' - The ID of the RAM disk to select.
+-- * 'kernelId' - The ID of the kernel associated with the AMI.
+-- * 'instanceType' - Specifies the instance type of the EC2 instance.
+--
+-- For information about available instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types> in the /Amazon EC2 User Guide for Linux Instances./
+-- If you do not specify @InstanceId@ , you must specify @InstanceType@ .
 -- * 'ebsOptimized' - Specifies whether the launch configuration is optimized for EBS I/O (@true@ ) or not (@false@ ). The optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization is not available with all instance types. Additional fees are incurred when you enable EBS optimization for an instance type that is not EBS-optimized by default. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 -- The default value is @false@ .
+-- * 'userData' - The Base64-encoded user data to make available to the launched EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'classicLinkVPCId' - The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon EC2 User Guide for Linux Instances/ and <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink Linking EC2-Classic instances to a VPC> in the /Amazon EC2 Auto Scaling User Guide/ .
+--
+-- This parameter can only be used if you are launching EC2-Classic instances.
 -- * 'iamInstanceProfile' - The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role.
 --
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html IAM role for applications that run on Amazon EC2 instances> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- * 'imageId' - The ID of the Amazon Machine Image (AMI) that was assigned during registration. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 -- If you do not specify @InstanceId@ , you must specify @ImageId@ .
--- * 'instanceId' - The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.
---
--- To create a launch configuration with a block device mapping or override any other instance attributes, specify them as part of the same request.
--- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html Creating a launch configuration using an EC2 instance> in the /Amazon EC2 Auto Scaling User Guide/ .
--- If you do not specify @InstanceId@ , you must specify both @ImageId@ and @InstanceType@ .
--- * 'instanceMonitoring' - Controls whether instances in this group are launched with detailed (@true@ ) or basic (@false@ ) monitoring.
---
--- The default value is @true@ (enabled).
--- /Important:/ When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and your account is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes. For more information, see <https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html Configure Monitoring for Auto Scaling Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'instanceType' - Specifies the instance type of the EC2 instance.
---
--- For information about available instance types, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types> in the /Amazon EC2 User Guide for Linux Instances./
--- If you do not specify @InstanceId@ , you must specify @InstanceType@ .
--- * 'kernelId' - The ID of the kernel associated with the AMI.
--- * 'keyName' - The name of the key pair. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in the /Amazon EC2 User Guide for Linux Instances/ .
 -- * 'launchConfigurationName' - The name of the launch configuration. This name must be unique per Region per account.
 -- * 'metadataOptions' - The metadata options for the instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- * 'placementTenancy' - The tenancy of the instance. An instance with @dedicated@ tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.
@@ -139,13 +179,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 -- If you specify @PlacementTenancy@ , you must specify at least one subnet for @VPCZoneIdentifier@ when you create your group.
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html Configuring instance tenancy with Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- Valid Values: @default@ | @dedicated@
--- * 'ramdiskId' - The ID of the RAM disk to select.
--- * 'securityGroups' - A list that contains the security groups to assign to the instances in the Auto Scaling group.
---
--- [EC2-VPC] Specify the security group IDs. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/ .
--- [EC2-Classic] Specify either the security group names or the security group IDs. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /Amazon EC2 User Guide for Linux Instances/ .
--- * 'spotPrice' - The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html Requesting Spot Instances> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'userData' - The Base64-encoded user data to make available to the launched EC2 instances. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'blockDeviceMappings' - A block device mapping, which specifies the block devices for the instance. You can specify virtual devices and EBS volumes. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /Amazon EC2 User Guide for Linux Instances/ .
 mkCreateLaunchConfiguration ::
   -- | 'launchConfigurationName'
   Lude.Text ->
@@ -167,10 +201,10 @@ mkCreateLaunchConfiguration pLaunchConfigurationName_ =
       classicLinkVPCId = Lude.Nothing,
       iamInstanceProfile = Lude.Nothing,
       imageId = Lude.Nothing,
+      launchConfigurationName = pLaunchConfigurationName_,
       metadataOptions = Lude.Nothing,
       placementTenancy = Lude.Nothing,
-      blockDeviceMappings = Lude.Nothing,
-      launchConfigurationName = pLaunchConfigurationName_
+      blockDeviceMappings = Lude.Nothing
     }
 
 -- | The ID of the instance to use to create the launch configuration. The new launch configuration derives attributes from the instance, except for the block device mapping.
@@ -303,6 +337,13 @@ clcImageId :: Lens.Lens' CreateLaunchConfiguration (Lude.Maybe Lude.Text)
 clcImageId = Lens.lens (imageId :: CreateLaunchConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: CreateLaunchConfiguration)
 {-# DEPRECATED clcImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
+-- | The name of the launch configuration. This name must be unique per Region per account.
+--
+-- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clcLaunchConfigurationName :: Lens.Lens' CreateLaunchConfiguration Lude.Text
+clcLaunchConfigurationName = Lens.lens (launchConfigurationName :: CreateLaunchConfiguration -> Lude.Text) (\s a -> s {launchConfigurationName = a} :: CreateLaunchConfiguration)
+{-# DEPRECATED clcLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
+
 -- | The metadata options for the instances. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds Configuring the Instance Metadata Options> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
 -- /Note:/ Consider using 'metadataOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -328,13 +369,6 @@ clcPlacementTenancy = Lens.lens (placementTenancy :: CreateLaunchConfiguration -
 clcBlockDeviceMappings :: Lens.Lens' CreateLaunchConfiguration (Lude.Maybe [BlockDeviceMapping])
 clcBlockDeviceMappings = Lens.lens (blockDeviceMappings :: CreateLaunchConfiguration -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: CreateLaunchConfiguration)
 {-# DEPRECATED clcBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
-
--- | The name of the launch configuration. This name must be unique per Region per account.
---
--- /Note:/ Consider using 'launchConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clcLaunchConfigurationName :: Lens.Lens' CreateLaunchConfiguration Lude.Text
-clcLaunchConfigurationName = Lens.lens (launchConfigurationName :: CreateLaunchConfiguration -> Lude.Text) (\s a -> s {launchConfigurationName = a} :: CreateLaunchConfiguration)
-{-# DEPRECATED clcLaunchConfigurationName "Use generic-lens or generic-optics with 'launchConfigurationName' instead." #-}
 
 instance Lude.AWSRequest CreateLaunchConfiguration where
   type
@@ -372,23 +406,17 @@ instance Lude.ToQuery CreateLaunchConfiguration where
         "ClassicLinkVPCId" Lude.=: classicLinkVPCId,
         "IamInstanceProfile" Lude.=: iamInstanceProfile,
         "ImageId" Lude.=: imageId,
+        "LaunchConfigurationName" Lude.=: launchConfigurationName,
         "MetadataOptions" Lude.=: metadataOptions,
         "PlacementTenancy" Lude.=: placementTenancy,
         "BlockDeviceMappings"
           Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> blockDeviceMappings),
-        "LaunchConfigurationName" Lude.=: launchConfigurationName
+            (Lude.toQueryList "member" Lude.<$> blockDeviceMappings)
       ]
 
 -- | /See:/ 'mkCreateLaunchConfigurationResponse' smart constructor.
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLaunchConfigurationResponse' with the minimum fields required to make a request.

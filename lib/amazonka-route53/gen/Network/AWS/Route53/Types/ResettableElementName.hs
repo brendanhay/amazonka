@@ -13,10 +13,10 @@
 module Network.AWS.Route53.Types.ResettableElementName
   ( ResettableElementName
       ( ResettableElementName',
-        ChildHealthChecks,
         FullyQualifiedDomainName,
         Regions,
-        ResourcePath
+        ResourcePath,
+        ChildHealthChecks
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype ResettableElementName = ResettableElementName' Lude.Text
       Lude.ToHeader
     )
 
-pattern ChildHealthChecks :: ResettableElementName
-pattern ChildHealthChecks = ResettableElementName' "ChildHealthChecks"
-
 pattern FullyQualifiedDomainName :: ResettableElementName
 pattern FullyQualifiedDomainName = ResettableElementName' "FullyQualifiedDomainName"
 
@@ -60,10 +57,13 @@ pattern Regions = ResettableElementName' "Regions"
 pattern ResourcePath :: ResettableElementName
 pattern ResourcePath = ResettableElementName' "ResourcePath"
 
+pattern ChildHealthChecks :: ResettableElementName
+pattern ChildHealthChecks = ResettableElementName' "ChildHealthChecks"
+
 {-# COMPLETE
-  ChildHealthChecks,
   FullyQualifiedDomainName,
   Regions,
   ResourcePath,
+  ChildHealthChecks,
   ResettableElementName'
   #-}

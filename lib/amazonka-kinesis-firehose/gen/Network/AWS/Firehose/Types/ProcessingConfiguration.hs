@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProcessingConfiguration' smart constructor.
 data ProcessingConfiguration = ProcessingConfiguration'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Enables or disables data processing.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The data processors.
     processors :: Lude.Maybe [Processor]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessingConfiguration' with the minimum fields required to make a request.

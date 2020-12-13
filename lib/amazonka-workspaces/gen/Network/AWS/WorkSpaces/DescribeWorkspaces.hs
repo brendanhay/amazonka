@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,33 +51,34 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeWorkspaces' smart constructor.
 data DescribeWorkspaces = DescribeWorkspaces'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
+    --
+    -- Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
     workspaceIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The name of the directory user. You must specify this parameter with @DirectoryId@ .
     userName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
     bundleId :: Lude.Maybe Lude.Text,
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaces' with the minimum fields required to make a request.
 --
--- * 'bundleId' - The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
 -- * 'directoryId' - The identifier of the directory. In addition, you can optionally specify a specific directory user (see @UserName@ ). You cannot combine this parameter with any other filter.
--- * 'limit' - The maximum number of items to return.
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
--- * 'userName' - The name of the directory user. You must specify this parameter with @DirectoryId@ .
 -- * 'workspaceIds' - The identifiers of the WorkSpaces. You cannot combine this parameter with any other filter.
 --
 -- Because the 'CreateWorkspaces' operation is asynchronous, the identifier it returns is not immediately available. If you immediately call 'DescribeWorkspaces' with this identifier, no information is returned.
+-- * 'userName' - The name of the directory user. You must specify this parameter with @DirectoryId@ .
+-- * 'bundleId' - The identifier of the bundle. All WorkSpaces that are created from this bundle are retrieved. You cannot combine this parameter with any other filter.
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+-- * 'limit' - The maximum number of items to return.
 mkDescribeWorkspaces ::
   DescribeWorkspaces
 mkDescribeWorkspaces =
@@ -186,27 +188,25 @@ instance Lude.ToQuery DescribeWorkspaces where
 
 -- | /See:/ 'mkDescribeWorkspacesResponse' smart constructor.
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the WorkSpaces.
+    --
+    -- Because 'CreateWorkspaces' is an asynchronous operation, some of the returned information could be incomplete.
     workspaces :: Lude.Maybe [Workspace],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspacesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
--- * 'responseStatus' - The response status code.
 -- * 'workspaces' - Information about the WorkSpaces.
 --
 -- Because 'CreateWorkspaces' is an asynchronous operation, some of the returned information could be incomplete.
+-- * 'responseStatus' - The response status code.
 mkDescribeWorkspacesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

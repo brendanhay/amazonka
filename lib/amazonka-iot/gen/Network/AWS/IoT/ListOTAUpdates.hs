@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListOTAUpdates' smart constructor.
 data ListOTAUpdates = ListOTAUpdates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token used to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The OTA update job status.
     otaUpdateStatus :: Lude.Maybe OTAUpdateStatus,
+    -- | The maximum number of results to return at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOTAUpdates' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'nextToken' - A token used to retrieve the next set of results.
 -- * 'otaUpdateStatus' - The OTA update job status.
+-- * 'maxResults' - The maximum number of results to return at one time.
 mkListOTAUpdates ::
   ListOTAUpdates
 mkListOTAUpdates =
@@ -131,18 +128,14 @@ instance Lude.ToQuery ListOTAUpdates where
 
 -- | /See:/ 'mkListOTAUpdatesResponse' smart constructor.
 data ListOTAUpdatesResponse = ListOTAUpdatesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token to use to get the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of OTA update jobs.
     otaUpdates :: Lude.Maybe [OTAUpdateSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOTAUpdatesResponse' with the minimum fields required to make a request.

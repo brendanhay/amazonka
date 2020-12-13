@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkColumnError' smart constructor.
 data ColumnError = ColumnError'
-  { error :: Lude.Maybe ErrorDetail,
+  { -- | An error message with the reason for the failure of an operation.
+    error :: Lude.Maybe ErrorDetail,
+    -- | The name of the column that failed.
     columnName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ColumnError' with the minimum fields required to make a request.
 --
--- * 'columnName' - The name of the column that failed.
 -- * 'error' - An error message with the reason for the failure of an operation.
+-- * 'columnName' - The name of the column that failed.
 mkColumnError ::
   ColumnError
 mkColumnError =

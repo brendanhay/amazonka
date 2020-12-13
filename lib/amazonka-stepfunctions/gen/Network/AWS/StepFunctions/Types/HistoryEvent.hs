@@ -41,6 +41,7 @@ module Network.AWS.StepFunctions.Types.HistoryEvent
     heTaskScheduledEventDetails,
     heActivityScheduledEventDetails,
     heExecutionStartedEventDetails,
+    heId,
     heActivityScheduleFailedEventDetails,
     heLambdaFunctionScheduleFailedEventDetails,
     heStateEnteredEventDetails,
@@ -48,11 +49,10 @@ module Network.AWS.StepFunctions.Types.HistoryEvent
     heActivityFailedEventDetails,
     heTaskFailedEventDetails,
     heLambdaFunctionFailedEventDetails,
+    heType,
     heExecutionTimedOutEventDetails,
     heMapIterationFailedEventDetails,
     heTimestamp,
-    heType,
-    heId,
   )
 where
 
@@ -93,117 +93,113 @@ import Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
 --
 -- /See:/ 'mkHistoryEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
-  { mapStateStartedEventDetails ::
-      Lude.Maybe MapStateStartedEventDetails,
-    taskSubmitFailedEventDetails ::
-      Lude.Maybe TaskSubmitFailedEventDetails,
+  { -- | Contains details about Map state that was started.
+    mapStateStartedEventDetails :: Lude.Maybe MapStateStartedEventDetails,
+    -- | Contains details about a task that where the submit failed.
+    taskSubmitFailedEventDetails :: Lude.Maybe TaskSubmitFailedEventDetails,
+    -- | Contains details about a task that was started.
     taskStartedEventDetails :: Lude.Maybe TaskStartedEventDetails,
-    activityStartedEventDetails ::
-      Lude.Maybe ActivityStartedEventDetails,
+    activityStartedEventDetails :: Lude.Maybe ActivityStartedEventDetails,
+    -- | Contains details about a submitted task.
     taskSubmittedEventDetails :: Lude.Maybe TaskSubmittedEventDetails,
-    lambdaFunctionStartFailedEventDetails ::
-      Lude.Maybe LambdaFunctionStartFailedEventDetails,
-    taskStartFailedEventDetails ::
-      Lude.Maybe TaskStartFailedEventDetails,
+    -- | Contains details about a lambda function that failed to start during an execution.
+    lambdaFunctionStartFailedEventDetails :: Lude.Maybe LambdaFunctionStartFailedEventDetails,
+    -- | Contains details about a task that failed to start.
+    taskStartFailedEventDetails :: Lude.Maybe TaskStartFailedEventDetails,
     stateExitedEventDetails :: Lude.Maybe StateExitedEventDetails,
-    lambdaFunctionSucceededEventDetails ::
-      Lude.Maybe LambdaFunctionSucceededEventDetails,
+    -- | Contains details about a lambda function that terminated successfully during an execution.
+    lambdaFunctionSucceededEventDetails :: Lude.Maybe LambdaFunctionSucceededEventDetails,
+    -- | Contains details about a task that succeeded.
     taskSucceededEventDetails :: Lude.Maybe TaskSucceededEventDetails,
-    activitySucceededEventDetails ::
-      Lude.Maybe ActivitySucceededEventDetails,
-    mapIterationAbortedEventDetails ::
-      Lude.Maybe MapIterationEventDetails,
-    mapIterationSucceededEventDetails ::
-      Lude.Maybe MapIterationEventDetails,
-    mapIterationStartedEventDetails ::
-      Lude.Maybe MapIterationEventDetails,
-    lambdaFunctionTimedOutEventDetails ::
-      Lude.Maybe LambdaFunctionTimedOutEventDetails,
+    activitySucceededEventDetails :: Lude.Maybe ActivitySucceededEventDetails,
+    -- | Contains details about an iteration of a Map state that was aborted.
+    mapIterationAbortedEventDetails :: Lude.Maybe MapIterationEventDetails,
+    -- | Contains details about an iteration of a Map state that succeeded.
+    mapIterationSucceededEventDetails :: Lude.Maybe MapIterationEventDetails,
+    -- | Contains details about an iteration of a Map state that was started.
+    mapIterationStartedEventDetails :: Lude.Maybe MapIterationEventDetails,
+    lambdaFunctionTimedOutEventDetails :: Lude.Maybe LambdaFunctionTimedOutEventDetails,
+    -- | Contains details about a task that timed out.
     taskTimedOutEventDetails :: Lude.Maybe TaskTimedOutEventDetails,
-    activityTimedOutEventDetails ::
-      Lude.Maybe ActivityTimedOutEventDetails,
-    executionFailedEventDetails ::
-      Lude.Maybe ExecutionFailedEventDetails,
-    executionAbortedEventDetails ::
-      Lude.Maybe ExecutionAbortedEventDetails,
-    executionSucceededEventDetails ::
-      Lude.Maybe ExecutionSucceededEventDetails,
-    lambdaFunctionScheduledEventDetails ::
-      Lude.Maybe LambdaFunctionScheduledEventDetails,
+    activityTimedOutEventDetails :: Lude.Maybe ActivityTimedOutEventDetails,
+    executionFailedEventDetails :: Lude.Maybe ExecutionFailedEventDetails,
+    executionAbortedEventDetails :: Lude.Maybe ExecutionAbortedEventDetails,
+    executionSucceededEventDetails :: Lude.Maybe ExecutionSucceededEventDetails,
+    lambdaFunctionScheduledEventDetails :: Lude.Maybe LambdaFunctionScheduledEventDetails,
+    -- | Contains details about a task that was scheduled.
     taskScheduledEventDetails :: Lude.Maybe TaskScheduledEventDetails,
-    activityScheduledEventDetails ::
-      Lude.Maybe ActivityScheduledEventDetails,
-    executionStartedEventDetails ::
-      Lude.Maybe ExecutionStartedEventDetails,
-    activityScheduleFailedEventDetails ::
-      Lude.Maybe ActivityScheduleFailedEventDetails,
-    lambdaFunctionScheduleFailedEventDetails ::
-      Lude.Maybe LambdaFunctionScheduleFailedEventDetails,
+    activityScheduledEventDetails :: Lude.Maybe ActivityScheduledEventDetails,
+    executionStartedEventDetails :: Lude.Maybe ExecutionStartedEventDetails,
+    -- | The id of the event. Events are numbered sequentially, starting at one.
+    id :: Lude.Integer,
+    -- | Contains details about an activity schedule event that failed during an execution.
+    activityScheduleFailedEventDetails :: Lude.Maybe ActivityScheduleFailedEventDetails,
+    lambdaFunctionScheduleFailedEventDetails :: Lude.Maybe LambdaFunctionScheduleFailedEventDetails,
     stateEnteredEventDetails :: Lude.Maybe StateEnteredEventDetails,
+    -- | The id of the previous event.
     previousEventId :: Lude.Maybe Lude.Integer,
-    activityFailedEventDetails ::
-      Lude.Maybe ActivityFailedEventDetails,
+    activityFailedEventDetails :: Lude.Maybe ActivityFailedEventDetails,
+    -- | Contains details about the failure of a task.
     taskFailedEventDetails :: Lude.Maybe TaskFailedEventDetails,
-    lambdaFunctionFailedEventDetails ::
-      Lude.Maybe LambdaFunctionFailedEventDetails,
-    executionTimedOutEventDetails ::
-      Lude.Maybe ExecutionTimedOutEventDetails,
-    mapIterationFailedEventDetails ::
-      Lude.Maybe MapIterationEventDetails,
-    timestamp :: Lude.Timestamp,
+    lambdaFunctionFailedEventDetails :: Lude.Maybe LambdaFunctionFailedEventDetails,
+    -- | The type of the event.
     type' :: HistoryEventType,
-    id :: Lude.Integer
+    executionTimedOutEventDetails :: Lude.Maybe ExecutionTimedOutEventDetails,
+    -- | Contains details about an iteration of a Map state that failed.
+    mapIterationFailedEventDetails :: Lude.Maybe MapIterationEventDetails,
+    -- | The date and time the event occurred.
+    timestamp :: Lude.Timestamp
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HistoryEvent' with the minimum fields required to make a request.
 --
--- * 'activityFailedEventDetails' - Undocumented field.
--- * 'activityScheduleFailedEventDetails' - Contains details about an activity schedule event that failed during an execution.
--- * 'activityScheduledEventDetails' - Undocumented field.
--- * 'activityStartedEventDetails' - Undocumented field.
--- * 'activitySucceededEventDetails' - Undocumented field.
--- * 'activityTimedOutEventDetails' - Undocumented field.
--- * 'executionAbortedEventDetails' - Undocumented field.
--- * 'executionFailedEventDetails' - Undocumented field.
--- * 'executionStartedEventDetails' - Undocumented field.
--- * 'executionSucceededEventDetails' - Undocumented field.
--- * 'executionTimedOutEventDetails' - Undocumented field.
--- * 'id' - The id of the event. Events are numbered sequentially, starting at one.
--- * 'lambdaFunctionFailedEventDetails' - Undocumented field.
--- * 'lambdaFunctionScheduleFailedEventDetails' - Undocumented field.
--- * 'lambdaFunctionScheduledEventDetails' - Undocumented field.
--- * 'lambdaFunctionStartFailedEventDetails' - Contains details about a lambda function that failed to start during an execution.
--- * 'lambdaFunctionSucceededEventDetails' - Contains details about a lambda function that terminated successfully during an execution.
--- * 'lambdaFunctionTimedOutEventDetails' - Undocumented field.
--- * 'mapIterationAbortedEventDetails' - Contains details about an iteration of a Map state that was aborted.
--- * 'mapIterationFailedEventDetails' - Contains details about an iteration of a Map state that failed.
--- * 'mapIterationStartedEventDetails' - Contains details about an iteration of a Map state that was started.
--- * 'mapIterationSucceededEventDetails' - Contains details about an iteration of a Map state that succeeded.
 -- * 'mapStateStartedEventDetails' - Contains details about Map state that was started.
--- * 'previousEventId' - The id of the previous event.
--- * 'stateEnteredEventDetails' - Undocumented field.
--- * 'stateExitedEventDetails' - Undocumented field.
--- * 'taskFailedEventDetails' - Contains details about the failure of a task.
--- * 'taskScheduledEventDetails' - Contains details about a task that was scheduled.
--- * 'taskStartFailedEventDetails' - Contains details about a task that failed to start.
--- * 'taskStartedEventDetails' - Contains details about a task that was started.
 -- * 'taskSubmitFailedEventDetails' - Contains details about a task that where the submit failed.
+-- * 'taskStartedEventDetails' - Contains details about a task that was started.
+-- * 'activityStartedEventDetails' -
 -- * 'taskSubmittedEventDetails' - Contains details about a submitted task.
+-- * 'lambdaFunctionStartFailedEventDetails' - Contains details about a lambda function that failed to start during an execution.
+-- * 'taskStartFailedEventDetails' - Contains details about a task that failed to start.
+-- * 'stateExitedEventDetails' -
+-- * 'lambdaFunctionSucceededEventDetails' - Contains details about a lambda function that terminated successfully during an execution.
 -- * 'taskSucceededEventDetails' - Contains details about a task that succeeded.
+-- * 'activitySucceededEventDetails' -
+-- * 'mapIterationAbortedEventDetails' - Contains details about an iteration of a Map state that was aborted.
+-- * 'mapIterationSucceededEventDetails' - Contains details about an iteration of a Map state that succeeded.
+-- * 'mapIterationStartedEventDetails' - Contains details about an iteration of a Map state that was started.
+-- * 'lambdaFunctionTimedOutEventDetails' -
 -- * 'taskTimedOutEventDetails' - Contains details about a task that timed out.
--- * 'timestamp' - The date and time the event occurred.
+-- * 'activityTimedOutEventDetails' -
+-- * 'executionFailedEventDetails' -
+-- * 'executionAbortedEventDetails' -
+-- * 'executionSucceededEventDetails' -
+-- * 'lambdaFunctionScheduledEventDetails' -
+-- * 'taskScheduledEventDetails' - Contains details about a task that was scheduled.
+-- * 'activityScheduledEventDetails' -
+-- * 'executionStartedEventDetails' -
+-- * 'id' - The id of the event. Events are numbered sequentially, starting at one.
+-- * 'activityScheduleFailedEventDetails' - Contains details about an activity schedule event that failed during an execution.
+-- * 'lambdaFunctionScheduleFailedEventDetails' -
+-- * 'stateEnteredEventDetails' -
+-- * 'previousEventId' - The id of the previous event.
+-- * 'activityFailedEventDetails' -
+-- * 'taskFailedEventDetails' - Contains details about the failure of a task.
+-- * 'lambdaFunctionFailedEventDetails' -
 -- * 'type'' - The type of the event.
+-- * 'executionTimedOutEventDetails' -
+-- * 'mapIterationFailedEventDetails' - Contains details about an iteration of a Map state that failed.
+-- * 'timestamp' - The date and time the event occurred.
 mkHistoryEvent ::
-  -- | 'timestamp'
-  Lude.Timestamp ->
-  -- | 'type''
-  HistoryEventType ->
   -- | 'id'
   Lude.Integer ->
+  -- | 'type''
+  HistoryEventType ->
+  -- | 'timestamp'
+  Lude.Timestamp ->
   HistoryEvent
-mkHistoryEvent pTimestamp_ pType_ pId_ =
+mkHistoryEvent pId_ pType_ pTimestamp_ =
   HistoryEvent'
     { mapStateStartedEventDetails = Lude.Nothing,
       taskSubmitFailedEventDetails = Lude.Nothing,
@@ -229,6 +225,7 @@ mkHistoryEvent pTimestamp_ pType_ pId_ =
       taskScheduledEventDetails = Lude.Nothing,
       activityScheduledEventDetails = Lude.Nothing,
       executionStartedEventDetails = Lude.Nothing,
+      id = pId_,
       activityScheduleFailedEventDetails = Lude.Nothing,
       lambdaFunctionScheduleFailedEventDetails = Lude.Nothing,
       stateEnteredEventDetails = Lude.Nothing,
@@ -236,11 +233,10 @@ mkHistoryEvent pTimestamp_ pType_ pId_ =
       activityFailedEventDetails = Lude.Nothing,
       taskFailedEventDetails = Lude.Nothing,
       lambdaFunctionFailedEventDetails = Lude.Nothing,
+      type' = pType_,
       executionTimedOutEventDetails = Lude.Nothing,
       mapIterationFailedEventDetails = Lude.Nothing,
-      timestamp = pTimestamp_,
-      type' = pType_,
-      id = pId_
+      timestamp = pTimestamp_
     }
 
 -- | Contains details about Map state that was started.
@@ -411,6 +407,13 @@ heExecutionStartedEventDetails :: Lens.Lens' HistoryEvent (Lude.Maybe ExecutionS
 heExecutionStartedEventDetails = Lens.lens (executionStartedEventDetails :: HistoryEvent -> Lude.Maybe ExecutionStartedEventDetails) (\s a -> s {executionStartedEventDetails = a} :: HistoryEvent)
 {-# DEPRECATED heExecutionStartedEventDetails "Use generic-lens or generic-optics with 'executionStartedEventDetails' instead." #-}
 
+-- | The id of the event. Events are numbered sequentially, starting at one.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heId :: Lens.Lens' HistoryEvent Lude.Integer
+heId = Lens.lens (id :: HistoryEvent -> Lude.Integer) (\s a -> s {id = a} :: HistoryEvent)
+{-# DEPRECATED heId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 -- | Contains details about an activity schedule event that failed during an execution.
 --
 -- /Note:/ Consider using 'activityScheduleFailedEventDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -460,6 +463,13 @@ heLambdaFunctionFailedEventDetails :: Lens.Lens' HistoryEvent (Lude.Maybe Lambda
 heLambdaFunctionFailedEventDetails = Lens.lens (lambdaFunctionFailedEventDetails :: HistoryEvent -> Lude.Maybe LambdaFunctionFailedEventDetails) (\s a -> s {lambdaFunctionFailedEventDetails = a} :: HistoryEvent)
 {-# DEPRECATED heLambdaFunctionFailedEventDetails "Use generic-lens or generic-optics with 'lambdaFunctionFailedEventDetails' instead." #-}
 
+-- | The type of the event.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+heType :: Lens.Lens' HistoryEvent HistoryEventType
+heType = Lens.lens (type' :: HistoryEvent -> HistoryEventType) (\s a -> s {type' = a} :: HistoryEvent)
+{-# DEPRECATED heType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'executionTimedOutEventDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -480,20 +490,6 @@ heMapIterationFailedEventDetails = Lens.lens (mapIterationFailedEventDetails :: 
 heTimestamp :: Lens.Lens' HistoryEvent Lude.Timestamp
 heTimestamp = Lens.lens (timestamp :: HistoryEvent -> Lude.Timestamp) (\s a -> s {timestamp = a} :: HistoryEvent)
 {-# DEPRECATED heTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
-
--- | The type of the event.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heType :: Lens.Lens' HistoryEvent HistoryEventType
-heType = Lens.lens (type' :: HistoryEvent -> HistoryEventType) (\s a -> s {type' = a} :: HistoryEvent)
-{-# DEPRECATED heType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The id of the event. Events are numbered sequentially, starting at one.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heId :: Lens.Lens' HistoryEvent Lude.Integer
-heId = Lens.lens (id :: HistoryEvent -> Lude.Integer) (\s a -> s {id = a} :: HistoryEvent)
-{-# DEPRECATED heId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.FromJSON HistoryEvent where
   parseJSON =
@@ -525,6 +521,7 @@ instance Lude.FromJSON HistoryEvent where
             Lude.<*> (x Lude..:? "taskScheduledEventDetails")
             Lude.<*> (x Lude..:? "activityScheduledEventDetails")
             Lude.<*> (x Lude..:? "executionStartedEventDetails")
+            Lude.<*> (x Lude..: "id")
             Lude.<*> (x Lude..:? "activityScheduleFailedEventDetails")
             Lude.<*> (x Lude..:? "lambdaFunctionScheduleFailedEventDetails")
             Lude.<*> (x Lude..:? "stateEnteredEventDetails")
@@ -532,9 +529,8 @@ instance Lude.FromJSON HistoryEvent where
             Lude.<*> (x Lude..:? "activityFailedEventDetails")
             Lude.<*> (x Lude..:? "taskFailedEventDetails")
             Lude.<*> (x Lude..:? "lambdaFunctionFailedEventDetails")
+            Lude.<*> (x Lude..: "type")
             Lude.<*> (x Lude..:? "executionTimedOutEventDetails")
             Lude.<*> (x Lude..:? "mapIterationFailedEventDetails")
             Lude.<*> (x Lude..: "timestamp")
-            Lude.<*> (x Lude..: "type")
-            Lude.<*> (x Lude..: "id")
       )

@@ -17,9 +17,9 @@ module Network.AWS.EMR.Types.Command
     mkCommand,
 
     -- * Lenses
-    comArgs,
-    comScriptPath,
-    comName,
+    cArgs,
+    cScriptPath,
+    cName,
   )
 where
 
@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCommand' smart constructor.
 data Command = Command'
-  { args :: Lude.Maybe [Lude.Text],
+  { -- | Arguments for Amazon EMR to pass to the command for execution.
+    args :: Lude.Maybe [Lude.Text],
+    -- | The Amazon S3 location of the command script.
     scriptPath :: Lude.Maybe Lude.Text,
+    -- | The name of the command.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
 -- * 'args' - Arguments for Amazon EMR to pass to the command for execution.
--- * 'name' - The name of the command.
 -- * 'scriptPath' - The Amazon S3 location of the command script.
+-- * 'name' - The name of the command.
 mkCommand ::
   Command
 mkCommand =
@@ -60,23 +57,23 @@ mkCommand =
 -- | Arguments for Amazon EMR to pass to the command for execution.
 --
 -- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-comArgs :: Lens.Lens' Command (Lude.Maybe [Lude.Text])
-comArgs = Lens.lens (args :: Command -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: Command)
-{-# DEPRECATED comArgs "Use generic-lens or generic-optics with 'args' instead." #-}
+cArgs :: Lens.Lens' Command (Lude.Maybe [Lude.Text])
+cArgs = Lens.lens (args :: Command -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: Command)
+{-# DEPRECATED cArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | The Amazon S3 location of the command script.
 --
 -- /Note:/ Consider using 'scriptPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-comScriptPath :: Lens.Lens' Command (Lude.Maybe Lude.Text)
-comScriptPath = Lens.lens (scriptPath :: Command -> Lude.Maybe Lude.Text) (\s a -> s {scriptPath = a} :: Command)
-{-# DEPRECATED comScriptPath "Use generic-lens or generic-optics with 'scriptPath' instead." #-}
+cScriptPath :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cScriptPath = Lens.lens (scriptPath :: Command -> Lude.Maybe Lude.Text) (\s a -> s {scriptPath = a} :: Command)
+{-# DEPRECATED cScriptPath "Use generic-lens or generic-optics with 'scriptPath' instead." #-}
 
 -- | The name of the command.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-comName :: Lens.Lens' Command (Lude.Maybe Lude.Text)
-comName = Lens.lens (name :: Command -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Command)
-{-# DEPRECATED comName "Use generic-lens or generic-optics with 'name' instead." #-}
+cName :: Lens.Lens' Command (Lude.Maybe Lude.Text)
+cName = Lens.lens (name :: Command -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Command)
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.FromJSON Command where
   parseJSON =

@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAttachedDisk' smart constructor.
 data AttachedDisk = AttachedDisk'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path of the disk (e.g., @/dev/xvdf@ ).
+    path :: Lude.Maybe Lude.Text,
+    -- | The size of the disk in GB.
     sizeInGb :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachedDisk' with the minimum fields required to make a request.

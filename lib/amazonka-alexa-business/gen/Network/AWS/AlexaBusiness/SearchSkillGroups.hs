@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,27 +48,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSearchSkillGroups' smart constructor.
 data SearchSkillGroups = SearchSkillGroups'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters to use to list a specified set of skill groups. The supported filter key is SkillGroupName.
+    filters :: Lude.Maybe [Filter],
+    -- | The sort order to use in listing the specified set of skill groups. The supported sort key is SkillGroupName.
     sortCriteria :: Lude.Maybe [Sort],
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchSkillGroups' with the minimum fields required to make a request.
 --
 -- * 'filters' - The filters to use to list a specified set of skill groups. The supported filter key is SkillGroupName.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
 -- * 'sortCriteria' - The sort order to use in listing the specified set of skill groups. The supported sort key is SkillGroupName.
+-- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ . Required.
+-- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 mkSearchSkillGroups ::
   SearchSkillGroups
 mkSearchSkillGroups =
@@ -158,28 +156,24 @@ instance Lude.ToQuery SearchSkillGroups where
 
 -- | /See:/ 'mkSearchSkillGroupsResponse' smart constructor.
 data SearchSkillGroupsResponse = SearchSkillGroupsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    skillGroups ::
-      Lude.Maybe [SkillGroupData],
+  { -- | The token returned to indicate that there is more data available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The skill groups that meet the filter criteria, in sort order.
+    skillGroups :: Lude.Maybe [SkillGroupData],
+    -- | The total number of skill groups returned.
     totalCount :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchSkillGroupsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token returned to indicate that there is more data available.
--- * 'responseStatus' - The response status code.
 -- * 'skillGroups' - The skill groups that meet the filter criteria, in sort order.
 -- * 'totalCount' - The total number of skill groups returned.
+-- * 'responseStatus' - The response status code.
 mkSearchSkillGroupsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLayer' smart constructor.
 data Layer = Layer'
-  { signingProfileVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for a signing profile version.
+    signingProfileVersionARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the function layer.
     arn :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of a signing job.
     signingJobARN :: Lude.Maybe Lude.Text,
+    -- | The size of the layer archive in bytes.
     codeSize :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the function layer.
--- * 'codeSize' - The size of the layer archive in bytes.
--- * 'signingJobARN' - The Amazon Resource Name (ARN) of a signing job.
 -- * 'signingProfileVersionARN' - The Amazon Resource Name (ARN) for a signing profile version.
+-- * 'arn' - The Amazon Resource Name (ARN) of the function layer.
+-- * 'signingJobARN' - The Amazon Resource Name (ARN) of a signing job.
+-- * 'codeSize' - The size of the layer archive in bytes.
 mkLayer ::
   Layer
 mkLayer =

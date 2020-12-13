@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.IoT.CreateBillingGroup
 
     -- ** Request lenses
     cbgBillingGroupProperties,
-    cbgTags,
     cbgBillingGroupName,
+    cbgTags,
 
     -- * Destructuring the response
     CreateBillingGroupResponse (..),
@@ -43,24 +44,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateBillingGroup' smart constructor.
 data CreateBillingGroup = CreateBillingGroup'
-  { billingGroupProperties ::
-      Lude.Maybe BillingGroupProperties,
-    tags :: Lude.Maybe [Tag],
-    billingGroupName :: Lude.Text
+  { -- | The properties of the billing group.
+    billingGroupProperties :: Lude.Maybe BillingGroupProperties,
+    -- | The name you wish to give to the billing group.
+    billingGroupName :: Lude.Text,
+    -- | Metadata which can be used to manage the billing group.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBillingGroup' with the minimum fields required to make a request.
 --
--- * 'billingGroupName' - The name you wish to give to the billing group.
 -- * 'billingGroupProperties' - The properties of the billing group.
+-- * 'billingGroupName' - The name you wish to give to the billing group.
 -- * 'tags' - Metadata which can be used to manage the billing group.
 mkCreateBillingGroup ::
   -- | 'billingGroupName'
@@ -69,8 +66,8 @@ mkCreateBillingGroup ::
 mkCreateBillingGroup pBillingGroupName_ =
   CreateBillingGroup'
     { billingGroupProperties = Lude.Nothing,
-      tags = Lude.Nothing,
-      billingGroupName = pBillingGroupName_
+      billingGroupName = pBillingGroupName_,
+      tags = Lude.Nothing
     }
 
 -- | The properties of the billing group.
@@ -80,19 +77,19 @@ cbgBillingGroupProperties :: Lens.Lens' CreateBillingGroup (Lude.Maybe BillingGr
 cbgBillingGroupProperties = Lens.lens (billingGroupProperties :: CreateBillingGroup -> Lude.Maybe BillingGroupProperties) (\s a -> s {billingGroupProperties = a} :: CreateBillingGroup)
 {-# DEPRECATED cbgBillingGroupProperties "Use generic-lens or generic-optics with 'billingGroupProperties' instead." #-}
 
--- | Metadata which can be used to manage the billing group.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgTags :: Lens.Lens' CreateBillingGroup (Lude.Maybe [Tag])
-cbgTags = Lens.lens (tags :: CreateBillingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateBillingGroup)
-{-# DEPRECATED cbgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name you wish to give to the billing group.
 --
 -- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbgBillingGroupName :: Lens.Lens' CreateBillingGroup Lude.Text
 cbgBillingGroupName = Lens.lens (billingGroupName :: CreateBillingGroup -> Lude.Text) (\s a -> s {billingGroupName = a} :: CreateBillingGroup)
 {-# DEPRECATED cbgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
+
+-- | Metadata which can be used to manage the billing group.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbgTags :: Lens.Lens' CreateBillingGroup (Lude.Maybe [Tag])
+cbgTags = Lens.lens (tags :: CreateBillingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateBillingGroup)
+{-# DEPRECATED cbgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateBillingGroup where
   type Rs CreateBillingGroup = CreateBillingGroupResponse
@@ -129,28 +126,23 @@ instance Lude.ToQuery CreateBillingGroup where
 
 -- | /See:/ 'mkCreateBillingGroupResponse' smart constructor.
 data CreateBillingGroupResponse = CreateBillingGroupResponse'
-  { billingGroupARN ::
-      Lude.Maybe Lude.Text,
-    billingGroupName ::
-      Lude.Maybe Lude.Text,
-    billingGroupId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the billing group.
+    billingGroupARN :: Lude.Maybe Lude.Text,
+    -- | The name you gave to the billing group.
+    billingGroupName :: Lude.Maybe Lude.Text,
+    -- | The ID of the billing group.
+    billingGroupId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateBillingGroupResponse' with the minimum fields required to make a request.
 --
 -- * 'billingGroupARN' - The ARN of the billing group.
--- * 'billingGroupId' - The ID of the billing group.
 -- * 'billingGroupName' - The name you gave to the billing group.
+-- * 'billingGroupId' - The ID of the billing group.
 -- * 'responseStatus' - The response status code.
 mkCreateBillingGroupResponse ::
   -- | 'responseStatus'

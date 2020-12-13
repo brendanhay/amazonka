@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AutoScaling.DetachLoadBalancerTargetGroups
     mkDetachLoadBalancerTargetGroups,
 
     -- ** Request lenses
-    dlbtgAutoScalingGroupName,
-    dlbtgTargetGroupARNs,
+    dTargetGroupARNs,
+    dAutoScalingGroupName,
 
     -- * Destructuring the response
     DetachLoadBalancerTargetGroupsResponse (..),
@@ -39,48 +40,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachLoadBalancerTargetGroups' smart constructor.
 data DetachLoadBalancerTargetGroups = DetachLoadBalancerTargetGroups'
-  { autoScalingGroupName ::
-      Lude.Text,
-    targetGroupARNs ::
-      [Lude.Text]
+  { -- | The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
+    targetGroupARNs :: [Lude.Text],
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachLoadBalancerTargetGroups' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkDetachLoadBalancerTargetGroups ::
   -- | 'autoScalingGroupName'
   Lude.Text ->
   DetachLoadBalancerTargetGroups
 mkDetachLoadBalancerTargetGroups pAutoScalingGroupName_ =
   DetachLoadBalancerTargetGroups'
-    { autoScalingGroupName =
-        pAutoScalingGroupName_,
-      targetGroupARNs = Lude.mempty
+    { targetGroupARNs = Lude.mempty,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
-
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbtgAutoScalingGroupName :: Lens.Lens' DetachLoadBalancerTargetGroups Lude.Text
-dlbtgAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DetachLoadBalancerTargetGroups -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DetachLoadBalancerTargetGroups)
-{-# DEPRECATED dlbtgAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target groups.
 --
 -- /Note:/ Consider using 'targetGroupARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbtgTargetGroupARNs :: Lens.Lens' DetachLoadBalancerTargetGroups [Lude.Text]
-dlbtgTargetGroupARNs = Lens.lens (targetGroupARNs :: DetachLoadBalancerTargetGroups -> [Lude.Text]) (\s a -> s {targetGroupARNs = a} :: DetachLoadBalancerTargetGroups)
-{-# DEPRECATED dlbtgTargetGroupARNs "Use generic-lens or generic-optics with 'targetGroupARNs' instead." #-}
+dTargetGroupARNs :: Lens.Lens' DetachLoadBalancerTargetGroups [Lude.Text]
+dTargetGroupARNs = Lens.lens (targetGroupARNs :: DetachLoadBalancerTargetGroups -> [Lude.Text]) (\s a -> s {targetGroupARNs = a} :: DetachLoadBalancerTargetGroups)
+{-# DEPRECATED dTargetGroupARNs "Use generic-lens or generic-optics with 'targetGroupARNs' instead." #-}
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAutoScalingGroupName :: Lens.Lens' DetachLoadBalancerTargetGroups Lude.Text
+dAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DetachLoadBalancerTargetGroups -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DetachLoadBalancerTargetGroups)
+{-# DEPRECATED dAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 instance Lude.AWSRequest DetachLoadBalancerTargetGroups where
   type
@@ -107,23 +101,17 @@ instance Lude.ToQuery DetachLoadBalancerTargetGroups where
       [ "Action"
           Lude.=: ("DetachLoadBalancerTargetGroups" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "TargetGroupARNs"
-          Lude.=: Lude.toQueryList "member" targetGroupARNs
+          Lude.=: Lude.toQueryList "member" targetGroupARNs,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'mkDetachLoadBalancerTargetGroupsResponse' smart constructor.
 newtype DetachLoadBalancerTargetGroupsResponse = DetachLoadBalancerTargetGroupsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachLoadBalancerTargetGroupsResponse' with the minimum fields required to make a request.

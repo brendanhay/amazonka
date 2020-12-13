@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.IAM.CreateServiceLinkedRole
 
     -- ** Request lenses
     cslrCustomSuffix,
-    cslrDescription,
     cslrAWSServiceName,
+    cslrDescription,
 
     -- * Destructuring the response
     CreateServiceLinkedRoleResponse (..),
@@ -43,29 +44,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateServiceLinkedRole' smart constructor.
 data CreateServiceLinkedRole = CreateServiceLinkedRole'
-  { customSuffix ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    awsServiceName :: Lude.Text
+  { -- |
+    --
+    -- A string that you provide, which is combined with the service-provided prefix to form the complete role name. If you make multiple requests for the same service, then you must supply a different @CustomSuffix@ for each request. Otherwise the request fails with a duplicate role name error. For example, you could add @-1@ or @-debug@ to the suffix.
+    -- Some services do not support the @CustomSuffix@ parameter. If you provide an optional suffix and the operation fails, try the operation again without the suffix.
+    customSuffix :: Lude.Maybe Lude.Text,
+    -- | The service principal for the AWS service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: @elasticbeanstalk.amazonaws.com@ .
+    --
+    -- Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS Services That Work with IAM> in the /IAM User Guide/ . Look for the services that have __Yes __ in the __Service-Linked Role__ column. Choose the __Yes__ link to view the service-linked role documentation for that service.
+    awsServiceName :: Lude.Text,
+    -- | The description of the role.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateServiceLinkedRole' with the minimum fields required to make a request.
 --
--- * 'awsServiceName' - The service principal for the AWS service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: @elasticbeanstalk.amazonaws.com@ .
---
--- Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS Services That Work with IAM> in the /IAM User Guide/ . Look for the services that have __Yes __ in the __Service-Linked Role__ column. Choose the __Yes__ link to view the service-linked role documentation for that service.
 -- * 'customSuffix' -
 --
 -- A string that you provide, which is combined with the service-provided prefix to form the complete role name. If you make multiple requests for the same service, then you must supply a different @CustomSuffix@ for each request. Otherwise the request fails with a duplicate role name error. For example, you could add @-1@ or @-debug@ to the suffix.
 -- Some services do not support the @CustomSuffix@ parameter. If you provide an optional suffix and the operation fails, try the operation again without the suffix.
+-- * 'awsServiceName' - The service principal for the AWS service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: @elasticbeanstalk.amazonaws.com@ .
+--
+-- Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS Services That Work with IAM> in the /IAM User Guide/ . Look for the services that have __Yes __ in the __Service-Linked Role__ column. Choose the __Yes__ link to view the service-linked role documentation for that service.
 -- * 'description' - The description of the role.
 mkCreateServiceLinkedRole ::
   -- | 'awsServiceName'
@@ -74,8 +76,8 @@ mkCreateServiceLinkedRole ::
 mkCreateServiceLinkedRole pAWSServiceName_ =
   CreateServiceLinkedRole'
     { customSuffix = Lude.Nothing,
-      description = Lude.Nothing,
-      awsServiceName = pAWSServiceName_
+      awsServiceName = pAWSServiceName_,
+      description = Lude.Nothing
     }
 
 -- |
@@ -88,13 +90,6 @@ cslrCustomSuffix :: Lens.Lens' CreateServiceLinkedRole (Lude.Maybe Lude.Text)
 cslrCustomSuffix = Lens.lens (customSuffix :: CreateServiceLinkedRole -> Lude.Maybe Lude.Text) (\s a -> s {customSuffix = a} :: CreateServiceLinkedRole)
 {-# DEPRECATED cslrCustomSuffix "Use generic-lens or generic-optics with 'customSuffix' instead." #-}
 
--- | The description of the role.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cslrDescription :: Lens.Lens' CreateServiceLinkedRole (Lude.Maybe Lude.Text)
-cslrDescription = Lens.lens (description :: CreateServiceLinkedRole -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateServiceLinkedRole)
-{-# DEPRECATED cslrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The service principal for the AWS service to which this role is attached. You use a string similar to a URL but without the http:// in front. For example: @elasticbeanstalk.amazonaws.com@ .
 --
 -- Service principals are unique and case-sensitive. To find the exact service principal for your service-linked role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html AWS Services That Work with IAM> in the /IAM User Guide/ . Look for the services that have __Yes __ in the __Service-Linked Role__ column. Choose the __Yes__ link to view the service-linked role documentation for that service.
@@ -103,6 +98,13 @@ cslrDescription = Lens.lens (description :: CreateServiceLinkedRole -> Lude.Mayb
 cslrAWSServiceName :: Lens.Lens' CreateServiceLinkedRole Lude.Text
 cslrAWSServiceName = Lens.lens (awsServiceName :: CreateServiceLinkedRole -> Lude.Text) (\s a -> s {awsServiceName = a} :: CreateServiceLinkedRole)
 {-# DEPRECATED cslrAWSServiceName "Use generic-lens or generic-optics with 'awsServiceName' instead." #-}
+
+-- | The description of the role.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cslrDescription :: Lens.Lens' CreateServiceLinkedRole (Lude.Maybe Lude.Text)
+cslrDescription = Lens.lens (description :: CreateServiceLinkedRole -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateServiceLinkedRole)
+{-# DEPRECATED cslrDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest CreateServiceLinkedRole where
   type Rs CreateServiceLinkedRole = CreateServiceLinkedRoleResponse
@@ -127,29 +129,24 @@ instance Lude.ToQuery CreateServiceLinkedRole where
       [ "Action" Lude.=: ("CreateServiceLinkedRole" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
         "CustomSuffix" Lude.=: customSuffix,
-        "Description" Lude.=: description,
-        "AWSServiceName" Lude.=: awsServiceName
+        "AWSServiceName" Lude.=: awsServiceName,
+        "Description" Lude.=: description
       ]
 
 -- | /See:/ 'mkCreateServiceLinkedRoleResponse' smart constructor.
 data CreateServiceLinkedRoleResponse = CreateServiceLinkedRoleResponse'
-  { role' ::
-      Lude.Maybe Role,
+  { -- | A 'Role' object that contains details about the newly created role.
+    role' :: Lude.Maybe Role,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateServiceLinkedRoleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'role'' - A 'Role' object that contains details about the newly created role.
+-- * 'responseStatus' - The response status code.
 mkCreateServiceLinkedRoleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

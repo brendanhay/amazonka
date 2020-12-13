@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.CloudHSM.DeleteHSM
     mkDeleteHSMResponse,
 
     -- ** Response lenses
-    dhsmrsResponseStatus,
     dhsmrsStatus,
+    dhsmrsResponseStatus,
   )
 where
 
@@ -43,14 +44,11 @@ import qualified Network.AWS.Response as Res
 -- | Contains the inputs for the 'DeleteHsm' operation.
 --
 -- /See:/ 'mkDeleteHSM' smart constructor.
-newtype DeleteHSM = DeleteHSM' {hsmARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteHSM = DeleteHSM'
+  { -- | The ARN of the HSM to delete.
+    hsmARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSM' with the minimum fields required to make a request.
@@ -76,7 +74,7 @@ instance Lude.AWSRequest DeleteHSM where
     Res.receiveJSON
       ( \s h x ->
           DeleteHSMResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Status")
+            Lude.<$> (x Lude..:> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteHSM where
@@ -105,41 +103,29 @@ instance Lude.ToQuery DeleteHSM where
 --
 -- /See:/ 'mkDeleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-  { responseStatus ::
-      Lude.Int,
-    status :: Lude.Text
+  { -- | The status of the operation.
+    status :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the operation.
+-- * 'responseStatus' - The response status code.
 mkDeleteHSMResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'status'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteHSMResponse
-mkDeleteHSMResponse pResponseStatus_ pStatus_ =
+mkDeleteHSMResponse pStatus_ pResponseStatus_ =
   DeleteHSMResponse'
-    { responseStatus = pResponseStatus_,
-      status = pStatus_
+    { status = pStatus_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhsmrsResponseStatus :: Lens.Lens' DeleteHSMResponse Lude.Int
-dhsmrsResponseStatus = Lens.lens (responseStatus :: DeleteHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHSMResponse)
-{-# DEPRECATED dhsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the operation.
 --
@@ -147,3 +133,10 @@ dhsmrsResponseStatus = Lens.lens (responseStatus :: DeleteHSMResponse -> Lude.In
 dhsmrsStatus :: Lens.Lens' DeleteHSMResponse Lude.Text
 dhsmrsStatus = Lens.lens (status :: DeleteHSMResponse -> Lude.Text) (\s a -> s {status = a} :: DeleteHSMResponse)
 {-# DEPRECATED dhsmrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhsmrsResponseStatus :: Lens.Lens' DeleteHSMResponse Lude.Int
+dhsmrsResponseStatus = Lens.lens (responseStatus :: DeleteHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHSMResponse)
+{-# DEPRECATED dhsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

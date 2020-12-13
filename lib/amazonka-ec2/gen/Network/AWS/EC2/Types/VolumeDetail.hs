@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes an EBS volume.
 --
 -- /See:/ 'mkVolumeDetail' smart constructor.
-newtype VolumeDetail = VolumeDetail' {size :: Lude.Integer}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype VolumeDetail = VolumeDetail'
+  { -- | The size of the volume, in GiB.
+    size :: Lude.Integer
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeDetail' with the minimum fields required to make a request.

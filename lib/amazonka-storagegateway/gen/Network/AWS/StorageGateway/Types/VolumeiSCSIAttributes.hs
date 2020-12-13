@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeiSCSIAttributes' smart constructor.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
-  { lunNumber ::
-      Lude.Maybe Lude.Natural,
+  { -- | The logical disk number.
+    lunNumber :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) of the volume target.
     targetARN :: Lude.Maybe Lude.Text,
+    -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
     chapEnabled :: Lude.Maybe Lude.Bool,
+    -- | The network interface identifier.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The port used to communicate with iSCSI targets.
     networkInterfacePort :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeiSCSIAttributes' with the minimum fields required to make a request.
 --
--- * 'chapEnabled' - Indicates whether mutual CHAP is enabled for the iSCSI target.
 -- * 'lunNumber' - The logical disk number.
+-- * 'targetARN' - The Amazon Resource Name (ARN) of the volume target.
+-- * 'chapEnabled' - Indicates whether mutual CHAP is enabled for the iSCSI target.
 -- * 'networkInterfaceId' - The network interface identifier.
 -- * 'networkInterfacePort' - The port used to communicate with iSCSI targets.
--- * 'targetARN' - The Amazon Resource Name (ARN) of the volume target.
 mkVolumeiSCSIAttributes ::
   VolumeiSCSIAttributes
 mkVolumeiSCSIAttributes =

@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
   ( HlsInitializationVectorInManifest
       ( HlsInitializationVectorInManifest',
-        HIVIMExclude,
-        HIVIMInclude
+        HIVIMInclude,
+        HIVIMExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype HlsInitializationVectorInManifest = HlsInitializationVectorInManifest' L
       Lude.ToHeader
     )
 
-pattern HIVIMExclude :: HlsInitializationVectorInManifest
-pattern HIVIMExclude = HlsInitializationVectorInManifest' "EXCLUDE"
-
 pattern HIVIMInclude :: HlsInitializationVectorInManifest
 pattern HIVIMInclude = HlsInitializationVectorInManifest' "INCLUDE"
 
+pattern HIVIMExclude :: HlsInitializationVectorInManifest
+pattern HIVIMExclude = HlsInitializationVectorInManifest' "EXCLUDE"
+
 {-# COMPLETE
-  HIVIMExclude,
   HIVIMInclude,
+  HIVIMExclude,
   HlsInitializationVectorInManifest'
   #-}

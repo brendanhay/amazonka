@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CostExplorer.CreateAnomalySubscription
     mkCreateAnomalySubscriptionResponse,
 
     -- ** Response lenses
-    casrsResponseStatus,
     casrsSubscriptionARN,
+    casrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAnomalySubscription' smart constructor.
 newtype CreateAnomalySubscription = CreateAnomalySubscription'
-  { anomalySubscription ::
-      AnomalySubscription
+  { -- | The cost anomaly subscription object that you want to create.
+    anomalySubscription :: AnomalySubscription
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAnomalySubscription' with the minimum fields required to make a request.
@@ -80,8 +75,8 @@ instance Lude.AWSRequest CreateAnomalySubscription where
     Res.receiveJSON
       ( \s h x ->
           CreateAnomalySubscriptionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "SubscriptionArn")
+            Lude.<$> (x Lude..:> "SubscriptionArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateAnomalySubscription where
@@ -112,45 +107,32 @@ instance Lude.ToQuery CreateAnomalySubscription where
 
 -- | /See:/ 'mkCreateAnomalySubscriptionResponse' smart constructor.
 data CreateAnomalySubscriptionResponse = CreateAnomalySubscriptionResponse'
-  { responseStatus ::
-      Lude.Int,
-    subscriptionARN ::
-      Lude.Text
+  { -- | The unique identifier of your newly created cost anomaly subscription.
+    subscriptionARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAnomalySubscriptionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'subscriptionARN' - The unique identifier of your newly created cost anomaly subscription.
+-- * 'responseStatus' - The response status code.
 mkCreateAnomalySubscriptionResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'subscriptionARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateAnomalySubscriptionResponse
 mkCreateAnomalySubscriptionResponse
-  pResponseStatus_
-  pSubscriptionARN_ =
+  pSubscriptionARN_
+  pResponseStatus_ =
     CreateAnomalySubscriptionResponse'
-      { responseStatus =
-          pResponseStatus_,
-        subscriptionARN = pSubscriptionARN_
+      { subscriptionARN =
+          pSubscriptionARN_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casrsResponseStatus :: Lens.Lens' CreateAnomalySubscriptionResponse Lude.Int
-casrsResponseStatus = Lens.lens (responseStatus :: CreateAnomalySubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAnomalySubscriptionResponse)
-{-# DEPRECATED casrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The unique identifier of your newly created cost anomaly subscription.
 --
@@ -158,3 +140,10 @@ casrsResponseStatus = Lens.lens (responseStatus :: CreateAnomalySubscriptionResp
 casrsSubscriptionARN :: Lens.Lens' CreateAnomalySubscriptionResponse Lude.Text
 casrsSubscriptionARN = Lens.lens (subscriptionARN :: CreateAnomalySubscriptionResponse -> Lude.Text) (\s a -> s {subscriptionARN = a} :: CreateAnomalySubscriptionResponse)
 {-# DEPRECATED casrsSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casrsResponseStatus :: Lens.Lens' CreateAnomalySubscriptionResponse Lude.Int
+casrsResponseStatus = Lens.lens (responseStatus :: CreateAnomalySubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAnomalySubscriptionResponse)
+{-# DEPRECATED casrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

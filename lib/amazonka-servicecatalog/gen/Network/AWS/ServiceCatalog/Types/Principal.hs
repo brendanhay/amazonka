@@ -30,23 +30,18 @@ import Network.AWS.ServiceCatalog.Types.PrincipalType
 --
 -- /See:/ 'mkPrincipal' smart constructor.
 data Principal = Principal'
-  { principalType ::
-      Lude.Maybe PrincipalType,
+  { -- | The principal type. The supported value is @IAM@ .
+    principalType :: Lude.Maybe PrincipalType,
+    -- | The ARN of the principal (IAM user, role, or group).
     principalARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Principal' with the minimum fields required to make a request.
 --
--- * 'principalARN' - The ARN of the principal (IAM user, role, or group).
 -- * 'principalType' - The principal type. The supported value is @IAM@ .
+-- * 'principalARN' - The ARN of the principal (IAM user, role, or group).
 mkPrincipal ::
   Principal
 mkPrincipal =

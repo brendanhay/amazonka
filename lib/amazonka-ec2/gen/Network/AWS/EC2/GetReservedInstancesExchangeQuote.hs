@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EC2.GetReservedInstancesExchangeQuote
     mkGetReservedInstancesExchangeQuote,
 
     -- ** Request lenses
+    grieqReservedInstanceIds,
     grieqTargetConfigurations,
     grieqDryRun,
-    grieqReservedInstanceIds,
 
     -- * Destructuring the response
     GetReservedInstancesExchangeQuoteResponse (..),
@@ -51,37 +52,37 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetReservedInstancesExchangeQuote' smart constructor.
 data GetReservedInstancesExchangeQuote = GetReservedInstancesExchangeQuote'
-  { targetConfigurations ::
-      Lude.Maybe
-        [TargetConfigurationRequest],
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    reservedInstanceIds ::
-      [Lude.Text]
+  { -- | The IDs of the Convertible Reserved Instances to exchange.
+    reservedInstanceIds :: [Lude.Text],
+    -- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
+    targetConfigurations :: Lude.Maybe [TargetConfigurationRequest],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservedInstancesExchangeQuote' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'reservedInstanceIds' - The IDs of the Convertible Reserved Instances to exchange.
 -- * 'targetConfigurations' - The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkGetReservedInstancesExchangeQuote ::
   GetReservedInstancesExchangeQuote
 mkGetReservedInstancesExchangeQuote =
   GetReservedInstancesExchangeQuote'
-    { targetConfigurations =
-        Lude.Nothing,
-      dryRun = Lude.Nothing,
-      reservedInstanceIds = Lude.mempty
+    { reservedInstanceIds =
+        Lude.mempty,
+      targetConfigurations = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
+
+-- | The IDs of the Convertible Reserved Instances to exchange.
+--
+-- /Note:/ Consider using 'reservedInstanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grieqReservedInstanceIds :: Lens.Lens' GetReservedInstancesExchangeQuote [Lude.Text]
+grieqReservedInstanceIds = Lens.lens (reservedInstanceIds :: GetReservedInstancesExchangeQuote -> [Lude.Text]) (\s a -> s {reservedInstanceIds = a} :: GetReservedInstancesExchangeQuote)
+{-# DEPRECATED grieqReservedInstanceIds "Use generic-lens or generic-optics with 'reservedInstanceIds' instead." #-}
 
 -- | The configuration of the target Convertible Reserved Instance to exchange for your current Convertible Reserved Instances.
 --
@@ -96,13 +97,6 @@ grieqTargetConfigurations = Lens.lens (targetConfigurations :: GetReservedInstan
 grieqDryRun :: Lens.Lens' GetReservedInstancesExchangeQuote (Lude.Maybe Lude.Bool)
 grieqDryRun = Lens.lens (dryRun :: GetReservedInstancesExchangeQuote -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetReservedInstancesExchangeQuote)
 {-# DEPRECATED grieqDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The IDs of the Convertible Reserved Instances to exchange.
---
--- /Note:/ Consider using 'reservedInstanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grieqReservedInstanceIds :: Lens.Lens' GetReservedInstancesExchangeQuote [Lude.Text]
-grieqReservedInstanceIds = Lens.lens (reservedInstanceIds :: GetReservedInstancesExchangeQuote -> [Lude.Text]) (\s a -> s {reservedInstanceIds = a} :: GetReservedInstancesExchangeQuote)
-{-# DEPRECATED grieqReservedInstanceIds "Use generic-lens or generic-optics with 'reservedInstanceIds' instead." #-}
 
 instance Lude.AWSRequest GetReservedInstancesExchangeQuote where
   type
@@ -141,69 +135,54 @@ instance Lude.ToQuery GetReservedInstancesExchangeQuote where
       [ "Action"
           Lude.=: ("GetReservedInstancesExchangeQuote" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        Lude.toQueryList "ReservedInstanceId" reservedInstanceIds,
         Lude.toQuery
           ( Lude.toQueryList "TargetConfiguration"
               Lude.<$> targetConfigurations
           ),
-        "DryRun" Lude.=: dryRun,
-        Lude.toQueryList "ReservedInstanceId" reservedInstanceIds
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of GetReservedInstancesExchangeQuote.
 --
 -- /See:/ 'mkGetReservedInstancesExchangeQuoteResponse' smart constructor.
 data GetReservedInstancesExchangeQuoteResponse = GetReservedInstancesExchangeQuoteResponse'
-  { validationFailureReason ::
-      Lude.Maybe
-        Lude.Text,
-    targetConfigurationValueRollup ::
-      Lude.Maybe
-        ReservationValue,
-    currencyCode ::
-      Lude.Maybe
-        Lude.Text,
-    targetConfigurationValueSet ::
-      Lude.Maybe
-        [TargetReservationValue],
-    reservedInstanceValueRollup ::
-      Lude.Maybe
-        ReservationValue,
-    outputReservedInstancesWillExpireAt ::
-      Lude.Maybe
-        Lude.DateTime,
-    reservedInstanceValueSet ::
-      Lude.Maybe
-        [ReservedInstanceReservationValue],
-    isValidExchange ::
-      Lude.Maybe
-        Lude.Bool,
-    paymentDue ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Describes the reason why the exchange cannot be completed.
+    validationFailureReason :: Lude.Maybe Lude.Text,
+    -- | The cost associated with the Reserved Instance.
+    targetConfigurationValueRollup :: Lude.Maybe ReservationValue,
+    -- | The currency of the transaction.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | The values of the target Convertible Reserved Instances.
+    targetConfigurationValueSet :: Lude.Maybe [TargetReservationValue],
+    -- | The cost associated with the Reserved Instance.
+    reservedInstanceValueRollup :: Lude.Maybe ReservationValue,
+    -- | The new end date of the reservation term.
+    outputReservedInstancesWillExpireAt :: Lude.Maybe Lude.DateTime,
+    -- | The configuration of your Convertible Reserved Instances.
+    reservedInstanceValueSet :: Lude.Maybe [ReservedInstanceReservationValue],
+    -- | If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
+    isValidExchange :: Lude.Maybe Lude.Bool,
+    -- | The total true upfront charge for the exchange.
+    paymentDue :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReservedInstancesExchangeQuoteResponse' with the minimum fields required to make a request.
 --
--- * 'currencyCode' - The currency of the transaction.
--- * 'isValidExchange' - If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
--- * 'outputReservedInstancesWillExpireAt' - The new end date of the reservation term.
--- * 'paymentDue' - The total true upfront charge for the exchange.
--- * 'reservedInstanceValueRollup' - The cost associated with the Reserved Instance.
--- * 'reservedInstanceValueSet' - The configuration of your Convertible Reserved Instances.
--- * 'responseStatus' - The response status code.
--- * 'targetConfigurationValueRollup' - The cost associated with the Reserved Instance.
--- * 'targetConfigurationValueSet' - The values of the target Convertible Reserved Instances.
 -- * 'validationFailureReason' - Describes the reason why the exchange cannot be completed.
+-- * 'targetConfigurationValueRollup' - The cost associated with the Reserved Instance.
+-- * 'currencyCode' - The currency of the transaction.
+-- * 'targetConfigurationValueSet' - The values of the target Convertible Reserved Instances.
+-- * 'reservedInstanceValueRollup' - The cost associated with the Reserved Instance.
+-- * 'outputReservedInstancesWillExpireAt' - The new end date of the reservation term.
+-- * 'reservedInstanceValueSet' - The configuration of your Convertible Reserved Instances.
+-- * 'isValidExchange' - If @true@ , the exchange is valid. If @false@ , the exchange cannot be completed.
+-- * 'paymentDue' - The total true upfront charge for the exchange.
+-- * 'responseStatus' - The response status code.
 mkGetReservedInstancesExchangeQuoteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
-  { thingTypeName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the thing type, if the thing has been associated with a type.
+    thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The thing ARN.
     thingARN :: Lude.Maybe Lude.Text,
+    -- | A list of thing attributes which are name-value pairs.
     attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The version of the thing record in the registry.
     version :: Lude.Maybe Lude.Integer,
+    -- | The name of the thing.
     thingName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingAttribute' with the minimum fields required to make a request.
 --
--- * 'attributes' - A list of thing attributes which are name-value pairs.
--- * 'thingARN' - The thing ARN.
--- * 'thingName' - The name of the thing.
 -- * 'thingTypeName' - The name of the thing type, if the thing has been associated with a type.
+-- * 'thingARN' - The thing ARN.
+-- * 'attributes' - A list of thing attributes which are name-value pairs.
 -- * 'version' - The version of the thing record in the registry.
+-- * 'thingName' - The name of the thing.
 mkThingAttribute ::
   ThingAttribute
 mkThingAttribute =

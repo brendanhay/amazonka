@@ -29,19 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScte35SpliceInsertScheduleActionSettings' smart constructor.
 data Scte35SpliceInsertScheduleActionSettings = Scte35SpliceInsertScheduleActionSettings'
-  { duration ::
-      Lude.Maybe
-        Lude.Natural,
-    spliceEventId ::
-      Lude.Natural
+  { -- | Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
+    duration :: Lude.Maybe Lude.Natural,
+    -- | The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
+    spliceEventId :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Scte35SpliceInsertScheduleActionSettings' with the minimum fields required to make a request.

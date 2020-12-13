@@ -32,11 +32,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserStackAssociationError' smart constructor.
 data UserStackAssociationError = UserStackAssociationError'
-  { userStackAssociation ::
-      Lude.Maybe UserStackAssociation,
-    errorCode ::
-      Lude.Maybe
-        UserStackAssociationErrorCode,
+  { -- | Information about the user and associated stack.
+    userStackAssociation :: Lude.Maybe UserStackAssociation,
+    -- | The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.
+    errorCode :: Lude.Maybe UserStackAssociationErrorCode,
+    -- | The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.
     errorMessage :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -44,9 +44,9 @@ data UserStackAssociationError = UserStackAssociationError'
 
 -- | Creates a value of 'UserStackAssociationError' with the minimum fields required to make a request.
 --
+-- * 'userStackAssociation' - Information about the user and associated stack.
 -- * 'errorCode' - The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.
 -- * 'errorMessage' - The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.
--- * 'userStackAssociation' - Information about the user and associated stack.
 mkUserStackAssociationError ::
   UserStackAssociationError
 mkUserStackAssociationError =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.DeleteTrafficMirrorFilter
     mkDeleteTrafficMirrorFilter,
 
     -- ** Request lenses
-    dtmftDryRun,
-    dtmftTrafficMirrorFilterId,
+    dtmffTrafficMirrorFilterId,
+    dtmffDryRun,
 
     -- * Destructuring the response
     DeleteTrafficMirrorFilterResponse (..),
@@ -42,46 +43,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTrafficMirrorFilter' smart constructor.
 data DeleteTrafficMirrorFilter = DeleteTrafficMirrorFilter'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    trafficMirrorFilterId :: Lude.Text
+  { -- | The ID of the Traffic Mirror filter.
+    trafficMirrorFilterId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficMirrorFilter' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteTrafficMirrorFilter ::
   -- | 'trafficMirrorFilterId'
   Lude.Text ->
   DeleteTrafficMirrorFilter
 mkDeleteTrafficMirrorFilter pTrafficMirrorFilterId_ =
   DeleteTrafficMirrorFilter'
-    { dryRun = Lude.Nothing,
-      trafficMirrorFilterId = pTrafficMirrorFilterId_
+    { trafficMirrorFilterId =
+        pTrafficMirrorFilterId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmftDryRun :: Lens.Lens' DeleteTrafficMirrorFilter (Lude.Maybe Lude.Bool)
-dtmftDryRun = Lens.lens (dryRun :: DeleteTrafficMirrorFilter -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTrafficMirrorFilter)
-{-# DEPRECATED dtmftDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Traffic Mirror filter.
 --
 -- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmftTrafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilter Lude.Text
-dtmftTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: DeleteTrafficMirrorFilter -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: DeleteTrafficMirrorFilter)
-{-# DEPRECATED dtmftTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
+dtmffTrafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilter Lude.Text
+dtmffTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: DeleteTrafficMirrorFilter -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: DeleteTrafficMirrorFilter)
+{-# DEPRECATED dtmffTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmffDryRun :: Lens.Lens' DeleteTrafficMirrorFilter (Lude.Maybe Lude.Bool)
+dtmffDryRun = Lens.lens (dryRun :: DeleteTrafficMirrorFilter -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTrafficMirrorFilter)
+{-# DEPRECATED dtmffDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteTrafficMirrorFilter where
   type
@@ -107,30 +104,24 @@ instance Lude.ToQuery DeleteTrafficMirrorFilter where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteTrafficMirrorFilter" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId
+        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteTrafficMirrorFilterResponse' smart constructor.
 data DeleteTrafficMirrorFilterResponse = DeleteTrafficMirrorFilterResponse'
-  { trafficMirrorFilterId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the Traffic Mirror filter.
+    trafficMirrorFilterId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTrafficMirrorFilterResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
+-- * 'responseStatus' - The response status code.
 mkDeleteTrafficMirrorFilterResponse ::
   -- | 'responseStatus'
   Lude.Int ->

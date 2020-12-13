@@ -14,8 +14,8 @@ module Network.AWS.Lightsail.Types.RelationalDatabasePasswordVersion
   ( RelationalDatabasePasswordVersion
       ( RelationalDatabasePasswordVersion',
         RDPVCurrent,
-        RDPVPending,
-        RDPVPrevious
+        RDPVPrevious,
+        RDPVPending
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype RelationalDatabasePasswordVersion = RelationalDatabasePasswordVersion' L
 pattern RDPVCurrent :: RelationalDatabasePasswordVersion
 pattern RDPVCurrent = RelationalDatabasePasswordVersion' "CURRENT"
 
-pattern RDPVPending :: RelationalDatabasePasswordVersion
-pattern RDPVPending = RelationalDatabasePasswordVersion' "PENDING"
-
 pattern RDPVPrevious :: RelationalDatabasePasswordVersion
 pattern RDPVPrevious = RelationalDatabasePasswordVersion' "PREVIOUS"
 
+pattern RDPVPending :: RelationalDatabasePasswordVersion
+pattern RDPVPending = RelationalDatabasePasswordVersion' "PENDING"
+
 {-# COMPLETE
   RDPVCurrent,
-  RDPVPending,
   RDPVPrevious,
+  RDPVPending,
   RelationalDatabasePasswordVersion'
   #-}

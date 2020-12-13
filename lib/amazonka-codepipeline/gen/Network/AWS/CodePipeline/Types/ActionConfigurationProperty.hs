@@ -18,12 +18,12 @@ module Network.AWS.CodePipeline.Types.ActionConfigurationProperty
 
     -- * Lenses
     acpQueryable,
-    acpType,
-    acpDescription,
-    acpName,
+    acpSecret,
     acpRequired,
     acpKey,
-    acpSecret,
+    acpName,
+    acpType,
+    acpDescription,
   )
 where
 
@@ -35,58 +35,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionConfigurationProperty' smart constructor.
 data ActionConfigurationProperty = ActionConfigurationProperty'
-  { queryable ::
-      Lude.Maybe Lude.Bool,
-    type' ::
-      Lude.Maybe
-        ActionConfigurationPropertyType,
-    description :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
+  { -- | Indicates that the property is used with @PollForJobs@ . When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.
+    --
+    -- If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
+    queryable :: Lude.Maybe Lude.Bool,
+    -- | Whether the configuration property is secret. Secrets are hidden from all calls except for @GetJobDetails@ , @GetThirdPartyJobDetails@ , @PollForJobs@ , and @PollForThirdPartyJobs@ .
+    --
+    -- When updating a pipeline, passing * * * * * without changing any other values of the action preserves the previous value of the secret.
+    secret :: Lude.Bool,
+    -- | Whether the configuration property is a required value.
     required :: Lude.Bool,
+    -- | Whether the configuration property is a key.
     key :: Lude.Bool,
-    secret :: Lude.Bool
+    -- | The name of the action configuration property.
+    name :: Lude.Text,
+    -- | The type of the configuration property.
+    type' :: Lude.Maybe ActionConfigurationPropertyType,
+    -- | The description of the action configuration property that is displayed to users.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionConfigurationProperty' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the action configuration property that is displayed to users.
--- * 'key' - Whether the configuration property is a key.
--- * 'name' - The name of the action configuration property.
 -- * 'queryable' - Indicates that the property is used with @PollForJobs@ . When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.
 --
 -- If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
--- * 'required' - Whether the configuration property is a required value.
 -- * 'secret' - Whether the configuration property is secret. Secrets are hidden from all calls except for @GetJobDetails@ , @GetThirdPartyJobDetails@ , @PollForJobs@ , and @PollForThirdPartyJobs@ .
 --
 -- When updating a pipeline, passing * * * * * without changing any other values of the action preserves the previous value of the secret.
+-- * 'required' - Whether the configuration property is a required value.
+-- * 'key' - Whether the configuration property is a key.
+-- * 'name' - The name of the action configuration property.
 -- * 'type'' - The type of the configuration property.
+-- * 'description' - The description of the action configuration property that is displayed to users.
 mkActionConfigurationProperty ::
-  -- | 'name'
-  Lude.Text ->
+  -- | 'secret'
+  Lude.Bool ->
   -- | 'required'
   Lude.Bool ->
   -- | 'key'
   Lude.Bool ->
-  -- | 'secret'
-  Lude.Bool ->
+  -- | 'name'
+  Lude.Text ->
   ActionConfigurationProperty
-mkActionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
+mkActionConfigurationProperty pSecret_ pRequired_ pKey_ pName_ =
   ActionConfigurationProperty'
     { queryable = Lude.Nothing,
-      type' = Lude.Nothing,
-      description = Lude.Nothing,
-      name = pName_,
+      secret = pSecret_,
       required = pRequired_,
       key = pKey_,
-      secret = pSecret_
+      name = pName_,
+      type' = Lude.Nothing,
+      description = Lude.Nothing
     }
 
 -- | Indicates that the property is used with @PollForJobs@ . When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.
@@ -98,26 +100,14 @@ acpQueryable :: Lens.Lens' ActionConfigurationProperty (Lude.Maybe Lude.Bool)
 acpQueryable = Lens.lens (queryable :: ActionConfigurationProperty -> Lude.Maybe Lude.Bool) (\s a -> s {queryable = a} :: ActionConfigurationProperty)
 {-# DEPRECATED acpQueryable "Use generic-lens or generic-optics with 'queryable' instead." #-}
 
--- | The type of the configuration property.
+-- | Whether the configuration property is secret. Secrets are hidden from all calls except for @GetJobDetails@ , @GetThirdPartyJobDetails@ , @PollForJobs@ , and @PollForThirdPartyJobs@ .
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acpType :: Lens.Lens' ActionConfigurationProperty (Lude.Maybe ActionConfigurationPropertyType)
-acpType = Lens.lens (type' :: ActionConfigurationProperty -> Lude.Maybe ActionConfigurationPropertyType) (\s a -> s {type' = a} :: ActionConfigurationProperty)
-{-# DEPRECATED acpType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The description of the action configuration property that is displayed to users.
+-- When updating a pipeline, passing * * * * * without changing any other values of the action preserves the previous value of the secret.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acpDescription :: Lens.Lens' ActionConfigurationProperty (Lude.Maybe Lude.Text)
-acpDescription = Lens.lens (description :: ActionConfigurationProperty -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ActionConfigurationProperty)
-{-# DEPRECATED acpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the action configuration property.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acpName :: Lens.Lens' ActionConfigurationProperty Lude.Text
-acpName = Lens.lens (name :: ActionConfigurationProperty -> Lude.Text) (\s a -> s {name = a} :: ActionConfigurationProperty)
-{-# DEPRECATED acpName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'secret' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acpSecret :: Lens.Lens' ActionConfigurationProperty Lude.Bool
+acpSecret = Lens.lens (secret :: ActionConfigurationProperty -> Lude.Bool) (\s a -> s {secret = a} :: ActionConfigurationProperty)
+{-# DEPRECATED acpSecret "Use generic-lens or generic-optics with 'secret' instead." #-}
 
 -- | Whether the configuration property is a required value.
 --
@@ -133,14 +123,26 @@ acpKey :: Lens.Lens' ActionConfigurationProperty Lude.Bool
 acpKey = Lens.lens (key :: ActionConfigurationProperty -> Lude.Bool) (\s a -> s {key = a} :: ActionConfigurationProperty)
 {-# DEPRECATED acpKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | Whether the configuration property is secret. Secrets are hidden from all calls except for @GetJobDetails@ , @GetThirdPartyJobDetails@ , @PollForJobs@ , and @PollForThirdPartyJobs@ .
+-- | The name of the action configuration property.
 --
--- When updating a pipeline, passing * * * * * without changing any other values of the action preserves the previous value of the secret.
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acpName :: Lens.Lens' ActionConfigurationProperty Lude.Text
+acpName = Lens.lens (name :: ActionConfigurationProperty -> Lude.Text) (\s a -> s {name = a} :: ActionConfigurationProperty)
+{-# DEPRECATED acpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The type of the configuration property.
 --
--- /Note:/ Consider using 'secret' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acpSecret :: Lens.Lens' ActionConfigurationProperty Lude.Bool
-acpSecret = Lens.lens (secret :: ActionConfigurationProperty -> Lude.Bool) (\s a -> s {secret = a} :: ActionConfigurationProperty)
-{-# DEPRECATED acpSecret "Use generic-lens or generic-optics with 'secret' instead." #-}
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acpType :: Lens.Lens' ActionConfigurationProperty (Lude.Maybe ActionConfigurationPropertyType)
+acpType = Lens.lens (type' :: ActionConfigurationProperty -> Lude.Maybe ActionConfigurationPropertyType) (\s a -> s {type' = a} :: ActionConfigurationProperty)
+{-# DEPRECATED acpType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The description of the action configuration property that is displayed to users.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acpDescription :: Lens.Lens' ActionConfigurationProperty (Lude.Maybe Lude.Text)
+acpDescription = Lens.lens (description :: ActionConfigurationProperty -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ActionConfigurationProperty)
+{-# DEPRECATED acpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.FromJSON ActionConfigurationProperty where
   parseJSON =
@@ -149,12 +151,12 @@ instance Lude.FromJSON ActionConfigurationProperty where
       ( \x ->
           ActionConfigurationProperty'
             Lude.<$> (x Lude..:? "queryable")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..: "name")
+            Lude.<*> (x Lude..: "secret")
             Lude.<*> (x Lude..: "required")
             Lude.<*> (x Lude..: "key")
-            Lude.<*> (x Lude..: "secret")
+            Lude.<*> (x Lude..: "name")
+            Lude.<*> (x Lude..:? "type")
+            Lude.<*> (x Lude..:? "description")
       )
 
 instance Lude.ToJSON ActionConfigurationProperty where
@@ -162,11 +164,11 @@ instance Lude.ToJSON ActionConfigurationProperty where
     Lude.object
       ( Lude.catMaybes
           [ ("queryable" Lude..=) Lude.<$> queryable,
-            ("type" Lude..=) Lude.<$> type',
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("name" Lude..= name),
+            Lude.Just ("secret" Lude..= secret),
             Lude.Just ("required" Lude..= required),
             Lude.Just ("key" Lude..= key),
-            Lude.Just ("secret" Lude..= secret)
+            Lude.Just ("name" Lude..= name),
+            ("type" Lude..=) Lude.<$> type',
+            ("description" Lude..=) Lude.<$> description
           ]
       )

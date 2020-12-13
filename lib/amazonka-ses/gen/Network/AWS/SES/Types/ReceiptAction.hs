@@ -43,33 +43,33 @@ import Network.AWS.SES.Types.WorkmailAction
 --
 -- /See:/ 'mkReceiptAction' smart constructor.
 data ReceiptAction = ReceiptAction'
-  { addHeaderAction ::
-      Lude.Maybe AddHeaderAction,
+  { -- | Adds a header to the received email.
+    addHeaderAction :: Lude.Maybe AddHeaderAction,
+    -- | Publishes the email content within a notification to Amazon SNS.
     snsAction :: Lude.Maybe SNSAction,
+    -- | Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
     workmailAction :: Lude.Maybe WorkmailAction,
+    -- | Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
     bounceAction :: Lude.Maybe BounceAction,
+    -- | Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
     lambdaAction :: Lude.Maybe LambdaAction,
+    -- | Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
     stopAction :: Lude.Maybe StopAction,
+    -- | Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
     s3Action :: Lude.Maybe S3Action
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReceiptAction' with the minimum fields required to make a request.
 --
 -- * 'addHeaderAction' - Adds a header to the received email.
+-- * 'snsAction' - Publishes the email content within a notification to Amazon SNS.
+-- * 'workmailAction' - Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
 -- * 'bounceAction' - Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).
 -- * 'lambdaAction' - Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
--- * 's3Action' - Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
--- * 'snsAction' - Publishes the email content within a notification to Amazon SNS.
 -- * 'stopAction' - Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
--- * 'workmailAction' - Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.
+-- * 's3Action' - Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.
 mkReceiptAction ::
   ReceiptAction
 mkReceiptAction =

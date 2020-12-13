@@ -17,8 +17,8 @@ module Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
     mkCognitoOptionsStatus,
 
     -- * Lenses
-    cosOptions,
     cosStatus,
+    cosOptions,
   )
 where
 
@@ -31,38 +31,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCognitoOptionsStatus' smart constructor.
 data CognitoOptionsStatus = CognitoOptionsStatus'
-  { options ::
-      CognitoOptions,
-    status :: OptionStatus
+  { -- | Specifies the status of the Cognito options for the specified Elasticsearch domain.
+    status :: OptionStatus,
+    -- | Specifies the Cognito options for the specified Elasticsearch domain.
+    options :: CognitoOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoOptionsStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Specifies the Cognito options for the specified Elasticsearch domain.
 -- * 'status' - Specifies the status of the Cognito options for the specified Elasticsearch domain.
+-- * 'options' - Specifies the Cognito options for the specified Elasticsearch domain.
 mkCognitoOptionsStatus ::
-  -- | 'options'
-  CognitoOptions ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  CognitoOptions ->
   CognitoOptionsStatus
-mkCognitoOptionsStatus pOptions_ pStatus_ =
-  CognitoOptionsStatus' {options = pOptions_, status = pStatus_}
-
--- | Specifies the Cognito options for the specified Elasticsearch domain.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cosOptions :: Lens.Lens' CognitoOptionsStatus CognitoOptions
-cosOptions = Lens.lens (options :: CognitoOptionsStatus -> CognitoOptions) (\s a -> s {options = a} :: CognitoOptionsStatus)
-{-# DEPRECATED cosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkCognitoOptionsStatus pStatus_ pOptions_ =
+  CognitoOptionsStatus' {status = pStatus_, options = pOptions_}
 
 -- | Specifies the status of the Cognito options for the specified Elasticsearch domain.
 --
@@ -71,11 +59,18 @@ cosStatus :: Lens.Lens' CognitoOptionsStatus OptionStatus
 cosStatus = Lens.lens (status :: CognitoOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: CognitoOptionsStatus)
 {-# DEPRECATED cosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Specifies the Cognito options for the specified Elasticsearch domain.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cosOptions :: Lens.Lens' CognitoOptionsStatus CognitoOptions
+cosOptions = Lens.lens (options :: CognitoOptionsStatus -> CognitoOptions) (\s a -> s {options = a} :: CognitoOptionsStatus)
+{-# DEPRECATED cosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromJSON CognitoOptionsStatus where
   parseJSON =
     Lude.withObject
       "CognitoOptionsStatus"
       ( \x ->
           CognitoOptionsStatus'
-            Lude.<$> (x Lude..: "Options") Lude.<*> (x Lude..: "Status")
+            Lude.<$> (x Lude..: "Status") Lude.<*> (x Lude..: "Options")
       )

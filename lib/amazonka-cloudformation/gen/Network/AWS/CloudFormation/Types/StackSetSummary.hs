@@ -39,29 +39,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackSetSummary' smart constructor.
 data StackSetSummary = StackSetSummary'
-  { status ::
-      Lude.Maybe StackSetStatus,
+  { -- | The status of the stack set.
+    status :: Lude.Maybe StackSetStatus,
+    -- | Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
     lastDriftCheckTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
     autoDeployment :: Lude.Maybe AutoDeployment,
+    -- | Status of the stack set's actual configuration compared to its expected template and parameter configuration. A stack set is considered to have drifted if one or more of its stack instances have drifted from their expected template and parameter configuration.
+    --
+    --
+    --     * @DRIFTED@ : One or more of the stack instances belonging to the stack set stack differs from the expected template and parameter configuration. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
+    --
+    --
+    --     * @NOT_CHECKED@ : AWS CloudFormation has not checked the stack set for drift.
+    --
+    --
+    --     * @IN_SYNC@ : All of the stack instances belonging to the stack set stack match from the expected template and parameter configuration.
+    --
+    --
+    --     * @UNKNOWN@ : This value is reserved for future use.
     driftStatus :: Lude.Maybe StackDriftStatus,
+    -- | Describes how the IAM roles required for stack set operations are created.
+    --
+    --
+    --     * With @self-managed@ permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions> .
+    --
+    --
+    --     * With @service-managed@ permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions> .
     permissionModel :: Lude.Maybe PermissionModels,
+    -- | The name of the stack set.
     stackSetName :: Lude.Maybe Lude.Text,
+    -- | A description of the stack set that you specify when the stack set is created or updated.
     description :: Lude.Maybe Lude.Text,
+    -- | The ID of the stack set.
     stackSetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackSetSummary' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the stack set.
+-- * 'lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
 -- * 'autoDeployment' - [@Service-managed@ permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).
--- * 'description' - A description of the stack set that you specify when the stack set is created or updated.
 -- * 'driftStatus' - Status of the stack set's actual configuration compared to its expected template and parameter configuration. A stack set is considered to have drifted if one or more of its stack instances have drifted from their expected template and parameter configuration.
 --
 --
@@ -77,7 +97,6 @@ data StackSetSummary = StackSetSummary'
 --     * @UNKNOWN@ : This value is reserved for future use.
 --
 --
--- * 'lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be @NULL@ for any stack set on which drift detection has not yet been performed.
 -- * 'permissionModel' - Describes how the IAM roles required for stack set operations are created.
 --
 --
@@ -87,9 +106,9 @@ data StackSetSummary = StackSetSummary'
 --     * With @service-managed@ permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions> .
 --
 --
--- * 'stackSetId' - The ID of the stack set.
 -- * 'stackSetName' - The name of the stack set.
--- * 'status' - The status of the stack set.
+-- * 'description' - A description of the stack set that you specify when the stack set is created or updated.
+-- * 'stackSetId' - The ID of the stack set.
 mkStackSetSummary ::
   StackSetSummary
 mkStackSetSummary =

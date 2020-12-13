@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,17 +40,15 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkUpdateJobShipmentState' smart constructor.
 data UpdateJobShipmentState = UpdateJobShipmentState'
-  { jobId ::
-      Lude.Text,
+  { -- | The job ID of the job whose shipment date you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+    jobId :: Lude.Text,
+    -- | The state of a device when it is being shipped.
+    --
+    -- Set to @RECEIVED@ when the device arrives at your location.
+    -- Set to @RETURNED@ when you have returned the device to AWS.
     shipmentState :: ShipmentState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobShipmentState' with the minimum fields required to make a request.
@@ -128,16 +127,10 @@ instance Lude.ToQuery UpdateJobShipmentState where
 
 -- | /See:/ 'mkUpdateJobShipmentStateResponse' smart constructor.
 newtype UpdateJobShipmentStateResponse = UpdateJobShipmentStateResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobShipmentStateResponse' with the minimum fields required to make a request.

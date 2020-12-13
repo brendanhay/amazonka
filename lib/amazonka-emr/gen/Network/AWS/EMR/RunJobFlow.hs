@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,10 +38,12 @@ module Network.AWS.EMR.RunJobFlow
     rjfJobFlowRole,
     rjfBootstrapActions,
     rjfReleaseLabel,
+    rjfName,
     rjfRepoUpgradeOnBoot,
     rjfPlacementGroupConfigs,
     rjfLogURI,
     rjfKerberosAttributes,
+    rjfInstances,
     rjfNewSupportedProducts,
     rjfManagedScalingPolicy,
     rjfVisibleToAllUsers,
@@ -49,8 +52,6 @@ module Network.AWS.EMR.RunJobFlow
     rjfApplications,
     rjfTags,
     rjfServiceRole,
-    rjfName,
-    rjfInstances,
 
     -- * Destructuring the response
     RunJobFlowResponse (..),
@@ -73,63 +74,119 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRunJobFlow' smart constructor.
 data RunJobFlow = RunJobFlow'
-  { logEncryptionKMSKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not provided, the logs remain encrypted by AES-256. This attribute is only available with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
+    logEncryptionKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, @ReleaseLabel@ is used. To specify a custom AMI, use @CustomAmiID@ .
     amiVersion :: Lude.Maybe Lude.Text,
+    -- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
     ebsRootVolumeSize :: Lude.Maybe Lude.Int,
+    -- | A JSON string for selecting additional features.
     additionalInfo :: Lude.Maybe Lude.Text,
+    -- | For Amazon EMR releases 4.0 and later. The list of configurations supplied for the EMR cluster you are creating.
     configurations :: Lude.Maybe [Configuration],
+    -- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances. For more information about custom AMIs in Amazon EMR, see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html Using a Custom AMI> in the /Amazon EMR Management Guide/ . If omitted, the cluster uses the base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR versions 2.x and 3.x, use @AmiVersion@ instead.
+    --
+    -- For information about creating a custom AMI, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating an Amazon EBS-Backed Linux AMI> in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/ . For information about finding an AMI ID, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI> .
     customAMIId :: Lude.Maybe Lude.Text,
+    -- | An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
     autoScalingRole :: Lude.Maybe Lude.Text,
+    -- | The name of a security configuration to apply to the cluster.
     securityConfiguration :: Lude.Maybe Lude.Text,
+    -- | Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
     scaleDownBehavior :: Lude.Maybe ScaleDownBehavior,
+    -- | A list of steps to run.
     steps :: Lude.Maybe [StepConfig],
+    -- | Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is @EMR_EC2_DefaultRole@ . In order to use the default role, you must have already created it using the CLI or console.
     jobFlowRole :: Lude.Maybe Lude.Text,
+    -- | A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
     bootstrapActions :: Lude.Maybe [BootstrapActionConfig],
+    -- | The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form @emr-x.x.x@ , where x.x.x is an Amazon EMR release version such as @emr-5.14.0@ . For more information about Amazon EMR release versions and included application versions and features, see <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ https://docs.aws.amazon.com/emr/latest/ReleaseGuide/> . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use @AmiVersion@ .
     releaseLabel :: Lude.Maybe Lude.Text,
-    repoUpgradeOnBoot :: Lude.Maybe RepoUpgradeOnBoot,
-    placementGroupConfigs :: Lude.Maybe [PlacementGroupConfig],
-    logURI :: Lude.Maybe Lude.Text,
-    kerberosAttributes :: Lude.Maybe KerberosAttributes,
-    newSupportedProducts :: Lude.Maybe [SupportedProductConfig],
-    managedScalingPolicy :: Lude.Maybe ManagedScalingPolicy,
-    visibleToAllUsers :: Lude.Maybe Lude.Bool,
-    supportedProducts :: Lude.Maybe [Lude.Text],
-    stepConcurrencyLevel :: Lude.Maybe Lude.Int,
-    applications :: Lude.Maybe [Application],
-    tags :: Lude.Maybe [Tag],
-    serviceRole :: Lude.Maybe Lude.Text,
+    -- | The name of the job flow.
     name :: Lude.Text,
-    instances :: JobFlowInstancesConfig
+    -- | Applies only when @CustomAmiID@ is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is @SECURITY@ , which indicates that only security updates are applied. If @NONE@ is specified, no updates are applied, and all updates must be applied manually.
+    repoUpgradeOnBoot :: Lude.Maybe RepoUpgradeOnBoot,
+    -- | The specified placement group configuration for an Amazon EMR cluster.
+    placementGroupConfigs :: Lude.Maybe [PlacementGroupConfig],
+    -- | The location in Amazon S3 to write the log files of the job flow. If a value is not provided, logs are not created.
+    logURI :: Lude.Maybe Lude.Text,
+    -- | Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication> in the /Amazon EMR Management Guide/ .
+    kerberosAttributes :: Lude.Maybe KerberosAttributes,
+    -- | A specification of the number and type of Amazon EC2 instances.
+    instances :: JobFlowInstancesConfig,
+    -- | A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide> . Supported values are:
+    --
+    --
+    --     * "mapr-m3" - launch the cluster using MapR M3 Edition.
+    --
+    --
+    --     * "mapr-m5" - launch the cluster using MapR M5 Edition.
+    --
+    --
+    --     * "mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or M5 Edition respectively.
+    --
+    --
+    --     * "mapr-m7" - launch the cluster using MapR M7 Edition.
+    --
+    --
+    --     * "hunk" - launch the cluster with the Hunk Big Data Analtics Platform.
+    --
+    --
+    --     * "hue"- launch the cluster with Hue installed.
+    --
+    --
+    --     * "spark" - launch the cluster with Apache Spark installed.
+    --
+    --
+    --     * "ganglia" - launch the cluster with the Ganglia Monitoring System installed.
+    newSupportedProducts :: Lude.Maybe [SupportedProductConfig],
+    -- | The specified managed scaling policy for an Amazon EMR cluster.
+    managedScalingPolicy :: Lude.Maybe ManagedScalingPolicy,
+    -- | A value of @true@ indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of @false@ indicates that only the IAM user who created the cluster can perform actions.
+    visibleToAllUsers :: Lude.Maybe Lude.Bool,
+    -- | A list of strings that indicates third-party software to use. For more information, see the <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide> . Currently supported values are:
+    --
+    --
+    --     * "mapr-m3" - launch the job flow using MapR M3 Edition.
+    --
+    --
+    --     * "mapr-m5" - launch the job flow using MapR M5 Edition.
+    supportedProducts :: Lude.Maybe [Lude.Text],
+    -- | Specifies the number of steps that can be executed concurrently. The default value is @1@ . The maximum value is @256@ .
+    stepConcurrencyLevel :: Lude.Maybe Lude.Int,
+    -- | Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide> .
+    applications :: Lude.Maybe [Application],
+    -- | A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
+    tags :: Lude.Maybe [Tag],
+    -- | The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
+    serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunJobFlow' with the minimum fields required to make a request.
 --
--- * 'additionalInfo' - A JSON string for selecting additional features.
+-- * 'logEncryptionKMSKeyId' - The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not provided, the logs remain encrypted by AES-256. This attribute is only available with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
 -- * 'amiVersion' - Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, @ReleaseLabel@ is used. To specify a custom AMI, use @CustomAmiID@ .
--- * 'applications' - Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide> .
--- * 'autoScalingRole' - An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
--- * 'bootstrapActions' - A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
+-- * 'ebsRootVolumeSize' - The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
+-- * 'additionalInfo' - A JSON string for selecting additional features.
 -- * 'configurations' - For Amazon EMR releases 4.0 and later. The list of configurations supplied for the EMR cluster you are creating.
 -- * 'customAMIId' - Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances. For more information about custom AMIs in Amazon EMR, see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html Using a Custom AMI> in the /Amazon EMR Management Guide/ . If omitted, the cluster uses the base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR versions 2.x and 3.x, use @AmiVersion@ instead.
 --
 -- For information about creating a custom AMI, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating an Amazon EBS-Backed Linux AMI> in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/ . For information about finding an AMI ID, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI> .
--- * 'ebsRootVolumeSize' - The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
--- * 'instances' - A specification of the number and type of Amazon EC2 instances.
+-- * 'autoScalingRole' - An IAM role for automatic scaling policies. The default role is @EMR_AutoScaling_DefaultRole@ . The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
+-- * 'securityConfiguration' - The name of a security configuration to apply to the cluster.
+-- * 'scaleDownBehavior' - Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
+-- * 'steps' - A list of steps to run.
 -- * 'jobFlowRole' - Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2 instances of the cluster assume this role. The default role is @EMR_EC2_DefaultRole@ . In order to use the default role, you must have already created it using the CLI or console.
--- * 'kerberosAttributes' - Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication> in the /Amazon EMR Management Guide/ .
--- * 'logEncryptionKMSKeyId' - The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not provided, the logs remain encrypted by AES-256. This attribute is only available with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
--- * 'logURI' - The location in Amazon S3 to write the log files of the job flow. If a value is not provided, logs are not created.
--- * 'managedScalingPolicy' - The specified managed scaling policy for an Amazon EMR cluster.
+-- * 'bootstrapActions' - A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
+-- * 'releaseLabel' - The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form @emr-x.x.x@ , where x.x.x is an Amazon EMR release version such as @emr-5.14.0@ . For more information about Amazon EMR release versions and included application versions and features, see <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ https://docs.aws.amazon.com/emr/latest/ReleaseGuide/> . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use @AmiVersion@ .
 -- * 'name' - The name of the job flow.
+-- * 'repoUpgradeOnBoot' - Applies only when @CustomAmiID@ is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is @SECURITY@ , which indicates that only security updates are applied. If @NONE@ is specified, no updates are applied, and all updates must be applied manually.
+-- * 'placementGroupConfigs' - The specified placement group configuration for an Amazon EMR cluster.
+-- * 'logURI' - The location in Amazon S3 to write the log files of the job flow. If a value is not provided, logs are not created.
+-- * 'kerberosAttributes' - Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication> in the /Amazon EMR Management Guide/ .
+-- * 'instances' - A specification of the number and type of Amazon EC2 instances.
 -- * 'newSupportedProducts' - A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide> . Supported values are:
 --
 --
@@ -157,14 +214,8 @@ data RunJobFlow = RunJobFlow'
 --     * "ganglia" - launch the cluster with the Ganglia Monitoring System installed.
 --
 --
--- * 'placementGroupConfigs' - The specified placement group configuration for an Amazon EMR cluster.
--- * 'releaseLabel' - The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster. Release labels are in the form @emr-x.x.x@ , where x.x.x is an Amazon EMR release version such as @emr-5.14.0@ . For more information about Amazon EMR release versions and included application versions and features, see <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ https://docs.aws.amazon.com/emr/latest/ReleaseGuide/> . The release label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use @AmiVersion@ .
--- * 'repoUpgradeOnBoot' - Applies only when @CustomAmiID@ is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is @SECURITY@ , which indicates that only security updates are applied. If @NONE@ is specified, no updates are applied, and all updates must be applied manually.
--- * 'scaleDownBehavior' - Specifies the way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an instance group is resized. @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of when the request to terminate the instance was submitted. This option is only available with Amazon EMR 5.1.0 and later and is the default for clusters created using that version. @TERMINATE_AT_TASK_COMPLETION@ indicates that Amazon EMR adds nodes to a deny list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes first and blocks instance termination if it could lead to HDFS corruption. @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR earlier than 5.1.0.
--- * 'securityConfiguration' - The name of a security configuration to apply to the cluster.
--- * 'serviceRole' - The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
--- * 'stepConcurrencyLevel' - Specifies the number of steps that can be executed concurrently. The default value is @1@ . The maximum value is @256@ .
--- * 'steps' - A list of steps to run.
+-- * 'managedScalingPolicy' - The specified managed scaling policy for an Amazon EMR cluster.
+-- * 'visibleToAllUsers' - A value of @true@ indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of @false@ indicates that only the IAM user who created the cluster can perform actions.
 -- * 'supportedProducts' - A list of strings that indicates third-party software to use. For more information, see the <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide> . Currently supported values are:
 --
 --
@@ -174,8 +225,10 @@ data RunJobFlow = RunJobFlow'
 --     * "mapr-m5" - launch the job flow using MapR M5 Edition.
 --
 --
+-- * 'stepConcurrencyLevel' - Specifies the number of steps that can be executed concurrently. The default value is @1@ . The maximum value is @256@ .
+-- * 'applications' - Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide> .
 -- * 'tags' - A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
--- * 'visibleToAllUsers' - A value of @true@ indicates that all IAM users in the AWS account can perform cluster actions if they have the proper IAM policy permissions. This is the default. A value of @false@ indicates that only the IAM user who created the cluster can perform actions.
+-- * 'serviceRole' - The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
 mkRunJobFlow ::
   -- | 'name'
   Lude.Text ->
@@ -197,10 +250,12 @@ mkRunJobFlow pName_ pInstances_ =
       jobFlowRole = Lude.Nothing,
       bootstrapActions = Lude.Nothing,
       releaseLabel = Lude.Nothing,
+      name = pName_,
       repoUpgradeOnBoot = Lude.Nothing,
       placementGroupConfigs = Lude.Nothing,
       logURI = Lude.Nothing,
       kerberosAttributes = Lude.Nothing,
+      instances = pInstances_,
       newSupportedProducts = Lude.Nothing,
       managedScalingPolicy = Lude.Nothing,
       visibleToAllUsers = Lude.Nothing,
@@ -208,9 +263,7 @@ mkRunJobFlow pName_ pInstances_ =
       stepConcurrencyLevel = Lude.Nothing,
       applications = Lude.Nothing,
       tags = Lude.Nothing,
-      serviceRole = Lude.Nothing,
-      name = pName_,
-      instances = pInstances_
+      serviceRole = Lude.Nothing
     }
 
 -- | The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not provided, the logs remain encrypted by AES-256. This attribute is only available with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
@@ -306,6 +359,13 @@ rjfReleaseLabel :: Lens.Lens' RunJobFlow (Lude.Maybe Lude.Text)
 rjfReleaseLabel = Lens.lens (releaseLabel :: RunJobFlow -> Lude.Maybe Lude.Text) (\s a -> s {releaseLabel = a} :: RunJobFlow)
 {-# DEPRECATED rjfReleaseLabel "Use generic-lens or generic-optics with 'releaseLabel' instead." #-}
 
+-- | The name of the job flow.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjfName :: Lens.Lens' RunJobFlow Lude.Text
+rjfName = Lens.lens (name :: RunJobFlow -> Lude.Text) (\s a -> s {name = a} :: RunJobFlow)
+{-# DEPRECATED rjfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | Applies only when @CustomAmiID@ is used. Specifies which updates from the Amazon Linux AMI package repositories to apply automatically when the instance boots using the AMI. If omitted, the default is @SECURITY@ , which indicates that only security updates are applied. If @NONE@ is specified, no updates are applied, and all updates must be applied manually.
 --
 -- /Note:/ Consider using 'repoUpgradeOnBoot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -333,6 +393,13 @@ rjfLogURI = Lens.lens (logURI :: RunJobFlow -> Lude.Maybe Lude.Text) (\s a -> s 
 rjfKerberosAttributes :: Lens.Lens' RunJobFlow (Lude.Maybe KerberosAttributes)
 rjfKerberosAttributes = Lens.lens (kerberosAttributes :: RunJobFlow -> Lude.Maybe KerberosAttributes) (\s a -> s {kerberosAttributes = a} :: RunJobFlow)
 {-# DEPRECATED rjfKerberosAttributes "Use generic-lens or generic-optics with 'kerberosAttributes' instead." #-}
+
+-- | A specification of the number and type of Amazon EC2 instances.
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rjfInstances :: Lens.Lens' RunJobFlow JobFlowInstancesConfig
+rjfInstances = Lens.lens (instances :: RunJobFlow -> JobFlowInstancesConfig) (\s a -> s {instances = a} :: RunJobFlow)
+{-# DEPRECATED rjfInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
 
 -- | A list of strings that indicates third-party software to use with the job flow that accepts a user argument list. EMR accepts and forwards the argument list to the corresponding installation script as bootstrap action arguments. For more information, see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide> . Supported values are:
 --
@@ -424,20 +491,6 @@ rjfServiceRole :: Lens.Lens' RunJobFlow (Lude.Maybe Lude.Text)
 rjfServiceRole = Lens.lens (serviceRole :: RunJobFlow -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: RunJobFlow)
 {-# DEPRECATED rjfServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
--- | The name of the job flow.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rjfName :: Lens.Lens' RunJobFlow Lude.Text
-rjfName = Lens.lens (name :: RunJobFlow -> Lude.Text) (\s a -> s {name = a} :: RunJobFlow)
-{-# DEPRECATED rjfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A specification of the number and type of Amazon EC2 instances.
---
--- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rjfInstances :: Lens.Lens' RunJobFlow JobFlowInstancesConfig
-rjfInstances = Lens.lens (instances :: RunJobFlow -> JobFlowInstancesConfig) (\s a -> s {instances = a} :: RunJobFlow)
-{-# DEPRECATED rjfInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
-
 instance Lude.AWSRequest RunJobFlow where
   type Rs RunJobFlow = RunJobFlowResponse
   request = Req.postJSON emrService
@@ -478,10 +531,12 @@ instance Lude.ToJSON RunJobFlow where
             ("JobFlowRole" Lude..=) Lude.<$> jobFlowRole,
             ("BootstrapActions" Lude..=) Lude.<$> bootstrapActions,
             ("ReleaseLabel" Lude..=) Lude.<$> releaseLabel,
+            Lude.Just ("Name" Lude..= name),
             ("RepoUpgradeOnBoot" Lude..=) Lude.<$> repoUpgradeOnBoot,
             ("PlacementGroupConfigs" Lude..=) Lude.<$> placementGroupConfigs,
             ("LogUri" Lude..=) Lude.<$> logURI,
             ("KerberosAttributes" Lude..=) Lude.<$> kerberosAttributes,
+            Lude.Just ("Instances" Lude..= instances),
             ("NewSupportedProducts" Lude..=) Lude.<$> newSupportedProducts,
             ("ManagedScalingPolicy" Lude..=) Lude.<$> managedScalingPolicy,
             ("VisibleToAllUsers" Lude..=) Lude.<$> visibleToAllUsers,
@@ -489,9 +544,7 @@ instance Lude.ToJSON RunJobFlow where
             ("StepConcurrencyLevel" Lude..=) Lude.<$> stepConcurrencyLevel,
             ("Applications" Lude..=) Lude.<$> applications,
             ("Tags" Lude..=) Lude.<$> tags,
-            ("ServiceRole" Lude..=) Lude.<$> serviceRole,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Instances" Lude..= instances)
+            ("ServiceRole" Lude..=) Lude.<$> serviceRole
           ]
       )
 
@@ -505,18 +558,14 @@ instance Lude.ToQuery RunJobFlow where
 --
 -- /See:/ 'mkRunJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'
-  { clusterARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name of the cluster.
+    clusterARN :: Lude.Maybe Lude.Text,
+    -- | An unique identifier for the job flow.
     jobFlowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RunJobFlowResponse' with the minimum fields required to make a request.

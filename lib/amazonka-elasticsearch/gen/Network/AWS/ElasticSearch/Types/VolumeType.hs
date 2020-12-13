@@ -13,9 +13,9 @@
 module Network.AWS.ElasticSearch.Types.VolumeType
   ( VolumeType
       ( VolumeType',
+        Standard,
         GP2,
-        IO1,
-        Standard
+        IO1
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype VolumeType = VolumeType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Standard :: VolumeType
+pattern Standard = VolumeType' "standard"
+
 pattern GP2 :: VolumeType
 pattern GP2 = VolumeType' "gp2"
 
 pattern IO1 :: VolumeType
 pattern IO1 = VolumeType' "io1"
 
-pattern Standard :: VolumeType
-pattern Standard = VolumeType' "standard"
-
 {-# COMPLETE
+  Standard,
   GP2,
   IO1,
-  Standard,
   VolumeType'
   #-}

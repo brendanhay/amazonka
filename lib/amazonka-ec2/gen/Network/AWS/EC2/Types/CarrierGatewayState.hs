@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.CarrierGatewayState
   ( CarrierGatewayState
       ( CarrierGatewayState',
+        Pending,
         Available,
-        Deleted,
         Deleting,
-        Pending
+        Deleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype CarrierGatewayState = CarrierGatewayState' Lude.Text
       Lude.ToHeader
     )
 
+pattern Pending :: CarrierGatewayState
+pattern Pending = CarrierGatewayState' "pending"
+
 pattern Available :: CarrierGatewayState
 pattern Available = CarrierGatewayState' "available"
-
-pattern Deleted :: CarrierGatewayState
-pattern Deleted = CarrierGatewayState' "deleted"
 
 pattern Deleting :: CarrierGatewayState
 pattern Deleting = CarrierGatewayState' "deleting"
 
-pattern Pending :: CarrierGatewayState
-pattern Pending = CarrierGatewayState' "pending"
+pattern Deleted :: CarrierGatewayState
+pattern Deleted = CarrierGatewayState' "deleted"
 
 {-# COMPLETE
-  Available,
-  Deleted,
-  Deleting,
   Pending,
+  Available,
+  Deleting,
+  Deleted,
   CarrierGatewayState'
   #-}

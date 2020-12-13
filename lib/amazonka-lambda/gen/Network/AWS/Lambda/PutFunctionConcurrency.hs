@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Lambda.PutFunctionConcurrency
     mkPutFunctionConcurrency,
 
     -- ** Request lenses
-    pfcFunctionName,
     pfcReservedConcurrentExecutions,
+    pfcFunctionName,
 
     -- * Destructuring the response
     Concurrency (..),
@@ -42,21 +43,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutFunctionConcurrency' smart constructor.
 data PutFunctionConcurrency = PutFunctionConcurrency'
-  { functionName ::
-      Lude.Text,
-    reservedConcurrentExecutions :: Lude.Natural
+  { -- | The number of simultaneous executions to reserve for the function.
+    reservedConcurrentExecutions :: Lude.Natural,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ .
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+    functionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutFunctionConcurrency' with the minimum fields required to make a request.
 --
+-- * 'reservedConcurrentExecutions' - The number of simultaneous executions to reserve for the function.
 -- * 'functionName' - The name of the Lambda function.
 --
 -- __Name formats__
@@ -71,20 +81,27 @@ data PutFunctionConcurrency = PutFunctionConcurrency'
 --
 --
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'reservedConcurrentExecutions' - The number of simultaneous executions to reserve for the function.
 mkPutFunctionConcurrency ::
-  -- | 'functionName'
-  Lude.Text ->
   -- | 'reservedConcurrentExecutions'
   Lude.Natural ->
+  -- | 'functionName'
+  Lude.Text ->
   PutFunctionConcurrency
 mkPutFunctionConcurrency
-  pFunctionName_
-  pReservedConcurrentExecutions_ =
+  pReservedConcurrentExecutions_
+  pFunctionName_ =
     PutFunctionConcurrency'
-      { functionName = pFunctionName_,
-        reservedConcurrentExecutions = pReservedConcurrentExecutions_
+      { reservedConcurrentExecutions =
+          pReservedConcurrentExecutions_,
+        functionName = pFunctionName_
       }
+
+-- | The number of simultaneous executions to reserve for the function.
+--
+-- /Note:/ Consider using 'reservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfcReservedConcurrentExecutions :: Lens.Lens' PutFunctionConcurrency Lude.Natural
+pfcReservedConcurrentExecutions = Lens.lens (reservedConcurrentExecutions :: PutFunctionConcurrency -> Lude.Natural) (\s a -> s {reservedConcurrentExecutions = a} :: PutFunctionConcurrency)
+{-# DEPRECATED pfcReservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -105,13 +122,6 @@ mkPutFunctionConcurrency
 pfcFunctionName :: Lens.Lens' PutFunctionConcurrency Lude.Text
 pfcFunctionName = Lens.lens (functionName :: PutFunctionConcurrency -> Lude.Text) (\s a -> s {functionName = a} :: PutFunctionConcurrency)
 {-# DEPRECATED pfcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
-
--- | The number of simultaneous executions to reserve for the function.
---
--- /Note:/ Consider using 'reservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfcReservedConcurrentExecutions :: Lens.Lens' PutFunctionConcurrency Lude.Natural
-pfcReservedConcurrentExecutions = Lens.lens (reservedConcurrentExecutions :: PutFunctionConcurrency -> Lude.Natural) (\s a -> s {reservedConcurrentExecutions = a} :: PutFunctionConcurrency)
-{-# DEPRECATED pfcReservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead." #-}
 
 instance Lude.AWSRequest PutFunctionConcurrency where
   type Rs PutFunctionConcurrency = Concurrency

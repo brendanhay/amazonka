@@ -13,7 +13,7 @@
 module Network.AWS.IoT.Types.AWSJobAbortCriteriaAbortAction
   ( AWSJobAbortCriteriaAbortAction
       ( AWSJobAbortCriteriaAbortAction',
-        Cancel
+        AJACAACancel
       ),
   )
 where
@@ -44,10 +44,10 @@ newtype AWSJobAbortCriteriaAbortAction = AWSJobAbortCriteriaAbortAction' Lude.Te
       Lude.ToHeader
     )
 
-pattern Cancel :: AWSJobAbortCriteriaAbortAction
-pattern Cancel = AWSJobAbortCriteriaAbortAction' "CANCEL"
+pattern AJACAACancel :: AWSJobAbortCriteriaAbortAction
+pattern AJACAACancel = AWSJobAbortCriteriaAbortAction' "CANCEL"
 
 {-# COMPLETE
-  Cancel,
+  AJACAACancel,
   AWSJobAbortCriteriaAbortAction'
   #-}

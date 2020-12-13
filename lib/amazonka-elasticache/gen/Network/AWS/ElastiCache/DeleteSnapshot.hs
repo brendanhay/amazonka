@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     mkDeleteSnapshot,
 
     -- ** Request lenses
-    dSnapshotName,
+    dsSnapshotName,
 
     -- * Destructuring the response
     DeleteSnapshotResponse (..),
     mkDeleteSnapshotResponse,
 
     -- ** Response lenses
-    dsrsSnapshot,
-    dsrsResponseStatus,
+    drsSnapshot,
+    drsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | Represents the input of a @DeleteSnapshot@ operation.
 --
 -- /See:/ 'mkDeleteSnapshot' smart constructor.
-newtype DeleteSnapshot = DeleteSnapshot' {snapshotName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteSnapshot = DeleteSnapshot'
+  { -- | The name of the snapshot to be deleted.
+    snapshotName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
@@ -63,9 +61,9 @@ mkDeleteSnapshot pSnapshotName_ =
 -- | The name of the snapshot to be deleted.
 --
 -- /Note:/ Consider using 'snapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSnapshotName :: Lens.Lens' DeleteSnapshot Lude.Text
-dSnapshotName = Lens.lens (snapshotName :: DeleteSnapshot -> Lude.Text) (\s a -> s {snapshotName = a} :: DeleteSnapshot)
-{-# DEPRECATED dSnapshotName "Use generic-lens or generic-optics with 'snapshotName' instead." #-}
+dsSnapshotName :: Lens.Lens' DeleteSnapshot Lude.Text
+dsSnapshotName = Lens.lens (snapshotName :: DeleteSnapshot -> Lude.Text) (\s a -> s {snapshotName = a} :: DeleteSnapshot)
+{-# DEPRECATED dsSnapshotName "Use generic-lens or generic-optics with 'snapshotName' instead." #-}
 
 instance Lude.AWSRequest DeleteSnapshot where
   type Rs DeleteSnapshot = DeleteSnapshotResponse
@@ -94,23 +92,17 @@ instance Lude.ToQuery DeleteSnapshot where
 
 -- | /See:/ 'mkDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-  { snapshot ::
-      Lude.Maybe Snapshot,
+  { snapshot :: Lude.Maybe Snapshot,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
 --
+-- * 'snapshot' -
 -- * 'responseStatus' - The response status code.
--- * 'snapshot' - Undocumented field.
 mkDeleteSnapshotResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -124,13 +116,13 @@ mkDeleteSnapshotResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsSnapshot :: Lens.Lens' DeleteSnapshotResponse (Lude.Maybe Snapshot)
-dsrsSnapshot = Lens.lens (snapshot :: DeleteSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: DeleteSnapshotResponse)
-{-# DEPRECATED dsrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
+drsSnapshot :: Lens.Lens' DeleteSnapshotResponse (Lude.Maybe Snapshot)
+drsSnapshot = Lens.lens (snapshot :: DeleteSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: DeleteSnapshotResponse)
+{-# DEPRECATED drsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteSnapshotResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSnapshotResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteSnapshotResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSnapshotResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

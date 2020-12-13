@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.SSM.DescribeEffectiveInstanceAssociations
     mkDescribeEffectiveInstanceAssociations,
 
     -- ** Request lenses
+    deiaInstanceId,
     deiaNextToken,
     deiaMaxResults,
-    deiaInstanceId,
 
     -- * Destructuring the response
     DescribeEffectiveInstanceAssociationsResponse (..),
@@ -45,39 +46,38 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeEffectiveInstanceAssociations' smart constructor.
 data DescribeEffectiveInstanceAssociations = DescribeEffectiveInstanceAssociations'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    instanceId ::
-      Lude.Text
+  { -- | The instance ID for which you want to view all associations.
+    instanceId :: Lude.Text,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEffectiveInstanceAssociations' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The instance ID for which you want to view all associations.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeEffectiveInstanceAssociations ::
   -- | 'instanceId'
   Lude.Text ->
   DescribeEffectiveInstanceAssociations
 mkDescribeEffectiveInstanceAssociations pInstanceId_ =
   DescribeEffectiveInstanceAssociations'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The instance ID for which you want to view all associations.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deiaInstanceId :: Lens.Lens' DescribeEffectiveInstanceAssociations Lude.Text
+deiaInstanceId = Lens.lens (instanceId :: DescribeEffectiveInstanceAssociations -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeEffectiveInstanceAssociations)
+{-# DEPRECATED deiaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token for the next set of items to return. (You received this token from a previous call.)
 --
@@ -92,13 +92,6 @@ deiaNextToken = Lens.lens (nextToken :: DescribeEffectiveInstanceAssociations ->
 deiaMaxResults :: Lens.Lens' DescribeEffectiveInstanceAssociations (Lude.Maybe Lude.Natural)
 deiaMaxResults = Lens.lens (maxResults :: DescribeEffectiveInstanceAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEffectiveInstanceAssociations)
 {-# DEPRECATED deiaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The instance ID for which you want to view all associations.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deiaInstanceId :: Lens.Lens' DescribeEffectiveInstanceAssociations Lude.Text
-deiaInstanceId = Lens.lens (instanceId :: DescribeEffectiveInstanceAssociations -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeEffectiveInstanceAssociations)
-{-# DEPRECATED deiaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Page.AWSPager DescribeEffectiveInstanceAssociations where
   page rq rs
@@ -140,9 +133,9 @@ instance Lude.ToJSON DescribeEffectiveInstanceAssociations where
   toJSON DescribeEffectiveInstanceAssociations' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("InstanceId" Lude..= instanceId)
+          [ Lude.Just ("InstanceId" Lude..= instanceId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -154,31 +147,20 @@ instance Lude.ToQuery DescribeEffectiveInstanceAssociations where
 
 -- | /See:/ 'mkDescribeEffectiveInstanceAssociationsResponse' smart constructor.
 data DescribeEffectiveInstanceAssociationsResponse = DescribeEffectiveInstanceAssociationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    associations ::
-      Lude.Maybe
-        [InstanceAssociation],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The associations for the requested instance.
+    associations :: Lude.Maybe [InstanceAssociation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEffectiveInstanceAssociationsResponse' with the minimum fields required to make a request.
 --
--- * 'associations' - The associations for the requested instance.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'associations' - The associations for the requested instance.
 -- * 'responseStatus' - The response status code.
 mkDescribeEffectiveInstanceAssociationsResponse ::
   -- | 'responseStatus'

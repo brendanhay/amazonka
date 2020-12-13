@@ -13,8 +13,8 @@
 module Network.AWS.LexModels.Types.MergeStrategy
   ( MergeStrategy
       ( MergeStrategy',
-        FailOnConflict,
-        OverwriteLatest
+        OverwriteLatest,
+        FailOnConflict
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MergeStrategy = MergeStrategy' Lude.Text
       Lude.ToHeader
     )
 
-pattern FailOnConflict :: MergeStrategy
-pattern FailOnConflict = MergeStrategy' "FAIL_ON_CONFLICT"
-
 pattern OverwriteLatest :: MergeStrategy
 pattern OverwriteLatest = MergeStrategy' "OVERWRITE_LATEST"
 
+pattern FailOnConflict :: MergeStrategy
+pattern FailOnConflict = MergeStrategy' "FAIL_ON_CONFLICT"
+
 {-# COMPLETE
-  FailOnConflict,
   OverwriteLatest,
+  FailOnConflict,
   MergeStrategy'
   #-}

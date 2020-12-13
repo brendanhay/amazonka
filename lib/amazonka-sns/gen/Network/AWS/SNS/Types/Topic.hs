@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use @GetTopicAttributes@ .
 --
 -- /See:/ 'mkTopic' smart constructor.
-newtype Topic = Topic' {topicARN :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Topic = Topic'
+  { -- | The topic's ARN.
+    topicARN :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Topic' with the minimum fields required to make a request.

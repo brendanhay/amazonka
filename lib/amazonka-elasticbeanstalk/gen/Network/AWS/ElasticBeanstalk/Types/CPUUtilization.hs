@@ -35,47 +35,60 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCPUUtilization' smart constructor.
 data CPUUtilization = CPUUtilization'
-  { softIRQ ::
-      Lude.Maybe Lude.Double,
+  { -- | Available on Linux environments only.
+    --
+    -- Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
+    softIRQ :: Lude.Maybe Lude.Double,
+    -- | Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
     idle :: Lude.Maybe Lude.Double,
+    -- | Available on Linux environments only.
+    --
+    -- Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
     iRQ :: Lude.Maybe Lude.Double,
+    -- | Available on Linux environments only.
+    --
+    -- Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
     system :: Lude.Maybe Lude.Double,
+    -- | Available on Windows environments only.
+    --
+    -- Percentage of time that the CPU has spent in the @Privileged@ state over the last 10 seconds.
     privileged :: Lude.Maybe Lude.Double,
+    -- | Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
     user :: Lude.Maybe Lude.Double,
+    -- | Available on Linux environments only.
+    --
+    -- Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
     iOWait :: Lude.Maybe Lude.Double,
+    -- | Available on Linux environments only.
+    --
+    -- Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
     nice :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CPUUtilization' with the minimum fields required to make a request.
 --
--- * 'iOWait' - Available on Linux environments only.
---
--- Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
--- * 'iRQ' - Available on Linux environments only.
---
--- Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
--- * 'idle' - Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
--- * 'nice' - Available on Linux environments only.
---
--- Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
--- * 'privileged' - Available on Windows environments only.
---
--- Percentage of time that the CPU has spent in the @Privileged@ state over the last 10 seconds.
 -- * 'softIRQ' - Available on Linux environments only.
 --
 -- Percentage of time that the CPU has spent in the @SoftIRQ@ state over the last 10 seconds.
+-- * 'idle' - Percentage of time that the CPU has spent in the @Idle@ state over the last 10 seconds.
+-- * 'iRQ' - Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @IRQ@ state over the last 10 seconds.
 -- * 'system' - Available on Linux environments only.
 --
 -- Percentage of time that the CPU has spent in the @System@ state over the last 10 seconds.
+-- * 'privileged' - Available on Windows environments only.
+--
+-- Percentage of time that the CPU has spent in the @Privileged@ state over the last 10 seconds.
 -- * 'user' - Percentage of time that the CPU has spent in the @User@ state over the last 10 seconds.
+-- * 'iOWait' - Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @I/O Wait@ state over the last 10 seconds.
+-- * 'nice' - Available on Linux environments only.
+--
+-- Percentage of time that the CPU has spent in the @Nice@ state over the last 10 seconds.
 mkCPUUtilization ::
   CPUUtilization
 mkCPUUtilization =

@@ -29,17 +29,19 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdditionalLimit' smart constructor.
 data AdditionalLimit = AdditionalLimit'
-  { limitName ::
-      Lude.Maybe Lude.Text,
+  { -- | Name of Additional Limit is specific to a given InstanceType and for each of it's @'InstanceRole' @ etc.
+    --
+    -- Attributes and their details:
+    --
+    --     * MaximumNumberOfDataNodesSupported
+    -- This attribute will be present in Master node only to specify how much data nodes upto which given @'ESPartitionInstanceType' @ can support as master node.
+    --     * MaximumNumberOfDataNodesWithoutMasterNode
+    -- This attribute will be present in Data node only to specify how much data nodes of given @'ESPartitionInstanceType' @ upto which you don't need any master nodes to govern them.
+    limitName :: Lude.Maybe Lude.Text,
+    -- | Value for given @'AdditionalLimit$LimitName' @ .
     limitValues :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdditionalLimit' with the minimum fields required to make a request.

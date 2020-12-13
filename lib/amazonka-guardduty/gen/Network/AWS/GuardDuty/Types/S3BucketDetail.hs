@@ -39,35 +39,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3BucketDetail' smart constructor.
 data S3BucketDetail = S3BucketDetail'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the S3 bucket.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The date and time the bucket was created at.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The owner of the S3 bucket.
     owner :: Lude.Maybe Owner,
+    -- | The name of the S3 bucket.
     name :: Lude.Maybe Lude.Text,
-    defaultServerSideEncryption ::
-      Lude.Maybe DefaultServerSideEncryption,
+    -- | Describes the server side encryption method used in the S3 bucket.
+    defaultServerSideEncryption :: Lude.Maybe DefaultServerSideEncryption,
+    -- | Describes the public access policies that apply to the S3 bucket.
     publicAccess :: Lude.Maybe PublicAccess,
+    -- | Describes whether the bucket is a source or destination bucket.
     type' :: Lude.Maybe Lude.Text,
+    -- | All tags attached to the S3 bucket
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3BucketDetail' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the S3 bucket.
 -- * 'createdAt' - The date and time the bucket was created at.
--- * 'defaultServerSideEncryption' - Describes the server side encryption method used in the S3 bucket.
--- * 'name' - The name of the S3 bucket.
 -- * 'owner' - The owner of the S3 bucket.
+-- * 'name' - The name of the S3 bucket.
+-- * 'defaultServerSideEncryption' - Describes the server side encryption method used in the S3 bucket.
 -- * 'publicAccess' - Describes the public access policies that apply to the S3 bucket.
--- * 'tags' - All tags attached to the S3 bucket
 -- * 'type'' - Describes whether the bucket is a source or destination bucket.
+-- * 'tags' - All tags attached to the S3 bucket
 mkS3BucketDetail ::
   S3BucketDetail
 mkS3BucketDetail =

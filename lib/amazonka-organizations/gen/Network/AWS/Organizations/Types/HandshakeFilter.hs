@@ -30,28 +30,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHandshakeFilter' smart constructor.
 data HandshakeFilter = HandshakeFilter'
-  { parentHandshakeId ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the parent handshake. Only used for handshake types that are a child of another type.
+    --
+    -- If you specify @ParentHandshakeId@ , you cannot also specify @ActionType@ .
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+    parentHandshakeId :: Lude.Maybe Lude.Text,
+    -- | Specifies the type of handshake action.
+    --
+    -- If you specify @ActionType@ , you cannot also specify @ParentHandshakeId@ .
     actionType :: Lude.Maybe ActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HandshakeFilter' with the minimum fields required to make a request.
 --
--- * 'actionType' - Specifies the type of handshake action.
---
--- If you specify @ActionType@ , you cannot also specify @ParentHandshakeId@ .
 -- * 'parentHandshakeId' - Specifies the parent handshake. Only used for handshake types that are a child of another type.
 --
 -- If you specify @ParentHandshakeId@ , you cannot also specify @ActionType@ .
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+-- * 'actionType' - Specifies the type of handshake action.
+--
+-- If you specify @ActionType@ , you cannot also specify @ParentHandshakeId@ .
 mkHandshakeFilter ::
   HandshakeFilter
 mkHandshakeFilter =

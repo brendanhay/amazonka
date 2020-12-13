@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,14 +51,17 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSchema' smart constructor.
-newtype GetSchema = GetSchema' {schemaId :: SchemaId}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetSchema = GetSchema'
+  { -- | This is a wrapper structure to contain schema identity fields. The structure contains:
+    --
+    --
+    --     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+    --
+    --
+    --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+    schemaId :: SchemaId
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchema' with the minimum fields required to make a request.
@@ -136,47 +140,54 @@ instance Lude.ToQuery GetSchema where
 
 -- | /See:/ 'mkGetSchemaResponse' smart constructor.
 data GetSchemaResponse = GetSchemaResponse'
-  { registryName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the registry.
+    registryName :: Lude.Maybe Lude.Text,
+    -- | The date and time the schema was created.
     createdTime :: Lude.Maybe Lude.Text,
+    -- | The status of the schema.
     schemaStatus :: Lude.Maybe SchemaStatus,
+    -- | The Amazon Resource Name (ARN) of the registry.
     registryARN :: Lude.Maybe Lude.Text,
+    -- | The latest version of the schema associated with the returned schema definition.
     latestSchemaVersion :: Lude.Maybe Lude.Natural,
+    -- | The data format of the schema definition. Currently only @AVRO@ is supported.
     dataFormat :: Lude.Maybe DataFormat,
+    -- | The version number of the checkpoint (the last time the compatibility mode was changed).
     schemaCheckpoint :: Lude.Maybe Lude.Natural,
+    -- | The name of the schema.
     schemaName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema.
     schemaARN :: Lude.Maybe Lude.Text,
+    -- | The next version of the schema associated with the returned schema definition.
     nextSchemaVersion :: Lude.Maybe Lude.Natural,
+    -- | The date and time the schema was updated.
     updatedTime :: Lude.Maybe Lude.Text,
+    -- | A description of schema if specified when created
     description :: Lude.Maybe Lude.Text,
+    -- | The compatibility mode of the schema.
     compatibility :: Lude.Maybe Compatibility,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSchemaResponse' with the minimum fields required to make a request.
 --
--- * 'compatibility' - The compatibility mode of the schema.
--- * 'createdTime' - The date and time the schema was created.
--- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
--- * 'description' - A description of schema if specified when created
--- * 'latestSchemaVersion' - The latest version of the schema associated with the returned schema definition.
--- * 'nextSchemaVersion' - The next version of the schema associated with the returned schema definition.
--- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
 -- * 'registryName' - The name of the registry.
--- * 'responseStatus' - The response status code.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'createdTime' - The date and time the schema was created.
+-- * 'schemaStatus' - The status of the schema.
+-- * 'registryARN' - The Amazon Resource Name (ARN) of the registry.
+-- * 'latestSchemaVersion' - The latest version of the schema associated with the returned schema definition.
+-- * 'dataFormat' - The data format of the schema definition. Currently only @AVRO@ is supported.
 -- * 'schemaCheckpoint' - The version number of the checkpoint (the last time the compatibility mode was changed).
 -- * 'schemaName' - The name of the schema.
--- * 'schemaStatus' - The status of the schema.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- * 'nextSchemaVersion' - The next version of the schema associated with the returned schema definition.
 -- * 'updatedTime' - The date and time the schema was updated.
+-- * 'description' - A description of schema if specified when created
+-- * 'compatibility' - The compatibility mode of the schema.
+-- * 'responseStatus' - The response status code.
 mkGetSchemaResponse ::
   -- | 'responseStatus'
   Lude.Int ->

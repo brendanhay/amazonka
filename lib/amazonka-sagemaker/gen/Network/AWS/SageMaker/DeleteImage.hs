@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.SageMaker.DeleteImage
     mkDeleteImage,
 
     -- ** Request lenses
-    delImageName,
+    diImageName,
 
     -- * Destructuring the response
     DeleteImageResponse (..),
@@ -37,14 +38,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteImage' smart constructor.
-newtype DeleteImage = DeleteImage' {imageName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteImage = DeleteImage'
+  { -- | The name of the image to delete.
+    imageName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImage' with the minimum fields required to make a request.
@@ -59,9 +57,9 @@ mkDeleteImage pImageName_ = DeleteImage' {imageName = pImageName_}
 -- | The name of the image to delete.
 --
 -- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delImageName :: Lens.Lens' DeleteImage Lude.Text
-delImageName = Lens.lens (imageName :: DeleteImage -> Lude.Text) (\s a -> s {imageName = a} :: DeleteImage)
-{-# DEPRECATED delImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+diImageName :: Lens.Lens' DeleteImage Lude.Text
+diImageName = Lens.lens (imageName :: DeleteImage -> Lude.Text) (\s a -> s {imageName = a} :: DeleteImage)
+{-# DEPRECATED diImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 instance Lude.AWSRequest DeleteImage where
   type Rs DeleteImage = DeleteImageResponse
@@ -96,16 +94,10 @@ instance Lude.ToQuery DeleteImage where
 
 -- | /See:/ 'mkDeleteImageResponse' smart constructor.
 newtype DeleteImageResponse = DeleteImageResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteImageResponse' with the minimum fields required to make a request.

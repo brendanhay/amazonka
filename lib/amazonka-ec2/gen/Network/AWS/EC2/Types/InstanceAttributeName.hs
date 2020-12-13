@@ -13,21 +13,21 @@
 module Network.AWS.EC2.Types.InstanceAttributeName
   ( InstanceAttributeName
       ( InstanceAttributeName',
-        IANBlockDeviceMapping,
-        IANDisableAPITermination,
-        IANEBSOptimized,
-        IANEnaSupport,
-        IANEnclaveOptions,
-        IANGroupSet,
-        IANInstanceInitiatedShutdownBehavior,
         IANInstanceType,
         IANKernel,
-        IANProductCodes,
         IANRAMDisk,
+        IANUserData,
+        IANDisableAPITermination,
+        IANInstanceInitiatedShutdownBehavior,
         IANRootDeviceName,
-        IANSRIOVNetSupport,
+        IANBlockDeviceMapping,
+        IANProductCodes,
         IANSourceDestCheck,
-        IANUserData
+        IANGroupSet,
+        IANEBSOptimized,
+        IANSRIOVNetSupport,
+        IANEnaSupport,
+        IANEnclaveOptions
       ),
   )
 where
@@ -58,14 +58,44 @@ newtype InstanceAttributeName = InstanceAttributeName' Lude.Text
       Lude.ToHeader
     )
 
-pattern IANBlockDeviceMapping :: InstanceAttributeName
-pattern IANBlockDeviceMapping = InstanceAttributeName' "blockDeviceMapping"
+pattern IANInstanceType :: InstanceAttributeName
+pattern IANInstanceType = InstanceAttributeName' "instanceType"
+
+pattern IANKernel :: InstanceAttributeName
+pattern IANKernel = InstanceAttributeName' "kernel"
+
+pattern IANRAMDisk :: InstanceAttributeName
+pattern IANRAMDisk = InstanceAttributeName' "ramdisk"
+
+pattern IANUserData :: InstanceAttributeName
+pattern IANUserData = InstanceAttributeName' "userData"
 
 pattern IANDisableAPITermination :: InstanceAttributeName
 pattern IANDisableAPITermination = InstanceAttributeName' "disableApiTermination"
 
+pattern IANInstanceInitiatedShutdownBehavior :: InstanceAttributeName
+pattern IANInstanceInitiatedShutdownBehavior = InstanceAttributeName' "instanceInitiatedShutdownBehavior"
+
+pattern IANRootDeviceName :: InstanceAttributeName
+pattern IANRootDeviceName = InstanceAttributeName' "rootDeviceName"
+
+pattern IANBlockDeviceMapping :: InstanceAttributeName
+pattern IANBlockDeviceMapping = InstanceAttributeName' "blockDeviceMapping"
+
+pattern IANProductCodes :: InstanceAttributeName
+pattern IANProductCodes = InstanceAttributeName' "productCodes"
+
+pattern IANSourceDestCheck :: InstanceAttributeName
+pattern IANSourceDestCheck = InstanceAttributeName' "sourceDestCheck"
+
+pattern IANGroupSet :: InstanceAttributeName
+pattern IANGroupSet = InstanceAttributeName' "groupSet"
+
 pattern IANEBSOptimized :: InstanceAttributeName
 pattern IANEBSOptimized = InstanceAttributeName' "ebsOptimized"
+
+pattern IANSRIOVNetSupport :: InstanceAttributeName
+pattern IANSRIOVNetSupport = InstanceAttributeName' "sriovNetSupport"
 
 pattern IANEnaSupport :: InstanceAttributeName
 pattern IANEnaSupport = InstanceAttributeName' "enaSupport"
@@ -73,51 +103,21 @@ pattern IANEnaSupport = InstanceAttributeName' "enaSupport"
 pattern IANEnclaveOptions :: InstanceAttributeName
 pattern IANEnclaveOptions = InstanceAttributeName' "enclaveOptions"
 
-pattern IANGroupSet :: InstanceAttributeName
-pattern IANGroupSet = InstanceAttributeName' "groupSet"
-
-pattern IANInstanceInitiatedShutdownBehavior :: InstanceAttributeName
-pattern IANInstanceInitiatedShutdownBehavior = InstanceAttributeName' "instanceInitiatedShutdownBehavior"
-
-pattern IANInstanceType :: InstanceAttributeName
-pattern IANInstanceType = InstanceAttributeName' "instanceType"
-
-pattern IANKernel :: InstanceAttributeName
-pattern IANKernel = InstanceAttributeName' "kernel"
-
-pattern IANProductCodes :: InstanceAttributeName
-pattern IANProductCodes = InstanceAttributeName' "productCodes"
-
-pattern IANRAMDisk :: InstanceAttributeName
-pattern IANRAMDisk = InstanceAttributeName' "ramdisk"
-
-pattern IANRootDeviceName :: InstanceAttributeName
-pattern IANRootDeviceName = InstanceAttributeName' "rootDeviceName"
-
-pattern IANSRIOVNetSupport :: InstanceAttributeName
-pattern IANSRIOVNetSupport = InstanceAttributeName' "sriovNetSupport"
-
-pattern IANSourceDestCheck :: InstanceAttributeName
-pattern IANSourceDestCheck = InstanceAttributeName' "sourceDestCheck"
-
-pattern IANUserData :: InstanceAttributeName
-pattern IANUserData = InstanceAttributeName' "userData"
-
 {-# COMPLETE
-  IANBlockDeviceMapping,
-  IANDisableAPITermination,
-  IANEBSOptimized,
-  IANEnaSupport,
-  IANEnclaveOptions,
-  IANGroupSet,
-  IANInstanceInitiatedShutdownBehavior,
   IANInstanceType,
   IANKernel,
-  IANProductCodes,
   IANRAMDisk,
-  IANRootDeviceName,
-  IANSRIOVNetSupport,
-  IANSourceDestCheck,
   IANUserData,
+  IANDisableAPITermination,
+  IANInstanceInitiatedShutdownBehavior,
+  IANRootDeviceName,
+  IANBlockDeviceMapping,
+  IANProductCodes,
+  IANSourceDestCheck,
+  IANGroupSet,
+  IANEBSOptimized,
+  IANSRIOVNetSupport,
+  IANEnaSupport,
+  IANEnclaveOptions,
   InstanceAttributeName'
   #-}

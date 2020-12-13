@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppSync.GetResolver
     mkGetResolver,
 
     -- ** Request lenses
-    grApiId,
     grTypeName,
+    grApiId,
     grFieldName,
 
     -- * Destructuring the response
@@ -41,45 +42,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetResolver' smart constructor.
 data GetResolver = GetResolver'
-  { apiId :: Lude.Text,
+  { -- | The resolver type name.
     typeName :: Lude.Text,
+    -- | The API ID.
+    apiId :: Lude.Text,
+    -- | The resolver field name.
     fieldName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResolver' with the minimum fields required to make a request.
 --
+-- * 'typeName' - The resolver type name.
 -- * 'apiId' - The API ID.
 -- * 'fieldName' - The resolver field name.
--- * 'typeName' - The resolver type name.
 mkGetResolver ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'typeName'
+  Lude.Text ->
+  -- | 'apiId'
   Lude.Text ->
   -- | 'fieldName'
   Lude.Text ->
   GetResolver
-mkGetResolver pApiId_ pTypeName_ pFieldName_ =
+mkGetResolver pTypeName_ pApiId_ pFieldName_ =
   GetResolver'
-    { apiId = pApiId_,
-      typeName = pTypeName_,
+    { typeName = pTypeName_,
+      apiId = pApiId_,
       fieldName = pFieldName_
     }
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grApiId :: Lens.Lens' GetResolver Lude.Text
-grApiId = Lens.lens (apiId :: GetResolver -> Lude.Text) (\s a -> s {apiId = a} :: GetResolver)
-{-# DEPRECATED grApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The resolver type name.
 --
@@ -87,6 +78,13 @@ grApiId = Lens.lens (apiId :: GetResolver -> Lude.Text) (\s a -> s {apiId = a} :
 grTypeName :: Lens.Lens' GetResolver Lude.Text
 grTypeName = Lens.lens (typeName :: GetResolver -> Lude.Text) (\s a -> s {typeName = a} :: GetResolver)
 {-# DEPRECATED grTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grApiId :: Lens.Lens' GetResolver Lude.Text
+grApiId = Lens.lens (apiId :: GetResolver -> Lude.Text) (\s a -> s {apiId = a} :: GetResolver)
+{-# DEPRECATED grApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The resolver field name.
 --
@@ -130,17 +128,12 @@ instance Lude.ToQuery GetResolver where
 
 -- | /See:/ 'mkGetResolverResponse' smart constructor.
 data GetResolverResponse = GetResolverResponse'
-  { resolver ::
-      Lude.Maybe Resolver,
+  { -- | The @Resolver@ object.
+    resolver :: Lude.Maybe Resolver,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResolverResponse' with the minimum fields required to make a request.

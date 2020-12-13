@@ -14,14 +14,14 @@ module Network.AWS.Glue.Types.Permission
   ( Permission
       ( Permission',
         PAll,
+        PSelect,
         PAlter,
+        PDrop,
+        PDelete,
+        PInsert,
         PCreateDatabase,
         PCreateTable,
-        PDataLocationAccess,
-        PDelete,
-        PDrop,
-        PInsert,
-        PSelect
+        PDataLocationAccess
       ),
   )
 where
@@ -55,8 +55,20 @@ newtype Permission = Permission' Lude.Text
 pattern PAll :: Permission
 pattern PAll = Permission' "ALL"
 
+pattern PSelect :: Permission
+pattern PSelect = Permission' "SELECT"
+
 pattern PAlter :: Permission
 pattern PAlter = Permission' "ALTER"
+
+pattern PDrop :: Permission
+pattern PDrop = Permission' "DROP"
+
+pattern PDelete :: Permission
+pattern PDelete = Permission' "DELETE"
+
+pattern PInsert :: Permission
+pattern PInsert = Permission' "INSERT"
 
 pattern PCreateDatabase :: Permission
 pattern PCreateDatabase = Permission' "CREATE_DATABASE"
@@ -67,27 +79,15 @@ pattern PCreateTable = Permission' "CREATE_TABLE"
 pattern PDataLocationAccess :: Permission
 pattern PDataLocationAccess = Permission' "DATA_LOCATION_ACCESS"
 
-pattern PDelete :: Permission
-pattern PDelete = Permission' "DELETE"
-
-pattern PDrop :: Permission
-pattern PDrop = Permission' "DROP"
-
-pattern PInsert :: Permission
-pattern PInsert = Permission' "INSERT"
-
-pattern PSelect :: Permission
-pattern PSelect = Permission' "SELECT"
-
 {-# COMPLETE
   PAll,
+  PSelect,
   PAlter,
+  PDrop,
+  PDelete,
+  PInsert,
   PCreateDatabase,
   PCreateTable,
   PDataLocationAccess,
-  PDelete,
-  PDrop,
-  PInsert,
-  PSelect,
   Permission'
   #-}

@@ -46,47 +46,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPullRequestEvent' smart constructor.
 data PullRequestEvent = PullRequestEvent'
-  { pullRequestMergedStateChangedEventMetadata ::
-      Lude.Maybe PullRequestMergedStateChangedEventMetadata,
-    pullRequestCreatedEventMetadata ::
-      Lude.Maybe PullRequestCreatedEventMetadata,
-    approvalRuleEventMetadata ::
-      Lude.Maybe ApprovalRuleEventMetadata,
+  { -- | Information about the change in mergability state for the pull request event.
+    pullRequestMergedStateChangedEventMetadata :: Lude.Maybe PullRequestMergedStateChangedEventMetadata,
+    -- | Information about the source and destination branches for the pull request.
+    pullRequestCreatedEventMetadata :: Lude.Maybe PullRequestCreatedEventMetadata,
+    -- | Information about a pull request event.
+    approvalRuleEventMetadata :: Lude.Maybe ApprovalRuleEventMetadata,
+    -- | The type of the pull request event (for example, a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
     pullRequestEventType :: Lude.Maybe PullRequestEventType,
-    pullRequestStatusChangedEventMetadata ::
-      Lude.Maybe PullRequestStatusChangedEventMetadata,
+    -- | Information about the change in status for the pull request event.
+    pullRequestStatusChangedEventMetadata :: Lude.Maybe PullRequestStatusChangedEventMetadata,
+    -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
     actorARN :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the pull request.
     pullRequestId :: Lude.Maybe Lude.Text,
+    -- | The day and time of the pull request event, in timestamp format.
     eventDate :: Lude.Maybe Lude.Timestamp,
-    approvalStateChangedEventMetadata ::
-      Lude.Maybe ApprovalStateChangedEventMetadata,
-    pullRequestSourceReferenceUpdatedEventMetadata ::
-      Lude.Maybe PullRequestSourceReferenceUpdatedEventMetadata,
-    approvalRuleOverriddenEventMetadata ::
-      Lude.Maybe ApprovalRuleOverriddenEventMetadata
+    -- | Information about an approval state change for a pull request.
+    approvalStateChangedEventMetadata :: Lude.Maybe ApprovalStateChangedEventMetadata,
+    -- | Information about the updated source branch for the pull request event.
+    pullRequestSourceReferenceUpdatedEventMetadata :: Lude.Maybe PullRequestSourceReferenceUpdatedEventMetadata,
+    -- | Information about an approval rule override event for a pull request.
+    approvalRuleOverriddenEventMetadata :: Lude.Maybe ApprovalRuleOverriddenEventMetadata
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestEvent' with the minimum fields required to make a request.
 --
--- * 'actorARN' - The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
--- * 'approvalRuleEventMetadata' - Information about a pull request event.
--- * 'approvalRuleOverriddenEventMetadata' - Information about an approval rule override event for a pull request.
--- * 'approvalStateChangedEventMetadata' - Information about an approval state change for a pull request.
--- * 'eventDate' - The day and time of the pull request event, in timestamp format.
--- * 'pullRequestCreatedEventMetadata' - Information about the source and destination branches for the pull request.
--- * 'pullRequestEventType' - The type of the pull request event (for example, a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
--- * 'pullRequestId' - The system-generated ID of the pull request.
 -- * 'pullRequestMergedStateChangedEventMetadata' - Information about the change in mergability state for the pull request event.
--- * 'pullRequestSourceReferenceUpdatedEventMetadata' - Information about the updated source branch for the pull request event.
+-- * 'pullRequestCreatedEventMetadata' - Information about the source and destination branches for the pull request.
+-- * 'approvalRuleEventMetadata' - Information about a pull request event.
+-- * 'pullRequestEventType' - The type of the pull request event (for example, a status change event (PULL_REQUEST_STATUS_CHANGED) or update event (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).
 -- * 'pullRequestStatusChangedEventMetadata' - Information about the change in status for the pull request event.
+-- * 'actorARN' - The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
+-- * 'pullRequestId' - The system-generated ID of the pull request.
+-- * 'eventDate' - The day and time of the pull request event, in timestamp format.
+-- * 'approvalStateChangedEventMetadata' - Information about an approval state change for a pull request.
+-- * 'pullRequestSourceReferenceUpdatedEventMetadata' - Information about the updated source branch for the pull request event.
+-- * 'approvalRuleOverriddenEventMetadata' - Information about an approval rule override event for a pull request.
 mkPullRequestEvent ::
   PullRequestEvent
 mkPullRequestEvent =

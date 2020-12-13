@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,22 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyLunaClient' smart constructor.
 data ModifyLunaClient = ModifyLunaClient'
-  { clientARN :: Lude.Text,
+  { -- | The ARN of the client.
+    clientARN :: Lude.Text,
+    -- | The new certificate for the client.
     certificate :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLunaClient' with the minimum fields required to make a request.
 --
--- * 'certificate' - The new certificate for the client.
 -- * 'clientARN' - The ARN of the client.
+-- * 'certificate' - The new certificate for the client.
 mkModifyLunaClient ::
   -- | 'clientARN'
   Lude.Text ->
@@ -124,17 +121,12 @@ instance Lude.ToQuery ModifyLunaClient where
 
 -- | /See:/ 'mkModifyLunaClientResponse' smart constructor.
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
-  { clientARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the client.
+    clientARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyLunaClientResponse' with the minimum fields required to make a request.

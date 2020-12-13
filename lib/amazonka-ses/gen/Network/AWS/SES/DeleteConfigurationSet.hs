@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.SES.DeleteConfigurationSet
     mkDeleteConfigurationSet,
 
     -- ** Request lenses
-    dConfigurationSetName,
+    dcsConfigurationSetName,
 
     -- * Destructuring the response
     DeleteConfigurationSetResponse (..),
@@ -42,16 +43,10 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkDeleteConfigurationSet' smart constructor.
 newtype DeleteConfigurationSet = DeleteConfigurationSet'
-  { configurationSetName ::
-      Lude.Text
+  { -- | The name of the configuration set to delete.
+    configurationSetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationSet' with the minimum fields required to make a request.
@@ -70,9 +65,9 @@ mkDeleteConfigurationSet pConfigurationSetName_ =
 -- | The name of the configuration set to delete.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dConfigurationSetName :: Lens.Lens' DeleteConfigurationSet Lude.Text
-dConfigurationSetName = Lens.lens (configurationSetName :: DeleteConfigurationSet -> Lude.Text) (\s a -> s {configurationSetName = a} :: DeleteConfigurationSet)
-{-# DEPRECATED dConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
+dcsConfigurationSetName :: Lens.Lens' DeleteConfigurationSet Lude.Text
+dcsConfigurationSetName = Lens.lens (configurationSetName :: DeleteConfigurationSet -> Lude.Text) (\s a -> s {configurationSetName = a} :: DeleteConfigurationSet)
+{-# DEPRECATED dcsConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
 instance Lude.AWSRequest DeleteConfigurationSet where
   type Rs DeleteConfigurationSet = DeleteConfigurationSetResponse
@@ -103,16 +98,10 @@ instance Lude.ToQuery DeleteConfigurationSet where
 --
 -- /See:/ 'mkDeleteConfigurationSetResponse' smart constructor.
 newtype DeleteConfigurationSetResponse = DeleteConfigurationSetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConfigurationSetResponse' with the minimum fields required to make a request.

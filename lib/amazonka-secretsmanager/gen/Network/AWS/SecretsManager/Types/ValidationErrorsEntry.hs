@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkValidationErrorsEntry' smart constructor.
 data ValidationErrorsEntry = ValidationErrorsEntry'
-  { checkName ::
-      Lude.Maybe Lude.Text,
+  { -- | Checks the name of the policy.
+    checkName :: Lude.Maybe Lude.Text,
+    -- | Displays error messages if validation encounters problems during validation of the resource policy.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidationErrorsEntry' with the minimum fields required to make a request.

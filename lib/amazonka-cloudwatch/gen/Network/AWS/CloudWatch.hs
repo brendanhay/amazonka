@@ -228,8 +228,8 @@ module Network.AWS.CloudWatch
     -- ** Dimension
     Dimension (..),
     mkDimension,
-    dName,
     dValue,
+    dName,
 
     -- ** DimensionFilter
     DimensionFilter (..),
@@ -240,23 +240,23 @@ module Network.AWS.CloudWatch
     -- ** InsightRule
     InsightRule (..),
     mkInsightRule,
-    irName,
     irState,
-    irSchema,
     irDefinition,
+    irSchema,
+    irName,
 
     -- ** InsightRuleContributor
     InsightRuleContributor (..),
     mkInsightRuleContributor,
-    ircKeys,
-    ircApproximateAggregateValue,
     ircDatapoints,
+    ircApproximateAggregateValue,
+    ircKeys,
 
     -- ** InsightRuleContributorDatapoint
     InsightRuleContributorDatapoint (..),
     mkInsightRuleContributorDatapoint,
-    ircdTimestamp,
     ircdApproximateValue,
+    ircdTimestamp,
 
     -- ** InsightRuleMetricDatapoint
     InsightRuleMetricDatapoint (..),
@@ -320,9 +320,9 @@ module Network.AWS.CloudWatch
     mdqReturnData,
     mdqPeriod,
     mdqExpression,
+    mdqId,
     mdqLabel,
     mdqMetricStat,
-    mdqId,
 
     -- ** MetricDataResult
     MetricDataResult (..),
@@ -339,21 +339,21 @@ module Network.AWS.CloudWatch
     mkMetricDatum,
     mdValues,
     mdCounts,
+    mdMetricName,
     mdValue,
     mdStorageResolution,
     mdDimensions,
     mdUnit,
     mdTimestamp,
     mdStatisticValues,
-    mdMetricName,
 
     -- ** MetricStat
     MetricStat (..),
     mkMetricStat,
-    msUnit,
-    msMetric,
     msPeriod,
+    msMetric,
     msStat,
+    msUnit,
 
     -- ** PartialFailure
     PartialFailure (..),
@@ -373,15 +373,15 @@ module Network.AWS.CloudWatch
     StatisticSet (..),
     mkStatisticSet,
     ssSampleCount,
-    ssSum,
-    ssMinimum,
     ssMaximum,
+    ssMinimum,
+    ssSum,
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * Serialization types
     Lude.Base64 (..),

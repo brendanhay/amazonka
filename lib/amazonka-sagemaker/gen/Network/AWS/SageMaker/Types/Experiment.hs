@@ -40,38 +40,38 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'mkExperiment' smart constructor.
 data Experiment = Experiment'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the experiment was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
     createdBy :: Lude.Maybe UserContext,
+    -- | When the experiment was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the experiment.
     experimentName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the experiment.
     experimentARN :: Lude.Maybe Lude.Text,
     source :: Lude.Maybe ExperimentSource,
+    -- | The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
     lastModifiedBy :: Lude.Maybe UserContext,
+    -- | The description of the experiment.
     description :: Lude.Maybe Lude.Text,
+    -- | The list of tags that are associated with the experiment. You can use 'Search' API to search on the tags.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Experiment' with the minimum fields required to make a request.
 --
--- * 'createdBy' - Undocumented field.
 -- * 'creationTime' - When the experiment was created.
--- * 'description' - The description of the experiment.
--- * 'displayName' - The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
--- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment.
--- * 'experimentName' - The name of the experiment.
--- * 'lastModifiedBy' - Undocumented field.
+-- * 'createdBy' -
 -- * 'lastModifiedTime' - When the experiment was last modified.
--- * 'source' - Undocumented field.
+-- * 'experimentName' - The name of the experiment.
+-- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment.
+-- * 'source' -
+-- * 'displayName' - The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
+-- * 'lastModifiedBy' -
+-- * 'description' - The description of the experiment.
 -- * 'tags' - The list of tags that are associated with the experiment. You can use 'Search' API to search on the tags.
 mkExperiment ::
   Experiment

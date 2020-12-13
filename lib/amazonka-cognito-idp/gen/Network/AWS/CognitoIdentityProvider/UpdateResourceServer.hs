@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoIdentityProvider.UpdateResourceServer
     mkUpdateResourceServer,
 
     -- ** Request lenses
-    ursScopes,
     ursUserPoolId,
     ursIdentifier,
+    ursScopes,
     ursName,
 
     -- * Destructuring the response
@@ -31,8 +32,8 @@ module Network.AWS.CognitoIdentityProvider.UpdateResourceServer
     mkUpdateResourceServerResponse,
 
     -- ** Response lenses
-    ursrsResponseStatus,
     ursrsResourceServer,
+    ursrsResponseStatus,
   )
 where
 
@@ -44,27 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateResourceServer' smart constructor.
 data UpdateResourceServer = UpdateResourceServer'
-  { scopes ::
-      Lude.Maybe [ResourceServerScopeType],
+  { -- | The user pool ID for the user pool.
     userPoolId :: Lude.Text,
+    -- | The identifier for the resource server.
     identifier :: Lude.Text,
+    -- | The scope values to be set for the resource server.
+    scopes :: Lude.Maybe [ResourceServerScopeType],
+    -- | The name of the resource server.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceServer' with the minimum fields required to make a request.
 --
--- * 'identifier' - The identifier for the resource server.
--- * 'name' - The name of the resource server.
--- * 'scopes' - The scope values to be set for the resource server.
 -- * 'userPoolId' - The user pool ID for the user pool.
+-- * 'identifier' - The identifier for the resource server.
+-- * 'scopes' - The scope values to be set for the resource server.
+-- * 'name' - The name of the resource server.
 mkUpdateResourceServer ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -75,18 +73,11 @@ mkUpdateResourceServer ::
   UpdateResourceServer
 mkUpdateResourceServer pUserPoolId_ pIdentifier_ pName_ =
   UpdateResourceServer'
-    { scopes = Lude.Nothing,
-      userPoolId = pUserPoolId_,
+    { userPoolId = pUserPoolId_,
       identifier = pIdentifier_,
+      scopes = Lude.Nothing,
       name = pName_
     }
-
--- | The scope values to be set for the resource server.
---
--- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursScopes :: Lens.Lens' UpdateResourceServer (Lude.Maybe [ResourceServerScopeType])
-ursScopes = Lens.lens (scopes :: UpdateResourceServer -> Lude.Maybe [ResourceServerScopeType]) (\s a -> s {scopes = a} :: UpdateResourceServer)
-{-# DEPRECATED ursScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
 
 -- | The user pool ID for the user pool.
 --
@@ -102,6 +93,13 @@ ursIdentifier :: Lens.Lens' UpdateResourceServer Lude.Text
 ursIdentifier = Lens.lens (identifier :: UpdateResourceServer -> Lude.Text) (\s a -> s {identifier = a} :: UpdateResourceServer)
 {-# DEPRECATED ursIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
 
+-- | The scope values to be set for the resource server.
+--
+-- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursScopes :: Lens.Lens' UpdateResourceServer (Lude.Maybe [ResourceServerScopeType])
+ursScopes = Lens.lens (scopes :: UpdateResourceServer -> Lude.Maybe [ResourceServerScopeType]) (\s a -> s {scopes = a} :: UpdateResourceServer)
+{-# DEPRECATED ursScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
+
 -- | The name of the resource server.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -116,8 +114,8 @@ instance Lude.AWSRequest UpdateResourceServer where
     Res.receiveJSON
       ( \s h x ->
           UpdateResourceServerResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ResourceServer")
+            Lude.<$> (x Lude..:> "ResourceServer")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateResourceServer where
@@ -137,9 +135,9 @@ instance Lude.ToJSON UpdateResourceServer where
   toJSON UpdateResourceServer' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Scopes" Lude..=) Lude.<$> scopes,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
+          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
             Lude.Just ("Identifier" Lude..= identifier),
+            ("Scopes" Lude..=) Lude.<$> scopes,
             Lude.Just ("Name" Lude..= name)
           ]
       )
@@ -152,18 +150,12 @@ instance Lude.ToQuery UpdateResourceServer where
 
 -- | /See:/ 'mkUpdateResourceServerResponse' smart constructor.
 data UpdateResourceServerResponse = UpdateResourceServerResponse'
-  { responseStatus ::
-      Lude.Int,
-    resourceServer ::
-      ResourceServerType
+  { -- | The resource server.
+    resourceServer :: ResourceServerType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateResourceServerResponse' with the minimum fields required to make a request.
@@ -171,23 +163,16 @@ data UpdateResourceServerResponse = UpdateResourceServerResponse'
 -- * 'resourceServer' - The resource server.
 -- * 'responseStatus' - The response status code.
 mkUpdateResourceServerResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'resourceServer'
   ResourceServerType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateResourceServerResponse
-mkUpdateResourceServerResponse pResponseStatus_ pResourceServer_ =
+mkUpdateResourceServerResponse pResourceServer_ pResponseStatus_ =
   UpdateResourceServerResponse'
-    { responseStatus = pResponseStatus_,
-      resourceServer = pResourceServer_
+    { resourceServer = pResourceServer_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursrsResponseStatus :: Lens.Lens' UpdateResourceServerResponse Lude.Int
-ursrsResponseStatus = Lens.lens (responseStatus :: UpdateResourceServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateResourceServerResponse)
-{-# DEPRECATED ursrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The resource server.
 --
@@ -195,3 +180,10 @@ ursrsResponseStatus = Lens.lens (responseStatus :: UpdateResourceServerResponse 
 ursrsResourceServer :: Lens.Lens' UpdateResourceServerResponse ResourceServerType
 ursrsResourceServer = Lens.lens (resourceServer :: UpdateResourceServerResponse -> ResourceServerType) (\s a -> s {resourceServer = a} :: UpdateResourceServerResponse)
 {-# DEPRECATED ursrsResourceServer "Use generic-lens or generic-optics with 'resourceServer' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ursrsResponseStatus :: Lens.Lens' UpdateResourceServerResponse Lude.Int
+ursrsResponseStatus = Lens.lens (responseStatus :: UpdateResourceServerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateResourceServerResponse)
+{-# DEPRECATED ursrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -14,11 +14,11 @@ module Network.AWS.MachineLearning.Types.DataSourceFilterVariable
   ( DataSourceFilterVariable
       ( DataSourceFilterVariable',
         DataCreatedAt,
-        DataDATALOCATIONS3,
-        DataIAMUser,
         DataLastUpdatedAt,
+        DataStatus,
         DataName,
-        DataStatus
+        DataDATALOCATIONS3,
+        DataIAMUser
       ),
   )
 where
@@ -64,27 +64,27 @@ newtype DataSourceFilterVariable = DataSourceFilterVariable' Lude.Text
 pattern DataCreatedAt :: DataSourceFilterVariable
 pattern DataCreatedAt = DataSourceFilterVariable' "CreatedAt"
 
+pattern DataLastUpdatedAt :: DataSourceFilterVariable
+pattern DataLastUpdatedAt = DataSourceFilterVariable' "LastUpdatedAt"
+
+pattern DataStatus :: DataSourceFilterVariable
+pattern DataStatus = DataSourceFilterVariable' "Status"
+
+pattern DataName :: DataSourceFilterVariable
+pattern DataName = DataSourceFilterVariable' "Name"
+
 pattern DataDATALOCATIONS3 :: DataSourceFilterVariable
 pattern DataDATALOCATIONS3 = DataSourceFilterVariable' "DataLocationS3"
 
 pattern DataIAMUser :: DataSourceFilterVariable
 pattern DataIAMUser = DataSourceFilterVariable' "IAMUser"
 
-pattern DataLastUpdatedAt :: DataSourceFilterVariable
-pattern DataLastUpdatedAt = DataSourceFilterVariable' "LastUpdatedAt"
-
-pattern DataName :: DataSourceFilterVariable
-pattern DataName = DataSourceFilterVariable' "Name"
-
-pattern DataStatus :: DataSourceFilterVariable
-pattern DataStatus = DataSourceFilterVariable' "Status"
-
 {-# COMPLETE
   DataCreatedAt,
+  DataLastUpdatedAt,
+  DataStatus,
+  DataName,
   DataDATALOCATIONS3,
   DataIAMUser,
-  DataLastUpdatedAt,
-  DataName,
-  DataStatus,
   DataSourceFilterVariable'
   #-}

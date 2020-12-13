@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityGroup' smart constructor.
 data SecurityGroup = SecurityGroup'
-  { groupId ::
-      Lude.Maybe Lude.Text,
+  { -- | The security group ID of the EC2 instance.
+    groupId :: Lude.Maybe Lude.Text,
+    -- | The security group name of the EC2 instance.
     groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroup' with the minimum fields required to make a request.

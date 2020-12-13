@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DirectConnect.DescribeLoa
     mkDescribeLoa,
 
     -- ** Request lenses
+    dlConnectionId,
     dlLoaContentType,
     dlProviderName,
-    dlConnectionId,
 
     -- * Destructuring the response
     DescribeLoaResponse (..),
@@ -44,18 +45,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLoa' smart constructor.
 data DescribeLoa = DescribeLoa'
-  { loaContentType ::
-      Lude.Maybe LoaContentType,
-    providerName :: Lude.Maybe Lude.Text,
-    connectionId :: Lude.Text
+  { -- | The ID of a connection, LAG, or interconnect.
+    connectionId :: Lude.Text,
+    -- | The standard media type for the LOA-CFA document. The only supported value is application/pdf.
+    loaContentType :: Lude.Maybe LoaContentType,
+    -- | The name of the service provider who establishes connectivity on your behalf. If you specify this parameter, the LOA-CFA lists the provider name alongside your company name as the requester of the cross connect.
+    providerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoa' with the minimum fields required to make a request.
@@ -69,10 +66,17 @@ mkDescribeLoa ::
   DescribeLoa
 mkDescribeLoa pConnectionId_ =
   DescribeLoa'
-    { loaContentType = Lude.Nothing,
-      providerName = Lude.Nothing,
-      connectionId = pConnectionId_
+    { connectionId = pConnectionId_,
+      loaContentType = Lude.Nothing,
+      providerName = Lude.Nothing
     }
+
+-- | The ID of a connection, LAG, or interconnect.
+--
+-- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlConnectionId :: Lens.Lens' DescribeLoa Lude.Text
+dlConnectionId = Lens.lens (connectionId :: DescribeLoa -> Lude.Text) (\s a -> s {connectionId = a} :: DescribeLoa)
+{-# DEPRECATED dlConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The standard media type for the LOA-CFA document. The only supported value is application/pdf.
 --
@@ -87,13 +91,6 @@ dlLoaContentType = Lens.lens (loaContentType :: DescribeLoa -> Lude.Maybe LoaCon
 dlProviderName :: Lens.Lens' DescribeLoa (Lude.Maybe Lude.Text)
 dlProviderName = Lens.lens (providerName :: DescribeLoa -> Lude.Maybe Lude.Text) (\s a -> s {providerName = a} :: DescribeLoa)
 {-# DEPRECATED dlProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
-
--- | The ID of a connection, LAG, or interconnect.
---
--- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlConnectionId :: Lens.Lens' DescribeLoa Lude.Text
-dlConnectionId = Lens.lens (connectionId :: DescribeLoa -> Lude.Text) (\s a -> s {connectionId = a} :: DescribeLoa)
-{-# DEPRECATED dlConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 instance Lude.AWSRequest DescribeLoa where
   type Rs DescribeLoa = DescribeLoaResponse
@@ -122,9 +119,9 @@ instance Lude.ToJSON DescribeLoa where
   toJSON DescribeLoa' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("loaContentType" Lude..=) Lude.<$> loaContentType,
-            ("providerName" Lude..=) Lude.<$> providerName,
-            Lude.Just ("connectionId" Lude..= connectionId)
+          [ Lude.Just ("connectionId" Lude..= connectionId),
+            ("loaContentType" Lude..=) Lude.<$> loaContentType,
+            ("providerName" Lude..=) Lude.<$> providerName
           ]
       )
 
@@ -138,27 +135,19 @@ instance Lude.ToQuery DescribeLoa where
 --
 -- /See:/ 'mkDescribeLoaResponse' smart constructor.
 data DescribeLoaResponse = DescribeLoaResponse'
-  { loaContent ::
-      Lude.Maybe Lude.Base64,
+  { -- | The binary contents of the LOA-CFA document.
+    loaContent :: Lude.Maybe Lude.Base64,
+    -- | The standard media type for the LOA-CFA document. The only supported value is application/pdf.
     loaContentType :: Lude.Maybe LoaContentType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLoaResponse' with the minimum fields required to make a request.
 --
--- * 'loaContent' - The binary contents of the LOA-CFA document.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'loaContent' - The binary contents of the LOA-CFA document.
 -- * 'loaContentType' - The standard media type for the LOA-CFA document. The only supported value is application/pdf.
 -- * 'responseStatus' - The response status code.
 mkDescribeLoaResponse ::

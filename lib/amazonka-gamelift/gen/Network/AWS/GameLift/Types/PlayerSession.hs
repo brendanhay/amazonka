@@ -65,50 +65,59 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlayerSession' smart constructor.
 data PlayerSession = PlayerSession'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Current status of the player session.
+    --
+    -- Possible player session statuses include the following:
+    --
+    --     * __RESERVED__ -- The player session request has been received, but the player has not yet connected to the server process and/or been validated.
+    --
+    --
+    --     * __ACTIVE__ -- The player has been validated by the server process and is currently connected.
+    --
+    --
+    --     * __COMPLETED__ -- The player connection has been dropped.
+    --
+    --
+    --     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
     status :: Lude.Maybe PlayerSessionStatus,
+    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the game session that the player session is connected to.
     gameSessionId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that the player's game session is running on.
     fleetARN :: Lude.Maybe Lude.Text,
+    -- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
     terminationTime :: Lude.Maybe Lude.Timestamp,
+    -- | A unique identifier for a player session.
     playerSessionId :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a fleet that the player's game session is running on.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
     playerData :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a player that is associated with this player session.
     playerId :: Lude.Maybe Lude.Text,
+    -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+    --
+    --
+    --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+    --
+    --
+    --     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+    --
+    --
+    -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
     dnsName :: Lude.Maybe Lude.Text,
+    -- | Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
     port :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlayerSession' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
---
---
---     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
---
---
---     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
---
---
--- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
--- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that the player's game session is running on.
--- * 'fleetId' - A unique identifier for a fleet that the player's game session is running on.
--- * 'gameSessionId' - A unique identifier for the game session that the player session is connected to.
--- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
--- * 'playerData' - Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
--- * 'playerId' - A unique identifier for a player that is associated with this player session.
--- * 'playerSessionId' - A unique identifier for a player session.
--- * 'port' - Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
 -- * 'status' - Current status of the player session.
 --
 -- Possible player session statuses include the following:
@@ -125,7 +134,25 @@ data PlayerSession = PlayerSession'
 --     * __TIMEDOUT__ -- A player session request was received, but the player did not connect and/or was not validated within the timeout limit (60 seconds).
 --
 --
+-- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
+-- * 'gameSessionId' - A unique identifier for the game session that the player session is connected to.
+-- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift fleet that the player's game session is running on.
 -- * 'terminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'playerSessionId' - A unique identifier for a player session.
+-- * 'fleetId' - A unique identifier for a fleet that the player's game session is running on.
+-- * 'playerData' - Developer-defined information related to a player. Amazon GameLift does not use this data, so it can be formatted as needed for use in the game.
+-- * 'playerId' - A unique identifier for a player that is associated with this player session.
+-- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
+--
+--
+--     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+--
+--
+--     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+--
+--
+-- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
+-- * 'port' - Port number for the game session. To connect to a Amazon GameLift server process, an app needs both the IP address and port number.
 mkPlayerSession ::
   PlayerSession
 mkPlayerSession =

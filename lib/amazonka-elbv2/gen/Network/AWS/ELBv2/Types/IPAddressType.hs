@@ -13,8 +13,8 @@
 module Network.AWS.ELBv2.Types.IPAddressType
   ( IPAddressType
       ( IPAddressType',
-        Dualstack,
-        IPV4
+        IPV4,
+        Dualstack
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype IPAddressType = IPAddressType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Dualstack :: IPAddressType
-pattern Dualstack = IPAddressType' "dualstack"
-
 pattern IPV4 :: IPAddressType
 pattern IPV4 = IPAddressType' "ipv4"
 
+pattern Dualstack :: IPAddressType
+pattern Dualstack = IPAddressType' "dualstack"
+
 {-# COMPLETE
-  Dualstack,
   IPV4,
+  Dualstack,
   IPAddressType'
   #-}

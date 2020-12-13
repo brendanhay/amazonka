@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,16 +49,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStreamProcessor' smart constructor.
 newtype DescribeStreamProcessor = DescribeStreamProcessor'
-  { name ::
-      Lude.Text
+  { -- | Name of the stream processor for which you want information.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamProcessor' with the minimum fields required to make a request.
@@ -120,54 +115,45 @@ instance Lude.ToQuery DescribeStreamProcessor where
 
 -- | /See:/ 'mkDescribeStreamProcessorResponse' smart constructor.
 data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
-  { status ::
-      Lude.Maybe
-        StreamProcessorStatus,
-    settings ::
-      Lude.Maybe
-        StreamProcessorSettings,
-    input ::
-      Lude.Maybe
-        StreamProcessorInput,
-    output ::
-      Lude.Maybe
-        StreamProcessorOutput,
-    streamProcessorARN ::
-      Lude.Maybe Lude.Text,
-    statusMessage ::
-      Lude.Maybe Lude.Text,
-    name ::
-      Lude.Maybe Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    lastUpdateTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    roleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | Current status of the stream processor.
+    status :: Lude.Maybe StreamProcessorStatus,
+    -- | Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
+    settings :: Lude.Maybe StreamProcessorSettings,
+    -- | Kinesis video stream that provides the source streaming video.
+    input :: Lude.Maybe StreamProcessorInput,
+    -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
+    output :: Lude.Maybe StreamProcessorOutput,
+    -- | ARN of the stream processor.
+    streamProcessorARN :: Lude.Maybe Lude.Text,
+    -- | Detailed status message about the stream processor.
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | Name of the stream processor.
+    name :: Lude.Maybe Lude.Text,
+    -- | Date and time the stream processor was created
+    creationTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.
+    lastUpdateTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | ARN of the IAM role that allows access to the stream processor.
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamProcessorResponse' with the minimum fields required to make a request.
 --
--- * 'creationTimestamp' - Date and time the stream processor was created
--- * 'input' - Kinesis video stream that provides the source streaming video.
--- * 'lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.
--- * 'name' - Name of the stream processor.
--- * 'output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - ARN of the IAM role that allows access to the stream processor.
--- * 'settings' - Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
 -- * 'status' - Current status of the stream processor.
--- * 'statusMessage' - Detailed status message about the stream processor.
+-- * 'settings' - Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
+-- * 'input' - Kinesis video stream that provides the source streaming video.
+-- * 'output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
 -- * 'streamProcessorARN' - ARN of the stream processor.
+-- * 'statusMessage' - Detailed status message about the stream processor.
+-- * 'name' - Name of the stream processor.
+-- * 'creationTimestamp' - Date and time the stream processor was created
+-- * 'lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.
+-- * 'roleARN' - ARN of the IAM role that allows access to the stream processor.
+-- * 'responseStatus' - The response status code.
 mkDescribeStreamProcessorResponse ::
   -- | 'responseStatus'
   Lude.Int ->

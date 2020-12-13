@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComplianceContributorCount' smart constructor.
 data ComplianceContributorCount = ComplianceContributorCount'
-  { cappedCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
+    cappedCount :: Lude.Maybe Lude.Int,
+    -- | Indicates whether the maximum count is reached.
     capExceeded :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ComplianceContributorCount' with the minimum fields required to make a request.
 --
--- * 'capExceeded' - Indicates whether the maximum count is reached.
 -- * 'cappedCount' - The number of AWS resources or AWS Config rules responsible for the current compliance of the item.
+-- * 'capExceeded' - Indicates whether the maximum count is reached.
 mkComplianceContributorCount ::
   ComplianceContributorCount
 mkComplianceContributorCount =

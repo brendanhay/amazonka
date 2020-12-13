@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,24 +39,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteCloudFrontOriginAccessIdentity' smart constructor.
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
-  { ifMatch ::
-      Lude.Maybe
-        Lude.Text,
+  { -- | The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Lude.Maybe Lude.Text,
+    -- | The origin access identity's ID.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
--- * 'id' - The origin access identity's ID.
 -- * 'ifMatch' - The value of the @ETag@ header you received from a previous @GET@ or @PUT@ request. For example: @E2QWRUHAPOMQZL@ .
+-- * 'id' - The origin access identity's ID.
 mkDeleteCloudFrontOriginAccessIdentity ::
   -- | 'id'
   Lude.Text ->
@@ -102,13 +97,7 @@ instance Lude.ToQuery DeleteCloudFrontOriginAccessIdentity where
 
 -- | /See:/ 'mkDeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.

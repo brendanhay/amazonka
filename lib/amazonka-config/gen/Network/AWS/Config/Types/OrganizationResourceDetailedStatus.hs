@@ -13,15 +13,15 @@
 module Network.AWS.Config.Types.OrganizationResourceDetailedStatus
   ( OrganizationResourceDetailedStatus
       ( OrganizationResourceDetailedStatus',
-        CreateFailed,
-        CreateInProgress,
         CreateSuccessful,
+        CreateInProgress,
+        CreateFailed,
+        DeleteSuccessful,
         DeleteFailed,
         DeleteInProgress,
-        DeleteSuccessful,
-        UpdateFailed,
+        UpdateSuccessful,
         UpdateInProgress,
-        UpdateSuccessful
+        UpdateFailed
       ),
   )
 where
@@ -52,14 +52,17 @@ newtype OrganizationResourceDetailedStatus = OrganizationResourceDetailedStatus'
       Lude.ToHeader
     )
 
-pattern CreateFailed :: OrganizationResourceDetailedStatus
-pattern CreateFailed = OrganizationResourceDetailedStatus' "CREATE_FAILED"
+pattern CreateSuccessful :: OrganizationResourceDetailedStatus
+pattern CreateSuccessful = OrganizationResourceDetailedStatus' "CREATE_SUCCESSFUL"
 
 pattern CreateInProgress :: OrganizationResourceDetailedStatus
 pattern CreateInProgress = OrganizationResourceDetailedStatus' "CREATE_IN_PROGRESS"
 
-pattern CreateSuccessful :: OrganizationResourceDetailedStatus
-pattern CreateSuccessful = OrganizationResourceDetailedStatus' "CREATE_SUCCESSFUL"
+pattern CreateFailed :: OrganizationResourceDetailedStatus
+pattern CreateFailed = OrganizationResourceDetailedStatus' "CREATE_FAILED"
+
+pattern DeleteSuccessful :: OrganizationResourceDetailedStatus
+pattern DeleteSuccessful = OrganizationResourceDetailedStatus' "DELETE_SUCCESSFUL"
 
 pattern DeleteFailed :: OrganizationResourceDetailedStatus
 pattern DeleteFailed = OrganizationResourceDetailedStatus' "DELETE_FAILED"
@@ -67,27 +70,24 @@ pattern DeleteFailed = OrganizationResourceDetailedStatus' "DELETE_FAILED"
 pattern DeleteInProgress :: OrganizationResourceDetailedStatus
 pattern DeleteInProgress = OrganizationResourceDetailedStatus' "DELETE_IN_PROGRESS"
 
-pattern DeleteSuccessful :: OrganizationResourceDetailedStatus
-pattern DeleteSuccessful = OrganizationResourceDetailedStatus' "DELETE_SUCCESSFUL"
-
-pattern UpdateFailed :: OrganizationResourceDetailedStatus
-pattern UpdateFailed = OrganizationResourceDetailedStatus' "UPDATE_FAILED"
+pattern UpdateSuccessful :: OrganizationResourceDetailedStatus
+pattern UpdateSuccessful = OrganizationResourceDetailedStatus' "UPDATE_SUCCESSFUL"
 
 pattern UpdateInProgress :: OrganizationResourceDetailedStatus
 pattern UpdateInProgress = OrganizationResourceDetailedStatus' "UPDATE_IN_PROGRESS"
 
-pattern UpdateSuccessful :: OrganizationResourceDetailedStatus
-pattern UpdateSuccessful = OrganizationResourceDetailedStatus' "UPDATE_SUCCESSFUL"
+pattern UpdateFailed :: OrganizationResourceDetailedStatus
+pattern UpdateFailed = OrganizationResourceDetailedStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  CreateFailed,
-  CreateInProgress,
   CreateSuccessful,
+  CreateInProgress,
+  CreateFailed,
+  DeleteSuccessful,
   DeleteFailed,
   DeleteInProgress,
-  DeleteSuccessful,
-  UpdateFailed,
-  UpdateInProgress,
   UpdateSuccessful,
+  UpdateInProgress,
+  UpdateFailed,
   OrganizationResourceDetailedStatus'
   #-}

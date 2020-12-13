@@ -13,16 +13,16 @@
 module Network.AWS.MigrationHub.Types.ResourceAttributeType
   ( ResourceAttributeType
       ( ResourceAttributeType',
-        BiosId,
-        Fqdn,
         IPV4Address,
         IPV6Address,
         MACAddress,
-        MotherboardSerialNumber,
-        VMManagedObjectReference,
+        Fqdn,
         VMManagerId,
+        VMManagedObjectReference,
         VMName,
-        VMPath
+        VMPath,
+        BiosId,
+        MotherboardSerialNumber
       ),
   )
 where
@@ -53,12 +53,6 @@ newtype ResourceAttributeType = ResourceAttributeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BiosId :: ResourceAttributeType
-pattern BiosId = ResourceAttributeType' "BIOS_ID"
-
-pattern Fqdn :: ResourceAttributeType
-pattern Fqdn = ResourceAttributeType' "FQDN"
-
 pattern IPV4Address :: ResourceAttributeType
 pattern IPV4Address = ResourceAttributeType' "IPV4_ADDRESS"
 
@@ -68,14 +62,14 @@ pattern IPV6Address = ResourceAttributeType' "IPV6_ADDRESS"
 pattern MACAddress :: ResourceAttributeType
 pattern MACAddress = ResourceAttributeType' "MAC_ADDRESS"
 
-pattern MotherboardSerialNumber :: ResourceAttributeType
-pattern MotherboardSerialNumber = ResourceAttributeType' "MOTHERBOARD_SERIAL_NUMBER"
-
-pattern VMManagedObjectReference :: ResourceAttributeType
-pattern VMManagedObjectReference = ResourceAttributeType' "VM_MANAGED_OBJECT_REFERENCE"
+pattern Fqdn :: ResourceAttributeType
+pattern Fqdn = ResourceAttributeType' "FQDN"
 
 pattern VMManagerId :: ResourceAttributeType
 pattern VMManagerId = ResourceAttributeType' "VM_MANAGER_ID"
+
+pattern VMManagedObjectReference :: ResourceAttributeType
+pattern VMManagedObjectReference = ResourceAttributeType' "VM_MANAGED_OBJECT_REFERENCE"
 
 pattern VMName :: ResourceAttributeType
 pattern VMName = ResourceAttributeType' "VM_NAME"
@@ -83,16 +77,22 @@ pattern VMName = ResourceAttributeType' "VM_NAME"
 pattern VMPath :: ResourceAttributeType
 pattern VMPath = ResourceAttributeType' "VM_PATH"
 
+pattern BiosId :: ResourceAttributeType
+pattern BiosId = ResourceAttributeType' "BIOS_ID"
+
+pattern MotherboardSerialNumber :: ResourceAttributeType
+pattern MotherboardSerialNumber = ResourceAttributeType' "MOTHERBOARD_SERIAL_NUMBER"
+
 {-# COMPLETE
-  BiosId,
-  Fqdn,
   IPV4Address,
   IPV6Address,
   MACAddress,
-  MotherboardSerialNumber,
-  VMManagedObjectReference,
+  Fqdn,
   VMManagerId,
+  VMManagedObjectReference,
   VMName,
   VMPath,
+  BiosId,
+  MotherboardSerialNumber,
   ResourceAttributeType'
   #-}

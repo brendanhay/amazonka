@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,12 +25,12 @@ module Network.AWS.ELB.CreateLoadBalancer
 
     -- ** Request lenses
     clbSecurityGroups,
+    clbLoadBalancerName,
     clbSubnets,
     clbAvailabilityZones,
     clbScheme,
-    clbTags,
-    clbLoadBalancerName,
     clbListeners,
+    clbTags,
 
     -- * Destructuring the response
     CreateLoadBalancerResponse (..),
@@ -51,42 +52,54 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { securityGroups ::
-      Lude.Maybe [Lude.Text],
-    subnets :: Lude.Maybe [Lude.Text],
-    availabilityZones :: Lude.Maybe [Lude.Text],
-    scheme :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+  { -- | The IDs of the security groups to assign to the load balancer.
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The name of the load balancer.
+    --
+    -- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
     loadBalancerName :: Lude.Text,
-    listeners :: [Listener]
+    -- | The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
+    subnets :: Lude.Maybe [Lude.Text],
+    -- | One or more Availability Zones from the same region as the load balancer.
+    --
+    -- You must specify at least one Availability Zone.
+    -- You can add more Availability Zones after you create the load balancer using 'EnableAvailabilityZonesForLoadBalancer' .
+    availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | The type of a load balancer. Valid only for load balancers in a VPC.
+    --
+    -- By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme> in the /Elastic Load Balancing User Guide/ .
+    -- Specify @internal@ to create a load balancer with a DNS name that resolves to private IP addresses.
+    scheme :: Lude.Maybe Lude.Text,
+    -- | The listeners.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+    listeners :: [Listener],
+    -- | A list of tags to assign to the load balancer.
+    --
+    -- For more information about tagging your load balancer, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancer' with the minimum fields required to make a request.
 --
+-- * 'securityGroups' - The IDs of the security groups to assign to the load balancer.
+-- * 'loadBalancerName' - The name of the load balancer.
+--
+-- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
+-- * 'subnets' - The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
 -- * 'availabilityZones' - One or more Availability Zones from the same region as the load balancer.
 --
 -- You must specify at least one Availability Zone.
 -- You can add more Availability Zones after you create the load balancer using 'EnableAvailabilityZonesForLoadBalancer' .
--- * 'listeners' - The listeners.
---
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
--- * 'loadBalancerName' - The name of the load balancer.
---
--- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
 -- * 'scheme' - The type of a load balancer. Valid only for load balancers in a VPC.
 --
 -- By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme> in the /Elastic Load Balancing User Guide/ .
 -- Specify @internal@ to create a load balancer with a DNS name that resolves to private IP addresses.
--- * 'securityGroups' - The IDs of the security groups to assign to the load balancer.
--- * 'subnets' - The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
+-- * 'listeners' - The listeners.
+--
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
 -- * 'tags' - A list of tags to assign to the load balancer.
 --
 -- For more information about tagging your load balancer, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
@@ -97,12 +110,12 @@ mkCreateLoadBalancer ::
 mkCreateLoadBalancer pLoadBalancerName_ =
   CreateLoadBalancer'
     { securityGroups = Lude.Nothing,
+      loadBalancerName = pLoadBalancerName_,
       subnets = Lude.Nothing,
       availabilityZones = Lude.Nothing,
       scheme = Lude.Nothing,
-      tags = Lude.Nothing,
-      loadBalancerName = pLoadBalancerName_,
-      listeners = Lude.mempty
+      listeners = Lude.mempty,
+      tags = Lude.Nothing
     }
 
 -- | The IDs of the security groups to assign to the load balancer.
@@ -111,6 +124,15 @@ mkCreateLoadBalancer pLoadBalancerName_ =
 clbSecurityGroups :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [Lude.Text])
 clbSecurityGroups = Lens.lens (securityGroups :: CreateLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: CreateLoadBalancer)
 {-# DEPRECATED clbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | The name of the load balancer.
+--
+-- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
+--
+-- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbLoadBalancerName :: Lens.Lens' CreateLoadBalancer Lude.Text
+clbLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancer)
+{-# DEPRECATED clbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
 --
@@ -139,24 +161,6 @@ clbScheme :: Lens.Lens' CreateLoadBalancer (Lude.Maybe Lude.Text)
 clbScheme = Lens.lens (scheme :: CreateLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {scheme = a} :: CreateLoadBalancer)
 {-# DEPRECATED clbScheme "Use generic-lens or generic-optics with 'scheme' instead." #-}
 
--- | A list of tags to assign to the load balancer.
---
--- For more information about tagging your load balancer, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbTags :: Lens.Lens' CreateLoadBalancer (Lude.Maybe (Lude.NonEmpty Tag))
-clbTags = Lens.lens (tags :: CreateLoadBalancer -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the load balancer.
---
--- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
---
--- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbLoadBalancerName :: Lens.Lens' CreateLoadBalancer Lude.Text
-clbLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
-
 -- | The listeners.
 --
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
@@ -165,6 +169,15 @@ clbLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancer -> Lude.
 clbListeners :: Lens.Lens' CreateLoadBalancer [Listener]
 clbListeners = Lens.lens (listeners :: CreateLoadBalancer -> [Listener]) (\s a -> s {listeners = a} :: CreateLoadBalancer)
 {-# DEPRECATED clbListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
+
+-- | A list of tags to assign to the load balancer.
+--
+-- For more information about tagging your load balancer, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbTags :: Lens.Lens' CreateLoadBalancer (Lude.Maybe (Lude.NonEmpty Tag))
+clbTags = Lens.lens (tags :: CreateLoadBalancer -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateLoadBalancer)
+{-# DEPRECATED clbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateLoadBalancer where
   type Rs CreateLoadBalancer = CreateLoadBalancerResponse
@@ -190,33 +203,28 @@ instance Lude.ToQuery CreateLoadBalancer where
         "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
         "SecurityGroups"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> securityGroups),
+        "LoadBalancerName" Lude.=: loadBalancerName,
         "Subnets"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> subnets),
         "AvailabilityZones"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "member" Lude.<$> availabilityZones),
         "Scheme" Lude.=: scheme,
+        "Listeners" Lude.=: Lude.toQueryList "member" listeners,
         "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "Listeners" Lude.=: Lude.toQueryList "member" listeners
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
       ]
 
 -- | Contains the output for CreateLoadBalancer.
 --
 -- /See:/ 'mkCreateLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-  { dnsName ::
-      Lude.Maybe Lude.Text,
+  { -- | The DNS name of the load balancer.
+    dnsName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.

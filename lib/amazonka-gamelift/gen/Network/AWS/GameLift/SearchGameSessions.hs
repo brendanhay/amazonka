@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -107,26 +108,64 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSearchGameSessions' smart constructor.
 data SearchGameSessions = SearchGameSessions'
-  { filterExpression ::
-      Lude.Maybe Lude.Text,
+  { -- | String containing the search criteria for the session search. If no filter expression is included, the request returns results for all game sessions in the fleet that are in @ACTIVE@ status.
+    --
+    -- A filter expression can contain one or multiple conditions. Each condition consists of the following:
+    --
+    --     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @gameSessionProperties@ , @maximumSessions@ , @creationTimeMillis@ , @playerSessionCount@ , @hasAvailablePlayerSessions@ .
+    --
+    --
+    --     * __Comparator__ -- Valid comparators are: @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@ .
+    --
+    --
+    --     * __Value__ -- Value to be searched for. Values may be numbers, boolean values (true/false) or strings depending on the operand. String values are case sensitive and must be enclosed in single quotes. Special characters must be escaped. Boolean and string values can only be used with the comparators @=@ and @<>@ . For example, the following filter expression searches on @gameSessionName@ : "@FilterExpression": "gameSessionName = 'Matt\\'s Awesome Game 1'"@ .
+    --
+    --
+    -- To chain multiple conditions in a single expression, use the logical keywords @AND@ , @OR@ , and @NOT@ and parentheses as needed. For example: @x AND y AND NOT z@ , @NOT (x OR y)@ .
+    -- Session search evaluates conditions from left to right using the following precedence rules:
+    --
+    --     * @=@ , @<>@ , @<@ , @>@ , @<=@ , @>=@
+    --
+    --
+    --     * Parentheses
+    --
+    --
+    --     * NOT
+    --
+    --
+    --     * AND
+    --
+    --
+    --     * OR
+    --
+    --
+    -- For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: @"maximumSessions>=10 AND hasAvailablePlayerSessions=true"@ .
+    filterExpression :: Lude.Maybe Lude.Text,
+    -- | Instructions on how to sort the search results. If no sort expression is included, the request returns results in random order. A sort expression consists of the following elements:
+    --
+    --
+    --     * __Operand__ -- Name of a game session attribute. Valid values are @gameSessionName@ , @gameSessionId@ , @gameSessionProperties@ , @maximumSessions@ , @creationTimeMillis@ , @playerSessionCount@ , @hasAvailablePlayerSessions@ .
+    --
+    --
+    --     * __Order__ -- Valid sort orders are @ASC@ (ascending) and @DESC@ (descending).
+    --
+    --
+    -- For example, this sort expression returns the oldest active sessions first: @"SortExpression": "creationTimeMillis ASC"@ . Results with a null value for the sort operand are returned at the end of the list.
     sortExpression :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for an alias associated with the fleet to search for active game sessions. You can use either the alias ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
     aliasId :: Lude.Maybe Lude.Text,
+    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or is set higher than 20.
     limit :: Lude.Maybe Lude.Natural,
+    -- | A unique identifier for a fleet to search for active game sessions. You can use either the fleet ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
     fleetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchGameSessions' with the minimum fields required to make a request.
 --
--- * 'aliasId' - A unique identifier for an alias associated with the fleet to search for active game sessions. You can use either the alias ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
 -- * 'filterExpression' - String containing the search criteria for the session search. If no filter expression is included, the request returns results for all game sessions in the fleet that are in @ACTIVE@ status.
 --
 -- A filter expression can contain one or multiple conditions. Each condition consists of the following:
@@ -159,9 +198,6 @@ data SearchGameSessions = SearchGameSessions'
 --
 --
 -- For example, this filter expression retrieves game sessions hosting at least ten players that have an open player slot: @"maximumSessions>=10 AND hasAvailablePlayerSessions=true"@ .
--- * 'fleetId' - A unique identifier for a fleet to search for active game sessions. You can use either the fleet ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or is set higher than 20.
--- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 -- * 'sortExpression' - Instructions on how to sort the search results. If no sort expression is included, the request returns results in random order. A sort expression consists of the following elements:
 --
 --
@@ -172,6 +208,10 @@ data SearchGameSessions = SearchGameSessions'
 --
 --
 -- For example, this sort expression returns the oldest active sessions first: @"SortExpression": "creationTimeMillis ASC"@ . Results with a null value for the sort operand are returned at the end of the list.
+-- * 'aliasId' - A unique identifier for an alias associated with the fleet to search for active game sessions. You can use either the alias ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
+-- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages. The maximum number of results returned is 20, even if this value is not set or is set higher than 20.
+-- * 'fleetId' - A unique identifier for a fleet to search for active game sessions. You can use either the fleet ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.
 mkSearchGameSessions ::
   SearchGameSessions
 mkSearchGameSessions =
@@ -321,18 +361,14 @@ instance Lude.ToQuery SearchGameSessions where
 --
 -- /See:/ 'mkSearchGameSessionsResponse' smart constructor.
 data SearchGameSessionsResponse = SearchGameSessionsResponse'
-  { gameSessions ::
-      Lude.Maybe [GameSession],
+  { -- | A collection of objects containing game session properties for each session matching the request.
+    gameSessions :: Lude.Maybe [GameSession],
+    -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SearchGameSessionsResponse' with the minimum fields required to make a request.

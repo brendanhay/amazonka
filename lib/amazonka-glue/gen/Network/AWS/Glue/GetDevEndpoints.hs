@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDevEndpoints' smart constructor.
 data GetDevEndpoints = GetDevEndpoints'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if this is a continuation call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum size of information to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevEndpoints' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum size of information to return.
 -- * 'nextToken' - A continuation token, if this is a continuation call.
+-- * 'maxResults' - The maximum size of information to return.
 mkGetDevEndpoints ::
   GetDevEndpoints
 mkGetDevEndpoints =
@@ -132,24 +128,20 @@ instance Lude.ToQuery GetDevEndpoints where
 
 -- | /See:/ 'mkGetDevEndpointsResponse' smart constructor.
 data GetDevEndpointsResponse = GetDevEndpointsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if not all @DevEndpoint@ definitions have yet been returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @DevEndpoint@ definitions.
     devEndpoints :: Lude.Maybe [DevEndpoint],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevEndpointsResponse' with the minimum fields required to make a request.
 --
--- * 'devEndpoints' - A list of @DevEndpoint@ definitions.
 -- * 'nextToken' - A continuation token, if not all @DevEndpoint@ definitions have yet been returned.
+-- * 'devEndpoints' - A list of @DevEndpoint@ definitions.
 -- * 'responseStatus' - The response status code.
 mkGetDevEndpointsResponse ::
   -- | 'responseStatus'

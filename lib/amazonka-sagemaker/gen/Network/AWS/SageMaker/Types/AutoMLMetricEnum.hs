@@ -14,10 +14,10 @@ module Network.AWS.SageMaker.Types.AutoMLMetricEnum
   ( AutoMLMetricEnum
       ( AutoMLMetricEnum',
         Accuracy,
-        Auc,
+        Mse,
         F1,
         F1macro,
-        Mse
+        Auc
       ),
   )
 where
@@ -51,8 +51,8 @@ newtype AutoMLMetricEnum = AutoMLMetricEnum' Lude.Text
 pattern Accuracy :: AutoMLMetricEnum
 pattern Accuracy = AutoMLMetricEnum' "Accuracy"
 
-pattern Auc :: AutoMLMetricEnum
-pattern Auc = AutoMLMetricEnum' "AUC"
+pattern Mse :: AutoMLMetricEnum
+pattern Mse = AutoMLMetricEnum' "MSE"
 
 pattern F1 :: AutoMLMetricEnum
 pattern F1 = AutoMLMetricEnum' "F1"
@@ -60,14 +60,14 @@ pattern F1 = AutoMLMetricEnum' "F1"
 pattern F1macro :: AutoMLMetricEnum
 pattern F1macro = AutoMLMetricEnum' "F1macro"
 
-pattern Mse :: AutoMLMetricEnum
-pattern Mse = AutoMLMetricEnum' "MSE"
+pattern Auc :: AutoMLMetricEnum
+pattern Auc = AutoMLMetricEnum' "AUC"
 
 {-# COMPLETE
   Accuracy,
-  Auc,
+  Mse,
   F1,
   F1macro,
-  Mse,
+  Auc,
   AutoMLMetricEnum'
   #-}

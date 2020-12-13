@@ -47,59 +47,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstancesCount' smart constructor.
 data InstancesCount = InstancesCount'
-  { terminating ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of instances with @terminating@ status.
+    terminating :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @pending@ status.
     pending :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @online@ status.
     online :: Lude.Maybe Lude.Int,
+    -- | The number of instances in the Unassigning state.
     unassigning :: Lude.Maybe Lude.Int,
+    -- | The number of instances in the Deregistering state.
     deregistering :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @running_setup@ status.
     runningSetup :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @requested@ status.
     requested :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @stop_failed@ status.
     stopFailed :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @booting@ status.
     booting :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @stopped@ status.
     stopped :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @rebooting@ status.
     rebooting :: Lude.Maybe Lude.Int,
+    -- | The number of instances in the Assigning state.
     assigning :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @shutting_down@ status.
     shuttingDown :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @setup_failed@ status.
     setupFailed :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @connection_lost@ status.
     connectionLost :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @terminated@ status.
     terminated :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @stopping@ status.
     stopping :: Lude.Maybe Lude.Int,
+    -- | The number of instances in the Registered state.
     registered :: Lude.Maybe Lude.Int,
+    -- | The number of instances with @start_failed@ status.
     startFailed :: Lude.Maybe Lude.Int,
+    -- | The number of instances in the Registering state.
     registering :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstancesCount' with the minimum fields required to make a request.
 --
--- * 'assigning' - The number of instances in the Assigning state.
--- * 'booting' - The number of instances with @booting@ status.
--- * 'connectionLost' - The number of instances with @connection_lost@ status.
--- * 'deregistering' - The number of instances in the Deregistering state.
--- * 'online' - The number of instances with @online@ status.
--- * 'pending' - The number of instances with @pending@ status.
--- * 'rebooting' - The number of instances with @rebooting@ status.
--- * 'registered' - The number of instances in the Registered state.
--- * 'registering' - The number of instances in the Registering state.
--- * 'requested' - The number of instances with @requested@ status.
--- * 'runningSetup' - The number of instances with @running_setup@ status.
--- * 'setupFailed' - The number of instances with @setup_failed@ status.
--- * 'shuttingDown' - The number of instances with @shutting_down@ status.
--- * 'startFailed' - The number of instances with @start_failed@ status.
--- * 'stopFailed' - The number of instances with @stop_failed@ status.
--- * 'stopped' - The number of instances with @stopped@ status.
--- * 'stopping' - The number of instances with @stopping@ status.
--- * 'terminated' - The number of instances with @terminated@ status.
 -- * 'terminating' - The number of instances with @terminating@ status.
+-- * 'pending' - The number of instances with @pending@ status.
+-- * 'online' - The number of instances with @online@ status.
 -- * 'unassigning' - The number of instances in the Unassigning state.
+-- * 'deregistering' - The number of instances in the Deregistering state.
+-- * 'runningSetup' - The number of instances with @running_setup@ status.
+-- * 'requested' - The number of instances with @requested@ status.
+-- * 'stopFailed' - The number of instances with @stop_failed@ status.
+-- * 'booting' - The number of instances with @booting@ status.
+-- * 'stopped' - The number of instances with @stopped@ status.
+-- * 'rebooting' - The number of instances with @rebooting@ status.
+-- * 'assigning' - The number of instances in the Assigning state.
+-- * 'shuttingDown' - The number of instances with @shutting_down@ status.
+-- * 'setupFailed' - The number of instances with @setup_failed@ status.
+-- * 'connectionLost' - The number of instances with @connection_lost@ status.
+-- * 'terminated' - The number of instances with @terminated@ status.
+-- * 'stopping' - The number of instances with @stopping@ status.
+-- * 'registered' - The number of instances in the Registered state.
+-- * 'startFailed' - The number of instances with @start_failed@ status.
+-- * 'registering' - The number of instances in the Registering state.
 mkInstancesCount ::
   InstancesCount
 mkInstancesCount =

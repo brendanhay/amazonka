@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
   ( LaunchTemplateInstanceMetadataOptionsState
       ( LaunchTemplateInstanceMetadataOptionsState',
-        LTIMOSApplied,
-        LTIMOSPending
+        LTIMOSPending,
+        LTIMOSApplied
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype LaunchTemplateInstanceMetadataOptionsState = LaunchTemplateInstanceMetad
       Lude.ToHeader
     )
 
-pattern LTIMOSApplied :: LaunchTemplateInstanceMetadataOptionsState
-pattern LTIMOSApplied = LaunchTemplateInstanceMetadataOptionsState' "applied"
-
 pattern LTIMOSPending :: LaunchTemplateInstanceMetadataOptionsState
 pattern LTIMOSPending = LaunchTemplateInstanceMetadataOptionsState' "pending"
 
+pattern LTIMOSApplied :: LaunchTemplateInstanceMetadataOptionsState
+pattern LTIMOSApplied = LaunchTemplateInstanceMetadataOptionsState' "applied"
+
 {-# COMPLETE
-  LTIMOSApplied,
   LTIMOSPending,
+  LTIMOSApplied,
   LaunchTemplateInstanceMetadataOptionsState'
   #-}

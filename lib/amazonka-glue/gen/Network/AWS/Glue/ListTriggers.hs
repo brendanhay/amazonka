@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,27 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTriggers' smart constructor.
 data ListTriggers = ListTriggers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A continuation token, if this is a continuation request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum size of a list to return.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | Specifies to return only these tagged resources.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.
     dependentJobName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTriggers' with the minimum fields required to make a request.
 --
--- * 'dependentJobName' - The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.
--- * 'maxResults' - The maximum size of a list to return.
 -- * 'nextToken' - A continuation token, if this is a continuation request.
+-- * 'maxResults' - The maximum size of a list to return.
 -- * 'tags' - Specifies to return only these tagged resources.
+-- * 'dependentJobName' - The name of the job for which to retrieve triggers. The trigger that can start this job is returned. If there is no such trigger, all triggers are returned.
 mkListTriggers ::
   ListTriggers
 mkListTriggers =
@@ -146,25 +144,21 @@ instance Lude.ToQuery ListTriggers where
 
 -- | /See:/ 'mkListTriggersResponse' smart constructor.
 data ListTriggersResponse = ListTriggersResponse'
-  { triggerNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of all triggers in the account, or the triggers with the specified tags.
+    triggerNames :: Lude.Maybe [Lude.Text],
+    -- | A continuation token, if the returned list does not contain the last metric available.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTriggersResponse' with the minimum fields required to make a request.
 --
+-- * 'triggerNames' - The names of all triggers in the account, or the triggers with the specified tags.
 -- * 'nextToken' - A continuation token, if the returned list does not contain the last metric available.
 -- * 'responseStatus' - The response status code.
--- * 'triggerNames' - The names of all triggers in the account, or the triggers with the specified tags.
 mkListTriggersResponse ::
   -- | 'responseStatus'
   Lude.Int ->

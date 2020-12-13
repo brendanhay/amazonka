@@ -14,10 +14,10 @@ module Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
   ( SigningAlgorithm
       ( SigningAlgorithm',
         SHA256WITHECDSA,
-        SHA256WITHRSA,
         SHA384WITHECDSA,
-        SHA384WITHRSA,
         SHA512WITHECDSA,
+        SHA256WITHRSA,
+        SHA384WITHRSA,
         SHA512WITHRSA
       ),
   )
@@ -52,27 +52,27 @@ newtype SigningAlgorithm = SigningAlgorithm' Lude.Text
 pattern SHA256WITHECDSA :: SigningAlgorithm
 pattern SHA256WITHECDSA = SigningAlgorithm' "SHA256WITHECDSA"
 
-pattern SHA256WITHRSA :: SigningAlgorithm
-pattern SHA256WITHRSA = SigningAlgorithm' "SHA256WITHRSA"
-
 pattern SHA384WITHECDSA :: SigningAlgorithm
 pattern SHA384WITHECDSA = SigningAlgorithm' "SHA384WITHECDSA"
 
-pattern SHA384WITHRSA :: SigningAlgorithm
-pattern SHA384WITHRSA = SigningAlgorithm' "SHA384WITHRSA"
-
 pattern SHA512WITHECDSA :: SigningAlgorithm
 pattern SHA512WITHECDSA = SigningAlgorithm' "SHA512WITHECDSA"
+
+pattern SHA256WITHRSA :: SigningAlgorithm
+pattern SHA256WITHRSA = SigningAlgorithm' "SHA256WITHRSA"
+
+pattern SHA384WITHRSA :: SigningAlgorithm
+pattern SHA384WITHRSA = SigningAlgorithm' "SHA384WITHRSA"
 
 pattern SHA512WITHRSA :: SigningAlgorithm
 pattern SHA512WITHRSA = SigningAlgorithm' "SHA512WITHRSA"
 
 {-# COMPLETE
   SHA256WITHECDSA,
-  SHA256WITHRSA,
   SHA384WITHECDSA,
-  SHA384WITHRSA,
   SHA512WITHECDSA,
+  SHA256WITHRSA,
+  SHA384WITHRSA,
   SHA512WITHRSA,
   SigningAlgorithm'
   #-}

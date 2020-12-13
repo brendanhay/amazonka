@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,15 +49,15 @@ module Network.AWS.GameLift.DescribeGameServerGroup
     mkDescribeGameServerGroup,
 
     -- ** Request lenses
-    desGameServerGroupName,
+    dgsgGameServerGroupName,
 
     -- * Destructuring the response
     DescribeGameServerGroupResponse (..),
     mkDescribeGameServerGroupResponse,
 
     -- ** Response lenses
-    desrsGameServerGroup,
-    desrsResponseStatus,
+    dgsgfrsGameServerGroup,
+    dgsgfrsResponseStatus,
   )
 where
 
@@ -68,16 +69,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeGameServerGroup' smart constructor.
 newtype DescribeGameServerGroup = DescribeGameServerGroup'
-  { gameServerGroupName ::
-      Lude.Text
+  { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+    gameServerGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServerGroup' with the minimum fields required to make a request.
@@ -96,9 +91,9 @@ mkDescribeGameServerGroup pGameServerGroupName_ =
 -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desGameServerGroupName :: Lens.Lens' DescribeGameServerGroup Lude.Text
-desGameServerGroupName = Lens.lens (gameServerGroupName :: DescribeGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DescribeGameServerGroup)
-{-# DEPRECATED desGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
+dgsgGameServerGroupName :: Lens.Lens' DescribeGameServerGroup Lude.Text
+dgsgGameServerGroupName = Lens.lens (gameServerGroupName :: DescribeGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: DescribeGameServerGroup)
+{-# DEPRECATED dgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 instance Lude.AWSRequest DescribeGameServerGroup where
   type Rs DescribeGameServerGroup = DescribeGameServerGroupResponse
@@ -137,17 +132,12 @@ instance Lude.ToQuery DescribeGameServerGroup where
 
 -- | /See:/ 'mkDescribeGameServerGroupResponse' smart constructor.
 data DescribeGameServerGroupResponse = DescribeGameServerGroupResponse'
-  { gameServerGroup ::
-      Lude.Maybe GameServerGroup,
+  { -- | An object with the property settings for the requested game server group resource.
+    gameServerGroup :: Lude.Maybe GameServerGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGameServerGroupResponse' with the minimum fields required to make a request.
@@ -167,13 +157,13 @@ mkDescribeGameServerGroupResponse pResponseStatus_ =
 -- | An object with the property settings for the requested game server group resource.
 --
 -- /Note:/ Consider using 'gameServerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsGameServerGroup :: Lens.Lens' DescribeGameServerGroupResponse (Lude.Maybe GameServerGroup)
-desrsGameServerGroup = Lens.lens (gameServerGroup :: DescribeGameServerGroupResponse -> Lude.Maybe GameServerGroup) (\s a -> s {gameServerGroup = a} :: DescribeGameServerGroupResponse)
-{-# DEPRECATED desrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
+dgsgfrsGameServerGroup :: Lens.Lens' DescribeGameServerGroupResponse (Lude.Maybe GameServerGroup)
+dgsgfrsGameServerGroup = Lens.lens (gameServerGroup :: DescribeGameServerGroupResponse -> Lude.Maybe GameServerGroup) (\s a -> s {gameServerGroup = a} :: DescribeGameServerGroupResponse)
+{-# DEPRECATED dgsgfrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeGameServerGroupResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeGameServerGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameServerGroupResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgsgfrsResponseStatus :: Lens.Lens' DescribeGameServerGroupResponse Lude.Int
+dgsgfrsResponseStatus = Lens.lens (responseStatus :: DescribeGameServerGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeGameServerGroupResponse)
+{-# DEPRECATED dgsgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

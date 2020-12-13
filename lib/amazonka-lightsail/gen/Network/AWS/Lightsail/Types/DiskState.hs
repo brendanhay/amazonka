@@ -13,11 +13,11 @@
 module Network.AWS.Lightsail.Types.DiskState
   ( DiskState
       ( DiskState',
-        DSAvailable,
-        DSError,
-        DSInUse,
-        DSPending,
-        DSUnknown
+        Pending,
+        Error,
+        Available,
+        InUse,
+        Unknown
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype DiskState = DiskState' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSAvailable :: DiskState
-pattern DSAvailable = DiskState' "available"
+pattern Pending :: DiskState
+pattern Pending = DiskState' "pending"
 
-pattern DSError :: DiskState
-pattern DSError = DiskState' "error"
+pattern Error :: DiskState
+pattern Error = DiskState' "error"
 
-pattern DSInUse :: DiskState
-pattern DSInUse = DiskState' "in-use"
+pattern Available :: DiskState
+pattern Available = DiskState' "available"
 
-pattern DSPending :: DiskState
-pattern DSPending = DiskState' "pending"
+pattern InUse :: DiskState
+pattern InUse = DiskState' "in-use"
 
-pattern DSUnknown :: DiskState
-pattern DSUnknown = DiskState' "unknown"
+pattern Unknown :: DiskState
+pattern Unknown = DiskState' "unknown"
 
 {-# COMPLETE
-  DSAvailable,
-  DSError,
-  DSInUse,
-  DSPending,
-  DSUnknown,
+  Pending,
+  Error,
+  Available,
+  InUse,
+  Unknown,
   DiskState'
   #-}

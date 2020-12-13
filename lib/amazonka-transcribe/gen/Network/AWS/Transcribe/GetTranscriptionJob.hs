@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkGetTranscriptionJob' smart constructor.
 newtype GetTranscriptionJob = GetTranscriptionJob'
-  { transcriptionJobName ::
-      Lude.Text
+  { -- | The name of the job.
+    transcriptionJobName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTranscriptionJob' with the minimum fields required to make a request.
@@ -108,23 +103,18 @@ instance Lude.ToQuery GetTranscriptionJob where
 
 -- | /See:/ 'mkGetTranscriptionJobResponse' smart constructor.
 data GetTranscriptionJobResponse = GetTranscriptionJobResponse'
-  { transcriptionJob ::
-      Lude.Maybe TranscriptionJob,
+  { -- | An object that contains the results of the transcription job.
+    transcriptionJob :: Lude.Maybe TranscriptionJob,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTranscriptionJobResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transcriptionJob' - An object that contains the results of the transcription job.
+-- * 'responseStatus' - The response status code.
 mkGetTranscriptionJobResponse ::
   -- | 'responseStatus'
   Lude.Int ->

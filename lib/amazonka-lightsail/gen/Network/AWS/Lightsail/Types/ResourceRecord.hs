@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceRecord' smart constructor.
 data ResourceRecord = ResourceRecord'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value for the DNS record.
+    value :: Lude.Maybe Lude.Text,
+    -- | The name of the record.
     name :: Lude.Maybe Lude.Text,
+    -- | The DNS record type.
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceRecord' with the minimum fields required to make a request.
 --
+-- * 'value' - The value for the DNS record.
 -- * 'name' - The name of the record.
 -- * 'type'' - The DNS record type.
--- * 'value' - The value for the DNS record.
 mkResourceRecord ::
   ResourceRecord
 mkResourceRecord =

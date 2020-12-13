@@ -29,25 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWorkflowExecutionCompletedEventAttributes' smart constructor.
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes'
-  { result ::
-      Lude.Maybe
-        Lude.Text,
-    decisionTaskCompletedEventId ::
-      Lude.Integer
+  { -- | The result produced by the workflow execution upon successful completion.
+    result :: Lude.Maybe Lude.Text,
+    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CompleteWorkflowExecution@ decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkflowExecutionCompletedEventAttributes' with the minimum fields required to make a request.
 --
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CompleteWorkflowExecution@ decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 -- * 'result' - The result produced by the workflow execution upon successful completion.
+-- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @CompleteWorkflowExecution@ decision to complete this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 mkWorkflowExecutionCompletedEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
   Lude.Integer ->

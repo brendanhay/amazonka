@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.CodeBuild.DescribeTestCases
     -- ** Request lenses
     dtcNextToken,
     dtcFilter,
-    dtcMaxResults,
     dtcReportARN,
+    dtcMaxResults,
 
     -- * Destructuring the response
     DescribeTestCasesResponse (..),
@@ -46,27 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTestCases' smart constructor.
 data DescribeTestCases = DescribeTestCases'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A @TestCaseFilter@ object used to filter the returned reports.
     filter :: Lude.Maybe TestCaseFilter,
-    maxResults :: Lude.Maybe Lude.Natural,
-    reportARN :: Lude.Text
+    -- | The ARN of the report for which test cases are returned.
+    reportARN :: Lude.Text,
+    -- | The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTestCases' with the minimum fields required to make a request.
 --
--- * 'filter' - A @TestCaseFilter@ object used to filter the returned reports.
--- * 'maxResults' - The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
 -- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'filter' - A @TestCaseFilter@ object used to filter the returned reports.
 -- * 'reportARN' - The ARN of the report for which test cases are returned.
+-- * 'maxResults' - The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
 mkDescribeTestCases ::
   -- | 'reportARN'
   Lude.Text ->
@@ -75,8 +73,8 @@ mkDescribeTestCases pReportARN_ =
   DescribeTestCases'
     { nextToken = Lude.Nothing,
       filter = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      reportARN = pReportARN_
+      reportARN = pReportARN_,
+      maxResults = Lude.Nothing
     }
 
 -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
@@ -93,19 +91,19 @@ dtcFilter :: Lens.Lens' DescribeTestCases (Lude.Maybe TestCaseFilter)
 dtcFilter = Lens.lens (filter :: DescribeTestCases -> Lude.Maybe TestCaseFilter) (\s a -> s {filter = a} :: DescribeTestCases)
 {-# DEPRECATED dtcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
--- | The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtcMaxResults :: Lens.Lens' DescribeTestCases (Lude.Maybe Lude.Natural)
-dtcMaxResults = Lens.lens (maxResults :: DescribeTestCases -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTestCases)
-{-# DEPRECATED dtcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The ARN of the report for which test cases are returned.
 --
 -- /Note:/ Consider using 'reportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtcReportARN :: Lens.Lens' DescribeTestCases Lude.Text
 dtcReportARN = Lens.lens (reportARN :: DescribeTestCases -> Lude.Text) (\s a -> s {reportARN = a} :: DescribeTestCases)
 {-# DEPRECATED dtcReportARN "Use generic-lens or generic-optics with 'reportARN' instead." #-}
+
+-- | The maximum number of paginated test cases returned per response. Use @nextToken@ to iterate pages in the list of returned @TestCase@ objects. The default value is 100.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtcMaxResults :: Lens.Lens' DescribeTestCases (Lude.Maybe Lude.Natural)
+dtcMaxResults = Lens.lens (maxResults :: DescribeTestCases -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeTestCases)
+{-# DEPRECATED dtcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeTestCases where
   page rq rs
@@ -145,8 +143,8 @@ instance Lude.ToJSON DescribeTestCases where
       ( Lude.catMaybes
           [ ("nextToken" Lude..=) Lude.<$> nextToken,
             ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("reportArn" Lude..= reportARN)
+            Lude.Just ("reportArn" Lude..= reportARN),
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -158,25 +156,21 @@ instance Lude.ToQuery DescribeTestCases where
 
 -- | /See:/ 'mkDescribeTestCasesResponse' smart constructor.
 data DescribeTestCasesResponse = DescribeTestCasesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The returned list of test cases.
     testCases :: Lude.Maybe [TestCase],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTestCasesResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - During a previous call, the maximum number of items that can be returned is the value specified in @maxResults@ . If there more items in the list, then a unique string called a /nextToken/ is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
--- * 'responseStatus' - The response status code.
 -- * 'testCases' - The returned list of test cases.
+-- * 'responseStatus' - The response status code.
 mkDescribeTestCasesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

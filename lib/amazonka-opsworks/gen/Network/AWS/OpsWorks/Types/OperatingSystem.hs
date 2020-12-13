@@ -35,34 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOperatingSystem' smart constructor.
 data OperatingSystem = OperatingSystem'
-  { reportedVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The version of the operating system, including the release and edition, if applicable.
+    reportedVersion :: Lude.Maybe Lude.Text,
+    -- | Indicates that an operating system is not supported for new instances.
     supported :: Lude.Maybe Lude.Bool,
+    -- | The name of the operating system, such as @Amazon Linux 2018.03@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of a supported operating system, such as @Amazon Linux 2018.03@ .
     id :: Lude.Maybe Lude.Text,
-    configurationManagers ::
-      Lude.Maybe [OperatingSystemConfigurationManager],
+    -- | Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.
+    configurationManagers :: Lude.Maybe [OperatingSystemConfigurationManager],
+    -- | The type of a supported operating system, either @Linux@ or @Windows@ .
     type' :: Lude.Maybe Lude.Text,
+    -- | A short name for the operating system manufacturer.
     reportedName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OperatingSystem' with the minimum fields required to make a request.
 --
--- * 'configurationManagers' - Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.
--- * 'id' - The ID of a supported operating system, such as @Amazon Linux 2018.03@ .
--- * 'name' - The name of the operating system, such as @Amazon Linux 2018.03@ .
--- * 'reportedName' - A short name for the operating system manufacturer.
 -- * 'reportedVersion' - The version of the operating system, including the release and edition, if applicable.
 -- * 'supported' - Indicates that an operating system is not supported for new instances.
+-- * 'name' - The name of the operating system, such as @Amazon Linux 2018.03@ .
+-- * 'id' - The ID of a supported operating system, such as @Amazon Linux 2018.03@ .
+-- * 'configurationManagers' - Supported configuration manager name and versions for an AWS OpsWorks Stacks operating system.
 -- * 'type'' - The type of a supported operating system, either @Linux@ or @Windows@ .
+-- * 'reportedName' - A short name for the operating system manufacturer.
 mkOperatingSystem ::
   OperatingSystem
 mkOperatingSystem =

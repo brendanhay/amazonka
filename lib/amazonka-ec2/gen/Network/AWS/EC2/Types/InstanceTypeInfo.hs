@@ -65,67 +65,81 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceTypeInfo' smart constructor.
 data InstanceTypeInfo = InstanceTypeInfo'
-  { hypervisor ::
-      Lude.Maybe InstanceTypeHypervisor,
+  { -- | The hypervisor for the instance type.
+    hypervisor :: Lude.Maybe InstanceTypeHypervisor,
+    -- | Indicates whether the instance type is current generation.
     currentGeneration :: Lude.Maybe Lude.Bool,
+    -- | Describes the memory for the instance type.
     memoryInfo :: Lude.Maybe MemoryInfo,
+    -- | Describes the placement group settings for the instance type.
     placementGroupInfo :: Lude.Maybe PlacementGroupInfo,
+    -- | The supported root device types.
     supportedRootDeviceTypes :: Lude.Maybe [RootDeviceType],
+    -- | Indicates whether the instance type is offered for spot or On-Demand.
     supportedUsageClasses :: Lude.Maybe [UsageClassType],
+    -- | Indicates whether instance storage is supported.
     instanceStorageSupported :: Lude.Maybe Lude.Bool,
+    -- | Describes the FPGA accelerator settings for the instance type.
     fpgaInfo :: Lude.Maybe FpgaInfo,
+    -- | Indicates whether the instance type is a burstable performance instance type.
     burstablePerformanceSupported :: Lude.Maybe Lude.Bool,
+    -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
     instanceType :: Lude.Maybe InstanceType,
+    -- | Describes the GPU accelerator settings for the instance type.
     gpuInfo :: Lude.Maybe GpuInfo,
-    supportedVirtualizationTypes ::
-      Lude.Maybe [VirtualizationType],
+    -- | The supported virtualization types.
+    supportedVirtualizationTypes :: Lude.Maybe [VirtualizationType],
+    -- | Describes the Amazon EBS settings for the instance type.
     ebsInfo :: Lude.Maybe EBSInfo,
+    -- | Indicates whether auto recovery is supported.
     autoRecoverySupported :: Lude.Maybe Lude.Bool,
-    inferenceAcceleratorInfo ::
-      Lude.Maybe InferenceAcceleratorInfo,
+    -- | Describes the Inference accelerator settings for the instance type.
+    inferenceAcceleratorInfo :: Lude.Maybe InferenceAcceleratorInfo,
+    -- | Indicates whether the instance is a bare metal instance type.
     bareMetal :: Lude.Maybe Lude.Bool,
+    -- | Describes the network settings for the instance type.
     networkInfo :: Lude.Maybe NetworkInfo,
+    -- | Describes the processor.
     processorInfo :: Lude.Maybe ProcessorInfo,
+    -- | Indicates whether the instance type is eligible for the free tier.
     freeTierEligible :: Lude.Maybe Lude.Bool,
+    -- | Describes the vCPU configurations for the instance type.
     vCPUInfo :: Lude.Maybe VCPUInfo,
+    -- | Describes the instance storage for the instance type.
     instanceStorageInfo :: Lude.Maybe InstanceStorageInfo,
+    -- | Indicates whether Dedicated Hosts are supported on the instance type.
     dedicatedHostsSupported :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether On-Demand hibernation is supported.
     hibernationSupported :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceTypeInfo' with the minimum fields required to make a request.
 --
--- * 'autoRecoverySupported' - Indicates whether auto recovery is supported.
--- * 'bareMetal' - Indicates whether the instance is a bare metal instance type.
--- * 'burstablePerformanceSupported' - Indicates whether the instance type is a burstable performance instance type.
--- * 'currentGeneration' - Indicates whether the instance type is current generation.
--- * 'dedicatedHostsSupported' - Indicates whether Dedicated Hosts are supported on the instance type.
--- * 'ebsInfo' - Describes the Amazon EBS settings for the instance type.
--- * 'fpgaInfo' - Describes the FPGA accelerator settings for the instance type.
--- * 'freeTierEligible' - Indicates whether the instance type is eligible for the free tier.
--- * 'gpuInfo' - Describes the GPU accelerator settings for the instance type.
--- * 'hibernationSupported' - Indicates whether On-Demand hibernation is supported.
 -- * 'hypervisor' - The hypervisor for the instance type.
--- * 'inferenceAcceleratorInfo' - Describes the Inference accelerator settings for the instance type.
--- * 'instanceStorageInfo' - Describes the instance storage for the instance type.
--- * 'instanceStorageSupported' - Indicates whether instance storage is supported.
--- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'currentGeneration' - Indicates whether the instance type is current generation.
 -- * 'memoryInfo' - Describes the memory for the instance type.
--- * 'networkInfo' - Describes the network settings for the instance type.
 -- * 'placementGroupInfo' - Describes the placement group settings for the instance type.
--- * 'processorInfo' - Describes the processor.
 -- * 'supportedRootDeviceTypes' - The supported root device types.
 -- * 'supportedUsageClasses' - Indicates whether the instance type is offered for spot or On-Demand.
+-- * 'instanceStorageSupported' - Indicates whether instance storage is supported.
+-- * 'fpgaInfo' - Describes the FPGA accelerator settings for the instance type.
+-- * 'burstablePerformanceSupported' - Indicates whether the instance type is a burstable performance instance type.
+-- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'gpuInfo' - Describes the GPU accelerator settings for the instance type.
 -- * 'supportedVirtualizationTypes' - The supported virtualization types.
+-- * 'ebsInfo' - Describes the Amazon EBS settings for the instance type.
+-- * 'autoRecoverySupported' - Indicates whether auto recovery is supported.
+-- * 'inferenceAcceleratorInfo' - Describes the Inference accelerator settings for the instance type.
+-- * 'bareMetal' - Indicates whether the instance is a bare metal instance type.
+-- * 'networkInfo' - Describes the network settings for the instance type.
+-- * 'processorInfo' - Describes the processor.
+-- * 'freeTierEligible' - Indicates whether the instance type is eligible for the free tier.
 -- * 'vCPUInfo' - Describes the vCPU configurations for the instance type.
+-- * 'instanceStorageInfo' - Describes the instance storage for the instance type.
+-- * 'dedicatedHostsSupported' - Indicates whether Dedicated Hosts are supported on the instance type.
+-- * 'hibernationSupported' - Indicates whether On-Demand hibernation is supported.
 mkInstanceTypeInfo ::
   InstanceTypeInfo
 mkInstanceTypeInfo =

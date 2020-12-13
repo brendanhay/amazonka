@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,16 +56,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetBatchPrediction' smart constructor.
 newtype GetBatchPrediction = GetBatchPrediction'
-  { batchPredictionId ::
-      Lude.Text
+  { -- | An ID assigned to the @BatchPrediction@ at creation.
+    batchPredictionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBatchPrediction' with the minimum fields required to make a request.
@@ -139,64 +134,59 @@ instance Lude.ToQuery GetBatchPrediction where
 --
 -- /See:/ 'mkGetBatchPredictionResponse' smart constructor.
 data GetBatchPredictionResponse = GetBatchPredictionResponse'
-  { status ::
-      Lude.Maybe EntityStatus,
-    lastUpdatedAt ::
-      Lude.Maybe Lude.Timestamp,
-    createdAt ::
-      Lude.Maybe Lude.Timestamp,
-    computeTime ::
-      Lude.Maybe Lude.Integer,
-    inputDataLocationS3 ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the @BatchPrediction@ , which can be one of the following values:
+    --
+    --
+    --     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to generate batch predictions.
+    --
+    --     * @INPROGRESS@ - The batch predictions are in progress.
+    --
+    --     * @FAILED@ - The request to perform a batch prediction did not run to completion. It is not usable.
+    --
+    --     * @COMPLETED@ - The batch prediction process completed successfully.
+    --
+    --     * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
+    status :: Lude.Maybe EntityStatus,
+    -- | The time of the most recent edit to @BatchPrediction@ . The time is expressed in epoch time.
+    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The time when the @BatchPrediction@ was created. The time is expressed in epoch time.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @BatchPrediction@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @BatchPrediction@ is in the @COMPLETED@ state.
+    computeTime :: Lude.Maybe Lude.Integer,
+    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+    inputDataLocationS3 :: Lude.Maybe Lude.Text,
+    -- | The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
     mLModelId :: Lude.Maybe Lude.Text,
-    batchPredictionDataSourceId ::
-      Lude.Maybe Lude.Text,
-    totalRecordCount ::
-      Lude.Maybe Lude.Integer,
-    startedAt ::
-      Lude.Maybe Lude.Timestamp,
-    batchPredictionId ::
-      Lude.Maybe Lude.Text,
-    finishedAt ::
-      Lude.Maybe Lude.Timestamp,
-    invalidRecordCount ::
-      Lude.Maybe Lude.Integer,
-    createdByIAMUser ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the @DataSource@ that was used to create the @BatchPrediction@ .
+    batchPredictionDataSourceId :: Lude.Maybe Lude.Text,
+    -- | The number of total records that Amazon Machine Learning saw while processing the @BatchPrediction@ .
+    totalRecordCount :: Lude.Maybe Lude.Integer,
+    -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@ as @INPROGRESS@ . @StartedAt@ isn't available if the @BatchPrediction@ is in the @PENDING@ state.
+    startedAt :: Lude.Maybe Lude.Timestamp,
+    -- | An ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
+    batchPredictionId :: Lude.Maybe Lude.Text,
+    -- | The epoch time when Amazon Machine Learning marked the @BatchPrediction@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
+    finishedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The number of invalid records that Amazon Machine Learning saw while processing the @BatchPrediction@ .
+    invalidRecordCount :: Lude.Maybe Lude.Integer,
+    -- | The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+    createdByIAMUser :: Lude.Maybe Lude.Text,
+    -- | A user-supplied name or description of the @BatchPrediction@ .
     name :: Lude.Maybe Lude.Text,
+    -- | A link to the file that contains logs of the @CreateBatchPrediction@ operation.
     logURI :: Lude.Maybe Lude.Text,
+    -- | A description of the most recent details about processing the batch prediction request.
     message :: Lude.Maybe Lude.Text,
+    -- | The location of an Amazon S3 bucket or directory to receive the operation results.
     outputURI :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBatchPredictionResponse' with the minimum fields required to make a request.
 --
--- * 'batchPredictionDataSourceId' - The ID of the @DataSource@ that was used to create the @BatchPrediction@ .
--- * 'batchPredictionId' - An ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
--- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @BatchPrediction@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @BatchPrediction@ is in the @COMPLETED@ state.
--- * 'createdAt' - The time when the @BatchPrediction@ was created. The time is expressed in epoch time.
--- * 'createdByIAMUser' - The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @BatchPrediction@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
--- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
--- * 'invalidRecordCount' - The number of invalid records that Amazon Machine Learning saw while processing the @BatchPrediction@ .
--- * 'lastUpdatedAt' - The time of the most recent edit to @BatchPrediction@ . The time is expressed in epoch time.
--- * 'logURI' - A link to the file that contains logs of the @CreateBatchPrediction@ operation.
--- * 'mLModelId' - The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
--- * 'message' - A description of the most recent details about processing the batch prediction request.
--- * 'name' - A user-supplied name or description of the @BatchPrediction@ .
--- * 'outputURI' - The location of an Amazon S3 bucket or directory to receive the operation results.
--- * 'responseStatus' - The response status code.
--- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @BatchPrediction@ as @INPROGRESS@ . @StartedAt@ isn't available if the @BatchPrediction@ is in the @PENDING@ state.
 -- * 'status' - The status of the @BatchPrediction@ , which can be one of the following values:
 --
 --
@@ -210,7 +200,23 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 --
 --     * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
 --
+-- * 'lastUpdatedAt' - The time of the most recent edit to @BatchPrediction@ . The time is expressed in epoch time.
+-- * 'createdAt' - The time when the @BatchPrediction@ was created. The time is expressed in epoch time.
+-- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @BatchPrediction@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @BatchPrediction@ is in the @COMPLETED@ state.
+-- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+-- * 'mLModelId' - The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
+-- * 'batchPredictionDataSourceId' - The ID of the @DataSource@ that was used to create the @BatchPrediction@ .
 -- * 'totalRecordCount' - The number of total records that Amazon Machine Learning saw while processing the @BatchPrediction@ .
+-- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @BatchPrediction@ as @INPROGRESS@ . @StartedAt@ isn't available if the @BatchPrediction@ is in the @PENDING@ state.
+-- * 'batchPredictionId' - An ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
+-- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @BatchPrediction@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @BatchPrediction@ is in the @COMPLETED@ or @FAILED@ state.
+-- * 'invalidRecordCount' - The number of invalid records that Amazon Machine Learning saw while processing the @BatchPrediction@ .
+-- * 'createdByIAMUser' - The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- * 'name' - A user-supplied name or description of the @BatchPrediction@ .
+-- * 'logURI' - A link to the file that contains logs of the @CreateBatchPrediction@ operation.
+-- * 'message' - A description of the most recent details about processing the batch prediction request.
+-- * 'outputURI' - The location of an Amazon S3 bucket or directory to receive the operation results.
+-- * 'responseStatus' - The response status code.
 mkGetBatchPredictionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

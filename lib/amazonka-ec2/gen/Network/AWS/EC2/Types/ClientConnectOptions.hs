@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientConnectOptions' smart constructor.
 data ClientConnectOptions = ClientConnectOptions'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether client connect options are enabled. The default is @false@ (not enabled).
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
     lambdaFunctionARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientConnectOptions' with the minimum fields required to make a request.

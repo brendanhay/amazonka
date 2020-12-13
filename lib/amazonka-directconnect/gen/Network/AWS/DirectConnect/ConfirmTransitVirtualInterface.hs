@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.DirectConnect.ConfirmTransitVirtualInterface
     mkConfirmTransitVirtualInterface,
 
     -- ** Request lenses
-    ctviVirtualInterfaceId,
     ctviDirectConnectGatewayId,
+    ctviVirtualInterfaceId,
 
     -- * Destructuring the response
     ConfirmTransitVirtualInterfaceResponse (..),
     mkConfirmTransitVirtualInterfaceResponse,
 
     -- ** Response lenses
-    conrsVirtualInterfaceState,
-    conrsResponseStatus,
+    ctvirsVirtualInterfaceState,
+    ctvirsResponseStatus,
   )
 where
 
@@ -42,18 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkConfirmTransitVirtualInterface' smart constructor.
 data ConfirmTransitVirtualInterface = ConfirmTransitVirtualInterface'
-  { virtualInterfaceId ::
-      Lude.Text,
-    directConnectGatewayId ::
-      Lude.Text
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Text,
+    -- | The ID of the virtual interface.
+    virtualInterfaceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmTransitVirtualInterface' with the minimum fields required to make a request.
@@ -61,26 +56,19 @@ data ConfirmTransitVirtualInterface = ConfirmTransitVirtualInterface'
 -- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
 -- * 'virtualInterfaceId' - The ID of the virtual interface.
 mkConfirmTransitVirtualInterface ::
-  -- | 'virtualInterfaceId'
-  Lude.Text ->
   -- | 'directConnectGatewayId'
+  Lude.Text ->
+  -- | 'virtualInterfaceId'
   Lude.Text ->
   ConfirmTransitVirtualInterface
 mkConfirmTransitVirtualInterface
-  pVirtualInterfaceId_
-  pDirectConnectGatewayId_ =
+  pDirectConnectGatewayId_
+  pVirtualInterfaceId_ =
     ConfirmTransitVirtualInterface'
-      { virtualInterfaceId =
-          pVirtualInterfaceId_,
-        directConnectGatewayId = pDirectConnectGatewayId_
+      { directConnectGatewayId =
+          pDirectConnectGatewayId_,
+        virtualInterfaceId = pVirtualInterfaceId_
       }
-
--- | The ID of the virtual interface.
---
--- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctviVirtualInterfaceId :: Lens.Lens' ConfirmTransitVirtualInterface Lude.Text
-ctviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: ConfirmTransitVirtualInterface -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: ConfirmTransitVirtualInterface)
-{-# DEPRECATED ctviVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
 --
@@ -88,6 +76,13 @@ ctviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: ConfirmTransitVirtualI
 ctviDirectConnectGatewayId :: Lens.Lens' ConfirmTransitVirtualInterface Lude.Text
 ctviDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: ConfirmTransitVirtualInterface -> Lude.Text) (\s a -> s {directConnectGatewayId = a} :: ConfirmTransitVirtualInterface)
 {-# DEPRECATED ctviDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
+
+-- | The ID of the virtual interface.
+--
+-- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctviVirtualInterfaceId :: Lens.Lens' ConfirmTransitVirtualInterface Lude.Text
+ctviVirtualInterfaceId = Lens.lens (virtualInterfaceId :: ConfirmTransitVirtualInterface -> Lude.Text) (\s a -> s {virtualInterfaceId = a} :: ConfirmTransitVirtualInterface)
+{-# DEPRECATED ctviVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
 instance Lude.AWSRequest ConfirmTransitVirtualInterface where
   type
@@ -119,9 +114,9 @@ instance Lude.ToJSON ConfirmTransitVirtualInterface where
   toJSON ConfirmTransitVirtualInterface' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId),
-            Lude.Just
-              ("directConnectGatewayId" Lude..= directConnectGatewayId)
+          [ Lude.Just
+              ("directConnectGatewayId" Lude..= directConnectGatewayId),
+            Lude.Just ("virtualInterfaceId" Lude..= virtualInterfaceId)
           ]
       )
 
@@ -133,24 +128,43 @@ instance Lude.ToQuery ConfirmTransitVirtualInterface where
 
 -- | /See:/ 'mkConfirmTransitVirtualInterfaceResponse' smart constructor.
 data ConfirmTransitVirtualInterfaceResponse = ConfirmTransitVirtualInterfaceResponse'
-  { virtualInterfaceState ::
-      Lude.Maybe
-        VirtualInterfaceState,
-    responseStatus ::
-      Lude.Int
+  { -- | The state of the virtual interface. The following are the possible values:
+    --
+    --
+    --     * @confirming@ : The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.
+    --
+    --
+    --     * @verifying@ : This state only applies to public virtual interfaces. Each public virtual interface needs validation before the virtual interface can be created.
+    --
+    --
+    --     * @pending@ : A virtual interface is in this state from the time that it is created until the virtual interface is ready to forward traffic.
+    --
+    --
+    --     * @available@ : A virtual interface that is able to forward traffic.
+    --
+    --
+    --     * @down@ : A virtual interface that is BGP down.
+    --
+    --
+    --     * @deleting@ : A virtual interface is in this state immediately after calling 'DeleteVirtualInterface' until it can no longer forward traffic.
+    --
+    --
+    --     * @deleted@ : A virtual interface that cannot forward traffic.
+    --
+    --
+    --     * @rejected@ : The virtual interface owner has declined creation of the virtual interface. If a virtual interface in the @Confirming@ state is deleted by the virtual interface owner, the virtual interface enters the @Rejected@ state.
+    --
+    --
+    --     * @unknown@ : The state of the virtual interface is not available.
+    virtualInterfaceState :: Lude.Maybe VirtualInterfaceState,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmTransitVirtualInterfaceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'virtualInterfaceState' - The state of the virtual interface. The following are the possible values:
 --
 --
@@ -179,6 +193,9 @@ data ConfirmTransitVirtualInterfaceResponse = ConfirmTransitVirtualInterfaceResp
 --
 --
 --     * @unknown@ : The state of the virtual interface is not available.
+--
+--
+-- * 'responseStatus' - The response status code.
 mkConfirmTransitVirtualInterfaceResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -222,13 +239,13 @@ mkConfirmTransitVirtualInterfaceResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'virtualInterfaceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-conrsVirtualInterfaceState :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse (Lude.Maybe VirtualInterfaceState)
-conrsVirtualInterfaceState = Lens.lens (virtualInterfaceState :: ConfirmTransitVirtualInterfaceResponse -> Lude.Maybe VirtualInterfaceState) (\s a -> s {virtualInterfaceState = a} :: ConfirmTransitVirtualInterfaceResponse)
-{-# DEPRECATED conrsVirtualInterfaceState "Use generic-lens or generic-optics with 'virtualInterfaceState' instead." #-}
+ctvirsVirtualInterfaceState :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse (Lude.Maybe VirtualInterfaceState)
+ctvirsVirtualInterfaceState = Lens.lens (virtualInterfaceState :: ConfirmTransitVirtualInterfaceResponse -> Lude.Maybe VirtualInterfaceState) (\s a -> s {virtualInterfaceState = a} :: ConfirmTransitVirtualInterfaceResponse)
+{-# DEPRECATED ctvirsVirtualInterfaceState "Use generic-lens or generic-optics with 'virtualInterfaceState' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-conrsResponseStatus :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse Lude.Int
-conrsResponseStatus = Lens.lens (responseStatus :: ConfirmTransitVirtualInterfaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmTransitVirtualInterfaceResponse)
-{-# DEPRECATED conrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctvirsResponseStatus :: Lens.Lens' ConfirmTransitVirtualInterfaceResponse Lude.Int
+ctvirsResponseStatus = Lens.lens (responseStatus :: ConfirmTransitVirtualInterfaceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmTransitVirtualInterfaceResponse)
+{-# DEPRECATED ctvirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDomainEndpointOptions' smart constructor.
 data DescribeDomainEndpointOptions = DescribeDomainEndpointOptions'
-  { deployed ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether to retrieve the latest configuration (which might be in a Processing state) or the current, active configuration. Defaults to @false@ .
+    deployed :: Lude.Maybe Lude.Bool,
+    -- | A string that represents the name of a domain.
     domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainEndpointOptions' with the minimum fields required to make a request.
@@ -117,19 +113,12 @@ instance Lude.ToQuery DescribeDomainEndpointOptions where
 --
 -- /See:/ 'mkDescribeDomainEndpointOptionsResponse' smart constructor.
 data DescribeDomainEndpointOptionsResponse = DescribeDomainEndpointOptionsResponse'
-  { domainEndpointOptions ::
-      Lude.Maybe
-        DomainEndpointOptionsStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The status and configuration of a search domain's endpoint options.
+    domainEndpointOptions :: Lude.Maybe DomainEndpointOptionsStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDomainEndpointOptionsResponse' with the minimum fields required to make a request.

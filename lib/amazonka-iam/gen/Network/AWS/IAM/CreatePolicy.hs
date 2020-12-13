@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.IAM.CreatePolicy
     mkCreatePolicy,
 
     -- ** Request lenses
+    cpPolicyDocument,
+    cpPolicyName,
     cpPath,
     cpDescription,
-    cpPolicyName,
-    cpPolicyDocument,
 
     -- * Destructuring the response
     CreatePolicyResponse (..),
@@ -45,31 +46,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-  { path :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
+  { -- | The JSON policy document that you want to use as the content for the new policy.
+    --
+    -- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+    -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
+    --
+    --     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+    --
+    --
+    --     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+    --
+    --
+    --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+    policyDocument :: Lude.Text,
+    -- | The friendly name of the policy.
+    --
+    -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
     policyName :: Lude.Text,
-    policyDocument :: Lude.Text
+    -- | The path for the policy.
+    --
+    -- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    -- This parameter is optional. If it is not included, it defaults to a slash (/).
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+    path :: Lude.Maybe Lude.Text,
+    -- | A friendly description of the policy.
+    --
+    -- Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+    -- The policy description is immutable. After a value is assigned, it cannot be changed.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
--- * 'description' - A friendly description of the policy.
---
--- Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
--- The policy description is immutable. After a value is assigned, it cannot be changed.
--- * 'path' - The path for the policy.
---
--- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
--- This parameter is optional. If it is not included, it defaults to a slash (/).
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
 -- * 'policyDocument' - The JSON policy document that you want to use as the content for the new policy.
 --
 -- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
@@ -87,19 +97,57 @@ data CreatePolicy = CreatePolicy'
 -- * 'policyName' - The friendly name of the policy.
 --
 -- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+-- * 'path' - The path for the policy.
+--
+-- For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- This parameter is optional. If it is not included, it defaults to a slash (/).
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (@\u0021@ ) through the DEL character (@\u007F@ ), including most punctuation characters, digits, and upper and lowercased letters.
+-- * 'description' - A friendly description of the policy.
+--
+-- Typically used to store information about the permissions defined in the policy. For example, "Grants access to production DynamoDB tables."
+-- The policy description is immutable. After a value is assigned, it cannot be changed.
 mkCreatePolicy ::
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'policyDocument'
   Lude.Text ->
+  -- | 'policyName'
+  Lude.Text ->
   CreatePolicy
-mkCreatePolicy pPolicyName_ pPolicyDocument_ =
+mkCreatePolicy pPolicyDocument_ pPolicyName_ =
   CreatePolicy'
-    { path = Lude.Nothing,
-      description = Lude.Nothing,
+    { policyDocument = pPolicyDocument_,
       policyName = pPolicyName_,
-      policyDocument = pPolicyDocument_
+      path = Lude.Nothing,
+      description = Lude.Nothing
     }
+
+-- | The JSON policy document that you want to use as the content for the new policy.
+--
+-- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+-- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
+--
+--     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
+--
+--
+--     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
+--
+--
+--     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+--
+--
+--
+-- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPolicyDocument :: Lens.Lens' CreatePolicy Lude.Text
+cpPolicyDocument = Lens.lens (policyDocument :: CreatePolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicy)
+{-# DEPRECATED cpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
+
+-- | The friendly name of the policy.
+--
+-- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPolicyName :: Lens.Lens' CreatePolicy Lude.Text
+cpPolicyName = Lens.lens (policyName :: CreatePolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreatePolicy)
+{-# DEPRECATED cpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The path for the policy.
 --
@@ -121,35 +169,6 @@ cpPath = Lens.lens (path :: CreatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {pa
 cpDescription :: Lens.Lens' CreatePolicy (Lude.Maybe Lude.Text)
 cpDescription = Lens.lens (description :: CreatePolicy -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreatePolicy)
 {-# DEPRECATED cpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The friendly name of the policy.
---
--- IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both "MyResource" and "myresource".
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPolicyName :: Lens.Lens' CreatePolicy Lude.Text
-cpPolicyName = Lens.lens (policyName :: CreatePolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreatePolicy)
-{-# DEPRECATED cpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
-
--- | The JSON policy document that you want to use as the content for the new policy.
---
--- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
---
---     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
---
---
---     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
---
---
---     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
---
---
---
--- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPolicyDocument :: Lens.Lens' CreatePolicy Lude.Text
-cpPolicyDocument = Lens.lens (policyDocument :: CreatePolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicy)
-{-# DEPRECATED cpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
 instance Lude.AWSRequest CreatePolicy where
   type Rs CreatePolicy = CreatePolicyResponse
@@ -173,27 +192,22 @@ instance Lude.ToQuery CreatePolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("CreatePolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "Path" Lude.=: path,
-        "Description" Lude.=: description,
+        "PolicyDocument" Lude.=: policyDocument,
         "PolicyName" Lude.=: policyName,
-        "PolicyDocument" Lude.=: policyDocument
+        "Path" Lude.=: path,
+        "Description" Lude.=: description
       ]
 
 -- | Contains the response to a successful 'CreatePolicy' request.
 --
 -- /See:/ 'mkCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-  { policy ::
-      Lude.Maybe Policy,
+  { -- | A structure containing details about the new policy.
+    policy :: Lude.Maybe Policy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.

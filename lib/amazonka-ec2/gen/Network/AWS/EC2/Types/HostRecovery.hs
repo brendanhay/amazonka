@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.HostRecovery
   ( HostRecovery
       ( HostRecovery',
-        HRON,
-        HROff
+        ON,
+        Off
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype HostRecovery = HostRecovery' Lude.Text
       Lude.ToHeader
     )
 
-pattern HRON :: HostRecovery
-pattern HRON = HostRecovery' "on"
+pattern ON :: HostRecovery
+pattern ON = HostRecovery' "on"
 
-pattern HROff :: HostRecovery
-pattern HROff = HostRecovery' "off"
+pattern Off :: HostRecovery
+pattern Off = HostRecovery' "off"
 
 {-# COMPLETE
-  HRON,
-  HROff,
+  ON,
+  Off,
   HostRecovery'
   #-}

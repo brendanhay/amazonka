@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkShrinkPolicy' smart constructor.
 data ShrinkPolicy = ShrinkPolicy'
-  { decommissionTimeout ::
-      Lude.Maybe Lude.Int,
+  { -- | The desired timeout for decommissioning an instance. Overrides the default YARN decommissioning timeout.
+    decommissionTimeout :: Lude.Maybe Lude.Int,
+    -- | Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
     instanceResizePolicy :: Lude.Maybe InstanceResizePolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShrinkPolicy' with the minimum fields required to make a request.

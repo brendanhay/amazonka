@@ -13,7 +13,7 @@
 module Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
   ( AnalyticsS3ExportFileFormat
       ( AnalyticsS3ExportFileFormat',
-        CSV
+        ASEFFCSV
       ),
   )
 where
@@ -45,10 +45,10 @@ newtype AnalyticsS3ExportFileFormat = AnalyticsS3ExportFileFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSV :: AnalyticsS3ExportFileFormat
-pattern CSV = AnalyticsS3ExportFileFormat' "CSV"
+pattern ASEFFCSV :: AnalyticsS3ExportFileFormat
+pattern ASEFFCSV = AnalyticsS3ExportFileFormat' "CSV"
 
 {-# COMPLETE
-  CSV,
+  ASEFFCSV,
   AnalyticsS3ExportFileFormat'
   #-}

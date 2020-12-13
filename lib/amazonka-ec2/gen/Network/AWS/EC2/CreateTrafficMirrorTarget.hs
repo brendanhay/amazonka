@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,34 +50,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTrafficMirrorTarget' smart constructor.
 data CreateTrafficMirrorTarget = CreateTrafficMirrorTarget'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    networkInterfaceId ::
-      Lude.Maybe Lude.Text,
-    networkLoadBalancerARN ::
-      Lude.Maybe Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The network interface ID that is associated with the target.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+    networkLoadBalancerARN :: Lude.Maybe Lude.Text,
+    -- | The tags to assign to the Traffic Mirror target.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The description of the Traffic Mirror target.
     description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficMirrorTarget' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'description' - The description of the Traffic Mirror target.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'networkInterfaceId' - The network interface ID that is associated with the target.
 -- * 'networkLoadBalancerARN' - The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 -- * 'tagSpecifications' - The tags to assign to the Traffic Mirror target.
+-- * 'description' - The description of the Traffic Mirror target.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateTrafficMirrorTarget ::
   CreateTrafficMirrorTarget
 mkCreateTrafficMirrorTarget =
@@ -167,28 +164,21 @@ instance Lude.ToQuery CreateTrafficMirrorTarget where
 
 -- | /See:/ 'mkCreateTrafficMirrorTargetResponse' smart constructor.
 data CreateTrafficMirrorTargetResponse = CreateTrafficMirrorTargetResponse'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    trafficMirrorTarget ::
-      Lude.Maybe
-        TrafficMirrorTarget,
-    responseStatus ::
-      Lude.Int
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | Information about the Traffic Mirror target.
+    trafficMirrorTarget :: Lude.Maybe TrafficMirrorTarget,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrafficMirrorTargetResponse' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'responseStatus' - The response status code.
 -- * 'trafficMirrorTarget' - Information about the Traffic Mirror target.
+-- * 'responseStatus' - The response status code.
 mkCreateTrafficMirrorTargetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

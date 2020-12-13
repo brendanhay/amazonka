@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,25 +57,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListMigrationTasks' smart constructor.
 data ListMigrationTasks = ListMigrationTasks'
-  { resourceName ::
-      Lude.Maybe Lude.Text,
+  { -- | Filter migration tasks by discovered resource name.
+    resourceName :: Lude.Maybe Lude.Text,
+    -- | If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Value to specify how many results are returned per page.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMigrationTasks' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Value to specify how many results are returned per page.
--- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
 -- * 'resourceName' - Filter migration tasks by discovered resource name.
+-- * 'nextToken' - If a @NextToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @NextToken@ .
+-- * 'maxResults' - Value to specify how many results are returned per page.
 mkListMigrationTasks ::
   ListMigrationTasks
 mkListMigrationTasks =
@@ -156,18 +153,14 @@ instance Lude.ToQuery ListMigrationTasks where
 
 -- | /See:/ 'mkListMigrationTasksResponse' smart constructor.
 data ListMigrationTasksResponse = ListMigrationTasksResponse'
-  { migrationTaskSummaryList ::
-      Lude.Maybe [MigrationTaskSummary],
+  { -- | Lists the migration task's summary which includes: @MigrationTaskName@ , @ProgressPercent@ , @ProgressUpdateStream@ , @Status@ , and the @UpdateDateTime@ for each task.
+    migrationTaskSummaryList :: Lude.Maybe [MigrationTaskSummary],
+    -- | If there are more migration tasks than the max result, return the next token to be passed to the next call as a bookmark of where to start from.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMigrationTasksResponse' with the minimum fields required to make a request.

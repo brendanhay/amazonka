@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportSummary' smart constructor.
 data ExportSummary = ExportSummary'
-  { exportStatus ::
-      Lude.Maybe ExportStatus,
+  { -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
+    exportStatus :: Lude.Maybe ExportStatus,
+    -- | The Amazon Resource Name (ARN) of the export.
     exportARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportSummary' with the minimum fields required to make a request.
 --
--- * 'exportARN' - The Amazon Resource Name (ARN) of the export.
 -- * 'exportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.
+-- * 'exportARN' - The Amazon Resource Name (ARN) of the export.
 mkExportSummary ::
   ExportSummary
 mkExportSummary =

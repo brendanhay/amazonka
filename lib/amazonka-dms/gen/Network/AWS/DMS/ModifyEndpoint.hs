@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,8 +48,8 @@ module Network.AWS.DMS.ModifyEndpoint
     meKinesisSettings,
     meEndpointIdentifier,
     meDynamoDBSettings,
-    mePort,
     meEndpointARN,
+    mePort,
 
     -- * Destructuring the response
     ModifyEndpointResponse (..),
@@ -70,46 +71,85 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyEndpoint' smart constructor.
 data ModifyEndpoint = ModifyEndpoint'
-  { dmsTransferSettings ::
-      Lude.Maybe DmsTransferSettings,
+  { -- | The settings in JSON format for the DMS transfer type of source endpoint.
+    --
+    -- Attributes include the following:
+    --
+    --     * serviceAccessRoleArn - The AWS Identity and Access Management (IAM) role that has permission to access the Amazon S3 bucket.
+    --
+    --
+    --     * BucketName - The name of the S3 bucket to use.
+    --
+    --
+    --     * compressionType - An optional parameter to use GZIP to compress the target files. Either set this parameter to NONE (the default) or don't use it to leave the files uncompressed.
+    --
+    --
+    -- Shorthand syntax for these settings is as follows: @ServiceAccessRoleArn=string ,BucketName=string,CompressionType=string@
+    -- JSON syntax for these settings is as follows: @{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } @
+    dmsTransferSettings :: Lude.Maybe DmsTransferSettings,
+    -- | Settings in JSON format for the source and target MySQL endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.ConnectionAttrib Extra connection attributes when using MySQL as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.ConnectionAttrib Extra connection attributes when using a MySQL-compatible database as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
     mySQLSettings :: Lude.Maybe MySQLSettings,
+    -- | The name of the server where the endpoint database resides.
     serverName :: Lude.Maybe Lude.Text,
-    microsoftSQLServerSettings ::
-      Lude.Maybe MicrosoftSQLServerSettings,
+    -- | Settings in JSON format for the source and target Microsoft SQL Server endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.ConnectionAttrib Extra connection attributes when using SQL Server as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.ConnectionAttrib Extra connection attributes when using SQL Server as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
+    microsoftSQLServerSettings :: Lude.Maybe MicrosoftSQLServerSettings,
+    -- | The Amazon Resource Name (ARN) of the certificate used for SSL connection.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the service access role you want to use to modify the endpoint.
     serviceAccessRoleARN :: Lude.Maybe Lude.Text,
+    -- | Settings in JSON format for the source DocumentDB endpoint. For more information about the available settings, see the configuration properties section in <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html Using DocumentDB as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
     docDBSettings :: Lude.Maybe DocDBSettings,
+    -- | Settings in JSON format for the source and target PostgreSQL endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.ConnectionAttrib Extra connection attributes when using PostgreSQL as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.ConnectionAttrib Extra connection attributes when using PostgreSQL as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
     postgreSQLSettings :: Lude.Maybe PostgreSQLSettings,
+    -- | Additional attributes associated with the connection. To reset this parameter, pass the empty string ("") as an argument.
     extraConnectionAttributes :: Lude.Maybe Lude.Text,
+    -- | Settings in JSON format for the target Apache Kafka endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html Using Apache Kafka as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
     kafkaSettings :: Lude.Maybe KafkaSettings,
+    -- | Settings in JSON format for the source and target Oracle endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.ConnectionAttrib Extra connection attributes when using Oracle as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.ConnectionAttrib Extra connection attributes when using Oracle as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
     oracleSettings :: Lude.Maybe OracleSettings,
+    -- | The type of endpoint. Valid values are @source@ and @target@ .
     endpointType :: Lude.Maybe ReplicationEndpointTypeValue,
     redshiftSettings :: Lude.Maybe RedshiftSettings,
+    -- | Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS> in the /AWS Database Migration Service User Guide./
     elasticsearchSettings :: Lude.Maybe ElasticsearchSettings,
+    -- | The user name to be used to login to the endpoint database.
     username :: Lude.Maybe Lude.Text,
+    -- | The external table definition.
     externalTableDefinition :: Lude.Maybe Lude.Text,
+    -- | The type of engine for the endpoint. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
     engineName :: Lude.Maybe Lude.Text,
+    -- | Settings in JSON format for the target Amazon Neptune endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings Specifying Endpoint Settings for Amazon Neptune as a Target> in the /AWS Database Migration Service User Guide./
     neptuneSettings :: Lude.Maybe NeptuneSettings,
+    -- | Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.ConnectionAttrib Extra connection attributes when using Db2 LUW as a source for AWS DMS> in the /AWS Database Migration Service User Guide./
     iBMDB2Settings :: Lude.Maybe IBMDB2Settings,
+    -- | Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the configuration properties section in <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html Using MongoDB as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
     mongoDBSettings :: Lude.Maybe MongoDBSettings,
+    -- | The SSL mode used to connect to the endpoint. The default value is @none@ .
     sslMode :: Lude.Maybe DmsSSLModeValue,
+    -- | The password to be used to login to the endpoint database.
     password :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Settings in JSON format for the source and target SAP ASE endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.ConnectionAttrib Extra connection attributes when using SAP ASE as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.ConnectionAttrib Extra connection attributes when using SAP ASE as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
     sybaseSettings :: Lude.Maybe SybaseSettings,
+    -- | The name of the endpoint database.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS> in the /AWS Database Migration Service User Guide./
     s3Settings :: Lude.Maybe S3Settings,
+    -- | Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
     kinesisSettings :: Lude.Maybe KinesisSettings,
+    -- | The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
     endpointIdentifier :: Lude.Maybe Lude.Text,
+    -- | Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html Using Object Mapping to Migrate Data to DynamoDB> in the /AWS Database Migration Service User Guide./
     dynamoDBSettings :: Lude.Maybe DynamoDBSettings,
-    port :: Lude.Maybe Lude.Int,
-    endpointARN :: Lude.Text
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+    endpointARN :: Lude.Text,
+    -- | The port used by the endpoint database.
+    port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyEndpoint' with the minimum fields required to make a request.
 --
--- * 'certificateARN' - The Amazon Resource Name (ARN) of the certificate used for SSL connection.
--- * 'databaseName' - The name of the endpoint database.
 -- * 'dmsTransferSettings' - The settings in JSON format for the DMS transfer type of source endpoint.
 --
 -- Attributes include the following:
@@ -125,33 +165,35 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- Shorthand syntax for these settings is as follows: @ServiceAccessRoleArn=string ,BucketName=string,CompressionType=string@
 -- JSON syntax for these settings is as follows: @{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } @
--- * 'docDBSettings' - Settings in JSON format for the source DocumentDB endpoint. For more information about the available settings, see the configuration properties section in <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html Using DocumentDB as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
--- * 'dynamoDBSettings' - Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html Using Object Mapping to Migrate Data to DynamoDB> in the /AWS Database Migration Service User Guide./
--- * 'elasticsearchSettings' - Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS> in the /AWS Database Migration Service User Guide./
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
--- * 'endpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
--- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
--- * 'engineName' - The type of engine for the endpoint. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
--- * 'externalTableDefinition' - The external table definition.
--- * 'extraConnectionAttributes' - Additional attributes associated with the connection. To reset this parameter, pass the empty string ("") as an argument.
--- * 'iBMDB2Settings' - Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.ConnectionAttrib Extra connection attributes when using Db2 LUW as a source for AWS DMS> in the /AWS Database Migration Service User Guide./
--- * 'kafkaSettings' - Settings in JSON format for the target Apache Kafka endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html Using Apache Kafka as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
--- * 'kinesisSettings' - Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
--- * 'microsoftSQLServerSettings' - Settings in JSON format for the source and target Microsoft SQL Server endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.ConnectionAttrib Extra connection attributes when using SQL Server as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.ConnectionAttrib Extra connection attributes when using SQL Server as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
--- * 'mongoDBSettings' - Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the configuration properties section in <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html Using MongoDB as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
 -- * 'mySQLSettings' - Settings in JSON format for the source and target MySQL endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.ConnectionAttrib Extra connection attributes when using MySQL as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.ConnectionAttrib Extra connection attributes when using a MySQL-compatible database as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
--- * 'neptuneSettings' - Settings in JSON format for the target Amazon Neptune endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings Specifying Endpoint Settings for Amazon Neptune as a Target> in the /AWS Database Migration Service User Guide./
--- * 'oracleSettings' - Settings in JSON format for the source and target Oracle endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.ConnectionAttrib Extra connection attributes when using Oracle as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.ConnectionAttrib Extra connection attributes when using Oracle as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
--- * 'password' - The password to be used to login to the endpoint database.
--- * 'port' - The port used by the endpoint database.
--- * 'postgreSQLSettings' - Settings in JSON format for the source and target PostgreSQL endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.ConnectionAttrib Extra connection attributes when using PostgreSQL as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.ConnectionAttrib Extra connection attributes when using PostgreSQL as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
--- * 'redshiftSettings' - Undocumented field.
--- * 's3Settings' - Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS> in the /AWS Database Migration Service User Guide./
 -- * 'serverName' - The name of the server where the endpoint database resides.
+-- * 'microsoftSQLServerSettings' - Settings in JSON format for the source and target Microsoft SQL Server endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.ConnectionAttrib Extra connection attributes when using SQL Server as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.ConnectionAttrib Extra connection attributes when using SQL Server as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
+-- * 'certificateARN' - The Amazon Resource Name (ARN) of the certificate used for SSL connection.
 -- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) for the service access role you want to use to modify the endpoint.
--- * 'sslMode' - The SSL mode used to connect to the endpoint. The default value is @none@ .
--- * 'sybaseSettings' - Settings in JSON format for the source and target SAP ASE endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.ConnectionAttrib Extra connection attributes when using SAP ASE as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.ConnectionAttrib Extra connection attributes when using SAP ASE as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
+-- * 'docDBSettings' - Settings in JSON format for the source DocumentDB endpoint. For more information about the available settings, see the configuration properties section in <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html Using DocumentDB as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
+-- * 'postgreSQLSettings' - Settings in JSON format for the source and target PostgreSQL endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.ConnectionAttrib Extra connection attributes when using PostgreSQL as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.ConnectionAttrib Extra connection attributes when using PostgreSQL as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
+-- * 'extraConnectionAttributes' - Additional attributes associated with the connection. To reset this parameter, pass the empty string ("") as an argument.
+-- * 'kafkaSettings' - Settings in JSON format for the target Apache Kafka endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html Using Apache Kafka as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
+-- * 'oracleSettings' - Settings in JSON format for the source and target Oracle endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.ConnectionAttrib Extra connection attributes when using Oracle as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.ConnectionAttrib Extra connection attributes when using Oracle as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
+-- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
+-- * 'redshiftSettings' -
+-- * 'elasticsearchSettings' - Settings in JSON format for the target Elasticsearch endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for AWS DMS> in the /AWS Database Migration Service User Guide./
 -- * 'username' - The user name to be used to login to the endpoint database.
+-- * 'externalTableDefinition' - The external table definition.
+-- * 'engineName' - The type of engine for the endpoint. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
+-- * 'neptuneSettings' - Settings in JSON format for the target Amazon Neptune endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings Specifying Endpoint Settings for Amazon Neptune as a Target> in the /AWS Database Migration Service User Guide./
+-- * 'iBMDB2Settings' - Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.ConnectionAttrib Extra connection attributes when using Db2 LUW as a source for AWS DMS> in the /AWS Database Migration Service User Guide./
+-- * 'mongoDBSettings' - Settings in JSON format for the source MongoDB endpoint. For more information about the available settings, see the configuration properties section in <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html Using MongoDB as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
+-- * 'sslMode' - The SSL mode used to connect to the endpoint. The default value is @none@ .
+-- * 'password' - The password to be used to login to the endpoint database.
+-- * 'sybaseSettings' - Settings in JSON format for the source and target SAP ASE endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.ConnectionAttrib Extra connection attributes when using SAP ASE as a source for AWS DMS> and <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.ConnectionAttrib Extra connection attributes when using SAP ASE as a target for AWS DMS> in the /AWS Database Migration Service User Guide./
+-- * 'databaseName' - The name of the endpoint database.
+-- * 's3Settings' - Settings in JSON format for the target Amazon S3 endpoint. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring Extra Connection Attributes When Using Amazon S3 as a Target for AWS DMS> in the /AWS Database Migration Service User Guide./
+-- * 'kinesisSettings' - Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For more information about the available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html Using Amazon Kinesis Data Streams as a Target for AWS Database Migration Service> in the /AWS Database Migration Service User Guide./
+-- * 'endpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+-- * 'dynamoDBSettings' - Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other available settings, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html Using Object Mapping to Migrate Data to DynamoDB> in the /AWS Database Migration Service User Guide./
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- * 'port' - The port used by the endpoint database.
 mkModifyEndpoint ::
   -- | 'endpointARN'
   Lude.Text ->
@@ -186,8 +228,8 @@ mkModifyEndpoint pEndpointARN_ =
       kinesisSettings = Lude.Nothing,
       endpointIdentifier = Lude.Nothing,
       dynamoDBSettings = Lude.Nothing,
-      port = Lude.Nothing,
-      endpointARN = pEndpointARN_
+      endpointARN = pEndpointARN_,
+      port = Lude.Nothing
     }
 
 -- | The settings in JSON format for the DMS transfer type of source endpoint.
@@ -400,19 +442,19 @@ meDynamoDBSettings :: Lens.Lens' ModifyEndpoint (Lude.Maybe DynamoDBSettings)
 meDynamoDBSettings = Lens.lens (dynamoDBSettings :: ModifyEndpoint -> Lude.Maybe DynamoDBSettings) (\s a -> s {dynamoDBSettings = a} :: ModifyEndpoint)
 {-# DEPRECATED meDynamoDBSettings "Use generic-lens or generic-optics with 'dynamoDBSettings' instead." #-}
 
--- | The port used by the endpoint database.
---
--- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mePort :: Lens.Lens' ModifyEndpoint (Lude.Maybe Lude.Int)
-mePort = Lens.lens (port :: ModifyEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: ModifyEndpoint)
-{-# DEPRECATED mePort "Use generic-lens or generic-optics with 'port' instead." #-}
-
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
 -- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 meEndpointARN :: Lens.Lens' ModifyEndpoint Lude.Text
 meEndpointARN = Lens.lens (endpointARN :: ModifyEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: ModifyEndpoint)
 {-# DEPRECATED meEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+
+-- | The port used by the endpoint database.
+--
+-- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mePort :: Lens.Lens' ModifyEndpoint (Lude.Maybe Lude.Int)
+mePort = Lens.lens (port :: ModifyEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: ModifyEndpoint)
+{-# DEPRECATED mePort "Use generic-lens or generic-optics with 'port' instead." #-}
 
 instance Lude.AWSRequest ModifyEndpoint where
   type Rs ModifyEndpoint = ModifyEndpointResponse
@@ -470,8 +512,8 @@ instance Lude.ToJSON ModifyEndpoint where
             ("KinesisSettings" Lude..=) Lude.<$> kinesisSettings,
             ("EndpointIdentifier" Lude..=) Lude.<$> endpointIdentifier,
             ("DynamoDbSettings" Lude..=) Lude.<$> dynamoDBSettings,
-            ("Port" Lude..=) Lude.<$> port,
-            Lude.Just ("EndpointArn" Lude..= endpointARN)
+            Lude.Just ("EndpointArn" Lude..= endpointARN),
+            ("Port" Lude..=) Lude.<$> port
           ]
       )
 
@@ -485,8 +527,9 @@ instance Lude.ToQuery ModifyEndpoint where
 --
 -- /See:/ 'mkModifyEndpointResponse' smart constructor.
 data ModifyEndpointResponse = ModifyEndpointResponse'
-  { endpoint ::
-      Lude.Maybe Endpoint,
+  { -- | The modified endpoint.
+    endpoint :: Lude.Maybe Endpoint,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,34 +48,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeLocalGatewayVirtualInterfaceGroups' smart constructor.
 data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInterfaceGroups'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayVirtualInterfaceGroupIds ::
-      Lude.Maybe
-        [Lude.Text],
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | One or more filters.
+    --
+    --
+    --     * @local-gateway-id@ - The ID of a local gateway.
+    --
+    --
+    --     * @local-gateway-virtual-interface-id@ - The ID of the virtual interface.
+    --
+    --
+    --     * @local-gateway-virtual-interface-group-id@ - The ID of the virtual interface group.
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The IDs of the virtual interface groups.
+    localGatewayVirtualInterfaceGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGatewayVirtualInterfaceGroups' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters.
 --
 --
@@ -87,9 +85,10 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
 --     * @local-gateway-virtual-interface-group-id@ - The ID of the virtual interface group.
 --
 --
--- * 'localGatewayVirtualInterfaceGroupIds' - The IDs of the virtual interface groups.
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
+-- * 'localGatewayVirtualInterfaceGroupIds' - The IDs of the virtual interface groups.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeLocalGatewayVirtualInterfaceGroups ::
   DescribeLocalGatewayVirtualInterfaceGroups
 mkDescribeLocalGatewayVirtualInterfaceGroups =
@@ -199,31 +198,20 @@ instance Lude.ToQuery DescribeLocalGatewayVirtualInterfaceGroups where
 
 -- | /See:/ 'mkDescribeLocalGatewayVirtualInterfaceGroupsResponse' smart constructor.
 data DescribeLocalGatewayVirtualInterfaceGroupsResponse = DescribeLocalGatewayVirtualInterfaceGroupsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayVirtualInterfaceGroups ::
-      Lude.Maybe
-        [LocalGatewayVirtualInterfaceGroup],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The virtual interface groups.
+    localGatewayVirtualInterfaceGroups :: Lude.Maybe [LocalGatewayVirtualInterfaceGroup],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeLocalGatewayVirtualInterfaceGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'localGatewayVirtualInterfaceGroups' - The virtual interface groups.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'localGatewayVirtualInterfaceGroups' - The virtual interface groups.
 -- * 'responseStatus' - The response status code.
 mkDescribeLocalGatewayVirtualInterfaceGroupsResponse ::
   -- | 'responseStatus'

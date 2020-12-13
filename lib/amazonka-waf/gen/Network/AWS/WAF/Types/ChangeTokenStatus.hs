@@ -13,9 +13,9 @@
 module Network.AWS.WAF.Types.ChangeTokenStatus
   ( ChangeTokenStatus
       ( ChangeTokenStatus',
-        Insync,
+        Provisioned,
         Pending,
-        Provisioned
+        Insync
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ChangeTokenStatus = ChangeTokenStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Insync :: ChangeTokenStatus
-pattern Insync = ChangeTokenStatus' "INSYNC"
+pattern Provisioned :: ChangeTokenStatus
+pattern Provisioned = ChangeTokenStatus' "PROVISIONED"
 
 pattern Pending :: ChangeTokenStatus
 pattern Pending = ChangeTokenStatus' "PENDING"
 
-pattern Provisioned :: ChangeTokenStatus
-pattern Provisioned = ChangeTokenStatus' "PROVISIONED"
+pattern Insync :: ChangeTokenStatus
+pattern Insync = ChangeTokenStatus' "INSYNC"
 
 {-# COMPLETE
-  Insync,
-  Pending,
   Provisioned,
+  Pending,
+  Insync,
   ChangeTokenStatus'
   #-}

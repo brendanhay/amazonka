@@ -29,20 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActivityTimedOutEventDetails' smart constructor.
 data ActivityTimedOutEventDetails = ActivityTimedOutEventDetails'
-  { error ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    cause ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text)
+  { -- | The error code of the failure.
+    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A more detailed explanation of the cause of the timeout.
+    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityTimedOutEventDetails' with the minimum fields required to make a request.
 --
--- * 'cause' - A more detailed explanation of the cause of the timeout.
 -- * 'error' - The error code of the failure.
+-- * 'cause' - A more detailed explanation of the cause of the timeout.
 mkActivityTimedOutEventDetails ::
   ActivityTimedOutEventDetails
 mkActivityTimedOutEventDetails =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -31,8 +32,8 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
 
     -- ** Response lenses
     dncrsNextToken,
-    dncrsResponseStatus,
     dncrsNotificationConfigurations,
+    dncrsResponseStatus,
   )
 where
 
@@ -45,28 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeNotificationConfigurations' smart constructor.
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
-  { autoScalingGroupNames ::
-      Lude.Maybe
-        [Lude.Text],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupNames :: Lude.Maybe [Lude.Text],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationConfigurations' with the minimum fields required to make a request.
 --
 -- * 'autoScalingGroupNames' - The name of the Auto Scaling group.
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 mkDescribeNotificationConfigurations ::
   DescribeNotificationConfigurations
 mkDescribeNotificationConfigurations =
@@ -119,10 +113,10 @@ instance Lude.AWSRequest DescribeNotificationConfigurations where
       ( \s h x ->
           DescribeNotificationConfigurationsResponse'
             Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> ( x Lude..@? "NotificationConfigurations" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeNotificationConfigurations where
@@ -146,21 +140,14 @@ instance Lude.ToQuery DescribeNotificationConfigurations where
 
 -- | /See:/ 'mkDescribeNotificationConfigurationsResponse' smart constructor.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    notificationConfigurations ::
-      [NotificationConfiguration]
+  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The notification configurations.
+    notificationConfigurations :: [NotificationConfiguration],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeNotificationConfigurationsResponse' with the minimum fields required to make a request.
@@ -176,8 +163,8 @@ mkDescribeNotificationConfigurationsResponse pResponseStatus_ =
   DescribeNotificationConfigurationsResponse'
     { nextToken =
         Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      notificationConfigurations = Lude.mempty
+      notificationConfigurations = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
@@ -187,16 +174,16 @@ dncrsNextToken :: Lens.Lens' DescribeNotificationConfigurationsResponse (Lude.Ma
 dncrsNextToken = Lens.lens (nextToken :: DescribeNotificationConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeNotificationConfigurationsResponse)
 {-# DEPRECATED dncrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dncrsResponseStatus :: Lens.Lens' DescribeNotificationConfigurationsResponse Lude.Int
-dncrsResponseStatus = Lens.lens (responseStatus :: DescribeNotificationConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotificationConfigurationsResponse)
-{-# DEPRECATED dncrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | The notification configurations.
 --
 -- /Note:/ Consider using 'notificationConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dncrsNotificationConfigurations :: Lens.Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
 dncrsNotificationConfigurations = Lens.lens (notificationConfigurations :: DescribeNotificationConfigurationsResponse -> [NotificationConfiguration]) (\s a -> s {notificationConfigurations = a} :: DescribeNotificationConfigurationsResponse)
 {-# DEPRECATED dncrsNotificationConfigurations "Use generic-lens or generic-optics with 'notificationConfigurations' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dncrsResponseStatus :: Lens.Lens' DescribeNotificationConfigurationsResponse Lude.Int
+dncrsResponseStatus = Lens.lens (responseStatus :: DescribeNotificationConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeNotificationConfigurationsResponse)
+{-# DEPRECATED dncrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

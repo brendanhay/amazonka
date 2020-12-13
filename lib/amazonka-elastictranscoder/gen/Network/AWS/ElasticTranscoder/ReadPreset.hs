@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | The @ReadPresetRequest@ structure.
 --
 -- /See:/ 'mkReadPreset' smart constructor.
-newtype ReadPreset = ReadPreset' {id :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ReadPreset = ReadPreset'
+  { -- | The identifier of the preset for which you want to get detailed information.
+    id :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadPreset' with the minimum fields required to make a request.
@@ -90,17 +88,12 @@ instance Lude.ToQuery ReadPreset where
 --
 -- /See:/ 'mkReadPresetResponse' smart constructor.
 data ReadPresetResponse = ReadPresetResponse'
-  { preset ::
-      Lude.Maybe Preset,
+  { -- | A section of the response body that provides information about the preset.
+    preset :: Lude.Maybe Preset,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReadPresetResponse' with the minimum fields required to make a request.

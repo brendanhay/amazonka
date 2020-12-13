@@ -31,33 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSendUsersMessageResponse' smart constructor.
 data SendUsersMessageResponse = SendUsersMessageResponse'
-  { requestId ::
-      Lude.Maybe Lude.Text,
-    result ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            ( Lude.HashMap
-                Lude.Text
-                (EndpointMessageResult)
-            )
-        ),
+  { -- | The unique identifier that was assigned to the message request.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.
+    result :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.HashMap Lude.Text (EndpointMessageResult))),
+    -- | The unique identifier for the application that was used to send the message.
     applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendUsersMessageResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that was used to send the message.
 -- * 'requestId' - The unique identifier that was assigned to the message request.
 -- * 'result' - An object that indicates which endpoints the message was sent to, for each user. The object lists user IDs and, for each user ID, provides the endpoint IDs that the message was sent to. For each endpoint ID, it provides an EndpointMessageResult object.
+-- * 'applicationId' - The unique identifier for the application that was used to send the message.
 mkSendUsersMessageResponse ::
   -- | 'applicationId'
   Lude.Text ->

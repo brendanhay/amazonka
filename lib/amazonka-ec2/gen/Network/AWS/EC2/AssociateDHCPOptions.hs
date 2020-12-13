@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.EC2.AssociateDHCPOptions
     mkAssociateDHCPOptions,
 
     -- ** Request lenses
-    adoDryRun,
-    adoDHCPOptionsId,
     adoVPCId,
+    adoDHCPOptionsId,
+    adoDryRun,
 
     -- * Destructuring the response
     AssociateDHCPOptionsResponse (..),
@@ -40,44 +41,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateDHCPOptions' smart constructor.
 data AssociateDHCPOptions = AssociateDHCPOptions'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the VPC.
+    vpcId :: Lude.Text,
+    -- | The ID of the DHCP options set, or @default@ to associate no DHCP options with the VPC.
     dhcpOptionsId :: Lude.Text,
-    vpcId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDHCPOptions' with the minimum fields required to make a request.
 --
+-- * 'vpcId' - The ID of the VPC.
 -- * 'dhcpOptionsId' - The ID of the DHCP options set, or @default@ to associate no DHCP options with the VPC.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'vpcId' - The ID of the VPC.
 mkAssociateDHCPOptions ::
-  -- | 'dhcpOptionsId'
-  Lude.Text ->
   -- | 'vpcId'
   Lude.Text ->
+  -- | 'dhcpOptionsId'
+  Lude.Text ->
   AssociateDHCPOptions
-mkAssociateDHCPOptions pDHCPOptionsId_ pVPCId_ =
+mkAssociateDHCPOptions pVPCId_ pDHCPOptionsId_ =
   AssociateDHCPOptions'
-    { dryRun = Lude.Nothing,
+    { vpcId = pVPCId_,
       dhcpOptionsId = pDHCPOptionsId_,
-      vpcId = pVPCId_
+      dryRun = Lude.Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The ID of the VPC.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adoDryRun :: Lens.Lens' AssociateDHCPOptions (Lude.Maybe Lude.Bool)
-adoDryRun = Lens.lens (dryRun :: AssociateDHCPOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateDHCPOptions)
-{-# DEPRECATED adoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adoVPCId :: Lens.Lens' AssociateDHCPOptions Lude.Text
+adoVPCId = Lens.lens (vpcId :: AssociateDHCPOptions -> Lude.Text) (\s a -> s {vpcId = a} :: AssociateDHCPOptions)
+{-# DEPRECATED adoVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
 -- | The ID of the DHCP options set, or @default@ to associate no DHCP options with the VPC.
 --
@@ -86,12 +83,12 @@ adoDHCPOptionsId :: Lens.Lens' AssociateDHCPOptions Lude.Text
 adoDHCPOptionsId = Lens.lens (dhcpOptionsId :: AssociateDHCPOptions -> Lude.Text) (\s a -> s {dhcpOptionsId = a} :: AssociateDHCPOptions)
 {-# DEPRECATED adoDHCPOptionsId "Use generic-lens or generic-optics with 'dhcpOptionsId' instead." #-}
 
--- | The ID of the VPC.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adoVPCId :: Lens.Lens' AssociateDHCPOptions Lude.Text
-adoVPCId = Lens.lens (vpcId :: AssociateDHCPOptions -> Lude.Text) (\s a -> s {vpcId = a} :: AssociateDHCPOptions)
-{-# DEPRECATED adoVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adoDryRun :: Lens.Lens' AssociateDHCPOptions (Lude.Maybe Lude.Bool)
+adoDryRun = Lens.lens (dryRun :: AssociateDHCPOptions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AssociateDHCPOptions)
+{-# DEPRECATED adoDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest AssociateDHCPOptions where
   type Rs AssociateDHCPOptions = AssociateDHCPOptionsResponse
@@ -109,20 +106,14 @@ instance Lude.ToQuery AssociateDHCPOptions where
     Lude.mconcat
       [ "Action" Lude.=: ("AssociateDhcpOptions" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        "VpcId" Lude.=: vpcId,
         "DhcpOptionsId" Lude.=: dhcpOptionsId,
-        "VpcId" Lude.=: vpcId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkAssociateDHCPOptionsResponse' smart constructor.
 data AssociateDHCPOptionsResponse = AssociateDHCPOptionsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateDHCPOptionsResponse' with the minimum fields required to make a request.

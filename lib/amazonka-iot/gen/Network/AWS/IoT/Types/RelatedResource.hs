@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelatedResource' smart constructor.
 data RelatedResource = RelatedResource'
-  { additionalInfo ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Other information about the resource.
+    additionalInfo :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of resource.
     resourceType :: Lude.Maybe ResourceType,
+    -- | Information that identifies the resource.
     resourceIdentifier :: Lude.Maybe ResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelatedResource' with the minimum fields required to make a request.
 --
 -- * 'additionalInfo' - Other information about the resource.
--- * 'resourceIdentifier' - Information that identifies the resource.
 -- * 'resourceType' - The type of resource.
+-- * 'resourceIdentifier' - Information that identifies the resource.
 mkRelatedResource ::
   RelatedResource
 mkRelatedResource =

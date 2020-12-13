@@ -64,69 +64,87 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDirectoryDescription' smart constructor.
 data DirectoryDescription = DirectoryDescription'
-  { edition ::
-      Lude.Maybe DirectoryEdition,
+  { -- | The edition associated with this directory.
+    edition :: Lude.Maybe DirectoryEdition,
+    -- | The status of the RADIUS MFA server connection.
     radiusStatus :: Lude.Maybe RadiusStatus,
+    -- | The current stage of the directory.
     stage :: Lude.Maybe DirectoryStage,
+    -- | The directory identifier.
     directoryId :: Lude.Maybe Lude.Text,
+    -- | The access URL for the directory, such as @http://<alias>.awsapps.com@ . If no alias has been created for the directory, @<alias>@ is the directory identifier, such as @d-XXXXXXXXXX@ .
     accessURL :: Lude.Maybe Lude.Text,
+    -- | The short name of the directory.
     shortName :: Lude.Maybe Lude.Text,
+    -- | Lists the Regions where the directory has replicated.
     regionsInfo :: Lude.Maybe RegionsInfo,
+    -- | The directory size.
     size :: Lude.Maybe DirectorySize,
-    desiredNumberOfDomainControllers ::
-      Lude.Maybe Lude.Natural,
+    -- | The desired number of domain controllers in the directory if the directory is Microsoft AD.
+    desiredNumberOfDomainControllers :: Lude.Maybe Lude.Natural,
+    -- | A 'RadiusSettings' object that contains information about the RADIUS server configured for this directory.
     radiusSettings :: Lude.Maybe RadiusSettings,
+    -- | Specifies when the directory was created.
     launchTime :: Lude.Maybe Lude.Timestamp,
+    -- | The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as @d-XXXXXXXXXX@ .
     alias :: Lude.Maybe Lude.Text,
+    -- | Current directory status of the shared AWS Managed Microsoft AD directory.
     shareStatus :: Lude.Maybe ShareStatus,
+    -- | The fully qualified name of the directory.
     name :: Lude.Maybe Lude.Text,
+    -- | The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a shared directory request (@HANDSHAKE@ ).
     shareMethod :: Lude.Maybe ShareMethod,
-    stageLastUpdatedDateTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the stage was last updated.
+    stageLastUpdatedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates if single sign-on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
     ssoEnabled :: Lude.Maybe Lude.Bool,
+    -- | The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected.
     dnsIPAddrs :: Lude.Maybe [Lude.Text],
-    vpcSettings ::
-      Lude.Maybe DirectoryVPCSettingsDescription,
+    -- | A 'DirectoryVpcSettingsDescription' object that contains additional information about a directory. This member is only present if the directory is a Simple AD or Managed AD directory.
+    vpcSettings :: Lude.Maybe DirectoryVPCSettingsDescription,
+    -- | The directory size.
     type' :: Lude.Maybe DirectoryType,
+    -- | Additional information about the directory stage.
     stageReason :: Lude.Maybe Lude.Text,
-    connectSettings ::
-      Lude.Maybe DirectoryConnectSettingsDescription,
-    ownerDirectoryDescription ::
-      Lude.Maybe OwnerDirectoryDescription,
+    -- | A 'DirectoryConnectSettingsDescription' object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
+    connectSettings :: Lude.Maybe DirectoryConnectSettingsDescription,
+    -- | Describes the AWS Managed Microsoft AD directory in the directory owner account.
+    ownerDirectoryDescription :: Lude.Maybe OwnerDirectoryDescription,
+    -- | The description for the directory.
     description :: Lude.Maybe Lude.Text,
-    shareNotes ::
-      Lude.Maybe (Lude.Sensitive Lude.Text)
+    -- | A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
+    shareNotes :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DirectoryDescription' with the minimum fields required to make a request.
 --
--- * 'accessURL' - The access URL for the directory, such as @http://<alias>.awsapps.com@ . If no alias has been created for the directory, @<alias>@ is the directory identifier, such as @d-XXXXXXXXXX@ .
--- * 'alias' - The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as @d-XXXXXXXXXX@ .
--- * 'connectSettings' - A 'DirectoryConnectSettingsDescription' object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
--- * 'description' - The description for the directory.
--- * 'desiredNumberOfDomainControllers' - The desired number of domain controllers in the directory if the directory is Microsoft AD.
--- * 'directoryId' - The directory identifier.
--- * 'dnsIPAddrs' - The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected.
 -- * 'edition' - The edition associated with this directory.
--- * 'launchTime' - Specifies when the directory was created.
--- * 'name' - The fully qualified name of the directory.
--- * 'ownerDirectoryDescription' - Describes the AWS Managed Microsoft AD directory in the directory owner account.
--- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server configured for this directory.
 -- * 'radiusStatus' - The status of the RADIUS MFA server connection.
--- * 'regionsInfo' - Lists the Regions where the directory has replicated.
--- * 'shareMethod' - The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a shared directory request (@HANDSHAKE@ ).
--- * 'shareNotes' - A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
--- * 'shareStatus' - Current directory status of the shared AWS Managed Microsoft AD directory.
--- * 'shortName' - The short name of the directory.
--- * 'size' - The directory size.
--- * 'ssoEnabled' - Indicates if single sign-on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
 -- * 'stage' - The current stage of the directory.
+-- * 'directoryId' - The directory identifier.
+-- * 'accessURL' - The access URL for the directory, such as @http://<alias>.awsapps.com@ . If no alias has been created for the directory, @<alias>@ is the directory identifier, such as @d-XXXXXXXXXX@ .
+-- * 'shortName' - The short name of the directory.
+-- * 'regionsInfo' - Lists the Regions where the directory has replicated.
+-- * 'size' - The directory size.
+-- * 'desiredNumberOfDomainControllers' - The desired number of domain controllers in the directory if the directory is Microsoft AD.
+-- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server configured for this directory.
+-- * 'launchTime' - Specifies when the directory was created.
+-- * 'alias' - The alias for the directory. If no alias has been created for the directory, the alias is the directory identifier, such as @d-XXXXXXXXXX@ .
+-- * 'shareStatus' - Current directory status of the shared AWS Managed Microsoft AD directory.
+-- * 'name' - The fully qualified name of the directory.
+-- * 'shareMethod' - The method used when sharing a directory to determine whether the directory should be shared within your AWS organization (@ORGANIZATIONS@ ) or with any AWS account by sending a shared directory request (@HANDSHAKE@ ).
 -- * 'stageLastUpdatedDateTime' - The date and time that the stage was last updated.
--- * 'stageReason' - Additional information about the directory stage.
--- * 'type'' - The directory size.
+-- * 'ssoEnabled' - Indicates if single sign-on is enabled for the directory. For more information, see 'EnableSso' and 'DisableSso' .
+-- * 'dnsIPAddrs' - The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers in the on-premises directory to which the AD Connector is connected.
 -- * 'vpcSettings' - A 'DirectoryVpcSettingsDescription' object that contains additional information about a directory. This member is only present if the directory is a Simple AD or Managed AD directory.
+-- * 'type'' - The directory size.
+-- * 'stageReason' - Additional information about the directory stage.
+-- * 'connectSettings' - A 'DirectoryConnectSettingsDescription' object that contains additional information about an AD Connector directory. This member is only present if the directory is an AD Connector directory.
+-- * 'ownerDirectoryDescription' - Describes the AWS Managed Microsoft AD directory in the directory owner account.
+-- * 'description' - The description for the directory.
+-- * 'shareNotes' - A directory share request that is sent by the directory owner to the directory consumer. The request includes a typed message to help the directory consumer administrator determine whether to approve or reject the share invitation.
 mkDirectoryDescription ::
   DirectoryDescription
 mkDirectoryDescription =

@@ -17,10 +17,10 @@ module Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
     mkCustomizedLoadMetricSpecification,
 
     -- * Lenses
-    clmsDimensions,
-    clmsUnit,
     clmsMetricName,
     clmsNamespace,
+    clmsDimensions,
+    clmsUnit,
     clmsStatistic,
   )
 where
@@ -38,34 +38,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomizedLoadMetricSpecification' smart constructor.
 data CustomizedLoadMetricSpecification = CustomizedLoadMetricSpecification'
-  { dimensions ::
-      Lude.Maybe
-        [MetricDimension],
-    unit ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the metric.
     metricName :: Lude.Text,
+    -- | The namespace of the metric.
     namespace :: Lude.Text,
-    statistic ::
-      MetricStatistic
+    -- | The dimensions of the metric.
+    --
+    -- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized load metric specification.
+    dimensions :: Lude.Maybe [MetricDimension],
+    -- | The unit of the metric.
+    unit :: Lude.Maybe Lude.Text,
+    -- | The statistic of the metric. Currently, the value must always be @Sum@ .
+    statistic :: MetricStatistic
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomizedLoadMetricSpecification' with the minimum fields required to make a request.
 --
+-- * 'metricName' - The name of the metric.
+-- * 'namespace' - The namespace of the metric.
 -- * 'dimensions' - The dimensions of the metric.
 --
 -- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized load metric specification.
--- * 'metricName' - The name of the metric.
--- * 'namespace' - The namespace of the metric.
--- * 'statistic' - The statistic of the metric. Currently, the value must always be @Sum@ .
 -- * 'unit' - The unit of the metric.
+-- * 'statistic' - The statistic of the metric. Currently, the value must always be @Sum@ .
 mkCustomizedLoadMetricSpecification ::
   -- | 'metricName'
   Lude.Text ->
@@ -79,12 +76,26 @@ mkCustomizedLoadMetricSpecification
   pNamespace_
   pStatistic_ =
     CustomizedLoadMetricSpecification'
-      { dimensions = Lude.Nothing,
-        unit = Lude.Nothing,
-        metricName = pMetricName_,
+      { metricName = pMetricName_,
         namespace = pNamespace_,
+        dimensions = Lude.Nothing,
+        unit = Lude.Nothing,
         statistic = pStatistic_
       }
+
+-- | The name of the metric.
+--
+-- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmsMetricName :: Lens.Lens' CustomizedLoadMetricSpecification Lude.Text
+clmsMetricName = Lens.lens (metricName :: CustomizedLoadMetricSpecification -> Lude.Text) (\s a -> s {metricName = a} :: CustomizedLoadMetricSpecification)
+{-# DEPRECATED clmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+
+-- | The namespace of the metric.
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clmsNamespace :: Lens.Lens' CustomizedLoadMetricSpecification Lude.Text
+clmsNamespace = Lens.lens (namespace :: CustomizedLoadMetricSpecification -> Lude.Text) (\s a -> s {namespace = a} :: CustomizedLoadMetricSpecification)
+{-# DEPRECATED clmsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The dimensions of the metric.
 --
@@ -102,20 +113,6 @@ clmsUnit :: Lens.Lens' CustomizedLoadMetricSpecification (Lude.Maybe Lude.Text)
 clmsUnit = Lens.lens (unit :: CustomizedLoadMetricSpecification -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: CustomizedLoadMetricSpecification)
 {-# DEPRECATED clmsUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
--- | The name of the metric.
---
--- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clmsMetricName :: Lens.Lens' CustomizedLoadMetricSpecification Lude.Text
-clmsMetricName = Lens.lens (metricName :: CustomizedLoadMetricSpecification -> Lude.Text) (\s a -> s {metricName = a} :: CustomizedLoadMetricSpecification)
-{-# DEPRECATED clmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | The namespace of the metric.
---
--- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clmsNamespace :: Lens.Lens' CustomizedLoadMetricSpecification Lude.Text
-clmsNamespace = Lens.lens (namespace :: CustomizedLoadMetricSpecification -> Lude.Text) (\s a -> s {namespace = a} :: CustomizedLoadMetricSpecification)
-{-# DEPRECATED clmsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
-
 -- | The statistic of the metric. Currently, the value must always be @Sum@ .
 --
 -- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -129,10 +126,10 @@ instance Lude.FromJSON CustomizedLoadMetricSpecification where
       "CustomizedLoadMetricSpecification"
       ( \x ->
           CustomizedLoadMetricSpecification'
-            Lude.<$> (x Lude..:? "Dimensions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Unit")
-            Lude.<*> (x Lude..: "MetricName")
+            Lude.<$> (x Lude..: "MetricName")
             Lude.<*> (x Lude..: "Namespace")
+            Lude.<*> (x Lude..:? "Dimensions" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Unit")
             Lude.<*> (x Lude..: "Statistic")
       )
 
@@ -140,10 +137,10 @@ instance Lude.ToJSON CustomizedLoadMetricSpecification where
   toJSON CustomizedLoadMetricSpecification' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Dimensions" Lude..=) Lude.<$> dimensions,
-            ("Unit" Lude..=) Lude.<$> unit,
-            Lude.Just ("MetricName" Lude..= metricName),
+          [ Lude.Just ("MetricName" Lude..= metricName),
             Lude.Just ("Namespace" Lude..= namespace),
+            ("Dimensions" Lude..=) Lude.<$> dimensions,
+            ("Unit" Lude..=) Lude.<$> unit,
             Lude.Just ("Statistic" Lude..= statistic)
           ]
       )

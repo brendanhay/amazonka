@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,18 +46,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListLayers' smart constructor.
 data ListLayers = ListLayers'
-  { compatibleRuntime ::
-      Lude.Maybe Runtime,
+  { -- | A runtime identifier. For example, @go1.x@ .
+    compatibleRuntime :: Lude.Maybe Runtime,
+    -- | A pagination token returned by a previous call.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of layers to return.
     maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLayers' with the minimum fields required to make a request.
@@ -131,24 +128,20 @@ instance Lude.ToQuery ListLayers where
 
 -- | /See:/ 'mkListLayersResponse' smart constructor.
 data ListLayersResponse = ListLayersResponse'
-  { nextMarker ::
-      Lude.Maybe Lude.Text,
+  { -- | A pagination token returned when the response doesn't contain all layers.
+    nextMarker :: Lude.Maybe Lude.Text,
+    -- | A list of function layers.
     layers :: Lude.Maybe [LayersListItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLayersResponse' with the minimum fields required to make a request.
 --
--- * 'layers' - A list of function layers.
 -- * 'nextMarker' - A pagination token returned when the response doesn't contain all layers.
+-- * 'layers' - A list of function layers.
 -- * 'responseStatus' - The response status code.
 mkListLayersResponse ::
   -- | 'responseStatus'

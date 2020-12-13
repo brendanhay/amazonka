@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.IAM.GetInstanceProfile
     mkGetInstanceProfileResponse,
 
     -- ** Response lenses
-    giprsResponseStatus,
     giprsInstanceProfile,
+    giprsResponseStatus,
   )
 where
 
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetInstanceProfile' smart constructor.
 newtype GetInstanceProfile = GetInstanceProfile'
-  { instanceProfileName ::
-      Lude.Text
+  { -- | The name of the instance profile to get information about.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    instanceProfileName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceProfile' with the minimum fields required to make a request.
@@ -80,8 +77,8 @@ instance Lude.AWSRequest GetInstanceProfile where
       "GetInstanceProfileResult"
       ( \s h x ->
           GetInstanceProfileResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "InstanceProfile")
+            Lude.<$> (x Lude..@ "InstanceProfile")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetInstanceProfile where
@@ -102,17 +99,12 @@ instance Lude.ToQuery GetInstanceProfile where
 --
 -- /See:/ 'mkGetInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-  { responseStatus ::
-      Lude.Int,
-    instanceProfile :: InstanceProfile
+  { -- | A structure containing details about the instance profile.
+    instanceProfile :: InstanceProfile,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInstanceProfileResponse' with the minimum fields required to make a request.
@@ -120,23 +112,16 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse'
 -- * 'instanceProfile' - A structure containing details about the instance profile.
 -- * 'responseStatus' - The response status code.
 mkGetInstanceProfileResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'instanceProfile'
   InstanceProfile ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetInstanceProfileResponse
-mkGetInstanceProfileResponse pResponseStatus_ pInstanceProfile_ =
+mkGetInstanceProfileResponse pInstanceProfile_ pResponseStatus_ =
   GetInstanceProfileResponse'
-    { responseStatus = pResponseStatus_,
-      instanceProfile = pInstanceProfile_
+    { instanceProfile = pInstanceProfile_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giprsResponseStatus :: Lens.Lens' GetInstanceProfileResponse Lude.Int
-giprsResponseStatus = Lens.lens (responseStatus :: GetInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceProfileResponse)
-{-# DEPRECATED giprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing details about the instance profile.
 --
@@ -144,3 +129,10 @@ giprsResponseStatus = Lens.lens (responseStatus :: GetInstanceProfileResponse ->
 giprsInstanceProfile :: Lens.Lens' GetInstanceProfileResponse InstanceProfile
 giprsInstanceProfile = Lens.lens (instanceProfile :: GetInstanceProfileResponse -> InstanceProfile) (\s a -> s {instanceProfile = a} :: GetInstanceProfileResponse)
 {-# DEPRECATED giprsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsResponseStatus :: Lens.Lens' GetInstanceProfileResponse Lude.Int
+giprsResponseStatus = Lens.lens (responseStatus :: GetInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceProfileResponse)
+{-# DEPRECATED giprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

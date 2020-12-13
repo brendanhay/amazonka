@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.CloudSearchDomains.Suggest
     mkSuggest,
 
     -- ** Request lenses
-    sSize,
-    sQuery,
-    sSuggester,
+    sfSize,
+    sfQuery,
+    sfSuggester,
 
     -- * Destructuring the response
     SuggestResponse (..),
@@ -47,23 +48,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSuggest' smart constructor.
 data Suggest = Suggest'
-  { size :: Lude.Maybe Lude.Integer,
+  { -- | Specifies the maximum number of suggestions to return.
+    size :: Lude.Maybe Lude.Integer,
+    -- | Specifies the string for which you want to get suggestions.
     query :: Lude.Text,
+    -- | Specifies the name of the suggester to use to find suggested matches.
     suggester :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Suggest' with the minimum fields required to make a request.
 --
--- * 'query' - Specifies the string for which you want to get suggestions.
 -- * 'size' - Specifies the maximum number of suggestions to return.
+-- * 'query' - Specifies the string for which you want to get suggestions.
 -- * 'suggester' - Specifies the name of the suggester to use to find suggested matches.
 mkSuggest ::
   -- | 'query'
@@ -81,23 +79,23 @@ mkSuggest pQuery_ pSuggester_ =
 -- | Specifies the maximum number of suggestions to return.
 --
 -- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSize :: Lens.Lens' Suggest (Lude.Maybe Lude.Integer)
-sSize = Lens.lens (size :: Suggest -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: Suggest)
-{-# DEPRECATED sSize "Use generic-lens or generic-optics with 'size' instead." #-}
+sfSize :: Lens.Lens' Suggest (Lude.Maybe Lude.Integer)
+sfSize = Lens.lens (size :: Suggest -> Lude.Maybe Lude.Integer) (\s a -> s {size = a} :: Suggest)
+{-# DEPRECATED sfSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | Specifies the string for which you want to get suggestions.
 --
 -- /Note:/ Consider using 'query' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sQuery :: Lens.Lens' Suggest Lude.Text
-sQuery = Lens.lens (query :: Suggest -> Lude.Text) (\s a -> s {query = a} :: Suggest)
-{-# DEPRECATED sQuery "Use generic-lens or generic-optics with 'query' instead." #-}
+sfQuery :: Lens.Lens' Suggest Lude.Text
+sfQuery = Lens.lens (query :: Suggest -> Lude.Text) (\s a -> s {query = a} :: Suggest)
+{-# DEPRECATED sfQuery "Use generic-lens or generic-optics with 'query' instead." #-}
 
 -- | Specifies the name of the suggester to use to find suggested matches.
 --
 -- /Note:/ Consider using 'suggester' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSuggester :: Lens.Lens' Suggest Lude.Text
-sSuggester = Lens.lens (suggester :: Suggest -> Lude.Text) (\s a -> s {suggester = a} :: Suggest)
-{-# DEPRECATED sSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
+sfSuggester :: Lens.Lens' Suggest Lude.Text
+sfSuggester = Lens.lens (suggester :: Suggest -> Lude.Text) (\s a -> s {suggester = a} :: Suggest)
+{-# DEPRECATED sfSuggester "Use generic-lens or generic-optics with 'suggester' instead." #-}
 
 instance Lude.AWSRequest Suggest where
   type Rs Suggest = SuggestResponse
@@ -136,25 +134,21 @@ instance Lude.ToQuery Suggest where
 --
 -- /See:/ 'mkSuggestResponse' smart constructor.
 data SuggestResponse = SuggestResponse'
-  { suggest ::
-      Lude.Maybe SuggestModel,
+  { -- | Container for the matching search suggestion information.
+    suggest :: Lude.Maybe SuggestModel,
+    -- | The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
     status :: Lude.Maybe SuggestStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuggestResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'status' - The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
 -- * 'suggest' - Container for the matching search suggestion information.
+-- * 'status' - The status of a @SuggestRequest@ . Contains the resource ID (@rid@ ) and how long it took to process the request (@timems@ ).
+-- * 'responseStatus' - The response status code.
 mkSuggestResponse ::
   -- | 'responseStatus'
   Lude.Int ->

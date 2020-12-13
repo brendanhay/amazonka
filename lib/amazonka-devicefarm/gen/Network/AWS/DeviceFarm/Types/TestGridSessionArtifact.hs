@@ -31,26 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTestGridSessionArtifact' smart constructor.
 data TestGridSessionArtifact = TestGridSessionArtifact'
-  { url ::
-      Lude.Maybe Lude.Text,
-    type' ::
-      Lude.Maybe TestGridSessionArtifactType,
+  { -- | A semi-stable URL to the content of the object.
+    url :: Lude.Maybe Lude.Text,
+    -- | The kind of artifact.
+    type' :: Lude.Maybe TestGridSessionArtifactType,
+    -- | The file name of the artifact.
     filename :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TestGridSessionArtifact' with the minimum fields required to make a request.
 --
--- * 'filename' - The file name of the artifact.
--- * 'type'' - The kind of artifact.
 -- * 'url' - A semi-stable URL to the content of the object.
+-- * 'type'' - The kind of artifact.
+-- * 'filename' - The file name of the artifact.
 mkTestGridSessionArtifact ::
   TestGridSessionArtifact
 mkTestGridSessionArtifact =

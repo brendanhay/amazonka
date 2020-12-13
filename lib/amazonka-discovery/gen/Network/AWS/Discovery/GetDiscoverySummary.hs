@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,13 +44,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDiscoverySummary' smart constructor.
 data GetDiscoverySummary = GetDiscoverySummary'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiscoverySummary' with the minimum fields required to make a request.
@@ -97,38 +92,33 @@ instance Lude.ToQuery GetDiscoverySummary where
 
 -- | /See:/ 'mkGetDiscoverySummaryResponse' smart constructor.
 data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
-  { servers ::
-      Lude.Maybe Lude.Integer,
-    serversMappedtoTags ::
-      Lude.Maybe Lude.Integer,
-    serversMappedToApplications ::
-      Lude.Maybe Lude.Integer,
-    connectorSummary ::
-      Lude.Maybe CustomerConnectorInfo,
-    agentSummary ::
-      Lude.Maybe CustomerAgentInfo,
-    applications ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of servers discovered.
+    servers :: Lude.Maybe Lude.Integer,
+    -- | The number of servers mapped to tags.
+    serversMappedtoTags :: Lude.Maybe Lude.Integer,
+    -- | The number of servers mapped to applications.
+    serversMappedToApplications :: Lude.Maybe Lude.Integer,
+    -- | Details about discovered connectors, including connector status and health.
+    connectorSummary :: Lude.Maybe CustomerConnectorInfo,
+    -- | Details about discovered agents, including agent status and health.
+    agentSummary :: Lude.Maybe CustomerAgentInfo,
+    -- | The number of applications discovered.
+    applications :: Lude.Maybe Lude.Integer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiscoverySummaryResponse' with the minimum fields required to make a request.
 --
+-- * 'servers' - The number of servers discovered.
+-- * 'serversMappedtoTags' - The number of servers mapped to tags.
+-- * 'serversMappedToApplications' - The number of servers mapped to applications.
+-- * 'connectorSummary' - Details about discovered connectors, including connector status and health.
 -- * 'agentSummary' - Details about discovered agents, including agent status and health.
 -- * 'applications' - The number of applications discovered.
--- * 'connectorSummary' - Details about discovered connectors, including connector status and health.
 -- * 'responseStatus' - The response status code.
--- * 'servers' - The number of servers discovered.
--- * 'serversMappedToApplications' - The number of servers mapped to applications.
--- * 'serversMappedtoTags' - The number of servers mapped to tags.
 mkGetDiscoverySummaryResponse ::
   -- | 'responseStatus'
   Lude.Int ->

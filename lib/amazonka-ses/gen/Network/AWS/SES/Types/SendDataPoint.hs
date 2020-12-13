@@ -32,28 +32,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSendDataPoint' smart constructor.
 data SendDataPoint = SendDataPoint'
-  { rejects ::
-      Lude.Maybe Lude.Integer,
+  { -- | Number of emails rejected by Amazon SES.
+    rejects :: Lude.Maybe Lude.Integer,
+    -- | Number of unwanted emails that were rejected by recipients.
     complaints :: Lude.Maybe Lude.Integer,
+    -- | Number of emails that have been sent.
     deliveryAttempts :: Lude.Maybe Lude.Integer,
+    -- | Number of emails that have bounced.
     bounces :: Lude.Maybe Lude.Integer,
+    -- | Time of the data point.
     timestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SendDataPoint' with the minimum fields required to make a request.
 --
--- * 'bounces' - Number of emails that have bounced.
+-- * 'rejects' - Number of emails rejected by Amazon SES.
 -- * 'complaints' - Number of unwanted emails that were rejected by recipients.
 -- * 'deliveryAttempts' - Number of emails that have been sent.
--- * 'rejects' - Number of emails rejected by Amazon SES.
+-- * 'bounces' - Number of emails that have bounced.
 -- * 'timestamp' - Time of the data point.
 mkSendDataPoint ::
   SendDataPoint

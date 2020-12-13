@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.EC2.ModifyVPCEndpointServicePermissions
     -- ** Request lenses
     mvespRemoveAllowedPrincipals,
     mvespAddAllowedPrincipals,
-    mvespDryRun,
     mvespServiceId,
+    mvespDryRun,
 
     -- * Destructuring the response
     ModifyVPCEndpointServicePermissionsResponse (..),
@@ -44,33 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyVPCEndpointServicePermissions' smart constructor.
 data ModifyVPCEndpointServicePermissions = ModifyVPCEndpointServicePermissions'
-  { removeAllowedPrincipals ::
-      Lude.Maybe
-        [Lude.Text],
-    addAllowedPrincipals ::
-      Lude.Maybe
-        [Lude.Text],
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    serviceId ::
-      Lude.Text
+  { -- | The Amazon Resource Names (ARN) of one or more principals. Permissions are revoked for principals in this list.
+    removeAllowedPrincipals :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Names (ARN) of one or more principals. Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*).
+    addAllowedPrincipals :: Lude.Maybe [Lude.Text],
+    -- | The ID of the service.
+    serviceId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointServicePermissions' with the minimum fields required to make a request.
 --
--- * 'addAllowedPrincipals' - The Amazon Resource Names (ARN) of one or more principals. Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*).
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'removeAllowedPrincipals' - The Amazon Resource Names (ARN) of one or more principals. Permissions are revoked for principals in this list.
+-- * 'addAllowedPrincipals' - The Amazon Resource Names (ARN) of one or more principals. Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*).
 -- * 'serviceId' - The ID of the service.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyVPCEndpointServicePermissions ::
   -- | 'serviceId'
   Lude.Text ->
@@ -80,8 +72,8 @@ mkModifyVPCEndpointServicePermissions pServiceId_ =
     { removeAllowedPrincipals =
         Lude.Nothing,
       addAllowedPrincipals = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      serviceId = pServiceId_
+      serviceId = pServiceId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The Amazon Resource Names (ARN) of one or more principals. Permissions are revoked for principals in this list.
@@ -98,19 +90,19 @@ mvespAddAllowedPrincipals :: Lens.Lens' ModifyVPCEndpointServicePermissions (Lud
 mvespAddAllowedPrincipals = Lens.lens (addAllowedPrincipals :: ModifyVPCEndpointServicePermissions -> Lude.Maybe [Lude.Text]) (\s a -> s {addAllowedPrincipals = a} :: ModifyVPCEndpointServicePermissions)
 {-# DEPRECATED mvespAddAllowedPrincipals "Use generic-lens or generic-optics with 'addAllowedPrincipals' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvespDryRun :: Lens.Lens' ModifyVPCEndpointServicePermissions (Lude.Maybe Lude.Bool)
-mvespDryRun = Lens.lens (dryRun :: ModifyVPCEndpointServicePermissions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCEndpointServicePermissions)
-{-# DEPRECATED mvespDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the service.
 --
 -- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mvespServiceId :: Lens.Lens' ModifyVPCEndpointServicePermissions Lude.Text
 mvespServiceId = Lens.lens (serviceId :: ModifyVPCEndpointServicePermissions -> Lude.Text) (\s a -> s {serviceId = a} :: ModifyVPCEndpointServicePermissions)
 {-# DEPRECATED mvespServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvespDryRun :: Lens.Lens' ModifyVPCEndpointServicePermissions (Lude.Maybe Lude.Bool)
+mvespDryRun = Lens.lens (dryRun :: ModifyVPCEndpointServicePermissions -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyVPCEndpointServicePermissions)
+{-# DEPRECATED mvespDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ModifyVPCEndpointServicePermissions where
   type
@@ -144,31 +136,24 @@ instance Lude.ToQuery ModifyVPCEndpointServicePermissions where
           ( Lude.toQueryList "AddAllowedPrincipals"
               Lude.<$> addAllowedPrincipals
           ),
-        "DryRun" Lude.=: dryRun,
-        "ServiceId" Lude.=: serviceId
+        "ServiceId" Lude.=: serviceId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyVPCEndpointServicePermissionsResponse' smart constructor.
 data ModifyVPCEndpointServicePermissionsResponse = ModifyVPCEndpointServicePermissionsResponse'
-  { returnValue ::
-      Lude.Maybe
-        Lude.Bool,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+    returnValue :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyVPCEndpointServicePermissionsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'returnValue' - Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- * 'responseStatus' - The response status code.
 mkModifyVPCEndpointServicePermissionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

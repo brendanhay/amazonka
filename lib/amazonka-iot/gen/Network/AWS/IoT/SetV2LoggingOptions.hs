@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,24 +38,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetV2LoggingOptions' smart constructor.
 data SetV2LoggingOptions = SetV2LoggingOptions'
-  { disableAllLogs ::
-      Lude.Maybe Lude.Bool,
+  { -- | If true all logs are disabled. The default is false.
+    disableAllLogs :: Lude.Maybe Lude.Bool,
+    -- | The default logging level.
     defaultLogLevel :: Lude.Maybe LogLevel,
+    -- | The ARN of the role that allows IoT to write to Cloudwatch logs.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetV2LoggingOptions' with the minimum fields required to make a request.
 --
--- * 'defaultLogLevel' - The default logging level.
 -- * 'disableAllLogs' - If true all logs are disabled. The default is false.
+-- * 'defaultLogLevel' - The default logging level.
 -- * 'roleARN' - The ARN of the role that allows IoT to write to Cloudwatch logs.
 mkSetV2LoggingOptions ::
   SetV2LoggingOptions
@@ -112,13 +109,7 @@ instance Lude.ToQuery SetV2LoggingOptions where
 
 -- | /See:/ 'mkSetV2LoggingOptionsResponse' smart constructor.
 data SetV2LoggingOptionsResponse = SetV2LoggingOptionsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetV2LoggingOptionsResponse' with the minimum fields required to make a request.

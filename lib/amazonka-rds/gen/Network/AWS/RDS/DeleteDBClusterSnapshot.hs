@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDBClusterSnapshot' smart constructor.
 newtype DeleteDBClusterSnapshot = DeleteDBClusterSnapshot'
-  { dbClusterSnapshotIdentifier ::
-      Lude.Text
+  { -- | The identifier of the DB cluster snapshot to delete.
+    --
+    -- Constraints: Must be the name of an existing DB cluster snapshot in the @available@ state.
+    dbClusterSnapshotIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBClusterSnapshot' with the minimum fields required to make a request.
@@ -107,23 +104,16 @@ instance Lude.ToQuery DeleteDBClusterSnapshot where
 
 -- | /See:/ 'mkDeleteDBClusterSnapshotResponse' smart constructor.
 data DeleteDBClusterSnapshotResponse = DeleteDBClusterSnapshotResponse'
-  { dbClusterSnapshot ::
-      Lude.Maybe
-        DBClusterSnapshot,
+  { dbClusterSnapshot :: Lude.Maybe DBClusterSnapshot,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBClusterSnapshotResponse' with the minimum fields required to make a request.
 --
--- * 'dbClusterSnapshot' - Undocumented field.
+-- * 'dbClusterSnapshot' -
 -- * 'responseStatus' - The response status code.
 mkDeleteDBClusterSnapshotResponse ::
   -- | 'responseStatus'

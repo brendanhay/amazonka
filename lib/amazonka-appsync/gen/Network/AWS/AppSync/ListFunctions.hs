@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.AppSync.ListFunctions
     mkListFunctions,
 
     -- ** Request lenses
+    lfApiId,
     lfNextToken,
     lfMaxResults,
-    lfApiId,
 
     -- * Destructuring the response
     ListFunctionsResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListFunctions' smart constructor.
 data ListFunctions = ListFunctions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    apiId :: Lude.Text
+  { -- | The GraphQL API ID.
+    apiId :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results you want the request to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctions' with the minimum fields required to make a request.
 --
 -- * 'apiId' - The GraphQL API ID.
--- * 'maxResults' - The maximum number of results you want the request to return.
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'maxResults' - The maximum number of results you want the request to return.
 mkListFunctions ::
   -- | 'apiId'
   Lude.Text ->
   ListFunctions
 mkListFunctions pApiId_ =
   ListFunctions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      apiId = pApiId_
+    { apiId = pApiId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The GraphQL API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfApiId :: Lens.Lens' ListFunctions Lude.Text
+lfApiId = Lens.lens (apiId :: ListFunctions -> Lude.Text) (\s a -> s {apiId = a} :: ListFunctions)
+{-# DEPRECATED lfApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
@@ -88,13 +92,6 @@ lfNextToken = Lens.lens (nextToken :: ListFunctions -> Lude.Maybe Lude.Text) (\s
 lfMaxResults :: Lens.Lens' ListFunctions (Lude.Maybe Lude.Natural)
 lfMaxResults = Lens.lens (maxResults :: ListFunctions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListFunctions)
 {-# DEPRECATED lfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The GraphQL API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfApiId :: Lens.Lens' ListFunctions Lude.Text
-lfApiId = Lens.lens (apiId :: ListFunctions -> Lude.Text) (\s a -> s {apiId = a} :: ListFunctions)
-{-# DEPRECATED lfApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 instance Page.AWSPager ListFunctions where
   page rq rs
@@ -137,24 +134,20 @@ instance Lude.ToQuery ListFunctions where
 
 -- | /See:/ 'mkListFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of @Function@ objects.
     functions :: Lude.Maybe [FunctionConfiguration],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListFunctionsResponse' with the minimum fields required to make a request.
 --
--- * 'functions' - A list of @Function@ objects.
 -- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- * 'functions' - A list of @Function@ objects.
 -- * 'responseStatus' - The response status code.
 mkListFunctionsResponse ::
   -- | 'responseStatus'

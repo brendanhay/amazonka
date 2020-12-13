@@ -13,8 +13,8 @@
 module Network.AWS.IoT.Types.Protocol
   ( Protocol
       ( Protocol',
-        HTTP,
-        Mqtt
+        Mqtt,
+        HTTP
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Protocol = Protocol' Lude.Text
       Lude.ToHeader
     )
 
-pattern HTTP :: Protocol
-pattern HTTP = Protocol' "HTTP"
-
 pattern Mqtt :: Protocol
 pattern Mqtt = Protocol' "MQTT"
 
+pattern HTTP :: Protocol
+pattern HTTP = Protocol' "HTTP"
+
 {-# COMPLETE
-  HTTP,
   Mqtt,
+  HTTP,
   Protocol'
   #-}

@@ -17,8 +17,8 @@ module Network.AWS.CodeStar.Types.TeamMember
     mkTeamMember,
 
     -- * Lenses
-    tmRemoteAccessAllowed,
     tmUserARN,
+    tmRemoteAccessAllowed,
     tmProjectRole,
   )
 where
@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTeamMember' smart constructor.
 data TeamMember = TeamMember'
-  { remoteAccessAllowed ::
-      Lude.Maybe Lude.Bool,
+  { -- | The Amazon Resource Name (ARN) of the user in IAM.
     userARN :: Lude.Text,
+    -- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
+    remoteAccessAllowed :: Lude.Maybe Lude.Bool,
+    -- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
     projectRole :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TeamMember' with the minimum fields required to make a request.
 --
--- * 'projectRole' - The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
--- * 'remoteAccessAllowed' - Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
 -- * 'userARN' - The Amazon Resource Name (ARN) of the user in IAM.
+-- * 'remoteAccessAllowed' - Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
+-- * 'projectRole' - The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
 mkTeamMember ::
   -- | 'userARN'
   Lude.Text ->
@@ -57,17 +53,10 @@ mkTeamMember ::
   TeamMember
 mkTeamMember pUserARN_ pProjectRole_ =
   TeamMember'
-    { remoteAccessAllowed = Lude.Nothing,
-      userARN = pUserARN_,
+    { userARN = pUserARN_,
+      remoteAccessAllowed = Lude.Nothing,
       projectRole = pProjectRole_
     }
-
--- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
---
--- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmRemoteAccessAllowed :: Lens.Lens' TeamMember (Lude.Maybe Lude.Bool)
-tmRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: TeamMember -> Lude.Maybe Lude.Bool) (\s a -> s {remoteAccessAllowed = a} :: TeamMember)
-{-# DEPRECATED tmRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 --
@@ -75,6 +64,13 @@ tmRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: TeamMember -> Lude.May
 tmUserARN :: Lens.Lens' TeamMember Lude.Text
 tmUserARN = Lens.lens (userARN :: TeamMember -> Lude.Text) (\s a -> s {userARN = a} :: TeamMember)
 {-# DEPRECATED tmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+
+-- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
+--
+-- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmRemoteAccessAllowed :: Lens.Lens' TeamMember (Lude.Maybe Lude.Bool)
+tmRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: TeamMember -> Lude.Maybe Lude.Bool) (\s a -> s {remoteAccessAllowed = a} :: TeamMember)
+{-# DEPRECATED tmRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
 
 -- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
 --
@@ -89,7 +85,7 @@ instance Lude.FromJSON TeamMember where
       "TeamMember"
       ( \x ->
           TeamMember'
-            Lude.<$> (x Lude..:? "remoteAccessAllowed")
-            Lude.<*> (x Lude..: "userArn")
+            Lude.<$> (x Lude..: "userArn")
+            Lude.<*> (x Lude..:? "remoteAccessAllowed")
             Lude.<*> (x Lude..: "projectRole")
       )

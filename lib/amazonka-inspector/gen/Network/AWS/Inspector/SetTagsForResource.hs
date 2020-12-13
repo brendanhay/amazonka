@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Inspector.SetTagsForResource
     mkSetTagsForResource,
 
     -- ** Request lenses
-    stfrTags,
     stfrResourceARN,
+    stfrTags,
 
     -- * Destructuring the response
     SetTagsForResourceResponse (..),
@@ -36,17 +37,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetTagsForResource' smart constructor.
 data SetTagsForResource = SetTagsForResource'
-  { tags ::
-      Lude.Maybe [Tag],
-    resourceARN :: Lude.Text
+  { -- | The ARN of the assessment template that you want to set tags to.
+    resourceARN :: Lude.Text,
+    -- | A collection of key and value pairs that you want to set to the assessment template.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTagsForResource' with the minimum fields required to make a request.
@@ -59,16 +55,9 @@ mkSetTagsForResource ::
   SetTagsForResource
 mkSetTagsForResource pResourceARN_ =
   SetTagsForResource'
-    { tags = Lude.Nothing,
-      resourceARN = pResourceARN_
+    { resourceARN = pResourceARN_,
+      tags = Lude.Nothing
     }
-
--- | A collection of key and value pairs that you want to set to the assessment template.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stfrTags :: Lens.Lens' SetTagsForResource (Lude.Maybe [Tag])
-stfrTags = Lens.lens (tags :: SetTagsForResource -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SetTagsForResource)
-{-# DEPRECATED stfrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The ARN of the assessment template that you want to set tags to.
 --
@@ -76,6 +65,13 @@ stfrTags = Lens.lens (tags :: SetTagsForResource -> Lude.Maybe [Tag]) (\s a -> s
 stfrResourceARN :: Lens.Lens' SetTagsForResource Lude.Text
 stfrResourceARN = Lens.lens (resourceARN :: SetTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: SetTagsForResource)
 {-# DEPRECATED stfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | A collection of key and value pairs that you want to set to the assessment template.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stfrTags :: Lens.Lens' SetTagsForResource (Lude.Maybe [Tag])
+stfrTags = Lens.lens (tags :: SetTagsForResource -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: SetTagsForResource)
+{-# DEPRECATED stfrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest SetTagsForResource where
   type Rs SetTagsForResource = SetTagsForResourceResponse
@@ -97,8 +93,8 @@ instance Lude.ToJSON SetTagsForResource where
   toJSON SetTagsForResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("resourceArn" Lude..= resourceARN)
+          [ Lude.Just ("resourceArn" Lude..= resourceARN),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -110,13 +106,7 @@ instance Lude.ToQuery SetTagsForResource where
 
 -- | /See:/ 'mkSetTagsForResourceResponse' smart constructor.
 data SetTagsForResourceResponse = SetTagsForResourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTagsForResourceResponse' with the minimum fields required to make a request.

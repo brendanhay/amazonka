@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentDescriptionsMessage' smart constructor.
 data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    environments ::
-      Lude.Maybe
-        [EnvironmentDescription]
+  { -- | In a paginated request, the token that you can pass in a subsequent request to get the next response page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Returns an 'EnvironmentDescription' list.
+    environments :: Lude.Maybe [EnvironmentDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentDescriptionsMessage' with the minimum fields required to make a request.
 --
--- * 'environments' - Returns an 'EnvironmentDescription' list.
 -- * 'nextToken' - In a paginated request, the token that you can pass in a subsequent request to get the next response page.
+-- * 'environments' - Returns an 'EnvironmentDescription' list.
 mkEnvironmentDescriptionsMessage ::
   EnvironmentDescriptionsMessage
 mkEnvironmentDescriptionsMessage =

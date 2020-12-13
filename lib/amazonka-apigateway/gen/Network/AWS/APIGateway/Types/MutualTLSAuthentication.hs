@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMutualTLSAuthentication' smart constructor.
 data MutualTLSAuthentication = MutualTLSAuthentication'
-  { truststoreWarnings ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of warnings that API Gateway returns while processing your truststore. Invalid certificates produce warnings. Mutual TLS is still enabled, but some clients might not be able to access your API. To resolve warnings, upload a new truststore to S3, and then update you domain name to use the new version.
+    truststoreWarnings :: Lude.Maybe [Lude.Text],
+    -- | An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example @s3://bucket-name/key-name@ . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
     truststoreURI :: Lude.Maybe Lude.Text,
+    -- | The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
     truststoreVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MutualTLSAuthentication' with the minimum fields required to make a request.
 --
+-- * 'truststoreWarnings' - A list of warnings that API Gateway returns while processing your truststore. Invalid certificates produce warnings. Mutual TLS is still enabled, but some clients might not be able to access your API. To resolve warnings, upload a new truststore to S3, and then update you domain name to use the new version.
 -- * 'truststoreURI' - An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example @s3://bucket-name/key-name@ . The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
 -- * 'truststoreVersion' - The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
--- * 'truststoreWarnings' - A list of warnings that API Gateway returns while processing your truststore. Invalid certificates produce warnings. Mutual TLS is still enabled, but some clients might not be able to access your API. To resolve warnings, upload a new truststore to S3, and then update you domain name to use the new version.
 mkMutualTLSAuthentication ::
   MutualTLSAuthentication
 mkMutualTLSAuthentication =

@@ -41,38 +41,58 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMatchmakingTicket' smart constructor.
 data MatchmakingTicket = MatchmakingTicket'
-  { status ::
-      Lude.Maybe MatchmakingConfigurationStatus,
+  { -- | Current status of the matchmaking request.
+    --
+    --
+    --     * __QUEUED__ -- The matchmaking request has been received and is currently waiting to be processed.
+    --
+    --
+    --     * __SEARCHING__ -- The matchmaking request is currently being processed.
+    --
+    --
+    --     * __REQUIRES_ACCEPTANCE__ -- A match has been proposed and the players must accept the match (see 'AcceptMatch' ). This status is used only with requests that use a matchmaking configuration with a player acceptance requirement.
+    --
+    --
+    --     * __PLACING__ -- The FlexMatch engine has matched players and is in the process of placing a new game session for the match.
+    --
+    --
+    --     * __COMPLETED__ -- Players have been matched and a game session is ready to host the players. A ticket in this state contains the necessary connection information for players.
+    --
+    --
+    --     * __FAILED__ -- The matchmaking request was not completed.
+    --
+    --
+    --     * __CANCELLED__ -- The matchmaking request was canceled. This may be the result of a call to 'StopMatchmaking' or a proposed match that one or more players failed to accept.
+    --
+    --
+    --     * __TIMED_OUT__ -- The matchmaking request was not successful within the duration specified in the matchmaking configuration.
+    status :: Lude.Maybe MatchmakingConfigurationStatus,
+    -- | Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
     configurationName :: Lude.Maybe Lude.Text,
+    -- | Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
     startTime :: Lude.Maybe Lude.Timestamp,
-    gameSessionConnectionInfo ::
-      Lude.Maybe GameSessionConnectionInfo,
+    -- | Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed. This parameter is not set when FlexMatch is being used without GameLift hosting.
+    gameSessionConnectionInfo :: Lude.Maybe GameSessionConnectionInfo,
+    -- | A unique identifier for a matchmaking ticket.
     ticketId :: Lude.Maybe Lude.Text,
+    -- | Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
     estimatedWaitTime :: Lude.Maybe Lude.Natural,
+    -- | Additional information about the current status.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking configuration resource that is used with this ticket.
     configurationARN :: Lude.Maybe Lude.Text,
+    -- | Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
     statusReason :: Lude.Maybe Lude.Text,
+    -- | A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
     players :: Lude.Maybe [Player]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MatchmakingTicket' with the minimum fields required to make a request.
 --
--- * 'configurationARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking configuration resource that is used with this ticket.
--- * 'configurationName' - Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
--- * 'endTime' - Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'estimatedWaitTime' - Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
--- * 'gameSessionConnectionInfo' - Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed. This parameter is not set when FlexMatch is being used without GameLift hosting.
--- * 'players' - A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
--- * 'startTime' - Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 -- * 'status' - Current status of the matchmaking request.
 --
 --
@@ -100,9 +120,16 @@ data MatchmakingTicket = MatchmakingTicket'
 --     * __TIMED_OUT__ -- The matchmaking request was not successful within the duration specified in the matchmaking configuration.
 --
 --
--- * 'statusMessage' - Additional information about the current status.
--- * 'statusReason' - Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
+-- * 'configurationName' - Name of the 'MatchmakingConfiguration' that is used with this ticket. Matchmaking configurations determine how players are grouped into a match and how a new game session is created for the match.
+-- * 'startTime' - Time stamp indicating when this matchmaking request was received. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'gameSessionConnectionInfo' - Identifier and connection information of the game session created for the match. This information is added to the ticket only after the matchmaking request has been successfully completed. This parameter is not set when FlexMatch is being used without GameLift hosting.
 -- * 'ticketId' - A unique identifier for a matchmaking ticket.
+-- * 'estimatedWaitTime' - Average amount of time (in seconds) that players are currently waiting for a match. If there is not enough recent data, this property may be empty.
+-- * 'statusMessage' - Additional information about the current status.
+-- * 'endTime' - Time stamp indicating when this matchmaking request stopped being processed due to success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'configurationARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift matchmaking configuration resource that is used with this ticket.
+-- * 'statusReason' - Code to explain the current status. For example, a status reason may indicate when a ticket has returned to @SEARCHING@ status after a proposed match fails to receive player acceptances.
+-- * 'players' - A set of @Player@ objects, each representing a player to find matches for. Players are identified by a unique player ID and may include latency data for use during matchmaking. If the ticket is in status @COMPLETED@ , the @Player@ objects include the team the players were assigned to in the resulting match.
 mkMatchmakingTicket ::
   MatchmakingTicket
 mkMatchmakingTicket =

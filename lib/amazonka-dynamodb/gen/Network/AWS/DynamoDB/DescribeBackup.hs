@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,15 +22,15 @@ module Network.AWS.DynamoDB.DescribeBackup
     mkDescribeBackup,
 
     -- ** Request lenses
-    dBackupARN,
+    dbBackupARN,
 
     -- * Destructuring the response
     DescribeBackupResponse (..),
     mkDescribeBackupResponse,
 
     -- ** Response lenses
-    desrsBackupDescription,
-    desrsResponseStatus,
+    dbrsBackupDescription,
+    dbrsResponseStatus,
   )
 where
 
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBackup' smart constructor.
-newtype DescribeBackup = DescribeBackup' {backupARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeBackup = DescribeBackup'
+  { -- | The Amazon Resource Name (ARN) associated with the backup.
+    backupARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackup' with the minimum fields required to make a request.
@@ -63,9 +61,9 @@ mkDescribeBackup pBackupARN_ =
 -- | The Amazon Resource Name (ARN) associated with the backup.
 --
 -- /Note:/ Consider using 'backupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dBackupARN :: Lens.Lens' DescribeBackup Lude.Text
-dBackupARN = Lens.lens (backupARN :: DescribeBackup -> Lude.Text) (\s a -> s {backupARN = a} :: DescribeBackup)
-{-# DEPRECATED dBackupARN "Use generic-lens or generic-optics with 'backupARN' instead." #-}
+dbBackupARN :: Lens.Lens' DescribeBackup Lude.Text
+dbBackupARN = Lens.lens (backupARN :: DescribeBackup -> Lude.Text) (\s a -> s {backupARN = a} :: DescribeBackup)
+{-# DEPRECATED dbBackupARN "Use generic-lens or generic-optics with 'backupARN' instead." #-}
 
 instance Lude.AWSRequest DescribeBackup where
   type Rs DescribeBackup = DescribeBackupResponse
@@ -102,17 +100,12 @@ instance Lude.ToQuery DescribeBackup where
 
 -- | /See:/ 'mkDescribeBackupResponse' smart constructor.
 data DescribeBackupResponse = DescribeBackupResponse'
-  { backupDescription ::
-      Lude.Maybe BackupDescription,
+  { -- | Contains the description of the backup created for the table.
+    backupDescription :: Lude.Maybe BackupDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBackupResponse' with the minimum fields required to make a request.
@@ -132,13 +125,13 @@ mkDescribeBackupResponse pResponseStatus_ =
 -- | Contains the description of the backup created for the table.
 --
 -- /Note:/ Consider using 'backupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsBackupDescription :: Lens.Lens' DescribeBackupResponse (Lude.Maybe BackupDescription)
-desrsBackupDescription = Lens.lens (backupDescription :: DescribeBackupResponse -> Lude.Maybe BackupDescription) (\s a -> s {backupDescription = a} :: DescribeBackupResponse)
-{-# DEPRECATED desrsBackupDescription "Use generic-lens or generic-optics with 'backupDescription' instead." #-}
+dbrsBackupDescription :: Lens.Lens' DescribeBackupResponse (Lude.Maybe BackupDescription)
+dbrsBackupDescription = Lens.lens (backupDescription :: DescribeBackupResponse -> Lude.Maybe BackupDescription) (\s a -> s {backupDescription = a} :: DescribeBackupResponse)
+{-# DEPRECATED dbrsBackupDescription "Use generic-lens or generic-optics with 'backupDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeBackupResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBackupResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrsResponseStatus :: Lens.Lens' DescribeBackupResponse Lude.Int
+dbrsResponseStatus = Lens.lens (responseStatus :: DescribeBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBackupResponse)
+{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

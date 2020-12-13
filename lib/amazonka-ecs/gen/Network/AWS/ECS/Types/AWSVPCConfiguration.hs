@@ -18,8 +18,8 @@ module Network.AWS.ECS.Types.AWSVPCConfiguration
 
     -- * Lenses
     avcSecurityGroups,
-    avcAssignPublicIP,
     avcSubnets,
+    avcAssignPublicIP,
   )
 where
 
@@ -31,32 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSVPCConfiguration' smart constructor.
 data AWSVPCConfiguration = AWSVPCConfiguration'
-  { securityGroups ::
-      Lude.Maybe [Lude.Text],
-    assignPublicIP :: Lude.Maybe AssignPublicIP,
-    subnets :: [Lude.Text]
+  { -- | The IDs of the security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per @AwsVpcConfiguration@ .
+    securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The IDs of the subnets associated with the task or service. There is a limit of 16 subnets that can be specified per @AwsVpcConfiguration@ .
+    subnets :: [Lude.Text],
+    -- | Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
+    assignPublicIP :: Lude.Maybe AssignPublicIP
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSVPCConfiguration' with the minimum fields required to make a request.
 --
--- * 'assignPublicIP' - Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
 -- * 'securityGroups' - The IDs of the security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per @AwsVpcConfiguration@ .
 -- * 'subnets' - The IDs of the subnets associated with the task or service. There is a limit of 16 subnets that can be specified per @AwsVpcConfiguration@ .
+-- * 'assignPublicIP' - Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
 mkAWSVPCConfiguration ::
   AWSVPCConfiguration
 mkAWSVPCConfiguration =
   AWSVPCConfiguration'
     { securityGroups = Lude.Nothing,
-      assignPublicIP = Lude.Nothing,
-      subnets = Lude.mempty
+      subnets = Lude.mempty,
+      assignPublicIP = Lude.Nothing
     }
 
 -- | The IDs of the security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per @AwsVpcConfiguration@ .
@@ -66,19 +62,19 @@ avcSecurityGroups :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe [Lude.Text])
 avcSecurityGroups = Lens.lens (securityGroups :: AWSVPCConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: AWSVPCConfiguration)
 {-# DEPRECATED avcSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
--- | Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
---
--- /Note:/ Consider using 'assignPublicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avcAssignPublicIP :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe AssignPublicIP)
-avcAssignPublicIP = Lens.lens (assignPublicIP :: AWSVPCConfiguration -> Lude.Maybe AssignPublicIP) (\s a -> s {assignPublicIP = a} :: AWSVPCConfiguration)
-{-# DEPRECATED avcAssignPublicIP "Use generic-lens or generic-optics with 'assignPublicIP' instead." #-}
-
 -- | The IDs of the subnets associated with the task or service. There is a limit of 16 subnets that can be specified per @AwsVpcConfiguration@ .
 --
 -- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 avcSubnets :: Lens.Lens' AWSVPCConfiguration [Lude.Text]
 avcSubnets = Lens.lens (subnets :: AWSVPCConfiguration -> [Lude.Text]) (\s a -> s {subnets = a} :: AWSVPCConfiguration)
 {-# DEPRECATED avcSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+
+-- | Whether the task's elastic network interface receives a public IP address. The default value is @DISABLED@ .
+--
+-- /Note:/ Consider using 'assignPublicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcAssignPublicIP :: Lens.Lens' AWSVPCConfiguration (Lude.Maybe AssignPublicIP)
+avcAssignPublicIP = Lens.lens (assignPublicIP :: AWSVPCConfiguration -> Lude.Maybe AssignPublicIP) (\s a -> s {assignPublicIP = a} :: AWSVPCConfiguration)
+{-# DEPRECATED avcAssignPublicIP "Use generic-lens or generic-optics with 'assignPublicIP' instead." #-}
 
 instance Lude.FromJSON AWSVPCConfiguration where
   parseJSON =
@@ -87,8 +83,8 @@ instance Lude.FromJSON AWSVPCConfiguration where
       ( \x ->
           AWSVPCConfiguration'
             Lude.<$> (x Lude..:? "securityGroups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "assignPublicIp")
             Lude.<*> (x Lude..:? "subnets" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "assignPublicIp")
       )
 
 instance Lude.ToJSON AWSVPCConfiguration where
@@ -96,7 +92,7 @@ instance Lude.ToJSON AWSVPCConfiguration where
     Lude.object
       ( Lude.catMaybes
           [ ("securityGroups" Lude..=) Lude.<$> securityGroups,
-            ("assignPublicIp" Lude..=) Lude.<$> assignPublicIP,
-            Lude.Just ("subnets" Lude..= subnets)
+            Lude.Just ("subnets" Lude..= subnets),
+            ("assignPublicIp" Lude..=) Lude.<$> assignPublicIP
           ]
       )

@@ -23,10 +23,10 @@ module Network.AWS.Kinesis.Types.SubscribeToShardEventStream
     stsesKMSNotFoundException,
     stsesKMSDisabledException,
     stsesInternalFailureException,
+    stsesSubscribeToShardEvent,
     stsesResourceNotFoundException,
     stsesKMSAccessDeniedException,
     stsesResourceInUseException,
-    stsesSubscribeToShardEvent,
   )
 where
 
@@ -47,49 +47,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubscribeToShardEventStream' smart constructor.
 data SubscribeToShardEventStream = SubscribeToShardEventStream'
-  { kmsInvalidStateException ::
-      Lude.Maybe KMSInvalidStateException,
-    kmsThrottlingException ::
-      Lude.Maybe KMSThrottlingException,
-    kmsOptInRequired ::
-      Lude.Maybe KMSOptInRequired,
-    kmsNotFoundException ::
-      Lude.Maybe KMSNotFoundException,
-    kmsDisabledException ::
-      Lude.Maybe KMSDisabledException,
-    internalFailureException ::
-      Lude.Maybe InternalFailureException,
-    resourceNotFoundException ::
-      Lude.Maybe
-        ResourceNotFoundException,
-    kmsAccessDeniedException ::
-      Lude.Maybe KMSAccessDeniedException,
-    resourceInUseException ::
-      Lude.Maybe ResourceInUseException,
-    subscribeToShardEvent ::
-      SubscribeToShardEvent
+  { kmsInvalidStateException :: Lude.Maybe KMSInvalidStateException,
+    kmsThrottlingException :: Lude.Maybe KMSThrottlingException,
+    kmsOptInRequired :: Lude.Maybe KMSOptInRequired,
+    kmsNotFoundException :: Lude.Maybe KMSNotFoundException,
+    kmsDisabledException :: Lude.Maybe KMSDisabledException,
+    -- | The processing of the request failed because of an unknown error, exception, or failure.
+    internalFailureException :: Lude.Maybe InternalFailureException,
+    -- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
+    subscribeToShardEvent :: SubscribeToShardEvent,
+    resourceNotFoundException :: Lude.Maybe ResourceNotFoundException,
+    kmsAccessDeniedException :: Lude.Maybe KMSAccessDeniedException,
+    resourceInUseException :: Lude.Maybe ResourceInUseException
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscribeToShardEventStream' with the minimum fields required to make a request.
 --
+-- * 'kmsInvalidStateException' -
+-- * 'kmsThrottlingException' -
+-- * 'kmsOptInRequired' -
+-- * 'kmsNotFoundException' -
+-- * 'kmsDisabledException' -
 -- * 'internalFailureException' - The processing of the request failed because of an unknown error, exception, or failure.
--- * 'kmsAccessDeniedException' - Undocumented field.
--- * 'kmsDisabledException' - Undocumented field.
--- * 'kmsInvalidStateException' - Undocumented field.
--- * 'kmsNotFoundException' - Undocumented field.
--- * 'kmsOptInRequired' - Undocumented field.
--- * 'kmsThrottlingException' - Undocumented field.
--- * 'resourceInUseException' - Undocumented field.
--- * 'resourceNotFoundException' - Undocumented field.
 -- * 'subscribeToShardEvent' - After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
+-- * 'resourceNotFoundException' -
+-- * 'kmsAccessDeniedException' -
+-- * 'resourceInUseException' -
 mkSubscribeToShardEventStream ::
   -- | 'subscribeToShardEvent'
   SubscribeToShardEvent ->
@@ -103,10 +88,10 @@ mkSubscribeToShardEventStream pSubscribeToShardEvent_ =
       kmsNotFoundException = Lude.Nothing,
       kmsDisabledException = Lude.Nothing,
       internalFailureException = Lude.Nothing,
+      subscribeToShardEvent = pSubscribeToShardEvent_,
       resourceNotFoundException = Lude.Nothing,
       kmsAccessDeniedException = Lude.Nothing,
-      resourceInUseException = Lude.Nothing,
-      subscribeToShardEvent = pSubscribeToShardEvent_
+      resourceInUseException = Lude.Nothing
     }
 
 -- | Undocumented field.
@@ -151,6 +136,13 @@ stsesInternalFailureException :: Lens.Lens' SubscribeToShardEventStream (Lude.Ma
 stsesInternalFailureException = Lens.lens (internalFailureException :: SubscribeToShardEventStream -> Lude.Maybe InternalFailureException) (\s a -> s {internalFailureException = a} :: SubscribeToShardEventStream)
 {-# DEPRECATED stsesInternalFailureException "Use generic-lens or generic-optics with 'internalFailureException' instead." #-}
 
+-- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
+--
+-- /Note:/ Consider using 'subscribeToShardEvent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stsesSubscribeToShardEvent :: Lens.Lens' SubscribeToShardEventStream SubscribeToShardEvent
+stsesSubscribeToShardEvent = Lens.lens (subscribeToShardEvent :: SubscribeToShardEventStream -> SubscribeToShardEvent) (\s a -> s {subscribeToShardEvent = a} :: SubscribeToShardEventStream)
+{-# DEPRECATED stsesSubscribeToShardEvent "Use generic-lens or generic-optics with 'subscribeToShardEvent' instead." #-}
+
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'resourceNotFoundException' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -172,13 +164,6 @@ stsesResourceInUseException :: Lens.Lens' SubscribeToShardEventStream (Lude.Mayb
 stsesResourceInUseException = Lens.lens (resourceInUseException :: SubscribeToShardEventStream -> Lude.Maybe ResourceInUseException) (\s a -> s {resourceInUseException = a} :: SubscribeToShardEventStream)
 {-# DEPRECATED stsesResourceInUseException "Use generic-lens or generic-optics with 'resourceInUseException' instead." #-}
 
--- | After you call 'SubscribeToShard' , Kinesis Data Streams sends events of this type to your consumer. For an example of how to handle these events, see </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API> .
---
--- /Note:/ Consider using 'subscribeToShardEvent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsesSubscribeToShardEvent :: Lens.Lens' SubscribeToShardEventStream SubscribeToShardEvent
-stsesSubscribeToShardEvent = Lens.lens (subscribeToShardEvent :: SubscribeToShardEventStream -> SubscribeToShardEvent) (\s a -> s {subscribeToShardEvent = a} :: SubscribeToShardEventStream)
-{-# DEPRECATED stsesSubscribeToShardEvent "Use generic-lens or generic-optics with 'subscribeToShardEvent' instead." #-}
-
 instance Lude.FromJSON SubscribeToShardEventStream where
   parseJSON =
     Lude.withObject
@@ -191,8 +176,8 @@ instance Lude.FromJSON SubscribeToShardEventStream where
             Lude.<*> (x Lude..:? "KMSNotFoundException")
             Lude.<*> (x Lude..:? "KMSDisabledException")
             Lude.<*> (x Lude..:? "InternalFailureException")
+            Lude.<*> (x Lude..: "SubscribeToShardEvent")
             Lude.<*> (x Lude..:? "ResourceNotFoundException")
             Lude.<*> (x Lude..:? "KMSAccessDeniedException")
             Lude.<*> (x Lude..:? "ResourceInUseException")
-            Lude.<*> (x Lude..: "SubscribeToShardEvent")
       )

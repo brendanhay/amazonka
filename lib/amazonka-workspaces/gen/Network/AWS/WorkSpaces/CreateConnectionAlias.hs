@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkSpaces.CreateConnectionAlias
     mkCreateConnectionAlias,
 
     -- ** Request lenses
-    ccaTags,
     ccaConnectionString,
+    ccaTags,
 
     -- * Destructuring the response
     CreateConnectionAliasResponse (..),
@@ -40,17 +41,14 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkCreateConnectionAlias' smart constructor.
 data CreateConnectionAlias = CreateConnectionAlias'
-  { tags ::
-      Lude.Maybe [Tag],
-    connectionString :: Lude.Text
+  { -- | A connection string in the form of a fully qualified domain name (FQDN), such as @www.example.com@ .
+    --
+    -- /Important:/ After you create a connection string, it is always associated to your AWS account. You cannot recreate the same connection string with a different account, even if you delete all instances of it from the original account. The connection string is globally reserved for your account.
+    connectionString :: Lude.Text,
+    -- | The tags to associate with the connection alias.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnectionAlias' with the minimum fields required to make a request.
@@ -65,16 +63,9 @@ mkCreateConnectionAlias ::
   CreateConnectionAlias
 mkCreateConnectionAlias pConnectionString_ =
   CreateConnectionAlias'
-    { tags = Lude.Nothing,
-      connectionString = pConnectionString_
+    { connectionString = pConnectionString_,
+      tags = Lude.Nothing
     }
-
--- | The tags to associate with the connection alias.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccaTags :: Lens.Lens' CreateConnectionAlias (Lude.Maybe [Tag])
-ccaTags = Lens.lens (tags :: CreateConnectionAlias -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateConnectionAlias)
-{-# DEPRECATED ccaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | A connection string in the form of a fully qualified domain name (FQDN), such as @www.example.com@ .
 --
@@ -84,6 +75,13 @@ ccaTags = Lens.lens (tags :: CreateConnectionAlias -> Lude.Maybe [Tag]) (\s a ->
 ccaConnectionString :: Lens.Lens' CreateConnectionAlias Lude.Text
 ccaConnectionString = Lens.lens (connectionString :: CreateConnectionAlias -> Lude.Text) (\s a -> s {connectionString = a} :: CreateConnectionAlias)
 {-# DEPRECATED ccaConnectionString "Use generic-lens or generic-optics with 'connectionString' instead." #-}
+
+-- | The tags to associate with the connection alias.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccaTags :: Lens.Lens' CreateConnectionAlias (Lude.Maybe [Tag])
+ccaTags = Lens.lens (tags :: CreateConnectionAlias -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateConnectionAlias)
+{-# DEPRECATED ccaTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateConnectionAlias where
   type Rs CreateConnectionAlias = CreateConnectionAliasResponse
@@ -110,8 +108,8 @@ instance Lude.ToJSON CreateConnectionAlias where
   toJSON CreateConnectionAlias' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("ConnectionString" Lude..= connectionString)
+          [ Lude.Just ("ConnectionString" Lude..= connectionString),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -123,17 +121,12 @@ instance Lude.ToQuery CreateConnectionAlias where
 
 -- | /See:/ 'mkCreateConnectionAliasResponse' smart constructor.
 data CreateConnectionAliasResponse = CreateConnectionAliasResponse'
-  { aliasId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the connection alias.
+    aliasId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConnectionAliasResponse' with the minimum fields required to make a request.

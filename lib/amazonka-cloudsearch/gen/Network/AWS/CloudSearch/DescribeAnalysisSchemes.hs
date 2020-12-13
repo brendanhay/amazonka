@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     mkDescribeAnalysisSchemesResponse,
 
     -- ** Response lenses
-    dasrsResponseStatus,
     dasrsAnalysisSchemes,
+    dasrsResponseStatus,
   )
 where
 
@@ -43,25 +44,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeAnalysisSchemes' smart constructor.
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
-  { deployed ::
-      Lude.Maybe Lude.Bool,
-    analysisSchemeNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+    deployed :: Lude.Maybe Lude.Bool,
+    -- | The analysis schemes you want to describe.
+    analysisSchemeNames :: Lude.Maybe [Lude.Text],
+    -- | The name of the domain you want to describe.
     domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAnalysisSchemes' with the minimum fields required to make a request.
 --
--- * 'analysisSchemeNames' - The analysis schemes you want to describe.
 -- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+-- * 'analysisSchemeNames' - The analysis schemes you want to describe.
 -- * 'domainName' - The name of the domain you want to describe.
 mkDescribeAnalysisSchemes ::
   -- | 'domainName'
@@ -103,10 +99,10 @@ instance Lude.AWSRequest DescribeAnalysisSchemes where
       "DescribeAnalysisSchemesResult"
       ( \s h x ->
           DescribeAnalysisSchemesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "AnalysisSchemes" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "AnalysisSchemes" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeAnalysisSchemes where
@@ -131,18 +127,12 @@ instance Lude.ToQuery DescribeAnalysisSchemes where
 --
 -- /See:/ 'mkDescribeAnalysisSchemesResponse' smart constructor.
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-  { responseStatus ::
-      Lude.Int,
-    analysisSchemes ::
-      [AnalysisSchemeStatus]
+  { -- | The analysis scheme descriptions.
+    analysisSchemes :: [AnalysisSchemeStatus],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAnalysisSchemesResponse' with the minimum fields required to make a request.
@@ -155,17 +145,9 @@ mkDescribeAnalysisSchemesResponse ::
   DescribeAnalysisSchemesResponse
 mkDescribeAnalysisSchemesResponse pResponseStatus_ =
   DescribeAnalysisSchemesResponse'
-    { responseStatus =
-        pResponseStatus_,
-      analysisSchemes = Lude.mempty
+    { analysisSchemes = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dasrsResponseStatus :: Lens.Lens' DescribeAnalysisSchemesResponse Lude.Int
-dasrsResponseStatus = Lens.lens (responseStatus :: DescribeAnalysisSchemesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAnalysisSchemesResponse)
-{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The analysis scheme descriptions.
 --
@@ -173,3 +155,10 @@ dasrsResponseStatus = Lens.lens (responseStatus :: DescribeAnalysisSchemesRespon
 dasrsAnalysisSchemes :: Lens.Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrsAnalysisSchemes = Lens.lens (analysisSchemes :: DescribeAnalysisSchemesResponse -> [AnalysisSchemeStatus]) (\s a -> s {analysisSchemes = a} :: DescribeAnalysisSchemesResponse)
 {-# DEPRECATED dasrsAnalysisSchemes "Use generic-lens or generic-optics with 'analysisSchemes' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dasrsResponseStatus :: Lens.Lens' DescribeAnalysisSchemesResponse Lude.Int
+dasrsResponseStatus = Lens.lens (responseStatus :: DescribeAnalysisSchemesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAnalysisSchemesResponse)
+{-# DEPRECATED dasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

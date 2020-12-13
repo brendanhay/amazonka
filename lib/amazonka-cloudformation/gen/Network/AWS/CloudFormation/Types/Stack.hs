@@ -17,28 +17,28 @@ module Network.AWS.CloudFormation.Types.Stack
     mkStack,
 
     -- * Lenses
-    staDisableRollback,
-    staLastUpdatedTime,
-    staRootId,
-    staNotificationARNs,
-    staStackStatusReason,
-    staEnableTerminationProtection,
-    staDriftInformation,
-    staChangeSetId,
-    staDeletionTime,
-    staOutputs,
-    staParameters,
-    staStackId,
-    staDescription,
-    staCapabilities,
-    staRollbackConfiguration,
-    staTags,
-    staTimeoutInMinutes,
-    staParentId,
-    staRoleARN,
-    staStackName,
-    staCreationTime,
-    staStackStatus,
+    sfCreationTime,
+    sfStackStatus,
+    sfDisableRollback,
+    sfLastUpdatedTime,
+    sfRootId,
+    sfNotificationARNs,
+    sfStackStatusReason,
+    sfEnableTerminationProtection,
+    sfDriftInformation,
+    sfChangeSetId,
+    sfDeletionTime,
+    sfOutputs,
+    sfParameters,
+    sfStackId,
+    sfDescription,
+    sfCapabilities,
+    sfRollbackConfiguration,
+    sfTags,
+    sfTimeoutInMinutes,
+    sfParentId,
+    sfRoleARN,
+    sfStackName,
   )
 where
 
@@ -56,45 +56,70 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStack' smart constructor.
 data Stack = Stack'
-  { disableRollback :: Lude.Maybe Lude.Bool,
-    lastUpdatedTime :: Lude.Maybe Lude.DateTime,
-    rootId :: Lude.Maybe Lude.Text,
-    notificationARNs :: Lude.Maybe [Lude.Text],
-    stackStatusReason :: Lude.Maybe Lude.Text,
-    enableTerminationProtection :: Lude.Maybe Lude.Bool,
-    driftInformation :: Lude.Maybe StackDriftInformation,
-    changeSetId :: Lude.Maybe Lude.Text,
-    deletionTime :: Lude.Maybe Lude.DateTime,
-    outputs :: Lude.Maybe [Output],
-    parameters :: Lude.Maybe [Parameter],
-    stackId :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    capabilities :: Lude.Maybe [Capability],
-    rollbackConfiguration :: Lude.Maybe RollbackConfiguration,
-    tags :: Lude.Maybe [Tag],
-    timeoutInMinutes :: Lude.Maybe Lude.Natural,
-    parentId :: Lude.Maybe Lude.Text,
-    roleARN :: Lude.Maybe Lude.Text,
-    stackName :: Lude.Text,
+  { -- | The time at which the stack was created.
     creationTime :: Lude.DateTime,
-    stackStatus :: StackStatus
+    -- | Current status of the stack.
+    stackStatus :: StackStatus,
+    -- | Boolean to enable or disable rollback on stack creation failures:
+    --
+    --
+    --     * @true@ : disable rollback
+    --
+    --
+    --     * @false@ : enable rollback
+    disableRollback :: Lude.Maybe Lude.Bool,
+    -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+    lastUpdatedTime :: Lude.Maybe Lude.DateTime,
+    -- | For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
+    --
+    -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+    rootId :: Lude.Maybe Lude.Text,
+    -- | SNS topic ARNs to which stack related events are published.
+    notificationARNs :: Lude.Maybe [Lude.Text],
+    -- | Success/failure message associated with the stack status.
+    stackStatusReason :: Lude.Maybe Lude.Text,
+    -- | Whether termination protection is enabled for the stack.
+    --
+    -- For <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks> , termination protection is set on the root stack and cannot be changed directly on the nested stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted> in the /AWS CloudFormation User Guide/ .
+    enableTerminationProtection :: Lude.Maybe Lude.Bool,
+    -- | Information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+    driftInformation :: Lude.Maybe StackDriftInformation,
+    -- | The unique ID of the change set.
+    changeSetId :: Lude.Maybe Lude.Text,
+    -- | The time the stack was deleted.
+    deletionTime :: Lude.Maybe Lude.DateTime,
+    -- | A list of output structures.
+    outputs :: Lude.Maybe [Output],
+    -- | A list of @Parameter@ structures.
+    parameters :: Lude.Maybe [Parameter],
+    -- | Unique identifier of the stack.
+    stackId :: Lude.Maybe Lude.Text,
+    -- | A user-defined description associated with the stack.
+    description :: Lude.Maybe Lude.Text,
+    -- | The capabilities allowed in the stack.
+    capabilities :: Lude.Maybe [Capability],
+    -- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+    rollbackConfiguration :: Lude.Maybe RollbackConfiguration,
+    -- | A list of @Tag@ s that specify information about the stack.
+    tags :: Lude.Maybe [Tag],
+    -- | The amount of time within which stack creation should complete.
+    timeoutInMinutes :: Lude.Maybe Lude.Natural,
+    -- | For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
+    --
+    -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+    parentId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
+    roleARN :: Lude.Maybe Lude.Text,
+    -- | The name associated with the stack.
+    stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Stack' with the minimum fields required to make a request.
 --
--- * 'capabilities' - The capabilities allowed in the stack.
--- * 'changeSetId' - The unique ID of the change set.
 -- * 'creationTime' - The time at which the stack was created.
--- * 'deletionTime' - The time the stack was deleted.
--- * 'description' - A user-defined description associated with the stack.
+-- * 'stackStatus' - Current status of the stack.
 -- * 'disableRollback' - Boolean to enable or disable rollback on stack creation failures:
 --
 --
@@ -104,39 +129,44 @@ data Stack = Stack'
 --     * @false@ : enable rollback
 --
 --
--- * 'driftInformation' - Information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+-- * 'lastUpdatedTime' - The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
+-- * 'rootId' - For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
+--
+-- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
+-- * 'notificationARNs' - SNS topic ARNs to which stack related events are published.
+-- * 'stackStatusReason' - Success/failure message associated with the stack status.
 -- * 'enableTerminationProtection' - Whether termination protection is enabled for the stack.
 --
 -- For <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks> , termination protection is set on the root stack and cannot be changed directly on the nested stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted> in the /AWS CloudFormation User Guide/ .
--- * 'lastUpdatedTime' - The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
--- * 'notificationARNs' - SNS topic ARNs to which stack related events are published.
+-- * 'driftInformation' - Information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
+-- * 'changeSetId' - The unique ID of the change set.
+-- * 'deletionTime' - The time the stack was deleted.
 -- * 'outputs' - A list of output structures.
 -- * 'parameters' - A list of @Parameter@ structures.
+-- * 'stackId' - Unique identifier of the stack.
+-- * 'description' - A user-defined description associated with the stack.
+-- * 'capabilities' - The capabilities allowed in the stack.
+-- * 'rollbackConfiguration' - The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
+-- * 'tags' - A list of @Tag@ s that specify information about the stack.
+-- * 'timeoutInMinutes' - The amount of time within which stack creation should complete.
 -- * 'parentId' - For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
 -- * 'roleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
--- * 'rollbackConfiguration' - The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
--- * 'rootId' - For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
---
--- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
--- * 'stackId' - Unique identifier of the stack.
 -- * 'stackName' - The name associated with the stack.
--- * 'stackStatus' - Current status of the stack.
--- * 'stackStatusReason' - Success/failure message associated with the stack status.
--- * 'tags' - A list of @Tag@ s that specify information about the stack.
--- * 'timeoutInMinutes' - The amount of time within which stack creation should complete.
 mkStack ::
-  -- | 'stackName'
-  Lude.Text ->
   -- | 'creationTime'
   Lude.DateTime ->
   -- | 'stackStatus'
   StackStatus ->
+  -- | 'stackName'
+  Lude.Text ->
   Stack
-mkStack pStackName_ pCreationTime_ pStackStatus_ =
+mkStack pCreationTime_ pStackStatus_ pStackName_ =
   Stack'
-    { disableRollback = Lude.Nothing,
+    { creationTime = pCreationTime_,
+      stackStatus = pStackStatus_,
+      disableRollback = Lude.Nothing,
       lastUpdatedTime = Lude.Nothing,
       rootId = Lude.Nothing,
       notificationARNs = Lude.Nothing,
@@ -155,10 +185,22 @@ mkStack pStackName_ pCreationTime_ pStackStatus_ =
       timeoutInMinutes = Lude.Nothing,
       parentId = Lude.Nothing,
       roleARN = Lude.Nothing,
-      stackName = pStackName_,
-      creationTime = pCreationTime_,
-      stackStatus = pStackStatus_
+      stackName = pStackName_
     }
+
+-- | The time at which the stack was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfCreationTime :: Lens.Lens' Stack Lude.DateTime
+sfCreationTime = Lens.lens (creationTime :: Stack -> Lude.DateTime) (\s a -> s {creationTime = a} :: Stack)
+{-# DEPRECATED sfCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | Current status of the stack.
+--
+-- /Note:/ Consider using 'stackStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfStackStatus :: Lens.Lens' Stack StackStatus
+sfStackStatus = Lens.lens (stackStatus :: Stack -> StackStatus) (\s a -> s {stackStatus = a} :: Stack)
+{-# DEPRECATED sfStackStatus "Use generic-lens or generic-optics with 'stackStatus' instead." #-}
 
 -- | Boolean to enable or disable rollback on stack creation failures:
 --
@@ -171,167 +213,155 @@ mkStack pStackName_ pCreationTime_ pStackStatus_ =
 --
 --
 -- /Note:/ Consider using 'disableRollback' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staDisableRollback :: Lens.Lens' Stack (Lude.Maybe Lude.Bool)
-staDisableRollback = Lens.lens (disableRollback :: Stack -> Lude.Maybe Lude.Bool) (\s a -> s {disableRollback = a} :: Stack)
-{-# DEPRECATED staDisableRollback "Use generic-lens or generic-optics with 'disableRollback' instead." #-}
+sfDisableRollback :: Lens.Lens' Stack (Lude.Maybe Lude.Bool)
+sfDisableRollback = Lens.lens (disableRollback :: Stack -> Lude.Maybe Lude.Bool) (\s a -> s {disableRollback = a} :: Stack)
+{-# DEPRECATED sfDisableRollback "Use generic-lens or generic-optics with 'disableRollback' instead." #-}
 
 -- | The time the stack was last updated. This field will only be returned if the stack has been updated at least once.
 --
 -- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staLastUpdatedTime :: Lens.Lens' Stack (Lude.Maybe Lude.DateTime)
-staLastUpdatedTime = Lens.lens (lastUpdatedTime :: Stack -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUpdatedTime = a} :: Stack)
-{-# DEPRECATED staLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
+sfLastUpdatedTime :: Lens.Lens' Stack (Lude.Maybe Lude.DateTime)
+sfLastUpdatedTime = Lens.lens (lastUpdatedTime :: Stack -> Lude.Maybe Lude.DateTime) (\s a -> s {lastUpdatedTime = a} :: Stack)
+{-# DEPRECATED sfLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | For nested stacks--stacks created as resources for another stack--the stack ID of the top-level stack to which the nested stack ultimately belongs.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
 --
 -- /Note:/ Consider using 'rootId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staRootId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-staRootId = Lens.lens (rootId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {rootId = a} :: Stack)
-{-# DEPRECATED staRootId "Use generic-lens or generic-optics with 'rootId' instead." #-}
+sfRootId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
+sfRootId = Lens.lens (rootId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {rootId = a} :: Stack)
+{-# DEPRECATED sfRootId "Use generic-lens or generic-optics with 'rootId' instead." #-}
 
 -- | SNS topic ARNs to which stack related events are published.
 --
 -- /Note:/ Consider using 'notificationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staNotificationARNs :: Lens.Lens' Stack (Lude.Maybe [Lude.Text])
-staNotificationARNs = Lens.lens (notificationARNs :: Stack -> Lude.Maybe [Lude.Text]) (\s a -> s {notificationARNs = a} :: Stack)
-{-# DEPRECATED staNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
+sfNotificationARNs :: Lens.Lens' Stack (Lude.Maybe [Lude.Text])
+sfNotificationARNs = Lens.lens (notificationARNs :: Stack -> Lude.Maybe [Lude.Text]) (\s a -> s {notificationARNs = a} :: Stack)
+{-# DEPRECATED sfNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
 
 -- | Success/failure message associated with the stack status.
 --
 -- /Note:/ Consider using 'stackStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staStackStatusReason :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-staStackStatusReason = Lens.lens (stackStatusReason :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {stackStatusReason = a} :: Stack)
-{-# DEPRECATED staStackStatusReason "Use generic-lens or generic-optics with 'stackStatusReason' instead." #-}
+sfStackStatusReason :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
+sfStackStatusReason = Lens.lens (stackStatusReason :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {stackStatusReason = a} :: Stack)
+{-# DEPRECATED sfStackStatusReason "Use generic-lens or generic-optics with 'stackStatusReason' instead." #-}
 
 -- | Whether termination protection is enabled for the stack.
 --
 -- For <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks> , termination protection is set on the root stack and cannot be changed directly on the nested stack. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html Protecting a Stack From Being Deleted> in the /AWS CloudFormation User Guide/ .
 --
 -- /Note:/ Consider using 'enableTerminationProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staEnableTerminationProtection :: Lens.Lens' Stack (Lude.Maybe Lude.Bool)
-staEnableTerminationProtection = Lens.lens (enableTerminationProtection :: Stack -> Lude.Maybe Lude.Bool) (\s a -> s {enableTerminationProtection = a} :: Stack)
-{-# DEPRECATED staEnableTerminationProtection "Use generic-lens or generic-optics with 'enableTerminationProtection' instead." #-}
+sfEnableTerminationProtection :: Lens.Lens' Stack (Lude.Maybe Lude.Bool)
+sfEnableTerminationProtection = Lens.lens (enableTerminationProtection :: Stack -> Lude.Maybe Lude.Bool) (\s a -> s {enableTerminationProtection = a} :: Stack)
+{-# DEPRECATED sfEnableTerminationProtection "Use generic-lens or generic-optics with 'enableTerminationProtection' instead." #-}
 
 -- | Information on whether a stack's actual configuration differs, or has /drifted/ , from it's expected configuration, as defined in the stack template and any values specified as template parameters. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources> .
 --
 -- /Note:/ Consider using 'driftInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staDriftInformation :: Lens.Lens' Stack (Lude.Maybe StackDriftInformation)
-staDriftInformation = Lens.lens (driftInformation :: Stack -> Lude.Maybe StackDriftInformation) (\s a -> s {driftInformation = a} :: Stack)
-{-# DEPRECATED staDriftInformation "Use generic-lens or generic-optics with 'driftInformation' instead." #-}
+sfDriftInformation :: Lens.Lens' Stack (Lude.Maybe StackDriftInformation)
+sfDriftInformation = Lens.lens (driftInformation :: Stack -> Lude.Maybe StackDriftInformation) (\s a -> s {driftInformation = a} :: Stack)
+{-# DEPRECATED sfDriftInformation "Use generic-lens or generic-optics with 'driftInformation' instead." #-}
 
 -- | The unique ID of the change set.
 --
 -- /Note:/ Consider using 'changeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staChangeSetId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-staChangeSetId = Lens.lens (changeSetId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {changeSetId = a} :: Stack)
-{-# DEPRECATED staChangeSetId "Use generic-lens or generic-optics with 'changeSetId' instead." #-}
+sfChangeSetId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
+sfChangeSetId = Lens.lens (changeSetId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {changeSetId = a} :: Stack)
+{-# DEPRECATED sfChangeSetId "Use generic-lens or generic-optics with 'changeSetId' instead." #-}
 
 -- | The time the stack was deleted.
 --
 -- /Note:/ Consider using 'deletionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staDeletionTime :: Lens.Lens' Stack (Lude.Maybe Lude.DateTime)
-staDeletionTime = Lens.lens (deletionTime :: Stack -> Lude.Maybe Lude.DateTime) (\s a -> s {deletionTime = a} :: Stack)
-{-# DEPRECATED staDeletionTime "Use generic-lens or generic-optics with 'deletionTime' instead." #-}
+sfDeletionTime :: Lens.Lens' Stack (Lude.Maybe Lude.DateTime)
+sfDeletionTime = Lens.lens (deletionTime :: Stack -> Lude.Maybe Lude.DateTime) (\s a -> s {deletionTime = a} :: Stack)
+{-# DEPRECATED sfDeletionTime "Use generic-lens or generic-optics with 'deletionTime' instead." #-}
 
 -- | A list of output structures.
 --
 -- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staOutputs :: Lens.Lens' Stack (Lude.Maybe [Output])
-staOutputs = Lens.lens (outputs :: Stack -> Lude.Maybe [Output]) (\s a -> s {outputs = a} :: Stack)
-{-# DEPRECATED staOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
+sfOutputs :: Lens.Lens' Stack (Lude.Maybe [Output])
+sfOutputs = Lens.lens (outputs :: Stack -> Lude.Maybe [Output]) (\s a -> s {outputs = a} :: Stack)
+{-# DEPRECATED sfOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
 -- | A list of @Parameter@ structures.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staParameters :: Lens.Lens' Stack (Lude.Maybe [Parameter])
-staParameters = Lens.lens (parameters :: Stack -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: Stack)
-{-# DEPRECATED staParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+sfParameters :: Lens.Lens' Stack (Lude.Maybe [Parameter])
+sfParameters = Lens.lens (parameters :: Stack -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: Stack)
+{-# DEPRECATED sfParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | Unique identifier of the stack.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staStackId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-staStackId = Lens.lens (stackId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: Stack)
-{-# DEPRECATED staStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+sfStackId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
+sfStackId = Lens.lens (stackId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: Stack)
+{-# DEPRECATED sfStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | A user-defined description associated with the stack.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staDescription :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-staDescription = Lens.lens (description :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Stack)
-{-# DEPRECATED staDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+sfDescription :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
+sfDescription = Lens.lens (description :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Stack)
+{-# DEPRECATED sfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The capabilities allowed in the stack.
 --
 -- /Note:/ Consider using 'capabilities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staCapabilities :: Lens.Lens' Stack (Lude.Maybe [Capability])
-staCapabilities = Lens.lens (capabilities :: Stack -> Lude.Maybe [Capability]) (\s a -> s {capabilities = a} :: Stack)
-{-# DEPRECATED staCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+sfCapabilities :: Lens.Lens' Stack (Lude.Maybe [Capability])
+sfCapabilities = Lens.lens (capabilities :: Stack -> Lude.Maybe [Capability]) (\s a -> s {capabilities = a} :: Stack)
+{-# DEPRECATED sfCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
 
 -- | The rollback triggers for AWS CloudFormation to monitor during stack creation and updating operations, and for the specified monitoring period afterwards.
 --
 -- /Note:/ Consider using 'rollbackConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staRollbackConfiguration :: Lens.Lens' Stack (Lude.Maybe RollbackConfiguration)
-staRollbackConfiguration = Lens.lens (rollbackConfiguration :: Stack -> Lude.Maybe RollbackConfiguration) (\s a -> s {rollbackConfiguration = a} :: Stack)
-{-# DEPRECATED staRollbackConfiguration "Use generic-lens or generic-optics with 'rollbackConfiguration' instead." #-}
+sfRollbackConfiguration :: Lens.Lens' Stack (Lude.Maybe RollbackConfiguration)
+sfRollbackConfiguration = Lens.lens (rollbackConfiguration :: Stack -> Lude.Maybe RollbackConfiguration) (\s a -> s {rollbackConfiguration = a} :: Stack)
+{-# DEPRECATED sfRollbackConfiguration "Use generic-lens or generic-optics with 'rollbackConfiguration' instead." #-}
 
 -- | A list of @Tag@ s that specify information about the stack.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staTags :: Lens.Lens' Stack (Lude.Maybe [Tag])
-staTags = Lens.lens (tags :: Stack -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Stack)
-{-# DEPRECATED staTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+sfTags :: Lens.Lens' Stack (Lude.Maybe [Tag])
+sfTags = Lens.lens (tags :: Stack -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Stack)
+{-# DEPRECATED sfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The amount of time within which stack creation should complete.
 --
 -- /Note:/ Consider using 'timeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staTimeoutInMinutes :: Lens.Lens' Stack (Lude.Maybe Lude.Natural)
-staTimeoutInMinutes = Lens.lens (timeoutInMinutes :: Stack -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInMinutes = a} :: Stack)
-{-# DEPRECATED staTimeoutInMinutes "Use generic-lens or generic-optics with 'timeoutInMinutes' instead." #-}
+sfTimeoutInMinutes :: Lens.Lens' Stack (Lude.Maybe Lude.Natural)
+sfTimeoutInMinutes = Lens.lens (timeoutInMinutes :: Stack -> Lude.Maybe Lude.Natural) (\s a -> s {timeoutInMinutes = a} :: Stack)
+{-# DEPRECATED sfTimeoutInMinutes "Use generic-lens or generic-optics with 'timeoutInMinutes' instead." #-}
 
 -- | For nested stacks--stacks created as resources for another stack--the stack ID of the direct parent of this stack. For the first level of nested stacks, the root stack is also the parent stack.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html Working with Nested Stacks> in the /AWS CloudFormation User Guide/ .
 --
 -- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staParentId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-staParentId = Lens.lens (parentId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {parentId = a} :: Stack)
-{-# DEPRECATED staParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
+sfParentId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
+sfParentId = Lens.lens (parentId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {parentId = a} :: Stack)
+{-# DEPRECATED sfParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that is associated with the stack. During a stack operation, AWS CloudFormation uses this role's credentials to make calls on your behalf.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staRoleARN :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-staRoleARN = Lens.lens (roleARN :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: Stack)
-{-# DEPRECATED staRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+sfRoleARN :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
+sfRoleARN = Lens.lens (roleARN :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: Stack)
+{-# DEPRECATED sfRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The name associated with the stack.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staStackName :: Lens.Lens' Stack Lude.Text
-staStackName = Lens.lens (stackName :: Stack -> Lude.Text) (\s a -> s {stackName = a} :: Stack)
-{-# DEPRECATED staStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
-
--- | The time at which the stack was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staCreationTime :: Lens.Lens' Stack Lude.DateTime
-staCreationTime = Lens.lens (creationTime :: Stack -> Lude.DateTime) (\s a -> s {creationTime = a} :: Stack)
-{-# DEPRECATED staCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | Current status of the stack.
---
--- /Note:/ Consider using 'stackStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-staStackStatus :: Lens.Lens' Stack StackStatus
-staStackStatus = Lens.lens (stackStatus :: Stack -> StackStatus) (\s a -> s {stackStatus = a} :: Stack)
-{-# DEPRECATED staStackStatus "Use generic-lens or generic-optics with 'stackStatus' instead." #-}
+sfStackName :: Lens.Lens' Stack Lude.Text
+sfStackName = Lens.lens (stackName :: Stack -> Lude.Text) (\s a -> s {stackName = a} :: Stack)
+{-# DEPRECATED sfStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 instance Lude.FromXML Stack where
   parseXML x =
     Stack'
-      Lude.<$> (x Lude..@? "DisableRollback")
+      Lude.<$> (x Lude..@ "CreationTime")
+      Lude.<*> (x Lude..@ "StackStatus")
+      Lude.<*> (x Lude..@? "DisableRollback")
       Lude.<*> (x Lude..@? "LastUpdatedTime")
       Lude.<*> (x Lude..@? "RootId")
       Lude.<*> ( x Lude..@? "NotificationARNs" Lude..!@ Lude.mempty
@@ -361,5 +391,3 @@ instance Lude.FromXML Stack where
       Lude.<*> (x Lude..@? "ParentId")
       Lude.<*> (x Lude..@? "RoleARN")
       Lude.<*> (x Lude..@ "StackName")
-      Lude.<*> (x Lude..@ "CreationTime")
-      Lude.<*> (x Lude..@ "StackStatus")

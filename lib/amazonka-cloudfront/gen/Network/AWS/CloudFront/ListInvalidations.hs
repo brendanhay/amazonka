@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.CloudFront.ListInvalidations
     mkListInvalidations,
 
     -- ** Request lenses
+    liDistributionId,
     liMarker,
     liMaxItems,
-    liDistributionId,
 
     -- * Destructuring the response
     ListInvalidationsResponse (..),
     mkListInvalidationsResponse,
 
     -- ** Response lenses
-    lirsResponseStatus,
     lirsInvalidationList,
+    lirsResponseStatus,
   )
 where
 
@@ -46,18 +47,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListInvalidations' smart constructor.
 data ListInvalidations = ListInvalidations'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxItems :: Lude.Maybe Lude.Text,
-    distributionId :: Lude.Text
+  { -- | The distribution's ID.
+    distributionId :: Lude.Text,
+    -- | Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set @Marker@ to the value of the @NextMarker@ from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of invalidation batches that you want in the response body.
+    maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInvalidations' with the minimum fields required to make a request.
@@ -71,10 +68,17 @@ mkListInvalidations ::
   ListInvalidations
 mkListInvalidations pDistributionId_ =
   ListInvalidations'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      distributionId = pDistributionId_
+    { distributionId = pDistributionId_,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
+
+-- | The distribution's ID.
+--
+-- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liDistributionId :: Lens.Lens' ListInvalidations Lude.Text
+liDistributionId = Lens.lens (distributionId :: ListInvalidations -> Lude.Text) (\s a -> s {distributionId = a} :: ListInvalidations)
+{-# DEPRECATED liDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
 -- | Use this parameter when paginating results to indicate where to begin in your list of invalidation batches. Because the results are returned in decreasing order from most recent to oldest, the most recent results are on the first page, the second page will contain earlier results, and so on. To get the next page of results, set @Marker@ to the value of the @NextMarker@ from the current page's response. This value is the same as the ID of the last invalidation batch on that page.
 --
@@ -89,13 +93,6 @@ liMarker = Lens.lens (marker :: ListInvalidations -> Lude.Maybe Lude.Text) (\s a
 liMaxItems :: Lens.Lens' ListInvalidations (Lude.Maybe Lude.Text)
 liMaxItems = Lens.lens (maxItems :: ListInvalidations -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListInvalidations)
 {-# DEPRECATED liMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
--- | The distribution's ID.
---
--- /Note:/ Consider using 'distributionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liDistributionId :: Lens.Lens' ListInvalidations Lude.Text
-liDistributionId = Lens.lens (distributionId :: ListInvalidations -> Lude.Text) (\s a -> s {distributionId = a} :: ListInvalidations)
-{-# DEPRECATED liDistributionId "Use generic-lens or generic-optics with 'distributionId' instead." #-}
 
 instance Page.AWSPager ListInvalidations where
   page rq rs
@@ -120,7 +117,7 @@ instance Lude.AWSRequest ListInvalidations where
     Res.receiveXML
       ( \s h x ->
           ListInvalidationsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListInvalidations where
@@ -143,17 +140,12 @@ instance Lude.ToQuery ListInvalidations where
 --
 -- /See:/ 'mkListInvalidationsResponse' smart constructor.
 data ListInvalidationsResponse = ListInvalidationsResponse'
-  { responseStatus ::
-      Lude.Int,
-    invalidationList :: InvalidationList
+  { -- | Information about invalidation batches.
+    invalidationList :: InvalidationList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInvalidationsResponse' with the minimum fields required to make a request.
@@ -161,23 +153,16 @@ data ListInvalidationsResponse = ListInvalidationsResponse'
 -- * 'invalidationList' - Information about invalidation batches.
 -- * 'responseStatus' - The response status code.
 mkListInvalidationsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'invalidationList'
   InvalidationList ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListInvalidationsResponse
-mkListInvalidationsResponse pResponseStatus_ pInvalidationList_ =
+mkListInvalidationsResponse pInvalidationList_ pResponseStatus_ =
   ListInvalidationsResponse'
-    { responseStatus = pResponseStatus_,
-      invalidationList = pInvalidationList_
+    { invalidationList = pInvalidationList_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsResponseStatus :: Lens.Lens' ListInvalidationsResponse Lude.Int
-lirsResponseStatus = Lens.lens (responseStatus :: ListInvalidationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInvalidationsResponse)
-{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about invalidation batches.
 --
@@ -185,3 +170,10 @@ lirsResponseStatus = Lens.lens (responseStatus :: ListInvalidationsResponse -> L
 lirsInvalidationList :: Lens.Lens' ListInvalidationsResponse InvalidationList
 lirsInvalidationList = Lens.lens (invalidationList :: ListInvalidationsResponse -> InvalidationList) (\s a -> s {invalidationList = a} :: ListInvalidationsResponse)
 {-# DEPRECATED lirsInvalidationList "Use generic-lens or generic-optics with 'invalidationList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lirsResponseStatus :: Lens.Lens' ListInvalidationsResponse Lude.Int
+lirsResponseStatus = Lens.lens (responseStatus :: ListInvalidationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInvalidationsResponse)
+{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

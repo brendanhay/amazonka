@@ -33,28 +33,21 @@ import Network.AWS.Redshift.Types.OperatorType
 --
 -- /See:/ 'mkNodeConfigurationOptionsFilter' smart constructor.
 data NodeConfigurationOptionsFilter = NodeConfigurationOptionsFilter'
-  { values ::
-      Lude.Maybe [Lude.Text],
-    operator ::
-      Lude.Maybe OperatorType,
-    name ::
-      Lude.Maybe
-        NodeConfigurationOptionsFilterName
+  { -- | List of values. Compare Name using Operator to Values. If filter Name is NumberOfNodes, then values can range from 0 to 200. If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100. For example, filter NumberOfNodes (name) GT (operator) 3 (values).
+    values :: Lude.Maybe [Lude.Text],
+    -- | The filter operator. If filter Name is NodeType only the 'in' operator is supported. Provide one value to evaluate for 'eq', 'lt', 'le', 'gt', and 'ge'. Provide two values to evaluate for 'between'. Provide a list of values for 'in'.
+    operator :: Lude.Maybe OperatorType,
+    -- | The name of the element to filter.
+    name :: Lude.Maybe NodeConfigurationOptionsFilterName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeConfigurationOptionsFilter' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the element to filter.
--- * 'operator' - The filter operator. If filter Name is NodeType only the 'in' operator is supported. Provide one value to evaluate for 'eq', 'lt', 'le', 'gt', and 'ge'. Provide two values to evaluate for 'between'. Provide a list of values for 'in'.
 -- * 'values' - List of values. Compare Name using Operator to Values. If filter Name is NumberOfNodes, then values can range from 0 to 200. If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100. For example, filter NumberOfNodes (name) GT (operator) 3 (values).
+-- * 'operator' - The filter operator. If filter Name is NodeType only the 'in' operator is supported. Provide one value to evaluate for 'eq', 'lt', 'le', 'gt', and 'ge'. Provide two values to evaluate for 'between'. Provide a list of values for 'in'.
+-- * 'name' - The name of the element to filter.
 mkNodeConfigurationOptionsFilter ::
   NodeConfigurationOptionsFilter
 mkNodeConfigurationOptionsFilter =

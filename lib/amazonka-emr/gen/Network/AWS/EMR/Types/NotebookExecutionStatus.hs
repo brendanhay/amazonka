@@ -13,16 +13,16 @@
 module Network.AWS.EMR.Types.NotebookExecutionStatus
   ( NotebookExecutionStatus
       ( NotebookExecutionStatus',
-        NESFailed,
-        NESFailing,
-        NESFinished,
-        NESFinishing,
-        NESRunning,
         NESStartPending,
         NESStarting,
+        NESRunning,
+        NESFinishing,
+        NESFinished,
+        NESFailing,
+        NESFailed,
         NESStopPending,
-        NESStopped,
-        NESStopping
+        NESStopping,
+        NESStopped
       ),
   )
 where
@@ -53,46 +53,46 @@ newtype NotebookExecutionStatus = NotebookExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern NESFailed :: NotebookExecutionStatus
-pattern NESFailed = NotebookExecutionStatus' "FAILED"
-
-pattern NESFailing :: NotebookExecutionStatus
-pattern NESFailing = NotebookExecutionStatus' "FAILING"
-
-pattern NESFinished :: NotebookExecutionStatus
-pattern NESFinished = NotebookExecutionStatus' "FINISHED"
-
-pattern NESFinishing :: NotebookExecutionStatus
-pattern NESFinishing = NotebookExecutionStatus' "FINISHING"
-
-pattern NESRunning :: NotebookExecutionStatus
-pattern NESRunning = NotebookExecutionStatus' "RUNNING"
-
 pattern NESStartPending :: NotebookExecutionStatus
 pattern NESStartPending = NotebookExecutionStatus' "START_PENDING"
 
 pattern NESStarting :: NotebookExecutionStatus
 pattern NESStarting = NotebookExecutionStatus' "STARTING"
 
+pattern NESRunning :: NotebookExecutionStatus
+pattern NESRunning = NotebookExecutionStatus' "RUNNING"
+
+pattern NESFinishing :: NotebookExecutionStatus
+pattern NESFinishing = NotebookExecutionStatus' "FINISHING"
+
+pattern NESFinished :: NotebookExecutionStatus
+pattern NESFinished = NotebookExecutionStatus' "FINISHED"
+
+pattern NESFailing :: NotebookExecutionStatus
+pattern NESFailing = NotebookExecutionStatus' "FAILING"
+
+pattern NESFailed :: NotebookExecutionStatus
+pattern NESFailed = NotebookExecutionStatus' "FAILED"
+
 pattern NESStopPending :: NotebookExecutionStatus
 pattern NESStopPending = NotebookExecutionStatus' "STOP_PENDING"
-
-pattern NESStopped :: NotebookExecutionStatus
-pattern NESStopped = NotebookExecutionStatus' "STOPPED"
 
 pattern NESStopping :: NotebookExecutionStatus
 pattern NESStopping = NotebookExecutionStatus' "STOPPING"
 
+pattern NESStopped :: NotebookExecutionStatus
+pattern NESStopped = NotebookExecutionStatus' "STOPPED"
+
 {-# COMPLETE
-  NESFailed,
-  NESFailing,
-  NESFinished,
-  NESFinishing,
-  NESRunning,
   NESStartPending,
   NESStarting,
+  NESRunning,
+  NESFinishing,
+  NESFinished,
+  NESFailing,
+  NESFailed,
   NESStopPending,
-  NESStopped,
   NESStopping,
+  NESStopped,
   NotebookExecutionStatus'
   #-}

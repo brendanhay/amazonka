@@ -31,30 +31,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTapeRecoveryPointInfo' smart constructor.
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
-  { tapeStatus ::
-      Lude.Maybe Lude.Text,
-    tapeRecoveryPointTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The status of the virtual tapes.
+    tapeStatus :: Lude.Maybe Lude.Text,
+    -- | The time when the point-in-time view of the virtual tape was replicated for later recovery.
+    --
+    -- The default timestamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+    tapeRecoveryPointTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the virtual tape.
     tapeARN :: Lude.Maybe Lude.Text,
+    -- | The size, in bytes, of the virtual tapes to recover.
     tapeSizeInBytes :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TapeRecoveryPointInfo' with the minimum fields required to make a request.
 --
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape.
+-- * 'tapeStatus' - The status of the virtual tapes.
 -- * 'tapeRecoveryPointTime' - The time when the point-in-time view of the virtual tape was replicated for later recovery.
 --
 -- The default timestamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format.
+-- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape.
 -- * 'tapeSizeInBytes' - The size, in bytes, of the virtual tapes to recover.
--- * 'tapeStatus' - The status of the virtual tapes.
 mkTapeRecoveryPointInfo ::
   TapeRecoveryPointInfo
 mkTapeRecoveryPointInfo =

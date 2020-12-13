@@ -39,37 +39,39 @@ import Network.AWS.WorkSpaces.Types.UserStorage
 --
 -- /See:/ 'mkWorkspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
-  { lastUpdatedTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The last time that the bundle was updated.
+    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The bundle identifier.
     bundleId :: Lude.Maybe Lude.Text,
+    -- | The owner of the bundle. This is the account identifier of the owner, or @AMAZON@ if the bundle is provided by AWS.
     owner :: Lude.Maybe Lude.Text,
+    -- | The size of the root volume.
     rootStorage :: Lude.Maybe RootStorage,
+    -- | The name of the bundle.
     name :: Lude.Maybe Lude.Text,
+    -- | The image identifier of the bundle.
     imageId :: Lude.Maybe Lude.Text,
+    -- | The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
     computeType :: Lude.Maybe ComputeType,
+    -- | The size of the user storage.
     userStorage :: Lude.Maybe UserStorage,
+    -- | A description.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceBundle' with the minimum fields required to make a request.
 --
--- * 'bundleId' - The bundle identifier.
--- * 'computeType' - The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
--- * 'description' - A description.
--- * 'imageId' - The image identifier of the bundle.
 -- * 'lastUpdatedTime' - The last time that the bundle was updated.
--- * 'name' - The name of the bundle.
+-- * 'bundleId' - The bundle identifier.
 -- * 'owner' - The owner of the bundle. This is the account identifier of the owner, or @AMAZON@ if the bundle is provided by AWS.
 -- * 'rootStorage' - The size of the root volume.
+-- * 'name' - The name of the bundle.
+-- * 'imageId' - The image identifier of the bundle.
+-- * 'computeType' - The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
 -- * 'userStorage' - The size of the user storage.
+-- * 'description' - A description.
 mkWorkspaceBundle ::
   WorkspaceBundle
 mkWorkspaceBundle =

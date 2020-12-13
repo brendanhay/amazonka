@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSuggestionMatch' smart constructor.
 data SuggestionMatch = SuggestionMatch'
-  { suggestion ::
-      Lude.Maybe Lude.Text,
+  { -- | The string that matches the query string specified in the @SuggestRequest@ .
+    suggestion :: Lude.Maybe Lude.Text,
+    -- | The relevance score of a suggested match.
     score :: Lude.Maybe Lude.Integer,
+    -- | The document ID of the suggested document.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuggestionMatch' with the minimum fields required to make a request.
 --
--- * 'id' - The document ID of the suggested document.
--- * 'score' - The relevance score of a suggested match.
 -- * 'suggestion' - The string that matches the query string specified in the @SuggestRequest@ .
+-- * 'score' - The relevance score of a suggested match.
+-- * 'id' - The document ID of the suggested document.
 mkSuggestionMatch ::
   SuggestionMatch
 mkSuggestionMatch =

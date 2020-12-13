@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
     mkAcceptDirectConnectGatewayAssociationProposal,
 
     -- ** Request lenses
-    adcgapOverrideAllowedPrefixesToDirectConnectGateway,
+    adcgapAssociatedGatewayOwnerAccount,
     adcgapDirectConnectGatewayId,
     adcgapProposalId,
-    adcgapAssociatedGatewayOwnerAccount,
+    adcgapOverrideAllowedPrefixesToDirectConnectGateway,
 
     -- * Destructuring the response
     AcceptDirectConnectGatewayAssociationProposalResponse (..),
@@ -42,66 +43,56 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAcceptDirectConnectGatewayAssociationProposal' smart constructor.
 data AcceptDirectConnectGatewayAssociationProposal = AcceptDirectConnectGatewayAssociationProposal'
-  { overrideAllowedPrefixesToDirectConnectGateway ::
-      Lude.Maybe
-        [RouteFilterPrefix],
-    directConnectGatewayId ::
-      Lude.Text,
-    proposalId ::
-      Lude.Text,
-    associatedGatewayOwnerAccount ::
-      Lude.Text
+  { -- | The ID of the AWS account that owns the virtual private gateway or transit gateway.
+    associatedGatewayOwnerAccount :: Lude.Text,
+    -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Text,
+    -- | The ID of the request proposal.
+    proposalId :: Lude.Text,
+    -- | Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
+    --
+    -- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
+    overrideAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptDirectConnectGatewayAssociationProposal' with the minimum fields required to make a request.
 --
 -- * 'associatedGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway or transit gateway.
 -- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'proposalId' - The ID of the request proposal.
 -- * 'overrideAllowedPrefixesToDirectConnectGateway' - Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
 --
 -- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
--- * 'proposalId' - The ID of the request proposal.
 mkAcceptDirectConnectGatewayAssociationProposal ::
+  -- | 'associatedGatewayOwnerAccount'
+  Lude.Text ->
   -- | 'directConnectGatewayId'
   Lude.Text ->
   -- | 'proposalId'
   Lude.Text ->
-  -- | 'associatedGatewayOwnerAccount'
-  Lude.Text ->
   AcceptDirectConnectGatewayAssociationProposal
 mkAcceptDirectConnectGatewayAssociationProposal
+  pAssociatedGatewayOwnerAccount_
   pDirectConnectGatewayId_
-  pProposalId_
-  pAssociatedGatewayOwnerAccount_ =
+  pProposalId_ =
     AcceptDirectConnectGatewayAssociationProposal'
-      { overrideAllowedPrefixesToDirectConnectGateway =
-          Lude.Nothing,
+      { associatedGatewayOwnerAccount =
+          pAssociatedGatewayOwnerAccount_,
         directConnectGatewayId =
           pDirectConnectGatewayId_,
         proposalId = pProposalId_,
-        associatedGatewayOwnerAccount =
-          pAssociatedGatewayOwnerAccount_
+        overrideAllowedPrefixesToDirectConnectGateway =
+          Lude.Nothing
       }
 
--- | Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
+-- | The ID of the AWS account that owns the virtual private gateway or transit gateway.
 --
--- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
---
--- /Note:/ Consider using 'overrideAllowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgapOverrideAllowedPrefixesToDirectConnectGateway :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal (Lude.Maybe [RouteFilterPrefix])
-adcgapOverrideAllowedPrefixesToDirectConnectGateway = Lens.lens (overrideAllowedPrefixesToDirectConnectGateway :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {overrideAllowedPrefixesToDirectConnectGateway = a} :: AcceptDirectConnectGatewayAssociationProposal)
-{-# DEPRECATED adcgapOverrideAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'overrideAllowedPrefixesToDirectConnectGateway' instead." #-}
+-- /Note:/ Consider using 'associatedGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adcgapAssociatedGatewayOwnerAccount :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Lude.Text
+adcgapAssociatedGatewayOwnerAccount = Lens.lens (associatedGatewayOwnerAccount :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Text) (\s a -> s {associatedGatewayOwnerAccount = a} :: AcceptDirectConnectGatewayAssociationProposal)
+{-# DEPRECATED adcgapAssociatedGatewayOwnerAccount "Use generic-lens or generic-optics with 'associatedGatewayOwnerAccount' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
 --
@@ -117,12 +108,14 @@ adcgapProposalId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Lud
 adcgapProposalId = Lens.lens (proposalId :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Text) (\s a -> s {proposalId = a} :: AcceptDirectConnectGatewayAssociationProposal)
 {-# DEPRECATED adcgapProposalId "Use generic-lens or generic-optics with 'proposalId' instead." #-}
 
--- | The ID of the AWS account that owns the virtual private gateway or transit gateway.
+-- | Overrides the Amazon VPC prefixes advertised to the Direct Connect gateway.
 --
--- /Note:/ Consider using 'associatedGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcgapAssociatedGatewayOwnerAccount :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Lude.Text
-adcgapAssociatedGatewayOwnerAccount = Lens.lens (associatedGatewayOwnerAccount :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Text) (\s a -> s {associatedGatewayOwnerAccount = a} :: AcceptDirectConnectGatewayAssociationProposal)
-{-# DEPRECATED adcgapAssociatedGatewayOwnerAccount "Use generic-lens or generic-optics with 'associatedGatewayOwnerAccount' instead." #-}
+-- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
+--
+-- /Note:/ Consider using 'overrideAllowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adcgapOverrideAllowedPrefixesToDirectConnectGateway :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal (Lude.Maybe [RouteFilterPrefix])
+adcgapOverrideAllowedPrefixesToDirectConnectGateway = Lens.lens (overrideAllowedPrefixesToDirectConnectGateway :: AcceptDirectConnectGatewayAssociationProposal -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {overrideAllowedPrefixesToDirectConnectGateway = a} :: AcceptDirectConnectGatewayAssociationProposal)
+{-# DEPRECATED adcgapOverrideAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'overrideAllowedPrefixesToDirectConnectGateway' instead." #-}
 
 instance
   Lude.AWSRequest
@@ -160,15 +153,15 @@ instance Lude.ToJSON AcceptDirectConnectGatewayAssociationProposal where
   toJSON AcceptDirectConnectGatewayAssociationProposal' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("overrideAllowedPrefixesToDirectConnectGateway" Lude..=)
-              Lude.<$> overrideAllowedPrefixesToDirectConnectGateway,
+          [ Lude.Just
+              ( "associatedGatewayOwnerAccount"
+                  Lude..= associatedGatewayOwnerAccount
+              ),
             Lude.Just
               ("directConnectGatewayId" Lude..= directConnectGatewayId),
             Lude.Just ("proposalId" Lude..= proposalId),
-            Lude.Just
-              ( "associatedGatewayOwnerAccount"
-                  Lude..= associatedGatewayOwnerAccount
-              )
+            ("overrideAllowedPrefixesToDirectConnectGateway" Lude..=)
+              Lude.<$> overrideAllowedPrefixesToDirectConnectGateway
           ]
       )
 
@@ -180,27 +173,16 @@ instance Lude.ToQuery AcceptDirectConnectGatewayAssociationProposal where
 
 -- | /See:/ 'mkAcceptDirectConnectGatewayAssociationProposalResponse' smart constructor.
 data AcceptDirectConnectGatewayAssociationProposalResponse = AcceptDirectConnectGatewayAssociationProposalResponse'
-  { directConnectGatewayAssociation ::
-      Lude.Maybe
-        DirectConnectGatewayAssociation,
-    responseStatus ::
-      Lude.Int
+  { directConnectGatewayAssociation :: Lude.Maybe DirectConnectGatewayAssociation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptDirectConnectGatewayAssociationProposalResponse' with the minimum fields required to make a request.
 --
--- * 'directConnectGatewayAssociation' - Undocumented field.
+-- * 'directConnectGatewayAssociation' -
 -- * 'responseStatus' - The response status code.
 mkAcceptDirectConnectGatewayAssociationProposalResponse ::
   -- | 'responseStatus'

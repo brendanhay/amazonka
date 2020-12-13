@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.AutoScalingPlans.CreateScalingPlan
     mkCreateScalingPlan,
 
     -- ** Request lenses
+    cspScalingInstructions,
     cspScalingPlanName,
     cspApplicationSource,
-    cspScalingInstructions,
 
     -- * Destructuring the response
     CreateScalingPlanResponse (..),
     mkCreateScalingPlanResponse,
 
     -- ** Response lenses
-    csprsResponseStatus,
     csprsScalingPlanVersion,
+    csprsResponseStatus,
   )
 where
 
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateScalingPlan' smart constructor.
 data CreateScalingPlan = CreateScalingPlan'
-  { scalingPlanName ::
-      Lude.Text,
-    applicationSource :: ApplicationSource,
-    scalingInstructions :: [ScalingInstruction]
+  { -- | The scaling instructions.
+    scalingInstructions :: [ScalingInstruction],
+    -- | The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+    scalingPlanName :: Lude.Text,
+    -- | A CloudFormation stack or set of tags. You can create one scaling plan per application source.
+    applicationSource :: ApplicationSource
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateScalingPlan' with the minimum fields required to make a request.
 --
--- * 'applicationSource' - A CloudFormation stack or set of tags. You can create one scaling plan per application source.
 -- * 'scalingInstructions' - The scaling instructions.
 -- * 'scalingPlanName' - The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+-- * 'applicationSource' - A CloudFormation stack or set of tags. You can create one scaling plan per application source.
 mkCreateScalingPlan ::
   -- | 'scalingPlanName'
   Lude.Text ->
@@ -68,10 +65,17 @@ mkCreateScalingPlan ::
   CreateScalingPlan
 mkCreateScalingPlan pScalingPlanName_ pApplicationSource_ =
   CreateScalingPlan'
-    { scalingPlanName = pScalingPlanName_,
-      applicationSource = pApplicationSource_,
-      scalingInstructions = Lude.mempty
+    { scalingInstructions = Lude.mempty,
+      scalingPlanName = pScalingPlanName_,
+      applicationSource = pApplicationSource_
     }
+
+-- | The scaling instructions.
+--
+-- /Note:/ Consider using 'scalingInstructions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cspScalingInstructions :: Lens.Lens' CreateScalingPlan [ScalingInstruction]
+cspScalingInstructions = Lens.lens (scalingInstructions :: CreateScalingPlan -> [ScalingInstruction]) (\s a -> s {scalingInstructions = a} :: CreateScalingPlan)
+{-# DEPRECATED cspScalingInstructions "Use generic-lens or generic-optics with 'scalingInstructions' instead." #-}
 
 -- | The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 --
@@ -87,13 +91,6 @@ cspApplicationSource :: Lens.Lens' CreateScalingPlan ApplicationSource
 cspApplicationSource = Lens.lens (applicationSource :: CreateScalingPlan -> ApplicationSource) (\s a -> s {applicationSource = a} :: CreateScalingPlan)
 {-# DEPRECATED cspApplicationSource "Use generic-lens or generic-optics with 'applicationSource' instead." #-}
 
--- | The scaling instructions.
---
--- /Note:/ Consider using 'scalingInstructions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cspScalingInstructions :: Lens.Lens' CreateScalingPlan [ScalingInstruction]
-cspScalingInstructions = Lens.lens (scalingInstructions :: CreateScalingPlan -> [ScalingInstruction]) (\s a -> s {scalingInstructions = a} :: CreateScalingPlan)
-{-# DEPRECATED cspScalingInstructions "Use generic-lens or generic-optics with 'scalingInstructions' instead." #-}
-
 instance Lude.AWSRequest CreateScalingPlan where
   type Rs CreateScalingPlan = CreateScalingPlanResponse
   request = Req.postJSON autoScalingPlansService
@@ -101,8 +98,8 @@ instance Lude.AWSRequest CreateScalingPlan where
     Res.receiveJSON
       ( \s h x ->
           CreateScalingPlanResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ScalingPlanVersion")
+            Lude.<$> (x Lude..:> "ScalingPlanVersion")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateScalingPlan where
@@ -122,9 +119,9 @@ instance Lude.ToJSON CreateScalingPlan where
   toJSON CreateScalingPlan' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ScalingPlanName" Lude..= scalingPlanName),
-            Lude.Just ("ApplicationSource" Lude..= applicationSource),
-            Lude.Just ("ScalingInstructions" Lude..= scalingInstructions)
+          [ Lude.Just ("ScalingInstructions" Lude..= scalingInstructions),
+            Lude.Just ("ScalingPlanName" Lude..= scalingPlanName),
+            Lude.Just ("ApplicationSource" Lude..= applicationSource)
           ]
       )
 
@@ -136,43 +133,34 @@ instance Lude.ToQuery CreateScalingPlan where
 
 -- | /See:/ 'mkCreateScalingPlanResponse' smart constructor.
 data CreateScalingPlanResponse = CreateScalingPlanResponse'
-  { responseStatus ::
-      Lude.Int,
-    scalingPlanVersion :: Lude.Integer
+  { -- | The version number of the scaling plan. This value is always 1.
+    --
+    -- Currently, you cannot specify multiple scaling plan versions.
+    scalingPlanVersion :: Lude.Integer,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateScalingPlanResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'scalingPlanVersion' - The version number of the scaling plan. This value is always 1.
 --
 -- Currently, you cannot specify multiple scaling plan versions.
+-- * 'responseStatus' - The response status code.
 mkCreateScalingPlanResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'scalingPlanVersion'
   Lude.Integer ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateScalingPlanResponse
-mkCreateScalingPlanResponse pResponseStatus_ pScalingPlanVersion_ =
+mkCreateScalingPlanResponse pScalingPlanVersion_ pResponseStatus_ =
   CreateScalingPlanResponse'
-    { responseStatus = pResponseStatus_,
-      scalingPlanVersion = pScalingPlanVersion_
+    { scalingPlanVersion =
+        pScalingPlanVersion_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csprsResponseStatus :: Lens.Lens' CreateScalingPlanResponse Lude.Int
-csprsResponseStatus = Lens.lens (responseStatus :: CreateScalingPlanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateScalingPlanResponse)
-{-# DEPRECATED csprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The version number of the scaling plan. This value is always 1.
 --
@@ -182,3 +170,10 @@ csprsResponseStatus = Lens.lens (responseStatus :: CreateScalingPlanResponse -> 
 csprsScalingPlanVersion :: Lens.Lens' CreateScalingPlanResponse Lude.Integer
 csprsScalingPlanVersion = Lens.lens (scalingPlanVersion :: CreateScalingPlanResponse -> Lude.Integer) (\s a -> s {scalingPlanVersion = a} :: CreateScalingPlanResponse)
 {-# DEPRECATED csprsScalingPlanVersion "Use generic-lens or generic-optics with 'scalingPlanVersion' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csprsResponseStatus :: Lens.Lens' CreateScalingPlanResponse Lude.Int
+csprsResponseStatus = Lens.lens (responseStatus :: CreateScalingPlanResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateScalingPlanResponse)
+{-# DEPRECATED csprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

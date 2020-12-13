@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.ELBv2.SetSecurityGroups
     mkSetSecurityGroups,
 
     -- ** Request lenses
-    ssgLoadBalancerARN,
     ssgSecurityGroups,
+    ssgLoadBalancerARN,
 
     -- * Destructuring the response
     SetSecurityGroupsResponse (..),
@@ -42,39 +43,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetSecurityGroups' smart constructor.
 data SetSecurityGroups = SetSecurityGroups'
-  { loadBalancerARN ::
-      Lude.Text,
-    securityGroups :: [Lude.Text]
+  { -- | The IDs of the security groups.
+    securityGroups :: [Lude.Text],
+    -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetSecurityGroups' with the minimum fields required to make a request.
 --
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 -- * 'securityGroups' - The IDs of the security groups.
+-- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
 mkSetSecurityGroups ::
   -- | 'loadBalancerARN'
   Lude.Text ->
   SetSecurityGroups
 mkSetSecurityGroups pLoadBalancerARN_ =
   SetSecurityGroups'
-    { loadBalancerARN = pLoadBalancerARN_,
-      securityGroups = Lude.mempty
+    { securityGroups = Lude.mempty,
+      loadBalancerARN = pLoadBalancerARN_
     }
-
--- | The Amazon Resource Name (ARN) of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgLoadBalancerARN :: Lens.Lens' SetSecurityGroups Lude.Text
-ssgLoadBalancerARN = Lens.lens (loadBalancerARN :: SetSecurityGroups -> Lude.Text) (\s a -> s {loadBalancerARN = a} :: SetSecurityGroups)
-{-# DEPRECATED ssgLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
 
 -- | The IDs of the security groups.
 --
@@ -82,6 +71,13 @@ ssgLoadBalancerARN = Lens.lens (loadBalancerARN :: SetSecurityGroups -> Lude.Tex
 ssgSecurityGroups :: Lens.Lens' SetSecurityGroups [Lude.Text]
 ssgSecurityGroups = Lens.lens (securityGroups :: SetSecurityGroups -> [Lude.Text]) (\s a -> s {securityGroups = a} :: SetSecurityGroups)
 {-# DEPRECATED ssgSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the load balancer.
+--
+-- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgLoadBalancerARN :: Lens.Lens' SetSecurityGroups Lude.Text
+ssgLoadBalancerARN = Lens.lens (loadBalancerARN :: SetSecurityGroups -> Lude.Text) (\s a -> s {loadBalancerARN = a} :: SetSecurityGroups)
+{-# DEPRECATED ssgLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
 
 instance Lude.AWSRequest SetSecurityGroups where
   type Rs SetSecurityGroups = SetSecurityGroupsResponse
@@ -108,29 +104,24 @@ instance Lude.ToQuery SetSecurityGroups where
     Lude.mconcat
       [ "Action" Lude.=: ("SetSecurityGroups" :: Lude.ByteString),
         "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "LoadBalancerArn" Lude.=: loadBalancerARN,
-        "SecurityGroups" Lude.=: Lude.toQueryList "member" securityGroups
+        "SecurityGroups" Lude.=: Lude.toQueryList "member" securityGroups,
+        "LoadBalancerArn" Lude.=: loadBalancerARN
       ]
 
 -- | /See:/ 'mkSetSecurityGroupsResponse' smart constructor.
 data SetSecurityGroupsResponse = SetSecurityGroupsResponse'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IDs of the security groups associated with the load balancer.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetSecurityGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'securityGroupIds' - The IDs of the security groups associated with the load balancer.
+-- * 'responseStatus' - The response status code.
 mkSetSecurityGroupsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

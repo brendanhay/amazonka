@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.ObjectLockMode
   ( ObjectLockMode
       ( ObjectLockMode',
-        Compliance,
-        Governance
+        Governance,
+        Compliance
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ObjectLockMode = ObjectLockMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Compliance :: ObjectLockMode
-pattern Compliance = ObjectLockMode' "COMPLIANCE"
-
 pattern Governance :: ObjectLockMode
 pattern Governance = ObjectLockMode' "GOVERNANCE"
 
+pattern Compliance :: ObjectLockMode
+pattern Compliance = ObjectLockMode' "COMPLIANCE"
+
 {-# COMPLETE
-  Compliance,
   Governance,
+  Compliance,
   ObjectLockMode'
   #-}

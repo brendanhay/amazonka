@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProductViewAggregationValue' smart constructor.
 data ProductViewAggregationValue = ProductViewAggregationValue'
-  { value ::
-      Lude.Maybe Lude.Text,
-    approximateCount ::
-      Lude.Maybe Lude.Int
+  { -- | The value of the product view aggregation.
+    value :: Lude.Maybe Lude.Text,
+    -- | An approximate count of the products that match the value.
+    approximateCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProductViewAggregationValue' with the minimum fields required to make a request.
 --
--- * 'approximateCount' - An approximate count of the products that match the value.
 -- * 'value' - The value of the product view aggregation.
+-- * 'approximateCount' - An approximate count of the products that match the value.
 mkProductViewAggregationValue ::
   ProductViewAggregationValue
 mkProductViewAggregationValue =

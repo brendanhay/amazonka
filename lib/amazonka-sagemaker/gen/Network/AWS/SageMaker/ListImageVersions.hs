@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,9 +28,9 @@ module Network.AWS.SageMaker.ListImageVersions
     livSortOrder,
     livLastModifiedTimeAfter,
     livCreationTimeBefore,
+    livImageName,
     livMaxResults,
     livSortBy,
-    livImageName,
 
     -- * Destructuring the response
     ListImageVersionsResponse (..),
@@ -51,37 +52,39 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListImageVersions' smart constructor.
 data ListImageVersions = ListImageVersions'
-  { lastModifiedTimeBefore ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | A filter that returns only versions modified on or before the specified time.
+    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only versions created on or after the specified time.
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the previous call to @ListImageVersions@ didn't return the full set of versions, the call returns a token for getting the next set of versions.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order. The default value is @DESCENDING@ .
     sortOrder :: Lude.Maybe ImageVersionSortOrder,
+    -- | A filter that returns only versions modified on or after the specified time.
     lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only versions created on or before the specified time.
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the image to list the versions of.
+    imageName :: Lude.Text,
+    -- | The maximum number of versions to return in the response. The default value is 10.
     maxResults :: Lude.Maybe Lude.Natural,
-    sortBy :: Lude.Maybe ImageVersionSortBy,
-    imageName :: Lude.Text
+    -- | The property used to sort results. The default value is @CREATION_TIME@ .
+    sortBy :: Lude.Maybe ImageVersionSortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImageVersions' with the minimum fields required to make a request.
 --
+-- * 'lastModifiedTimeBefore' - A filter that returns only versions modified on or before the specified time.
 -- * 'creationTimeAfter' - A filter that returns only versions created on or after the specified time.
+-- * 'nextToken' - If the previous call to @ListImageVersions@ didn't return the full set of versions, the call returns a token for getting the next set of versions.
+-- * 'sortOrder' - The sort order. The default value is @DESCENDING@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns only versions modified on or after the specified time.
 -- * 'creationTimeBefore' - A filter that returns only versions created on or before the specified time.
 -- * 'imageName' - The name of the image to list the versions of.
--- * 'lastModifiedTimeAfter' - A filter that returns only versions modified on or after the specified time.
--- * 'lastModifiedTimeBefore' - A filter that returns only versions modified on or before the specified time.
 -- * 'maxResults' - The maximum number of versions to return in the response. The default value is 10.
--- * 'nextToken' - If the previous call to @ListImageVersions@ didn't return the full set of versions, the call returns a token for getting the next set of versions.
 -- * 'sortBy' - The property used to sort results. The default value is @CREATION_TIME@ .
--- * 'sortOrder' - The sort order. The default value is @DESCENDING@ .
 mkListImageVersions ::
   -- | 'imageName'
   Lude.Text ->
@@ -94,9 +97,9 @@ mkListImageVersions pImageName_ =
       sortOrder = Lude.Nothing,
       lastModifiedTimeAfter = Lude.Nothing,
       creationTimeBefore = Lude.Nothing,
+      imageName = pImageName_,
       maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing,
-      imageName = pImageName_
+      sortBy = Lude.Nothing
     }
 
 -- | A filter that returns only versions modified on or before the specified time.
@@ -141,6 +144,13 @@ livCreationTimeBefore :: Lens.Lens' ListImageVersions (Lude.Maybe Lude.Timestamp
 livCreationTimeBefore = Lens.lens (creationTimeBefore :: ListImageVersions -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListImageVersions)
 {-# DEPRECATED livCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
+-- | The name of the image to list the versions of.
+--
+-- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+livImageName :: Lens.Lens' ListImageVersions Lude.Text
+livImageName = Lens.lens (imageName :: ListImageVersions -> Lude.Text) (\s a -> s {imageName = a} :: ListImageVersions)
+{-# DEPRECATED livImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+
 -- | The maximum number of versions to return in the response. The default value is 10.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -154,13 +164,6 @@ livMaxResults = Lens.lens (maxResults :: ListImageVersions -> Lude.Maybe Lude.Na
 livSortBy :: Lens.Lens' ListImageVersions (Lude.Maybe ImageVersionSortBy)
 livSortBy = Lens.lens (sortBy :: ListImageVersions -> Lude.Maybe ImageVersionSortBy) (\s a -> s {sortBy = a} :: ListImageVersions)
 {-# DEPRECATED livSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
-
--- | The name of the image to list the versions of.
---
--- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-livImageName :: Lens.Lens' ListImageVersions Lude.Text
-livImageName = Lens.lens (imageName :: ListImageVersions -> Lude.Text) (\s a -> s {imageName = a} :: ListImageVersions)
-{-# DEPRECATED livImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
 instance Page.AWSPager ListImageVersions where
   page rq rs
@@ -205,9 +208,9 @@ instance Lude.ToJSON ListImageVersions where
             ("SortOrder" Lude..=) Lude.<$> sortOrder,
             ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
             ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
+            Lude.Just ("ImageName" Lude..= imageName),
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy,
-            Lude.Just ("ImageName" Lude..= imageName)
+            ("SortBy" Lude..=) Lude.<$> sortBy
           ]
       )
 
@@ -219,25 +222,20 @@ instance Lude.ToQuery ListImageVersions where
 
 -- | /See:/ 'mkListImageVersionsResponse' smart constructor.
 data ListImageVersionsResponse = ListImageVersionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    imageVersions ::
-      Lude.Maybe [ImageVersion],
+  { -- | A token for getting the next set of versions, if there are any.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of versions and their properties.
+    imageVersions :: Lude.Maybe [ImageVersion],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListImageVersionsResponse' with the minimum fields required to make a request.
 --
--- * 'imageVersions' - A list of versions and their properties.
 -- * 'nextToken' - A token for getting the next set of versions, if there are any.
+-- * 'imageVersions' - A list of versions and their properties.
 -- * 'responseStatus' - The response status code.
 mkListImageVersionsResponse ::
   -- | 'responseStatus'

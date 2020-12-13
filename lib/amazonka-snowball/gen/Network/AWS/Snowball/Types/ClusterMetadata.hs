@@ -48,44 +48,59 @@ import Network.AWS.Snowball.Types.TaxDocuments
 --
 -- /See:/ 'mkClusterMetadata' smart constructor.
 data ClusterMetadata = ClusterMetadata'
-  { jobType ::
-      Lude.Maybe JobType,
+  { -- | The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
+    jobType :: Lude.Maybe JobType,
+    -- | The @KmsKeyARN@ Amazon Resource Name (ARN) associated with this cluster. This ARN was created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
     kmsKeyARN :: Lude.Maybe Lude.Text,
+    -- | The current status of the cluster.
     clusterState :: Lude.Maybe ClusterState,
+    -- | The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
     notification :: Lude.Maybe Notification,
+    -- | The ID of the address that you want a cluster shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
     forwardingAddressId :: Lude.Maybe Lude.Text,
+    -- | The automatically generated ID for a specific address.
     addressId :: Lude.Maybe Lude.Text,
+    -- | The type of AWS Snow device to use for this cluster.
     snowballType :: Lude.Maybe SnowballType,
+    -- | The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
+    --
+    --
+    --     * In Australia, you have access to express shipping. Typically, devices shipped express are delivered in about a day.
+    --
+    --
+    --     * In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.
+    --
+    --
+    --     * In India, Snow devices are delivered in one to seven days.
+    --
+    --
+    --     * In the US, you have access to one-day shipping and two-day shipping.
     shippingOption :: Lude.Maybe ShippingOption,
+    -- | The arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
     resources :: Lude.Maybe JobResource,
+    -- | The automatically generated ID for a cluster.
     clusterId :: Lude.Maybe Lude.Text,
+    -- | The creation date for this cluster.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The optional description of the cluster.
     description :: Lude.Maybe Lude.Text,
+    -- | The tax documents required in your AWS Region.
     taxDocuments :: Lude.Maybe TaxDocuments,
+    -- | The role ARN associated with this cluster. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterMetadata' with the minimum fields required to make a request.
 --
--- * 'addressId' - The automatically generated ID for a specific address.
--- * 'clusterId' - The automatically generated ID for a cluster.
--- * 'clusterState' - The current status of the cluster.
--- * 'creationDate' - The creation date for this cluster.
--- * 'description' - The optional description of the cluster.
--- * 'forwardingAddressId' - The ID of the address that you want a cluster shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
 -- * 'jobType' - The type of job for this cluster. Currently, the only job type supported for clusters is @LOCAL_USE@ .
 -- * 'kmsKeyARN' - The @KmsKeyARN@ Amazon Resource Name (ARN) associated with this cluster. This ARN was created using the <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey> API action in AWS Key Management Service (AWS KMS).
+-- * 'clusterState' - The current status of the cluster.
 -- * 'notification' - The Amazon Simple Notification Service (Amazon SNS) notification settings for this cluster.
--- * 'resources' - The arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
--- * 'roleARN' - The role ARN associated with this cluster. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+-- * 'forwardingAddressId' - The ID of the address that you want a cluster shipped to, after it will be shipped to its primary address. This field is not supported in most regions.
+-- * 'addressId' - The automatically generated ID for a specific address.
+-- * 'snowballType' - The type of AWS Snow device to use for this cluster.
 -- * 'shippingOption' - The shipping speed for each node in this cluster. This speed doesn't dictate how soon you'll get each device, rather it represents how quickly each device moves to its destination while in transit. Regional shipping speeds are as follows:
 --
 --
@@ -101,8 +116,12 @@ data ClusterMetadata = ClusterMetadata'
 --     * In the US, you have access to one-day shipping and two-day shipping.
 --
 --
--- * 'snowballType' - The type of AWS Snow device to use for this cluster.
+-- * 'resources' - The arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
+-- * 'clusterId' - The automatically generated ID for a cluster.
+-- * 'creationDate' - The creation date for this cluster.
+-- * 'description' - The optional description of the cluster.
 -- * 'taxDocuments' - The tax documents required in your AWS Region.
+-- * 'roleARN' - The role ARN associated with this cluster. This ARN was created using the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 mkClusterMetadata ::
   ClusterMetadata
 mkClusterMetadata =

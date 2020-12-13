@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes the information used to reboot a WorkSpace.
 --
 -- /See:/ 'mkRebootRequest' smart constructor.
-newtype RebootRequest = RebootRequest' {workspaceId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype RebootRequest = RebootRequest'
+  { -- | The identifier of the WorkSpace.
+    workspaceId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootRequest' with the minimum fields required to make a request.

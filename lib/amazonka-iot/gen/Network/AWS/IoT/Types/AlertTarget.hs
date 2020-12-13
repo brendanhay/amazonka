@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAlertTarget' smart constructor.
 data AlertTarget = AlertTarget'
-  { alertTargetARN :: Lude.Text,
+  { -- | The ARN of the notification target to which alerts are sent.
+    alertTargetARN :: Lude.Text,
+    -- | The ARN of the role that grants permission to send alerts to the notification target.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AlertTarget' with the minimum fields required to make a request.

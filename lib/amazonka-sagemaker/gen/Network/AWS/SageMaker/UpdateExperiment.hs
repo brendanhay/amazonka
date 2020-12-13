@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.SageMaker.UpdateExperiment
     mkUpdateExperiment,
 
     -- ** Request lenses
+    ueExperimentName,
     ueDisplayName,
     ueDescription,
-    ueExperimentName,
 
     -- * Destructuring the response
     UpdateExperimentResponse (..),
@@ -41,35 +42,38 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkUpdateExperiment' smart constructor.
 data UpdateExperiment = UpdateExperiment'
-  { displayName ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    experimentName :: Lude.Text
+  { -- | The name of the experiment to update.
+    experimentName :: Lude.Text,
+    -- | The name of the experiment as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
+    displayName :: Lude.Maybe Lude.Text,
+    -- | The description of the experiment.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateExperiment' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the experiment.
--- * 'displayName' - The name of the experiment as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
 -- * 'experimentName' - The name of the experiment to update.
+-- * 'displayName' - The name of the experiment as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
+-- * 'description' - The description of the experiment.
 mkUpdateExperiment ::
   -- | 'experimentName'
   Lude.Text ->
   UpdateExperiment
 mkUpdateExperiment pExperimentName_ =
   UpdateExperiment'
-    { displayName = Lude.Nothing,
-      description = Lude.Nothing,
-      experimentName = pExperimentName_
+    { experimentName = pExperimentName_,
+      displayName = Lude.Nothing,
+      description = Lude.Nothing
     }
+
+-- | The name of the experiment to update.
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ueExperimentName :: Lens.Lens' UpdateExperiment Lude.Text
+ueExperimentName = Lens.lens (experimentName :: UpdateExperiment -> Lude.Text) (\s a -> s {experimentName = a} :: UpdateExperiment)
+{-# DEPRECATED ueExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | The name of the experiment as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
 --
@@ -84,13 +88,6 @@ ueDisplayName = Lens.lens (displayName :: UpdateExperiment -> Lude.Maybe Lude.Te
 ueDescription :: Lens.Lens' UpdateExperiment (Lude.Maybe Lude.Text)
 ueDescription = Lens.lens (description :: UpdateExperiment -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateExperiment)
 {-# DEPRECATED ueDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The name of the experiment to update.
---
--- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ueExperimentName :: Lens.Lens' UpdateExperiment Lude.Text
-ueExperimentName = Lens.lens (experimentName :: UpdateExperiment -> Lude.Text) (\s a -> s {experimentName = a} :: UpdateExperiment)
-{-# DEPRECATED ueExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 instance Lude.AWSRequest UpdateExperiment where
   type Rs UpdateExperiment = UpdateExperimentResponse
@@ -118,9 +115,9 @@ instance Lude.ToJSON UpdateExperiment where
   toJSON UpdateExperiment' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DisplayName" Lude..=) Lude.<$> displayName,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("ExperimentName" Lude..= experimentName)
+          [ Lude.Just ("ExperimentName" Lude..= experimentName),
+            ("DisplayName" Lude..=) Lude.<$> displayName,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -132,17 +129,12 @@ instance Lude.ToQuery UpdateExperiment where
 
 -- | /See:/ 'mkUpdateExperimentResponse' smart constructor.
 data UpdateExperimentResponse = UpdateExperimentResponse'
-  { experimentARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the experiment.
+    experimentARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateExperimentResponse' with the minimum fields required to make a request.

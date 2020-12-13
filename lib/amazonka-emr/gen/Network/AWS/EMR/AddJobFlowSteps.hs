@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,16 +48,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
-  { jobFlowId :: Lude.Text,
+  { -- | A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' .
+    jobFlowId :: Lude.Text,
+    -- | A list of 'StepConfig' to be executed by the job flow.
     steps :: [StepConfig]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddJobFlowSteps' with the minimum fields required to make a request.
@@ -125,23 +122,18 @@ instance Lude.ToQuery AddJobFlowSteps where
 --
 -- /See:/ 'mkAddJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
-  { stepIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The identifiers of the list of steps added to the job flow.
+    stepIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddJobFlowStepsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'stepIds' - The identifiers of the list of steps added to the job flow.
+-- * 'responseStatus' - The response status code.
 mkAddJobFlowStepsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

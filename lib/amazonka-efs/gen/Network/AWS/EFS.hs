@@ -137,27 +137,27 @@ module Network.AWS.EFS
     -- ** CreationInfo
     CreationInfo (..),
     mkCreationInfo,
-    ciOwnerUid,
     ciOwnerGid,
     ciPermissions,
+    ciOwnerUid,
 
     -- ** FileSystemDescription
     FileSystemDescription (..),
     mkFileSystemDescription,
+    fsdCreationTime,
+    fsdNumberOfMountTargets,
     fsdProvisionedThroughputInMibps,
+    fsdPerformanceMode,
+    fsdSizeInBytes,
+    fsdFileSystemId,
     fsdFileSystemARN,
     fsdEncrypted,
     fsdThroughputMode,
+    fsdOwnerId,
     fsdKMSKeyId,
     fsdName,
-    fsdOwnerId,
     fsdCreationToken,
-    fsdFileSystemId,
-    fsdCreationTime,
     fsdLifeCycleState,
-    fsdNumberOfMountTargets,
-    fsdSizeInBytes,
-    fsdPerformanceMode,
     fsdTags,
 
     -- ** FileSystemPolicyDescription
@@ -169,10 +169,10 @@ module Network.AWS.EFS
     -- ** FileSystemSize
     FileSystemSize (..),
     mkFileSystemSize,
+    fssValue,
     fssValueInIA,
     fssValueInStandard,
     fssTimestamp,
-    fssValue,
 
     -- ** LifecycleConfigurationDescription
     LifecycleConfigurationDescription (..),
@@ -192,17 +192,17 @@ module Network.AWS.EFS
     mtdVPCId,
     mtdAvailabilityZoneName,
     mtdNetworkInterfaceId,
-    mtdOwnerId,
-    mtdMountTargetId,
     mtdFileSystemId,
     mtdSubnetId,
+    mtdOwnerId,
     mtdLifeCycleState,
+    mtdMountTargetId,
 
     -- ** PosixUser
     PosixUser (..),
     mkPosixUser,
-    puSecondaryGids,
     puUid,
+    puSecondaryGids,
     puGid,
 
     -- ** RootDirectory
@@ -214,8 +214,8 @@ module Network.AWS.EFS
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * Serialization types
     Lude.Base64 (..),

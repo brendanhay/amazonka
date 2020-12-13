@@ -37,33 +37,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLogsLocation' smart constructor.
 data LogsLocation = LogsLocation'
-  { deepLink :: Lude.Maybe Lude.Text,
+  { -- | The URL to an individual build log in Amazon CloudWatch Logs.
+    deepLink :: Lude.Maybe Lude.Text,
+    -- | Information about S3 logs for a build project.
     s3Logs :: Lude.Maybe S3LogsConfig,
+    -- | Information about Amazon CloudWatch Logs for a build project.
     cloudWatchLogs :: Lude.Maybe CloudWatchLogsConfig,
+    -- | The URL to a build log in an S3 bucket.
     s3DeepLink :: Lude.Maybe Lude.Text,
+    -- | The ARN of S3 logs for a build project. Its format is @arn:${Partition}:s3:::${BucketName}/${ObjectName}@ . For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html#amazons3-resources-for-iam-policies Resources Defined by Amazon S3> .
     s3LogsARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of Amazon CloudWatch Logs for a build project. Its format is @arn:${Partition}:logs:${Region}:${Account}:log-group:${LogGroupName}:log-stream:${LogStreamName}@ . For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies Resources Defined by Amazon CloudWatch Logs> .
     cloudWatchLogsARN :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon CloudWatch Logs group for the build logs.
     groupName :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon CloudWatch Logs stream for the build logs.
     streamName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LogsLocation' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogs' - Information about Amazon CloudWatch Logs for a build project.
--- * 'cloudWatchLogsARN' - The ARN of Amazon CloudWatch Logs for a build project. Its format is @arn:${Partition}:logs:${Region}:${Account}:log-group:${LogGroupName}:log-stream:${LogStreamName}@ . For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies Resources Defined by Amazon CloudWatch Logs> .
 -- * 'deepLink' - The URL to an individual build log in Amazon CloudWatch Logs.
--- * 'groupName' - The name of the Amazon CloudWatch Logs group for the build logs.
--- * 's3DeepLink' - The URL to a build log in an S3 bucket.
 -- * 's3Logs' - Information about S3 logs for a build project.
+-- * 'cloudWatchLogs' - Information about Amazon CloudWatch Logs for a build project.
+-- * 's3DeepLink' - The URL to a build log in an S3 bucket.
 -- * 's3LogsARN' - The ARN of S3 logs for a build project. Its format is @arn:${Partition}:s3:::${BucketName}/${ObjectName}@ . For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html#amazons3-resources-for-iam-policies Resources Defined by Amazon S3> .
+-- * 'cloudWatchLogsARN' - The ARN of Amazon CloudWatch Logs for a build project. Its format is @arn:${Partition}:logs:${Region}:${Account}:log-group:${LogGroupName}:log-stream:${LogStreamName}@ . For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies Resources Defined by Amazon CloudWatch Logs> .
+-- * 'groupName' - The name of the Amazon CloudWatch Logs group for the build logs.
 -- * 'streamName' - The name of the Amazon CloudWatch Logs stream for the build logs.
 mkLogsLocation ::
   LogsLocation

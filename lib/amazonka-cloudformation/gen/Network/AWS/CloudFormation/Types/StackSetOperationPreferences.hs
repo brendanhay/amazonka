@@ -34,35 +34,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackSetOperationPreferences' smart constructor.
 data StackSetOperationPreferences = StackSetOperationPreferences'
-  { regionOrder ::
-      Lude.Maybe [Lude.Text],
-    maxConcurrentCount ::
-      Lude.Maybe Lude.Natural,
-    maxConcurrentPercentage ::
-      Lude.Maybe Lude.Natural,
-    failureToleranceCount ::
-      Lude.Maybe Lude.Natural,
-    failureTolerancePercentage ::
-      Lude.Maybe Lude.Natural
+  { -- | The order of the Regions in where you want to perform the stack operation.
+    regionOrder :: Lude.Maybe [Lude.Text],
+    -- | The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ . @MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ .
+    --
+    -- Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+    -- Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+    maxConcurrentCount :: Lude.Maybe Lude.Natural,
+    -- | The maximum percentage of accounts in which to perform this operation at one time.
+    --
+    -- When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+    -- Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
+    -- Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
+    maxConcurrentPercentage :: Lude.Maybe Lude.Natural,
+    -- | The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+    --
+    -- Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ (but not both).
+    failureToleranceCount :: Lude.Maybe Lude.Natural,
+    -- | The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+    --
+    -- When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds /down/ to the next whole number.
+    -- Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ , but not both.
+    failureTolerancePercentage :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackSetOperationPreferences' with the minimum fields required to make a request.
 --
--- * 'failureToleranceCount' - The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
---
--- Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ (but not both).
--- * 'failureTolerancePercentage' - The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
---
--- When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds /down/ to the next whole number.
--- Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ , but not both.
+-- * 'regionOrder' - The order of the Regions in where you want to perform the stack operation.
 -- * 'maxConcurrentCount' - The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of @FailureToleranceCount@ . @MaxConcurrentCount@ is at most one more than the @FailureToleranceCount@ .
 --
 -- Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
@@ -72,7 +72,13 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 -- When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
 -- Note that this setting lets you specify the /maximum/ for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 -- Conditional: You must specify either @MaxConcurrentCount@ or @MaxConcurrentPercentage@ , but not both.
--- * 'regionOrder' - The order of the Regions in where you want to perform the stack operation.
+-- * 'failureToleranceCount' - The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+--
+-- Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ (but not both).
+-- * 'failureTolerancePercentage' - The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+--
+-- When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds /down/ to the next whole number.
+-- Conditional: You must specify either @FailureToleranceCount@ or @FailureTolerancePercentage@ , but not both.
 mkStackSetOperationPreferences ::
   StackSetOperationPreferences
 mkStackSetOperationPreferences =

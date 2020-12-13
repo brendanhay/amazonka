@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CodePipeline.StartPipelineExecution
     mkStartPipelineExecution,
 
     -- ** Request lenses
-    speClientRequestToken,
     speName,
+    speClientRequestToken,
 
     -- * Destructuring the response
     StartPipelineExecutionResponse (..),
     mkStartPipelineExecutionResponse,
 
     -- ** Response lenses
-    spersPipelineExecutionId,
-    spersResponseStatus,
+    srsPipelineExecutionId,
+    srsResponseStatus,
   )
 where
 
@@ -42,39 +43,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStartPipelineExecution' smart constructor.
 data StartPipelineExecution = StartPipelineExecution'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    name :: Lude.Text
+  { -- | The name of the pipeline to start.
+    name :: Lude.Text,
+    -- | The system-generated unique ID used to identify a unique execution request.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineExecution' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - The system-generated unique ID used to identify a unique execution request.
 -- * 'name' - The name of the pipeline to start.
+-- * 'clientRequestToken' - The system-generated unique ID used to identify a unique execution request.
 mkStartPipelineExecution ::
   -- | 'name'
   Lude.Text ->
   StartPipelineExecution
 mkStartPipelineExecution pName_ =
   StartPipelineExecution'
-    { clientRequestToken = Lude.Nothing,
-      name = pName_
+    { name = pName_,
+      clientRequestToken = Lude.Nothing
     }
-
--- | The system-generated unique ID used to identify a unique execution request.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-speClientRequestToken :: Lens.Lens' StartPipelineExecution (Lude.Maybe Lude.Text)
-speClientRequestToken = Lens.lens (clientRequestToken :: StartPipelineExecution -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartPipelineExecution)
-{-# DEPRECATED speClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The name of the pipeline to start.
 --
@@ -82,6 +71,13 @@ speClientRequestToken = Lens.lens (clientRequestToken :: StartPipelineExecution 
 speName :: Lens.Lens' StartPipelineExecution Lude.Text
 speName = Lens.lens (name :: StartPipelineExecution -> Lude.Text) (\s a -> s {name = a} :: StartPipelineExecution)
 {-# DEPRECATED speName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The system-generated unique ID used to identify a unique execution request.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+speClientRequestToken :: Lens.Lens' StartPipelineExecution (Lude.Maybe Lude.Text)
+speClientRequestToken = Lens.lens (clientRequestToken :: StartPipelineExecution -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartPipelineExecution)
+{-# DEPRECATED speClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest StartPipelineExecution where
   type Rs StartPipelineExecution = StartPipelineExecutionResponse
@@ -111,8 +107,8 @@ instance Lude.ToJSON StartPipelineExecution where
   toJSON StartPipelineExecution' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("name" Lude..= name)
+          [ Lude.Just ("name" Lude..= name),
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -126,17 +122,12 @@ instance Lude.ToQuery StartPipelineExecution where
 --
 -- /See:/ 'mkStartPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
-  { pipelineExecutionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique system-generated ID of the pipeline execution that was started.
+    pipelineExecutionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartPipelineExecutionResponse' with the minimum fields required to make a request.
@@ -157,13 +148,13 @@ mkStartPipelineExecutionResponse pResponseStatus_ =
 -- | The unique system-generated ID of the pipeline execution that was started.
 --
 -- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spersPipelineExecutionId :: Lens.Lens' StartPipelineExecutionResponse (Lude.Maybe Lude.Text)
-spersPipelineExecutionId = Lens.lens (pipelineExecutionId :: StartPipelineExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StartPipelineExecutionResponse)
-{-# DEPRECATED spersPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
+srsPipelineExecutionId :: Lens.Lens' StartPipelineExecutionResponse (Lude.Maybe Lude.Text)
+srsPipelineExecutionId = Lens.lens (pipelineExecutionId :: StartPipelineExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: StartPipelineExecutionResponse)
+{-# DEPRECATED srsPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spersResponseStatus :: Lens.Lens' StartPipelineExecutionResponse Lude.Int
-spersResponseStatus = Lens.lens (responseStatus :: StartPipelineExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartPipelineExecutionResponse)
-{-# DEPRECATED spersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartPipelineExecutionResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartPipelineExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartPipelineExecutionResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

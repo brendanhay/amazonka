@@ -13,8 +13,8 @@
 module Network.AWS.Transcribe.Types.VocabularyFilterMethod
   ( VocabularyFilterMethod
       ( VocabularyFilterMethod',
-        Mask,
-        Remove
+        Remove,
+        Mask
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype VocabularyFilterMethod = VocabularyFilterMethod' Lude.Text
       Lude.ToHeader
     )
 
-pattern Mask :: VocabularyFilterMethod
-pattern Mask = VocabularyFilterMethod' "mask"
-
 pattern Remove :: VocabularyFilterMethod
 pattern Remove = VocabularyFilterMethod' "remove"
 
+pattern Mask :: VocabularyFilterMethod
+pattern Mask = VocabularyFilterMethod' "mask"
+
 {-# COMPLETE
-  Mask,
   Remove,
+  Mask,
   VocabularyFilterMethod'
   #-}

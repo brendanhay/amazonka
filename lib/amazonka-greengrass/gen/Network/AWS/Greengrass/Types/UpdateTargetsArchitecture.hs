@@ -13,10 +13,10 @@
 module Network.AWS.Greengrass.Types.UpdateTargetsArchitecture
   ( UpdateTargetsArchitecture
       ( UpdateTargetsArchitecture',
-        AARCH64,
         Armv6l,
         Armv7l,
-        X86_64
+        X86_64,
+        AARCH64
       ),
   )
 where
@@ -48,9 +48,6 @@ newtype UpdateTargetsArchitecture = UpdateTargetsArchitecture' Lude.Text
       Lude.ToHeader
     )
 
-pattern AARCH64 :: UpdateTargetsArchitecture
-pattern AARCH64 = UpdateTargetsArchitecture' "aarch64"
-
 pattern Armv6l :: UpdateTargetsArchitecture
 pattern Armv6l = UpdateTargetsArchitecture' "armv6l"
 
@@ -60,10 +57,13 @@ pattern Armv7l = UpdateTargetsArchitecture' "armv7l"
 pattern X86_64 :: UpdateTargetsArchitecture
 pattern X86_64 = UpdateTargetsArchitecture' "x86_64"
 
+pattern AARCH64 :: UpdateTargetsArchitecture
+pattern AARCH64 = UpdateTargetsArchitecture' "aarch64"
+
 {-# COMPLETE
-  AARCH64,
   Armv6l,
   Armv7l,
   X86_64,
+  AARCH64,
   UpdateTargetsArchitecture'
   #-}

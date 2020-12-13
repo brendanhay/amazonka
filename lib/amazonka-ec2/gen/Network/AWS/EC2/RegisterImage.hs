@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,11 +44,11 @@ module Network.AWS.EC2.RegisterImage
     riKernelId,
     riRootDeviceName,
     riSRIOVNetSupport,
+    riName,
     riArchitecture,
     riDescription,
     riBlockDeviceMappings,
     riDryRun,
-    riName,
 
     -- * Destructuring the response
     RegisterImageResponse (..),
@@ -69,56 +70,73 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRegisterImage' smart constructor.
 data RegisterImage = RegisterImage'
-  { virtualizationType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of virtualization (@hvm@ | @paravirtual@ ).
+    --
+    -- Default: @paravirtual@
+    virtualizationType :: Lude.Maybe Lude.Text,
+    -- | The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
     imageLocation :: Lude.Maybe Lude.Text,
+    -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.
+    --
+    -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
     enaSupport :: Lude.Maybe Lude.Bool,
+    -- | The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
     billingProducts :: Lude.Maybe [Lude.Text],
+    -- | The ID of the RAM disk.
     ramdiskId :: Lude.Maybe Lude.Text,
+    -- | The ID of the kernel.
     kernelId :: Lude.Maybe Lude.Text,
+    -- | The device name of the root device volume (for example, @/dev/sda1@ ).
     rootDeviceName :: Lude.Maybe Lude.Text,
+    -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.
+    --
+    -- There is no way to disable @sriovNetSupport@ at this time.
+    -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
     sriovNetSupport :: Lude.Maybe Lude.Text,
+    -- | A name for your AMI.
+    --
+    -- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+    name :: Lude.Text,
+    -- | The architecture of the AMI.
+    --
+    -- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
     architecture :: Lude.Maybe ArchitectureValues,
+    -- | A description for your AMI.
     description :: Lude.Maybe Lude.Text,
+    -- | The block device mapping entries.
     blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
-    dryRun :: Lude.Maybe Lude.Bool,
-    name :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterImage' with the minimum fields required to make a request.
 --
--- * 'architecture' - The architecture of the AMI.
+-- * 'virtualizationType' - The type of virtualization (@hvm@ | @paravirtual@ ).
 --
--- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
--- * 'billingProducts' - The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
--- * 'blockDeviceMappings' - The block device mapping entries.
--- * 'description' - A description for your AMI.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- Default: @paravirtual@
+-- * 'imageLocation' - The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
 -- * 'enaSupport' - Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.
 --
 -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
--- * 'imageLocation' - The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
--- * 'kernelId' - The ID of the kernel.
--- * 'name' - A name for your AMI.
---
--- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+-- * 'billingProducts' - The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
 -- * 'ramdiskId' - The ID of the RAM disk.
+-- * 'kernelId' - The ID of the kernel.
 -- * 'rootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
 -- * 'sriovNetSupport' - Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.
 --
 -- There is no way to disable @sriovNetSupport@ at this time.
 -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
--- * 'virtualizationType' - The type of virtualization (@hvm@ | @paravirtual@ ).
+-- * 'name' - A name for your AMI.
 --
--- Default: @paravirtual@
+-- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+-- * 'architecture' - The architecture of the AMI.
+--
+-- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
+-- * 'description' - A description for your AMI.
+-- * 'blockDeviceMappings' - The block device mapping entries.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRegisterImage ::
   -- | 'name'
   Lude.Text ->
@@ -133,11 +151,11 @@ mkRegisterImage pName_ =
       kernelId = Lude.Nothing,
       rootDeviceName = Lude.Nothing,
       sriovNetSupport = Lude.Nothing,
+      name = pName_,
       architecture = Lude.Nothing,
       description = Lude.Nothing,
       blockDeviceMappings = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      name = pName_
+      dryRun = Lude.Nothing
     }
 
 -- | The type of virtualization (@hvm@ | @paravirtual@ ).
@@ -203,6 +221,15 @@ riSRIOVNetSupport :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
 riSRIOVNetSupport = Lens.lens (sriovNetSupport :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {sriovNetSupport = a} :: RegisterImage)
 {-# DEPRECATED riSRIOVNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
 
+-- | A name for your AMI.
+--
+-- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riName :: Lens.Lens' RegisterImage Lude.Text
+riName = Lens.lens (name :: RegisterImage -> Lude.Text) (\s a -> s {name = a} :: RegisterImage)
+{-# DEPRECATED riName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The architecture of the AMI.
 --
 -- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
@@ -232,15 +259,6 @@ riBlockDeviceMappings = Lens.lens (blockDeviceMappings :: RegisterImage -> Lude.
 riDryRun :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Bool)
 riDryRun = Lens.lens (dryRun :: RegisterImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RegisterImage)
 {-# DEPRECATED riDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | A name for your AMI.
---
--- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riName :: Lens.Lens' RegisterImage Lude.Text
-riName = Lens.lens (name :: RegisterImage -> Lude.Text) (\s a -> s {name = a} :: RegisterImage)
-{-# DEPRECATED riName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest RegisterImage where
   type Rs RegisterImage = RegisterImageResponse
@@ -272,31 +290,26 @@ instance Lude.ToQuery RegisterImage where
         "KernelId" Lude.=: kernelId,
         "RootDeviceName" Lude.=: rootDeviceName,
         "SriovNetSupport" Lude.=: sriovNetSupport,
+        "Name" Lude.=: name,
         "Architecture" Lude.=: architecture,
         "Description" Lude.=: description,
         Lude.toQuery
           ( Lude.toQueryList "BlockDeviceMapping"
               Lude.<$> blockDeviceMappings
           ),
-        "DryRun" Lude.=: dryRun,
-        "Name" Lude.=: name
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of RegisterImage.
 --
 -- /See:/ 'mkRegisterImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
-  { imageId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the newly registered AMI.
+    imageId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterImageResponse' with the minimum fields required to make a request.

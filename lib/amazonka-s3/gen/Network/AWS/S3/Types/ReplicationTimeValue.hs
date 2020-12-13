@@ -29,16 +29,12 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkReplicationTimeValue' smart constructor.
 newtype ReplicationTimeValue = ReplicationTimeValue'
-  { minutes ::
-      Lude.Maybe Lude.Int
+  { -- | Contains an integer specifying time in minutes.
+    --
+    -- Valid values: 15 minutes.
+    minutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationTimeValue' with the minimum fields required to make a request.

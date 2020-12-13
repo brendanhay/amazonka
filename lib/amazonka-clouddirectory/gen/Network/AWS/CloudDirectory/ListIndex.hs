@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,12 +22,12 @@ module Network.AWS.CloudDirectory.ListIndex
     mkListIndex,
 
     -- ** Request lenses
+    liDirectoryARN,
     liRangesOnIndexedValues,
+    liIndexReference,
     liConsistencyLevel,
     liNextToken,
     liMaxResults,
-    liDirectoryARN,
-    liIndexReference,
 
     -- * Destructuring the response
     ListIndexResponse (..),
@@ -48,31 +49,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListIndex' smart constructor.
 data ListIndex = ListIndex'
-  { rangesOnIndexedValues ::
-      Lude.Maybe [ObjectAttributeRange],
-    consistencyLevel :: Lude.Maybe ConsistencyLevel,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The ARN of the directory that the index exists in.
     directoryARN :: Lude.Text,
-    indexReference :: ObjectReference
+    -- | Specifies the ranges of indexed values that you want to query.
+    rangesOnIndexedValues :: Lude.Maybe [ObjectAttributeRange],
+    -- | The reference to the index to list.
+    indexReference :: ObjectReference,
+    -- | The consistency level to execute the request at.
+    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits> .
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIndex' with the minimum fields required to make a request.
 --
--- * 'consistencyLevel' - The consistency level to execute the request at.
 -- * 'directoryARN' - The ARN of the directory that the index exists in.
--- * 'indexReference' - The reference to the index to list.
--- * 'maxResults' - The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits> .
--- * 'nextToken' - The pagination token.
 -- * 'rangesOnIndexedValues' - Specifies the ranges of indexed values that you want to query.
+-- * 'indexReference' - The reference to the index to list.
+-- * 'consistencyLevel' - The consistency level to execute the request at.
+-- * 'nextToken' - The pagination token.
+-- * 'maxResults' - The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html Amazon Cloud Directory Limits> .
 mkListIndex ::
   -- | 'directoryARN'
   Lude.Text ->
@@ -81,13 +81,20 @@ mkListIndex ::
   ListIndex
 mkListIndex pDirectoryARN_ pIndexReference_ =
   ListIndex'
-    { rangesOnIndexedValues = Lude.Nothing,
+    { directoryARN = pDirectoryARN_,
+      rangesOnIndexedValues = Lude.Nothing,
+      indexReference = pIndexReference_,
       consistencyLevel = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      directoryARN = pDirectoryARN_,
-      indexReference = pIndexReference_
+      maxResults = Lude.Nothing
     }
+
+-- | The ARN of the directory that the index exists in.
+--
+-- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liDirectoryARN :: Lens.Lens' ListIndex Lude.Text
+liDirectoryARN = Lens.lens (directoryARN :: ListIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: ListIndex)
+{-# DEPRECATED liDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
 -- | Specifies the ranges of indexed values that you want to query.
 --
@@ -95,6 +102,13 @@ mkListIndex pDirectoryARN_ pIndexReference_ =
 liRangesOnIndexedValues :: Lens.Lens' ListIndex (Lude.Maybe [ObjectAttributeRange])
 liRangesOnIndexedValues = Lens.lens (rangesOnIndexedValues :: ListIndex -> Lude.Maybe [ObjectAttributeRange]) (\s a -> s {rangesOnIndexedValues = a} :: ListIndex)
 {-# DEPRECATED liRangesOnIndexedValues "Use generic-lens or generic-optics with 'rangesOnIndexedValues' instead." #-}
+
+-- | The reference to the index to list.
+--
+-- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liIndexReference :: Lens.Lens' ListIndex ObjectReference
+liIndexReference = Lens.lens (indexReference :: ListIndex -> ObjectReference) (\s a -> s {indexReference = a} :: ListIndex)
+{-# DEPRECATED liIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 -- | The consistency level to execute the request at.
 --
@@ -116,20 +130,6 @@ liNextToken = Lens.lens (nextToken :: ListIndex -> Lude.Maybe Lude.Text) (\s a -
 liMaxResults :: Lens.Lens' ListIndex (Lude.Maybe Lude.Natural)
 liMaxResults = Lens.lens (maxResults :: ListIndex -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListIndex)
 {-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ARN of the directory that the index exists in.
---
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liDirectoryARN :: Lens.Lens' ListIndex Lude.Text
-liDirectoryARN = Lens.lens (directoryARN :: ListIndex -> Lude.Text) (\s a -> s {directoryARN = a} :: ListIndex)
-{-# DEPRECATED liDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | The reference to the index to list.
---
--- /Note:/ Consider using 'indexReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liIndexReference :: Lens.Lens' ListIndex ObjectReference
-liIndexReference = Lens.lens (indexReference :: ListIndex -> ObjectReference) (\s a -> s {indexReference = a} :: ListIndex)
-{-# DEPRECATED liIndexReference "Use generic-lens or generic-optics with 'indexReference' instead." #-}
 
 instance Page.AWSPager ListIndex where
   page rq rs
@@ -155,8 +155,8 @@ instance Lude.AWSRequest ListIndex where
 instance Lude.ToHeaders ListIndex where
   toHeaders ListIndex' {..} =
     Lude.mconcat
-      [ "x-amz-consistency-level" Lude.=# consistencyLevel,
-        "x-amz-data-partition" Lude.=# directoryARN
+      [ "x-amz-data-partition" Lude.=# directoryARN,
+        "x-amz-consistency-level" Lude.=# consistencyLevel
       ]
 
 instance Lude.ToJSON ListIndex where
@@ -164,9 +164,9 @@ instance Lude.ToJSON ListIndex where
     Lude.object
       ( Lude.catMaybes
           [ ("RangesOnIndexedValues" Lude..=) Lude.<$> rangesOnIndexedValues,
+            Lude.Just ("IndexReference" Lude..= indexReference),
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("IndexReference" Lude..= indexReference)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -179,18 +179,14 @@ instance Lude.ToQuery ListIndex where
 
 -- | /See:/ 'mkListIndexResponse' smart constructor.
 data ListIndexResponse = ListIndexResponse'
-  { indexAttachments ::
-      Lude.Maybe [IndexAttachment],
+  { -- | The objects and indexed values attached to the index.
+    indexAttachments :: Lude.Maybe [IndexAttachment],
+    -- | The pagination token.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIndexResponse' with the minimum fields required to make a request.

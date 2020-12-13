@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.DAX.RebootNode
     mkRebootNode,
 
     -- ** Request lenses
-    rnClusterName,
     rnNodeId,
+    rnClusterName,
 
     -- * Destructuring the response
     RebootNodeResponse (..),
@@ -40,37 +41,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRebootNode' smart constructor.
 data RebootNode = RebootNode'
-  { clusterName :: Lude.Text,
-    nodeId :: Lude.Text
+  { -- | The system-assigned ID of the node to be rebooted.
+    nodeId :: Lude.Text,
+    -- | The name of the DAX cluster containing the node to be rebooted.
+    clusterName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootNode' with the minimum fields required to make a request.
 --
--- * 'clusterName' - The name of the DAX cluster containing the node to be rebooted.
 -- * 'nodeId' - The system-assigned ID of the node to be rebooted.
+-- * 'clusterName' - The name of the DAX cluster containing the node to be rebooted.
 mkRebootNode ::
-  -- | 'clusterName'
-  Lude.Text ->
   -- | 'nodeId'
   Lude.Text ->
+  -- | 'clusterName'
+  Lude.Text ->
   RebootNode
-mkRebootNode pClusterName_ pNodeId_ =
-  RebootNode' {clusterName = pClusterName_, nodeId = pNodeId_}
-
--- | The name of the DAX cluster containing the node to be rebooted.
---
--- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnClusterName :: Lens.Lens' RebootNode Lude.Text
-rnClusterName = Lens.lens (clusterName :: RebootNode -> Lude.Text) (\s a -> s {clusterName = a} :: RebootNode)
-{-# DEPRECATED rnClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
+mkRebootNode pNodeId_ pClusterName_ =
+  RebootNode' {nodeId = pNodeId_, clusterName = pClusterName_}
 
 -- | The system-assigned ID of the node to be rebooted.
 --
@@ -78,6 +68,13 @@ rnClusterName = Lens.lens (clusterName :: RebootNode -> Lude.Text) (\s a -> s {c
 rnNodeId :: Lens.Lens' RebootNode Lude.Text
 rnNodeId = Lens.lens (nodeId :: RebootNode -> Lude.Text) (\s a -> s {nodeId = a} :: RebootNode)
 {-# DEPRECATED rnNodeId "Use generic-lens or generic-optics with 'nodeId' instead." #-}
+
+-- | The name of the DAX cluster containing the node to be rebooted.
+--
+-- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rnClusterName :: Lens.Lens' RebootNode Lude.Text
+rnClusterName = Lens.lens (clusterName :: RebootNode -> Lude.Text) (\s a -> s {clusterName = a} :: RebootNode)
+{-# DEPRECATED rnClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
 instance Lude.AWSRequest RebootNode where
   type Rs RebootNode = RebootNodeResponse
@@ -104,8 +101,8 @@ instance Lude.ToJSON RebootNode where
   toJSON RebootNode' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ClusterName" Lude..= clusterName),
-            Lude.Just ("NodeId" Lude..= nodeId)
+          [ Lude.Just ("NodeId" Lude..= nodeId),
+            Lude.Just ("ClusterName" Lude..= clusterName)
           ]
       )
 
@@ -117,17 +114,12 @@ instance Lude.ToQuery RebootNode where
 
 -- | /See:/ 'mkRebootNodeResponse' smart constructor.
 data RebootNodeResponse = RebootNodeResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
+  { -- | A description of the DAX cluster after a node has been rebooted.
+    cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootNodeResponse' with the minimum fields required to make a request.

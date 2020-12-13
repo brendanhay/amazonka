@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.TransformStatusType
   ( TransformStatusType
       ( TransformStatusType',
-        Deleting,
-        NotReady,
-        Ready
+        TSTNotReady,
+        TSTReady,
+        TSTDeleting
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TransformStatusType = TransformStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Deleting :: TransformStatusType
-pattern Deleting = TransformStatusType' "DELETING"
+pattern TSTNotReady :: TransformStatusType
+pattern TSTNotReady = TransformStatusType' "NOT_READY"
 
-pattern NotReady :: TransformStatusType
-pattern NotReady = TransformStatusType' "NOT_READY"
+pattern TSTReady :: TransformStatusType
+pattern TSTReady = TransformStatusType' "READY"
 
-pattern Ready :: TransformStatusType
-pattern Ready = TransformStatusType' "READY"
+pattern TSTDeleting :: TransformStatusType
+pattern TSTDeleting = TransformStatusType' "DELETING"
 
 {-# COMPLETE
-  Deleting,
-  NotReady,
-  Ready,
+  TSTNotReady,
+  TSTReady,
+  TSTDeleting,
   TransformStatusType'
   #-}

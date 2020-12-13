@@ -37,35 +37,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProjectDetails' smart constructor.
 data ProjectDetails = ProjectDetails'
-  { state ::
-      Lude.Maybe ProjectState,
+  { state :: Lude.Maybe ProjectState,
     resources :: Lude.Maybe [Resource],
+    -- | Date the project was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | Website URL for this project in the AWS Mobile Hub console.
     consoleURL :: Lude.Maybe Lude.Text,
     name :: Lude.Maybe Lude.Text,
     region :: Lude.Maybe Lude.Text,
     projectId :: Lude.Maybe Lude.Text,
+    -- | Date of the last modification of the project.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProjectDetails' with the minimum fields required to make a request.
 --
--- * 'consoleURL' - Website URL for this project in the AWS Mobile Hub console.
+-- * 'state' -
+-- * 'resources' -
 -- * 'createdDate' - Date the project was created.
+-- * 'consoleURL' - Website URL for this project in the AWS Mobile Hub console.
+-- * 'name' -
+-- * 'region' -
+-- * 'projectId' -
 -- * 'lastUpdatedDate' - Date of the last modification of the project.
--- * 'name' - Undocumented field.
--- * 'projectId' - Undocumented field.
--- * 'region' - Undocumented field.
--- * 'resources' - Undocumented field.
--- * 'state' - Undocumented field.
 mkProjectDetails ::
   ProjectDetails
 mkProjectDetails =

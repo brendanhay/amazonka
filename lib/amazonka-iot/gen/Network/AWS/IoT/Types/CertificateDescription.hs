@@ -45,47 +45,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificateDescription' smart constructor.
 data CertificateDescription = CertificateDescription'
-  { status ::
-      Lude.Maybe CertificateStatus,
+  { -- | The status of the certificate.
+    status :: Lude.Maybe CertificateStatus,
+    -- | The ID of the AWS account that owns the certificate.
     ownedBy :: Lude.Maybe Lude.Text,
+    -- | The date and time the certificate was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The certificate ID of the CA certificate used to sign this certificate.
     caCertificateId :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account of the previous owner of the certificate.
     previousOwnedBy :: Lude.Maybe Lude.Text,
+    -- | The certificate data, in PEM format.
     certificatePem :: Lude.Maybe Lude.Text,
+    -- | The ARN of the certificate.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the certificate.
     certificateId :: Lude.Maybe Lude.Text,
+    -- | The mode of the certificate.
     certificateMode :: Lude.Maybe CertificateMode,
+    -- | When the certificate is valid.
     validity :: Lude.Maybe CertificateValidity,
+    -- | The date and time the certificate was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The generation ID of the certificate.
     generationId :: Lude.Maybe Lude.Text,
+    -- | The transfer data.
     transferData :: Lude.Maybe TransferData,
+    -- | The customer version of the certificate.
     customerVersion :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateDescription' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the certificate.
+-- * 'ownedBy' - The ID of the AWS account that owns the certificate.
+-- * 'lastModifiedDate' - The date and time the certificate was last modified.
 -- * 'caCertificateId' - The certificate ID of the CA certificate used to sign this certificate.
+-- * 'previousOwnedBy' - The ID of the AWS account of the previous owner of the certificate.
+-- * 'certificatePem' - The certificate data, in PEM format.
 -- * 'certificateARN' - The ARN of the certificate.
 -- * 'certificateId' - The ID of the certificate.
 -- * 'certificateMode' - The mode of the certificate.
--- * 'certificatePem' - The certificate data, in PEM format.
--- * 'creationDate' - The date and time the certificate was created.
--- * 'customerVersion' - The customer version of the certificate.
--- * 'generationId' - The generation ID of the certificate.
--- * 'lastModifiedDate' - The date and time the certificate was last modified.
--- * 'ownedBy' - The ID of the AWS account that owns the certificate.
--- * 'previousOwnedBy' - The ID of the AWS account of the previous owner of the certificate.
--- * 'status' - The status of the certificate.
--- * 'transferData' - The transfer data.
 -- * 'validity' - When the certificate is valid.
+-- * 'creationDate' - The date and time the certificate was created.
+-- * 'generationId' - The generation ID of the certificate.
+-- * 'transferData' - The transfer data.
+-- * 'customerVersion' - The customer version of the certificate.
 mkCertificateDescription ::
   CertificateDescription
 mkCertificateDescription =

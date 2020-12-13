@@ -50,50 +50,59 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomainName' smart constructor.
 data DomainName = DomainName'
-  { regionalHostedZoneId ::
-      Lude.Maybe Lude.Text,
+  { -- | The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name> and <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway> .
+    regionalHostedZoneId :: Lude.Maybe Lude.Text,
+    -- | The name of the certificate that will be used by edge-optimized endpoint for this domain name.
     certificateName :: Lude.Maybe Lude.Text,
+    -- | The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
     regionalCertificateARN :: Lude.Maybe Lude.Text,
+    -- | The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For more information, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name> and <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway> .
     distributionHostedZoneId :: Lude.Maybe Lude.Text,
+    -- | The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
     securityPolicy :: Lude.Maybe SecurityPolicy,
+    -- | The custom domain name as an API host name, for example, @my-api.example.com@ .
     domainName :: Lude.Maybe Lude.Text,
+    -- | The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
     mutualTLSAuthentication :: Lude.Maybe MutualTLSAuthentication,
+    -- | The name of the certificate that will be used for validating the regional domain name.
     regionalCertificateName :: Lude.Maybe Lude.Text,
+    -- | The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by API Gateway when you create a regional endpoint.
     regionalDomainName :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.
     certificateUploadDate :: Lude.Maybe Lude.Timestamp,
+    -- | The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <https://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
     distributionDomainName :: Lude.Maybe Lude.Text,
+    -- | An optional text message containing detailed information about status of the 'DomainName' migration.
     domainNameStatusMessage :: Lude.Maybe Lude.Text,
+    -- | The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
     endpointConfiguration :: Lude.Maybe EndpointConfiguration,
+    -- | The status of the 'DomainName' migration. The valid values are @AVAILABLE@ and @UPDATING@ . If the status is @UPDATING@ , the domain cannot be modified further until the existing operation is complete. If it is @AVAILABLE@ , the domain can be updated.
     domainNameStatus :: Lude.Maybe DomainNameStatus,
+    -- | The collection of tags. Each tag element is associated with a given resource.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainName' with the minimum fields required to make a request.
 --
--- * 'certificateARN' - The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+-- * 'regionalHostedZoneId' - The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name> and <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway> .
 -- * 'certificateName' - The name of the certificate that will be used by edge-optimized endpoint for this domain name.
--- * 'certificateUploadDate' - The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.
--- * 'distributionDomainName' - The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <https://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
--- * 'distributionHostedZoneId' - The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For more information, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name> and <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway> .
--- * 'domainName' - The custom domain name as an API host name, for example, @my-api.example.com@ .
--- * 'domainNameStatus' - The status of the 'DomainName' migration. The valid values are @AVAILABLE@ and @UPDATING@ . If the status is @UPDATING@ , the domain cannot be modified further until the existing operation is complete. If it is @AVAILABLE@ , the domain can be updated.
--- * 'domainNameStatusMessage' - An optional text message containing detailed information about status of the 'DomainName' migration.
--- * 'endpointConfiguration' - The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
--- * 'mutualTLSAuthentication' - The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 -- * 'regionalCertificateARN' - The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.
+-- * 'certificateARN' - The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+-- * 'distributionHostedZoneId' - The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For more information, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name> and <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway> .
+-- * 'securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
+-- * 'domainName' - The custom domain name as an API host name, for example, @my-api.example.com@ .
+-- * 'mutualTLSAuthentication' - The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 -- * 'regionalCertificateName' - The name of the certificate that will be used for validating the regional domain name.
 -- * 'regionalDomainName' - The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by API Gateway when you create a regional endpoint.
--- * 'regionalHostedZoneId' - The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name> and <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway> .
--- * 'securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this 'DomainName' . The valid values are @TLS_1_0@ and @TLS_1_2@ .
+-- * 'certificateUploadDate' - The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.
+-- * 'distributionDomainName' - The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the <https://aws.amazon.com/documentation/cloudfront/ Amazon CloudFront documentation> .
+-- * 'domainNameStatusMessage' - An optional text message containing detailed information about status of the 'DomainName' migration.
+-- * 'endpointConfiguration' - The endpoint configuration of this 'DomainName' showing the endpoint types of the domain name.
+-- * 'domainNameStatus' - The status of the 'DomainName' migration. The valid values are @AVAILABLE@ and @UPDATING@ . If the status is @UPDATING@ , the domain cannot be modified further until the existing operation is complete. If it is @AVAILABLE@ , the domain can be updated.
 -- * 'tags' - The collection of tags. Each tag element is associated with a given resource.
 mkDomainName ::
   DomainName

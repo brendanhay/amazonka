@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.Glue.BatchUpdatePartition
     mkBatchUpdatePartition,
 
     -- ** Request lenses
+    bupEntries,
     bupCatalogId,
     bupDatabaseName,
     bupTableName,
-    bupEntries,
 
     -- * Destructuring the response
     BatchUpdatePartitionResponse (..),
@@ -42,43 +43,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchUpdatePartition' smart constructor.
 data BatchUpdatePartition = BatchUpdatePartition'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
+    entries :: Lude.NonEmpty BatchUpdatePartitionRequestEntry,
+    -- | The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the metadata database in which the partition is to be updated.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    entries ::
-      Lude.NonEmpty BatchUpdatePartitionRequestEntry
+    -- | The name of the metadata table in which the partition is to be updated.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchUpdatePartition' with the minimum fields required to make a request.
 --
+-- * 'entries' - A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
 -- * 'catalogId' - The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
 -- * 'databaseName' - The name of the metadata database in which the partition is to be updated.
--- * 'entries' - A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
 -- * 'tableName' - The name of the metadata table in which the partition is to be updated.
 mkBatchUpdatePartition ::
+  -- | 'entries'
+  Lude.NonEmpty BatchUpdatePartitionRequestEntry ->
   -- | 'databaseName'
   Lude.Text ->
   -- | 'tableName'
   Lude.Text ->
-  -- | 'entries'
-  Lude.NonEmpty BatchUpdatePartitionRequestEntry ->
   BatchUpdatePartition
-mkBatchUpdatePartition pDatabaseName_ pTableName_ pEntries_ =
+mkBatchUpdatePartition pEntries_ pDatabaseName_ pTableName_ =
   BatchUpdatePartition'
-    { catalogId = Lude.Nothing,
+    { entries = pEntries_,
+      catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      entries = pEntries_
+      tableName = pTableName_
     }
+
+-- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bupEntries :: Lens.Lens' BatchUpdatePartition (Lude.NonEmpty BatchUpdatePartitionRequestEntry)
+bupEntries = Lens.lens (entries :: BatchUpdatePartition -> Lude.NonEmpty BatchUpdatePartitionRequestEntry) (\s a -> s {entries = a} :: BatchUpdatePartition)
+{-# DEPRECATED bupEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
 -- | The ID of the catalog in which the partition is to be updated. Currently, this should be the AWS account ID.
 --
@@ -100,13 +104,6 @@ bupDatabaseName = Lens.lens (databaseName :: BatchUpdatePartition -> Lude.Text) 
 bupTableName :: Lens.Lens' BatchUpdatePartition Lude.Text
 bupTableName = Lens.lens (tableName :: BatchUpdatePartition -> Lude.Text) (\s a -> s {tableName = a} :: BatchUpdatePartition)
 {-# DEPRECATED bupTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
--- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to update.
---
--- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bupEntries :: Lens.Lens' BatchUpdatePartition (Lude.NonEmpty BatchUpdatePartitionRequestEntry)
-bupEntries = Lens.lens (entries :: BatchUpdatePartition -> Lude.NonEmpty BatchUpdatePartitionRequestEntry) (\s a -> s {entries = a} :: BatchUpdatePartition)
-{-# DEPRECATED bupEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
 
 instance Lude.AWSRequest BatchUpdatePartition where
   type Rs BatchUpdatePartition = BatchUpdatePartitionResponse
@@ -134,10 +131,10 @@ instance Lude.ToJSON BatchUpdatePartition where
   toJSON BatchUpdatePartition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
+          [ Lude.Just ("Entries" Lude..= entries),
+            ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("Entries" Lude..= entries)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -149,18 +146,12 @@ instance Lude.ToQuery BatchUpdatePartition where
 
 -- | /See:/ 'mkBatchUpdatePartitionResponse' smart constructor.
 data BatchUpdatePartitionResponse = BatchUpdatePartitionResponse'
-  { errors ::
-      Lude.Maybe
-        [BatchUpdatePartitionFailureEntry],
+  { -- | The errors encountered when trying to update the requested partitions. A list of @BatchUpdatePartitionFailureEntry@ objects.
+    errors :: Lude.Maybe [BatchUpdatePartitionFailureEntry],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchUpdatePartitionResponse' with the minimum fields required to make a request.

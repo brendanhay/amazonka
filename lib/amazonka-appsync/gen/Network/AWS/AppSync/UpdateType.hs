@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AppSync.UpdateType
     mkUpdateType,
 
     -- ** Request lenses
-    utDefinition,
-    utApiId,
     utTypeName,
+    utApiId,
+    utDefinition,
     utFormat,
 
     -- * Destructuring the response
@@ -42,48 +43,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateType' smart constructor.
 data UpdateType = UpdateType'
-  { definition :: Lude.Maybe Lude.Text,
-    apiId :: Lude.Text,
+  { -- | The new type name.
     typeName :: Lude.Text,
+    -- | The API ID.
+    apiId :: Lude.Text,
+    -- | The new definition.
+    definition :: Lude.Maybe Lude.Text,
+    -- | The new type format: SDL or JSON.
     format :: TypeDefinitionFormat
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateType' with the minimum fields required to make a request.
 --
+-- * 'typeName' - The new type name.
 -- * 'apiId' - The API ID.
 -- * 'definition' - The new definition.
 -- * 'format' - The new type format: SDL or JSON.
--- * 'typeName' - The new type name.
 mkUpdateType ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'typeName'
+  Lude.Text ->
+  -- | 'apiId'
   Lude.Text ->
   -- | 'format'
   TypeDefinitionFormat ->
   UpdateType
-mkUpdateType pApiId_ pTypeName_ pFormat_ =
+mkUpdateType pTypeName_ pApiId_ pFormat_ =
   UpdateType'
-    { definition = Lude.Nothing,
+    { typeName = pTypeName_,
       apiId = pApiId_,
-      typeName = pTypeName_,
+      definition = Lude.Nothing,
       format = pFormat_
     }
 
--- | The new definition.
+-- | The new type name.
 --
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utDefinition :: Lens.Lens' UpdateType (Lude.Maybe Lude.Text)
-utDefinition = Lens.lens (definition :: UpdateType -> Lude.Maybe Lude.Text) (\s a -> s {definition = a} :: UpdateType)
-{-# DEPRECATED utDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utTypeName :: Lens.Lens' UpdateType Lude.Text
+utTypeName = Lens.lens (typeName :: UpdateType -> Lude.Text) (\s a -> s {typeName = a} :: UpdateType)
+{-# DEPRECATED utTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The API ID.
 --
@@ -92,12 +91,12 @@ utApiId :: Lens.Lens' UpdateType Lude.Text
 utApiId = Lens.lens (apiId :: UpdateType -> Lude.Text) (\s a -> s {apiId = a} :: UpdateType)
 {-# DEPRECATED utApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
--- | The new type name.
+-- | The new definition.
 --
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utTypeName :: Lens.Lens' UpdateType Lude.Text
-utTypeName = Lens.lens (typeName :: UpdateType -> Lude.Text) (\s a -> s {typeName = a} :: UpdateType)
-{-# DEPRECATED utTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utDefinition :: Lens.Lens' UpdateType (Lude.Maybe Lude.Text)
+utDefinition = Lens.lens (definition :: UpdateType -> Lude.Maybe Lude.Text) (\s a -> s {definition = a} :: UpdateType)
+{-# DEPRECATED utDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The new type format: SDL or JSON.
 --
@@ -144,23 +143,18 @@ instance Lude.ToQuery UpdateType where
 
 -- | /See:/ 'mkUpdateTypeResponse' smart constructor.
 data UpdateTypeResponse = UpdateTypeResponse'
-  { type' ::
-      Lude.Maybe Type,
+  { -- | The updated @Type@ object.
+    type' :: Lude.Maybe Type,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTypeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'type'' - The updated @Type@ object.
+-- * 'responseStatus' - The response status code.
 mkUpdateTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

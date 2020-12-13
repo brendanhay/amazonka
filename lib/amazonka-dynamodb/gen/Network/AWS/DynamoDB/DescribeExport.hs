@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.DynamoDB.DescribeExport
     mkDescribeExportResponse,
 
     -- ** Response lenses
-    deersExportDescription,
-    deersResponseStatus,
+    defrsExportDescription,
+    defrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeExport' smart constructor.
-newtype DescribeExport = DescribeExport' {exportARN :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeExport = DescribeExport'
+  { -- | The Amazon Resource Name (ARN) associated with the export.
+    exportARN :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExport' with the minimum fields required to make a request.
@@ -100,17 +98,12 @@ instance Lude.ToQuery DescribeExport where
 
 -- | /See:/ 'mkDescribeExportResponse' smart constructor.
 data DescribeExportResponse = DescribeExportResponse'
-  { exportDescription ::
-      Lude.Maybe ExportDescription,
+  { -- | Represents the properties of the export.
+    exportDescription :: Lude.Maybe ExportDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeExportResponse' with the minimum fields required to make a request.
@@ -130,13 +123,13 @@ mkDescribeExportResponse pResponseStatus_ =
 -- | Represents the properties of the export.
 --
 -- /Note:/ Consider using 'exportDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deersExportDescription :: Lens.Lens' DescribeExportResponse (Lude.Maybe ExportDescription)
-deersExportDescription = Lens.lens (exportDescription :: DescribeExportResponse -> Lude.Maybe ExportDescription) (\s a -> s {exportDescription = a} :: DescribeExportResponse)
-{-# DEPRECATED deersExportDescription "Use generic-lens or generic-optics with 'exportDescription' instead." #-}
+defrsExportDescription :: Lens.Lens' DescribeExportResponse (Lude.Maybe ExportDescription)
+defrsExportDescription = Lens.lens (exportDescription :: DescribeExportResponse -> Lude.Maybe ExportDescription) (\s a -> s {exportDescription = a} :: DescribeExportResponse)
+{-# DEPRECATED defrsExportDescription "Use generic-lens or generic-optics with 'exportDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deersResponseStatus :: Lens.Lens' DescribeExportResponse Lude.Int
-deersResponseStatus = Lens.lens (responseStatus :: DescribeExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportResponse)
-{-# DEPRECATED deersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+defrsResponseStatus :: Lens.Lens' DescribeExportResponse Lude.Int
+defrsResponseStatus = Lens.lens (responseStatus :: DescribeExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportResponse)
+{-# DEPRECATED defrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

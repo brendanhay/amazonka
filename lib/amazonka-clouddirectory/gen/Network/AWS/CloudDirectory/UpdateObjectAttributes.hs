@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CloudDirectory.UpdateObjectAttributes
 
     -- ** Request lenses
     uoaDirectoryARN,
-    uoaObjectReference,
     uoaAttributeUpdates,
+    uoaObjectReference,
 
     -- * Destructuring the response
     UpdateObjectAttributesResponse (..),
@@ -41,24 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateObjectAttributes' smart constructor.
 data UpdateObjectAttributes = UpdateObjectAttributes'
-  { directoryARN ::
-      Lude.Text,
-    objectReference :: ObjectReference,
-    attributeUpdates :: [ObjectAttributeUpdate]
+  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+    directoryARN :: Lude.Text,
+    -- | The attributes update structure.
+    attributeUpdates :: [ObjectAttributeUpdate],
+    -- | The reference that identifies the object.
+    objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateObjectAttributes' with the minimum fields required to make a request.
 --
--- * 'attributeUpdates' - The attributes update structure.
 -- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- * 'attributeUpdates' - The attributes update structure.
 -- * 'objectReference' - The reference that identifies the object.
 mkUpdateObjectAttributes ::
   -- | 'directoryARN'
@@ -69,8 +66,8 @@ mkUpdateObjectAttributes ::
 mkUpdateObjectAttributes pDirectoryARN_ pObjectReference_ =
   UpdateObjectAttributes'
     { directoryARN = pDirectoryARN_,
-      objectReference = pObjectReference_,
-      attributeUpdates = Lude.mempty
+      attributeUpdates = Lude.mempty,
+      objectReference = pObjectReference_
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
@@ -80,19 +77,19 @@ uoaDirectoryARN :: Lens.Lens' UpdateObjectAttributes Lude.Text
 uoaDirectoryARN = Lens.lens (directoryARN :: UpdateObjectAttributes -> Lude.Text) (\s a -> s {directoryARN = a} :: UpdateObjectAttributes)
 {-# DEPRECATED uoaDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
 
--- | The reference that identifies the object.
---
--- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uoaObjectReference :: Lens.Lens' UpdateObjectAttributes ObjectReference
-uoaObjectReference = Lens.lens (objectReference :: UpdateObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: UpdateObjectAttributes)
-{-# DEPRECATED uoaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
-
 -- | The attributes update structure.
 --
 -- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uoaAttributeUpdates :: Lens.Lens' UpdateObjectAttributes [ObjectAttributeUpdate]
 uoaAttributeUpdates = Lens.lens (attributeUpdates :: UpdateObjectAttributes -> [ObjectAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: UpdateObjectAttributes)
 {-# DEPRECATED uoaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
+
+-- | The reference that identifies the object.
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uoaObjectReference :: Lens.Lens' UpdateObjectAttributes ObjectReference
+uoaObjectReference = Lens.lens (objectReference :: UpdateObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: UpdateObjectAttributes)
+{-# DEPRECATED uoaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 instance Lude.AWSRequest UpdateObjectAttributes where
   type Rs UpdateObjectAttributes = UpdateObjectAttributesResponse
@@ -113,8 +110,8 @@ instance Lude.ToJSON UpdateObjectAttributes where
   toJSON UpdateObjectAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ObjectReference" Lude..= objectReference),
-            Lude.Just ("AttributeUpdates" Lude..= attributeUpdates)
+          [ Lude.Just ("AttributeUpdates" Lude..= attributeUpdates),
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )
 
@@ -127,17 +124,12 @@ instance Lude.ToQuery UpdateObjectAttributes where
 
 -- | /See:/ 'mkUpdateObjectAttributesResponse' smart constructor.
 data UpdateObjectAttributesResponse = UpdateObjectAttributesResponse'
-  { objectIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ObjectIdentifier@ of the updated object.
+    objectIdentifier :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateObjectAttributesResponse' with the minimum fields required to make a request.

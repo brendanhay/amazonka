@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetReportGroups' smart constructor.
 newtype BatchGetReportGroups = BatchGetReportGroups'
-  { reportGroupARNs ::
-      Lude.NonEmpty Lude.Text
+  { -- | An array of report group ARNs that identify the report groups to return.
+    reportGroupARNs :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetReportGroups' with the minimum fields required to make a request.
@@ -107,21 +102,14 @@ instance Lude.ToQuery BatchGetReportGroups where
 
 -- | /See:/ 'mkBatchGetReportGroupsResponse' smart constructor.
 data BatchGetReportGroupsResponse = BatchGetReportGroupsResponse'
-  { reportGroups ::
-      Lude.Maybe
-        (Lude.NonEmpty ReportGroup),
-    reportGroupsNotFound ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
+  { -- | The array of report groups returned by @BatchGetReportGroups@ .
+    reportGroups :: Lude.Maybe (Lude.NonEmpty ReportGroup),
+    -- | An array of ARNs passed to @BatchGetReportGroups@ that are not associated with a @ReportGroup@ .
+    reportGroupsNotFound :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetReportGroupsResponse' with the minimum fields required to make a request.

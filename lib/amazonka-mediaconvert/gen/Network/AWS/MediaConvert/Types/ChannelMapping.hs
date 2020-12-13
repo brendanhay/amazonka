@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkChannelMapping' smart constructor.
 newtype ChannelMapping = ChannelMapping'
-  { outputChannels ::
-      Lude.Maybe [OutputChannelMapping]
+  { -- | List of output channels
+    outputChannels :: Lude.Maybe [OutputChannelMapping]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChannelMapping' with the minimum fields required to make a request.

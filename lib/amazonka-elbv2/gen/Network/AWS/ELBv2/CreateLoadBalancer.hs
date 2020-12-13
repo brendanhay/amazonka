@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,10 +38,10 @@ module Network.AWS.ELBv2.CreateLoadBalancer
     clbSubnets,
     clbCustomerOwnedIPv4Pool,
     clbIPAddressType,
+    clbName,
     clbScheme,
     clbType,
     clbTags,
-    clbName,
 
     -- * Destructuring the response
     CreateLoadBalancerResponse (..),
@@ -60,28 +61,63 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { subnetMappings ::
-      Lude.Maybe [SubnetMapping],
+  { -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+    --
+    -- [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+    -- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+    -- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+    -- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+    -- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+    subnetMappings :: Lude.Maybe [SubnetMapping],
+    -- | [Application Load Balancers] The IDs of the security groups for the load balancer.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+    --
+    -- [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+    -- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+    -- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+    -- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+    -- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
     subnets :: Lude.Maybe [Lude.Text],
+    -- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
     customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
     ipAddressType :: Lude.Maybe IPAddressType,
+    -- | The name of the load balancer.
+    --
+    -- This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+    name :: Lude.Text,
+    -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+    --
+    -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
+    -- The default is an Internet-facing load balancer.
+    -- You cannot specify a scheme for a Gateway Load Balancer.
     scheme :: Lude.Maybe LoadBalancerSchemeEnum,
+    -- | The type of load balancer. The default is @application@ .
     type' :: Lude.Maybe LoadBalancerTypeEnum,
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
-    name :: Lude.Text
+    -- | The tags to assign to the load balancer.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancer' with the minimum fields required to make a request.
 --
+-- * 'subnetMappings' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+--
+-- [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+-- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+-- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+-- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
+-- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+-- * 'securityGroups' - [Application Load Balancers] The IDs of the security groups for the load balancer.
+-- * 'subnets' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
+--
+-- [Application Load Balancers] You must specify subnets from at least two Availability Zones.
+-- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
+-- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
+-- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
+-- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 -- * 'customerOwnedIPv4Pool' - [Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).
 -- * 'ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers must use @ipv4@ .
 -- * 'name' - The name of the load balancer.
@@ -92,23 +128,8 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 -- The default is an Internet-facing load balancer.
 -- You cannot specify a scheme for a Gateway Load Balancer.
--- * 'securityGroups' - [Application Load Balancers] The IDs of the security groups for the load balancer.
--- * 'subnetMappings' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
--- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
--- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
--- [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
--- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
--- * 'subnets' - The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
---
--- [Application Load Balancers] You must specify subnets from at least two Availability Zones.
--- [Application Load Balancers on Outposts] You must specify one Outpost subnet.
--- [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
--- [Network Load Balancers] You can specify subnets from one or more Availability Zones.
--- [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
--- * 'tags' - The tags to assign to the load balancer.
 -- * 'type'' - The type of load balancer. The default is @application@ .
+-- * 'tags' - The tags to assign to the load balancer.
 mkCreateLoadBalancer ::
   -- | 'name'
   Lude.Text ->
@@ -120,10 +141,10 @@ mkCreateLoadBalancer pName_ =
       subnets = Lude.Nothing,
       customerOwnedIPv4Pool = Lude.Nothing,
       ipAddressType = Lude.Nothing,
+      name = pName_,
       scheme = Lude.Nothing,
       type' = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_
+      tags = Lude.Nothing
     }
 
 -- | The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.
@@ -173,6 +194,15 @@ clbIPAddressType :: Lens.Lens' CreateLoadBalancer (Lude.Maybe IPAddressType)
 clbIPAddressType = Lens.lens (ipAddressType :: CreateLoadBalancer -> Lude.Maybe IPAddressType) (\s a -> s {ipAddressType = a} :: CreateLoadBalancer)
 {-# DEPRECATED clbIPAddressType "Use generic-lens or generic-optics with 'ipAddressType' instead." #-}
 
+-- | The name of the load balancer.
+--
+-- This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbName :: Lens.Lens' CreateLoadBalancer Lude.Text
+clbName = Lens.lens (name :: CreateLoadBalancer -> Lude.Text) (\s a -> s {name = a} :: CreateLoadBalancer)
+{-# DEPRECATED clbName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 --
 -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
@@ -197,15 +227,6 @@ clbType = Lens.lens (type' :: CreateLoadBalancer -> Lude.Maybe LoadBalancerTypeE
 clbTags :: Lens.Lens' CreateLoadBalancer (Lude.Maybe (Lude.NonEmpty Tag))
 clbTags = Lens.lens (tags :: CreateLoadBalancer -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateLoadBalancer)
 {-# DEPRECATED clbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the load balancer.
---
--- This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbName :: Lens.Lens' CreateLoadBalancer Lude.Text
-clbName = Lens.lens (name :: CreateLoadBalancer -> Lude.Text) (\s a -> s {name = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateLoadBalancer where
   type Rs CreateLoadBalancer = CreateLoadBalancerResponse
@@ -240,26 +261,21 @@ instance Lude.ToQuery CreateLoadBalancer where
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> subnets),
         "CustomerOwnedIpv4Pool" Lude.=: customerOwnedIPv4Pool,
         "IpAddressType" Lude.=: ipAddressType,
+        "Name" Lude.=: name,
         "Scheme" Lude.=: scheme,
         "Type" Lude.=: type',
         "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "Name" Lude.=: name
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCreateLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
-  { loadBalancers ::
-      Lude.Maybe [LoadBalancer],
+  { -- | Information about the load balancer.
+    loadBalancers :: Lude.Maybe [LoadBalancer],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.

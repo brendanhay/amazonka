@@ -13,8 +13,8 @@
 module Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory
   ( TestGridSessionArtifactCategory
       ( TestGridSessionArtifactCategory',
-        TGSACLog,
-        TGSACVideo
+        TGSACVideo,
+        TGSACLog
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype TestGridSessionArtifactCategory = TestGridSessionArtifactCategory' Lude.
       Lude.ToHeader
     )
 
-pattern TGSACLog :: TestGridSessionArtifactCategory
-pattern TGSACLog = TestGridSessionArtifactCategory' "LOG"
-
 pattern TGSACVideo :: TestGridSessionArtifactCategory
 pattern TGSACVideo = TestGridSessionArtifactCategory' "VIDEO"
 
+pattern TGSACLog :: TestGridSessionArtifactCategory
+pattern TGSACLog = TestGridSessionArtifactCategory' "LOG"
+
 {-# COMPLETE
-  TGSACLog,
   TGSACVideo,
+  TGSACLog,
   TestGridSessionArtifactCategory'
   #-}

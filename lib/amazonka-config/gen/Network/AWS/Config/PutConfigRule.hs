@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.Config.PutConfigRule
     mkPutConfigRule,
 
     -- ** Request lenses
-    pcrTags,
     pcrConfigRule,
+    pcrTags,
 
     -- * Destructuring the response
     PutConfigRuleResponse (..),
@@ -45,16 +46,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutConfigRule' smart constructor.
 data PutConfigRule = PutConfigRule'
-  { tags :: Lude.Maybe [Tag],
-    configRule :: ConfigRule
+  { -- | The rule that you want to add to your account.
+    configRule :: ConfigRule,
+    -- | An array of tag object.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigRule' with the minimum fields required to make a request.
@@ -66,14 +63,7 @@ mkPutConfigRule ::
   ConfigRule ->
   PutConfigRule
 mkPutConfigRule pConfigRule_ =
-  PutConfigRule' {tags = Lude.Nothing, configRule = pConfigRule_}
-
--- | An array of tag object.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrTags :: Lens.Lens' PutConfigRule (Lude.Maybe [Tag])
-pcrTags = Lens.lens (tags :: PutConfigRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutConfigRule)
-{-# DEPRECATED pcrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+  PutConfigRule' {configRule = pConfigRule_, tags = Lude.Nothing}
 
 -- | The rule that you want to add to your account.
 --
@@ -81,6 +71,13 @@ pcrTags = Lens.lens (tags :: PutConfigRule -> Lude.Maybe [Tag]) (\s a -> s {tags
 pcrConfigRule :: Lens.Lens' PutConfigRule ConfigRule
 pcrConfigRule = Lens.lens (configRule :: PutConfigRule -> ConfigRule) (\s a -> s {configRule = a} :: PutConfigRule)
 {-# DEPRECATED pcrConfigRule "Use generic-lens or generic-optics with 'configRule' instead." #-}
+
+-- | An array of tag object.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrTags :: Lens.Lens' PutConfigRule (Lude.Maybe [Tag])
+pcrTags = Lens.lens (tags :: PutConfigRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutConfigRule)
+{-# DEPRECATED pcrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest PutConfigRule where
   type Rs PutConfigRule = PutConfigRuleResponse
@@ -102,8 +99,8 @@ instance Lude.ToJSON PutConfigRule where
   toJSON PutConfigRule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("ConfigRule" Lude..= configRule)
+          [ Lude.Just ("ConfigRule" Lude..= configRule),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -115,13 +112,7 @@ instance Lude.ToQuery PutConfigRule where
 
 -- | /See:/ 'mkPutConfigRuleResponse' smart constructor.
 data PutConfigRuleResponse = PutConfigRuleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigRuleResponse' with the minimum fields required to make a request.

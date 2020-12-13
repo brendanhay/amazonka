@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -28,8 +29,8 @@ module Network.AWS.RDS.StartDBInstance
     mkStartDBInstanceResponse,
 
     -- ** Response lenses
-    sdbirsDBInstance,
-    sdbirsResponseStatus,
+    sdirsDBInstance,
+    sdirsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartDBInstance' smart constructor.
 newtype StartDBInstance = StartDBInstance'
-  { dbInstanceIdentifier ::
-      Lude.Text
+  { -- | The user-supplied instance identifier.
+    dbInstanceIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDBInstance' with the minimum fields required to make a request.
@@ -97,22 +92,16 @@ instance Lude.ToQuery StartDBInstance where
 
 -- | /See:/ 'mkStartDBInstanceResponse' smart constructor.
 data StartDBInstanceResponse = StartDBInstanceResponse'
-  { dbInstance ::
-      Lude.Maybe DBInstance,
+  { dbInstance :: Lude.Maybe DBInstance,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDBInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'dbInstance' - Undocumented field.
+-- * 'dbInstance' -
 -- * 'responseStatus' - The response status code.
 mkStartDBInstanceResponse ::
   -- | 'responseStatus'
@@ -127,13 +116,13 @@ mkStartDBInstanceResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'dbInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdbirsDBInstance :: Lens.Lens' StartDBInstanceResponse (Lude.Maybe DBInstance)
-sdbirsDBInstance = Lens.lens (dbInstance :: StartDBInstanceResponse -> Lude.Maybe DBInstance) (\s a -> s {dbInstance = a} :: StartDBInstanceResponse)
-{-# DEPRECATED sdbirsDBInstance "Use generic-lens or generic-optics with 'dbInstance' instead." #-}
+sdirsDBInstance :: Lens.Lens' StartDBInstanceResponse (Lude.Maybe DBInstance)
+sdirsDBInstance = Lens.lens (dbInstance :: StartDBInstanceResponse -> Lude.Maybe DBInstance) (\s a -> s {dbInstance = a} :: StartDBInstanceResponse)
+{-# DEPRECATED sdirsDBInstance "Use generic-lens or generic-optics with 'dbInstance' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdbirsResponseStatus :: Lens.Lens' StartDBInstanceResponse Lude.Int
-sdbirsResponseStatus = Lens.lens (responseStatus :: StartDBInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDBInstanceResponse)
-{-# DEPRECATED sdbirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sdirsResponseStatus :: Lens.Lens' StartDBInstanceResponse Lude.Int
+sdirsResponseStatus = Lens.lens (responseStatus :: StartDBInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartDBInstanceResponse)
+{-# DEPRECATED sdirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

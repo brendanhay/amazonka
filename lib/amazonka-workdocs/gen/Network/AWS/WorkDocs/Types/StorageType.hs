@@ -13,8 +13,8 @@
 module Network.AWS.WorkDocs.Types.StorageType
   ( StorageType
       ( StorageType',
-        Quota,
-        Unlimited
+        Unlimited,
+        Quota
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype StorageType = StorageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Quota :: StorageType
-pattern Quota = StorageType' "QUOTA"
-
 pattern Unlimited :: StorageType
 pattern Unlimited = StorageType' "UNLIMITED"
 
+pattern Quota :: StorageType
+pattern Quota = StorageType' "QUOTA"
+
 {-# COMPLETE
-  Quota,
   Unlimited,
+  Quota,
   StorageType'
   #-}

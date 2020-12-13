@@ -17,16 +17,16 @@ module Network.AWS.Glue.Types.CSVClassifier
     mkCSVClassifier,
 
     -- * Lenses
-    csvcCreationTime,
-    csvcQuoteSymbol,
-    csvcContainsHeader,
-    csvcLastUpdated,
-    csvcDisableValueTrimming,
-    csvcHeader,
-    csvcVersion,
-    csvcAllowSingleColumn,
-    csvcDelimiter,
-    csvcName,
+    ccCreationTime,
+    ccQuoteSymbol,
+    ccContainsHeader,
+    ccLastUpdated,
+    ccDisableValueTrimming,
+    ccName,
+    ccHeader,
+    ccVersion,
+    ccAllowSingleColumn,
+    ccDelimiter,
   )
 where
 
@@ -38,39 +38,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCSVClassifier' smart constructor.
 data CSVClassifier = CSVClassifier'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time that this classifier was registered.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
     quoteSymbol :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the CSV file contains a header.
     containsHeader :: Lude.Maybe CSVHeaderOption,
+    -- | The time that this classifier was last updated.
     lastUpdated :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies not to trim values before identifying the type of column values. The default value is @true@ .
     disableValueTrimming :: Lude.Maybe Lude.Bool,
+    -- | The name of the classifier.
+    name :: Lude.Text,
+    -- | A list of strings representing column names.
     header :: Lude.Maybe [Lude.Text],
+    -- | The version of this classifier.
     version :: Lude.Maybe Lude.Integer,
+    -- | Enables the processing of files that contain only one column.
     allowSingleColumn :: Lude.Maybe Lude.Bool,
-    delimiter :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | A custom symbol to denote what separates each column entry in the row.
+    delimiter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CSVClassifier' with the minimum fields required to make a request.
 --
--- * 'allowSingleColumn' - Enables the processing of files that contain only one column.
--- * 'containsHeader' - Indicates whether the CSV file contains a header.
 -- * 'creationTime' - The time that this classifier was registered.
--- * 'delimiter' - A custom symbol to denote what separates each column entry in the row.
--- * 'disableValueTrimming' - Specifies not to trim values before identifying the type of column values. The default value is @true@ .
--- * 'header' - A list of strings representing column names.
--- * 'lastUpdated' - The time that this classifier was last updated.
--- * 'name' - The name of the classifier.
 -- * 'quoteSymbol' - A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+-- * 'containsHeader' - Indicates whether the CSV file contains a header.
+-- * 'lastUpdated' - The time that this classifier was last updated.
+-- * 'disableValueTrimming' - Specifies not to trim values before identifying the type of column values. The default value is @true@ .
+-- * 'name' - The name of the classifier.
+-- * 'header' - A list of strings representing column names.
 -- * 'version' - The version of this classifier.
+-- * 'allowSingleColumn' - Enables the processing of files that contain only one column.
+-- * 'delimiter' - A custom symbol to denote what separates each column entry in the row.
 mkCSVClassifier ::
   -- | 'name'
   Lude.Text ->
@@ -82,82 +85,82 @@ mkCSVClassifier pName_ =
       containsHeader = Lude.Nothing,
       lastUpdated = Lude.Nothing,
       disableValueTrimming = Lude.Nothing,
+      name = pName_,
       header = Lude.Nothing,
       version = Lude.Nothing,
       allowSingleColumn = Lude.Nothing,
-      delimiter = Lude.Nothing,
-      name = pName_
+      delimiter = Lude.Nothing
     }
 
 -- | The time that this classifier was registered.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcCreationTime :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Timestamp)
-csvcCreationTime = Lens.lens (creationTime :: CSVClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: CSVClassifier)
-{-# DEPRECATED csvcCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+ccCreationTime :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Timestamp)
+ccCreationTime = Lens.lens (creationTime :: CSVClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: CSVClassifier)
+{-# DEPRECATED ccCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
 --
 -- /Note:/ Consider using 'quoteSymbol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcQuoteSymbol :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Text)
-csvcQuoteSymbol = Lens.lens (quoteSymbol :: CSVClassifier -> Lude.Maybe Lude.Text) (\s a -> s {quoteSymbol = a} :: CSVClassifier)
-{-# DEPRECATED csvcQuoteSymbol "Use generic-lens or generic-optics with 'quoteSymbol' instead." #-}
+ccQuoteSymbol :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Text)
+ccQuoteSymbol = Lens.lens (quoteSymbol :: CSVClassifier -> Lude.Maybe Lude.Text) (\s a -> s {quoteSymbol = a} :: CSVClassifier)
+{-# DEPRECATED ccQuoteSymbol "Use generic-lens or generic-optics with 'quoteSymbol' instead." #-}
 
 -- | Indicates whether the CSV file contains a header.
 --
 -- /Note:/ Consider using 'containsHeader' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcContainsHeader :: Lens.Lens' CSVClassifier (Lude.Maybe CSVHeaderOption)
-csvcContainsHeader = Lens.lens (containsHeader :: CSVClassifier -> Lude.Maybe CSVHeaderOption) (\s a -> s {containsHeader = a} :: CSVClassifier)
-{-# DEPRECATED csvcContainsHeader "Use generic-lens or generic-optics with 'containsHeader' instead." #-}
+ccContainsHeader :: Lens.Lens' CSVClassifier (Lude.Maybe CSVHeaderOption)
+ccContainsHeader = Lens.lens (containsHeader :: CSVClassifier -> Lude.Maybe CSVHeaderOption) (\s a -> s {containsHeader = a} :: CSVClassifier)
+{-# DEPRECATED ccContainsHeader "Use generic-lens or generic-optics with 'containsHeader' instead." #-}
 
 -- | The time that this classifier was last updated.
 --
 -- /Note:/ Consider using 'lastUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcLastUpdated :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Timestamp)
-csvcLastUpdated = Lens.lens (lastUpdated :: CSVClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: CSVClassifier)
-{-# DEPRECATED csvcLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
+ccLastUpdated :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Timestamp)
+ccLastUpdated = Lens.lens (lastUpdated :: CSVClassifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdated = a} :: CSVClassifier)
+{-# DEPRECATED ccLastUpdated "Use generic-lens or generic-optics with 'lastUpdated' instead." #-}
 
 -- | Specifies not to trim values before identifying the type of column values. The default value is @true@ .
 --
 -- /Note:/ Consider using 'disableValueTrimming' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcDisableValueTrimming :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Bool)
-csvcDisableValueTrimming = Lens.lens (disableValueTrimming :: CSVClassifier -> Lude.Maybe Lude.Bool) (\s a -> s {disableValueTrimming = a} :: CSVClassifier)
-{-# DEPRECATED csvcDisableValueTrimming "Use generic-lens or generic-optics with 'disableValueTrimming' instead." #-}
-
--- | A list of strings representing column names.
---
--- /Note:/ Consider using 'header' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcHeader :: Lens.Lens' CSVClassifier (Lude.Maybe [Lude.Text])
-csvcHeader = Lens.lens (header :: CSVClassifier -> Lude.Maybe [Lude.Text]) (\s a -> s {header = a} :: CSVClassifier)
-{-# DEPRECATED csvcHeader "Use generic-lens or generic-optics with 'header' instead." #-}
-
--- | The version of this classifier.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcVersion :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Integer)
-csvcVersion = Lens.lens (version :: CSVClassifier -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: CSVClassifier)
-{-# DEPRECATED csvcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | Enables the processing of files that contain only one column.
---
--- /Note:/ Consider using 'allowSingleColumn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcAllowSingleColumn :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Bool)
-csvcAllowSingleColumn = Lens.lens (allowSingleColumn :: CSVClassifier -> Lude.Maybe Lude.Bool) (\s a -> s {allowSingleColumn = a} :: CSVClassifier)
-{-# DEPRECATED csvcAllowSingleColumn "Use generic-lens or generic-optics with 'allowSingleColumn' instead." #-}
-
--- | A custom symbol to denote what separates each column entry in the row.
---
--- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcDelimiter :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Text)
-csvcDelimiter = Lens.lens (delimiter :: CSVClassifier -> Lude.Maybe Lude.Text) (\s a -> s {delimiter = a} :: CSVClassifier)
-{-# DEPRECATED csvcDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
+ccDisableValueTrimming :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Bool)
+ccDisableValueTrimming = Lens.lens (disableValueTrimming :: CSVClassifier -> Lude.Maybe Lude.Bool) (\s a -> s {disableValueTrimming = a} :: CSVClassifier)
+{-# DEPRECATED ccDisableValueTrimming "Use generic-lens or generic-optics with 'disableValueTrimming' instead." #-}
 
 -- | The name of the classifier.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csvcName :: Lens.Lens' CSVClassifier Lude.Text
-csvcName = Lens.lens (name :: CSVClassifier -> Lude.Text) (\s a -> s {name = a} :: CSVClassifier)
-{-# DEPRECATED csvcName "Use generic-lens or generic-optics with 'name' instead." #-}
+ccName :: Lens.Lens' CSVClassifier Lude.Text
+ccName = Lens.lens (name :: CSVClassifier -> Lude.Text) (\s a -> s {name = a} :: CSVClassifier)
+{-# DEPRECATED ccName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A list of strings representing column names.
+--
+-- /Note:/ Consider using 'header' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccHeader :: Lens.Lens' CSVClassifier (Lude.Maybe [Lude.Text])
+ccHeader = Lens.lens (header :: CSVClassifier -> Lude.Maybe [Lude.Text]) (\s a -> s {header = a} :: CSVClassifier)
+{-# DEPRECATED ccHeader "Use generic-lens or generic-optics with 'header' instead." #-}
+
+-- | The version of this classifier.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccVersion :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Integer)
+ccVersion = Lens.lens (version :: CSVClassifier -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: CSVClassifier)
+{-# DEPRECATED ccVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | Enables the processing of files that contain only one column.
+--
+-- /Note:/ Consider using 'allowSingleColumn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAllowSingleColumn :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Bool)
+ccAllowSingleColumn = Lens.lens (allowSingleColumn :: CSVClassifier -> Lude.Maybe Lude.Bool) (\s a -> s {allowSingleColumn = a} :: CSVClassifier)
+{-# DEPRECATED ccAllowSingleColumn "Use generic-lens or generic-optics with 'allowSingleColumn' instead." #-}
+
+-- | A custom symbol to denote what separates each column entry in the row.
+--
+-- /Note:/ Consider using 'delimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccDelimiter :: Lens.Lens' CSVClassifier (Lude.Maybe Lude.Text)
+ccDelimiter = Lens.lens (delimiter :: CSVClassifier -> Lude.Maybe Lude.Text) (\s a -> s {delimiter = a} :: CSVClassifier)
+{-# DEPRECATED ccDelimiter "Use generic-lens or generic-optics with 'delimiter' instead." #-}
 
 instance Lude.FromJSON CSVClassifier where
   parseJSON =
@@ -170,9 +173,9 @@ instance Lude.FromJSON CSVClassifier where
             Lude.<*> (x Lude..:? "ContainsHeader")
             Lude.<*> (x Lude..:? "LastUpdated")
             Lude.<*> (x Lude..:? "DisableValueTrimming")
+            Lude.<*> (x Lude..: "Name")
             Lude.<*> (x Lude..:? "Header" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "Version")
             Lude.<*> (x Lude..:? "AllowSingleColumn")
             Lude.<*> (x Lude..:? "Delimiter")
-            Lude.<*> (x Lude..: "Name")
       )

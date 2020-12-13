@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.AssociateIAMInstanceProfile
     mkAssociateIAMInstanceProfile,
 
     -- ** Request lenses
-    aiapIAMInstanceProfile,
     aiapInstanceId,
+    aiapIAMInstanceProfile,
 
     -- * Destructuring the response
     AssociateIAMInstanceProfileResponse (..),
@@ -40,42 +41,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssociateIAMInstanceProfile' smart constructor.
 data AssociateIAMInstanceProfile = AssociateIAMInstanceProfile'
-  { iamInstanceProfile ::
-      IAMInstanceProfileSpecification,
-    instanceId :: Lude.Text
+  { -- | The ID of the instance.
+    instanceId :: Lude.Text,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: IAMInstanceProfileSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateIAMInstanceProfile' with the minimum fields required to make a request.
 --
--- * 'iamInstanceProfile' - The IAM instance profile.
 -- * 'instanceId' - The ID of the instance.
+-- * 'iamInstanceProfile' - The IAM instance profile.
 mkAssociateIAMInstanceProfile ::
-  -- | 'iamInstanceProfile'
-  IAMInstanceProfileSpecification ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'iamInstanceProfile'
+  IAMInstanceProfileSpecification ->
   AssociateIAMInstanceProfile
-mkAssociateIAMInstanceProfile pIAMInstanceProfile_ pInstanceId_ =
+mkAssociateIAMInstanceProfile pInstanceId_ pIAMInstanceProfile_ =
   AssociateIAMInstanceProfile'
-    { iamInstanceProfile =
-        pIAMInstanceProfile_,
-      instanceId = pInstanceId_
+    { instanceId = pInstanceId_,
+      iamInstanceProfile = pIAMInstanceProfile_
     }
-
--- | The IAM instance profile.
---
--- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiapIAMInstanceProfile :: Lens.Lens' AssociateIAMInstanceProfile IAMInstanceProfileSpecification
-aiapIAMInstanceProfile = Lens.lens (iamInstanceProfile :: AssociateIAMInstanceProfile -> IAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: AssociateIAMInstanceProfile)
-{-# DEPRECATED aiapIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 -- | The ID of the instance.
 --
@@ -83,6 +71,13 @@ aiapIAMInstanceProfile = Lens.lens (iamInstanceProfile :: AssociateIAMInstancePr
 aiapInstanceId :: Lens.Lens' AssociateIAMInstanceProfile Lude.Text
 aiapInstanceId = Lens.lens (instanceId :: AssociateIAMInstanceProfile -> Lude.Text) (\s a -> s {instanceId = a} :: AssociateIAMInstanceProfile)
 {-# DEPRECATED aiapInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The IAM instance profile.
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aiapIAMInstanceProfile :: Lens.Lens' AssociateIAMInstanceProfile IAMInstanceProfileSpecification
+aiapIAMInstanceProfile = Lens.lens (iamInstanceProfile :: AssociateIAMInstanceProfile -> IAMInstanceProfileSpecification) (\s a -> s {iamInstanceProfile = a} :: AssociateIAMInstanceProfile)
+{-# DEPRECATED aiapIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
 
 instance Lude.AWSRequest AssociateIAMInstanceProfile where
   type
@@ -109,25 +104,18 @@ instance Lude.ToQuery AssociateIAMInstanceProfile where
       [ "Action"
           Lude.=: ("AssociateIamInstanceProfile" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "IamInstanceProfile" Lude.=: iamInstanceProfile,
-        "InstanceId" Lude.=: instanceId
+        "InstanceId" Lude.=: instanceId,
+        "IamInstanceProfile" Lude.=: iamInstanceProfile
       ]
 
 -- | /See:/ 'mkAssociateIAMInstanceProfileResponse' smart constructor.
 data AssociateIAMInstanceProfileResponse = AssociateIAMInstanceProfileResponse'
-  { iamInstanceProfileAssociation ::
-      Lude.Maybe
-        IAMInstanceProfileAssociation,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the IAM instance profile association.
+    iamInstanceProfileAssociation :: Lude.Maybe IAMInstanceProfileAssociation,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateIAMInstanceProfileResponse' with the minimum fields required to make a request.

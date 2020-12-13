@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSchema' smart constructor.
-newtype DeleteSchema = DeleteSchema' {schemaId :: SchemaId}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteSchema = DeleteSchema'
+  { -- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+    schemaId :: SchemaId
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchema' with the minimum fields required to make a request.
@@ -103,27 +101,24 @@ instance Lude.ToQuery DeleteSchema where
 
 -- | /See:/ 'mkDeleteSchemaResponse' smart constructor.
 data DeleteSchemaResponse = DeleteSchemaResponse'
-  { status ::
-      Lude.Maybe SchemaStatus,
+  { -- | The status of the schema.
+    status :: Lude.Maybe SchemaStatus,
+    -- | The name of the schema being deleted.
     schemaName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema being deleted.
     schemaARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchemaResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema being deleted.
--- * 'schemaName' - The name of the schema being deleted.
 -- * 'status' - The status of the schema.
+-- * 'schemaName' - The name of the schema being deleted.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema being deleted.
+-- * 'responseStatus' - The response status code.
 mkDeleteSchemaResponse ::
   -- | 'responseStatus'
   Lude.Int ->

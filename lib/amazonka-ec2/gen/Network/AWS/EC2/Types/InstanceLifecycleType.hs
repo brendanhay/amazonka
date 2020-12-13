@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.InstanceLifecycleType
   ( InstanceLifecycleType
       ( InstanceLifecycleType',
-        ILTScheduled,
-        ILTSpot
+        ILTSpot,
+        ILTScheduled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype InstanceLifecycleType = InstanceLifecycleType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ILTScheduled :: InstanceLifecycleType
-pattern ILTScheduled = InstanceLifecycleType' "scheduled"
-
 pattern ILTSpot :: InstanceLifecycleType
 pattern ILTSpot = InstanceLifecycleType' "spot"
 
+pattern ILTScheduled :: InstanceLifecycleType
+pattern ILTScheduled = InstanceLifecycleType' "scheduled"
+
 {-# COMPLETE
-  ILTScheduled,
   ILTSpot,
+  ILTScheduled,
   InstanceLifecycleType'
   #-}

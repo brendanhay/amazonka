@@ -13,10 +13,10 @@
 module Network.AWS.DeviceFarm.Types.DeviceAvailability
   ( DeviceAvailability
       ( DeviceAvailability',
-        Available,
+        TemporaryNotAvailable,
         Busy,
-        HighlyAvailable,
-        TemporaryNotAvailable
+        Available,
+        HighlyAvailable
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DeviceAvailability = DeviceAvailability' Lude.Text
       Lude.ToHeader
     )
 
-pattern Available :: DeviceAvailability
-pattern Available = DeviceAvailability' "AVAILABLE"
+pattern TemporaryNotAvailable :: DeviceAvailability
+pattern TemporaryNotAvailable = DeviceAvailability' "TEMPORARY_NOT_AVAILABLE"
 
 pattern Busy :: DeviceAvailability
 pattern Busy = DeviceAvailability' "BUSY"
 
+pattern Available :: DeviceAvailability
+pattern Available = DeviceAvailability' "AVAILABLE"
+
 pattern HighlyAvailable :: DeviceAvailability
 pattern HighlyAvailable = DeviceAvailability' "HIGHLY_AVAILABLE"
 
-pattern TemporaryNotAvailable :: DeviceAvailability
-pattern TemporaryNotAvailable = DeviceAvailability' "TEMPORARY_NOT_AVAILABLE"
-
 {-# COMPLETE
-  Available,
-  Busy,
-  HighlyAvailable,
   TemporaryNotAvailable,
+  Busy,
+  Available,
+  HighlyAvailable,
   DeviceAvailability'
   #-}

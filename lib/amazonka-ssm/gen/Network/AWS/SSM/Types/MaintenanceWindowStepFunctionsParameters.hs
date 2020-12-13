@@ -31,21 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaintenanceWindowStepFunctionsParameters' smart constructor.
 data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
-  { input ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    name ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The inputs for the STEP_FUNCTIONS task.
+    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the STEP_FUNCTIONS task.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaintenanceWindowStepFunctionsParameters' with the minimum fields required to make a request.

@@ -18,8 +18,8 @@ module Network.AWS.CloudDirectory.Types.BatchListObjectParentPaths
 
     -- * Lenses
     bloppsNextToken,
-    bloppsMaxResults,
     bloppsObjectReference,
+    bloppsMaxResults,
   )
 where
 
@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListObjectParentPaths' smart constructor.
 data BatchListObjectParentPaths = BatchListObjectParentPaths'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    objectReference :: ObjectReference
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The reference that identifies the object whose attributes will be listed.
+    objectReference :: ObjectReference,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectParentPaths' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
 -- * 'nextToken' - The pagination token.
 -- * 'objectReference' - The reference that identifies the object whose attributes will be listed.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkBatchListObjectParentPaths ::
   -- | 'objectReference'
   ObjectReference ->
@@ -57,8 +53,8 @@ mkBatchListObjectParentPaths ::
 mkBatchListObjectParentPaths pObjectReference_ =
   BatchListObjectParentPaths'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      objectReference = pObjectReference_
+      objectReference = pObjectReference_,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token.
@@ -68,13 +64,6 @@ bloppsNextToken :: Lens.Lens' BatchListObjectParentPaths (Lude.Maybe Lude.Text)
 bloppsNextToken = Lens.lens (nextToken :: BatchListObjectParentPaths -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListObjectParentPaths)
 {-# DEPRECATED bloppsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bloppsMaxResults :: Lens.Lens' BatchListObjectParentPaths (Lude.Maybe Lude.Natural)
-bloppsMaxResults = Lens.lens (maxResults :: BatchListObjectParentPaths -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListObjectParentPaths)
-{-# DEPRECATED bloppsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The reference that identifies the object whose attributes will be listed.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -82,12 +71,19 @@ bloppsObjectReference :: Lens.Lens' BatchListObjectParentPaths ObjectReference
 bloppsObjectReference = Lens.lens (objectReference :: BatchListObjectParentPaths -> ObjectReference) (\s a -> s {objectReference = a} :: BatchListObjectParentPaths)
 {-# DEPRECATED bloppsObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bloppsMaxResults :: Lens.Lens' BatchListObjectParentPaths (Lude.Maybe Lude.Natural)
+bloppsMaxResults = Lens.lens (maxResults :: BatchListObjectParentPaths -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListObjectParentPaths)
+{-# DEPRECATED bloppsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
 instance Lude.ToJSON BatchListObjectParentPaths where
   toJSON BatchListObjectParentPaths' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+            Lude.Just ("ObjectReference" Lude..= objectReference),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,13 @@ import qualified Network.AWS.Response as Res
 -- | This input identifies a cluster and a list of tags to attach.
 --
 -- /See:/ 'mkAddTags' smart constructor.
-data AddTags = AddTags' {resourceId :: Lude.Text, tags :: [Tag]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data AddTags = AddTags'
+  { -- | The Amazon EMR resource identifier to which tags will be added. This value must be a cluster identifier.
+    resourceId :: Lude.Text,
+    -- | A list of tags to associate with a cluster and propagate to EC2 instances. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+    tags :: [Tag]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTags' with the minimum fields required to make a request.
@@ -114,16 +114,10 @@ instance Lude.ToQuery AddTags where
 --
 -- /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.

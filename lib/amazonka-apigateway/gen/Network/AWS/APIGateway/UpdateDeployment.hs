@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.UpdateDeployment
     mkUpdateDeployment,
 
     -- ** Request lenses
-    udPatchOperations,
-    udRestAPIId,
     udDeploymentId,
+    udRestAPIId,
+    udPatchOperations,
 
     -- * Destructuring the response
     Deployment (..),
@@ -45,44 +46,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateDeployment' smart constructor.
 data UpdateDeployment = UpdateDeployment'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | The replacement identifier for the 'Deployment' resource to change information about.
+    deploymentId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
     restAPIId :: Lude.Text,
-    deploymentId :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeployment' with the minimum fields required to make a request.
 --
 -- * 'deploymentId' - The replacement identifier for the 'Deployment' resource to change information about.
--- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateDeployment ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'deploymentId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   UpdateDeployment
-mkUpdateDeployment pRestAPIId_ pDeploymentId_ =
+mkUpdateDeployment pDeploymentId_ pRestAPIId_ =
   UpdateDeployment'
-    { patchOperations = Lude.Nothing,
+    { deploymentId = pDeploymentId_,
       restAPIId = pRestAPIId_,
-      deploymentId = pDeploymentId_
+      patchOperations = Lude.Nothing
     }
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- | The replacement identifier for the 'Deployment' resource to change information about.
 --
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udPatchOperations :: Lens.Lens' UpdateDeployment (Lude.Maybe [PatchOperation])
-udPatchOperations = Lens.lens (patchOperations :: UpdateDeployment -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateDeployment)
-{-# DEPRECATED udPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDeploymentId :: Lens.Lens' UpdateDeployment Lude.Text
+udDeploymentId = Lens.lens (deploymentId :: UpdateDeployment -> Lude.Text) (\s a -> s {deploymentId = a} :: UpdateDeployment)
+{-# DEPRECATED udDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | [Required] The string identifier of the associated 'RestApi' .
 --
@@ -91,12 +88,12 @@ udRestAPIId :: Lens.Lens' UpdateDeployment Lude.Text
 udRestAPIId = Lens.lens (restAPIId :: UpdateDeployment -> Lude.Text) (\s a -> s {restAPIId = a} :: UpdateDeployment)
 {-# DEPRECATED udRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | The replacement identifier for the 'Deployment' resource to change information about.
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
 --
--- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDeploymentId :: Lens.Lens' UpdateDeployment Lude.Text
-udDeploymentId = Lens.lens (deploymentId :: UpdateDeployment -> Lude.Text) (\s a -> s {deploymentId = a} :: UpdateDeployment)
-{-# DEPRECATED udDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udPatchOperations :: Lens.Lens' UpdateDeployment (Lude.Maybe [PatchOperation])
+udPatchOperations = Lens.lens (patchOperations :: UpdateDeployment -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateDeployment)
+{-# DEPRECATED udPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateDeployment where
   type Rs UpdateDeployment = Deployment

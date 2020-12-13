@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFaceSearchSettings' smart constructor.
 data FaceSearchSettings = FaceSearchSettings'
-  { faceMatchThreshold ::
-      Lude.Maybe Lude.Double,
+  { -- | Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.
+    faceMatchThreshold :: Lude.Maybe Lude.Double,
+    -- | The ID of a collection that contains faces that you want to search for.
     collectionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FaceSearchSettings' with the minimum fields required to make a request.
 --
--- * 'collectionId' - The ID of a collection that contains faces that you want to search for.
 -- * 'faceMatchThreshold' - Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.
+-- * 'collectionId' - The ID of a collection that contains faces that you want to search for.
 mkFaceSearchSettings ::
   FaceSearchSettings
 mkFaceSearchSettings =

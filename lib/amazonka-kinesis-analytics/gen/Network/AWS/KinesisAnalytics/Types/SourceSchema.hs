@@ -17,9 +17,9 @@ module Network.AWS.KinesisAnalytics.Types.SourceSchema
     mkSourceSchema,
 
     -- * Lenses
-    ssRecordEncoding,
     ssRecordFormat,
     ssRecordColumns,
+    ssRecordEncoding,
   )
 where
 
@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSourceSchema' smart constructor.
 data SourceSchema = SourceSchema'
-  { recordEncoding ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the format of the records on the streaming source.
     recordFormat :: RecordFormat,
-    recordColumns :: Lude.NonEmpty RecordColumn
+    -- | A list of @RecordColumn@ objects.
+    recordColumns :: Lude.NonEmpty RecordColumn,
+    -- | Specifies the encoding of the records in the streaming source. For example, UTF-8.
+    recordEncoding :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SourceSchema' with the minimum fields required to make a request.
 --
+-- * 'recordFormat' - Specifies the format of the records on the streaming source.
 -- * 'recordColumns' - A list of @RecordColumn@ objects.
 -- * 'recordEncoding' - Specifies the encoding of the records in the streaming source. For example, UTF-8.
--- * 'recordFormat' - Specifies the format of the records on the streaming source.
 mkSourceSchema ::
   -- | 'recordFormat'
   RecordFormat ->
@@ -59,17 +55,10 @@ mkSourceSchema ::
   SourceSchema
 mkSourceSchema pRecordFormat_ pRecordColumns_ =
   SourceSchema'
-    { recordEncoding = Lude.Nothing,
-      recordFormat = pRecordFormat_,
-      recordColumns = pRecordColumns_
+    { recordFormat = pRecordFormat_,
+      recordColumns = pRecordColumns_,
+      recordEncoding = Lude.Nothing
     }
-
--- | Specifies the encoding of the records in the streaming source. For example, UTF-8.
---
--- /Note:/ Consider using 'recordEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssRecordEncoding :: Lens.Lens' SourceSchema (Lude.Maybe Lude.Text)
-ssRecordEncoding = Lens.lens (recordEncoding :: SourceSchema -> Lude.Maybe Lude.Text) (\s a -> s {recordEncoding = a} :: SourceSchema)
-{-# DEPRECATED ssRecordEncoding "Use generic-lens or generic-optics with 'recordEncoding' instead." #-}
 
 -- | Specifies the format of the records on the streaming source.
 --
@@ -85,23 +74,30 @@ ssRecordColumns :: Lens.Lens' SourceSchema (Lude.NonEmpty RecordColumn)
 ssRecordColumns = Lens.lens (recordColumns :: SourceSchema -> Lude.NonEmpty RecordColumn) (\s a -> s {recordColumns = a} :: SourceSchema)
 {-# DEPRECATED ssRecordColumns "Use generic-lens or generic-optics with 'recordColumns' instead." #-}
 
+-- | Specifies the encoding of the records in the streaming source. For example, UTF-8.
+--
+-- /Note:/ Consider using 'recordEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssRecordEncoding :: Lens.Lens' SourceSchema (Lude.Maybe Lude.Text)
+ssRecordEncoding = Lens.lens (recordEncoding :: SourceSchema -> Lude.Maybe Lude.Text) (\s a -> s {recordEncoding = a} :: SourceSchema)
+{-# DEPRECATED ssRecordEncoding "Use generic-lens or generic-optics with 'recordEncoding' instead." #-}
+
 instance Lude.FromJSON SourceSchema where
   parseJSON =
     Lude.withObject
       "SourceSchema"
       ( \x ->
           SourceSchema'
-            Lude.<$> (x Lude..:? "RecordEncoding")
-            Lude.<*> (x Lude..: "RecordFormat")
+            Lude.<$> (x Lude..: "RecordFormat")
             Lude.<*> (x Lude..: "RecordColumns")
+            Lude.<*> (x Lude..:? "RecordEncoding")
       )
 
 instance Lude.ToJSON SourceSchema where
   toJSON SourceSchema' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RecordEncoding" Lude..=) Lude.<$> recordEncoding,
-            Lude.Just ("RecordFormat" Lude..= recordFormat),
-            Lude.Just ("RecordColumns" Lude..= recordColumns)
+          [ Lude.Just ("RecordFormat" Lude..= recordFormat),
+            Lude.Just ("RecordColumns" Lude..= recordColumns),
+            ("RecordEncoding" Lude..=) Lude.<$> recordEncoding
           ]
       )

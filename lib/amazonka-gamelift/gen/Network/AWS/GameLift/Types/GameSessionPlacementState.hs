@@ -13,11 +13,11 @@
 module Network.AWS.GameLift.Types.GameSessionPlacementState
   ( GameSessionPlacementState
       ( GameSessionPlacementState',
-        GSPSCancelled,
-        GSPSFailed,
-        GSPSFulfilled,
         GSPSPending,
-        GSPSTimedOut
+        GSPSFulfilled,
+        GSPSCancelled,
+        GSPSTimedOut,
+        GSPSFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype GameSessionPlacementState = GameSessionPlacementState' Lude.Text
       Lude.ToHeader
     )
 
-pattern GSPSCancelled :: GameSessionPlacementState
-pattern GSPSCancelled = GameSessionPlacementState' "CANCELLED"
-
-pattern GSPSFailed :: GameSessionPlacementState
-pattern GSPSFailed = GameSessionPlacementState' "FAILED"
+pattern GSPSPending :: GameSessionPlacementState
+pattern GSPSPending = GameSessionPlacementState' "PENDING"
 
 pattern GSPSFulfilled :: GameSessionPlacementState
 pattern GSPSFulfilled = GameSessionPlacementState' "FULFILLED"
 
-pattern GSPSPending :: GameSessionPlacementState
-pattern GSPSPending = GameSessionPlacementState' "PENDING"
+pattern GSPSCancelled :: GameSessionPlacementState
+pattern GSPSCancelled = GameSessionPlacementState' "CANCELLED"
 
 pattern GSPSTimedOut :: GameSessionPlacementState
 pattern GSPSTimedOut = GameSessionPlacementState' "TIMED_OUT"
 
+pattern GSPSFailed :: GameSessionPlacementState
+pattern GSPSFailed = GameSessionPlacementState' "FAILED"
+
 {-# COMPLETE
-  GSPSCancelled,
-  GSPSFailed,
-  GSPSFulfilled,
   GSPSPending,
+  GSPSFulfilled,
+  GSPSCancelled,
   GSPSTimedOut,
+  GSPSFailed,
   GameSessionPlacementState'
   #-}

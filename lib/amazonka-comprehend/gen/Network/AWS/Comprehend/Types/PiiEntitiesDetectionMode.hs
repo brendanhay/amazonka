@@ -13,8 +13,8 @@
 module Network.AWS.Comprehend.Types.PiiEntitiesDetectionMode
   ( PiiEntitiesDetectionMode
       ( PiiEntitiesDetectionMode',
-        OnlyOffsets,
-        OnlyRedaction
+        OnlyRedaction,
+        OnlyOffsets
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PiiEntitiesDetectionMode = PiiEntitiesDetectionMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern OnlyOffsets :: PiiEntitiesDetectionMode
-pattern OnlyOffsets = PiiEntitiesDetectionMode' "ONLY_OFFSETS"
-
 pattern OnlyRedaction :: PiiEntitiesDetectionMode
 pattern OnlyRedaction = PiiEntitiesDetectionMode' "ONLY_REDACTION"
 
+pattern OnlyOffsets :: PiiEntitiesDetectionMode
+pattern OnlyOffsets = PiiEntitiesDetectionMode' "ONLY_OFFSETS"
+
 {-# COMPLETE
-  OnlyOffsets,
   OnlyRedaction,
+  OnlyOffsets,
   PiiEntitiesDetectionMode'
   #-}

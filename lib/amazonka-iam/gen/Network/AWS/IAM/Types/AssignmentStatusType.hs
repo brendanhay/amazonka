@@ -13,9 +13,9 @@
 module Network.AWS.IAM.Types.AssignmentStatusType
   ( AssignmentStatusType
       ( AssignmentStatusType',
-        Any,
         Assigned,
-        Unassigned
+        Unassigned,
+        Any
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AssignmentStatusType = AssignmentStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Any :: AssignmentStatusType
-pattern Any = AssignmentStatusType' "Any"
-
 pattern Assigned :: AssignmentStatusType
 pattern Assigned = AssignmentStatusType' "Assigned"
 
 pattern Unassigned :: AssignmentStatusType
 pattern Unassigned = AssignmentStatusType' "Unassigned"
 
+pattern Any :: AssignmentStatusType
+pattern Any = AssignmentStatusType' "Any"
+
 {-# COMPLETE
-  Any,
   Assigned,
   Unassigned,
+  Any,
   AssignmentStatusType'
   #-}

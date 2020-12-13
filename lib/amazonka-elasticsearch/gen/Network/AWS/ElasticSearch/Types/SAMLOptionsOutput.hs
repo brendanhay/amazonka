@@ -33,20 +33,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSAMLOptionsOutput' smart constructor.
 data SAMLOptionsOutput = SAMLOptionsOutput'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | True if SAML is enabled.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | Describes the SAML Identity Provider's information.
     idp :: Lude.Maybe SAMLIdp,
+    -- | The key used for matching the SAML Roles attribute.
     rolesKey :: Lude.Maybe Lude.Text,
+    -- | The duration, in minutes, after which a user session becomes inactive.
     sessionTimeoutMinutes :: Lude.Maybe Lude.Int,
+    -- | The key used for matching the SAML Subject attribute.
     subjectKey :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SAMLOptionsOutput' with the minimum fields required to make a request.

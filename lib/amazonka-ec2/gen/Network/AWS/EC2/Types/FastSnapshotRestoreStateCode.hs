@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.FastSnapshotRestoreStateCode
   ( FastSnapshotRestoreStateCode
       ( FastSnapshotRestoreStateCode',
-        FSRSCDisabled,
-        FSRSCDisabling,
-        FSRSCEnabled,
         FSRSCEnabling,
-        FSRSCOptimizing
+        FSRSCOptimizing,
+        FSRSCEnabled,
+        FSRSCDisabling,
+        FSRSCDisabled
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype FastSnapshotRestoreStateCode = FastSnapshotRestoreStateCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern FSRSCDisabled :: FastSnapshotRestoreStateCode
-pattern FSRSCDisabled = FastSnapshotRestoreStateCode' "disabled"
-
-pattern FSRSCDisabling :: FastSnapshotRestoreStateCode
-pattern FSRSCDisabling = FastSnapshotRestoreStateCode' "disabling"
-
-pattern FSRSCEnabled :: FastSnapshotRestoreStateCode
-pattern FSRSCEnabled = FastSnapshotRestoreStateCode' "enabled"
-
 pattern FSRSCEnabling :: FastSnapshotRestoreStateCode
 pattern FSRSCEnabling = FastSnapshotRestoreStateCode' "enabling"
 
 pattern FSRSCOptimizing :: FastSnapshotRestoreStateCode
 pattern FSRSCOptimizing = FastSnapshotRestoreStateCode' "optimizing"
 
+pattern FSRSCEnabled :: FastSnapshotRestoreStateCode
+pattern FSRSCEnabled = FastSnapshotRestoreStateCode' "enabled"
+
+pattern FSRSCDisabling :: FastSnapshotRestoreStateCode
+pattern FSRSCDisabling = FastSnapshotRestoreStateCode' "disabling"
+
+pattern FSRSCDisabled :: FastSnapshotRestoreStateCode
+pattern FSRSCDisabled = FastSnapshotRestoreStateCode' "disabled"
+
 {-# COMPLETE
-  FSRSCDisabled,
-  FSRSCDisabling,
-  FSRSCEnabled,
   FSRSCEnabling,
   FSRSCOptimizing,
+  FSRSCEnabled,
+  FSRSCDisabling,
+  FSRSCDisabled,
   FastSnapshotRestoreStateCode'
   #-}

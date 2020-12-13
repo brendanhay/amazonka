@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentCanarySettings' smart constructor.
 data DeploymentCanarySettings = DeploymentCanarySettings'
-  { stageVariableOverrides ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+    stageVariableOverrides :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
     useStageCache :: Lude.Maybe Lude.Bool,
+    -- | The percentage (0.0-100.0) of traffic routed to the canary deployment.
     percentTraffic :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentCanarySettings' with the minimum fields required to make a request.
 --
--- * 'percentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.
 -- * 'stageVariableOverrides' - A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
 -- * 'useStageCache' - A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
+-- * 'percentTraffic' - The percentage (0.0-100.0) of traffic routed to the canary deployment.
 mkDeploymentCanarySettings ::
   DeploymentCanarySettings
 mkDeploymentCanarySettings =

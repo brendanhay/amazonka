@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -89,6 +90,7 @@ module Network.AWS.S3.CopyObject
     coExpires,
     coGrantReadACP,
     coCopySourceIfNoneMatch,
+    coBucket,
     coSSECustomerAlgorithm,
     coSSECustomerKey,
     coRequestPayer,
@@ -97,6 +99,7 @@ module Network.AWS.S3.CopyObject
     coWebsiteRedirectLocation,
     coGrantRead,
     coExpectedSourceBucketOwner,
+    coKey,
     coStorageClass,
     coSSECustomerKeyMD5,
     coSSEKMSKeyId,
@@ -105,6 +108,7 @@ module Network.AWS.S3.CopyObject
     coTagging,
     coObjectLockRetainUntilDate,
     coMetadata,
+    coCopySource,
     coSSEKMSEncryptionContext,
     coCacheControl,
     coContentLanguage,
@@ -116,9 +120,6 @@ module Network.AWS.S3.CopyObject
     coExpectedBucketOwner,
     coServerSideEncryption,
     coContentType,
-    coBucket,
-    coCopySource,
-    coKey,
 
     -- * Destructuring the response
     CopyObjectResponse (..),
@@ -147,64 +148,150 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkCopyObject' smart constructor.
 data CopyObject = CopyObject'
-  { copySourceIfModifiedSince ::
-      Lude.Maybe Lude.DateTime,
+  { -- | Copies the object if it has been modified since the specified time.
+    copySourceIfModifiedSince :: Lude.Maybe Lude.DateTime,
+    -- | Copies the object if it hasn't been modified since the specified time.
     copySourceIfUnmodifiedSince :: Lude.Maybe Lude.DateTime,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
     copySourceSSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
     taggingDirective :: Lude.Maybe TaggingDirective,
+    -- | Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
     metadataDirective :: Lude.Maybe MetadataDirective,
+    -- | The Object Lock mode that you want to apply to the copied object.
     objectLockMode :: Lude.Maybe ObjectLockMode,
+    -- | The date and time at which the object is no longer cacheable.
     expires :: Lude.Maybe Lude.DateTime,
+    -- | Allows grantee to read the object ACL.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantReadACP :: Lude.Maybe Lude.Text,
+    -- | Copies the object if its entity tag (ETag) is different than the specified ETag.
     copySourceIfNoneMatch :: Lude.Maybe Lude.Text,
+    -- | The name of the destination bucket.
+    --
+    -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+    -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+    bucket :: BucketName,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
     sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
     requestPayer :: Lude.Maybe RequestPayer,
+    -- | Allows grantee to write the ACL for the applicable object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantWriteACP :: Lude.Maybe Lude.Text,
+    -- | Copies the object if its entity tag (ETag) matches the specified tag.
     copySourceIfMatch :: Lude.Maybe Lude.Text,
+    -- | If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
     websiteRedirectLocation :: Lude.Maybe Lude.Text,
+    -- | Allows grantee to read the object data and its metadata.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantRead :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
     expectedSourceBucketOwner :: Lude.Maybe Lude.Text,
+    -- | The key of the destination object.
+    key :: ObjectKey,
+    -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
     storageClass :: Lude.Maybe StorageClass,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
     sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
     grantFullControl :: Lude.Maybe Lude.Text,
+    -- | Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
     contentEncoding :: Lude.Maybe Lude.Text,
+    -- | The tag-set for the object destination object this value must be used in conjunction with the @TaggingDirective@ . The tag-set must be encoded as URL Query parameters.
     tagging :: Lude.Maybe Lude.Text,
+    -- | The date and time when you want the copied object's Object Lock to expire.
     objectLockRetainUntilDate :: Lude.Maybe Lude.DateTime,
+    -- | A map of metadata to store with the object in S3.
     metadata :: Lude.HashMap Lude.Text (Lude.Text),
-    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    cacheControl :: Lude.Maybe Lude.Text,
-    contentLanguage :: Lude.Maybe Lude.Text,
-    copySourceSSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
-    copySourceSSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    acl :: Lude.Maybe ObjectCannedACL,
-    contentDisposition :: Lude.Maybe Lude.Text,
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
-    contentType :: Lude.Maybe Lude.Text,
-    bucket :: BucketName,
+    -- | Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
+    --
+    --
+    --     * For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.
+    --
+    --
+    --     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded.
+    -- Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.
+    --
+    --
+    -- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
     copySource :: Lude.Text,
-    key :: ObjectKey
+    -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Specifies caching behavior along the request/reply chain.
+    cacheControl :: Lude.Maybe Lude.Text,
+    -- | The language the content is in.
+    contentLanguage :: Lude.Maybe Lude.Text,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+    copySourceSSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Specifies whether you want to apply a Legal Hold to the copied object.
+    objectLockLegalHoldStatus :: Lude.Maybe ObjectLockLegalHoldStatus,
+    -- | Specifies the algorithm to use when decrypting the source object (for example, AES256).
+    copySourceSSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | The canned ACL to apply to the object.
+    --
+    -- This action is not supported by Amazon S3 on Outposts.
+    acl :: Lude.Maybe ObjectCannedACL,
+    -- | Specifies presentational information for the object.
+    contentDisposition :: Lude.Maybe Lude.Text,
+    -- | The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text,
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    -- | A standard MIME type describing the format of the object data.
+    contentType :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CopyObject' with the minimum fields required to make a request.
 --
--- * 'acl' - The canned ACL to apply to the object.
+-- * 'copySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
+-- * 'copySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
+-- * 'copySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+-- * 'taggingDirective' - Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
+-- * 'metadataDirective' - Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
+-- * 'objectLockMode' - The Object Lock mode that you want to apply to the copied object.
+-- * 'expires' - The date and time at which the object is no longer cacheable.
+-- * 'grantReadACP' - Allows grantee to read the object ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
+-- * 'copySourceIfNoneMatch' - Copies the object if its entity tag (ETag) is different than the specified ETag.
 -- * 'bucket' - The name of the destination bucket.
 --
 -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'cacheControl' - Specifies caching behavior along the request/reply chain.
--- * 'contentDisposition' - Specifies presentational information for the object.
+-- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
+-- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
+-- * 'requestPayer' -
+-- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'copySourceIfMatch' - Copies the object if its entity tag (ETag) matches the specified tag.
+-- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+-- * 'grantRead' - Allows grantee to read the object data and its metadata.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'expectedSourceBucketOwner' - The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- * 'key' - The key of the destination object.
+-- * 'storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
+-- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+-- * 'sSEKMSKeyId' - Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
+-- * 'grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
 -- * 'contentEncoding' - Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
--- * 'contentLanguage' - The language the content is in.
--- * 'contentType' - A standard MIME type describing the format of the object data.
+-- * 'tagging' - The tag-set for the object destination object this value must be used in conjunction with the @TaggingDirective@ . The tag-set must be encoded as URL Query parameters.
+-- * 'objectLockRetainUntilDate' - The date and time when you want the copied object's Object Lock to expire.
+-- * 'metadata' - A map of metadata to store with the object in S3.
 -- * 'copySource' - Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
 --
 --
@@ -216,54 +303,28 @@ data CopyObject = CopyObject'
 --
 --
 -- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
--- * 'copySourceIfMatch' - Copies the object if its entity tag (ETag) matches the specified tag.
--- * 'copySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
--- * 'copySourceIfNoneMatch' - Copies the object if its entity tag (ETag) is different than the specified ETag.
--- * 'copySourceIfUnmodifiedSince' - Copies the object if it hasn't been modified since the specified time.
--- * 'copySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (for example, AES256).
--- * 'copySourceSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
--- * 'copySourceSSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'expectedBucketOwner' - The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'expectedSourceBucketOwner' - The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'expires' - The date and time at which the object is no longer cacheable.
--- * 'grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'grantRead' - Allows grantee to read the object data and its metadata.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'grantReadACP' - Allows grantee to read the object ACL.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable object.
---
--- This action is not supported by Amazon S3 on Outposts.
--- * 'key' - The key of the destination object.
--- * 'metadata' - A map of metadata to store with the object in S3.
--- * 'metadataDirective' - Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
--- * 'objectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the copied object.
--- * 'objectLockMode' - The Object Lock mode that you want to apply to the copied object.
--- * 'objectLockRetainUntilDate' - The date and time when you want the copied object's Object Lock to expire.
--- * 'requestPayer' - Undocumented field.
--- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
--- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm@ header.
--- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 -- * 'sSEKMSEncryptionContext' - Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
--- * 'sSEKMSKeyId' - Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication> in the /Amazon S3 Developer Guide/ .
+-- * 'cacheControl' - Specifies caching behavior along the request/reply chain.
+-- * 'contentLanguage' - The language the content is in.
+-- * 'copySourceSSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+-- * 'objectLockLegalHoldStatus' - Specifies whether you want to apply a Legal Hold to the copied object.
+-- * 'copySourceSSECustomerAlgorithm' - Specifies the algorithm to use when decrypting the source object (for example, AES256).
+-- * 'acl' - The canned ACL to apply to the object.
+--
+-- This action is not supported by Amazon S3 on Outposts.
+-- * 'contentDisposition' - Specifies presentational information for the object.
+-- * 'expectedBucketOwner' - The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
--- * 'tagging' - The tag-set for the object destination object this value must be used in conjunction with the @TaggingDirective@ . The tag-set must be encoded as URL Query parameters.
--- * 'taggingDirective' - Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.
--- * 'websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+-- * 'contentType' - A standard MIME type describing the format of the object data.
 mkCopyObject ::
   -- | 'bucket'
   BucketName ->
-  -- | 'copySource'
-  Lude.Text ->
   -- | 'key'
   ObjectKey ->
+  -- | 'copySource'
+  Lude.Text ->
   CopyObject
-mkCopyObject pBucket_ pCopySource_ pKey_ =
+mkCopyObject pBucket_ pKey_ pCopySource_ =
   CopyObject'
     { copySourceIfModifiedSince = Lude.Nothing,
       copySourceIfUnmodifiedSince = Lude.Nothing,
@@ -274,6 +335,7 @@ mkCopyObject pBucket_ pCopySource_ pKey_ =
       expires = Lude.Nothing,
       grantReadACP = Lude.Nothing,
       copySourceIfNoneMatch = Lude.Nothing,
+      bucket = pBucket_,
       sSECustomerAlgorithm = Lude.Nothing,
       sSECustomerKey = Lude.Nothing,
       requestPayer = Lude.Nothing,
@@ -282,6 +344,7 @@ mkCopyObject pBucket_ pCopySource_ pKey_ =
       websiteRedirectLocation = Lude.Nothing,
       grantRead = Lude.Nothing,
       expectedSourceBucketOwner = Lude.Nothing,
+      key = pKey_,
       storageClass = Lude.Nothing,
       sSECustomerKeyMD5 = Lude.Nothing,
       sSEKMSKeyId = Lude.Nothing,
@@ -290,6 +353,7 @@ mkCopyObject pBucket_ pCopySource_ pKey_ =
       tagging = Lude.Nothing,
       objectLockRetainUntilDate = Lude.Nothing,
       metadata = Lude.mempty,
+      copySource = pCopySource_,
       sSEKMSEncryptionContext = Lude.Nothing,
       cacheControl = Lude.Nothing,
       contentLanguage = Lude.Nothing,
@@ -300,10 +364,7 @@ mkCopyObject pBucket_ pCopySource_ pKey_ =
       contentDisposition = Lude.Nothing,
       expectedBucketOwner = Lude.Nothing,
       serverSideEncryption = Lude.Nothing,
-      contentType = Lude.Nothing,
-      bucket = pBucket_,
-      copySource = pCopySource_,
-      key = pKey_
+      contentType = Lude.Nothing
     }
 
 -- | Copies the object if it has been modified since the specified time.
@@ -371,6 +432,16 @@ coCopySourceIfNoneMatch :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
 coCopySourceIfNoneMatch = Lens.lens (copySourceIfNoneMatch :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {copySourceIfNoneMatch = a} :: CopyObject)
 {-# DEPRECATED coCopySourceIfNoneMatch "Use generic-lens or generic-optics with 'copySourceIfNoneMatch' instead." #-}
 
+-- | The name of the destination bucket.
+--
+-- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
+-- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coBucket :: Lens.Lens' CopyObject BucketName
+coBucket = Lens.lens (bucket :: CopyObject -> BucketName) (\s a -> s {bucket = a} :: CopyObject)
+{-# DEPRECATED coBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
 -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
 --
 -- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -431,6 +502,13 @@ coExpectedSourceBucketOwner :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
 coExpectedSourceBucketOwner = Lens.lens (expectedSourceBucketOwner :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedSourceBucketOwner = a} :: CopyObject)
 {-# DEPRECATED coExpectedSourceBucketOwner "Use generic-lens or generic-optics with 'expectedSourceBucketOwner' instead." #-}
 
+-- | The key of the destination object.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coKey :: Lens.Lens' CopyObject ObjectKey
+coKey = Lens.lens (key :: CopyObject -> ObjectKey) (\s a -> s {key = a} :: CopyObject)
+{-# DEPRECATED coKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
 -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only uses the OUTPOSTS Storage Class. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes> in the /Amazon S3 Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -488,6 +566,23 @@ coObjectLockRetainUntilDate = Lens.lens (objectLockRetainUntilDate :: CopyObject
 coMetadata :: Lens.Lens' CopyObject (Lude.HashMap Lude.Text (Lude.Text))
 coMetadata = Lens.lens (metadata :: CopyObject -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metadata = a} :: CopyObject)
 {-# DEPRECATED coMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
+--
+--
+--     * For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.
+--
+--
+--     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded.
+-- Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.
+--
+--
+-- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
+--
+-- /Note:/ Consider using 'copySource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coCopySource :: Lens.Lens' CopyObject Lude.Text
+coCopySource = Lens.lens (copySource :: CopyObject -> Lude.Text) (\s a -> s {copySource = a} :: CopyObject)
+{-# DEPRECATED coCopySource "Use generic-lens or generic-optics with 'copySource' instead." #-}
 
 -- | Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
 --
@@ -568,40 +663,6 @@ coContentType :: Lens.Lens' CopyObject (Lude.Maybe Lude.Text)
 coContentType = Lens.lens (contentType :: CopyObject -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: CopyObject)
 {-# DEPRECATED coContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
--- | The name of the destination bucket.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coBucket :: Lens.Lens' CopyObject BucketName
-coBucket = Lens.lens (bucket :: CopyObject -> BucketName) (\s a -> s {bucket = a} :: CopyObject)
-{-# DEPRECATED coBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want to access the source object through an <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html access point> :
---
---
---     * For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/). For example, to copy the object @reports/january.pdf@ from the bucket @awsexamplebucket@ , use @awsexamplebucket/reports/january.pdf@ . The value must be URL encoded.
---
---
---     * For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format @arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through access point @my-access-point@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf@ . The value must be URL encoded.
--- Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format @arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key>@ . For example, to copy the object @reports/january.pdf@ through outpost @my-outpost@ owned by account @123456789012@ in Region @us-west-2@ , use the URL encoding of @arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf@ . The value must be URL encoded.
---
---
--- To copy a specific version of an object, append @?versionId=<version-id>@ to the value (for example, @awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893@ ). If you don't specify a version ID, Amazon S3 copies the latest version of the source object.
---
--- /Note:/ Consider using 'copySource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coCopySource :: Lens.Lens' CopyObject Lude.Text
-coCopySource = Lens.lens (copySource :: CopyObject -> Lude.Text) (\s a -> s {copySource = a} :: CopyObject)
-{-# DEPRECATED coCopySource "Use generic-lens or generic-optics with 'copySource' instead." #-}
-
--- | The key of the destination object.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coKey :: Lens.Lens' CopyObject ObjectKey
-coKey = Lens.lens (key :: CopyObject -> ObjectKey) (\s a -> s {key = a} :: CopyObject)
-{-# DEPRECATED coKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
 instance Lude.AWSRequest CopyObject where
   type Rs CopyObject = CopyObjectResponse
   request = Req.put s3Service
@@ -657,6 +718,7 @@ instance Lude.ToHeaders CopyObject where
         "x-amz-object-lock-retain-until-date"
           Lude.=# objectLockRetainUntilDate,
         "x-amz-meta-" Lude.=# metadata,
+        "x-amz-copy-source" Lude.=# copySource,
         "x-amz-server-side-encryption-context"
           Lude.=# sSEKMSEncryptionContext,
         "Cache-Control" Lude.=# cacheControl,
@@ -670,8 +732,7 @@ instance Lude.ToHeaders CopyObject where
         "Content-Disposition" Lude.=# contentDisposition,
         "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner,
         "x-amz-server-side-encryption" Lude.=# serverSideEncryption,
-        "Content-Type" Lude.=# contentType,
-        "x-amz-copy-source" Lude.=# copySource
+        "Content-Type" Lude.=# contentType
       ]
 
 instance Lude.ToPath CopyObject where
@@ -683,19 +744,26 @@ instance Lude.ToQuery CopyObject where
 
 -- | /See:/ 'mkCopyObjectResponse' smart constructor.
 data CopyObjectResponse = CopyObjectResponse'
-  { requestCharged ::
-      Lude.Maybe RequestCharged,
+  { requestCharged :: Lude.Maybe RequestCharged,
+    -- | Version ID of the newly created copy.
     versionId :: Lude.Maybe ObjectVersionId,
+    -- | If the object expiration is configured, the response includes this header.
     expiration :: Lude.Maybe Lude.Text,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
     sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    -- | Version of the copied object in the destination bucket.
     copySourceVersionId :: Lude.Maybe Lude.Text,
+    -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
     sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    sSEKMSEncryptionContext ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    serverSideEncryption ::
-      Lude.Maybe ServerSideEncryption,
+    -- | If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+    sSEKMSEncryptionContext :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    -- | Container for all response elements.
     copyObjectResult :: Lude.Maybe CopyObjectResult,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -703,17 +771,17 @@ data CopyObjectResponse = CopyObjectResponse'
 
 -- | Creates a value of 'CopyObjectResponse' with the minimum fields required to make a request.
 --
--- * 'copyObjectResult' - Container for all response elements.
--- * 'copySourceVersionId' - Version of the copied object in the destination bucket.
--- * 'expiration' - If the object expiration is configured, the response includes this header.
--- * 'requestCharged' - Undocumented field.
--- * 'responseStatus' - The response status code.
--- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
--- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
--- * 'sSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
--- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
--- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+-- * 'requestCharged' -
 -- * 'versionId' - Version ID of the newly created copy.
+-- * 'expiration' - If the object expiration is configured, the response includes this header.
+-- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
+-- * 'copySourceVersionId' - Version of the copied object in the destination bucket.
+-- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
+-- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.
+-- * 'sSEKMSEncryptionContext' - If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+-- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
+-- * 'copyObjectResult' - Container for all response elements.
+-- * 'responseStatus' - The response status code.
 mkCopyObjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.WorkMail.ListMailboxPermissions
 
     -- ** Request lenses
     lmpNextToken,
+    lmpEntityId,
     lmpMaxResults,
     lmpOrganizationId,
-    lmpEntityId,
 
     -- * Destructuring the response
     ListMailboxPermissionsResponse (..),
@@ -46,39 +47,36 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkListMailboxPermissions' smart constructor.
 data ListMailboxPermissions = ListMailboxPermissions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The identifier of the user, group, or resource for which to list mailbox permissions.
+    entityId :: Lude.Text,
+    -- | The maximum number of results to return in a single call.
     maxResults :: Lude.Maybe Lude.Natural,
-    organizationId :: Lude.Text,
-    entityId :: Lude.Text
+    -- | The identifier of the organization under which the user, group, or resource exists.
+    organizationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMailboxPermissions' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
 -- * 'entityId' - The identifier of the user, group, or resource for which to list mailbox permissions.
 -- * 'maxResults' - The maximum number of results to return in a single call.
--- * 'nextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
 -- * 'organizationId' - The identifier of the organization under which the user, group, or resource exists.
 mkListMailboxPermissions ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'entityId'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   ListMailboxPermissions
-mkListMailboxPermissions pOrganizationId_ pEntityId_ =
+mkListMailboxPermissions pEntityId_ pOrganizationId_ =
   ListMailboxPermissions'
     { nextToken = Lude.Nothing,
+      entityId = pEntityId_,
       maxResults = Lude.Nothing,
-      organizationId = pOrganizationId_,
-      entityId = pEntityId_
+      organizationId = pOrganizationId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
@@ -87,6 +85,13 @@ mkListMailboxPermissions pOrganizationId_ pEntityId_ =
 lmpNextToken :: Lens.Lens' ListMailboxPermissions (Lude.Maybe Lude.Text)
 lmpNextToken = Lens.lens (nextToken :: ListMailboxPermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMailboxPermissions)
 {-# DEPRECATED lmpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The identifier of the user, group, or resource for which to list mailbox permissions.
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpEntityId :: Lens.Lens' ListMailboxPermissions Lude.Text
+lmpEntityId = Lens.lens (entityId :: ListMailboxPermissions -> Lude.Text) (\s a -> s {entityId = a} :: ListMailboxPermissions)
+{-# DEPRECATED lmpEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 -- | The maximum number of results to return in a single call.
 --
@@ -101,13 +106,6 @@ lmpMaxResults = Lens.lens (maxResults :: ListMailboxPermissions -> Lude.Maybe Lu
 lmpOrganizationId :: Lens.Lens' ListMailboxPermissions Lude.Text
 lmpOrganizationId = Lens.lens (organizationId :: ListMailboxPermissions -> Lude.Text) (\s a -> s {organizationId = a} :: ListMailboxPermissions)
 {-# DEPRECATED lmpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The identifier of the user, group, or resource for which to list mailbox permissions.
---
--- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpEntityId :: Lens.Lens' ListMailboxPermissions Lude.Text
-lmpEntityId = Lens.lens (entityId :: ListMailboxPermissions -> Lude.Text) (\s a -> s {entityId = a} :: ListMailboxPermissions)
-{-# DEPRECATED lmpEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
 instance Page.AWSPager ListMailboxPermissions where
   page rq rs
@@ -146,9 +144,9 @@ instance Lude.ToJSON ListMailboxPermissions where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
+            Lude.Just ("EntityId" Lude..= entityId),
             ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("EntityId" Lude..= entityId)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -160,19 +158,14 @@ instance Lude.ToQuery ListMailboxPermissions where
 
 -- | /See:/ 'mkListMailboxPermissionsResponse' smart constructor.
 data ListMailboxPermissionsResponse = ListMailboxPermissionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    permissions ::
-      Lude.Maybe [Permission],
+  { -- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | One page of the user, group, or resource mailbox permissions.
+    permissions :: Lude.Maybe [Permission],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMailboxPermissionsResponse' with the minimum fields required to make a request.

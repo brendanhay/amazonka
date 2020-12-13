@@ -13,9 +13,9 @@
 module Network.AWS.CognitoSync.Types.BulkPublishStatus
   ( BulkPublishStatus
       ( BulkPublishStatus',
-        Failed,
-        InProgress,
         NotStarted,
+        InProgress,
+        Failed,
         Succeeded
       ),
   )
@@ -47,22 +47,22 @@ newtype BulkPublishStatus = BulkPublishStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: BulkPublishStatus
-pattern Failed = BulkPublishStatus' "FAILED"
+pattern NotStarted :: BulkPublishStatus
+pattern NotStarted = BulkPublishStatus' "NOT_STARTED"
 
 pattern InProgress :: BulkPublishStatus
 pattern InProgress = BulkPublishStatus' "IN_PROGRESS"
 
-pattern NotStarted :: BulkPublishStatus
-pattern NotStarted = BulkPublishStatus' "NOT_STARTED"
+pattern Failed :: BulkPublishStatus
+pattern Failed = BulkPublishStatus' "FAILED"
 
 pattern Succeeded :: BulkPublishStatus
 pattern Succeeded = BulkPublishStatus' "SUCCEEDED"
 
 {-# COMPLETE
-  Failed,
-  InProgress,
   NotStarted,
+  InProgress,
+  Failed,
   Succeeded,
   BulkPublishStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.Glue.GetConnection
     mkGetConnection,
 
     -- ** Request lenses
-    gCatalogId,
-    gHidePassword,
-    gName,
+    gcgCatalogId,
+    gcgHidePassword,
+    gcgName,
 
     -- * Destructuring the response
     GetConnectionResponse (..),
     mkGetConnectionResponse,
 
     -- ** Response lenses
-    gccrsConnection,
-    gccrsResponseStatus,
+    gcfrsConnection,
+    gcfrsResponseStatus,
   )
 where
 
@@ -41,18 +42,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConnection' smart constructor.
 data GetConnection = GetConnection'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
     hidePassword :: Lude.Maybe Lude.Bool,
+    -- | The name of the connection definition to retrieve.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnection' with the minimum fields required to make a request.
@@ -74,23 +71,23 @@ mkGetConnection pName_ =
 -- | The ID of the Data Catalog in which the connection resides. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gCatalogId :: Lens.Lens' GetConnection (Lude.Maybe Lude.Text)
-gCatalogId = Lens.lens (catalogId :: GetConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetConnection)
-{-# DEPRECATED gCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+gcgCatalogId :: Lens.Lens' GetConnection (Lude.Maybe Lude.Text)
+gcgCatalogId = Lens.lens (catalogId :: GetConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetConnection)
+{-# DEPRECATED gcgCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | Allows you to retrieve the connection metadata without returning the password. For instance, the AWS Glue console uses this flag to retrieve the connection, and does not display the password. Set this parameter when the caller might not have permission to use the AWS KMS key to decrypt the password, but it does have permission to access the rest of the connection properties.
 --
 -- /Note:/ Consider using 'hidePassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gHidePassword :: Lens.Lens' GetConnection (Lude.Maybe Lude.Bool)
-gHidePassword = Lens.lens (hidePassword :: GetConnection -> Lude.Maybe Lude.Bool) (\s a -> s {hidePassword = a} :: GetConnection)
-{-# DEPRECATED gHidePassword "Use generic-lens or generic-optics with 'hidePassword' instead." #-}
+gcgHidePassword :: Lens.Lens' GetConnection (Lude.Maybe Lude.Bool)
+gcgHidePassword = Lens.lens (hidePassword :: GetConnection -> Lude.Maybe Lude.Bool) (\s a -> s {hidePassword = a} :: GetConnection)
+{-# DEPRECATED gcgHidePassword "Use generic-lens or generic-optics with 'hidePassword' instead." #-}
 
 -- | The name of the connection definition to retrieve.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gName :: Lens.Lens' GetConnection Lude.Text
-gName = Lens.lens (name :: GetConnection -> Lude.Text) (\s a -> s {name = a} :: GetConnection)
-{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
+gcgName :: Lens.Lens' GetConnection Lude.Text
+gcgName = Lens.lens (name :: GetConnection -> Lude.Text) (\s a -> s {name = a} :: GetConnection)
+{-# DEPRECATED gcgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest GetConnection where
   type Rs GetConnection = GetConnectionResponse
@@ -131,17 +128,12 @@ instance Lude.ToQuery GetConnection where
 
 -- | /See:/ 'mkGetConnectionResponse' smart constructor.
 data GetConnectionResponse = GetConnectionResponse'
-  { connection ::
-      Lude.Maybe Connection,
+  { -- | The requested connection definition.
+    connection :: Lude.Maybe Connection,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectionResponse' with the minimum fields required to make a request.
@@ -161,13 +153,13 @@ mkGetConnectionResponse pResponseStatus_ =
 -- | The requested connection definition.
 --
 -- /Note:/ Consider using 'connection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gccrsConnection :: Lens.Lens' GetConnectionResponse (Lude.Maybe Connection)
-gccrsConnection = Lens.lens (connection :: GetConnectionResponse -> Lude.Maybe Connection) (\s a -> s {connection = a} :: GetConnectionResponse)
-{-# DEPRECATED gccrsConnection "Use generic-lens or generic-optics with 'connection' instead." #-}
+gcfrsConnection :: Lens.Lens' GetConnectionResponse (Lude.Maybe Connection)
+gcfrsConnection = Lens.lens (connection :: GetConnectionResponse -> Lude.Maybe Connection) (\s a -> s {connection = a} :: GetConnectionResponse)
+{-# DEPRECATED gcfrsConnection "Use generic-lens or generic-optics with 'connection' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gccrsResponseStatus :: Lens.Lens' GetConnectionResponse Lude.Int
-gccrsResponseStatus = Lens.lens (responseStatus :: GetConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectionResponse)
-{-# DEPRECATED gccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcfrsResponseStatus :: Lens.Lens' GetConnectionResponse Lude.Int
+gcfrsResponseStatus = Lens.lens (responseStatus :: GetConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectionResponse)
+{-# DEPRECATED gcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

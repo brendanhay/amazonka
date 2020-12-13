@@ -17,18 +17,18 @@ module Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
     mkAuthenticateOidcActionConfig,
 
     -- * Lenses
+    aoacClientId,
     aoacClientSecret,
+    aoacUserInfoEndpoint,
     aoacUseExistingClientSecret,
     aoacAuthenticationRequestExtraParams,
     aoacScope,
     aoacOnUnauthenticatedRequest,
     aoacSessionCookieName,
     aoacSessionTimeout,
-    aoacIssuer,
     aoacAuthorizationEndpoint,
     aoacTokenEndpoint,
-    aoacUserInfoEndpoint,
-    aoacClientId,
+    aoacIssuer,
   )
 where
 
@@ -40,47 +40,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthenticateOidcActionConfig' smart constructor.
 data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
-  { clientSecret ::
-      Lude.Maybe Lude.Text,
-    useExistingClientSecret ::
-      Lude.Maybe Lude.Bool,
-    authenticationRequestExtraParams ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    scope :: Lude.Maybe Lude.Text,
-    onUnauthenticatedRequest ::
-      Lude.Maybe
-        AuthenticateOidcActionConditionalBehaviorEnum,
-    sessionCookieName ::
-      Lude.Maybe Lude.Text,
-    sessionTimeout ::
-      Lude.Maybe Lude.Integer,
-    issuer :: Lude.Text,
-    authorizationEndpoint ::
-      Lude.Text,
-    tokenEndpoint :: Lude.Text,
+  { -- | The OAuth 2.0 client identifier.
+    clientId :: Lude.Text,
+    -- | The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set @UseExistingClientSecret@ to true.
+    clientSecret :: Lude.Maybe Lude.Text,
+    -- | The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
     userInfoEndpoint :: Lude.Text,
-    clientId :: Lude.Text
+    -- | Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+    useExistingClientSecret :: Lude.Maybe Lude.Bool,
+    -- | The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+    authenticationRequestExtraParams :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The set of user claims to be requested from the IdP. The default is @openid@ .
+    --
+    -- To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
+    scope :: Lude.Maybe Lude.Text,
+    -- | The behavior if the user is not authenticated. The following are possible values:
+    --
+    --
+    --     * deny- Return an HTTP 401 Unauthorized error.
+    --
+    --
+    --     * allow- Allow the request to be forwarded to the target.
+    --
+    --
+    --     * authenticate- Redirect the request to the IdP authorization endpoint. This is the default value.
+    onUnauthenticatedRequest :: Lude.Maybe AuthenticateOidcActionConditionalBehaviorEnum,
+    -- | The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+    sessionCookieName :: Lude.Maybe Lude.Text,
+    -- | The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+    sessionTimeout :: Lude.Maybe Lude.Integer,
+    -- | The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+    authorizationEndpoint :: Lude.Text,
+    -- | The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+    tokenEndpoint :: Lude.Text,
+    -- | The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+    issuer :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthenticateOidcActionConfig' with the minimum fields required to make a request.
 --
--- * 'authenticationRequestExtraParams' - The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
--- * 'authorizationEndpoint' - The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 -- * 'clientId' - The OAuth 2.0 client identifier.
 -- * 'clientSecret' - The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set @UseExistingClientSecret@ to true.
--- * 'issuer' - The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+-- * 'userInfoEndpoint' - The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+-- * 'useExistingClientSecret' - Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
+-- * 'authenticationRequestExtraParams' - The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+-- * 'scope' - The set of user claims to be requested from the IdP. The default is @openid@ .
+--
+-- To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 -- * 'onUnauthenticatedRequest' - The behavior if the user is not authenticated. The following are possible values:
 --
 --
@@ -93,46 +101,50 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
 --     * authenticate- Redirect the request to the IdP authorization endpoint. This is the default value.
 --
 --
--- * 'scope' - The set of user claims to be requested from the IdP. The default is @openid@ .
---
--- To verify which scope values your IdP supports and how to separate multiple values, see the documentation for your IdP.
 -- * 'sessionCookieName' - The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
 -- * 'sessionTimeout' - The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).
+-- * 'authorizationEndpoint' - The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 -- * 'tokenEndpoint' - The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
--- * 'useExistingClientSecret' - Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
--- * 'userInfoEndpoint' - The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+-- * 'issuer' - The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 mkAuthenticateOidcActionConfig ::
-  -- | 'issuer'
+  -- | 'clientId'
+  Lude.Text ->
+  -- | 'userInfoEndpoint'
   Lude.Text ->
   -- | 'authorizationEndpoint'
   Lude.Text ->
   -- | 'tokenEndpoint'
   Lude.Text ->
-  -- | 'userInfoEndpoint'
-  Lude.Text ->
-  -- | 'clientId'
+  -- | 'issuer'
   Lude.Text ->
   AuthenticateOidcActionConfig
 mkAuthenticateOidcActionConfig
-  pIssuer_
+  pClientId_
+  pUserInfoEndpoint_
   pAuthorizationEndpoint_
   pTokenEndpoint_
-  pUserInfoEndpoint_
-  pClientId_ =
+  pIssuer_ =
     AuthenticateOidcActionConfig'
-      { clientSecret = Lude.Nothing,
+      { clientId = pClientId_,
+        clientSecret = Lude.Nothing,
+        userInfoEndpoint = pUserInfoEndpoint_,
         useExistingClientSecret = Lude.Nothing,
         authenticationRequestExtraParams = Lude.Nothing,
         scope = Lude.Nothing,
         onUnauthenticatedRequest = Lude.Nothing,
         sessionCookieName = Lude.Nothing,
         sessionTimeout = Lude.Nothing,
-        issuer = pIssuer_,
         authorizationEndpoint = pAuthorizationEndpoint_,
         tokenEndpoint = pTokenEndpoint_,
-        userInfoEndpoint = pUserInfoEndpoint_,
-        clientId = pClientId_
+        issuer = pIssuer_
       }
+
+-- | The OAuth 2.0 client identifier.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoacClientId :: Lens.Lens' AuthenticateOidcActionConfig Lude.Text
+aoacClientId = Lens.lens (clientId :: AuthenticateOidcActionConfig -> Lude.Text) (\s a -> s {clientId = a} :: AuthenticateOidcActionConfig)
+{-# DEPRECATED aoacClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set @UseExistingClientSecret@ to true.
 --
@@ -140,6 +152,13 @@ mkAuthenticateOidcActionConfig
 aoacClientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Lude.Maybe Lude.Text)
 aoacClientSecret = Lens.lens (clientSecret :: AuthenticateOidcActionConfig -> Lude.Maybe Lude.Text) (\s a -> s {clientSecret = a} :: AuthenticateOidcActionConfig)
 {-# DEPRECATED aoacClientSecret "Use generic-lens or generic-optics with 'clientSecret' instead." #-}
+
+-- | The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+--
+-- /Note:/ Consider using 'userInfoEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoacUserInfoEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Lude.Text
+aoacUserInfoEndpoint = Lens.lens (userInfoEndpoint :: AuthenticateOidcActionConfig -> Lude.Text) (\s a -> s {userInfoEndpoint = a} :: AuthenticateOidcActionConfig)
+{-# DEPRECATED aoacUserInfoEndpoint "Use generic-lens or generic-optics with 'userInfoEndpoint' instead." #-}
 
 -- | Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.
 --
@@ -196,13 +215,6 @@ aoacSessionTimeout :: Lens.Lens' AuthenticateOidcActionConfig (Lude.Maybe Lude.I
 aoacSessionTimeout = Lens.lens (sessionTimeout :: AuthenticateOidcActionConfig -> Lude.Maybe Lude.Integer) (\s a -> s {sessionTimeout = a} :: AuthenticateOidcActionConfig)
 {-# DEPRECATED aoacSessionTimeout "Use generic-lens or generic-optics with 'sessionTimeout' instead." #-}
 
--- | The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
---
--- /Note:/ Consider using 'issuer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aoacIssuer :: Lens.Lens' AuthenticateOidcActionConfig Lude.Text
-aoacIssuer = Lens.lens (issuer :: AuthenticateOidcActionConfig -> Lude.Text) (\s a -> s {issuer = a} :: AuthenticateOidcActionConfig)
-{-# DEPRECATED aoacIssuer "Use generic-lens or generic-optics with 'issuer' instead." #-}
-
 -- | The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 --
 -- /Note:/ Consider using 'authorizationEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -217,24 +229,19 @@ aoacTokenEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Lude.Text
 aoacTokenEndpoint = Lens.lens (tokenEndpoint :: AuthenticateOidcActionConfig -> Lude.Text) (\s a -> s {tokenEndpoint = a} :: AuthenticateOidcActionConfig)
 {-# DEPRECATED aoacTokenEndpoint "Use generic-lens or generic-optics with 'tokenEndpoint' instead." #-}
 
--- | The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
+-- | The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.
 --
--- /Note:/ Consider using 'userInfoEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aoacUserInfoEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Lude.Text
-aoacUserInfoEndpoint = Lens.lens (userInfoEndpoint :: AuthenticateOidcActionConfig -> Lude.Text) (\s a -> s {userInfoEndpoint = a} :: AuthenticateOidcActionConfig)
-{-# DEPRECATED aoacUserInfoEndpoint "Use generic-lens or generic-optics with 'userInfoEndpoint' instead." #-}
-
--- | The OAuth 2.0 client identifier.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aoacClientId :: Lens.Lens' AuthenticateOidcActionConfig Lude.Text
-aoacClientId = Lens.lens (clientId :: AuthenticateOidcActionConfig -> Lude.Text) (\s a -> s {clientId = a} :: AuthenticateOidcActionConfig)
-{-# DEPRECATED aoacClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+-- /Note:/ Consider using 'issuer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aoacIssuer :: Lens.Lens' AuthenticateOidcActionConfig Lude.Text
+aoacIssuer = Lens.lens (issuer :: AuthenticateOidcActionConfig -> Lude.Text) (\s a -> s {issuer = a} :: AuthenticateOidcActionConfig)
+{-# DEPRECATED aoacIssuer "Use generic-lens or generic-optics with 'issuer' instead." #-}
 
 instance Lude.FromXML AuthenticateOidcActionConfig where
   parseXML x =
     AuthenticateOidcActionConfig'
-      Lude.<$> (x Lude..@? "ClientSecret")
+      Lude.<$> (x Lude..@ "ClientId")
+      Lude.<*> (x Lude..@? "ClientSecret")
+      Lude.<*> (x Lude..@ "UserInfoEndpoint")
       Lude.<*> (x Lude..@? "UseExistingClientSecret")
       Lude.<*> ( x Lude..@? "AuthenticationRequestExtraParams" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
@@ -243,16 +250,16 @@ instance Lude.FromXML AuthenticateOidcActionConfig where
       Lude.<*> (x Lude..@? "OnUnauthenticatedRequest")
       Lude.<*> (x Lude..@? "SessionCookieName")
       Lude.<*> (x Lude..@? "SessionTimeout")
-      Lude.<*> (x Lude..@ "Issuer")
       Lude.<*> (x Lude..@ "AuthorizationEndpoint")
       Lude.<*> (x Lude..@ "TokenEndpoint")
-      Lude.<*> (x Lude..@ "UserInfoEndpoint")
-      Lude.<*> (x Lude..@ "ClientId")
+      Lude.<*> (x Lude..@ "Issuer")
 
 instance Lude.ToQuery AuthenticateOidcActionConfig where
   toQuery AuthenticateOidcActionConfig' {..} =
     Lude.mconcat
-      [ "ClientSecret" Lude.=: clientSecret,
+      [ "ClientId" Lude.=: clientId,
+        "ClientSecret" Lude.=: clientSecret,
+        "UserInfoEndpoint" Lude.=: userInfoEndpoint,
         "UseExistingClientSecret" Lude.=: useExistingClientSecret,
         "AuthenticationRequestExtraParams"
           Lude.=: Lude.toQuery
@@ -263,9 +270,7 @@ instance Lude.ToQuery AuthenticateOidcActionConfig where
         "OnUnauthenticatedRequest" Lude.=: onUnauthenticatedRequest,
         "SessionCookieName" Lude.=: sessionCookieName,
         "SessionTimeout" Lude.=: sessionTimeout,
-        "Issuer" Lude.=: issuer,
         "AuthorizationEndpoint" Lude.=: authorizationEndpoint,
         "TokenEndpoint" Lude.=: tokenEndpoint,
-        "UserInfoEndpoint" Lude.=: userInfoEndpoint,
-        "ClientId" Lude.=: clientId
+        "Issuer" Lude.=: issuer
       ]

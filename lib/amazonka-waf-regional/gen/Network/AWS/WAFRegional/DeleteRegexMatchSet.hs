@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.WAFRegional.DeleteRegexMatchSet
     mkDeleteRegexMatchSet,
 
     -- ** Request lenses
-    drmsRegexMatchSetId,
     drmsChangeToken,
+    drmsRegexMatchSetId,
 
     -- * Destructuring the response
     DeleteRegexMatchSetResponse (..),
@@ -51,17 +52,12 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkDeleteRegexMatchSet' smart constructor.
 data DeleteRegexMatchSet = DeleteRegexMatchSet'
-  { regexMatchSetId ::
-      Lude.Text,
-    changeToken :: Lude.Text
+  { -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Lude.Text,
+    -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to delete. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+    regexMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRegexMatchSet' with the minimum fields required to make a request.
@@ -69,23 +65,16 @@ data DeleteRegexMatchSet = DeleteRegexMatchSet'
 -- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
 -- * 'regexMatchSetId' - The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to delete. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
 mkDeleteRegexMatchSet ::
-  -- | 'regexMatchSetId'
-  Lude.Text ->
   -- | 'changeToken'
   Lude.Text ->
+  -- | 'regexMatchSetId'
+  Lude.Text ->
   DeleteRegexMatchSet
-mkDeleteRegexMatchSet pRegexMatchSetId_ pChangeToken_ =
+mkDeleteRegexMatchSet pChangeToken_ pRegexMatchSetId_ =
   DeleteRegexMatchSet'
-    { regexMatchSetId = pRegexMatchSetId_,
-      changeToken = pChangeToken_
+    { changeToken = pChangeToken_,
+      regexMatchSetId = pRegexMatchSetId_
     }
-
--- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to delete. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
---
--- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drmsRegexMatchSetId :: Lens.Lens' DeleteRegexMatchSet Lude.Text
-drmsRegexMatchSetId = Lens.lens (regexMatchSetId :: DeleteRegexMatchSet -> Lude.Text) (\s a -> s {regexMatchSetId = a} :: DeleteRegexMatchSet)
-{-# DEPRECATED drmsRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
@@ -93,6 +82,13 @@ drmsRegexMatchSetId = Lens.lens (regexMatchSetId :: DeleteRegexMatchSet -> Lude.
 drmsChangeToken :: Lens.Lens' DeleteRegexMatchSet Lude.Text
 drmsChangeToken = Lens.lens (changeToken :: DeleteRegexMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteRegexMatchSet)
 {-# DEPRECATED drmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+
+-- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to delete. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+--
+-- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drmsRegexMatchSetId :: Lens.Lens' DeleteRegexMatchSet Lude.Text
+drmsRegexMatchSetId = Lens.lens (regexMatchSetId :: DeleteRegexMatchSet -> Lude.Text) (\s a -> s {regexMatchSetId = a} :: DeleteRegexMatchSet)
+{-# DEPRECATED drmsRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
 
 instance Lude.AWSRequest DeleteRegexMatchSet where
   type Rs DeleteRegexMatchSet = DeleteRegexMatchSetResponse
@@ -121,8 +117,8 @@ instance Lude.ToJSON DeleteRegexMatchSet where
   toJSON DeleteRegexMatchSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("RegexMatchSetId" Lude..= regexMatchSetId),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
+          [ Lude.Just ("ChangeToken" Lude..= changeToken),
+            Lude.Just ("RegexMatchSetId" Lude..= regexMatchSetId)
           ]
       )
 
@@ -134,17 +130,12 @@ instance Lude.ToQuery DeleteRegexMatchSet where
 
 -- | /See:/ 'mkDeleteRegexMatchSetResponse' smart constructor.
 data DeleteRegexMatchSetResponse = DeleteRegexMatchSetResponse'
-  { changeToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ChangeToken@ that you used to submit the @DeleteRegexMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+    changeToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRegexMatchSetResponse' with the minimum fields required to make a request.

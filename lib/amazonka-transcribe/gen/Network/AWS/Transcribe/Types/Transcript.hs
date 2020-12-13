@@ -29,17 +29,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTranscript' smart constructor.
 data Transcript = Transcript'
-  { redactedTranscriptFileURI ::
-      Lude.Maybe Lude.Text,
+  { -- | The S3 object location of the redacted transcript.
+    --
+    -- Use this URI to access the redacted transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
+    redactedTranscriptFileURI :: Lude.Maybe Lude.Text,
+    -- | The S3 object location of the transcript.
+    --
+    -- Use this URI to access the transcript. If you specified an S3 bucket in the @OutputBucketName@ field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.
     transcriptFileURI :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Transcript' with the minimum fields required to make a request.

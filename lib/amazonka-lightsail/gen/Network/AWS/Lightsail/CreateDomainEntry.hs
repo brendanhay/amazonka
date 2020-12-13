@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Lightsail.CreateDomainEntry
     mkCreateDomainEntry,
 
     -- ** Request lenses
-    cdeDomainName,
     cdeDomainEntry,
+    cdeDomainName,
 
     -- * Destructuring the response
     CreateDomainEntryResponse (..),
@@ -42,17 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDomainEntry' smart constructor.
 data CreateDomainEntry = CreateDomainEntry'
-  { domainName ::
-      Lude.Text,
-    domainEntry :: DomainEntry
+  { -- | An array of key-value pairs containing information about the domain entry request.
+    domainEntry :: DomainEntry,
+    -- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainEntry' with the minimum fields required to make a request.
@@ -60,23 +56,16 @@ data CreateDomainEntry = CreateDomainEntry'
 -- * 'domainEntry' - An array of key-value pairs containing information about the domain entry request.
 -- * 'domainName' - The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
 mkCreateDomainEntry ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'domainEntry'
   DomainEntry ->
+  -- | 'domainName'
+  Lude.Text ->
   CreateDomainEntry
-mkCreateDomainEntry pDomainName_ pDomainEntry_ =
+mkCreateDomainEntry pDomainEntry_ pDomainName_ =
   CreateDomainEntry'
-    { domainName = pDomainName_,
-      domainEntry = pDomainEntry_
+    { domainEntry = pDomainEntry_,
+      domainName = pDomainName_
     }
-
--- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdeDomainName :: Lens.Lens' CreateDomainEntry Lude.Text
-cdeDomainName = Lens.lens (domainName :: CreateDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomainEntry)
-{-# DEPRECATED cdeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | An array of key-value pairs containing information about the domain entry request.
 --
@@ -84,6 +73,13 @@ cdeDomainName = Lens.lens (domainName :: CreateDomainEntry -> Lude.Text) (\s a -
 cdeDomainEntry :: Lens.Lens' CreateDomainEntry DomainEntry
 cdeDomainEntry = Lens.lens (domainEntry :: CreateDomainEntry -> DomainEntry) (\s a -> s {domainEntry = a} :: CreateDomainEntry)
 {-# DEPRECATED cdeDomainEntry "Use generic-lens or generic-optics with 'domainEntry' instead." #-}
+
+-- | The domain name (e.g., @example.com@ ) for which you want to create the domain entry.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdeDomainName :: Lens.Lens' CreateDomainEntry Lude.Text
+cdeDomainName = Lens.lens (domainName :: CreateDomainEntry -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomainEntry)
+{-# DEPRECATED cdeDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 instance Lude.AWSRequest CreateDomainEntry where
   type Rs CreateDomainEntry = CreateDomainEntryResponse
@@ -110,8 +106,8 @@ instance Lude.ToJSON CreateDomainEntry where
   toJSON CreateDomainEntry' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("domainName" Lude..= domainName),
-            Lude.Just ("domainEntry" Lude..= domainEntry)
+          [ Lude.Just ("domainEntry" Lude..= domainEntry),
+            Lude.Just ("domainName" Lude..= domainName)
           ]
       )
 
@@ -123,17 +119,12 @@ instance Lude.ToQuery CreateDomainEntry where
 
 -- | /See:/ 'mkCreateDomainEntryResponse' smart constructor.
 data CreateDomainEntryResponse = CreateDomainEntryResponse'
-  { operation ::
-      Lude.Maybe Operation,
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operation :: Lude.Maybe Operation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainEntryResponse' with the minimum fields required to make a request.

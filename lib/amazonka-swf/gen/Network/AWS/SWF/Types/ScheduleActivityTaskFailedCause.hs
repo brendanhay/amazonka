@@ -13,16 +13,16 @@
 module Network.AWS.SWF.Types.ScheduleActivityTaskFailedCause
   ( ScheduleActivityTaskFailedCause
       ( ScheduleActivityTaskFailedCause',
-        SATFCActivityCreationRateExceeded,
-        SATFCActivityIdAlreadyInUse,
         SATFCActivityTypeDeprecated,
         SATFCActivityTypeDoesNotExist,
-        SATFCDefaultHeartbeatTimeoutUndefined,
+        SATFCActivityIdAlreadyInUse,
+        SATFCOpenActivitiesLimitExceeded,
+        SATFCActivityCreationRateExceeded,
         SATFCDefaultScheduleToCloseTimeoutUndefined,
+        SATFCDefaultTaskListUndefined,
         SATFCDefaultScheduleToStartTimeoutUndefined,
         SATFCDefaultStartToCloseTimeoutUndefined,
-        SATFCDefaultTaskListUndefined,
-        SATFCOpenActivitiesLimitExceeded,
+        SATFCDefaultHeartbeatTimeoutUndefined,
         SATFCOperationNotPermitted
       ),
   )
@@ -54,23 +54,26 @@ newtype ScheduleActivityTaskFailedCause = ScheduleActivityTaskFailedCause' Lude.
       Lude.ToHeader
     )
 
-pattern SATFCActivityCreationRateExceeded :: ScheduleActivityTaskFailedCause
-pattern SATFCActivityCreationRateExceeded = ScheduleActivityTaskFailedCause' "ACTIVITY_CREATION_RATE_EXCEEDED"
-
-pattern SATFCActivityIdAlreadyInUse :: ScheduleActivityTaskFailedCause
-pattern SATFCActivityIdAlreadyInUse = ScheduleActivityTaskFailedCause' "ACTIVITY_ID_ALREADY_IN_USE"
-
 pattern SATFCActivityTypeDeprecated :: ScheduleActivityTaskFailedCause
 pattern SATFCActivityTypeDeprecated = ScheduleActivityTaskFailedCause' "ACTIVITY_TYPE_DEPRECATED"
 
 pattern SATFCActivityTypeDoesNotExist :: ScheduleActivityTaskFailedCause
 pattern SATFCActivityTypeDoesNotExist = ScheduleActivityTaskFailedCause' "ACTIVITY_TYPE_DOES_NOT_EXIST"
 
-pattern SATFCDefaultHeartbeatTimeoutUndefined :: ScheduleActivityTaskFailedCause
-pattern SATFCDefaultHeartbeatTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
+pattern SATFCActivityIdAlreadyInUse :: ScheduleActivityTaskFailedCause
+pattern SATFCActivityIdAlreadyInUse = ScheduleActivityTaskFailedCause' "ACTIVITY_ID_ALREADY_IN_USE"
+
+pattern SATFCOpenActivitiesLimitExceeded :: ScheduleActivityTaskFailedCause
+pattern SATFCOpenActivitiesLimitExceeded = ScheduleActivityTaskFailedCause' "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
+
+pattern SATFCActivityCreationRateExceeded :: ScheduleActivityTaskFailedCause
+pattern SATFCActivityCreationRateExceeded = ScheduleActivityTaskFailedCause' "ACTIVITY_CREATION_RATE_EXCEEDED"
 
 pattern SATFCDefaultScheduleToCloseTimeoutUndefined :: ScheduleActivityTaskFailedCause
 pattern SATFCDefaultScheduleToCloseTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
+
+pattern SATFCDefaultTaskListUndefined :: ScheduleActivityTaskFailedCause
+pattern SATFCDefaultTaskListUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_TASK_LIST_UNDEFINED"
 
 pattern SATFCDefaultScheduleToStartTimeoutUndefined :: ScheduleActivityTaskFailedCause
 pattern SATFCDefaultScheduleToStartTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
@@ -78,26 +81,23 @@ pattern SATFCDefaultScheduleToStartTimeoutUndefined = ScheduleActivityTaskFailed
 pattern SATFCDefaultStartToCloseTimeoutUndefined :: ScheduleActivityTaskFailedCause
 pattern SATFCDefaultStartToCloseTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
 
-pattern SATFCDefaultTaskListUndefined :: ScheduleActivityTaskFailedCause
-pattern SATFCDefaultTaskListUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_TASK_LIST_UNDEFINED"
-
-pattern SATFCOpenActivitiesLimitExceeded :: ScheduleActivityTaskFailedCause
-pattern SATFCOpenActivitiesLimitExceeded = ScheduleActivityTaskFailedCause' "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
+pattern SATFCDefaultHeartbeatTimeoutUndefined :: ScheduleActivityTaskFailedCause
+pattern SATFCDefaultHeartbeatTimeoutUndefined = ScheduleActivityTaskFailedCause' "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
 
 pattern SATFCOperationNotPermitted :: ScheduleActivityTaskFailedCause
 pattern SATFCOperationNotPermitted = ScheduleActivityTaskFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  SATFCActivityCreationRateExceeded,
-  SATFCActivityIdAlreadyInUse,
   SATFCActivityTypeDeprecated,
   SATFCActivityTypeDoesNotExist,
-  SATFCDefaultHeartbeatTimeoutUndefined,
+  SATFCActivityIdAlreadyInUse,
+  SATFCOpenActivitiesLimitExceeded,
+  SATFCActivityCreationRateExceeded,
   SATFCDefaultScheduleToCloseTimeoutUndefined,
+  SATFCDefaultTaskListUndefined,
   SATFCDefaultScheduleToStartTimeoutUndefined,
   SATFCDefaultStartToCloseTimeoutUndefined,
-  SATFCDefaultTaskListUndefined,
-  SATFCOpenActivitiesLimitExceeded,
+  SATFCDefaultHeartbeatTimeoutUndefined,
   SATFCOperationNotPermitted,
   ScheduleActivityTaskFailedCause'
   #-}

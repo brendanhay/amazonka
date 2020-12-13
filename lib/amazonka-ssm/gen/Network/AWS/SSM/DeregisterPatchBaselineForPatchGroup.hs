@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,18 +42,12 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDeregisterPatchBaselineForPatchGroup' smart constructor.
 data DeregisterPatchBaselineForPatchGroup = DeregisterPatchBaselineForPatchGroup'
-  { baselineId ::
-      Lude.Text,
-    patchGroup ::
-      Lude.Text
+  { -- | The ID of the patch baseline to deregister the patch group from.
+    baselineId :: Lude.Text,
+    -- | The name of the patch group that should be deregistered from the patch baseline.
+    patchGroup :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterPatchBaselineForPatchGroup' with the minimum fields required to make a request.
@@ -129,22 +124,14 @@ instance Lude.ToQuery DeregisterPatchBaselineForPatchGroup where
 
 -- | /See:/ 'mkDeregisterPatchBaselineForPatchGroupResponse' smart constructor.
 data DeregisterPatchBaselineForPatchGroupResponse = DeregisterPatchBaselineForPatchGroupResponse'
-  { baselineId ::
-      Lude.Maybe
-        Lude.Text,
-    patchGroup ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the patch baseline the patch group was deregistered from.
+    baselineId :: Lude.Maybe Lude.Text,
+    -- | The name of the patch group deregistered from the patch baseline.
+    patchGroup :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterPatchBaselineForPatchGroupResponse' with the minimum fields required to make a request.

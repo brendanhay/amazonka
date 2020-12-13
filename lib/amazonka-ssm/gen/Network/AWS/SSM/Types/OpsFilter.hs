@@ -17,9 +17,9 @@ module Network.AWS.SSM.Types.OpsFilter
     mkOpsFilter,
 
     -- * Lenses
-    ofType,
-    ofKey,
     ofValues,
+    ofKey,
+    ofType,
   )
 where
 
@@ -31,47 +31,29 @@ import Network.AWS.SSM.Types.OpsFilterOperatorType
 --
 -- /See:/ 'mkOpsFilter' smart constructor.
 data OpsFilter = OpsFilter'
-  { type' ::
-      Lude.Maybe OpsFilterOperatorType,
+  { -- | The filter value.
+    values :: Lude.NonEmpty Lude.Text,
+    -- | The name of the filter.
     key :: Lude.Text,
-    values :: Lude.NonEmpty Lude.Text
+    -- | The type of filter.
+    type' :: Lude.Maybe OpsFilterOperatorType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpsFilter' with the minimum fields required to make a request.
 --
+-- * 'values' - The filter value.
 -- * 'key' - The name of the filter.
 -- * 'type'' - The type of filter.
--- * 'values' - The filter value.
 mkOpsFilter ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'values'
   Lude.NonEmpty Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   OpsFilter
-mkOpsFilter pKey_ pValues_ =
-  OpsFilter' {type' = Lude.Nothing, key = pKey_, values = pValues_}
-
--- | The type of filter.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofType :: Lens.Lens' OpsFilter (Lude.Maybe OpsFilterOperatorType)
-ofType = Lens.lens (type' :: OpsFilter -> Lude.Maybe OpsFilterOperatorType) (\s a -> s {type' = a} :: OpsFilter)
-{-# DEPRECATED ofType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The name of the filter.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofKey :: Lens.Lens' OpsFilter Lude.Text
-ofKey = Lens.lens (key :: OpsFilter -> Lude.Text) (\s a -> s {key = a} :: OpsFilter)
-{-# DEPRECATED ofKey "Use generic-lens or generic-optics with 'key' instead." #-}
+mkOpsFilter pValues_ pKey_ =
+  OpsFilter' {values = pValues_, key = pKey_, type' = Lude.Nothing}
 
 -- | The filter value.
 --
@@ -80,12 +62,26 @@ ofValues :: Lens.Lens' OpsFilter (Lude.NonEmpty Lude.Text)
 ofValues = Lens.lens (values :: OpsFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: OpsFilter)
 {-# DEPRECATED ofValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
+-- | The name of the filter.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofKey :: Lens.Lens' OpsFilter Lude.Text
+ofKey = Lens.lens (key :: OpsFilter -> Lude.Text) (\s a -> s {key = a} :: OpsFilter)
+{-# DEPRECATED ofKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | The type of filter.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofType :: Lens.Lens' OpsFilter (Lude.Maybe OpsFilterOperatorType)
+ofType = Lens.lens (type' :: OpsFilter -> Lude.Maybe OpsFilterOperatorType) (\s a -> s {type' = a} :: OpsFilter)
+{-# DEPRECATED ofType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.ToJSON OpsFilter where
   toJSON OpsFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Type" Lude..=) Lude.<$> type',
+          [ Lude.Just ("Values" Lude..= values),
             Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Values" Lude..= values)
+            ("Type" Lude..=) Lude.<$> type'
           ]
       )

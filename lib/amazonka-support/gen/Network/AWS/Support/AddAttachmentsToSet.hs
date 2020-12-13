@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Support.AddAttachmentsToSet
     mkAddAttachmentsToSet,
 
     -- ** Request lenses
-    aatsAttachmentSetId,
     aatsAttachments,
+    aatsAttachmentSetId,
 
     -- * Destructuring the response
     AddAttachmentsToSetResponse (..),
@@ -43,39 +44,29 @@ import Network.AWS.Support.Types
 
 -- | /See:/ 'mkAddAttachmentsToSet' smart constructor.
 data AddAttachmentsToSet = AddAttachmentsToSet'
-  { attachmentSetId ::
-      Lude.Maybe Lude.Text,
-    attachments :: [Attachment]
+  { -- | One or more attachments to add to the set. You can add up to three attachments per set. The size limit is 5 MB per attachment.
+    --
+    -- In the @Attachment@ object, use the @data@ parameter to specify the contents of the attachment file. In the previous request syntax, the value for @data@ appear as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
+    attachments :: [Attachment],
+    -- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
+    attachmentSetId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttachmentsToSet' with the minimum fields required to make a request.
 --
--- * 'attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
 -- * 'attachments' - One or more attachments to add to the set. You can add up to three attachments per set. The size limit is 5 MB per attachment.
 --
 -- In the @Attachment@ object, use the @data@ parameter to specify the contents of the attachment file. In the previous request syntax, the value for @data@ appear as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
+-- * 'attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
 mkAddAttachmentsToSet ::
   AddAttachmentsToSet
 mkAddAttachmentsToSet =
   AddAttachmentsToSet'
-    { attachmentSetId = Lude.Nothing,
-      attachments = Lude.mempty
+    { attachments = Lude.mempty,
+      attachmentSetId = Lude.Nothing
     }
-
--- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
---
--- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aatsAttachmentSetId :: Lens.Lens' AddAttachmentsToSet (Lude.Maybe Lude.Text)
-aatsAttachmentSetId = Lens.lens (attachmentSetId :: AddAttachmentsToSet -> Lude.Maybe Lude.Text) (\s a -> s {attachmentSetId = a} :: AddAttachmentsToSet)
-{-# DEPRECATED aatsAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
 
 -- | One or more attachments to add to the set. You can add up to three attachments per set. The size limit is 5 MB per attachment.
 --
@@ -85,6 +76,13 @@ aatsAttachmentSetId = Lens.lens (attachmentSetId :: AddAttachmentsToSet -> Lude.
 aatsAttachments :: Lens.Lens' AddAttachmentsToSet [Attachment]
 aatsAttachments = Lens.lens (attachments :: AddAttachmentsToSet -> [Attachment]) (\s a -> s {attachments = a} :: AddAttachmentsToSet)
 {-# DEPRECATED aatsAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
+
+-- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
+--
+-- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aatsAttachmentSetId :: Lens.Lens' AddAttachmentsToSet (Lude.Maybe Lude.Text)
+aatsAttachmentSetId = Lens.lens (attachmentSetId :: AddAttachmentsToSet -> Lude.Maybe Lude.Text) (\s a -> s {attachmentSetId = a} :: AddAttachmentsToSet)
+{-# DEPRECATED aatsAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
 
 instance Lude.AWSRequest AddAttachmentsToSet where
   type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse
@@ -113,8 +111,8 @@ instance Lude.ToJSON AddAttachmentsToSet where
   toJSON AddAttachmentsToSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("attachmentSetId" Lude..=) Lude.<$> attachmentSetId,
-            Lude.Just ("attachments" Lude..= attachments)
+          [ Lude.Just ("attachments" Lude..= attachments),
+            ("attachmentSetId" Lude..=) Lude.<$> attachmentSetId
           ]
       )
 
@@ -128,25 +126,20 @@ instance Lude.ToQuery AddAttachmentsToSet where
 --
 -- /See:/ 'mkAddAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-  { expiryTime ::
-      Lude.Maybe Lude.Text,
-    attachmentSetId ::
-      Lude.Maybe Lude.Text,
+  { -- | The time and date when the attachment set expires.
+    expiryTime :: Lude.Maybe Lude.Text,
+    -- | The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
+    attachmentSetId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttachmentsToSetResponse' with the minimum fields required to make a request.
 --
--- * 'attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
 -- * 'expiryTime' - The time and date when the attachment set expires.
+-- * 'attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
 -- * 'responseStatus' - The response status code.
 mkAddAttachmentsToSetResponse ::
   -- | 'responseStatus'

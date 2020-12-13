@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCaptureContentTypeHeader' smart constructor.
 data CaptureContentTypeHeader = CaptureContentTypeHeader'
-  { csvContentTypes ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    jsonContentTypes ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text)
+  { -- |
+    csvContentTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- |
+    jsonContentTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CaptureContentTypeHeader' with the minimum fields required to make a request.

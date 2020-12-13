@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-  { endDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The maximum value of the timestamp range.
+    endDate :: Lude.Maybe Lude.Timestamp,
+    -- | The minimum value of the timestamp range.
     beginDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimestampRange' with the minimum fields required to make a request.
 --
--- * 'beginDate' - The minimum value of the timestamp range.
 -- * 'endDate' - The maximum value of the timestamp range.
+-- * 'beginDate' - The minimum value of the timestamp range.
 mkTimestampRange ::
   TimestampRange
 mkTimestampRange =

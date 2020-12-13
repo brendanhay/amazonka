@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoT.DescribeJob
     mkDescribeJob,
 
     -- ** Request lenses
-    desJobId,
+    dJobId,
 
     -- * Destructuring the response
     DescribeJobResponse (..),
@@ -39,14 +40,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeJob' smart constructor.
-newtype DescribeJob = DescribeJob' {jobId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeJob = DescribeJob'
+  { -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJob' with the minimum fields required to make a request.
@@ -61,9 +59,9 @@ mkDescribeJob pJobId_ = DescribeJob' {jobId = pJobId_}
 -- | The unique identifier you assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desJobId :: Lens.Lens' DescribeJob Lude.Text
-desJobId = Lens.lens (jobId :: DescribeJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJob)
-{-# DEPRECATED desJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+dJobId :: Lens.Lens' DescribeJob Lude.Text
+dJobId = Lens.lens (jobId :: DescribeJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJob)
+{-# DEPRECATED dJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 instance Lude.AWSRequest DescribeJob where
   type Rs DescribeJob = DescribeJobResponse
@@ -88,18 +86,14 @@ instance Lude.ToQuery DescribeJob where
 
 -- | /See:/ 'mkDescribeJobResponse' smart constructor.
 data DescribeJobResponse = DescribeJobResponse'
-  { documentSource ::
-      Lude.Maybe Lude.Text,
+  { -- | An S3 link to the job document.
+    documentSource :: Lude.Maybe Lude.Text,
+    -- | Information about the job.
     job :: Lude.Maybe Job,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobResponse' with the minimum fields required to make a request.

@@ -17,16 +17,16 @@ module Network.AWS.EC2.Types.VPC
     mkVPC,
 
     -- * Lenses
-    vpcIPv6CidrBlockAssociationSet,
-    vpcCidrBlockAssociationSet,
-    vpcOwnerId,
-    vpcTags,
-    vpcIsDefault,
-    vpcCidrBlock,
-    vpcDHCPOptionsId,
-    vpcInstanceTenancy,
-    vpcState,
-    vpcVPCId,
+    vfState,
+    vfIPv6CidrBlockAssociationSet,
+    vfVPCId,
+    vfCidrBlockAssociationSet,
+    vfOwnerId,
+    vfDHCPOptionsId,
+    vfCidrBlock,
+    vfInstanceTenancy,
+    vfTags,
+    vfIsDefault,
   )
 where
 
@@ -42,151 +42,154 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPC' smart constructor.
 data VPC = VPC'
-  { ipv6CidrBlockAssociationSet ::
-      Lude.Maybe [VPCIPv6CidrBlockAssociation],
-    cidrBlockAssociationSet :: Lude.Maybe [VPCCidrBlockAssociation],
-    ownerId :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    isDefault :: Lude.Maybe Lude.Bool,
-    cidrBlock :: Lude.Text,
-    dhcpOptionsId :: Lude.Text,
-    instanceTenancy :: Tenancy,
+  { -- | The current state of the VPC.
     state :: VPCState,
-    vpcId :: Lude.Text
+    -- | Information about the IPv6 CIDR blocks associated with the VPC.
+    ipv6CidrBlockAssociationSet :: Lude.Maybe [VPCIPv6CidrBlockAssociation],
+    -- | The ID of the VPC.
+    vpcId :: Lude.Text,
+    -- | Information about the IPv4 CIDR blocks associated with the VPC.
+    cidrBlockAssociationSet :: Lude.Maybe [VPCCidrBlockAssociation],
+    -- | The ID of the AWS account that owns the VPC.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the set of DHCP options you've associated with the VPC.
+    dhcpOptionsId :: Lude.Text,
+    -- | The primary IPv4 CIDR block for the VPC.
+    cidrBlock :: Lude.Text,
+    -- | The allowed tenancy of instances launched into the VPC.
+    instanceTenancy :: Tenancy,
+    -- | Any tags assigned to the VPC.
+    tags :: Lude.Maybe [Tag],
+    -- | Indicates whether the VPC is the default VPC.
+    isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPC' with the minimum fields required to make a request.
 --
--- * 'cidrBlock' - The primary IPv4 CIDR block for the VPC.
--- * 'cidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
--- * 'dhcpOptionsId' - The ID of the set of DHCP options you've associated with the VPC.
--- * 'instanceTenancy' - The allowed tenancy of instances launched into the VPC.
--- * 'ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
--- * 'isDefault' - Indicates whether the VPC is the default VPC.
--- * 'ownerId' - The ID of the AWS account that owns the VPC.
 -- * 'state' - The current state of the VPC.
--- * 'tags' - Any tags assigned to the VPC.
+-- * 'ipv6CidrBlockAssociationSet' - Information about the IPv6 CIDR blocks associated with the VPC.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'cidrBlockAssociationSet' - Information about the IPv4 CIDR blocks associated with the VPC.
+-- * 'ownerId' - The ID of the AWS account that owns the VPC.
+-- * 'dhcpOptionsId' - The ID of the set of DHCP options you've associated with the VPC.
+-- * 'cidrBlock' - The primary IPv4 CIDR block for the VPC.
+-- * 'instanceTenancy' - The allowed tenancy of instances launched into the VPC.
+-- * 'tags' - Any tags assigned to the VPC.
+-- * 'isDefault' - Indicates whether the VPC is the default VPC.
 mkVPC ::
-  -- | 'cidrBlock'
-  Lude.Text ->
-  -- | 'dhcpOptionsId'
-  Lude.Text ->
-  -- | 'instanceTenancy'
-  Tenancy ->
   -- | 'state'
   VPCState ->
   -- | 'vpcId'
   Lude.Text ->
+  -- | 'dhcpOptionsId'
+  Lude.Text ->
+  -- | 'cidrBlock'
+  Lude.Text ->
+  -- | 'instanceTenancy'
+  Tenancy ->
   VPC
-mkVPC pCidrBlock_ pDHCPOptionsId_ pInstanceTenancy_ pState_ pVPCId_ =
+mkVPC pState_ pVPCId_ pDHCPOptionsId_ pCidrBlock_ pInstanceTenancy_ =
   VPC'
-    { ipv6CidrBlockAssociationSet = Lude.Nothing,
+    { state = pState_,
+      ipv6CidrBlockAssociationSet = Lude.Nothing,
+      vpcId = pVPCId_,
       cidrBlockAssociationSet = Lude.Nothing,
       ownerId = Lude.Nothing,
-      tags = Lude.Nothing,
-      isDefault = Lude.Nothing,
-      cidrBlock = pCidrBlock_,
       dhcpOptionsId = pDHCPOptionsId_,
+      cidrBlock = pCidrBlock_,
       instanceTenancy = pInstanceTenancy_,
-      state = pState_,
-      vpcId = pVPCId_
+      tags = Lude.Nothing,
+      isDefault = Lude.Nothing
     }
-
--- | Information about the IPv6 CIDR blocks associated with the VPC.
---
--- /Note:/ Consider using 'ipv6CidrBlockAssociationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcIPv6CidrBlockAssociationSet :: Lens.Lens' VPC (Lude.Maybe [VPCIPv6CidrBlockAssociation])
-vpcIPv6CidrBlockAssociationSet = Lens.lens (ipv6CidrBlockAssociationSet :: VPC -> Lude.Maybe [VPCIPv6CidrBlockAssociation]) (\s a -> s {ipv6CidrBlockAssociationSet = a} :: VPC)
-{-# DEPRECATED vpcIPv6CidrBlockAssociationSet "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociationSet' instead." #-}
-
--- | Information about the IPv4 CIDR blocks associated with the VPC.
---
--- /Note:/ Consider using 'cidrBlockAssociationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcCidrBlockAssociationSet :: Lens.Lens' VPC (Lude.Maybe [VPCCidrBlockAssociation])
-vpcCidrBlockAssociationSet = Lens.lens (cidrBlockAssociationSet :: VPC -> Lude.Maybe [VPCCidrBlockAssociation]) (\s a -> s {cidrBlockAssociationSet = a} :: VPC)
-{-# DEPRECATED vpcCidrBlockAssociationSet "Use generic-lens or generic-optics with 'cidrBlockAssociationSet' instead." #-}
-
--- | The ID of the AWS account that owns the VPC.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcOwnerId :: Lens.Lens' VPC (Lude.Maybe Lude.Text)
-vpcOwnerId = Lens.lens (ownerId :: VPC -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: VPC)
-{-# DEPRECATED vpcOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | Any tags assigned to the VPC.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcTags :: Lens.Lens' VPC (Lude.Maybe [Tag])
-vpcTags = Lens.lens (tags :: VPC -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: VPC)
-{-# DEPRECATED vpcTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | Indicates whether the VPC is the default VPC.
---
--- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcIsDefault :: Lens.Lens' VPC (Lude.Maybe Lude.Bool)
-vpcIsDefault = Lens.lens (isDefault :: VPC -> Lude.Maybe Lude.Bool) (\s a -> s {isDefault = a} :: VPC)
-{-# DEPRECATED vpcIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
-
--- | The primary IPv4 CIDR block for the VPC.
---
--- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcCidrBlock :: Lens.Lens' VPC Lude.Text
-vpcCidrBlock = Lens.lens (cidrBlock :: VPC -> Lude.Text) (\s a -> s {cidrBlock = a} :: VPC)
-{-# DEPRECATED vpcCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
-
--- | The ID of the set of DHCP options you've associated with the VPC.
---
--- /Note:/ Consider using 'dhcpOptionsId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcDHCPOptionsId :: Lens.Lens' VPC Lude.Text
-vpcDHCPOptionsId = Lens.lens (dhcpOptionsId :: VPC -> Lude.Text) (\s a -> s {dhcpOptionsId = a} :: VPC)
-{-# DEPRECATED vpcDHCPOptionsId "Use generic-lens or generic-optics with 'dhcpOptionsId' instead." #-}
-
--- | The allowed tenancy of instances launched into the VPC.
---
--- /Note:/ Consider using 'instanceTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcInstanceTenancy :: Lens.Lens' VPC Tenancy
-vpcInstanceTenancy = Lens.lens (instanceTenancy :: VPC -> Tenancy) (\s a -> s {instanceTenancy = a} :: VPC)
-{-# DEPRECATED vpcInstanceTenancy "Use generic-lens or generic-optics with 'instanceTenancy' instead." #-}
 
 -- | The current state of the VPC.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcState :: Lens.Lens' VPC VPCState
-vpcState = Lens.lens (state :: VPC -> VPCState) (\s a -> s {state = a} :: VPC)
-{-# DEPRECATED vpcState "Use generic-lens or generic-optics with 'state' instead." #-}
+vfState :: Lens.Lens' VPC VPCState
+vfState = Lens.lens (state :: VPC -> VPCState) (\s a -> s {state = a} :: VPC)
+{-# DEPRECATED vfState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | Information about the IPv6 CIDR blocks associated with the VPC.
+--
+-- /Note:/ Consider using 'ipv6CidrBlockAssociationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfIPv6CidrBlockAssociationSet :: Lens.Lens' VPC (Lude.Maybe [VPCIPv6CidrBlockAssociation])
+vfIPv6CidrBlockAssociationSet = Lens.lens (ipv6CidrBlockAssociationSet :: VPC -> Lude.Maybe [VPCIPv6CidrBlockAssociation]) (\s a -> s {ipv6CidrBlockAssociationSet = a} :: VPC)
+{-# DEPRECATED vfIPv6CidrBlockAssociationSet "Use generic-lens or generic-optics with 'ipv6CidrBlockAssociationSet' instead." #-}
 
 -- | The ID of the VPC.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpcVPCId :: Lens.Lens' VPC Lude.Text
-vpcVPCId = Lens.lens (vpcId :: VPC -> Lude.Text) (\s a -> s {vpcId = a} :: VPC)
-{-# DEPRECATED vpcVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+vfVPCId :: Lens.Lens' VPC Lude.Text
+vfVPCId = Lens.lens (vpcId :: VPC -> Lude.Text) (\s a -> s {vpcId = a} :: VPC)
+{-# DEPRECATED vfVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | Information about the IPv4 CIDR blocks associated with the VPC.
+--
+-- /Note:/ Consider using 'cidrBlockAssociationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfCidrBlockAssociationSet :: Lens.Lens' VPC (Lude.Maybe [VPCCidrBlockAssociation])
+vfCidrBlockAssociationSet = Lens.lens (cidrBlockAssociationSet :: VPC -> Lude.Maybe [VPCCidrBlockAssociation]) (\s a -> s {cidrBlockAssociationSet = a} :: VPC)
+{-# DEPRECATED vfCidrBlockAssociationSet "Use generic-lens or generic-optics with 'cidrBlockAssociationSet' instead." #-}
+
+-- | The ID of the AWS account that owns the VPC.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfOwnerId :: Lens.Lens' VPC (Lude.Maybe Lude.Text)
+vfOwnerId = Lens.lens (ownerId :: VPC -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: VPC)
+{-# DEPRECATED vfOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The ID of the set of DHCP options you've associated with the VPC.
+--
+-- /Note:/ Consider using 'dhcpOptionsId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfDHCPOptionsId :: Lens.Lens' VPC Lude.Text
+vfDHCPOptionsId = Lens.lens (dhcpOptionsId :: VPC -> Lude.Text) (\s a -> s {dhcpOptionsId = a} :: VPC)
+{-# DEPRECATED vfDHCPOptionsId "Use generic-lens or generic-optics with 'dhcpOptionsId' instead." #-}
+
+-- | The primary IPv4 CIDR block for the VPC.
+--
+-- /Note:/ Consider using 'cidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfCidrBlock :: Lens.Lens' VPC Lude.Text
+vfCidrBlock = Lens.lens (cidrBlock :: VPC -> Lude.Text) (\s a -> s {cidrBlock = a} :: VPC)
+{-# DEPRECATED vfCidrBlock "Use generic-lens or generic-optics with 'cidrBlock' instead." #-}
+
+-- | The allowed tenancy of instances launched into the VPC.
+--
+-- /Note:/ Consider using 'instanceTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfInstanceTenancy :: Lens.Lens' VPC Tenancy
+vfInstanceTenancy = Lens.lens (instanceTenancy :: VPC -> Tenancy) (\s a -> s {instanceTenancy = a} :: VPC)
+{-# DEPRECATED vfInstanceTenancy "Use generic-lens or generic-optics with 'instanceTenancy' instead." #-}
+
+-- | Any tags assigned to the VPC.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfTags :: Lens.Lens' VPC (Lude.Maybe [Tag])
+vfTags = Lens.lens (tags :: VPC -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: VPC)
+{-# DEPRECATED vfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | Indicates whether the VPC is the default VPC.
+--
+-- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vfIsDefault :: Lens.Lens' VPC (Lude.Maybe Lude.Bool)
+vfIsDefault = Lens.lens (isDefault :: VPC -> Lude.Maybe Lude.Bool) (\s a -> s {isDefault = a} :: VPC)
+{-# DEPRECATED vfIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
 
 instance Lude.FromXML VPC where
   parseXML x =
     VPC'
-      Lude.<$> ( x Lude..@? "ipv6CidrBlockAssociationSet" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "state")
+      Lude.<*> ( x Lude..@? "ipv6CidrBlockAssociationSet" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
+      Lude.<*> (x Lude..@ "vpcId")
       Lude.<*> ( x Lude..@? "cidrBlockAssociationSet" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
       Lude.<*> (x Lude..@? "ownerId")
+      Lude.<*> (x Lude..@ "dhcpOptionsId")
+      Lude.<*> (x Lude..@ "cidrBlock")
+      Lude.<*> (x Lude..@ "instanceTenancy")
       Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "item")
                )
       Lude.<*> (x Lude..@? "isDefault")
-      Lude.<*> (x Lude..@ "cidrBlock")
-      Lude.<*> (x Lude..@ "dhcpOptionsId")
-      Lude.<*> (x Lude..@ "instanceTenancy")
-      Lude.<*> (x Lude..@ "state")
-      Lude.<*> (x Lude..@ "vpcId")

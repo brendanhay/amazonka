@@ -13,9 +13,9 @@
 module Network.AWS.AppStream.Types.ImageStateChangeReasonCode
   ( ImageStateChangeReasonCode
       ( ImageStateChangeReasonCode',
-        ISCRCImageBuilderNotAvailable,
-        ISCRCImageCopyFailure,
-        ISCRCInternalError
+        InternalError,
+        ImageBuilderNotAvailable,
+        ImageCopyFailure
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ImageStateChangeReasonCode = ImageStateChangeReasonCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISCRCImageBuilderNotAvailable :: ImageStateChangeReasonCode
-pattern ISCRCImageBuilderNotAvailable = ImageStateChangeReasonCode' "IMAGE_BUILDER_NOT_AVAILABLE"
+pattern InternalError :: ImageStateChangeReasonCode
+pattern InternalError = ImageStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern ISCRCImageCopyFailure :: ImageStateChangeReasonCode
-pattern ISCRCImageCopyFailure = ImageStateChangeReasonCode' "IMAGE_COPY_FAILURE"
+pattern ImageBuilderNotAvailable :: ImageStateChangeReasonCode
+pattern ImageBuilderNotAvailable = ImageStateChangeReasonCode' "IMAGE_BUILDER_NOT_AVAILABLE"
 
-pattern ISCRCInternalError :: ImageStateChangeReasonCode
-pattern ISCRCInternalError = ImageStateChangeReasonCode' "INTERNAL_ERROR"
+pattern ImageCopyFailure :: ImageStateChangeReasonCode
+pattern ImageCopyFailure = ImageStateChangeReasonCode' "IMAGE_COPY_FAILURE"
 
 {-# COMPLETE
-  ISCRCImageBuilderNotAvailable,
-  ISCRCImageCopyFailure,
-  ISCRCInternalError,
+  InternalError,
+  ImageBuilderNotAvailable,
+  ImageCopyFailure,
   ImageStateChangeReasonCode'
   #-}

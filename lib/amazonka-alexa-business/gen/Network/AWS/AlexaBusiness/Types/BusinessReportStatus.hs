@@ -13,9 +13,9 @@
 module Network.AWS.AlexaBusiness.Types.BusinessReportStatus
   ( BusinessReportStatus
       ( BusinessReportStatus',
-        BRSFailed,
         BRSRunning,
-        BRSSucceeded
+        BRSSucceeded,
+        BRSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype BusinessReportStatus = BusinessReportStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern BRSFailed :: BusinessReportStatus
-pattern BRSFailed = BusinessReportStatus' "FAILED"
-
 pattern BRSRunning :: BusinessReportStatus
 pattern BRSRunning = BusinessReportStatus' "RUNNING"
 
 pattern BRSSucceeded :: BusinessReportStatus
 pattern BRSSucceeded = BusinessReportStatus' "SUCCEEDED"
 
+pattern BRSFailed :: BusinessReportStatus
+pattern BRSFailed = BusinessReportStatus' "FAILED"
+
 {-# COMPLETE
-  BRSFailed,
   BRSRunning,
   BRSSucceeded,
+  BRSFailed,
   BusinessReportStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CodeCommit.GetPullRequest
     mkGetPullRequestResponse,
 
     -- ** Response lenses
-    gprrsResponseStatus,
     gprrsPullRequest,
+    gprrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPullRequest' smart constructor.
 newtype GetPullRequest = GetPullRequest'
-  { pullRequestId ::
-      Lude.Text
+  { -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+    pullRequestId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPullRequest' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest GetPullRequest where
     Res.receiveJSON
       ( \s h x ->
           GetPullRequestResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "pullRequest")
+            Lude.<$> (x Lude..:> "pullRequest") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetPullRequest where
@@ -104,17 +99,12 @@ instance Lude.ToQuery GetPullRequest where
 
 -- | /See:/ 'mkGetPullRequestResponse' smart constructor.
 data GetPullRequestResponse = GetPullRequestResponse'
-  { responseStatus ::
-      Lude.Int,
-    pullRequest :: PullRequest
+  { -- | Information about the specified pull request.
+    pullRequest :: PullRequest,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPullRequestResponse' with the minimum fields required to make a request.
@@ -122,23 +112,16 @@ data GetPullRequestResponse = GetPullRequestResponse'
 -- * 'pullRequest' - Information about the specified pull request.
 -- * 'responseStatus' - The response status code.
 mkGetPullRequestResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'pullRequest'
   PullRequest ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetPullRequestResponse
-mkGetPullRequestResponse pResponseStatus_ pPullRequest_ =
+mkGetPullRequestResponse pPullRequest_ pResponseStatus_ =
   GetPullRequestResponse'
-    { responseStatus = pResponseStatus_,
-      pullRequest = pPullRequest_
+    { pullRequest = pPullRequest_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprrsResponseStatus :: Lens.Lens' GetPullRequestResponse Lude.Int
-gprrsResponseStatus = Lens.lens (responseStatus :: GetPullRequestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPullRequestResponse)
-{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Information about the specified pull request.
 --
@@ -146,3 +129,10 @@ gprrsResponseStatus = Lens.lens (responseStatus :: GetPullRequestResponse -> Lud
 gprrsPullRequest :: Lens.Lens' GetPullRequestResponse PullRequest
 gprrsPullRequest = Lens.lens (pullRequest :: GetPullRequestResponse -> PullRequest) (\s a -> s {pullRequest = a} :: GetPullRequestResponse)
 {-# DEPRECATED gprrsPullRequest "Use generic-lens or generic-optics with 'pullRequest' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprrsResponseStatus :: Lens.Lens' GetPullRequestResponse Lude.Int
+gprrsResponseStatus = Lens.lens (responseStatus :: GetPullRequestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPullRequestResponse)
+{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

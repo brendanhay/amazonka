@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,8 +38,8 @@ module Network.AWS.SWF.ListDomains
     -- ** Request lenses
     ldNextPageToken,
     ldReverseOrder,
-    ldMaximumPageSize,
     ldRegistrationStatus,
+    ldMaximumPageSize,
 
     -- * Destructuring the response
     ListDomainsResponse (..),
@@ -46,8 +47,8 @@ module Network.AWS.SWF.ListDomains
 
     -- ** Response lenses
     ldrsNextPageToken,
-    ldrsResponseStatus,
     ldrsDomainInfos,
+    ldrsResponseStatus,
   )
 where
 
@@ -60,29 +61,28 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'mkListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
+    --
+    -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | When set to @true@ , returns the results in reverse order. By default, the results are returned in ascending alphabetical order by @name@ of the domains.
     reverseOrder :: Lude.Maybe Lude.Bool,
-    maximumPageSize :: Lude.Maybe Lude.Natural,
-    registrationStatus :: RegistrationStatus
+    -- | Specifies the registration status of the domains to list.
+    registrationStatus :: RegistrationStatus,
+    -- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
 --
--- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
 -- * 'nextPageToken' - If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
--- * 'registrationStatus' - Specifies the registration status of the domains to list.
 -- * 'reverseOrder' - When set to @true@ , returns the results in reverse order. By default, the results are returned in ascending alphabetical order by @name@ of the domains.
+-- * 'registrationStatus' - Specifies the registration status of the domains to list.
+-- * 'maximumPageSize' - The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
 mkListDomains ::
   -- | 'registrationStatus'
   RegistrationStatus ->
@@ -91,8 +91,8 @@ mkListDomains pRegistrationStatus_ =
   ListDomains'
     { nextPageToken = Lude.Nothing,
       reverseOrder = Lude.Nothing,
-      maximumPageSize = Lude.Nothing,
-      registrationStatus = pRegistrationStatus_
+      registrationStatus = pRegistrationStatus_,
+      maximumPageSize = Lude.Nothing
     }
 
 -- | If @NextPageToken@ is returned there are more results available. The value of @NextPageToken@ is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 60 seconds. Using an expired pagination token will return a @400@ error: "@Specified token has exceeded its maximum lifetime@ ".
@@ -111,19 +111,19 @@ ldReverseOrder :: Lens.Lens' ListDomains (Lude.Maybe Lude.Bool)
 ldReverseOrder = Lens.lens (reverseOrder :: ListDomains -> Lude.Maybe Lude.Bool) (\s a -> s {reverseOrder = a} :: ListDomains)
 {-# DEPRECATED ldReverseOrder "Use generic-lens or generic-optics with 'reverseOrder' instead." #-}
 
--- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
---
--- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldMaximumPageSize :: Lens.Lens' ListDomains (Lude.Maybe Lude.Natural)
-ldMaximumPageSize = Lens.lens (maximumPageSize :: ListDomains -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: ListDomains)
-{-# DEPRECATED ldMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
-
 -- | Specifies the registration status of the domains to list.
 --
 -- /Note:/ Consider using 'registrationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldRegistrationStatus :: Lens.Lens' ListDomains RegistrationStatus
 ldRegistrationStatus = Lens.lens (registrationStatus :: ListDomains -> RegistrationStatus) (\s a -> s {registrationStatus = a} :: ListDomains)
 {-# DEPRECATED ldRegistrationStatus "Use generic-lens or generic-optics with 'registrationStatus' instead." #-}
+
+-- | The maximum number of results that are returned per call. Use @nextPageToken@ to obtain further pages of results.
+--
+-- /Note:/ Consider using 'maximumPageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldMaximumPageSize :: Lens.Lens' ListDomains (Lude.Maybe Lude.Natural)
+ldMaximumPageSize = Lens.lens (maximumPageSize :: ListDomains -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPageSize = a} :: ListDomains)
+{-# DEPRECATED ldMaximumPageSize "Use generic-lens or generic-optics with 'maximumPageSize' instead." #-}
 
 instance Page.AWSPager ListDomains where
   page rq rs
@@ -142,8 +142,8 @@ instance Lude.AWSRequest ListDomains where
       ( \s h x ->
           ListDomainsResponse'
             Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "domainInfos" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListDomains where
@@ -163,8 +163,8 @@ instance Lude.ToJSON ListDomains where
       ( Lude.catMaybes
           [ ("nextPageToken" Lude..=) Lude.<$> nextPageToken,
             ("reverseOrder" Lude..=) Lude.<$> reverseOrder,
-            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize,
-            Lude.Just ("registrationStatus" Lude..= registrationStatus)
+            Lude.Just ("registrationStatus" Lude..= registrationStatus),
+            ("maximumPageSize" Lude..=) Lude.<$> maximumPageSize
           ]
       )
 
@@ -178,26 +178,24 @@ instance Lude.ToQuery ListDomains where
 --
 -- /See:/ 'mkListDomainsResponse' smart constructor.
 data ListDomainsResponse = ListDomainsResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    domainInfos :: [DomainInfo]
+  { -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
+    --
+    -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | A list of DomainInfo structures.
+    domainInfos :: [DomainInfo],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
 --
--- * 'domainInfos' - A list of DomainInfo structures.
 -- * 'nextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
 --
 -- The configured @maximumPageSize@ determines how many results can be returned in a single call.
+-- * 'domainInfos' - A list of DomainInfo structures.
 -- * 'responseStatus' - The response status code.
 mkListDomainsResponse ::
   -- | 'responseStatus'
@@ -206,8 +204,8 @@ mkListDomainsResponse ::
 mkListDomainsResponse pResponseStatus_ =
   ListDomainsResponse'
     { nextPageToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      domainInfos = Lude.mempty
+      domainInfos = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged.
@@ -219,16 +217,16 @@ ldrsNextPageToken :: Lens.Lens' ListDomainsResponse (Lude.Maybe Lude.Text)
 ldrsNextPageToken = Lens.lens (nextPageToken :: ListDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListDomainsResponse)
 {-# DEPRECATED ldrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDomainsResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of DomainInfo structures.
 --
 -- /Note:/ Consider using 'domainInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldrsDomainInfos :: Lens.Lens' ListDomainsResponse [DomainInfo]
 ldrsDomainInfos = Lens.lens (domainInfos :: ListDomainsResponse -> [DomainInfo]) (\s a -> s {domainInfos = a} :: ListDomainsResponse)
 {-# DEPRECATED ldrsDomainInfos "Use generic-lens or generic-optics with 'domainInfos' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDomainsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

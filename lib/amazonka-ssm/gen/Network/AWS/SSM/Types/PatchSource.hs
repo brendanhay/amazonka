@@ -18,8 +18,8 @@ module Network.AWS.SSM.Types.PatchSource
 
     -- * Lenses
     psName,
-    psProducts,
     psConfiguration,
+    psProducts,
   )
 where
 
@@ -30,36 +30,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPatchSource' smart constructor.
 data PatchSource = PatchSource'
-  { name :: Lude.Text,
-    products :: Lude.NonEmpty Lude.Text,
-    configuration :: Lude.Sensitive Lude.Text
+  { -- | The name specified to identify the patch source.
+    name :: Lude.Text,
+    -- | The value of the yum repo configuration. For example:
+    --
+    -- @[main]@
+    -- @cachedir=/var/cache/yum/$basesearch$releasever@
+    -- @keepcache=0@
+    -- @debuglevel=2@
+    configuration :: Lude.Sensitive Lude.Text,
+    -- | The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see 'PatchFilter' .
+    products :: Lude.NonEmpty Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PatchSource' with the minimum fields required to make a request.
 --
+-- * 'name' - The name specified to identify the patch source.
 -- * 'configuration' - The value of the yum repo configuration. For example:
 --
 -- @[main]@
 -- @cachedir=/var/cache/yum/$basesearch$releasever@
 -- @keepcache=0@
 -- @debuglevel=2@
--- * 'name' - The name specified to identify the patch source.
 -- * 'products' - The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see 'PatchFilter' .
 mkPatchSource ::
   -- | 'name'
   Lude.Text ->
-  -- | 'products'
-  Lude.NonEmpty Lude.Text ->
   -- | 'configuration'
   Lude.Sensitive Lude.Text ->
+  -- | 'products'
+  Lude.NonEmpty Lude.Text ->
   PatchSource
-mkPatchSource pName_ pProducts_ pConfiguration_ =
+mkPatchSource pName_ pConfiguration_ pProducts_ =
   PatchSource'
     { name = pName_,
-      products = pProducts_,
-      configuration = pConfiguration_
+      configuration = pConfiguration_,
+      products = pProducts_
     }
 
 -- | The name specified to identify the patch source.
@@ -68,13 +76,6 @@ mkPatchSource pName_ pProducts_ pConfiguration_ =
 psName :: Lens.Lens' PatchSource Lude.Text
 psName = Lens.lens (name :: PatchSource -> Lude.Text) (\s a -> s {name = a} :: PatchSource)
 {-# DEPRECATED psName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see 'PatchFilter' .
---
--- /Note:/ Consider using 'products' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psProducts :: Lens.Lens' PatchSource (Lude.NonEmpty Lude.Text)
-psProducts = Lens.lens (products :: PatchSource -> Lude.NonEmpty Lude.Text) (\s a -> s {products = a} :: PatchSource)
-{-# DEPRECATED psProducts "Use generic-lens or generic-optics with 'products' instead." #-}
 
 -- | The value of the yum repo configuration. For example:
 --
@@ -88,6 +89,13 @@ psConfiguration :: Lens.Lens' PatchSource (Lude.Sensitive Lude.Text)
 psConfiguration = Lens.lens (configuration :: PatchSource -> Lude.Sensitive Lude.Text) (\s a -> s {configuration = a} :: PatchSource)
 {-# DEPRECATED psConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
+-- | The specific operating system versions a patch repository applies to, such as "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For lists of supported product values, see 'PatchFilter' .
+--
+-- /Note:/ Consider using 'products' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psProducts :: Lens.Lens' PatchSource (Lude.NonEmpty Lude.Text)
+psProducts = Lens.lens (products :: PatchSource -> Lude.NonEmpty Lude.Text) (\s a -> s {products = a} :: PatchSource)
+{-# DEPRECATED psProducts "Use generic-lens or generic-optics with 'products' instead." #-}
+
 instance Lude.FromJSON PatchSource where
   parseJSON =
     Lude.withObject
@@ -95,8 +103,8 @@ instance Lude.FromJSON PatchSource where
       ( \x ->
           PatchSource'
             Lude.<$> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "Products")
             Lude.<*> (x Lude..: "Configuration")
+            Lude.<*> (x Lude..: "Products")
       )
 
 instance Lude.ToJSON PatchSource where
@@ -104,7 +112,7 @@ instance Lude.ToJSON PatchSource where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Products" Lude..= products),
-            Lude.Just ("Configuration" Lude..= configuration)
+            Lude.Just ("Configuration" Lude..= configuration),
+            Lude.Just ("Products" Lude..= products)
           ]
       )

@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartitionError' smart constructor.
 data PartitionError = PartitionError'
-  { partitionValues ::
-      Lude.Maybe [Lude.Text],
+  { -- | The values that define the partition.
+    partitionValues :: Lude.Maybe [Lude.Text],
+    -- | The details about the partition error.
     errorDetail :: Lude.Maybe ErrorDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartitionError' with the minimum fields required to make a request.
 --
--- * 'errorDetail' - The details about the partition error.
 -- * 'partitionValues' - The values that define the partition.
+-- * 'errorDetail' - The details about the partition error.
 mkPartitionError ::
   PartitionError
 mkPartitionError =

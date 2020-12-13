@@ -31,25 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotifyWorkersFailureStatus' smart constructor.
 data NotifyWorkersFailureStatus = NotifyWorkersFailureStatus'
-  { notifyWorkersFailureMessage ::
-      Lude.Maybe Lude.Text,
-    notifyWorkersFailureCode ::
-      Lude.Maybe NotifyWorkersFailureCode,
+  { -- | A message detailing the reason the Worker could not be notified.
+    notifyWorkersFailureMessage :: Lude.Maybe Lude.Text,
+    -- | Encoded value for the failure type.
+    notifyWorkersFailureCode :: Lude.Maybe NotifyWorkersFailureCode,
+    -- | The ID of the Worker.
     workerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotifyWorkersFailureStatus' with the minimum fields required to make a request.
 --
--- * 'notifyWorkersFailureCode' - Encoded value for the failure type.
 -- * 'notifyWorkersFailureMessage' - A message detailing the reason the Worker could not be notified.
+-- * 'notifyWorkersFailureCode' - Encoded value for the failure type.
 -- * 'workerId' - The ID of the Worker.
 mkNotifyWorkersFailureStatus ::
   NotifyWorkersFailureStatus

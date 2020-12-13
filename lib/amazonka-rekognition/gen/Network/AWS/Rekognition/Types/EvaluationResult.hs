@@ -30,23 +30,18 @@ import Network.AWS.Rekognition.Types.Summary
 --
 -- /See:/ 'mkEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { summary ::
-      Lude.Maybe Summary,
+  { -- | The S3 bucket that contains the training summary.
+    summary :: Lude.Maybe Summary,
+    -- | The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
     f1Score :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
 --
--- * 'f1Score' - The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
 -- * 'summary' - The S3 bucket that contains the training summary.
+-- * 'f1Score' - The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
 mkEvaluationResult ::
   EvaluationResult
 mkEvaluationResult =

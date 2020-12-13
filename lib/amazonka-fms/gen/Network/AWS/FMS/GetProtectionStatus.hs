@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.FMS.GetProtectionStatus
     -- ** Request lenses
     gpsMemberAccountId,
     gpsStartTime,
+    gpsPolicyId,
     gpsNextToken,
     gpsEndTime,
     gpsMaxResults,
-    gpsPolicyId,
 
     -- * Destructuring the response
     GetProtectionStatusResponse (..),
@@ -47,31 +48,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetProtectionStatus' smart constructor.
 data GetProtectionStatus = GetProtectionStatus'
-  { memberAccountId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account that is in scope of the policy that you want to get the details for.
+    memberAccountId :: Lude.Maybe Lude.Text,
+    -- | The start of the time period to query for the attacks. This is a @timestamp@ type. The request syntax listing indicates a @number@ type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid @timestamp@ format is allowed.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the policy for which you want to get the attack information.
+    policyId :: Lude.Text,
+    -- | If you specify a value for @MaxResults@ and you have more objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response, which you can use to retrieve another group of objects. For the second and subsequent @GetProtectionStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of objects.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The end of the time period to query for the attacks. This is a @timestamp@ type. The request syntax listing indicates a @number@ type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid @timestamp@ format is allowed.
     endTime :: Lude.Maybe Lude.Timestamp,
-    maxResults :: Lude.Maybe Lude.Natural,
-    policyId :: Lude.Text
+    -- | Specifies the number of objects that you want AWS Firewall Manager to return for this request. If you have more objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of objects.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProtectionStatus' with the minimum fields required to make a request.
 --
+-- * 'memberAccountId' - The AWS account that is in scope of the policy that you want to get the details for.
+-- * 'startTime' - The start of the time period to query for the attacks. This is a @timestamp@ type. The request syntax listing indicates a @number@ type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid @timestamp@ format is allowed.
+-- * 'policyId' - The ID of the policy for which you want to get the attack information.
+-- * 'nextToken' - If you specify a value for @MaxResults@ and you have more objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response, which you can use to retrieve another group of objects. For the second and subsequent @GetProtectionStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of objects.
 -- * 'endTime' - The end of the time period to query for the attacks. This is a @timestamp@ type. The request syntax listing indicates a @number@ type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid @timestamp@ format is allowed.
 -- * 'maxResults' - Specifies the number of objects that you want AWS Firewall Manager to return for this request. If you have more objects than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of objects.
--- * 'memberAccountId' - The AWS account that is in scope of the policy that you want to get the details for.
--- * 'nextToken' - If you specify a value for @MaxResults@ and you have more objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response, which you can use to retrieve another group of objects. For the second and subsequent @GetProtectionStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of objects.
--- * 'policyId' - The ID of the policy for which you want to get the attack information.
--- * 'startTime' - The start of the time period to query for the attacks. This is a @timestamp@ type. The request syntax listing indicates a @number@ type because the default used by AWS Firewall Manager is Unix time in seconds. However, any valid @timestamp@ format is allowed.
 mkGetProtectionStatus ::
   -- | 'policyId'
   Lude.Text ->
@@ -80,10 +80,10 @@ mkGetProtectionStatus pPolicyId_ =
   GetProtectionStatus'
     { memberAccountId = Lude.Nothing,
       startTime = Lude.Nothing,
+      policyId = pPolicyId_,
       nextToken = Lude.Nothing,
       endTime = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      policyId = pPolicyId_
+      maxResults = Lude.Nothing
     }
 
 -- | The AWS account that is in scope of the policy that you want to get the details for.
@@ -99,6 +99,13 @@ gpsMemberAccountId = Lens.lens (memberAccountId :: GetProtectionStatus -> Lude.M
 gpsStartTime :: Lens.Lens' GetProtectionStatus (Lude.Maybe Lude.Timestamp)
 gpsStartTime = Lens.lens (startTime :: GetProtectionStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetProtectionStatus)
 {-# DEPRECATED gpsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The ID of the policy for which you want to get the attack information.
+--
+-- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsPolicyId :: Lens.Lens' GetProtectionStatus Lude.Text
+gpsPolicyId = Lens.lens (policyId :: GetProtectionStatus -> Lude.Text) (\s a -> s {policyId = a} :: GetProtectionStatus)
+{-# DEPRECATED gpsPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | If you specify a value for @MaxResults@ and you have more objects than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response, which you can use to retrieve another group of objects. For the second and subsequent @GetProtectionStatus@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of objects.
 --
@@ -120,13 +127,6 @@ gpsEndTime = Lens.lens (endTime :: GetProtectionStatus -> Lude.Maybe Lude.Timest
 gpsMaxResults :: Lens.Lens' GetProtectionStatus (Lude.Maybe Lude.Natural)
 gpsMaxResults = Lens.lens (maxResults :: GetProtectionStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetProtectionStatus)
 {-# DEPRECATED gpsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the policy for which you want to get the attack information.
---
--- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsPolicyId :: Lens.Lens' GetProtectionStatus Lude.Text
-gpsPolicyId = Lens.lens (policyId :: GetProtectionStatus -> Lude.Text) (\s a -> s {policyId = a} :: GetProtectionStatus)
-{-# DEPRECATED gpsPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 instance Lude.AWSRequest GetProtectionStatus where
   type Rs GetProtectionStatus = GetProtectionStatusResponse
@@ -159,10 +159,10 @@ instance Lude.ToJSON GetProtectionStatus where
       ( Lude.catMaybes
           [ ("MemberAccountId" Lude..=) Lude.<$> memberAccountId,
             ("StartTime" Lude..=) Lude.<$> startTime,
+            Lude.Just ("PolicyId" Lude..= policyId),
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("EndTime" Lude..=) Lude.<$> endTime,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("PolicyId" Lude..= policyId)
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -174,27 +174,42 @@ instance Lude.ToQuery GetProtectionStatus where
 
 -- | /See:/ 'mkGetProtectionStatusResponse' smart constructor.
 data GetProtectionStatusResponse = GetProtectionStatusResponse'
-  { data' ::
-      Lude.Maybe Lude.Text,
-    adminAccountId ::
-      Lude.Maybe Lude.Text,
+  { -- | Details about the attack, including the following:
+    --
+    --
+    --     * Attack type
+    --
+    --
+    --     * Account ID
+    --
+    --
+    --     * ARN of the resource attacked
+    --
+    --
+    --     * Start time of the attack
+    --
+    --
+    --     * End time of the attack (ongoing attacks will not have an end time)
+    --
+    --
+    -- The details are in JSON format.
+    data' :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS Firewall administrator account for this policy.
+    adminAccountId :: Lude.Maybe Lude.Text,
+    -- | If you have more objects than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more objects, submit another @GetProtectionStatus@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+    --
+    -- AWS SDKs provide auto-pagination that identify @NextToken@ in a response and make subsequent request calls automatically on your behalf. However, this feature is not supported by @GetProtectionStatus@ . You must submit subsequent requests with @NextToken@ using your own processes.
     nextToken :: Lude.Maybe Lude.Text,
-    serviceType ::
-      Lude.Maybe SecurityServiceType,
+    -- | The service type that is protected by the policy. Currently, this is always @SHIELD_ADVANCED@ .
+    serviceType :: Lude.Maybe SecurityServiceType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetProtectionStatusResponse' with the minimum fields required to make a request.
 --
--- * 'adminAccountId' - The ID of the AWS Firewall administrator account for this policy.
 -- * 'data'' - Details about the attack, including the following:
 --
 --
@@ -214,11 +229,12 @@ data GetProtectionStatusResponse = GetProtectionStatusResponse'
 --
 --
 -- The details are in JSON format.
+-- * 'adminAccountId' - The ID of the AWS Firewall administrator account for this policy.
 -- * 'nextToken' - If you have more objects than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more objects, submit another @GetProtectionStatus@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
 --
 -- AWS SDKs provide auto-pagination that identify @NextToken@ in a response and make subsequent request calls automatically on your behalf. However, this feature is not supported by @GetProtectionStatus@ . You must submit subsequent requests with @NextToken@ using your own processes.
--- * 'responseStatus' - The response status code.
 -- * 'serviceType' - The service type that is protected by the policy. Currently, this is always @SHIELD_ADVANCED@ .
+-- * 'responseStatus' - The response status code.
 mkGetProtectionStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

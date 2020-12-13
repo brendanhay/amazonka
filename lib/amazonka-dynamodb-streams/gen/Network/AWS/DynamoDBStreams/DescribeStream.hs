@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DynamoDBStreams.DescribeStream
     mkDescribeStream,
 
     -- ** Request lenses
+    dsStreamARN,
     dsExclusiveStartShardId,
     dsLimit,
-    dsStreamARN,
 
     -- * Destructuring the response
     DescribeStreamResponse (..),
@@ -45,35 +46,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeStream' smart constructor.
 data DescribeStream = DescribeStream'
-  { exclusiveStartShardId ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    streamARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) for the stream.
+    streamARN :: Lude.Text,
+    -- | The shard ID of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedShardId@ in the previous operation.
+    exclusiveStartShardId :: Lude.Maybe Lude.Text,
+    -- | The maximum number of shard objects to return. The upper limit is 100.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
 --
+-- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
 -- * 'exclusiveStartShardId' - The shard ID of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedShardId@ in the previous operation.
 -- * 'limit' - The maximum number of shard objects to return. The upper limit is 100.
--- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
 mkDescribeStream ::
   -- | 'streamARN'
   Lude.Text ->
   DescribeStream
 mkDescribeStream pStreamARN_ =
   DescribeStream'
-    { exclusiveStartShardId = Lude.Nothing,
-      limit = Lude.Nothing,
-      streamARN = pStreamARN_
+    { streamARN = pStreamARN_,
+      exclusiveStartShardId = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) for the stream.
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsStreamARN :: Lens.Lens' DescribeStream Lude.Text
+dsStreamARN = Lens.lens (streamARN :: DescribeStream -> Lude.Text) (\s a -> s {streamARN = a} :: DescribeStream)
+{-# DEPRECATED dsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The shard ID of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedShardId@ in the previous operation.
 --
@@ -88,13 +92,6 @@ dsExclusiveStartShardId = Lens.lens (exclusiveStartShardId :: DescribeStream -> 
 dsLimit :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Natural)
 dsLimit = Lens.lens (limit :: DescribeStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeStream)
 {-# DEPRECATED dsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The Amazon Resource Name (ARN) for the stream.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsStreamARN :: Lens.Lens' DescribeStream Lude.Text
-dsStreamARN = Lens.lens (streamARN :: DescribeStream -> Lude.Text) (\s a -> s {streamARN = a} :: DescribeStream)
-{-# DEPRECATED dsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 instance Lude.AWSRequest DescribeStream where
   type Rs DescribeStream = DescribeStreamResponse
@@ -122,9 +119,9 @@ instance Lude.ToJSON DescribeStream where
   toJSON DescribeStream' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ExclusiveStartShardId" Lude..=) Lude.<$> exclusiveStartShardId,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("StreamArn" Lude..= streamARN)
+          [ Lude.Just ("StreamArn" Lude..= streamARN),
+            ("ExclusiveStartShardId" Lude..=) Lude.<$> exclusiveStartShardId,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -138,23 +135,18 @@ instance Lude.ToQuery DescribeStream where
 --
 -- /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-  { streamDescription ::
-      Lude.Maybe StreamDescription,
+  { -- | A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.
+    streamDescription :: Lude.Maybe StreamDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'streamDescription' - A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.
+-- * 'responseStatus' - The response status code.
 mkDescribeStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->

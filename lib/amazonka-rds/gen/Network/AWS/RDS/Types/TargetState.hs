@@ -13,8 +13,8 @@
 module Network.AWS.RDS.Types.TargetState
   ( TargetState
       ( TargetState',
-        TSAvailable,
         TSRegistering,
+        TSAvailable,
         TSUnavailable
       ),
   )
@@ -46,18 +46,18 @@ newtype TargetState = TargetState' Lude.Text
       Lude.ToHeader
     )
 
-pattern TSAvailable :: TargetState
-pattern TSAvailable = TargetState' "AVAILABLE"
-
 pattern TSRegistering :: TargetState
 pattern TSRegistering = TargetState' "REGISTERING"
+
+pattern TSAvailable :: TargetState
+pattern TSAvailable = TargetState' "AVAILABLE"
 
 pattern TSUnavailable :: TargetState
 pattern TSUnavailable = TargetState' "UNAVAILABLE"
 
 {-# COMPLETE
-  TSAvailable,
   TSRegistering,
+  TSAvailable,
   TSUnavailable,
   TargetState'
   #-}

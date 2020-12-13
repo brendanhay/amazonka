@@ -18,8 +18,8 @@ module Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
 
     -- * Lenses
     blpasNextToken,
-    blpasMaxResults,
     blpasPolicyReference,
+    blpasMaxResults,
   )
 where
 
@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListPolicyAttachments' smart constructor.
 data BatchListPolicyAttachments = BatchListPolicyAttachments'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    policyReference :: ObjectReference
+  { -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The reference that identifies the policy object.
+    policyReference :: ObjectReference,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListPolicyAttachments' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
 -- * 'nextToken' - The pagination token.
 -- * 'policyReference' - The reference that identifies the policy object.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkBatchListPolicyAttachments ::
   -- | 'policyReference'
   ObjectReference ->
@@ -57,8 +53,8 @@ mkBatchListPolicyAttachments ::
 mkBatchListPolicyAttachments pPolicyReference_ =
   BatchListPolicyAttachments'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      policyReference = pPolicyReference_
+      policyReference = pPolicyReference_,
+      maxResults = Lude.Nothing
     }
 
 -- | The pagination token.
@@ -68,13 +64,6 @@ blpasNextToken :: Lens.Lens' BatchListPolicyAttachments (Lude.Maybe Lude.Text)
 blpasNextToken = Lens.lens (nextToken :: BatchListPolicyAttachments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListPolicyAttachments)
 {-# DEPRECATED blpasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of results to retrieve.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpasMaxResults :: Lens.Lens' BatchListPolicyAttachments (Lude.Maybe Lude.Natural)
-blpasMaxResults = Lens.lens (maxResults :: BatchListPolicyAttachments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListPolicyAttachments)
-{-# DEPRECATED blpasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The reference that identifies the policy object.
 --
 -- /Note:/ Consider using 'policyReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -82,12 +71,19 @@ blpasPolicyReference :: Lens.Lens' BatchListPolicyAttachments ObjectReference
 blpasPolicyReference = Lens.lens (policyReference :: BatchListPolicyAttachments -> ObjectReference) (\s a -> s {policyReference = a} :: BatchListPolicyAttachments)
 {-# DEPRECATED blpasPolicyReference "Use generic-lens or generic-optics with 'policyReference' instead." #-}
 
+-- | The maximum number of results to retrieve.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpasMaxResults :: Lens.Lens' BatchListPolicyAttachments (Lude.Maybe Lude.Natural)
+blpasMaxResults = Lens.lens (maxResults :: BatchListPolicyAttachments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListPolicyAttachments)
+{-# DEPRECATED blpasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
 instance Lude.ToJSON BatchListPolicyAttachments where
   toJSON BatchListPolicyAttachments' {..} =
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("PolicyReference" Lude..= policyReference)
+            Lude.Just ("PolicyReference" Lude..= policyReference),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )

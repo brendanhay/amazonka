@@ -13,8 +13,8 @@
 module Network.AWS.EMR.Types.CancelStepsRequestStatus
   ( CancelStepsRequestStatus
       ( CancelStepsRequestStatus',
-        CSRSFailed,
-        CSRSSubmitted
+        CSRSSubmitted,
+        CSRSFailed
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CancelStepsRequestStatus = CancelStepsRequestStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern CSRSFailed :: CancelStepsRequestStatus
-pattern CSRSFailed = CancelStepsRequestStatus' "FAILED"
-
 pattern CSRSSubmitted :: CancelStepsRequestStatus
 pattern CSRSSubmitted = CancelStepsRequestStatus' "SUBMITTED"
 
+pattern CSRSFailed :: CancelStepsRequestStatus
+pattern CSRSFailed = CancelStepsRequestStatus' "FAILED"
+
 {-# COMPLETE
-  CSRSFailed,
   CSRSSubmitted,
+  CSRSFailed,
   CancelStepsRequestStatus'
   #-}

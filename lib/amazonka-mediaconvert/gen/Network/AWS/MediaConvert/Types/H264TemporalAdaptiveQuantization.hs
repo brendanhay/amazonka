@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.H264TemporalAdaptiveQuantization
   ( H264TemporalAdaptiveQuantization
       ( H264TemporalAdaptiveQuantization',
-        H26Disabled,
-        H26Enabled
+        HTAQfDisabled,
+        HTAQfEnabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype H264TemporalAdaptiveQuantization = H264TemporalAdaptiveQuantization' Lud
       Lude.ToHeader
     )
 
-pattern H26Disabled :: H264TemporalAdaptiveQuantization
-pattern H26Disabled = H264TemporalAdaptiveQuantization' "DISABLED"
+pattern HTAQfDisabled :: H264TemporalAdaptiveQuantization
+pattern HTAQfDisabled = H264TemporalAdaptiveQuantization' "DISABLED"
 
-pattern H26Enabled :: H264TemporalAdaptiveQuantization
-pattern H26Enabled = H264TemporalAdaptiveQuantization' "ENABLED"
+pattern HTAQfEnabled :: H264TemporalAdaptiveQuantization
+pattern HTAQfEnabled = H264TemporalAdaptiveQuantization' "ENABLED"
 
 {-# COMPLETE
-  H26Disabled,
-  H26Enabled,
+  HTAQfDisabled,
+  HTAQfEnabled,
   H264TemporalAdaptiveQuantization'
   #-}

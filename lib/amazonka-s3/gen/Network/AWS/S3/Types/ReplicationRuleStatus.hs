@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.ReplicationRuleStatus
   ( ReplicationRuleStatus
       ( ReplicationRuleStatus',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ReplicationRuleStatus = ReplicationRuleStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: ReplicationRuleStatus
-pattern Disabled = ReplicationRuleStatus' "Disabled"
-
 pattern Enabled :: ReplicationRuleStatus
 pattern Enabled = ReplicationRuleStatus' "Enabled"
 
+pattern Disabled :: ReplicationRuleStatus
+pattern Disabled = ReplicationRuleStatus' "Disabled"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   ReplicationRuleStatus'
   #-}

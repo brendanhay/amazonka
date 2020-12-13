@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.Inspector.DescribeCrossAccountAccessRole
     mkDescribeCrossAccountAccessRoleResponse,
 
     -- ** Response lenses
-    dcaarrsResponseStatus,
-    dcaarrsRoleARN,
-    dcaarrsValid,
     dcaarrsRegisteredAt,
+    dcaarrsValid,
+    dcaarrsRoleARN,
+    dcaarrsResponseStatus,
   )
 where
 
@@ -38,13 +39,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeCrossAccountAccessRole' smart constructor.
 data DescribeCrossAccountAccessRole = DescribeCrossAccountAccessRole'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCrossAccountAccessRole' with the minimum fields required to make a request.
@@ -61,10 +56,10 @@ instance Lude.AWSRequest DescribeCrossAccountAccessRole where
     Res.receiveJSON
       ( \s h x ->
           DescribeCrossAccountAccessRoleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "roleArn")
+            Lude.<$> (x Lude..:> "registeredAt")
             Lude.<*> (x Lude..:> "valid")
-            Lude.<*> (x Lude..:> "registeredAt")
+            Lude.<*> (x Lude..:> "roleArn")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeCrossAccountAccessRole where
@@ -91,66 +86,53 @@ instance Lude.ToQuery DescribeCrossAccountAccessRole where
 
 -- | /See:/ 'mkDescribeCrossAccountAccessRoleResponse' smart constructor.
 data DescribeCrossAccountAccessRoleResponse = DescribeCrossAccountAccessRoleResponse'
-  { responseStatus ::
-      Lude.Int,
-    roleARN ::
-      Lude.Text,
-    valid ::
-      Lude.Bool,
-    registeredAt ::
-      Lude.Timestamp
+  { -- | The date when the cross-account access role was registered.
+    registeredAt :: Lude.Timestamp,
+    -- | A Boolean value that specifies whether the IAM role has the necessary policies attached to enable Amazon Inspector to access your AWS account.
+    valid :: Lude.Bool,
+    -- | The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.
+    roleARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeCrossAccountAccessRoleResponse' with the minimum fields required to make a request.
 --
 -- * 'registeredAt' - The date when the cross-account access role was registered.
--- * 'responseStatus' - The response status code.
--- * 'roleARN' - The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.
 -- * 'valid' - A Boolean value that specifies whether the IAM role has the necessary policies attached to enable Amazon Inspector to access your AWS account.
+-- * 'roleARN' - The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.
+-- * 'responseStatus' - The response status code.
 mkDescribeCrossAccountAccessRoleResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'roleARN'
-  Lude.Text ->
-  -- | 'valid'
-  Lude.Bool ->
   -- | 'registeredAt'
   Lude.Timestamp ->
+  -- | 'valid'
+  Lude.Bool ->
+  -- | 'roleARN'
+  Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeCrossAccountAccessRoleResponse
 mkDescribeCrossAccountAccessRoleResponse
-  pResponseStatus_
-  pRoleARN_
+  pRegisteredAt_
   pValid_
-  pRegisteredAt_ =
+  pRoleARN_
+  pResponseStatus_ =
     DescribeCrossAccountAccessRoleResponse'
-      { responseStatus =
-          pResponseStatus_,
-        roleARN = pRoleARN_,
+      { registeredAt =
+          pRegisteredAt_,
         valid = pValid_,
-        registeredAt = pRegisteredAt_
+        roleARN = pRoleARN_,
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | The date when the cross-account access role was registered.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsResponseStatus :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Lude.Int
-dcaarrsResponseStatus = Lens.lens (responseStatus :: DescribeCrossAccountAccessRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCrossAccountAccessRoleResponse)
-{-# DEPRECATED dcaarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsRoleARN :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Lude.Text
-dcaarrsRoleARN = Lens.lens (roleARN :: DescribeCrossAccountAccessRoleResponse -> Lude.Text) (\s a -> s {roleARN = a} :: DescribeCrossAccountAccessRoleResponse)
-{-# DEPRECATED dcaarrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'registeredAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarrsRegisteredAt :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Lude.Timestamp
+dcaarrsRegisteredAt = Lens.lens (registeredAt :: DescribeCrossAccountAccessRoleResponse -> Lude.Timestamp) (\s a -> s {registeredAt = a} :: DescribeCrossAccountAccessRoleResponse)
+{-# DEPRECATED dcaarrsRegisteredAt "Use generic-lens or generic-optics with 'registeredAt' instead." #-}
 
 -- | A Boolean value that specifies whether the IAM role has the necessary policies attached to enable Amazon Inspector to access your AWS account.
 --
@@ -159,9 +141,16 @@ dcaarrsValid :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Lude.Bool
 dcaarrsValid = Lens.lens (valid :: DescribeCrossAccountAccessRoleResponse -> Lude.Bool) (\s a -> s {valid = a} :: DescribeCrossAccountAccessRoleResponse)
 {-# DEPRECATED dcaarrsValid "Use generic-lens or generic-optics with 'valid' instead." #-}
 
--- | The date when the cross-account access role was registered.
+-- | The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.
 --
--- /Note:/ Consider using 'registeredAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaarrsRegisteredAt :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Lude.Timestamp
-dcaarrsRegisteredAt = Lens.lens (registeredAt :: DescribeCrossAccountAccessRoleResponse -> Lude.Timestamp) (\s a -> s {registeredAt = a} :: DescribeCrossAccountAccessRoleResponse)
-{-# DEPRECATED dcaarrsRegisteredAt "Use generic-lens or generic-optics with 'registeredAt' instead." #-}
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarrsRoleARN :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Lude.Text
+dcaarrsRoleARN = Lens.lens (roleARN :: DescribeCrossAccountAccessRoleResponse -> Lude.Text) (\s a -> s {roleARN = a} :: DescribeCrossAccountAccessRoleResponse)
+{-# DEPRECATED dcaarrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaarrsResponseStatus :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Lude.Int
+dcaarrsResponseStatus = Lens.lens (responseStatus :: DescribeCrossAccountAccessRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCrossAccountAccessRoleResponse)
+{-# DEPRECATED dcaarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

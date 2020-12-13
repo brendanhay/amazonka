@@ -17,9 +17,9 @@ module Network.AWS.MigrationHub.Types.Task
     mkTask,
 
     -- * Lenses
+    tStatus,
     tProgressPercent,
     tStatusDetail,
-    tStatus,
   )
 where
 
@@ -31,23 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTask' smart constructor.
 data Task = Task'
-  { progressPercent :: Lude.Maybe Lude.Natural,
-    statusDetail :: Lude.Maybe Lude.Text,
-    status :: MigrationStatus
+  { -- | Status of the task - Not Started, In-Progress, Complete.
+    status :: MigrationStatus,
+    -- | Indication of the percentage completion of the task.
+    progressPercent :: Lude.Maybe Lude.Natural,
+    -- | Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state.
+    statusDetail :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Task' with the minimum fields required to make a request.
 --
--- * 'progressPercent' - Indication of the percentage completion of the task.
 -- * 'status' - Status of the task - Not Started, In-Progress, Complete.
+-- * 'progressPercent' - Indication of the percentage completion of the task.
 -- * 'statusDetail' - Details of task status as notified by a migration tool. A tool might use this field to provide clarifying information about the status that is unique to that tool or that explains an error state.
 mkTask ::
   -- | 'status'
@@ -55,10 +52,17 @@ mkTask ::
   Task
 mkTask pStatus_ =
   Task'
-    { progressPercent = Lude.Nothing,
-      statusDetail = Lude.Nothing,
-      status = pStatus_
+    { status = pStatus_,
+      progressPercent = Lude.Nothing,
+      statusDetail = Lude.Nothing
     }
+
+-- | Status of the task - Not Started, In-Progress, Complete.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tStatus :: Lens.Lens' Task MigrationStatus
+tStatus = Lens.lens (status :: Task -> MigrationStatus) (\s a -> s {status = a} :: Task)
+{-# DEPRECATED tStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Indication of the percentage completion of the task.
 --
@@ -74,30 +78,23 @@ tStatusDetail :: Lens.Lens' Task (Lude.Maybe Lude.Text)
 tStatusDetail = Lens.lens (statusDetail :: Task -> Lude.Maybe Lude.Text) (\s a -> s {statusDetail = a} :: Task)
 {-# DEPRECATED tStatusDetail "Use generic-lens or generic-optics with 'statusDetail' instead." #-}
 
--- | Status of the task - Not Started, In-Progress, Complete.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tStatus :: Lens.Lens' Task MigrationStatus
-tStatus = Lens.lens (status :: Task -> MigrationStatus) (\s a -> s {status = a} :: Task)
-{-# DEPRECATED tStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
 instance Lude.FromJSON Task where
   parseJSON =
     Lude.withObject
       "Task"
       ( \x ->
           Task'
-            Lude.<$> (x Lude..:? "ProgressPercent")
+            Lude.<$> (x Lude..: "Status")
+            Lude.<*> (x Lude..:? "ProgressPercent")
             Lude.<*> (x Lude..:? "StatusDetail")
-            Lude.<*> (x Lude..: "Status")
       )
 
 instance Lude.ToJSON Task where
   toJSON Task' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ProgressPercent" Lude..=) Lude.<$> progressPercent,
-            ("StatusDetail" Lude..=) Lude.<$> statusDetail,
-            Lude.Just ("Status" Lude..= status)
+          [ Lude.Just ("Status" Lude..= status),
+            ("ProgressPercent" Lude..=) Lude.<$> progressPercent,
+            ("StatusDetail" Lude..=) Lude.<$> statusDetail
           ]
       )

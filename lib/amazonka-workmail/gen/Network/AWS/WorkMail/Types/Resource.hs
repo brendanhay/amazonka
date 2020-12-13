@@ -36,32 +36,33 @@ import Network.AWS.WorkMail.Types.ResourceType
 --
 -- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { email :: Lude.Maybe Lude.Text,
+  { -- | The email of the resource.
+    email :: Lude.Maybe Lude.Text,
+    -- | The state of the resource, which can be ENABLED, DISABLED, or DELETED.
     state :: Lude.Maybe EntityState,
+    -- | The date indicating when the resource was disabled from Amazon WorkMail use.
     disabledDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the resource.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the resource.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of the resource: equipment or room.
     type' :: Lude.Maybe ResourceType,
+    -- | The date indicating when the resource was enabled for Amazon WorkMail use.
     enabledDate :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- * 'disabledDate' - The date indicating when the resource was disabled from Amazon WorkMail use.
 -- * 'email' - The email of the resource.
--- * 'enabledDate' - The date indicating when the resource was enabled for Amazon WorkMail use.
--- * 'id' - The identifier of the resource.
--- * 'name' - The name of the resource.
 -- * 'state' - The state of the resource, which can be ENABLED, DISABLED, or DELETED.
+-- * 'disabledDate' - The date indicating when the resource was disabled from Amazon WorkMail use.
+-- * 'name' - The name of the resource.
+-- * 'id' - The identifier of the resource.
 -- * 'type'' - The type of the resource: equipment or room.
+-- * 'enabledDate' - The date indicating when the resource was enabled for Amazon WorkMail use.
 mkResource ::
   Resource
 mkResource =

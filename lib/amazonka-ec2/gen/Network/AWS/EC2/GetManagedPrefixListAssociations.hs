@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.EC2.GetManagedPrefixListAssociations
 
     -- ** Request lenses
     gmplaNextToken,
+    gmplaPrefixListId,
     gmplaDryRun,
     gmplaMaxResults,
-    gmplaPrefixListId,
 
     -- * Destructuring the response
     GetManagedPrefixListAssociationsResponse (..),
@@ -46,29 +47,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetManagedPrefixListAssociations' smart constructor.
 data GetManagedPrefixListAssociations = GetManagedPrefixListAssociations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    dryRun ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    prefixListId :: Lude.Text
+  { -- | The token for the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the prefix list.
+    prefixListId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetManagedPrefixListAssociations' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
 -- * 'prefixListId' - The ID of the prefix list.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkGetManagedPrefixListAssociations ::
   -- | 'prefixListId'
   Lude.Text ->
@@ -76,9 +72,9 @@ mkGetManagedPrefixListAssociations ::
 mkGetManagedPrefixListAssociations pPrefixListId_ =
   GetManagedPrefixListAssociations'
     { nextToken = Lude.Nothing,
+      prefixListId = pPrefixListId_,
       dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      prefixListId = pPrefixListId_
+      maxResults = Lude.Nothing
     }
 
 -- | The token for the next page of results.
@@ -87,6 +83,13 @@ mkGetManagedPrefixListAssociations pPrefixListId_ =
 gmplaNextToken :: Lens.Lens' GetManagedPrefixListAssociations (Lude.Maybe Lude.Text)
 gmplaNextToken = Lens.lens (nextToken :: GetManagedPrefixListAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetManagedPrefixListAssociations)
 {-# DEPRECATED gmplaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The ID of the prefix list.
+--
+-- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmplaPrefixListId :: Lens.Lens' GetManagedPrefixListAssociations Lude.Text
+gmplaPrefixListId = Lens.lens (prefixListId :: GetManagedPrefixListAssociations -> Lude.Text) (\s a -> s {prefixListId = a} :: GetManagedPrefixListAssociations)
+{-# DEPRECATED gmplaPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
@@ -101,13 +104,6 @@ gmplaDryRun = Lens.lens (dryRun :: GetManagedPrefixListAssociations -> Lude.Mayb
 gmplaMaxResults :: Lens.Lens' GetManagedPrefixListAssociations (Lude.Maybe Lude.Natural)
 gmplaMaxResults = Lens.lens (maxResults :: GetManagedPrefixListAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetManagedPrefixListAssociations)
 {-# DEPRECATED gmplaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the prefix list.
---
--- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmplaPrefixListId :: Lens.Lens' GetManagedPrefixListAssociations Lude.Text
-gmplaPrefixListId = Lens.lens (prefixListId :: GetManagedPrefixListAssociations -> Lude.Text) (\s a -> s {prefixListId = a} :: GetManagedPrefixListAssociations)
-{-# DEPRECATED gmplaPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 instance Page.AWSPager GetManagedPrefixListAssociations where
   page rq rs
@@ -148,29 +144,21 @@ instance Lude.ToQuery GetManagedPrefixListAssociations where
           Lude.=: ("GetManagedPrefixListAssociations" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "NextToken" Lude.=: nextToken,
+        "PrefixListId" Lude.=: prefixListId,
         "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        "PrefixListId" Lude.=: prefixListId
+        "MaxResults" Lude.=: maxResults
       ]
 
 -- | /See:/ 'mkGetManagedPrefixListAssociationsResponse' smart constructor.
 data GetManagedPrefixListAssociationsResponse = GetManagedPrefixListAssociationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    prefixListAssociations ::
-      Lude.Maybe
-        [PrefixListAssociation],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the associations.
+    prefixListAssociations :: Lude.Maybe [PrefixListAssociation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetManagedPrefixListAssociationsResponse' with the minimum fields required to make a request.

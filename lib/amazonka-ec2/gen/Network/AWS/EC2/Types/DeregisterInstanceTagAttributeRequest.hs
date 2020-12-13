@@ -29,20 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeregisterInstanceTagAttributeRequest' smart constructor.
 data DeregisterInstanceTagAttributeRequest = DeregisterInstanceTagAttributeRequest'
-  { includeAllTagsOfInstance ::
-      Lude.Maybe
-        Lude.Bool,
-    instanceTagKeys ::
-      Lude.Maybe
-        [Lude.Text]
+  { -- | Indicates whether to deregister all tag keys in the current Region. Specify @false@ to deregister all tag keys.
+    includeAllTagsOfInstance :: Lude.Maybe Lude.Bool,
+    -- | Information about the tag keys to deregister.
+    instanceTagKeys :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstanceTagAttributeRequest' with the minimum fields required to make a request.

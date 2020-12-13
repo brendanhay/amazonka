@@ -32,28 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThingGroupIndexingConfiguration' smart constructor.
 data ThingGroupIndexingConfiguration = ThingGroupIndexingConfiguration'
-  { managedFields ::
-      Lude.Maybe [Field],
-    customFields ::
-      Lude.Maybe [Field],
-    thingGroupIndexingMode ::
-      ThingGroupIndexingMode
+  { -- | Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
+    managedFields :: Lude.Maybe [Field],
+    -- | A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields.
+    --
+    -- Contains custom field names and their data type.
+    customFields :: Lude.Maybe [Field],
+    -- | Thing group indexing mode.
+    thingGroupIndexingMode :: ThingGroupIndexingMode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThingGroupIndexingConfiguration' with the minimum fields required to make a request.
 --
+-- * 'managedFields' - Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
 -- * 'customFields' - A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields.
 --
 -- Contains custom field names and their data type.
--- * 'managedFields' - Contains fields that are indexed and whose types are already known by the Fleet Indexing service.
 -- * 'thingGroupIndexingMode' - Thing group indexing mode.
 mkThingGroupIndexingConfiguration ::
   -- | 'thingGroupIndexingMode'

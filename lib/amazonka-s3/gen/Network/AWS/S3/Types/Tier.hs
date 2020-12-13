@@ -13,9 +13,9 @@
 module Network.AWS.S3.Types.Tier
   ( Tier
       ( Tier',
+        TStandard,
         TBulk,
-        TExpedited,
-        TStandard
+        TExpedited
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype Tier = Tier' Lude.Text
       Lude.ToHeader
     )
 
+pattern TStandard :: Tier
+pattern TStandard = Tier' "Standard"
+
 pattern TBulk :: Tier
 pattern TBulk = Tier' "Bulk"
 
 pattern TExpedited :: Tier
 pattern TExpedited = Tier' "Expedited"
 
-pattern TStandard :: Tier
-pattern TStandard = Tier' "Standard"
-
 {-# COMPLETE
+  TStandard,
   TBulk,
   TExpedited,
-  TStandard,
   Tier'
   #-}

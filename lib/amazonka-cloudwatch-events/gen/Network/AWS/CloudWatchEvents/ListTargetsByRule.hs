@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.CloudWatchEvents.ListTargetsByRule
     mkListTargetsByRule,
 
     -- ** Request lenses
+    ltbrRule,
     ltbrNextToken,
     ltbrEventBusName,
     ltbrLimit,
-    ltbrRule,
 
     -- * Destructuring the response
     ListTargetsByRuleResponse (..),
@@ -46,38 +47,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTargetsByRule' smart constructor.
 data ListTargetsByRule = ListTargetsByRule'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the rule.
+    rule :: Lude.Text,
+    -- | The token returned by a previous call to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
     eventBusName :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    rule :: Lude.Text
+    -- | The maximum number of results to return.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsByRule' with the minimum fields required to make a request.
 --
+-- * 'rule' - The name of the rule.
+-- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
 -- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 -- * 'limit' - The maximum number of results to return.
--- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
--- * 'rule' - The name of the rule.
 mkListTargetsByRule ::
   -- | 'rule'
   Lude.Text ->
   ListTargetsByRule
 mkListTargetsByRule pRule_ =
   ListTargetsByRule'
-    { nextToken = Lude.Nothing,
+    { rule = pRule_,
+      nextToken = Lude.Nothing,
       eventBusName = Lude.Nothing,
-      limit = Lude.Nothing,
-      rule = pRule_
+      limit = Lude.Nothing
     }
+
+-- | The name of the rule.
+--
+-- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltbrRule :: Lens.Lens' ListTargetsByRule Lude.Text
+ltbrRule = Lens.lens (rule :: ListTargetsByRule -> Lude.Text) (\s a -> s {rule = a} :: ListTargetsByRule)
+{-# DEPRECATED ltbrRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 -- | The token returned by a previous call to retrieve the next set of results.
 --
@@ -99,13 +104,6 @@ ltbrEventBusName = Lens.lens (eventBusName :: ListTargetsByRule -> Lude.Maybe Lu
 ltbrLimit :: Lens.Lens' ListTargetsByRule (Lude.Maybe Lude.Natural)
 ltbrLimit = Lens.lens (limit :: ListTargetsByRule -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTargetsByRule)
 {-# DEPRECATED ltbrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The name of the rule.
---
--- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltbrRule :: Lens.Lens' ListTargetsByRule Lude.Text
-ltbrRule = Lens.lens (rule :: ListTargetsByRule -> Lude.Text) (\s a -> s {rule = a} :: ListTargetsByRule)
-{-# DEPRECATED ltbrRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 instance Page.AWSPager ListTargetsByRule where
   page rq rs
@@ -143,10 +141,10 @@ instance Lude.ToJSON ListTargetsByRule where
   toJSON ListTargetsByRule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
+          [ Lude.Just ("Rule" Lude..= rule),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
             ("EventBusName" Lude..=) Lude.<$> eventBusName,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("Rule" Lude..= rule)
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -158,26 +156,21 @@ instance Lude.ToQuery ListTargetsByRule where
 
 -- | /See:/ 'mkListTargetsByRuleResponse' smart constructor.
 data ListTargetsByRuleResponse = ListTargetsByRuleResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    targets ::
-      Lude.Maybe (Lude.NonEmpty Target),
+  { -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The targets assigned to the rule.
+    targets :: Lude.Maybe (Lude.NonEmpty Target),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTargetsByRuleResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
--- * 'responseStatus' - The response status code.
 -- * 'targets' - The targets assigned to the rule.
+-- * 'responseStatus' - The response status code.
 mkListTargetsByRuleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

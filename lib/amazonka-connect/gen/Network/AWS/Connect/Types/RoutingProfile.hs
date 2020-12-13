@@ -36,34 +36,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoutingProfile' smart constructor.
 data RoutingProfile = RoutingProfile'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the routing profile.
     routingProfileARN :: Lude.Maybe Lude.Text,
+    -- | The identifier of the routing profile.
     routingProfileId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the default outbound queue for this routing profile.
     defaultOutboundQueueId :: Lude.Maybe Lude.Text,
+    -- | The name of the routing profile.
     name :: Lude.Maybe Lude.Text,
+    -- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
     mediaConcurrencies :: Lude.Maybe [MediaConcurrency],
+    -- | The description of the routing profile.
     description :: Lude.Maybe Lude.Text,
+    -- | One or more tags.
     tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoutingProfile' with the minimum fields required to make a request.
 --
--- * 'defaultOutboundQueueId' - The identifier of the default outbound queue for this routing profile.
--- * 'description' - The description of the routing profile.
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'mediaConcurrencies' - The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
--- * 'name' - The name of the routing profile.
 -- * 'routingProfileARN' - The Amazon Resource Name (ARN) of the routing profile.
 -- * 'routingProfileId' - The identifier of the routing profile.
+-- * 'defaultOutboundQueueId' - The identifier of the default outbound queue for this routing profile.
+-- * 'name' - The name of the routing profile.
+-- * 'mediaConcurrencies' - The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+-- * 'description' - The description of the routing profile.
 -- * 'tags' - One or more tags.
 mkRoutingProfile ::
   RoutingProfile

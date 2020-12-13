@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,12 +20,12 @@ module Network.AWS.IoT.CreateAuditSuppression
     mkCreateAuditSuppression,
 
     -- ** Request lenses
+    casCheckName,
     casExpirationDate,
     casSuppressIndefinitely,
-    casDescription,
-    casCheckName,
-    casResourceIdentifier,
     casClientRequestToken,
+    casDescription,
+    casResourceIdentifier,
 
     -- * Destructuring the response
     CreateAuditSuppressionResponse (..),
@@ -43,51 +44,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAuditSuppression' smart constructor.
 data CreateAuditSuppression = CreateAuditSuppression'
-  { expirationDate ::
-      Lude.Maybe Lude.Timestamp,
+  { checkName :: Lude.Text,
+    -- | The epoch timestamp in seconds at which this suppression expires.
+    expirationDate :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Lude.Maybe Lude.Bool,
+    -- | The epoch timestamp in seconds at which this suppression expires.
+    clientRequestToken :: Lude.Text,
+    -- | The description of the audit suppression.
     description :: Lude.Maybe Lude.Text,
-    checkName :: Lude.Text,
-    resourceIdentifier :: ResourceIdentifier,
-    clientRequestToken :: Lude.Text
+    resourceIdentifier :: ResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAuditSuppression' with the minimum fields required to make a request.
 --
--- * 'checkName' - Undocumented field.
+-- * 'checkName' -
+-- * 'expirationDate' - The epoch timestamp in seconds at which this suppression expires.
+-- * 'suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
 -- * 'clientRequestToken' - The epoch timestamp in seconds at which this suppression expires.
 -- * 'description' - The description of the audit suppression.
--- * 'expirationDate' - The epoch timestamp in seconds at which this suppression expires.
--- * 'resourceIdentifier' - Undocumented field.
--- * 'suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+-- * 'resourceIdentifier' -
 mkCreateAuditSuppression ::
   -- | 'checkName'
   Lude.Text ->
-  -- | 'resourceIdentifier'
-  ResourceIdentifier ->
   -- | 'clientRequestToken'
   Lude.Text ->
+  -- | 'resourceIdentifier'
+  ResourceIdentifier ->
   CreateAuditSuppression
 mkCreateAuditSuppression
   pCheckName_
-  pResourceIdentifier_
-  pClientRequestToken_ =
+  pClientRequestToken_
+  pResourceIdentifier_ =
     CreateAuditSuppression'
-      { expirationDate = Lude.Nothing,
+      { checkName = pCheckName_,
+        expirationDate = Lude.Nothing,
         suppressIndefinitely = Lude.Nothing,
+        clientRequestToken = pClientRequestToken_,
         description = Lude.Nothing,
-        checkName = pCheckName_,
-        resourceIdentifier = pResourceIdentifier_,
-        clientRequestToken = pClientRequestToken_
+        resourceIdentifier = pResourceIdentifier_
       }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casCheckName :: Lens.Lens' CreateAuditSuppression Lude.Text
+casCheckName = Lens.lens (checkName :: CreateAuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: CreateAuditSuppression)
+{-# DEPRECATED casCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
 
 -- | The epoch timestamp in seconds at which this suppression expires.
 --
@@ -103,6 +108,13 @@ casSuppressIndefinitely :: Lens.Lens' CreateAuditSuppression (Lude.Maybe Lude.Bo
 casSuppressIndefinitely = Lens.lens (suppressIndefinitely :: CreateAuditSuppression -> Lude.Maybe Lude.Bool) (\s a -> s {suppressIndefinitely = a} :: CreateAuditSuppression)
 {-# DEPRECATED casSuppressIndefinitely "Use generic-lens or generic-optics with 'suppressIndefinitely' instead." #-}
 
+-- | The epoch timestamp in seconds at which this suppression expires.
+--
+-- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+casClientRequestToken :: Lens.Lens' CreateAuditSuppression Lude.Text
+casClientRequestToken = Lens.lens (clientRequestToken :: CreateAuditSuppression -> Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateAuditSuppression)
+{-# DEPRECATED casClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
 -- | The description of the audit suppression.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -112,24 +124,10 @@ casDescription = Lens.lens (description :: CreateAuditSuppression -> Lude.Maybe 
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'checkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casCheckName :: Lens.Lens' CreateAuditSuppression Lude.Text
-casCheckName = Lens.lens (checkName :: CreateAuditSuppression -> Lude.Text) (\s a -> s {checkName = a} :: CreateAuditSuppression)
-{-# DEPRECATED casCheckName "Use generic-lens or generic-optics with 'checkName' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 casResourceIdentifier :: Lens.Lens' CreateAuditSuppression ResourceIdentifier
 casResourceIdentifier = Lens.lens (resourceIdentifier :: CreateAuditSuppression -> ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: CreateAuditSuppression)
 {-# DEPRECATED casResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
-
--- | The epoch timestamp in seconds at which this suppression expires.
---
--- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-casClientRequestToken :: Lens.Lens' CreateAuditSuppression Lude.Text
-casClientRequestToken = Lens.lens (clientRequestToken :: CreateAuditSuppression -> Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateAuditSuppression)
-{-# DEPRECATED casClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 instance Lude.AWSRequest CreateAuditSuppression where
   type Rs CreateAuditSuppression = CreateAuditSuppressionResponse
@@ -148,12 +146,12 @@ instance Lude.ToJSON CreateAuditSuppression where
   toJSON CreateAuditSuppression' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("expirationDate" Lude..=) Lude.<$> expirationDate,
+          [ Lude.Just ("checkName" Lude..= checkName),
+            ("expirationDate" Lude..=) Lude.<$> expirationDate,
             ("suppressIndefinitely" Lude..=) Lude.<$> suppressIndefinitely,
+            Lude.Just ("clientRequestToken" Lude..= clientRequestToken),
             ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("checkName" Lude..= checkName),
-            Lude.Just ("resourceIdentifier" Lude..= resourceIdentifier),
-            Lude.Just ("clientRequestToken" Lude..= clientRequestToken)
+            Lude.Just ("resourceIdentifier" Lude..= resourceIdentifier)
           ]
       )
 
@@ -165,16 +163,10 @@ instance Lude.ToQuery CreateAuditSuppression where
 
 -- | /See:/ 'mkCreateAuditSuppressionResponse' smart constructor.
 newtype CreateAuditSuppressionResponse = CreateAuditSuppressionResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAuditSuppressionResponse' with the minimum fields required to make a request.

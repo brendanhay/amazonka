@@ -33,28 +33,24 @@ import Network.AWS.SMS.Types.SSMValidationParameters
 --
 -- /See:/ 'mkAppValidationConfiguration' smart constructor.
 data AppValidationConfiguration = AppValidationConfiguration'
-  { ssmValidationParameters ::
-      Lude.Maybe SSMValidationParameters,
+  { -- | The validation parameters.
+    ssmValidationParameters :: Lude.Maybe SSMValidationParameters,
+    -- | The name of the configuration.
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of the validation.
     validationId :: Lude.Maybe Lude.Text,
-    appValidationStrategy ::
-      Lude.Maybe AppValidationStrategy
+    -- | The validation strategy.
+    appValidationStrategy :: Lude.Maybe AppValidationStrategy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AppValidationConfiguration' with the minimum fields required to make a request.
 --
--- * 'appValidationStrategy' - The validation strategy.
--- * 'name' - The name of the configuration.
 -- * 'ssmValidationParameters' - The validation parameters.
+-- * 'name' - The name of the configuration.
 -- * 'validationId' - The ID of the validation.
+-- * 'appValidationStrategy' - The validation strategy.
 mkAppValidationConfiguration ::
   AppValidationConfiguration
 mkAppValidationConfiguration =

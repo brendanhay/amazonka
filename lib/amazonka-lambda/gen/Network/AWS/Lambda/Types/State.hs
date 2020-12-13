@@ -13,10 +13,10 @@
 module Network.AWS.Lambda.Types.State
   ( State
       ( State',
+        Pending,
         Active,
-        Failed,
         Inactive,
-        Pending
+        Failed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype State = State' Lude.Text
       Lude.ToHeader
     )
 
+pattern Pending :: State
+pattern Pending = State' "Pending"
+
 pattern Active :: State
 pattern Active = State' "Active"
-
-pattern Failed :: State
-pattern Failed = State' "Failed"
 
 pattern Inactive :: State
 pattern Inactive = State' "Inactive"
 
-pattern Pending :: State
-pattern Pending = State' "Pending"
+pattern Failed :: State
+pattern Failed = State' "Failed"
 
 {-# COMPLETE
-  Active,
-  Failed,
-  Inactive,
   Pending,
+  Active,
+  Inactive,
+  Failed,
   State'
   #-}

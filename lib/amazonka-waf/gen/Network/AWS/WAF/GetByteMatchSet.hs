@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.WAF.Types
 
 -- | /See:/ 'mkGetByteMatchSet' smart constructor.
 newtype GetByteMatchSet = GetByteMatchSet'
-  { byteMatchSetId ::
-      Lude.Text
+  { -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to get. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
+    byteMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetByteMatchSet' with the minimum fields required to make a request.
@@ -104,17 +99,21 @@ instance Lude.ToQuery GetByteMatchSet where
 
 -- | /See:/ 'mkGetByteMatchSetResponse' smart constructor.
 data GetByteMatchSetResponse = GetByteMatchSetResponse'
-  { byteMatchSet ::
-      Lude.Maybe ByteMatchSet,
+  { -- | Information about the 'ByteMatchSet' that you specified in the @GetByteMatchSet@ request. For more information, see the following topics:
+    --
+    --
+    --     * 'ByteMatchSet' : Contains @ByteMatchSetId@ , @ByteMatchTuples@ , and @Name@
+    --
+    --
+    --     * @ByteMatchTuples@ : Contains an array of 'ByteMatchTuple' objects. Each @ByteMatchTuple@ object contains 'FieldToMatch' , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@
+    --
+    --
+    --     * 'FieldToMatch' : Contains @Data@ and @Type@
+    byteMatchSet :: Lude.Maybe ByteMatchSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetByteMatchSetResponse' with the minimum fields required to make a request.

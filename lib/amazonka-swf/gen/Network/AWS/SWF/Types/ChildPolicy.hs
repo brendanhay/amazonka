@@ -13,9 +13,9 @@
 module Network.AWS.SWF.Types.ChildPolicy
   ( ChildPolicy
       ( ChildPolicy',
-        Abandon,
+        Terminate,
         RequestCancel,
-        Terminate
+        Abandon
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ChildPolicy = ChildPolicy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Abandon :: ChildPolicy
-pattern Abandon = ChildPolicy' "ABANDON"
+pattern Terminate :: ChildPolicy
+pattern Terminate = ChildPolicy' "TERMINATE"
 
 pattern RequestCancel :: ChildPolicy
 pattern RequestCancel = ChildPolicy' "REQUEST_CANCEL"
 
-pattern Terminate :: ChildPolicy
-pattern Terminate = ChildPolicy' "TERMINATE"
+pattern Abandon :: ChildPolicy
+pattern Abandon = ChildPolicy' "ABANDON"
 
 {-# COMPLETE
-  Abandon,
-  RequestCancel,
   Terminate,
+  RequestCancel,
+  Abandon,
   ChildPolicy'
   #-}

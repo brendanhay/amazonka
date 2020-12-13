@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.Pinpoint.GetImportJobs
     mkGetImportJobs,
 
     -- ** Request lenses
-    gijsToken,
-    gijsPageSize,
-    gijsApplicationId,
+    gijToken,
+    gijApplicationId,
+    gijPageSize,
 
     -- * Destructuring the response
     GetImportJobsResponse (..),
     mkGetImportJobsResponse,
 
     -- ** Response lenses
-    gijsrsResponseStatus,
     gijsrsImportJobsResponse,
+    gijsrsResponseStatus,
   )
 where
 
@@ -41,24 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetImportJobs' smart constructor.
 data GetImportJobs = GetImportJobs'
-  { token :: Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Text,
-    applicationId :: Lude.Text
+  { -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
+    -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    pageSize :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetImportJobs' with the minimum fields required to make a request.
 --
+-- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 -- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
--- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
 mkGetImportJobs ::
   -- | 'applicationId'
   Lude.Text ->
@@ -66,30 +64,30 @@ mkGetImportJobs ::
 mkGetImportJobs pApplicationId_ =
   GetImportJobs'
     { token = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      applicationId = pApplicationId_
+      applicationId = pApplicationId_,
+      pageSize = Lude.Nothing
     }
 
 -- | The NextToken string that specifies which page of results to return in a paginated response.
 --
 -- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijsToken :: Lens.Lens' GetImportJobs (Lude.Maybe Lude.Text)
-gijsToken = Lens.lens (token :: GetImportJobs -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetImportJobs)
-{-# DEPRECATED gijsToken "Use generic-lens or generic-optics with 'token' instead." #-}
-
--- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijsPageSize :: Lens.Lens' GetImportJobs (Lude.Maybe Lude.Text)
-gijsPageSize = Lens.lens (pageSize :: GetImportJobs -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetImportJobs)
-{-# DEPRECATED gijsPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+gijToken :: Lens.Lens' GetImportJobs (Lude.Maybe Lude.Text)
+gijToken = Lens.lens (token :: GetImportJobs -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetImportJobs)
+{-# DEPRECATED gijToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijsApplicationId :: Lens.Lens' GetImportJobs Lude.Text
-gijsApplicationId = Lens.lens (applicationId :: GetImportJobs -> Lude.Text) (\s a -> s {applicationId = a} :: GetImportJobs)
-{-# DEPRECATED gijsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+gijApplicationId :: Lens.Lens' GetImportJobs Lude.Text
+gijApplicationId = Lens.lens (applicationId :: GetImportJobs -> Lude.Text) (\s a -> s {applicationId = a} :: GetImportJobs)
+{-# DEPRECATED gijApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+--
+-- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gijPageSize :: Lens.Lens' GetImportJobs (Lude.Maybe Lude.Text)
+gijPageSize = Lens.lens (pageSize :: GetImportJobs -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetImportJobs)
+{-# DEPRECATED gijPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
 instance Lude.AWSRequest GetImportJobs where
   type Rs GetImportJobs = GetImportJobsResponse
@@ -98,7 +96,7 @@ instance Lude.AWSRequest GetImportJobs where
     Res.receiveJSON
       ( \s h x ->
           GetImportJobsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetImportJobs where
@@ -122,41 +120,28 @@ instance Lude.ToQuery GetImportJobs where
 
 -- | /See:/ 'mkGetImportJobsResponse' smart constructor.
 data GetImportJobsResponse = GetImportJobsResponse'
-  { responseStatus ::
-      Lude.Int,
-    importJobsResponse :: ImportJobsResponse
+  { importJobsResponse :: ImportJobsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetImportJobsResponse' with the minimum fields required to make a request.
 --
--- * 'importJobsResponse' - Undocumented field.
+-- * 'importJobsResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetImportJobsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'importJobsResponse'
   ImportJobsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetImportJobsResponse
-mkGetImportJobsResponse pResponseStatus_ pImportJobsResponse_ =
+mkGetImportJobsResponse pImportJobsResponse_ pResponseStatus_ =
   GetImportJobsResponse'
-    { responseStatus = pResponseStatus_,
-      importJobsResponse = pImportJobsResponse_
+    { importJobsResponse = pImportJobsResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gijsrsResponseStatus :: Lens.Lens' GetImportJobsResponse Lude.Int
-gijsrsResponseStatus = Lens.lens (responseStatus :: GetImportJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetImportJobsResponse)
-{-# DEPRECATED gijsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -164,3 +149,10 @@ gijsrsResponseStatus = Lens.lens (responseStatus :: GetImportJobsResponse -> Lud
 gijsrsImportJobsResponse :: Lens.Lens' GetImportJobsResponse ImportJobsResponse
 gijsrsImportJobsResponse = Lens.lens (importJobsResponse :: GetImportJobsResponse -> ImportJobsResponse) (\s a -> s {importJobsResponse = a} :: GetImportJobsResponse)
 {-# DEPRECATED gijsrsImportJobsResponse "Use generic-lens or generic-optics with 'importJobsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gijsrsResponseStatus :: Lens.Lens' GetImportJobsResponse Lude.Int
+gijsrsResponseStatus = Lens.lens (responseStatus :: GetImportJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetImportJobsResponse)
+{-# DEPRECATED gijsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

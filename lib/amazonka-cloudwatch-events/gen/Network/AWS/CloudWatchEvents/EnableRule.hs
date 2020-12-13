@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,16 +39,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkEnableRule' smart constructor.
 data EnableRule = EnableRule'
-  { eventBusName :: Lude.Maybe Lude.Text,
+  { -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+    eventBusName :: Lude.Maybe Lude.Text,
+    -- | The name of the rule.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableRule' with the minimum fields required to make a request.
@@ -108,13 +105,7 @@ instance Lude.ToQuery EnableRule where
 
 -- | /See:/ 'mkEnableRuleResponse' smart constructor.
 data EnableRuleResponse = EnableRuleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnableRuleResponse' with the minimum fields required to make a request.

@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceError'' smart constructor.
 data ServiceError' = ServiceError''
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | When the error occurred.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The error ID.
     serviceErrorId :: Lude.Maybe Lude.Text,
+    -- | The error type.
     type' :: Lude.Maybe Lude.Text,
+    -- | The stack ID.
     stackId :: Lude.Maybe Lude.Text,
+    -- | A message that describes the error.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceError'' with the minimum fields required to make a request.
 --
--- * 'createdAt' - When the error occurred.
 -- * 'instanceId' - The instance ID.
--- * 'message' - A message that describes the error.
+-- * 'createdAt' - When the error occurred.
 -- * 'serviceErrorId' - The error ID.
--- * 'stackId' - The stack ID.
 -- * 'type'' - The error type.
+-- * 'stackId' - The stack ID.
+-- * 'message' - A message that describes the error.
 mkServiceError' ::
   ServiceError'
 mkServiceError' =

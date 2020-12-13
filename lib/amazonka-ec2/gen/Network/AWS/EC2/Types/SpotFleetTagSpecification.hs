@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotFleetTagSpecification' smart constructor.
 data SpotFleetTagSpecification = SpotFleetTagSpecification'
-  { resourceType ::
-      Lude.Maybe ResourceType,
+  { -- | The type of resource. Currently, the only resource type that is supported is @instance@ . To tag the Spot Fleet request on creation, use the @TagSpecifications@ parameter in <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html @SpotFleetRequestConfigData@ > .
+    resourceType :: Lude.Maybe ResourceType,
+    -- | The tags.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotFleetTagSpecification' with the minimum fields required to make a request.

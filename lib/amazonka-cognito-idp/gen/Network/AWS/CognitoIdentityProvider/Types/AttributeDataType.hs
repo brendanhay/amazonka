@@ -13,10 +13,10 @@
 module Network.AWS.CognitoIdentityProvider.Types.AttributeDataType
   ( AttributeDataType
       ( AttributeDataType',
-        Boolean,
-        DateTime,
+        String,
         Number,
-        String
+        DateTime,
+        Boolean
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AttributeDataType = AttributeDataType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Boolean :: AttributeDataType
-pattern Boolean = AttributeDataType' "Boolean"
-
-pattern DateTime :: AttributeDataType
-pattern DateTime = AttributeDataType' "DateTime"
+pattern String :: AttributeDataType
+pattern String = AttributeDataType' "String"
 
 pattern Number :: AttributeDataType
 pattern Number = AttributeDataType' "Number"
 
-pattern String :: AttributeDataType
-pattern String = AttributeDataType' "String"
+pattern DateTime :: AttributeDataType
+pattern DateTime = AttributeDataType' "DateTime"
+
+pattern Boolean :: AttributeDataType
+pattern Boolean = AttributeDataType' "Boolean"
 
 {-# COMPLETE
-  Boolean,
-  DateTime,
-  Number,
   String,
+  Number,
+  DateTime,
+  Boolean,
   AttributeDataType'
   #-}

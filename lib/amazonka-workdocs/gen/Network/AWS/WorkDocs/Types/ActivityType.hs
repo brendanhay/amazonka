@@ -13,39 +13,39 @@
 module Network.AWS.WorkDocs.Types.ActivityType
   ( ActivityType
       ( ActivityType',
-        DocumentAnnotationAdded,
-        DocumentAnnotationDeleted,
         DocumentCheckedIn,
         DocumentCheckedOut,
-        DocumentCommentAdded,
-        DocumentCommentDeleted,
-        DocumentMoved,
-        DocumentRecycled,
         DocumentRenamed,
+        DocumentVersionUploaded,
+        DocumentVersionDeleted,
+        DocumentVersionViewed,
+        DocumentVersionDownloaded,
+        DocumentRecycled,
         DocumentRestored,
         DocumentReverted,
-        DocumentSharePermissionChanged,
-        DocumentShareableLinkCreated,
-        DocumentShareableLinkPermissionChanged,
-        DocumentShareableLinkRemoved,
         DocumentShared,
         DocumentUnshared,
-        DocumentVersionDeleted,
-        DocumentVersionDownloaded,
-        DocumentVersionUploaded,
-        DocumentVersionViewed,
+        DocumentSharePermissionChanged,
+        DocumentShareableLinkCreated,
+        DocumentShareableLinkRemoved,
+        DocumentShareableLinkPermissionChanged,
+        DocumentMoved,
+        DocumentCommentAdded,
+        DocumentCommentDeleted,
+        DocumentAnnotationAdded,
+        DocumentAnnotationDeleted,
         FolderCreated,
         FolderDeleted,
-        FolderMoved,
-        FolderRecycled,
         FolderRenamed,
+        FolderRecycled,
         FolderRestored,
+        FolderShared,
+        FolderUnshared,
         FolderSharePermissionChanged,
         FolderShareableLinkCreated,
-        FolderShareableLinkPermissionChanged,
         FolderShareableLinkRemoved,
-        FolderShared,
-        FolderUnshared
+        FolderShareableLinkPermissionChanged,
+        FolderMoved
       ),
   )
 where
@@ -76,32 +76,29 @@ newtype ActivityType = ActivityType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DocumentAnnotationAdded :: ActivityType
-pattern DocumentAnnotationAdded = ActivityType' "DOCUMENT_ANNOTATION_ADDED"
-
-pattern DocumentAnnotationDeleted :: ActivityType
-pattern DocumentAnnotationDeleted = ActivityType' "DOCUMENT_ANNOTATION_DELETED"
-
 pattern DocumentCheckedIn :: ActivityType
 pattern DocumentCheckedIn = ActivityType' "DOCUMENT_CHECKED_IN"
 
 pattern DocumentCheckedOut :: ActivityType
 pattern DocumentCheckedOut = ActivityType' "DOCUMENT_CHECKED_OUT"
 
-pattern DocumentCommentAdded :: ActivityType
-pattern DocumentCommentAdded = ActivityType' "DOCUMENT_COMMENT_ADDED"
+pattern DocumentRenamed :: ActivityType
+pattern DocumentRenamed = ActivityType' "DOCUMENT_RENAMED"
 
-pattern DocumentCommentDeleted :: ActivityType
-pattern DocumentCommentDeleted = ActivityType' "DOCUMENT_COMMENT_DELETED"
+pattern DocumentVersionUploaded :: ActivityType
+pattern DocumentVersionUploaded = ActivityType' "DOCUMENT_VERSION_UPLOADED"
 
-pattern DocumentMoved :: ActivityType
-pattern DocumentMoved = ActivityType' "DOCUMENT_MOVED"
+pattern DocumentVersionDeleted :: ActivityType
+pattern DocumentVersionDeleted = ActivityType' "DOCUMENT_VERSION_DELETED"
+
+pattern DocumentVersionViewed :: ActivityType
+pattern DocumentVersionViewed = ActivityType' "DOCUMENT_VERSION_VIEWED"
+
+pattern DocumentVersionDownloaded :: ActivityType
+pattern DocumentVersionDownloaded = ActivityType' "DOCUMENT_VERSION_DOWNLOADED"
 
 pattern DocumentRecycled :: ActivityType
 pattern DocumentRecycled = ActivityType' "DOCUMENT_RECYCLED"
-
-pattern DocumentRenamed :: ActivityType
-pattern DocumentRenamed = ActivityType' "DOCUMENT_RENAMED"
 
 pattern DocumentRestored :: ActivityType
 pattern DocumentRestored = ActivityType' "DOCUMENT_RESTORED"
@@ -109,35 +106,38 @@ pattern DocumentRestored = ActivityType' "DOCUMENT_RESTORED"
 pattern DocumentReverted :: ActivityType
 pattern DocumentReverted = ActivityType' "DOCUMENT_REVERTED"
 
-pattern DocumentSharePermissionChanged :: ActivityType
-pattern DocumentSharePermissionChanged = ActivityType' "DOCUMENT_SHARE_PERMISSION_CHANGED"
-
-pattern DocumentShareableLinkCreated :: ActivityType
-pattern DocumentShareableLinkCreated = ActivityType' "DOCUMENT_SHAREABLE_LINK_CREATED"
-
-pattern DocumentShareableLinkPermissionChanged :: ActivityType
-pattern DocumentShareableLinkPermissionChanged = ActivityType' "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED"
-
-pattern DocumentShareableLinkRemoved :: ActivityType
-pattern DocumentShareableLinkRemoved = ActivityType' "DOCUMENT_SHAREABLE_LINK_REMOVED"
-
 pattern DocumentShared :: ActivityType
 pattern DocumentShared = ActivityType' "DOCUMENT_SHARED"
 
 pattern DocumentUnshared :: ActivityType
 pattern DocumentUnshared = ActivityType' "DOCUMENT_UNSHARED"
 
-pattern DocumentVersionDeleted :: ActivityType
-pattern DocumentVersionDeleted = ActivityType' "DOCUMENT_VERSION_DELETED"
+pattern DocumentSharePermissionChanged :: ActivityType
+pattern DocumentSharePermissionChanged = ActivityType' "DOCUMENT_SHARE_PERMISSION_CHANGED"
 
-pattern DocumentVersionDownloaded :: ActivityType
-pattern DocumentVersionDownloaded = ActivityType' "DOCUMENT_VERSION_DOWNLOADED"
+pattern DocumentShareableLinkCreated :: ActivityType
+pattern DocumentShareableLinkCreated = ActivityType' "DOCUMENT_SHAREABLE_LINK_CREATED"
 
-pattern DocumentVersionUploaded :: ActivityType
-pattern DocumentVersionUploaded = ActivityType' "DOCUMENT_VERSION_UPLOADED"
+pattern DocumentShareableLinkRemoved :: ActivityType
+pattern DocumentShareableLinkRemoved = ActivityType' "DOCUMENT_SHAREABLE_LINK_REMOVED"
 
-pattern DocumentVersionViewed :: ActivityType
-pattern DocumentVersionViewed = ActivityType' "DOCUMENT_VERSION_VIEWED"
+pattern DocumentShareableLinkPermissionChanged :: ActivityType
+pattern DocumentShareableLinkPermissionChanged = ActivityType' "DOCUMENT_SHAREABLE_LINK_PERMISSION_CHANGED"
+
+pattern DocumentMoved :: ActivityType
+pattern DocumentMoved = ActivityType' "DOCUMENT_MOVED"
+
+pattern DocumentCommentAdded :: ActivityType
+pattern DocumentCommentAdded = ActivityType' "DOCUMENT_COMMENT_ADDED"
+
+pattern DocumentCommentDeleted :: ActivityType
+pattern DocumentCommentDeleted = ActivityType' "DOCUMENT_COMMENT_DELETED"
+
+pattern DocumentAnnotationAdded :: ActivityType
+pattern DocumentAnnotationAdded = ActivityType' "DOCUMENT_ANNOTATION_ADDED"
+
+pattern DocumentAnnotationDeleted :: ActivityType
+pattern DocumentAnnotationDeleted = ActivityType' "DOCUMENT_ANNOTATION_DELETED"
 
 pattern FolderCreated :: ActivityType
 pattern FolderCreated = ActivityType' "FOLDER_CREATED"
@@ -145,29 +145,14 @@ pattern FolderCreated = ActivityType' "FOLDER_CREATED"
 pattern FolderDeleted :: ActivityType
 pattern FolderDeleted = ActivityType' "FOLDER_DELETED"
 
-pattern FolderMoved :: ActivityType
-pattern FolderMoved = ActivityType' "FOLDER_MOVED"
+pattern FolderRenamed :: ActivityType
+pattern FolderRenamed = ActivityType' "FOLDER_RENAMED"
 
 pattern FolderRecycled :: ActivityType
 pattern FolderRecycled = ActivityType' "FOLDER_RECYCLED"
 
-pattern FolderRenamed :: ActivityType
-pattern FolderRenamed = ActivityType' "FOLDER_RENAMED"
-
 pattern FolderRestored :: ActivityType
 pattern FolderRestored = ActivityType' "FOLDER_RESTORED"
-
-pattern FolderSharePermissionChanged :: ActivityType
-pattern FolderSharePermissionChanged = ActivityType' "FOLDER_SHARE_PERMISSION_CHANGED"
-
-pattern FolderShareableLinkCreated :: ActivityType
-pattern FolderShareableLinkCreated = ActivityType' "FOLDER_SHAREABLE_LINK_CREATED"
-
-pattern FolderShareableLinkPermissionChanged :: ActivityType
-pattern FolderShareableLinkPermissionChanged = ActivityType' "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED"
-
-pattern FolderShareableLinkRemoved :: ActivityType
-pattern FolderShareableLinkRemoved = ActivityType' "FOLDER_SHAREABLE_LINK_REMOVED"
 
 pattern FolderShared :: ActivityType
 pattern FolderShared = ActivityType' "FOLDER_SHARED"
@@ -175,39 +160,54 @@ pattern FolderShared = ActivityType' "FOLDER_SHARED"
 pattern FolderUnshared :: ActivityType
 pattern FolderUnshared = ActivityType' "FOLDER_UNSHARED"
 
+pattern FolderSharePermissionChanged :: ActivityType
+pattern FolderSharePermissionChanged = ActivityType' "FOLDER_SHARE_PERMISSION_CHANGED"
+
+pattern FolderShareableLinkCreated :: ActivityType
+pattern FolderShareableLinkCreated = ActivityType' "FOLDER_SHAREABLE_LINK_CREATED"
+
+pattern FolderShareableLinkRemoved :: ActivityType
+pattern FolderShareableLinkRemoved = ActivityType' "FOLDER_SHAREABLE_LINK_REMOVED"
+
+pattern FolderShareableLinkPermissionChanged :: ActivityType
+pattern FolderShareableLinkPermissionChanged = ActivityType' "FOLDER_SHAREABLE_LINK_PERMISSION_CHANGED"
+
+pattern FolderMoved :: ActivityType
+pattern FolderMoved = ActivityType' "FOLDER_MOVED"
+
 {-# COMPLETE
-  DocumentAnnotationAdded,
-  DocumentAnnotationDeleted,
   DocumentCheckedIn,
   DocumentCheckedOut,
-  DocumentCommentAdded,
-  DocumentCommentDeleted,
-  DocumentMoved,
-  DocumentRecycled,
   DocumentRenamed,
+  DocumentVersionUploaded,
+  DocumentVersionDeleted,
+  DocumentVersionViewed,
+  DocumentVersionDownloaded,
+  DocumentRecycled,
   DocumentRestored,
   DocumentReverted,
-  DocumentSharePermissionChanged,
-  DocumentShareableLinkCreated,
-  DocumentShareableLinkPermissionChanged,
-  DocumentShareableLinkRemoved,
   DocumentShared,
   DocumentUnshared,
-  DocumentVersionDeleted,
-  DocumentVersionDownloaded,
-  DocumentVersionUploaded,
-  DocumentVersionViewed,
+  DocumentSharePermissionChanged,
+  DocumentShareableLinkCreated,
+  DocumentShareableLinkRemoved,
+  DocumentShareableLinkPermissionChanged,
+  DocumentMoved,
+  DocumentCommentAdded,
+  DocumentCommentDeleted,
+  DocumentAnnotationAdded,
+  DocumentAnnotationDeleted,
   FolderCreated,
   FolderDeleted,
-  FolderMoved,
-  FolderRecycled,
   FolderRenamed,
+  FolderRecycled,
   FolderRestored,
-  FolderSharePermissionChanged,
-  FolderShareableLinkCreated,
-  FolderShareableLinkPermissionChanged,
-  FolderShareableLinkRemoved,
   FolderShared,
   FolderUnshared,
+  FolderSharePermissionChanged,
+  FolderShareableLinkCreated,
+  FolderShareableLinkRemoved,
+  FolderShareableLinkPermissionChanged,
+  FolderMoved,
   ActivityType'
   #-}

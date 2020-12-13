@@ -37,33 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssessmentRunFilter' smart constructor.
 data AssessmentRunFilter = AssessmentRunFilter'
-  { states ::
-      Lude.Maybe [AssessmentRunState],
+  { -- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
+    states :: Lude.Maybe [AssessmentRunState],
+    -- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
     namePattern :: Lude.Maybe Lude.Text,
+    -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
     startTimeRange :: Lude.Maybe TimestampRange,
+    -- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
     stateChangeTimeRange :: Lude.Maybe TimestampRange,
+    -- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
     rulesPackageARNs :: Lude.Maybe [Lude.Text],
+    -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
     completionTimeRange :: Lude.Maybe TimestampRange,
+    -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
     durationRange :: Lude.Maybe DurationRange
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssessmentRunFilter' with the minimum fields required to make a request.
 --
--- * 'completionTimeRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
--- * 'durationRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
+-- * 'states' - For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
 -- * 'namePattern' - For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
--- * 'rulesPackageARNs' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
 -- * 'startTimeRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
 -- * 'stateChangeTimeRange' - For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
--- * 'states' - For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
+-- * 'rulesPackageARNs' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
+-- * 'completionTimeRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
+-- * 'durationRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
 mkAssessmentRunFilter ::
   AssessmentRunFilter
 mkAssessmentRunFilter =

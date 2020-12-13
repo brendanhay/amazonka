@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Vc3FramerateControl
   ( Vc3FramerateControl
       ( Vc3FramerateControl',
-        Vc3InitializeFromSource,
-        Vc3Specified
+        VFCgInitializeFromSource,
+        VFCgSpecified
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Vc3FramerateControl = Vc3FramerateControl' Lude.Text
       Lude.ToHeader
     )
 
-pattern Vc3InitializeFromSource :: Vc3FramerateControl
-pattern Vc3InitializeFromSource = Vc3FramerateControl' "INITIALIZE_FROM_SOURCE"
+pattern VFCgInitializeFromSource :: Vc3FramerateControl
+pattern VFCgInitializeFromSource = Vc3FramerateControl' "INITIALIZE_FROM_SOURCE"
 
-pattern Vc3Specified :: Vc3FramerateControl
-pattern Vc3Specified = Vc3FramerateControl' "SPECIFIED"
+pattern VFCgSpecified :: Vc3FramerateControl
+pattern VFCgSpecified = Vc3FramerateControl' "SPECIFIED"
 
 {-# COMPLETE
-  Vc3InitializeFromSource,
-  Vc3Specified,
+  VFCgInitializeFromSource,
+  VFCgSpecified,
   Vc3FramerateControl'
   #-}

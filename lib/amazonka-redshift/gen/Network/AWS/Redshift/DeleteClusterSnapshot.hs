@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     mkDeleteClusterSnapshot,
 
     -- ** Request lenses
-    dcsSnapshotClusterIdentifier,
     dcsSnapshotIdentifier,
+    dcsSnapshotClusterIdentifier,
 
     -- * Destructuring the response
     DeleteClusterSnapshotResponse (..),
     mkDeleteClusterSnapshotResponse,
 
     -- ** Response lenses
-    dcsrsSnapshot,
-    dcsrsResponseStatus,
+    dcsfrsSnapshot,
+    dcsfrsResponseStatus,
   )
 where
 
@@ -44,45 +45,35 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteClusterSnapshot' smart constructor.
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
-  { snapshotClusterIdentifier ::
-      Lude.Maybe Lude.Text,
-    snapshotIdentifier :: Lude.Text
+  { -- | The unique identifier of the manual snapshot to be deleted.
+    --
+    -- Constraints: Must be the name of an existing snapshot that is in the @available@ , @failed@ , or @cancelled@ state.
+    snapshotIdentifier :: Lude.Text,
+    -- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+    --
+    -- Constraints: Must be the name of valid cluster.
+    snapshotClusterIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterSnapshot' with the minimum fields required to make a request.
 --
--- * 'snapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
---
--- Constraints: Must be the name of valid cluster.
 -- * 'snapshotIdentifier' - The unique identifier of the manual snapshot to be deleted.
 --
 -- Constraints: Must be the name of an existing snapshot that is in the @available@ , @failed@ , or @cancelled@ state.
+-- * 'snapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+--
+-- Constraints: Must be the name of valid cluster.
 mkDeleteClusterSnapshot ::
   -- | 'snapshotIdentifier'
   Lude.Text ->
   DeleteClusterSnapshot
 mkDeleteClusterSnapshot pSnapshotIdentifier_ =
   DeleteClusterSnapshot'
-    { snapshotClusterIdentifier = Lude.Nothing,
-      snapshotIdentifier = pSnapshotIdentifier_
+    { snapshotIdentifier = pSnapshotIdentifier_,
+      snapshotClusterIdentifier = Lude.Nothing
     }
-
--- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
---
--- Constraints: Must be the name of valid cluster.
---
--- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsSnapshotClusterIdentifier :: Lens.Lens' DeleteClusterSnapshot (Lude.Maybe Lude.Text)
-dcsSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: DeleteClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {snapshotClusterIdentifier = a} :: DeleteClusterSnapshot)
-{-# DEPRECATED dcsSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
 
 -- | The unique identifier of the manual snapshot to be deleted.
 --
@@ -92,6 +83,15 @@ dcsSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: DeleteClu
 dcsSnapshotIdentifier :: Lens.Lens' DeleteClusterSnapshot Lude.Text
 dcsSnapshotIdentifier = Lens.lens (snapshotIdentifier :: DeleteClusterSnapshot -> Lude.Text) (\s a -> s {snapshotIdentifier = a} :: DeleteClusterSnapshot)
 {-# DEPRECATED dcsSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
+
+-- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+--
+-- Constraints: Must be the name of valid cluster.
+--
+-- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsSnapshotClusterIdentifier :: Lens.Lens' DeleteClusterSnapshot (Lude.Maybe Lude.Text)
+dcsSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: DeleteClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {snapshotClusterIdentifier = a} :: DeleteClusterSnapshot)
+{-# DEPRECATED dcsSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
 
 instance Lude.AWSRequest DeleteClusterSnapshot where
   type Rs DeleteClusterSnapshot = DeleteClusterSnapshotResponse
@@ -115,29 +115,23 @@ instance Lude.ToQuery DeleteClusterSnapshot where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteClusterSnapshot" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "SnapshotClusterIdentifier" Lude.=: snapshotClusterIdentifier,
-        "SnapshotIdentifier" Lude.=: snapshotIdentifier
+        "SnapshotIdentifier" Lude.=: snapshotIdentifier,
+        "SnapshotClusterIdentifier" Lude.=: snapshotClusterIdentifier
       ]
 
 -- | /See:/ 'mkDeleteClusterSnapshotResponse' smart constructor.
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
-  { snapshot ::
-      Lude.Maybe Snapshot,
+  { snapshot :: Lude.Maybe Snapshot,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterSnapshotResponse' with the minimum fields required to make a request.
 --
+-- * 'snapshot' -
 -- * 'responseStatus' - The response status code.
--- * 'snapshot' - Undocumented field.
 mkDeleteClusterSnapshotResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -151,13 +145,13 @@ mkDeleteClusterSnapshotResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsSnapshot :: Lens.Lens' DeleteClusterSnapshotResponse (Lude.Maybe Snapshot)
-dcsrsSnapshot = Lens.lens (snapshot :: DeleteClusterSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: DeleteClusterSnapshotResponse)
-{-# DEPRECATED dcsrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
+dcsfrsSnapshot :: Lens.Lens' DeleteClusterSnapshotResponse (Lude.Maybe Snapshot)
+dcsfrsSnapshot = Lens.lens (snapshot :: DeleteClusterSnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: DeleteClusterSnapshotResponse)
+{-# DEPRECATED dcsfrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsResponseStatus :: Lens.Lens' DeleteClusterSnapshotResponse Lude.Int
-dcsrsResponseStatus = Lens.lens (responseStatus :: DeleteClusterSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteClusterSnapshotResponse)
-{-# DEPRECATED dcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsfrsResponseStatus :: Lens.Lens' DeleteClusterSnapshotResponse Lude.Int
+dcsfrsResponseStatus = Lens.lens (responseStatus :: DeleteClusterSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteClusterSnapshotResponse)
+{-# DEPRECATED dcsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

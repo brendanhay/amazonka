@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetJobTemplate' smart constructor.
-newtype GetJobTemplate = GetJobTemplate' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetJobTemplate = GetJobTemplate'
+  { -- | The name of the job template.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobTemplate' with the minimum fields required to make a request.
@@ -92,17 +90,12 @@ instance Lude.ToQuery GetJobTemplate where
 
 -- | /See:/ 'mkGetJobTemplateResponse' smart constructor.
 data GetJobTemplateResponse = GetJobTemplateResponse'
-  { jobTemplate ::
-      Lude.Maybe JobTemplate,
+  { -- | A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+    jobTemplate :: Lude.Maybe JobTemplate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetJobTemplateResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,13 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDistributionLatestCacheReset' smart constructor.
 newtype GetDistributionLatestCacheReset = GetDistributionLatestCacheReset'
-  { distributionName ::
-      Lude.Maybe Lude.Text
+  { -- | The name of the distribution for which to return the timestamp of the last cache reset.
+    --
+    -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+    -- When omitted, the response includes the latest cache reset timestamp of all your distributions.
+    distributionName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionLatestCacheReset' with the minimum fields required to make a request.
@@ -115,29 +113,21 @@ instance Lude.ToQuery GetDistributionLatestCacheReset where
 
 -- | /See:/ 'mkGetDistributionLatestCacheResetResponse' smart constructor.
 data GetDistributionLatestCacheResetResponse = GetDistributionLatestCacheResetResponse'
-  { status ::
-      Lude.Maybe
-        Lude.Text,
-    createTime ::
-      Lude.Maybe
-        Lude.Timestamp,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the last cache reset.
+    status :: Lude.Maybe Lude.Text,
+    -- | The timestamp of the last cache reset (e.g., @1479734909.17@ ) in Unix time format.
+    createTime :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDistributionLatestCacheResetResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The status of the last cache reset.
 -- * 'createTime' - The timestamp of the last cache reset (e.g., @1479734909.17@ ) in Unix time format.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the last cache reset.
 mkGetDistributionLatestCacheResetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

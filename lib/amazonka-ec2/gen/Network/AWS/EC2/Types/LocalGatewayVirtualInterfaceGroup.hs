@@ -33,32 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalGatewayVirtualInterfaceGroup' smart constructor.
 data LocalGatewayVirtualInterfaceGroup = LocalGatewayVirtualInterfaceGroup'
-  { localGatewayId ::
-      Lude.Maybe Lude.Text,
-    ownerId ::
-      Lude.Maybe Lude.Text,
-    localGatewayVirtualInterfaceIds ::
-      Lude.Maybe [Lude.Text],
-    localGatewayVirtualInterfaceGroupId ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe [Tag]
+  { -- | The ID of the local gateway.
+    localGatewayId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID that owns the local gateway virtual interface group.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The IDs of the virtual interfaces.
+    localGatewayVirtualInterfaceIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the virtual interface group.
+    localGatewayVirtualInterfaceGroupId :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the virtual interface group.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalGatewayVirtualInterfaceGroup' with the minimum fields required to make a request.
 --
 -- * 'localGatewayId' - The ID of the local gateway.
--- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
--- * 'localGatewayVirtualInterfaceIds' - The IDs of the virtual interfaces.
 -- * 'ownerId' - The AWS account ID that owns the local gateway virtual interface group.
+-- * 'localGatewayVirtualInterfaceIds' - The IDs of the virtual interfaces.
+-- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
 -- * 'tags' - The tags assigned to the virtual interface group.
 mkLocalGatewayVirtualInterfaceGroup ::
   LocalGatewayVirtualInterfaceGroup

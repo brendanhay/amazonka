@@ -13,8 +13,8 @@
 module Network.AWS.Glacier.Types.StorageClass
   ( StorageClass
       ( StorageClass',
-        ReducedRedundancy,
         Standard,
+        ReducedRedundancy,
         StandardIA
       ),
   )
@@ -46,18 +46,18 @@ newtype StorageClass = StorageClass' Lude.Text
       Lude.ToHeader
     )
 
-pattern ReducedRedundancy :: StorageClass
-pattern ReducedRedundancy = StorageClass' "REDUCED_REDUNDANCY"
-
 pattern Standard :: StorageClass
 pattern Standard = StorageClass' "STANDARD"
+
+pattern ReducedRedundancy :: StorageClass
+pattern ReducedRedundancy = StorageClass' "REDUCED_REDUNDANCY"
 
 pattern StandardIA :: StorageClass
 pattern StandardIA = StorageClass' "STANDARD_IA"
 
 {-# COMPLETE
-  ReducedRedundancy,
   Standard,
+  ReducedRedundancy,
   StandardIA,
   StorageClass'
   #-}

@@ -37,32 +37,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkECSTarget' smart constructor.
 data ECSTarget = ECSTarget'
-  { targetARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the target.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | The unique ID of a deployment target that has a type of @ecsTarget@ .
     targetId :: Lude.Maybe Lude.Text,
+    -- | The status an Amazon ECS deployment's target ECS application.
     status :: Lude.Maybe TargetStatus,
+    -- | The unique ID of a deployment.
     deploymentId :: Lude.Maybe Lude.Text,
+    -- | The date and time when the target Amazon ECS application was updated by a deployment.
     lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    -- | The @ECSTaskSet@ objects associated with the ECS target.
     taskSetsInfo :: Lude.Maybe [ECSTaskSet],
+    -- | The lifecycle events of the deployment to this target Amazon ECS application.
     lifecycleEvents :: Lude.Maybe [LifecycleEvent]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ECSTarget' with the minimum fields required to make a request.
 --
--- * 'deploymentId' - The unique ID of a deployment.
--- * 'lastUpdatedAt' - The date and time when the target Amazon ECS application was updated by a deployment.
--- * 'lifecycleEvents' - The lifecycle events of the deployment to this target Amazon ECS application.
--- * 'status' - The status an Amazon ECS deployment's target ECS application.
 -- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
 -- * 'targetId' - The unique ID of a deployment target that has a type of @ecsTarget@ .
+-- * 'status' - The status an Amazon ECS deployment's target ECS application.
+-- * 'deploymentId' - The unique ID of a deployment.
+-- * 'lastUpdatedAt' - The date and time when the target Amazon ECS application was updated by a deployment.
 -- * 'taskSetsInfo' - The @ECSTaskSet@ objects associated with the ECS target.
+-- * 'lifecycleEvents' - The lifecycle events of the deployment to this target Amazon ECS application.
 mkECSTarget ::
   ECSTarget
 mkECSTarget =

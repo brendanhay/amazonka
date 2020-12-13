@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDB.Types.TimeToLiveStatus
   ( TimeToLiveStatus
       ( TimeToLiveStatus',
-        Disabled,
+        Enabling,
         Disabling,
         Enabled,
-        Enabling
+        Disabled
       ),
   )
 where
@@ -47,8 +47,8 @@ newtype TimeToLiveStatus = TimeToLiveStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: TimeToLiveStatus
-pattern Disabled = TimeToLiveStatus' "DISABLED"
+pattern Enabling :: TimeToLiveStatus
+pattern Enabling = TimeToLiveStatus' "ENABLING"
 
 pattern Disabling :: TimeToLiveStatus
 pattern Disabling = TimeToLiveStatus' "DISABLING"
@@ -56,13 +56,13 @@ pattern Disabling = TimeToLiveStatus' "DISABLING"
 pattern Enabled :: TimeToLiveStatus
 pattern Enabled = TimeToLiveStatus' "ENABLED"
 
-pattern Enabling :: TimeToLiveStatus
-pattern Enabling = TimeToLiveStatus' "ENABLING"
+pattern Disabled :: TimeToLiveStatus
+pattern Disabled = TimeToLiveStatus' "DISABLED"
 
 {-# COMPLETE
-  Disabled,
+  Enabling,
   Disabling,
   Enabled,
-  Enabling,
+  Disabled,
   TimeToLiveStatus'
   #-}

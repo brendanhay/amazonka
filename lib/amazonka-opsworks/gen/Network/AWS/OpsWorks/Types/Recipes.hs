@@ -34,28 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecipes' smart constructor.
 data Recipes = Recipes'
-  { setup :: Lude.Maybe [Lude.Text],
+  { -- | An array of custom recipe names to be run following a @setup@ event.
+    setup :: Lude.Maybe [Lude.Text],
+    -- | An array of custom recipe names to be run following a @shutdown@ event.
     shutdown :: Lude.Maybe [Lude.Text],
+    -- | An array of custom recipe names to be run following a @undeploy@ event.
     undeploy :: Lude.Maybe [Lude.Text],
+    -- | An array of custom recipe names to be run following a @configure@ event.
     configure :: Lude.Maybe [Lude.Text],
+    -- | An array of custom recipe names to be run following a @deploy@ event.
     deploy :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Recipes' with the minimum fields required to make a request.
 --
--- * 'configure' - An array of custom recipe names to be run following a @configure@ event.
--- * 'deploy' - An array of custom recipe names to be run following a @deploy@ event.
 -- * 'setup' - An array of custom recipe names to be run following a @setup@ event.
 -- * 'shutdown' - An array of custom recipe names to be run following a @shutdown@ event.
 -- * 'undeploy' - An array of custom recipe names to be run following a @undeploy@ event.
+-- * 'configure' - An array of custom recipe names to be run following a @configure@ event.
+-- * 'deploy' - An array of custom recipe names to be run following a @deploy@ event.
 mkRecipes ::
   Recipes
 mkRecipes =

@@ -13,13 +13,13 @@
 module Network.AWS.CognitoIdentityProvider.Types.UserStatusType
   ( UserStatusType
       ( UserStatusType',
+        Unconfirmed,
+        Confirmed,
         Archived,
         Compromised,
-        Confirmed,
-        ForceChangePassword,
+        Unknown,
         ResetRequired,
-        Unconfirmed,
-        Unknown
+        ForceChangePassword
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype UserStatusType = UserStatusType' Lude.Text
       Lude.ToHeader
     )
 
+pattern Unconfirmed :: UserStatusType
+pattern Unconfirmed = UserStatusType' "UNCONFIRMED"
+
+pattern Confirmed :: UserStatusType
+pattern Confirmed = UserStatusType' "CONFIRMED"
+
 pattern Archived :: UserStatusType
 pattern Archived = UserStatusType' "ARCHIVED"
 
 pattern Compromised :: UserStatusType
 pattern Compromised = UserStatusType' "COMPROMISED"
 
-pattern Confirmed :: UserStatusType
-pattern Confirmed = UserStatusType' "CONFIRMED"
-
-pattern ForceChangePassword :: UserStatusType
-pattern ForceChangePassword = UserStatusType' "FORCE_CHANGE_PASSWORD"
+pattern Unknown :: UserStatusType
+pattern Unknown = UserStatusType' "UNKNOWN"
 
 pattern ResetRequired :: UserStatusType
 pattern ResetRequired = UserStatusType' "RESET_REQUIRED"
 
-pattern Unconfirmed :: UserStatusType
-pattern Unconfirmed = UserStatusType' "UNCONFIRMED"
-
-pattern Unknown :: UserStatusType
-pattern Unknown = UserStatusType' "UNKNOWN"
+pattern ForceChangePassword :: UserStatusType
+pattern ForceChangePassword = UserStatusType' "FORCE_CHANGE_PASSWORD"
 
 {-# COMPLETE
+  Unconfirmed,
+  Confirmed,
   Archived,
   Compromised,
-  Confirmed,
-  ForceChangePassword,
-  ResetRequired,
-  Unconfirmed,
   Unknown,
+  ResetRequired,
+  ForceChangePassword,
   UserStatusType'
   #-}

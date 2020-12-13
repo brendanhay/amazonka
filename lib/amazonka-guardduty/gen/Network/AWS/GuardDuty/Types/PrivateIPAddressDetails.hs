@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrivateIPAddressDetails' smart constructor.
 data PrivateIPAddressDetails = PrivateIPAddressDetails'
-  { privateIPAddress ::
-      Lude.Maybe Lude.Text,
+  { -- | The private IP address of the EC2 instance.
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The private DNS name of the EC2 instance.
     privateDNSName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrivateIPAddressDetails' with the minimum fields required to make a request.
 --
--- * 'privateDNSName' - The private DNS name of the EC2 instance.
 -- * 'privateIPAddress' - The private IP address of the EC2 instance.
+-- * 'privateDNSName' - The private DNS name of the EC2 instance.
 mkPrivateIPAddressDetails ::
   PrivateIPAddressDetails
 mkPrivateIPAddressDetails =

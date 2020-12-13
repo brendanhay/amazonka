@@ -30,24 +30,18 @@ import Network.AWS.Support.Types.Communication
 --
 -- /See:/ 'mkRecentCaseCommunications' smart constructor.
 data RecentCaseCommunications = RecentCaseCommunications'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    communications ::
-      Lude.Maybe [Communication]
+  { -- | A resumption point for pagination.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The five most recent communications associated with the case.
+    communications :: Lude.Maybe [Communication]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecentCaseCommunications' with the minimum fields required to make a request.
 --
--- * 'communications' - The five most recent communications associated with the case.
 -- * 'nextToken' - A resumption point for pagination.
+-- * 'communications' - The five most recent communications associated with the case.
 mkRecentCaseCommunications ::
   RecentCaseCommunications
 mkRecentCaseCommunications =

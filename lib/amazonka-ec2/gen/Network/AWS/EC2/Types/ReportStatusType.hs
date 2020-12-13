@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.ReportStatusType
   ( ReportStatusType
       ( ReportStatusType',
-        RSTImpaired,
-        RSTOK
+        RSTOK,
+        RSTImpaired
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReportStatusType = ReportStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSTImpaired :: ReportStatusType
-pattern RSTImpaired = ReportStatusType' "impaired"
-
 pattern RSTOK :: ReportStatusType
 pattern RSTOK = ReportStatusType' "ok"
 
+pattern RSTImpaired :: ReportStatusType
+pattern RSTImpaired = ReportStatusType' "impaired"
+
 {-# COMPLETE
-  RSTImpaired,
   RSTOK,
+  RSTImpaired,
   ReportStatusType'
   #-}

@@ -32,25 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticIP' smart constructor.
 data ElasticIP = ElasticIP'
-  { instanceId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the instance that the address is attached to.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The domain.
     domain :: Lude.Maybe Lude.Text,
+    -- | The IP address.
     ip :: Lude.Maybe Lude.Text,
+    -- | The name.
     name :: Lude.Maybe Lude.Text,
+    -- | The AWS region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticIP' with the minimum fields required to make a request.
 --
--- * 'domain' - The domain.
 -- * 'instanceId' - The ID of the instance that the address is attached to.
+-- * 'domain' - The domain.
 -- * 'ip' - The IP address.
 -- * 'name' - The name.
 -- * 'region' - The AWS region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .

@@ -31,22 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDomain' smart constructor.
 data Domain = Domain'
-  { hostedZoneId :: Lude.Maybe Lude.Text,
+  { -- | The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
+    hostedZoneId :: Lude.Maybe Lude.Text,
+    -- | The fully qualified domain name.
     domainName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Domain' with the minimum fields required to make a request.
 --
--- * 'domainName' - The fully qualified domain name.
 -- * 'hostedZoneId' - The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
+-- * 'domainName' - The fully qualified domain name.
 mkDomain ::
   Domain
 mkDomain =

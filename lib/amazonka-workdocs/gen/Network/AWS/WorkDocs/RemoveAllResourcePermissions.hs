@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkDocs.RemoveAllResourcePermissions
     mkRemoveAllResourcePermissions,
 
     -- ** Request lenses
-    rarpAuthenticationToken,
     rarpResourceId,
+    rarpAuthenticationToken,
 
     -- * Destructuring the response
     RemoveAllResourcePermissionsResponse (..),
@@ -36,34 +37,27 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkRemoveAllResourcePermissions' smart constructor.
 data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
-  { authenticationToken ::
-      Lude.Maybe
-        (Lude.Sensitive Lude.Text),
-    resourceId :: Lude.Text
+  { -- | The ID of the resource.
+    resourceId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text)
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAllResourcePermissions' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'resourceId' - The ID of the resource.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 mkRemoveAllResourcePermissions ::
   -- | 'resourceId'
   Lude.Text ->
   RemoveAllResourcePermissions
 mkRemoveAllResourcePermissions pResourceId_ =
   RemoveAllResourcePermissions'
-    { authenticationToken = Lude.Nothing,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      authenticationToken = Lude.Nothing
     }
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rarpAuthenticationToken :: Lens.Lens' RemoveAllResourcePermissions (Lude.Maybe (Lude.Sensitive Lude.Text))
-rarpAuthenticationToken = Lens.lens (authenticationToken :: RemoveAllResourcePermissions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: RemoveAllResourcePermissions)
-{-# DEPRECATED rarpAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the resource.
 --
@@ -71,6 +65,13 @@ rarpAuthenticationToken = Lens.lens (authenticationToken :: RemoveAllResourcePer
 rarpResourceId :: Lens.Lens' RemoveAllResourcePermissions Lude.Text
 rarpResourceId = Lens.lens (resourceId :: RemoveAllResourcePermissions -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveAllResourcePermissions)
 {-# DEPRECATED rarpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rarpAuthenticationToken :: Lens.Lens' RemoveAllResourcePermissions (Lude.Maybe (Lude.Sensitive Lude.Text))
+rarpAuthenticationToken = Lens.lens (authenticationToken :: RemoveAllResourcePermissions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: RemoveAllResourcePermissions)
+{-# DEPRECATED rarpAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 instance Lude.AWSRequest RemoveAllResourcePermissions where
   type
@@ -97,13 +98,7 @@ instance Lude.ToQuery RemoveAllResourcePermissions where
 
 -- | /See:/ 'mkRemoveAllResourcePermissionsResponse' smart constructor.
 data RemoveAllResourcePermissionsResponse = RemoveAllResourcePermissionsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveAllResourcePermissionsResponse' with the minimum fields required to make a request.

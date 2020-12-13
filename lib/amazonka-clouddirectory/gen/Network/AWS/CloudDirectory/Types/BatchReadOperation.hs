@@ -55,59 +55,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchReadOperation' smart constructor.
 data BatchReadOperation = BatchReadOperation'
-  { listIndex ::
-      Lude.Maybe BatchListIndex,
-    getObjectInformation ::
-      Lude.Maybe BatchGetObjectInformation,
-    listAttachedIndices ::
-      Lude.Maybe BatchListAttachedIndices,
+  { -- | Lists objects attached to the specified index.
+    listIndex :: Lude.Maybe BatchListIndex,
+    -- | Retrieves metadata about an object.
+    getObjectInformation :: Lude.Maybe BatchGetObjectInformation,
+    -- | Lists indices attached to an object.
+    listAttachedIndices :: Lude.Maybe BatchListAttachedIndices,
+    -- | Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
     lookupPolicy :: Lude.Maybe BatchLookupPolicy,
-    listObjectParentPaths ::
-      Lude.Maybe BatchListObjectParentPaths,
-    listObjectAttributes ::
-      Lude.Maybe BatchListObjectAttributes,
-    listIncomingTypedLinks ::
-      Lude.Maybe BatchListIncomingTypedLinks,
-    getLinkAttributes ::
-      Lude.Maybe BatchGetLinkAttributes,
-    getObjectAttributes ::
-      Lude.Maybe BatchGetObjectAttributes,
-    listObjectChildren ::
-      Lude.Maybe BatchListObjectChildren,
-    listObjectParents ::
-      Lude.Maybe BatchListObjectParents,
-    listPolicyAttachments ::
-      Lude.Maybe BatchListPolicyAttachments,
-    listOutgoingTypedLinks ::
-      Lude.Maybe BatchListOutgoingTypedLinks,
-    listObjectPolicies ::
-      Lude.Maybe BatchListObjectPolicies
+    -- | Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
+    listObjectParentPaths :: Lude.Maybe BatchListObjectParentPaths,
+    -- | Lists all attributes that are associated with an object.
+    listObjectAttributes :: Lude.Maybe BatchListObjectAttributes,
+    -- | Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+    listIncomingTypedLinks :: Lude.Maybe BatchListIncomingTypedLinks,
+    -- | Retrieves attributes that are associated with a typed link.
+    getLinkAttributes :: Lude.Maybe BatchGetLinkAttributes,
+    -- | Retrieves attributes within a facet that are associated with an object.
+    getObjectAttributes :: Lude.Maybe BatchGetObjectAttributes,
+    -- | Returns a paginated list of child objects that are associated with a given object.
+    listObjectChildren :: Lude.Maybe BatchListObjectChildren,
+    listObjectParents :: Lude.Maybe BatchListObjectParents,
+    -- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
+    listPolicyAttachments :: Lude.Maybe BatchListPolicyAttachments,
+    -- | Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+    listOutgoingTypedLinks :: Lude.Maybe BatchListOutgoingTypedLinks,
+    -- | Returns policies attached to an object in pagination fashion.
+    listObjectPolicies :: Lude.Maybe BatchListObjectPolicies
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchReadOperation' with the minimum fields required to make a request.
 --
--- * 'getLinkAttributes' - Retrieves attributes that are associated with a typed link.
--- * 'getObjectAttributes' - Retrieves attributes within a facet that are associated with an object.
+-- * 'listIndex' - Lists objects attached to the specified index.
 -- * 'getObjectInformation' - Retrieves metadata about an object.
 -- * 'listAttachedIndices' - Lists indices attached to an object.
--- * 'listIncomingTypedLinks' - Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
--- * 'listIndex' - Lists objects attached to the specified index.
--- * 'listObjectAttributes' - Lists all attributes that are associated with an object.
--- * 'listObjectChildren' - Returns a paginated list of child objects that are associated with a given object.
--- * 'listObjectParentPaths' - Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
--- * 'listObjectParents' - Undocumented field.
--- * 'listObjectPolicies' - Returns policies attached to an object in pagination fashion.
--- * 'listOutgoingTypedLinks' - Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
--- * 'listPolicyAttachments' - Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
 -- * 'lookupPolicy' - Lists all policies from the root of the 'Directory' to the object specified. If there are no policies present, an empty list is returned. If policies are present, and if some objects don't have the policies attached, it returns the @ObjectIdentifier@ for such objects. If policies are present, it returns @ObjectIdentifier@ , @policyId@ , and @policyType@ . Paths that don't lead to the root from the target object are ignored. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
+-- * 'listObjectParentPaths' - Retrieves all available parent paths for any object type such as node, leaf node, policy node, and index node objects. For more information about objects, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure> .
+-- * 'listObjectAttributes' - Lists all attributes that are associated with an object.
+-- * 'listIncomingTypedLinks' - Returns a paginated list of all the incoming 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'getLinkAttributes' - Retrieves attributes that are associated with a typed link.
+-- * 'getObjectAttributes' - Retrieves attributes within a facet that are associated with an object.
+-- * 'listObjectChildren' - Returns a paginated list of child objects that are associated with a given object.
+-- * 'listObjectParents' -
+-- * 'listPolicyAttachments' - Returns all of the @ObjectIdentifiers@ to which a given policy is attached.
+-- * 'listOutgoingTypedLinks' - Returns a paginated list of all the outgoing 'TypedLinkSpecifier' information for an object. It also supports filtering by typed link facet and identity attributes. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+-- * 'listObjectPolicies' - Returns policies attached to an object in pagination fashion.
 mkBatchReadOperation ::
   BatchReadOperation
 mkBatchReadOperation =

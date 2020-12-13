@@ -31,26 +31,21 @@ import Network.AWS.WorkSpaces.Types.WorkspaceRequest
 --
 -- /See:/ 'mkFailedCreateWorkspaceRequest' smart constructor.
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
-  { workspaceRequest ::
-      Lude.Maybe WorkspaceRequest,
+  { -- | Information about the WorkSpace.
+    workspaceRequest :: Lude.Maybe WorkspaceRequest,
+    -- | The error code that is returned if the WorkSpace cannot be created.
     errorCode :: Lude.Maybe Lude.Text,
-    errorMessage ::
-      Lude.Maybe Lude.Text
+    -- | The text of the error message that is returned if the WorkSpace cannot be created.
+    errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedCreateWorkspaceRequest' with the minimum fields required to make a request.
 --
+-- * 'workspaceRequest' - Information about the WorkSpace.
 -- * 'errorCode' - The error code that is returned if the WorkSpace cannot be created.
 -- * 'errorMessage' - The text of the error message that is returned if the WorkSpace cannot be created.
--- * 'workspaceRequest' - Information about the WorkSpace.
 mkFailedCreateWorkspaceRequest ::
   FailedCreateWorkspaceRequest
 mkFailedCreateWorkspaceRequest =

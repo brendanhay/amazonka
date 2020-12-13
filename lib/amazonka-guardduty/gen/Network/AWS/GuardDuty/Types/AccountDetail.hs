@@ -17,8 +17,8 @@ module Network.AWS.GuardDuty.Types.AccountDetail
     mkAccountDetail,
 
     -- * Lenses
-    adAccountId,
     adEmail,
+    adAccountId,
   )
 where
 
@@ -29,37 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountDetail' smart constructor.
 data AccountDetail = AccountDetail'
-  { accountId :: Lude.Text,
-    email :: Lude.Text
+  { -- | The email address of the member account.
+    email :: Lude.Text,
+    -- | The member account ID.
+    accountId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountDetail' with the minimum fields required to make a request.
 --
--- * 'accountId' - The member account ID.
 -- * 'email' - The email address of the member account.
+-- * 'accountId' - The member account ID.
 mkAccountDetail ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'email'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   AccountDetail
-mkAccountDetail pAccountId_ pEmail_ =
-  AccountDetail' {accountId = pAccountId_, email = pEmail_}
-
--- | The member account ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adAccountId :: Lens.Lens' AccountDetail Lude.Text
-adAccountId = Lens.lens (accountId :: AccountDetail -> Lude.Text) (\s a -> s {accountId = a} :: AccountDetail)
-{-# DEPRECATED adAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+mkAccountDetail pEmail_ pAccountId_ =
+  AccountDetail' {email = pEmail_, accountId = pAccountId_}
 
 -- | The email address of the member account.
 --
@@ -68,11 +57,18 @@ adEmail :: Lens.Lens' AccountDetail Lude.Text
 adEmail = Lens.lens (email :: AccountDetail -> Lude.Text) (\s a -> s {email = a} :: AccountDetail)
 {-# DEPRECATED adEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
+-- | The member account ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adAccountId :: Lens.Lens' AccountDetail Lude.Text
+adAccountId = Lens.lens (accountId :: AccountDetail -> Lude.Text) (\s a -> s {accountId = a} :: AccountDetail)
+{-# DEPRECATED adAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
 instance Lude.ToJSON AccountDetail where
   toJSON AccountDetail' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("accountId" Lude..= accountId),
-            Lude.Just ("email" Lude..= email)
+          [ Lude.Just ("email" Lude..= email),
+            Lude.Just ("accountId" Lude..= accountId)
           ]
       )

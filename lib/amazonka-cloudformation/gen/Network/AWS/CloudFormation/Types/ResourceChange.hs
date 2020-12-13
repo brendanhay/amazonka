@@ -41,39 +41,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceChange' smart constructor.
 data ResourceChange = ResourceChange'
-  { logicalResourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The resource's logical ID, which is defined in the stack's template.
+    logicalResourceId :: Lude.Maybe Lude.Text,
+    -- | The resource's physical ID (resource name). Resources that you are adding don't have physical IDs because they haven't been created.
     physicalResourceId :: Lude.Maybe Lude.Text,
+    -- | The type of AWS CloudFormation resource, such as @AWS::S3::Bucket@ .
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The action that AWS CloudFormation takes on the resource, such as @Add@ (adds a new resource), @Modify@ (changes a resource), @Remove@ (deletes a resource), @Import@ (imports a resource), or @Dynamic@ (exact action for the resource cannot be determined).
     action :: Lude.Maybe ChangeAction,
+    -- | The change set ID of the nested change set.
     changeSetId :: Lude.Maybe Lude.Text,
+    -- | Contains information about the module from which the resource was created, if the resource was created from a module included in the stack template.
     moduleInfo :: Lude.Maybe ModuleInfo,
+    -- | For the @Modify@ action, indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
     scope :: Lude.Maybe [ResourceAttribute],
+    -- | For the @Modify@ action, a list of @ResourceChangeDetail@ structures that describes the changes that AWS CloudFormation will make to the resource.
     details :: Lude.Maybe [ResourceChangeDetail],
+    -- | For the @Modify@ action, indicates whether AWS CloudFormation will replace the resource by creating a new one and deleting the old one. This value depends on the value of the @RequiresRecreation@ property in the @ResourceTargetDefinition@ structure. For example, if the @RequiresRecreation@ field is @Always@ and the @Evaluation@ field is @Static@ , @Replacement@ is @True@ . If the @RequiresRecreation@ field is @Always@ and the @Evaluation@ field is @Dynamic@ , @Replacement@ is @Conditionally@ .
+    --
+    -- If you have multiple changes with different @RequiresRecreation@ values, the @Replacement@ value depends on the change with the most impact. A @RequiresRecreation@ value of @Always@ has the most impact, followed by @Conditionally@ , and then @Never@ .
     replacement :: Lude.Maybe Replacement
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceChange' with the minimum fields required to make a request.
 --
+-- * 'logicalResourceId' - The resource's logical ID, which is defined in the stack's template.
+-- * 'physicalResourceId' - The resource's physical ID (resource name). Resources that you are adding don't have physical IDs because they haven't been created.
+-- * 'resourceType' - The type of AWS CloudFormation resource, such as @AWS::S3::Bucket@ .
 -- * 'action' - The action that AWS CloudFormation takes on the resource, such as @Add@ (adds a new resource), @Modify@ (changes a resource), @Remove@ (deletes a resource), @Import@ (imports a resource), or @Dynamic@ (exact action for the resource cannot be determined).
 -- * 'changeSetId' - The change set ID of the nested change set.
--- * 'details' - For the @Modify@ action, a list of @ResourceChangeDetail@ structures that describes the changes that AWS CloudFormation will make to the resource.
--- * 'logicalResourceId' - The resource's logical ID, which is defined in the stack's template.
 -- * 'moduleInfo' - Contains information about the module from which the resource was created, if the resource was created from a module included in the stack template.
--- * 'physicalResourceId' - The resource's physical ID (resource name). Resources that you are adding don't have physical IDs because they haven't been created.
+-- * 'scope' - For the @Modify@ action, indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
+-- * 'details' - For the @Modify@ action, a list of @ResourceChangeDetail@ structures that describes the changes that AWS CloudFormation will make to the resource.
 -- * 'replacement' - For the @Modify@ action, indicates whether AWS CloudFormation will replace the resource by creating a new one and deleting the old one. This value depends on the value of the @RequiresRecreation@ property in the @ResourceTargetDefinition@ structure. For example, if the @RequiresRecreation@ field is @Always@ and the @Evaluation@ field is @Static@ , @Replacement@ is @True@ . If the @RequiresRecreation@ field is @Always@ and the @Evaluation@ field is @Dynamic@ , @Replacement@ is @Conditionally@ .
 --
 -- If you have multiple changes with different @RequiresRecreation@ values, the @Replacement@ value depends on the change with the most impact. A @RequiresRecreation@ value of @Always@ has the most impact, followed by @Conditionally@ , and then @Never@ .
--- * 'resourceType' - The type of AWS CloudFormation resource, such as @AWS::S3::Bucket@ .
--- * 'scope' - For the @Modify@ action, indicates which resource attribute is triggering this update, such as a change in the resource attribute's @Metadata@ , @Properties@ , or @Tags@ .
 mkResourceChange ::
   ResourceChange
 mkResourceChange =

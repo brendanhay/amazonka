@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -69,27 +70,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutLogEvents' smart constructor.
 data PutLogEvents = PutLogEvents'
-  { sequenceToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
+    sequenceToken :: Lude.Maybe Lude.Text,
+    -- | The name of the log group.
     logGroupName :: Lude.Text,
+    -- | The name of the log stream.
     logStreamName :: Lude.Text,
+    -- | The log events.
     logEvents :: Lude.NonEmpty InputLogEvent
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLogEvents' with the minimum fields required to make a request.
 --
--- * 'logEvents' - The log events.
+-- * 'sequenceToken' - The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
 -- * 'logGroupName' - The name of the log group.
 -- * 'logStreamName' - The name of the log stream.
--- * 'sequenceToken' - The sequence token obtained from the response of the previous @PutLogEvents@ call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html DescribeLogStreams> . If you call @PutLogEvents@ twice within a narrow time period using the same value for @sequenceToken@ , both calls might be successful or one might be rejected.
+-- * 'logEvents' - The log events.
 mkPutLogEvents ::
   -- | 'logGroupName'
   Lude.Text ->
@@ -176,24 +174,20 @@ instance Lude.ToQuery PutLogEvents where
 
 -- | /See:/ 'mkPutLogEventsResponse' smart constructor.
 data PutLogEventsResponse = PutLogEventsResponse'
-  { rejectedLogEventsInfo ::
-      Lude.Maybe RejectedLogEventsInfo,
+  { -- | The rejected events.
+    rejectedLogEventsInfo :: Lude.Maybe RejectedLogEventsInfo,
+    -- | The next sequence token.
     nextSequenceToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLogEventsResponse' with the minimum fields required to make a request.
 --
--- * 'nextSequenceToken' - The next sequence token.
 -- * 'rejectedLogEventsInfo' - The rejected events.
+-- * 'nextSequenceToken' - The next sequence token.
 -- * 'responseStatus' - The response status code.
 mkPutLogEventsResponse ::
   -- | 'responseStatus'

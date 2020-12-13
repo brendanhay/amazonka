@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.S3DataDistribution
   ( S3DataDistribution
       ( S3DataDistribution',
-        FullyReplicated,
-        ShardedByS3Key
+        SDDFullyReplicated,
+        SDDShardedByS3Key
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype S3DataDistribution = S3DataDistribution' Lude.Text
       Lude.ToHeader
     )
 
-pattern FullyReplicated :: S3DataDistribution
-pattern FullyReplicated = S3DataDistribution' "FullyReplicated"
+pattern SDDFullyReplicated :: S3DataDistribution
+pattern SDDFullyReplicated = S3DataDistribution' "FullyReplicated"
 
-pattern ShardedByS3Key :: S3DataDistribution
-pattern ShardedByS3Key = S3DataDistribution' "ShardedByS3Key"
+pattern SDDShardedByS3Key :: S3DataDistribution
+pattern SDDShardedByS3Key = S3DataDistribution' "ShardedByS3Key"
 
 {-# COMPLETE
-  FullyReplicated,
-  ShardedByS3Key,
+  SDDFullyReplicated,
+  SDDShardedByS3Key,
   S3DataDistribution'
   #-}

@@ -54,59 +54,67 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotInstanceRequest' smart constructor.
 data SpotInstanceRequest = SpotInstanceRequest'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance ID, if an instance has been launched to fulfill the Spot Instance request.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The status code and status message describing the Spot Instance request.
     status :: Lude.Maybe SpotInstanceStatus,
+    -- | The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status> in the /Amazon EC2 User Guide for Linux Instances/ .
     state :: Lude.Maybe SpotInstanceState,
+    -- | If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
     actualBlockHourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The duration for the Spot Instance, in minutes.
     blockDurationMinutes :: Lude.Maybe Lude.Int,
-    instanceInterruptionBehavior ::
-      Lude.Maybe InstanceInterruptionBehavior,
-    productDescription ::
-      Lude.Maybe RIProductDescription,
+    -- | The behavior when a Spot Instance is interrupted.
+    instanceInterruptionBehavior :: Lude.Maybe InstanceInterruptionBehavior,
+    -- | The product description associated with the Spot Instance.
+    productDescription :: Lude.Maybe RIProductDescription,
+    -- | The maximum price per hour that you are willing to pay for a Spot Instance.
     spotPrice :: Lude.Maybe Lude.Text,
-    launchSpecification ::
-      Lude.Maybe LaunchSpecification,
+    -- | Additional information for launching instances.
+    launchSpecification :: Lude.Maybe LaunchSpecification,
+    -- | The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.
     availabilityZoneGroup :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone in which the request is launched.
     launchedAvailabilityZone :: Lude.Maybe Lude.Text,
+    -- | The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    --
+    --
+    --     * For a persistent request, the request remains active until the @validUntil@ date and time is reached. Otherwise, the request remains active until you cancel it.
+    --
+    --
+    --     * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @validUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
     validUntil :: Lude.Maybe Lude.DateTime,
+    -- | The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
     launchGroup :: Lude.Maybe Lude.Text,
+    -- | The fault codes for the Spot Instance request, if any.
     fault :: Lude.Maybe SpotInstanceStateFault,
+    -- | The ID of the Spot Instance request.
     spotInstanceRequestId :: Lude.Maybe Lude.Text,
+    -- | The Spot Instance request type.
     type' :: Lude.Maybe SpotInstanceType,
+    -- | The start date of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The request becomes active at this date and time.
     validFrom :: Lude.Maybe Lude.DateTime,
+    -- | The date and time when the Spot Instance request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
     createTime :: Lude.Maybe Lude.DateTime,
+    -- | Any tags assigned to the resource.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotInstanceRequest' with the minimum fields required to make a request.
 --
--- * 'actualBlockHourlyPrice' - If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
--- * 'availabilityZoneGroup' - The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.
--- * 'blockDurationMinutes' - The duration for the Spot Instance, in minutes.
--- * 'createTime' - The date and time when the Spot Instance request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
--- * 'fault' - The fault codes for the Spot Instance request, if any.
 -- * 'instanceId' - The instance ID, if an instance has been launched to fulfill the Spot Instance request.
--- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted.
--- * 'launchGroup' - The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
--- * 'launchSpecification' - Additional information for launching instances.
--- * 'launchedAvailabilityZone' - The Availability Zone in which the request is launched.
--- * 'productDescription' - The product description associated with the Spot Instance.
--- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
--- * 'spotPrice' - The maximum price per hour that you are willing to pay for a Spot Instance.
--- * 'state' - The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status> in the /Amazon EC2 User Guide for Linux Instances/ .
 -- * 'status' - The status code and status message describing the Spot Instance request.
--- * 'tags' - Any tags assigned to the resource.
--- * 'type'' - The Spot Instance request type.
--- * 'validFrom' - The start date of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The request becomes active at this date and time.
+-- * 'state' - The state of the Spot Instance request. Spot status information helps track your Spot Instance requests. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot status> in the /Amazon EC2 User Guide for Linux Instances/ .
+-- * 'actualBlockHourlyPrice' - If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.
+-- * 'blockDurationMinutes' - The duration for the Spot Instance, in minutes.
+-- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted.
+-- * 'productDescription' - The product description associated with the Spot Instance.
+-- * 'spotPrice' - The maximum price per hour that you are willing to pay for a Spot Instance.
+-- * 'launchSpecification' - Additional information for launching instances.
+-- * 'availabilityZoneGroup' - The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.
+-- * 'launchedAvailabilityZone' - The Availability Zone in which the request is launched.
 -- * 'validUntil' - The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 --
@@ -114,6 +122,15 @@ data SpotInstanceRequest = SpotInstanceRequest'
 --
 --
 --     * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @validUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
+--
+--
+-- * 'launchGroup' - The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
+-- * 'fault' - The fault codes for the Spot Instance request, if any.
+-- * 'spotInstanceRequestId' - The ID of the Spot Instance request.
+-- * 'type'' - The Spot Instance request type.
+-- * 'validFrom' - The start date of the request, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). The request becomes active at this date and time.
+-- * 'createTime' - The date and time when the Spot Instance request was created, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- * 'tags' - Any tags assigned to the resource.
 mkSpotInstanceRequest ::
   SpotInstanceRequest
 mkSpotInstanceRequest =

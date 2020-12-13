@@ -35,48 +35,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateEBSBlockDeviceRequest' smart constructor.
 data LaunchTemplateEBSBlockDeviceRequest = LaunchTemplateEBSBlockDeviceRequest'
-  { deleteOnTermination ::
-      Lude.Maybe
-        Lude.Bool,
-    volumeSize ::
-      Lude.Maybe Lude.Int,
-    iops ::
-      Lude.Maybe Lude.Int,
-    encrypted ::
-      Lude.Maybe
-        Lude.Bool,
-    kmsKeyId ::
-      Lude.Maybe
-        Lude.Text,
-    volumeType ::
-      Lude.Maybe
-        VolumeType,
-    snapshotId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | Indicates whether the EBS volume is deleted on instance termination.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The size of the volume, in GiB.
+    --
+    -- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+    volumeSize :: Lude.Maybe Lude.Int,
+    -- | The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    --
+    -- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
+    iops :: Lude.Maybe Lude.Int,
+    -- | Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+    encrypted :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The volume type.
+    volumeType :: Lude.Maybe VolumeType,
+    -- | The ID of the snapshot.
+    snapshotId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateEBSBlockDeviceRequest' with the minimum fields required to make a request.
 --
 -- * 'deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination.
--- * 'encrypted' - Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
--- * 'iops' - The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
--- * 'kmsKeyId' - The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
--- * 'snapshotId' - The ID of the snapshot.
 -- * 'volumeSize' - The size of the volume, in GiB.
 --
 -- Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.
+-- * 'iops' - The number of I/O operations per second (IOPS) to provision for an @io1@ or @io2@ volume, with a maximum ratio of 50 IOPS/GiB for @io1@ , and 500 IOPS/GiB for @io2@ . Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Nitro-based instances> . Other instance families guarantee performance up to 32,000 IOPS. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS Volume Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- This parameter is valid only for Provisioned IOPS SSD (@io1@ and @io2@ ) volumes.
+-- * 'encrypted' - Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
+-- * 'kmsKeyId' - The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.
 -- * 'volumeType' - The volume type.
+-- * 'snapshotId' - The ID of the snapshot.
 mkLaunchTemplateEBSBlockDeviceRequest ::
   LaunchTemplateEBSBlockDeviceRequest
 mkLaunchTemplateEBSBlockDeviceRequest =

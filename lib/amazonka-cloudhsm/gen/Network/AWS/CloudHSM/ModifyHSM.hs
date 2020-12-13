@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,16 +28,16 @@ module Network.AWS.CloudHSM.ModifyHSM
     mhSubnetId,
     mhSyslogIP,
     mhExternalId,
-    mhEniIP,
     mhHSMARN,
+    mhEniIP,
 
     -- * Destructuring the response
     ModifyHSMResponse (..),
     mkModifyHSMResponse,
 
     -- ** Response lenses
-    mhsmrsHSMARN,
-    mhsmrsResponseStatus,
+    mhrsHSMARN,
+    mhrsResponseStatus,
   )
 where
 
@@ -50,32 +51,34 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkModifyHSM' smart constructor.
 data ModifyHSM = ModifyHSM'
-  { iamRoleARN :: Lude.Maybe Lude.Text,
+  { -- | The new IAM role ARN.
+    iamRoleARN :: Lude.Maybe Lude.Text,
+    -- | The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.
     subnetId :: Lude.Maybe Lude.Text,
+    -- | The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
     syslogIP :: Lude.Maybe Lude.Text,
+    -- | The new external ID.
     externalId :: Lude.Maybe Lude.Text,
-    eniIP :: Lude.Maybe Lude.Text,
-    hsmARN :: Lude.Text
+    -- | The ARN of the HSM to modify.
+    hsmARN :: Lude.Text,
+    -- | The new IP address for the elastic network interface (ENI) attached to the HSM.
+    --
+    -- If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
+    eniIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHSM' with the minimum fields required to make a request.
 --
--- * 'eniIP' - The new IP address for the elastic network interface (ENI) attached to the HSM.
---
--- If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
--- * 'externalId' - The new external ID.
--- * 'hsmARN' - The ARN of the HSM to modify.
 -- * 'iamRoleARN' - The new IAM role ARN.
 -- * 'subnetId' - The new identifier of the subnet that the HSM is in. The new subnet must be in the same Availability Zone as the current subnet.
 -- * 'syslogIP' - The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports one syslog monitoring server.
+-- * 'externalId' - The new external ID.
+-- * 'hsmARN' - The ARN of the HSM to modify.
+-- * 'eniIP' - The new IP address for the elastic network interface (ENI) attached to the HSM.
+--
+-- If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
 mkModifyHSM ::
   -- | 'hsmARN'
   Lude.Text ->
@@ -86,8 +89,8 @@ mkModifyHSM pHSMARN_ =
       subnetId = Lude.Nothing,
       syslogIP = Lude.Nothing,
       externalId = Lude.Nothing,
-      eniIP = Lude.Nothing,
-      hsmARN = pHSMARN_
+      hsmARN = pHSMARN_,
+      eniIP = Lude.Nothing
     }
 
 -- | The new IAM role ARN.
@@ -118,6 +121,13 @@ mhExternalId :: Lens.Lens' ModifyHSM (Lude.Maybe Lude.Text)
 mhExternalId = Lens.lens (externalId :: ModifyHSM -> Lude.Maybe Lude.Text) (\s a -> s {externalId = a} :: ModifyHSM)
 {-# DEPRECATED mhExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
 
+-- | The ARN of the HSM to modify.
+--
+-- /Note:/ Consider using 'hsmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhHSMARN :: Lens.Lens' ModifyHSM Lude.Text
+mhHSMARN = Lens.lens (hsmARN :: ModifyHSM -> Lude.Text) (\s a -> s {hsmARN = a} :: ModifyHSM)
+{-# DEPRECATED mhHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
+
 -- | The new IP address for the elastic network interface (ENI) attached to the HSM.
 --
 -- If the HSM is moved to a different subnet, and an IP address is not specified, an IP address will be randomly chosen from the CIDR range of the new subnet.
@@ -126,13 +136,6 @@ mhExternalId = Lens.lens (externalId :: ModifyHSM -> Lude.Maybe Lude.Text) (\s a
 mhEniIP :: Lens.Lens' ModifyHSM (Lude.Maybe Lude.Text)
 mhEniIP = Lens.lens (eniIP :: ModifyHSM -> Lude.Maybe Lude.Text) (\s a -> s {eniIP = a} :: ModifyHSM)
 {-# DEPRECATED mhEniIP "Use generic-lens or generic-optics with 'eniIP' instead." #-}
-
--- | The ARN of the HSM to modify.
---
--- /Note:/ Consider using 'hsmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhHSMARN :: Lens.Lens' ModifyHSM Lude.Text
-mhHSMARN = Lens.lens (hsmARN :: ModifyHSM -> Lude.Text) (\s a -> s {hsmARN = a} :: ModifyHSM)
-{-# DEPRECATED mhHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
 
 instance Lude.AWSRequest ModifyHSM where
   type Rs ModifyHSM = ModifyHSMResponse
@@ -163,8 +166,8 @@ instance Lude.ToJSON ModifyHSM where
             ("SubnetId" Lude..=) Lude.<$> subnetId,
             ("SyslogIp" Lude..=) Lude.<$> syslogIP,
             ("ExternalId" Lude..=) Lude.<$> externalId,
-            ("EniIp" Lude..=) Lude.<$> eniIP,
-            Lude.Just ("HsmArn" Lude..= hsmARN)
+            Lude.Just ("HsmArn" Lude..= hsmARN),
+            ("EniIp" Lude..=) Lude.<$> eniIP
           ]
       )
 
@@ -178,17 +181,12 @@ instance Lude.ToQuery ModifyHSM where
 --
 -- /See:/ 'mkModifyHSMResponse' smart constructor.
 data ModifyHSMResponse = ModifyHSMResponse'
-  { hsmARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the HSM.
+    hsmARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyHSMResponse' with the minimum fields required to make a request.
@@ -208,13 +206,13 @@ mkModifyHSMResponse pResponseStatus_ =
 -- | The ARN of the HSM.
 --
 -- /Note:/ Consider using 'hsmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhsmrsHSMARN :: Lens.Lens' ModifyHSMResponse (Lude.Maybe Lude.Text)
-mhsmrsHSMARN = Lens.lens (hsmARN :: ModifyHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmARN = a} :: ModifyHSMResponse)
-{-# DEPRECATED mhsmrsHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
+mhrsHSMARN :: Lens.Lens' ModifyHSMResponse (Lude.Maybe Lude.Text)
+mhrsHSMARN = Lens.lens (hsmARN :: ModifyHSMResponse -> Lude.Maybe Lude.Text) (\s a -> s {hsmARN = a} :: ModifyHSMResponse)
+{-# DEPRECATED mhrsHSMARN "Use generic-lens or generic-optics with 'hsmARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhsmrsResponseStatus :: Lens.Lens' ModifyHSMResponse Lude.Int
-mhsmrsResponseStatus = Lens.lens (responseStatus :: ModifyHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyHSMResponse)
-{-# DEPRECATED mhsmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mhrsResponseStatus :: Lens.Lens' ModifyHSMResponse Lude.Int
+mhrsResponseStatus = Lens.lens (responseStatus :: ModifyHSMResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyHSMResponse)
+{-# DEPRECATED mhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

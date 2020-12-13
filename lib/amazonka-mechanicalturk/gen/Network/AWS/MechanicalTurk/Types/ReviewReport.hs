@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReviewReport' smart constructor.
 data ReviewReport = ReviewReport'
-  { reviewActions ::
-      Lude.Maybe [ReviewActionDetail],
+  { -- | A list of ReviewAction objects for each action specified in the Review Policy.
+    reviewActions :: Lude.Maybe [ReviewActionDetail],
+    -- | A list of ReviewResults objects for each action specified in the Review Policy.
     reviewResults :: Lude.Maybe [ReviewResultDetail]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReviewReport' with the minimum fields required to make a request.

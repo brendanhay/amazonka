@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.IoT.CreatePolicyVersion
     mkCreatePolicyVersion,
 
     -- ** Request lenses
-    cpvSetAsDefault,
     cpvPolicyName,
     cpvPolicyDocument,
+    cpvSetAsDefault,
 
     -- * Destructuring the response
     CreatePolicyVersionResponse (..),
@@ -48,24 +49,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreatePolicyVersion' smart constructor.
 data CreatePolicyVersion = CreatePolicyVersion'
-  { setAsDefault ::
-      Lude.Maybe Lude.Bool,
+  { -- | The policy name.
     policyName :: Lude.Text,
-    policyDocument :: Lude.Text
+    -- | The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
+    policyDocument :: Lude.Text,
+    -- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
+    setAsDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyVersion' with the minimum fields required to make a request.
 --
--- * 'policyDocument' - The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
 -- * 'policyName' - The policy name.
+-- * 'policyDocument' - The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.
 -- * 'setAsDefault' - Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
 mkCreatePolicyVersion ::
   -- | 'policyName'
@@ -75,17 +72,10 @@ mkCreatePolicyVersion ::
   CreatePolicyVersion
 mkCreatePolicyVersion pPolicyName_ pPolicyDocument_ =
   CreatePolicyVersion'
-    { setAsDefault = Lude.Nothing,
-      policyName = pPolicyName_,
-      policyDocument = pPolicyDocument_
+    { policyName = pPolicyName_,
+      policyDocument = pPolicyDocument_,
+      setAsDefault = Lude.Nothing
     }
-
--- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
---
--- /Note:/ Consider using 'setAsDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvSetAsDefault :: Lens.Lens' CreatePolicyVersion (Lude.Maybe Lude.Bool)
-cpvSetAsDefault = Lens.lens (setAsDefault :: CreatePolicyVersion -> Lude.Maybe Lude.Bool) (\s a -> s {setAsDefault = a} :: CreatePolicyVersion)
-{-# DEPRECATED cpvSetAsDefault "Use generic-lens or generic-optics with 'setAsDefault' instead." #-}
 
 -- | The policy name.
 --
@@ -100,6 +90,13 @@ cpvPolicyName = Lens.lens (policyName :: CreatePolicyVersion -> Lude.Text) (\s a
 cpvPolicyDocument :: Lens.Lens' CreatePolicyVersion Lude.Text
 cpvPolicyDocument = Lens.lens (policyDocument :: CreatePolicyVersion -> Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicyVersion)
 {-# DEPRECATED cpvPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
+
+-- | Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).
+--
+-- /Note:/ Consider using 'setAsDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvSetAsDefault :: Lens.Lens' CreatePolicyVersion (Lude.Maybe Lude.Bool)
+cpvSetAsDefault = Lens.lens (setAsDefault :: CreatePolicyVersion -> Lude.Maybe Lude.Bool) (\s a -> s {setAsDefault = a} :: CreatePolicyVersion)
+{-# DEPRECATED cpvSetAsDefault "Use generic-lens or generic-optics with 'setAsDefault' instead." #-}
 
 instance Lude.AWSRequest CreatePolicyVersion where
   type Rs CreatePolicyVersion = CreatePolicyVersionResponse
@@ -137,30 +134,26 @@ instance Lude.ToQuery CreatePolicyVersion where
 --
 -- /See:/ 'mkCreatePolicyVersionResponse' smart constructor.
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-  { policyDocument ::
-      Lude.Maybe Lude.Text,
-    policyVersionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The JSON document that describes the policy.
+    policyDocument :: Lude.Maybe Lude.Text,
+    -- | The policy version ID.
+    policyVersionId :: Lude.Maybe Lude.Text,
+    -- | The policy ARN.
     policyARN :: Lude.Maybe Lude.Text,
-    isDefaultVersion ::
-      Lude.Maybe Lude.Bool,
+    -- | Specifies whether the policy version is the default.
+    isDefaultVersion :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyVersionResponse' with the minimum fields required to make a request.
 --
--- * 'isDefaultVersion' - Specifies whether the policy version is the default.
--- * 'policyARN' - The policy ARN.
 -- * 'policyDocument' - The JSON document that describes the policy.
 -- * 'policyVersionId' - The policy version ID.
+-- * 'policyARN' - The policy ARN.
+-- * 'isDefaultVersion' - Specifies whether the policy version is the default.
 -- * 'responseStatus' - The response status code.
 mkCreatePolicyVersionResponse ::
   -- | 'responseStatus'

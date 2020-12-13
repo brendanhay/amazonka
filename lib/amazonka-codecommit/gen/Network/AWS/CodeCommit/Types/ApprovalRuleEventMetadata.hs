@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApprovalRuleEventMetadata' smart constructor.
 data ApprovalRuleEventMetadata = ApprovalRuleEventMetadata'
-  { approvalRuleName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the approval rule.
+    approvalRuleName :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the approval rule.
     approvalRuleId :: Lude.Maybe Lude.Text,
-    approvalRuleContent ::
-      Lude.Maybe Lude.Text
+    -- | The content of the approval rule.
+    approvalRuleContent :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApprovalRuleEventMetadata' with the minimum fields required to make a request.
 --
--- * 'approvalRuleContent' - The content of the approval rule.
--- * 'approvalRuleId' - The system-generated ID of the approval rule.
 -- * 'approvalRuleName' - The name of the approval rule.
+-- * 'approvalRuleId' - The system-generated ID of the approval rule.
+-- * 'approvalRuleContent' - The content of the approval rule.
 mkApprovalRuleEventMetadata ::
   ApprovalRuleEventMetadata
 mkApprovalRuleEventMetadata =

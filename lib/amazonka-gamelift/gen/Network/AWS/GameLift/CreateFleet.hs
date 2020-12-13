@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -65,12 +66,14 @@ module Network.AWS.GameLift.CreateFleet
     cfServerLaunchParameters,
     cfLogPaths,
     cfPeerVPCId,
+    cfEC2InstanceType,
     cfBuildId,
     cfFleetType,
     cfPeerVPCAWSAccountId,
     cfEC2InboundPermissions,
     cfRuntimeConfiguration,
     cfNewGameSessionProtectionPolicy,
+    cfName,
     cfScriptId,
     cfCertificateConfiguration,
     cfServerLaunchPath,
@@ -79,8 +82,6 @@ module Network.AWS.GameLift.CreateFleet
     cfDescription,
     cfResourceCreationLimitPolicy,
     cfTags,
-    cfName,
-    cfEC2InstanceType,
 
     -- * Destructuring the response
     CreateFleetResponse (..),
@@ -102,40 +103,84 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateFleet' smart constructor.
 data CreateFleet = CreateFleet'
-  { serverLaunchParameters ::
-      Lude.Maybe Lude.Text,
+  { -- | This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
+    serverLaunchParameters :: Lude.Maybe Lude.Text,
+    -- | This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
     logPaths :: Lude.Maybe [Lude.Text],
+    -- | A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
     peerVPCId :: Lude.Maybe Lude.Text,
+    -- | The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+    ec2InstanceType :: EC2InstanceType,
+    -- | A unique identifier for a build to be deployed on the new fleet. You can use either the build ID or ARN value. The custom game server build must have been successfully uploaded to Amazon GameLift and be in a @READY@ status. This fleet setting cannot be changed once the fleet is created.
     buildId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is @ON_DEMAND@ . Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet. Learn more about <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot On-Demand versus Spot Instances> .
     fleetType :: Lude.Maybe FleetType,
+    -- | A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
     peerVPCAWSAccountId :: Lude.Maybe Lude.Text,
+    -- | Range of IP addresses and port settings that permit inbound traffic to access game sessions that are running on the fleet. For fleets using a custom game build, this parameter is required before game sessions running on the fleet can accept connections. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges for use by the Realtime servers. You can specify multiple permission settings or add more by updating the fleet.
     ec2InboundPermissions :: Lude.Maybe [IPPermission],
+    -- | Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ , although requests that contain values for these parameters instead of a runtime configuration will continue to work.) This parameter is required unless the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ are defined. Runtime configuration replaced these parameters, but fleets that use them will continue to work.
     runtimeConfiguration :: Lude.Maybe RuntimeConfiguration,
+    -- | A game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using 'UpdateFleetAttributes' , but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .
+    --
+    --
+    --     * __NoProtection__ - The game session can be terminated during a scale-down event.
+    --
+    --
+    --     * __FullProtection__ - If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
     newGameSessionProtectionPolicy :: Lude.Maybe ProtectionPolicy,
-    scriptId :: Lude.Maybe Lude.Text,
-    certificateConfiguration :: Lude.Maybe CertificateConfiguration,
-    serverLaunchPath :: Lude.Maybe Lude.Text,
-    instanceRoleARN :: Lude.Maybe Lude.Text,
-    metricGroups :: Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
-    resourceCreationLimitPolicy ::
-      Lude.Maybe ResourceCreationLimitPolicy,
-    tags :: Lude.Maybe [Tag],
+    -- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
     name :: Lude.Text,
-    ec2InstanceType :: EC2InstanceType
+    -- | A unique identifier for a Realtime script to be deployed on the new fleet. You can use either the script ID or ARN value. The Realtime script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
+    scriptId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not specified, the default value, DISABLED, is used. This fleet setting cannot be changed once the fleet is created. Learn more at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-howitworks.html#gamelift-howitworks-security Securing Client/Server Communication> .
+    --
+    -- Note: This feature requires the AWS Certificate Manager (ACM) service, which is available in the AWS global partition but not in all other partitions. When working in a partition that does not support this feature, a request for a new fleet with certificate generation results fails with a 4xx unsupported Region error.
+    -- Valid values include:
+    --
+    --     * __GENERATED__ - Generate a TLS/SSL certificate for this fleet.
+    --
+    --
+    --     * __DISABLED__ - (default) Do not generate a TLS/SSL certificate for this fleet.
+    certificateConfiguration :: Lude.Maybe CertificateConfiguration,
+    -- | This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
+    serverLaunchPath :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for an AWS IAM role that manages access to your AWS services. Fleets with an instance role ARN allow applications that are running on the fleet's instances to assume the role. Learn more about using on-box credentials for your game servers at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server> . To call this operation with instance role ARN, you must have IAM PassRole permissions. See <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html IAM policy examples for GameLift> .
+    instanceRoleARN :: Lude.Maybe Lude.Text,
+    -- | The name of an Amazon CloudWatch metric group to add this fleet to. A metric group aggregates the metrics for all fleets in the group. Specify an existing metric group name, or provide a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+    metricGroups :: Lude.Maybe [Lude.Text],
+    -- | A human-readable description of a fleet.
+    description :: Lude.Maybe Lude.Text,
+    -- | A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+    resourceCreationLimitPolicy :: Lude.Maybe ResourceCreationLimitPolicy,
+    -- | A list of labels to assign to the new fleet resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFleet' with the minimum fields required to make a request.
 --
+-- * 'serverLaunchParameters' - This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
+-- * 'logPaths' - This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
+-- * 'peerVPCId' - A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
+-- * 'ec2InstanceType' - The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
 -- * 'buildId' - A unique identifier for a build to be deployed on the new fleet. You can use either the build ID or ARN value. The custom game server build must have been successfully uploaded to Amazon GameLift and be in a @READY@ status. This fleet setting cannot be changed once the fleet is created.
+-- * 'fleetType' - Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is @ON_DEMAND@ . Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet. Learn more about <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot On-Demand versus Spot Instances> .
+-- * 'peerVPCAWSAccountId' - A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
+-- * 'ec2InboundPermissions' - Range of IP addresses and port settings that permit inbound traffic to access game sessions that are running on the fleet. For fleets using a custom game build, this parameter is required before game sessions running on the fleet can accept connections. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges for use by the Realtime servers. You can specify multiple permission settings or add more by updating the fleet.
+-- * 'runtimeConfiguration' - Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ , although requests that contain values for these parameters instead of a runtime configuration will continue to work.) This parameter is required unless the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ are defined. Runtime configuration replaced these parameters, but fleets that use them will continue to work.
+-- * 'newGameSessionProtectionPolicy' - A game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using 'UpdateFleetAttributes' , but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .
+--
+--
+--     * __NoProtection__ - The game session can be terminated during a scale-down event.
+--
+--
+--     * __FullProtection__ - If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+--
+--
+-- * 'name' - A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+-- * 'scriptId' - A unique identifier for a Realtime script to be deployed on the new fleet. You can use either the script ID or ARN value. The Realtime script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
 -- * 'certificateConfiguration' - Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not specified, the default value, DISABLED, is used. This fleet setting cannot be changed once the fleet is created. Learn more at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-howitworks.html#gamelift-howitworks-security Securing Client/Server Communication> .
 --
 -- Note: This feature requires the AWS Certificate Manager (ACM) service, which is available in the AWS global partition but not in all other partitions. When working in a partition that does not support this feature, a request for a new fleet with certificate generation results fails with a 4xx unsupported Region error.
@@ -147,48 +192,31 @@ data CreateFleet = CreateFleet'
 --     * __DISABLED__ - (default) Do not generate a TLS/SSL certificate for this fleet.
 --
 --
--- * 'description' - A human-readable description of a fleet.
--- * 'ec2InboundPermissions' - Range of IP addresses and port settings that permit inbound traffic to access game sessions that are running on the fleet. For fleets using a custom game build, this parameter is required before game sessions running on the fleet can accept connections. For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges for use by the Realtime servers. You can specify multiple permission settings or add more by updating the fleet.
--- * 'ec2InstanceType' - The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
--- * 'fleetType' - Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is @ON_DEMAND@ . Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet. Learn more about <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot On-Demand versus Spot Instances> .
--- * 'instanceRoleARN' - A unique identifier for an AWS IAM role that manages access to your AWS services. Fleets with an instance role ARN allow applications that are running on the fleet's instances to assume the role. Learn more about using on-box credentials for your game servers at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server> . To call this operation with instance role ARN, you must have IAM PassRole permissions. See <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html IAM policy examples for GameLift> .
--- * 'logPaths' - This parameter is no longer used. Instead, to specify where Amazon GameLift should store log files once a server process shuts down, use the Amazon GameLift server API @ProcessReady()@ and specify one or more directory paths in @logParameters@ . See more information in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process Server API Reference> .
--- * 'metricGroups' - The name of an Amazon CloudWatch metric group to add this fleet to. A metric group aggregates the metrics for all fleets in the group. Specify an existing metric group name, or provide a new name to create a new metric group. A fleet can only be included in one metric group at a time.
--- * 'name' - A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
--- * 'newGameSessionProtectionPolicy' - A game session protection policy to apply to all instances in this fleet. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy using 'UpdateFleetAttributes' , but this change will only affect sessions created after the policy change. You can also set protection for individual instances using 'UpdateGameSession' .
---
---
---     * __NoProtection__ - The game session can be terminated during a scale-down event.
---
---
---     * __FullProtection__ - If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
---
---
--- * 'peerVPCAWSAccountId' - A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
--- * 'peerVPCId' - A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS Management Console. Learn more about VPC peering in <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with Amazon GameLift Fleets> .
--- * 'resourceCreationLimitPolicy' - A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
--- * 'runtimeConfiguration' - Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception. (This parameter replaces the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ , although requests that contain values for these parameters instead of a runtime configuration will continue to work.) This parameter is required unless the parameters @ServerLaunchPath@ and @ServerLaunchParameters@ are defined. Runtime configuration replaced these parameters, but fleets that use them will continue to work.
--- * 'scriptId' - A unique identifier for a Realtime script to be deployed on the new fleet. You can use either the script ID or ARN value. The Realtime script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
--- * 'serverLaunchParameters' - This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
 -- * 'serverLaunchPath' - This parameter is no longer used. Instead, specify a server launch path using the @RuntimeConfiguration@ parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
+-- * 'instanceRoleARN' - A unique identifier for an AWS IAM role that manages access to your AWS services. Fleets with an instance role ARN allow applications that are running on the fleet's instances to assume the role. Learn more about using on-box credentials for your game servers at <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html Access external resources from a game server> . To call this operation with instance role ARN, you must have IAM PassRole permissions. See <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-iam-policy-examples.html IAM policy examples for GameLift> .
+-- * 'metricGroups' - The name of an Amazon CloudWatch metric group to add this fleet to. A metric group aggregates the metrics for all fleets in the group. Specify an existing metric group name, or provide a new name to create a new metric group. A fleet can only be included in one metric group at a time.
+-- * 'description' - A human-readable description of a fleet.
+-- * 'resourceCreationLimitPolicy' - A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 -- * 'tags' - A list of labels to assign to the new fleet resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 mkCreateFleet ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'ec2InstanceType'
   EC2InstanceType ->
+  -- | 'name'
+  Lude.Text ->
   CreateFleet
-mkCreateFleet pName_ pEC2InstanceType_ =
+mkCreateFleet pEC2InstanceType_ pName_ =
   CreateFleet'
     { serverLaunchParameters = Lude.Nothing,
       logPaths = Lude.Nothing,
       peerVPCId = Lude.Nothing,
+      ec2InstanceType = pEC2InstanceType_,
       buildId = Lude.Nothing,
       fleetType = Lude.Nothing,
       peerVPCAWSAccountId = Lude.Nothing,
       ec2InboundPermissions = Lude.Nothing,
       runtimeConfiguration = Lude.Nothing,
       newGameSessionProtectionPolicy = Lude.Nothing,
+      name = pName_,
       scriptId = Lude.Nothing,
       certificateConfiguration = Lude.Nothing,
       serverLaunchPath = Lude.Nothing,
@@ -196,9 +224,7 @@ mkCreateFleet pName_ pEC2InstanceType_ =
       metricGroups = Lude.Nothing,
       description = Lude.Nothing,
       resourceCreationLimitPolicy = Lude.Nothing,
-      tags = Lude.Nothing,
-      name = pName_,
-      ec2InstanceType = pEC2InstanceType_
+      tags = Lude.Nothing
     }
 
 -- | This parameter is no longer used. Instead, specify server launch parameters in the @RuntimeConfiguration@ parameter. (Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.)
@@ -221,6 +247,13 @@ cfLogPaths = Lens.lens (logPaths :: CreateFleet -> Lude.Maybe [Lude.Text]) (\s a
 cfPeerVPCId :: Lens.Lens' CreateFleet (Lude.Maybe Lude.Text)
 cfPeerVPCId = Lens.lens (peerVPCId :: CreateFleet -> Lude.Maybe Lude.Text) (\s a -> s {peerVPCId = a} :: CreateFleet)
 {-# DEPRECATED cfPeerVPCId "Use generic-lens or generic-optics with 'peerVPCId' instead." #-}
+
+-- | The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+--
+-- /Note:/ Consider using 'ec2InstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfEC2InstanceType :: Lens.Lens' CreateFleet EC2InstanceType
+cfEC2InstanceType = Lens.lens (ec2InstanceType :: CreateFleet -> EC2InstanceType) (\s a -> s {ec2InstanceType = a} :: CreateFleet)
+{-# DEPRECATED cfEC2InstanceType "Use generic-lens or generic-optics with 'ec2InstanceType' instead." #-}
 
 -- | A unique identifier for a build to be deployed on the new fleet. You can use either the build ID or ARN value. The custom game server build must have been successfully uploaded to Amazon GameLift and be in a @READY@ status. This fleet setting cannot be changed once the fleet is created.
 --
@@ -271,6 +304,13 @@ cfRuntimeConfiguration = Lens.lens (runtimeConfiguration :: CreateFleet -> Lude.
 cfNewGameSessionProtectionPolicy :: Lens.Lens' CreateFleet (Lude.Maybe ProtectionPolicy)
 cfNewGameSessionProtectionPolicy = Lens.lens (newGameSessionProtectionPolicy :: CreateFleet -> Lude.Maybe ProtectionPolicy) (\s a -> s {newGameSessionProtectionPolicy = a} :: CreateFleet)
 {-# DEPRECATED cfNewGameSessionProtectionPolicy "Use generic-lens or generic-optics with 'newGameSessionProtectionPolicy' instead." #-}
+
+-- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfName :: Lens.Lens' CreateFleet Lude.Text
+cfName = Lens.lens (name :: CreateFleet -> Lude.Text) (\s a -> s {name = a} :: CreateFleet)
+{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A unique identifier for a Realtime script to be deployed on the new fleet. You can use either the script ID or ARN value. The Realtime script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
 --
@@ -338,20 +378,6 @@ cfTags :: Lens.Lens' CreateFleet (Lude.Maybe [Tag])
 cfTags = Lens.lens (tags :: CreateFleet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateFleet)
 {-# DEPRECATED cfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfName :: Lens.Lens' CreateFleet Lude.Text
-cfName = Lens.lens (name :: CreateFleet -> Lude.Text) (\s a -> s {name = a} :: CreateFleet)
-{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
---
--- /Note:/ Consider using 'ec2InstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfEC2InstanceType :: Lens.Lens' CreateFleet EC2InstanceType
-cfEC2InstanceType = Lens.lens (ec2InstanceType :: CreateFleet -> EC2InstanceType) (\s a -> s {ec2InstanceType = a} :: CreateFleet)
-{-# DEPRECATED cfEC2InstanceType "Use generic-lens or generic-optics with 'ec2InstanceType' instead." #-}
-
 instance Lude.AWSRequest CreateFleet where
   type Rs CreateFleet = CreateFleetResponse
   request = Req.postJSON gameLiftService
@@ -382,6 +408,7 @@ instance Lude.ToJSON CreateFleet where
               Lude.<$> serverLaunchParameters,
             ("LogPaths" Lude..=) Lude.<$> logPaths,
             ("PeerVpcId" Lude..=) Lude.<$> peerVPCId,
+            Lude.Just ("EC2InstanceType" Lude..= ec2InstanceType),
             ("BuildId" Lude..=) Lude.<$> buildId,
             ("FleetType" Lude..=) Lude.<$> fleetType,
             ("PeerVpcAwsAccountId" Lude..=) Lude.<$> peerVPCAWSAccountId,
@@ -389,6 +416,7 @@ instance Lude.ToJSON CreateFleet where
             ("RuntimeConfiguration" Lude..=) Lude.<$> runtimeConfiguration,
             ("NewGameSessionProtectionPolicy" Lude..=)
               Lude.<$> newGameSessionProtectionPolicy,
+            Lude.Just ("Name" Lude..= name),
             ("ScriptId" Lude..=) Lude.<$> scriptId,
             ("CertificateConfiguration" Lude..=)
               Lude.<$> certificateConfiguration,
@@ -398,9 +426,7 @@ instance Lude.ToJSON CreateFleet where
             ("Description" Lude..=) Lude.<$> description,
             ("ResourceCreationLimitPolicy" Lude..=)
               Lude.<$> resourceCreationLimitPolicy,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("EC2InstanceType" Lude..= ec2InstanceType)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -414,17 +440,12 @@ instance Lude.ToQuery CreateFleet where
 --
 -- /See:/ 'mkCreateFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
-  { fleetAttributes ::
-      Lude.Maybe FleetAttributes,
+  { -- | Properties for the newly created fleet.
+    fleetAttributes :: Lude.Maybe FleetAttributes,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateFleetResponse' with the minimum fields required to make a request.

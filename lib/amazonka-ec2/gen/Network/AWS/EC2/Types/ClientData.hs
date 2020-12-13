@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientData' smart constructor.
 data ClientData = ClientData'
-  { uploadStart ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The time that the disk upload starts.
+    uploadStart :: Lude.Maybe Lude.DateTime,
+    -- | The size of the uploaded disk image, in GiB.
     uploadSize :: Lude.Maybe Lude.Double,
+    -- | The time that the disk upload ends.
     uploadEnd :: Lude.Maybe Lude.DateTime,
+    -- | A user-defined comment about the disk upload.
     comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientData' with the minimum fields required to make a request.
 --
--- * 'comment' - A user-defined comment about the disk upload.
--- * 'uploadEnd' - The time that the disk upload ends.
--- * 'uploadSize' - The size of the uploaded disk image, in GiB.
 -- * 'uploadStart' - The time that the disk upload starts.
+-- * 'uploadSize' - The size of the uploaded disk image, in GiB.
+-- * 'uploadEnd' - The time that the disk upload ends.
+-- * 'comment' - A user-defined comment about the disk upload.
 mkClientData ::
   ClientData
 mkClientData =

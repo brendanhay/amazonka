@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVMServerAddress' smart constructor.
 data VMServerAddress = VMServerAddress'
-  { vmManagerId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VM manager.
+    vmManagerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VM.
     vmId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VMServerAddress' with the minimum fields required to make a request.
 --
--- * 'vmId' - The ID of the VM.
 -- * 'vmManagerId' - The ID of the VM manager.
+-- * 'vmId' - The ID of the VM.
 mkVMServerAddress ::
   VMServerAddress
 mkVMServerAddress =

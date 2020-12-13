@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.SageMaker.DeleteEndpointConfig
     mkDeleteEndpointConfig,
 
     -- ** Request lenses
-    dEndpointConfigName,
+    decEndpointConfigName,
 
     -- * Destructuring the response
     DeleteEndpointConfigResponse (..),
@@ -37,16 +38,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkDeleteEndpointConfig' smart constructor.
 newtype DeleteEndpointConfig = DeleteEndpointConfig'
-  { endpointConfigName ::
-      Lude.Text
+  { -- | The name of the endpoint configuration that you want to delete.
+    endpointConfigName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEndpointConfig' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkDeleteEndpointConfig pEndpointConfigName_ =
 -- | The name of the endpoint configuration that you want to delete.
 --
 -- /Note:/ Consider using 'endpointConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dEndpointConfigName :: Lens.Lens' DeleteEndpointConfig Lude.Text
-dEndpointConfigName = Lens.lens (endpointConfigName :: DeleteEndpointConfig -> Lude.Text) (\s a -> s {endpointConfigName = a} :: DeleteEndpointConfig)
-{-# DEPRECATED dEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
+decEndpointConfigName :: Lens.Lens' DeleteEndpointConfig Lude.Text
+decEndpointConfigName = Lens.lens (endpointConfigName :: DeleteEndpointConfig -> Lude.Text) (\s a -> s {endpointConfigName = a} :: DeleteEndpointConfig)
+{-# DEPRECATED decEndpointConfigName "Use generic-lens or generic-optics with 'endpointConfigName' instead." #-}
 
 instance Lude.AWSRequest DeleteEndpointConfig where
   type Rs DeleteEndpointConfig = DeleteEndpointConfigResponse
@@ -97,13 +92,7 @@ instance Lude.ToQuery DeleteEndpointConfig where
 
 -- | /See:/ 'mkDeleteEndpointConfigResponse' smart constructor.
 data DeleteEndpointConfigResponse = DeleteEndpointConfigResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteEndpointConfigResponse' with the minimum fields required to make a request.

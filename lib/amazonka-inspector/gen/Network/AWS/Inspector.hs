@@ -199,39 +199,39 @@ module Network.AWS.Inspector
     apOperatingSystem,
     apAgentVersion,
     apKernelVersion,
+    apAgentId,
     apAgentHealth,
     apIpv4Address,
-    apAgentId,
 
     -- ** AssessmentRun
     AssessmentRun (..),
     mkAssessmentRun,
-    arStartedAt,
-    arCompletedAt,
-    arArn,
-    arName,
-    arAssessmentTemplateARN,
-    arState,
-    arDurationInSeconds,
-    arRulesPackageARNs,
-    arUserAttributesForFindings,
-    arCreatedAt,
-    arStateChangedAt,
     arDataCollected,
-    arStateChanges,
-    arNotifications,
+    arState,
+    arArn,
+    arCreatedAt,
     arFindingCounts,
+    arUserAttributesForFindings,
+    arRulesPackageARNs,
+    arStartedAt,
+    arName,
+    arDurationInSeconds,
+    arStateChanges,
+    arCompletedAt,
+    arStateChangedAt,
+    arAssessmentTemplateARN,
+    arNotifications,
 
     -- ** AssessmentRunAgent
     AssessmentRunAgent (..),
     mkAssessmentRunAgent,
     araAutoScalingGroup,
-    araAgentHealthDetails,
+    araAgentHealthCode,
     araAgentId,
+    araAgentHealthDetails,
+    araTelemetryMetadata,
     araAssessmentRunARN,
     araAgentHealth,
-    araAgentHealthCode,
-    araTelemetryMetadata,
 
     -- ** AssessmentRunFilter
     AssessmentRunFilter (..),
@@ -247,26 +247,26 @@ module Network.AWS.Inspector
     -- ** AssessmentRunNotification
     AssessmentRunNotification (..),
     mkAssessmentRunNotification,
-    arnSnsTopicARN,
-    arnSnsPublishStatusCode,
-    arnMessage,
-    arnDate,
     arnEvent,
+    arnSnsTopicARN,
     arnError,
+    arnSnsPublishStatusCode,
+    arnDate,
+    arnMessage,
 
     -- ** AssessmentRunStateChange
     AssessmentRunStateChange (..),
     mkAssessmentRunStateChange,
-    arscStateChangedAt,
     arscState,
+    arscStateChangedAt,
 
     -- ** AssessmentTarget
     AssessmentTarget (..),
     mkAssessmentTarget,
-    aResourceGroupARN,
     aArn,
-    aName,
     aCreatedAt,
+    aResourceGroupARN,
+    aName,
     aUpdatedAt,
 
     -- ** AssessmentTargetFilter
@@ -277,15 +277,15 @@ module Network.AWS.Inspector
     -- ** AssessmentTemplate
     AssessmentTemplate (..),
     mkAssessmentTemplate,
-    atLastAssessmentRunARN,
-    atArn,
-    atName,
     atAssessmentTargetARN,
-    atDurationInSeconds,
-    atRulesPackageARNs,
-    atUserAttributesForFindings,
-    atAssessmentRunCount,
+    atArn,
     atCreatedAt,
+    atLastAssessmentRunARN,
+    atUserAttributesForFindings,
+    atRulesPackageARNs,
+    atAssessmentRunCount,
+    atName,
+    atDurationInSeconds,
 
     -- ** AssessmentTemplateFilter
     AssessmentTemplateFilter (..),
@@ -301,10 +301,10 @@ module Network.AWS.Inspector
     aaAutoScalingGroup,
     aaNetworkInterfaces,
     aaIpv4Addresses,
+    aaSchemaVersion,
     aaAgentId,
     aaAmiId,
     aaTags,
-    aaSchemaVersion,
 
     -- ** Attribute
     Attribute (..),
@@ -327,21 +327,21 @@ module Network.AWS.Inspector
     -- ** Exclusion
     Exclusion (..),
     mkExclusion,
-    eAttributes,
     eArn,
+    eScopes,
+    eAttributes,
     eTitle,
     eDescription,
     eRecommendation,
-    eScopes,
 
     -- ** ExclusionPreview
     ExclusionPreview (..),
     mkExclusionPreview,
+    epScopes,
     epAttributes,
     epTitle,
     epDescription,
     epRecommendation,
-    epScopes,
 
     -- ** FailedItemDetails
     FailedItemDetails (..),
@@ -352,24 +352,24 @@ module Network.AWS.Inspector
     -- ** Finding
     Finding (..),
     mkFinding,
+    fArn,
+    fCreatedAt,
     fService,
     fSeverity,
     fSchemaVersion,
+    fUserAttributes,
     fConfidence,
     fAssetAttributes,
+    fAttributes,
     fServiceAttributes,
     fId,
     fNumericSeverity,
+    fUpdatedAt,
     fAssetType,
     fTitle,
     fIndicatorOfCompromise,
     fDescription,
     fRecommendation,
-    fArn,
-    fAttributes,
-    fUserAttributes,
-    fCreatedAt,
-    fUpdatedAt,
 
     -- ** FindingFilter
     FindingFilter (..),
@@ -386,9 +386,9 @@ module Network.AWS.Inspector
     -- ** InspectorServiceAttributes
     InspectorServiceAttributes (..),
     mkInspectorServiceAttributes,
+    isaSchemaVersion,
     isaRulesPackageARN,
     isaAssessmentRunARN,
-    isaSchemaVersion,
 
     -- ** NetworkInterface
     NetworkInterface (..),
@@ -414,8 +414,8 @@ module Network.AWS.Inspector
     ResourceGroup (..),
     mkResourceGroup,
     rgArn,
-    rgTags,
     rgCreatedAt,
+    rgTags,
 
     -- ** ResourceGroupTag
     ResourceGroupTag (..),
@@ -426,10 +426,10 @@ module Network.AWS.Inspector
     -- ** RulesPackage
     RulesPackage (..),
     mkRulesPackage,
-    rpDescription,
     rpArn,
     rpName,
     rpVersion,
+    rpDescription,
     rpProvider,
 
     -- ** Scope
@@ -447,9 +447,9 @@ module Network.AWS.Inspector
     -- ** Subscription
     Subscription (..),
     mkSubscription,
-    sResourceARN,
     sTopicARN,
     sEventSubscriptions,
+    sResourceARN,
 
     -- ** Tag
     Tag (..),

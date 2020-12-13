@@ -14,8 +14,8 @@ module Network.AWS.StorageGateway.Types.SMBSecurityStrategy
   ( SMBSecurityStrategy
       ( SMBSecurityStrategy',
         SMBSSClientSpecified,
-        SMBSSMandatoryEncryption,
-        SMBSSMandatorySigning
+        SMBSSMandatorySigning,
+        SMBSSMandatoryEncryption
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype SMBSecurityStrategy = SMBSecurityStrategy' Lude.Text
 pattern SMBSSClientSpecified :: SMBSecurityStrategy
 pattern SMBSSClientSpecified = SMBSecurityStrategy' "ClientSpecified"
 
-pattern SMBSSMandatoryEncryption :: SMBSecurityStrategy
-pattern SMBSSMandatoryEncryption = SMBSecurityStrategy' "MandatoryEncryption"
-
 pattern SMBSSMandatorySigning :: SMBSecurityStrategy
 pattern SMBSSMandatorySigning = SMBSecurityStrategy' "MandatorySigning"
 
+pattern SMBSSMandatoryEncryption :: SMBSecurityStrategy
+pattern SMBSSMandatoryEncryption = SMBSecurityStrategy' "MandatoryEncryption"
+
 {-# COMPLETE
   SMBSSClientSpecified,
-  SMBSSMandatoryEncryption,
   SMBSSMandatorySigning,
+  SMBSSMandatoryEncryption,
   SMBSecurityStrategy'
   #-}

@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.VolumeType
   ( VolumeType
       ( VolumeType',
-        GP2,
+        Standard,
         IO1,
         IO2,
+        GP2,
         SC1,
-        ST1,
-        Standard
+        ST1
       ),
   )
 where
@@ -49,8 +49,8 @@ newtype VolumeType = VolumeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern GP2 :: VolumeType
-pattern GP2 = VolumeType' "gp2"
+pattern Standard :: VolumeType
+pattern Standard = VolumeType' "standard"
 
 pattern IO1 :: VolumeType
 pattern IO1 = VolumeType' "io1"
@@ -58,21 +58,21 @@ pattern IO1 = VolumeType' "io1"
 pattern IO2 :: VolumeType
 pattern IO2 = VolumeType' "io2"
 
+pattern GP2 :: VolumeType
+pattern GP2 = VolumeType' "gp2"
+
 pattern SC1 :: VolumeType
 pattern SC1 = VolumeType' "sc1"
 
 pattern ST1 :: VolumeType
 pattern ST1 = VolumeType' "st1"
 
-pattern Standard :: VolumeType
-pattern Standard = VolumeType' "standard"
-
 {-# COMPLETE
-  GP2,
+  Standard,
   IO1,
   IO2,
+  GP2,
   SC1,
   ST1,
-  Standard,
   VolumeType'
   #-}

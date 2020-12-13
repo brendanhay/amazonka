@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDefaultServerSideEncryption' smart constructor.
 data DefaultServerSideEncryption = DefaultServerSideEncryption'
-  { encryptionType ::
-      Lude.Maybe Lude.Text,
-    kmsMasterKeyARN ::
-      Lude.Maybe Lude.Text
+  { -- | The type of encryption used for objects within the S3 bucket.
+    encryptionType :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket @EncryptionType@ is @aws:kms@ .
+    kmsMasterKeyARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DefaultServerSideEncryption' with the minimum fields required to make a request.

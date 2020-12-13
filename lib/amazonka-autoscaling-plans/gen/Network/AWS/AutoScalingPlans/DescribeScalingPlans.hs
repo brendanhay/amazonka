@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,30 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeScalingPlans' smart constructor.
 data DescribeScalingPlans = DescribeScalingPlans'
-  { scalingPlanVersion ::
-      Lude.Maybe Lude.Integer,
+  { -- | The version number of the scaling plan. If you specify a scaling plan version, you must also specify a scaling plan name.
+    scalingPlanVersion :: Lude.Maybe Lude.Integer,
+    -- | The names of the scaling plans (up to 10). If you specify application sources, you cannot specify scaling plan names.
     scalingPlanNames :: Lude.Maybe [Lude.Text],
+    -- | The token for the next set of results.
     nextToken :: Lude.Maybe Lude.Text,
-    applicationSources ::
-      Lude.Maybe [ApplicationSource],
+    -- | The sources for the applications (up to 10). If you specify scaling plan names, you cannot specify application sources.
+    applicationSources :: Lude.Maybe [ApplicationSource],
+    -- | The maximum number of scalable resources to return. This value can be between 1 and 50. The default value is 50.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingPlans' with the minimum fields required to make a request.
 --
+-- * 'scalingPlanVersion' - The version number of the scaling plan. If you specify a scaling plan version, you must also specify a scaling plan name.
+-- * 'scalingPlanNames' - The names of the scaling plans (up to 10). If you specify application sources, you cannot specify scaling plan names.
+-- * 'nextToken' - The token for the next set of results.
 -- * 'applicationSources' - The sources for the applications (up to 10). If you specify scaling plan names, you cannot specify application sources.
 -- * 'maxResults' - The maximum number of scalable resources to return. This value can be between 1 and 50. The default value is 50.
--- * 'nextToken' - The token for the next set of results.
--- * 'scalingPlanNames' - The names of the scaling plans (up to 10). If you specify application sources, you cannot specify scaling plan names.
--- * 'scalingPlanVersion' - The version number of the scaling plan. If you specify a scaling plan version, you must also specify a scaling plan name.
 mkDescribeScalingPlans ::
   DescribeScalingPlans
 mkDescribeScalingPlans =
@@ -171,25 +169,21 @@ instance Lude.ToQuery DescribeScalingPlans where
 
 -- | /See:/ 'mkDescribeScalingPlansResponse' smart constructor.
 data DescribeScalingPlansResponse = DescribeScalingPlansResponse'
-  { scalingPlans ::
-      Lude.Maybe [ScalingPlan],
+  { -- | Information about the scaling plans.
+    scalingPlans :: Lude.Maybe [ScalingPlan],
+    -- | The token required to get the next set of results. This value is @null@ if there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeScalingPlansResponse' with the minimum fields required to make a request.
 --
+-- * 'scalingPlans' - Information about the scaling plans.
 -- * 'nextToken' - The token required to get the next set of results. This value is @null@ if there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'scalingPlans' - Information about the scaling plans.
 mkDescribeScalingPlansResponse ::
   -- | 'responseStatus'
   Lude.Int ->

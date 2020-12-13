@@ -13,10 +13,10 @@
 module Network.AWS.Comprehend.Types.SyntaxLanguageCode
   ( SyntaxLanguageCode
       ( SyntaxLanguageCode',
-        SLCDE,
         SLCEN,
         SLCES,
         SLCFR,
+        SLCDE,
         SLCIT,
         SLCPT
       ),
@@ -49,9 +49,6 @@ newtype SyntaxLanguageCode = SyntaxLanguageCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern SLCDE :: SyntaxLanguageCode
-pattern SLCDE = SyntaxLanguageCode' "de"
-
 pattern SLCEN :: SyntaxLanguageCode
 pattern SLCEN = SyntaxLanguageCode' "en"
 
@@ -61,6 +58,9 @@ pattern SLCES = SyntaxLanguageCode' "es"
 pattern SLCFR :: SyntaxLanguageCode
 pattern SLCFR = SyntaxLanguageCode' "fr"
 
+pattern SLCDE :: SyntaxLanguageCode
+pattern SLCDE = SyntaxLanguageCode' "de"
+
 pattern SLCIT :: SyntaxLanguageCode
 pattern SLCIT = SyntaxLanguageCode' "it"
 
@@ -68,10 +68,10 @@ pattern SLCPT :: SyntaxLanguageCode
 pattern SLCPT = SyntaxLanguageCode' "pt"
 
 {-# COMPLETE
-  SLCDE,
   SLCEN,
   SLCES,
   SLCFR,
+  SLCDE,
   SLCIT,
   SLCPT,
   SyntaxLanguageCode'

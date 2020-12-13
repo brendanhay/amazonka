@@ -13,20 +13,20 @@
 module Network.AWS.Lightsail.Types.RegionName
   ( RegionName
       ( RegionName',
-        ApNortheast1,
-        ApNortheast2,
-        ApSouth1,
-        ApSoutheast1,
-        ApSoutheast2,
-        CaCentral1,
-        EuCentral1,
-        EuWest1,
-        EuWest2,
-        EuWest3,
         UsEast1,
         UsEast2,
         UsWest1,
-        UsWest2
+        UsWest2,
+        EuWest1,
+        EuWest2,
+        EuWest3,
+        EuCentral1,
+        CaCentral1,
+        ApSouth1,
+        ApSoutheast1,
+        ApSoutheast2,
+        ApNortheast1,
+        ApNortheast2
       ),
   )
 where
@@ -57,36 +57,6 @@ newtype RegionName = RegionName' Lude.Text
       Lude.ToHeader
     )
 
-pattern ApNortheast1 :: RegionName
-pattern ApNortheast1 = RegionName' "ap-northeast-1"
-
-pattern ApNortheast2 :: RegionName
-pattern ApNortheast2 = RegionName' "ap-northeast-2"
-
-pattern ApSouth1 :: RegionName
-pattern ApSouth1 = RegionName' "ap-south-1"
-
-pattern ApSoutheast1 :: RegionName
-pattern ApSoutheast1 = RegionName' "ap-southeast-1"
-
-pattern ApSoutheast2 :: RegionName
-pattern ApSoutheast2 = RegionName' "ap-southeast-2"
-
-pattern CaCentral1 :: RegionName
-pattern CaCentral1 = RegionName' "ca-central-1"
-
-pattern EuCentral1 :: RegionName
-pattern EuCentral1 = RegionName' "eu-central-1"
-
-pattern EuWest1 :: RegionName
-pattern EuWest1 = RegionName' "eu-west-1"
-
-pattern EuWest2 :: RegionName
-pattern EuWest2 = RegionName' "eu-west-2"
-
-pattern EuWest3 :: RegionName
-pattern EuWest3 = RegionName' "eu-west-3"
-
 pattern UsEast1 :: RegionName
 pattern UsEast1 = RegionName' "us-east-1"
 
@@ -99,20 +69,50 @@ pattern UsWest1 = RegionName' "us-west-1"
 pattern UsWest2 :: RegionName
 pattern UsWest2 = RegionName' "us-west-2"
 
+pattern EuWest1 :: RegionName
+pattern EuWest1 = RegionName' "eu-west-1"
+
+pattern EuWest2 :: RegionName
+pattern EuWest2 = RegionName' "eu-west-2"
+
+pattern EuWest3 :: RegionName
+pattern EuWest3 = RegionName' "eu-west-3"
+
+pattern EuCentral1 :: RegionName
+pattern EuCentral1 = RegionName' "eu-central-1"
+
+pattern CaCentral1 :: RegionName
+pattern CaCentral1 = RegionName' "ca-central-1"
+
+pattern ApSouth1 :: RegionName
+pattern ApSouth1 = RegionName' "ap-south-1"
+
+pattern ApSoutheast1 :: RegionName
+pattern ApSoutheast1 = RegionName' "ap-southeast-1"
+
+pattern ApSoutheast2 :: RegionName
+pattern ApSoutheast2 = RegionName' "ap-southeast-2"
+
+pattern ApNortheast1 :: RegionName
+pattern ApNortheast1 = RegionName' "ap-northeast-1"
+
+pattern ApNortheast2 :: RegionName
+pattern ApNortheast2 = RegionName' "ap-northeast-2"
+
 {-# COMPLETE
-  ApNortheast1,
-  ApNortheast2,
-  ApSouth1,
-  ApSoutheast1,
-  ApSoutheast2,
-  CaCentral1,
-  EuCentral1,
-  EuWest1,
-  EuWest2,
-  EuWest3,
   UsEast1,
   UsEast2,
   UsWest1,
   UsWest2,
+  EuWest1,
+  EuWest2,
+  EuWest3,
+  EuCentral1,
+  CaCentral1,
+  ApSouth1,
+  ApSoutheast1,
+  ApSoutheast2,
+  ApNortheast1,
+  ApNortheast2,
   RegionName'
   #-}

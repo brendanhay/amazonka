@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSuggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
-  { rid :: Lude.Maybe Lude.Text,
+  { -- | The encrypted resource ID for the request.
+    rid :: Lude.Maybe Lude.Text,
+    -- | How long it took to process the request, in milliseconds.
     timems :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuggestStatus' with the minimum fields required to make a request.

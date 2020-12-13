@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHTTPHeader' smart constructor.
 data HTTPHeader = HTTPHeader'
-  { headerValue :: Lude.Maybe Lude.Text,
+  { -- | The header value.
+    headerValue :: Lude.Maybe Lude.Text,
+    -- | The header name
     headerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPHeader' with the minimum fields required to make a request.
 --
--- * 'headerName' - The header name
 -- * 'headerValue' - The header value.
+-- * 'headerName' - The header name
 mkHTTPHeader ::
   HTTPHeader
 mkHTTPHeader =

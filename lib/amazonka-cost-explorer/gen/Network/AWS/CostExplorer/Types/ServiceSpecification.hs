@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceSpecification' smart constructor.
 newtype ServiceSpecification = ServiceSpecification'
-  { ec2Specification ::
-      Lude.Maybe EC2Specification
+  { -- | The Amazon EC2 hardware specifications that you want AWS to provide recommendations for.
+    ec2Specification :: Lude.Maybe EC2Specification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceSpecification' with the minimum fields required to make a request.

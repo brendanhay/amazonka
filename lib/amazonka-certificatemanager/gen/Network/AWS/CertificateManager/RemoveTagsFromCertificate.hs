@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,17 +39,15 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveTagsFromCertificate' smart constructor.
 data RemoveTagsFromCertificate = RemoveTagsFromCertificate'
-  { certificateARN ::
-      Lude.Text,
+  { -- | String that contains the ARN of the ACM Certificate with one or more tags that you want to remove. This must be of the form:
+    --
+    -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    certificateARN :: Lude.Text,
+    -- | The key-value pair that defines the tag to remove.
     tags :: Lude.NonEmpty Tag
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromCertificate' with the minimum fields required to make a request.
@@ -124,13 +123,7 @@ instance Lude.ToQuery RemoveTagsFromCertificate where
 
 -- | /See:/ 'mkRemoveTagsFromCertificateResponse' smart constructor.
 data RemoveTagsFromCertificateResponse = RemoveTagsFromCertificateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveTagsFromCertificateResponse' with the minimum fields required to make a request.

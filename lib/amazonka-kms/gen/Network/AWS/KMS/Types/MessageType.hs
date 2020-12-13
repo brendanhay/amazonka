@@ -13,8 +13,8 @@
 module Network.AWS.KMS.Types.MessageType
   ( MessageType
       ( MessageType',
-        Digest,
-        Raw
+        Raw,
+        Digest
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MessageType = MessageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Digest :: MessageType
-pattern Digest = MessageType' "DIGEST"
-
 pattern Raw :: MessageType
 pattern Raw = MessageType' "RAW"
 
+pattern Digest :: MessageType
+pattern Digest = MessageType' "DIGEST"
+
 {-# COMPLETE
-  Digest,
   Raw,
+  Digest,
   MessageType'
   #-}

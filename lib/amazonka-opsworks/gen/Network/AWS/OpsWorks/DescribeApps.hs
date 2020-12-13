@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeApps' smart constructor.
 data DescribeApps = DescribeApps'
-  { appIds :: Lude.Maybe [Lude.Text],
+  { -- | An array of app IDs for the apps to be described. If you use this parameter, @DescribeApps@ returns a description of the specified apps. Otherwise, it returns a description of every app.
+    appIds :: Lude.Maybe [Lude.Text],
+    -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a description of the apps in the specified stack.
     stackId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeApps' with the minimum fields required to make a request.
@@ -118,17 +115,12 @@ instance Lude.ToQuery DescribeApps where
 --
 -- /See:/ 'mkDescribeAppsResponse' smart constructor.
 data DescribeAppsResponse = DescribeAppsResponse'
-  { apps ::
-      Lude.Maybe [App],
+  { -- | An array of @App@ objects that describe the specified apps.
+    apps :: Lude.Maybe [App],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAppsResponse' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.EBSNvmeSupport
   ( EBSNvmeSupport
       ( EBSNvmeSupport',
-        ENSRequired,
+        ENSUnsupported,
         ENSSupported,
-        ENSUnsupported
+        ENSRequired
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EBSNvmeSupport = EBSNvmeSupport' Lude.Text
       Lude.ToHeader
     )
 
-pattern ENSRequired :: EBSNvmeSupport
-pattern ENSRequired = EBSNvmeSupport' "required"
+pattern ENSUnsupported :: EBSNvmeSupport
+pattern ENSUnsupported = EBSNvmeSupport' "unsupported"
 
 pattern ENSSupported :: EBSNvmeSupport
 pattern ENSSupported = EBSNvmeSupport' "supported"
 
-pattern ENSUnsupported :: EBSNvmeSupport
-pattern ENSUnsupported = EBSNvmeSupport' "unsupported"
+pattern ENSRequired :: EBSNvmeSupport
+pattern ENSRequired = EBSNvmeSupport' "required"
 
 {-# COMPLETE
-  ENSRequired,
-  ENSSupported,
   ENSUnsupported,
+  ENSSupported,
+  ENSRequired,
   EBSNvmeSupport'
   #-}

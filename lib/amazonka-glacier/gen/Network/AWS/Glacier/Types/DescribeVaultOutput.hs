@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDescribeVaultOutput' smart constructor.
 data DescribeVaultOutput = DescribeVaultOutput'
-  { vaultName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the vault.
+    vaultName :: Lude.Maybe Lude.Text,
+    -- | Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
     sizeInBytes :: Lude.Maybe Lude.Integer,
+    -- | The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
     lastInventoryDate :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the vault.
     vaultARN :: Lude.Maybe Lude.Text,
+    -- | The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
     numberOfArchives :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVaultOutput' with the minimum fields required to make a request.
 --
--- * 'creationDate' - The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
--- * 'lastInventoryDate' - The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
--- * 'numberOfArchives' - The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
--- * 'sizeInBytes' - Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
--- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault.
 -- * 'vaultName' - The name of the vault.
+-- * 'sizeInBytes' - Total size, in bytes, of the archives in the vault as of the last inventory date. This field will return null if an inventory has not yet run on the vault, for example if you just created the vault.
+-- * 'lastInventoryDate' - The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last vault inventory. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
+-- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault.
+-- * 'creationDate' - The Universal Coordinated Time (UTC) date when the vault was created. This value should be a string in the ISO 8601 date format, for example @2012-03-20T17:03:43.221Z@ .
+-- * 'numberOfArchives' - The number of archives in the vault as of the last inventory date. This field will return @null@ if an inventory has not yet run on the vault, for example if you just created the vault.
 mkDescribeVaultOutput ::
   DescribeVaultOutput
 mkDescribeVaultOutput =

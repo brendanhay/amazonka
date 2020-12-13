@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Config.SelectResourceConfig
 
     -- ** Request lenses
     srcNextToken,
-    srcLimit,
     srcExpression,
+    srcLimit,
 
     -- * Destructuring the response
     SelectResourceConfigResponse (..),
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSelectResourceConfig' smart constructor.
 data SelectResourceConfig = SelectResourceConfig'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    expression :: Lude.Text
+  { -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The SQL query @SELECT@ command.
+    expression :: Lude.Text,
+    -- | The maximum number of query results returned on each page.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectResourceConfig' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
 -- * 'expression' - The SQL query @SELECT@ command.
 -- * 'limit' - The maximum number of query results returned on each page.
--- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
 mkSelectResourceConfig ::
   -- | 'expression'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkSelectResourceConfig ::
 mkSelectResourceConfig pExpression_ =
   SelectResourceConfig'
     { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      expression = pExpression_
+      expression = pExpression_,
+      limit = Lude.Nothing
     }
 
 -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
@@ -82,19 +79,19 @@ srcNextToken :: Lens.Lens' SelectResourceConfig (Lude.Maybe Lude.Text)
 srcNextToken = Lens.lens (nextToken :: SelectResourceConfig -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SelectResourceConfig)
 {-# DEPRECATED srcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of query results returned on each page.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcLimit :: Lens.Lens' SelectResourceConfig (Lude.Maybe Lude.Natural)
-srcLimit = Lens.lens (limit :: SelectResourceConfig -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: SelectResourceConfig)
-{-# DEPRECATED srcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
 -- | The SQL query @SELECT@ command.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 srcExpression :: Lens.Lens' SelectResourceConfig Lude.Text
 srcExpression = Lens.lens (expression :: SelectResourceConfig -> Lude.Text) (\s a -> s {expression = a} :: SelectResourceConfig)
 {-# DEPRECATED srcExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+
+-- | The maximum number of query results returned on each page.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srcLimit :: Lens.Lens' SelectResourceConfig (Lude.Maybe Lude.Natural)
+srcLimit = Lens.lens (limit :: SelectResourceConfig -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: SelectResourceConfig)
+{-# DEPRECATED srcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Lude.AWSRequest SelectResourceConfig where
   type Rs SelectResourceConfig = SelectResourceConfigResponse
@@ -125,8 +122,8 @@ instance Lude.ToJSON SelectResourceConfig where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("Expression" Lude..= expression)
+            Lude.Just ("Expression" Lude..= expression),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -138,27 +135,24 @@ instance Lude.ToQuery SelectResourceConfig where
 
 -- | /See:/ 'mkSelectResourceConfigResponse' smart constructor.
 data SelectResourceConfigResponse = SelectResourceConfigResponse'
-  { results ::
-      Lude.Maybe [Lude.Text],
+  { -- | Returns the results for the SQL query.
+    results :: Lude.Maybe [Lude.Text],
+    -- | Returns the @QueryInfo@ object.
     queryInfo :: Lude.Maybe QueryInfo,
+    -- | The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectResourceConfigResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
--- * 'queryInfo' - Returns the @QueryInfo@ object.
--- * 'responseStatus' - The response status code.
 -- * 'results' - Returns the results for the SQL query.
+-- * 'queryInfo' - Returns the @QueryInfo@ object.
+-- * 'nextToken' - The @nextToken@ string returned in a previous request that you use to request the next page of results in a paginated response.
+-- * 'responseStatus' - The response status code.
 mkSelectResourceConfigResponse ::
   -- | 'responseStatus'
   Lude.Int ->

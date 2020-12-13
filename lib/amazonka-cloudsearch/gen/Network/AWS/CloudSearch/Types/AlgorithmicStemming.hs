@@ -13,10 +13,10 @@
 module Network.AWS.CloudSearch.Types.AlgorithmicStemming
   ( AlgorithmicStemming
       ( AlgorithmicStemming',
-        ASFull,
-        ASLight,
+        ASNone,
         ASMinimal,
-        ASNone
+        ASLight,
+        ASFull
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype AlgorithmicStemming = AlgorithmicStemming' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASFull :: AlgorithmicStemming
-pattern ASFull = AlgorithmicStemming' "full"
-
-pattern ASLight :: AlgorithmicStemming
-pattern ASLight = AlgorithmicStemming' "light"
+pattern ASNone :: AlgorithmicStemming
+pattern ASNone = AlgorithmicStemming' "none"
 
 pattern ASMinimal :: AlgorithmicStemming
 pattern ASMinimal = AlgorithmicStemming' "minimal"
 
-pattern ASNone :: AlgorithmicStemming
-pattern ASNone = AlgorithmicStemming' "none"
+pattern ASLight :: AlgorithmicStemming
+pattern ASLight = AlgorithmicStemming' "light"
+
+pattern ASFull :: AlgorithmicStemming
+pattern ASFull = AlgorithmicStemming' "full"
 
 {-# COMPLETE
-  ASFull,
-  ASLight,
-  ASMinimal,
   ASNone,
+  ASMinimal,
+  ASLight,
+  ASFull,
   AlgorithmicStemming'
   #-}

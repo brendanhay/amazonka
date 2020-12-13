@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.CodePipeline.PutWebhook
     mkPutWebhook,
 
     -- ** Request lenses
-    pwTags,
     pwWebhook,
+    pwTags,
 
     -- * Destructuring the response
     PutWebhookResponse (..),
@@ -40,35 +41,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutWebhook' smart constructor.
 data PutWebhook = PutWebhook'
-  { tags :: Lude.Maybe [Tag],
-    webhook :: WebhookDefinition
+  { -- | The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.
+    webhook :: WebhookDefinition,
+    -- | The tags for the webhook.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutWebhook' with the minimum fields required to make a request.
 --
--- * 'tags' - The tags for the webhook.
 -- * 'webhook' - The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.
+-- * 'tags' - The tags for the webhook.
 mkPutWebhook ::
   -- | 'webhook'
   WebhookDefinition ->
   PutWebhook
 mkPutWebhook pWebhook_ =
-  PutWebhook' {tags = Lude.Nothing, webhook = pWebhook_}
-
--- | The tags for the webhook.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pwTags :: Lens.Lens' PutWebhook (Lude.Maybe [Tag])
-pwTags = Lens.lens (tags :: PutWebhook -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutWebhook)
-{-# DEPRECATED pwTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+  PutWebhook' {webhook = pWebhook_, tags = Lude.Nothing}
 
 -- | The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.
 --
@@ -76,6 +66,13 @@ pwTags = Lens.lens (tags :: PutWebhook -> Lude.Maybe [Tag]) (\s a -> s {tags = a
 pwWebhook :: Lens.Lens' PutWebhook WebhookDefinition
 pwWebhook = Lens.lens (webhook :: PutWebhook -> WebhookDefinition) (\s a -> s {webhook = a} :: PutWebhook)
 {-# DEPRECATED pwWebhook "Use generic-lens or generic-optics with 'webhook' instead." #-}
+
+-- | The tags for the webhook.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pwTags :: Lens.Lens' PutWebhook (Lude.Maybe [Tag])
+pwTags = Lens.lens (tags :: PutWebhook -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutWebhook)
+{-# DEPRECATED pwTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest PutWebhook where
   type Rs PutWebhook = PutWebhookResponse
@@ -102,8 +99,8 @@ instance Lude.ToJSON PutWebhook where
   toJSON PutWebhook' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("webhook" Lude..= webhook)
+          [ Lude.Just ("webhook" Lude..= webhook),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -115,23 +112,18 @@ instance Lude.ToQuery PutWebhook where
 
 -- | /See:/ 'mkPutWebhookResponse' smart constructor.
 data PutWebhookResponse = PutWebhookResponse'
-  { webhook ::
-      Lude.Maybe ListWebhookItem,
+  { -- | The detail returned from creating the webhook, such as the webhook name, webhook URL, and webhook ARN.
+    webhook :: Lude.Maybe ListWebhookItem,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutWebhookResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'webhook' - The detail returned from creating the webhook, such as the webhook name, webhook URL, and webhook ARN.
+-- * 'responseStatus' - The response status code.
 mkPutWebhookResponse ::
   -- | 'responseStatus'
   Lude.Int ->

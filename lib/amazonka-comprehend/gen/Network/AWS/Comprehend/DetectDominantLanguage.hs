@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,8 +40,8 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectDominantLanguage' smart constructor.
 newtype DetectDominantLanguage = DetectDominantLanguage'
-  { text ::
-      Lude.Sensitive Lude.Text
+  { -- | A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+    text :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
@@ -96,17 +97,12 @@ instance Lude.ToQuery DetectDominantLanguage where
 
 -- | /See:/ 'mkDetectDominantLanguageResponse' smart constructor.
 data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
-  { languages ::
-      Lude.Maybe [DominantLanguage],
+  { -- | The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
+    languages :: Lude.Maybe [DominantLanguage],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectDominantLanguageResponse' with the minimum fields required to make a request.

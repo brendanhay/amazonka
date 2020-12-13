@@ -30,26 +30,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputSource' smart constructor.
 data InputSource = InputSource'
-  { url :: Lude.Maybe Lude.Text,
+  { -- | This represents the customer's source URL where stream is
+    --
+    -- pulled from.
+    url :: Lude.Maybe Lude.Text,
+    -- | The username for the input source.
     username :: Lude.Maybe Lude.Text,
+    -- | The key used to extract the password from EC2 Parameter store.
     passwordParam :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSource' with the minimum fields required to make a request.
 --
--- * 'passwordParam' - The key used to extract the password from EC2 Parameter store.
 -- * 'url' - This represents the customer's source URL where stream is
 --
 -- pulled from.
 -- * 'username' - The username for the input source.
+-- * 'passwordParam' - The key used to extract the password from EC2 Parameter store.
 mkInputSource ::
   InputSource
 mkInputSource =

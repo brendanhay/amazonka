@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutputConfig' smart constructor.
 data OutputConfig = OutputConfig'
-  { s3KeyPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix applied to the training output files.
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The S3 bucket where training output is placed.
     s3Bucket :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutputConfig' with the minimum fields required to make a request.
 --
--- * 's3Bucket' - The S3 bucket where training output is placed.
 -- * 's3KeyPrefix' - The prefix applied to the training output files.
+-- * 's3Bucket' - The S3 bucket where training output is placed.
 mkOutputConfig ::
   OutputConfig
 mkOutputConfig =

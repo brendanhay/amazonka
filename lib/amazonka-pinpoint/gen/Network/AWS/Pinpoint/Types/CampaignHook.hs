@@ -31,18 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCampaignHook' smart constructor.
 data CampaignHook = CampaignHook'
-  { lambdaFunctionName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to customize a segment for a campaign.
+    lambdaFunctionName :: Lude.Maybe Lude.Text,
+    -- | The mode that Amazon Pinpoint uses to invoke the AWS Lambda function. Possible values are:
+    --
+    --
+    --     * FILTER - Invoke the function to customize the segment that's used by a campaign.
+    --
+    --
+    --     * DELIVERY - (Deprecated) Previously, invoked the function to send a campaign through a custom channel. This functionality is not supported anymore. To send a campaign through a custom channel, use the CustomDeliveryConfiguration and CampaignCustomMessage objects of the campaign.
     mode :: Lude.Maybe Mode,
+    -- | The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function over HTTPS.
     webURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CampaignHook' with the minimum fields required to make a request.

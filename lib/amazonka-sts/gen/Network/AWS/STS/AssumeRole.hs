@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,6 +47,7 @@ module Network.AWS.STS.AssumeRole
     mkAssumeRole,
 
     -- ** Request lenses
+    arRoleSessionName,
     arTransitiveTagKeys,
     arTokenCode,
     arPolicyARNs,
@@ -55,7 +57,6 @@ module Network.AWS.STS.AssumeRole
     arSerialNumber,
     arTags,
     arRoleARN,
-    arRoleSessionName,
 
     -- * Destructuring the response
     AssumeRoleResponse (..),
@@ -77,48 +78,82 @@ import Network.AWS.STS.Types
 
 -- | /See:/ 'mkAssumeRole' smart constructor.
 data AssumeRole = AssumeRole'
-  { transitiveTagKeys ::
-      Lude.Maybe [Lude.Text],
+  { -- | An identifier for the assumed role session.
+    --
+    -- Use the role session name to uniquely identify a session when the same role is assumed by different principals or for different reasons. In cross-account scenarios, the role session name is visible to, and can be logged by the account that owns the role. The role session name is also used in the ARN of the assumed role principal. This means that subsequent cross-account API requests that use the temporary security credentials will expose the role session name to the external account in their AWS CloudTrail logs.
+    -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
+    roleSessionName :: Lude.Text,
+    -- | A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining Chaining Roles with Session Tags> in the /IAM User Guide/ .
+    --
+    -- This parameter is optional. When you set session tags as transitive, the session policy and session tags packed binary limit is not affected.
+    -- If you choose not to specify a transitive tag key, then no tags are passed from this session to any subsequent sessions.
+    transitiveTagKeys :: Lude.Maybe [Lude.Text],
+    -- | The value provided by the MFA device, if the trust policy of the role being assumed requires MFA (that is, if the policy includes a condition that tests for MFA). If the role being assumed requires MFA and if the @TokenCode@ value is missing or expired, the @AssumeRole@ call returns an "access denied" error.
+    --
+    -- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
     tokenCode :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
+    --
+    -- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
+    -- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
     policyARNs :: Lude.Maybe [PolicyDescriptorType],
+    -- | The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
+    --
+    -- By default, the value is set to @3600@ seconds.
     durationSeconds :: Lude.Maybe Lude.Natural,
+    -- | An IAM policy in JSON format that you want to use as an inline session policy.
+    --
+    -- This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+    -- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
     policy :: Lude.Maybe Lude.Text,
+    -- | A unique identifier that might be required when you assume a role in another account. If the administrator of the account to which the role belongs provided you with an external ID, then provide that value in the @ExternalId@ parameter. This value can be any string, such as a passphrase or account number. A cross-account role is usually set up to trust everyone in an account. Therefore, the administrator of the trusting account might send an external ID to the administrator of the trusted account. That way, only someone with the ID can assume the role, rather than everyone in the account. For more information about the external ID, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your AWS Resources to a Third Party> in the /IAM User Guide/ .
+    --
+    -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
     externalId :: Lude.Maybe Lude.Text,
+    -- | The identification number of the MFA device that is associated with the user who is making the @AssumeRole@ call. Specify this value if the trust policy of the role being assumed includes a condition that requires MFA authentication. The value is either the serial number for a hardware device (such as @GAHT12345678@ ) or an Amazon Resource Name (ARN) for a virtual device (such as @arn:aws:iam::123456789012:mfa/user@ ).
+    --
+    -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
     serialNumber :: Lude.Maybe Lude.Text,
+    -- | A list of session tags that you want to pass. Each session tag consists of a key name and an associated value. For more information about session tags, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging AWS STS Sessions> in the /IAM User Guide/ .
+    --
+    -- This parameter is optional. You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these and additional limits, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits> in the /IAM User Guide/ .
+    -- You can pass a session tag with the same key as a tag that is already attached to the role. When you do, session tags override a role tag with the same key.
+    -- Tag key–value pairs are not case sensitive, but case is preserved. This means that you cannot have separate @Department@ and @department@ tag keys. Assume that the role has the @Department@ =@Marketing@ tag and you pass the @department@ =@engineering@ session tag. @Department@ and @department@ are not saved as separate tags, and the session tag passed in the request takes precedence over the role tag.
+    -- Additionally, if you used temporary credentials to perform this operation, the new session inherits any transitive session tags from the calling session. If you pass a session tag with the same key as an inherited tag, the operation fails. To view the inherited tags for a session, see the AWS CloudTrail logs. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail> in the /IAM User Guide/ .
     tags :: Lude.Maybe [Tag],
-    roleARN :: Lude.Text,
-    roleSessionName :: Lude.Text
+    -- | The Amazon Resource Name (ARN) of the role to assume.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssumeRole' with the minimum fields required to make a request.
 --
--- * 'durationSeconds' - The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
---
--- By default, the value is set to @3600@ seconds.
--- * 'externalId' - A unique identifier that might be required when you assume a role in another account. If the administrator of the account to which the role belongs provided you with an external ID, then provide that value in the @ExternalId@ parameter. This value can be any string, such as a passphrase or account number. A cross-account role is usually set up to trust everyone in an account. Therefore, the administrator of the trusting account might send an external ID to the administrator of the trusted account. That way, only someone with the ID can assume the role, rather than everyone in the account. For more information about the external ID, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your AWS Resources to a Third Party> in the /IAM User Guide/ .
---
--- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
--- * 'policy' - An IAM policy in JSON format that you want to use as an inline session policy.
---
--- This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
--- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
--- * 'policyARNs' - The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
---
--- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
--- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role to assume.
 -- * 'roleSessionName' - An identifier for the assumed role session.
 --
 -- Use the role session name to uniquely identify a session when the same role is assumed by different principals or for different reasons. In cross-account scenarios, the role session name is visible to, and can be logged by the account that owns the role. The role session name is also used in the ARN of the assumed role principal. This means that subsequent cross-account API requests that use the temporary security credentials will expose the role session name to the external account in their AWS CloudTrail logs.
 -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
+-- * 'transitiveTagKeys' - A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining Chaining Roles with Session Tags> in the /IAM User Guide/ .
+--
+-- This parameter is optional. When you set session tags as transitive, the session policy and session tags packed binary limit is not affected.
+-- If you choose not to specify a transitive tag key, then no tags are passed from this session to any subsequent sessions.
+-- * 'tokenCode' - The value provided by the MFA device, if the trust policy of the role being assumed requires MFA (that is, if the policy includes a condition that tests for MFA). If the role being assumed requires MFA and if the @TokenCode@ value is missing or expired, the @AssumeRole@ call returns an "access denied" error.
+--
+-- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
+-- * 'policyARNs' - The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies. The policies must exist in the same account as the role.
+--
+-- This parameter is optional. You can provide up to 10 managed policy ARNs. However, the plain text that you use for both inline and managed session policies can't exceed 2,048 characters. For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the AWS General Reference.
+-- Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+-- * 'durationSeconds' - The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours. If you specify a value higher than this setting, the operation fails. For example, if you specify a session duration of 12 hours, but your administrator set the maximum session duration to 6 hours, your operation fails. To learn how to view the maximum value for your role, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role> in the /IAM User Guide/ .
+--
+-- By default, the value is set to @3600@ seconds.
+-- * 'policy' - An IAM policy in JSON format that you want to use as an inline session policy.
+--
+-- This parameter is optional. Passing policies to this operation returns new temporary credentials. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies> in the /IAM User Guide/ .
+-- The plain text that you use for both inline and managed session policies can't exceed 2,048 characters. The JSON policy characters can be any ASCII character from the space character to the end of the valid character list (\u0020 through \u00FF). It can also include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D) characters.
+-- * 'externalId' - A unique identifier that might be required when you assume a role in another account. If the administrator of the account to which the role belongs provided you with an external ID, then provide that value in the @ExternalId@ parameter. This value can be any string, such as a passphrase or account number. A cross-account role is usually set up to trust everyone in an account. Therefore, the administrator of the trusting account might send an external ID to the administrator of the trusted account. That way, only someone with the ID can assume the role, rather than everyone in the account. For more information about the external ID, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html How to Use an External ID When Granting Access to Your AWS Resources to a Third Party> in the /IAM User Guide/ .
+--
+-- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
 -- * 'serialNumber' - The identification number of the MFA device that is associated with the user who is making the @AssumeRole@ call. Specify this value if the trust policy of the role being assumed includes a condition that requires MFA authentication. The value is either the serial number for a hardware device (such as @GAHT12345678@ ) or an Amazon Resource Name (ARN) for a virtual device (such as @arn:aws:iam::123456789012:mfa/user@ ).
 --
 -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
@@ -128,22 +163,17 @@ data AssumeRole = AssumeRole'
 -- You can pass a session tag with the same key as a tag that is already attached to the role. When you do, session tags override a role tag with the same key.
 -- Tag key–value pairs are not case sensitive, but case is preserved. This means that you cannot have separate @Department@ and @department@ tag keys. Assume that the role has the @Department@ =@Marketing@ tag and you pass the @department@ =@engineering@ session tag. @Department@ and @department@ are not saved as separate tags, and the session tag passed in the request takes precedence over the role tag.
 -- Additionally, if you used temporary credentials to perform this operation, the new session inherits any transitive session tags from the calling session. If you pass a session tag with the same key as an inherited tag, the operation fails. To view the inherited tags for a session, see the AWS CloudTrail logs. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/session-tags.html#id_session-tags_ctlogs Viewing Session Tags in CloudTrail> in the /IAM User Guide/ .
--- * 'tokenCode' - The value provided by the MFA device, if the trust policy of the role being assumed requires MFA (that is, if the policy includes a condition that tests for MFA). If the role being assumed requires MFA and if the @TokenCode@ value is missing or expired, the @AssumeRole@ call returns an "access denied" error.
---
--- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
--- * 'transitiveTagKeys' - A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining Chaining Roles with Session Tags> in the /IAM User Guide/ .
---
--- This parameter is optional. When you set session tags as transitive, the session policy and session tags packed binary limit is not affected.
--- If you choose not to specify a transitive tag key, then no tags are passed from this session to any subsequent sessions.
+-- * 'roleARN' - The Amazon Resource Name (ARN) of the role to assume.
 mkAssumeRole ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'roleSessionName'
   Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   AssumeRole
-mkAssumeRole pRoleARN_ pRoleSessionName_ =
+mkAssumeRole pRoleSessionName_ pRoleARN_ =
   AssumeRole'
-    { transitiveTagKeys = Lude.Nothing,
+    { roleSessionName = pRoleSessionName_,
+      transitiveTagKeys = Lude.Nothing,
       tokenCode = Lude.Nothing,
       policyARNs = Lude.Nothing,
       durationSeconds = Lude.Nothing,
@@ -151,9 +181,18 @@ mkAssumeRole pRoleARN_ pRoleSessionName_ =
       externalId = Lude.Nothing,
       serialNumber = Lude.Nothing,
       tags = Lude.Nothing,
-      roleARN = pRoleARN_,
-      roleSessionName = pRoleSessionName_
+      roleARN = pRoleARN_
     }
+
+-- | An identifier for the assumed role session.
+--
+-- Use the role session name to uniquely identify a session when the same role is assumed by different principals or for different reasons. In cross-account scenarios, the role session name is visible to, and can be logged by the account that owns the role. The role session name is also used in the ARN of the assumed role principal. This means that subsequent cross-account API requests that use the temporary security credentials will expose the role session name to the external account in their AWS CloudTrail logs.
+-- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
+--
+-- /Note:/ Consider using 'roleSessionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arRoleSessionName :: Lens.Lens' AssumeRole Lude.Text
+arRoleSessionName = Lens.lens (roleSessionName :: AssumeRole -> Lude.Text) (\s a -> s {roleSessionName = a} :: AssumeRole)
+{-# DEPRECATED arRoleSessionName "Use generic-lens or generic-optics with 'roleSessionName' instead." #-}
 
 -- | A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining Chaining Roles with Session Tags> in the /IAM User Guide/ .
 --
@@ -240,16 +279,6 @@ arRoleARN :: Lens.Lens' AssumeRole Lude.Text
 arRoleARN = Lens.lens (roleARN :: AssumeRole -> Lude.Text) (\s a -> s {roleARN = a} :: AssumeRole)
 {-# DEPRECATED arRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | An identifier for the assumed role session.
---
--- Use the role session name to uniquely identify a session when the same role is assumed by different principals or for different reasons. In cross-account scenarios, the role session name is visible to, and can be logged by the account that owns the role. The role session name is also used in the ARN of the assumed role principal. This means that subsequent cross-account API requests that use the temporary security credentials will expose the role session name to the external account in their AWS CloudTrail logs.
--- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-
---
--- /Note:/ Consider using 'roleSessionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arRoleSessionName :: Lens.Lens' AssumeRole Lude.Text
-arRoleSessionName = Lens.lens (roleSessionName :: AssumeRole -> Lude.Text) (\s a -> s {roleSessionName = a} :: AssumeRole)
-{-# DEPRECATED arRoleSessionName "Use generic-lens or generic-optics with 'roleSessionName' instead." #-}
-
 instance Lude.AWSRequest AssumeRole where
   type Rs AssumeRole = AssumeRoleResponse
   request = Req.postQuery stsService
@@ -275,6 +304,7 @@ instance Lude.ToQuery AssumeRole where
     Lude.mconcat
       [ "Action" Lude.=: ("AssumeRole" :: Lude.ByteString),
         "Version" Lude.=: ("2011-06-15" :: Lude.ByteString),
+        "RoleSessionName" Lude.=: roleSessionName,
         "TransitiveTagKeys"
           Lude.=: Lude.toQuery
             (Lude.toQueryList "member" Lude.<$> transitiveTagKeys),
@@ -287,18 +317,20 @@ instance Lude.ToQuery AssumeRole where
         "SerialNumber" Lude.=: serialNumber,
         "Tags"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "RoleArn" Lude.=: roleARN,
-        "RoleSessionName" Lude.=: roleSessionName
+        "RoleArn" Lude.=: roleARN
       ]
 
 -- | Contains the response to a successful 'AssumeRole' request, including temporary AWS credentials that can be used to make AWS requests.
 --
 -- /See:/ 'mkAssumeRoleResponse' smart constructor.
 data AssumeRoleResponse = AssumeRoleResponse'
-  { packedPolicySize ::
-      Lude.Maybe Lude.Natural,
+  { -- | A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
+    packedPolicySize :: Lude.Maybe Lude.Natural,
+    -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
     credentials :: Lude.Maybe AuthEnv,
+    -- | The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .
     assumedRoleUser :: Lude.Maybe AssumedRoleUser,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -306,9 +338,9 @@ data AssumeRoleResponse = AssumeRoleResponse'
 
 -- | Creates a value of 'AssumeRoleResponse' with the minimum fields required to make a request.
 --
--- * 'assumedRoleUser' - The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .
--- * 'credentials' - The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
 -- * 'packedPolicySize' - A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.
+-- * 'credentials' - The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
+-- * 'assumedRoleUser' - The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you can use to refer to the resulting temporary security credentials. For example, you can reference these credentials as a principal in a resource-based policy by using the ARN or assumed role ID. The ARN and ID include the @RoleSessionName@ that you specified when you called @AssumeRole@ .
 -- * 'responseStatus' - The response status code.
 mkAssumeRoleResponse ::
   -- | 'responseStatus'

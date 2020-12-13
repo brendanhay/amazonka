@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,6 +23,7 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     mkModifyInstanceAttribute,
 
     -- ** Request lenses
+    mInstanceId,
     mGroups,
     mAttribute,
     mEnaSupport,
@@ -37,7 +39,6 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     mInstanceInitiatedShutdownBehavior,
     mBlockDeviceMappings,
     mDryRun,
-    mInstanceId,
 
     -- * Destructuring the response
     ModifyInstanceAttributeResponse (..),
@@ -53,74 +54,82 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyInstanceAttribute' smart constructor.
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-  { groups ::
-      Lude.Maybe [Lude.Text],
-    attribute ::
-      Lude.Maybe InstanceAttributeName,
-    enaSupport ::
-      Lude.Maybe AttributeBooleanValue,
-    sourceDestCheck ::
-      Lude.Maybe AttributeBooleanValue,
-    disableAPITermination ::
-      Lude.Maybe AttributeBooleanValue,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Text,
+    -- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | The name of the attribute.
+    attribute :: Lude.Maybe InstanceAttributeName,
+    -- | Set to @true@ to enable enhanced networking with ENA for the instance.
+    --
+    -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
+    enaSupport :: Lude.Maybe AttributeBooleanValue,
+    -- | Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+    sourceDestCheck :: Lude.Maybe AttributeBooleanValue,
+    -- | If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
+    disableAPITermination :: Lude.Maybe AttributeBooleanValue,
+    -- | Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
     kernel :: Lude.Maybe AttributeValue,
+    -- | Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
     ramdisk :: Lude.Maybe AttributeValue,
+    -- | A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
     value :: Lude.Maybe Lude.Text,
+    -- | Changes the instance type to the specified value. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
     instanceType :: Lude.Maybe AttributeValue,
-    sriovNetSupport ::
-      Lude.Maybe AttributeValue,
-    ebsOptimized ::
-      Lude.Maybe AttributeBooleanValue,
+    -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance.
+    --
+    -- There is no way to disable enhanced networking with the Intel 82599 Virtual Function interface at this time.
+    -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
+    sriovNetSupport :: Lude.Maybe AttributeValue,
+    -- | Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+    ebsOptimized :: Lude.Maybe AttributeBooleanValue,
+    -- | Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
     userData :: Lude.Maybe BlobAttributeValue,
-    instanceInitiatedShutdownBehavior ::
-      Lude.Maybe AttributeValue,
-    blockDeviceMappings ::
-      Lude.Maybe
-        [InstanceBlockDeviceMappingSpecification],
-    dryRun :: Lude.Maybe Lude.Bool,
-    instanceId :: Lude.Text
+    -- | Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+    instanceInitiatedShutdownBehavior :: Lude.Maybe AttributeValue,
+    -- | Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
+    --
+    -- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+    blockDeviceMappings :: Lude.Maybe [InstanceBlockDeviceMappingSpecification],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceAttribute' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The ID of the instance.
+-- * 'groups' - [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
 -- * 'attribute' - The name of the attribute.
--- * 'blockDeviceMappings' - Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
---
--- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'disableAPITermination' - If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'ebsOptimized' - Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 -- * 'enaSupport' - Set to @true@ to enable enhanced networking with ENA for the instance.
 --
 -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
--- * 'groups' - [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
--- * 'instanceId' - The ID of the instance.
--- * 'instanceInitiatedShutdownBehavior' - Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
--- * 'instanceType' - Changes the instance type to the specified value. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
+-- * 'sourceDestCheck' - Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- * 'disableAPITermination' - If the value is @true@ , you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot Instances.
 -- * 'kernel' - Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
 -- * 'ramdisk' - Changes the instance's RAM disk to the specified value. We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB> .
--- * 'sourceDestCheck' - Specifies whether source/destination checking is enabled. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- * 'value' - A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
+-- * 'instanceType' - Changes the instance type to the specified value. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types> . If the instance type is not valid, the error returned is @InvalidInstanceAttributeValue@ .
 -- * 'sriovNetSupport' - Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the instance.
 --
 -- There is no way to disable enhanced networking with the Intel 82599 Virtual Function interface at this time.
 -- This option is supported only for HVM instances. Specifying this option with a PV instance can make it unreachable.
+-- * 'ebsOptimized' - Specifies whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
 -- * 'userData' - Changes the instance's user data to the specified value. If you are using an AWS SDK or command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text.
--- * 'value' - A new value for the attribute. Use only with the @kernel@ , @ramdisk@ , @userData@ , @disableApiTermination@ , or @instanceInitiatedShutdownBehavior@ attribute.
+-- * 'instanceInitiatedShutdownBehavior' - Specifies whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
+-- * 'blockDeviceMappings' - Modifies the @DeleteOnTermination@ attribute for volumes that are currently attached. The volume must be owned by the caller. If no value is specified for @DeleteOnTermination@ , the default is @true@ and the volume is deleted when the instance is terminated.
+--
+-- To add instance store volumes to an Amazon EBS-backed instance, you must add them when you launch the instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkModifyInstanceAttribute ::
   -- | 'instanceId'
   Lude.Text ->
   ModifyInstanceAttribute
 mkModifyInstanceAttribute pInstanceId_ =
   ModifyInstanceAttribute'
-    { groups = Lude.Nothing,
+    { instanceId = pInstanceId_,
+      groups = Lude.Nothing,
       attribute = Lude.Nothing,
       enaSupport = Lude.Nothing,
       sourceDestCheck = Lude.Nothing,
@@ -134,9 +143,15 @@ mkModifyInstanceAttribute pInstanceId_ =
       userData = Lude.Nothing,
       instanceInitiatedShutdownBehavior = Lude.Nothing,
       blockDeviceMappings = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      instanceId = pInstanceId_
+      dryRun = Lude.Nothing
     }
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mInstanceId :: Lens.Lens' ModifyInstanceAttribute Lude.Text
+mInstanceId = Lens.lens (instanceId :: ModifyInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: ModifyInstanceAttribute)
+{-# DEPRECATED mInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | [EC2-VPC] Changes the security groups of the instance. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.
 --
@@ -250,13 +265,6 @@ mDryRun :: Lens.Lens' ModifyInstanceAttribute (Lude.Maybe Lude.Bool)
 mDryRun = Lens.lens (dryRun :: ModifyInstanceAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ModifyInstanceAttribute)
 {-# DEPRECATED mDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mInstanceId :: Lens.Lens' ModifyInstanceAttribute Lude.Text
-mInstanceId = Lens.lens (instanceId :: ModifyInstanceAttribute -> Lude.Text) (\s a -> s {instanceId = a} :: ModifyInstanceAttribute)
-{-# DEPRECATED mInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
 instance Lude.AWSRequest ModifyInstanceAttribute where
   type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse
   request = Req.postQuery ec2Service
@@ -273,6 +281,7 @@ instance Lude.ToQuery ModifyInstanceAttribute where
     Lude.mconcat
       [ "Action" Lude.=: ("ModifyInstanceAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
+        "InstanceId" Lude.=: instanceId,
         Lude.toQuery (Lude.toQueryList "GroupId" Lude.<$> groups),
         "Attribute" Lude.=: attribute,
         "EnaSupport" Lude.=: enaSupport,
@@ -291,19 +300,12 @@ instance Lude.ToQuery ModifyInstanceAttribute where
           ( Lude.toQueryList "BlockDeviceMapping"
               Lude.<$> blockDeviceMappings
           ),
-        "DryRun" Lude.=: dryRun,
-        "InstanceId" Lude.=: instanceId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkModifyInstanceAttributeResponse' smart constructor.
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyInstanceAttributeResponse' with the minimum fields required to make a request.

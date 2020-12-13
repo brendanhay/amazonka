@@ -28,14 +28,11 @@ import Network.AWS.S3.Internal
 -- | Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
 --
 -- /See:/ 'mkInventoryFilter' smart constructor.
-newtype InventoryFilter = InventoryFilter' {prefix :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype InventoryFilter = InventoryFilter'
+  { -- | The prefix that an object must have to be included in the inventory results.
+    prefix :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryFilter' with the minimum fields required to make a request.

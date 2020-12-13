@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.GetUsagePlanKey
     mkGetUsagePlanKey,
 
     -- ** Request lenses
-    gUsagePlanId,
     gKeyId,
+    gUsagePlanId,
 
     -- * Destructuring the response
     UsagePlanKey (..),
@@ -44,16 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetUsagePlanKey' smart constructor.
 data GetUsagePlanKey = GetUsagePlanKey'
-  { usagePlanId :: Lude.Text,
-    keyId :: Lude.Text
+  { -- | [Required] The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+    keyId :: Lude.Text,
+    -- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+    usagePlanId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUsagePlanKey' with the minimum fields required to make a request.
@@ -61,20 +58,13 @@ data GetUsagePlanKey = GetUsagePlanKey'
 -- * 'keyId' - [Required] The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 -- * 'usagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 mkGetUsagePlanKey ::
-  -- | 'usagePlanId'
-  Lude.Text ->
   -- | 'keyId'
   Lude.Text ->
+  -- | 'usagePlanId'
+  Lude.Text ->
   GetUsagePlanKey
-mkGetUsagePlanKey pUsagePlanId_ pKeyId_ =
-  GetUsagePlanKey' {usagePlanId = pUsagePlanId_, keyId = pKeyId_}
-
--- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
---
--- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gUsagePlanId :: Lens.Lens' GetUsagePlanKey Lude.Text
-gUsagePlanId = Lens.lens (usagePlanId :: GetUsagePlanKey -> Lude.Text) (\s a -> s {usagePlanId = a} :: GetUsagePlanKey)
-{-# DEPRECATED gUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
+mkGetUsagePlanKey pKeyId_ pUsagePlanId_ =
+  GetUsagePlanKey' {keyId = pKeyId_, usagePlanId = pUsagePlanId_}
 
 -- | [Required] The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
 --
@@ -82,6 +72,13 @@ gUsagePlanId = Lens.lens (usagePlanId :: GetUsagePlanKey -> Lude.Text) (\s a -> 
 gKeyId :: Lens.Lens' GetUsagePlanKey Lude.Text
 gKeyId = Lens.lens (keyId :: GetUsagePlanKey -> Lude.Text) (\s a -> s {keyId = a} :: GetUsagePlanKey)
 {-# DEPRECATED gKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+--
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gUsagePlanId :: Lens.Lens' GetUsagePlanKey Lude.Text
+gUsagePlanId = Lens.lens (usagePlanId :: GetUsagePlanKey -> Lude.Text) (\s a -> s {usagePlanId = a} :: GetUsagePlanKey)
+{-# DEPRECATED gUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
 instance Lude.AWSRequest GetUsagePlanKey where
   type Rs GetUsagePlanKey = UsagePlanKey

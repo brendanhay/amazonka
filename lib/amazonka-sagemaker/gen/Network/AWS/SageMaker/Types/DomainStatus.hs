@@ -13,13 +13,13 @@
 module Network.AWS.SageMaker.Types.DomainStatus
   ( DomainStatus
       ( DomainStatus',
-        DeleteFailed,
         Deleting,
         Failed,
         InService,
         Pending,
+        Updating,
         UpdateFailed,
-        Updating
+        DeleteFailed
       ),
   )
 where
@@ -50,9 +50,6 @@ newtype DomainStatus = DomainStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeleteFailed :: DomainStatus
-pattern DeleteFailed = DomainStatus' "Delete_Failed"
-
 pattern Deleting :: DomainStatus
 pattern Deleting = DomainStatus' "Deleting"
 
@@ -65,19 +62,22 @@ pattern InService = DomainStatus' "InService"
 pattern Pending :: DomainStatus
 pattern Pending = DomainStatus' "Pending"
 
-pattern UpdateFailed :: DomainStatus
-pattern UpdateFailed = DomainStatus' "Update_Failed"
-
 pattern Updating :: DomainStatus
 pattern Updating = DomainStatus' "Updating"
 
+pattern UpdateFailed :: DomainStatus
+pattern UpdateFailed = DomainStatus' "Update_Failed"
+
+pattern DeleteFailed :: DomainStatus
+pattern DeleteFailed = DomainStatus' "Delete_Failed"
+
 {-# COMPLETE
-  DeleteFailed,
   Deleting,
   Failed,
   InService,
   Pending,
-  UpdateFailed,
   Updating,
+  UpdateFailed,
+  DeleteFailed,
   DomainStatus'
   #-}

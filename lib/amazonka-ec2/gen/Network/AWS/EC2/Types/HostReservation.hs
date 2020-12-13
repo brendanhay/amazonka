@@ -45,47 +45,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHostReservation' smart constructor.
 data HostReservation = HostReservation'
-  { state ::
-      Lude.Maybe ReservationState,
+  { -- | The state of the reservation.
+    state :: Lude.Maybe ReservationState,
+    -- | The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation.
     instanceFamily :: Lude.Maybe Lude.Text,
+    -- | The currency in which the @upfrontPrice@ and @hourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
     currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The ID of the reservation that specifies the associated Dedicated Hosts.
     hostReservationId :: Lude.Maybe Lude.Text,
+    -- | The date and time that the reservation started.
     start :: Lude.Maybe Lude.DateTime,
+    -- | The hourly price of the reservation.
     hourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The number of Dedicated Hosts the reservation is associated with.
     count :: Lude.Maybe Lude.Int,
+    -- | The upfront price of the reservation.
     upfrontPrice :: Lude.Maybe Lude.Text,
+    -- | The date and time that the reservation ends.
     end :: Lude.Maybe Lude.DateTime,
+    -- | The IDs of the Dedicated Hosts associated with the reservation.
     hostIdSet :: Lude.Maybe [Lude.Text],
+    -- | The ID of the reservation. This remains the same regardless of which Dedicated Hosts are associated with it.
     offeringId :: Lude.Maybe Lude.Text,
+    -- | The length of the reservation's term, specified in seconds. Can be @31536000 (1 year)@ | @94608000 (3 years)@ .
     duration :: Lude.Maybe Lude.Int,
+    -- | Any tags assigned to the Dedicated Host Reservation.
     tags :: Lude.Maybe [Tag],
+    -- | The payment option selected for this reservation.
     paymentOption :: Lude.Maybe PaymentOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostReservation' with the minimum fields required to make a request.
 --
--- * 'count' - The number of Dedicated Hosts the reservation is associated with.
+-- * 'state' - The state of the reservation.
+-- * 'instanceFamily' - The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation.
 -- * 'currencyCode' - The currency in which the @upfrontPrice@ and @hourlyPrice@ amounts are specified. At this time, the only supported currency is @USD@ .
--- * 'duration' - The length of the reservation's term, specified in seconds. Can be @31536000 (1 year)@ | @94608000 (3 years)@ .
+-- * 'hostReservationId' - The ID of the reservation that specifies the associated Dedicated Hosts.
+-- * 'start' - The date and time that the reservation started.
+-- * 'hourlyPrice' - The hourly price of the reservation.
+-- * 'count' - The number of Dedicated Hosts the reservation is associated with.
+-- * 'upfrontPrice' - The upfront price of the reservation.
 -- * 'end' - The date and time that the reservation ends.
 -- * 'hostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.
--- * 'hostReservationId' - The ID of the reservation that specifies the associated Dedicated Hosts.
--- * 'hourlyPrice' - The hourly price of the reservation.
--- * 'instanceFamily' - The instance family of the Dedicated Host Reservation. The instance family on the Dedicated Host must be the same in order for it to benefit from the reservation.
 -- * 'offeringId' - The ID of the reservation. This remains the same regardless of which Dedicated Hosts are associated with it.
--- * 'paymentOption' - The payment option selected for this reservation.
--- * 'start' - The date and time that the reservation started.
--- * 'state' - The state of the reservation.
+-- * 'duration' - The length of the reservation's term, specified in seconds. Can be @31536000 (1 year)@ | @94608000 (3 years)@ .
 -- * 'tags' - Any tags assigned to the Dedicated Host Reservation.
--- * 'upfrontPrice' - The upfront price of the reservation.
+-- * 'paymentOption' - The payment option selected for this reservation.
 mkHostReservation ::
   HostReservation
 mkHostReservation =

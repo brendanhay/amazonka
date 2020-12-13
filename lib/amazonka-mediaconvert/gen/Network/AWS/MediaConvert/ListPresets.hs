@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,28 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListPresets' smart constructor.
 data ListPresets = ListPresets'
-  { category :: Lude.Maybe Lude.Text,
+  { -- | Optionally, specify a preset category to limit responses to only presets from that category.
+    category :: Lude.Maybe Lude.Text,
+    -- | Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
     listBy :: Lude.Maybe PresetListBy,
+    -- | Use this string, provided with the response to a previous request, to request the next batch of presets.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
     order :: Lude.Maybe Order,
+    -- | Optional. Number of presets, up to twenty, that will be returned at one time
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPresets' with the minimum fields required to make a request.
 --
 -- * 'category' - Optionally, specify a preset category to limit responses to only presets from that category.
 -- * 'listBy' - Optional. When you request a list of presets, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by name.
--- * 'maxResults' - Optional. Number of presets, up to twenty, that will be returned at one time
 -- * 'nextToken' - Use this string, provided with the response to a previous request, to request the next batch of presets.
 -- * 'order' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+-- * 'maxResults' - Optional. Number of presets, up to twenty, that will be returned at one time
 mkListPresets ::
   ListPresets
 mkListPresets =
@@ -160,24 +160,20 @@ instance Lude.ToQuery ListPresets where
 
 -- | /See:/ 'mkListPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
-  { presets ::
-      Lude.Maybe [Preset],
+  { -- | List of presets
+    presets :: Lude.Maybe [Preset],
+    -- | Use this string to request the next batch of presets.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPresetsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Use this string to request the next batch of presets.
 -- * 'presets' - List of presets
+-- * 'nextToken' - Use this string to request the next batch of presets.
 -- * 'responseStatus' - The response status code.
 mkListPresetsResponse ::
   -- | 'responseStatus'

@@ -17,16 +17,16 @@ module Network.AWS.SageMaker.Types.AutoMLCandidate
     mkAutoMLCandidate,
 
     -- * Lenses
+    amlcCreationTime,
     amlcFailureReason,
     amlcInferenceContainers,
+    amlcObjectiveStatus,
+    amlcLastModifiedTime,
+    amlcCandidateStatus,
+    amlcCandidateSteps,
+    amlcCandidateName,
     amlcEndTime,
     amlcFinalAutoMLJobObjectiveMetric,
-    amlcCandidateName,
-    amlcObjectiveStatus,
-    amlcCandidateSteps,
-    amlcCandidateStatus,
-    amlcCreationTime,
-    amlcLastModifiedTime,
   )
 where
 
@@ -42,71 +42,78 @@ import Network.AWS.SageMaker.Types.ObjectiveStatus
 --
 -- /See:/ 'mkAutoMLCandidate' smart constructor.
 data AutoMLCandidate = AutoMLCandidate'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
-    inferenceContainers ::
-      Lude.Maybe [AutoMLContainerDefinition],
-    endTime :: Lude.Maybe Lude.Timestamp,
-    finalAutoMLJobObjectiveMetric ::
-      Lude.Maybe FinalAutoMLJobObjectiveMetric,
-    candidateName :: Lude.Text,
-    objectiveStatus :: ObjectiveStatus,
-    candidateSteps :: [AutoMLCandidateStep],
-    candidateStatus :: CandidateStatus,
+  { -- | The creation time.
     creationTime :: Lude.Timestamp,
-    lastModifiedTime :: Lude.Timestamp
+    -- | The failure reason.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The inference containers.
+    inferenceContainers :: Lude.Maybe [AutoMLContainerDefinition],
+    -- | The objective status.
+    objectiveStatus :: ObjectiveStatus,
+    -- | The last modified time.
+    lastModifiedTime :: Lude.Timestamp,
+    -- | The candidate's status.
+    candidateStatus :: CandidateStatus,
+    -- | The candidate's steps.
+    candidateSteps :: [AutoMLCandidateStep],
+    -- | The candidate name.
+    candidateName :: Lude.Text,
+    -- | The end time.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    finalAutoMLJobObjectiveMetric :: Lude.Maybe FinalAutoMLJobObjectiveMetric
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLCandidate' with the minimum fields required to make a request.
 --
--- * 'candidateName' - The candidate name.
+-- * 'creationTime' - The creation time.
+-- * 'failureReason' - The failure reason.
+-- * 'inferenceContainers' - The inference containers.
+-- * 'objectiveStatus' - The objective status.
+-- * 'lastModifiedTime' - The last modified time.
 -- * 'candidateStatus' - The candidate's status.
 -- * 'candidateSteps' - The candidate's steps.
--- * 'creationTime' - The creation time.
+-- * 'candidateName' - The candidate name.
 -- * 'endTime' - The end time.
--- * 'failureReason' - The failure reason.
--- * 'finalAutoMLJobObjectiveMetric' - Undocumented field.
--- * 'inferenceContainers' - The inference containers.
--- * 'lastModifiedTime' - The last modified time.
--- * 'objectiveStatus' - The objective status.
+-- * 'finalAutoMLJobObjectiveMetric' -
 mkAutoMLCandidate ::
-  -- | 'candidateName'
-  Lude.Text ->
-  -- | 'objectiveStatus'
-  ObjectiveStatus ->
-  -- | 'candidateStatus'
-  CandidateStatus ->
   -- | 'creationTime'
   Lude.Timestamp ->
+  -- | 'objectiveStatus'
+  ObjectiveStatus ->
   -- | 'lastModifiedTime'
   Lude.Timestamp ->
+  -- | 'candidateStatus'
+  CandidateStatus ->
+  -- | 'candidateName'
+  Lude.Text ->
   AutoMLCandidate
 mkAutoMLCandidate
-  pCandidateName_
-  pObjectiveStatus_
-  pCandidateStatus_
   pCreationTime_
-  pLastModifiedTime_ =
+  pObjectiveStatus_
+  pLastModifiedTime_
+  pCandidateStatus_
+  pCandidateName_ =
     AutoMLCandidate'
-      { failureReason = Lude.Nothing,
+      { creationTime = pCreationTime_,
+        failureReason = Lude.Nothing,
         inferenceContainers = Lude.Nothing,
-        endTime = Lude.Nothing,
-        finalAutoMLJobObjectiveMetric = Lude.Nothing,
-        candidateName = pCandidateName_,
         objectiveStatus = pObjectiveStatus_,
-        candidateSteps = Lude.mempty,
+        lastModifiedTime = pLastModifiedTime_,
         candidateStatus = pCandidateStatus_,
-        creationTime = pCreationTime_,
-        lastModifiedTime = pLastModifiedTime_
+        candidateSteps = Lude.mempty,
+        candidateName = pCandidateName_,
+        endTime = Lude.Nothing,
+        finalAutoMLJobObjectiveMetric = Lude.Nothing
       }
+
+-- | The creation time.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcCreationTime :: Lens.Lens' AutoMLCandidate Lude.Timestamp
+amlcCreationTime = Lens.lens (creationTime :: AutoMLCandidate -> Lude.Timestamp) (\s a -> s {creationTime = a} :: AutoMLCandidate)
+{-# DEPRECATED amlcCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The failure reason.
 --
@@ -122,6 +129,41 @@ amlcInferenceContainers :: Lens.Lens' AutoMLCandidate (Lude.Maybe [AutoMLContain
 amlcInferenceContainers = Lens.lens (inferenceContainers :: AutoMLCandidate -> Lude.Maybe [AutoMLContainerDefinition]) (\s a -> s {inferenceContainers = a} :: AutoMLCandidate)
 {-# DEPRECATED amlcInferenceContainers "Use generic-lens or generic-optics with 'inferenceContainers' instead." #-}
 
+-- | The objective status.
+--
+-- /Note:/ Consider using 'objectiveStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcObjectiveStatus :: Lens.Lens' AutoMLCandidate ObjectiveStatus
+amlcObjectiveStatus = Lens.lens (objectiveStatus :: AutoMLCandidate -> ObjectiveStatus) (\s a -> s {objectiveStatus = a} :: AutoMLCandidate)
+{-# DEPRECATED amlcObjectiveStatus "Use generic-lens or generic-optics with 'objectiveStatus' instead." #-}
+
+-- | The last modified time.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcLastModifiedTime :: Lens.Lens' AutoMLCandidate Lude.Timestamp
+amlcLastModifiedTime = Lens.lens (lastModifiedTime :: AutoMLCandidate -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: AutoMLCandidate)
+{-# DEPRECATED amlcLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The candidate's status.
+--
+-- /Note:/ Consider using 'candidateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcCandidateStatus :: Lens.Lens' AutoMLCandidate CandidateStatus
+amlcCandidateStatus = Lens.lens (candidateStatus :: AutoMLCandidate -> CandidateStatus) (\s a -> s {candidateStatus = a} :: AutoMLCandidate)
+{-# DEPRECATED amlcCandidateStatus "Use generic-lens or generic-optics with 'candidateStatus' instead." #-}
+
+-- | The candidate's steps.
+--
+-- /Note:/ Consider using 'candidateSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcCandidateSteps :: Lens.Lens' AutoMLCandidate [AutoMLCandidateStep]
+amlcCandidateSteps = Lens.lens (candidateSteps :: AutoMLCandidate -> [AutoMLCandidateStep]) (\s a -> s {candidateSteps = a} :: AutoMLCandidate)
+{-# DEPRECATED amlcCandidateSteps "Use generic-lens or generic-optics with 'candidateSteps' instead." #-}
+
+-- | The candidate name.
+--
+-- /Note:/ Consider using 'candidateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amlcCandidateName :: Lens.Lens' AutoMLCandidate Lude.Text
+amlcCandidateName = Lens.lens (candidateName :: AutoMLCandidate -> Lude.Text) (\s a -> s {candidateName = a} :: AutoMLCandidate)
+{-# DEPRECATED amlcCandidateName "Use generic-lens or generic-optics with 'candidateName' instead." #-}
+
 -- | The end time.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -136,62 +178,20 @@ amlcFinalAutoMLJobObjectiveMetric :: Lens.Lens' AutoMLCandidate (Lude.Maybe Fina
 amlcFinalAutoMLJobObjectiveMetric = Lens.lens (finalAutoMLJobObjectiveMetric :: AutoMLCandidate -> Lude.Maybe FinalAutoMLJobObjectiveMetric) (\s a -> s {finalAutoMLJobObjectiveMetric = a} :: AutoMLCandidate)
 {-# DEPRECATED amlcFinalAutoMLJobObjectiveMetric "Use generic-lens or generic-optics with 'finalAutoMLJobObjectiveMetric' instead." #-}
 
--- | The candidate name.
---
--- /Note:/ Consider using 'candidateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcCandidateName :: Lens.Lens' AutoMLCandidate Lude.Text
-amlcCandidateName = Lens.lens (candidateName :: AutoMLCandidate -> Lude.Text) (\s a -> s {candidateName = a} :: AutoMLCandidate)
-{-# DEPRECATED amlcCandidateName "Use generic-lens or generic-optics with 'candidateName' instead." #-}
-
--- | The objective status.
---
--- /Note:/ Consider using 'objectiveStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcObjectiveStatus :: Lens.Lens' AutoMLCandidate ObjectiveStatus
-amlcObjectiveStatus = Lens.lens (objectiveStatus :: AutoMLCandidate -> ObjectiveStatus) (\s a -> s {objectiveStatus = a} :: AutoMLCandidate)
-{-# DEPRECATED amlcObjectiveStatus "Use generic-lens or generic-optics with 'objectiveStatus' instead." #-}
-
--- | The candidate's steps.
---
--- /Note:/ Consider using 'candidateSteps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcCandidateSteps :: Lens.Lens' AutoMLCandidate [AutoMLCandidateStep]
-amlcCandidateSteps = Lens.lens (candidateSteps :: AutoMLCandidate -> [AutoMLCandidateStep]) (\s a -> s {candidateSteps = a} :: AutoMLCandidate)
-{-# DEPRECATED amlcCandidateSteps "Use generic-lens or generic-optics with 'candidateSteps' instead." #-}
-
--- | The candidate's status.
---
--- /Note:/ Consider using 'candidateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcCandidateStatus :: Lens.Lens' AutoMLCandidate CandidateStatus
-amlcCandidateStatus = Lens.lens (candidateStatus :: AutoMLCandidate -> CandidateStatus) (\s a -> s {candidateStatus = a} :: AutoMLCandidate)
-{-# DEPRECATED amlcCandidateStatus "Use generic-lens or generic-optics with 'candidateStatus' instead." #-}
-
--- | The creation time.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcCreationTime :: Lens.Lens' AutoMLCandidate Lude.Timestamp
-amlcCreationTime = Lens.lens (creationTime :: AutoMLCandidate -> Lude.Timestamp) (\s a -> s {creationTime = a} :: AutoMLCandidate)
-{-# DEPRECATED amlcCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The last modified time.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amlcLastModifiedTime :: Lens.Lens' AutoMLCandidate Lude.Timestamp
-amlcLastModifiedTime = Lens.lens (lastModifiedTime :: AutoMLCandidate -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: AutoMLCandidate)
-{-# DEPRECATED amlcLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
-
 instance Lude.FromJSON AutoMLCandidate where
   parseJSON =
     Lude.withObject
       "AutoMLCandidate"
       ( \x ->
           AutoMLCandidate'
-            Lude.<$> (x Lude..:? "FailureReason")
+            Lude.<$> (x Lude..: "CreationTime")
+            Lude.<*> (x Lude..:? "FailureReason")
             Lude.<*> (x Lude..:? "InferenceContainers" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "ObjectiveStatus")
+            Lude.<*> (x Lude..: "LastModifiedTime")
+            Lude.<*> (x Lude..: "CandidateStatus")
+            Lude.<*> (x Lude..:? "CandidateSteps" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "CandidateName")
             Lude.<*> (x Lude..:? "EndTime")
             Lude.<*> (x Lude..:? "FinalAutoMLJobObjectiveMetric")
-            Lude.<*> (x Lude..: "CandidateName")
-            Lude.<*> (x Lude..: "ObjectiveStatus")
-            Lude.<*> (x Lude..:? "CandidateSteps" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "CandidateStatus")
-            Lude.<*> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..: "LastModifiedTime")
       )

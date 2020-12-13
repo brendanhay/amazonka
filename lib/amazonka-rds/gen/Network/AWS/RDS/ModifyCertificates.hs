@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,17 +53,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkModifyCertificates' smart constructor.
 data ModifyCertificates = ModifyCertificates'
-  { certificateIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The new default certificate identifier to override the current one with.
+    --
+    -- To determine the valid values, use the @describe-certificates@ AWS CLI command or the @DescribeCertificates@ API operation.
+    certificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether to remove the override for the default certificate. If the override is removed, the default certificate is the system default.
     removeCustomerOverride :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCertificates' with the minimum fields required to make a request.
@@ -123,22 +121,16 @@ instance Lude.ToQuery ModifyCertificates where
 
 -- | /See:/ 'mkModifyCertificatesResponse' smart constructor.
 data ModifyCertificatesResponse = ModifyCertificatesResponse'
-  { certificate ::
-      Lude.Maybe Certificate,
+  { certificate :: Lude.Maybe Certificate,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModifyCertificatesResponse' with the minimum fields required to make a request.
 --
--- * 'certificate' - Undocumented field.
+-- * 'certificate' -
 -- * 'responseStatus' - The response status code.
 mkModifyCertificatesResponse ::
   -- | 'responseStatus'

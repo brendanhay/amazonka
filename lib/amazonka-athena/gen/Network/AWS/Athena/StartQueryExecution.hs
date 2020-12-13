@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,17 +22,17 @@ module Network.AWS.Athena.StartQueryExecution
     -- ** Request lenses
     sqeQueryExecutionContext,
     sqeResultConfiguration,
+    sqeQueryString,
     sqeClientRequestToken,
     sqeWorkGroup,
-    sqeQueryString,
 
     -- * Destructuring the response
     StartQueryExecutionResponse (..),
     mkStartQueryExecutionResponse,
 
     -- ** Response lenses
-    sqersQueryExecutionId,
-    sqersResponseStatus,
+    srsQueryExecutionId,
+    srsResponseStatus,
   )
 where
 
@@ -43,31 +44,30 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartQueryExecution' smart constructor.
 data StartQueryExecution = StartQueryExecution'
-  { queryExecutionContext ::
-      Lude.Maybe QueryExecutionContext,
-    resultConfiguration ::
-      Lude.Maybe ResultConfiguration,
+  { -- | The database within which the query executes.
+    queryExecutionContext :: Lude.Maybe QueryExecutionContext,
+    -- | Specifies information about where and how to save the results of the query execution. If the query runs in a workgroup, then workgroup's settings may override query settings. This affects the query results location. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+    resultConfiguration :: Lude.Maybe ResultConfiguration,
+    -- | The SQL query statements to be executed.
+    queryString :: Lude.Text,
+    -- | A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @StartQueryExecution@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned.
+    --
+    -- /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
     clientRequestToken :: Lude.Maybe Lude.Text,
-    workGroup :: Lude.Maybe Lude.Text,
-    queryString :: Lude.Text
+    -- | The name of the workgroup in which the query is being started.
+    workGroup :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartQueryExecution' with the minimum fields required to make a request.
 --
+-- * 'queryExecutionContext' - The database within which the query executes.
+-- * 'resultConfiguration' - Specifies information about where and how to save the results of the query execution. If the query runs in a workgroup, then workgroup's settings may override query settings. This affects the query results location. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
+-- * 'queryString' - The SQL query statements to be executed.
 -- * 'clientRequestToken' - A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @StartQueryExecution@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned.
 --
 -- /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
--- * 'queryExecutionContext' - The database within which the query executes.
--- * 'queryString' - The SQL query statements to be executed.
--- * 'resultConfiguration' - Specifies information about where and how to save the results of the query execution. If the query runs in a workgroup, then workgroup's settings may override query settings. This affects the query results location. The workgroup settings override is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See 'WorkGroupConfiguration$EnforceWorkGroupConfiguration' .
 -- * 'workGroup' - The name of the workgroup in which the query is being started.
 mkStartQueryExecution ::
   -- | 'queryString'
@@ -77,9 +77,9 @@ mkStartQueryExecution pQueryString_ =
   StartQueryExecution'
     { queryExecutionContext = Lude.Nothing,
       resultConfiguration = Lude.Nothing,
+      queryString = pQueryString_,
       clientRequestToken = Lude.Nothing,
-      workGroup = Lude.Nothing,
-      queryString = pQueryString_
+      workGroup = Lude.Nothing
     }
 
 -- | The database within which the query executes.
@@ -96,6 +96,13 @@ sqeResultConfiguration :: Lens.Lens' StartQueryExecution (Lude.Maybe ResultConfi
 sqeResultConfiguration = Lens.lens (resultConfiguration :: StartQueryExecution -> Lude.Maybe ResultConfiguration) (\s a -> s {resultConfiguration = a} :: StartQueryExecution)
 {-# DEPRECATED sqeResultConfiguration "Use generic-lens or generic-optics with 'resultConfiguration' instead." #-}
 
+-- | The SQL query statements to be executed.
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sqeQueryString :: Lens.Lens' StartQueryExecution Lude.Text
+sqeQueryString = Lens.lens (queryString :: StartQueryExecution -> Lude.Text) (\s a -> s {queryString = a} :: StartQueryExecution)
+{-# DEPRECATED sqeQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
 -- | A unique case-sensitive string used to ensure the request to create the query is idempotent (executes only once). If another @StartQueryExecution@ request is received, the same response is returned and another query is not created. If a parameter has changed, for example, the @QueryString@ , an error is returned.
 --
 -- /Important:/ This token is listed as not required because AWS SDKs (for example the AWS SDK for Java) auto-generate the token for users. If you are not using the AWS SDK or the AWS CLI, you must provide this token or the action will fail.
@@ -111,13 +118,6 @@ sqeClientRequestToken = Lens.lens (clientRequestToken :: StartQueryExecution -> 
 sqeWorkGroup :: Lens.Lens' StartQueryExecution (Lude.Maybe Lude.Text)
 sqeWorkGroup = Lens.lens (workGroup :: StartQueryExecution -> Lude.Maybe Lude.Text) (\s a -> s {workGroup = a} :: StartQueryExecution)
 {-# DEPRECATED sqeWorkGroup "Use generic-lens or generic-optics with 'workGroup' instead." #-}
-
--- | The SQL query statements to be executed.
---
--- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqeQueryString :: Lens.Lens' StartQueryExecution Lude.Text
-sqeQueryString = Lens.lens (queryString :: StartQueryExecution -> Lude.Text) (\s a -> s {queryString = a} :: StartQueryExecution)
-{-# DEPRECATED sqeQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
 instance Lude.AWSRequest StartQueryExecution where
   type Rs StartQueryExecution = StartQueryExecutionResponse
@@ -147,9 +147,9 @@ instance Lude.ToJSON StartQueryExecution where
       ( Lude.catMaybes
           [ ("QueryExecutionContext" Lude..=) Lude.<$> queryExecutionContext,
             ("ResultConfiguration" Lude..=) Lude.<$> resultConfiguration,
+            Lude.Just ("QueryString" Lude..= queryString),
             ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("WorkGroup" Lude..=) Lude.<$> workGroup,
-            Lude.Just ("QueryString" Lude..= queryString)
+            ("WorkGroup" Lude..=) Lude.<$> workGroup
           ]
       )
 
@@ -161,17 +161,12 @@ instance Lude.ToQuery StartQueryExecution where
 
 -- | /See:/ 'mkStartQueryExecutionResponse' smart constructor.
 data StartQueryExecutionResponse = StartQueryExecutionResponse'
-  { queryExecutionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID of the query that ran as a result of this request.
+    queryExecutionId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartQueryExecutionResponse' with the minimum fields required to make a request.
@@ -191,13 +186,13 @@ mkStartQueryExecutionResponse pResponseStatus_ =
 -- | The unique ID of the query that ran as a result of this request.
 --
 -- /Note:/ Consider using 'queryExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqersQueryExecutionId :: Lens.Lens' StartQueryExecutionResponse (Lude.Maybe Lude.Text)
-sqersQueryExecutionId = Lens.lens (queryExecutionId :: StartQueryExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {queryExecutionId = a} :: StartQueryExecutionResponse)
-{-# DEPRECATED sqersQueryExecutionId "Use generic-lens or generic-optics with 'queryExecutionId' instead." #-}
+srsQueryExecutionId :: Lens.Lens' StartQueryExecutionResponse (Lude.Maybe Lude.Text)
+srsQueryExecutionId = Lens.lens (queryExecutionId :: StartQueryExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {queryExecutionId = a} :: StartQueryExecutionResponse)
+{-# DEPRECATED srsQueryExecutionId "Use generic-lens or generic-optics with 'queryExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqersResponseStatus :: Lens.Lens' StartQueryExecutionResponse Lude.Int
-sqersResponseStatus = Lens.lens (responseStatus :: StartQueryExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartQueryExecutionResponse)
-{-# DEPRECATED sqersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StartQueryExecutionResponse Lude.Int
+srsResponseStatus = Lens.lens (responseStatus :: StartQueryExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartQueryExecutionResponse)
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

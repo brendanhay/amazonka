@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.ServiceCatalog.ListBudgetsForResource
     mkListBudgetsForResource,
 
     -- ** Request lenses
+    lbfrResourceId,
     lbfrAcceptLanguage,
     lbfrPageToken,
     lbfrPageSize,
-    lbfrResourceId,
 
     -- * Destructuring the response
     ListBudgetsForResourceResponse (..),
@@ -43,23 +44,30 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkListBudgetsForResource' smart constructor.
 data ListBudgetsForResource = ListBudgetsForResource'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The resource identifier.
+    resourceId :: Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
     pageToken :: Lude.Maybe Lude.Text,
-    pageSize :: Lude.Maybe Lude.Natural,
-    resourceId :: Lude.Text
+    -- | The maximum number of items to return with this call.
+    pageSize :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBudgetsForResource' with the minimum fields required to make a request.
 --
+-- * 'resourceId' - The resource identifier.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -72,20 +80,26 @@ data ListBudgetsForResource = ListBudgetsForResource'
 --     * @zh@ - Chinese
 --
 --
--- * 'pageSize' - The maximum number of items to return with this call.
 -- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'resourceId' - The resource identifier.
+-- * 'pageSize' - The maximum number of items to return with this call.
 mkListBudgetsForResource ::
   -- | 'resourceId'
   Lude.Text ->
   ListBudgetsForResource
 mkListBudgetsForResource pResourceId_ =
   ListBudgetsForResource'
-    { acceptLanguage = Lude.Nothing,
+    { resourceId = pResourceId_,
+      acceptLanguage = Lude.Nothing,
       pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      resourceId = pResourceId_
+      pageSize = Lude.Nothing
     }
+
+-- | The resource identifier.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbfrResourceId :: Lens.Lens' ListBudgetsForResource Lude.Text
+lbfrResourceId = Lens.lens (resourceId :: ListBudgetsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListBudgetsForResource)
+{-# DEPRECATED lbfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The language code.
 --
@@ -119,13 +133,6 @@ lbfrPageSize :: Lens.Lens' ListBudgetsForResource (Lude.Maybe Lude.Natural)
 lbfrPageSize = Lens.lens (pageSize :: ListBudgetsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListBudgetsForResource)
 {-# DEPRECATED lbfrPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
--- | The resource identifier.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbfrResourceId :: Lens.Lens' ListBudgetsForResource Lude.Text
-lbfrResourceId = Lens.lens (resourceId :: ListBudgetsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListBudgetsForResource)
-{-# DEPRECATED lbfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
 instance Lude.AWSRequest ListBudgetsForResource where
   type Rs ListBudgetsForResource = ListBudgetsForResourceResponse
   request = Req.postJSON serviceCatalogService
@@ -155,10 +162,10 @@ instance Lude.ToJSON ListBudgetsForResource where
   toJSON ListBudgetsForResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
             ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("ResourceId" Lude..= resourceId)
+            ("PageSize" Lude..=) Lude.<$> pageSize
           ]
       )
 
@@ -170,25 +177,20 @@ instance Lude.ToQuery ListBudgetsForResource where
 
 -- | /See:/ 'mkListBudgetsForResourceResponse' smart constructor.
 data ListBudgetsForResourceResponse = ListBudgetsForResourceResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    budgets ::
-      Lude.Maybe [BudgetDetail],
+  { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Information about the associated budgets.
+    budgets :: Lude.Maybe [BudgetDetail],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBudgetsForResourceResponse' with the minimum fields required to make a request.
 --
--- * 'budgets' - Information about the associated budgets.
 -- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- * 'budgets' - Information about the associated budgets.
 -- * 'responseStatus' - The response status code.
 mkListBudgetsForResourceResponse ::
   -- | 'responseStatus'

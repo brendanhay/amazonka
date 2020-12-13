@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,35 +47,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDirectConnectGatewayAttachments' smart constructor.
 data DescribeDirectConnectGatewayAttachments = DescribeDirectConnectGatewayAttachments'
-  { directConnectGatewayId ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Int,
-    virtualInterfaceId ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    -- | The token provided in the previous call to retrieve the next page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    --
+    -- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
+    maxResults :: Lude.Maybe Lude.Int,
+    -- | The ID of the virtual interface.
+    virtualInterfaceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectConnectGatewayAttachments' with the minimum fields required to make a request.
 --
 -- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
+-- * 'nextToken' - The token provided in the previous call to retrieve the next page.
 -- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- If @MaxResults@ is given a value larger than 100, only 100 results are returned.
--- * 'nextToken' - The token provided in the previous call to retrieve the next page.
 -- * 'virtualInterfaceId' - The ID of the virtual interface.
 mkDescribeDirectConnectGatewayAttachments ::
   DescribeDirectConnectGatewayAttachments
@@ -174,31 +167,20 @@ instance Lude.ToQuery DescribeDirectConnectGatewayAttachments where
 
 -- | /See:/ 'mkDescribeDirectConnectGatewayAttachmentsResponse' smart constructor.
 data DescribeDirectConnectGatewayAttachmentsResponse = DescribeDirectConnectGatewayAttachmentsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    directConnectGatewayAttachments ::
-      Lude.Maybe
-        [DirectConnectGatewayAttachment],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to retrieve the next page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The attachments.
+    directConnectGatewayAttachments :: Lude.Maybe [DirectConnectGatewayAttachment],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDirectConnectGatewayAttachmentsResponse' with the minimum fields required to make a request.
 --
--- * 'directConnectGatewayAttachments' - The attachments.
 -- * 'nextToken' - The token to retrieve the next page.
+-- * 'directConnectGatewayAttachments' - The attachments.
 -- * 'responseStatus' - The response status code.
 mkDescribeDirectConnectGatewayAttachmentsResponse ::
   -- | 'responseStatus'

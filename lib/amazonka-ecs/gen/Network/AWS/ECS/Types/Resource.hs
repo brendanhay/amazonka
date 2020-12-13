@@ -33,29 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { stringSetValue :: Lude.Maybe [Lude.Text],
+  { -- | When the @stringSetValue@ type is set, the value of the resource must be a string type.
+    stringSetValue :: Lude.Maybe [Lude.Text],
+    -- | When the @integerValue@ type is set, the value of the resource must be an integer.
     integerValue :: Lude.Maybe Lude.Int,
+    -- | When the @doubleValue@ type is set, the value of the resource must be a double precision floating-point type.
     doubleValue :: Lude.Maybe Lude.Double,
+    -- | When the @longValue@ type is set, the value of the resource must be an extended precision floating-point type.
     longValue :: Lude.Maybe Lude.Integer,
+    -- | The name of the resource, such as @CPU@ , @MEMORY@ , @PORTS@ , @PORTS_UDP@ , or a user-defined resource.
     name :: Lude.Maybe Lude.Text,
+    -- | The type of the resource, such as @INTEGER@ , @DOUBLE@ , @LONG@ , or @STRINGSET@ .
     type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- * 'doubleValue' - When the @doubleValue@ type is set, the value of the resource must be a double precision floating-point type.
+-- * 'stringSetValue' - When the @stringSetValue@ type is set, the value of the resource must be a string type.
 -- * 'integerValue' - When the @integerValue@ type is set, the value of the resource must be an integer.
+-- * 'doubleValue' - When the @doubleValue@ type is set, the value of the resource must be a double precision floating-point type.
 -- * 'longValue' - When the @longValue@ type is set, the value of the resource must be an extended precision floating-point type.
 -- * 'name' - The name of the resource, such as @CPU@ , @MEMORY@ , @PORTS@ , @PORTS_UDP@ , or a user-defined resource.
--- * 'stringSetValue' - When the @stringSetValue@ type is set, the value of the resource must be a string type.
 -- * 'type'' - The type of the resource, such as @INTEGER@ , @DOUBLE@ , @LONG@ , or @STRINGSET@ .
 mkResource ::
   Resource

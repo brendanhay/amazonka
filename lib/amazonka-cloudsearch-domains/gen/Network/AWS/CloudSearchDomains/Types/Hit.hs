@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHit' smart constructor.
 data Hit = Hit'
-  { exprs ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The expressions returned from a document that matches the search request.
+    exprs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The document ID of a document that matches the search request.
     id :: Lude.Maybe Lude.Text,
+    -- | The highlights returned from a document that matches the search request.
     highlights :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The fields returned from a document that matches the search request.
     fields :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Hit' with the minimum fields required to make a request.
 --
 -- * 'exprs' - The expressions returned from a document that matches the search request.
--- * 'fields' - The fields returned from a document that matches the search request.
--- * 'highlights' - The highlights returned from a document that matches the search request.
 -- * 'id' - The document ID of a document that matches the search request.
+-- * 'highlights' - The highlights returned from a document that matches the search request.
+-- * 'fields' - The fields returned from a document that matches the search request.
 mkHit ::
   Hit
 mkHit =

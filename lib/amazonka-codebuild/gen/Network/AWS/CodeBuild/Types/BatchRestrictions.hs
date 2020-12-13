@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchRestrictions' smart constructor.
 data BatchRestrictions = BatchRestrictions'
-  { maximumBuildsAllowed ::
-      Lude.Maybe Lude.Int,
+  { -- | Specifies the maximum number of builds allowed.
+    maximumBuildsAllowed :: Lude.Maybe Lude.Int,
+    -- | An array of strings that specify the compute types that are allowed for the batch build. See <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types> in the /AWS CodeBuild User Guide/ for these values.
     computeTypesAllowed :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchRestrictions' with the minimum fields required to make a request.
 --
--- * 'computeTypesAllowed' - An array of strings that specify the compute types that are allowed for the batch build. See <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types> in the /AWS CodeBuild User Guide/ for these values.
 -- * 'maximumBuildsAllowed' - Specifies the maximum number of builds allowed.
+-- * 'computeTypesAllowed' - An array of strings that specify the compute types that are allowed for the batch build. See <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types> in the /AWS CodeBuild User Guide/ for these values.
 mkBatchRestrictions ::
   BatchRestrictions
 mkBatchRestrictions =

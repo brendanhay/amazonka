@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.KinesisAnalytics.AddApplicationInput
     mkAddApplicationInput,
 
     -- ** Request lenses
-    aaiApplicationName,
     aaiCurrentApplicationVersionId,
     aaiInput,
+    aaiApplicationName,
 
     -- * Destructuring the response
     AddApplicationInputResponse (..),
@@ -46,49 +47,39 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAddApplicationInput' smart constructor.
 data AddApplicationInput = AddApplicationInput'
-  { applicationName ::
-      Lude.Text,
+  { -- | Current version of your Amazon Kinesis Analytics application. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to find the current application version.
     currentApplicationVersionId :: Lude.Natural,
-    input :: Input
+    -- | The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html Input> to add.
+    input :: Input,
+    -- | Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddApplicationInput' with the minimum fields required to make a request.
 --
--- * 'applicationName' - Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
 -- * 'currentApplicationVersionId' - Current version of your Amazon Kinesis Analytics application. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to find the current application version.
 -- * 'input' - The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_Input.html Input> to add.
+-- * 'applicationName' - Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
 mkAddApplicationInput ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'currentApplicationVersionId'
   Lude.Natural ->
   -- | 'input'
   Input ->
+  -- | 'applicationName'
+  Lude.Text ->
   AddApplicationInput
 mkAddApplicationInput
-  pApplicationName_
   pCurrentApplicationVersionId_
-  pInput_ =
+  pInput_
+  pApplicationName_ =
     AddApplicationInput'
-      { applicationName = pApplicationName_,
-        currentApplicationVersionId = pCurrentApplicationVersionId_,
-        input = pInput_
+      { currentApplicationVersionId =
+          pCurrentApplicationVersionId_,
+        input = pInput_,
+        applicationName = pApplicationName_
       }
-
--- | Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaiApplicationName :: Lens.Lens' AddApplicationInput Lude.Text
-aaiApplicationName = Lens.lens (applicationName :: AddApplicationInput -> Lude.Text) (\s a -> s {applicationName = a} :: AddApplicationInput)
-{-# DEPRECATED aaiApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Current version of your Amazon Kinesis Analytics application. You can use the <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication> operation to find the current application version.
 --
@@ -103,6 +94,13 @@ aaiCurrentApplicationVersionId = Lens.lens (currentApplicationVersionId :: AddAp
 aaiInput :: Lens.Lens' AddApplicationInput Input
 aaiInput = Lens.lens (input :: AddApplicationInput -> Input) (\s a -> s {input = a} :: AddApplicationInput)
 {-# DEPRECATED aaiInput "Use generic-lens or generic-optics with 'input' instead." #-}
+
+-- | Name of your existing Amazon Kinesis Analytics application to which you want to add the streaming source.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaiApplicationName :: Lens.Lens' AddApplicationInput Lude.Text
+aaiApplicationName = Lens.lens (applicationName :: AddApplicationInput -> Lude.Text) (\s a -> s {applicationName = a} :: AddApplicationInput)
+{-# DEPRECATED aaiApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 instance Lude.AWSRequest AddApplicationInput where
   type Rs AddApplicationInput = AddApplicationInputResponse
@@ -131,12 +129,12 @@ instance Lude.ToJSON AddApplicationInput where
   toJSON AddApplicationInput' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ApplicationName" Lude..= applicationName),
-            Lude.Just
+          [ Lude.Just
               ( "CurrentApplicationVersionId"
                   Lude..= currentApplicationVersionId
               ),
-            Lude.Just ("Input" Lude..= input)
+            Lude.Just ("Input" Lude..= input),
+            Lude.Just ("ApplicationName" Lude..= applicationName)
           ]
       )
 
@@ -150,16 +148,10 @@ instance Lude.ToQuery AddApplicationInput where
 --
 -- /See:/ 'mkAddApplicationInputResponse' smart constructor.
 newtype AddApplicationInputResponse = AddApplicationInputResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddApplicationInputResponse' with the minimum fields required to make a request.

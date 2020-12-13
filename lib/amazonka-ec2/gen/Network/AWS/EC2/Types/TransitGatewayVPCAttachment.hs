@@ -39,42 +39,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayVPCAttachment' smart constructor.
 data TransitGatewayVPCAttachment = TransitGatewayVPCAttachment'
-  { creationTime ::
-      Lude.Maybe Lude.DateTime,
-    state ::
-      Lude.Maybe
-        TransitGatewayAttachmentState,
+  { -- | The creation time.
+    creationTime :: Lude.Maybe Lude.DateTime,
+    -- | The state of the VPC attachment. Note that the @initiating@ state has been deprecated.
+    state :: Lude.Maybe TransitGatewayAttachmentState,
+    -- | The IDs of the subnets.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text,
-    transitGatewayId ::
-      Lude.Maybe Lude.Text,
-    options ::
-      Lude.Maybe
-        TransitGatewayVPCAttachmentOptions,
-    transitGatewayAttachmentId ::
-      Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway.
+    transitGatewayId :: Lude.Maybe Lude.Text,
+    -- | The VPC attachment options.
+    options :: Lude.Maybe TransitGatewayVPCAttachmentOptions,
+    -- | The ID of the attachment.
+    transitGatewayAttachmentId :: Lude.Maybe Lude.Text,
+    -- | The tags for the VPC attachment.
     tags :: Lude.Maybe [Tag],
+    -- | The ID of the AWS account that owns the VPC.
     vpcOwnerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayVPCAttachment' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time.
--- * 'options' - The VPC attachment options.
 -- * 'state' - The state of the VPC attachment. Note that the @initiating@ state has been deprecated.
 -- * 'subnetIds' - The IDs of the subnets.
--- * 'tags' - The tags for the VPC attachment.
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
--- * 'transitGatewayId' - The ID of the transit gateway.
 -- * 'vpcId' - The ID of the VPC.
+-- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'options' - The VPC attachment options.
+-- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- * 'tags' - The tags for the VPC attachment.
 -- * 'vpcOwnerId' - The ID of the AWS account that owns the VPC.
 mkTransitGatewayVPCAttachment ::
   TransitGatewayVPCAttachment

@@ -29,16 +29,10 @@ import Network.AWS.SSM.Types.S3OutputURL
 --
 -- /See:/ 'mkInstanceAssociationOutputURL' smart constructor.
 newtype InstanceAssociationOutputURL = InstanceAssociationOutputURL'
-  { s3OutputURL ::
-      Lude.Maybe S3OutputURL
+  { -- | The URL of S3 bucket where you want to store the results of this request.
+    s3OutputURL :: Lude.Maybe S3OutputURL
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceAssociationOutputURL' with the minimum fields required to make a request.

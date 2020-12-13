@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.DirectoryService.CreateComputer
     mkCreateComputer,
 
     -- ** Request lenses
-    ccComputerAttributes,
-    ccOrganizationalUnitDistinguishedName,
     ccDirectoryId,
-    ccComputerName,
     ccPassword,
+    ccComputerAttributes,
+    ccComputerName,
+    ccOrganizationalUnitDistinguishedName,
 
     -- * Destructuring the response
     CreateComputerResponse (..),
@@ -45,53 +46,43 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateComputer' smart constructor.
 data CreateComputer = CreateComputer'
-  { computerAttributes ::
-      Lude.Maybe [Attribute],
-    organizationalUnitDistinguishedName :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the directory in which to create the computer account.
     directoryId :: Lude.Text,
+    -- | A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
+    password :: Lude.Sensitive Lude.Text,
+    -- | An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
+    computerAttributes :: Lude.Maybe [Attribute],
+    -- | The name of the computer account.
     computerName :: Lude.Text,
-    password :: Lude.Sensitive Lude.Text
+    -- | The fully-qualified distinguished name of the organizational unit to place the computer account in.
+    organizationalUnitDistinguishedName :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateComputer' with the minimum fields required to make a request.
 --
+-- * 'directoryId' - The identifier of the directory in which to create the computer account.
+-- * 'password' - A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
 -- * 'computerAttributes' - An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
 -- * 'computerName' - The name of the computer account.
--- * 'directoryId' - The identifier of the directory in which to create the computer account.
 -- * 'organizationalUnitDistinguishedName' - The fully-qualified distinguished name of the organizational unit to place the computer account in.
--- * 'password' - A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
 mkCreateComputer ::
   -- | 'directoryId'
   Lude.Text ->
-  -- | 'computerName'
-  Lude.Text ->
   -- | 'password'
   Lude.Sensitive Lude.Text ->
+  -- | 'computerName'
+  Lude.Text ->
   CreateComputer
-mkCreateComputer pDirectoryId_ pComputerName_ pPassword_ =
+mkCreateComputer pDirectoryId_ pPassword_ pComputerName_ =
   CreateComputer'
-    { computerAttributes = Lude.Nothing,
-      organizationalUnitDistinguishedName = Lude.Nothing,
-      directoryId = pDirectoryId_,
+    { directoryId = pDirectoryId_,
+      password = pPassword_,
+      computerAttributes = Lude.Nothing,
       computerName = pComputerName_,
-      password = pPassword_
+      organizationalUnitDistinguishedName = Lude.Nothing
     }
-
--- | An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
---
--- /Note:/ Consider using 'computerAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccComputerAttributes :: Lens.Lens' CreateComputer (Lude.Maybe [Attribute])
-ccComputerAttributes = Lens.lens (computerAttributes :: CreateComputer -> Lude.Maybe [Attribute]) (\s a -> s {computerAttributes = a} :: CreateComputer)
-{-# DEPRECATED ccComputerAttributes "Use generic-lens or generic-optics with 'computerAttributes' instead." #-}
-
--- | The fully-qualified distinguished name of the organizational unit to place the computer account in.
---
--- /Note:/ Consider using 'organizationalUnitDistinguishedName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccOrganizationalUnitDistinguishedName :: Lens.Lens' CreateComputer (Lude.Maybe Lude.Text)
-ccOrganizationalUnitDistinguishedName = Lens.lens (organizationalUnitDistinguishedName :: CreateComputer -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnitDistinguishedName = a} :: CreateComputer)
-{-# DEPRECATED ccOrganizationalUnitDistinguishedName "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedName' instead." #-}
 
 -- | The identifier of the directory in which to create the computer account.
 --
@@ -100,6 +91,20 @@ ccDirectoryId :: Lens.Lens' CreateComputer Lude.Text
 ccDirectoryId = Lens.lens (directoryId :: CreateComputer -> Lude.Text) (\s a -> s {directoryId = a} :: CreateComputer)
 {-# DEPRECATED ccDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
+-- | A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
+--
+-- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccPassword :: Lens.Lens' CreateComputer (Lude.Sensitive Lude.Text)
+ccPassword = Lens.lens (password :: CreateComputer -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateComputer)
+{-# DEPRECATED ccPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+
+-- | An array of 'Attribute' objects that contain any LDAP attributes to apply to the computer account.
+--
+-- /Note:/ Consider using 'computerAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccComputerAttributes :: Lens.Lens' CreateComputer (Lude.Maybe [Attribute])
+ccComputerAttributes = Lens.lens (computerAttributes :: CreateComputer -> Lude.Maybe [Attribute]) (\s a -> s {computerAttributes = a} :: CreateComputer)
+{-# DEPRECATED ccComputerAttributes "Use generic-lens or generic-optics with 'computerAttributes' instead." #-}
+
 -- | The name of the computer account.
 --
 -- /Note:/ Consider using 'computerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -107,12 +112,12 @@ ccComputerName :: Lens.Lens' CreateComputer Lude.Text
 ccComputerName = Lens.lens (computerName :: CreateComputer -> Lude.Text) (\s a -> s {computerName = a} :: CreateComputer)
 {-# DEPRECATED ccComputerName "Use generic-lens or generic-optics with 'computerName' instead." #-}
 
--- | A one-time password that is used to join the computer to the directory. You should generate a random, strong password to use for this parameter.
+-- | The fully-qualified distinguished name of the organizational unit to place the computer account in.
 --
--- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccPassword :: Lens.Lens' CreateComputer (Lude.Sensitive Lude.Text)
-ccPassword = Lens.lens (password :: CreateComputer -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateComputer)
-{-# DEPRECATED ccPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+-- /Note:/ Consider using 'organizationalUnitDistinguishedName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccOrganizationalUnitDistinguishedName :: Lens.Lens' CreateComputer (Lude.Maybe Lude.Text)
+ccOrganizationalUnitDistinguishedName = Lens.lens (organizationalUnitDistinguishedName :: CreateComputer -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnitDistinguishedName = a} :: CreateComputer)
+{-# DEPRECATED ccOrganizationalUnitDistinguishedName "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedName' instead." #-}
 
 instance Lude.AWSRequest CreateComputer where
   type Rs CreateComputer = CreateComputerResponse
@@ -139,12 +144,12 @@ instance Lude.ToJSON CreateComputer where
   toJSON CreateComputer' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ComputerAttributes" Lude..=) Lude.<$> computerAttributes,
-            ("OrganizationalUnitDistinguishedName" Lude..=)
-              Lude.<$> organizationalUnitDistinguishedName,
-            Lude.Just ("DirectoryId" Lude..= directoryId),
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            Lude.Just ("Password" Lude..= password),
+            ("ComputerAttributes" Lude..=) Lude.<$> computerAttributes,
             Lude.Just ("ComputerName" Lude..= computerName),
-            Lude.Just ("Password" Lude..= password)
+            ("OrganizationalUnitDistinguishedName" Lude..=)
+              Lude.<$> organizationalUnitDistinguishedName
           ]
       )
 
@@ -158,17 +163,12 @@ instance Lude.ToQuery CreateComputer where
 --
 -- /See:/ 'mkCreateComputerResponse' smart constructor.
 data CreateComputerResponse = CreateComputerResponse'
-  { computer ::
-      Lude.Maybe Computer,
+  { -- | A 'Computer' object that represents the computer account.
+    computer :: Lude.Maybe Computer,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateComputerResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -73,17 +74,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateGlobalTable' smart constructor.
 data CreateGlobalTable = CreateGlobalTable'
-  { globalTableName ::
-      Lude.Text,
+  { -- | The global table name.
+    globalTableName :: Lude.Text,
+    -- | The Regions where the global table needs to be created.
     replicationGroup :: [Replica]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalTable' with the minimum fields required to make a request.
@@ -153,17 +149,12 @@ instance Lude.ToQuery CreateGlobalTable where
 
 -- | /See:/ 'mkCreateGlobalTableResponse' smart constructor.
 data CreateGlobalTableResponse = CreateGlobalTableResponse'
-  { globalTableDescription ::
-      Lude.Maybe GlobalTableDescription,
+  { -- | Contains the details of the global table.
+    globalTableDescription :: Lude.Maybe GlobalTableDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateGlobalTableResponse' with the minimum fields required to make a request.

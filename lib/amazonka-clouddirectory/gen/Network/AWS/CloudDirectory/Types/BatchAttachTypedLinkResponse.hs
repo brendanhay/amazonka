@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchAttachTypedLinkResponse' smart constructor.
 newtype BatchAttachTypedLinkResponse = BatchAttachTypedLinkResponse'
-  { typedLinkSpecifier ::
-      Lude.Maybe TypedLinkSpecifier
+  { -- | Returns a typed link specifier as output.
+    typedLinkSpecifier :: Lude.Maybe TypedLinkSpecifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchAttachTypedLinkResponse' with the minimum fields required to make a request.

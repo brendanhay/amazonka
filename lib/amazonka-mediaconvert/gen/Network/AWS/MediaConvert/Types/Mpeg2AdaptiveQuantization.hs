@@ -13,10 +13,10 @@
 module Network.AWS.MediaConvert.Types.Mpeg2AdaptiveQuantization
   ( Mpeg2AdaptiveQuantization
       ( Mpeg2AdaptiveQuantization',
-        MAQHigh,
+        MAQOff,
         MAQLow,
         MAQMedium,
-        MAQOff
+        MAQHigh
       ),
   )
 where
@@ -48,8 +48,8 @@ newtype Mpeg2AdaptiveQuantization = Mpeg2AdaptiveQuantization' Lude.Text
       Lude.ToHeader
     )
 
-pattern MAQHigh :: Mpeg2AdaptiveQuantization
-pattern MAQHigh = Mpeg2AdaptiveQuantization' "HIGH"
+pattern MAQOff :: Mpeg2AdaptiveQuantization
+pattern MAQOff = Mpeg2AdaptiveQuantization' "OFF"
 
 pattern MAQLow :: Mpeg2AdaptiveQuantization
 pattern MAQLow = Mpeg2AdaptiveQuantization' "LOW"
@@ -57,13 +57,13 @@ pattern MAQLow = Mpeg2AdaptiveQuantization' "LOW"
 pattern MAQMedium :: Mpeg2AdaptiveQuantization
 pattern MAQMedium = Mpeg2AdaptiveQuantization' "MEDIUM"
 
-pattern MAQOff :: Mpeg2AdaptiveQuantization
-pattern MAQOff = Mpeg2AdaptiveQuantization' "OFF"
+pattern MAQHigh :: Mpeg2AdaptiveQuantization
+pattern MAQHigh = Mpeg2AdaptiveQuantization' "HIGH"
 
 {-# COMPLETE
-  MAQHigh,
+  MAQOff,
   MAQLow,
   MAQMedium,
-  MAQOff,
+  MAQHigh,
   Mpeg2AdaptiveQuantization'
   #-}

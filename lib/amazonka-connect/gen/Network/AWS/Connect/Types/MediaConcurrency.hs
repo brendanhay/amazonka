@@ -30,16 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMediaConcurrency' smart constructor.
 data MediaConcurrency = MediaConcurrency'
-  { channel :: Channel,
+  { -- | The channels that agents can handle in the Contact Control Panel (CCP).
+    channel :: Channel,
+    -- | The number of contacts an agent can have on a channel simultaneously.
     concurrency :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MediaConcurrency' with the minimum fields required to make a request.

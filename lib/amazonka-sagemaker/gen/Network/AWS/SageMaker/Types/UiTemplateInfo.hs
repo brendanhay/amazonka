@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUiTemplateInfo' smart constructor.
 data UiTemplateInfo = UiTemplateInfo'
-  { url :: Lude.Maybe Lude.Text,
+  { -- | The URL for the user interface template.
+    url :: Lude.Maybe Lude.Text,
+    -- | The SHA-256 digest of the contents of the template.
     contentSha256 :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UiTemplateInfo' with the minimum fields required to make a request.
 --
--- * 'contentSha256' - The SHA-256 digest of the contents of the template.
 -- * 'url' - The URL for the user interface template.
+-- * 'contentSha256' - The SHA-256 digest of the contents of the template.
 mkUiTemplateInfo ::
   UiTemplateInfo
 mkUiTemplateInfo =

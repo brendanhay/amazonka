@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchDeleteImportData' smart constructor.
 newtype BatchDeleteImportData = BatchDeleteImportData'
-  { importTaskIds ::
-      Lude.NonEmpty Lude.Text
+  { -- | The IDs for the import tasks that you want to delete.
+    importTaskIds :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteImportData' with the minimum fields required to make a request.
@@ -109,18 +104,12 @@ instance Lude.ToQuery BatchDeleteImportData where
 
 -- | /See:/ 'mkBatchDeleteImportDataResponse' smart constructor.
 data BatchDeleteImportDataResponse = BatchDeleteImportDataResponse'
-  { errors ::
-      Lude.Maybe
-        [BatchDeleteImportDataError],
+  { -- | Error messages returned for each import task that you deleted as a response for this command.
+    errors :: Lude.Maybe [BatchDeleteImportDataError],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteImportDataResponse' with the minimum fields required to make a request.

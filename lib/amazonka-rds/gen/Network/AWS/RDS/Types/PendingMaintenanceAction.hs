@@ -33,35 +33,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
-  { autoAppliedAfterDate ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date.
+    autoAppliedAfterDate :: Lude.Maybe Lude.DateTime,
+    -- | The type of pending maintenance action that is available for the resource. Valid actions are @system-update@ , @db-upgrade@ , @hardware-maintenance@ , and @ca-certificate-rotation@ .
     action :: Lude.Maybe Lude.Text,
+    -- | Indicates the type of opt-in request that has been received for the resource.
     optInStatus :: Lude.Maybe Lude.Text,
+    -- | A description providing more detail about the maintenance action.
     description :: Lude.Maybe Lude.Text,
-    forcedApplyDate ::
-      Lude.Maybe Lude.DateTime,
-    currentApplyDate ::
-      Lude.Maybe Lude.DateTime
+    -- | The date when the maintenance action is automatically applied.
+    --
+    -- On this date, the maintenance action is applied to the resource as soon as possible, regardless of the maintenance window for the resource. There might be a delay of one or more days from this date before the maintenance action is applied.
+    forcedApplyDate :: Lude.Maybe Lude.DateTime,
+    -- | The effective date when the pending maintenance action is applied to the resource. This date takes into account opt-in requests received from the @ApplyPendingMaintenanceAction@ API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
+    currentApplyDate :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PendingMaintenanceAction' with the minimum fields required to make a request.
 --
--- * 'action' - The type of pending maintenance action that is available for the resource. Valid actions are @system-update@ , @db-upgrade@ , @hardware-maintenance@ , and @ca-certificate-rotation@ .
 -- * 'autoAppliedAfterDate' - The date of the maintenance window when the action is applied. The maintenance action is applied to the resource during its first maintenance window after this date.
--- * 'currentApplyDate' - The effective date when the pending maintenance action is applied to the resource. This date takes into account opt-in requests received from the @ApplyPendingMaintenanceAction@ API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
+-- * 'action' - The type of pending maintenance action that is available for the resource. Valid actions are @system-update@ , @db-upgrade@ , @hardware-maintenance@ , and @ca-certificate-rotation@ .
+-- * 'optInStatus' - Indicates the type of opt-in request that has been received for the resource.
 -- * 'description' - A description providing more detail about the maintenance action.
 -- * 'forcedApplyDate' - The date when the maintenance action is automatically applied.
 --
 -- On this date, the maintenance action is applied to the resource as soon as possible, regardless of the maintenance window for the resource. There might be a delay of one or more days from this date before the maintenance action is applied.
--- * 'optInStatus' - Indicates the type of opt-in request that has been received for the resource.
+-- * 'currentApplyDate' - The effective date when the pending maintenance action is applied to the resource. This date takes into account opt-in requests received from the @ApplyPendingMaintenanceAction@ API, the @AutoAppliedAfterDate@ , and the @ForcedApplyDate@ . This value is blank if an opt-in request has not been received and nothing has been specified as @AutoAppliedAfterDate@ or @ForcedApplyDate@ .
 mkPendingMaintenanceAction ::
   PendingMaintenanceAction
 mkPendingMaintenanceAction =

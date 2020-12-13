@@ -37,38 +37,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkComment' smart constructor.
 data Comment = Comment'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the comment was most recently modified, in timestamp format.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the person who posted the comment.
     authorARN :: Lude.Maybe Lude.Text,
+    -- | The content of the comment.
     content :: Lude.Maybe Lude.Text,
+    -- | The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.
     callerReactions :: Lude.Maybe [Lude.Text],
+    -- | The date and time the comment was created, in timestamp format.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | A Boolean value indicating whether the comment has been deleted.
     deleted :: Lude.Maybe Lude.Bool,
+    -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
     clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The system-generated comment ID.
     commentId :: Lude.Maybe Lude.Text,
+    -- | The ID of the comment for which this comment is a reply, if any.
     inReplyTo :: Lude.Maybe Lude.Text,
+    -- | A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.
     reactionCounts :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Comment' with the minimum fields required to make a request.
 --
+-- * 'lastModifiedDate' - The date and time the comment was most recently modified, in timestamp format.
 -- * 'authorARN' - The Amazon Resource Name (ARN) of the person who posted the comment.
--- * 'callerReactions' - The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.
--- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
--- * 'commentId' - The system-generated comment ID.
 -- * 'content' - The content of the comment.
+-- * 'callerReactions' - The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.
 -- * 'creationDate' - The date and time the comment was created, in timestamp format.
 -- * 'deleted' - A Boolean value indicating whether the comment has been deleted.
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+-- * 'commentId' - The system-generated comment ID.
 -- * 'inReplyTo' - The ID of the comment for which this comment is a reply, if any.
--- * 'lastModifiedDate' - The date and time the comment was most recently modified, in timestamp format.
 -- * 'reactionCounts' - A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.
 mkComment ::
   Comment

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.RDS.StartActivityStream
     mkStartActivityStream,
 
     -- ** Request lenses
-    sApplyImmediately,
-    sResourceARN,
     sMode,
     sKMSKeyId,
+    sResourceARN,
+    sApplyImmediately,
 
     -- * Destructuring the response
     StartActivityStreamResponse (..),
@@ -46,56 +47,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartActivityStream' smart constructor.
 data StartActivityStream = StartActivityStream'
-  { applyImmediately ::
-      Lude.Maybe Lude.Bool,
-    resourceARN :: Lude.Text,
+  { -- | Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously.
     mode :: ActivityStreamMode,
-    kmsKeyId :: Lude.Text
+    -- | The AWS KMS key identifier for encrypting messages in the database activity stream. The key identifier can be either a key ID, a key ARN, or a key alias.
+    kmsKeyId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the DB cluster, for example @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
+    resourceARN :: Lude.Text,
+    -- | Specifies whether or not the database activity stream is to start as soon as possible, regardless of the maintenance window for the database.
+    applyImmediately :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartActivityStream' with the minimum fields required to make a request.
 --
--- * 'applyImmediately' - Specifies whether or not the database activity stream is to start as soon as possible, regardless of the maintenance window for the database.
--- * 'kmsKeyId' - The AWS KMS key identifier for encrypting messages in the database activity stream. The key identifier can be either a key ID, a key ARN, or a key alias.
 -- * 'mode' - Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously.
+-- * 'kmsKeyId' - The AWS KMS key identifier for encrypting messages in the database activity stream. The key identifier can be either a key ID, a key ARN, or a key alias.
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the DB cluster, for example @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
+-- * 'applyImmediately' - Specifies whether or not the database activity stream is to start as soon as possible, regardless of the maintenance window for the database.
 mkStartActivityStream ::
-  -- | 'resourceARN'
-  Lude.Text ->
   -- | 'mode'
   ActivityStreamMode ->
   -- | 'kmsKeyId'
   Lude.Text ->
+  -- | 'resourceARN'
+  Lude.Text ->
   StartActivityStream
-mkStartActivityStream pResourceARN_ pMode_ pKMSKeyId_ =
+mkStartActivityStream pMode_ pKMSKeyId_ pResourceARN_ =
   StartActivityStream'
-    { applyImmediately = Lude.Nothing,
+    { mode = pMode_,
+      kmsKeyId = pKMSKeyId_,
       resourceARN = pResourceARN_,
-      mode = pMode_,
-      kmsKeyId = pKMSKeyId_
+      applyImmediately = Lude.Nothing
     }
-
--- | Specifies whether or not the database activity stream is to start as soon as possible, regardless of the maintenance window for the database.
---
--- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sApplyImmediately :: Lens.Lens' StartActivityStream (Lude.Maybe Lude.Bool)
-sApplyImmediately = Lens.lens (applyImmediately :: StartActivityStream -> Lude.Maybe Lude.Bool) (\s a -> s {applyImmediately = a} :: StartActivityStream)
-{-# DEPRECATED sApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the DB cluster, for example @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sResourceARN :: Lens.Lens' StartActivityStream Lude.Text
-sResourceARN = Lens.lens (resourceARN :: StartActivityStream -> Lude.Text) (\s a -> s {resourceARN = a} :: StartActivityStream)
-{-# DEPRECATED sResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously.
 --
@@ -110,6 +94,20 @@ sMode = Lens.lens (mode :: StartActivityStream -> ActivityStreamMode) (\s a -> s
 sKMSKeyId :: Lens.Lens' StartActivityStream Lude.Text
 sKMSKeyId = Lens.lens (kmsKeyId :: StartActivityStream -> Lude.Text) (\s a -> s {kmsKeyId = a} :: StartActivityStream)
 {-# DEPRECATED sKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the DB cluster, for example @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@ .
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sResourceARN :: Lens.Lens' StartActivityStream Lude.Text
+sResourceARN = Lens.lens (resourceARN :: StartActivityStream -> Lude.Text) (\s a -> s {resourceARN = a} :: StartActivityStream)
+{-# DEPRECATED sResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | Specifies whether or not the database activity stream is to start as soon as possible, regardless of the maintenance window for the database.
+--
+-- /Note:/ Consider using 'applyImmediately' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sApplyImmediately :: Lens.Lens' StartActivityStream (Lude.Maybe Lude.Bool)
+sApplyImmediately = Lens.lens (applyImmediately :: StartActivityStream -> Lude.Maybe Lude.Bool) (\s a -> s {applyImmediately = a} :: StartActivityStream)
+{-# DEPRECATED sApplyImmediately "Use generic-lens or generic-optics with 'applyImmediately' instead." #-}
 
 instance Lude.AWSRequest StartActivityStream where
   type Rs StartActivityStream = StartActivityStreamResponse
@@ -138,42 +136,38 @@ instance Lude.ToQuery StartActivityStream where
     Lude.mconcat
       [ "Action" Lude.=: ("StartActivityStream" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "ApplyImmediately" Lude.=: applyImmediately,
-        "ResourceArn" Lude.=: resourceARN,
         "Mode" Lude.=: mode,
-        "KmsKeyId" Lude.=: kmsKeyId
+        "KmsKeyId" Lude.=: kmsKeyId,
+        "ResourceArn" Lude.=: resourceARN,
+        "ApplyImmediately" Lude.=: applyImmediately
       ]
 
 -- | /See:/ 'mkStartActivityStreamResponse' smart constructor.
 data StartActivityStreamResponse = StartActivityStreamResponse'
-  { status ::
-      Lude.Maybe ActivityStreamStatus,
-    kinesisStreamName ::
-      Lude.Maybe Lude.Text,
-    mode ::
-      Lude.Maybe ActivityStreamMode,
+  { -- | The status of the database activity stream.
+    status :: Lude.Maybe ActivityStreamStatus,
+    -- | The name of the Amazon Kinesis data stream to be used for the database activity stream.
+    kinesisStreamName :: Lude.Maybe Lude.Text,
+    -- | The mode of the database activity stream.
+    mode :: Lude.Maybe ActivityStreamMode,
+    -- | The AWS KMS key identifier for encryption of messages in the database activity stream.
     kmsKeyId :: Lude.Maybe Lude.Text,
-    applyImmediately ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether or not the database activity stream will start as soon as possible, regardless of the maintenance window for the database.
+    applyImmediately :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartActivityStreamResponse' with the minimum fields required to make a request.
 --
--- * 'applyImmediately' - Indicates whether or not the database activity stream will start as soon as possible, regardless of the maintenance window for the database.
--- * 'kinesisStreamName' - The name of the Amazon Kinesis data stream to be used for the database activity stream.
--- * 'kmsKeyId' - The AWS KMS key identifier for encryption of messages in the database activity stream.
--- * 'mode' - The mode of the database activity stream.
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the database activity stream.
+-- * 'kinesisStreamName' - The name of the Amazon Kinesis data stream to be used for the database activity stream.
+-- * 'mode' - The mode of the database activity stream.
+-- * 'kmsKeyId' - The AWS KMS key identifier for encryption of messages in the database activity stream.
+-- * 'applyImmediately' - Indicates whether or not the database activity stream will start as soon as possible, regardless of the maintenance window for the database.
+-- * 'responseStatus' - The response status code.
 mkStartActivityStreamResponse ::
   -- | 'responseStatus'
   Lude.Int ->

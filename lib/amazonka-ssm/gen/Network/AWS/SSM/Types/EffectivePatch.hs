@@ -31,16 +31,12 @@ import Network.AWS.SSM.Types.PatchStatus
 --
 -- /See:/ 'mkEffectivePatch' smart constructor.
 data EffectivePatch = EffectivePatch'
-  { patch :: Lude.Maybe Patch,
+  { -- | Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.
+    patch :: Lude.Maybe Patch,
+    -- | The status of the patch in a patch baseline. This includes information about whether the patch is currently approved, due to be approved by a rule, explicitly approved, or explicitly rejected and the date the patch was or will be approved.
     patchStatus :: Lude.Maybe PatchStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EffectivePatch' with the minimum fields required to make a request.

@@ -13,9 +13,9 @@
 module Network.AWS.MediaConvert.Types.AacCodecProfile
   ( AacCodecProfile
       ( AacCodecProfile',
+        ACPLC,
         ACPHEV1,
-        ACPHEV2,
-        ACPLC
+        ACPHEV2
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype AacCodecProfile = AacCodecProfile' Lude.Text
       Lude.ToHeader
     )
 
+pattern ACPLC :: AacCodecProfile
+pattern ACPLC = AacCodecProfile' "LC"
+
 pattern ACPHEV1 :: AacCodecProfile
 pattern ACPHEV1 = AacCodecProfile' "HEV1"
 
 pattern ACPHEV2 :: AacCodecProfile
 pattern ACPHEV2 = AacCodecProfile' "HEV2"
 
-pattern ACPLC :: AacCodecProfile
-pattern ACPLC = AacCodecProfile' "LC"
-
 {-# COMPLETE
+  ACPLC,
   ACPHEV1,
   ACPHEV2,
-  ACPLC,
   AacCodecProfile'
   #-}

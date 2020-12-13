@@ -34,31 +34,29 @@ import Network.AWS.SageMaker.Types.TrialSource
 --
 -- /See:/ 'mkTrialSummary' smart constructor.
 data TrialSummary = TrialSummary'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | When the trial was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the trial.
     trialARN :: Lude.Maybe Lude.Text,
+    -- | When the trial was last modified.
     lastModifiedTime :: Lude.Maybe Lude.Timestamp,
     trialSource :: Lude.Maybe TrialSource,
+    -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The name of the trial.
     trialName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TrialSummary' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - When the trial was created.
--- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
--- * 'lastModifiedTime' - When the trial was last modified.
 -- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
+-- * 'lastModifiedTime' - When the trial was last modified.
+-- * 'trialSource' -
+-- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 -- * 'trialName' - The name of the trial.
--- * 'trialSource' - Undocumented field.
 mkTrialSummary ::
   TrialSummary
 mkTrialSummary =

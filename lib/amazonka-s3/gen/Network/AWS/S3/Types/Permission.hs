@@ -14,10 +14,10 @@ module Network.AWS.S3.Types.Permission
   ( Permission
       ( Permission',
         PFullControl,
-        PRead,
-        PReadAcp,
         PWrite,
-        PWriteAcp
+        PWriteAcp,
+        PRead,
+        PReadAcp
       ),
   )
 where
@@ -52,23 +52,23 @@ newtype Permission = Permission' Lude.Text
 pattern PFullControl :: Permission
 pattern PFullControl = Permission' "FULL_CONTROL"
 
-pattern PRead :: Permission
-pattern PRead = Permission' "READ"
-
-pattern PReadAcp :: Permission
-pattern PReadAcp = Permission' "READ_ACP"
-
 pattern PWrite :: Permission
 pattern PWrite = Permission' "WRITE"
 
 pattern PWriteAcp :: Permission
 pattern PWriteAcp = Permission' "WRITE_ACP"
 
+pattern PRead :: Permission
+pattern PRead = Permission' "READ"
+
+pattern PReadAcp :: Permission
+pattern PReadAcp = Permission' "READ_ACP"
+
 {-# COMPLETE
   PFullControl,
-  PRead,
-  PReadAcp,
   PWrite,
   PWriteAcp,
+  PRead,
+  PReadAcp,
   Permission'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,13 +21,13 @@ module Network.AWS.CostExplorer.GetSavingsPlansPurchaseRecommendation
 
     -- ** Request lenses
     gspprNextPageToken,
+    gspprTermInYears,
     gspprAccountScope,
+    gspprSavingsPlansType,
     gspprFilter,
     gspprPageSize,
-    gspprSavingsPlansType,
-    gspprTermInYears,
-    gspprPaymentOption,
     gspprLookbackPeriodInDays,
+    gspprPaymentOption,
 
     -- * Destructuring the response
     GetSavingsPlansPurchaseRecommendationResponse (..),
@@ -48,73 +49,65 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetSavingsPlansPurchaseRecommendation' smart constructor.
 data GetSavingsPlansPurchaseRecommendation = GetSavingsPlansPurchaseRecommendation'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    accountScope ::
-      Lude.Maybe
-        AccountScope,
-    filter ::
-      Lude.Maybe
-        Expression,
-    pageSize ::
-      Lude.Maybe
-        Lude.Natural,
-    savingsPlansType ::
-      SupportedSavingsPlansType,
-    termInYears ::
-      TermInYears,
-    paymentOption ::
-      PaymentOption,
-    lookbackPeriodInDays ::
-      LookbackPeriodInDays
+  { -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The savings plan recommendation term used to generate these recommendations.
+    termInYears :: TermInYears,
+    -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
+    accountScope :: Lude.Maybe AccountScope,
+    -- | The Savings Plans recommendation type requested.
+    savingsPlansType :: SupportedSavingsPlansType,
+    -- | You can filter your recommendations by Account ID with the @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated Acount ID(s) for which you want to see Savings Plans purchase recommendations.
+    --
+    -- For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include @CostCategories@ or @Tags@ . It only includes @Dimensions@ . With @Dimensions@ , @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single Account ID or multiple comma-separated Account IDs for which you want to see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are not supported.
+    filter :: Lude.Maybe Expression,
+    -- | The number of recommendations that you want returned in a single response object.
+    pageSize :: Lude.Maybe Lude.Natural,
+    -- | The lookback period used to generate the recommendation.
+    lookbackPeriodInDays :: LookbackPeriodInDays,
+    -- | The payment option used to generate these recommendations.
+    paymentOption :: PaymentOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSavingsPlansPurchaseRecommendation' with the minimum fields required to make a request.
 --
+-- * 'nextPageToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'termInYears' - The savings plan recommendation term used to generate these recommendations.
 -- * 'accountScope' - The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
+-- * 'savingsPlansType' - The Savings Plans recommendation type requested.
 -- * 'filter' - You can filter your recommendations by Account ID with the @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated Acount ID(s) for which you want to see Savings Plans purchase recommendations.
 --
 -- For GetSavingsPlansPurchaseRecommendation, the @Filter@ does not include @CostCategories@ or @Tags@ . It only includes @Dimensions@ . With @Dimensions@ , @Key@ must be @LINKED_ACCOUNT@ and @Value@ can be a single Account ID or multiple comma-separated Account IDs for which you want to see Savings Plans Purchase Recommendations. @AND@ and @OR@ operators are not supported.
--- * 'lookbackPeriodInDays' - The lookback period used to generate the recommendation.
--- * 'nextPageToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
 -- * 'pageSize' - The number of recommendations that you want returned in a single response object.
+-- * 'lookbackPeriodInDays' - The lookback period used to generate the recommendation.
 -- * 'paymentOption' - The payment option used to generate these recommendations.
--- * 'savingsPlansType' - The Savings Plans recommendation type requested.
--- * 'termInYears' - The savings plan recommendation term used to generate these recommendations.
 mkGetSavingsPlansPurchaseRecommendation ::
-  -- | 'savingsPlansType'
-  SupportedSavingsPlansType ->
   -- | 'termInYears'
   TermInYears ->
-  -- | 'paymentOption'
-  PaymentOption ->
+  -- | 'savingsPlansType'
+  SupportedSavingsPlansType ->
   -- | 'lookbackPeriodInDays'
   LookbackPeriodInDays ->
+  -- | 'paymentOption'
+  PaymentOption ->
   GetSavingsPlansPurchaseRecommendation
 mkGetSavingsPlansPurchaseRecommendation
-  pSavingsPlansType_
   pTermInYears_
-  pPaymentOption_
-  pLookbackPeriodInDays_ =
+  pSavingsPlansType_
+  pLookbackPeriodInDays_
+  pPaymentOption_ =
     GetSavingsPlansPurchaseRecommendation'
       { nextPageToken =
           Lude.Nothing,
+        termInYears = pTermInYears_,
         accountScope = Lude.Nothing,
+        savingsPlansType = pSavingsPlansType_,
         filter = Lude.Nothing,
         pageSize = Lude.Nothing,
-        savingsPlansType = pSavingsPlansType_,
-        termInYears = pTermInYears_,
-        paymentOption = pPaymentOption_,
-        lookbackPeriodInDays = pLookbackPeriodInDays_
+        lookbackPeriodInDays = pLookbackPeriodInDays_,
+        paymentOption = pPaymentOption_
       }
 
 -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
@@ -124,12 +117,26 @@ gspprNextPageToken :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Lude.May
 gspprNextPageToken = Lens.lens (nextPageToken :: GetSavingsPlansPurchaseRecommendation -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetSavingsPlansPurchaseRecommendation)
 {-# DEPRECATED gspprNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
+-- | The savings plan recommendation term used to generate these recommendations.
+--
+-- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprTermInYears :: Lens.Lens' GetSavingsPlansPurchaseRecommendation TermInYears
+gspprTermInYears = Lens.lens (termInYears :: GetSavingsPlansPurchaseRecommendation -> TermInYears) (\s a -> s {termInYears = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
+
 -- | The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to @PAYER@ . If the value is @LINKED@ , recommendations are calculated for individual member accounts only.
 --
 -- /Note:/ Consider using 'accountScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gspprAccountScope :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Lude.Maybe AccountScope)
 gspprAccountScope = Lens.lens (accountScope :: GetSavingsPlansPurchaseRecommendation -> Lude.Maybe AccountScope) (\s a -> s {accountScope = a} :: GetSavingsPlansPurchaseRecommendation)
 {-# DEPRECATED gspprAccountScope "Use generic-lens or generic-optics with 'accountScope' instead." #-}
+
+-- | The Savings Plans recommendation type requested.
+--
+-- /Note:/ Consider using 'savingsPlansType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprSavingsPlansType :: Lens.Lens' GetSavingsPlansPurchaseRecommendation SupportedSavingsPlansType
+gspprSavingsPlansType = Lens.lens (savingsPlansType :: GetSavingsPlansPurchaseRecommendation -> SupportedSavingsPlansType) (\s a -> s {savingsPlansType = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprSavingsPlansType "Use generic-lens or generic-optics with 'savingsPlansType' instead." #-}
 
 -- | You can filter your recommendations by Account ID with the @LINKED_ACCOUNT@ dimension. To filter your recommendations by Account ID, specify @Key@ as @LINKED_ACCOUNT@ and @Value@ as the comma-separated Acount ID(s) for which you want to see Savings Plans purchase recommendations.
 --
@@ -147,19 +154,12 @@ gspprPageSize :: Lens.Lens' GetSavingsPlansPurchaseRecommendation (Lude.Maybe Lu
 gspprPageSize = Lens.lens (pageSize :: GetSavingsPlansPurchaseRecommendation -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: GetSavingsPlansPurchaseRecommendation)
 {-# DEPRECATED gspprPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
--- | The Savings Plans recommendation type requested.
+-- | The lookback period used to generate the recommendation.
 --
--- /Note:/ Consider using 'savingsPlansType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspprSavingsPlansType :: Lens.Lens' GetSavingsPlansPurchaseRecommendation SupportedSavingsPlansType
-gspprSavingsPlansType = Lens.lens (savingsPlansType :: GetSavingsPlansPurchaseRecommendation -> SupportedSavingsPlansType) (\s a -> s {savingsPlansType = a} :: GetSavingsPlansPurchaseRecommendation)
-{-# DEPRECATED gspprSavingsPlansType "Use generic-lens or generic-optics with 'savingsPlansType' instead." #-}
-
--- | The savings plan recommendation term used to generate these recommendations.
---
--- /Note:/ Consider using 'termInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspprTermInYears :: Lens.Lens' GetSavingsPlansPurchaseRecommendation TermInYears
-gspprTermInYears = Lens.lens (termInYears :: GetSavingsPlansPurchaseRecommendation -> TermInYears) (\s a -> s {termInYears = a} :: GetSavingsPlansPurchaseRecommendation)
-{-# DEPRECATED gspprTermInYears "Use generic-lens or generic-optics with 'termInYears' instead." #-}
+-- /Note:/ Consider using 'lookbackPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspprLookbackPeriodInDays :: Lens.Lens' GetSavingsPlansPurchaseRecommendation LookbackPeriodInDays
+gspprLookbackPeriodInDays = Lens.lens (lookbackPeriodInDays :: GetSavingsPlansPurchaseRecommendation -> LookbackPeriodInDays) (\s a -> s {lookbackPeriodInDays = a} :: GetSavingsPlansPurchaseRecommendation)
+{-# DEPRECATED gspprLookbackPeriodInDays "Use generic-lens or generic-optics with 'lookbackPeriodInDays' instead." #-}
 
 -- | The payment option used to generate these recommendations.
 --
@@ -167,13 +167,6 @@ gspprTermInYears = Lens.lens (termInYears :: GetSavingsPlansPurchaseRecommendati
 gspprPaymentOption :: Lens.Lens' GetSavingsPlansPurchaseRecommendation PaymentOption
 gspprPaymentOption = Lens.lens (paymentOption :: GetSavingsPlansPurchaseRecommendation -> PaymentOption) (\s a -> s {paymentOption = a} :: GetSavingsPlansPurchaseRecommendation)
 {-# DEPRECATED gspprPaymentOption "Use generic-lens or generic-optics with 'paymentOption' instead." #-}
-
--- | The lookback period used to generate the recommendation.
---
--- /Note:/ Consider using 'lookbackPeriodInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspprLookbackPeriodInDays :: Lens.Lens' GetSavingsPlansPurchaseRecommendation LookbackPeriodInDays
-gspprLookbackPeriodInDays = Lens.lens (lookbackPeriodInDays :: GetSavingsPlansPurchaseRecommendation -> LookbackPeriodInDays) (\s a -> s {lookbackPeriodInDays = a} :: GetSavingsPlansPurchaseRecommendation)
-{-# DEPRECATED gspprLookbackPeriodInDays "Use generic-lens or generic-optics with 'lookbackPeriodInDays' instead." #-}
 
 instance Lude.AWSRequest GetSavingsPlansPurchaseRecommendation where
   type
@@ -208,13 +201,13 @@ instance Lude.ToJSON GetSavingsPlansPurchaseRecommendation where
     Lude.object
       ( Lude.catMaybes
           [ ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
+            Lude.Just ("TermInYears" Lude..= termInYears),
             ("AccountScope" Lude..=) Lude.<$> accountScope,
+            Lude.Just ("SavingsPlansType" Lude..= savingsPlansType),
             ("Filter" Lude..=) Lude.<$> filter,
             ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("SavingsPlansType" Lude..= savingsPlansType),
-            Lude.Just ("TermInYears" Lude..= termInYears),
-            Lude.Just ("PaymentOption" Lude..= paymentOption),
-            Lude.Just ("LookbackPeriodInDays" Lude..= lookbackPeriodInDays)
+            Lude.Just ("LookbackPeriodInDays" Lude..= lookbackPeriodInDays),
+            Lude.Just ("PaymentOption" Lude..= paymentOption)
           ]
       )
 
@@ -226,36 +219,24 @@ instance Lude.ToQuery GetSavingsPlansPurchaseRecommendation where
 
 -- | /See:/ 'mkGetSavingsPlansPurchaseRecommendationResponse' smart constructor.
 data GetSavingsPlansPurchaseRecommendationResponse = GetSavingsPlansPurchaseRecommendationResponse'
-  { nextPageToken ::
-      Lude.Maybe
-        Lude.Text,
-    savingsPlansPurchaseRecommendation ::
-      Lude.Maybe
-        SavingsPlansPurchaseRecommendation,
-    metadata ::
-      Lude.Maybe
-        SavingsPlansPurchaseRecommendationMetadata,
-    responseStatus ::
-      Lude.Int
+  { -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | Contains your request parameters, Savings Plan Recommendations Summary, and Details.
+    savingsPlansPurchaseRecommendation :: Lude.Maybe SavingsPlansPurchaseRecommendation,
+    -- | Information regarding this specific recommendation set.
+    metadata :: Lude.Maybe SavingsPlansPurchaseRecommendationMetadata,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSavingsPlansPurchaseRecommendationResponse' with the minimum fields required to make a request.
 --
--- * 'metadata' - Information regarding this specific recommendation set.
 -- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
--- * 'responseStatus' - The response status code.
 -- * 'savingsPlansPurchaseRecommendation' - Contains your request parameters, Savings Plan Recommendations Summary, and Details.
+-- * 'metadata' - Information regarding this specific recommendation set.
+-- * 'responseStatus' - The response status code.
 mkGetSavingsPlansPurchaseRecommendationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkItemResponse' smart constructor.
 newtype ItemResponse = ItemResponse'
-  { item ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))
+  { -- | Map of attribute data consisting of the data type and attribute value.
+    item :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ItemResponse' with the minimum fields required to make a request.

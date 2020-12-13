@@ -40,31 +40,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationEvent' smart constructor.
 data OrganizationEvent = OrganizationEvent'
-  { lastUpdatedTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The most recent date and time that the event was updated.
+    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     arn :: Lude.Maybe Lude.Text,
+    -- | The AWS service that is affected by the event. For example, EC2, RDS.
     service :: Lude.Maybe Lude.Text,
+    -- | The date and time that the event began.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.
+    --
+    --
+    --     * If the @eventScopeCode@ value is @PUBLIC@ , then the @affectedAccounts@ value is always empty.
+    --
+    --
+    --     * If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@ , then the @affectedAccounts@ value lists the affected AWS accounts in your organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you have AWS accounts that use that service, those account IDs appear in the response.
+    --
+    --
+    --     * If the @eventScopeCode@ value is @NONE@ , then the @eventArn@ that you specified in the request is invalid or doesn't exist.
     eventScopeCode :: Lude.Maybe EventScopeCode,
+    -- | The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
     eventTypeCode :: Lude.Maybe Lude.Text,
+    -- | The category of the event type.
     eventTypeCategory :: Lude.Maybe EventTypeCategory,
+    -- | The date and time that the event ended.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS Region name of the event.
     region :: Lude.Maybe Lude.Text,
+    -- | The most recent status of the event. Possible values are @open@ , @closed@ , and @upcoming@ .
     statusCode :: Lude.Maybe EventStatusCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationEvent' with the minimum fields required to make a request.
 --
+-- * 'lastUpdatedTime' - The most recent date and time that the event was updated.
 -- * 'arn' - The unique identifier for the event. Format: @arn:aws:health:/event-region/ ::event//SERVICE/ //EVENT_TYPE_CODE/ //EVENT_TYPE_PLUS_ID/ @ . Example: @Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
--- * 'endTime' - The date and time that the event ended.
+-- * 'service' - The AWS service that is affected by the event. For example, EC2, RDS.
+-- * 'startTime' - The date and time that the event began.
 -- * 'eventScopeCode' - This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.
 --
 --
@@ -77,12 +91,10 @@ data OrganizationEvent = OrganizationEvent'
 --     * If the @eventScopeCode@ value is @NONE@ , then the @eventArn@ that you specified in the request is invalid or doesn't exist.
 --
 --
--- * 'eventTypeCategory' - The category of the event type.
 -- * 'eventTypeCode' - The unique identifier for the event type. The format is @AWS_SERVICE_DESCRIPTION@ . For example, @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@ .
--- * 'lastUpdatedTime' - The most recent date and time that the event was updated.
+-- * 'eventTypeCategory' - The category of the event type.
+-- * 'endTime' - The date and time that the event ended.
 -- * 'region' - The AWS Region name of the event.
--- * 'service' - The AWS service that is affected by the event. For example, EC2, RDS.
--- * 'startTime' - The date and time that the event began.
 -- * 'statusCode' - The most recent status of the event. Possible values are @open@ , @closed@ , and @upcoming@ .
 mkOrganizationEvent ::
   OrganizationEvent

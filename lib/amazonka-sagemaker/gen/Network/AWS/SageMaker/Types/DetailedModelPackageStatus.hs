@@ -13,10 +13,10 @@
 module Network.AWS.SageMaker.Types.DetailedModelPackageStatus
   ( DetailedModelPackageStatus
       ( DetailedModelPackageStatus',
-        DMPSCompleted,
-        DMPSFailed,
+        DMPSNotStarted,
         DMPSInProgress,
-        DMPSNotStarted
+        DMPSCompleted,
+        DMPSFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DetailedModelPackageStatus = DetailedModelPackageStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern DMPSNotStarted :: DetailedModelPackageStatus
+pattern DMPSNotStarted = DetailedModelPackageStatus' "NotStarted"
+
+pattern DMPSInProgress :: DetailedModelPackageStatus
+pattern DMPSInProgress = DetailedModelPackageStatus' "InProgress"
+
 pattern DMPSCompleted :: DetailedModelPackageStatus
 pattern DMPSCompleted = DetailedModelPackageStatus' "Completed"
 
 pattern DMPSFailed :: DetailedModelPackageStatus
 pattern DMPSFailed = DetailedModelPackageStatus' "Failed"
 
-pattern DMPSInProgress :: DetailedModelPackageStatus
-pattern DMPSInProgress = DetailedModelPackageStatus' "InProgress"
-
-pattern DMPSNotStarted :: DetailedModelPackageStatus
-pattern DMPSNotStarted = DetailedModelPackageStatus' "NotStarted"
-
 {-# COMPLETE
+  DMPSNotStarted,
+  DMPSInProgress,
   DMPSCompleted,
   DMPSFailed,
-  DMPSInProgress,
-  DMPSNotStarted,
   DetailedModelPackageStatus'
   #-}

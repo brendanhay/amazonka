@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,11 +25,11 @@ module Network.AWS.Rekognition.CreateProjectVersion
     mkCreateProjectVersion,
 
     -- ** Request lenses
-    cpvProjectARN,
     cpvVersionName,
+    cpvTestingData,
     cpvOutputConfig,
     cpvTrainingData,
-    cpvTestingData,
+    cpvProjectARN,
 
     -- * Destructuring the response
     CreateProjectVersionResponse (..),
@@ -48,61 +49,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateProjectVersion' smart constructor.
 data CreateProjectVersion = CreateProjectVersion'
-  { projectARN ::
-      Lude.Text,
+  { -- | A name for the version of the model. This value must be unique.
     versionName :: Lude.Text,
+    -- | The dataset to use for testing.
+    testingData :: TestingData,
+    -- | The Amazon S3 location to store the results of training.
     outputConfig :: OutputConfig,
+    -- | The dataset to use for training.
     trainingData :: TrainingData,
-    testingData :: TestingData
+    -- | The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.
+    projectARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProjectVersion' with the minimum fields required to make a request.
 --
--- * 'outputConfig' - The Amazon S3 location to store the results of training.
--- * 'projectARN' - The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.
--- * 'testingData' - The dataset to use for testing.
--- * 'trainingData' - The dataset to use for training.
 -- * 'versionName' - A name for the version of the model. This value must be unique.
+-- * 'testingData' - The dataset to use for testing.
+-- * 'outputConfig' - The Amazon S3 location to store the results of training.
+-- * 'trainingData' - The dataset to use for training.
+-- * 'projectARN' - The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.
 mkCreateProjectVersion ::
-  -- | 'projectARN'
-  Lude.Text ->
   -- | 'versionName'
   Lude.Text ->
+  -- | 'testingData'
+  TestingData ->
   -- | 'outputConfig'
   OutputConfig ->
   -- | 'trainingData'
   TrainingData ->
-  -- | 'testingData'
-  TestingData ->
+  -- | 'projectARN'
+  Lude.Text ->
   CreateProjectVersion
 mkCreateProjectVersion
-  pProjectARN_
   pVersionName_
+  pTestingData_
   pOutputConfig_
   pTrainingData_
-  pTestingData_ =
+  pProjectARN_ =
     CreateProjectVersion'
-      { projectARN = pProjectARN_,
-        versionName = pVersionName_,
+      { versionName = pVersionName_,
+        testingData = pTestingData_,
         outputConfig = pOutputConfig_,
         trainingData = pTrainingData_,
-        testingData = pTestingData_
+        projectARN = pProjectARN_
       }
-
--- | The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.
---
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvProjectARN :: Lens.Lens' CreateProjectVersion Lude.Text
-cpvProjectARN = Lens.lens (projectARN :: CreateProjectVersion -> Lude.Text) (\s a -> s {projectARN = a} :: CreateProjectVersion)
-{-# DEPRECATED cpvProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 -- | A name for the version of the model. This value must be unique.
 --
@@ -110,6 +102,13 @@ cpvProjectARN = Lens.lens (projectARN :: CreateProjectVersion -> Lude.Text) (\s 
 cpvVersionName :: Lens.Lens' CreateProjectVersion Lude.Text
 cpvVersionName = Lens.lens (versionName :: CreateProjectVersion -> Lude.Text) (\s a -> s {versionName = a} :: CreateProjectVersion)
 {-# DEPRECATED cpvVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
+
+-- | The dataset to use for testing.
+--
+-- /Note:/ Consider using 'testingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvTestingData :: Lens.Lens' CreateProjectVersion TestingData
+cpvTestingData = Lens.lens (testingData :: CreateProjectVersion -> TestingData) (\s a -> s {testingData = a} :: CreateProjectVersion)
+{-# DEPRECATED cpvTestingData "Use generic-lens or generic-optics with 'testingData' instead." #-}
 
 -- | The Amazon S3 location to store the results of training.
 --
@@ -125,12 +124,12 @@ cpvTrainingData :: Lens.Lens' CreateProjectVersion TrainingData
 cpvTrainingData = Lens.lens (trainingData :: CreateProjectVersion -> TrainingData) (\s a -> s {trainingData = a} :: CreateProjectVersion)
 {-# DEPRECATED cpvTrainingData "Use generic-lens or generic-optics with 'trainingData' instead." #-}
 
--- | The dataset to use for testing.
+-- | The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.
 --
--- /Note:/ Consider using 'testingData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpvTestingData :: Lens.Lens' CreateProjectVersion TestingData
-cpvTestingData = Lens.lens (testingData :: CreateProjectVersion -> TestingData) (\s a -> s {testingData = a} :: CreateProjectVersion)
-{-# DEPRECATED cpvTestingData "Use generic-lens or generic-optics with 'testingData' instead." #-}
+-- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpvProjectARN :: Lens.Lens' CreateProjectVersion Lude.Text
+cpvProjectARN = Lens.lens (projectARN :: CreateProjectVersion -> Lude.Text) (\s a -> s {projectARN = a} :: CreateProjectVersion)
+{-# DEPRECATED cpvProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
 
 instance Lude.AWSRequest CreateProjectVersion where
   type Rs CreateProjectVersion = CreateProjectVersionResponse
@@ -158,11 +157,11 @@ instance Lude.ToJSON CreateProjectVersion where
   toJSON CreateProjectVersion' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ProjectArn" Lude..= projectARN),
-            Lude.Just ("VersionName" Lude..= versionName),
+          [ Lude.Just ("VersionName" Lude..= versionName),
+            Lude.Just ("TestingData" Lude..= testingData),
             Lude.Just ("OutputConfig" Lude..= outputConfig),
             Lude.Just ("TrainingData" Lude..= trainingData),
-            Lude.Just ("TestingData" Lude..= testingData)
+            Lude.Just ("ProjectArn" Lude..= projectARN)
           ]
       )
 
@@ -174,17 +173,12 @@ instance Lude.ToQuery CreateProjectVersion where
 
 -- | /See:/ 'mkCreateProjectVersionResponse' smart constructor.
 data CreateProjectVersionResponse = CreateProjectVersionResponse'
-  { projectVersionARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the model version that was created. Use @DescribeProjectVersion@ to get the current status of the training operation.
+    projectVersionARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateProjectVersionResponse' with the minimum fields required to make a request.

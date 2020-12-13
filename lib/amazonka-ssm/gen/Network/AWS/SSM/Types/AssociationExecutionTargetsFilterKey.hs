@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey
   ( AssociationExecutionTargetsFilterKey
       ( AssociationExecutionTargetsFilterKey',
+        AETFKStatus,
         AETFKResourceId,
-        AETFKResourceType,
-        AETFKStatus
+        AETFKResourceType
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AssociationExecutionTargetsFilterKey = AssociationExecutionTargetsFilter
       Lude.ToHeader
     )
 
+pattern AETFKStatus :: AssociationExecutionTargetsFilterKey
+pattern AETFKStatus = AssociationExecutionTargetsFilterKey' "Status"
+
 pattern AETFKResourceId :: AssociationExecutionTargetsFilterKey
 pattern AETFKResourceId = AssociationExecutionTargetsFilterKey' "ResourceId"
 
 pattern AETFKResourceType :: AssociationExecutionTargetsFilterKey
 pattern AETFKResourceType = AssociationExecutionTargetsFilterKey' "ResourceType"
 
-pattern AETFKStatus :: AssociationExecutionTargetsFilterKey
-pattern AETFKStatus = AssociationExecutionTargetsFilterKey' "Status"
-
 {-# COMPLETE
+  AETFKStatus,
   AETFKResourceId,
   AETFKResourceType,
-  AETFKStatus,
   AssociationExecutionTargetsFilterKey'
   #-}

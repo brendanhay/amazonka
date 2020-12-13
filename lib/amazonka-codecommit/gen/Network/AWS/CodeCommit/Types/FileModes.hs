@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileModes' smart constructor.
 data FileModes = FileModes'
-  { destination ::
-      Lude.Maybe FileModeTypeEnum,
+  { -- | The file mode of a file in the destination of a merge or pull request.
+    destination :: Lude.Maybe FileModeTypeEnum,
+    -- | The file mode of a file in the base of a merge or pull request.
     base :: Lude.Maybe FileModeTypeEnum,
+    -- | The file mode of a file in the source of a merge or pull request.
     source :: Lude.Maybe FileModeTypeEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileModes' with the minimum fields required to make a request.
 --
--- * 'base' - The file mode of a file in the base of a merge or pull request.
 -- * 'destination' - The file mode of a file in the destination of a merge or pull request.
+-- * 'base' - The file mode of a file in the base of a merge or pull request.
 -- * 'source' - The file mode of a file in the source of a merge or pull request.
 mkFileModes ::
   FileModes

@@ -34,34 +34,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoleAliasDescription' smart constructor.
 data RoleAliasDescription = RoleAliasDescription'
-  { roleAliasARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the role alias.
+    roleAliasARN :: Lude.Maybe Lude.Text,
+    -- | The UNIX timestamp of when the role alias was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The role alias.
     roleAlias :: Lude.Maybe Lude.Text,
+    -- | The role alias owner.
     owner :: Lude.Maybe Lude.Text,
+    -- | The UNIX timestamp of when the role alias was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
-    credentialDurationSeconds ::
-      Lude.Maybe Lude.Natural,
+    -- | The number of seconds for which the credential is valid.
+    credentialDurationSeconds :: Lude.Maybe Lude.Natural,
+    -- | The role ARN.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RoleAliasDescription' with the minimum fields required to make a request.
 --
+-- * 'roleAliasARN' - The ARN of the role alias.
+-- * 'lastModifiedDate' - The UNIX timestamp of when the role alias was last modified.
+-- * 'roleAlias' - The role alias.
+-- * 'owner' - The role alias owner.
 -- * 'creationDate' - The UNIX timestamp of when the role alias was created.
 -- * 'credentialDurationSeconds' - The number of seconds for which the credential is valid.
--- * 'lastModifiedDate' - The UNIX timestamp of when the role alias was last modified.
--- * 'owner' - The role alias owner.
 -- * 'roleARN' - The role ARN.
--- * 'roleAlias' - The role alias.
--- * 'roleAliasARN' - The ARN of the role alias.
 mkRoleAliasDescription ::
   RoleAliasDescription
 mkRoleAliasDescription =

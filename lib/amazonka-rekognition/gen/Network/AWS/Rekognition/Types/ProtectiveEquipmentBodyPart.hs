@@ -32,25 +32,20 @@ import Network.AWS.Rekognition.Types.EquipmentDetection
 --
 -- /See:/ 'mkProtectiveEquipmentBodyPart' smart constructor.
 data ProtectiveEquipmentBodyPart = ProtectiveEquipmentBodyPart'
-  { equipmentDetections ::
-      Lude.Maybe [EquipmentDetection],
-    confidence ::
-      Lude.Maybe Lude.Double,
+  { -- | An array of Personal Protective Equipment items detected around a body part.
+    equipmentDetections :: Lude.Maybe [EquipmentDetection],
+    -- | The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
+    confidence :: Lude.Maybe Lude.Double,
+    -- | The detected body part.
     name :: Lude.Maybe BodyPart
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectiveEquipmentBodyPart' with the minimum fields required to make a request.
 --
--- * 'confidence' - The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
 -- * 'equipmentDetections' - An array of Personal Protective Equipment items detected around a body part.
+-- * 'confidence' - The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
 -- * 'name' - The detected body part.
 mkProtectiveEquipmentBodyPart ::
   ProtectiveEquipmentBodyPart

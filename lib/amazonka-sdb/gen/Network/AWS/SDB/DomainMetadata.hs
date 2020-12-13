@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,14 +45,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SDB.Types
 
 -- | /See:/ 'mkDomainMetadata' smart constructor.
-newtype DomainMetadata = DomainMetadata' {domainName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DomainMetadata = DomainMetadata'
+  { -- | The name of the domain for which to display the metadata of.
+    domainName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainMetadata' with the minimum fields required to make a request.
@@ -105,37 +103,36 @@ instance Lude.ToQuery DomainMetadata where
 
 -- | /See:/ 'mkDomainMetadataResponse' smart constructor.
 data DomainMetadataResponse = DomainMetadataResponse'
-  { itemNamesSizeBytes ::
-      Lude.Maybe Lude.Integer,
-    attributeValuesSizeBytes ::
-      Lude.Maybe Lude.Integer,
+  { -- | The total size of all item names in the domain, in bytes.
+    itemNamesSizeBytes :: Lude.Maybe Lude.Integer,
+    -- | The total size of all attribute values in the domain, in bytes.
+    attributeValuesSizeBytes :: Lude.Maybe Lude.Integer,
+    -- | The number of unique attribute names in the domain.
     attributeNameCount :: Lude.Maybe Lude.Int,
-    attributeNamesSizeBytes ::
-      Lude.Maybe Lude.Integer,
+    -- | The total size of all unique attribute names in the domain, in bytes.
+    attributeNamesSizeBytes :: Lude.Maybe Lude.Integer,
+    -- | The number of all attribute name/value pairs in the domain.
     attributeValueCount :: Lude.Maybe Lude.Int,
+    -- | The number of all items in the domain.
     itemCount :: Lude.Maybe Lude.Int,
+    -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
     timestamp :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DomainMetadataResponse' with the minimum fields required to make a request.
 --
+-- * 'itemNamesSizeBytes' - The total size of all item names in the domain, in bytes.
+-- * 'attributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
 -- * 'attributeNameCount' - The number of unique attribute names in the domain.
 -- * 'attributeNamesSizeBytes' - The total size of all unique attribute names in the domain, in bytes.
 -- * 'attributeValueCount' - The number of all attribute name/value pairs in the domain.
--- * 'attributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
 -- * 'itemCount' - The number of all items in the domain.
--- * 'itemNamesSizeBytes' - The total size of all item names in the domain, in bytes.
--- * 'responseStatus' - The response status code.
 -- * 'timestamp' - The data and time when metadata was calculated, in Epoch (UNIX) seconds.
+-- * 'responseStatus' - The response status code.
 mkDomainMetadataResponse ::
   -- | 'responseStatus'
   Lude.Int ->

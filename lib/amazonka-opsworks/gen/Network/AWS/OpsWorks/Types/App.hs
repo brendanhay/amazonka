@@ -47,47 +47,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApp' smart constructor.
 data App = App'
-  { sslConfiguration :: Lude.Maybe SSLConfiguration,
+  { -- | An @SslConfiguration@ object with the SSL configuration.
+    sslConfiguration :: Lude.Maybe SSLConfiguration,
+    -- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
     environment :: Lude.Maybe [EnvironmentVariable],
+    -- | Whether to enable SSL for the app.
     enableSSL :: Lude.Maybe Lude.Bool,
+    -- | When the app was created.
     createdAt :: Lude.Maybe Lude.Text,
+    -- | The app's short name.
     shortname :: Lude.Maybe Lude.Text,
+    -- | The app's data sources.
     dataSources :: Lude.Maybe [DataSource],
+    -- | A @Source@ object that describes the app repository.
     appSource :: Lude.Maybe Source,
+    -- | The app ID.
     appId :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
+    -- | The stack attributes.
+    attributes :: Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
+    -- | The app name.
     name :: Lude.Maybe Lude.Text,
+    -- | The app type.
     type' :: Lude.Maybe AppType,
+    -- | The app stack ID.
     stackId :: Lude.Maybe Lude.Text,
+    -- | The app vhost settings with multiple domains separated by commas. For example: @'www.example.com, example.com'@
     domains :: Lude.Maybe [Lude.Text],
+    -- | A description of the app.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'App' with the minimum fields required to make a request.
 --
--- * 'appId' - The app ID.
--- * 'appSource' - A @Source@ object that describes the app repository.
--- * 'attributes' - The stack attributes.
--- * 'createdAt' - When the app was created.
--- * 'dataSources' - The app's data sources.
--- * 'description' - A description of the app.
--- * 'domains' - The app vhost settings with multiple domains separated by commas. For example: @'www.example.com, example.com'@
--- * 'enableSSL' - Whether to enable SSL for the app.
--- * 'environment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
--- * 'name' - The app name.
--- * 'shortname' - The app's short name.
 -- * 'sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
--- * 'stackId' - The app stack ID.
+-- * 'environment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
+-- * 'enableSSL' - Whether to enable SSL for the app.
+-- * 'createdAt' - When the app was created.
+-- * 'shortname' - The app's short name.
+-- * 'dataSources' - The app's data sources.
+-- * 'appSource' - A @Source@ object that describes the app repository.
+-- * 'appId' - The app ID.
+-- * 'attributes' - The stack attributes.
+-- * 'name' - The app name.
 -- * 'type'' - The app type.
+-- * 'stackId' - The app stack ID.
+-- * 'domains' - The app vhost settings with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+-- * 'description' - A description of the app.
 mkApp ::
   App
 mkApp =

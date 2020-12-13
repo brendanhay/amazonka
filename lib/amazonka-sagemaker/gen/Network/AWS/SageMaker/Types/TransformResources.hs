@@ -17,9 +17,9 @@ module Network.AWS.SageMaker.Types.TransformResources
     mkTransformResources,
 
     -- * Lenses
-    trVolumeKMSKeyId,
-    trInstanceType,
     trInstanceCount,
+    trInstanceType,
+    trVolumeKMSKeyId,
   )
 where
 
@@ -31,18 +31,26 @@ import Network.AWS.SageMaker.Types.TransformInstanceType
 --
 -- /See:/ 'mkTransformResources' smart constructor.
 data TransformResources = TransformResources'
-  { volumeKMSKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is @1@ .
+    instanceCount :: Lude.Natural,
+    -- | The ML compute instance type for the transform job. If you are using built-in algorithms to transform moderately sized datasets, we recommend using ml.m4.xlarge or @ml.m5.large@ instance types.
     instanceType :: TransformInstanceType,
-    instanceCount :: Lude.Natural
+    -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job. The @VolumeKmsKeyId@ can be any of the following formats:
+    --
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Alias name: @alias/ExampleAlias@
+    --
+    --
+    --     * Alias name ARN: @arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias@
+    volumeKMSKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransformResources' with the minimum fields required to make a request.
@@ -63,17 +71,31 @@ data TransformResources = TransformResources'
 --
 --     * Alias name ARN: @arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias@
 mkTransformResources ::
-  -- | 'instanceType'
-  TransformInstanceType ->
   -- | 'instanceCount'
   Lude.Natural ->
+  -- | 'instanceType'
+  TransformInstanceType ->
   TransformResources
-mkTransformResources pInstanceType_ pInstanceCount_ =
+mkTransformResources pInstanceCount_ pInstanceType_ =
   TransformResources'
-    { volumeKMSKeyId = Lude.Nothing,
+    { instanceCount = pInstanceCount_,
       instanceType = pInstanceType_,
-      instanceCount = pInstanceCount_
+      volumeKMSKeyId = Lude.Nothing
     }
+
+-- | The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is @1@ .
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trInstanceCount :: Lens.Lens' TransformResources Lude.Natural
+trInstanceCount = Lens.lens (instanceCount :: TransformResources -> Lude.Natural) (\s a -> s {instanceCount = a} :: TransformResources)
+{-# DEPRECATED trInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
+
+-- | The ML compute instance type for the transform job. If you are using built-in algorithms to transform moderately sized datasets, we recommend using ml.m4.xlarge or @ml.m5.large@ instance types.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trInstanceType :: Lens.Lens' TransformResources TransformInstanceType
+trInstanceType = Lens.lens (instanceType :: TransformResources -> TransformInstanceType) (\s a -> s {instanceType = a} :: TransformResources)
+{-# DEPRECATED trInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume attached to the ML compute instance(s) that run the batch transform job. The @VolumeKmsKeyId@ can be any of the following formats:
 --
@@ -96,37 +118,23 @@ trVolumeKMSKeyId :: Lens.Lens' TransformResources (Lude.Maybe Lude.Text)
 trVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: TransformResources -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: TransformResources)
 {-# DEPRECATED trVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
 
--- | The ML compute instance type for the transform job. If you are using built-in algorithms to transform moderately sized datasets, we recommend using ml.m4.xlarge or @ml.m5.large@ instance types.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trInstanceType :: Lens.Lens' TransformResources TransformInstanceType
-trInstanceType = Lens.lens (instanceType :: TransformResources -> TransformInstanceType) (\s a -> s {instanceType = a} :: TransformResources)
-{-# DEPRECATED trInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | The number of ML compute instances to use in the transform job. For distributed transform jobs, specify a value greater than 1. The default value is @1@ .
---
--- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trInstanceCount :: Lens.Lens' TransformResources Lude.Natural
-trInstanceCount = Lens.lens (instanceCount :: TransformResources -> Lude.Natural) (\s a -> s {instanceCount = a} :: TransformResources)
-{-# DEPRECATED trInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
-
 instance Lude.FromJSON TransformResources where
   parseJSON =
     Lude.withObject
       "TransformResources"
       ( \x ->
           TransformResources'
-            Lude.<$> (x Lude..:? "VolumeKmsKeyId")
+            Lude.<$> (x Lude..: "InstanceCount")
             Lude.<*> (x Lude..: "InstanceType")
-            Lude.<*> (x Lude..: "InstanceCount")
+            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
       )
 
 instance Lude.ToJSON TransformResources where
   toJSON TransformResources' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId,
+          [ Lude.Just ("InstanceCount" Lude..= instanceCount),
             Lude.Just ("InstanceType" Lude..= instanceType),
-            Lude.Just ("InstanceCount" Lude..= instanceCount)
+            ("VolumeKmsKeyId" Lude..=) Lude.<$> volumeKMSKeyId
           ]
       )

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.DeleteDocumentationPart
     mkDeleteDocumentationPart,
 
     -- ** Request lenses
-    ddpRestAPIId,
     ddpDocumentationPartId,
+    ddpRestAPIId,
 
     -- * Destructuring the response
     DeleteDocumentationPartResponse (..),
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDocumentationPart' smart constructor.
 data DeleteDocumentationPart = DeleteDocumentationPart'
-  { restAPIId ::
-      Lude.Text,
-    documentationPartId :: Lude.Text
+  { -- | [Required] The identifier of the to-be-deleted documentation part.
+    documentationPartId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentationPart' with the minimum fields required to make a request.
@@ -56,23 +52,17 @@ data DeleteDocumentationPart = DeleteDocumentationPart'
 -- * 'documentationPartId' - [Required] The identifier of the to-be-deleted documentation part.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteDocumentationPart ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'documentationPartId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   DeleteDocumentationPart
-mkDeleteDocumentationPart pRestAPIId_ pDocumentationPartId_ =
+mkDeleteDocumentationPart pDocumentationPartId_ pRestAPIId_ =
   DeleteDocumentationPart'
-    { restAPIId = pRestAPIId_,
-      documentationPartId = pDocumentationPartId_
+    { documentationPartId =
+        pDocumentationPartId_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddpRestAPIId :: Lens.Lens' DeleteDocumentationPart Lude.Text
-ddpRestAPIId = Lens.lens (restAPIId :: DeleteDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteDocumentationPart)
-{-# DEPRECATED ddpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the to-be-deleted documentation part.
 --
@@ -80,6 +70,13 @@ ddpRestAPIId = Lens.lens (restAPIId :: DeleteDocumentationPart -> Lude.Text) (\s
 ddpDocumentationPartId :: Lens.Lens' DeleteDocumentationPart Lude.Text
 ddpDocumentationPartId = Lens.lens (documentationPartId :: DeleteDocumentationPart -> Lude.Text) (\s a -> s {documentationPartId = a} :: DeleteDocumentationPart)
 {-# DEPRECATED ddpDocumentationPartId "Use generic-lens or generic-optics with 'documentationPartId' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddpRestAPIId :: Lens.Lens' DeleteDocumentationPart Lude.Text
+ddpRestAPIId = Lens.lens (restAPIId :: DeleteDocumentationPart -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteDocumentationPart)
+{-# DEPRECATED ddpRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest DeleteDocumentationPart where
   type Rs DeleteDocumentationPart = DeleteDocumentationPartResponse
@@ -107,13 +104,7 @@ instance Lude.ToQuery DeleteDocumentationPart where
 
 -- | /See:/ 'mkDeleteDocumentationPartResponse' smart constructor.
 data DeleteDocumentationPartResponse = DeleteDocumentationPartResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentationPartResponse' with the minimum fields required to make a request.

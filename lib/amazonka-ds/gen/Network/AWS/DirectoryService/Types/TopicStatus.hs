@@ -13,10 +13,10 @@
 module Network.AWS.DirectoryService.Types.TopicStatus
   ( TopicStatus
       ( TopicStatus',
-        TDeleted,
-        TFailed,
         TRegistered,
-        TTopicNotFound
+        TTopicNotFound,
+        TFailed,
+        TDeleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TopicStatus = TopicStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern TDeleted :: TopicStatus
-pattern TDeleted = TopicStatus' "Deleted"
-
-pattern TFailed :: TopicStatus
-pattern TFailed = TopicStatus' "Failed"
-
 pattern TRegistered :: TopicStatus
 pattern TRegistered = TopicStatus' "Registered"
 
 pattern TTopicNotFound :: TopicStatus
 pattern TTopicNotFound = TopicStatus' "Topic not found"
 
+pattern TFailed :: TopicStatus
+pattern TFailed = TopicStatus' "Failed"
+
+pattern TDeleted :: TopicStatus
+pattern TDeleted = TopicStatus' "Deleted"
+
 {-# COMPLETE
-  TDeleted,
-  TFailed,
   TRegistered,
   TTopicNotFound,
+  TFailed,
+  TDeleted,
   TopicStatus'
   #-}

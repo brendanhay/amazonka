@@ -14,8 +14,8 @@ module Network.AWS.CloudFormation.Types.RegistrationStatus
   ( RegistrationStatus
       ( RegistrationStatus',
         RSComplete,
-        RSFailed,
-        RSInProgress
+        RSInProgress,
+        RSFailed
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype RegistrationStatus = RegistrationStatus' Lude.Text
 pattern RSComplete :: RegistrationStatus
 pattern RSComplete = RegistrationStatus' "COMPLETE"
 
-pattern RSFailed :: RegistrationStatus
-pattern RSFailed = RegistrationStatus' "FAILED"
-
 pattern RSInProgress :: RegistrationStatus
 pattern RSInProgress = RegistrationStatus' "IN_PROGRESS"
 
+pattern RSFailed :: RegistrationStatus
+pattern RSFailed = RegistrationStatus' "FAILED"
+
 {-# COMPLETE
   RSComplete,
-  RSFailed,
   RSInProgress,
+  RSFailed,
   RegistrationStatus'
   #-}

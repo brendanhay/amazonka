@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReplicationTaskIndividualAssessments' smart constructor.
 data DescribeReplicationTaskIndividualAssessments = DescribeReplicationTaskIndividualAssessments'
-  { filters ::
-      Lude.Maybe
-        [Filter],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    maxRecords ::
-      Lude.Maybe
-        Lude.Int
+  { -- | Filters applied to the individual assessments described in the form of key-value pairs.
+    --
+    -- Valid filter names: @replication-task-assessment-run-arn@ , @replication-task-arn@ , @status@
+    filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationTaskIndividualAssessments' with the minimum fields required to make a request.
@@ -160,31 +154,20 @@ instance Lude.ToQuery DescribeReplicationTaskIndividualAssessments where
 --
 -- /See:/ 'mkDescribeReplicationTaskIndividualAssessmentsResponse' smart constructor.
 data DescribeReplicationTaskIndividualAssessmentsResponse = DescribeReplicationTaskIndividualAssessmentsResponse'
-  { replicationTaskIndividualAssessments ::
-      Lude.Maybe
-        [ReplicationTaskIndividualAssessment],
-    marker ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | One or more individual assessments as specified by @Filters@ .
+    replicationTaskIndividualAssessments :: Lude.Maybe [ReplicationTaskIndividualAssessment],
+    -- | A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReplicationTaskIndividualAssessmentsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
 -- * 'replicationTaskIndividualAssessments' - One or more individual assessments as specified by @Filters@ .
+-- * 'marker' - A pagination token returned for you to pass to a subsequent request. If you pass this token as the @Marker@ value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
 mkDescribeReplicationTaskIndividualAssessmentsResponse ::
   -- | 'responseStatus'

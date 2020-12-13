@@ -36,30 +36,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlacementGroup' smart constructor.
 data PlacementGroup = PlacementGroup'
-  { state ::
-      Lude.Maybe PlacementGroupState,
+  { -- | The state of the placement group.
+    state :: Lude.Maybe PlacementGroupState,
+    -- | The placement strategy.
     strategy :: Lude.Maybe PlacementStrategy,
+    -- | The ID of the placement group.
     groupId :: Lude.Maybe Lude.Text,
+    -- | The name of the placement group.
     groupName :: Lude.Maybe Lude.Text,
+    -- | The number of partitions. Valid only if __strategy__ is set to @partition@ .
     partitionCount :: Lude.Maybe Lude.Int,
+    -- | Any tags applied to the placement group.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PlacementGroup' with the minimum fields required to make a request.
 --
+-- * 'state' - The state of the placement group.
+-- * 'strategy' - The placement strategy.
 -- * 'groupId' - The ID of the placement group.
 -- * 'groupName' - The name of the placement group.
 -- * 'partitionCount' - The number of partitions. Valid only if __strategy__ is set to @partition@ .
--- * 'state' - The state of the placement group.
--- * 'strategy' - The placement strategy.
 -- * 'tags' - Any tags applied to the placement group.
 mkPlacementGroup ::
   PlacementGroup

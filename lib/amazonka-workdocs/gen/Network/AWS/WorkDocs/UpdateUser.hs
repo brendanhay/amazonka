@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.WorkDocs.UpdateUser
     uuGrantPoweruserPrivileges,
     uuLocale,
     uuAuthenticationToken,
+    uuUserId,
     uuStorageRule,
     uuType,
     uuSurname,
     uuTimeZoneId,
-    uuUserId,
 
     -- * Destructuring the response
     UpdateUserResponse (..),
@@ -47,30 +48,39 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { givenName :: Lude.Maybe Lude.Text,
+  { -- | The given name of the user.
+    givenName :: Lude.Maybe Lude.Text,
+    -- | Boolean value to determine whether the user is granted Poweruser privileges.
     grantPoweruserPrivileges :: Lude.Maybe BooleanEnumType,
+    -- | The locale of the user.
     locale :: Lude.Maybe LocaleType,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
     authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The ID of the user.
+    userId :: Lude.Text,
+    -- | The amount of storage for the user.
     storageRule :: Lude.Maybe StorageRuleType,
+    -- | The type of the user.
     type' :: Lude.Maybe UserType,
+    -- | The surname of the user.
     surname :: Lude.Maybe Lude.Text,
-    timeZoneId :: Lude.Maybe Lude.Text,
-    userId :: Lude.Text
+    -- | The time zone ID of the user.
+    timeZoneId :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 -- * 'givenName' - The given name of the user.
 -- * 'grantPoweruserPrivileges' - Boolean value to determine whether the user is granted Poweruser privileges.
 -- * 'locale' - The locale of the user.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'userId' - The ID of the user.
 -- * 'storageRule' - The amount of storage for the user.
+-- * 'type'' - The type of the user.
 -- * 'surname' - The surname of the user.
 -- * 'timeZoneId' - The time zone ID of the user.
--- * 'type'' - The type of the user.
--- * 'userId' - The ID of the user.
 mkUpdateUser ::
   -- | 'userId'
   Lude.Text ->
@@ -81,11 +91,11 @@ mkUpdateUser pUserId_ =
       grantPoweruserPrivileges = Lude.Nothing,
       locale = Lude.Nothing,
       authenticationToken = Lude.Nothing,
+      userId = pUserId_,
       storageRule = Lude.Nothing,
       type' = Lude.Nothing,
       surname = Lude.Nothing,
-      timeZoneId = Lude.Nothing,
-      userId = pUserId_
+      timeZoneId = Lude.Nothing
     }
 
 -- | The given name of the user.
@@ -116,6 +126,13 @@ uuAuthenticationToken :: Lens.Lens' UpdateUser (Lude.Maybe (Lude.Sensitive Lude.
 uuAuthenticationToken = Lens.lens (authenticationToken :: UpdateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: UpdateUser)
 {-# DEPRECATED uuAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
+-- | The ID of the user.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuUserId :: Lens.Lens' UpdateUser Lude.Text
+uuUserId = Lens.lens (userId :: UpdateUser -> Lude.Text) (\s a -> s {userId = a} :: UpdateUser)
+{-# DEPRECATED uuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
 -- | The amount of storage for the user.
 --
 -- /Note:/ Consider using 'storageRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -143,13 +160,6 @@ uuSurname = Lens.lens (surname :: UpdateUser -> Lude.Maybe Lude.Text) (\s a -> s
 uuTimeZoneId :: Lens.Lens' UpdateUser (Lude.Maybe Lude.Text)
 uuTimeZoneId = Lens.lens (timeZoneId :: UpdateUser -> Lude.Maybe Lude.Text) (\s a -> s {timeZoneId = a} :: UpdateUser)
 {-# DEPRECATED uuTimeZoneId "Use generic-lens or generic-optics with 'timeZoneId' instead." #-}
-
--- | The ID of the user.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuUserId :: Lens.Lens' UpdateUser Lude.Text
-uuUserId = Lens.lens (userId :: UpdateUser -> Lude.Text) (\s a -> s {userId = a} :: UpdateUser)
-{-# DEPRECATED uuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 instance Lude.AWSRequest UpdateUser where
   type Rs UpdateUser = UpdateUserResponse
@@ -193,23 +203,18 @@ instance Lude.ToQuery UpdateUser where
 
 -- | /See:/ 'mkUpdateUserResponse' smart constructor.
 data UpdateUserResponse = UpdateUserResponse'
-  { user ::
-      Lude.Maybe User,
+  { -- | The user information.
+    user :: Lude.Maybe User,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'user' - The user information.
+-- * 'responseStatus' - The response status code.
 mkUpdateUserResponse ::
   -- | 'responseStatus'
   Lude.Int ->

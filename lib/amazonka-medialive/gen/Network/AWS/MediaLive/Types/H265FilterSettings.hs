@@ -29,21 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkH265FilterSettings' smart constructor.
 newtype H265FilterSettings = H265FilterSettings'
-  { temporalFilterSettings ::
-      Lude.Maybe TemporalFilterSettings
+  { temporalFilterSettings :: Lude.Maybe TemporalFilterSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'H265FilterSettings' with the minimum fields required to make a request.
 --
--- * 'temporalFilterSettings' - Undocumented field.
+-- * 'temporalFilterSettings' -
 mkH265FilterSettings ::
   H265FilterSettings
 mkH265FilterSettings =

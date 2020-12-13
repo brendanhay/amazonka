@@ -31,17 +31,17 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDASHTimestampRange' smart constructor.
 data DASHTimestampRange = DASHTimestampRange'
-  { endTimestamp ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The end of the timestamp range for the requested media. This value must be within 3 hours of the specified @StartTimestamp@ , and it must be later than the @StartTimestamp@ value.
+    --
+    -- If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@ , this value must be in the past.
+    -- The @EndTimestamp@ value is required for @ON_DEMAND@ mode, but optional for @LIVE_REPLAY@ mode. If the @EndTimestamp@ is not set for @LIVE_REPLAY@ mode then the session will continue to include newly ingested fragments until the session expires.
+    endTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The start of the timestamp range for the requested media.
+    --
+    -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@ value is required.
     startTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DASHTimestampRange' with the minimum fields required to make a request.

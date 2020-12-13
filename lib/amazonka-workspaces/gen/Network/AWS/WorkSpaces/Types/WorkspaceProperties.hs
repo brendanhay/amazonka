@@ -34,28 +34,25 @@ import Network.AWS.WorkSpaces.Types.RunningMode
 --
 -- /See:/ 'mkWorkspaceProperties' smart constructor.
 data WorkspaceProperties = WorkspaceProperties'
-  { computeTypeName ::
-      Lude.Maybe Compute,
+  { -- | The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
+    computeTypeName :: Lude.Maybe Compute,
+    -- | The running mode. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode> .
     runningMode :: Lude.Maybe RunningMode,
+    -- | The size of the root volume. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
     rootVolumeSizeGib :: Lude.Maybe Lude.Int,
-    runningModeAutoStopTimeoutInMinutes ::
-      Lude.Maybe Lude.Int,
+    -- | The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+    runningModeAutoStopTimeoutInMinutes :: Lude.Maybe Lude.Int,
+    -- | The size of the user storage. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
     userVolumeSizeGib :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceProperties' with the minimum fields required to make a request.
 --
 -- * 'computeTypeName' - The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
--- * 'rootVolumeSizeGib' - The size of the root volume. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
 -- * 'runningMode' - The running mode. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html Manage the WorkSpace Running Mode> .
+-- * 'rootVolumeSizeGib' - The size of the root volume. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
 -- * 'runningModeAutoStopTimeoutInMinutes' - The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
 -- * 'userVolumeSizeGib' - The size of the user storage. For important information about how to modify the size of the root and user volumes, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html Modify a WorkSpace> .
 mkWorkspaceProperties ::

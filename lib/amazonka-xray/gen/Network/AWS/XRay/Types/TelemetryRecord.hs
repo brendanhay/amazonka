@@ -21,8 +21,8 @@ module Network.AWS.XRay.Types.TelemetryRecord
     trSegmentsSentCount,
     trSegmentsSpilloverCount,
     trSegmentsRejectedCount,
-    trBackendConnectionErrors,
     trTimestamp,
+    trBackendConnectionErrors,
   )
 where
 
@@ -34,32 +34,30 @@ import Network.AWS.XRay.Types.BackendConnectionErrors
 --
 -- /See:/ 'mkTelemetryRecord' smart constructor.
 data TelemetryRecord = TelemetryRecord'
-  { segmentsReceivedCount ::
-      Lude.Maybe Lude.Int,
+  { -- |
+    segmentsReceivedCount :: Lude.Maybe Lude.Int,
+    -- |
     segmentsSentCount :: Lude.Maybe Lude.Int,
+    -- |
     segmentsSpilloverCount :: Lude.Maybe Lude.Int,
+    -- |
     segmentsRejectedCount :: Lude.Maybe Lude.Int,
-    backendConnectionErrors ::
-      Lude.Maybe BackendConnectionErrors,
-    timestamp :: Lude.Timestamp
+    -- |
+    timestamp :: Lude.Timestamp,
+    -- |
+    backendConnectionErrors :: Lude.Maybe BackendConnectionErrors
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TelemetryRecord' with the minimum fields required to make a request.
 --
--- * 'backendConnectionErrors' -
 -- * 'segmentsReceivedCount' -
--- * 'segmentsRejectedCount' -
 -- * 'segmentsSentCount' -
 -- * 'segmentsSpilloverCount' -
+-- * 'segmentsRejectedCount' -
 -- * 'timestamp' -
+-- * 'backendConnectionErrors' -
 mkTelemetryRecord ::
   -- | 'timestamp'
   Lude.Timestamp ->
@@ -70,8 +68,8 @@ mkTelemetryRecord pTimestamp_ =
       segmentsSentCount = Lude.Nothing,
       segmentsSpilloverCount = Lude.Nothing,
       segmentsRejectedCount = Lude.Nothing,
-      backendConnectionErrors = Lude.Nothing,
-      timestamp = pTimestamp_
+      timestamp = pTimestamp_,
+      backendConnectionErrors = Lude.Nothing
     }
 
 -- |
@@ -104,17 +102,17 @@ trSegmentsRejectedCount = Lens.lens (segmentsRejectedCount :: TelemetryRecord ->
 
 -- |
 --
--- /Note:/ Consider using 'backendConnectionErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trBackendConnectionErrors :: Lens.Lens' TelemetryRecord (Lude.Maybe BackendConnectionErrors)
-trBackendConnectionErrors = Lens.lens (backendConnectionErrors :: TelemetryRecord -> Lude.Maybe BackendConnectionErrors) (\s a -> s {backendConnectionErrors = a} :: TelemetryRecord)
-{-# DEPRECATED trBackendConnectionErrors "Use generic-lens or generic-optics with 'backendConnectionErrors' instead." #-}
-
--- |
---
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 trTimestamp :: Lens.Lens' TelemetryRecord Lude.Timestamp
 trTimestamp = Lens.lens (timestamp :: TelemetryRecord -> Lude.Timestamp) (\s a -> s {timestamp = a} :: TelemetryRecord)
 {-# DEPRECATED trTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+
+-- |
+--
+-- /Note:/ Consider using 'backendConnectionErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trBackendConnectionErrors :: Lens.Lens' TelemetryRecord (Lude.Maybe BackendConnectionErrors)
+trBackendConnectionErrors = Lens.lens (backendConnectionErrors :: TelemetryRecord -> Lude.Maybe BackendConnectionErrors) (\s a -> s {backendConnectionErrors = a} :: TelemetryRecord)
+{-# DEPRECATED trBackendConnectionErrors "Use generic-lens or generic-optics with 'backendConnectionErrors' instead." #-}
 
 instance Lude.ToJSON TelemetryRecord where
   toJSON TelemetryRecord' {..} =
@@ -124,8 +122,8 @@ instance Lude.ToJSON TelemetryRecord where
             ("SegmentsSentCount" Lude..=) Lude.<$> segmentsSentCount,
             ("SegmentsSpilloverCount" Lude..=) Lude.<$> segmentsSpilloverCount,
             ("SegmentsRejectedCount" Lude..=) Lude.<$> segmentsRejectedCount,
+            Lude.Just ("Timestamp" Lude..= timestamp),
             ("BackendConnectionErrors" Lude..=)
-              Lude.<$> backendConnectionErrors,
-            Lude.Just ("Timestamp" Lude..= timestamp)
+              Lude.<$> backendConnectionErrors
           ]
       )

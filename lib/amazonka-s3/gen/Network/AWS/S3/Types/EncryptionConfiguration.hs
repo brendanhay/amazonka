@@ -29,16 +29,10 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'mkEncryptionConfiguration' smart constructor.
 newtype EncryptionConfiguration = EncryptionConfiguration'
-  { replicaKMSKeyId ::
-      Lude.Maybe Lude.Text
+  { -- | Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket. Amazon S3 uses this key to encrypt replica objects. Amazon S3 only supports symmetric customer managed CMKs. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys> in the /AWS Key Management Service Developer Guide/ .
+    replicaKMSKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.

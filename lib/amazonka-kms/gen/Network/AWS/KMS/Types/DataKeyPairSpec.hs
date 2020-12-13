@@ -13,13 +13,13 @@
 module Network.AWS.KMS.Types.DataKeyPairSpec
   ( DataKeyPairSpec
       ( DataKeyPairSpec',
-        DKPSEccNistP256,
-        DKPSEccNistP384,
-        DKPSEccNistP521,
-        DKPSEccSecgP256K1,
-        DKPSRsa2048,
-        DKPSRsa3072,
-        DKPSRsa4096
+        Rsa2048,
+        Rsa3072,
+        Rsa4096,
+        EccNistP256,
+        EccNistP384,
+        EccNistP521,
+        EccSecgP256K1
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype DataKeyPairSpec = DataKeyPairSpec' Lude.Text
       Lude.ToHeader
     )
 
-pattern DKPSEccNistP256 :: DataKeyPairSpec
-pattern DKPSEccNistP256 = DataKeyPairSpec' "ECC_NIST_P256"
+pattern Rsa2048 :: DataKeyPairSpec
+pattern Rsa2048 = DataKeyPairSpec' "RSA_2048"
 
-pattern DKPSEccNistP384 :: DataKeyPairSpec
-pattern DKPSEccNistP384 = DataKeyPairSpec' "ECC_NIST_P384"
+pattern Rsa3072 :: DataKeyPairSpec
+pattern Rsa3072 = DataKeyPairSpec' "RSA_3072"
 
-pattern DKPSEccNistP521 :: DataKeyPairSpec
-pattern DKPSEccNistP521 = DataKeyPairSpec' "ECC_NIST_P521"
+pattern Rsa4096 :: DataKeyPairSpec
+pattern Rsa4096 = DataKeyPairSpec' "RSA_4096"
 
-pattern DKPSEccSecgP256K1 :: DataKeyPairSpec
-pattern DKPSEccSecgP256K1 = DataKeyPairSpec' "ECC_SECG_P256K1"
+pattern EccNistP256 :: DataKeyPairSpec
+pattern EccNistP256 = DataKeyPairSpec' "ECC_NIST_P256"
 
-pattern DKPSRsa2048 :: DataKeyPairSpec
-pattern DKPSRsa2048 = DataKeyPairSpec' "RSA_2048"
+pattern EccNistP384 :: DataKeyPairSpec
+pattern EccNistP384 = DataKeyPairSpec' "ECC_NIST_P384"
 
-pattern DKPSRsa3072 :: DataKeyPairSpec
-pattern DKPSRsa3072 = DataKeyPairSpec' "RSA_3072"
+pattern EccNistP521 :: DataKeyPairSpec
+pattern EccNistP521 = DataKeyPairSpec' "ECC_NIST_P521"
 
-pattern DKPSRsa4096 :: DataKeyPairSpec
-pattern DKPSRsa4096 = DataKeyPairSpec' "RSA_4096"
+pattern EccSecgP256K1 :: DataKeyPairSpec
+pattern EccSecgP256K1 = DataKeyPairSpec' "ECC_SECG_P256K1"
 
 {-# COMPLETE
-  DKPSEccNistP256,
-  DKPSEccNistP384,
-  DKPSEccNistP521,
-  DKPSEccSecgP256K1,
-  DKPSRsa2048,
-  DKPSRsa3072,
-  DKPSRsa4096,
+  Rsa2048,
+  Rsa3072,
+  Rsa4096,
+  EccNistP256,
+  EccNistP384,
+  EccNistP521,
+  EccSecgP256K1,
   DataKeyPairSpec'
   #-}

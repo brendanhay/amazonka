@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -69,11 +70,11 @@ module Network.AWS.SSM.DescribePatchProperties
     mkDescribePatchProperties,
 
     -- ** Request lenses
+    dppProperty,
+    dppOperatingSystem,
     dppPatchSet,
     dppNextToken,
     dppMaxResults,
-    dppOperatingSystem,
-    dppProperty,
 
     -- * Destructuring the response
     DescribePatchPropertiesResponse (..),
@@ -95,43 +96,55 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribePatchProperties' smart constructor.
 data DescribePatchProperties = DescribePatchProperties'
-  { patchSet ::
-      Lude.Maybe PatchSet,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
+  { -- | The patch property for which you want to view patch details.
+    property :: PatchProperty,
+    -- | The operating system type for which to list patches.
     operatingSystem :: OperatingSystem,
-    property :: PatchProperty
+    -- | Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
+    patchSet :: Lude.Maybe PatchSet,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchProperties' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'property' - The patch property for which you want to view patch details.
 -- * 'operatingSystem' - The operating system type for which to list patches.
 -- * 'patchSet' - Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
--- * 'property' - The patch property for which you want to view patch details.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribePatchProperties ::
-  -- | 'operatingSystem'
-  OperatingSystem ->
   -- | 'property'
   PatchProperty ->
+  -- | 'operatingSystem'
+  OperatingSystem ->
   DescribePatchProperties
-mkDescribePatchProperties pOperatingSystem_ pProperty_ =
+mkDescribePatchProperties pProperty_ pOperatingSystem_ =
   DescribePatchProperties'
-    { patchSet = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
+    { property = pProperty_,
       operatingSystem = pOperatingSystem_,
-      property = pProperty_
+      patchSet = Lude.Nothing,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The patch property for which you want to view patch details.
+--
+-- /Note:/ Consider using 'property' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppProperty :: Lens.Lens' DescribePatchProperties PatchProperty
+dppProperty = Lens.lens (property :: DescribePatchProperties -> PatchProperty) (\s a -> s {property = a} :: DescribePatchProperties)
+{-# DEPRECATED dppProperty "Use generic-lens or generic-optics with 'property' instead." #-}
+
+-- | The operating system type for which to list patches.
+--
+-- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dppOperatingSystem :: Lens.Lens' DescribePatchProperties OperatingSystem
+dppOperatingSystem = Lens.lens (operatingSystem :: DescribePatchProperties -> OperatingSystem) (\s a -> s {operatingSystem = a} :: DescribePatchProperties)
+{-# DEPRECATED dppOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
 
 -- | Indicates whether to list patches for the Windows operating system or for Microsoft applications. Not applicable for Linux operating systems.
 --
@@ -153,20 +166,6 @@ dppNextToken = Lens.lens (nextToken :: DescribePatchProperties -> Lude.Maybe Lud
 dppMaxResults :: Lens.Lens' DescribePatchProperties (Lude.Maybe Lude.Natural)
 dppMaxResults = Lens.lens (maxResults :: DescribePatchProperties -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribePatchProperties)
 {-# DEPRECATED dppMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The operating system type for which to list patches.
---
--- /Note:/ Consider using 'operatingSystem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppOperatingSystem :: Lens.Lens' DescribePatchProperties OperatingSystem
-dppOperatingSystem = Lens.lens (operatingSystem :: DescribePatchProperties -> OperatingSystem) (\s a -> s {operatingSystem = a} :: DescribePatchProperties)
-{-# DEPRECATED dppOperatingSystem "Use generic-lens or generic-optics with 'operatingSystem' instead." #-}
-
--- | The patch property for which you want to view patch details.
---
--- /Note:/ Consider using 'property' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dppProperty :: Lens.Lens' DescribePatchProperties PatchProperty
-dppProperty = Lens.lens (property :: DescribePatchProperties -> PatchProperty) (\s a -> s {property = a} :: DescribePatchProperties)
-{-# DEPRECATED dppProperty "Use generic-lens or generic-optics with 'property' instead." #-}
 
 instance Page.AWSPager DescribePatchProperties where
   page rq rs
@@ -204,11 +203,11 @@ instance Lude.ToJSON DescribePatchProperties where
   toJSON DescribePatchProperties' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PatchSet" Lude..=) Lude.<$> patchSet,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
+          [ Lude.Just ("Property" Lude..= property),
             Lude.Just ("OperatingSystem" Lude..= operatingSystem),
-            Lude.Just ("Property" Lude..= property)
+            ("PatchSet" Lude..=) Lude.<$> patchSet,
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -220,23 +219,14 @@ instance Lude.ToQuery DescribePatchProperties where
 
 -- | /See:/ 'mkDescribePatchPropertiesResponse' smart constructor.
 data DescribePatchPropertiesResponse = DescribePatchPropertiesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    properties ::
-      Lude.Maybe
-        [ Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ],
+  { -- | The token for the next set of items to return. (You use this token in the next call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of the properties for patches matching the filter request parameters.
+    properties :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePatchPropertiesResponse' with the minimum fields required to make a request.

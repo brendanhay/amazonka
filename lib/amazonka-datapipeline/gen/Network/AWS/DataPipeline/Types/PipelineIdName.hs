@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineIdName' smart constructor.
 data PipelineIdName = PipelineIdName'
-  { name :: Lude.Maybe Lude.Text,
+  { -- | The name of the pipeline.
+    name :: Lude.Maybe Lude.Text,
+    -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineIdName' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 -- * 'name' - The name of the pipeline.
+-- * 'id' - The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 mkPipelineIdName ::
   PipelineIdName
 mkPipelineIdName =

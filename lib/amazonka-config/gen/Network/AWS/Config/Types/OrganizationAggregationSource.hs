@@ -30,26 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationAggregationSource' smart constructor.
 data OrganizationAggregationSource = OrganizationAggregationSource'
-  { awsRegions ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
-    allAWSRegions ::
-      Lude.Maybe Lude.Bool,
+  { -- | The source regions being aggregated.
+    awsRegions :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | If true, aggregate existing AWS Config regions and future regions.
+    allAWSRegions :: Lude.Maybe Lude.Bool,
+    -- | ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationAggregationSource' with the minimum fields required to make a request.
 --
--- * 'allAWSRegions' - If true, aggregate existing AWS Config regions and future regions.
 -- * 'awsRegions' - The source regions being aggregated.
+-- * 'allAWSRegions' - If true, aggregate existing AWS Config regions and future regions.
 -- * 'roleARN' - ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
 mkOrganizationAggregationSource ::
   -- | 'roleARN'

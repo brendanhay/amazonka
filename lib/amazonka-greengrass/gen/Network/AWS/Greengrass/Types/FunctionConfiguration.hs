@@ -36,33 +36,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { memorySize ::
-      Lude.Maybe Lude.Int,
+  { -- | The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.
+    memorySize :: Lude.Maybe Lude.Int,
+    -- | The execution arguments.
     execArgs :: Lude.Maybe Lude.Text,
-    environment ::
-      Lude.Maybe FunctionConfigurationEnvironment,
+    -- | The environment configuration of the function.
+    environment :: Lude.Maybe FunctionConfigurationEnvironment,
+    -- | The name of the function executable.
     executable :: Lude.Maybe Lude.Text,
+    -- | True if the function is pinned. Pinned means the function is long-lived and starts when the core starts.
     pinned :: Lude.Maybe Lude.Bool,
+    -- | The expected encoding type of the input payload for the function. The default is ''json''.
     encodingType :: Lude.Maybe EncodingType,
+    -- | The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
     timeout :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --
--- * 'encodingType' - The expected encoding type of the input payload for the function. The default is ''json''.
--- * 'environment' - The environment configuration of the function.
--- * 'execArgs' - The execution arguments.
--- * 'executable' - The name of the function executable.
 -- * 'memorySize' - The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.
+-- * 'execArgs' - The execution arguments.
+-- * 'environment' - The environment configuration of the function.
+-- * 'executable' - The name of the function executable.
 -- * 'pinned' - True if the function is pinned. Pinned means the function is long-lived and starts when the core starts.
+-- * 'encodingType' - The expected encoding type of the input payload for the function. The default is ''json''.
 -- * 'timeout' - The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.
 mkFunctionConfiguration ::
   FunctionConfiguration

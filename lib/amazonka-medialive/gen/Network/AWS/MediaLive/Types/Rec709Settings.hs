@@ -27,13 +27,7 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRec709Settings' smart constructor.
 data Rec709Settings = Rec709Settings'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Rec709Settings' with the minimum fields required to make a request.

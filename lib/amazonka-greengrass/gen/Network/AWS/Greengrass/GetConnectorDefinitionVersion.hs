@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Greengrass.GetConnectorDefinitionVersion
     mkGetConnectorDefinitionVersion,
 
     -- ** Request lenses
+    gcdvConnectorDefinitionVersionId,
     gcdvNextToken,
     gcdvConnectorDefinitionId,
-    gcdvConnectorDefinitionVersionId,
 
     -- * Destructuring the response
     GetConnectorDefinitionVersionResponse (..),
@@ -46,41 +47,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetConnectorDefinitionVersion' smart constructor.
 data GetConnectorDefinitionVersion = GetConnectorDefinitionVersion'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    connectorDefinitionId ::
-      Lude.Text,
-    connectorDefinitionVersionId ::
-      Lude.Text
+  { -- | The ID of the connector definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListConnectorDefinitionVersions'' requests. If the version is the last one that was associated with a connector definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+    connectorDefinitionVersionId :: Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the connector definition.
+    connectorDefinitionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorDefinitionVersion' with the minimum fields required to make a request.
 --
--- * 'connectorDefinitionId' - The ID of the connector definition.
 -- * 'connectorDefinitionVersionId' - The ID of the connector definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListConnectorDefinitionVersions'' requests. If the version is the last one that was associated with a connector definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'connectorDefinitionId' - The ID of the connector definition.
 mkGetConnectorDefinitionVersion ::
-  -- | 'connectorDefinitionId'
-  Lude.Text ->
   -- | 'connectorDefinitionVersionId'
+  Lude.Text ->
+  -- | 'connectorDefinitionId'
   Lude.Text ->
   GetConnectorDefinitionVersion
 mkGetConnectorDefinitionVersion
-  pConnectorDefinitionId_
-  pConnectorDefinitionVersionId_ =
+  pConnectorDefinitionVersionId_
+  pConnectorDefinitionId_ =
     GetConnectorDefinitionVersion'
-      { nextToken = Lude.Nothing,
-        connectorDefinitionId = pConnectorDefinitionId_,
-        connectorDefinitionVersionId = pConnectorDefinitionVersionId_
+      { connectorDefinitionVersionId =
+          pConnectorDefinitionVersionId_,
+        nextToken = Lude.Nothing,
+        connectorDefinitionId = pConnectorDefinitionId_
       }
+
+-- | The ID of the connector definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListConnectorDefinitionVersions'' requests. If the version is the last one that was associated with a connector definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+--
+-- /Note:/ Consider using 'connectorDefinitionVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdvConnectorDefinitionVersionId :: Lens.Lens' GetConnectorDefinitionVersion Lude.Text
+gcdvConnectorDefinitionVersionId = Lens.lens (connectorDefinitionVersionId :: GetConnectorDefinitionVersion -> Lude.Text) (\s a -> s {connectorDefinitionVersionId = a} :: GetConnectorDefinitionVersion)
+{-# DEPRECATED gcdvConnectorDefinitionVersionId "Use generic-lens or generic-optics with 'connectorDefinitionVersionId' instead." #-}
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
@@ -95,13 +98,6 @@ gcdvNextToken = Lens.lens (nextToken :: GetConnectorDefinitionVersion -> Lude.Ma
 gcdvConnectorDefinitionId :: Lens.Lens' GetConnectorDefinitionVersion Lude.Text
 gcdvConnectorDefinitionId = Lens.lens (connectorDefinitionId :: GetConnectorDefinitionVersion -> Lude.Text) (\s a -> s {connectorDefinitionId = a} :: GetConnectorDefinitionVersion)
 {-# DEPRECATED gcdvConnectorDefinitionId "Use generic-lens or generic-optics with 'connectorDefinitionId' instead." #-}
-
--- | The ID of the connector definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListConnectorDefinitionVersions'' requests. If the version is the last one that was associated with a connector definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
---
--- /Note:/ Consider using 'connectorDefinitionVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvConnectorDefinitionVersionId :: Lens.Lens' GetConnectorDefinitionVersion Lude.Text
-gcdvConnectorDefinitionVersionId = Lens.lens (connectorDefinitionVersionId :: GetConnectorDefinitionVersion -> Lude.Text) (\s a -> s {connectorDefinitionVersionId = a} :: GetConnectorDefinitionVersion)
-{-# DEPRECATED gcdvConnectorDefinitionVersionId "Use generic-lens or generic-optics with 'connectorDefinitionVersionId' instead." #-}
 
 instance Lude.AWSRequest GetConnectorDefinitionVersion where
   type
@@ -145,45 +141,33 @@ instance Lude.ToQuery GetConnectorDefinitionVersion where
 
 -- | /See:/ 'mkGetConnectorDefinitionVersionResponse' smart constructor.
 data GetConnectorDefinitionVersionResponse = GetConnectorDefinitionVersionResponse'
-  { definition ::
-      Lude.Maybe
-        ConnectorDefinitionVersion,
-    arn ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    creationTimestamp ::
-      Lude.Maybe
-        Lude.Text,
-    version ::
-      Lude.Maybe
-        Lude.Text,
-    id ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the connector definition version.
+    definition :: Lude.Maybe ConnectorDefinitionVersion,
+    -- | The ARN of the connector definition version.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the connector definition version was created.
+    creationTimestamp :: Lude.Maybe Lude.Text,
+    -- | The version of the connector definition version.
+    version :: Lude.Maybe Lude.Text,
+    -- | The ID of the connector definition version.
+    id :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetConnectorDefinitionVersionResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the connector definition version.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the connector definition version was created.
 -- * 'definition' - Information about the connector definition version.
--- * 'id' - The ID of the connector definition version.
+-- * 'arn' - The ARN of the connector definition version.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the connector definition version was created.
 -- * 'version' - The version of the connector definition version.
+-- * 'id' - The ID of the connector definition version.
+-- * 'responseStatus' - The response status code.
 mkGetConnectorDefinitionVersionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

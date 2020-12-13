@@ -29,20 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStaticImageDeactivateScheduleActionSettings' smart constructor.
 data StaticImageDeactivateScheduleActionSettings = StaticImageDeactivateScheduleActionSettings'
-  { fadeOut ::
-      Lude.Maybe
-        Lude.Natural,
-    layer ::
-      Lude.Maybe
-        Lude.Natural
+  { -- | The time in milliseconds for the image to fade out. Default is 0 (no fade-out).
+    fadeOut :: Lude.Maybe Lude.Natural,
+    -- | The image overlay layer to deactivate, 0 to 7. Default is 0.
+    layer :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticImageDeactivateScheduleActionSettings' with the minimum fields required to make a request.

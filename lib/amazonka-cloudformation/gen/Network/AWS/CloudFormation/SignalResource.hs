@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.CloudFormation.SignalResource
     mkSignalResource,
 
     -- ** Request lenses
-    sigStackName,
-    sigLogicalResourceId,
-    sigUniqueId,
-    sigStatus,
+    sStatus,
+    sLogicalResourceId,
+    sUniqueId,
+    sStackName,
 
     -- * Destructuring the response
     SignalResourceResponse (..),
@@ -40,75 +41,73 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSignalResource' smart constructor.
 data SignalResource = SignalResource'
-  { stackName :: Lude.Text,
+  { -- | The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.
+    status :: ResourceSignalStatus,
+    -- | The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
     logicalResourceId :: Lude.Text,
+    -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
     uniqueId :: Lude.Text,
-    status :: ResourceSignalStatus
+    -- | The stack name or unique stack ID that includes the resource that you want to signal.
+    stackName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SignalResource' with the minimum fields required to make a request.
 --
--- * 'logicalResourceId' - The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
--- * 'stackName' - The stack name or unique stack ID that includes the resource that you want to signal.
 -- * 'status' - The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.
+-- * 'logicalResourceId' - The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
 -- * 'uniqueId' - A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
+-- * 'stackName' - The stack name or unique stack ID that includes the resource that you want to signal.
 mkSignalResource ::
-  -- | 'stackName'
-  Lude.Text ->
+  -- | 'status'
+  ResourceSignalStatus ->
   -- | 'logicalResourceId'
   Lude.Text ->
   -- | 'uniqueId'
   Lude.Text ->
-  -- | 'status'
-  ResourceSignalStatus ->
+  -- | 'stackName'
+  Lude.Text ->
   SignalResource
 mkSignalResource
-  pStackName_
+  pStatus_
   pLogicalResourceId_
   pUniqueId_
-  pStatus_ =
+  pStackName_ =
     SignalResource'
-      { stackName = pStackName_,
+      { status = pStatus_,
         logicalResourceId = pLogicalResourceId_,
         uniqueId = pUniqueId_,
-        status = pStatus_
+        stackName = pStackName_
       }
-
--- | The stack name or unique stack ID that includes the resource that you want to signal.
---
--- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sigStackName :: Lens.Lens' SignalResource Lude.Text
-sigStackName = Lens.lens (stackName :: SignalResource -> Lude.Text) (\s a -> s {stackName = a} :: SignalResource)
-{-# DEPRECATED sigStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
-
--- | The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
---
--- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sigLogicalResourceId :: Lens.Lens' SignalResource Lude.Text
-sigLogicalResourceId = Lens.lens (logicalResourceId :: SignalResource -> Lude.Text) (\s a -> s {logicalResourceId = a} :: SignalResource)
-{-# DEPRECATED sigLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
-
--- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
---
--- /Note:/ Consider using 'uniqueId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sigUniqueId :: Lens.Lens' SignalResource Lude.Text
-sigUniqueId = Lens.lens (uniqueId :: SignalResource -> Lude.Text) (\s a -> s {uniqueId = a} :: SignalResource)
-{-# DEPRECATED sigUniqueId "Use generic-lens or generic-optics with 'uniqueId' instead." #-}
 
 -- | The status of the signal, which is either success or failure. A failure signal causes AWS CloudFormation to immediately fail the stack creation or update.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sigStatus :: Lens.Lens' SignalResource ResourceSignalStatus
-sigStatus = Lens.lens (status :: SignalResource -> ResourceSignalStatus) (\s a -> s {status = a} :: SignalResource)
-{-# DEPRECATED sigStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+sStatus :: Lens.Lens' SignalResource ResourceSignalStatus
+sStatus = Lens.lens (status :: SignalResource -> ResourceSignalStatus) (\s a -> s {status = a} :: SignalResource)
+{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The logical ID of the resource that you want to signal. The logical ID is the name of the resource that given in the template.
+--
+-- /Note:/ Consider using 'logicalResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sLogicalResourceId :: Lens.Lens' SignalResource Lude.Text
+sLogicalResourceId = Lens.lens (logicalResourceId :: SignalResource -> Lude.Text) (\s a -> s {logicalResourceId = a} :: SignalResource)
+{-# DEPRECATED sLogicalResourceId "Use generic-lens or generic-optics with 'logicalResourceId' instead." #-}
+
+-- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups, specify the instance ID that you are signaling as the unique ID. If you send multiple signals to a single resource (such as signaling a wait condition), each signal requires a different unique ID.
+--
+-- /Note:/ Consider using 'uniqueId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sUniqueId :: Lens.Lens' SignalResource Lude.Text
+sUniqueId = Lens.lens (uniqueId :: SignalResource -> Lude.Text) (\s a -> s {uniqueId = a} :: SignalResource)
+{-# DEPRECATED sUniqueId "Use generic-lens or generic-optics with 'uniqueId' instead." #-}
+
+-- | The stack name or unique stack ID that includes the resource that you want to signal.
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStackName :: Lens.Lens' SignalResource Lude.Text
+sStackName = Lens.lens (stackName :: SignalResource -> Lude.Text) (\s a -> s {stackName = a} :: SignalResource)
+{-# DEPRECATED sStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 instance Lude.AWSRequest SignalResource where
   type Rs SignalResource = SignalResourceResponse
@@ -126,21 +125,15 @@ instance Lude.ToQuery SignalResource where
     Lude.mconcat
       [ "Action" Lude.=: ("SignalResource" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "StackName" Lude.=: stackName,
+        "Status" Lude.=: status,
         "LogicalResourceId" Lude.=: logicalResourceId,
         "UniqueId" Lude.=: uniqueId,
-        "Status" Lude.=: status
+        "StackName" Lude.=: stackName
       ]
 
 -- | /See:/ 'mkSignalResourceResponse' smart constructor.
 data SignalResourceResponse = SignalResourceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SignalResourceResponse' with the minimum fields required to make a request.

@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.Paths
     mkPaths,
 
     -- * Lenses
-    pItems,
     pQuantity,
+    pItems,
   )
 where
 
@@ -29,35 +29,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPaths' smart constructor.
 data Paths = Paths'
-  { items :: Lude.Maybe [Lude.Text],
-    quantity :: Lude.Int
+  { -- | The number of invalidation paths specified for the objects that you want to invalidate.
+    quantity :: Lude.Int,
+    -- | A complex type that contains a list of the paths that you want to invalidate.
+    items :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Paths' with the minimum fields required to make a request.
 --
--- * 'items' - A complex type that contains a list of the paths that you want to invalidate.
 -- * 'quantity' - The number of invalidation paths specified for the objects that you want to invalidate.
+-- * 'items' - A complex type that contains a list of the paths that you want to invalidate.
 mkPaths ::
   -- | 'quantity'
   Lude.Int ->
   Paths
 mkPaths pQuantity_ =
-  Paths' {items = Lude.Nothing, quantity = pQuantity_}
-
--- | A complex type that contains a list of the paths that you want to invalidate.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pItems :: Lens.Lens' Paths (Lude.Maybe [Lude.Text])
-pItems = Lens.lens (items :: Paths -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: Paths)
-{-# DEPRECATED pItems "Use generic-lens or generic-optics with 'items' instead." #-}
+  Paths' {quantity = pQuantity_, items = Lude.Nothing}
 
 -- | The number of invalidation paths specified for the objects that you want to invalidate.
 --
@@ -66,17 +55,24 @@ pQuantity :: Lens.Lens' Paths Lude.Int
 pQuantity = Lens.lens (quantity :: Paths -> Lude.Int) (\s a -> s {quantity = a} :: Paths)
 {-# DEPRECATED pQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | A complex type that contains a list of the paths that you want to invalidate.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pItems :: Lens.Lens' Paths (Lude.Maybe [Lude.Text])
+pItems = Lens.lens (items :: Paths -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: Paths)
+{-# DEPRECATED pItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML Paths where
   parseXML x =
     Paths'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "Path")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML Paths where
   toXML Paths' {..} =
     Lude.mconcat
-      [ "Items" Lude.@= Lude.toXML (Lude.toXMLList "Path" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items" Lude.@= Lude.toXML (Lude.toXMLList "Path" Lude.<$> items)
       ]

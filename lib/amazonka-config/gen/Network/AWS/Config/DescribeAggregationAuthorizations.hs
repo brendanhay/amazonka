@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,24 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAggregationAuthorizations' smart constructor.
 data DescribeAggregationAuthorizations = DescribeAggregationAuthorizations'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit ::
-      Lude.Maybe Lude.Natural
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAggregationAuthorizations' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 mkDescribeAggregationAuthorizations ::
   DescribeAggregationAuthorizations
 mkDescribeAggregationAuthorizations =
@@ -138,22 +133,14 @@ instance Lude.ToQuery DescribeAggregationAuthorizations where
 
 -- | /See:/ 'mkDescribeAggregationAuthorizationsResponse' smart constructor.
 data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizationsResponse'
-  { aggregationAuthorizations ::
-      Lude.Maybe
-        [AggregationAuthorization],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a list of authorizations granted to various aggregator accounts and regions.
+    aggregationAuthorizations :: Lude.Maybe [AggregationAuthorization],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAggregationAuthorizationsResponse' with the minimum fields required to make a request.

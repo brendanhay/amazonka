@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,18 +45,12 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkAcceptDomainTransferFromAnotherAWSAccount' smart constructor.
 data AcceptDomainTransferFromAnotherAWSAccount = AcceptDomainTransferFromAnotherAWSAccount'
-  { domainName ::
-      Lude.Text,
-    password ::
-      Lude.Text
+  { -- | The name of the domain that was specified when another AWS account submitted a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
+    domainName :: Lude.Text,
+    -- | The password that was returned by the <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount> request.
+    password :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptDomainTransferFromAnotherAWSAccount' with the minimum fields required to make a request.
@@ -133,23 +128,13 @@ instance Lude.ToQuery AcceptDomainTransferFromAnotherAWSAccount where
 --
 -- /See:/ 'mkAcceptDomainTransferFromAnotherAWSAccountResponse' smart constructor.
 data AcceptDomainTransferFromAnotherAWSAccountResponse = AcceptDomainTransferFromAnotherAWSAccountResponse'
-  { operationId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+    operationId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptDomainTransferFromAnotherAWSAccountResponse' with the minimum fields required to make a request.
 --

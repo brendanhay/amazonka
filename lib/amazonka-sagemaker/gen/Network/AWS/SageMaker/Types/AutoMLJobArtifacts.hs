@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoMLJobArtifacts' smart constructor.
 data AutoMLJobArtifacts = AutoMLJobArtifacts'
-  { candidateDefinitionNotebookLocation ::
-      Lude.Maybe Lude.Text,
-    dataExplorationNotebookLocation ::
-      Lude.Maybe Lude.Text
+  { -- | The URL to the notebook location.
+    candidateDefinitionNotebookLocation :: Lude.Maybe Lude.Text,
+    -- | The URL to the notebook location.
+    dataExplorationNotebookLocation :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoMLJobArtifacts' with the minimum fields required to make a request.

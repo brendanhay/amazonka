@@ -13,13 +13,13 @@
 module Network.AWS.SageMaker.Types.UserProfileStatus
   ( UserProfileStatus
       ( UserProfileStatus',
-        UPSDeleteFailed,
         UPSDeleting,
         UPSFailed,
         UPSInService,
         UPSPending,
+        UPSUpdating,
         UPSUpdateFailed,
-        UPSUpdating
+        UPSDeleteFailed
       ),
   )
 where
@@ -50,9 +50,6 @@ newtype UserProfileStatus = UserProfileStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern UPSDeleteFailed :: UserProfileStatus
-pattern UPSDeleteFailed = UserProfileStatus' "Delete_Failed"
-
 pattern UPSDeleting :: UserProfileStatus
 pattern UPSDeleting = UserProfileStatus' "Deleting"
 
@@ -65,19 +62,22 @@ pattern UPSInService = UserProfileStatus' "InService"
 pattern UPSPending :: UserProfileStatus
 pattern UPSPending = UserProfileStatus' "Pending"
 
-pattern UPSUpdateFailed :: UserProfileStatus
-pattern UPSUpdateFailed = UserProfileStatus' "Update_Failed"
-
 pattern UPSUpdating :: UserProfileStatus
 pattern UPSUpdating = UserProfileStatus' "Updating"
 
+pattern UPSUpdateFailed :: UserProfileStatus
+pattern UPSUpdateFailed = UserProfileStatus' "Update_Failed"
+
+pattern UPSDeleteFailed :: UserProfileStatus
+pattern UPSDeleteFailed = UserProfileStatus' "Delete_Failed"
+
 {-# COMPLETE
-  UPSDeleteFailed,
   UPSDeleting,
   UPSFailed,
   UPSInService,
   UPSPending,
-  UPSUpdateFailed,
   UPSUpdating,
+  UPSUpdateFailed,
+  UPSDeleteFailed,
   UserProfileStatus'
   #-}

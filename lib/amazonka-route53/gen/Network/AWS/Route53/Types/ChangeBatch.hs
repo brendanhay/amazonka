@@ -17,8 +17,8 @@ module Network.AWS.Route53.Types.ChangeBatch
     mkChangeBatch,
 
     -- * Lenses
-    cbComment,
     cbChanges,
+    cbComment,
   )
 where
 
@@ -31,16 +31,12 @@ import Network.AWS.Route53.Types.Change
 --
 -- /See:/ 'mkChangeBatch' smart constructor.
 data ChangeBatch = ChangeBatch'
-  { comment :: Lude.Maybe Lude.Text,
-    changes :: Lude.NonEmpty Change
+  { -- | Information about the changes to make to the record sets.
+    changes :: Lude.NonEmpty Change,
+    -- | /Optional:/ Any comments you want to include about a change batch request.
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ChangeBatch' with the minimum fields required to make a request.
@@ -52,14 +48,7 @@ mkChangeBatch ::
   Lude.NonEmpty Change ->
   ChangeBatch
 mkChangeBatch pChanges_ =
-  ChangeBatch' {comment = Lude.Nothing, changes = pChanges_}
-
--- | /Optional:/ Any comments you want to include about a change batch request.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbComment :: Lens.Lens' ChangeBatch (Lude.Maybe Lude.Text)
-cbComment = Lens.lens (comment :: ChangeBatch -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ChangeBatch)
-{-# DEPRECATED cbComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+  ChangeBatch' {changes = pChanges_, comment = Lude.Nothing}
 
 -- | Information about the changes to make to the record sets.
 --
@@ -68,9 +57,16 @@ cbChanges :: Lens.Lens' ChangeBatch (Lude.NonEmpty Change)
 cbChanges = Lens.lens (changes :: ChangeBatch -> Lude.NonEmpty Change) (\s a -> s {changes = a} :: ChangeBatch)
 {-# DEPRECATED cbChanges "Use generic-lens or generic-optics with 'changes' instead." #-}
 
+-- | /Optional:/ Any comments you want to include about a change batch request.
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbComment :: Lens.Lens' ChangeBatch (Lude.Maybe Lude.Text)
+cbComment = Lens.lens (comment :: ChangeBatch -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ChangeBatch)
+{-# DEPRECATED cbComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+
 instance Lude.ToXML ChangeBatch where
   toXML ChangeBatch' {..} =
     Lude.mconcat
-      [ "Comment" Lude.@= comment,
-        "Changes" Lude.@= Lude.toXMLList "Change" changes
+      [ "Changes" Lude.@= Lude.toXMLList "Change" changes,
+        "Comment" Lude.@= comment
       ]

@@ -29,14 +29,11 @@ import qualified Network.AWS.Prelude as Lude
 -- For Pipe input mode, when @ShuffleConfig@ is specified shuffling is done at the start of every epoch. With large datasets, this ensures that the order of the training data is different for each epoch, and it helps reduce bias and possible overfitting. In a multi-node training job when @ShuffleConfig@ is combined with @S3DataDistributionType@ of @ShardedByS3Key@ , the data is shuffled across nodes so that the content sent to a particular node on the first epoch might be sent to a different node on the second epoch.
 --
 -- /See:/ 'mkShuffleConfig' smart constructor.
-newtype ShuffleConfig = ShuffleConfig' {seed :: Lude.Integer}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ShuffleConfig = ShuffleConfig'
+  { -- | Determines the shuffling order in @ShuffleConfig@ value.
+    seed :: Lude.Integer
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShuffleConfig' with the minimum fields required to make a request.

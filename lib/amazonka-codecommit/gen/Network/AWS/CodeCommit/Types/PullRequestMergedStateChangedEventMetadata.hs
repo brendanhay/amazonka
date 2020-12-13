@@ -31,23 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPullRequestMergedStateChangedEventMetadata' smart constructor.
 data PullRequestMergedStateChangedEventMetadata = PullRequestMergedStateChangedEventMetadata'
-  { destinationReference ::
-      Lude.Maybe
-        Lude.Text,
-    mergeMetadata ::
-      Lude.Maybe
-        MergeMetadata,
-    repositoryName ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The name of the branch that the pull request is merged into.
+    destinationReference :: Lude.Maybe Lude.Text,
+    -- | Information about the merge state change event.
+    mergeMetadata :: Lude.Maybe MergeMetadata,
+    -- | The name of the repository where the pull request was created.
+    repositoryName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestMergedStateChangedEventMetadata' with the minimum fields required to make a request.

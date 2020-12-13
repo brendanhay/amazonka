@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetInvitationConfiguration' smart constructor.
 data GetInvitationConfiguration = GetInvitationConfiguration'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInvitationConfiguration' with the minimum fields required to make a request.
@@ -89,23 +84,16 @@ instance Lude.ToQuery GetInvitationConfiguration where
 
 -- | /See:/ 'mkGetInvitationConfigurationResponse' smart constructor.
 data GetInvitationConfigurationResponse = GetInvitationConfigurationResponse'
-  { contactEmail ::
-      Lude.Maybe Lude.Text,
-    organizationName ::
-      Lude.Maybe Lude.Text,
-    privateSkillIds ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The email ID of the organization or individual contact that the enrolled user can use.
+    contactEmail :: Lude.Maybe Lude.Text,
+    -- | The name of the organization sending the enrollment invite to a user.
+    organizationName :: Lude.Maybe Lude.Text,
+    -- | The list of private skill IDs that you want to recommend to the user to enable in the invitation.
+    privateSkillIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetInvitationConfigurationResponse' with the minimum fields required to make a request.

@@ -13,11 +13,11 @@
 module Network.AWS.MediaLive.Types.LogLevel
   ( LogLevel
       ( LogLevel',
-        LLDebug,
-        LLDisabled,
         LLError,
+        LLWarning,
         LLInfo,
-        LLWarning
+        LLDebug,
+        LLDisabled
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype LogLevel = LogLevel' Lude.Text
       Lude.ToHeader
     )
 
+pattern LLError :: LogLevel
+pattern LLError = LogLevel' "ERROR"
+
+pattern LLWarning :: LogLevel
+pattern LLWarning = LogLevel' "WARNING"
+
+pattern LLInfo :: LogLevel
+pattern LLInfo = LogLevel' "INFO"
+
 pattern LLDebug :: LogLevel
 pattern LLDebug = LogLevel' "DEBUG"
 
 pattern LLDisabled :: LogLevel
 pattern LLDisabled = LogLevel' "DISABLED"
 
-pattern LLError :: LogLevel
-pattern LLError = LogLevel' "ERROR"
-
-pattern LLInfo :: LogLevel
-pattern LLInfo = LogLevel' "INFO"
-
-pattern LLWarning :: LogLevel
-pattern LLWarning = LogLevel' "WARNING"
-
 {-# COMPLETE
+  LLError,
+  LLWarning,
+  LLInfo,
   LLDebug,
   LLDisabled,
-  LLError,
-  LLInfo,
-  LLWarning,
   LogLevel'
   #-}

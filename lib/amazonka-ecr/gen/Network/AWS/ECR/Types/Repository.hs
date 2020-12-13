@@ -38,36 +38,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRepository' smart constructor.
 data Repository = Repository'
-  { repositoryARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
+    repositoryARN :: Lude.Maybe Lude.Text,
+    -- | The date and time, in JavaScript date format, when the repository was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS account ID associated with the registry that contains the repository.
     registryId :: Lude.Maybe Lude.Text,
-    imageScanningConfiguration ::
-      Lude.Maybe ImageScanningConfiguration,
+    imageScanningConfiguration :: Lude.Maybe ImageScanningConfiguration,
+    -- | The URI for the repository. You can use this URI for container image @push@ and @pull@ operations.
     repositoryURI :: Lude.Maybe Lude.Text,
+    -- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
     encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
+    -- | The name of the repository.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | The tag mutability setting for the repository.
     imageTagMutability :: Lude.Maybe ImageTagMutability
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Repository' with the minimum fields required to make a request.
 --
--- * 'createdAt' - The date and time, in JavaScript date format, when the repository was created.
--- * 'encryptionConfiguration' - The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
--- * 'imageScanningConfiguration' - Undocumented field.
--- * 'imageTagMutability' - The tag mutability setting for the repository.
--- * 'registryId' - The AWS account ID associated with the registry that contains the repository.
 -- * 'repositoryARN' - The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the @arn:aws:ecr@ namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, @arn:aws:ecr:region:012345678910:repository/test@ .
--- * 'repositoryName' - The name of the repository.
+-- * 'createdAt' - The date and time, in JavaScript date format, when the repository was created.
+-- * 'registryId' - The AWS account ID associated with the registry that contains the repository.
+-- * 'imageScanningConfiguration' -
 -- * 'repositoryURI' - The URI for the repository. You can use this URI for container image @push@ and @pull@ operations.
+-- * 'encryptionConfiguration' - The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+-- * 'repositoryName' - The name of the repository.
+-- * 'imageTagMutability' - The tag mutability setting for the repository.
 mkRepository ::
   Repository
 mkRepository =

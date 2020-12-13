@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CodeCommit.GetComment
     mkGetCommentResponse,
 
     -- ** Response lenses
-    gccrsComment,
-    gccrsResponseStatus,
+    gcrsComment,
+    gcrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetComment' smart constructor.
-newtype GetComment = GetComment' {commentId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetComment = GetComment'
+  { -- | The unique, system-generated ID of the comment. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+    commentId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetComment' with the minimum fields required to make a request.
@@ -98,17 +96,12 @@ instance Lude.ToQuery GetComment where
 
 -- | /See:/ 'mkGetCommentResponse' smart constructor.
 data GetCommentResponse = GetCommentResponse'
-  { comment ::
-      Lude.Maybe Comment,
+  { -- | The contents of the comment.
+    comment :: Lude.Maybe Comment,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCommentResponse' with the minimum fields required to make a request.
@@ -128,13 +121,13 @@ mkGetCommentResponse pResponseStatus_ =
 -- | The contents of the comment.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gccrsComment :: Lens.Lens' GetCommentResponse (Lude.Maybe Comment)
-gccrsComment = Lens.lens (comment :: GetCommentResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: GetCommentResponse)
-{-# DEPRECATED gccrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+gcrsComment :: Lens.Lens' GetCommentResponse (Lude.Maybe Comment)
+gcrsComment = Lens.lens (comment :: GetCommentResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: GetCommentResponse)
+{-# DEPRECATED gcrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gccrsResponseStatus :: Lens.Lens' GetCommentResponse Lude.Int
-gccrsResponseStatus = Lens.lens (responseStatus :: GetCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCommentResponse)
-{-# DEPRECATED gccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcrsResponseStatus :: Lens.Lens' GetCommentResponse Lude.Int
+gcrsResponseStatus = Lens.lens (responseStatus :: GetCommentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCommentResponse)
+{-# DEPRECATED gcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

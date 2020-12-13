@@ -17,11 +17,11 @@ module Network.AWS.Redshift.Types.ClusterSecurityGroup
     mkClusterSecurityGroup,
 
     -- * Lenses
-    cluClusterSecurityGroupName,
-    cluIPRanges,
-    cluEC2SecurityGroups,
-    cluDescription,
-    cluTags,
+    csgfClusterSecurityGroupName,
+    csgfIPRanges,
+    csgfEC2SecurityGroups,
+    csgfDescription,
+    csgfTags,
   )
 where
 
@@ -36,29 +36,26 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'mkClusterSecurityGroup' smart constructor.
 data ClusterSecurityGroup = ClusterSecurityGroup'
-  { clusterSecurityGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the cluster security group to which the operation was applied.
+    clusterSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters associated with this cluster security group.
     ipRanges :: Lude.Maybe [IPRange],
-    ec2SecurityGroups ::
-      Lude.Maybe [EC2SecurityGroup],
+    -- | A list of EC2 security groups that are permitted to access clusters associated with this cluster security group.
+    ec2SecurityGroups :: Lude.Maybe [EC2SecurityGroup],
+    -- | A description of the security group.
     description :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the cluster security group.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClusterSecurityGroup' with the minimum fields required to make a request.
 --
 -- * 'clusterSecurityGroupName' - The name of the cluster security group to which the operation was applied.
--- * 'description' - A description of the security group.
--- * 'ec2SecurityGroups' - A list of EC2 security groups that are permitted to access clusters associated with this cluster security group.
 -- * 'ipRanges' - A list of IP ranges (CIDR blocks) that are permitted to access clusters associated with this cluster security group.
+-- * 'ec2SecurityGroups' - A list of EC2 security groups that are permitted to access clusters associated with this cluster security group.
+-- * 'description' - A description of the security group.
 -- * 'tags' - The list of tags for the cluster security group.
 mkClusterSecurityGroup ::
   ClusterSecurityGroup
@@ -74,37 +71,37 @@ mkClusterSecurityGroup =
 -- | The name of the cluster security group to which the operation was applied.
 --
 -- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cluClusterSecurityGroupName :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe Lude.Text)
-cluClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: ClusterSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: ClusterSecurityGroup)
-{-# DEPRECATED cluClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
+csgfClusterSecurityGroupName :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe Lude.Text)
+csgfClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: ClusterSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: ClusterSecurityGroup)
+{-# DEPRECATED csgfClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters associated with this cluster security group.
 --
 -- /Note:/ Consider using 'ipRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cluIPRanges :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe [IPRange])
-cluIPRanges = Lens.lens (ipRanges :: ClusterSecurityGroup -> Lude.Maybe [IPRange]) (\s a -> s {ipRanges = a} :: ClusterSecurityGroup)
-{-# DEPRECATED cluIPRanges "Use generic-lens or generic-optics with 'ipRanges' instead." #-}
+csgfIPRanges :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe [IPRange])
+csgfIPRanges = Lens.lens (ipRanges :: ClusterSecurityGroup -> Lude.Maybe [IPRange]) (\s a -> s {ipRanges = a} :: ClusterSecurityGroup)
+{-# DEPRECATED csgfIPRanges "Use generic-lens or generic-optics with 'ipRanges' instead." #-}
 
 -- | A list of EC2 security groups that are permitted to access clusters associated with this cluster security group.
 --
 -- /Note:/ Consider using 'ec2SecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cluEC2SecurityGroups :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe [EC2SecurityGroup])
-cluEC2SecurityGroups = Lens.lens (ec2SecurityGroups :: ClusterSecurityGroup -> Lude.Maybe [EC2SecurityGroup]) (\s a -> s {ec2SecurityGroups = a} :: ClusterSecurityGroup)
-{-# DEPRECATED cluEC2SecurityGroups "Use generic-lens or generic-optics with 'ec2SecurityGroups' instead." #-}
+csgfEC2SecurityGroups :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe [EC2SecurityGroup])
+csgfEC2SecurityGroups = Lens.lens (ec2SecurityGroups :: ClusterSecurityGroup -> Lude.Maybe [EC2SecurityGroup]) (\s a -> s {ec2SecurityGroups = a} :: ClusterSecurityGroup)
+{-# DEPRECATED csgfEC2SecurityGroups "Use generic-lens or generic-optics with 'ec2SecurityGroups' instead." #-}
 
 -- | A description of the security group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cluDescription :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe Lude.Text)
-cluDescription = Lens.lens (description :: ClusterSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ClusterSecurityGroup)
-{-# DEPRECATED cluDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+csgfDescription :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe Lude.Text)
+csgfDescription = Lens.lens (description :: ClusterSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ClusterSecurityGroup)
+{-# DEPRECATED csgfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The list of tags for the cluster security group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cluTags :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe [Tag])
-cluTags = Lens.lens (tags :: ClusterSecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ClusterSecurityGroup)
-{-# DEPRECATED cluTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+csgfTags :: Lens.Lens' ClusterSecurityGroup (Lude.Maybe [Tag])
+csgfTags = Lens.lens (tags :: ClusterSecurityGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ClusterSecurityGroup)
+{-# DEPRECATED csgfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.FromXML ClusterSecurityGroup where
   parseXML x =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,34 +47,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeConfigurationAggregatorSourcesStatus' smart constructor.
 data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggregatorSourcesStatus'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    updateStatus ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            AggregatedSourceStatusType
-        ),
-    configurationAggregatorName ::
-      Lude.Text
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | Filters the status type.
+    --
+    --
+    --     * Valid value FAILED indicates errors while moving data.
+    --
+    --
+    --     * Valid value SUCCEEDED indicates the data was successfully moved.
+    --
+    --
+    --     * Valid value OUTDATED indicates the data is not the most recent.
+    updateStatus :: Lude.Maybe (Lude.NonEmpty AggregatedSourceStatusType),
+    -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationAggregatorSourcesStatus' with the minimum fields required to make a request.
 --
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
--- * 'limit' - The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of AggregatorSourceStatus returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 -- * 'updateStatus' - Filters the status type.
 --
 --
@@ -84,6 +82,9 @@ data DescribeConfigurationAggregatorSourcesStatus = DescribeConfigurationAggrega
 --
 --
 --     * Valid value OUTDATED indicates the data is not the most recent.
+--
+--
+-- * 'configurationAggregatorName' - The name of the configuration aggregator.
 mkDescribeConfigurationAggregatorSourcesStatus ::
   -- | 'configurationAggregatorName'
   Lude.Text ->
@@ -203,26 +204,15 @@ instance Lude.ToQuery DescribeConfigurationAggregatorSourcesStatus where
 
 -- | /See:/ 'mkDescribeConfigurationAggregatorSourcesStatusResponse' smart constructor.
 data DescribeConfigurationAggregatorSourcesStatusResponse = DescribeConfigurationAggregatorSourcesStatusResponse'
-  { aggregatedSourceStatusList ::
-      Lude.Maybe
-        [AggregatedSourceStatus],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns an AggregatedSourceStatus object.
+    aggregatedSourceStatusList :: Lude.Maybe [AggregatedSourceStatus],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigurationAggregatorSourcesStatusResponse' with the minimum fields required to make a request.
 --

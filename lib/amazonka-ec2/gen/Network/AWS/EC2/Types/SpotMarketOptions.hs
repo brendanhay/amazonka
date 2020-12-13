@@ -34,21 +34,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotMarketOptions' smart constructor.
 data SpotMarketOptions = SpotMarketOptions'
-  { blockDurationMinutes ::
-      Lude.Maybe Lude.Int,
-    instanceInterruptionBehavior ::
-      Lude.Maybe InstanceInterruptionBehavior,
+  { -- | The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+    --
+    -- The duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+    -- You can't specify an Availability Zone group or a launch group if you specify a duration.
+    -- New accounts or accounts with no previous billing history with AWS are not eligible for Spot Instances with a defined duration (also known as Spot blocks).
+    blockDurationMinutes :: Lude.Maybe Lude.Int,
+    -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+    instanceInterruptionBehavior :: Lude.Maybe InstanceInterruptionBehavior,
+    -- | The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). Supported only for persistent requests.
+    --
+    --
+    --     * For a persistent request, the request remains active until the @ValidUntil@ date and time is reached. Otherwise, the request remains active until you cancel it.
+    --
+    --
+    --     * For a one-time request, @ValidUntil@ is not supported. The request remains active until all instances launch or you cancel the request.
     validUntil :: Lude.Maybe Lude.DateTime,
+    -- | The Spot Instance request type. For <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances> , persistent Spot Instance requests are only supported when __InstanceInterruptionBehavior__ is set to either @hibernate@ or @stop@ .
     spotInstanceType :: Lude.Maybe SpotInstanceType,
+    -- | The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.
     maxPrice :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotMarketOptions' with the minimum fields required to make a request.
@@ -59,8 +66,6 @@ data SpotMarketOptions = SpotMarketOptions'
 -- You can't specify an Availability Zone group or a launch group if you specify a duration.
 -- New accounts or accounts with no previous billing history with AWS are not eligible for Spot Instances with a defined duration (also known as Spot blocks).
 -- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
--- * 'maxPrice' - The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.
--- * 'spotInstanceType' - The Spot Instance request type. For <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances> , persistent Spot Instance requests are only supported when __InstanceInterruptionBehavior__ is set to either @hibernate@ or @stop@ .
 -- * 'validUntil' - The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z). Supported only for persistent requests.
 --
 --
@@ -68,6 +73,10 @@ data SpotMarketOptions = SpotMarketOptions'
 --
 --
 --     * For a one-time request, @ValidUntil@ is not supported. The request remains active until all instances launch or you cancel the request.
+--
+--
+-- * 'spotInstanceType' - The Spot Instance request type. For <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances RunInstances> , persistent Spot Instance requests are only supported when __InstanceInterruptionBehavior__ is set to either @hibernate@ or @stop@ .
+-- * 'maxPrice' - The maximum hourly price you're willing to pay for the Spot Instances. The default is the On-Demand price.
 mkSpotMarketOptions ::
   SpotMarketOptions
 mkSpotMarketOptions =

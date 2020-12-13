@@ -30,18 +30,12 @@ import Network.AWS.XRay.Types.ResponseTimeRootCauseService
 --
 -- /See:/ 'mkResponseTimeRootCause' smart constructor.
 data ResponseTimeRootCause = ResponseTimeRootCause'
-  { clientImpacting ::
-      Lude.Maybe Lude.Bool,
-    services ::
-      Lude.Maybe [ResponseTimeRootCauseService]
+  { -- | A flag that denotes that the root cause impacts the trace client.
+    clientImpacting :: Lude.Maybe Lude.Bool,
+    -- | A list of corresponding services. A service identifies a segment and contains a name, account ID, type, and inferred flag.
+    services :: Lude.Maybe [ResponseTimeRootCauseService]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResponseTimeRootCause' with the minimum fields required to make a request.

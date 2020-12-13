@@ -40,39 +40,42 @@ import Network.AWS.WorkSpaces.Types.WorkspaceImageState
 --
 -- /See:/ 'mkWorkspaceImage' smart constructor.
 data WorkspaceImage = WorkspaceImage'
-  { state ::
-      Lude.Maybe WorkspaceImageState,
+  { -- | The status of the image.
+    state :: Lude.Maybe WorkspaceImageState,
+    -- | The identifier of the AWS account that owns the image.
     ownerAccountId :: Lude.Maybe Lude.Text,
+    -- | The operating system that the image is running.
     operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | The date when the image was created. If the image has been shared, the AWS account that the image has been shared with sees the original creation date of the image.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
     requiredTenancy :: Lude.Maybe WorkspaceImageRequiredTenancy,
+    -- | The name of the image.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the image.
     imageId :: Lude.Maybe Lude.Text,
+    -- | The error code that is returned for the image.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The text of the error message that is returned for the image.
     errorMessage :: Lude.Maybe Lude.Text,
+    -- | The description of the image.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspaceImage' with the minimum fields required to make a request.
 --
+-- * 'state' - The status of the image.
+-- * 'ownerAccountId' - The identifier of the AWS account that owns the image.
+-- * 'operatingSystem' - The operating system that the image is running.
 -- * 'created' - The date when the image was created. If the image has been shared, the AWS account that the image has been shared with sees the original creation date of the image.
--- * 'description' - The description of the image.
+-- * 'requiredTenancy' - Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
+-- * 'name' - The name of the image.
+-- * 'imageId' - The identifier of the image.
 -- * 'errorCode' - The error code that is returned for the image.
 -- * 'errorMessage' - The text of the error message that is returned for the image.
--- * 'imageId' - The identifier of the image.
--- * 'name' - The name of the image.
--- * 'operatingSystem' - The operating system that the image is running.
--- * 'ownerAccountId' - The identifier of the AWS account that owns the image.
--- * 'requiredTenancy' - Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to @DEDICATED@ . For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images> .
--- * 'state' - The status of the image.
+-- * 'description' - The description of the image.
 mkWorkspaceImage ::
   WorkspaceImage
 mkWorkspaceImage =

@@ -33,30 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecord' smart constructor.
 data Record = Record'
-  { syncCount :: Lude.Maybe Lude.Integer,
+  { -- | The server sync count for this record.
+    syncCount :: Lude.Maybe Lude.Integer,
+    -- | The last modified date of the client device.
     deviceLastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The date on which the record was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The value for the record.
     value :: Lude.Maybe Lude.Text,
+    -- | The key for the record.
     key :: Lude.Maybe Lude.Text,
+    -- | The user/device that made the last change to this record.
     lastModifiedBy :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
+-- * 'syncCount' - The server sync count for this record.
 -- * 'deviceLastModifiedDate' - The last modified date of the client device.
+-- * 'lastModifiedDate' - The date on which the record was last modified.
+-- * 'value' - The value for the record.
 -- * 'key' - The key for the record.
 -- * 'lastModifiedBy' - The user/device that made the last change to this record.
--- * 'lastModifiedDate' - The date on which the record was last modified.
--- * 'syncCount' - The server sync count for this record.
--- * 'value' - The value for the record.
 mkRecord ::
   Record
 mkRecord =

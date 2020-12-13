@@ -13,8 +13,8 @@
 module Network.AWS.Connect.Types.Channel
   ( Channel
       ( Channel',
-        Chat,
-        Voice
+        Voice,
+        Chat
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype Channel = Channel' Lude.Text
       Lude.ToHeader
     )
 
-pattern Chat :: Channel
-pattern Chat = Channel' "CHAT"
-
 pattern Voice :: Channel
 pattern Voice = Channel' "VOICE"
 
+pattern Chat :: Channel
+pattern Chat = Channel' "CHAT"
+
 {-# COMPLETE
-  Chat,
   Voice,
+  Chat,
   Channel'
   #-}

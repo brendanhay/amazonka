@@ -36,33 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPublicIPv4Pool' smart constructor.
 data PublicIPv4Pool = PublicIPv4Pool'
-  { totalAddressCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The total number of addresses.
+    totalAddressCount :: Lude.Maybe Lude.Int,
+    -- | The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.
     networkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | The total number of available addresses.
     totalAvailableAddressCount :: Lude.Maybe Lude.Int,
+    -- | The address ranges.
     poolAddressRanges :: Lude.Maybe [PublicIPv4PoolRange],
+    -- | The ID of the address pool.
     poolId :: Lude.Maybe Lude.Text,
+    -- | A description of the address pool.
     description :: Lude.Maybe Lude.Text,
+    -- | Any tags for the address pool.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PublicIPv4Pool' with the minimum fields required to make a request.
 --
--- * 'description' - A description of the address pool.
+-- * 'totalAddressCount' - The total number of addresses.
 -- * 'networkBorderGroup' - The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.
+-- * 'totalAvailableAddressCount' - The total number of available addresses.
 -- * 'poolAddressRanges' - The address ranges.
 -- * 'poolId' - The ID of the address pool.
+-- * 'description' - A description of the address pool.
 -- * 'tags' - Any tags for the address pool.
--- * 'totalAddressCount' - The total number of addresses.
--- * 'totalAvailableAddressCount' - The total number of available addresses.
 mkPublicIPv4Pool ::
   PublicIPv4Pool
 mkPublicIPv4Pool =

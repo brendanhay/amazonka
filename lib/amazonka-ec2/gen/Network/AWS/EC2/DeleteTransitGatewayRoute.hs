@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteTransitGatewayRoute
     mkDeleteTransitGatewayRoute,
 
     -- ** Request lenses
-    dtgrDryRun,
     dtgrTransitGatewayRouteTableId,
+    dtgrDryRun,
     dtgrDestinationCidrBlock,
 
     -- * Destructuring the response
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTransitGatewayRoute' smart constructor.
 data DeleteTransitGatewayRoute = DeleteTransitGatewayRoute'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the transit gateway route table.
     transitGatewayRouteTableId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The CIDR range for the route. This must match the CIDR for the route exactly.
     destinationCidrBlock :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayRoute' with the minimum fields required to make a request.
 --
--- * 'destinationCidrBlock' - The CIDR range for the route. This must match the CIDR for the route exactly.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'destinationCidrBlock' - The CIDR range for the route. This must match the CIDR for the route exactly.
 mkDeleteTransitGatewayRoute ::
   -- | 'transitGatewayRouteTableId'
   Lude.Text ->
@@ -70,17 +67,11 @@ mkDeleteTransitGatewayRoute
   pTransitGatewayRouteTableId_
   pDestinationCidrBlock_ =
     DeleteTransitGatewayRoute'
-      { dryRun = Lude.Nothing,
-        transitGatewayRouteTableId = pTransitGatewayRouteTableId_,
+      { transitGatewayRouteTableId =
+          pTransitGatewayRouteTableId_,
+        dryRun = Lude.Nothing,
         destinationCidrBlock = pDestinationCidrBlock_
       }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrDryRun :: Lens.Lens' DeleteTransitGatewayRoute (Lude.Maybe Lude.Bool)
-dtgrDryRun = Lens.lens (dryRun :: DeleteTransitGatewayRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayRoute)
-{-# DEPRECATED dtgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the transit gateway route table.
 --
@@ -88,6 +79,13 @@ dtgrDryRun = Lens.lens (dryRun :: DeleteTransitGatewayRoute -> Lude.Maybe Lude.B
 dtgrTransitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayRoute Lude.Text
 dtgrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: DeleteTransitGatewayRoute -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: DeleteTransitGatewayRoute)
 {-# DEPRECATED dtgrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrDryRun :: Lens.Lens' DeleteTransitGatewayRoute (Lude.Maybe Lude.Bool)
+dtgrDryRun = Lens.lens (dryRun :: DeleteTransitGatewayRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayRoute)
+{-# DEPRECATED dtgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The CIDR range for the route. This must match the CIDR for the route exactly.
 --
@@ -119,32 +117,25 @@ instance Lude.ToQuery DeleteTransitGatewayRoute where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteTransitGatewayRoute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
+        "DryRun" Lude.=: dryRun,
         "DestinationCidrBlock" Lude.=: destinationCidrBlock
       ]
 
 -- | /See:/ 'mkDeleteTransitGatewayRouteResponse' smart constructor.
 data DeleteTransitGatewayRouteResponse = DeleteTransitGatewayRouteResponse'
-  { route ::
-      Lude.Maybe
-        TransitGatewayRoute,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the route.
+    route :: Lude.Maybe TransitGatewayRoute,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayRouteResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'route' - Information about the route.
+-- * 'responseStatus' - The response status code.
 mkDeleteTransitGatewayRouteResponse ::
   -- | 'responseStatus'
   Lude.Int ->

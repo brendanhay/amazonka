@@ -13,27 +13,27 @@
 module Network.AWS.DeviceFarm.Types.TestType
   ( TestType
       ( TestType',
+        BuiltinFuzz,
+        BuiltinExplorer,
+        WebPerformanceProfile,
         AppiumJavaJunit,
         AppiumJavaTestng,
-        AppiumNode,
         AppiumPython,
+        AppiumNode,
         AppiumRuby,
         AppiumWebJavaJunit,
         AppiumWebJavaTestng,
-        AppiumWebNode,
         AppiumWebPython,
+        AppiumWebNode,
         AppiumWebRuby,
-        BuiltinExplorer,
-        BuiltinFuzz,
         Calabash,
         Instrumentation,
-        RemoteAccessRecord,
-        RemoteAccessReplay,
         Uiautomation,
         Uiautomator,
-        WebPerformanceProfile,
         Xctest,
-        XctestUi
+        XctestUi,
+        RemoteAccessRecord,
+        RemoteAccessReplay
       ),
   )
 where
@@ -64,17 +64,26 @@ newtype TestType = TestType' Lude.Text
       Lude.ToHeader
     )
 
+pattern BuiltinFuzz :: TestType
+pattern BuiltinFuzz = TestType' "BUILTIN_FUZZ"
+
+pattern BuiltinExplorer :: TestType
+pattern BuiltinExplorer = TestType' "BUILTIN_EXPLORER"
+
+pattern WebPerformanceProfile :: TestType
+pattern WebPerformanceProfile = TestType' "WEB_PERFORMANCE_PROFILE"
+
 pattern AppiumJavaJunit :: TestType
 pattern AppiumJavaJunit = TestType' "APPIUM_JAVA_JUNIT"
 
 pattern AppiumJavaTestng :: TestType
 pattern AppiumJavaTestng = TestType' "APPIUM_JAVA_TESTNG"
 
-pattern AppiumNode :: TestType
-pattern AppiumNode = TestType' "APPIUM_NODE"
-
 pattern AppiumPython :: TestType
 pattern AppiumPython = TestType' "APPIUM_PYTHON"
+
+pattern AppiumNode :: TestType
+pattern AppiumNode = TestType' "APPIUM_NODE"
 
 pattern AppiumRuby :: TestType
 pattern AppiumRuby = TestType' "APPIUM_RUBY"
@@ -85,20 +94,14 @@ pattern AppiumWebJavaJunit = TestType' "APPIUM_WEB_JAVA_JUNIT"
 pattern AppiumWebJavaTestng :: TestType
 pattern AppiumWebJavaTestng = TestType' "APPIUM_WEB_JAVA_TESTNG"
 
-pattern AppiumWebNode :: TestType
-pattern AppiumWebNode = TestType' "APPIUM_WEB_NODE"
-
 pattern AppiumWebPython :: TestType
 pattern AppiumWebPython = TestType' "APPIUM_WEB_PYTHON"
 
+pattern AppiumWebNode :: TestType
+pattern AppiumWebNode = TestType' "APPIUM_WEB_NODE"
+
 pattern AppiumWebRuby :: TestType
 pattern AppiumWebRuby = TestType' "APPIUM_WEB_RUBY"
-
-pattern BuiltinExplorer :: TestType
-pattern BuiltinExplorer = TestType' "BUILTIN_EXPLORER"
-
-pattern BuiltinFuzz :: TestType
-pattern BuiltinFuzz = TestType' "BUILTIN_FUZZ"
 
 pattern Calabash :: TestType
 pattern Calabash = TestType' "CALABASH"
@@ -106,20 +109,11 @@ pattern Calabash = TestType' "CALABASH"
 pattern Instrumentation :: TestType
 pattern Instrumentation = TestType' "INSTRUMENTATION"
 
-pattern RemoteAccessRecord :: TestType
-pattern RemoteAccessRecord = TestType' "REMOTE_ACCESS_RECORD"
-
-pattern RemoteAccessReplay :: TestType
-pattern RemoteAccessReplay = TestType' "REMOTE_ACCESS_REPLAY"
-
 pattern Uiautomation :: TestType
 pattern Uiautomation = TestType' "UIAUTOMATION"
 
 pattern Uiautomator :: TestType
 pattern Uiautomator = TestType' "UIAUTOMATOR"
-
-pattern WebPerformanceProfile :: TestType
-pattern WebPerformanceProfile = TestType' "WEB_PERFORMANCE_PROFILE"
 
 pattern Xctest :: TestType
 pattern Xctest = TestType' "XCTEST"
@@ -127,27 +121,33 @@ pattern Xctest = TestType' "XCTEST"
 pattern XctestUi :: TestType
 pattern XctestUi = TestType' "XCTEST_UI"
 
+pattern RemoteAccessRecord :: TestType
+pattern RemoteAccessRecord = TestType' "REMOTE_ACCESS_RECORD"
+
+pattern RemoteAccessReplay :: TestType
+pattern RemoteAccessReplay = TestType' "REMOTE_ACCESS_REPLAY"
+
 {-# COMPLETE
+  BuiltinFuzz,
+  BuiltinExplorer,
+  WebPerformanceProfile,
   AppiumJavaJunit,
   AppiumJavaTestng,
-  AppiumNode,
   AppiumPython,
+  AppiumNode,
   AppiumRuby,
   AppiumWebJavaJunit,
   AppiumWebJavaTestng,
-  AppiumWebNode,
   AppiumWebPython,
+  AppiumWebNode,
   AppiumWebRuby,
-  BuiltinExplorer,
-  BuiltinFuzz,
   Calabash,
   Instrumentation,
-  RemoteAccessRecord,
-  RemoteAccessReplay,
   Uiautomation,
   Uiautomator,
-  WebPerformanceProfile,
   Xctest,
   XctestUi,
+  RemoteAccessRecord,
+  RemoteAccessReplay,
   TestType'
   #-}

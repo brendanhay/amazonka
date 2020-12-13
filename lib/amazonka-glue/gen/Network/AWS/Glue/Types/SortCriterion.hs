@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSortCriterion' smart constructor.
 data SortCriterion = SortCriterion'
-  { sort :: Lude.Maybe Sort,
+  { -- | An ascending or descending sort.
+    sort :: Lude.Maybe Sort,
+    -- | The name of the field on which to sort.
     fieldName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SortCriterion' with the minimum fields required to make a request.
 --
--- * 'fieldName' - The name of the field on which to sort.
 -- * 'sort' - An ascending or descending sort.
+-- * 'fieldName' - The name of the field on which to sort.
 mkSortCriterion ::
   SortCriterion
 mkSortCriterion =

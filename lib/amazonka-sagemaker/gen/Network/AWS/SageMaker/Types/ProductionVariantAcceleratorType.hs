@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.ProductionVariantAcceleratorType
   ( ProductionVariantAcceleratorType
       ( ProductionVariantAcceleratorType',
-        PVATMl_EIA1_Large,
         PVATMl_EIA1_Medium,
+        PVATMl_EIA1_Large,
         PVATMl_EIA1_XLarge,
-        PVATMl_EIA2_Large,
         PVATMl_EIA2_Medium,
+        PVATMl_EIA2_Large,
         PVATMl_EIA2_XLarge
       ),
   )
@@ -49,30 +49,30 @@ newtype ProductionVariantAcceleratorType = ProductionVariantAcceleratorType' Lud
       Lude.ToHeader
     )
 
-pattern PVATMl_EIA1_Large :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA1_Large = ProductionVariantAcceleratorType' "ml.eia1.large"
-
 pattern PVATMl_EIA1_Medium :: ProductionVariantAcceleratorType
 pattern PVATMl_EIA1_Medium = ProductionVariantAcceleratorType' "ml.eia1.medium"
+
+pattern PVATMl_EIA1_Large :: ProductionVariantAcceleratorType
+pattern PVATMl_EIA1_Large = ProductionVariantAcceleratorType' "ml.eia1.large"
 
 pattern PVATMl_EIA1_XLarge :: ProductionVariantAcceleratorType
 pattern PVATMl_EIA1_XLarge = ProductionVariantAcceleratorType' "ml.eia1.xlarge"
 
-pattern PVATMl_EIA2_Large :: ProductionVariantAcceleratorType
-pattern PVATMl_EIA2_Large = ProductionVariantAcceleratorType' "ml.eia2.large"
-
 pattern PVATMl_EIA2_Medium :: ProductionVariantAcceleratorType
 pattern PVATMl_EIA2_Medium = ProductionVariantAcceleratorType' "ml.eia2.medium"
+
+pattern PVATMl_EIA2_Large :: ProductionVariantAcceleratorType
+pattern PVATMl_EIA2_Large = ProductionVariantAcceleratorType' "ml.eia2.large"
 
 pattern PVATMl_EIA2_XLarge :: ProductionVariantAcceleratorType
 pattern PVATMl_EIA2_XLarge = ProductionVariantAcceleratorType' "ml.eia2.xlarge"
 
 {-# COMPLETE
-  PVATMl_EIA1_Large,
   PVATMl_EIA1_Medium,
+  PVATMl_EIA1_Large,
   PVATMl_EIA1_XLarge,
-  PVATMl_EIA2_Large,
   PVATMl_EIA2_Medium,
+  PVATMl_EIA2_Large,
   PVATMl_EIA2_XLarge,
   ProductionVariantAcceleratorType'
   #-}

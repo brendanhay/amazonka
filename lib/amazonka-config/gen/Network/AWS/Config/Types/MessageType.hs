@@ -15,8 +15,8 @@ module Network.AWS.Config.Types.MessageType
       ( MessageType',
         ConfigurationItemChangeNotification,
         ConfigurationSnapshotDeliveryCompleted,
-        OversizedConfigurationItemChangeNotification,
-        ScheduledNotification
+        ScheduledNotification,
+        OversizedConfigurationItemChangeNotification
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern ConfigurationItemChangeNotification = MessageType' "ConfigurationItemCha
 pattern ConfigurationSnapshotDeliveryCompleted :: MessageType
 pattern ConfigurationSnapshotDeliveryCompleted = MessageType' "ConfigurationSnapshotDeliveryCompleted"
 
-pattern OversizedConfigurationItemChangeNotification :: MessageType
-pattern OversizedConfigurationItemChangeNotification = MessageType' "OversizedConfigurationItemChangeNotification"
-
 pattern ScheduledNotification :: MessageType
 pattern ScheduledNotification = MessageType' "ScheduledNotification"
+
+pattern OversizedConfigurationItemChangeNotification :: MessageType
+pattern OversizedConfigurationItemChangeNotification = MessageType' "OversizedConfigurationItemChangeNotification"
 
 {-# COMPLETE
   ConfigurationItemChangeNotification,
   ConfigurationSnapshotDeliveryCompleted,
-  OversizedConfigurationItemChangeNotification,
   ScheduledNotification,
+  OversizedConfigurationItemChangeNotification,
   MessageType'
   #-}

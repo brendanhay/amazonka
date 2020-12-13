@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBusinessReportContentRange' smart constructor.
 newtype BusinessReportContentRange = BusinessReportContentRange'
-  { interval ::
-      BusinessReportInterval
+  { -- | The interval of the content range.
+    interval :: BusinessReportInterval
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReportContentRange' with the minimum fields required to make a request.

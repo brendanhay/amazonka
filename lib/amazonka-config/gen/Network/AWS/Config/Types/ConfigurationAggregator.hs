@@ -36,37 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationAggregator' smart constructor.
 data ConfigurationAggregator = ConfigurationAggregator'
-  { configurationAggregatorARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the aggregator.
+    configurationAggregatorARN :: Lude.Maybe Lude.Text,
+    -- | The time stamp when the configuration aggregator was created.
     creationTime :: Lude.Maybe Lude.Timestamp,
-    organizationAggregationSource ::
-      Lude.Maybe OrganizationAggregationSource,
-    lastUpdatedTime ::
-      Lude.Maybe Lude.Timestamp,
-    accountAggregationSources ::
-      Lude.Maybe [AccountAggregationSource],
+    -- | Provides an organization and list of regions to be aggregated.
+    organizationAggregationSource :: Lude.Maybe OrganizationAggregationSource,
+    -- | The time of the last update.
+    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | Provides a list of source accounts and regions to be aggregated.
+    accountAggregationSources :: Lude.Maybe [AccountAggregationSource],
+    -- | AWS service that created the configuration aggregator.
     createdBy :: Lude.Maybe Lude.Text,
-    configurationAggregatorName ::
-      Lude.Maybe Lude.Text
+    -- | The name of the aggregator.
+    configurationAggregatorName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationAggregator' with the minimum fields required to make a request.
 --
--- * 'accountAggregationSources' - Provides a list of source accounts and regions to be aggregated.
 -- * 'configurationAggregatorARN' - The Amazon Resource Name (ARN) of the aggregator.
--- * 'configurationAggregatorName' - The name of the aggregator.
--- * 'createdBy' - AWS service that created the configuration aggregator.
 -- * 'creationTime' - The time stamp when the configuration aggregator was created.
--- * 'lastUpdatedTime' - The time of the last update.
 -- * 'organizationAggregationSource' - Provides an organization and list of regions to be aggregated.
+-- * 'lastUpdatedTime' - The time of the last update.
+-- * 'accountAggregationSources' - Provides a list of source accounts and regions to be aggregated.
+-- * 'createdBy' - AWS service that created the configuration aggregator.
+-- * 'configurationAggregatorName' - The name of the aggregator.
 mkConfigurationAggregator ::
   ConfigurationAggregator
 mkConfigurationAggregator =

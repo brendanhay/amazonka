@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,18 +45,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { exclusiveStartStreamARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN (Amazon Resource Name) of the first item that this operation will evaluate. Use the value that was returned for @LastEvaluatedStreamArn@ in the previous operation.
+    exclusiveStartStreamARN :: Lude.Maybe Lude.Text,
+    -- | The maximum number of streams to return. The upper limit is 100.
     limit :: Lude.Maybe Lude.Natural,
+    -- | If this parameter is provided, then only the streams associated with this table name are returned.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
@@ -137,18 +134,17 @@ instance Lude.ToQuery ListStreams where
 --
 -- /See:/ 'mkListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { lastEvaluatedStreamARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The stream ARN of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
+    --
+    -- If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
+    -- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
+    lastEvaluatedStreamARN :: Lude.Maybe Lude.Text,
+    -- | A list of stream descriptors associated with the current account and endpoint.
     streams :: Lude.Maybe [Stream],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
@@ -157,8 +153,8 @@ data ListStreamsResponse = ListStreamsResponse'
 --
 -- If @LastEvaluatedStreamArn@ is empty, then the "last page" of results has been processed and there is no more data to be retrieved.
 -- If @LastEvaluatedStreamArn@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedStreamArn@ is empty.
--- * 'responseStatus' - The response status code.
 -- * 'streams' - A list of stream descriptors associated with the current account and endpoint.
+-- * 'responseStatus' - The response status code.
 mkListStreamsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

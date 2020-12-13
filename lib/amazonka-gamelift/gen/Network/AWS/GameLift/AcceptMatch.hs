@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,9 +42,9 @@ module Network.AWS.GameLift.AcceptMatch
     mkAcceptMatch,
 
     -- ** Request lenses
+    amAcceptanceType,
     amTicketId,
     amPlayerIds,
-    amAcceptanceType,
 
     -- * Destructuring the response
     AcceptMatchResponse (..),
@@ -64,36 +65,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAcceptMatch' smart constructor.
 data AcceptMatch = AcceptMatch'
-  { ticketId :: Lude.Text,
-    playerIds :: [Lude.Text],
-    acceptanceType :: AcceptanceType
+  { -- | Player response to the proposed match.
+    acceptanceType :: AcceptanceType,
+    -- | A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
+    ticketId :: Lude.Text,
+    -- | A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
+    playerIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptMatch' with the minimum fields required to make a request.
 --
 -- * 'acceptanceType' - Player response to the proposed match.
--- * 'playerIds' - A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
 -- * 'ticketId' - A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
+-- * 'playerIds' - A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
 mkAcceptMatch ::
-  -- | 'ticketId'
-  Lude.Text ->
   -- | 'acceptanceType'
   AcceptanceType ->
+  -- | 'ticketId'
+  Lude.Text ->
   AcceptMatch
-mkAcceptMatch pTicketId_ pAcceptanceType_ =
+mkAcceptMatch pAcceptanceType_ pTicketId_ =
   AcceptMatch'
-    { ticketId = pTicketId_,
-      playerIds = Lude.mempty,
-      acceptanceType = pAcceptanceType_
+    { acceptanceType = pAcceptanceType_,
+      ticketId = pTicketId_,
+      playerIds = Lude.mempty
     }
+
+-- | Player response to the proposed match.
+--
+-- /Note:/ Consider using 'acceptanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amAcceptanceType :: Lens.Lens' AcceptMatch AcceptanceType
+amAcceptanceType = Lens.lens (acceptanceType :: AcceptMatch -> AcceptanceType) (\s a -> s {acceptanceType = a} :: AcceptMatch)
+{-# DEPRECATED amAcceptanceType "Use generic-lens or generic-optics with 'acceptanceType' instead." #-}
 
 -- | A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
 --
@@ -108,13 +113,6 @@ amTicketId = Lens.lens (ticketId :: AcceptMatch -> Lude.Text) (\s a -> s {ticket
 amPlayerIds :: Lens.Lens' AcceptMatch [Lude.Text]
 amPlayerIds = Lens.lens (playerIds :: AcceptMatch -> [Lude.Text]) (\s a -> s {playerIds = a} :: AcceptMatch)
 {-# DEPRECATED amPlayerIds "Use generic-lens or generic-optics with 'playerIds' instead." #-}
-
--- | Player response to the proposed match.
---
--- /Note:/ Consider using 'acceptanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amAcceptanceType :: Lens.Lens' AcceptMatch AcceptanceType
-amAcceptanceType = Lens.lens (acceptanceType :: AcceptMatch -> AcceptanceType) (\s a -> s {acceptanceType = a} :: AcceptMatch)
-{-# DEPRECATED amAcceptanceType "Use generic-lens or generic-optics with 'acceptanceType' instead." #-}
 
 instance Lude.AWSRequest AcceptMatch where
   type Rs AcceptMatch = AcceptMatchResponse
@@ -140,9 +138,9 @@ instance Lude.ToJSON AcceptMatch where
   toJSON AcceptMatch' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("TicketId" Lude..= ticketId),
-            Lude.Just ("PlayerIds" Lude..= playerIds),
-            Lude.Just ("AcceptanceType" Lude..= acceptanceType)
+          [ Lude.Just ("AcceptanceType" Lude..= acceptanceType),
+            Lude.Just ("TicketId" Lude..= ticketId),
+            Lude.Just ("PlayerIds" Lude..= playerIds)
           ]
       )
 
@@ -154,16 +152,10 @@ instance Lude.ToQuery AcceptMatch where
 
 -- | /See:/ 'mkAcceptMatchResponse' smart constructor.
 newtype AcceptMatchResponse = AcceptMatchResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AcceptMatchResponse' with the minimum fields required to make a request.

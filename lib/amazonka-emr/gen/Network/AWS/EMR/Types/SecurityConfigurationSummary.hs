@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityConfigurationSummary' smart constructor.
 data SecurityConfigurationSummary = SecurityConfigurationSummary'
-  { name ::
-      Lude.Maybe Lude.Text,
-    creationDateTime ::
-      Lude.Maybe Lude.Timestamp
+  { -- | The name of the security configuration.
+    name :: Lude.Maybe Lude.Text,
+    -- | The date and time the security configuration was created.
+    creationDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityConfigurationSummary' with the minimum fields required to make a request.
 --
--- * 'creationDateTime' - The date and time the security configuration was created.
 -- * 'name' - The name of the security configuration.
+-- * 'creationDateTime' - The date and time the security configuration was created.
 mkSecurityConfigurationSummary ::
   SecurityConfigurationSummary
 mkSecurityConfigurationSummary =

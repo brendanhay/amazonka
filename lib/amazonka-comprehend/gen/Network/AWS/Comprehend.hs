@@ -255,8 +255,8 @@ module Network.AWS.Comprehend
     -- ** AugmentedManifestsListItem
     AugmentedManifestsListItem (..),
     mkAugmentedManifestsListItem,
-    amliS3URI,
     amliAttributeNames,
+    amliS3URI,
 
     -- ** BatchDetectDominantLanguageItemResult
     BatchDetectDominantLanguageItemResult (..),
@@ -444,27 +444,27 @@ module Network.AWS.Comprehend
     -- ** EntitiesDetectionJobFilter
     EntitiesDetectionJobFilter (..),
     mkEntitiesDetectionJobFilter,
-    edjfSubmitTimeAfter,
-    edjfSubmitTimeBefore,
-    edjfJobName,
-    edjfJobStatus,
+    edjffSubmitTimeAfter,
+    edjffSubmitTimeBefore,
+    edjffJobName,
+    edjffJobStatus,
 
     -- ** EntitiesDetectionJobProperties
     EntitiesDetectionJobProperties (..),
     mkEntitiesDetectionJobProperties,
-    edjpsLanguageCode,
-    edjpsJobId,
-    edjpsEntityRecognizerARN,
-    edjpsJobName,
-    edjpsInputDataConfig,
-    edjpsVPCConfig,
-    edjpsVolumeKMSKeyId,
-    edjpsEndTime,
-    edjpsOutputDataConfig,
-    edjpsDataAccessRoleARN,
-    edjpsJobStatus,
-    edjpsMessage,
-    edjpsSubmitTime,
+    eLanguageCode,
+    eJobId,
+    eEntityRecognizerARN,
+    eJobName,
+    eInputDataConfig,
+    eVPCConfig,
+    eVolumeKMSKeyId,
+    eEndTime,
+    eOutputDataConfig,
+    eDataAccessRoleARN,
+    eJobStatus,
+    eMessage,
+    eSubmitTime,
 
     -- ** Entity
     Entity (..),
@@ -509,10 +509,10 @@ module Network.AWS.Comprehend
     mkEntityRecognizerInputDataConfig,
     eridcAugmentedManifests,
     eridcAnnotations,
+    eridcEntityTypes,
     eridcDataFormat,
     eridcDocuments,
     eridcEntityList,
-    eridcEntityTypes,
 
     -- ** EntityRecognizerMetadata
     EntityRecognizerMetadata (..),
@@ -561,10 +561,10 @@ module Network.AWS.Comprehend
     -- ** EventsDetectionJobFilter
     EventsDetectionJobFilter (..),
     mkEventsDetectionJobFilter,
-    eSubmitTimeAfter,
-    eSubmitTimeBefore,
-    eJobName,
-    eJobStatus,
+    edjfSubmitTimeAfter,
+    edjfSubmitTimeBefore,
+    edjfJobName,
+    edjfJobStatus,
 
     -- ** EventsDetectionJobProperties
     EventsDetectionJobProperties (..),

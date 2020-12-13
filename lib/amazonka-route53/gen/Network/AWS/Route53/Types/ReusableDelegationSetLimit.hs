@@ -17,8 +17,8 @@ module Network.AWS.Route53.Types.ReusableDelegationSetLimit
     mkReusableDelegationSetLimit,
 
     -- * Lenses
-    rdslType,
     rdslValue,
+    rdslType,
   )
 where
 
@@ -31,38 +31,26 @@ import Network.AWS.Route53.Types.ReusableDelegationSetLimitType
 --
 -- /See:/ 'mkReusableDelegationSetLimit' smart constructor.
 data ReusableDelegationSetLimit = ReusableDelegationSetLimit'
-  { type' ::
-      ReusableDelegationSetLimitType,
-    value :: Lude.Natural
+  { -- | The current value for the @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ limit.
+    value :: Lude.Natural,
+    -- | The limit that you requested: @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ , the maximum number of hosted zones that you can associate with the specified reusable delegation set.
+    type' :: ReusableDelegationSetLimitType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReusableDelegationSetLimit' with the minimum fields required to make a request.
 --
--- * 'type'' - The limit that you requested: @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ , the maximum number of hosted zones that you can associate with the specified reusable delegation set.
 -- * 'value' - The current value for the @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ limit.
+-- * 'type'' - The limit that you requested: @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ , the maximum number of hosted zones that you can associate with the specified reusable delegation set.
 mkReusableDelegationSetLimit ::
-  -- | 'type''
-  ReusableDelegationSetLimitType ->
   -- | 'value'
   Lude.Natural ->
+  -- | 'type''
+  ReusableDelegationSetLimitType ->
   ReusableDelegationSetLimit
-mkReusableDelegationSetLimit pType_ pValue_ =
-  ReusableDelegationSetLimit' {type' = pType_, value = pValue_}
-
--- | The limit that you requested: @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ , the maximum number of hosted zones that you can associate with the specified reusable delegation set.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdslType :: Lens.Lens' ReusableDelegationSetLimit ReusableDelegationSetLimitType
-rdslType = Lens.lens (type' :: ReusableDelegationSetLimit -> ReusableDelegationSetLimitType) (\s a -> s {type' = a} :: ReusableDelegationSetLimit)
-{-# DEPRECATED rdslType "Use generic-lens or generic-optics with 'type'' instead." #-}
+mkReusableDelegationSetLimit pValue_ pType_ =
+  ReusableDelegationSetLimit' {value = pValue_, type' = pType_}
 
 -- | The current value for the @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ limit.
 --
@@ -71,7 +59,14 @@ rdslValue :: Lens.Lens' ReusableDelegationSetLimit Lude.Natural
 rdslValue = Lens.lens (value :: ReusableDelegationSetLimit -> Lude.Natural) (\s a -> s {value = a} :: ReusableDelegationSetLimit)
 {-# DEPRECATED rdslValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
+-- | The limit that you requested: @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ , the maximum number of hosted zones that you can associate with the specified reusable delegation set.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdslType :: Lens.Lens' ReusableDelegationSetLimit ReusableDelegationSetLimitType
+rdslType = Lens.lens (type' :: ReusableDelegationSetLimit -> ReusableDelegationSetLimitType) (\s a -> s {type' = a} :: ReusableDelegationSetLimit)
+{-# DEPRECATED rdslType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.FromXML ReusableDelegationSetLimit where
   parseXML x =
     ReusableDelegationSetLimit'
-      Lude.<$> (x Lude..@ "Type") Lude.<*> (x Lude..@ "Value")
+      Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Type")

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.DynamoDB.ExportTableToPointInTime
     ettpitExportFormat,
     ettpitS3SseKMSKeyId,
     ettpitClientToken,
+    ettpitTableARN,
     ettpitExportTime,
     ettpitS3SseAlgorithm,
     ettpitS3Prefix,
-    ettpitTableARN,
     ettpitS3Bucket,
 
     -- * Destructuring the response
@@ -47,38 +48,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExportTableToPointInTime' smart constructor.
 data ExportTableToPointInTime = ExportTableToPointInTime'
-  { s3BucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS account that owns the bucket the export will be stored in.
+    s3BucketOwner :: Lude.Maybe Lude.Text,
+    -- | The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
     exportFormat :: Lude.Maybe ExportFormat,
+    -- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
     s3SseKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | Providing a @ClientToken@ makes the call to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
+    --
+    -- A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.
+    -- If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an @IdempotentParameterMismatch@ exception.
     clientToken :: Lude.Maybe Lude.Text,
-    exportTime :: Lude.Maybe Lude.Timestamp,
-    s3SseAlgorithm ::
-      Lude.Maybe S3SseAlgorithm,
-    s3Prefix :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) associated with the table to export.
     tableARN :: Lude.Text,
+    -- | Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.
+    exportTime :: Lude.Maybe Lude.Timestamp,
+    -- | Type of encryption used on the bucket where export data will be stored. Valid values for @S3SseAlgorithm@ are:
+    --
+    --
+    --     * @AES256@ - server-side encryption with Amazon S3 managed keys
+    --
+    --
+    --     * @KMS@ - server-side encryption with AWS KMS managed keys
+    s3SseAlgorithm :: Lude.Maybe S3SseAlgorithm,
+    -- | The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
+    s3Prefix :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon S3 bucket to export the snapshot to.
     s3Bucket :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTableToPointInTime' with the minimum fields required to make a request.
 --
+-- * 's3BucketOwner' - The ID of the AWS account that owns the bucket the export will be stored in.
+-- * 'exportFormat' - The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
+-- * 's3SseKMSKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
 -- * 'clientToken' - Providing a @ClientToken@ makes the call to @ExportTableToPointInTimeInput@ idempotent, meaning that multiple identical calls have the same effect as one single call.
 --
 -- A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.
 -- If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an @IdempotentParameterMismatch@ exception.
--- * 'exportFormat' - The format for the exported data. Valid values for @ExportFormat@ are @DYNAMODB_JSON@ or @ION@ .
+-- * 'tableARN' - The Amazon Resource Name (ARN) associated with the table to export.
 -- * 'exportTime' - Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.
--- * 's3Bucket' - The name of the Amazon S3 bucket to export the snapshot to.
--- * 's3BucketOwner' - The ID of the AWS account that owns the bucket the export will be stored in.
--- * 's3Prefix' - The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
 -- * 's3SseAlgorithm' - Type of encryption used on the bucket where export data will be stored. Valid values for @S3SseAlgorithm@ are:
 --
 --
@@ -88,8 +99,8 @@ data ExportTableToPointInTime = ExportTableToPointInTime'
 --     * @KMS@ - server-side encryption with AWS KMS managed keys
 --
 --
--- * 's3SseKMSKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
--- * 'tableARN' - The Amazon Resource Name (ARN) associated with the table to export.
+-- * 's3Prefix' - The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
+-- * 's3Bucket' - The name of the Amazon S3 bucket to export the snapshot to.
 mkExportTableToPointInTime ::
   -- | 'tableARN'
   Lude.Text ->
@@ -102,10 +113,10 @@ mkExportTableToPointInTime pTableARN_ pS3Bucket_ =
       exportFormat = Lude.Nothing,
       s3SseKMSKeyId = Lude.Nothing,
       clientToken = Lude.Nothing,
+      tableARN = pTableARN_,
       exportTime = Lude.Nothing,
       s3SseAlgorithm = Lude.Nothing,
       s3Prefix = Lude.Nothing,
-      tableARN = pTableARN_,
       s3Bucket = pS3Bucket_
     }
 
@@ -140,6 +151,13 @@ ettpitClientToken :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe Lude.Text)
 ettpitClientToken = Lens.lens (clientToken :: ExportTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ExportTableToPointInTime)
 {-# DEPRECATED ettpitClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
+-- | The Amazon Resource Name (ARN) associated with the table to export.
+--
+-- /Note:/ Consider using 'tableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ettpitTableARN :: Lens.Lens' ExportTableToPointInTime Lude.Text
+ettpitTableARN = Lens.lens (tableARN :: ExportTableToPointInTime -> Lude.Text) (\s a -> s {tableARN = a} :: ExportTableToPointInTime)
+{-# DEPRECATED ettpitTableARN "Use generic-lens or generic-optics with 'tableARN' instead." #-}
+
 -- | Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.
 --
 -- /Note:/ Consider using 'exportTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -168,13 +186,6 @@ ettpitS3SseAlgorithm = Lens.lens (s3SseAlgorithm :: ExportTableToPointInTime -> 
 ettpitS3Prefix :: Lens.Lens' ExportTableToPointInTime (Lude.Maybe Lude.Text)
 ettpitS3Prefix = Lens.lens (s3Prefix :: ExportTableToPointInTime -> Lude.Maybe Lude.Text) (\s a -> s {s3Prefix = a} :: ExportTableToPointInTime)
 {-# DEPRECATED ettpitS3Prefix "Use generic-lens or generic-optics with 's3Prefix' instead." #-}
-
--- | The Amazon Resource Name (ARN) associated with the table to export.
---
--- /Note:/ Consider using 'tableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ettpitTableARN :: Lens.Lens' ExportTableToPointInTime Lude.Text
-ettpitTableARN = Lens.lens (tableARN :: ExportTableToPointInTime -> Lude.Text) (\s a -> s {tableARN = a} :: ExportTableToPointInTime)
-{-# DEPRECATED ettpitTableARN "Use generic-lens or generic-optics with 'tableARN' instead." #-}
 
 -- | The name of the Amazon S3 bucket to export the snapshot to.
 --
@@ -213,10 +224,10 @@ instance Lude.ToJSON ExportTableToPointInTime where
             ("ExportFormat" Lude..=) Lude.<$> exportFormat,
             ("S3SseKmsKeyId" Lude..=) Lude.<$> s3SseKMSKeyId,
             ("ClientToken" Lude..=) Lude.<$> clientToken,
+            Lude.Just ("TableArn" Lude..= tableARN),
             ("ExportTime" Lude..=) Lude.<$> exportTime,
             ("S3SseAlgorithm" Lude..=) Lude.<$> s3SseAlgorithm,
             ("S3Prefix" Lude..=) Lude.<$> s3Prefix,
-            Lude.Just ("TableArn" Lude..= tableARN),
             Lude.Just ("S3Bucket" Lude..= s3Bucket)
           ]
       )
@@ -229,19 +240,12 @@ instance Lude.ToQuery ExportTableToPointInTime where
 
 -- | /See:/ 'mkExportTableToPointInTimeResponse' smart constructor.
 data ExportTableToPointInTimeResponse = ExportTableToPointInTimeResponse'
-  { exportDescription ::
-      Lude.Maybe
-        ExportDescription,
-    responseStatus ::
-      Lude.Int
+  { -- | Contains a description of the table export.
+    exportDescription :: Lude.Maybe ExportDescription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportTableToPointInTimeResponse' with the minimum fields required to make a request.

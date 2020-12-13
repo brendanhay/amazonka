@@ -13,10 +13,10 @@
 module Network.AWS.IAM.Types.SortKeyType
   ( SortKeyType
       ( SortKeyType',
-        LastAuthenticatedTimeAscending,
-        LastAuthenticatedTimeDescending,
         ServiceNamespaceAscending,
-        ServiceNamespaceDescending
+        ServiceNamespaceDescending,
+        LastAuthenticatedTimeAscending,
+        LastAuthenticatedTimeDescending
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype SortKeyType = SortKeyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern LastAuthenticatedTimeAscending :: SortKeyType
-pattern LastAuthenticatedTimeAscending = SortKeyType' "LAST_AUTHENTICATED_TIME_ASCENDING"
-
-pattern LastAuthenticatedTimeDescending :: SortKeyType
-pattern LastAuthenticatedTimeDescending = SortKeyType' "LAST_AUTHENTICATED_TIME_DESCENDING"
-
 pattern ServiceNamespaceAscending :: SortKeyType
 pattern ServiceNamespaceAscending = SortKeyType' "SERVICE_NAMESPACE_ASCENDING"
 
 pattern ServiceNamespaceDescending :: SortKeyType
 pattern ServiceNamespaceDescending = SortKeyType' "SERVICE_NAMESPACE_DESCENDING"
 
+pattern LastAuthenticatedTimeAscending :: SortKeyType
+pattern LastAuthenticatedTimeAscending = SortKeyType' "LAST_AUTHENTICATED_TIME_ASCENDING"
+
+pattern LastAuthenticatedTimeDescending :: SortKeyType
+pattern LastAuthenticatedTimeDescending = SortKeyType' "LAST_AUTHENTICATED_TIME_DESCENDING"
+
 {-# COMPLETE
-  LastAuthenticatedTimeAscending,
-  LastAuthenticatedTimeDescending,
   ServiceNamespaceAscending,
   ServiceNamespaceDescending,
+  LastAuthenticatedTimeAscending,
+  LastAuthenticatedTimeDescending,
   SortKeyType'
   #-}

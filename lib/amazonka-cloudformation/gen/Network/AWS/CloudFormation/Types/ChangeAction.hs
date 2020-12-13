@@ -14,10 +14,10 @@ module Network.AWS.CloudFormation.Types.ChangeAction
   ( ChangeAction
       ( ChangeAction',
         Add,
-        Dynamic,
-        Import,
         Modify,
-        Remove
+        Remove,
+        Import,
+        Dynamic
       ),
   )
 where
@@ -51,23 +51,23 @@ newtype ChangeAction = ChangeAction' Lude.Text
 pattern Add :: ChangeAction
 pattern Add = ChangeAction' "Add"
 
-pattern Dynamic :: ChangeAction
-pattern Dynamic = ChangeAction' "Dynamic"
-
-pattern Import :: ChangeAction
-pattern Import = ChangeAction' "Import"
-
 pattern Modify :: ChangeAction
 pattern Modify = ChangeAction' "Modify"
 
 pattern Remove :: ChangeAction
 pattern Remove = ChangeAction' "Remove"
 
+pattern Import :: ChangeAction
+pattern Import = ChangeAction' "Import"
+
+pattern Dynamic :: ChangeAction
+pattern Dynamic = ChangeAction' "Dynamic"
+
 {-# COMPLETE
   Add,
-  Dynamic,
-  Import,
   Modify,
   Remove,
+  Import,
+  Dynamic,
   ChangeAction'
   #-}

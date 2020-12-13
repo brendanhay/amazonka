@@ -40,40 +40,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSingleInstanceHealth' smart constructor.
 data SingleInstanceHealth = SingleInstanceHealth'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Amazon EC2 instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Represents the causes, which provide more information about the current health status.
     causes :: Lude.Maybe [Lude.Text],
+    -- | Operating system metrics from the instance.
     system :: Lude.Maybe SystemStatus,
-    applicationMetrics ::
-      Lude.Maybe ApplicationMetrics,
+    -- | Request metrics from your application.
+    applicationMetrics :: Lude.Maybe ApplicationMetrics,
+    -- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
     color :: Lude.Maybe Lude.Text,
+    -- | The instance's type.
     instanceType :: Lude.Maybe Lude.Text,
+    -- | The availability zone in which the instance runs.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
     healthStatus :: Lude.Maybe Lude.Text,
+    -- | Information about the most recent deployment to an instance.
     deployment :: Lude.Maybe Deployment,
+    -- | The time at which the EC2 instance was launched.
     launchedAt :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SingleInstanceHealth' with the minimum fields required to make a request.
 --
--- * 'applicationMetrics' - Request metrics from your application.
--- * 'availabilityZone' - The availability zone in which the instance runs.
--- * 'causes' - Represents the causes, which provide more information about the current health status.
--- * 'color' - Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
--- * 'deployment' - Information about the most recent deployment to an instance.
--- * 'healthStatus' - Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
 -- * 'instanceId' - The ID of the Amazon EC2 instance.
--- * 'instanceType' - The instance's type.
--- * 'launchedAt' - The time at which the EC2 instance was launched.
+-- * 'causes' - Represents the causes, which provide more information about the current health status.
 -- * 'system' - Operating system metrics from the instance.
+-- * 'applicationMetrics' - Request metrics from your application.
+-- * 'color' - Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- * 'instanceType' - The instance's type.
+-- * 'availabilityZone' - The availability zone in which the instance runs.
+-- * 'healthStatus' - Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- * 'deployment' - Information about the most recent deployment to an instance.
+-- * 'launchedAt' - The time at which the EC2 instance was launched.
 mkSingleInstanceHealth ::
   SingleInstanceHealth
 mkSingleInstanceHealth =

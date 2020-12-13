@@ -13,9 +13,9 @@
 module Network.AWS.ECR.Types.ScanStatus
   ( ScanStatus
       ( ScanStatus',
+        InProgress,
         Complete,
-        Failed,
-        InProgress
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ScanStatus = ScanStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern InProgress :: ScanStatus
+pattern InProgress = ScanStatus' "IN_PROGRESS"
+
 pattern Complete :: ScanStatus
 pattern Complete = ScanStatus' "COMPLETE"
 
 pattern Failed :: ScanStatus
 pattern Failed = ScanStatus' "FAILED"
 
-pattern InProgress :: ScanStatus
-pattern InProgress = ScanStatus' "IN_PROGRESS"
-
 {-# COMPLETE
+  InProgress,
   Complete,
   Failed,
-  InProgress,
   ScanStatus'
   #-}

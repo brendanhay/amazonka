@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.Glacier.ListJobs
     mkListJobs,
 
     -- ** Request lenses
+    ljVaultName,
+    ljAccountId,
     ljMarker,
     ljCompleted,
     ljLimit,
     ljStatuscode,
-    ljAccountId,
-    ljVaultName,
 
     -- * Destructuring the response
     ListJobsResponse (..),
@@ -55,45 +56,59 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { marker :: Lude.Maybe Lude.Text,
-    completed :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Text,
-    statuscode :: Lude.Maybe Lude.Text,
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
     accountId :: Lude.Text,
-    vaultName :: Lude.Text
+    -- | An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The state of the jobs to return. You can specify @true@ or @false@ .
+    completed :: Lude.Maybe Lude.Text,
+    -- | The maximum number of jobs to be returned. The default limit is 50. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.
+    limit :: Lude.Maybe Lude.Text,
+    -- | The type of job status to return. You can specify the following values: @InProgress@ , @Succeeded@ , or @Failed@ .
+    statuscode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
+-- * 'vaultName' - The name of the vault.
 -- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'marker' - An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.
 -- * 'completed' - The state of the jobs to return. You can specify @true@ or @false@ .
 -- * 'limit' - The maximum number of jobs to be returned. The default limit is 50. The number of jobs returned might be fewer than the specified limit, but the number of returned jobs never exceeds the limit.
--- * 'marker' - An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.
 -- * 'statuscode' - The type of job status to return. You can specify the following values: @InProgress@ , @Succeeded@ , or @Failed@ .
--- * 'vaultName' - The name of the vault.
 mkListJobs ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   ListJobs
-mkListJobs pAccountId_ pVaultName_ =
+mkListJobs pVaultName_ pAccountId_ =
   ListJobs'
-    { marker = Lude.Nothing,
+    { vaultName = pVaultName_,
+      accountId = pAccountId_,
+      marker = Lude.Nothing,
       completed = Lude.Nothing,
       limit = Lude.Nothing,
-      statuscode = Lude.Nothing,
-      accountId = pAccountId_,
-      vaultName = pVaultName_
+      statuscode = Lude.Nothing
     }
+
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljVaultName :: Lens.Lens' ListJobs Lude.Text
+ljVaultName = Lens.lens (vaultName :: ListJobs -> Lude.Text) (\s a -> s {vaultName = a} :: ListJobs)
+{-# DEPRECATED ljVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljAccountId :: Lens.Lens' ListJobs Lude.Text
+ljAccountId = Lens.lens (accountId :: ListJobs -> Lude.Text) (\s a -> s {accountId = a} :: ListJobs)
+{-# DEPRECATED ljAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | An opaque string used for pagination. This value specifies the job at which the listing of jobs should begin. Get the marker value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of results started in a previous List Jobs request.
 --
@@ -122,20 +137,6 @@ ljLimit = Lens.lens (limit :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {limi
 ljStatuscode :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
 ljStatuscode = Lens.lens (statuscode :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {statuscode = a} :: ListJobs)
 {-# DEPRECATED ljStatuscode "Use generic-lens or generic-optics with 'statuscode' instead." #-}
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljAccountId :: Lens.Lens' ListJobs Lude.Text
-ljAccountId = Lens.lens (accountId :: ListJobs -> Lude.Text) (\s a -> s {accountId = a} :: ListJobs)
-{-# DEPRECATED ljAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljVaultName :: Lens.Lens' ListJobs Lude.Text
-ljVaultName = Lens.lens (vaultName :: ListJobs -> Lude.Text) (\s a -> s {vaultName = a} :: ListJobs)
-{-# DEPRECATED ljVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 instance Page.AWSPager ListJobs where
   page rq rs
@@ -182,24 +183,20 @@ instance Lude.ToQuery ListJobs where
 --
 -- /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | An opaque string used for pagination that specifies the job at which the listing of jobs should begin. You get the @marker@ value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of the results started in a previous List Jobs request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A list of job objects. Each job object contains metadata describing the job.
     jobList :: Lude.Maybe [GlacierJobDescription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
 --
--- * 'jobList' - A list of job objects. Each job object contains metadata describing the job.
 -- * 'marker' - An opaque string used for pagination that specifies the job at which the listing of jobs should begin. You get the @marker@ value from a previous List Jobs response. You only need to include the marker if you are continuing the pagination of the results started in a previous List Jobs request.
+-- * 'jobList' - A list of job objects. Each job object contains metadata describing the job.
 -- * 'responseStatus' - The response status code.
 mkListJobsResponse ::
   -- | 'responseStatus'

@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexStatmuxVideoSettings' smart constructor.
 data MultiplexStatmuxVideoSettings = MultiplexStatmuxVideoSettings'
-  { priority ::
-      Lude.Maybe Lude.Int,
-    minimumBitrate ::
-      Lude.Maybe Lude.Natural,
-    maximumBitrate ::
-      Lude.Maybe Lude.Natural
+  { -- | The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+    priority :: Lude.Maybe Lude.Int,
+    -- | Minimum statmux bitrate.
+    minimumBitrate :: Lude.Maybe Lude.Natural,
+    -- | Maximum statmux bitrate.
+    maximumBitrate :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexStatmuxVideoSettings' with the minimum fields required to make a request.
 --
--- * 'maximumBitrate' - Maximum statmux bitrate.
--- * 'minimumBitrate' - Minimum statmux bitrate.
 -- * 'priority' - The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+-- * 'minimumBitrate' - Minimum statmux bitrate.
+-- * 'maximumBitrate' - Maximum statmux bitrate.
 mkMultiplexStatmuxVideoSettings ::
   MultiplexStatmuxVideoSettings
 mkMultiplexStatmuxVideoSettings =

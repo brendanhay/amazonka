@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,12 +28,12 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     cavProcess,
     cavSourceBundle,
     cavAutoCreateApplication,
+    cavVersionLabel,
     cavSourceBuildInformation,
+    cavApplicationName,
     cavDescription,
     cavBuildConfiguration,
     cavTags,
-    cavApplicationName,
-    cavVersionLabel,
 
     -- * Destructuring the response
     ApplicationVersionDescriptionMessage (..),
@@ -53,65 +54,72 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateApplicationVersion' smart constructor.
 data CreateApplicationVersion = CreateApplicationVersion'
-  { process ::
-      Lude.Maybe Lude.Bool,
+  { -- | Pre-processes and validates the environment manifest (@env.yaml@ ) and configuration files (@*.config@ files in the @.ebextensions@ folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment.
+    --
+    -- You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional.
+    process :: Lude.Maybe Lude.Bool,
+    -- | The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+    --
+    -- Specify a source bundle in S3 or a commit in an AWS CodeCommit repository (with @SourceBuildInformation@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
     sourceBundle :: Lude.Maybe S3Location,
-    autoCreateApplication ::
-      Lude.Maybe Lude.Bool,
-    sourceBuildInformation ::
-      Lude.Maybe SourceBuildInformation,
-    description :: Lude.Maybe Lude.Text,
-    buildConfiguration ::
-      Lude.Maybe BuildConfiguration,
-    tags :: Lude.Maybe [Tag],
+    -- | Set to @true@ to create an application with the specified name if it doesn't already exist.
+    autoCreateApplication :: Lude.Maybe Lude.Bool,
+    -- | A label identifying this version.
+    --
+    -- Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+    versionLabel :: Lude.Text,
+    -- | Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version.
+    sourceBuildInformation :: Lude.Maybe SourceBuildInformation,
+    -- | The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
     applicationName :: Lude.Text,
-    versionLabel :: Lude.Text
+    -- | A description of this application version.
+    description :: Lude.Maybe Lude.Text,
+    -- | Settings for an AWS CodeBuild build.
+    buildConfiguration :: Lude.Maybe BuildConfiguration,
+    -- | Specifies the tags applied to the application version.
+    --
+    -- Elastic Beanstalk applies these tags only to the application version. Environments that use the application version don't inherit the tags.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApplicationVersion' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
--- * 'autoCreateApplication' - Set to @true@ to create an application with the specified name if it doesn't already exist.
--- * 'buildConfiguration' - Settings for an AWS CodeBuild build.
--- * 'description' - A description of this application version.
 -- * 'process' - Pre-processes and validates the environment manifest (@env.yaml@ ) and configuration files (@*.config@ files in the @.ebextensions@ folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment.
 --
 -- You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional.
--- * 'sourceBuildInformation' - Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version.
 -- * 'sourceBundle' - The Amazon S3 bucket and key that identify the location of the source bundle for this version.
 --
 -- Specify a source bundle in S3 or a commit in an AWS CodeCommit repository (with @SourceBuildInformation@ ), but not both. If neither @SourceBundle@ nor @SourceBuildInformation@ are provided, Elastic Beanstalk uses a sample application.
--- * 'tags' - Specifies the tags applied to the application version.
---
--- Elastic Beanstalk applies these tags only to the application version. Environments that use the application version don't inherit the tags.
+-- * 'autoCreateApplication' - Set to @true@ to create an application with the specified name if it doesn't already exist.
 -- * 'versionLabel' - A label identifying this version.
 --
 -- Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+-- * 'sourceBuildInformation' - Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version.
+-- * 'applicationName' - The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
+-- * 'description' - A description of this application version.
+-- * 'buildConfiguration' - Settings for an AWS CodeBuild build.
+-- * 'tags' - Specifies the tags applied to the application version.
+--
+-- Elastic Beanstalk applies these tags only to the application version. Environments that use the application version don't inherit the tags.
 mkCreateApplicationVersion ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'versionLabel'
   Lude.Text ->
+  -- | 'applicationName'
+  Lude.Text ->
   CreateApplicationVersion
-mkCreateApplicationVersion pApplicationName_ pVersionLabel_ =
+mkCreateApplicationVersion pVersionLabel_ pApplicationName_ =
   CreateApplicationVersion'
     { process = Lude.Nothing,
       sourceBundle = Lude.Nothing,
       autoCreateApplication = Lude.Nothing,
+      versionLabel = pVersionLabel_,
       sourceBuildInformation = Lude.Nothing,
+      applicationName = pApplicationName_,
       description = Lude.Nothing,
       buildConfiguration = Lude.Nothing,
-      tags = Lude.Nothing,
-      applicationName = pApplicationName_,
-      versionLabel = pVersionLabel_
+      tags = Lude.Nothing
     }
 
 -- | Pre-processes and validates the environment manifest (@env.yaml@ ) and configuration files (@*.config@ files in the @.ebextensions@ folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment.
@@ -139,12 +147,28 @@ cavAutoCreateApplication :: Lens.Lens' CreateApplicationVersion (Lude.Maybe Lude
 cavAutoCreateApplication = Lens.lens (autoCreateApplication :: CreateApplicationVersion -> Lude.Maybe Lude.Bool) (\s a -> s {autoCreateApplication = a} :: CreateApplicationVersion)
 {-# DEPRECATED cavAutoCreateApplication "Use generic-lens or generic-optics with 'autoCreateApplication' instead." #-}
 
+-- | A label identifying this version.
+--
+-- Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cavVersionLabel :: Lens.Lens' CreateApplicationVersion Lude.Text
+cavVersionLabel = Lens.lens (versionLabel :: CreateApplicationVersion -> Lude.Text) (\s a -> s {versionLabel = a} :: CreateApplicationVersion)
+{-# DEPRECATED cavVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
+
 -- | Specify a commit in an AWS CodeCommit Git repository to use as the source code for the application version.
 --
 -- /Note:/ Consider using 'sourceBuildInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cavSourceBuildInformation :: Lens.Lens' CreateApplicationVersion (Lude.Maybe SourceBuildInformation)
 cavSourceBuildInformation = Lens.lens (sourceBuildInformation :: CreateApplicationVersion -> Lude.Maybe SourceBuildInformation) (\s a -> s {sourceBuildInformation = a} :: CreateApplicationVersion)
 {-# DEPRECATED cavSourceBuildInformation "Use generic-lens or generic-optics with 'sourceBuildInformation' instead." #-}
+
+-- | The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cavApplicationName :: Lens.Lens' CreateApplicationVersion Lude.Text
+cavApplicationName = Lens.lens (applicationName :: CreateApplicationVersion -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplicationVersion)
+{-# DEPRECATED cavApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | A description of this application version.
 --
@@ -168,22 +192,6 @@ cavBuildConfiguration = Lens.lens (buildConfiguration :: CreateApplicationVersio
 cavTags :: Lens.Lens' CreateApplicationVersion (Lude.Maybe [Tag])
 cavTags = Lens.lens (tags :: CreateApplicationVersion -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApplicationVersion)
 {-# DEPRECATED cavTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The name of the application. If no application is found with this name, and @AutoCreateApplication@ is @false@ , returns an @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cavApplicationName :: Lens.Lens' CreateApplicationVersion Lude.Text
-cavApplicationName = Lens.lens (applicationName :: CreateApplicationVersion -> Lude.Text) (\s a -> s {applicationName = a} :: CreateApplicationVersion)
-{-# DEPRECATED cavApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
-
--- | A label identifying this version.
---
--- Constraint: Must be unique per application. If an application version already exists with this label for the specified application, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cavVersionLabel :: Lens.Lens' CreateApplicationVersion Lude.Text
-cavVersionLabel = Lens.lens (versionLabel :: CreateApplicationVersion -> Lude.Text) (\s a -> s {versionLabel = a} :: CreateApplicationVersion)
-{-# DEPRECATED cavVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 instance Lude.AWSRequest CreateApplicationVersion where
   type
@@ -209,11 +217,11 @@ instance Lude.ToQuery CreateApplicationVersion where
         "Process" Lude.=: process,
         "SourceBundle" Lude.=: sourceBundle,
         "AutoCreateApplication" Lude.=: autoCreateApplication,
+        "VersionLabel" Lude.=: versionLabel,
         "SourceBuildInformation" Lude.=: sourceBuildInformation,
+        "ApplicationName" Lude.=: applicationName,
         "Description" Lude.=: description,
         "BuildConfiguration" Lude.=: buildConfiguration,
         "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "ApplicationName" Lude.=: applicationName,
-        "VersionLabel" Lude.=: versionLabel
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
       ]

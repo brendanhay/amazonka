@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.GuardDuty.DeclineInvitations
     mkDeclineInvitations,
 
     -- ** Request lenses
-    dAccountIds,
+    diAccountIds,
 
     -- * Destructuring the response
     DeclineInvitationsResponse (..),
     mkDeclineInvitationsResponse,
 
     -- ** Response lenses
-    disrsResponseStatus,
     disrsUnprocessedAccounts,
+    disrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeclineInvitations' smart constructor.
 newtype DeclineInvitations = DeclineInvitations'
-  { accountIds ::
-      Lude.NonEmpty Lude.Text
+  { -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
+    accountIds :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeclineInvitations' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDeclineInvitations pAccountIds_ =
 -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to decline invitations from.
 --
 -- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccountIds :: Lens.Lens' DeclineInvitations (Lude.NonEmpty Lude.Text)
-dAccountIds = Lens.lens (accountIds :: DeclineInvitations -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DeclineInvitations)
-{-# DEPRECATED dAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+diAccountIds :: Lens.Lens' DeclineInvitations (Lude.NonEmpty Lude.Text)
+diAccountIds = Lens.lens (accountIds :: DeclineInvitations -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DeclineInvitations)
+{-# DEPRECATED diAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 instance Lude.AWSRequest DeclineInvitations where
   type Rs DeclineInvitations = DeclineInvitationsResponse
@@ -75,8 +70,8 @@ instance Lude.AWSRequest DeclineInvitations where
     Res.receiveJSON
       ( \s h x ->
           DeclineInvitationsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeclineInvitations where
@@ -101,40 +96,27 @@ instance Lude.ToQuery DeclineInvitations where
 
 -- | /See:/ 'mkDeclineInvitationsResponse' smart constructor.
 data DeclineInvitationsResponse = DeclineInvitationsResponse'
-  { responseStatus ::
-      Lude.Int,
-    unprocessedAccounts ::
-      [UnprocessedAccount]
+  { -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+    unprocessedAccounts :: [UnprocessedAccount],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeclineInvitationsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unprocessedAccounts' - A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+-- * 'responseStatus' - The response status code.
 mkDeclineInvitationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
   DeclineInvitationsResponse
 mkDeclineInvitationsResponse pResponseStatus_ =
   DeclineInvitationsResponse'
-    { responseStatus = pResponseStatus_,
-      unprocessedAccounts = Lude.mempty
+    { unprocessedAccounts = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DeclineInvitationsResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DeclineInvitationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeclineInvitationsResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
 --
@@ -142,3 +124,10 @@ disrsResponseStatus = Lens.lens (responseStatus :: DeclineInvitationsResponse ->
 disrsUnprocessedAccounts :: Lens.Lens' DeclineInvitationsResponse [UnprocessedAccount]
 disrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: DeclineInvitationsResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: DeclineInvitationsResponse)
 {-# DEPRECATED disrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+disrsResponseStatus :: Lens.Lens' DeclineInvitationsResponse Lude.Int
+disrsResponseStatus = Lens.lens (responseStatus :: DeclineInvitationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeclineInvitationsResponse)
+{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,8 +17,8 @@ module Network.AWS.SES.Types.AddHeaderAction
     mkAddHeaderAction,
 
     -- * Lenses
-    ahaHeaderName,
     ahaHeaderValue,
+    ahaHeaderName,
   )
 where
 
@@ -31,40 +31,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddHeaderAction' smart constructor.
 data AddHeaderAction = AddHeaderAction'
-  { headerName :: Lude.Text,
-    headerValue :: Lude.Text
+  { -- | Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+    headerValue :: Lude.Text,
+    -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+    headerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddHeaderAction' with the minimum fields required to make a request.
 --
--- * 'headerName' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 -- * 'headerValue' - Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+-- * 'headerName' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 mkAddHeaderAction ::
-  -- | 'headerName'
-  Lude.Text ->
   -- | 'headerValue'
   Lude.Text ->
+  -- | 'headerName'
+  Lude.Text ->
   AddHeaderAction
-mkAddHeaderAction pHeaderName_ pHeaderValue_ =
+mkAddHeaderAction pHeaderValue_ pHeaderName_ =
   AddHeaderAction'
-    { headerName = pHeaderName_,
-      headerValue = pHeaderValue_
+    { headerValue = pHeaderValue_,
+      headerName = pHeaderName_
     }
-
--- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
---
--- /Note:/ Consider using 'headerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahaHeaderName :: Lens.Lens' AddHeaderAction Lude.Text
-ahaHeaderName = Lens.lens (headerName :: AddHeaderAction -> Lude.Text) (\s a -> s {headerName = a} :: AddHeaderAction)
-{-# DEPRECATED ahaHeaderName "Use generic-lens or generic-optics with 'headerName' instead." #-}
 
 -- | Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
 --
@@ -73,14 +62,21 @@ ahaHeaderValue :: Lens.Lens' AddHeaderAction Lude.Text
 ahaHeaderValue = Lens.lens (headerValue :: AddHeaderAction -> Lude.Text) (\s a -> s {headerValue = a} :: AddHeaderAction)
 {-# DEPRECATED ahaHeaderValue "Use generic-lens or generic-optics with 'headerValue' instead." #-}
 
+-- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+--
+-- /Note:/ Consider using 'headerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahaHeaderName :: Lens.Lens' AddHeaderAction Lude.Text
+ahaHeaderName = Lens.lens (headerName :: AddHeaderAction -> Lude.Text) (\s a -> s {headerName = a} :: AddHeaderAction)
+{-# DEPRECATED ahaHeaderName "Use generic-lens or generic-optics with 'headerName' instead." #-}
+
 instance Lude.FromXML AddHeaderAction where
   parseXML x =
     AddHeaderAction'
-      Lude.<$> (x Lude..@ "HeaderName") Lude.<*> (x Lude..@ "HeaderValue")
+      Lude.<$> (x Lude..@ "HeaderValue") Lude.<*> (x Lude..@ "HeaderName")
 
 instance Lude.ToQuery AddHeaderAction where
   toQuery AddHeaderAction' {..} =
     Lude.mconcat
-      [ "HeaderName" Lude.=: headerName,
-        "HeaderValue" Lude.=: headerValue
+      [ "HeaderValue" Lude.=: headerValue,
+        "HeaderName" Lude.=: headerName
       ]

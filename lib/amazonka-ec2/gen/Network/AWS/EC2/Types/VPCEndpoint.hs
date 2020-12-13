@@ -50,53 +50,63 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVPCEndpoint' smart constructor.
 data VPCEndpoint = VPCEndpoint'
-  { groups ::
-      Lude.Maybe [SecurityGroupIdentifier],
+  { -- | (Interface endpoint) Information about the security groups that are associated with the network interface.
+    groups :: Lude.Maybe [SecurityGroupIdentifier],
+    -- | The state of the VPC endpoint.
     state :: Lude.Maybe State,
+    -- | The policy document associated with the endpoint, if applicable.
     policyDocument :: Lude.Maybe Lude.Text,
+    -- | (Interface endpoint) One or more subnets in which the endpoint is located.
     subnetIds :: Lude.Maybe [Lude.Text],
+    -- | (Interface endpoint) One or more network interfaces for the endpoint.
     networkInterfaceIds :: Lude.Maybe [Lude.Text],
+    -- | The ID of the VPC to which the endpoint is associated.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the VPC endpoint is being managed by its service.
     requesterManaged :: Lude.Maybe Lude.Bool,
+    -- | (Interface endpoint) The DNS entries for the endpoint.
     dnsEntries :: Lude.Maybe [DNSEntry],
+    -- | The type of endpoint.
     vpcEndpointType :: Lude.Maybe VPCEndpointType,
+    -- | (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
     privateDNSEnabled :: Lude.Maybe Lude.Bool,
+    -- | The ID of the AWS account that owns the VPC endpoint.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The date and time that the VPC endpoint was created.
     creationTimestamp :: Lude.Maybe Lude.DateTime,
+    -- | The name of the service to which the endpoint is associated.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | The last error that occurred for VPC endpoint.
     lastError :: Lude.Maybe LastError,
+    -- | The ID of the VPC endpoint.
     vpcEndpointId :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the VPC endpoint.
     tags :: Lude.Maybe [Tag],
+    -- | (Gateway endpoint) One or more route tables associated with the endpoint.
     routeTableIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VPCEndpoint' with the minimum fields required to make a request.
 --
--- * 'creationTimestamp' - The date and time that the VPC endpoint was created.
--- * 'dnsEntries' - (Interface endpoint) The DNS entries for the endpoint.
 -- * 'groups' - (Interface endpoint) Information about the security groups that are associated with the network interface.
--- * 'lastError' - The last error that occurred for VPC endpoint.
--- * 'networkInterfaceIds' - (Interface endpoint) One or more network interfaces for the endpoint.
--- * 'ownerId' - The ID of the AWS account that owns the VPC endpoint.
--- * 'policyDocument' - The policy document associated with the endpoint, if applicable.
--- * 'privateDNSEnabled' - (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
--- * 'requesterManaged' - Indicates whether the VPC endpoint is being managed by its service.
--- * 'routeTableIds' - (Gateway endpoint) One or more route tables associated with the endpoint.
--- * 'serviceName' - The name of the service to which the endpoint is associated.
 -- * 'state' - The state of the VPC endpoint.
+-- * 'policyDocument' - The policy document associated with the endpoint, if applicable.
 -- * 'subnetIds' - (Interface endpoint) One or more subnets in which the endpoint is located.
--- * 'tags' - Any tags assigned to the VPC endpoint.
--- * 'vpcEndpointId' - The ID of the VPC endpoint.
--- * 'vpcEndpointType' - The type of endpoint.
+-- * 'networkInterfaceIds' - (Interface endpoint) One or more network interfaces for the endpoint.
 -- * 'vpcId' - The ID of the VPC to which the endpoint is associated.
+-- * 'requesterManaged' - Indicates whether the VPC endpoint is being managed by its service.
+-- * 'dnsEntries' - (Interface endpoint) The DNS entries for the endpoint.
+-- * 'vpcEndpointType' - The type of endpoint.
+-- * 'privateDNSEnabled' - (Interface endpoint) Indicates whether the VPC is associated with a private hosted zone.
+-- * 'ownerId' - The ID of the AWS account that owns the VPC endpoint.
+-- * 'creationTimestamp' - The date and time that the VPC endpoint was created.
+-- * 'serviceName' - The name of the service to which the endpoint is associated.
+-- * 'lastError' - The last error that occurred for VPC endpoint.
+-- * 'vpcEndpointId' - The ID of the VPC endpoint.
+-- * 'tags' - Any tags assigned to the VPC endpoint.
+-- * 'routeTableIds' - (Gateway endpoint) One or more route tables associated with the endpoint.
 mkVPCEndpoint ::
   VPCEndpoint
 mkVPCEndpoint =

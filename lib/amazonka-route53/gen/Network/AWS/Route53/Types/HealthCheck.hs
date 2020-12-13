@@ -18,11 +18,11 @@ module Network.AWS.Route53.Types.HealthCheck
 
     -- * Lenses
     hcLinkedService,
+    hcHealthCheckConfig,
     hcCloudWatchAlarmConfiguration,
     hcId,
-    hcCallerReference,
-    hcHealthCheckConfig,
     hcHealthCheckVersion,
+    hcCallerReference,
   )
 where
 
@@ -37,54 +37,52 @@ import Network.AWS.Route53.Types.LinkedService
 --
 -- /See:/ 'mkHealthCheck' smart constructor.
 data HealthCheck = HealthCheck'
-  { linkedService ::
-      Lude.Maybe LinkedService,
-    cloudWatchAlarmConfiguration ::
-      Lude.Maybe CloudWatchAlarmConfiguration,
-    id :: Lude.Text,
-    callerReference :: Lude.Text,
+  { -- | If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53.
+    linkedService :: Lude.Maybe LinkedService,
+    -- | A complex type that contains detailed information about one health check.
     healthCheckConfig :: HealthCheckConfig,
-    healthCheckVersion :: Lude.Natural
+    -- | A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.
+    cloudWatchAlarmConfiguration :: Lude.Maybe CloudWatchAlarmConfiguration,
+    -- | The identifier that Amazon Route 53assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+    id :: Lude.Text,
+    -- | The version of the health check. You can optionally pass this value in a call to @UpdateHealthCheck@ to prevent overwriting another change to the health check.
+    healthCheckVersion :: Lude.Natural,
+    -- | A unique string that you specified when you created the health check.
+    callerReference :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
 --
--- * 'callerReference' - A unique string that you specified when you created the health check.
--- * 'cloudWatchAlarmConfiguration' - A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.
--- * 'healthCheckConfig' - A complex type that contains detailed information about one health check.
--- * 'healthCheckVersion' - The version of the health check. You can optionally pass this value in a call to @UpdateHealthCheck@ to prevent overwriting another change to the health check.
--- * 'id' - The identifier that Amazon Route 53assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
 -- * 'linkedService' - If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53.
+-- * 'healthCheckConfig' - A complex type that contains detailed information about one health check.
+-- * 'cloudWatchAlarmConfiguration' - A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.
+-- * 'id' - The identifier that Amazon Route 53assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+-- * 'healthCheckVersion' - The version of the health check. You can optionally pass this value in a call to @UpdateHealthCheck@ to prevent overwriting another change to the health check.
+-- * 'callerReference' - A unique string that you specified when you created the health check.
 mkHealthCheck ::
-  -- | 'id'
-  Lude.Text ->
-  -- | 'callerReference'
-  Lude.Text ->
   -- | 'healthCheckConfig'
   HealthCheckConfig ->
+  -- | 'id'
+  Lude.Text ->
   -- | 'healthCheckVersion'
   Lude.Natural ->
+  -- | 'callerReference'
+  Lude.Text ->
   HealthCheck
 mkHealthCheck
-  pId_
-  pCallerReference_
   pHealthCheckConfig_
-  pHealthCheckVersion_ =
+  pId_
+  pHealthCheckVersion_
+  pCallerReference_ =
     HealthCheck'
       { linkedService = Lude.Nothing,
+        healthCheckConfig = pHealthCheckConfig_,
         cloudWatchAlarmConfiguration = Lude.Nothing,
         id = pId_,
-        callerReference = pCallerReference_,
-        healthCheckConfig = pHealthCheckConfig_,
-        healthCheckVersion = pHealthCheckVersion_
+        healthCheckVersion = pHealthCheckVersion_,
+        callerReference = pCallerReference_
       }
 
 -- | If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53.
@@ -93,6 +91,13 @@ mkHealthCheck
 hcLinkedService :: Lens.Lens' HealthCheck (Lude.Maybe LinkedService)
 hcLinkedService = Lens.lens (linkedService :: HealthCheck -> Lude.Maybe LinkedService) (\s a -> s {linkedService = a} :: HealthCheck)
 {-# DEPRECATED hcLinkedService "Use generic-lens or generic-optics with 'linkedService' instead." #-}
+
+-- | A complex type that contains detailed information about one health check.
+--
+-- /Note:/ Consider using 'healthCheckConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcHealthCheckConfig :: Lens.Lens' HealthCheck HealthCheckConfig
+hcHealthCheckConfig = Lens.lens (healthCheckConfig :: HealthCheck -> HealthCheckConfig) (\s a -> s {healthCheckConfig = a} :: HealthCheck)
+{-# DEPRECATED hcHealthCheckConfig "Use generic-lens or generic-optics with 'healthCheckConfig' instead." #-}
 
 -- | A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.
 --
@@ -108,20 +113,6 @@ hcId :: Lens.Lens' HealthCheck Lude.Text
 hcId = Lens.lens (id :: HealthCheck -> Lude.Text) (\s a -> s {id = a} :: HealthCheck)
 {-# DEPRECATED hcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | A unique string that you specified when you created the health check.
---
--- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcCallerReference :: Lens.Lens' HealthCheck Lude.Text
-hcCallerReference = Lens.lens (callerReference :: HealthCheck -> Lude.Text) (\s a -> s {callerReference = a} :: HealthCheck)
-{-# DEPRECATED hcCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
-
--- | A complex type that contains detailed information about one health check.
---
--- /Note:/ Consider using 'healthCheckConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcHealthCheckConfig :: Lens.Lens' HealthCheck HealthCheckConfig
-hcHealthCheckConfig = Lens.lens (healthCheckConfig :: HealthCheck -> HealthCheckConfig) (\s a -> s {healthCheckConfig = a} :: HealthCheck)
-{-# DEPRECATED hcHealthCheckConfig "Use generic-lens or generic-optics with 'healthCheckConfig' instead." #-}
-
 -- | The version of the health check. You can optionally pass this value in a call to @UpdateHealthCheck@ to prevent overwriting another change to the health check.
 --
 -- /Note:/ Consider using 'healthCheckVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -129,12 +120,19 @@ hcHealthCheckVersion :: Lens.Lens' HealthCheck Lude.Natural
 hcHealthCheckVersion = Lens.lens (healthCheckVersion :: HealthCheck -> Lude.Natural) (\s a -> s {healthCheckVersion = a} :: HealthCheck)
 {-# DEPRECATED hcHealthCheckVersion "Use generic-lens or generic-optics with 'healthCheckVersion' instead." #-}
 
+-- | A unique string that you specified when you created the health check.
+--
+-- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcCallerReference :: Lens.Lens' HealthCheck Lude.Text
+hcCallerReference = Lens.lens (callerReference :: HealthCheck -> Lude.Text) (\s a -> s {callerReference = a} :: HealthCheck)
+{-# DEPRECATED hcCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
+
 instance Lude.FromXML HealthCheck where
   parseXML x =
     HealthCheck'
       Lude.<$> (x Lude..@? "LinkedService")
+      Lude.<*> (x Lude..@ "HealthCheckConfig")
       Lude.<*> (x Lude..@? "CloudWatchAlarmConfiguration")
       Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "CallerReference")
-      Lude.<*> (x Lude..@ "HealthCheckConfig")
       Lude.<*> (x Lude..@ "HealthCheckVersion")
+      Lude.<*> (x Lude..@ "CallerReference")

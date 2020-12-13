@@ -29,22 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListObjectChildrenResponse' smart constructor.
 data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
-  { children ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    nextToken ::
-      Lude.Maybe Lude.Text
+  { -- | The children structure, which is a map with the key as the @LinkName@ and @ObjectIdentifier@ as the value.
+    children :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListObjectChildrenResponse' with the minimum fields required to make a request.

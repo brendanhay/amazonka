@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeRoutingProfile' smart constructor.
 data DescribeRoutingProfile = DescribeRoutingProfile'
-  { instanceId ::
-      Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the routing profile.
     routingProfileId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoutingProfile' with the minimum fields required to make a request.
@@ -117,23 +113,18 @@ instance Lude.ToQuery DescribeRoutingProfile where
 
 -- | /See:/ 'mkDescribeRoutingProfileResponse' smart constructor.
 data DescribeRoutingProfileResponse = DescribeRoutingProfileResponse'
-  { routingProfile ::
-      Lude.Maybe RoutingProfile,
+  { -- | The routing profile.
+    routingProfile :: Lude.Maybe RoutingProfile,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeRoutingProfileResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'routingProfile' - The routing profile.
+-- * 'responseStatus' - The response status code.
 mkDescribeRoutingProfileResponse ::
   -- | 'responseStatus'
   Lude.Int ->

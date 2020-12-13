@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAuthorizationRule' smart constructor.
 data AuthorizationRule = AuthorizationRule'
-  { status ::
-      Lude.Maybe ClientVPNAuthorizationRuleStatus,
+  { -- | The current state of the authorization rule.
+    status :: Lude.Maybe ClientVPNAuthorizationRuleStatus,
+    -- | Indicates whether the authorization rule grants access to all clients.
     accessAll :: Lude.Maybe Lude.Bool,
+    -- | The ID of the Client VPN endpoint with which the authorization rule is associated.
     clientVPNEndpointId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Active Directory group to which the authorization rule grants access.
     groupId :: Lude.Maybe Lude.Text,
+    -- | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
     destinationCidr :: Lude.Maybe Lude.Text,
+    -- | A brief description of the authorization rule.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AuthorizationRule' with the minimum fields required to make a request.
 --
+-- * 'status' - The current state of the authorization rule.
 -- * 'accessAll' - Indicates whether the authorization rule grants access to all clients.
 -- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is associated.
--- * 'description' - A brief description of the authorization rule.
--- * 'destinationCidr' - The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
 -- * 'groupId' - The ID of the Active Directory group to which the authorization rule grants access.
--- * 'status' - The current state of the authorization rule.
+-- * 'destinationCidr' - The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+-- * 'description' - A brief description of the authorization rule.
 mkAuthorizationRule ::
   AuthorizationRule
 mkAuthorizationRule =

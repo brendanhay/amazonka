@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSelfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
-  { sshPublicKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The user's SSH public key.
+    sshPublicKey :: Lude.Maybe Lude.Text,
+    -- | The user's SSH user name.
     sshUsername :: Lude.Maybe Lude.Text,
+    -- | The user's IAM ARN.
     iamUserARN :: Lude.Maybe Lude.Text,
+    -- | The user's name.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelfUserProfile' with the minimum fields required to make a request.
 --
--- * 'iamUserARN' - The user's IAM ARN.
--- * 'name' - The user's name.
 -- * 'sshPublicKey' - The user's SSH public key.
 -- * 'sshUsername' - The user's SSH user name.
+-- * 'iamUserARN' - The user's IAM ARN.
+-- * 'name' - The user's name.
 mkSelfUserProfile ::
   SelfUserProfile
 mkSelfUserProfile =

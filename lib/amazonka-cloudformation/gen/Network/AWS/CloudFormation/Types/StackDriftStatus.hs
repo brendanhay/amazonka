@@ -15,8 +15,8 @@ module Network.AWS.CloudFormation.Types.StackDriftStatus
       ( StackDriftStatus',
         SDSDrifted,
         SDSInSync,
-        SDSNotChecked,
-        SDSUnknown
+        SDSUnknown,
+        SDSNotChecked
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern SDSDrifted = StackDriftStatus' "DRIFTED"
 pattern SDSInSync :: StackDriftStatus
 pattern SDSInSync = StackDriftStatus' "IN_SYNC"
 
-pattern SDSNotChecked :: StackDriftStatus
-pattern SDSNotChecked = StackDriftStatus' "NOT_CHECKED"
-
 pattern SDSUnknown :: StackDriftStatus
 pattern SDSUnknown = StackDriftStatus' "UNKNOWN"
+
+pattern SDSNotChecked :: StackDriftStatus
+pattern SDSNotChecked = StackDriftStatus' "NOT_CHECKED"
 
 {-# COMPLETE
   SDSDrifted,
   SDSInSync,
-  SDSNotChecked,
   SDSUnknown,
+  SDSNotChecked,
   StackDriftStatus'
   #-}

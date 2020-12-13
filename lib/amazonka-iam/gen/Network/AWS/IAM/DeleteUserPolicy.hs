@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IAM.DeleteUserPolicy
     mkDeleteUserPolicy,
 
     -- ** Request lenses
-    dupUserName,
-    dupPolicyName,
+    dupfPolicyName,
+    dupfUserName,
 
     -- * Destructuring the response
     DeleteUserPolicyResponse (..),
@@ -38,16 +39,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteUserPolicy' smart constructor.
 data DeleteUserPolicy = DeleteUserPolicy'
-  { userName :: Lude.Text,
-    policyName :: Lude.Text
+  { -- | The name identifying the policy document to delete.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    policyName :: Lude.Text,
+    -- | The name (friendly name, not ARN) identifying the user that the policy is embedded in.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPolicy' with the minimum fields required to make a request.
@@ -59,34 +60,34 @@ data DeleteUserPolicy = DeleteUserPolicy'
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkDeleteUserPolicy ::
-  -- | 'userName'
-  Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
+  -- | 'userName'
+  Lude.Text ->
   DeleteUserPolicy
-mkDeleteUserPolicy pUserName_ pPolicyName_ =
+mkDeleteUserPolicy pPolicyName_ pUserName_ =
   DeleteUserPolicy'
-    { userName = pUserName_,
-      policyName = pPolicyName_
+    { policyName = pPolicyName_,
+      userName = pUserName_
     }
-
--- | The name (friendly name, not ARN) identifying the user that the policy is embedded in.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupUserName :: Lens.Lens' DeleteUserPolicy Lude.Text
-dupUserName = Lens.lens (userName :: DeleteUserPolicy -> Lude.Text) (\s a -> s {userName = a} :: DeleteUserPolicy)
-{-# DEPRECATED dupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The name identifying the policy document to delete.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupPolicyName :: Lens.Lens' DeleteUserPolicy Lude.Text
-dupPolicyName = Lens.lens (policyName :: DeleteUserPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteUserPolicy)
-{-# DEPRECATED dupPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+dupfPolicyName :: Lens.Lens' DeleteUserPolicy Lude.Text
+dupfPolicyName = Lens.lens (policyName :: DeleteUserPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteUserPolicy)
+{-# DEPRECATED dupfPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The name (friendly name, not ARN) identifying the user that the policy is embedded in.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupfUserName :: Lens.Lens' DeleteUserPolicy Lude.Text
+dupfUserName = Lens.lens (userName :: DeleteUserPolicy -> Lude.Text) (\s a -> s {userName = a} :: DeleteUserPolicy)
+{-# DEPRECATED dupfUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 instance Lude.AWSRequest DeleteUserPolicy where
   type Rs DeleteUserPolicy = DeleteUserPolicyResponse
@@ -104,19 +105,13 @@ instance Lude.ToQuery DeleteUserPolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteUserPolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "PolicyName" Lude.=: policyName
+        "PolicyName" Lude.=: policyName,
+        "UserName" Lude.=: userName
       ]
 
 -- | /See:/ 'mkDeleteUserPolicyResponse' smart constructor.
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserPolicyResponse' with the minimum fields required to make a request.

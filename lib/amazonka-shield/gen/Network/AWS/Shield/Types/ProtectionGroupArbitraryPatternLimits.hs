@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProtectionGroupArbitraryPatternLimits' smart constructor.
 newtype ProtectionGroupArbitraryPatternLimits = ProtectionGroupArbitraryPatternLimits'
-  { maxMembers ::
-      Lude.Integer
+  { -- | The maximum number of resources you can specify for a single arbitrary pattern in a protection group.
+    maxMembers :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProtectionGroupArbitraryPatternLimits' with the minimum fields required to make a request.

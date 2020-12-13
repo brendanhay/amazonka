@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.SageMaker.CreateTrial
     mkCreateTrial,
 
     -- ** Request lenses
-    ctDisplayName,
-    ctTags,
-    ctTrialName,
     ctExperimentName,
+    ctDisplayName,
+    ctTrialName,
+    ctTags,
 
     -- * Destructuring the response
     CreateTrialResponse (..),
@@ -46,40 +47,44 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkCreateTrial' smart constructor.
 data CreateTrial = CreateTrial'
-  { displayName ::
-      Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | The name of the experiment to associate the trial with.
+    experimentName :: Lude.Text,
+    -- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
+    displayName :: Lude.Maybe Lude.Text,
+    -- | The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
     trialName :: Lude.Text,
-    experimentName :: Lude.Text
+    -- | A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrial' with the minimum fields required to make a request.
 --
--- * 'displayName' - The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 -- * 'experimentName' - The name of the experiment to associate the trial with.
--- * 'tags' - A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
+-- * 'displayName' - The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 -- * 'trialName' - The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
+-- * 'tags' - A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
 mkCreateTrial ::
-  -- | 'trialName'
-  Lude.Text ->
   -- | 'experimentName'
   Lude.Text ->
+  -- | 'trialName'
+  Lude.Text ->
   CreateTrial
-mkCreateTrial pTrialName_ pExperimentName_ =
+mkCreateTrial pExperimentName_ pTrialName_ =
   CreateTrial'
-    { displayName = Lude.Nothing,
-      tags = Lude.Nothing,
+    { experimentName = pExperimentName_,
+      displayName = Lude.Nothing,
       trialName = pTrialName_,
-      experimentName = pExperimentName_
+      tags = Lude.Nothing
     }
+
+-- | The name of the experiment to associate the trial with.
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctExperimentName :: Lens.Lens' CreateTrial Lude.Text
+ctExperimentName = Lens.lens (experimentName :: CreateTrial -> Lude.Text) (\s a -> s {experimentName = a} :: CreateTrial)
+{-# DEPRECATED ctExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | The name of the trial as displayed. The name doesn't need to be unique. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 --
@@ -88,13 +93,6 @@ ctDisplayName :: Lens.Lens' CreateTrial (Lude.Maybe Lude.Text)
 ctDisplayName = Lens.lens (displayName :: CreateTrial -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: CreateTrial)
 {-# DEPRECATED ctDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
--- | A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTrial (Lude.Maybe [Tag])
-ctTags = Lens.lens (tags :: CreateTrial -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTrial)
-{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the trial. The name must be unique in your AWS account and is not case-sensitive.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -102,12 +100,12 @@ ctTrialName :: Lens.Lens' CreateTrial Lude.Text
 ctTrialName = Lens.lens (trialName :: CreateTrial -> Lude.Text) (\s a -> s {trialName = a} :: CreateTrial)
 {-# DEPRECATED ctTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
--- | The name of the experiment to associate the trial with.
+-- | A list of tags to associate with the trial. You can use 'Search' API to search on the tags.
 --
--- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctExperimentName :: Lens.Lens' CreateTrial Lude.Text
-ctExperimentName = Lens.lens (experimentName :: CreateTrial -> Lude.Text) (\s a -> s {experimentName = a} :: CreateTrial)
-{-# DEPRECATED ctExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTags :: Lens.Lens' CreateTrial (Lude.Maybe [Tag])
+ctTags = Lens.lens (tags :: CreateTrial -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTrial)
+{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateTrial where
   type Rs CreateTrial = CreateTrialResponse
@@ -134,10 +132,10 @@ instance Lude.ToJSON CreateTrial where
   toJSON CreateTrial' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("DisplayName" Lude..=) Lude.<$> displayName,
-            ("Tags" Lude..=) Lude.<$> tags,
+          [ Lude.Just ("ExperimentName" Lude..= experimentName),
+            ("DisplayName" Lude..=) Lude.<$> displayName,
             Lude.Just ("TrialName" Lude..= trialName),
-            Lude.Just ("ExperimentName" Lude..= experimentName)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -149,23 +147,18 @@ instance Lude.ToQuery CreateTrial where
 
 -- | /See:/ 'mkCreateTrialResponse' smart constructor.
 data CreateTrialResponse = CreateTrialResponse'
-  { trialARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the trial.
+    trialARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTrialResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
+-- * 'responseStatus' - The response status code.
 mkCreateTrialResponse ::
   -- | 'responseStatus'
   Lude.Int ->

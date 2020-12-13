@@ -34,28 +34,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalTableDescription' smart constructor.
 data GlobalTableDescription = GlobalTableDescription'
-  { globalTableStatus ::
-      Lude.Maybe GlobalTableStatus,
+  { -- | The current state of the global table:
+    --
+    --
+    --     * @CREATING@ - The global table is being created.
+    --
+    --
+    --     * @UPDATING@ - The global table is being updated.
+    --
+    --
+    --     * @DELETING@ - The global table is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The global table is ready for use.
+    globalTableStatus :: Lude.Maybe GlobalTableStatus,
+    -- | The global table name.
     globalTableName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the global table.
     globalTableARN :: Lude.Maybe Lude.Text,
+    -- | The creation time of the global table.
     creationDateTime :: Lude.Maybe Lude.Timestamp,
-    replicationGroup ::
-      Lude.Maybe [ReplicaDescription]
+    -- | The Regions where the global table has replicas.
+    replicationGroup :: Lude.Maybe [ReplicaDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalTableDescription' with the minimum fields required to make a request.
 --
--- * 'creationDateTime' - The creation time of the global table.
--- * 'globalTableARN' - The unique identifier of the global table.
--- * 'globalTableName' - The global table name.
 -- * 'globalTableStatus' - The current state of the global table:
 --
 --
@@ -71,6 +77,9 @@ data GlobalTableDescription = GlobalTableDescription'
 --     * @ACTIVE@ - The global table is ready for use.
 --
 --
+-- * 'globalTableName' - The global table name.
+-- * 'globalTableARN' - The unique identifier of the global table.
+-- * 'creationDateTime' - The creation time of the global table.
 -- * 'replicationGroup' - The Regions where the global table has replicas.
 mkGlobalTableDescription ::
   GlobalTableDescription

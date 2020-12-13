@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { filters :: Lude.Maybe [GroupFilter],
+  { -- | Filters, formatted as 'GroupFilter' objects, that you want to apply to a @ListGroups@ operation.
+    --
+    --
+    --     * @resource-type@ - Filter the results to include only those of the specified resource types. Specify up to five resource types in the format @AWS::/ServiceCode/ ::/ResourceType/ @ . For example, @AWS::EC2::Instance@ , or @AWS::S3::Bucket@ .
+    --
+    --
+    --     * @configuration-type@ - Filter the results to include only those groups that have the specified configuration types attached. The current supported values are:
+    --
+    --     * AWS:EC2::CapacityReservationPool
+    filters :: Lude.Maybe [GroupFilter],
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
@@ -74,8 +80,8 @@ data ListGroups = ListGroups'
 --
 --
 --
--- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 -- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value provided by a previous call's @NextToken@ response to indicate where the output should continue from.
+-- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that the service might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
 mkListGroups ::
   ListGroups
 mkListGroups =
@@ -159,26 +165,23 @@ instance Lude.ToQuery ListGroups where
 
 -- | /See:/ 'mkListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { groups ::
-      Lude.Maybe [Group],
+  { -- | This output element is deprecated and shouldn't be used. Refer to @GroupIdentifiers@ instead.
+    groups :: Lude.Maybe [Group],
+    -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of 'GroupIdentifier' objects. Each identifier is an object that contains both the @Name@ and the @GroupArn@ .
     groupIdentifiers :: Lude.Maybe [GroupIdentifier],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
 --
--- * 'groupIdentifiers' - A list of 'GroupIdentifier' objects. Each identifier is an object that contains both the @Name@ and the @GroupArn@ .
 -- * 'groups' - This output element is deprecated and shouldn't be used. Refer to @GroupIdentifiers@ instead.
 -- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
+-- * 'groupIdentifiers' - A list of 'GroupIdentifier' objects. Each identifier is an object that contains both the @Name@ and the @GroupArn@ .
 -- * 'responseStatus' - The response status code.
 mkListGroupsResponse ::
   -- | 'responseStatus'

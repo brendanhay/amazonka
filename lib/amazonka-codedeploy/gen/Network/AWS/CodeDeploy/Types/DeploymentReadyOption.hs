@@ -30,17 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentReadyOption' smart constructor.
 data DeploymentReadyOption = DeploymentReadyOption'
-  { actionOnTimeout ::
-      Lude.Maybe DeploymentReadyAction,
+  { -- | Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+    --
+    --
+    --     * CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+    --
+    --
+    --     * STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using 'ContinueDeployment' . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+    actionOnTimeout :: Lude.Maybe DeploymentReadyAction,
+    -- | The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@ .
     waitTimeInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentReadyOption' with the minimum fields required to make a request.

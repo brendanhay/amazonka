@@ -14,9 +14,9 @@ module Network.AWS.ELBv2.Types.LoadBalancerStateEnum
   ( LoadBalancerStateEnum
       ( LoadBalancerStateEnum',
         Active,
+        Provisioning,
         ActiveImpaired,
-        Failed,
-        Provisioning
+        Failed
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype LoadBalancerStateEnum = LoadBalancerStateEnum' Lude.Text
 pattern Active :: LoadBalancerStateEnum
 pattern Active = LoadBalancerStateEnum' "active"
 
+pattern Provisioning :: LoadBalancerStateEnum
+pattern Provisioning = LoadBalancerStateEnum' "provisioning"
+
 pattern ActiveImpaired :: LoadBalancerStateEnum
 pattern ActiveImpaired = LoadBalancerStateEnum' "active_impaired"
 
 pattern Failed :: LoadBalancerStateEnum
 pattern Failed = LoadBalancerStateEnum' "failed"
 
-pattern Provisioning :: LoadBalancerStateEnum
-pattern Provisioning = LoadBalancerStateEnum' "provisioning"
-
 {-# COMPLETE
   Active,
+  Provisioning,
   ActiveImpaired,
   Failed,
-  Provisioning,
   LoadBalancerStateEnum'
   #-}

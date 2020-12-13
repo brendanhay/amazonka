@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoDeployment' smart constructor.
 data AutoDeployment = AutoDeployment'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | If set to @true@ , StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | If set to @true@ , stack resources are retained when an account is removed from a target organization or OU. If set to @false@ , stack resources are deleted. Specify only if @Enabled@ is set to @True@ .
     retainStacksOnAccountRemoval :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoDeployment' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,18 +24,18 @@ module Network.AWS.CodeCommit.DescribePullRequestEvents
     -- ** Request lenses
     dprePullRequestEventType,
     dpreActorARN,
+    dprePullRequestId,
     dpreNextToken,
     dpreMaxResults,
-    dprePullRequestId,
 
     -- * Destructuring the response
     DescribePullRequestEventsResponse (..),
     mkDescribePullRequestEventsResponse,
 
     -- ** Response lenses
+    dprersPullRequestEvents,
     dprersNextToken,
     dprersResponseStatus,
-    dprersPullRequestEvents,
   )
 where
 
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribePullRequestEvents' smart constructor.
 data DescribePullRequestEvents = DescribePullRequestEvents'
-  { pullRequestEventType ::
-      Lude.Maybe PullRequestEventType,
+  { -- | Optional. The pull request event type about which you want to return information.
+    pullRequestEventType :: Lude.Maybe PullRequestEventType,
+    -- | The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
     actorARN :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+    pullRequestId :: Lude.Text,
+    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    pullRequestId :: Lude.Text
+    -- | A non-zero, non-negative integer used to limit the number of returned results. The default is 100 events, which is also the maximum number of events that can be returned in a result.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePullRequestEvents' with the minimum fields required to make a request.
 --
--- * 'actorARN' - The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 events, which is also the maximum number of events that can be returned in a result.
--- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
 -- * 'pullRequestEventType' - Optional. The pull request event type about which you want to return information.
+-- * 'actorARN' - The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples include updating the pull request with more commits or changing the status of a pull request.
 -- * 'pullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+-- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
+-- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is 100 events, which is also the maximum number of events that can be returned in a result.
 mkDescribePullRequestEvents ::
   -- | 'pullRequestId'
   Lude.Text ->
@@ -78,9 +77,9 @@ mkDescribePullRequestEvents pPullRequestId_ =
   DescribePullRequestEvents'
     { pullRequestEventType = Lude.Nothing,
       actorARN = Lude.Nothing,
+      pullRequestId = pPullRequestId_,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      pullRequestId = pPullRequestId_
+      maxResults = Lude.Nothing
     }
 
 -- | Optional. The pull request event type about which you want to return information.
@@ -97,6 +96,13 @@ dpreActorARN :: Lens.Lens' DescribePullRequestEvents (Lude.Maybe Lude.Text)
 dpreActorARN = Lens.lens (actorARN :: DescribePullRequestEvents -> Lude.Maybe Lude.Text) (\s a -> s {actorARN = a} :: DescribePullRequestEvents)
 {-# DEPRECATED dpreActorARN "Use generic-lens or generic-optics with 'actorARN' instead." #-}
 
+-- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+--
+-- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprePullRequestId :: Lens.Lens' DescribePullRequestEvents Lude.Text
+dprePullRequestId = Lens.lens (pullRequestId :: DescribePullRequestEvents -> Lude.Text) (\s a -> s {pullRequestId = a} :: DescribePullRequestEvents)
+{-# DEPRECATED dprePullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
+
 -- | An enumeration token that, when provided in a request, returns the next batch of the results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -110,13 +116,6 @@ dpreNextToken = Lens.lens (nextToken :: DescribePullRequestEvents -> Lude.Maybe 
 dpreMaxResults :: Lens.Lens' DescribePullRequestEvents (Lude.Maybe Lude.Int)
 dpreMaxResults = Lens.lens (maxResults :: DescribePullRequestEvents -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribePullRequestEvents)
 {-# DEPRECATED dpreMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
---
--- /Note:/ Consider using 'pullRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprePullRequestId :: Lens.Lens' DescribePullRequestEvents Lude.Text
-dprePullRequestId = Lens.lens (pullRequestId :: DescribePullRequestEvents -> Lude.Text) (\s a -> s {pullRequestId = a} :: DescribePullRequestEvents)
-{-# DEPRECATED dprePullRequestId "Use generic-lens or generic-optics with 'pullRequestId' instead." #-}
 
 instance Page.AWSPager DescribePullRequestEvents where
   page rq rs
@@ -136,9 +135,9 @@ instance Lude.AWSRequest DescribePullRequestEvents where
     Res.receiveJSON
       ( \s h x ->
           DescribePullRequestEventsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
+            Lude.<$> (x Lude..?> "pullRequestEvents" Lude..!@ Lude.mempty)
+            Lude.<*> (x Lude..?> "nextToken")
             Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "pullRequestEvents" Lude..!@ Lude.mempty)
       )
 
 instance Lude.ToHeaders DescribePullRequestEvents where
@@ -160,9 +159,9 @@ instance Lude.ToJSON DescribePullRequestEvents where
       ( Lude.catMaybes
           [ ("pullRequestEventType" Lude..=) Lude.<$> pullRequestEventType,
             ("actorArn" Lude..=) Lude.<$> actorARN,
+            Lude.Just ("pullRequestId" Lude..= pullRequestId),
             ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("pullRequestId" Lude..= pullRequestId)
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -174,26 +173,20 @@ instance Lude.ToQuery DescribePullRequestEvents where
 
 -- | /See:/ 'mkDescribePullRequestEventsResponse' smart constructor.
 data DescribePullRequestEventsResponse = DescribePullRequestEventsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int,
-    pullRequestEvents ::
-      [PullRequestEvent]
+  { -- | Information about the pull request events.
+    pullRequestEvents :: [PullRequestEvent],
+    -- | An enumeration token that can be used in a request to return the next batch of the results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePullRequestEventsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - An enumeration token that can be used in a request to return the next batch of the results.
 -- * 'pullRequestEvents' - Information about the pull request events.
+-- * 'nextToken' - An enumeration token that can be used in a request to return the next batch of the results.
 -- * 'responseStatus' - The response status code.
 mkDescribePullRequestEventsResponse ::
   -- | 'responseStatus'
@@ -201,10 +194,18 @@ mkDescribePullRequestEventsResponse ::
   DescribePullRequestEventsResponse
 mkDescribePullRequestEventsResponse pResponseStatus_ =
   DescribePullRequestEventsResponse'
-    { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      pullRequestEvents = Lude.mempty
+    { pullRequestEvents =
+        Lude.mempty,
+      nextToken = Lude.Nothing,
+      responseStatus = pResponseStatus_
     }
+
+-- | Information about the pull request events.
+--
+-- /Note:/ Consider using 'pullRequestEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprersPullRequestEvents :: Lens.Lens' DescribePullRequestEventsResponse [PullRequestEvent]
+dprersPullRequestEvents = Lens.lens (pullRequestEvents :: DescribePullRequestEventsResponse -> [PullRequestEvent]) (\s a -> s {pullRequestEvents = a} :: DescribePullRequestEventsResponse)
+{-# DEPRECATED dprersPullRequestEvents "Use generic-lens or generic-optics with 'pullRequestEvents' instead." #-}
 
 -- | An enumeration token that can be used in a request to return the next batch of the results.
 --
@@ -219,10 +220,3 @@ dprersNextToken = Lens.lens (nextToken :: DescribePullRequestEventsResponse -> L
 dprersResponseStatus :: Lens.Lens' DescribePullRequestEventsResponse Lude.Int
 dprersResponseStatus = Lens.lens (responseStatus :: DescribePullRequestEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePullRequestEventsResponse)
 {-# DEPRECATED dprersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | Information about the pull request events.
---
--- /Note:/ Consider using 'pullRequestEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprersPullRequestEvents :: Lens.Lens' DescribePullRequestEventsResponse [PullRequestEvent]
-dprersPullRequestEvents = Lens.lens (pullRequestEvents :: DescribePullRequestEventsResponse -> [PullRequestEvent]) (\s a -> s {pullRequestEvents = a} :: DescribePullRequestEventsResponse)
-{-# DEPRECATED dprersPullRequestEvents "Use generic-lens or generic-optics with 'pullRequestEvents' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.StorageGateway.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
+    ltfrResourceARN,
     ltfrMarker,
     ltfrLimit,
-    ltfrResourceARN,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -48,35 +49,38 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    resourceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the resource for which you want to list tags.
+    resourceARN :: Lude.Text,
+    -- | An opaque string that indicates the position at which to begin returning the list of tags.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies that the list of tags returned be limited to the specified number of items.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'limit' - Specifies that the list of tags returned be limited to the specified number of items.
--- * 'marker' - An opaque string that indicates the position at which to begin returning the list of tags.
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
+-- * 'marker' - An opaque string that indicates the position at which to begin returning the list of tags.
+-- * 'limit' - Specifies that the list of tags returned be limited to the specified number of items.
 mkListTagsForResource ::
   -- | 'resourceARN'
   Lude.Text ->
   ListTagsForResource
 mkListTagsForResource pResourceARN_ =
   ListTagsForResource'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      resourceARN = pResourceARN_
+    { resourceARN = pResourceARN_,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the resource for which you want to list tags.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
+ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | An opaque string that indicates the position at which to begin returning the list of tags.
 --
@@ -91,13 +95,6 @@ ltfrMarker = Lens.lens (marker :: ListTagsForResource -> Lude.Maybe Lude.Text) (
 ltfrLimit :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
 ltfrLimit = Lens.lens (limit :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the resource for which you want to list tags.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
-ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 instance Page.AWSPager ListTagsForResource where
   page rq rs
@@ -136,9 +133,9 @@ instance Lude.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ResourceARN" Lude..= resourceARN)
+          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
+            ("Marker" Lude..=) Lude.<$> marker,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -152,27 +149,24 @@ instance Lude.ToQuery ListTagsForResource where
 --
 -- /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { resourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the resource for which you want to list tags.
+    resourceARN :: Lude.Maybe Lude.Text,
+    -- | An opaque string that indicates the position at which to stop returning the list of tags.
     marker :: Lude.Maybe Lude.Text,
+    -- | An array that contains the tags for the specified resource.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - An opaque string that indicates the position at which to stop returning the list of tags.
 -- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource for which you want to list tags.
--- * 'responseStatus' - The response status code.
+-- * 'marker' - An opaque string that indicates the position at which to stop returning the list of tags.
 -- * 'tags' - An array that contains the tags for the specified resource.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.XRay.CreateSamplingRule
     mkCreateSamplingRule,
 
     -- ** Request lenses
-    csrTags,
     csrSamplingRule,
+    csrTags,
 
     -- * Destructuring the response
     CreateSamplingRuleResponse (..),
@@ -40,17 +41,31 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkCreateSamplingRule' smart constructor.
 data CreateSamplingRule = CreateSamplingRule'
-  { tags ::
-      Lude.Maybe [Tag],
-    samplingRule :: SamplingRule
+  { -- | The rule definition.
+    samplingRule :: SamplingRule,
+    -- | A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
+    --
+    -- The following restrictions apply to tags:
+    --
+    --     * Maximum number of user-applied tags per resource: 50
+    --
+    --
+    --     * Maximum tag key length: 128 Unicode characters
+    --
+    --
+    --     * Maximum tag value length: 256 Unicode characters
+    --
+    --
+    --     * Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @
+    --
+    --
+    --     * Tag keys and values are case sensitive.
+    --
+    --
+    --     * Don't use @aws:@ as a prefix for keys; it's reserved for AWS use.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSamplingRule' with the minimum fields required to make a request.
@@ -82,9 +97,16 @@ mkCreateSamplingRule ::
   CreateSamplingRule
 mkCreateSamplingRule pSamplingRule_ =
   CreateSamplingRule'
-    { tags = Lude.Nothing,
-      samplingRule = pSamplingRule_
+    { samplingRule = pSamplingRule_,
+      tags = Lude.Nothing
     }
+
+-- | The rule definition.
+--
+-- /Note:/ Consider using 'samplingRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csrSamplingRule :: Lens.Lens' CreateSamplingRule SamplingRule
+csrSamplingRule = Lens.lens (samplingRule :: CreateSamplingRule -> SamplingRule) (\s a -> s {samplingRule = a} :: CreateSamplingRule)
+{-# DEPRECATED csrSamplingRule "Use generic-lens or generic-optics with 'samplingRule' instead." #-}
 
 -- | A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
 --
@@ -114,13 +136,6 @@ csrTags :: Lens.Lens' CreateSamplingRule (Lude.Maybe [Tag])
 csrTags = Lens.lens (tags :: CreateSamplingRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSamplingRule)
 {-# DEPRECATED csrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The rule definition.
---
--- /Note:/ Consider using 'samplingRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrSamplingRule :: Lens.Lens' CreateSamplingRule SamplingRule
-csrSamplingRule = Lens.lens (samplingRule :: CreateSamplingRule -> SamplingRule) (\s a -> s {samplingRule = a} :: CreateSamplingRule)
-{-# DEPRECATED csrSamplingRule "Use generic-lens or generic-optics with 'samplingRule' instead." #-}
-
 instance Lude.AWSRequest CreateSamplingRule where
   type Rs CreateSamplingRule = CreateSamplingRuleResponse
   request = Req.postJSON xRayService
@@ -139,8 +154,8 @@ instance Lude.ToJSON CreateSamplingRule where
   toJSON CreateSamplingRule' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("SamplingRule" Lude..= samplingRule)
+          [ Lude.Just ("SamplingRule" Lude..= samplingRule),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -152,23 +167,18 @@ instance Lude.ToQuery CreateSamplingRule where
 
 -- | /See:/ 'mkCreateSamplingRuleResponse' smart constructor.
 data CreateSamplingRuleResponse = CreateSamplingRuleResponse'
-  { samplingRuleRecord ::
-      Lude.Maybe SamplingRuleRecord,
+  { -- | The saved rule definition and metadata.
+    samplingRuleRecord :: Lude.Maybe SamplingRuleRecord,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSamplingRuleResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'samplingRuleRecord' - The saved rule definition and metadata.
+-- * 'responseStatus' - The response status code.
 mkCreateSamplingRuleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

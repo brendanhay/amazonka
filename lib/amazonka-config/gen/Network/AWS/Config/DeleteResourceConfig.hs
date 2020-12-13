@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Config.DeleteResourceConfig
     mkDeleteResourceConfig,
 
     -- ** Request lenses
-    drcResourceType,
     drcResourceId,
+    drcResourceType,
 
     -- * Destructuring the response
     DeleteResourceConfigResponse (..),
@@ -36,17 +37,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteResourceConfig' smart constructor.
 data DeleteResourceConfig = DeleteResourceConfig'
-  { resourceType ::
-      Lude.Text,
-    resourceId :: Lude.Text
+  { -- | Unique identifier of the resource.
+    resourceId :: Lude.Text,
+    -- | The type of the resource.
+    resourceType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceConfig' with the minimum fields required to make a request.
@@ -54,23 +50,16 @@ data DeleteResourceConfig = DeleteResourceConfig'
 -- * 'resourceId' - Unique identifier of the resource.
 -- * 'resourceType' - The type of the resource.
 mkDeleteResourceConfig ::
-  -- | 'resourceType'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'resourceType'
+  Lude.Text ->
   DeleteResourceConfig
-mkDeleteResourceConfig pResourceType_ pResourceId_ =
+mkDeleteResourceConfig pResourceId_ pResourceType_ =
   DeleteResourceConfig'
-    { resourceType = pResourceType_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      resourceType = pResourceType_
     }
-
--- | The type of the resource.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcResourceType :: Lens.Lens' DeleteResourceConfig Lude.Text
-drcResourceType = Lens.lens (resourceType :: DeleteResourceConfig -> Lude.Text) (\s a -> s {resourceType = a} :: DeleteResourceConfig)
-{-# DEPRECATED drcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Unique identifier of the resource.
 --
@@ -78,6 +67,13 @@ drcResourceType = Lens.lens (resourceType :: DeleteResourceConfig -> Lude.Text) 
 drcResourceId :: Lens.Lens' DeleteResourceConfig Lude.Text
 drcResourceId = Lens.lens (resourceId :: DeleteResourceConfig -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteResourceConfig)
 {-# DEPRECATED drcResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The type of the resource.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcResourceType :: Lens.Lens' DeleteResourceConfig Lude.Text
+drcResourceType = Lens.lens (resourceType :: DeleteResourceConfig -> Lude.Text) (\s a -> s {resourceType = a} :: DeleteResourceConfig)
+{-# DEPRECATED drcResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 instance Lude.AWSRequest DeleteResourceConfig where
   type Rs DeleteResourceConfig = DeleteResourceConfigResponse
@@ -99,8 +95,8 @@ instance Lude.ToJSON DeleteResourceConfig where
   toJSON DeleteResourceConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("ResourceType" Lude..= resourceType)
           ]
       )
 
@@ -112,13 +108,7 @@ instance Lude.ToQuery DeleteResourceConfig where
 
 -- | /See:/ 'mkDeleteResourceConfigResponse' smart constructor.
 data DeleteResourceConfigResponse = DeleteResourceConfigResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteResourceConfigResponse' with the minimum fields required to make a request.

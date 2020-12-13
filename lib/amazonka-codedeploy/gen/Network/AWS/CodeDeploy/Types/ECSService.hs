@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkECSService' smart constructor.
 data ECSService = ECSService'
-  { serviceName :: Lude.Maybe Lude.Text,
+  { -- | The name of the target Amazon ECS service.
+    serviceName :: Lude.Maybe Lude.Text,
+    -- | The name of the cluster that the Amazon ECS service is associated with.
     clusterName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ECSService' with the minimum fields required to make a request.
 --
--- * 'clusterName' - The name of the cluster that the Amazon ECS service is associated with.
 -- * 'serviceName' - The name of the target Amazon ECS service.
+-- * 'clusterName' - The name of the cluster that the Amazon ECS service is associated with.
 mkECSService ::
   ECSService
 mkECSService =

@@ -13,8 +13,8 @@
 module Network.AWS.Budgets.Types.NotificationState
   ( NotificationState
       ( NotificationState',
-        Alarm,
-        OK
+        OK,
+        Alarm
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype NotificationState = NotificationState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Alarm :: NotificationState
-pattern Alarm = NotificationState' "ALARM"
-
 pattern OK :: NotificationState
 pattern OK = NotificationState' "OK"
 
+pattern Alarm :: NotificationState
+pattern Alarm = NotificationState' "ALARM"
+
 {-# COMPLETE
-  Alarm,
   OK,
+  Alarm,
   NotificationState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDisableSnapshotCopy' smart constructor.
 newtype DisableSnapshotCopy = DisableSnapshotCopy'
-  { clusterIdentifier ::
-      Lude.Text
+  { -- | The unique identifier of the source cluster that you want to disable copying of snapshots to a destination region.
+    --
+    -- Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.
+    clusterIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableSnapshotCopy' with the minimum fields required to make a request.
@@ -103,22 +100,16 @@ instance Lude.ToQuery DisableSnapshotCopy where
 
 -- | /See:/ 'mkDisableSnapshotCopyResponse' smart constructor.
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
+  { cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisableSnapshotCopyResponse' with the minimum fields required to make a request.
 --
--- * 'cluster' - Undocumented field.
+-- * 'cluster' -
 -- * 'responseStatus' - The response status code.
 mkDisableSnapshotCopyResponse ::
   -- | 'responseStatus'

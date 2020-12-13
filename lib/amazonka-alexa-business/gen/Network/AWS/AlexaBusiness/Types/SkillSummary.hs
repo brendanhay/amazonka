@@ -34,28 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSkillSummary' smart constructor.
 data SkillSummary = SkillSummary'
-  { skillId :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the skill summary.
+    skillId :: Lude.Maybe Lude.Text,
+    -- | Linking support for a skill.
     supportsLinking :: Lude.Maybe Lude.Bool,
+    -- | Whether the skill is publicly available or is a private skill.
     skillType :: Lude.Maybe SkillType,
+    -- | Whether the skill is enabled under the user's account, or if it requires linking to be used.
     enablementType :: Lude.Maybe EnablementType,
+    -- | The name of the skill.
     skillName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SkillSummary' with the minimum fields required to make a request.
 --
--- * 'enablementType' - Whether the skill is enabled under the user's account, or if it requires linking to be used.
 -- * 'skillId' - The ARN of the skill summary.
--- * 'skillName' - The name of the skill.
--- * 'skillType' - Whether the skill is publicly available or is a private skill.
 -- * 'supportsLinking' - Linking support for a skill.
+-- * 'skillType' - Whether the skill is publicly available or is a private skill.
+-- * 'enablementType' - Whether the skill is enabled under the user's account, or if it requires linking to be used.
+-- * 'skillName' - The name of the skill.
 mkSkillSummary ::
   SkillSummary
 mkSkillSummary =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CodeCommit.GetApprovalRuleTemplate
     mkGetApprovalRuleTemplateResponse,
 
     -- ** Response lenses
-    gartrsResponseStatus,
     gartrsApprovalRuleTemplate,
+    gartrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetApprovalRuleTemplate' smart constructor.
 newtype GetApprovalRuleTemplate = GetApprovalRuleTemplate'
-  { approvalRuleTemplateName ::
-      Lude.Text
+  { -- | The name of the approval rule template for which you want to get information.
+    approvalRuleTemplateName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApprovalRuleTemplate' with the minimum fields required to make a request.
@@ -78,8 +73,8 @@ instance Lude.AWSRequest GetApprovalRuleTemplate where
     Res.receiveJSON
       ( \s h x ->
           GetApprovalRuleTemplateResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "approvalRuleTemplate")
+            Lude.<$> (x Lude..:> "approvalRuleTemplate")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetApprovalRuleTemplate where
@@ -110,18 +105,12 @@ instance Lude.ToQuery GetApprovalRuleTemplate where
 
 -- | /See:/ 'mkGetApprovalRuleTemplateResponse' smart constructor.
 data GetApprovalRuleTemplateResponse = GetApprovalRuleTemplateResponse'
-  { responseStatus ::
-      Lude.Int,
-    approvalRuleTemplate ::
-      ApprovalRuleTemplate
+  { -- | The content and structure of the approval rule template.
+    approvalRuleTemplate :: ApprovalRuleTemplate,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetApprovalRuleTemplateResponse' with the minimum fields required to make a request.
@@ -129,26 +118,19 @@ data GetApprovalRuleTemplateResponse = GetApprovalRuleTemplateResponse'
 -- * 'approvalRuleTemplate' - The content and structure of the approval rule template.
 -- * 'responseStatus' - The response status code.
 mkGetApprovalRuleTemplateResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'approvalRuleTemplate'
   ApprovalRuleTemplate ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetApprovalRuleTemplateResponse
 mkGetApprovalRuleTemplateResponse
-  pResponseStatus_
-  pApprovalRuleTemplate_ =
+  pApprovalRuleTemplate_
+  pResponseStatus_ =
     GetApprovalRuleTemplateResponse'
-      { responseStatus =
-          pResponseStatus_,
-        approvalRuleTemplate = pApprovalRuleTemplate_
+      { approvalRuleTemplate =
+          pApprovalRuleTemplate_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gartrsResponseStatus :: Lens.Lens' GetApprovalRuleTemplateResponse Lude.Int
-gartrsResponseStatus = Lens.lens (responseStatus :: GetApprovalRuleTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetApprovalRuleTemplateResponse)
-{-# DEPRECATED gartrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The content and structure of the approval rule template.
 --
@@ -156,3 +138,10 @@ gartrsResponseStatus = Lens.lens (responseStatus :: GetApprovalRuleTemplateRespo
 gartrsApprovalRuleTemplate :: Lens.Lens' GetApprovalRuleTemplateResponse ApprovalRuleTemplate
 gartrsApprovalRuleTemplate = Lens.lens (approvalRuleTemplate :: GetApprovalRuleTemplateResponse -> ApprovalRuleTemplate) (\s a -> s {approvalRuleTemplate = a} :: GetApprovalRuleTemplateResponse)
 {-# DEPRECATED gartrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gartrsResponseStatus :: Lens.Lens' GetApprovalRuleTemplateResponse Lude.Int
+gartrsResponseStatus = Lens.lens (responseStatus :: GetApprovalRuleTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetApprovalRuleTemplateResponse)
+{-# DEPRECATED gartrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

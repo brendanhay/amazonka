@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.IoT.ListProvisioningTemplates
     mkListProvisioningTemplates,
 
     -- ** Request lenses
-    lNextToken,
-    lMaxResults,
+    lptNextToken,
+    lptMaxResults,
 
     -- * Destructuring the response
     ListProvisioningTemplatesResponse (..),
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListProvisioningTemplates' smart constructor.
 data ListProvisioningTemplates = ListProvisioningTemplates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A token to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return at one time.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProvisioningTemplates' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'nextToken' - A token to retrieve the next set of results.
+-- * 'maxResults' - The maximum number of results to return at one time.
 mkListProvisioningTemplates ::
   ListProvisioningTemplates
 mkListProvisioningTemplates =
@@ -72,16 +68,16 @@ mkListProvisioningTemplates =
 -- | A token to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListProvisioningTemplates (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListProvisioningTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProvisioningTemplates)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lptNextToken :: Lens.Lens' ListProvisioningTemplates (Lude.Maybe Lude.Text)
+lptNextToken = Lens.lens (nextToken :: ListProvisioningTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProvisioningTemplates)
+{-# DEPRECATED lptNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaxResults :: Lens.Lens' ListProvisioningTemplates (Lude.Maybe Lude.Natural)
-lMaxResults = Lens.lens (maxResults :: ListProvisioningTemplates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListProvisioningTemplates)
-{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lptMaxResults :: Lens.Lens' ListProvisioningTemplates (Lude.Maybe Lude.Natural)
+lptMaxResults = Lens.lens (maxResults :: ListProvisioningTemplates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListProvisioningTemplates)
+{-# DEPRECATED lptMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListProvisioningTemplates where
   page rq rs
@@ -90,7 +86,7 @@ instance Page.AWSPager ListProvisioningTemplates where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lNextToken Lens..~ rs Lens.^. lrsNextToken
+          Lude.& lptNextToken Lens..~ rs Lens.^. lrsNextToken
 
 instance Lude.AWSRequest ListProvisioningTemplates where
   type
@@ -119,28 +115,21 @@ instance Lude.ToQuery ListProvisioningTemplates where
 
 -- | /See:/ 'mkListProvisioningTemplatesResponse' smart constructor.
 data ListProvisioningTemplatesResponse = ListProvisioningTemplatesResponse'
-  { templates ::
-      Lude.Maybe
-        [ProvisioningTemplateSummary],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of fleet provisioning templates
+    templates :: Lude.Maybe [ProvisioningTemplateSummary],
+    -- | A token to retrieve the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProvisioningTemplatesResponse' with the minimum fields required to make a request.
 --
+-- * 'templates' - A list of fleet provisioning templates
 -- * 'nextToken' - A token to retrieve the next set of results.
 -- * 'responseStatus' - The response status code.
--- * 'templates' - A list of fleet provisioning templates
 mkListProvisioningTemplatesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

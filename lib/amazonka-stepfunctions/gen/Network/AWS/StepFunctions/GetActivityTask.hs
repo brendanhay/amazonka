@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.StepFunctions.GetActivityTask
     mkGetActivityTask,
 
     -- ** Request lenses
-    gatWorkerName,
     gatActivityARN,
+    gatWorkerName,
 
     -- * Destructuring the response
     GetActivityTaskResponse (..),
@@ -44,17 +45,12 @@ import Network.AWS.StepFunctions.Types
 
 -- | /See:/ 'mkGetActivityTask' smart constructor.
 data GetActivityTask = GetActivityTask'
-  { workerName ::
-      Lude.Maybe Lude.Text,
-    activityARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
+    activityARN :: Lude.Text,
+    -- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
+    workerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetActivityTask' with the minimum fields required to make a request.
@@ -67,16 +63,9 @@ mkGetActivityTask ::
   GetActivityTask
 mkGetActivityTask pActivityARN_ =
   GetActivityTask'
-    { workerName = Lude.Nothing,
-      activityARN = pActivityARN_
+    { activityARN = pActivityARN_,
+      workerName = Lude.Nothing
     }
-
--- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
---
--- /Note:/ Consider using 'workerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatWorkerName :: Lens.Lens' GetActivityTask (Lude.Maybe Lude.Text)
-gatWorkerName = Lens.lens (workerName :: GetActivityTask -> Lude.Maybe Lude.Text) (\s a -> s {workerName = a} :: GetActivityTask)
-{-# DEPRECATED gatWorkerName "Use generic-lens or generic-optics with 'workerName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using 'CreateActivity' .)
 --
@@ -84,6 +73,13 @@ gatWorkerName = Lens.lens (workerName :: GetActivityTask -> Lude.Maybe Lude.Text
 gatActivityARN :: Lens.Lens' GetActivityTask Lude.Text
 gatActivityARN = Lens.lens (activityARN :: GetActivityTask -> Lude.Text) (\s a -> s {activityARN = a} :: GetActivityTask)
 {-# DEPRECATED gatActivityARN "Use generic-lens or generic-optics with 'activityARN' instead." #-}
+
+-- | You can provide an arbitrary name in order to identify the worker that the task is assigned to. This name is used when it is logged in the execution history.
+--
+-- /Note:/ Consider using 'workerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gatWorkerName :: Lens.Lens' GetActivityTask (Lude.Maybe Lude.Text)
+gatWorkerName = Lens.lens (workerName :: GetActivityTask -> Lude.Maybe Lude.Text) (\s a -> s {workerName = a} :: GetActivityTask)
+{-# DEPRECATED gatWorkerName "Use generic-lens or generic-optics with 'workerName' instead." #-}
 
 instance Lude.AWSRequest GetActivityTask where
   type Rs GetActivityTask = GetActivityTaskResponse
@@ -112,8 +108,8 @@ instance Lude.ToJSON GetActivityTask where
   toJSON GetActivityTask' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("workerName" Lude..=) Lude.<$> workerName,
-            Lude.Just ("activityArn" Lude..= activityARN)
+          [ Lude.Just ("activityArn" Lude..= activityARN),
+            ("workerName" Lude..=) Lude.<$> workerName
           ]
       )
 
@@ -125,9 +121,11 @@ instance Lude.ToQuery GetActivityTask where
 
 -- | /See:/ 'mkGetActivityTaskResponse' smart constructor.
 data GetActivityTaskResponse = GetActivityTaskResponse'
-  { input ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The string that contains the JSON input data for the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
     taskToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -136,8 +134,8 @@ data GetActivityTaskResponse = GetActivityTaskResponse'
 -- | Creates a value of 'GetActivityTaskResponse' with the minimum fields required to make a request.
 --
 -- * 'input' - The string that contains the JSON input data for the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
--- * 'responseStatus' - The response status code.
 -- * 'taskToken' - A token that identifies the scheduled task. This token must be copied and included in subsequent calls to 'SendTaskHeartbeat' , 'SendTaskSuccess' or 'SendTaskFailure' in order to report the progress or completion of the task.
+-- * 'responseStatus' - The response status code.
 mkGetActivityTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

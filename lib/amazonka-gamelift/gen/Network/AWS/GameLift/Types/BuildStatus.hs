@@ -13,9 +13,9 @@
 module Network.AWS.GameLift.Types.BuildStatus
   ( BuildStatus
       ( BuildStatus',
-        Failed,
         Initialized,
-        Ready
+        Ready,
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype BuildStatus = BuildStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: BuildStatus
-pattern Failed = BuildStatus' "FAILED"
-
 pattern Initialized :: BuildStatus
 pattern Initialized = BuildStatus' "INITIALIZED"
 
 pattern Ready :: BuildStatus
 pattern Ready = BuildStatus' "READY"
 
+pattern Failed :: BuildStatus
+pattern Failed = BuildStatus' "FAILED"
+
 {-# COMPLETE
-  Failed,
   Initialized,
   Ready,
+  Failed,
   BuildStatus'
   #-}

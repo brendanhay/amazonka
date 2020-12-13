@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArrayPropertiesDetail' smart constructor.
 data ArrayPropertiesDetail = ArrayPropertiesDetail'
-  { size ::
-      Lude.Maybe Lude.Int,
-    statusSummary ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)),
+  { -- | The size of the array job. This parameter is returned for parent array jobs.
+    size :: Lude.Maybe Lude.Int,
+    -- | A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.
+    statusSummary :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)),
+    -- | The job index within the array that is associated with this job. This parameter is returned for array job children.
     index :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArrayPropertiesDetail' with the minimum fields required to make a request.
 --
--- * 'index' - The job index within the array that is associated with this job. This parameter is returned for array job children.
 -- * 'size' - The size of the array job. This parameter is returned for parent array jobs.
 -- * 'statusSummary' - A summary of the number of array job children in each available job status. This parameter is returned for parent array jobs.
+-- * 'index' - The job index within the array that is associated with this job. This parameter is returned for array job children.
 mkArrayPropertiesDetail ::
   ArrayPropertiesDetail
 mkArrayPropertiesDetail =

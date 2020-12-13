@@ -78,73 +78,84 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetAttributes' smart constructor.
 data FleetAttributes = FleetAttributes'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | Current status of the fleet.
+    --
+    -- Possible fleet statuses include the following:
+    --
+    --     * __NEW__ -- A new fleet has been defined and desired instances is set to 1.
+    --
+    --
+    --     * __DOWNLOADING/VALIDATING/BUILDING/ACTIVATING__ -- Amazon GameLift is setting up the new fleet, creating new instances with the game build or Realtime script and starting server processes.
+    --
+    --
+    --     * __ACTIVE__ -- Hosts can now accept game sessions.
+    --
+    --
+    --     * __ERROR__ -- An error occurred when downloading, validating, building, or activating the fleet.
+    --
+    --
+    --     * __DELETING__ -- Hosts are responding to a delete fleet request.
+    --
+    --
+    --     * __TERMINATED__ -- The fleet no longer exists.
     status :: Lude.Maybe FleetStatus,
+    -- | Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
     serverLaunchParameters :: Lude.Maybe Lude.Text,
+    -- | Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
     logPaths :: Lude.Maybe [Lude.Text],
+    -- | Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
     operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | A unique identifier for a build.
     buildId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the /FleetId/ value.
     fleetARN :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the fleet uses on-demand or spot instances. A spot instance in use may be interrupted with a two-minute notification.
     fleetType :: Lude.Maybe FleetType,
+    -- | Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
     terminationTime :: Lude.Maybe Lude.Timestamp,
+    -- | EC2 instance type indicating the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
     instanceType :: Lude.Maybe EC2InstanceType,
+    -- | List of fleet activity that have been suspended using 'StopFleetActions' . This includes auto-scaling.
     stoppedActions :: Lude.Maybe (Lude.NonEmpty FleetAction),
-    newGameSessionProtectionPolicy ::
-      Lude.Maybe ProtectionPolicy,
+    -- | The type of game session protection to set for all new instances started in the fleet.
+    --
+    --
+    --     * __NoProtection__ -- The game session can be terminated during a scale-down event.
+    --
+    --
+    --     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+    newGameSessionProtectionPolicy :: Lude.Maybe ProtectionPolicy,
+    -- | A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
     name :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a Realtime script.
     scriptId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift script resource that is deployed on instances in this fleet. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
     scriptARN :: Lude.Maybe Lude.Text,
-    certificateConfiguration ::
-      Lude.Maybe CertificateConfiguration,
+    -- | Indicates whether a TLS/SSL certificate was generated for the fleet.
+    certificateConfiguration :: Lude.Maybe CertificateConfiguration,
+    -- | Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
     serverLaunchPath :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for an AWS IAM role that manages access to your AWS services.
     instanceRoleARN :: Lude.Maybe Lude.Text,
+    -- | Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
     metricGroups :: Lude.Maybe [Lude.Text],
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift build resource that is deployed on instances in this fleet. In a GameLift build ARN, the resource ID matches the /BuildId/ value.
     buildARN :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a fleet.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | Human-readable description of the fleet.
     description :: Lude.Maybe Lude.Text,
-    resourceCreationLimitPolicy ::
-      Lude.Maybe ResourceCreationLimitPolicy
+    -- | Fleet policy to limit the number of game sessions an individual player can create over a span of time.
+    resourceCreationLimitPolicy :: Lude.Maybe ResourceCreationLimitPolicy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetAttributes' with the minimum fields required to make a request.
 --
--- * 'buildARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift build resource that is deployed on instances in this fleet. In a GameLift build ARN, the resource ID matches the /BuildId/ value.
--- * 'buildId' - A unique identifier for a build.
--- * 'certificateConfiguration' - Indicates whether a TLS/SSL certificate was generated for the fleet.
 -- * 'creationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'description' - Human-readable description of the fleet.
--- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the /FleetId/ value.
--- * 'fleetId' - A unique identifier for a fleet.
--- * 'fleetType' - Indicates whether the fleet uses on-demand or spot instances. A spot instance in use may be interrupted with a two-minute notification.
--- * 'instanceRoleARN' - A unique identifier for an AWS IAM role that manages access to your AWS services.
--- * 'instanceType' - EC2 instance type indicating the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
--- * 'logPaths' - Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
--- * 'metricGroups' - Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
--- * 'name' - A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
--- * 'newGameSessionProtectionPolicy' - The type of game session protection to set for all new instances started in the fleet.
---
---
---     * __NoProtection__ -- The game session can be terminated during a scale-down event.
---
---
---     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
---
---
--- * 'operatingSystem' - Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
--- * 'resourceCreationLimitPolicy' - Fleet policy to limit the number of game sessions an individual player can create over a span of time.
--- * 'scriptARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift script resource that is deployed on instances in this fleet. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
--- * 'scriptId' - A unique identifier for a Realtime script.
--- * 'serverLaunchParameters' - Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
--- * 'serverLaunchPath' - Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
 -- * 'status' - Current status of the fleet.
 --
 -- Possible fleet statuses include the following:
@@ -167,8 +178,35 @@ data FleetAttributes = FleetAttributes'
 --     * __TERMINATED__ -- The fleet no longer exists.
 --
 --
--- * 'stoppedActions' - List of fleet activity that have been suspended using 'StopFleetActions' . This includes auto-scaling.
+-- * 'serverLaunchParameters' - Game server launch parameters specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch parameters for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- * 'logPaths' - Location of default log files. When a server process is shut down, Amazon GameLift captures and stores any log files in this location. These logs are in addition to game session logs; see more on game session logs in the <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code Amazon GameLift Developer Guide> . If no default log path for a fleet is specified, Amazon GameLift automatically uploads logs that are stored on each instance at @C:\game\logs@ (for Windows) or @/local/game/logs@ (for Linux). Use the Amazon GameLift console to access stored logs.
+-- * 'operatingSystem' - Operating system of the fleet's computing resources. A fleet's operating system depends on the OS specified for the build that is deployed on this fleet.
+-- * 'buildId' - A unique identifier for a build.
+-- * 'fleetARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift fleet ARN, the resource ID matches the /FleetId/ value.
+-- * 'fleetType' - Indicates whether the fleet uses on-demand or spot instances. A spot instance in use may be interrupted with a two-minute notification.
 -- * 'terminationTime' - Time stamp indicating when this data object was terminated. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+-- * 'instanceType' - EC2 instance type indicating the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+-- * 'stoppedActions' - List of fleet activity that have been suspended using 'StopFleetActions' . This includes auto-scaling.
+-- * 'newGameSessionProtectionPolicy' - The type of game session protection to set for all new instances started in the fleet.
+--
+--
+--     * __NoProtection__ -- The game session can be terminated during a scale-down event.
+--
+--
+--     * __FullProtection__ -- If the game session is in an @ACTIVE@ status, it cannot be terminated during a scale-down event.
+--
+--
+-- * 'name' - A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+-- * 'scriptId' - A unique identifier for a Realtime script.
+-- * 'scriptARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift script resource that is deployed on instances in this fleet. In a GameLift script ARN, the resource ID matches the /ScriptId/ value.
+-- * 'certificateConfiguration' - Indicates whether a TLS/SSL certificate was generated for the fleet.
+-- * 'serverLaunchPath' - Path to a game server executable in the fleet's build, specified for fleets created before 2016-08-04 (or AWS SDK v. 0.12.16). Server launch paths for fleets created after this date are specified in the fleet's 'RuntimeConfiguration' .
+-- * 'instanceRoleARN' - A unique identifier for an AWS IAM role that manages access to your AWS services.
+-- * 'metricGroups' - Names of metric groups that this fleet is included in. In Amazon CloudWatch, you can view metrics for an individual fleet or aggregated metrics for fleets that are in a fleet metric group. A fleet can be included in only one metric group at a time.
+-- * 'buildARN' - The Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) associated with the GameLift build resource that is deployed on instances in this fleet. In a GameLift build ARN, the resource ID matches the /BuildId/ value.
+-- * 'fleetId' - A unique identifier for a fleet.
+-- * 'description' - Human-readable description of the fleet.
+-- * 'resourceCreationLimitPolicy' - Fleet policy to limit the number of game sessions an individual player can create over a span of time.
 mkFleetAttributes ::
   FleetAttributes
 mkFleetAttributes =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.CloudFront.ListDistributions
     mkListDistributionsResponse,
 
     -- ** Response lenses
-    ldrsResponseStatus,
     ldrsDistributionList,
+    ldrsResponseStatus,
   )
 where
 
@@ -45,17 +46,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListDistributions' smart constructor.
 data ListDistributions = ListDistributions'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of distributions you want in the response body.
     maxItems :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributions' with the minimum fields required to make a request.
@@ -107,7 +103,7 @@ instance Lude.AWSRequest ListDistributions where
     Res.receiveXML
       ( \s h x ->
           ListDistributionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.parseXML x)
+            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListDistributions where
@@ -125,17 +121,12 @@ instance Lude.ToQuery ListDistributions where
 --
 -- /See:/ 'mkListDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
-  { responseStatus ::
-      Lude.Int,
-    distributionList :: DistributionList
+  { -- | The @DistributionList@ type.
+    distributionList :: DistributionList,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDistributionsResponse' with the minimum fields required to make a request.
@@ -143,23 +134,16 @@ data ListDistributionsResponse = ListDistributionsResponse'
 -- * 'distributionList' - The @DistributionList@ type.
 -- * 'responseStatus' - The response status code.
 mkListDistributionsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'distributionList'
   DistributionList ->
+  -- | 'responseStatus'
+  Lude.Int ->
   ListDistributionsResponse
-mkListDistributionsResponse pResponseStatus_ pDistributionList_ =
+mkListDistributionsResponse pDistributionList_ pResponseStatus_ =
   ListDistributionsResponse'
-    { responseStatus = pResponseStatus_,
-      distributionList = pDistributionList_
+    { distributionList = pDistributionList_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDistributionsResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDistributionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDistributionsResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The @DistributionList@ type.
 --
@@ -167,3 +151,10 @@ ldrsResponseStatus = Lens.lens (responseStatus :: ListDistributionsResponse -> L
 ldrsDistributionList :: Lens.Lens' ListDistributionsResponse DistributionList
 ldrsDistributionList = Lens.lens (distributionList :: ListDistributionsResponse -> DistributionList) (\s a -> s {distributionList = a} :: ListDistributionsResponse)
 {-# DEPRECATED ldrsDistributionList "Use generic-lens or generic-optics with 'distributionList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrsResponseStatus :: Lens.Lens' ListDistributionsResponse Lude.Int
+ldrsResponseStatus = Lens.lens (responseStatus :: ListDistributionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDistributionsResponse)
+{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

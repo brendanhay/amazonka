@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHiveJSONSerDe' smart constructor.
 newtype HiveJSONSerDe = HiveJSONSerDe'
-  { timestampFormats ::
-      Lude.Maybe [Lude.Text]
+  { -- | Indicates how you want Kinesis Data Firehose to parse the date and timestamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see <https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html Class DateTimeFormat> . You can also use the special value @millis@ to parse timestamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses @java.sql.Timestamp::valueOf@ by default.
+    timestampFormats :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HiveJSONSerDe' with the minimum fields required to make a request.

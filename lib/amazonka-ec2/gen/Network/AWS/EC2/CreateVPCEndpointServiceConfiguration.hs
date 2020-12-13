@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -57,46 +58,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateVPCEndpointServiceConfiguration' smart constructor.
 data CreateVPCEndpointServiceConfiguration = CreateVPCEndpointServiceConfiguration'
-  { networkLoadBalancerARNs ::
-      Lude.Maybe
-        [Lude.Text],
-    clientToken ::
-      Lude.Maybe
-        Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe
-        [TagSpecification],
-    gatewayLoadBalancerARNs ::
-      Lude.Maybe
-        [Lude.Text],
-    acceptanceRequired ::
-      Lude.Maybe
-        Lude.Bool,
-    privateDNSName ::
-      Lude.Maybe
-        Lude.Text,
-    dryRun ::
-      Lude.Maybe
-        Lude.Bool
+  { -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
+    networkLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The tags to associate with the service.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+    gatewayLoadBalancerARNs :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use 'AcceptVpcEndpointConnections' .
+    acceptanceRequired :: Lude.Maybe Lude.Bool,
+    -- | (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.
+    privateDNSName :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCEndpointServiceConfiguration' with the minimum fields required to make a request.
 --
--- * 'acceptanceRequired' - Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use 'AcceptVpcEndpointConnections' .
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'gatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
 -- * 'networkLoadBalancerARNs' - The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.
--- * 'privateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'tagSpecifications' - The tags to associate with the service.
+-- * 'gatewayLoadBalancerARNs' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+-- * 'acceptanceRequired' - Indicates whether requests from service consumers to create an endpoint to your service must be accepted. To accept a request, use 'AcceptVpcEndpointConnections' .
+-- * 'privateDNSName' - (Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateVPCEndpointServiceConfiguration ::
   CreateVPCEndpointServiceConfiguration
 mkCreateVPCEndpointServiceConfiguration =
@@ -204,32 +192,21 @@ instance Lude.ToQuery CreateVPCEndpointServiceConfiguration where
 
 -- | /See:/ 'mkCreateVPCEndpointServiceConfigurationResponse' smart constructor.
 data CreateVPCEndpointServiceConfigurationResponse = CreateVPCEndpointServiceConfigurationResponse'
-  { clientToken ::
-      Lude.Maybe
-        Lude.Text,
-    serviceConfiguration ::
-      Lude.Maybe
-        ServiceConfiguration,
-    responseStatus ::
-      Lude.Int
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | Information about the service configuration.
+    serviceConfiguration :: Lude.Maybe ServiceConfiguration,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPCEndpointServiceConfigurationResponse' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
--- * 'responseStatus' - The response status code.
 -- * 'serviceConfiguration' - Information about the service configuration.
+-- * 'responseStatus' - The response status code.
 mkCreateVPCEndpointServiceConfigurationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

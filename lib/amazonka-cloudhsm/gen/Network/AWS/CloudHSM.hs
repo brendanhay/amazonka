@@ -105,8 +105,8 @@ module Network.AWS.CloudHSM
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * Serialization types
     Lude.Base64 (..),

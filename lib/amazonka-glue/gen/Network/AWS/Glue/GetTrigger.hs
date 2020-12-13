@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Glue.GetTrigger
     mkGetTriggerResponse,
 
     -- ** Response lenses
-    getrsTrigger,
-    getrsResponseStatus,
+    gtfrsTrigger,
+    gtfrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTrigger' smart constructor.
-newtype GetTrigger = GetTrigger' {name :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetTrigger = GetTrigger'
+  { -- | The name of the trigger to retrieve.
+    name :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrigger' with the minimum fields required to make a request.
@@ -96,23 +94,18 @@ instance Lude.ToQuery GetTrigger where
 
 -- | /See:/ 'mkGetTriggerResponse' smart constructor.
 data GetTriggerResponse = GetTriggerResponse'
-  { trigger ::
-      Lude.Maybe Trigger,
+  { -- | The requested trigger definition.
+    trigger :: Lude.Maybe Trigger,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTriggerResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trigger' - The requested trigger definition.
+-- * 'responseStatus' - The response status code.
 mkGetTriggerResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -126,13 +119,13 @@ mkGetTriggerResponse pResponseStatus_ =
 -- | The requested trigger definition.
 --
 -- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getrsTrigger :: Lens.Lens' GetTriggerResponse (Lude.Maybe Trigger)
-getrsTrigger = Lens.lens (trigger :: GetTriggerResponse -> Lude.Maybe Trigger) (\s a -> s {trigger = a} :: GetTriggerResponse)
-{-# DEPRECATED getrsTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
+gtfrsTrigger :: Lens.Lens' GetTriggerResponse (Lude.Maybe Trigger)
+gtfrsTrigger = Lens.lens (trigger :: GetTriggerResponse -> Lude.Maybe Trigger) (\s a -> s {trigger = a} :: GetTriggerResponse)
+{-# DEPRECATED gtfrsTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-getrsResponseStatus :: Lens.Lens' GetTriggerResponse Lude.Int
-getrsResponseStatus = Lens.lens (responseStatus :: GetTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTriggerResponse)
-{-# DEPRECATED getrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtfrsResponseStatus :: Lens.Lens' GetTriggerResponse Lude.Int
+gtfrsResponseStatus = Lens.lens (responseStatus :: GetTriggerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTriggerResponse)
+{-# DEPRECATED gtfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

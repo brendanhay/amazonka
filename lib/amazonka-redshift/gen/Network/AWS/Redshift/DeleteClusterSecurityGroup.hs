@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
     mkDeleteClusterSecurityGroup,
 
     -- ** Request lenses
-    dClusterSecurityGroupName,
+    dcsgClusterSecurityGroupName,
 
     -- * Destructuring the response
     DeleteClusterSecurityGroupResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteClusterSecurityGroup' smart constructor.
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
-  { clusterSecurityGroupName ::
-      Lude.Text
+  { -- | The name of the cluster security group to be deleted.
+    clusterSecurityGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterSecurityGroup' with the minimum fields required to make a request.
@@ -67,9 +62,9 @@ mkDeleteClusterSecurityGroup pClusterSecurityGroupName_ =
 -- | The name of the cluster security group to be deleted.
 --
 -- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dClusterSecurityGroupName :: Lens.Lens' DeleteClusterSecurityGroup Lude.Text
-dClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: DeleteClusterSecurityGroup -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: DeleteClusterSecurityGroup)
-{-# DEPRECATED dClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
+dcsgClusterSecurityGroupName :: Lens.Lens' DeleteClusterSecurityGroup Lude.Text
+dcsgClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: DeleteClusterSecurityGroup -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: DeleteClusterSecurityGroup)
+{-# DEPRECATED dcsgClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
 
 instance Lude.AWSRequest DeleteClusterSecurityGroup where
   type
@@ -95,13 +90,7 @@ instance Lude.ToQuery DeleteClusterSecurityGroup where
 
 -- | /See:/ 'mkDeleteClusterSecurityGroupResponse' smart constructor.
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteClusterSecurityGroupResponse' with the minimum fields required to make a request.

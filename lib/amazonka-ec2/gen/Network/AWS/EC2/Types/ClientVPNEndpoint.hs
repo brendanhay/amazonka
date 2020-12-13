@@ -56,67 +56,79 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientVPNEndpoint' smart constructor.
 data ClientVPNEndpoint = ClientVPNEndpoint'
-  { creationTime ::
-      Lude.Maybe Lude.Text,
+  { -- | The date and time the Client VPN endpoint was created.
+    creationTime :: Lude.Maybe Lude.Text,
+    -- | The current state of the Client VPN endpoint.
     status :: Lude.Maybe ClientVPNEndpointStatus,
-    associatedTargetNetworks ::
-      Lude.Maybe [AssociatedTargetNetwork],
+    -- | Information about the associated target networks. A target network is a subnet in a VPC.
+    associatedTargetNetworks :: Lude.Maybe [AssociatedTargetNetwork],
+    -- | The IDs of the security groups for the target network.
     securityGroupIds :: Lude.Maybe [Lude.Text],
-    connectionLogOptions ::
-      Lude.Maybe ConnectionLogResponseOptions,
+    -- | Information about the client connection logging options for the Client VPN endpoint.
+    connectionLogOptions :: Lude.Maybe ConnectionLogResponseOptions,
+    -- | Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.
+    --
+    -- For information about split-tunnel VPN endpoints, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint> in the /AWS Client VPN Administrator Guide/ .
     splitTunnel :: Lude.Maybe Lude.Bool,
+    -- | The transport protocol used by the Client VPN endpoint.
     transportProtocol :: Lude.Maybe TransportProtocol,
+    -- | The ID of the VPC.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The port number for the Client VPN endpoint.
     vpnPort :: Lude.Maybe Lude.Int,
+    -- | The date and time the Client VPN endpoint was deleted, if applicable.
     deletionTime :: Lude.Maybe Lude.Text,
+    -- | The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
     clientCidrBlock :: Lude.Maybe Lude.Text,
+    -- | Information about the DNS servers to be used for DNS resolution.
     dnsServers :: Lude.Maybe [Lude.Text],
+    -- | The ID of the Client VPN endpoint.
     clientVPNEndpointId :: Lude.Maybe Lude.Text,
-    clientConnectOptions ::
-      Lude.Maybe ClientConnectResponseOptions,
+    -- | The options for managing connection authorization for new client connections.
+    clientConnectOptions :: Lude.Maybe ClientConnectResponseOptions,
+    -- | The ARN of the server certificate.
     serverCertificateARN :: Lude.Maybe Lude.Text,
-    authenticationOptions ::
-      Lude.Maybe [ClientVPNAuthentication],
+    -- | Information about the authentication method used by the Client VPN endpoint.
+    authenticationOptions :: Lude.Maybe [ClientVPNAuthentication],
+    -- | The URL of the self-service portal.
     selfServicePortalURL :: Lude.Maybe Lude.Text,
+    -- | A brief description of the endpoint.
     description :: Lude.Maybe Lude.Text,
+    -- | The DNS name to be used by clients when connecting to the Client VPN endpoint.
     dnsName :: Lude.Maybe Lude.Text,
+    -- | The protocol used by the VPN session.
     vpnProtocol :: Lude.Maybe VPNProtocol,
+    -- | Any tags assigned to the Client VPN endpoint.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNEndpoint' with the minimum fields required to make a request.
 --
--- * 'associatedTargetNetworks' - Information about the associated target networks. A target network is a subnet in a VPC.
--- * 'authenticationOptions' - Information about the authentication method used by the Client VPN endpoint.
--- * 'clientCidrBlock' - The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
--- * 'clientConnectOptions' - The options for managing connection authorization for new client connections.
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
--- * 'connectionLogOptions' - Information about the client connection logging options for the Client VPN endpoint.
 -- * 'creationTime' - The date and time the Client VPN endpoint was created.
--- * 'deletionTime' - The date and time the Client VPN endpoint was deleted, if applicable.
--- * 'description' - A brief description of the endpoint.
--- * 'dnsName' - The DNS name to be used by clients when connecting to the Client VPN endpoint.
--- * 'dnsServers' - Information about the DNS servers to be used for DNS resolution.
+-- * 'status' - The current state of the Client VPN endpoint.
+-- * 'associatedTargetNetworks' - Information about the associated target networks. A target network is a subnet in a VPC.
 -- * 'securityGroupIds' - The IDs of the security groups for the target network.
--- * 'selfServicePortalURL' - The URL of the self-service portal.
--- * 'serverCertificateARN' - The ARN of the server certificate.
+-- * 'connectionLogOptions' - Information about the client connection logging options for the Client VPN endpoint.
 -- * 'splitTunnel' - Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.
 --
 -- For information about split-tunnel VPN endpoints, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint> in the /AWS Client VPN Administrator Guide/ .
--- * 'status' - The current state of the Client VPN endpoint.
--- * 'tags' - Any tags assigned to the Client VPN endpoint.
 -- * 'transportProtocol' - The transport protocol used by the Client VPN endpoint.
 -- * 'vpcId' - The ID of the VPC.
 -- * 'vpnPort' - The port number for the Client VPN endpoint.
+-- * 'deletionTime' - The date and time the Client VPN endpoint was deleted, if applicable.
+-- * 'clientCidrBlock' - The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+-- * 'dnsServers' - Information about the DNS servers to be used for DNS resolution.
+-- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
+-- * 'clientConnectOptions' - The options for managing connection authorization for new client connections.
+-- * 'serverCertificateARN' - The ARN of the server certificate.
+-- * 'authenticationOptions' - Information about the authentication method used by the Client VPN endpoint.
+-- * 'selfServicePortalURL' - The URL of the self-service portal.
+-- * 'description' - A brief description of the endpoint.
+-- * 'dnsName' - The DNS name to be used by clients when connecting to the Client VPN endpoint.
 -- * 'vpnProtocol' - The protocol used by the VPN session.
+-- * 'tags' - Any tags assigned to the Client VPN endpoint.
 mkClientVPNEndpoint ::
   ClientVPNEndpoint
 mkClientVPNEndpoint =

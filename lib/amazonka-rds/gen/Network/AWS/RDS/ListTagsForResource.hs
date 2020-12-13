@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.RDS.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
-    ltfrFilters,
     ltfrResourceName,
+    ltfrFilters,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -44,39 +45,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { filters ::
-      Lude.Maybe [Filter],
-    resourceName :: Lude.Text
+  { -- | The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .
+    resourceName :: Lude.Text,
+    -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'filters' - This parameter isn't currently supported.
 -- * 'resourceName' - The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .
+-- * 'filters' - This parameter isn't currently supported.
 mkListTagsForResource ::
   -- | 'resourceName'
   Lude.Text ->
   ListTagsForResource
 mkListTagsForResource pResourceName_ =
   ListTagsForResource'
-    { filters = Lude.Nothing,
-      resourceName = pResourceName_
+    { resourceName = pResourceName_,
+      filters = Lude.Nothing
     }
-
--- | This parameter isn't currently supported.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrFilters :: Lens.Lens' ListTagsForResource (Lude.Maybe [Filter])
-ltfrFilters = Lens.lens (filters :: ListTagsForResource -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS> in the /Amazon RDS User Guide/ .
 --
@@ -84,6 +73,13 @@ ltfrFilters = Lens.lens (filters :: ListTagsForResource -> Lude.Maybe [Filter]) 
 ltfrResourceName :: Lens.Lens' ListTagsForResource Lude.Text
 ltfrResourceName = Lens.lens (resourceName :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceName = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+
+-- | This parameter isn't currently supported.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrFilters :: Lens.Lens' ListTagsForResource (Lude.Maybe [Filter])
+ltfrFilters = Lens.lens (filters :: ListTagsForResource -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
@@ -110,32 +106,27 @@ instance Lude.ToQuery ListTagsForResource where
     Lude.mconcat
       [ "Action" Lude.=: ("ListTagsForResource" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
+        "ResourceName" Lude.=: resourceName,
         "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "ResourceName" Lude.=: resourceName
+          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters)
       ]
 
 -- |
 --
 -- /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { tagList ::
-      Lude.Maybe [Tag],
+  { -- | List of tags returned by the ListTagsForResource operation.
+    tagList :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagList' - List of tags returned by the ListTagsForResource operation.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

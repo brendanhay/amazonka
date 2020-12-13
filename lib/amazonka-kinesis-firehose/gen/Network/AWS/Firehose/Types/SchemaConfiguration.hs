@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaConfiguration' smart constructor.
 data SchemaConfiguration = SchemaConfiguration'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the AWS Glue database that contains the schema for the output data.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | If you don't specify an AWS Region, the default is the current Region.
     region :: Lude.Maybe Lude.Text,
+    -- | Specifies the AWS Glue table that contains the column information that constitutes your data schema.
     tableName :: Lude.Maybe Lude.Text,
+    -- | The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaConfiguration' with the minimum fields required to make a request.
 --
+-- * 'versionId' - Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
 -- * 'catalogId' - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
 -- * 'databaseName' - Specifies the name of the AWS Glue database that contains the schema for the output data.
 -- * 'region' - If you don't specify an AWS Region, the default is the current Region.
--- * 'roleARN' - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 -- * 'tableName' - Specifies the AWS Glue table that contains the column information that constitutes your data schema.
--- * 'versionId' - Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+-- * 'roleARN' - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 mkSchemaConfiguration ::
   SchemaConfiguration
 mkSchemaConfiguration =

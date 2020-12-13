@@ -30,8 +30,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHandshakeParty' smart constructor.
 data HandshakeParty = HandshakeParty'
-  { id ::
-      Lude.Sensitive Lude.Text,
+  { -- | The unique identifier (ID) for the party.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID string requires "h-" followed by from 8 to 32 lowercase letters or digits.
+    id :: Lude.Sensitive Lude.Text,
+    -- | The type of party.
     type' :: HandshakePartyType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

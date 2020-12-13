@@ -13,15 +13,15 @@
 module Network.AWS.DeviceFarm.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
-        Completed,
-        Pending,
-        PendingConcurrency,
-        PendingDevice,
-        Preparing,
-        Processing,
-        Running,
-        Scheduling,
-        Stopping
+        ESPending,
+        ESPendingConcurrency,
+        ESPendingDevice,
+        ESProcessing,
+        ESScheduling,
+        ESPreparing,
+        ESRunning,
+        ESCompleted,
+        ESStopping
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype ExecutionStatus = ExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Completed :: ExecutionStatus
-pattern Completed = ExecutionStatus' "COMPLETED"
+pattern ESPending :: ExecutionStatus
+pattern ESPending = ExecutionStatus' "PENDING"
 
-pattern Pending :: ExecutionStatus
-pattern Pending = ExecutionStatus' "PENDING"
+pattern ESPendingConcurrency :: ExecutionStatus
+pattern ESPendingConcurrency = ExecutionStatus' "PENDING_CONCURRENCY"
 
-pattern PendingConcurrency :: ExecutionStatus
-pattern PendingConcurrency = ExecutionStatus' "PENDING_CONCURRENCY"
+pattern ESPendingDevice :: ExecutionStatus
+pattern ESPendingDevice = ExecutionStatus' "PENDING_DEVICE"
 
-pattern PendingDevice :: ExecutionStatus
-pattern PendingDevice = ExecutionStatus' "PENDING_DEVICE"
+pattern ESProcessing :: ExecutionStatus
+pattern ESProcessing = ExecutionStatus' "PROCESSING"
 
-pattern Preparing :: ExecutionStatus
-pattern Preparing = ExecutionStatus' "PREPARING"
+pattern ESScheduling :: ExecutionStatus
+pattern ESScheduling = ExecutionStatus' "SCHEDULING"
 
-pattern Processing :: ExecutionStatus
-pattern Processing = ExecutionStatus' "PROCESSING"
+pattern ESPreparing :: ExecutionStatus
+pattern ESPreparing = ExecutionStatus' "PREPARING"
 
-pattern Running :: ExecutionStatus
-pattern Running = ExecutionStatus' "RUNNING"
+pattern ESRunning :: ExecutionStatus
+pattern ESRunning = ExecutionStatus' "RUNNING"
 
-pattern Scheduling :: ExecutionStatus
-pattern Scheduling = ExecutionStatus' "SCHEDULING"
+pattern ESCompleted :: ExecutionStatus
+pattern ESCompleted = ExecutionStatus' "COMPLETED"
 
-pattern Stopping :: ExecutionStatus
-pattern Stopping = ExecutionStatus' "STOPPING"
+pattern ESStopping :: ExecutionStatus
+pattern ESStopping = ExecutionStatus' "STOPPING"
 
 {-# COMPLETE
-  Completed,
-  Pending,
-  PendingConcurrency,
-  PendingDevice,
-  Preparing,
-  Processing,
-  Running,
-  Scheduling,
-  Stopping,
+  ESPending,
+  ESPendingConcurrency,
+  ESPendingDevice,
+  ESProcessing,
+  ESScheduling,
+  ESPreparing,
+  ESRunning,
+  ESCompleted,
+  ESStopping,
   ExecutionStatus'
   #-}

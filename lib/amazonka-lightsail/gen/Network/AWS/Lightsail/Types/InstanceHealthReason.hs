@@ -13,17 +13,17 @@
 module Network.AWS.Lightsail.Types.InstanceHealthReason
   ( InstanceHealthReason
       ( InstanceHealthReason',
-        Instance_DeregistrationInProgress,
-        Instance_FailedHealthChecks,
-        Instance_IPUnusable,
-        Instance_InvalidState,
-        Instance_NotInUse,
-        Instance_NotRegistered,
-        Instance_ResponseCodeMismatch,
-        Instance_Timeout,
+        Lb_RegistrationInProgress,
         Lb_InitialHealthChecking,
         Lb_InternalError,
-        Lb_RegistrationInProgress
+        Instance_ResponseCodeMismatch,
+        Instance_Timeout,
+        Instance_FailedHealthChecks,
+        Instance_NotRegistered,
+        Instance_NotInUse,
+        Instance_DeregistrationInProgress,
+        Instance_InvalidState,
+        Instance_IPUnusable
       ),
   )
 where
@@ -54,29 +54,8 @@ newtype InstanceHealthReason = InstanceHealthReason' Lude.Text
       Lude.ToHeader
     )
 
-pattern Instance_DeregistrationInProgress :: InstanceHealthReason
-pattern Instance_DeregistrationInProgress = InstanceHealthReason' "Instance.DeregistrationInProgress"
-
-pattern Instance_FailedHealthChecks :: InstanceHealthReason
-pattern Instance_FailedHealthChecks = InstanceHealthReason' "Instance.FailedHealthChecks"
-
-pattern Instance_IPUnusable :: InstanceHealthReason
-pattern Instance_IPUnusable = InstanceHealthReason' "Instance.IpUnusable"
-
-pattern Instance_InvalidState :: InstanceHealthReason
-pattern Instance_InvalidState = InstanceHealthReason' "Instance.InvalidState"
-
-pattern Instance_NotInUse :: InstanceHealthReason
-pattern Instance_NotInUse = InstanceHealthReason' "Instance.NotInUse"
-
-pattern Instance_NotRegistered :: InstanceHealthReason
-pattern Instance_NotRegistered = InstanceHealthReason' "Instance.NotRegistered"
-
-pattern Instance_ResponseCodeMismatch :: InstanceHealthReason
-pattern Instance_ResponseCodeMismatch = InstanceHealthReason' "Instance.ResponseCodeMismatch"
-
-pattern Instance_Timeout :: InstanceHealthReason
-pattern Instance_Timeout = InstanceHealthReason' "Instance.Timeout"
+pattern Lb_RegistrationInProgress :: InstanceHealthReason
+pattern Lb_RegistrationInProgress = InstanceHealthReason' "Lb.RegistrationInProgress"
 
 pattern Lb_InitialHealthChecking :: InstanceHealthReason
 pattern Lb_InitialHealthChecking = InstanceHealthReason' "Lb.InitialHealthChecking"
@@ -84,20 +63,41 @@ pattern Lb_InitialHealthChecking = InstanceHealthReason' "Lb.InitialHealthChecki
 pattern Lb_InternalError :: InstanceHealthReason
 pattern Lb_InternalError = InstanceHealthReason' "Lb.InternalError"
 
-pattern Lb_RegistrationInProgress :: InstanceHealthReason
-pattern Lb_RegistrationInProgress = InstanceHealthReason' "Lb.RegistrationInProgress"
+pattern Instance_ResponseCodeMismatch :: InstanceHealthReason
+pattern Instance_ResponseCodeMismatch = InstanceHealthReason' "Instance.ResponseCodeMismatch"
+
+pattern Instance_Timeout :: InstanceHealthReason
+pattern Instance_Timeout = InstanceHealthReason' "Instance.Timeout"
+
+pattern Instance_FailedHealthChecks :: InstanceHealthReason
+pattern Instance_FailedHealthChecks = InstanceHealthReason' "Instance.FailedHealthChecks"
+
+pattern Instance_NotRegistered :: InstanceHealthReason
+pattern Instance_NotRegistered = InstanceHealthReason' "Instance.NotRegistered"
+
+pattern Instance_NotInUse :: InstanceHealthReason
+pattern Instance_NotInUse = InstanceHealthReason' "Instance.NotInUse"
+
+pattern Instance_DeregistrationInProgress :: InstanceHealthReason
+pattern Instance_DeregistrationInProgress = InstanceHealthReason' "Instance.DeregistrationInProgress"
+
+pattern Instance_InvalidState :: InstanceHealthReason
+pattern Instance_InvalidState = InstanceHealthReason' "Instance.InvalidState"
+
+pattern Instance_IPUnusable :: InstanceHealthReason
+pattern Instance_IPUnusable = InstanceHealthReason' "Instance.IpUnusable"
 
 {-# COMPLETE
-  Instance_DeregistrationInProgress,
-  Instance_FailedHealthChecks,
-  Instance_IPUnusable,
-  Instance_InvalidState,
-  Instance_NotInUse,
-  Instance_NotRegistered,
-  Instance_ResponseCodeMismatch,
-  Instance_Timeout,
+  Lb_RegistrationInProgress,
   Lb_InitialHealthChecking,
   Lb_InternalError,
-  Lb_RegistrationInProgress,
+  Instance_ResponseCodeMismatch,
+  Instance_Timeout,
+  Instance_FailedHealthChecks,
+  Instance_NotRegistered,
+  Instance_NotInUse,
+  Instance_DeregistrationInProgress,
+  Instance_InvalidState,
+  Instance_IPUnusable,
   InstanceHealthReason'
   #-}

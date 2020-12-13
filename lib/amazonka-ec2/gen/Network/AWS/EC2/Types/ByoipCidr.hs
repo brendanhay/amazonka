@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkByoipCidr' smart constructor.
 data ByoipCidr = ByoipCidr'
-  { state :: Lude.Maybe ByoipCidrState,
+  { -- | The state of the address pool.
+    state :: Lude.Maybe ByoipCidrState,
+    -- | The address range, in CIDR notation.
     cidr :: Lude.Maybe Lude.Text,
+    -- | Upon success, contains the ID of the address pool. Otherwise, contains an error message.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The description of the address range.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ByoipCidr' with the minimum fields required to make a request.
 --
--- * 'cidr' - The address range, in CIDR notation.
--- * 'description' - The description of the address range.
 -- * 'state' - The state of the address pool.
+-- * 'cidr' - The address range, in CIDR notation.
 -- * 'statusMessage' - Upon success, contains the ID of the address pool. Otherwise, contains an error message.
+-- * 'description' - The description of the address range.
 mkByoipCidr ::
   ByoipCidr
 mkByoipCidr =

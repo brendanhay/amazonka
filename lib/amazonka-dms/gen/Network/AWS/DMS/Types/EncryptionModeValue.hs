@@ -13,8 +13,8 @@
 module Network.AWS.DMS.Types.EncryptionModeValue
   ( EncryptionModeValue
       ( EncryptionModeValue',
-        SseKMS,
-        SseS3
+        SseS3,
+        SseKMS
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EncryptionModeValue = EncryptionModeValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern SseKMS :: EncryptionModeValue
-pattern SseKMS = EncryptionModeValue' "sse-kms"
-
 pattern SseS3 :: EncryptionModeValue
 pattern SseS3 = EncryptionModeValue' "sse-s3"
 
+pattern SseKMS :: EncryptionModeValue
+pattern SseKMS = EncryptionModeValue' "sse-kms"
+
 {-# COMPLETE
-  SseKMS,
   SseS3,
+  SseKMS,
   EncryptionModeValue'
   #-}

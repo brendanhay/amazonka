@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.EphemeralNvmeSupport
   ( EphemeralNvmeSupport
       ( EphemeralNvmeSupport',
-        ERequired,
+        EUnsupported,
         ESupported,
-        EUnsupported
+        ERequired
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EphemeralNvmeSupport = EphemeralNvmeSupport' Lude.Text
       Lude.ToHeader
     )
 
-pattern ERequired :: EphemeralNvmeSupport
-pattern ERequired = EphemeralNvmeSupport' "required"
+pattern EUnsupported :: EphemeralNvmeSupport
+pattern EUnsupported = EphemeralNvmeSupport' "unsupported"
 
 pattern ESupported :: EphemeralNvmeSupport
 pattern ESupported = EphemeralNvmeSupport' "supported"
 
-pattern EUnsupported :: EphemeralNvmeSupport
-pattern EUnsupported = EphemeralNvmeSupport' "unsupported"
+pattern ERequired :: EphemeralNvmeSupport
+pattern ERequired = EphemeralNvmeSupport' "required"
 
 {-# COMPLETE
-  ERequired,
-  ESupported,
   EUnsupported,
+  ESupported,
+  ERequired,
   EphemeralNvmeSupport'
   #-}

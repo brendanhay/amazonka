@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEC2AMIResource' smart constructor.
 data EC2AMIResource = EC2AMIResource'
-  { snowballAMIId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AMI on the Snow device.
+    snowballAMIId :: Lude.Maybe Lude.Text,
+    -- | The ID of the AMI in Amazon EC2.
     amiId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EC2AMIResource' with the minimum fields required to make a request.
 --
--- * 'amiId' - The ID of the AMI in Amazon EC2.
 -- * 'snowballAMIId' - The ID of the AMI on the Snow device.
+-- * 'amiId' - The ID of the AMI in Amazon EC2.
 mkEC2AMIResource ::
   -- | 'amiId'
   Lude.Text ->

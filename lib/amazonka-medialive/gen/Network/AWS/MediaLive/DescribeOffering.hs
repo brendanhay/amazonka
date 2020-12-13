@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,16 +52,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeOffering' smart constructor.
 newtype DescribeOffering = DescribeOffering'
-  { offeringId ::
-      Lude.Text
+  { -- | Unique offering ID, e.g. '87654321'
+    offeringId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOffering' with the minimum fields required to make a request.
@@ -121,46 +116,48 @@ instance Lude.ToQuery DescribeOffering where
 --
 -- /See:/ 'mkDescribeOfferingResponse' smart constructor.
 data DescribeOfferingResponse = DescribeOfferingResponse'
-  { resourceSpecification ::
-      Lude.Maybe
-        ReservationResourceSpecification,
+  { -- | Resource configuration details
+    resourceSpecification :: Lude.Maybe ReservationResourceSpecification,
+    -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
     currencyCode :: Lude.Maybe Lude.Text,
+    -- | Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
     arn :: Lude.Maybe Lude.Text,
+    -- | Unique offering ID, e.g. '87654321'
     offeringId :: Lude.Maybe Lude.Text,
+    -- | AWS region, e.g. 'us-west-2'
     region :: Lude.Maybe Lude.Text,
+    -- | Offering type, e.g. 'NO_UPFRONT'
     offeringType :: Lude.Maybe OfferingType,
+    -- | Recurring usage charge for each reserved resource, e.g. '157.0'
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
     fixedPrice :: Lude.Maybe Lude.Double,
-    durationUnits ::
-      Lude.Maybe OfferingDurationUnits,
-    offeringDescription ::
-      Lude.Maybe Lude.Text,
+    -- | Units for duration, e.g. 'MONTHS'
+    durationUnits :: Lude.Maybe OfferingDurationUnits,
+    -- | Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+    offeringDescription :: Lude.Maybe Lude.Text,
+    -- | Lease duration, e.g. '12'
     duration :: Lude.Maybe Lude.Int,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOfferingResponse' with the minimum fields required to make a request.
 --
--- * 'arn' - Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
--- * 'currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
--- * 'duration' - Lease duration, e.g. '12'
--- * 'durationUnits' - Units for duration, e.g. 'MONTHS'
--- * 'fixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
--- * 'offeringDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
--- * 'offeringId' - Unique offering ID, e.g. '87654321'
--- * 'offeringType' - Offering type, e.g. 'NO_UPFRONT'
--- * 'region' - AWS region, e.g. 'us-west-2'
 -- * 'resourceSpecification' - Resource configuration details
--- * 'responseStatus' - The response status code.
+-- * 'currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+-- * 'arn' - Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
+-- * 'offeringId' - Unique offering ID, e.g. '87654321'
+-- * 'region' - AWS region, e.g. 'us-west-2'
+-- * 'offeringType' - Offering type, e.g. 'NO_UPFRONT'
 -- * 'usagePrice' - Recurring usage charge for each reserved resource, e.g. '157.0'
+-- * 'fixedPrice' - One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+-- * 'durationUnits' - Units for duration, e.g. 'MONTHS'
+-- * 'offeringDescription' - Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+-- * 'duration' - Lease duration, e.g. '12'
+-- * 'responseStatus' - The response status code.
 mkDescribeOfferingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

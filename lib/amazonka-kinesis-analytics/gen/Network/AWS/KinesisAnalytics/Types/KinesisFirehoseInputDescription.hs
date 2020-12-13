@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKinesisFirehoseInputDescription' smart constructor.
 data KinesisFirehoseInputDescription = KinesisFirehoseInputDescription'
-  { resourceARN ::
-      Lude.Maybe Lude.Text,
-    roleARN ::
-      Lude.Maybe Lude.Text
+  { -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream.
+    resourceARN :: Lude.Maybe Lude.Text,
+    -- | ARN of the IAM role that Amazon Kinesis Analytics assumes to access the stream.
+    roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisFirehoseInputDescription' with the minimum fields required to make a request.

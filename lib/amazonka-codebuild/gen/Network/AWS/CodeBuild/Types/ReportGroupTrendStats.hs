@@ -28,25 +28,18 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkReportGroupTrendStats' smart constructor.
 data ReportGroupTrendStats = ReportGroupTrendStats'
-  { max ::
-      Lude.Maybe Lude.Text,
+  { max :: Lude.Maybe Lude.Text,
     average :: Lude.Maybe Lude.Text,
     min :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReportGroupTrendStats' with the minimum fields required to make a request.
 --
--- * 'average' - Undocumented field.
--- * 'max' - Undocumented field.
--- * 'min' - Undocumented field.
+-- * 'max' -
+-- * 'average' -
+-- * 'min' -
 mkReportGroupTrendStats ::
   ReportGroupTrendStats
 mkReportGroupTrendStats =

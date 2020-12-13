@@ -13,10 +13,10 @@
 module Network.AWS.Lightsail.Types.RenewalStatus
   ( RenewalStatus
       ( RenewalStatus',
-        RSFailed,
-        RSPendingAutoRenewal,
-        RSPendingValidation,
-        RSSuccess
+        RPendingAutoRenewal,
+        RPendingValidation,
+        RSuccess,
+        RFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype RenewalStatus = RenewalStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern RSFailed :: RenewalStatus
-pattern RSFailed = RenewalStatus' "Failed"
+pattern RPendingAutoRenewal :: RenewalStatus
+pattern RPendingAutoRenewal = RenewalStatus' "PendingAutoRenewal"
 
-pattern RSPendingAutoRenewal :: RenewalStatus
-pattern RSPendingAutoRenewal = RenewalStatus' "PendingAutoRenewal"
+pattern RPendingValidation :: RenewalStatus
+pattern RPendingValidation = RenewalStatus' "PendingValidation"
 
-pattern RSPendingValidation :: RenewalStatus
-pattern RSPendingValidation = RenewalStatus' "PendingValidation"
+pattern RSuccess :: RenewalStatus
+pattern RSuccess = RenewalStatus' "Success"
 
-pattern RSSuccess :: RenewalStatus
-pattern RSSuccess = RenewalStatus' "Success"
+pattern RFailed :: RenewalStatus
+pattern RFailed = RenewalStatus' "Failed"
 
 {-# COMPLETE
-  RSFailed,
-  RSPendingAutoRenewal,
-  RSPendingValidation,
-  RSSuccess,
+  RPendingAutoRenewal,
+  RPendingValidation,
+  RSuccess,
+  RFailed,
   RenewalStatus'
   #-}

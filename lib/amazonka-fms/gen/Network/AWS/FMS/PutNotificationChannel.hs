@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,23 +39,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutNotificationChannel' smart constructor.
 data PutNotificationChannel = PutNotificationChannel'
-  { snsTopicARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager.
+    snsTopicARN :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
     snsRoleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutNotificationChannel' with the minimum fields required to make a request.
 --
--- * 'snsRoleName' - The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
 -- * 'snsTopicARN' - The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager.
+-- * 'snsRoleName' - The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
 mkPutNotificationChannel ::
   -- | 'snsTopicARN'
   Lude.Text ->
@@ -114,13 +110,7 @@ instance Lude.ToQuery PutNotificationChannel where
 
 -- | /See:/ 'mkPutNotificationChannelResponse' smart constructor.
 data PutNotificationChannelResponse = PutNotificationChannelResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutNotificationChannelResponse' with the minimum fields required to make a request.

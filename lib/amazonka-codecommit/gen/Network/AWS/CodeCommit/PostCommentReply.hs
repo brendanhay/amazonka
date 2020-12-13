@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CodeCommit.PostCommentReply
     mkPostCommentReply,
 
     -- ** Request lenses
+    pcrContent,
     pcrClientRequestToken,
     pcrInReplyTo,
-    pcrContent,
 
     -- * Destructuring the response
     PostCommentReplyResponse (..),
@@ -41,37 +42,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPostCommentReply' smart constructor.
 data PostCommentReply = PostCommentReply'
-  { clientRequestToken ::
-      Lude.Maybe Lude.Text,
-    inReplyTo :: Lude.Text,
-    content :: Lude.Text
+  { -- | The contents of your reply to a comment.
+    content :: Lude.Text,
+    -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
+    clientRequestToken :: Lude.Maybe Lude.Text,
+    -- | The system-generated ID of the comment to which you want to reply. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+    inReplyTo :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentReply' with the minimum fields required to make a request.
 --
--- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
 -- * 'content' - The contents of your reply to a comment.
+-- * 'clientRequestToken' - A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
 -- * 'inReplyTo' - The system-generated ID of the comment to which you want to reply. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
 mkPostCommentReply ::
-  -- | 'inReplyTo'
-  Lude.Text ->
   -- | 'content'
   Lude.Text ->
+  -- | 'inReplyTo'
+  Lude.Text ->
   PostCommentReply
-mkPostCommentReply pInReplyTo_ pContent_ =
+mkPostCommentReply pContent_ pInReplyTo_ =
   PostCommentReply'
-    { clientRequestToken = Lude.Nothing,
-      inReplyTo = pInReplyTo_,
-      content = pContent_
+    { content = pContent_,
+      clientRequestToken = Lude.Nothing,
+      inReplyTo = pInReplyTo_
     }
+
+-- | The contents of your reply to a comment.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcrContent :: Lens.Lens' PostCommentReply Lude.Text
+pcrContent = Lens.lens (content :: PostCommentReply -> Lude.Text) (\s a -> s {content = a} :: PostCommentReply)
+{-# DEPRECATED pcrContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | A unique, client-generated idempotency token that, when provided in a request, ensures the request cannot be repeated with a changed parameter. If a request is received with the same parameters and a token is included, the request returns information about the initial request that used that token.
 --
@@ -86,13 +90,6 @@ pcrClientRequestToken = Lens.lens (clientRequestToken :: PostCommentReply -> Lud
 pcrInReplyTo :: Lens.Lens' PostCommentReply Lude.Text
 pcrInReplyTo = Lens.lens (inReplyTo :: PostCommentReply -> Lude.Text) (\s a -> s {inReplyTo = a} :: PostCommentReply)
 {-# DEPRECATED pcrInReplyTo "Use generic-lens or generic-optics with 'inReplyTo' instead." #-}
-
--- | The contents of your reply to a comment.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrContent :: Lens.Lens' PostCommentReply Lude.Text
-pcrContent = Lens.lens (content :: PostCommentReply -> Lude.Text) (\s a -> s {content = a} :: PostCommentReply)
-{-# DEPRECATED pcrContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 instance Lude.AWSRequest PostCommentReply where
   type Rs PostCommentReply = PostCommentReplyResponse
@@ -119,9 +116,9 @@ instance Lude.ToJSON PostCommentReply where
   toJSON PostCommentReply' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("inReplyTo" Lude..= inReplyTo),
-            Lude.Just ("content" Lude..= content)
+          [ Lude.Just ("content" Lude..= content),
+            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
+            Lude.Just ("inReplyTo" Lude..= inReplyTo)
           ]
       )
 
@@ -133,17 +130,12 @@ instance Lude.ToQuery PostCommentReply where
 
 -- | /See:/ 'mkPostCommentReplyResponse' smart constructor.
 data PostCommentReplyResponse = PostCommentReplyResponse'
-  { comment ::
-      Lude.Maybe Comment,
+  { -- | Information about the reply to a comment.
+    comment :: Lude.Maybe Comment,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostCommentReplyResponse' with the minimum fields required to make a request.

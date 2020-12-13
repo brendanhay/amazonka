@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,29 +47,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSecurityProfilesForTarget' smart constructor.
 data ListSecurityProfilesForTarget = ListSecurityProfilesForTarget'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    recursive ::
-      Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    securityProfileTargetARN ::
-      Lude.Text
+  { -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | If true, return child groups too.
+    recursive :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The ARN of the target (thing group) whose attached security profiles you want to get.
+    securityProfileTargetARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityProfilesForTarget' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'nextToken' - The token for the next set of results.
 -- * 'recursive' - If true, return child groups too.
+-- * 'maxResults' - The maximum number of results to return at one time.
 -- * 'securityProfileTargetARN' - The ARN of the target (thing group) whose attached security profiles you want to get.
 mkListSecurityProfilesForTarget ::
   -- | 'securityProfileTargetARN'
@@ -151,29 +146,21 @@ instance Lude.ToQuery ListSecurityProfilesForTarget where
 
 -- | /See:/ 'mkListSecurityProfilesForTargetResponse' smart constructor.
 data ListSecurityProfilesForTargetResponse = ListSecurityProfilesForTargetResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    securityProfileTargetMappings ::
-      Lude.Maybe
-        [SecurityProfileTargetMapping],
-    responseStatus ::
-      Lude.Int
+  { -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of security profiles and their associated targets.
+    securityProfileTargetMappings :: Lude.Maybe [SecurityProfileTargetMapping],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSecurityProfilesForTargetResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
--- * 'responseStatus' - The response status code.
 -- * 'securityProfileTargetMappings' - A list of security profiles and their associated targets.
+-- * 'responseStatus' - The response status code.
 mkListSecurityProfilesForTargetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

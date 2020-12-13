@@ -45,7 +45,7 @@ mkCacheClusterAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -56,7 +56,7 @@ mkCacheClusterAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -67,7 +67,7 @@ mkCacheClusterAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -78,7 +78,7 @@ mkCacheClusterAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -89,7 +89,7 @@ mkCacheClusterAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -111,7 +111,7 @@ mkCacheClusterDeleted =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -123,7 +123,7 @@ mkCacheClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -134,7 +134,7 @@ mkCacheClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -145,7 +145,7 @@ mkCacheClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -156,7 +156,7 @@ mkCacheClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -167,7 +167,7 @@ mkCacheClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -178,7 +178,7 @@ mkCacheClusterDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (drsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    (dccrsCacheClusters Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
                 Lude.. ccCacheClusterStatus
                 Lude.. Lens._Just
@@ -200,7 +200,7 @@ mkReplicationGroupDeleted =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( drgrsReplicationGroups Lude.. Lens._Just
+                    ( drgsrsReplicationGroups Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )
@@ -213,7 +213,7 @@ mkReplicationGroupDeleted =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( drgrsReplicationGroups Lude.. Lens._Just
+                    ( drgsrsReplicationGroups Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )
@@ -240,7 +240,7 @@ mkReplicationGroupAvailable =
             Wait.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( drgrsReplicationGroups Lude.. Lens._Just
+                    ( drgsrsReplicationGroups Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )
@@ -253,7 +253,7 @@ mkReplicationGroupAvailable =
             Wait.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( drgrsReplicationGroups Lude.. Lens._Just
+                    ( drgsrsReplicationGroups Lude.. Lens._Just
                         Lude.. Lens.to Lude.toList
                     )
                 )

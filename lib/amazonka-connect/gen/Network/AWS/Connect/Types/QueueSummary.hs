@@ -32,25 +32,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueueSummary' smart constructor.
 data QueueSummary = QueueSummary'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the queue.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the queue.
     name :: Lude.Maybe Lude.Text,
+    -- | The identifier of the queue.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of queue.
     queueType :: Lude.Maybe QueueType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueueSummary' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) of the queue.
--- * 'id' - The identifier of the queue.
 -- * 'name' - The name of the queue.
+-- * 'id' - The identifier of the queue.
 -- * 'queueType' - The type of queue.
 mkQueueSummary ::
   QueueSummary

@@ -17,8 +17,8 @@ module Network.AWS.AlexaBusiness.Types.PhoneNumber
     mkPhoneNumber,
 
     -- * Lenses
-    pnNumber,
     pnType,
+    pnNumber,
   )
 where
 
@@ -30,31 +30,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPhoneNumber' smart constructor.
 data PhoneNumber = PhoneNumber'
-  { number :: Lude.Sensitive Lude.Text,
-    type' :: PhoneNumberType
+  { -- | The type of the phone number.
+    type' :: PhoneNumberType,
+    -- | The raw value of the phone number.
+    number :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PhoneNumber' with the minimum fields required to make a request.
 --
--- * 'number' - The raw value of the phone number.
 -- * 'type'' - The type of the phone number.
+-- * 'number' - The raw value of the phone number.
 mkPhoneNumber ::
-  -- | 'number'
-  Lude.Sensitive Lude.Text ->
   -- | 'type''
   PhoneNumberType ->
+  -- | 'number'
+  Lude.Sensitive Lude.Text ->
   PhoneNumber
-mkPhoneNumber pNumber_ pType_ =
-  PhoneNumber' {number = pNumber_, type' = pType_}
-
--- | The raw value of the phone number.
---
--- /Note:/ Consider using 'number' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pnNumber :: Lens.Lens' PhoneNumber (Lude.Sensitive Lude.Text)
-pnNumber = Lens.lens (number :: PhoneNumber -> Lude.Sensitive Lude.Text) (\s a -> s {number = a} :: PhoneNumber)
-{-# DEPRECATED pnNumber "Use generic-lens or generic-optics with 'number' instead." #-}
+mkPhoneNumber pType_ pNumber_ =
+  PhoneNumber' {type' = pType_, number = pNumber_}
 
 -- | The type of the phone number.
 --
@@ -63,20 +58,27 @@ pnType :: Lens.Lens' PhoneNumber PhoneNumberType
 pnType = Lens.lens (type' :: PhoneNumber -> PhoneNumberType) (\s a -> s {type' = a} :: PhoneNumber)
 {-# DEPRECATED pnType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
+-- | The raw value of the phone number.
+--
+-- /Note:/ Consider using 'number' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnNumber :: Lens.Lens' PhoneNumber (Lude.Sensitive Lude.Text)
+pnNumber = Lens.lens (number :: PhoneNumber -> Lude.Sensitive Lude.Text) (\s a -> s {number = a} :: PhoneNumber)
+{-# DEPRECATED pnNumber "Use generic-lens or generic-optics with 'number' instead." #-}
+
 instance Lude.FromJSON PhoneNumber where
   parseJSON =
     Lude.withObject
       "PhoneNumber"
       ( \x ->
           PhoneNumber'
-            Lude.<$> (x Lude..: "Number") Lude.<*> (x Lude..: "Type")
+            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Number")
       )
 
 instance Lude.ToJSON PhoneNumber where
   toJSON PhoneNumber' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Number" Lude..= number),
-            Lude.Just ("Type" Lude..= type')
+          [ Lude.Just ("Type" Lude..= type'),
+            Lude.Just ("Number" Lude..= number)
           ]
       )

@@ -13,12 +13,12 @@
 module Network.AWS.SMS.Types.AppStatus
   ( AppStatus
       ( AppStatus',
-        Active,
         Creating,
-        DeleteFailed,
-        Deleted,
+        Active,
+        Updating,
         Deleting,
-        Updating
+        Deleted,
+        DeleteFailed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype AppStatus = AppStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Active :: AppStatus
-pattern Active = AppStatus' "ACTIVE"
-
 pattern Creating :: AppStatus
 pattern Creating = AppStatus' "CREATING"
 
-pattern DeleteFailed :: AppStatus
-pattern DeleteFailed = AppStatus' "DELETE_FAILED"
-
-pattern Deleted :: AppStatus
-pattern Deleted = AppStatus' "DELETED"
-
-pattern Deleting :: AppStatus
-pattern Deleting = AppStatus' "DELETING"
+pattern Active :: AppStatus
+pattern Active = AppStatus' "ACTIVE"
 
 pattern Updating :: AppStatus
 pattern Updating = AppStatus' "UPDATING"
 
+pattern Deleting :: AppStatus
+pattern Deleting = AppStatus' "DELETING"
+
+pattern Deleted :: AppStatus
+pattern Deleted = AppStatus' "DELETED"
+
+pattern DeleteFailed :: AppStatus
+pattern DeleteFailed = AppStatus' "DELETE_FAILED"
+
 {-# COMPLETE
-  Active,
   Creating,
-  DeleteFailed,
-  Deleted,
-  Deleting,
+  Active,
   Updating,
+  Deleting,
+  Deleted,
+  DeleteFailed,
   AppStatus'
   #-}

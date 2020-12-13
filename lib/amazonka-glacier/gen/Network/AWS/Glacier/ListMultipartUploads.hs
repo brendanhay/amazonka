@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,10 +27,10 @@ module Network.AWS.Glacier.ListMultipartUploads
     mkListMultipartUploads,
 
     -- ** Request lenses
+    lmuVaultName,
+    lmuAccountId,
     lmuMarker,
     lmuLimit,
-    lmuAccountId,
-    lmuVaultName,
 
     -- * Destructuring the response
     ListMultipartUploadsResponse (..),
@@ -53,40 +54,51 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListMultipartUploads' smart constructor.
 data ListMultipartUploads = ListMultipartUploads'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Text,
+  { -- | The name of the vault.
+    vaultName :: Lude.Text,
+    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
     accountId :: Lude.Text,
-    vaultName :: Lude.Text
+    -- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.
+    limit :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMultipartUploads' with the minimum fields required to make a request.
 --
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'limit' - Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.
--- * 'marker' - An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
 -- * 'vaultName' - The name of the vault.
+-- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- * 'marker' - An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
+-- * 'limit' - Specifies the maximum number of uploads returned in the response body. If this value is not specified, the List Uploads operation returns up to 50 uploads.
 mkListMultipartUploads ::
-  -- | 'accountId'
-  Lude.Text ->
   -- | 'vaultName'
   Lude.Text ->
+  -- | 'accountId'
+  Lude.Text ->
   ListMultipartUploads
-mkListMultipartUploads pAccountId_ pVaultName_ =
+mkListMultipartUploads pVaultName_ pAccountId_ =
   ListMultipartUploads'
-    { marker = Lude.Nothing,
-      limit = Lude.Nothing,
+    { vaultName = pVaultName_,
       accountId = pAccountId_,
-      vaultName = pVaultName_
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuVaultName :: Lens.Lens' ListMultipartUploads Lude.Text
+lmuVaultName = Lens.lens (vaultName :: ListMultipartUploads -> Lude.Text) (\s a -> s {vaultName = a} :: ListMultipartUploads)
+{-# DEPRECATED lmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmuAccountId :: Lens.Lens' ListMultipartUploads Lude.Text
+lmuAccountId = Lens.lens (accountId :: ListMultipartUploads -> Lude.Text) (\s a -> s {accountId = a} :: ListMultipartUploads)
+{-# DEPRECATED lmuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | An opaque string used for pagination. This value specifies the upload at which the listing of uploads should begin. Get the marker value from a previous List Uploads response. You need only include the marker if you are continuing the pagination of results started in a previous List Uploads request.
 --
@@ -101,20 +113,6 @@ lmuMarker = Lens.lens (marker :: ListMultipartUploads -> Lude.Maybe Lude.Text) (
 lmuLimit :: Lens.Lens' ListMultipartUploads (Lude.Maybe Lude.Text)
 lmuLimit = Lens.lens (limit :: ListMultipartUploads -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: ListMultipartUploads)
 {-# DEPRECATED lmuLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuAccountId :: Lens.Lens' ListMultipartUploads Lude.Text
-lmuAccountId = Lens.lens (accountId :: ListMultipartUploads -> Lude.Text) (\s a -> s {accountId = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmuVaultName :: Lens.Lens' ListMultipartUploads Lude.Text
-lmuVaultName = Lens.lens (vaultName :: ListMultipartUploads -> Lude.Text) (\s a -> s {vaultName = a} :: ListMultipartUploads)
-{-# DEPRECATED lmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 instance Page.AWSPager ListMultipartUploads where
   page rq rs
@@ -156,25 +154,21 @@ instance Lude.ToQuery ListMultipartUploads where
 --
 -- /See:/ 'mkListMultipartUploadsResponse' smart constructor.
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-  { uploadsList ::
-      Lude.Maybe [UploadListElement],
+  { -- | A list of in-progress multipart uploads.
+    uploadsList :: Lude.Maybe [UploadListElement],
+    -- | An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
 --
+-- * 'uploadsList' - A list of in-progress multipart uploads.
 -- * 'marker' - An opaque string that represents where to continue pagination of the results. You use the marker in a new List Multipart Uploads request to obtain more uploads in the list. If there are no more uploads, this value is @null@ .
 -- * 'responseStatus' - The response status code.
--- * 'uploadsList' - A list of in-progress multipart uploads.
 mkListMultipartUploadsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

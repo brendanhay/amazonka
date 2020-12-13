@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,29 +45,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeOrganizationConformancePacks' smart constructor.
 data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    organizationConformancePackNames ::
-      Lude.Maybe
-        [Lude.Text]
+  { -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of organization config packs returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The name that you assign to an organization conformance pack.
+    organizationConformancePackNames :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConformancePacks' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of organization config packs returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
 -- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of organization config packs returned on each page. If you do no specify a number, AWS Config uses the default. The default is 100.
 -- * 'organizationConformancePackNames' - The name that you assign to an organization conformance pack.
 mkDescribeOrganizationConformancePacks ::
   DescribeOrganizationConformancePacks
@@ -144,28 +136,20 @@ instance Lude.ToQuery DescribeOrganizationConformancePacks where
 
 -- | /See:/ 'mkDescribeOrganizationConformancePacksResponse' smart constructor.
 data DescribeOrganizationConformancePacksResponse = DescribeOrganizationConformancePacksResponse'
-  { organizationConformancePacks ::
-      Lude.Maybe
-        [OrganizationConformancePack],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Returns a list of OrganizationConformancePacks objects.
+    organizationConformancePacks :: Lude.Maybe [OrganizationConformancePack],
+    -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganizationConformancePacksResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConformancePacks' - Returns a list of OrganizationConformancePacks objects.
+-- * 'nextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'responseStatus' - The response status code.
 mkDescribeOrganizationConformancePacksResponse ::
   -- | 'responseStatus'

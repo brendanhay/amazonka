@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,7 +24,9 @@ module Network.AWS.ServiceCatalog.ProvisionProduct
 
     -- ** Request lenses
     ppProductName,
+    ppProvisionedProductName,
     ppProvisioningArtifactId,
+    ppProvisionToken,
     ppProvisioningArtifactName,
     ppNotificationARNs,
     ppPathName,
@@ -33,8 +36,6 @@ module Network.AWS.ServiceCatalog.ProvisionProduct
     ppProductId,
     ppTags,
     ppProvisioningPreferences,
-    ppProvisionedProductName,
-    ppProvisionToken,
 
     -- * Destructuring the response
     ProvisionProductResponse (..),
@@ -54,34 +55,54 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkProvisionProduct' smart constructor.
 data ProvisionProduct = ProvisionProduct'
-  { productName ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactId :: Lude.Maybe Lude.Text,
-    provisioningArtifactName :: Lude.Maybe Lude.Text,
-    notificationARNs :: Lude.Maybe [Lude.Text],
-    pathName :: Lude.Maybe Lude.Text,
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    pathId :: Lude.Maybe Lude.Text,
-    provisioningParameters ::
-      Lude.Maybe [ProvisioningParameter],
-    productId :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
-    provisioningPreferences ::
-      Lude.Maybe ProvisioningPreferences,
+  { -- | The name of the product. You must provide the name or ID, but not both.
+    productName :: Lude.Maybe Lude.Text,
+    -- | A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
     provisionedProductName :: Lude.Text,
-    provisionToken :: Lude.Text
+    -- | The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | An idempotency token that uniquely identifies the provisioning request.
+    provisionToken :: Lude.Text,
+    -- | The name of the provisioning artifact. You must provide the name or ID, but not both.
+    provisioningArtifactName :: Lude.Maybe Lude.Text,
+    -- | Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+    notificationARNs :: Lude.Maybe [Lude.Text],
+    -- | The name of the path. You must provide the name or ID, but not both.
+    pathName :: Lude.Maybe Lude.Text,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' . You must provide the name or ID, but not both.
+    pathId :: Lude.Maybe Lude.Text,
+    -- | Parameters specified by the administrator that are required for provisioning the product.
+    provisioningParameters :: Lude.Maybe [ProvisioningParameter],
+    -- | The product identifier. You must provide the name or ID, but not both.
+    productId :: Lude.Maybe Lude.Text,
+    -- | One or more tags.
+    tags :: Lude.Maybe [Tag],
+    -- | An object that contains information about the provisioning preferences for a stack set.
+    provisioningPreferences :: Lude.Maybe ProvisioningPreferences
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionProduct' with the minimum fields required to make a request.
 --
+-- * 'productName' - The name of the product. You must provide the name or ID, but not both.
+-- * 'provisionedProductName' - A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name or ID, but not both.
+-- * 'provisionToken' - An idempotency token that uniquely identifies the provisioning request.
+-- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
+-- * 'notificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+-- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -94,18 +115,11 @@ data ProvisionProduct = ProvisionProduct'
 --     * @zh@ - Chinese
 --
 --
--- * 'notificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 -- * 'pathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' . You must provide the name or ID, but not both.
--- * 'pathName' - The name of the path. You must provide the name or ID, but not both.
--- * 'productId' - The product identifier. You must provide the name or ID, but not both.
--- * 'productName' - The name of the product. You must provide the name or ID, but not both.
--- * 'provisionToken' - An idempotency token that uniquely identifies the provisioning request.
--- * 'provisionedProductName' - A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact. You must provide the name or ID, but not both.
--- * 'provisioningArtifactName' - The name of the provisioning artifact. You must provide the name or ID, but not both.
 -- * 'provisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
--- * 'provisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
+-- * 'productId' - The product identifier. You must provide the name or ID, but not both.
 -- * 'tags' - One or more tags.
+-- * 'provisioningPreferences' - An object that contains information about the provisioning preferences for a stack set.
 mkProvisionProduct ::
   -- | 'provisionedProductName'
   Lude.Text ->
@@ -115,7 +129,9 @@ mkProvisionProduct ::
 mkProvisionProduct pProvisionedProductName_ pProvisionToken_ =
   ProvisionProduct'
     { productName = Lude.Nothing,
+      provisionedProductName = pProvisionedProductName_,
       provisioningArtifactId = Lude.Nothing,
+      provisionToken = pProvisionToken_,
       provisioningArtifactName = Lude.Nothing,
       notificationARNs = Lude.Nothing,
       pathName = Lude.Nothing,
@@ -124,9 +140,7 @@ mkProvisionProduct pProvisionedProductName_ pProvisionToken_ =
       provisioningParameters = Lude.Nothing,
       productId = Lude.Nothing,
       tags = Lude.Nothing,
-      provisioningPreferences = Lude.Nothing,
-      provisionedProductName = pProvisionedProductName_,
-      provisionToken = pProvisionToken_
+      provisioningPreferences = Lude.Nothing
     }
 
 -- | The name of the product. You must provide the name or ID, but not both.
@@ -136,12 +150,26 @@ ppProductName :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
 ppProductName = Lens.lens (productName :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {productName = a} :: ProvisionProduct)
 {-# DEPRECATED ppProductName "Use generic-lens or generic-optics with 'productName' instead." #-}
 
+-- | A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
+--
+-- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisionedProductName :: Lens.Lens' ProvisionProduct Lude.Text
+ppProvisionedProductName = Lens.lens (provisionedProductName :: ProvisionProduct -> Lude.Text) (\s a -> s {provisionedProductName = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
+
 -- | The identifier of the provisioning artifact. You must provide the name or ID, but not both.
 --
 -- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ppProvisioningArtifactId :: Lens.Lens' ProvisionProduct (Lude.Maybe Lude.Text)
 ppProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ProvisionProduct -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ProvisionProduct)
 {-# DEPRECATED ppProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
+
+-- | An idempotency token that uniquely identifies the provisioning request.
+--
+-- /Note:/ Consider using 'provisionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppProvisionToken :: Lens.Lens' ProvisionProduct Lude.Text
+ppProvisionToken = Lens.lens (provisionToken :: ProvisionProduct -> Lude.Text) (\s a -> s {provisionToken = a} :: ProvisionProduct)
+{-# DEPRECATED ppProvisionToken "Use generic-lens or generic-optics with 'provisionToken' instead." #-}
 
 -- | The name of the provisioning artifact. You must provide the name or ID, but not both.
 --
@@ -217,20 +245,6 @@ ppProvisioningPreferences :: Lens.Lens' ProvisionProduct (Lude.Maybe Provisionin
 ppProvisioningPreferences = Lens.lens (provisioningPreferences :: ProvisionProduct -> Lude.Maybe ProvisioningPreferences) (\s a -> s {provisioningPreferences = a} :: ProvisionProduct)
 {-# DEPRECATED ppProvisioningPreferences "Use generic-lens or generic-optics with 'provisioningPreferences' instead." #-}
 
--- | A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
---
--- /Note:/ Consider using 'provisionedProductName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppProvisionedProductName :: Lens.Lens' ProvisionProduct Lude.Text
-ppProvisionedProductName = Lens.lens (provisionedProductName :: ProvisionProduct -> Lude.Text) (\s a -> s {provisionedProductName = a} :: ProvisionProduct)
-{-# DEPRECATED ppProvisionedProductName "Use generic-lens or generic-optics with 'provisionedProductName' instead." #-}
-
--- | An idempotency token that uniquely identifies the provisioning request.
---
--- /Note:/ Consider using 'provisionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppProvisionToken :: Lens.Lens' ProvisionProduct Lude.Text
-ppProvisionToken = Lens.lens (provisionToken :: ProvisionProduct -> Lude.Text) (\s a -> s {provisionToken = a} :: ProvisionProduct)
-{-# DEPRECATED ppProvisionToken "Use generic-lens or generic-optics with 'provisionToken' instead." #-}
-
 instance Lude.AWSRequest ProvisionProduct where
   type Rs ProvisionProduct = ProvisionProductResponse
   request = Req.postJSON serviceCatalogService
@@ -259,7 +273,10 @@ instance Lude.ToJSON ProvisionProduct where
     Lude.object
       ( Lude.catMaybes
           [ ("ProductName" Lude..=) Lude.<$> productName,
+            Lude.Just
+              ("ProvisionedProductName" Lude..= provisionedProductName),
             ("ProvisioningArtifactId" Lude..=) Lude.<$> provisioningArtifactId,
+            Lude.Just ("ProvisionToken" Lude..= provisionToken),
             ("ProvisioningArtifactName" Lude..=)
               Lude.<$> provisioningArtifactName,
             ("NotificationArns" Lude..=) Lude.<$> notificationARNs,
@@ -270,10 +287,7 @@ instance Lude.ToJSON ProvisionProduct where
             ("ProductId" Lude..=) Lude.<$> productId,
             ("Tags" Lude..=) Lude.<$> tags,
             ("ProvisioningPreferences" Lude..=)
-              Lude.<$> provisioningPreferences,
-            Lude.Just
-              ("ProvisionedProductName" Lude..= provisionedProductName),
-            Lude.Just ("ProvisionToken" Lude..= provisionToken)
+              Lude.<$> provisioningPreferences
           ]
       )
 
@@ -285,17 +299,12 @@ instance Lude.ToQuery ProvisionProduct where
 
 -- | /See:/ 'mkProvisionProductResponse' smart constructor.
 data ProvisionProductResponse = ProvisionProductResponse'
-  { recordDetail ::
-      Lude.Maybe RecordDetail,
+  { -- | Information about the result of provisioning the product.
+    recordDetail :: Lude.Maybe RecordDetail,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionProductResponse' with the minimum fields required to make a request.

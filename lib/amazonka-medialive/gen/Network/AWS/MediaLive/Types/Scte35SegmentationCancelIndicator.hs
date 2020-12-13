@@ -13,8 +13,8 @@
 module Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator
   ( Scte35SegmentationCancelIndicator
       ( Scte35SegmentationCancelIndicator',
-        SegmentationEventCanceled,
-        SegmentationEventNotCanceled
+        SegmentationEventNotCanceled,
+        SegmentationEventCanceled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Scte35SegmentationCancelIndicator = Scte35SegmentationCancelIndicator' L
       Lude.ToHeader
     )
 
-pattern SegmentationEventCanceled :: Scte35SegmentationCancelIndicator
-pattern SegmentationEventCanceled = Scte35SegmentationCancelIndicator' "SEGMENTATION_EVENT_CANCELED"
-
 pattern SegmentationEventNotCanceled :: Scte35SegmentationCancelIndicator
 pattern SegmentationEventNotCanceled = Scte35SegmentationCancelIndicator' "SEGMENTATION_EVENT_NOT_CANCELED"
 
+pattern SegmentationEventCanceled :: Scte35SegmentationCancelIndicator
+pattern SegmentationEventCanceled = Scte35SegmentationCancelIndicator' "SEGMENTATION_EVENT_CANCELED"
+
 {-# COMPLETE
-  SegmentationEventCanceled,
   SegmentationEventNotCanceled,
+  SegmentationEventCanceled,
   Scte35SegmentationCancelIndicator'
   #-}

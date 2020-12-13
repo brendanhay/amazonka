@@ -36,33 +36,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLifecycleHook' smart constructor.
 data LifecycleHook = LifecycleHook'
-  { defaultResult ::
-      Lude.Maybe Lude.Text,
+  { -- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The possible values are @CONTINUE@ and @ABANDON@ .
+    defaultResult :: Lude.Maybe Lude.Text,
+    -- | The name of the lifecycle hook.
     lifecycleHookName :: Lude.Maybe Lude.Text,
+    -- | The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter.
     heartbeatTimeout :: Lude.Maybe Lude.Int,
+    -- | The name of the Auto Scaling group for the lifecycle hook.
     autoScalingGroupName :: Lude.Maybe Lude.Text,
+    -- | Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
     notificationMetadata :: Lude.Maybe Lude.Text,
+    -- | The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800 seconds (48 hours) or 100 times @HeartbeatTimeout@ , whichever is smaller.
     globalTimeout :: Lude.Maybe Lude.Int,
+    -- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
     notificationTargetARN :: Lude.Maybe Lude.Text,
+    -- | The state of the EC2 instance to which to attach the lifecycle hook. The following are possible values:
+    --
+    --
+    --     * autoscaling:EC2_INSTANCE_LAUNCHING
+    --
+    --
+    --     * autoscaling:EC2_INSTANCE_TERMINATING
     lifecycleTransition :: Lude.Maybe Lude.Text,
+    -- | The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LifecycleHook' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group for the lifecycle hook.
 -- * 'defaultResult' - Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The possible values are @CONTINUE@ and @ABANDON@ .
--- * 'globalTimeout' - The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800 seconds (48 hours) or 100 times @HeartbeatTimeout@ , whichever is smaller.
--- * 'heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter.
 -- * 'lifecycleHookName' - The name of the lifecycle hook.
+-- * 'heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group for the lifecycle hook.
+-- * 'notificationMetadata' - Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
+-- * 'globalTimeout' - The maximum time, in seconds, that an instance can remain in a @Pending:Wait@ or @Terminating:Wait@ state. The maximum is 172800 seconds (48 hours) or 100 times @HeartbeatTimeout@ , whichever is smaller.
+-- * 'notificationTargetARN' - The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
 -- * 'lifecycleTransition' - The state of the EC2 instance to which to attach the lifecycle hook. The following are possible values:
 --
 --
@@ -72,8 +82,6 @@ data LifecycleHook = LifecycleHook'
 --     * autoscaling:EC2_INSTANCE_TERMINATING
 --
 --
--- * 'notificationMetadata' - Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
--- * 'notificationTargetARN' - The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
 -- * 'roleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
 mkLifecycleHook ::
   LifecycleHook

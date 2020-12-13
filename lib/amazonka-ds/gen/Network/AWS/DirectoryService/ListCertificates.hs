@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DirectoryService.ListCertificates
     mkListCertificates,
 
     -- ** Request lenses
+    lcDirectoryId,
     lcNextToken,
     lcLimit,
-    lcDirectoryId,
 
     -- * Destructuring the response
     ListCertificatesResponse (..),
@@ -42,35 +43,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCertificates' smart constructor.
 data ListCertificates = ListCertificates'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    directoryId :: Lude.Text
+  { -- | The identifier of the directory.
+    directoryId :: Lude.Text,
+    -- | A token for requesting another page of certificates if the @NextToken@ response element indicates that more certificates are available. Use the value of the returned @NextToken@ element in your request until the token comes back as @null@ . Pass @null@ if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The number of items that should show up on one page
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificates' with the minimum fields required to make a request.
 --
 -- * 'directoryId' - The identifier of the directory.
--- * 'limit' - The number of items that should show up on one page
 -- * 'nextToken' - A token for requesting another page of certificates if the @NextToken@ response element indicates that more certificates are available. Use the value of the returned @NextToken@ element in your request until the token comes back as @null@ . Pass @null@ if this is the first call.
+-- * 'limit' - The number of items that should show up on one page
 mkListCertificates ::
   -- | 'directoryId'
   Lude.Text ->
   ListCertificates
 mkListCertificates pDirectoryId_ =
   ListCertificates'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      directoryId = pDirectoryId_
+    { directoryId = pDirectoryId_,
+      nextToken = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The identifier of the directory.
+--
+-- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcDirectoryId :: Lens.Lens' ListCertificates Lude.Text
+lcDirectoryId = Lens.lens (directoryId :: ListCertificates -> Lude.Text) (\s a -> s {directoryId = a} :: ListCertificates)
+{-# DEPRECATED lcDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | A token for requesting another page of certificates if the @NextToken@ response element indicates that more certificates are available. Use the value of the returned @NextToken@ element in your request until the token comes back as @null@ . Pass @null@ if this is the first call.
 --
@@ -85,13 +89,6 @@ lcNextToken = Lens.lens (nextToken :: ListCertificates -> Lude.Maybe Lude.Text) 
 lcLimit :: Lens.Lens' ListCertificates (Lude.Maybe Lude.Natural)
 lcLimit = Lens.lens (limit :: ListCertificates -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListCertificates)
 {-# DEPRECATED lcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The identifier of the directory.
---
--- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcDirectoryId :: Lens.Lens' ListCertificates Lude.Text
-lcDirectoryId = Lens.lens (directoryId :: ListCertificates -> Lude.Text) (\s a -> s {directoryId = a} :: ListCertificates)
-{-# DEPRECATED lcDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 instance Lude.AWSRequest ListCertificates where
   type Rs ListCertificates = ListCertificatesResponse
@@ -120,9 +117,9 @@ instance Lude.ToJSON ListCertificates where
   toJSON ListCertificates' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("DirectoryId" Lude..= directoryId)
+          [ Lude.Just ("DirectoryId" Lude..= directoryId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -134,25 +131,20 @@ instance Lude.ToQuery ListCertificates where
 
 -- | /See:/ 'mkListCertificatesResponse' smart constructor.
 data ListCertificatesResponse = ListCertificatesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    certificatesInfo ::
-      Lude.Maybe [CertificateInfo],
+  { -- | Indicates whether another page of certificates is available when the number of available certificates exceeds the page limit.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of certificates with basic details including certificate ID, certificate common name, certificate state.
+    certificatesInfo :: Lude.Maybe [CertificateInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCertificatesResponse' with the minimum fields required to make a request.
 --
--- * 'certificatesInfo' - A list of certificates with basic details including certificate ID, certificate common name, certificate state.
 -- * 'nextToken' - Indicates whether another page of certificates is available when the number of available certificates exceeds the page limit.
+-- * 'certificatesInfo' - A list of certificates with basic details including certificate ID, certificate common name, certificate state.
 -- * 'responseStatus' - The response status code.
 mkListCertificatesResponse ::
   -- | 'responseStatus'

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,16 +43,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkRebootWorkspaces' smart constructor.
 newtype RebootWorkspaces = RebootWorkspaces'
-  { rebootWorkspaceRequests ::
-      Lude.NonEmpty RebootRequest
+  { -- | The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.
+    rebootWorkspaceRequests :: Lude.NonEmpty RebootRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootWorkspaces' with the minimum fields required to make a request.
@@ -113,17 +108,12 @@ instance Lude.ToQuery RebootWorkspaces where
 
 -- | /See:/ 'mkRebootWorkspacesResponse' smart constructor.
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
-  { failedRequests ::
-      Lude.Maybe [FailedWorkspaceChangeRequest],
+  { -- | Information about the WorkSpaces that could not be rebooted.
+    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootWorkspacesResponse' with the minimum fields required to make a request.

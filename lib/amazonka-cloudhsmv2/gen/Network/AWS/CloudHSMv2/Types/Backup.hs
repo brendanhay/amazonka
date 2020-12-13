@@ -22,12 +22,12 @@ module Network.AWS.CloudHSMv2.Types.Backup
     bNeverExpires,
     bSourceRegion,
     bTagList,
+    bBackupId,
     bSourceBackup,
     bClusterId,
     bCreateTimestamp,
     bCopyTimestamp,
     bBackupState,
-    bBackupId,
   )
 where
 
@@ -40,40 +40,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackup' smart constructor.
 data Backup = Backup'
-  { deleteTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The date and time when the backup will be permanently deleted.
+    deleteTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
     sourceCluster :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
     neverExpires :: Lude.Maybe Lude.Bool,
+    -- | The AWS Region that contains the source backup from which the new backup was copied.
     sourceRegion :: Lude.Maybe Lude.Text,
+    -- | The list of tags for the backup.
     tagList :: Lude.Maybe [Tag],
+    -- | The identifier (ID) of the backup.
+    backupId :: Lude.Text,
+    -- | The identifier (ID) of the source backup from which the new backup was copied.
     sourceBackup :: Lude.Maybe Lude.Text,
+    -- | The identifier (ID) of the cluster that was backed up.
     clusterId :: Lude.Maybe Lude.Text,
+    -- | The date and time when the backup was created.
     createTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The date and time when the backup was copied from a source backup.
     copyTimestamp :: Lude.Maybe Lude.Timestamp,
-    backupState :: Lude.Maybe BackupState,
-    backupId :: Lude.Text
+    -- | The state of the backup.
+    backupState :: Lude.Maybe BackupState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Backup' with the minimum fields required to make a request.
 --
--- * 'backupId' - The identifier (ID) of the backup.
--- * 'backupState' - The state of the backup.
--- * 'clusterId' - The identifier (ID) of the cluster that was backed up.
--- * 'copyTimestamp' - The date and time when the backup was copied from a source backup.
--- * 'createTimestamp' - The date and time when the backup was created.
 -- * 'deleteTimestamp' - The date and time when the backup will be permanently deleted.
--- * 'neverExpires' - Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
--- * 'sourceBackup' - The identifier (ID) of the source backup from which the new backup was copied.
 -- * 'sourceCluster' - The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
+-- * 'neverExpires' - Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
 -- * 'sourceRegion' - The AWS Region that contains the source backup from which the new backup was copied.
 -- * 'tagList' - The list of tags for the backup.
+-- * 'backupId' - The identifier (ID) of the backup.
+-- * 'sourceBackup' - The identifier (ID) of the source backup from which the new backup was copied.
+-- * 'clusterId' - The identifier (ID) of the cluster that was backed up.
+-- * 'createTimestamp' - The date and time when the backup was created.
+-- * 'copyTimestamp' - The date and time when the backup was copied from a source backup.
+-- * 'backupState' - The state of the backup.
 mkBackup ::
   -- | 'backupId'
   Lude.Text ->
@@ -85,12 +90,12 @@ mkBackup pBackupId_ =
       neverExpires = Lude.Nothing,
       sourceRegion = Lude.Nothing,
       tagList = Lude.Nothing,
+      backupId = pBackupId_,
       sourceBackup = Lude.Nothing,
       clusterId = Lude.Nothing,
       createTimestamp = Lude.Nothing,
       copyTimestamp = Lude.Nothing,
-      backupState = Lude.Nothing,
-      backupId = pBackupId_
+      backupState = Lude.Nothing
     }
 
 -- | The date and time when the backup will be permanently deleted.
@@ -128,6 +133,13 @@ bTagList :: Lens.Lens' Backup (Lude.Maybe [Tag])
 bTagList = Lens.lens (tagList :: Backup -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: Backup)
 {-# DEPRECATED bTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
+-- | The identifier (ID) of the backup.
+--
+-- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bBackupId :: Lens.Lens' Backup Lude.Text
+bBackupId = Lens.lens (backupId :: Backup -> Lude.Text) (\s a -> s {backupId = a} :: Backup)
+{-# DEPRECATED bBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
+
 -- | The identifier (ID) of the source backup from which the new backup was copied.
 --
 -- /Note:/ Consider using 'sourceBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -163,13 +175,6 @@ bBackupState :: Lens.Lens' Backup (Lude.Maybe BackupState)
 bBackupState = Lens.lens (backupState :: Backup -> Lude.Maybe BackupState) (\s a -> s {backupState = a} :: Backup)
 {-# DEPRECATED bBackupState "Use generic-lens or generic-optics with 'backupState' instead." #-}
 
--- | The identifier (ID) of the backup.
---
--- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bBackupId :: Lens.Lens' Backup Lude.Text
-bBackupId = Lens.lens (backupId :: Backup -> Lude.Text) (\s a -> s {backupId = a} :: Backup)
-{-# DEPRECATED bBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
-
 instance Lude.FromJSON Backup where
   parseJSON =
     Lude.withObject
@@ -181,10 +186,10 @@ instance Lude.FromJSON Backup where
             Lude.<*> (x Lude..:? "NeverExpires")
             Lude.<*> (x Lude..:? "SourceRegion")
             Lude.<*> (x Lude..:? "TagList" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..: "BackupId")
             Lude.<*> (x Lude..:? "SourceBackup")
             Lude.<*> (x Lude..:? "ClusterId")
             Lude.<*> (x Lude..:? "CreateTimestamp")
             Lude.<*> (x Lude..:? "CopyTimestamp")
             Lude.<*> (x Lude..:? "BackupState")
-            Lude.<*> (x Lude..: "BackupId")
       )

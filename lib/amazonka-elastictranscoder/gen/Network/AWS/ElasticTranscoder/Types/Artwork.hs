@@ -38,33 +38,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArtwork' smart constructor.
 data Artwork = Artwork'
-  { sizingPolicy :: Lude.Maybe Lude.Text,
+  { -- | Specify one of the following values to control scaling of the output album art:
+    --
+    --
+    --     * @Fit:@ Elastic Transcoder scales the output art so it matches the value that you specified in either @MaxWidth@ or @MaxHeight@ without exceeding the other value.
+    --
+    --
+    --     * @Fill:@ Elastic Transcoder scales the output art so it matches the value that you specified in either @MaxWidth@ or @MaxHeight@ and matches or exceeds the other value. Elastic Transcoder centers the output art and then crops it in the dimension (if any) that exceeds the maximum value.
+    --
+    --
+    --     * @Stretch:@ Elastic Transcoder stretches the output art to match the values that you specified for @MaxWidth@ and @MaxHeight@ . If the relative proportions of the input art and the output art are different, the output art will be distorted.
+    --
+    --
+    --     * @Keep:@ Elastic Transcoder does not scale the output art. If either dimension of the input art exceeds the values that you specified for @MaxWidth@ and @MaxHeight@ , Elastic Transcoder crops the output art.
+    --
+    --
+    --     * @ShrinkToFit:@ Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If you specify this option, Elastic Transcoder does not scale the art up.
+    --
+    --
+    --     * @ShrinkToFill@ Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of @MaxWidth@ and @MaxHeight@ without dropping below either value. If you specify this option, Elastic Transcoder does not scale the art up.
+    sizingPolicy :: Lude.Maybe Lude.Text,
+    -- | The format of album art, if any. Valid formats are @.jpg@ and @.png@ .
     albumArtFormat :: Lude.Maybe Lude.Text,
+    -- | The maximum height of the output album art in pixels. If you specify @auto@ , Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
     maxHeight :: Lude.Maybe Lude.Text,
+    -- | The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by @PipelineId@ ; the @InputBucket@ object in that pipeline identifies the bucket.
+    --
+    -- If the file name includes a prefix, for example, @cooking/pie.jpg@ , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
     inputKey :: Lude.Maybe Lude.Text,
+    -- | When you set @PaddingPolicy@ to @Pad@ , Elastic Transcoder may add white bars to the top and bottom and/or left and right sides of the output album art to make the total size of the output art match the values that you specified for @MaxWidth@ and @MaxHeight@ .
     paddingPolicy :: Lude.Maybe Lude.Text,
+    -- | The encryption settings, if any, that you want Elastic Transcoder to apply to your artwork.
     encryption :: Lude.Maybe Encryption,
+    -- | The maximum width of the output album art in pixels. If you specify @auto@ , Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
     maxWidth :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Artwork' with the minimum fields required to make a request.
 --
--- * 'albumArtFormat' - The format of album art, if any. Valid formats are @.jpg@ and @.png@ .
--- * 'encryption' - The encryption settings, if any, that you want Elastic Transcoder to apply to your artwork.
--- * 'inputKey' - The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by @PipelineId@ ; the @InputBucket@ object in that pipeline identifies the bucket.
---
--- If the file name includes a prefix, for example, @cooking/pie.jpg@ , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
--- * 'maxHeight' - The maximum height of the output album art in pixels. If you specify @auto@ , Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
--- * 'maxWidth' - The maximum width of the output album art in pixels. If you specify @auto@ , Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
--- * 'paddingPolicy' - When you set @PaddingPolicy@ to @Pad@ , Elastic Transcoder may add white bars to the top and bottom and/or left and right sides of the output album art to make the total size of the output art match the values that you specified for @MaxWidth@ and @MaxHeight@ .
 -- * 'sizingPolicy' - Specify one of the following values to control scaling of the output album art:
 --
 --
@@ -84,6 +97,16 @@ data Artwork = Artwork'
 --
 --
 --     * @ShrinkToFill@ Elastic Transcoder scales the output art down so that its dimensions match the values that you specified for at least one of @MaxWidth@ and @MaxHeight@ without dropping below either value. If you specify this option, Elastic Transcoder does not scale the art up.
+--
+--
+-- * 'albumArtFormat' - The format of album art, if any. Valid formats are @.jpg@ and @.png@ .
+-- * 'maxHeight' - The maximum height of the output album art in pixels. If you specify @auto@ , Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
+-- * 'inputKey' - The name of the file to be used as album art. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by @PipelineId@ ; the @InputBucket@ object in that pipeline identifies the bucket.
+--
+-- If the file name includes a prefix, for example, @cooking/pie.jpg@ , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
+-- * 'paddingPolicy' - When you set @PaddingPolicy@ to @Pad@ , Elastic Transcoder may add white bars to the top and bottom and/or left and right sides of the output album art to make the total size of the output art match the values that you specified for @MaxWidth@ and @MaxHeight@ .
+-- * 'encryption' - The encryption settings, if any, that you want Elastic Transcoder to apply to your artwork.
+-- * 'maxWidth' - The maximum width of the output album art in pixels. If you specify @auto@ , Elastic Transcoder uses 600 as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
 mkArtwork ::
   Artwork
 mkArtwork =

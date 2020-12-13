@@ -17,8 +17,8 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes
     mkBatchUpdateObjectAttributes,
 
     -- * Lenses
-    buoaObjectReference,
     buoaAttributeUpdates,
+    buoaObjectReference,
   )
 where
 
@@ -31,18 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchUpdateObjectAttributes' smart constructor.
 data BatchUpdateObjectAttributes = BatchUpdateObjectAttributes'
-  { objectReference ::
-      ObjectReference,
-    attributeUpdates ::
-      [ObjectAttributeUpdate]
+  { -- | Attributes update structure.
+    attributeUpdates :: [ObjectAttributeUpdate],
+    -- | Reference that identifies the object.
+    objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchUpdateObjectAttributes' with the minimum fields required to make a request.
@@ -55,16 +49,9 @@ mkBatchUpdateObjectAttributes ::
   BatchUpdateObjectAttributes
 mkBatchUpdateObjectAttributes pObjectReference_ =
   BatchUpdateObjectAttributes'
-    { objectReference = pObjectReference_,
-      attributeUpdates = Lude.mempty
+    { attributeUpdates = Lude.mempty,
+      objectReference = pObjectReference_
     }
-
--- | Reference that identifies the object.
---
--- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buoaObjectReference :: Lens.Lens' BatchUpdateObjectAttributes ObjectReference
-buoaObjectReference = Lens.lens (objectReference :: BatchUpdateObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: BatchUpdateObjectAttributes)
-{-# DEPRECATED buoaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 -- | Attributes update structure.
 --
@@ -73,11 +60,18 @@ buoaAttributeUpdates :: Lens.Lens' BatchUpdateObjectAttributes [ObjectAttributeU
 buoaAttributeUpdates = Lens.lens (attributeUpdates :: BatchUpdateObjectAttributes -> [ObjectAttributeUpdate]) (\s a -> s {attributeUpdates = a} :: BatchUpdateObjectAttributes)
 {-# DEPRECATED buoaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
 
+-- | Reference that identifies the object.
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+buoaObjectReference :: Lens.Lens' BatchUpdateObjectAttributes ObjectReference
+buoaObjectReference = Lens.lens (objectReference :: BatchUpdateObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: BatchUpdateObjectAttributes)
+{-# DEPRECATED buoaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
 instance Lude.ToJSON BatchUpdateObjectAttributes where
   toJSON BatchUpdateObjectAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ObjectReference" Lude..= objectReference),
-            Lude.Just ("AttributeUpdates" Lude..= attributeUpdates)
+          [ Lude.Just ("AttributeUpdates" Lude..= attributeUpdates),
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

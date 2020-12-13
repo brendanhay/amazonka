@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,9 +45,9 @@ module Network.AWS.Kinesis.UpdateShardCount
     mkUpdateShardCount,
 
     -- ** Request lenses
-    uscStreamName,
-    uscTargetShardCount,
     uscScalingType,
+    uscTargetShardCount,
+    uscStreamName,
 
     -- * Destructuring the response
     UpdateShardCountResponse (..),
@@ -68,23 +69,31 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateShardCount' smart constructor.
 data UpdateShardCount = UpdateShardCount'
-  { streamName :: Lude.Text,
+  { -- | The scaling type. Uniform scaling creates shards of equal size.
+    scalingType :: ScalingType,
+    -- | The new number of shards. This value has the following default limits. By default, you cannot do the following:
+    --
+    --
+    --     * Set this value to more than double your current shard count for a stream.
+    --
+    --
+    --     * Set this value below half your current shard count for a stream.
+    --
+    --
+    --     * Set this value to more than 500 shards in a stream (the default limit for shard count per stream is 500 per account per region), unless you request a limit increase.
+    --
+    --
+    --     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
     targetShardCount :: Lude.Natural,
-    scalingType :: ScalingType
+    -- | The name of the stream.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateShardCount' with the minimum fields required to make a request.
 --
 -- * 'scalingType' - The scaling type. Uniform scaling creates shards of equal size.
--- * 'streamName' - The name of the stream.
 -- * 'targetShardCount' - The new number of shards. This value has the following default limits. By default, you cannot do the following:
 --
 --
@@ -98,27 +107,30 @@ data UpdateShardCount = UpdateShardCount'
 --
 --
 --     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
+--
+--
+-- * 'streamName' - The name of the stream.
 mkUpdateShardCount ::
-  -- | 'streamName'
-  Lude.Text ->
-  -- | 'targetShardCount'
-  Lude.Natural ->
   -- | 'scalingType'
   ScalingType ->
+  -- | 'targetShardCount'
+  Lude.Natural ->
+  -- | 'streamName'
+  Lude.Text ->
   UpdateShardCount
-mkUpdateShardCount pStreamName_ pTargetShardCount_ pScalingType_ =
+mkUpdateShardCount pScalingType_ pTargetShardCount_ pStreamName_ =
   UpdateShardCount'
-    { streamName = pStreamName_,
+    { scalingType = pScalingType_,
       targetShardCount = pTargetShardCount_,
-      scalingType = pScalingType_
+      streamName = pStreamName_
     }
 
--- | The name of the stream.
+-- | The scaling type. Uniform scaling creates shards of equal size.
 --
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscStreamName :: Lens.Lens' UpdateShardCount Lude.Text
-uscStreamName = Lens.lens (streamName :: UpdateShardCount -> Lude.Text) (\s a -> s {streamName = a} :: UpdateShardCount)
-{-# DEPRECATED uscStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+-- /Note:/ Consider using 'scalingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscScalingType :: Lens.Lens' UpdateShardCount ScalingType
+uscScalingType = Lens.lens (scalingType :: UpdateShardCount -> ScalingType) (\s a -> s {scalingType = a} :: UpdateShardCount)
+{-# DEPRECATED uscScalingType "Use generic-lens or generic-optics with 'scalingType' instead." #-}
 
 -- | The new number of shards. This value has the following default limits. By default, you cannot do the following:
 --
@@ -141,12 +153,12 @@ uscTargetShardCount :: Lens.Lens' UpdateShardCount Lude.Natural
 uscTargetShardCount = Lens.lens (targetShardCount :: UpdateShardCount -> Lude.Natural) (\s a -> s {targetShardCount = a} :: UpdateShardCount)
 {-# DEPRECATED uscTargetShardCount "Use generic-lens or generic-optics with 'targetShardCount' instead." #-}
 
--- | The scaling type. Uniform scaling creates shards of equal size.
+-- | The name of the stream.
 --
--- /Note:/ Consider using 'scalingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscScalingType :: Lens.Lens' UpdateShardCount ScalingType
-uscScalingType = Lens.lens (scalingType :: UpdateShardCount -> ScalingType) (\s a -> s {scalingType = a} :: UpdateShardCount)
-{-# DEPRECATED uscScalingType "Use generic-lens or generic-optics with 'scalingType' instead." #-}
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscStreamName :: Lens.Lens' UpdateShardCount Lude.Text
+uscStreamName = Lens.lens (streamName :: UpdateShardCount -> Lude.Text) (\s a -> s {streamName = a} :: UpdateShardCount)
+{-# DEPRECATED uscStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Lude.AWSRequest UpdateShardCount where
   type Rs UpdateShardCount = UpdateShardCountResponse
@@ -176,9 +188,9 @@ instance Lude.ToJSON UpdateShardCount where
   toJSON UpdateShardCount' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StreamName" Lude..= streamName),
+          [ Lude.Just ("ScalingType" Lude..= scalingType),
             Lude.Just ("TargetShardCount" Lude..= targetShardCount),
-            Lude.Just ("ScalingType" Lude..= scalingType)
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
@@ -190,28 +202,24 @@ instance Lude.ToQuery UpdateShardCount where
 
 -- | /See:/ 'mkUpdateShardCountResponse' smart constructor.
 data UpdateShardCountResponse = UpdateShardCountResponse'
-  { targetShardCount ::
-      Lude.Maybe Lude.Natural,
+  { -- | The updated number of shards.
+    targetShardCount :: Lude.Maybe Lude.Natural,
+    -- | The name of the stream.
     streamName :: Lude.Maybe Lude.Text,
-    currentShardCount ::
-      Lude.Maybe Lude.Natural,
+    -- | The current number of shards.
+    currentShardCount :: Lude.Maybe Lude.Natural,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateShardCountResponse' with the minimum fields required to make a request.
 --
+-- * 'targetShardCount' - The updated number of shards.
+-- * 'streamName' - The name of the stream.
 -- * 'currentShardCount' - The current number of shards.
 -- * 'responseStatus' - The response status code.
--- * 'streamName' - The name of the stream.
--- * 'targetShardCount' - The updated number of shards.
 mkUpdateShardCountResponse ::
   -- | 'responseStatus'
   Lude.Int ->

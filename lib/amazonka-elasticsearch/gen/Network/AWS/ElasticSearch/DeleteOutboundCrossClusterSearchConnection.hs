@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteOutboundCrossClusterSearchConnection' smart constructor.
 newtype DeleteOutboundCrossClusterSearchConnection = DeleteOutboundCrossClusterSearchConnection'
-  { crossClusterSearchConnectionId ::
-      Lude.Text
+  { -- | The id of the outbound connection that you want to permanently delete.
+    crossClusterSearchConnectionId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOutboundCrossClusterSearchConnection' with the minimum fields required to make a request.
@@ -104,23 +99,13 @@ instance Lude.ToQuery DeleteOutboundCrossClusterSearchConnection where
 --
 -- /See:/ 'mkDeleteOutboundCrossClusterSearchConnectionResponse' smart constructor.
 data DeleteOutboundCrossClusterSearchConnectionResponse = DeleteOutboundCrossClusterSearchConnectionResponse'
-  { crossClusterSearchConnection ::
-      Lude.Maybe
-        OutboundCrossClusterSearchConnection,
-    responseStatus ::
-      Lude.Int
+  { -- | Specifies the @'OutboundCrossClusterSearchConnection' @ of deleted outbound connection.
+    crossClusterSearchConnection :: Lude.Maybe OutboundCrossClusterSearchConnection,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteOutboundCrossClusterSearchConnectionResponse' with the minimum fields required to make a request.
 --

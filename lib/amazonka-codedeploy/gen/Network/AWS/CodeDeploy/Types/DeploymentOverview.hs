@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeploymentOverview' smart constructor.
 data DeploymentOverview = DeploymentOverview'
-  { pending ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of instances in the deployment in a pending state.
+    pending :: Lude.Maybe Lude.Integer,
+    -- | The number of instances in the deployment in a skipped state.
     skipped :: Lude.Maybe Lude.Integer,
+    -- | The number of instances in which the deployment is in progress.
     inProgress :: Lude.Maybe Lude.Integer,
+    -- | The number of instances in the deployment to which revisions have been successfully deployed.
     succeeded :: Lude.Maybe Lude.Integer,
+    -- | The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.
     ready :: Lude.Maybe Lude.Integer,
+    -- | The number of instances in the deployment in a failed state.
     failed :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeploymentOverview' with the minimum fields required to make a request.
 --
--- * 'failed' - The number of instances in the deployment in a failed state.
--- * 'inProgress' - The number of instances in which the deployment is in progress.
 -- * 'pending' - The number of instances in the deployment in a pending state.
--- * 'ready' - The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.
 -- * 'skipped' - The number of instances in the deployment in a skipped state.
+-- * 'inProgress' - The number of instances in which the deployment is in progress.
 -- * 'succeeded' - The number of instances in the deployment to which revisions have been successfully deployed.
+-- * 'ready' - The number of instances in a replacement environment ready to receive traffic in a blue/green deployment.
+-- * 'failed' - The number of instances in the deployment in a failed state.
 mkDeploymentOverview ::
   DeploymentOverview
 mkDeploymentOverview =

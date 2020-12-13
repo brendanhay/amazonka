@@ -32,24 +32,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImageFailure' smart constructor.
 data ImageFailure = ImageFailure'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
+  { -- | The reason for the failure.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The code associated with the failure.
     failureCode :: Lude.Maybe ImageFailureCode,
+    -- | The image ID associated with the failure.
     imageId :: Lude.Maybe ImageIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImageFailure' with the minimum fields required to make a request.
 --
--- * 'failureCode' - The code associated with the failure.
 -- * 'failureReason' - The reason for the failure.
+-- * 'failureCode' - The code associated with the failure.
 -- * 'imageId' - The image ID associated with the failure.
 mkImageFailure ::
   ImageFailure

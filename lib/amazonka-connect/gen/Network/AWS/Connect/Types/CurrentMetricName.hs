@@ -13,17 +13,17 @@
 module Network.AWS.Connect.Types.CurrentMetricName
   ( CurrentMetricName
       ( CurrentMetricName',
-        AgentsAfterContactWork,
-        AgentsAvailable,
-        AgentsError,
-        AgentsNonProductive,
-        AgentsOnCall,
-        AgentsOnContact,
         AgentsOnline,
+        AgentsAvailable,
+        AgentsOnCall,
+        AgentsNonProductive,
+        AgentsAfterContactWork,
+        AgentsError,
         AgentsStaffed,
         ContactsInQueue,
-        ContactsScheduled,
         OldestContactAge,
+        ContactsScheduled,
+        AgentsOnContact,
         SlotsActive,
         SlotsAvailable
       ),
@@ -57,26 +57,23 @@ newtype CurrentMetricName = CurrentMetricName' Lude.Text
       Lude.ToHeader
     )
 
-pattern AgentsAfterContactWork :: CurrentMetricName
-pattern AgentsAfterContactWork = CurrentMetricName' "AGENTS_AFTER_CONTACT_WORK"
+pattern AgentsOnline :: CurrentMetricName
+pattern AgentsOnline = CurrentMetricName' "AGENTS_ONLINE"
 
 pattern AgentsAvailable :: CurrentMetricName
 pattern AgentsAvailable = CurrentMetricName' "AGENTS_AVAILABLE"
 
-pattern AgentsError :: CurrentMetricName
-pattern AgentsError = CurrentMetricName' "AGENTS_ERROR"
+pattern AgentsOnCall :: CurrentMetricName
+pattern AgentsOnCall = CurrentMetricName' "AGENTS_ON_CALL"
 
 pattern AgentsNonProductive :: CurrentMetricName
 pattern AgentsNonProductive = CurrentMetricName' "AGENTS_NON_PRODUCTIVE"
 
-pattern AgentsOnCall :: CurrentMetricName
-pattern AgentsOnCall = CurrentMetricName' "AGENTS_ON_CALL"
+pattern AgentsAfterContactWork :: CurrentMetricName
+pattern AgentsAfterContactWork = CurrentMetricName' "AGENTS_AFTER_CONTACT_WORK"
 
-pattern AgentsOnContact :: CurrentMetricName
-pattern AgentsOnContact = CurrentMetricName' "AGENTS_ON_CONTACT"
-
-pattern AgentsOnline :: CurrentMetricName
-pattern AgentsOnline = CurrentMetricName' "AGENTS_ONLINE"
+pattern AgentsError :: CurrentMetricName
+pattern AgentsError = CurrentMetricName' "AGENTS_ERROR"
 
 pattern AgentsStaffed :: CurrentMetricName
 pattern AgentsStaffed = CurrentMetricName' "AGENTS_STAFFED"
@@ -84,11 +81,14 @@ pattern AgentsStaffed = CurrentMetricName' "AGENTS_STAFFED"
 pattern ContactsInQueue :: CurrentMetricName
 pattern ContactsInQueue = CurrentMetricName' "CONTACTS_IN_QUEUE"
 
+pattern OldestContactAge :: CurrentMetricName
+pattern OldestContactAge = CurrentMetricName' "OLDEST_CONTACT_AGE"
+
 pattern ContactsScheduled :: CurrentMetricName
 pattern ContactsScheduled = CurrentMetricName' "CONTACTS_SCHEDULED"
 
-pattern OldestContactAge :: CurrentMetricName
-pattern OldestContactAge = CurrentMetricName' "OLDEST_CONTACT_AGE"
+pattern AgentsOnContact :: CurrentMetricName
+pattern AgentsOnContact = CurrentMetricName' "AGENTS_ON_CONTACT"
 
 pattern SlotsActive :: CurrentMetricName
 pattern SlotsActive = CurrentMetricName' "SLOTS_ACTIVE"
@@ -97,17 +97,17 @@ pattern SlotsAvailable :: CurrentMetricName
 pattern SlotsAvailable = CurrentMetricName' "SLOTS_AVAILABLE"
 
 {-# COMPLETE
-  AgentsAfterContactWork,
-  AgentsAvailable,
-  AgentsError,
-  AgentsNonProductive,
-  AgentsOnCall,
-  AgentsOnContact,
   AgentsOnline,
+  AgentsAvailable,
+  AgentsOnCall,
+  AgentsNonProductive,
+  AgentsAfterContactWork,
+  AgentsError,
   AgentsStaffed,
   ContactsInQueue,
-  ContactsScheduled,
   OldestContactAge,
+  ContactsScheduled,
+  AgentsOnContact,
   SlotsActive,
   SlotsAvailable,
   CurrentMetricName'

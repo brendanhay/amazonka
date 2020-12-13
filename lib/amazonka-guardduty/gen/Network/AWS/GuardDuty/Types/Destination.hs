@@ -17,9 +17,9 @@ module Network.AWS.GuardDuty.Types.Destination
     mkDestination,
 
     -- * Lenses
-    dDestinationId,
-    dDestinationType,
     dStatus,
+    dDestinationType,
+    dDestinationId,
   )
 where
 
@@ -32,52 +32,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestination' smart constructor.
 data Destination = Destination'
-  { destinationId :: Lude.Text,
+  { -- | The status of the publishing destination.
+    status :: PublishingStatus,
+    -- | The type of resource used for the publishing destination. Currently, only Amazon S3 buckets are supported.
     destinationType :: DestinationType,
-    status :: PublishingStatus
+    -- | The unique ID of the publishing destination.
+    destinationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
--- * 'destinationId' - The unique ID of the publishing destination.
--- * 'destinationType' - The type of resource used for the publishing destination. Currently, only Amazon S3 buckets are supported.
 -- * 'status' - The status of the publishing destination.
+-- * 'destinationType' - The type of resource used for the publishing destination. Currently, only Amazon S3 buckets are supported.
+-- * 'destinationId' - The unique ID of the publishing destination.
 mkDestination ::
-  -- | 'destinationId'
-  Lude.Text ->
-  -- | 'destinationType'
-  DestinationType ->
   -- | 'status'
   PublishingStatus ->
+  -- | 'destinationType'
+  DestinationType ->
+  -- | 'destinationId'
+  Lude.Text ->
   Destination
-mkDestination pDestinationId_ pDestinationType_ pStatus_ =
+mkDestination pStatus_ pDestinationType_ pDestinationId_ =
   Destination'
-    { destinationId = pDestinationId_,
+    { status = pStatus_,
       destinationType = pDestinationType_,
-      status = pStatus_
+      destinationId = pDestinationId_
     }
-
--- | The unique ID of the publishing destination.
---
--- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDestinationId :: Lens.Lens' Destination Lude.Text
-dDestinationId = Lens.lens (destinationId :: Destination -> Lude.Text) (\s a -> s {destinationId = a} :: Destination)
-{-# DEPRECATED dDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
-
--- | The type of resource used for the publishing destination. Currently, only Amazon S3 buckets are supported.
---
--- /Note:/ Consider using 'destinationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDestinationType :: Lens.Lens' Destination DestinationType
-dDestinationType = Lens.lens (destinationType :: Destination -> DestinationType) (\s a -> s {destinationType = a} :: Destination)
-{-# DEPRECATED dDestinationType "Use generic-lens or generic-optics with 'destinationType' instead." #-}
 
 -- | The status of the publishing destination.
 --
@@ -86,13 +69,27 @@ dStatus :: Lens.Lens' Destination PublishingStatus
 dStatus = Lens.lens (status :: Destination -> PublishingStatus) (\s a -> s {status = a} :: Destination)
 {-# DEPRECATED dStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | The type of resource used for the publishing destination. Currently, only Amazon S3 buckets are supported.
+--
+-- /Note:/ Consider using 'destinationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDestinationType :: Lens.Lens' Destination DestinationType
+dDestinationType = Lens.lens (destinationType :: Destination -> DestinationType) (\s a -> s {destinationType = a} :: Destination)
+{-# DEPRECATED dDestinationType "Use generic-lens or generic-optics with 'destinationType' instead." #-}
+
+-- | The unique ID of the publishing destination.
+--
+-- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDestinationId :: Lens.Lens' Destination Lude.Text
+dDestinationId = Lens.lens (destinationId :: Destination -> Lude.Text) (\s a -> s {destinationId = a} :: Destination)
+{-# DEPRECATED dDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
+
 instance Lude.FromJSON Destination where
   parseJSON =
     Lude.withObject
       "Destination"
       ( \x ->
           Destination'
-            Lude.<$> (x Lude..: "destinationId")
+            Lude.<$> (x Lude..: "status")
             Lude.<*> (x Lude..: "destinationType")
-            Lude.<*> (x Lude..: "status")
+            Lude.<*> (x Lude..: "destinationId")
       )

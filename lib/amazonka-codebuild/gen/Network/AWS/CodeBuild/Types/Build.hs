@@ -72,56 +72,190 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuild' smart constructor.
 data Build = Build'
-  { phases :: Lude.Maybe [BuildPhase],
+  { -- | Information about all previous build phases that are complete and information about any current build phase that is not yet complete.
+    phases :: Lude.Maybe [BuildPhase],
+    -- | Whether the build is complete. True if complete; otherwise, false.
     buildComplete :: Lude.Maybe Lude.Bool,
+    -- | An array of @ProjectArtifacts@ objects.
     secondaryArtifacts :: Lude.Maybe [BuildArtifacts],
+    -- | The Amazon Resource Name (ARN) of the build.
     arn :: Lude.Maybe Lude.Text,
-    exportedEnvironmentVariables ::
-      Lude.Maybe [ExportedEnvironmentVariable],
+    -- | A list of exported environment variables for this build.
+    exportedEnvironmentVariables :: Lude.Maybe [ExportedEnvironmentVariable],
+    -- | The number of the build. For each project, the @buildNumber@ of its first build is @1@ . The @buildNumber@ of each subsequent build is incremented by @1@ . If a build is deleted, the @buildNumber@ of other builds does not change.
     buildNumber :: Lude.Maybe Lude.Integer,
+    -- | When the build process started, expressed in Unix time format.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Information about the output artifacts for the build.
     artifacts :: Lude.Maybe BuildArtifacts,
+    -- | Information about the build environment for this build.
     environment :: Lude.Maybe ProjectEnvironment,
+    -- | The entity that started the build. Valid values include:
+    --
+    --
+    --     * If AWS CodePipeline started the build, the pipeline's name (for example, @codepipeline/my-demo-pipeline@ ).
+    --
+    --
+    --     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example, @MyUserName@ ).
+    --
+    --
+    --     * If the Jenkins plugin for AWS CodeBuild started the build, the string @CodeBuild-Jenkins-Plugin@ .
     initiator :: Lude.Maybe Lude.Text,
+    -- | Describes a network interface.
     networkInterface :: Lude.Maybe NetworkInterface,
+    -- | An array of @ProjectSourceVersion@ objects. Each @ProjectSourceVersion@ must be one of:
+    --
+    --
+    --     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+    --
+    --
+    --     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example, @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+    --
+    --
+    --     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
     secondarySourceVersions :: Lude.Maybe [ProjectSourceVersion],
+    -- | The current build phase.
     currentPhase :: Lude.Maybe Lude.Text,
+    -- | The number of minutes a build is allowed to be queued before it times out.
     queuedTimeoutInMinutes :: Lude.Maybe Lude.Int,
+    -- | Information about the cache for the build.
     cache :: Lude.Maybe ProjectCache,
+    -- | An array of @ProjectSource@ objects.
     secondarySources :: Lude.Maybe [ProjectSource],
+    -- | Contains information about the debug session for this build.
     debugSession :: Lude.Maybe DebugSession,
+    -- | Any version identifier for the version of the source code to be built. If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
     sourceVersion :: Lude.Maybe Lude.Text,
+    -- | The ARN of the batch build that this build is a member of, if applicable.
     buildBatchARN :: Lude.Maybe Lude.Text,
+    -- | Information about the build's logs in Amazon CloudWatch Logs.
     logs :: Lude.Maybe LogsLocation,
+    -- | An identifier for the version of this build's source code.
+    --
+    --
+    --     * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.
+    --
+    --
+    --     * For AWS CodePipeline, the source revision provided by AWS CodePipeline.
+    --
+    --
+    --     * For Amazon Simple Storage Service (Amazon S3), this does not apply.
     resolvedSourceVersion :: Lude.Maybe Lude.Text,
+    -- | If your AWS CodeBuild project accesses resources in an Amazon VPC, you provide this parameter that identifies the VPC ID and the list of security group IDs and subnet IDs. The security groups and subnets must belong to the same VPC. You must provide at least one security group and one subnet ID.
     vpcConfig :: Lude.Maybe VPCConfig,
+    -- | When the build process ended, expressed in Unix time format.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the AWS CodeBuild project.
     projectName :: Lude.Maybe Lude.Text,
+    -- | The current status of the build. Valid values include:
+    --
+    --
+    --     * @FAILED@ : The build failed.
+    --
+    --
+    --     * @FAULT@ : The build faulted.
+    --
+    --
+    --     * @IN_PROGRESS@ : The build is still in progress.
+    --
+    --
+    --     * @STOPPED@ : The build stopped.
+    --
+    --
+    --     * @SUCCEEDED@ : The build succeeded.
+    --
+    --
+    --     * @TIMED_OUT@ : The build timed out.
     buildStatus :: Lude.Maybe StatusType,
+    -- | Information about the source code to be built.
     source :: Lude.Maybe ProjectSource,
+    -- | The unique ID for the build.
     id :: Lude.Maybe Lude.Text,
+    -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
     fileSystemLocations :: Lude.Maybe [ProjectFileSystemLocation],
+    -- | An array of the ARNs associated with this build's reports.
     reportARNs :: Lude.Maybe [Lude.Text],
+    -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
+    --
+    -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
     encryptionKey :: Lude.Maybe Lude.Text,
+    -- | The name of a service role used for this build.
     serviceRole :: Lude.Maybe Lude.Text,
+    -- | How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not get marked as completed.
     timeoutInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Build' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the build.
--- * 'artifacts' - Information about the output artifacts for the build.
--- * 'buildBatchARN' - The ARN of the batch build that this build is a member of, if applicable.
+-- * 'phases' - Information about all previous build phases that are complete and information about any current build phase that is not yet complete.
 -- * 'buildComplete' - Whether the build is complete. True if complete; otherwise, false.
+-- * 'secondaryArtifacts' - An array of @ProjectArtifacts@ objects.
+-- * 'arn' - The Amazon Resource Name (ARN) of the build.
+-- * 'exportedEnvironmentVariables' - A list of exported environment variables for this build.
 -- * 'buildNumber' - The number of the build. For each project, the @buildNumber@ of its first build is @1@ . The @buildNumber@ of each subsequent build is incremented by @1@ . If a build is deleted, the @buildNumber@ of other builds does not change.
+-- * 'startTime' - When the build process started, expressed in Unix time format.
+-- * 'artifacts' - Information about the output artifacts for the build.
+-- * 'environment' - Information about the build environment for this build.
+-- * 'initiator' - The entity that started the build. Valid values include:
+--
+--
+--     * If AWS CodePipeline started the build, the pipeline's name (for example, @codepipeline/my-demo-pipeline@ ).
+--
+--
+--     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example, @MyUserName@ ).
+--
+--
+--     * If the Jenkins plugin for AWS CodeBuild started the build, the string @CodeBuild-Jenkins-Plugin@ .
+--
+--
+-- * 'networkInterface' - Describes a network interface.
+-- * 'secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. Each @ProjectSourceVersion@ must be one of:
+--
+--
+--     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+--
+--
+--     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example, @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
+--
+--
+--     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
+--
+--
+-- * 'currentPhase' - The current build phase.
+-- * 'queuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
+-- * 'cache' - Information about the cache for the build.
+-- * 'secondarySources' - An array of @ProjectSource@ objects.
+-- * 'debugSession' - Contains information about the debug session for this build.
+-- * 'sourceVersion' - Any version identifier for the version of the source code to be built. If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
+--
+-- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
+-- * 'buildBatchARN' - The ARN of the batch build that this build is a member of, if applicable.
+-- * 'logs' - Information about the build's logs in Amazon CloudWatch Logs.
+-- * 'resolvedSourceVersion' - An identifier for the version of this build's source code.
+--
+--
+--     * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.
+--
+--
+--     * For AWS CodePipeline, the source revision provided by AWS CodePipeline.
+--
+--
+--     * For Amazon Simple Storage Service (Amazon S3), this does not apply.
+--
+--
+-- * 'vpcConfig' - If your AWS CodeBuild project accesses resources in an Amazon VPC, you provide this parameter that identifies the VPC ID and the list of security group IDs and subnet IDs. The security groups and subnets must belong to the same VPC. You must provide at least one security group and one subnet ID.
+-- * 'endTime' - When the build process ended, expressed in Unix time format.
+-- * 'projectName' - The name of the AWS CodeBuild project.
 -- * 'buildStatus' - The current status of the build. Valid values include:
 --
 --
@@ -143,72 +277,15 @@ data Build = Build'
 --     * @TIMED_OUT@ : The build timed out.
 --
 --
--- * 'cache' - Information about the cache for the build.
--- * 'currentPhase' - The current build phase.
--- * 'debugSession' - Contains information about the debug session for this build.
+-- * 'source' - Information about the source code to be built.
+-- * 'id' - The unique ID for the build.
+-- * 'fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
+-- * 'reportARNs' - An array of the ARNs associated with this build's reports.
 -- * 'encryptionKey' - The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output artifacts.
 --
 -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using the format @alias/<alias-name>@ ).
--- * 'endTime' - When the build process ended, expressed in Unix time format.
--- * 'environment' - Information about the build environment for this build.
--- * 'exportedEnvironmentVariables' - A list of exported environment variables for this build.
--- * 'fileSystemLocations' - An array of @ProjectFileSystemLocation@ objects for a CodeBuild build project. A @ProjectFileSystemLocation@ object specifies the @identifier@ , @location@ , @mountOptions@ , @mountPoint@ , and @type@ of a file system created using Amazon Elastic File System.
--- * 'id' - The unique ID for the build.
--- * 'initiator' - The entity that started the build. Valid values include:
---
---
---     * If AWS CodePipeline started the build, the pipeline's name (for example, @codepipeline/my-demo-pipeline@ ).
---
---
---     * If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example, @MyUserName@ ).
---
---
---     * If the Jenkins plugin for AWS CodeBuild started the build, the string @CodeBuild-Jenkins-Plugin@ .
---
---
--- * 'logs' - Information about the build's logs in Amazon CloudWatch Logs.
--- * 'networkInterface' - Describes a network interface.
--- * 'phases' - Information about all previous build phases that are complete and information about any current build phase that is not yet complete.
--- * 'projectName' - The name of the AWS CodeBuild project.
--- * 'queuedTimeoutInMinutes' - The number of minutes a build is allowed to be queued before it times out.
--- * 'reportARNs' - An array of the ARNs associated with this build's reports.
--- * 'resolvedSourceVersion' - An identifier for the version of this build's source code.
---
---
---     * For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the commit ID.
---
---
---     * For AWS CodePipeline, the source revision provided by AWS CodePipeline.
---
---
---     * For Amazon Simple Storage Service (Amazon S3), this does not apply.
---
---
--- * 'secondaryArtifacts' - An array of @ProjectArtifacts@ objects.
--- * 'secondarySourceVersions' - An array of @ProjectSourceVersion@ objects. Each @ProjectSourceVersion@ must be one of:
---
---
---     * For AWS CodeCommit: the commit ID, branch, or Git tag to use.
---
---
---     * For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a pull request ID is specified, it must use the format @pr/pull-request-ID@ (for example, @pr/25@ ). If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
---
---
---     * For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version of the source code you want to build. If a branch name is specified, the branch's HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.
---
---
---     * For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents the build input ZIP file to use.
---
---
--- * 'secondarySources' - An array of @ProjectSource@ objects.
 -- * 'serviceRole' - The name of a service role used for this build.
--- * 'source' - Information about the source code to be built.
--- * 'sourceVersion' - Any version identifier for the version of the source code to be built. If @sourceVersion@ is specified at the project level, then this @sourceVersion@ (at the build level) takes precedence.
---
--- For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild> in the /AWS CodeBuild User Guide/ .
--- * 'startTime' - When the build process started, expressed in Unix time format.
 -- * 'timeoutInMinutes' - How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not get marked as completed.
--- * 'vpcConfig' - If your AWS CodeBuild project accesses resources in an Amazon VPC, you provide this parameter that identifies the VPC ID and the list of security group IDs and subnet IDs. The security groups and subnets must belong to the same VPC. You must provide at least one security group and one subnet ID.
 mkBuild ::
   Build
 mkBuild =

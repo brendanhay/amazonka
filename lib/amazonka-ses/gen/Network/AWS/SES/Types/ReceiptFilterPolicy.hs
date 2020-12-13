@@ -13,8 +13,8 @@
 module Network.AWS.SES.Types.ReceiptFilterPolicy
   ( ReceiptFilterPolicy
       ( ReceiptFilterPolicy',
-        Allow,
-        Block
+        Block,
+        Allow
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReceiptFilterPolicy = ReceiptFilterPolicy' Lude.Text
       Lude.ToHeader
     )
 
-pattern Allow :: ReceiptFilterPolicy
-pattern Allow = ReceiptFilterPolicy' "Allow"
-
 pattern Block :: ReceiptFilterPolicy
 pattern Block = ReceiptFilterPolicy' "Block"
 
+pattern Allow :: ReceiptFilterPolicy
+pattern Allow = ReceiptFilterPolicy' "Allow"
+
 {-# COMPLETE
-  Allow,
   Block,
+  Allow,
   ReceiptFilterPolicy'
   #-}

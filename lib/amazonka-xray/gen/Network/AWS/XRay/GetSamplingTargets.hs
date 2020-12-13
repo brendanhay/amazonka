@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,16 +42,10 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetSamplingTargets' smart constructor.
 newtype GetSamplingTargets = GetSamplingTargets'
-  { samplingStatisticsDocuments ::
-      [SamplingStatisticsDocument]
+  { -- | Information about rules that the service is using to sample requests.
+    samplingStatisticsDocuments :: [SamplingStatisticsDocument]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingTargets' with the minimum fields required to make a request.
@@ -103,29 +98,24 @@ instance Lude.ToQuery GetSamplingTargets where
 
 -- | /See:/ 'mkGetSamplingTargetsResponse' smart constructor.
 data GetSamplingTargetsResponse = GetSamplingTargetsResponse'
-  { unprocessedStatistics ::
-      Lude.Maybe [UnprocessedStatistics],
-    lastRuleModification ::
-      Lude.Maybe Lude.Timestamp,
-    samplingTargetDocuments ::
-      Lude.Maybe [SamplingTargetDocument],
+  { -- | Information about 'SamplingStatisticsDocument' that X-Ray could not process.
+    unprocessedStatistics :: Lude.Maybe [UnprocessedStatistics],
+    -- | The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call 'GetSamplingRules' to get the latest version.
+    lastRuleModification :: Lude.Maybe Lude.Timestamp,
+    -- | Updated rules that the service should use to sample requests.
+    samplingTargetDocuments :: Lude.Maybe [SamplingTargetDocument],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSamplingTargetsResponse' with the minimum fields required to make a request.
 --
--- * 'lastRuleModification' - The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call 'GetSamplingRules' to get the latest version.
--- * 'responseStatus' - The response status code.
--- * 'samplingTargetDocuments' - Updated rules that the service should use to sample requests.
 -- * 'unprocessedStatistics' - Information about 'SamplingStatisticsDocument' that X-Ray could not process.
+-- * 'lastRuleModification' - The last time a user changed the sampling rule configuration. If the sampling rule configuration changed since the service last retrieved it, the service should call 'GetSamplingRules' to get the latest version.
+-- * 'samplingTargetDocuments' - Updated rules that the service should use to sample requests.
+-- * 'responseStatus' - The response status code.
 mkGetSamplingTargetsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

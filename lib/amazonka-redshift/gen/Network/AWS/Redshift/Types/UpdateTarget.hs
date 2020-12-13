@@ -32,18 +32,14 @@ import Network.AWS.Redshift.Types.SupportedOperation
 --
 -- /See:/ 'mkUpdateTarget' smart constructor.
 data UpdateTarget = UpdateTarget'
-  { databaseVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The cluster version for the new maintenance track.
+    databaseVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the new maintenance track.
     maintenanceTrackName :: Lude.Maybe Lude.Text,
+    -- | A list of operations supported by the maintenance track.
     supportedOperations :: Lude.Maybe [SupportedOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTarget' with the minimum fields required to make a request.

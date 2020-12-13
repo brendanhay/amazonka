@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -32,17 +33,17 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
     mkDisassociateVPCFromHostedZone,
 
     -- ** Request lenses
-    dvfhzComment,
     dvfhzHostedZoneId,
     dvfhzVPC,
+    dvfhzComment,
 
     -- * Destructuring the response
     DisassociateVPCFromHostedZoneResponse (..),
     mkDisassociateVPCFromHostedZoneResponse,
 
     -- ** Response lenses
-    dvfhzrsResponseStatus,
     dvfhzrsChangeInfo,
+    dvfhzrsResponseStatus,
   )
 where
 
@@ -56,25 +57,21 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkDisassociateVPCFromHostedZone' smart constructor.
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
-  { comment ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the private hosted zone that you want to disassociate a VPC from.
     hostedZoneId :: ResourceId,
-    vpc :: VPC
+    -- | A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.
+    vpc :: VPC,
+    -- | /Optional:/ A comment about the disassociation request.
+    comment :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateVPCFromHostedZone' with the minimum fields required to make a request.
 --
--- * 'comment' - /Optional:/ A comment about the disassociation request.
 -- * 'hostedZoneId' - The ID of the private hosted zone that you want to disassociate a VPC from.
 -- * 'vpc' - A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.
+-- * 'comment' - /Optional:/ A comment about the disassociation request.
 mkDisassociateVPCFromHostedZone ::
   -- | 'hostedZoneId'
   ResourceId ->
@@ -83,17 +80,10 @@ mkDisassociateVPCFromHostedZone ::
   DisassociateVPCFromHostedZone
 mkDisassociateVPCFromHostedZone pHostedZoneId_ pVPC_ =
   DisassociateVPCFromHostedZone'
-    { comment = Lude.Nothing,
-      hostedZoneId = pHostedZoneId_,
-      vpc = pVPC_
+    { hostedZoneId = pHostedZoneId_,
+      vpc = pVPC_,
+      comment = Lude.Nothing
     }
-
--- | /Optional:/ A comment about the disassociation request.
---
--- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvfhzComment :: Lens.Lens' DisassociateVPCFromHostedZone (Lude.Maybe Lude.Text)
-dvfhzComment = Lens.lens (comment :: DisassociateVPCFromHostedZone -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: DisassociateVPCFromHostedZone)
-{-# DEPRECATED dvfhzComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The ID of the private hosted zone that you want to disassociate a VPC from.
 --
@@ -109,6 +99,13 @@ dvfhzVPC :: Lens.Lens' DisassociateVPCFromHostedZone VPC
 dvfhzVPC = Lens.lens (vpc :: DisassociateVPCFromHostedZone -> VPC) (\s a -> s {vpc = a} :: DisassociateVPCFromHostedZone)
 {-# DEPRECATED dvfhzVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
+-- | /Optional:/ A comment about the disassociation request.
+--
+-- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvfhzComment :: Lens.Lens' DisassociateVPCFromHostedZone (Lude.Maybe Lude.Text)
+dvfhzComment = Lens.lens (comment :: DisassociateVPCFromHostedZone -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: DisassociateVPCFromHostedZone)
+{-# DEPRECATED dvfhzComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+
 instance Lude.AWSRequest DisassociateVPCFromHostedZone where
   type
     Rs DisassociateVPCFromHostedZone =
@@ -118,7 +115,7 @@ instance Lude.AWSRequest DisassociateVPCFromHostedZone where
     Res.receiveXML
       ( \s h x ->
           DisassociateVPCFromHostedZoneResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "ChangeInfo")
+            Lude.<$> (x Lude..@ "ChangeInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToElement DisassociateVPCFromHostedZone where
@@ -142,24 +139,18 @@ instance Lude.ToQuery DisassociateVPCFromHostedZone where
 
 instance Lude.ToXML DisassociateVPCFromHostedZone where
   toXML DisassociateVPCFromHostedZone' {..} =
-    Lude.mconcat ["Comment" Lude.@= comment, "VPC" Lude.@= vpc]
+    Lude.mconcat ["VPC" Lude.@= vpc, "Comment" Lude.@= comment]
 
 -- | A complex type that contains the response information for the disassociate request.
 --
 -- /See:/ 'mkDisassociateVPCFromHostedZoneResponse' smart constructor.
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-  { responseStatus ::
-      Lude.Int,
-    changeInfo ::
-      ChangeInfo
+  { -- | A complex type that describes the changes made to the specified private hosted zone.
+    changeInfo :: ChangeInfo,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateVPCFromHostedZoneResponse' with the minimum fields required to make a request.
@@ -167,26 +158,18 @@ data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneRespon
 -- * 'changeInfo' - A complex type that describes the changes made to the specified private hosted zone.
 -- * 'responseStatus' - The response status code.
 mkDisassociateVPCFromHostedZoneResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DisassociateVPCFromHostedZoneResponse
 mkDisassociateVPCFromHostedZoneResponse
-  pResponseStatus_
-  pChangeInfo_ =
+  pChangeInfo_
+  pResponseStatus_ =
     DisassociateVPCFromHostedZoneResponse'
-      { responseStatus =
-          pResponseStatus_,
-        changeInfo = pChangeInfo_
+      { changeInfo = pChangeInfo_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvfhzrsResponseStatus :: Lens.Lens' DisassociateVPCFromHostedZoneResponse Lude.Int
-dvfhzrsResponseStatus = Lens.lens (responseStatus :: DisassociateVPCFromHostedZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateVPCFromHostedZoneResponse)
-{-# DEPRECATED dvfhzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that describes the changes made to the specified private hosted zone.
 --
@@ -194,3 +177,10 @@ dvfhzrsResponseStatus = Lens.lens (responseStatus :: DisassociateVPCFromHostedZo
 dvfhzrsChangeInfo :: Lens.Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvfhzrsChangeInfo = Lens.lens (changeInfo :: DisassociateVPCFromHostedZoneResponse -> ChangeInfo) (\s a -> s {changeInfo = a} :: DisassociateVPCFromHostedZoneResponse)
 {-# DEPRECATED dvfhzrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvfhzrsResponseStatus :: Lens.Lens' DisassociateVPCFromHostedZoneResponse Lude.Int
+dvfhzrsResponseStatus = Lens.lens (responseStatus :: DisassociateVPCFromHostedZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateVPCFromHostedZoneResponse)
+{-# DEPRECATED dvfhzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

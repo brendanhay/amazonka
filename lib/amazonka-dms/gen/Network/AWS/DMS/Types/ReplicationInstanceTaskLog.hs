@@ -30,27 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationInstanceTaskLog' smart constructor.
 data ReplicationInstanceTaskLog = ReplicationInstanceTaskLog'
-  { replicationTaskName ::
-      Lude.Maybe Lude.Text,
-    replicationTaskARN ::
-      Lude.Maybe Lude.Text,
-    replicationInstanceTaskLogSize ::
-      Lude.Maybe Lude.Integer
+  { -- | The name of the replication task.
+    replicationTaskName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskARN :: Lude.Maybe Lude.Text,
+    -- | The size, in bytes, of the replication task log.
+    replicationInstanceTaskLogSize :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationInstanceTaskLog' with the minimum fields required to make a request.
 --
--- * 'replicationInstanceTaskLogSize' - The size, in bytes, of the replication task log.
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 -- * 'replicationTaskName' - The name of the replication task.
+-- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
+-- * 'replicationInstanceTaskLogSize' - The size, in bytes, of the replication task log.
 mkReplicationInstanceTaskLog ::
   ReplicationInstanceTaskLog
 mkReplicationInstanceTaskLog =

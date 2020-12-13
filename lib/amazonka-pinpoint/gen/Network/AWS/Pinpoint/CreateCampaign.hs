@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.CreateCampaign
     mkCreateCampaignResponse,
 
     -- ** Response lenses
-    ccrsResponseStatus,
     ccrsCampaignResponse,
+    ccrsResponseStatus,
   )
 where
 
@@ -40,22 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCampaign' smart constructor.
 data CreateCampaign = CreateCampaign'
-  { applicationId :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
     writeCampaignRequest :: WriteCampaignRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCampaign' with the minimum fields required to make a request.
 --
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'writeCampaignRequest' - Undocumented field.
+-- * 'writeCampaignRequest' -
 mkCreateCampaign ::
   -- | 'applicationId'
   Lude.Text ->
@@ -89,7 +85,7 @@ instance Lude.AWSRequest CreateCampaign where
     Res.receiveJSON
       ( \s h x ->
           CreateCampaignResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders CreateCampaign where
@@ -117,41 +113,28 @@ instance Lude.ToQuery CreateCampaign where
 
 -- | /See:/ 'mkCreateCampaignResponse' smart constructor.
 data CreateCampaignResponse = CreateCampaignResponse'
-  { responseStatus ::
-      Lude.Int,
-    campaignResponse :: CampaignResponse
+  { campaignResponse :: CampaignResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCampaignResponse' with the minimum fields required to make a request.
 --
--- * 'campaignResponse' - Undocumented field.
+-- * 'campaignResponse' -
 -- * 'responseStatus' - The response status code.
 mkCreateCampaignResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateCampaignResponse
-mkCreateCampaignResponse pResponseStatus_ pCampaignResponse_ =
+mkCreateCampaignResponse pCampaignResponse_ pResponseStatus_ =
   CreateCampaignResponse'
-    { responseStatus = pResponseStatus_,
-      campaignResponse = pCampaignResponse_
+    { campaignResponse = pCampaignResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsResponseStatus :: Lens.Lens' CreateCampaignResponse Lude.Int
-ccrsResponseStatus = Lens.lens (responseStatus :: CreateCampaignResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCampaignResponse)
-{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -159,3 +142,10 @@ ccrsResponseStatus = Lens.lens (responseStatus :: CreateCampaignResponse -> Lude
 ccrsCampaignResponse :: Lens.Lens' CreateCampaignResponse CampaignResponse
 ccrsCampaignResponse = Lens.lens (campaignResponse :: CreateCampaignResponse -> CampaignResponse) (\s a -> s {campaignResponse = a} :: CreateCampaignResponse)
 {-# DEPRECATED ccrsCampaignResponse "Use generic-lens or generic-optics with 'campaignResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrsResponseStatus :: Lens.Lens' CreateCampaignResponse Lude.Int
+ccrsResponseStatus = Lens.lens (responseStatus :: CreateCampaignResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCampaignResponse)
+{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

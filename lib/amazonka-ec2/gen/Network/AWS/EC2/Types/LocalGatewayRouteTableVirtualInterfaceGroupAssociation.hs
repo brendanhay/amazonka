@@ -36,52 +36,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation' smart constructor.
 data LocalGatewayRouteTableVirtualInterfaceGroupAssociation = LocalGatewayRouteTableVirtualInterfaceGroupAssociation'
-  { state ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayRouteTableARN ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayId ::
-      Lude.Maybe
-        Lude.Text,
-    ownerId ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayRouteTableId ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayRouteTableVirtualInterfaceGroupAssociationId ::
-      Lude.Maybe
-        Lude.Text,
-    localGatewayVirtualInterfaceGroupId ::
-      Lude.Maybe
-        Lude.Text,
-    tags ::
-      Lude.Maybe
-        [Tag]
+  { -- | The state of the association.
+    state :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.
+    localGatewayRouteTableARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway.
+    localGatewayId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID that owns the local gateway virtual interface group association.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    -- | The ID of the association.
+    localGatewayRouteTableVirtualInterfaceGroupAssociationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the virtual interface group.
+    localGatewayVirtualInterfaceGroupId :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the association.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalGatewayRouteTableVirtualInterfaceGroupAssociation' with the minimum fields required to make a request.
 --
--- * 'localGatewayId' - The ID of the local gateway.
+-- * 'state' - The state of the association.
 -- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.
+-- * 'localGatewayId' - The ID of the local gateway.
+-- * 'ownerId' - The AWS account ID that owns the local gateway virtual interface group association.
 -- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
 -- * 'localGatewayRouteTableVirtualInterfaceGroupAssociationId' - The ID of the association.
 -- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
--- * 'ownerId' - The AWS account ID that owns the local gateway virtual interface group association.
--- * 'state' - The state of the association.
 -- * 'tags' - The tags assigned to the association.
 mkLocalGatewayRouteTableVirtualInterfaceGroupAssociation ::
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation

@@ -31,27 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServerCertificateSummary' smart constructor.
 data ServerCertificateSummary = ServerCertificateSummary'
-  { serverCertificateStatusDetail ::
-      Lude.Maybe Lude.Text,
-    serverCertificateStatus ::
-      Lude.Maybe ServerCertificateStatus,
-    serverCertificateARN ::
-      Lude.Maybe Lude.Text
+  { -- | Details that explain the status of the server certificate.
+    serverCertificateStatusDetail :: Lude.Maybe Lude.Text,
+    -- | The status of the server certificate.
+    serverCertificateStatus :: Lude.Maybe ServerCertificateStatus,
+    -- | The ARN of the server certificate.
+    serverCertificateARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServerCertificateSummary' with the minimum fields required to make a request.
 --
--- * 'serverCertificateARN' - The ARN of the server certificate.
--- * 'serverCertificateStatus' - The status of the server certificate.
 -- * 'serverCertificateStatusDetail' - Details that explain the status of the server certificate.
+-- * 'serverCertificateStatus' - The status of the server certificate.
+-- * 'serverCertificateARN' - The ARN of the server certificate.
 mkServerCertificateSummary ::
   ServerCertificateSummary
 mkServerCertificateSummary =

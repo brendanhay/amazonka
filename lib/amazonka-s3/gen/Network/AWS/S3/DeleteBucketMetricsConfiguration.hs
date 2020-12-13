@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,9 +35,9 @@ module Network.AWS.S3.DeleteBucketMetricsConfiguration
     mkDeleteBucketMetricsConfiguration,
 
     -- ** Request lenses
-    dbmcExpectedBucketOwner,
     dbmcBucket,
     dbmcId,
+    dbmcExpectedBucketOwner,
 
     -- * Destructuring the response
     DeleteBucketMetricsConfigurationResponse (..),
@@ -52,25 +53,21 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkDeleteBucketMetricsConfiguration' smart constructor.
 data DeleteBucketMetricsConfiguration = DeleteBucketMetricsConfiguration'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the bucket containing the metrics configuration to delete.
     bucket :: BucketName,
-    id :: Lude.Text
+    -- | The ID used to identify the metrics configuration.
+    id :: Lude.Text,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketMetricsConfiguration' with the minimum fields required to make a request.
 --
 -- * 'bucket' - The name of the bucket containing the metrics configuration to delete.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 -- * 'id' - The ID used to identify the metrics configuration.
+-- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 mkDeleteBucketMetricsConfiguration ::
   -- | 'bucket'
   BucketName ->
@@ -79,18 +76,10 @@ mkDeleteBucketMetricsConfiguration ::
   DeleteBucketMetricsConfiguration
 mkDeleteBucketMetricsConfiguration pBucket_ pId_ =
   DeleteBucketMetricsConfiguration'
-    { expectedBucketOwner =
-        Lude.Nothing,
-      bucket = pBucket_,
-      id = pId_
+    { bucket = pBucket_,
+      id = pId_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbmcExpectedBucketOwner :: Lens.Lens' DeleteBucketMetricsConfiguration (Lude.Maybe Lude.Text)
-dbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketMetricsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketMetricsConfiguration)
-{-# DEPRECATED dbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the bucket containing the metrics configuration to delete.
 --
@@ -105,6 +94,13 @@ dbmcBucket = Lens.lens (bucket :: DeleteBucketMetricsConfiguration -> BucketName
 dbmcId :: Lens.Lens' DeleteBucketMetricsConfiguration Lude.Text
 dbmcId = Lens.lens (id :: DeleteBucketMetricsConfiguration -> Lude.Text) (\s a -> s {id = a} :: DeleteBucketMetricsConfiguration)
 {-# DEPRECATED dbmcId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbmcExpectedBucketOwner :: Lens.Lens' DeleteBucketMetricsConfiguration (Lude.Maybe Lude.Text)
+dbmcExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketMetricsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketMetricsConfiguration)
+{-# DEPRECATED dbmcExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest DeleteBucketMetricsConfiguration where
   type
@@ -129,13 +125,7 @@ instance Lude.ToQuery DeleteBucketMetricsConfiguration where
 
 -- | /See:/ 'mkDeleteBucketMetricsConfigurationResponse' smart constructor.
 data DeleteBucketMetricsConfigurationResponse = DeleteBucketMetricsConfigurationResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBucketMetricsConfigurationResponse' with the minimum fields required to make a request.

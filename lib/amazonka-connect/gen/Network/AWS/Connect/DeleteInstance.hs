@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Connect.DeleteInstance
     mkDeleteInstance,
 
     -- ** Request lenses
-    dInstanceId,
+    difInstanceId,
 
     -- * Destructuring the response
     DeleteInstanceResponse (..),
@@ -34,14 +35,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteInstance' smart constructor.
-newtype DeleteInstance = DeleteInstance' {instanceId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteInstance = DeleteInstance'
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInstance' with the minimum fields required to make a request.
@@ -57,9 +55,9 @@ mkDeleteInstance pInstanceId_ =
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInstanceId :: Lens.Lens' DeleteInstance Lude.Text
-dInstanceId = Lens.lens (instanceId :: DeleteInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeleteInstance)
-{-# DEPRECATED dInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+difInstanceId :: Lens.Lens' DeleteInstance Lude.Text
+difInstanceId = Lens.lens (instanceId :: DeleteInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeleteInstance)
+{-# DEPRECATED difInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest DeleteInstance where
   type Rs DeleteInstance = DeleteInstanceResponse
@@ -84,13 +82,7 @@ instance Lude.ToQuery DeleteInstance where
 
 -- | /See:/ 'mkDeleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteInstanceResponse' with the minimum fields required to make a request.

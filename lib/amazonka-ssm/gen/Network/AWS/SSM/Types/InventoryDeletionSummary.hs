@@ -31,19 +31,14 @@ import Network.AWS.SSM.Types.InventoryDeletionSummaryItem
 --
 -- /See:/ 'mkInventoryDeletionSummary' smart constructor.
 data InventoryDeletionSummary = InventoryDeletionSummary'
-  { remainingCount ::
-      Lude.Maybe Lude.Int,
-    summaryItems ::
-      Lude.Maybe [InventoryDeletionSummaryItem],
+  { -- | Remaining number of items to delete.
+    remainingCount :: Lude.Maybe Lude.Int,
+    -- | A list of counts and versions for deleted items.
+    summaryItems :: Lude.Maybe [InventoryDeletionSummaryItem],
+    -- | The total number of items to delete. This count does not change during the delete operation.
     totalCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryDeletionSummary' with the minimum fields required to make a request.

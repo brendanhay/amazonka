@@ -32,32 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstanceRecurrence' smart constructor.
 data ScheduledInstanceRecurrence = ScheduledInstanceRecurrence'
-  { frequency ::
-      Lude.Maybe Lude.Text,
-    occurrenceRelativeToEnd ::
-      Lude.Maybe Lude.Bool,
-    occurrenceUnit ::
-      Lude.Maybe Lude.Text,
+  { -- | The frequency (@Daily@ , @Weekly@ , or @Monthly@ ).
+    frequency :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the occurrence is relative to the end of the specified week or month.
+    occurrenceRelativeToEnd :: Lude.Maybe Lude.Bool,
+    -- | The unit for @occurrenceDaySet@ (@DayOfWeek@ or @DayOfMonth@ ).
+    occurrenceUnit :: Lude.Maybe Lude.Text,
+    -- | The interval quantity. The interval unit depends on the value of @frequency@ . For example, every 2 weeks or every 2 months.
     interval :: Lude.Maybe Lude.Int,
-    occurrenceDaySet ::
-      Lude.Maybe [Lude.Int]
+    -- | The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
+    occurrenceDaySet :: Lude.Maybe [Lude.Int]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstanceRecurrence' with the minimum fields required to make a request.
 --
 -- * 'frequency' - The frequency (@Daily@ , @Weekly@ , or @Monthly@ ).
--- * 'interval' - The interval quantity. The interval unit depends on the value of @frequency@ . For example, every 2 weeks or every 2 months.
--- * 'occurrenceDaySet' - The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
 -- * 'occurrenceRelativeToEnd' - Indicates whether the occurrence is relative to the end of the specified week or month.
 -- * 'occurrenceUnit' - The unit for @occurrenceDaySet@ (@DayOfWeek@ or @DayOfMonth@ ).
+-- * 'interval' - The interval quantity. The interval unit depends on the value of @frequency@ . For example, every 2 weeks or every 2 months.
+-- * 'occurrenceDaySet' - The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
 mkScheduledInstanceRecurrence ::
   ScheduledInstanceRecurrence
 mkScheduledInstanceRecurrence =

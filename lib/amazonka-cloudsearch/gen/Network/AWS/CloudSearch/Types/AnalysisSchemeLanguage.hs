@@ -32,8 +32,8 @@ module Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
         HI,
         HU,
         HY,
-        IT,
         Id,
+        IT,
         JA,
         KO,
         LV,
@@ -136,11 +136,11 @@ pattern HU = AnalysisSchemeLanguage' "hu"
 pattern HY :: AnalysisSchemeLanguage
 pattern HY = AnalysisSchemeLanguage' "hy"
 
-pattern IT :: AnalysisSchemeLanguage
-pattern IT = AnalysisSchemeLanguage' "it"
-
 pattern Id :: AnalysisSchemeLanguage
 pattern Id = AnalysisSchemeLanguage' "id"
+
+pattern IT :: AnalysisSchemeLanguage
+pattern IT = AnalysisSchemeLanguage' "it"
 
 pattern JA :: AnalysisSchemeLanguage
 pattern JA = AnalysisSchemeLanguage' "ja"
@@ -204,8 +204,8 @@ pattern ZhHant = AnalysisSchemeLanguage' "zh-Hant"
   HI,
   HU,
   HY,
-  IT,
   Id,
+  IT,
   JA,
   KO,
   LV,

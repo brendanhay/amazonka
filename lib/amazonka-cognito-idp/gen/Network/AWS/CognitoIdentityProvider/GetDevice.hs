@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CognitoIdentityProvider.GetDevice
     mkGetDeviceResponse,
 
     -- ** Response lenses
-    gdrsResponseStatus,
     gdrsDevice,
+    gdrsResponseStatus,
   )
 where
 
@@ -42,8 +43,9 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetDevice' smart constructor.
 data GetDevice = GetDevice'
-  { accessToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The access token.
+    accessToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The device key.
     deviceKey :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -81,7 +83,7 @@ instance Lude.AWSRequest GetDevice where
     Res.receiveJSON
       ( \s h x ->
           GetDeviceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Device")
+            Lude.<$> (x Lude..:> "Device") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetDevice where
@@ -114,9 +116,10 @@ instance Lude.ToQuery GetDevice where
 --
 -- /See:/ 'mkGetDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
-  { responseStatus ::
-      Lude.Int,
-    device :: DeviceType
+  { -- | The device.
+    device :: DeviceType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -126,23 +129,16 @@ data GetDeviceResponse = GetDeviceResponse'
 -- * 'device' - The device.
 -- * 'responseStatus' - The response status code.
 mkGetDeviceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'device'
   DeviceType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetDeviceResponse
-mkGetDeviceResponse pResponseStatus_ pDevice_ =
+mkGetDeviceResponse pDevice_ pResponseStatus_ =
   GetDeviceResponse'
-    { responseStatus = pResponseStatus_,
-      device = pDevice_
+    { device = pDevice_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDeviceResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeviceResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The device.
 --
@@ -150,3 +146,10 @@ gdrsResponseStatus = Lens.lens (responseStatus :: GetDeviceResponse -> Lude.Int)
 gdrsDevice :: Lens.Lens' GetDeviceResponse DeviceType
 gdrsDevice = Lens.lens (device :: GetDeviceResponse -> DeviceType) (\s a -> s {device = a} :: GetDeviceResponse)
 {-# DEPRECATED gdrsDevice "Use generic-lens or generic-optics with 'device' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrsResponseStatus :: Lens.Lens' GetDeviceResponse Lude.Int
+gdrsResponseStatus = Lens.lens (responseStatus :: GetDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeviceResponse)
+{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.IoT.GetPercentiles
     gpPercents,
     gpQueryVersion,
     gpAggregationField,
-    gpIndexName,
     gpQueryString,
+    gpIndexName,
 
     -- * Destructuring the response
     GetPercentilesResponse (..),
@@ -43,29 +44,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPercentiles' smart constructor.
 data GetPercentiles = GetPercentiles'
-  { percents ::
-      Lude.Maybe [Lude.Double],
+  { -- | The percentile groups returned.
+    percents :: Lude.Maybe [Lude.Double],
+    -- | The query version.
     queryVersion :: Lude.Maybe Lude.Text,
+    -- | The field to aggregate.
     aggregationField :: Lude.Maybe Lude.Text,
-    indexName :: Lude.Maybe Lude.Text,
-    queryString :: Lude.Text
+    -- | The query string.
+    queryString :: Lude.Text,
+    -- | The name of the index to search.
+    indexName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPercentiles' with the minimum fields required to make a request.
 --
--- * 'aggregationField' - The field to aggregate.
--- * 'indexName' - The name of the index to search.
 -- * 'percents' - The percentile groups returned.
--- * 'queryString' - The query string.
 -- * 'queryVersion' - The query version.
+-- * 'aggregationField' - The field to aggregate.
+-- * 'queryString' - The query string.
+-- * 'indexName' - The name of the index to search.
 mkGetPercentiles ::
   -- | 'queryString'
   Lude.Text ->
@@ -75,8 +74,8 @@ mkGetPercentiles pQueryString_ =
     { percents = Lude.Nothing,
       queryVersion = Lude.Nothing,
       aggregationField = Lude.Nothing,
-      indexName = Lude.Nothing,
-      queryString = pQueryString_
+      queryString = pQueryString_,
+      indexName = Lude.Nothing
     }
 
 -- | The percentile groups returned.
@@ -100,19 +99,19 @@ gpAggregationField :: Lens.Lens' GetPercentiles (Lude.Maybe Lude.Text)
 gpAggregationField = Lens.lens (aggregationField :: GetPercentiles -> Lude.Maybe Lude.Text) (\s a -> s {aggregationField = a} :: GetPercentiles)
 {-# DEPRECATED gpAggregationField "Use generic-lens or generic-optics with 'aggregationField' instead." #-}
 
--- | The name of the index to search.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpIndexName :: Lens.Lens' GetPercentiles (Lude.Maybe Lude.Text)
-gpIndexName = Lens.lens (indexName :: GetPercentiles -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetPercentiles)
-{-# DEPRECATED gpIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
 -- | The query string.
 --
 -- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gpQueryString :: Lens.Lens' GetPercentiles Lude.Text
 gpQueryString = Lens.lens (queryString :: GetPercentiles -> Lude.Text) (\s a -> s {queryString = a} :: GetPercentiles)
 {-# DEPRECATED gpQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
+-- | The name of the index to search.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpIndexName :: Lens.Lens' GetPercentiles (Lude.Maybe Lude.Text)
+gpIndexName = Lens.lens (indexName :: GetPercentiles -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GetPercentiles)
+{-# DEPRECATED gpIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 instance Lude.AWSRequest GetPercentiles where
   type Rs GetPercentiles = GetPercentilesResponse
@@ -135,8 +134,8 @@ instance Lude.ToJSON GetPercentiles where
           [ ("percents" Lude..=) Lude.<$> percents,
             ("queryVersion" Lude..=) Lude.<$> queryVersion,
             ("aggregationField" Lude..=) Lude.<$> aggregationField,
-            ("indexName" Lude..=) Lude.<$> indexName,
-            Lude.Just ("queryString" Lude..= queryString)
+            Lude.Just ("queryString" Lude..= queryString),
+            ("indexName" Lude..=) Lude.<$> indexName
           ]
       )
 
@@ -148,17 +147,12 @@ instance Lude.ToQuery GetPercentiles where
 
 -- | /See:/ 'mkGetPercentilesResponse' smart constructor.
 data GetPercentilesResponse = GetPercentilesResponse'
-  { percentiles ::
-      Lude.Maybe [PercentPair],
+  { -- | The percentile values of the aggregated fields.
+    percentiles :: Lude.Maybe [PercentPair],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPercentilesResponse' with the minimum fields required to make a request.

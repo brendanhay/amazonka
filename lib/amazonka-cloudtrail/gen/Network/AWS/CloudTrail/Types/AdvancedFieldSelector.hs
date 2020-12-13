@@ -17,13 +17,13 @@ module Network.AWS.CloudTrail.Types.AdvancedFieldSelector
     mkAdvancedFieldSelector,
 
     -- * Lenses
+    afsField,
     afsEndsWith,
     afsNotStartsWith,
     afsEquals,
     afsNotEquals,
     afsNotEndsWith,
     afsStartsWith,
-    afsField,
   )
 where
 
@@ -32,51 +32,47 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkAdvancedFieldSelector' smart constructor.
 data AdvancedFieldSelector = AdvancedFieldSelector'
-  { endsWith ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    notStartsWith ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { field :: Lude.Text,
+    endsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    notStartsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text),
     equals :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    notEquals ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    notEndsWith ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    startsWith ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
-    field :: Lude.Text
+    notEquals :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    notEndsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    startsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdvancedFieldSelector' with the minimum fields required to make a request.
 --
--- * 'endsWith' - Undocumented field.
--- * 'equals' - Undocumented field.
--- * 'field' - Undocumented field.
--- * 'notEndsWith' - Undocumented field.
--- * 'notEquals' - Undocumented field.
--- * 'notStartsWith' - Undocumented field.
--- * 'startsWith' - Undocumented field.
+-- * 'field' -
+-- * 'endsWith' -
+-- * 'notStartsWith' -
+-- * 'equals' -
+-- * 'notEquals' -
+-- * 'notEndsWith' -
+-- * 'startsWith' -
 mkAdvancedFieldSelector ::
   -- | 'field'
   Lude.Text ->
   AdvancedFieldSelector
 mkAdvancedFieldSelector pField_ =
   AdvancedFieldSelector'
-    { endsWith = Lude.Nothing,
+    { field = pField_,
+      endsWith = Lude.Nothing,
       notStartsWith = Lude.Nothing,
       equals = Lude.Nothing,
       notEquals = Lude.Nothing,
       notEndsWith = Lude.Nothing,
-      startsWith = Lude.Nothing,
-      field = pField_
+      startsWith = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'field' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsField :: Lens.Lens' AdvancedFieldSelector Lude.Text
+afsField = Lens.lens (field :: AdvancedFieldSelector -> Lude.Text) (\s a -> s {field = a} :: AdvancedFieldSelector)
+{-# DEPRECATED afsField "Use generic-lens or generic-optics with 'field' instead." #-}
 
 -- | Undocumented field.
 --
@@ -120,38 +116,31 @@ afsStartsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lud
 afsStartsWith = Lens.lens (startsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {startsWith = a} :: AdvancedFieldSelector)
 {-# DEPRECATED afsStartsWith "Use generic-lens or generic-optics with 'startsWith' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'field' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsField :: Lens.Lens' AdvancedFieldSelector Lude.Text
-afsField = Lens.lens (field :: AdvancedFieldSelector -> Lude.Text) (\s a -> s {field = a} :: AdvancedFieldSelector)
-{-# DEPRECATED afsField "Use generic-lens or generic-optics with 'field' instead." #-}
-
 instance Lude.FromJSON AdvancedFieldSelector where
   parseJSON =
     Lude.withObject
       "AdvancedFieldSelector"
       ( \x ->
           AdvancedFieldSelector'
-            Lude.<$> (x Lude..:? "EndsWith")
+            Lude.<$> (x Lude..: "Field")
+            Lude.<*> (x Lude..:? "EndsWith")
             Lude.<*> (x Lude..:? "NotStartsWith")
             Lude.<*> (x Lude..:? "Equals")
             Lude.<*> (x Lude..:? "NotEquals")
             Lude.<*> (x Lude..:? "NotEndsWith")
             Lude.<*> (x Lude..:? "StartsWith")
-            Lude.<*> (x Lude..: "Field")
       )
 
 instance Lude.ToJSON AdvancedFieldSelector where
   toJSON AdvancedFieldSelector' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("EndsWith" Lude..=) Lude.<$> endsWith,
+          [ Lude.Just ("Field" Lude..= field),
+            ("EndsWith" Lude..=) Lude.<$> endsWith,
             ("NotStartsWith" Lude..=) Lude.<$> notStartsWith,
             ("Equals" Lude..=) Lude.<$> equals,
             ("NotEquals" Lude..=) Lude.<$> notEquals,
             ("NotEndsWith" Lude..=) Lude.<$> notEndsWith,
-            ("StartsWith" Lude..=) Lude.<$> startsWith,
-            Lude.Just ("Field" Lude..= field)
+            ("StartsWith" Lude..=) Lude.<$> startsWith
           ]
       )

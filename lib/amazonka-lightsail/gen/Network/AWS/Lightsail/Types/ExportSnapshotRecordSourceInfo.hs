@@ -38,42 +38,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportSnapshotRecordSourceInfo' smart constructor.
 data ExportSnapshotRecordSourceInfo = ExportSnapshotRecordSourceInfo'
-  { diskSnapshotInfo ::
-      Lude.Maybe DiskSnapshotInfo,
-    resourceType ::
-      Lude.Maybe
-        ExportSnapshotRecordSourceType,
+  { -- | A list of objects describing a disk snapshot.
+    diskSnapshotInfo :: Lude.Maybe DiskSnapshotInfo,
+    -- | The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
+    resourceType :: Lude.Maybe ExportSnapshotRecordSourceType,
+    -- | The Amazon Resource Name (ARN) of the source instance or disk snapshot.
     arn :: Lude.Maybe Lude.Text,
-    createdAt ::
-      Lude.Maybe Lude.Timestamp,
-    fromResourceARN ::
-      Lude.Maybe Lude.Text,
+    -- | The date when the source instance or disk snapshot was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
+    fromResourceARN :: Lude.Maybe Lude.Text,
+    -- | The name of the source instance or disk snapshot.
     name :: Lude.Maybe Lude.Text,
-    instanceSnapshotInfo ::
-      Lude.Maybe
-        InstanceSnapshotInfo,
-    fromResourceName ::
-      Lude.Maybe Lude.Text
+    -- | A list of objects describing an instance snapshot.
+    instanceSnapshotInfo :: Lude.Maybe InstanceSnapshotInfo,
+    -- | The name of the snapshot's source instance or disk.
+    fromResourceName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportSnapshotRecordSourceInfo' with the minimum fields required to make a request.
 --
+-- * 'diskSnapshotInfo' - A list of objects describing a disk snapshot.
+-- * 'resourceType' - The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
 -- * 'arn' - The Amazon Resource Name (ARN) of the source instance or disk snapshot.
 -- * 'createdAt' - The date when the source instance or disk snapshot was created.
--- * 'diskSnapshotInfo' - A list of objects describing a disk snapshot.
 -- * 'fromResourceARN' - The Amazon Resource Name (ARN) of the snapshot's source instance or disk.
--- * 'fromResourceName' - The name of the snapshot's source instance or disk.
--- * 'instanceSnapshotInfo' - A list of objects describing an instance snapshot.
 -- * 'name' - The name of the source instance or disk snapshot.
--- * 'resourceType' - The Lightsail resource type (e.g., @InstanceSnapshot@ or @DiskSnapshot@ ).
+-- * 'instanceSnapshotInfo' - A list of objects describing an instance snapshot.
+-- * 'fromResourceName' - The name of the snapshot's source instance or disk.
 mkExportSnapshotRecordSourceInfo ::
   ExportSnapshotRecordSourceInfo
 mkExportSnapshotRecordSourceInfo =

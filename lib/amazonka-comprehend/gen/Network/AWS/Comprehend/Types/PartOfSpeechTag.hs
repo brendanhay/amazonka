@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPartOfSpeechTag' smart constructor.
 data PartOfSpeechTag = PartOfSpeechTag'
-  { tag ::
-      Lude.Maybe PartOfSpeechTagType,
+  { -- | Identifies the part of speech that the token represents.
+    tag :: Lude.Maybe PartOfSpeechTagType,
+    -- | The confidence that Amazon Comprehend has that the part of speech was correctly identified.
     score :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PartOfSpeechTag' with the minimum fields required to make a request.
 --
--- * 'score' - The confidence that Amazon Comprehend has that the part of speech was correctly identified.
 -- * 'tag' - Identifies the part of speech that the token represents.
+-- * 'score' - The confidence that Amazon Comprehend has that the part of speech was correctly identified.
 mkPartOfSpeechTag ::
   PartOfSpeechTag
 mkPartOfSpeechTag =

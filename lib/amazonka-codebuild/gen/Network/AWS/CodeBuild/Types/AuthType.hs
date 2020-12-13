@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.AuthType
   ( AuthType
       ( AuthType',
-        ATBasicAuth,
         ATOauth,
+        ATBasicAuth,
         ATPersonalAccessToken
       ),
   )
@@ -46,18 +46,18 @@ newtype AuthType = AuthType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ATBasicAuth :: AuthType
-pattern ATBasicAuth = AuthType' "BASIC_AUTH"
-
 pattern ATOauth :: AuthType
 pattern ATOauth = AuthType' "OAUTH"
+
+pattern ATBasicAuth :: AuthType
+pattern ATBasicAuth = AuthType' "BASIC_AUTH"
 
 pattern ATPersonalAccessToken :: AuthType
 pattern ATPersonalAccessToken = AuthType' "PERSONAL_ACCESS_TOKEN"
 
 {-# COMPLETE
-  ATBasicAuth,
   ATOauth,
+  ATBasicAuth,
   ATPersonalAccessToken,
   AuthType'
   #-}

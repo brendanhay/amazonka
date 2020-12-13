@@ -13,9 +13,9 @@
 module Network.AWS.DMS.Types.CharLengthSemantics
   ( CharLengthSemantics
       ( CharLengthSemantics',
-        Byte,
+        Default,
         Char,
-        Default
+        Byte
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype CharLengthSemantics = CharLengthSemantics' Lude.Text
       Lude.ToHeader
     )
 
-pattern Byte :: CharLengthSemantics
-pattern Byte = CharLengthSemantics' "byte"
+pattern Default :: CharLengthSemantics
+pattern Default = CharLengthSemantics' "default"
 
 pattern Char :: CharLengthSemantics
 pattern Char = CharLengthSemantics' "char"
 
-pattern Default :: CharLengthSemantics
-pattern Default = CharLengthSemantics' "default"
+pattern Byte :: CharLengthSemantics
+pattern Byte = CharLengthSemantics' "byte"
 
 {-# COMPLETE
-  Byte,
-  Char,
   Default,
+  Char,
+  Byte,
   CharLengthSemantics'
   #-}

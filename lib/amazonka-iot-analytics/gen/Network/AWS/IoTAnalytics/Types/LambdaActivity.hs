@@ -18,9 +18,9 @@ module Network.AWS.IoTAnalytics.Types.LambdaActivity
 
     -- * Lenses
     laNext,
-    laName,
     laLambdaName,
     laBatchSize,
+    laName,
   )
 where
 
@@ -31,42 +31,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaActivity' smart constructor.
 data LambdaActivity = LambdaActivity'
-  { next :: Lude.Maybe Lude.Text,
-    name :: Lude.Text,
+  { -- | The next activity in the pipeline.
+    next :: Lude.Maybe Lude.Text,
+    -- | The name of the Lambda function that is run on the message.
     lambdaName :: Lude.Text,
-    batchSize :: Lude.Natural
+    -- | The number of messages passed to the Lambda function for processing.
+    --
+    -- The Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
+    batchSize :: Lude.Natural,
+    -- | The name of the lambda activity.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaActivity' with the minimum fields required to make a request.
 --
+-- * 'next' - The next activity in the pipeline.
+-- * 'lambdaName' - The name of the Lambda function that is run on the message.
 -- * 'batchSize' - The number of messages passed to the Lambda function for processing.
 --
 -- The Lambda function must be able to process all of these messages within five minutes, which is the maximum timeout duration for Lambda functions.
--- * 'lambdaName' - The name of the Lambda function that is run on the message.
 -- * 'name' - The name of the lambda activity.
--- * 'next' - The next activity in the pipeline.
 mkLambdaActivity ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'lambdaName'
   Lude.Text ->
   -- | 'batchSize'
   Lude.Natural ->
+  -- | 'name'
+  Lude.Text ->
   LambdaActivity
-mkLambdaActivity pName_ pLambdaName_ pBatchSize_ =
+mkLambdaActivity pLambdaName_ pBatchSize_ pName_ =
   LambdaActivity'
     { next = Lude.Nothing,
-      name = pName_,
       lambdaName = pLambdaName_,
-      batchSize = pBatchSize_
+      batchSize = pBatchSize_,
+      name = pName_
     }
 
 -- | The next activity in the pipeline.
@@ -75,13 +75,6 @@ mkLambdaActivity pName_ pLambdaName_ pBatchSize_ =
 laNext :: Lens.Lens' LambdaActivity (Lude.Maybe Lude.Text)
 laNext = Lens.lens (next :: LambdaActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: LambdaActivity)
 {-# DEPRECATED laNext "Use generic-lens or generic-optics with 'next' instead." #-}
-
--- | The name of the lambda activity.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laName :: Lens.Lens' LambdaActivity Lude.Text
-laName = Lens.lens (name :: LambdaActivity -> Lude.Text) (\s a -> s {name = a} :: LambdaActivity)
-{-# DEPRECATED laName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The name of the Lambda function that is run on the message.
 --
@@ -99,6 +92,13 @@ laBatchSize :: Lens.Lens' LambdaActivity Lude.Natural
 laBatchSize = Lens.lens (batchSize :: LambdaActivity -> Lude.Natural) (\s a -> s {batchSize = a} :: LambdaActivity)
 {-# DEPRECATED laBatchSize "Use generic-lens or generic-optics with 'batchSize' instead." #-}
 
+-- | The name of the lambda activity.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laName :: Lens.Lens' LambdaActivity Lude.Text
+laName = Lens.lens (name :: LambdaActivity -> Lude.Text) (\s a -> s {name = a} :: LambdaActivity)
+{-# DEPRECATED laName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 instance Lude.FromJSON LambdaActivity where
   parseJSON =
     Lude.withObject
@@ -106,9 +106,9 @@ instance Lude.FromJSON LambdaActivity where
       ( \x ->
           LambdaActivity'
             Lude.<$> (x Lude..:? "next")
-            Lude.<*> (x Lude..: "name")
             Lude.<*> (x Lude..: "lambdaName")
             Lude.<*> (x Lude..: "batchSize")
+            Lude.<*> (x Lude..: "name")
       )
 
 instance Lude.ToJSON LambdaActivity where
@@ -116,8 +116,8 @@ instance Lude.ToJSON LambdaActivity where
     Lude.object
       ( Lude.catMaybes
           [ ("next" Lude..=) Lude.<$> next,
-            Lude.Just ("name" Lude..= name),
             Lude.Just ("lambdaName" Lude..= lambdaName),
-            Lude.Just ("batchSize" Lude..= batchSize)
+            Lude.Just ("batchSize" Lude..= batchSize),
+            Lude.Just ("name" Lude..= name)
           ]
       )

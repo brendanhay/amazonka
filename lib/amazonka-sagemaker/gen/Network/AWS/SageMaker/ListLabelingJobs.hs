@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,39 +53,42 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'mkListLabelingJobs' smart constructor.
 data ListLabelingJobs = ListLabelingJobs'
-  { nameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | A string in the labeling job name. This filter returns only labeling jobs whose name contains the specified string.
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A filter that returns only labeling jobs modified before the specified time (timestamp).
     lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only labeling jobs created after the specified time (timestamp).
     creationTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | If the result of the previous @ListLabelingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The sort order for results. The default is @Ascending@ .
     sortOrder :: Lude.Maybe SortOrder,
+    -- | A filter that returns only labeling jobs modified after the specified time (timestamp).
     lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that returns only labeling jobs created before the specified time (timestamp).
     creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    -- | A filter that retrieves only labeling jobs with a specific status.
     statusEquals :: Lude.Maybe LabelingJobStatus,
+    -- | The maximum number of labeling jobs to return in each page of the response.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The field to sort results by. The default is @CreationTime@ .
     sortBy :: Lude.Maybe SortBy
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLabelingJobs' with the minimum fields required to make a request.
 --
--- * 'creationTimeAfter' - A filter that returns only labeling jobs created after the specified time (timestamp).
--- * 'creationTimeBefore' - A filter that returns only labeling jobs created before the specified time (timestamp).
--- * 'lastModifiedTimeAfter' - A filter that returns only labeling jobs modified after the specified time (timestamp).
--- * 'lastModifiedTimeBefore' - A filter that returns only labeling jobs modified before the specified time (timestamp).
--- * 'maxResults' - The maximum number of labeling jobs to return in each page of the response.
 -- * 'nameContains' - A string in the labeling job name. This filter returns only labeling jobs whose name contains the specified string.
+-- * 'lastModifiedTimeBefore' - A filter that returns only labeling jobs modified before the specified time (timestamp).
+-- * 'creationTimeAfter' - A filter that returns only labeling jobs created after the specified time (timestamp).
 -- * 'nextToken' - If the result of the previous @ListLabelingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
--- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 -- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
+-- * 'lastModifiedTimeAfter' - A filter that returns only labeling jobs modified after the specified time (timestamp).
+-- * 'creationTimeBefore' - A filter that returns only labeling jobs created before the specified time (timestamp).
 -- * 'statusEquals' - A filter that retrieves only labeling jobs with a specific status.
+-- * 'maxResults' - The maximum number of labeling jobs to return in each page of the response.
+-- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
 mkListLabelingJobs ::
   ListLabelingJobs
 mkListLabelingJobs =
@@ -228,18 +232,14 @@ instance Lude.ToQuery ListLabelingJobs where
 
 -- | /See:/ 'mkListLabelingJobsResponse' smart constructor.
 data ListLabelingJobsResponse = ListLabelingJobsResponse'
-  { labelingJobSummaryList ::
-      Lude.Maybe [LabelingJobSummary],
+  { -- | An array of @LabelingJobSummary@ objects, each describing a labeling job.
+    labelingJobSummaryList :: Lude.Maybe [LabelingJobSummary],
+    -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of labeling jobs, use it in the subsequent request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLabelingJobsResponse' with the minimum fields required to make a request.

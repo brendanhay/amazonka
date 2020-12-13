@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +23,10 @@ module Network.AWS.SDB.DeleteAttributes
     mkDeleteAttributes,
 
     -- ** Request lenses
+    daItemName,
+    daDomainName,
     daAttributes,
     daExpected,
-    daDomainName,
-    daItemName,
 
     -- * Destructuring the response
     DeleteAttributesResponse (..),
@@ -41,40 +42,51 @@ import Network.AWS.SDB.Types
 
 -- | /See:/ 'mkDeleteAttributes' smart constructor.
 data DeleteAttributes = DeleteAttributes'
-  { attributes ::
-      Lude.Maybe [Attribute],
-    expected :: Lude.Maybe UpdateCondition,
+  { -- | The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
+    itemName :: Lude.Text,
+    -- | The name of the domain in which to perform the operation.
     domainName :: Lude.Text,
-    itemName :: Lude.Text
+    -- | A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
+    attributes :: Lude.Maybe [Attribute],
+    -- | The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
+    expected :: Lude.Maybe UpdateCondition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
--- * 'attributes' - A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
--- * 'domainName' - The name of the domain in which to perform the operation.
--- * 'expected' - The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
 -- * 'itemName' - The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
+-- * 'domainName' - The name of the domain in which to perform the operation.
+-- * 'attributes' - A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
+-- * 'expected' - The update condition which, if specified, determines whether the specified attributes will be deleted or not. The update condition must be satisfied in order for this request to be processed and the attributes to be deleted.
 mkDeleteAttributes ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'itemName'
   Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
   DeleteAttributes
-mkDeleteAttributes pDomainName_ pItemName_ =
+mkDeleteAttributes pItemName_ pDomainName_ =
   DeleteAttributes'
-    { attributes = Lude.Nothing,
-      expected = Lude.Nothing,
+    { itemName = pItemName_,
       domainName = pDomainName_,
-      itemName = pItemName_
+      attributes = Lude.Nothing,
+      expected = Lude.Nothing
     }
+
+-- | The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
+--
+-- /Note:/ Consider using 'itemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daItemName :: Lens.Lens' DeleteAttributes Lude.Text
+daItemName = Lens.lens (itemName :: DeleteAttributes -> Lude.Text) (\s a -> s {itemName = a} :: DeleteAttributes)
+{-# DEPRECATED daItemName "Use generic-lens or generic-optics with 'itemName' instead." #-}
+
+-- | The name of the domain in which to perform the operation.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daDomainName :: Lens.Lens' DeleteAttributes Lude.Text
+daDomainName = Lens.lens (domainName :: DeleteAttributes -> Lude.Text) (\s a -> s {domainName = a} :: DeleteAttributes)
+{-# DEPRECATED daDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
 --
@@ -89,20 +101,6 @@ daAttributes = Lens.lens (attributes :: DeleteAttributes -> Lude.Maybe [Attribut
 daExpected :: Lens.Lens' DeleteAttributes (Lude.Maybe UpdateCondition)
 daExpected = Lens.lens (expected :: DeleteAttributes -> Lude.Maybe UpdateCondition) (\s a -> s {expected = a} :: DeleteAttributes)
 {-# DEPRECATED daExpected "Use generic-lens or generic-optics with 'expected' instead." #-}
-
--- | The name of the domain in which to perform the operation.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daDomainName :: Lens.Lens' DeleteAttributes Lude.Text
-daDomainName = Lens.lens (domainName :: DeleteAttributes -> Lude.Text) (\s a -> s {domainName = a} :: DeleteAttributes)
-{-# DEPRECATED daDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
--- | The name of the item. Similar to rows on a spreadsheet, items represent individual objects that contain one or more value-attribute pairs.
---
--- /Note:/ Consider using 'itemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daItemName :: Lens.Lens' DeleteAttributes Lude.Text
-daItemName = Lens.lens (itemName :: DeleteAttributes -> Lude.Text) (\s a -> s {itemName = a} :: DeleteAttributes)
-{-# DEPRECATED daItemName "Use generic-lens or generic-optics with 'itemName' instead." #-}
 
 instance Lude.AWSRequest DeleteAttributes where
   type Rs DeleteAttributes = DeleteAttributesResponse
@@ -120,21 +118,15 @@ instance Lude.ToQuery DeleteAttributes where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteAttributes" :: Lude.ByteString),
         "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Attribute" Lude.<$> attributes),
-        "Expected" Lude.=: expected,
+        "ItemName" Lude.=: itemName,
         "DomainName" Lude.=: domainName,
-        "ItemName" Lude.=: itemName
+        Lude.toQuery (Lude.toQueryList "Attribute" Lude.<$> attributes),
+        "Expected" Lude.=: expected
       ]
 
 -- | /See:/ 'mkDeleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse = DeleteAttributesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.

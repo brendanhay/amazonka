@@ -38,32 +38,27 @@ import Network.AWS.S3.Types.StatsEvent
 --
 -- /See:/ 'mkSelectObjectContentEventStream' smart constructor.
 data SelectObjectContentEventStream = SelectObjectContentEventStream'
-  { progress ::
-      Lude.Maybe ProgressEvent,
-    records ::
-      Lude.Maybe RecordsEvent,
-    cont ::
-      Lude.Maybe ContinuationEvent,
-    stats ::
-      Lude.Maybe StatsEvent,
+  { -- | The Progress Event.
+    progress :: Lude.Maybe ProgressEvent,
+    -- | The Records Event.
+    records :: Lude.Maybe RecordsEvent,
+    -- | The Continuation Event.
+    cont :: Lude.Maybe ContinuationEvent,
+    -- | The Stats Event.
+    stats :: Lude.Maybe StatsEvent,
+    -- | The End Event.
     end :: Lude.Maybe EndEvent
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SelectObjectContentEventStream' with the minimum fields required to make a request.
 --
--- * 'cont' - The Continuation Event.
--- * 'end' - The End Event.
 -- * 'progress' - The Progress Event.
 -- * 'records' - The Records Event.
+-- * 'cont' - The Continuation Event.
 -- * 'stats' - The Stats Event.
+-- * 'end' - The End Event.
 mkSelectObjectContentEventStream ::
   SelectObjectContentEventStream
 mkSelectObjectContentEventStream =

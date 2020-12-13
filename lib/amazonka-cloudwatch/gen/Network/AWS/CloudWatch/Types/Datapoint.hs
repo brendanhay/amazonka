@@ -36,35 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDatapoint' smart constructor.
 data Datapoint = Datapoint'
-  { sampleCount :: Lude.Maybe Lude.Double,
+  { -- | The number of metric values that contributed to the aggregate value of this data point.
+    sampleCount :: Lude.Maybe Lude.Double,
+    -- | The maximum metric value for the data point.
     maximum :: Lude.Maybe Lude.Double,
+    -- | The average of the metric values that correspond to the data point.
     average :: Lude.Maybe Lude.Double,
+    -- | The minimum metric value for the data point.
     minimum :: Lude.Maybe Lude.Double,
-    extendedStatistics ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    -- | The percentile statistic for the data point.
+    extendedStatistics :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
+    -- | The sum of the metric values for the data point.
     sum :: Lude.Maybe Lude.Double,
+    -- | The standard unit for the data point.
     unit :: Lude.Maybe StandardUnit,
+    -- | The time stamp used for the data point.
     timestamp :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
 --
--- * 'average' - The average of the metric values that correspond to the data point.
--- * 'extendedStatistics' - The percentile statistic for the data point.
--- * 'maximum' - The maximum metric value for the data point.
--- * 'minimum' - The minimum metric value for the data point.
 -- * 'sampleCount' - The number of metric values that contributed to the aggregate value of this data point.
+-- * 'maximum' - The maximum metric value for the data point.
+-- * 'average' - The average of the metric values that correspond to the data point.
+-- * 'minimum' - The minimum metric value for the data point.
+-- * 'extendedStatistics' - The percentile statistic for the data point.
 -- * 'sum' - The sum of the metric values for the data point.
--- * 'timestamp' - The time stamp used for the data point.
 -- * 'unit' - The standard unit for the data point.
+-- * 'timestamp' - The time stamp used for the data point.
 mkDatapoint ::
   Datapoint
 mkDatapoint =

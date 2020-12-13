@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,27 +47,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeServiceUpdates' smart constructor.
 data DescribeServiceUpdates = DescribeServiceUpdates'
-  { serviceUpdateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID of the service update
+    serviceUpdateName :: Lude.Maybe Lude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response
     maxRecords :: Lude.Maybe Lude.Int,
-    serviceUpdateStatus ::
-      Lude.Maybe [ServiceUpdateStatus]
+    -- | The status of the service update
+    serviceUpdateStatus :: Lude.Maybe [ServiceUpdateStatus]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceUpdates' with the minimum fields required to make a request.
 --
+-- * 'serviceUpdateName' - The unique ID of the service update
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response
--- * 'serviceUpdateName' - The unique ID of the service update
 -- * 'serviceUpdateStatus' - The status of the service update
 mkDescribeServiceUpdates ::
   DescribeServiceUpdates
@@ -149,26 +146,21 @@ instance Lude.ToQuery DescribeServiceUpdates where
 
 -- | /See:/ 'mkDescribeServiceUpdatesResponse' smart constructor.
 data DescribeServiceUpdatesResponse = DescribeServiceUpdatesResponse'
-  { serviceUpdates ::
-      Lude.Maybe [ServiceUpdate],
-    marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of service updates
+    serviceUpdates :: Lude.Maybe [ServiceUpdate],
+    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeServiceUpdatesResponse' with the minimum fields required to make a request.
 --
+-- * 'serviceUpdates' - A list of service updates
 -- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'responseStatus' - The response status code.
--- * 'serviceUpdates' - A list of service updates
 mkDescribeServiceUpdatesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,12 +13,12 @@
 module Network.AWS.Glue.Types.JobRunState
   ( JobRunState
       ( JobRunState',
-        JRSFailed,
-        JRSRunning,
         JRSStarting,
-        JRSStopped,
+        JRSRunning,
         JRSStopping,
+        JRSStopped,
         JRSSucceeded,
+        JRSFailed,
         JRSTimeout
       ),
   )
@@ -50,34 +50,34 @@ newtype JobRunState = JobRunState' Lude.Text
       Lude.ToHeader
     )
 
-pattern JRSFailed :: JobRunState
-pattern JRSFailed = JobRunState' "FAILED"
+pattern JRSStarting :: JobRunState
+pattern JRSStarting = JobRunState' "STARTING"
 
 pattern JRSRunning :: JobRunState
 pattern JRSRunning = JobRunState' "RUNNING"
 
-pattern JRSStarting :: JobRunState
-pattern JRSStarting = JobRunState' "STARTING"
+pattern JRSStopping :: JobRunState
+pattern JRSStopping = JobRunState' "STOPPING"
 
 pattern JRSStopped :: JobRunState
 pattern JRSStopped = JobRunState' "STOPPED"
 
-pattern JRSStopping :: JobRunState
-pattern JRSStopping = JobRunState' "STOPPING"
-
 pattern JRSSucceeded :: JobRunState
 pattern JRSSucceeded = JobRunState' "SUCCEEDED"
+
+pattern JRSFailed :: JobRunState
+pattern JRSFailed = JobRunState' "FAILED"
 
 pattern JRSTimeout :: JobRunState
 pattern JRSTimeout = JobRunState' "TIMEOUT"
 
 {-# COMPLETE
-  JRSFailed,
-  JRSRunning,
   JRSStarting,
-  JRSStopped,
+  JRSRunning,
   JRSStopping,
+  JRSStopped,
   JRSSucceeded,
+  JRSFailed,
   JRSTimeout,
   JobRunState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.WorkDocs.DescribeComments
     mkDescribeComments,
 
     -- ** Request lenses
+    dcVersionId,
+    dcDocumentId,
     dcAuthenticationToken,
     dcMarker,
     dcLimit,
-    dcDocumentId,
-    dcVersionId,
 
     -- * Destructuring the response
     DescribeCommentsResponse (..),
@@ -47,37 +48,55 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkDescribeComments' smart constructor.
 data DescribeComments = DescribeComments'
-  { authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    marker :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
+  { -- | The ID of the document version.
+    versionId :: Lude.Text,
+    -- | The ID of the document.
     documentId :: Lude.Text,
-    versionId :: Lude.Text
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The marker for the next set of results. This marker was received from a previous call.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return.
+    limit :: Lude.Maybe Lude.Natural
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeComments' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'documentId' - The ID of the document.
--- * 'limit' - The maximum number of items to return.
--- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
 -- * 'versionId' - The ID of the document version.
+-- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
+-- * 'limit' - The maximum number of items to return.
 mkDescribeComments ::
-  -- | 'documentId'
-  Lude.Text ->
   -- | 'versionId'
   Lude.Text ->
+  -- | 'documentId'
+  Lude.Text ->
   DescribeComments
-mkDescribeComments pDocumentId_ pVersionId_ =
+mkDescribeComments pVersionId_ pDocumentId_ =
   DescribeComments'
-    { authenticationToken = Lude.Nothing,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing,
+    { versionId = pVersionId_,
       documentId = pDocumentId_,
-      versionId = pVersionId_
+      authenticationToken = Lude.Nothing,
+      marker = Lude.Nothing,
+      limit = Lude.Nothing
     }
+
+-- | The ID of the document version.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcVersionId :: Lens.Lens' DescribeComments Lude.Text
+dcVersionId = Lens.lens (versionId :: DescribeComments -> Lude.Text) (\s a -> s {versionId = a} :: DescribeComments)
+{-# DEPRECATED dcVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcDocumentId :: Lens.Lens' DescribeComments Lude.Text
+dcDocumentId = Lens.lens (documentId :: DescribeComments -> Lude.Text) (\s a -> s {documentId = a} :: DescribeComments)
+{-# DEPRECATED dcDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -99,20 +118,6 @@ dcMarker = Lens.lens (marker :: DescribeComments -> Lude.Maybe Lude.Text) (\s a 
 dcLimit :: Lens.Lens' DescribeComments (Lude.Maybe Lude.Natural)
 dcLimit = Lens.lens (limit :: DescribeComments -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeComments)
 {-# DEPRECATED dcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcDocumentId :: Lens.Lens' DescribeComments Lude.Text
-dcDocumentId = Lens.lens (documentId :: DescribeComments -> Lude.Text) (\s a -> s {documentId = a} :: DescribeComments)
-{-# DEPRECATED dcDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
-
--- | The ID of the document version.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcVersionId :: Lens.Lens' DescribeComments Lude.Text
-dcVersionId = Lens.lens (versionId :: DescribeComments -> Lude.Text) (\s a -> s {versionId = a} :: DescribeComments)
-{-# DEPRECATED dcVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 instance Page.AWSPager DescribeComments where
   page rq rs
@@ -157,9 +162,11 @@ instance Lude.ToQuery DescribeComments where
 
 -- | /See:/ 'mkDescribeCommentsResponse' smart constructor.
 data DescribeCommentsResponse = DescribeCommentsResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results. This marker was received from a previous call.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The list of comments for the specified document version.
     comments :: Lude.Maybe [Comment],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -167,8 +174,8 @@ data DescribeCommentsResponse = DescribeCommentsResponse'
 
 -- | Creates a value of 'DescribeCommentsResponse' with the minimum fields required to make a request.
 --
--- * 'comments' - The list of comments for the specified document version.
 -- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
+-- * 'comments' - The list of comments for the specified document version.
 -- * 'responseStatus' - The response status code.
 mkDescribeCommentsResponse ::
   -- | 'responseStatus'

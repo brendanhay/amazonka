@@ -13,12 +13,12 @@
 module Network.AWS.EC2.Types.VPCCidrBlockStateCode
   ( VPCCidrBlockStateCode
       ( VPCCidrBlockStateCode',
-        VCBSCAssociated,
         VCBSCAssociating,
-        VCBSCDisassociated,
+        VCBSCAssociated,
         VCBSCDisassociating,
-        VCBSCFailed,
-        VCBSCFailing
+        VCBSCDisassociated,
+        VCBSCFailing,
+        VCBSCFailed
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype VPCCidrBlockStateCode = VPCCidrBlockStateCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern VCBSCAssociated :: VPCCidrBlockStateCode
-pattern VCBSCAssociated = VPCCidrBlockStateCode' "associated"
-
 pattern VCBSCAssociating :: VPCCidrBlockStateCode
 pattern VCBSCAssociating = VPCCidrBlockStateCode' "associating"
 
-pattern VCBSCDisassociated :: VPCCidrBlockStateCode
-pattern VCBSCDisassociated = VPCCidrBlockStateCode' "disassociated"
+pattern VCBSCAssociated :: VPCCidrBlockStateCode
+pattern VCBSCAssociated = VPCCidrBlockStateCode' "associated"
 
 pattern VCBSCDisassociating :: VPCCidrBlockStateCode
 pattern VCBSCDisassociating = VPCCidrBlockStateCode' "disassociating"
 
-pattern VCBSCFailed :: VPCCidrBlockStateCode
-pattern VCBSCFailed = VPCCidrBlockStateCode' "failed"
+pattern VCBSCDisassociated :: VPCCidrBlockStateCode
+pattern VCBSCDisassociated = VPCCidrBlockStateCode' "disassociated"
 
 pattern VCBSCFailing :: VPCCidrBlockStateCode
 pattern VCBSCFailing = VPCCidrBlockStateCode' "failing"
 
+pattern VCBSCFailed :: VPCCidrBlockStateCode
+pattern VCBSCFailed = VPCCidrBlockStateCode' "failed"
+
 {-# COMPLETE
-  VCBSCAssociated,
   VCBSCAssociating,
-  VCBSCDisassociated,
+  VCBSCAssociated,
   VCBSCDisassociating,
-  VCBSCFailed,
+  VCBSCDisassociated,
   VCBSCFailing,
+  VCBSCFailed,
   VPCCidrBlockStateCode'
   #-}

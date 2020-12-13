@@ -13,15 +13,15 @@
 module Network.AWS.EC2.Types.VPCPeeringConnectionStateReasonCode
   ( VPCPeeringConnectionStateReasonCode
       ( VPCPeeringConnectionStateReasonCode',
-        VPCSRCActive,
-        VPCSRCDeleted,
-        VPCSRCDeleting,
-        VPCSRCExpired,
-        VPCSRCFailed,
         VPCSRCInitiatingRequest,
         VPCSRCPendingAcceptance,
+        VPCSRCActive,
+        VPCSRCDeleted,
+        VPCSRCRejected,
+        VPCSRCFailed,
+        VPCSRCExpired,
         VPCSRCProvisioning,
-        VPCSRCRejected
+        VPCSRCDeleting
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype VPCPeeringConnectionStateReasonCode = VPCPeeringConnectionStateReasonCod
       Lude.ToHeader
     )
 
-pattern VPCSRCActive :: VPCPeeringConnectionStateReasonCode
-pattern VPCSRCActive = VPCPeeringConnectionStateReasonCode' "active"
-
-pattern VPCSRCDeleted :: VPCPeeringConnectionStateReasonCode
-pattern VPCSRCDeleted = VPCPeeringConnectionStateReasonCode' "deleted"
-
-pattern VPCSRCDeleting :: VPCPeeringConnectionStateReasonCode
-pattern VPCSRCDeleting = VPCPeeringConnectionStateReasonCode' "deleting"
-
-pattern VPCSRCExpired :: VPCPeeringConnectionStateReasonCode
-pattern VPCSRCExpired = VPCPeeringConnectionStateReasonCode' "expired"
-
-pattern VPCSRCFailed :: VPCPeeringConnectionStateReasonCode
-pattern VPCSRCFailed = VPCPeeringConnectionStateReasonCode' "failed"
-
 pattern VPCSRCInitiatingRequest :: VPCPeeringConnectionStateReasonCode
 pattern VPCSRCInitiatingRequest = VPCPeeringConnectionStateReasonCode' "initiating-request"
 
 pattern VPCSRCPendingAcceptance :: VPCPeeringConnectionStateReasonCode
 pattern VPCSRCPendingAcceptance = VPCPeeringConnectionStateReasonCode' "pending-acceptance"
 
-pattern VPCSRCProvisioning :: VPCPeeringConnectionStateReasonCode
-pattern VPCSRCProvisioning = VPCPeeringConnectionStateReasonCode' "provisioning"
+pattern VPCSRCActive :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCActive = VPCPeeringConnectionStateReasonCode' "active"
+
+pattern VPCSRCDeleted :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCDeleted = VPCPeeringConnectionStateReasonCode' "deleted"
 
 pattern VPCSRCRejected :: VPCPeeringConnectionStateReasonCode
 pattern VPCSRCRejected = VPCPeeringConnectionStateReasonCode' "rejected"
 
+pattern VPCSRCFailed :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCFailed = VPCPeeringConnectionStateReasonCode' "failed"
+
+pattern VPCSRCExpired :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCExpired = VPCPeeringConnectionStateReasonCode' "expired"
+
+pattern VPCSRCProvisioning :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCProvisioning = VPCPeeringConnectionStateReasonCode' "provisioning"
+
+pattern VPCSRCDeleting :: VPCPeeringConnectionStateReasonCode
+pattern VPCSRCDeleting = VPCPeeringConnectionStateReasonCode' "deleting"
+
 {-# COMPLETE
-  VPCSRCActive,
-  VPCSRCDeleted,
-  VPCSRCDeleting,
-  VPCSRCExpired,
-  VPCSRCFailed,
   VPCSRCInitiatingRequest,
   VPCSRCPendingAcceptance,
-  VPCSRCProvisioning,
+  VPCSRCActive,
+  VPCSRCDeleted,
   VPCSRCRejected,
+  VPCSRCFailed,
+  VPCSRCExpired,
+  VPCSRCProvisioning,
+  VPCSRCDeleting,
   VPCPeeringConnectionStateReasonCode'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,11 +20,11 @@ module Network.AWS.WorkMail.PutRetentionPolicy
     mkPutRetentionPolicy,
 
     -- ** Request lenses
+    prpName,
     prpId,
+    prpFolderConfigurations,
     prpDescription,
     prpOrganizationId,
-    prpName,
-    prpFolderConfigurations,
 
     -- * Destructuring the response
     PutRetentionPolicyResponse (..),
@@ -42,37 +43,48 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkPutRetentionPolicy' smart constructor.
 data PutRetentionPolicy = PutRetentionPolicy'
-  { id ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    organizationId :: Lude.Text,
+  { -- | The retention policy name.
     name :: Lude.Text,
-    folderConfigurations :: [FolderConfiguration]
+    -- | The retention policy ID.
+    id :: Lude.Maybe Lude.Text,
+    -- | The retention policy folder configurations.
+    folderConfigurations :: [FolderConfiguration],
+    -- | The retention policy description.
+    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The organization ID.
+    organizationId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRetentionPolicy' with the minimum fields required to make a request.
 --
--- * 'description' - The retention policy description.
--- * 'folderConfigurations' - The retention policy folder configurations.
--- * 'id' - The retention policy ID.
 -- * 'name' - The retention policy name.
+-- * 'id' - The retention policy ID.
+-- * 'folderConfigurations' - The retention policy folder configurations.
+-- * 'description' - The retention policy description.
 -- * 'organizationId' - The organization ID.
 mkPutRetentionPolicy ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'name'
   Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   PutRetentionPolicy
-mkPutRetentionPolicy pOrganizationId_ pName_ =
+mkPutRetentionPolicy pName_ pOrganizationId_ =
   PutRetentionPolicy'
-    { id = Lude.Nothing,
+    { name = pName_,
+      id = Lude.Nothing,
+      folderConfigurations = Lude.mempty,
       description = Lude.Nothing,
-      organizationId = pOrganizationId_,
-      name = pName_,
-      folderConfigurations = Lude.mempty
+      organizationId = pOrganizationId_
     }
+
+-- | The retention policy name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpName :: Lens.Lens' PutRetentionPolicy Lude.Text
+prpName = Lens.lens (name :: PutRetentionPolicy -> Lude.Text) (\s a -> s {name = a} :: PutRetentionPolicy)
+{-# DEPRECATED prpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The retention policy ID.
 --
@@ -80,6 +92,13 @@ mkPutRetentionPolicy pOrganizationId_ pName_ =
 prpId :: Lens.Lens' PutRetentionPolicy (Lude.Maybe Lude.Text)
 prpId = Lens.lens (id :: PutRetentionPolicy -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: PutRetentionPolicy)
 {-# DEPRECATED prpId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The retention policy folder configurations.
+--
+-- /Note:/ Consider using 'folderConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpFolderConfigurations :: Lens.Lens' PutRetentionPolicy [FolderConfiguration]
+prpFolderConfigurations = Lens.lens (folderConfigurations :: PutRetentionPolicy -> [FolderConfiguration]) (\s a -> s {folderConfigurations = a} :: PutRetentionPolicy)
+{-# DEPRECATED prpFolderConfigurations "Use generic-lens or generic-optics with 'folderConfigurations' instead." #-}
 
 -- | The retention policy description.
 --
@@ -94,20 +113,6 @@ prpDescription = Lens.lens (description :: PutRetentionPolicy -> Lude.Maybe (Lud
 prpOrganizationId :: Lens.Lens' PutRetentionPolicy Lude.Text
 prpOrganizationId = Lens.lens (organizationId :: PutRetentionPolicy -> Lude.Text) (\s a -> s {organizationId = a} :: PutRetentionPolicy)
 {-# DEPRECATED prpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
--- | The retention policy name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpName :: Lens.Lens' PutRetentionPolicy Lude.Text
-prpName = Lens.lens (name :: PutRetentionPolicy -> Lude.Text) (\s a -> s {name = a} :: PutRetentionPolicy)
-{-# DEPRECATED prpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The retention policy folder configurations.
---
--- /Note:/ Consider using 'folderConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpFolderConfigurations :: Lens.Lens' PutRetentionPolicy [FolderConfiguration]
-prpFolderConfigurations = Lens.lens (folderConfigurations :: PutRetentionPolicy -> [FolderConfiguration]) (\s a -> s {folderConfigurations = a} :: PutRetentionPolicy)
-{-# DEPRECATED prpFolderConfigurations "Use generic-lens or generic-optics with 'folderConfigurations' instead." #-}
 
 instance Lude.AWSRequest PutRetentionPolicy where
   type Rs PutRetentionPolicy = PutRetentionPolicyResponse
@@ -133,11 +138,11 @@ instance Lude.ToJSON PutRetentionPolicy where
   toJSON PutRetentionPolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Id" Lude..=) Lude.<$> id,
+          [ Lude.Just ("Name" Lude..= name),
+            ("Id" Lude..=) Lude.<$> id,
+            Lude.Just ("FolderConfigurations" Lude..= folderConfigurations),
             ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("FolderConfigurations" Lude..= folderConfigurations)
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -149,16 +154,10 @@ instance Lude.ToQuery PutRetentionPolicy where
 
 -- | /See:/ 'mkPutRetentionPolicyResponse' smart constructor.
 newtype PutRetentionPolicyResponse = PutRetentionPolicyResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRetentionPolicyResponse' with the minimum fields required to make a request.

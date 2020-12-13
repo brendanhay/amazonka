@@ -31,18 +31,14 @@ import Network.AWS.SMS.Types.ValidationStatus
 --
 -- /See:/ 'mkNotificationContext' smart constructor.
 data NotificationContext = NotificationContext'
-  { status ::
-      Lude.Maybe ValidationStatus,
+  { -- | The status of the validation.
+    status :: Lude.Maybe ValidationStatus,
+    -- | The status message.
     statusMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the validation.
     validationId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationContext' with the minimum fields required to make a request.

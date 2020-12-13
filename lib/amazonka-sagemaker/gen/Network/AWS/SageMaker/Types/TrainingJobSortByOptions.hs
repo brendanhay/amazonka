@@ -13,10 +13,10 @@
 module Network.AWS.SageMaker.Types.TrainingJobSortByOptions
   ( TrainingJobSortByOptions
       ( TrainingJobSortByOptions',
-        TJSBOCreationTime,
-        TJSBOFinalObjectiveMetricValue,
         TJSBOName,
-        TJSBOStatus
+        TJSBOCreationTime,
+        TJSBOStatus,
+        TJSBOFinalObjectiveMetricValue
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TrainingJobSortByOptions = TrainingJobSortByOptions' Lude.Text
       Lude.ToHeader
     )
 
-pattern TJSBOCreationTime :: TrainingJobSortByOptions
-pattern TJSBOCreationTime = TrainingJobSortByOptions' "CreationTime"
-
-pattern TJSBOFinalObjectiveMetricValue :: TrainingJobSortByOptions
-pattern TJSBOFinalObjectiveMetricValue = TrainingJobSortByOptions' "FinalObjectiveMetricValue"
-
 pattern TJSBOName :: TrainingJobSortByOptions
 pattern TJSBOName = TrainingJobSortByOptions' "Name"
+
+pattern TJSBOCreationTime :: TrainingJobSortByOptions
+pattern TJSBOCreationTime = TrainingJobSortByOptions' "CreationTime"
 
 pattern TJSBOStatus :: TrainingJobSortByOptions
 pattern TJSBOStatus = TrainingJobSortByOptions' "Status"
 
+pattern TJSBOFinalObjectiveMetricValue :: TrainingJobSortByOptions
+pattern TJSBOFinalObjectiveMetricValue = TrainingJobSortByOptions' "FinalObjectiveMetricValue"
+
 {-# COMPLETE
-  TJSBOCreationTime,
-  TJSBOFinalObjectiveMetricValue,
   TJSBOName,
+  TJSBOCreationTime,
   TJSBOStatus,
+  TJSBOFinalObjectiveMetricValue,
   TrainingJobSortByOptions'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDescribePortfolioShareStatus' smart constructor.
 newtype DescribePortfolioShareStatus = DescribePortfolioShareStatus'
-  { portfolioShareToken ::
-      Lude.Text
+  { -- | The token for the portfolio share operation. This token is returned either by CreatePortfolioShare or by DeletePortfolioShare.
+    portfolioShareToken :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePortfolioShareStatus' with the minimum fields required to make a request.
@@ -120,41 +115,30 @@ instance Lude.ToQuery DescribePortfolioShareStatus where
 
 -- | /See:/ 'mkDescribePortfolioShareStatusResponse' smart constructor.
 data DescribePortfolioShareStatusResponse = DescribePortfolioShareStatusResponse'
-  { status ::
-      Lude.Maybe
-        ShareStatus,
-    portfolioShareToken ::
-      Lude.Maybe
-        Lude.Text,
-    shareDetails ::
-      Lude.Maybe
-        ShareDetails,
-    portfolioId ::
-      Lude.Maybe
-        Lude.Text,
-    organizationNodeValue ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Status of the portfolio share operation.
+    status :: Lude.Maybe ShareStatus,
+    -- | The token for the portfolio share operation. For example, @share-6v24abcdefghi@ .
+    portfolioShareToken :: Lude.Maybe Lude.Text,
+    -- | Information about the portfolio share operation.
+    shareDetails :: Lude.Maybe ShareDetails,
+    -- | The portfolio identifier.
+    portfolioId :: Lude.Maybe Lude.Text,
+    -- | Organization node identifier. It can be either account id, organizational unit id or organization id.
+    organizationNodeValue :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribePortfolioShareStatusResponse' with the minimum fields required to make a request.
 --
--- * 'organizationNodeValue' - Organization node identifier. It can be either account id, organizational unit id or organization id.
--- * 'portfolioId' - The portfolio identifier.
--- * 'portfolioShareToken' - The token for the portfolio share operation. For example, @share-6v24abcdefghi@ .
--- * 'responseStatus' - The response status code.
--- * 'shareDetails' - Information about the portfolio share operation.
 -- * 'status' - Status of the portfolio share operation.
+-- * 'portfolioShareToken' - The token for the portfolio share operation. For example, @share-6v24abcdefghi@ .
+-- * 'shareDetails' - Information about the portfolio share operation.
+-- * 'portfolioId' - The portfolio identifier.
+-- * 'organizationNodeValue' - Organization node identifier. It can be either account id, organizational unit id or organization id.
+-- * 'responseStatus' - The response status code.
 mkDescribePortfolioShareStatusResponse ::
   -- | 'responseStatus'
   Lude.Int ->

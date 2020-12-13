@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
     mkIncreaseStreamRetentionPeriod,
 
     -- ** Request lenses
-    isrpStreamName,
     isrpRetentionPeriodHours,
+    isrpStreamName,
 
     -- * Destructuring the response
     IncreaseStreamRetentionPeriodResponse (..),
@@ -40,18 +41,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkIncreaseStreamRetentionPeriod' smart constructor.
 data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
-  { streamName ::
-      Lude.Text,
-    retentionPeriodHours ::
-      Lude.Int
+  { -- | The new retention period of the stream, in hours. Must be more than the current retention period.
+    retentionPeriodHours :: Lude.Int,
+    -- | The name of the stream to modify.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncreaseStreamRetentionPeriod' with the minimum fields required to make a request.
@@ -59,23 +54,17 @@ data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
 -- * 'retentionPeriodHours' - The new retention period of the stream, in hours. Must be more than the current retention period.
 -- * 'streamName' - The name of the stream to modify.
 mkIncreaseStreamRetentionPeriod ::
-  -- | 'streamName'
-  Lude.Text ->
   -- | 'retentionPeriodHours'
   Lude.Int ->
+  -- | 'streamName'
+  Lude.Text ->
   IncreaseStreamRetentionPeriod
-mkIncreaseStreamRetentionPeriod pStreamName_ pRetentionPeriodHours_ =
+mkIncreaseStreamRetentionPeriod pRetentionPeriodHours_ pStreamName_ =
   IncreaseStreamRetentionPeriod'
-    { streamName = pStreamName_,
-      retentionPeriodHours = pRetentionPeriodHours_
+    { retentionPeriodHours =
+        pRetentionPeriodHours_,
+      streamName = pStreamName_
     }
-
--- | The name of the stream to modify.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isrpStreamName :: Lens.Lens' IncreaseStreamRetentionPeriod Lude.Text
-isrpStreamName = Lens.lens (streamName :: IncreaseStreamRetentionPeriod -> Lude.Text) (\s a -> s {streamName = a} :: IncreaseStreamRetentionPeriod)
-{-# DEPRECATED isrpStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The new retention period of the stream, in hours. Must be more than the current retention period.
 --
@@ -83,6 +72,13 @@ isrpStreamName = Lens.lens (streamName :: IncreaseStreamRetentionPeriod -> Lude.
 isrpRetentionPeriodHours :: Lens.Lens' IncreaseStreamRetentionPeriod Lude.Int
 isrpRetentionPeriodHours = Lens.lens (retentionPeriodHours :: IncreaseStreamRetentionPeriod -> Lude.Int) (\s a -> s {retentionPeriodHours = a} :: IncreaseStreamRetentionPeriod)
 {-# DEPRECATED isrpRetentionPeriodHours "Use generic-lens or generic-optics with 'retentionPeriodHours' instead." #-}
+
+-- | The name of the stream to modify.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isrpStreamName :: Lens.Lens' IncreaseStreamRetentionPeriod Lude.Text
+isrpStreamName = Lens.lens (streamName :: IncreaseStreamRetentionPeriod -> Lude.Text) (\s a -> s {streamName = a} :: IncreaseStreamRetentionPeriod)
+{-# DEPRECATED isrpStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 instance Lude.AWSRequest IncreaseStreamRetentionPeriod where
   type
@@ -108,8 +104,8 @@ instance Lude.ToJSON IncreaseStreamRetentionPeriod where
   toJSON IncreaseStreamRetentionPeriod' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("StreamName" Lude..= streamName),
-            Lude.Just ("RetentionPeriodHours" Lude..= retentionPeriodHours)
+          [ Lude.Just ("RetentionPeriodHours" Lude..= retentionPeriodHours),
+            Lude.Just ("StreamName" Lude..= streamName)
           ]
       )
 
@@ -121,13 +117,7 @@ instance Lude.ToQuery IncreaseStreamRetentionPeriod where
 
 -- | /See:/ 'mkIncreaseStreamRetentionPeriodResponse' smart constructor.
 data IncreaseStreamRetentionPeriodResponse = IncreaseStreamRetentionPeriodResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IncreaseStreamRetentionPeriodResponse' with the minimum fields required to make a request.

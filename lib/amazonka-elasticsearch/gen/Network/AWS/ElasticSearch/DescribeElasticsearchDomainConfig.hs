@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
     mkDescribeElasticsearchDomainConfigResponse,
 
     -- ** Response lenses
-    dedcrsResponseStatus,
     dedcrsDomainConfig,
+    dedcrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeElasticsearchDomainConfig' smart constructor.
 newtype DescribeElasticsearchDomainConfig = DescribeElasticsearchDomainConfig'
-  { domainName ::
-      Lude.Text
+  { -- | The Elasticsearch domain that you want to get information about.
+    domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticsearchDomainConfig' with the minimum fields required to make a request.
@@ -79,7 +74,7 @@ instance Lude.AWSRequest DescribeElasticsearchDomainConfig where
     Res.receiveJSON
       ( \s h x ->
           DescribeElasticsearchDomainConfigResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "DomainConfig")
+            Lude.<$> (x Lude..:> "DomainConfig") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeElasticsearchDomainConfig where
@@ -97,18 +92,12 @@ instance Lude.ToQuery DescribeElasticsearchDomainConfig where
 --
 -- /See:/ 'mkDescribeElasticsearchDomainConfigResponse' smart constructor.
 data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConfigResponse'
-  { responseStatus ::
-      Lude.Int,
-    domainConfig ::
-      ElasticsearchDomainConfig
+  { -- | The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
+    domainConfig :: ElasticsearchDomainConfig,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeElasticsearchDomainConfigResponse' with the minimum fields required to make a request.
@@ -116,26 +105,19 @@ data DescribeElasticsearchDomainConfigResponse = DescribeElasticsearchDomainConf
 -- * 'domainConfig' - The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
 -- * 'responseStatus' - The response status code.
 mkDescribeElasticsearchDomainConfigResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'domainConfig'
   ElasticsearchDomainConfig ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeElasticsearchDomainConfigResponse
 mkDescribeElasticsearchDomainConfigResponse
-  pResponseStatus_
-  pDomainConfig_ =
+  pDomainConfig_
+  pResponseStatus_ =
     DescribeElasticsearchDomainConfigResponse'
-      { responseStatus =
-          pResponseStatus_,
-        domainConfig = pDomainConfig_
+      { domainConfig =
+          pDomainConfig_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedcrsResponseStatus :: Lens.Lens' DescribeElasticsearchDomainConfigResponse Lude.Int
-dedcrsResponseStatus = Lens.lens (responseStatus :: DescribeElasticsearchDomainConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeElasticsearchDomainConfigResponse)
-{-# DEPRECATED dedcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The configuration information of the domain requested in the @DescribeElasticsearchDomainConfig@ request.
 --
@@ -143,3 +125,10 @@ dedcrsResponseStatus = Lens.lens (responseStatus :: DescribeElasticsearchDomainC
 dedcrsDomainConfig :: Lens.Lens' DescribeElasticsearchDomainConfigResponse ElasticsearchDomainConfig
 dedcrsDomainConfig = Lens.lens (domainConfig :: DescribeElasticsearchDomainConfigResponse -> ElasticsearchDomainConfig) (\s a -> s {domainConfig = a} :: DescribeElasticsearchDomainConfigResponse)
 {-# DEPRECATED dedcrsDomainConfig "Use generic-lens or generic-optics with 'domainConfig' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedcrsResponseStatus :: Lens.Lens' DescribeElasticsearchDomainConfigResponse Lude.Int
+dedcrsResponseStatus = Lens.lens (responseStatus :: DescribeElasticsearchDomainConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeElasticsearchDomainConfigResponse)
+{-# DEPRECATED dedcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

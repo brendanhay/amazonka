@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.ECS.UpdateTaskSet
     mkUpdateTaskSet,
 
     -- ** Request lenses
+    utsTaskSet,
     utsCluster,
     utsService,
-    utsTaskSet,
     utsScale,
 
     -- * Destructuring the response
@@ -42,43 +43,47 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateTaskSet' smart constructor.
 data UpdateTaskSet = UpdateTaskSet'
-  { cluster :: Lude.Text,
-    service :: Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the task set to update.
     taskSet :: Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
+    cluster :: Lude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
+    service :: Lude.Text,
     scale :: Scale
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTaskSet' with the minimum fields required to make a request.
 --
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
--- * 'scale' - Undocumented field.
--- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
 -- * 'taskSet' - The short name or full Amazon Resource Name (ARN) of the task set to update.
+-- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
+-- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
+-- * 'scale' -
 mkUpdateTaskSet ::
+  -- | 'taskSet'
+  Lude.Text ->
   -- | 'cluster'
   Lude.Text ->
   -- | 'service'
   Lude.Text ->
-  -- | 'taskSet'
-  Lude.Text ->
   -- | 'scale'
   Scale ->
   UpdateTaskSet
-mkUpdateTaskSet pCluster_ pService_ pTaskSet_ pScale_ =
+mkUpdateTaskSet pTaskSet_ pCluster_ pService_ pScale_ =
   UpdateTaskSet'
-    { cluster = pCluster_,
+    { taskSet = pTaskSet_,
+      cluster = pCluster_,
       service = pService_,
-      taskSet = pTaskSet_,
       scale = pScale_
     }
+
+-- | The short name or full Amazon Resource Name (ARN) of the task set to update.
+--
+-- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsTaskSet :: Lens.Lens' UpdateTaskSet Lude.Text
+utsTaskSet = Lens.lens (taskSet :: UpdateTaskSet -> Lude.Text) (\s a -> s {taskSet = a} :: UpdateTaskSet)
+{-# DEPRECATED utsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
 --
@@ -93,13 +98,6 @@ utsCluster = Lens.lens (cluster :: UpdateTaskSet -> Lude.Text) (\s a -> s {clust
 utsService :: Lens.Lens' UpdateTaskSet Lude.Text
 utsService = Lens.lens (service :: UpdateTaskSet -> Lude.Text) (\s a -> s {service = a} :: UpdateTaskSet)
 {-# DEPRECATED utsService "Use generic-lens or generic-optics with 'service' instead." #-}
-
--- | The short name or full Amazon Resource Name (ARN) of the task set to update.
---
--- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsTaskSet :: Lens.Lens' UpdateTaskSet Lude.Text
-utsTaskSet = Lens.lens (taskSet :: UpdateTaskSet -> Lude.Text) (\s a -> s {taskSet = a} :: UpdateTaskSet)
-{-# DEPRECATED utsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
 -- | Undocumented field.
 --
@@ -135,9 +133,9 @@ instance Lude.ToJSON UpdateTaskSet where
   toJSON UpdateTaskSet' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("cluster" Lude..= cluster),
+          [ Lude.Just ("taskSet" Lude..= taskSet),
+            Lude.Just ("cluster" Lude..= cluster),
             Lude.Just ("service" Lude..= service),
-            Lude.Just ("taskSet" Lude..= taskSet),
             Lude.Just ("scale" Lude..= scale)
           ]
       )
@@ -150,23 +148,17 @@ instance Lude.ToQuery UpdateTaskSet where
 
 -- | /See:/ 'mkUpdateTaskSetResponse' smart constructor.
 data UpdateTaskSetResponse = UpdateTaskSetResponse'
-  { taskSet ::
-      Lude.Maybe TaskSet,
+  { taskSet :: Lude.Maybe TaskSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTaskSetResponse' with the minimum fields required to make a request.
 --
+-- * 'taskSet' -
 -- * 'responseStatus' - The response status code.
--- * 'taskSet' - Undocumented field.
 mkUpdateTaskSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

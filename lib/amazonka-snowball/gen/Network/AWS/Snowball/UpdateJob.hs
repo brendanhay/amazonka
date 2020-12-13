@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,6 +20,7 @@ module Network.AWS.Snowball.UpdateJob
     mkUpdateJob,
 
     -- ** Request lenses
+    ujJobId,
     ujNotification,
     ujForwardingAddressId,
     ujAddressId,
@@ -27,7 +29,6 @@ module Network.AWS.Snowball.UpdateJob
     ujDescription,
     ujRoleARN,
     ujSnowballCapacityPreference,
-    ujJobId,
 
     -- * Destructuring the response
     UpdateJobResponse (..),
@@ -46,36 +47,38 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { notification ::
-      Lude.Maybe Notification,
+  { -- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+    jobId :: Lude.Text,
+    -- | The new or updated 'Notification' object.
+    notification :: Lude.Maybe Notification,
+    -- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
     forwardingAddressId :: Lude.Maybe Lude.Text,
+    -- | The ID of the updated 'Address' object.
     addressId :: Lude.Maybe Lude.Text,
+    -- | The updated shipping option value of this job's 'ShippingDetails' object.
     shippingOption :: Lude.Maybe ShippingOption,
+    -- | The updated @JobResource@ object, or the updated 'JobResource' object.
     resources :: Lude.Maybe JobResource,
+    -- | The updated description of this job's 'JobMetadata' object.
     description :: Lude.Maybe Lude.Text,
+    -- | The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
     roleARN :: Lude.Maybe Lude.Text,
-    snowballCapacityPreference :: Lude.Maybe SnowballCapacity,
-    jobId :: Lude.Text
+    -- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
+    snowballCapacityPreference :: Lude.Maybe SnowballCapacity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
--- * 'addressId' - The ID of the updated 'Address' object.
--- * 'description' - The updated description of this job's 'JobMetadata' object.
--- * 'forwardingAddressId' - The updated ID for the forwarding address for a job. This field is not supported in most regions.
 -- * 'jobId' - The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 -- * 'notification' - The new or updated 'Notification' object.
--- * 'resources' - The updated @JobResource@ object, or the updated 'JobResource' object.
--- * 'roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
+-- * 'forwardingAddressId' - The updated ID for the forwarding address for a job. This field is not supported in most regions.
+-- * 'addressId' - The ID of the updated 'Address' object.
 -- * 'shippingOption' - The updated shipping option value of this job's 'ShippingDetails' object.
+-- * 'resources' - The updated @JobResource@ object, or the updated 'JobResource' object.
+-- * 'description' - The updated description of this job's 'JobMetadata' object.
+-- * 'roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
 -- * 'snowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
 mkUpdateJob ::
   -- | 'jobId'
@@ -83,16 +86,23 @@ mkUpdateJob ::
   UpdateJob
 mkUpdateJob pJobId_ =
   UpdateJob'
-    { notification = Lude.Nothing,
+    { jobId = pJobId_,
+      notification = Lude.Nothing,
       forwardingAddressId = Lude.Nothing,
       addressId = Lude.Nothing,
       shippingOption = Lude.Nothing,
       resources = Lude.Nothing,
       description = Lude.Nothing,
       roleARN = Lude.Nothing,
-      snowballCapacityPreference = Lude.Nothing,
-      jobId = pJobId_
+      snowballCapacityPreference = Lude.Nothing
     }
+
+-- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujJobId :: Lens.Lens' UpdateJob Lude.Text
+ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJob)
+{-# DEPRECATED ujJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The new or updated 'Notification' object.
 --
@@ -150,13 +160,6 @@ ujSnowballCapacityPreference :: Lens.Lens' UpdateJob (Lude.Maybe SnowballCapacit
 ujSnowballCapacityPreference = Lens.lens (snowballCapacityPreference :: UpdateJob -> Lude.Maybe SnowballCapacity) (\s a -> s {snowballCapacityPreference = a} :: UpdateJob)
 {-# DEPRECATED ujSnowballCapacityPreference "Use generic-lens or generic-optics with 'snowballCapacityPreference' instead." #-}
 
--- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujJobId :: Lens.Lens' UpdateJob Lude.Text
-ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJob)
-{-# DEPRECATED ujJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
 instance Lude.AWSRequest UpdateJob where
   type Rs UpdateJob = UpdateJobResponse
   request = Req.postJSON snowballService
@@ -181,7 +184,8 @@ instance Lude.ToJSON UpdateJob where
   toJSON UpdateJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Notification" Lude..=) Lude.<$> notification,
+          [ Lude.Just ("JobId" Lude..= jobId),
+            ("Notification" Lude..=) Lude.<$> notification,
             ("ForwardingAddressId" Lude..=) Lude.<$> forwardingAddressId,
             ("AddressId" Lude..=) Lude.<$> addressId,
             ("ShippingOption" Lude..=) Lude.<$> shippingOption,
@@ -189,8 +193,7 @@ instance Lude.ToJSON UpdateJob where
             ("Description" Lude..=) Lude.<$> description,
             ("RoleARN" Lude..=) Lude.<$> roleARN,
             ("SnowballCapacityPreference" Lude..=)
-              Lude.<$> snowballCapacityPreference,
-            Lude.Just ("JobId" Lude..= jobId)
+              Lude.<$> snowballCapacityPreference
           ]
       )
 
@@ -202,16 +205,10 @@ instance Lude.ToQuery UpdateJob where
 
 -- | /See:/ 'mkUpdateJobResponse' smart constructor.
 newtype UpdateJobResponse = UpdateJobResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkThreatIntelligenceDetail' smart constructor.
 data ThreatIntelligenceDetail = ThreatIntelligenceDetail'
-  { threatNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of names of the threats in the threat intelligence list that triggered the finding.
+    threatNames :: Lude.Maybe [Lude.Text],
+    -- | The name of the threat intelligence list that triggered the finding.
     threatListName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ThreatIntelligenceDetail' with the minimum fields required to make a request.
 --
--- * 'threatListName' - The name of the threat intelligence list that triggered the finding.
 -- * 'threatNames' - A list of names of the threats in the threat intelligence list that triggered the finding.
+-- * 'threatListName' - The name of the threat intelligence list that triggered the finding.
 mkThreatIntelligenceDetail ::
   ThreatIntelligenceDetail
 mkThreatIntelligenceDetail =

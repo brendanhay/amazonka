@@ -13,9 +13,9 @@
 module Network.AWS.ElasticBeanstalk.Types.ComputeType
   ( ComputeType
       ( ComputeType',
-        BuildGENERAL1Large,
+        BuildGENERAL1Small,
         BuildGENERAL1Medium,
-        BuildGENERAL1Small
+        BuildGENERAL1Large
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ComputeType = ComputeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BuildGENERAL1Large :: ComputeType
-pattern BuildGENERAL1Large = ComputeType' "BUILD_GENERAL1_LARGE"
+pattern BuildGENERAL1Small :: ComputeType
+pattern BuildGENERAL1Small = ComputeType' "BUILD_GENERAL1_SMALL"
 
 pattern BuildGENERAL1Medium :: ComputeType
 pattern BuildGENERAL1Medium = ComputeType' "BUILD_GENERAL1_MEDIUM"
 
-pattern BuildGENERAL1Small :: ComputeType
-pattern BuildGENERAL1Small = ComputeType' "BUILD_GENERAL1_SMALL"
+pattern BuildGENERAL1Large :: ComputeType
+pattern BuildGENERAL1Large = ComputeType' "BUILD_GENERAL1_LARGE"
 
 {-# COMPLETE
-  BuildGENERAL1Large,
-  BuildGENERAL1Medium,
   BuildGENERAL1Small,
+  BuildGENERAL1Medium,
+  BuildGENERAL1Large,
   ComputeType'
   #-}

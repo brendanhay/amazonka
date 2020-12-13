@@ -13,9 +13,9 @@
 module Network.AWS.DataPipeline.Types.TaskStatus
   ( TaskStatus
       ( TaskStatus',
+        Finished,
         Failed,
-        False,
-        Finished
+        False
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype TaskStatus = TaskStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Finished :: TaskStatus
+pattern Finished = TaskStatus' "FINISHED"
+
 pattern Failed :: TaskStatus
 pattern Failed = TaskStatus' "FAILED"
 
 pattern False :: TaskStatus
 pattern False = TaskStatus' "FALSE"
 
-pattern Finished :: TaskStatus
-pattern Finished = TaskStatus' "FINISHED"
-
 {-# COMPLETE
+  Finished,
   Failed,
   False,
-  Finished,
   TaskStatus'
   #-}

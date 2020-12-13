@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,9 +37,9 @@ module Network.AWS.Rekognition.DetectLabels
     mkDetectLabels,
 
     -- ** Request lenses
+    dlImage,
     dlMinConfidence,
     dlMaxLabels,
-    dlImage,
 
     -- * Destructuring the response
     DetectLabelsResponse (..),
@@ -60,18 +61,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectLabels' smart constructor.
 data DetectLabels = DetectLabels'
-  { minConfidence ::
-      Lude.Maybe Lude.Double,
-    maxLabels :: Lude.Maybe Lude.Natural,
-    image :: Image
+  { -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.
+    --
+    -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+    image :: Image,
+    -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.
+    --
+    -- If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.
+    minConfidence :: Lude.Maybe Lude.Double,
+    -- | Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
+    maxLabels :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectLabels' with the minimum fields required to make a request.
@@ -79,20 +80,29 @@ data DetectLabels = DetectLabels'
 -- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.
 --
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
--- * 'maxLabels' - Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
 -- * 'minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.
 --
 -- If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.
+-- * 'maxLabels' - Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
 mkDetectLabels ::
   -- | 'image'
   Image ->
   DetectLabels
 mkDetectLabels pImage_ =
   DetectLabels'
-    { minConfidence = Lude.Nothing,
-      maxLabels = Lude.Nothing,
-      image = pImage_
+    { image = pImage_,
+      minConfidence = Lude.Nothing,
+      maxLabels = Lude.Nothing
     }
+
+-- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.
+--
+-- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlImage :: Lens.Lens' DetectLabels Image
+dlImage = Lens.lens (image :: DetectLabels -> Image) (\s a -> s {image = a} :: DetectLabels)
+{-# DEPRECATED dlImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.
 --
@@ -109,15 +119,6 @@ dlMinConfidence = Lens.lens (minConfidence :: DetectLabels -> Lude.Maybe Lude.Do
 dlMaxLabels :: Lens.Lens' DetectLabels (Lude.Maybe Lude.Natural)
 dlMaxLabels = Lens.lens (maxLabels :: DetectLabels -> Lude.Maybe Lude.Natural) (\s a -> s {maxLabels = a} :: DetectLabels)
 {-# DEPRECATED dlMaxLabels "Use generic-lens or generic-optics with 'maxLabels' instead." #-}
-
--- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.
---
--- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
---
--- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlImage :: Lens.Lens' DetectLabels Image
-dlImage = Lens.lens (image :: DetectLabels -> Image) (\s a -> s {image = a} :: DetectLabels)
-{-# DEPRECATED dlImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 instance Lude.AWSRequest DetectLabels where
   type Rs DetectLabels = DetectLabelsResponse
@@ -147,9 +148,9 @@ instance Lude.ToJSON DetectLabels where
   toJSON DetectLabels' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("MinConfidence" Lude..=) Lude.<$> minConfidence,
-            ("MaxLabels" Lude..=) Lude.<$> maxLabels,
-            Lude.Just ("Image" Lude..= image)
+          [ Lude.Just ("Image" Lude..= image),
+            ("MinConfidence" Lude..=) Lude.<$> minConfidence,
+            ("MaxLabels" Lude..=) Lude.<$> maxLabels
           ]
       )
 
@@ -161,30 +162,29 @@ instance Lude.ToQuery DetectLabels where
 
 -- | /See:/ 'mkDetectLabelsResponse' smart constructor.
 data DetectLabelsResponse = DetectLabelsResponse'
-  { labels ::
-      Lude.Maybe [Label],
-    orientationCorrection ::
-      Lude.Maybe OrientationCorrection,
+  { -- | An array of labels for the real-world objects detected.
+    labels :: Lude.Maybe [Label],
+    -- | The value of @OrientationCorrection@ is always null.
+    --
+    -- If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
+    -- Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
+    orientationCorrection :: Lude.Maybe OrientationCorrection,
+    -- | Version number of the label detection model that was used to detect labels.
     labelModelVersion :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectLabelsResponse' with the minimum fields required to make a request.
 --
--- * 'labelModelVersion' - Version number of the label detection model that was used to detect labels.
 -- * 'labels' - An array of labels for the real-world objects detected.
 -- * 'orientationCorrection' - The value of @OrientationCorrection@ is always null.
 --
 -- If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
 -- Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
+-- * 'labelModelVersion' - Version number of the label detection model that was used to detect labels.
 -- * 'responseStatus' - The response status code.
 mkDetectLabelsResponse ::
   -- | 'responseStatus'

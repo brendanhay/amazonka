@@ -30,16 +30,12 @@ import Network.AWS.Rekognition.Types.BoundingBox
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { boundingBox :: Lude.Maybe BoundingBox,
+  { -- | The position of the label instance on the image.
+    boundingBox :: Lude.Maybe BoundingBox,
+    -- | The confidence that Amazon Rekognition has in the accuracy of the bounding box.
     confidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.

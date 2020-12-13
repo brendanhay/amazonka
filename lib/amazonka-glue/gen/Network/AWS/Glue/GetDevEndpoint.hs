@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Glue.GetDevEndpoint
     mkGetDevEndpointResponse,
 
     -- ** Response lenses
-    gdedrsDevEndpoint,
-    gdedrsResponseStatus,
+    gdefrsDevEndpoint,
+    gdefrsResponseStatus,
   )
 where
 
@@ -38,14 +39,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDevEndpoint' smart constructor.
-newtype GetDevEndpoint = GetDevEndpoint' {endpointName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetDevEndpoint = GetDevEndpoint'
+  { -- | Name of the @DevEndpoint@ to retrieve information for.
+    endpointName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevEndpoint' with the minimum fields required to make a request.
@@ -99,17 +97,12 @@ instance Lude.ToQuery GetDevEndpoint where
 
 -- | /See:/ 'mkGetDevEndpointResponse' smart constructor.
 data GetDevEndpointResponse = GetDevEndpointResponse'
-  { devEndpoint ::
-      Lude.Maybe DevEndpoint,
+  { -- | A @DevEndpoint@ definition.
+    devEndpoint :: Lude.Maybe DevEndpoint,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDevEndpointResponse' with the minimum fields required to make a request.
@@ -129,13 +122,13 @@ mkGetDevEndpointResponse pResponseStatus_ =
 -- | A @DevEndpoint@ definition.
 --
 -- /Note:/ Consider using 'devEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdedrsDevEndpoint :: Lens.Lens' GetDevEndpointResponse (Lude.Maybe DevEndpoint)
-gdedrsDevEndpoint = Lens.lens (devEndpoint :: GetDevEndpointResponse -> Lude.Maybe DevEndpoint) (\s a -> s {devEndpoint = a} :: GetDevEndpointResponse)
-{-# DEPRECATED gdedrsDevEndpoint "Use generic-lens or generic-optics with 'devEndpoint' instead." #-}
+gdefrsDevEndpoint :: Lens.Lens' GetDevEndpointResponse (Lude.Maybe DevEndpoint)
+gdefrsDevEndpoint = Lens.lens (devEndpoint :: GetDevEndpointResponse -> Lude.Maybe DevEndpoint) (\s a -> s {devEndpoint = a} :: GetDevEndpointResponse)
+{-# DEPRECATED gdefrsDevEndpoint "Use generic-lens or generic-optics with 'devEndpoint' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdedrsResponseStatus :: Lens.Lens' GetDevEndpointResponse Lude.Int
-gdedrsResponseStatus = Lens.lens (responseStatus :: GetDevEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDevEndpointResponse)
-{-# DEPRECATED gdedrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdefrsResponseStatus :: Lens.Lens' GetDevEndpointResponse Lude.Int
+gdefrsResponseStatus = Lens.lens (responseStatus :: GetDevEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDevEndpointResponse)
+{-# DEPRECATED gdefrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

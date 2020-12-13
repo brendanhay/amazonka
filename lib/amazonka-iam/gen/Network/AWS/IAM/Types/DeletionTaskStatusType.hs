@@ -13,10 +13,10 @@
 module Network.AWS.IAM.Types.DeletionTaskStatusType
   ( DeletionTaskStatusType
       ( DeletionTaskStatusType',
-        DTSTFailed,
+        DTSTSucceeded,
         DTSTInProgress,
-        DTSTNotStarted,
-        DTSTSucceeded
+        DTSTFailed,
+        DTSTNotStarted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DeletionTaskStatusType = DeletionTaskStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DTSTFailed :: DeletionTaskStatusType
-pattern DTSTFailed = DeletionTaskStatusType' "FAILED"
+pattern DTSTSucceeded :: DeletionTaskStatusType
+pattern DTSTSucceeded = DeletionTaskStatusType' "SUCCEEDED"
 
 pattern DTSTInProgress :: DeletionTaskStatusType
 pattern DTSTInProgress = DeletionTaskStatusType' "IN_PROGRESS"
 
+pattern DTSTFailed :: DeletionTaskStatusType
+pattern DTSTFailed = DeletionTaskStatusType' "FAILED"
+
 pattern DTSTNotStarted :: DeletionTaskStatusType
 pattern DTSTNotStarted = DeletionTaskStatusType' "NOT_STARTED"
 
-pattern DTSTSucceeded :: DeletionTaskStatusType
-pattern DTSTSucceeded = DeletionTaskStatusType' "SUCCEEDED"
-
 {-# COMPLETE
-  DTSTFailed,
-  DTSTInProgress,
-  DTSTNotStarted,
   DTSTSucceeded,
+  DTSTInProgress,
+  DTSTFailed,
+  DTSTNotStarted,
   DeletionTaskStatusType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.IoT.DetachSecurityProfile
     mkDetachSecurityProfile,
 
     -- ** Request lenses
-    detSecurityProfileName,
-    detSecurityProfileTargetARN,
+    dspSecurityProfileName,
+    dspSecurityProfileTargetARN,
 
     -- * Destructuring the response
     DetachSecurityProfileResponse (..),
     mkDetachSecurityProfileResponse,
 
     -- ** Response lenses
-    detrsResponseStatus,
+    dspgrsResponseStatus,
   )
 where
 
@@ -39,17 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetachSecurityProfile' smart constructor.
 data DetachSecurityProfile = DetachSecurityProfile'
-  { securityProfileName ::
-      Lude.Text,
+  { -- | The security profile that is detached.
+    securityProfileName :: Lude.Text,
+    -- | The ARN of the thing group from which the security profile is detached.
     securityProfileTargetARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachSecurityProfile' with the minimum fields required to make a request.
@@ -74,16 +70,16 @@ mkDetachSecurityProfile
 -- | The security profile that is detached.
 --
 -- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detSecurityProfileName :: Lens.Lens' DetachSecurityProfile Lude.Text
-detSecurityProfileName = Lens.lens (securityProfileName :: DetachSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: DetachSecurityProfile)
-{-# DEPRECATED detSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
+dspSecurityProfileName :: Lens.Lens' DetachSecurityProfile Lude.Text
+dspSecurityProfileName = Lens.lens (securityProfileName :: DetachSecurityProfile -> Lude.Text) (\s a -> s {securityProfileName = a} :: DetachSecurityProfile)
+{-# DEPRECATED dspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | The ARN of the thing group from which the security profile is detached.
 --
 -- /Note:/ Consider using 'securityProfileTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detSecurityProfileTargetARN :: Lens.Lens' DetachSecurityProfile Lude.Text
-detSecurityProfileTargetARN = Lens.lens (securityProfileTargetARN :: DetachSecurityProfile -> Lude.Text) (\s a -> s {securityProfileTargetARN = a} :: DetachSecurityProfile)
-{-# DEPRECATED detSecurityProfileTargetARN "Use generic-lens or generic-optics with 'securityProfileTargetARN' instead." #-}
+dspSecurityProfileTargetARN :: Lens.Lens' DetachSecurityProfile Lude.Text
+dspSecurityProfileTargetARN = Lens.lens (securityProfileTargetARN :: DetachSecurityProfile -> Lude.Text) (\s a -> s {securityProfileTargetARN = a} :: DetachSecurityProfile)
+{-# DEPRECATED dspSecurityProfileTargetARN "Use generic-lens or generic-optics with 'securityProfileTargetARN' instead." #-}
 
 instance Lude.AWSRequest DetachSecurityProfile where
   type Rs DetachSecurityProfile = DetachSecurityProfileResponse
@@ -110,16 +106,10 @@ instance Lude.ToQuery DetachSecurityProfile where
 
 -- | /See:/ 'mkDetachSecurityProfileResponse' smart constructor.
 newtype DetachSecurityProfileResponse = DetachSecurityProfileResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetachSecurityProfileResponse' with the minimum fields required to make a request.
@@ -135,6 +125,6 @@ mkDetachSecurityProfileResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsResponseStatus :: Lens.Lens' DetachSecurityProfileResponse Lude.Int
-detrsResponseStatus = Lens.lens (responseStatus :: DetachSecurityProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachSecurityProfileResponse)
-{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dspgrsResponseStatus :: Lens.Lens' DetachSecurityProfileResponse Lude.Int
+dspgrsResponseStatus = Lens.lens (responseStatus :: DetachSecurityProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachSecurityProfileResponse)
+{-# DEPRECATED dspgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

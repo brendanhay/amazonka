@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,13 +24,13 @@ module Network.AWS.Config.GetResourceConfigHistory
     mkGetResourceConfigHistory,
 
     -- ** Request lenses
+    grchResourceId,
+    grchResourceType,
     grchChronologicalOrder,
     grchNextToken,
     grchLimit,
     grchLaterTime,
     grchEarlierTime,
-    grchResourceType,
-    grchResourceId,
 
     -- * Destructuring the response
     GetResourceConfigHistoryResponse (..),
@@ -53,49 +54,63 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetResourceConfigHistory' smart constructor.
 data GetResourceConfigHistory = GetResourceConfigHistory'
-  { chronologicalOrder ::
-      Lude.Maybe ChronologicalOrder,
-    nextToken :: Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    laterTime :: Lude.Maybe Lude.Timestamp,
-    earlierTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The ID of the resource (for example., @sg-xxxxxx@ ).
+    resourceId :: Lude.Text,
+    -- | The resource type.
     resourceType :: ResourceType,
-    resourceId :: Lude.Text
+    -- | The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
+    chronologicalOrder :: Lude.Maybe ChronologicalOrder,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The time stamp that indicates a later time. If not specified, current time is taken.
+    laterTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
+    earlierTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourceConfigHistory' with the minimum fields required to make a request.
 --
--- * 'chronologicalOrder' - The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
--- * 'earlierTime' - The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
--- * 'laterTime' - The time stamp that indicates a later time. If not specified, current time is taken.
--- * 'limit' - The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'resourceId' - The ID of the resource (for example., @sg-xxxxxx@ ).
 -- * 'resourceType' - The resource type.
+-- * 'chronologicalOrder' - The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of configuration items returned on each page. The default is 10. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
+-- * 'laterTime' - The time stamp that indicates a later time. If not specified, current time is taken.
+-- * 'earlierTime' - The time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start when the first configuration item was recorded.
 mkGetResourceConfigHistory ::
-  -- | 'resourceType'
-  ResourceType ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'resourceType'
+  ResourceType ->
   GetResourceConfigHistory
-mkGetResourceConfigHistory pResourceType_ pResourceId_ =
+mkGetResourceConfigHistory pResourceId_ pResourceType_ =
   GetResourceConfigHistory'
-    { chronologicalOrder = Lude.Nothing,
+    { resourceId = pResourceId_,
+      resourceType = pResourceType_,
+      chronologicalOrder = Lude.Nothing,
       nextToken = Lude.Nothing,
       limit = Lude.Nothing,
       laterTime = Lude.Nothing,
-      earlierTime = Lude.Nothing,
-      resourceType = pResourceType_,
-      resourceId = pResourceId_
+      earlierTime = Lude.Nothing
     }
+
+-- | The ID of the resource (for example., @sg-xxxxxx@ ).
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchResourceId :: Lens.Lens' GetResourceConfigHistory Lude.Text
+grchResourceId = Lens.lens (resourceId :: GetResourceConfigHistory -> Lude.Text) (\s a -> s {resourceId = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The resource type.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grchResourceType :: Lens.Lens' GetResourceConfigHistory ResourceType
+grchResourceType = Lens.lens (resourceType :: GetResourceConfigHistory -> ResourceType) (\s a -> s {resourceType = a} :: GetResourceConfigHistory)
+{-# DEPRECATED grchResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The chronological order for configuration items listed. By default, the results are listed in reverse chronological order.
 --
@@ -131,20 +146,6 @@ grchLaterTime = Lens.lens (laterTime :: GetResourceConfigHistory -> Lude.Maybe L
 grchEarlierTime :: Lens.Lens' GetResourceConfigHistory (Lude.Maybe Lude.Timestamp)
 grchEarlierTime = Lens.lens (earlierTime :: GetResourceConfigHistory -> Lude.Maybe Lude.Timestamp) (\s a -> s {earlierTime = a} :: GetResourceConfigHistory)
 {-# DEPRECATED grchEarlierTime "Use generic-lens or generic-optics with 'earlierTime' instead." #-}
-
--- | The resource type.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grchResourceType :: Lens.Lens' GetResourceConfigHistory ResourceType
-grchResourceType = Lens.lens (resourceType :: GetResourceConfigHistory -> ResourceType) (\s a -> s {resourceType = a} :: GetResourceConfigHistory)
-{-# DEPRECATED grchResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The ID of the resource (for example., @sg-xxxxxx@ ).
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grchResourceId :: Lens.Lens' GetResourceConfigHistory Lude.Text
-grchResourceId = Lens.lens (resourceId :: GetResourceConfigHistory -> Lude.Text) (\s a -> s {resourceId = a} :: GetResourceConfigHistory)
-{-# DEPRECATED grchResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 instance Page.AWSPager GetResourceConfigHistory where
   page rq rs
@@ -184,13 +185,13 @@ instance Lude.ToJSON GetResourceConfigHistory where
   toJSON GetResourceConfigHistory' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("chronologicalOrder" Lude..=) Lude.<$> chronologicalOrder,
+          [ Lude.Just ("resourceId" Lude..= resourceId),
+            Lude.Just ("resourceType" Lude..= resourceType),
+            ("chronologicalOrder" Lude..=) Lude.<$> chronologicalOrder,
             ("nextToken" Lude..=) Lude.<$> nextToken,
             ("limit" Lude..=) Lude.<$> limit,
             ("laterTime" Lude..=) Lude.<$> laterTime,
-            ("earlierTime" Lude..=) Lude.<$> earlierTime,
-            Lude.Just ("resourceType" Lude..= resourceType),
-            Lude.Just ("resourceId" Lude..= resourceId)
+            ("earlierTime" Lude..=) Lude.<$> earlierTime
           ]
       )
 
@@ -204,27 +205,20 @@ instance Lude.ToQuery GetResourceConfigHistory where
 --
 -- /See:/ 'mkGetResourceConfigHistoryResponse' smart constructor.
 data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    configurationItems ::
-      Lude.Maybe
-        [ConfigurationItem],
-    responseStatus ::
-      Lude.Int
+  { -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list that contains the configuration history of one or more resources.
+    configurationItems :: Lude.Maybe [ConfigurationItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetResourceConfigHistoryResponse' with the minimum fields required to make a request.
 --
--- * 'configurationItems' - A list that contains the configuration history of one or more resources.
 -- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- * 'configurationItems' - A list that contains the configuration history of one or more resources.
 -- * 'responseStatus' - The response status code.
 mkGetResourceConfigHistoryResponse ::
   -- | 'responseStatus'

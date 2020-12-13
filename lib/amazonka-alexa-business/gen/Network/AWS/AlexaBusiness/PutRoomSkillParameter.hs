@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.AlexaBusiness.PutRoomSkillParameter
     mkPutRoomSkillParameter,
 
     -- ** Request lenses
-    prspRoomARN,
     prspSkillId,
     prspRoomSkillParameter,
+    prspRoomARN,
 
     -- * Destructuring the response
     PutRoomSkillParameterResponse (..),
@@ -40,25 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutRoomSkillParameter' smart constructor.
 data PutRoomSkillParameter = PutRoomSkillParameter'
-  { roomARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the skill associated with the room skill parameter. Required.
     skillId :: Lude.Text,
-    roomSkillParameter :: RoomSkillParameter
+    -- | The updated room skill parameter. Required.
+    roomSkillParameter :: RoomSkillParameter,
+    -- | The ARN of the room associated with the room skill parameter. Required.
+    roomARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRoomSkillParameter' with the minimum fields required to make a request.
 --
--- * 'roomARN' - The ARN of the room associated with the room skill parameter. Required.
--- * 'roomSkillParameter' - The updated room skill parameter. Required.
 -- * 'skillId' - The ARN of the skill associated with the room skill parameter. Required.
+-- * 'roomSkillParameter' - The updated room skill parameter. Required.
+-- * 'roomARN' - The ARN of the room associated with the room skill parameter. Required.
 mkPutRoomSkillParameter ::
   -- | 'skillId'
   Lude.Text ->
@@ -67,17 +64,10 @@ mkPutRoomSkillParameter ::
   PutRoomSkillParameter
 mkPutRoomSkillParameter pSkillId_ pRoomSkillParameter_ =
   PutRoomSkillParameter'
-    { roomARN = Lude.Nothing,
-      skillId = pSkillId_,
-      roomSkillParameter = pRoomSkillParameter_
+    { skillId = pSkillId_,
+      roomSkillParameter = pRoomSkillParameter_,
+      roomARN = Lude.Nothing
     }
-
--- | The ARN of the room associated with the room skill parameter. Required.
---
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prspRoomARN :: Lens.Lens' PutRoomSkillParameter (Lude.Maybe Lude.Text)
-prspRoomARN = Lens.lens (roomARN :: PutRoomSkillParameter -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: PutRoomSkillParameter)
-{-# DEPRECATED prspRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 -- | The ARN of the skill associated with the room skill parameter. Required.
 --
@@ -92,6 +82,13 @@ prspSkillId = Lens.lens (skillId :: PutRoomSkillParameter -> Lude.Text) (\s a ->
 prspRoomSkillParameter :: Lens.Lens' PutRoomSkillParameter RoomSkillParameter
 prspRoomSkillParameter = Lens.lens (roomSkillParameter :: PutRoomSkillParameter -> RoomSkillParameter) (\s a -> s {roomSkillParameter = a} :: PutRoomSkillParameter)
 {-# DEPRECATED prspRoomSkillParameter "Use generic-lens or generic-optics with 'roomSkillParameter' instead." #-}
+
+-- | The ARN of the room associated with the room skill parameter. Required.
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prspRoomARN :: Lens.Lens' PutRoomSkillParameter (Lude.Maybe Lude.Text)
+prspRoomARN = Lens.lens (roomARN :: PutRoomSkillParameter -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: PutRoomSkillParameter)
+{-# DEPRECATED prspRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 instance Lude.AWSRequest PutRoomSkillParameter where
   type Rs PutRoomSkillParameter = PutRoomSkillParameterResponse
@@ -118,9 +115,9 @@ instance Lude.ToJSON PutRoomSkillParameter where
   toJSON PutRoomSkillParameter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("RoomArn" Lude..=) Lude.<$> roomARN,
-            Lude.Just ("SkillId" Lude..= skillId),
-            Lude.Just ("RoomSkillParameter" Lude..= roomSkillParameter)
+          [ Lude.Just ("SkillId" Lude..= skillId),
+            Lude.Just ("RoomSkillParameter" Lude..= roomSkillParameter),
+            ("RoomArn" Lude..=) Lude.<$> roomARN
           ]
       )
 
@@ -132,16 +129,10 @@ instance Lude.ToQuery PutRoomSkillParameter where
 
 -- | /See:/ 'mkPutRoomSkillParameterResponse' smart constructor.
 newtype PutRoomSkillParameterResponse = PutRoomSkillParameterResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutRoomSkillParameterResponse' with the minimum fields required to make a request.

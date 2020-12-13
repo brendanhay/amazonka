@@ -13,8 +13,8 @@
 module Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode
   ( NotifyWorkersFailureCode
       ( NotifyWorkersFailureCode',
-        HardFailure,
-        SoftFailure
+        SoftFailure,
+        HardFailure
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype NotifyWorkersFailureCode = NotifyWorkersFailureCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern HardFailure :: NotifyWorkersFailureCode
-pattern HardFailure = NotifyWorkersFailureCode' "HardFailure"
-
 pattern SoftFailure :: NotifyWorkersFailureCode
 pattern SoftFailure = NotifyWorkersFailureCode' "SoftFailure"
 
+pattern HardFailure :: NotifyWorkersFailureCode
+pattern HardFailure = NotifyWorkersFailureCode' "HardFailure"
+
 {-# COMPLETE
-  HardFailure,
   SoftFailure,
+  HardFailure,
   NotifyWorkersFailureCode'
   #-}

@@ -13,9 +13,9 @@
 module Network.AWS.CostExplorer.Types.GroupDefinitionType
   ( GroupDefinitionType
       ( GroupDefinitionType',
-        CostCategory,
         Dimension,
-        Tag
+        Tag,
+        CostCategory
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype GroupDefinitionType = GroupDefinitionType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CostCategory :: GroupDefinitionType
-pattern CostCategory = GroupDefinitionType' "COST_CATEGORY"
-
 pattern Dimension :: GroupDefinitionType
 pattern Dimension = GroupDefinitionType' "DIMENSION"
 
 pattern Tag :: GroupDefinitionType
 pattern Tag = GroupDefinitionType' "TAG"
 
+pattern CostCategory :: GroupDefinitionType
+pattern CostCategory = GroupDefinitionType' "COST_CATEGORY"
+
 {-# COMPLETE
-  CostCategory,
   Dimension,
   Tag,
+  CostCategory,
   GroupDefinitionType'
   #-}

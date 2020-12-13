@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPoolPolicyType' smart constructor.
 newtype UserPoolPolicyType = UserPoolPolicyType'
-  { passwordPolicy ::
-      Lude.Maybe PasswordPolicyType
+  { -- | The password policy.
+    passwordPolicy :: Lude.Maybe PasswordPolicyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolPolicyType' with the minimum fields required to make a request.

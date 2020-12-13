@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.EC2.WithdrawByoipCidr
     mkWithdrawByoipCidr,
 
     -- ** Request lenses
-    wbcDryRun,
     wbcCidr,
+    wbcDryRun,
 
     -- * Destructuring the response
     WithdrawByoipCidrResponse (..),
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkWithdrawByoipCidr' smart constructor.
 data WithdrawByoipCidr = WithdrawByoipCidr'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    cidr :: Lude.Text
+  { -- | The address range, in CIDR notation.
+    cidr :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WithdrawByoipCidr' with the minimum fields required to make a request.
@@ -65,14 +61,7 @@ mkWithdrawByoipCidr ::
   Lude.Text ->
   WithdrawByoipCidr
 mkWithdrawByoipCidr pCidr_ =
-  WithdrawByoipCidr' {dryRun = Lude.Nothing, cidr = pCidr_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbcDryRun :: Lens.Lens' WithdrawByoipCidr (Lude.Maybe Lude.Bool)
-wbcDryRun = Lens.lens (dryRun :: WithdrawByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: WithdrawByoipCidr)
-{-# DEPRECATED wbcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  WithdrawByoipCidr' {cidr = pCidr_, dryRun = Lude.Nothing}
 
 -- | The address range, in CIDR notation.
 --
@@ -80,6 +69,13 @@ wbcDryRun = Lens.lens (dryRun :: WithdrawByoipCidr -> Lude.Maybe Lude.Bool) (\s 
 wbcCidr :: Lens.Lens' WithdrawByoipCidr Lude.Text
 wbcCidr = Lens.lens (cidr :: WithdrawByoipCidr -> Lude.Text) (\s a -> s {cidr = a} :: WithdrawByoipCidr)
 {-# DEPRECATED wbcCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbcDryRun :: Lens.Lens' WithdrawByoipCidr (Lude.Maybe Lude.Bool)
+wbcDryRun = Lens.lens (dryRun :: WithdrawByoipCidr -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: WithdrawByoipCidr)
+{-# DEPRECATED wbcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest WithdrawByoipCidr where
   type Rs WithdrawByoipCidr = WithdrawByoipCidrResponse
@@ -102,23 +98,18 @@ instance Lude.ToQuery WithdrawByoipCidr where
     Lude.mconcat
       [ "Action" Lude.=: ("WithdrawByoipCidr" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "Cidr" Lude.=: cidr
+        "Cidr" Lude.=: cidr,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkWithdrawByoipCidrResponse' smart constructor.
 data WithdrawByoipCidrResponse = WithdrawByoipCidrResponse'
-  { byoipCidr ::
-      Lude.Maybe ByoipCidr,
+  { -- | Information about the address pool.
+    byoipCidr :: Lude.Maybe ByoipCidr,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WithdrawByoipCidrResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.OpsWorksCM.DescribeEvents
     mkDescribeEvents,
 
     -- ** Request lenses
+    deServerName,
     deNextToken,
     deMaxResults,
-    deServerName,
 
     -- * Destructuring the response
     DescribeEventsResponse (..),
@@ -48,35 +49,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    serverName :: Lude.Text
+  { -- | The name of the server for which you want to view events.
+    serverName :: Lude.Text,
+    -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- * 'maxResults' - To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
--- * 'nextToken' - NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 -- * 'serverName' - The name of the server for which you want to view events.
+-- * 'nextToken' - NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
+-- * 'maxResults' - To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
 mkDescribeEvents ::
   -- | 'serverName'
   Lude.Text ->
   DescribeEvents
 mkDescribeEvents pServerName_ =
   DescribeEvents'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      serverName = pServerName_
+    { serverName = pServerName_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The name of the server for which you want to view events.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deServerName :: Lens.Lens' DescribeEvents Lude.Text
+deServerName = Lens.lens (serverName :: DescribeEvents -> Lude.Text) (\s a -> s {serverName = a} :: DescribeEvents)
+{-# DEPRECATED deServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 --
@@ -91,13 +95,6 @@ deNextToken = Lens.lens (nextToken :: DescribeEvents -> Lude.Maybe Lude.Text) (\
 deMaxResults :: Lens.Lens' DescribeEvents (Lude.Maybe Lude.Natural)
 deMaxResults = Lens.lens (maxResults :: DescribeEvents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeEvents)
 {-# DEPRECATED deMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The name of the server for which you want to view events.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deServerName :: Lens.Lens' DescribeEvents Lude.Text
-deServerName = Lens.lens (serverName :: DescribeEvents -> Lude.Text) (\s a -> s {serverName = a} :: DescribeEvents)
-{-# DEPRECATED deServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 instance Page.AWSPager DescribeEvents where
   page rq rs
@@ -135,9 +132,9 @@ instance Lude.ToJSON DescribeEvents where
   toJSON DescribeEvents' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ServerName" Lude..= serverName)
+          [ Lude.Just ("ServerName" Lude..= serverName),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -149,25 +146,21 @@ instance Lude.ToQuery DescribeEvents where
 
 -- | /See:/ 'mkDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { serverEvents ::
-      Lude.Maybe [ServerEvent],
+  { -- | Contains the response to a @DescribeEvents@ request.
+    serverEvents :: Lude.Maybe [ServerEvent],
+    -- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
+-- * 'serverEvents' - Contains the response to a @DescribeEvents@ request.
 -- * 'nextToken' - NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeEvents@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
 -- * 'responseStatus' - The response status code.
--- * 'serverEvents' - Contains the response to a @DescribeEvents@ request.
 mkDescribeEventsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

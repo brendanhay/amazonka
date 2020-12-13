@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.DeregisterImage
     mkDeregisterImage,
 
     -- ** Request lenses
-    diDryRun,
-    diImageId,
+    difImageId,
+    difDryRun,
 
     -- * Destructuring the response
     DeregisterImageResponse (..),
@@ -40,43 +41,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeregisterImage' smart constructor.
 data DeregisterImage = DeregisterImage'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    imageId :: Lude.Text
+  { -- | The ID of the AMI.
+    imageId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterImage' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'imageId' - The ID of the AMI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeregisterImage ::
   -- | 'imageId'
   Lude.Text ->
   DeregisterImage
 mkDeregisterImage pImageId_ =
-  DeregisterImage' {dryRun = Lude.Nothing, imageId = pImageId_}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diDryRun :: Lens.Lens' DeregisterImage (Lude.Maybe Lude.Bool)
-diDryRun = Lens.lens (dryRun :: DeregisterImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeregisterImage)
-{-# DEPRECATED diDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+  DeregisterImage' {imageId = pImageId_, dryRun = Lude.Nothing}
 
 -- | The ID of the AMI.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diImageId :: Lens.Lens' DeregisterImage Lude.Text
-diImageId = Lens.lens (imageId :: DeregisterImage -> Lude.Text) (\s a -> s {imageId = a} :: DeregisterImage)
-{-# DEPRECATED diImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+difImageId :: Lens.Lens' DeregisterImage Lude.Text
+difImageId = Lens.lens (imageId :: DeregisterImage -> Lude.Text) (\s a -> s {imageId = a} :: DeregisterImage)
+{-# DEPRECATED difImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+difDryRun :: Lens.Lens' DeregisterImage (Lude.Maybe Lude.Bool)
+difDryRun = Lens.lens (dryRun :: DeregisterImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeregisterImage)
+{-# DEPRECATED difDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeregisterImage where
   type Rs DeregisterImage = DeregisterImageResponse
@@ -94,19 +90,13 @@ instance Lude.ToQuery DeregisterImage where
     Lude.mconcat
       [ "Action" Lude.=: ("DeregisterImage" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "ImageId" Lude.=: imageId
+        "ImageId" Lude.=: imageId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeregisterImageResponse' smart constructor.
 data DeregisterImageResponse = DeregisterImageResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterImageResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.ExportClientVPNClientConfiguration
     mkExportClientVPNClientConfiguration,
 
     -- ** Request lenses
-    ecvccDryRun,
     ecvccClientVPNEndpointId,
+    ecvccDryRun,
 
     -- * Destructuring the response
     ExportClientVPNClientConfigurationResponse (..),
@@ -40,18 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkExportClientVPNClientConfiguration' smart constructor.
 data ExportClientVPNClientConfiguration = ExportClientVPNClientConfiguration'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    clientVPNEndpointId ::
-      Lude.Text
+  { -- | The ID of the Client VPN endpoint.
+    clientVPNEndpointId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportClientVPNClientConfiguration' with the minimum fields required to make a request.
@@ -64,16 +59,10 @@ mkExportClientVPNClientConfiguration ::
   ExportClientVPNClientConfiguration
 mkExportClientVPNClientConfiguration pClientVPNEndpointId_ =
   ExportClientVPNClientConfiguration'
-    { dryRun = Lude.Nothing,
-      clientVPNEndpointId = pClientVPNEndpointId_
+    { clientVPNEndpointId =
+        pClientVPNEndpointId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecvccDryRun :: Lens.Lens' ExportClientVPNClientConfiguration (Lude.Maybe Lude.Bool)
-ecvccDryRun = Lens.lens (dryRun :: ExportClientVPNClientConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportClientVPNClientConfiguration)
-{-# DEPRECATED ecvccDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the Client VPN endpoint.
 --
@@ -81,6 +70,13 @@ ecvccDryRun = Lens.lens (dryRun :: ExportClientVPNClientConfiguration -> Lude.Ma
 ecvccClientVPNEndpointId :: Lens.Lens' ExportClientVPNClientConfiguration Lude.Text
 ecvccClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: ExportClientVPNClientConfiguration -> Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: ExportClientVPNClientConfiguration)
 {-# DEPRECATED ecvccClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecvccDryRun :: Lens.Lens' ExportClientVPNClientConfiguration (Lude.Maybe Lude.Bool)
+ecvccDryRun = Lens.lens (dryRun :: ExportClientVPNClientConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportClientVPNClientConfiguration)
+{-# DEPRECATED ecvccDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ExportClientVPNClientConfiguration where
   type
@@ -107,25 +103,18 @@ instance Lude.ToQuery ExportClientVPNClientConfiguration where
       [ "Action"
           Lude.=: ("ExportClientVpnClientConfiguration" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId
+        "ClientVpnEndpointId" Lude.=: clientVPNEndpointId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkExportClientVPNClientConfigurationResponse' smart constructor.
 data ExportClientVPNClientConfigurationResponse = ExportClientVPNClientConfigurationResponse'
-  { clientConfiguration ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The contents of the Client VPN endpoint configuration file.
+    clientConfiguration :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportClientVPNClientConfigurationResponse' with the minimum fields required to make a request.

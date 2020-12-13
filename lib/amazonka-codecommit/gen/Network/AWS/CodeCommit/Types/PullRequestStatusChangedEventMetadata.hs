@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPullRequestStatusChangedEventMetadata' smart constructor.
 newtype PullRequestStatusChangedEventMetadata = PullRequestStatusChangedEventMetadata'
-  { pullRequestStatus ::
-      Lude.Maybe
-        PullRequestStatusEnum
+  { -- | The changed status of the pull request.
+    pullRequestStatus :: Lude.Maybe PullRequestStatusEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestStatusChangedEventMetadata' with the minimum fields required to make a request.

@@ -13,15 +13,15 @@
 module Network.AWS.Config.Types.OrganizationResourceStatus
   ( OrganizationResourceStatus
       ( OrganizationResourceStatus',
-        ORSCreateFailed,
-        ORSCreateInProgress,
         ORSCreateSuccessful,
+        ORSCreateInProgress,
+        ORSCreateFailed,
+        ORSDeleteSuccessful,
         ORSDeleteFailed,
         ORSDeleteInProgress,
-        ORSDeleteSuccessful,
-        ORSUpdateFailed,
+        ORSUpdateSuccessful,
         ORSUpdateInProgress,
-        ORSUpdateSuccessful
+        ORSUpdateFailed
       ),
   )
 where
@@ -52,14 +52,17 @@ newtype OrganizationResourceStatus = OrganizationResourceStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ORSCreateFailed :: OrganizationResourceStatus
-pattern ORSCreateFailed = OrganizationResourceStatus' "CREATE_FAILED"
+pattern ORSCreateSuccessful :: OrganizationResourceStatus
+pattern ORSCreateSuccessful = OrganizationResourceStatus' "CREATE_SUCCESSFUL"
 
 pattern ORSCreateInProgress :: OrganizationResourceStatus
 pattern ORSCreateInProgress = OrganizationResourceStatus' "CREATE_IN_PROGRESS"
 
-pattern ORSCreateSuccessful :: OrganizationResourceStatus
-pattern ORSCreateSuccessful = OrganizationResourceStatus' "CREATE_SUCCESSFUL"
+pattern ORSCreateFailed :: OrganizationResourceStatus
+pattern ORSCreateFailed = OrganizationResourceStatus' "CREATE_FAILED"
+
+pattern ORSDeleteSuccessful :: OrganizationResourceStatus
+pattern ORSDeleteSuccessful = OrganizationResourceStatus' "DELETE_SUCCESSFUL"
 
 pattern ORSDeleteFailed :: OrganizationResourceStatus
 pattern ORSDeleteFailed = OrganizationResourceStatus' "DELETE_FAILED"
@@ -67,27 +70,24 @@ pattern ORSDeleteFailed = OrganizationResourceStatus' "DELETE_FAILED"
 pattern ORSDeleteInProgress :: OrganizationResourceStatus
 pattern ORSDeleteInProgress = OrganizationResourceStatus' "DELETE_IN_PROGRESS"
 
-pattern ORSDeleteSuccessful :: OrganizationResourceStatus
-pattern ORSDeleteSuccessful = OrganizationResourceStatus' "DELETE_SUCCESSFUL"
-
-pattern ORSUpdateFailed :: OrganizationResourceStatus
-pattern ORSUpdateFailed = OrganizationResourceStatus' "UPDATE_FAILED"
+pattern ORSUpdateSuccessful :: OrganizationResourceStatus
+pattern ORSUpdateSuccessful = OrganizationResourceStatus' "UPDATE_SUCCESSFUL"
 
 pattern ORSUpdateInProgress :: OrganizationResourceStatus
 pattern ORSUpdateInProgress = OrganizationResourceStatus' "UPDATE_IN_PROGRESS"
 
-pattern ORSUpdateSuccessful :: OrganizationResourceStatus
-pattern ORSUpdateSuccessful = OrganizationResourceStatus' "UPDATE_SUCCESSFUL"
+pattern ORSUpdateFailed :: OrganizationResourceStatus
+pattern ORSUpdateFailed = OrganizationResourceStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  ORSCreateFailed,
-  ORSCreateInProgress,
   ORSCreateSuccessful,
+  ORSCreateInProgress,
+  ORSCreateFailed,
+  ORSDeleteSuccessful,
   ORSDeleteFailed,
   ORSDeleteInProgress,
-  ORSDeleteSuccessful,
-  ORSUpdateFailed,
-  ORSUpdateInProgress,
   ORSUpdateSuccessful,
+  ORSUpdateInProgress,
+  ORSUpdateFailed,
   OrganizationResourceStatus'
   #-}

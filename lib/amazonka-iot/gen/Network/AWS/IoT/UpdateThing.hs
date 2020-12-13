@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,34 +45,37 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateThing' smart constructor.
 data UpdateThing = UpdateThing'
-  { removeThingType ::
-      Lude.Maybe Lude.Bool,
+  { -- | Remove a thing type association. If __true__ , the association is removed.
+    removeThingType :: Lude.Maybe Lude.Bool,
+    -- | The name of the thing type.
     thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
     expectedVersion :: Lude.Maybe Lude.Integer,
+    -- | A list of thing attributes, a JSON string containing name-value pairs. For example:
+    --
+    -- @{\"attributes\":{\"name1\":\"value2\"}}@
+    -- This data is used to add new attributes or update existing attributes.
     attributePayload :: Lude.Maybe AttributePayload,
+    -- | The name of the thing to update.
+    --
+    -- You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
     thingName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThing' with the minimum fields required to make a request.
 --
+-- * 'removeThingType' - Remove a thing type association. If __true__ , the association is removed.
+-- * 'thingTypeName' - The name of the thing type.
+-- * 'expectedVersion' - The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
 -- * 'attributePayload' - A list of thing attributes, a JSON string containing name-value pairs. For example:
 --
 -- @{\"attributes\":{\"name1\":\"value2\"}}@
 -- This data is used to add new attributes or update existing attributes.
--- * 'expectedVersion' - The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
--- * 'removeThingType' - Remove a thing type association. If __true__ , the association is removed.
 -- * 'thingName' - The name of the thing to update.
 --
 -- You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
--- * 'thingTypeName' - The name of the thing type.
 mkUpdateThing ::
   -- | 'thingName'
   Lude.Text ->
@@ -159,16 +163,10 @@ instance Lude.ToQuery UpdateThing where
 --
 -- /See:/ 'mkUpdateThingResponse' smart constructor.
 newtype UpdateThingResponse = UpdateThingResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateThingResponse' with the minimum fields required to make a request.

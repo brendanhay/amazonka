@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.MediaConvert.UpdatePreset
     -- ** Request lenses
     upSettings,
     upCategory,
-    upDescription,
     upName,
+    upDescription,
 
     -- * Destructuring the response
     UpdatePresetResponse (..),
@@ -42,27 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdatePreset' smart constructor.
 data UpdatePreset = UpdatePreset'
-  { settings ::
-      Lude.Maybe PresetSettings,
+  { -- | Settings for preset
+    settings :: Lude.Maybe PresetSettings,
+    -- | The new category for the preset, if you are changing it.
     category :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The name of the preset you are modifying.
+    name :: Lude.Text,
+    -- | The new description for the preset, if you are changing it.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePreset' with the minimum fields required to make a request.
 --
--- * 'category' - The new category for the preset, if you are changing it.
--- * 'description' - The new description for the preset, if you are changing it.
--- * 'name' - The name of the preset you are modifying.
 -- * 'settings' - Settings for preset
+-- * 'category' - The new category for the preset, if you are changing it.
+-- * 'name' - The name of the preset you are modifying.
+-- * 'description' - The new description for the preset, if you are changing it.
 mkUpdatePreset ::
   -- | 'name'
   Lude.Text ->
@@ -71,8 +69,8 @@ mkUpdatePreset pName_ =
   UpdatePreset'
     { settings = Lude.Nothing,
       category = Lude.Nothing,
-      description = Lude.Nothing,
-      name = pName_
+      name = pName_,
+      description = Lude.Nothing
     }
 
 -- | Settings for preset
@@ -89,19 +87,19 @@ upCategory :: Lens.Lens' UpdatePreset (Lude.Maybe Lude.Text)
 upCategory = Lens.lens (category :: UpdatePreset -> Lude.Maybe Lude.Text) (\s a -> s {category = a} :: UpdatePreset)
 {-# DEPRECATED upCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
--- | The new description for the preset, if you are changing it.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upDescription :: Lens.Lens' UpdatePreset (Lude.Maybe Lude.Text)
-upDescription = Lens.lens (description :: UpdatePreset -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdatePreset)
-{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | The name of the preset you are modifying.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 upName :: Lens.Lens' UpdatePreset Lude.Text
 upName = Lens.lens (name :: UpdatePreset -> Lude.Text) (\s a -> s {name = a} :: UpdatePreset)
 {-# DEPRECATED upName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The new description for the preset, if you are changing it.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upDescription :: Lens.Lens' UpdatePreset (Lude.Maybe Lude.Text)
+upDescription = Lens.lens (description :: UpdatePreset -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdatePreset)
+{-# DEPRECATED upDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdatePreset where
   type Rs UpdatePreset = UpdatePresetResponse
@@ -141,17 +139,12 @@ instance Lude.ToQuery UpdatePreset where
 
 -- | /See:/ 'mkUpdatePresetResponse' smart constructor.
 data UpdatePresetResponse = UpdatePresetResponse'
-  { preset ::
-      Lude.Maybe Preset,
+  { -- | A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+    preset :: Lude.Maybe Preset,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePresetResponse' with the minimum fields required to make a request.

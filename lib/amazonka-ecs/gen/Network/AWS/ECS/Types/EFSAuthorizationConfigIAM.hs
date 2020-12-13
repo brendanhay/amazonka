@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.EFSAuthorizationConfigIAM
   ( EFSAuthorizationConfigIAM
       ( EFSAuthorizationConfigIAM',
-        EFSACIDisabled,
-        EFSACIEnabled
+        EFSACIEnabled,
+        EFSACIDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EFSAuthorizationConfigIAM = EFSAuthorizationConfigIAM' Lude.Text
       Lude.ToHeader
     )
 
-pattern EFSACIDisabled :: EFSAuthorizationConfigIAM
-pattern EFSACIDisabled = EFSAuthorizationConfigIAM' "DISABLED"
-
 pattern EFSACIEnabled :: EFSAuthorizationConfigIAM
 pattern EFSACIEnabled = EFSAuthorizationConfigIAM' "ENABLED"
 
+pattern EFSACIDisabled :: EFSAuthorizationConfigIAM
+pattern EFSACIDisabled = EFSAuthorizationConfigIAM' "DISABLED"
+
 {-# COMPLETE
-  EFSACIDisabled,
   EFSACIEnabled,
+  EFSACIDisabled,
   EFSAuthorizationConfigIAM'
   #-}

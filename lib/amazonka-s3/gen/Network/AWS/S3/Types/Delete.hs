@@ -31,22 +31,18 @@ import Network.AWS.S3.Types.ObjectIdentifier
 --
 -- /See:/ 'mkDelete' smart constructor.
 data Delete = Delete'
-  { quiet :: Lude.Maybe Lude.Bool,
+  { -- | Element to enable quiet mode for the request. When you add this element, you must set its value to true.
+    quiet :: Lude.Maybe Lude.Bool,
+    -- | The objects to delete.
     objects :: [ObjectIdentifier]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Delete' with the minimum fields required to make a request.
 --
--- * 'objects' - The objects to delete.
 -- * 'quiet' - Element to enable quiet mode for the request. When you add this element, you must set its value to true.
+-- * 'objects' - The objects to delete.
 mkDelete ::
   Delete
 mkDelete = Delete' {quiet = Lude.Nothing, objects = Lude.mempty}

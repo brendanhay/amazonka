@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,8 +25,8 @@ module Network.AWS.SSM.DescribeAutomationStepExecutions
     daseFilters,
     daseReverseOrder,
     daseNextToken,
-    daseMaxResults,
     daseAutomationExecutionId,
+    daseMaxResults,
 
     -- * Destructuring the response
     DescribeAutomationStepExecutionsResponse (..),
@@ -47,36 +48,27 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeAutomationStepExecutions' smart constructor.
 data DescribeAutomationStepExecutions = DescribeAutomationStepExecutions'
-  { filters ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            StepExecutionFilter
-        ),
-    reverseOrder ::
-      Lude.Maybe Lude.Bool,
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    automationExecutionId ::
-      Lude.Text
+  { -- | One or more filters to limit the number of step executions returned by the request.
+    filters :: Lude.Maybe (Lude.NonEmpty StepExecutionFilter),
+    -- | A boolean that indicates whether to list step executions in reverse order by start time. The default value is false.
+    reverseOrder :: Lude.Maybe Lude.Bool,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Automation execution ID for which you want step execution descriptions.
+    automationExecutionId :: Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutomationStepExecutions' with the minimum fields required to make a request.
 --
--- * 'automationExecutionId' - The Automation execution ID for which you want step execution descriptions.
 -- * 'filters' - One or more filters to limit the number of step executions returned by the request.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'reverseOrder' - A boolean that indicates whether to list step executions in reverse order by start time. The default value is false.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'automationExecutionId' - The Automation execution ID for which you want step execution descriptions.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkDescribeAutomationStepExecutions ::
   -- | 'automationExecutionId'
   Lude.Text ->
@@ -86,8 +78,8 @@ mkDescribeAutomationStepExecutions pAutomationExecutionId_ =
     { filters = Lude.Nothing,
       reverseOrder = Lude.Nothing,
       nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      automationExecutionId = pAutomationExecutionId_
+      automationExecutionId = pAutomationExecutionId_,
+      maxResults = Lude.Nothing
     }
 
 -- | One or more filters to limit the number of step executions returned by the request.
@@ -111,19 +103,19 @@ daseNextToken :: Lens.Lens' DescribeAutomationStepExecutions (Lude.Maybe Lude.Te
 daseNextToken = Lens.lens (nextToken :: DescribeAutomationStepExecutions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAutomationStepExecutions)
 {-# DEPRECATED daseNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daseMaxResults :: Lens.Lens' DescribeAutomationStepExecutions (Lude.Maybe Lude.Natural)
-daseMaxResults = Lens.lens (maxResults :: DescribeAutomationStepExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAutomationStepExecutions)
-{-# DEPRECATED daseMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The Automation execution ID for which you want step execution descriptions.
 --
 -- /Note:/ Consider using 'automationExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 daseAutomationExecutionId :: Lens.Lens' DescribeAutomationStepExecutions Lude.Text
 daseAutomationExecutionId = Lens.lens (automationExecutionId :: DescribeAutomationStepExecutions -> Lude.Text) (\s a -> s {automationExecutionId = a} :: DescribeAutomationStepExecutions)
 {-# DEPRECATED daseAutomationExecutionId "Use generic-lens or generic-optics with 'automationExecutionId' instead." #-}
+
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daseMaxResults :: Lens.Lens' DescribeAutomationStepExecutions (Lude.Maybe Lude.Natural)
+daseMaxResults = Lens.lens (maxResults :: DescribeAutomationStepExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAutomationStepExecutions)
+{-# DEPRECATED daseMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeAutomationStepExecutions where
   page rq rs
@@ -166,8 +158,8 @@ instance Lude.ToJSON DescribeAutomationStepExecutions where
           [ ("Filters" Lude..=) Lude.<$> filters,
             ("ReverseOrder" Lude..=) Lude.<$> reverseOrder,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("AutomationExecutionId" Lude..= automationExecutionId)
+            Lude.Just ("AutomationExecutionId" Lude..= automationExecutionId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -179,29 +171,21 @@ instance Lude.ToQuery DescribeAutomationStepExecutions where
 
 -- | /See:/ 'mkDescribeAutomationStepExecutionsResponse' smart constructor.
 data DescribeAutomationStepExecutionsResponse = DescribeAutomationStepExecutionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    stepExecutions ::
-      Lude.Maybe
-        [StepExecution],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of details about the current state of all steps that make up an execution.
+    stepExecutions :: Lude.Maybe [StepExecution],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAutomationStepExecutionsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'responseStatus' - The response status code.
 -- * 'stepExecutions' - A list of details about the current state of all steps that make up an execution.
+-- * 'responseStatus' - The response status code.
 mkDescribeAutomationStepExecutionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

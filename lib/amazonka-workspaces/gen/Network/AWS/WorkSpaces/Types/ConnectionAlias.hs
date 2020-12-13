@@ -34,30 +34,27 @@ import Network.AWS.WorkSpaces.Types.ConnectionAliasState
 --
 -- /See:/ 'mkConnectionAlias' smart constructor.
 data ConnectionAlias = ConnectionAlias'
-  { state ::
-      Lude.Maybe ConnectionAliasState,
+  { -- | The current state of the connection alias.
+    state :: Lude.Maybe ConnectionAliasState,
+    -- | The identifier of the AWS account that owns the connection alias.
     ownerAccountId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the connection alias.
     aliasId :: Lude.Maybe Lude.Text,
-    associations ::
-      Lude.Maybe (Lude.NonEmpty ConnectionAliasAssociation),
+    -- | The association status of the connection alias.
+    associations :: Lude.Maybe (Lude.NonEmpty ConnectionAliasAssociation),
+    -- | The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as @www.example.com@ .
     connectionString :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConnectionAlias' with the minimum fields required to make a request.
 --
+-- * 'state' - The current state of the connection alias.
+-- * 'ownerAccountId' - The identifier of the AWS account that owns the connection alias.
 -- * 'aliasId' - The identifier of the connection alias.
 -- * 'associations' - The association status of the connection alias.
 -- * 'connectionString' - The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as @www.example.com@ .
--- * 'ownerAccountId' - The identifier of the AWS account that owns the connection alias.
--- * 'state' - The current state of the connection alias.
 mkConnectionAlias ::
   ConnectionAlias
 mkConnectionAlias =

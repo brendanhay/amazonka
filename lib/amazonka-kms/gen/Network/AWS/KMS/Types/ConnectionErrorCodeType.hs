@@ -13,15 +13,15 @@
 module Network.AWS.KMS.Types.ConnectionErrorCodeType
   ( ConnectionErrorCodeType
       ( ConnectionErrorCodeType',
-        ClusterNotFound,
-        InsufficientCloudhsmHSMs,
-        InternalError,
         InvalidCredentials,
+        ClusterNotFound,
         NetworkErrors,
-        SubnetNotFound,
+        InternalError,
+        InsufficientCloudhsmHSMs,
         UserLockedOut,
+        UserNotFound,
         UserLoggedIn,
-        UserNotFound
+        SubnetNotFound
       ),
   )
 where
@@ -52,42 +52,42 @@ newtype ConnectionErrorCodeType = ConnectionErrorCodeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ClusterNotFound :: ConnectionErrorCodeType
-pattern ClusterNotFound = ConnectionErrorCodeType' "CLUSTER_NOT_FOUND"
-
-pattern InsufficientCloudhsmHSMs :: ConnectionErrorCodeType
-pattern InsufficientCloudhsmHSMs = ConnectionErrorCodeType' "INSUFFICIENT_CLOUDHSM_HSMS"
-
-pattern InternalError :: ConnectionErrorCodeType
-pattern InternalError = ConnectionErrorCodeType' "INTERNAL_ERROR"
-
 pattern InvalidCredentials :: ConnectionErrorCodeType
 pattern InvalidCredentials = ConnectionErrorCodeType' "INVALID_CREDENTIALS"
+
+pattern ClusterNotFound :: ConnectionErrorCodeType
+pattern ClusterNotFound = ConnectionErrorCodeType' "CLUSTER_NOT_FOUND"
 
 pattern NetworkErrors :: ConnectionErrorCodeType
 pattern NetworkErrors = ConnectionErrorCodeType' "NETWORK_ERRORS"
 
-pattern SubnetNotFound :: ConnectionErrorCodeType
-pattern SubnetNotFound = ConnectionErrorCodeType' "SUBNET_NOT_FOUND"
+pattern InternalError :: ConnectionErrorCodeType
+pattern InternalError = ConnectionErrorCodeType' "INTERNAL_ERROR"
+
+pattern InsufficientCloudhsmHSMs :: ConnectionErrorCodeType
+pattern InsufficientCloudhsmHSMs = ConnectionErrorCodeType' "INSUFFICIENT_CLOUDHSM_HSMS"
 
 pattern UserLockedOut :: ConnectionErrorCodeType
 pattern UserLockedOut = ConnectionErrorCodeType' "USER_LOCKED_OUT"
 
-pattern UserLoggedIn :: ConnectionErrorCodeType
-pattern UserLoggedIn = ConnectionErrorCodeType' "USER_LOGGED_IN"
-
 pattern UserNotFound :: ConnectionErrorCodeType
 pattern UserNotFound = ConnectionErrorCodeType' "USER_NOT_FOUND"
 
+pattern UserLoggedIn :: ConnectionErrorCodeType
+pattern UserLoggedIn = ConnectionErrorCodeType' "USER_LOGGED_IN"
+
+pattern SubnetNotFound :: ConnectionErrorCodeType
+pattern SubnetNotFound = ConnectionErrorCodeType' "SUBNET_NOT_FOUND"
+
 {-# COMPLETE
-  ClusterNotFound,
-  InsufficientCloudhsmHSMs,
-  InternalError,
   InvalidCredentials,
+  ClusterNotFound,
   NetworkErrors,
-  SubnetNotFound,
+  InternalError,
+  InsufficientCloudhsmHSMs,
   UserLockedOut,
-  UserLoggedIn,
   UserNotFound,
+  UserLoggedIn,
+  SubnetNotFound,
   ConnectionErrorCodeType'
   #-}

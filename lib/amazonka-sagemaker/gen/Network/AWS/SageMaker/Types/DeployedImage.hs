@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeployedImage' smart constructor.
 data DeployedImage = DeployedImage'
-  { resolvedImage ::
-      Lude.Maybe Lude.Text,
+  { -- | The specific digest path of the image hosted in this @ProductionVariant@ .
+    resolvedImage :: Lude.Maybe Lude.Text,
+    -- | The image path you specified when you created the model.
     specifiedImage :: Lude.Maybe Lude.Text,
+    -- | The date and time when the image path for the model resolved to the @ResolvedImage@
     resolutionTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeployedImage' with the minimum fields required to make a request.
 --
--- * 'resolutionTime' - The date and time when the image path for the model resolved to the @ResolvedImage@
 -- * 'resolvedImage' - The specific digest path of the image hosted in this @ProductionVariant@ .
 -- * 'specifiedImage' - The image path you specified when you created the model.
+-- * 'resolutionTime' - The date and time when the image path for the model resolved to the @ResolvedImage@
 mkDeployedImage ::
   DeployedImage
 mkDeployedImage =

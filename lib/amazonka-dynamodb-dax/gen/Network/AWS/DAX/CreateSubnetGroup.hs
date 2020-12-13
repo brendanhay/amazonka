@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.DAX.CreateSubnetGroup
     mkCreateSubnetGroup,
 
     -- ** Request lenses
-    csgDescription,
-    csgSubnetGroupName,
     csgSubnetIds,
+    csgSubnetGroupName,
+    csgDescription,
 
     -- * Destructuring the response
     CreateSubnetGroupResponse (..),
@@ -41,42 +42,38 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateSubnetGroup' smart constructor.
 data CreateSubnetGroup = CreateSubnetGroup'
-  { description ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of VPC subnet IDs for the subnet group.
+    subnetIds :: [Lude.Text],
+    -- | A name for the subnet group. This value is stored as a lowercase string.
     subnetGroupName :: Lude.Text,
-    subnetIds :: [Lude.Text]
+    -- | A description for the subnet group
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubnetGroup' with the minimum fields required to make a request.
 --
--- * 'description' - A description for the subnet group
--- * 'subnetGroupName' - A name for the subnet group. This value is stored as a lowercase string.
 -- * 'subnetIds' - A list of VPC subnet IDs for the subnet group.
+-- * 'subnetGroupName' - A name for the subnet group. This value is stored as a lowercase string.
+-- * 'description' - A description for the subnet group
 mkCreateSubnetGroup ::
   -- | 'subnetGroupName'
   Lude.Text ->
   CreateSubnetGroup
 mkCreateSubnetGroup pSubnetGroupName_ =
   CreateSubnetGroup'
-    { description = Lude.Nothing,
+    { subnetIds = Lude.mempty,
       subnetGroupName = pSubnetGroupName_,
-      subnetIds = Lude.mempty
+      description = Lude.Nothing
     }
 
--- | A description for the subnet group
+-- | A list of VPC subnet IDs for the subnet group.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgDescription :: Lens.Lens' CreateSubnetGroup (Lude.Maybe Lude.Text)
-csgDescription = Lens.lens (description :: CreateSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSubnetGroup)
-{-# DEPRECATED csgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgSubnetIds :: Lens.Lens' CreateSubnetGroup [Lude.Text]
+csgSubnetIds = Lens.lens (subnetIds :: CreateSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateSubnetGroup)
+{-# DEPRECATED csgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | A name for the subnet group. This value is stored as a lowercase string.
 --
@@ -85,12 +82,12 @@ csgSubnetGroupName :: Lens.Lens' CreateSubnetGroup Lude.Text
 csgSubnetGroupName = Lens.lens (subnetGroupName :: CreateSubnetGroup -> Lude.Text) (\s a -> s {subnetGroupName = a} :: CreateSubnetGroup)
 {-# DEPRECATED csgSubnetGroupName "Use generic-lens or generic-optics with 'subnetGroupName' instead." #-}
 
--- | A list of VPC subnet IDs for the subnet group.
+-- | A description for the subnet group
 --
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgSubnetIds :: Lens.Lens' CreateSubnetGroup [Lude.Text]
-csgSubnetIds = Lens.lens (subnetIds :: CreateSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateSubnetGroup)
-{-# DEPRECATED csgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgDescription :: Lens.Lens' CreateSubnetGroup (Lude.Maybe Lude.Text)
+csgDescription = Lens.lens (description :: CreateSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSubnetGroup)
+{-# DEPRECATED csgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest CreateSubnetGroup where
   type Rs CreateSubnetGroup = CreateSubnetGroupResponse
@@ -117,9 +114,9 @@ instance Lude.ToJSON CreateSubnetGroup where
   toJSON CreateSubnetGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
+          [ Lude.Just ("SubnetIds" Lude..= subnetIds),
             Lude.Just ("SubnetGroupName" Lude..= subnetGroupName),
-            Lude.Just ("SubnetIds" Lude..= subnetIds)
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -131,23 +128,18 @@ instance Lude.ToQuery CreateSubnetGroup where
 
 -- | /See:/ 'mkCreateSubnetGroupResponse' smart constructor.
 data CreateSubnetGroupResponse = CreateSubnetGroupResponse'
-  { subnetGroup ::
-      Lude.Maybe SubnetGroup,
+  { -- | Represents the output of a /CreateSubnetGroup/ operation.
+    subnetGroup :: Lude.Maybe SubnetGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateSubnetGroupResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'subnetGroup' - Represents the output of a /CreateSubnetGroup/ operation.
+-- * 'responseStatus' - The response status code.
 mkCreateSubnetGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

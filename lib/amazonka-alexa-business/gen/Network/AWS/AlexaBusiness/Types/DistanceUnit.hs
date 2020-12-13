@@ -13,8 +13,8 @@
 module Network.AWS.AlexaBusiness.Types.DistanceUnit
   ( DistanceUnit
       ( DistanceUnit',
-        Imperial,
-        Metric
+        Metric,
+        Imperial
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype DistanceUnit = DistanceUnit' Lude.Text
       Lude.ToHeader
     )
 
-pattern Imperial :: DistanceUnit
-pattern Imperial = DistanceUnit' "IMPERIAL"
-
 pattern Metric :: DistanceUnit
 pattern Metric = DistanceUnit' "METRIC"
 
+pattern Imperial :: DistanceUnit
+pattern Imperial = DistanceUnit' "IMPERIAL"
+
 {-# COMPLETE
-  Imperial,
   Metric,
+  Imperial,
   DistanceUnit'
   #-}

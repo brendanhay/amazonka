@@ -17,9 +17,9 @@ module Network.AWS.CloudFront.Types.InvalidationSummary
     mkInvalidationSummary,
 
     -- * Lenses
+    isStatus,
     isId,
     isCreateTime,
-    isStatus,
   )
 where
 
@@ -30,38 +30,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInvalidationSummary' smart constructor.
 data InvalidationSummary = InvalidationSummary'
-  { id :: Lude.Text,
-    createTime :: Lude.DateTime,
-    status :: Lude.Text
+  { -- | The status of an invalidation request.
+    status :: Lude.Text,
+    -- | The unique ID for an invalidation request.
+    id :: Lude.Text,
+    -- | The time that an invalidation request was created.
+    createTime :: Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InvalidationSummary' with the minimum fields required to make a request.
 --
--- * 'createTime' - The time that an invalidation request was created.
--- * 'id' - The unique ID for an invalidation request.
 -- * 'status' - The status of an invalidation request.
+-- * 'id' - The unique ID for an invalidation request.
+-- * 'createTime' - The time that an invalidation request was created.
 mkInvalidationSummary ::
+  -- | 'status'
+  Lude.Text ->
   -- | 'id'
   Lude.Text ->
   -- | 'createTime'
   Lude.DateTime ->
-  -- | 'status'
-  Lude.Text ->
   InvalidationSummary
-mkInvalidationSummary pId_ pCreateTime_ pStatus_ =
+mkInvalidationSummary pStatus_ pId_ pCreateTime_ =
   InvalidationSummary'
-    { id = pId_,
-      createTime = pCreateTime_,
-      status = pStatus_
+    { status = pStatus_,
+      id = pId_,
+      createTime = pCreateTime_
     }
+
+-- | The status of an invalidation request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isStatus :: Lens.Lens' InvalidationSummary Lude.Text
+isStatus = Lens.lens (status :: InvalidationSummary -> Lude.Text) (\s a -> s {status = a} :: InvalidationSummary)
+{-# DEPRECATED isStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID for an invalidation request.
 --
@@ -77,16 +81,9 @@ isCreateTime :: Lens.Lens' InvalidationSummary Lude.DateTime
 isCreateTime = Lens.lens (createTime :: InvalidationSummary -> Lude.DateTime) (\s a -> s {createTime = a} :: InvalidationSummary)
 {-# DEPRECATED isCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
--- | The status of an invalidation request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isStatus :: Lens.Lens' InvalidationSummary Lude.Text
-isStatus = Lens.lens (status :: InvalidationSummary -> Lude.Text) (\s a -> s {status = a} :: InvalidationSummary)
-{-# DEPRECATED isStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
 instance Lude.FromXML InvalidationSummary where
   parseXML x =
     InvalidationSummary'
-      Lude.<$> (x Lude..@ "Id")
+      Lude.<$> (x Lude..@ "Status")
+      Lude.<*> (x Lude..@ "Id")
       Lude.<*> (x Lude..@ "CreateTime")
-      Lude.<*> (x Lude..@ "Status")

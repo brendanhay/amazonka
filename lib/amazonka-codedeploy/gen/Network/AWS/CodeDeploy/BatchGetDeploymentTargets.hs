@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -53,17 +54,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchGetDeploymentTargets' smart constructor.
 data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID of a deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | The unique IDs of the deployment targets. The compute platform of the deployment determines the type of the targets and their formats. The maximum number of deployment target IDs you can specify is 25.
+    --
+    --
+    --     * For deployments that use the EC2/On-premises compute platform, the target IDs are EC2 or on-premises instances IDs, and their target type is @instanceTarget@ .
+    --
+    --
+    --     * For deployments that use the AWS Lambda compute platform, the target IDs are the names of Lambda functions, and their target type is @instanceTarget@ .
+    --
+    --
+    --     * For deployments that use the Amazon ECS compute platform, the target IDs are pairs of Amazon ECS clusters and services specified using the format @<clustername>:<servicename>@ . Their target type is @ecsTarget@ .
+    --
+    --
+    --     * For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation stack IDs. Their target type is @cloudFormationTarget@ .
     targetIds :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeploymentTargets' with the minimum fields required to make a request.
@@ -161,19 +169,24 @@ instance Lude.ToQuery BatchGetDeploymentTargets where
 
 -- | /See:/ 'mkBatchGetDeploymentTargetsResponse' smart constructor.
 data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
-  { deploymentTargets ::
-      Lude.Maybe
-        [DeploymentTarget],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of target objects for a deployment. Each target object contains details about the target, such as its status and lifecycle events. The type of the target objects depends on the deployment' compute platform.
+    --
+    --
+    --     * __EC2/On-premises__ : Each target object is an EC2 or on-premises instance.
+    --
+    --
+    --     * __AWS Lambda__ : The target object is a specific version of an AWS Lambda function.
+    --
+    --
+    --     * __Amazon ECS__ : The target object is an Amazon ECS service.
+    --
+    --
+    --     * __CloudFormation__ : The target object is an AWS CloudFormation blue/green deployment.
+    deploymentTargets :: Lude.Maybe [DeploymentTarget],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetDeploymentTargetsResponse' with the minimum fields required to make a request.

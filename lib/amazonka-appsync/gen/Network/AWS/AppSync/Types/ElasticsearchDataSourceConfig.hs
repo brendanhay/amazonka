@@ -17,8 +17,8 @@ module Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
     mkElasticsearchDataSourceConfig,
 
     -- * Lenses
-    edscEndpoint,
     edscAwsRegion,
+    edscEndpoint,
   )
 where
 
@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticsearchDataSourceConfig' smart constructor.
 data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
-  { endpoint ::
-      Lude.Text,
-    awsRegion :: Lude.Text
+  { -- | The AWS Region.
+    awsRegion :: Lude.Text,
+    -- | The endpoint.
+    endpoint :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticsearchDataSourceConfig' with the minimum fields required to make a request.
@@ -47,23 +42,16 @@ data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
 -- * 'awsRegion' - The AWS Region.
 -- * 'endpoint' - The endpoint.
 mkElasticsearchDataSourceConfig ::
-  -- | 'endpoint'
-  Lude.Text ->
   -- | 'awsRegion'
   Lude.Text ->
+  -- | 'endpoint'
+  Lude.Text ->
   ElasticsearchDataSourceConfig
-mkElasticsearchDataSourceConfig pEndpoint_ pAwsRegion_ =
+mkElasticsearchDataSourceConfig pAwsRegion_ pEndpoint_ =
   ElasticsearchDataSourceConfig'
-    { endpoint = pEndpoint_,
-      awsRegion = pAwsRegion_
+    { awsRegion = pAwsRegion_,
+      endpoint = pEndpoint_
     }
-
--- | The endpoint.
---
--- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edscEndpoint :: Lens.Lens' ElasticsearchDataSourceConfig Lude.Text
-edscEndpoint = Lens.lens (endpoint :: ElasticsearchDataSourceConfig -> Lude.Text) (\s a -> s {endpoint = a} :: ElasticsearchDataSourceConfig)
-{-# DEPRECATED edscEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
 -- | The AWS Region.
 --
@@ -72,20 +60,27 @@ edscAwsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Lude.Text
 edscAwsRegion = Lens.lens (awsRegion :: ElasticsearchDataSourceConfig -> Lude.Text) (\s a -> s {awsRegion = a} :: ElasticsearchDataSourceConfig)
 {-# DEPRECATED edscAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
+-- | The endpoint.
+--
+-- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edscEndpoint :: Lens.Lens' ElasticsearchDataSourceConfig Lude.Text
+edscEndpoint = Lens.lens (endpoint :: ElasticsearchDataSourceConfig -> Lude.Text) (\s a -> s {endpoint = a} :: ElasticsearchDataSourceConfig)
+{-# DEPRECATED edscEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
+
 instance Lude.FromJSON ElasticsearchDataSourceConfig where
   parseJSON =
     Lude.withObject
       "ElasticsearchDataSourceConfig"
       ( \x ->
           ElasticsearchDataSourceConfig'
-            Lude.<$> (x Lude..: "endpoint") Lude.<*> (x Lude..: "awsRegion")
+            Lude.<$> (x Lude..: "awsRegion") Lude.<*> (x Lude..: "endpoint")
       )
 
 instance Lude.ToJSON ElasticsearchDataSourceConfig where
   toJSON ElasticsearchDataSourceConfig' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("endpoint" Lude..= endpoint),
-            Lude.Just ("awsRegion" Lude..= awsRegion)
+          [ Lude.Just ("awsRegion" Lude..= awsRegion),
+            Lude.Just ("endpoint" Lude..= endpoint)
           ]
       )

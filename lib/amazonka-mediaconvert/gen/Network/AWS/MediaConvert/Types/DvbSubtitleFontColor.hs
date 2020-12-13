@@ -13,12 +13,12 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
   ( DvbSubtitleFontColor
       ( DvbSubtitleFontColor',
-        DSFCBlack,
-        DSFCBlue,
-        DSFCGreen,
-        DSFCRed,
         DSFCWhite,
-        DSFCYellow
+        DSFCBlack,
+        DSFCYellow,
+        DSFCRed,
+        DSFCGreen,
+        DSFCBlue
       ),
   )
 where
@@ -50,30 +50,30 @@ newtype DvbSubtitleFontColor = DvbSubtitleFontColor' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSFCBlack :: DvbSubtitleFontColor
-pattern DSFCBlack = DvbSubtitleFontColor' "BLACK"
-
-pattern DSFCBlue :: DvbSubtitleFontColor
-pattern DSFCBlue = DvbSubtitleFontColor' "BLUE"
-
-pattern DSFCGreen :: DvbSubtitleFontColor
-pattern DSFCGreen = DvbSubtitleFontColor' "GREEN"
-
-pattern DSFCRed :: DvbSubtitleFontColor
-pattern DSFCRed = DvbSubtitleFontColor' "RED"
-
 pattern DSFCWhite :: DvbSubtitleFontColor
 pattern DSFCWhite = DvbSubtitleFontColor' "WHITE"
+
+pattern DSFCBlack :: DvbSubtitleFontColor
+pattern DSFCBlack = DvbSubtitleFontColor' "BLACK"
 
 pattern DSFCYellow :: DvbSubtitleFontColor
 pattern DSFCYellow = DvbSubtitleFontColor' "YELLOW"
 
+pattern DSFCRed :: DvbSubtitleFontColor
+pattern DSFCRed = DvbSubtitleFontColor' "RED"
+
+pattern DSFCGreen :: DvbSubtitleFontColor
+pattern DSFCGreen = DvbSubtitleFontColor' "GREEN"
+
+pattern DSFCBlue :: DvbSubtitleFontColor
+pattern DSFCBlue = DvbSubtitleFontColor' "BLUE"
+
 {-# COMPLETE
-  DSFCBlack,
-  DSFCBlue,
-  DSFCGreen,
-  DSFCRed,
   DSFCWhite,
+  DSFCBlack,
   DSFCYellow,
+  DSFCRed,
+  DSFCGreen,
+  DSFCBlue,
   DvbSubtitleFontColor'
   #-}

@@ -107,18 +107,18 @@ module Network.AWS.Firehose.Types
     -- * DeliveryStreamDescription
     DeliveryStreamDescription (..),
     mkDeliveryStreamDescription,
+    dsdDeliveryStreamStatus,
+    dsdVersionId,
+    dsdDeliveryStreamARN,
+    dsdHasMoreDestinations,
     dsdFailureDescription,
     dsdDeliveryStreamEncryptionConfiguration,
+    dsdDestinations,
+    dsdDeliveryStreamName,
     dsdCreateTimestamp,
     dsdSource,
     dsdLastUpdateTimestamp,
-    dsdDeliveryStreamName,
-    dsdDeliveryStreamARN,
-    dsdDeliveryStreamStatus,
     dsdDeliveryStreamType,
-    dsdVersionId,
-    dsdDestinations,
-    dsdHasMoreDestinations,
 
     -- * DeliveryStreamEncryptionConfiguration
     DeliveryStreamEncryptionConfiguration (..),
@@ -131,8 +131,8 @@ module Network.AWS.Firehose.Types
     -- * DeliveryStreamEncryptionConfigurationInput
     DeliveryStreamEncryptionConfigurationInput (..),
     mkDeliveryStreamEncryptionConfigurationInput,
-    dseciKeyARN,
     dseciKeyType,
+    dseciKeyARN,
 
     -- * Deserializer
     Deserializer (..),
@@ -164,15 +164,15 @@ module Network.AWS.Firehose.Types
     edcTypeName,
     edcS3BackupMode,
     edcDomainARN,
+    edcS3Configuration,
     edcCloudWatchLoggingOptions,
     edcVPCConfiguration,
     edcBufferingHints,
     edcRetryOptions,
     edcProcessingConfiguration,
-    edcClusterEndpoint,
     edcRoleARN,
+    edcClusterEndpoint,
     edcIndexName,
-    edcS3Configuration,
 
     -- * ElasticsearchDestinationDescription
     ElasticsearchDestinationDescription (..),
@@ -229,9 +229,9 @@ module Network.AWS.Firehose.Types
     esdcCompressionFormat,
     esdcBufferingHints,
     esdcDataFormatConversionConfiguration,
+    esdcBucketARN,
     esdcProcessingConfiguration,
     esdcRoleARN,
-    esdcBucketARN,
 
     -- * ExtendedS3DestinationDescription
     ExtendedS3DestinationDescription (..),
@@ -241,13 +241,13 @@ module Network.AWS.Firehose.Types
     esddPrefix,
     esddCloudWatchLoggingOptions,
     esddErrorOutputPrefix,
+    esddEncryptionConfiguration,
+    esddCompressionFormat,
+    esddBufferingHints,
     esddDataFormatConversionConfiguration,
+    esddBucketARN,
     esddProcessingConfiguration,
     esddRoleARN,
-    esddBucketARN,
-    esddBufferingHints,
-    esddCompressionFormat,
-    esddEncryptionConfiguration,
 
     -- * ExtendedS3DestinationUpdate
     ExtendedS3DestinationUpdate (..),
@@ -268,8 +268,8 @@ module Network.AWS.Firehose.Types
     -- * FailureDescription
     FailureDescription (..),
     mkFailureDescription,
-    fdType,
     fdDetails,
+    fdType,
 
     -- * HTTPEndpointBufferingHints
     HTTPEndpointBufferingHints (..),
@@ -280,15 +280,15 @@ module Network.AWS.Firehose.Types
     -- * HTTPEndpointCommonAttribute
     HTTPEndpointCommonAttribute (..),
     mkHTTPEndpointCommonAttribute,
-    httpecaAttributeName,
     httpecaAttributeValue,
+    httpecaAttributeName,
 
     -- * HTTPEndpointConfiguration
     HTTPEndpointConfiguration (..),
     mkHTTPEndpointConfiguration,
+    httpecURL,
     httpecName,
     httpecAccessKey,
-    httpecURL,
 
     -- * HTTPEndpointDescription
     HTTPEndpointDescription (..),
@@ -300,14 +300,14 @@ module Network.AWS.Firehose.Types
     HTTPEndpointDestinationConfiguration (..),
     mkHTTPEndpointDestinationConfiguration,
     httpedcS3BackupMode,
+    httpedcS3Configuration,
     httpedcCloudWatchLoggingOptions,
     httpedcBufferingHints,
     httpedcRetryOptions,
+    httpedcEndpointConfiguration,
     httpedcProcessingConfiguration,
     httpedcRequestConfiguration,
     httpedcRoleARN,
-    httpedcEndpointConfiguration,
-    httpedcS3Configuration,
 
     -- * HTTPEndpointDestinationDescription
     HTTPEndpointDestinationDescription (..),
@@ -425,8 +425,8 @@ module Network.AWS.Firehose.Types
     -- * ProcessorParameter
     ProcessorParameter (..),
     mkProcessorParameter,
-    ppParameterName,
     ppParameterValue,
+    ppParameterName,
 
     -- * PutRecordBatchResponseEntry
     PutRecordBatchResponseEntry (..),
@@ -444,16 +444,16 @@ module Network.AWS.Firehose.Types
     RedshiftDestinationConfiguration (..),
     mkRedshiftDestinationConfiguration,
     rdcS3BackupMode,
+    rdcS3Configuration,
     rdcCloudWatchLoggingOptions,
     rdcS3BackupConfiguration,
-    rdcRetryOptions,
-    rdcProcessingConfiguration,
-    rdcRoleARN,
-    rdcClusterJDBCURL,
-    rdcCopyCommand,
     rdcUsername,
     rdcPassword,
-    rdcS3Configuration,
+    rdcCopyCommand,
+    rdcRetryOptions,
+    rdcProcessingConfiguration,
+    rdcClusterJDBCURL,
+    rdcRoleARN,
 
     -- * RedshiftDestinationDescription
     RedshiftDestinationDescription (..),
@@ -461,13 +461,13 @@ module Network.AWS.Firehose.Types
     rddS3BackupMode,
     rddS3BackupDescription,
     rddCloudWatchLoggingOptions,
-    rddRetryOptions,
-    rddProcessingConfiguration,
-    rddRoleARN,
-    rddClusterJDBCURL,
-    rddCopyCommand,
     rddUsername,
     rddS3DestinationDescription,
+    rddCopyCommand,
+    rddRetryOptions,
+    rddProcessingConfiguration,
+    rddClusterJDBCURL,
+    rddRoleARN,
 
     -- * RedshiftDestinationUpdate
     RedshiftDestinationUpdate (..),
@@ -498,32 +498,32 @@ module Network.AWS.Firehose.Types
     sdcEncryptionConfiguration,
     sdcCompressionFormat,
     sdcBufferingHints,
-    sdcRoleARN,
     sdcBucketARN,
+    sdcRoleARN,
 
     -- * S3DestinationDescription
     S3DestinationDescription (..),
     mkS3DestinationDescription,
-    s3Prefix,
-    s3CloudWatchLoggingOptions,
-    s3ErrorOutputPrefix,
-    s3RoleARN,
-    s3BucketARN,
-    s3BufferingHints,
-    s3CompressionFormat,
-    s3EncryptionConfiguration,
+    sddfPrefix,
+    sddfCloudWatchLoggingOptions,
+    sddfErrorOutputPrefix,
+    sddfEncryptionConfiguration,
+    sddfCompressionFormat,
+    sddfBufferingHints,
+    sddfBucketARN,
+    sddfRoleARN,
 
     -- * S3DestinationUpdate
     S3DestinationUpdate (..),
     mkS3DestinationUpdate,
-    sPrefix,
-    sCloudWatchLoggingOptions,
-    sErrorOutputPrefix,
-    sEncryptionConfiguration,
-    sCompressionFormat,
-    sBufferingHints,
-    sBucketARN,
-    sRoleARN,
+    sdufPrefix,
+    sdufCloudWatchLoggingOptions,
+    sdufErrorOutputPrefix,
+    sdufEncryptionConfiguration,
+    sdufCompressionFormat,
+    sdufBufferingHints,
+    sdufBucketARN,
+    sdufRoleARN,
 
     -- * SchemaConfiguration
     SchemaConfiguration (..),
@@ -549,15 +549,15 @@ module Network.AWS.Firehose.Types
     -- * SplunkDestinationConfiguration
     SplunkDestinationConfiguration (..),
     mkSplunkDestinationConfiguration,
-    splS3BackupMode,
-    splCloudWatchLoggingOptions,
-    splHECAcknowledgmentTimeoutInSeconds,
-    splRetryOptions,
-    splProcessingConfiguration,
-    splHECEndpoint,
-    splHECEndpointType,
-    splHECToken,
-    splS3Configuration,
+    sS3BackupMode,
+    sHECToken,
+    sHECEndpointType,
+    sS3Configuration,
+    sCloudWatchLoggingOptions,
+    sHECAcknowledgmentTimeoutInSeconds,
+    sHECEndpoint,
+    sRetryOptions,
+    sProcessingConfiguration,
 
     -- * SplunkDestinationDescription
     SplunkDestinationDescription (..),
@@ -599,17 +599,17 @@ module Network.AWS.Firehose.Types
     -- * VPCConfiguration
     VPCConfiguration (..),
     mkVPCConfiguration,
+    vcSecurityGroupIds,
     vcSubnetIds,
     vcRoleARN,
-    vcSecurityGroupIds,
 
     -- * VPCConfigurationDescription
     VPCConfigurationDescription (..),
     mkVPCConfigurationDescription,
-    vcdSubnetIds,
-    vcdRoleARN,
     vcdSecurityGroupIds,
+    vcdSubnetIds,
     vcdVPCId,
+    vcdRoleARN,
   )
 where
 

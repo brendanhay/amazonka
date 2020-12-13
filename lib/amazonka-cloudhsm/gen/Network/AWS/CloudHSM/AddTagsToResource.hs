@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,16 +24,16 @@ module Network.AWS.CloudHSM.AddTagsToResource
     mkAddTagsToResource,
 
     -- ** Request lenses
-    attrResourceARN,
     attrTagList,
+    attrResourceARN,
 
     -- * Destructuring the response
     AddTagsToResourceResponse (..),
     mkAddTagsToResourceResponse,
 
     -- ** Response lenses
-    attrrsResponseStatus,
     attrrsStatus,
+    attrrsResponseStatus,
   )
 where
 
@@ -44,39 +45,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { resourceARN ::
-      Lude.Text,
-    tagList :: [Tag]
+  { -- | One or more tags.
+    tagList :: [Tag],
+    -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
+    resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
 --
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
 -- * 'tagList' - One or more tags.
+-- * 'resourceARN' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
 mkAddTagsToResource ::
   -- | 'resourceARN'
   Lude.Text ->
   AddTagsToResource
 mkAddTagsToResource pResourceARN_ =
   AddTagsToResource'
-    { resourceARN = pResourceARN_,
-      tagList = Lude.mempty
+    { tagList = Lude.mempty,
+      resourceARN = pResourceARN_
     }
-
--- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attrResourceARN :: Lens.Lens' AddTagsToResource Lude.Text
-attrResourceARN = Lens.lens (resourceARN :: AddTagsToResource -> Lude.Text) (\s a -> s {resourceARN = a} :: AddTagsToResource)
-{-# DEPRECATED attrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | One or more tags.
 --
@@ -85,6 +74,13 @@ attrTagList :: Lens.Lens' AddTagsToResource [Tag]
 attrTagList = Lens.lens (tagList :: AddTagsToResource -> [Tag]) (\s a -> s {tagList = a} :: AddTagsToResource)
 {-# DEPRECATED attrTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
+-- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrResourceARN :: Lens.Lens' AddTagsToResource Lude.Text
+attrResourceARN = Lens.lens (resourceARN :: AddTagsToResource -> Lude.Text) (\s a -> s {resourceARN = a} :: AddTagsToResource)
+{-# DEPRECATED attrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
 instance Lude.AWSRequest AddTagsToResource where
   type Rs AddTagsToResource = AddTagsToResourceResponse
   request = Req.postJSON cloudHSMService
@@ -92,7 +88,7 @@ instance Lude.AWSRequest AddTagsToResource where
     Res.receiveJSON
       ( \s h x ->
           AddTagsToResourceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Status")
+            Lude.<$> (x Lude..:> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders AddTagsToResource where
@@ -110,8 +106,8 @@ instance Lude.ToJSON AddTagsToResource where
   toJSON AddTagsToResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("TagList" Lude..= tagList)
+          [ Lude.Just ("TagList" Lude..= tagList),
+            Lude.Just ("ResourceArn" Lude..= resourceARN)
           ]
       )
 
@@ -123,41 +119,29 @@ instance Lude.ToQuery AddTagsToResource where
 
 -- | /See:/ 'mkAddTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
-  { responseStatus ::
-      Lude.Int,
-    status :: Lude.Text
+  { -- | The status of the operation.
+    status :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'status' - The status of the operation.
+-- * 'responseStatus' - The response status code.
 mkAddTagsToResourceResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'status'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   AddTagsToResourceResponse
-mkAddTagsToResourceResponse pResponseStatus_ pStatus_ =
+mkAddTagsToResourceResponse pStatus_ pResponseStatus_ =
   AddTagsToResourceResponse'
-    { responseStatus = pResponseStatus_,
-      status = pStatus_
+    { status = pStatus_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attrrsResponseStatus :: Lens.Lens' AddTagsToResourceResponse Lude.Int
-attrrsResponseStatus = Lens.lens (responseStatus :: AddTagsToResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsToResourceResponse)
-{-# DEPRECATED attrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the operation.
 --
@@ -165,3 +149,10 @@ attrrsResponseStatus = Lens.lens (responseStatus :: AddTagsToResourceResponse ->
 attrrsStatus :: Lens.Lens' AddTagsToResourceResponse Lude.Text
 attrrsStatus = Lens.lens (status :: AddTagsToResourceResponse -> Lude.Text) (\s a -> s {status = a} :: AddTagsToResourceResponse)
 {-# DEPRECATED attrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attrrsResponseStatus :: Lens.Lens' AddTagsToResourceResponse Lude.Int
+attrrsResponseStatus = Lens.lens (responseStatus :: AddTagsToResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsToResourceResponse)
+{-# DEPRECATED attrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

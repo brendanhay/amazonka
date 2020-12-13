@@ -14,9 +14,9 @@ module Network.AWS.SSM.Types.InstancePatchStateOperatorType
   ( InstancePatchStateOperatorType
       ( InstancePatchStateOperatorType',
         IPSOTEqual,
-        IPSOTGreaterThan,
+        IPSOTNotEqual,
         IPSOTLessThan,
-        IPSOTNotEqual
+        IPSOTGreaterThan
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype InstancePatchStateOperatorType = InstancePatchStateOperatorType' Lude.Te
 pattern IPSOTEqual :: InstancePatchStateOperatorType
 pattern IPSOTEqual = InstancePatchStateOperatorType' "Equal"
 
-pattern IPSOTGreaterThan :: InstancePatchStateOperatorType
-pattern IPSOTGreaterThan = InstancePatchStateOperatorType' "GreaterThan"
+pattern IPSOTNotEqual :: InstancePatchStateOperatorType
+pattern IPSOTNotEqual = InstancePatchStateOperatorType' "NotEqual"
 
 pattern IPSOTLessThan :: InstancePatchStateOperatorType
 pattern IPSOTLessThan = InstancePatchStateOperatorType' "LessThan"
 
-pattern IPSOTNotEqual :: InstancePatchStateOperatorType
-pattern IPSOTNotEqual = InstancePatchStateOperatorType' "NotEqual"
+pattern IPSOTGreaterThan :: InstancePatchStateOperatorType
+pattern IPSOTGreaterThan = InstancePatchStateOperatorType' "GreaterThan"
 
 {-# COMPLETE
   IPSOTEqual,
-  IPSOTGreaterThan,
-  IPSOTLessThan,
   IPSOTNotEqual,
+  IPSOTLessThan,
+  IPSOTGreaterThan,
   InstancePatchStateOperatorType'
   #-}

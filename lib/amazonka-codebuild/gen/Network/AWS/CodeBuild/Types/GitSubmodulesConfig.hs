@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGitSubmodulesConfig' smart constructor.
 newtype GitSubmodulesConfig = GitSubmodulesConfig'
-  { fetchSubmodules ::
-      Lude.Bool
+  { -- | Set to true to fetch Git submodules for your AWS CodeBuild build project.
+    fetchSubmodules :: Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GitSubmodulesConfig' with the minimum fields required to make a request.

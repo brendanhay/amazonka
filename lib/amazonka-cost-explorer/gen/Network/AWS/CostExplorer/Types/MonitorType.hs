@@ -13,8 +13,8 @@
 module Network.AWS.CostExplorer.Types.MonitorType
   ( MonitorType
       ( MonitorType',
-        Custom,
-        Dimensional
+        Dimensional,
+        Custom
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MonitorType = MonitorType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Custom :: MonitorType
-pattern Custom = MonitorType' "CUSTOM"
-
 pattern Dimensional :: MonitorType
 pattern Dimensional = MonitorType' "DIMENSIONAL"
 
+pattern Custom :: MonitorType
+pattern Custom = MonitorType' "CUSTOM"
+
 {-# COMPLETE
-  Custom,
   Dimensional,
+  Custom,
   MonitorType'
   #-}

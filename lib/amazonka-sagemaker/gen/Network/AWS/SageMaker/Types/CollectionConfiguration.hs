@@ -29,24 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCollectionConfiguration' smart constructor.
 data CollectionConfiguration = CollectionConfiguration'
-  { collectionParameters ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
+    collectionParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The name of the tensor collection. The name must be unique relative to other rule configuration names.
     collectionName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CollectionConfiguration' with the minimum fields required to make a request.
 --
--- * 'collectionName' - The name of the tensor collection. The name must be unique relative to other rule configuration names.
 -- * 'collectionParameters' - Parameter values for the tensor collection. The allowed parameters are @"name"@ , @"include_regex"@ , @"reduction_config"@ , @"save_config"@ , @"tensor_names"@ , and @"save_histogram"@ .
+-- * 'collectionName' - The name of the tensor collection. The name must be unique relative to other rule configuration names.
 mkCollectionConfiguration ::
   CollectionConfiguration
 mkCollectionConfiguration =

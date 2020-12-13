@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,12 @@ import Network.AWS.STS.Types
 
 -- | /See:/ 'mkGetAccessKeyInfo' smart constructor.
 newtype GetAccessKeyInfo = GetAccessKeyInfo'
-  { accessKeyId ::
-      AccessKey
+  { -- | The identifier of an access key.
+    --
+    -- This parameter allows (through its regex pattern) a string of characters that can consist of any upper- or lowercase letter or digit.
+    accessKeyId :: AccessKey
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessKeyInfo' with the minimum fields required to make a request.
@@ -103,17 +100,12 @@ instance Lude.ToQuery GetAccessKeyInfo where
 
 -- | /See:/ 'mkGetAccessKeyInfoResponse' smart constructor.
 data GetAccessKeyInfoResponse = GetAccessKeyInfoResponse'
-  { account ::
-      Lude.Maybe Lude.Text,
+  { -- | The number used to identify the AWS account.
+    account :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAccessKeyInfoResponse' with the minimum fields required to make a request.

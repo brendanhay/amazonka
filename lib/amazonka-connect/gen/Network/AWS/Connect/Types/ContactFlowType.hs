@@ -13,14 +13,14 @@
 module Network.AWS.Connect.Types.ContactFlowType
   ( ContactFlowType
       ( ContactFlowType',
-        AgentHold,
-        AgentTransfer,
-        AgentWhisper,
         ContactFlow,
-        CustomerHold,
         CustomerQueue,
+        CustomerHold,
         CustomerWhisper,
+        AgentHold,
+        AgentWhisper,
         OutboundWhisper,
+        AgentTransfer,
         QueueTransfer
       ),
   )
@@ -52,42 +52,42 @@ newtype ContactFlowType = ContactFlowType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AgentHold :: ContactFlowType
-pattern AgentHold = ContactFlowType' "AGENT_HOLD"
-
-pattern AgentTransfer :: ContactFlowType
-pattern AgentTransfer = ContactFlowType' "AGENT_TRANSFER"
-
-pattern AgentWhisper :: ContactFlowType
-pattern AgentWhisper = ContactFlowType' "AGENT_WHISPER"
-
 pattern ContactFlow :: ContactFlowType
 pattern ContactFlow = ContactFlowType' "CONTACT_FLOW"
-
-pattern CustomerHold :: ContactFlowType
-pattern CustomerHold = ContactFlowType' "CUSTOMER_HOLD"
 
 pattern CustomerQueue :: ContactFlowType
 pattern CustomerQueue = ContactFlowType' "CUSTOMER_QUEUE"
 
+pattern CustomerHold :: ContactFlowType
+pattern CustomerHold = ContactFlowType' "CUSTOMER_HOLD"
+
 pattern CustomerWhisper :: ContactFlowType
 pattern CustomerWhisper = ContactFlowType' "CUSTOMER_WHISPER"
 
+pattern AgentHold :: ContactFlowType
+pattern AgentHold = ContactFlowType' "AGENT_HOLD"
+
+pattern AgentWhisper :: ContactFlowType
+pattern AgentWhisper = ContactFlowType' "AGENT_WHISPER"
+
 pattern OutboundWhisper :: ContactFlowType
 pattern OutboundWhisper = ContactFlowType' "OUTBOUND_WHISPER"
+
+pattern AgentTransfer :: ContactFlowType
+pattern AgentTransfer = ContactFlowType' "AGENT_TRANSFER"
 
 pattern QueueTransfer :: ContactFlowType
 pattern QueueTransfer = ContactFlowType' "QUEUE_TRANSFER"
 
 {-# COMPLETE
-  AgentHold,
-  AgentTransfer,
-  AgentWhisper,
   ContactFlow,
-  CustomerHold,
   CustomerQueue,
+  CustomerHold,
   CustomerWhisper,
+  AgentHold,
+  AgentWhisper,
   OutboundWhisper,
+  AgentTransfer,
   QueueTransfer,
   ContactFlowType'
   #-}

@@ -35,27 +35,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomMessageActivity' smart constructor.
 data CustomMessageActivity = CustomMessageActivity'
-  { templateName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the custom message template to use for the message. If specified, this value must match the name of an existing message template.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
+    --
+    -- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
     templateVersion :: Lude.Maybe Lude.Text,
-    endpointTypes ::
-      Lude.Maybe [EndpointTypesElement],
+    -- | The types of endpoints to send the custom message to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
+    endpointTypes :: Lude.Maybe [EndpointTypesElement],
+    -- | The unique identifier for the next activity to perform, after Amazon Pinpoint calls the AWS Lambda function or web hook.
     nextActivity :: Lude.Maybe Lude.Text,
+    -- | The destination to send the campaign or treatment to. This value can be one of the following:
+    --
+    --
+    --     * The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.
+    --
+    --
+    --     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
     deliveryURI :: Lude.Maybe Lude.Text,
-    messageConfig ::
-      Lude.Maybe JourneyCustomMessage
+    -- | Specifies the message data included in a custom channel message that's sent to participants in a journey.
+    messageConfig :: Lude.Maybe JourneyCustomMessage
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomMessageActivity' with the minimum fields required to make a request.
 --
+-- * 'templateName' - The name of the custom message template to use for the message. If specified, this value must match the name of an existing message template.
+-- * 'templateVersion' - The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
+--
+-- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
+-- * 'endpointTypes' - The types of endpoints to send the custom message to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
+-- * 'nextActivity' - The unique identifier for the next activity to perform, after Amazon Pinpoint calls the AWS Lambda function or web hook.
 -- * 'deliveryURI' - The destination to send the campaign or treatment to. This value can be one of the following:
 --
 --
@@ -65,13 +76,7 @@ data CustomMessageActivity = CustomMessageActivity'
 --     * The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.
 --
 --
--- * 'endpointTypes' - The types of endpoints to send the custom message to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.
 -- * 'messageConfig' - Specifies the message data included in a custom channel message that's sent to participants in a journey.
--- * 'nextActivity' - The unique identifier for the next activity to perform, after Amazon Pinpoint calls the AWS Lambda function or web hook.
--- * 'templateName' - The name of the custom message template to use for the message. If specified, this value must match the name of an existing message template.
--- * 'templateVersion' - The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link>Template Versions resource.
---
--- If you don't specify a value for this property, Amazon Pinpoint uses the /active version/ of the template. The /active version/ is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.
 mkCustomMessageActivity ::
   CustomMessageActivity
 mkCustomMessageActivity =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,8 +56,8 @@ module Network.AWS.GameLift.StopGameSessionPlacement
     mkStopGameSessionPlacementResponse,
 
     -- ** Response lenses
-    storsGameSessionPlacement,
-    storsResponseStatus,
+    sgspfrsGameSessionPlacement,
+    sgspfrsResponseStatus,
   )
 where
 
@@ -70,16 +71,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStopGameSessionPlacement' smart constructor.
 newtype StopGameSessionPlacement = StopGameSessionPlacement'
-  { placementId ::
-      Lude.Text
+  { -- | A unique identifier for a game session placement to cancel.
+    placementId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopGameSessionPlacement' with the minimum fields required to make a request.
@@ -136,19 +131,12 @@ instance Lude.ToQuery StopGameSessionPlacement where
 --
 -- /See:/ 'mkStopGameSessionPlacementResponse' smart constructor.
 data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
-  { gameSessionPlacement ::
-      Lude.Maybe
-        GameSessionPlacement,
-    responseStatus ::
-      Lude.Int
+  { -- | Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
+    gameSessionPlacement :: Lude.Maybe GameSessionPlacement,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopGameSessionPlacementResponse' with the minimum fields required to make a request.
@@ -169,13 +157,13 @@ mkStopGameSessionPlacementResponse pResponseStatus_ =
 -- | Object that describes the canceled game session placement, with @CANCELLED@ status and an end time stamp.
 --
 -- /Note:/ Consider using 'gameSessionPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-storsGameSessionPlacement :: Lens.Lens' StopGameSessionPlacementResponse (Lude.Maybe GameSessionPlacement)
-storsGameSessionPlacement = Lens.lens (gameSessionPlacement :: StopGameSessionPlacementResponse -> Lude.Maybe GameSessionPlacement) (\s a -> s {gameSessionPlacement = a} :: StopGameSessionPlacementResponse)
-{-# DEPRECATED storsGameSessionPlacement "Use generic-lens or generic-optics with 'gameSessionPlacement' instead." #-}
+sgspfrsGameSessionPlacement :: Lens.Lens' StopGameSessionPlacementResponse (Lude.Maybe GameSessionPlacement)
+sgspfrsGameSessionPlacement = Lens.lens (gameSessionPlacement :: StopGameSessionPlacementResponse -> Lude.Maybe GameSessionPlacement) (\s a -> s {gameSessionPlacement = a} :: StopGameSessionPlacementResponse)
+{-# DEPRECATED sgspfrsGameSessionPlacement "Use generic-lens or generic-optics with 'gameSessionPlacement' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-storsResponseStatus :: Lens.Lens' StopGameSessionPlacementResponse Lude.Int
-storsResponseStatus = Lens.lens (responseStatus :: StopGameSessionPlacementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopGameSessionPlacementResponse)
-{-# DEPRECATED storsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sgspfrsResponseStatus :: Lens.Lens' StopGameSessionPlacementResponse Lude.Int
+sgspfrsResponseStatus = Lens.lens (responseStatus :: StopGameSessionPlacementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopGameSessionPlacementResponse)
+{-# DEPRECATED sgspfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

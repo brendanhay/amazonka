@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,17 +56,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTagResources' smart constructor.
 data TagResources = TagResources'
-  { resourceARNList ::
-      Lude.NonEmpty Lude.Text,
+  { -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    resourceARNList :: Lude.NonEmpty Lude.Text,
+    -- | The tags that you want to add to the specified resources. A tag consists of a key and a value that you define.
     tags :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResources' with the minimum fields required to make a request.
@@ -137,17 +133,12 @@ instance Lude.ToQuery TagResources where
 
 -- | /See:/ 'mkTagResourcesResponse' smart constructor.
 data TagResourcesResponse = TagResourcesResponse'
-  { failedResourcesMap ::
-      Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo)),
+  { -- | A map containing a key-value pair for each failed item that couldn't be tagged. The key is the ARN of the failed resource. The value is a @FailureInfo@ object that contains an error code, a status code, and an error message. If there are no errors, the @FailedResourcesMap@ is empty.
+    failedResourcesMap :: Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagResourcesResponse' with the minimum fields required to make a request.

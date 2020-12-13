@@ -13,9 +13,9 @@
 module Network.AWS.Kinesis.Types.StreamStatus
   ( StreamStatus
       ( StreamStatus',
-        SSActive,
         SSCreating,
         SSDeleting,
+        SSActive,
         SSUpdating
       ),
   )
@@ -47,22 +47,22 @@ newtype StreamStatus = StreamStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern SSActive :: StreamStatus
-pattern SSActive = StreamStatus' "ACTIVE"
-
 pattern SSCreating :: StreamStatus
 pattern SSCreating = StreamStatus' "CREATING"
 
 pattern SSDeleting :: StreamStatus
 pattern SSDeleting = StreamStatus' "DELETING"
 
+pattern SSActive :: StreamStatus
+pattern SSActive = StreamStatus' "ACTIVE"
+
 pattern SSUpdating :: StreamStatus
 pattern SSUpdating = StreamStatus' "UPDATING"
 
 {-# COMPLETE
-  SSActive,
   SSCreating,
   SSDeleting,
+  SSActive,
   SSUpdating,
   StreamStatus'
   #-}

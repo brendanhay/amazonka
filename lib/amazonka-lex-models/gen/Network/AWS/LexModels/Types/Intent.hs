@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIntent' smart constructor.
 data Intent = Intent'
-  { intentName :: Lude.Text,
+  { -- | The name of the intent.
+    intentName :: Lude.Text,
+    -- | The version of the intent.
     intentVersion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Intent' with the minimum fields required to make a request.

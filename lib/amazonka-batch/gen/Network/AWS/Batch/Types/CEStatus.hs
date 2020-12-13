@@ -14,11 +14,11 @@ module Network.AWS.Batch.Types.CEStatus
   ( CEStatus
       ( CEStatus',
         CESCreating,
-        CESDeleted,
-        CESDeleting,
-        CESInvalid,
         CESUpdating,
-        CESValid
+        CESDeleting,
+        CESDeleted,
+        CESValid,
+        CESInvalid
       ),
   )
 where
@@ -52,27 +52,27 @@ newtype CEStatus = CEStatus' Lude.Text
 pattern CESCreating :: CEStatus
 pattern CESCreating = CEStatus' "CREATING"
 
-pattern CESDeleted :: CEStatus
-pattern CESDeleted = CEStatus' "DELETED"
+pattern CESUpdating :: CEStatus
+pattern CESUpdating = CEStatus' "UPDATING"
 
 pattern CESDeleting :: CEStatus
 pattern CESDeleting = CEStatus' "DELETING"
 
-pattern CESInvalid :: CEStatus
-pattern CESInvalid = CEStatus' "INVALID"
-
-pattern CESUpdating :: CEStatus
-pattern CESUpdating = CEStatus' "UPDATING"
+pattern CESDeleted :: CEStatus
+pattern CESDeleted = CEStatus' "DELETED"
 
 pattern CESValid :: CEStatus
 pattern CESValid = CEStatus' "VALID"
 
+pattern CESInvalid :: CEStatus
+pattern CESInvalid = CEStatus' "INVALID"
+
 {-# COMPLETE
   CESCreating,
-  CESDeleted,
-  CESDeleting,
-  CESInvalid,
   CESUpdating,
+  CESDeleting,
+  CESDeleted,
   CESValid,
+  CESInvalid,
   CEStatus'
   #-}

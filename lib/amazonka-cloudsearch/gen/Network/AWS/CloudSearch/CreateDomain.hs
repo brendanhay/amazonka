@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 -- | Container for the parameters to the @'CreateDomain' @ operation. Specifies a name for the new search domain.
 --
 -- /See:/ 'mkCreateDomain' smart constructor.
-newtype CreateDomain = CreateDomain' {domainName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype CreateDomain = CreateDomain'
+  { -- | A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.
+    domainName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
@@ -96,22 +94,16 @@ instance Lude.ToQuery CreateDomain where
 --
 -- /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { domainStatus ::
-      Lude.Maybe DomainStatus,
+  { domainStatus :: Lude.Maybe DomainStatus,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
 --
--- * 'domainStatus' - Undocumented field.
+-- * 'domainStatus' -
 -- * 'responseStatus' - The response status code.
 mkCreateDomainResponse ::
   -- | 'responseStatus'

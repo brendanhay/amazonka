@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.Route53.GetTrafficPolicy
     mkGetTrafficPolicy,
 
     -- ** Request lenses
-    gtpId,
     gtpVersion,
+    gtpId,
 
     -- * Destructuring the response
     GetTrafficPolicyResponse (..),
     mkGetTrafficPolicyResponse,
 
     -- ** Response lenses
-    gtprsResponseStatus,
     gtprsTrafficPolicy,
+    gtprsResponseStatus,
   )
 where
 
@@ -44,37 +45,26 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetTrafficPolicy' smart constructor.
 data GetTrafficPolicy = GetTrafficPolicy'
-  { id :: Lude.Text,
-    version :: Lude.Natural
+  { -- | The version number of the traffic policy that you want to get information about.
+    version :: Lude.Natural,
+    -- | The ID of the traffic policy that you want to get information about.
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicy' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the traffic policy that you want to get information about.
 -- * 'version' - The version number of the traffic policy that you want to get information about.
+-- * 'id' - The ID of the traffic policy that you want to get information about.
 mkGetTrafficPolicy ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'version'
   Lude.Natural ->
+  -- | 'id'
+  Lude.Text ->
   GetTrafficPolicy
-mkGetTrafficPolicy pId_ pVersion_ =
-  GetTrafficPolicy' {id = pId_, version = pVersion_}
-
--- | The ID of the traffic policy that you want to get information about.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpId :: Lens.Lens' GetTrafficPolicy Lude.Text
-gtpId = Lens.lens (id :: GetTrafficPolicy -> Lude.Text) (\s a -> s {id = a} :: GetTrafficPolicy)
-{-# DEPRECATED gtpId "Use generic-lens or generic-optics with 'id' instead." #-}
+mkGetTrafficPolicy pVersion_ pId_ =
+  GetTrafficPolicy' {version = pVersion_, id = pId_}
 
 -- | The version number of the traffic policy that you want to get information about.
 --
@@ -83,6 +73,13 @@ gtpVersion :: Lens.Lens' GetTrafficPolicy Lude.Natural
 gtpVersion = Lens.lens (version :: GetTrafficPolicy -> Lude.Natural) (\s a -> s {version = a} :: GetTrafficPolicy)
 {-# DEPRECATED gtpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
+-- | The ID of the traffic policy that you want to get information about.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtpId :: Lens.Lens' GetTrafficPolicy Lude.Text
+gtpId = Lens.lens (id :: GetTrafficPolicy -> Lude.Text) (\s a -> s {id = a} :: GetTrafficPolicy)
+{-# DEPRECATED gtpId "Use generic-lens or generic-optics with 'id' instead." #-}
+
 instance Lude.AWSRequest GetTrafficPolicy where
   type Rs GetTrafficPolicy = GetTrafficPolicyResponse
   request = Req.get route53Service
@@ -90,7 +87,7 @@ instance Lude.AWSRequest GetTrafficPolicy where
     Res.receiveXML
       ( \s h x ->
           GetTrafficPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "TrafficPolicy")
+            Lude.<$> (x Lude..@ "TrafficPolicy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetTrafficPolicy where
@@ -112,41 +109,29 @@ instance Lude.ToQuery GetTrafficPolicy where
 --
 -- /See:/ 'mkGetTrafficPolicyResponse' smart constructor.
 data GetTrafficPolicyResponse = GetTrafficPolicyResponse'
-  { responseStatus ::
-      Lude.Int,
-    trafficPolicy :: TrafficPolicy
+  { -- | A complex type that contains settings for the specified traffic policy.
+    trafficPolicy :: TrafficPolicy,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTrafficPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'trafficPolicy' - A complex type that contains settings for the specified traffic policy.
+-- * 'responseStatus' - The response status code.
 mkGetTrafficPolicyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'trafficPolicy'
   TrafficPolicy ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetTrafficPolicyResponse
-mkGetTrafficPolicyResponse pResponseStatus_ pTrafficPolicy_ =
+mkGetTrafficPolicyResponse pTrafficPolicy_ pResponseStatus_ =
   GetTrafficPolicyResponse'
-    { responseStatus = pResponseStatus_,
-      trafficPolicy = pTrafficPolicy_
+    { trafficPolicy = pTrafficPolicy_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtprsResponseStatus :: Lens.Lens' GetTrafficPolicyResponse Lude.Int
-gtprsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrafficPolicyResponse)
-{-# DEPRECATED gtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains settings for the specified traffic policy.
 --
@@ -154,3 +139,10 @@ gtprsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyResponse -> L
 gtprsTrafficPolicy :: Lens.Lens' GetTrafficPolicyResponse TrafficPolicy
 gtprsTrafficPolicy = Lens.lens (trafficPolicy :: GetTrafficPolicyResponse -> TrafficPolicy) (\s a -> s {trafficPolicy = a} :: GetTrafficPolicyResponse)
 {-# DEPRECATED gtprsTrafficPolicy "Use generic-lens or generic-optics with 'trafficPolicy' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtprsResponseStatus :: Lens.Lens' GetTrafficPolicyResponse Lude.Int
+gtprsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrafficPolicyResponse)
+{-# DEPRECATED gtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

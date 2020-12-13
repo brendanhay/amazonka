@@ -34,30 +34,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRDSMetadata' smart constructor.
 data RDSMetadata = RDSMetadata'
-  { selectSqlQuery ::
-      Lude.Maybe Lude.Text,
+  { -- | The SQL query that is supplied during 'CreateDataSourceFromRDS' . Returns only if @Verbose@ is true in @GetDataSourceInput@ .
+    selectSqlQuery :: Lude.Maybe Lude.Text,
+    -- | The ID of the Data Pipeline instance that is used to carry to copy data from Amazon RDS to Amazon S3. You can use the ID to find details about the instance in the Data Pipeline console.
     dataPipelineId :: Lude.Maybe Lude.Text,
+    -- | The database details required to connect to an Amazon RDS.
     database :: Lude.Maybe RDSDatabase,
     databaseUserName :: Lude.Maybe Lude.Text,
+    -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to carry out the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
     resourceRole :: Lude.Maybe Lude.Text,
+    -- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
     serviceRole :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSMetadata' with the minimum fields required to make a request.
 --
+-- * 'selectSqlQuery' - The SQL query that is supplied during 'CreateDataSourceFromRDS' . Returns only if @Verbose@ is true in @GetDataSourceInput@ .
 -- * 'dataPipelineId' - The ID of the Data Pipeline instance that is used to carry to copy data from Amazon RDS to Amazon S3. You can use the ID to find details about the instance in the Data Pipeline console.
 -- * 'database' - The database details required to connect to an Amazon RDS.
--- * 'databaseUserName' - Undocumented field.
+-- * 'databaseUserName' -
 -- * 'resourceRole' - The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to carry out the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
--- * 'selectSqlQuery' - The SQL query that is supplied during 'CreateDataSourceFromRDS' . Returns only if @Verbose@ is true in @GetDataSourceInput@ .
 -- * 'serviceRole' - The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates> for data pipelines.
 mkRDSMetadata ::
   RDSMetadata

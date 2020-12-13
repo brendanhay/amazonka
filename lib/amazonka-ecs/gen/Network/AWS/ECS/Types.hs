@@ -170,8 +170,8 @@ module Network.AWS.ECS.Types
     AWSVPCConfiguration (..),
     mkAWSVPCConfiguration,
     avcSecurityGroups,
-    avcAssignPublicIP,
     avcSubnets,
+    avcAssignPublicIP,
 
     -- * Attachment
     Attachment (..),
@@ -184,8 +184,8 @@ module Network.AWS.ECS.Types
     -- * AttachmentStateChange
     AttachmentStateChange (..),
     mkAttachmentStateChange,
-    ascAttachmentARN,
     ascStatus,
+    ascAttachmentARN,
 
     -- * Attribute
     Attribute (..),
@@ -223,8 +223,8 @@ module Network.AWS.ECS.Types
     CapacityProviderStrategyItem (..),
     mkCapacityProviderStrategyItem,
     cpsiBase,
-    cpsiWeight,
     cpsiCapacityProvider,
+    cpsiWeight,
 
     -- * Cluster
     Cluster (..),
@@ -418,8 +418,8 @@ module Network.AWS.ECS.Types
     -- * DeploymentCircuitBreaker
     DeploymentCircuitBreaker (..),
     mkDeploymentCircuitBreaker,
-    dcbEnable,
     dcbRollback,
+    dcbEnable,
 
     -- * DeploymentConfiguration
     DeploymentConfiguration (..),
@@ -437,8 +437,8 @@ module Network.AWS.ECS.Types
     Device (..),
     mkDevice,
     dContainerPath,
-    dPermissions,
     dHostPath,
+    dPermissions,
 
     -- * DockerVolumeConfiguration
     DockerVolumeConfiguration (..),
@@ -460,9 +460,9 @@ module Network.AWS.ECS.Types
     mkEFSVolumeConfiguration,
     efsvcRootDirectory,
     efsvcTransitEncryption,
+    efsvcFileSystemId,
     efsvcAuthorizationConfig,
     efsvcTransitEncryptionPort,
-    efsvcFileSystemId,
 
     -- * EnvironmentFile
     EnvironmentFile (..),
@@ -473,14 +473,14 @@ module Network.AWS.ECS.Types
     -- * FSxWindowsFileServerAuthorizationConfig
     FSxWindowsFileServerAuthorizationConfig (..),
     mkFSxWindowsFileServerAuthorizationConfig,
-    fswfsacCredentialsParameter,
     fswfsacDomain,
+    fswfsacCredentialsParameter,
 
     -- * FSxWindowsFileServerVolumeConfiguration
     FSxWindowsFileServerVolumeConfiguration (..),
     mkFSxWindowsFileServerVolumeConfiguration,
-    fswfsvcFileSystemId,
     fswfsvcRootDirectory,
+    fswfsvcFileSystemId,
     fswfsvcAuthorizationConfig,
 
     -- * Failure
@@ -499,17 +499,17 @@ module Network.AWS.ECS.Types
     -- * HealthCheck
     HealthCheck (..),
     mkHealthCheck,
+    hcCommand,
     hcStartPeriod,
     hcRetries,
     hcInterval,
     hcTimeout,
-    hcCommand,
 
     -- * HostEntry
     HostEntry (..),
     mkHostEntry,
-    heHostname,
     heIpAddress,
+    heHostname,
 
     -- * HostVolumeProperties
     HostVolumeProperties (..),
@@ -562,9 +562,9 @@ module Network.AWS.ECS.Types
     -- * LogConfiguration
     LogConfiguration (..),
     mkLogConfiguration,
+    lcLogDriver,
     lcOptions,
     lcSecretOptions,
-    lcLogDriver,
 
     -- * ManagedScaling
     ManagedScaling (..),
@@ -630,9 +630,9 @@ module Network.AWS.ECS.Types
     -- * ProxyConfiguration
     ProxyConfiguration (..),
     mkProxyConfiguration,
+    pContainerName,
     pType,
     pProperties,
-    pContainerName,
 
     -- * RepositoryCredentials
     RepositoryCredentials (..),
@@ -685,9 +685,9 @@ module Network.AWS.ECS.Types
     -- * Setting
     Setting (..),
     mkSetting,
-    setValue,
-    setName,
-    setPrincipalARN,
+    sfValue,
+    sfName,
+    sfPrincipalARN,
 
     -- * SystemControl
     SystemControl (..),
@@ -807,16 +807,16 @@ module Network.AWS.ECS.Types
     -- * Tmpfs
     Tmpfs (..),
     mkTmpfs,
-    tMountOptions,
-    tContainerPath,
     tSize,
+    tContainerPath,
+    tMountOptions,
 
     -- * Ulimit
     Ulimit (..),
     mkUlimit,
     uName,
-    uSoftLimit,
     uHardLimit,
+    uSoftLimit,
 
     -- * VersionInfo
     VersionInfo (..),

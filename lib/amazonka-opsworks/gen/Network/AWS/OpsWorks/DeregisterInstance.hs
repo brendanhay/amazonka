@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.OpsWorks.DeregisterInstance
     mkDeregisterInstance,
 
     -- ** Request lenses
-    dInstanceId,
+    diInstanceId,
 
     -- * Destructuring the response
     DeregisterInstanceResponse (..),
@@ -37,16 +38,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeregisterInstance' smart constructor.
 newtype DeregisterInstance = DeregisterInstance'
-  { instanceId ::
-      Lude.Text
+  { -- | The instance ID.
+    instanceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstance' with the minimum fields required to make a request.
@@ -62,9 +57,9 @@ mkDeregisterInstance pInstanceId_ =
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInstanceId :: Lens.Lens' DeregisterInstance Lude.Text
-dInstanceId = Lens.lens (instanceId :: DeregisterInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeregisterInstance)
-{-# DEPRECATED dInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+diInstanceId :: Lens.Lens' DeregisterInstance Lude.Text
+diInstanceId = Lens.lens (instanceId :: DeregisterInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeregisterInstance)
+{-# DEPRECATED diInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 instance Lude.AWSRequest DeregisterInstance where
   type Rs DeregisterInstance = DeregisterInstanceResponse
@@ -95,13 +90,7 @@ instance Lude.ToQuery DeregisterInstance where
 
 -- | /See:/ 'mkDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterInstanceResponse' with the minimum fields required to make a request.

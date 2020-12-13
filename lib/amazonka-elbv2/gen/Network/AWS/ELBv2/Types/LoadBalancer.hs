@@ -45,47 +45,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancer' smart constructor.
 data LoadBalancer = LoadBalancer'
-  { state ::
-      Lude.Maybe LoadBalancerState,
+  { -- | The state of the load balancer.
+    state :: Lude.Maybe LoadBalancerState,
+    -- | The IDs of the security groups for the load balancer.
     securityGroups :: Lude.Maybe [Lude.Text],
+    -- | The name of the load balancer.
     loadBalancerName :: Lude.Maybe Lude.Text,
+    -- | The date and time the load balancer was created.
     createdTime :: Lude.Maybe Lude.DateTime,
+    -- | The ID of the VPC for the load balancer.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The ID of the Amazon Route 53 hosted zone associated with the load balancer.
     canonicalHostedZoneId :: Lude.Maybe Lude.Text,
+    -- | The subnets for the load balancer.
     availabilityZones :: Lude.Maybe [AvailabilityZone],
+    -- | [Application Load Balancers on Outposts] The ID of the customer-owned address pool.
     customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerARN :: Lude.Maybe Lude.Text,
+    -- | The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
     ipAddressType :: Lude.Maybe IPAddressType,
+    -- | The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
+    --
+    -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
     scheme :: Lude.Maybe LoadBalancerSchemeEnum,
+    -- | The type of load balancer.
     type' :: Lude.Maybe LoadBalancerTypeEnum,
+    -- | The public DNS name of the load balancer.
     dnsName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
 --
--- * 'availabilityZones' - The subnets for the load balancer.
--- * 'canonicalHostedZoneId' - The ID of the Amazon Route 53 hosted zone associated with the load balancer.
--- * 'createdTime' - The date and time the load balancer was created.
--- * 'customerOwnedIPv4Pool' - [Application Load Balancers on Outposts] The ID of the customer-owned address pool.
--- * 'dnsName' - The public DNS name of the load balancer.
--- * 'ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- * 'state' - The state of the load balancer.
+-- * 'securityGroups' - The IDs of the security groups for the load balancer.
 -- * 'loadBalancerName' - The name of the load balancer.
+-- * 'createdTime' - The date and time the load balancer was created.
+-- * 'vpcId' - The ID of the VPC for the load balancer.
+-- * 'canonicalHostedZoneId' - The ID of the Amazon Route 53 hosted zone associated with the load balancer.
+-- * 'availabilityZones' - The subnets for the load balancer.
+-- * 'customerOwnedIPv4Pool' - [Application Load Balancers on Outposts] The ID of the customer-owned address pool.
+-- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- * 'ipAddressType' - The type of IP addresses used by the subnets for your load balancer. The possible values are @ipv4@ (for IPv4 addresses) and @dualstack@ (for IPv4 and IPv6 addresses).
 -- * 'scheme' - The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 --
 -- The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
--- * 'securityGroups' - The IDs of the security groups for the load balancer.
--- * 'state' - The state of the load balancer.
 -- * 'type'' - The type of load balancer.
--- * 'vpcId' - The ID of the VPC for the load balancer.
+-- * 'dnsName' - The public DNS name of the load balancer.
 mkLoadBalancer ::
   LoadBalancer
 mkLoadBalancer =

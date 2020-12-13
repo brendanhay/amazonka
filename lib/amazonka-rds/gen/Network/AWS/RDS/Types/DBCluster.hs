@@ -94,141 +94,197 @@ import Network.AWS.RDS.Types.WriteForwardingStatus
 --
 -- /See:/ 'mkDBCluster' smart constructor.
 data DBCluster = DBCluster'
-  { backtrackConsumedChangeRecords ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of change records stored for Backtrack.
+    backtrackConsumedChangeRecords :: Lude.Maybe Lude.Integer,
+    -- | Indicates the database engine version.
     engineVersion :: Lude.Maybe Lude.Text,
+    -- | Specifies the current state of this DB cluster.
     status :: Lude.Maybe Lude.Text,
+    -- | Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
     deletionProtection :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether the DB cluster is encrypted.
     storageEncrypted :: Lude.Maybe Lude.Bool,
+    -- | Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
     dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | Provides the list of instances that make up the DB cluster.
     dbClusterMembers :: Lude.Maybe [DBClusterMember],
+    -- | Contains one or more identifiers of the read replicas associated with this DB cluster.
     readReplicaIdentifiers :: Lude.Maybe [Lude.Text],
+    -- | Contains the identifier of the source DB cluster if this DB cluster is a read replica.
     replicationSourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon Kinesis data stream used for the database activity stream.
     activityStreamKinesisStreamName :: Lude.Maybe Lude.Text,
+    -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
     hostedZoneId :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the DB cluster parameter group for the DB cluster.
     dbClusterParameterGroup :: Lude.Maybe Lude.Text,
+    -- | Contains the master username for the DB cluster.
     masterUsername :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether the mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
     iamDatabaseAuthenticationEnabled :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether you have requested to enable write forwarding for a secondary cluster in an Aurora global database. Because write forwarding takes time to enable, check the value of @GlobalWriteForwardingStatus@ to confirm that the request has completed before using the write forwarding feature for this cluster.
     globalWriteForwardingRequested :: Lude.Maybe Lude.Bool,
+    -- | The earliest time to which a DB cluster can be backtracked.
     earliestBacktrackTime :: Lude.Maybe Lude.DateTime,
+    -- | The target backtrack window, in seconds. If this value is set to 0, backtracking is disabled for the DB cluster. Otherwise, backtracking is enabled.
     backtrackWindow :: Lude.Maybe Lude.Integer,
     tagList :: Lude.Maybe [Tag],
+    -- | The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
     dbClusterResourceId :: Lude.Maybe Lude.Text,
+    -- | The earliest time to which a database can be restored with point-in-time restore.
     earliestRestorableTime :: Lude.Maybe Lude.DateTime,
+    -- | Identifies all custom endpoints associated with the cluster.
     customEndpoints :: Lude.Maybe [Lude.Text],
+    -- | The name of the database engine to be used for this DB cluster.
     engine :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.
+    --
+    -- When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
+    -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless> in the /Amazon Aurora User Guide/ .
     hTTPEndpointEnabled :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) for the DB cluster.
     dbClusterARN :: Lude.Maybe Lude.Text,
+    -- | Identifies the clone group to which the DB cluster is associated.
     cloneGroupId :: Lude.Maybe Lude.Text,
+    -- | Specifies the latest time to which a database can be restored with point-in-time restore.
     latestRestorableTime :: Lude.Maybe Lude.DateTime,
+    -- | Specifies whether the DB cluster is a clone of a DB cluster owned by a different AWS account.
     crossAccountClone :: Lude.Maybe Lude.Bool,
+    -- | The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
+    --
+    -- For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
     capacity :: Lude.Maybe Lude.Int,
+    -- | Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
     preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | Provides the list of Availability Zones (AZs) where instances in the DB cluster can be created.
     availabilityZones :: Lude.Maybe [Lude.Text],
+    -- | If present, specifies the name of the character set that this cluster is associated with.
     characterSetName :: Lude.Maybe Lude.Text,
+    -- | If @StorageEncrypted@ is enabled, the AWS KMS key identifier for the encrypted DB cluster.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
     preferredBackupWindow :: Lude.Maybe Lude.Text,
+    -- | Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
     associatedRoles :: Lude.Maybe [DBClusterRole],
+    -- | Provides a list of VPC security groups that the DB cluster belongs to.
     vpcSecurityGroups :: Lude.Maybe [VPCSecurityGroupMembership],
+    -- | Specifies the number of days for which automatic DB snapshots are retained.
     backupRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
     dbSubnetGroup :: Lude.Maybe Lude.Text,
+    -- | The mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously.
     activityStreamMode :: Lude.Maybe ActivityStreamMode,
+    -- | Contains the name of the initial database of this DB cluster that was provided at create time, if one was specified when the DB cluster was created. This same name is returned for the life of the DB cluster.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the DB cluster has instances in multiple Availability Zones.
     multiAZ :: Lude.Maybe Lude.Bool,
+    -- | The DB engine mode of the DB cluster, either @provisioned@ , @serverless@ , @parallelquery@ , @global@ , or @multimaster@ .
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster> .
     engineMode :: Lude.Maybe Lude.Text,
+    -- | A list of log types that this DB cluster is configured to export to CloudWatch Logs.
+    --
+    -- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon Aurora User Guide./
     enabledCloudwatchLogsExports :: Lude.Maybe [Lude.Text],
+    -- | The status of the database activity stream.
     activityStreamStatus :: Lude.Maybe ActivityStreamStatus,
+    -- | For all database engines except Amazon Aurora, @AllocatedStorage@ specifies the allocated storage size in gibibytes (GiB). For Aurora, @AllocatedStorage@ always returns 1, because Aurora DB cluster storage size isn't fixed, but instead automatically adjusts as needed.
     allocatedStorage :: Lude.Maybe Lude.Int,
+    -- | Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
     copyTagsToSnapshot :: Lude.Maybe Lude.Bool,
+    -- | Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
     clusterCreateTime :: Lude.Maybe Lude.DateTime,
+    -- | Specifies the connection endpoint for the primary instance of the DB cluster.
     endpoint :: Lude.Maybe Lude.Text,
     scalingConfigurationInfo :: Lude.Maybe ScalingConfigurationInfo,
+    -- | The AWS KMS key identifier used for encrypting messages in the database activity stream.
     activityStreamKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | Specifies the progress of the operation as a percentage.
     percentProgress :: Lude.Maybe Lude.Text,
+    -- | The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+    --
+    -- If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
     readerEndpoint :: Lude.Maybe Lude.Text,
+    -- | Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
     globalWriteForwardingStatus :: Lude.Maybe WriteForwardingStatus,
+    -- | Specifies the port that the database engine is listening on.
     port :: Lude.Maybe Lude.Int,
+    -- | The Active Directory Domain membership records associated with the DB cluster.
     domainMemberships :: Lude.Maybe [DomainMembership],
-    dbClusterOptionGroupMemberships ::
-      Lude.Maybe [DBClusterOptionGroupStatus]
+    -- | Provides the list of option group memberships for this DB cluster.
+    dbClusterOptionGroupMemberships :: Lude.Maybe [DBClusterOptionGroupStatus]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DBCluster' with the minimum fields required to make a request.
 --
--- * 'activityStreamKMSKeyId' - The AWS KMS key identifier used for encrypting messages in the database activity stream.
--- * 'activityStreamKinesisStreamName' - The name of the Amazon Kinesis data stream used for the database activity stream.
--- * 'activityStreamMode' - The mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously.
--- * 'activityStreamStatus' - The status of the database activity stream.
--- * 'allocatedStorage' - For all database engines except Amazon Aurora, @AllocatedStorage@ specifies the allocated storage size in gibibytes (GiB). For Aurora, @AllocatedStorage@ always returns 1, because Aurora DB cluster storage size isn't fixed, but instead automatically adjusts as needed.
--- * 'associatedRoles' - Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
--- * 'availabilityZones' - Provides the list of Availability Zones (AZs) where instances in the DB cluster can be created.
 -- * 'backtrackConsumedChangeRecords' - The number of change records stored for Backtrack.
--- * 'backtrackWindow' - The target backtrack window, in seconds. If this value is set to 0, backtracking is disabled for the DB cluster. Otherwise, backtracking is enabled.
--- * 'backupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
--- * 'capacity' - The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
---
--- For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
--- * 'characterSetName' - If present, specifies the name of the character set that this cluster is associated with.
--- * 'cloneGroupId' - Identifies the clone group to which the DB cluster is associated.
--- * 'clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
--- * 'copyTagsToSnapshot' - Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
--- * 'crossAccountClone' - Specifies whether the DB cluster is a clone of a DB cluster owned by a different AWS account.
--- * 'customEndpoints' - Identifies all custom endpoints associated with the cluster.
--- * 'databaseName' - Contains the name of the initial database of this DB cluster that was provided at create time, if one was specified when the DB cluster was created. This same name is returned for the life of the DB cluster.
--- * 'dbClusterARN' - The Amazon Resource Name (ARN) for the DB cluster.
+-- * 'engineVersion' - Indicates the database engine version.
+-- * 'status' - Specifies the current state of this DB cluster.
+-- * 'deletionProtection' - Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
+-- * 'storageEncrypted' - Specifies whether the DB cluster is encrypted.
 -- * 'dbClusterIdentifier' - Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.
 -- * 'dbClusterMembers' - Provides the list of instances that make up the DB cluster.
--- * 'dbClusterOptionGroupMemberships' - Provides the list of option group memberships for this DB cluster.
+-- * 'readReplicaIdentifiers' - Contains one or more identifiers of the read replicas associated with this DB cluster.
+-- * 'replicationSourceIdentifier' - Contains the identifier of the source DB cluster if this DB cluster is a read replica.
+-- * 'activityStreamKinesisStreamName' - The name of the Amazon Kinesis data stream used for the database activity stream.
+-- * 'hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
 -- * 'dbClusterParameterGroup' - Specifies the name of the DB cluster parameter group for the DB cluster.
--- * 'dbClusterResourceId' - The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
--- * 'dbSubnetGroup' - Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
--- * 'deletionProtection' - Indicates if the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled.
--- * 'domainMemberships' - The Active Directory Domain membership records associated with the DB cluster.
--- * 'earliestBacktrackTime' - The earliest time to which a DB cluster can be backtracked.
--- * 'earliestRestorableTime' - The earliest time to which a database can be restored with point-in-time restore.
--- * 'enabledCloudwatchLogsExports' - A list of log types that this DB cluster is configured to export to CloudWatch Logs.
---
--- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon Aurora User Guide./
--- * 'endpoint' - Specifies the connection endpoint for the primary instance of the DB cluster.
--- * 'engine' - The name of the database engine to be used for this DB cluster.
--- * 'engineMode' - The DB engine mode of the DB cluster, either @provisioned@ , @serverless@ , @parallelquery@ , @global@ , or @multimaster@ .
---
--- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster> .
--- * 'engineVersion' - Indicates the database engine version.
+-- * 'masterUsername' - Contains the master username for the DB cluster.
+-- * 'iamDatabaseAuthenticationEnabled' - A value that indicates whether the mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 -- * 'globalWriteForwardingRequested' - Specifies whether you have requested to enable write forwarding for a secondary cluster in an Aurora global database. Because write forwarding takes time to enable, check the value of @GlobalWriteForwardingStatus@ to confirm that the request has completed before using the write forwarding feature for this cluster.
--- * 'globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
+-- * 'earliestBacktrackTime' - The earliest time to which a DB cluster can be backtracked.
+-- * 'backtrackWindow' - The target backtrack window, in seconds. If this value is set to 0, backtracking is disabled for the DB cluster. Otherwise, backtracking is enabled.
+-- * 'tagList' -
+-- * 'dbClusterResourceId' - The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
+-- * 'earliestRestorableTime' - The earliest time to which a database can be restored with point-in-time restore.
+-- * 'customEndpoints' - Identifies all custom endpoints associated with the cluster.
+-- * 'engine' - The name of the database engine to be used for this DB cluster.
 -- * 'hTTPEndpointEnabled' - A value that indicates whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.
 --
 -- When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster. You can also query your database from inside the RDS console with the query editor.
 -- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless> in the /Amazon Aurora User Guide/ .
--- * 'hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
--- * 'iamDatabaseAuthenticationEnabled' - A value that indicates whether the mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
--- * 'kmsKeyId' - If @StorageEncrypted@ is enabled, the AWS KMS key identifier for the encrypted DB cluster.
+-- * 'dbClusterARN' - The Amazon Resource Name (ARN) for the DB cluster.
+-- * 'cloneGroupId' - Identifies the clone group to which the DB cluster is associated.
 -- * 'latestRestorableTime' - Specifies the latest time to which a database can be restored with point-in-time restore.
--- * 'masterUsername' - Contains the master username for the DB cluster.
--- * 'multiAZ' - Specifies whether the DB cluster has instances in multiple Availability Zones.
--- * 'percentProgress' - Specifies the progress of the operation as a percentage.
--- * 'port' - Specifies the port that the database engine is listening on.
--- * 'preferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
+-- * 'crossAccountClone' - Specifies whether the DB cluster is a clone of a DB cluster owned by a different AWS account.
+-- * 'capacity' - The current capacity of an Aurora Serverless DB cluster. The capacity is 0 (zero) when the cluster is paused.
+--
+-- For more information about Aurora Serverless, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless> in the /Amazon Aurora User Guide/ .
 -- * 'preferredMaintenanceWindow' - Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
--- * 'readReplicaIdentifiers' - Contains one or more identifiers of the read replicas associated with this DB cluster.
+-- * 'availabilityZones' - Provides the list of Availability Zones (AZs) where instances in the DB cluster can be created.
+-- * 'characterSetName' - If present, specifies the name of the character set that this cluster is associated with.
+-- * 'kmsKeyId' - If @StorageEncrypted@ is enabled, the AWS KMS key identifier for the encrypted DB cluster.
+-- * 'preferredBackupWindow' - Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the @BackupRetentionPeriod@ .
+-- * 'associatedRoles' - Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+-- * 'vpcSecurityGroups' - Provides a list of VPC security groups that the DB cluster belongs to.
+-- * 'backupRetentionPeriod' - Specifies the number of days for which automatic DB snapshots are retained.
+-- * 'dbSubnetGroup' - Specifies information on the subnet group associated with the DB cluster, including the name, description, and subnets in the subnet group.
+-- * 'activityStreamMode' - The mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously.
+-- * 'databaseName' - Contains the name of the initial database of this DB cluster that was provided at create time, if one was specified when the DB cluster was created. This same name is returned for the life of the DB cluster.
+-- * 'multiAZ' - Specifies whether the DB cluster has instances in multiple Availability Zones.
+-- * 'engineMode' - The DB engine mode of the DB cluster, either @provisioned@ , @serverless@ , @parallelquery@ , @global@ , or @multimaster@ .
+--
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster> .
+-- * 'enabledCloudwatchLogsExports' - A list of log types that this DB cluster is configured to export to CloudWatch Logs.
+--
+-- Log types vary by DB engine. For information about the log types for each DB engine, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html Amazon RDS Database Log Files> in the /Amazon Aurora User Guide./
+-- * 'activityStreamStatus' - The status of the database activity stream.
+-- * 'allocatedStorage' - For all database engines except Amazon Aurora, @AllocatedStorage@ specifies the allocated storage size in gibibytes (GiB). For Aurora, @AllocatedStorage@ always returns 1, because Aurora DB cluster storage size isn't fixed, but instead automatically adjusts as needed.
+-- * 'copyTagsToSnapshot' - Specifies whether tags are copied from the DB cluster to snapshots of the DB cluster.
+-- * 'clusterCreateTime' - Specifies the time when the DB cluster was created, in Universal Coordinated Time (UTC).
+-- * 'endpoint' - Specifies the connection endpoint for the primary instance of the DB cluster.
+-- * 'scalingConfigurationInfo' -
+-- * 'activityStreamKMSKeyId' - The AWS KMS key identifier used for encrypting messages in the database activity stream.
+-- * 'percentProgress' - Specifies the progress of the operation as a percentage.
 -- * 'readerEndpoint' - The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
 --
 -- If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
--- * 'replicationSourceIdentifier' - Contains the identifier of the source DB cluster if this DB cluster is a read replica.
--- * 'scalingConfigurationInfo' - Undocumented field.
--- * 'status' - Specifies the current state of this DB cluster.
--- * 'storageEncrypted' - Specifies whether the DB cluster is encrypted.
--- * 'tagList' - Undocumented field.
--- * 'vpcSecurityGroups' - Provides a list of VPC security groups that the DB cluster belongs to.
+-- * 'globalWriteForwardingStatus' - Specifies whether a secondary cluster in an Aurora global database has write forwarding enabled, not enabled, or is in the process of enabling it.
+-- * 'port' - Specifies the port that the database engine is listening on.
+-- * 'domainMemberships' - The Active Directory Domain membership records associated with the DB cluster.
+-- * 'dbClusterOptionGroupMemberships' - Provides the list of option group memberships for this DB cluster.
 mkDBCluster ::
   DBCluster
 mkDBCluster =

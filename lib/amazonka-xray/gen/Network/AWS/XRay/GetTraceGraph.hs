@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,17 +45,12 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetTraceGraph' smart constructor.
 data GetTraceGraph = GetTraceGraph'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Trace IDs of requests for which to generate a service graph.
     traceIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTraceGraph' with the minimum fields required to make a request.
@@ -121,25 +117,21 @@ instance Lude.ToQuery GetTraceGraph where
 
 -- | /See:/ 'mkGetTraceGraphResponse' smart constructor.
 data GetTraceGraphResponse = GetTraceGraphResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The services that have processed one of the specified requests.
     services :: Lude.Maybe [ServiceInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTraceGraphResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - Pagination token.
--- * 'responseStatus' - The response status code.
 -- * 'services' - The services that have processed one of the specified requests.
+-- * 'responseStatus' - The response status code.
 mkGetTraceGraphResponse ::
   -- | 'responseStatus'
   Lude.Int ->

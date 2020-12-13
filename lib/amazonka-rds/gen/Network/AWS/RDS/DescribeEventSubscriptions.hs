@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     mkDescribeEventSubscriptions,
 
     -- ** Request lenses
-    dSubscriptionName,
-    dFilters,
-    dMarker,
-    dMaxRecords,
+    desSubscriptionName,
+    desFilters,
+    desMarker,
+    desMaxRecords,
 
     -- * Destructuring the response
     DescribeEventSubscriptionsResponse (..),
@@ -50,30 +51,30 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-  { subscriptionName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the RDS event notification subscription you want to describe.
+    subscriptionName :: Lude.Maybe Lude.Text,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventSubscriptions' with the minimum fields required to make a request.
 --
+-- * 'subscriptionName' - The name of the RDS event notification subscription you want to describe.
 -- * 'filters' - This parameter isn't currently supported.
 -- * 'marker' - An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 100.
--- * 'subscriptionName' - The name of the RDS event notification subscription you want to describe.
 mkDescribeEventSubscriptions ::
   DescribeEventSubscriptions
 mkDescribeEventSubscriptions =
@@ -87,23 +88,23 @@ mkDescribeEventSubscriptions =
 -- | The name of the RDS event notification subscription you want to describe.
 --
 -- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSubscriptionName :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Text)
-dSubscriptionName = Lens.lens (subscriptionName :: DescribeEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionName = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED dSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
+desSubscriptionName :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Text)
+desSubscriptionName = Lens.lens (subscriptionName :: DescribeEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionName = a} :: DescribeEventSubscriptions)
+{-# DEPRECATED desSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
 -- | This parameter isn't currently supported.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFilters :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe [Filter])
-dFilters = Lens.lens (filters :: DescribeEventSubscriptions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED dFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+desFilters :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe [Filter])
+desFilters = Lens.lens (filters :: DescribeEventSubscriptions -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEventSubscriptions)
+{-# DEPRECATED desFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMarker :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Text)
-dMarker = Lens.lens (marker :: DescribeEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+desMarker :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Text)
+desMarker = Lens.lens (marker :: DescribeEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventSubscriptions)
+{-# DEPRECATED desMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
@@ -111,16 +112,16 @@ dMarker = Lens.lens (marker :: DescribeEventSubscriptions -> Lude.Maybe Lude.Tex
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxRecords :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Int)
-dMaxRecords = Lens.lens (maxRecords :: DescribeEventSubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+desMaxRecords :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Int)
+desMaxRecords = Lens.lens (maxRecords :: DescribeEventSubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEventSubscriptions)
+{-# DEPRECATED desMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Page.AWSPager DescribeEventSubscriptions where
   page rq rs
     | Page.stop (rs Lens.^. desrsMarker) = Lude.Nothing
     | Page.stop (rs Lens.^. desrsEventSubscriptionsList) = Lude.Nothing
     | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dMarker Lens..~ rs Lens.^. desrsMarker
+      Lude.Just Lude.$ rq Lude.& desMarker Lens..~ rs Lens.^. desrsMarker
 
 instance Lude.AWSRequest DescribeEventSubscriptions where
   type
@@ -162,21 +163,14 @@ instance Lude.ToQuery DescribeEventSubscriptions where
 --
 -- /See:/ 'mkDescribeEventSubscriptionsResponse' smart constructor.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-  { eventSubscriptionsList ::
-      Lude.Maybe
-        [EventSubscription],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of EventSubscriptions data types.
+    eventSubscriptionsList :: Lude.Maybe [EventSubscription],
+    -- | An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventSubscriptionsResponse' with the minimum fields required to make a request.

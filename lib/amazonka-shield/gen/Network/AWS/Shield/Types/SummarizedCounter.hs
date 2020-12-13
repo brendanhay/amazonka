@@ -33,27 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSummarizedCounter' smart constructor.
 data SummarizedCounter = SummarizedCounter'
-  { max ::
-      Lude.Maybe Lude.Double,
+  { -- | The maximum value of the counter for a specified time period.
+    max :: Lude.Maybe Lude.Double,
+    -- | The average value of the counter for a specified time period.
     average :: Lude.Maybe Lude.Double,
+    -- | The number of counters for a specified time period.
     n :: Lude.Maybe Lude.Int,
+    -- | The counter name.
     name :: Lude.Maybe Lude.Text,
+    -- | The total of counter values for a specified time period.
     sum :: Lude.Maybe Lude.Double,
+    -- | The unit of the counters.
     unit :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SummarizedCounter' with the minimum fields required to make a request.
 --
--- * 'average' - The average value of the counter for a specified time period.
 -- * 'max' - The maximum value of the counter for a specified time period.
+-- * 'average' - The average value of the counter for a specified time period.
 -- * 'n' - The number of counters for a specified time period.
 -- * 'name' - The counter name.
 -- * 'sum' - The total of counter values for a specified time period.

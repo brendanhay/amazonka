@@ -32,25 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetInstances' smart constructor.
 data TargetInstances = TargetInstances'
-  { ec2TagSet ::
-      Lude.Maybe EC2TagSet,
+  { -- | Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as @tagFilters@ .
+    ec2TagSet :: Lude.Maybe EC2TagSet,
+    -- | The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as @ec2TagSet@ .
     tagFilters :: Lude.Maybe [EC2TagFilter],
+    -- | The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
     autoScalingGroups :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetInstances' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroups' - The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
 -- * 'ec2TagSet' - Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as @tagFilters@ .
 -- * 'tagFilters' - The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as @ec2TagSet@ .
+-- * 'autoScalingGroups' - The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment.
 mkTargetInstances ::
   TargetInstances
 mkTargetInstances =

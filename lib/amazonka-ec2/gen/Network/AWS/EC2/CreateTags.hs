@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.CreateTags
     mkCreateTags,
 
     -- ** Request lenses
-    cDryRun,
-    cResources,
-    cTags,
+    ctResources,
+    ctDryRun,
+    ctTags,
 
     -- * Destructuring the response
     CreateTagsResponse (..),
@@ -39,57 +40,56 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTags' smart constructor.
 data CreateTags = CreateTags'
-  { dryRun :: Lude.Maybe Lude.Bool,
+  { -- | The IDs of the resources, separated by spaces.
+    --
+    -- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
     resources :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
     tags :: [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'resources' - The IDs of the resources, separated by spaces.
 --
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'tags' - The tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 mkCreateTags ::
   CreateTags
 mkCreateTags =
   CreateTags'
-    { dryRun = Lude.Nothing,
-      resources = Lude.mempty,
+    { resources = Lude.mempty,
+      dryRun = Lude.Nothing,
       tags = Lude.mempty
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDryRun :: Lens.Lens' CreateTags (Lude.Maybe Lude.Bool)
-cDryRun = Lens.lens (dryRun :: CreateTags -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTags)
-{-# DEPRECATED cDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the resources, separated by spaces.
 --
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.
 --
 -- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cResources :: Lens.Lens' CreateTags [Lude.Text]
-cResources = Lens.lens (resources :: CreateTags -> [Lude.Text]) (\s a -> s {resources = a} :: CreateTags)
-{-# DEPRECATED cResources "Use generic-lens or generic-optics with 'resources' instead." #-}
+ctResources :: Lens.Lens' CreateTags [Lude.Text]
+ctResources = Lens.lens (resources :: CreateTags -> [Lude.Text]) (\s a -> s {resources = a} :: CreateTags)
+{-# DEPRECATED ctResources "Use generic-lens or generic-optics with 'resources' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctDryRun :: Lens.Lens' CreateTags (Lude.Maybe Lude.Bool)
+ctDryRun = Lens.lens (dryRun :: CreateTags -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTags)
+{-# DEPRECATED ctDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The tags. The @value@ parameter is required, but if you don't want the tag to have a value, specify the parameter with no value, and we set the value to an empty string.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' CreateTags [Tag]
-cTags = Lens.lens (tags :: CreateTags -> [Tag]) (\s a -> s {tags = a} :: CreateTags)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ctTags :: Lens.Lens' CreateTags [Tag]
+ctTags = Lens.lens (tags :: CreateTags -> [Tag]) (\s a -> s {tags = a} :: CreateTags)
+{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateTags where
   type Rs CreateTags = CreateTagsResponse
@@ -107,20 +107,14 @@ instance Lude.ToQuery CreateTags where
     Lude.mconcat
       [ "Action" Lude.=: ("CreateTags" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         Lude.toQueryList "ResourceId" resources,
+        "DryRun" Lude.=: dryRun,
         Lude.toQueryList "Tag" tags
       ]
 
 -- | /See:/ 'mkCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.

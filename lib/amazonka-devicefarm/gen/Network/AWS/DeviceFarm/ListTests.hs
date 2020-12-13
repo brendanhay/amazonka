@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.DeviceFarm.ListTests
     mkListTests,
 
     -- ** Request lenses
-    ltNextToken,
     ltArn,
+    ltNextToken,
 
     -- * Destructuring the response
     ListTestsResponse (..),
@@ -46,16 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListTests' smart constructor.
 data ListTests = ListTests'
-  { nextToken :: Lude.Maybe Lude.Text,
-    arn :: Lude.Text
+  { -- | The test suite's Amazon Resource Name (ARN).
+    arn :: Lude.Text,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTests' with the minimum fields required to make a request.
@@ -67,14 +64,7 @@ mkListTests ::
   Lude.Text ->
   ListTests
 mkListTests pArn_ =
-  ListTests' {nextToken = Lude.Nothing, arn = pArn_}
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltNextToken :: Lens.Lens' ListTests (Lude.Maybe Lude.Text)
-ltNextToken = Lens.lens (nextToken :: ListTests -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTests)
-{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListTests' {arn = pArn_, nextToken = Lude.Nothing}
 
 -- | The test suite's Amazon Resource Name (ARN).
 --
@@ -82,6 +72,13 @@ ltNextToken = Lens.lens (nextToken :: ListTests -> Lude.Maybe Lude.Text) (\s a -
 ltArn :: Lens.Lens' ListTests Lude.Text
 ltArn = Lens.lens (arn :: ListTests -> Lude.Text) (\s a -> s {arn = a} :: ListTests)
 {-# DEPRECATED ltArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTests (Lude.Maybe Lude.Text)
+ltNextToken = Lens.lens (nextToken :: ListTests -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTests)
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListTests where
   page rq rs
@@ -119,8 +116,8 @@ instance Lude.ToJSON ListTests where
   toJSON ListTests' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("arn" Lude..= arn)
+          [ Lude.Just ("arn" Lude..= arn),
+            ("nextToken" Lude..=) Lude.<$> nextToken
           ]
       )
 
@@ -134,25 +131,21 @@ instance Lude.ToQuery ListTests where
 --
 -- /See:/ 'mkListTestsResponse' smart constructor.
 data ListTestsResponse = ListTestsResponse'
-  { tests ::
-      Lude.Maybe [Test],
+  { -- | Information about the tests.
+    tests :: Lude.Maybe [Test],
+    -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTestsResponse' with the minimum fields required to make a request.
 --
+-- * 'tests' - Information about the tests.
 -- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
 -- * 'responseStatus' - The response status code.
--- * 'tests' - Information about the tests.
 mkListTestsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

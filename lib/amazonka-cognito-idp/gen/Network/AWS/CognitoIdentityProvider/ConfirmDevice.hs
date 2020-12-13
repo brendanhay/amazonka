@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.CognitoIdentityProvider.ConfirmDevice
 
     -- ** Request lenses
     cdDeviceSecretVerifierConfig,
-    cdDeviceName,
     cdAccessToken,
+    cdDeviceName,
     cdDeviceKey,
 
     -- * Destructuring the response
@@ -44,10 +45,13 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkConfirmDevice' smart constructor.
 data ConfirmDevice = ConfirmDevice'
-  { deviceSecretVerifierConfig ::
-      Lude.Maybe DeviceSecretVerifierConfigType,
-    deviceName :: Lude.Maybe Lude.Text,
+  { -- | The configuration of the device secret verifier.
+    deviceSecretVerifierConfig :: Lude.Maybe DeviceSecretVerifierConfigType,
+    -- | The access token.
     accessToken :: Lude.Sensitive Lude.Text,
+    -- | The device name.
+    deviceName :: Lude.Maybe Lude.Text,
+    -- | The device key.
     deviceKey :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -55,10 +59,10 @@ data ConfirmDevice = ConfirmDevice'
 
 -- | Creates a value of 'ConfirmDevice' with the minimum fields required to make a request.
 --
--- * 'accessToken' - The access token.
--- * 'deviceKey' - The device key.
--- * 'deviceName' - The device name.
 -- * 'deviceSecretVerifierConfig' - The configuration of the device secret verifier.
+-- * 'accessToken' - The access token.
+-- * 'deviceName' - The device name.
+-- * 'deviceKey' - The device key.
 mkConfirmDevice ::
   -- | 'accessToken'
   Lude.Sensitive Lude.Text ->
@@ -68,8 +72,8 @@ mkConfirmDevice ::
 mkConfirmDevice pAccessToken_ pDeviceKey_ =
   ConfirmDevice'
     { deviceSecretVerifierConfig = Lude.Nothing,
-      deviceName = Lude.Nothing,
       accessToken = pAccessToken_,
+      deviceName = Lude.Nothing,
       deviceKey = pDeviceKey_
     }
 
@@ -80,19 +84,19 @@ cdDeviceSecretVerifierConfig :: Lens.Lens' ConfirmDevice (Lude.Maybe DeviceSecre
 cdDeviceSecretVerifierConfig = Lens.lens (deviceSecretVerifierConfig :: ConfirmDevice -> Lude.Maybe DeviceSecretVerifierConfigType) (\s a -> s {deviceSecretVerifierConfig = a} :: ConfirmDevice)
 {-# DEPRECATED cdDeviceSecretVerifierConfig "Use generic-lens or generic-optics with 'deviceSecretVerifierConfig' instead." #-}
 
--- | The device name.
---
--- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDeviceName :: Lens.Lens' ConfirmDevice (Lude.Maybe Lude.Text)
-cdDeviceName = Lens.lens (deviceName :: ConfirmDevice -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: ConfirmDevice)
-{-# DEPRECATED cdDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
-
 -- | The access token.
 --
 -- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdAccessToken :: Lens.Lens' ConfirmDevice (Lude.Sensitive Lude.Text)
 cdAccessToken = Lens.lens (accessToken :: ConfirmDevice -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: ConfirmDevice)
 {-# DEPRECATED cdAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
+
+-- | The device name.
+--
+-- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDeviceName :: Lens.Lens' ConfirmDevice (Lude.Maybe Lude.Text)
+cdDeviceName = Lens.lens (deviceName :: ConfirmDevice -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: ConfirmDevice)
+{-# DEPRECATED cdDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | The device key.
 --
@@ -131,8 +135,8 @@ instance Lude.ToJSON ConfirmDevice where
       ( Lude.catMaybes
           [ ("DeviceSecretVerifierConfig" Lude..=)
               Lude.<$> deviceSecretVerifierConfig,
-            ("DeviceName" Lude..=) Lude.<$> deviceName,
             Lude.Just ("AccessToken" Lude..= accessToken),
+            ("DeviceName" Lude..=) Lude.<$> deviceName,
             Lude.Just ("DeviceKey" Lude..= deviceKey)
           ]
       )
@@ -147,23 +151,18 @@ instance Lude.ToQuery ConfirmDevice where
 --
 -- /See:/ 'mkConfirmDeviceResponse' smart constructor.
 data ConfirmDeviceResponse = ConfirmDeviceResponse'
-  { userConfirmationNecessary ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the user confirmation is necessary to confirm the device response.
+    userConfirmationNecessary :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfirmDeviceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userConfirmationNecessary' - Indicates whether the user confirmation is necessary to confirm the device response.
+-- * 'responseStatus' - The response status code.
 mkConfirmDeviceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -258,8 +258,8 @@ module Network.AWS.WorkMail
     FolderConfiguration (..),
     mkFolderConfiguration,
     fcPeriod,
-    fcName,
     fcAction,
+    fcName,
 
     -- ** Group
     Group (..),
@@ -306,9 +306,9 @@ module Network.AWS.WorkMail
     -- ** Permission
     Permission (..),
     mkPermission,
-    pGranteeId,
     pGranteeType,
     pPermissionValues,
+    pGranteeId,
 
     -- ** Resource
     Resource (..),
@@ -324,8 +324,8 @@ module Network.AWS.WorkMail
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** User
     User (..),

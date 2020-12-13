@@ -13,9 +13,9 @@
 module Network.AWS.ServerlessApplicationRepository.Types.Capability
   ( Capability
       ( Capability',
-        CapabilityAutoExpand,
         CapabilityIAM,
         CapabilityNamedIAM,
+        CapabilityAutoExpand,
         CapabilityResourcePolicy
       ),
   )
@@ -48,22 +48,22 @@ newtype Capability = Capability' Lude.Text
       Lude.ToHeader
     )
 
-pattern CapabilityAutoExpand :: Capability
-pattern CapabilityAutoExpand = Capability' "CAPABILITY_AUTO_EXPAND"
-
 pattern CapabilityIAM :: Capability
 pattern CapabilityIAM = Capability' "CAPABILITY_IAM"
 
 pattern CapabilityNamedIAM :: Capability
 pattern CapabilityNamedIAM = Capability' "CAPABILITY_NAMED_IAM"
 
+pattern CapabilityAutoExpand :: Capability
+pattern CapabilityAutoExpand = Capability' "CAPABILITY_AUTO_EXPAND"
+
 pattern CapabilityResourcePolicy :: Capability
 pattern CapabilityResourcePolicy = Capability' "CAPABILITY_RESOURCE_POLICY"
 
 {-# COMPLETE
-  CapabilityAutoExpand,
   CapabilityIAM,
   CapabilityNamedIAM,
+  CapabilityAutoExpand,
   CapabilityResourcePolicy,
   Capability'
   #-}

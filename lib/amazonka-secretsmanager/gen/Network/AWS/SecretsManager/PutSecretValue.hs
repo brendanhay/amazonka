@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -55,10 +56,10 @@ module Network.AWS.SecretsManager.PutSecretValue
 
     -- ** Request lenses
     psvVersionStages,
+    psvSecretId,
     psvSecretBinary,
     psvSecretString,
     psvClientRequestToken,
-    psvSecretId,
 
     -- * Destructuring the response
     PutSecretValueResponse (..),
@@ -81,18 +82,62 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkPutSecretValue' smart constructor.
 data PutSecretValue = PutSecretValue'
-  { versionStages ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.
+    --
+    -- A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.
+    -- If you do not specify a value for @VersionStages@ then Secrets Manager automatically moves the staging label @AWSCURRENT@ to this new version.
+    versionStages :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+    secretId :: Lude.Text,
+    -- | (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty.
+    --
+    -- This parameter is not accessible if the secret using the Secrets Manager console.
     secretBinary :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+    --
+    -- If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse.
+    -- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+    -- For example:
+    -- @[{"username":"bob"},{"password":"abc123xyz456"}]@
+    -- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
     secretString :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    clientRequestToken :: Lude.Maybe Lude.Text,
-    secretId :: Lude.Text
+    -- | (Optional) Specifies a unique identifier for the new version of the secret.
+    --
+    -- This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.
+    --
+    --     * If the @ClientRequestToken@ value isn't already associated with a version of the secret then a new version of the secret is created.
+    --
+    --
+    --     * If a version with this value already exists and that version's @SecretString@ or @SecretBinary@ values are the same as those in the request then the request is ignored (the operation is idempotent).
+    --
+    --
+    --     * If a version with this value already exists and the version of the @SecretString@ and @SecretBinary@ values are different from those in the request then the request fails because you cannot modify an existing secret version. You can only create new versions to store new secret values.
+    --
+    --
+    -- This value becomes the @VersionId@ of the new version.
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSecretValue' with the minimum fields required to make a request.
 --
+-- * 'versionStages' - (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.
+--
+-- A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.
+-- If you do not specify a value for @VersionStages@ then Secrets Manager automatically moves the staging label @AWSCURRENT@ to this new version.
+-- * 'secretId' - Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+-- * 'secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty.
+--
+-- This parameter is not accessible if the secret using the Secrets Manager console.
+--
+-- * 'secretString' - (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
+--
+-- If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse.
+-- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
+-- For example:
+-- @[{"username":"bob"},{"password":"abc123xyz456"}]@
+-- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
 -- * 'clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the secret.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during the Lambda rotation function's processing. We recommend that you generate a <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type> value to ensure uniqueness within the specified secret.
@@ -107,32 +152,6 @@ data PutSecretValue = PutSecretValue'
 --
 --
 -- This value becomes the @VersionId@ of the new version.
--- * 'secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty.
---
--- This parameter is not accessible if the secret using the Secrets Manager console.
-
-----
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-
--- * 'secretId' - Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-
--- * 'secretString' - (Optional) Specifies text data that you want to encrypt and store in this new version of the secret. Either @SecretString@ or @SecretBinary@ must have a value, but not both. They cannot both be empty.
-
---
--- If you create this secret by using the Secrets Manager console then Secrets Manager puts the protected secret text in only the @SecretString@ parameter. The Secrets Manager console stores the information as a JSON structure of key/value pairs that the default Lambda rotation function knows how to parse.
--- For storing multiple values, we recommend that you use a JSON text string argument and specify key/value pairs. For information on how to format a JSON parameter for the various command line tool environments, see <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters> in the /AWS CLI User Guide/ .
--- For example:
--- @[{"username":"bob"},{"password":"abc123xyz456"}]@
--- If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
-
--- * 'versionStages' - (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.
-
---
--- A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version.
--- If you do not specify a value for @VersionStages@ then Secrets Manager automatically moves the staging label @AWSCURRENT@ to this new version.
 mkPutSecretValue ::
   -- | 'secretId'
   Lude.Text ->
@@ -140,10 +159,10 @@ mkPutSecretValue ::
 mkPutSecretValue pSecretId_ =
   PutSecretValue'
     { versionStages = Lude.Nothing,
+      secretId = pSecretId_,
       secretBinary = Lude.Nothing,
       secretString = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
-      secretId = pSecretId_
+      clientRequestToken = Lude.Nothing
     }
 
 -- | (Optional) Specifies a list of staging labels that are attached to this version of the secret. These staging labels are used to track the versions through the rotation process by the Lambda rotation function.
@@ -155,6 +174,13 @@ mkPutSecretValue pSecretId_ =
 psvVersionStages :: Lens.Lens' PutSecretValue (Lude.Maybe (Lude.NonEmpty Lude.Text))
 psvVersionStages = Lens.lens (versionStages :: PutSecretValue -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {versionStages = a} :: PutSecretValue)
 {-# DEPRECATED psvVersionStages "Use generic-lens or generic-optics with 'versionStages' instead." #-}
+
+-- | Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+--
+-- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psvSecretId :: Lens.Lens' PutSecretValue Lude.Text
+psvSecretId = Lens.lens (secretId :: PutSecretValue -> Lude.Text) (\s a -> s {secretId = a} :: PutSecretValue)
+{-# DEPRECATED psvSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
 -- | (Optional) Specifies binary data that you want to encrypt and store in the new version of the secret. To use this parameter in the command-line tools, we recommend that you store your binary data in a file and then use the appropriate technique for your tool to pass the contents of the file as a parameter. Either @SecretBinary@ or @SecretString@ must have a value, but not both. They cannot both be empty.
 --
@@ -204,13 +230,6 @@ psvClientRequestToken :: Lens.Lens' PutSecretValue (Lude.Maybe Lude.Text)
 psvClientRequestToken = Lens.lens (clientRequestToken :: PutSecretValue -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: PutSecretValue)
 {-# DEPRECATED psvClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
--- | Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
---
--- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psvSecretId :: Lens.Lens' PutSecretValue Lude.Text
-psvSecretId = Lens.lens (secretId :: PutSecretValue -> Lude.Text) (\s a -> s {secretId = a} :: PutSecretValue)
-{-# DEPRECATED psvSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
-
 instance Lude.AWSRequest PutSecretValue where
   type Rs PutSecretValue = PutSecretValueResponse
   request = Req.postJSON secretsManagerService
@@ -241,10 +260,10 @@ instance Lude.ToJSON PutSecretValue where
     Lude.object
       ( Lude.catMaybes
           [ ("VersionStages" Lude..=) Lude.<$> versionStages,
+            Lude.Just ("SecretId" Lude..= secretId),
             ("SecretBinary" Lude..=) Lude.<$> secretBinary,
             ("SecretString" Lude..=) Lude.<$> secretString,
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            Lude.Just ("SecretId" Lude..= secretId)
+            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
           ]
       )
 
@@ -256,30 +275,27 @@ instance Lude.ToQuery PutSecretValue where
 
 -- | /See:/ 'mkPutSecretValueResponse' smart constructor.
 data PutSecretValueResponse = PutSecretValueResponse'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier of the version of the secret you just created or updated.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the secret for which you just created a version.
     arn :: Lude.Maybe Lude.Text,
-    versionStages ::
-      Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The list of staging labels that are currently attached to this version of the secret. Staging labels are used to track a version as it progresses through the secret rotation process.
+    versionStages :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The friendly name of the secret for which you just created or updated a version.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSecretValueResponse' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The unique identifier of the version of the secret you just created or updated.
 -- * 'arn' - The Amazon Resource Name (ARN) for the secret for which you just created a version.
+-- * 'versionStages' - The list of staging labels that are currently attached to this version of the secret. Staging labels are used to track a version as it progresses through the secret rotation process.
 -- * 'name' - The friendly name of the secret for which you just created or updated a version.
 -- * 'responseStatus' - The response status code.
--- * 'versionId' - The unique identifier of the version of the secret you just created or updated.
--- * 'versionStages' - The list of staging labels that are currently attached to this version of the secret. Staging labels are used to track a version as it progresses through the secret rotation process.
 mkPutSecretValueResponse ::
   -- | 'responseStatus'
   Lude.Int ->

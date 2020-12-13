@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,8 +52,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetShippingLabel' smart constructor.
 data GetShippingLabel = GetShippingLabel'
-  { street3 ::
-      Lude.Maybe Lude.Text,
+  { street3 :: Lude.Maybe Lude.Text,
     apiVersion :: Lude.Maybe Lude.Text,
     country :: Lude.Maybe Lude.Text,
     stateOrProvince :: Lude.Maybe Lude.Text,
@@ -65,29 +65,23 @@ data GetShippingLabel = GetShippingLabel'
     street1 :: Lude.Maybe Lude.Text,
     jobIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetShippingLabel' with the minimum fields required to make a request.
 --
--- * 'apiVersion' - Undocumented field.
--- * 'city' - Undocumented field.
--- * 'company' - Undocumented field.
--- * 'country' - Undocumented field.
--- * 'jobIds' - Undocumented field.
--- * 'name' - Undocumented field.
--- * 'phoneNumber' - Undocumented field.
--- * 'postalCode' - Undocumented field.
--- * 'stateOrProvince' - Undocumented field.
--- * 'street1' - Undocumented field.
--- * 'street2' - Undocumented field.
--- * 'street3' - Undocumented field.
+-- * 'street3' -
+-- * 'apiVersion' -
+-- * 'country' -
+-- * 'stateOrProvince' -
+-- * 'postalCode' -
+-- * 'street2' -
+-- * 'name' -
+-- * 'company' -
+-- * 'phoneNumber' -
+-- * 'city' -
+-- * 'street1' -
+-- * 'jobIds' -
 mkGetShippingLabel ::
   GetShippingLabel
 mkGetShippingLabel =
@@ -231,25 +225,19 @@ instance Lude.ToQuery GetShippingLabel where
 
 -- | /See:/ 'mkGetShippingLabelResponse' smart constructor.
 data GetShippingLabelResponse = GetShippingLabelResponse'
-  { shippingLabelURL ::
-      Lude.Maybe Lude.Text,
+  { shippingLabelURL :: Lude.Maybe Lude.Text,
     warning :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetShippingLabelResponse' with the minimum fields required to make a request.
 --
+-- * 'shippingLabelURL' -
+-- * 'warning' -
 -- * 'responseStatus' - The response status code.
--- * 'shippingLabelURL' - Undocumented field.
--- * 'warning' - Undocumented field.
 mkGetShippingLabelResponse ::
   -- | 'responseStatus'
   Lude.Int ->

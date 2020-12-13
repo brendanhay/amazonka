@@ -37,34 +37,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCostCategoryReference' smart constructor.
 data CostCategoryReference = CostCategoryReference'
-  { effectiveStart ::
-      Lude.Maybe Lude.Text,
+  { -- | The Cost Category's effective start date.
+    effectiveStart :: Lude.Maybe Lude.Text,
+    -- | A list of unique cost category values in a specific cost category.
     values :: Lude.Maybe [Lude.Text],
+    -- | The unique identifier for your Cost Category.
     costCategoryARN :: Lude.Maybe Lude.Text,
-    processingStatus ::
-      Lude.Maybe [CostCategoryProcessingStatus],
+    -- | The list of processing statuses for Cost Management products for a specific cost category.
+    processingStatus :: Lude.Maybe [CostCategoryProcessingStatus],
+    -- | The number of rules associated with a specific Cost Category.
     numberOfRules :: Lude.Maybe Lude.Natural,
     name :: Lude.Maybe Lude.Text,
+    -- | The Cost Category's effective end date.
     effectiveEnd :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostCategoryReference' with the minimum fields required to make a request.
 --
--- * 'costCategoryARN' - The unique identifier for your Cost Category.
--- * 'effectiveEnd' - The Cost Category's effective end date.
 -- * 'effectiveStart' - The Cost Category's effective start date.
--- * 'name' - Undocumented field.
--- * 'numberOfRules' - The number of rules associated with a specific Cost Category.
--- * 'processingStatus' - The list of processing statuses for Cost Management products for a specific cost category.
 -- * 'values' - A list of unique cost category values in a specific cost category.
+-- * 'costCategoryARN' - The unique identifier for your Cost Category.
+-- * 'processingStatus' - The list of processing statuses for Cost Management products for a specific cost category.
+-- * 'numberOfRules' - The number of rules associated with a specific Cost Category.
+-- * 'name' -
+-- * 'effectiveEnd' - The Cost Category's effective end date.
 mkCostCategoryReference ::
   CostCategoryReference
 mkCostCategoryReference =

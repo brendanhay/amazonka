@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkDocs.AddResourcePermissions
     mkAddResourcePermissions,
 
     -- ** Request lenses
+    arpResourceId,
     arpNotificationOptions,
     arpAuthenticationToken,
-    arpResourceId,
     arpPrincipals,
 
     -- * Destructuring the response
@@ -42,11 +43,13 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkAddResourcePermissions' smart constructor.
 data AddResourcePermissions = AddResourcePermissions'
-  { notificationOptions ::
-      Lude.Maybe NotificationOptions,
-    authenticationToken ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The ID of the resource.
     resourceId :: Lude.Text,
+    -- | The notification options.
+    notificationOptions :: Lude.Maybe NotificationOptions,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The users, groups, or organization being granted permission.
     principals :: [SharePrincipal]
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -54,21 +57,28 @@ data AddResourcePermissions = AddResourcePermissions'
 
 -- | Creates a value of 'AddResourcePermissions' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'notificationOptions' - The notification options.
--- * 'principals' - The users, groups, or organization being granted permission.
 -- * 'resourceId' - The ID of the resource.
+-- * 'notificationOptions' - The notification options.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'principals' - The users, groups, or organization being granted permission.
 mkAddResourcePermissions ::
   -- | 'resourceId'
   Lude.Text ->
   AddResourcePermissions
 mkAddResourcePermissions pResourceId_ =
   AddResourcePermissions'
-    { notificationOptions = Lude.Nothing,
+    { resourceId = pResourceId_,
+      notificationOptions = Lude.Nothing,
       authenticationToken = Lude.Nothing,
-      resourceId = pResourceId_,
       principals = Lude.mempty
     }
+
+-- | The ID of the resource.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arpResourceId :: Lens.Lens' AddResourcePermissions Lude.Text
+arpResourceId = Lens.lens (resourceId :: AddResourcePermissions -> Lude.Text) (\s a -> s {resourceId = a} :: AddResourcePermissions)
+{-# DEPRECATED arpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The notification options.
 --
@@ -83,13 +93,6 @@ arpNotificationOptions = Lens.lens (notificationOptions :: AddResourcePermission
 arpAuthenticationToken :: Lens.Lens' AddResourcePermissions (Lude.Maybe (Lude.Sensitive Lude.Text))
 arpAuthenticationToken = Lens.lens (authenticationToken :: AddResourcePermissions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: AddResourcePermissions)
 {-# DEPRECATED arpAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
-
--- | The ID of the resource.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arpResourceId :: Lens.Lens' AddResourcePermissions Lude.Text
-arpResourceId = Lens.lens (resourceId :: AddResourcePermissions -> Lude.Text) (\s a -> s {resourceId = a} :: AddResourcePermissions)
-{-# DEPRECATED arpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The users, groups, or organization being granted permission.
 --
@@ -136,8 +139,9 @@ instance Lude.ToQuery AddResourcePermissions where
 
 -- | /See:/ 'mkAddResourcePermissionsResponse' smart constructor.
 data AddResourcePermissionsResponse = AddResourcePermissionsResponse'
-  { shareResults ::
-      Lude.Maybe [ShareResult],
+  { -- | The share results.
+    shareResults :: Lude.Maybe [ShareResult],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -145,8 +149,8 @@ data AddResourcePermissionsResponse = AddResourcePermissionsResponse'
 
 -- | Creates a value of 'AddResourcePermissionsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'shareResults' - The share results.
+-- * 'responseStatus' - The response status code.
 mkAddResourcePermissionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

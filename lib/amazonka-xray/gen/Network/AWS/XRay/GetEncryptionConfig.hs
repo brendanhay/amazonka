@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,13 +37,7 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'mkGetEncryptionConfig' smart constructor.
 data GetEncryptionConfig = GetEncryptionConfig'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEncryptionConfig' with the minimum fields required to make a request.
@@ -75,17 +70,12 @@ instance Lude.ToQuery GetEncryptionConfig where
 
 -- | /See:/ 'mkGetEncryptionConfigResponse' smart constructor.
 data GetEncryptionConfigResponse = GetEncryptionConfigResponse'
-  { encryptionConfig ::
-      Lude.Maybe EncryptionConfig,
+  { -- | The encryption configuration document.
+    encryptionConfig :: Lude.Maybe EncryptionConfig,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEncryptionConfigResponse' with the minimum fields required to make a request.

@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.ConversionTaskState
   ( ConversionTaskState
       ( ConversionTaskState',
         CTSActive,
-        CTSCancelled,
         CTSCancelling,
+        CTSCancelled,
         CTSCompleted
       ),
   )
@@ -50,19 +50,19 @@ newtype ConversionTaskState = ConversionTaskState' Lude.Text
 pattern CTSActive :: ConversionTaskState
 pattern CTSActive = ConversionTaskState' "active"
 
-pattern CTSCancelled :: ConversionTaskState
-pattern CTSCancelled = ConversionTaskState' "cancelled"
-
 pattern CTSCancelling :: ConversionTaskState
 pattern CTSCancelling = ConversionTaskState' "cancelling"
+
+pattern CTSCancelled :: ConversionTaskState
+pattern CTSCancelled = ConversionTaskState' "cancelled"
 
 pattern CTSCompleted :: ConversionTaskState
 pattern CTSCompleted = ConversionTaskState' "completed"
 
 {-# COMPLETE
   CTSActive,
-  CTSCancelled,
   CTSCancelling,
+  CTSCancelled,
   CTSCompleted,
   ConversionTaskState'
   #-}

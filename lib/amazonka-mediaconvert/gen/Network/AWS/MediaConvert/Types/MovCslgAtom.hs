@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.MovCslgAtom
   ( MovCslgAtom
       ( MovCslgAtom',
-        MCAExclude,
-        MCAInclude
+        MCAInclude,
+        MCAExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype MovCslgAtom = MovCslgAtom' Lude.Text
       Lude.ToHeader
     )
 
-pattern MCAExclude :: MovCslgAtom
-pattern MCAExclude = MovCslgAtom' "EXCLUDE"
-
 pattern MCAInclude :: MovCslgAtom
 pattern MCAInclude = MovCslgAtom' "INCLUDE"
 
+pattern MCAExclude :: MovCslgAtom
+pattern MCAExclude = MovCslgAtom' "EXCLUDE"
+
 {-# COMPLETE
-  MCAExclude,
   MCAInclude,
+  MCAExclude,
   MovCslgAtom'
   #-}

@@ -36,30 +36,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationUpdate' smart constructor.
 data ApplicationUpdate = ApplicationUpdate'
-  { referenceDataSourceUpdates ::
-      Lude.Maybe [ReferenceDataSourceUpdate],
+  { -- | Describes application reference data source updates.
+    referenceDataSourceUpdates :: Lude.Maybe [ReferenceDataSourceUpdate],
+    -- | Describes application input configuration updates.
     inputUpdates :: Lude.Maybe [InputUpdate],
-    cloudWatchLoggingOptionUpdates ::
-      Lude.Maybe [CloudWatchLoggingOptionUpdate],
+    -- | Describes application CloudWatch logging option updates.
+    cloudWatchLoggingOptionUpdates :: Lude.Maybe [CloudWatchLoggingOptionUpdate],
+    -- | Describes application output configuration updates.
     outputUpdates :: Lude.Maybe [OutputUpdate],
+    -- | Describes application code updates.
     applicationCodeUpdate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationUpdate' with the minimum fields required to make a request.
 --
--- * 'applicationCodeUpdate' - Describes application code updates.
--- * 'cloudWatchLoggingOptionUpdates' - Describes application CloudWatch logging option updates.
--- * 'inputUpdates' - Describes application input configuration updates.
--- * 'outputUpdates' - Describes application output configuration updates.
 -- * 'referenceDataSourceUpdates' - Describes application reference data source updates.
+-- * 'inputUpdates' - Describes application input configuration updates.
+-- * 'cloudWatchLoggingOptionUpdates' - Describes application CloudWatch logging option updates.
+-- * 'outputUpdates' - Describes application output configuration updates.
+-- * 'applicationCodeUpdate' - Describes application code updates.
 mkApplicationUpdate ::
   ApplicationUpdate
 mkApplicationUpdate =

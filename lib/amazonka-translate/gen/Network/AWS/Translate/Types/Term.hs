@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTerm' smart constructor.
 data Term = Term'
-  { targetText :: Lude.Maybe Lude.Text,
+  { -- | The target text of the term being translated by the custom terminology.
+    targetText :: Lude.Maybe Lude.Text,
+    -- | The source text of the term being translated by the custom terminology.
     sourceText :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Term' with the minimum fields required to make a request.
 --
--- * 'sourceText' - The source text of the term being translated by the custom terminology.
 -- * 'targetText' - The target text of the term being translated by the custom terminology.
+-- * 'sourceText' - The source text of the term being translated by the custom terminology.
 mkTerm ::
   Term
 mkTerm =

@@ -36,38 +36,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationGroupPendingModifiedValues' smart constructor.
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
-  { authTokenStatus ::
-      Lude.Maybe
-        AuthTokenUpdateStatus,
-    userGroups ::
-      Lude.Maybe
-        UserGroupsUpdateStatus,
-    resharding ::
-      Lude.Maybe
-        ReshardingStatus,
-    primaryClusterId ::
-      Lude.Maybe
-        Lude.Text,
-    automaticFailoverStatus ::
-      Lude.Maybe
-        PendingAutomaticFailoverStatus
+  { -- | The auth token status
+    authTokenStatus :: Lude.Maybe AuthTokenUpdateStatus,
+    -- | The user groups being modified.
+    userGroups :: Lude.Maybe UserGroupsUpdateStatus,
+    -- | The status of an online resharding operation.
+    resharding :: Lude.Maybe ReshardingStatus,
+    -- | The primary cluster ID that is applied immediately (if @--apply-immediately@ was specified), or during the next maintenance window.
+    primaryClusterId :: Lude.Maybe Lude.Text,
+    -- | Indicates the status of automatic failover for this Redis replication group.
+    automaticFailoverStatus :: Lude.Maybe PendingAutomaticFailoverStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationGroupPendingModifiedValues' with the minimum fields required to make a request.
 --
 -- * 'authTokenStatus' - The auth token status
--- * 'automaticFailoverStatus' - Indicates the status of automatic failover for this Redis replication group.
--- * 'primaryClusterId' - The primary cluster ID that is applied immediately (if @--apply-immediately@ was specified), or during the next maintenance window.
--- * 'resharding' - The status of an online resharding operation.
 -- * 'userGroups' - The user groups being modified.
+-- * 'resharding' - The status of an online resharding operation.
+-- * 'primaryClusterId' - The primary cluster ID that is applied immediately (if @--apply-immediately@ was specified), or during the next maintenance window.
+-- * 'automaticFailoverStatus' - Indicates the status of automatic failover for this Redis replication group.
 mkReplicationGroupPendingModifiedValues ::
   ReplicationGroupPendingModifiedValues
 mkReplicationGroupPendingModifiedValues =

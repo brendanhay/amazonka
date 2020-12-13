@@ -14,8 +14,8 @@ module Network.AWS.EMR.Types.AdjustmentType
   ( AdjustmentType
       ( AdjustmentType',
         ChangeInCapacity,
-        ExactCapacity,
-        PercentChangeInCapacity
+        PercentChangeInCapacity,
+        ExactCapacity
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype AdjustmentType = AdjustmentType' Lude.Text
 pattern ChangeInCapacity :: AdjustmentType
 pattern ChangeInCapacity = AdjustmentType' "CHANGE_IN_CAPACITY"
 
-pattern ExactCapacity :: AdjustmentType
-pattern ExactCapacity = AdjustmentType' "EXACT_CAPACITY"
-
 pattern PercentChangeInCapacity :: AdjustmentType
 pattern PercentChangeInCapacity = AdjustmentType' "PERCENT_CHANGE_IN_CAPACITY"
 
+pattern ExactCapacity :: AdjustmentType
+pattern ExactCapacity = AdjustmentType' "EXACT_CAPACITY"
+
 {-# COMPLETE
   ChangeInCapacity,
-  ExactCapacity,
   PercentChangeInCapacity,
+  ExactCapacity,
   AdjustmentType'
   #-}

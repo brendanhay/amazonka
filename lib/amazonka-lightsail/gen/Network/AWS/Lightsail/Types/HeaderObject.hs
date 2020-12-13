@@ -33,17 +33,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHeaderObject' smart constructor.
 data HeaderObject = HeaderObject'
-  { headersAllowList ::
-      Lude.Maybe [HeaderEnum],
+  { -- | The specific headers to forward to your distribution's origin.
+    headersAllowList :: Lude.Maybe [HeaderEnum],
+    -- | The headers that you want your distribution to forward to your origin and base caching on.
+    --
+    -- You can configure your distribution to do one of the following:
+    --
+    --     * __@all@ __ - Forward all headers to your origin.
+    --
+    --
+    --     * __@none@ __ - Forward only the default headers.
+    --
+    --
+    --     * __@allow-list@ __ - Forward only the headers you specify using the @headersAllowList@ parameter.
     option :: Lude.Maybe ForwardValues
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HeaderObject' with the minimum fields required to make a request.

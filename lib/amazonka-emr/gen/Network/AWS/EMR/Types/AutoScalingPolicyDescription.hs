@@ -33,27 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingPolicyDescription' smart constructor.
 data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
-  { status ::
-      Lude.Maybe
-        AutoScalingPolicyStatus,
+  { -- | The status of an automatic scaling policy.
+    status :: Lude.Maybe AutoScalingPolicyStatus,
+    -- | The scale-in and scale-out rules that comprise the automatic scaling policy.
     rules :: Lude.Maybe [ScalingRule],
-    constraints ::
-      Lude.Maybe ScalingConstraints
+    -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+    constraints :: Lude.Maybe ScalingConstraints
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingPolicyDescription' with the minimum fields required to make a request.
 --
--- * 'constraints' - The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
--- * 'rules' - The scale-in and scale-out rules that comprise the automatic scaling policy.
 -- * 'status' - The status of an automatic scaling policy.
+-- * 'rules' - The scale-in and scale-out rules that comprise the automatic scaling policy.
+-- * 'constraints' - The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
 mkAutoScalingPolicyDescription ::
   AutoScalingPolicyDescription
 mkAutoScalingPolicyDescription =

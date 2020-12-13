@@ -29,16 +29,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnhancedMetrics' smart constructor.
 newtype EnhancedMetrics = EnhancedMetrics'
-  { shardLevelMetrics ::
-      Lude.Maybe [MetricsName]
+  { -- | List of shard-level metrics.
+    --
+    -- The following are the valid shard-level metrics. The value "@ALL@ " enhances every metric.
+    --
+    --     * @IncomingBytes@
+    --
+    --
+    --     * @IncomingRecords@
+    --
+    --
+    --     * @OutgoingBytes@
+    --
+    --
+    --     * @OutgoingRecords@
+    --
+    --
+    --     * @WriteProvisionedThroughputExceeded@
+    --
+    --
+    --     * @ReadProvisionedThroughputExceeded@
+    --
+    --
+    --     * @IteratorAgeMilliseconds@
+    --
+    --
+    --     * @ALL@
+    --
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch> in the /Amazon Kinesis Data Streams Developer Guide/ .
+    shardLevelMetrics :: Lude.Maybe [MetricsName]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnhancedMetrics' with the minimum fields required to make a request.

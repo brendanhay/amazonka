@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions
   ( EmbeddedTerminateCaptions
       ( EmbeddedTerminateCaptions',
-        ETCDisabled,
-        ETCEndOfInput
+        ETCEndOfInput,
+        ETCDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype EmbeddedTerminateCaptions = EmbeddedTerminateCaptions' Lude.Text
       Lude.ToHeader
     )
 
-pattern ETCDisabled :: EmbeddedTerminateCaptions
-pattern ETCDisabled = EmbeddedTerminateCaptions' "DISABLED"
-
 pattern ETCEndOfInput :: EmbeddedTerminateCaptions
 pattern ETCEndOfInput = EmbeddedTerminateCaptions' "END_OF_INPUT"
 
+pattern ETCDisabled :: EmbeddedTerminateCaptions
+pattern ETCDisabled = EmbeddedTerminateCaptions' "DISABLED"
+
 {-# COMPLETE
-  ETCDisabled,
   ETCEndOfInput,
+  ETCDisabled,
   EmbeddedTerminateCaptions'
   #-}

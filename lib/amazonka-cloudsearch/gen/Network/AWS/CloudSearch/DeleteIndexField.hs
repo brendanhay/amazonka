@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CloudSearch.DeleteIndexField
     mkDeleteIndexField,
 
     -- ** Request lenses
-    difiDomainName,
-    difiIndexFieldName,
+    diffDomainName,
+    diffIndexFieldName,
 
     -- * Destructuring the response
     DeleteIndexFieldResponse (..),
     mkDeleteIndexFieldResponse,
 
     -- ** Response lenses
-    difrsResponseStatus,
     difrsIndexField,
+    difrsResponseStatus,
   )
 where
 
@@ -43,20 +44,15 @@ import qualified Network.AWS.Response as Res
 -- /See:/ 'mkDeleteIndexField' smart constructor.
 data DeleteIndexField = DeleteIndexField'
   { domainName :: Lude.Text,
+    -- | The name of the index field your want to remove from the domain's indexing options.
     indexFieldName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIndexField' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
+-- * 'domainName' -
 -- * 'indexFieldName' - The name of the index field your want to remove from the domain's indexing options.
 mkDeleteIndexField ::
   -- | 'domainName'
@@ -73,16 +69,16 @@ mkDeleteIndexField pDomainName_ pIndexFieldName_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difiDomainName :: Lens.Lens' DeleteIndexField Lude.Text
-difiDomainName = Lens.lens (domainName :: DeleteIndexField -> Lude.Text) (\s a -> s {domainName = a} :: DeleteIndexField)
-{-# DEPRECATED difiDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+diffDomainName :: Lens.Lens' DeleteIndexField Lude.Text
+diffDomainName = Lens.lens (domainName :: DeleteIndexField -> Lude.Text) (\s a -> s {domainName = a} :: DeleteIndexField)
+{-# DEPRECATED diffDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The name of the index field your want to remove from the domain's indexing options.
 --
 -- /Note:/ Consider using 'indexFieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difiIndexFieldName :: Lens.Lens' DeleteIndexField Lude.Text
-difiIndexFieldName = Lens.lens (indexFieldName :: DeleteIndexField -> Lude.Text) (\s a -> s {indexFieldName = a} :: DeleteIndexField)
-{-# DEPRECATED difiIndexFieldName "Use generic-lens or generic-optics with 'indexFieldName' instead." #-}
+diffIndexFieldName :: Lens.Lens' DeleteIndexField Lude.Text
+diffIndexFieldName = Lens.lens (indexFieldName :: DeleteIndexField -> Lude.Text) (\s a -> s {indexFieldName = a} :: DeleteIndexField)
+{-# DEPRECATED diffIndexFieldName "Use generic-lens or generic-optics with 'indexFieldName' instead." #-}
 
 instance Lude.AWSRequest DeleteIndexField where
   type Rs DeleteIndexField = DeleteIndexFieldResponse
@@ -92,7 +88,7 @@ instance Lude.AWSRequest DeleteIndexField where
       "DeleteIndexFieldResult"
       ( \s h x ->
           DeleteIndexFieldResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "IndexField")
+            Lude.<$> (x Lude..@ "IndexField") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteIndexField where
@@ -114,17 +110,12 @@ instance Lude.ToQuery DeleteIndexField where
 --
 -- /See:/ 'mkDeleteIndexFieldResponse' smart constructor.
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-  { responseStatus ::
-      Lude.Int,
-    indexField :: IndexFieldStatus
+  { -- | The status of the index field being deleted.
+    indexField :: IndexFieldStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteIndexFieldResponse' with the minimum fields required to make a request.
@@ -132,23 +123,16 @@ data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
 -- * 'indexField' - The status of the index field being deleted.
 -- * 'responseStatus' - The response status code.
 mkDeleteIndexFieldResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'indexField'
   IndexFieldStatus ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteIndexFieldResponse
-mkDeleteIndexFieldResponse pResponseStatus_ pIndexField_ =
+mkDeleteIndexFieldResponse pIndexField_ pResponseStatus_ =
   DeleteIndexFieldResponse'
-    { responseStatus = pResponseStatus_,
-      indexField = pIndexField_
+    { indexField = pIndexField_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difrsResponseStatus :: Lens.Lens' DeleteIndexFieldResponse Lude.Int
-difrsResponseStatus = Lens.lens (responseStatus :: DeleteIndexFieldResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIndexFieldResponse)
-{-# DEPRECATED difrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The status of the index field being deleted.
 --
@@ -156,3 +140,10 @@ difrsResponseStatus = Lens.lens (responseStatus :: DeleteIndexFieldResponse -> L
 difrsIndexField :: Lens.Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrsIndexField = Lens.lens (indexField :: DeleteIndexFieldResponse -> IndexFieldStatus) (\s a -> s {indexField = a} :: DeleteIndexFieldResponse)
 {-# DEPRECATED difrsIndexField "Use generic-lens or generic-optics with 'indexField' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+difrsResponseStatus :: Lens.Lens' DeleteIndexFieldResponse Lude.Int
+difrsResponseStatus = Lens.lens (responseStatus :: DeleteIndexFieldResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIndexFieldResponse)
+{-# DEPRECATED difrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

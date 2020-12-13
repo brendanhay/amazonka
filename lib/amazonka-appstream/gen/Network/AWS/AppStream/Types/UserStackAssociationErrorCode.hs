@@ -13,10 +13,10 @@
 module Network.AWS.AppStream.Types.UserStackAssociationErrorCode
   ( UserStackAssociationErrorCode
       ( UserStackAssociationErrorCode',
-        USAECDirectoryNotFound,
-        USAECInternalError,
         USAECStackNotFound,
-        USAECUserNameNotFound
+        USAECUserNameNotFound,
+        USAECDirectoryNotFound,
+        USAECInternalError
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype UserStackAssociationErrorCode = UserStackAssociationErrorCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern USAECDirectoryNotFound :: UserStackAssociationErrorCode
-pattern USAECDirectoryNotFound = UserStackAssociationErrorCode' "DIRECTORY_NOT_FOUND"
-
-pattern USAECInternalError :: UserStackAssociationErrorCode
-pattern USAECInternalError = UserStackAssociationErrorCode' "INTERNAL_ERROR"
-
 pattern USAECStackNotFound :: UserStackAssociationErrorCode
 pattern USAECStackNotFound = UserStackAssociationErrorCode' "STACK_NOT_FOUND"
 
 pattern USAECUserNameNotFound :: UserStackAssociationErrorCode
 pattern USAECUserNameNotFound = UserStackAssociationErrorCode' "USER_NAME_NOT_FOUND"
 
+pattern USAECDirectoryNotFound :: UserStackAssociationErrorCode
+pattern USAECDirectoryNotFound = UserStackAssociationErrorCode' "DIRECTORY_NOT_FOUND"
+
+pattern USAECInternalError :: UserStackAssociationErrorCode
+pattern USAECInternalError = UserStackAssociationErrorCode' "INTERNAL_ERROR"
+
 {-# COMPLETE
-  USAECDirectoryNotFound,
-  USAECInternalError,
   USAECStackNotFound,
   USAECUserNameNotFound,
+  USAECDirectoryNotFound,
+  USAECInternalError,
   UserStackAssociationErrorCode'
   #-}

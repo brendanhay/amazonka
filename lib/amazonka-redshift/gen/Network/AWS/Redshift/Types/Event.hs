@@ -36,36 +36,41 @@ import Network.AWS.Redshift.Types.SourceType
 --
 -- /See:/ 'mkEvent' smart constructor.
 data Event = Event'
-  { sourceType :: Lude.Maybe SourceType,
+  { -- | The source type for this event.
+    sourceType :: Lude.Maybe SourceType,
+    -- | The severity of the event.
+    --
+    -- Values: ERROR, INFO
     severity :: Lude.Maybe Lude.Text,
+    -- | The identifier for the source of the event.
     sourceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The date and time of the event.
     date :: Lude.Maybe Lude.DateTime,
+    -- | A list of the event categories.
+    --
+    -- Values: Configuration, Management, Monitoring, Security
     eventCategories :: Lude.Maybe [Lude.Text],
+    -- | The text of this event.
     message :: Lude.Maybe Lude.Text,
+    -- | The identifier of the event.
     eventId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- * 'date' - The date and time of the event.
--- * 'eventCategories' - A list of the event categories.
---
--- Values: Configuration, Management, Monitoring, Security
--- * 'eventId' - The identifier of the event.
--- * 'message' - The text of this event.
+-- * 'sourceType' - The source type for this event.
 -- * 'severity' - The severity of the event.
 --
 -- Values: ERROR, INFO
 -- * 'sourceIdentifier' - The identifier for the source of the event.
--- * 'sourceType' - The source type for this event.
+-- * 'date' - The date and time of the event.
+-- * 'eventCategories' - A list of the event categories.
+--
+-- Values: Configuration, Management, Monitoring, Security
+-- * 'message' - The text of this event.
+-- * 'eventId' - The identifier of the event.
 mkEvent ::
   Event
 mkEvent =

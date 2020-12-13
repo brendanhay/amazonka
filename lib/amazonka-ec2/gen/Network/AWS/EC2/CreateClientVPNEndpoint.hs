@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,21 +21,21 @@ module Network.AWS.EC2.CreateClientVPNEndpoint
 
     -- ** Request lenses
     ccveSecurityGroupIds,
+    ccveConnectionLogOptions,
     ccveSplitTunnel,
     ccveClientToken,
     ccveTransportProtocol,
     ccveVPCId,
     ccveVPNPort,
     ccveTagSpecifications,
+    ccveClientCidrBlock,
     ccveDNSServers,
     ccveClientConnectOptions,
     ccveSelfServicePortal,
-    ccveDescription,
-    ccveDryRun,
-    ccveClientCidrBlock,
     ccveServerCertificateARN,
     ccveAuthenticationOptions,
-    ccveConnectionLogOptions,
+    ccveDescription,
+    ccveDryRun,
 
     -- * Destructuring the response
     CreateClientVPNEndpointResponse (..),
@@ -56,45 +57,68 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateClientVPNEndpoint' smart constructor.
 data CreateClientVPNEndpoint = CreateClientVPNEndpoint'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | Information about the client connection logging options.
+    --
+    -- If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
+    --
+    --     * Client connection requests
+    --
+    --
+    --     * Client connection results (successful and unsuccessful)
+    --
+    --
+    --     * Reasons for unsuccessful client connection requests
+    --
+    --
+    --     * Client connection termination time
+    connectionLogOptions :: ConnectionLogOptions,
+    -- | Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
+    --
+    -- By default, split-tunnel on a VPN endpoint is disabled.
+    -- For information about split-tunnel VPN endpoints, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint> in the /AWS Client VPN Administrator Guide/ .
     splitTunnel :: Lude.Maybe Lude.Bool,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
     clientToken :: Lude.Maybe Lude.Text,
-    transportProtocol ::
-      Lude.Maybe TransportProtocol,
+    -- | The transport protocol to be used by the VPN session.
+    --
+    -- Default value: @udp@
+    transportProtocol :: Lude.Maybe TransportProtocol,
+    -- | The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The port number to assign to the Client VPN endpoint for TCP and UDP traffic.
+    --
+    -- Valid Values: @443@ | @1194@
+    -- Default Value: @443@
     vpnPort :: Lude.Maybe Lude.Int,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
-    dnsServers :: Lude.Maybe [Lude.Text],
-    clientConnectOptions ::
-      Lude.Maybe ClientConnectOptions,
-    selfServicePortal ::
-      Lude.Maybe SelfServicePortal,
-    description :: Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The tags to apply to the Client VPN endpoint during creation.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
     clientCidrBlock :: Lude.Text,
+    -- | Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.
+    dnsServers :: Lude.Maybe [Lude.Text],
+    -- | The options for managing connection authorization for new client connections.
+    clientConnectOptions :: Lude.Maybe ClientConnectOptions,
+    -- | Specify whether to enable the self-service portal for the Client VPN endpoint.
+    --
+    -- Default Value: @enabled@
+    selfServicePortal :: Lude.Maybe SelfServicePortal,
+    -- | The ARN of the server certificate. For more information, see the <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide> .
     serverCertificateARN :: Lude.Text,
-    authenticationOptions ::
-      [ClientVPNAuthenticationRequest],
-    connectionLogOptions ::
-      ConnectionLogOptions
+    -- | Information about the authentication method to be used to authenticate clients.
+    authenticationOptions :: [ClientVPNAuthenticationRequest],
+    -- | A brief description of the Client VPN endpoint.
+    description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClientVPNEndpoint' with the minimum fields required to make a request.
 --
--- * 'authenticationOptions' - Information about the authentication method to be used to authenticate clients.
--- * 'clientCidrBlock' - The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
--- * 'clientConnectOptions' - The options for managing connection authorization for new client connections.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+-- * 'securityGroupIds' - The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
 -- * 'connectionLogOptions' - Information about the client connection logging options.
 --
 -- If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
@@ -111,19 +135,11 @@ data CreateClientVPNEndpoint = CreateClientVPNEndpoint'
 --     * Client connection termination time
 --
 --
--- * 'description' - A brief description of the Client VPN endpoint.
--- * 'dnsServers' - Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'securityGroupIds' - The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
--- * 'selfServicePortal' - Specify whether to enable the self-service portal for the Client VPN endpoint.
---
--- Default Value: @enabled@
--- * 'serverCertificateARN' - The ARN of the server certificate. For more information, see the <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide> .
 -- * 'splitTunnel' - Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
 --
 -- By default, split-tunnel on a VPN endpoint is disabled.
 -- For information about split-tunnel VPN endpoints, see <https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html Split-Tunnel AWS Client VPN Endpoint> in the /AWS Client VPN Administrator Guide/ .
--- * 'tagSpecifications' - The tags to apply to the Client VPN endpoint during creation.
+-- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 -- * 'transportProtocol' - The transport protocol to be used by the VPN session.
 --
 -- Default value: @udp@
@@ -132,35 +148,46 @@ data CreateClientVPNEndpoint = CreateClientVPNEndpoint'
 --
 -- Valid Values: @443@ | @1194@
 -- Default Value: @443@
+-- * 'tagSpecifications' - The tags to apply to the Client VPN endpoint during creation.
+-- * 'clientCidrBlock' - The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+-- * 'dnsServers' - Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.
+-- * 'clientConnectOptions' - The options for managing connection authorization for new client connections.
+-- * 'selfServicePortal' - Specify whether to enable the self-service portal for the Client VPN endpoint.
+--
+-- Default Value: @enabled@
+-- * 'serverCertificateARN' - The ARN of the server certificate. For more information, see the <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide> .
+-- * 'authenticationOptions' - Information about the authentication method to be used to authenticate clients.
+-- * 'description' - A brief description of the Client VPN endpoint.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateClientVPNEndpoint ::
+  -- | 'connectionLogOptions'
+  ConnectionLogOptions ->
   -- | 'clientCidrBlock'
   Lude.Text ->
   -- | 'serverCertificateARN'
   Lude.Text ->
-  -- | 'connectionLogOptions'
-  ConnectionLogOptions ->
   CreateClientVPNEndpoint
 mkCreateClientVPNEndpoint
+  pConnectionLogOptions_
   pClientCidrBlock_
-  pServerCertificateARN_
-  pConnectionLogOptions_ =
+  pServerCertificateARN_ =
     CreateClientVPNEndpoint'
       { securityGroupIds = Lude.Nothing,
+        connectionLogOptions = pConnectionLogOptions_,
         splitTunnel = Lude.Nothing,
         clientToken = Lude.Nothing,
         transportProtocol = Lude.Nothing,
         vpcId = Lude.Nothing,
         vpnPort = Lude.Nothing,
         tagSpecifications = Lude.Nothing,
+        clientCidrBlock = pClientCidrBlock_,
         dnsServers = Lude.Nothing,
         clientConnectOptions = Lude.Nothing,
         selfServicePortal = Lude.Nothing,
-        description = Lude.Nothing,
-        dryRun = Lude.Nothing,
-        clientCidrBlock = pClientCidrBlock_,
         serverCertificateARN = pServerCertificateARN_,
         authenticationOptions = Lude.mempty,
-        connectionLogOptions = pConnectionLogOptions_
+        description = Lude.Nothing,
+        dryRun = Lude.Nothing
       }
 
 -- | The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
@@ -169,6 +196,28 @@ mkCreateClientVPNEndpoint
 ccveSecurityGroupIds :: Lens.Lens' CreateClientVPNEndpoint (Lude.Maybe [Lude.Text])
 ccveSecurityGroupIds = Lens.lens (securityGroupIds :: CreateClientVPNEndpoint -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: CreateClientVPNEndpoint)
 {-# DEPRECATED ccveSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
+
+-- | Information about the client connection logging options.
+--
+-- If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
+--
+--     * Client connection requests
+--
+--
+--     * Client connection results (successful and unsuccessful)
+--
+--
+--     * Reasons for unsuccessful client connection requests
+--
+--
+--     * Client connection termination time
+--
+--
+--
+-- /Note:/ Consider using 'connectionLogOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccveConnectionLogOptions :: Lens.Lens' CreateClientVPNEndpoint ConnectionLogOptions
+ccveConnectionLogOptions = Lens.lens (connectionLogOptions :: CreateClientVPNEndpoint -> ConnectionLogOptions) (\s a -> s {connectionLogOptions = a} :: CreateClientVPNEndpoint)
+{-# DEPRECATED ccveConnectionLogOptions "Use generic-lens or generic-optics with 'connectionLogOptions' instead." #-}
 
 -- | Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
 --
@@ -220,6 +269,13 @@ ccveTagSpecifications :: Lens.Lens' CreateClientVPNEndpoint (Lude.Maybe [TagSpec
 ccveTagSpecifications = Lens.lens (tagSpecifications :: CreateClientVPNEndpoint -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateClientVPNEndpoint)
 {-# DEPRECATED ccveTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
+-- | The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
+--
+-- /Note:/ Consider using 'clientCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccveClientCidrBlock :: Lens.Lens' CreateClientVPNEndpoint Lude.Text
+ccveClientCidrBlock = Lens.lens (clientCidrBlock :: CreateClientVPNEndpoint -> Lude.Text) (\s a -> s {clientCidrBlock = a} :: CreateClientVPNEndpoint)
+{-# DEPRECATED ccveClientCidrBlock "Use generic-lens or generic-optics with 'clientCidrBlock' instead." #-}
+
 -- | Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.
 --
 -- /Note:/ Consider using 'dnsServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -243,27 +299,6 @@ ccveSelfServicePortal :: Lens.Lens' CreateClientVPNEndpoint (Lude.Maybe SelfServ
 ccveSelfServicePortal = Lens.lens (selfServicePortal :: CreateClientVPNEndpoint -> Lude.Maybe SelfServicePortal) (\s a -> s {selfServicePortal = a} :: CreateClientVPNEndpoint)
 {-# DEPRECATED ccveSelfServicePortal "Use generic-lens or generic-optics with 'selfServicePortal' instead." #-}
 
--- | A brief description of the Client VPN endpoint.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccveDescription :: Lens.Lens' CreateClientVPNEndpoint (Lude.Maybe Lude.Text)
-ccveDescription = Lens.lens (description :: CreateClientVPNEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateClientVPNEndpoint)
-{-# DEPRECATED ccveDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccveDryRun :: Lens.Lens' CreateClientVPNEndpoint (Lude.Maybe Lude.Bool)
-ccveDryRun = Lens.lens (dryRun :: CreateClientVPNEndpoint -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateClientVPNEndpoint)
-{-# DEPRECATED ccveDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
---
--- /Note:/ Consider using 'clientCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccveClientCidrBlock :: Lens.Lens' CreateClientVPNEndpoint Lude.Text
-ccveClientCidrBlock = Lens.lens (clientCidrBlock :: CreateClientVPNEndpoint -> Lude.Text) (\s a -> s {clientCidrBlock = a} :: CreateClientVPNEndpoint)
-{-# DEPRECATED ccveClientCidrBlock "Use generic-lens or generic-optics with 'clientCidrBlock' instead." #-}
-
 -- | The ARN of the server certificate. For more information, see the <https://docs.aws.amazon.com/acm/latest/userguide/ AWS Certificate Manager User Guide> .
 --
 -- /Note:/ Consider using 'serverCertificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -278,27 +313,19 @@ ccveAuthenticationOptions :: Lens.Lens' CreateClientVPNEndpoint [ClientVPNAuthen
 ccveAuthenticationOptions = Lens.lens (authenticationOptions :: CreateClientVPNEndpoint -> [ClientVPNAuthenticationRequest]) (\s a -> s {authenticationOptions = a} :: CreateClientVPNEndpoint)
 {-# DEPRECATED ccveAuthenticationOptions "Use generic-lens or generic-optics with 'authenticationOptions' instead." #-}
 
--- | Information about the client connection logging options.
+-- | A brief description of the Client VPN endpoint.
 --
--- If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccveDescription :: Lens.Lens' CreateClientVPNEndpoint (Lude.Maybe Lude.Text)
+ccveDescription = Lens.lens (description :: CreateClientVPNEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateClientVPNEndpoint)
+{-# DEPRECATED ccveDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
---     * Client connection requests
---
---
---     * Client connection results (successful and unsuccessful)
---
---
---     * Reasons for unsuccessful client connection requests
---
---
---     * Client connection termination time
---
---
---
--- /Note:/ Consider using 'connectionLogOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccveConnectionLogOptions :: Lens.Lens' CreateClientVPNEndpoint ConnectionLogOptions
-ccveConnectionLogOptions = Lens.lens (connectionLogOptions :: CreateClientVPNEndpoint -> ConnectionLogOptions) (\s a -> s {connectionLogOptions = a} :: CreateClientVPNEndpoint)
-{-# DEPRECATED ccveConnectionLogOptions "Use generic-lens or generic-optics with 'connectionLogOptions' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccveDryRun :: Lens.Lens' CreateClientVPNEndpoint (Lude.Maybe Lude.Bool)
+ccveDryRun = Lens.lens (dryRun :: CreateClientVPNEndpoint -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateClientVPNEndpoint)
+{-# DEPRECATED ccveDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest CreateClientVPNEndpoint where
   type Rs CreateClientVPNEndpoint = CreateClientVPNEndpointResponse
@@ -326,6 +353,7 @@ instance Lude.ToQuery CreateClientVPNEndpoint where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery
           (Lude.toQueryList "SecurityGroupId" Lude.<$> securityGroupIds),
+        "ConnectionLogOptions" Lude.=: connectionLogOptions,
         "SplitTunnel" Lude.=: splitTunnel,
         "ClientToken" Lude.=: clientToken,
         "TransportProtocol" Lude.=: transportProtocol,
@@ -333,43 +361,36 @@ instance Lude.ToQuery CreateClientVPNEndpoint where
         "VpnPort" Lude.=: vpnPort,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
+        "ClientCidrBlock" Lude.=: clientCidrBlock,
         Lude.toQuery (Lude.toQueryList "DnsServers" Lude.<$> dnsServers),
         "ClientConnectOptions" Lude.=: clientConnectOptions,
         "SelfServicePortal" Lude.=: selfServicePortal,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "ClientCidrBlock" Lude.=: clientCidrBlock,
         "ServerCertificateArn" Lude.=: serverCertificateARN,
         Lude.toQueryList "Authentication" authenticationOptions,
-        "ConnectionLogOptions" Lude.=: connectionLogOptions
+        "Description" Lude.=: description,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkCreateClientVPNEndpointResponse' smart constructor.
 data CreateClientVPNEndpointResponse = CreateClientVPNEndpointResponse'
-  { status ::
-      Lude.Maybe
-        ClientVPNEndpointStatus,
-    clientVPNEndpointId ::
-      Lude.Maybe Lude.Text,
-    dnsName ::
-      Lude.Maybe Lude.Text,
+  { -- | The current state of the Client VPN endpoint.
+    status :: Lude.Maybe ClientVPNEndpointStatus,
+    -- | The ID of the Client VPN endpoint.
+    clientVPNEndpointId :: Lude.Maybe Lude.Text,
+    -- | The DNS name to be used by clients when establishing their VPN session.
+    dnsName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClientVPNEndpointResponse' with the minimum fields required to make a request.
 --
+-- * 'status' - The current state of the Client VPN endpoint.
 -- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint.
 -- * 'dnsName' - The DNS name to be used by clients when establishing their VPN session.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The current state of the Client VPN endpoint.
 mkCreateClientVPNEndpointResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -30,21 +30,12 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 --
 -- /See:/ 'mkLambdaFunctionSucceededEventDetails' smart constructor.
 data LambdaFunctionSucceededEventDetails = LambdaFunctionSucceededEventDetails'
-  { output ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    outputDetails ::
-      Lude.Maybe
-        HistoryEventExecutionDataDetails
+  { -- | The JSON data output by the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    output :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Contains details about the output of an execution history event.
+    outputDetails :: Lude.Maybe HistoryEventExecutionDataDetails
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaFunctionSucceededEventDetails' with the minimum fields required to make a request.

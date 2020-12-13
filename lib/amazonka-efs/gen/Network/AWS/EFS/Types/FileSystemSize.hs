@@ -17,10 +17,10 @@ module Network.AWS.EFS.Types.FileSystemSize
     mkFileSystemSize,
 
     -- * Lenses
+    fssValue,
     fssValueInIA,
     fssValueInStandard,
     fssTimestamp,
-    fssValue,
   )
 where
 
@@ -31,38 +31,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFileSystemSize' smart constructor.
 data FileSystemSize = FileSystemSize'
-  { valueInIA ::
-      Lude.Maybe Lude.Natural,
+  { -- | The latest known metered size (in bytes) of data stored in the file system.
+    value :: Lude.Natural,
+    -- | The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
+    valueInIA :: Lude.Maybe Lude.Natural,
+    -- | The latest known metered size (in bytes) of data stored in the Standard storage class.
     valueInStandard :: Lude.Maybe Lude.Natural,
-    timestamp :: Lude.Maybe Lude.Timestamp,
-    value :: Lude.Natural
+    -- | The time at which the size of data, returned in the @Value@ field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
+    timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSystemSize' with the minimum fields required to make a request.
 --
--- * 'timestamp' - The time at which the size of data, returned in the @Value@ field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
 -- * 'value' - The latest known metered size (in bytes) of data stored in the file system.
 -- * 'valueInIA' - The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
 -- * 'valueInStandard' - The latest known metered size (in bytes) of data stored in the Standard storage class.
+-- * 'timestamp' - The time at which the size of data, returned in the @Value@ field, was determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.
 mkFileSystemSize ::
   -- | 'value'
   Lude.Natural ->
   FileSystemSize
 mkFileSystemSize pValue_ =
   FileSystemSize'
-    { valueInIA = Lude.Nothing,
+    { value = pValue_,
+      valueInIA = Lude.Nothing,
       valueInStandard = Lude.Nothing,
-      timestamp = Lude.Nothing,
-      value = pValue_
+      timestamp = Lude.Nothing
     }
+
+-- | The latest known metered size (in bytes) of data stored in the file system.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fssValue :: Lens.Lens' FileSystemSize Lude.Natural
+fssValue = Lens.lens (value :: FileSystemSize -> Lude.Natural) (\s a -> s {value = a} :: FileSystemSize)
+{-# DEPRECATED fssValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
 --
@@ -85,21 +89,14 @@ fssTimestamp :: Lens.Lens' FileSystemSize (Lude.Maybe Lude.Timestamp)
 fssTimestamp = Lens.lens (timestamp :: FileSystemSize -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: FileSystemSize)
 {-# DEPRECATED fssTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
--- | The latest known metered size (in bytes) of data stored in the file system.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fssValue :: Lens.Lens' FileSystemSize Lude.Natural
-fssValue = Lens.lens (value :: FileSystemSize -> Lude.Natural) (\s a -> s {value = a} :: FileSystemSize)
-{-# DEPRECATED fssValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
 instance Lude.FromJSON FileSystemSize where
   parseJSON =
     Lude.withObject
       "FileSystemSize"
       ( \x ->
           FileSystemSize'
-            Lude.<$> (x Lude..:? "ValueInIA")
+            Lude.<$> (x Lude..: "Value")
+            Lude.<*> (x Lude..:? "ValueInIA")
             Lude.<*> (x Lude..:? "ValueInStandard")
             Lude.<*> (x Lude..:? "Timestamp")
-            Lude.<*> (x Lude..: "Value")
       )

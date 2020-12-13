@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
     mkUpgradeElasticsearchDomain,
 
     -- ** Request lenses
-    uedPerformCheckOnly,
     uedDomainName,
+    uedPerformCheckOnly,
     uedTargetVersion,
 
     -- * Destructuring the response
@@ -45,23 +46,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpgradeElasticsearchDomain' smart constructor.
 data UpgradeElasticsearchDomain = UpgradeElasticsearchDomain'
-  { performCheckOnly ::
-      Lude.Maybe Lude.Bool,
-    domainName :: Lude.Text,
+  { domainName :: Lude.Text,
+    -- | This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
+    performCheckOnly :: Lude.Maybe Lude.Bool,
+    -- | The version of Elasticsearch that you intend to upgrade the domain to.
     targetVersion :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeElasticsearchDomain' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
+-- * 'domainName' -
 -- * 'performCheckOnly' - This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
 -- * 'targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
 mkUpgradeElasticsearchDomain ::
@@ -72,17 +68,10 @@ mkUpgradeElasticsearchDomain ::
   UpgradeElasticsearchDomain
 mkUpgradeElasticsearchDomain pDomainName_ pTargetVersion_ =
   UpgradeElasticsearchDomain'
-    { performCheckOnly = Lude.Nothing,
-      domainName = pDomainName_,
+    { domainName = pDomainName_,
+      performCheckOnly = Lude.Nothing,
       targetVersion = pTargetVersion_
     }
-
--- | This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
---
--- /Note:/ Consider using 'performCheckOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uedPerformCheckOnly :: Lens.Lens' UpgradeElasticsearchDomain (Lude.Maybe Lude.Bool)
-uedPerformCheckOnly = Lens.lens (performCheckOnly :: UpgradeElasticsearchDomain -> Lude.Maybe Lude.Bool) (\s a -> s {performCheckOnly = a} :: UpgradeElasticsearchDomain)
-{-# DEPRECATED uedPerformCheckOnly "Use generic-lens or generic-optics with 'performCheckOnly' instead." #-}
 
 -- | Undocumented field.
 --
@@ -90,6 +79,13 @@ uedPerformCheckOnly = Lens.lens (performCheckOnly :: UpgradeElasticsearchDomain 
 uedDomainName :: Lens.Lens' UpgradeElasticsearchDomain Lude.Text
 uedDomainName = Lens.lens (domainName :: UpgradeElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: UpgradeElasticsearchDomain)
 {-# DEPRECATED uedDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
+--
+-- /Note:/ Consider using 'performCheckOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uedPerformCheckOnly :: Lens.Lens' UpgradeElasticsearchDomain (Lude.Maybe Lude.Bool)
+uedPerformCheckOnly = Lens.lens (performCheckOnly :: UpgradeElasticsearchDomain -> Lude.Maybe Lude.Bool) (\s a -> s {performCheckOnly = a} :: UpgradeElasticsearchDomain)
+{-# DEPRECATED uedPerformCheckOnly "Use generic-lens or generic-optics with 'performCheckOnly' instead." #-}
 
 -- | The version of Elasticsearch that you intend to upgrade the domain to.
 --
@@ -120,8 +116,8 @@ instance Lude.ToJSON UpgradeElasticsearchDomain where
   toJSON UpgradeElasticsearchDomain' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PerformCheckOnly" Lude..=) Lude.<$> performCheckOnly,
-            Lude.Just ("DomainName" Lude..= domainName),
+          [ Lude.Just ("DomainName" Lude..= domainName),
+            ("PerformCheckOnly" Lude..=) Lude.<$> performCheckOnly,
             Lude.Just ("TargetVersion" Lude..= targetVersion)
           ]
       )
@@ -136,30 +132,23 @@ instance Lude.ToQuery UpgradeElasticsearchDomain where
 --
 -- /See:/ 'mkUpgradeElasticsearchDomainResponse' smart constructor.
 data UpgradeElasticsearchDomainResponse = UpgradeElasticsearchDomainResponse'
-  { domainName ::
-      Lude.Maybe Lude.Text,
-    performCheckOnly ::
-      Lude.Maybe Lude.Bool,
-    targetVersion ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { domainName :: Lude.Maybe Lude.Text,
+    -- | This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
+    performCheckOnly :: Lude.Maybe Lude.Bool,
+    -- | The version of Elasticsearch that you intend to upgrade the domain to.
+    targetVersion :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeElasticsearchDomainResponse' with the minimum fields required to make a request.
 --
--- * 'domainName' - Undocumented field.
+-- * 'domainName' -
 -- * 'performCheckOnly' - This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
--- * 'responseStatus' - The response status code.
 -- * 'targetVersion' - The version of Elasticsearch that you intend to upgrade the domain to.
+-- * 'responseStatus' - The response status code.
 mkUpgradeElasticsearchDomainResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -17,10 +17,10 @@ module Network.AWS.Glue.Types.CodeGenNode
     mkCodeGenNode,
 
     -- * Lenses
+    cgnArgs,
     cgnLineNumber,
     cgnId,
     cgnNodeType,
-    cgnArgs,
   )
 where
 
@@ -32,25 +32,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCodeGenNode' smart constructor.
 data CodeGenNode = CodeGenNode'
-  { lineNumber :: Lude.Maybe Lude.Int,
+  { -- | Properties of the node, in the form of name-value pairs.
+    args :: [CodeGenNodeArg],
+    -- | The line number of the node.
+    lineNumber :: Lude.Maybe Lude.Int,
+    -- | A node identifier that is unique within the node's graph.
     id :: Lude.Text,
-    nodeType :: Lude.Text,
-    args :: [CodeGenNodeArg]
+    -- | The type of node that this is.
+    nodeType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CodeGenNode' with the minimum fields required to make a request.
 --
 -- * 'args' - Properties of the node, in the form of name-value pairs.
--- * 'id' - A node identifier that is unique within the node's graph.
 -- * 'lineNumber' - The line number of the node.
+-- * 'id' - A node identifier that is unique within the node's graph.
 -- * 'nodeType' - The type of node that this is.
 mkCodeGenNode ::
   -- | 'id'
@@ -60,11 +58,18 @@ mkCodeGenNode ::
   CodeGenNode
 mkCodeGenNode pId_ pNodeType_ =
   CodeGenNode'
-    { lineNumber = Lude.Nothing,
+    { args = Lude.mempty,
+      lineNumber = Lude.Nothing,
       id = pId_,
-      nodeType = pNodeType_,
-      args = Lude.mempty
+      nodeType = pNodeType_
     }
+
+-- | Properties of the node, in the form of name-value pairs.
+--
+-- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgnArgs :: Lens.Lens' CodeGenNode [CodeGenNodeArg]
+cgnArgs = Lens.lens (args :: CodeGenNode -> [CodeGenNodeArg]) (\s a -> s {args = a} :: CodeGenNode)
+{-# DEPRECATED cgnArgs "Use generic-lens or generic-optics with 'args' instead." #-}
 
 -- | The line number of the node.
 --
@@ -87,32 +92,25 @@ cgnNodeType :: Lens.Lens' CodeGenNode Lude.Text
 cgnNodeType = Lens.lens (nodeType :: CodeGenNode -> Lude.Text) (\s a -> s {nodeType = a} :: CodeGenNode)
 {-# DEPRECATED cgnNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
--- | Properties of the node, in the form of name-value pairs.
---
--- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgnArgs :: Lens.Lens' CodeGenNode [CodeGenNodeArg]
-cgnArgs = Lens.lens (args :: CodeGenNode -> [CodeGenNodeArg]) (\s a -> s {args = a} :: CodeGenNode)
-{-# DEPRECATED cgnArgs "Use generic-lens or generic-optics with 'args' instead." #-}
-
 instance Lude.FromJSON CodeGenNode where
   parseJSON =
     Lude.withObject
       "CodeGenNode"
       ( \x ->
           CodeGenNode'
-            Lude.<$> (x Lude..:? "LineNumber")
+            Lude.<$> (x Lude..:? "Args" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "LineNumber")
             Lude.<*> (x Lude..: "Id")
             Lude.<*> (x Lude..: "NodeType")
-            Lude.<*> (x Lude..:? "Args" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON CodeGenNode where
   toJSON CodeGenNode' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("LineNumber" Lude..=) Lude.<$> lineNumber,
+          [ Lude.Just ("Args" Lude..= args),
+            ("LineNumber" Lude..=) Lude.<$> lineNumber,
             Lude.Just ("Id" Lude..= id),
-            Lude.Just ("NodeType" Lude..= nodeType),
-            Lude.Just ("Args" Lude..= args)
+            Lude.Just ("NodeType" Lude..= nodeType)
           ]
       )

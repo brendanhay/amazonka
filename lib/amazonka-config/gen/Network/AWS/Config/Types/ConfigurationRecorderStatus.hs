@@ -36,40 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConfigurationRecorderStatus' smart constructor.
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
-  { lastErrorCode ::
-      Lude.Maybe Lude.Text,
-    lastStopTime ::
-      Lude.Maybe Lude.Timestamp,
-    lastStatusChangeTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The error code indicating that the recording failed.
+    lastErrorCode :: Lude.Maybe Lude.Text,
+    -- | The time the recorder was last stopped.
+    lastStopTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time when the status was last changed.
+    lastStatusChangeTime :: Lude.Maybe Lude.Timestamp,
+    -- | Specifies whether or not the recorder is currently recording.
     recording :: Lude.Maybe Lude.Bool,
-    lastStatus ::
-      Lude.Maybe RecorderStatus,
-    lastErrorMessage ::
-      Lude.Maybe Lude.Text,
+    -- | The last (previous) status of the recorder.
+    lastStatus :: Lude.Maybe RecorderStatus,
+    -- | The message indicating that the recording failed due to an error.
+    lastErrorMessage :: Lude.Maybe Lude.Text,
+    -- | The name of the configuration recorder.
     name :: Lude.Maybe Lude.Text,
-    lastStartTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | The time the recorder was last started.
+    lastStartTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConfigurationRecorderStatus' with the minimum fields required to make a request.
 --
 -- * 'lastErrorCode' - The error code indicating that the recording failed.
--- * 'lastErrorMessage' - The message indicating that the recording failed due to an error.
--- * 'lastStartTime' - The time the recorder was last started.
--- * 'lastStatus' - The last (previous) status of the recorder.
--- * 'lastStatusChangeTime' - The time when the status was last changed.
 -- * 'lastStopTime' - The time the recorder was last stopped.
--- * 'name' - The name of the configuration recorder.
+-- * 'lastStatusChangeTime' - The time when the status was last changed.
 -- * 'recording' - Specifies whether or not the recorder is currently recording.
+-- * 'lastStatus' - The last (previous) status of the recorder.
+-- * 'lastErrorMessage' - The message indicating that the recording failed due to an error.
+-- * 'name' - The name of the configuration recorder.
+-- * 'lastStartTime' - The time the recorder was last started.
 mkConfigurationRecorderStatus ::
   ConfigurationRecorderStatus
 mkConfigurationRecorderStatus =

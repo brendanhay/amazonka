@@ -43,43 +43,68 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotebookExecution' smart constructor.
 data NotebookExecution = NotebookExecution'
-  { status ::
-      Lude.Maybe NotebookExecutionStatus,
+  { -- | The status of the notebook execution.
+    --
+    --
+    --     * @START_PENDING@ indicates that the cluster has received the execution request but execution has not begun.
+    --
+    --
+    --     * @STARTING@ indicates that the execution is starting on the cluster.
+    --
+    --
+    --     * @RUNNING@ indicates that the execution is being processed by the cluster.
+    --
+    --
+    --     * @FINISHING@ indicates that execution processing is in the final stages.
+    --
+    --
+    --     * @FINISHED@ indicates that the execution has completed without error.
+    --
+    --
+    --     * @FAILING@ indicates that the execution is failing and will not finish successfully.
+    --
+    --
+    --     * @FAILED@ indicates that the execution failed.
+    --
+    --
+    --     * @STOP_PENDING@ indicates that the cluster has received a @StopNotebookExecution@ request and the stop is pending.
+    --
+    --
+    --     * @STOPPING@ indicates that the cluster is in the process of stopping the execution as a result of a @StopNotebookExecution@ request.
+    --
+    --
+    --     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
+    status :: Lude.Maybe NotebookExecutionStatus,
+    -- | The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
     executionEngine :: Lude.Maybe ExecutionEngineConfig,
+    -- | The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
     notebookInstanceSecurityGroupId :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of the EMR Notebook that is used for the notebook execution.
     editorId :: Lude.Maybe Lude.Text,
+    -- | The timestamp when notebook execution started.
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the notebook execution.
     arn :: Lude.Maybe Lude.Text,
+    -- | The location of the notebook execution's output file in Amazon S3.
     outputNotebookURI :: Lude.Maybe Lude.Text,
+    -- | The unique identifier of a notebook execution.
     notebookExecutionId :: Lude.Maybe Lude.Text,
+    -- | A name for the notebook execution.
     notebookExecutionName :: Lude.Maybe Lude.Text,
+    -- | The reason for the latest status change of the notebook execution.
     lastStateChangeReason :: Lude.Maybe Lude.Text,
+    -- | The timestamp when notebook execution ended.
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
     notebookParams :: Lude.Maybe Lude.Text,
+    -- | A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotebookExecution' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the notebook execution.
--- * 'editorId' - The unique identifier of the EMR Notebook that is used for the notebook execution.
--- * 'endTime' - The timestamp when notebook execution ended.
--- * 'executionEngine' - The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
--- * 'lastStateChangeReason' - The reason for the latest status change of the notebook execution.
--- * 'notebookExecutionId' - The unique identifier of a notebook execution.
--- * 'notebookExecutionName' - A name for the notebook execution.
--- * 'notebookInstanceSecurityGroupId' - The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
--- * 'notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
--- * 'outputNotebookURI' - The location of the notebook execution's output file in Amazon S3.
--- * 'startTime' - The timestamp when notebook execution started.
 -- * 'status' - The status of the notebook execution.
 --
 --
@@ -113,6 +138,17 @@ data NotebookExecution = NotebookExecution'
 --     * @STOPPED@ indicates that the execution stopped because of a @StopNotebookExecution@ request.
 --
 --
+-- * 'executionEngine' - The execution engine, such as an EMR cluster, used to run the EMR notebook and perform the notebook execution.
+-- * 'notebookInstanceSecurityGroupId' - The unique identifier of the EC2 security group associated with the EMR Notebook instance. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks> in the /EMR Management Guide/ .
+-- * 'editorId' - The unique identifier of the EMR Notebook that is used for the notebook execution.
+-- * 'startTime' - The timestamp when notebook execution started.
+-- * 'arn' - The Amazon Resource Name (ARN) of the notebook execution.
+-- * 'outputNotebookURI' - The location of the notebook execution's output file in Amazon S3.
+-- * 'notebookExecutionId' - The unique identifier of a notebook execution.
+-- * 'notebookExecutionName' - A name for the notebook execution.
+-- * 'lastStateChangeReason' - The reason for the latest status change of the notebook execution.
+-- * 'endTime' - The timestamp when notebook execution ended.
+-- * 'notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime for execution.
 -- * 'tags' - A list of tags associated with a notebook execution. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters and an optional value string with a maximum of 256 characters.
 mkNotebookExecution ::
   NotebookExecution

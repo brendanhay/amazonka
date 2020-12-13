@@ -17,18 +17,18 @@ module Network.AWS.Config.Types.RemediationConfiguration
     mkRemediationConfiguration,
 
     -- * Lenses
+    rcTargetId,
     rcResourceType,
     rcARN,
     rcAutomatic,
+    rcConfigRuleName,
     rcCreatedByService,
     rcRetryAttemptSeconds,
     rcExecutionControls,
+    rcTargetType,
     rcParameters,
     rcMaximumAutomaticAttempts,
     rcTargetVersion,
-    rcConfigRuleName,
-    rcTargetType,
-    rcTargetId,
   )
 where
 
@@ -42,78 +42,86 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemediationConfiguration' smart constructor.
 data RemediationConfiguration = RemediationConfiguration'
-  { resourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | Target ID is the name of the public document.
+    targetId :: Lude.Text,
+    -- | The type of a resource.
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (ARN) of remediation configuration.
     arn :: Lude.Maybe Lude.Text,
+    -- | The remediation is triggered automatically.
     automatic :: Lude.Maybe Lude.Bool,
-    createdByService :: Lude.Maybe Lude.Text,
-    retryAttemptSeconds ::
-      Lude.Maybe Lude.Natural,
-    executionControls ::
-      Lude.Maybe ExecutionControls,
-    parameters ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (RemediationParameterValue)
-        ),
-    maximumAutomaticAttempts ::
-      Lude.Maybe Lude.Natural,
-    targetVersion :: Lude.Maybe Lude.Text,
+    -- | The name of the AWS Config rule.
     configRuleName :: Lude.Text,
+    -- | Name of the service that owns the service linked rule, if applicable.
+    createdByService :: Lude.Maybe Lude.Text,
+    -- | Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+    --
+    -- For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
+    retryAttemptSeconds :: Lude.Maybe Lude.Natural,
+    -- | An ExecutionControls object.
+    executionControls :: Lude.Maybe ExecutionControls,
+    -- | The type of the target. Target executes remediation. For example, SSM document.
     targetType :: RemediationTargetType,
-    targetId :: Lude.Text
+    -- | An object of the RemediationParameterValue.
+    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (RemediationParameterValue)),
+    -- | The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+    --
+    -- For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
+    maximumAutomaticAttempts :: Lude.Maybe Lude.Natural,
+    -- | Version of the target. For example, version of the SSM document.
+    targetVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemediationConfiguration' with the minimum fields required to make a request.
 --
+-- * 'targetId' - Target ID is the name of the public document.
+-- * 'resourceType' - The type of a resource.
 -- * 'arn' - Amazon Resource Name (ARN) of remediation configuration.
 -- * 'automatic' - The remediation is triggered automatically.
 -- * 'configRuleName' - The name of the AWS Config rule.
 -- * 'createdByService' - Name of the service that owns the service linked rule, if applicable.
--- * 'executionControls' - An ExecutionControls object.
--- * 'maximumAutomaticAttempts' - The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
---
--- For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
--- * 'parameters' - An object of the RemediationParameterValue.
--- * 'resourceType' - The type of a resource.
 -- * 'retryAttemptSeconds' - Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
 --
 -- For example, if you specify RetryAttemptsSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception.
--- * 'targetId' - Target ID is the name of the public document.
+-- * 'executionControls' - An ExecutionControls object.
 -- * 'targetType' - The type of the target. Target executes remediation. For example, SSM document.
+-- * 'parameters' - An object of the RemediationParameterValue.
+-- * 'maximumAutomaticAttempts' - The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+--
+-- For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptsSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
 -- * 'targetVersion' - Version of the target. For example, version of the SSM document.
 mkRemediationConfiguration ::
+  -- | 'targetId'
+  Lude.Text ->
   -- | 'configRuleName'
   Lude.Text ->
   -- | 'targetType'
   RemediationTargetType ->
-  -- | 'targetId'
-  Lude.Text ->
   RemediationConfiguration
-mkRemediationConfiguration pConfigRuleName_ pTargetType_ pTargetId_ =
+mkRemediationConfiguration pTargetId_ pConfigRuleName_ pTargetType_ =
   RemediationConfiguration'
-    { resourceType = Lude.Nothing,
+    { targetId = pTargetId_,
+      resourceType = Lude.Nothing,
       arn = Lude.Nothing,
       automatic = Lude.Nothing,
+      configRuleName = pConfigRuleName_,
       createdByService = Lude.Nothing,
       retryAttemptSeconds = Lude.Nothing,
       executionControls = Lude.Nothing,
+      targetType = pTargetType_,
       parameters = Lude.Nothing,
       maximumAutomaticAttempts = Lude.Nothing,
-      targetVersion = Lude.Nothing,
-      configRuleName = pConfigRuleName_,
-      targetType = pTargetType_,
-      targetId = pTargetId_
+      targetVersion = Lude.Nothing
     }
+
+-- | Target ID is the name of the public document.
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcTargetId :: Lens.Lens' RemediationConfiguration Lude.Text
+rcTargetId = Lens.lens (targetId :: RemediationConfiguration -> Lude.Text) (\s a -> s {targetId = a} :: RemediationConfiguration)
+{-# DEPRECATED rcTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
 
 -- | The type of a resource.
 --
@@ -135,6 +143,13 @@ rcARN = Lens.lens (arn :: RemediationConfiguration -> Lude.Maybe Lude.Text) (\s 
 rcAutomatic :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Bool)
 rcAutomatic = Lens.lens (automatic :: RemediationConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {automatic = a} :: RemediationConfiguration)
 {-# DEPRECATED rcAutomatic "Use generic-lens or generic-optics with 'automatic' instead." #-}
+
+-- | The name of the AWS Config rule.
+--
+-- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcConfigRuleName :: Lens.Lens' RemediationConfiguration Lude.Text
+rcConfigRuleName = Lens.lens (configRuleName :: RemediationConfiguration -> Lude.Text) (\s a -> s {configRuleName = a} :: RemediationConfiguration)
+{-# DEPRECATED rcConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 -- | Name of the service that owns the service linked rule, if applicable.
 --
@@ -159,6 +174,13 @@ rcExecutionControls :: Lens.Lens' RemediationConfiguration (Lude.Maybe Execution
 rcExecutionControls = Lens.lens (executionControls :: RemediationConfiguration -> Lude.Maybe ExecutionControls) (\s a -> s {executionControls = a} :: RemediationConfiguration)
 {-# DEPRECATED rcExecutionControls "Use generic-lens or generic-optics with 'executionControls' instead." #-}
 
+-- | The type of the target. Target executes remediation. For example, SSM document.
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcTargetType :: Lens.Lens' RemediationConfiguration RemediationTargetType
+rcTargetType = Lens.lens (targetType :: RemediationConfiguration -> RemediationTargetType) (\s a -> s {targetType = a} :: RemediationConfiguration)
+{-# DEPRECATED rcTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
+
 -- | An object of the RemediationParameterValue.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -182,63 +204,42 @@ rcTargetVersion :: Lens.Lens' RemediationConfiguration (Lude.Maybe Lude.Text)
 rcTargetVersion = Lens.lens (targetVersion :: RemediationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {targetVersion = a} :: RemediationConfiguration)
 {-# DEPRECATED rcTargetVersion "Use generic-lens or generic-optics with 'targetVersion' instead." #-}
 
--- | The name of the AWS Config rule.
---
--- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcConfigRuleName :: Lens.Lens' RemediationConfiguration Lude.Text
-rcConfigRuleName = Lens.lens (configRuleName :: RemediationConfiguration -> Lude.Text) (\s a -> s {configRuleName = a} :: RemediationConfiguration)
-{-# DEPRECATED rcConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
-
--- | The type of the target. Target executes remediation. For example, SSM document.
---
--- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcTargetType :: Lens.Lens' RemediationConfiguration RemediationTargetType
-rcTargetType = Lens.lens (targetType :: RemediationConfiguration -> RemediationTargetType) (\s a -> s {targetType = a} :: RemediationConfiguration)
-{-# DEPRECATED rcTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
-
--- | Target ID is the name of the public document.
---
--- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcTargetId :: Lens.Lens' RemediationConfiguration Lude.Text
-rcTargetId = Lens.lens (targetId :: RemediationConfiguration -> Lude.Text) (\s a -> s {targetId = a} :: RemediationConfiguration)
-{-# DEPRECATED rcTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
-
 instance Lude.FromJSON RemediationConfiguration where
   parseJSON =
     Lude.withObject
       "RemediationConfiguration"
       ( \x ->
           RemediationConfiguration'
-            Lude.<$> (x Lude..:? "ResourceType")
+            Lude.<$> (x Lude..: "TargetId")
+            Lude.<*> (x Lude..:? "ResourceType")
             Lude.<*> (x Lude..:? "Arn")
             Lude.<*> (x Lude..:? "Automatic")
+            Lude.<*> (x Lude..: "ConfigRuleName")
             Lude.<*> (x Lude..:? "CreatedByService")
             Lude.<*> (x Lude..:? "RetryAttemptSeconds")
             Lude.<*> (x Lude..:? "ExecutionControls")
+            Lude.<*> (x Lude..: "TargetType")
             Lude.<*> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "MaximumAutomaticAttempts")
             Lude.<*> (x Lude..:? "TargetVersion")
-            Lude.<*> (x Lude..: "ConfigRuleName")
-            Lude.<*> (x Lude..: "TargetType")
-            Lude.<*> (x Lude..: "TargetId")
       )
 
 instance Lude.ToJSON RemediationConfiguration where
   toJSON RemediationConfiguration' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("ResourceType" Lude..=) Lude.<$> resourceType,
+          [ Lude.Just ("TargetId" Lude..= targetId),
+            ("ResourceType" Lude..=) Lude.<$> resourceType,
             ("Arn" Lude..=) Lude.<$> arn,
             ("Automatic" Lude..=) Lude.<$> automatic,
+            Lude.Just ("ConfigRuleName" Lude..= configRuleName),
             ("CreatedByService" Lude..=) Lude.<$> createdByService,
             ("RetryAttemptSeconds" Lude..=) Lude.<$> retryAttemptSeconds,
             ("ExecutionControls" Lude..=) Lude.<$> executionControls,
+            Lude.Just ("TargetType" Lude..= targetType),
             ("Parameters" Lude..=) Lude.<$> parameters,
             ("MaximumAutomaticAttempts" Lude..=)
               Lude.<$> maximumAutomaticAttempts,
-            ("TargetVersion" Lude..=) Lude.<$> targetVersion,
-            Lude.Just ("ConfigRuleName" Lude..= configRuleName),
-            Lude.Just ("TargetType" Lude..= targetType),
-            Lude.Just ("TargetId" Lude..= targetId)
+            ("TargetVersion" Lude..=) Lude.<$> targetVersion
           ]
       )

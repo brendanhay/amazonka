@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.IoT.DescribeAuditFinding
     mkDescribeAuditFindingResponse,
 
     -- ** Response lenses
-    dafrsFinding,
-    dafrsResponseStatus,
+    daffrsFinding,
+    daffrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAuditFinding' smart constructor.
 newtype DescribeAuditFinding = DescribeAuditFinding'
-  { findingId ::
-      Lude.Text
+  { -- | A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.
+    findingId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAuditFinding' with the minimum fields required to make a request.
@@ -90,22 +85,16 @@ instance Lude.ToQuery DescribeAuditFinding where
 
 -- | /See:/ 'mkDescribeAuditFindingResponse' smart constructor.
 data DescribeAuditFindingResponse = DescribeAuditFindingResponse'
-  { finding ::
-      Lude.Maybe AuditFinding,
+  { finding :: Lude.Maybe AuditFinding,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAuditFindingResponse' with the minimum fields required to make a request.
 --
--- * 'finding' - Undocumented field.
+-- * 'finding' -
 -- * 'responseStatus' - The response status code.
 mkDescribeAuditFindingResponse ::
   -- | 'responseStatus'
@@ -120,13 +109,13 @@ mkDescribeAuditFindingResponse pResponseStatus_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'finding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafrsFinding :: Lens.Lens' DescribeAuditFindingResponse (Lude.Maybe AuditFinding)
-dafrsFinding = Lens.lens (finding :: DescribeAuditFindingResponse -> Lude.Maybe AuditFinding) (\s a -> s {finding = a} :: DescribeAuditFindingResponse)
-{-# DEPRECATED dafrsFinding "Use generic-lens or generic-optics with 'finding' instead." #-}
+daffrsFinding :: Lens.Lens' DescribeAuditFindingResponse (Lude.Maybe AuditFinding)
+daffrsFinding = Lens.lens (finding :: DescribeAuditFindingResponse -> Lude.Maybe AuditFinding) (\s a -> s {finding = a} :: DescribeAuditFindingResponse)
+{-# DEPRECATED daffrsFinding "Use generic-lens or generic-optics with 'finding' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafrsResponseStatus :: Lens.Lens' DescribeAuditFindingResponse Lude.Int
-dafrsResponseStatus = Lens.lens (responseStatus :: DescribeAuditFindingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAuditFindingResponse)
-{-# DEPRECATED dafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daffrsResponseStatus :: Lens.Lens' DescribeAuditFindingResponse Lude.Int
+daffrsResponseStatus = Lens.lens (responseStatus :: DescribeAuditFindingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAuditFindingResponse)
+{-# DEPRECATED daffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

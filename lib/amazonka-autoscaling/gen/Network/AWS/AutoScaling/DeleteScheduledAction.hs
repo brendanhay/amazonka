@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     mkDeleteScheduledAction,
 
     -- ** Request lenses
-    dsaAutoScalingGroupName,
-    dsaScheduledActionName,
+    dsafScheduledActionName,
+    dsafAutoScalingGroupName,
 
     -- * Destructuring the response
     DeleteScheduledActionResponse (..),
@@ -36,51 +37,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
-  { autoScalingGroupName ::
-      Lude.Text,
-    scheduledActionName :: Lude.Text
+  { -- | The name of the action to delete.
+    scheduledActionName :: Lude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledAction' with the minimum fields required to make a request.
 --
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'scheduledActionName' - The name of the action to delete.
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 mkDeleteScheduledAction ::
-  -- | 'autoScalingGroupName'
-  Lude.Text ->
   -- | 'scheduledActionName'
+  Lude.Text ->
+  -- | 'autoScalingGroupName'
   Lude.Text ->
   DeleteScheduledAction
 mkDeleteScheduledAction
-  pAutoScalingGroupName_
-  pScheduledActionName_ =
+  pScheduledActionName_
+  pAutoScalingGroupName_ =
     DeleteScheduledAction'
-      { autoScalingGroupName =
-          pAutoScalingGroupName_,
-        scheduledActionName = pScheduledActionName_
+      { scheduledActionName =
+          pScheduledActionName_,
+        autoScalingGroupName = pAutoScalingGroupName_
       }
-
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaAutoScalingGroupName :: Lens.Lens' DeleteScheduledAction Lude.Text
-dsaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeleteScheduledAction)
-{-# DEPRECATED dsaAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The name of the action to delete.
 --
 -- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaScheduledActionName :: Lens.Lens' DeleteScheduledAction Lude.Text
-dsaScheduledActionName = Lens.lens (scheduledActionName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: DeleteScheduledAction)
-{-# DEPRECATED dsaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
+dsafScheduledActionName :: Lens.Lens' DeleteScheduledAction Lude.Text
+dsafScheduledActionName = Lens.lens (scheduledActionName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: DeleteScheduledAction)
+{-# DEPRECATED dsafScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsafAutoScalingGroupName :: Lens.Lens' DeleteScheduledAction Lude.Text
+dsafAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeleteScheduledAction)
+{-# DEPRECATED dsafAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 instance Lude.AWSRequest DeleteScheduledAction where
   type Rs DeleteScheduledAction = DeleteScheduledActionResponse
@@ -98,19 +94,13 @@ instance Lude.ToQuery DeleteScheduledAction where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteScheduledAction" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "ScheduledActionName" Lude.=: scheduledActionName
+        "ScheduledActionName" Lude.=: scheduledActionName,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'mkDeleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledActionResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceImagePermissions
 
     -- ** Request lenses
     dwipNextToken,
-    dwipMaxResults,
     dwipImageId,
+    dwipMaxResults,
 
     -- * Destructuring the response
     DescribeWorkspaceImagePermissionsResponse (..),
@@ -43,26 +44,21 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkDescribeWorkspaceImagePermissions' smart constructor.
 data DescribeWorkspaceImagePermissions = DescribeWorkspaceImagePermissions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    imageId :: Lude.Text
+  { -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The identifier of the image.
+    imageId :: Lude.Text,
+    -- | The maximum number of items to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceImagePermissions' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 -- * 'imageId' - The identifier of the image.
 -- * 'maxResults' - The maximum number of items to return.
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
 mkDescribeWorkspaceImagePermissions ::
   -- | 'imageId'
   Lude.Text ->
@@ -70,8 +66,8 @@ mkDescribeWorkspaceImagePermissions ::
 mkDescribeWorkspaceImagePermissions pImageId_ =
   DescribeWorkspaceImagePermissions'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      imageId = pImageId_
+      imageId = pImageId_,
+      maxResults = Lude.Nothing
     }
 
 -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
@@ -81,19 +77,19 @@ dwipNextToken :: Lens.Lens' DescribeWorkspaceImagePermissions (Lude.Maybe Lude.T
 dwipNextToken = Lens.lens (nextToken :: DescribeWorkspaceImagePermissions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeWorkspaceImagePermissions)
 {-# DEPRECATED dwipNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of items to return.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwipMaxResults :: Lens.Lens' DescribeWorkspaceImagePermissions (Lude.Maybe Lude.Natural)
-dwipMaxResults = Lens.lens (maxResults :: DescribeWorkspaceImagePermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeWorkspaceImagePermissions)
-{-# DEPRECATED dwipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The identifier of the image.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dwipImageId :: Lens.Lens' DescribeWorkspaceImagePermissions Lude.Text
 dwipImageId = Lens.lens (imageId :: DescribeWorkspaceImagePermissions -> Lude.Text) (\s a -> s {imageId = a} :: DescribeWorkspaceImagePermissions)
 {-# DEPRECATED dwipImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The maximum number of items to return.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwipMaxResults :: Lens.Lens' DescribeWorkspaceImagePermissions (Lude.Maybe Lude.Natural)
+dwipMaxResults = Lens.lens (maxResults :: DescribeWorkspaceImagePermissions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeWorkspaceImagePermissions)
+{-# DEPRECATED dwipMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest DescribeWorkspaceImagePermissions where
   type
@@ -128,8 +124,8 @@ instance Lude.ToJSON DescribeWorkspaceImagePermissions where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ImageId" Lude..= imageId)
+            Lude.Just ("ImageId" Lude..= imageId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -141,32 +137,23 @@ instance Lude.ToQuery DescribeWorkspaceImagePermissions where
 
 -- | /See:/ 'mkDescribeWorkspaceImagePermissionsResponse' smart constructor.
 data DescribeWorkspaceImagePermissionsResponse = DescribeWorkspaceImagePermissionsResponse'
-  { imagePermissions ::
-      Lude.Maybe
-        [ImagePermission],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    imageId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifiers of the AWS accounts that the image has been shared with.
+    imagePermissions :: Lude.Maybe [ImagePermission],
+    -- | The token to use to retrieve the next set of results, or null if no more results are available.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The identifier of the image.
+    imageId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeWorkspaceImagePermissionsResponse' with the minimum fields required to make a request.
 --
--- * 'imageId' - The identifier of the image.
 -- * 'imagePermissions' - The identifiers of the AWS accounts that the image has been shared with.
 -- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
+-- * 'imageId' - The identifier of the image.
 -- * 'responseStatus' - The response status code.
 mkDescribeWorkspaceImagePermissionsResponse ::
   -- | 'responseStatus'

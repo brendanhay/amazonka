@@ -13,11 +13,11 @@
 module Network.AWS.S3.Types.TransitionStorageClass
   ( TransitionStorageClass
       ( TransitionStorageClass',
-        TSCDeepArchive,
         TSCGlacier,
-        TSCIntelligentTiering,
+        TSCStandardIA,
         TSCOnezoneIA,
-        TSCStandardIA
+        TSCIntelligentTiering,
+        TSCDeepArchive
       ),
   )
 where
@@ -49,26 +49,26 @@ newtype TransitionStorageClass = TransitionStorageClass' Lude.Text
       Lude.ToHeader
     )
 
-pattern TSCDeepArchive :: TransitionStorageClass
-pattern TSCDeepArchive = TransitionStorageClass' "DEEP_ARCHIVE"
-
 pattern TSCGlacier :: TransitionStorageClass
 pattern TSCGlacier = TransitionStorageClass' "GLACIER"
-
-pattern TSCIntelligentTiering :: TransitionStorageClass
-pattern TSCIntelligentTiering = TransitionStorageClass' "INTELLIGENT_TIERING"
-
-pattern TSCOnezoneIA :: TransitionStorageClass
-pattern TSCOnezoneIA = TransitionStorageClass' "ONEZONE_IA"
 
 pattern TSCStandardIA :: TransitionStorageClass
 pattern TSCStandardIA = TransitionStorageClass' "STANDARD_IA"
 
+pattern TSCOnezoneIA :: TransitionStorageClass
+pattern TSCOnezoneIA = TransitionStorageClass' "ONEZONE_IA"
+
+pattern TSCIntelligentTiering :: TransitionStorageClass
+pattern TSCIntelligentTiering = TransitionStorageClass' "INTELLIGENT_TIERING"
+
+pattern TSCDeepArchive :: TransitionStorageClass
+pattern TSCDeepArchive = TransitionStorageClass' "DEEP_ARCHIVE"
+
 {-# COMPLETE
-  TSCDeepArchive,
   TSCGlacier,
-  TSCIntelligentTiering,
-  TSCOnezoneIA,
   TSCStandardIA,
+  TSCOnezoneIA,
+  TSCIntelligentTiering,
+  TSCDeepArchive,
   TransitionStorageClass'
   #-}

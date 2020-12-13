@@ -14,8 +14,8 @@ module Network.AWS.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
   ( ConfigurationDeploymentStatus
       ( ConfigurationDeploymentStatus',
         CDSDeployed,
-        CDSFailed,
-        CDSPending
+        CDSPending,
+        CDSFailed
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ConfigurationDeploymentStatus = ConfigurationDeploymentStatus' Lude.Text
 pattern CDSDeployed :: ConfigurationDeploymentStatus
 pattern CDSDeployed = ConfigurationDeploymentStatus' "deployed"
 
-pattern CDSFailed :: ConfigurationDeploymentStatus
-pattern CDSFailed = ConfigurationDeploymentStatus' "failed"
-
 pattern CDSPending :: ConfigurationDeploymentStatus
 pattern CDSPending = ConfigurationDeploymentStatus' "pending"
 
+pattern CDSFailed :: ConfigurationDeploymentStatus
+pattern CDSFailed = ConfigurationDeploymentStatus' "failed"
+
 {-# COMPLETE
   CDSDeployed,
-  CDSFailed,
   CDSPending,
+  CDSFailed,
   ConfigurationDeploymentStatus'
   #-}

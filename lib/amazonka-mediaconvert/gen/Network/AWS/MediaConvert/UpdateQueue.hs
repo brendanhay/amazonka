@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.MediaConvert.UpdateQueue
 
     -- ** Request lenses
     uqStatus,
+    uqName,
     uqDescription,
     uqReservationPlanSettings,
-    uqName,
 
     -- * Destructuring the response
     UpdateQueueResponse (..),
@@ -42,26 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateQueue' smart constructor.
 data UpdateQueue = UpdateQueue'
-  { status :: Lude.Maybe QueueStatus,
+  { -- | Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+    status :: Lude.Maybe QueueStatus,
+    -- | The name of the queue that you are modifying.
+    name :: Lude.Text,
+    -- | The new description for the queue, if you are changing it.
     description :: Lude.Maybe Lude.Text,
-    reservationPlanSettings :: Lude.Maybe ReservationPlanSettings,
-    name :: Lude.Text
+    -- | The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
+    reservationPlanSettings :: Lude.Maybe ReservationPlanSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateQueue' with the minimum fields required to make a request.
 --
--- * 'description' - The new description for the queue, if you are changing it.
--- * 'name' - The name of the queue that you are modifying.
--- * 'reservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
 -- * 'status' - Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+-- * 'name' - The name of the queue that you are modifying.
+-- * 'description' - The new description for the queue, if you are changing it.
+-- * 'reservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
 mkUpdateQueue ::
   -- | 'name'
   Lude.Text ->
@@ -69,9 +68,9 @@ mkUpdateQueue ::
 mkUpdateQueue pName_ =
   UpdateQueue'
     { status = Lude.Nothing,
+      name = pName_,
       description = Lude.Nothing,
-      reservationPlanSettings = Lude.Nothing,
-      name = pName_
+      reservationPlanSettings = Lude.Nothing
     }
 
 -- | Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
@@ -80,6 +79,13 @@ mkUpdateQueue pName_ =
 uqStatus :: Lens.Lens' UpdateQueue (Lude.Maybe QueueStatus)
 uqStatus = Lens.lens (status :: UpdateQueue -> Lude.Maybe QueueStatus) (\s a -> s {status = a} :: UpdateQueue)
 {-# DEPRECATED uqStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The name of the queue that you are modifying.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqName :: Lens.Lens' UpdateQueue Lude.Text
+uqName = Lens.lens (name :: UpdateQueue -> Lude.Text) (\s a -> s {name = a} :: UpdateQueue)
+{-# DEPRECATED uqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new description for the queue, if you are changing it.
 --
@@ -94,13 +100,6 @@ uqDescription = Lens.lens (description :: UpdateQueue -> Lude.Maybe Lude.Text) (
 uqReservationPlanSettings :: Lens.Lens' UpdateQueue (Lude.Maybe ReservationPlanSettings)
 uqReservationPlanSettings = Lens.lens (reservationPlanSettings :: UpdateQueue -> Lude.Maybe ReservationPlanSettings) (\s a -> s {reservationPlanSettings = a} :: UpdateQueue)
 {-# DEPRECATED uqReservationPlanSettings "Use generic-lens or generic-optics with 'reservationPlanSettings' instead." #-}
-
--- | The name of the queue that you are modifying.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqName :: Lens.Lens' UpdateQueue Lude.Text
-uqName = Lens.lens (name :: UpdateQueue -> Lude.Text) (\s a -> s {name = a} :: UpdateQueue)
-{-# DEPRECATED uqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest UpdateQueue where
   type Rs UpdateQueue = UpdateQueueResponse
@@ -141,17 +140,12 @@ instance Lude.ToQuery UpdateQueue where
 
 -- | /See:/ 'mkUpdateQueueResponse' smart constructor.
 data UpdateQueueResponse = UpdateQueueResponse'
-  { queue ::
-      Lude.Maybe Queue,
+  { -- | You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
+    queue :: Lude.Maybe Queue,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateQueueResponse' with the minimum fields required to make a request.

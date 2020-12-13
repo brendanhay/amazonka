@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEnvironmentPlatform' smart constructor.
 data EnvironmentPlatform = EnvironmentPlatform'
-  { platform ::
-      Lude.Maybe PlatformType,
+  { -- | The platform's name.
+    platform :: Lude.Maybe PlatformType,
+    -- | The list of programming languages that are available for the specified platform.
     languages :: Lude.Maybe [EnvironmentLanguage]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EnvironmentPlatform' with the minimum fields required to make a request.
 --
--- * 'languages' - The list of programming languages that are available for the specified platform.
 -- * 'platform' - The platform's name.
+-- * 'languages' - The list of programming languages that are available for the specified platform.
 mkEnvironmentPlatform ::
   EnvironmentPlatform
 mkEnvironmentPlatform =

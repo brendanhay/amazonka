@@ -34,30 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBotMetadata' smart constructor.
 data BotMetadata = BotMetadata'
-  { status :: Lude.Maybe LexStatus,
+  { -- | The status of the bot.
+    status :: Lude.Maybe LexStatus,
+    -- | The date that the bot was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the bot.
     name :: Lude.Maybe Lude.Text,
+    -- | The version of the bot. For a new bot, the version is always @> LATEST@ .
     version :: Lude.Maybe Lude.Text,
+    -- | The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | A description of the bot.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BotMetadata' with the minimum fields required to make a request.
 --
--- * 'createdDate' - The date that the bot was created.
--- * 'description' - A description of the bot.
--- * 'lastUpdatedDate' - The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
--- * 'name' - The name of the bot.
 -- * 'status' - The status of the bot.
+-- * 'createdDate' - The date that the bot was created.
+-- * 'name' - The name of the bot.
 -- * 'version' - The version of the bot. For a new bot, the version is always @> LATEST@ .
+-- * 'lastUpdatedDate' - The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
+-- * 'description' - A description of the bot.
 mkBotMetadata ::
   BotMetadata
 mkBotMetadata =

@@ -40,26 +40,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnetGroup' smart constructor.
 data SubnetGroup = SubnetGroup'
-  { vpcId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
+    vpcId :: Lude.Maybe Lude.Text,
+    -- | A list of subnets associated with the subnet group.
     subnets :: Lude.Maybe [Subnet],
+    -- | The name of the subnet group.
     subnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The description of the subnet group.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetGroup' with the minimum fields required to make a request.
 --
--- * 'description' - The description of the subnet group.
--- * 'subnetGroupName' - The name of the subnet group.
--- * 'subnets' - A list of subnets associated with the subnet group.
 -- * 'vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the subnet group.
+-- * 'subnets' - A list of subnets associated with the subnet group.
+-- * 'subnetGroupName' - The name of the subnet group.
+-- * 'description' - The description of the subnet group.
 mkSubnetGroup ::
   SubnetGroup
 mkSubnetGroup =

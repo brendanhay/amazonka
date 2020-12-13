@@ -29,21 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUdpContainerSettings' smart constructor.
 newtype UdpContainerSettings = UdpContainerSettings'
-  { m2tsSettings ::
-      Lude.Maybe M2tsSettings
+  { m2tsSettings :: Lude.Maybe M2tsSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UdpContainerSettings' with the minimum fields required to make a request.
 --
--- * 'm2tsSettings' - Undocumented field.
+-- * 'm2tsSettings' -
 mkUdpContainerSettings ::
   UdpContainerSettings
 mkUdpContainerSettings =

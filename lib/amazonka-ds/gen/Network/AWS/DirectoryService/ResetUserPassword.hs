@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.DirectoryService.ResetUserPassword
 
     -- ** Request lenses
     rupDirectoryId,
-    rupUserName,
     rupNewPassword,
+    rupUserName,
 
     -- * Destructuring the response
     ResetUserPasswordResponse (..),
@@ -47,10 +48,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResetUserPassword' smart constructor.
 data ResetUserPassword = ResetUserPassword'
-  { directoryId ::
-      Lude.Text,
-    userName :: Lude.Text,
-    newPassword :: Lude.Sensitive Lude.Text
+  { -- | Identifier of the AWS Managed Microsoft AD or Simple AD directory in which the user resides.
+    directoryId :: Lude.Text,
+    -- | The new password that will be reset.
+    newPassword :: Lude.Sensitive Lude.Text,
+    -- | The user name of the user whose password will be reset.
+    userName :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -63,16 +66,16 @@ data ResetUserPassword = ResetUserPassword'
 mkResetUserPassword ::
   -- | 'directoryId'
   Lude.Text ->
-  -- | 'userName'
-  Lude.Text ->
   -- | 'newPassword'
   Lude.Sensitive Lude.Text ->
+  -- | 'userName'
+  Lude.Text ->
   ResetUserPassword
-mkResetUserPassword pDirectoryId_ pUserName_ pNewPassword_ =
+mkResetUserPassword pDirectoryId_ pNewPassword_ pUserName_ =
   ResetUserPassword'
     { directoryId = pDirectoryId_,
-      userName = pUserName_,
-      newPassword = pNewPassword_
+      newPassword = pNewPassword_,
+      userName = pUserName_
     }
 
 -- | Identifier of the AWS Managed Microsoft AD or Simple AD directory in which the user resides.
@@ -82,19 +85,19 @@ rupDirectoryId :: Lens.Lens' ResetUserPassword Lude.Text
 rupDirectoryId = Lens.lens (directoryId :: ResetUserPassword -> Lude.Text) (\s a -> s {directoryId = a} :: ResetUserPassword)
 {-# DEPRECATED rupDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
--- | The user name of the user whose password will be reset.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rupUserName :: Lens.Lens' ResetUserPassword Lude.Text
-rupUserName = Lens.lens (userName :: ResetUserPassword -> Lude.Text) (\s a -> s {userName = a} :: ResetUserPassword)
-{-# DEPRECATED rupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
 -- | The new password that will be reset.
 --
 -- /Note:/ Consider using 'newPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rupNewPassword :: Lens.Lens' ResetUserPassword (Lude.Sensitive Lude.Text)
 rupNewPassword = Lens.lens (newPassword :: ResetUserPassword -> Lude.Sensitive Lude.Text) (\s a -> s {newPassword = a} :: ResetUserPassword)
 {-# DEPRECATED rupNewPassword "Use generic-lens or generic-optics with 'newPassword' instead." #-}
+
+-- | The user name of the user whose password will be reset.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rupUserName :: Lens.Lens' ResetUserPassword Lude.Text
+rupUserName = Lens.lens (userName :: ResetUserPassword -> Lude.Text) (\s a -> s {userName = a} :: ResetUserPassword)
+{-# DEPRECATED rupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 instance Lude.AWSRequest ResetUserPassword where
   type Rs ResetUserPassword = ResetUserPasswordResponse
@@ -121,8 +124,8 @@ instance Lude.ToJSON ResetUserPassword where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("UserName" Lude..= userName),
-            Lude.Just ("NewPassword" Lude..= newPassword)
+            Lude.Just ("NewPassword" Lude..= newPassword),
+            Lude.Just ("UserName" Lude..= userName)
           ]
       )
 
@@ -134,16 +137,10 @@ instance Lude.ToQuery ResetUserPassword where
 
 -- | /See:/ 'mkResetUserPasswordResponse' smart constructor.
 newtype ResetUserPasswordResponse = ResetUserPasswordResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetUserPasswordResponse' with the minimum fields required to make a request.

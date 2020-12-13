@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,22 +46,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { sortOrder ::
-      Lude.Maybe SortOrderType,
+  { -- | The order in which to list build projects. Valid values include:
+    --
+    --
+    --     * @ASCENDING@ : List in ascending order.
+    --
+    --
+    --     * @DESCENDING@ : List in descending order.
+    --
+    --
+    -- Use @sortBy@ to specify the criterion to be used to list build project names.
+    sortOrder :: Lude.Maybe SortOrderType,
+    -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The criterion to be used to list build project names. Valid values include:
+    --
+    --
+    --     * @CREATED_TIME@ : List based on when each build project was created.
+    --
+    --
+    --     * @LAST_MODIFIED_TIME@ : List based on when information about each build project was last changed.
+    --
+    --
+    --     * @NAME@ : List based on each build project's name.
+    --
+    --
+    -- Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
     sortBy :: Lude.Maybe ProjectSortByType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
 --
+-- * 'sortOrder' - The order in which to list build projects. Valid values include:
+--
+--
+--     * @ASCENDING@ : List in ascending order.
+--
+--
+--     * @DESCENDING@ : List in descending order.
+--
+--
+-- Use @sortBy@ to specify the criterion to be used to list build project names.
 -- * 'nextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
 -- * 'sortBy' - The criterion to be used to list build project names. Valid values include:
 --
@@ -75,16 +103,6 @@ data ListProjects = ListProjects'
 --
 --
 -- Use @sortOrder@ to specify in what order to list the build project names based on the preceding criteria.
--- * 'sortOrder' - The order in which to list build projects. Valid values include:
---
---
---     * @ASCENDING@ : List in ascending order.
---
---
---     * @DESCENDING@ : List in descending order.
---
---
--- Use @sortBy@ to specify the criterion to be used to list build project names.
 mkListProjects ::
   ListProjects
 mkListProjects =
@@ -186,18 +204,14 @@ instance Lude.ToQuery ListProjects where
 
 -- | /See:/ 'mkListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of build project names, with each build project name representing a single build project.
     projects :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.

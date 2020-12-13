@@ -13,12 +13,12 @@
 module Network.AWS.ELBv2.Types.TargetHealthStateEnum
   ( TargetHealthStateEnum
       ( TargetHealthStateEnum',
-        Draining,
-        Healthy,
         Initial,
-        Unavailable,
+        Healthy,
         Unhealthy,
-        Unused
+        Unused,
+        Draining,
+        Unavailable
       ),
   )
 where
@@ -49,17 +49,11 @@ newtype TargetHealthStateEnum = TargetHealthStateEnum' Lude.Text
       Lude.ToHeader
     )
 
-pattern Draining :: TargetHealthStateEnum
-pattern Draining = TargetHealthStateEnum' "draining"
-
-pattern Healthy :: TargetHealthStateEnum
-pattern Healthy = TargetHealthStateEnum' "healthy"
-
 pattern Initial :: TargetHealthStateEnum
 pattern Initial = TargetHealthStateEnum' "initial"
 
-pattern Unavailable :: TargetHealthStateEnum
-pattern Unavailable = TargetHealthStateEnum' "unavailable"
+pattern Healthy :: TargetHealthStateEnum
+pattern Healthy = TargetHealthStateEnum' "healthy"
 
 pattern Unhealthy :: TargetHealthStateEnum
 pattern Unhealthy = TargetHealthStateEnum' "unhealthy"
@@ -67,12 +61,18 @@ pattern Unhealthy = TargetHealthStateEnum' "unhealthy"
 pattern Unused :: TargetHealthStateEnum
 pattern Unused = TargetHealthStateEnum' "unused"
 
+pattern Draining :: TargetHealthStateEnum
+pattern Draining = TargetHealthStateEnum' "draining"
+
+pattern Unavailable :: TargetHealthStateEnum
+pattern Unavailable = TargetHealthStateEnum' "unavailable"
+
 {-# COMPLETE
-  Draining,
-  Healthy,
   Initial,
-  Unavailable,
+  Healthy,
   Unhealthy,
   Unused,
+  Draining,
+  Unavailable,
   TargetHealthStateEnum'
   #-}

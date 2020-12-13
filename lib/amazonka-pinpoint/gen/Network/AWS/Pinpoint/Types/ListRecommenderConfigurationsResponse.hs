@@ -30,25 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkListRecommenderConfigurationsResponse' smart constructor.
 data ListRecommenderConfigurationsResponse = ListRecommenderConfigurationsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    item ::
-      [RecommenderConfigurationResponse]
+  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of responses, one for each recommender model configuration that's associated with your Amazon Pinpoint account.
+    item :: [RecommenderConfigurationResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListRecommenderConfigurationsResponse' with the minimum fields required to make a request.
 --
--- * 'item' - An array of responses, one for each recommender model configuration that's associated with your Amazon Pinpoint account.
 -- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+-- * 'item' - An array of responses, one for each recommender model configuration that's associated with your Amazon Pinpoint account.
 mkListRecommenderConfigurationsResponse ::
   ListRecommenderConfigurationsResponse
 mkListRecommenderConfigurationsResponse =

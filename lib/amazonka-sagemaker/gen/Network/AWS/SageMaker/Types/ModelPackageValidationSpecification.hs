@@ -30,25 +30,18 @@ import Network.AWS.SageMaker.Types.ModelPackageValidationProfile
 --
 -- /See:/ 'mkModelPackageValidationSpecification' smart constructor.
 data ModelPackageValidationSpecification = ModelPackageValidationSpecification'
-  { validationRole ::
-      Lude.Text,
-    validationProfiles ::
-      Lude.NonEmpty
-        ModelPackageValidationProfile
+  { -- | The IAM roles to be used for the validation of the model package.
+    validationRole :: Lude.Text,
+    -- | An array of @ModelPackageValidationProfile@ objects, each of which specifies a batch transform job that Amazon SageMaker runs to validate your model package.
+    validationProfiles :: Lude.NonEmpty ModelPackageValidationProfile
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ModelPackageValidationSpecification' with the minimum fields required to make a request.
 --
--- * 'validationProfiles' - An array of @ModelPackageValidationProfile@ objects, each of which specifies a batch transform job that Amazon SageMaker runs to validate your model package.
 -- * 'validationRole' - The IAM roles to be used for the validation of the model package.
+-- * 'validationProfiles' - An array of @ModelPackageValidationProfile@ objects, each of which specifies a batch transform job that Amazon SageMaker runs to validate your model package.
 mkModelPackageValidationSpecification ::
   -- | 'validationRole'
   Lude.Text ->

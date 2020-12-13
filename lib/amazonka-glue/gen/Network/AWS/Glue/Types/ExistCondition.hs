@@ -14,8 +14,8 @@ module Network.AWS.Glue.Types.ExistCondition
   ( ExistCondition
       ( ExistCondition',
         MustExist,
-        None,
-        NotExist
+        NotExist,
+        None
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ExistCondition = ExistCondition' Lude.Text
 pattern MustExist :: ExistCondition
 pattern MustExist = ExistCondition' "MUST_EXIST"
 
-pattern None :: ExistCondition
-pattern None = ExistCondition' "NONE"
-
 pattern NotExist :: ExistCondition
 pattern NotExist = ExistCondition' "NOT_EXIST"
 
+pattern None :: ExistCondition
+pattern None = ExistCondition' "NONE"
+
 {-# COMPLETE
   MustExist,
-  None,
   NotExist,
+  None,
   ExistCondition'
   #-}

@@ -33,26 +33,19 @@ import Network.AWS.SageMaker.Types.ProblemType
 --
 -- /See:/ 'mkResolvedAttributes' smart constructor.
 data ResolvedAttributes = ResolvedAttributes'
-  { problemType ::
-      Lude.Maybe ProblemType,
+  { -- | The problem type.
+    problemType :: Lude.Maybe ProblemType,
     autoMLJobObjective :: Lude.Maybe AutoMLJobObjective,
-    completionCriteria ::
-      Lude.Maybe AutoMLJobCompletionCriteria
+    completionCriteria :: Lude.Maybe AutoMLJobCompletionCriteria
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolvedAttributes' with the minimum fields required to make a request.
 --
--- * 'autoMLJobObjective' - Undocumented field.
--- * 'completionCriteria' - Undocumented field.
 -- * 'problemType' - The problem type.
+-- * 'autoMLJobObjective' -
+-- * 'completionCriteria' -
 mkResolvedAttributes ::
   ResolvedAttributes
 mkResolvedAttributes =

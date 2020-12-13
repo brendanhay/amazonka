@@ -35,31 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexProgram' smart constructor.
 data MultiplexProgram = MultiplexProgram'
-  { packetIdentifiersMap ::
-      Lude.Maybe MultiplexProgramPacketIdentifiersMap,
-    pipelineDetails ::
-      Lude.Maybe [MultiplexProgramPipelineDetail],
+  { -- | The packet identifier map for this multiplex program.
+    packetIdentifiersMap :: Lude.Maybe MultiplexProgramPacketIdentifiersMap,
+    -- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+    pipelineDetails :: Lude.Maybe [MultiplexProgramPipelineDetail],
+    -- | The name of the multiplex program.
     programName :: Lude.Maybe Lude.Text,
+    -- | The MediaLive channel associated with the program.
     channelId :: Lude.Maybe Lude.Text,
-    multiplexProgramSettings ::
-      Lude.Maybe MultiplexProgramSettings
+    -- | The settings for this multiplex program.
+    multiplexProgramSettings :: Lude.Maybe MultiplexProgramSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexProgram' with the minimum fields required to make a request.
 --
--- * 'channelId' - The MediaLive channel associated with the program.
--- * 'multiplexProgramSettings' - The settings for this multiplex program.
 -- * 'packetIdentifiersMap' - The packet identifier map for this multiplex program.
 -- * 'pipelineDetails' - Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
 -- * 'programName' - The name of the multiplex program.
+-- * 'channelId' - The MediaLive channel associated with the program.
+-- * 'multiplexProgramSettings' - The settings for this multiplex program.
 mkMultiplexProgram ::
   MultiplexProgram
 mkMultiplexProgram =

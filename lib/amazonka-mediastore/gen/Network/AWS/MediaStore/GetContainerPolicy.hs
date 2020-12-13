@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.MediaStore.GetContainerPolicy
     mkGetContainerPolicy,
 
     -- ** Request lenses
-    gContainerName,
+    gcpContainerName,
 
     -- * Destructuring the response
     GetContainerPolicyResponse (..),
     mkGetContainerPolicyResponse,
 
     -- ** Response lenses
-    gcprsResponseStatus,
-    gcprsPolicy,
+    grsPolicy,
+    grsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetContainerPolicy' smart constructor.
 newtype GetContainerPolicy = GetContainerPolicy'
-  { containerName ::
-      Lude.Text
+  { -- | The name of the container.
+    containerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerPolicy' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkGetContainerPolicy pContainerName_ =
 -- | The name of the container.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gContainerName :: Lens.Lens' GetContainerPolicy Lude.Text
-gContainerName = Lens.lens (containerName :: GetContainerPolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetContainerPolicy)
-{-# DEPRECATED gContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+gcpContainerName :: Lens.Lens' GetContainerPolicy Lude.Text
+gcpContainerName = Lens.lens (containerName :: GetContainerPolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetContainerPolicy)
+{-# DEPRECATED gcpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 instance Lude.AWSRequest GetContainerPolicy where
   type Rs GetContainerPolicy = GetContainerPolicyResponse
@@ -75,7 +70,7 @@ instance Lude.AWSRequest GetContainerPolicy where
     Res.receiveJSON
       ( \s h x ->
           GetContainerPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "Policy")
+            Lude.<$> (x Lude..:> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetContainerPolicy where
@@ -104,17 +99,12 @@ instance Lude.ToQuery GetContainerPolicy where
 
 -- | /See:/ 'mkGetContainerPolicyResponse' smart constructor.
 data GetContainerPolicyResponse = GetContainerPolicyResponse'
-  { responseStatus ::
-      Lude.Int,
-    policy :: Lude.Text
+  { -- | The contents of the access policy.
+    policy :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetContainerPolicyResponse' with the minimum fields required to make a request.
@@ -122,27 +112,27 @@ data GetContainerPolicyResponse = GetContainerPolicyResponse'
 -- * 'policy' - The contents of the access policy.
 -- * 'responseStatus' - The response status code.
 mkGetContainerPolicyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'policy'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetContainerPolicyResponse
-mkGetContainerPolicyResponse pResponseStatus_ pPolicy_ =
+mkGetContainerPolicyResponse pPolicy_ pResponseStatus_ =
   GetContainerPolicyResponse'
-    { responseStatus = pResponseStatus_,
-      policy = pPolicy_
+    { policy = pPolicy_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcprsResponseStatus :: Lens.Lens' GetContainerPolicyResponse Lude.Int
-gcprsResponseStatus = Lens.lens (responseStatus :: GetContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerPolicyResponse)
-{-# DEPRECATED gcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The contents of the access policy.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcprsPolicy :: Lens.Lens' GetContainerPolicyResponse Lude.Text
-gcprsPolicy = Lens.lens (policy :: GetContainerPolicyResponse -> Lude.Text) (\s a -> s {policy = a} :: GetContainerPolicyResponse)
-{-# DEPRECATED gcprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+grsPolicy :: Lens.Lens' GetContainerPolicyResponse Lude.Text
+grsPolicy = Lens.lens (policy :: GetContainerPolicyResponse -> Lude.Text) (\s a -> s {policy = a} :: GetContainerPolicyResponse)
+{-# DEPRECATED grsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsResponseStatus :: Lens.Lens' GetContainerPolicyResponse Lude.Int
+grsResponseStatus = Lens.lens (responseStatus :: GetContainerPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerPolicyResponse)
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

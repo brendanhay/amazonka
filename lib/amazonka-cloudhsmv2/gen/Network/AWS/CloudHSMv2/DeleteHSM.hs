@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CloudHSMv2.DeleteHSM
     -- ** Request lenses
     dhEniId,
     dhHSMId,
-    dhEniIP,
     dhClusterId,
+    dhEniIP,
 
     -- * Destructuring the response
     DeleteHSMResponse (..),
@@ -42,26 +43,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteHSM' smart constructor.
 data DeleteHSM = DeleteHSM'
-  { eniId :: Lude.Maybe Lude.Text,
+  { -- | The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting.
+    eniId :: Lude.Maybe Lude.Text,
+    -- | The identifier (ID) of the HSM that you are deleting.
     hsmId :: Lude.Maybe Lude.Text,
-    eniIP :: Lude.Maybe Lude.Text,
-    clusterId :: Lude.Text
+    -- | The identifier (ID) of the cluster that contains the HSM that you are deleting.
+    clusterId :: Lude.Text,
+    -- | The IP address of the elastic network interface (ENI) of the HSM that you are deleting.
+    eniIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSM' with the minimum fields required to make a request.
 --
--- * 'clusterId' - The identifier (ID) of the cluster that contains the HSM that you are deleting.
--- * 'eniIP' - The IP address of the elastic network interface (ENI) of the HSM that you are deleting.
 -- * 'eniId' - The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting.
 -- * 'hsmId' - The identifier (ID) of the HSM that you are deleting.
+-- * 'clusterId' - The identifier (ID) of the cluster that contains the HSM that you are deleting.
+-- * 'eniIP' - The IP address of the elastic network interface (ENI) of the HSM that you are deleting.
 mkDeleteHSM ::
   -- | 'clusterId'
   Lude.Text ->
@@ -70,8 +69,8 @@ mkDeleteHSM pClusterId_ =
   DeleteHSM'
     { eniId = Lude.Nothing,
       hsmId = Lude.Nothing,
-      eniIP = Lude.Nothing,
-      clusterId = pClusterId_
+      clusterId = pClusterId_,
+      eniIP = Lude.Nothing
     }
 
 -- | The identifier (ID) of the elastic network interface (ENI) of the HSM that you are deleting.
@@ -88,19 +87,19 @@ dhHSMId :: Lens.Lens' DeleteHSM (Lude.Maybe Lude.Text)
 dhHSMId = Lens.lens (hsmId :: DeleteHSM -> Lude.Maybe Lude.Text) (\s a -> s {hsmId = a} :: DeleteHSM)
 {-# DEPRECATED dhHSMId "Use generic-lens or generic-optics with 'hsmId' instead." #-}
 
--- | The IP address of the elastic network interface (ENI) of the HSM that you are deleting.
---
--- /Note:/ Consider using 'eniIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhEniIP :: Lens.Lens' DeleteHSM (Lude.Maybe Lude.Text)
-dhEniIP = Lens.lens (eniIP :: DeleteHSM -> Lude.Maybe Lude.Text) (\s a -> s {eniIP = a} :: DeleteHSM)
-{-# DEPRECATED dhEniIP "Use generic-lens or generic-optics with 'eniIP' instead." #-}
-
 -- | The identifier (ID) of the cluster that contains the HSM that you are deleting.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dhClusterId :: Lens.Lens' DeleteHSM Lude.Text
 dhClusterId = Lens.lens (clusterId :: DeleteHSM -> Lude.Text) (\s a -> s {clusterId = a} :: DeleteHSM)
 {-# DEPRECATED dhClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The IP address of the elastic network interface (ENI) of the HSM that you are deleting.
+--
+-- /Note:/ Consider using 'eniIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhEniIP :: Lens.Lens' DeleteHSM (Lude.Maybe Lude.Text)
+dhEniIP = Lens.lens (eniIP :: DeleteHSM -> Lude.Maybe Lude.Text) (\s a -> s {eniIP = a} :: DeleteHSM)
+{-# DEPRECATED dhEniIP "Use generic-lens or generic-optics with 'eniIP' instead." #-}
 
 instance Lude.AWSRequest DeleteHSM where
   type Rs DeleteHSM = DeleteHSMResponse
@@ -129,8 +128,8 @@ instance Lude.ToJSON DeleteHSM where
       ( Lude.catMaybes
           [ ("EniId" Lude..=) Lude.<$> eniId,
             ("HsmId" Lude..=) Lude.<$> hsmId,
-            ("EniIp" Lude..=) Lude.<$> eniIP,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+            Lude.Just ("ClusterId" Lude..= clusterId),
+            ("EniIp" Lude..=) Lude.<$> eniIP
           ]
       )
 
@@ -142,17 +141,12 @@ instance Lude.ToQuery DeleteHSM where
 
 -- | /See:/ 'mkDeleteHSMResponse' smart constructor.
 data DeleteHSMResponse = DeleteHSMResponse'
-  { hsmId ::
-      Lude.Maybe Lude.Text,
+  { -- | The identifier (ID) of the HSM that was deleted.
+    hsmId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.

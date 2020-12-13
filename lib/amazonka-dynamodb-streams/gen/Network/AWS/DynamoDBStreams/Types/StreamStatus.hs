@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDBStreams.Types.StreamStatus
   ( StreamStatus
       ( StreamStatus',
-        Disabled,
-        Disabling,
+        Enabling,
         Enabled,
-        Enabling
+        Disabling,
+        Disabled
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype StreamStatus = StreamStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disabled :: StreamStatus
-pattern Disabled = StreamStatus' "DISABLED"
-
-pattern Disabling :: StreamStatus
-pattern Disabling = StreamStatus' "DISABLING"
+pattern Enabling :: StreamStatus
+pattern Enabling = StreamStatus' "ENABLING"
 
 pattern Enabled :: StreamStatus
 pattern Enabled = StreamStatus' "ENABLED"
 
-pattern Enabling :: StreamStatus
-pattern Enabling = StreamStatus' "ENABLING"
+pattern Disabling :: StreamStatus
+pattern Disabling = StreamStatus' "DISABLING"
+
+pattern Disabled :: StreamStatus
+pattern Disabled = StreamStatus' "DISABLED"
 
 {-# COMPLETE
-  Disabled,
-  Disabling,
-  Enabled,
   Enabling,
+  Enabled,
+  Disabling,
+  Disabled,
   StreamStatus'
   #-}

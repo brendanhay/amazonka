@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,13 +27,13 @@ module Network.AWS.ElasticSearch.CreateElasticsearchDomain
     cedAdvancedSecurityOptions,
     cedElasticsearchClusterConfig,
     cedSnapshotOptions,
+    cedDomainName,
     cedCognitoOptions,
     cedEncryptionAtRestOptions,
     cedVPCOptions,
     cedDomainEndpointOptions,
     cedAdvancedOptions,
     cedElasticsearchVersion,
-    cedDomainName,
 
     -- * Destructuring the response
     CreateElasticsearchDomainResponse (..),
@@ -52,56 +53,54 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateElasticsearchDomain' smart constructor.
 data CreateElasticsearchDomain = CreateElasticsearchDomain'
-  { ebsOptions ::
-      Lude.Maybe EBSOptions,
-    nodeToNodeEncryptionOptions ::
-      Lude.Maybe NodeToNodeEncryptionOptions,
+  { -- | Options to enable, disable and specify the type and size of EBS storage volumes.
+    ebsOptions :: Lude.Maybe EBSOptions,
+    -- | Specifies the NodeToNodeEncryptionOptions.
+    nodeToNodeEncryptionOptions :: Lude.Maybe NodeToNodeEncryptionOptions,
+    -- | IAM access policy as a JSON-formatted string.
     accessPolicies :: Lude.Maybe Lude.Text,
-    logPublishingOptions ::
-      Lude.Maybe
-        ( Lude.HashMap
-            LogType
-            (LogPublishingOption)
-        ),
-    advancedSecurityOptions ::
-      Lude.Maybe AdvancedSecurityOptionsInput,
-    elasticsearchClusterConfig ::
-      Lude.Maybe ElasticsearchClusterConfig,
-    snapshotOptions ::
-      Lude.Maybe SnapshotOptions,
-    cognitoOptions ::
-      Lude.Maybe CognitoOptions,
-    encryptionAtRestOptions ::
-      Lude.Maybe EncryptionAtRestOptions,
+    -- | Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+    logPublishingOptions :: Lude.Maybe (Lude.HashMap LogType (LogPublishingOption)),
+    -- | Specifies advanced security options.
+    advancedSecurityOptions :: Lude.Maybe AdvancedSecurityOptionsInput,
+    -- | Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
+    elasticsearchClusterConfig :: Lude.Maybe ElasticsearchClusterConfig,
+    -- | Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
+    snapshotOptions :: Lude.Maybe SnapshotOptions,
+    -- | The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+    domainName :: Lude.Text,
+    -- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+    cognitoOptions :: Lude.Maybe CognitoOptions,
+    -- | Specifies the Encryption At Rest Options.
+    encryptionAtRestOptions :: Lude.Maybe EncryptionAtRestOptions,
+    -- | Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
     vpcOptions :: Lude.Maybe VPCOptions,
-    domainEndpointOptions ::
-      Lude.Maybe DomainEndpointOptions,
-    advancedOptions ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text)),
-    elasticsearchVersion ::
-      Lude.Maybe Lude.Text,
-    domainName :: Lude.Text
+    -- | Options to specify configuration that will be applied to the domain endpoint.
+    domainEndpointOptions :: Lude.Maybe DomainEndpointOptions,
+    -- | Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+    advancedOptions :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
+    elasticsearchVersion :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateElasticsearchDomain' with the minimum fields required to make a request.
 --
--- * 'accessPolicies' - IAM access policy as a JSON-formatted string.
--- * 'advancedOptions' - Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
--- * 'advancedSecurityOptions' - Specifies advanced security options.
--- * 'cognitoOptions' - Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
--- * 'domainEndpointOptions' - Options to specify configuration that will be applied to the domain endpoint.
--- * 'domainName' - The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
 -- * 'ebsOptions' - Options to enable, disable and specify the type and size of EBS storage volumes.
--- * 'elasticsearchClusterConfig' - Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
--- * 'elasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
--- * 'encryptionAtRestOptions' - Specifies the Encryption At Rest Options.
--- * 'logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
 -- * 'nodeToNodeEncryptionOptions' - Specifies the NodeToNodeEncryptionOptions.
+-- * 'accessPolicies' - IAM access policy as a JSON-formatted string.
+-- * 'logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@ , each containing options to publish a given type of Elasticsearch log.
+-- * 'advancedSecurityOptions' - Specifies advanced security options.
+-- * 'elasticsearchClusterConfig' - Configuration options for an Elasticsearch domain. Specifies the instance type and number of instances in the domain cluster.
 -- * 'snapshotOptions' - Option to set time, in UTC format, of the daily automated snapshot. Default value is 0 hours.
+-- * 'domainName' - The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+-- * 'cognitoOptions' - Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
+-- * 'encryptionAtRestOptions' - Specifies the Encryption At Rest Options.
 -- * 'vpcOptions' - Options to specify the subnets and security groups for VPC endpoint. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC> in /VPC Endpoints for Amazon Elasticsearch Service Domains/
+-- * 'domainEndpointOptions' - Options to specify configuration that will be applied to the domain endpoint.
+-- * 'advancedOptions' - Option to allow references to indices in an HTTP request body. Must be @false@ when configuring access to individual sub-resources. By default, the value is @true@ . See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options> for more information.
+-- * 'elasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain eg. "1.5" or "2.3". For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains> in the /Amazon Elasticsearch Service Developer Guide/ .
 mkCreateElasticsearchDomain ::
   -- | 'domainName'
   Lude.Text ->
@@ -115,13 +114,13 @@ mkCreateElasticsearchDomain pDomainName_ =
       advancedSecurityOptions = Lude.Nothing,
       elasticsearchClusterConfig = Lude.Nothing,
       snapshotOptions = Lude.Nothing,
+      domainName = pDomainName_,
       cognitoOptions = Lude.Nothing,
       encryptionAtRestOptions = Lude.Nothing,
       vpcOptions = Lude.Nothing,
       domainEndpointOptions = Lude.Nothing,
       advancedOptions = Lude.Nothing,
-      elasticsearchVersion = Lude.Nothing,
-      domainName = pDomainName_
+      elasticsearchVersion = Lude.Nothing
     }
 
 -- | Options to enable, disable and specify the type and size of EBS storage volumes.
@@ -173,6 +172,13 @@ cedSnapshotOptions :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe SnapshotO
 cedSnapshotOptions = Lens.lens (snapshotOptions :: CreateElasticsearchDomain -> Lude.Maybe SnapshotOptions) (\s a -> s {snapshotOptions = a} :: CreateElasticsearchDomain)
 {-# DEPRECATED cedSnapshotOptions "Use generic-lens or generic-optics with 'snapshotOptions' instead." #-}
 
+-- | The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedDomainName :: Lens.Lens' CreateElasticsearchDomain Lude.Text
+cedDomainName = Lens.lens (domainName :: CreateElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateElasticsearchDomain)
+{-# DEPRECATED cedDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
 -- | Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana> .
 --
 -- /Note:/ Consider using 'cognitoOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -215,13 +221,6 @@ cedElasticsearchVersion :: Lens.Lens' CreateElasticsearchDomain (Lude.Maybe Lude
 cedElasticsearchVersion = Lens.lens (elasticsearchVersion :: CreateElasticsearchDomain -> Lude.Maybe Lude.Text) (\s a -> s {elasticsearchVersion = a} :: CreateElasticsearchDomain)
 {-# DEPRECATED cedElasticsearchVersion "Use generic-lens or generic-optics with 'elasticsearchVersion' instead." #-}
 
--- | The name of the Elasticsearch domain that you are creating. Domain names are unique across the domains owned by an account within an AWS region. Domain names must start with a lowercase letter and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedDomainName :: Lens.Lens' CreateElasticsearchDomain Lude.Text
-cedDomainName = Lens.lens (domainName :: CreateElasticsearchDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateElasticsearchDomain)
-{-# DEPRECATED cedDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
 instance Lude.AWSRequest CreateElasticsearchDomain where
   type
     Rs CreateElasticsearchDomain =
@@ -251,14 +250,14 @@ instance Lude.ToJSON CreateElasticsearchDomain where
             ("ElasticsearchClusterConfig" Lude..=)
               Lude.<$> elasticsearchClusterConfig,
             ("SnapshotOptions" Lude..=) Lude.<$> snapshotOptions,
+            Lude.Just ("DomainName" Lude..= domainName),
             ("CognitoOptions" Lude..=) Lude.<$> cognitoOptions,
             ("EncryptionAtRestOptions" Lude..=)
               Lude.<$> encryptionAtRestOptions,
             ("VPCOptions" Lude..=) Lude.<$> vpcOptions,
             ("DomainEndpointOptions" Lude..=) Lude.<$> domainEndpointOptions,
             ("AdvancedOptions" Lude..=) Lude.<$> advancedOptions,
-            ("ElasticsearchVersion" Lude..=) Lude.<$> elasticsearchVersion,
-            Lude.Just ("DomainName" Lude..= domainName)
+            ("ElasticsearchVersion" Lude..=) Lude.<$> elasticsearchVersion
           ]
       )
 
@@ -272,19 +271,12 @@ instance Lude.ToQuery CreateElasticsearchDomain where
 --
 -- /See:/ 'mkCreateElasticsearchDomainResponse' smart constructor.
 data CreateElasticsearchDomainResponse = CreateElasticsearchDomainResponse'
-  { domainStatus ::
-      Lude.Maybe
-        ElasticsearchDomainStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the newly created Elasticsearch domain.
+    domainStatus :: Lude.Maybe ElasticsearchDomainStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateElasticsearchDomainResponse' with the minimum fields required to make a request.

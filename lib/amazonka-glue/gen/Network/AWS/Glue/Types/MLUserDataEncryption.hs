@@ -17,8 +17,8 @@ module Network.AWS.Glue.Types.MLUserDataEncryption
     mkMLUserDataEncryption,
 
     -- * Lenses
-    mludeKMSKeyId,
     mludeMlUserDataEncryptionMode,
+    mludeKMSKeyId,
   )
 where
 
@@ -30,23 +30,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMLUserDataEncryption' smart constructor.
 data MLUserDataEncryption = MLUserDataEncryption'
-  { kmsKeyId ::
-      Lude.Maybe Lude.Text,
-    mlUserDataEncryptionMode ::
-      MLUserDataEncryptionModeString
+  { -- | The encryption mode applied to user data. Valid values are:
+    --
+    --
+    --     * DISABLED: encryption is disabled
+    --
+    --
+    --     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
+    mlUserDataEncryptionMode :: MLUserDataEncryptionModeString,
+    -- | The ID for the customer-provided KMS key.
+    kmsKeyId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MLUserDataEncryption' with the minimum fields required to make a request.
 --
--- * 'kmsKeyId' - The ID for the customer-provided KMS key.
 -- * 'mlUserDataEncryptionMode' - The encryption mode applied to user data. Valid values are:
 --
 --
@@ -54,22 +53,19 @@ data MLUserDataEncryption = MLUserDataEncryption'
 --
 --
 --     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
+--
+--
+-- * 'kmsKeyId' - The ID for the customer-provided KMS key.
 mkMLUserDataEncryption ::
   -- | 'mlUserDataEncryptionMode'
   MLUserDataEncryptionModeString ->
   MLUserDataEncryption
 mkMLUserDataEncryption pMlUserDataEncryptionMode_ =
   MLUserDataEncryption'
-    { kmsKeyId = Lude.Nothing,
-      mlUserDataEncryptionMode = pMlUserDataEncryptionMode_
+    { mlUserDataEncryptionMode =
+        pMlUserDataEncryptionMode_,
+      kmsKeyId = Lude.Nothing
     }
-
--- | The ID for the customer-provided KMS key.
---
--- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mludeKMSKeyId :: Lens.Lens' MLUserDataEncryption (Lude.Maybe Lude.Text)
-mludeKMSKeyId = Lens.lens (kmsKeyId :: MLUserDataEncryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: MLUserDataEncryption)
-{-# DEPRECATED mludeKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The encryption mode applied to user data. Valid values are:
 --
@@ -86,22 +82,29 @@ mludeMlUserDataEncryptionMode :: Lens.Lens' MLUserDataEncryption MLUserDataEncry
 mludeMlUserDataEncryptionMode = Lens.lens (mlUserDataEncryptionMode :: MLUserDataEncryption -> MLUserDataEncryptionModeString) (\s a -> s {mlUserDataEncryptionMode = a} :: MLUserDataEncryption)
 {-# DEPRECATED mludeMlUserDataEncryptionMode "Use generic-lens or generic-optics with 'mlUserDataEncryptionMode' instead." #-}
 
+-- | The ID for the customer-provided KMS key.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mludeKMSKeyId :: Lens.Lens' MLUserDataEncryption (Lude.Maybe Lude.Text)
+mludeKMSKeyId = Lens.lens (kmsKeyId :: MLUserDataEncryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: MLUserDataEncryption)
+{-# DEPRECATED mludeKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+
 instance Lude.FromJSON MLUserDataEncryption where
   parseJSON =
     Lude.withObject
       "MLUserDataEncryption"
       ( \x ->
           MLUserDataEncryption'
-            Lude.<$> (x Lude..:? "KmsKeyId")
-            Lude.<*> (x Lude..: "MlUserDataEncryptionMode")
+            Lude.<$> (x Lude..: "MlUserDataEncryptionMode")
+            Lude.<*> (x Lude..:? "KmsKeyId")
       )
 
 instance Lude.ToJSON MLUserDataEncryption where
   toJSON MLUserDataEncryption' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
-            Lude.Just
-              ("MlUserDataEncryptionMode" Lude..= mlUserDataEncryptionMode)
+          [ Lude.Just
+              ("MlUserDataEncryptionMode" Lude..= mlUserDataEncryptionMode),
+            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId
           ]
       )

@@ -13,8 +13,8 @@
 module Network.AWS.DynamoDB.Types.ContributorInsightsAction
   ( ContributorInsightsAction
       ( ContributorInsightsAction',
-        Disable,
-        Enable
+        Enable,
+        Disable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ContributorInsightsAction = ContributorInsightsAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Disable :: ContributorInsightsAction
-pattern Disable = ContributorInsightsAction' "DISABLE"
-
 pattern Enable :: ContributorInsightsAction
 pattern Enable = ContributorInsightsAction' "ENABLE"
 
+pattern Disable :: ContributorInsightsAction
+pattern Disable = ContributorInsightsAction' "DISABLE"
+
 {-# COMPLETE
-  Disable,
   Enable,
+  Disable,
   ContributorInsightsAction'
   #-}

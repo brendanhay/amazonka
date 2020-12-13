@@ -71,109 +71,192 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRun' smart constructor.
 data Run = Run'
-  { billingMethod :: Lude.Maybe BillingMethod,
+  { -- | Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
+    billingMethod :: Lude.Maybe BillingMethod,
+    -- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+    --
+    -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
     skipAppResign :: Lude.Maybe Lude.Bool,
+    -- | The run's status.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PENDING_CONCURRENCY
+    --
+    --
+    --     * PENDING_DEVICE
+    --
+    --
+    --     * PROCESSING
+    --
+    --
+    --     * SCHEDULING
+    --
+    --
+    --     * PREPARING
+    --
+    --
+    --     * RUNNING
+    --
+    --
+    --     * COMPLETED
+    --
+    --
+    --     * STOPPING
     status :: Lude.Maybe ExecutionStatus,
+    -- | Output @CustomerArtifactPaths@ object for the test run.
     customerArtifactPaths :: Lude.Maybe CustomerArtifactPaths,
+    -- | For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform.
     eventCount :: Lude.Maybe Lude.Int,
+    -- | The run's result counters.
     counters :: Lude.Maybe Counters,
+    -- | The run's platform.
+    --
+    -- Allowed values include:
+    --
+    --     * ANDROID
+    --
+    --
+    --     * IOS
     platform :: Lude.Maybe DevicePlatform,
+    -- | For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
     seed :: Lude.Maybe Lude.Int,
+    -- | Information about the radio states for the run.
     radios :: Lude.Maybe Radios,
+    -- | The run's ARN.
     arn :: Lude.Maybe Lude.Text,
+    -- | Information about the location that is used for the run.
     location :: Lude.Maybe Location,
+    -- | When the run was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | Information about the locale that is used for the run.
     locale :: Lude.Maybe Lude.Text,
+    -- | The ARN of the YAML-formatted test specification for the run.
     testSpecARN :: Lude.Maybe Lude.Text,
+    -- | The run's stop time.
     stopped :: Lude.Maybe Lude.Timestamp,
+    -- | The run's result.
+    --
+    -- Allowed values include:
+    --
+    --     * PENDING
+    --
+    --
+    --     * PASSED
+    --
+    --
+    --     * WARNED
+    --
+    --
+    --     * FAILED
+    --
+    --
+    --     * SKIPPED
+    --
+    --
+    --     * ERRORED
+    --
+    --
+    --     * STOPPED
     result :: Lude.Maybe ExecutionResult,
+    -- | The number of minutes the job executes before it times out.
     jobTimeoutMinutes :: Lude.Maybe Lude.Int,
+    -- | The total number of completed jobs.
     completedJobs :: Lude.Maybe Lude.Int,
+    -- | Supporting field for the result field. Set only if @result@ is @SKIPPED@ . @PARSING_FAILED@ if the result is skipped because of test package parsing failure.
     resultCode :: Lude.Maybe ExecutionResultCode,
+    -- | The run's name.
     name :: Lude.Maybe Lude.Text,
+    -- | An app to upload or that has been uploaded.
     appUpload :: Lude.Maybe Lude.Text,
+    -- | Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
     parsingResultURL :: Lude.Maybe Lude.Text,
+    -- | The network profile being used for a test run.
     networkProfile :: Lude.Maybe NetworkProfile,
+    -- | Represents the total (metered or unmetered) minutes used by the test run.
     deviceMinutes :: Lude.Maybe DeviceMinutes,
+    -- | The run's type.
+    --
+    -- Must be one of the following values:
+    --
+    --     * BUILTIN_FUZZ
+    --
+    --
+    --     * BUILTIN_EXPLORER
+    --
+    --
+    --     * APPIUM_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_PYTHON
+    --
+    --
+    --     * APPIUM_NODE
+    --
+    --
+    --     * APPIUM_RUBY
+    --
+    --
+    --     * APPIUM_WEB_JAVA_JUNIT
+    --
+    --
+    --     * APPIUM_WEB_JAVA_TESTNG
+    --
+    --
+    --     * APPIUM_WEB_PYTHON
+    --
+    --
+    --     * APPIUM_WEB_NODE
+    --
+    --
+    --     * APPIUM_WEB_RUBY
+    --
+    --
+    --     * CALABASH
+    --
+    --
+    --     * INSTRUMENTATION
+    --
+    --
+    --     * UIAUTOMATION
+    --
+    --
+    --     * UIAUTOMATOR
+    --
+    --
+    --     * XCTEST
+    --
+    --
+    --     * XCTEST_UI
     type' :: Lude.Maybe TestType,
+    -- | A message about the run's result.
     message :: Lude.Maybe Lude.Text,
+    -- | The Device Farm console URL for the recording of the run.
     webURL :: Lude.Maybe Lude.Text,
+    -- | The total number of jobs for the run.
     totalJobs :: Lude.Maybe Lude.Int,
+    -- | The ARN of the device pool for the run.
     devicePoolARN :: Lude.Maybe Lude.Text,
+    -- | The run's start time.
     started :: Lude.Maybe Lude.Timestamp,
+    -- | The results of a device filter used to select the devices for a test run.
     deviceSelectionResult :: Lude.Maybe DeviceSelectionResult
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Run' with the minimum fields required to make a request.
 --
--- * 'appUpload' - An app to upload or that has been uploaded.
--- * 'arn' - The run's ARN.
 -- * 'billingMethod' - Specifies the billing method for a test run: @metered@ or @unmetered@ . If the parameter is not specified, the default value is @metered@ .
--- * 'completedJobs' - The total number of completed jobs.
--- * 'counters' - The run's result counters.
--- * 'created' - When the run was created.
--- * 'customerArtifactPaths' - Output @CustomerArtifactPaths@ object for the test run.
--- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test run.
--- * 'devicePoolARN' - The ARN of the device pool for the run.
--- * 'deviceSelectionResult' - The results of a device filter used to select the devices for a test run.
--- * 'eventCount' - For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform.
--- * 'jobTimeoutMinutes' - The number of minutes the job executes before it times out.
--- * 'locale' - Information about the locale that is used for the run.
--- * 'location' - Information about the location that is used for the run.
--- * 'message' - A message about the run's result.
--- * 'name' - The run's name.
--- * 'networkProfile' - The network profile being used for a test run.
--- * 'parsingResultURL' - Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
--- * 'platform' - The run's platform.
---
--- Allowed values include:
---
---     * ANDROID
---
---
---     * IOS
---
---
--- * 'radios' - Information about the radio states for the run.
--- * 'result' - The run's result.
---
--- Allowed values include:
---
---     * PENDING
---
---
---     * PASSED
---
---
---     * WARNED
---
---
---     * FAILED
---
---
---     * SKIPPED
---
---
---     * ERRORED
---
---
---     * STOPPED
---
---
--- * 'resultCode' - Supporting field for the result field. Set only if @result@ is @SKIPPED@ . @PARSING_FAILED@ if the result is skipped because of test package parsing failure.
--- * 'seed' - For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
 -- * 'skipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
--- * 'started' - The run's start time.
 -- * 'status' - The run's status.
 --
 -- Allowed values include:
@@ -205,9 +288,60 @@ data Run = Run'
 --     * STOPPING
 --
 --
--- * 'stopped' - The run's stop time.
+-- * 'customerArtifactPaths' - Output @CustomerArtifactPaths@ object for the test run.
+-- * 'eventCount' - For fuzz tests, this is the number of events, between 1 and 10000, that the UI fuzz test should perform.
+-- * 'counters' - The run's result counters.
+-- * 'platform' - The run's platform.
+--
+-- Allowed values include:
+--
+--     * ANDROID
+--
+--
+--     * IOS
+--
+--
+-- * 'seed' - For fuzz tests, this is a seed to use for randomizing the UI fuzz test. Using the same seed value between tests ensures identical event sequences.
+-- * 'radios' - Information about the radio states for the run.
+-- * 'arn' - The run's ARN.
+-- * 'location' - Information about the location that is used for the run.
+-- * 'created' - When the run was created.
+-- * 'locale' - Information about the locale that is used for the run.
 -- * 'testSpecARN' - The ARN of the YAML-formatted test specification for the run.
--- * 'totalJobs' - The total number of jobs for the run.
+-- * 'stopped' - The run's stop time.
+-- * 'result' - The run's result.
+--
+-- Allowed values include:
+--
+--     * PENDING
+--
+--
+--     * PASSED
+--
+--
+--     * WARNED
+--
+--
+--     * FAILED
+--
+--
+--     * SKIPPED
+--
+--
+--     * ERRORED
+--
+--
+--     * STOPPED
+--
+--
+-- * 'jobTimeoutMinutes' - The number of minutes the job executes before it times out.
+-- * 'completedJobs' - The total number of completed jobs.
+-- * 'resultCode' - Supporting field for the result field. Set only if @result@ is @SKIPPED@ . @PARSING_FAILED@ if the result is skipped because of test package parsing failure.
+-- * 'name' - The run's name.
+-- * 'appUpload' - An app to upload or that has been uploaded.
+-- * 'parsingResultURL' - Read-only URL for an object in an S3 bucket where you can get the parsing results of the test package. If the test package doesn't parse, the reason why it doesn't parse appears in the file that this URL points to.
+-- * 'networkProfile' - The network profile being used for a test run.
+-- * 'deviceMinutes' - Represents the total (metered or unmetered) minutes used by the test run.
 -- * 'type'' - The run's type.
 --
 -- Must be one of the following values:
@@ -266,7 +400,12 @@ data Run = Run'
 --     * XCTEST_UI
 --
 --
+-- * 'message' - A message about the run's result.
 -- * 'webURL' - The Device Farm console URL for the recording of the run.
+-- * 'totalJobs' - The total number of jobs for the run.
+-- * 'devicePoolARN' - The ARN of the device pool for the run.
+-- * 'started' - The run's start time.
+-- * 'deviceSelectionResult' - The results of a device filter used to select the devices for a test run.
 mkRun ::
   Run
 mkRun =

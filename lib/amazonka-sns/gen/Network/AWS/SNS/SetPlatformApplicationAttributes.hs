@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,24 +39,44 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkSetPlatformApplicationAttributes' smart constructor.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
-  { platformApplicationARN ::
-      Lude.Text,
-    attributes ::
-      Lude.HashMap
-        Lude.Text
-        (Lude.Text)
+  { -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
+    platformApplicationARN :: Lude.Text,
+    -- | A map of the platform application attributes. Attributes in this map include the following:
+    --
+    --
+    --     * @PlatformCredential@ – The credential received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformCredential@ is @private key@ . For @GCM@ (Firebase Cloud Messaging), @PlatformCredential@ is @API key@ . For @ADM@ , @PlatformCredential@ is @client secret@ .
+    --
+    --
+    --     * @PlatformPrincipal@ – The principal received from the notification service. For @APNS@ and @APNS_SANDBOX@ , @PlatformPrincipal@ is @SSL certificate@ . For @GCM@ (Firebase Cloud Messaging), there is no @PlatformPrincipal@ . For @ADM@ , @PlatformPrincipal@ is @client id@ .
+    --
+    --
+    --     * @EventEndpointCreated@ – Topic ARN to which @EndpointCreated@ event notifications are sent.
+    --
+    --
+    --     * @EventEndpointDeleted@ – Topic ARN to which @EndpointDeleted@ event notifications are sent.
+    --
+    --
+    --     * @EventEndpointUpdated@ – Topic ARN to which @EndpointUpdate@ event notifications are sent.
+    --
+    --
+    --     * @EventDeliveryFailure@ – Topic ARN to which @DeliveryFailure@ event notifications are sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.
+    --
+    --
+    --     * @SuccessFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
+    --
+    --
+    --     * @FailureFeedbackRoleArn@ – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.
+    --
+    --
+    --     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
+    attributes :: Lude.HashMap Lude.Text (Lude.Text)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetPlatformApplicationAttributes' with the minimum fields required to make a request.
 --
+-- * 'platformApplicationARN' - PlatformApplicationArn for SetPlatformApplicationAttributes action.
 -- * 'attributes' - A map of the platform application attributes. Attributes in this map include the following:
 --
 --
@@ -84,9 +105,6 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
 --
 --
 --     * @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of successfully delivered messages.
---
---
--- * 'platformApplicationARN' - PlatformApplicationArn for SetPlatformApplicationAttributes action.
 mkSetPlatformApplicationAttributes ::
   -- | 'platformApplicationARN'
   Lude.Text ->
@@ -168,13 +186,7 @@ instance Lude.ToQuery SetPlatformApplicationAttributes where
 
 -- | /See:/ 'mkSetPlatformApplicationAttributesResponse' smart constructor.
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.

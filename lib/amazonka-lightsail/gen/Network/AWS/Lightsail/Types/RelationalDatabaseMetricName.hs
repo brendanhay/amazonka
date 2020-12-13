@@ -13,12 +13,12 @@
 module Network.AWS.Lightsail.Types.RelationalDatabaseMetricName
   ( RelationalDatabaseMetricName
       ( RelationalDatabaseMetricName',
-        CPUUtilization,
-        DatabaseConnections,
-        DiskQueueDepth,
-        FreeStorageSpace,
-        NetworkReceiveThroughput,
-        NetworkTransmitThroughput
+        RDMNCPUUtilization,
+        RDMNDatabaseConnections,
+        RDMNDiskQueueDepth,
+        RDMNFreeStorageSpace,
+        RDMNNetworkReceiveThroughput,
+        RDMNNetworkTransmitThroughput
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype RelationalDatabaseMetricName = RelationalDatabaseMetricName' Lude.Text
       Lude.ToHeader
     )
 
-pattern CPUUtilization :: RelationalDatabaseMetricName
-pattern CPUUtilization = RelationalDatabaseMetricName' "CPUUtilization"
+pattern RDMNCPUUtilization :: RelationalDatabaseMetricName
+pattern RDMNCPUUtilization = RelationalDatabaseMetricName' "CPUUtilization"
 
-pattern DatabaseConnections :: RelationalDatabaseMetricName
-pattern DatabaseConnections = RelationalDatabaseMetricName' "DatabaseConnections"
+pattern RDMNDatabaseConnections :: RelationalDatabaseMetricName
+pattern RDMNDatabaseConnections = RelationalDatabaseMetricName' "DatabaseConnections"
 
-pattern DiskQueueDepth :: RelationalDatabaseMetricName
-pattern DiskQueueDepth = RelationalDatabaseMetricName' "DiskQueueDepth"
+pattern RDMNDiskQueueDepth :: RelationalDatabaseMetricName
+pattern RDMNDiskQueueDepth = RelationalDatabaseMetricName' "DiskQueueDepth"
 
-pattern FreeStorageSpace :: RelationalDatabaseMetricName
-pattern FreeStorageSpace = RelationalDatabaseMetricName' "FreeStorageSpace"
+pattern RDMNFreeStorageSpace :: RelationalDatabaseMetricName
+pattern RDMNFreeStorageSpace = RelationalDatabaseMetricName' "FreeStorageSpace"
 
-pattern NetworkReceiveThroughput :: RelationalDatabaseMetricName
-pattern NetworkReceiveThroughput = RelationalDatabaseMetricName' "NetworkReceiveThroughput"
+pattern RDMNNetworkReceiveThroughput :: RelationalDatabaseMetricName
+pattern RDMNNetworkReceiveThroughput = RelationalDatabaseMetricName' "NetworkReceiveThroughput"
 
-pattern NetworkTransmitThroughput :: RelationalDatabaseMetricName
-pattern NetworkTransmitThroughput = RelationalDatabaseMetricName' "NetworkTransmitThroughput"
+pattern RDMNNetworkTransmitThroughput :: RelationalDatabaseMetricName
+pattern RDMNNetworkTransmitThroughput = RelationalDatabaseMetricName' "NetworkTransmitThroughput"
 
 {-# COMPLETE
-  CPUUtilization,
-  DatabaseConnections,
-  DiskQueueDepth,
-  FreeStorageSpace,
-  NetworkReceiveThroughput,
-  NetworkTransmitThroughput,
+  RDMNCPUUtilization,
+  RDMNDatabaseConnections,
+  RDMNDiskQueueDepth,
+  RDMNFreeStorageSpace,
+  RDMNNetworkReceiveThroughput,
+  RDMNNetworkTransmitThroughput,
   RelationalDatabaseMetricName'
   #-}

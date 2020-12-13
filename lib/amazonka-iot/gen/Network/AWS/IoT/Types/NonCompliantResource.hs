@@ -32,26 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNonCompliantResource' smart constructor.
 data NonCompliantResource = NonCompliantResource'
-  { additionalInfo ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | Other information about the noncompliant resource.
+    additionalInfo :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The type of the noncompliant resource.
     resourceType :: Lude.Maybe ResourceType,
-    resourceIdentifier ::
-      Lude.Maybe ResourceIdentifier
+    -- | Information that identifies the noncompliant resource.
+    resourceIdentifier :: Lude.Maybe ResourceIdentifier
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NonCompliantResource' with the minimum fields required to make a request.
 --
 -- * 'additionalInfo' - Other information about the noncompliant resource.
--- * 'resourceIdentifier' - Information that identifies the noncompliant resource.
 -- * 'resourceType' - The type of the noncompliant resource.
+-- * 'resourceIdentifier' - Information that identifies the noncompliant resource.
 mkNonCompliantResource ::
   NonCompliantResource
 mkNonCompliantResource =

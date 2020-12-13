@@ -15,8 +15,8 @@ module Network.AWS.IoT.Types.AuditFindingSeverity
       ( AuditFindingSeverity',
         Critical,
         High,
-        Low,
-        Medium
+        Medium,
+        Low
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern Critical = AuditFindingSeverity' "CRITICAL"
 pattern High :: AuditFindingSeverity
 pattern High = AuditFindingSeverity' "HIGH"
 
-pattern Low :: AuditFindingSeverity
-pattern Low = AuditFindingSeverity' "LOW"
-
 pattern Medium :: AuditFindingSeverity
 pattern Medium = AuditFindingSeverity' "MEDIUM"
+
+pattern Low :: AuditFindingSeverity
+pattern Low = AuditFindingSeverity' "LOW"
 
 {-# COMPLETE
   Critical,
   High,
-  Low,
   Medium,
+  Low,
   AuditFindingSeverity'
   #-}

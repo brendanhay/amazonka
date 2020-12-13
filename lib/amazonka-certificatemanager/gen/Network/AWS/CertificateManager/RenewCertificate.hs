@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,16 +36,13 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRenewCertificate' smart constructor.
 newtype RenewCertificate = RenewCertificate'
-  { certificateARN ::
-      Lude.Text
+  { -- | String that contains the ARN of the ACM certificate to be renewed. This must be of the form:
+    --
+    -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    certificateARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewCertificate' with the minimum fields required to make a request.
@@ -101,13 +99,7 @@ instance Lude.ToQuery RenewCertificate where
 
 -- | /See:/ 'mkRenewCertificateResponse' smart constructor.
 data RenewCertificateResponse = RenewCertificateResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RenewCertificateResponse' with the minimum fields required to make a request.

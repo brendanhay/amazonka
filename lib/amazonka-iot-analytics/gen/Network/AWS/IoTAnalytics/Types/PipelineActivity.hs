@@ -47,41 +47,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineActivity' smart constructor.
 data PipelineActivity = PipelineActivity'
-  { selectAttributes ::
-      Lude.Maybe SelectAttributesActivity,
+  { -- | Creates a new message using only the specified attributes from the original message.
+    selectAttributes :: Lude.Maybe SelectAttributesActivity,
+    -- | Determines the source of the messages to be processed.
     channel :: Lude.Maybe ChannelActivity,
+    -- | Adds other attributes based on existing attributes in the message.
     addAttributes :: Lude.Maybe AddAttributesActivity,
-    deviceRegistryEnrich ::
-      Lude.Maybe DeviceRegistryEnrichActivity,
+    -- | Adds data from the AWS IoT device registry to your message.
+    deviceRegistryEnrich :: Lude.Maybe DeviceRegistryEnrichActivity,
+    -- | Removes attributes from a message.
     removeAttributes :: Lude.Maybe RemoveAttributesActivity,
+    -- | Runs a Lambda function to modify the message.
     lambda :: Lude.Maybe LambdaActivity,
+    -- | Specifies where to store the processed message data.
     datastore :: Lude.Maybe DatastoreActivity,
-    deviceShadowEnrich ::
-      Lude.Maybe DeviceShadowEnrichActivity,
+    -- | Adds information from the AWS IoT Device Shadow service to a message.
+    deviceShadowEnrich :: Lude.Maybe DeviceShadowEnrichActivity,
+    -- | Filters a message based on its attributes.
     filter :: Lude.Maybe FilterActivity,
+    -- | Computes an arithmetic expression using the message's attributes and adds it to the message.
     math :: Lude.Maybe MathActivity
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineActivity' with the minimum fields required to make a request.
 --
--- * 'addAttributes' - Adds other attributes based on existing attributes in the message.
+-- * 'selectAttributes' - Creates a new message using only the specified attributes from the original message.
 -- * 'channel' - Determines the source of the messages to be processed.
--- * 'datastore' - Specifies where to store the processed message data.
+-- * 'addAttributes' - Adds other attributes based on existing attributes in the message.
 -- * 'deviceRegistryEnrich' - Adds data from the AWS IoT device registry to your message.
+-- * 'removeAttributes' - Removes attributes from a message.
+-- * 'lambda' - Runs a Lambda function to modify the message.
+-- * 'datastore' - Specifies where to store the processed message data.
 -- * 'deviceShadowEnrich' - Adds information from the AWS IoT Device Shadow service to a message.
 -- * 'filter' - Filters a message based on its attributes.
--- * 'lambda' - Runs a Lambda function to modify the message.
 -- * 'math' - Computes an arithmetic expression using the message's attributes and adds it to the message.
--- * 'removeAttributes' - Removes attributes from a message.
--- * 'selectAttributes' - Creates a new message using only the specified attributes from the original message.
 mkPipelineActivity ::
   PipelineActivity
 mkPipelineActivity =

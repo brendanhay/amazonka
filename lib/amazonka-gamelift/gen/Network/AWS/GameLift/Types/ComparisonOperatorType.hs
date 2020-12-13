@@ -15,8 +15,8 @@ module Network.AWS.GameLift.Types.ComparisonOperatorType
       ( ComparisonOperatorType',
         GreaterThanOrEqualToThreshold,
         GreaterThanThreshold,
-        LessThanOrEqualToThreshold,
-        LessThanThreshold
+        LessThanThreshold,
+        LessThanOrEqualToThreshold
       ),
   )
 where
@@ -53,16 +53,16 @@ pattern GreaterThanOrEqualToThreshold = ComparisonOperatorType' "GreaterThanOrEq
 pattern GreaterThanThreshold :: ComparisonOperatorType
 pattern GreaterThanThreshold = ComparisonOperatorType' "GreaterThanThreshold"
 
-pattern LessThanOrEqualToThreshold :: ComparisonOperatorType
-pattern LessThanOrEqualToThreshold = ComparisonOperatorType' "LessThanOrEqualToThreshold"
-
 pattern LessThanThreshold :: ComparisonOperatorType
 pattern LessThanThreshold = ComparisonOperatorType' "LessThanThreshold"
+
+pattern LessThanOrEqualToThreshold :: ComparisonOperatorType
+pattern LessThanOrEqualToThreshold = ComparisonOperatorType' "LessThanOrEqualToThreshold"
 
 {-# COMPLETE
   GreaterThanOrEqualToThreshold,
   GreaterThanThreshold,
-  LessThanOrEqualToThreshold,
   LessThanThreshold,
+  LessThanOrEqualToThreshold,
   ComparisonOperatorType'
   #-}

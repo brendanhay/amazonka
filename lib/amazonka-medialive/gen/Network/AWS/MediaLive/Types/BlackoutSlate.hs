@@ -35,30 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlackoutSlate' smart constructor.
 data BlackoutSlate = BlackoutSlate'
-  { networkEndBlackoutImage ::
-      Lude.Maybe InputLocation,
+  { -- | Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
+    networkEndBlackoutImage :: Lude.Maybe InputLocation,
+    -- | When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
     state :: Lude.Maybe BlackoutSlateState,
-    networkEndBlackout ::
-      Lude.Maybe BlackoutSlateNetworkEndBlackout,
+    -- | Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+    networkEndBlackout :: Lude.Maybe BlackoutSlateNetworkEndBlackout,
+    -- | Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
     networkId :: Lude.Maybe Lude.Text,
+    -- | Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
     blackoutSlateImage :: Lude.Maybe InputLocation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlackoutSlate' with the minimum fields required to make a request.
 --
--- * 'blackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
--- * 'networkEndBlackout' - Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
 -- * 'networkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
--- * 'networkId' - Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
 -- * 'state' - When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
+-- * 'networkEndBlackout' - Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
+-- * 'networkId' - Provides Network ID that matches EIDR ID format (e.g., "10.XXXX/XXXX-XXXX-XXXX-XXXX-XXXX-C").
+-- * 'blackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
 mkBlackoutSlate ::
   BlackoutSlate
 mkBlackoutSlate =

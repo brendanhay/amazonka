@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.IAM.GetLoginProfile
     mkGetLoginProfileResponse,
 
     -- ** Response lenses
-    glprsResponseStatus,
     glprsLoginProfile,
+    glprsResponseStatus,
   )
 where
 
@@ -38,14 +39,13 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetLoginProfile' smart constructor.
-newtype GetLoginProfile = GetLoginProfile' {userName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetLoginProfile = GetLoginProfile'
+  { -- | The name of the user whose login profile you want to retrieve.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoginProfile' with the minimum fields required to make a request.
@@ -77,7 +77,7 @@ instance Lude.AWSRequest GetLoginProfile where
       "GetLoginProfileResult"
       ( \s h x ->
           GetLoginProfileResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "LoginProfile")
+            Lude.<$> (x Lude..@ "LoginProfile") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetLoginProfile where
@@ -98,17 +98,12 @@ instance Lude.ToQuery GetLoginProfile where
 --
 -- /See:/ 'mkGetLoginProfileResponse' smart constructor.
 data GetLoginProfileResponse = GetLoginProfileResponse'
-  { responseStatus ::
-      Lude.Int,
-    loginProfile :: LoginProfile
+  { -- | A structure containing the user name and password create date for the user.
+    loginProfile :: LoginProfile,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetLoginProfileResponse' with the minimum fields required to make a request.
@@ -116,23 +111,16 @@ data GetLoginProfileResponse = GetLoginProfileResponse'
 -- * 'loginProfile' - A structure containing the user name and password create date for the user.
 -- * 'responseStatus' - The response status code.
 mkGetLoginProfileResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'loginProfile'
   LoginProfile ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetLoginProfileResponse
-mkGetLoginProfileResponse pResponseStatus_ pLoginProfile_ =
+mkGetLoginProfileResponse pLoginProfile_ pResponseStatus_ =
   GetLoginProfileResponse'
-    { responseStatus = pResponseStatus_,
-      loginProfile = pLoginProfile_
+    { loginProfile = pLoginProfile_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glprsResponseStatus :: Lens.Lens' GetLoginProfileResponse Lude.Int
-glprsResponseStatus = Lens.lens (responseStatus :: GetLoginProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoginProfileResponse)
-{-# DEPRECATED glprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A structure containing the user name and password create date for the user.
 --
@@ -140,3 +128,10 @@ glprsResponseStatus = Lens.lens (responseStatus :: GetLoginProfileResponse -> Lu
 glprsLoginProfile :: Lens.Lens' GetLoginProfileResponse LoginProfile
 glprsLoginProfile = Lens.lens (loginProfile :: GetLoginProfileResponse -> LoginProfile) (\s a -> s {loginProfile = a} :: GetLoginProfileResponse)
 {-# DEPRECATED glprsLoginProfile "Use generic-lens or generic-optics with 'loginProfile' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glprsResponseStatus :: Lens.Lens' GetLoginProfileResponse Lude.Int
+glprsResponseStatus = Lens.lens (responseStatus :: GetLoginProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLoginProfileResponse)
+{-# DEPRECATED glprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,8 +18,8 @@ module Network.AWS.Budgets.Types.SsmActionDefinition
 
     -- * Lenses
     sadActionSubType,
-    sadRegion,
     sadInstanceIds,
+    sadRegion,
   )
 where
 
@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSsmActionDefinition' smart constructor.
 data SsmActionDefinition = SsmActionDefinition'
-  { actionSubType ::
-      ActionSubType,
-    region :: Lude.Text,
-    instanceIds :: Lude.NonEmpty Lude.Text
+  { -- | The action subType.
+    actionSubType :: ActionSubType,
+    -- | The EC2 and RDS instance IDs.
+    instanceIds :: Lude.NonEmpty Lude.Text,
+    -- | The Region to run the SSM document.
+    region :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SsmActionDefinition' with the minimum fields required to make a request.
@@ -53,16 +49,16 @@ data SsmActionDefinition = SsmActionDefinition'
 mkSsmActionDefinition ::
   -- | 'actionSubType'
   ActionSubType ->
-  -- | 'region'
-  Lude.Text ->
   -- | 'instanceIds'
   Lude.NonEmpty Lude.Text ->
+  -- | 'region'
+  Lude.Text ->
   SsmActionDefinition
-mkSsmActionDefinition pActionSubType_ pRegion_ pInstanceIds_ =
+mkSsmActionDefinition pActionSubType_ pInstanceIds_ pRegion_ =
   SsmActionDefinition'
     { actionSubType = pActionSubType_,
-      region = pRegion_,
-      instanceIds = pInstanceIds_
+      instanceIds = pInstanceIds_,
+      region = pRegion_
     }
 
 -- | The action subType.
@@ -72,19 +68,19 @@ sadActionSubType :: Lens.Lens' SsmActionDefinition ActionSubType
 sadActionSubType = Lens.lens (actionSubType :: SsmActionDefinition -> ActionSubType) (\s a -> s {actionSubType = a} :: SsmActionDefinition)
 {-# DEPRECATED sadActionSubType "Use generic-lens or generic-optics with 'actionSubType' instead." #-}
 
--- | The Region to run the SSM document.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadRegion :: Lens.Lens' SsmActionDefinition Lude.Text
-sadRegion = Lens.lens (region :: SsmActionDefinition -> Lude.Text) (\s a -> s {region = a} :: SsmActionDefinition)
-{-# DEPRECATED sadRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
 -- | The EC2 and RDS instance IDs.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sadInstanceIds :: Lens.Lens' SsmActionDefinition (Lude.NonEmpty Lude.Text)
 sadInstanceIds = Lens.lens (instanceIds :: SsmActionDefinition -> Lude.NonEmpty Lude.Text) (\s a -> s {instanceIds = a} :: SsmActionDefinition)
 {-# DEPRECATED sadInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+-- | The Region to run the SSM document.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadRegion :: Lens.Lens' SsmActionDefinition Lude.Text
+sadRegion = Lens.lens (region :: SsmActionDefinition -> Lude.Text) (\s a -> s {region = a} :: SsmActionDefinition)
+{-# DEPRECATED sadRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 instance Lude.FromJSON SsmActionDefinition where
   parseJSON =
@@ -93,8 +89,8 @@ instance Lude.FromJSON SsmActionDefinition where
       ( \x ->
           SsmActionDefinition'
             Lude.<$> (x Lude..: "ActionSubType")
-            Lude.<*> (x Lude..: "Region")
             Lude.<*> (x Lude..: "InstanceIds")
+            Lude.<*> (x Lude..: "Region")
       )
 
 instance Lude.ToJSON SsmActionDefinition where
@@ -102,7 +98,7 @@ instance Lude.ToJSON SsmActionDefinition where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("ActionSubType" Lude..= actionSubType),
-            Lude.Just ("Region" Lude..= region),
-            Lude.Just ("InstanceIds" Lude..= instanceIds)
+            Lude.Just ("InstanceIds" Lude..= instanceIds),
+            Lude.Just ("Region" Lude..= region)
           ]
       )

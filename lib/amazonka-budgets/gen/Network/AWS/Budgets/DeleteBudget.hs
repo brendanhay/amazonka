@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,7 +30,7 @@ module Network.AWS.Budgets.DeleteBudget
     mkDeleteBudgetResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
+    dbfrsResponseStatus,
   )
 where
 
@@ -43,16 +44,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteBudget' smart constructor.
 data DeleteBudget = DeleteBudget'
-  { accountId :: Lude.Text,
+  { -- | The @accountId@ that is associated with the budget that you want to delete.
+    accountId :: Lude.Text,
+    -- | The name of the budget that you want to delete.
     budgetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBudget' with the minimum fields required to make a request.
@@ -121,16 +118,10 @@ instance Lude.ToQuery DeleteBudget where
 --
 -- /See:/ 'mkDeleteBudgetResponse' smart constructor.
 newtype DeleteBudgetResponse = DeleteBudgetResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteBudgetResponse' with the minimum fields required to make a request.
@@ -146,6 +137,6 @@ mkDeleteBudgetResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteBudgetResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteBudgetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBudgetResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbfrsResponseStatus :: Lens.Lens' DeleteBudgetResponse Lude.Int
+dbfrsResponseStatus = Lens.lens (responseStatus :: DeleteBudgetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBudgetResponse)
+{-# DEPRECATED dbfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

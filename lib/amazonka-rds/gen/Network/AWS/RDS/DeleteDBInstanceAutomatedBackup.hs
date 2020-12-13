@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.RDS.DeleteDBInstanceAutomatedBackup
     mkDeleteDBInstanceAutomatedBackup,
 
     -- ** Request lenses
-    ddiabDBiResourceId,
+    ddbiabDBiResourceId,
 
     -- * Destructuring the response
     DeleteDBInstanceAutomatedBackupResponse (..),
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDBInstanceAutomatedBackup' smart constructor.
 newtype DeleteDBInstanceAutomatedBackup = DeleteDBInstanceAutomatedBackup'
-  { dbiResourceId ::
-      Lude.Text
+  { -- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
+    dbiResourceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBInstanceAutomatedBackup' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkDeleteDBInstanceAutomatedBackup pDBiResourceId_ =
 -- | The identifier for the source DB instance, which can't be changed and which is unique to an AWS Region.
 --
 -- /Note:/ Consider using 'dbiResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddiabDBiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup Lude.Text
-ddiabDBiResourceId = Lens.lens (dbiResourceId :: DeleteDBInstanceAutomatedBackup -> Lude.Text) (\s a -> s {dbiResourceId = a} :: DeleteDBInstanceAutomatedBackup)
-{-# DEPRECATED ddiabDBiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
+ddbiabDBiResourceId :: Lens.Lens' DeleteDBInstanceAutomatedBackup Lude.Text
+ddbiabDBiResourceId = Lens.lens (dbiResourceId :: DeleteDBInstanceAutomatedBackup -> Lude.Text) (\s a -> s {dbiResourceId = a} :: DeleteDBInstanceAutomatedBackup)
+{-# DEPRECATED ddbiabDBiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
 
 instance Lude.AWSRequest DeleteDBInstanceAutomatedBackup where
   type
@@ -101,24 +96,16 @@ instance Lude.ToQuery DeleteDBInstanceAutomatedBackup where
 
 -- | /See:/ 'mkDeleteDBInstanceAutomatedBackupResponse' smart constructor.
 data DeleteDBInstanceAutomatedBackupResponse = DeleteDBInstanceAutomatedBackupResponse'
-  { dbInstanceAutomatedBackup ::
-      Lude.Maybe
-        DBInstanceAutomatedBackup,
-    responseStatus ::
-      Lude.Int
+  { dbInstanceAutomatedBackup :: Lude.Maybe DBInstanceAutomatedBackup,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDBInstanceAutomatedBackupResponse' with the minimum fields required to make a request.
 --
--- * 'dbInstanceAutomatedBackup' - Undocumented field.
+-- * 'dbInstanceAutomatedBackup' -
 -- * 'responseStatus' - The response status code.
 mkDeleteDBInstanceAutomatedBackupResponse ::
   -- | 'responseStatus'

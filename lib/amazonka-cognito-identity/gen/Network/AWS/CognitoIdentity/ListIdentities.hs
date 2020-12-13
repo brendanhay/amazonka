@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.CognitoIdentity.ListIdentities
     mkListIdentities,
 
     -- ** Request lenses
+    liIdentityPoolId,
     liHideDisabled,
     liNextToken,
-    liIdentityPoolId,
     liMaxResults,
 
     -- * Destructuring the response
@@ -48,27 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { hideDisabled ::
-      Lude.Maybe Lude.Bool,
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | An identity pool ID in the format REGION:GUID.
     identityPoolId :: Lude.Text,
+    -- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
+    hideDisabled :: Lude.Maybe Lude.Bool,
+    -- | A pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of identities to return.
     maxResults :: Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
 --
--- * 'hideDisabled' - An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 -- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'maxResults' - The maximum number of identities to return.
+-- * 'hideDisabled' - An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 -- * 'nextToken' - A pagination token.
+-- * 'maxResults' - The maximum number of identities to return.
 mkListIdentities ::
   -- | 'identityPoolId'
   Lude.Text ->
@@ -77,11 +75,18 @@ mkListIdentities ::
   ListIdentities
 mkListIdentities pIdentityPoolId_ pMaxResults_ =
   ListIdentities'
-    { hideDisabled = Lude.Nothing,
+    { identityPoolId = pIdentityPoolId_,
+      hideDisabled = Lude.Nothing,
       nextToken = Lude.Nothing,
-      identityPoolId = pIdentityPoolId_,
       maxResults = pMaxResults_
     }
+
+-- | An identity pool ID in the format REGION:GUID.
+--
+-- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liIdentityPoolId :: Lens.Lens' ListIdentities Lude.Text
+liIdentityPoolId = Lens.lens (identityPoolId :: ListIdentities -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListIdentities)
+{-# DEPRECATED liIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
 --
@@ -96,13 +101,6 @@ liHideDisabled = Lens.lens (hideDisabled :: ListIdentities -> Lude.Maybe Lude.Bo
 liNextToken :: Lens.Lens' ListIdentities (Lude.Maybe Lude.Text)
 liNextToken = Lens.lens (nextToken :: ListIdentities -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListIdentities)
 {-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | An identity pool ID in the format REGION:GUID.
---
--- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liIdentityPoolId :: Lens.Lens' ListIdentities Lude.Text
-liIdentityPoolId = Lens.lens (identityPoolId :: ListIdentities -> Lude.Text) (\s a -> s {identityPoolId = a} :: ListIdentities)
-{-# DEPRECATED liIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | The maximum number of identities to return.
 --
@@ -139,9 +137,9 @@ instance Lude.ToJSON ListIdentities where
   toJSON ListIdentities' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("HideDisabled" Lude..=) Lude.<$> hideDisabled,
+          [ Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
+            ("HideDisabled" Lude..=) Lude.<$> hideDisabled,
             ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
             Lude.Just ("MaxResults" Lude..= maxResults)
           ]
       )
@@ -156,27 +154,23 @@ instance Lude.ToQuery ListIdentities where
 --
 -- /See:/ 'mkListIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-  { identityPoolId ::
-      Lude.Maybe Lude.Text,
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Lude.Maybe Lude.Text,
+    -- | A pagination token.
     nextToken :: Lude.Maybe Lude.Text,
-    identities ::
-      Lude.Maybe [IdentityDescription],
+    -- | An object containing a set of identities and associated mappings.
+    identities :: Lude.Maybe [IdentityDescription],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
 --
--- * 'identities' - An object containing a set of identities and associated mappings.
 -- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
 -- * 'nextToken' - A pagination token.
+-- * 'identities' - An object containing a set of identities and associated mappings.
 -- * 'responseStatus' - The response status code.
 mkListIdentitiesResponse ::
   -- | 'responseStatus'

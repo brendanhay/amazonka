@@ -37,29 +37,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMovSettings' smart constructor.
 data MovSettings = MovSettings'
-  { reference ::
-      Lude.Maybe MovReference,
+  { -- | Always keep the default value (SELF_CONTAINED) for this setting.
+    reference :: Lude.Maybe MovReference,
+    -- | When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
     cslgAtom :: Lude.Maybe MovCslgAtom,
+    -- | When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
     mpeg2FourCCControl :: Lude.Maybe MovMpeg2FourCCControl,
+    -- | To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
     paddingControl :: Lude.Maybe MovPaddingControl,
+    -- | When enabled, include 'clap' atom if appropriate for the video output settings.
     clapAtom :: Lude.Maybe MovClapAtom
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MovSettings' with the minimum fields required to make a request.
 --
--- * 'clapAtom' - When enabled, include 'clap' atom if appropriate for the video output settings.
+-- * 'reference' - Always keep the default value (SELF_CONTAINED) for this setting.
 -- * 'cslgAtom' - When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
 -- * 'mpeg2FourCCControl' - When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
 -- * 'paddingControl' - To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
--- * 'reference' - Always keep the default value (SELF_CONTAINED) for this setting.
+-- * 'clapAtom' - When enabled, include 'clap' atom if appropriate for the video output settings.
 mkMovSettings ::
   MovSettings
 mkMovSettings =

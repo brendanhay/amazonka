@@ -27,9 +27,9 @@ module Network.AWS.MediaStore.Types
     mkCORSRule,
     crAllowedMethods,
     crMaxAgeSeconds,
-    crExposeHeaders,
-    crAllowedOrigins,
     crAllowedHeaders,
+    crAllowedOrigins,
+    crExposeHeaders,
 
     -- * Container
     Container (..),
@@ -44,8 +44,8 @@ module Network.AWS.MediaStore.Types
     -- * MetricPolicy
     MetricPolicy (..),
     mkMetricPolicy,
-    mpMetricPolicyRules,
     mpContainerLevelMetrics,
+    mpMetricPolicyRules,
 
     -- * MetricPolicyRule
     MetricPolicyRule (..),

@@ -16,8 +16,8 @@ module Network.AWS.AppSync.Types.APICacheStatus
         Available,
         Creating,
         Deleting,
-        Failed,
-        Modifying
+        Modifying,
+        Failed
       ),
   )
 where
@@ -57,17 +57,17 @@ pattern Creating = APICacheStatus' "CREATING"
 pattern Deleting :: APICacheStatus
 pattern Deleting = APICacheStatus' "DELETING"
 
-pattern Failed :: APICacheStatus
-pattern Failed = APICacheStatus' "FAILED"
-
 pattern Modifying :: APICacheStatus
 pattern Modifying = APICacheStatus' "MODIFYING"
+
+pattern Failed :: APICacheStatus
+pattern Failed = APICacheStatus' "FAILED"
 
 {-# COMPLETE
   Available,
   Creating,
   Deleting,
-  Failed,
   Modifying,
+  Failed,
   APICacheStatus'
   #-}

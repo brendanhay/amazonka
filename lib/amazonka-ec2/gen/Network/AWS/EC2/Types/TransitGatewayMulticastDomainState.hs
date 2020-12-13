@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.TransitGatewayMulticastDomainState
   ( TransitGatewayMulticastDomainState
       ( TransitGatewayMulticastDomainState',
+        TGMDSPending,
         TGMDSAvailable,
-        TGMDSDeleted,
         TGMDSDeleting,
-        TGMDSPending
+        TGMDSDeleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype TransitGatewayMulticastDomainState = TransitGatewayMulticastDomainState'
       Lude.ToHeader
     )
 
+pattern TGMDSPending :: TransitGatewayMulticastDomainState
+pattern TGMDSPending = TransitGatewayMulticastDomainState' "pending"
+
 pattern TGMDSAvailable :: TransitGatewayMulticastDomainState
 pattern TGMDSAvailable = TransitGatewayMulticastDomainState' "available"
-
-pattern TGMDSDeleted :: TransitGatewayMulticastDomainState
-pattern TGMDSDeleted = TransitGatewayMulticastDomainState' "deleted"
 
 pattern TGMDSDeleting :: TransitGatewayMulticastDomainState
 pattern TGMDSDeleting = TransitGatewayMulticastDomainState' "deleting"
 
-pattern TGMDSPending :: TransitGatewayMulticastDomainState
-pattern TGMDSPending = TransitGatewayMulticastDomainState' "pending"
+pattern TGMDSDeleted :: TransitGatewayMulticastDomainState
+pattern TGMDSDeleted = TransitGatewayMulticastDomainState' "deleted"
 
 {-# COMPLETE
-  TGMDSAvailable,
-  TGMDSDeleted,
-  TGMDSDeleting,
   TGMDSPending,
+  TGMDSAvailable,
+  TGMDSDeleting,
+  TGMDSDeleted,
   TransitGatewayMulticastDomainState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -36,14 +37,11 @@ import qualified Network.AWS.Response as Res
 -- | Request to delete the specified API from your collection.
 --
 -- /See:/ 'mkDeleteRestAPI' smart constructor.
-newtype DeleteRestAPI = DeleteRestAPI' {restAPIId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteRestAPI = DeleteRestAPI'
+  { -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRestAPI' with the minimum fields required to make a request.
@@ -84,13 +82,7 @@ instance Lude.ToQuery DeleteRestAPI where
 
 -- | /See:/ 'mkDeleteRestAPIResponse' smart constructor.
 data DeleteRestAPIResponse = DeleteRestAPIResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRestAPIResponse' with the minimum fields required to make a request.

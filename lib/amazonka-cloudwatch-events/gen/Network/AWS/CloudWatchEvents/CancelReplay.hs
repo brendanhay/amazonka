@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCancelReplay' smart constructor.
-newtype CancelReplay = CancelReplay' {replayName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype CancelReplay = CancelReplay'
+  { -- | The name of the replay to cancel.
+    replayName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelReplay' with the minimum fields required to make a request.
@@ -104,27 +102,24 @@ instance Lude.ToQuery CancelReplay where
 
 -- | /See:/ 'mkCancelReplayResponse' smart constructor.
 data CancelReplayResponse = CancelReplayResponse'
-  { state ::
-      Lude.Maybe ReplayState,
+  { -- | The current state of the replay.
+    state :: Lude.Maybe ReplayState,
+    -- | The ARN of the replay to cancel.
     replayARN :: Lude.Maybe Lude.Text,
+    -- | The reason that the replay is in the current state.
     stateReason :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelReplayResponse' with the minimum fields required to make a request.
 --
--- * 'replayARN' - The ARN of the replay to cancel.
--- * 'responseStatus' - The response status code.
 -- * 'state' - The current state of the replay.
+-- * 'replayARN' - The ARN of the replay to cancel.
 -- * 'stateReason' - The reason that the replay is in the current state.
+-- * 'responseStatus' - The response status code.
 mkCancelReplayResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCertificateAuthorityCertificate' smart constructor.
 newtype GetCertificateAuthorityCertificate = GetCertificateAuthorityCertificate'
-  { certificateAuthorityARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of your private CA. This is of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @ .
+    certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificateAuthorityCertificate' with the minimum fields required to make a request.
@@ -120,22 +117,14 @@ instance Lude.ToQuery GetCertificateAuthorityCertificate where
 
 -- | /See:/ 'mkGetCertificateAuthorityCertificateResponse' smart constructor.
 data GetCertificateAuthorityCertificateResponse = GetCertificateAuthorityCertificateResponse'
-  { certificate ::
-      Lude.Maybe
-        Lude.Text,
-    certificateChain ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Base64-encoded certificate authority (CA) certificate.
+    certificate :: Lude.Maybe Lude.Text,
+    -- | Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. If this is a root CA, the value will be null.
+    certificateChain :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCertificateAuthorityCertificateResponse' with the minimum fields required to make a request.

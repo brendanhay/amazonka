@@ -38,35 +38,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSegmentDimensions' smart constructor.
 data SegmentDimensions = SegmentDimensions'
-  { metrics ::
-      Lude.Maybe (Lude.HashMap Lude.Text (MetricDimension)),
+  { -- | One or more custom metrics to use as criteria for the segment.
+    metrics :: Lude.Maybe (Lude.HashMap Lude.Text (MetricDimension)),
+    -- | The location-based criteria, such as region or GPS coordinates, for the segment.
     location :: Lude.Maybe SegmentLocation,
+    -- | The demographic-based criteria, such as device platform, for the segment.
     demographic :: Lude.Maybe SegmentDemographics,
-    userAttributes ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (AttributeDimension)),
+    -- | One or more custom user attributes to use as criteria for the segment.
+    userAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeDimension)),
+    -- | The behavior-based criteria, such as how recently users have used your app, for the segment.
     behavior :: Lude.Maybe SegmentBehaviors,
-    attributes ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (AttributeDimension))
+    -- | One or more custom attributes to use as criteria for the segment.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeDimension))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentDimensions' with the minimum fields required to make a request.
 --
--- * 'attributes' - One or more custom attributes to use as criteria for the segment.
--- * 'behavior' - The behavior-based criteria, such as how recently users have used your app, for the segment.
--- * 'demographic' - The demographic-based criteria, such as device platform, for the segment.
--- * 'location' - The location-based criteria, such as region or GPS coordinates, for the segment.
 -- * 'metrics' - One or more custom metrics to use as criteria for the segment.
+-- * 'location' - The location-based criteria, such as region or GPS coordinates, for the segment.
+-- * 'demographic' - The demographic-based criteria, such as device platform, for the segment.
 -- * 'userAttributes' - One or more custom user attributes to use as criteria for the segment.
+-- * 'behavior' - The behavior-based criteria, such as how recently users have used your app, for the segment.
+-- * 'attributes' - One or more custom attributes to use as criteria for the segment.
 mkSegmentDimensions ::
   SegmentDimensions
 mkSegmentDimensions =

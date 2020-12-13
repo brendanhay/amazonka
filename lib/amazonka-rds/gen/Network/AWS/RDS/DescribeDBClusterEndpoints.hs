@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.RDS.DescribeDBClusterEndpoints
     mkDescribeDBClusterEndpoints,
 
     -- ** Request lenses
-    ddbceDBClusterIdentifier,
-    ddbceFilters,
-    ddbceDBClusterEndpointIdentifier,
-    ddbceMarker,
-    ddbceMaxRecords,
+    ddceDBClusterIdentifier,
+    ddceFilters,
+    ddceDBClusterEndpointIdentifier,
+    ddceMarker,
+    ddceMaxRecords,
 
     -- * Destructuring the response
     DescribeDBClusterEndpointsResponse (..),
@@ -47,28 +48,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDBClusterEndpoints' smart constructor.
 data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
-  { dbClusterIdentifier ::
-      Lude.Maybe Lude.Text,
+  { -- | The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
+    dbClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | A set of name-value pairs that define which endpoints to include in the output. The filters are specified as name-value pairs, in the format @Name=/endpoint_type/ ,Values=/endpoint_type1/ ,/endpoint_type2/ ,...@ . @Name@ can be one of: @db-cluster-endpoint-type@ , @db-cluster-endpoint-custom-type@ , @db-cluster-endpoint-id@ , @db-cluster-endpoint-status@ . @Values@ for the @db-cluster-endpoint-type@ filter can be one or more of: @reader@ , @writer@ , @custom@ . @Values@ for the @db-cluster-endpoint-custom-type@ filter can be one or more of: @reader@ , @any@ . @Values@ for the @db-cluster-endpoint-status@ filter can be one or more of: @available@ , @creating@ , @deleting@ , @inactive@ , @modifying@ .
     filters :: Lude.Maybe [Filter],
-    dbClusterEndpointIdentifier ::
-      Lude.Maybe Lude.Text,
+    -- | The identifier of the endpoint to describe. This parameter is stored as a lowercase string.
+    dbClusterEndpointIdentifier :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous @DescribeDBClusterEndpoints@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterEndpoints' with the minimum fields required to make a request.
 --
--- * 'dbClusterEndpointIdentifier' - The identifier of the endpoint to describe. This parameter is stored as a lowercase string.
 -- * 'dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
 -- * 'filters' - A set of name-value pairs that define which endpoints to include in the output. The filters are specified as name-value pairs, in the format @Name=/endpoint_type/ ,Values=/endpoint_type1/ ,/endpoint_type2/ ,...@ . @Name@ can be one of: @db-cluster-endpoint-type@ , @db-cluster-endpoint-custom-type@ , @db-cluster-endpoint-id@ , @db-cluster-endpoint-status@ . @Values@ for the @db-cluster-endpoint-type@ filter can be one or more of: @reader@ , @writer@ , @custom@ . @Values@ for the @db-cluster-endpoint-custom-type@ filter can be one or more of: @reader@ , @any@ . @Values@ for the @db-cluster-endpoint-status@ filter can be one or more of: @available@ , @creating@ , @deleting@ , @inactive@ , @modifying@ .
+-- * 'dbClusterEndpointIdentifier' - The identifier of the endpoint to describe. This parameter is stored as a lowercase string.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeDBClusterEndpoints@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -88,30 +89,30 @@ mkDescribeDBClusterEndpoints =
 -- | The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbceDBClusterIdentifier :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Text)
-ddbceDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DescribeDBClusterEndpoints)
-{-# DEPRECATED ddbceDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+ddceDBClusterIdentifier :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Text)
+ddceDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: DescribeDBClusterEndpoints)
+{-# DEPRECATED ddceDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 -- | A set of name-value pairs that define which endpoints to include in the output. The filters are specified as name-value pairs, in the format @Name=/endpoint_type/ ,Values=/endpoint_type1/ ,/endpoint_type2/ ,...@ . @Name@ can be one of: @db-cluster-endpoint-type@ , @db-cluster-endpoint-custom-type@ , @db-cluster-endpoint-id@ , @db-cluster-endpoint-status@ . @Values@ for the @db-cluster-endpoint-type@ filter can be one or more of: @reader@ , @writer@ , @custom@ . @Values@ for the @db-cluster-endpoint-custom-type@ filter can be one or more of: @reader@ , @any@ . @Values@ for the @db-cluster-endpoint-status@ filter can be one or more of: @available@ , @creating@ , @deleting@ , @inactive@ , @modifying@ .
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbceFilters :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe [Filter])
-ddbceFilters = Lens.lens (filters :: DescribeDBClusterEndpoints -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBClusterEndpoints)
-{-# DEPRECATED ddbceFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+ddceFilters :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe [Filter])
+ddceFilters = Lens.lens (filters :: DescribeDBClusterEndpoints -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBClusterEndpoints)
+{-# DEPRECATED ddceFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The identifier of the endpoint to describe. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'dbClusterEndpointIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbceDBClusterEndpointIdentifier :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Text)
-ddbceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: DescribeDBClusterEndpoints)
-{-# DEPRECATED ddbceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
+ddceDBClusterEndpointIdentifier :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Text)
+ddceDBClusterEndpointIdentifier = Lens.lens (dbClusterEndpointIdentifier :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterEndpointIdentifier = a} :: DescribeDBClusterEndpoints)
+{-# DEPRECATED ddceDBClusterEndpointIdentifier "Use generic-lens or generic-optics with 'dbClusterEndpointIdentifier' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeDBClusterEndpoints@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbceMarker :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Text)
-ddbceMarker = Lens.lens (marker :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterEndpoints)
-{-# DEPRECATED ddbceMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddceMarker :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Text)
+ddceMarker = Lens.lens (marker :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBClusterEndpoints)
+{-# DEPRECATED ddceMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -119,9 +120,9 @@ ddbceMarker = Lens.lens (marker :: DescribeDBClusterEndpoints -> Lude.Maybe Lude
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbceMaxRecords :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Int)
-ddbceMaxRecords = Lens.lens (maxRecords :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBClusterEndpoints)
-{-# DEPRECATED ddbceMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddceMaxRecords :: Lens.Lens' DescribeDBClusterEndpoints (Lude.Maybe Lude.Int)
+ddceMaxRecords = Lens.lens (maxRecords :: DescribeDBClusterEndpoints -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBClusterEndpoints)
+{-# DEPRECATED ddceMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 instance Page.AWSPager DescribeDBClusterEndpoints where
   page rq rs
@@ -130,7 +131,7 @@ instance Page.AWSPager DescribeDBClusterEndpoints where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ddbceMarker Lens..~ rs Lens.^. ddcersMarker
+          Lude.& ddceMarker Lens..~ rs Lens.^. ddcersMarker
 
 instance Lude.AWSRequest DescribeDBClusterEndpoints where
   type
@@ -171,21 +172,14 @@ instance Lude.ToQuery DescribeDBClusterEndpoints where
 
 -- | /See:/ 'mkDescribeDBClusterEndpointsResponse' smart constructor.
 data DescribeDBClusterEndpointsResponse = DescribeDBClusterEndpointsResponse'
-  { dbClusterEndpoints ::
-      Lude.Maybe
-        [DBClusterEndpoint],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Contains the details of the endpoints associated with the cluster and matching any filter conditions.
+    dbClusterEndpoints :: Lude.Maybe [DBClusterEndpoint],
+    -- | An optional pagination token provided by a previous @DescribeDBClusterEndpoints@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBClusterEndpointsResponse' with the minimum fields required to make a request.

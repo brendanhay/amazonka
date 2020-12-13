@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyTypeSummary' smart constructor.
 data PolicyTypeSummary = PolicyTypeSummary'
-  { status ::
-      Lude.Maybe PolicyTypeStatus,
+  { -- | The status of the policy type as it relates to the associated root. To attach a policy of the specified type to a root or to an OU or account in that root, it must be available in the organization and enabled for that root.
+    status :: Lude.Maybe PolicyTypeStatus,
+    -- | The name of the policy type.
     type' :: Lude.Maybe PolicyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyTypeSummary' with the minimum fields required to make a request.

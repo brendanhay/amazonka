@@ -39,38 +39,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBusinessReportSchedule' smart constructor.
 data BusinessReportSchedule = BusinessReportSchedule'
-  { s3KeyPrefix ::
-      Lude.Maybe Lude.Text,
-    lastBusinessReport ::
-      Lude.Maybe BusinessReport,
+  { -- | The S3 key where the report is delivered.
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The details of the last business report delivery for a specified time interval.
+    lastBusinessReport :: Lude.Maybe BusinessReport,
+    -- | The format of the generated report (individual CSV files or zipped files of individual files).
     format :: Lude.Maybe BusinessReportFormat,
-    recurrence ::
-      Lude.Maybe BusinessReportRecurrence,
+    -- | The recurrence of the reports.
+    recurrence :: Lude.Maybe BusinessReportRecurrence,
+    -- | The name identifier of the schedule.
     scheduleName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the business report schedule.
     scheduleARN :: Lude.Maybe Lude.Text,
-    contentRange ::
-      Lude.Maybe BusinessReportContentRange,
+    -- | The content range of the reports.
+    contentRange :: Lude.Maybe BusinessReportContentRange,
+    -- | The S3 bucket name of the output reports.
     s3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BusinessReportSchedule' with the minimum fields required to make a request.
 --
--- * 'contentRange' - The content range of the reports.
--- * 'format' - The format of the generated report (individual CSV files or zipped files of individual files).
--- * 'lastBusinessReport' - The details of the last business report delivery for a specified time interval.
--- * 'recurrence' - The recurrence of the reports.
--- * 's3BucketName' - The S3 bucket name of the output reports.
 -- * 's3KeyPrefix' - The S3 key where the report is delivered.
--- * 'scheduleARN' - The ARN of the business report schedule.
+-- * 'lastBusinessReport' - The details of the last business report delivery for a specified time interval.
+-- * 'format' - The format of the generated report (individual CSV files or zipped files of individual files).
+-- * 'recurrence' - The recurrence of the reports.
 -- * 'scheduleName' - The name identifier of the schedule.
+-- * 'scheduleARN' - The ARN of the business report schedule.
+-- * 'contentRange' - The content range of the reports.
+-- * 's3BucketName' - The S3 bucket name of the output reports.
 mkBusinessReportSchedule ::
   BusinessReportSchedule
 mkBusinessReportSchedule =

@@ -35,32 +35,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPullRequestTarget' smart constructor.
 data PullRequestTarget = PullRequestTarget'
-  { sourceCommit ::
-      Lude.Maybe Lude.Text,
+  { -- | The full commit ID of the tip of the source branch used to create the pull request. If the pull request branch is updated by a push while the pull request is open, the commit ID changes to reflect the new tip of the branch.
+    sourceCommit :: Lude.Maybe Lude.Text,
+    -- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
     destinationReference :: Lude.Maybe Lude.Text,
+    -- | Returns metadata about the state of the merge, including whether the merge has been made.
     mergeMetadata :: Lude.Maybe MergeMetadata,
+    -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
     mergeBase :: Lude.Maybe Lude.Text,
+    -- | The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
     destinationCommit :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that contains the pull request source and destination branches.
     repositoryName :: Lude.Maybe Lude.Text,
+    -- | The branch of the repository that contains the changes for the pull request. Also known as the source branch.
     sourceReference :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PullRequestTarget' with the minimum fields required to make a request.
 --
--- * 'destinationCommit' - The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
--- * 'destinationReference' - The branch of the repository where the pull request changes are merged. Also known as the destination branch.
--- * 'mergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
--- * 'mergeMetadata' - Returns metadata about the state of the merge, including whether the merge has been made.
--- * 'repositoryName' - The name of the repository that contains the pull request source and destination branches.
 -- * 'sourceCommit' - The full commit ID of the tip of the source branch used to create the pull request. If the pull request branch is updated by a push while the pull request is open, the commit ID changes to reflect the new tip of the branch.
+-- * 'destinationReference' - The branch of the repository where the pull request changes are merged. Also known as the destination branch.
+-- * 'mergeMetadata' - Returns metadata about the state of the merge, including whether the merge has been made.
+-- * 'mergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
+-- * 'destinationCommit' - The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
+-- * 'repositoryName' - The name of the repository that contains the pull request source and destination branches.
 -- * 'sourceReference' - The branch of the repository that contains the changes for the pull request. Also known as the source branch.
 mkPullRequestTarget ::
   PullRequestTarget

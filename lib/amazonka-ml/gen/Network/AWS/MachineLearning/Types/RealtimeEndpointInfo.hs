@@ -32,25 +32,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRealtimeEndpointInfo' smart constructor.
 data RealtimeEndpointInfo = RealtimeEndpointInfo'
-  { createdAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time that the request to create the real-time endpoint for the @MLModel@ was received. The time is expressed in epoch time.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The URI that specifies where to send real-time prediction requests for the @MLModel@ .
     endpointURL :: Lude.Maybe Lude.Text,
-    endpointStatus ::
-      Lude.Maybe RealtimeEndpointStatus,
+    -- | The current status of the real-time endpoint for the @MLModel@ . This element can have one of the following values:
+    --
+    --
+    --     * @NONE@ - Endpoint does not exist or was previously deleted.
+    --
+    --     * @READY@ - Endpoint is ready to be used for real-time predictions.
+    --
+    --     * @UPDATING@ - Updating/creating the endpoint.
+    endpointStatus :: Lude.Maybe RealtimeEndpointStatus,
+    -- | The maximum processing rate for the real-time endpoint for @MLModel@ , measured in incoming requests per second.
     peakRequestsPerSecond :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RealtimeEndpointInfo' with the minimum fields required to make a request.
 --
 -- * 'createdAt' - The time that the request to create the real-time endpoint for the @MLModel@ was received. The time is expressed in epoch time.
+-- * 'endpointURL' - The URI that specifies where to send real-time prediction requests for the @MLModel@ .
 -- * 'endpointStatus' - The current status of the real-time endpoint for the @MLModel@ . This element can have one of the following values:
 --
 --
@@ -60,7 +64,6 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
 --
 --     * @UPDATING@ - Updating/creating the endpoint.
 --
--- * 'endpointURL' - The URI that specifies where to send real-time prediction requests for the @MLModel@ .
 -- * 'peakRequestsPerSecond' - The maximum processing rate for the real-time endpoint for @MLModel@ , measured in incoming requests per second.
 mkRealtimeEndpointInfo ::
   RealtimeEndpointInfo

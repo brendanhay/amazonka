@@ -13,11 +13,11 @@
 module Network.AWS.FMS.Types.AccountRoleStatus
   ( AccountRoleStatus
       ( AccountRoleStatus',
+        Ready,
         Creating,
-        Deleted,
-        Deleting,
         PendingDeletion,
-        Ready
+        Deleting,
+        Deleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype AccountRoleStatus = AccountRoleStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Ready :: AccountRoleStatus
+pattern Ready = AccountRoleStatus' "READY"
+
 pattern Creating :: AccountRoleStatus
 pattern Creating = AccountRoleStatus' "CREATING"
-
-pattern Deleted :: AccountRoleStatus
-pattern Deleted = AccountRoleStatus' "DELETED"
-
-pattern Deleting :: AccountRoleStatus
-pattern Deleting = AccountRoleStatus' "DELETING"
 
 pattern PendingDeletion :: AccountRoleStatus
 pattern PendingDeletion = AccountRoleStatus' "PENDING_DELETION"
 
-pattern Ready :: AccountRoleStatus
-pattern Ready = AccountRoleStatus' "READY"
+pattern Deleting :: AccountRoleStatus
+pattern Deleting = AccountRoleStatus' "DELETING"
+
+pattern Deleted :: AccountRoleStatus
+pattern Deleted = AccountRoleStatus' "DELETED"
 
 {-# COMPLETE
-  Creating,
-  Deleted,
-  Deleting,
-  PendingDeletion,
   Ready,
+  Creating,
+  PendingDeletion,
+  Deleting,
+  Deleted,
   AccountRoleStatus'
   #-}

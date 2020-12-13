@@ -18,8 +18,8 @@ module Network.AWS.SSM.Types.LoggingInfo
 
     -- * Lenses
     liS3KeyPrefix,
-    liS3BucketName,
     liS3Region,
+    liS3BucketName,
   )
 where
 
@@ -30,36 +30,32 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoggingInfo' smart constructor.
 data LoggingInfo = LoggingInfo'
-  { s3KeyPrefix ::
-      Lude.Maybe Lude.Text,
-    s3BucketName :: Lude.Text,
-    s3Region :: Lude.Text
+  { -- | (Optional) The S3 bucket subfolder.
+    s3KeyPrefix :: Lude.Maybe Lude.Text,
+    -- | The Region where the S3 bucket is located.
+    s3Region :: Lude.Text,
+    -- | The name of an S3 bucket where execution logs are stored .
+    s3BucketName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggingInfo' with the minimum fields required to make a request.
 --
--- * 's3BucketName' - The name of an S3 bucket where execution logs are stored .
 -- * 's3KeyPrefix' - (Optional) The S3 bucket subfolder.
 -- * 's3Region' - The Region where the S3 bucket is located.
+-- * 's3BucketName' - The name of an S3 bucket where execution logs are stored .
 mkLoggingInfo ::
-  -- | 's3BucketName'
-  Lude.Text ->
   -- | 's3Region'
   Lude.Text ->
+  -- | 's3BucketName'
+  Lude.Text ->
   LoggingInfo
-mkLoggingInfo pS3BucketName_ pS3Region_ =
+mkLoggingInfo pS3Region_ pS3BucketName_ =
   LoggingInfo'
     { s3KeyPrefix = Lude.Nothing,
-      s3BucketName = pS3BucketName_,
-      s3Region = pS3Region_
+      s3Region = pS3Region_,
+      s3BucketName = pS3BucketName_
     }
 
 -- | (Optional) The S3 bucket subfolder.
@@ -69,19 +65,19 @@ liS3KeyPrefix :: Lens.Lens' LoggingInfo (Lude.Maybe Lude.Text)
 liS3KeyPrefix = Lens.lens (s3KeyPrefix :: LoggingInfo -> Lude.Maybe Lude.Text) (\s a -> s {s3KeyPrefix = a} :: LoggingInfo)
 {-# DEPRECATED liS3KeyPrefix "Use generic-lens or generic-optics with 's3KeyPrefix' instead." #-}
 
--- | The name of an S3 bucket where execution logs are stored .
---
--- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liS3BucketName :: Lens.Lens' LoggingInfo Lude.Text
-liS3BucketName = Lens.lens (s3BucketName :: LoggingInfo -> Lude.Text) (\s a -> s {s3BucketName = a} :: LoggingInfo)
-{-# DEPRECATED liS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
-
 -- | The Region where the S3 bucket is located.
 --
 -- /Note:/ Consider using 's3Region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liS3Region :: Lens.Lens' LoggingInfo Lude.Text
 liS3Region = Lens.lens (s3Region :: LoggingInfo -> Lude.Text) (\s a -> s {s3Region = a} :: LoggingInfo)
 {-# DEPRECATED liS3Region "Use generic-lens or generic-optics with 's3Region' instead." #-}
+
+-- | The name of an S3 bucket where execution logs are stored .
+--
+-- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liS3BucketName :: Lens.Lens' LoggingInfo Lude.Text
+liS3BucketName = Lens.lens (s3BucketName :: LoggingInfo -> Lude.Text) (\s a -> s {s3BucketName = a} :: LoggingInfo)
+{-# DEPRECATED liS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
 instance Lude.FromJSON LoggingInfo where
   parseJSON =
@@ -90,8 +86,8 @@ instance Lude.FromJSON LoggingInfo where
       ( \x ->
           LoggingInfo'
             Lude.<$> (x Lude..:? "S3KeyPrefix")
-            Lude.<*> (x Lude..: "S3BucketName")
             Lude.<*> (x Lude..: "S3Region")
+            Lude.<*> (x Lude..: "S3BucketName")
       )
 
 instance Lude.ToJSON LoggingInfo where
@@ -99,7 +95,7 @@ instance Lude.ToJSON LoggingInfo where
     Lude.object
       ( Lude.catMaybes
           [ ("S3KeyPrefix" Lude..=) Lude.<$> s3KeyPrefix,
-            Lude.Just ("S3BucketName" Lude..= s3BucketName),
-            Lude.Just ("S3Region" Lude..= s3Region)
+            Lude.Just ("S3Region" Lude..= s3Region),
+            Lude.Just ("S3BucketName" Lude..= s3BucketName)
           ]
       )

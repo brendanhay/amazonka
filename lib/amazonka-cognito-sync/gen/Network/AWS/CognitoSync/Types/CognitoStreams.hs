@@ -31,27 +31,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCognitoStreams' smart constructor.
 data CognitoStreams = CognitoStreams'
-  { streamingStatus ::
-      Lude.Maybe StreamingStatus,
+  { -- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled.
+    --
+    -- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
+    streamingStatus :: Lude.Maybe StreamingStatus,
+    -- | The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
     streamName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CognitoStreams' with the minimum fields required to make a request.
 --
--- * 'roleARN' - The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
--- * 'streamName' - The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
 -- * 'streamingStatus' - Status of the Cognito streams. Valid values are: ENABLED - Streaming of updates to identity pool is enabled.
 --
 -- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.
+-- * 'streamName' - The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool.
+-- * 'roleARN' - The ARN of the role Amazon Cognito can assume in order to publish to the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke PutRecord on your Cognito stream.
 mkCognitoStreams ::
   CognitoStreams
 mkCognitoStreams =

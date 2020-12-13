@@ -31,18 +31,14 @@ import Network.AWS.RDS.Types.Parameter
 --
 -- /See:/ 'mkEngineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
-  { dbParameterGroupFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the name of the DB parameter group family that the engine default parameters apply to.
+    dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous EngineDefaults request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | Contains a list of engine default parameters.
     parameters :: Lude.Maybe [Parameter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EngineDefaults' with the minimum fields required to make a request.

@@ -31,23 +31,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerTargetGroupState' smart constructor.
 data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
-  { state ::
-      Lude.Maybe Lude.Text,
-    loadBalancerTargetGroupARN ::
-      Lude.Maybe Lude.Text
+  { -- | The state of the target group.
+    --
+    --
+    --     * @Adding@ - The Auto Scaling instances are being registered with the target group.
+    --
+    --
+    --     * @Added@ - All Auto Scaling instances are registered with the target group.
+    --
+    --
+    --     * @InService@ - At least one Auto Scaling instance passed an ELB health check.
+    --
+    --
+    --     * @Removing@ - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.
+    --
+    --
+    --     * @Removed@ - All Auto Scaling instances are deregistered from the target group.
+    state :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the target group.
+    loadBalancerTargetGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerTargetGroupState' with the minimum fields required to make a request.
 --
--- * 'loadBalancerTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 -- * 'state' - The state of the target group.
 --
 --
@@ -64,6 +72,9 @@ data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
 --
 --
 --     * @Removed@ - All Auto Scaling instances are deregistered from the target group.
+--
+--
+-- * 'loadBalancerTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
 mkLoadBalancerTargetGroupState ::
   LoadBalancerTargetGroupState
 mkLoadBalancerTargetGroupState =

@@ -33,26 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotifications' smart constructor.
 data Notifications = Notifications'
-  { error :: Lude.Maybe Lude.Text,
+  { -- | The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
+    error :: Lude.Maybe Lude.Text,
+    -- | The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.
     warning :: Lude.Maybe Lude.Text,
+    -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
     progressing :: Lude.Maybe Lude.Text,
+    -- | The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
     completed :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Notifications' with the minimum fields required to make a request.
 --
--- * 'completed' - The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
 -- * 'error' - The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.
--- * 'progressing' - The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
 -- * 'warning' - The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.
+-- * 'progressing' - The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.
+-- * 'completed' - The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.
 mkNotifications ::
   Notifications
 mkNotifications =

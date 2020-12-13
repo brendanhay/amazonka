@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,6 +25,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     -- ** Request lenses
     rfcsManualSnapshotRetentionPeriod,
     rfcsEnhancedVPCRouting,
+    rfcsSnapshotIdentifier,
     rfcsAdditionalInfo,
     rfcsSnapshotScheduleIdentifier,
     rfcsPubliclyAccessible,
@@ -33,6 +35,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     rfcsClusterSecurityGroups,
     rfcsAutomatedSnapshotRetentionPeriod,
     rfcsClusterSubnetGroupName,
+    rfcsClusterIdentifier,
     rfcsHSMClientCertificateIdentifier,
     rfcsNumberOfNodes,
     rfcsElasticIP,
@@ -46,8 +49,6 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     rfcsAllowVersionUpgrade,
     rfcsClusterParameterGroupName,
     rfcsPort,
-    rfcsClusterIdentifier,
-    rfcsSnapshotIdentifier,
 
     -- * Destructuring the response
     RestoreFromClusterSnapshotResponse (..),
@@ -69,73 +70,153 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRestoreFromClusterSnapshot' smart constructor.
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
-  { manualSnapshotRetentionPeriod ::
-      Lude.Maybe Lude.Int,
-    enhancedVPCRouting ::
-      Lude.Maybe Lude.Bool,
-    additionalInfo ::
-      Lude.Maybe Lude.Text,
-    snapshotScheduleIdentifier ::
-      Lude.Maybe Lude.Text,
-    publiclyAccessible ::
-      Lude.Maybe Lude.Bool,
-    snapshotClusterIdentifier ::
-      Lude.Maybe Lude.Text,
-    maintenanceTrackName ::
-      Lude.Maybe Lude.Text,
-    hsmConfigurationIdentifier ::
-      Lude.Maybe Lude.Text,
-    clusterSecurityGroups ::
-      Lude.Maybe [Lude.Text],
-    automatedSnapshotRetentionPeriod ::
-      Lude.Maybe Lude.Int,
-    clusterSubnetGroupName ::
-      Lude.Maybe Lude.Text,
-    hsmClientCertificateIdentifier ::
-      Lude.Maybe Lude.Text,
-    numberOfNodes :: Lude.Maybe Lude.Int,
-    elasticIP :: Lude.Maybe Lude.Text,
-    preferredMaintenanceWindow ::
-      Lude.Maybe Lude.Text,
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
-    vpcSecurityGroupIds ::
-      Lude.Maybe [Lude.Text],
-    iamRoles :: Lude.Maybe [Lude.Text],
-    ownerAccount :: Lude.Maybe Lude.Text,
-    nodeType :: Lude.Maybe Lude.Text,
-    allowVersionUpgrade ::
-      Lude.Maybe Lude.Bool,
-    clusterParameterGroupName ::
-      Lude.Maybe Lude.Text,
-    port :: Lude.Maybe Lude.Int,
+  { -- | The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    manualSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+    --
+    -- If this option is @true@ , enhanced VPC routing is enabled.
+    -- Default: false
+    enhancedVPCRouting :: Lude.Maybe Lude.Bool,
+    -- | The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+    --
+    -- Example: @my-snapshot-id@
+    snapshotIdentifier :: Lude.Text,
+    -- | Reserved.
+    additionalInfo :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the snapshot schedule.
+    snapshotScheduleIdentifier :: Lude.Maybe Lude.Text,
+    -- | If @true@ , the cluster can be accessed from a public network.
+    publiclyAccessible :: Lude.Maybe Lude.Bool,
+    -- | The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+    snapshotClusterIdentifier :: Lude.Maybe Lude.Text,
+    -- | The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks.
+    maintenanceTrackName :: Lude.Maybe Lude.Text,
+    -- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+    hsmConfigurationIdentifier :: Lude.Maybe Lude.Text,
+    -- | A list of security groups to be associated with this cluster.
+    --
+    -- Default: The default cluster security group for Amazon Redshift.
+    -- Cluster security groups only apply to clusters outside of VPCs.
+    clusterSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .
+    --
+    -- Default: The value selected for the cluster from which the snapshot was taken.
+    -- Constraints: Must be a value from 0 to 35.
+    automatedSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
+    -- | The name of the subnet group where you want to cluster restored.
+    --
+    -- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
+    clusterSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | The identifier of the cluster that will be created from restoring the snapshot.
+    --
+    -- Constraints:
+    --
+    --     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+    --
+    --
+    --     * Alphabetic characters must be lowercase.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    --
+    --     * Must be unique for all clusters within an AWS account.
     clusterIdentifier :: Lude.Text,
-    snapshotIdentifier :: Lude.Text
+    -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
+    hsmClientCertificateIdentifier :: Lude.Maybe Lude.Text,
+    -- | The number of nodes specified when provisioning the restored cluster.
+    numberOfNodes :: Lude.Maybe Lude.Int,
+    -- | The elastic IP (EIP) address for the cluster.
+    elasticIP :: Lude.Maybe Lude.Text,
+    -- | The weekly time range (in UTC) during which automated cluster maintenance can occur.
+    --
+    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
+    -- Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.
+    -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+    -- Constraints: Minimum 30-minute window.
+    preferredMaintenanceWindow :: Lude.Maybe Lude.Text,
+    -- | The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster that you restore from a shared snapshot.
+    kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The Amazon EC2 Availability Zone in which to restore the cluster.
+    --
+    -- Default: A random, system-chosen Availability Zone.
+    -- Example: @us-east-2a@
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+    --
+    -- Default: The default VPC security group is associated with the cluster.
+    -- VPC security groups only apply to clusters in VPCs.
+    vpcSecurityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
+    --
+    -- A cluster can have up to 10 IAM roles associated at any time.
+    iamRoles :: Lude.Maybe [Lude.Text],
+    -- | The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+    ownerAccount :: Lude.Maybe Lude.Text,
+    -- | The node type that the restored cluster will be provisioned with.
+    --
+    -- Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlarge cluster, then resize to a dc2.8large cluster. For more information about node types, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes> in the /Amazon Redshift Cluster Management Guide/ .
+    nodeType :: Lude.Maybe Lude.Text,
+    -- | If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
+    --
+    -- Default: @true@
+    allowVersionUpgrade :: Lude.Maybe Lude.Bool,
+    -- | The name of the parameter group to be associated with this cluster.
+    --
+    -- Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups> .
+    -- Constraints:
+    --
+    --     * Must be 1 to 255 alphanumeric characters or hyphens.
+    --
+    --
+    --     * First character must be a letter.
+    --
+    --
+    --     * Cannot end with a hyphen or contain two consecutive hyphens.
+    clusterParameterGroupName :: Lude.Maybe Lude.Text,
+    -- | The port number on which the cluster accepts connections.
+    --
+    -- Default: The same port as the original cluster.
+    -- Constraints: Must be between @1115@ and @65535@ .
+    port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreFromClusterSnapshot' with the minimum fields required to make a request.
 --
--- * 'additionalInfo' - Reserved.
--- * 'allowVersionUpgrade' - If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
+-- * 'manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
 --
--- Default: @true@
+-- The value must be either -1 or an integer between 1 and 3,653.
+-- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
+--
+-- If this option is @true@ , enhanced VPC routing is enabled.
+-- Default: false
+-- * 'snapshotIdentifier' - The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+--
+-- Example: @my-snapshot-id@
+-- * 'additionalInfo' - Reserved.
+-- * 'snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
+-- * 'publiclyAccessible' - If @true@ , the cluster can be accessed from a public network.
+-- * 'snapshotClusterIdentifier' - The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+-- * 'maintenanceTrackName' - The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks.
+-- * 'hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+-- * 'clusterSecurityGroups' - A list of security groups to be associated with this cluster.
+--
+-- Default: The default cluster security group for Amazon Redshift.
+-- Cluster security groups only apply to clusters outside of VPCs.
 -- * 'automatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .
 --
 -- Default: The value selected for the cluster from which the snapshot was taken.
 -- Constraints: Must be a value from 0 to 35.
--- * 'availabilityZone' - The Amazon EC2 Availability Zone in which to restore the cluster.
+-- * 'clusterSubnetGroupName' - The name of the subnet group where you want to cluster restored.
 --
--- Default: A random, system-chosen Availability Zone.
--- Example: @us-east-2a@
+-- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
 -- * 'clusterIdentifier' - The identifier of the cluster that will be created from restoring the snapshot.
 --
 -- Constraints:
@@ -155,6 +236,34 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --     * Must be unique for all clusters within an AWS account.
 --
 --
+-- * 'hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
+-- * 'numberOfNodes' - The number of nodes specified when provisioning the restored cluster.
+-- * 'elasticIP' - The elastic IP (EIP) address for the cluster.
+-- * 'preferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster maintenance can occur.
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.
+-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+-- Constraints: Minimum 30-minute window.
+-- * 'kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster that you restore from a shared snapshot.
+-- * 'availabilityZone' - The Amazon EC2 Availability Zone in which to restore the cluster.
+--
+-- Default: A random, system-chosen Availability Zone.
+-- Example: @us-east-2a@
+-- * 'vpcSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+--
+-- Default: The default VPC security group is associated with the cluster.
+-- VPC security groups only apply to clusters in VPCs.
+-- * 'iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
+--
+-- A cluster can have up to 10 IAM roles associated at any time.
+-- * 'ownerAccount' - The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
+-- * 'nodeType' - The node type that the restored cluster will be provisioned with.
+--
+-- Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlarge cluster, then resize to a dc2.8large cluster. For more information about node types, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes> in the /Amazon Redshift Cluster Management Guide/ .
+-- * 'allowVersionUpgrade' - If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster.
+--
+-- Default: @true@
 -- * 'clusterParameterGroupName' - The name of the parameter group to be associated with this cluster.
 --
 -- Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups> .
@@ -169,66 +278,24 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 --     * Cannot end with a hyphen or contain two consecutive hyphens.
 --
 --
--- * 'clusterSecurityGroups' - A list of security groups to be associated with this cluster.
---
--- Default: The default cluster security group for Amazon Redshift.
--- Cluster security groups only apply to clusters outside of VPCs.
--- * 'clusterSubnetGroupName' - The name of the subnet group where you want to cluster restored.
---
--- A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide subnet group name where you want the cluster restored.
--- * 'elasticIP' - The elastic IP (EIP) address for the cluster.
--- * 'enhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide.
---
--- If this option is @true@ , enhanced VPC routing is enabled.
--- Default: false
--- * 'hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
--- * 'hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
--- * 'iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request.
---
--- A cluster can have up to 10 IAM roles associated at any time.
--- * 'kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster that you restore from a shared snapshot.
--- * 'maintenanceTrackName' - The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the @MaintenanceTrack@ value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks.
--- * 'manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
---
--- The value must be either -1 or an integer between 1 and 3,653.
--- * 'nodeType' - The node type that the restored cluster will be provisioned with.
---
--- Default: The node type of the cluster from which the snapshot was taken. You can modify this if you are using any DS node type. In that case, you can choose to restore into another DS node type of the same size. For example, you can restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have a DC instance type, you must restore into that same instance type and size. In other words, you can only restore a dc1.large instance type into another dc1.large instance type or dc2.large instance type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlarge cluster, then resize to a dc2.8large cluster. For more information about node types, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes About Clusters and Nodes> in the /Amazon Redshift Cluster Management Guide/ .
--- * 'numberOfNodes' - The number of nodes specified when provisioning the restored cluster.
--- * 'ownerAccount' - The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 -- * 'port' - The port number on which the cluster accepts connections.
 --
 -- Default: The same port as the original cluster.
 -- Constraints: Must be between @1115@ and @65535@ .
--- * 'preferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster maintenance can occur.
---
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
--- Default: The value selected for the cluster from which the snapshot was taken. For more information about the time blocks for each region, see <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.
--- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
--- Constraints: Minimum 30-minute window.
--- * 'publiclyAccessible' - If @true@ , the cluster can be accessed from a public network.
--- * 'snapshotClusterIdentifier' - The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
--- * 'snapshotIdentifier' - The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
---
--- Example: @my-snapshot-id@
--- * 'snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
--- * 'vpcSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
---
--- Default: The default VPC security group is associated with the cluster.
--- VPC security groups only apply to clusters in VPCs.
 mkRestoreFromClusterSnapshot ::
-  -- | 'clusterIdentifier'
-  Lude.Text ->
   -- | 'snapshotIdentifier'
+  Lude.Text ->
+  -- | 'clusterIdentifier'
   Lude.Text ->
   RestoreFromClusterSnapshot
 mkRestoreFromClusterSnapshot
-  pClusterIdentifier_
-  pSnapshotIdentifier_ =
+  pSnapshotIdentifier_
+  pClusterIdentifier_ =
     RestoreFromClusterSnapshot'
       { manualSnapshotRetentionPeriod =
           Lude.Nothing,
         enhancedVPCRouting = Lude.Nothing,
+        snapshotIdentifier = pSnapshotIdentifier_,
         additionalInfo = Lude.Nothing,
         snapshotScheduleIdentifier = Lude.Nothing,
         publiclyAccessible = Lude.Nothing,
@@ -238,6 +305,7 @@ mkRestoreFromClusterSnapshot
         clusterSecurityGroups = Lude.Nothing,
         automatedSnapshotRetentionPeriod = Lude.Nothing,
         clusterSubnetGroupName = Lude.Nothing,
+        clusterIdentifier = pClusterIdentifier_,
         hsmClientCertificateIdentifier = Lude.Nothing,
         numberOfNodes = Lude.Nothing,
         elasticIP = Lude.Nothing,
@@ -250,9 +318,7 @@ mkRestoreFromClusterSnapshot
         nodeType = Lude.Nothing,
         allowVersionUpgrade = Lude.Nothing,
         clusterParameterGroupName = Lude.Nothing,
-        port = Lude.Nothing,
-        clusterIdentifier = pClusterIdentifier_,
-        snapshotIdentifier = pSnapshotIdentifier_
+        port = Lude.Nothing
       }
 
 -- | The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots.
@@ -273,6 +339,15 @@ rfcsManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: 
 rfcsEnhancedVPCRouting :: Lens.Lens' RestoreFromClusterSnapshot (Lude.Maybe Lude.Bool)
 rfcsEnhancedVPCRouting = Lens.lens (enhancedVPCRouting :: RestoreFromClusterSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {enhancedVPCRouting = a} :: RestoreFromClusterSnapshot)
 {-# DEPRECATED rfcsEnhancedVPCRouting "Use generic-lens or generic-optics with 'enhancedVPCRouting' instead." #-}
+
+-- | The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+--
+-- Example: @my-snapshot-id@
+--
+-- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfcsSnapshotIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Lude.Text
+rfcsSnapshotIdentifier = Lens.lens (snapshotIdentifier :: RestoreFromClusterSnapshot -> Lude.Text) (\s a -> s {snapshotIdentifier = a} :: RestoreFromClusterSnapshot)
+{-# DEPRECATED rfcsSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
 
 -- | Reserved.
 --
@@ -344,6 +419,31 @@ rfcsAutomatedSnapshotRetentionPeriod = Lens.lens (automatedSnapshotRetentionPeri
 rfcsClusterSubnetGroupName :: Lens.Lens' RestoreFromClusterSnapshot (Lude.Maybe Lude.Text)
 rfcsClusterSubnetGroupName = Lens.lens (clusterSubnetGroupName :: RestoreFromClusterSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {clusterSubnetGroupName = a} :: RestoreFromClusterSnapshot)
 {-# DEPRECATED rfcsClusterSubnetGroupName "Use generic-lens or generic-optics with 'clusterSubnetGroupName' instead." #-}
+
+-- | The identifier of the cluster that will be created from restoring the snapshot.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * Alphabetic characters must be lowercase.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--     * Must be unique for all clusters within an AWS account.
+--
+--
+--
+-- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfcsClusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Lude.Text
+rfcsClusterIdentifier = Lens.lens (clusterIdentifier :: RestoreFromClusterSnapshot -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: RestoreFromClusterSnapshot)
+{-# DEPRECATED rfcsClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
 --
@@ -469,40 +569,6 @@ rfcsPort :: Lens.Lens' RestoreFromClusterSnapshot (Lude.Maybe Lude.Int)
 rfcsPort = Lens.lens (port :: RestoreFromClusterSnapshot -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: RestoreFromClusterSnapshot)
 {-# DEPRECATED rfcsPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
--- | The identifier of the cluster that will be created from restoring the snapshot.
---
--- Constraints:
---
---     * Must contain from 1 to 63 alphanumeric characters or hyphens.
---
---
---     * Alphabetic characters must be lowercase.
---
---
---     * First character must be a letter.
---
---
---     * Cannot end with a hyphen or contain two consecutive hyphens.
---
---
---     * Must be unique for all clusters within an AWS account.
---
---
---
--- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfcsClusterIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Lude.Text
-rfcsClusterIdentifier = Lens.lens (clusterIdentifier :: RestoreFromClusterSnapshot -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: RestoreFromClusterSnapshot)
-{-# DEPRECATED rfcsClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
-
--- | The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
---
--- Example: @my-snapshot-id@
---
--- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfcsSnapshotIdentifier :: Lens.Lens' RestoreFromClusterSnapshot Lude.Text
-rfcsSnapshotIdentifier = Lens.lens (snapshotIdentifier :: RestoreFromClusterSnapshot -> Lude.Text) (\s a -> s {snapshotIdentifier = a} :: RestoreFromClusterSnapshot)
-{-# DEPRECATED rfcsSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
-
 instance Lude.AWSRequest RestoreFromClusterSnapshot where
   type
     Rs RestoreFromClusterSnapshot =
@@ -531,6 +597,7 @@ instance Lude.ToQuery RestoreFromClusterSnapshot where
         "ManualSnapshotRetentionPeriod"
           Lude.=: manualSnapshotRetentionPeriod,
         "EnhancedVpcRouting" Lude.=: enhancedVPCRouting,
+        "SnapshotIdentifier" Lude.=: snapshotIdentifier,
         "AdditionalInfo" Lude.=: additionalInfo,
         "SnapshotScheduleIdentifier" Lude.=: snapshotScheduleIdentifier,
         "PubliclyAccessible" Lude.=: publiclyAccessible,
@@ -545,6 +612,7 @@ instance Lude.ToQuery RestoreFromClusterSnapshot where
         "AutomatedSnapshotRetentionPeriod"
           Lude.=: automatedSnapshotRetentionPeriod,
         "ClusterSubnetGroupName" Lude.=: clusterSubnetGroupName,
+        "ClusterIdentifier" Lude.=: clusterIdentifier,
         "HsmClientCertificateIdentifier"
           Lude.=: hsmClientCertificateIdentifier,
         "NumberOfNodes" Lude.=: numberOfNodes,
@@ -563,30 +631,21 @@ instance Lude.ToQuery RestoreFromClusterSnapshot where
         "NodeType" Lude.=: nodeType,
         "AllowVersionUpgrade" Lude.=: allowVersionUpgrade,
         "ClusterParameterGroupName" Lude.=: clusterParameterGroupName,
-        "Port" Lude.=: port,
-        "ClusterIdentifier" Lude.=: clusterIdentifier,
-        "SnapshotIdentifier" Lude.=: snapshotIdentifier
+        "Port" Lude.=: port
       ]
 
 -- | /See:/ 'mkRestoreFromClusterSnapshotResponse' smart constructor.
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
-  { cluster ::
-      Lude.Maybe Cluster,
-    responseStatus ::
-      Lude.Int
+  { cluster :: Lude.Maybe Cluster,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RestoreFromClusterSnapshotResponse' with the minimum fields required to make a request.
 --
--- * 'cluster' - Undocumented field.
+-- * 'cluster' -
 -- * 'responseStatus' - The response status code.
 mkRestoreFromClusterSnapshotResponse ::
   -- | 'responseStatus'

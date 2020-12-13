@@ -31,26 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganization' smart constructor.
 data Organization = Organization'
-  { org :: Lude.Maybe Lude.Text,
+  { -- | The name of the internet provider.
+    org :: Lude.Maybe Lude.Text,
+    -- | The organization that registered this ASN.
     asnOrg :: Lude.Maybe Lude.Text,
+    -- | The Autonomous System Number (ASN) of the internet provider of the remote IP address.
     asn :: Lude.Maybe Lude.Text,
+    -- | The ISP information for the internet provider.
     isp :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Organization' with the minimum fields required to make a request.
 --
--- * 'asn' - The Autonomous System Number (ASN) of the internet provider of the remote IP address.
--- * 'asnOrg' - The organization that registered this ASN.
--- * 'isp' - The ISP information for the internet provider.
 -- * 'org' - The name of the internet provider.
+-- * 'asnOrg' - The organization that registered this ASN.
+-- * 'asn' - The Autonomous System Number (ASN) of the internet provider of the remote IP address.
+-- * 'isp' - The ISP information for the internet provider.
 mkOrganization ::
   Organization
 mkOrganization =

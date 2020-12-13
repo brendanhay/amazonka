@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.ElasticSearch.DissociatePackage
     mkDissociatePackageResponse,
 
     -- ** Response lenses
-    disrsDomainPackageDetails,
-    disrsResponseStatus,
+    dpgrsDomainPackageDetails,
+    dpgrsResponseStatus,
   )
 where
 
@@ -42,22 +43,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDissociatePackage' smart constructor.
 data DissociatePackage = DissociatePackage'
-  { packageId :: Lude.Text,
+  { -- | Internal ID of the package that you want to associate with a domain. Use @DescribePackages@ to find this value.
+    packageId :: Lude.Text,
+    -- | Name of the domain that you want to associate the package with.
     domainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DissociatePackage' with the minimum fields required to make a request.
 --
--- * 'domainName' - Name of the domain that you want to associate the package with.
 -- * 'packageId' - Internal ID of the package that you want to associate with a domain. Use @DescribePackages@ to find this value.
+-- * 'domainName' - Name of the domain that you want to associate the package with.
 mkDissociatePackage ::
   -- | 'packageId'
   Lude.Text ->
@@ -117,17 +114,12 @@ instance Lude.ToQuery DissociatePackage where
 --
 -- /See:/ 'mkDissociatePackageResponse' smart constructor.
 data DissociatePackageResponse = DissociatePackageResponse'
-  { domainPackageDetails ::
-      Lude.Maybe DomainPackageDetails,
+  { -- | @DomainPackageDetails@
+    domainPackageDetails :: Lude.Maybe DomainPackageDetails,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DissociatePackageResponse' with the minimum fields required to make a request.
@@ -147,13 +139,13 @@ mkDissociatePackageResponse pResponseStatus_ =
 -- | @DomainPackageDetails@
 --
 -- /Note:/ Consider using 'domainPackageDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsDomainPackageDetails :: Lens.Lens' DissociatePackageResponse (Lude.Maybe DomainPackageDetails)
-disrsDomainPackageDetails = Lens.lens (domainPackageDetails :: DissociatePackageResponse -> Lude.Maybe DomainPackageDetails) (\s a -> s {domainPackageDetails = a} :: DissociatePackageResponse)
-{-# DEPRECATED disrsDomainPackageDetails "Use generic-lens or generic-optics with 'domainPackageDetails' instead." #-}
+dpgrsDomainPackageDetails :: Lens.Lens' DissociatePackageResponse (Lude.Maybe DomainPackageDetails)
+dpgrsDomainPackageDetails = Lens.lens (domainPackageDetails :: DissociatePackageResponse -> Lude.Maybe DomainPackageDetails) (\s a -> s {domainPackageDetails = a} :: DissociatePackageResponse)
+{-# DEPRECATED dpgrsDomainPackageDetails "Use generic-lens or generic-optics with 'domainPackageDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disrsResponseStatus :: Lens.Lens' DissociatePackageResponse Lude.Int
-disrsResponseStatus = Lens.lens (responseStatus :: DissociatePackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DissociatePackageResponse)
-{-# DEPRECATED disrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpgrsResponseStatus :: Lens.Lens' DissociatePackageResponse Lude.Int
+dpgrsResponseStatus = Lens.lens (responseStatus :: DissociatePackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DissociatePackageResponse)
+{-# DEPRECATED dpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

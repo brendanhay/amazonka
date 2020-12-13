@@ -14,8 +14,8 @@ module Network.AWS.CertificateManagerPCA.Types.AuditReportStatus
   ( AuditReportStatus
       ( AuditReportStatus',
         ARSCreating,
-        ARSFailed,
-        ARSSuccess
+        ARSSuccess,
+        ARSFailed
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype AuditReportStatus = AuditReportStatus' Lude.Text
 pattern ARSCreating :: AuditReportStatus
 pattern ARSCreating = AuditReportStatus' "CREATING"
 
-pattern ARSFailed :: AuditReportStatus
-pattern ARSFailed = AuditReportStatus' "FAILED"
-
 pattern ARSSuccess :: AuditReportStatus
 pattern ARSSuccess = AuditReportStatus' "SUCCESS"
 
+pattern ARSFailed :: AuditReportStatus
+pattern ARSFailed = AuditReportStatus' "FAILED"
+
 {-# COMPLETE
   ARSCreating,
-  ARSFailed,
   ARSSuccess,
+  ARSFailed,
   AuditReportStatus'
   #-}

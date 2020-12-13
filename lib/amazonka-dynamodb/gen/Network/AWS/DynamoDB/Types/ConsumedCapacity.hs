@@ -35,35 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConsumedCapacity' smart constructor.
 data ConsumedCapacity = ConsumedCapacity'
-  { readCapacityUnits ::
-      Lude.Maybe Lude.Double,
-    globalSecondaryIndexes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Capacity)),
+  { -- | The total number of read capacity units consumed by the operation.
+    readCapacityUnits :: Lude.Maybe Lude.Double,
+    -- | The amount of throughput consumed on each global index affected by the operation.
+    globalSecondaryIndexes :: Lude.Maybe (Lude.HashMap Lude.Text (Capacity)),
+    -- | The total number of capacity units consumed by the operation.
     capacityUnits :: Lude.Maybe Lude.Double,
+    -- | The total number of write capacity units consumed by the operation.
     writeCapacityUnits :: Lude.Maybe Lude.Double,
-    localSecondaryIndexes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Capacity)),
+    -- | The amount of throughput consumed on each local index affected by the operation.
+    localSecondaryIndexes :: Lude.Maybe (Lude.HashMap Lude.Text (Capacity)),
+    -- | The amount of throughput consumed on the table affected by the operation.
     table :: Lude.Maybe Capacity,
+    -- | The name of the table that was affected by the operation.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConsumedCapacity' with the minimum fields required to make a request.
 --
--- * 'capacityUnits' - The total number of capacity units consumed by the operation.
--- * 'globalSecondaryIndexes' - The amount of throughput consumed on each global index affected by the operation.
--- * 'localSecondaryIndexes' - The amount of throughput consumed on each local index affected by the operation.
 -- * 'readCapacityUnits' - The total number of read capacity units consumed by the operation.
+-- * 'globalSecondaryIndexes' - The amount of throughput consumed on each global index affected by the operation.
+-- * 'capacityUnits' - The total number of capacity units consumed by the operation.
+-- * 'writeCapacityUnits' - The total number of write capacity units consumed by the operation.
+-- * 'localSecondaryIndexes' - The amount of throughput consumed on each local index affected by the operation.
 -- * 'table' - The amount of throughput consumed on the table affected by the operation.
 -- * 'tableName' - The name of the table that was affected by the operation.
--- * 'writeCapacityUnits' - The total number of write capacity units consumed by the operation.
 mkConsumedCapacity ::
   ConsumedCapacity
 mkConsumedCapacity =

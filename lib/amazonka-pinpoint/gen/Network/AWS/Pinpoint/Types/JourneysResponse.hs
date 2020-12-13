@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJourneysResponse' smart constructor.
 data JourneysResponse = JourneysResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of responses, one for each journey that's associated with the application.
     item :: [JourneyResponse]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JourneysResponse' with the minimum fields required to make a request.
 --
--- * 'item' - An array of responses, one for each journey that's associated with the application.
 -- * 'nextToken' - The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.
+-- * 'item' - An array of responses, one for each journey that's associated with the application.
 mkJourneysResponse ::
   JourneysResponse
 mkJourneysResponse =

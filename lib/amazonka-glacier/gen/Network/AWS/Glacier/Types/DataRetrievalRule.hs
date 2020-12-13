@@ -29,27 +29,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataRetrievalRule' smart constructor.
 data DataRetrievalRule = DataRetrievalRule'
-  { strategy ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of data retrieval policy to set.
+    --
+    -- Valid values: BytesPerHour|FreeTier|None
+    strategy :: Lude.Maybe Lude.Text,
+    -- | The maximum number of bytes that can be retrieved in an hour.
+    --
+    -- This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
     bytesPerHour :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DataRetrievalRule' with the minimum fields required to make a request.
 --
--- * 'bytesPerHour' - The maximum number of bytes that can be retrieved in an hour.
---
--- This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
 -- * 'strategy' - The type of data retrieval policy to set.
 --
 -- Valid values: BytesPerHour|FreeTier|None
+-- * 'bytesPerHour' - The maximum number of bytes that can be retrieved in an hour.
+--
+-- This field is required only if the value of the Strategy field is @BytesPerHour@ . Your PUT operation will be rejected if the Strategy field is not set to @BytesPerHour@ and you set this field.
 mkDataRetrievalRule ::
   DataRetrievalRule
 mkDataRetrievalRule =

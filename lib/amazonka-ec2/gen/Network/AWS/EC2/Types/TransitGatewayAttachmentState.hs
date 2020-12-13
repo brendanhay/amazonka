@@ -13,19 +13,19 @@
 module Network.AWS.EC2.Types.TransitGatewayAttachmentState
   ( TransitGatewayAttachmentState
       ( TransitGatewayAttachmentState',
-        TGASAvailable,
-        TGASDeleted,
-        TGASDeleting,
-        TGASFailed,
-        TGASFailing,
         TGASInitiating,
         TGASInitiatingRequest,
-        TGASModifying,
-        TGASPending,
         TGASPendingAcceptance,
+        TGASRollingBack,
+        TGASPending,
+        TGASAvailable,
+        TGASModifying,
+        TGASDeleting,
+        TGASDeleted,
+        TGASFailed,
         TGASRejected,
         TGASRejecting,
-        TGASRollingBack
+        TGASFailing
       ),
   )
 where
@@ -56,35 +56,35 @@ newtype TransitGatewayAttachmentState = TransitGatewayAttachmentState' Lude.Text
       Lude.ToHeader
     )
 
-pattern TGASAvailable :: TransitGatewayAttachmentState
-pattern TGASAvailable = TransitGatewayAttachmentState' "available"
-
-pattern TGASDeleted :: TransitGatewayAttachmentState
-pattern TGASDeleted = TransitGatewayAttachmentState' "deleted"
-
-pattern TGASDeleting :: TransitGatewayAttachmentState
-pattern TGASDeleting = TransitGatewayAttachmentState' "deleting"
-
-pattern TGASFailed :: TransitGatewayAttachmentState
-pattern TGASFailed = TransitGatewayAttachmentState' "failed"
-
-pattern TGASFailing :: TransitGatewayAttachmentState
-pattern TGASFailing = TransitGatewayAttachmentState' "failing"
-
 pattern TGASInitiating :: TransitGatewayAttachmentState
 pattern TGASInitiating = TransitGatewayAttachmentState' "initiating"
 
 pattern TGASInitiatingRequest :: TransitGatewayAttachmentState
 pattern TGASInitiatingRequest = TransitGatewayAttachmentState' "initiatingRequest"
 
-pattern TGASModifying :: TransitGatewayAttachmentState
-pattern TGASModifying = TransitGatewayAttachmentState' "modifying"
+pattern TGASPendingAcceptance :: TransitGatewayAttachmentState
+pattern TGASPendingAcceptance = TransitGatewayAttachmentState' "pendingAcceptance"
+
+pattern TGASRollingBack :: TransitGatewayAttachmentState
+pattern TGASRollingBack = TransitGatewayAttachmentState' "rollingBack"
 
 pattern TGASPending :: TransitGatewayAttachmentState
 pattern TGASPending = TransitGatewayAttachmentState' "pending"
 
-pattern TGASPendingAcceptance :: TransitGatewayAttachmentState
-pattern TGASPendingAcceptance = TransitGatewayAttachmentState' "pendingAcceptance"
+pattern TGASAvailable :: TransitGatewayAttachmentState
+pattern TGASAvailable = TransitGatewayAttachmentState' "available"
+
+pattern TGASModifying :: TransitGatewayAttachmentState
+pattern TGASModifying = TransitGatewayAttachmentState' "modifying"
+
+pattern TGASDeleting :: TransitGatewayAttachmentState
+pattern TGASDeleting = TransitGatewayAttachmentState' "deleting"
+
+pattern TGASDeleted :: TransitGatewayAttachmentState
+pattern TGASDeleted = TransitGatewayAttachmentState' "deleted"
+
+pattern TGASFailed :: TransitGatewayAttachmentState
+pattern TGASFailed = TransitGatewayAttachmentState' "failed"
 
 pattern TGASRejected :: TransitGatewayAttachmentState
 pattern TGASRejected = TransitGatewayAttachmentState' "rejected"
@@ -92,22 +92,22 @@ pattern TGASRejected = TransitGatewayAttachmentState' "rejected"
 pattern TGASRejecting :: TransitGatewayAttachmentState
 pattern TGASRejecting = TransitGatewayAttachmentState' "rejecting"
 
-pattern TGASRollingBack :: TransitGatewayAttachmentState
-pattern TGASRollingBack = TransitGatewayAttachmentState' "rollingBack"
+pattern TGASFailing :: TransitGatewayAttachmentState
+pattern TGASFailing = TransitGatewayAttachmentState' "failing"
 
 {-# COMPLETE
-  TGASAvailable,
-  TGASDeleted,
-  TGASDeleting,
-  TGASFailed,
-  TGASFailing,
   TGASInitiating,
   TGASInitiatingRequest,
-  TGASModifying,
-  TGASPending,
   TGASPendingAcceptance,
+  TGASRollingBack,
+  TGASPending,
+  TGASAvailable,
+  TGASModifying,
+  TGASDeleting,
+  TGASDeleted,
+  TGASFailed,
   TGASRejected,
   TGASRejecting,
-  TGASRollingBack,
+  TGASFailing,
   TransitGatewayAttachmentState'
   #-}

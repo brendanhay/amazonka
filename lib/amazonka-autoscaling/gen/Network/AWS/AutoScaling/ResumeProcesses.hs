@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.AutoScaling.ResumeProcesses
     mkResumeProcesses,
 
     -- ** Request lenses
-    rpScalingProcesses,
     rpAutoScalingGroupName,
+    rpScalingProcesses,
 
     -- * Destructuring the response
     ResumeProcessesResponse (..),
@@ -38,17 +39,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResumeProcesses' smart constructor.
 data ResumeProcesses = ResumeProcesses'
-  { scalingProcesses ::
-      Lude.Maybe [Lude.Text],
-    autoScalingGroupName :: Lude.Text
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Text,
+    -- | One or more of the following processes:
+    --
+    --
+    --     * @Launch@
+    --
+    --
+    --     * @Terminate@
+    --
+    --
+    --     * @AddToLoadBalancer@
+    --
+    --
+    --     * @AlarmNotification@
+    --
+    --
+    --     * @AZRebalance@
+    --
+    --
+    --     * @HealthCheck@
+    --
+    --
+    --     * @InstanceRefresh@
+    --
+    --
+    --     * @ReplaceUnhealthy@
+    --
+    --
+    --     * @ScheduledActions@
+    --
+    --
+    -- If you omit this parameter, all processes are specified.
+    scalingProcesses :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeProcesses' with the minimum fields required to make a request.
@@ -91,9 +117,16 @@ mkResumeProcesses ::
   ResumeProcesses
 mkResumeProcesses pAutoScalingGroupName_ =
   ResumeProcesses'
-    { scalingProcesses = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
+    { autoScalingGroupName = pAutoScalingGroupName_,
+      scalingProcesses = Lude.Nothing
     }
+
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpAutoScalingGroupName :: Lens.Lens' ResumeProcesses Lude.Text
+rpAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ResumeProcesses -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: ResumeProcesses)
+{-# DEPRECATED rpAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | One or more of the following processes:
 --
@@ -132,13 +165,6 @@ rpScalingProcesses :: Lens.Lens' ResumeProcesses (Lude.Maybe [Lude.Text])
 rpScalingProcesses = Lens.lens (scalingProcesses :: ResumeProcesses -> Lude.Maybe [Lude.Text]) (\s a -> s {scalingProcesses = a} :: ResumeProcesses)
 {-# DEPRECATED rpScalingProcesses "Use generic-lens or generic-optics with 'scalingProcesses' instead." #-}
 
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpAutoScalingGroupName :: Lens.Lens' ResumeProcesses Lude.Text
-rpAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ResumeProcesses -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: ResumeProcesses)
-{-# DEPRECATED rpAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
 instance Lude.AWSRequest ResumeProcesses where
   type Rs ResumeProcesses = ResumeProcessesResponse
   request = Req.postQuery autoScalingService
@@ -155,20 +181,14 @@ instance Lude.ToQuery ResumeProcesses where
     Lude.mconcat
       [ "Action" Lude.=: ("ResumeProcesses" :: Lude.ByteString),
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "ScalingProcesses"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> scalingProcesses),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
+          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> scalingProcesses)
       ]
 
 -- | /See:/ 'mkResumeProcessesResponse' smart constructor.
 data ResumeProcessesResponse = ResumeProcessesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResumeProcessesResponse' with the minimum fields required to make a request.

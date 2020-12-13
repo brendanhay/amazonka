@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,10 +28,10 @@ module Network.AWS.LexModels.PutSlotType
     pstSlotTypeConfigurations,
     pstChecksum,
     pstValueSelectionStrategy,
+    pstName,
     pstCreateVersion,
     pstDescription,
     pstEnumerationValues,
-    pstName,
 
     -- * Destructuring the response
     PutSlotTypeResponse (..),
@@ -60,45 +61,56 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutSlotType' smart constructor.
 data PutSlotType = PutSlotType'
-  { parentSlotTypeSignature ::
-      Lude.Maybe Lude.Text,
+  { -- | The built-in slot type used as the parent of the slot type. When you define a parent slot type, the new slot type has all of the same configuration as the parent.
+    --
+    -- Only @AMAZON.AlphaNumeric@ is supported.
+    parentSlotTypeSignature :: Lude.Maybe Lude.Text,
+    -- | Configuration information that extends the parent built-in slot type. The configuration is added to the settings for the parent slot type.
     slotTypeConfigurations :: Lude.Maybe [SlotTypeConfiguration],
+    -- | Identifies a specific revision of the @> LATEST@ version.
+    --
+    -- When you create a new slot type, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
+    -- When you want to update a slot type, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
     checksum :: Lude.Maybe Lude.Text,
+    -- | Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+    --
+    --
+    --     * @ORIGINAL_VALUE@ - Returns the value entered by the user, if the user value is similar to the slot value.
+    --
+    --
+    --     * @TOP_RESOLUTION@ - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+    --
+    --
+    -- If you don't specify the @valueSelectionStrategy@ , the default is @ORIGINAL_VALUE@ .
     valueSelectionStrategy :: Lude.Maybe SlotValueSelectionStrategy,
+    -- | The name of the slot type. The name is /not/ case sensitive.
+    --
+    -- The name can't match a built-in slot type name, or a built-in slot type name with "AMAZON." removed. For example, because there is a built-in slot type called @AMAZON.DATE@ , you can't create a custom slot type called @DATE@ .
+    -- For a list of built-in slot types, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
+    name :: Lude.Text,
+    -- | When set to @true@ a new numbered version of the slot type is created. This is the same as calling the @CreateSlotTypeVersion@ operation. If you do not specify @createVersion@ , the default is @false@ .
     createVersion :: Lude.Maybe Lude.Bool,
+    -- | A description of the slot type.
     description :: Lude.Maybe Lude.Text,
-    enumerationValues :: Lude.Maybe [EnumerationValue],
-    name :: Lude.Text
+    -- | A list of @EnumerationValue@ objects that defines the values that the slot type can take. Each value can have a list of @synonyms@ , which are additional values that help train the machine learning model about the values that it resolves for a slot.
+    --
+    -- A regular expression slot type doesn't require enumeration values. All other slot types require a list of enumeration values.
+    -- When Amazon Lex resolves a slot value, it generates a resolution list that contains up to five possible values for the slot. If you are using a Lambda function, this resolution list is passed to the function. If you are not using a Lambda function you can choose to return the value that the user entered or the first value in the resolution list as the slot value. The @valueSelectionStrategy@ field indicates the option to use.
+    enumerationValues :: Lude.Maybe [EnumerationValue]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSlotType' with the minimum fields required to make a request.
 --
--- * 'checksum' - Identifies a specific revision of the @> LATEST@ version.
---
--- When you create a new slot type, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
--- When you want to update a slot type, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
--- * 'createVersion' - When set to @true@ a new numbered version of the slot type is created. This is the same as calling the @CreateSlotTypeVersion@ operation. If you do not specify @createVersion@ , the default is @false@ .
--- * 'description' - A description of the slot type.
--- * 'enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take. Each value can have a list of @synonyms@ , which are additional values that help train the machine learning model about the values that it resolves for a slot.
---
--- A regular expression slot type doesn't require enumeration values. All other slot types require a list of enumeration values.
--- When Amazon Lex resolves a slot value, it generates a resolution list that contains up to five possible values for the slot. If you are using a Lambda function, this resolution list is passed to the function. If you are not using a Lambda function you can choose to return the value that the user entered or the first value in the resolution list as the slot value. The @valueSelectionStrategy@ field indicates the option to use.
--- * 'name' - The name of the slot type. The name is /not/ case sensitive.
---
--- The name can't match a built-in slot type name, or a built-in slot type name with "AMAZON." removed. For example, because there is a built-in slot type called @AMAZON.DATE@ , you can't create a custom slot type called @DATE@ .
--- For a list of built-in slot types, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
 -- * 'parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type. When you define a parent slot type, the new slot type has all of the same configuration as the parent.
 --
 -- Only @AMAZON.AlphaNumeric@ is supported.
 -- * 'slotTypeConfigurations' - Configuration information that extends the parent built-in slot type. The configuration is added to the settings for the parent slot type.
+-- * 'checksum' - Identifies a specific revision of the @> LATEST@ version.
+--
+-- When you create a new slot type, leave the @checksum@ field blank. If you specify a checksum you get a @BadRequestException@ exception.
+-- When you want to update a slot type, set the @checksum@ field to the checksum of the most recent revision of the @> LATEST@ version. If you don't specify the @checksum@ field, or if the checksum does not match the @> LATEST@ version, you get a @PreconditionFailedException@ exception.
 -- * 'valueSelectionStrategy' - Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
 --
 --
@@ -109,6 +121,16 @@ data PutSlotType = PutSlotType'
 --
 --
 -- If you don't specify the @valueSelectionStrategy@ , the default is @ORIGINAL_VALUE@ .
+-- * 'name' - The name of the slot type. The name is /not/ case sensitive.
+--
+-- The name can't match a built-in slot type name, or a built-in slot type name with "AMAZON." removed. For example, because there is a built-in slot type called @AMAZON.DATE@ , you can't create a custom slot type called @DATE@ .
+-- For a list of built-in slot types, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
+-- * 'createVersion' - When set to @true@ a new numbered version of the slot type is created. This is the same as calling the @CreateSlotTypeVersion@ operation. If you do not specify @createVersion@ , the default is @false@ .
+-- * 'description' - A description of the slot type.
+-- * 'enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take. Each value can have a list of @synonyms@ , which are additional values that help train the machine learning model about the values that it resolves for a slot.
+--
+-- A regular expression slot type doesn't require enumeration values. All other slot types require a list of enumeration values.
+-- When Amazon Lex resolves a slot value, it generates a resolution list that contains up to five possible values for the slot. If you are using a Lambda function, this resolution list is passed to the function. If you are not using a Lambda function you can choose to return the value that the user entered or the first value in the resolution list as the slot value. The @valueSelectionStrategy@ field indicates the option to use.
 mkPutSlotType ::
   -- | 'name'
   Lude.Text ->
@@ -119,10 +141,10 @@ mkPutSlotType pName_ =
       slotTypeConfigurations = Lude.Nothing,
       checksum = Lude.Nothing,
       valueSelectionStrategy = Lude.Nothing,
+      name = pName_,
       createVersion = Lude.Nothing,
       description = Lude.Nothing,
-      enumerationValues = Lude.Nothing,
-      name = pName_
+      enumerationValues = Lude.Nothing
     }
 
 -- | The built-in slot type used as the parent of the slot type. When you define a parent slot type, the new slot type has all of the same configuration as the parent.
@@ -167,6 +189,16 @@ pstValueSelectionStrategy :: Lens.Lens' PutSlotType (Lude.Maybe SlotValueSelecti
 pstValueSelectionStrategy = Lens.lens (valueSelectionStrategy :: PutSlotType -> Lude.Maybe SlotValueSelectionStrategy) (\s a -> s {valueSelectionStrategy = a} :: PutSlotType)
 {-# DEPRECATED pstValueSelectionStrategy "Use generic-lens or generic-optics with 'valueSelectionStrategy' instead." #-}
 
+-- | The name of the slot type. The name is /not/ case sensitive.
+--
+-- The name can't match a built-in slot type name, or a built-in slot type name with "AMAZON." removed. For example, because there is a built-in slot type called @AMAZON.DATE@ , you can't create a custom slot type called @DATE@ .
+-- For a list of built-in slot types, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pstName :: Lens.Lens' PutSlotType Lude.Text
+pstName = Lens.lens (name :: PutSlotType -> Lude.Text) (\s a -> s {name = a} :: PutSlotType)
+{-# DEPRECATED pstName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | When set to @true@ a new numbered version of the slot type is created. This is the same as calling the @CreateSlotTypeVersion@ operation. If you do not specify @createVersion@ , the default is @false@ .
 --
 -- /Note:/ Consider using 'createVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -190,16 +222,6 @@ pstDescription = Lens.lens (description :: PutSlotType -> Lude.Maybe Lude.Text) 
 pstEnumerationValues :: Lens.Lens' PutSlotType (Lude.Maybe [EnumerationValue])
 pstEnumerationValues = Lens.lens (enumerationValues :: PutSlotType -> Lude.Maybe [EnumerationValue]) (\s a -> s {enumerationValues = a} :: PutSlotType)
 {-# DEPRECATED pstEnumerationValues "Use generic-lens or generic-optics with 'enumerationValues' instead." #-}
-
--- | The name of the slot type. The name is /not/ case sensitive.
---
--- The name can't match a built-in slot type name, or a built-in slot type name with "AMAZON." removed. For example, because there is a built-in slot type called @AMAZON.DATE@ , you can't create a custom slot type called @DATE@ .
--- For a list of built-in slot types, see <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference Slot Type Reference> in the /Alexa Skills Kit/ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pstName :: Lens.Lens' PutSlotType Lude.Text
-pstName = Lens.lens (name :: PutSlotType -> Lude.Text) (\s a -> s {name = a} :: PutSlotType)
-{-# DEPRECATED pstName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest PutSlotType where
   type Rs PutSlotType = PutSlotTypeResponse
@@ -255,45 +277,48 @@ instance Lude.ToQuery PutSlotType where
 
 -- | /See:/ 'mkPutSlotTypeResponse' smart constructor.
 data PutSlotTypeResponse = PutSlotTypeResponse'
-  { parentSlotTypeSignature ::
-      Lude.Maybe Lude.Text,
-    slotTypeConfigurations ::
-      Lude.Maybe [SlotTypeConfiguration],
+  { -- | The built-in slot type used as the parent of the slot type.
+    parentSlotTypeSignature :: Lude.Maybe Lude.Text,
+    -- | Configuration information that extends the parent built-in slot type.
+    slotTypeConfigurations :: Lude.Maybe [SlotTypeConfiguration],
+    -- | Checksum of the @> LATEST@ version of the slot type.
     checksum :: Lude.Maybe Lude.Text,
-    valueSelectionStrategy ::
-      Lude.Maybe SlotValueSelectionStrategy,
+    -- | The slot resolution strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
+    valueSelectionStrategy :: Lude.Maybe SlotValueSelectionStrategy,
+    -- | The date that the slot type was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the slot type.
     name :: Lude.Maybe Lude.Text,
+    -- | The version of the slot type. For a new slot type, the version is always @> LATEST@ .
     version :: Lude.Maybe Lude.Text,
+    -- | The date that the slot type was updated. When you create a slot type, the creation date and last update date are the same.
     lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | @True@ if a new version of the slot type was created. If the @createVersion@ field was not specified in the request, the @createVersion@ field is set to false in the response.
     createVersion :: Lude.Maybe Lude.Bool,
+    -- | A description of the slot type.
     description :: Lude.Maybe Lude.Text,
+    -- | A list of @EnumerationValue@ objects that defines the values that the slot type can take.
     enumerationValues :: Lude.Maybe [EnumerationValue],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutSlotTypeResponse' with the minimum fields required to make a request.
 --
+-- * 'parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type.
+-- * 'slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
 -- * 'checksum' - Checksum of the @> LATEST@ version of the slot type.
--- * 'createVersion' - @True@ if a new version of the slot type was created. If the @createVersion@ field was not specified in the request, the @createVersion@ field is set to false in the response.
+-- * 'valueSelectionStrategy' - The slot resolution strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
 -- * 'createdDate' - The date that the slot type was created.
+-- * 'name' - The name of the slot type.
+-- * 'version' - The version of the slot type. For a new slot type, the version is always @> LATEST@ .
+-- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a slot type, the creation date and last update date are the same.
+-- * 'createVersion' - @True@ if a new version of the slot type was created. If the @createVersion@ field was not specified in the request, the @createVersion@ field is set to false in the response.
 -- * 'description' - A description of the slot type.
 -- * 'enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take.
--- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a slot type, the creation date and last update date are the same.
--- * 'name' - The name of the slot type.
--- * 'parentSlotTypeSignature' - The built-in slot type used as the parent of the slot type.
 -- * 'responseStatus' - The response status code.
--- * 'slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
--- * 'valueSelectionStrategy' - The slot resolution strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
--- * 'version' - The version of the slot type. For a new slot type, the version is always @> LATEST@ .
 mkPutSlotTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

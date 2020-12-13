@@ -29,24 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRuleGroupSummary' smart constructor.
 data RuleGroupSummary = RuleGroupSummary'
-  { ruleGroupId :: Lude.Text,
+  { -- | A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ).
+    --
+    -- @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+    ruleGroupId :: Lude.Text,
+    -- | A friendly name or description of the 'RuleGroup' . You can't change the name of a @RuleGroup@ after you create it.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RuleGroupSummary' with the minimum fields required to make a request.
 --
--- * 'name' - A friendly name or description of the 'RuleGroup' . You can't change the name of a @RuleGroup@ after you create it.
 -- * 'ruleGroupId' - A unique identifier for a @RuleGroup@ . You use @RuleGroupId@ to get more information about a @RuleGroup@ (see 'GetRuleGroup' ), update a @RuleGroup@ (see 'UpdateRuleGroup' ), insert a @RuleGroup@ into a @WebACL@ or delete one from a @WebACL@ (see 'UpdateWebACL' ), or delete a @RuleGroup@ from AWS WAF (see 'DeleteRuleGroup' ).
 --
 -- @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+-- * 'name' - A friendly name or description of the 'RuleGroup' . You can't change the name of a @RuleGroup@ after you create it.
 mkRuleGroupSummary ::
   -- | 'ruleGroupId'
   Lude.Text ->

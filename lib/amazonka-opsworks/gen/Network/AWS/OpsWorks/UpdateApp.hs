@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.OpsWorks.UpdateApp
     uaEnableSSL,
     uaDataSources,
     uaAppSource,
+    uaAppId,
     uaAttributes,
     uaName,
     uaType,
     uaDomains,
     uaDescription,
-    uaAppId,
 
     -- * Destructuring the response
     UpdateAppResponse (..),
@@ -47,44 +48,49 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { sslConfiguration ::
-      Lude.Maybe SSLConfiguration,
+  { -- | An @SslConfiguration@ object with the SSL configuration.
+    sslConfiguration :: Lude.Maybe SSLConfiguration,
+    -- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
+    --
+    -- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20 KB)."
     environment :: Lude.Maybe [EnvironmentVariable],
+    -- | Whether SSL is enabled for the app.
     enableSSL :: Lude.Maybe Lude.Bool,
+    -- | The app's data sources.
     dataSources :: Lude.Maybe [DataSource],
+    -- | A @Source@ object that specifies the app repository.
     appSource :: Lude.Maybe Source,
-    attributes ::
-      Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
+    -- | The app ID.
+    appId :: Lude.Text,
+    -- | One or more user-defined key/value pairs to be added to the stack attributes.
+    attributes :: Lude.Maybe (Lude.HashMap AppAttributesKeys (Lude.Text)),
+    -- | The app name.
     name :: Lude.Maybe Lude.Text,
+    -- | The app type.
     type' :: Lude.Maybe AppType,
+    -- | The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
     domains :: Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
-    appId :: Lude.Text
+    -- | A description of the app.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
 --
--- * 'appId' - The app ID.
--- * 'appSource' - A @Source@ object that specifies the app repository.
--- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
--- * 'dataSources' - The app's data sources.
--- * 'description' - A description of the app.
--- * 'domains' - The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
--- * 'enableSSL' - Whether SSL is enabled for the app.
+-- * 'sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 -- * 'environment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> .
 --
 -- There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 20 KB)."
+-- * 'enableSSL' - Whether SSL is enabled for the app.
+-- * 'dataSources' - The app's data sources.
+-- * 'appSource' - A @Source@ object that specifies the app repository.
+-- * 'appId' - The app ID.
+-- * 'attributes' - One or more user-defined key/value pairs to be added to the stack attributes.
 -- * 'name' - The app name.
--- * 'sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 -- * 'type'' - The app type.
+-- * 'domains' - The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+-- * 'description' - A description of the app.
 mkUpdateApp ::
   -- | 'appId'
   Lude.Text ->
@@ -96,12 +102,12 @@ mkUpdateApp pAppId_ =
       enableSSL = Lude.Nothing,
       dataSources = Lude.Nothing,
       appSource = Lude.Nothing,
+      appId = pAppId_,
       attributes = Lude.Nothing,
       name = Lude.Nothing,
       type' = Lude.Nothing,
       domains = Lude.Nothing,
-      description = Lude.Nothing,
-      appId = pAppId_
+      description = Lude.Nothing
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
@@ -141,6 +147,13 @@ uaAppSource :: Lens.Lens' UpdateApp (Lude.Maybe Source)
 uaAppSource = Lens.lens (appSource :: UpdateApp -> Lude.Maybe Source) (\s a -> s {appSource = a} :: UpdateApp)
 {-# DEPRECATED uaAppSource "Use generic-lens or generic-optics with 'appSource' instead." #-}
 
+-- | The app ID.
+--
+-- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaAppId :: Lens.Lens' UpdateApp Lude.Text
+uaAppId = Lens.lens (appId :: UpdateApp -> Lude.Text) (\s a -> s {appId = a} :: UpdateApp)
+{-# DEPRECATED uaAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
+
 -- | One or more user-defined key/value pairs to be added to the stack attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -176,13 +189,6 @@ uaDescription :: Lens.Lens' UpdateApp (Lude.Maybe Lude.Text)
 uaDescription = Lens.lens (description :: UpdateApp -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApp)
 {-# DEPRECATED uaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The app ID.
---
--- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAppId :: Lens.Lens' UpdateApp Lude.Text
-uaAppId = Lens.lens (appId :: UpdateApp -> Lude.Text) (\s a -> s {appId = a} :: UpdateApp)
-{-# DEPRECATED uaAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
-
 instance Lude.AWSRequest UpdateApp where
   type Rs UpdateApp = UpdateAppResponse
   request = Req.postJSON opsWorksService
@@ -208,12 +214,12 @@ instance Lude.ToJSON UpdateApp where
             ("EnableSsl" Lude..=) Lude.<$> enableSSL,
             ("DataSources" Lude..=) Lude.<$> dataSources,
             ("AppSource" Lude..=) Lude.<$> appSource,
+            Lude.Just ("AppId" Lude..= appId),
             ("Attributes" Lude..=) Lude.<$> attributes,
             ("Name" Lude..=) Lude.<$> name,
             ("Type" Lude..=) Lude.<$> type',
             ("Domains" Lude..=) Lude.<$> domains,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("AppId" Lude..= appId)
+            ("Description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -225,13 +231,7 @@ instance Lude.ToQuery UpdateApp where
 
 -- | /See:/ 'mkUpdateAppResponse' smart constructor.
 data UpdateAppResponse = UpdateAppResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.

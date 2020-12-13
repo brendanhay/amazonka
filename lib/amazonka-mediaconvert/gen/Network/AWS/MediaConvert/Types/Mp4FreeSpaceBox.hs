@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Mp4FreeSpaceBox
   ( Mp4FreeSpaceBox
       ( Mp4FreeSpaceBox',
-        MFSBExclude,
-        MFSBInclude
+        MFSBInclude,
+        MFSBExclude
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mp4FreeSpaceBox = Mp4FreeSpaceBox' Lude.Text
       Lude.ToHeader
     )
 
-pattern MFSBExclude :: Mp4FreeSpaceBox
-pattern MFSBExclude = Mp4FreeSpaceBox' "EXCLUDE"
-
 pattern MFSBInclude :: Mp4FreeSpaceBox
 pattern MFSBInclude = Mp4FreeSpaceBox' "INCLUDE"
 
+pattern MFSBExclude :: Mp4FreeSpaceBox
+pattern MFSBExclude = Mp4FreeSpaceBox' "EXCLUDE"
+
 {-# COMPLETE
-  MFSBExclude,
   MFSBInclude,
+  MFSBExclude,
   Mp4FreeSpaceBox'
   #-}

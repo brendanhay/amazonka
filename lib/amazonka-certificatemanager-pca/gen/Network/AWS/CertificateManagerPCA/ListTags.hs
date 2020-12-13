@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,26 +46,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
     maxResults :: Lude.Maybe Lude.Natural,
+    -- | The Amazon Resource Name (ARN) that was returned when you called the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action. This must be of the form:
+    --
+    -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
     certificateAuthorityARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTags' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+-- * 'maxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
 -- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action. This must be of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
--- * 'maxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
--- * 'nextToken' - Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
 mkListTags ::
   -- | 'certificateAuthorityARN'
   Lude.Text ->
@@ -150,25 +150,21 @@ instance Lude.ToQuery ListTags where
 
 -- | /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The tags associated with your private CA.
     tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags associated with your private CA.
+-- * 'responseStatus' - The response status code.
 mkListTagsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

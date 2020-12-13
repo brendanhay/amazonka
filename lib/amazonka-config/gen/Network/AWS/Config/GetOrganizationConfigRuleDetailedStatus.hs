@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,32 +46,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetOrganizationConfigRuleDetailedStatus' smart constructor.
 data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailedStatus'
-  { filters ::
-      Lude.Maybe
-        StatusDetailFilters,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    limit ::
-      Lude.Maybe
-        Lude.Natural,
-    organizationConfigRuleName ::
-      Lude.Text
+  { -- | A @StatusDetailFilters@ object.
+    filters :: Lude.Maybe StatusDetailFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
+    limit :: Lude.Maybe Lude.Natural,
+    -- | The name of organization config rule for which you want status details for member accounts.
+    organizationConfigRuleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOrganizationConfigRuleDetailedStatus' with the minimum fields required to make a request.
 --
 -- * 'filters' - A @StatusDetailFilters@ object.
--- * 'limit' - The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
 -- * 'organizationConfigRuleName' - The name of organization config rule for which you want status details for member accounts.
 mkGetOrganizationConfigRuleDetailedStatus ::
   -- | 'organizationConfigRuleName'
@@ -163,31 +155,20 @@ instance Lude.ToQuery GetOrganizationConfigRuleDetailedStatus where
 
 -- | /See:/ 'mkGetOrganizationConfigRuleDetailedStatusResponse' smart constructor.
 data GetOrganizationConfigRuleDetailedStatusResponse = GetOrganizationConfigRuleDetailedStatusResponse'
-  { organizationConfigRuleDetailedStatus ::
-      Lude.Maybe
-        [MemberAccountStatus],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list of @MemberAccountStatus@ objects.
+    organizationConfigRuleDetailedStatus :: Lude.Maybe [MemberAccountStatus],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOrganizationConfigRuleDetailedStatusResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'organizationConfigRuleDetailedStatus' - A list of @MemberAccountStatus@ objects.
+-- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'responseStatus' - The response status code.
 mkGetOrganizationConfigRuleDetailedStatusResponse ::
   -- | 'responseStatus'

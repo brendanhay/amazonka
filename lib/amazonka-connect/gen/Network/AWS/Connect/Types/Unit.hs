@@ -13,9 +13,9 @@
 module Network.AWS.Connect.Types.Unit
   ( Unit
       ( Unit',
+        Seconds,
         Count,
-        Percent,
-        Seconds
+        Percent
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype Unit = Unit' Lude.Text
       Lude.ToHeader
     )
 
+pattern Seconds :: Unit
+pattern Seconds = Unit' "SECONDS"
+
 pattern Count :: Unit
 pattern Count = Unit' "COUNT"
 
 pattern Percent :: Unit
 pattern Percent = Unit' "PERCENT"
 
-pattern Seconds :: Unit
-pattern Seconds = Unit' "SECONDS"
-
 {-# COMPLETE
+  Seconds,
   Count,
   Percent,
-  Seconds,
   Unit'
   #-}

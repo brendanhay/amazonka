@@ -13,8 +13,8 @@
 module Network.AWS.APIGateway.Types.APIKeySourceType
   ( APIKeySourceType
       ( APIKeySourceType',
-        Authorizer,
-        Header
+        Header,
+        Authorizer
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype APIKeySourceType = APIKeySourceType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Authorizer :: APIKeySourceType
-pattern Authorizer = APIKeySourceType' "AUTHORIZER"
-
 pattern Header :: APIKeySourceType
 pattern Header = APIKeySourceType' "HEADER"
 
+pattern Authorizer :: APIKeySourceType
+pattern Authorizer = APIKeySourceType' "AUTHORIZER"
+
 {-# COMPLETE
-  Authorizer,
   Header,
+  Authorizer,
   APIKeySourceType'
   #-}

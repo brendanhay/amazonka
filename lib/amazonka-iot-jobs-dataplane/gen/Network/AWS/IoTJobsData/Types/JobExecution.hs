@@ -39,41 +39,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobExecution' smart constructor.
 data JobExecution = JobExecution'
-  { status ::
-      Lude.Maybe JobExecutionStatus,
+  { -- | The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+    status :: Lude.Maybe JobExecutionStatus,
+    -- | The unique identifier you assigned to this job when it was created.
     jobId :: Lude.Maybe Lude.Text,
+    -- | The time, in milliseconds since the epoch, when the job execution was last updated.
     lastUpdatedAt :: Lude.Maybe Lude.Integer,
+    -- | The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
     approximateSecondsBeforeTimedOut :: Lude.Maybe Lude.Integer,
+    -- | The time, in milliseconds since the epoch, when the job execution was enqueued.
     queuedAt :: Lude.Maybe Lude.Integer,
+    -- | The content of the job document.
     jobDocument :: Lude.Maybe Lude.Text,
+    -- | A collection of name/value pairs that describe the status of the job execution.
     statusDetails :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information.
     executionNumber :: Lude.Maybe Lude.Integer,
+    -- | The version of the job execution. Job execution versions are incremented each time they are updated by a device.
     versionNumber :: Lude.Maybe Lude.Integer,
+    -- | The time, in milliseconds since the epoch, when the job execution was started.
     startedAt :: Lude.Maybe Lude.Integer,
+    -- | The name of the thing that is executing the job.
     thingName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobExecution' with the minimum fields required to make a request.
 --
--- * 'approximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
--- * 'executionNumber' - A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information.
--- * 'jobDocument' - The content of the job document.
+-- * 'status' - The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
 -- * 'jobId' - The unique identifier you assigned to this job when it was created.
 -- * 'lastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was last updated.
+-- * 'approximateSecondsBeforeTimedOut' - The estimated number of seconds that remain before the job execution status will be changed to @TIMED_OUT@ .
 -- * 'queuedAt' - The time, in milliseconds since the epoch, when the job execution was enqueued.
--- * 'startedAt' - The time, in milliseconds since the epoch, when the job execution was started.
--- * 'status' - The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
+-- * 'jobDocument' - The content of the job document.
 -- * 'statusDetails' - A collection of name/value pairs that describe the status of the job execution.
--- * 'thingName' - The name of the thing that is executing the job.
+-- * 'executionNumber' - A number that identifies a particular job execution on a particular device. It can be used later in commands that return or update job execution information.
 -- * 'versionNumber' - The version of the job execution. Job execution versions are incremented each time they are updated by a device.
+-- * 'startedAt' - The time, in milliseconds since the epoch, when the job execution was started.
+-- * 'thingName' - The name of the thing that is executing the job.
 mkJobExecution ::
   JobExecution
 mkJobExecution =

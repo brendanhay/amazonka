@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceDownloadOwnerSetting' smart constructor.
 data ResourceDownloadOwnerSetting = ResourceDownloadOwnerSetting'
-  { groupOwner ::
-      Lude.Text,
+  { -- | The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
+    groupOwner :: Lude.Text,
+    -- | The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
     groupPermission :: Permission
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDownloadOwnerSetting' with the minimum fields required to make a request.

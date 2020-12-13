@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,19 +25,19 @@ module Network.AWS.IAM.ListUserPolicies
     mkListUserPolicies,
 
     -- ** Request lenses
+    lupUserName,
     lupMarker,
     lupMaxItems,
-    lupUserName,
 
     -- * Destructuring the response
     ListUserPoliciesResponse (..),
     mkListUserPoliciesResponse,
 
     -- ** Response lenses
+    luprsPolicyNames,
     luprsMarker,
     luprsIsTruncated,
     luprsResponseStatus,
-    luprsPolicyNames,
   )
 where
 
@@ -49,39 +50,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListUserPolicies' smart constructor.
 data ListUserPolicies = ListUserPolicies'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    maxItems :: Lude.Maybe Lude.Natural,
-    userName :: Lude.Text
+  { -- | The name of the user to list policies for.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Lude.Text,
+    -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
+    --
+    -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUserPolicies' with the minimum fields required to make a request.
 --
+-- * 'userName' - The name of the user to list policies for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 -- * 'maxItems' - Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ .
 --
 -- If you do not include this parameter, the number of items defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
--- * 'userName' - The name of the user to list policies for.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkListUserPolicies ::
   -- | 'userName'
   Lude.Text ->
   ListUserPolicies
 mkListUserPolicies pUserName_ =
   ListUserPolicies'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      userName = pUserName_
+    { userName = pUserName_,
+      marker = Lude.Nothing,
+      maxItems = Lude.Nothing
     }
+
+-- | The name of the user to list policies for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lupUserName :: Lens.Lens' ListUserPolicies Lude.Text
+lupUserName = Lens.lens (userName :: ListUserPolicies -> Lude.Text) (\s a -> s {userName = a} :: ListUserPolicies)
+{-# DEPRECATED lupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
@@ -99,15 +109,6 @@ lupMaxItems :: Lens.Lens' ListUserPolicies (Lude.Maybe Lude.Natural)
 lupMaxItems = Lens.lens (maxItems :: ListUserPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListUserPolicies)
 {-# DEPRECATED lupMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The name of the user to list policies for.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lupUserName :: Lens.Lens' ListUserPolicies Lude.Text
-lupUserName = Lens.lens (userName :: ListUserPolicies -> Lude.Text) (\s a -> s {userName = a} :: ListUserPolicies)
-{-# DEPRECATED lupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
 instance Page.AWSPager ListUserPolicies where
   page rq rs
     | Page.stop (rs Lens.^. luprsIsTruncated) = Lude.Nothing
@@ -123,12 +124,12 @@ instance Lude.AWSRequest ListUserPolicies where
       "ListUserPoliciesResult"
       ( \s h x ->
           ListUserPoliciesResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLList "member"
                      )
+            Lude.<*> (x Lude..@? "Marker")
+            Lude.<*> (x Lude..@? "IsTruncated")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListUserPolicies where
@@ -142,35 +143,32 @@ instance Lude.ToQuery ListUserPolicies where
     Lude.mconcat
       [ "Action" Lude.=: ("ListUserPolicies" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
+        "UserName" Lude.=: userName,
         "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems,
-        "UserName" Lude.=: userName
+        "MaxItems" Lude.=: maxItems
       ]
 
 -- | Contains the response to a successful 'ListUserPolicies' request.
 --
 -- /See:/ 'mkListUserPoliciesResponse' smart constructor.
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of policy names.
+    policyNames :: [Lude.Text],
+    -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Lude.Maybe Lude.Text,
+    -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
     isTruncated :: Lude.Maybe Lude.Bool,
-    responseStatus :: Lude.Int,
-    policyNames :: [Lude.Text]
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListUserPoliciesResponse' with the minimum fields required to make a request.
 --
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
--- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 -- * 'policyNames' - A list of policy names.
+-- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
 -- * 'responseStatus' - The response status code.
 mkListUserPoliciesResponse ::
   -- | 'responseStatus'
@@ -178,11 +176,18 @@ mkListUserPoliciesResponse ::
   ListUserPoliciesResponse
 mkListUserPoliciesResponse pResponseStatus_ =
   ListUserPoliciesResponse'
-    { marker = Lude.Nothing,
+    { policyNames = Lude.mempty,
+      marker = Lude.Nothing,
       isTruncated = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      policyNames = Lude.mempty
+      responseStatus = pResponseStatus_
     }
+
+-- | A list of policy names.
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+luprsPolicyNames :: Lens.Lens' ListUserPoliciesResponse [Lude.Text]
+luprsPolicyNames = Lens.lens (policyNames :: ListUserPoliciesResponse -> [Lude.Text]) (\s a -> s {policyNames = a} :: ListUserPoliciesResponse)
+{-# DEPRECATED luprsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
 --
@@ -204,10 +209,3 @@ luprsIsTruncated = Lens.lens (isTruncated :: ListUserPoliciesResponse -> Lude.Ma
 luprsResponseStatus :: Lens.Lens' ListUserPoliciesResponse Lude.Int
 luprsResponseStatus = Lens.lens (responseStatus :: ListUserPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUserPoliciesResponse)
 {-# DEPRECATED luprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | A list of policy names.
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luprsPolicyNames :: Lens.Lens' ListUserPoliciesResponse [Lude.Text]
-luprsPolicyNames = Lens.lens (policyNames :: ListUserPoliciesResponse -> [Lude.Text]) (\s a -> s {policyNames = a} :: ListUserPoliciesResponse)
-{-# DEPRECATED luprsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}

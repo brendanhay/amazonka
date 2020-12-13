@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.PutEventStream
     mkPutEventStreamResponse,
 
     -- ** Response lenses
-    pesrsResponseStatus,
     pesrsEventStream,
+    pesrsResponseStatus,
   )
 where
 
@@ -40,22 +41,17 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutEventStream' smart constructor.
 data PutEventStream = PutEventStream'
-  { applicationId :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
     writeEventStream :: WriteEventStream
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEventStream' with the minimum fields required to make a request.
 --
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'writeEventStream' - Undocumented field.
+-- * 'writeEventStream' -
 mkPutEventStream ::
   -- | 'applicationId'
   Lude.Text ->
@@ -89,7 +85,7 @@ instance Lude.AWSRequest PutEventStream where
     Res.receiveJSON
       ( \s h x ->
           PutEventStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders PutEventStream where
@@ -118,41 +114,28 @@ instance Lude.ToQuery PutEventStream where
 
 -- | /See:/ 'mkPutEventStreamResponse' smart constructor.
 data PutEventStreamResponse = PutEventStreamResponse'
-  { responseStatus ::
-      Lude.Int,
-    eventStream :: EventStream
+  { eventStream :: EventStream,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEventStreamResponse' with the minimum fields required to make a request.
 --
--- * 'eventStream' - Undocumented field.
+-- * 'eventStream' -
 -- * 'responseStatus' - The response status code.
 mkPutEventStreamResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'eventStream'
   EventStream ->
+  -- | 'responseStatus'
+  Lude.Int ->
   PutEventStreamResponse
-mkPutEventStreamResponse pResponseStatus_ pEventStream_ =
+mkPutEventStreamResponse pEventStream_ pResponseStatus_ =
   PutEventStreamResponse'
-    { responseStatus = pResponseStatus_,
-      eventStream = pEventStream_
+    { eventStream = pEventStream_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesrsResponseStatus :: Lens.Lens' PutEventStreamResponse Lude.Int
-pesrsResponseStatus = Lens.lens (responseStatus :: PutEventStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEventStreamResponse)
-{-# DEPRECATED pesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -160,3 +143,10 @@ pesrsResponseStatus = Lens.lens (responseStatus :: PutEventStreamResponse -> Lud
 pesrsEventStream :: Lens.Lens' PutEventStreamResponse EventStream
 pesrsEventStream = Lens.lens (eventStream :: PutEventStreamResponse -> EventStream) (\s a -> s {eventStream = a} :: PutEventStreamResponse)
 {-# DEPRECATED pesrsEventStream "Use generic-lens or generic-optics with 'eventStream' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesrsResponseStatus :: Lens.Lens' PutEventStreamResponse Lude.Int
+pesrsResponseStatus = Lens.lens (responseStatus :: PutEventStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEventStreamResponse)
+{-# DEPRECATED pesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

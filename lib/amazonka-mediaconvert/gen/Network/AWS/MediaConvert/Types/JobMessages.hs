@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkJobMessages' smart constructor.
 data JobMessages = JobMessages'
-  { warning :: Lude.Maybe [Lude.Text],
+  { -- | List of messages that warn about conditions that might cause your job not to run or to fail.
+    warning :: Lude.Maybe [Lude.Text],
+    -- | List of messages that are informational only and don't indicate a problem with your job.
     info :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'JobMessages' with the minimum fields required to make a request.
 --
--- * 'info' - List of messages that are informational only and don't indicate a problem with your job.
 -- * 'warning' - List of messages that warn about conditions that might cause your job not to run or to fail.
+-- * 'info' - List of messages that are informational only and don't indicate a problem with your job.
 mkJobMessages ::
   JobMessages
 mkJobMessages =

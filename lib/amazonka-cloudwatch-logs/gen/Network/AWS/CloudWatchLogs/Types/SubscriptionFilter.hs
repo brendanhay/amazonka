@@ -35,32 +35,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubscriptionFilter' smart constructor.
 data SubscriptionFilter = SubscriptionFilter'
-  { creationTime ::
-      Lude.Maybe Lude.Natural,
+  { -- | The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    creationTime :: Lude.Maybe Lude.Natural,
+    -- | The name of the subscription filter.
     filterName :: Lude.Maybe Lude.Text,
     distribution :: Lude.Maybe Distribution,
+    -- | The Amazon Resource Name (ARN) of the destination.
     destinationARN :: Lude.Maybe Lude.Text,
+    -- | The name of the log group.
     logGroupName :: Lude.Maybe Lude.Text,
     filterPattern :: Lude.Maybe Lude.Text,
+    -- |
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubscriptionFilter' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- * 'destinationARN' - The Amazon Resource Name (ARN) of the destination.
--- * 'distribution' - Undocumented field.
 -- * 'filterName' - The name of the subscription filter.
--- * 'filterPattern' - Undocumented field.
+-- * 'distribution' -
+-- * 'destinationARN' - The Amazon Resource Name (ARN) of the destination.
 -- * 'logGroupName' - The name of the log group.
+-- * 'filterPattern' -
 -- * 'roleARN' -
 mkSubscriptionFilter ::
   SubscriptionFilter

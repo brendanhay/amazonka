@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEventBus' smart constructor.
 newtype DescribeEventBus = DescribeEventBus'
-  { name ::
-      Lude.Maybe Lude.Text
+  { -- | The name or ARN of the event bus to show details for. If you omit this, the default event bus is displayed.
+    name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventBus' with the minimum fields required to make a request.
@@ -106,19 +101,16 @@ instance Lude.ToQuery DescribeEventBus where
 
 -- | /See:/ 'mkDescribeEventBusResponse' smart constructor.
 data DescribeEventBusResponse = DescribeEventBusResponse'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the account permitted to write events to the current account.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The name of the event bus. Currently, this is always @default@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The policy that enables the external account to send events to your account.
     policy :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventBusResponse' with the minimum fields required to make a request.

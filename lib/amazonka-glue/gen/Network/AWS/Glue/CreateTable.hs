@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,7 +30,7 @@ module Network.AWS.Glue.CreateTable
     mkCreateTableResponse,
 
     -- ** Response lenses
-    cttrsResponseStatus,
+    ctfrsResponseStatus,
   )
 where
 
@@ -41,26 +42,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { partitionIndexes ::
-      Lude.Maybe [PartitionIndex],
+  { -- | A list of partition indexes, @PartitionIndex@ structures, to create in the table.
+    partitionIndexes :: Lude.Maybe [PartitionIndex],
+    -- | The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
     catalogId :: Lude.Maybe Lude.Text,
+    -- | The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
     databaseName :: Lude.Text,
+    -- | The @TableInput@ object that defines the metadata table to create in the catalog.
     tableInput :: TableInput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTable' with the minimum fields required to make a request.
 --
+-- * 'partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in the table.
 -- * 'catalogId' - The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
 -- * 'databaseName' - The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
--- * 'partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in the table.
 -- * 'tableInput' - The @TableInput@ object that defines the metadata table to create in the catalog.
 mkCreateTable ::
   -- | 'databaseName'
@@ -142,16 +140,10 @@ instance Lude.ToQuery CreateTable where
 
 -- | /See:/ 'mkCreateTableResponse' smart constructor.
 newtype CreateTableResponse = CreateTableResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
@@ -167,6 +159,6 @@ mkCreateTableResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cttrsResponseStatus :: Lens.Lens' CreateTableResponse Lude.Int
-cttrsResponseStatus = Lens.lens (responseStatus :: CreateTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTableResponse)
-{-# DEPRECATED cttrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctfrsResponseStatus :: Lens.Lens' CreateTableResponse Lude.Int
+ctfrsResponseStatus = Lens.lens (responseStatus :: CreateTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTableResponse)
+{-# DEPRECATED ctfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

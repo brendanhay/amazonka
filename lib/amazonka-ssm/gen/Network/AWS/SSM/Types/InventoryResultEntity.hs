@@ -30,21 +30,12 @@ import Network.AWS.SSM.Types.InventoryResultItem
 --
 -- /See:/ 'mkInventoryResultEntity' smart constructor.
 data InventoryResultEntity = InventoryResultEntity'
-  { data' ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (InventoryResultItem)
-        ),
+  { -- | The data section in the inventory result entity JSON.
+    data' :: Lude.Maybe (Lude.HashMap Lude.Text (InventoryResultItem)),
+    -- | ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryResultEntity' with the minimum fields required to make a request.

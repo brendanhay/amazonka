@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.MxfProfile
   ( MxfProfile
       ( MxfProfile',
         MPD10,
-        MPOP1A,
-        MPXdcam
+        MPXdcam,
+        MPOP1A
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype MxfProfile = MxfProfile' Lude.Text
 pattern MPD10 :: MxfProfile
 pattern MPD10 = MxfProfile' "D_10"
 
-pattern MPOP1A :: MxfProfile
-pattern MPOP1A = MxfProfile' "OP1A"
-
 pattern MPXdcam :: MxfProfile
 pattern MPXdcam = MxfProfile' "XDCAM"
 
+pattern MPOP1A :: MxfProfile
+pattern MPOP1A = MxfProfile' "OP1A"
+
 {-# COMPLETE
   MPD10,
-  MPOP1A,
   MPXdcam,
+  MPOP1A,
   MxfProfile'
   #-}

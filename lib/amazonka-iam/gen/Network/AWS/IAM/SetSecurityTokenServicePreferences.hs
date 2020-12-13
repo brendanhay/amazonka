@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetSecurityTokenServicePreferences' smart constructor.
 newtype SetSecurityTokenServicePreferences = SetSecurityTokenServicePreferences'
-  { globalEndpointTokenVersion ::
-      GlobalEndpointTokenVersion
+  { -- | The version of the global endpoint token. Version 1 tokens are valid only in AWS Regions that are available by default. These tokens do not work in manually enabled Regions, such as Asia Pacific (Hong Kong). Version 2 tokens are valid in all Regions. However, version 2 tokens are longer and might affect systems where you temporarily store tokens.
+    --
+    -- For information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating STS in an AWS Region> in the /IAM User Guide/ .
+    globalEndpointTokenVersion :: GlobalEndpointTokenVersion
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetSecurityTokenServicePreferences' with the minimum fields required to make a request.
@@ -100,13 +97,7 @@ instance Lude.ToQuery SetSecurityTokenServicePreferences where
 
 -- | /See:/ 'mkSetSecurityTokenServicePreferencesResponse' smart constructor.
 data SetSecurityTokenServicePreferencesResponse = SetSecurityTokenServicePreferencesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetSecurityTokenServicePreferencesResponse' with the minimum fields required to make a request.

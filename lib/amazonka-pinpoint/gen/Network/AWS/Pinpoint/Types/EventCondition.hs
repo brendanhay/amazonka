@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventCondition' smart constructor.
 data EventCondition = EventCondition'
-  { dimensions ::
-      Lude.Maybe EventDimensions,
+  { -- | The dimensions for the event filter to use for the activity.
+    dimensions :: Lude.Maybe EventDimensions,
+    -- | The message identifier (message_id) for the message to use when determining whether message events meet the condition.
     messageActivity :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventCondition' with the minimum fields required to make a request.

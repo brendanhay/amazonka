@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CodeCommit.GetBranch
     mkGetBranchResponse,
 
     -- ** Response lenses
-    grsBranch,
-    grsResponseStatus,
+    gbfrsBranch,
+    gbfrsResponseStatus,
   )
 where
 
@@ -42,16 +43,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetBranch' smart constructor.
 data GetBranch = GetBranch'
-  { branchName :: Lude.Maybe Lude.Text,
+  { -- | The name of the branch for which you want to retrieve information.
+    branchName :: Lude.Maybe Lude.Text,
+    -- | The name of the repository that contains the branch for which you want to retrieve information.
     repositoryName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBranch' with the minimum fields required to make a request.
@@ -120,17 +117,12 @@ instance Lude.ToQuery GetBranch where
 --
 -- /See:/ 'mkGetBranchResponse' smart constructor.
 data GetBranchResponse = GetBranchResponse'
-  { branch ::
-      Lude.Maybe BranchInfo,
+  { -- | The name of the branch.
+    branch :: Lude.Maybe BranchInfo,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetBranchResponse' with the minimum fields required to make a request.
@@ -150,13 +142,13 @@ mkGetBranchResponse pResponseStatus_ =
 -- | The name of the branch.
 --
 -- /Note:/ Consider using 'branch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsBranch :: Lens.Lens' GetBranchResponse (Lude.Maybe BranchInfo)
-grsBranch = Lens.lens (branch :: GetBranchResponse -> Lude.Maybe BranchInfo) (\s a -> s {branch = a} :: GetBranchResponse)
-{-# DEPRECATED grsBranch "Use generic-lens or generic-optics with 'branch' instead." #-}
+gbfrsBranch :: Lens.Lens' GetBranchResponse (Lude.Maybe BranchInfo)
+gbfrsBranch = Lens.lens (branch :: GetBranchResponse -> Lude.Maybe BranchInfo) (\s a -> s {branch = a} :: GetBranchResponse)
+{-# DEPRECATED gbfrsBranch "Use generic-lens or generic-optics with 'branch' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetBranchResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetBranchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBranchResponse)
-{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbfrsResponseStatus :: Lens.Lens' GetBranchResponse Lude.Int
+gbfrsResponseStatus = Lens.lens (responseStatus :: GetBranchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBranchResponse)
+{-# DEPRECATED gbfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

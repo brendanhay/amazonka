@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.CreateUsagePlanKey
     mkCreateUsagePlanKey,
 
     -- ** Request lenses
-    cupkUsagePlanId,
-    cupkKeyId,
     cupkKeyType,
+    cupkKeyId,
+    cupkUsagePlanId,
 
     -- * Destructuring the response
     UsagePlanKey (..),
@@ -45,46 +46,42 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateUsagePlanKey' smart constructor.
 data CreateUsagePlanKey = CreateUsagePlanKey'
-  { usagePlanId ::
-      Lude.Text,
+  { -- | [Required] The type of a 'UsagePlanKey' resource for a plan customer.
+    keyType :: Lude.Text,
+    -- | [Required] The identifier of a 'UsagePlanKey' resource for a plan customer.
     keyId :: Lude.Text,
-    keyType :: Lude.Text
+    -- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
+    usagePlanId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateUsagePlanKey' with the minimum fields required to make a request.
 --
--- * 'keyId' - [Required] The identifier of a 'UsagePlanKey' resource for a plan customer.
 -- * 'keyType' - [Required] The type of a 'UsagePlanKey' resource for a plan customer.
+-- * 'keyId' - [Required] The identifier of a 'UsagePlanKey' resource for a plan customer.
 -- * 'usagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
 mkCreateUsagePlanKey ::
-  -- | 'usagePlanId'
+  -- | 'keyType'
   Lude.Text ->
   -- | 'keyId'
   Lude.Text ->
-  -- | 'keyType'
+  -- | 'usagePlanId'
   Lude.Text ->
   CreateUsagePlanKey
-mkCreateUsagePlanKey pUsagePlanId_ pKeyId_ pKeyType_ =
+mkCreateUsagePlanKey pKeyType_ pKeyId_ pUsagePlanId_ =
   CreateUsagePlanKey'
-    { usagePlanId = pUsagePlanId_,
+    { keyType = pKeyType_,
       keyId = pKeyId_,
-      keyType = pKeyType_
+      usagePlanId = pUsagePlanId_
     }
 
--- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
+-- | [Required] The type of a 'UsagePlanKey' resource for a plan customer.
 --
--- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupkUsagePlanId :: Lens.Lens' CreateUsagePlanKey Lude.Text
-cupkUsagePlanId = Lens.lens (usagePlanId :: CreateUsagePlanKey -> Lude.Text) (\s a -> s {usagePlanId = a} :: CreateUsagePlanKey)
-{-# DEPRECATED cupkUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
+-- /Note:/ Consider using 'keyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupkKeyType :: Lens.Lens' CreateUsagePlanKey Lude.Text
+cupkKeyType = Lens.lens (keyType :: CreateUsagePlanKey -> Lude.Text) (\s a -> s {keyType = a} :: CreateUsagePlanKey)
+{-# DEPRECATED cupkKeyType "Use generic-lens or generic-optics with 'keyType' instead." #-}
 
 -- | [Required] The identifier of a 'UsagePlanKey' resource for a plan customer.
 --
@@ -93,12 +90,12 @@ cupkKeyId :: Lens.Lens' CreateUsagePlanKey Lude.Text
 cupkKeyId = Lens.lens (keyId :: CreateUsagePlanKey -> Lude.Text) (\s a -> s {keyId = a} :: CreateUsagePlanKey)
 {-# DEPRECATED cupkKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
--- | [Required] The type of a 'UsagePlanKey' resource for a plan customer.
+-- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-created 'UsagePlanKey' resource representing a plan customer.
 --
--- /Note:/ Consider using 'keyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupkKeyType :: Lens.Lens' CreateUsagePlanKey Lude.Text
-cupkKeyType = Lens.lens (keyType :: CreateUsagePlanKey -> Lude.Text) (\s a -> s {keyType = a} :: CreateUsagePlanKey)
-{-# DEPRECATED cupkKeyType "Use generic-lens or generic-optics with 'keyType' instead." #-}
+-- /Note:/ Consider using 'usagePlanId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cupkUsagePlanId :: Lens.Lens' CreateUsagePlanKey Lude.Text
+cupkUsagePlanId = Lens.lens (usagePlanId :: CreateUsagePlanKey -> Lude.Text) (\s a -> s {usagePlanId = a} :: CreateUsagePlanKey)
+{-# DEPRECATED cupkUsagePlanId "Use generic-lens or generic-optics with 'usagePlanId' instead." #-}
 
 instance Lude.AWSRequest CreateUsagePlanKey where
   type Rs CreateUsagePlanKey = UsagePlanKey
@@ -116,8 +113,8 @@ instance Lude.ToJSON CreateUsagePlanKey where
   toJSON CreateUsagePlanKey' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("keyId" Lude..= keyId),
-            Lude.Just ("keyType" Lude..= keyType)
+          [ Lude.Just ("keyType" Lude..= keyType),
+            Lude.Just ("keyId" Lude..= keyId)
           ]
       )
 

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.DeviceFarm.UpdateTestGridProject
 
     -- ** Request lenses
     utgpName,
-    utgpDescription,
     utgpProjectARN,
+    utgpDescription,
 
     -- * Destructuring the response
     UpdateTestGridProjectResponse (..),
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateTestGridProject' smart constructor.
 data UpdateTestGridProject = UpdateTestGridProject'
-  { name ::
-      Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    projectARN :: Lude.Text
+  { -- | Human-readable name for the project.
+    name :: Lude.Maybe Lude.Text,
+    -- | ARN of the project to update.
+    projectARN :: Lude.Text,
+    -- | Human-readable description for the project.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTestGridProject' with the minimum fields required to make a request.
 --
--- * 'description' - Human-readable description for the project.
 -- * 'name' - Human-readable name for the project.
 -- * 'projectARN' - ARN of the project to update.
+-- * 'description' - Human-readable description for the project.
 mkUpdateTestGridProject ::
   -- | 'projectARN'
   Lude.Text ->
@@ -67,8 +64,8 @@ mkUpdateTestGridProject ::
 mkUpdateTestGridProject pProjectARN_ =
   UpdateTestGridProject'
     { name = Lude.Nothing,
-      description = Lude.Nothing,
-      projectARN = pProjectARN_
+      projectARN = pProjectARN_,
+      description = Lude.Nothing
     }
 
 -- | Human-readable name for the project.
@@ -78,19 +75,19 @@ utgpName :: Lens.Lens' UpdateTestGridProject (Lude.Maybe Lude.Text)
 utgpName = Lens.lens (name :: UpdateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateTestGridProject)
 {-# DEPRECATED utgpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Human-readable description for the project.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utgpDescription :: Lens.Lens' UpdateTestGridProject (Lude.Maybe Lude.Text)
-utgpDescription = Lens.lens (description :: UpdateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateTestGridProject)
-{-# DEPRECATED utgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
 -- | ARN of the project to update.
 --
 -- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utgpProjectARN :: Lens.Lens' UpdateTestGridProject Lude.Text
 utgpProjectARN = Lens.lens (projectARN :: UpdateTestGridProject -> Lude.Text) (\s a -> s {projectARN = a} :: UpdateTestGridProject)
 {-# DEPRECATED utgpProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
+
+-- | Human-readable description for the project.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utgpDescription :: Lens.Lens' UpdateTestGridProject (Lude.Maybe Lude.Text)
+utgpDescription = Lens.lens (description :: UpdateTestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateTestGridProject)
+{-# DEPRECATED utgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 instance Lude.AWSRequest UpdateTestGridProject where
   type Rs UpdateTestGridProject = UpdateTestGridProjectResponse
@@ -119,8 +116,8 @@ instance Lude.ToJSON UpdateTestGridProject where
     Lude.object
       ( Lude.catMaybes
           [ ("name" Lude..=) Lude.<$> name,
-            ("description" Lude..=) Lude.<$> description,
-            Lude.Just ("projectArn" Lude..= projectARN)
+            Lude.Just ("projectArn" Lude..= projectARN),
+            ("description" Lude..=) Lude.<$> description
           ]
       )
 
@@ -132,23 +129,18 @@ instance Lude.ToQuery UpdateTestGridProject where
 
 -- | /See:/ 'mkUpdateTestGridProjectResponse' smart constructor.
 data UpdateTestGridProjectResponse = UpdateTestGridProjectResponse'
-  { testGridProject ::
-      Lude.Maybe TestGridProject,
+  { -- | The project, including updated information.
+    testGridProject :: Lude.Maybe TestGridProject,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTestGridProjectResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'testGridProject' - The project, including updated information.
+-- * 'responseStatus' - The response status code.
 mkUpdateTestGridProjectResponse ::
   -- | 'responseStatus'
   Lude.Int ->

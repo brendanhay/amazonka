@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.CostExplorer.GetAnomalySubscriptions
 
     -- ** Response lenses
     gasrsNextPageToken,
-    gasrsResponseStatus,
     gasrsAnomalySubscriptions,
+    gasrsResponseStatus,
   )
 where
 
@@ -43,27 +44,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetAnomalySubscriptions' smart constructor.
 data GetAnomalySubscriptions = GetAnomalySubscriptions'
-  { subscriptionARNList ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of cost anomaly subscription ARNs.
+    subscriptionARNList :: Lude.Maybe [Lude.Text],
+    -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
     nextPageToken :: Lude.Maybe Lude.Text,
+    -- | The number of entries a paginated response contains.
     maxResults :: Lude.Maybe Lude.Int,
+    -- | Cost anomaly monitor ARNs.
     monitorARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAnomalySubscriptions' with the minimum fields required to make a request.
 --
+-- * 'subscriptionARNList' - A list of cost anomaly subscription ARNs.
+-- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
 -- * 'maxResults' - The number of entries a paginated response contains.
 -- * 'monitorARN' - Cost anomaly monitor ARNs.
--- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
--- * 'subscriptionARNList' - A list of cost anomaly subscription ARNs.
 mkGetAnomalySubscriptions ::
   GetAnomalySubscriptions
 mkGetAnomalySubscriptions =
@@ -110,8 +108,8 @@ instance Lude.AWSRequest GetAnomalySubscriptions where
       ( \s h x ->
           GetAnomalySubscriptionsResponse'
             Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "AnomalySubscriptions" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetAnomalySubscriptions where
@@ -146,25 +144,20 @@ instance Lude.ToQuery GetAnomalySubscriptions where
 
 -- | /See:/ 'mkGetAnomalySubscriptionsResponse' smart constructor.
 data GetAnomalySubscriptionsResponse = GetAnomalySubscriptionsResponse'
-  { nextPageToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    anomalySubscriptions ::
-      [AnomalySubscription]
+  { -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+    nextPageToken :: Lude.Maybe Lude.Text,
+    -- | A list of cost anomaly subscriptions that includes the detailed metadata for each one.
+    anomalySubscriptions :: [AnomalySubscription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAnomalySubscriptionsResponse' with the minimum fields required to make a request.
 --
--- * 'anomalySubscriptions' - A list of cost anomaly subscriptions that includes the detailed metadata for each one.
 -- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'anomalySubscriptions' - A list of cost anomaly subscriptions that includes the detailed metadata for each one.
 -- * 'responseStatus' - The response status code.
 mkGetAnomalySubscriptionsResponse ::
   -- | 'responseStatus'
@@ -173,8 +166,8 @@ mkGetAnomalySubscriptionsResponse ::
 mkGetAnomalySubscriptionsResponse pResponseStatus_ =
   GetAnomalySubscriptionsResponse'
     { nextPageToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      anomalySubscriptions = Lude.mempty
+      anomalySubscriptions = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
@@ -184,16 +177,16 @@ gasrsNextPageToken :: Lens.Lens' GetAnomalySubscriptionsResponse (Lude.Maybe Lud
 gasrsNextPageToken = Lens.lens (nextPageToken :: GetAnomalySubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetAnomalySubscriptionsResponse)
 {-# DEPRECATED gasrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasrsResponseStatus :: Lens.Lens' GetAnomalySubscriptionsResponse Lude.Int
-gasrsResponseStatus = Lens.lens (responseStatus :: GetAnomalySubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAnomalySubscriptionsResponse)
-{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
 -- | A list of cost anomaly subscriptions that includes the detailed metadata for each one.
 --
 -- /Note:/ Consider using 'anomalySubscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gasrsAnomalySubscriptions :: Lens.Lens' GetAnomalySubscriptionsResponse [AnomalySubscription]
 gasrsAnomalySubscriptions = Lens.lens (anomalySubscriptions :: GetAnomalySubscriptionsResponse -> [AnomalySubscription]) (\s a -> s {anomalySubscriptions = a} :: GetAnomalySubscriptionsResponse)
 {-# DEPRECATED gasrsAnomalySubscriptions "Use generic-lens or generic-optics with 'anomalySubscriptions' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasrsResponseStatus :: Lens.Lens' GetAnomalySubscriptionsResponse Lude.Int
+gasrsResponseStatus = Lens.lens (responseStatus :: GetAnomalySubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAnomalySubscriptionsResponse)
+{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

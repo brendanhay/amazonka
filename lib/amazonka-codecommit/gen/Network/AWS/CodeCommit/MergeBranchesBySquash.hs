@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,11 +25,11 @@ module Network.AWS.CodeCommit.MergeBranchesBySquash
     mbbsTargetBranch,
     mbbsConflictDetailLevel,
     mbbsCommitMessage,
+    mbbsRepositoryName,
+    mbbsSourceCommitSpecifier,
     mbbsConflictResolution,
     mbbsConflictResolutionStrategy,
     mbbsKeepEmptyFolders,
-    mbbsRepositoryName,
-    mbbsSourceCommitSpecifier,
     mbbsDestinationCommitSpecifier,
 
     -- * Destructuring the response
@@ -50,44 +51,45 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkMergeBranchesBySquash' smart constructor.
 data MergeBranchesBySquash = MergeBranchesBySquash'
-  { email ::
-      Lude.Maybe Lude.Text,
+  { -- | The email address of the person merging the branches. This information is used in the commit information for the merge.
+    email :: Lude.Maybe Lude.Text,
+    -- | The name of the author who created the commit. This information is used as both the author and committer for the commit.
     authorName :: Lude.Maybe Lude.Text,
+    -- | The branch where the merge is applied.
     targetBranch :: Lude.Maybe Lude.Text,
-    conflictDetailLevel ::
-      Lude.Maybe ConflictDetailLevelTypeEnum,
+    -- | The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+    conflictDetailLevel :: Lude.Maybe ConflictDetailLevelTypeEnum,
+    -- | The commit message for the merge.
     commitMessage :: Lude.Maybe Lude.Text,
-    conflictResolution ::
-      Lude.Maybe ConflictResolution,
-    conflictResolutionStrategy ::
-      Lude.Maybe ConflictResolutionStrategyTypeEnum,
-    keepEmptyFolders :: Lude.Maybe Lude.Bool,
+    -- | The name of the repository where you want to merge two branches.
     repositoryName :: Lude.Text,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
     sourceCommitSpecifier :: Lude.Text,
+    -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
+    conflictResolution :: Lude.Maybe ConflictResolution,
+    -- | Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
+    conflictResolutionStrategy :: Lude.Maybe ConflictResolutionStrategyTypeEnum,
+    -- | If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If this is specified as true, a .gitkeep file is created for empty folders. The default is false.
+    keepEmptyFolders :: Lude.Maybe Lude.Bool,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
     destinationCommitSpecifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeBranchesBySquash' with the minimum fields required to make a request.
 --
--- * 'authorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
--- * 'commitMessage' - The commit message for the merge.
--- * 'conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
--- * 'conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
--- * 'conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
--- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 -- * 'email' - The email address of the person merging the branches. This information is used in the commit information for the merge.
--- * 'keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If this is specified as true, a .gitkeep file is created for empty folders. The default is false.
+-- * 'authorName' - The name of the author who created the commit. This information is used as both the author and committer for the commit.
+-- * 'targetBranch' - The branch where the merge is applied.
+-- * 'conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used, which returns a not-mergeable result if the same file has differences in both branches. If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file in both branches has differences on the same line.
+-- * 'commitMessage' - The commit message for the merge.
 -- * 'repositoryName' - The name of the repository where you want to merge two branches.
 -- * 'sourceCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
--- * 'targetBranch' - The branch where the merge is applied.
+-- * 'conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
+-- * 'conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to attempt automatically merging two versions of a file. The default is NONE, which requires any conflicts to be resolved manually before the merge operation is successful.
+-- * 'keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder structure if the changes leave the folders empty. If this is specified as true, a .gitkeep file is created for empty folders. The default is false.
+-- * 'destinationCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 mkMergeBranchesBySquash ::
   -- | 'repositoryName'
   Lude.Text ->
@@ -106,11 +108,11 @@ mkMergeBranchesBySquash
         targetBranch = Lude.Nothing,
         conflictDetailLevel = Lude.Nothing,
         commitMessage = Lude.Nothing,
+        repositoryName = pRepositoryName_,
+        sourceCommitSpecifier = pSourceCommitSpecifier_,
         conflictResolution = Lude.Nothing,
         conflictResolutionStrategy = Lude.Nothing,
         keepEmptyFolders = Lude.Nothing,
-        repositoryName = pRepositoryName_,
-        sourceCommitSpecifier = pSourceCommitSpecifier_,
         destinationCommitSpecifier = pDestinationCommitSpecifier_
       }
 
@@ -149,6 +151,20 @@ mbbsCommitMessage :: Lens.Lens' MergeBranchesBySquash (Lude.Maybe Lude.Text)
 mbbsCommitMessage = Lens.lens (commitMessage :: MergeBranchesBySquash -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: MergeBranchesBySquash)
 {-# DEPRECATED mbbsCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
 
+-- | The name of the repository where you want to merge two branches.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbsRepositoryName :: Lens.Lens' MergeBranchesBySquash Lude.Text
+mbbsRepositoryName = Lens.lens (repositoryName :: MergeBranchesBySquash -> Lude.Text) (\s a -> s {repositoryName = a} :: MergeBranchesBySquash)
+{-# DEPRECATED mbbsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
+--
+-- /Note:/ Consider using 'sourceCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbbsSourceCommitSpecifier :: Lens.Lens' MergeBranchesBySquash Lude.Text
+mbbsSourceCommitSpecifier = Lens.lens (sourceCommitSpecifier :: MergeBranchesBySquash -> Lude.Text) (\s a -> s {sourceCommitSpecifier = a} :: MergeBranchesBySquash)
+{-# DEPRECATED mbbsSourceCommitSpecifier "Use generic-lens or generic-optics with 'sourceCommitSpecifier' instead." #-}
+
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when resolving conflicts during a merge.
 --
 -- /Note:/ Consider using 'conflictResolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -169,20 +185,6 @@ mbbsConflictResolutionStrategy = Lens.lens (conflictResolutionStrategy :: MergeB
 mbbsKeepEmptyFolders :: Lens.Lens' MergeBranchesBySquash (Lude.Maybe Lude.Bool)
 mbbsKeepEmptyFolders = Lens.lens (keepEmptyFolders :: MergeBranchesBySquash -> Lude.Maybe Lude.Bool) (\s a -> s {keepEmptyFolders = a} :: MergeBranchesBySquash)
 {-# DEPRECATED mbbsKeepEmptyFolders "Use generic-lens or generic-optics with 'keepEmptyFolders' instead." #-}
-
--- | The name of the repository where you want to merge two branches.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbsRepositoryName :: Lens.Lens' MergeBranchesBySquash Lude.Text
-mbbsRepositoryName = Lens.lens (repositoryName :: MergeBranchesBySquash -> Lude.Text) (\s a -> s {repositoryName = a} :: MergeBranchesBySquash)
-{-# DEPRECATED mbbsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
-
--- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
---
--- /Note:/ Consider using 'sourceCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbbsSourceCommitSpecifier :: Lens.Lens' MergeBranchesBySquash Lude.Text
-mbbsSourceCommitSpecifier = Lens.lens (sourceCommitSpecifier :: MergeBranchesBySquash -> Lude.Text) (\s a -> s {sourceCommitSpecifier = a} :: MergeBranchesBySquash)
-{-# DEPRECATED mbbsSourceCommitSpecifier "Use generic-lens or generic-optics with 'sourceCommitSpecifier' instead." #-}
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, a branch name or a full commit ID).
 --
@@ -223,12 +225,12 @@ instance Lude.ToJSON MergeBranchesBySquash where
             ("targetBranch" Lude..=) Lude.<$> targetBranch,
             ("conflictDetailLevel" Lude..=) Lude.<$> conflictDetailLevel,
             ("commitMessage" Lude..=) Lude.<$> commitMessage,
+            Lude.Just ("repositoryName" Lude..= repositoryName),
+            Lude.Just ("sourceCommitSpecifier" Lude..= sourceCommitSpecifier),
             ("conflictResolution" Lude..=) Lude.<$> conflictResolution,
             ("conflictResolutionStrategy" Lude..=)
               Lude.<$> conflictResolutionStrategy,
             ("keepEmptyFolders" Lude..=) Lude.<$> keepEmptyFolders,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("sourceCommitSpecifier" Lude..= sourceCommitSpecifier),
             Lude.Just
               ("destinationCommitSpecifier" Lude..= destinationCommitSpecifier)
           ]
@@ -242,25 +244,21 @@ instance Lude.ToQuery MergeBranchesBySquash where
 
 -- | /See:/ 'mkMergeBranchesBySquashResponse' smart constructor.
 data MergeBranchesBySquashResponse = MergeBranchesBySquashResponse'
-  { commitId ::
-      Lude.Maybe Lude.Text,
+  { -- | The commit ID of the merge in the destination or target branch.
+    commitId :: Lude.Maybe Lude.Text,
+    -- | The tree ID of the merge in the destination or target branch.
     treeId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeBranchesBySquashResponse' with the minimum fields required to make a request.
 --
 -- * 'commitId' - The commit ID of the merge in the destination or target branch.
--- * 'responseStatus' - The response status code.
 -- * 'treeId' - The tree ID of the merge in the destination or target branch.
+-- * 'responseStatus' - The response status code.
 mkMergeBranchesBySquashResponse ::
   -- | 'responseStatus'
   Lude.Int ->

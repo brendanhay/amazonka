@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionConfiguration' smart constructor.
 newtype ActionConfiguration = ActionConfiguration'
-  { configuration ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | The configuration data for the action.
+    configuration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionConfiguration' with the minimum fields required to make a request.

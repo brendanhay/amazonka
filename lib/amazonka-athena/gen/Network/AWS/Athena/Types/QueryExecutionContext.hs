@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryExecutionContext' smart constructor.
 data QueryExecutionContext = QueryExecutionContext'
-  { database ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the database used in the query execution.
+    database :: Lude.Maybe Lude.Text,
+    -- | The name of the data catalog used in the query execution.
     catalog :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryExecutionContext' with the minimum fields required to make a request.
 --
--- * 'catalog' - The name of the data catalog used in the query execution.
 -- * 'database' - The name of the database used in the query execution.
+-- * 'catalog' - The name of the data catalog used in the query execution.
 mkQueryExecutionContext ::
   QueryExecutionContext
 mkQueryExecutionContext =

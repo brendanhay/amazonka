@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +21,10 @@ module Network.AWS.WorkDocs.UpdateDocument
 
     -- ** Request lenses
     udParentFolderId,
+    udDocumentId,
     udAuthenticationToken,
     udName,
     udResourceState,
-    udDocumentId,
 
     -- * Destructuring the response
     UpdateDocumentResponse (..),
@@ -39,22 +40,26 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'mkUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { parentFolderId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the parent folder.
+    parentFolderId :: Lude.Maybe Lude.Text,
+    -- | The ID of the document.
+    documentId :: Lude.Text,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
     authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The name of the document.
     name :: Lude.Maybe Lude.Text,
-    resourceState :: Lude.Maybe ResourceStateType,
-    documentId :: Lude.Text
+    -- | The resource state of the document. Only ACTIVE and RECYCLED are supported.
+    resourceState :: Lude.Maybe ResourceStateType
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocument' with the minimum fields required to make a request.
 --
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'documentId' - The ID of the document.
--- * 'name' - The name of the document.
 -- * 'parentFolderId' - The ID of the parent folder.
+-- * 'documentId' - The ID of the document.
+-- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- * 'name' - The name of the document.
 -- * 'resourceState' - The resource state of the document. Only ACTIVE and RECYCLED are supported.
 mkUpdateDocument ::
   -- | 'documentId'
@@ -63,10 +68,10 @@ mkUpdateDocument ::
 mkUpdateDocument pDocumentId_ =
   UpdateDocument'
     { parentFolderId = Lude.Nothing,
+      documentId = pDocumentId_,
       authenticationToken = Lude.Nothing,
       name = Lude.Nothing,
-      resourceState = Lude.Nothing,
-      documentId = pDocumentId_
+      resourceState = Lude.Nothing
     }
 
 -- | The ID of the parent folder.
@@ -75,6 +80,13 @@ mkUpdateDocument pDocumentId_ =
 udParentFolderId :: Lens.Lens' UpdateDocument (Lude.Maybe Lude.Text)
 udParentFolderId = Lens.lens (parentFolderId :: UpdateDocument -> Lude.Maybe Lude.Text) (\s a -> s {parentFolderId = a} :: UpdateDocument)
 {-# DEPRECATED udParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
+
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udDocumentId :: Lens.Lens' UpdateDocument Lude.Text
+udDocumentId = Lens.lens (documentId :: UpdateDocument -> Lude.Text) (\s a -> s {documentId = a} :: UpdateDocument)
+{-# DEPRECATED udDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
@@ -96,13 +108,6 @@ udName = Lens.lens (name :: UpdateDocument -> Lude.Maybe Lude.Text) (\s a -> s {
 udResourceState :: Lens.Lens' UpdateDocument (Lude.Maybe ResourceStateType)
 udResourceState = Lens.lens (resourceState :: UpdateDocument -> Lude.Maybe ResourceStateType) (\s a -> s {resourceState = a} :: UpdateDocument)
 {-# DEPRECATED udResourceState "Use generic-lens or generic-optics with 'resourceState' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDocumentId :: Lens.Lens' UpdateDocument Lude.Text
-udDocumentId = Lens.lens (documentId :: UpdateDocument -> Lude.Text) (\s a -> s {documentId = a} :: UpdateDocument)
-{-# DEPRECATED udDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 instance Lude.AWSRequest UpdateDocument where
   type Rs UpdateDocument = UpdateDocumentResponse
@@ -136,13 +141,7 @@ instance Lude.ToQuery UpdateDocument where
 
 -- | /See:/ 'mkUpdateDocumentResponse' smart constructor.
 data UpdateDocumentResponse = UpdateDocumentResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDocumentResponse' with the minimum fields required to make a request.

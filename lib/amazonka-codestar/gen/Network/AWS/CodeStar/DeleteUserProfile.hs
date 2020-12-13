@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CodeStar.DeleteUserProfile
     mkDeleteUserProfileResponse,
 
     -- ** Response lenses
-    delrsResponseStatus,
-    delrsUserARN,
+    dupfrsUserARN,
+    dupfrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteUserProfile' smart constructor.
 newtype DeleteUserProfile = DeleteUserProfile'
-  { userARN ::
-      Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
+    userARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
@@ -75,7 +70,7 @@ instance Lude.AWSRequest DeleteUserProfile where
     Res.receiveJSON
       ( \s h x ->
           DeleteUserProfileResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "userArn")
+            Lude.<$> (x Lude..:> "userArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DeleteUserProfile where
@@ -102,45 +97,40 @@ instance Lude.ToQuery DeleteUserProfile where
 
 -- | /See:/ 'mkDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-  { responseStatus ::
-      Lude.Int,
-    userARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
+    userARN :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'userARN' - The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
+-- * 'responseStatus' - The response status code.
 mkDeleteUserProfileResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'userARN'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DeleteUserProfileResponse
-mkDeleteUserProfileResponse pResponseStatus_ pUserARN_ =
+mkDeleteUserProfileResponse pUserARN_ pResponseStatus_ =
   DeleteUserProfileResponse'
-    { responseStatus = pResponseStatus_,
-      userARN = pUserARN_
+    { userARN = pUserARN_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsResponseStatus :: Lens.Lens' DeleteUserProfileResponse Lude.Int
-delrsResponseStatus = Lens.lens (responseStatus :: DeleteUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserProfileResponse)
-{-# DEPRECATED delrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
 --
 -- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delrsUserARN :: Lens.Lens' DeleteUserProfileResponse Lude.Text
-delrsUserARN = Lens.lens (userARN :: DeleteUserProfileResponse -> Lude.Text) (\s a -> s {userARN = a} :: DeleteUserProfileResponse)
-{-# DEPRECATED delrsUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+dupfrsUserARN :: Lens.Lens' DeleteUserProfileResponse Lude.Text
+dupfrsUserARN = Lens.lens (userARN :: DeleteUserProfileResponse -> Lude.Text) (\s a -> s {userARN = a} :: DeleteUserProfileResponse)
+{-# DEPRECATED dupfrsUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupfrsResponseStatus :: Lens.Lens' DeleteUserProfileResponse Lude.Int
+dupfrsResponseStatus = Lens.lens (responseStatus :: DeleteUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteUserProfileResponse)
+{-# DEPRECATED dupfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoT.DescribeThing
     mkDescribeThing,
 
     -- ** Request lenses
-    desThingName,
+    dThingName,
 
     -- * Destructuring the response
     DescribeThingResponse (..),
@@ -47,14 +48,11 @@ import qualified Network.AWS.Response as Res
 -- | The input for the DescribeThing operation.
 --
 -- /See:/ 'mkDescribeThing' smart constructor.
-newtype DescribeThing = DescribeThing' {thingName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DescribeThing = DescribeThing'
+  { -- | The name of the thing.
+    thingName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThing' with the minimum fields required to make a request.
@@ -70,9 +68,9 @@ mkDescribeThing pThingName_ =
 -- | The name of the thing.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desThingName :: Lens.Lens' DescribeThing Lude.Text
-desThingName = Lens.lens (thingName :: DescribeThing -> Lude.Text) (\s a -> s {thingName = a} :: DescribeThing)
-{-# DEPRECATED desThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+dThingName :: Lens.Lens' DescribeThing Lude.Text
+dThingName = Lens.lens (thingName :: DescribeThing -> Lude.Text) (\s a -> s {thingName = a} :: DescribeThing)
+{-# DEPRECATED dThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 instance Lude.AWSRequest DescribeThing where
   type Rs DescribeThing = DescribeThingResponse
@@ -106,40 +104,43 @@ instance Lude.ToQuery DescribeThing where
 --
 -- /See:/ 'mkDescribeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
-  { defaultClientId ::
-      Lude.Maybe Lude.Text,
+  { -- | The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
+    --
+    -- This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
+    defaultClientId :: Lude.Maybe Lude.Text,
+    -- | The thing type name.
     thingTypeName :: Lude.Maybe Lude.Text,
+    -- | The ARN of the thing to describe.
     thingARN :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The thing attributes.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The current version of the thing record in the registry.
     version :: Lude.Maybe Lude.Integer,
+    -- | The name of the thing.
     thingName :: Lude.Maybe Lude.Text,
+    -- | The name of the billing group the thing belongs to.
     billingGroupName :: Lude.Maybe Lude.Text,
+    -- | The ID of the thing to describe.
     thingId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeThingResponse' with the minimum fields required to make a request.
 --
--- * 'attributes' - The thing attributes.
--- * 'billingGroupName' - The name of the billing group the thing belongs to.
 -- * 'defaultClientId' - The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
 --
 -- This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
--- * 'responseStatus' - The response status code.
--- * 'thingARN' - The ARN of the thing to describe.
--- * 'thingId' - The ID of the thing to describe.
--- * 'thingName' - The name of the thing.
 -- * 'thingTypeName' - The thing type name.
+-- * 'thingARN' - The ARN of the thing to describe.
+-- * 'attributes' - The thing attributes.
 -- * 'version' - The current version of the thing record in the registry.
+-- * 'thingName' - The name of the thing.
+-- * 'billingGroupName' - The name of the billing group the thing belongs to.
+-- * 'thingId' - The ID of the thing to describe.
+-- * 'responseStatus' - The response status code.
 mkDescribeThingResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,9 +13,9 @@
 module Network.AWS.Config.Types.DeliveryStatus
   ( DeliveryStatus
       ( DeliveryStatus',
+        DSSuccess,
         DSFailure,
-        DSNotApplicable,
-        DSSuccess
+        DSNotApplicable
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DeliveryStatus = DeliveryStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern DSSuccess :: DeliveryStatus
+pattern DSSuccess = DeliveryStatus' "Success"
+
 pattern DSFailure :: DeliveryStatus
 pattern DSFailure = DeliveryStatus' "Failure"
 
 pattern DSNotApplicable :: DeliveryStatus
 pattern DSNotApplicable = DeliveryStatus' "Not_Applicable"
 
-pattern DSSuccess :: DeliveryStatus
-pattern DSSuccess = DeliveryStatus' "Success"
-
 {-# COMPLETE
+  DSSuccess,
   DSFailure,
   DSNotApplicable,
-  DSSuccess,
   DeliveryStatus'
   #-}

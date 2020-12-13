@@ -31,18 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceSnapshotInfo' smart constructor.
 data InstanceSnapshotInfo = InstanceSnapshotInfo'
-  { fromBlueprintId ::
-      Lude.Maybe Lude.Text,
+  { -- | The blueprint ID from which the source instance (e.g., @os_debian_8_3@ ).
+    fromBlueprintId :: Lude.Maybe Lude.Text,
+    -- | The bundle ID from which the source instance was created (e.g., @micro_1_0@ ).
     fromBundleId :: Lude.Maybe Lude.Text,
+    -- | A list of objects describing the disks that were attached to the source instance.
     fromDiskInfo :: Lude.Maybe [DiskInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceSnapshotInfo' with the minimum fields required to make a request.

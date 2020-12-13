@@ -13,8 +13,8 @@
 module Network.AWS.KMS.Types.KeyUsageType
   ( KeyUsageType
       ( KeyUsageType',
-        EncryptDecrypt,
-        SignVerify
+        SignVerify,
+        EncryptDecrypt
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype KeyUsageType = KeyUsageType' Lude.Text
       Lude.ToHeader
     )
 
-pattern EncryptDecrypt :: KeyUsageType
-pattern EncryptDecrypt = KeyUsageType' "ENCRYPT_DECRYPT"
-
 pattern SignVerify :: KeyUsageType
 pattern SignVerify = KeyUsageType' "SIGN_VERIFY"
 
+pattern EncryptDecrypt :: KeyUsageType
+pattern EncryptDecrypt = KeyUsageType' "ENCRYPT_DECRYPT"
+
 {-# COMPLETE
-  EncryptDecrypt,
   SignVerify,
+  EncryptDecrypt,
   KeyUsageType'
   #-}

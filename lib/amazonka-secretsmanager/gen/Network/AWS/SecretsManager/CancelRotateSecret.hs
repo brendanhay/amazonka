@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -70,16 +71,10 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkCancelRotateSecret' smart constructor.
 newtype CancelRotateSecret = CancelRotateSecret'
-  { secretId ::
-      Lude.Text
+  { -- | Specifies the secret to cancel a rotation request. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    secretId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelRotateSecret' with the minimum fields required to make a request.
@@ -136,27 +131,24 @@ instance Lude.ToQuery CancelRotateSecret where
 
 -- | /See:/ 'mkCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
-  { versionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
+    versionId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the secret for which rotation was canceled.
     arn :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret for which rotation was canceled.
     name :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelRotateSecretResponse' with the minimum fields required to make a request.
 --
+-- * 'versionId' - The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
 -- * 'arn' - The ARN of the secret for which rotation was canceled.
 -- * 'name' - The friendly name of the secret for which rotation was canceled.
 -- * 'responseStatus' - The response status code.
--- * 'versionId' - The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
 mkCancelRotateSecretResponse ::
   -- | 'responseStatus'
   Lude.Int ->

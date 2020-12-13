@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { signature ::
-      Lude.Maybe Lude.Text,
+  { -- | A signature that can be used to verify the document's accuracy and authenticity.
+    signature :: Lude.Maybe Lude.Text,
+    -- | A JSON document that contains the metadata.
     document :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceIdentity' with the minimum fields required to make a request.
 --
--- * 'document' - A JSON document that contains the metadata.
 -- * 'signature' - A signature that can be used to verify the document's accuracy and authenticity.
+-- * 'document' - A JSON document that contains the metadata.
 mkInstanceIdentity ::
   InstanceIdentity
 mkInstanceIdentity =

@@ -17,9 +17,9 @@ module Network.AWS.KinesisAnalytics.Types.ReferenceDataSource
     mkReferenceDataSource,
 
     -- * Lenses
+    rdsReferenceSchema,
     rdsS3ReferenceDataSource,
     rdsTableName,
-    rdsReferenceSchema,
   )
 where
 
@@ -32,18 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReferenceDataSource' smart constructor.
 data ReferenceDataSource = ReferenceDataSource'
-  { s3ReferenceDataSource ::
-      Lude.Maybe S3ReferenceDataSource,
-    tableName :: Lude.Text,
-    referenceSchema :: SourceSchema
+  { -- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+    referenceSchema :: SourceSchema,
+    -- | Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf. An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the @UpdateApplication@ operation to trigger reloading of data into your application.
+    s3ReferenceDataSource :: Lude.Maybe S3ReferenceDataSource,
+    -- | Name of the in-application table to create.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReferenceDataSource' with the minimum fields required to make a request.
@@ -52,17 +48,24 @@ data ReferenceDataSource = ReferenceDataSource'
 -- * 's3ReferenceDataSource' - Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf. An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the @UpdateApplication@ operation to trigger reloading of data into your application.
 -- * 'tableName' - Name of the in-application table to create.
 mkReferenceDataSource ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'referenceSchema'
   SourceSchema ->
+  -- | 'tableName'
+  Lude.Text ->
   ReferenceDataSource
-mkReferenceDataSource pTableName_ pReferenceSchema_ =
+mkReferenceDataSource pReferenceSchema_ pTableName_ =
   ReferenceDataSource'
-    { s3ReferenceDataSource = Lude.Nothing,
-      tableName = pTableName_,
-      referenceSchema = pReferenceSchema_
+    { referenceSchema = pReferenceSchema_,
+      s3ReferenceDataSource = Lude.Nothing,
+      tableName = pTableName_
     }
+
+-- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+--
+-- /Note:/ Consider using 'referenceSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsReferenceSchema :: Lens.Lens' ReferenceDataSource SourceSchema
+rdsReferenceSchema = Lens.lens (referenceSchema :: ReferenceDataSource -> SourceSchema) (\s a -> s {referenceSchema = a} :: ReferenceDataSource)
+{-# DEPRECATED rdsReferenceSchema "Use generic-lens or generic-optics with 'referenceSchema' instead." #-}
 
 -- | Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf. An Amazon Kinesis Analytics application loads reference data only once. If the data changes, you call the @UpdateApplication@ operation to trigger reloading of data into your application.
 --
@@ -78,19 +81,12 @@ rdsTableName :: Lens.Lens' ReferenceDataSource Lude.Text
 rdsTableName = Lens.lens (tableName :: ReferenceDataSource -> Lude.Text) (\s a -> s {tableName = a} :: ReferenceDataSource)
 {-# DEPRECATED rdsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
--- | Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
---
--- /Note:/ Consider using 'referenceSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsReferenceSchema :: Lens.Lens' ReferenceDataSource SourceSchema
-rdsReferenceSchema = Lens.lens (referenceSchema :: ReferenceDataSource -> SourceSchema) (\s a -> s {referenceSchema = a} :: ReferenceDataSource)
-{-# DEPRECATED rdsReferenceSchema "Use generic-lens or generic-optics with 'referenceSchema' instead." #-}
-
 instance Lude.ToJSON ReferenceDataSource where
   toJSON ReferenceDataSource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("S3ReferenceDataSource" Lude..=) Lude.<$> s3ReferenceDataSource,
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("ReferenceSchema" Lude..= referenceSchema)
+          [ Lude.Just ("ReferenceSchema" Lude..= referenceSchema),
+            ("S3ReferenceDataSource" Lude..=) Lude.<$> s3ReferenceDataSource,
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )

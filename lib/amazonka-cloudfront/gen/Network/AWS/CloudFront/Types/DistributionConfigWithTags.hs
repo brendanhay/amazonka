@@ -31,8 +31,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDistributionConfigWithTags' smart constructor.
 data DistributionConfigWithTags = DistributionConfigWithTags'
-  { distributionConfig ::
-      DistributionConfig,
+  { -- | A distribution configuration.
+    distributionConfig :: DistributionConfig,
+    -- | A complex type that contains zero or more @Tag@ elements.
     tags :: Tags
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

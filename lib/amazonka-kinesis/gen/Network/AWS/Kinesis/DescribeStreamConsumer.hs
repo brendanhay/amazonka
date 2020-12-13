@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -30,8 +31,8 @@ module Network.AWS.Kinesis.DescribeStreamConsumer
     mkDescribeStreamConsumerResponse,
 
     -- ** Response lenses
-    dscrsResponseStatus,
     dscrsConsumerDescription,
+    dscrsResponseStatus,
   )
 where
 
@@ -43,25 +44,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStreamConsumer' smart constructor.
 data DescribeStreamConsumer = DescribeStreamConsumer'
-  { consumerARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN returned by Kinesis Data Streams when you registered the consumer.
+    consumerARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces> .
     streamARN :: Lude.Maybe Lude.Text,
+    -- | The name that you gave to the consumer.
     consumerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamConsumer' with the minimum fields required to make a request.
 --
 -- * 'consumerARN' - The ARN returned by Kinesis Data Streams when you registered the consumer.
--- * 'consumerName' - The name that you gave to the consumer.
 -- * 'streamARN' - The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- * 'consumerName' - The name that you gave to the consumer.
 mkDescribeStreamConsumer ::
   DescribeStreamConsumer
 mkDescribeStreamConsumer =
@@ -99,8 +96,8 @@ instance Lude.AWSRequest DescribeStreamConsumer where
     Res.receiveJSON
       ( \s h x ->
           DescribeStreamConsumerResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "ConsumerDescription")
+            Lude.<$> (x Lude..:> "ConsumerDescription")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeStreamConsumer where
@@ -132,18 +129,12 @@ instance Lude.ToQuery DescribeStreamConsumer where
 
 -- | /See:/ 'mkDescribeStreamConsumerResponse' smart constructor.
 data DescribeStreamConsumerResponse = DescribeStreamConsumerResponse'
-  { responseStatus ::
-      Lude.Int,
-    consumerDescription ::
-      ConsumerDescription
+  { -- | An object that represents the details of the consumer.
+    consumerDescription :: ConsumerDescription,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamConsumerResponse' with the minimum fields required to make a request.
@@ -151,26 +142,19 @@ data DescribeStreamConsumerResponse = DescribeStreamConsumerResponse'
 -- * 'consumerDescription' - An object that represents the details of the consumer.
 -- * 'responseStatus' - The response status code.
 mkDescribeStreamConsumerResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'consumerDescription'
   ConsumerDescription ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStreamConsumerResponse
 mkDescribeStreamConsumerResponse
-  pResponseStatus_
-  pConsumerDescription_ =
+  pConsumerDescription_
+  pResponseStatus_ =
     DescribeStreamConsumerResponse'
-      { responseStatus =
-          pResponseStatus_,
-        consumerDescription = pConsumerDescription_
+      { consumerDescription =
+          pConsumerDescription_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DescribeStreamConsumerResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamConsumerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamConsumerResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | An object that represents the details of the consumer.
 --
@@ -178,3 +162,10 @@ dscrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamConsumerRespons
 dscrsConsumerDescription :: Lens.Lens' DescribeStreamConsumerResponse ConsumerDescription
 dscrsConsumerDescription = Lens.lens (consumerDescription :: DescribeStreamConsumerResponse -> ConsumerDescription) (\s a -> s {consumerDescription = a} :: DescribeStreamConsumerResponse)
 {-# DEPRECATED dscrsConsumerDescription "Use generic-lens or generic-optics with 'consumerDescription' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dscrsResponseStatus :: Lens.Lens' DescribeStreamConsumerResponse Lude.Int
+dscrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamConsumerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamConsumerResponse)
+{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

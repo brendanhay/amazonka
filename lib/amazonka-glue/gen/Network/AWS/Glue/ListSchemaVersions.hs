@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Glue.ListSchemaVersions
     mkListSchemaVersions,
 
     -- ** Request lenses
+    lsvSchemaId,
     lsvNextToken,
     lsvMaxResults,
-    lsvSchemaId,
 
     -- * Destructuring the response
     ListSchemaVersionsResponse (..),
@@ -45,24 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSchemaVersions' smart constructor.
 data ListSchemaVersions = ListSchemaVersions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    schemaId :: SchemaId
+  { -- | This is a wrapper structure to contain schema identity fields. The structure contains:
+    --
+    --
+    --     * SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+    --
+    --
+    --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+    schemaId :: SchemaId,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSchemaVersions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
--- * 'nextToken' - A continuation token, if this is a continuation call.
 -- * 'schemaId' - This is a wrapper structure to contain schema identity fields. The structure contains:
 --
 --
@@ -70,30 +71,20 @@ data ListSchemaVersions = ListSchemaVersions'
 --
 --
 --     * SchemaId$SchemaName: The name of the schema. Either @SchemaArn@ or @SchemaName@ and @RegistryName@ has to be provided.
+--
+--
+-- * 'nextToken' - A continuation token, if this is a continuation call.
+-- * 'maxResults' - Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
 mkListSchemaVersions ::
   -- | 'schemaId'
   SchemaId ->
   ListSchemaVersions
 mkListSchemaVersions pSchemaId_ =
   ListSchemaVersions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      schemaId = pSchemaId_
+    { schemaId = pSchemaId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
-
--- | A continuation token, if this is a continuation call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvNextToken :: Lens.Lens' ListSchemaVersions (Lude.Maybe Lude.Text)
-lsvNextToken = Lens.lens (nextToken :: ListSchemaVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemaVersions)
-{-# DEPRECATED lsvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsvMaxResults :: Lens.Lens' ListSchemaVersions (Lude.Maybe Lude.Natural)
-lsvMaxResults = Lens.lens (maxResults :: ListSchemaVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSchemaVersions)
-{-# DEPRECATED lsvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | This is a wrapper structure to contain schema identity fields. The structure contains:
 --
@@ -109,6 +100,20 @@ lsvMaxResults = Lens.lens (maxResults :: ListSchemaVersions -> Lude.Maybe Lude.N
 lsvSchemaId :: Lens.Lens' ListSchemaVersions SchemaId
 lsvSchemaId = Lens.lens (schemaId :: ListSchemaVersions -> SchemaId) (\s a -> s {schemaId = a} :: ListSchemaVersions)
 {-# DEPRECATED lsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
+
+-- | A continuation token, if this is a continuation call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsvNextToken :: Lens.Lens' ListSchemaVersions (Lude.Maybe Lude.Text)
+lsvNextToken = Lens.lens (nextToken :: ListSchemaVersions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSchemaVersions)
+{-# DEPRECATED lsvNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsvMaxResults :: Lens.Lens' ListSchemaVersions (Lude.Maybe Lude.Natural)
+lsvMaxResults = Lens.lens (maxResults :: ListSchemaVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSchemaVersions)
+{-# DEPRECATED lsvMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListSchemaVersions where
   page rq rs
@@ -146,9 +151,9 @@ instance Lude.ToJSON ListSchemaVersions where
   toJSON ListSchemaVersions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("SchemaId" Lude..= schemaId)
+          [ Lude.Just ("SchemaId" Lude..= schemaId),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -160,25 +165,21 @@ instance Lude.ToQuery ListSchemaVersions where
 
 -- | /See:/ 'mkListSchemaVersionsResponse' smart constructor.
 data ListSchemaVersionsResponse = ListSchemaVersionsResponse'
-  { schemas ::
-      Lude.Maybe [SchemaVersionListItem],
+  { -- | An array of @SchemaVersionList@ objects containing details of each schema version.
+    schemas :: Lude.Maybe [SchemaVersionListItem],
+    -- | A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSchemaVersionsResponse' with the minimum fields required to make a request.
 --
+-- * 'schemas' - An array of @SchemaVersionList@ objects containing details of each schema version.
 -- * 'nextToken' - A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.
 -- * 'responseStatus' - The response status code.
--- * 'schemas' - An array of @SchemaVersionList@ objects containing details of each schema version.
 mkListSchemaVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

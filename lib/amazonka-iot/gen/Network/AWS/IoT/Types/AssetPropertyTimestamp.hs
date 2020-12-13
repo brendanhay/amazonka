@@ -17,8 +17,8 @@ module Network.AWS.IoT.Types.AssetPropertyTimestamp
     mkAssetPropertyTimestamp,
 
     -- * Lenses
-    aptOffsetInNanos,
     aptTimeInSeconds,
+    aptOffsetInNanos,
   )
 where
 
@@ -29,39 +29,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssetPropertyTimestamp' smart constructor.
 data AssetPropertyTimestamp = AssetPropertyTimestamp'
-  { offsetInNanos ::
-      Lude.Maybe Lude.Text,
-    timeInSeconds :: Lude.Text
+  { -- | A string that contains the time in seconds since epoch. Accepts substitution templates.
+    timeInSeconds :: Lude.Text,
+    -- | Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+    offsetInNanos :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssetPropertyTimestamp' with the minimum fields required to make a request.
 --
--- * 'offsetInNanos' - Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
 -- * 'timeInSeconds' - A string that contains the time in seconds since epoch. Accepts substitution templates.
+-- * 'offsetInNanos' - Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
 mkAssetPropertyTimestamp ::
   -- | 'timeInSeconds'
   Lude.Text ->
   AssetPropertyTimestamp
 mkAssetPropertyTimestamp pTimeInSeconds_ =
   AssetPropertyTimestamp'
-    { offsetInNanos = Lude.Nothing,
-      timeInSeconds = pTimeInSeconds_
+    { timeInSeconds = pTimeInSeconds_,
+      offsetInNanos = Lude.Nothing
     }
-
--- | Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
---
--- /Note:/ Consider using 'offsetInNanos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aptOffsetInNanos :: Lens.Lens' AssetPropertyTimestamp (Lude.Maybe Lude.Text)
-aptOffsetInNanos = Lens.lens (offsetInNanos :: AssetPropertyTimestamp -> Lude.Maybe Lude.Text) (\s a -> s {offsetInNanos = a} :: AssetPropertyTimestamp)
-{-# DEPRECATED aptOffsetInNanos "Use generic-lens or generic-optics with 'offsetInNanos' instead." #-}
 
 -- | A string that contains the time in seconds since epoch. Accepts substitution templates.
 --
@@ -70,20 +58,27 @@ aptTimeInSeconds :: Lens.Lens' AssetPropertyTimestamp Lude.Text
 aptTimeInSeconds = Lens.lens (timeInSeconds :: AssetPropertyTimestamp -> Lude.Text) (\s a -> s {timeInSeconds = a} :: AssetPropertyTimestamp)
 {-# DEPRECATED aptTimeInSeconds "Use generic-lens or generic-optics with 'timeInSeconds' instead." #-}
 
+-- | Optional. A string that contains the nanosecond time offset. Accepts substitution templates.
+--
+-- /Note:/ Consider using 'offsetInNanos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aptOffsetInNanos :: Lens.Lens' AssetPropertyTimestamp (Lude.Maybe Lude.Text)
+aptOffsetInNanos = Lens.lens (offsetInNanos :: AssetPropertyTimestamp -> Lude.Maybe Lude.Text) (\s a -> s {offsetInNanos = a} :: AssetPropertyTimestamp)
+{-# DEPRECATED aptOffsetInNanos "Use generic-lens or generic-optics with 'offsetInNanos' instead." #-}
+
 instance Lude.FromJSON AssetPropertyTimestamp where
   parseJSON =
     Lude.withObject
       "AssetPropertyTimestamp"
       ( \x ->
           AssetPropertyTimestamp'
-            Lude.<$> (x Lude..:? "offsetInNanos") Lude.<*> (x Lude..: "timeInSeconds")
+            Lude.<$> (x Lude..: "timeInSeconds") Lude.<*> (x Lude..:? "offsetInNanos")
       )
 
 instance Lude.ToJSON AssetPropertyTimestamp where
   toJSON AssetPropertyTimestamp' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("offsetInNanos" Lude..=) Lude.<$> offsetInNanos,
-            Lude.Just ("timeInSeconds" Lude..= timeInSeconds)
+          [ Lude.Just ("timeInSeconds" Lude..= timeInSeconds),
+            ("offsetInNanos" Lude..=) Lude.<$> offsetInNanos
           ]
       )

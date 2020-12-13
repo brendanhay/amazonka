@@ -32,26 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputSchemaUpdate' smart constructor.
 data InputSchemaUpdate = InputSchemaUpdate'
-  { recordFormatUpdate ::
-      Lude.Maybe RecordFormat,
+  { -- | Specifies the format of the records on the streaming source.
+    recordFormatUpdate :: Lude.Maybe RecordFormat,
+    -- | Specifies the encoding of the records in the streaming source. For example, UTF-8.
     recordEncodingUpdate :: Lude.Maybe Lude.Text,
-    recordColumnUpdates ::
-      Lude.Maybe (Lude.NonEmpty RecordColumn)
+    -- | A list of @RecordColumn@ objects. Each object describes the mapping of the streaming source element to the corresponding column in the in-application stream.
+    recordColumnUpdates :: Lude.Maybe (Lude.NonEmpty RecordColumn)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSchemaUpdate' with the minimum fields required to make a request.
 --
--- * 'recordColumnUpdates' - A list of @RecordColumn@ objects. Each object describes the mapping of the streaming source element to the corresponding column in the in-application stream.
--- * 'recordEncodingUpdate' - Specifies the encoding of the records in the streaming source. For example, UTF-8.
 -- * 'recordFormatUpdate' - Specifies the format of the records on the streaming source.
+-- * 'recordEncodingUpdate' - Specifies the encoding of the records in the streaming source. For example, UTF-8.
+-- * 'recordColumnUpdates' - A list of @RecordColumn@ objects. Each object describes the mapping of the streaming source element to the corresponding column in the in-application stream.
 mkInputSchemaUpdate ::
   InputSchemaUpdate
 mkInputSchemaUpdate =

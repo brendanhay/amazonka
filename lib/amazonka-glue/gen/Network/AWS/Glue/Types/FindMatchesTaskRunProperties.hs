@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFindMatchesTaskRunProperties' smart constructor.
 data FindMatchesTaskRunProperties = FindMatchesTaskRunProperties'
-  { jobId ::
-      Lude.Maybe Lude.Text,
+  { -- | The job ID for the Find Matches task run.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The name assigned to the job for the Find Matches task run.
     jobName :: Lude.Maybe Lude.Text,
+    -- | The job run ID for the Find Matches task run.
     jobRunId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FindMatchesTaskRunProperties' with the minimum fields required to make a request.

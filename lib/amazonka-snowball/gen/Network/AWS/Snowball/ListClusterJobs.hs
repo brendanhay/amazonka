@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.Snowball.ListClusterJobs
 
     -- ** Request lenses
     lcjNextToken,
-    lcjMaxResults,
     lcjClusterId,
+    lcjMaxResults,
 
     -- * Destructuring the response
     ListClusterJobsResponse (..),
@@ -45,25 +46,21 @@ import Network.AWS.Snowball.Types
 
 -- | /See:/ 'mkListClusterJobs' smart constructor.
 data ListClusterJobs = ListClusterJobs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    clusterId :: Lude.Text
+  { -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+    clusterId :: Lude.Text,
+    -- | The number of @JobListEntry@ objects to return.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClusterJobs' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 -- * 'clusterId' - The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 -- * 'maxResults' - The number of @JobListEntry@ objects to return.
--- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 mkListClusterJobs ::
   -- | 'clusterId'
   Lude.Text ->
@@ -71,8 +68,8 @@ mkListClusterJobs ::
 mkListClusterJobs pClusterId_ =
   ListClusterJobs'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      clusterId = pClusterId_
+      clusterId = pClusterId_,
+      maxResults = Lude.Nothing
     }
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
@@ -82,19 +79,19 @@ lcjNextToken :: Lens.Lens' ListClusterJobs (Lude.Maybe Lude.Text)
 lcjNextToken = Lens.lens (nextToken :: ListClusterJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListClusterJobs)
 {-# DEPRECATED lcjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The number of @JobListEntry@ objects to return.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcjMaxResults :: Lens.Lens' ListClusterJobs (Lude.Maybe Lude.Natural)
-lcjMaxResults = Lens.lens (maxResults :: ListClusterJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListClusterJobs)
-{-# DEPRECATED lcjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The 39-character ID for the cluster that you want to list, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lcjClusterId :: Lens.Lens' ListClusterJobs Lude.Text
 lcjClusterId = Lens.lens (clusterId :: ListClusterJobs -> Lude.Text) (\s a -> s {clusterId = a} :: ListClusterJobs)
 {-# DEPRECATED lcjClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The number of @JobListEntry@ objects to return.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcjMaxResults :: Lens.Lens' ListClusterJobs (Lude.Maybe Lude.Natural)
+lcjMaxResults = Lens.lens (maxResults :: ListClusterJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListClusterJobs)
+{-# DEPRECATED lcjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListClusterJobs where
   page rq rs
@@ -135,8 +132,8 @@ instance Lude.ToJSON ListClusterJobs where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ClusterId" Lude..= clusterId)
+            Lude.Just ("ClusterId" Lude..= clusterId),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -148,18 +145,14 @@ instance Lude.ToQuery ListClusterJobs where
 
 -- | /See:/ 'mkListClusterJobsResponse' smart constructor.
 data ListClusterJobsResponse = ListClusterJobsResponse'
-  { jobListEntries ::
-      Lude.Maybe [JobListEntry],
+  { -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
+    jobListEntries :: Lude.Maybe [JobListEntry],
+    -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ListClusterJobsResult@ call, your list of returned jobs will start from this point in the array.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClusterJobsResponse' with the minimum fields required to make a request.

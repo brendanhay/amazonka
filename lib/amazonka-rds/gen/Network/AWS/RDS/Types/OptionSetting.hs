@@ -36,37 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOptionSetting' smart constructor.
 data OptionSetting = OptionSetting'
-  { isCollection ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates if the option setting is part of a collection.
+    isCollection :: Lude.Maybe Lude.Bool,
+    -- | The DB engine specific parameter type.
     applyType :: Lude.Maybe Lude.Text,
+    -- | The current value of the option setting.
     value :: Lude.Maybe Lude.Text,
+    -- | The name of the option that has settings that you can set.
     name :: Lude.Maybe Lude.Text,
+    -- | The default value of the option setting.
     defaultValue :: Lude.Maybe Lude.Text,
+    -- | A Boolean value that, when true, indicates the option setting can be modified from the default.
     isModifiable :: Lude.Maybe Lude.Bool,
+    -- | The data type of the option setting.
     dataType :: Lude.Maybe Lude.Text,
+    -- | The allowed values of the option setting.
     allowedValues :: Lude.Maybe Lude.Text,
+    -- | The description of the option setting.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OptionSetting' with the minimum fields required to make a request.
 --
--- * 'allowedValues' - The allowed values of the option setting.
--- * 'applyType' - The DB engine specific parameter type.
--- * 'dataType' - The data type of the option setting.
--- * 'defaultValue' - The default value of the option setting.
--- * 'description' - The description of the option setting.
 -- * 'isCollection' - Indicates if the option setting is part of a collection.
--- * 'isModifiable' - A Boolean value that, when true, indicates the option setting can be modified from the default.
--- * 'name' - The name of the option that has settings that you can set.
+-- * 'applyType' - The DB engine specific parameter type.
 -- * 'value' - The current value of the option setting.
+-- * 'name' - The name of the option that has settings that you can set.
+-- * 'defaultValue' - The default value of the option setting.
+-- * 'isModifiable' - A Boolean value that, when true, indicates the option setting can be modified from the default.
+-- * 'dataType' - The data type of the option setting.
+-- * 'allowedValues' - The allowed values of the option setting.
+-- * 'description' - The description of the option setting.
 mkOptionSetting ::
   OptionSetting
 mkOptionSetting =

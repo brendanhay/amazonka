@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAutoScalingPolicyStateChangeReason' smart constructor.
 data AutoScalingPolicyStateChangeReason = AutoScalingPolicyStateChangeReason'
-  { code ::
-      Lude.Maybe
-        AutoScalingPolicyStateChangeReasonCode,
-    message ::
-      Lude.Maybe Lude.Text
+  { -- | The code indicating the reason for the change in status.@USER_REQUEST@ indicates that the scaling policy status was changed by a user. @PROVISION_FAILURE@ indicates that the status change was because the policy failed to provision. @CLEANUP_FAILURE@ indicates an error.
+    code :: Lude.Maybe AutoScalingPolicyStateChangeReasonCode,
+    -- | A friendly, more verbose message that accompanies an automatic scaling policy state change.
+    message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AutoScalingPolicyStateChangeReason' with the minimum fields required to make a request.

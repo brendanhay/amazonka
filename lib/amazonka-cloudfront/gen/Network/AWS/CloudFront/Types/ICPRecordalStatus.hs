@@ -14,8 +14,8 @@ module Network.AWS.CloudFront.Types.ICPRecordalStatus
   ( ICPRecordalStatus
       ( ICPRecordalStatus',
         Approved,
-        Pending,
-        Suspended
+        Suspended,
+        Pending
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ICPRecordalStatus = ICPRecordalStatus' Lude.Text
 pattern Approved :: ICPRecordalStatus
 pattern Approved = ICPRecordalStatus' "APPROVED"
 
-pattern Pending :: ICPRecordalStatus
-pattern Pending = ICPRecordalStatus' "PENDING"
-
 pattern Suspended :: ICPRecordalStatus
 pattern Suspended = ICPRecordalStatus' "SUSPENDED"
 
+pattern Pending :: ICPRecordalStatus
+pattern Pending = ICPRecordalStatus' "PENDING"
+
 {-# COMPLETE
   Approved,
-  Pending,
   Suspended,
+  Pending,
   ICPRecordalStatus'
   #-}

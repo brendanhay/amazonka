@@ -36,33 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActiveViolation' smart constructor.
 data ActiveViolation = ActiveViolation'
-  { lastViolationValue ::
-      Lude.Maybe MetricValue,
+  { -- | The value of the metric (the measurement) which caused the most recent violation.
+    lastViolationValue :: Lude.Maybe MetricValue,
+    -- | The time the most recent violation occurred.
     lastViolationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The time the violation started.
     violationStartTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the active violation.
     violationId :: Lude.Maybe Lude.Text,
+    -- | The behavior which is being violated.
     behavior :: Lude.Maybe Behavior,
+    -- | The security profile whose behavior is in violation.
     securityProfileName :: Lude.Maybe Lude.Text,
+    -- | The name of the thing responsible for the active violation.
     thingName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActiveViolation' with the minimum fields required to make a request.
 --
--- * 'behavior' - The behavior which is being violated.
--- * 'lastViolationTime' - The time the most recent violation occurred.
 -- * 'lastViolationValue' - The value of the metric (the measurement) which caused the most recent violation.
+-- * 'lastViolationTime' - The time the most recent violation occurred.
+-- * 'violationStartTime' - The time the violation started.
+-- * 'violationId' - The ID of the active violation.
+-- * 'behavior' - The behavior which is being violated.
 -- * 'securityProfileName' - The security profile whose behavior is in violation.
 -- * 'thingName' - The name of the thing responsible for the active violation.
--- * 'violationId' - The ID of the active violation.
--- * 'violationStartTime' - The time the violation started.
 mkActiveViolation ::
   ActiveViolation
 mkActiveViolation =

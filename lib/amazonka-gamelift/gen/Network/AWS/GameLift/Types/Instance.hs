@@ -38,42 +38,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | A unique identifier for an instance.
     instanceId :: Lude.Maybe Lude.Text,
+    -- | Current status of the instance. Possible statuses include the following:
+    --
+    --
+    --     * __PENDING__ -- The instance is in the process of being created and launching server processes as defined in the fleet's run-time configuration.
+    --
+    --
+    --     * __ACTIVE__ -- The instance has been successfully created and at least one server process has successfully launched and reported back to Amazon GameLift that it is ready to host a game session. The instance is now considered ready to host game sessions.
+    --
+    --
+    --     * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
     status :: Lude.Maybe InstanceStatus,
+    -- | IP address that is assigned to the instance.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | Operating system that is running on this instance.
     operatingSystem :: Lude.Maybe OperatingSystem,
+    -- | EC2 instance type that defines the computing resources of this instance.
     type' :: Lude.Maybe EC2InstanceType,
+    -- | A unique identifier for a fleet that the instance is in.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+    --
+    --
+    --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+    --
+    --
+    --     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+    --
+    --
+    -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
     dnsName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - Time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
---
---
---     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
---
---
---     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
---
---
--- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
--- * 'fleetId' - A unique identifier for a fleet that the instance is in.
 -- * 'instanceId' - A unique identifier for an instance.
--- * 'ipAddress' - IP address that is assigned to the instance.
--- * 'operatingSystem' - Operating system that is running on this instance.
 -- * 'status' - Current status of the instance. Possible statuses include the following:
 --
 --
@@ -86,7 +92,20 @@ data Instance = Instance'
 --     * __TERMINATING__ -- The instance is in the process of shutting down. This may happen to reduce capacity during a scaling down event or to recycle resources in the event of a problem.
 --
 --
+-- * 'ipAddress' - IP address that is assigned to the instance.
+-- * 'operatingSystem' - Operating system that is running on this instance.
 -- * 'type'' - EC2 instance type that defines the computing resources of this instance.
+-- * 'fleetId' - A unique identifier for a fleet that the instance is in.
+-- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
+--
+--
+--     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+--
+--
+--     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+--
+--
+-- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
 mkInstance ::
   Instance
 mkInstance =

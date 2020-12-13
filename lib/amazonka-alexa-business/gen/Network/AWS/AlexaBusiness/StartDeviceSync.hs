@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -35,8 +36,8 @@ module Network.AWS.AlexaBusiness.StartDeviceSync
 
     -- ** Request lenses
     sdsDeviceARN,
-    sdsRoomARN,
     sdsFeatures,
+    sdsRoomARN,
 
     -- * Destructuring the response
     StartDeviceSyncResponse (..),
@@ -55,18 +56,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartDeviceSync' smart constructor.
 data StartDeviceSync = StartDeviceSync'
-  { deviceARN ::
-      Lude.Maybe Lude.Text,
-    roomARN :: Lude.Maybe Lude.Text,
-    features :: [Feature]
+  { -- | The ARN of the device to sync. Required.
+    deviceARN :: Lude.Maybe Lude.Text,
+    -- | Request structure to start the device sync. Required.
+    features :: [Feature],
+    -- | The ARN of the room with which the device to sync is associated. Required.
+    roomARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDeviceSync' with the minimum fields required to make a request.
@@ -79,8 +76,8 @@ mkStartDeviceSync ::
 mkStartDeviceSync =
   StartDeviceSync'
     { deviceARN = Lude.Nothing,
-      roomARN = Lude.Nothing,
-      features = Lude.mempty
+      features = Lude.mempty,
+      roomARN = Lude.Nothing
     }
 
 -- | The ARN of the device to sync. Required.
@@ -90,19 +87,19 @@ sdsDeviceARN :: Lens.Lens' StartDeviceSync (Lude.Maybe Lude.Text)
 sdsDeviceARN = Lens.lens (deviceARN :: StartDeviceSync -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: StartDeviceSync)
 {-# DEPRECATED sdsDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
 
--- | The ARN of the room with which the device to sync is associated. Required.
---
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsRoomARN :: Lens.Lens' StartDeviceSync (Lude.Maybe Lude.Text)
-sdsRoomARN = Lens.lens (roomARN :: StartDeviceSync -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: StartDeviceSync)
-{-# DEPRECATED sdsRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
-
 -- | Request structure to start the device sync. Required.
 --
 -- /Note:/ Consider using 'features' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sdsFeatures :: Lens.Lens' StartDeviceSync [Feature]
 sdsFeatures = Lens.lens (features :: StartDeviceSync -> [Feature]) (\s a -> s {features = a} :: StartDeviceSync)
 {-# DEPRECATED sdsFeatures "Use generic-lens or generic-optics with 'features' instead." #-}
+
+-- | The ARN of the room with which the device to sync is associated. Required.
+--
+-- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdsRoomARN :: Lens.Lens' StartDeviceSync (Lude.Maybe Lude.Text)
+sdsRoomARN = Lens.lens (roomARN :: StartDeviceSync -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: StartDeviceSync)
+{-# DEPRECATED sdsRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
 
 instance Lude.AWSRequest StartDeviceSync where
   type Rs StartDeviceSync = StartDeviceSyncResponse
@@ -129,8 +126,8 @@ instance Lude.ToJSON StartDeviceSync where
     Lude.object
       ( Lude.catMaybes
           [ ("DeviceArn" Lude..=) Lude.<$> deviceARN,
-            ("RoomArn" Lude..=) Lude.<$> roomARN,
-            Lude.Just ("Features" Lude..= features)
+            Lude.Just ("Features" Lude..= features),
+            ("RoomArn" Lude..=) Lude.<$> roomARN
           ]
       )
 
@@ -142,16 +139,10 @@ instance Lude.ToQuery StartDeviceSync where
 
 -- | /See:/ 'mkStartDeviceSyncResponse' smart constructor.
 newtype StartDeviceSyncResponse = StartDeviceSyncResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDeviceSyncResponse' with the minimum fields required to make a request.

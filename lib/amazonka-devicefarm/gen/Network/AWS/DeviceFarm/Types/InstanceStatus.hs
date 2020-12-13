@@ -13,10 +13,10 @@
 module Network.AWS.DeviceFarm.Types.InstanceStatus
   ( InstanceStatus
       ( InstanceStatus',
-        ISAvailable,
         ISInUse,
-        ISNotAvailable,
-        ISPreparing
+        ISPreparing,
+        ISAvailable,
+        ISNotAvailable
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype InstanceStatus = InstanceStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISAvailable :: InstanceStatus
-pattern ISAvailable = InstanceStatus' "AVAILABLE"
-
 pattern ISInUse :: InstanceStatus
 pattern ISInUse = InstanceStatus' "IN_USE"
-
-pattern ISNotAvailable :: InstanceStatus
-pattern ISNotAvailable = InstanceStatus' "NOT_AVAILABLE"
 
 pattern ISPreparing :: InstanceStatus
 pattern ISPreparing = InstanceStatus' "PREPARING"
 
+pattern ISAvailable :: InstanceStatus
+pattern ISAvailable = InstanceStatus' "AVAILABLE"
+
+pattern ISNotAvailable :: InstanceStatus
+pattern ISNotAvailable = InstanceStatus' "NOT_AVAILABLE"
+
 {-# COMPLETE
-  ISAvailable,
   ISInUse,
-  ISNotAvailable,
   ISPreparing,
+  ISAvailable,
+  ISNotAvailable,
   InstanceStatus'
   #-}

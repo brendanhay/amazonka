@@ -31,24 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCapacityReservationSpecificationResponse' smart constructor.
 data CapacityReservationSpecificationResponse = CapacityReservationSpecificationResponse'
-  { capacityReservationTarget ::
-      Lude.Maybe
-        CapacityReservationTargetResponse,
-    capacityReservationPreference ::
-      Lude.Maybe
-        CapacityReservationPreference
+  { -- | Information about the targeted Capacity Reservation or Capacity Reservation group.
+    capacityReservationTarget :: Lude.Maybe CapacityReservationTargetResponse,
+    -- | Describes the instance's Capacity Reservation preferences. Possible preferences include:
+    --
+    --
+    --     * @open@ - The instance can run in any @open@ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+    --
+    --
+    --     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+    capacityReservationPreference :: Lude.Maybe CapacityReservationPreference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CapacityReservationSpecificationResponse' with the minimum fields required to make a request.
 --
+-- * 'capacityReservationTarget' - Information about the targeted Capacity Reservation or Capacity Reservation group.
 -- * 'capacityReservationPreference' - Describes the instance's Capacity Reservation preferences. Possible preferences include:
 --
 --
@@ -56,9 +55,6 @@ data CapacityReservationSpecificationResponse = CapacityReservationSpecification
 --
 --
 --     * @none@ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
---
---
--- * 'capacityReservationTarget' - Information about the targeted Capacity Reservation or Capacity Reservation group.
 mkCapacityReservationSpecificationResponse ::
   CapacityReservationSpecificationResponse
 mkCapacityReservationSpecificationResponse =

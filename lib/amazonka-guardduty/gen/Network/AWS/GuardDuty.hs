@@ -279,8 +279,8 @@ module Network.AWS.GuardDuty
     -- ** AccountDetail
     AccountDetail (..),
     mkAccountDetail,
-    adAccountId,
     adEmail,
+    adAccountId,
 
     -- ** AccountLevelPermissions
     AccountLevelPermissions (..),
@@ -373,10 +373,10 @@ module Network.AWS.GuardDuty
     -- ** DataSourceConfigurationsResult
     DataSourceConfigurationsResult (..),
     mkDataSourceConfigurationsResult,
-    dscrCloudTrail,
-    dscrDNSLogs,
-    dscrFlowLogs,
     dscrS3Logs,
+    dscrCloudTrail,
+    dscrFlowLogs,
+    dscrDNSLogs,
 
     -- ** DefaultServerSideEncryption
     DefaultServerSideEncryption (..),
@@ -387,9 +387,9 @@ module Network.AWS.GuardDuty
     -- ** Destination
     Destination (..),
     mkDestination,
-    dDestinationId,
-    dDestinationType,
     dStatus,
+    dDestinationType,
+    dDestinationId,
 
     -- ** DestinationProperties
     DestinationProperties (..),
@@ -410,21 +410,21 @@ module Network.AWS.GuardDuty
     -- ** Finding
     Finding (..),
     mkFinding,
-    fService,
-    fConfidence,
-    fPartition,
-    fTitle,
-    fDescription,
-    fAccountId,
     fARN,
+    fService,
     fCreatedAt,
-    fId,
-    fRegion,
-    fResource,
-    fSchemaVersion,
     fSeverity,
+    fSchemaVersion,
+    fAccountId,
+    fConfidence,
+    fResource,
+    fPartition,
+    fId,
+    fTitle,
+    fRegion,
     fType,
     fUpdatedAt,
+    fDescription,
 
     -- ** FindingCriteria
     FindingCriteria (..),
@@ -492,27 +492,27 @@ module Network.AWS.GuardDuty
     -- ** Master
     Master (..),
     mkMaster,
-    masInvitedAt,
-    masRelationshipStatus,
-    masInvitationId,
-    masAccountId,
+    mfInvitedAt,
+    mfRelationshipStatus,
+    mfInvitationId,
+    mfAccountId,
 
     -- ** Member
     Member (..),
     mkMember,
-    mInvitedAt,
-    mDetectorId,
-    mAccountId,
-    mMasterId,
     mEmail,
+    mInvitedAt,
     mRelationshipStatus,
+    mMasterId,
+    mAccountId,
+    mDetectorId,
     mUpdatedAt,
 
     -- ** MemberDataSourceConfiguration
     MemberDataSourceConfiguration (..),
     mkMemberDataSourceConfiguration,
-    mdscAccountId,
     mdscDataSources,
+    mdscAccountId,
 
     -- ** NetworkConnectionAction
     NetworkConnectionAction (..),
@@ -701,8 +701,8 @@ module Network.AWS.GuardDuty
     -- ** UnprocessedAccount
     UnprocessedAccount (..),
     mkUnprocessedAccount,
-    uaAccountId,
     uaResult,
+    uaAccountId,
 
     -- ** UsageAccountResult
     UsageAccountResult (..),
@@ -714,8 +714,8 @@ module Network.AWS.GuardDuty
     UsageCriteria (..),
     mkUsageCriteria,
     ucAccountIds,
-    ucResources,
     ucDataSources,
+    ucResources,
 
     -- ** UsageDataSourceResult
     UsageDataSourceResult (..),

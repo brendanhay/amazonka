@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,14 +40,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.Support.Types
 
 -- | /See:/ 'mkResolveCase' smart constructor.
-newtype ResolveCase = ResolveCase' {caseId :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ResolveCase = ResolveCase'
+  { -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+    caseId :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolveCase' with the minimum fields required to make a request.
@@ -100,24 +98,20 @@ instance Lude.ToQuery ResolveCase where
 --
 -- /See:/ 'mkResolveCaseResponse' smart constructor.
 data ResolveCaseResponse = ResolveCaseResponse'
-  { initialCaseStatus ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the case when the 'ResolveCase' request was sent.
+    initialCaseStatus :: Lude.Maybe Lude.Text,
+    -- | The status of the case after the 'ResolveCase' request was processed.
     finalCaseStatus :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResolveCaseResponse' with the minimum fields required to make a request.
 --
--- * 'finalCaseStatus' - The status of the case after the 'ResolveCase' request was processed.
 -- * 'initialCaseStatus' - The status of the case when the 'ResolveCase' request was sent.
+-- * 'finalCaseStatus' - The status of the case after the 'ResolveCase' request was processed.
 -- * 'responseStatus' - The response status code.
 mkResolveCaseResponse ::
   -- | 'responseStatus'

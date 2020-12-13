@@ -13,9 +13,9 @@
 module Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
   ( AutoScalingPolicyStateChangeReasonCode
       ( AutoScalingPolicyStateChangeReasonCode',
-        CleanupFailure,
+        UserRequest,
         ProvisionFailure,
-        UserRequest
+        CleanupFailure
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AutoScalingPolicyStateChangeReasonCode = AutoScalingPolicyStateChangeRea
       Lude.ToHeader
     )
 
-pattern CleanupFailure :: AutoScalingPolicyStateChangeReasonCode
-pattern CleanupFailure = AutoScalingPolicyStateChangeReasonCode' "CLEANUP_FAILURE"
+pattern UserRequest :: AutoScalingPolicyStateChangeReasonCode
+pattern UserRequest = AutoScalingPolicyStateChangeReasonCode' "USER_REQUEST"
 
 pattern ProvisionFailure :: AutoScalingPolicyStateChangeReasonCode
 pattern ProvisionFailure = AutoScalingPolicyStateChangeReasonCode' "PROVISION_FAILURE"
 
-pattern UserRequest :: AutoScalingPolicyStateChangeReasonCode
-pattern UserRequest = AutoScalingPolicyStateChangeReasonCode' "USER_REQUEST"
+pattern CleanupFailure :: AutoScalingPolicyStateChangeReasonCode
+pattern CleanupFailure = AutoScalingPolicyStateChangeReasonCode' "CLEANUP_FAILURE"
 
 {-# COMPLETE
-  CleanupFailure,
-  ProvisionFailure,
   UserRequest,
+  ProvisionFailure,
+  CleanupFailure,
   AutoScalingPolicyStateChangeReasonCode'
   #-}

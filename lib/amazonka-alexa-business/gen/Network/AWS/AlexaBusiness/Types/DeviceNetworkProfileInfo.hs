@@ -30,26 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceNetworkProfileInfo' smart constructor.
 data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
-  { certificateARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the certificate associated with a device.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | The ARN of the network profile associated with a device.
     networkProfileARN :: Lude.Maybe Lude.Text,
-    certificateExpirationTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | The time (in epoch) when the certificate expires.
+    certificateExpirationTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceNetworkProfileInfo' with the minimum fields required to make a request.
 --
 -- * 'certificateARN' - The ARN of the certificate associated with a device.
--- * 'certificateExpirationTime' - The time (in epoch) when the certificate expires.
 -- * 'networkProfileARN' - The ARN of the network profile associated with a device.
+-- * 'certificateExpirationTime' - The time (in epoch) when the certificate expires.
 mkDeviceNetworkProfileInfo ::
   DeviceNetworkProfileInfo
 mkDeviceNetworkProfileInfo =

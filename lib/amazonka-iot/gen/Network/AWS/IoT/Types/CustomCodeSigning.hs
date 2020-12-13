@@ -33,27 +33,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCustomCodeSigning' smart constructor.
 data CustomCodeSigning = CustomCodeSigning'
-  { signature ::
-      Lude.Maybe CodeSigningSignature,
+  { -- | The signature for the file.
+    signature :: Lude.Maybe CodeSigningSignature,
+    -- | The hash algorithm used to code sign the file.
     hashAlgorithm :: Lude.Maybe Lude.Text,
-    certificateChain ::
-      Lude.Maybe CodeSigningCertificateChain,
+    -- | The certificate chain.
+    certificateChain :: Lude.Maybe CodeSigningCertificateChain,
+    -- | The signature algorithm used to code sign the file.
     signatureAlgorithm :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CustomCodeSigning' with the minimum fields required to make a request.
 --
--- * 'certificateChain' - The certificate chain.
--- * 'hashAlgorithm' - The hash algorithm used to code sign the file.
 -- * 'signature' - The signature for the file.
+-- * 'hashAlgorithm' - The hash algorithm used to code sign the file.
+-- * 'certificateChain' - The certificate chain.
 -- * 'signatureAlgorithm' - The signature algorithm used to code sign the file.
 mkCustomCodeSigning ::
   CustomCodeSigning

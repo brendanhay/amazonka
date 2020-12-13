@@ -13,12 +13,12 @@
 module Network.AWS.SageMaker.Types.CompilationJobStatus
   ( CompilationJobStatus
       ( CompilationJobStatus',
+        CJSInprogress,
         CJSCompleted,
         CJSFailed,
-        CJSInprogress,
         CJSStarting,
-        CJSStopped,
-        CJSStopping
+        CJSStopping,
+        CJSStopped
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype CompilationJobStatus = CompilationJobStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern CJSInprogress :: CompilationJobStatus
+pattern CJSInprogress = CompilationJobStatus' "INPROGRESS"
+
 pattern CJSCompleted :: CompilationJobStatus
 pattern CJSCompleted = CompilationJobStatus' "COMPLETED"
 
 pattern CJSFailed :: CompilationJobStatus
 pattern CJSFailed = CompilationJobStatus' "FAILED"
 
-pattern CJSInprogress :: CompilationJobStatus
-pattern CJSInprogress = CompilationJobStatus' "INPROGRESS"
-
 pattern CJSStarting :: CompilationJobStatus
 pattern CJSStarting = CompilationJobStatus' "STARTING"
-
-pattern CJSStopped :: CompilationJobStatus
-pattern CJSStopped = CompilationJobStatus' "STOPPED"
 
 pattern CJSStopping :: CompilationJobStatus
 pattern CJSStopping = CompilationJobStatus' "STOPPING"
 
+pattern CJSStopped :: CompilationJobStatus
+pattern CJSStopped = CompilationJobStatus' "STOPPED"
+
 {-# COMPLETE
+  CJSInprogress,
   CJSCompleted,
   CJSFailed,
-  CJSInprogress,
   CJSStarting,
-  CJSStopped,
   CJSStopping,
+  CJSStopped,
   CompilationJobStatus'
   #-}

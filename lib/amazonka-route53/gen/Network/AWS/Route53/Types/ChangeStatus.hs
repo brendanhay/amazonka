@@ -13,8 +13,8 @@
 module Network.AWS.Route53.Types.ChangeStatus
   ( ChangeStatus
       ( ChangeStatus',
-        Insync,
-        Pending
+        Pending,
+        Insync
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ChangeStatus = ChangeStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Insync :: ChangeStatus
-pattern Insync = ChangeStatus' "INSYNC"
-
 pattern Pending :: ChangeStatus
 pattern Pending = ChangeStatus' "PENDING"
 
+pattern Insync :: ChangeStatus
+pattern Insync = ChangeStatus' "INSYNC"
+
 {-# COMPLETE
-  Insync,
   Pending,
+  Insync,
   ChangeStatus'
   #-}

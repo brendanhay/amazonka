@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,17 +44,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetQualificationScore' smart constructor.
 data GetQualificationScore = GetQualificationScore'
-  { qualificationTypeId ::
-      Lude.Text,
+  { -- | The ID of the QualificationType.
+    qualificationTypeId :: Lude.Text,
+    -- | The ID of the Worker whose Qualification is being updated.
     workerId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQualificationScore' with the minimum fields required to make a request.
@@ -128,17 +124,12 @@ instance Lude.ToQuery GetQualificationScore where
 
 -- | /See:/ 'mkGetQualificationScoreResponse' smart constructor.
 data GetQualificationScoreResponse = GetQualificationScoreResponse'
-  { qualification ::
-      Lude.Maybe Qualification,
+  { -- | The Qualification data structure of the Qualification assigned to a user, including the Qualification type and the value (score).
+    qualification :: Lude.Maybe Qualification,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetQualificationScoreResponse' with the minimum fields required to make a request.

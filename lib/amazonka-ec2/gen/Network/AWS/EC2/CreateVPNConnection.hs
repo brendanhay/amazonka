@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,12 +27,12 @@ module Network.AWS.EC2.CreateVPNConnection
 
     -- ** Request lenses
     cvcVPNGatewayId,
+    cvcCustomerGatewayId,
     cvcTagSpecifications,
     cvcTransitGatewayId,
+    cvcType,
     cvcOptions,
     cvcDryRun,
-    cvcCustomerGatewayId,
-    cvcType,
 
     -- * Destructuring the response
     CreateVPNConnectionResponse (..),
@@ -53,34 +54,33 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateVPNConnection' smart constructor.
 data CreateVPNConnection = CreateVPNConnection'
-  { vpnGatewayId ::
-      Lude.Maybe Lude.Text,
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    transitGatewayId :: Lude.Maybe Lude.Text,
-    options ::
-      Lude.Maybe VPNConnectionOptionsSpecification,
-    dryRun :: Lude.Maybe Lude.Bool,
+  { -- | The ID of the virtual private gateway. If you specify a virtual private gateway, you cannot specify a transit gateway.
+    vpnGatewayId :: Lude.Maybe Lude.Text,
+    -- | The ID of the customer gateway.
     customerGatewayId :: Lude.Text,
-    type' :: Lude.Text
+    -- | The tags to apply to the VPN connection.
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private gateway.
+    transitGatewayId :: Lude.Maybe Lude.Text,
+    -- | The type of VPN connection (@ipsec.1@ ).
+    type' :: Lude.Text,
+    -- | The options for the VPN connection.
+    options :: Lude.Maybe VPNConnectionOptionsSpecification,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPNConnection' with the minimum fields required to make a request.
 --
+-- * 'vpnGatewayId' - The ID of the virtual private gateway. If you specify a virtual private gateway, you cannot specify a transit gateway.
 -- * 'customerGatewayId' - The ID of the customer gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'options' - The options for the VPN connection.
 -- * 'tagSpecifications' - The tags to apply to the VPN connection.
 -- * 'transitGatewayId' - The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private gateway.
 -- * 'type'' - The type of VPN connection (@ipsec.1@ ).
--- * 'vpnGatewayId' - The ID of the virtual private gateway. If you specify a virtual private gateway, you cannot specify a transit gateway.
+-- * 'options' - The options for the VPN connection.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkCreateVPNConnection ::
   -- | 'customerGatewayId'
   Lude.Text ->
@@ -90,12 +90,12 @@ mkCreateVPNConnection ::
 mkCreateVPNConnection pCustomerGatewayId_ pType_ =
   CreateVPNConnection'
     { vpnGatewayId = Lude.Nothing,
+      customerGatewayId = pCustomerGatewayId_,
       tagSpecifications = Lude.Nothing,
       transitGatewayId = Lude.Nothing,
+      type' = pType_,
       options = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      customerGatewayId = pCustomerGatewayId_,
-      type' = pType_
+      dryRun = Lude.Nothing
     }
 
 -- | The ID of the virtual private gateway. If you specify a virtual private gateway, you cannot specify a transit gateway.
@@ -104,6 +104,13 @@ mkCreateVPNConnection pCustomerGatewayId_ pType_ =
 cvcVPNGatewayId :: Lens.Lens' CreateVPNConnection (Lude.Maybe Lude.Text)
 cvcVPNGatewayId = Lens.lens (vpnGatewayId :: CreateVPNConnection -> Lude.Maybe Lude.Text) (\s a -> s {vpnGatewayId = a} :: CreateVPNConnection)
 {-# DEPRECATED cvcVPNGatewayId "Use generic-lens or generic-optics with 'vpnGatewayId' instead." #-}
+
+-- | The ID of the customer gateway.
+--
+-- /Note:/ Consider using 'customerGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvcCustomerGatewayId :: Lens.Lens' CreateVPNConnection Lude.Text
+cvcCustomerGatewayId = Lens.lens (customerGatewayId :: CreateVPNConnection -> Lude.Text) (\s a -> s {customerGatewayId = a} :: CreateVPNConnection)
+{-# DEPRECATED cvcCustomerGatewayId "Use generic-lens or generic-optics with 'customerGatewayId' instead." #-}
 
 -- | The tags to apply to the VPN connection.
 --
@@ -119,6 +126,13 @@ cvcTransitGatewayId :: Lens.Lens' CreateVPNConnection (Lude.Maybe Lude.Text)
 cvcTransitGatewayId = Lens.lens (transitGatewayId :: CreateVPNConnection -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateVPNConnection)
 {-# DEPRECATED cvcTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
+-- | The type of VPN connection (@ipsec.1@ ).
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvcType :: Lens.Lens' CreateVPNConnection Lude.Text
+cvcType = Lens.lens (type' :: CreateVPNConnection -> Lude.Text) (\s a -> s {type' = a} :: CreateVPNConnection)
+{-# DEPRECATED cvcType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 -- | The options for the VPN connection.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -132,20 +146,6 @@ cvcOptions = Lens.lens (options :: CreateVPNConnection -> Lude.Maybe VPNConnecti
 cvcDryRun :: Lens.Lens' CreateVPNConnection (Lude.Maybe Lude.Bool)
 cvcDryRun = Lens.lens (dryRun :: CreateVPNConnection -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateVPNConnection)
 {-# DEPRECATED cvcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The ID of the customer gateway.
---
--- /Note:/ Consider using 'customerGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvcCustomerGatewayId :: Lens.Lens' CreateVPNConnection Lude.Text
-cvcCustomerGatewayId = Lens.lens (customerGatewayId :: CreateVPNConnection -> Lude.Text) (\s a -> s {customerGatewayId = a} :: CreateVPNConnection)
-{-# DEPRECATED cvcCustomerGatewayId "Use generic-lens or generic-optics with 'customerGatewayId' instead." #-}
-
--- | The type of VPN connection (@ipsec.1@ ).
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvcType :: Lens.Lens' CreateVPNConnection Lude.Text
-cvcType = Lens.lens (type' :: CreateVPNConnection -> Lude.Text) (\s a -> s {type' = a} :: CreateVPNConnection)
-{-# DEPRECATED cvcType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 instance Lude.AWSRequest CreateVPNConnection where
   type Rs CreateVPNConnection = CreateVPNConnectionResponse
@@ -170,36 +170,31 @@ instance Lude.ToQuery CreateVPNConnection where
       [ "Action" Lude.=: ("CreateVpnConnection" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "VpnGatewayId" Lude.=: vpnGatewayId,
+        "CustomerGatewayId" Lude.=: customerGatewayId,
         Lude.toQuery
           (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
         "TransitGatewayId" Lude.=: transitGatewayId,
+        "Type" Lude.=: type',
         "Options" Lude.=: options,
-        "DryRun" Lude.=: dryRun,
-        "CustomerGatewayId" Lude.=: customerGatewayId,
-        "Type" Lude.=: type'
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of CreateVpnConnection.
 --
 -- /See:/ 'mkCreateVPNConnectionResponse' smart constructor.
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
-  { vpnConnection ::
-      Lude.Maybe VPNConnection,
+  { -- | Information about the VPN connection.
+    vpnConnection :: Lude.Maybe VPNConnection,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateVPNConnectionResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpnConnection' - Information about the VPN connection.
+-- * 'responseStatus' - The response status code.
 mkCreateVPNConnectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

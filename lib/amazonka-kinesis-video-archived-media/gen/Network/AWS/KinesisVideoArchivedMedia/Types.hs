@@ -55,8 +55,8 @@ module Network.AWS.KinesisVideoArchivedMedia.Types
     -- * ClipTimestampRange
     ClipTimestampRange (..),
     mkClipTimestampRange,
-    ctrStartTimestamp,
     ctrEndTimestamp,
+    ctrStartTimestamp,
 
     -- * DASHFragmentSelector
     DASHFragmentSelector (..),
@@ -100,8 +100,8 @@ module Network.AWS.KinesisVideoArchivedMedia.Types
     -- * TimestampRange
     TimestampRange (..),
     mkTimestampRange,
-    trStartTimestamp,
     trEndTimestamp,
+    trStartTimestamp,
   )
 where
 

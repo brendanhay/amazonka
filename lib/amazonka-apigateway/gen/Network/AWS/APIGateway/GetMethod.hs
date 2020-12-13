@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.GetMethod
     mkGetMethod,
 
     -- ** Request lenses
-    gmmRestAPIId,
-    gmmResourceId,
-    gmmHttpMethod,
+    gmfResourceId,
+    gmfHttpMethod,
+    gmfRestAPIId,
 
     -- * Destructuring the response
     Method (..),
@@ -52,59 +53,56 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetMethod' smart constructor.
 data GetMethod = GetMethod'
-  { restAPIId :: Lude.Text,
+  { -- | [Required] The 'Resource' identifier for the 'Method' resource.
     resourceId :: Lude.Text,
-    httpMethod :: Lude.Text
+    -- | [Required] Specifies the method request's HTTP method type.
+    httpMethod :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMethod' with the minimum fields required to make a request.
 --
--- * 'httpMethod' - [Required] Specifies the method request's HTTP method type.
 -- * 'resourceId' - [Required] The 'Resource' identifier for the 'Method' resource.
+-- * 'httpMethod' - [Required] Specifies the method request's HTTP method type.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetMethod ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
   -- | 'httpMethod'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetMethod
-mkGetMethod pRestAPIId_ pResourceId_ pHttpMethod_ =
+mkGetMethod pResourceId_ pHttpMethod_ pRestAPIId_ =
   GetMethod'
-    { restAPIId = pRestAPIId_,
-      resourceId = pResourceId_,
-      httpMethod = pHttpMethod_
+    { resourceId = pResourceId_,
+      httpMethod = pHttpMethod_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmmRestAPIId :: Lens.Lens' GetMethod Lude.Text
-gmmRestAPIId = Lens.lens (restAPIId :: GetMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: GetMethod)
-{-# DEPRECATED gmmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The 'Resource' identifier for the 'Method' resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmmResourceId :: Lens.Lens' GetMethod Lude.Text
-gmmResourceId = Lens.lens (resourceId :: GetMethod -> Lude.Text) (\s a -> s {resourceId = a} :: GetMethod)
-{-# DEPRECATED gmmResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+gmfResourceId :: Lens.Lens' GetMethod Lude.Text
+gmfResourceId = Lens.lens (resourceId :: GetMethod -> Lude.Text) (\s a -> s {resourceId = a} :: GetMethod)
+{-# DEPRECATED gmfResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | [Required] Specifies the method request's HTTP method type.
 --
 -- /Note:/ Consider using 'httpMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmmHttpMethod :: Lens.Lens' GetMethod Lude.Text
-gmmHttpMethod = Lens.lens (httpMethod :: GetMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: GetMethod)
-{-# DEPRECATED gmmHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+gmfHttpMethod :: Lens.Lens' GetMethod Lude.Text
+gmfHttpMethod = Lens.lens (httpMethod :: GetMethod -> Lude.Text) (\s a -> s {httpMethod = a} :: GetMethod)
+{-# DEPRECATED gmfHttpMethod "Use generic-lens or generic-optics with 'httpMethod' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmfRestAPIId :: Lens.Lens' GetMethod Lude.Text
+gmfRestAPIId = Lens.lens (restAPIId :: GetMethod -> Lude.Text) (\s a -> s {restAPIId = a} :: GetMethod)
+{-# DEPRECATED gmfRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetMethod where
   type Rs GetMethod = Method

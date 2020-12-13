@@ -17,13 +17,13 @@ module Network.AWS.KinesisAnalytics.Types.InputUpdate
     mkInputUpdate,
 
     -- * Lenses
+    iuInputId,
     iuInputProcessingConfigurationUpdate,
     iuKinesisStreamsInputUpdate,
     iuInputParallelismUpdate,
     iuNamePrefixUpdate,
     iuInputSchemaUpdate,
     iuKinesisFirehoseInputUpdate,
-    iuInputId,
   )
 where
 
@@ -39,48 +39,54 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputUpdate' smart constructor.
 data InputUpdate = InputUpdate'
-  { inputProcessingConfigurationUpdate ::
-      Lude.Maybe InputProcessingConfigurationUpdate,
+  { -- | Input ID of the application input to be updated.
+    inputId :: Lude.Text,
+    -- | Describes updates for an input processing configuration.
+    inputProcessingConfigurationUpdate :: Lude.Maybe InputProcessingConfigurationUpdate,
+    -- | If an Amazon Kinesis stream is the streaming source to be updated, provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
     kinesisStreamsInputUpdate :: Lude.Maybe KinesisStreamsInputUpdate,
+    -- | Describes the parallelism updates (the number in-application streams Amazon Kinesis Analytics creates for the specific streaming source).
     inputParallelismUpdate :: Lude.Maybe InputParallelismUpdate,
+    -- | Name prefix for in-application streams that Amazon Kinesis Analytics creates for the specific streaming source.
     namePrefixUpdate :: Lude.Maybe Lude.Text,
+    -- | Describes the data format on the streaming source, and how record elements on the streaming source map to columns of the in-application stream that is created.
     inputSchemaUpdate :: Lude.Maybe InputSchemaUpdate,
-    kinesisFirehoseInputUpdate ::
-      Lude.Maybe KinesisFirehoseInputUpdate,
-    inputId :: Lude.Text
+    -- | If an Amazon Kinesis Firehose delivery stream is the streaming source to be updated, provides an updated stream ARN and IAM role ARN.
+    kinesisFirehoseInputUpdate :: Lude.Maybe KinesisFirehoseInputUpdate
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputUpdate' with the minimum fields required to make a request.
 --
 -- * 'inputId' - Input ID of the application input to be updated.
--- * 'inputParallelismUpdate' - Describes the parallelism updates (the number in-application streams Amazon Kinesis Analytics creates for the specific streaming source).
 -- * 'inputProcessingConfigurationUpdate' - Describes updates for an input processing configuration.
+-- * 'kinesisStreamsInputUpdate' - If an Amazon Kinesis stream is the streaming source to be updated, provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
+-- * 'inputParallelismUpdate' - Describes the parallelism updates (the number in-application streams Amazon Kinesis Analytics creates for the specific streaming source).
+-- * 'namePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics creates for the specific streaming source.
 -- * 'inputSchemaUpdate' - Describes the data format on the streaming source, and how record elements on the streaming source map to columns of the in-application stream that is created.
 -- * 'kinesisFirehoseInputUpdate' - If an Amazon Kinesis Firehose delivery stream is the streaming source to be updated, provides an updated stream ARN and IAM role ARN.
--- * 'kinesisStreamsInputUpdate' - If an Amazon Kinesis stream is the streaming source to be updated, provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.
--- * 'namePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics creates for the specific streaming source.
 mkInputUpdate ::
   -- | 'inputId'
   Lude.Text ->
   InputUpdate
 mkInputUpdate pInputId_ =
   InputUpdate'
-    { inputProcessingConfigurationUpdate = Lude.Nothing,
+    { inputId = pInputId_,
+      inputProcessingConfigurationUpdate = Lude.Nothing,
       kinesisStreamsInputUpdate = Lude.Nothing,
       inputParallelismUpdate = Lude.Nothing,
       namePrefixUpdate = Lude.Nothing,
       inputSchemaUpdate = Lude.Nothing,
-      kinesisFirehoseInputUpdate = Lude.Nothing,
-      inputId = pInputId_
+      kinesisFirehoseInputUpdate = Lude.Nothing
     }
+
+-- | Input ID of the application input to be updated.
+--
+-- /Note:/ Consider using 'inputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iuInputId :: Lens.Lens' InputUpdate Lude.Text
+iuInputId = Lens.lens (inputId :: InputUpdate -> Lude.Text) (\s a -> s {inputId = a} :: InputUpdate)
+{-# DEPRECATED iuInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
 
 -- | Describes updates for an input processing configuration.
 --
@@ -124,18 +130,12 @@ iuKinesisFirehoseInputUpdate :: Lens.Lens' InputUpdate (Lude.Maybe KinesisFireho
 iuKinesisFirehoseInputUpdate = Lens.lens (kinesisFirehoseInputUpdate :: InputUpdate -> Lude.Maybe KinesisFirehoseInputUpdate) (\s a -> s {kinesisFirehoseInputUpdate = a} :: InputUpdate)
 {-# DEPRECATED iuKinesisFirehoseInputUpdate "Use generic-lens or generic-optics with 'kinesisFirehoseInputUpdate' instead." #-}
 
--- | Input ID of the application input to be updated.
---
--- /Note:/ Consider using 'inputId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iuInputId :: Lens.Lens' InputUpdate Lude.Text
-iuInputId = Lens.lens (inputId :: InputUpdate -> Lude.Text) (\s a -> s {inputId = a} :: InputUpdate)
-{-# DEPRECATED iuInputId "Use generic-lens or generic-optics with 'inputId' instead." #-}
-
 instance Lude.ToJSON InputUpdate where
   toJSON InputUpdate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("InputProcessingConfigurationUpdate" Lude..=)
+          [ Lude.Just ("InputId" Lude..= inputId),
+            ("InputProcessingConfigurationUpdate" Lude..=)
               Lude.<$> inputProcessingConfigurationUpdate,
             ("KinesisStreamsInputUpdate" Lude..=)
               Lude.<$> kinesisStreamsInputUpdate,
@@ -143,7 +143,6 @@ instance Lude.ToJSON InputUpdate where
             ("NamePrefixUpdate" Lude..=) Lude.<$> namePrefixUpdate,
             ("InputSchemaUpdate" Lude..=) Lude.<$> inputSchemaUpdate,
             ("KinesisFirehoseInputUpdate" Lude..=)
-              Lude.<$> kinesisFirehoseInputUpdate,
-            Lude.Just ("InputId" Lude..= inputId)
+              Lude.<$> kinesisFirehoseInputUpdate
           ]
       )

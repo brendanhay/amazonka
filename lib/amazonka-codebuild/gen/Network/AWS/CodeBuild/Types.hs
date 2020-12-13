@@ -261,9 +261,9 @@ module Network.AWS.CodeBuild.Types
     -- * CloudWatchLogsConfig
     CloudWatchLogsConfig (..),
     mkCloudWatchLogsConfig,
+    cwlcStatus,
     cwlcGroupName,
     cwlcStreamName,
-    cwlcStatus,
 
     -- * CodeCoverage
     CodeCoverage (..),
@@ -317,9 +317,9 @@ module Network.AWS.CodeBuild.Types
     -- * EnvironmentVariable
     EnvironmentVariable (..),
     mkEnvironmentVariable,
-    evType,
-    evName,
     evValue,
+    evName,
+    evType,
 
     -- * ExportedEnvironmentVariable
     ExportedEnvironmentVariable (..),
@@ -400,8 +400,8 @@ module Network.AWS.CodeBuild.Types
     paEncryptionDisabled,
     paOverrideArtifactName,
     paArtifactIdentifier,
-    paNamespaceType,
     paType,
+    paNamespaceType,
 
     -- * ProjectBadge
     ProjectBadge (..),
@@ -427,14 +427,14 @@ module Network.AWS.CodeBuild.Types
     -- * ProjectEnvironment
     ProjectEnvironment (..),
     mkProjectEnvironment,
+    peImage,
     peImagePullCredentialsType,
     pePrivilegedMode,
     peRegistryCredential,
     peCertificate,
+    peComputeType,
     peEnvironmentVariables,
     peType,
-    peImage,
-    peComputeType,
 
     -- * ProjectFileSystemLocation
     ProjectFileSystemLocation (..),
@@ -533,9 +533,9 @@ module Network.AWS.CodeBuild.Types
     -- * S3LogsConfig
     S3LogsConfig (..),
     mkS3LogsConfig,
+    slcStatus,
     slcLocation,
     slcEncryptionDisabled,
-    slcStatus,
 
     -- * S3ReportExportConfig
     S3ReportExportConfig (..),
@@ -586,9 +586,9 @@ module Network.AWS.CodeBuild.Types
     -- * TestReportSummary
     TestReportSummary (..),
     mkTestReportSummary,
-    trsTotal,
-    trsStatusCounts,
     trsDurationInNanoSeconds,
+    trsStatusCounts,
+    trsTotal,
 
     -- * VPCConfig
     VPCConfig (..),
@@ -612,8 +612,8 @@ module Network.AWS.CodeBuild.Types
     WebhookFilter (..),
     mkWebhookFilter,
     wfExcludeMatchedPattern,
-    wfType,
     wfPattern,
+    wfType,
   )
 where
 

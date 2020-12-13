@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,16 +45,10 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'mkGetMedicalVocabulary' smart constructor.
 newtype GetMedicalVocabulary = GetMedicalVocabulary'
-  { vocabularyName ::
-      Lude.Text
+  { -- | The name of the vocabulary that you want information about. The value is case sensitive.
+    vocabularyName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMedicalVocabulary' with the minimum fields required to make a request.
@@ -115,38 +110,33 @@ instance Lude.ToQuery GetMedicalVocabulary where
 
 -- | /See:/ 'mkGetMedicalVocabularyResponse' smart constructor.
 data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
-  { failureReason ::
-      Lude.Maybe Lude.Text,
-    languageCode ::
-      Lude.Maybe LanguageCode,
-    downloadURI ::
-      Lude.Maybe Lude.Text,
-    vocabularyName ::
-      Lude.Maybe Lude.Text,
-    lastModifiedTime ::
-      Lude.Maybe Lude.Timestamp,
-    vocabularyState ::
-      Lude.Maybe VocabularyState,
+  { -- | If the @VocabularyState@ is @FAILED@ , this field contains information about why the job failed.
+    failureReason :: Lude.Maybe Lude.Text,
+    -- | The valid language code for your vocabulary entries.
+    languageCode :: Lude.Maybe LanguageCode,
+    -- | The location in Amazon S3 where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You can download your vocabulary from the URI for a limited time.
+    downloadURI :: Lude.Maybe Lude.Text,
+    -- | The name of the vocabulary returned by Amazon Transcribe Medical.
+    vocabularyName :: Lude.Maybe Lude.Text,
+    -- | The date and time that the vocabulary was last modified with a text file different from the one that was previously used.
+    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The processing state of the vocabulary. If the @VocabularyState@ is @READY@ then you can use it in the @StartMedicalTranscriptionJob@ operation.
+    vocabularyState :: Lude.Maybe VocabularyState,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetMedicalVocabularyResponse' with the minimum fields required to make a request.
 --
--- * 'downloadURI' - The location in Amazon S3 where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You can download your vocabulary from the URI for a limited time.
 -- * 'failureReason' - If the @VocabularyState@ is @FAILED@ , this field contains information about why the job failed.
 -- * 'languageCode' - The valid language code for your vocabulary entries.
--- * 'lastModifiedTime' - The date and time that the vocabulary was last modified with a text file different from the one that was previously used.
--- * 'responseStatus' - The response status code.
+-- * 'downloadURI' - The location in Amazon S3 where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You can download your vocabulary from the URI for a limited time.
 -- * 'vocabularyName' - The name of the vocabulary returned by Amazon Transcribe Medical.
+-- * 'lastModifiedTime' - The date and time that the vocabulary was last modified with a text file different from the one that was previously used.
 -- * 'vocabularyState' - The processing state of the vocabulary. If the @VocabularyState@ is @READY@ then you can use it in the @StartMedicalTranscriptionJob@ operation.
+-- * 'responseStatus' - The response status code.
 mkGetMedicalVocabularyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

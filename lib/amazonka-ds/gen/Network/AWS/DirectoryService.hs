@@ -322,10 +322,10 @@ module Network.AWS.DirectoryService
     -- ** DirectoryConnectSettings
     DirectoryConnectSettings (..),
     mkDirectoryConnectSettings,
-    dcsVPCId,
-    dcsSubnetIds,
-    dcsCustomerDNSIPs,
     dcsCustomerUserName,
+    dcsSubnetIds,
+    dcsVPCId,
+    dcsCustomerDNSIPs,
 
     -- ** DirectoryConnectSettingsDescription
     DirectoryConnectSettingsDescription (..),
@@ -382,8 +382,8 @@ module Network.AWS.DirectoryService
     -- ** DirectoryVPCSettings
     DirectoryVPCSettings (..),
     mkDirectoryVPCSettings,
-    dvsVPCId,
     dvsSubnetIds,
+    dvsVPCId,
 
     -- ** DirectoryVPCSettingsDescription
     DirectoryVPCSettingsDescription (..),
@@ -507,15 +507,15 @@ module Network.AWS.DirectoryService
     -- ** SharedDirectory
     SharedDirectory (..),
     mkSharedDirectory,
-    sSharedAccountId,
-    sOwnerAccountId,
-    sLastUpdatedDateTime,
-    sShareStatus,
-    sShareMethod,
-    sOwnerDirectoryId,
-    sSharedDirectoryId,
-    sShareNotes,
-    sCreatedDateTime,
+    sdSharedAccountId,
+    sdOwnerAccountId,
+    sdLastUpdatedDateTime,
+    sdShareStatus,
+    sdShareMethod,
+    sdOwnerDirectoryId,
+    sdSharedDirectoryId,
+    sdShareNotes,
+    sdCreatedDateTime,
 
     -- ** Snapshot
     Snapshot (..),
@@ -537,8 +537,8 @@ module Network.AWS.DirectoryService
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** Trust
     Trust (..),

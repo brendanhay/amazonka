@@ -30,24 +30,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { topicARN ::
-      Lude.Maybe Lude.Text,
-    autoScalingGroupName ::
-      Lude.Maybe Lude.Text,
-    notificationType ::
-      Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
+    topicARN :: Lude.Maybe Lude.Text,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Lude.Maybe Lude.Text,
+    -- | One of the following event notification types:
+    --
+    --
+    --     * @autoscaling:EC2_INSTANCE_LAUNCH@
+    --
+    --
+    --     * @autoscaling:EC2_INSTANCE_LAUNCH_ERROR@
+    --
+    --
+    --     * @autoscaling:EC2_INSTANCE_TERMINATE@
+    --
+    --
+    --     * @autoscaling:EC2_INSTANCE_TERMINATE_ERROR@
+    --
+    --
+    --     * @autoscaling:TEST_NOTIFICATION@
+    notificationType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
 --
+-- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
 -- * 'autoScalingGroupName' - The name of the Auto Scaling group.
 -- * 'notificationType' - One of the following event notification types:
 --
@@ -65,9 +75,6 @@ data NotificationConfiguration = NotificationConfiguration'
 --
 --
 --     * @autoscaling:TEST_NOTIFICATION@
---
---
--- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
 mkNotificationConfiguration ::
   NotificationConfiguration
 mkNotificationConfiguration =

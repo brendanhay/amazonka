@@ -20,9 +20,9 @@ module Network.AWS.DynamoDB.Types.ConditionCheck
     ccExpressionAttributeNames,
     ccExpressionAttributeValues,
     ccReturnValuesOnConditionCheckFailure,
+    ccConditionExpression,
     ccKey,
     ccTableName,
-    ccConditionExpression,
   )
 where
 
@@ -35,47 +35,44 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkConditionCheck' smart constructor.
 data ConditionCheck = ConditionCheck'
-  { expressionAttributeNames ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    expressionAttributeValues ::
-      Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    returnValuesOnConditionCheckFailure ::
-      Lude.Maybe ReturnValuesOnConditionCheckFailure,
+  { -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+    returnValuesOnConditionCheckFailure :: Lude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | A condition that must be satisfied in order for a conditional update to succeed.
+    conditionExpression :: Lude.Text,
+    -- | The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
     key :: Lude.HashMap Lude.Text (AttributeValue),
-    tableName :: Lude.Text,
-    conditionExpression :: Lude.Text
+    -- | Name of the table for the check item request.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ConditionCheck' with the minimum fields required to make a request.
 --
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
 -- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
--- * 'key' - The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
 -- * 'returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @ConditionCheck@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+-- * 'conditionExpression' - A condition that must be satisfied in order for a conditional update to succeed.
+-- * 'key' - The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
 -- * 'tableName' - Name of the table for the check item request.
 mkConditionCheck ::
-  -- | 'tableName'
-  Lude.Text ->
   -- | 'conditionExpression'
   Lude.Text ->
+  -- | 'tableName'
+  Lude.Text ->
   ConditionCheck
-mkConditionCheck pTableName_ pConditionExpression_ =
+mkConditionCheck pConditionExpression_ pTableName_ =
   ConditionCheck'
     { expressionAttributeNames = Lude.Nothing,
       expressionAttributeValues = Lude.Nothing,
       returnValuesOnConditionCheckFailure = Lude.Nothing,
+      conditionExpression = pConditionExpression_,
       key = Lude.mempty,
-      tableName = pTableName_,
-      conditionExpression = pConditionExpression_
+      tableName = pTableName_
     }
 
 -- | One or more substitution tokens for attribute names in an expression.
@@ -99,6 +96,13 @@ ccReturnValuesOnConditionCheckFailure :: Lens.Lens' ConditionCheck (Lude.Maybe R
 ccReturnValuesOnConditionCheckFailure = Lens.lens (returnValuesOnConditionCheckFailure :: ConditionCheck -> Lude.Maybe ReturnValuesOnConditionCheckFailure) (\s a -> s {returnValuesOnConditionCheckFailure = a} :: ConditionCheck)
 {-# DEPRECATED ccReturnValuesOnConditionCheckFailure "Use generic-lens or generic-optics with 'returnValuesOnConditionCheckFailure' instead." #-}
 
+-- | A condition that must be satisfied in order for a conditional update to succeed.
+--
+-- /Note:/ Consider using 'conditionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccConditionExpression :: Lens.Lens' ConditionCheck Lude.Text
+ccConditionExpression = Lens.lens (conditionExpression :: ConditionCheck -> Lude.Text) (\s a -> s {conditionExpression = a} :: ConditionCheck)
+{-# DEPRECATED ccConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
+
 -- | The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -113,13 +117,6 @@ ccTableName :: Lens.Lens' ConditionCheck Lude.Text
 ccTableName = Lens.lens (tableName :: ConditionCheck -> Lude.Text) (\s a -> s {tableName = a} :: ConditionCheck)
 {-# DEPRECATED ccTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
--- | A condition that must be satisfied in order for a conditional update to succeed.
---
--- /Note:/ Consider using 'conditionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccConditionExpression :: Lens.Lens' ConditionCheck Lude.Text
-ccConditionExpression = Lens.lens (conditionExpression :: ConditionCheck -> Lude.Text) (\s a -> s {conditionExpression = a} :: ConditionCheck)
-{-# DEPRECATED ccConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
-
 instance Lude.ToJSON ConditionCheck where
   toJSON ConditionCheck' {..} =
     Lude.object
@@ -130,8 +127,8 @@ instance Lude.ToJSON ConditionCheck where
               Lude.<$> expressionAttributeValues,
             ("ReturnValuesOnConditionCheckFailure" Lude..=)
               Lude.<$> returnValuesOnConditionCheckFailure,
+            Lude.Just ("ConditionExpression" Lude..= conditionExpression),
             Lude.Just ("Key" Lude..= key),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("ConditionExpression" Lude..= conditionExpression)
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )

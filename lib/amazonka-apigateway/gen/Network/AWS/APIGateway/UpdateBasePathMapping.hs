@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.APIGateway.UpdateBasePathMapping
     mkUpdateBasePathMapping,
 
     -- ** Request lenses
-    ubpmPatchOperations,
-    ubpmDomainName,
     ubpmBasePath,
+    ubpmDomainName,
+    ubpmPatchOperations,
 
     -- * Destructuring the response
     BasePathMapping (..),
@@ -44,18 +45,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateBasePathMapping' smart constructor.
 data UpdateBasePathMapping = UpdateBasePathMapping'
-  { patchOperations ::
-      Lude.Maybe [PatchOperation],
+  { -- | [Required] The base path of the 'BasePathMapping' resource to change.
+    --
+    -- To specify an empty base path, set this parameter to @'(none)'@ .
+    basePath :: Lude.Text,
+    -- | [Required] The domain name of the 'BasePathMapping' resource to change.
     domainName :: Lude.Text,
-    basePath :: Lude.Text
+    -- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+    patchOperations :: Lude.Maybe [PatchOperation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBasePathMapping' with the minimum fields required to make a request.
@@ -66,31 +65,17 @@ data UpdateBasePathMapping = UpdateBasePathMapping'
 -- * 'domainName' - [Required] The domain name of the 'BasePathMapping' resource to change.
 -- * 'patchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
 mkUpdateBasePathMapping ::
-  -- | 'domainName'
-  Lude.Text ->
   -- | 'basePath'
   Lude.Text ->
+  -- | 'domainName'
+  Lude.Text ->
   UpdateBasePathMapping
-mkUpdateBasePathMapping pDomainName_ pBasePath_ =
+mkUpdateBasePathMapping pBasePath_ pDomainName_ =
   UpdateBasePathMapping'
-    { patchOperations = Lude.Nothing,
+    { basePath = pBasePath_,
       domainName = pDomainName_,
-      basePath = pBasePath_
+      patchOperations = Lude.Nothing
     }
-
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
---
--- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubpmPatchOperations :: Lens.Lens' UpdateBasePathMapping (Lude.Maybe [PatchOperation])
-ubpmPatchOperations = Lens.lens (patchOperations :: UpdateBasePathMapping -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateBasePathMapping)
-{-# DEPRECATED ubpmPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
-
--- | [Required] The domain name of the 'BasePathMapping' resource to change.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubpmDomainName :: Lens.Lens' UpdateBasePathMapping Lude.Text
-ubpmDomainName = Lens.lens (domainName :: UpdateBasePathMapping -> Lude.Text) (\s a -> s {domainName = a} :: UpdateBasePathMapping)
-{-# DEPRECATED ubpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | [Required] The base path of the 'BasePathMapping' resource to change.
 --
@@ -100,6 +85,20 @@ ubpmDomainName = Lens.lens (domainName :: UpdateBasePathMapping -> Lude.Text) (\
 ubpmBasePath :: Lens.Lens' UpdateBasePathMapping Lude.Text
 ubpmBasePath = Lens.lens (basePath :: UpdateBasePathMapping -> Lude.Text) (\s a -> s {basePath = a} :: UpdateBasePathMapping)
 {-# DEPRECATED ubpmBasePath "Use generic-lens or generic-optics with 'basePath' instead." #-}
+
+-- | [Required] The domain name of the 'BasePathMapping' resource to change.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubpmDomainName :: Lens.Lens' UpdateBasePathMapping Lude.Text
+ubpmDomainName = Lens.lens (domainName :: UpdateBasePathMapping -> Lude.Text) (\s a -> s {domainName = a} :: UpdateBasePathMapping)
+{-# DEPRECATED ubpmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | A list of update operations to be applied to the specified resource and in the order specified in this list.
+--
+-- /Note:/ Consider using 'patchOperations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubpmPatchOperations :: Lens.Lens' UpdateBasePathMapping (Lude.Maybe [PatchOperation])
+ubpmPatchOperations = Lens.lens (patchOperations :: UpdateBasePathMapping -> Lude.Maybe [PatchOperation]) (\s a -> s {patchOperations = a} :: UpdateBasePathMapping)
+{-# DEPRECATED ubpmPatchOperations "Use generic-lens or generic-optics with 'patchOperations' instead." #-}
 
 instance Lude.AWSRequest UpdateBasePathMapping where
   type Rs UpdateBasePathMapping = BasePathMapping

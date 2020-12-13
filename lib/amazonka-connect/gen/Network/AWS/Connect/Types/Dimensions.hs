@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDimensions' smart constructor.
 data Dimensions = Dimensions'
-  { channel :: Lude.Maybe Channel,
+  { -- | The channel used for grouping and filters.
+    channel :: Lude.Maybe Channel,
+    -- | Information about the queue for which metrics are returned.
     queue :: Lude.Maybe QueueReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Dimensions' with the minimum fields required to make a request.

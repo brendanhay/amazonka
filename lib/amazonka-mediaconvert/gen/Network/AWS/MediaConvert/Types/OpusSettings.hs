@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOpusSettings' smart constructor.
 data OpusSettings = OpusSettings'
-  { channels ::
-      Lude.Maybe Lude.Natural,
+  { -- | Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
+    channels :: Lude.Maybe Lude.Natural,
+    -- | Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000. The default value is 48000.
     sampleRate :: Lude.Maybe Lude.Natural,
+    -- | Optional. Specify the average bitrate in bits per second. Valid values are multiples of 8000, from 32000 through 192000. The default value is 96000, which we recommend for quality and bandwidth.
     bitrate :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OpusSettings' with the minimum fields required to make a request.
 --
--- * 'bitrate' - Optional. Specify the average bitrate in bits per second. Valid values are multiples of 8000, from 32000 through 192000. The default value is 96000, which we recommend for quality and bandwidth.
 -- * 'channels' - Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
 -- * 'sampleRate' - Optional. Sample rate in hz. Valid values are 16000, 24000, and 48000. The default value is 48000.
+-- * 'bitrate' - Optional. Specify the average bitrate in bits per second. Valid values are multiples of 8000, from 32000 through 192000. The default value is 96000, which we recommend for quality and bandwidth.
 mkOpusSettings ::
   OpusSettings
 mkOpusSettings =

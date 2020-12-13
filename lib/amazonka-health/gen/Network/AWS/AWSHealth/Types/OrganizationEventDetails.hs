@@ -33,29 +33,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationEventDetails' smart constructor.
 data OrganizationEventDetails = OrganizationEventDetails'
-  { event ::
-      Lude.Maybe Event,
-    eventDescription ::
-      Lude.Maybe EventDescription,
+  { event :: Lude.Maybe Event,
+    eventDescription :: Lude.Maybe EventDescription,
+    -- | The 12-digit AWS account numbers that contains the affected entities.
     awsAccountId :: Lude.Maybe Lude.Text,
-    eventMetadata ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.Text))
+    -- | Additional metadata about the event.
+    eventMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationEventDetails' with the minimum fields required to make a request.
 --
+-- * 'event' -
+-- * 'eventDescription' -
 -- * 'awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
--- * 'event' - Undocumented field.
--- * 'eventDescription' - Undocumented field.
 -- * 'eventMetadata' - Additional metadata about the event.
 mkOrganizationEventDetails ::
   OrganizationEventDetails

@@ -29,16 +29,12 @@ import Network.AWS.SageMaker.Types.RetentionType
 --
 -- /See:/ 'mkRetentionPolicy' smart constructor.
 newtype RetentionPolicy = RetentionPolicy'
-  { homeEfsFileSystem ::
-      Lude.Maybe RetentionType
+  { -- | The default is @Retain@ , which specifies to keep the data stored on the EFS volume.
+    --
+    -- Specify @Delete@ to delete the data stored on the EFS volume.
+    homeEfsFileSystem :: Lude.Maybe RetentionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetentionPolicy' with the minimum fields required to make a request.

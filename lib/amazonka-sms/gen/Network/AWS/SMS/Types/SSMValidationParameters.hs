@@ -35,32 +35,30 @@ import Network.AWS.SMS.Types.Source
 --
 -- /See:/ 'mkSSMValidationParameters' smart constructor.
 data SSMValidationParameters = SSMValidationParameters'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The command to run the validation script
     command :: Lude.Maybe Lude.Text,
-    executionTimeoutSeconds ::
-      Lude.Maybe Lude.Natural,
+    -- | The timeout interval, in seconds.
+    executionTimeoutSeconds :: Lude.Maybe Lude.Natural,
+    -- | The type of validation script.
     scriptType :: Lude.Maybe ScriptType,
+    -- | The location of the validation script.
     source :: Lude.Maybe Source,
+    -- | The name of the S3 bucket for output.
     outputS3BucketName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SSMValidationParameters' with the minimum fields required to make a request.
 --
+-- * 'instanceId' - The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
 -- * 'command' - The command to run the validation script
 -- * 'executionTimeoutSeconds' - The timeout interval, in seconds.
--- * 'instanceId' - The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
--- * 'outputS3BucketName' - The name of the S3 bucket for output.
 -- * 'scriptType' - The type of validation script.
 -- * 'source' - The location of the validation script.
+-- * 'outputS3BucketName' - The name of the S3 bucket for output.
 mkSSMValidationParameters ::
   SSMValidationParameters
 mkSSMValidationParameters =

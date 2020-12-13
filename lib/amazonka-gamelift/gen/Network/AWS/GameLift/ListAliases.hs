@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -68,26 +69,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { routingStrategyType ::
-      Lude.Maybe RoutingStrategyType,
+  { -- | The routing type to filter results on. Use this parameter to retrieve only aliases with a certain routing type. To retrieve all aliases, leave this parameter empty.
+    --
+    -- Possible routing types include the following:
+    --
+    --     * __SIMPLE__ -- The alias resolves to one specific fleet. Use this type when routing to active fleets.
+    --
+    --
+    --     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+    routingStrategyType :: Lude.Maybe RoutingStrategyType,
+    -- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A descriptive label that is associated with an alias. Alias names do not need to be unique.
     name :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
     limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
--- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
--- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 -- * 'routingStrategyType' - The routing type to filter results on. Use this parameter to retrieve only aliases with a certain routing type. To retrieve all aliases, leave this parameter empty.
 --
 -- Possible routing types include the following:
@@ -96,6 +98,11 @@ data ListAliases = ListAliases'
 --
 --
 --     * __TERMINAL__ -- The alias does not resolve to a fleet but instead can be used to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException with the 'RoutingStrategy' message embedded.
+--
+--
+-- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+-- * 'name' - A descriptive label that is associated with an alias. Alias names do not need to be unique.
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 mkListAliases ::
   ListAliases
 mkListAliases =
@@ -196,18 +203,14 @@ instance Lude.ToQuery ListAliases where
 --
 -- /See:/ 'mkListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { aliases ::
-      Lude.Maybe [Alias],
+  { -- | A collection of alias resources that match the request parameters.
+    aliases :: Lude.Maybe [Alias],
+    -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.

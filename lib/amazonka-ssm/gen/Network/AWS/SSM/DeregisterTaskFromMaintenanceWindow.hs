@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,17 +20,17 @@ module Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
     mkDeregisterTaskFromMaintenanceWindow,
 
     -- ** Request lenses
-    derWindowId,
-    derWindowTaskId,
+    dtfmwfWindowTaskId,
+    dtfmwfWindowId,
 
     -- * Destructuring the response
     DeregisterTaskFromMaintenanceWindowResponse (..),
     mkDeregisterTaskFromMaintenanceWindowResponse,
 
     -- ** Response lenses
-    derrsWindowTaskId,
-    derrsWindowId,
-    derrsResponseStatus,
+    dtfmwfrsWindowTaskId,
+    dtfmwfrsWindowId,
+    dtfmwfrsResponseStatus,
   )
 where
 
@@ -41,49 +42,44 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDeregisterTaskFromMaintenanceWindow' smart constructor.
 data DeregisterTaskFromMaintenanceWindow = DeregisterTaskFromMaintenanceWindow'
-  { windowId ::
-      Lude.Text,
-    windowTaskId ::
-      Lude.Text
+  { -- | The ID of the task to remove from the maintenance window.
+    windowTaskId :: Lude.Text,
+    -- | The ID of the maintenance window the task should be removed from.
+    windowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTaskFromMaintenanceWindow' with the minimum fields required to make a request.
 --
--- * 'windowId' - The ID of the maintenance window the task should be removed from.
 -- * 'windowTaskId' - The ID of the task to remove from the maintenance window.
+-- * 'windowId' - The ID of the maintenance window the task should be removed from.
 mkDeregisterTaskFromMaintenanceWindow ::
-  -- | 'windowId'
-  Lude.Text ->
   -- | 'windowTaskId'
   Lude.Text ->
+  -- | 'windowId'
+  Lude.Text ->
   DeregisterTaskFromMaintenanceWindow
-mkDeregisterTaskFromMaintenanceWindow pWindowId_ pWindowTaskId_ =
+mkDeregisterTaskFromMaintenanceWindow pWindowTaskId_ pWindowId_ =
   DeregisterTaskFromMaintenanceWindow'
-    { windowId = pWindowId_,
-      windowTaskId = pWindowTaskId_
+    { windowTaskId =
+        pWindowTaskId_,
+      windowId = pWindowId_
     }
-
--- | The ID of the maintenance window the task should be removed from.
---
--- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derWindowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Lude.Text
-derWindowId = Lens.lens (windowId :: DeregisterTaskFromMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: DeregisterTaskFromMaintenanceWindow)
-{-# DEPRECATED derWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | The ID of the task to remove from the maintenance window.
 --
 -- /Note:/ Consider using 'windowTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derWindowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Lude.Text
-derWindowTaskId = Lens.lens (windowTaskId :: DeregisterTaskFromMaintenanceWindow -> Lude.Text) (\s a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindow)
-{-# DEPRECATED derWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
+dtfmwfWindowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Lude.Text
+dtfmwfWindowTaskId = Lens.lens (windowTaskId :: DeregisterTaskFromMaintenanceWindow -> Lude.Text) (\s a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindow)
+{-# DEPRECATED dtfmwfWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
+
+-- | The ID of the maintenance window the task should be removed from.
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtfmwfWindowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindow Lude.Text
+dtfmwfWindowId = Lens.lens (windowId :: DeregisterTaskFromMaintenanceWindow -> Lude.Text) (\s a -> s {windowId = a} :: DeregisterTaskFromMaintenanceWindow)
+{-# DEPRECATED dtfmwfWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 instance Lude.AWSRequest DeregisterTaskFromMaintenanceWindow where
   type
@@ -116,8 +112,8 @@ instance Lude.ToJSON DeregisterTaskFromMaintenanceWindow where
   toJSON DeregisterTaskFromMaintenanceWindow' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("WindowId" Lude..= windowId),
-            Lude.Just ("WindowTaskId" Lude..= windowTaskId)
+          [ Lude.Just ("WindowTaskId" Lude..= windowTaskId),
+            Lude.Just ("WindowId" Lude..= windowId)
           ]
       )
 
@@ -129,29 +125,21 @@ instance Lude.ToQuery DeregisterTaskFromMaintenanceWindow where
 
 -- | /See:/ 'mkDeregisterTaskFromMaintenanceWindowResponse' smart constructor.
 data DeregisterTaskFromMaintenanceWindowResponse = DeregisterTaskFromMaintenanceWindowResponse'
-  { windowTaskId ::
-      Lude.Maybe
-        Lude.Text,
-    windowId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ID of the task removed from the maintenance window.
+    windowTaskId :: Lude.Maybe Lude.Text,
+    -- | The ID of the maintenance window the task was removed from.
+    windowId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeregisterTaskFromMaintenanceWindowResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'windowId' - The ID of the maintenance window the task was removed from.
 -- * 'windowTaskId' - The ID of the task removed from the maintenance window.
+-- * 'windowId' - The ID of the maintenance window the task was removed from.
+-- * 'responseStatus' - The response status code.
 mkDeregisterTaskFromMaintenanceWindowResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -167,20 +155,20 @@ mkDeregisterTaskFromMaintenanceWindowResponse pResponseStatus_ =
 -- | The ID of the task removed from the maintenance window.
 --
 -- /Note:/ Consider using 'windowTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsWindowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Lude.Maybe Lude.Text)
-derrsWindowTaskId = Lens.lens (windowTaskId :: DeregisterTaskFromMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
-{-# DEPRECATED derrsWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
+dtfmwfrsWindowTaskId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+dtfmwfrsWindowTaskId = Lens.lens (windowTaskId :: DeregisterTaskFromMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowTaskId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
+{-# DEPRECATED dtfmwfrsWindowTaskId "Use generic-lens or generic-optics with 'windowTaskId' instead." #-}
 
 -- | The ID of the maintenance window the task was removed from.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsWindowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Lude.Maybe Lude.Text)
-derrsWindowId = Lens.lens (windowId :: DeregisterTaskFromMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
-{-# DEPRECATED derrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
+dtfmwfrsWindowId :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse (Lude.Maybe Lude.Text)
+dtfmwfrsWindowId = Lens.lens (windowId :: DeregisterTaskFromMaintenanceWindowResponse -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: DeregisterTaskFromMaintenanceWindowResponse)
+{-# DEPRECATED dtfmwfrsWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsResponseStatus :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse Lude.Int
-derrsResponseStatus = Lens.lens (responseStatus :: DeregisterTaskFromMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTaskFromMaintenanceWindowResponse)
-{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtfmwfrsResponseStatus :: Lens.Lens' DeregisterTaskFromMaintenanceWindowResponse Lude.Int
+dtfmwfrsResponseStatus = Lens.lens (responseStatus :: DeregisterTaskFromMaintenanceWindowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTaskFromMaintenanceWindowResponse)
+{-# DEPRECATED dtfmwfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

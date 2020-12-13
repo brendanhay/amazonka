@@ -13,14 +13,14 @@
 module Network.AWS.AlexaBusiness.Types.Feature
   ( Feature
       ( Feature',
-        All,
         Bluetooth,
-        Lists,
-        NetworkProfile,
+        Volume,
         Notifications,
-        Settings,
+        Lists,
         Skills,
-        Volume
+        NetworkProfile,
+        Settings,
+        All
       ),
   )
 where
@@ -51,38 +51,38 @@ newtype Feature = Feature' Lude.Text
       Lude.ToHeader
     )
 
-pattern All :: Feature
-pattern All = Feature' "ALL"
-
 pattern Bluetooth :: Feature
 pattern Bluetooth = Feature' "BLUETOOTH"
-
-pattern Lists :: Feature
-pattern Lists = Feature' "LISTS"
-
-pattern NetworkProfile :: Feature
-pattern NetworkProfile = Feature' "NETWORK_PROFILE"
-
-pattern Notifications :: Feature
-pattern Notifications = Feature' "NOTIFICATIONS"
-
-pattern Settings :: Feature
-pattern Settings = Feature' "SETTINGS"
-
-pattern Skills :: Feature
-pattern Skills = Feature' "SKILLS"
 
 pattern Volume :: Feature
 pattern Volume = Feature' "VOLUME"
 
+pattern Notifications :: Feature
+pattern Notifications = Feature' "NOTIFICATIONS"
+
+pattern Lists :: Feature
+pattern Lists = Feature' "LISTS"
+
+pattern Skills :: Feature
+pattern Skills = Feature' "SKILLS"
+
+pattern NetworkProfile :: Feature
+pattern NetworkProfile = Feature' "NETWORK_PROFILE"
+
+pattern Settings :: Feature
+pattern Settings = Feature' "SETTINGS"
+
+pattern All :: Feature
+pattern All = Feature' "ALL"
+
 {-# COMPLETE
-  All,
   Bluetooth,
-  Lists,
-  NetworkProfile,
-  Notifications,
-  Settings,
-  Skills,
   Volume,
+  Notifications,
+  Lists,
+  Skills,
+  NetworkProfile,
+  Settings,
+  All,
   Feature'
   #-}

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSIAMConfig' smart constructor.
 data AWSIAMConfig = AWSIAMConfig'
-  { signingServiceName ::
-      Lude.Maybe Lude.Text,
+  { -- | The signing service name for AWS IAM authorization.
+    signingServiceName :: Lude.Maybe Lude.Text,
+    -- | The signing region for AWS IAM authorization.
     signingRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSIAMConfig' with the minimum fields required to make a request.
 --
--- * 'signingRegion' - The signing region for AWS IAM authorization.
 -- * 'signingServiceName' - The signing service name for AWS IAM authorization.
+-- * 'signingRegion' - The signing region for AWS IAM authorization.
 mkAWSIAMConfig ::
   AWSIAMConfig
 mkAWSIAMConfig =

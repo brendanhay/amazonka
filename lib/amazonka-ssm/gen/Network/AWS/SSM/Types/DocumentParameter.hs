@@ -32,27 +32,24 @@ import Network.AWS.SSM.Types.DocumentParameterType
 --
 -- /See:/ 'mkDocumentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
-  { name ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the parameter.
+    name :: Lude.Maybe Lude.Text,
+    -- | If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
     defaultValue :: Lude.Maybe Lude.Text,
+    -- | The type of parameter. The type can be either String or StringList.
     type' :: Lude.Maybe DocumentParameterType,
+    -- | A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DocumentParameter' with the minimum fields required to make a request.
 --
--- * 'defaultValue' - If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
--- * 'description' - A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 -- * 'name' - The name of the parameter.
+-- * 'defaultValue' - If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 -- * 'type'' - The type of parameter. The type can be either String or StringList.
+-- * 'description' - A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
 mkDocumentParameter ::
   DocumentParameter
 mkDocumentParameter =

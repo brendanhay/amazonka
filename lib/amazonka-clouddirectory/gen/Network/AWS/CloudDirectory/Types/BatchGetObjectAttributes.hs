@@ -17,9 +17,9 @@ module Network.AWS.CloudDirectory.Types.BatchGetObjectAttributes
     mkBatchGetObjectAttributes,
 
     -- * Lenses
-    bgoaObjectReference,
     bgoaSchemaFacet,
     bgoaAttributeNames,
+    bgoaObjectReference,
   )
 where
 
@@ -32,44 +32,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchGetObjectAttributes' smart constructor.
 data BatchGetObjectAttributes = BatchGetObjectAttributes'
-  { objectReference ::
-      ObjectReference,
+  { -- | Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
     schemaFacet :: SchemaFacet,
-    attributeNames :: [Lude.Text]
+    -- | List of attribute names whose values will be retrieved.
+    attributeNames :: [Lude.Text],
+    -- | Reference that identifies the object whose attributes will be retrieved.
+    objectReference :: ObjectReference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetObjectAttributes' with the minimum fields required to make a request.
 --
+-- * 'schemaFacet' - Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
 -- * 'attributeNames' - List of attribute names whose values will be retrieved.
 -- * 'objectReference' - Reference that identifies the object whose attributes will be retrieved.
--- * 'schemaFacet' - Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
 mkBatchGetObjectAttributes ::
-  -- | 'objectReference'
-  ObjectReference ->
   -- | 'schemaFacet'
   SchemaFacet ->
+  -- | 'objectReference'
+  ObjectReference ->
   BatchGetObjectAttributes
-mkBatchGetObjectAttributes pObjectReference_ pSchemaFacet_ =
+mkBatchGetObjectAttributes pSchemaFacet_ pObjectReference_ =
   BatchGetObjectAttributes'
-    { objectReference = pObjectReference_,
-      schemaFacet = pSchemaFacet_,
-      attributeNames = Lude.mempty
+    { schemaFacet = pSchemaFacet_,
+      attributeNames = Lude.mempty,
+      objectReference = pObjectReference_
     }
-
--- | Reference that identifies the object whose attributes will be retrieved.
---
--- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgoaObjectReference :: Lens.Lens' BatchGetObjectAttributes ObjectReference
-bgoaObjectReference = Lens.lens (objectReference :: BatchGetObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: BatchGetObjectAttributes)
-{-# DEPRECATED bgoaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 -- | Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
 --
@@ -85,12 +74,19 @@ bgoaAttributeNames :: Lens.Lens' BatchGetObjectAttributes [Lude.Text]
 bgoaAttributeNames = Lens.lens (attributeNames :: BatchGetObjectAttributes -> [Lude.Text]) (\s a -> s {attributeNames = a} :: BatchGetObjectAttributes)
 {-# DEPRECATED bgoaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
+-- | Reference that identifies the object whose attributes will be retrieved.
+--
+-- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgoaObjectReference :: Lens.Lens' BatchGetObjectAttributes ObjectReference
+bgoaObjectReference = Lens.lens (objectReference :: BatchGetObjectAttributes -> ObjectReference) (\s a -> s {objectReference = a} :: BatchGetObjectAttributes)
+{-# DEPRECATED bgoaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+
 instance Lude.ToJSON BatchGetObjectAttributes where
   toJSON BatchGetObjectAttributes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ObjectReference" Lude..= objectReference),
-            Lude.Just ("SchemaFacet" Lude..= schemaFacet),
-            Lude.Just ("AttributeNames" Lude..= attributeNames)
+          [ Lude.Just ("SchemaFacet" Lude..= schemaFacet),
+            Lude.Just ("AttributeNames" Lude..= attributeNames),
+            Lude.Just ("ObjectReference" Lude..= objectReference)
           ]
       )

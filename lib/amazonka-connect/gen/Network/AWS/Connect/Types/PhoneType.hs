@@ -13,8 +13,8 @@
 module Network.AWS.Connect.Types.PhoneType
   ( PhoneType
       ( PhoneType',
-        DeskPhone,
-        SoftPhone
+        SoftPhone,
+        DeskPhone
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PhoneType = PhoneType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DeskPhone :: PhoneType
-pattern DeskPhone = PhoneType' "DESK_PHONE"
-
 pattern SoftPhone :: PhoneType
 pattern SoftPhone = PhoneType' "SOFT_PHONE"
 
+pattern DeskPhone :: PhoneType
+pattern DeskPhone = PhoneType' "DESK_PHONE"
+
 {-# COMPLETE
-  DeskPhone,
   SoftPhone,
+  DeskPhone,
   PhoneType'
   #-}

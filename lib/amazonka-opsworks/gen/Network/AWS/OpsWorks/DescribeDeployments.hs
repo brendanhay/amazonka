@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,18 +44,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDeployments' smart constructor.
 data DescribeDeployments = DescribeDeployments'
-  { appId ::
-      Lude.Maybe Lude.Text,
+  { -- | The app ID. If you include this parameter, the command returns a description of the commands associated with the specified app.
+    appId :: Lude.Maybe Lude.Text,
+    -- | An array of deployment IDs to be described. If you include this parameter, the command returns a description of the specified deployments. Otherwise, it returns a description of every deployment.
     deploymentIds :: Lude.Maybe [Lude.Text],
+    -- | The stack ID. If you include this parameter, the command returns a description of the commands associated with the specified stack.
     stackId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeployments' with the minimum fields required to make a request.
@@ -134,17 +131,12 @@ instance Lude.ToQuery DescribeDeployments where
 --
 -- /See:/ 'mkDescribeDeploymentsResponse' smart constructor.
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
-  { deployments ::
-      Lude.Maybe [Deployment],
+  { -- | An array of @Deployment@ objects that describe the deployments.
+    deployments :: Lude.Maybe [Deployment],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDeploymentsResponse' with the minimum fields required to make a request.

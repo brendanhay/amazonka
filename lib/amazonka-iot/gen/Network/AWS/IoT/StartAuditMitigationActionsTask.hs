@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.IoT.StartAuditMitigationActionsTask
 
     -- ** Request lenses
     samatTaskId,
-    samatTarget,
     samatAuditCheckToActionsMapping,
     samatClientRequestToken,
+    samatTarget,
 
     -- * Destructuring the response
     StartAuditMitigationActionsTaskResponse (..),
@@ -42,49 +43,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartAuditMitigationActionsTask' smart constructor.
 data StartAuditMitigationActionsTask = StartAuditMitigationActionsTask'
-  { taskId ::
-      Lude.Text,
-    target ::
-      AuditMitigationActionsTaskTarget,
-    auditCheckToActionsMapping ::
-      Lude.HashMap
-        Lude.Text
-        (Lude.NonEmpty Lude.Text),
-    clientRequestToken ::
-      Lude.Text
+  { -- | A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.
+    taskId :: Lude.Text,
+    -- | For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.
+    auditCheckToActionsMapping :: Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text),
+    -- | Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.
+    clientRequestToken :: Lude.Text,
+    -- | Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.
+    target :: AuditMitigationActionsTaskTarget
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAuditMitigationActionsTask' with the minimum fields required to make a request.
 --
+-- * 'taskId' - A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.
 -- * 'auditCheckToActionsMapping' - For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.
 -- * 'clientRequestToken' - Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.
 -- * 'target' - Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.
--- * 'taskId' - A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.
 mkStartAuditMitigationActionsTask ::
   -- | 'taskId'
   Lude.Text ->
-  -- | 'target'
-  AuditMitigationActionsTaskTarget ->
   -- | 'clientRequestToken'
   Lude.Text ->
+  -- | 'target'
+  AuditMitigationActionsTaskTarget ->
   StartAuditMitigationActionsTask
 mkStartAuditMitigationActionsTask
   pTaskId_
-  pTarget_
-  pClientRequestToken_ =
+  pClientRequestToken_
+  pTarget_ =
     StartAuditMitigationActionsTask'
       { taskId = pTaskId_,
-        target = pTarget_,
         auditCheckToActionsMapping = Lude.mempty,
-        clientRequestToken = pClientRequestToken_
+        clientRequestToken = pClientRequestToken_,
+        target = pTarget_
       }
 
 -- | A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.
@@ -93,13 +86,6 @@ mkStartAuditMitigationActionsTask
 samatTaskId :: Lens.Lens' StartAuditMitigationActionsTask Lude.Text
 samatTaskId = Lens.lens (taskId :: StartAuditMitigationActionsTask -> Lude.Text) (\s a -> s {taskId = a} :: StartAuditMitigationActionsTask)
 {-# DEPRECATED samatTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
-
--- | Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.
---
--- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samatTarget :: Lens.Lens' StartAuditMitigationActionsTask AuditMitigationActionsTaskTarget
-samatTarget = Lens.lens (target :: StartAuditMitigationActionsTask -> AuditMitigationActionsTaskTarget) (\s a -> s {target = a} :: StartAuditMitigationActionsTask)
-{-# DEPRECATED samatTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
 -- | For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.
 --
@@ -114,6 +100,13 @@ samatAuditCheckToActionsMapping = Lens.lens (auditCheckToActionsMapping :: Start
 samatClientRequestToken :: Lens.Lens' StartAuditMitigationActionsTask Lude.Text
 samatClientRequestToken = Lens.lens (clientRequestToken :: StartAuditMitigationActionsTask -> Lude.Text) (\s a -> s {clientRequestToken = a} :: StartAuditMitigationActionsTask)
 {-# DEPRECATED samatClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.
+--
+-- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samatTarget :: Lens.Lens' StartAuditMitigationActionsTask AuditMitigationActionsTaskTarget
+samatTarget = Lens.lens (target :: StartAuditMitigationActionsTask -> AuditMitigationActionsTaskTarget) (\s a -> s {target = a} :: StartAuditMitigationActionsTask)
+{-# DEPRECATED samatTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
 instance Lude.AWSRequest StartAuditMitigationActionsTask where
   type
@@ -134,10 +127,10 @@ instance Lude.ToJSON StartAuditMitigationActionsTask where
   toJSON StartAuditMitigationActionsTask' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("target" Lude..= target),
-            Lude.Just
+          [ Lude.Just
               ("auditCheckToActionsMapping" Lude..= auditCheckToActionsMapping),
-            Lude.Just ("clientRequestToken" Lude..= clientRequestToken)
+            Lude.Just ("clientRequestToken" Lude..= clientRequestToken),
+            Lude.Just ("target" Lude..= target)
           ]
       )
 
@@ -151,25 +144,18 @@ instance Lude.ToQuery StartAuditMitigationActionsTask where
 
 -- | /See:/ 'mkStartAuditMitigationActionsTaskResponse' smart constructor.
 data StartAuditMitigationActionsTaskResponse = StartAuditMitigationActionsTaskResponse'
-  { taskId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The unique identifier for the audit mitigation task. This matches the @taskId@ that you specified in the request.
+    taskId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartAuditMitigationActionsTaskResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'taskId' - The unique identifier for the audit mitigation task. This matches the @taskId@ that you specified in the request.
+-- * 'responseStatus' - The response status code.
 mkStartAuditMitigationActionsTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

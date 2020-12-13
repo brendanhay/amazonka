@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.MediaLive.ListInputDeviceTransfers
     mkListInputDeviceTransfers,
 
     -- ** Request lenses
+    lidtTransferType,
     lidtNextToken,
     lidtMaxResults,
-    lidtTransferType,
 
     -- * Destructuring the response
     ListInputDeviceTransfersResponse (..),
@@ -47,35 +48,35 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListInputDeviceTransfers' smart constructor.
 data ListInputDeviceTransfers = ListInputDeviceTransfers'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    transferType :: Lude.Text
+  { transferType :: Lude.Text,
+    nextToken :: Lude.Maybe Lude.Text,
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputDeviceTransfers' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Undocumented field.
--- * 'nextToken' - Undocumented field.
--- * 'transferType' - Undocumented field.
+-- * 'transferType' -
+-- * 'nextToken' -
+-- * 'maxResults' -
 mkListInputDeviceTransfers ::
   -- | 'transferType'
   Lude.Text ->
   ListInputDeviceTransfers
 mkListInputDeviceTransfers pTransferType_ =
   ListInputDeviceTransfers'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      transferType = pTransferType_
+    { transferType = pTransferType_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'transferType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidtTransferType :: Lens.Lens' ListInputDeviceTransfers Lude.Text
+lidtTransferType = Lens.lens (transferType :: ListInputDeviceTransfers -> Lude.Text) (\s a -> s {transferType = a} :: ListInputDeviceTransfers)
+{-# DEPRECATED lidtTransferType "Use generic-lens or generic-optics with 'transferType' instead." #-}
 
 -- | Undocumented field.
 --
@@ -90,13 +91,6 @@ lidtNextToken = Lens.lens (nextToken :: ListInputDeviceTransfers -> Lude.Maybe L
 lidtMaxResults :: Lens.Lens' ListInputDeviceTransfers (Lude.Maybe Lude.Natural)
 lidtMaxResults = Lens.lens (maxResults :: ListInputDeviceTransfers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInputDeviceTransfers)
 {-# DEPRECATED lidtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'transferType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lidtTransferType :: Lens.Lens' ListInputDeviceTransfers Lude.Text
-lidtTransferType = Lens.lens (transferType :: ListInputDeviceTransfers -> Lude.Text) (\s a -> s {transferType = a} :: ListInputDeviceTransfers)
-{-# DEPRECATED lidtTransferType "Use generic-lens or generic-optics with 'transferType' instead." #-}
 
 instance Page.AWSPager ListInputDeviceTransfers where
   page rq rs
@@ -134,36 +128,29 @@ instance Lude.ToPath ListInputDeviceTransfers where
 instance Lude.ToQuery ListInputDeviceTransfers where
   toQuery ListInputDeviceTransfers' {..} =
     Lude.mconcat
-      [ "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults,
-        "transferType" Lude.=: transferType
+      [ "transferType" Lude.=: transferType,
+        "nextToken" Lude.=: nextToken,
+        "maxResults" Lude.=: maxResults
       ]
 
 -- | Placeholder documentation for ListInputDeviceTransfersResponse
 --
 -- /See:/ 'mkListInputDeviceTransfersResponse' smart constructor.
 data ListInputDeviceTransfersResponse = ListInputDeviceTransfersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    inputDeviceTransfers ::
-      Lude.Maybe
-        [TransferringInputDeviceSummary],
-    responseStatus ::
-      Lude.Int
+  { -- | A token to get additional list results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of devices that you are transferring or are being transferred to you.
+    inputDeviceTransfers :: Lude.Maybe [TransferringInputDeviceSummary],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListInputDeviceTransfersResponse' with the minimum fields required to make a request.
 --
--- * 'inputDeviceTransfers' - The list of devices that you are transferring or are being transferred to you.
 -- * 'nextToken' - A token to get additional list results.
+-- * 'inputDeviceTransfers' - The list of devices that you are transferring or are being transferred to you.
 -- * 'responseStatus' - The response status code.
 mkListInputDeviceTransfersResponse ::
   -- | 'responseStatus'

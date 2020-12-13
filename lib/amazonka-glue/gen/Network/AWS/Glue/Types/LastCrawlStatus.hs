@@ -13,9 +13,9 @@
 module Network.AWS.Glue.Types.LastCrawlStatus
   ( LastCrawlStatus
       ( LastCrawlStatus',
+        LCSSucceeded,
         LCSCancelled,
-        LCSFailed,
-        LCSSucceeded
+        LCSFailed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype LastCrawlStatus = LastCrawlStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern LCSSucceeded :: LastCrawlStatus
+pattern LCSSucceeded = LastCrawlStatus' "SUCCEEDED"
+
 pattern LCSCancelled :: LastCrawlStatus
 pattern LCSCancelled = LastCrawlStatus' "CANCELLED"
 
 pattern LCSFailed :: LastCrawlStatus
 pattern LCSFailed = LastCrawlStatus' "FAILED"
 
-pattern LCSSucceeded :: LastCrawlStatus
-pattern LCSSucceeded = LastCrawlStatus' "SUCCEEDED"
-
 {-# COMPLETE
+  LCSSucceeded,
   LCSCancelled,
   LCSFailed,
-  LCSSucceeded,
   LastCrawlStatus'
   #-}

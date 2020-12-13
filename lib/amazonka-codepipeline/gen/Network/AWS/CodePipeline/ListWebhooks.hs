@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListWebhooks' smart constructor.
 data ListWebhooks = ListWebhooks'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWebhooks' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.
 -- * 'nextToken' - The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.
+-- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned nextToken value.
 mkListWebhooks ::
   ListWebhooks
 mkListWebhooks =
@@ -132,25 +128,21 @@ instance Lude.ToQuery ListWebhooks where
 
 -- | /See:/ 'mkListWebhooksResponse' smart constructor.
 data ListWebhooksResponse = ListWebhooksResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent ListWebhooks call to return the next set of webhooks in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The JSON detail returned for each webhook in the list output for the ListWebhooks call.
     webhooks :: Lude.Maybe [ListWebhookItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListWebhooksResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If the amount of returned information is significantly large, an identifier is also returned and can be used in a subsequent ListWebhooks call to return the next set of webhooks in the list.
--- * 'responseStatus' - The response status code.
 -- * 'webhooks' - The JSON detail returned for each webhook in the list output for the ListWebhooks call.
+-- * 'responseStatus' - The response status code.
 mkListWebhooksResponse ::
   -- | 'responseStatus'
   Lude.Int ->

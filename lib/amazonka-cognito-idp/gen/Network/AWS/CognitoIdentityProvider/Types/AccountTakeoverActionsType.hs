@@ -31,26 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccountTakeoverActionsType' smart constructor.
 data AccountTakeoverActionsType = AccountTakeoverActionsType'
-  { lowAction ::
-      Lude.Maybe AccountTakeoverActionType,
-    highAction ::
-      Lude.Maybe AccountTakeoverActionType,
-    mediumAction ::
-      Lude.Maybe AccountTakeoverActionType
+  { -- | Action to take for a low risk.
+    lowAction :: Lude.Maybe AccountTakeoverActionType,
+    -- | Action to take for a high risk.
+    highAction :: Lude.Maybe AccountTakeoverActionType,
+    -- | Action to take for a medium risk.
+    mediumAction :: Lude.Maybe AccountTakeoverActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccountTakeoverActionsType' with the minimum fields required to make a request.
 --
--- * 'highAction' - Action to take for a high risk.
 -- * 'lowAction' - Action to take for a low risk.
+-- * 'highAction' - Action to take for a high risk.
 -- * 'mediumAction' - Action to take for a medium risk.
 mkAccountTakeoverActionsType ::
   AccountTakeoverActionsType

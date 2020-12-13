@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.DirectoryService.CreateConditionalForwarder
 
     -- ** Request lenses
     ccfDirectoryId,
-    ccfRemoteDomainName,
     ccfDNSIPAddrs,
+    ccfRemoteDomainName,
 
     -- * Destructuring the response
     CreateConditionalForwarderResponse (..),
@@ -42,18 +43,14 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateConditionalForwarder' smart constructor.
 data CreateConditionalForwarder = CreateConditionalForwarder'
-  { directoryId ::
-      Lude.Text,
-    remoteDomainName :: Lude.Text,
-    dnsIPAddrs :: [Lude.Text]
+  { -- | The directory ID of the AWS directory for which you are creating the conditional forwarder.
+    directoryId :: Lude.Text,
+    -- | The IP addresses of the remote DNS server associated with RemoteDomainName.
+    dnsIPAddrs :: [Lude.Text],
+    -- | The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
+    remoteDomainName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConditionalForwarder' with the minimum fields required to make a request.
@@ -70,8 +67,8 @@ mkCreateConditionalForwarder ::
 mkCreateConditionalForwarder pDirectoryId_ pRemoteDomainName_ =
   CreateConditionalForwarder'
     { directoryId = pDirectoryId_,
-      remoteDomainName = pRemoteDomainName_,
-      dnsIPAddrs = Lude.mempty
+      dnsIPAddrs = Lude.mempty,
+      remoteDomainName = pRemoteDomainName_
     }
 
 -- | The directory ID of the AWS directory for which you are creating the conditional forwarder.
@@ -81,19 +78,19 @@ ccfDirectoryId :: Lens.Lens' CreateConditionalForwarder Lude.Text
 ccfDirectoryId = Lens.lens (directoryId :: CreateConditionalForwarder -> Lude.Text) (\s a -> s {directoryId = a} :: CreateConditionalForwarder)
 {-# DEPRECATED ccfDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
--- | The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
---
--- /Note:/ Consider using 'remoteDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfRemoteDomainName :: Lens.Lens' CreateConditionalForwarder Lude.Text
-ccfRemoteDomainName = Lens.lens (remoteDomainName :: CreateConditionalForwarder -> Lude.Text) (\s a -> s {remoteDomainName = a} :: CreateConditionalForwarder)
-{-# DEPRECATED ccfRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
-
 -- | The IP addresses of the remote DNS server associated with RemoteDomainName.
 --
 -- /Note:/ Consider using 'dnsIPAddrs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccfDNSIPAddrs :: Lens.Lens' CreateConditionalForwarder [Lude.Text]
 ccfDNSIPAddrs = Lens.lens (dnsIPAddrs :: CreateConditionalForwarder -> [Lude.Text]) (\s a -> s {dnsIPAddrs = a} :: CreateConditionalForwarder)
 {-# DEPRECATED ccfDNSIPAddrs "Use generic-lens or generic-optics with 'dnsIPAddrs' instead." #-}
+
+-- | The fully qualified domain name (FQDN) of the remote domain with which you will set up a trust relationship.
+--
+-- /Note:/ Consider using 'remoteDomainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfRemoteDomainName :: Lens.Lens' CreateConditionalForwarder Lude.Text
+ccfRemoteDomainName = Lens.lens (remoteDomainName :: CreateConditionalForwarder -> Lude.Text) (\s a -> s {remoteDomainName = a} :: CreateConditionalForwarder)
+{-# DEPRECATED ccfRemoteDomainName "Use generic-lens or generic-optics with 'remoteDomainName' instead." #-}
 
 instance Lude.AWSRequest CreateConditionalForwarder where
   type
@@ -125,8 +122,8 @@ instance Lude.ToJSON CreateConditionalForwarder where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("RemoteDomainName" Lude..= remoteDomainName),
-            Lude.Just ("DnsIpAddrs" Lude..= dnsIPAddrs)
+            Lude.Just ("DnsIpAddrs" Lude..= dnsIPAddrs),
+            Lude.Just ("RemoteDomainName" Lude..= remoteDomainName)
           ]
       )
 
@@ -140,16 +137,10 @@ instance Lude.ToQuery CreateConditionalForwarder where
 --
 -- /See:/ 'mkCreateConditionalForwarderResponse' smart constructor.
 newtype CreateConditionalForwarderResponse = CreateConditionalForwarderResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateConditionalForwarderResponse' with the minimum fields required to make a request.

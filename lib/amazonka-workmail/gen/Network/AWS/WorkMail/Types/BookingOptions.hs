@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBookingOptions' smart constructor.
 data BookingOptions = BookingOptions'
-  { autoDeclineConflictingRequests ::
-      Lude.Maybe Lude.Bool,
+  { -- | The resource's ability to automatically decline any conflicting requests.
+    autoDeclineConflictingRequests :: Lude.Maybe Lude.Bool,
+    -- | The resource's ability to automatically decline any recurring requests.
     autoDeclineRecurringRequests :: Lude.Maybe Lude.Bool,
+    -- | The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
     autoAcceptRequests :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BookingOptions' with the minimum fields required to make a request.
 --
--- * 'autoAcceptRequests' - The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
 -- * 'autoDeclineConflictingRequests' - The resource's ability to automatically decline any conflicting requests.
 -- * 'autoDeclineRecurringRequests' - The resource's ability to automatically decline any recurring requests.
+-- * 'autoAcceptRequests' - The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.
 mkBookingOptions ::
   BookingOptions
 mkBookingOptions =

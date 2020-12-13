@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRejectedLogEventsInfo' smart constructor.
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
-  { tooOldLogEventEndIndex ::
-      Lude.Maybe Lude.Int,
+  { -- | The log events that are too old.
+    tooOldLogEventEndIndex :: Lude.Maybe Lude.Int,
+    -- | The log events that are too new.
     tooNewLogEventStartIndex :: Lude.Maybe Lude.Int,
+    -- | The expired log events.
     expiredLogEventEndIndex :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RejectedLogEventsInfo' with the minimum fields required to make a request.
 --
--- * 'expiredLogEventEndIndex' - The expired log events.
--- * 'tooNewLogEventStartIndex' - The log events that are too new.
 -- * 'tooOldLogEventEndIndex' - The log events that are too old.
+-- * 'tooNewLogEventStartIndex' - The log events that are too new.
+-- * 'expiredLogEventEndIndex' - The expired log events.
 mkRejectedLogEventsInfo ::
   RejectedLogEventsInfo
 mkRejectedLogEventsInfo =

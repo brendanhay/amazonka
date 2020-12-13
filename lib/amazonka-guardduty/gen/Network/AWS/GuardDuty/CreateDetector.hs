@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.GuardDuty.CreateDetector
     cdClientToken,
     cdFindingPublishingFrequency,
     cdDataSources,
-    cdTags,
     cdEnable,
+    cdTags,
 
     -- * Destructuring the response
     CreateDetectorResponse (..),
@@ -43,29 +44,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDetector' smart constructor.
 data CreateDetector = CreateDetector'
-  { clientToken ::
-      Lude.Maybe Lude.Text,
-    findingPublishingFrequency ::
-      Lude.Maybe FindingPublishingFrequency,
+  { -- | The idempotency token for the create request.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | An enum value that specifies how frequently updated findings are exported.
+    findingPublishingFrequency :: Lude.Maybe FindingPublishingFrequency,
+    -- | An object that describes which data sources will be enabled for the detector.
     dataSources :: Lude.Maybe DataSourceConfigurations,
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    enable :: Lude.Bool
+    -- | A Boolean value that specifies whether the detector is to be enabled.
+    enable :: Lude.Bool,
+    -- | The tags to be added to a new detector resource.
+    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDetector' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - The idempotency token for the create request.
+-- * 'findingPublishingFrequency' - An enum value that specifies how frequently updated findings are exported.
 -- * 'dataSources' - An object that describes which data sources will be enabled for the detector.
 -- * 'enable' - A Boolean value that specifies whether the detector is to be enabled.
--- * 'findingPublishingFrequency' - An enum value that specifies how frequently updated findings are exported.
 -- * 'tags' - The tags to be added to a new detector resource.
 mkCreateDetector ::
   -- | 'enable'
@@ -76,8 +74,8 @@ mkCreateDetector pEnable_ =
     { clientToken = Lude.Nothing,
       findingPublishingFrequency = Lude.Nothing,
       dataSources = Lude.Nothing,
-      tags = Lude.Nothing,
-      enable = pEnable_
+      enable = pEnable_,
+      tags = Lude.Nothing
     }
 
 -- | The idempotency token for the create request.
@@ -101,19 +99,19 @@ cdDataSources :: Lens.Lens' CreateDetector (Lude.Maybe DataSourceConfigurations)
 cdDataSources = Lens.lens (dataSources :: CreateDetector -> Lude.Maybe DataSourceConfigurations) (\s a -> s {dataSources = a} :: CreateDetector)
 {-# DEPRECATED cdDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
 
--- | The tags to be added to a new detector resource.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdTags :: Lens.Lens' CreateDetector (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cdTags = Lens.lens (tags :: CreateDetector -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateDetector)
-{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | A Boolean value that specifies whether the detector is to be enabled.
 --
 -- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdEnable :: Lens.Lens' CreateDetector Lude.Bool
 cdEnable = Lens.lens (enable :: CreateDetector -> Lude.Bool) (\s a -> s {enable = a} :: CreateDetector)
 {-# DEPRECATED cdEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
+
+-- | The tags to be added to a new detector resource.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdTags :: Lens.Lens' CreateDetector (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+cdTags = Lens.lens (tags :: CreateDetector -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateDetector)
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateDetector where
   type Rs CreateDetector = CreateDetectorResponse
@@ -142,8 +140,8 @@ instance Lude.ToJSON CreateDetector where
             ("findingPublishingFrequency" Lude..=)
               Lude.<$> findingPublishingFrequency,
             ("dataSources" Lude..=) Lude.<$> dataSources,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("enable" Lude..= enable)
+            Lude.Just ("enable" Lude..= enable),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -155,17 +153,12 @@ instance Lude.ToQuery CreateDetector where
 
 -- | /See:/ 'mkCreateDetectorResponse' smart constructor.
 data CreateDetectorResponse = CreateDetectorResponse'
-  { detectorId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique ID of the created detector.
+    detectorId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDetectorResponse' with the minimum fields required to make a request.

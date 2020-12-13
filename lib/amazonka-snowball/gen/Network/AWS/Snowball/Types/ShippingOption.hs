@@ -13,9 +13,9 @@
 module Network.AWS.Snowball.Types.ShippingOption
   ( ShippingOption
       ( ShippingOption',
-        SOExpress,
-        SONextDay,
         SOSecondDay,
+        SONextDay,
+        SOExpress,
         SOStandard
       ),
   )
@@ -47,22 +47,22 @@ newtype ShippingOption = ShippingOption' Lude.Text
       Lude.ToHeader
     )
 
-pattern SOExpress :: ShippingOption
-pattern SOExpress = ShippingOption' "EXPRESS"
+pattern SOSecondDay :: ShippingOption
+pattern SOSecondDay = ShippingOption' "SECOND_DAY"
 
 pattern SONextDay :: ShippingOption
 pattern SONextDay = ShippingOption' "NEXT_DAY"
 
-pattern SOSecondDay :: ShippingOption
-pattern SOSecondDay = ShippingOption' "SECOND_DAY"
+pattern SOExpress :: ShippingOption
+pattern SOExpress = ShippingOption' "EXPRESS"
 
 pattern SOStandard :: ShippingOption
 pattern SOStandard = ShippingOption' "STANDARD"
 
 {-# COMPLETE
-  SOExpress,
-  SONextDay,
   SOSecondDay,
+  SONextDay,
+  SOExpress,
   SOStandard,
   ShippingOption'
   #-}

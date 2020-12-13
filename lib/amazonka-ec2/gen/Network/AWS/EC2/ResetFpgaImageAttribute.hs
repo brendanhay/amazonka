@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.EC2.ResetFpgaImageAttribute
 
     -- ** Request lenses
     rfiaAttribute,
-    rfiaDryRun,
     rfiaFpgaImageId,
+    rfiaDryRun,
 
     -- * Destructuring the response
     ResetFpgaImageAttributeResponse (..),
@@ -41,25 +42,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResetFpgaImageAttribute' smart constructor.
 data ResetFpgaImageAttribute = ResetFpgaImageAttribute'
-  { attribute ::
-      Lude.Maybe ResetFpgaImageAttributeName,
-    dryRun :: Lude.Maybe Lude.Bool,
-    fpgaImageId :: Lude.Text
+  { -- | The attribute.
+    attribute :: Lude.Maybe ResetFpgaImageAttributeName,
+    -- | The ID of the AFI.
+    fpgaImageId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetFpgaImageAttribute' with the minimum fields required to make a request.
 --
 -- * 'attribute' - The attribute.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'fpgaImageId' - The ID of the AFI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkResetFpgaImageAttribute ::
   -- | 'fpgaImageId'
   Lude.Text ->
@@ -67,8 +64,8 @@ mkResetFpgaImageAttribute ::
 mkResetFpgaImageAttribute pFpgaImageId_ =
   ResetFpgaImageAttribute'
     { attribute = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      fpgaImageId = pFpgaImageId_
+      fpgaImageId = pFpgaImageId_,
+      dryRun = Lude.Nothing
     }
 
 -- | The attribute.
@@ -78,19 +75,19 @@ rfiaAttribute :: Lens.Lens' ResetFpgaImageAttribute (Lude.Maybe ResetFpgaImageAt
 rfiaAttribute = Lens.lens (attribute :: ResetFpgaImageAttribute -> Lude.Maybe ResetFpgaImageAttributeName) (\s a -> s {attribute = a} :: ResetFpgaImageAttribute)
 {-# DEPRECATED rfiaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfiaDryRun :: Lens.Lens' ResetFpgaImageAttribute (Lude.Maybe Lude.Bool)
-rfiaDryRun = Lens.lens (dryRun :: ResetFpgaImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetFpgaImageAttribute)
-{-# DEPRECATED rfiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 -- | The ID of the AFI.
 --
 -- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rfiaFpgaImageId :: Lens.Lens' ResetFpgaImageAttribute Lude.Text
 rfiaFpgaImageId = Lens.lens (fpgaImageId :: ResetFpgaImageAttribute -> Lude.Text) (\s a -> s {fpgaImageId = a} :: ResetFpgaImageAttribute)
 {-# DEPRECATED rfiaFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfiaDryRun :: Lens.Lens' ResetFpgaImageAttribute (Lude.Maybe Lude.Bool)
+rfiaDryRun = Lens.lens (dryRun :: ResetFpgaImageAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetFpgaImageAttribute)
+{-# DEPRECATED rfiaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ResetFpgaImageAttribute where
   type Rs ResetFpgaImageAttribute = ResetFpgaImageAttributeResponse
@@ -114,29 +111,24 @@ instance Lude.ToQuery ResetFpgaImageAttribute where
       [ "Action" Lude.=: ("ResetFpgaImageAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         "Attribute" Lude.=: attribute,
-        "DryRun" Lude.=: dryRun,
-        "FpgaImageId" Lude.=: fpgaImageId
+        "FpgaImageId" Lude.=: fpgaImageId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkResetFpgaImageAttributeResponse' smart constructor.
 data ResetFpgaImageAttributeResponse = ResetFpgaImageAttributeResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Is @true@ if the request succeeds, and an error otherwise.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetFpgaImageAttributeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+-- * 'responseStatus' - The response status code.
 mkResetFpgaImageAttributeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

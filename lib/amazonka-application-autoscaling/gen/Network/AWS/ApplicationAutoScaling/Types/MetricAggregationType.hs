@@ -14,8 +14,8 @@ module Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
   ( MetricAggregationType
       ( MetricAggregationType',
         MATAverage,
-        MATMaximum,
-        MATMinimum
+        MATMinimum,
+        MATMaximum
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype MetricAggregationType = MetricAggregationType' Lude.Text
 pattern MATAverage :: MetricAggregationType
 pattern MATAverage = MetricAggregationType' "Average"
 
-pattern MATMaximum :: MetricAggregationType
-pattern MATMaximum = MetricAggregationType' "Maximum"
-
 pattern MATMinimum :: MetricAggregationType
 pattern MATMinimum = MetricAggregationType' "Minimum"
 
+pattern MATMaximum :: MetricAggregationType
+pattern MATMaximum = MetricAggregationType' "Maximum"
+
 {-# COMPLETE
   MATAverage,
-  MATMaximum,
   MATMinimum,
+  MATMaximum,
   MetricAggregationType'
   #-}

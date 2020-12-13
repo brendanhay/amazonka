@@ -13,8 +13,8 @@
 module Network.AWS.Rekognition.Types.SegmentType
   ( SegmentType
       ( SegmentType',
-        Shot,
-        TechnicalCue
+        TechnicalCue,
+        Shot
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SegmentType = SegmentType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Shot :: SegmentType
-pattern Shot = SegmentType' "SHOT"
-
 pattern TechnicalCue :: SegmentType
 pattern TechnicalCue = SegmentType' "TECHNICAL_CUE"
 
+pattern Shot :: SegmentType
+pattern Shot = SegmentType' "SHOT"
+
 {-# COMPLETE
-  Shot,
   TechnicalCue,
+  Shot,
   SegmentType'
   #-}

@@ -17,8 +17,10 @@ module Network.AWS.Pinpoint.Types.BaiduChannelResponse
     mkBaiduChannelResponse,
 
     -- * Lenses
+    bcPlatform,
     bcLastModifiedDate,
     bcEnabled,
+    bcCredential,
     bcIsArchived,
     bcApplicationId,
     bcVersion,
@@ -26,8 +28,6 @@ module Network.AWS.Pinpoint.Types.BaiduChannelResponse
     bcCreationDate,
     bcLastModifiedBy,
     bcHasCredential,
-    bcCredential,
-    bcPlatform,
   )
 where
 
@@ -38,61 +38,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBaiduChannelResponse' smart constructor.
 data BaiduChannelResponse = BaiduChannelResponse'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of messaging or notification platform for the channel. For the Baidu channel, this value is BAIDU.
+    platform :: Lude.Text,
+    -- | The date and time when the Baidu channel was last modified.
+    lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the Baidu channel is enabled for the application.
     enabled :: Lude.Maybe Lude.Bool,
-    isArchived :: Lude.Maybe Lude.Bool,
-    applicationId :: Lude.Maybe Lude.Text,
-    version :: Lude.Maybe Lude.Int,
-    id :: Lude.Maybe Lude.Text,
-    creationDate :: Lude.Maybe Lude.Text,
-    lastModifiedBy :: Lude.Maybe Lude.Text,
-    hasCredential :: Lude.Maybe Lude.Bool,
+    -- | The API key that you received from the Baidu Cloud Push service to communicate with the service.
     credential :: Lude.Text,
-    platform :: Lude.Text
+    -- | Specifies whether the Baidu channel is archived.
+    isArchived :: Lude.Maybe Lude.Bool,
+    -- | The unique identifier for the application that the Baidu channel applies to.
+    applicationId :: Lude.Maybe Lude.Text,
+    -- | The current version of the Baidu channel.
+    version :: Lude.Maybe Lude.Int,
+    -- | (Deprecated) An identifier for the Baidu channel. This property is retained only for backward compatibility.
+    id :: Lude.Maybe Lude.Text,
+    -- | The date and time when the Baidu channel was enabled.
+    creationDate :: Lude.Maybe Lude.Text,
+    -- | The user who last modified the Baidu channel.
+    lastModifiedBy :: Lude.Maybe Lude.Text,
+    -- | (Not used) This property is retained only for backward compatibility.
+    hasCredential :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BaiduChannelResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that the Baidu channel applies to.
--- * 'creationDate' - The date and time when the Baidu channel was enabled.
--- * 'credential' - The API key that you received from the Baidu Cloud Push service to communicate with the service.
--- * 'enabled' - Specifies whether the Baidu channel is enabled for the application.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
--- * 'id' - (Deprecated) An identifier for the Baidu channel. This property is retained only for backward compatibility.
--- * 'isArchived' - Specifies whether the Baidu channel is archived.
--- * 'lastModifiedBy' - The user who last modified the Baidu channel.
--- * 'lastModifiedDate' - The date and time when the Baidu channel was last modified.
 -- * 'platform' - The type of messaging or notification platform for the channel. For the Baidu channel, this value is BAIDU.
+-- * 'lastModifiedDate' - The date and time when the Baidu channel was last modified.
+-- * 'enabled' - Specifies whether the Baidu channel is enabled for the application.
+-- * 'credential' - The API key that you received from the Baidu Cloud Push service to communicate with the service.
+-- * 'isArchived' - Specifies whether the Baidu channel is archived.
+-- * 'applicationId' - The unique identifier for the application that the Baidu channel applies to.
 -- * 'version' - The current version of the Baidu channel.
+-- * 'id' - (Deprecated) An identifier for the Baidu channel. This property is retained only for backward compatibility.
+-- * 'creationDate' - The date and time when the Baidu channel was enabled.
+-- * 'lastModifiedBy' - The user who last modified the Baidu channel.
+-- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
 mkBaiduChannelResponse ::
-  -- | 'credential'
-  Lude.Text ->
   -- | 'platform'
   Lude.Text ->
+  -- | 'credential'
+  Lude.Text ->
   BaiduChannelResponse
-mkBaiduChannelResponse pCredential_ pPlatform_ =
+mkBaiduChannelResponse pPlatform_ pCredential_ =
   BaiduChannelResponse'
-    { lastModifiedDate = Lude.Nothing,
+    { platform = pPlatform_,
+      lastModifiedDate = Lude.Nothing,
       enabled = Lude.Nothing,
+      credential = pCredential_,
       isArchived = Lude.Nothing,
       applicationId = Lude.Nothing,
       version = Lude.Nothing,
       id = Lude.Nothing,
       creationDate = Lude.Nothing,
       lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing,
-      credential = pCredential_,
-      platform = pPlatform_
+      hasCredential = Lude.Nothing
     }
+
+-- | The type of messaging or notification platform for the channel. For the Baidu channel, this value is BAIDU.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcPlatform :: Lens.Lens' BaiduChannelResponse Lude.Text
+bcPlatform = Lens.lens (platform :: BaiduChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: BaiduChannelResponse)
+{-# DEPRECATED bcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The date and time when the Baidu channel was last modified.
 --
@@ -107,6 +118,13 @@ bcLastModifiedDate = Lens.lens (lastModifiedDate :: BaiduChannelResponse -> Lude
 bcEnabled :: Lens.Lens' BaiduChannelResponse (Lude.Maybe Lude.Bool)
 bcEnabled = Lens.lens (enabled :: BaiduChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: BaiduChannelResponse)
 {-# DEPRECATED bcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+-- | The API key that you received from the Baidu Cloud Push service to communicate with the service.
+--
+-- /Note:/ Consider using 'credential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcCredential :: Lens.Lens' BaiduChannelResponse Lude.Text
+bcCredential = Lens.lens (credential :: BaiduChannelResponse -> Lude.Text) (\s a -> s {credential = a} :: BaiduChannelResponse)
+{-# DEPRECATED bcCredential "Use generic-lens or generic-optics with 'credential' instead." #-}
 
 -- | Specifies whether the Baidu channel is archived.
 --
@@ -157,28 +175,16 @@ bcHasCredential :: Lens.Lens' BaiduChannelResponse (Lude.Maybe Lude.Bool)
 bcHasCredential = Lens.lens (hasCredential :: BaiduChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: BaiduChannelResponse)
 {-# DEPRECATED bcHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
--- | The API key that you received from the Baidu Cloud Push service to communicate with the service.
---
--- /Note:/ Consider using 'credential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcCredential :: Lens.Lens' BaiduChannelResponse Lude.Text
-bcCredential = Lens.lens (credential :: BaiduChannelResponse -> Lude.Text) (\s a -> s {credential = a} :: BaiduChannelResponse)
-{-# DEPRECATED bcCredential "Use generic-lens or generic-optics with 'credential' instead." #-}
-
--- | The type of messaging or notification platform for the channel. For the Baidu channel, this value is BAIDU.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcPlatform :: Lens.Lens' BaiduChannelResponse Lude.Text
-bcPlatform = Lens.lens (platform :: BaiduChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: BaiduChannelResponse)
-{-# DEPRECATED bcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
 instance Lude.FromJSON BaiduChannelResponse where
   parseJSON =
     Lude.withObject
       "BaiduChannelResponse"
       ( \x ->
           BaiduChannelResponse'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
+            Lude.<$> (x Lude..: "Platform")
+            Lude.<*> (x Lude..:? "LastModifiedDate")
             Lude.<*> (x Lude..:? "Enabled")
+            Lude.<*> (x Lude..: "Credential")
             Lude.<*> (x Lude..:? "IsArchived")
             Lude.<*> (x Lude..:? "ApplicationId")
             Lude.<*> (x Lude..:? "Version")
@@ -186,6 +192,4 @@ instance Lude.FromJSON BaiduChannelResponse where
             Lude.<*> (x Lude..:? "CreationDate")
             Lude.<*> (x Lude..:? "LastModifiedBy")
             Lude.<*> (x Lude..:? "HasCredential")
-            Lude.<*> (x Lude..: "Credential")
-            Lude.<*> (x Lude..: "Platform")
       )

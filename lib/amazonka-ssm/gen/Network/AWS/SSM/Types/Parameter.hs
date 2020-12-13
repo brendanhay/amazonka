@@ -37,40 +37,45 @@ import Network.AWS.SSM.Types.ParameterType
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { lastModifiedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Date the parameter was last changed or updated and the parameter version was created.
+    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Either the version number or the label used to retrieve the parameter value. Specify selectors by using one of the following formats:
+    --
+    -- parameter_name:version
+    -- parameter_name:label
     selector :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the parameter.
     arn :: Lude.Maybe Lude.Text,
+    -- | The parameter value.
     value :: Lude.Maybe Lude.Text,
+    -- | Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
     sourceResult :: Lude.Maybe Lude.Text,
+    -- | The name of the parameter.
     name :: Lude.Maybe Lude.Text,
+    -- | The parameter version.
     version :: Lude.Maybe Lude.Integer,
+    -- | The type of parameter. Valid values include the following: @String@ , @StringList@ , and @SecureString@ .
     type' :: Lude.Maybe ParameterType,
+    -- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
     dataType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the parameter.
--- * 'dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
 -- * 'lastModifiedDate' - Date the parameter was last changed or updated and the parameter version was created.
--- * 'name' - The name of the parameter.
 -- * 'selector' - Either the version number or the label used to retrieve the parameter value. Specify selectors by using one of the following formats:
 --
 -- parameter_name:version
 -- parameter_name:label
--- * 'sourceResult' - Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
--- * 'type'' - The type of parameter. Valid values include the following: @String@ , @StringList@ , and @SecureString@ .
+-- * 'arn' - The Amazon Resource Name (ARN) of the parameter.
 -- * 'value' - The parameter value.
+-- * 'sourceResult' - Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
+-- * 'name' - The name of the parameter.
 -- * 'version' - The parameter version.
+-- * 'type'' - The type of parameter. Valid values include the following: @String@ , @StringList@ , and @SecureString@ .
+-- * 'dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
 mkParameter ::
   Parameter
 mkParameter =

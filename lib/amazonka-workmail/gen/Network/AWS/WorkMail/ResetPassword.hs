@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.WorkMail.ResetPassword
     mkResetPassword,
 
     -- ** Request lenses
-    rpOrganizationId,
     rpUserId,
     rpPassword,
+    rpOrganizationId,
 
     -- * Destructuring the response
     ResetPasswordResponse (..),
@@ -40,39 +41,35 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'mkResetPassword' smart constructor.
 data ResetPassword = ResetPassword'
-  { organizationId :: Lude.Text,
+  { -- | The identifier of the user for whom the password is reset.
     userId :: Lude.Text,
-    password :: Lude.Sensitive Lude.Text
+    -- | The new password for the user.
+    password :: Lude.Sensitive Lude.Text,
+    -- | The identifier of the organization that contains the user for which the password is reset.
+    organizationId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetPassword' with the minimum fields required to make a request.
 --
--- * 'organizationId' - The identifier of the organization that contains the user for which the password is reset.
--- * 'password' - The new password for the user.
 -- * 'userId' - The identifier of the user for whom the password is reset.
+-- * 'password' - The new password for the user.
+-- * 'organizationId' - The identifier of the organization that contains the user for which the password is reset.
 mkResetPassword ::
-  -- | 'organizationId'
-  Lude.Text ->
   -- | 'userId'
   Lude.Text ->
   -- | 'password'
   Lude.Sensitive Lude.Text ->
+  -- | 'organizationId'
+  Lude.Text ->
   ResetPassword
-mkResetPassword pOrganizationId_ pUserId_ pPassword_ =
+mkResetPassword pUserId_ pPassword_ pOrganizationId_ =
   ResetPassword'
-    { organizationId = pOrganizationId_,
-      userId = pUserId_,
-      password = pPassword_
+    { userId = pUserId_,
+      password = pPassword_,
+      organizationId = pOrganizationId_
     }
-
--- | The identifier of the organization that contains the user for which the password is reset.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpOrganizationId :: Lens.Lens' ResetPassword Lude.Text
-rpOrganizationId = Lens.lens (organizationId :: ResetPassword -> Lude.Text) (\s a -> s {organizationId = a} :: ResetPassword)
-{-# DEPRECATED rpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the user for whom the password is reset.
 --
@@ -87,6 +84,13 @@ rpUserId = Lens.lens (userId :: ResetPassword -> Lude.Text) (\s a -> s {userId =
 rpPassword :: Lens.Lens' ResetPassword (Lude.Sensitive Lude.Text)
 rpPassword = Lens.lens (password :: ResetPassword -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: ResetPassword)
 {-# DEPRECATED rpPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+
+-- | The identifier of the organization that contains the user for which the password is reset.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpOrganizationId :: Lens.Lens' ResetPassword Lude.Text
+rpOrganizationId = Lens.lens (organizationId :: ResetPassword -> Lude.Text) (\s a -> s {organizationId = a} :: ResetPassword)
+{-# DEPRECATED rpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 instance Lude.AWSRequest ResetPassword where
   type Rs ResetPassword = ResetPasswordResponse
@@ -112,9 +116,9 @@ instance Lude.ToJSON ResetPassword where
   toJSON ResetPassword' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("OrganizationId" Lude..= organizationId),
-            Lude.Just ("UserId" Lude..= userId),
-            Lude.Just ("Password" Lude..= password)
+          [ Lude.Just ("UserId" Lude..= userId),
+            Lude.Just ("Password" Lude..= password),
+            Lude.Just ("OrganizationId" Lude..= organizationId)
           ]
       )
 
@@ -126,16 +130,10 @@ instance Lude.ToQuery ResetPassword where
 
 -- | /See:/ 'mkResetPasswordResponse' smart constructor.
 newtype ResetPasswordResponse = ResetPasswordResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetPasswordResponse' with the minimum fields required to make a request.

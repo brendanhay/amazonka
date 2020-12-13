@@ -17,8 +17,8 @@ module Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
     mkRDSDatabaseCredentials,
 
     -- * Lenses
-    rdsdcUsername,
-    rdsdcPassword,
+    rdcUsername,
+    rdcPassword,
   )
 where
 
@@ -29,23 +29,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRDSDatabaseCredentials' smart constructor.
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-  { username ::
-      Lude.Text,
+  { username :: Lude.Text,
     password :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSDatabaseCredentials' with the minimum fields required to make a request.
 --
--- * 'password' - Undocumented field.
--- * 'username' - Undocumented field.
+-- * 'username' -
+-- * 'password' -
 mkRDSDatabaseCredentials ::
   -- | 'username'
   Lude.Text ->
@@ -61,16 +54,16 @@ mkRDSDatabaseCredentials pUsername_ pPassword_ =
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdcUsername :: Lens.Lens' RDSDatabaseCredentials Lude.Text
-rdsdcUsername = Lens.lens (username :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {username = a} :: RDSDatabaseCredentials)
-{-# DEPRECATED rdsdcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+rdcUsername :: Lens.Lens' RDSDatabaseCredentials Lude.Text
+rdcUsername = Lens.lens (username :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {username = a} :: RDSDatabaseCredentials)
+{-# DEPRECATED rdcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsdcPassword :: Lens.Lens' RDSDatabaseCredentials Lude.Text
-rdsdcPassword = Lens.lens (password :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {password = a} :: RDSDatabaseCredentials)
-{-# DEPRECATED rdsdcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+rdcPassword :: Lens.Lens' RDSDatabaseCredentials Lude.Text
+rdcPassword = Lens.lens (password :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {password = a} :: RDSDatabaseCredentials)
+{-# DEPRECATED rdcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 instance Lude.ToJSON RDSDatabaseCredentials where
   toJSON RDSDatabaseCredentials' {..} =

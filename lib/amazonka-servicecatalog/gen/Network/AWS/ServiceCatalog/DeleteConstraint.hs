@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,15 +22,15 @@ module Network.AWS.ServiceCatalog.DeleteConstraint
     mkDeleteConstraint,
 
     -- ** Request lenses
-    dcAcceptLanguage,
-    dcId,
+    dcfAcceptLanguage,
+    dcfId,
 
     -- * Destructuring the response
     DeleteConstraintResponse (..),
     mkDeleteConstraintResponse,
 
     -- ** Response lenses
-    dcrsResponseStatus,
+    dcfrsResponseStatus,
   )
 where
 
@@ -41,17 +42,21 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDeleteConstraint' smart constructor.
 data DeleteConstraint = DeleteConstraint'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
+  { -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The identifier of the constraint.
     id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConstraint' with the minimum fields required to make a request.
@@ -90,16 +95,16 @@ mkDeleteConstraint pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcAcceptLanguage :: Lens.Lens' DeleteConstraint (Lude.Maybe Lude.Text)
-dcAcceptLanguage = Lens.lens (acceptLanguage :: DeleteConstraint -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteConstraint)
-{-# DEPRECATED dcAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dcfAcceptLanguage :: Lens.Lens' DeleteConstraint (Lude.Maybe Lude.Text)
+dcfAcceptLanguage = Lens.lens (acceptLanguage :: DeleteConstraint -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DeleteConstraint)
+{-# DEPRECATED dcfAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The identifier of the constraint.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcId :: Lens.Lens' DeleteConstraint Lude.Text
-dcId = Lens.lens (id :: DeleteConstraint -> Lude.Text) (\s a -> s {id = a} :: DeleteConstraint)
-{-# DEPRECATED dcId "Use generic-lens or generic-optics with 'id' instead." #-}
+dcfId :: Lens.Lens' DeleteConstraint Lude.Text
+dcfId = Lens.lens (id :: DeleteConstraint -> Lude.Text) (\s a -> s {id = a} :: DeleteConstraint)
+{-# DEPRECATED dcfId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 instance Lude.AWSRequest DeleteConstraint where
   type Rs DeleteConstraint = DeleteConstraintResponse
@@ -140,16 +145,10 @@ instance Lude.ToQuery DeleteConstraint where
 
 -- | /See:/ 'mkDeleteConstraintResponse' smart constructor.
 newtype DeleteConstraintResponse = DeleteConstraintResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteConstraintResponse' with the minimum fields required to make a request.
@@ -165,6 +164,6 @@ mkDeleteConstraintResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DeleteConstraintResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DeleteConstraintResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConstraintResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcfrsResponseStatus :: Lens.Lens' DeleteConstraintResponse Lude.Int
+dcfrsResponseStatus = Lens.lens (responseStatus :: DeleteConstraintResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConstraintResponse)
+{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

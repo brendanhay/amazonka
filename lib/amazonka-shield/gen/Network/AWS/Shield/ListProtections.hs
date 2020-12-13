@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,25 +45,22 @@ import Network.AWS.Shield.Types
 
 -- | /See:/ 'mkListProtections' smart constructor.
 data ListProtections = ListProtections'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @ListProtectionsRequest.NextToken@ value from a previous call to @ListProtections@ . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of 'Protection' objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
+    --
+    -- This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than @MaxResults@ , even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in @NextToken@ that you can use in your next request, to get the next batch of objects.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProtections' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The @ListProtectionsRequest.NextToken@ value from a previous call to @ListProtections@ . Pass null if this is the first call.
 -- * 'maxResults' - The maximum number of 'Protection' objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
 --
 -- This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than @MaxResults@ , even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in @NextToken@ that you can use in your next request, to get the next batch of objects.
--- * 'nextToken' - The @ListProtectionsRequest.NextToken@ value from a previous call to @ListProtections@ . Pass null if this is the first call.
 mkListProtections ::
   ListProtections
 mkListProtections =
@@ -136,26 +134,24 @@ instance Lude.ToQuery ListProtections where
 
 -- | /See:/ 'mkListProtectionsResponse' smart constructor.
 data ListProtectionsResponse = ListProtectionsResponse'
-  { protections ::
-      Lude.Maybe [Protection],
+  { -- | The array of enabled 'Protection' objects.
+    protections :: Lude.Maybe [Protection],
+    -- | If you specify a value for @MaxResults@ and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.
+    --
+    -- Shield Advanced might return the list of 'Protection' objects in batches smaller than the number specified by MaxResults. If there are more 'Protection' objects to return, Shield Advanced will always also return a @NextToken@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListProtectionsResponse' with the minimum fields required to make a request.
 --
+-- * 'protections' - The array of enabled 'Protection' objects.
 -- * 'nextToken' - If you specify a value for @MaxResults@ and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.
 --
 -- Shield Advanced might return the list of 'Protection' objects in batches smaller than the number specified by MaxResults. If there are more 'Protection' objects to return, Shield Advanced will always also return a @NextToken@ .
--- * 'protections' - The array of enabled 'Protection' objects.
 -- * 'responseStatus' - The response status code.
 mkListProtectionsResponse ::
   -- | 'responseStatus'

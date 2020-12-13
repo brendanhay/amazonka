@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEncryptionAtRest' smart constructor.
 data EncryptionAtRest = EncryptionAtRest'
-  { sseAWSKMSKeyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS KMS key to use for encryption at rest.
+    sseAWSKMSKeyId :: Lude.Maybe Lude.Text,
+    -- | The encryption-at-rest mode for encrypting Data Catalog data.
     catalogEncryptionMode :: CatalogEncryptionMode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EncryptionAtRest' with the minimum fields required to make a request.
 --
--- * 'catalogEncryptionMode' - The encryption-at-rest mode for encrypting Data Catalog data.
 -- * 'sseAWSKMSKeyId' - The ID of the AWS KMS key to use for encryption at rest.
+-- * 'catalogEncryptionMode' - The encryption-at-rest mode for encrypting Data Catalog data.
 mkEncryptionAtRest ::
   -- | 'catalogEncryptionMode'
   CatalogEncryptionMode ->

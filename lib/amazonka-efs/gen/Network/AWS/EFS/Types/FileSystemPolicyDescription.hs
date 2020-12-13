@@ -27,17 +27,12 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkFileSystemPolicyDescription' smart constructor.
 data FileSystemPolicyDescription = FileSystemPolicyDescription'
-  { fileSystemId ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
+    fileSystemId :: Lude.Maybe Lude.Text,
+    -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
     policy :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FileSystemPolicyDescription' with the minimum fields required to make a request.

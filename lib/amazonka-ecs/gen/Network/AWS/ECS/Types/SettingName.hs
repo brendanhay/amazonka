@@ -13,11 +13,11 @@
 module Network.AWS.ECS.Types.SettingName
   ( SettingName
       ( SettingName',
-        SNAWSvpcTrunking,
-        SNContainerInsights,
-        SNContainerInstanceLongARNFormat,
-        SNServiceLongARNFormat,
-        SNTaskLongARNFormat
+        ServiceLongARNFormat,
+        TaskLongARNFormat,
+        ContainerInstanceLongARNFormat,
+        AWSvpcTrunking,
+        ContainerInsights
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype SettingName = SettingName' Lude.Text
       Lude.ToHeader
     )
 
-pattern SNAWSvpcTrunking :: SettingName
-pattern SNAWSvpcTrunking = SettingName' "awsvpcTrunking"
+pattern ServiceLongARNFormat :: SettingName
+pattern ServiceLongARNFormat = SettingName' "serviceLongArnFormat"
 
-pattern SNContainerInsights :: SettingName
-pattern SNContainerInsights = SettingName' "containerInsights"
+pattern TaskLongARNFormat :: SettingName
+pattern TaskLongARNFormat = SettingName' "taskLongArnFormat"
 
-pattern SNContainerInstanceLongARNFormat :: SettingName
-pattern SNContainerInstanceLongARNFormat = SettingName' "containerInstanceLongArnFormat"
+pattern ContainerInstanceLongARNFormat :: SettingName
+pattern ContainerInstanceLongARNFormat = SettingName' "containerInstanceLongArnFormat"
 
-pattern SNServiceLongARNFormat :: SettingName
-pattern SNServiceLongARNFormat = SettingName' "serviceLongArnFormat"
+pattern AWSvpcTrunking :: SettingName
+pattern AWSvpcTrunking = SettingName' "awsvpcTrunking"
 
-pattern SNTaskLongARNFormat :: SettingName
-pattern SNTaskLongARNFormat = SettingName' "taskLongArnFormat"
+pattern ContainerInsights :: SettingName
+pattern ContainerInsights = SettingName' "containerInsights"
 
 {-# COMPLETE
-  SNAWSvpcTrunking,
-  SNContainerInsights,
-  SNContainerInstanceLongARNFormat,
-  SNServiceLongARNFormat,
-  SNTaskLongARNFormat,
+  ServiceLongARNFormat,
+  TaskLongARNFormat,
+  ContainerInstanceLongARNFormat,
+  AWSvpcTrunking,
+  ContainerInsights,
   SettingName'
   #-}

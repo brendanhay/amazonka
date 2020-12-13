@@ -33,33 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGlobalReplicationGroupMember' smart constructor.
 data GlobalReplicationGroupMember = GlobalReplicationGroupMember'
-  { status ::
-      Lude.Maybe Lude.Text,
-    replicationGroupRegion ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the membership of the replication group.
+    status :: Lude.Maybe Lude.Text,
+    -- | The AWS region of the Global Datastore member.
+    replicationGroupRegion :: Lude.Maybe Lude.Text,
+    -- | Indicates the role of the replication group, primary or secondary.
     role' :: Lude.Maybe Lude.Text,
-    replicationGroupId ::
-      Lude.Maybe Lude.Text,
-    automaticFailover ::
-      Lude.Maybe
-        AutomaticFailoverStatus
+    -- | The replication group id of the Global Datastore member.
+    replicationGroupId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether automatic failover is enabled for the replication group.
+    automaticFailover :: Lude.Maybe AutomaticFailoverStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GlobalReplicationGroupMember' with the minimum fields required to make a request.
 --
--- * 'automaticFailover' - Indicates whether automatic failover is enabled for the replication group.
--- * 'replicationGroupId' - The replication group id of the Global Datastore member.
+-- * 'status' - The status of the membership of the replication group.
 -- * 'replicationGroupRegion' - The AWS region of the Global Datastore member.
 -- * 'role'' - Indicates the role of the replication group, primary or secondary.
--- * 'status' - The status of the membership of the replication group.
+-- * 'replicationGroupId' - The replication group id of the Global Datastore member.
+-- * 'automaticFailover' - Indicates whether automatic failover is enabled for the replication group.
 mkGlobalReplicationGroupMember ::
   GlobalReplicationGroupMember
 mkGlobalReplicationGroupMember =

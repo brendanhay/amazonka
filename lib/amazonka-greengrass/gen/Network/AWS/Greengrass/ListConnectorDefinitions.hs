@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Greengrass.ListConnectorDefinitions
     mkListConnectorDefinitions,
 
     -- ** Request lenses
-    lNextToken,
-    lMaxResults,
+    lcdNextToken,
+    lcdMaxResults,
 
     -- * Destructuring the response
     ListConnectorDefinitionsResponse (..),
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListConnectorDefinitions' smart constructor.
 data ListConnectorDefinitions = ListConnectorDefinitions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to be returned per request.
     maxResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConnectorDefinitions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to be returned per request.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListConnectorDefinitions ::
   ListConnectorDefinitions
 mkListConnectorDefinitions =
@@ -72,16 +68,16 @@ mkListConnectorDefinitions =
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListConnectorDefinitions (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListConnectorDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConnectorDefinitions)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcdNextToken :: Lens.Lens' ListConnectorDefinitions (Lude.Maybe Lude.Text)
+lcdNextToken = Lens.lens (nextToken :: ListConnectorDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConnectorDefinitions)
+{-# DEPRECATED lcdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMaxResults :: Lens.Lens' ListConnectorDefinitions (Lude.Maybe Lude.Text)
-lMaxResults = Lens.lens (maxResults :: ListConnectorDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListConnectorDefinitions)
-{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lcdMaxResults :: Lens.Lens' ListConnectorDefinitions (Lude.Maybe Lude.Text)
+lcdMaxResults = Lens.lens (maxResults :: ListConnectorDefinitions -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListConnectorDefinitions)
+{-# DEPRECATED lcdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListConnectorDefinitions where
   page rq rs
@@ -90,7 +86,7 @@ instance Page.AWSPager ListConnectorDefinitions where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lNextToken Lens..~ rs Lens.^. lrsNextToken
+          Lude.& lcdNextToken Lens..~ rs Lens.^. lrsNextToken
 
 instance Lude.AWSRequest ListConnectorDefinitions where
   type Rs ListConnectorDefinitions = ListConnectorDefinitionsResponse
@@ -123,27 +119,20 @@ instance Lude.ToQuery ListConnectorDefinitions where
 
 -- | /See:/ 'mkListConnectorDefinitionsResponse' smart constructor.
 data ListConnectorDefinitionsResponse = ListConnectorDefinitionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    definitions ::
-      Lude.Maybe
-        [DefinitionInformation],
-    responseStatus ::
-      Lude.Int
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about a definition.
+    definitions :: Lude.Maybe [DefinitionInformation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListConnectorDefinitionsResponse' with the minimum fields required to make a request.
 --
--- * 'definitions' - Information about a definition.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'definitions' - Information about a definition.
 -- * 'responseStatus' - The response status code.
 mkListConnectorDefinitionsResponse ::
   -- | 'responseStatus'

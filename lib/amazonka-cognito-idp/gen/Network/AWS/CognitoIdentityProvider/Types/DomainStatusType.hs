@@ -13,11 +13,11 @@
 module Network.AWS.CognitoIdentityProvider.Types.DomainStatusType
   ( DomainStatusType
       ( DomainStatusType',
-        DSTActive,
         DSTCreating,
         DSTDeleting,
-        DSTFailed,
-        DSTUpdating
+        DSTUpdating,
+        DSTActive,
+        DSTFailed
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype DomainStatusType = DomainStatusType' Lude.Text
       Lude.ToHeader
     )
 
-pattern DSTActive :: DomainStatusType
-pattern DSTActive = DomainStatusType' "ACTIVE"
-
 pattern DSTCreating :: DomainStatusType
 pattern DSTCreating = DomainStatusType' "CREATING"
 
 pattern DSTDeleting :: DomainStatusType
 pattern DSTDeleting = DomainStatusType' "DELETING"
 
-pattern DSTFailed :: DomainStatusType
-pattern DSTFailed = DomainStatusType' "FAILED"
-
 pattern DSTUpdating :: DomainStatusType
 pattern DSTUpdating = DomainStatusType' "UPDATING"
 
+pattern DSTActive :: DomainStatusType
+pattern DSTActive = DomainStatusType' "ACTIVE"
+
+pattern DSTFailed :: DomainStatusType
+pattern DSTFailed = DomainStatusType' "FAILED"
+
 {-# COMPLETE
-  DSTActive,
   DSTCreating,
   DSTDeleting,
-  DSTFailed,
   DSTUpdating,
+  DSTActive,
+  DSTFailed,
   DomainStatusType'
   #-}

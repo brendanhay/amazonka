@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,11 +24,11 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     mkDescribeSnapshotCopyGrants,
 
     -- ** Request lenses
-    dscgsTagValues,
-    dscgsTagKeys,
-    dscgsMarker,
-    dscgsMaxRecords,
-    dscgsSnapshotCopyGrantName,
+    dscgTagValues,
+    dscgTagKeys,
+    dscgMarker,
+    dscgMaxRecords,
+    dscgSnapshotCopyGrantName,
 
     -- * Destructuring the response
     DescribeSnapshotCopyGrantsResponse (..),
@@ -51,25 +52,29 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeSnapshotCopyGrants' smart constructor.
 data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
-  { tagValues ::
-      Lude.Maybe [Lude.Text],
+  { -- | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
+    tagValues :: Lude.Maybe [Lude.Text],
+    -- | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
     tagKeys :: Lude.Maybe [Lude.Text],
+    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a @DescribeSnapshotCopyGrant@ request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    --
+    -- Constraints: You can specify either the __SnapshotCopyGrantName__ parameter or the __Marker__ parameter, but not both.
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
+    --
+    -- Default: @100@
+    -- Constraints: minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int,
-    snapshotCopyGrantName ::
-      Lude.Maybe Lude.Text
+    -- | The name of the snapshot copy grant.
+    snapshotCopyGrantName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotCopyGrants' with the minimum fields required to make a request.
 --
+-- * 'tagValues' - A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
+-- * 'tagKeys' - A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
 -- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a @DescribeSnapshotCopyGrant@ request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- Constraints: You can specify either the __SnapshotCopyGrantName__ parameter or the __Marker__ parameter, but not both.
@@ -78,8 +83,6 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
 -- Default: @100@
 -- Constraints: minimum 20, maximum 100.
 -- * 'snapshotCopyGrantName' - The name of the snapshot copy grant.
--- * 'tagKeys' - A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
--- * 'tagValues' - A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
 mkDescribeSnapshotCopyGrants ::
   DescribeSnapshotCopyGrants
 mkDescribeSnapshotCopyGrants =
@@ -94,25 +97,25 @@ mkDescribeSnapshotCopyGrants =
 -- | A tag value or values for which you want to return all matching resources that are associated with the specified value or values. For example, suppose that you have resources tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with all resources that have either or both of these tag values associated with them.
 --
 -- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscgsTagValues :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe [Lude.Text])
-dscgsTagValues = Lens.lens (tagValues :: DescribeSnapshotCopyGrants -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeSnapshotCopyGrants)
-{-# DEPRECATED dscgsTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
+dscgTagValues :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe [Lude.Text])
+dscgTagValues = Lens.lens (tagValues :: DescribeSnapshotCopyGrants -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeSnapshotCopyGrants)
+{-# DEPRECATED dscgTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
 
 -- | A tag key or keys for which you want to return all matching resources that are associated with the specified key or keys. For example, suppose that you have resources tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with all resources that have either or both of these tag keys associated with them.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscgsTagKeys :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe [Lude.Text])
-dscgsTagKeys = Lens.lens (tagKeys :: DescribeSnapshotCopyGrants -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeSnapshotCopyGrants)
-{-# DEPRECATED dscgsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+dscgTagKeys :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe [Lude.Text])
+dscgTagKeys = Lens.lens (tagKeys :: DescribeSnapshotCopyGrants -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeSnapshotCopyGrants)
+{-# DEPRECATED dscgTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a @DescribeSnapshotCopyGrant@ request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- Constraints: You can specify either the __SnapshotCopyGrantName__ parameter or the __Marker__ parameter, but not both.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscgsMarker :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe Lude.Text)
-dscgsMarker = Lens.lens (marker :: DescribeSnapshotCopyGrants -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSnapshotCopyGrants)
-{-# DEPRECATED dscgsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dscgMarker :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe Lude.Text)
+dscgMarker = Lens.lens (marker :: DescribeSnapshotCopyGrants -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSnapshotCopyGrants)
+{-# DEPRECATED dscgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
@@ -120,16 +123,16 @@ dscgsMarker = Lens.lens (marker :: DescribeSnapshotCopyGrants -> Lude.Maybe Lude
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscgsMaxRecords :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe Lude.Int)
-dscgsMaxRecords = Lens.lens (maxRecords :: DescribeSnapshotCopyGrants -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeSnapshotCopyGrants)
-{-# DEPRECATED dscgsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dscgMaxRecords :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe Lude.Int)
+dscgMaxRecords = Lens.lens (maxRecords :: DescribeSnapshotCopyGrants -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeSnapshotCopyGrants)
+{-# DEPRECATED dscgMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The name of the snapshot copy grant.
 --
 -- /Note:/ Consider using 'snapshotCopyGrantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscgsSnapshotCopyGrantName :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe Lude.Text)
-dscgsSnapshotCopyGrantName = Lens.lens (snapshotCopyGrantName :: DescribeSnapshotCopyGrants -> Lude.Maybe Lude.Text) (\s a -> s {snapshotCopyGrantName = a} :: DescribeSnapshotCopyGrants)
-{-# DEPRECATED dscgsSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
+dscgSnapshotCopyGrantName :: Lens.Lens' DescribeSnapshotCopyGrants (Lude.Maybe Lude.Text)
+dscgSnapshotCopyGrantName = Lens.lens (snapshotCopyGrantName :: DescribeSnapshotCopyGrants -> Lude.Maybe Lude.Text) (\s a -> s {snapshotCopyGrantName = a} :: DescribeSnapshotCopyGrants)
+{-# DEPRECATED dscgSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
 
 instance Page.AWSPager DescribeSnapshotCopyGrants where
   page rq rs
@@ -138,7 +141,7 @@ instance Page.AWSPager DescribeSnapshotCopyGrants where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dscgsMarker Lens..~ rs Lens.^. dscgrsMarker
+          Lude.& dscgMarker Lens..~ rs Lens.^. dscgrsMarker
 
 instance Lude.AWSRequest DescribeSnapshotCopyGrants where
   type
@@ -182,30 +185,25 @@ instance Lude.ToQuery DescribeSnapshotCopyGrants where
 --
 -- /See:/ 'mkDescribeSnapshotCopyGrantsResponse' smart constructor.
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
-  { snapshotCopyGrants ::
-      Lude.Maybe
-        [SnapshotCopyGrant],
-    marker ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The list of @SnapshotCopyGrant@ objects.
+    snapshotCopyGrants :: Lude.Maybe [SnapshotCopyGrant],
+    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a @DescribeSnapshotCopyGrant@ request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    --
+    -- Constraints: You can specify either the __SnapshotCopyGrantName__ parameter or the __Marker__ parameter, but not both.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSnapshotCopyGrantsResponse' with the minimum fields required to make a request.
 --
+-- * 'snapshotCopyGrants' - The list of @SnapshotCopyGrant@ objects.
 -- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a @DescribeSnapshotCopyGrant@ request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- Constraints: You can specify either the __SnapshotCopyGrantName__ parameter or the __Marker__ parameter, but not both.
 -- * 'responseStatus' - The response status code.
--- * 'snapshotCopyGrants' - The list of @SnapshotCopyGrant@ objects.
 mkDescribeSnapshotCopyGrantsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

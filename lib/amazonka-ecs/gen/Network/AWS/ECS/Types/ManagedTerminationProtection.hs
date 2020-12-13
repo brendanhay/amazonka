@@ -13,8 +13,8 @@
 module Network.AWS.ECS.Types.ManagedTerminationProtection
   ( ManagedTerminationProtection
       ( ManagedTerminationProtection',
-        MTPDisabled,
-        MTPEnabled
+        MTPEnabled,
+        MTPDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ManagedTerminationProtection = ManagedTerminationProtection' Lude.Text
       Lude.ToHeader
     )
 
-pattern MTPDisabled :: ManagedTerminationProtection
-pattern MTPDisabled = ManagedTerminationProtection' "DISABLED"
-
 pattern MTPEnabled :: ManagedTerminationProtection
 pattern MTPEnabled = ManagedTerminationProtection' "ENABLED"
 
+pattern MTPDisabled :: ManagedTerminationProtection
+pattern MTPDisabled = ManagedTerminationProtection' "DISABLED"
+
 {-# COMPLETE
-  MTPDisabled,
   MTPEnabled,
+  MTPDisabled,
   ManagedTerminationProtection'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,30 +50,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDiscoverInputSchema' smart constructor.
 data DiscoverInputSchema = DiscoverInputSchema'
-  { inputStartingPositionConfiguration ::
-      Lude.Maybe InputStartingPositionConfiguration,
-    inputProcessingConfiguration ::
-      Lude.Maybe InputProcessingConfiguration,
+  { -- | Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
+    inputStartingPositionConfiguration :: Lude.Maybe InputStartingPositionConfiguration,
+    -- | The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> to use to preprocess the records before discovering the schema of the records.
+    inputProcessingConfiguration :: Lude.Maybe InputProcessingConfiguration,
+    -- | Specify this parameter to discover a schema from data in an Amazon S3 object.
     s3Configuration :: Lude.Maybe S3Configuration,
+    -- | Amazon Resource Name (ARN) of the streaming source.
     resourceARN :: Lude.Maybe Lude.Text,
+    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiscoverInputSchema' with the minimum fields required to make a request.
 --
--- * 'inputProcessingConfiguration' - The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> to use to preprocess the records before discovering the schema of the records.
 -- * 'inputStartingPositionConfiguration' - Point at which you want Amazon Kinesis Analytics to start reading records from the specified streaming source discovery purposes.
+-- * 'inputProcessingConfiguration' - The <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration> to use to preprocess the records before discovering the schema of the records.
+-- * 's3Configuration' - Specify this parameter to discover a schema from data in an Amazon S3 object.
 -- * 'resourceARN' - Amazon Resource Name (ARN) of the streaming source.
 -- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf.
--- * 's3Configuration' - Specify this parameter to discover a schema from data in an Amazon S3 object.
 mkDiscoverInputSchema ::
   DiscoverInputSchema
 mkDiscoverInputSchema =
@@ -171,31 +169,26 @@ instance Lude.ToQuery DiscoverInputSchema where
 --
 -- /See:/ 'mkDiscoverInputSchemaResponse' smart constructor.
 data DiscoverInputSchemaResponse = DiscoverInputSchemaResponse'
-  { rawInputRecords ::
-      Lude.Maybe [Lude.Text],
-    inputSchema ::
-      Lude.Maybe SourceSchema,
-    processedInputRecords ::
-      Lude.Maybe [Lude.Text],
-    parsedInputRecords ::
-      Lude.Maybe [[Lude.Text]],
+  { -- | Raw stream data that was sampled to infer the schema.
+    rawInputRecords :: Lude.Maybe [Lude.Text],
+    -- | Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
+    inputSchema :: Lude.Maybe SourceSchema,
+    -- | Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
+    processedInputRecords :: Lude.Maybe [Lude.Text],
+    -- | An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
+    parsedInputRecords :: Lude.Maybe [[Lude.Text]],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DiscoverInputSchemaResponse' with the minimum fields required to make a request.
 --
--- * 'inputSchema' - Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
--- * 'parsedInputRecords' - An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
--- * 'processedInputRecords' - Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
 -- * 'rawInputRecords' - Raw stream data that was sampled to infer the schema.
+-- * 'inputSchema' - Schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
+-- * 'processedInputRecords' - Stream data that was modified by the processor specified in the @InputProcessingConfiguration@ parameter.
+-- * 'parsedInputRecords' - An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
 -- * 'responseStatus' - The response status code.
 mkDiscoverInputSchemaResponse ::
   -- | 'responseStatus'

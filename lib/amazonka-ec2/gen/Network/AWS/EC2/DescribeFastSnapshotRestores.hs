@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,25 +47,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeFastSnapshotRestores' smart constructor.
 data DescribeFastSnapshotRestores = DescribeFastSnapshotRestores'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | The filters. The possible values are:
+    --
+    --
+    --     * @availability-zone@ : The Availability Zone of the snapshot.
+    --
+    --
+    --     * @owner-id@ : The ID of the AWS account that enabled fast snapshot restore on the snapshot.
+    --
+    --
+    --     * @snapshot-id@ : The ID of the snapshot.
+    --
+    --
+    --     * @state@ : The state of fast snapshot restores for the snapshot (@enabling@ | @optimizing@ | @enabled@ | @disabling@ | @disabled@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFastSnapshotRestores' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters. The possible values are:
 --
 --
@@ -80,8 +88,9 @@ data DescribeFastSnapshotRestores = DescribeFastSnapshotRestores'
 --     * @state@ : The state of fast snapshot restores for the snapshot (@enabling@ | @optimizing@ | @enabled@ | @disabling@ | @disabled@ ).
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeFastSnapshotRestores ::
   DescribeFastSnapshotRestores
 mkDescribeFastSnapshotRestores =
@@ -179,22 +188,14 @@ instance Lude.ToQuery DescribeFastSnapshotRestores where
 
 -- | /See:/ 'mkDescribeFastSnapshotRestoresResponse' smart constructor.
 data DescribeFastSnapshotRestoresResponse = DescribeFastSnapshotRestoresResponse'
-  { fastSnapshotRestores ::
-      Lude.Maybe
-        [DescribeFastSnapshotRestoreSuccessItem],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the state of fast snapshot restores.
+    fastSnapshotRestores :: Lude.Maybe [DescribeFastSnapshotRestoreSuccessItem],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFastSnapshotRestoresResponse' with the minimum fields required to make a request.

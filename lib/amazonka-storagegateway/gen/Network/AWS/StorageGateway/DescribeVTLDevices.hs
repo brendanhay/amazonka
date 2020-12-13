@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +24,10 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     mkDescribeVTLDevices,
 
     -- ** Request lenses
+    dvtldGatewayARN,
     dvtldMarker,
     dvtldLimit,
     dvtldVTLDeviceARNs,
-    dvtldGatewayARN,
 
     -- * Destructuring the response
     DescribeVTLDevicesResponse (..),
@@ -51,26 +52,22 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeVTLDevices' smart constructor.
 data DescribeVTLDevices = DescribeVTLDevices'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { gatewayARN :: Lude.Text,
+    -- | An opaque string that indicates the position at which to begin describing the VTL devices.
+    marker :: Lude.Maybe Lude.Text,
+    -- | Specifies that the number of VTL devices described be limited to the specified number.
     limit :: Lude.Maybe Lude.Natural,
-    vTLDeviceARNs :: Lude.Maybe [Lude.Text],
-    gatewayARN :: Lude.Text
+    -- | An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
+    vTLDeviceARNs :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVTLDevices' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
--- * 'limit' - Specifies that the number of VTL devices described be limited to the specified number.
+-- * 'gatewayARN' -
 -- * 'marker' - An opaque string that indicates the position at which to begin describing the VTL devices.
+-- * 'limit' - Specifies that the number of VTL devices described be limited to the specified number.
 -- * 'vTLDeviceARNs' - An array of strings, where each string represents the Amazon Resource Name (ARN) of a VTL device.
 mkDescribeVTLDevices ::
   -- | 'gatewayARN'
@@ -78,11 +75,18 @@ mkDescribeVTLDevices ::
   DescribeVTLDevices
 mkDescribeVTLDevices pGatewayARN_ =
   DescribeVTLDevices'
-    { marker = Lude.Nothing,
+    { gatewayARN = pGatewayARN_,
+      marker = Lude.Nothing,
       limit = Lude.Nothing,
-      vTLDeviceARNs = Lude.Nothing,
-      gatewayARN = pGatewayARN_
+      vTLDeviceARNs = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvtldGatewayARN :: Lens.Lens' DescribeVTLDevices Lude.Text
+dvtldGatewayARN = Lens.lens (gatewayARN :: DescribeVTLDevices -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeVTLDevices)
+{-# DEPRECATED dvtldGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An opaque string that indicates the position at which to begin describing the VTL devices.
 --
@@ -104,13 +108,6 @@ dvtldLimit = Lens.lens (limit :: DescribeVTLDevices -> Lude.Maybe Lude.Natural) 
 dvtldVTLDeviceARNs :: Lens.Lens' DescribeVTLDevices (Lude.Maybe [Lude.Text])
 dvtldVTLDeviceARNs = Lens.lens (vTLDeviceARNs :: DescribeVTLDevices -> Lude.Maybe [Lude.Text]) (\s a -> s {vTLDeviceARNs = a} :: DescribeVTLDevices)
 {-# DEPRECATED dvtldVTLDeviceARNs "Use generic-lens or generic-optics with 'vTLDeviceARNs' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvtldGatewayARN :: Lens.Lens' DescribeVTLDevices Lude.Text
-dvtldGatewayARN = Lens.lens (gatewayARN :: DescribeVTLDevices -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeVTLDevices)
-{-# DEPRECATED dvtldGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 instance Page.AWSPager DescribeVTLDevices where
   page rq rs
@@ -149,10 +146,10 @@ instance Lude.ToJSON DescribeVTLDevices where
   toJSON DescribeVTLDevices' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
+          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            ("Marker" Lude..=) Lude.<$> marker,
             ("Limit" Lude..=) Lude.<$> limit,
-            ("VTLDeviceARNs" Lude..=) Lude.<$> vTLDeviceARNs,
-            Lude.Just ("GatewayARN" Lude..= gatewayARN)
+            ("VTLDeviceARNs" Lude..=) Lude.<$> vTLDeviceARNs
           ]
       )
 
@@ -166,27 +163,23 @@ instance Lude.ToQuery DescribeVTLDevices where
 --
 -- /See:/ 'mkDescribeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-  { vTLDevices ::
-      Lude.Maybe [VTLDevice],
+  { -- | An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
+    vTLDevices :: Lude.Maybe [VTLDevice],
     gatewayARN :: Lude.Maybe Lude.Text,
+    -- | An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVTLDevicesResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'vTLDevices' - An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
+-- * 'gatewayARN' -
 -- * 'marker' - An opaque string that indicates the position at which the VTL devices that were fetched for description ended. Use the marker in your next request to fetch the next set of VTL devices in the list. If there are no more VTL devices to describe, this field does not appear in the response.
 -- * 'responseStatus' - The response status code.
--- * 'vTLDevices' - An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.
 mkDescribeVTLDevicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

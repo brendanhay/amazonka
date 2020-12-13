@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,14 +41,11 @@ import qualified Network.AWS.Response as Res
 import Network.AWS.SES.Types
 
 -- | /See:/ 'mkGetTemplate' smart constructor.
-newtype GetTemplate = GetTemplate' {templateName :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype GetTemplate = GetTemplate'
+  { -- | The name of the template you want to retrieve.
+    templateName :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTemplate' with the minimum fields required to make a request.
@@ -94,23 +92,17 @@ instance Lude.ToQuery GetTemplate where
 
 -- | /See:/ 'mkGetTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { template ::
-      Lude.Maybe Template,
+  { template :: Lude.Maybe Template,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTemplateResponse' with the minimum fields required to make a request.
 --
+-- * 'template' -
 -- * 'responseStatus' - The response status code.
--- * 'template' - Undocumented field.
 mkGetTemplateResponse ::
   -- | 'responseStatus'
   Lude.Int ->

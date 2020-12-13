@@ -13,8 +13,8 @@
 module Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
   ( PendingAutomaticFailoverStatus
       ( PendingAutomaticFailoverStatus',
-        PAFSDisabled,
-        PAFSEnabled
+        PAFSEnabled,
+        PAFSDisabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PendingAutomaticFailoverStatus = PendingAutomaticFailoverStatus' Lude.Te
       Lude.ToHeader
     )
 
-pattern PAFSDisabled :: PendingAutomaticFailoverStatus
-pattern PAFSDisabled = PendingAutomaticFailoverStatus' "disabled"
-
 pattern PAFSEnabled :: PendingAutomaticFailoverStatus
 pattern PAFSEnabled = PendingAutomaticFailoverStatus' "enabled"
 
+pattern PAFSDisabled :: PendingAutomaticFailoverStatus
+pattern PAFSDisabled = PendingAutomaticFailoverStatus' "disabled"
+
 {-# COMPLETE
-  PAFSDisabled,
   PAFSEnabled,
+  PAFSDisabled,
   PendingAutomaticFailoverStatus'
   #-}

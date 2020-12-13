@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { violatorCount ::
-      Lude.Maybe Lude.Natural,
+  { -- | The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
+    violatorCount :: Lude.Maybe Lude.Natural,
+    -- | Describes an AWS account's compliance with the AWS Firewall Manager policy.
     complianceStatus :: Lude.Maybe PolicyComplianceStatusType,
+    -- | Indicates that over 100 resources are noncompliant with the AWS Firewall Manager policy.
     evaluationLimitExceeded :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EvaluationResult' with the minimum fields required to make a request.
 --
+-- * 'violatorCount' - The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
 -- * 'complianceStatus' - Describes an AWS account's compliance with the AWS Firewall Manager policy.
 -- * 'evaluationLimitExceeded' - Indicates that over 100 resources are noncompliant with the AWS Firewall Manager policy.
--- * 'violatorCount' - The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible.
 mkEvaluationResult ::
   EvaluationResult
 mkEvaluationResult =

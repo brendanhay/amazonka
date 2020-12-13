@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,28 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListServices' smart constructor.
 data ListServices = ListServices'
-  { cluster :: Lude.Maybe Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Lude.Maybe Lude.Text,
+    -- | The @nextToken@ value returned from a @ListServices@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The launch type for the services to list.
     launchType :: Lude.Maybe LaunchType,
+    -- | The scheduling strategy for services to list.
     schedulingStrategy :: Lude.Maybe SchedulingStrategy,
+    -- | The maximum number of service results returned by @ListServices@ in paginated output. When this parameter is used, @ListServices@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListServices@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListServices@ returns up to 10 results and a @nextToken@ value if applicable.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServices' with the minimum fields required to make a request.
 --
 -- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services to list. If you do not specify a cluster, the default cluster is assumed.
--- * 'launchType' - The launch type for the services to list.
--- * 'maxResults' - The maximum number of service results returned by @ListServices@ in paginated output. When this parameter is used, @ListServices@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListServices@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListServices@ returns up to 10 results and a @nextToken@ value if applicable.
 -- * 'nextToken' - The @nextToken@ value returned from a @ListServices@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+-- * 'launchType' - The launch type for the services to list.
 -- * 'schedulingStrategy' - The scheduling strategy for services to list.
+-- * 'maxResults' - The maximum number of service results returned by @ListServices@ in paginated output. When this parameter is used, @ListServices@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListServices@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListServices@ returns up to 10 results and a @nextToken@ value if applicable.
 mkListServices ::
   ListServices
 mkListServices =
@@ -169,25 +169,21 @@ instance Lude.ToQuery ListServices where
 
 -- | /See:/ 'mkListServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
-  { serviceARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The list of full ARN entries for each service associated with the specified cluster.
+    serviceARNs :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ value to include in a future @ListServices@ request. When the results of a @ListServices@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListServicesResponse' with the minimum fields required to make a request.
 --
+-- * 'serviceARNs' - The list of full ARN entries for each service associated with the specified cluster.
 -- * 'nextToken' - The @nextToken@ value to include in a future @ListServices@ request. When the results of a @ListServices@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'serviceARNs' - The list of full ARN entries for each service associated with the specified cluster.
 mkListServicesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

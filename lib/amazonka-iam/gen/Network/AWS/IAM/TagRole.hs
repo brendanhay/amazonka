@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,14 +49,15 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkTagRole' smart constructor.
-data TagRole = TagRole' {roleName :: Lude.Text, tags :: [Tag]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data TagRole = TagRole'
+  { -- | The name of the role that you want to add tags to.
+    --
+    -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Lude.Text,
+    -- | The list of tags that you want to attach to the role. Each tag consists of a key name and an associated value. You can specify this with a JSON string.
+    tags :: [Tag]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagRole' with the minimum fields required to make a request.
@@ -109,13 +111,7 @@ instance Lude.ToQuery TagRole where
 
 -- | /See:/ 'mkTagRoleResponse' smart constructor.
 data TagRoleResponse = TagRoleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TagRoleResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,25 +48,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeTransitGateways' smart constructor.
 data DescribeTransitGateways = DescribeTransitGateways'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | One or more filters. The possible values are:
+    --
+    --
+    --     * @options.propagation-default-route-table-id@ - The ID of the default propagation route table.
+    --
+    --
+    --     * @options.amazon-side-asn@ - The private ASN for the Amazon side of a BGP session.
+    --
+    --
+    --     * @options.association-default-route-table-id@ - The ID of the default association route table.
+    --
+    --
+    --     * @options.auto-accept-shared-attachments@ - Indicates whether there is automatic acceptance of attachment requests (@enable@ | @disable@ ).
+    --
+    --
+    --     * @options.default-route-table-association@ - Indicates whether resource attachments are automatically associated with the default association route table (@enable@ | @disable@ ).
+    --
+    --
+    --     * @options.default-route-table-propagation@ - Indicates whether resource attachments automatically propagate routes to the default propagation route table (@enable@ | @disable@ ).
+    --
+    --
+    --     * @options.dns-support@ - Indicates whether DNS support is enabled (@enable@ | @disable@ ).
+    --
+    --
+    --     * @options.vpn-ecmp-support@ - Indicates whether Equal Cost Multipath Protocol support is enabled (@enable@ | @disable@ ).
+    --
+    --
+    --     * @owner-id@ - The ID of the AWS account that owns the transit gateway.
+    --
+    --
+    --     * @state@ - The state of the transit gateway (@available@ | @deleted@ | @deleting@ | @modifying@ | @pending@ ).
+    --
+    --
+    --     * @transit-gateway-id@ - The ID of the transit gateway.
+    filters :: Lude.Maybe [Filter],
+    -- | The IDs of the transit gateways.
     transitGatewayIds :: Lude.Maybe [Lude.Text],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGateways' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. The possible values are:
 --
 --
@@ -102,9 +133,10 @@ data DescribeTransitGateways = DescribeTransitGateways'
 --     * @transit-gateway-id@ - The ID of the transit gateway.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
--- * 'nextToken' - The token for the next page of results.
 -- * 'transitGatewayIds' - The IDs of the transit gateways.
+-- * 'nextToken' - The token for the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeTransitGateways ::
   DescribeTransitGateways
 mkDescribeTransitGateways =
@@ -230,26 +262,21 @@ instance Lude.ToQuery DescribeTransitGateways where
 
 -- | /See:/ 'mkDescribeTransitGatewaysResponse' smart constructor.
 data DescribeTransitGatewaysResponse = DescribeTransitGatewaysResponse'
-  { transitGateways ::
-      Lude.Maybe [TransitGateway],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the transit gateways.
+    transitGateways :: Lude.Maybe [TransitGateway],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTransitGatewaysResponse' with the minimum fields required to make a request.
 --
+-- * 'transitGateways' - Information about the transit gateways.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'transitGateways' - Information about the transit gateways.
 mkDescribeTransitGatewaysResponse ::
   -- | 'responseStatus'
   Lude.Int ->

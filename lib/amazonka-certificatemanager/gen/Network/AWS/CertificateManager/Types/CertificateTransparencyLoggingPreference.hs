@@ -13,8 +13,8 @@
 module Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
   ( CertificateTransparencyLoggingPreference
       ( CertificateTransparencyLoggingPreference',
-        Disabled,
-        Enabled
+        Enabled,
+        Disabled
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CertificateTransparencyLoggingPreference = CertificateTransparencyLoggin
       Lude.ToHeader
     )
 
-pattern Disabled :: CertificateTransparencyLoggingPreference
-pattern Disabled = CertificateTransparencyLoggingPreference' "DISABLED"
-
 pattern Enabled :: CertificateTransparencyLoggingPreference
 pattern Enabled = CertificateTransparencyLoggingPreference' "ENABLED"
 
+pattern Disabled :: CertificateTransparencyLoggingPreference
+pattern Disabled = CertificateTransparencyLoggingPreference' "DISABLED"
+
 {-# COMPLETE
-  Disabled,
   Enabled,
+  Disabled,
   CertificateTransparencyLoggingPreference'
   #-}

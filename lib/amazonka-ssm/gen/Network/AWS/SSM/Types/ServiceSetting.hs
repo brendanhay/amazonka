@@ -36,30 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceSetting' smart constructor.
 data ServiceSetting = ServiceSetting'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status of the service setting. The value can be Default, Customized or PendingUpdate.
+    --
+    --
+    --     * Default: The current setting uses a default value provisioned by the AWS service team.
+    --
+    --
+    --     * Customized: The current setting use a custom value specified by the customer.
+    --
+    --
+    --     * PendingUpdate: The current setting uses a default or custom value, but a setting change request is pending approval.
+    status :: Lude.Maybe Lude.Text,
+    -- | The last time the service setting was modified.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the service setting.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ID of the service setting.
     settingId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the last modified user. This field is populated only if the setting value was overwritten.
     lastModifiedUser :: Lude.Maybe Lude.Text,
+    -- | The value of the service setting.
     settingValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceSetting' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the service setting.
--- * 'lastModifiedDate' - The last time the service setting was modified.
--- * 'lastModifiedUser' - The ARN of the last modified user. This field is populated only if the setting value was overwritten.
--- * 'settingId' - The ID of the service setting.
--- * 'settingValue' - The value of the service setting.
 -- * 'status' - The status of the service setting. The value can be Default, Customized or PendingUpdate.
 --
 --
@@ -70,6 +73,13 @@ data ServiceSetting = ServiceSetting'
 --
 --
 --     * PendingUpdate: The current setting uses a default or custom value, but a setting change request is pending approval.
+--
+--
+-- * 'lastModifiedDate' - The last time the service setting was modified.
+-- * 'arn' - The ARN of the service setting.
+-- * 'settingId' - The ID of the service setting.
+-- * 'lastModifiedUser' - The ARN of the last modified user. This field is populated only if the setting value was overwritten.
+-- * 'settingValue' - The value of the service setting.
 mkServiceSetting ::
   ServiceSetting
 mkServiceSetting =

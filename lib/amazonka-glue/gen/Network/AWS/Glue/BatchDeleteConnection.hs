@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Glue.BatchDeleteConnection
     mkBatchDeleteConnection,
 
     -- ** Request lenses
-    bdcCatalogId,
     bdcConnectionNameList,
+    bdcCatalogId,
 
     -- * Destructuring the response
     BatchDeleteConnectionResponse (..),
@@ -41,37 +42,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchDeleteConnection' smart constructor.
 data BatchDeleteConnection = BatchDeleteConnection'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
-    connectionNameList :: [Lude.Text]
+  { -- | A list of names of the connections to delete.
+    connectionNameList :: [Lude.Text],
+    -- | The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteConnection' with the minimum fields required to make a request.
 --
--- * 'catalogId' - The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
 -- * 'connectionNameList' - A list of names of the connections to delete.
+-- * 'catalogId' - The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
 mkBatchDeleteConnection ::
   BatchDeleteConnection
 mkBatchDeleteConnection =
   BatchDeleteConnection'
-    { catalogId = Lude.Nothing,
-      connectionNameList = Lude.mempty
+    { connectionNameList = Lude.mempty,
+      catalogId = Lude.Nothing
     }
-
--- | The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdcCatalogId :: Lens.Lens' BatchDeleteConnection (Lude.Maybe Lude.Text)
-bdcCatalogId = Lens.lens (catalogId :: BatchDeleteConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchDeleteConnection)
-{-# DEPRECATED bdcCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A list of names of the connections to delete.
 --
@@ -79,6 +68,13 @@ bdcCatalogId = Lens.lens (catalogId :: BatchDeleteConnection -> Lude.Maybe Lude.
 bdcConnectionNameList :: Lens.Lens' BatchDeleteConnection [Lude.Text]
 bdcConnectionNameList = Lens.lens (connectionNameList :: BatchDeleteConnection -> [Lude.Text]) (\s a -> s {connectionNameList = a} :: BatchDeleteConnection)
 {-# DEPRECATED bdcConnectionNameList "Use generic-lens or generic-optics with 'connectionNameList' instead." #-}
+
+-- | The ID of the Data Catalog in which the connections reside. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdcCatalogId :: Lens.Lens' BatchDeleteConnection (Lude.Maybe Lude.Text)
+bdcCatalogId = Lens.lens (catalogId :: BatchDeleteConnection -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchDeleteConnection)
+{-# DEPRECATED bdcCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 instance Lude.AWSRequest BatchDeleteConnection where
   type Rs BatchDeleteConnection = BatchDeleteConnectionResponse
@@ -107,8 +103,8 @@ instance Lude.ToJSON BatchDeleteConnection where
   toJSON BatchDeleteConnection' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("ConnectionNameList" Lude..= connectionNameList)
+          [ Lude.Just ("ConnectionNameList" Lude..= connectionNameList),
+            ("CatalogId" Lude..=) Lude.<$> catalogId
           ]
       )
 
@@ -120,30 +116,21 @@ instance Lude.ToQuery BatchDeleteConnection where
 
 -- | /See:/ 'mkBatchDeleteConnectionResponse' smart constructor.
 data BatchDeleteConnectionResponse = BatchDeleteConnectionResponse'
-  { succeeded ::
-      Lude.Maybe [Lude.Text],
-    errors ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (ErrorDetail)
-        ),
+  { -- | A list of names of the connection definitions that were successfully deleted.
+    succeeded :: Lude.Maybe [Lude.Text],
+    -- | A map of the names of connections that were not successfully deleted to error details.
+    errors :: Lude.Maybe (Lude.HashMap Lude.Text (ErrorDetail)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchDeleteConnectionResponse' with the minimum fields required to make a request.
 --
+-- * 'succeeded' - A list of names of the connection definitions that were successfully deleted.
 -- * 'errors' - A map of the names of connections that were not successfully deleted to error details.
 -- * 'responseStatus' - The response status code.
--- * 'succeeded' - A list of names of the connection definitions that were successfully deleted.
 mkBatchDeleteConnectionResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,11 +13,11 @@
 module Network.AWS.IoT.Types.TaskStatus
   ( TaskStatus
       ( TaskStatus',
-        TSCancelled,
-        TSCancelling,
-        TSCompleted,
-        TSFailed,
-        TSInProgress
+        InProgress,
+        Completed,
+        Failed,
+        Cancelled,
+        Cancelling
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype TaskStatus = TaskStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern TSCancelled :: TaskStatus
-pattern TSCancelled = TaskStatus' "Cancelled"
+pattern InProgress :: TaskStatus
+pattern InProgress = TaskStatus' "InProgress"
 
-pattern TSCancelling :: TaskStatus
-pattern TSCancelling = TaskStatus' "Cancelling"
+pattern Completed :: TaskStatus
+pattern Completed = TaskStatus' "Completed"
 
-pattern TSCompleted :: TaskStatus
-pattern TSCompleted = TaskStatus' "Completed"
+pattern Failed :: TaskStatus
+pattern Failed = TaskStatus' "Failed"
 
-pattern TSFailed :: TaskStatus
-pattern TSFailed = TaskStatus' "Failed"
+pattern Cancelled :: TaskStatus
+pattern Cancelled = TaskStatus' "Cancelled"
 
-pattern TSInProgress :: TaskStatus
-pattern TSInProgress = TaskStatus' "InProgress"
+pattern Cancelling :: TaskStatus
+pattern Cancelling = TaskStatus' "Cancelling"
 
 {-# COMPLETE
-  TSCancelled,
-  TSCancelling,
-  TSCompleted,
-  TSFailed,
-  TSInProgress,
+  InProgress,
+  Completed,
+  Failed,
+  Cancelled,
+  Cancelling,
   TaskStatus'
   #-}

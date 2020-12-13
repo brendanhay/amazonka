@@ -13,8 +13,8 @@
 module Network.AWS.CodeBuild.Types.ArtifactNamespace
   ( ArtifactNamespace
       ( ArtifactNamespace',
-        ANBuildId,
-        ANNone
+        ANNone,
+        ANBuildId
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ArtifactNamespace = ArtifactNamespace' Lude.Text
       Lude.ToHeader
     )
 
-pattern ANBuildId :: ArtifactNamespace
-pattern ANBuildId = ArtifactNamespace' "BUILD_ID"
-
 pattern ANNone :: ArtifactNamespace
 pattern ANNone = ArtifactNamespace' "NONE"
 
+pattern ANBuildId :: ArtifactNamespace
+pattern ANBuildId = ArtifactNamespace' "BUILD_ID"
+
 {-# COMPLETE
-  ANBuildId,
   ANNone,
+  ANBuildId,
   ArtifactNamespace'
   #-}

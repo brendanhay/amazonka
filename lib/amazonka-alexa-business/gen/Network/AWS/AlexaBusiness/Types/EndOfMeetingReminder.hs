@@ -31,20 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndOfMeetingReminder' smart constructor.
 data EndOfMeetingReminder = EndOfMeetingReminder'
-  { enabled ::
-      Lude.Maybe Lude.Bool,
-    reminderAtMinutes ::
-      Lude.Maybe (Lude.NonEmpty Lude.Int),
-    reminderType ::
-      Lude.Maybe EndOfMeetingReminderType
+  { -- | Whether an end of meeting reminder is enabled or not.
+    enabled :: Lude.Maybe Lude.Bool,
+    -- | A range of 3 to 15 minutes that determines when the reminder begins.
+    reminderAtMinutes :: Lude.Maybe (Lude.NonEmpty Lude.Int),
+    -- | The type of sound that users hear during the end of meeting reminder.
+    reminderType :: Lude.Maybe EndOfMeetingReminderType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndOfMeetingReminder' with the minimum fields required to make a request.

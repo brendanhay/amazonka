@@ -17,8 +17,8 @@ module Network.AWS.MechanicalTurk.Types.Locale
     mkLocale,
 
     -- * Lenses
-    lSubdivision,
     lCountry,
+    lSubdivision,
   )
 where
 
@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocale' smart constructor.
 data Locale = Locale'
-  { subdivision :: Lude.Maybe Lude.Text,
-    country :: Lude.Text
+  { -- | The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America.
+    country :: Lude.Text,
+    -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
+    subdivision :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Locale' with the minimum fields required to make a request.
@@ -50,14 +46,7 @@ mkLocale ::
   Lude.Text ->
   Locale
 mkLocale pCountry_ =
-  Locale' {subdivision = Lude.Nothing, country = pCountry_}
-
--- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
---
--- /Note:/ Consider using 'subdivision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lSubdivision :: Lens.Lens' Locale (Lude.Maybe Lude.Text)
-lSubdivision = Lens.lens (subdivision :: Locale -> Lude.Maybe Lude.Text) (\s a -> s {subdivision = a} :: Locale)
-{-# DEPRECATED lSubdivision "Use generic-lens or generic-optics with 'subdivision' instead." #-}
+  Locale' {country = pCountry_, subdivision = Lude.Nothing}
 
 -- | The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America.
 --
@@ -66,20 +55,27 @@ lCountry :: Lens.Lens' Locale Lude.Text
 lCountry = Lens.lens (country :: Locale -> Lude.Text) (\s a -> s {country = a} :: Locale)
 {-# DEPRECATED lCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
+-- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
+--
+-- /Note:/ Consider using 'subdivision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lSubdivision :: Lens.Lens' Locale (Lude.Maybe Lude.Text)
+lSubdivision = Lens.lens (subdivision :: Locale -> Lude.Maybe Lude.Text) (\s a -> s {subdivision = a} :: Locale)
+{-# DEPRECATED lSubdivision "Use generic-lens or generic-optics with 'subdivision' instead." #-}
+
 instance Lude.FromJSON Locale where
   parseJSON =
     Lude.withObject
       "Locale"
       ( \x ->
           Locale'
-            Lude.<$> (x Lude..:? "Subdivision") Lude.<*> (x Lude..: "Country")
+            Lude.<$> (x Lude..: "Country") Lude.<*> (x Lude..:? "Subdivision")
       )
 
 instance Lude.ToJSON Locale where
   toJSON Locale' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Subdivision" Lude..=) Lude.<$> subdivision,
-            Lude.Just ("Country" Lude..= country)
+          [ Lude.Just ("Country" Lude..= country),
+            ("Subdivision" Lude..=) Lude.<$> subdivision
           ]
       )

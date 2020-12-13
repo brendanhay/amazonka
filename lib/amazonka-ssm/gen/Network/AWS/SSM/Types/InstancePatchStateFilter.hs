@@ -17,8 +17,8 @@ module Network.AWS.SSM.Types.InstancePatchStateFilter
     mkInstancePatchStateFilter,
 
     -- * Lenses
-    ipsfKey,
     ipsfValues,
+    ipsfKey,
     ipsfType,
   )
 where
@@ -31,46 +31,35 @@ import Network.AWS.SSM.Types.InstancePatchStateOperatorType
 --
 -- /See:/ 'mkInstancePatchStateFilter' smart constructor.
 data InstancePatchStateFilter = InstancePatchStateFilter'
-  { key ::
-      Lude.Text,
+  { -- | The value for the filter, must be an integer greater than or equal to 0.
     values :: Lude.NonEmpty Lude.Text,
+    -- | The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
+    key :: Lude.Text,
+    -- | The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
     type' :: InstancePatchStateOperatorType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstancePatchStateFilter' with the minimum fields required to make a request.
 --
+-- * 'values' - The value for the filter, must be an integer greater than or equal to 0.
 -- * 'key' - The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
 -- * 'type'' - The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
--- * 'values' - The value for the filter, must be an integer greater than or equal to 0.
 mkInstancePatchStateFilter ::
-  -- | 'key'
-  Lude.Text ->
   -- | 'values'
   Lude.NonEmpty Lude.Text ->
+  -- | 'key'
+  Lude.Text ->
   -- | 'type''
   InstancePatchStateOperatorType ->
   InstancePatchStateFilter
-mkInstancePatchStateFilter pKey_ pValues_ pType_ =
+mkInstancePatchStateFilter pValues_ pKey_ pType_ =
   InstancePatchStateFilter'
-    { key = pKey_,
-      values = pValues_,
+    { values = pValues_,
+      key = pKey_,
       type' = pType_
     }
-
--- | The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipsfKey :: Lens.Lens' InstancePatchStateFilter Lude.Text
-ipsfKey = Lens.lens (key :: InstancePatchStateFilter -> Lude.Text) (\s a -> s {key = a} :: InstancePatchStateFilter)
-{-# DEPRECATED ipsfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The value for the filter, must be an integer greater than or equal to 0.
 --
@@ -78,6 +67,13 @@ ipsfKey = Lens.lens (key :: InstancePatchStateFilter -> Lude.Text) (\s a -> s {k
 ipsfValues :: Lens.Lens' InstancePatchStateFilter (Lude.NonEmpty Lude.Text)
 ipsfValues = Lens.lens (values :: InstancePatchStateFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: InstancePatchStateFilter)
 {-# DEPRECATED ipsfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+-- | The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ipsfKey :: Lens.Lens' InstancePatchStateFilter Lude.Text
+ipsfKey = Lens.lens (key :: InstancePatchStateFilter -> Lude.Text) (\s a -> s {key = a} :: InstancePatchStateFilter)
+{-# DEPRECATED ipsfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.
 --
@@ -90,8 +86,8 @@ instance Lude.ToJSON InstancePatchStateFilter where
   toJSON InstancePatchStateFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Key" Lude..= key),
-            Lude.Just ("Values" Lude..= values),
+          [ Lude.Just ("Values" Lude..= values),
+            Lude.Just ("Key" Lude..= key),
             Lude.Just ("Type" Lude..= type')
           ]
       )

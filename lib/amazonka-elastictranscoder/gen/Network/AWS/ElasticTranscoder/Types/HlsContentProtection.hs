@@ -33,40 +33,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsContentProtection' smart constructor.
 data HlsContentProtection = HlsContentProtection'
-  { keyMD5 ::
-      Lude.Maybe Lude.Text,
+  { -- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
+    --
+    -- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
+    keyMD5 :: Lude.Maybe Lude.Text,
+    -- | Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@ , @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
     keyStoragePolicy :: Lude.Maybe Lude.Text,
+    -- | If you want Elastic Transcoder to generate a key for you, leave this field blank.
+    --
+    -- If you choose to supply your own key, you must encrypt the key by using AWS KMS. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded:
+    -- @128@ , @192@ , or @256@ .
     key :: Lude.Maybe Lude.Text,
+    -- | The content protection method for your output. The only valid value is: @aes-128@ .
+    --
+    -- This value is written into the method attribute of the @EXT-X-KEY@ metadata tag in the output playlist.
     method :: Lude.Maybe Lude.Text,
+    -- | If Elastic Transcoder is generating your key for you, you must leave this field blank.
+    --
+    -- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
     initializationVector :: Lude.Maybe Lude.Text,
+    -- | The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
     licenseAcquisitionURL :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsContentProtection' with the minimum fields required to make a request.
 --
--- * 'initializationVector' - If Elastic Transcoder is generating your key for you, you must leave this field blank.
---
--- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
--- * 'key' - If you want Elastic Transcoder to generate a key for you, leave this field blank.
---
--- If you choose to supply your own key, you must encrypt the key by using AWS KMS. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded:
--- @128@ , @192@ , or @256@ .
 -- * 'keyMD5' - If Elastic Transcoder is generating your key for you, you must leave this field blank.
 --
 -- The MD5 digest of the key that you want Elastic Transcoder to use to encrypt your output file, and that you want Elastic Transcoder to use as a checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be exactly 16 bytes before being base64- encoded.
 -- * 'keyStoragePolicy' - Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@ , @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes your data key into the same bucket as the associated playlist.
--- * 'licenseAcquisitionURL' - The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
+-- * 'key' - If you want Elastic Transcoder to generate a key for you, leave this field blank.
+--
+-- If you choose to supply your own key, you must encrypt the key by using AWS KMS. The key must be base64-encoded, and it must be one of the following bit lengths before being base64-encoded:
+-- @128@ , @192@ , or @256@ .
 -- * 'method' - The content protection method for your output. The only valid value is: @aes-128@ .
 --
 -- This value is written into the method attribute of the @EXT-X-KEY@ metadata tag in the output playlist.
+-- * 'initializationVector' - If Elastic Transcoder is generating your key for you, you must leave this field blank.
+--
+-- The series of random bits created by a random bit generator, unique for every encryption operation, that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded, and it must be exactly 16 bytes before being base64-encoded.
+-- * 'licenseAcquisitionURL' - The location of the license key required to decrypt your HLS playlist. The URL must be an absolute path, and is referenced in the URI attribute of the EXT-X-KEY metadata tag in the playlist file.
 mkHlsContentProtection ::
   HlsContentProtection
 mkHlsContentProtection =

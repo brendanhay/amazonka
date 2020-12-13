@@ -36,33 +36,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHostOffering' smart constructor.
 data HostOffering = HostOffering'
-  { instanceFamily ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance family of the offering.
+    instanceFamily :: Lude.Maybe Lude.Text,
+    -- | The currency of the offering.
     currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The hourly price of the offering.
     hourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The upfront price of the offering. Does not apply to No Upfront offerings.
     upfrontPrice :: Lude.Maybe Lude.Text,
+    -- | The ID of the offering.
     offeringId :: Lude.Maybe Lude.Text,
+    -- | The duration of the offering (in seconds).
     duration :: Lude.Maybe Lude.Int,
+    -- | The available payment option.
     paymentOption :: Lude.Maybe PaymentOption
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HostOffering' with the minimum fields required to make a request.
 --
--- * 'currencyCode' - The currency of the offering.
--- * 'duration' - The duration of the offering (in seconds).
--- * 'hourlyPrice' - The hourly price of the offering.
 -- * 'instanceFamily' - The instance family of the offering.
--- * 'offeringId' - The ID of the offering.
--- * 'paymentOption' - The available payment option.
+-- * 'currencyCode' - The currency of the offering.
+-- * 'hourlyPrice' - The hourly price of the offering.
 -- * 'upfrontPrice' - The upfront price of the offering. Does not apply to No Upfront offerings.
+-- * 'offeringId' - The ID of the offering.
+-- * 'duration' - The duration of the offering (in seconds).
+-- * 'paymentOption' - The available payment option.
 mkHostOffering ::
   HostOffering
 mkHostOffering =

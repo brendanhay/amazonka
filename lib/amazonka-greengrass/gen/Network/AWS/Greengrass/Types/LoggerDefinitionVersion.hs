@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoggerDefinitionVersion' smart constructor.
 newtype LoggerDefinitionVersion = LoggerDefinitionVersion'
-  { loggers ::
-      Lude.Maybe [GreengrassLogger]
+  { -- | A list of loggers.
+    loggers :: Lude.Maybe [GreengrassLogger]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoggerDefinitionVersion' with the minimum fields required to make a request.

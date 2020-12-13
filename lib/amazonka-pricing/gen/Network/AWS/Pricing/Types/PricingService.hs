@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPricingService' smart constructor.
 data PricingService = PricingService'
-  { attributeNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The attributes that are available for this service.
+    attributeNames :: Lude.Maybe [Lude.Text],
+    -- | The code for the AWS service.
     serviceCode :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PricingService' with the minimum fields required to make a request.

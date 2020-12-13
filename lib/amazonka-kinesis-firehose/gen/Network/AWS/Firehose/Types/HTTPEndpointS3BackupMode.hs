@@ -13,8 +13,8 @@
 module Network.AWS.Firehose.Types.HTTPEndpointS3BackupMode
   ( HTTPEndpointS3BackupMode
       ( HTTPEndpointS3BackupMode',
-        AllData,
-        FailedDataOnly
+        FailedDataOnly,
+        AllData
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype HTTPEndpointS3BackupMode = HTTPEndpointS3BackupMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern AllData :: HTTPEndpointS3BackupMode
-pattern AllData = HTTPEndpointS3BackupMode' "AllData"
-
 pattern FailedDataOnly :: HTTPEndpointS3BackupMode
 pattern FailedDataOnly = HTTPEndpointS3BackupMode' "FailedDataOnly"
 
+pattern AllData :: HTTPEndpointS3BackupMode
+pattern AllData = HTTPEndpointS3BackupMode' "AllData"
+
 {-# COMPLETE
-  AllData,
   FailedDataOnly,
+  AllData,
   HTTPEndpointS3BackupMode'
   #-}

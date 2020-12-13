@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,11 +28,11 @@ module Network.AWS.Lambda.Invoke
 
     -- ** Request lenses
     iInvocationType,
+    iPayload,
     iLogType,
+    iFunctionName,
     iQualifier,
     iClientContext,
-    iFunctionName,
-    iPayload,
 
     -- * Destructuring the response
     InvokeResponse (..),
@@ -54,19 +55,60 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkInvoke' smart constructor.
 data Invoke = Invoke'
-  { invocationType :: Lude.Maybe InvocationType,
+  { -- | Choose from the following options.
+    --
+    --
+    --     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.
+    --
+    --
+    --     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.
+    --
+    --
+    --     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
+    invocationType :: Lude.Maybe InvocationType,
+    -- | The JSON that you want to provide to your Lambda function as input.
+    payload :: Lude.ByteString,
+    -- | Set to @Tail@ to include the execution log in the response.
     logType :: Lude.Maybe LogType,
-    qualifier :: Lude.Maybe Lude.Text,
-    clientContext :: Lude.Maybe Lude.Text,
+    -- | The name of the Lambda function, version, or alias.
+    --
+    -- __Name formats__
+    --
+    --     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
+    --
+    --
+    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+    --
+    --
+    --     * __Partial ARN__ - @123456789012:function:my-function@ .
+    --
+    --
+    -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     functionName :: Lude.Text,
-    payload :: Lude.ByteString
+    -- | Specify a version or alias to invoke a published version of the function.
+    qualifier :: Lude.Maybe Lude.Text,
+    -- | Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
+    clientContext :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Invoke' with the minimum fields required to make a request.
 --
--- * 'clientContext' - Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
+-- * 'invocationType' - Choose from the following options.
+--
+--
+--     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.
+--
+--
+--     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.
+--
+--
+--     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
+--
+--
+-- * 'payload' - The JSON that you want to provide to your Lambda function as input.
+-- * 'logType' - Set to @Tail@ to include the execution log in the response.
 -- * 'functionName' - The name of the Lambda function, version, or alias.
 --
 -- __Name formats__
@@ -81,35 +123,22 @@ data Invoke = Invoke'
 --
 --
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'invocationType' - Choose from the following options.
---
---
---     * @RequestResponse@ (default) - Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.
---
---
---     * @Event@ - Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if it's configured). The API response only includes a status code.
---
---
---     * @DryRun@ - Validate parameter values and verify that the user or role has permission to invoke the function.
---
---
--- * 'logType' - Set to @Tail@ to include the execution log in the response.
--- * 'payload' - The JSON that you want to provide to your Lambda function as input.
 -- * 'qualifier' - Specify a version or alias to invoke a published version of the function.
+-- * 'clientContext' - Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
 mkInvoke ::
-  -- | 'functionName'
-  Lude.Text ->
   -- | 'payload'
   Lude.ByteString ->
+  -- | 'functionName'
+  Lude.Text ->
   Invoke
-mkInvoke pFunctionName_ pPayload_ =
+mkInvoke pPayload_ pFunctionName_ =
   Invoke'
     { invocationType = Lude.Nothing,
+      payload = pPayload_,
       logType = Lude.Nothing,
-      qualifier = Lude.Nothing,
-      clientContext = Lude.Nothing,
       functionName = pFunctionName_,
-      payload = pPayload_
+      qualifier = Lude.Nothing,
+      clientContext = Lude.Nothing
     }
 
 -- | Choose from the following options.
@@ -130,26 +159,19 @@ iInvocationType :: Lens.Lens' Invoke (Lude.Maybe InvocationType)
 iInvocationType = Lens.lens (invocationType :: Invoke -> Lude.Maybe InvocationType) (\s a -> s {invocationType = a} :: Invoke)
 {-# DEPRECATED iInvocationType "Use generic-lens or generic-optics with 'invocationType' instead." #-}
 
+-- | The JSON that you want to provide to your Lambda function as input.
+--
+-- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPayload :: Lens.Lens' Invoke Lude.ByteString
+iPayload = Lens.lens (payload :: Invoke -> Lude.ByteString) (\s a -> s {payload = a} :: Invoke)
+{-# DEPRECATED iPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+
 -- | Set to @Tail@ to include the execution log in the response.
 --
 -- /Note:/ Consider using 'logType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 iLogType :: Lens.Lens' Invoke (Lude.Maybe LogType)
 iLogType = Lens.lens (logType :: Invoke -> Lude.Maybe LogType) (\s a -> s {logType = a} :: Invoke)
 {-# DEPRECATED iLogType "Use generic-lens or generic-optics with 'logType' instead." #-}
-
--- | Specify a version or alias to invoke a published version of the function.
---
--- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iQualifier :: Lens.Lens' Invoke (Lude.Maybe Lude.Text)
-iQualifier = Lens.lens (qualifier :: Invoke -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: Invoke)
-{-# DEPRECATED iQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
-
--- | Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
---
--- /Note:/ Consider using 'clientContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iClientContext :: Lens.Lens' Invoke (Lude.Maybe Lude.Text)
-iClientContext = Lens.lens (clientContext :: Invoke -> Lude.Maybe Lude.Text) (\s a -> s {clientContext = a} :: Invoke)
-{-# DEPRECATED iClientContext "Use generic-lens or generic-optics with 'clientContext' instead." #-}
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -171,12 +193,19 @@ iFunctionName :: Lens.Lens' Invoke Lude.Text
 iFunctionName = Lens.lens (functionName :: Invoke -> Lude.Text) (\s a -> s {functionName = a} :: Invoke)
 {-# DEPRECATED iFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
--- | The JSON that you want to provide to your Lambda function as input.
+-- | Specify a version or alias to invoke a published version of the function.
 --
--- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPayload :: Lens.Lens' Invoke Lude.ByteString
-iPayload = Lens.lens (payload :: Invoke -> Lude.ByteString) (\s a -> s {payload = a} :: Invoke)
-{-# DEPRECATED iPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iQualifier :: Lens.Lens' Invoke (Lude.Maybe Lude.Text)
+iQualifier = Lens.lens (qualifier :: Invoke -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: Invoke)
+{-# DEPRECATED iQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
+
+-- | Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context object.
+--
+-- /Note:/ Consider using 'clientContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iClientContext :: Lens.Lens' Invoke (Lude.Maybe Lude.Text)
+iClientContext = Lens.lens (clientContext :: Invoke -> Lude.Maybe Lude.Text) (\s a -> s {clientContext = a} :: Invoke)
+{-# DEPRECATED iClientContext "Use generic-lens or generic-optics with 'clientContext' instead." #-}
 
 instance Lude.AWSRequest Invoke where
   type Rs Invoke = InvokeResponse
@@ -213,11 +242,15 @@ instance Lude.ToQuery Invoke where
 
 -- | /See:/ 'mkInvokeResponse' smart constructor.
 data InvokeResponse = InvokeResponse'
-  { functionError ::
-      Lude.Maybe Lude.Text,
+  { -- | If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.
+    functionError :: Lude.Maybe Lude.Text,
+    -- | The last 4 KB of the execution log, which is base64 encoded.
     logResult :: Lude.Maybe Lude.Text,
+    -- | The response from the function, or an error object.
     payload :: Lude.Maybe Lude.ByteString,
+    -- | The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
     executedVersion :: Lude.Maybe Lude.Text,
+    -- | The HTTP status code is in the 200 range for a successful request. For the @RequestResponse@ invocation type, this status code is 200. For the @Event@ invocation type, this status code is 202. For the @DryRun@ invocation type, the status code is 204.
     statusCode :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
@@ -225,10 +258,10 @@ data InvokeResponse = InvokeResponse'
 
 -- | Creates a value of 'InvokeResponse' with the minimum fields required to make a request.
 --
--- * 'executedVersion' - The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
 -- * 'functionError' - If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.
 -- * 'logResult' - The last 4 KB of the execution log, which is base64 encoded.
 -- * 'payload' - The response from the function, or an error object.
+-- * 'executedVersion' - The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.
 -- * 'statusCode' - The HTTP status code is in the 200 range for a successful request. For the @RequestResponse@ invocation type, this status code is 200. For the @Event@ invocation type, this status code is 202. For the @DryRun@ invocation type, the status code is 204.
 mkInvokeResponse ::
   -- | 'statusCode'

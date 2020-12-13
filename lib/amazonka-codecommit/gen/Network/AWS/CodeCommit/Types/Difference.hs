@@ -32,17 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDifference' smart constructor.
 data Difference = Difference'
-  { afterBlob :: Lude.Maybe BlobMetadata,
+  { -- | Information about an @afterBlob@ data type object, including the ID, the file mode permission code, and the path.
+    afterBlob :: Lude.Maybe BlobMetadata,
+    -- | Information about a @beforeBlob@ data type object, including the ID, the file mode permission code, and the path.
     beforeBlob :: Lude.Maybe BlobMetadata,
+    -- | Whether the change type of the difference is an addition (A), deletion (D), or modification (M).
     changeType :: Lude.Maybe ChangeTypeEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Difference' with the minimum fields required to make a request.

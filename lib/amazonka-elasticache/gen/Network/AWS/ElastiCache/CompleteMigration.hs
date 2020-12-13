@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCompleteMigration' smart constructor.
 data CompleteMigration = CompleteMigration'
-  { force ::
-      Lude.Maybe Lude.Bool,
+  { -- | Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.
+    force :: Lude.Maybe Lude.Bool,
+    -- | The ID of the replication group to which data is being migrated.
     replicationGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteMigration' with the minimum fields required to make a request.
@@ -110,22 +106,16 @@ instance Lude.ToQuery CompleteMigration where
 
 -- | /See:/ 'mkCompleteMigrationResponse' smart constructor.
 data CompleteMigrationResponse = CompleteMigrationResponse'
-  { replicationGroup ::
-      Lude.Maybe ReplicationGroup,
+  { replicationGroup :: Lude.Maybe ReplicationGroup,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteMigrationResponse' with the minimum fields required to make a request.
 --
--- * 'replicationGroup' - Undocumented field.
+-- * 'replicationGroup' -
 -- * 'responseStatus' - The response status code.
 mkCompleteMigrationResponse ::
   -- | 'responseStatus'

@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchGetObjectAttributesResponse' smart constructor.
 newtype BatchGetObjectAttributesResponse = BatchGetObjectAttributesResponse'
-  { attributes ::
-      Lude.Maybe
-        [AttributeKeyAndValue]
+  { -- | The attribute values that are associated with an object.
+    attributes :: Lude.Maybe [AttributeKeyAndValue]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetObjectAttributesResponse' with the minimum fields required to make a request.

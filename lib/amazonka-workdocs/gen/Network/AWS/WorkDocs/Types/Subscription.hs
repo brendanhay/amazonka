@@ -31,24 +31,20 @@ import Network.AWS.WorkDocs.Types.SubscriptionProtocolType
 --
 -- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { protocol ::
-      Lude.Maybe SubscriptionProtocolType,
+  { -- | The protocol of the subscription.
+    protocol :: Lude.Maybe SubscriptionProtocolType,
+    -- | The endpoint of the subscription.
     endPoint :: Lude.Maybe Lude.Text,
+    -- | The ID of the subscription.
     subscriptionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
--- * 'endPoint' - The endpoint of the subscription.
 -- * 'protocol' - The protocol of the subscription.
+-- * 'endPoint' - The endpoint of the subscription.
 -- * 'subscriptionId' - The ID of the subscription.
 mkSubscription ::
   Subscription

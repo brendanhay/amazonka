@@ -13,12 +13,12 @@
 module Network.AWS.Lightsail.Types.DistributionMetricName
   ( DistributionMetricName
       ( DistributionMetricName',
+        Requests,
         BytesDownloaded,
         BytesUploaded,
+        TotalErrorRate,
         HTTP4xxErrorRate,
-        HTTP5xxErrorRate,
-        Requests,
-        TotalErrorRate
+        HTTP5xxErrorRate
       ),
   )
 where
@@ -49,11 +49,17 @@ newtype DistributionMetricName = DistributionMetricName' Lude.Text
       Lude.ToHeader
     )
 
+pattern Requests :: DistributionMetricName
+pattern Requests = DistributionMetricName' "Requests"
+
 pattern BytesDownloaded :: DistributionMetricName
 pattern BytesDownloaded = DistributionMetricName' "BytesDownloaded"
 
 pattern BytesUploaded :: DistributionMetricName
 pattern BytesUploaded = DistributionMetricName' "BytesUploaded"
+
+pattern TotalErrorRate :: DistributionMetricName
+pattern TotalErrorRate = DistributionMetricName' "TotalErrorRate"
 
 pattern HTTP4xxErrorRate :: DistributionMetricName
 pattern HTTP4xxErrorRate = DistributionMetricName' "Http4xxErrorRate"
@@ -61,18 +67,12 @@ pattern HTTP4xxErrorRate = DistributionMetricName' "Http4xxErrorRate"
 pattern HTTP5xxErrorRate :: DistributionMetricName
 pattern HTTP5xxErrorRate = DistributionMetricName' "Http5xxErrorRate"
 
-pattern Requests :: DistributionMetricName
-pattern Requests = DistributionMetricName' "Requests"
-
-pattern TotalErrorRate :: DistributionMetricName
-pattern TotalErrorRate = DistributionMetricName' "TotalErrorRate"
-
 {-# COMPLETE
+  Requests,
   BytesDownloaded,
   BytesUploaded,
+  TotalErrorRate,
   HTTP4xxErrorRate,
   HTTP5xxErrorRate,
-  Requests,
-  TotalErrorRate,
   DistributionMetricName'
   #-}

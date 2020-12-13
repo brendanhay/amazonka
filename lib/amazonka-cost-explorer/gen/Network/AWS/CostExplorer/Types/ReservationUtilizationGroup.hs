@@ -32,33 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservationUtilizationGroup' smart constructor.
 data ReservationUtilizationGroup = ReservationUtilizationGroup'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value of a specific reservation attribute.
+    value :: Lude.Maybe Lude.Text,
+    -- | The key for a specific reservation attribute.
     key :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        ),
-    utilization ::
-      Lude.Maybe ReservationAggregates
+    -- | The attributes for this group of reservations.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | How much you used this group of reservations.
+    utilization :: Lude.Maybe ReservationAggregates
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservationUtilizationGroup' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attributes for this group of reservations.
--- * 'key' - The key for a specific reservation attribute.
--- * 'utilization' - How much you used this group of reservations.
 -- * 'value' - The value of a specific reservation attribute.
+-- * 'key' - The key for a specific reservation attribute.
+-- * 'attributes' - The attributes for this group of reservations.
+-- * 'utilization' - How much you used this group of reservations.
 mkReservationUtilizationGroup ::
   ReservationUtilizationGroup
 mkReservationUtilizationGroup =

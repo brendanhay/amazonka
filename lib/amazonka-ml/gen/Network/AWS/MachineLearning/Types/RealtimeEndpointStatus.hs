@@ -13,10 +13,10 @@
 module Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
   ( RealtimeEndpointStatus
       ( RealtimeEndpointStatus',
-        Failed,
-        None,
-        Ready,
-        Updating
+        RESNone,
+        RESReady,
+        RESUpdating,
+        RESFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype RealtimeEndpointStatus = RealtimeEndpointStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: RealtimeEndpointStatus
-pattern Failed = RealtimeEndpointStatus' "FAILED"
+pattern RESNone :: RealtimeEndpointStatus
+pattern RESNone = RealtimeEndpointStatus' "NONE"
 
-pattern None :: RealtimeEndpointStatus
-pattern None = RealtimeEndpointStatus' "NONE"
+pattern RESReady :: RealtimeEndpointStatus
+pattern RESReady = RealtimeEndpointStatus' "READY"
 
-pattern Ready :: RealtimeEndpointStatus
-pattern Ready = RealtimeEndpointStatus' "READY"
+pattern RESUpdating :: RealtimeEndpointStatus
+pattern RESUpdating = RealtimeEndpointStatus' "UPDATING"
 
-pattern Updating :: RealtimeEndpointStatus
-pattern Updating = RealtimeEndpointStatus' "UPDATING"
+pattern RESFailed :: RealtimeEndpointStatus
+pattern RESFailed = RealtimeEndpointStatus' "FAILED"
 
 {-# COMPLETE
-  Failed,
-  None,
-  Ready,
-  Updating,
+  RESNone,
+  RESReady,
+  RESUpdating,
+  RESFailed,
   RealtimeEndpointStatus'
   #-}

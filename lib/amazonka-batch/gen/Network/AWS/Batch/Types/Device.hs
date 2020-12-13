@@ -18,8 +18,8 @@ module Network.AWS.Batch.Types.Device
 
     -- * Lenses
     dContainerPath,
-    dPermissions,
     dHostPath,
+    dPermissions,
   )
 where
 
@@ -31,17 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDevice' smart constructor.
 data Device = Device'
-  { containerPath :: Lude.Maybe Lude.Text,
-    permissions :: Lude.Maybe [DeviceCgroupPermission],
-    hostPath :: Lude.Text
+  { -- | The path inside the container at which to expose the host device. By default the @hostPath@ value is used.
+    containerPath :: Lude.Maybe Lude.Text,
+    -- | The path for the device on the host container instance.
+    hostPath :: Lude.Text,
+    -- | The explicit permissions to provide to the container for the device. By default, the container has permissions for @read@ , @write@ , and @mknod@ for the device.
+    permissions :: Lude.Maybe [DeviceCgroupPermission]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Device' with the minimum fields required to make a request.
@@ -56,8 +53,8 @@ mkDevice ::
 mkDevice pHostPath_ =
   Device'
     { containerPath = Lude.Nothing,
-      permissions = Lude.Nothing,
-      hostPath = pHostPath_
+      hostPath = pHostPath_,
+      permissions = Lude.Nothing
     }
 
 -- | The path inside the container at which to expose the host device. By default the @hostPath@ value is used.
@@ -67,19 +64,19 @@ dContainerPath :: Lens.Lens' Device (Lude.Maybe Lude.Text)
 dContainerPath = Lens.lens (containerPath :: Device -> Lude.Maybe Lude.Text) (\s a -> s {containerPath = a} :: Device)
 {-# DEPRECATED dContainerPath "Use generic-lens or generic-optics with 'containerPath' instead." #-}
 
--- | The explicit permissions to provide to the container for the device. By default, the container has permissions for @read@ , @write@ , and @mknod@ for the device.
---
--- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPermissions :: Lens.Lens' Device (Lude.Maybe [DeviceCgroupPermission])
-dPermissions = Lens.lens (permissions :: Device -> Lude.Maybe [DeviceCgroupPermission]) (\s a -> s {permissions = a} :: Device)
-{-# DEPRECATED dPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
-
 -- | The path for the device on the host container instance.
 --
 -- /Note:/ Consider using 'hostPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dHostPath :: Lens.Lens' Device Lude.Text
 dHostPath = Lens.lens (hostPath :: Device -> Lude.Text) (\s a -> s {hostPath = a} :: Device)
 {-# DEPRECATED dHostPath "Use generic-lens or generic-optics with 'hostPath' instead." #-}
+
+-- | The explicit permissions to provide to the container for the device. By default, the container has permissions for @read@ , @write@ , and @mknod@ for the device.
+--
+-- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPermissions :: Lens.Lens' Device (Lude.Maybe [DeviceCgroupPermission])
+dPermissions = Lens.lens (permissions :: Device -> Lude.Maybe [DeviceCgroupPermission]) (\s a -> s {permissions = a} :: Device)
+{-# DEPRECATED dPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
 instance Lude.FromJSON Device where
   parseJSON =
@@ -88,8 +85,8 @@ instance Lude.FromJSON Device where
       ( \x ->
           Device'
             Lude.<$> (x Lude..:? "containerPath")
-            Lude.<*> (x Lude..:? "permissions" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..: "hostPath")
+            Lude.<*> (x Lude..:? "permissions" Lude..!= Lude.mempty)
       )
 
 instance Lude.ToJSON Device where
@@ -97,7 +94,7 @@ instance Lude.ToJSON Device where
     Lude.object
       ( Lude.catMaybes
           [ ("containerPath" Lude..=) Lude.<$> containerPath,
-            ("permissions" Lude..=) Lude.<$> permissions,
-            Lude.Just ("hostPath" Lude..= hostPath)
+            Lude.Just ("hostPath" Lude..= hostPath),
+            ("permissions" Lude..=) Lude.<$> permissions
           ]
       )

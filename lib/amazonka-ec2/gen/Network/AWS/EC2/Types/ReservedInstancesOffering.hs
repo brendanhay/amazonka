@@ -51,57 +51,57 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReservedInstancesOffering' smart constructor.
 data ReservedInstancesOffering = ReservedInstancesOffering'
-  { marketplace ::
-      Lude.Maybe Lude.Bool,
-    currencyCode ::
-      Lude.Maybe CurrencyCodeValues,
-    productDescription ::
-      Lude.Maybe RIProductDescription,
+  { -- | Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is @true@ .
+    marketplace :: Lude.Maybe Lude.Bool,
+    -- | The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The Reserved Instance product platform description.
+    productDescription :: Lude.Maybe RIProductDescription,
+    -- | The instance type on which the Reserved Instance can be used.
     instanceType :: Lude.Maybe InstanceType,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
-    pricingDetails ::
-      Lude.Maybe [PricingDetail],
+    -- | The Availability Zone in which the Reserved Instance can be used.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The pricing details of the Reserved Instance offering.
+    pricingDetails :: Lude.Maybe [PricingDetail],
+    -- | Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.
     scope :: Lude.Maybe Scope,
-    recurringCharges ::
-      Lude.Maybe [RecurringCharge],
-    offeringType ::
-      Lude.Maybe OfferingTypeValues,
+    -- | The recurring charge tag assigned to the resource.
+    recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The Reserved Instance offering type.
+    offeringType :: Lude.Maybe OfferingTypeValues,
+    -- | The usage price of the Reserved Instance, per hour.
     usagePrice :: Lude.Maybe Lude.Double,
+    -- | The purchase price of the Reserved Instance.
     fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The tenancy of the instance.
     instanceTenancy :: Lude.Maybe Tenancy,
-    reservedInstancesOfferingId ::
-      Lude.Maybe Lude.Text,
-    offeringClass ::
-      Lude.Maybe OfferingClassType,
+    -- | The ID of the Reserved Instance offering. This is the offering ID used in 'GetReservedInstancesExchangeQuote' to confirm that an exchange can be made.
+    reservedInstancesOfferingId :: Lude.Maybe Lude.Text,
+    -- | If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
+    offeringClass :: Lude.Maybe OfferingClassType,
+    -- | The duration of the Reserved Instance, in seconds.
     duration :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedInstancesOffering' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
+-- * 'marketplace' - Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is @true@ .
 -- * 'currencyCode' - The currency of the Reserved Instance offering you are purchasing. It's specified using ISO 4217 standard currency codes. At this time, the only supported currency is @USD@ .
--- * 'duration' - The duration of the Reserved Instance, in seconds.
+-- * 'productDescription' - The Reserved Instance product platform description.
+-- * 'instanceType' - The instance type on which the Reserved Instance can be used.
+-- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
+-- * 'pricingDetails' - The pricing details of the Reserved Instance offering.
+-- * 'scope' - Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.
+-- * 'recurringCharges' - The recurring charge tag assigned to the resource.
+-- * 'offeringType' - The Reserved Instance offering type.
+-- * 'usagePrice' - The usage price of the Reserved Instance, per hour.
 -- * 'fixedPrice' - The purchase price of the Reserved Instance.
 -- * 'instanceTenancy' - The tenancy of the instance.
--- * 'instanceType' - The instance type on which the Reserved Instance can be used.
--- * 'marketplace' - Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS. If it's a Reserved Instance Marketplace offering, this is @true@ .
--- * 'offeringClass' - If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
--- * 'offeringType' - The Reserved Instance offering type.
--- * 'pricingDetails' - The pricing details of the Reserved Instance offering.
--- * 'productDescription' - The Reserved Instance product platform description.
--- * 'recurringCharges' - The recurring charge tag assigned to the resource.
 -- * 'reservedInstancesOfferingId' - The ID of the Reserved Instance offering. This is the offering ID used in 'GetReservedInstancesExchangeQuote' to confirm that an exchange can be made.
--- * 'scope' - Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.
--- * 'usagePrice' - The usage price of the Reserved Instance, per hour.
+-- * 'offeringClass' - If @convertible@ it can be exchanged for Reserved Instances of the same or higher monetary value, with different configurations. If @standard@ , it is not possible to perform an exchange.
+-- * 'duration' - The duration of the Reserved Instance, in seconds.
 mkReservedInstancesOffering ::
   ReservedInstancesOffering
 mkReservedInstancesOffering =

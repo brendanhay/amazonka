@@ -16,8 +16,8 @@ module Network.AWS.Inspector.Types.AgentHealthCode
         Idle,
         Running,
         Shutdown,
-        Throttled,
         Unhealthy,
+        Throttled,
         Unknown
       ),
   )
@@ -58,11 +58,11 @@ pattern Running = AgentHealthCode' "RUNNING"
 pattern Shutdown :: AgentHealthCode
 pattern Shutdown = AgentHealthCode' "SHUTDOWN"
 
-pattern Throttled :: AgentHealthCode
-pattern Throttled = AgentHealthCode' "THROTTLED"
-
 pattern Unhealthy :: AgentHealthCode
 pattern Unhealthy = AgentHealthCode' "UNHEALTHY"
+
+pattern Throttled :: AgentHealthCode
+pattern Throttled = AgentHealthCode' "THROTTLED"
 
 pattern Unknown :: AgentHealthCode
 pattern Unknown = AgentHealthCode' "UNKNOWN"
@@ -71,8 +71,8 @@ pattern Unknown = AgentHealthCode' "UNKNOWN"
   Idle,
   Running,
   Shutdown,
-  Throttled,
   Unhealthy,
+  Throttled,
   Unknown,
   AgentHealthCode'
   #-}

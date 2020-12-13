@@ -31,25 +31,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
-  { healthCheck ::
-      Lude.Maybe ContainerServiceHealthCheckConfig,
+  { -- | An object that describes the health check configuration of the container.
+    healthCheck :: Lude.Maybe ContainerServiceHealthCheckConfig,
+    -- | The name of the container for the endpoint.
     containerName :: Lude.Text,
+    -- | The port of the container to which traffic is forwarded to.
     containerPort :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EndpointRequest' with the minimum fields required to make a request.
 --
+-- * 'healthCheck' - An object that describes the health check configuration of the container.
 -- * 'containerName' - The name of the container for the endpoint.
 -- * 'containerPort' - The port of the container to which traffic is forwarded to.
--- * 'healthCheck' - An object that describes the health check configuration of the container.
 mkEndpointRequest ::
   -- | 'containerName'
   Lude.Text ->

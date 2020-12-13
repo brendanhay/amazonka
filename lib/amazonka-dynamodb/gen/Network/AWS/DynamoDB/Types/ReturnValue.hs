@@ -13,11 +13,11 @@
 module Network.AWS.DynamoDB.Types.ReturnValue
   ( ReturnValue
       ( ReturnValue',
-        RVAllNew,
-        RVAllOld,
         RVNone,
-        RVUpdatedNew,
-        RVUpdatedOld
+        RVAllOld,
+        RVUpdatedOld,
+        RVAllNew,
+        RVUpdatedNew
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ReturnValue = ReturnValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern RVAllNew :: ReturnValue
-pattern RVAllNew = ReturnValue' "ALL_NEW"
+pattern RVNone :: ReturnValue
+pattern RVNone = ReturnValue' "NONE"
 
 pattern RVAllOld :: ReturnValue
 pattern RVAllOld = ReturnValue' "ALL_OLD"
 
-pattern RVNone :: ReturnValue
-pattern RVNone = ReturnValue' "NONE"
+pattern RVUpdatedOld :: ReturnValue
+pattern RVUpdatedOld = ReturnValue' "UPDATED_OLD"
+
+pattern RVAllNew :: ReturnValue
+pattern RVAllNew = ReturnValue' "ALL_NEW"
 
 pattern RVUpdatedNew :: ReturnValue
 pattern RVUpdatedNew = ReturnValue' "UPDATED_NEW"
 
-pattern RVUpdatedOld :: ReturnValue
-pattern RVUpdatedOld = ReturnValue' "UPDATED_OLD"
-
 {-# COMPLETE
-  RVAllNew,
-  RVAllOld,
   RVNone,
-  RVUpdatedNew,
+  RVAllOld,
   RVUpdatedOld,
+  RVAllNew,
+  RVUpdatedNew,
   ReturnValue'
   #-}

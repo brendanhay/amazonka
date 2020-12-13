@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTelemetryMetadata' smart constructor.
 data TelemetryMetadata = TelemetryMetadata'
-  { dataSize ::
-      Lude.Maybe Lude.Integer,
+  { -- | The data size of messages that the agent sends to the Amazon Inspector service.
+    dataSize :: Lude.Maybe Lude.Integer,
+    -- | A specific type of behavioral data that is collected by the agent.
     messageType :: Lude.Text,
+    -- | The count of messages that the agent sends to the Amazon Inspector service.
     count :: Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TelemetryMetadata' with the minimum fields required to make a request.
 --
--- * 'count' - The count of messages that the agent sends to the Amazon Inspector service.
 -- * 'dataSize' - The data size of messages that the agent sends to the Amazon Inspector service.
 -- * 'messageType' - A specific type of behavioral data that is collected by the agent.
+-- * 'count' - The count of messages that the agent sends to the Amazon Inspector service.
 mkTelemetryMetadata ::
   -- | 'messageType'
   Lude.Text ->

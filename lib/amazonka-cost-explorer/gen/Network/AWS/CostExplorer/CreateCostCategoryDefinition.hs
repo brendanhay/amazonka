@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.CostExplorer.CreateCostCategoryDefinition
     mkCreateCostCategoryDefinition,
 
     -- ** Request lenses
-    cccdName,
     cccdRuleVersion,
     cccdRules,
+    cccdName,
 
     -- * Destructuring the response
     CreateCostCategoryDefinitionResponse (..),
@@ -42,48 +43,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateCostCategoryDefinition' smart constructor.
 data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
-  { name ::
-      Lude.Text,
-    ruleVersion ::
-      CostCategoryRuleVersion,
-    rules ::
-      Lude.NonEmpty CostCategoryRule
+  { ruleVersion :: CostCategoryRuleVersion,
+    -- | The Cost Category rules used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule> .
+    rules :: Lude.NonEmpty CostCategoryRule,
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCostCategoryDefinition' with the minimum fields required to make a request.
 --
--- * 'name' - Undocumented field.
--- * 'ruleVersion' - Undocumented field.
+-- * 'ruleVersion' -
 -- * 'rules' - The Cost Category rules used to categorize costs. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule> .
+-- * 'name' -
 mkCreateCostCategoryDefinition ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'ruleVersion'
   CostCategoryRuleVersion ->
   -- | 'rules'
   Lude.NonEmpty CostCategoryRule ->
+  -- | 'name'
+  Lude.Text ->
   CreateCostCategoryDefinition
-mkCreateCostCategoryDefinition pName_ pRuleVersion_ pRules_ =
+mkCreateCostCategoryDefinition pRuleVersion_ pRules_ pName_ =
   CreateCostCategoryDefinition'
-    { name = pName_,
-      ruleVersion = pRuleVersion_,
-      rules = pRules_
+    { ruleVersion = pRuleVersion_,
+      rules = pRules_,
+      name = pName_
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cccdName :: Lens.Lens' CreateCostCategoryDefinition Lude.Text
-cccdName = Lens.lens (name :: CreateCostCategoryDefinition -> Lude.Text) (\s a -> s {name = a} :: CreateCostCategoryDefinition)
-{-# DEPRECATED cccdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Undocumented field.
 --
@@ -98,6 +84,13 @@ cccdRuleVersion = Lens.lens (ruleVersion :: CreateCostCategoryDefinition -> Cost
 cccdRules :: Lens.Lens' CreateCostCategoryDefinition (Lude.NonEmpty CostCategoryRule)
 cccdRules = Lens.lens (rules :: CreateCostCategoryDefinition -> Lude.NonEmpty CostCategoryRule) (\s a -> s {rules = a} :: CreateCostCategoryDefinition)
 {-# DEPRECATED cccdRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cccdName :: Lens.Lens' CreateCostCategoryDefinition Lude.Text
+cccdName = Lens.lens (name :: CreateCostCategoryDefinition -> Lude.Text) (\s a -> s {name = a} :: CreateCostCategoryDefinition)
+{-# DEPRECATED cccdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreateCostCategoryDefinition where
   type
@@ -130,9 +123,9 @@ instance Lude.ToJSON CreateCostCategoryDefinition where
   toJSON CreateCostCategoryDefinition' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("RuleVersion" Lude..= ruleVersion),
-            Lude.Just ("Rules" Lude..= rules)
+          [ Lude.Just ("RuleVersion" Lude..= ruleVersion),
+            Lude.Just ("Rules" Lude..= rules),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -144,28 +137,20 @@ instance Lude.ToQuery CreateCostCategoryDefinition where
 
 -- | /See:/ 'mkCreateCostCategoryDefinitionResponse' smart constructor.
 data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse'
-  { effectiveStart ::
-      Lude.Maybe
-        Lude.Text,
-    costCategoryARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Cost Category's effective start date.
+    effectiveStart :: Lude.Maybe Lude.Text,
+    -- | The unique identifier for your newly created Cost Category.
+    costCategoryARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateCostCategoryDefinitionResponse' with the minimum fields required to make a request.
 --
--- * 'costCategoryARN' - The unique identifier for your newly created Cost Category.
 -- * 'effectiveStart' - The Cost Category's effective start date.
+-- * 'costCategoryARN' - The unique identifier for your newly created Cost Category.
 -- * 'responseStatus' - The response status code.
 mkCreateCostCategoryDefinitionResponse ::
   -- | 'responseStatus'

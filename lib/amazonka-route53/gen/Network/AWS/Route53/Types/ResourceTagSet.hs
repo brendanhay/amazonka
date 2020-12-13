@@ -33,18 +33,20 @@ import Network.AWS.Route53.Types.TagResourceType
 --
 -- /See:/ 'mkResourceTagSet' smart constructor.
 data ResourceTagSet = ResourceTagSet'
-  { resourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID for the specified resource.
+    resourceId :: Lude.Maybe Lude.Text,
+    -- | The type of the resource.
+    --
+    --
+    --     * The resource type for health checks is @healthcheck@ .
+    --
+    --
+    --     * The resource type for hosted zones is @hostedzone@ .
     resourceType :: Lude.Maybe TagResourceType,
+    -- | The tags associated with the specified resource.
     tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceTagSet' with the minimum fields required to make a request.

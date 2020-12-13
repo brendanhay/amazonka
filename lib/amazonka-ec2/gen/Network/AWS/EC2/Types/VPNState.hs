@@ -13,10 +13,10 @@
 module Network.AWS.EC2.Types.VPNState
   ( VPNState
       ( VPNState',
+        VSPending,
         VSAvailable,
-        VSDeleted,
         VSDeleting,
-        VSPending
+        VSDeleted
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype VPNState = VPNState' Lude.Text
       Lude.ToHeader
     )
 
+pattern VSPending :: VPNState
+pattern VSPending = VPNState' "pending"
+
 pattern VSAvailable :: VPNState
 pattern VSAvailable = VPNState' "available"
-
-pattern VSDeleted :: VPNState
-pattern VSDeleted = VPNState' "deleted"
 
 pattern VSDeleting :: VPNState
 pattern VSDeleting = VPNState' "deleting"
 
-pattern VSPending :: VPNState
-pattern VSPending = VPNState' "pending"
+pattern VSDeleted :: VPNState
+pattern VSDeleted = VPNState' "deleted"
 
 {-# COMPLETE
-  VSAvailable,
-  VSDeleted,
-  VSDeleting,
   VSPending,
+  VSAvailable,
+  VSDeleting,
+  VSDeleted,
   VPNState'
   #-}

@@ -17,9 +17,9 @@ module Network.AWS.CloudDirectory.Types.BatchListAttachedIndices
     mkBatchListAttachedIndices,
 
     -- * Lenses
+    blaisTargetReference,
     blaisNextToken,
     blaisMaxResults,
-    blaisTargetReference,
   )
 where
 
@@ -31,35 +31,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchListAttachedIndices' smart constructor.
 data BatchListAttachedIndices = BatchListAttachedIndices'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    targetReference :: ObjectReference
+  { -- | A reference to the object that has indices attached.
+    targetReference :: ObjectReference,
+    -- | The pagination token.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchListAttachedIndices' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to retrieve.
--- * 'nextToken' - The pagination token.
 -- * 'targetReference' - A reference to the object that has indices attached.
+-- * 'nextToken' - The pagination token.
+-- * 'maxResults' - The maximum number of results to retrieve.
 mkBatchListAttachedIndices ::
   -- | 'targetReference'
   ObjectReference ->
   BatchListAttachedIndices
 mkBatchListAttachedIndices pTargetReference_ =
   BatchListAttachedIndices'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      targetReference = pTargetReference_
+    { targetReference = pTargetReference_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | A reference to the object that has indices attached.
+--
+-- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blaisTargetReference :: Lens.Lens' BatchListAttachedIndices ObjectReference
+blaisTargetReference = Lens.lens (targetReference :: BatchListAttachedIndices -> ObjectReference) (\s a -> s {targetReference = a} :: BatchListAttachedIndices)
+{-# DEPRECATED blaisTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
 
 -- | The pagination token.
 --
@@ -75,19 +78,12 @@ blaisMaxResults :: Lens.Lens' BatchListAttachedIndices (Lude.Maybe Lude.Natural)
 blaisMaxResults = Lens.lens (maxResults :: BatchListAttachedIndices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListAttachedIndices)
 {-# DEPRECATED blaisMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | A reference to the object that has indices attached.
---
--- /Note:/ Consider using 'targetReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blaisTargetReference :: Lens.Lens' BatchListAttachedIndices ObjectReference
-blaisTargetReference = Lens.lens (targetReference :: BatchListAttachedIndices -> ObjectReference) (\s a -> s {targetReference = a} :: BatchListAttachedIndices)
-{-# DEPRECATED blaisTargetReference "Use generic-lens or generic-optics with 'targetReference' instead." #-}
-
 instance Lude.ToJSON BatchListAttachedIndices where
   toJSON BatchListAttachedIndices' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("TargetReference" Lude..= targetReference)
+          [ Lude.Just ("TargetReference" Lude..= targetReference),
+            ("NextToken" Lude..=) Lude.<$> nextToken,
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )

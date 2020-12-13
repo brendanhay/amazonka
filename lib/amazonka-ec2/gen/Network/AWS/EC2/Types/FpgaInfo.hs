@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFpgaInfo' smart constructor.
 data FpgaInfo = FpgaInfo'
-  { totalFpgaMemoryInMiB ::
-      Lude.Maybe Lude.Int,
+  { -- | The total memory of all FPGA accelerators for the instance type.
+    totalFpgaMemoryInMiB :: Lude.Maybe Lude.Int,
+    -- | Describes the FPGAs for the instance type.
     fpgas :: Lude.Maybe [FpgaDeviceInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FpgaInfo' with the minimum fields required to make a request.
 --
--- * 'fpgas' - Describes the FPGAs for the instance type.
 -- * 'totalFpgaMemoryInMiB' - The total memory of all FPGA accelerators for the instance type.
+-- * 'fpgas' - Describes the FPGAs for the instance type.
 mkFpgaInfo ::
   FpgaInfo
 mkFpgaInfo =

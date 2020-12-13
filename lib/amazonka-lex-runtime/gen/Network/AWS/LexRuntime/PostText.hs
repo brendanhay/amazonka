@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -56,13 +57,13 @@ module Network.AWS.LexRuntime.PostText
     mkPostText,
 
     -- ** Request lenses
+    ptBotAlias,
+    ptBotName,
+    ptUserId,
     ptActiveContexts,
+    ptInputText,
     ptRequestAttributes,
     ptSessionAttributes,
-    ptBotName,
-    ptBotAlias,
-    ptUserId,
-    ptInputText,
 
     -- * Destructuring the response
     PostTextResponse (..),
@@ -95,35 +96,48 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPostText' smart constructor.
 data PostText = PostText'
-  { activeContexts ::
-      Lude.Maybe [ActiveContext],
-    requestAttributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    sessionAttributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    botName :: Lude.Text,
+  { -- | The alias of the Amazon Lex bot.
     botAlias :: Lude.Text,
+    -- | The name of the Amazon Lex bot.
+    botName :: Lude.Text,
+    -- | The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the @userID@ field.
+    --
+    -- To decide the user ID to use for your application, consider the following factors.
+    --
+    --     * The @userID@ field must not contain any personally identifiable information of the user, for example, name, personal identification numbers, or other end user personal information.
+    --
+    --
+    --     * If you want a user to start a conversation on one device and continue on another device, use a user-specific identifier.
+    --
+    --
+    --     * If you want the same user to be able to have two independent conversations on two different devices, choose a device-specific identifier.
+    --
+    --
+    --     * A user can't have two independent conversations with two different versions of the same bot. For example, a user can't have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations.
     userId :: Lude.Text,
-    inputText :: Lude.Sensitive Lude.Text
+    -- | A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,
+    --
+    -- If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
+    activeContexts :: Lude.Maybe [ActiveContext],
+    -- | The text that the user entered (Amazon Lex interprets this text).
+    inputText :: Lude.Sensitive Lude.Text,
+    -- | Request-specific information passed between Amazon Lex and a client application.
+    --
+    -- The namespace @x-amz-lex:@ is reserved for special attributes. Don't create any request attributes with the prefix @x-amz-lex:@ .
+    -- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs Setting Request Attributes> .
+    requestAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Application-specific information passed between Amazon Lex and a client application.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs Setting Session Attributes> .
+    sessionAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PostText' with the minimum fields required to make a request.
 --
--- * 'activeContexts' - A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,
---
--- If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
 -- * 'botAlias' - The alias of the Amazon Lex bot.
 -- * 'botName' - The name of the Amazon Lex bot.
--- * 'inputText' - The text that the user entered (Amazon Lex interprets this text).
--- * 'requestAttributes' - Request-specific information passed between Amazon Lex and a client application.
---
--- The namespace @x-amz-lex:@ is reserved for special attributes. Don't create any request attributes with the prefix @x-amz-lex:@ .
--- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs Setting Request Attributes> .
--- * 'sessionAttributes' - Application-specific information passed between Amazon Lex and a client application.
---
--- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs Setting Session Attributes> .
 -- * 'userId' - The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the @userID@ field.
 --
 -- To decide the user ID to use for your application, consider the following factors.
@@ -138,61 +152,39 @@ data PostText = PostText'
 --
 --
 --     * A user can't have two independent conversations with two different versions of the same bot. For example, a user can't have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations.
+--
+--
+-- * 'activeContexts' - A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,
+--
+-- If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
+-- * 'inputText' - The text that the user entered (Amazon Lex interprets this text).
+-- * 'requestAttributes' - Request-specific information passed between Amazon Lex and a client application.
+--
+-- The namespace @x-amz-lex:@ is reserved for special attributes. Don't create any request attributes with the prefix @x-amz-lex:@ .
+-- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs Setting Request Attributes> .
+-- * 'sessionAttributes' - Application-specific information passed between Amazon Lex and a client application.
+--
+-- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs Setting Session Attributes> .
 mkPostText ::
-  -- | 'botName'
-  Lude.Text ->
   -- | 'botAlias'
+  Lude.Text ->
+  -- | 'botName'
   Lude.Text ->
   -- | 'userId'
   Lude.Text ->
   -- | 'inputText'
   Lude.Sensitive Lude.Text ->
   PostText
-mkPostText pBotName_ pBotAlias_ pUserId_ pInputText_ =
+mkPostText pBotAlias_ pBotName_ pUserId_ pInputText_ =
   PostText'
-    { activeContexts = Lude.Nothing,
-      requestAttributes = Lude.Nothing,
-      sessionAttributes = Lude.Nothing,
+    { botAlias = pBotAlias_,
       botName = pBotName_,
-      botAlias = pBotAlias_,
       userId = pUserId_,
-      inputText = pInputText_
+      activeContexts = Lude.Nothing,
+      inputText = pInputText_,
+      requestAttributes = Lude.Nothing,
+      sessionAttributes = Lude.Nothing
     }
-
--- | A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,
---
--- If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
---
--- /Note:/ Consider using 'activeContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptActiveContexts :: Lens.Lens' PostText (Lude.Maybe [ActiveContext])
-ptActiveContexts = Lens.lens (activeContexts :: PostText -> Lude.Maybe [ActiveContext]) (\s a -> s {activeContexts = a} :: PostText)
-{-# DEPRECATED ptActiveContexts "Use generic-lens or generic-optics with 'activeContexts' instead." #-}
-
--- | Request-specific information passed between Amazon Lex and a client application.
---
--- The namespace @x-amz-lex:@ is reserved for special attributes. Don't create any request attributes with the prefix @x-amz-lex:@ .
--- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs Setting Request Attributes> .
---
--- /Note:/ Consider using 'requestAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptRequestAttributes :: Lens.Lens' PostText (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ptRequestAttributes = Lens.lens (requestAttributes :: PostText -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {requestAttributes = a} :: PostText)
-{-# DEPRECATED ptRequestAttributes "Use generic-lens or generic-optics with 'requestAttributes' instead." #-}
-
--- | Application-specific information passed between Amazon Lex and a client application.
---
--- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs Setting Session Attributes> .
---
--- /Note:/ Consider using 'sessionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptSessionAttributes :: Lens.Lens' PostText (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ptSessionAttributes = Lens.lens (sessionAttributes :: PostText -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {sessionAttributes = a} :: PostText)
-{-# DEPRECATED ptSessionAttributes "Use generic-lens or generic-optics with 'sessionAttributes' instead." #-}
-
--- | The name of the Amazon Lex bot.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptBotName :: Lens.Lens' PostText Lude.Text
-ptBotName = Lens.lens (botName :: PostText -> Lude.Text) (\s a -> s {botName = a} :: PostText)
-{-# DEPRECATED ptBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The alias of the Amazon Lex bot.
 --
@@ -200,6 +192,13 @@ ptBotName = Lens.lens (botName :: PostText -> Lude.Text) (\s a -> s {botName = a
 ptBotAlias :: Lens.Lens' PostText Lude.Text
 ptBotAlias = Lens.lens (botAlias :: PostText -> Lude.Text) (\s a -> s {botAlias = a} :: PostText)
 {-# DEPRECATED ptBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
+
+-- | The name of the Amazon Lex bot.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptBotName :: Lens.Lens' PostText Lude.Text
+ptBotName = Lens.lens (botName :: PostText -> Lude.Text) (\s a -> s {botName = a} :: PostText)
+{-# DEPRECATED ptBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
 
 -- | The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the @userID@ field.
 --
@@ -223,12 +222,40 @@ ptUserId :: Lens.Lens' PostText Lude.Text
 ptUserId = Lens.lens (userId :: PostText -> Lude.Text) (\s a -> s {userId = a} :: PostText)
 {-# DEPRECATED ptUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
+-- | A list of contexts active for the request. A context can be activated when a previous intent is fulfilled, or by including the context in the request,
+--
+-- If you don't specify a list of contexts, Amazon Lex will use the current list of contexts for the session. If you specify an empty list, all contexts for the session are cleared.
+--
+-- /Note:/ Consider using 'activeContexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptActiveContexts :: Lens.Lens' PostText (Lude.Maybe [ActiveContext])
+ptActiveContexts = Lens.lens (activeContexts :: PostText -> Lude.Maybe [ActiveContext]) (\s a -> s {activeContexts = a} :: PostText)
+{-# DEPRECATED ptActiveContexts "Use generic-lens or generic-optics with 'activeContexts' instead." #-}
+
 -- | The text that the user entered (Amazon Lex interprets this text).
 --
 -- /Note:/ Consider using 'inputText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ptInputText :: Lens.Lens' PostText (Lude.Sensitive Lude.Text)
 ptInputText = Lens.lens (inputText :: PostText -> Lude.Sensitive Lude.Text) (\s a -> s {inputText = a} :: PostText)
 {-# DEPRECATED ptInputText "Use generic-lens or generic-optics with 'inputText' instead." #-}
+
+-- | Request-specific information passed between Amazon Lex and a client application.
+--
+-- The namespace @x-amz-lex:@ is reserved for special attributes. Don't create any request attributes with the prefix @x-amz-lex:@ .
+-- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs Setting Request Attributes> .
+--
+-- /Note:/ Consider using 'requestAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptRequestAttributes :: Lens.Lens' PostText (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ptRequestAttributes = Lens.lens (requestAttributes :: PostText -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {requestAttributes = a} :: PostText)
+{-# DEPRECATED ptRequestAttributes "Use generic-lens or generic-optics with 'requestAttributes' instead." #-}
+
+-- | Application-specific information passed between Amazon Lex and a client application.
+--
+-- For more information, see <https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs Setting Session Attributes> .
+--
+-- /Note:/ Consider using 'sessionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptSessionAttributes :: Lens.Lens' PostText (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
+ptSessionAttributes = Lens.lens (sessionAttributes :: PostText -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {sessionAttributes = a} :: PostText)
+{-# DEPRECATED ptSessionAttributes "Use generic-lens or generic-optics with 'sessionAttributes' instead." #-}
 
 instance Lude.AWSRequest PostText where
   type Rs PostText = PostTextResponse
@@ -268,9 +295,9 @@ instance Lude.ToJSON PostText where
     Lude.object
       ( Lude.catMaybes
           [ ("activeContexts" Lude..=) Lude.<$> activeContexts,
+            Lude.Just ("inputText" Lude..= inputText),
             ("requestAttributes" Lude..=) Lude.<$> requestAttributes,
-            ("sessionAttributes" Lude..=) Lude.<$> sessionAttributes,
-            Lude.Just ("inputText" Lude..= inputText)
+            ("sessionAttributes" Lude..=) Lude.<$> sessionAttributes
           ]
       )
 
@@ -291,22 +318,84 @@ instance Lude.ToQuery PostText where
 
 -- | /See:/ 'mkPostTextResponse' smart constructor.
 data PostTextResponse = PostTextResponse'
-  { sentimentResponse ::
-      Lude.Maybe SentimentResponse,
+  { -- | The sentiment expressed in and utterance.
+    --
+    -- When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.
+    sentimentResponse :: Lude.Maybe SentimentResponse,
+    -- | Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user's intent. The score is between 0.0 and 1.0. For more information, see <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores> .
+    --
+    -- The score is a relative score, not an absolute score. The score may change based on improvements to Amazon Lex.
     nluIntentConfidence :: Lude.Maybe IntentConfidence,
+    -- | The intent slots that Amazon Lex detected from the user input in the conversation.
+    --
+    -- Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ , the default is @ORIGINAL_VALUE@ .
     slots :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Represents the options that the user has to respond to the current prompt. Response Card can come from the bot configuration (in the Amazon Lex console, choose the settings button next to a slot) or from a code hook (Lambda function).
     responseCard :: Lude.Maybe ResponseCard,
+    -- | The current user intent that Amazon Lex is aware of.
     intentName :: Lude.Maybe Lude.Text,
+    -- | The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.
     botVersion :: Lude.Maybe Lude.Text,
+    -- | Identifies the current state of the user interaction. Amazon Lex returns one of the following values as @dialogState@ . The client can optionally use this information to customize the user interface.
+    --
+    --
+    --     * @ElicitIntent@ - Amazon Lex wants to elicit user intent.
+    -- For example, a user might utter an intent ("I want to order a pizza"). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialogState.
+    --
+    --
+    --     * @ConfirmIntent@ - Amazon Lex is expecting a "yes" or "no" response.
+    -- For example, Amazon Lex wants user confirmation before fulfilling an intent.
+    -- Instead of a simple "yes" or "no," a user might respond with additional information. For example, "yes, but make it thick crust pizza" or "no, I want to order a drink". Amazon Lex can process such additional information (in these examples, update the crust type slot value, or change intent from OrderPizza to OrderDrink).
+    --
+    --
+    --     * @ElicitSlot@ - Amazon Lex is expecting a slot value for the current intent.
+    -- For example, suppose that in the response Amazon Lex sends this message: "What size pizza would you like?". A user might reply with the slot value (e.g., "medium"). The user might also provide additional information in the response (e.g., "medium thick crust pizza"). Amazon Lex can process such additional information appropriately.
+    --
+    --
+    --     * @Fulfilled@ - Conveys that the Lambda function configured for the intent has successfully fulfilled the intent.
+    --
+    --
+    --     * @ReadyForFulfillment@ - Conveys that the client has to fulfill the intent.
+    --
+    --
+    --     * @Failed@ - Conveys that the conversation with the user failed.
+    -- This can happen for various reasons including that the user did not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or the Lambda function failed to fulfill the intent.
     dialogState :: Lude.Maybe DialogState,
+    -- | A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the @PostContent@ , @PostText@ , or @PutSession@ operation.
+    --
+    -- You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.
     activeContexts :: Lude.Maybe [ActiveContext],
+    -- | One to four alternative intents that may be applicable to the user's intent.
+    --
+    -- Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.
     alternativeIntents :: Lude.Maybe [PredictedIntent],
+    -- | The format of the response message. One of the following values:
+    --
+    --
+    --     * @PlainText@ - The message contains plain UTF-8 text.
+    --
+    --
+    --     * @CustomPayload@ - The message is a custom format defined by the Lambda function.
+    --
+    --
+    --     * @SSML@ - The message contains text formatted for voice output.
+    --
+    --
+    --     * @Composite@ - The message contains an escaped JSON object containing one or more messages from the groups that messages were assigned to when the intent was created.
     messageFormat :: Lude.Maybe MessageFormatType,
+    -- | The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.
+    --
+    -- If the intent is not configured with a Lambda function, or if the Lambda function returned @Delegate@ as the @dialogAction.type@ its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.
+    -- When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see 'msg-prompts-formats' .
+    -- If the Lambda function returns a message, Amazon Lex passes it to the client in its response.
     message :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | A unique identifier for the session.
     sessionId :: Lude.Maybe Lude.Text,
+    -- | If the @dialogState@ value is @ElicitSlot@ , returns the name of the slot for which Amazon Lex is eliciting a value.
     slotToElicit :: Lude.Maybe Lude.Text,
-    sessionAttributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A map of key-value pairs representing the session-specific context information.
+    sessionAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -314,12 +403,17 @@ data PostTextResponse = PostTextResponse'
 
 -- | Creates a value of 'PostTextResponse' with the minimum fields required to make a request.
 --
--- * 'activeContexts' - A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the @PostContent@ , @PostText@ , or @PutSession@ operation.
+-- * 'sentimentResponse' - The sentiment expressed in and utterance.
 --
--- You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.
--- * 'alternativeIntents' - One to four alternative intents that may be applicable to the user's intent.
+-- When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.
+-- * 'nluIntentConfidence' - Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user's intent. The score is between 0.0 and 1.0. For more information, see <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores> .
 --
--- Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.
+-- The score is a relative score, not an absolute score. The score may change based on improvements to Amazon Lex.
+-- * 'slots' - The intent slots that Amazon Lex detected from the user input in the conversation.
+--
+-- Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ , the default is @ORIGINAL_VALUE@ .
+-- * 'responseCard' - Represents the options that the user has to respond to the current prompt. Response Card can come from the bot configuration (in the Amazon Lex console, choose the settings button next to a slot) or from a code hook (Lambda function).
+-- * 'intentName' - The current user intent that Amazon Lex is aware of.
 -- * 'botVersion' - The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.
 -- * 'dialogState' - Identifies the current state of the user interaction. Amazon Lex returns one of the following values as @dialogState@ . The client can optionally use this information to customize the user interface.
 --
@@ -347,12 +441,12 @@ data PostTextResponse = PostTextResponse'
 -- This can happen for various reasons including that the user did not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or the Lambda function failed to fulfill the intent.
 --
 --
--- * 'intentName' - The current user intent that Amazon Lex is aware of.
--- * 'message' - The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.
+-- * 'activeContexts' - A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the @PostContent@ , @PostText@ , or @PutSession@ operation.
 --
--- If the intent is not configured with a Lambda function, or if the Lambda function returned @Delegate@ as the @dialogAction.type@ its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.
--- When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see 'msg-prompts-formats' .
--- If the Lambda function returns a message, Amazon Lex passes it to the client in its response.
+-- You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.
+-- * 'alternativeIntents' - One to four alternative intents that may be applicable to the user's intent.
+--
+-- Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user's intent. The intents are sorted by the confidence score.
 -- * 'messageFormat' - The format of the response message. One of the following values:
 --
 --
@@ -368,20 +462,15 @@ data PostTextResponse = PostTextResponse'
 --     * @Composite@ - The message contains an escaped JSON object containing one or more messages from the groups that messages were assigned to when the intent was created.
 --
 --
--- * 'nluIntentConfidence' - Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user's intent. The score is between 0.0 and 1.0. For more information, see <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores> .
+-- * 'message' - The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.
 --
--- The score is a relative score, not an absolute score. The score may change based on improvements to Amazon Lex.
--- * 'responseCard' - Represents the options that the user has to respond to the current prompt. Response Card can come from the bot configuration (in the Amazon Lex console, choose the settings button next to a slot) or from a code hook (Lambda function).
--- * 'responseStatus' - The response status code.
--- * 'sentimentResponse' - The sentiment expressed in and utterance.
---
--- When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.
--- * 'sessionAttributes' - A map of key-value pairs representing the session-specific context information.
+-- If the intent is not configured with a Lambda function, or if the Lambda function returned @Delegate@ as the @dialogAction.type@ its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.
+-- When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see 'msg-prompts-formats' .
+-- If the Lambda function returns a message, Amazon Lex passes it to the client in its response.
 -- * 'sessionId' - A unique identifier for the session.
 -- * 'slotToElicit' - If the @dialogState@ value is @ElicitSlot@ , returns the name of the slot for which Amazon Lex is eliciting a value.
--- * 'slots' - The intent slots that Amazon Lex detected from the user input in the conversation.
---
--- Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the @valueSelectionStrategy@ selected when the slot type was created or updated. If @valueSelectionStrategy@ is set to @ORIGINAL_VALUE@ , the value provided by the user is returned, if the user value is similar to the slot values. If @valueSelectionStrategy@ is set to @TOP_RESOLUTION@ Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don't specify a @valueSelectionStrategy@ , the default is @ORIGINAL_VALUE@ .
+-- * 'sessionAttributes' - A map of key-value pairs representing the session-specific context information.
+-- * 'responseStatus' - The response status code.
 mkPostTextResponse ::
   -- | 'responseStatus'
   Lude.Int ->

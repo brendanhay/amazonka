@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.IAM.AttachGroupPolicy
     mkAttachGroupPolicy,
 
     -- ** Request lenses
-    agpGroupName,
     agpPolicyARN,
+    agpGroupName,
 
     -- * Destructuring the response
     AttachGroupPolicyResponse (..),
@@ -39,46 +40,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAttachGroupPolicy' smart constructor.
 data AttachGroupPolicy = AttachGroupPolicy'
-  { groupName :: Lude.Text,
-    policyARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    policyARN :: Lude.Text,
+    -- | The name (friendly name, not ARN) of the group to attach the policy to.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    groupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachGroupPolicy' with the minimum fields required to make a request.
 --
--- * 'groupName' - The name (friendly name, not ARN) of the group to attach the policy to.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 -- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-mkAttachGroupPolicy ::
-  -- | 'groupName'
-  Lude.Text ->
-  -- | 'policyARN'
-  Lude.Text ->
-  AttachGroupPolicy
-mkAttachGroupPolicy pGroupName_ pPolicyARN_ =
-  AttachGroupPolicy'
-    { groupName = pGroupName_,
-      policyARN = pPolicyARN_
-    }
-
--- | The name (friendly name, not ARN) of the group to attach the policy to.
+-- * 'groupName' - The name (friendly name, not ARN) of the group to attach the policy to.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agpGroupName :: Lens.Lens' AttachGroupPolicy Lude.Text
-agpGroupName = Lens.lens (groupName :: AttachGroupPolicy -> Lude.Text) (\s a -> s {groupName = a} :: AttachGroupPolicy)
-{-# DEPRECATED agpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+mkAttachGroupPolicy ::
+  -- | 'policyARN'
+  Lude.Text ->
+  -- | 'groupName'
+  Lude.Text ->
+  AttachGroupPolicy
+mkAttachGroupPolicy pPolicyARN_ pGroupName_ =
+  AttachGroupPolicy'
+    { policyARN = pPolicyARN_,
+      groupName = pGroupName_
+    }
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
 --
@@ -88,6 +80,15 @@ agpGroupName = Lens.lens (groupName :: AttachGroupPolicy -> Lude.Text) (\s a -> 
 agpPolicyARN :: Lens.Lens' AttachGroupPolicy Lude.Text
 agpPolicyARN = Lens.lens (policyARN :: AttachGroupPolicy -> Lude.Text) (\s a -> s {policyARN = a} :: AttachGroupPolicy)
 {-# DEPRECATED agpPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+
+-- | The name (friendly name, not ARN) of the group to attach the policy to.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+agpGroupName :: Lens.Lens' AttachGroupPolicy Lude.Text
+agpGroupName = Lens.lens (groupName :: AttachGroupPolicy -> Lude.Text) (\s a -> s {groupName = a} :: AttachGroupPolicy)
+{-# DEPRECATED agpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 instance Lude.AWSRequest AttachGroupPolicy where
   type Rs AttachGroupPolicy = AttachGroupPolicyResponse
@@ -105,19 +106,13 @@ instance Lude.ToQuery AttachGroupPolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("AttachGroupPolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "GroupName" Lude.=: groupName,
-        "PolicyArn" Lude.=: policyARN
+        "PolicyArn" Lude.=: policyARN,
+        "GroupName" Lude.=: groupName
       ]
 
 -- | /See:/ 'mkAttachGroupPolicyResponse' smart constructor.
 data AttachGroupPolicyResponse = AttachGroupPolicyResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachGroupPolicyResponse' with the minimum fields required to make a request.

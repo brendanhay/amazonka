@@ -30,20 +30,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutboundCrossClusterSearchConnectionStatus' smart constructor.
 data OutboundCrossClusterSearchConnectionStatus = OutboundCrossClusterSearchConnectionStatus'
-  { message ::
-      Lude.Maybe
-        Lude.Text,
-    statusCode ::
-      Lude.Maybe
-        OutboundCrossClusterSearchConnectionStatusCode
+  { -- | Specifies verbose information for the outbound connection status.
+    message :: Lude.Maybe Lude.Text,
+    -- | The state code for outbound connection. This can be one of the following:
+    --
+    --
+    --     * VALIDATING: The outbound connection request is being validated.
+    --
+    --     * VALIDATION_FAILED: Validation failed for the connection request.
+    --
+    --     * PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.
+    --
+    --     * PROVISIONING: Outbound connection request is in process.
+    --
+    --     * ACTIVE: Outbound connection is active and ready to use.
+    --
+    --     * REJECTED: Outbound connection request is rejected by destination domain owner.
+    --
+    --     * DELETING: Outbound connection deletion is in progress.
+    --
+    --     * DELETED: Outbound connection is deleted and cannot be used further.
+    statusCode :: Lude.Maybe OutboundCrossClusterSearchConnectionStatusCode
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OutboundCrossClusterSearchConnectionStatus' with the minimum fields required to make a request.

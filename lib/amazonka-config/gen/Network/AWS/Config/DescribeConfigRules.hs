@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeConfigRules' smart constructor.
 data DescribeConfigRules = DescribeConfigRules'
-  { configRuleNames ::
-      Lude.Maybe [Lude.Text],
+  { -- | The names of the AWS Config rules for which you want details. If you do not specify any names, AWS Config returns details for all your rules.
+    configRuleNames :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
     nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRules' with the minimum fields required to make a request.
@@ -136,18 +132,14 @@ instance Lude.ToQuery DescribeConfigRules where
 --
 -- /See:/ 'mkDescribeConfigRulesResponse' smart constructor.
 data DescribeConfigRulesResponse = DescribeConfigRulesResponse'
-  { configRules ::
-      Lude.Maybe [ConfigRule],
+  { -- | The details about your AWS Config rules.
+    configRules :: Lude.Maybe [ConfigRule],
+    -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeConfigRulesResponse' with the minimum fields required to make a request.

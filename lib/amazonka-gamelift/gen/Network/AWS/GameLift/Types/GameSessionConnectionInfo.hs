@@ -33,24 +33,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameSessionConnectionInfo' smart constructor.
 data GameSessionConnectionInfo = GameSessionConnectionInfo'
-  { matchedPlayerSessions ::
-      Lude.Maybe [MatchedPlayerSession],
+  { -- | A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
+    matchedPlayerSessions :: Lude.Maybe [MatchedPlayerSession],
+    -- | IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
     ipAddress :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
     gameSessionARN :: Lude.Maybe Lude.Text,
+    -- | DNS identifier assigned to the instance that is running the game session. Values have the following format:
+    --
+    --
+    --     * TLS-enabled fleets: @<unique identifier>.<region identifier>.amazongamelift.com@ .
+    --
+    --
+    --     * Non-TLS-enabled fleets: @ec2-<unique identifier>.compute.amazonaws.com@ . (See <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing> .)
+    --
+    --
+    -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
     dnsName :: Lude.Maybe Lude.Text,
+    -- | Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
     port :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameSessionConnectionInfo' with the minimum fields required to make a request.
 --
+-- * 'matchedPlayerSessions' - A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
+-- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
+-- * 'gameSessionARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
 -- * 'dnsName' - DNS identifier assigned to the instance that is running the game session. Values have the following format:
 --
 --
@@ -61,9 +71,6 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
 --
 --
 -- When connecting to a game session that is running on a TLS-enabled fleet, you must use the DNS name, not the IP address.
--- * 'gameSessionARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it.
--- * 'ipAddress' - IP address of the instance that is running the game session. When connecting to a Amazon GameLift game server, a client needs to reference an IP address (or DNS name) and port number.
--- * 'matchedPlayerSessions' - A collection of player session IDs, one for each player ID that was included in the original matchmaking request.
 -- * 'port' - Port number for the game session. To connect to a Amazon GameLift game server, an app needs both the IP address and port number.
 mkGameSessionConnectionInfo ::
   GameSessionConnectionInfo

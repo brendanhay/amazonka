@@ -13,11 +13,11 @@
 module Network.AWS.StepFunctions.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
-        Aborted,
-        Failed,
-        Running,
-        Succeeded,
-        TimedOut
+        ESRunning,
+        ESSucceeded,
+        ESFailed,
+        ESTimedOut,
+        ESAborted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ExecutionStatus = ExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Aborted :: ExecutionStatus
-pattern Aborted = ExecutionStatus' "ABORTED"
+pattern ESRunning :: ExecutionStatus
+pattern ESRunning = ExecutionStatus' "RUNNING"
 
-pattern Failed :: ExecutionStatus
-pattern Failed = ExecutionStatus' "FAILED"
+pattern ESSucceeded :: ExecutionStatus
+pattern ESSucceeded = ExecutionStatus' "SUCCEEDED"
 
-pattern Running :: ExecutionStatus
-pattern Running = ExecutionStatus' "RUNNING"
+pattern ESFailed :: ExecutionStatus
+pattern ESFailed = ExecutionStatus' "FAILED"
 
-pattern Succeeded :: ExecutionStatus
-pattern Succeeded = ExecutionStatus' "SUCCEEDED"
+pattern ESTimedOut :: ExecutionStatus
+pattern ESTimedOut = ExecutionStatus' "TIMED_OUT"
 
-pattern TimedOut :: ExecutionStatus
-pattern TimedOut = ExecutionStatus' "TIMED_OUT"
+pattern ESAborted :: ExecutionStatus
+pattern ESAborted = ExecutionStatus' "ABORTED"
 
 {-# COMPLETE
-  Aborted,
-  Failed,
-  Running,
-  Succeeded,
-  TimedOut,
+  ESRunning,
+  ESSucceeded,
+  ESFailed,
+  ESTimedOut,
+  ESAborted,
   ExecutionStatus'
   #-}

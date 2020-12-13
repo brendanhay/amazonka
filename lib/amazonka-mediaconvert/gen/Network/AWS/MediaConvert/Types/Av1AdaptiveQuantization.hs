@@ -13,12 +13,12 @@
 module Network.AWS.MediaConvert.Types.Av1AdaptiveQuantization
   ( Av1AdaptiveQuantization
       ( Av1AdaptiveQuantization',
+        Off,
+        Low,
+        Medium,
         High,
         Higher,
-        Low,
-        Max,
-        Medium,
-        Off
+        Max
       ),
   )
 where
@@ -50,30 +50,30 @@ newtype Av1AdaptiveQuantization = Av1AdaptiveQuantization' Lude.Text
       Lude.ToHeader
     )
 
+pattern Off :: Av1AdaptiveQuantization
+pattern Off = Av1AdaptiveQuantization' "OFF"
+
+pattern Low :: Av1AdaptiveQuantization
+pattern Low = Av1AdaptiveQuantization' "LOW"
+
+pattern Medium :: Av1AdaptiveQuantization
+pattern Medium = Av1AdaptiveQuantization' "MEDIUM"
+
 pattern High :: Av1AdaptiveQuantization
 pattern High = Av1AdaptiveQuantization' "HIGH"
 
 pattern Higher :: Av1AdaptiveQuantization
 pattern Higher = Av1AdaptiveQuantization' "HIGHER"
 
-pattern Low :: Av1AdaptiveQuantization
-pattern Low = Av1AdaptiveQuantization' "LOW"
-
 pattern Max :: Av1AdaptiveQuantization
 pattern Max = Av1AdaptiveQuantization' "MAX"
 
-pattern Medium :: Av1AdaptiveQuantization
-pattern Medium = Av1AdaptiveQuantization' "MEDIUM"
-
-pattern Off :: Av1AdaptiveQuantization
-pattern Off = Av1AdaptiveQuantization' "OFF"
-
 {-# COMPLETE
+  Off,
+  Low,
+  Medium,
   High,
   Higher,
-  Low,
   Max,
-  Medium,
-  Off,
   Av1AdaptiveQuantization'
   #-}

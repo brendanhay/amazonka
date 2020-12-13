@@ -19,6 +19,7 @@ module Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
     -- * Lenses
     siasasImageX,
     siasasHeight,
+    siasasImage,
     siasasFadeOut,
     siasasWidth,
     siasasOpacity,
@@ -26,7 +27,6 @@ module Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
     siasasDuration,
     siasasImageY,
     siasasFadeIn,
-    siasasImage,
   )
 where
 
@@ -38,57 +38,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStaticImageActivateScheduleActionSettings' smart constructor.
 data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActionSettings'
-  { imageX ::
-      Lude.Maybe
-        Lude.Natural,
-    height ::
-      Lude.Maybe
-        Lude.Natural,
-    fadeOut ::
-      Lude.Maybe
-        Lude.Natural,
-    width ::
-      Lude.Maybe
-        Lude.Natural,
-    opacity ::
-      Lude.Maybe
-        Lude.Natural,
-    layer ::
-      Lude.Maybe
-        Lude.Natural,
-    duration ::
-      Lude.Maybe
-        Lude.Natural,
-    imageY ::
-      Lude.Maybe
-        Lude.Natural,
-    fadeIn ::
-      Lude.Maybe
-        Lude.Natural,
-    image ::
-      InputLocation
+  { -- | Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
+    imageX :: Lude.Maybe Lude.Natural,
+    -- | The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
+    height :: Lude.Maybe Lude.Natural,
+    -- | The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+    image :: InputLocation,
+    -- | Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
+    fadeOut :: Lude.Maybe Lude.Natural,
+    -- | The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
+    width :: Lude.Maybe Lude.Natural,
+    -- | Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+    opacity :: Lude.Maybe Lude.Natural,
+    -- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
+    layer :: Lude.Maybe Lude.Natural,
+    -- | The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
+    duration :: Lude.Maybe Lude.Natural,
+    -- | Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
+    imageY :: Lude.Maybe Lude.Natural,
+    -- | The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
+    fadeIn :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StaticImageActivateScheduleActionSettings' with the minimum fields required to make a request.
 --
--- * 'duration' - The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
--- * 'fadeIn' - The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
--- * 'fadeOut' - Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
+-- * 'imageX' - Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
 -- * 'height' - The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
 -- * 'image' - The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
--- * 'imageX' - Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
--- * 'imageY' - Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
--- * 'layer' - The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
--- * 'opacity' - Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+-- * 'fadeOut' - Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
 -- * 'width' - The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
+-- * 'opacity' - Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+-- * 'layer' - The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
+-- * 'duration' - The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
+-- * 'imageY' - Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
+-- * 'fadeIn' - The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
 mkStaticImageActivateScheduleActionSettings ::
   -- | 'image'
   InputLocation ->
@@ -97,14 +82,14 @@ mkStaticImageActivateScheduleActionSettings pImage_ =
   StaticImageActivateScheduleActionSettings'
     { imageX = Lude.Nothing,
       height = Lude.Nothing,
+      image = pImage_,
       fadeOut = Lude.Nothing,
       width = Lude.Nothing,
       opacity = Lude.Nothing,
       layer = Lude.Nothing,
       duration = Lude.Nothing,
       imageY = Lude.Nothing,
-      fadeIn = Lude.Nothing,
-      image = pImage_
+      fadeIn = Lude.Nothing
     }
 
 -- | Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
@@ -120,6 +105,13 @@ siasasImageX = Lens.lens (imageX :: StaticImageActivateScheduleActionSettings ->
 siasasHeight :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
 siasasHeight = Lens.lens (height :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {height = a} :: StaticImageActivateScheduleActionSettings)
 {-# DEPRECATED siasasHeight "Use generic-lens or generic-optics with 'height' instead." #-}
+
+-- | The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasImage :: Lens.Lens' StaticImageActivateScheduleActionSettings InputLocation
+siasasImage = Lens.lens (image :: StaticImageActivateScheduleActionSettings -> InputLocation) (\s a -> s {image = a} :: StaticImageActivateScheduleActionSettings)
+{-# DEPRECATED siasasImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
 --
@@ -170,13 +162,6 @@ siasasFadeIn :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe
 siasasFadeIn = Lens.lens (fadeIn :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {fadeIn = a} :: StaticImageActivateScheduleActionSettings)
 {-# DEPRECATED siasasFadeIn "Use generic-lens or generic-optics with 'fadeIn' instead." #-}
 
--- | The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
---
--- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasImage :: Lens.Lens' StaticImageActivateScheduleActionSettings InputLocation
-siasasImage = Lens.lens (image :: StaticImageActivateScheduleActionSettings -> InputLocation) (\s a -> s {image = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasImage "Use generic-lens or generic-optics with 'image' instead." #-}
-
 instance Lude.FromJSON StaticImageActivateScheduleActionSettings where
   parseJSON =
     Lude.withObject
@@ -185,6 +170,7 @@ instance Lude.FromJSON StaticImageActivateScheduleActionSettings where
           StaticImageActivateScheduleActionSettings'
             Lude.<$> (x Lude..:? "imageX")
             Lude.<*> (x Lude..:? "height")
+            Lude.<*> (x Lude..: "image")
             Lude.<*> (x Lude..:? "fadeOut")
             Lude.<*> (x Lude..:? "width")
             Lude.<*> (x Lude..:? "opacity")
@@ -192,7 +178,6 @@ instance Lude.FromJSON StaticImageActivateScheduleActionSettings where
             Lude.<*> (x Lude..:? "duration")
             Lude.<*> (x Lude..:? "imageY")
             Lude.<*> (x Lude..:? "fadeIn")
-            Lude.<*> (x Lude..: "image")
       )
 
 instance Lude.ToJSON StaticImageActivateScheduleActionSettings where
@@ -201,13 +186,13 @@ instance Lude.ToJSON StaticImageActivateScheduleActionSettings where
       ( Lude.catMaybes
           [ ("imageX" Lude..=) Lude.<$> imageX,
             ("height" Lude..=) Lude.<$> height,
+            Lude.Just ("image" Lude..= image),
             ("fadeOut" Lude..=) Lude.<$> fadeOut,
             ("width" Lude..=) Lude.<$> width,
             ("opacity" Lude..=) Lude.<$> opacity,
             ("layer" Lude..=) Lude.<$> layer,
             ("duration" Lude..=) Lude.<$> duration,
             ("imageY" Lude..=) Lude.<$> imageY,
-            ("fadeIn" Lude..=) Lude.<$> fadeIn,
-            Lude.Just ("image" Lude..= image)
+            ("fadeIn" Lude..=) Lude.<$> fadeIn
           ]
       )

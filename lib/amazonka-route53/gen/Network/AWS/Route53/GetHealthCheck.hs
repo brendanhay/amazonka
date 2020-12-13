@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Route53.GetHealthCheck
     mkGetHealthCheckResponse,
 
     -- ** Response lenses
-    ghcrsResponseStatus,
     ghcrsHealthCheck,
+    ghcrsResponseStatus,
   )
 where
 
@@ -41,16 +42,10 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'mkGetHealthCheck' smart constructor.
 newtype GetHealthCheck = GetHealthCheck'
-  { healthCheckId ::
-      Lude.Text
+  { -- | The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
+    healthCheckId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHealthCheck' with the minimum fields required to make a request.
@@ -77,7 +72,7 @@ instance Lude.AWSRequest GetHealthCheck where
     Res.receiveXML
       ( \s h x ->
           GetHealthCheckResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..@ "HealthCheck")
+            Lude.<$> (x Lude..@ "HealthCheck") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetHealthCheck where
@@ -95,17 +90,12 @@ instance Lude.ToQuery GetHealthCheck where
 --
 -- /See:/ 'mkGetHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
-  { responseStatus ::
-      Lude.Int,
-    healthCheck :: HealthCheck
+  { -- | A complex type that contains information about one health check that is associated with the current AWS account.
+    healthCheck :: HealthCheck,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetHealthCheckResponse' with the minimum fields required to make a request.
@@ -113,23 +103,16 @@ data GetHealthCheckResponse = GetHealthCheckResponse'
 -- * 'healthCheck' - A complex type that contains information about one health check that is associated with the current AWS account.
 -- * 'responseStatus' - The response status code.
 mkGetHealthCheckResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'healthCheck'
   HealthCheck ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetHealthCheckResponse
-mkGetHealthCheckResponse pResponseStatus_ pHealthCheck_ =
+mkGetHealthCheckResponse pHealthCheck_ pResponseStatus_ =
   GetHealthCheckResponse'
-    { responseStatus = pResponseStatus_,
-      healthCheck = pHealthCheck_
+    { healthCheck = pHealthCheck_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghcrsResponseStatus :: Lens.Lens' GetHealthCheckResponse Lude.Int
-ghcrsResponseStatus = Lens.lens (responseStatus :: GetHealthCheckResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHealthCheckResponse)
-{-# DEPRECATED ghcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A complex type that contains information about one health check that is associated with the current AWS account.
 --
@@ -137,3 +120,10 @@ ghcrsResponseStatus = Lens.lens (responseStatus :: GetHealthCheckResponse -> Lud
 ghcrsHealthCheck :: Lens.Lens' GetHealthCheckResponse HealthCheck
 ghcrsHealthCheck = Lens.lens (healthCheck :: GetHealthCheckResponse -> HealthCheck) (\s a -> s {healthCheck = a} :: GetHealthCheckResponse)
 {-# DEPRECATED ghcrsHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghcrsResponseStatus :: Lens.Lens' GetHealthCheckResponse Lude.Int
+ghcrsResponseStatus = Lens.lens (responseStatus :: GetHealthCheckResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHealthCheckResponse)
+{-# DEPRECATED ghcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

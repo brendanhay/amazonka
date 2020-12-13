@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetRegexMatchSet' smart constructor.
 newtype GetRegexMatchSet = GetRegexMatchSet'
-  { regexMatchSetId ::
-      Lude.Text
+  { -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to get. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+    regexMatchSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegexMatchSet' with the minimum fields required to make a request.
@@ -105,17 +100,12 @@ instance Lude.ToQuery GetRegexMatchSet where
 
 -- | /See:/ 'mkGetRegexMatchSetResponse' smart constructor.
 data GetRegexMatchSetResponse = GetRegexMatchSetResponse'
-  { regexMatchSet ::
-      Lude.Maybe RegexMatchSet,
+  { -- | Information about the 'RegexMatchSet' that you specified in the @GetRegexMatchSet@ request. For more information, see 'RegexMatchTuple' .
+    regexMatchSet :: Lude.Maybe RegexMatchSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegexMatchSetResponse' with the minimum fields required to make a request.

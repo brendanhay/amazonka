@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.CloudWatchEvents.DescribeEventSource
     mkDescribeEventSource,
 
     -- ** Request lenses
-    deseName,
+    desName,
 
     -- * Destructuring the response
     DescribeEventSourceResponse (..),
@@ -44,16 +45,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeEventSource' smart constructor.
 newtype DescribeEventSource = DescribeEventSource'
-  { name ::
-      Lude.Text
+  { -- | The name of the partner event source to display the details of.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventSource' with the minimum fields required to make a request.
@@ -68,9 +63,9 @@ mkDescribeEventSource pName_ = DescribeEventSource' {name = pName_}
 -- | The name of the partner event source to display the details of.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deseName :: Lens.Lens' DescribeEventSource Lude.Text
-deseName = Lens.lens (name :: DescribeEventSource -> Lude.Text) (\s a -> s {name = a} :: DescribeEventSource)
-{-# DEPRECATED deseName "Use generic-lens or generic-optics with 'name' instead." #-}
+desName :: Lens.Lens' DescribeEventSource Lude.Text
+desName = Lens.lens (name :: DescribeEventSource -> Lude.Text) (\s a -> s {name = a} :: DescribeEventSource)
+{-# DEPRECATED desName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DescribeEventSource where
   type Rs DescribeEventSource = DescribeEventSourceResponse
@@ -111,35 +106,33 @@ instance Lude.ToQuery DescribeEventSource where
 
 -- | /See:/ 'mkDescribeEventSourceResponse' smart constructor.
 data DescribeEventSourceResponse = DescribeEventSourceResponse'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
-    state ::
-      Lude.Maybe EventSourceState,
+  { -- | The date and time that the event source was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
+    state :: Lude.Maybe EventSourceState,
+    -- | The ARN of the partner event source.
     arn :: Lude.Maybe Lude.Text,
+    -- | The name of the SaaS partner that created the event source.
     createdBy :: Lude.Maybe Lude.Text,
+    -- | The name of the partner event source.
     name :: Lude.Maybe Lude.Text,
-    expirationTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The date and time that the event source will expire if you do not create a matching event bus.
+    expirationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEventSourceResponse' with the minimum fields required to make a request.
 --
+-- * 'creationTime' - The date and time that the event source was created.
+-- * 'state' - The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
 -- * 'arn' - The ARN of the partner event source.
 -- * 'createdBy' - The name of the SaaS partner that created the event source.
--- * 'creationTime' - The date and time that the event source was created.
--- * 'expirationTime' - The date and time that the event source will expire if you do not create a matching event bus.
 -- * 'name' - The name of the partner event source.
+-- * 'expirationTime' - The date and time that the event source will expire if you do not create a matching event bus.
 -- * 'responseStatus' - The response status code.
--- * 'state' - The state of the event source. If it is ACTIVE, you have already created a matching event bus for this event source, and that event bus is active. If it is PENDING, either you haven't yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have created a matching event bus, but the event source has since been deleted.
 mkDescribeEventSourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

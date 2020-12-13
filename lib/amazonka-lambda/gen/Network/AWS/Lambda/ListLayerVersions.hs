@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +22,10 @@ module Network.AWS.Lambda.ListLayerVersions
     mkListLayerVersions,
 
     -- ** Request lenses
+    llvLayerName,
     llvCompatibleRuntime,
     llvMarker,
     llvMaxItems,
-    llvLayerName,
 
     -- * Destructuring the response
     ListLayerVersionsResponse (..),
@@ -46,25 +47,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListLayerVersions' smart constructor.
 data ListLayerVersions = ListLayerVersions'
-  { compatibleRuntime ::
-      Lude.Maybe Runtime,
+  { -- | The name or Amazon Resource Name (ARN) of the layer.
+    layerName :: Lude.Text,
+    -- | A runtime identifier. For example, @go1.x@ .
+    compatibleRuntime :: Lude.Maybe Runtime,
+    -- | A pagination token returned by a previous call.
     marker :: Lude.Maybe Lude.Text,
-    maxItems :: Lude.Maybe Lude.Natural,
-    layerName :: Lude.Text
+    -- | The maximum number of versions to return.
+    maxItems :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLayerVersions' with the minimum fields required to make a request.
 --
--- * 'compatibleRuntime' - A runtime identifier. For example, @go1.x@ .
 -- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
+-- * 'compatibleRuntime' - A runtime identifier. For example, @go1.x@ .
 -- * 'marker' - A pagination token returned by a previous call.
 -- * 'maxItems' - The maximum number of versions to return.
 mkListLayerVersions ::
@@ -73,11 +71,18 @@ mkListLayerVersions ::
   ListLayerVersions
 mkListLayerVersions pLayerName_ =
   ListLayerVersions'
-    { compatibleRuntime = Lude.Nothing,
+    { layerName = pLayerName_,
+      compatibleRuntime = Lude.Nothing,
       marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      layerName = pLayerName_
+      maxItems = Lude.Nothing
     }
+
+-- | The name or Amazon Resource Name (ARN) of the layer.
+--
+-- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llvLayerName :: Lens.Lens' ListLayerVersions Lude.Text
+llvLayerName = Lens.lens (layerName :: ListLayerVersions -> Lude.Text) (\s a -> s {layerName = a} :: ListLayerVersions)
+{-# DEPRECATED llvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | A runtime identifier. For example, @go1.x@ .
 --
@@ -99,13 +104,6 @@ llvMarker = Lens.lens (marker :: ListLayerVersions -> Lude.Maybe Lude.Text) (\s 
 llvMaxItems :: Lens.Lens' ListLayerVersions (Lude.Maybe Lude.Natural)
 llvMaxItems = Lens.lens (maxItems :: ListLayerVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListLayerVersions)
 {-# DEPRECATED llvMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
-
--- | The name or Amazon Resource Name (ARN) of the layer.
---
--- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvLayerName :: Lens.Lens' ListLayerVersions Lude.Text
-llvLayerName = Lens.lens (layerName :: ListLayerVersions -> Lude.Text) (\s a -> s {layerName = a} :: ListLayerVersions)
-{-# DEPRECATED llvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 instance Page.AWSPager ListLayerVersions where
   page rq rs
@@ -146,18 +144,14 @@ instance Lude.ToQuery ListLayerVersions where
 
 -- | /See:/ 'mkListLayerVersionsResponse' smart constructor.
 data ListLayerVersionsResponse = ListLayerVersionsResponse'
-  { layerVersions ::
-      Lude.Maybe [LayerVersionsListItem],
+  { -- | A list of versions.
+    layerVersions :: Lude.Maybe [LayerVersionsListItem],
+    -- | A pagination token returned when the response doesn't contain all versions.
     nextMarker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListLayerVersionsResponse' with the minimum fields required to make a request.

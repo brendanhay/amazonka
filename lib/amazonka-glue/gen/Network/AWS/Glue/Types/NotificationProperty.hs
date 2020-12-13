@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotificationProperty' smart constructor.
 newtype NotificationProperty = NotificationProperty'
-  { notifyDelayAfter ::
-      Lude.Maybe Lude.Natural
+  { -- | After a job run starts, the number of minutes to wait before sending a job run delay notification.
+    notifyDelayAfter :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationProperty' with the minimum fields required to make a request.

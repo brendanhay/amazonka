@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,12 +26,12 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     rsgeFromPort,
     rsgeIPPermissions,
     rsgeIPProtocol,
+    rsgeGroupId,
     rsgeToPort,
     rsgeCidrIP,
     rsgeSourceSecurityGroupOwnerId,
     rsgeSourceSecurityGroupName,
     rsgeDryRun,
-    rsgeGroupId,
 
     -- * Destructuring the response
     RevokeSecurityGroupEgressResponse (..),
@@ -51,40 +52,39 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRevokeSecurityGroupEgress' smart constructor.
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
-  { fromPort ::
-      Lude.Maybe Lude.Int,
-    ipPermissions ::
-      Lude.Maybe [IPPermission],
+  { -- | Not supported. Use a set of IP permissions to specify the port.
+    fromPort :: Lude.Maybe Lude.Int,
+    -- | The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
+    ipPermissions :: Lude.Maybe [IPPermission],
+    -- | Not supported. Use a set of IP permissions to specify the protocol name or number.
     ipProtocol :: Lude.Maybe Lude.Text,
+    -- | The ID of the security group.
+    groupId :: Lude.Text,
+    -- | Not supported. Use a set of IP permissions to specify the port.
     toPort :: Lude.Maybe Lude.Int,
+    -- | Not supported. Use a set of IP permissions to specify the CIDR.
     cidrIP :: Lude.Maybe Lude.Text,
-    sourceSecurityGroupOwnerId ::
-      Lude.Maybe Lude.Text,
-    sourceSecurityGroupName ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    groupId :: Lude.Text
+    -- | Not supported. Use a set of IP permissions to specify a destination security group.
+    sourceSecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    -- | Not supported. Use a set of IP permissions to specify a destination security group.
+    sourceSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSecurityGroupEgress' with the minimum fields required to make a request.
 --
--- * 'cidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'fromPort' - Not supported. Use a set of IP permissions to specify the port.
--- * 'groupId' - The ID of the security group.
 -- * 'ipPermissions' - The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.
 -- * 'ipProtocol' - Not supported. Use a set of IP permissions to specify the protocol name or number.
--- * 'sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
--- * 'sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'groupId' - The ID of the security group.
 -- * 'toPort' - Not supported. Use a set of IP permissions to specify the port.
+-- * 'cidrIP' - Not supported. Use a set of IP permissions to specify the CIDR.
+-- * 'sourceSecurityGroupOwnerId' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'sourceSecurityGroupName' - Not supported. Use a set of IP permissions to specify a destination security group.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRevokeSecurityGroupEgress ::
   -- | 'groupId'
   Lude.Text ->
@@ -94,12 +94,12 @@ mkRevokeSecurityGroupEgress pGroupId_ =
     { fromPort = Lude.Nothing,
       ipPermissions = Lude.Nothing,
       ipProtocol = Lude.Nothing,
+      groupId = pGroupId_,
       toPort = Lude.Nothing,
       cidrIP = Lude.Nothing,
       sourceSecurityGroupOwnerId = Lude.Nothing,
       sourceSecurityGroupName = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      groupId = pGroupId_
+      dryRun = Lude.Nothing
     }
 
 -- | Not supported. Use a set of IP permissions to specify the port.
@@ -122,6 +122,13 @@ rsgeIPPermissions = Lens.lens (ipPermissions :: RevokeSecurityGroupEgress -> Lud
 rsgeIPProtocol :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Text)
 rsgeIPProtocol = Lens.lens (ipProtocol :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Text) (\s a -> s {ipProtocol = a} :: RevokeSecurityGroupEgress)
 {-# DEPRECATED rsgeIPProtocol "Use generic-lens or generic-optics with 'ipProtocol' instead." #-}
+
+-- | The ID of the security group.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsgeGroupId :: Lens.Lens' RevokeSecurityGroupEgress Lude.Text
+rsgeGroupId = Lens.lens (groupId :: RevokeSecurityGroupEgress -> Lude.Text) (\s a -> s {groupId = a} :: RevokeSecurityGroupEgress)
+{-# DEPRECATED rsgeGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | Not supported. Use a set of IP permissions to specify the port.
 --
@@ -158,13 +165,6 @@ rsgeDryRun :: Lens.Lens' RevokeSecurityGroupEgress (Lude.Maybe Lude.Bool)
 rsgeDryRun = Lens.lens (dryRun :: RevokeSecurityGroupEgress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RevokeSecurityGroupEgress)
 {-# DEPRECATED rsgeDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The ID of the security group.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsgeGroupId :: Lens.Lens' RevokeSecurityGroupEgress Lude.Text
-rsgeGroupId = Lens.lens (groupId :: RevokeSecurityGroupEgress -> Lude.Text) (\s a -> s {groupId = a} :: RevokeSecurityGroupEgress)
-{-# DEPRECATED rsgeGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
-
 instance Lude.AWSRequest RevokeSecurityGroupEgress where
   type
     Rs RevokeSecurityGroupEgress =
@@ -196,38 +196,31 @@ instance Lude.ToQuery RevokeSecurityGroupEgress where
         Lude.toQuery
           (Lude.toQueryList "IpPermissions" Lude.<$> ipPermissions),
         "IpProtocol" Lude.=: ipProtocol,
+        "GroupId" Lude.=: groupId,
         "ToPort" Lude.=: toPort,
         "CidrIp" Lude.=: cidrIP,
         "SourceSecurityGroupOwnerId" Lude.=: sourceSecurityGroupOwnerId,
         "SourceSecurityGroupName" Lude.=: sourceSecurityGroupName,
-        "DryRun" Lude.=: dryRun,
-        "GroupId" Lude.=: groupId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkRevokeSecurityGroupEgressResponse' smart constructor.
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
-    unknownIPPermissions ::
-      Lude.Maybe
-        [IPPermission],
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The outbound rules that were unknown to the service. In some cases, @unknownIpPermissionSet@ might be in a different format from the request parameter.
+    unknownIPPermissions :: Lude.Maybe [IPPermission],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSecurityGroupEgressResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, returns an error.
 -- * 'unknownIPPermissions' - The outbound rules that were unknown to the service. In some cases, @unknownIpPermissionSet@ might be in a different format from the request parameter.
+-- * 'responseStatus' - The response status code.
 mkRevokeSecurityGroupEgressResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.SuggesterStatus
     mkSuggesterStatus,
 
     -- * Lenses
-    ssOptions,
     ssStatus,
+    ssOptions,
   )
 where
 
@@ -31,37 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSuggesterStatus' smart constructor.
 data SuggesterStatus = SuggesterStatus'
-  { options :: Suggester,
-    status :: OptionStatus
+  { status :: OptionStatus,
+    options :: Suggester
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SuggesterStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Undocumented field.
--- * 'status' - Undocumented field.
+-- * 'status' -
+-- * 'options' -
 mkSuggesterStatus ::
-  -- | 'options'
-  Suggester ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  Suggester ->
   SuggesterStatus
-mkSuggesterStatus pOptions_ pStatus_ =
-  SuggesterStatus' {options = pOptions_, status = pStatus_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssOptions :: Lens.Lens' SuggesterStatus Suggester
-ssOptions = Lens.lens (options :: SuggesterStatus -> Suggester) (\s a -> s {options = a} :: SuggesterStatus)
-{-# DEPRECATED ssOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkSuggesterStatus pStatus_ pOptions_ =
+  SuggesterStatus' {status = pStatus_, options = pOptions_}
 
 -- | Undocumented field.
 --
@@ -70,7 +57,14 @@ ssStatus :: Lens.Lens' SuggesterStatus OptionStatus
 ssStatus = Lens.lens (status :: SuggesterStatus -> OptionStatus) (\s a -> s {status = a} :: SuggesterStatus)
 {-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssOptions :: Lens.Lens' SuggesterStatus Suggester
+ssOptions = Lens.lens (options :: SuggesterStatus -> Suggester) (\s a -> s {options = a} :: SuggesterStatus)
+{-# DEPRECATED ssOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromXML SuggesterStatus where
   parseXML x =
     SuggesterStatus'
-      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")

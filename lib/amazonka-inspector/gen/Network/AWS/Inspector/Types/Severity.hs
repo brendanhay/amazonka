@@ -13,10 +13,10 @@
 module Network.AWS.Inspector.Types.Severity
   ( Severity
       ( Severity',
-        High,
-        Informational,
         Low,
         Medium,
+        High,
+        Informational,
         Undefined
       ),
   )
@@ -48,26 +48,26 @@ newtype Severity = Severity' Lude.Text
       Lude.ToHeader
     )
 
-pattern High :: Severity
-pattern High = Severity' "High"
-
-pattern Informational :: Severity
-pattern Informational = Severity' "Informational"
-
 pattern Low :: Severity
 pattern Low = Severity' "Low"
 
 pattern Medium :: Severity
 pattern Medium = Severity' "Medium"
 
+pattern High :: Severity
+pattern High = Severity' "High"
+
+pattern Informational :: Severity
+pattern Informational = Severity' "Informational"
+
 pattern Undefined :: Severity
 pattern Undefined = Severity' "Undefined"
 
 {-# COMPLETE
-  High,
-  Informational,
   Low,
   Medium,
+  High,
+  Informational,
   Undefined,
   Severity'
   #-}

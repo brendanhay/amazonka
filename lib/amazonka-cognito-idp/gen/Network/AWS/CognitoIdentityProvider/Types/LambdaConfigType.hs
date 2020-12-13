@@ -42,47 +42,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLambdaConfigType' smart constructor.
 data LambdaConfigType = LambdaConfigType'
-  { preAuthentication ::
-      Lude.Maybe Lude.Text,
+  { -- | A pre-authentication AWS Lambda trigger.
+    preAuthentication :: Lude.Maybe Lude.Text,
+    -- | Creates an authentication challenge.
     createAuthChallenge :: Lude.Maybe Lude.Text,
+    -- | Verifies the authentication challenge response.
     verifyAuthChallengeResponse :: Lude.Maybe Lude.Text,
-    customSMSSender ::
-      Lude.Maybe CustomSMSLambdaVersionConfigType,
+    -- | A custom SMS sender AWS Lambda trigger.
+    customSMSSender :: Lude.Maybe CustomSMSLambdaVersionConfigType,
+    -- | A post-authentication AWS Lambda trigger.
     postAuthentication :: Lude.Maybe Lude.Text,
+    -- | A custom Message AWS Lambda trigger.
     customMessage :: Lude.Maybe Lude.Text,
+    -- | Defines the authentication challenge.
     defineAuthChallenge :: Lude.Maybe Lude.Text,
-    customEmailSender ::
-      Lude.Maybe CustomEmailLambdaVersionConfigType,
+    -- | A custom email sender AWS Lambda trigger.
+    customEmailSender :: Lude.Maybe CustomEmailLambdaVersionConfigType,
+    -- | The Amazon Resource Name of Key Management Service </kms/latest/developerguide/concepts.html#master_keys Customer master keys> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to @CustomEmailSender@ and @CustomSMSSender@ .
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | A post-confirmation AWS Lambda trigger.
     postConfirmation :: Lude.Maybe Lude.Text,
+    -- | A Lambda trigger that is invoked before token generation.
     preTokenGeneration :: Lude.Maybe Lude.Text,
+    -- | The user migration Lambda config type.
     userMigration :: Lude.Maybe Lude.Text,
+    -- | A pre-registration AWS Lambda trigger.
     preSignUp :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LambdaConfigType' with the minimum fields required to make a request.
 --
--- * 'createAuthChallenge' - Creates an authentication challenge.
--- * 'customEmailSender' - A custom email sender AWS Lambda trigger.
--- * 'customMessage' - A custom Message AWS Lambda trigger.
--- * 'customSMSSender' - A custom SMS sender AWS Lambda trigger.
--- * 'defineAuthChallenge' - Defines the authentication challenge.
--- * 'kmsKeyId' - The Amazon Resource Name of Key Management Service </kms/latest/developerguide/concepts.html#master_keys Customer master keys> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to @CustomEmailSender@ and @CustomSMSSender@ .
--- * 'postAuthentication' - A post-authentication AWS Lambda trigger.
--- * 'postConfirmation' - A post-confirmation AWS Lambda trigger.
 -- * 'preAuthentication' - A pre-authentication AWS Lambda trigger.
--- * 'preSignUp' - A pre-registration AWS Lambda trigger.
+-- * 'createAuthChallenge' - Creates an authentication challenge.
+-- * 'verifyAuthChallengeResponse' - Verifies the authentication challenge response.
+-- * 'customSMSSender' - A custom SMS sender AWS Lambda trigger.
+-- * 'postAuthentication' - A post-authentication AWS Lambda trigger.
+-- * 'customMessage' - A custom Message AWS Lambda trigger.
+-- * 'defineAuthChallenge' - Defines the authentication challenge.
+-- * 'customEmailSender' - A custom email sender AWS Lambda trigger.
+-- * 'kmsKeyId' - The Amazon Resource Name of Key Management Service </kms/latest/developerguide/concepts.html#master_keys Customer master keys> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to @CustomEmailSender@ and @CustomSMSSender@ .
+-- * 'postConfirmation' - A post-confirmation AWS Lambda trigger.
 -- * 'preTokenGeneration' - A Lambda trigger that is invoked before token generation.
 -- * 'userMigration' - The user migration Lambda config type.
--- * 'verifyAuthChallengeResponse' - Verifies the authentication challenge response.
+-- * 'preSignUp' - A pre-registration AWS Lambda trigger.
 mkLambdaConfigType ::
   LambdaConfigType
 mkLambdaConfigType =

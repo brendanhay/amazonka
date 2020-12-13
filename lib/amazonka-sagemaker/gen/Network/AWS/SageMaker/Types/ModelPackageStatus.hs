@@ -13,11 +13,11 @@
 module Network.AWS.SageMaker.Types.ModelPackageStatus
   ( ModelPackageStatus
       ( ModelPackageStatus',
-        MPSCompleted,
-        MPSDeleting,
-        MPSFailed,
+        MPSPending,
         MPSInProgress,
-        MPSPending
+        MPSCompleted,
+        MPSFailed,
+        MPSDeleting
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype ModelPackageStatus = ModelPackageStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MPSCompleted :: ModelPackageStatus
-pattern MPSCompleted = ModelPackageStatus' "Completed"
-
-pattern MPSDeleting :: ModelPackageStatus
-pattern MPSDeleting = ModelPackageStatus' "Deleting"
-
-pattern MPSFailed :: ModelPackageStatus
-pattern MPSFailed = ModelPackageStatus' "Failed"
+pattern MPSPending :: ModelPackageStatus
+pattern MPSPending = ModelPackageStatus' "Pending"
 
 pattern MPSInProgress :: ModelPackageStatus
 pattern MPSInProgress = ModelPackageStatus' "InProgress"
 
-pattern MPSPending :: ModelPackageStatus
-pattern MPSPending = ModelPackageStatus' "Pending"
+pattern MPSCompleted :: ModelPackageStatus
+pattern MPSCompleted = ModelPackageStatus' "Completed"
+
+pattern MPSFailed :: ModelPackageStatus
+pattern MPSFailed = ModelPackageStatus' "Failed"
+
+pattern MPSDeleting :: ModelPackageStatus
+pattern MPSDeleting = ModelPackageStatus' "Deleting"
 
 {-# COMPLETE
-  MPSCompleted,
-  MPSDeleting,
-  MPSFailed,
-  MPSInProgress,
   MPSPending,
+  MPSInProgress,
+  MPSCompleted,
+  MPSFailed,
+  MPSDeleting,
   ModelPackageStatus'
   #-}

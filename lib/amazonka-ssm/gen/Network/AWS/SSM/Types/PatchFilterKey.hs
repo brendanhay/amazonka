@@ -13,24 +13,24 @@
 module Network.AWS.SSM.Types.PatchFilterKey
   ( PatchFilterKey
       ( PatchFilterKey',
-        AdvisoryId,
         Arch,
+        AdvisoryId,
         BugzillaId,
+        PatchSet,
+        Product,
+        ProductFamily,
         Classification,
         CveId,
         Epoch,
         MsrcSeverity,
         Name,
         PatchId,
-        PatchSet,
-        Priority,
-        Product,
-        ProductFamily,
-        Release,
-        Repository,
         Section,
-        Security,
+        Priority,
+        Repository,
+        Release,
         Severity,
+        Security,
         Version
       ),
   )
@@ -62,14 +62,23 @@ newtype PatchFilterKey = PatchFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern AdvisoryId :: PatchFilterKey
-pattern AdvisoryId = PatchFilterKey' "ADVISORY_ID"
-
 pattern Arch :: PatchFilterKey
 pattern Arch = PatchFilterKey' "ARCH"
 
+pattern AdvisoryId :: PatchFilterKey
+pattern AdvisoryId = PatchFilterKey' "ADVISORY_ID"
+
 pattern BugzillaId :: PatchFilterKey
 pattern BugzillaId = PatchFilterKey' "BUGZILLA_ID"
+
+pattern PatchSet :: PatchFilterKey
+pattern PatchSet = PatchFilterKey' "PATCH_SET"
+
+pattern Product :: PatchFilterKey
+pattern Product = PatchFilterKey' "PRODUCT"
+
+pattern ProductFamily :: PatchFilterKey
+pattern ProductFamily = PatchFilterKey' "PRODUCT_FAMILY"
 
 pattern Classification :: PatchFilterKey
 pattern Classification = PatchFilterKey' "CLASSIFICATION"
@@ -89,55 +98,46 @@ pattern Name = PatchFilterKey' "NAME"
 pattern PatchId :: PatchFilterKey
 pattern PatchId = PatchFilterKey' "PATCH_ID"
 
-pattern PatchSet :: PatchFilterKey
-pattern PatchSet = PatchFilterKey' "PATCH_SET"
+pattern Section :: PatchFilterKey
+pattern Section = PatchFilterKey' "SECTION"
 
 pattern Priority :: PatchFilterKey
 pattern Priority = PatchFilterKey' "PRIORITY"
 
-pattern Product :: PatchFilterKey
-pattern Product = PatchFilterKey' "PRODUCT"
-
-pattern ProductFamily :: PatchFilterKey
-pattern ProductFamily = PatchFilterKey' "PRODUCT_FAMILY"
+pattern Repository :: PatchFilterKey
+pattern Repository = PatchFilterKey' "REPOSITORY"
 
 pattern Release :: PatchFilterKey
 pattern Release = PatchFilterKey' "RELEASE"
 
-pattern Repository :: PatchFilterKey
-pattern Repository = PatchFilterKey' "REPOSITORY"
-
-pattern Section :: PatchFilterKey
-pattern Section = PatchFilterKey' "SECTION"
+pattern Severity :: PatchFilterKey
+pattern Severity = PatchFilterKey' "SEVERITY"
 
 pattern Security :: PatchFilterKey
 pattern Security = PatchFilterKey' "SECURITY"
-
-pattern Severity :: PatchFilterKey
-pattern Severity = PatchFilterKey' "SEVERITY"
 
 pattern Version :: PatchFilterKey
 pattern Version = PatchFilterKey' "VERSION"
 
 {-# COMPLETE
-  AdvisoryId,
   Arch,
+  AdvisoryId,
   BugzillaId,
+  PatchSet,
+  Product,
+  ProductFamily,
   Classification,
   CveId,
   Epoch,
   MsrcSeverity,
   Name,
   PatchId,
-  PatchSet,
-  Priority,
-  Product,
-  ProductFamily,
-  Release,
-  Repository,
   Section,
-  Security,
+  Priority,
+  Repository,
+  Release,
   Severity,
+  Security,
   Version,
   PatchFilterKey'
   #-}

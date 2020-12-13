@@ -34,30 +34,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicySummary' smart constructor.
 data PolicySummary = PolicySummary'
-  { policyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the specified policy.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | Indicates if the policy should be automatically applied to new resources.
     remediationEnabled :: Lude.Maybe Lude.Bool,
+    -- | The type of resource protected by or in scope of the policy. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . For AWS WAF and Shield Advanced, examples include @AWS::ElasticLoadBalancingV2::LoadBalancer@ and @AWS::CloudFront::Distribution@ . For a security group common policy, valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@ . For a security group content audit policy, valid values are @AWS::EC2::SecurityGroup@ , @AWS::EC2::NetworkInterface@ , and @AWS::EC2::Instance@ . For a security group usage audit policy, the value is @AWS::EC2::SecurityGroup@ . For an AWS Network Firewall policy, the value is @AWS::EC2::VPC@ .
     resourceType :: Lude.Maybe Lude.Text,
+    -- | The ID of the specified policy.
     policyId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the specified policy.
     policyARN :: Lude.Maybe Lude.Text,
+    -- | The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy.
     securityServiceType :: Lude.Maybe SecurityServiceType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicySummary' with the minimum fields required to make a request.
 --
--- * 'policyARN' - The Amazon Resource Name (ARN) of the specified policy.
--- * 'policyId' - The ID of the specified policy.
 -- * 'policyName' - The name of the specified policy.
 -- * 'remediationEnabled' - Indicates if the policy should be automatically applied to new resources.
 -- * 'resourceType' - The type of resource protected by or in scope of the policy. This is in the format shown in the <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference> . For AWS WAF and Shield Advanced, examples include @AWS::ElasticLoadBalancingV2::LoadBalancer@ and @AWS::CloudFront::Distribution@ . For a security group common policy, valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@ . For a security group content audit policy, valid values are @AWS::EC2::SecurityGroup@ , @AWS::EC2::NetworkInterface@ , and @AWS::EC2::Instance@ . For a security group usage audit policy, the value is @AWS::EC2::SecurityGroup@ . For an AWS Network Firewall policy, the value is @AWS::EC2::VPC@ .
+-- * 'policyId' - The ID of the specified policy.
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the specified policy.
 -- * 'securityServiceType' - The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy.
 mkPolicySummary ::
   PolicySummary

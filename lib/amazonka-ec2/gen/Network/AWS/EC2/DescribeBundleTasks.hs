@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,18 +42,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeBundleTasks' smart constructor.
 data DescribeBundleTasks = DescribeBundleTasks'
-  { bundleIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The bundle task IDs.
+    --
+    -- Default: Describes all your bundle tasks.
+    bundleIds :: Lude.Maybe [Lude.Text],
+    -- | The filters.
+    --
+    --
+    --     * @bundle-id@ - The ID of the bundle task.
+    --
+    --
+    --     * @error-code@ - If the task failed, the error code returned.
+    --
+    --
+    --     * @error-message@ - If the task failed, the error message returned.
+    --
+    --
+    --     * @instance-id@ - The ID of the instance.
+    --
+    --
+    --     * @progress@ - The level of task completion, as a percentage (for example, 20%).
+    --
+    --
+    --     * @s3-bucket@ - The Amazon S3 bucket to store the AMI.
+    --
+    --
+    --     * @s3-prefix@ - The beginning of the AMI name.
+    --
+    --
+    --     * @start-time@ - The time the task started (for example, 2013-09-15T17:15:20.000Z).
+    --
+    --
+    --     * @state@ - The state of the task (@pending@ | @waiting-for-shutdown@ | @bundling@ | @storing@ | @cancelling@ | @complete@ | @failed@ ).
+    --
+    --
+    --     * @update-time@ - The time of the most recent update for the task.
     filters :: Lude.Maybe [Filter],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBundleTasks' with the minimum fields required to make a request.
@@ -60,7 +89,6 @@ data DescribeBundleTasks = DescribeBundleTasks'
 -- * 'bundleIds' - The bundle task IDs.
 --
 -- Default: Describes all your bundle tasks.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 --
 --
@@ -92,6 +120,9 @@ data DescribeBundleTasks = DescribeBundleTasks'
 --
 --
 --     * @update-time@ - The time of the most recent update for the task.
+--
+--
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDescribeBundleTasks ::
   DescribeBundleTasks
 mkDescribeBundleTasks =
@@ -187,17 +218,12 @@ instance Lude.ToQuery DescribeBundleTasks where
 
 -- | /See:/ 'mkDescribeBundleTasksResponse' smart constructor.
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
-  { bundleTasks ::
-      Lude.Maybe [BundleTask],
+  { -- | Information about the bundle tasks.
+    bundleTasks :: Lude.Maybe [BundleTask],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeBundleTasksResponse' with the minimum fields required to make a request.

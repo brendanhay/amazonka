@@ -13,8 +13,8 @@
 module Network.AWS.CostExplorer.Types.OfferingClass
   ( OfferingClass
       ( OfferingClass',
-        Convertible,
-        Standard
+        Standard,
+        Convertible
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OfferingClass = OfferingClass' Lude.Text
       Lude.ToHeader
     )
 
-pattern Convertible :: OfferingClass
-pattern Convertible = OfferingClass' "CONVERTIBLE"
-
 pattern Standard :: OfferingClass
 pattern Standard = OfferingClass' "STANDARD"
 
+pattern Convertible :: OfferingClass
+pattern Convertible = OfferingClass' "CONVERTIBLE"
+
 {-# COMPLETE
-  Convertible,
   Standard,
+  Convertible,
   OfferingClass'
   #-}

@@ -32,24 +32,21 @@ import Network.AWS.Redshift.Types.AvailabilityZone
 --
 -- /See:/ 'mkSubnet' smart constructor.
 data Subnet = Subnet'
-  { subnetStatus :: Lude.Maybe Lude.Text,
+  { -- | The status of the subnet.
+    subnetStatus :: Lude.Maybe Lude.Text,
+    -- | The identifier of the subnet.
     subnetIdentifier :: Lude.Maybe Lude.Text,
+    -- |
     subnetAvailabilityZone :: Lude.Maybe AvailabilityZone
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
--- * 'subnetAvailabilityZone' -
--- * 'subnetIdentifier' - The identifier of the subnet.
 -- * 'subnetStatus' - The status of the subnet.
+-- * 'subnetIdentifier' - The identifier of the subnet.
+-- * 'subnetAvailabilityZone' -
 mkSubnet ::
   Subnet
 mkSubnet =

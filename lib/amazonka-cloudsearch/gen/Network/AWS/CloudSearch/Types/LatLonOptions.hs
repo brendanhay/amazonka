@@ -33,31 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLatLonOptions' smart constructor.
 data LatLonOptions = LatLonOptions'
-  { sourceField ::
-      Lude.Maybe Lude.Text,
+  { sourceField :: Lude.Maybe Lude.Text,
+    -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether facet information can be returned for the field.
     facetEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether the contents of the field are searchable.
     searchEnabled :: Lude.Maybe Lude.Bool,
+    -- | Whether the field can be used to sort the search results.
     sortEnabled :: Lude.Maybe Lude.Bool,
+    -- | A value to use for the field if the field isn't specified for a document.
     defaultValue :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LatLonOptions' with the minimum fields required to make a request.
 --
--- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
--- * 'facetEnabled' - Whether facet information can be returned for the field.
+-- * 'sourceField' -
 -- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
+-- * 'facetEnabled' - Whether facet information can be returned for the field.
 -- * 'searchEnabled' - Whether the contents of the field are searchable.
 -- * 'sortEnabled' - Whether the field can be used to sort the search results.
--- * 'sourceField' - Undocumented field.
+-- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
 mkLatLonOptions ::
   LatLonOptions
 mkLatLonOptions =

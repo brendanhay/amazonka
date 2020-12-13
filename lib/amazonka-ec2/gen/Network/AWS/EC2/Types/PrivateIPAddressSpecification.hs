@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPrivateIPAddressSpecification' smart constructor.
 data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
-  { primary ::
-      Lude.Maybe Lude.Bool,
-    privateIPAddress ::
-      Lude.Maybe Lude.Text
+  { -- | Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+    primary :: Lude.Maybe Lude.Bool,
+    -- | The private IPv4 addresses.
+    privateIPAddress :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PrivateIPAddressSpecification' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,28 +45,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateColumnStatisticsForTable' smart constructor.
 data UpdateColumnStatisticsForTable = UpdateColumnStatisticsForTable'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database where the partitions reside.
     databaseName :: Lude.Text,
+    -- | The name of the partitions' table.
     tableName :: Lude.Text,
-    columnStatisticsList ::
-      [ColumnStatistics]
+    -- | A list of the column statistics.
+    columnStatisticsList :: [ColumnStatistics]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateColumnStatisticsForTable' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
--- * 'columnStatisticsList' - A list of the column statistics.
 -- * 'databaseName' - The name of the catalog database where the partitions reside.
 -- * 'tableName' - The name of the partitions' table.
+-- * 'columnStatisticsList' - A list of the column statistics.
 mkUpdateColumnStatisticsForTable ::
   -- | 'databaseName'
   Lude.Text ->
@@ -151,19 +148,12 @@ instance Lude.ToQuery UpdateColumnStatisticsForTable where
 
 -- | /See:/ 'mkUpdateColumnStatisticsForTableResponse' smart constructor.
 data UpdateColumnStatisticsForTableResponse = UpdateColumnStatisticsForTableResponse'
-  { errors ::
-      Lude.Maybe
-        [ColumnStatisticsError],
-    responseStatus ::
-      Lude.Int
+  { -- | List of ColumnStatisticsErrors.
+    errors :: Lude.Maybe [ColumnStatisticsError],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateColumnStatisticsForTableResponse' with the minimum fields required to make a request.

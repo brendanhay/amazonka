@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,8 +26,8 @@ module Network.AWS.ResourceGroupsTagging.UntagResources
     mkUntagResources,
 
     -- ** Request lenses
-    urResourceARNList,
     urTagKeys,
+    urResourceARNList,
 
     -- * Destructuring the response
     UntagResourcesResponse (..),
@@ -46,41 +47,29 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUntagResources' smart constructor.
 data UntagResources = UntagResources'
-  { resourceARNList ::
-      Lude.NonEmpty Lude.Text,
-    tagKeys :: Lude.NonEmpty Lude.Text
+  { -- | A list of the tag keys that you want to remove from the specified resources.
+    tagKeys :: Lude.NonEmpty Lude.Text,
+    -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    resourceARNList :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResources' with the minimum fields required to make a request.
 --
--- * 'resourceARNList' - A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 -- * 'tagKeys' - A list of the tag keys that you want to remove from the specified resources.
+-- * 'resourceARNList' - A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 mkUntagResources ::
-  -- | 'resourceARNList'
-  Lude.NonEmpty Lude.Text ->
   -- | 'tagKeys'
   Lude.NonEmpty Lude.Text ->
+  -- | 'resourceARNList'
+  Lude.NonEmpty Lude.Text ->
   UntagResources
-mkUntagResources pResourceARNList_ pTagKeys_ =
+mkUntagResources pTagKeys_ pResourceARNList_ =
   UntagResources'
-    { resourceARNList = pResourceARNList_,
-      tagKeys = pTagKeys_
+    { tagKeys = pTagKeys_,
+      resourceARNList = pResourceARNList_
     }
-
--- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'resourceARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARNList :: Lens.Lens' UntagResources (Lude.NonEmpty Lude.Text)
-urResourceARNList = Lens.lens (resourceARNList :: UntagResources -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceARNList = a} :: UntagResources)
-{-# DEPRECATED urResourceARNList "Use generic-lens or generic-optics with 'resourceARNList' instead." #-}
 
 -- | A list of the tag keys that you want to remove from the specified resources.
 --
@@ -88,6 +77,13 @@ urResourceARNList = Lens.lens (resourceARNList :: UntagResources -> Lude.NonEmpt
 urTagKeys :: Lens.Lens' UntagResources (Lude.NonEmpty Lude.Text)
 urTagKeys = Lens.lens (tagKeys :: UntagResources -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: UntagResources)
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'resourceARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceARNList :: Lens.Lens' UntagResources (Lude.NonEmpty Lude.Text)
+urResourceARNList = Lens.lens (resourceARNList :: UntagResources -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceARNList = a} :: UntagResources)
+{-# DEPRECATED urResourceARNList "Use generic-lens or generic-optics with 'resourceARNList' instead." #-}
 
 instance Lude.AWSRequest UntagResources where
   type Rs UntagResources = UntagResourcesResponse
@@ -117,8 +113,8 @@ instance Lude.ToJSON UntagResources where
   toJSON UntagResources' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceARNList" Lude..= resourceARNList),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
+          [ Lude.Just ("TagKeys" Lude..= tagKeys),
+            Lude.Just ("ResourceARNList" Lude..= resourceARNList)
           ]
       )
 
@@ -130,18 +126,12 @@ instance Lude.ToQuery UntagResources where
 
 -- | /See:/ 'mkUntagResourcesResponse' smart constructor.
 data UntagResourcesResponse = UntagResourcesResponse'
-  { failedResourcesMap ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (FailureInfo)),
+  { -- | Details of resources that could not be untagged. An error code, status code, and error message are returned for each failed item.
+    failedResourcesMap :: Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo)),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UntagResourcesResponse' with the minimum fields required to make a request.

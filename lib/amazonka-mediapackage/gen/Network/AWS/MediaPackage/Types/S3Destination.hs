@@ -17,8 +17,8 @@ module Network.AWS.MediaPackage.Types.S3Destination
     mkS3Destination,
 
     -- * Lenses
-    sdManifestKey,
     sdBucketName,
+    sdManifestKey,
     sdRoleARN,
   )
 where
@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3Destination' smart constructor.
 data S3Destination = S3Destination'
-  { manifestKey :: Lude.Text,
+  { -- | The name of an S3 bucket within which harvested content will be exported
     bucketName :: Lude.Text,
+    -- | The key in the specified S3 bucket where the harvested top-level manifest will be placed.
+    manifestKey :: Lude.Text,
+    -- | The IAM role used to write to the specified S3 bucket
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3Destination' with the minimum fields required to make a request.
@@ -49,26 +46,19 @@ data S3Destination = S3Destination'
 -- * 'manifestKey' - The key in the specified S3 bucket where the harvested top-level manifest will be placed.
 -- * 'roleARN' - The IAM role used to write to the specified S3 bucket
 mkS3Destination ::
-  -- | 'manifestKey'
-  Lude.Text ->
   -- | 'bucketName'
+  Lude.Text ->
+  -- | 'manifestKey'
   Lude.Text ->
   -- | 'roleARN'
   Lude.Text ->
   S3Destination
-mkS3Destination pManifestKey_ pBucketName_ pRoleARN_ =
+mkS3Destination pBucketName_ pManifestKey_ pRoleARN_ =
   S3Destination'
-    { manifestKey = pManifestKey_,
-      bucketName = pBucketName_,
+    { bucketName = pBucketName_,
+      manifestKey = pManifestKey_,
       roleARN = pRoleARN_
     }
-
--- | The key in the specified S3 bucket where the harvested top-level manifest will be placed.
---
--- /Note:/ Consider using 'manifestKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdManifestKey :: Lens.Lens' S3Destination Lude.Text
-sdManifestKey = Lens.lens (manifestKey :: S3Destination -> Lude.Text) (\s a -> s {manifestKey = a} :: S3Destination)
-{-# DEPRECATED sdManifestKey "Use generic-lens or generic-optics with 'manifestKey' instead." #-}
 
 -- | The name of an S3 bucket within which harvested content will be exported
 --
@@ -76,6 +66,13 @@ sdManifestKey = Lens.lens (manifestKey :: S3Destination -> Lude.Text) (\s a -> s
 sdBucketName :: Lens.Lens' S3Destination Lude.Text
 sdBucketName = Lens.lens (bucketName :: S3Destination -> Lude.Text) (\s a -> s {bucketName = a} :: S3Destination)
 {-# DEPRECATED sdBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
+
+-- | The key in the specified S3 bucket where the harvested top-level manifest will be placed.
+--
+-- /Note:/ Consider using 'manifestKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdManifestKey :: Lens.Lens' S3Destination Lude.Text
+sdManifestKey = Lens.lens (manifestKey :: S3Destination -> Lude.Text) (\s a -> s {manifestKey = a} :: S3Destination)
+{-# DEPRECATED sdManifestKey "Use generic-lens or generic-optics with 'manifestKey' instead." #-}
 
 -- | The IAM role used to write to the specified S3 bucket
 --
@@ -90,8 +87,8 @@ instance Lude.FromJSON S3Destination where
       "S3Destination"
       ( \x ->
           S3Destination'
-            Lude.<$> (x Lude..: "manifestKey")
-            Lude.<*> (x Lude..: "bucketName")
+            Lude.<$> (x Lude..: "bucketName")
+            Lude.<*> (x Lude..: "manifestKey")
             Lude.<*> (x Lude..: "roleArn")
       )
 
@@ -99,8 +96,8 @@ instance Lude.ToJSON S3Destination where
   toJSON S3Destination' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("manifestKey" Lude..= manifestKey),
-            Lude.Just ("bucketName" Lude..= bucketName),
+          [ Lude.Just ("bucketName" Lude..= bucketName),
+            Lude.Just ("manifestKey" Lude..= manifestKey),
             Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

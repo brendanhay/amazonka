@@ -13,9 +13,9 @@
 module Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause
   ( RequestCancelExternalWorkflowExecutionFailedCause
       ( RequestCancelExternalWorkflowExecutionFailedCause',
-        RCEWEFCOperationNotPermitted,
+        RCEWEFCUnknownExternalWorkflowExecution,
         RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded,
-        RCEWEFCUnknownExternalWorkflowExecution
+        RCEWEFCOperationNotPermitted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype RequestCancelExternalWorkflowExecutionFailedCause = RequestCancelExterna
       Lude.ToHeader
     )
 
-pattern RCEWEFCOperationNotPermitted :: RequestCancelExternalWorkflowExecutionFailedCause
-pattern RCEWEFCOperationNotPermitted = RequestCancelExternalWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+pattern RCEWEFCUnknownExternalWorkflowExecution :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RCEWEFCUnknownExternalWorkflowExecution = RequestCancelExternalWorkflowExecutionFailedCause' "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
 
 pattern RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded :: RequestCancelExternalWorkflowExecutionFailedCause
 pattern RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded = RequestCancelExternalWorkflowExecutionFailedCause' "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
 
-pattern RCEWEFCUnknownExternalWorkflowExecution :: RequestCancelExternalWorkflowExecutionFailedCause
-pattern RCEWEFCUnknownExternalWorkflowExecution = RequestCancelExternalWorkflowExecutionFailedCause' "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+pattern RCEWEFCOperationNotPermitted :: RequestCancelExternalWorkflowExecutionFailedCause
+pattern RCEWEFCOperationNotPermitted = RequestCancelExternalWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  RCEWEFCOperationNotPermitted,
-  RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded,
   RCEWEFCUnknownExternalWorkflowExecution,
+  RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded,
+  RCEWEFCOperationNotPermitted,
   RequestCancelExternalWorkflowExecutionFailedCause'
   #-}

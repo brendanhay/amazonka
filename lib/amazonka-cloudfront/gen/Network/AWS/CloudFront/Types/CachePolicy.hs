@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.CachePolicy
     mkCachePolicy,
 
     -- * Lenses
-    cpId,
     cpLastModifiedTime,
+    cpId,
     cpCachePolicyConfig,
   )
 where
@@ -41,45 +41,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCachePolicy' smart constructor.
 data CachePolicy = CachePolicy'
-  { id :: Lude.Text,
+  { -- | The date and time when the cache policy was last modified.
     lastModifiedTime :: Lude.DateTime,
+    -- | The unique identifier for the cache policy.
+    id :: Lude.Text,
+    -- | The cache policy configuration.
     cachePolicyConfig :: CachePolicyConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicy' with the minimum fields required to make a request.
 --
--- * 'cachePolicyConfig' - The cache policy configuration.
--- * 'id' - The unique identifier for the cache policy.
 -- * 'lastModifiedTime' - The date and time when the cache policy was last modified.
+-- * 'id' - The unique identifier for the cache policy.
+-- * 'cachePolicyConfig' - The cache policy configuration.
 mkCachePolicy ::
-  -- | 'id'
-  Lude.Text ->
   -- | 'lastModifiedTime'
   Lude.DateTime ->
+  -- | 'id'
+  Lude.Text ->
   -- | 'cachePolicyConfig'
   CachePolicyConfig ->
   CachePolicy
-mkCachePolicy pId_ pLastModifiedTime_ pCachePolicyConfig_ =
+mkCachePolicy pLastModifiedTime_ pId_ pCachePolicyConfig_ =
   CachePolicy'
-    { id = pId_,
-      lastModifiedTime = pLastModifiedTime_,
+    { lastModifiedTime = pLastModifiedTime_,
+      id = pId_,
       cachePolicyConfig = pCachePolicyConfig_
     }
-
--- | The unique identifier for the cache policy.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpId :: Lens.Lens' CachePolicy Lude.Text
-cpId = Lens.lens (id :: CachePolicy -> Lude.Text) (\s a -> s {id = a} :: CachePolicy)
-{-# DEPRECATED cpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date and time when the cache policy was last modified.
 --
@@ -87,6 +77,13 @@ cpId = Lens.lens (id :: CachePolicy -> Lude.Text) (\s a -> s {id = a} :: CachePo
 cpLastModifiedTime :: Lens.Lens' CachePolicy Lude.DateTime
 cpLastModifiedTime = Lens.lens (lastModifiedTime :: CachePolicy -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: CachePolicy)
 {-# DEPRECATED cpLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The unique identifier for the cache policy.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpId :: Lens.Lens' CachePolicy Lude.Text
+cpId = Lens.lens (id :: CachePolicy -> Lude.Text) (\s a -> s {id = a} :: CachePolicy)
+{-# DEPRECATED cpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The cache policy configuration.
 --
@@ -98,6 +95,6 @@ cpCachePolicyConfig = Lens.lens (cachePolicyConfig :: CachePolicy -> CachePolicy
 instance Lude.FromXML CachePolicy where
   parseXML x =
     CachePolicy'
-      Lude.<$> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@ "LastModifiedTime")
+      Lude.<$> (x Lude..@ "LastModifiedTime")
+      Lude.<*> (x Lude..@ "Id")
       Lude.<*> (x Lude..@ "CachePolicyConfig")

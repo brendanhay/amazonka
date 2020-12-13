@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTypedLinkFacetInformation' smart constructor.
 data GetTypedLinkFacetInformation = GetTypedLinkFacetInformation'
-  { schemaARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+    schemaARN :: Lude.Text,
+    -- | The unique name of the typed link facet.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTypedLinkFacetInformation' with the minimum fields required to make a request.
 --
--- * 'name' - The unique name of the typed link facet.
 -- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+-- * 'name' - The unique name of the typed link facet.
 mkGetTypedLinkFacetInformation ::
   -- | 'schemaARN'
   Lude.Text ->
@@ -113,19 +109,12 @@ instance Lude.ToQuery GetTypedLinkFacetInformation where
 
 -- | /See:/ 'mkGetTypedLinkFacetInformationResponse' smart constructor.
 data GetTypedLinkFacetInformationResponse = GetTypedLinkFacetInformationResponse'
-  { identityAttributeOrder ::
-      Lude.Maybe
-        [Lude.Text],
-    responseStatus ::
-      Lude.Int
+  { -- | The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links> .
+    identityAttributeOrder :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTypedLinkFacetInformationResponse' with the minimum fields required to make a request.

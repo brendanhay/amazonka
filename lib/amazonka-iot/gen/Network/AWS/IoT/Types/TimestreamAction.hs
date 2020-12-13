@@ -17,11 +17,11 @@ module Network.AWS.IoT.Types.TimestreamAction
     mkTimestreamAction,
 
     -- * Lenses
-    taTimestamp,
-    taRoleARN,
     taDatabaseName,
-    taTableName,
     taDimensions,
+    taTimestamp,
+    taTableName,
+    taRoleARN,
   )
 where
 
@@ -34,54 +34,69 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimestreamAction' smart constructor.
 data TimestreamAction = TimestreamAction'
-  { timestamp ::
-      Lude.Maybe TimestreamTimestamp,
-    roleARN :: Lude.Text,
+  { -- | The name of an Amazon Timestream database.
     databaseName :: Lude.Text,
+    -- | Metadata attributes of the time series that are written in each measure record.
+    dimensions :: Lude.NonEmpty TimestreamDimension,
+    -- | Specifies an application-defined value to replace the default value assigned to the Timestream record's timestamp in the @time@ column.
+    --
+    -- You can use this property to specify the value and the precision of the Timestream record's timestamp. You can specify a value from the message payload or a value computed by a substitution template.
+    -- If omitted, the topic rule action assigns the timestamp, in milliseconds, at the time it processed the rule.
+    timestamp :: Lude.Maybe TimestreamTimestamp,
+    -- | The name of the database table into which to write the measure records.
     tableName :: Lude.Text,
-    dimensions :: Lude.NonEmpty TimestreamDimension
+    -- | The ARN of the role that grants permission to write to the Amazon Timestream database table.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimestreamAction' with the minimum fields required to make a request.
 --
 -- * 'databaseName' - The name of an Amazon Timestream database.
 -- * 'dimensions' - Metadata attributes of the time series that are written in each measure record.
--- * 'roleARN' - The ARN of the role that grants permission to write to the Amazon Timestream database table.
--- * 'tableName' - The name of the database table into which to write the measure records.
 -- * 'timestamp' - Specifies an application-defined value to replace the default value assigned to the Timestream record's timestamp in the @time@ column.
 --
 -- You can use this property to specify the value and the precision of the Timestream record's timestamp. You can specify a value from the message payload or a value computed by a substitution template.
 -- If omitted, the topic rule action assigns the timestamp, in milliseconds, at the time it processed the rule.
+-- * 'tableName' - The name of the database table into which to write the measure records.
+-- * 'roleARN' - The ARN of the role that grants permission to write to the Amazon Timestream database table.
 mkTimestreamAction ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'databaseName'
-  Lude.Text ->
-  -- | 'tableName'
   Lude.Text ->
   -- | 'dimensions'
   Lude.NonEmpty TimestreamDimension ->
+  -- | 'tableName'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   TimestreamAction
 mkTimestreamAction
-  pRoleARN_
   pDatabaseName_
+  pDimensions_
   pTableName_
-  pDimensions_ =
+  pRoleARN_ =
     TimestreamAction'
-      { timestamp = Lude.Nothing,
-        roleARN = pRoleARN_,
-        databaseName = pDatabaseName_,
+      { databaseName = pDatabaseName_,
+        dimensions = pDimensions_,
+        timestamp = Lude.Nothing,
         tableName = pTableName_,
-        dimensions = pDimensions_
+        roleARN = pRoleARN_
       }
+
+-- | The name of an Amazon Timestream database.
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taDatabaseName :: Lens.Lens' TimestreamAction Lude.Text
+taDatabaseName = Lens.lens (databaseName :: TimestreamAction -> Lude.Text) (\s a -> s {databaseName = a} :: TimestreamAction)
+{-# DEPRECATED taDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+
+-- | Metadata attributes of the time series that are written in each measure record.
+--
+-- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taDimensions :: Lens.Lens' TimestreamAction (Lude.NonEmpty TimestreamDimension)
+taDimensions = Lens.lens (dimensions :: TimestreamAction -> Lude.NonEmpty TimestreamDimension) (\s a -> s {dimensions = a} :: TimestreamAction)
+{-# DEPRECATED taDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | Specifies an application-defined value to replace the default value assigned to the Timestream record's timestamp in the @time@ column.
 --
@@ -93,20 +108,6 @@ taTimestamp :: Lens.Lens' TimestreamAction (Lude.Maybe TimestreamTimestamp)
 taTimestamp = Lens.lens (timestamp :: TimestreamAction -> Lude.Maybe TimestreamTimestamp) (\s a -> s {timestamp = a} :: TimestreamAction)
 {-# DEPRECATED taTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
--- | The ARN of the role that grants permission to write to the Amazon Timestream database table.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taRoleARN :: Lens.Lens' TimestreamAction Lude.Text
-taRoleARN = Lens.lens (roleARN :: TimestreamAction -> Lude.Text) (\s a -> s {roleARN = a} :: TimestreamAction)
-{-# DEPRECATED taRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
--- | The name of an Amazon Timestream database.
---
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taDatabaseName :: Lens.Lens' TimestreamAction Lude.Text
-taDatabaseName = Lens.lens (databaseName :: TimestreamAction -> Lude.Text) (\s a -> s {databaseName = a} :: TimestreamAction)
-{-# DEPRECATED taDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
-
 -- | The name of the database table into which to write the measure records.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -114,12 +115,12 @@ taTableName :: Lens.Lens' TimestreamAction Lude.Text
 taTableName = Lens.lens (tableName :: TimestreamAction -> Lude.Text) (\s a -> s {tableName = a} :: TimestreamAction)
 {-# DEPRECATED taTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
--- | Metadata attributes of the time series that are written in each measure record.
+-- | The ARN of the role that grants permission to write to the Amazon Timestream database table.
 --
--- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taDimensions :: Lens.Lens' TimestreamAction (Lude.NonEmpty TimestreamDimension)
-taDimensions = Lens.lens (dimensions :: TimestreamAction -> Lude.NonEmpty TimestreamDimension) (\s a -> s {dimensions = a} :: TimestreamAction)
-{-# DEPRECATED taDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taRoleARN :: Lens.Lens' TimestreamAction Lude.Text
+taRoleARN = Lens.lens (roleARN :: TimestreamAction -> Lude.Text) (\s a -> s {roleARN = a} :: TimestreamAction)
+{-# DEPRECATED taRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 instance Lude.FromJSON TimestreamAction where
   parseJSON =
@@ -127,21 +128,21 @@ instance Lude.FromJSON TimestreamAction where
       "TimestreamAction"
       ( \x ->
           TimestreamAction'
-            Lude.<$> (x Lude..:? "timestamp")
-            Lude.<*> (x Lude..: "roleArn")
-            Lude.<*> (x Lude..: "databaseName")
-            Lude.<*> (x Lude..: "tableName")
+            Lude.<$> (x Lude..: "databaseName")
             Lude.<*> (x Lude..: "dimensions")
+            Lude.<*> (x Lude..:? "timestamp")
+            Lude.<*> (x Lude..: "tableName")
+            Lude.<*> (x Lude..: "roleArn")
       )
 
 instance Lude.ToJSON TimestreamAction where
   toJSON TimestreamAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("timestamp" Lude..=) Lude.<$> timestamp,
-            Lude.Just ("roleArn" Lude..= roleARN),
-            Lude.Just ("databaseName" Lude..= databaseName),
+          [ Lude.Just ("databaseName" Lude..= databaseName),
+            Lude.Just ("dimensions" Lude..= dimensions),
+            ("timestamp" Lude..=) Lude.<$> timestamp,
             Lude.Just ("tableName" Lude..= tableName),
-            Lude.Just ("dimensions" Lude..= dimensions)
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

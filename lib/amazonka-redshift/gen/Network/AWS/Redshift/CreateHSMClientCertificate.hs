@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.Redshift.CreateHSMClientCertificate
     mkCreateHSMClientCertificate,
 
     -- ** Request lenses
-    chccTags,
     chccHSMClientCertificateIdentifier,
+    chccTags,
 
     -- * Destructuring the response
     CreateHSMClientCertificateResponse (..),
@@ -44,18 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateHSMClientCertificate' smart constructor.
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
-  { tags ::
-      Lude.Maybe [Tag],
-    hsmClientCertificateIdentifier ::
-      Lude.Text
+  { -- | The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
+    hsmClientCertificateIdentifier :: Lude.Text,
+    -- | A list of tag instances.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMClientCertificate' with the minimum fields required to make a request.
@@ -68,16 +63,10 @@ mkCreateHSMClientCertificate ::
   CreateHSMClientCertificate
 mkCreateHSMClientCertificate pHSMClientCertificateIdentifier_ =
   CreateHSMClientCertificate'
-    { tags = Lude.Nothing,
-      hsmClientCertificateIdentifier = pHSMClientCertificateIdentifier_
+    { hsmClientCertificateIdentifier =
+        pHSMClientCertificateIdentifier_,
+      tags = Lude.Nothing
     }
-
--- | A list of tag instances.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chccTags :: Lens.Lens' CreateHSMClientCertificate (Lude.Maybe [Tag])
-chccTags = Lens.lens (tags :: CreateHSMClientCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHSMClientCertificate)
-{-# DEPRECATED chccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The identifier to be assigned to the new HSM client certificate that the cluster will use to connect to the HSM to use the database encryption keys.
 --
@@ -85,6 +74,13 @@ chccTags = Lens.lens (tags :: CreateHSMClientCertificate -> Lude.Maybe [Tag]) (\
 chccHSMClientCertificateIdentifier :: Lens.Lens' CreateHSMClientCertificate Lude.Text
 chccHSMClientCertificateIdentifier = Lens.lens (hsmClientCertificateIdentifier :: CreateHSMClientCertificate -> Lude.Text) (\s a -> s {hsmClientCertificateIdentifier = a} :: CreateHSMClientCertificate)
 {-# DEPRECATED chccHSMClientCertificateIdentifier "Use generic-lens or generic-optics with 'hsmClientCertificateIdentifier' instead." #-}
+
+-- | A list of tag instances.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chccTags :: Lens.Lens' CreateHSMClientCertificate (Lude.Maybe [Tag])
+chccTags = Lens.lens (tags :: CreateHSMClientCertificate -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateHSMClientCertificate)
+{-# DEPRECATED chccTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateHSMClientCertificate where
   type
@@ -112,31 +108,23 @@ instance Lude.ToQuery CreateHSMClientCertificate where
       [ "Action"
           Lude.=: ("CreateHsmClientCertificate" :: Lude.ByteString),
         "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags),
         "HsmClientCertificateIdentifier"
-          Lude.=: hsmClientCertificateIdentifier
+          Lude.=: hsmClientCertificateIdentifier,
+        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
       ]
 
 -- | /See:/ 'mkCreateHSMClientCertificateResponse' smart constructor.
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
-  { hsmClientCertificate ::
-      Lude.Maybe
-        HSMClientCertificate,
-    responseStatus ::
-      Lude.Int
+  { hsmClientCertificate :: Lude.Maybe HSMClientCertificate,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateHSMClientCertificateResponse' with the minimum fields required to make a request.
 --
--- * 'hsmClientCertificate' - Undocumented field.
+-- * 'hsmClientCertificate' -
 -- * 'responseStatus' - The response status code.
 mkCreateHSMClientCertificateResponse ::
   -- | 'responseStatus'

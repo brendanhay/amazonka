@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.IoT.CreatePolicy
     mkCreatePolicy,
 
     -- ** Request lenses
-    cpTags,
     cpPolicyName,
     cpPolicyDocument,
+    cpTags,
 
     -- * Destructuring the response
     CreatePolicyResponse (..),
@@ -48,23 +49,20 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreatePolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-  { tags :: Lude.Maybe [Tag],
+  { -- | The policy name.
     policyName :: Lude.Text,
-    policyDocument :: Lude.Text
+    -- | The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
+    policyDocument :: Lude.Text,
+    -- | Metadata which can be used to manage the policy.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
--- * 'policyDocument' - The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
 -- * 'policyName' - The policy name.
+-- * 'policyDocument' - The JSON document that describes the policy. __policyDocument__ must have a minimum length of 1, with a maximum length of 2048, excluding whitespace.
 -- * 'tags' - Metadata which can be used to manage the policy.
 mkCreatePolicy ::
   -- | 'policyName'
@@ -74,17 +72,10 @@ mkCreatePolicy ::
   CreatePolicy
 mkCreatePolicy pPolicyName_ pPolicyDocument_ =
   CreatePolicy'
-    { tags = Lude.Nothing,
-      policyName = pPolicyName_,
-      policyDocument = pPolicyDocument_
+    { policyName = pPolicyName_,
+      policyDocument = pPolicyDocument_,
+      tags = Lude.Nothing
     }
-
--- | Metadata which can be used to manage the policy.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpTags :: Lens.Lens' CreatePolicy (Lude.Maybe [Tag])
-cpTags = Lens.lens (tags :: CreatePolicy -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePolicy)
-{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The policy name.
 --
@@ -99,6 +90,13 @@ cpPolicyName = Lens.lens (policyName :: CreatePolicy -> Lude.Text) (\s a -> s {p
 cpPolicyDocument :: Lens.Lens' CreatePolicy Lude.Text
 cpPolicyDocument = Lens.lens (policyDocument :: CreatePolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: CreatePolicy)
 {-# DEPRECATED cpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
+
+-- | Metadata which can be used to manage the policy.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpTags :: Lens.Lens' CreatePolicy (Lude.Maybe [Tag])
+cpTags = Lens.lens (tags :: CreatePolicy -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreatePolicy)
+{-# DEPRECATED cpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreatePolicy where
   type Rs CreatePolicy = CreatePolicyResponse
@@ -121,8 +119,8 @@ instance Lude.ToJSON CreatePolicy where
   toJSON CreatePolicy' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("policyDocument" Lude..= policyDocument)
+          [ Lude.Just ("policyDocument" Lude..= policyDocument),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -137,28 +135,26 @@ instance Lude.ToQuery CreatePolicy where
 --
 -- /See:/ 'mkCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-  { policyName ::
-      Lude.Maybe Lude.Text,
+  { -- | The policy name.
+    policyName :: Lude.Maybe Lude.Text,
+    -- | The JSON document that describes the policy.
     policyDocument :: Lude.Maybe Lude.Text,
+    -- | The policy version ID.
     policyVersionId :: Lude.Maybe Lude.Text,
+    -- | The policy ARN.
     policyARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
 --
--- * 'policyARN' - The policy ARN.
--- * 'policyDocument' - The JSON document that describes the policy.
 -- * 'policyName' - The policy name.
+-- * 'policyDocument' - The JSON document that describes the policy.
 -- * 'policyVersionId' - The policy version ID.
+-- * 'policyARN' - The policy ARN.
 -- * 'responseStatus' - The response status code.
 mkCreatePolicyResponse ::
   -- | 'responseStatus'

@@ -17,8 +17,8 @@ module Network.AWS.Inspector.Types.AssessmentRunStateChange
     mkAssessmentRunStateChange,
 
     -- * Lenses
-    arscStateChangedAt,
     arscState,
+    arscStateChangedAt,
   )
 where
 
@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssessmentRunStateChange' smart constructor.
 data AssessmentRunStateChange = AssessmentRunStateChange'
-  { stateChangedAt ::
-      Lude.Timestamp,
-    state :: AssessmentRunState
+  { -- | The assessment run state.
+    state :: AssessmentRunState,
+    -- | The last time the assessment run state changed.
+    stateChangedAt :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssessmentRunStateChange' with the minimum fields required to make a request.
@@ -48,23 +43,16 @@ data AssessmentRunStateChange = AssessmentRunStateChange'
 -- * 'state' - The assessment run state.
 -- * 'stateChangedAt' - The last time the assessment run state changed.
 mkAssessmentRunStateChange ::
-  -- | 'stateChangedAt'
-  Lude.Timestamp ->
   -- | 'state'
   AssessmentRunState ->
+  -- | 'stateChangedAt'
+  Lude.Timestamp ->
   AssessmentRunStateChange
-mkAssessmentRunStateChange pStateChangedAt_ pState_ =
+mkAssessmentRunStateChange pState_ pStateChangedAt_ =
   AssessmentRunStateChange'
-    { stateChangedAt = pStateChangedAt_,
-      state = pState_
+    { state = pState_,
+      stateChangedAt = pStateChangedAt_
     }
-
--- | The last time the assessment run state changed.
---
--- /Note:/ Consider using 'stateChangedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arscStateChangedAt :: Lens.Lens' AssessmentRunStateChange Lude.Timestamp
-arscStateChangedAt = Lens.lens (stateChangedAt :: AssessmentRunStateChange -> Lude.Timestamp) (\s a -> s {stateChangedAt = a} :: AssessmentRunStateChange)
-{-# DEPRECATED arscStateChangedAt "Use generic-lens or generic-optics with 'stateChangedAt' instead." #-}
 
 -- | The assessment run state.
 --
@@ -73,11 +61,18 @@ arscState :: Lens.Lens' AssessmentRunStateChange AssessmentRunState
 arscState = Lens.lens (state :: AssessmentRunStateChange -> AssessmentRunState) (\s a -> s {state = a} :: AssessmentRunStateChange)
 {-# DEPRECATED arscState "Use generic-lens or generic-optics with 'state' instead." #-}
 
+-- | The last time the assessment run state changed.
+--
+-- /Note:/ Consider using 'stateChangedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arscStateChangedAt :: Lens.Lens' AssessmentRunStateChange Lude.Timestamp
+arscStateChangedAt = Lens.lens (stateChangedAt :: AssessmentRunStateChange -> Lude.Timestamp) (\s a -> s {stateChangedAt = a} :: AssessmentRunStateChange)
+{-# DEPRECATED arscStateChangedAt "Use generic-lens or generic-optics with 'stateChangedAt' instead." #-}
+
 instance Lude.FromJSON AssessmentRunStateChange where
   parseJSON =
     Lude.withObject
       "AssessmentRunStateChange"
       ( \x ->
           AssessmentRunStateChange'
-            Lude.<$> (x Lude..: "stateChangedAt") Lude.<*> (x Lude..: "state")
+            Lude.<$> (x Lude..: "state") Lude.<*> (x Lude..: "stateChangedAt")
       )

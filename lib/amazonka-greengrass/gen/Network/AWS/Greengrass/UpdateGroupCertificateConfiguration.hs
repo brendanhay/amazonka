@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Greengrass.UpdateGroupCertificateConfiguration
     mkUpdateGroupCertificateConfiguration,
 
     -- ** Request lenses
-    ugccCertificateExpiryInMilliseconds,
     ugccGroupId,
+    ugccCertificateExpiryInMilliseconds,
 
     -- * Destructuring the response
     UpdateGroupCertificateConfigurationResponse (..),
@@ -42,42 +43,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateGroupCertificateConfiguration' smart constructor.
 data UpdateGroupCertificateConfiguration = UpdateGroupCertificateConfiguration'
-  { certificateExpiryInMilliseconds ::
-      Lude.Maybe
-        Lude.Text,
-    groupId ::
-      Lude.Text
+  { -- | The ID of the Greengrass group.
+    groupId :: Lude.Text,
+    -- | The amount of time remaining before the certificate expires, in milliseconds.
+    certificateExpiryInMilliseconds :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupCertificateConfiguration' with the minimum fields required to make a request.
 --
--- * 'certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 -- * 'groupId' - The ID of the Greengrass group.
+-- * 'certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 mkUpdateGroupCertificateConfiguration ::
   -- | 'groupId'
   Lude.Text ->
   UpdateGroupCertificateConfiguration
 mkUpdateGroupCertificateConfiguration pGroupId_ =
   UpdateGroupCertificateConfiguration'
-    { certificateExpiryInMilliseconds =
-        Lude.Nothing,
-      groupId = pGroupId_
+    { groupId = pGroupId_,
+      certificateExpiryInMilliseconds = Lude.Nothing
     }
-
--- | The amount of time remaining before the certificate expires, in milliseconds.
---
--- /Note:/ Consider using 'certificateExpiryInMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugccCertificateExpiryInMilliseconds :: Lens.Lens' UpdateGroupCertificateConfiguration (Lude.Maybe Lude.Text)
-ugccCertificateExpiryInMilliseconds = Lens.lens (certificateExpiryInMilliseconds :: UpdateGroupCertificateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {certificateExpiryInMilliseconds = a} :: UpdateGroupCertificateConfiguration)
-{-# DEPRECATED ugccCertificateExpiryInMilliseconds "Use generic-lens or generic-optics with 'certificateExpiryInMilliseconds' instead." #-}
 
 -- | The ID of the Greengrass group.
 --
@@ -85,6 +71,13 @@ ugccCertificateExpiryInMilliseconds = Lens.lens (certificateExpiryInMilliseconds
 ugccGroupId :: Lens.Lens' UpdateGroupCertificateConfiguration Lude.Text
 ugccGroupId = Lens.lens (groupId :: UpdateGroupCertificateConfiguration -> Lude.Text) (\s a -> s {groupId = a} :: UpdateGroupCertificateConfiguration)
 {-# DEPRECATED ugccGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+
+-- | The amount of time remaining before the certificate expires, in milliseconds.
+--
+-- /Note:/ Consider using 'certificateExpiryInMilliseconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugccCertificateExpiryInMilliseconds :: Lens.Lens' UpdateGroupCertificateConfiguration (Lude.Maybe Lude.Text)
+ugccCertificateExpiryInMilliseconds = Lens.lens (certificateExpiryInMilliseconds :: UpdateGroupCertificateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {certificateExpiryInMilliseconds = a} :: UpdateGroupCertificateConfiguration)
+{-# DEPRECATED ugccCertificateExpiryInMilliseconds "Use generic-lens or generic-optics with 'certificateExpiryInMilliseconds' instead." #-}
 
 instance Lude.AWSRequest UpdateGroupCertificateConfiguration where
   type
@@ -132,32 +125,23 @@ instance Lude.ToQuery UpdateGroupCertificateConfiguration where
 
 -- | /See:/ 'mkUpdateGroupCertificateConfigurationResponse' smart constructor.
 data UpdateGroupCertificateConfigurationResponse = UpdateGroupCertificateConfigurationResponse'
-  { certificateAuthorityExpiryInMilliseconds ::
-      Lude.Maybe
-        Lude.Text,
-    groupId ::
-      Lude.Maybe
-        Lude.Text,
-    certificateExpiryInMilliseconds ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The amount of time remaining before the certificate authority expires, in milliseconds.
+    certificateAuthorityExpiryInMilliseconds :: Lude.Maybe Lude.Text,
+    -- | The ID of the group certificate configuration.
+    groupId :: Lude.Maybe Lude.Text,
+    -- | The amount of time remaining before the certificate expires, in milliseconds.
+    certificateExpiryInMilliseconds :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateGroupCertificateConfigurationResponse' with the minimum fields required to make a request.
 --
 -- * 'certificateAuthorityExpiryInMilliseconds' - The amount of time remaining before the certificate authority expires, in milliseconds.
--- * 'certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 -- * 'groupId' - The ID of the group certificate configuration.
+-- * 'certificateExpiryInMilliseconds' - The amount of time remaining before the certificate expires, in milliseconds.
 -- * 'responseStatus' - The response status code.
 mkUpdateGroupCertificateConfigurationResponse ::
   -- | 'responseStatus'

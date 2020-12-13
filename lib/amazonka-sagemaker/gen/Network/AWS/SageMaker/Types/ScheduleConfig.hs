@@ -28,16 +28,37 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduleConfig' smart constructor.
 newtype ScheduleConfig = ScheduleConfig'
-  { scheduleExpression ::
-      Lude.Text
+  { -- | A cron expression that describes details about the monitoring schedule.
+    --
+    -- Currently the only supported cron expressions are:
+    --
+    --     * If you want to set the job to start every hour, please use the following:
+    -- @Hourly: cron(0 * ? * * *)@
+    --
+    --
+    --     * If you want to start the job daily:
+    -- @cron(0 [00-23] ? * * *)@
+    --
+    --
+    -- For example, the following are valid cron expressions:
+    --
+    --     * Daily at noon UTC: @cron(0 12 ? * * *)@
+    --
+    --
+    --     * Daily at midnight UTC: @cron(0 0 ? * * *)@
+    --
+    --
+    -- To support running every 6, 12 hours, the following are also supported:
+    -- @cron(0 [00-23]/[01-24] ? * * *)@
+    -- For example, the following are valid cron expressions:
+    --
+    --     * Every 12 hours, starting at 5pm UTC: @cron(0 17/12 ? * * *)@
+    --
+    --
+    --     * Every two hours starting at midnight: @cron(0 0/2 ? * * *)@
+    scheduleExpression :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduleConfig' with the minimum fields required to make a request.

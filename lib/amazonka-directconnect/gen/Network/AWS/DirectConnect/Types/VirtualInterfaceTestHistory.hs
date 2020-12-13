@@ -35,39 +35,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVirtualInterfaceTestHistory' smart constructor.
 data VirtualInterfaceTestHistory = VirtualInterfaceTestHistory'
-  { bgpPeers ::
-      Lude.Maybe [Lude.Text],
+  { -- | The BGP peers that were put in the DOWN state as part of the virtual interface failover test.
+    bgpPeers :: Lude.Maybe [Lude.Text],
+    -- | The status of the virtual interface failover test.
     status :: Lude.Maybe Lude.Text,
-    testDurationInMinutes ::
-      Lude.Maybe Lude.Int,
-    startTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The time that the virtual interface failover test ran in minutes.
+    testDurationInMinutes :: Lude.Maybe Lude.Int,
+    -- | The time that the virtual interface moves to the DOWN state.
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the virtual interface failover test.
     testId :: Lude.Maybe Lude.Text,
-    endTime ::
-      Lude.Maybe Lude.Timestamp,
-    ownerAccount ::
-      Lude.Maybe Lude.Text,
-    virtualInterfaceId ::
-      Lude.Maybe Lude.Text
+    -- | The time that the virtual interface moves out of the DOWN state.
+    endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The owner ID of the tested virtual interface.
+    ownerAccount :: Lude.Maybe Lude.Text,
+    -- | The ID of the tested virtual interface.
+    virtualInterfaceId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VirtualInterfaceTestHistory' with the minimum fields required to make a request.
 --
 -- * 'bgpPeers' - The BGP peers that were put in the DOWN state as part of the virtual interface failover test.
--- * 'endTime' - The time that the virtual interface moves out of the DOWN state.
--- * 'ownerAccount' - The owner ID of the tested virtual interface.
--- * 'startTime' - The time that the virtual interface moves to the DOWN state.
 -- * 'status' - The status of the virtual interface failover test.
 -- * 'testDurationInMinutes' - The time that the virtual interface failover test ran in minutes.
+-- * 'startTime' - The time that the virtual interface moves to the DOWN state.
 -- * 'testId' - The ID of the virtual interface failover test.
+-- * 'endTime' - The time that the virtual interface moves out of the DOWN state.
+-- * 'ownerAccount' - The owner ID of the tested virtual interface.
 -- * 'virtualInterfaceId' - The ID of the tested virtual interface.
 mkVirtualInterfaceTestHistory ::
   VirtualInterfaceTestHistory

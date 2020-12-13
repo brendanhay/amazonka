@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,46 +51,51 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateProfile' smart constructor.
 data UpdateProfile = UpdateProfile'
-  { setupModeDisabled ::
-      Lude.Maybe Lude.Bool,
+  { -- | Whether the setup mode of the profile is enabled.
+    setupModeDisabled :: Lude.Maybe Lude.Bool,
+    -- | Whether the PSTN setting of the room profile is enabled.
     pSTNEnabled :: Lude.Maybe Lude.Bool,
+    -- | The updated distance unit for the room profile.
     distanceUnit :: Lude.Maybe DistanceUnit,
+    -- | The updated locale for the room profile. (This is currently only available to a limited preview audience.)
     locale :: Lude.Maybe Lude.Text,
+    -- | The updated address for the room profile.
     address :: Lude.Maybe Lude.Text,
+    -- | The ARN of the room profile to update. Required.
     profileARN :: Lude.Maybe Lude.Text,
+    -- | The updated wake word for the room profile.
     wakeWord :: Lude.Maybe WakeWord,
-    meetingRoomConfiguration ::
-      Lude.Maybe UpdateMeetingRoomConfiguration,
+    -- | The updated meeting room settings of a room profile.
+    meetingRoomConfiguration :: Lude.Maybe UpdateMeetingRoomConfiguration,
+    -- | The updated name for the room profile.
     profileName :: Lude.Maybe Lude.Text,
+    -- | The updated temperature unit for the room profile.
     temperatureUnit :: Lude.Maybe TemperatureUnit,
+    -- | The updated timezone for the room profile.
     timezone :: Lude.Maybe Lude.Text,
+    -- | The updated maximum volume limit for the room profile.
     maxVolumeLimit :: Lude.Maybe Lude.Int,
+    -- | Sets the profile as default if selected. If this is missing, no update is done to the default status.
     isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProfile' with the minimum fields required to make a request.
 --
--- * 'address' - The updated address for the room profile.
--- * 'distanceUnit' - The updated distance unit for the room profile.
--- * 'isDefault' - Sets the profile as default if selected. If this is missing, no update is done to the default status.
--- * 'locale' - The updated locale for the room profile. (This is currently only available to a limited preview audience.)
--- * 'maxVolumeLimit' - The updated maximum volume limit for the room profile.
--- * 'meetingRoomConfiguration' - The updated meeting room settings of a room profile.
--- * 'pSTNEnabled' - Whether the PSTN setting of the room profile is enabled.
--- * 'profileARN' - The ARN of the room profile to update. Required.
--- * 'profileName' - The updated name for the room profile.
 -- * 'setupModeDisabled' - Whether the setup mode of the profile is enabled.
+-- * 'pSTNEnabled' - Whether the PSTN setting of the room profile is enabled.
+-- * 'distanceUnit' - The updated distance unit for the room profile.
+-- * 'locale' - The updated locale for the room profile. (This is currently only available to a limited preview audience.)
+-- * 'address' - The updated address for the room profile.
+-- * 'profileARN' - The ARN of the room profile to update. Required.
+-- * 'wakeWord' - The updated wake word for the room profile.
+-- * 'meetingRoomConfiguration' - The updated meeting room settings of a room profile.
+-- * 'profileName' - The updated name for the room profile.
 -- * 'temperatureUnit' - The updated temperature unit for the room profile.
 -- * 'timezone' - The updated timezone for the room profile.
--- * 'wakeWord' - The updated wake word for the room profile.
+-- * 'maxVolumeLimit' - The updated maximum volume limit for the room profile.
+-- * 'isDefault' - Sets the profile as default if selected. If this is missing, no update is done to the default status.
 mkUpdateProfile ::
   UpdateProfile
 mkUpdateProfile =
@@ -249,16 +255,10 @@ instance Lude.ToQuery UpdateProfile where
 
 -- | /See:/ 'mkUpdateProfileResponse' smart constructor.
 newtype UpdateProfileResponse = UpdateProfileResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProfileResponse' with the minimum fields required to make a request.

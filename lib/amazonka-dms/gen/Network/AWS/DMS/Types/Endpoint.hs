@@ -92,39 +92,87 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { status :: Lude.Maybe Lude.Text,
+  { -- | The status of the endpoint.
+    status :: Lude.Maybe Lude.Text,
+    -- | The settings in JSON format for the DMS transfer type of source endpoint.
+    --
+    -- Possible settings include the following:
+    --
+    --     * @ServiceAccessRoleArn@ - The IAM role that has permission to access the Amazon S3 bucket.
+    --
+    --
+    --     * @BucketName@ - The name of the S3 bucket to use.
+    --
+    --
+    --     * @CompressionType@ - An optional parameter to use GZIP to compress the target files. To use GZIP, set this value to @NONE@ (the default). To keep the files uncompressed, don't use this value.
+    --
+    --
+    -- Shorthand syntax for these settings is as follows: @ServiceAccessRoleArn=string,BucketName=string,CompressionType=string@
+    -- JSON syntax for these settings is as follows: @{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } @
     dmsTransferSettings :: Lude.Maybe DmsTransferSettings,
+    -- | The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
     mySQLSettings :: Lude.Maybe MySQLSettings,
+    -- | The name of the server at the endpoint.
     serverName :: Lude.Maybe Lude.Text,
-    microsoftSQLServerSettings ::
-      Lude.Maybe MicrosoftSQLServerSettings,
+    -- | The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
+    microsoftSQLServerSettings :: Lude.Maybe MicrosoftSQLServerSettings,
+    -- | The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
     certificateARN :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) used by the service access IAM role.
     serviceAccessRoleARN :: Lude.Maybe Lude.Text,
     docDBSettings :: Lude.Maybe DocDBSettings,
+    -- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
     engineDisplayName :: Lude.Maybe Lude.Text,
+    -- | The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
     postgreSQLSettings :: Lude.Maybe PostgreSQLSettings,
+    -- | Additional connection attributes used to connect to the endpoint.
     extraConnectionAttributes :: Lude.Maybe Lude.Text,
+    -- | The settings for the Apache Kafka target endpoint. For more information, see the @KafkaSettings@ structure.
     kafkaSettings :: Lude.Maybe KafkaSettings,
+    -- | The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
     oracleSettings :: Lude.Maybe OracleSettings,
+    -- | The type of endpoint. Valid values are @source@ and @target@ .
     endpointType :: Lude.Maybe ReplicationEndpointTypeValue,
+    -- | Settings for the Amazon Redshift endpoint.
     redshiftSettings :: Lude.Maybe RedshiftSettings,
+    -- | The settings for the Elasticsearch source endpoint. For more information, see the @ElasticsearchSettings@ structure.
     elasticsearchSettings :: Lude.Maybe ElasticsearchSettings,
+    -- | The user name used to connect to the endpoint.
     username :: Lude.Maybe Lude.Text,
+    -- | The external table definition.
     externalTableDefinition :: Lude.Maybe Lude.Text,
+    -- | The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
     engineName :: Lude.Maybe Lude.Text,
+    -- | The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
     neptuneSettings :: Lude.Maybe NeptuneSettings,
+    -- | The settings for the IBM Db2 LUW source endpoint. For more information, see the @IBMDb2Settings@ structure.
     iBMDB2Settings :: Lude.Maybe IBMDB2Settings,
+    -- | An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
+    --
+    -- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
+    -- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The settings for the MongoDB source endpoint. For more information, see the @MongoDbSettings@ structure.
     mongoDBSettings :: Lude.Maybe MongoDBSettings,
+    -- | The SSL mode used to connect to the endpoint. The default value is @none@ .
     sslMode :: Lude.Maybe DmsSSLModeValue,
+    -- | The settings for the SAP ASE source and target endpoint. For more information, see the @SybaseSettings@ structure.
     sybaseSettings :: Lude.Maybe SybaseSettings,
+    -- | The name of the database at the endpoint.
     databaseName :: Lude.Maybe Lude.Text,
+    -- | The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
     s3Settings :: Lude.Maybe S3Settings,
+    -- | The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
     kinesisSettings :: Lude.Maybe KinesisSettings,
+    -- | The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
     endpointIdentifier :: Lude.Maybe Lude.Text,
+    -- | Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
     externalId :: Lude.Maybe Lude.Text,
+    -- | The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
     dynamoDBSettings :: Lude.Maybe DynamoDBSettings,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
     endpointARN :: Lude.Maybe Lude.Text,
+    -- | The port value used to access the endpoint.
     port :: Lude.Maybe Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -132,8 +180,7 @@ data Endpoint = Endpoint'
 
 -- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
 --
--- * 'certificateARN' - The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
--- * 'databaseName' - The name of the database at the endpoint.
+-- * 'status' - The status of the endpoint.
 -- * 'dmsTransferSettings' - The settings in JSON format for the DMS transfer type of source endpoint.
 --
 -- Possible settings include the following:
@@ -149,39 +196,40 @@ data Endpoint = Endpoint'
 --
 -- Shorthand syntax for these settings is as follows: @ServiceAccessRoleArn=string,BucketName=string,CompressionType=string@
 -- JSON syntax for these settings is as follows: @{ "ServiceAccessRoleArn": "string", "BucketName": "string", "CompressionType": "none"|"gzip" } @
--- * 'docDBSettings' - Undocumented field.
--- * 'dynamoDBSettings' - The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
--- * 'elasticsearchSettings' - The settings for the Elasticsearch source endpoint. For more information, see the @ElasticsearchSettings@ structure.
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
--- * 'endpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
--- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
+-- * 'mySQLSettings' - The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
+-- * 'serverName' - The name of the server at the endpoint.
+-- * 'microsoftSQLServerSettings' - The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
+-- * 'certificateARN' - The Amazon Resource Name (ARN) used for SSL connection to the endpoint.
+-- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role.
+-- * 'docDBSettings' -
 -- * 'engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
--- * 'engineName' - The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
--- * 'externalId' - Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
--- * 'externalTableDefinition' - The external table definition.
+-- * 'postgreSQLSettings' - The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
 -- * 'extraConnectionAttributes' - Additional connection attributes used to connect to the endpoint.
--- * 'iBMDB2Settings' - The settings for the IBM Db2 LUW source endpoint. For more information, see the @IBMDb2Settings@ structure.
 -- * 'kafkaSettings' - The settings for the Apache Kafka target endpoint. For more information, see the @KafkaSettings@ structure.
--- * 'kinesisSettings' - The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
+-- * 'oracleSettings' - The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
+-- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
+-- * 'redshiftSettings' - Settings for the Amazon Redshift endpoint.
+-- * 'elasticsearchSettings' - The settings for the Elasticsearch source endpoint. For more information, see the @ElasticsearchSettings@ structure.
+-- * 'username' - The user name used to connect to the endpoint.
+-- * 'externalTableDefinition' - The external table definition.
+-- * 'engineName' - The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
+-- * 'neptuneSettings' - The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
+-- * 'iBMDB2Settings' - The settings for the IBM Db2 LUW source endpoint. For more information, see the @IBMDb2Settings@ structure.
 -- * 'kmsKeyId' - An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.
 --
 -- If you don't specify a value for the @KmsKeyId@ parameter, then AWS DMS uses your default encryption key.
 -- AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS Region.
--- * 'microsoftSQLServerSettings' - The settings for the Microsoft SQL Server source and target endpoint. For more information, see the @MicrosoftSQLServerSettings@ structure.
 -- * 'mongoDBSettings' - The settings for the MongoDB source endpoint. For more information, see the @MongoDbSettings@ structure.
--- * 'mySQLSettings' - The settings for the MySQL source and target endpoint. For more information, see the @MySQLSettings@ structure.
--- * 'neptuneSettings' - The settings for the Amazon Neptune target endpoint. For more information, see the @NeptuneSettings@ structure.
--- * 'oracleSettings' - The settings for the Oracle source and target endpoint. For more information, see the @OracleSettings@ structure.
--- * 'port' - The port value used to access the endpoint.
--- * 'postgreSQLSettings' - The settings for the PostgreSQL source and target endpoint. For more information, see the @PostgreSQLSettings@ structure.
--- * 'redshiftSettings' - Settings for the Amazon Redshift endpoint.
--- * 's3Settings' - The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
--- * 'serverName' - The name of the server at the endpoint.
--- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) used by the service access IAM role.
 -- * 'sslMode' - The SSL mode used to connect to the endpoint. The default value is @none@ .
--- * 'status' - The status of the endpoint.
 -- * 'sybaseSettings' - The settings for the SAP ASE source and target endpoint. For more information, see the @SybaseSettings@ structure.
--- * 'username' - The user name used to connect to the endpoint.
+-- * 'databaseName' - The name of the database at the endpoint.
+-- * 's3Settings' - The settings for the S3 target endpoint. For more information, see the @S3Settings@ structure.
+-- * 'kinesisSettings' - The settings for the Amazon Kinesis target endpoint. For more information, see the @KinesisSettings@ structure.
+-- * 'endpointIdentifier' - The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+-- * 'externalId' - Value returned by a call to CreateEndpoint that can be used for cross-account validation. Use it on a subsequent call to CreateEndpoint to create the endpoint with a cross-account.
+-- * 'dynamoDBSettings' - The settings for the DynamoDB target endpoint. For more information, see the @DynamoDBSettings@ structure.
+-- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- * 'port' - The port value used to access the endpoint.
 mkEndpoint ::
   Endpoint
 mkEndpoint =

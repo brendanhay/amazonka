@@ -33,19 +33,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceGroupStatus' smart constructor.
 data InstanceGroupStatus = InstanceGroupStatus'
-  { state ::
-      Lude.Maybe InstanceGroupState,
-    stateChangeReason ::
-      Lude.Maybe InstanceGroupStateChangeReason,
+  { -- | The current state of the instance group.
+    state :: Lude.Maybe InstanceGroupState,
+    -- | The status change reason details for the instance group.
+    stateChangeReason :: Lude.Maybe InstanceGroupStateChangeReason,
+    -- | The timeline of the instance group status over time.
     timeline :: Lude.Maybe InstanceGroupTimeline
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceGroupStatus' with the minimum fields required to make a request.

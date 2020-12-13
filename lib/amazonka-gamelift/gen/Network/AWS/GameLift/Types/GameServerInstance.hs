@@ -60,26 +60,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameServerInstance' smart constructor.
 data GameServerInstance = GameServerInstance'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | A developer-defined identifier for the game server group that includes the game server instance. The name is unique for each Region in each AWS account.
     gameServerGroupName :: Lude.Maybe Lude.Text,
+    -- | Current status of the game server instance.
+    --
+    --
+    --     * __ACTIVE__ -- The instance is viable for hosting game servers.
+    --
+    --
+    --     * __DRAINING__ -- The instance is not viable for hosting game servers. Existing game servers are in the process of ending, and new game servers are not started on this instance unless no other resources are available. When the instance is put in DRAINING, a new instance is started up to replace it. Once the instance has no UTILIZED game servers, it will be terminated in favor of the new instance.
+    --
+    --
+    --     * __SPOT_TERMINATING__ -- The instance is in the process of shutting down due to a Spot instance interruption. No new game servers are started on this instance.
     instanceStatus :: Lude.Maybe GameServerInstanceStatus,
+    -- | A generated unique identifier for the game server group that includes the game server instance.
     gameServerGroupARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GameServerInstance' with the minimum fields required to make a request.
 --
--- * 'gameServerGroupARN' - A generated unique identifier for the game server group that includes the game server instance.
--- * 'gameServerGroupName' - A developer-defined identifier for the game server group that includes the game server instance. The name is unique for each Region in each AWS account.
 -- * 'instanceId' - The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
+-- * 'gameServerGroupName' - A developer-defined identifier for the game server group that includes the game server instance. The name is unique for each Region in each AWS account.
 -- * 'instanceStatus' - Current status of the game server instance.
 --
 --
@@ -90,6 +95,9 @@ data GameServerInstance = GameServerInstance'
 --
 --
 --     * __SPOT_TERMINATING__ -- The instance is in the process of shutting down due to a Spot instance interruption. No new game servers are started on this instance.
+--
+--
+-- * 'gameServerGroupARN' - A generated unique identifier for the game server group that includes the game server instance.
 mkGameServerInstance ::
   GameServerInstance
 mkGameServerInstance =

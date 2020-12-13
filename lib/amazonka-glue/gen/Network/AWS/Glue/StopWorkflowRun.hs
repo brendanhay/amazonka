@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,15 +20,15 @@ module Network.AWS.Glue.StopWorkflowRun
     mkStopWorkflowRun,
 
     -- ** Request lenses
-    swrwName,
-    swrwRunId,
+    swrRunId,
+    swrName,
 
     -- * Destructuring the response
     StopWorkflowRunResponse (..),
     mkStopWorkflowRunResponse,
 
     -- ** Response lenses
-    swrwrsResponseStatus,
+    swrfrsResponseStatus,
   )
 where
 
@@ -39,44 +40,40 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopWorkflowRun' smart constructor.
 data StopWorkflowRun = StopWorkflowRun'
-  { name :: Lude.Text,
-    runId :: Lude.Text
+  { -- | The ID of the workflow run to stop.
+    runId :: Lude.Text,
+    -- | The name of the workflow to stop.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopWorkflowRun' with the minimum fields required to make a request.
 --
--- * 'name' - The name of the workflow to stop.
 -- * 'runId' - The ID of the workflow run to stop.
+-- * 'name' - The name of the workflow to stop.
 mkStopWorkflowRun ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'runId'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   StopWorkflowRun
-mkStopWorkflowRun pName_ pRunId_ =
-  StopWorkflowRun' {name = pName_, runId = pRunId_}
-
--- | The name of the workflow to stop.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swrwName :: Lens.Lens' StopWorkflowRun Lude.Text
-swrwName = Lens.lens (name :: StopWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: StopWorkflowRun)
-{-# DEPRECATED swrwName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkStopWorkflowRun pRunId_ pName_ =
+  StopWorkflowRun' {runId = pRunId_, name = pName_}
 
 -- | The ID of the workflow run to stop.
 --
 -- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swrwRunId :: Lens.Lens' StopWorkflowRun Lude.Text
-swrwRunId = Lens.lens (runId :: StopWorkflowRun -> Lude.Text) (\s a -> s {runId = a} :: StopWorkflowRun)
-{-# DEPRECATED swrwRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+swrRunId :: Lens.Lens' StopWorkflowRun Lude.Text
+swrRunId = Lens.lens (runId :: StopWorkflowRun -> Lude.Text) (\s a -> s {runId = a} :: StopWorkflowRun)
+{-# DEPRECATED swrRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+
+-- | The name of the workflow to stop.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+swrName :: Lens.Lens' StopWorkflowRun Lude.Text
+swrName = Lens.lens (name :: StopWorkflowRun -> Lude.Text) (\s a -> s {name = a} :: StopWorkflowRun)
+{-# DEPRECATED swrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest StopWorkflowRun where
   type Rs StopWorkflowRun = StopWorkflowRunResponse
@@ -102,8 +99,8 @@ instance Lude.ToJSON StopWorkflowRun where
   toJSON StopWorkflowRun' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("RunId" Lude..= runId)
+          [ Lude.Just ("RunId" Lude..= runId),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -115,16 +112,10 @@ instance Lude.ToQuery StopWorkflowRun where
 
 -- | /See:/ 'mkStopWorkflowRunResponse' smart constructor.
 newtype StopWorkflowRunResponse = StopWorkflowRunResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopWorkflowRunResponse' with the minimum fields required to make a request.
@@ -140,6 +131,6 @@ mkStopWorkflowRunResponse pResponseStatus_ =
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swrwrsResponseStatus :: Lens.Lens' StopWorkflowRunResponse Lude.Int
-swrwrsResponseStatus = Lens.lens (responseStatus :: StopWorkflowRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopWorkflowRunResponse)
-{-# DEPRECATED swrwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+swrfrsResponseStatus :: Lens.Lens' StopWorkflowRunResponse Lude.Int
+swrfrsResponseStatus = Lens.lens (responseStatus :: StopWorkflowRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopWorkflowRunResponse)
+{-# DEPRECATED swrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

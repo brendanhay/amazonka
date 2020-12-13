@@ -35,33 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSchemaListItem' smart constructor.
 data SchemaListItem = SchemaListItem'
-  { registryName ::
-      Lude.Maybe Lude.Text,
+  { -- | the name of the registry where the schema resides.
+    registryName :: Lude.Maybe Lude.Text,
+    -- | The date and time that a schema was created.
     createdTime :: Lude.Maybe Lude.Text,
+    -- | The status of the schema.
     schemaStatus :: Lude.Maybe SchemaStatus,
+    -- | The name of the schema.
     schemaName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) for the schema.
     schemaARN :: Lude.Maybe Lude.Text,
+    -- | The date and time that a schema was updated.
     updatedTime :: Lude.Maybe Lude.Text,
+    -- | A description for the schema.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SchemaListItem' with the minimum fields required to make a request.
 --
--- * 'createdTime' - The date and time that a schema was created.
--- * 'description' - A description for the schema.
 -- * 'registryName' - the name of the registry where the schema resides.
--- * 'schemaARN' - The Amazon Resource Name (ARN) for the schema.
--- * 'schemaName' - The name of the schema.
+-- * 'createdTime' - The date and time that a schema was created.
 -- * 'schemaStatus' - The status of the schema.
+-- * 'schemaName' - The name of the schema.
+-- * 'schemaARN' - The Amazon Resource Name (ARN) for the schema.
 -- * 'updatedTime' - The date and time that a schema was updated.
+-- * 'description' - A description for the schema.
 mkSchemaListItem ::
   SchemaListItem
 mkSchemaListItem =

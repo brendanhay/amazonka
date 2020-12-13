@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,29 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeJobDefinitions' smart constructor.
 data DescribeJobDefinitions = DescribeJobDefinitions'
-  { status ::
-      Lude.Maybe Lude.Text,
+  { -- | The status with which to filter job definitions.
+    status :: Lude.Maybe Lude.Text,
+    -- | The name of the job definition to describe.
     jobDefinitionName :: Lude.Maybe Lude.Text,
+    -- | A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
     jobDefinitions :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ value returned from a previous paginated @DescribeJobDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobDefinitions' with the minimum fields required to make a request.
 --
+-- * 'status' - The status with which to filter job definitions.
 -- * 'jobDefinitionName' - The name of the job definition to describe.
 -- * 'jobDefinitions' - A list of up to 100 job definition names or full Amazon Resource Name (ARN) entries.
--- * 'maxResults' - The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
 -- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeJobDefinitions@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
--- * 'status' - The status with which to filter job definitions.
+-- * 'maxResults' - The maximum number of results returned by @DescribeJobDefinitions@ in paginated output. When this parameter is used, @DescribeJobDefinitions@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeJobDefinitions@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeJobDefinitions@ returns up to 100 results and a @nextToken@ value if applicable.
 mkDescribeJobDefinitions ::
   DescribeJobDefinitions
 mkDescribeJobDefinitions =
@@ -166,19 +165,14 @@ instance Lude.ToQuery DescribeJobDefinitions where
 
 -- | /See:/ 'mkDescribeJobDefinitionsResponse' smart constructor.
 data DescribeJobDefinitionsResponse = DescribeJobDefinitionsResponse'
-  { jobDefinitions ::
-      Lude.Maybe [JobDefinition],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The list of job definitions.
+    jobDefinitions :: Lude.Maybe [JobDefinition],
+    -- | The @nextToken@ value to include in a future @DescribeJobDefinitions@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeJobDefinitionsResponse' with the minimum fields required to make a request.

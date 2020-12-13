@@ -30,24 +30,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInventoryDeletionSummaryItem' smart constructor.
 data InventoryDeletionSummaryItem = InventoryDeletionSummaryItem'
-  { remainingCount ::
-      Lude.Maybe Lude.Int,
+  { -- | The remaining number of items to delete.
+    remainingCount :: Lude.Maybe Lude.Int,
+    -- | A count of the number of deleted items.
     count :: Lude.Maybe Lude.Int,
+    -- | The inventory type version.
     version :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryDeletionSummaryItem' with the minimum fields required to make a request.
 --
--- * 'count' - A count of the number of deleted items.
 -- * 'remainingCount' - The remaining number of items to delete.
+-- * 'count' - A count of the number of deleted items.
 -- * 'version' - The inventory type version.
 mkInventoryDeletionSummaryItem ::
   InventoryDeletionSummaryItem

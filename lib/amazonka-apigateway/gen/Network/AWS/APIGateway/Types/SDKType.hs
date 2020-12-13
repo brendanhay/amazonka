@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSDKType' smart constructor.
 data SDKType = SDKType'
-  { friendlyName :: Lude.Maybe Lude.Text,
+  { -- | The user-friendly name of an 'SdkType' instance.
+    friendlyName :: Lude.Maybe Lude.Text,
+    -- | A list of configuration properties of an 'SdkType' .
     configurationProperties :: Lude.Maybe [SDKConfigurationProperty],
+    -- | The identifier of an 'SdkType' instance.
     id :: Lude.Maybe Lude.Text,
+    -- | The description of an 'SdkType' .
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SDKType' with the minimum fields required to make a request.
 --
--- * 'configurationProperties' - A list of configuration properties of an 'SdkType' .
--- * 'description' - The description of an 'SdkType' .
 -- * 'friendlyName' - The user-friendly name of an 'SdkType' instance.
+-- * 'configurationProperties' - A list of configuration properties of an 'SdkType' .
 -- * 'id' - The identifier of an 'SdkType' instance.
+-- * 'description' - The description of an 'SdkType' .
 mkSDKType ::
   SDKType
 mkSDKType =

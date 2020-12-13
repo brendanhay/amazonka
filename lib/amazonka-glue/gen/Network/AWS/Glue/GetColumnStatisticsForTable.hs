@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Glue.GetColumnStatisticsForTable
     -- ** Request lenses
     gcsftCatalogId,
     gcsftDatabaseName,
-    gcsftTableName,
     gcsftColumnNames,
+    gcsftTableName,
 
     -- * Destructuring the response
     GetColumnStatisticsForTableResponse (..),
@@ -45,26 +46,23 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetColumnStatisticsForTable' smart constructor.
 data GetColumnStatisticsForTable = GetColumnStatisticsForTable'
-  { catalogId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | The name of the catalog database where the partitions reside.
     databaseName :: Lude.Text,
-    tableName :: Lude.Text,
-    columnNames :: [Lude.Text]
+    -- | A list of the column names.
+    columnNames :: [Lude.Text],
+    -- | The name of the partitions' table.
+    tableName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetColumnStatisticsForTable' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
--- * 'columnNames' - A list of the column names.
 -- * 'databaseName' - The name of the catalog database where the partitions reside.
+-- * 'columnNames' - A list of the column names.
 -- * 'tableName' - The name of the partitions' table.
 mkGetColumnStatisticsForTable ::
   -- | 'databaseName'
@@ -76,8 +74,8 @@ mkGetColumnStatisticsForTable pDatabaseName_ pTableName_ =
   GetColumnStatisticsForTable'
     { catalogId = Lude.Nothing,
       databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      columnNames = Lude.mempty
+      columnNames = Lude.mempty,
+      tableName = pTableName_
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is supplied, the AWS account ID is used by default.
@@ -94,19 +92,19 @@ gcsftDatabaseName :: Lens.Lens' GetColumnStatisticsForTable Lude.Text
 gcsftDatabaseName = Lens.lens (databaseName :: GetColumnStatisticsForTable -> Lude.Text) (\s a -> s {databaseName = a} :: GetColumnStatisticsForTable)
 {-# DEPRECATED gcsftDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
--- | The name of the partitions' table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsftTableName :: Lens.Lens' GetColumnStatisticsForTable Lude.Text
-gcsftTableName = Lens.lens (tableName :: GetColumnStatisticsForTable -> Lude.Text) (\s a -> s {tableName = a} :: GetColumnStatisticsForTable)
-{-# DEPRECATED gcsftTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
 -- | A list of the column names.
 --
 -- /Note:/ Consider using 'columnNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gcsftColumnNames :: Lens.Lens' GetColumnStatisticsForTable [Lude.Text]
 gcsftColumnNames = Lens.lens (columnNames :: GetColumnStatisticsForTable -> [Lude.Text]) (\s a -> s {columnNames = a} :: GetColumnStatisticsForTable)
 {-# DEPRECATED gcsftColumnNames "Use generic-lens or generic-optics with 'columnNames' instead." #-}
+
+-- | The name of the partitions' table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsftTableName :: Lens.Lens' GetColumnStatisticsForTable Lude.Text
+gcsftTableName = Lens.lens (tableName :: GetColumnStatisticsForTable -> Lude.Text) (\s a -> s {tableName = a} :: GetColumnStatisticsForTable)
+{-# DEPRECATED gcsftTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 instance Lude.AWSRequest GetColumnStatisticsForTable where
   type
@@ -139,8 +137,8 @@ instance Lude.ToJSON GetColumnStatisticsForTable where
       ( Lude.catMaybes
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
             Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("ColumnNames" Lude..= columnNames)
+            Lude.Just ("ColumnNames" Lude..= columnNames),
+            Lude.Just ("TableName" Lude..= tableName)
           ]
       )
 
@@ -152,28 +150,20 @@ instance Lude.ToQuery GetColumnStatisticsForTable where
 
 -- | /See:/ 'mkGetColumnStatisticsForTableResponse' smart constructor.
 data GetColumnStatisticsForTableResponse = GetColumnStatisticsForTableResponse'
-  { errors ::
-      Lude.Maybe
-        [ColumnError],
-    columnStatisticsList ::
-      Lude.Maybe
-        [ColumnStatistics],
-    responseStatus ::
-      Lude.Int
+  { -- | List of ColumnStatistics that failed to be retrieved.
+    errors :: Lude.Maybe [ColumnError],
+    -- | List of ColumnStatistics that failed to be retrieved.
+    columnStatisticsList :: Lude.Maybe [ColumnStatistics],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetColumnStatisticsForTableResponse' with the minimum fields required to make a request.
 --
--- * 'columnStatisticsList' - List of ColumnStatistics that failed to be retrieved.
 -- * 'errors' - List of ColumnStatistics that failed to be retrieved.
+-- * 'columnStatisticsList' - List of ColumnStatistics that failed to be retrieved.
 -- * 'responseStatus' - The response status code.
 mkGetColumnStatisticsForTableResponse ::
   -- | 'responseStatus'

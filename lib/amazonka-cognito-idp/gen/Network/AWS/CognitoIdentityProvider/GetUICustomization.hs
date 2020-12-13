@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.CognitoIdentityProvider.GetUICustomization
     mkGetUICustomizationResponse,
 
     -- ** Response lenses
-    guicrsResponseStatus,
     guicrsUICustomization,
+    guicrsResponseStatus,
   )
 where
 
@@ -40,8 +41,9 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetUICustomization' smart constructor.
 data GetUICustomization = GetUICustomization'
-  { clientId ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The client ID for the client app.
+    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The user pool ID for the user pool.
     userPoolId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -82,8 +84,8 @@ instance Lude.AWSRequest GetUICustomization where
     Res.receiveJSON
       ( \s h x ->
           GetUICustomizationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "UICustomization")
+            Lude.<$> (x Lude..:> "UICustomization")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetUICustomization where
@@ -116,36 +118,29 @@ instance Lude.ToQuery GetUICustomization where
 
 -- | /See:/ 'mkGetUICustomizationResponse' smart constructor.
 data GetUICustomizationResponse = GetUICustomizationResponse'
-  { responseStatus ::
-      Lude.Int,
-    uICustomization ::
-      UICustomizationType
+  { -- | The UI customization information.
+    uICustomization :: UICustomizationType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetUICustomizationResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'uICustomization' - The UI customization information.
+-- * 'responseStatus' - The response status code.
 mkGetUICustomizationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'uICustomization'
   UICustomizationType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetUICustomizationResponse
-mkGetUICustomizationResponse pResponseStatus_ pUICustomization_ =
+mkGetUICustomizationResponse pUICustomization_ pResponseStatus_ =
   GetUICustomizationResponse'
-    { responseStatus = pResponseStatus_,
-      uICustomization = pUICustomization_
+    { uICustomization = pUICustomization_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guicrsResponseStatus :: Lens.Lens' GetUICustomizationResponse Lude.Int
-guicrsResponseStatus = Lens.lens (responseStatus :: GetUICustomizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUICustomizationResponse)
-{-# DEPRECATED guicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The UI customization information.
 --
@@ -153,3 +148,10 @@ guicrsResponseStatus = Lens.lens (responseStatus :: GetUICustomizationResponse -
 guicrsUICustomization :: Lens.Lens' GetUICustomizationResponse UICustomizationType
 guicrsUICustomization = Lens.lens (uICustomization :: GetUICustomizationResponse -> UICustomizationType) (\s a -> s {uICustomization = a} :: GetUICustomizationResponse)
 {-# DEPRECATED guicrsUICustomization "Use generic-lens or generic-optics with 'uICustomization' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guicrsResponseStatus :: Lens.Lens' GetUICustomizationResponse Lude.Int
+guicrsResponseStatus = Lens.lens (responseStatus :: GetUICustomizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUICustomizationResponse)
+{-# DEPRECATED guicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

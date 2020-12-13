@@ -13,10 +13,10 @@
 module Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
   ( AdsOnDeliveryRestrictions
       ( AdsOnDeliveryRestrictions',
-        Both,
         None,
         Restricted,
-        Unrestricted
+        Unrestricted,
+        Both
       ),
   )
 where
@@ -56,9 +56,6 @@ newtype AdsOnDeliveryRestrictions = AdsOnDeliveryRestrictions' Lude.Text
       Lude.ToHeader
     )
 
-pattern Both :: AdsOnDeliveryRestrictions
-pattern Both = AdsOnDeliveryRestrictions' "BOTH"
-
 pattern None :: AdsOnDeliveryRestrictions
 pattern None = AdsOnDeliveryRestrictions' "NONE"
 
@@ -68,10 +65,13 @@ pattern Restricted = AdsOnDeliveryRestrictions' "RESTRICTED"
 pattern Unrestricted :: AdsOnDeliveryRestrictions
 pattern Unrestricted = AdsOnDeliveryRestrictions' "UNRESTRICTED"
 
+pattern Both :: AdsOnDeliveryRestrictions
+pattern Both = AdsOnDeliveryRestrictions' "BOTH"
+
 {-# COMPLETE
-  Both,
   None,
   Restricted,
   Unrestricted,
+  Both,
   AdsOnDeliveryRestrictions'
   #-}

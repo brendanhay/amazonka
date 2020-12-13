@@ -40,62 +40,89 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCostTypes' smart constructor.
 data CostTypes = CostTypes'
-  { useAmortized :: Lude.Maybe Lude.Bool,
+  { -- | Specifies whether a budget uses the amortized rate.
+    --
+    -- The default value is @false@ .
+    useAmortized :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes recurring fees such as monthly RI fees.
+    --
+    -- The default value is @true@ .
     includeRecurring :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget uses a blended rate.
+    --
+    -- The default value is @false@ .
     useBlended :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes support subscription fees.
+    --
+    -- The default value is @true@ .
     includeSupport :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes discounts.
+    --
+    -- The default value is @true@ .
     includeDiscount :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes subscriptions.
+    --
+    -- The default value is @true@ .
     includeSubscription :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes refunds.
+    --
+    -- The default value is @true@ .
     includeRefund :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes upfront RI costs.
+    --
+    -- The default value is @true@ .
     includeUpfront :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes non-RI subscription costs.
+    --
+    -- The default value is @true@ .
     includeOtherSubscription :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes taxes.
+    --
+    -- The default value is @true@ .
     includeTax :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether a budget includes credits.
+    --
+    -- The default value is @true@ .
     includeCredit :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CostTypes' with the minimum fields required to make a request.
 --
--- * 'includeCredit' - Specifies whether a budget includes credits.
+-- * 'useAmortized' - Specifies whether a budget uses the amortized rate.
+--
+-- The default value is @false@ .
+-- * 'includeRecurring' - Specifies whether a budget includes recurring fees such as monthly RI fees.
+--
+-- The default value is @true@ .
+-- * 'useBlended' - Specifies whether a budget uses a blended rate.
+--
+-- The default value is @false@ .
+-- * 'includeSupport' - Specifies whether a budget includes support subscription fees.
 --
 -- The default value is @true@ .
 -- * 'includeDiscount' - Specifies whether a budget includes discounts.
 --
 -- The default value is @true@ .
--- * 'includeOtherSubscription' - Specifies whether a budget includes non-RI subscription costs.
---
--- The default value is @true@ .
--- * 'includeRecurring' - Specifies whether a budget includes recurring fees such as monthly RI fees.
+-- * 'includeSubscription' - Specifies whether a budget includes subscriptions.
 --
 -- The default value is @true@ .
 -- * 'includeRefund' - Specifies whether a budget includes refunds.
 --
 -- The default value is @true@ .
--- * 'includeSubscription' - Specifies whether a budget includes subscriptions.
+-- * 'includeUpfront' - Specifies whether a budget includes upfront RI costs.
 --
 -- The default value is @true@ .
--- * 'includeSupport' - Specifies whether a budget includes support subscription fees.
+-- * 'includeOtherSubscription' - Specifies whether a budget includes non-RI subscription costs.
 --
 -- The default value is @true@ .
 -- * 'includeTax' - Specifies whether a budget includes taxes.
 --
 -- The default value is @true@ .
--- * 'includeUpfront' - Specifies whether a budget includes upfront RI costs.
+-- * 'includeCredit' - Specifies whether a budget includes credits.
 --
 -- The default value is @true@ .
--- * 'useAmortized' - Specifies whether a budget uses the amortized rate.
---
--- The default value is @false@ .
--- * 'useBlended' - Specifies whether a budget uses a blended rate.
---
--- The default value is @false@ .
 mkCostTypes ::
   CostTypes
 mkCostTypes =

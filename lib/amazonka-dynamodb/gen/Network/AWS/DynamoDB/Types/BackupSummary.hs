@@ -39,35 +39,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackupSummary' smart constructor.
 data BackupSummary = BackupSummary'
-  { backupExpiryDateTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
+    backupExpiryDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | ARN associated with the table.
     tableARN :: Lude.Maybe Lude.Text,
+    -- | Name of the specified backup.
     backupName :: Lude.Maybe Lude.Text,
+    -- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
     backupStatus :: Lude.Maybe BackupStatus,
+    -- | Size of the backup in bytes.
     backupSizeBytes :: Lude.Maybe Lude.Natural,
+    -- | ARN associated with the backup.
     backupARN :: Lude.Maybe Lude.Text,
+    -- | Unique identifier for the table.
     tableId :: Lude.Maybe Lude.Text,
+    -- | Time at which the backup was created.
     backupCreationDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | BackupType:
+    --
+    --
+    --     * @USER@ - You create and manage these using the on-demand backup feature.
+    --
+    --
+    --     * @SYSTEM@ - If you delete a table with point-in-time recovery enabled, a @SYSTEM@ backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion.
+    --
+    --
+    --     * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
     backupType :: Lude.Maybe BackupType,
+    -- | Name of the table.
     tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackupSummary' with the minimum fields required to make a request.
 --
--- * 'backupARN' - ARN associated with the backup.
--- * 'backupCreationDateTime' - Time at which the backup was created.
 -- * 'backupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will expire. This @SYSTEM@ on-demand backup expires automatically 35 days after its creation.
+-- * 'tableARN' - ARN associated with the table.
 -- * 'backupName' - Name of the specified backup.
--- * 'backupSizeBytes' - Size of the backup in bytes.
 -- * 'backupStatus' - Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
+-- * 'backupSizeBytes' - Size of the backup in bytes.
+-- * 'backupARN' - ARN associated with the backup.
+-- * 'tableId' - Unique identifier for the table.
+-- * 'backupCreationDateTime' - Time at which the backup was created.
 -- * 'backupType' - BackupType:
 --
 --
@@ -80,8 +94,6 @@ data BackupSummary = BackupSummary'
 --     * @AWS_BACKUP@ - On-demand backup created by you from AWS Backup service.
 --
 --
--- * 'tableARN' - ARN associated with the table.
--- * 'tableId' - Unique identifier for the table.
 -- * 'tableName' - Name of the table.
 mkBackupSummary ::
   BackupSummary

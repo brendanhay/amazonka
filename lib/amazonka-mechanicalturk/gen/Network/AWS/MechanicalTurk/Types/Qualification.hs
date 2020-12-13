@@ -35,30 +35,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQualification' smart constructor.
 data Qualification = Qualification'
-  { status ::
-      Lude.Maybe QualificationStatus,
+  { -- | The status of the Qualification. Valid values are Granted | Revoked.
+    status :: Lude.Maybe QualificationStatus,
+    -- | The value (score) of the Qualification, if the Qualification has an integer value.
     integerValue :: Lude.Maybe Lude.Int,
     localeValue :: Lude.Maybe Locale,
+    -- | The ID of the Qualification type for the Qualification.
     qualificationTypeId :: Lude.Maybe Lude.Text,
+    -- | The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
     grantTime :: Lude.Maybe Lude.Timestamp,
+    -- | The ID of the Worker who possesses the Qualification.
     workerId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Qualification' with the minimum fields required to make a request.
 --
--- * 'grantTime' - The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
--- * 'integerValue' - The value (score) of the Qualification, if the Qualification has an integer value.
--- * 'localeValue' - Undocumented field.
--- * 'qualificationTypeId' - The ID of the Qualification type for the Qualification.
 -- * 'status' - The status of the Qualification. Valid values are Granted | Revoked.
+-- * 'integerValue' - The value (score) of the Qualification, if the Qualification has an integer value.
+-- * 'localeValue' -
+-- * 'qualificationTypeId' - The ID of the Qualification type for the Qualification.
+-- * 'grantTime' - The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
 -- * 'workerId' - The ID of the Worker who possesses the Qualification.
 mkQualification ::
   Qualification

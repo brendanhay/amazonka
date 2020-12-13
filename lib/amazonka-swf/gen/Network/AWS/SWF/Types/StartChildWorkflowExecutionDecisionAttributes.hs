@@ -21,12 +21,12 @@ module Network.AWS.SWF.Types.StartChildWorkflowExecutionDecisionAttributes
     scwedaTagList,
     scwedaTaskStartToCloseTimeout,
     scwedaLambdaRole,
+    scwedaWorkflowType,
     scwedaInput,
     scwedaExecutionStartToCloseTimeout,
     scwedaTaskList,
     scwedaTaskPriority,
     scwedaChildPolicy,
-    scwedaWorkflowType,
     scwedaWorkflowId,
   )
 where
@@ -68,52 +68,71 @@ import Network.AWS.SWF.Types.WorkflowType
 --
 -- /See:/ 'mkStartChildWorkflowExecutionDecisionAttributes' smart constructor.
 data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes'
-  { control ::
-      Lude.Maybe
-        Lude.Text,
-    tagList ::
-      Lude.Maybe
-        [Lude.Text],
-    taskStartToCloseTimeout ::
-      Lude.Maybe
-        Lude.Text,
-    lambdaRole ::
-      Lude.Maybe
-        Lude.Text,
-    input ::
-      Lude.Maybe
-        Lude.Text,
-    executionStartToCloseTimeout ::
-      Lude.Maybe
-        Lude.Text,
-    taskList ::
-      Lude.Maybe
-        TaskList,
-    taskPriority ::
-      Lude.Maybe
-        Lude.Text,
-    childPolicy ::
-      Lude.Maybe
-        ChildPolicy,
-    workflowType ::
-      WorkflowType,
-    workflowId ::
-      Lude.Text
+  { -- | The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the child workflow execution.
+    control :: Lude.Maybe Lude.Text,
+    -- | The list of tags to associate with the child workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
+    tagList :: Lude.Maybe [Lude.Text],
+    -- | Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' .
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+    taskStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    -- | The IAM role attached to the child workflow execution.
+    lambdaRole :: Lude.Maybe Lude.Text,
+    -- | The type of the workflow execution to be started.
+    workflowType :: WorkflowType,
+    -- | The input to be provided to the workflow execution.
+    input :: Lude.Maybe Lude.Text,
+    -- | The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+    executionStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    -- | The name of the task list to be used for decision tasks of the child workflow execution.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
+    taskList :: Lude.Maybe TaskList,
+    -- | A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+    --
+    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+    taskPriority :: Lude.Maybe Lude.Text,
+    -- | If set, specifies the policy to use for the child workflow executions if the workflow execution being started is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' .
+    --
+    -- The supported child policies are:
+    --
+    --     * @TERMINATE@ – The child executions are terminated.
+    --
+    --
+    --     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
+    --
+    --
+    --     * @ABANDON@ – No action is taken. The child executions continue to run.
+    childPolicy :: Lude.Maybe ChildPolicy,
+    -- | The @workflowId@ of the workflow execution.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
+    workflowId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartChildWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
 --
+-- * 'control' - The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the child workflow execution.
+-- * 'tagList' - The list of tags to associate with the child workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
+-- * 'taskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' .
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'lambdaRole' - The IAM role attached to the child workflow execution.
+-- * 'workflowType' - The type of the workflow execution to be started.
+-- * 'input' - The input to be provided to the workflow execution.
+-- * 'executionStartToCloseTimeout' - The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- * 'taskList' - The name of the task list to be used for decision tasks of the child workflow execution.
+--
+-- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
+-- * 'taskPriority' - A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
 -- * 'childPolicy' - If set, specifies the policy to use for the child workflow executions if the workflow execution being started is terminated by calling the 'TerminateWorkflowExecution' action explicitly or due to an expired timeout. This policy overrides the default child policy specified when registering the workflow type using 'RegisterWorkflowType' .
 --
 -- The supported child policies are:
@@ -127,26 +146,9 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 --     * @ABANDON@ – No action is taken. The child executions continue to run.
 --
 --
--- * 'control' - The data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the child workflow execution.
--- * 'executionStartToCloseTimeout' - The total duration for this workflow execution. This overrides the defaultExecutionStartToCloseTimeout specified when registering the workflow type.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'input' - The input to be provided to the workflow execution.
--- * 'lambdaRole' - The IAM role attached to the child workflow execution.
--- * 'tagList' - The list of tags to associate with the child workflow execution. A maximum of 5 tags can be specified. You can list workflow executions with a specific tag by calling 'ListOpenWorkflowExecutions' or 'ListClosedWorkflowExecutions' and specifying a 'TagFilter' .
--- * 'taskList' - The name of the task list to be used for decision tasks of the child workflow execution.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
--- * 'taskPriority' - A task priority that, if set, specifies the priority for a decision task of this workflow execution. This overrides the defaultTaskPriority specified when registering the workflow type. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
--- * 'taskStartToCloseTimeout' - Specifies the maximum duration of decision tasks for this workflow execution. This parameter overrides the @defaultTaskStartToCloseTimout@ specified when registering the workflow type using 'RegisterWorkflowType' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 -- * 'workflowId' - The @workflowId@ of the workflow execution.
 --
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
--- * 'workflowType' - The type of the workflow execution to be started.
 mkStartChildWorkflowExecutionDecisionAttributes ::
   -- | 'workflowType'
   WorkflowType ->
@@ -162,12 +164,12 @@ mkStartChildWorkflowExecutionDecisionAttributes
         tagList = Lude.Nothing,
         taskStartToCloseTimeout = Lude.Nothing,
         lambdaRole = Lude.Nothing,
+        workflowType = pWorkflowType_,
         input = Lude.Nothing,
         executionStartToCloseTimeout = Lude.Nothing,
         taskList = Lude.Nothing,
         taskPriority = Lude.Nothing,
         childPolicy = Lude.Nothing,
-        workflowType = pWorkflowType_,
         workflowId = pWorkflowId_
       }
 
@@ -200,6 +202,13 @@ scwedaTaskStartToCloseTimeout = Lens.lens (taskStartToCloseTimeout :: StartChild
 scwedaLambdaRole :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes (Lude.Maybe Lude.Text)
 scwedaLambdaRole = Lens.lens (lambdaRole :: StartChildWorkflowExecutionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {lambdaRole = a} :: StartChildWorkflowExecutionDecisionAttributes)
 {-# DEPRECATED scwedaLambdaRole "Use generic-lens or generic-optics with 'lambdaRole' instead." #-}
+
+-- | The type of the workflow execution to be started.
+--
+-- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scwedaWorkflowType :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes WorkflowType
+scwedaWorkflowType = Lens.lens (workflowType :: StartChildWorkflowExecutionDecisionAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: StartChildWorkflowExecutionDecisionAttributes)
+{-# DEPRECATED scwedaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
 
 -- | The input to be provided to the workflow execution.
 --
@@ -254,13 +263,6 @@ scwedaChildPolicy :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes (L
 scwedaChildPolicy = Lens.lens (childPolicy :: StartChildWorkflowExecutionDecisionAttributes -> Lude.Maybe ChildPolicy) (\s a -> s {childPolicy = a} :: StartChildWorkflowExecutionDecisionAttributes)
 {-# DEPRECATED scwedaChildPolicy "Use generic-lens or generic-optics with 'childPolicy' instead." #-}
 
--- | The type of the workflow execution to be started.
---
--- /Note:/ Consider using 'workflowType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scwedaWorkflowType :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes WorkflowType
-scwedaWorkflowType = Lens.lens (workflowType :: StartChildWorkflowExecutionDecisionAttributes -> WorkflowType) (\s a -> s {workflowType = a} :: StartChildWorkflowExecutionDecisionAttributes)
-{-# DEPRECATED scwedaWorkflowType "Use generic-lens or generic-optics with 'workflowType' instead." #-}
-
 -- | The @workflowId@ of the workflow execution.
 --
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
@@ -279,13 +281,13 @@ instance Lude.ToJSON StartChildWorkflowExecutionDecisionAttributes where
             ("taskStartToCloseTimeout" Lude..=)
               Lude.<$> taskStartToCloseTimeout,
             ("lambdaRole" Lude..=) Lude.<$> lambdaRole,
+            Lude.Just ("workflowType" Lude..= workflowType),
             ("input" Lude..=) Lude.<$> input,
             ("executionStartToCloseTimeout" Lude..=)
               Lude.<$> executionStartToCloseTimeout,
             ("taskList" Lude..=) Lude.<$> taskList,
             ("taskPriority" Lude..=) Lude.<$> taskPriority,
             ("childPolicy" Lude..=) Lude.<$> childPolicy,
-            Lude.Just ("workflowType" Lude..= workflowType),
             Lude.Just ("workflowId" Lude..= workflowId)
           ]
       )

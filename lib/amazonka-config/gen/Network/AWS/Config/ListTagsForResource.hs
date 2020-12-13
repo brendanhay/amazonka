@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.Config.ListTagsForResource
 
     -- ** Request lenses
     ltfrNextToken,
-    ltfrLimit,
     ltfrResourceARN,
+    ltfrLimit,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -42,25 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    limit :: Lude.Maybe Lude.Natural,
-    resourceARN :: Lude.Text
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are @ConfigRule@ , @ConfigurationAggregator@ and @AggregatorAuthorization@ .
+    resourceARN :: Lude.Text,
+    -- | The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default.
+    limit :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 -- * 'resourceARN' - The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are @ConfigRule@ , @ConfigurationAggregator@ and @AggregatorAuthorization@ .
+-- * 'limit' - The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default.
 mkListTagsForResource ::
   -- | 'resourceARN'
   Lude.Text ->
@@ -68,8 +65,8 @@ mkListTagsForResource ::
 mkListTagsForResource pResourceARN_ =
   ListTagsForResource'
     { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      resourceARN = pResourceARN_
+      resourceARN = pResourceARN_,
+      limit = Lude.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
@@ -79,19 +76,19 @@ ltfrNextToken :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Text)
 ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrLimit :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
-ltfrLimit = Lens.lens (limit :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
 -- | The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are @ConfigRule@ , @ConfigurationAggregator@ and @AggregatorAuthorization@ .
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
 ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, AWS Config uses the default.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrLimit :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Natural)
+ltfrLimit = Lens.lens (limit :: ListTagsForResource -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
@@ -121,8 +118,8 @@ instance Lude.ToJSON ListTagsForResource where
     Lude.object
       ( Lude.catMaybes
           [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("ResourceArn" Lude..= resourceARN)
+            Lude.Just ("ResourceArn" Lude..= resourceARN),
+            ("Limit" Lude..=) Lude.<$> limit
           ]
       )
 
@@ -134,26 +131,21 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe (Lude.NonEmpty Tag),
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The tags for the resource.
+    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
 -- * 'tags' - The tags for the resource.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

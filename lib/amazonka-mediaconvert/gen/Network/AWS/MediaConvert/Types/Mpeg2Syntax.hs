@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Mpeg2Syntax
   ( Mpeg2Syntax
       ( Mpeg2Syntax',
-        D10,
-        Default
+        Default,
+        D10
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Mpeg2Syntax = Mpeg2Syntax' Lude.Text
       Lude.ToHeader
     )
 
-pattern D10 :: Mpeg2Syntax
-pattern D10 = Mpeg2Syntax' "D_10"
-
 pattern Default :: Mpeg2Syntax
 pattern Default = Mpeg2Syntax' "DEFAULT"
 
+pattern D10 :: Mpeg2Syntax
+pattern D10 = Mpeg2Syntax' "D_10"
+
 {-# COMPLETE
-  D10,
   Default,
+  D10,
   Mpeg2Syntax'
   #-}

@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.CachePolicySummary
     mkCachePolicySummary,
 
     -- * Lenses
-    cpsType,
     cpsCachePolicy,
+    cpsType,
   )
 where
 
@@ -31,17 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCachePolicySummary' smart constructor.
 data CachePolicySummary = CachePolicySummary'
-  { type' ::
-      CachePolicyType,
-    cachePolicy :: CachePolicy
+  { -- | The cache policy.
+    cachePolicy :: CachePolicy,
+    -- | The type of cache policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
+    type' :: CachePolicyType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CachePolicySummary' with the minimum fields required to make a request.
@@ -49,20 +44,13 @@ data CachePolicySummary = CachePolicySummary'
 -- * 'cachePolicy' - The cache policy.
 -- * 'type'' - The type of cache policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
 mkCachePolicySummary ::
-  -- | 'type''
-  CachePolicyType ->
   -- | 'cachePolicy'
   CachePolicy ->
+  -- | 'type''
+  CachePolicyType ->
   CachePolicySummary
-mkCachePolicySummary pType_ pCachePolicy_ =
-  CachePolicySummary' {type' = pType_, cachePolicy = pCachePolicy_}
-
--- | The type of cache policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsType :: Lens.Lens' CachePolicySummary CachePolicyType
-cpsType = Lens.lens (type' :: CachePolicySummary -> CachePolicyType) (\s a -> s {type' = a} :: CachePolicySummary)
-{-# DEPRECATED cpsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+mkCachePolicySummary pCachePolicy_ pType_ =
+  CachePolicySummary' {cachePolicy = pCachePolicy_, type' = pType_}
 
 -- | The cache policy.
 --
@@ -71,7 +59,14 @@ cpsCachePolicy :: Lens.Lens' CachePolicySummary CachePolicy
 cpsCachePolicy = Lens.lens (cachePolicy :: CachePolicySummary -> CachePolicy) (\s a -> s {cachePolicy = a} :: CachePolicySummary)
 {-# DEPRECATED cpsCachePolicy "Use generic-lens or generic-optics with 'cachePolicy' instead." #-}
 
+-- | The type of cache policy, either @managed@ (created by AWS) or @custom@ (created in this AWS account).
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsType :: Lens.Lens' CachePolicySummary CachePolicyType
+cpsType = Lens.lens (type' :: CachePolicySummary -> CachePolicyType) (\s a -> s {type' = a} :: CachePolicySummary)
+{-# DEPRECATED cpsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
 instance Lude.FromXML CachePolicySummary where
   parseXML x =
     CachePolicySummary'
-      Lude.<$> (x Lude..@ "Type") Lude.<*> (x Lude..@ "CachePolicy")
+      Lude.<$> (x Lude..@ "CachePolicy") Lude.<*> (x Lude..@ "Type")

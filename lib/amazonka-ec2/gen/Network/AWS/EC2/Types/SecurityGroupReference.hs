@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityGroupReference' smart constructor.
 data SecurityGroupReference = SecurityGroupReference'
-  { vpcPeeringConnectionId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the VPC peering connection.
+    vpcPeeringConnectionId :: Lude.Maybe Lude.Text,
+    -- | The ID of the VPC with the referencing security group.
     referencingVPCId :: Lude.Maybe Lude.Text,
+    -- | The ID of your security group.
     groupId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupReference' with the minimum fields required to make a request.
 --
--- * 'groupId' - The ID of your security group.
--- * 'referencingVPCId' - The ID of the VPC with the referencing security group.
 -- * 'vpcPeeringConnectionId' - The ID of the VPC peering connection.
+-- * 'referencingVPCId' - The ID of the VPC with the referencing security group.
+-- * 'groupId' - The ID of your security group.
 mkSecurityGroupReference ::
   SecurityGroupReference
 mkSecurityGroupReference =

@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ModelPackageSortBy
   ( ModelPackageSortBy
       ( ModelPackageSortBy',
-        MPSBCreationTime,
-        MPSBName
+        MPSBName,
+        MPSBCreationTime
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ModelPackageSortBy = ModelPackageSortBy' Lude.Text
       Lude.ToHeader
     )
 
-pattern MPSBCreationTime :: ModelPackageSortBy
-pattern MPSBCreationTime = ModelPackageSortBy' "CreationTime"
-
 pattern MPSBName :: ModelPackageSortBy
 pattern MPSBName = ModelPackageSortBy' "Name"
 
+pattern MPSBCreationTime :: ModelPackageSortBy
+pattern MPSBCreationTime = ModelPackageSortBy' "CreationTime"
+
 {-# COMPLETE
-  MPSBCreationTime,
   MPSBName,
+  MPSBCreationTime,
   ModelPackageSortBy'
   #-}

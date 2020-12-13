@@ -13,11 +13,11 @@
 module Network.AWS.CloudFormation.Types.ChangeSource
   ( ChangeSource
       ( ChangeSource',
-        Automatic,
-        DirectModification,
+        ResourceReference,
         ParameterReference,
         ResourceAttribute,
-        ResourceReference
+        DirectModification,
+        Automatic
       ),
   )
 where
@@ -48,11 +48,8 @@ newtype ChangeSource = ChangeSource' Lude.Text
       Lude.ToHeader
     )
 
-pattern Automatic :: ChangeSource
-pattern Automatic = ChangeSource' "Automatic"
-
-pattern DirectModification :: ChangeSource
-pattern DirectModification = ChangeSource' "DirectModification"
+pattern ResourceReference :: ChangeSource
+pattern ResourceReference = ChangeSource' "ResourceReference"
 
 pattern ParameterReference :: ChangeSource
 pattern ParameterReference = ChangeSource' "ParameterReference"
@@ -60,14 +57,17 @@ pattern ParameterReference = ChangeSource' "ParameterReference"
 pattern ResourceAttribute :: ChangeSource
 pattern ResourceAttribute = ChangeSource' "ResourceAttribute"
 
-pattern ResourceReference :: ChangeSource
-pattern ResourceReference = ChangeSource' "ResourceReference"
+pattern DirectModification :: ChangeSource
+pattern DirectModification = ChangeSource' "DirectModification"
+
+pattern Automatic :: ChangeSource
+pattern Automatic = ChangeSource' "Automatic"
 
 {-# COMPLETE
-  Automatic,
-  DirectModification,
+  ResourceReference,
   ParameterReference,
   ResourceAttribute,
-  ResourceReference,
+  DirectModification,
+  Automatic,
   ChangeSource'
   #-}

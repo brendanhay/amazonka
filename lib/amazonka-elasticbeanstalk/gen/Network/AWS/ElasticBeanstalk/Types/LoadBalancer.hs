@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes a LoadBalancer.
 --
 -- /See:/ 'mkLoadBalancer' smart constructor.
-newtype LoadBalancer = LoadBalancer' {name :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype LoadBalancer = LoadBalancer'
+  { -- | The name of the LoadBalancer.
+    name :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.

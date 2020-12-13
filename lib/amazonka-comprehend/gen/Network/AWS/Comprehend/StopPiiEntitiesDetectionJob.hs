@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,9 +27,9 @@ module Network.AWS.Comprehend.StopPiiEntitiesDetectionJob
     mkStopPiiEntitiesDetectionJobResponse,
 
     -- ** Response lenses
-    spedjprsJobId,
-    spedjprsJobStatus,
-    spedjprsResponseStatus,
+    spedjfrsJobId,
+    spedjfrsJobStatus,
+    spedjfrsResponseStatus,
   )
 where
 
@@ -40,16 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStopPiiEntitiesDetectionJob' smart constructor.
 newtype StopPiiEntitiesDetectionJob = StopPiiEntitiesDetectionJob'
-  { jobId ::
-      Lude.Text
+  { -- | The identifier of the PII entities detection job to stop.
+    jobId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopPiiEntitiesDetectionJob' with the minimum fields required to make a request.
@@ -108,22 +103,14 @@ instance Lude.ToQuery StopPiiEntitiesDetectionJob where
 
 -- | /See:/ 'mkStopPiiEntitiesDetectionJobResponse' smart constructor.
 data StopPiiEntitiesDetectionJobResponse = StopPiiEntitiesDetectionJobResponse'
-  { jobId ::
-      Lude.Maybe
-        Lude.Text,
-    jobStatus ::
-      Lude.Maybe
-        JobStatus,
-    responseStatus ::
-      Lude.Int
+  { -- | The identifier of the PII entities detection job to stop.
+    jobId :: Lude.Maybe Lude.Text,
+    -- | The status of the PII entities detection job.
+    jobStatus :: Lude.Maybe JobStatus,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StopPiiEntitiesDetectionJobResponse' with the minimum fields required to make a request.
@@ -145,20 +132,20 @@ mkStopPiiEntitiesDetectionJobResponse pResponseStatus_ =
 -- | The identifier of the PII entities detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjprsJobId :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Lude.Maybe Lude.Text)
-spedjprsJobId = Lens.lens (jobId :: StopPiiEntitiesDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopPiiEntitiesDetectionJobResponse)
-{-# DEPRECATED spedjprsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+spedjfrsJobId :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Lude.Maybe Lude.Text)
+spedjfrsJobId = Lens.lens (jobId :: StopPiiEntitiesDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopPiiEntitiesDetectionJobResponse)
+{-# DEPRECATED spedjfrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the PII entities detection job.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjprsJobStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Lude.Maybe JobStatus)
-spedjprsJobStatus = Lens.lens (jobStatus :: StopPiiEntitiesDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopPiiEntitiesDetectionJobResponse)
-{-# DEPRECATED spedjprsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+spedjfrsJobStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse (Lude.Maybe JobStatus)
+spedjfrsJobStatus = Lens.lens (jobStatus :: StopPiiEntitiesDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopPiiEntitiesDetectionJobResponse)
+{-# DEPRECATED spedjfrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spedjprsResponseStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse Lude.Int
-spedjprsResponseStatus = Lens.lens (responseStatus :: StopPiiEntitiesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopPiiEntitiesDetectionJobResponse)
-{-# DEPRECATED spedjprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+spedjfrsResponseStatus :: Lens.Lens' StopPiiEntitiesDetectionJobResponse Lude.Int
+spedjfrsResponseStatus = Lens.lens (responseStatus :: StopPiiEntitiesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopPiiEntitiesDetectionJobResponse)
+{-# DEPRECATED spedjfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

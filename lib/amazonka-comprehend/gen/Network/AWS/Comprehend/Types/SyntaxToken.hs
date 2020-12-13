@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSyntaxToken' smart constructor.
 data SyntaxToken = SyntaxToken'
-  { beginOffset :: Lude.Maybe Lude.Int,
+  { -- | The zero-based offset from the beginning of the source text to the first character in the word.
+    beginOffset :: Lude.Maybe Lude.Int,
+    -- | The word that was recognized in the source text.
     text :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for a token.
     tokenId :: Lude.Maybe Lude.Int,
+    -- | The zero-based offset from the beginning of the source text to the last character in the word.
     endOffset :: Lude.Maybe Lude.Int,
+    -- | Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see 'how-syntax' .
     partOfSpeech :: Lude.Maybe PartOfSpeechTag
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SyntaxToken' with the minimum fields required to make a request.
 --
 -- * 'beginOffset' - The zero-based offset from the beginning of the source text to the first character in the word.
--- * 'endOffset' - The zero-based offset from the beginning of the source text to the last character in the word.
--- * 'partOfSpeech' - Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see 'how-syntax' .
 -- * 'text' - The word that was recognized in the source text.
 -- * 'tokenId' - A unique identifier for a token.
+-- * 'endOffset' - The zero-based offset from the beginning of the source text to the last character in the word.
+-- * 'partOfSpeech' - Provides the part of speech label and the confidence level that Amazon Comprehend has that the part of speech was correctly identified. For more information, see 'how-syntax' .
 mkSyntaxToken ::
   SyntaxToken
 mkSyntaxToken =

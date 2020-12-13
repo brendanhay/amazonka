@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,18 +48,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { filters ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | One or more filters to limit the items returned in the response.
+    --
+    -- Use the @clusterIds@ filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).
+    -- Use the @vpcIds@ filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).
+    -- Use the @states@ filter to return only clusters that match the specified state.
+    filters :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The @NextToken@ value that you received in the previous response. Use this value to get more clusters.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a @NextToken@ value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
@@ -68,8 +69,8 @@ data DescribeClusters = DescribeClusters'
 -- Use the @clusterIds@ filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).
 -- Use the @vpcIds@ filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).
 -- Use the @states@ filter to return only clusters that match the specified state.
--- * 'maxResults' - The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a @NextToken@ value.
 -- * 'nextToken' - The @NextToken@ value that you received in the previous response. Use this value to get more clusters.
+-- * 'maxResults' - The maximum number of clusters to return in the response. When there are more clusters than the number you specify, the response contains a @NextToken@ value.
 mkDescribeClusters ::
   DescribeClusters
 mkDescribeClusters =
@@ -154,24 +155,20 @@ instance Lude.ToQuery DescribeClusters where
 
 -- | /See:/ 'mkDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | An opaque string that indicates that the response contains only a subset of clusters. Use this value in a subsequent @DescribeClusters@ request to get more clusters.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of clusters.
     clusters :: Lude.Maybe [Cluster],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
 --
--- * 'clusters' - A list of clusters.
 -- * 'nextToken' - An opaque string that indicates that the response contains only a subset of clusters. Use this value in a subsequent @DescribeClusters@ request to get more clusters.
+-- * 'clusters' - A list of clusters.
 -- * 'responseStatus' - The response status code.
 mkDescribeClustersResponse ::
   -- | 'responseStatus'

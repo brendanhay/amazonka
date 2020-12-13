@@ -30,19 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterfacePermissionState' smart constructor.
 data NetworkInterfacePermissionState = NetworkInterfacePermissionState'
-  { state ::
-      Lude.Maybe
-        NetworkInterfacePermissionStateCode,
-    statusMessage ::
-      Lude.Maybe Lude.Text
+  { -- | The state of the permission.
+    state :: Lude.Maybe NetworkInterfacePermissionStateCode,
+    -- | A status message, if applicable.
+    statusMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfacePermissionState' with the minimum fields required to make a request.

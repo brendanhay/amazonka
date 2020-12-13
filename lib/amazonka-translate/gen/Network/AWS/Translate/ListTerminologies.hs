@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import Network.AWS.Translate.Types
 
 -- | /See:/ 'mkListTerminologies' smart constructor.
 data ListTerminologies = ListTerminologies'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of custom terminologies returned per list request.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTerminologies' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of custom terminologies returned per list request.
 -- * 'nextToken' - If the result of the request to ListTerminologies was truncated, include the NextToken to fetch the next group of custom terminologies.
+-- * 'maxResults' - The maximum number of custom terminologies returned per list request.
 mkListTerminologies ::
   ListTerminologies
 mkListTerminologies =
@@ -135,25 +131,21 @@ instance Lude.ToQuery ListTerminologies where
 
 -- | /See:/ 'mkListTerminologiesResponse' smart constructor.
 data ListTerminologiesResponse = ListTerminologiesResponse'
-  { terminologyPropertiesList ::
-      Lude.Maybe [TerminologyProperties],
+  { -- | The properties list of the custom terminologies returned on the list request.
+    terminologyPropertiesList :: Lude.Maybe [TerminologyProperties],
+    -- | If the response to the ListTerminologies was truncated, the NextToken fetches the next group of custom terminologies.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTerminologiesResponse' with the minimum fields required to make a request.
 --
+-- * 'terminologyPropertiesList' - The properties list of the custom terminologies returned on the list request.
 -- * 'nextToken' - If the response to the ListTerminologies was truncated, the NextToken fetches the next group of custom terminologies.
 -- * 'responseStatus' - The response status code.
--- * 'terminologyPropertiesList' - The properties list of the custom terminologies returned on the list request.
 mkListTerminologiesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

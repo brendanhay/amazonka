@@ -30,17 +30,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkClientVPNEndpointStatus' smart constructor.
 data ClientVPNEndpointStatus = ClientVPNEndpointStatus'
-  { code ::
-      Lude.Maybe ClientVPNEndpointStatusCode,
+  { -- | The state of the Client VPN endpoint. Possible states include:
+    --
+    --
+    --     * @pending-associate@ - The Client VPN endpoint has been created but no target networks have been associated. The Client VPN endpoint cannot accept connections.
+    --
+    --
+    --     * @available@ - The Client VPN endpoint has been created and a target network has been associated. The Client VPN endpoint can accept connections.
+    --
+    --
+    --     * @deleting@ - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept connections.
+    --
+    --
+    --     * @deleted@ - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept connections.
+    code :: Lude.Maybe ClientVPNEndpointStatusCode,
+    -- | A message about the status of the Client VPN endpoint.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClientVPNEndpointStatus' with the minimum fields required to make a request.

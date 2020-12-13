@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeFrom' smart constructor.
 data VolumeFrom = VolumeFrom'
-  { sourceContainer ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of another container within the same task definition from which to mount volumes.
+    sourceContainer :: Lude.Maybe Lude.Text,
+    -- | If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
     readOnly :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeFrom' with the minimum fields required to make a request.
 --
--- * 'readOnly' - If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
 -- * 'sourceContainer' - The name of another container within the same task definition from which to mount volumes.
+-- * 'readOnly' - If this value is @true@ , the container has read-only access to the volume. If this value is @false@ , then the container can write to the volume. The default value is @false@ .
 mkVolumeFrom ::
   VolumeFrom
 mkVolumeFrom =

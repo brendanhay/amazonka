@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.Redshift.DeleteScheduledAction
     mkDeleteScheduledAction,
 
     -- ** Request lenses
-    dsaScheduledActionName,
+    dScheduledActionName,
 
     -- * Destructuring the response
     DeleteScheduledActionResponse (..),
@@ -35,16 +36,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteScheduledAction' smart constructor.
 newtype DeleteScheduledAction = DeleteScheduledAction'
-  { scheduledActionName ::
-      Lude.Text
+  { -- | The name of the scheduled action to delete.
+    scheduledActionName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledAction' with the minimum fields required to make a request.
@@ -63,9 +58,9 @@ mkDeleteScheduledAction pScheduledActionName_ =
 -- | The name of the scheduled action to delete.
 --
 -- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaScheduledActionName :: Lens.Lens' DeleteScheduledAction Lude.Text
-dsaScheduledActionName = Lens.lens (scheduledActionName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: DeleteScheduledAction)
-{-# DEPRECATED dsaScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
+dScheduledActionName :: Lens.Lens' DeleteScheduledAction Lude.Text
+dScheduledActionName = Lens.lens (scheduledActionName :: DeleteScheduledAction -> Lude.Text) (\s a -> s {scheduledActionName = a} :: DeleteScheduledAction)
+{-# DEPRECATED dScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 instance Lude.AWSRequest DeleteScheduledAction where
   type Rs DeleteScheduledAction = DeleteScheduledActionResponse
@@ -88,13 +83,7 @@ instance Lude.ToQuery DeleteScheduledAction where
 
 -- | /See:/ 'mkDeleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteScheduledActionResponse' with the minimum fields required to make a request.

@@ -60,7 +60,7 @@ mkStackImportComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -70,7 +70,7 @@ mkStackImportComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -80,7 +80,7 @@ mkStackImportComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -90,7 +90,7 @@ mkStackImportComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -100,7 +100,7 @@ mkStackImportComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -110,7 +110,7 @@ mkStackImportComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchError "ValidationError" Wait.AcceptFailure
@@ -132,7 +132,7 @@ mkStackCreateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -142,7 +142,7 @@ mkStackCreateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -152,7 +152,7 @@ mkStackCreateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -162,7 +162,7 @@ mkStackCreateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -172,7 +172,7 @@ mkStackCreateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -182,7 +182,7 @@ mkStackCreateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchError "ValidationError" Wait.AcceptFailure
@@ -204,7 +204,7 @@ mkStackRollbackComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -214,7 +214,7 @@ mkStackRollbackComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -224,7 +224,7 @@ mkStackRollbackComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -234,7 +234,7 @@ mkStackRollbackComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchError "ValidationError" Wait.AcceptFailure
@@ -277,7 +277,7 @@ mkStackUpdateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -287,7 +287,7 @@ mkStackUpdateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -297,7 +297,7 @@ mkStackUpdateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -307,7 +307,7 @@ mkStackUpdateComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchError "ValidationError" Wait.AcceptFailure
@@ -342,7 +342,7 @@ mkStackDeleteComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchError "ValidationError" Wait.AcceptSuccess,
@@ -353,7 +353,7 @@ mkStackDeleteComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -363,7 +363,7 @@ mkStackDeleteComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -373,7 +373,7 @@ mkStackDeleteComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -383,7 +383,7 @@ mkStackDeleteComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -393,7 +393,7 @@ mkStackDeleteComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             ),
           Wait.matchAny
@@ -403,7 +403,7 @@ mkStackDeleteComplete =
                 ( Lens.concatOf
                     (dsrsStacks Lude.. Lens._Just Lude.. Lens.to Lude.toList)
                 )
-                Lude.. staStackStatus
+                Lude.. sfStackStatus
                 Lude.. Lens.to Lude.toText
             )
         ]
@@ -420,11 +420,11 @@ mkChangeSetCreateComplete =
         [ Wait.matchAll
             "CREATE_COMPLETE"
             Wait.AcceptSuccess
-            (dcscrsStatus Lude.. Lens.to Lude.toText),
+            (dcsfrsStatus Lude.. Lens.to Lude.toText),
           Wait.matchAll
             "FAILED"
             Wait.AcceptFailure
-            (dcscrsStatus Lude.. Lens.to Lude.toText),
+            (dcsfrsStatus Lude.. Lens.to Lude.toText),
           Wait.matchError "ValidationError" Wait.AcceptFailure
         ]
     }

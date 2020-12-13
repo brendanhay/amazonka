@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,22 +40,46 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'mkSetTopicAttributes' smart constructor.
 data SetTopicAttributes = SetTopicAttributes'
-  { attributeValue ::
-      Lude.Maybe Lude.Text,
+  { -- | The new value for the attribute.
+    attributeValue :: Lude.Maybe Lude.Text,
+    -- | The ARN of the topic to modify.
     topicARN :: Lude.Text,
+    -- | A map of attributes with their corresponding values.
+    --
+    -- The following lists the names, descriptions, and values of the special request parameters that the @SetTopicAttributes@ action uses:
+    --
+    --     * @DeliveryPolicy@ – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
+    --
+    --
+    --     * @DisplayName@ – The display name to use for a topic with SMS subscriptions.
+    --
+    --
+    --     * @Policy@ – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.
+    --
+    --
+    -- The following attribute applies only to <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption> :
+    --
+    --     * @KmsMasterKeyId@ – The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms> . For more examples, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId> in the /AWS Key Management Service API Reference/ .
+    --
+    --
+    -- The following attribute applies only to <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics> :
+    --
+    --     * @ContentBasedDeduplication@ – Enables content-based deduplication for FIFO topics.
+    --
+    --     * By default, @ContentBasedDeduplication@ is set to @false@ . If you create a FIFO topic and this attribute is @false@ , you must specify a value for the @MessageDeduplicationId@ parameter for the <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish> action.
+    --
+    --
+    --     * When you set @ContentBasedDeduplication@ to @true@ , Amazon SNS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).
+    -- (Optional) To override the generated value, you can specify a value for the the @MessageDeduplicationId@ parameter for the @Publish@ action.
     attributeName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTopicAttributes' with the minimum fields required to make a request.
 --
+-- * 'attributeValue' - The new value for the attribute.
+-- * 'topicARN' - The ARN of the topic to modify.
 -- * 'attributeName' - A map of attributes with their corresponding values.
 --
 -- The following lists the names, descriptions, and values of the special request parameters that the @SetTopicAttributes@ action uses:
@@ -82,12 +107,6 @@ data SetTopicAttributes = SetTopicAttributes'
 --
 --     * When you set @ContentBasedDeduplication@ to @true@ , Amazon SNS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).
 -- (Optional) To override the generated value, you can specify a value for the the @MessageDeduplicationId@ parameter for the @Publish@ action.
---
---
---
---
--- * 'attributeValue' - The new value for the attribute.
--- * 'topicARN' - The ARN of the topic to modify.
 mkSetTopicAttributes ::
   -- | 'topicARN'
   Lude.Text ->
@@ -175,13 +194,7 @@ instance Lude.ToQuery SetTopicAttributes where
 
 -- | /See:/ 'mkSetTopicAttributesResponse' smart constructor.
 data SetTopicAttributesResponse = SetTopicAttributesResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetTopicAttributesResponse' with the minimum fields required to make a request.

@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStepStateChangeReason' smart constructor.
 data StepStateChangeReason = StepStateChangeReason'
-  { code ::
-      Lude.Maybe StepStateChangeReasonCode,
+  { -- | The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
+    code :: Lude.Maybe StepStateChangeReasonCode,
+    -- | The descriptive message for the state change reason.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StepStateChangeReason' with the minimum fields required to make a request.

@@ -39,39 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActionExecution' smart constructor.
 data ActionExecution = ActionExecution'
-  { lastUpdatedBy ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the user who last changed the pipeline.
+    lastUpdatedBy :: Lude.Maybe Lude.Text,
+    -- | A summary of the run of the action.
     summary :: Lude.Maybe Lude.Text,
+    -- | The status of the action, or for a completed action, the last status of the action.
     status :: Lude.Maybe ActionExecutionStatus,
+    -- | The last status change of the action.
     lastStatusChange :: Lude.Maybe Lude.Timestamp,
+    -- | The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the @GetPipelineState@ command. It is used to validate that the approval request corresponding to this token is still valid.
     token :: Lude.Maybe Lude.Text,
+    -- | The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
     externalExecutionURL :: Lude.Maybe Lude.Text,
+    -- | The external ID of the run of the action.
     externalExecutionId :: Lude.Maybe Lude.Text,
+    -- | The details of an error returned by a URL external to AWS.
     errorDetails :: Lude.Maybe ErrorDetails,
+    -- | A percentage of completeness of the action as it runs.
     percentComplete :: Lude.Maybe Lude.Natural,
+    -- | ID of the workflow action execution in the current stage. Use the 'GetPipelineState' action to retrieve the current action execution details of the current stage.
     actionExecutionId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActionExecution' with the minimum fields required to make a request.
 --
--- * 'actionExecutionId' - ID of the workflow action execution in the current stage. Use the 'GetPipelineState' action to retrieve the current action execution details of the current stage.
--- * 'errorDetails' - The details of an error returned by a URL external to AWS.
--- * 'externalExecutionId' - The external ID of the run of the action.
--- * 'externalExecutionURL' - The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
--- * 'lastStatusChange' - The last status change of the action.
 -- * 'lastUpdatedBy' - The ARN of the user who last changed the pipeline.
--- * 'percentComplete' - A percentage of completeness of the action as it runs.
--- * 'status' - The status of the action, or for a completed action, the last status of the action.
 -- * 'summary' - A summary of the run of the action.
+-- * 'status' - The status of the action, or for a completed action, the last status of the action.
+-- * 'lastStatusChange' - The last status change of the action.
 -- * 'token' - The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the @GetPipelineState@ command. It is used to validate that the approval request corresponding to this token is still valid.
+-- * 'externalExecutionURL' - The URL of a resource external to AWS that is used when running the action (for example, an external repository URL).
+-- * 'externalExecutionId' - The external ID of the run of the action.
+-- * 'errorDetails' - The details of an error returned by a URL external to AWS.
+-- * 'percentComplete' - A percentage of completeness of the action as it runs.
+-- * 'actionExecutionId' - ID of the workflow action execution in the current stage. Use the 'GetPipelineState' action to retrieve the current action execution details of the current stage.
 mkActionExecution ::
   ActionExecution
 mkActionExecution =

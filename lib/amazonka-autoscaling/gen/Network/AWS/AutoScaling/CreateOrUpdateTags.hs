@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,14 +38,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateOrUpdateTags' smart constructor.
-newtype CreateOrUpdateTags = CreateOrUpdateTags' {tags :: [Tag]}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype CreateOrUpdateTags = CreateOrUpdateTags'
+  { -- | One or more tags.
+    tags :: [Tag]
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOrUpdateTags' with the minimum fields required to make a request.
@@ -82,13 +80,7 @@ instance Lude.ToQuery CreateOrUpdateTags where
 
 -- | /See:/ 'mkCreateOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateOrUpdateTagsResponse' with the minimum fields required to make a request.

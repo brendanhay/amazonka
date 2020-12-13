@@ -30,26 +30,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFixedResponseActionConfig' smart constructor.
 data FixedResponseActionConfig = FixedResponseActionConfig'
-  { messageBody ::
-      Lude.Maybe Lude.Text,
+  { -- | The message.
+    messageBody :: Lude.Maybe Lude.Text,
+    -- | The content type.
+    --
+    -- Valid Values: text/plain | text/css | text/html | application/javascript | application/json
     contentType :: Lude.Maybe Lude.Text,
+    -- | The HTTP response code (2XX, 4XX, or 5XX).
     statusCode :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FixedResponseActionConfig' with the minimum fields required to make a request.
 --
+-- * 'messageBody' - The message.
 -- * 'contentType' - The content type.
 --
 -- Valid Values: text/plain | text/css | text/html | application/javascript | application/json
--- * 'messageBody' - The message.
 -- * 'statusCode' - The HTTP response code (2XX, 4XX, or 5XX).
 mkFixedResponseActionConfig ::
   -- | 'statusCode'

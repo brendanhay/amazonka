@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedAction' smart constructor.
 data ManagedAction = ManagedAction'
-  { status ::
-      Lude.Maybe ActionStatus,
+  { -- | The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
+    status :: Lude.Maybe ActionStatus,
+    -- | A unique identifier for the managed action.
     actionId :: Lude.Maybe Lude.Text,
+    -- | The start time of the maintenance window in which the managed action will execute.
     windowStartTime :: Lude.Maybe Lude.DateTime,
+    -- | A description of the managed action.
     actionDescription :: Lude.Maybe Lude.Text,
+    -- | The type of managed action.
     actionType :: Lude.Maybe ActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ManagedAction' with the minimum fields required to make a request.
 --
--- * 'actionDescription' - A description of the managed action.
--- * 'actionId' - A unique identifier for the managed action.
--- * 'actionType' - The type of managed action.
 -- * 'status' - The status of the managed action. If the action is @Scheduled@ , you can apply it immediately with 'ApplyEnvironmentManagedAction' .
+-- * 'actionId' - A unique identifier for the managed action.
 -- * 'windowStartTime' - The start time of the maintenance window in which the managed action will execute.
+-- * 'actionDescription' - A description of the managed action.
+-- * 'actionType' - The type of managed action.
 mkManagedAction ::
   ManagedAction
 mkManagedAction =

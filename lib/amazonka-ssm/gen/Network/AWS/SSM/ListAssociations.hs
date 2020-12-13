@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListAssociations' smart constructor.
 data ListAssociations = ListAssociations'
-  { associationFilterList ::
-      Lude.Maybe (Lude.NonEmpty AssociationFilter),
+  { -- | One or more filters. Use a filter to return a more specific list of results.
+    associationFilterList :: Lude.Maybe (Lude.NonEmpty AssociationFilter),
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssociations' with the minimum fields required to make a request.
 --
 -- * 'associationFilterList' - One or more filters. Use a filter to return a more specific list of results.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 mkListAssociations ::
   ListAssociations
 mkListAssociations =
@@ -144,24 +141,20 @@ instance Lude.ToQuery ListAssociations where
 
 -- | /See:/ 'mkListAssociationsResponse' smart constructor.
 data ListAssociationsResponse = ListAssociationsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The associations.
     associations :: Lude.Maybe [Association],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListAssociationsResponse' with the minimum fields required to make a request.
 --
--- * 'associations' - The associations.
 -- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- * 'associations' - The associations.
 -- * 'responseStatus' - The response status code.
 mkListAssociationsResponse ::
   -- | 'responseStatus'

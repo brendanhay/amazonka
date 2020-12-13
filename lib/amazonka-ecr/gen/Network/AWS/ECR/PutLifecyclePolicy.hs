@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.ECR.PutLifecyclePolicy
 
     -- ** Request lenses
     plpRegistryId,
-    plpRepositoryName,
     plpLifecyclePolicyText,
+    plpRepositoryName,
 
     -- * Destructuring the response
     PutLifecyclePolicyResponse (..),
@@ -43,36 +44,32 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutLifecyclePolicy' smart constructor.
 data PutLifecyclePolicy = PutLifecyclePolicy'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    repositoryName :: Lude.Text,
-    lifecyclePolicyText :: Lude.Text
+  { -- | The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The JSON repository policy text to apply to the repository.
+    lifecyclePolicyText :: Lude.Text,
+    -- | The name of the repository to receive the policy.
+    repositoryName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecyclePolicy' with the minimum fields required to make a request.
 --
--- * 'lifecyclePolicyText' - The JSON repository policy text to apply to the repository.
 -- * 'registryId' - The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
+-- * 'lifecyclePolicyText' - The JSON repository policy text to apply to the repository.
 -- * 'repositoryName' - The name of the repository to receive the policy.
 mkPutLifecyclePolicy ::
-  -- | 'repositoryName'
-  Lude.Text ->
   -- | 'lifecyclePolicyText'
   Lude.Text ->
+  -- | 'repositoryName'
+  Lude.Text ->
   PutLifecyclePolicy
-mkPutLifecyclePolicy pRepositoryName_ pLifecyclePolicyText_ =
+mkPutLifecyclePolicy pLifecyclePolicyText_ pRepositoryName_ =
   PutLifecyclePolicy'
     { registryId = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      lifecyclePolicyText = pLifecyclePolicyText_
+      lifecyclePolicyText = pLifecyclePolicyText_,
+      repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the repository. If you do  not specify a registry, the default registry is assumed.
@@ -82,19 +79,19 @@ plpRegistryId :: Lens.Lens' PutLifecyclePolicy (Lude.Maybe Lude.Text)
 plpRegistryId = Lens.lens (registryId :: PutLifecyclePolicy -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: PutLifecyclePolicy)
 {-# DEPRECATED plpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
--- | The name of the repository to receive the policy.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plpRepositoryName :: Lens.Lens' PutLifecyclePolicy Lude.Text
-plpRepositoryName = Lens.lens (repositoryName :: PutLifecyclePolicy -> Lude.Text) (\s a -> s {repositoryName = a} :: PutLifecyclePolicy)
-{-# DEPRECATED plpRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
-
 -- | The JSON repository policy text to apply to the repository.
 --
 -- /Note:/ Consider using 'lifecyclePolicyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 plpLifecyclePolicyText :: Lens.Lens' PutLifecyclePolicy Lude.Text
 plpLifecyclePolicyText = Lens.lens (lifecyclePolicyText :: PutLifecyclePolicy -> Lude.Text) (\s a -> s {lifecyclePolicyText = a} :: PutLifecyclePolicy)
 {-# DEPRECATED plpLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
+
+-- | The name of the repository to receive the policy.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plpRepositoryName :: Lens.Lens' PutLifecyclePolicy Lude.Text
+plpRepositoryName = Lens.lens (repositoryName :: PutLifecyclePolicy -> Lude.Text) (\s a -> s {repositoryName = a} :: PutLifecyclePolicy)
+{-# DEPRECATED plpRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 instance Lude.AWSRequest PutLifecyclePolicy where
   type Rs PutLifecyclePolicy = PutLifecyclePolicyResponse
@@ -127,8 +124,8 @@ instance Lude.ToJSON PutLifecyclePolicy where
     Lude.object
       ( Lude.catMaybes
           [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("lifecyclePolicyText" Lude..= lifecyclePolicyText)
+            Lude.Just ("lifecyclePolicyText" Lude..= lifecyclePolicyText),
+            Lude.Just ("repositoryName" Lude..= repositoryName)
           ]
       )
 
@@ -140,27 +137,22 @@ instance Lude.ToQuery PutLifecyclePolicy where
 
 -- | /See:/ 'mkPutLifecyclePolicyResponse' smart constructor.
 data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
-  { registryId ::
-      Lude.Maybe Lude.Text,
-    lifecyclePolicyText ::
-      Lude.Maybe Lude.Text,
-    repositoryName ::
-      Lude.Maybe Lude.Text,
+  { -- | The registry ID associated with the request.
+    registryId :: Lude.Maybe Lude.Text,
+    -- | The JSON repository policy text.
+    lifecyclePolicyText :: Lude.Maybe Lude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutLifecyclePolicyResponse' with the minimum fields required to make a request.
 --
--- * 'lifecyclePolicyText' - The JSON repository policy text.
 -- * 'registryId' - The registry ID associated with the request.
+-- * 'lifecyclePolicyText' - The JSON repository policy text.
 -- * 'repositoryName' - The repository name associated with the request.
 -- * 'responseStatus' - The response status code.
 mkPutLifecyclePolicyResponse ::

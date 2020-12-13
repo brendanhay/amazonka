@@ -33,28 +33,27 @@ import Network.AWS.Support.Types.AttachmentDetails
 --
 -- /See:/ 'mkCommunication' smart constructor.
 data Communication = Communication'
-  { body :: Lude.Maybe Lude.Text,
+  { -- | The text of the communication between the customer and AWS Support.
+    body :: Lude.Maybe Lude.Text,
+    -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Lude.Maybe Lude.Text,
+    -- | The identity of the account that submitted, or responded to, the support case. Customer entries include the role or IAM user as well as the email address. For example, "AdminRole (Role) <someone@example.com>. Entries from the AWS Support team display "Amazon Web Services," and do not show an email address.
     submittedBy :: Lude.Maybe Lude.Text,
+    -- | The time the communication was created.
     timeCreated :: Lude.Maybe Lude.Text,
+    -- | Information about the attachments to the case communication.
     attachmentSet :: Lude.Maybe [AttachmentDetails]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Communication' with the minimum fields required to make a request.
 --
--- * 'attachmentSet' - Information about the attachments to the case communication.
 -- * 'body' - The text of the communication between the customer and AWS Support.
 -- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
 -- * 'submittedBy' - The identity of the account that submitted, or responded to, the support case. Customer entries include the role or IAM user as well as the email address. For example, "AdminRole (Role) <someone@example.com>. Entries from the AWS Support team display "Amazon Web Services," and do not show an email address.
 -- * 'timeCreated' - The time the communication was created.
+-- * 'attachmentSet' - Information about the attachments to the case communication.
 mkCommunication ::
   Communication
 mkCommunication =

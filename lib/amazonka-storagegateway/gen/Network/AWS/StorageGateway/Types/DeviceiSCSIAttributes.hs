@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDeviceiSCSIAttributes' smart constructor.
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
-  { targetARN ::
-      Lude.Maybe Lude.Text,
+  { -- | Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
+    targetARN :: Lude.Maybe Lude.Text,
+    -- | Indicates whether mutual CHAP is enabled for the iSCSI target.
     chapEnabled :: Lude.Maybe Lude.Bool,
+    -- | The network interface identifier of the VTL device.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The port used to communicate with iSCSI VTL device targets.
     networkInterfacePort :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeviceiSCSIAttributes' with the minimum fields required to make a request.
 --
+-- * 'targetARN' - Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
 -- * 'chapEnabled' - Indicates whether mutual CHAP is enabled for the iSCSI target.
 -- * 'networkInterfaceId' - The network interface identifier of the VTL device.
 -- * 'networkInterfacePort' - The port used to communicate with iSCSI VTL device targets.
--- * 'targetARN' - Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.
 mkDeviceiSCSIAttributes ::
   DeviceiSCSIAttributes
 mkDeviceiSCSIAttributes =

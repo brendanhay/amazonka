@@ -13,9 +13,9 @@
 module Network.AWS.MQ.Types.DeploymentMode
   ( DeploymentMode
       ( DeploymentMode',
+        SingleInstance,
         ActiveStandbyMultiAz,
-        ClusterMultiAz,
-        SingleInstance
+        ClusterMultiAz
       ),
   )
 where
@@ -47,18 +47,18 @@ newtype DeploymentMode = DeploymentMode' Lude.Text
       Lude.ToHeader
     )
 
+pattern SingleInstance :: DeploymentMode
+pattern SingleInstance = DeploymentMode' "SINGLE_INSTANCE"
+
 pattern ActiveStandbyMultiAz :: DeploymentMode
 pattern ActiveStandbyMultiAz = DeploymentMode' "ACTIVE_STANDBY_MULTI_AZ"
 
 pattern ClusterMultiAz :: DeploymentMode
 pattern ClusterMultiAz = DeploymentMode' "CLUSTER_MULTI_AZ"
 
-pattern SingleInstance :: DeploymentMode
-pattern SingleInstance = DeploymentMode' "SINGLE_INSTANCE"
-
 {-# COMPLETE
+  SingleInstance,
   ActiveStandbyMultiAz,
   ClusterMultiAz,
-  SingleInstance,
   DeploymentMode'
   #-}

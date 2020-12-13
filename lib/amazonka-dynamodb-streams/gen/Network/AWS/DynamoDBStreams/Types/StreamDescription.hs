@@ -40,37 +40,71 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStreamDescription' smart constructor.
 data StreamDescription = StreamDescription'
-  { lastEvaluatedShardId ::
-      Lude.Maybe Lude.Text,
+  { -- | The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
+    --
+    -- If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved.
+    -- If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
+    lastEvaluatedShardId :: Lude.Maybe Lude.Text,
+    -- | A timestamp, in ISO 8601 format, for this stream.
+    --
+    -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
+    --
+    --     * the AWS customer ID.
+    --
+    --
+    --     * the table name
+    --
+    --
+    --     * the @StreamLabel@
     streamLabel :: Lude.Maybe Lude.Text,
+    -- | Indicates the current status of the stream:
+    --
+    --
+    --     * @ENABLING@ - Streams is currently being enabled on the DynamoDB table.
+    --
+    --
+    --     * @ENABLED@ - the stream is enabled.
+    --
+    --
+    --     * @DISABLING@ - Streams is currently being disabled on the DynamoDB table.
+    --
+    --
+    --     * @DISABLED@ - the stream is disabled.
     streamStatus :: Lude.Maybe StreamStatus,
-    keySchema ::
-      Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    -- | The key attribute(s) of the stream's DynamoDB table.
+    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    -- | Indicates the format of the records within this stream:
+    --
+    --
+    --     * @KEYS_ONLY@ - only the key attributes of items that were modified in the DynamoDB table.
+    --
+    --
+    --     * @NEW_IMAGE@ - entire items from the table, as they appeared after they were modified.
+    --
+    --
+    --     * @OLD_IMAGE@ - entire items from the table, as they appeared before they were modified.
+    --
+    --
+    --     * @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items from the table.
     streamViewType :: Lude.Maybe StreamViewType,
+    -- | The Amazon Resource Name (ARN) for the stream.
     streamARN :: Lude.Maybe Lude.Text,
+    -- | The shards that comprise the stream.
     shards :: Lude.Maybe [Shard],
+    -- | The DynamoDB table with which the stream is associated.
     tableName :: Lude.Maybe Lude.Text,
+    -- | The date and time when the request to create this stream was issued.
     creationRequestDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
 --
--- * 'creationRequestDateTime' - The date and time when the request to create this stream was issued.
--- * 'keySchema' - The key attribute(s) of the stream's DynamoDB table.
 -- * 'lastEvaluatedShardId' - The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.
 --
 -- If @LastEvaluatedShardId@ is empty, then the "last page" of results has been processed and there is currently no more data to be retrieved.
 -- If @LastEvaluatedShardId@ is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when @LastEvaluatedShardId@ is empty.
--- * 'shards' - The shards that comprise the stream.
--- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
 -- * 'streamLabel' - A timestamp, in ISO 8601 format, for this stream.
 --
 -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
@@ -99,6 +133,7 @@ data StreamDescription = StreamDescription'
 --     * @DISABLED@ - the stream is disabled.
 --
 --
+-- * 'keySchema' - The key attribute(s) of the stream's DynamoDB table.
 -- * 'streamViewType' - Indicates the format of the records within this stream:
 --
 --
@@ -114,7 +149,10 @@ data StreamDescription = StreamDescription'
 --     * @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items from the table.
 --
 --
+-- * 'streamARN' - The Amazon Resource Name (ARN) for the stream.
+-- * 'shards' - The shards that comprise the stream.
 -- * 'tableName' - The DynamoDB table with which the stream is associated.
+-- * 'creationRequestDateTime' - The date and time when the request to create this stream was issued.
 mkStreamDescription ::
   StreamDescription
 mkStreamDescription =

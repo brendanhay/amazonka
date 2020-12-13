@@ -18,8 +18,8 @@ module Network.AWS.ElasticBeanstalk.Types.MaxAgeRule
 
     -- * Lenses
     marDeleteSourceFromS3,
-    marMaxAgeInDays,
     marEnabled,
+    marMaxAgeInDays,
   )
 where
 
@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMaxAgeRule' smart constructor.
 data MaxAgeRule = MaxAgeRule'
-  { deleteSourceFromS3 ::
-      Lude.Maybe Lude.Bool,
-    maxAgeInDays :: Lude.Maybe Lude.Int,
-    enabled :: Lude.Bool
+  { -- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
+    deleteSourceFromS3 :: Lude.Maybe Lude.Bool,
+    -- | Specify @true@ to apply the rule, or @false@ to disable it.
+    enabled :: Lude.Bool,
+    -- | Specify the number of days to retain an application versions.
+    maxAgeInDays :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MaxAgeRule' with the minimum fields required to make a request.
@@ -56,8 +52,8 @@ mkMaxAgeRule ::
 mkMaxAgeRule pEnabled_ =
   MaxAgeRule'
     { deleteSourceFromS3 = Lude.Nothing,
-      maxAgeInDays = Lude.Nothing,
-      enabled = pEnabled_
+      enabled = pEnabled_,
+      maxAgeInDays = Lude.Nothing
     }
 
 -- | Set to @true@ to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.
@@ -67,13 +63,6 @@ marDeleteSourceFromS3 :: Lens.Lens' MaxAgeRule (Lude.Maybe Lude.Bool)
 marDeleteSourceFromS3 = Lens.lens (deleteSourceFromS3 :: MaxAgeRule -> Lude.Maybe Lude.Bool) (\s a -> s {deleteSourceFromS3 = a} :: MaxAgeRule)
 {-# DEPRECATED marDeleteSourceFromS3 "Use generic-lens or generic-optics with 'deleteSourceFromS3' instead." #-}
 
--- | Specify the number of days to retain an application versions.
---
--- /Note:/ Consider using 'maxAgeInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-marMaxAgeInDays :: Lens.Lens' MaxAgeRule (Lude.Maybe Lude.Int)
-marMaxAgeInDays = Lens.lens (maxAgeInDays :: MaxAgeRule -> Lude.Maybe Lude.Int) (\s a -> s {maxAgeInDays = a} :: MaxAgeRule)
-{-# DEPRECATED marMaxAgeInDays "Use generic-lens or generic-optics with 'maxAgeInDays' instead." #-}
-
 -- | Specify @true@ to apply the rule, or @false@ to disable it.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -81,17 +70,24 @@ marEnabled :: Lens.Lens' MaxAgeRule Lude.Bool
 marEnabled = Lens.lens (enabled :: MaxAgeRule -> Lude.Bool) (\s a -> s {enabled = a} :: MaxAgeRule)
 {-# DEPRECATED marEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
+-- | Specify the number of days to retain an application versions.
+--
+-- /Note:/ Consider using 'maxAgeInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+marMaxAgeInDays :: Lens.Lens' MaxAgeRule (Lude.Maybe Lude.Int)
+marMaxAgeInDays = Lens.lens (maxAgeInDays :: MaxAgeRule -> Lude.Maybe Lude.Int) (\s a -> s {maxAgeInDays = a} :: MaxAgeRule)
+{-# DEPRECATED marMaxAgeInDays "Use generic-lens or generic-optics with 'maxAgeInDays' instead." #-}
+
 instance Lude.FromXML MaxAgeRule where
   parseXML x =
     MaxAgeRule'
       Lude.<$> (x Lude..@? "DeleteSourceFromS3")
-      Lude.<*> (x Lude..@? "MaxAgeInDays")
       Lude.<*> (x Lude..@ "Enabled")
+      Lude.<*> (x Lude..@? "MaxAgeInDays")
 
 instance Lude.ToQuery MaxAgeRule where
   toQuery MaxAgeRule' {..} =
     Lude.mconcat
       [ "DeleteSourceFromS3" Lude.=: deleteSourceFromS3,
-        "MaxAgeInDays" Lude.=: maxAgeInDays,
-        "Enabled" Lude.=: enabled
+        "Enabled" Lude.=: enabled,
+        "MaxAgeInDays" Lude.=: maxAgeInDays
       ]

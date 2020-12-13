@@ -19,8 +19,8 @@ module Network.AWS.GameLift.Types.MatchmakingRuleSet
     -- * Lenses
     mrsCreationTime,
     mrsRuleSetName,
-    mrsRuleSetARN,
     mrsRuleSetBody,
+    mrsRuleSetARN,
   )
 where
 
@@ -46,27 +46,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMatchmakingRuleSet' smart constructor.
 data MatchmakingRuleSet = MatchmakingRuleSet'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | A unique identifier for a matchmaking rule set
     ruleSetName :: Lude.Maybe Lude.Text,
-    ruleSetARN :: Lude.Maybe Lude.Text,
-    ruleSetBody :: Lude.Text
+    -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
+    ruleSetBody :: Lude.Text,
+    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
+    ruleSetARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MatchmakingRuleSet' with the minimum fields required to make a request.
 --
 -- * 'creationTime' - The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'ruleSetARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
--- * 'ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
 -- * 'ruleSetName' - A unique identifier for a matchmaking rule set
+-- * 'ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
+-- * 'ruleSetARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
 mkMatchmakingRuleSet ::
   -- | 'ruleSetBody'
   Lude.Text ->
@@ -75,8 +72,8 @@ mkMatchmakingRuleSet pRuleSetBody_ =
   MatchmakingRuleSet'
     { creationTime = Lude.Nothing,
       ruleSetName = Lude.Nothing,
-      ruleSetARN = Lude.Nothing,
-      ruleSetBody = pRuleSetBody_
+      ruleSetBody = pRuleSetBody_,
+      ruleSetARN = Lude.Nothing
     }
 
 -- | The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
@@ -93,19 +90,19 @@ mrsRuleSetName :: Lens.Lens' MatchmakingRuleSet (Lude.Maybe Lude.Text)
 mrsRuleSetName = Lens.lens (ruleSetName :: MatchmakingRuleSet -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetName = a} :: MatchmakingRuleSet)
 {-# DEPRECATED mrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
--- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
---
--- /Note:/ Consider using 'ruleSetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrsRuleSetARN :: Lens.Lens' MatchmakingRuleSet (Lude.Maybe Lude.Text)
-mrsRuleSetARN = Lens.lens (ruleSetARN :: MatchmakingRuleSet -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetARN = a} :: MatchmakingRuleSet)
-{-# DEPRECATED mrsRuleSetARN "Use generic-lens or generic-optics with 'ruleSetARN' instead." #-}
-
 -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
 --
 -- /Note:/ Consider using 'ruleSetBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mrsRuleSetBody :: Lens.Lens' MatchmakingRuleSet Lude.Text
 mrsRuleSetBody = Lens.lens (ruleSetBody :: MatchmakingRuleSet -> Lude.Text) (\s a -> s {ruleSetBody = a} :: MatchmakingRuleSet)
 {-# DEPRECATED mrsRuleSetBody "Use generic-lens or generic-optics with 'ruleSetBody' instead." #-}
+
+-- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
+--
+-- /Note:/ Consider using 'ruleSetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsRuleSetARN :: Lens.Lens' MatchmakingRuleSet (Lude.Maybe Lude.Text)
+mrsRuleSetARN = Lens.lens (ruleSetARN :: MatchmakingRuleSet -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetARN = a} :: MatchmakingRuleSet)
+{-# DEPRECATED mrsRuleSetARN "Use generic-lens or generic-optics with 'ruleSetARN' instead." #-}
 
 instance Lude.FromJSON MatchmakingRuleSet where
   parseJSON =
@@ -115,6 +112,6 @@ instance Lude.FromJSON MatchmakingRuleSet where
           MatchmakingRuleSet'
             Lude.<$> (x Lude..:? "CreationTime")
             Lude.<*> (x Lude..:? "RuleSetName")
-            Lude.<*> (x Lude..:? "RuleSetArn")
             Lude.<*> (x Lude..: "RuleSetBody")
+            Lude.<*> (x Lude..:? "RuleSetArn")
       )

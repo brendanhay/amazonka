@@ -31,23 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTypedLinkFacetAttributeUpdate' smart constructor.
 data TypedLinkFacetAttributeUpdate = TypedLinkFacetAttributeUpdate'
-  { attribute ::
-      TypedLinkAttributeDefinition,
+  { -- | The attribute to update.
+    attribute :: TypedLinkAttributeDefinition,
+    -- | The action to perform when updating the attribute.
     action :: UpdateActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TypedLinkFacetAttributeUpdate' with the minimum fields required to make a request.
 --
--- * 'action' - The action to perform when updating the attribute.
 -- * 'attribute' - The attribute to update.
+-- * 'action' - The action to perform when updating the attribute.
 mkTypedLinkFacetAttributeUpdate ::
   -- | 'attribute'
   TypedLinkAttributeDefinition ->

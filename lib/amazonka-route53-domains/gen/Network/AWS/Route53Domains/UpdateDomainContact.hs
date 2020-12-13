@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,17 +23,17 @@ module Network.AWS.Route53Domains.UpdateDomainContact
 
     -- ** Request lenses
     udcRegistrantContact,
+    udcDomainName,
     udcAdminContact,
     udcTechContact,
-    udcDomainName,
 
     -- * Destructuring the response
     UpdateDomainContactResponse (..),
     mkUpdateDomainContactResponse,
 
     -- ** Response lenses
-    udcrsResponseStatus,
     udcrsOperationId,
+    udcrsResponseStatus,
   )
 where
 
@@ -46,26 +47,23 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'mkUpdateDomainContact' smart constructor.
 data UpdateDomainContact = UpdateDomainContact'
-  { registrantContact ::
-      Lude.Maybe ContactDetail,
+  { -- | Provides detailed contact information.
+    registrantContact :: Lude.Maybe ContactDetail,
+    -- | The name of the domain that you want to update contact information for.
+    domainName :: Lude.Text,
+    -- | Provides detailed contact information.
     adminContact :: Lude.Maybe ContactDetail,
-    techContact :: Lude.Maybe ContactDetail,
-    domainName :: Lude.Text
+    -- | Provides detailed contact information.
+    techContact :: Lude.Maybe ContactDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainContact' with the minimum fields required to make a request.
 --
--- * 'adminContact' - Provides detailed contact information.
--- * 'domainName' - The name of the domain that you want to update contact information for.
 -- * 'registrantContact' - Provides detailed contact information.
+-- * 'domainName' - The name of the domain that you want to update contact information for.
+-- * 'adminContact' - Provides detailed contact information.
 -- * 'techContact' - Provides detailed contact information.
 mkUpdateDomainContact ::
   -- | 'domainName'
@@ -74,9 +72,9 @@ mkUpdateDomainContact ::
 mkUpdateDomainContact pDomainName_ =
   UpdateDomainContact'
     { registrantContact = Lude.Nothing,
+      domainName = pDomainName_,
       adminContact = Lude.Nothing,
-      techContact = Lude.Nothing,
-      domainName = pDomainName_
+      techContact = Lude.Nothing
     }
 
 -- | Provides detailed contact information.
@@ -85,6 +83,13 @@ mkUpdateDomainContact pDomainName_ =
 udcRegistrantContact :: Lens.Lens' UpdateDomainContact (Lude.Maybe ContactDetail)
 udcRegistrantContact = Lens.lens (registrantContact :: UpdateDomainContact -> Lude.Maybe ContactDetail) (\s a -> s {registrantContact = a} :: UpdateDomainContact)
 {-# DEPRECATED udcRegistrantContact "Use generic-lens or generic-optics with 'registrantContact' instead." #-}
+
+-- | The name of the domain that you want to update contact information for.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcDomainName :: Lens.Lens' UpdateDomainContact Lude.Text
+udcDomainName = Lens.lens (domainName :: UpdateDomainContact -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainContact)
+{-# DEPRECATED udcDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Provides detailed contact information.
 --
@@ -100,13 +105,6 @@ udcTechContact :: Lens.Lens' UpdateDomainContact (Lude.Maybe ContactDetail)
 udcTechContact = Lens.lens (techContact :: UpdateDomainContact -> Lude.Maybe ContactDetail) (\s a -> s {techContact = a} :: UpdateDomainContact)
 {-# DEPRECATED udcTechContact "Use generic-lens or generic-optics with 'techContact' instead." #-}
 
--- | The name of the domain that you want to update contact information for.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcDomainName :: Lens.Lens' UpdateDomainContact Lude.Text
-udcDomainName = Lens.lens (domainName :: UpdateDomainContact -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainContact)
-{-# DEPRECATED udcDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
 instance Lude.AWSRequest UpdateDomainContact where
   type Rs UpdateDomainContact = UpdateDomainContactResponse
   request = Req.postJSON route53DomainsService
@@ -114,7 +112,7 @@ instance Lude.AWSRequest UpdateDomainContact where
     Res.receiveJSON
       ( \s h x ->
           UpdateDomainContactResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (x Lude..:> "OperationId")
+            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders UpdateDomainContact where
@@ -135,9 +133,9 @@ instance Lude.ToJSON UpdateDomainContact where
     Lude.object
       ( Lude.catMaybes
           [ ("RegistrantContact" Lude..=) Lude.<$> registrantContact,
+            Lude.Just ("DomainName" Lude..= domainName),
             ("AdminContact" Lude..=) Lude.<$> adminContact,
-            ("TechContact" Lude..=) Lude.<$> techContact,
-            Lude.Just ("DomainName" Lude..= domainName)
+            ("TechContact" Lude..=) Lude.<$> techContact
           ]
       )
 
@@ -151,17 +149,12 @@ instance Lude.ToQuery UpdateDomainContact where
 --
 -- /See:/ 'mkUpdateDomainContactResponse' smart constructor.
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
-  { responseStatus ::
-      Lude.Int,
-    operationId :: Lude.Text
+  { -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
+    operationId :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDomainContactResponse' with the minimum fields required to make a request.
@@ -169,23 +162,16 @@ data UpdateDomainContactResponse = UpdateDomainContactResponse'
 -- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 -- * 'responseStatus' - The response status code.
 mkUpdateDomainContactResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'operationId'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   UpdateDomainContactResponse
-mkUpdateDomainContactResponse pResponseStatus_ pOperationId_ =
+mkUpdateDomainContactResponse pOperationId_ pResponseStatus_ =
   UpdateDomainContactResponse'
-    { responseStatus = pResponseStatus_,
-      operationId = pOperationId_
+    { operationId = pOperationId_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcrsResponseStatus :: Lens.Lens' UpdateDomainContactResponse Lude.Int
-udcrsResponseStatus = Lens.lens (responseStatus :: UpdateDomainContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainContactResponse)
-{-# DEPRECATED udcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 --
@@ -193,3 +179,10 @@ udcrsResponseStatus = Lens.lens (responseStatus :: UpdateDomainContactResponse -
 udcrsOperationId :: Lens.Lens' UpdateDomainContactResponse Lude.Text
 udcrsOperationId = Lens.lens (operationId :: UpdateDomainContactResponse -> Lude.Text) (\s a -> s {operationId = a} :: UpdateDomainContactResponse)
 {-# DEPRECATED udcrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcrsResponseStatus :: Lens.Lens' UpdateDomainContactResponse Lude.Int
+udcrsResponseStatus = Lens.lens (responseStatus :: UpdateDomainContactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainContactResponse)
+{-# DEPRECATED udcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

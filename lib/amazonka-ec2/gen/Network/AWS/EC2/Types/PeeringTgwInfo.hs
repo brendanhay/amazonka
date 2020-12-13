@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPeeringTgwInfo' smart constructor.
 data PeeringTgwInfo = PeeringTgwInfo'
-  { ownerId ::
-      Lude.Maybe Lude.Text,
+  { -- | The AWS account ID of the owner of the transit gateway.
+    ownerId :: Lude.Maybe Lude.Text,
+    -- | The ID of the transit gateway.
     transitGatewayId :: Lude.Maybe Lude.Text,
+    -- | The Region of the transit gateway.
     region :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PeeringTgwInfo' with the minimum fields required to make a request.
 --
 -- * 'ownerId' - The AWS account ID of the owner of the transit gateway.
--- * 'region' - The Region of the transit gateway.
 -- * 'transitGatewayId' - The ID of the transit gateway.
+-- * 'region' - The Region of the transit gateway.
 mkPeeringTgwInfo ::
   PeeringTgwInfo
 mkPeeringTgwInfo =

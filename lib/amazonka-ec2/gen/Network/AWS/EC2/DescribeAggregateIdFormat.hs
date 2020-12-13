@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,16 +44,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAggregateIdFormat' smart constructor.
 newtype DescribeAggregateIdFormat = DescribeAggregateIdFormat'
-  { dryRun ::
-      Lude.Maybe Lude.Bool
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAggregateIdFormat' with the minimum fields required to make a request.
@@ -102,27 +97,21 @@ instance Lude.ToQuery DescribeAggregateIdFormat where
 
 -- | /See:/ 'mkDescribeAggregateIdFormatResponse' smart constructor.
 data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
-  { useLongIdsAggregated ::
-      Lude.Maybe Lude.Bool,
-    statuses ::
-      Lude.Maybe [IdFormat],
-    responseStatus ::
-      Lude.Int
+  { -- | Indicates whether all resource types in the Region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the Region.
+    useLongIdsAggregated :: Lude.Maybe Lude.Bool,
+    -- | Information about each resource's ID format.
+    statuses :: Lude.Maybe [IdFormat],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAggregateIdFormatResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
--- * 'statuses' - Information about each resource's ID format.
 -- * 'useLongIdsAggregated' - Indicates whether all resource types in the Region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the Region.
+-- * 'statuses' - Information about each resource's ID format.
+-- * 'responseStatus' - The response status code.
 mkDescribeAggregateIdFormatResponse ::
   -- | 'responseStatus'
   Lude.Int ->

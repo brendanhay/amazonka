@@ -32,26 +32,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHits' smart constructor.
 data Hits = Hits'
-  { cursor :: Lude.Maybe Lude.Text,
+  { -- | A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
+    cursor :: Lude.Maybe Lude.Text,
+    -- | A document that matches the search request.
     hit :: Lude.Maybe [Hit],
+    -- | The index of the first matching document.
     start :: Lude.Maybe Lude.Integer,
+    -- | The total number of documents that match the search request.
     found :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Hits' with the minimum fields required to make a request.
 --
 -- * 'cursor' - A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.
--- * 'found' - The total number of documents that match the search request.
 -- * 'hit' - A document that matches the search request.
 -- * 'start' - The index of the first matching document.
+-- * 'found' - The total number of documents that match the search request.
 mkHits ::
   Hits
 mkHits =

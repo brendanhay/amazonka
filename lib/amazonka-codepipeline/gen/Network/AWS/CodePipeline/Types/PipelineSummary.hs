@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
-  { created ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the pipeline was created, in timestamp format.
+    created :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the pipeline.
     name :: Lude.Maybe Lude.Text,
+    -- | The version number of the pipeline.
     version :: Lude.Maybe Lude.Natural,
+    -- | The date and time of the last update to the pipeline, in timestamp format.
     updated :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PipelineSummary' with the minimum fields required to make a request.
 --
 -- * 'created' - The date and time the pipeline was created, in timestamp format.
 -- * 'name' - The name of the pipeline.
--- * 'updated' - The date and time of the last update to the pipeline, in timestamp format.
 -- * 'version' - The version number of the pipeline.
+-- * 'updated' - The date and time of the last update to the pipeline, in timestamp format.
 mkPipelineSummary ::
   PipelineSummary
 mkPipelineSummary =

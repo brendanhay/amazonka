@@ -43,45 +43,53 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddress' smart constructor.
 data Address = Address'
-  { associationId :: Lude.Maybe Lude.Text,
+  { -- | The ID representing the association of the address with an instance in a VPC.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The ID of the instance that the address is associated with (if any).
     instanceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS account that owns the network interface.
     networkInterfaceOwnerId :: Lude.Maybe Lude.Text,
+    -- | The ID representing the allocation of the address for use with EC2-VPC.
     allocationId :: Lude.Maybe Lude.Text,
+    -- | The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
     carrierIP :: Lude.Maybe Lude.Text,
+    -- | The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
     networkBorderGroup :: Lude.Maybe Lude.Text,
+    -- | Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
     domain :: Lude.Maybe DomainType,
+    -- | The ID of the network interface.
     networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of an address pool.
     publicIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | The ID of the customer-owned address pool.
     customerOwnedIPv4Pool :: Lude.Maybe Lude.Text,
+    -- | The customer-owned IP address.
     customerOwnedIP :: Lude.Maybe Lude.Text,
+    -- | The private IP address associated with the Elastic IP address.
     privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The Elastic IP address.
     publicIP :: Lude.Maybe Lude.Text,
+    -- | Any tags assigned to the Elastic IP address.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Address' with the minimum fields required to make a request.
 --
--- * 'allocationId' - The ID representing the allocation of the address for use with EC2-VPC.
 -- * 'associationId' - The ID representing the association of the address with an instance in a VPC.
--- * 'carrierIP' - The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
--- * 'customerOwnedIP' - The customer-owned IP address.
--- * 'customerOwnedIPv4Pool' - The ID of the customer-owned address pool.
--- * 'domain' - Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
 -- * 'instanceId' - The ID of the instance that the address is associated with (if any).
--- * 'networkBorderGroup' - The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
--- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'networkInterfaceOwnerId' - The ID of the AWS account that owns the network interface.
+-- * 'allocationId' - The ID representing the allocation of the address for use with EC2-VPC.
+-- * 'carrierIP' - The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance).
+-- * 'networkBorderGroup' - The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.
+-- * 'domain' - Indicates whether this Elastic IP address is for use with instances in EC2-Classic (@standard@ ) or instances in a VPC (@vpc@ ).
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'publicIPv4Pool' - The ID of an address pool.
+-- * 'customerOwnedIPv4Pool' - The ID of the customer-owned address pool.
+-- * 'customerOwnedIP' - The customer-owned IP address.
 -- * 'privateIPAddress' - The private IP address associated with the Elastic IP address.
 -- * 'publicIP' - The Elastic IP address.
--- * 'publicIPv4Pool' - The ID of an address pool.
 -- * 'tags' - Any tags assigned to the Elastic IP address.
 mkAddress ::
   Address

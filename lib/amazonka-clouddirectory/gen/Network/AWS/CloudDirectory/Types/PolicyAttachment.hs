@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyAttachment' smart constructor.
 data PolicyAttachment = PolicyAttachment'
-  { policyId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of @PolicyAttachment@ .
+    policyId :: Lude.Maybe Lude.Text,
+    -- | The type of policy that can be associated with @PolicyAttachment@ .
     policyType :: Lude.Maybe Lude.Text,
+    -- | The @ObjectIdentifier@ that is associated with @PolicyAttachment@ .
     objectIdentifier :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PolicyAttachment' with the minimum fields required to make a request.
 --
--- * 'objectIdentifier' - The @ObjectIdentifier@ that is associated with @PolicyAttachment@ .
 -- * 'policyId' - The ID of @PolicyAttachment@ .
 -- * 'policyType' - The type of policy that can be associated with @PolicyAttachment@ .
+-- * 'objectIdentifier' - The @ObjectIdentifier@ that is associated with @PolicyAttachment@ .
 mkPolicyAttachment ::
   PolicyAttachment
 mkPolicyAttachment =

@@ -13,13 +13,13 @@
 module Network.AWS.ECR.Types.ImageFailureCode
   ( ImageFailureCode
       ( ImageFailureCode',
-        ImageNotFound,
-        ImageReferencedByManifestList,
-        ImageTagDoesNotMatchDigest,
         InvalidImageDigest,
         InvalidImageTag,
-        KMSError,
-        MissingDigestAndTag
+        ImageTagDoesNotMatchDigest,
+        ImageNotFound,
+        MissingDigestAndTag,
+        ImageReferencedByManifestList,
+        KMSError
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype ImageFailureCode = ImageFailureCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ImageNotFound :: ImageFailureCode
-pattern ImageNotFound = ImageFailureCode' "ImageNotFound"
-
-pattern ImageReferencedByManifestList :: ImageFailureCode
-pattern ImageReferencedByManifestList = ImageFailureCode' "ImageReferencedByManifestList"
-
-pattern ImageTagDoesNotMatchDigest :: ImageFailureCode
-pattern ImageTagDoesNotMatchDigest = ImageFailureCode' "ImageTagDoesNotMatchDigest"
-
 pattern InvalidImageDigest :: ImageFailureCode
 pattern InvalidImageDigest = ImageFailureCode' "InvalidImageDigest"
 
 pattern InvalidImageTag :: ImageFailureCode
 pattern InvalidImageTag = ImageFailureCode' "InvalidImageTag"
 
-pattern KMSError :: ImageFailureCode
-pattern KMSError = ImageFailureCode' "KmsError"
+pattern ImageTagDoesNotMatchDigest :: ImageFailureCode
+pattern ImageTagDoesNotMatchDigest = ImageFailureCode' "ImageTagDoesNotMatchDigest"
+
+pattern ImageNotFound :: ImageFailureCode
+pattern ImageNotFound = ImageFailureCode' "ImageNotFound"
 
 pattern MissingDigestAndTag :: ImageFailureCode
 pattern MissingDigestAndTag = ImageFailureCode' "MissingDigestAndTag"
 
+pattern ImageReferencedByManifestList :: ImageFailureCode
+pattern ImageReferencedByManifestList = ImageFailureCode' "ImageReferencedByManifestList"
+
+pattern KMSError :: ImageFailureCode
+pattern KMSError = ImageFailureCode' "KmsError"
+
 {-# COMPLETE
-  ImageNotFound,
-  ImageReferencedByManifestList,
-  ImageTagDoesNotMatchDigest,
   InvalidImageDigest,
   InvalidImageTag,
-  KMSError,
+  ImageTagDoesNotMatchDigest,
+  ImageNotFound,
   MissingDigestAndTag,
+  ImageReferencedByManifestList,
+  KMSError,
   ImageFailureCode'
   #-}

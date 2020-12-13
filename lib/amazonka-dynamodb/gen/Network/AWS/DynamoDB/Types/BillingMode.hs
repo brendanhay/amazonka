@@ -13,8 +13,8 @@
 module Network.AWS.DynamoDB.Types.BillingMode
   ( BillingMode
       ( BillingMode',
-        PayPerRequest,
-        Provisioned
+        Provisioned,
+        PayPerRequest
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype BillingMode = BillingMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern PayPerRequest :: BillingMode
-pattern PayPerRequest = BillingMode' "PAY_PER_REQUEST"
-
 pattern Provisioned :: BillingMode
 pattern Provisioned = BillingMode' "PROVISIONED"
 
+pattern PayPerRequest :: BillingMode
+pattern PayPerRequest = BillingMode' "PAY_PER_REQUEST"
+
 {-# COMPLETE
-  PayPerRequest,
   Provisioned,
+  PayPerRequest,
   BillingMode'
   #-}

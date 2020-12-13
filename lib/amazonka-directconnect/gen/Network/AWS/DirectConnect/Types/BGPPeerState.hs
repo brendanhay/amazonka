@@ -13,11 +13,11 @@
 module Network.AWS.DirectConnect.Types.BGPPeerState
   ( BGPPeerState
       ( BGPPeerState',
-        Available,
-        Deleted,
-        Deleting,
+        Verifying,
         Pending,
-        Verifying
+        Available,
+        Deleting,
+        Deleted
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype BGPPeerState = BGPPeerState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Available :: BGPPeerState
-pattern Available = BGPPeerState' "available"
-
-pattern Deleted :: BGPPeerState
-pattern Deleted = BGPPeerState' "deleted"
-
-pattern Deleting :: BGPPeerState
-pattern Deleting = BGPPeerState' "deleting"
+pattern Verifying :: BGPPeerState
+pattern Verifying = BGPPeerState' "verifying"
 
 pattern Pending :: BGPPeerState
 pattern Pending = BGPPeerState' "pending"
 
-pattern Verifying :: BGPPeerState
-pattern Verifying = BGPPeerState' "verifying"
+pattern Available :: BGPPeerState
+pattern Available = BGPPeerState' "available"
+
+pattern Deleting :: BGPPeerState
+pattern Deleting = BGPPeerState' "deleting"
+
+pattern Deleted :: BGPPeerState
+pattern Deleted = BGPPeerState' "deleted"
 
 {-# COMPLETE
-  Available,
-  Deleted,
-  Deleting,
-  Pending,
   Verifying,
+  Pending,
+  Available,
+  Deleting,
+  Deleted,
   BGPPeerState'
   #-}

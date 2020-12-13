@@ -34,29 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCarrierGateway' smart constructor.
 data CarrierGateway = CarrierGateway'
-  { state ::
-      Lude.Maybe CarrierGatewayState,
+  { -- | The state of the carrier gateway.
+    state :: Lude.Maybe CarrierGatewayState,
+    -- | The ID of the VPC associated with the carrier gateway.
     vpcId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the owner of the carrier gateway.
     ownerId :: Lude.Maybe Lude.Text,
+    -- | The tags assigned to the carrier gateway.
     tags :: Lude.Maybe [Tag],
+    -- | The ID of the carrier gateway.
     carrierGatewayId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CarrierGateway' with the minimum fields required to make a request.
 --
--- * 'carrierGatewayId' - The ID of the carrier gateway.
--- * 'ownerId' - The AWS account ID of the owner of the carrier gateway.
 -- * 'state' - The state of the carrier gateway.
--- * 'tags' - The tags assigned to the carrier gateway.
 -- * 'vpcId' - The ID of the VPC associated with the carrier gateway.
+-- * 'ownerId' - The AWS account ID of the owner of the carrier gateway.
+-- * 'tags' - The tags assigned to the carrier gateway.
+-- * 'carrierGatewayId' - The ID of the carrier gateway.
 mkCarrierGateway ::
   CarrierGateway
 mkCarrierGateway =

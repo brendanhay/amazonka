@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -51,38 +52,42 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'mkGetRandomPassword' smart constructor.
 data GetRandomPassword = GetRandomPassword'
-  { includeSpace ::
-      Lude.Maybe Lude.Bool,
+  { -- | Specifies that the generated password can include the space character. The default if you do not include this switch parameter is that the space character is not included.
+    includeSpace :: Lude.Maybe Lude.Bool,
+    -- | Specifies that the generated password should not include digits. The default if you do not include this switch parameter is that digits can be included.
     excludeNumbers :: Lude.Maybe Lude.Bool,
+    -- | Specifies that the generated password should not include lowercase letters. The default if you do not include this switch parameter is that lowercase letters can be included.
     excludeLowercase :: Lude.Maybe Lude.Bool,
+    -- | A string that includes characters that should not be included in the generated password. The default is that all characters from the included sets can be used.
     excludeCharacters :: Lude.Maybe Lude.Text,
+    -- | Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
+    --
+    -- The following are the punctuation characters that /can/ be included in the generated password if you don't explicitly exclude them with @ExcludeCharacters@ or @ExcludePunctuation@ :
+    -- @! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~@
     excludePunctuation :: Lude.Maybe Lude.Bool,
+    -- | A boolean value that specifies whether the generated password must include at least one of every allowed character type. The default value is @True@ and the operation requires at least one of every character type.
     requireEachIncludedType :: Lude.Maybe Lude.Bool,
+    -- | Specifies that the generated password should not include uppercase letters. The default if you do not include this switch parameter is that uppercase letters can be included.
     excludeUppercase :: Lude.Maybe Lude.Bool,
+    -- | The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
     passwordLength :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRandomPassword' with the minimum fields required to make a request.
 --
--- * 'excludeCharacters' - A string that includes characters that should not be included in the generated password. The default is that all characters from the included sets can be used.
--- * 'excludeLowercase' - Specifies that the generated password should not include lowercase letters. The default if you do not include this switch parameter is that lowercase letters can be included.
+-- * 'includeSpace' - Specifies that the generated password can include the space character. The default if you do not include this switch parameter is that the space character is not included.
 -- * 'excludeNumbers' - Specifies that the generated password should not include digits. The default if you do not include this switch parameter is that digits can be included.
+-- * 'excludeLowercase' - Specifies that the generated password should not include lowercase letters. The default if you do not include this switch parameter is that lowercase letters can be included.
+-- * 'excludeCharacters' - A string that includes characters that should not be included in the generated password. The default is that all characters from the included sets can be used.
 -- * 'excludePunctuation' - Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
 --
 -- The following are the punctuation characters that /can/ be included in the generated password if you don't explicitly exclude them with @ExcludeCharacters@ or @ExcludePunctuation@ :
 -- @! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~@
--- * 'excludeUppercase' - Specifies that the generated password should not include uppercase letters. The default if you do not include this switch parameter is that uppercase letters can be included.
--- * 'includeSpace' - Specifies that the generated password can include the space character. The default if you do not include this switch parameter is that the space character is not included.
--- * 'passwordLength' - The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
 -- * 'requireEachIncludedType' - A boolean value that specifies whether the generated password must include at least one of every allowed character type. The default value is @True@ and the operation requires at least one of every character type.
+-- * 'excludeUppercase' - Specifies that the generated password should not include uppercase letters. The default if you do not include this switch parameter is that uppercase letters can be included.
+-- * 'passwordLength' - The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
 mkGetRandomPassword ::
   GetRandomPassword
 mkGetRandomPassword =
@@ -202,8 +207,9 @@ instance Lude.ToQuery GetRandomPassword where
 
 -- | /See:/ 'mkGetRandomPasswordResponse' smart constructor.
 data GetRandomPasswordResponse = GetRandomPasswordResponse'
-  { randomPassword ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | A string with the generated password.
+    randomPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

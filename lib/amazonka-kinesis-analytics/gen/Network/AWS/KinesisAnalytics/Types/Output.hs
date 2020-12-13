@@ -17,11 +17,11 @@ module Network.AWS.KinesisAnalytics.Types.Output
     mkOutput,
 
     -- * Lenses
+    oDestinationSchema,
     oLambdaOutput,
+    oName,
     oKinesisStreamsOutput,
     oKinesisFirehoseOutput,
-    oName,
-    oDestinationSchema,
   )
 where
 
@@ -39,42 +39,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { lambdaOutput :: Lude.Maybe LambdaOutput,
-    kinesisStreamsOutput :: Lude.Maybe KinesisStreamsOutput,
-    kinesisFirehoseOutput :: Lude.Maybe KinesisFirehoseOutput,
+  { -- | Describes the data format when records are written to the destination. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
+    destinationSchema :: DestinationSchema,
+    -- | Identifies an AWS Lambda function as the destination.
+    lambdaOutput :: Lude.Maybe LambdaOutput,
+    -- | Name of the in-application stream.
     name :: Lude.Text,
-    destinationSchema :: DestinationSchema
+    -- | Identifies an Amazon Kinesis stream as the destination.
+    kinesisStreamsOutput :: Lude.Maybe KinesisStreamsOutput,
+    -- | Identifies an Amazon Kinesis Firehose delivery stream as the destination.
+    kinesisFirehoseOutput :: Lude.Maybe KinesisFirehoseOutput
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Output' with the minimum fields required to make a request.
 --
 -- * 'destinationSchema' - Describes the data format when records are written to the destination. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
--- * 'kinesisFirehoseOutput' - Identifies an Amazon Kinesis Firehose delivery stream as the destination.
--- * 'kinesisStreamsOutput' - Identifies an Amazon Kinesis stream as the destination.
 -- * 'lambdaOutput' - Identifies an AWS Lambda function as the destination.
 -- * 'name' - Name of the in-application stream.
+-- * 'kinesisStreamsOutput' - Identifies an Amazon Kinesis stream as the destination.
+-- * 'kinesisFirehoseOutput' - Identifies an Amazon Kinesis Firehose delivery stream as the destination.
 mkOutput ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'destinationSchema'
   DestinationSchema ->
+  -- | 'name'
+  Lude.Text ->
   Output
-mkOutput pName_ pDestinationSchema_ =
+mkOutput pDestinationSchema_ pName_ =
   Output'
-    { lambdaOutput = Lude.Nothing,
-      kinesisStreamsOutput = Lude.Nothing,
-      kinesisFirehoseOutput = Lude.Nothing,
+    { destinationSchema = pDestinationSchema_,
+      lambdaOutput = Lude.Nothing,
       name = pName_,
-      destinationSchema = pDestinationSchema_
+      kinesisStreamsOutput = Lude.Nothing,
+      kinesisFirehoseOutput = Lude.Nothing
     }
+
+-- | Describes the data format when records are written to the destination. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
+--
+-- /Note:/ Consider using 'destinationSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oDestinationSchema :: Lens.Lens' Output DestinationSchema
+oDestinationSchema = Lens.lens (destinationSchema :: Output -> DestinationSchema) (\s a -> s {destinationSchema = a} :: Output)
+{-# DEPRECATED oDestinationSchema "Use generic-lens or generic-optics with 'destinationSchema' instead." #-}
 
 -- | Identifies an AWS Lambda function as the destination.
 --
@@ -82,6 +88,13 @@ mkOutput pName_ pDestinationSchema_ =
 oLambdaOutput :: Lens.Lens' Output (Lude.Maybe LambdaOutput)
 oLambdaOutput = Lens.lens (lambdaOutput :: Output -> Lude.Maybe LambdaOutput) (\s a -> s {lambdaOutput = a} :: Output)
 {-# DEPRECATED oLambdaOutput "Use generic-lens or generic-optics with 'lambdaOutput' instead." #-}
+
+-- | Name of the in-application stream.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oName :: Lens.Lens' Output Lude.Text
+oName = Lens.lens (name :: Output -> Lude.Text) (\s a -> s {name = a} :: Output)
+{-# DEPRECATED oName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Identifies an Amazon Kinesis stream as the destination.
 --
@@ -97,28 +110,14 @@ oKinesisFirehoseOutput :: Lens.Lens' Output (Lude.Maybe KinesisFirehoseOutput)
 oKinesisFirehoseOutput = Lens.lens (kinesisFirehoseOutput :: Output -> Lude.Maybe KinesisFirehoseOutput) (\s a -> s {kinesisFirehoseOutput = a} :: Output)
 {-# DEPRECATED oKinesisFirehoseOutput "Use generic-lens or generic-optics with 'kinesisFirehoseOutput' instead." #-}
 
--- | Name of the in-application stream.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oName :: Lens.Lens' Output Lude.Text
-oName = Lens.lens (name :: Output -> Lude.Text) (\s a -> s {name = a} :: Output)
-{-# DEPRECATED oName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Describes the data format when records are written to the destination. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
---
--- /Note:/ Consider using 'destinationSchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oDestinationSchema :: Lens.Lens' Output DestinationSchema
-oDestinationSchema = Lens.lens (destinationSchema :: Output -> DestinationSchema) (\s a -> s {destinationSchema = a} :: Output)
-{-# DEPRECATED oDestinationSchema "Use generic-lens or generic-optics with 'destinationSchema' instead." #-}
-
 instance Lude.ToJSON Output where
   toJSON Output' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("LambdaOutput" Lude..=) Lude.<$> lambdaOutput,
-            ("KinesisStreamsOutput" Lude..=) Lude.<$> kinesisStreamsOutput,
-            ("KinesisFirehoseOutput" Lude..=) Lude.<$> kinesisFirehoseOutput,
+          [ Lude.Just ("DestinationSchema" Lude..= destinationSchema),
+            ("LambdaOutput" Lude..=) Lude.<$> lambdaOutput,
             Lude.Just ("Name" Lude..= name),
-            Lude.Just ("DestinationSchema" Lude..= destinationSchema)
+            ("KinesisStreamsOutput" Lude..=) Lude.<$> kinesisStreamsOutput,
+            ("KinesisFirehoseOutput" Lude..=) Lude.<$> kinesisFirehoseOutput
           ]
       )

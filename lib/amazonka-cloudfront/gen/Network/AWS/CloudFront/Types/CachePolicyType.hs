@@ -13,8 +13,8 @@
 module Network.AWS.CloudFront.Types.CachePolicyType
   ( CachePolicyType
       ( CachePolicyType',
-        CPTCustom,
-        CPTManaged
+        CPTManaged,
+        CPTCustom
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype CachePolicyType = CachePolicyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CPTCustom :: CachePolicyType
-pattern CPTCustom = CachePolicyType' "custom"
-
 pattern CPTManaged :: CachePolicyType
 pattern CPTManaged = CachePolicyType' "managed"
 
+pattern CPTCustom :: CachePolicyType
+pattern CPTCustom = CachePolicyType' "custom"
+
 {-# COMPLETE
-  CPTCustom,
   CPTManaged,
+  CPTCustom,
   CachePolicyType'
   #-}

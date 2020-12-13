@@ -31,29 +31,25 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAdminCreateUserConfigType' smart constructor.
 data AdminCreateUserConfigType = AdminCreateUserConfigType'
-  { allowAdminCreateUserOnly ::
-      Lude.Maybe Lude.Bool,
-    unusedAccountValidityDays ::
-      Lude.Maybe Lude.Natural,
-    inviteMessageTemplate ::
-      Lude.Maybe MessageTemplateType
+  { -- | Set to @True@ if only the administrator is allowed to create user profiles. Set to @False@ if users can sign themselves up via an app.
+    allowAdminCreateUserOnly :: Lude.Maybe Lude.Bool,
+    -- | The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter. The default value for this parameter is 7.
+    unusedAccountValidityDays :: Lude.Maybe Lude.Natural,
+    -- | The message template to be used for the welcome message to new users.
+    --
+    -- See also <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages> .
+    inviteMessageTemplate :: Lude.Maybe MessageTemplateType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminCreateUserConfigType' with the minimum fields required to make a request.
 --
 -- * 'allowAdminCreateUserOnly' - Set to @True@ if only the administrator is allowed to create user profiles. Set to @False@ if users can sign themselves up via an app.
+-- * 'unusedAccountValidityDays' - The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter. The default value for this parameter is 7.
 -- * 'inviteMessageTemplate' - The message template to be used for the welcome message to new users.
 --
 -- See also <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization Customizing User Invitation Messages> .
--- * 'unusedAccountValidityDays' - The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call @AdminCreateUser@ again, specifying @"RESEND"@ for the @MessageAction@ parameter. The default value for this parameter is 7.
 mkAdminCreateUserConfigType ::
   AdminCreateUserConfigType
 mkAdminCreateUserConfigType =

@@ -13,11 +13,11 @@
 module Network.AWS.EC2.Types.AssociationStatusCode
   ( AssociationStatusCode
       ( AssociationStatusCode',
-        ASCAssociated,
         ASCAssociating,
+        ASCAssociated,
         ASCAssociationFailed,
-        ASCDisassociated,
-        ASCDisassociating
+        ASCDisassociating,
+        ASCDisassociated
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype AssociationStatusCode = AssociationStatusCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern ASCAssociated :: AssociationStatusCode
-pattern ASCAssociated = AssociationStatusCode' "associated"
-
 pattern ASCAssociating :: AssociationStatusCode
 pattern ASCAssociating = AssociationStatusCode' "associating"
+
+pattern ASCAssociated :: AssociationStatusCode
+pattern ASCAssociated = AssociationStatusCode' "associated"
 
 pattern ASCAssociationFailed :: AssociationStatusCode
 pattern ASCAssociationFailed = AssociationStatusCode' "association-failed"
 
-pattern ASCDisassociated :: AssociationStatusCode
-pattern ASCDisassociated = AssociationStatusCode' "disassociated"
-
 pattern ASCDisassociating :: AssociationStatusCode
 pattern ASCDisassociating = AssociationStatusCode' "disassociating"
 
+pattern ASCDisassociated :: AssociationStatusCode
+pattern ASCDisassociated = AssociationStatusCode' "disassociated"
+
 {-# COMPLETE
-  ASCAssociated,
   ASCAssociating,
+  ASCAssociated,
   ASCAssociationFailed,
-  ASCDisassociated,
   ASCDisassociating,
+  ASCDisassociated,
   AssociationStatusCode'
   #-}

@@ -34,30 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAggregateComplianceByConfigRule' smart constructor.
 data AggregateComplianceByConfigRule = AggregateComplianceByConfigRule'
-  { compliance ::
-      Lude.Maybe Compliance,
-    configRuleName ::
-      Lude.Maybe Lude.Text,
-    accountId ::
-      Lude.Maybe Lude.Text,
-    awsRegion ::
-      Lude.Maybe Lude.Text
+  { -- | Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
+    compliance :: Lude.Maybe Compliance,
+    -- | The name of the AWS Config rule.
+    configRuleName :: Lude.Maybe Lude.Text,
+    -- | The 12-digit account ID of the source account.
+    accountId :: Lude.Maybe Lude.Text,
+    -- | The source region from where the data is aggregated.
+    awsRegion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AggregateComplianceByConfigRule' with the minimum fields required to make a request.
 --
--- * 'accountId' - The 12-digit account ID of the source account.
--- * 'awsRegion' - The source region from where the data is aggregated.
 -- * 'compliance' - Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
 -- * 'configRuleName' - The name of the AWS Config rule.
+-- * 'accountId' - The 12-digit account ID of the source account.
+-- * 'awsRegion' - The source region from where the data is aggregated.
 mkAggregateComplianceByConfigRule ::
   AggregateComplianceByConfigRule
 mkAggregateComplianceByConfigRule =

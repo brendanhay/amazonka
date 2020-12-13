@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,9 +34,9 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     mkDescribeDBSubnetGroupsResponse,
 
     -- ** Response lenses
-    ddsgrsDBSubnetGroups,
-    ddsgrsMarker,
-    ddsgrsResponseStatus,
+    ddbsgrsDBSubnetGroups,
+    ddbsgrsMarker,
+    ddbsgrsResponseStatus,
   )
 where
 
@@ -50,19 +51,19 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBSubnetGroups' smart constructor.
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
-  { dbSubnetGroupName ::
-      Lude.Maybe Lude.Text,
+  { -- | The name of the DB subnet group to return details for.
+    dbSubnetGroupName :: Lude.Maybe Lude.Text,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous DescribeDBSubnetGroups request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBSubnetGroups' with the minimum fields required to make a request.
@@ -117,12 +118,12 @@ ddsgMaxRecords = Lens.lens (maxRecords :: DescribeDBSubnetGroups -> Lude.Maybe L
 
 instance Page.AWSPager DescribeDBSubnetGroups where
   page rq rs
-    | Page.stop (rs Lens.^. ddsgrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddsgrsDBSubnetGroups) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddbsgrsMarker) = Lude.Nothing
+    | Page.stop (rs Lens.^. ddbsgrsDBSubnetGroups) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ddsgMarker Lens..~ rs Lens.^. ddsgrsMarker
+          Lude.& ddsgMarker Lens..~ rs Lens.^. ddbsgrsMarker
 
 instance Lude.AWSRequest DescribeDBSubnetGroups where
   type Rs DescribeDBSubnetGroups = DescribeDBSubnetGroupsResponse
@@ -161,19 +162,14 @@ instance Lude.ToQuery DescribeDBSubnetGroups where
 --
 -- /See:/ 'mkDescribeDBSubnetGroupsResponse' smart constructor.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
-  { dbSubnetGroups ::
-      Lude.Maybe [DBSubnetGroup],
-    marker ::
-      Lude.Maybe Lude.Text,
+  { -- | A list of @DBSubnetGroup@ instances.
+    dbSubnetGroups :: Lude.Maybe [DBSubnetGroup],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBSubnetGroupsResponse' with the minimum fields required to make a request.
@@ -195,20 +191,20 @@ mkDescribeDBSubnetGroupsResponse pResponseStatus_ =
 -- | A list of @DBSubnetGroup@ instances.
 --
 -- /Note:/ Consider using 'dbSubnetGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsgrsDBSubnetGroups :: Lens.Lens' DescribeDBSubnetGroupsResponse (Lude.Maybe [DBSubnetGroup])
-ddsgrsDBSubnetGroups = Lens.lens (dbSubnetGroups :: DescribeDBSubnetGroupsResponse -> Lude.Maybe [DBSubnetGroup]) (\s a -> s {dbSubnetGroups = a} :: DescribeDBSubnetGroupsResponse)
-{-# DEPRECATED ddsgrsDBSubnetGroups "Use generic-lens or generic-optics with 'dbSubnetGroups' instead." #-}
+ddbsgrsDBSubnetGroups :: Lens.Lens' DescribeDBSubnetGroupsResponse (Lude.Maybe [DBSubnetGroup])
+ddbsgrsDBSubnetGroups = Lens.lens (dbSubnetGroups :: DescribeDBSubnetGroupsResponse -> Lude.Maybe [DBSubnetGroup]) (\s a -> s {dbSubnetGroups = a} :: DescribeDBSubnetGroupsResponse)
+{-# DEPRECATED ddbsgrsDBSubnetGroups "Use generic-lens or generic-optics with 'dbSubnetGroups' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsgrsMarker :: Lens.Lens' DescribeDBSubnetGroupsResponse (Lude.Maybe Lude.Text)
-ddsgrsMarker = Lens.lens (marker :: DescribeDBSubnetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBSubnetGroupsResponse)
-{-# DEPRECATED ddsgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddbsgrsMarker :: Lens.Lens' DescribeDBSubnetGroupsResponse (Lude.Maybe Lude.Text)
+ddbsgrsMarker = Lens.lens (marker :: DescribeDBSubnetGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBSubnetGroupsResponse)
+{-# DEPRECATED ddbsgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsgrsResponseStatus :: Lens.Lens' DescribeDBSubnetGroupsResponse Lude.Int
-ddsgrsResponseStatus = Lens.lens (responseStatus :: DescribeDBSubnetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBSubnetGroupsResponse)
-{-# DEPRECATED ddsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbsgrsResponseStatus :: Lens.Lens' DescribeDBSubnetGroupsResponse Lude.Int
+ddbsgrsResponseStatus = Lens.lens (responseStatus :: DescribeDBSubnetGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBSubnetGroupsResponse)
+{-# DEPRECATED ddbsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,10 +13,10 @@
 module Network.AWS.SageMaker.Types.DetailedAlgorithmStatus
   ( DetailedAlgorithmStatus
       ( DetailedAlgorithmStatus',
-        DASCompleted,
-        DASFailed,
+        DASNotStarted,
         DASInProgress,
-        DASNotStarted
+        DASCompleted,
+        DASFailed
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DetailedAlgorithmStatus = DetailedAlgorithmStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern DASNotStarted :: DetailedAlgorithmStatus
+pattern DASNotStarted = DetailedAlgorithmStatus' "NotStarted"
+
+pattern DASInProgress :: DetailedAlgorithmStatus
+pattern DASInProgress = DetailedAlgorithmStatus' "InProgress"
+
 pattern DASCompleted :: DetailedAlgorithmStatus
 pattern DASCompleted = DetailedAlgorithmStatus' "Completed"
 
 pattern DASFailed :: DetailedAlgorithmStatus
 pattern DASFailed = DetailedAlgorithmStatus' "Failed"
 
-pattern DASInProgress :: DetailedAlgorithmStatus
-pattern DASInProgress = DetailedAlgorithmStatus' "InProgress"
-
-pattern DASNotStarted :: DetailedAlgorithmStatus
-pattern DASNotStarted = DetailedAlgorithmStatus' "NotStarted"
-
 {-# COMPLETE
+  DASNotStarted,
+  DASInProgress,
   DASCompleted,
   DASFailed,
-  DASInProgress,
-  DASNotStarted,
   DetailedAlgorithmStatus'
   #-}

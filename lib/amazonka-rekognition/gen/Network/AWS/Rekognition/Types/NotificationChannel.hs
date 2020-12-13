@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotificationChannel' smart constructor.
 data NotificationChannel = NotificationChannel'
-  { snsTopicARN ::
-      Lude.Text,
+  { -- | The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
+    snsTopicARN :: Lude.Text,
+    -- | The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NotificationChannel' with the minimum fields required to make a request.
 --
--- * 'roleARN' - The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
 -- * 'snsTopicARN' - The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
+-- * 'roleARN' - The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
 mkNotificationChannel ::
   -- | 'snsTopicARN'
   Lude.Text ->

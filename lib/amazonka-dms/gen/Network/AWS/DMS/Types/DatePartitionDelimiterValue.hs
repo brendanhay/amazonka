@@ -13,10 +13,10 @@
 module Network.AWS.DMS.Types.DatePartitionDelimiterValue
   ( DatePartitionDelimiterValue
       ( DatePartitionDelimiterValue',
-        DPDVDash,
-        DPDVNone,
         DPDVSlash,
-        DPDVUnderscore
+        DPDVUnderscore,
+        DPDVDash,
+        DPDVNone
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype DatePartitionDelimiterValue = DatePartitionDelimiterValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern DPDVDash :: DatePartitionDelimiterValue
-pattern DPDVDash = DatePartitionDelimiterValue' "DASH"
-
-pattern DPDVNone :: DatePartitionDelimiterValue
-pattern DPDVNone = DatePartitionDelimiterValue' "NONE"
-
 pattern DPDVSlash :: DatePartitionDelimiterValue
 pattern DPDVSlash = DatePartitionDelimiterValue' "SLASH"
 
 pattern DPDVUnderscore :: DatePartitionDelimiterValue
 pattern DPDVUnderscore = DatePartitionDelimiterValue' "UNDERSCORE"
 
+pattern DPDVDash :: DatePartitionDelimiterValue
+pattern DPDVDash = DatePartitionDelimiterValue' "DASH"
+
+pattern DPDVNone :: DatePartitionDelimiterValue
+pattern DPDVNone = DatePartitionDelimiterValue' "NONE"
+
 {-# COMPLETE
-  DPDVDash,
-  DPDVNone,
   DPDVSlash,
   DPDVUnderscore,
+  DPDVDash,
+  DPDVNone,
   DatePartitionDelimiterValue'
   #-}

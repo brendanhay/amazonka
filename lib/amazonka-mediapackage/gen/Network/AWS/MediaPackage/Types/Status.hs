@@ -13,9 +13,9 @@
 module Network.AWS.MediaPackage.Types.Status
   ( Status
       ( Status',
-        Failed,
         InProgress,
-        Succeeded
+        Succeeded,
+        Failed
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype Status = Status' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: Status
-pattern Failed = Status' "FAILED"
-
 pattern InProgress :: Status
 pattern InProgress = Status' "IN_PROGRESS"
 
 pattern Succeeded :: Status
 pattern Succeeded = Status' "SUCCEEDED"
 
+pattern Failed :: Status
+pattern Failed = Status' "FAILED"
+
 {-# COMPLETE
-  Failed,
   InProgress,
   Succeeded,
+  Failed,
   Status'
   #-}

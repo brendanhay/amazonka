@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,9 +41,9 @@ module Network.AWS.GameLift.StartMatchBackfill
     mkStartMatchBackfill,
 
     -- ** Request lenses
+    smbConfigurationName,
     smbTicketId,
     smbGameSessionARN,
-    smbConfigurationName,
     smbPlayers,
 
     -- * Destructuring the response
@@ -65,24 +66,28 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStartMatchBackfill' smart constructor.
 data StartMatchBackfill = StartMatchBackfill'
-  { ticketId ::
-      Lude.Maybe Lude.Text,
-    gameSessionARN :: Lude.Maybe Lude.Text,
+  { -- | Name of the matchmaker to use for this request. You can use either the configuration name or ARN value. The ARN of the matchmaker that was used with the original game session is listed in the 'GameSession' object, @MatchmakerData@ property.
     configurationName :: Lude.Text,
+    -- | A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the match backfill ticket status and retrieve match results.
+    ticketId :: Lude.Maybe Lude.Text,
+    -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it. This is the same as the game session ID.
+    gameSessionARN :: Lude.Maybe Lude.Text,
+    -- | Match information on all players that are currently assigned to the game session. This information is used by the matchmaker to find new players and add them to the existing game.
+    --
+    --
+    --     * PlayerID, PlayerAttributes, Team -\\- This information is maintained in the 'GameSession' object, @MatchmakerData@ property, for all players who are currently assigned to the game session. The matchmaker data is in JSON syntax, formatted as a string. For more details, see <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data> .
+    --
+    --
+    --     * LatencyInMs -\\- If the matchmaker uses player latency, include a latency value, in milliseconds, for the Region that the game session is currently in. Do not include latency values for any other Region.
     players :: [Player]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMatchBackfill' with the minimum fields required to make a request.
 --
 -- * 'configurationName' - Name of the matchmaker to use for this request. You can use either the configuration name or ARN value. The ARN of the matchmaker that was used with the original game session is listed in the 'GameSession' object, @MatchmakerData@ property.
+-- * 'ticketId' - A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the match backfill ticket status and retrieve match results.
 -- * 'gameSessionARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a game session and uniquely identifies it. This is the same as the game session ID.
 -- * 'players' - Match information on all players that are currently assigned to the game session. This information is used by the matchmaker to find new players and add them to the existing game.
 --
@@ -91,20 +96,24 @@ data StartMatchBackfill = StartMatchBackfill'
 --
 --
 --     * LatencyInMs -\\- If the matchmaker uses player latency, include a latency value, in milliseconds, for the Region that the game session is currently in. Do not include latency values for any other Region.
---
---
--- * 'ticketId' - A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the match backfill ticket status and retrieve match results.
 mkStartMatchBackfill ::
   -- | 'configurationName'
   Lude.Text ->
   StartMatchBackfill
 mkStartMatchBackfill pConfigurationName_ =
   StartMatchBackfill'
-    { ticketId = Lude.Nothing,
+    { configurationName = pConfigurationName_,
+      ticketId = Lude.Nothing,
       gameSessionARN = Lude.Nothing,
-      configurationName = pConfigurationName_,
       players = Lude.mempty
     }
+
+-- | Name of the matchmaker to use for this request. You can use either the configuration name or ARN value. The ARN of the matchmaker that was used with the original game session is listed in the 'GameSession' object, @MatchmakerData@ property.
+--
+-- /Note:/ Consider using 'configurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smbConfigurationName :: Lens.Lens' StartMatchBackfill Lude.Text
+smbConfigurationName = Lens.lens (configurationName :: StartMatchBackfill -> Lude.Text) (\s a -> s {configurationName = a} :: StartMatchBackfill)
+{-# DEPRECATED smbConfigurationName "Use generic-lens or generic-optics with 'configurationName' instead." #-}
 
 -- | A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon GameLift will generate one in the form of a UUID. Use this identifier to track the match backfill ticket status and retrieve match results.
 --
@@ -119,13 +128,6 @@ smbTicketId = Lens.lens (ticketId :: StartMatchBackfill -> Lude.Maybe Lude.Text)
 smbGameSessionARN :: Lens.Lens' StartMatchBackfill (Lude.Maybe Lude.Text)
 smbGameSessionARN = Lens.lens (gameSessionARN :: StartMatchBackfill -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionARN = a} :: StartMatchBackfill)
 {-# DEPRECATED smbGameSessionARN "Use generic-lens or generic-optics with 'gameSessionARN' instead." #-}
-
--- | Name of the matchmaker to use for this request. You can use either the configuration name or ARN value. The ARN of the matchmaker that was used with the original game session is listed in the 'GameSession' object, @MatchmakerData@ property.
---
--- /Note:/ Consider using 'configurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smbConfigurationName :: Lens.Lens' StartMatchBackfill Lude.Text
-smbConfigurationName = Lens.lens (configurationName :: StartMatchBackfill -> Lude.Text) (\s a -> s {configurationName = a} :: StartMatchBackfill)
-{-# DEPRECATED smbConfigurationName "Use generic-lens or generic-optics with 'configurationName' instead." #-}
 
 -- | Match information on all players that are currently assigned to the game session. This information is used by the matchmaker to find new players and add them to the existing game.
 --
@@ -168,9 +170,9 @@ instance Lude.ToJSON StartMatchBackfill where
   toJSON StartMatchBackfill' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("TicketId" Lude..=) Lude.<$> ticketId,
+          [ Lude.Just ("ConfigurationName" Lude..= configurationName),
+            ("TicketId" Lude..=) Lude.<$> ticketId,
             ("GameSessionArn" Lude..=) Lude.<$> gameSessionARN,
-            Lude.Just ("ConfigurationName" Lude..= configurationName),
             Lude.Just ("Players" Lude..= players)
           ]
       )
@@ -185,17 +187,12 @@ instance Lude.ToQuery StartMatchBackfill where
 --
 -- /See:/ 'mkStartMatchBackfillResponse' smart constructor.
 data StartMatchBackfillResponse = StartMatchBackfillResponse'
-  { matchmakingTicket ::
-      Lude.Maybe MatchmakingTicket,
+  { -- | Ticket representing the backfill matchmaking request. This object includes the information in the request, ticket status, and match results as generated during the matchmaking process.
+    matchmakingTicket :: Lude.Maybe MatchmakingTicket,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartMatchBackfillResponse' with the minimum fields required to make a request.

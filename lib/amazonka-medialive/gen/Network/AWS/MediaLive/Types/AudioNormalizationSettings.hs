@@ -32,28 +32,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioNormalizationSettings' smart constructor.
 data AudioNormalizationSettings = AudioNormalizationSettings'
-  { algorithmControl ::
-      Lude.Maybe
-        AudioNormalizationAlgorithmControl,
+  { -- | When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
+    algorithmControl :: Lude.Maybe AudioNormalizationAlgorithmControl,
+    -- | Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
     targetLkfs :: Lude.Maybe Lude.Double,
-    algorithm ::
-      Lude.Maybe
-        AudioNormalizationAlgorithm
+    -- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
+    algorithm :: Lude.Maybe AudioNormalizationAlgorithm
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioNormalizationSettings' with the minimum fields required to make a request.
 --
--- * 'algorithm' - Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
 -- * 'algorithmControl' - When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
 -- * 'targetLkfs' - Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
+-- * 'algorithm' - Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
 mkAudioNormalizationSettings ::
   AudioNormalizationSettings
 mkAudioNormalizationSettings =

@@ -33,17 +33,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputVPCRequest' smart constructor.
 data InputVPCRequest = InputVPCRequest'
-  { securityGroupIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
+    --
+    -- Requires subnetIds. If none are specified then the VPC default security group will be used.
+    securityGroupIds :: Lude.Maybe [Lude.Text],
+    -- | A list of 2 VPC subnet IDs from the same VPC.
+    --
+    -- Subnet IDs must be mapped to two unique availability zones (AZ).
     subnetIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputVPCRequest' with the minimum fields required to make a request.

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkElasticGpuSpecification' smart constructor.
 newtype ElasticGpuSpecification = ElasticGpuSpecification'
-  { type' ::
-      Lude.Text
+  { -- | The type of Elastic Graphics accelerator. For more information about the values to specify for @Type@ , see <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics> , specifically the Elastic Graphics accelerator column, in the /Amazon Elastic Compute Cloud User Guide for Windows Instances/ .
+    type' :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ElasticGpuSpecification' with the minimum fields required to make a request.

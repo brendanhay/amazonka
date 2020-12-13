@@ -41,57 +41,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstancesNetworkInterface' smart constructor.
 data ScheduledInstancesNetworkInterface = ScheduledInstancesNetworkInterface'
-  { groups ::
-      Lude.Maybe
-        [Lude.Text],
-    deleteOnTermination ::
-      Lude.Maybe Lude.Bool,
-    associatePublicIPAddress ::
-      Lude.Maybe Lude.Bool,
-    privateIPAddressConfigs ::
-      Lude.Maybe
-        [ScheduledInstancesPrivateIPAddressConfig],
-    networkInterfaceId ::
-      Lude.Maybe Lude.Text,
-    subnetId ::
-      Lude.Maybe Lude.Text,
-    ipv6AddressCount ::
-      Lude.Maybe Lude.Int,
-    privateIPAddress ::
-      Lude.Maybe Lude.Text,
-    secondaryPrivateIPAddressCount ::
-      Lude.Maybe Lude.Int,
-    description ::
-      Lude.Maybe Lude.Text,
-    deviceIndex ::
-      Lude.Maybe Lude.Int,
-    ipv6Addresses ::
-      Lude.Maybe
-        [ScheduledInstancesIPv6Address]
+  { -- | The IDs of the security groups.
+    groups :: Lude.Maybe [Lude.Text],
+    -- | Indicates whether to delete the interface when the instance is terminated.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+    associatePublicIPAddress :: Lude.Maybe Lude.Bool,
+    -- | The private IPv4 addresses.
+    privateIPAddressConfigs :: Lude.Maybe [ScheduledInstancesPrivateIPAddressConfig],
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The ID of the subnet.
+    subnetId :: Lude.Maybe Lude.Text,
+    -- | The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
+    ipv6AddressCount :: Lude.Maybe Lude.Int,
+    -- | The IPv4 address of the network interface within the subnet.
+    privateIPAddress :: Lude.Maybe Lude.Text,
+    -- | The number of secondary private IPv4 addresses.
+    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int,
+    -- | The description.
+    description :: Lude.Maybe Lude.Text,
+    -- | The index of the device for the network interface attachment.
+    deviceIndex :: Lude.Maybe Lude.Int,
+    -- | The specific IPv6 addresses from the subnet range.
+    ipv6Addresses :: Lude.Maybe [ScheduledInstancesIPv6Address]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstancesNetworkInterface' with the minimum fields required to make a request.
 --
--- * 'associatePublicIPAddress' - Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+-- * 'groups' - The IDs of the security groups.
 -- * 'deleteOnTermination' - Indicates whether to delete the interface when the instance is terminated.
+-- * 'associatePublicIPAddress' - Indicates whether to assign a public IPv4 address to instances launched in a VPC. The public IPv4 address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is @true@ .
+-- * 'privateIPAddressConfigs' - The private IPv4 addresses.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'subnetId' - The ID of the subnet.
+-- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
+-- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
+-- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses.
 -- * 'description' - The description.
 -- * 'deviceIndex' - The index of the device for the network interface attachment.
--- * 'groups' - The IDs of the security groups.
--- * 'ipv6AddressCount' - The number of IPv6 addresses to assign to the network interface. The IPv6 addresses are automatically selected from the subnet range.
 -- * 'ipv6Addresses' - The specific IPv6 addresses from the subnet range.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'privateIPAddress' - The IPv4 address of the network interface within the subnet.
--- * 'privateIPAddressConfigs' - The private IPv4 addresses.
--- * 'secondaryPrivateIPAddressCount' - The number of secondary private IPv4 addresses.
--- * 'subnetId' - The ID of the subnet.
 mkScheduledInstancesNetworkInterface ::
   ScheduledInstancesNetworkInterface
 mkScheduledInstancesNetworkInterface =

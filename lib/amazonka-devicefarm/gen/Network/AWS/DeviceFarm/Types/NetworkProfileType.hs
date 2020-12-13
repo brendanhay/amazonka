@@ -13,8 +13,8 @@
 module Network.AWS.DeviceFarm.Types.NetworkProfileType
   ( NetworkProfileType
       ( NetworkProfileType',
-        Curated,
-        Private
+        NPTCurated,
+        NPTPrivate
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype NetworkProfileType = NetworkProfileType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Curated :: NetworkProfileType
-pattern Curated = NetworkProfileType' "CURATED"
+pattern NPTCurated :: NetworkProfileType
+pattern NPTCurated = NetworkProfileType' "CURATED"
 
-pattern Private :: NetworkProfileType
-pattern Private = NetworkProfileType' "PRIVATE"
+pattern NPTPrivate :: NetworkProfileType
+pattern NPTPrivate = NetworkProfileType' "PRIVATE"
 
 {-# COMPLETE
-  Curated,
-  Private,
+  NPTCurated,
+  NPTPrivate,
   NetworkProfileType'
   #-}

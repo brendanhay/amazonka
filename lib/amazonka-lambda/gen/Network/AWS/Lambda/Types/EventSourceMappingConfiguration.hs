@@ -49,85 +49,75 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventSourceMappingConfiguration' smart constructor.
 data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
-  { eventSourceARN ::
-      Lude.Maybe Lude.Text,
-    state ::
-      Lude.Maybe Lude.Text,
-    startingPositionTimestamp ::
-      Lude.Maybe Lude.Timestamp,
-    functionARN ::
-      Lude.Maybe Lude.Text,
-    topics ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
-    queues ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
-    bisectBatchOnFunctionError ::
-      Lude.Maybe Lude.Bool,
-    uUId ::
-      Lude.Maybe Lude.Text,
-    parallelizationFactor ::
-      Lude.Maybe Lude.Natural,
-    lastProcessingResult ::
-      Lude.Maybe Lude.Text,
-    maximumRetryAttempts ::
-      Lude.Maybe Lude.Int,
-    batchSize ::
-      Lude.Maybe Lude.Natural,
-    stateTransitionReason ::
-      Lude.Maybe Lude.Text,
-    maximumBatchingWindowInSeconds ::
-      Lude.Maybe Lude.Natural,
-    sourceAccessConfigurations ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            SourceAccessConfiguration
-        ),
-    maximumRecordAgeInSeconds ::
-      Lude.Maybe Lude.Int,
-    lastModified ::
-      Lude.Maybe Lude.Timestamp,
-    destinationConfig ::
-      Lude.Maybe
-        DestinationConfig,
-    startingPosition ::
-      Lude.Maybe
-        EventSourcePosition
+  { -- | The Amazon Resource Name (ARN) of the event source.
+    eventSourceARN :: Lude.Maybe Lude.Text,
+    -- | The state of the event source mapping. It can be one of the following: @Creating@ , @Enabling@ , @Enabled@ , @Disabling@ , @Disabled@ , @Updating@ , or @Deleting@ .
+    state :: Lude.Maybe Lude.Text,
+    -- | With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
+    startingPositionTimestamp :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN of the Lambda function.
+    functionARN :: Lude.Maybe Lude.Text,
+    -- | (MSK) The name of the Kafka topic to consume.
+    topics :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | (MQ) The name of the Amazon MQ broker destination queue to consume.
+    queues :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | (Streams) If the function returns an error, split the batch in two and retry. The default value is false.
+    bisectBatchOnFunctionError :: Lude.Maybe Lude.Bool,
+    -- | The identifier of the event source mapping.
+    uUId :: Lude.Maybe Lude.Text,
+    -- | (Streams) The number of batches to process from each shard concurrently. The default value is 1.
+    parallelizationFactor :: Lude.Maybe Lude.Natural,
+    -- | The result of the last AWS Lambda invocation of your Lambda function.
+    lastProcessingResult :: Lude.Maybe Lude.Text,
+    -- | (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+    maximumRetryAttempts :: Lude.Maybe Lude.Int,
+    -- | The maximum number of items to retrieve in a single batch.
+    batchSize :: Lude.Maybe Lude.Natural,
+    -- | Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.
+    stateTransitionReason :: Lude.Maybe Lude.Text,
+    -- | (Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.
+    maximumBatchingWindowInSeconds :: Lude.Maybe Lude.Natural,
+    -- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
+    --
+    -- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+    -- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+    sourceAccessConfigurations :: Lude.Maybe (Lude.NonEmpty SourceAccessConfiguration),
+    -- | (Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+    maximumRecordAgeInSeconds :: Lude.Maybe Lude.Int,
+    -- | The date that the event source mapping was last updated, or its state changed.
+    lastModified :: Lude.Maybe Lude.Timestamp,
+    -- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+    destinationConfig :: Lude.Maybe DestinationConfig,
+    -- | The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
+    startingPosition :: Lude.Maybe EventSourcePosition
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventSourceMappingConfiguration' with the minimum fields required to make a request.
 --
--- * 'batchSize' - The maximum number of items to retrieve in a single batch.
--- * 'bisectBatchOnFunctionError' - (Streams) If the function returns an error, split the batch in two and retry. The default value is false.
--- * 'destinationConfig' - (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 -- * 'eventSourceARN' - The Amazon Resource Name (ARN) of the event source.
+-- * 'state' - The state of the event source mapping. It can be one of the following: @Creating@ , @Enabling@ , @Enabled@ , @Disabling@ , @Disabled@ , @Updating@ , or @Deleting@ .
+-- * 'startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
 -- * 'functionARN' - The ARN of the Lambda function.
--- * 'lastModified' - The date that the event source mapping was last updated, or its state changed.
--- * 'lastProcessingResult' - The result of the last AWS Lambda invocation of your Lambda function.
--- * 'maximumBatchingWindowInSeconds' - (Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.
--- * 'maximumRecordAgeInSeconds' - (Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
--- * 'maximumRetryAttempts' - (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
--- * 'parallelizationFactor' - (Streams) The number of batches to process from each shard concurrently. The default value is 1.
+-- * 'topics' - (MSK) The name of the Kafka topic to consume.
 -- * 'queues' - (MQ) The name of the Amazon MQ broker destination queue to consume.
+-- * 'bisectBatchOnFunctionError' - (Streams) If the function returns an error, split the batch in two and retry. The default value is false.
+-- * 'uUId' - The identifier of the event source mapping.
+-- * 'parallelizationFactor' - (Streams) The number of batches to process from each shard concurrently. The default value is 1.
+-- * 'lastProcessingResult' - The result of the last AWS Lambda invocation of your Lambda function.
+-- * 'maximumRetryAttempts' - (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+-- * 'batchSize' - The maximum number of items to retrieve in a single batch.
+-- * 'stateTransitionReason' - Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.
+-- * 'maximumBatchingWindowInSeconds' - (Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.
 -- * 'sourceAccessConfigurations' - (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
 --
 -- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
 -- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+-- * 'maximumRecordAgeInSeconds' - (Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.
+-- * 'lastModified' - The date that the event source mapping was last updated, or its state changed.
+-- * 'destinationConfig' - (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 -- * 'startingPosition' - The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. @AT_TIMESTAMP@ is only supported for Amazon Kinesis streams.
--- * 'startingPositionTimestamp' - With @StartingPosition@ set to @AT_TIMESTAMP@ , the time from which to start reading.
--- * 'state' - The state of the event source mapping. It can be one of the following: @Creating@ , @Enabling@ , @Enabled@ , @Disabling@ , @Disabled@ , @Updating@ , or @Deleting@ .
--- * 'stateTransitionReason' - Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.
--- * 'topics' - (MSK) The name of the Kafka topic to consume.
--- * 'uUId' - The identifier of the event source mapping.
 mkEventSourceMappingConfiguration ::
   EventSourceMappingConfiguration
 mkEventSourceMappingConfiguration =

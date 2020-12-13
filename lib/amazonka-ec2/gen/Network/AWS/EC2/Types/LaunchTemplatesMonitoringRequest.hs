@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplatesMonitoringRequest' smart constructor.
 newtype LaunchTemplatesMonitoringRequest = LaunchTemplatesMonitoringRequest'
-  { enabled ::
-      Lude.Maybe Lude.Bool
+  { -- | Specify @true@ to enable detailed monitoring. Otherwise, basic monitoring is enabled.
+    enabled :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplatesMonitoringRequest' with the minimum fields required to make a request.

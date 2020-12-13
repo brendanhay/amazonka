@@ -56,84 +56,115 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicationGroup' smart constructor.
 data ReplicationGroup = ReplicationGroup'
-  { authTokenLastModifiedDate ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The date the auth token was last modified
+    authTokenLastModifiedDate :: Lude.Maybe Lude.DateTime,
+    -- | The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ , @create-failed@ , @snapshotting@ .
     status :: Lude.Maybe Lude.Text,
+    -- | The name of the compute and memory capacity node type for each node in the replication group.
     cacheNodeType :: Lude.Maybe Lude.Text,
+    -- | A list of node groups in this replication group. For Redis (cluster mode disabled) replication groups, this is a single-element list. For Redis (cluster mode enabled) replication groups, the list contains an entry for each node group (shard).
     nodeGroups :: Lude.Maybe [NodeGroup],
+    -- | The cluster ID that is used as the daily snapshot source for the replication group.
     snapshottingClusterId :: Lude.Maybe Lude.Text,
+    -- | A flag indicating whether or not this replication group is cluster enabled; i.e., whether its data can be partitioned across multiple shards (API/CLI: node groups).
+    --
+    -- Valid values: @true@ | @false@
     clusterEnabled :: Lude.Maybe Lude.Bool,
+    -- | A flag that enables encryption at-rest when set to @true@ .
+    --
+    -- You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable encryption at-rest on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster.
+    -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+    -- Default: @false@
     atRestEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The ARN (Amazon Resource Name) of the replication group.
     arn :: Lude.Maybe Lude.Text,
+    -- | A flag that enables in-transit encryption when set to @true@ .
+    --
+    -- You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
+    -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
+    -- Default: @false@
     transitEncryptionEnabled :: Lude.Maybe Lude.Bool,
+    -- | The list of user group IDs that have access to the replication group.
     userGroupIds :: Lude.Maybe [Lude.Text],
+    -- | The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+    --
+    -- Example: @05:00-09:00@
+    -- If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
     snapshotWindow :: Lude.Maybe Lude.Text,
+    -- | The configuration endpoint for this replication group. Use the configuration endpoint to connect to this replication group.
     configurationEndpoint :: Lude.Maybe Endpoint,
+    -- | A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
+    --
+    -- Default: @false@
     authTokenEnabled :: Lude.Maybe Lude.Bool,
+    -- | The names of all the cache clusters that are part of this replication group.
     memberClusters :: Lude.Maybe [Lude.Text],
+    -- | The ID of the KMS key used to encrypt the disk in the cluster.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
     multiAZ :: Lude.Maybe MultiAZStatus,
+    -- | The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted.
+    --
+    -- /Important:/ If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are turned off.
     snapshotRetentionLimit :: Lude.Maybe Lude.Int,
+    -- | The user supplied description of the replication group.
     description :: Lude.Maybe Lude.Text,
+    -- | The identifier for the replication group.
     replicationGroupId :: Lude.Maybe Lude.Text,
-    pendingModifiedValues ::
-      Lude.Maybe ReplicationGroupPendingModifiedValues,
-    globalReplicationGroupInfo ::
-      Lude.Maybe GlobalReplicationGroupInfo,
+    -- | A group of settings to be applied to the replication group, either immediately or during the next maintenance window.
+    pendingModifiedValues :: Lude.Maybe ReplicationGroupPendingModifiedValues,
+    -- | The name of the Global Datastore and role of this replication group in the Global Datastore.
+    globalReplicationGroupInfo :: Lude.Maybe GlobalReplicationGroupInfo,
+    -- | The outpost ARNs of the replication group's member clusters.
     memberClustersOutpostARNs :: Lude.Maybe [Lude.Text],
+    -- | Indicates the status of automatic failover for this Redis replication group.
     automaticFailover :: Lude.Maybe AutomaticFailoverStatus
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationGroup' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN (Amazon Resource Name) of the replication group.
+-- * 'authTokenLastModifiedDate' - The date the auth token was last modified
+-- * 'status' - The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ , @create-failed@ , @snapshotting@ .
+-- * 'cacheNodeType' - The name of the compute and memory capacity node type for each node in the replication group.
+-- * 'nodeGroups' - A list of node groups in this replication group. For Redis (cluster mode disabled) replication groups, this is a single-element list. For Redis (cluster mode enabled) replication groups, the list contains an entry for each node group (shard).
+-- * 'snapshottingClusterId' - The cluster ID that is used as the daily snapshot source for the replication group.
+-- * 'clusterEnabled' - A flag indicating whether or not this replication group is cluster enabled; i.e., whether its data can be partitioned across multiple shards (API/CLI: node groups).
+--
+-- Valid values: @true@ | @false@
 -- * 'atRestEncryptionEnabled' - A flag that enables encryption at-rest when set to @true@ .
 --
 -- You cannot modify the value of @AtRestEncryptionEnabled@ after the cluster is created. To enable encryption at-rest on a cluster you must set @AtRestEncryptionEnabled@ to @true@ when you create a cluster.
 -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
 -- Default: @false@
--- * 'authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
---
--- Default: @false@
--- * 'authTokenLastModifiedDate' - The date the auth token was last modified
--- * 'automaticFailover' - Indicates the status of automatic failover for this Redis replication group.
--- * 'cacheNodeType' - The name of the compute and memory capacity node type for each node in the replication group.
--- * 'clusterEnabled' - A flag indicating whether or not this replication group is cluster enabled; i.e., whether its data can be partitioned across multiple shards (API/CLI: node groups).
---
--- Valid values: @true@ | @false@
--- * 'configurationEndpoint' - The configuration endpoint for this replication group. Use the configuration endpoint to connect to this replication group.
--- * 'description' - The user supplied description of the replication group.
--- * 'globalReplicationGroupInfo' - The name of the Global Datastore and role of this replication group in the Global Datastore.
--- * 'kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
--- * 'memberClusters' - The names of all the cache clusters that are part of this replication group.
--- * 'memberClustersOutpostARNs' - The outpost ARNs of the replication group's member clusters.
--- * 'multiAZ' - A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
--- * 'nodeGroups' - A list of node groups in this replication group. For Redis (cluster mode disabled) replication groups, this is a single-element list. For Redis (cluster mode enabled) replication groups, the list contains an entry for each node group (shard).
--- * 'pendingModifiedValues' - A group of settings to be applied to the replication group, either immediately or during the next maintenance window.
--- * 'replicationGroupId' - The identifier for the replication group.
--- * 'snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted.
---
--- /Important:/ If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are turned off.
--- * 'snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
---
--- Example: @05:00-09:00@
--- If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
--- * 'snapshottingClusterId' - The cluster ID that is used as the daily snapshot source for the replication group.
--- * 'status' - The current state of this replication group - @creating@ , @available@ , @modifying@ , @deleting@ , @create-failed@ , @snapshotting@ .
+-- * 'arn' - The ARN (Amazon Resource Name) of the replication group.
 -- * 'transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@ .
 --
 -- You cannot modify the value of @TransitEncryptionEnabled@ after the cluster is created. To enable in-transit encryption on a cluster you must set @TransitEncryptionEnabled@ to @true@ when you create a cluster.
 -- __Required:__ Only available when creating a replication group in an Amazon VPC using redis version @3.2.6@ , @4.x@ or later.
 -- Default: @false@
 -- * 'userGroupIds' - The list of user group IDs that have access to the replication group.
+-- * 'snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
+--
+-- Example: @05:00-09:00@
+-- If you do not specify this parameter, ElastiCache automatically chooses an appropriate time range.
+-- * 'configurationEndpoint' - The configuration endpoint for this replication group. Use the configuration endpoint to connect to this replication group.
+-- * 'authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis commands.
+--
+-- Default: @false@
+-- * 'memberClusters' - The names of all the cache clusters that are part of this replication group.
+-- * 'kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
+-- * 'multiAZ' - A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>
+-- * 'snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster snapshots before deleting them. For example, if you set @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is retained for 5 days before being deleted.
+--
+-- /Important:/ If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are turned off.
+-- * 'description' - The user supplied description of the replication group.
+-- * 'replicationGroupId' - The identifier for the replication group.
+-- * 'pendingModifiedValues' - A group of settings to be applied to the replication group, either immediately or during the next maintenance window.
+-- * 'globalReplicationGroupInfo' - The name of the Global Datastore and role of this replication group in the Global Datastore.
+-- * 'memberClustersOutpostARNs' - The outpost ARNs of the replication group's member clusters.
+-- * 'automaticFailover' - Indicates the status of automatic failover for this Redis replication group.
 mkReplicationGroup ::
   ReplicationGroup
 mkReplicationGroup =

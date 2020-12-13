@@ -13,8 +13,8 @@
 module Network.AWS.CertificateManager.Types.CertificateType
   ( CertificateType
       ( CertificateType',
-        AmazonIssued,
         Imported,
+        AmazonIssued,
         Private
       ),
   )
@@ -46,18 +46,18 @@ newtype CertificateType = CertificateType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AmazonIssued :: CertificateType
-pattern AmazonIssued = CertificateType' "AMAZON_ISSUED"
-
 pattern Imported :: CertificateType
 pattern Imported = CertificateType' "IMPORTED"
+
+pattern AmazonIssued :: CertificateType
+pattern AmazonIssued = CertificateType' "AMAZON_ISSUED"
 
 pattern Private :: CertificateType
 pattern Private = CertificateType' "PRIVATE"
 
 {-# COMPLETE
-  AmazonIssued,
   Imported,
+  AmazonIssued,
   Private,
   CertificateType'
   #-}

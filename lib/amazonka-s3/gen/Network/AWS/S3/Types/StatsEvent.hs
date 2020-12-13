@@ -29,14 +29,11 @@ import Network.AWS.S3.Types.Stats
 -- | Container for the Stats Event.
 --
 -- /See:/ 'mkStatsEvent' smart constructor.
-newtype StatsEvent = StatsEvent' {details :: Lude.Maybe Stats}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype StatsEvent = StatsEvent'
+  { -- | The Stats event details.
+    details :: Lude.Maybe Stats
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StatsEvent' with the minimum fields required to make a request.

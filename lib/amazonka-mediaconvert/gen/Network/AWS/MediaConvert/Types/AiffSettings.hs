@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAiffSettings' smart constructor.
 data AiffSettings = AiffSettings'
-  { bitDepth ::
-      Lude.Maybe Lude.Natural,
+  { -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
+    bitDepth :: Lude.Maybe Lude.Natural,
+    -- | Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
     channels :: Lude.Maybe Lude.Natural,
+    -- | Sample rate in hz.
     sampleRate :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AiffSettings' with the minimum fields required to make a request.

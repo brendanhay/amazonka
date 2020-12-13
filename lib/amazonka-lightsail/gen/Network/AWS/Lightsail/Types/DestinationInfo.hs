@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDestinationInfo' smart constructor.
 data DestinationInfo = DestinationInfo'
-  { service ::
-      Lude.Maybe Lude.Text,
+  { -- | The destination service of the record.
+    service :: Lude.Maybe Lude.Text,
+    -- | The ID of the resource created at the destination.
     id :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DestinationInfo' with the minimum fields required to make a request.
 --
--- * 'id' - The ID of the resource created at the destination.
 -- * 'service' - The destination service of the record.
+-- * 'id' - The ID of the resource created at the destination.
 mkDestinationInfo ::
   DestinationInfo
 mkDestinationInfo =

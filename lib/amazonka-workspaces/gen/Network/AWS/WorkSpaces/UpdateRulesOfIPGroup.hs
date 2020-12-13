@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.WorkSpaces.UpdateRulesOfIPGroup
     mkUpdateRulesOfIPGroup,
 
     -- ** Request lenses
-    uroigGroupId,
     uroigUserRules,
+    uroigGroupId,
 
     -- * Destructuring the response
     UpdateRulesOfIPGroupResponse (..),
@@ -39,39 +40,27 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'mkUpdateRulesOfIPGroup' smart constructor.
 data UpdateRulesOfIPGroup = UpdateRulesOfIPGroup'
-  { groupId ::
-      Lude.Text,
-    userRules :: [IPRuleItem]
+  { -- | One or more rules.
+    userRules :: [IPRuleItem],
+    -- | The identifier of the group.
+    groupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRulesOfIPGroup' with the minimum fields required to make a request.
 --
--- * 'groupId' - The identifier of the group.
 -- * 'userRules' - One or more rules.
+-- * 'groupId' - The identifier of the group.
 mkUpdateRulesOfIPGroup ::
   -- | 'groupId'
   Lude.Text ->
   UpdateRulesOfIPGroup
 mkUpdateRulesOfIPGroup pGroupId_ =
   UpdateRulesOfIPGroup'
-    { groupId = pGroupId_,
-      userRules = Lude.mempty
+    { userRules = Lude.mempty,
+      groupId = pGroupId_
     }
-
--- | The identifier of the group.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uroigGroupId :: Lens.Lens' UpdateRulesOfIPGroup Lude.Text
-uroigGroupId = Lens.lens (groupId :: UpdateRulesOfIPGroup -> Lude.Text) (\s a -> s {groupId = a} :: UpdateRulesOfIPGroup)
-{-# DEPRECATED uroigGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | One or more rules.
 --
@@ -79,6 +68,13 @@ uroigGroupId = Lens.lens (groupId :: UpdateRulesOfIPGroup -> Lude.Text) (\s a ->
 uroigUserRules :: Lens.Lens' UpdateRulesOfIPGroup [IPRuleItem]
 uroigUserRules = Lens.lens (userRules :: UpdateRulesOfIPGroup -> [IPRuleItem]) (\s a -> s {userRules = a} :: UpdateRulesOfIPGroup)
 {-# DEPRECATED uroigUserRules "Use generic-lens or generic-optics with 'userRules' instead." #-}
+
+-- | The identifier of the group.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uroigGroupId :: Lens.Lens' UpdateRulesOfIPGroup Lude.Text
+uroigGroupId = Lens.lens (groupId :: UpdateRulesOfIPGroup -> Lude.Text) (\s a -> s {groupId = a} :: UpdateRulesOfIPGroup)
+{-# DEPRECATED uroigGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 instance Lude.AWSRequest UpdateRulesOfIPGroup where
   type Rs UpdateRulesOfIPGroup = UpdateRulesOfIPGroupResponse
@@ -105,8 +101,8 @@ instance Lude.ToJSON UpdateRulesOfIPGroup where
   toJSON UpdateRulesOfIPGroup' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("GroupId" Lude..= groupId),
-            Lude.Just ("UserRules" Lude..= userRules)
+          [ Lude.Just ("UserRules" Lude..= userRules),
+            Lude.Just ("GroupId" Lude..= groupId)
           ]
       )
 
@@ -118,16 +114,10 @@ instance Lude.ToQuery UpdateRulesOfIPGroup where
 
 -- | /See:/ 'mkUpdateRulesOfIPGroupResponse' smart constructor.
 newtype UpdateRulesOfIPGroupResponse = UpdateRulesOfIPGroupResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateRulesOfIPGroupResponse' with the minimum fields required to make a request.

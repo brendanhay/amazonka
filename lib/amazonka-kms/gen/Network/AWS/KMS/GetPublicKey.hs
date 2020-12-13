@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.KMS.GetPublicKey
     mkGetPublicKey,
 
     -- ** Request lenses
-    gpkGrantTokens,
     gpkKeyId,
+    gpkGrantTokens,
 
     -- * Destructuring the response
     GetPublicKeyResponse (..),
@@ -60,24 +61,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetPublicKey' smart constructor.
 data GetPublicKey = GetPublicKey'
-  { grantTokens ::
-      Lude.Maybe [Lude.Text],
-    keyId :: Lude.Text
+  { -- | Identifies the asymmetric CMK that includes the public key.
+    --
+    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+    -- For example:
+    --
+    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    --
+    --     * Alias name: @alias/ExampleAlias@
+    --
+    --
+    --     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
+    --
+    --
+    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+    keyId :: Lude.Text,
+    -- | A list of grant tokens.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+    grantTokens :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicKey' with the minimum fields required to make a request.
 --
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 -- * 'keyId' - Identifies the asymmetric CMK that includes the public key.
 --
 -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
@@ -96,21 +108,15 @@ data GetPublicKey = GetPublicKey'
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+-- * 'grantTokens' - A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 mkGetPublicKey ::
   -- | 'keyId'
   Lude.Text ->
   GetPublicKey
 mkGetPublicKey pKeyId_ =
-  GetPublicKey' {grantTokens = Lude.Nothing, keyId = pKeyId_}
-
--- | A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
---
--- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkGrantTokens :: Lens.Lens' GetPublicKey (Lude.Maybe [Lude.Text])
-gpkGrantTokens = Lens.lens (grantTokens :: GetPublicKey -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: GetPublicKey)
-{-# DEPRECATED gpkGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+  GetPublicKey' {keyId = pKeyId_, grantTokens = Lude.Nothing}
 
 -- | Identifies the asymmetric CMK that includes the public key.
 --
@@ -135,6 +141,15 @@ gpkGrantTokens = Lens.lens (grantTokens :: GetPublicKey -> Lude.Maybe [Lude.Text
 gpkKeyId :: Lens.Lens' GetPublicKey Lude.Text
 gpkKeyId = Lens.lens (keyId :: GetPublicKey -> Lude.Text) (\s a -> s {keyId = a} :: GetPublicKey)
 {-# DEPRECATED gpkKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpkGrantTokens :: Lens.Lens' GetPublicKey (Lude.Maybe [Lude.Text])
+gpkGrantTokens = Lens.lens (grantTokens :: GetPublicKey -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: GetPublicKey)
+{-# DEPRECATED gpkGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
 
 instance Lude.AWSRequest GetPublicKey where
   type Rs GetPublicKey = GetPublicKeyResponse
@@ -167,8 +182,8 @@ instance Lude.ToJSON GetPublicKey where
   toJSON GetPublicKey' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("GrantTokens" Lude..=) Lude.<$> grantTokens,
-            Lude.Just ("KeyId" Lude..= keyId)
+          [ Lude.Just ("KeyId" Lude..= keyId),
+            ("GrantTokens" Lude..=) Lude.<$> grantTokens
           ]
       )
 
@@ -180,54 +195,52 @@ instance Lude.ToQuery GetPublicKey where
 
 -- | /See:/ 'mkGetPublicKeyResponse' smart constructor.
 data GetPublicKeyResponse = GetPublicKeyResponse'
-  { keyId ::
-      Lude.Maybe Lude.Text,
-    customerMasterKeySpec ::
-      Lude.Maybe CustomerMasterKeySpec,
-    encryptionAlgorithms ::
-      Lude.Maybe [EncryptionAlgorithmSpec],
+  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
+    keyId :: Lude.Maybe Lude.Text,
+    -- | The type of the of the public key that was downloaded.
+    customerMasterKeySpec :: Lude.Maybe CustomerMasterKeySpec,
+    -- | The encryption algorithms that AWS KMS supports for this key.
+    --
+    -- This information is critical. If a public key encrypts data outside of AWS KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.
+    -- This field appears in the response only when the @KeyUsage@ of the public key is @ENCRYPT_DECRYPT@ .
+    encryptionAlgorithms :: Lude.Maybe [EncryptionAlgorithmSpec],
+    -- | The exported public key.
+    --
+    -- The value is a DER-encoded X.509 public key, also known as @SubjectPublicKeyInfo@ (SPKI), as defined in <https://tools.ietf.org/html/rfc5280 RFC 5280> . When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
     publicKey :: Lude.Maybe Lude.Base64,
-    signingAlgorithms ::
-      Lude.Maybe [SigningAlgorithmSpec],
+    -- | The signing algorithms that AWS KMS supports for this key.
+    --
+    -- This field appears in the response only when the @KeyUsage@ of the public key is @SIGN_VERIFY@ .
+    signingAlgorithms :: Lude.Maybe [SigningAlgorithmSpec],
+    -- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
+    --
+    -- This information is critical. If a public key with @SIGN_VERIFY@ key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.
     keyUsage :: Lude.Maybe KeyUsageType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicKeyResponse' with the minimum fields required to make a request.
 --
+-- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
 -- * 'customerMasterKeySpec' - The type of the of the public key that was downloaded.
 -- * 'encryptionAlgorithms' - The encryption algorithms that AWS KMS supports for this key.
 --
 -- This information is critical. If a public key encrypts data outside of AWS KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.
 -- This field appears in the response only when the @KeyUsage@ of the public key is @ENCRYPT_DECRYPT@ .
--- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
--- * 'keyUsage' - The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
---
--- This information is critical. If a public key with @SIGN_VERIFY@ key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.
 -- * 'publicKey' - The exported public key.
 --
 -- The value is a DER-encoded X.509 public key, also known as @SubjectPublicKeyInfo@ (SPKI), as defined in <https://tools.ietf.org/html/rfc5280 RFC 5280> . When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
-
-----
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
-
--- * 'responseStatus' - The response status code.
-
+--
 -- * 'signingAlgorithms' - The signing algorithms that AWS KMS supports for this key.
-
 --
 -- This field appears in the response only when the @KeyUsage@ of the public key is @SIGN_VERIFY@ .
+-- * 'keyUsage' - The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
+--
+-- This information is critical. If a public key with @SIGN_VERIFY@ key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.
+-- * 'responseStatus' - The response status code.
 mkGetPublicKeyResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -13,8 +13,8 @@
 module Network.AWS.GuardDuty.Types.FilterAction
   ( FilterAction
       ( FilterAction',
-        Archive,
-        Noop
+        Noop,
+        Archive
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype FilterAction = FilterAction' Lude.Text
       Lude.ToHeader
     )
 
-pattern Archive :: FilterAction
-pattern Archive = FilterAction' "ARCHIVE"
-
 pattern Noop :: FilterAction
 pattern Noop = FilterAction' "NOOP"
 
+pattern Archive :: FilterAction
+pattern Archive = FilterAction' "ARCHIVE"
+
 {-# COMPLETE
-  Archive,
   Noop,
+  Archive,
   FilterAction'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,18 +24,18 @@ module Network.AWS.IAM.GetRolePolicy
     mkGetRolePolicy,
 
     -- ** Request lenses
-    grpRoleName,
     grpPolicyName,
+    grpRoleName,
 
     -- * Destructuring the response
     GetRolePolicyResponse (..),
     mkGetRolePolicyResponse,
 
     -- ** Response lenses
-    grprsResponseStatus,
-    grprsRoleName,
-    grprsPolicyName,
     grprsPolicyDocument,
+    grprsPolicyName,
+    grprsRoleName,
+    grprsResponseStatus,
   )
 where
 
@@ -46,16 +47,16 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRolePolicy' smart constructor.
 data GetRolePolicy = GetRolePolicy'
-  { roleName :: Lude.Text,
-    policyName :: Lude.Text
+  { -- | The name of the policy document to get.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    policyName :: Lude.Text,
+    -- | The name of the role associated with the policy.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRolePolicy' with the minimum fields required to make a request.
@@ -67,22 +68,13 @@ data GetRolePolicy = GetRolePolicy'
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 mkGetRolePolicy ::
-  -- | 'roleName'
-  Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
+  -- | 'roleName'
+  Lude.Text ->
   GetRolePolicy
-mkGetRolePolicy pRoleName_ pPolicyName_ =
-  GetRolePolicy' {roleName = pRoleName_, policyName = pPolicyName_}
-
--- | The name of the role associated with the policy.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpRoleName :: Lens.Lens' GetRolePolicy Lude.Text
-grpRoleName = Lens.lens (roleName :: GetRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: GetRolePolicy)
-{-# DEPRECATED grpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+mkGetRolePolicy pPolicyName_ pRoleName_ =
+  GetRolePolicy' {policyName = pPolicyName_, roleName = pRoleName_}
 
 -- | The name of the policy document to get.
 --
@@ -93,6 +85,15 @@ grpPolicyName :: Lens.Lens' GetRolePolicy Lude.Text
 grpPolicyName = Lens.lens (policyName :: GetRolePolicy -> Lude.Text) (\s a -> s {policyName = a} :: GetRolePolicy)
 {-# DEPRECATED grpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
+-- | The name of the role associated with the policy.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpRoleName :: Lens.Lens' GetRolePolicy Lude.Text
+grpRoleName = Lens.lens (roleName :: GetRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: GetRolePolicy)
+{-# DEPRECATED grpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
 instance Lude.AWSRequest GetRolePolicy where
   type Rs GetRolePolicy = GetRolePolicyResponse
   request = Req.postQuery iamService
@@ -101,10 +102,10 @@ instance Lude.AWSRequest GetRolePolicy where
       "GetRolePolicyResult"
       ( \s h x ->
           GetRolePolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "RoleName")
+            Lude.<$> (x Lude..@ "PolicyDocument")
             Lude.<*> (x Lude..@ "PolicyName")
-            Lude.<*> (x Lude..@ "PolicyDocument")
+            Lude.<*> (x Lude..@ "RoleName")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetRolePolicy where
@@ -118,27 +119,26 @@ instance Lude.ToQuery GetRolePolicy where
     Lude.mconcat
       [ "Action" Lude.=: ("GetRolePolicy" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "PolicyName" Lude.=: policyName
+        "PolicyName" Lude.=: policyName,
+        "RoleName" Lude.=: roleName
       ]
 
 -- | Contains the response to a successful 'GetRolePolicy' request.
 --
 -- /See:/ 'mkGetRolePolicyResponse' smart constructor.
 data GetRolePolicyResponse = GetRolePolicyResponse'
-  { responseStatus ::
-      Lude.Int,
-    roleName :: Lude.Text,
+  { -- | The policy document.
+    --
+    -- IAM stores policies in JSON format. However, resources that were created using AWS CloudFormation templates can be formatted in YAML. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
+    policyDocument :: Lude.Text,
+    -- | The name of the policy.
     policyName :: Lude.Text,
-    policyDocument :: Lude.Text
+    -- | The role the policy is associated with.
+    roleName :: Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRolePolicyResponse' with the minimum fields required to make a request.
@@ -147,50 +147,29 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
 --
 -- IAM stores policies in JSON format. However, resources that were created using AWS CloudFormation templates can be formatted in YAML. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
 -- * 'policyName' - The name of the policy.
--- * 'responseStatus' - The response status code.
 -- * 'roleName' - The role the policy is associated with.
+-- * 'responseStatus' - The response status code.
 mkGetRolePolicyResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'roleName'
+  -- | 'policyDocument'
   Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
-  -- | 'policyDocument'
+  -- | 'roleName'
   Lude.Text ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetRolePolicyResponse
 mkGetRolePolicyResponse
-  pResponseStatus_
-  pRoleName_
+  pPolicyDocument_
   pPolicyName_
-  pPolicyDocument_ =
+  pRoleName_
+  pResponseStatus_ =
     GetRolePolicyResponse'
-      { responseStatus = pResponseStatus_,
-        roleName = pRoleName_,
+      { policyDocument = pPolicyDocument_,
         policyName = pPolicyName_,
-        policyDocument = pPolicyDocument_
+        roleName = pRoleName_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprsResponseStatus :: Lens.Lens' GetRolePolicyResponse Lude.Int
-grprsResponseStatus = Lens.lens (responseStatus :: GetRolePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRolePolicyResponse)
-{-# DEPRECATED grprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
-
--- | The role the policy is associated with.
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprsRoleName :: Lens.Lens' GetRolePolicyResponse Lude.Text
-grprsRoleName = Lens.lens (roleName :: GetRolePolicyResponse -> Lude.Text) (\s a -> s {roleName = a} :: GetRolePolicyResponse)
-{-# DEPRECATED grprsRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
--- | The name of the policy.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprsPolicyName :: Lens.Lens' GetRolePolicyResponse Lude.Text
-grprsPolicyName = Lens.lens (policyName :: GetRolePolicyResponse -> Lude.Text) (\s a -> s {policyName = a} :: GetRolePolicyResponse)
-{-# DEPRECATED grprsPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy document.
 --
@@ -200,3 +179,24 @@ grprsPolicyName = Lens.lens (policyName :: GetRolePolicyResponse -> Lude.Text) (
 grprsPolicyDocument :: Lens.Lens' GetRolePolicyResponse Lude.Text
 grprsPolicyDocument = Lens.lens (policyDocument :: GetRolePolicyResponse -> Lude.Text) (\s a -> s {policyDocument = a} :: GetRolePolicyResponse)
 {-# DEPRECATED grprsPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
+
+-- | The name of the policy.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsPolicyName :: Lens.Lens' GetRolePolicyResponse Lude.Text
+grprsPolicyName = Lens.lens (policyName :: GetRolePolicyResponse -> Lude.Text) (\s a -> s {policyName = a} :: GetRolePolicyResponse)
+{-# DEPRECATED grprsPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+-- | The role the policy is associated with.
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsRoleName :: Lens.Lens' GetRolePolicyResponse Lude.Text
+grprsRoleName = Lens.lens (roleName :: GetRolePolicyResponse -> Lude.Text) (\s a -> s {roleName = a} :: GetRolePolicyResponse)
+{-# DEPRECATED grprsRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grprsResponseStatus :: Lens.Lens' GetRolePolicyResponse Lude.Int
+grprsResponseStatus = Lens.lens (responseStatus :: GetRolePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRolePolicyResponse)
+{-# DEPRECATED grprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

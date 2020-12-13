@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,23 +40,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRemoveListenerCertificates' smart constructor.
 data RemoveListenerCertificates = RemoveListenerCertificates'
-  { listenerARN ::
-      Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the listener.
+    listenerARN :: Lude.Text,
+    -- | The certificate to remove. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
     certificates :: [Certificate]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveListenerCertificates' with the minimum fields required to make a request.
 --
--- * 'certificates' - The certificate to remove. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
 -- * 'listenerARN' - The Amazon Resource Name (ARN) of the listener.
+-- * 'certificates' - The certificate to remove. You can specify one certificate per call. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
 mkRemoveListenerCertificates ::
   -- | 'listenerARN'
   Lude.Text ->
@@ -111,16 +107,10 @@ instance Lude.ToQuery RemoveListenerCertificates where
 
 -- | /See:/ 'mkRemoveListenerCertificatesResponse' smart constructor.
 newtype RemoveListenerCertificatesResponse = RemoveListenerCertificatesResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoveListenerCertificatesResponse' with the minimum fields required to make a request.

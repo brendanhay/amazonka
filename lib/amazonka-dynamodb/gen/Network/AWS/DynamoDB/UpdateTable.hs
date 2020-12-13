@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,8 +42,8 @@ module Network.AWS.DynamoDB.UpdateTable
     utReplicaUpdates,
     utGlobalSecondaryIndexUpdates,
     utBillingMode,
-    utStreamSpecification,
     utTableName,
+    utStreamSpecification,
 
     -- * Destructuring the response
     UpdateTableResponse (..),
@@ -64,39 +65,51 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { attributeDefinitions ::
-      Lude.Maybe [AttributeDefinition],
+  { -- | An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, @AttributeDefinitions@ must include the key element(s) of the new index.
+    attributeDefinitions :: Lude.Maybe [AttributeDefinition],
+    -- | The new provisioned throughput settings for the specified table or index.
     provisionedThroughput :: Lude.Maybe ProvisionedThroughput,
+    -- | The new server-side encryption settings for the specified table.
     sSESpecification :: Lude.Maybe SSESpecification,
-    replicaUpdates ::
-      Lude.Maybe (Lude.NonEmpty ReplicationGroupUpdate),
-    globalSecondaryIndexUpdates ::
-      Lude.Maybe [GlobalSecondaryIndexUpdate],
+    -- | A list of replica update actions (create, delete, or update) for the table.
+    replicaUpdates :: Lude.Maybe (Lude.NonEmpty ReplicationGroupUpdate),
+    -- | An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:
+    --
+    --
+    --     * @Create@ - add a new global secondary index to the table.
+    --
+    --
+    --     * @Update@ - modify the provisioned throughput settings of an existing global secondary index.
+    --
+    --
+    --     * @Delete@ - remove a global secondary index from the table.
+    --
+    --
+    -- You can create or delete only one global secondary index per @UpdateTable@ operation.
+    -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/ .
+    globalSecondaryIndexUpdates :: Lude.Maybe [GlobalSecondaryIndexUpdate],
+    -- | Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.
+    --
+    --
+    --     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
+    --
+    --
+    --     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
     billingMode :: Lude.Maybe BillingMode,
-    streamSpecification :: Lude.Maybe StreamSpecification,
-    tableName :: Lude.Text
+    -- | The name of the table to be updated.
+    tableName :: Lude.Text,
+    -- | Represents the DynamoDB Streams configuration for the table.
+    streamSpecification :: Lude.Maybe StreamSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTable' with the minimum fields required to make a request.
 --
 -- * 'attributeDefinitions' - An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, @AttributeDefinitions@ must include the key element(s) of the new index.
--- * 'billingMode' - Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.
---
---
---     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
---
---
---     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
---
---
+-- * 'provisionedThroughput' - The new provisioned throughput settings for the specified table or index.
+-- * 'sSESpecification' - The new server-side encryption settings for the specified table.
+-- * 'replicaUpdates' - A list of replica update actions (create, delete, or update) for the table.
 -- * 'globalSecondaryIndexUpdates' - An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:
 --
 --
@@ -111,11 +124,17 @@ data UpdateTable = UpdateTable'
 --
 -- You can create or delete only one global secondary index per @UpdateTable@ operation.
 -- For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes> in the /Amazon DynamoDB Developer Guide/ .
--- * 'provisionedThroughput' - The new provisioned throughput settings for the specified table or index.
--- * 'replicaUpdates' - A list of replica update actions (create, delete, or update) for the table.
--- * 'sSESpecification' - The new server-side encryption settings for the specified table.
--- * 'streamSpecification' - Represents the DynamoDB Streams configuration for the table.
+-- * 'billingMode' - Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.
+--
+--
+--     * @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable workloads. @PROVISIONED@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode> .
+--
+--
+--     * @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode> .
+--
+--
 -- * 'tableName' - The name of the table to be updated.
+-- * 'streamSpecification' - Represents the DynamoDB Streams configuration for the table.
 mkUpdateTable ::
   -- | 'tableName'
   Lude.Text ->
@@ -128,8 +147,8 @@ mkUpdateTable pTableName_ =
       replicaUpdates = Lude.Nothing,
       globalSecondaryIndexUpdates = Lude.Nothing,
       billingMode = Lude.Nothing,
-      streamSpecification = Lude.Nothing,
-      tableName = pTableName_
+      tableName = pTableName_,
+      streamSpecification = Lude.Nothing
     }
 
 -- | An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, @AttributeDefinitions@ must include the key element(s) of the new index.
@@ -195,19 +214,19 @@ utBillingMode :: Lens.Lens' UpdateTable (Lude.Maybe BillingMode)
 utBillingMode = Lens.lens (billingMode :: UpdateTable -> Lude.Maybe BillingMode) (\s a -> s {billingMode = a} :: UpdateTable)
 {-# DEPRECATED utBillingMode "Use generic-lens or generic-optics with 'billingMode' instead." #-}
 
--- | Represents the DynamoDB Streams configuration for the table.
---
--- /Note:/ Consider using 'streamSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utStreamSpecification :: Lens.Lens' UpdateTable (Lude.Maybe StreamSpecification)
-utStreamSpecification = Lens.lens (streamSpecification :: UpdateTable -> Lude.Maybe StreamSpecification) (\s a -> s {streamSpecification = a} :: UpdateTable)
-{-# DEPRECATED utStreamSpecification "Use generic-lens or generic-optics with 'streamSpecification' instead." #-}
-
 -- | The name of the table to be updated.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utTableName :: Lens.Lens' UpdateTable Lude.Text
 utTableName = Lens.lens (tableName :: UpdateTable -> Lude.Text) (\s a -> s {tableName = a} :: UpdateTable)
 {-# DEPRECATED utTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
+-- | Represents the DynamoDB Streams configuration for the table.
+--
+-- /Note:/ Consider using 'streamSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utStreamSpecification :: Lens.Lens' UpdateTable (Lude.Maybe StreamSpecification)
+utStreamSpecification = Lens.lens (streamSpecification :: UpdateTable -> Lude.Maybe StreamSpecification) (\s a -> s {streamSpecification = a} :: UpdateTable)
+{-# DEPRECATED utStreamSpecification "Use generic-lens or generic-optics with 'streamSpecification' instead." #-}
 
 instance Lude.AWSRequest UpdateTable where
   type Rs UpdateTable = UpdateTableResponse
@@ -242,8 +261,8 @@ instance Lude.ToJSON UpdateTable where
             ("GlobalSecondaryIndexUpdates" Lude..=)
               Lude.<$> globalSecondaryIndexUpdates,
             ("BillingMode" Lude..=) Lude.<$> billingMode,
-            ("StreamSpecification" Lude..=) Lude.<$> streamSpecification,
-            Lude.Just ("TableName" Lude..= tableName)
+            Lude.Just ("TableName" Lude..= tableName),
+            ("StreamSpecification" Lude..=) Lude.<$> streamSpecification
           ]
       )
 
@@ -257,23 +276,18 @@ instance Lude.ToQuery UpdateTable where
 --
 -- /See:/ 'mkUpdateTableResponse' smart constructor.
 data UpdateTableResponse = UpdateTableResponse'
-  { tableDescription ::
-      Lude.Maybe TableDescription,
+  { -- | Represents the properties of the table.
+    tableDescription :: Lude.Maybe TableDescription,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tableDescription' - Represents the properties of the table.
+-- * 'responseStatus' - The response status code.
 mkUpdateTableResponse ::
   -- | 'responseStatus'
   Lude.Int ->

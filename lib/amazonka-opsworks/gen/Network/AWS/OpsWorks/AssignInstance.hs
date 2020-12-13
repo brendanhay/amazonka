@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,16 +49,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAssignInstance' smart constructor.
 data AssignInstance = AssignInstance'
-  { instanceId :: Lude.Text,
+  { -- | The instance ID.
+    instanceId :: Lude.Text,
+    -- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
     layerIds :: [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignInstance' with the minimum fields required to make a request.
@@ -121,13 +118,7 @@ instance Lude.ToQuery AssignInstance where
 
 -- | /See:/ 'mkAssignInstanceResponse' smart constructor.
 data AssignInstanceResponse = AssignInstanceResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignInstanceResponse' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.APIGateway.DeleteDocumentationVersion
     mkDeleteDocumentationVersion,
 
     -- ** Request lenses
-    ddvRestAPIId,
     ddvDocumentationVersion,
+    ddvRestAPIId,
 
     -- * Destructuring the response
     DeleteDocumentationVersionResponse (..),
@@ -38,17 +39,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
-  { restAPIId ::
-      Lude.Text,
-    documentationVersion :: Lude.Text
+  { -- | [Required] The version identifier of a to-be-deleted documentation snapshot.
+    documentationVersion :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentationVersion' with the minimum fields required to make a request.
@@ -56,23 +52,17 @@ data DeleteDocumentationVersion = DeleteDocumentationVersion'
 -- * 'documentationVersion' - [Required] The version identifier of a to-be-deleted documentation snapshot.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkDeleteDocumentationVersion ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'documentationVersion'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   DeleteDocumentationVersion
-mkDeleteDocumentationVersion pRestAPIId_ pDocumentationVersion_ =
+mkDeleteDocumentationVersion pDocumentationVersion_ pRestAPIId_ =
   DeleteDocumentationVersion'
-    { restAPIId = pRestAPIId_,
-      documentationVersion = pDocumentationVersion_
+    { documentationVersion =
+        pDocumentationVersion_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvRestAPIId :: Lens.Lens' DeleteDocumentationVersion Lude.Text
-ddvRestAPIId = Lens.lens (restAPIId :: DeleteDocumentationVersion -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteDocumentationVersion)
-{-# DEPRECATED ddvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The version identifier of a to-be-deleted documentation snapshot.
 --
@@ -80,6 +70,13 @@ ddvRestAPIId = Lens.lens (restAPIId :: DeleteDocumentationVersion -> Lude.Text) 
 ddvDocumentationVersion :: Lens.Lens' DeleteDocumentationVersion Lude.Text
 ddvDocumentationVersion = Lens.lens (documentationVersion :: DeleteDocumentationVersion -> Lude.Text) (\s a -> s {documentationVersion = a} :: DeleteDocumentationVersion)
 {-# DEPRECATED ddvDocumentationVersion "Use generic-lens or generic-optics with 'documentationVersion' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvRestAPIId :: Lens.Lens' DeleteDocumentationVersion Lude.Text
+ddvRestAPIId = Lens.lens (restAPIId :: DeleteDocumentationVersion -> Lude.Text) (\s a -> s {restAPIId = a} :: DeleteDocumentationVersion)
+{-# DEPRECATED ddvRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest DeleteDocumentationVersion where
   type
@@ -109,13 +106,7 @@ instance Lude.ToQuery DeleteDocumentationVersion where
 
 -- | /See:/ 'mkDeleteDocumentationVersionResponse' smart constructor.
 data DeleteDocumentationVersionResponse = DeleteDocumentationVersionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDocumentationVersionResponse' with the minimum fields required to make a request.

@@ -13,18 +13,18 @@
 module Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
   ( ServiceNamespace
       ( ServiceNamespace',
-        Appstream,
-        Cassandra,
-        Comprehend,
-        CustomResource,
-        Dynamodb,
-        EC2,
         Ecs,
         Elasticmapreduce,
-        Kafka,
-        Lambda,
+        EC2,
+        Appstream,
+        Dynamodb,
         RDS,
-        Sagemaker
+        Sagemaker,
+        CustomResource,
+        Comprehend,
+        Lambda,
+        Cassandra,
+        Kafka
       ),
   )
 where
@@ -55,35 +55,20 @@ newtype ServiceNamespace = ServiceNamespace' Lude.Text
       Lude.ToHeader
     )
 
-pattern Appstream :: ServiceNamespace
-pattern Appstream = ServiceNamespace' "appstream"
-
-pattern Cassandra :: ServiceNamespace
-pattern Cassandra = ServiceNamespace' "cassandra"
-
-pattern Comprehend :: ServiceNamespace
-pattern Comprehend = ServiceNamespace' "comprehend"
-
-pattern CustomResource :: ServiceNamespace
-pattern CustomResource = ServiceNamespace' "custom-resource"
-
-pattern Dynamodb :: ServiceNamespace
-pattern Dynamodb = ServiceNamespace' "dynamodb"
-
-pattern EC2 :: ServiceNamespace
-pattern EC2 = ServiceNamespace' "ec2"
-
 pattern Ecs :: ServiceNamespace
 pattern Ecs = ServiceNamespace' "ecs"
 
 pattern Elasticmapreduce :: ServiceNamespace
 pattern Elasticmapreduce = ServiceNamespace' "elasticmapreduce"
 
-pattern Kafka :: ServiceNamespace
-pattern Kafka = ServiceNamespace' "kafka"
+pattern EC2 :: ServiceNamespace
+pattern EC2 = ServiceNamespace' "ec2"
 
-pattern Lambda :: ServiceNamespace
-pattern Lambda = ServiceNamespace' "lambda"
+pattern Appstream :: ServiceNamespace
+pattern Appstream = ServiceNamespace' "appstream"
+
+pattern Dynamodb :: ServiceNamespace
+pattern Dynamodb = ServiceNamespace' "dynamodb"
 
 pattern RDS :: ServiceNamespace
 pattern RDS = ServiceNamespace' "rds"
@@ -91,18 +76,33 @@ pattern RDS = ServiceNamespace' "rds"
 pattern Sagemaker :: ServiceNamespace
 pattern Sagemaker = ServiceNamespace' "sagemaker"
 
+pattern CustomResource :: ServiceNamespace
+pattern CustomResource = ServiceNamespace' "custom-resource"
+
+pattern Comprehend :: ServiceNamespace
+pattern Comprehend = ServiceNamespace' "comprehend"
+
+pattern Lambda :: ServiceNamespace
+pattern Lambda = ServiceNamespace' "lambda"
+
+pattern Cassandra :: ServiceNamespace
+pattern Cassandra = ServiceNamespace' "cassandra"
+
+pattern Kafka :: ServiceNamespace
+pattern Kafka = ServiceNamespace' "kafka"
+
 {-# COMPLETE
-  Appstream,
-  Cassandra,
-  Comprehend,
-  CustomResource,
-  Dynamodb,
-  EC2,
   Ecs,
   Elasticmapreduce,
-  Kafka,
-  Lambda,
+  EC2,
+  Appstream,
+  Dynamodb,
   RDS,
   Sagemaker,
+  CustomResource,
+  Comprehend,
+  Lambda,
+  Cassandra,
+  Kafka,
   ServiceNamespace'
   #-}

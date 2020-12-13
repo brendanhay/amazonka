@@ -33,26 +33,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUpgradeHistory' smart constructor.
 data UpgradeHistory = UpgradeHistory'
-  { upgradeStatus ::
-      Lude.Maybe UpgradeStatus,
+  { -- | The overall status of the update. The status can take one of the following values:
+    --
+    --     * In Progress
+    --
+    --     * Succeeded
+    --
+    --     * Succeeded with Issues
+    --
+    --     * Failed
+    upgradeStatus :: Lude.Maybe UpgradeStatus,
+    -- | A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
     stepsList :: Lude.Maybe [UpgradeStepItem],
+    -- | A string that describes the update briefly
     upgradeName :: Lude.Maybe Lude.Text,
+    -- | UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
     startTimestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpgradeHistory' with the minimum fields required to make a request.
 --
--- * 'startTimestamp' - UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
--- * 'stepsList' - A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
--- * 'upgradeName' - A string that describes the update briefly
 -- * 'upgradeStatus' - The overall status of the update. The status can take one of the following values:
 --
 --     * In Progress
@@ -62,6 +64,11 @@ data UpgradeHistory = UpgradeHistory'
 --     * Succeeded with Issues
 --
 --     * Failed
+--
+--
+-- * 'stepsList' - A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+-- * 'upgradeName' - A string that describes the update briefly
+-- * 'startTimestamp' - UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
 mkUpgradeHistory ::
   UpgradeHistory
 mkUpgradeHistory =

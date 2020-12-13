@@ -42,20 +42,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRequestCancelActivityTaskDecisionAttributes' smart constructor.
 newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes'
-  { activityId ::
-      Lude.Text
+  { -- | The @activityId@ of the activity task to be canceled.
+    activityId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestCancelActivityTaskDecisionAttributes' with the minimum fields required to make a request.
 --

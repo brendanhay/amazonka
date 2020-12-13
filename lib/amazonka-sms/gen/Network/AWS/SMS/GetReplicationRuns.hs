@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.SMS.GetReplicationRuns
     mkGetReplicationRuns,
 
     -- ** Request lenses
+    grrReplicationJobId,
     grrNextToken,
     grrMaxResults,
-    grrReplicationJobId,
 
     -- * Destructuring the response
     GetReplicationRunsResponse (..),
@@ -46,35 +47,38 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkGetReplicationRuns' smart constructor.
 data GetReplicationRuns = GetReplicationRuns'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    replicationJobId :: Lude.Text
+  { -- | The ID of the replication job.
+    replicationJobId :: Lude.Text,
+    -- | The token for the next set of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReplicationRuns' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
--- * 'nextToken' - The token for the next set of results.
 -- * 'replicationJobId' - The ID of the replication job.
+-- * 'nextToken' - The token for the next set of results.
+-- * 'maxResults' - The maximum number of results to return in a single call. The default value is 50. To retrieve the remaining results, make another call with the returned @NextToken@ value.
 mkGetReplicationRuns ::
   -- | 'replicationJobId'
   Lude.Text ->
   GetReplicationRuns
 mkGetReplicationRuns pReplicationJobId_ =
   GetReplicationRuns'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      replicationJobId = pReplicationJobId_
+    { replicationJobId = pReplicationJobId_,
+      nextToken = Lude.Nothing,
+      maxResults = Lude.Nothing
     }
+
+-- | The ID of the replication job.
+--
+-- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grrReplicationJobId :: Lens.Lens' GetReplicationRuns Lude.Text
+grrReplicationJobId = Lens.lens (replicationJobId :: GetReplicationRuns -> Lude.Text) (\s a -> s {replicationJobId = a} :: GetReplicationRuns)
+{-# DEPRECATED grrReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
 -- | The token for the next set of results.
 --
@@ -89,13 +93,6 @@ grrNextToken = Lens.lens (nextToken :: GetReplicationRuns -> Lude.Maybe Lude.Tex
 grrMaxResults :: Lens.Lens' GetReplicationRuns (Lude.Maybe Lude.Int)
 grrMaxResults = Lens.lens (maxResults :: GetReplicationRuns -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetReplicationRuns)
 {-# DEPRECATED grrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The ID of the replication job.
---
--- /Note:/ Consider using 'replicationJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrReplicationJobId :: Lens.Lens' GetReplicationRuns Lude.Text
-grrReplicationJobId = Lens.lens (replicationJobId :: GetReplicationRuns -> Lude.Text) (\s a -> s {replicationJobId = a} :: GetReplicationRuns)
-{-# DEPRECATED grrReplicationJobId "Use generic-lens or generic-optics with 'replicationJobId' instead." #-}
 
 instance Page.AWSPager GetReplicationRuns where
   page rq rs
@@ -136,9 +133,9 @@ instance Lude.ToJSON GetReplicationRuns where
   toJSON GetReplicationRuns' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("replicationJobId" Lude..= replicationJobId)
+          [ Lude.Just ("replicationJobId" Lude..= replicationJobId),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -150,26 +147,22 @@ instance Lude.ToQuery GetReplicationRuns where
 
 -- | /See:/ 'mkGetReplicationRunsResponse' smart constructor.
 data GetReplicationRunsResponse = GetReplicationRunsResponse'
-  { replicationJob ::
-      Lude.Maybe ReplicationJob,
+  { -- | Information about the replication job.
+    replicationJob :: Lude.Maybe ReplicationJob,
+    -- | The token required to retrieve the next set of results. This value is null when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
-    replicationRunList ::
-      Lude.Maybe [ReplicationRun],
+    -- | Information about the replication runs.
+    replicationRunList :: Lude.Maybe [ReplicationRun],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetReplicationRunsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
 -- * 'replicationJob' - Information about the replication job.
+-- * 'nextToken' - The token required to retrieve the next set of results. This value is null when there are no more results to return.
 -- * 'replicationRunList' - Information about the replication runs.
 -- * 'responseStatus' - The response status code.
 mkGetReplicationRunsResponse ::

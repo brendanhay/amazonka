@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -94,29 +95,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeFleetEvents' smart constructor.
 data DescribeFleetEvents = DescribeFleetEvents'
-  { startTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+    startTime :: Lude.Maybe Lude.Timestamp,
+    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
     endTime :: Lude.Maybe Lude.Timestamp,
+    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
     limit :: Lude.Maybe Lude.Natural,
+    -- | A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
     fleetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetEvents' with the minimum fields required to make a request.
 --
--- * 'endTime' - Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
--- * 'fleetId' - A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
--- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 -- * 'startTime' - Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+-- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+-- * 'endTime' - Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+-- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+-- * 'fleetId' - A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
 mkDescribeFleetEvents ::
   -- | 'fleetId'
   Lude.Text ->
@@ -219,24 +218,20 @@ instance Lude.ToQuery DescribeFleetEvents where
 --
 -- /See:/ 'mkDescribeFleetEventsResponse' smart constructor.
 data DescribeFleetEventsResponse = DescribeFleetEventsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A collection of objects containing event log entries for the specified fleet.
     events :: Lude.Maybe [Event],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeFleetEventsResponse' with the minimum fields required to make a request.
 --
--- * 'events' - A collection of objects containing event log entries for the specified fleet.
 -- * 'nextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+-- * 'events' - A collection of objects containing event log entries for the specified fleet.
 -- * 'responseStatus' - The response status code.
 mkDescribeFleetEventsResponse ::
   -- | 'responseStatus'

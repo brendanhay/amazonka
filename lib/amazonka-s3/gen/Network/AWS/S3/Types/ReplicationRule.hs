@@ -17,6 +17,8 @@ module Network.AWS.S3.Types.ReplicationRule
     mkReplicationRule,
 
     -- * Lenses
+    rrStatus,
+    rrDestination,
     rrDeleteMarkerReplication,
     rrPriority,
     rrPrefix,
@@ -24,8 +26,6 @@ module Network.AWS.S3.Types.ReplicationRule
     rrId,
     rrFilter,
     rrSourceSelectionCriteria,
-    rrStatus,
-    rrDestination,
   )
 where
 
@@ -43,36 +43,40 @@ import Network.AWS.S3.Types.SourceSelectionCriteria
 --
 -- /See:/ 'mkReplicationRule' smart constructor.
 data ReplicationRule = ReplicationRule'
-  { deleteMarkerReplication ::
-      Lude.Maybe DeleteMarkerReplication,
+  { -- | Specifies whether the rule is enabled.
+    status :: ReplicationRuleStatus,
+    -- | A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+    destination :: Destination,
+    deleteMarkerReplication :: Lude.Maybe DeleteMarkerReplication,
+    -- | The priority associated with the rule. If you specify multiple rules in a replication configuration, Amazon S3 prioritizes the rules to prevent conflicts when filtering. If two or more rules identify the same object based on a specified filter, the rule with higher priority takes precedence. For example:
+    --
+    --
+    --     * Same object quality prefix-based filter criteria if prefixes you specified in multiple rules overlap
+    --
+    --
+    --     * Same object qualify tag-based filter criteria specified in multiple rules
+    --
+    --
+    -- For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication> in the /Amazon Simple Storage Service Developer Guide/ .
     priority :: Lude.Maybe Lude.Int,
+    -- | An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.
     prefix :: Lude.Maybe Lude.Text,
-    existingObjectReplication ::
-      Lude.Maybe ExistingObjectReplication,
+    -- |
+    existingObjectReplication :: Lude.Maybe ExistingObjectReplication,
+    -- | A unique identifier for the rule. The maximum value is 255 characters.
     id :: Lude.Maybe Lude.Text,
     filter :: Lude.Maybe ReplicationRuleFilter,
-    sourceSelectionCriteria ::
-      Lude.Maybe SourceSelectionCriteria,
-    status :: ReplicationRuleStatus,
-    destination :: Destination
+    -- | A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service (SSE-KMS).
+    sourceSelectionCriteria :: Lude.Maybe SourceSelectionCriteria
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicationRule' with the minimum fields required to make a request.
 --
--- * 'deleteMarkerReplication' - Undocumented field.
+-- * 'status' - Specifies whether the rule is enabled.
 -- * 'destination' - A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
--- * 'existingObjectReplication' -
--- * 'filter' - Undocumented field.
--- * 'id' - A unique identifier for the rule. The maximum value is 255 characters.
--- * 'prefix' - An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.
+-- * 'deleteMarkerReplication' -
 -- * 'priority' - The priority associated with the rule. If you specify multiple rules in a replication configuration, Amazon S3 prioritizes the rules to prevent conflicts when filtering. If two or more rules identify the same object based on a specified filter, the rule with higher priority takes precedence. For example:
 --
 --
@@ -83,8 +87,11 @@ data ReplicationRule = ReplicationRule'
 --
 --
 -- For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication> in the /Amazon Simple Storage Service Developer Guide/ .
+-- * 'prefix' - An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.
+-- * 'existingObjectReplication' -
+-- * 'id' - A unique identifier for the rule. The maximum value is 255 characters.
+-- * 'filter' -
 -- * 'sourceSelectionCriteria' - A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service (SSE-KMS).
--- * 'status' - Specifies whether the rule is enabled.
 mkReplicationRule ::
   -- | 'status'
   ReplicationRuleStatus ->
@@ -93,16 +100,30 @@ mkReplicationRule ::
   ReplicationRule
 mkReplicationRule pStatus_ pDestination_ =
   ReplicationRule'
-    { deleteMarkerReplication = Lude.Nothing,
+    { status = pStatus_,
+      destination = pDestination_,
+      deleteMarkerReplication = Lude.Nothing,
       priority = Lude.Nothing,
       prefix = Lude.Nothing,
       existingObjectReplication = Lude.Nothing,
       id = Lude.Nothing,
       filter = Lude.Nothing,
-      sourceSelectionCriteria = Lude.Nothing,
-      status = pStatus_,
-      destination = pDestination_
+      sourceSelectionCriteria = Lude.Nothing
     }
+
+-- | Specifies whether the rule is enabled.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrStatus :: Lens.Lens' ReplicationRule ReplicationRuleStatus
+rrStatus = Lens.lens (status :: ReplicationRule -> ReplicationRuleStatus) (\s a -> s {status = a} :: ReplicationRule)
+{-# DEPRECATED rrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrDestination :: Lens.Lens' ReplicationRule Destination
+rrDestination = Lens.lens (destination :: ReplicationRule -> Destination) (\s a -> s {destination = a} :: ReplicationRule)
+{-# DEPRECATED rrDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Undocumented field.
 --
@@ -162,43 +183,29 @@ rrSourceSelectionCriteria :: Lens.Lens' ReplicationRule (Lude.Maybe SourceSelect
 rrSourceSelectionCriteria = Lens.lens (sourceSelectionCriteria :: ReplicationRule -> Lude.Maybe SourceSelectionCriteria) (\s a -> s {sourceSelectionCriteria = a} :: ReplicationRule)
 {-# DEPRECATED rrSourceSelectionCriteria "Use generic-lens or generic-optics with 'sourceSelectionCriteria' instead." #-}
 
--- | Specifies whether the rule is enabled.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrStatus :: Lens.Lens' ReplicationRule ReplicationRuleStatus
-rrStatus = Lens.lens (status :: ReplicationRule -> ReplicationRuleStatus) (\s a -> s {status = a} :: ReplicationRule)
-{-# DEPRECATED rrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrDestination :: Lens.Lens' ReplicationRule Destination
-rrDestination = Lens.lens (destination :: ReplicationRule -> Destination) (\s a -> s {destination = a} :: ReplicationRule)
-{-# DEPRECATED rrDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
 instance Lude.FromXML ReplicationRule where
   parseXML x =
     ReplicationRule'
-      Lude.<$> (x Lude..@? "DeleteMarkerReplication")
+      Lude.<$> (x Lude..@ "Status")
+      Lude.<*> (x Lude..@ "Destination")
+      Lude.<*> (x Lude..@? "DeleteMarkerReplication")
       Lude.<*> (x Lude..@? "Priority")
       Lude.<*> (x Lude..@? "Prefix")
       Lude.<*> (x Lude..@? "ExistingObjectReplication")
       Lude.<*> (x Lude..@? "ID")
       Lude.<*> (x Lude..@? "Filter")
       Lude.<*> (x Lude..@? "SourceSelectionCriteria")
-      Lude.<*> (x Lude..@ "Status")
-      Lude.<*> (x Lude..@ "Destination")
 
 instance Lude.ToXML ReplicationRule where
   toXML ReplicationRule' {..} =
     Lude.mconcat
-      [ "DeleteMarkerReplication" Lude.@= deleteMarkerReplication,
+      [ "Status" Lude.@= status,
+        "Destination" Lude.@= destination,
+        "DeleteMarkerReplication" Lude.@= deleteMarkerReplication,
         "Priority" Lude.@= priority,
         "Prefix" Lude.@= prefix,
         "ExistingObjectReplication" Lude.@= existingObjectReplication,
         "ID" Lude.@= id,
         "Filter" Lude.@= filter,
-        "SourceSelectionCriteria" Lude.@= sourceSelectionCriteria,
-        "Status" Lude.@= status,
-        "Destination" Lude.@= destination
+        "SourceSelectionCriteria" Lude.@= sourceSelectionCriteria
       ]

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.APIGateway.CreateModel
 
     -- ** Request lenses
     cmSchema,
-    cmDescription,
-    cmRestAPIId,
     cmName,
+    cmRestAPIId,
+    cmDescription,
     cmContentType,
 
     -- * Destructuring the response
@@ -48,42 +49,41 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateModel' smart constructor.
 data CreateModel = CreateModel'
-  { schema :: Lude.Maybe Lude.Text,
-    description :: Lude.Maybe Lude.Text,
-    restAPIId :: Lude.Text,
+  { -- | The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
+    schema :: Lude.Maybe Lude.Text,
+    -- | [Required] The name of the model. Must be alphanumeric.
     name :: Lude.Text,
+    -- | [Required] The 'RestApi' identifier under which the 'Model' will be created.
+    restAPIId :: Lude.Text,
+    -- | The description of the model.
+    description :: Lude.Maybe Lude.Text,
+    -- | [Required] The content-type for the model.
     contentType :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateModel' with the minimum fields required to make a request.
 --
--- * 'contentType' - [Required] The content-type for the model.
--- * 'description' - The description of the model.
+-- * 'schema' - The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
 -- * 'name' - [Required] The name of the model. Must be alphanumeric.
 -- * 'restAPIId' - [Required] The 'RestApi' identifier under which the 'Model' will be created.
--- * 'schema' - The schema for the model. For @application/json@ models, this should be <https://tools.ietf.org/html/draft-zyp-json-schema-04 JSON schema draft 4> model.
+-- * 'description' - The description of the model.
+-- * 'contentType' - [Required] The content-type for the model.
 mkCreateModel ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'name'
+  Lude.Text ->
+  -- | 'restAPIId'
   Lude.Text ->
   -- | 'contentType'
   Lude.Text ->
   CreateModel
-mkCreateModel pRestAPIId_ pName_ pContentType_ =
+mkCreateModel pName_ pRestAPIId_ pContentType_ =
   CreateModel'
     { schema = Lude.Nothing,
-      description = Lude.Nothing,
-      restAPIId = pRestAPIId_,
       name = pName_,
+      restAPIId = pRestAPIId_,
+      description = Lude.Nothing,
       contentType = pContentType_
     }
 
@@ -94,12 +94,12 @@ cmSchema :: Lens.Lens' CreateModel (Lude.Maybe Lude.Text)
 cmSchema = Lens.lens (schema :: CreateModel -> Lude.Maybe Lude.Text) (\s a -> s {schema = a} :: CreateModel)
 {-# DEPRECATED cmSchema "Use generic-lens or generic-optics with 'schema' instead." #-}
 
--- | The description of the model.
+-- | [Required] The name of the model. Must be alphanumeric.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmDescription :: Lens.Lens' CreateModel (Lude.Maybe Lude.Text)
-cmDescription = Lens.lens (description :: CreateModel -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateModel)
-{-# DEPRECATED cmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmName :: Lens.Lens' CreateModel Lude.Text
+cmName = Lens.lens (name :: CreateModel -> Lude.Text) (\s a -> s {name = a} :: CreateModel)
+{-# DEPRECATED cmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | [Required] The 'RestApi' identifier under which the 'Model' will be created.
 --
@@ -108,12 +108,12 @@ cmRestAPIId :: Lens.Lens' CreateModel Lude.Text
 cmRestAPIId = Lens.lens (restAPIId :: CreateModel -> Lude.Text) (\s a -> s {restAPIId = a} :: CreateModel)
 {-# DEPRECATED cmRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
--- | [Required] The name of the model. Must be alphanumeric.
+-- | The description of the model.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmName :: Lens.Lens' CreateModel Lude.Text
-cmName = Lens.lens (name :: CreateModel -> Lude.Text) (\s a -> s {name = a} :: CreateModel)
-{-# DEPRECATED cmName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmDescription :: Lens.Lens' CreateModel (Lude.Maybe Lude.Text)
+cmDescription = Lens.lens (description :: CreateModel -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateModel)
+{-# DEPRECATED cmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | [Required] The content-type for the model.
 --
@@ -139,8 +139,8 @@ instance Lude.ToJSON CreateModel where
     Lude.object
       ( Lude.catMaybes
           [ ("schema" Lude..=) Lude.<$> schema,
-            ("description" Lude..=) Lude.<$> description,
             Lude.Just ("name" Lude..= name),
+            ("description" Lude..=) Lude.<$> description,
             Lude.Just ("contentType" Lude..= contentType)
           ]
       )

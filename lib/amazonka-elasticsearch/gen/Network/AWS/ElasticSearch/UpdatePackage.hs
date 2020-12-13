@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.ElasticSearch.UpdatePackage
     mkUpdatePackage,
 
     -- ** Request lenses
+    upPackageSource,
+    upPackageId,
     upPackageDescription,
     upCommitMessage,
-    upPackageId,
-    upPackageSource,
 
     -- * Destructuring the response
     UpdatePackageResponse (..),
@@ -44,40 +45,50 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdatePackage' smart constructor.
 data UpdatePackage = UpdatePackage'
-  { packageDescription ::
-      Lude.Maybe Lude.Text,
-    commitMessage :: Lude.Maybe Lude.Text,
+  { packageSource :: PackageSource,
+    -- | Unique identifier for the package.
     packageId :: Lude.Text,
-    packageSource :: PackageSource
+    -- | New description of the package.
+    packageDescription :: Lude.Maybe Lude.Text,
+    -- | An info message for the new version which will be shown as part of @GetPackageVersionHistoryResponse@ .
+    commitMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePackage' with the minimum fields required to make a request.
 --
--- * 'commitMessage' - An info message for the new version which will be shown as part of @GetPackageVersionHistoryResponse@ .
--- * 'packageDescription' - New description of the package.
+-- * 'packageSource' -
 -- * 'packageId' - Unique identifier for the package.
--- * 'packageSource' - Undocumented field.
+-- * 'packageDescription' - New description of the package.
+-- * 'commitMessage' - An info message for the new version which will be shown as part of @GetPackageVersionHistoryResponse@ .
 mkUpdatePackage ::
-  -- | 'packageId'
-  Lude.Text ->
   -- | 'packageSource'
   PackageSource ->
+  -- | 'packageId'
+  Lude.Text ->
   UpdatePackage
-mkUpdatePackage pPackageId_ pPackageSource_ =
+mkUpdatePackage pPackageSource_ pPackageId_ =
   UpdatePackage'
-    { packageDescription = Lude.Nothing,
-      commitMessage = Lude.Nothing,
+    { packageSource = pPackageSource_,
       packageId = pPackageId_,
-      packageSource = pPackageSource_
+      packageDescription = Lude.Nothing,
+      commitMessage = Lude.Nothing
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'packageSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPackageSource :: Lens.Lens' UpdatePackage PackageSource
+upPackageSource = Lens.lens (packageSource :: UpdatePackage -> PackageSource) (\s a -> s {packageSource = a} :: UpdatePackage)
+{-# DEPRECATED upPackageSource "Use generic-lens or generic-optics with 'packageSource' instead." #-}
+
+-- | Unique identifier for the package.
+--
+-- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPackageId :: Lens.Lens' UpdatePackage Lude.Text
+upPackageId = Lens.lens (packageId :: UpdatePackage -> Lude.Text) (\s a -> s {packageId = a} :: UpdatePackage)
+{-# DEPRECATED upPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
 
 -- | New description of the package.
 --
@@ -92,20 +103,6 @@ upPackageDescription = Lens.lens (packageDescription :: UpdatePackage -> Lude.Ma
 upCommitMessage :: Lens.Lens' UpdatePackage (Lude.Maybe Lude.Text)
 upCommitMessage = Lens.lens (commitMessage :: UpdatePackage -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: UpdatePackage)
 {-# DEPRECATED upCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
-
--- | Unique identifier for the package.
---
--- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPackageId :: Lens.Lens' UpdatePackage Lude.Text
-upPackageId = Lens.lens (packageId :: UpdatePackage -> Lude.Text) (\s a -> s {packageId = a} :: UpdatePackage)
-{-# DEPRECATED upPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'packageSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPackageSource :: Lens.Lens' UpdatePackage PackageSource
-upPackageSource = Lens.lens (packageSource :: UpdatePackage -> PackageSource) (\s a -> s {packageSource = a} :: UpdatePackage)
-{-# DEPRECATED upPackageSource "Use generic-lens or generic-optics with 'packageSource' instead." #-}
 
 instance Lude.AWSRequest UpdatePackage where
   type Rs UpdatePackage = UpdatePackageResponse
@@ -125,10 +122,10 @@ instance Lude.ToJSON UpdatePackage where
   toJSON UpdatePackage' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("PackageDescription" Lude..=) Lude.<$> packageDescription,
-            ("CommitMessage" Lude..=) Lude.<$> commitMessage,
+          [ Lude.Just ("PackageSource" Lude..= packageSource),
             Lude.Just ("PackageID" Lude..= packageId),
-            Lude.Just ("PackageSource" Lude..= packageSource)
+            ("PackageDescription" Lude..=) Lude.<$> packageDescription,
+            ("CommitMessage" Lude..=) Lude.<$> commitMessage
           ]
       )
 
@@ -142,17 +139,12 @@ instance Lude.ToQuery UpdatePackage where
 --
 -- /See:/ 'mkUpdatePackageResponse' smart constructor.
 data UpdatePackageResponse = UpdatePackageResponse'
-  { packageDetails ::
-      Lude.Maybe PackageDetails,
+  { -- | Information about the package @PackageDetails@ .
+    packageDetails :: Lude.Maybe PackageDetails,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdatePackageResponse' with the minimum fields required to make a request.

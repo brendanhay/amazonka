@@ -32,29 +32,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPriceSchedule' smart constructor.
 data PriceSchedule = PriceSchedule'
-  { currencyCode ::
-      Lude.Maybe CurrencyCodeValues,
+  { -- | The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
+    currencyCode :: Lude.Maybe CurrencyCodeValues,
+    -- | The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
     term :: Lude.Maybe Lude.Integer,
+    -- | The current price schedule, as determined by the term remaining for the Reserved Instance in the listing.
+    --
+    -- A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.
     active :: Lude.Maybe Lude.Bool,
+    -- | The fixed price for the term.
     price :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PriceSchedule' with the minimum fields required to make a request.
 --
+-- * 'currencyCode' - The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
+-- * 'term' - The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
 -- * 'active' - The current price schedule, as determined by the term remaining for the Reserved Instance in the listing.
 --
 -- A specific price schedule is always in effect, but only one price schedule can be active at any time. Take, for example, a Reserved Instance listing that has five months remaining in its term. When you specify price schedules for five months and two months, this means that schedule 1, covering the first three months of the remaining term, will be active during months 5, 4, and 3. Then schedule 2, covering the last two months of the term, will be active for months 2 and 1.
--- * 'currencyCode' - The currency for transacting the Reserved Instance resale. At this time, the only supported currency is @USD@ .
 -- * 'price' - The fixed price for the term.
--- * 'term' - The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.
 mkPriceSchedule ::
   PriceSchedule
 mkPriceSchedule =

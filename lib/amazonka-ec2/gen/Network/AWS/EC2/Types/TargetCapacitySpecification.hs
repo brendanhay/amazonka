@@ -34,31 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetCapacitySpecification' smart constructor.
 data TargetCapacitySpecification = TargetCapacitySpecification'
-  { onDemandTargetCapacity ::
-      Lude.Maybe Lude.Int,
-    defaultTargetCapacityType ::
-      Lude.Maybe
-        DefaultTargetCapacityType,
-    totalTargetCapacity ::
-      Lude.Maybe Lude.Int,
-    spotTargetCapacity ::
-      Lude.Maybe Lude.Int
+  { -- | The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.
+    onDemandTargetCapacity :: Lude.Maybe Lude.Int,
+    -- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
+    defaultTargetCapacityType :: Lude.Maybe DefaultTargetCapacityType,
+    -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
+    totalTargetCapacity :: Lude.Maybe Lude.Int,
+    -- | The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.
+    spotTargetCapacity :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetCapacitySpecification' with the minimum fields required to make a request.
 --
--- * 'defaultTargetCapacityType' - The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
 -- * 'onDemandTargetCapacity' - The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.
--- * 'spotTargetCapacity' - The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.
+-- * 'defaultTargetCapacityType' - The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
 -- * 'totalTargetCapacity' - The number of units to request, filled using @DefaultTargetCapacityType@ .
+-- * 'spotTargetCapacity' - The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.
 mkTargetCapacitySpecification ::
   TargetCapacitySpecification
 mkTargetCapacitySpecification =

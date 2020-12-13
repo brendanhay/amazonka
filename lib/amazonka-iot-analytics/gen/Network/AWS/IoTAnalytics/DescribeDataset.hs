@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,7 +20,7 @@ module Network.AWS.IoTAnalytics.DescribeDataset
     mkDescribeDataset,
 
     -- ** Request lenses
-    ddDatasetName,
+    dDatasetName,
 
     -- * Destructuring the response
     DescribeDatasetResponse (..),
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeDataset' smart constructor.
 newtype DescribeDataset = DescribeDataset'
-  { datasetName ::
-      Lude.Text
+  { -- | The name of the data set whose information is retrieved.
+    datasetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
@@ -64,9 +59,9 @@ mkDescribeDataset pDatasetName_ =
 -- | The name of the data set whose information is retrieved.
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDatasetName :: Lens.Lens' DescribeDataset Lude.Text
-ddDatasetName = Lens.lens (datasetName :: DescribeDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DescribeDataset)
-{-# DEPRECATED ddDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+dDatasetName :: Lens.Lens' DescribeDataset Lude.Text
+dDatasetName = Lens.lens (datasetName :: DescribeDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DescribeDataset)
+{-# DEPRECATED dDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
 instance Lude.AWSRequest DescribeDataset where
   type Rs DescribeDataset = DescribeDatasetResponse
@@ -90,17 +85,12 @@ instance Lude.ToQuery DescribeDataset where
 
 -- | /See:/ 'mkDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
-  { dataset ::
-      Lude.Maybe Dataset,
+  { -- | An object that contains information about the data set.
+    dataset :: Lude.Maybe Dataset,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.

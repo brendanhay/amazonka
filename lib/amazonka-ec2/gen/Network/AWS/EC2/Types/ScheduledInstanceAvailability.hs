@@ -41,58 +41,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScheduledInstanceAvailability' smart constructor.
 data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
-  { maxTermDurationInDays ::
-      Lude.Maybe Lude.Int,
-    platform ::
-      Lude.Maybe Lude.Text,
-    purchaseToken ::
-      Lude.Maybe Lude.Text,
-    hourlyPrice ::
-      Lude.Maybe Lude.Text,
-    availableInstanceCount ::
-      Lude.Maybe Lude.Int,
-    slotDurationInHours ::
-      Lude.Maybe Lude.Int,
-    totalScheduledInstanceHours ::
-      Lude.Maybe Lude.Int,
-    instanceType ::
-      Lude.Maybe Lude.Text,
-    recurrence ::
-      Lude.Maybe
-        ScheduledInstanceRecurrence,
-    availabilityZone ::
-      Lude.Maybe Lude.Text,
-    minTermDurationInDays ::
-      Lude.Maybe Lude.Int,
-    firstSlotStartTime ::
-      Lude.Maybe Lude.DateTime,
-    networkPlatform ::
-      Lude.Maybe Lude.Text
+  { -- | The maximum term. The only possible value is 365 days.
+    maxTermDurationInDays :: Lude.Maybe Lude.Int,
+    -- | The platform (@Linux/UNIX@ or @Windows@ ).
+    platform :: Lude.Maybe Lude.Text,
+    -- | The purchase token. This token expires in two hours.
+    purchaseToken :: Lude.Maybe Lude.Text,
+    -- | The hourly price for a single instance.
+    hourlyPrice :: Lude.Maybe Lude.Text,
+    -- | The number of available instances.
+    availableInstanceCount :: Lude.Maybe Lude.Int,
+    -- | The number of hours in the schedule.
+    slotDurationInHours :: Lude.Maybe Lude.Int,
+    -- | The total number of hours for a single instance for the entire term.
+    totalScheduledInstanceHours :: Lude.Maybe Lude.Int,
+    -- | The instance type. You can specify one of the C3, C4, M4, or R3 instance types.
+    instanceType :: Lude.Maybe Lude.Text,
+    -- | The schedule recurrence.
+    recurrence :: Lude.Maybe ScheduledInstanceRecurrence,
+    -- | The Availability Zone.
+    availabilityZone :: Lude.Maybe Lude.Text,
+    -- | The minimum term. The only possible value is 365 days.
+    minTermDurationInDays :: Lude.Maybe Lude.Int,
+    -- | The time period for the first schedule to start.
+    firstSlotStartTime :: Lude.Maybe Lude.DateTime,
+    -- | The network platform (@EC2-Classic@ or @EC2-VPC@ ).
+    networkPlatform :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ScheduledInstanceAvailability' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone.
--- * 'availableInstanceCount' - The number of available instances.
--- * 'firstSlotStartTime' - The time period for the first schedule to start.
--- * 'hourlyPrice' - The hourly price for a single instance.
--- * 'instanceType' - The instance type. You can specify one of the C3, C4, M4, or R3 instance types.
 -- * 'maxTermDurationInDays' - The maximum term. The only possible value is 365 days.
--- * 'minTermDurationInDays' - The minimum term. The only possible value is 365 days.
--- * 'networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
 -- * 'platform' - The platform (@Linux/UNIX@ or @Windows@ ).
 -- * 'purchaseToken' - The purchase token. This token expires in two hours.
--- * 'recurrence' - The schedule recurrence.
+-- * 'hourlyPrice' - The hourly price for a single instance.
+-- * 'availableInstanceCount' - The number of available instances.
 -- * 'slotDurationInHours' - The number of hours in the schedule.
 -- * 'totalScheduledInstanceHours' - The total number of hours for a single instance for the entire term.
+-- * 'instanceType' - The instance type. You can specify one of the C3, C4, M4, or R3 instance types.
+-- * 'recurrence' - The schedule recurrence.
+-- * 'availabilityZone' - The Availability Zone.
+-- * 'minTermDurationInDays' - The minimum term. The only possible value is 365 days.
+-- * 'firstSlotStartTime' - The time period for the first schedule to start.
+-- * 'networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@ ).
 mkScheduledInstanceAvailability ::
   ScheduledInstanceAvailability
 mkScheduledInstanceAvailability =

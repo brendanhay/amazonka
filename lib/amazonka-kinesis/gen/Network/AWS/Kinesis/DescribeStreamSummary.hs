@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.Kinesis.DescribeStreamSummary
     mkDescribeStreamSummaryResponse,
 
     -- ** Response lenses
-    dssrsResponseStatus,
     dssrsStreamDescriptionSummary,
+    dssrsResponseStatus,
   )
 where
 
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeStreamSummary' smart constructor.
 newtype DescribeStreamSummary = DescribeStreamSummary'
-  { streamName ::
-      Lude.Text
+  { -- | The name of the stream to describe.
+    streamName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamSummary' with the minimum fields required to make a request.
@@ -78,8 +73,8 @@ instance Lude.AWSRequest DescribeStreamSummary where
     Res.receiveJSON
       ( \s h x ->
           DescribeStreamSummaryResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "StreamDescriptionSummary")
+            Lude.<$> (x Lude..:> "StreamDescriptionSummary")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeStreamSummary where
@@ -106,44 +101,32 @@ instance Lude.ToQuery DescribeStreamSummary where
 
 -- | /See:/ 'mkDescribeStreamSummaryResponse' smart constructor.
 data DescribeStreamSummaryResponse = DescribeStreamSummaryResponse'
-  { responseStatus ::
-      Lude.Int,
-    streamDescriptionSummary ::
-      StreamDescriptionSummary
+  { -- | A 'StreamDescriptionSummary' containing information about the stream.
+    streamDescriptionSummary :: StreamDescriptionSummary,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeStreamSummaryResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'streamDescriptionSummary' - A 'StreamDescriptionSummary' containing information about the stream.
+-- * 'responseStatus' - The response status code.
 mkDescribeStreamSummaryResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'streamDescriptionSummary'
   StreamDescriptionSummary ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeStreamSummaryResponse
 mkDescribeStreamSummaryResponse
-  pResponseStatus_
-  pStreamDescriptionSummary_ =
+  pStreamDescriptionSummary_
+  pResponseStatus_ =
     DescribeStreamSummaryResponse'
-      { responseStatus = pResponseStatus_,
-        streamDescriptionSummary = pStreamDescriptionSummary_
+      { streamDescriptionSummary =
+          pStreamDescriptionSummary_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsResponseStatus :: Lens.Lens' DescribeStreamSummaryResponse Lude.Int
-dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamSummaryResponse)
-{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A 'StreamDescriptionSummary' containing information about the stream.
 --
@@ -151,3 +134,10 @@ dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamSummaryResponse
 dssrsStreamDescriptionSummary :: Lens.Lens' DescribeStreamSummaryResponse StreamDescriptionSummary
 dssrsStreamDescriptionSummary = Lens.lens (streamDescriptionSummary :: DescribeStreamSummaryResponse -> StreamDescriptionSummary) (\s a -> s {streamDescriptionSummary = a} :: DescribeStreamSummaryResponse)
 {-# DEPRECATED dssrsStreamDescriptionSummary "Use generic-lens or generic-optics with 'streamDescriptionSummary' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssrsResponseStatus :: Lens.Lens' DescribeStreamSummaryResponse Lude.Int
+dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamSummaryResponse)
+{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

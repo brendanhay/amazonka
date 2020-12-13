@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.VolumeStatusInfoStatus
   ( VolumeStatusInfoStatus
       ( VolumeStatusInfoStatus',
+        OK,
         Impaired,
-        InsufficientData,
-        OK
+        InsufficientData
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype VolumeStatusInfoStatus = VolumeStatusInfoStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern OK :: VolumeStatusInfoStatus
+pattern OK = VolumeStatusInfoStatus' "ok"
+
 pattern Impaired :: VolumeStatusInfoStatus
 pattern Impaired = VolumeStatusInfoStatus' "impaired"
 
 pattern InsufficientData :: VolumeStatusInfoStatus
 pattern InsufficientData = VolumeStatusInfoStatus' "insufficient-data"
 
-pattern OK :: VolumeStatusInfoStatus
-pattern OK = VolumeStatusInfoStatus' "ok"
-
 {-# COMPLETE
+  OK,
   Impaired,
   InsufficientData,
-  OK,
   VolumeStatusInfoStatus'
   #-}

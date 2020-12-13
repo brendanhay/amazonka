@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,16 +41,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkBatchPutMessage' smart constructor.
 data BatchPutMessage = BatchPutMessage'
-  { channelName :: Lude.Text,
+  { -- | The name of the channel where the messages are sent.
+    channelName :: Lude.Text,
+    -- | The list of messages to be sent. Each message has the format: { "messageId": "string", "payload": "string"}.
+    --
+    -- The field names of message payloads (data) that you send to AWS IoT Analytics:
+    --
+    --     * Must contain only alphanumeric characters and undescores (_). No other special characters are allowed.
+    --
+    --
+    --     * Must begin with an alphabetic character or single underscore (_).
+    --
+    --
+    --     * Cannot contain hyphens (-).
+    --
+    --
+    --     * In regular expression terms: "^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$".
+    --
+    --
+    --     * Cannot be more than 255 characters.
+    --
+    --
+    --     * Are case insensitive. (Fields named foo and FOO in the same payload are considered duplicates.)
+    --
+    --
+    -- For example, {"temp_01": 29} or {"_temp_01": 29} are valid, but {"temp-01": 29}, {"01_temp": 29} or {"__temp_01": 29} are invalid in message payloads.
     messages :: [Message]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutMessage' with the minimum fields required to make a request.
@@ -155,17 +174,12 @@ instance Lude.ToQuery BatchPutMessage where
 
 -- | /See:/ 'mkBatchPutMessageResponse' smart constructor.
 data BatchPutMessageResponse = BatchPutMessageResponse'
-  { batchPutMessageErrorEntries ::
-      Lude.Maybe [BatchPutMessageErrorEntry],
+  { -- | A list of any errors encountered when sending the messages to the channel.
+    batchPutMessageErrorEntries :: Lude.Maybe [BatchPutMessageErrorEntry],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchPutMessageResponse' with the minimum fields required to make a request.

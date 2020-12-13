@@ -17,8 +17,8 @@ module Network.AWS.Transcribe.Types.ContentRedaction
     mkContentRedaction,
 
     -- * Lenses
-    crRedactionType,
     crRedactionOutput,
+    crRedactionType,
   )
 where
 
@@ -31,17 +31,15 @@ import Network.AWS.Transcribe.Types.RedactionType
 --
 -- /See:/ 'mkContentRedaction' smart constructor.
 data ContentRedaction = ContentRedaction'
-  { redactionType ::
-      RedactionType,
-    redactionOutput :: RedactionOutput
+  { -- | The output transcript file stored in either the default S3 bucket or in a bucket you specify.
+    --
+    -- When you choose @redacted@ Amazon Transcribe outputs only the redacted transcript.
+    -- When you choose @redacted_and_unredacted@ Amazon Transcribe outputs both the redacted and unredacted transcripts.
+    redactionOutput :: RedactionOutput,
+    -- | Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
+    redactionType :: RedactionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContentRedaction' with the minimum fields required to make a request.
@@ -52,23 +50,16 @@ data ContentRedaction = ContentRedaction'
 -- When you choose @redacted_and_unredacted@ Amazon Transcribe outputs both the redacted and unredacted transcripts.
 -- * 'redactionType' - Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
 mkContentRedaction ::
-  -- | 'redactionType'
-  RedactionType ->
   -- | 'redactionOutput'
   RedactionOutput ->
+  -- | 'redactionType'
+  RedactionType ->
   ContentRedaction
-mkContentRedaction pRedactionType_ pRedactionOutput_ =
+mkContentRedaction pRedactionOutput_ pRedactionType_ =
   ContentRedaction'
-    { redactionType = pRedactionType_,
-      redactionOutput = pRedactionOutput_
+    { redactionOutput = pRedactionOutput_,
+      redactionType = pRedactionType_
     }
-
--- | Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
---
--- /Note:/ Consider using 'redactionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crRedactionType :: Lens.Lens' ContentRedaction RedactionType
-crRedactionType = Lens.lens (redactionType :: ContentRedaction -> RedactionType) (\s a -> s {redactionType = a} :: ContentRedaction)
-{-# DEPRECATED crRedactionType "Use generic-lens or generic-optics with 'redactionType' instead." #-}
 
 -- | The output transcript file stored in either the default S3 bucket or in a bucket you specify.
 --
@@ -80,20 +71,27 @@ crRedactionOutput :: Lens.Lens' ContentRedaction RedactionOutput
 crRedactionOutput = Lens.lens (redactionOutput :: ContentRedaction -> RedactionOutput) (\s a -> s {redactionOutput = a} :: ContentRedaction)
 {-# DEPRECATED crRedactionOutput "Use generic-lens or generic-optics with 'redactionOutput' instead." #-}
 
+-- | Request parameter that defines the entities to be redacted. The only accepted value is @PII@ .
+--
+-- /Note:/ Consider using 'redactionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crRedactionType :: Lens.Lens' ContentRedaction RedactionType
+crRedactionType = Lens.lens (redactionType :: ContentRedaction -> RedactionType) (\s a -> s {redactionType = a} :: ContentRedaction)
+{-# DEPRECATED crRedactionType "Use generic-lens or generic-optics with 'redactionType' instead." #-}
+
 instance Lude.FromJSON ContentRedaction where
   parseJSON =
     Lude.withObject
       "ContentRedaction"
       ( \x ->
           ContentRedaction'
-            Lude.<$> (x Lude..: "RedactionType") Lude.<*> (x Lude..: "RedactionOutput")
+            Lude.<$> (x Lude..: "RedactionOutput") Lude.<*> (x Lude..: "RedactionType")
       )
 
 instance Lude.ToJSON ContentRedaction where
   toJSON ContentRedaction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("RedactionType" Lude..= redactionType),
-            Lude.Just ("RedactionOutput" Lude..= redactionOutput)
+          [ Lude.Just ("RedactionOutput" Lude..= redactionOutput),
+            Lude.Just ("RedactionType" Lude..= redactionType)
           ]
       )

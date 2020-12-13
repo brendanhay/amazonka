@@ -43,40 +43,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAacSettings' smart constructor.
 data AacSettings = AacSettings'
-  { rawFormat ::
-      Lude.Maybe AacRawFormat,
+  { -- | Sets LATM / LOAS AAC output for raw containers.
+    rawFormat :: Lude.Maybe AacRawFormat,
+    -- | Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
     codingMode :: Lude.Maybe AacCodingMode,
+    -- | AAC Profile.
     profile :: Lude.Maybe AacProfile,
+    -- | Rate Control Mode.
     rateControlMode :: Lude.Maybe AacRateControlMode,
+    -- | Sample rate in Hz. Valid values depend on rate control mode and profile.
     sampleRate :: Lude.Maybe Lude.Double,
+    -- | Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
     spec :: Lude.Maybe AacSpec,
+    -- | Average bitrate in bits/second. Valid values depend on rate control mode and profile.
     bitrate :: Lude.Maybe Lude.Double,
+    -- | VBR Quality Level - Only used if rateControlMode is VBR.
     vbrQuality :: Lude.Maybe AacVbrQuality,
+    -- | Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
+    --
+    --
+    -- Leave set to "normal" when input does not contain pre-mixed audio + AD.
     inputType :: Lude.Maybe AacInputType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AacSettings' with the minimum fields required to make a request.
 --
--- * 'bitrate' - Average bitrate in bits/second. Valid values depend on rate control mode and profile.
+-- * 'rawFormat' - Sets LATM / LOAS AAC output for raw containers.
 -- * 'codingMode' - Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. The adReceiverMix setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
+-- * 'profile' - AAC Profile.
+-- * 'rateControlMode' - Rate Control Mode.
+-- * 'sampleRate' - Sample rate in Hz. Valid values depend on rate control mode and profile.
+-- * 'spec' - Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+-- * 'bitrate' - Average bitrate in bits/second. Valid values depend on rate control mode and profile.
+-- * 'vbrQuality' - VBR Quality Level - Only used if rateControlMode is VBR.
 -- * 'inputType' - Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.  The Audio Type field (audioType) will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. The values in audioTypeControl and audioType (in AudioDescription) are ignored when set to broadcasterMixedAd.
 --
 --
 -- Leave set to "normal" when input does not contain pre-mixed audio + AD.
--- * 'profile' - AAC Profile.
--- * 'rateControlMode' - Rate Control Mode.
--- * 'rawFormat' - Sets LATM / LOAS AAC output for raw containers.
--- * 'sampleRate' - Sample rate in Hz. Valid values depend on rate control mode and profile.
--- * 'spec' - Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
--- * 'vbrQuality' - VBR Quality Level - Only used if rateControlMode is VBR.
 mkAacSettings ::
   AacSettings
 mkAacSettings =

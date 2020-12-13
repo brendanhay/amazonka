@@ -32,29 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLabelCounters' smart constructor.
 data LabelCounters = LabelCounters'
-  { machineLabeled ::
-      Lude.Maybe Lude.Natural,
+  { -- | The total number of objects labeled by automated data labeling.
+    machineLabeled :: Lude.Maybe Lude.Natural,
+    -- | The total number of objects labeled.
     totalLabeled :: Lude.Maybe Lude.Natural,
+    -- | The total number of objects that could not be labeled due to an error.
     failedNonRetryableError :: Lude.Maybe Lude.Natural,
+    -- | The total number of objects not yet labeled.
     unlabeled :: Lude.Maybe Lude.Natural,
+    -- | The total number of objects labeled by a human worker.
     humanLabeled :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LabelCounters' with the minimum fields required to make a request.
 --
--- * 'failedNonRetryableError' - The total number of objects that could not be labeled due to an error.
--- * 'humanLabeled' - The total number of objects labeled by a human worker.
 -- * 'machineLabeled' - The total number of objects labeled by automated data labeling.
 -- * 'totalLabeled' - The total number of objects labeled.
+-- * 'failedNonRetryableError' - The total number of objects that could not be labeled due to an error.
 -- * 'unlabeled' - The total number of objects not yet labeled.
+-- * 'humanLabeled' - The total number of objects labeled by a human worker.
 mkLabelCounters ::
   LabelCounters
 mkLabelCounters =

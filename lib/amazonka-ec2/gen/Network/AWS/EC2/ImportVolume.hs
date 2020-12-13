@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.EC2.ImportVolume
     mkImportVolume,
 
     -- ** Request lenses
-    ivDescription,
-    ivDryRun,
-    ivAvailabilityZone,
     ivImage,
     ivVolume,
+    ivAvailabilityZone,
+    ivDescription,
+    ivDryRun,
 
     -- * Destructuring the response
     ImportVolumeResponse (..),
@@ -45,66 +46,43 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkImportVolume' smart constructor.
 data ImportVolume = ImportVolume'
-  { description ::
-      Lude.Maybe Lude.Text,
-    dryRun :: Lude.Maybe Lude.Bool,
-    availabilityZone :: Lude.Text,
+  { -- | The disk image.
     image :: DiskImageDetail,
-    volume :: VolumeDetail
+    -- | The volume size.
+    volume :: VolumeDetail,
+    -- | The Availability Zone for the resulting EBS volume.
+    availabilityZone :: Lude.Text,
+    -- | A description of the volume.
+    description :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportVolume' with the minimum fields required to make a request.
 --
+-- * 'image' - The disk image.
+-- * 'volume' - The volume size.
 -- * 'availabilityZone' - The Availability Zone for the resulting EBS volume.
 -- * 'description' - A description of the volume.
 -- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'image' - The disk image.
--- * 'volume' - The volume size.
 mkImportVolume ::
-  -- | 'availabilityZone'
-  Lude.Text ->
   -- | 'image'
   DiskImageDetail ->
   -- | 'volume'
   VolumeDetail ->
+  -- | 'availabilityZone'
+  Lude.Text ->
   ImportVolume
-mkImportVolume pAvailabilityZone_ pImage_ pVolume_ =
+mkImportVolume pImage_ pVolume_ pAvailabilityZone_ =
   ImportVolume'
-    { description = Lude.Nothing,
-      dryRun = Lude.Nothing,
+    { image = pImage_,
+      volume = pVolume_,
       availabilityZone = pAvailabilityZone_,
-      image = pImage_,
-      volume = pVolume_
+      description = Lude.Nothing,
+      dryRun = Lude.Nothing
     }
-
--- | A description of the volume.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivDescription :: Lens.Lens' ImportVolume (Lude.Maybe Lude.Text)
-ivDescription = Lens.lens (description :: ImportVolume -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportVolume)
-{-# DEPRECATED ivDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivDryRun :: Lens.Lens' ImportVolume (Lude.Maybe Lude.Bool)
-ivDryRun = Lens.lens (dryRun :: ImportVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportVolume)
-{-# DEPRECATED ivDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The Availability Zone for the resulting EBS volume.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivAvailabilityZone :: Lens.Lens' ImportVolume Lude.Text
-ivAvailabilityZone = Lens.lens (availabilityZone :: ImportVolume -> Lude.Text) (\s a -> s {availabilityZone = a} :: ImportVolume)
-{-# DEPRECATED ivAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The disk image.
 --
@@ -119,6 +97,27 @@ ivImage = Lens.lens (image :: ImportVolume -> DiskImageDetail) (\s a -> s {image
 ivVolume :: Lens.Lens' ImportVolume VolumeDetail
 ivVolume = Lens.lens (volume :: ImportVolume -> VolumeDetail) (\s a -> s {volume = a} :: ImportVolume)
 {-# DEPRECATED ivVolume "Use generic-lens or generic-optics with 'volume' instead." #-}
+
+-- | The Availability Zone for the resulting EBS volume.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivAvailabilityZone :: Lens.Lens' ImportVolume Lude.Text
+ivAvailabilityZone = Lens.lens (availabilityZone :: ImportVolume -> Lude.Text) (\s a -> s {availabilityZone = a} :: ImportVolume)
+{-# DEPRECATED ivAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | A description of the volume.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivDescription :: Lens.Lens' ImportVolume (Lude.Maybe Lude.Text)
+ivDescription = Lens.lens (description :: ImportVolume -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportVolume)
+{-# DEPRECATED ivDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivDryRun :: Lens.Lens' ImportVolume (Lude.Maybe Lude.Bool)
+ivDryRun = Lens.lens (dryRun :: ImportVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportVolume)
+{-# DEPRECATED ivDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest ImportVolume where
   type Rs ImportVolume = ImportVolumeResponse
@@ -142,26 +141,21 @@ instance Lude.ToQuery ImportVolume where
     Lude.mconcat
       [ "Action" Lude.=: ("ImportVolume" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "AvailabilityZone" Lude.=: availabilityZone,
         "Image" Lude.=: image,
-        "Volume" Lude.=: volume
+        "Volume" Lude.=: volume,
+        "AvailabilityZone" Lude.=: availabilityZone,
+        "Description" Lude.=: description,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkImportVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
-  { conversionTask ::
-      Lude.Maybe ConversionTask,
+  { -- | Information about the conversion task.
+    conversionTask :: Lude.Maybe ConversionTask,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportVolumeResponse' with the minimum fields required to make a request.

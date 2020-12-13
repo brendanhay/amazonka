@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNodeTypeSpecificValue' smart constructor.
 data NodeTypeSpecificValue = NodeTypeSpecificValue'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The parameter value for this node type.
+    value :: Lude.Maybe Lude.Text,
+    -- | A node type to which the parameter value applies.
     nodeType :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NodeTypeSpecificValue' with the minimum fields required to make a request.
 --
--- * 'nodeType' - A node type to which the parameter value applies.
 -- * 'value' - The parameter value for this node type.
+-- * 'nodeType' - A node type to which the parameter value applies.
 mkNodeTypeSpecificValue ::
   NodeTypeSpecificValue
 mkNodeTypeSpecificValue =

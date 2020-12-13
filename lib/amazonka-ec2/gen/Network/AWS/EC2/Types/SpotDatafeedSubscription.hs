@@ -34,30 +34,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotDatafeedSubscription' smart constructor.
 data SpotDatafeedSubscription = SpotDatafeedSubscription'
-  { state ::
-      Lude.Maybe DatafeedSubscriptionState,
+  { -- | The state of the Spot Instance data feed subscription.
+    state :: Lude.Maybe DatafeedSubscriptionState,
+    -- | The prefix for the data feed files.
     prefix :: Lude.Maybe Lude.Text,
+    -- | The name of the Amazon S3 bucket where the Spot Instance data feed is located.
     bucket :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID of the account.
     ownerId :: Lude.Maybe Lude.Text,
-    fault ::
-      Lude.Maybe SpotInstanceStateFault
+    -- | The fault codes for the Spot Instance request, if any.
+    fault :: Lude.Maybe SpotInstanceStateFault
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotDatafeedSubscription' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the Amazon S3 bucket where the Spot Instance data feed is located.
--- * 'fault' - The fault codes for the Spot Instance request, if any.
--- * 'ownerId' - The AWS account ID of the account.
--- * 'prefix' - The prefix for the data feed files.
 -- * 'state' - The state of the Spot Instance data feed subscription.
+-- * 'prefix' - The prefix for the data feed files.
+-- * 'bucket' - The name of the Amazon S3 bucket where the Spot Instance data feed is located.
+-- * 'ownerId' - The AWS account ID of the account.
+-- * 'fault' - The fault codes for the Spot Instance request, if any.
 mkSpotDatafeedSubscription ::
   SpotDatafeedSubscription
 mkSpotDatafeedSubscription =

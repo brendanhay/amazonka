@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteRouteTable
     mkDeleteRouteTable,
 
     -- ** Request lenses
-    drtrDryRun,
-    drtrRouteTableId,
+    drtfRouteTableId,
+    drtfDryRun,
 
     -- * Destructuring the response
     DeleteRouteTableResponse (..),
@@ -36,46 +37,41 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRouteTable' smart constructor.
 data DeleteRouteTable = DeleteRouteTable'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    routeTableId :: Lude.Text
+  { -- | The ID of the route table.
+    routeTableId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRouteTable' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'routeTableId' - The ID of the route table.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteRouteTable ::
   -- | 'routeTableId'
   Lude.Text ->
   DeleteRouteTable
 mkDeleteRouteTable pRouteTableId_ =
   DeleteRouteTable'
-    { dryRun = Lude.Nothing,
-      routeTableId = pRouteTableId_
+    { routeTableId = pRouteTableId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtrDryRun :: Lens.Lens' DeleteRouteTable (Lude.Maybe Lude.Bool)
-drtrDryRun = Lens.lens (dryRun :: DeleteRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteRouteTable)
-{-# DEPRECATED drtrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the route table.
 --
 -- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtrRouteTableId :: Lens.Lens' DeleteRouteTable Lude.Text
-drtrRouteTableId = Lens.lens (routeTableId :: DeleteRouteTable -> Lude.Text) (\s a -> s {routeTableId = a} :: DeleteRouteTable)
-{-# DEPRECATED drtrRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
+drtfRouteTableId :: Lens.Lens' DeleteRouteTable Lude.Text
+drtfRouteTableId = Lens.lens (routeTableId :: DeleteRouteTable -> Lude.Text) (\s a -> s {routeTableId = a} :: DeleteRouteTable)
+{-# DEPRECATED drtfRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtfDryRun :: Lens.Lens' DeleteRouteTable (Lude.Maybe Lude.Bool)
+drtfDryRun = Lens.lens (dryRun :: DeleteRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteRouteTable)
+{-# DEPRECATED drtfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteRouteTable where
   type Rs DeleteRouteTable = DeleteRouteTableResponse
@@ -93,19 +89,13 @@ instance Lude.ToQuery DeleteRouteTable where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteRouteTable" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "RouteTableId" Lude.=: routeTableId
+        "RouteTableId" Lude.=: routeTableId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteRouteTableResponse' smart constructor.
 data DeleteRouteTableResponse = DeleteRouteTableResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRouteTableResponse' with the minimum fields required to make a request.

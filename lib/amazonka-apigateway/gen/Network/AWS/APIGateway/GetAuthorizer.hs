@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.APIGateway.GetAuthorizer
     mkGetAuthorizer,
 
     -- ** Request lenses
-    gaaRestAPIId,
-    gaaAuthorizerId,
+    gafAuthorizerId,
+    gafRestAPIId,
 
     -- * Destructuring the response
     Authorizer (..),
@@ -52,16 +53,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkGetAuthorizer' smart constructor.
 data GetAuthorizer = GetAuthorizer'
-  { restAPIId :: Lude.Text,
-    authorizerId :: Lude.Text
+  { -- | [Required] The identifier of the 'Authorizer' resource.
+    authorizerId :: Lude.Text,
+    -- | [Required] The string identifier of the associated 'RestApi' .
+    restAPIId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetAuthorizer' with the minimum fields required to make a request.
@@ -69,30 +66,30 @@ data GetAuthorizer = GetAuthorizer'
 -- * 'authorizerId' - [Required] The identifier of the 'Authorizer' resource.
 -- * 'restAPIId' - [Required] The string identifier of the associated 'RestApi' .
 mkGetAuthorizer ::
-  -- | 'restAPIId'
-  Lude.Text ->
   -- | 'authorizerId'
   Lude.Text ->
+  -- | 'restAPIId'
+  Lude.Text ->
   GetAuthorizer
-mkGetAuthorizer pRestAPIId_ pAuthorizerId_ =
+mkGetAuthorizer pAuthorizerId_ pRestAPIId_ =
   GetAuthorizer'
-    { restAPIId = pRestAPIId_,
-      authorizerId = pAuthorizerId_
+    { authorizerId = pAuthorizerId_,
+      restAPIId = pRestAPIId_
     }
-
--- | [Required] The string identifier of the associated 'RestApi' .
---
--- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaaRestAPIId :: Lens.Lens' GetAuthorizer Lude.Text
-gaaRestAPIId = Lens.lens (restAPIId :: GetAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: GetAuthorizer)
-{-# DEPRECATED gaaRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 -- | [Required] The identifier of the 'Authorizer' resource.
 --
 -- /Note:/ Consider using 'authorizerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaaAuthorizerId :: Lens.Lens' GetAuthorizer Lude.Text
-gaaAuthorizerId = Lens.lens (authorizerId :: GetAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: GetAuthorizer)
-{-# DEPRECATED gaaAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
+gafAuthorizerId :: Lens.Lens' GetAuthorizer Lude.Text
+gafAuthorizerId = Lens.lens (authorizerId :: GetAuthorizer -> Lude.Text) (\s a -> s {authorizerId = a} :: GetAuthorizer)
+{-# DEPRECATED gafAuthorizerId "Use generic-lens or generic-optics with 'authorizerId' instead." #-}
+
+-- | [Required] The string identifier of the associated 'RestApi' .
+--
+-- /Note:/ Consider using 'restAPIId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gafRestAPIId :: Lens.Lens' GetAuthorizer Lude.Text
+gafRestAPIId = Lens.lens (restAPIId :: GetAuthorizer -> Lude.Text) (\s a -> s {restAPIId = a} :: GetAuthorizer)
+{-# DEPRECATED gafRestAPIId "Use generic-lens or generic-optics with 'restAPIId' instead." #-}
 
 instance Lude.AWSRequest GetAuthorizer where
   type Rs GetAuthorizer = Authorizer

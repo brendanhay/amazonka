@@ -17,18 +17,6 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
         BIG5,
         Big5hkscs,
         CP037,
-        CP1006,
-        CP1026,
-        CP1140,
-        CP1250,
-        CP1251,
-        CP1252,
-        CP1253,
-        CP1254,
-        CP1255,
-        CP1256,
-        CP1257,
-        CP1258,
         CP424,
         CP437,
         CP500,
@@ -54,13 +42,25 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
         CP932,
         CP949,
         CP950,
-        EucJISX0213,
-        EucJis2004,
+        CP1006,
+        CP1026,
+        CP1140,
+        CP1250,
+        CP1251,
+        CP1252,
+        CP1253,
+        CP1254,
+        CP1255,
+        CP1256,
+        CP1257,
+        CP1258,
         EucJp,
+        EucJis2004,
+        EucJISX0213,
         EucKr,
-        GB18030,
         GB2312,
         Gbk,
+        GB18030,
         HZ,
         ISO2022Jp,
         ISO2022Jp1,
@@ -69,11 +69,7 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
         ISO2022Jp3,
         ISO2022JpExt,
         ISO2022Kr,
-        ISO885910,
-        ISO885913,
-        ISO885914,
-        ISO885915,
-        ISO885916,
+        Latin1,
         ISO88592,
         ISO88593,
         ISO88594,
@@ -82,10 +78,14 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
         ISO88597,
         ISO88598,
         ISO88599,
+        ISO885910,
+        ISO885913,
+        ISO885914,
+        ISO885915,
+        ISO885916,
         Johab,
         KOI8r,
         KOI8u,
-        Latin1,
         MACCyrillic,
         MACGreek,
         MACIceland,
@@ -93,15 +93,15 @@ module Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
         MACRoman,
         MACTurkish,
         PTCP154,
-        ShiftJISX0213,
         ShiftJis,
         ShiftJis2004,
-        Utf16,
-        Utf16Be,
-        Utf16Le,
+        ShiftJISX0213,
         Utf32,
         Utf32Be,
         Utf32Le,
+        Utf16,
+        Utf16Be,
+        Utf16Le,
         Utf7,
         Utf8,
         Utf8Sig
@@ -147,42 +147,6 @@ pattern Big5hkscs = CloudWatchLogsEncoding' "big5hkscs"
 
 pattern CP037 :: CloudWatchLogsEncoding
 pattern CP037 = CloudWatchLogsEncoding' "cp037"
-
-pattern CP1006 :: CloudWatchLogsEncoding
-pattern CP1006 = CloudWatchLogsEncoding' "cp1006"
-
-pattern CP1026 :: CloudWatchLogsEncoding
-pattern CP1026 = CloudWatchLogsEncoding' "cp1026"
-
-pattern CP1140 :: CloudWatchLogsEncoding
-pattern CP1140 = CloudWatchLogsEncoding' "cp1140"
-
-pattern CP1250 :: CloudWatchLogsEncoding
-pattern CP1250 = CloudWatchLogsEncoding' "cp1250"
-
-pattern CP1251 :: CloudWatchLogsEncoding
-pattern CP1251 = CloudWatchLogsEncoding' "cp1251"
-
-pattern CP1252 :: CloudWatchLogsEncoding
-pattern CP1252 = CloudWatchLogsEncoding' "cp1252"
-
-pattern CP1253 :: CloudWatchLogsEncoding
-pattern CP1253 = CloudWatchLogsEncoding' "cp1253"
-
-pattern CP1254 :: CloudWatchLogsEncoding
-pattern CP1254 = CloudWatchLogsEncoding' "cp1254"
-
-pattern CP1255 :: CloudWatchLogsEncoding
-pattern CP1255 = CloudWatchLogsEncoding' "cp1255"
-
-pattern CP1256 :: CloudWatchLogsEncoding
-pattern CP1256 = CloudWatchLogsEncoding' "cp1256"
-
-pattern CP1257 :: CloudWatchLogsEncoding
-pattern CP1257 = CloudWatchLogsEncoding' "cp1257"
-
-pattern CP1258 :: CloudWatchLogsEncoding
-pattern CP1258 = CloudWatchLogsEncoding' "cp1258"
 
 pattern CP424 :: CloudWatchLogsEncoding
 pattern CP424 = CloudWatchLogsEncoding' "cp424"
@@ -259,26 +223,62 @@ pattern CP949 = CloudWatchLogsEncoding' "cp949"
 pattern CP950 :: CloudWatchLogsEncoding
 pattern CP950 = CloudWatchLogsEncoding' "cp950"
 
-pattern EucJISX0213 :: CloudWatchLogsEncoding
-pattern EucJISX0213 = CloudWatchLogsEncoding' "euc_jisx0213"
+pattern CP1006 :: CloudWatchLogsEncoding
+pattern CP1006 = CloudWatchLogsEncoding' "cp1006"
 
-pattern EucJis2004 :: CloudWatchLogsEncoding
-pattern EucJis2004 = CloudWatchLogsEncoding' "euc_jis_2004"
+pattern CP1026 :: CloudWatchLogsEncoding
+pattern CP1026 = CloudWatchLogsEncoding' "cp1026"
+
+pattern CP1140 :: CloudWatchLogsEncoding
+pattern CP1140 = CloudWatchLogsEncoding' "cp1140"
+
+pattern CP1250 :: CloudWatchLogsEncoding
+pattern CP1250 = CloudWatchLogsEncoding' "cp1250"
+
+pattern CP1251 :: CloudWatchLogsEncoding
+pattern CP1251 = CloudWatchLogsEncoding' "cp1251"
+
+pattern CP1252 :: CloudWatchLogsEncoding
+pattern CP1252 = CloudWatchLogsEncoding' "cp1252"
+
+pattern CP1253 :: CloudWatchLogsEncoding
+pattern CP1253 = CloudWatchLogsEncoding' "cp1253"
+
+pattern CP1254 :: CloudWatchLogsEncoding
+pattern CP1254 = CloudWatchLogsEncoding' "cp1254"
+
+pattern CP1255 :: CloudWatchLogsEncoding
+pattern CP1255 = CloudWatchLogsEncoding' "cp1255"
+
+pattern CP1256 :: CloudWatchLogsEncoding
+pattern CP1256 = CloudWatchLogsEncoding' "cp1256"
+
+pattern CP1257 :: CloudWatchLogsEncoding
+pattern CP1257 = CloudWatchLogsEncoding' "cp1257"
+
+pattern CP1258 :: CloudWatchLogsEncoding
+pattern CP1258 = CloudWatchLogsEncoding' "cp1258"
 
 pattern EucJp :: CloudWatchLogsEncoding
 pattern EucJp = CloudWatchLogsEncoding' "euc_jp"
 
+pattern EucJis2004 :: CloudWatchLogsEncoding
+pattern EucJis2004 = CloudWatchLogsEncoding' "euc_jis_2004"
+
+pattern EucJISX0213 :: CloudWatchLogsEncoding
+pattern EucJISX0213 = CloudWatchLogsEncoding' "euc_jisx0213"
+
 pattern EucKr :: CloudWatchLogsEncoding
 pattern EucKr = CloudWatchLogsEncoding' "euc_kr"
-
-pattern GB18030 :: CloudWatchLogsEncoding
-pattern GB18030 = CloudWatchLogsEncoding' "gb18030"
 
 pattern GB2312 :: CloudWatchLogsEncoding
 pattern GB2312 = CloudWatchLogsEncoding' "gb2312"
 
 pattern Gbk :: CloudWatchLogsEncoding
 pattern Gbk = CloudWatchLogsEncoding' "gbk"
+
+pattern GB18030 :: CloudWatchLogsEncoding
+pattern GB18030 = CloudWatchLogsEncoding' "gb18030"
 
 pattern HZ :: CloudWatchLogsEncoding
 pattern HZ = CloudWatchLogsEncoding' "hz"
@@ -304,20 +304,8 @@ pattern ISO2022JpExt = CloudWatchLogsEncoding' "iso2022_jp_ext"
 pattern ISO2022Kr :: CloudWatchLogsEncoding
 pattern ISO2022Kr = CloudWatchLogsEncoding' "iso2022_kr"
 
-pattern ISO885910 :: CloudWatchLogsEncoding
-pattern ISO885910 = CloudWatchLogsEncoding' "iso8859_10"
-
-pattern ISO885913 :: CloudWatchLogsEncoding
-pattern ISO885913 = CloudWatchLogsEncoding' "iso8859_13"
-
-pattern ISO885914 :: CloudWatchLogsEncoding
-pattern ISO885914 = CloudWatchLogsEncoding' "iso8859_14"
-
-pattern ISO885915 :: CloudWatchLogsEncoding
-pattern ISO885915 = CloudWatchLogsEncoding' "iso8859_15"
-
-pattern ISO885916 :: CloudWatchLogsEncoding
-pattern ISO885916 = CloudWatchLogsEncoding' "iso8859_16"
+pattern Latin1 :: CloudWatchLogsEncoding
+pattern Latin1 = CloudWatchLogsEncoding' "latin_1"
 
 pattern ISO88592 :: CloudWatchLogsEncoding
 pattern ISO88592 = CloudWatchLogsEncoding' "iso8859_2"
@@ -343,6 +331,21 @@ pattern ISO88598 = CloudWatchLogsEncoding' "iso8859_8"
 pattern ISO88599 :: CloudWatchLogsEncoding
 pattern ISO88599 = CloudWatchLogsEncoding' "iso8859_9"
 
+pattern ISO885910 :: CloudWatchLogsEncoding
+pattern ISO885910 = CloudWatchLogsEncoding' "iso8859_10"
+
+pattern ISO885913 :: CloudWatchLogsEncoding
+pattern ISO885913 = CloudWatchLogsEncoding' "iso8859_13"
+
+pattern ISO885914 :: CloudWatchLogsEncoding
+pattern ISO885914 = CloudWatchLogsEncoding' "iso8859_14"
+
+pattern ISO885915 :: CloudWatchLogsEncoding
+pattern ISO885915 = CloudWatchLogsEncoding' "iso8859_15"
+
+pattern ISO885916 :: CloudWatchLogsEncoding
+pattern ISO885916 = CloudWatchLogsEncoding' "iso8859_16"
+
 pattern Johab :: CloudWatchLogsEncoding
 pattern Johab = CloudWatchLogsEncoding' "johab"
 
@@ -351,9 +354,6 @@ pattern KOI8r = CloudWatchLogsEncoding' "koi8_r"
 
 pattern KOI8u :: CloudWatchLogsEncoding
 pattern KOI8u = CloudWatchLogsEncoding' "koi8_u"
-
-pattern Latin1 :: CloudWatchLogsEncoding
-pattern Latin1 = CloudWatchLogsEncoding' "latin_1"
 
 pattern MACCyrillic :: CloudWatchLogsEncoding
 pattern MACCyrillic = CloudWatchLogsEncoding' "mac_cyrillic"
@@ -376,23 +376,14 @@ pattern MACTurkish = CloudWatchLogsEncoding' "mac_turkish"
 pattern PTCP154 :: CloudWatchLogsEncoding
 pattern PTCP154 = CloudWatchLogsEncoding' "ptcp154"
 
-pattern ShiftJISX0213 :: CloudWatchLogsEncoding
-pattern ShiftJISX0213 = CloudWatchLogsEncoding' "shift_jisx0213"
-
 pattern ShiftJis :: CloudWatchLogsEncoding
 pattern ShiftJis = CloudWatchLogsEncoding' "shift_jis"
 
 pattern ShiftJis2004 :: CloudWatchLogsEncoding
 pattern ShiftJis2004 = CloudWatchLogsEncoding' "shift_jis_2004"
 
-pattern Utf16 :: CloudWatchLogsEncoding
-pattern Utf16 = CloudWatchLogsEncoding' "utf_16"
-
-pattern Utf16Be :: CloudWatchLogsEncoding
-pattern Utf16Be = CloudWatchLogsEncoding' "utf_16_be"
-
-pattern Utf16Le :: CloudWatchLogsEncoding
-pattern Utf16Le = CloudWatchLogsEncoding' "utf_16_le"
+pattern ShiftJISX0213 :: CloudWatchLogsEncoding
+pattern ShiftJISX0213 = CloudWatchLogsEncoding' "shift_jisx0213"
 
 pattern Utf32 :: CloudWatchLogsEncoding
 pattern Utf32 = CloudWatchLogsEncoding' "utf_32"
@@ -402,6 +393,15 @@ pattern Utf32Be = CloudWatchLogsEncoding' "utf_32_be"
 
 pattern Utf32Le :: CloudWatchLogsEncoding
 pattern Utf32Le = CloudWatchLogsEncoding' "utf_32_le"
+
+pattern Utf16 :: CloudWatchLogsEncoding
+pattern Utf16 = CloudWatchLogsEncoding' "utf_16"
+
+pattern Utf16Be :: CloudWatchLogsEncoding
+pattern Utf16Be = CloudWatchLogsEncoding' "utf_16_be"
+
+pattern Utf16Le :: CloudWatchLogsEncoding
+pattern Utf16Le = CloudWatchLogsEncoding' "utf_16_le"
 
 pattern Utf7 :: CloudWatchLogsEncoding
 pattern Utf7 = CloudWatchLogsEncoding' "utf_7"
@@ -417,18 +417,6 @@ pattern Utf8Sig = CloudWatchLogsEncoding' "utf_8_sig"
   BIG5,
   Big5hkscs,
   CP037,
-  CP1006,
-  CP1026,
-  CP1140,
-  CP1250,
-  CP1251,
-  CP1252,
-  CP1253,
-  CP1254,
-  CP1255,
-  CP1256,
-  CP1257,
-  CP1258,
   CP424,
   CP437,
   CP500,
@@ -454,13 +442,25 @@ pattern Utf8Sig = CloudWatchLogsEncoding' "utf_8_sig"
   CP932,
   CP949,
   CP950,
-  EucJISX0213,
-  EucJis2004,
+  CP1006,
+  CP1026,
+  CP1140,
+  CP1250,
+  CP1251,
+  CP1252,
+  CP1253,
+  CP1254,
+  CP1255,
+  CP1256,
+  CP1257,
+  CP1258,
   EucJp,
+  EucJis2004,
+  EucJISX0213,
   EucKr,
-  GB18030,
   GB2312,
   Gbk,
+  GB18030,
   HZ,
   ISO2022Jp,
   ISO2022Jp1,
@@ -469,11 +469,7 @@ pattern Utf8Sig = CloudWatchLogsEncoding' "utf_8_sig"
   ISO2022Jp3,
   ISO2022JpExt,
   ISO2022Kr,
-  ISO885910,
-  ISO885913,
-  ISO885914,
-  ISO885915,
-  ISO885916,
+  Latin1,
   ISO88592,
   ISO88593,
   ISO88594,
@@ -482,10 +478,14 @@ pattern Utf8Sig = CloudWatchLogsEncoding' "utf_8_sig"
   ISO88597,
   ISO88598,
   ISO88599,
+  ISO885910,
+  ISO885913,
+  ISO885914,
+  ISO885915,
+  ISO885916,
   Johab,
   KOI8r,
   KOI8u,
-  Latin1,
   MACCyrillic,
   MACGreek,
   MACIceland,
@@ -493,15 +493,15 @@ pattern Utf8Sig = CloudWatchLogsEncoding' "utf_8_sig"
   MACRoman,
   MACTurkish,
   PTCP154,
-  ShiftJISX0213,
   ShiftJis,
   ShiftJis2004,
-  Utf16,
-  Utf16Be,
-  Utf16Le,
+  ShiftJISX0213,
   Utf32,
   Utf32Be,
   Utf32Le,
+  Utf16,
+  Utf16Be,
+  Utf16Le,
   Utf7,
   Utf8,
   Utf8Sig,

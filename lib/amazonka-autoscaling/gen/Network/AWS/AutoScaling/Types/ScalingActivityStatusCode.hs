@@ -13,18 +13,18 @@
 module Network.AWS.AutoScaling.Types.ScalingActivityStatusCode
   ( ScalingActivityStatusCode
       ( ScalingActivityStatusCode',
-        Cancelled,
-        Failed,
-        InProgress,
-        MidLifecycleAction,
-        PendingSpotBidPlacement,
-        PreInService,
-        Successful,
-        WaitingForELBConnectionDraining,
-        WaitingForInstanceId,
-        WaitingForInstanceWarmup,
-        WaitingForSpotInstanceId,
-        WaitingForSpotInstanceRequestId
+        SASCPendingSpotBidPlacement,
+        SASCWaitingForSpotInstanceRequestId,
+        SASCWaitingForSpotInstanceId,
+        SASCWaitingForInstanceId,
+        SASCPreInService,
+        SASCInProgress,
+        SASCWaitingForELBConnectionDraining,
+        SASCMidLifecycleAction,
+        SASCWaitingForInstanceWarmup,
+        SASCSuccessful,
+        SASCFailed,
+        SASCCancelled
       ),
   )
 where
@@ -55,54 +55,54 @@ newtype ScalingActivityStatusCode = ScalingActivityStatusCode' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: ScalingActivityStatusCode
-pattern Cancelled = ScalingActivityStatusCode' "Cancelled"
+pattern SASCPendingSpotBidPlacement :: ScalingActivityStatusCode
+pattern SASCPendingSpotBidPlacement = ScalingActivityStatusCode' "PendingSpotBidPlacement"
 
-pattern Failed :: ScalingActivityStatusCode
-pattern Failed = ScalingActivityStatusCode' "Failed"
+pattern SASCWaitingForSpotInstanceRequestId :: ScalingActivityStatusCode
+pattern SASCWaitingForSpotInstanceRequestId = ScalingActivityStatusCode' "WaitingForSpotInstanceRequestId"
 
-pattern InProgress :: ScalingActivityStatusCode
-pattern InProgress = ScalingActivityStatusCode' "InProgress"
+pattern SASCWaitingForSpotInstanceId :: ScalingActivityStatusCode
+pattern SASCWaitingForSpotInstanceId = ScalingActivityStatusCode' "WaitingForSpotInstanceId"
 
-pattern MidLifecycleAction :: ScalingActivityStatusCode
-pattern MidLifecycleAction = ScalingActivityStatusCode' "MidLifecycleAction"
+pattern SASCWaitingForInstanceId :: ScalingActivityStatusCode
+pattern SASCWaitingForInstanceId = ScalingActivityStatusCode' "WaitingForInstanceId"
 
-pattern PendingSpotBidPlacement :: ScalingActivityStatusCode
-pattern PendingSpotBidPlacement = ScalingActivityStatusCode' "PendingSpotBidPlacement"
+pattern SASCPreInService :: ScalingActivityStatusCode
+pattern SASCPreInService = ScalingActivityStatusCode' "PreInService"
 
-pattern PreInService :: ScalingActivityStatusCode
-pattern PreInService = ScalingActivityStatusCode' "PreInService"
+pattern SASCInProgress :: ScalingActivityStatusCode
+pattern SASCInProgress = ScalingActivityStatusCode' "InProgress"
 
-pattern Successful :: ScalingActivityStatusCode
-pattern Successful = ScalingActivityStatusCode' "Successful"
+pattern SASCWaitingForELBConnectionDraining :: ScalingActivityStatusCode
+pattern SASCWaitingForELBConnectionDraining = ScalingActivityStatusCode' "WaitingForELBConnectionDraining"
 
-pattern WaitingForELBConnectionDraining :: ScalingActivityStatusCode
-pattern WaitingForELBConnectionDraining = ScalingActivityStatusCode' "WaitingForELBConnectionDraining"
+pattern SASCMidLifecycleAction :: ScalingActivityStatusCode
+pattern SASCMidLifecycleAction = ScalingActivityStatusCode' "MidLifecycleAction"
 
-pattern WaitingForInstanceId :: ScalingActivityStatusCode
-pattern WaitingForInstanceId = ScalingActivityStatusCode' "WaitingForInstanceId"
+pattern SASCWaitingForInstanceWarmup :: ScalingActivityStatusCode
+pattern SASCWaitingForInstanceWarmup = ScalingActivityStatusCode' "WaitingForInstanceWarmup"
 
-pattern WaitingForInstanceWarmup :: ScalingActivityStatusCode
-pattern WaitingForInstanceWarmup = ScalingActivityStatusCode' "WaitingForInstanceWarmup"
+pattern SASCSuccessful :: ScalingActivityStatusCode
+pattern SASCSuccessful = ScalingActivityStatusCode' "Successful"
 
-pattern WaitingForSpotInstanceId :: ScalingActivityStatusCode
-pattern WaitingForSpotInstanceId = ScalingActivityStatusCode' "WaitingForSpotInstanceId"
+pattern SASCFailed :: ScalingActivityStatusCode
+pattern SASCFailed = ScalingActivityStatusCode' "Failed"
 
-pattern WaitingForSpotInstanceRequestId :: ScalingActivityStatusCode
-pattern WaitingForSpotInstanceRequestId = ScalingActivityStatusCode' "WaitingForSpotInstanceRequestId"
+pattern SASCCancelled :: ScalingActivityStatusCode
+pattern SASCCancelled = ScalingActivityStatusCode' "Cancelled"
 
 {-# COMPLETE
-  Cancelled,
-  Failed,
-  InProgress,
-  MidLifecycleAction,
-  PendingSpotBidPlacement,
-  PreInService,
-  Successful,
-  WaitingForELBConnectionDraining,
-  WaitingForInstanceId,
-  WaitingForInstanceWarmup,
-  WaitingForSpotInstanceId,
-  WaitingForSpotInstanceRequestId,
+  SASCPendingSpotBidPlacement,
+  SASCWaitingForSpotInstanceRequestId,
+  SASCWaitingForSpotInstanceId,
+  SASCWaitingForInstanceId,
+  SASCPreInService,
+  SASCInProgress,
+  SASCWaitingForELBConnectionDraining,
+  SASCMidLifecycleAction,
+  SASCWaitingForInstanceWarmup,
+  SASCSuccessful,
+  SASCFailed,
+  SASCCancelled,
   ScalingActivityStatusCode'
   #-}

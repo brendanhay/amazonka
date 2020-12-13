@@ -31,17 +31,14 @@ import Network.AWS.Rekognition.Types.LandmarkType
 --
 -- /See:/ 'mkLandmark' smart constructor.
 data Landmark = Landmark'
-  { type' :: Lude.Maybe LandmarkType,
+  { -- | Type of landmark.
+    type' :: Lude.Maybe LandmarkType,
+    -- | The x-coordinate of the landmark expressed as a ratio of the width of the image. The x-coordinate is measured from the left-side of the image. For example, if the image is 700 pixels wide and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
     x :: Lude.Maybe Lude.Double,
+    -- | The y-coordinate of the landmark expressed as a ratio of the height of the image. The y-coordinate is measured from the top of the image. For example, if the image height is 200 pixels and the y-coordinate of the landmark is at 50 pixels, this value is 0.25.
     y :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Landmark' with the minimum fields required to make a request.

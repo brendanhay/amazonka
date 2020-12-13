@@ -17,8 +17,8 @@ module Network.AWS.S3.Types.MetricsConfiguration
     mkMetricsConfiguration,
 
     -- * Lenses
-    mcFilter,
     mcId,
+    mcFilter,
   )
 where
 
@@ -31,36 +31,24 @@ import Network.AWS.S3.Types.MetricsFilter
 --
 -- /See:/ 'mkMetricsConfiguration' smart constructor.
 data MetricsConfiguration = MetricsConfiguration'
-  { filter ::
-      Lude.Maybe MetricsFilter,
-    id :: Lude.Text
+  { -- | The ID used to identify the metrics configuration.
+    id :: Lude.Text,
+    -- | Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+    filter :: Lude.Maybe MetricsFilter
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MetricsConfiguration' with the minimum fields required to make a request.
 --
--- * 'filter' - Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
 -- * 'id' - The ID used to identify the metrics configuration.
+-- * 'filter' - Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
 mkMetricsConfiguration ::
   -- | 'id'
   Lude.Text ->
   MetricsConfiguration
 mkMetricsConfiguration pId_ =
-  MetricsConfiguration' {filter = Lude.Nothing, id = pId_}
-
--- | Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
---
--- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcFilter :: Lens.Lens' MetricsConfiguration (Lude.Maybe MetricsFilter)
-mcFilter = Lens.lens (filter :: MetricsConfiguration -> Lude.Maybe MetricsFilter) (\s a -> s {filter = a} :: MetricsConfiguration)
-{-# DEPRECATED mcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+  MetricsConfiguration' {id = pId_, filter = Lude.Nothing}
 
 -- | The ID used to identify the metrics configuration.
 --
@@ -69,11 +57,18 @@ mcId :: Lens.Lens' MetricsConfiguration Lude.Text
 mcId = Lens.lens (id :: MetricsConfiguration -> Lude.Text) (\s a -> s {id = a} :: MetricsConfiguration)
 {-# DEPRECATED mcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
+-- | Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcFilter :: Lens.Lens' MetricsConfiguration (Lude.Maybe MetricsFilter)
+mcFilter = Lens.lens (filter :: MetricsConfiguration -> Lude.Maybe MetricsFilter) (\s a -> s {filter = a} :: MetricsConfiguration)
+{-# DEPRECATED mcFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
 instance Lude.FromXML MetricsConfiguration where
   parseXML x =
     MetricsConfiguration'
-      Lude.<$> (x Lude..@? "Filter") Lude.<*> (x Lude..@ "Id")
+      Lude.<$> (x Lude..@ "Id") Lude.<*> (x Lude..@? "Filter")
 
 instance Lude.ToXML MetricsConfiguration where
   toXML MetricsConfiguration' {..} =
-    Lude.mconcat ["Filter" Lude.@= filter, "Id" Lude.@= id]
+    Lude.mconcat ["Id" Lude.@= id, "Filter" Lude.@= filter]

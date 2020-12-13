@@ -13,18 +13,18 @@
 module Network.AWS.MediaConvert.Types.CaptionDestinationType
   ( CaptionDestinationType
       ( CaptionDestinationType',
-        BurnIn,
-        DvbSub,
-        Embedded,
-        EmbeddedPlusSCTE20,
-        Imsc,
-        SCTE20PlusEmbedded,
-        Scc,
-        Smi,
-        Srt,
-        Teletext,
-        Ttml,
-        Webvtt
+        CDTBurnIn,
+        CDTDvbSub,
+        CDTEmbedded,
+        CDTEmbeddedPlusSCTE20,
+        CDTImsc,
+        CDTSCTE20PlusEmbedded,
+        CDTScc,
+        CDTSrt,
+        CDTSmi,
+        CDTTeletext,
+        CDTTtml,
+        CDTWebvtt
       ),
   )
 where
@@ -56,54 +56,54 @@ newtype CaptionDestinationType = CaptionDestinationType' Lude.Text
       Lude.ToHeader
     )
 
-pattern BurnIn :: CaptionDestinationType
-pattern BurnIn = CaptionDestinationType' "BURN_IN"
+pattern CDTBurnIn :: CaptionDestinationType
+pattern CDTBurnIn = CaptionDestinationType' "BURN_IN"
 
-pattern DvbSub :: CaptionDestinationType
-pattern DvbSub = CaptionDestinationType' "DVB_SUB"
+pattern CDTDvbSub :: CaptionDestinationType
+pattern CDTDvbSub = CaptionDestinationType' "DVB_SUB"
 
-pattern Embedded :: CaptionDestinationType
-pattern Embedded = CaptionDestinationType' "EMBEDDED"
+pattern CDTEmbedded :: CaptionDestinationType
+pattern CDTEmbedded = CaptionDestinationType' "EMBEDDED"
 
-pattern EmbeddedPlusSCTE20 :: CaptionDestinationType
-pattern EmbeddedPlusSCTE20 = CaptionDestinationType' "EMBEDDED_PLUS_SCTE20"
+pattern CDTEmbeddedPlusSCTE20 :: CaptionDestinationType
+pattern CDTEmbeddedPlusSCTE20 = CaptionDestinationType' "EMBEDDED_PLUS_SCTE20"
 
-pattern Imsc :: CaptionDestinationType
-pattern Imsc = CaptionDestinationType' "IMSC"
+pattern CDTImsc :: CaptionDestinationType
+pattern CDTImsc = CaptionDestinationType' "IMSC"
 
-pattern SCTE20PlusEmbedded :: CaptionDestinationType
-pattern SCTE20PlusEmbedded = CaptionDestinationType' "SCTE20_PLUS_EMBEDDED"
+pattern CDTSCTE20PlusEmbedded :: CaptionDestinationType
+pattern CDTSCTE20PlusEmbedded = CaptionDestinationType' "SCTE20_PLUS_EMBEDDED"
 
-pattern Scc :: CaptionDestinationType
-pattern Scc = CaptionDestinationType' "SCC"
+pattern CDTScc :: CaptionDestinationType
+pattern CDTScc = CaptionDestinationType' "SCC"
 
-pattern Smi :: CaptionDestinationType
-pattern Smi = CaptionDestinationType' "SMI"
+pattern CDTSrt :: CaptionDestinationType
+pattern CDTSrt = CaptionDestinationType' "SRT"
 
-pattern Srt :: CaptionDestinationType
-pattern Srt = CaptionDestinationType' "SRT"
+pattern CDTSmi :: CaptionDestinationType
+pattern CDTSmi = CaptionDestinationType' "SMI"
 
-pattern Teletext :: CaptionDestinationType
-pattern Teletext = CaptionDestinationType' "TELETEXT"
+pattern CDTTeletext :: CaptionDestinationType
+pattern CDTTeletext = CaptionDestinationType' "TELETEXT"
 
-pattern Ttml :: CaptionDestinationType
-pattern Ttml = CaptionDestinationType' "TTML"
+pattern CDTTtml :: CaptionDestinationType
+pattern CDTTtml = CaptionDestinationType' "TTML"
 
-pattern Webvtt :: CaptionDestinationType
-pattern Webvtt = CaptionDestinationType' "WEBVTT"
+pattern CDTWebvtt :: CaptionDestinationType
+pattern CDTWebvtt = CaptionDestinationType' "WEBVTT"
 
 {-# COMPLETE
-  BurnIn,
-  DvbSub,
-  Embedded,
-  EmbeddedPlusSCTE20,
-  Imsc,
-  SCTE20PlusEmbedded,
-  Scc,
-  Smi,
-  Srt,
-  Teletext,
-  Ttml,
-  Webvtt,
+  CDTBurnIn,
+  CDTDvbSub,
+  CDTEmbedded,
+  CDTEmbeddedPlusSCTE20,
+  CDTImsc,
+  CDTSCTE20PlusEmbedded,
+  CDTScc,
+  CDTSrt,
+  CDTSmi,
+  CDTTeletext,
+  CDTTtml,
+  CDTWebvtt,
   CaptionDestinationType'
   #-}

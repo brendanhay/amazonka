@@ -39,37 +39,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProfileData' smart constructor.
 data ProfileData = ProfileData'
-  { distanceUnit ::
-      Lude.Maybe DistanceUnit,
+  { -- | The distance unit of a room profile.
+    distanceUnit :: Lude.Maybe DistanceUnit,
+    -- | The locale of a room profile. (This is currently available only to a limited preview audience.)
     locale :: Lude.Maybe Lude.Text,
+    -- | The address of a room profile.
     address :: Lude.Maybe Lude.Text,
+    -- | The ARN of a room profile.
     profileARN :: Lude.Maybe Lude.Text,
+    -- | The wake word of a room profile.
     wakeWord :: Lude.Maybe WakeWord,
+    -- | The name of a room profile.
     profileName :: Lude.Maybe Lude.Text,
+    -- | The temperature unit of a room profile.
     temperatureUnit :: Lude.Maybe TemperatureUnit,
+    -- | The time zone of a room profile.
     timezone :: Lude.Maybe Lude.Text,
+    -- | Retrieves if the profile data is default or not.
     isDefault :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProfileData' with the minimum fields required to make a request.
 --
--- * 'address' - The address of a room profile.
 -- * 'distanceUnit' - The distance unit of a room profile.
--- * 'isDefault' - Retrieves if the profile data is default or not.
 -- * 'locale' - The locale of a room profile. (This is currently available only to a limited preview audience.)
+-- * 'address' - The address of a room profile.
 -- * 'profileARN' - The ARN of a room profile.
+-- * 'wakeWord' - The wake word of a room profile.
 -- * 'profileName' - The name of a room profile.
 -- * 'temperatureUnit' - The temperature unit of a room profile.
 -- * 'timezone' - The time zone of a room profile.
--- * 'wakeWord' - The wake word of a room profile.
+-- * 'isDefault' - Retrieves if the profile data is default or not.
 mkProfileData ::
   ProfileData
 mkProfileData =

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.RDS.RebootDBInstance
     mkRebootDBInstance,
 
     -- ** Request lenses
-    rdiForceFailover,
     rdiDBInstanceIdentifier,
+    rdiForceFailover,
 
     -- * Destructuring the response
     RebootDBInstanceResponse (..),
@@ -45,17 +46,18 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRebootDBInstance' smart constructor.
 data RebootDBInstance = RebootDBInstance'
-  { forceFailover ::
-      Lude.Maybe Lude.Bool,
-    dbInstanceIdentifier :: Lude.Text
+  { -- | The DB instance identifier. This parameter is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DBInstance.
+    dbInstanceIdentifier :: Lude.Text,
+    -- | A value that indicates whether the reboot is conducted through a Multi-AZ failover.
+    --
+    -- Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.
+    forceFailover :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootDBInstance' with the minimum fields required to make a request.
@@ -76,18 +78,9 @@ mkRebootDBInstance ::
   RebootDBInstance
 mkRebootDBInstance pDBInstanceIdentifier_ =
   RebootDBInstance'
-    { forceFailover = Lude.Nothing,
-      dbInstanceIdentifier = pDBInstanceIdentifier_
+    { dbInstanceIdentifier = pDBInstanceIdentifier_,
+      forceFailover = Lude.Nothing
     }
-
--- | A value that indicates whether the reboot is conducted through a Multi-AZ failover.
---
--- Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.
---
--- /Note:/ Consider using 'forceFailover' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdiForceFailover :: Lens.Lens' RebootDBInstance (Lude.Maybe Lude.Bool)
-rdiForceFailover = Lens.lens (forceFailover :: RebootDBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {forceFailover = a} :: RebootDBInstance)
-{-# DEPRECATED rdiForceFailover "Use generic-lens or generic-optics with 'forceFailover' instead." #-}
 
 -- | The DB instance identifier. This parameter is stored as a lowercase string.
 --
@@ -101,6 +94,15 @@ rdiForceFailover = Lens.lens (forceFailover :: RebootDBInstance -> Lude.Maybe Lu
 rdiDBInstanceIdentifier :: Lens.Lens' RebootDBInstance Lude.Text
 rdiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: RebootDBInstance -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: RebootDBInstance)
 {-# DEPRECATED rdiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+
+-- | A value that indicates whether the reboot is conducted through a Multi-AZ failover.
+--
+-- Constraint: You can't enable force failover if the instance isn't configured for Multi-AZ.
+--
+-- /Note:/ Consider using 'forceFailover' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdiForceFailover :: Lens.Lens' RebootDBInstance (Lude.Maybe Lude.Bool)
+rdiForceFailover = Lens.lens (forceFailover :: RebootDBInstance -> Lude.Maybe Lude.Bool) (\s a -> s {forceFailover = a} :: RebootDBInstance)
+{-# DEPRECATED rdiForceFailover "Use generic-lens or generic-optics with 'forceFailover' instead." #-}
 
 instance Lude.AWSRequest RebootDBInstance where
   type Rs RebootDBInstance = RebootDBInstanceResponse
@@ -124,28 +126,22 @@ instance Lude.ToQuery RebootDBInstance where
     Lude.mconcat
       [ "Action" Lude.=: ("RebootDBInstance" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "ForceFailover" Lude.=: forceFailover,
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
+        "ForceFailover" Lude.=: forceFailover
       ]
 
 -- | /See:/ 'mkRebootDBInstanceResponse' smart constructor.
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
-  { dbInstance ::
-      Lude.Maybe DBInstance,
+  { dbInstance :: Lude.Maybe DBInstance,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RebootDBInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'dbInstance' - Undocumented field.
+-- * 'dbInstance' -
 -- * 'responseStatus' - The response status code.
 mkRebootDBInstanceResponse ::
   -- | 'responseStatus'

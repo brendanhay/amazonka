@@ -13,9 +13,9 @@
 module Network.AWS.Transcribe.Types.ModelStatus
   ( ModelStatus
       ( ModelStatus',
-        MSCompleted,
+        MSInProgress,
         MSFailed,
-        MSInProgress
+        MSCompleted
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ModelStatus = ModelStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern MSCompleted :: ModelStatus
-pattern MSCompleted = ModelStatus' "COMPLETED"
+pattern MSInProgress :: ModelStatus
+pattern MSInProgress = ModelStatus' "IN_PROGRESS"
 
 pattern MSFailed :: ModelStatus
 pattern MSFailed = ModelStatus' "FAILED"
 
-pattern MSInProgress :: ModelStatus
-pattern MSInProgress = ModelStatus' "IN_PROGRESS"
+pattern MSCompleted :: ModelStatus
+pattern MSCompleted = ModelStatus' "COMPLETED"
 
 {-# COMPLETE
-  MSCompleted,
-  MSFailed,
   MSInProgress,
+  MSFailed,
+  MSCompleted,
   ModelStatus'
   #-}

@@ -13,9 +13,9 @@
 module Network.AWS.CodeBuild.Types.EnvironmentVariableType
   ( EnvironmentVariableType
       ( EnvironmentVariableType',
-        EVTParameterStore,
-        EVTPlaintext,
-        EVTSecretsManager
+        Plaintext,
+        ParameterStore,
+        SecretsManager
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype EnvironmentVariableType = EnvironmentVariableType' Lude.Text
       Lude.ToHeader
     )
 
-pattern EVTParameterStore :: EnvironmentVariableType
-pattern EVTParameterStore = EnvironmentVariableType' "PARAMETER_STORE"
+pattern Plaintext :: EnvironmentVariableType
+pattern Plaintext = EnvironmentVariableType' "PLAINTEXT"
 
-pattern EVTPlaintext :: EnvironmentVariableType
-pattern EVTPlaintext = EnvironmentVariableType' "PLAINTEXT"
+pattern ParameterStore :: EnvironmentVariableType
+pattern ParameterStore = EnvironmentVariableType' "PARAMETER_STORE"
 
-pattern EVTSecretsManager :: EnvironmentVariableType
-pattern EVTSecretsManager = EnvironmentVariableType' "SECRETS_MANAGER"
+pattern SecretsManager :: EnvironmentVariableType
+pattern SecretsManager = EnvironmentVariableType' "SECRETS_MANAGER"
 
 {-# COMPLETE
-  EVTParameterStore,
-  EVTPlaintext,
-  EVTSecretsManager,
+  Plaintext,
+  ParameterStore,
+  SecretsManager,
   EnvironmentVariableType'
   #-}

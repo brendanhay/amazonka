@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,25 +50,72 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeSubnets' smart constructor.
 data DescribeSubnets = DescribeSubnets'
-  { subnetIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | One or more subnet IDs.
+    --
+    -- Default: Describes all your subnets.
+    subnetIds :: Lude.Maybe [Lude.Text],
+    -- | One or more filters.
+    --
+    --
+    --     * @availability-zone@ - The Availability Zone for the subnet. You can also use @availabilityZone@ as the filter name.
+    --
+    --
+    --     * @availability-zone-id@ - The ID of the Availability Zone for the subnet. You can also use @availabilityZoneId@ as the filter name.
+    --
+    --
+    --     * @available-ip-address-count@ - The number of IPv4 addresses in the subnet that are available.
+    --
+    --
+    --     * @cidr-block@ - The IPv4 CIDR block of the subnet. The CIDR block you specify must exactly match the subnet's CIDR block for information to be returned for the subnet. You can also use @cidr@ or @cidrBlock@ as the filter names.
+    --
+    --
+    --     * @default-for-az@ - Indicates whether this is the default subnet for the Availability Zone. You can also use @defaultForAz@ as the filter name.
+    --
+    --
+    --     * @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block associated with the subnet.
+    --
+    --
+    --     * @ipv6-cidr-block-association.association-id@ - An association ID for an IPv6 CIDR block associated with the subnet.
+    --
+    --
+    --     * @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR block associated with the subnet.
+    --
+    --
+    --     * @owner-id@ - The ID of the AWS account that owns the subnet.
+    --
+    --
+    --     * @state@ - The state of the subnet (@pending@ | @available@ ).
+    --
+    --
+    --     * @subnet-arn@ - The Amazon Resource Name (ARN) of the subnet.
+    --
+    --
+    --     * @subnet-id@ - The ID of the subnet.
+    --
+    --
+    --     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    --
+    --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
+    --
+    --
+    --     * @vpc-id@ - The ID of the VPC for the subnet.
     filters :: Lude.Maybe [Filter],
+    -- | The token for the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubnets' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'subnetIds' - One or more subnet IDs.
+--
+-- Default: Describes all your subnets.
 -- * 'filters' - One or more filters.
 --
 --
@@ -116,11 +164,9 @@ data DescribeSubnets = DescribeSubnets'
 --     * @vpc-id@ - The ID of the VPC for the subnet.
 --
 --
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 -- * 'nextToken' - The token for the next page of results.
--- * 'subnetIds' - One or more subnet IDs.
---
--- Default: Describes all your subnets.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 mkDescribeSubnets ::
   DescribeSubnets
 mkDescribeSubnets =
@@ -259,25 +305,21 @@ instance Lude.ToQuery DescribeSubnets where
 
 -- | /See:/ 'mkDescribeSubnetsResponse' smart constructor.
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
-  { subnets ::
-      Lude.Maybe [Subnet],
+  { -- | Information about one or more subnets.
+    subnets :: Lude.Maybe [Subnet],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeSubnetsResponse' with the minimum fields required to make a request.
 --
+-- * 'subnets' - Information about one or more subnets.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 -- * 'responseStatus' - The response status code.
--- * 'subnets' - Information about one or more subnets.
 mkDescribeSubnetsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

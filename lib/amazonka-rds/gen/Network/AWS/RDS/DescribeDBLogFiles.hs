@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.RDS.DescribeDBLogFiles
     ddlfFilters,
     ddlfFileSize,
     ddlfFileLastWritten,
+    ddlfDBInstanceIdentifier,
     ddlfMarker,
     ddlfMaxRecords,
-    ddlfDBInstanceIdentifier,
 
     -- * Destructuring the response
     DescribeDBLogFilesResponse (..),
@@ -51,26 +52,34 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
-  { filenameContains ::
-      Lude.Maybe Lude.Text,
+  { -- | Filters the available log files for log file names that contain the specified string.
+    filenameContains :: Lude.Maybe Lude.Text,
+    -- | This parameter isn't currently supported.
     filters :: Lude.Maybe [Filter],
+    -- | Filters the available log files for files larger than the specified size.
     fileSize :: Lude.Maybe Lude.Integer,
+    -- | Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
     fileLastWritten :: Lude.Maybe Lude.Integer,
+    -- | The customer-assigned name of the DB instance that contains the log files you want to list.
+    --
+    -- Constraints:
+    --
+    --     * Must match the identifier of an existing DBInstance.
+    dbInstanceIdentifier :: Lude.Text,
+    -- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
     marker :: Lude.Maybe Lude.Text,
-    maxRecords :: Lude.Maybe Lude.Int,
-    dbInstanceIdentifier :: Lude.Text
+    -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBLogFiles' with the minimum fields required to make a request.
 --
+-- * 'filenameContains' - Filters the available log files for log file names that contain the specified string.
+-- * 'filters' - This parameter isn't currently supported.
+-- * 'fileSize' - Filters the available log files for files larger than the specified size.
+-- * 'fileLastWritten' - Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
 -- * 'dbInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log files you want to list.
 --
 -- Constraints:
@@ -78,10 +87,6 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
 --     * Must match the identifier of an existing DBInstance.
 --
 --
--- * 'fileLastWritten' - Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
--- * 'fileSize' - Filters the available log files for files larger than the specified size.
--- * 'filenameContains' - Filters the available log files for log file names that contain the specified string.
--- * 'filters' - This parameter isn't currently supported.
 -- * 'marker' - The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 mkDescribeDBLogFiles ::
@@ -94,9 +99,9 @@ mkDescribeDBLogFiles pDBInstanceIdentifier_ =
       filters = Lude.Nothing,
       fileSize = Lude.Nothing,
       fileLastWritten = Lude.Nothing,
+      dbInstanceIdentifier = pDBInstanceIdentifier_,
       marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      dbInstanceIdentifier = pDBInstanceIdentifier_
+      maxRecords = Lude.Nothing
     }
 
 -- | Filters the available log files for log file names that contain the specified string.
@@ -127,6 +132,19 @@ ddlfFileLastWritten :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe Lude.Integer)
 ddlfFileLastWritten = Lens.lens (fileLastWritten :: DescribeDBLogFiles -> Lude.Maybe Lude.Integer) (\s a -> s {fileLastWritten = a} :: DescribeDBLogFiles)
 {-# DEPRECATED ddlfFileLastWritten "Use generic-lens or generic-optics with 'fileLastWritten' instead." #-}
 
+-- | The customer-assigned name of the DB instance that contains the log files you want to list.
+--
+-- Constraints:
+--
+--     * Must match the identifier of an existing DBInstance.
+--
+--
+--
+-- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddlfDBInstanceIdentifier :: Lens.Lens' DescribeDBLogFiles Lude.Text
+ddlfDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBLogFiles -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBLogFiles)
+{-# DEPRECATED ddlfDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+
 -- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -140,19 +158,6 @@ ddlfMarker = Lens.lens (marker :: DescribeDBLogFiles -> Lude.Maybe Lude.Text) (\
 ddlfMaxRecords :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe Lude.Int)
 ddlfMaxRecords = Lens.lens (maxRecords :: DescribeDBLogFiles -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBLogFiles)
 {-# DEPRECATED ddlfMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | The customer-assigned name of the DB instance that contains the log files you want to list.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBInstance.
---
---
---
--- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfDBInstanceIdentifier :: Lens.Lens' DescribeDBLogFiles Lude.Text
-ddlfDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBLogFiles -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
 
 instance Page.AWSPager DescribeDBLogFiles where
   page rq rs
@@ -194,28 +199,23 @@ instance Lude.ToQuery DescribeDBLogFiles where
           Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
         "FileSize" Lude.=: fileSize,
         "FileLastWritten" Lude.=: fileLastWritten,
+        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
         "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | The response from a call to @DescribeDBLogFiles@ .
 --
 -- /See:/ 'mkDescribeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
-  { describeDBLogFiles ::
-      Lude.Maybe
-        [DescribeDBLogFilesDetails],
+  { -- | The DB log files returned.
+    describeDBLogFiles :: Lude.Maybe [DescribeDBLogFilesDetails],
+    -- | A pagination token that can be used in a later DescribeDBLogFiles request.
     marker :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeDBLogFilesResponse' with the minimum fields required to make a request.

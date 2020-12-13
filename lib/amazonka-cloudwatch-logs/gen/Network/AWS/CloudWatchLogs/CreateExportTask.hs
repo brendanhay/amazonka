@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,12 +25,12 @@ module Network.AWS.CloudWatchLogs.CreateExportTask
 
     -- ** Request lenses
     cetDestinationPrefix,
-    cetTaskName,
-    cetLogStreamNamePrefix,
-    cetLogGroupName,
-    cetFrom,
-    cetTo,
     cetDestination,
+    cetTaskName,
+    cetTo,
+    cetFrom,
+    cetLogGroupName,
+    cetLogStreamNamePrefix,
 
     -- * Destructuring the response
     CreateExportTaskResponse (..),
@@ -49,52 +50,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateExportTask' smart constructor.
 data CreateExportTask = CreateExportTask'
-  { destinationPrefix ::
-      Lude.Maybe Lude.Text,
+  { -- | The prefix used as the start of the key for every object exported. If you don't specify a value, the default is @exportedlogs@ .
+    destinationPrefix :: Lude.Maybe Lude.Text,
+    -- | The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
+    destination :: Lude.Text,
+    -- | The name of the export task.
     taskName :: Lude.Maybe Lude.Text,
-    logStreamNamePrefix :: Lude.Maybe Lude.Text,
-    logGroupName :: Lude.Text,
-    from :: Lude.Natural,
+    -- | The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
     to :: Lude.Natural,
-    destination :: Lude.Text
+    -- | The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
+    from :: Lude.Natural,
+    -- | The name of the log group.
+    logGroupName :: Lude.Text,
+    -- | Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
+    logStreamNamePrefix :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateExportTask' with the minimum fields required to make a request.
 --
--- * 'destination' - The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
 -- * 'destinationPrefix' - The prefix used as the start of the key for every object exported. If you don't specify a value, the default is @exportedlogs@ .
+-- * 'destination' - The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
+-- * 'taskName' - The name of the export task.
+-- * 'to' - The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 -- * 'from' - The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 -- * 'logGroupName' - The name of the log group.
 -- * 'logStreamNamePrefix' - Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
--- * 'taskName' - The name of the export task.
--- * 'to' - The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 mkCreateExportTask ::
-  -- | 'logGroupName'
-  Lude.Text ->
-  -- | 'from'
-  Lude.Natural ->
-  -- | 'to'
-  Lude.Natural ->
   -- | 'destination'
   Lude.Text ->
+  -- | 'to'
+  Lude.Natural ->
+  -- | 'from'
+  Lude.Natural ->
+  -- | 'logGroupName'
+  Lude.Text ->
   CreateExportTask
-mkCreateExportTask pLogGroupName_ pFrom_ pTo_ pDestination_ =
+mkCreateExportTask pDestination_ pTo_ pFrom_ pLogGroupName_ =
   CreateExportTask'
     { destinationPrefix = Lude.Nothing,
+      destination = pDestination_,
       taskName = Lude.Nothing,
-      logStreamNamePrefix = Lude.Nothing,
-      logGroupName = pLogGroupName_,
-      from = pFrom_,
       to = pTo_,
-      destination = pDestination_
+      from = pFrom_,
+      logGroupName = pLogGroupName_,
+      logStreamNamePrefix = Lude.Nothing
     }
 
 -- | The prefix used as the start of the key for every object exported. If you don't specify a value, the default is @exportedlogs@ .
@@ -104,33 +105,19 @@ cetDestinationPrefix :: Lens.Lens' CreateExportTask (Lude.Maybe Lude.Text)
 cetDestinationPrefix = Lens.lens (destinationPrefix :: CreateExportTask -> Lude.Maybe Lude.Text) (\s a -> s {destinationPrefix = a} :: CreateExportTask)
 {-# DEPRECATED cetDestinationPrefix "Use generic-lens or generic-optics with 'destinationPrefix' instead." #-}
 
+-- | The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetDestination :: Lens.Lens' CreateExportTask Lude.Text
+cetDestination = Lens.lens (destination :: CreateExportTask -> Lude.Text) (\s a -> s {destination = a} :: CreateExportTask)
+{-# DEPRECATED cetDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
+
 -- | The name of the export task.
 --
 -- /Note:/ Consider using 'taskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cetTaskName :: Lens.Lens' CreateExportTask (Lude.Maybe Lude.Text)
 cetTaskName = Lens.lens (taskName :: CreateExportTask -> Lude.Maybe Lude.Text) (\s a -> s {taskName = a} :: CreateExportTask)
 {-# DEPRECATED cetTaskName "Use generic-lens or generic-optics with 'taskName' instead." #-}
-
--- | Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
---
--- /Note:/ Consider using 'logStreamNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cetLogStreamNamePrefix :: Lens.Lens' CreateExportTask (Lude.Maybe Lude.Text)
-cetLogStreamNamePrefix = Lens.lens (logStreamNamePrefix :: CreateExportTask -> Lude.Maybe Lude.Text) (\s a -> s {logStreamNamePrefix = a} :: CreateExportTask)
-{-# DEPRECATED cetLogStreamNamePrefix "Use generic-lens or generic-optics with 'logStreamNamePrefix' instead." #-}
-
--- | The name of the log group.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cetLogGroupName :: Lens.Lens' CreateExportTask Lude.Text
-cetLogGroupName = Lens.lens (logGroupName :: CreateExportTask -> Lude.Text) (\s a -> s {logGroupName = a} :: CreateExportTask)
-{-# DEPRECATED cetLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
-
--- | The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
---
--- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cetFrom :: Lens.Lens' CreateExportTask Lude.Natural
-cetFrom = Lens.lens (from :: CreateExportTask -> Lude.Natural) (\s a -> s {from = a} :: CreateExportTask)
-{-# DEPRECATED cetFrom "Use generic-lens or generic-optics with 'from' instead." #-}
 
 -- | The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.
 --
@@ -139,12 +126,26 @@ cetTo :: Lens.Lens' CreateExportTask Lude.Natural
 cetTo = Lens.lens (to :: CreateExportTask -> Lude.Natural) (\s a -> s {to = a} :: CreateExportTask)
 {-# DEPRECATED cetTo "Use generic-lens or generic-optics with 'to' instead." #-}
 
--- | The name of S3 bucket for the exported log data. The bucket must be in the same AWS region.
+-- | The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.
 --
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cetDestination :: Lens.Lens' CreateExportTask Lude.Text
-cetDestination = Lens.lens (destination :: CreateExportTask -> Lude.Text) (\s a -> s {destination = a} :: CreateExportTask)
-{-# DEPRECATED cetDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
+-- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetFrom :: Lens.Lens' CreateExportTask Lude.Natural
+cetFrom = Lens.lens (from :: CreateExportTask -> Lude.Natural) (\s a -> s {from = a} :: CreateExportTask)
+{-# DEPRECATED cetFrom "Use generic-lens or generic-optics with 'from' instead." #-}
+
+-- | The name of the log group.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetLogGroupName :: Lens.Lens' CreateExportTask Lude.Text
+cetLogGroupName = Lens.lens (logGroupName :: CreateExportTask -> Lude.Text) (\s a -> s {logGroupName = a} :: CreateExportTask)
+{-# DEPRECATED cetLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
+
+-- | Export only log streams that match the provided prefix. If you don't specify a value, no prefix filter is applied.
+--
+-- /Note:/ Consider using 'logStreamNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cetLogStreamNamePrefix :: Lens.Lens' CreateExportTask (Lude.Maybe Lude.Text)
+cetLogStreamNamePrefix = Lens.lens (logStreamNamePrefix :: CreateExportTask -> Lude.Maybe Lude.Text) (\s a -> s {logStreamNamePrefix = a} :: CreateExportTask)
+{-# DEPRECATED cetLogStreamNamePrefix "Use generic-lens or generic-optics with 'logStreamNamePrefix' instead." #-}
 
 instance Lude.AWSRequest CreateExportTask where
   type Rs CreateExportTask = CreateExportTaskResponse
@@ -172,12 +173,12 @@ instance Lude.ToJSON CreateExportTask where
     Lude.object
       ( Lude.catMaybes
           [ ("destinationPrefix" Lude..=) Lude.<$> destinationPrefix,
+            Lude.Just ("destination" Lude..= destination),
             ("taskName" Lude..=) Lude.<$> taskName,
-            ("logStreamNamePrefix" Lude..=) Lude.<$> logStreamNamePrefix,
-            Lude.Just ("logGroupName" Lude..= logGroupName),
-            Lude.Just ("from" Lude..= from),
             Lude.Just ("to" Lude..= to),
-            Lude.Just ("destination" Lude..= destination)
+            Lude.Just ("from" Lude..= from),
+            Lude.Just ("logGroupName" Lude..= logGroupName),
+            ("logStreamNamePrefix" Lude..=) Lude.<$> logStreamNamePrefix
           ]
       )
 
@@ -189,23 +190,18 @@ instance Lude.ToQuery CreateExportTask where
 
 -- | /See:/ 'mkCreateExportTaskResponse' smart constructor.
 data CreateExportTaskResponse = CreateExportTaskResponse'
-  { taskId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the export task.
+    taskId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateExportTaskResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'taskId' - The ID of the export task.
+-- * 'responseStatus' - The response status code.
 mkCreateExportTaskResponse ::
   -- | 'responseStatus'
   Lude.Int ->

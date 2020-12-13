@@ -34,25 +34,35 @@ import Network.AWS.WAFRegional.Types.HTTPHeader
 --
 -- /See:/ 'mkHTTPRequest' smart constructor.
 data HTTPRequest = HTTPRequest'
-  { hTTPVersion ::
-      Lude.Maybe Lude.Text,
+  { -- | The HTTP version specified in the sampled web request, for example, @HTTP/1.1@ .
+    hTTPVersion :: Lude.Maybe Lude.Text,
+    -- | The two-letter country code for the country that the request originated from. For a current list of country codes, see the Wikipedia entry <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2> .
     country :: Lude.Maybe Lude.Text,
+    -- | The part of a web request that identifies the resource, for example, @/images/daily-ad.jpg@ .
     uri :: Lude.Maybe Lude.Text,
+    -- | A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.
     headers :: Lude.Maybe [HTTPHeader],
+    -- | The HTTP method specified in the sampled web request. CloudFront supports the following methods: @DELETE@ , @GET@ , @HEAD@ , @OPTIONS@ , @PATCH@ , @POST@ , and @PUT@ .
     method :: Lude.Maybe Lude.Text,
+    -- | The IP address that the request originated from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:
+    --
+    --
+    --     * @c-ip@ , if the viewer did not use an HTTP proxy or a load balancer to send the request
+    --
+    --
+    --     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
     clientIP :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HTTPRequest' with the minimum fields required to make a request.
 --
+-- * 'hTTPVersion' - The HTTP version specified in the sampled web request, for example, @HTTP/1.1@ .
+-- * 'country' - The two-letter country code for the country that the request originated from. For a current list of country codes, see the Wikipedia entry <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2> .
+-- * 'uri' - The part of a web request that identifies the resource, for example, @/images/daily-ad.jpg@ .
+-- * 'headers' - A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.
+-- * 'method' - The HTTP method specified in the sampled web request. CloudFront supports the following methods: @DELETE@ , @GET@ , @HEAD@ , @OPTIONS@ , @PATCH@ , @POST@ , and @PUT@ .
 -- * 'clientIP' - The IP address that the request originated from. If the @WebACL@ is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:
 --
 --
@@ -60,13 +70,6 @@ data HTTPRequest = HTTPRequest'
 --
 --
 --     * @x-forwarded-for@ , if the viewer did use an HTTP proxy or a load balancer to send the request
---
---
--- * 'country' - The two-letter country code for the country that the request originated from. For a current list of country codes, see the Wikipedia entry <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO 3166-1 alpha-2> .
--- * 'hTTPVersion' - The HTTP version specified in the sampled web request, for example, @HTTP/1.1@ .
--- * 'headers' - A complex type that contains two values for each header in the sampled web request: the name of the header and the value of the header.
--- * 'method' - The HTTP method specified in the sampled web request. CloudFront supports the following methods: @DELETE@ , @GET@ , @HEAD@ , @OPTIONS@ , @PATCH@ , @POST@ , and @PUT@ .
--- * 'uri' - The part of a web request that identifies the resource, for example, @/images/daily-ad.jpg@ .
 mkHTTPRequest ::
   HTTPRequest
 mkHTTPRequest =

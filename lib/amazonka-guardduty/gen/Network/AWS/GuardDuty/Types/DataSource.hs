@@ -13,9 +13,9 @@
 module Network.AWS.GuardDuty.Types.DataSource
   ( DataSource
       ( DataSource',
+        FlowLogs,
         CloudTrail,
         DNSLogs,
-        FlowLogs,
         S3Logs
       ),
   )
@@ -47,22 +47,22 @@ newtype DataSource = DataSource' Lude.Text
       Lude.ToHeader
     )
 
+pattern FlowLogs :: DataSource
+pattern FlowLogs = DataSource' "FLOW_LOGS"
+
 pattern CloudTrail :: DataSource
 pattern CloudTrail = DataSource' "CLOUD_TRAIL"
 
 pattern DNSLogs :: DataSource
 pattern DNSLogs = DataSource' "DNS_LOGS"
 
-pattern FlowLogs :: DataSource
-pattern FlowLogs = DataSource' "FLOW_LOGS"
-
 pattern S3Logs :: DataSource
 pattern S3Logs = DataSource' "S3_LOGS"
 
 {-# COMPLETE
+  FlowLogs,
   CloudTrail,
   DNSLogs,
-  FlowLogs,
   S3Logs,
   DataSource'
   #-}

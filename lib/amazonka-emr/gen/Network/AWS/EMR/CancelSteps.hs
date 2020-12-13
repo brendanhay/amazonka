@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.EMR.CancelSteps
     mkCancelSteps,
 
     -- ** Request lenses
+    csStepIds,
     csStepCancellationOption,
     csClusterId,
-    csStepIds,
 
     -- * Destructuring the response
     CancelStepsResponse (..),
@@ -43,35 +44,38 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCancelSteps' smart constructor.
 data CancelSteps = CancelSteps'
-  { stepCancellationOption ::
-      Lude.Maybe StepCancellationOption,
-    clusterId :: Lude.Text,
-    stepIds :: [Lude.Text]
+  { -- | The list of @StepIDs@ to cancel. Use 'ListSteps' to get steps and their states for the specified cluster.
+    stepIds :: [Lude.Text],
+    -- | The option to choose to cancel @RUNNING@ steps. By default, the value is @SEND_INTERRUPT@ .
+    stepCancellationOption :: Lude.Maybe StepCancellationOption,
+    -- | The @ClusterID@ for the specified steps that will be canceled. Use 'RunJobFlow' and 'ListClusters' to get ClusterIDs.
+    clusterId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelSteps' with the minimum fields required to make a request.
 --
--- * 'clusterId' - The @ClusterID@ for the specified steps that will be canceled. Use 'RunJobFlow' and 'ListClusters' to get ClusterIDs.
--- * 'stepCancellationOption' - The option to choose to cancel @RUNNING@ steps. By default, the value is @SEND_INTERRUPT@ .
 -- * 'stepIds' - The list of @StepIDs@ to cancel. Use 'ListSteps' to get steps and their states for the specified cluster.
+-- * 'stepCancellationOption' - The option to choose to cancel @RUNNING@ steps. By default, the value is @SEND_INTERRUPT@ .
+-- * 'clusterId' - The @ClusterID@ for the specified steps that will be canceled. Use 'RunJobFlow' and 'ListClusters' to get ClusterIDs.
 mkCancelSteps ::
   -- | 'clusterId'
   Lude.Text ->
   CancelSteps
 mkCancelSteps pClusterId_ =
   CancelSteps'
-    { stepCancellationOption = Lude.Nothing,
-      clusterId = pClusterId_,
-      stepIds = Lude.mempty
+    { stepIds = Lude.mempty,
+      stepCancellationOption = Lude.Nothing,
+      clusterId = pClusterId_
     }
+
+-- | The list of @StepIDs@ to cancel. Use 'ListSteps' to get steps and their states for the specified cluster.
+--
+-- /Note:/ Consider using 'stepIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStepIds :: Lens.Lens' CancelSteps [Lude.Text]
+csStepIds = Lens.lens (stepIds :: CancelSteps -> [Lude.Text]) (\s a -> s {stepIds = a} :: CancelSteps)
+{-# DEPRECATED csStepIds "Use generic-lens or generic-optics with 'stepIds' instead." #-}
 
 -- | The option to choose to cancel @RUNNING@ steps. By default, the value is @SEND_INTERRUPT@ .
 --
@@ -86,13 +90,6 @@ csStepCancellationOption = Lens.lens (stepCancellationOption :: CancelSteps -> L
 csClusterId :: Lens.Lens' CancelSteps Lude.Text
 csClusterId = Lens.lens (clusterId :: CancelSteps -> Lude.Text) (\s a -> s {clusterId = a} :: CancelSteps)
 {-# DEPRECATED csClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
-
--- | The list of @StepIDs@ to cancel. Use 'ListSteps' to get steps and their states for the specified cluster.
---
--- /Note:/ Consider using 'stepIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStepIds :: Lens.Lens' CancelSteps [Lude.Text]
-csStepIds = Lens.lens (stepIds :: CancelSteps -> [Lude.Text]) (\s a -> s {stepIds = a} :: CancelSteps)
-{-# DEPRECATED csStepIds "Use generic-lens or generic-optics with 'stepIds' instead." #-}
 
 instance Lude.AWSRequest CancelSteps where
   type Rs CancelSteps = CancelStepsResponse
@@ -120,10 +117,9 @@ instance Lude.ToJSON CancelSteps where
   toJSON CancelSteps' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("StepCancellationOption" Lude..=)
-              Lude.<$> stepCancellationOption,
-            Lude.Just ("ClusterId" Lude..= clusterId),
-            Lude.Just ("StepIds" Lude..= stepIds)
+          [ Lude.Just ("StepIds" Lude..= stepIds),
+            ("StepCancellationOption" Lude..=) Lude.<$> stepCancellationOption,
+            Lude.Just ("ClusterId" Lude..= clusterId)
           ]
       )
 
@@ -137,17 +133,12 @@ instance Lude.ToQuery CancelSteps where
 --
 -- /See:/ 'mkCancelStepsResponse' smart constructor.
 data CancelStepsResponse = CancelStepsResponse'
-  { cancelStepsInfoList ::
-      Lude.Maybe [CancelStepsInfo],
+  { -- | A list of 'CancelStepsInfo' , which shows the status of specified cancel requests for each @StepID@ specified.
+    cancelStepsInfoList :: Lude.Maybe [CancelStepsInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CancelStepsResponse' with the minimum fields required to make a request.

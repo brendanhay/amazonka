@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,9 +25,9 @@ module Network.AWS.DMS.DescribeTableStatistics
 
     -- ** Request lenses
     dtsFilters,
+    dtsReplicationTaskARN,
     dtsMarker,
     dtsMaxRecords,
-    dtsReplicationTaskARN,
 
     -- * Destructuring the response
     DescribeTableStatisticsResponse (..),
@@ -51,19 +52,22 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeTableStatistics' smart constructor.
 data DescribeTableStatistics = DescribeTableStatistics'
-  { filters ::
-      Lude.Maybe [Filter],
+  { -- | Filters applied to table statistics.
+    --
+    -- Valid filter names: schema-name | table-name | table-state
+    -- A combination of filters creates an AND condition where each record matches all specified filters.
+    filters :: Lude.Maybe [Filter],
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskARN :: Lude.Text,
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
-    maxRecords :: Lude.Maybe Lude.Int,
-    replicationTaskARN :: Lude.Text
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 500.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTableStatistics' with the minimum fields required to make a request.
@@ -72,12 +76,12 @@ data DescribeTableStatistics = DescribeTableStatistics'
 --
 -- Valid filter names: schema-name | table-name | table-state
 -- A combination of filters creates an AND condition where each record matches all specified filters.
+-- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 -- Constraints: Minimum 20, maximum 500.
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
 mkDescribeTableStatistics ::
   -- | 'replicationTaskARN'
   Lude.Text ->
@@ -85,9 +89,9 @@ mkDescribeTableStatistics ::
 mkDescribeTableStatistics pReplicationTaskARN_ =
   DescribeTableStatistics'
     { filters = Lude.Nothing,
+      replicationTaskARN = pReplicationTaskARN_,
       marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      replicationTaskARN = pReplicationTaskARN_
+      maxRecords = Lude.Nothing
     }
 
 -- | Filters applied to table statistics.
@@ -99,6 +103,13 @@ mkDescribeTableStatistics pReplicationTaskARN_ =
 dtsFilters :: Lens.Lens' DescribeTableStatistics (Lude.Maybe [Filter])
 dtsFilters = Lens.lens (filters :: DescribeTableStatistics -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeTableStatistics)
 {-# DEPRECATED dtsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the replication task.
+--
+-- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsReplicationTaskARN :: Lens.Lens' DescribeTableStatistics Lude.Text
+dtsReplicationTaskARN = Lens.lens (replicationTaskARN :: DescribeTableStatistics -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: DescribeTableStatistics)
+{-# DEPRECATED dtsReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -116,13 +127,6 @@ dtsMarker = Lens.lens (marker :: DescribeTableStatistics -> Lude.Maybe Lude.Text
 dtsMaxRecords :: Lens.Lens' DescribeTableStatistics (Lude.Maybe Lude.Int)
 dtsMaxRecords = Lens.lens (maxRecords :: DescribeTableStatistics -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeTableStatistics)
 {-# DEPRECATED dtsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the replication task.
---
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsReplicationTaskARN :: Lens.Lens' DescribeTableStatistics Lude.Text
-dtsReplicationTaskARN = Lens.lens (replicationTaskARN :: DescribeTableStatistics -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: DescribeTableStatistics)
-{-# DEPRECATED dtsReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
 
 instance Page.AWSPager DescribeTableStatistics where
   page rq rs
@@ -160,9 +164,9 @@ instance Lude.ToJSON DescribeTableStatistics where
     Lude.object
       ( Lude.catMaybes
           [ ("Filters" Lude..=) Lude.<$> filters,
+            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN),
             ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords,
-            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN)
+            ("MaxRecords" Lude..=) Lude.<$> maxRecords
           ]
       )
 
@@ -176,30 +180,24 @@ instance Lude.ToQuery DescribeTableStatistics where
 --
 -- /See:/ 'mkDescribeTableStatisticsResponse' smart constructor.
 data DescribeTableStatisticsResponse = DescribeTableStatisticsResponse'
-  { replicationTaskARN ::
-      Lude.Maybe Lude.Text,
-    marker ::
-      Lude.Maybe Lude.Text,
-    tableStatistics ::
-      Lude.Maybe
-        [TableStatistics],
+  { -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskARN :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The table statistics.
+    tableStatistics :: Lude.Maybe [TableStatistics],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeTableStatisticsResponse' with the minimum fields required to make a request.
 --
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task.
--- * 'responseStatus' - The response status code.
+-- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'tableStatistics' - The table statistics.
+-- * 'responseStatus' - The response status code.
 mkDescribeTableStatisticsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

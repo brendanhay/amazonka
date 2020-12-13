@@ -36,28 +36,25 @@ import Network.AWS.Shield.Types.Unit
 --
 -- /See:/ 'mkAttackProperty' smart constructor.
 data AttackProperty = AttackProperty'
-  { attackLayer ::
-      Lude.Maybe AttackLayer,
+  { -- | The type of distributed denial of service (DDoS) event that was observed. @NETWORK@ indicates layer 3 and layer 4 events and @APPLICATION@ indicates layer 7 events.
+    attackLayer :: Lude.Maybe AttackLayer,
+    -- | The array of contributor objects that includes the top five contributors to an attack.
     topContributors :: Lude.Maybe [Contributor],
-    attackPropertyIdentifier ::
-      Lude.Maybe AttackPropertyIdentifier,
+    -- | Defines the DDoS attack property information that is provided. The @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values are valid only for WordPress reflective pingback DDoS attacks.
+    attackPropertyIdentifier :: Lude.Maybe AttackPropertyIdentifier,
+    -- | The total contributions made to this attack by all contributors, not just the five listed in the @TopContributors@ list.
     total :: Lude.Maybe Lude.Integer,
+    -- | The unit of the @Value@ of the contributions.
     unit :: Lude.Maybe Unit
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackProperty' with the minimum fields required to make a request.
 --
 -- * 'attackLayer' - The type of distributed denial of service (DDoS) event that was observed. @NETWORK@ indicates layer 3 and layer 4 events and @APPLICATION@ indicates layer 7 events.
--- * 'attackPropertyIdentifier' - Defines the DDoS attack property information that is provided. The @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values are valid only for WordPress reflective pingback DDoS attacks.
 -- * 'topContributors' - The array of contributor objects that includes the top five contributors to an attack.
+-- * 'attackPropertyIdentifier' - Defines the DDoS attack property information that is provided. The @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values are valid only for WordPress reflective pingback DDoS attacks.
 -- * 'total' - The total contributions made to this attack by all contributors, not just the five listed in the @TopContributors@ list.
 -- * 'unit' - The unit of the @Value@ of the contributions.
 mkAttackProperty ::

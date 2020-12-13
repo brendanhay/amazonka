@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInstallationMedia' smart constructor.
 data DescribeInstallationMedia = DescribeInstallationMedia'
-  { installationMediaId ::
-      Lude.Maybe Lude.Text,
+  { -- | The installation medium ID.
+    installationMediaId :: Lude.Maybe Lude.Text,
+    -- | A filter that specifies one or more installation media to describe. Supported filters include the following:
+    --
+    --
+    --     * @custom-availability-zone-id@ - Accepts custom Availability Zone (AZ) identifiers. The results list includes information about only the custom AZs identified by these identifiers.
+    --
+    --
+    --     * @engine@ - Accepts database engines. The results list includes information about only the database engines identified by these identifiers.
+    -- For more information about the valid engines for installation media, see 'ImportInstallationMedia' .
     filters :: Lude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     marker :: Lude.Maybe Lude.Text,
+    -- | An optional pagination token provided by a previous DescribeInstallationMedia request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
     maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstallationMedia' with the minimum fields required to make a request.
 --
+-- * 'installationMediaId' - The installation medium ID.
 -- * 'filters' - A filter that specifies one or more installation media to describe. Supported filters include the following:
 --
 --
@@ -73,7 +79,6 @@ data DescribeInstallationMedia = DescribeInstallationMedia'
 -- For more information about the valid engines for installation media, see 'ImportInstallationMedia' .
 --
 --
--- * 'installationMediaId' - The installation medium ID.
 -- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - An optional pagination token provided by a previous DescribeInstallationMedia request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 mkDescribeInstallationMedia ::
@@ -167,27 +172,20 @@ instance Lude.ToQuery DescribeInstallationMedia where
 
 -- | /See:/ 'mkDescribeInstallationMediaResponse' smart constructor.
 data DescribeInstallationMediaResponse = DescribeInstallationMediaResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
-    installationMedia ::
-      Lude.Maybe
-        [InstallationMedia],
-    responseStatus ::
-      Lude.Int
+  { -- | An optional pagination token provided by a previous 'DescribeInstallationMedia' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The list of 'InstallationMedia' objects for the AWS account.
+    installationMedia :: Lude.Maybe [InstallationMedia],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInstallationMediaResponse' with the minimum fields required to make a request.
 --
--- * 'installationMedia' - The list of 'InstallationMedia' objects for the AWS account.
 -- * 'marker' - An optional pagination token provided by a previous 'DescribeInstallationMedia' request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- * 'installationMedia' - The list of 'InstallationMedia' objects for the AWS account.
 -- * 'responseStatus' - The response status code.
 mkDescribeInstallationMediaResponse ::
   -- | 'responseStatus'

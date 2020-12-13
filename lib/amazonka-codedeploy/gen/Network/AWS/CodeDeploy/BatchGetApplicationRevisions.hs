@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,17 +45,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkBatchGetApplicationRevisions' smart constructor.
 data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
-  { applicationName ::
-      Lude.Text,
+  { -- | The name of an AWS CodeDeploy application about which to get revision information.
+    applicationName :: Lude.Text,
+    -- | An array of @RevisionLocation@ objects that specify information to get about the application revisions, including type and location. The maximum number of @RevisionLocation@ objects you can specify is 25.
     revisions :: [RevisionLocation]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetApplicationRevisions' with the minimum fields required to make a request.
@@ -133,33 +129,24 @@ instance Lude.ToQuery BatchGetApplicationRevisions where
 --
 -- /See:/ 'mkBatchGetApplicationRevisionsResponse' smart constructor.
 data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse'
-  { applicationName ::
-      Lude.Maybe
-        Lude.Text,
-    revisions ::
-      Lude.Maybe
-        [RevisionInfo],
-    errorMessage ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The name of the application that corresponds to the revisions.
+    applicationName :: Lude.Maybe Lude.Text,
+    -- | Additional information about the revisions, including the type and location.
+    revisions :: Lude.Maybe [RevisionInfo],
+    -- | Information about errors that might have occurred during the API call.
+    errorMessage :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetApplicationRevisionsResponse' with the minimum fields required to make a request.
 --
 -- * 'applicationName' - The name of the application that corresponds to the revisions.
+-- * 'revisions' - Additional information about the revisions, including the type and location.
 -- * 'errorMessage' - Information about errors that might have occurred during the API call.
 -- * 'responseStatus' - The response status code.
--- * 'revisions' - Additional information about the revisions, including the type and location.
 mkBatchGetApplicationRevisionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

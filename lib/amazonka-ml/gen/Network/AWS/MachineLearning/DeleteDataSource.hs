@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.MachineLearning.DeleteDataSource
     mkDeleteDataSourceResponse,
 
     -- ** Response lenses
-    ddsrsDataSourceId,
-    ddsrsResponseStatus,
+    ddsfrsDataSourceId,
+    ddsfrsResponseStatus,
   )
 where
 
@@ -42,16 +43,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteDataSource' smart constructor.
 newtype DeleteDataSource = DeleteDataSource'
-  { dataSourceId ::
-      Lude.Text
+  { -- | A user-supplied ID that uniquely identifies the @DataSource@ .
+    dataSourceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataSource' with the minimum fields required to make a request.
@@ -107,17 +102,12 @@ instance Lude.ToQuery DeleteDataSource where
 --
 -- /See:/ 'mkDeleteDataSourceResponse' smart constructor.
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
-  { dataSourceId ::
-      Lude.Maybe Lude.Text,
+  { -- | A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
+    dataSourceId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteDataSourceResponse' with the minimum fields required to make a request.
@@ -137,13 +127,13 @@ mkDeleteDataSourceResponse pResponseStatus_ =
 -- | A user-supplied ID that uniquely identifies the @DataSource@ . This value should be identical to the value of the @DataSourceID@ in the request.
 --
 -- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsrsDataSourceId :: Lens.Lens' DeleteDataSourceResponse (Lude.Maybe Lude.Text)
-ddsrsDataSourceId = Lens.lens (dataSourceId :: DeleteDataSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: DeleteDataSourceResponse)
-{-# DEPRECATED ddsrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
+ddsfrsDataSourceId :: Lens.Lens' DeleteDataSourceResponse (Lude.Maybe Lude.Text)
+ddsfrsDataSourceId = Lens.lens (dataSourceId :: DeleteDataSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {dataSourceId = a} :: DeleteDataSourceResponse)
+{-# DEPRECATED ddsfrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsrsResponseStatus :: Lens.Lens' DeleteDataSourceResponse Lude.Int
-ddsrsResponseStatus = Lens.lens (responseStatus :: DeleteDataSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDataSourceResponse)
-{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddsfrsResponseStatus :: Lens.Lens' DeleteDataSourceResponse Lude.Int
+ddsfrsResponseStatus = Lens.lens (responseStatus :: DeleteDataSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDataSourceResponse)
+{-# DEPRECATED ddsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

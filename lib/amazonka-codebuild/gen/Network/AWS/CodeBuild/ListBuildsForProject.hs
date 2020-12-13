@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,24 +46,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListBuildsForProject' smart constructor.
 data ListBuildsForProject = ListBuildsForProject'
-  { sortOrder ::
-      Lude.Maybe SortOrderType,
+  { -- | The order to list build IDs. Valid values include:
+    --
+    --
+    --     * @ASCENDING@ : List the build IDs in ascending order by build ID.
+    --
+    --
+    --     * @DESCENDING@ : List the build IDs in descending order by build ID.
+    sortOrder :: Lude.Maybe SortOrderType,
+    -- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the AWS CodeBuild project.
     projectName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuildsForProject' with the minimum fields required to make a request.
 --
--- * 'nextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
--- * 'projectName' - The name of the AWS CodeBuild project.
 -- * 'sortOrder' - The order to list build IDs. Valid values include:
 --
 --
@@ -70,6 +71,10 @@ data ListBuildsForProject = ListBuildsForProject'
 --
 --
 --     * @DESCENDING@ : List the build IDs in descending order by build ID.
+--
+--
+-- * 'nextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- * 'projectName' - The name of the AWS CodeBuild project.
 mkListBuildsForProject ::
   -- | 'projectName'
   Lude.Text ->
@@ -160,19 +165,14 @@ instance Lude.ToQuery ListBuildsForProject where
 
 -- | /See:/ 'mkListBuildsForProjectResponse' smart constructor.
 data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
-  { ids ::
-      Lude.Maybe
-        (Lude.NonEmpty Lude.Text),
+  { -- | A list of build IDs for the specified build project, with each build ID representing a single build.
+    ids :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    -- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /nextToken/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListBuildsForProjectResponse' with the minimum fields required to make a request.

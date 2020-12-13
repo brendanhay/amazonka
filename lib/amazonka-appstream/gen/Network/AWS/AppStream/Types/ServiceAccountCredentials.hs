@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceAccountCredentials' smart constructor.
 data ServiceAccountCredentials = ServiceAccountCredentials'
-  { accountName ::
-      Lude.Sensitive Lude.Text,
-    accountPassword ::
-      Lude.Sensitive Lude.Text
+  { -- | The user name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+    accountName :: Lude.Sensitive Lude.Text,
+    -- | The password for the account.
+    accountPassword :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)

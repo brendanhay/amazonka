@@ -552,8 +552,8 @@ module Network.AWS.GameLift
     -- ** GameProperty
     GameProperty (..),
     mkGameProperty,
-    gpKey,
     gpValue,
+    gpKey,
 
     -- ** GameServer
     GameServer (..),
@@ -677,9 +677,9 @@ module Network.AWS.GameLift
     IPPermission (..),
     mkIPPermission,
     ipFromPort,
+    ipProtocol,
     ipToPort,
     ipIPRange,
-    ipProtocol,
 
     -- ** Instance
     Instance (..),
@@ -753,8 +753,8 @@ module Network.AWS.GameLift
     mkMatchmakingRuleSet,
     mrsCreationTime,
     mrsRuleSetName,
-    mrsRuleSetARN,
     mrsRuleSetBody,
+    mrsRuleSetARN,
 
     -- ** MatchmakingTicket
     MatchmakingTicket (..),
@@ -871,15 +871,15 @@ module Network.AWS.GameLift
     -- ** ServerProcess
     ServerProcess (..),
     mkServerProcess,
-    spParameters,
-    spLaunchPath,
     spConcurrentExecutions,
+    spLaunchPath,
+    spParameters,
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- ** TargetConfiguration
     TargetConfiguration (..),

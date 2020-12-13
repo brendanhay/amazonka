@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,6 +22,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
     mkCreateJob,
 
     -- ** Request lenses
+    cjPipelineId,
     cjInputs,
     cjInput,
     cjUserMetadata,
@@ -28,7 +30,6 @@ module Network.AWS.ElasticTranscoder.CreateJob
     cjOutput,
     cjPlaylists,
     cjOutputKeyPrefix,
-    cjPipelineId,
 
     -- * Destructuring the response
     CreateJobResponse (..),
@@ -50,51 +51,62 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { inputs :: Lude.Maybe [JobInput],
+  { -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
+    pipelineId :: Lude.Text,
+    -- | A section of the request body that provides information about the files that are being transcoded.
+    inputs :: Lude.Maybe [JobInput],
+    -- | A section of the request body that provides information about the file that is being transcoded.
     input :: Lude.Maybe JobInput,
+    -- | User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
     userMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
     outputs :: Lude.Maybe [CreateJobOutput],
+    -- | A section of the request body that provides information about the transcoded (target) file. We strongly recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
     output :: Lude.Maybe CreateJobOutput,
+    -- | If you specify a preset in @PresetId@ for which the value of @Container@ is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.
+    --
+    -- The maximum number of master playlists in a job is 30.
     playlists :: Lude.Maybe [CreateJobPlaylist],
-    outputKeyPrefix :: Lude.Maybe Lude.Text,
-    pipelineId :: Lude.Text
+    -- | The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
+    outputKeyPrefix :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
--- * 'input' - A section of the request body that provides information about the file that is being transcoded.
--- * 'inputs' - A section of the request body that provides information about the files that are being transcoded.
--- * 'output' - A section of the request body that provides information about the transcoded (target) file. We strongly recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
--- * 'outputKeyPrefix' - The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
--- * 'outputs' - A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
 -- * 'pipelineId' - The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
+-- * 'inputs' - A section of the request body that provides information about the files that are being transcoded.
+-- * 'input' - A section of the request body that provides information about the file that is being transcoded.
+-- * 'userMetadata' - User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
+-- * 'outputs' - A section of the request body that provides information about the transcoded (target) files. We recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
+-- * 'output' - A section of the request body that provides information about the transcoded (target) file. We strongly recommend that you use the @Outputs@ syntax instead of the @Output@ syntax.
 -- * 'playlists' - If you specify a preset in @PresetId@ for which the value of @Container@ is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information about the master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
--- * 'userMetadata' - User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in @key/value@ pairs, and you can add up to 10 @key/value@ pairs per job. Elastic Transcoder does not guarantee that @key/value@ pairs are returned in the same order in which you specify them.
+-- * 'outputKeyPrefix' - The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job creates, including output files, thumbnails, and playlists.
 mkCreateJob ::
   -- | 'pipelineId'
   Lude.Text ->
   CreateJob
 mkCreateJob pPipelineId_ =
   CreateJob'
-    { inputs = Lude.Nothing,
+    { pipelineId = pPipelineId_,
+      inputs = Lude.Nothing,
       input = Lude.Nothing,
       userMetadata = Lude.Nothing,
       outputs = Lude.Nothing,
       output = Lude.Nothing,
       playlists = Lude.Nothing,
-      outputKeyPrefix = Lude.Nothing,
-      pipelineId = pPipelineId_
+      outputKeyPrefix = Lude.Nothing
     }
+
+-- | The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjPipelineId :: Lens.Lens' CreateJob Lude.Text
+cjPipelineId = Lens.lens (pipelineId :: CreateJob -> Lude.Text) (\s a -> s {pipelineId = a} :: CreateJob)
+{-# DEPRECATED cjPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | A section of the request body that provides information about the files that are being transcoded.
 --
@@ -147,13 +159,6 @@ cjOutputKeyPrefix :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
 cjOutputKeyPrefix = Lens.lens (outputKeyPrefix :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {outputKeyPrefix = a} :: CreateJob)
 {-# DEPRECATED cjOutputKeyPrefix "Use generic-lens or generic-optics with 'outputKeyPrefix' instead." #-}
 
--- | The @Id@ of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.
---
--- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjPipelineId :: Lens.Lens' CreateJob Lude.Text
-cjPipelineId = Lens.lens (pipelineId :: CreateJob -> Lude.Text) (\s a -> s {pipelineId = a} :: CreateJob)
-{-# DEPRECATED cjPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
-
 instance Lude.AWSRequest CreateJob where
   type Rs CreateJob = CreateJobResponse
   request = Req.postJSON elasticTranscoderService
@@ -171,14 +176,14 @@ instance Lude.ToJSON CreateJob where
   toJSON CreateJob' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("Inputs" Lude..=) Lude.<$> inputs,
+          [ Lude.Just ("PipelineId" Lude..= pipelineId),
+            ("Inputs" Lude..=) Lude.<$> inputs,
             ("Input" Lude..=) Lude.<$> input,
             ("UserMetadata" Lude..=) Lude.<$> userMetadata,
             ("Outputs" Lude..=) Lude.<$> outputs,
             ("Output" Lude..=) Lude.<$> output,
             ("Playlists" Lude..=) Lude.<$> playlists,
-            ("OutputKeyPrefix" Lude..=) Lude.<$> outputKeyPrefix,
-            Lude.Just ("PipelineId" Lude..= pipelineId)
+            ("OutputKeyPrefix" Lude..=) Lude.<$> outputKeyPrefix
           ]
       )
 
@@ -192,16 +197,12 @@ instance Lude.ToQuery CreateJob where
 --
 -- /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { job :: Lude.Maybe Job',
+  { -- | A section of the response body that provides information about the job that is created.
+    job :: Lude.Maybe Job',
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.

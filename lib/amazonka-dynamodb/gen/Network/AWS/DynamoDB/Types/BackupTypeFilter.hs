@@ -13,10 +13,10 @@
 module Network.AWS.DynamoDB.Types.BackupTypeFilter
   ( BackupTypeFilter
       ( BackupTypeFilter',
-        BTFAWSBackup,
-        BTFAll,
+        BTFUser,
         BTFSystem,
-        BTFUser
+        BTFAWSBackup,
+        BTFAll
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype BackupTypeFilter = BackupTypeFilter' Lude.Text
       Lude.ToHeader
     )
 
+pattern BTFUser :: BackupTypeFilter
+pattern BTFUser = BackupTypeFilter' "USER"
+
+pattern BTFSystem :: BackupTypeFilter
+pattern BTFSystem = BackupTypeFilter' "SYSTEM"
+
 pattern BTFAWSBackup :: BackupTypeFilter
 pattern BTFAWSBackup = BackupTypeFilter' "AWS_BACKUP"
 
 pattern BTFAll :: BackupTypeFilter
 pattern BTFAll = BackupTypeFilter' "ALL"
 
-pattern BTFSystem :: BackupTypeFilter
-pattern BTFSystem = BackupTypeFilter' "SYSTEM"
-
-pattern BTFUser :: BackupTypeFilter
-pattern BTFUser = BackupTypeFilter' "USER"
-
 {-# COMPLETE
+  BTFUser,
+  BTFSystem,
   BTFAWSBackup,
   BTFAll,
-  BTFSystem,
-  BTFUser,
   BackupTypeFilter'
   #-}

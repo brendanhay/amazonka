@@ -29,17 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSpotInstanceStateFault' smart constructor.
 data SpotInstanceStateFault = SpotInstanceStateFault'
-  { code ::
-      Lude.Maybe Lude.Text,
+  { -- | The reason code for the Spot Instance state change.
+    code :: Lude.Maybe Lude.Text,
+    -- | The message for the Spot Instance state change.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SpotInstanceStateFault' with the minimum fields required to make a request.

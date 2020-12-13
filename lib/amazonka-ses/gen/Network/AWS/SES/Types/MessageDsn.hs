@@ -33,18 +33,14 @@ import Network.AWS.SES.Types.ExtensionField
 --
 -- /See:/ 'mkMessageDsn' smart constructor.
 data MessageDsn = MessageDsn'
-  { arrivalDate ::
-      Lude.Maybe Lude.DateTime,
+  { -- | When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
+    arrivalDate :: Lude.Maybe Lude.DateTime,
+    -- | Additional X-headers to include in the DSN.
     extensionFields :: Lude.Maybe [ExtensionField],
+    -- | The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
     reportingMta :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MessageDsn' with the minimum fields required to make a request.

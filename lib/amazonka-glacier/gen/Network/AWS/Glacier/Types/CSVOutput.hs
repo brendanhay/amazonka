@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCSVOutput' smart constructor.
 data CSVOutput = CSVOutput'
-  { quoteCharacter :: Lude.Maybe Lude.Text,
+  { -- | A value used as an escape character where the field delimiter is part of the value.
+    quoteCharacter :: Lude.Maybe Lude.Text,
+    -- | A value that indicates whether all output fields should be contained within quotation marks.
     quoteFields :: Lude.Maybe QuoteFields,
+    -- | A value used to separate individual records from each other.
     recordDelimiter :: Lude.Maybe Lude.Text,
+    -- | A single character used for escaping the quotation-mark character inside an already escaped value.
     quoteEscapeCharacter :: Lude.Maybe Lude.Text,
+    -- | A value used to separate individual fields from each other within a record.
     fieldDelimiter :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CSVOutput' with the minimum fields required to make a request.
 --
--- * 'fieldDelimiter' - A value used to separate individual fields from each other within a record.
 -- * 'quoteCharacter' - A value used as an escape character where the field delimiter is part of the value.
--- * 'quoteEscapeCharacter' - A single character used for escaping the quotation-mark character inside an already escaped value.
 -- * 'quoteFields' - A value that indicates whether all output fields should be contained within quotation marks.
 -- * 'recordDelimiter' - A value used to separate individual records from each other.
+-- * 'quoteEscapeCharacter' - A single character used for escaping the quotation-mark character inside an already escaped value.
+-- * 'fieldDelimiter' - A value used to separate individual fields from each other within a record.
 mkCSVOutput ::
   CSVOutput
 mkCSVOutput =

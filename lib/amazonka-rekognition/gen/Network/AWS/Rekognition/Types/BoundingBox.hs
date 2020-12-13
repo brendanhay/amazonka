@@ -34,26 +34,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBoundingBox' smart constructor.
 data BoundingBox = BoundingBox'
-  { height :: Lude.Maybe Lude.Double,
+  { -- | Height of the bounding box as a ratio of the overall image height.
+    height :: Lude.Maybe Lude.Double,
+    -- | Left coordinate of the bounding box as a ratio of overall image width.
     left :: Lude.Maybe Lude.Double,
+    -- | Width of the bounding box as a ratio of the overall image width.
     width :: Lude.Maybe Lude.Double,
+    -- | Top coordinate of the bounding box as a ratio of overall image height.
     top :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BoundingBox' with the minimum fields required to make a request.
 --
 -- * 'height' - Height of the bounding box as a ratio of the overall image height.
 -- * 'left' - Left coordinate of the bounding box as a ratio of overall image width.
--- * 'top' - Top coordinate of the bounding box as a ratio of overall image height.
 -- * 'width' - Width of the bounding box as a ratio of the overall image width.
+-- * 'top' - Top coordinate of the bounding box as a ratio of overall image height.
 mkBoundingBox ::
   BoundingBox
 mkBoundingBox =

@@ -29,24 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTimeSpan' smart constructor.
 data TimeSpan = TimeSpan'
-  { startTime :: Lude.Maybe Lude.Text,
+  { -- | The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
+    startTime :: Lude.Maybe Lude.Text,
+    -- | The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
+    --
+    -- If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
     duration :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeSpan' with the minimum fields required to make a request.
 --
+-- * 'startTime' - The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
 -- * 'duration' - The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder creates an output file from StartTime to the end of the file.
 --
 -- If you specify a value longer than the duration of the input file, Elastic Transcoder transcodes the file and returns a warning message.
--- * 'startTime' - The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.
 mkTimeSpan ::
   TimeSpan
 mkTimeSpan =

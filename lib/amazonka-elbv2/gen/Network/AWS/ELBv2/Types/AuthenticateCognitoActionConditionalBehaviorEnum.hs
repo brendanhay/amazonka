@@ -13,9 +13,9 @@
 module Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
   ( AuthenticateCognitoActionConditionalBehaviorEnum
       ( AuthenticateCognitoActionConditionalBehaviorEnum',
+        Deny,
         Allow,
-        Authenticate,
-        Deny
+        Authenticate
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype AuthenticateCognitoActionConditionalBehaviorEnum = AuthenticateCognitoAc
       Lude.ToHeader
     )
 
+pattern Deny :: AuthenticateCognitoActionConditionalBehaviorEnum
+pattern Deny = AuthenticateCognitoActionConditionalBehaviorEnum' "deny"
+
 pattern Allow :: AuthenticateCognitoActionConditionalBehaviorEnum
 pattern Allow = AuthenticateCognitoActionConditionalBehaviorEnum' "allow"
 
 pattern Authenticate :: AuthenticateCognitoActionConditionalBehaviorEnum
 pattern Authenticate = AuthenticateCognitoActionConditionalBehaviorEnum' "authenticate"
 
-pattern Deny :: AuthenticateCognitoActionConditionalBehaviorEnum
-pattern Deny = AuthenticateCognitoActionConditionalBehaviorEnum' "deny"
-
 {-# COMPLETE
+  Deny,
   Allow,
   Authenticate,
-  Deny,
   AuthenticateCognitoActionConditionalBehaviorEnum'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,8 +30,8 @@ module Network.AWS.MachineLearning.DeleteMLModel
     mkDeleteMLModelResponse,
 
     -- ** Response lenses
-    dmlmrsMLModelId,
-    dmlmrsResponseStatus,
+    dmlmfrsMLModelId,
+    dmlmfrsResponseStatus,
   )
 where
 
@@ -41,14 +42,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteMLModel' smart constructor.
-newtype DeleteMLModel = DeleteMLModel' {mLModelId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype DeleteMLModel = DeleteMLModel'
+  { -- | A user-supplied ID that uniquely identifies the @MLModel@ .
+    mLModelId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMLModel' with the minimum fields required to make a request.
@@ -106,17 +104,12 @@ instance Lude.ToQuery DeleteMLModel where
 --
 -- /See:/ 'mkDeleteMLModelResponse' smart constructor.
 data DeleteMLModelResponse = DeleteMLModelResponse'
-  { mLModelId ::
-      Lude.Maybe Lude.Text,
+  { -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
+    mLModelId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMLModelResponse' with the minimum fields required to make a request.
@@ -136,13 +129,13 @@ mkDeleteMLModelResponse pResponseStatus_ =
 -- | A user-supplied ID that uniquely identifies the @MLModel@ . This value should be identical to the value of the @MLModelID@ in the request.
 --
 -- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmrsMLModelId :: Lens.Lens' DeleteMLModelResponse (Lude.Maybe Lude.Text)
-dmlmrsMLModelId = Lens.lens (mLModelId :: DeleteMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: DeleteMLModelResponse)
-{-# DEPRECATED dmlmrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
+dmlmfrsMLModelId :: Lens.Lens' DeleteMLModelResponse (Lude.Maybe Lude.Text)
+dmlmfrsMLModelId = Lens.lens (mLModelId :: DeleteMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: DeleteMLModelResponse)
+{-# DEPRECATED dmlmfrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmrsResponseStatus :: Lens.Lens' DeleteMLModelResponse Lude.Int
-dmlmrsResponseStatus = Lens.lens (responseStatus :: DeleteMLModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMLModelResponse)
-{-# DEPRECATED dmlmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmlmfrsResponseStatus :: Lens.Lens' DeleteMLModelResponse Lude.Int
+dmlmfrsResponseStatus = Lens.lens (responseStatus :: DeleteMLModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMLModelResponse)
+{-# DEPRECATED dmlmfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

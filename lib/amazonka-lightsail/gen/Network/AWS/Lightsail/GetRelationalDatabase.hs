@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.Lightsail.GetRelationalDatabase
     mkGetRelationalDatabaseResponse,
 
     -- ** Response lenses
-    grdrrsRelationalDatabase,
-    grdrrsResponseStatus,
+    grdfrsRelationalDatabase,
+    grdfrsResponseStatus,
   )
 where
 
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRelationalDatabase' smart constructor.
 newtype GetRelationalDatabase = GetRelationalDatabase'
-  { relationalDatabaseName ::
-      Lude.Text
+  { -- | The name of the database that you are looking up.
+    relationalDatabaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabase' with the minimum fields required to make a request.
@@ -110,17 +105,12 @@ instance Lude.ToQuery GetRelationalDatabase where
 
 -- | /See:/ 'mkGetRelationalDatabaseResponse' smart constructor.
 data GetRelationalDatabaseResponse = GetRelationalDatabaseResponse'
-  { relationalDatabase ::
-      Lude.Maybe RelationalDatabase,
+  { -- | An object describing the specified database.
+    relationalDatabase :: Lude.Maybe RelationalDatabase,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseResponse' with the minimum fields required to make a request.
@@ -140,13 +130,13 @@ mkGetRelationalDatabaseResponse pResponseStatus_ =
 -- | An object describing the specified database.
 --
 -- /Note:/ Consider using 'relationalDatabase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdrrsRelationalDatabase :: Lens.Lens' GetRelationalDatabaseResponse (Lude.Maybe RelationalDatabase)
-grdrrsRelationalDatabase = Lens.lens (relationalDatabase :: GetRelationalDatabaseResponse -> Lude.Maybe RelationalDatabase) (\s a -> s {relationalDatabase = a} :: GetRelationalDatabaseResponse)
-{-# DEPRECATED grdrrsRelationalDatabase "Use generic-lens or generic-optics with 'relationalDatabase' instead." #-}
+grdfrsRelationalDatabase :: Lens.Lens' GetRelationalDatabaseResponse (Lude.Maybe RelationalDatabase)
+grdfrsRelationalDatabase = Lens.lens (relationalDatabase :: GetRelationalDatabaseResponse -> Lude.Maybe RelationalDatabase) (\s a -> s {relationalDatabase = a} :: GetRelationalDatabaseResponse)
+{-# DEPRECATED grdfrsRelationalDatabase "Use generic-lens or generic-optics with 'relationalDatabase' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdrrsResponseStatus :: Lens.Lens' GetRelationalDatabaseResponse Lude.Int
-grdrrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseResponse)
-{-# DEPRECATED grdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grdfrsResponseStatus :: Lens.Lens' GetRelationalDatabaseResponse Lude.Int
+grdfrsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseResponse)
+{-# DEPRECATED grdfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

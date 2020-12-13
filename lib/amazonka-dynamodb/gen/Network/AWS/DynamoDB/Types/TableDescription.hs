@@ -60,44 +60,204 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTableDescription' smart constructor.
 data TableDescription = TableDescription'
-  { restoreSummary ::
-      Lude.Maybe RestoreSummary,
+  { -- | Contains details for the restore.
+    restoreSummary :: Lude.Maybe RestoreSummary,
+    -- | Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
     globalTableVersion :: Lude.Maybe Lude.Text,
+    -- | The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
     tableSizeBytes :: Lude.Maybe Lude.Integer,
+    -- | An array of @AttributeDefinition@ objects. Each of these objects describes one attribute in the table and index key schema.
+    --
+    -- Each @AttributeDefinition@ object in this array is composed of:
+    --
+    --     * @AttributeName@ - The name of the attribute.
+    --
+    --
+    --     * @AttributeType@ - The data type for the attribute.
     attributeDefinitions :: Lude.Maybe [AttributeDefinition],
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
     latestStreamARN :: Lude.Maybe Lude.Text,
-    provisionedThroughput ::
-      Lude.Maybe ProvisionedThroughputDescription,
+    -- | The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
+    provisionedThroughput :: Lude.Maybe ProvisionedThroughputDescription,
+    -- | The current state of the table:
+    --
+    --
+    --     * @CREATING@ - The table is being created.
+    --
+    --
+    --     * @UPDATING@ - The table is being updated.
+    --
+    --
+    --     * @DELETING@ - The table is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The table is ready for use.
+    --
+    --
+    --     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
+    --
+    --
+    --     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
+    --
+    --
+    --     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
     tableStatus :: Lude.Maybe TableStatus,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the table.
     tableARN :: Lude.Maybe Lude.Text,
+    -- | The primary key structure for the table. Each @KeySchemaElement@ consists of:
+    --
+    --
+    --     * @AttributeName@ - The name of the attribute.
+    --
+    --
+    --     * @KeyType@ - The role of the attribute:
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    --
+    --
+    --
+    --
+    -- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
     keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
-    globalSecondaryIndexes ::
-      Lude.Maybe [GlobalSecondaryIndexDescription],
+    -- | The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:
+    --
+    --
+    --     * @Backfilling@ - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a @CreateTable@ operation.)
+    -- You can delete an index that is being created during the @Backfilling@ phase when @IndexStatus@ is set to CREATING and @Backfilling@ is true. You can't delete the index that is being created when @IndexStatus@ is set to CREATING and @Backfilling@ is false. (This attribute does not appear for indexes that were created during a @CreateTable@ operation.)
+    --
+    --
+    --     * @IndexName@ - The name of the global secondary index.
+    --
+    --
+    --     * @IndexSizeBytes@ - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    --
+    --
+    --     * @IndexStatus@ - The current status of the global secondary index:
+    --
+    --     * @CREATING@ - The index is being created.
+    --
+    --
+    --     * @UPDATING@ - The index is being updated.
+    --
+    --
+    --     * @DELETING@ - The index is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The index is ready for use.
+    --
+    --
+    --
+    --
+    --     * @ItemCount@ - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    --
+    --
+    --     * @KeySchema@ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.
+    --
+    --
+    --     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
+    --
+    --     * @ProjectionType@ - One of the following:
+    --
+    --     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
+    --
+    --
+    --     * @INCLUDE@ - In addition to the attributes described in @KEYS_ONLY@ , the secondary index will include other non-key attributes that you specify.
+    --
+    --
+    --     * @ALL@ - All of the table attributes are projected into the index.
+    --
+    --
+    --
+    --
+    --     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+    --
+    --
+    --
+    --
+    --     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.
+    --
+    --
+    -- If the table is in the @DELETING@ state, no information about indexes will be returned.
+    globalSecondaryIndexes :: Lude.Maybe [GlobalSecondaryIndexDescription],
+    -- | A timestamp, in ISO 8601 format, for this stream.
+    --
+    -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
+    --
+    --     * AWS customer ID
+    --
+    --
+    --     * Table name
+    --
+    --
+    --     * @StreamLabel@
     latestStreamLabel :: Lude.Maybe Lude.Text,
+    -- | Contains the details for the read/write capacity mode.
     billingModeSummary :: Lude.Maybe BillingModeSummary,
-    localSecondaryIndexes ::
-      Lude.Maybe [LocalSecondaryIndexDescription],
+    -- | Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:
+    --
+    --
+    --     * @IndexName@ - The name of the local secondary index.
+    --
+    --
+    --     * @KeySchema@ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.
+    --
+    --
+    --     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
+    --
+    --     * @ProjectionType@ - One of the following:
+    --
+    --     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
+    --
+    --
+    --     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes is in @NonKeyAttributes@ .
+    --
+    --
+    --     * @ALL@ - All of the table attributes are projected into the index.
+    --
+    --
+    --
+    --
+    --     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
+    --
+    --
+    --
+    --
+    --     * @IndexSizeBytes@ - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    --
+    --
+    --     * @ItemCount@ - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    --
+    --
+    -- If the table is in the @DELETING@ state, no information about indexes will be returned.
+    localSecondaryIndexes :: Lude.Maybe [LocalSecondaryIndexDescription],
+    -- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
     creationDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The description of the server-side encryption status on the specified table.
     sSEDescription :: Lude.Maybe SSEDescription,
+    -- | Unique identifier for the table for which the backup was created.
     tableId :: Lude.Maybe Lude.Text,
+    -- | Represents replicas of the table.
     replicas :: Lude.Maybe [ReplicaDescription],
+    -- | The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
     itemCount :: Lude.Maybe Lude.Integer,
+    -- | Contains information about the table archive.
     archivalSummary :: Lude.Maybe ArchivalSummary,
+    -- | The name of the table.
     tableName :: Lude.Maybe Lude.Text,
+    -- | The current DynamoDB Streams configuration for the table.
     streamSpecification :: Lude.Maybe StreamSpecification
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TableDescription' with the minimum fields required to make a request.
 --
--- * 'archivalSummary' - Contains information about the table archive.
+-- * 'restoreSummary' - Contains details for the restore.
+-- * 'globalTableVersion' - Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
+-- * 'tableSizeBytes' - The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 -- * 'attributeDefinitions' - An array of @AttributeDefinition@ objects. Each of these objects describes one attribute in the table and index key schema.
 --
 -- Each @AttributeDefinition@ object in this array is composed of:
@@ -108,8 +268,50 @@ data TableDescription = TableDescription'
 --     * @AttributeType@ - The data type for the attribute.
 --
 --
--- * 'billingModeSummary' - Contains the details for the read/write capacity mode.
--- * 'creationDateTime' - The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
+-- * 'latestStreamARN' - The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
+-- * 'provisionedThroughput' - The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
+-- * 'tableStatus' - The current state of the table:
+--
+--
+--     * @CREATING@ - The table is being created.
+--
+--
+--     * @UPDATING@ - The table is being updated.
+--
+--
+--     * @DELETING@ - The table is being deleted.
+--
+--
+--     * @ACTIVE@ - The table is ready for use.
+--
+--
+--     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
+--
+--
+--     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
+--
+--
+--     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
+--
+--
+-- * 'tableARN' - The Amazon Resource Name (ARN) that uniquely identifies the table.
+-- * 'keySchema' - The primary key structure for the table. Each @KeySchemaElement@ consists of:
+--
+--
+--     * @AttributeName@ - The name of the attribute.
+--
+--
+--     * @KeyType@ - The role of the attribute:
+--
+--     * @HASH@ - partition key
+--
+--
+--     * @RANGE@ - sort key
+--
+--
+--
+--
+-- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
 -- * 'globalSecondaryIndexes' - The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:
 --
 --
@@ -169,26 +371,6 @@ data TableDescription = TableDescription'
 --
 --
 -- If the table is in the @DELETING@ state, no information about indexes will be returned.
--- * 'globalTableVersion' - Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
--- * 'itemCount' - The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
--- * 'keySchema' - The primary key structure for the table. Each @KeySchemaElement@ consists of:
---
---
---     * @AttributeName@ - The name of the attribute.
---
---
---     * @KeyType@ - The role of the attribute:
---
---     * @HASH@ - partition key
---
---
---     * @RANGE@ - sort key
---
---
---
---
--- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
--- * 'latestStreamARN' - The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
 -- * 'latestStreamLabel' - A timestamp, in ISO 8601 format, for this stream.
 --
 -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
@@ -202,6 +384,7 @@ data TableDescription = TableDescription'
 --     * @StreamLabel@
 --
 --
+-- * 'billingModeSummary' - Contains the details for the read/write capacity mode.
 -- * 'localSecondaryIndexes' - Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:
 --
 --
@@ -238,37 +421,14 @@ data TableDescription = TableDescription'
 --
 --
 -- If the table is in the @DELETING@ state, no information about indexes will be returned.
--- * 'provisionedThroughput' - The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
--- * 'replicas' - Represents replicas of the table.
--- * 'restoreSummary' - Contains details for the restore.
+-- * 'creationDateTime' - The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
 -- * 'sSEDescription' - The description of the server-side encryption status on the specified table.
--- * 'streamSpecification' - The current DynamoDB Streams configuration for the table.
--- * 'tableARN' - The Amazon Resource Name (ARN) that uniquely identifies the table.
 -- * 'tableId' - Unique identifier for the table for which the backup was created.
+-- * 'replicas' - Represents replicas of the table.
+-- * 'itemCount' - The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+-- * 'archivalSummary' - Contains information about the table archive.
 -- * 'tableName' - The name of the table.
--- * 'tableSizeBytes' - The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
--- * 'tableStatus' - The current state of the table:
---
---
---     * @CREATING@ - The table is being created.
---
---
---     * @UPDATING@ - The table is being updated.
---
---
---     * @DELETING@ - The table is being deleted.
---
---
---     * @ACTIVE@ - The table is ready for use.
---
---
---     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
---
---
---     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
---
---
---     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
+-- * 'streamSpecification' - The current DynamoDB Streams configuration for the table.
 mkTableDescription ::
   TableDescription
 mkTableDescription =

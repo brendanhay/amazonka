@@ -38,46 +38,42 @@ import Network.AWS.RDS.Types.RecurringCharge
 --
 -- /See:/ 'mkReservedDBInstancesOffering' smart constructor.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
-  { currencyCode ::
-      Lude.Maybe Lude.Text,
-    productDescription ::
-      Lude.Maybe Lude.Text,
-    dbInstanceClass ::
-      Lude.Maybe Lude.Text,
+  { -- | The currency code for the reserved DB instance offering.
+    currencyCode :: Lude.Maybe Lude.Text,
+    -- | The database engine used by the offering.
+    productDescription :: Lude.Maybe Lude.Text,
+    -- | The DB instance class for the reserved DB instance.
+    dbInstanceClass :: Lude.Maybe Lude.Text,
+    -- | Indicates if the offering applies to Multi-AZ deployments.
     multiAZ :: Lude.Maybe Lude.Bool,
-    reservedDBInstancesOfferingId ::
-      Lude.Maybe Lude.Text,
-    recurringCharges ::
-      Lude.Maybe [RecurringCharge],
-    offeringType ::
-      Lude.Maybe Lude.Text,
-    usagePrice ::
-      Lude.Maybe Lude.Double,
-    fixedPrice ::
-      Lude.Maybe Lude.Double,
+    -- | The offering identifier.
+    reservedDBInstancesOfferingId :: Lude.Maybe Lude.Text,
+    -- | The recurring price charged to run this reserved DB instance.
+    recurringCharges :: Lude.Maybe [RecurringCharge],
+    -- | The offering type.
+    offeringType :: Lude.Maybe Lude.Text,
+    -- | The hourly price charged for this offering.
+    usagePrice :: Lude.Maybe Lude.Double,
+    -- | The fixed price charged for this offering.
+    fixedPrice :: Lude.Maybe Lude.Double,
+    -- | The duration of the offering in seconds.
     duration :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReservedDBInstancesOffering' with the minimum fields required to make a request.
 --
 -- * 'currencyCode' - The currency code for the reserved DB instance offering.
--- * 'dbInstanceClass' - The DB instance class for the reserved DB instance.
--- * 'duration' - The duration of the offering in seconds.
--- * 'fixedPrice' - The fixed price charged for this offering.
--- * 'multiAZ' - Indicates if the offering applies to Multi-AZ deployments.
--- * 'offeringType' - The offering type.
 -- * 'productDescription' - The database engine used by the offering.
--- * 'recurringCharges' - The recurring price charged to run this reserved DB instance.
+-- * 'dbInstanceClass' - The DB instance class for the reserved DB instance.
+-- * 'multiAZ' - Indicates if the offering applies to Multi-AZ deployments.
 -- * 'reservedDBInstancesOfferingId' - The offering identifier.
+-- * 'recurringCharges' - The recurring price charged to run this reserved DB instance.
+-- * 'offeringType' - The offering type.
 -- * 'usagePrice' - The hourly price charged for this offering.
+-- * 'fixedPrice' - The fixed price charged for this offering.
+-- * 'duration' - The duration of the offering in seconds.
 mkReservedDBInstancesOffering ::
   ReservedDBInstancesOffering
 mkReservedDBInstancesOffering =

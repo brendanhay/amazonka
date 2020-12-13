@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.ElasticSearch.ListPackagesForDomain
 
     -- ** Request lenses
     lpfdNextToken,
-    lpfdMaxResults,
     lpfdDomainName,
+    lpfdMaxResults,
 
     -- * Destructuring the response
     ListPackagesForDomainResponse (..),
@@ -44,25 +45,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListPackagesForDomain' smart constructor.
 data ListPackagesForDomain = ListPackagesForDomain'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Int,
-    domainName :: Lude.Text
+  { -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The name of the domain for which you want to list associated packages.
+    domainName :: Lude.Text,
+    -- | Limits results to a maximum number of packages.
+    maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPackagesForDomain' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
 -- * 'domainName' - The name of the domain for which you want to list associated packages.
 -- * 'maxResults' - Limits results to a maximum number of packages.
--- * 'nextToken' - Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
 mkListPackagesForDomain ::
   -- | 'domainName'
   Lude.Text ->
@@ -70,8 +67,8 @@ mkListPackagesForDomain ::
 mkListPackagesForDomain pDomainName_ =
   ListPackagesForDomain'
     { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      domainName = pDomainName_
+      domainName = pDomainName_,
+      maxResults = Lude.Nothing
     }
 
 -- | Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
@@ -81,19 +78,19 @@ lpfdNextToken :: Lens.Lens' ListPackagesForDomain (Lude.Maybe Lude.Text)
 lpfdNextToken = Lens.lens (nextToken :: ListPackagesForDomain -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPackagesForDomain)
 {-# DEPRECATED lpfdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Limits results to a maximum number of packages.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpfdMaxResults :: Lens.Lens' ListPackagesForDomain (Lude.Maybe Lude.Int)
-lpfdMaxResults = Lens.lens (maxResults :: ListPackagesForDomain -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListPackagesForDomain)
-{-# DEPRECATED lpfdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
 -- | The name of the domain for which you want to list associated packages.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lpfdDomainName :: Lens.Lens' ListPackagesForDomain Lude.Text
 lpfdDomainName = Lens.lens (domainName :: ListPackagesForDomain -> Lude.Text) (\s a -> s {domainName = a} :: ListPackagesForDomain)
 {-# DEPRECATED lpfdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | Limits results to a maximum number of packages.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpfdMaxResults :: Lens.Lens' ListPackagesForDomain (Lude.Maybe Lude.Int)
+lpfdMaxResults = Lens.lens (maxResults :: ListPackagesForDomain -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListPackagesForDomain)
+{-# DEPRECATED lpfdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Lude.AWSRequest ListPackagesForDomain where
   type Rs ListPackagesForDomain = ListPackagesForDomainResponse
@@ -124,20 +121,14 @@ instance Lude.ToQuery ListPackagesForDomain where
 --
 -- /See:/ 'mkListPackagesForDomainResponse' smart constructor.
 data ListPackagesForDomainResponse = ListPackagesForDomainResponse'
-  { domainPackageDetailsList ::
-      Lude.Maybe
-        [DomainPackageDetails],
-    nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | List of @DomainPackageDetails@ objects.
+    domainPackageDetailsList :: Lude.Maybe [DomainPackageDetails],
+    -- | Pagination token that needs to be supplied to the next call to get the next page of results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListPackagesForDomainResponse' with the minimum fields required to make a request.

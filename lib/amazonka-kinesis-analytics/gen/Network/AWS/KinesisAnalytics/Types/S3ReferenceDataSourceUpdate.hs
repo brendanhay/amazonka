@@ -30,20 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3ReferenceDataSourceUpdate' smart constructor.
 data S3ReferenceDataSourceUpdate = S3ReferenceDataSourceUpdate'
-  { bucketARNUpdate ::
-      Lude.Maybe Lude.Text,
-    fileKeyUpdate ::
-      Lude.Maybe Lude.Text,
-    referenceRoleARNUpdate ::
-      Lude.Maybe Lude.Text
+  { -- | Amazon Resource Name (ARN) of the S3 bucket.
+    bucketARNUpdate :: Lude.Maybe Lude.Text,
+    -- | Object key name.
+    fileKeyUpdate :: Lude.Maybe Lude.Text,
+    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application.
+    referenceRoleARNUpdate :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3ReferenceDataSourceUpdate' with the minimum fields required to make a request.

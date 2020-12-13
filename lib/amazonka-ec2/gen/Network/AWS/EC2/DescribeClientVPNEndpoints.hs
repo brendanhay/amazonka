@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,20 +22,20 @@ module Network.AWS.EC2.DescribeClientVPNEndpoints
     mkDescribeClientVPNEndpoints,
 
     -- ** Request lenses
-    dcveFilters,
-    dcveClientVPNEndpointIds,
-    dcveNextToken,
-    dcveDryRun,
-    dcveMaxResults,
+    dcvpneFilters,
+    dcvpneClientVPNEndpointIds,
+    dcvpneNextToken,
+    dcvpneDryRun,
+    dcvpneMaxResults,
 
     -- * Destructuring the response
     DescribeClientVPNEndpointsResponse (..),
     mkDescribeClientVPNEndpointsResponse,
 
     -- ** Response lenses
-    dcversNextToken,
-    dcversClientVPNEndpoints,
-    dcversResponseStatus,
+    dcvpnersNextToken,
+    dcvpnersClientVPNEndpoints,
+    dcvpnersResponseStatus,
   )
 where
 
@@ -47,27 +48,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeClientVPNEndpoints' smart constructor.
 data DescribeClientVPNEndpoints = DescribeClientVPNEndpoints'
-  { filters ::
-      Lude.Maybe [Filter],
-    clientVPNEndpointIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | One or more filters. Filter names and values are case-sensitive.
+    --
+    --
+    --     * @endpoint-id@ - The ID of the Client VPN endpoint.
+    --
+    --
+    --     * @transport-protocol@ - The transport protocol (@tcp@ | @udp@ ).
+    filters :: Lude.Maybe [Filter],
+    -- | The ID of the Client VPN endpoint.
+    clientVPNEndpointIds :: Lude.Maybe [Lude.Text],
+    -- | The token to retrieve the next page of results.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientVPNEndpoints' with the minimum fields required to make a request.
 --
--- * 'clientVPNEndpointIds' - The ID of the Client VPN endpoint.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - One or more filters. Filter names and values are case-sensitive.
 --
 --
@@ -77,8 +79,10 @@ data DescribeClientVPNEndpoints = DescribeClientVPNEndpoints'
 --     * @transport-protocol@ - The transport protocol (@tcp@ | @udp@ ).
 --
 --
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
+-- * 'clientVPNEndpointIds' - The ID of the Client VPN endpoint.
 -- * 'nextToken' - The token to retrieve the next page of results.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
 mkDescribeClientVPNEndpoints ::
   DescribeClientVPNEndpoints
 mkDescribeClientVPNEndpoints =
@@ -101,46 +105,46 @@ mkDescribeClientVPNEndpoints =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcveFilters :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe [Filter])
-dcveFilters = Lens.lens (filters :: DescribeClientVPNEndpoints -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeClientVPNEndpoints)
-{-# DEPRECATED dcveFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dcvpneFilters :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe [Filter])
+dcvpneFilters = Lens.lens (filters :: DescribeClientVPNEndpoints -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeClientVPNEndpoints)
+{-# DEPRECATED dcvpneFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The ID of the Client VPN endpoint.
 --
 -- /Note:/ Consider using 'clientVPNEndpointIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcveClientVPNEndpointIds :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe [Lude.Text])
-dcveClientVPNEndpointIds = Lens.lens (clientVPNEndpointIds :: DescribeClientVPNEndpoints -> Lude.Maybe [Lude.Text]) (\s a -> s {clientVPNEndpointIds = a} :: DescribeClientVPNEndpoints)
-{-# DEPRECATED dcveClientVPNEndpointIds "Use generic-lens or generic-optics with 'clientVPNEndpointIds' instead." #-}
+dcvpneClientVPNEndpointIds :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe [Lude.Text])
+dcvpneClientVPNEndpointIds = Lens.lens (clientVPNEndpointIds :: DescribeClientVPNEndpoints -> Lude.Maybe [Lude.Text]) (\s a -> s {clientVPNEndpointIds = a} :: DescribeClientVPNEndpoints)
+{-# DEPRECATED dcvpneClientVPNEndpointIds "Use generic-lens or generic-optics with 'clientVPNEndpointIds' instead." #-}
 
 -- | The token to retrieve the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcveNextToken :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe Lude.Text)
-dcveNextToken = Lens.lens (nextToken :: DescribeClientVPNEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNEndpoints)
-{-# DEPRECATED dcveNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcvpneNextToken :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe Lude.Text)
+dcvpneNextToken = Lens.lens (nextToken :: DescribeClientVPNEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNEndpoints)
+{-# DEPRECATED dcvpneNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcveDryRun :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe Lude.Bool)
-dcveDryRun = Lens.lens (dryRun :: DescribeClientVPNEndpoints -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeClientVPNEndpoints)
-{-# DEPRECATED dcveDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dcvpneDryRun :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe Lude.Bool)
+dcvpneDryRun = Lens.lens (dryRun :: DescribeClientVPNEndpoints -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeClientVPNEndpoints)
+{-# DEPRECATED dcvpneDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcveMaxResults :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe Lude.Natural)
-dcveMaxResults = Lens.lens (maxResults :: DescribeClientVPNEndpoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeClientVPNEndpoints)
-{-# DEPRECATED dcveMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dcvpneMaxResults :: Lens.Lens' DescribeClientVPNEndpoints (Lude.Maybe Lude.Natural)
+dcvpneMaxResults = Lens.lens (maxResults :: DescribeClientVPNEndpoints -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeClientVPNEndpoints)
+{-# DEPRECATED dcvpneMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager DescribeClientVPNEndpoints where
   page rq rs
-    | Page.stop (rs Lens.^. dcversNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcversClientVPNEndpoints) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcvpnersNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. dcvpnersClientVPNEndpoints) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& dcveNextToken Lens..~ rs Lens.^. dcversNextToken
+          Lude.& dcvpneNextToken Lens..~ rs Lens.^. dcvpnersNextToken
 
 instance Lude.AWSRequest DescribeClientVPNEndpoints where
   type
@@ -182,27 +186,20 @@ instance Lude.ToQuery DescribeClientVPNEndpoints where
 
 -- | /See:/ 'mkDescribeClientVPNEndpointsResponse' smart constructor.
 data DescribeClientVPNEndpointsResponse = DescribeClientVPNEndpointsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    clientVPNEndpoints ::
-      Lude.Maybe
-        [ClientVPNEndpoint],
-    responseStatus ::
-      Lude.Int
+  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about the Client VPN endpoints.
+    clientVPNEndpoints :: Lude.Maybe [ClientVPNEndpoint],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeClientVPNEndpointsResponse' with the minimum fields required to make a request.
 --
--- * 'clientVPNEndpoints' - Information about the Client VPN endpoints.
 -- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+-- * 'clientVPNEndpoints' - Information about the Client VPN endpoints.
 -- * 'responseStatus' - The response status code.
 mkDescribeClientVPNEndpointsResponse ::
   -- | 'responseStatus'
@@ -218,20 +215,20 @@ mkDescribeClientVPNEndpointsResponse pResponseStatus_ =
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcversNextToken :: Lens.Lens' DescribeClientVPNEndpointsResponse (Lude.Maybe Lude.Text)
-dcversNextToken = Lens.lens (nextToken :: DescribeClientVPNEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNEndpointsResponse)
-{-# DEPRECATED dcversNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcvpnersNextToken :: Lens.Lens' DescribeClientVPNEndpointsResponse (Lude.Maybe Lude.Text)
+dcvpnersNextToken = Lens.lens (nextToken :: DescribeClientVPNEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeClientVPNEndpointsResponse)
+{-# DEPRECATED dcvpnersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the Client VPN endpoints.
 --
 -- /Note:/ Consider using 'clientVPNEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcversClientVPNEndpoints :: Lens.Lens' DescribeClientVPNEndpointsResponse (Lude.Maybe [ClientVPNEndpoint])
-dcversClientVPNEndpoints = Lens.lens (clientVPNEndpoints :: DescribeClientVPNEndpointsResponse -> Lude.Maybe [ClientVPNEndpoint]) (\s a -> s {clientVPNEndpoints = a} :: DescribeClientVPNEndpointsResponse)
-{-# DEPRECATED dcversClientVPNEndpoints "Use generic-lens or generic-optics with 'clientVPNEndpoints' instead." #-}
+dcvpnersClientVPNEndpoints :: Lens.Lens' DescribeClientVPNEndpointsResponse (Lude.Maybe [ClientVPNEndpoint])
+dcvpnersClientVPNEndpoints = Lens.lens (clientVPNEndpoints :: DescribeClientVPNEndpointsResponse -> Lude.Maybe [ClientVPNEndpoint]) (\s a -> s {clientVPNEndpoints = a} :: DescribeClientVPNEndpointsResponse)
+{-# DEPRECATED dcvpnersClientVPNEndpoints "Use generic-lens or generic-optics with 'clientVPNEndpoints' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcversResponseStatus :: Lens.Lens' DescribeClientVPNEndpointsResponse Lude.Int
-dcversResponseStatus = Lens.lens (responseStatus :: DescribeClientVPNEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClientVPNEndpointsResponse)
-{-# DEPRECATED dcversResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcvpnersResponseStatus :: Lens.Lens' DescribeClientVPNEndpointsResponse Lude.Int
+dcvpnersResponseStatus = Lens.lens (responseStatus :: DescribeClientVPNEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClientVPNEndpointsResponse)
+{-# DEPRECATED dcvpnersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

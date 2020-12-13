@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVersionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-  { agentHash :: Lude.Maybe Lude.Text,
+  { -- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.
+    agentHash :: Lude.Maybe Lude.Text,
+    -- | The version number of the Amazon ECS container agent.
     agentVersion :: Lude.Maybe Lude.Text,
+    -- | The Docker version running on the container instance.
     dockerVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VersionInfo' with the minimum fields required to make a request.

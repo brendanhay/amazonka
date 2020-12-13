@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,42 +53,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRevokeSecurityGroupIngress' smart constructor.
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
-  { fromPort ::
-      Lude.Maybe Lude.Int,
-    ipPermissions ::
-      Lude.Maybe [IPPermission],
+  { -- | The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all ICMP types.
+    fromPort :: Lude.Maybe Lude.Int,
+    -- | The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.
+    ipPermissions :: Lude.Maybe [IPPermission],
+    -- | The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). Use @-1@ to specify all.
     ipProtocol :: Lude.Maybe Lude.Text,
+    -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
     groupId :: Lude.Maybe Lude.Text,
+    -- | The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all ICMP codes for the ICMP type.
     toPort :: Lude.Maybe Lude.Int,
+    -- | The CIDR IP address range. You can't specify this parameter when specifying a source security group.
     cidrIP :: Lude.Maybe Lude.Text,
-    sourceSecurityGroupOwnerId ::
-      Lude.Maybe Lude.Text,
+    -- | [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+    sourceSecurityGroupOwnerId :: Lude.Maybe Lude.Text,
+    -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
     groupName :: Lude.Maybe Lude.Text,
-    sourceSecurityGroupName ::
-      Lude.Maybe Lude.Text,
+    -- | [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+    sourceSecurityGroupName :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- * 'cidrIP' - The CIDR IP address range. You can't specify this parameter when specifying a source security group.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'fromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all ICMP types.
--- * 'groupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
--- * 'groupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
 -- * 'ipPermissions' - The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.
 -- * 'ipProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). Use @-1@ to specify all.
--- * 'sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
--- * 'sourceSecurityGroupOwnerId' - [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+-- * 'groupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 -- * 'toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all ICMP codes for the ICMP type.
+-- * 'cidrIP' - The CIDR IP address range. You can't specify this parameter when specifying a source security group.
+-- * 'sourceSecurityGroupOwnerId' - [EC2-Classic] The AWS account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+-- * 'groupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
+-- * 'sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRevokeSecurityGroupIngress ::
   RevokeSecurityGroupIngress
 mkRevokeSecurityGroupIngress =
@@ -217,28 +218,21 @@ instance Lude.ToQuery RevokeSecurityGroupIngress where
 
 -- | /See:/ 'mkRevokeSecurityGroupIngressResponse' smart constructor.
 data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
-    unknownIPPermissions ::
-      Lude.Maybe
-        [IPPermission],
-    responseStatus ::
-      Lude.Int
+  { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The inbound rules that were unknown to the service. In some cases, @unknownIpPermissionSet@ might be in a different format from the request parameter.
+    unknownIPPermissions :: Lude.Maybe [IPPermission],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevokeSecurityGroupIngressResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Returns @true@ if the request succeeds; otherwise, returns an error.
 -- * 'unknownIPPermissions' - The inbound rules that were unknown to the service. In some cases, @unknownIpPermissionSet@ might be in a different format from the request parameter.
+-- * 'responseStatus' - The response status code.
 mkRevokeSecurityGroupIngressResponse ::
   -- | 'responseStatus'
   Lude.Int ->

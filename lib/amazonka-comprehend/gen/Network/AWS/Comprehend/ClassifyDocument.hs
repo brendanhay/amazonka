@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,8 +42,9 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkClassifyDocument' smart constructor.
 data ClassifyDocument = ClassifyDocument'
-  { text ::
-      Lude.Sensitive Lude.Text,
+  { -- | The document text to be analyzed.
+    text :: Lude.Sensitive Lude.Text,
+    -- | The Amazon Resource Number (ARN) of the endpoint.
     endpointARN :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -50,8 +52,8 @@ data ClassifyDocument = ClassifyDocument'
 
 -- | Creates a value of 'ClassifyDocument' with the minimum fields required to make a request.
 --
--- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint.
 -- * 'text' - The document text to be analyzed.
+-- * 'endpointARN' - The Amazon Resource Number (ARN) of the endpoint.
 mkClassifyDocument ::
   -- | 'text'
   Lude.Sensitive Lude.Text ->
@@ -115,24 +117,20 @@ instance Lude.ToQuery ClassifyDocument where
 
 -- | /See:/ 'mkClassifyDocumentResponse' smart constructor.
 data ClassifyDocumentResponse = ClassifyDocumentResponse'
-  { labels ::
-      Lude.Maybe [DocumentLabel],
+  { -- | The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time.
+    labels :: Lude.Maybe [DocumentLabel],
+    -- | The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time.
     classes :: Lude.Maybe [DocumentClass],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ClassifyDocumentResponse' with the minimum fields required to make a request.
 --
--- * 'classes' - The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time.
 -- * 'labels' - The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time.
+-- * 'classes' - The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time.
 -- * 'responseStatus' - The response status code.
 mkClassifyDocumentResponse ::
   -- | 'responseStatus'

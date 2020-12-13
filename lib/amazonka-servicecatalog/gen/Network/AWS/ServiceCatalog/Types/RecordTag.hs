@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRecordTag' smart constructor.
 data RecordTag = RecordTag'
-  { value :: Lude.Maybe Lude.Text,
+  { -- | The value for this tag.
+    value :: Lude.Maybe Lude.Text,
+    -- | The key for this tag.
     key :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordTag' with the minimum fields required to make a request.
 --
--- * 'key' - The key for this tag.
 -- * 'value' - The value for this tag.
+-- * 'key' - The key for this tag.
 mkRecordTag ::
   RecordTag
 mkRecordTag = RecordTag' {value = Lude.Nothing, key = Lude.Nothing}

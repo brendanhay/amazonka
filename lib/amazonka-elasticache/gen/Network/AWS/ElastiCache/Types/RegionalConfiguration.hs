@@ -17,9 +17,9 @@ module Network.AWS.ElastiCache.Types.RegionalConfiguration
     mkRegionalConfiguration,
 
     -- * Lenses
-    rcReplicationGroupId,
-    rcReplicationGroupRegion,
     rcReshardingConfiguration,
+    rcReplicationGroupRegion,
+    rcReplicationGroupId,
   )
 where
 
@@ -31,54 +31,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRegionalConfiguration' smart constructor.
 data RegionalConfiguration = RegionalConfiguration'
-  { replicationGroupId ::
-      Lude.Text,
+  { -- | A list of @PreferredAvailabilityZones@ objects that specifies the configuration of a node group in the resharded cluster.
+    reshardingConfiguration :: [ReshardingConfiguration],
+    -- | The AWS region where the cluster is stored
     replicationGroupRegion :: Lude.Text,
-    reshardingConfiguration ::
-      [ReshardingConfiguration]
+    -- | The name of the secondary cluster
+    replicationGroupId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegionalConfiguration' with the minimum fields required to make a request.
 --
--- * 'replicationGroupId' - The name of the secondary cluster
--- * 'replicationGroupRegion' - The AWS region where the cluster is stored
 -- * 'reshardingConfiguration' - A list of @PreferredAvailabilityZones@ objects that specifies the configuration of a node group in the resharded cluster.
+-- * 'replicationGroupRegion' - The AWS region where the cluster is stored
+-- * 'replicationGroupId' - The name of the secondary cluster
 mkRegionalConfiguration ::
-  -- | 'replicationGroupId'
-  Lude.Text ->
   -- | 'replicationGroupRegion'
+  Lude.Text ->
+  -- | 'replicationGroupId'
   Lude.Text ->
   RegionalConfiguration
 mkRegionalConfiguration
-  pReplicationGroupId_
-  pReplicationGroupRegion_ =
+  pReplicationGroupRegion_
+  pReplicationGroupId_ =
     RegionalConfiguration'
-      { replicationGroupId = pReplicationGroupId_,
+      { reshardingConfiguration = Lude.mempty,
         replicationGroupRegion = pReplicationGroupRegion_,
-        reshardingConfiguration = Lude.mempty
+        replicationGroupId = pReplicationGroupId_
       }
-
--- | The name of the secondary cluster
---
--- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcReplicationGroupId :: Lens.Lens' RegionalConfiguration Lude.Text
-rcReplicationGroupId = Lens.lens (replicationGroupId :: RegionalConfiguration -> Lude.Text) (\s a -> s {replicationGroupId = a} :: RegionalConfiguration)
-{-# DEPRECATED rcReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
-
--- | The AWS region where the cluster is stored
---
--- /Note:/ Consider using 'replicationGroupRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcReplicationGroupRegion :: Lens.Lens' RegionalConfiguration Lude.Text
-rcReplicationGroupRegion = Lens.lens (replicationGroupRegion :: RegionalConfiguration -> Lude.Text) (\s a -> s {replicationGroupRegion = a} :: RegionalConfiguration)
-{-# DEPRECATED rcReplicationGroupRegion "Use generic-lens or generic-optics with 'replicationGroupRegion' instead." #-}
 
 -- | A list of @PreferredAvailabilityZones@ objects that specifies the configuration of a node group in the resharded cluster.
 --
@@ -87,11 +68,25 @@ rcReshardingConfiguration :: Lens.Lens' RegionalConfiguration [ReshardingConfigu
 rcReshardingConfiguration = Lens.lens (reshardingConfiguration :: RegionalConfiguration -> [ReshardingConfiguration]) (\s a -> s {reshardingConfiguration = a} :: RegionalConfiguration)
 {-# DEPRECATED rcReshardingConfiguration "Use generic-lens or generic-optics with 'reshardingConfiguration' instead." #-}
 
+-- | The AWS region where the cluster is stored
+--
+-- /Note:/ Consider using 'replicationGroupRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcReplicationGroupRegion :: Lens.Lens' RegionalConfiguration Lude.Text
+rcReplicationGroupRegion = Lens.lens (replicationGroupRegion :: RegionalConfiguration -> Lude.Text) (\s a -> s {replicationGroupRegion = a} :: RegionalConfiguration)
+{-# DEPRECATED rcReplicationGroupRegion "Use generic-lens or generic-optics with 'replicationGroupRegion' instead." #-}
+
+-- | The name of the secondary cluster
+--
+-- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcReplicationGroupId :: Lens.Lens' RegionalConfiguration Lude.Text
+rcReplicationGroupId = Lens.lens (replicationGroupId :: RegionalConfiguration -> Lude.Text) (\s a -> s {replicationGroupId = a} :: RegionalConfiguration)
+{-# DEPRECATED rcReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
+
 instance Lude.ToQuery RegionalConfiguration where
   toQuery RegionalConfiguration' {..} =
     Lude.mconcat
-      [ "ReplicationGroupId" Lude.=: replicationGroupId,
+      [ "ReshardingConfiguration"
+          Lude.=: Lude.toQueryList "ReshardingConfiguration" reshardingConfiguration,
         "ReplicationGroupRegion" Lude.=: replicationGroupRegion,
-        "ReshardingConfiguration"
-          Lude.=: Lude.toQueryList "ReshardingConfiguration" reshardingConfiguration
+        "ReplicationGroupId" Lude.=: replicationGroupId
       ]

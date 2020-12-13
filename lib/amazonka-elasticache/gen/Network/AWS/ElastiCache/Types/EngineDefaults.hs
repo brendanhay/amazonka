@@ -33,28 +33,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEngineDefaults' smart constructor.
 data EngineDefaults = EngineDefaults'
-  { cacheParameterGroupFamily ::
-      Lude.Maybe Lude.Text,
-    cacheNodeTypeSpecificParameters ::
-      Lude.Maybe [CacheNodeTypeSpecificParameter],
+  { -- | Specifies the name of the cache parameter group family to which the engine default parameters apply.
+    --
+    -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+    cacheParameterGroupFamily :: Lude.Maybe Lude.Text,
+    -- | A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.
+    cacheNodeTypeSpecificParameters :: Lude.Maybe [CacheNodeTypeSpecificParameter],
+    -- | Provides an identifier to allow retrieval of paginated results.
     marker :: Lude.Maybe Lude.Text,
+    -- | Contains a list of engine default parameters.
     parameters :: Lude.Maybe [Parameter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EngineDefaults' with the minimum fields required to make a request.
 --
--- * 'cacheNodeTypeSpecificParameters' - A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.
 -- * 'cacheParameterGroupFamily' - Specifies the name of the cache parameter group family to which the engine default parameters apply.
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
+-- * 'cacheNodeTypeSpecificParameters' - A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.
 -- * 'marker' - Provides an identifier to allow retrieval of paginated results.
 -- * 'parameters' - Contains a list of engine default parameters.
 mkEngineDefaults ::

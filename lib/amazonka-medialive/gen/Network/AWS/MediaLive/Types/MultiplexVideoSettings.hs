@@ -30,27 +30,26 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMultiplexVideoSettings' smart constructor.
 data MultiplexVideoSettings = MultiplexVideoSettings'
-  { statmuxSettings ::
-      Lude.Maybe MultiplexStatmuxVideoSettings,
+  { -- | Statmux rate control settings.
+    --
+    -- When this field is defined, ConstantBitrate must be undefined.
+    statmuxSettings :: Lude.Maybe MultiplexStatmuxVideoSettings,
+    -- | The constant bitrate configuration for the video encode.
+    --
+    -- When this field is defined, StatmuxSettings must be undefined.
     constantBitrate :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MultiplexVideoSettings' with the minimum fields required to make a request.
 --
--- * 'constantBitrate' - The constant bitrate configuration for the video encode.
---
--- When this field is defined, StatmuxSettings must be undefined.
 -- * 'statmuxSettings' - Statmux rate control settings.
 --
 -- When this field is defined, ConstantBitrate must be undefined.
+-- * 'constantBitrate' - The constant bitrate configuration for the video encode.
+--
+-- When this field is defined, StatmuxSettings must be undefined.
 mkMultiplexVideoSettings ::
   MultiplexVideoSettings
 mkMultiplexVideoSettings =

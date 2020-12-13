@@ -13,16 +13,16 @@
 module Network.AWS.SageMaker.Types.Operator
   ( Operator
       ( Operator',
-        Contains,
         Equals,
-        Exists,
+        NotEquals,
         GreaterThan,
         GreaterThanOrEqualTo,
-        IN,
         LessThan,
         LessThanOrEqualTo,
-        NotEquals,
-        NotExists
+        Contains,
+        Exists,
+        NotExists,
+        IN
       ),
   )
 where
@@ -53,14 +53,11 @@ newtype Operator = Operator' Lude.Text
       Lude.ToHeader
     )
 
-pattern Contains :: Operator
-pattern Contains = Operator' "Contains"
-
 pattern Equals :: Operator
 pattern Equals = Operator' "Equals"
 
-pattern Exists :: Operator
-pattern Exists = Operator' "Exists"
+pattern NotEquals :: Operator
+pattern NotEquals = Operator' "NotEquals"
 
 pattern GreaterThan :: Operator
 pattern GreaterThan = Operator' "GreaterThan"
@@ -68,31 +65,34 @@ pattern GreaterThan = Operator' "GreaterThan"
 pattern GreaterThanOrEqualTo :: Operator
 pattern GreaterThanOrEqualTo = Operator' "GreaterThanOrEqualTo"
 
-pattern IN :: Operator
-pattern IN = Operator' "In"
-
 pattern LessThan :: Operator
 pattern LessThan = Operator' "LessThan"
 
 pattern LessThanOrEqualTo :: Operator
 pattern LessThanOrEqualTo = Operator' "LessThanOrEqualTo"
 
-pattern NotEquals :: Operator
-pattern NotEquals = Operator' "NotEquals"
+pattern Contains :: Operator
+pattern Contains = Operator' "Contains"
+
+pattern Exists :: Operator
+pattern Exists = Operator' "Exists"
 
 pattern NotExists :: Operator
 pattern NotExists = Operator' "NotExists"
 
+pattern IN :: Operator
+pattern IN = Operator' "In"
+
 {-# COMPLETE
-  Contains,
   Equals,
-  Exists,
+  NotEquals,
   GreaterThan,
   GreaterThanOrEqualTo,
-  IN,
   LessThan,
   LessThanOrEqualTo,
-  NotEquals,
+  Contains,
+  Exists,
   NotExists,
+  IN,
   Operator'
   #-}

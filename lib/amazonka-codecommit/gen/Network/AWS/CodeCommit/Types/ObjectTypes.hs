@@ -31,24 +31,20 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkObjectTypes' smart constructor.
 data ObjectTypes = ObjectTypes'
-  { destination ::
-      Lude.Maybe ObjectTypeEnum,
+  { -- | The type of the object in the destination branch.
+    destination :: Lude.Maybe ObjectTypeEnum,
+    -- | The type of the object in the base commit of the merge.
     base :: Lude.Maybe ObjectTypeEnum,
+    -- | The type of the object in the source branch.
     source :: Lude.Maybe ObjectTypeEnum
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ObjectTypes' with the minimum fields required to make a request.
 --
--- * 'base' - The type of the object in the base commit of the merge.
 -- * 'destination' - The type of the object in the destination branch.
+-- * 'base' - The type of the object in the base commit of the merge.
 -- * 'source' - The type of the object in the source branch.
 mkObjectTypes ::
   ObjectTypes

@@ -18,9 +18,11 @@ module Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
 
     -- * Lenses
     pdMaxValue,
+    pdReferencedByResources,
     pdMaxLength,
     pdConstraintDescription,
     pdMinLength,
+    pdName,
     pdDefaultValue,
     pdAllowedPattern,
     pdNoEcho,
@@ -28,8 +30,6 @@ module Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
     pdAllowedValues,
     pdDescription,
     pdMinValue,
-    pdReferencedByResources,
-    pdName,
   )
 where
 
@@ -40,34 +40,73 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkParameterDefinition' smart constructor.
 data ParameterDefinition = ParameterDefinition'
-  { maxValue ::
-      Lude.Maybe Lude.Int,
-    maxLength :: Lude.Maybe Lude.Int,
-    constraintDescription :: Lude.Maybe Lude.Text,
-    minLength :: Lude.Maybe Lude.Int,
-    defaultValue :: Lude.Maybe Lude.Text,
-    allowedPattern :: Lude.Maybe Lude.Text,
-    noEcho :: Lude.Maybe Lude.Bool,
-    type' :: Lude.Maybe Lude.Text,
-    allowedValues :: Lude.Maybe [Lude.Text],
-    description :: Lude.Maybe Lude.Text,
-    minValue :: Lude.Maybe Lude.Int,
+  { -- | A numeric value that determines the largest numeric value that you want to allow for Number types.
+    maxValue :: Lude.Maybe Lude.Int,
+    -- | A list of AWS SAM resources that use this parameter.
     referencedByResources :: [Lude.Text],
-    name :: Lude.Text
+    -- | An integer value that determines the largest number of characters that you want to allow for String types.
+    maxLength :: Lude.Maybe Lude.Int,
+    -- | A string that explains a constraint when the constraint is violated. For example, without a constraint description,
+    --
+    --  a parameter that has an allowed pattern of [A-Za-z0-9]+ displays the following error message when the user
+    --  specifies an invalid value:
+    --
+    --  Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+
+    --
+    -- By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers," you can display
+    --  the following customized error message:
+    --
+    --  Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.
+    constraintDescription :: Lude.Maybe Lude.Text,
+    -- | An integer value that determines the smallest number of characters that you want to allow for String types.
+    minLength :: Lude.Maybe Lude.Int,
+    -- | The name of the parameter.
+    name :: Lude.Text,
+    -- | A value of the appropriate type for the template to use if no value is specified when a stack is created.
+    --
+    --  If you define constraints for the parameter, you must specify a value that adheres to those constraints.
+    defaultValue :: Lude.Maybe Lude.Text,
+    -- | A regular expression that represents the patterns to allow for String types.
+    allowedPattern :: Lude.Maybe Lude.Text,
+    -- | Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the
+    --
+    --  value to true, the parameter value is masked with asterisks (*****).
+    noEcho :: Lude.Maybe Lude.Bool,
+    -- | The type of the parameter.
+    --
+    -- Valid values: String | Number | List<Number> | CommaDelimitedList
+    --
+    --
+    --  String: A literal string.
+    -- For example, users can specify "MyUserName".
+    --
+    --  Number: An integer or float. AWS CloudFormation validates the parameter value as a number. However, when you use the
+    --  parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a string.
+    -- For example, users might specify "8888".
+    --
+    --  List<Number>: An array of integers or floats that are separated by commas. AWS CloudFormation validates the parameter value as numbers. However, when
+    --  you use the parameter elsewhere in your template (for example, by using the Ref intrinsic function), the parameter value becomes a list of strings.
+    -- For example, users might specify "80,20", and then Ref results in ["80","20"].
+    --
+    --  CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas.
+    --  Also, each member string is space-trimmed.
+    -- For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
+    type' :: Lude.Maybe Lude.Text,
+    -- | An array containing the list of values allowed for the parameter.
+    allowedValues :: Lude.Maybe [Lude.Text],
+    -- | A string of up to 4,000 characters that describes the parameter.
+    description :: Lude.Maybe Lude.Text,
+    -- | A numeric value that determines the smallest numeric value that you want to allow for Number types.
+    minValue :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ParameterDefinition' with the minimum fields required to make a request.
 --
--- * 'allowedPattern' - A regular expression that represents the patterns to allow for String types.
--- * 'allowedValues' - An array containing the list of values allowed for the parameter.
+-- * 'maxValue' - A numeric value that determines the largest numeric value that you want to allow for Number types.
+-- * 'referencedByResources' - A list of AWS SAM resources that use this parameter.
+-- * 'maxLength' - An integer value that determines the largest number of characters that you want to allow for String types.
 -- * 'constraintDescription' - A string that explains a constraint when the constraint is violated. For example, without a constraint description,
 --
 --  a parameter that has an allowed pattern of [A-Za-z0-9]+ displays the following error message when the user
@@ -80,19 +119,15 @@ data ParameterDefinition = ParameterDefinition'
 --
 --  Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.
 --
+-- * 'minLength' - An integer value that determines the smallest number of characters that you want to allow for String types.
+-- * 'name' - The name of the parameter.
 -- * 'defaultValue' - A value of the appropriate type for the template to use if no value is specified when a stack is created.
 --
 --  If you define constraints for the parameter, you must specify a value that adheres to those constraints.
--- * 'description' - A string of up to 4,000 characters that describes the parameter.
--- * 'maxLength' - An integer value that determines the largest number of characters that you want to allow for String types.
--- * 'maxValue' - A numeric value that determines the largest numeric value that you want to allow for Number types.
--- * 'minLength' - An integer value that determines the smallest number of characters that you want to allow for String types.
--- * 'minValue' - A numeric value that determines the smallest numeric value that you want to allow for Number types.
--- * 'name' - The name of the parameter.
+-- * 'allowedPattern' - A regular expression that represents the patterns to allow for String types.
 -- * 'noEcho' - Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the
 --
 --  value to true, the parameter value is masked with asterisks (*****).
--- * 'referencedByResources' - A list of AWS SAM resources that use this parameter.
 -- * 'type'' - The type of the parameter.
 --
 -- Valid values: String | Number | List<Number> | CommaDelimitedList
@@ -112,6 +147,9 @@ data ParameterDefinition = ParameterDefinition'
 --  CommaDelimitedList: An array of literal strings that are separated by commas. The total number of strings should be one more than the total number of commas.
 --  Also, each member string is space-trimmed.
 -- For example, users might specify "test,dev,prod", and then Ref results in ["test","dev","prod"].
+-- * 'allowedValues' - An array containing the list of values allowed for the parameter.
+-- * 'description' - A string of up to 4,000 characters that describes the parameter.
+-- * 'minValue' - A numeric value that determines the smallest numeric value that you want to allow for Number types.
 mkParameterDefinition ::
   -- | 'name'
   Lude.Text ->
@@ -119,18 +157,18 @@ mkParameterDefinition ::
 mkParameterDefinition pName_ =
   ParameterDefinition'
     { maxValue = Lude.Nothing,
+      referencedByResources = Lude.mempty,
       maxLength = Lude.Nothing,
       constraintDescription = Lude.Nothing,
       minLength = Lude.Nothing,
+      name = pName_,
       defaultValue = Lude.Nothing,
       allowedPattern = Lude.Nothing,
       noEcho = Lude.Nothing,
       type' = Lude.Nothing,
       allowedValues = Lude.Nothing,
       description = Lude.Nothing,
-      minValue = Lude.Nothing,
-      referencedByResources = Lude.mempty,
-      name = pName_
+      minValue = Lude.Nothing
     }
 
 -- | A numeric value that determines the largest numeric value that you want to allow for Number types.
@@ -139,6 +177,13 @@ mkParameterDefinition pName_ =
 pdMaxValue :: Lens.Lens' ParameterDefinition (Lude.Maybe Lude.Int)
 pdMaxValue = Lens.lens (maxValue :: ParameterDefinition -> Lude.Maybe Lude.Int) (\s a -> s {maxValue = a} :: ParameterDefinition)
 {-# DEPRECATED pdMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
+
+-- | A list of AWS SAM resources that use this parameter.
+--
+-- /Note:/ Consider using 'referencedByResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdReferencedByResources :: Lens.Lens' ParameterDefinition [Lude.Text]
+pdReferencedByResources = Lens.lens (referencedByResources :: ParameterDefinition -> [Lude.Text]) (\s a -> s {referencedByResources = a} :: ParameterDefinition)
+{-# DEPRECATED pdReferencedByResources "Use generic-lens or generic-optics with 'referencedByResources' instead." #-}
 
 -- | An integer value that determines the largest number of characters that you want to allow for String types.
 --
@@ -171,6 +216,13 @@ pdConstraintDescription = Lens.lens (constraintDescription :: ParameterDefinitio
 pdMinLength :: Lens.Lens' ParameterDefinition (Lude.Maybe Lude.Int)
 pdMinLength = Lens.lens (minLength :: ParameterDefinition -> Lude.Maybe Lude.Int) (\s a -> s {minLength = a} :: ParameterDefinition)
 {-# DEPRECATED pdMinLength "Use generic-lens or generic-optics with 'minLength' instead." #-}
+
+-- | The name of the parameter.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdName :: Lens.Lens' ParameterDefinition Lude.Text
+pdName = Lens.lens (name :: ParameterDefinition -> Lude.Text) (\s a -> s {name = a} :: ParameterDefinition)
+{-# DEPRECATED pdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A value of the appropriate type for the template to use if no value is specified when a stack is created.
 --
@@ -243,20 +295,6 @@ pdMinValue :: Lens.Lens' ParameterDefinition (Lude.Maybe Lude.Int)
 pdMinValue = Lens.lens (minValue :: ParameterDefinition -> Lude.Maybe Lude.Int) (\s a -> s {minValue = a} :: ParameterDefinition)
 {-# DEPRECATED pdMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
 
--- | A list of AWS SAM resources that use this parameter.
---
--- /Note:/ Consider using 'referencedByResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdReferencedByResources :: Lens.Lens' ParameterDefinition [Lude.Text]
-pdReferencedByResources = Lens.lens (referencedByResources :: ParameterDefinition -> [Lude.Text]) (\s a -> s {referencedByResources = a} :: ParameterDefinition)
-{-# DEPRECATED pdReferencedByResources "Use generic-lens or generic-optics with 'referencedByResources' instead." #-}
-
--- | The name of the parameter.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdName :: Lens.Lens' ParameterDefinition Lude.Text
-pdName = Lens.lens (name :: ParameterDefinition -> Lude.Text) (\s a -> s {name = a} :: ParameterDefinition)
-{-# DEPRECATED pdName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.FromJSON ParameterDefinition where
   parseJSON =
     Lude.withObject
@@ -264,9 +302,11 @@ instance Lude.FromJSON ParameterDefinition where
       ( \x ->
           ParameterDefinition'
             Lude.<$> (x Lude..:? "maxValue")
+            Lude.<*> (x Lude..:? "referencedByResources" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "maxLength")
             Lude.<*> (x Lude..:? "constraintDescription")
             Lude.<*> (x Lude..:? "minLength")
+            Lude.<*> (x Lude..: "name")
             Lude.<*> (x Lude..:? "defaultValue")
             Lude.<*> (x Lude..:? "allowedPattern")
             Lude.<*> (x Lude..:? "noEcho")
@@ -274,6 +314,4 @@ instance Lude.FromJSON ParameterDefinition where
             Lude.<*> (x Lude..:? "allowedValues" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "description")
             Lude.<*> (x Lude..:? "minValue")
-            Lude.<*> (x Lude..:? "referencedByResources" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "name")
       )

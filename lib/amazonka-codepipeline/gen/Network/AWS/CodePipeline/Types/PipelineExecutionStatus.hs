@@ -13,12 +13,12 @@
 module Network.AWS.CodePipeline.Types.PipelineExecutionStatus
   ( PipelineExecutionStatus
       ( PipelineExecutionStatus',
-        Failed,
         InProgress,
         Stopped,
         Stopping,
         Succeeded,
-        Superseded
+        Superseded,
+        Failed
       ),
   )
 where
@@ -49,9 +49,6 @@ newtype PipelineExecutionStatus = PipelineExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Failed :: PipelineExecutionStatus
-pattern Failed = PipelineExecutionStatus' "Failed"
-
 pattern InProgress :: PipelineExecutionStatus
 pattern InProgress = PipelineExecutionStatus' "InProgress"
 
@@ -67,12 +64,15 @@ pattern Succeeded = PipelineExecutionStatus' "Succeeded"
 pattern Superseded :: PipelineExecutionStatus
 pattern Superseded = PipelineExecutionStatus' "Superseded"
 
+pattern Failed :: PipelineExecutionStatus
+pattern Failed = PipelineExecutionStatus' "Failed"
+
 {-# COMPLETE
-  Failed,
   InProgress,
   Stopped,
   Stopping,
   Succeeded,
   Superseded,
+  Failed,
   PipelineExecutionStatus'
   #-}

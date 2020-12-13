@@ -39,39 +39,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPasswordPolicy' smart constructor.
 data PasswordPolicy = PasswordPolicy'
-  { expirePasswords ::
-      Lude.Maybe Lude.Bool,
+  { -- | Indicates whether passwords in the account expire. Returns true if @MaxPasswordAge@ contains a value greater than 0. Returns false if MaxPasswordAge is 0 or not present.
+    expirePasswords :: Lude.Maybe Lude.Bool,
+    -- | Minimum length to require for IAM user passwords.
     minimumPasswordLength :: Lude.Maybe Lude.Natural,
+    -- | Specifies whether to require numbers for IAM user passwords.
     requireNumbers :: Lude.Maybe Lude.Bool,
+    -- | Specifies the number of previous passwords that IAM users are prevented from reusing.
     passwordReusePrevention :: Lude.Maybe Lude.Natural,
+    -- | Specifies whether to require lowercase characters for IAM user passwords.
     requireLowercaseCharacters :: Lude.Maybe Lude.Bool,
+    -- | The number of days that an IAM user password is valid.
     maxPasswordAge :: Lude.Maybe Lude.Natural,
+    -- | Specifies whether IAM users are prevented from setting a new password after their password has expired.
     hardExpiry :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether to require symbols for IAM user passwords.
     requireSymbols :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether to require uppercase characters for IAM user passwords.
     requireUppercaseCharacters :: Lude.Maybe Lude.Bool,
+    -- | Specifies whether IAM users are allowed to change their own password.
     allowUsersToChangePassword :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PasswordPolicy' with the minimum fields required to make a request.
 --
--- * 'allowUsersToChangePassword' - Specifies whether IAM users are allowed to change their own password.
 -- * 'expirePasswords' - Indicates whether passwords in the account expire. Returns true if @MaxPasswordAge@ contains a value greater than 0. Returns false if MaxPasswordAge is 0 or not present.
--- * 'hardExpiry' - Specifies whether IAM users are prevented from setting a new password after their password has expired.
--- * 'maxPasswordAge' - The number of days that an IAM user password is valid.
 -- * 'minimumPasswordLength' - Minimum length to require for IAM user passwords.
+-- * 'requireNumbers' - Specifies whether to require numbers for IAM user passwords.
 -- * 'passwordReusePrevention' - Specifies the number of previous passwords that IAM users are prevented from reusing.
 -- * 'requireLowercaseCharacters' - Specifies whether to require lowercase characters for IAM user passwords.
--- * 'requireNumbers' - Specifies whether to require numbers for IAM user passwords.
+-- * 'maxPasswordAge' - The number of days that an IAM user password is valid.
+-- * 'hardExpiry' - Specifies whether IAM users are prevented from setting a new password after their password has expired.
 -- * 'requireSymbols' - Specifies whether to require symbols for IAM user passwords.
 -- * 'requireUppercaseCharacters' - Specifies whether to require uppercase characters for IAM user passwords.
+-- * 'allowUsersToChangePassword' - Specifies whether IAM users are allowed to change their own password.
 mkPasswordPolicy ::
   PasswordPolicy
 mkPasswordPolicy =

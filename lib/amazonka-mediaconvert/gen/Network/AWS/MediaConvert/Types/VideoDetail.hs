@@ -29,16 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVideoDetail' smart constructor.
 data VideoDetail = VideoDetail'
-  { heightInPx :: Lude.Maybe Lude.Int,
+  { -- | Height in pixels for the output
+    heightInPx :: Lude.Maybe Lude.Int,
+    -- | Width in pixels for the output
     widthInPx :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VideoDetail' with the minimum fields required to make a request.

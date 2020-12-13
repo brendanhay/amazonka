@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,20 +40,24 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkAssociateWebACL' smart constructor.
 data AssociateWebACL = AssociateWebACL'
-  { webACLId :: Lude.Text,
+  { -- | A unique identifier (ID) for the web ACL.
+    webACLId :: Lude.Text,
+    -- | The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.
+    --
+    -- The ARN should be in one of the following formats:
+    --
+    --     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
+    --
+    --
+    --     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
     resourceARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateWebACL' with the minimum fields required to make a request.
 --
+-- * 'webACLId' - A unique identifier (ID) for the web ACL.
 -- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.
 --
 -- The ARN should be in one of the following formats:
@@ -61,9 +66,6 @@ data AssociateWebACL = AssociateWebACL'
 --
 --
 --     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
---
---
--- * 'webACLId' - A unique identifier (ID) for the web ACL.
 mkAssociateWebACL ::
   -- | 'webACLId'
   Lude.Text ->
@@ -136,16 +138,10 @@ instance Lude.ToQuery AssociateWebACL where
 
 -- | /See:/ 'mkAssociateWebACLResponse' smart constructor.
 newtype AssociateWebACLResponse = AssociateWebACLResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateWebACLResponse' with the minimum fields required to make a request.

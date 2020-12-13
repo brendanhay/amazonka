@@ -13,14 +13,14 @@
 module Network.AWS.IoT.Types.JobExecutionStatus
   ( JobExecutionStatus
       ( JobExecutionStatus',
-        JESCanceled,
-        JESFailed,
-        JESInProgress,
         JESQueued,
+        JESInProgress,
+        JESSucceeded,
+        JESFailed,
+        JESTimedOut,
         JESRejected,
         JESRemoved,
-        JESSucceeded,
-        JESTimedOut
+        JESCanceled
       ),
   )
 where
@@ -51,17 +51,20 @@ newtype JobExecutionStatus = JobExecutionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern JESCanceled :: JobExecutionStatus
-pattern JESCanceled = JobExecutionStatus' "CANCELED"
-
-pattern JESFailed :: JobExecutionStatus
-pattern JESFailed = JobExecutionStatus' "FAILED"
+pattern JESQueued :: JobExecutionStatus
+pattern JESQueued = JobExecutionStatus' "QUEUED"
 
 pattern JESInProgress :: JobExecutionStatus
 pattern JESInProgress = JobExecutionStatus' "IN_PROGRESS"
 
-pattern JESQueued :: JobExecutionStatus
-pattern JESQueued = JobExecutionStatus' "QUEUED"
+pattern JESSucceeded :: JobExecutionStatus
+pattern JESSucceeded = JobExecutionStatus' "SUCCEEDED"
+
+pattern JESFailed :: JobExecutionStatus
+pattern JESFailed = JobExecutionStatus' "FAILED"
+
+pattern JESTimedOut :: JobExecutionStatus
+pattern JESTimedOut = JobExecutionStatus' "TIMED_OUT"
 
 pattern JESRejected :: JobExecutionStatus
 pattern JESRejected = JobExecutionStatus' "REJECTED"
@@ -69,20 +72,17 @@ pattern JESRejected = JobExecutionStatus' "REJECTED"
 pattern JESRemoved :: JobExecutionStatus
 pattern JESRemoved = JobExecutionStatus' "REMOVED"
 
-pattern JESSucceeded :: JobExecutionStatus
-pattern JESSucceeded = JobExecutionStatus' "SUCCEEDED"
-
-pattern JESTimedOut :: JobExecutionStatus
-pattern JESTimedOut = JobExecutionStatus' "TIMED_OUT"
+pattern JESCanceled :: JobExecutionStatus
+pattern JESCanceled = JobExecutionStatus' "CANCELED"
 
 {-# COMPLETE
-  JESCanceled,
-  JESFailed,
-  JESInProgress,
   JESQueued,
+  JESInProgress,
+  JESSucceeded,
+  JESFailed,
+  JESTimedOut,
   JESRejected,
   JESRemoved,
-  JESSucceeded,
-  JESTimedOut,
+  JESCanceled,
   JobExecutionStatus'
   #-}

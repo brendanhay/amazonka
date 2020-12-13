@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,17 +24,17 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- ** Request lenses
     pspMinAdjustmentStep,
     pspEstimatedInstanceWarmup,
+    pspPolicyName,
     pspEnabled,
     pspPolicyType,
     pspStepAdjustments,
     pspTargetTrackingConfiguration,
     pspAdjustmentType,
+    pspAutoScalingGroupName,
     pspScalingAdjustment,
     pspCooldown,
     pspMetricAggregationType,
     pspMinAdjustmentMagnitude,
-    pspAutoScalingGroupName,
-    pspPolicyName,
 
     -- * Destructuring the response
     PutScalingPolicyResponse (..),
@@ -54,52 +55,85 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutScalingPolicy' smart constructor.
 data PutScalingPolicy = PutScalingPolicy'
-  { minAdjustmentStep ::
-      Lude.Maybe Lude.Int,
+  { -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@ instead.
+    minAdjustmentStep :: Lude.Maybe Lude.Int,
+    -- | The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group.
+    --
+    -- Valid only if the policy type is @TargetTrackingScaling@ or @StepScaling@ .
     estimatedInstanceWarmup :: Lude.Maybe Lude.Int,
+    -- | The name of the policy.
+    policyName :: Lude.Text,
+    -- | Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group> in the /Amazon EC2 Auto Scaling User Guide/ .
     enabled :: Lude.Maybe Lude.Bool,
+    -- | One of the following policy types:
+    --
+    --
+    --     * @TargetTrackingScaling@
+    --
+    --
+    --     * @StepScaling@
+    --
+    --
+    --     * @SimpleScaling@ (default)
     policyType :: Lude.Maybe Lude.Text,
+    -- | A set of adjustments that enable you to scale based on the size of the alarm breach.
+    --
+    -- Required if the policy type is @StepScaling@ . (Not used with any other policy type.)
     stepAdjustments :: Lude.Maybe [StepAdjustment],
-    targetTrackingConfiguration ::
-      Lude.Maybe TargetTrackingConfiguration,
+    -- | A target tracking scaling policy. Includes support for predefined or customized metrics.
+    --
+    -- The following predefined metrics are available:
+    --
+    --     * @ASGAverageCPUUtilization@
+    --
+    --
+    --     * @ASGAverageNetworkIn@
+    --
+    --
+    --     * @ASGAverageNetworkOut@
+    --
+    --
+    --     * @ALBRequestCountPerTarget@
+    --
+    --
+    -- If you specify @ALBRequestCountPerTarget@ for the metric, you must specify the @ResourceLabel@ parameter with the @PredefinedMetricSpecification@ .
+    -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html TargetTrackingConfiguration> in the /Amazon EC2 Auto Scaling API Reference/ .
+    -- Required if the policy type is @TargetTrackingScaling@ .
+    targetTrackingConfiguration :: Lude.Maybe TargetTrackingConfiguration,
+    -- | Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
+    --
+    -- Required if the policy type is @StepScaling@ or @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types> in the /Amazon EC2 Auto Scaling User Guide/ .
     adjustmentType :: Lude.Maybe Lude.Text,
-    scalingAdjustment :: Lude.Maybe Lude.Int,
-    cooldown :: Lude.Maybe Lude.Int,
-    metricAggregationType :: Lude.Maybe Lude.Text,
-    minAdjustmentMagnitude :: Lude.Maybe Lude.Int,
+    -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Lude.Text,
-    policyName :: Lude.Text
+    -- | The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
+    --
+    -- Required if the policy type is @SimpleScaling@ . (Not used with any other policy type.)
+    scalingAdjustment :: Lude.Maybe Lude.Int,
+    -- | The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+    --
+    -- Valid only if the policy type is @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+    cooldown :: Lude.Maybe Lude.Int,
+    -- | The aggregation type for the CloudWatch metrics. The valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ .
+    --
+    -- Valid only if the policy type is @StepScaling@ .
+    metricAggregationType :: Lude.Maybe Lude.Text,
+    -- | The minimum value to scale by when the adjustment type is @PercentChangeInCapacity@ . For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a @MinAdjustmentMagnitude@ of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a @MinAdjustmentMagnitude@ of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
+    --
+    -- Valid only if the policy type is @StepScaling@ or @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types> in the /Amazon EC2 Auto Scaling User Guide/ .
+    minAdjustmentMagnitude :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
 --
--- * 'adjustmentType' - Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
---
--- Required if the policy type is @StepScaling@ or @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'cooldown' - The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
---
--- Valid only if the policy type is @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'enabled' - Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'minAdjustmentStep' - Available for backward compatibility. Use @MinAdjustmentMagnitude@ instead.
 -- * 'estimatedInstanceWarmup' - The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group.
 --
 -- Valid only if the policy type is @TargetTrackingScaling@ or @StepScaling@ .
--- * 'metricAggregationType' - The aggregation type for the CloudWatch metrics. The valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ .
---
--- Valid only if the policy type is @StepScaling@ .
--- * 'minAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is @PercentChangeInCapacity@ . For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a @MinAdjustmentMagnitude@ of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a @MinAdjustmentMagnitude@ of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
---
--- Valid only if the policy type is @StepScaling@ or @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types> in the /Amazon EC2 Auto Scaling User Guide/ .
--- * 'minAdjustmentStep' - Available for backward compatibility. Use @MinAdjustmentMagnitude@ instead.
 -- * 'policyName' - The name of the policy.
+-- * 'enabled' - Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group> in the /Amazon EC2 Auto Scaling User Guide/ .
 -- * 'policyType' - One of the following policy types:
 --
 --
@@ -112,9 +146,6 @@ data PutScalingPolicy = PutScalingPolicy'
 --     * @SimpleScaling@ (default)
 --
 --
--- * 'scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
---
--- Required if the policy type is @SimpleScaling@ . (Not used with any other policy type.)
 -- * 'stepAdjustments' - A set of adjustments that enable you to scale based on the size of the alarm breach.
 --
 -- Required if the policy type is @StepScaling@ . (Not used with any other policy type.)
@@ -137,27 +168,43 @@ data PutScalingPolicy = PutScalingPolicy'
 -- If you specify @ALBRequestCountPerTarget@ for the metric, you must specify the @ResourceLabel@ parameter with the @PredefinedMetricSpecification@ .
 -- For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html TargetTrackingConfiguration> in the /Amazon EC2 Auto Scaling API Reference/ .
 -- Required if the policy type is @TargetTrackingScaling@ .
+-- * 'adjustmentType' - Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are @ChangeInCapacity@ , @ExactCapacity@ , and @PercentChangeInCapacity@ .
+--
+-- Required if the policy type is @StepScaling@ or @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- * 'scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
+--
+-- Required if the policy type is @SimpleScaling@ . (Not used with any other policy type.)
+-- * 'cooldown' - The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
+--
+-- Valid only if the policy type is @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling> in the /Amazon EC2 Auto Scaling User Guide/ .
+-- * 'metricAggregationType' - The aggregation type for the CloudWatch metrics. The valid values are @Minimum@ , @Maximum@ , and @Average@ . If the aggregation type is null, the value is treated as @Average@ .
+--
+-- Valid only if the policy type is @StepScaling@ .
+-- * 'minAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is @PercentChangeInCapacity@ . For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a @MinAdjustmentMagnitude@ of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a @MinAdjustmentMagnitude@ of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
+--
+-- Valid only if the policy type is @StepScaling@ or @SimpleScaling@ . For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types> in the /Amazon EC2 Auto Scaling User Guide/ .
 mkPutScalingPolicy ::
-  -- | 'autoScalingGroupName'
-  Lude.Text ->
   -- | 'policyName'
   Lude.Text ->
+  -- | 'autoScalingGroupName'
+  Lude.Text ->
   PutScalingPolicy
-mkPutScalingPolicy pAutoScalingGroupName_ pPolicyName_ =
+mkPutScalingPolicy pPolicyName_ pAutoScalingGroupName_ =
   PutScalingPolicy'
     { minAdjustmentStep = Lude.Nothing,
       estimatedInstanceWarmup = Lude.Nothing,
+      policyName = pPolicyName_,
       enabled = Lude.Nothing,
       policyType = Lude.Nothing,
       stepAdjustments = Lude.Nothing,
       targetTrackingConfiguration = Lude.Nothing,
       adjustmentType = Lude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_,
       scalingAdjustment = Lude.Nothing,
       cooldown = Lude.Nothing,
       metricAggregationType = Lude.Nothing,
-      minAdjustmentMagnitude = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_,
-      policyName = pPolicyName_
+      minAdjustmentMagnitude = Lude.Nothing
     }
 
 -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@ instead.
@@ -175,6 +222,13 @@ pspMinAdjustmentStep = Lens.lens (minAdjustmentStep :: PutScalingPolicy -> Lude.
 pspEstimatedInstanceWarmup :: Lens.Lens' PutScalingPolicy (Lude.Maybe Lude.Int)
 pspEstimatedInstanceWarmup = Lens.lens (estimatedInstanceWarmup :: PutScalingPolicy -> Lude.Maybe Lude.Int) (\s a -> s {estimatedInstanceWarmup = a} :: PutScalingPolicy)
 {-# DEPRECATED pspEstimatedInstanceWarmup "Use generic-lens or generic-optics with 'estimatedInstanceWarmup' instead." #-}
+
+-- | The name of the policy.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pspPolicyName :: Lens.Lens' PutScalingPolicy Lude.Text
+pspPolicyName = Lens.lens (policyName :: PutScalingPolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutScalingPolicy)
+{-# DEPRECATED pspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group> in the /Amazon EC2 Auto Scaling User Guide/ .
 --
@@ -244,6 +298,13 @@ pspAdjustmentType :: Lens.Lens' PutScalingPolicy (Lude.Maybe Lude.Text)
 pspAdjustmentType = Lens.lens (adjustmentType :: PutScalingPolicy -> Lude.Maybe Lude.Text) (\s a -> s {adjustmentType = a} :: PutScalingPolicy)
 {-# DEPRECATED pspAdjustmentType "Use generic-lens or generic-optics with 'adjustmentType' instead." #-}
 
+-- | The name of the Auto Scaling group.
+--
+-- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pspAutoScalingGroupName :: Lens.Lens' PutScalingPolicy Lude.Text
+pspAutoScalingGroupName = Lens.lens (autoScalingGroupName :: PutScalingPolicy -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: PutScalingPolicy)
+{-# DEPRECATED pspAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+
 -- | The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
 --
 -- Required if the policy type is @SimpleScaling@ . (Not used with any other policy type.)
@@ -280,20 +341,6 @@ pspMinAdjustmentMagnitude :: Lens.Lens' PutScalingPolicy (Lude.Maybe Lude.Int)
 pspMinAdjustmentMagnitude = Lens.lens (minAdjustmentMagnitude :: PutScalingPolicy -> Lude.Maybe Lude.Int) (\s a -> s {minAdjustmentMagnitude = a} :: PutScalingPolicy)
 {-# DEPRECATED pspMinAdjustmentMagnitude "Use generic-lens or generic-optics with 'minAdjustmentMagnitude' instead." #-}
 
--- | The name of the Auto Scaling group.
---
--- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspAutoScalingGroupName :: Lens.Lens' PutScalingPolicy Lude.Text
-pspAutoScalingGroupName = Lens.lens (autoScalingGroupName :: PutScalingPolicy -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: PutScalingPolicy)
-{-# DEPRECATED pspAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
-
--- | The name of the policy.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pspPolicyName :: Lens.Lens' PutScalingPolicy Lude.Text
-pspPolicyName = Lens.lens (policyName :: PutScalingPolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutScalingPolicy)
-{-# DEPRECATED pspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
-
 instance Lude.AWSRequest PutScalingPolicy where
   type Rs PutScalingPolicy = PutScalingPolicyResponse
   request = Req.postQuery autoScalingService
@@ -322,42 +369,38 @@ instance Lude.ToQuery PutScalingPolicy where
         "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
         "MinAdjustmentStep" Lude.=: minAdjustmentStep,
         "EstimatedInstanceWarmup" Lude.=: estimatedInstanceWarmup,
+        "PolicyName" Lude.=: policyName,
         "Enabled" Lude.=: enabled,
         "PolicyType" Lude.=: policyType,
         "StepAdjustments"
           Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> stepAdjustments),
         "TargetTrackingConfiguration" Lude.=: targetTrackingConfiguration,
         "AdjustmentType" Lude.=: adjustmentType,
+        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
         "ScalingAdjustment" Lude.=: scalingAdjustment,
         "Cooldown" Lude.=: cooldown,
         "MetricAggregationType" Lude.=: metricAggregationType,
-        "MinAdjustmentMagnitude" Lude.=: minAdjustmentMagnitude,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "PolicyName" Lude.=: policyName
+        "MinAdjustmentMagnitude" Lude.=: minAdjustmentMagnitude
       ]
 
 -- | Contains the output of PutScalingPolicy.
 --
 -- /See:/ 'mkPutScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { policyARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the policy.
+    policyARN :: Lude.Maybe Lude.Text,
+    -- | The CloudWatch alarms created for the target tracking scaling policy.
     alarms :: Lude.Maybe [Alarm],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
 --
--- * 'alarms' - The CloudWatch alarms created for the target tracking scaling policy.
 -- * 'policyARN' - The Amazon Resource Name (ARN) of the policy.
+-- * 'alarms' - The CloudWatch alarms created for the target tracking scaling policy.
 -- * 'responseStatus' - The response status code.
 mkPutScalingPolicyResponse ::
   -- | 'responseStatus'

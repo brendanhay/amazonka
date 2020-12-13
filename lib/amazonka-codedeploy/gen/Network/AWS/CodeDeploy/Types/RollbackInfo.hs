@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRollbackInfo' smart constructor.
 data RollbackInfo = RollbackInfo'
-  { rollbackTriggeringDeploymentId ::
-      Lude.Maybe Lude.Text,
+  { -- | The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
+    rollbackTriggeringDeploymentId :: Lude.Maybe Lude.Text,
+    -- | Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded).
     rollbackMessage :: Lude.Maybe Lude.Text,
+    -- | The ID of the deployment rollback.
     rollbackDeploymentId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RollbackInfo' with the minimum fields required to make a request.
 --
--- * 'rollbackDeploymentId' - The ID of the deployment rollback.
--- * 'rollbackMessage' - Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded).
 -- * 'rollbackTriggeringDeploymentId' - The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped.
+-- * 'rollbackMessage' - Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded).
+-- * 'rollbackDeploymentId' - The ID of the deployment rollback.
 mkRollbackInfo ::
   RollbackInfo
 mkRollbackInfo =

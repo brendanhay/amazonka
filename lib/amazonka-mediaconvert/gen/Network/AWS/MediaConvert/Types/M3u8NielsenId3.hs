@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.M3u8NielsenId3
   ( M3u8NielsenId3
       ( M3u8NielsenId3',
-        M3uInsert,
-        M3uNone
+        MNIfInsert,
+        MNIfNone
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype M3u8NielsenId3 = M3u8NielsenId3' Lude.Text
       Lude.ToHeader
     )
 
-pattern M3uInsert :: M3u8NielsenId3
-pattern M3uInsert = M3u8NielsenId3' "INSERT"
+pattern MNIfInsert :: M3u8NielsenId3
+pattern MNIfInsert = M3u8NielsenId3' "INSERT"
 
-pattern M3uNone :: M3u8NielsenId3
-pattern M3uNone = M3u8NielsenId3' "NONE"
+pattern MNIfNone :: M3u8NielsenId3
+pattern MNIfNone = M3u8NielsenId3' "NONE"
 
 {-# COMPLETE
-  M3uInsert,
-  M3uNone,
+  MNIfInsert,
+  MNIfNone,
   M3u8NielsenId3'
   #-}

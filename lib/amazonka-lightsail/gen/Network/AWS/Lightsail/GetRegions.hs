@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRegions' smart constructor.
 data GetRegions = GetRegions'
-  { includeRelationalDatabaseAvailabilityZones ::
-      Lude.Maybe Lude.Bool,
+  { -- | A Boolean value indicating whether to also include Availability Zones for databases in your get regions request. Availability Zones are indicated with a letter (e.g., @us-east-2a@ ).
+    includeRelationalDatabaseAvailabilityZones :: Lude.Maybe Lude.Bool,
+    -- | A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., @us-east-2a@ .
     includeAvailabilityZones :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegions' with the minimum fields required to make a request.
 --
--- * 'includeAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., @us-east-2a@ .
 -- * 'includeRelationalDatabaseAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones for databases in your get regions request. Availability Zones are indicated with a letter (e.g., @us-east-2a@ ).
+-- * 'includeAvailabilityZones' - A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: e.g., @us-east-2a@ .
 mkGetRegions ::
   GetRegions
 mkGetRegions =
@@ -121,17 +117,12 @@ instance Lude.ToQuery GetRegions where
 
 -- | /See:/ 'mkGetRegionsResponse' smart constructor.
 data GetRegionsResponse = GetRegionsResponse'
-  { regions ::
-      Lude.Maybe [RegionInfo],
+  { -- | An array of key-value pairs containing information about your get regions request.
+    regions :: Lude.Maybe [RegionInfo],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRegionsResponse' with the minimum fields required to make a request.

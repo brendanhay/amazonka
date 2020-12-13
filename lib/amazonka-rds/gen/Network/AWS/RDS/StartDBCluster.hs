@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,7 +22,7 @@ module Network.AWS.RDS.StartDBCluster
     mkStartDBCluster,
 
     -- ** Request lenses
-    sdcDBClusterIdentifier,
+    sdbcDBClusterIdentifier,
 
     -- * Destructuring the response
     StartDBClusterResponse (..),
@@ -41,16 +42,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkStartDBCluster' smart constructor.
 newtype StartDBCluster = StartDBCluster'
-  { dbClusterIdentifier ::
-      Lude.Text
+  { -- | The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.
+    dbClusterIdentifier :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDBCluster' with the minimum fields required to make a request.
@@ -66,9 +61,9 @@ mkStartDBCluster pDBClusterIdentifier_ =
 -- | The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcDBClusterIdentifier :: Lens.Lens' StartDBCluster Lude.Text
-sdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: StartDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: StartDBCluster)
-{-# DEPRECATED sdcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+sdbcDBClusterIdentifier :: Lens.Lens' StartDBCluster Lude.Text
+sdbcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: StartDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: StartDBCluster)
+{-# DEPRECATED sdbcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
 
 instance Lude.AWSRequest StartDBCluster where
   type Rs StartDBCluster = StartDBClusterResponse
@@ -97,22 +92,16 @@ instance Lude.ToQuery StartDBCluster where
 
 -- | /See:/ 'mkStartDBClusterResponse' smart constructor.
 data StartDBClusterResponse = StartDBClusterResponse'
-  { dbCluster ::
-      Lude.Maybe DBCluster,
+  { dbCluster :: Lude.Maybe DBCluster,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartDBClusterResponse' with the minimum fields required to make a request.
 --
--- * 'dbCluster' - Undocumented field.
+-- * 'dbCluster' -
 -- * 'responseStatus' - The response status code.
 mkStartDBClusterResponse ::
   -- | 'responseStatus'

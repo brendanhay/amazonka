@@ -13,13 +13,13 @@
 module Network.AWS.Connect.Types.InstanceAttributeType
   ( InstanceAttributeType
       ( InstanceAttributeType',
-        AutoResolveBestVoices,
-        ContactLens,
-        ContactflowLogs,
-        EarlyMedia,
         InboundCalls,
         OutboundCalls,
-        UseCustomTtsVoices
+        ContactflowLogs,
+        ContactLens,
+        AutoResolveBestVoices,
+        UseCustomTtsVoices,
+        EarlyMedia
       ),
   )
 where
@@ -50,34 +50,34 @@ newtype InstanceAttributeType = InstanceAttributeType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AutoResolveBestVoices :: InstanceAttributeType
-pattern AutoResolveBestVoices = InstanceAttributeType' "AUTO_RESOLVE_BEST_VOICES"
-
-pattern ContactLens :: InstanceAttributeType
-pattern ContactLens = InstanceAttributeType' "CONTACT_LENS"
-
-pattern ContactflowLogs :: InstanceAttributeType
-pattern ContactflowLogs = InstanceAttributeType' "CONTACTFLOW_LOGS"
-
-pattern EarlyMedia :: InstanceAttributeType
-pattern EarlyMedia = InstanceAttributeType' "EARLY_MEDIA"
-
 pattern InboundCalls :: InstanceAttributeType
 pattern InboundCalls = InstanceAttributeType' "INBOUND_CALLS"
 
 pattern OutboundCalls :: InstanceAttributeType
 pattern OutboundCalls = InstanceAttributeType' "OUTBOUND_CALLS"
 
+pattern ContactflowLogs :: InstanceAttributeType
+pattern ContactflowLogs = InstanceAttributeType' "CONTACTFLOW_LOGS"
+
+pattern ContactLens :: InstanceAttributeType
+pattern ContactLens = InstanceAttributeType' "CONTACT_LENS"
+
+pattern AutoResolveBestVoices :: InstanceAttributeType
+pattern AutoResolveBestVoices = InstanceAttributeType' "AUTO_RESOLVE_BEST_VOICES"
+
 pattern UseCustomTtsVoices :: InstanceAttributeType
 pattern UseCustomTtsVoices = InstanceAttributeType' "USE_CUSTOM_TTS_VOICES"
 
+pattern EarlyMedia :: InstanceAttributeType
+pattern EarlyMedia = InstanceAttributeType' "EARLY_MEDIA"
+
 {-# COMPLETE
-  AutoResolveBestVoices,
-  ContactLens,
-  ContactflowLogs,
-  EarlyMedia,
   InboundCalls,
   OutboundCalls,
+  ContactflowLogs,
+  ContactLens,
+  AutoResolveBestVoices,
   UseCustomTtsVoices,
+  EarlyMedia,
   InstanceAttributeType'
   #-}

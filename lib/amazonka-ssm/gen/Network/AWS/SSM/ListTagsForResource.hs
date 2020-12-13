@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SSM.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
-    ltfrResourceType,
     ltfrResourceId,
+    ltfrResourceType,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
@@ -40,17 +41,12 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { resourceType ::
-      ResourceTypeForTagging,
-    resourceId :: Lude.Text
+  { -- | The resource ID for which you want to see a list of tags.
+    resourceId :: Lude.Text,
+    -- | Returns a list of tags for a specific resource type.
+    resourceType :: ResourceTypeForTagging
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
@@ -58,23 +54,16 @@ data ListTagsForResource = ListTagsForResource'
 -- * 'resourceId' - The resource ID for which you want to see a list of tags.
 -- * 'resourceType' - Returns a list of tags for a specific resource type.
 mkListTagsForResource ::
-  -- | 'resourceType'
-  ResourceTypeForTagging ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'resourceType'
+  ResourceTypeForTagging ->
   ListTagsForResource
-mkListTagsForResource pResourceType_ pResourceId_ =
+mkListTagsForResource pResourceId_ pResourceType_ =
   ListTagsForResource'
-    { resourceType = pResourceType_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      resourceType = pResourceType_
     }
-
--- | Returns a list of tags for a specific resource type.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceType :: Lens.Lens' ListTagsForResource ResourceTypeForTagging
-ltfrResourceType = Lens.lens (resourceType :: ListTagsForResource -> ResourceTypeForTagging) (\s a -> s {resourceType = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The resource ID for which you want to see a list of tags.
 --
@@ -82,6 +71,13 @@ ltfrResourceType = Lens.lens (resourceType :: ListTagsForResource -> ResourceTyp
 ltfrResourceId :: Lens.Lens' ListTagsForResource Lude.Text
 ltfrResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
 {-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Returns a list of tags for a specific resource type.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceType :: Lens.Lens' ListTagsForResource ResourceTypeForTagging
+ltfrResourceType = Lens.lens (resourceType :: ListTagsForResource -> ResourceTypeForTagging) (\s a -> s {resourceType = a} :: ListTagsForResource)
+{-# DEPRECATED ltfrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 instance Lude.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
@@ -109,8 +105,8 @@ instance Lude.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("ResourceType" Lude..= resourceType)
           ]
       )
 
@@ -122,23 +118,18 @@ instance Lude.ToQuery ListTagsForResource where
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { tagList ::
-      Lude.Maybe [Tag],
+  { -- | A list of tags.
+    tagList :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tagList' - A list of tags.
+-- * 'responseStatus' - The response status code.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
   Lude.Int ->

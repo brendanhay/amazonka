@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,16 +26,16 @@ module Network.AWS.CloudHSM.ListHAPGs
     mkListHAPGs,
 
     -- ** Request lenses
-    lhNextToken,
+    lhapgNextToken,
 
     -- * Destructuring the response
     ListHAPGsResponse (..),
     mkListHAPGsResponse,
 
     -- ** Response lenses
-    lhrsNextToken,
-    lhrsResponseStatus,
-    lhrsHAPGList,
+    lhapgrsNextToken,
+    lhapgrsHAPGList,
+    lhapgrsResponseStatus,
   )
 where
 
@@ -46,14 +47,11 @@ import qualified Network.AWS.Request as Req
 import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListHAPGs' smart constructor.
-newtype ListHAPGs = ListHAPGs' {nextToken :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ListHAPGs = ListHAPGs'
+  { -- | The @NextToken@ value from a previous call to @ListHapgs@ . Pass null if this is the first call.
+    nextToken :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHAPGs' with the minimum fields required to make a request.
@@ -66,18 +64,18 @@ mkListHAPGs = ListHAPGs' {nextToken = Lude.Nothing}
 -- | The @NextToken@ value from a previous call to @ListHapgs@ . Pass null if this is the first call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhNextToken :: Lens.Lens' ListHAPGs (Lude.Maybe Lude.Text)
-lhNextToken = Lens.lens (nextToken :: ListHAPGs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHAPGs)
-{-# DEPRECATED lhNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lhapgNextToken :: Lens.Lens' ListHAPGs (Lude.Maybe Lude.Text)
+lhapgNextToken = Lens.lens (nextToken :: ListHAPGs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHAPGs)
+{-# DEPRECATED lhapgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 instance Page.AWSPager ListHAPGs where
   page rq rs
-    | Page.stop (rs Lens.^. lhrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lhrsHAPGList) = Lude.Nothing
+    | Page.stop (rs Lens.^. lhapgrsNextToken) = Lude.Nothing
+    | Page.stop (rs Lens.^. lhapgrsHAPGList) = Lude.Nothing
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& lhNextToken Lens..~ rs Lens.^. lhrsNextToken
+          Lude.& lhapgNextToken Lens..~ rs Lens.^. lhapgrsNextToken
 
 instance Lude.AWSRequest ListHAPGs where
   type Rs ListHAPGs = ListHAPGsResponse
@@ -87,8 +85,8 @@ instance Lude.AWSRequest ListHAPGs where
       ( \s h x ->
           ListHAPGsResponse'
             Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
             Lude.<*> (x Lude..?> "HapgList" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders ListHAPGs where
@@ -115,24 +113,20 @@ instance Lude.ToQuery ListHAPGs where
 
 -- | /See:/ 'mkListHAPGsResponse' smart constructor.
 data ListHAPGsResponse = ListHAPGsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus :: Lude.Int,
-    hapgList :: [Lude.Text]
+  { -- | If not null, more results are available. Pass this value to @ListHapgs@ to retrieve the next set of items.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of high-availability partition groups.
+    hapgList :: [Lude.Text],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListHAPGsResponse' with the minimum fields required to make a request.
 --
--- * 'hapgList' - The list of high-availability partition groups.
 -- * 'nextToken' - If not null, more results are available. Pass this value to @ListHapgs@ to retrieve the next set of items.
+-- * 'hapgList' - The list of high-availability partition groups.
 -- * 'responseStatus' - The response status code.
 mkListHAPGsResponse ::
   -- | 'responseStatus'
@@ -141,27 +135,27 @@ mkListHAPGsResponse ::
 mkListHAPGsResponse pResponseStatus_ =
   ListHAPGsResponse'
     { nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_,
-      hapgList = Lude.mempty
+      hapgList = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
 
 -- | If not null, more results are available. Pass this value to @ListHapgs@ to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhrsNextToken :: Lens.Lens' ListHAPGsResponse (Lude.Maybe Lude.Text)
-lhrsNextToken = Lens.lens (nextToken :: ListHAPGsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHAPGsResponse)
-{-# DEPRECATED lhrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhrsResponseStatus :: Lens.Lens' ListHAPGsResponse Lude.Int
-lhrsResponseStatus = Lens.lens (responseStatus :: ListHAPGsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHAPGsResponse)
-{-# DEPRECATED lhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lhapgrsNextToken :: Lens.Lens' ListHAPGsResponse (Lude.Maybe Lude.Text)
+lhapgrsNextToken = Lens.lens (nextToken :: ListHAPGsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListHAPGsResponse)
+{-# DEPRECATED lhapgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of high-availability partition groups.
 --
 -- /Note:/ Consider using 'hapgList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhrsHAPGList :: Lens.Lens' ListHAPGsResponse [Lude.Text]
-lhrsHAPGList = Lens.lens (hapgList :: ListHAPGsResponse -> [Lude.Text]) (\s a -> s {hapgList = a} :: ListHAPGsResponse)
-{-# DEPRECATED lhrsHAPGList "Use generic-lens or generic-optics with 'hapgList' instead." #-}
+lhapgrsHAPGList :: Lens.Lens' ListHAPGsResponse [Lude.Text]
+lhapgrsHAPGList = Lens.lens (hapgList :: ListHAPGsResponse -> [Lude.Text]) (\s a -> s {hapgList = a} :: ListHAPGsResponse)
+{-# DEPRECATED lhapgrsHAPGList "Use generic-lens or generic-optics with 'hapgList' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhapgrsResponseStatus :: Lens.Lens' ListHAPGsResponse Lude.Int
+lhapgrsResponseStatus = Lens.lens (responseStatus :: ListHAPGsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListHAPGsResponse)
+{-# DEPRECATED lhapgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

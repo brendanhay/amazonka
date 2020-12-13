@@ -261,10 +261,10 @@ module Network.AWS.WorkDocs
     cVisibility,
     cThreadId,
     cContributor,
+    cCommentId,
     cCreatedTimestamp,
     cRecipientId,
     cParentId,
-    cCommentId,
 
     -- ** CommentMetadata
     CommentMetadata (..),
@@ -375,9 +375,9 @@ module Network.AWS.WorkDocs
     -- ** SharePrincipal
     SharePrincipal (..),
     mkSharePrincipal,
+    spRole,
     spId,
     spType,
-    spRole,
 
     -- ** ShareResult
     ShareResult (..),

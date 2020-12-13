@@ -33,27 +33,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkS3ReportExportConfig' smart constructor.
 data S3ReportExportConfig = S3ReportExportConfig'
-  { packaging ::
-      Lude.Maybe ReportPackagingType,
+  { -- | The type of build output artifact to create. Valid values include:
+    --
+    --
+    --     * @NONE@ : AWS CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+    --
+    --
+    --     * @ZIP@ : AWS CodeBuild creates a ZIP file with the raw data in the output bucket.
+    packaging :: Lude.Maybe ReportPackagingType,
+    -- | The path to the exported report's raw data results.
     path :: Lude.Maybe Lude.Text,
+    -- | The name of the S3 bucket where the raw data of a report are exported.
     bucket :: Lude.Maybe Lude.Text,
+    -- | A boolean value that specifies if the results of a report are encrypted.
     encryptionDisabled :: Lude.Maybe Lude.Bool,
+    -- | The encryption key for the report's encrypted raw data.
     encryptionKey :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'S3ReportExportConfig' with the minimum fields required to make a request.
 --
--- * 'bucket' - The name of the S3 bucket where the raw data of a report are exported.
--- * 'encryptionDisabled' - A boolean value that specifies if the results of a report are encrypted.
--- * 'encryptionKey' - The encryption key for the report's encrypted raw data.
 -- * 'packaging' - The type of build output artifact to create. Valid values include:
 --
 --
@@ -64,6 +65,9 @@ data S3ReportExportConfig = S3ReportExportConfig'
 --
 --
 -- * 'path' - The path to the exported report's raw data results.
+-- * 'bucket' - The name of the S3 bucket where the raw data of a report are exported.
+-- * 'encryptionDisabled' - A boolean value that specifies if the results of a report are encrypted.
+-- * 'encryptionKey' - The encryption key for the report's encrypted raw data.
 mkS3ReportExportConfig ::
   S3ReportExportConfig
 mkS3ReportExportConfig =

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVersioningConfiguration' smart constructor.
 data VersioningConfiguration = VersioningConfiguration'
-  { unlimited ::
-      Lude.Maybe Lude.Bool,
+  { -- | If true, unlimited versions of dataset contents are kept.
+    unlimited :: Lude.Maybe Lude.Bool,
+    -- | How many versions of dataset contents are kept. The @unlimited@ parameter must be @false@ .
     maxVersions :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VersioningConfiguration' with the minimum fields required to make a request.
 --
--- * 'maxVersions' - How many versions of dataset contents are kept. The @unlimited@ parameter must be @false@ .
 -- * 'unlimited' - If true, unlimited versions of dataset contents are kept.
+-- * 'maxVersions' - How many versions of dataset contents are kept. The @unlimited@ parameter must be @false@ .
 mkVersioningConfiguration ::
   VersioningConfiguration
 mkVersioningConfiguration =

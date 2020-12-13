@@ -13,8 +13,8 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicyType
   ( OriginRequestPolicyType
       ( OriginRequestPolicyType',
-        Custom,
-        Managed
+        Managed,
+        Custom
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype OriginRequestPolicyType = OriginRequestPolicyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Custom :: OriginRequestPolicyType
-pattern Custom = OriginRequestPolicyType' "custom"
-
 pattern Managed :: OriginRequestPolicyType
 pattern Managed = OriginRequestPolicyType' "managed"
 
+pattern Custom :: OriginRequestPolicyType
+pattern Custom = OriginRequestPolicyType' "custom"
+
 {-# COMPLETE
-  Custom,
   Managed,
+  Custom,
   OriginRequestPolicyType'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,28 +47,28 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'mkCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { clientToken :: Lude.Maybe Lude.Text,
+  { -- | A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
+    clientToken :: Lude.Maybe Lude.Text,
+    -- | The name of the service role in the customer's account to be used by AWS SMS.
     roleName :: Lude.Maybe Lude.Text,
+    -- | The name of the new application.
     name :: Lude.Maybe Lude.Text,
+    -- | The description of the new application
     description :: Lude.Maybe Lude.Text,
+    -- | The server groups to include in the application.
     serverGroups :: Lude.Maybe [ServerGroup],
+    -- | The tags to be associated with the application.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
 -- * 'clientToken' - A unique, case-sensitive identifier that you provide to ensure the idempotency of application creation.
--- * 'description' - The description of the new application
--- * 'name' - The name of the new application.
 -- * 'roleName' - The name of the service role in the customer's account to be used by AWS SMS.
+-- * 'name' - The name of the new application.
+-- * 'description' - The description of the new application
 -- * 'serverGroups' - The server groups to include in the application.
 -- * 'tags' - The tags to be associated with the application.
 mkCreateApp ::
@@ -171,27 +172,24 @@ instance Lude.ToQuery CreateApp where
 
 -- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { appSummary ::
-      Lude.Maybe AppSummary,
+  { -- | A summary description of the application.
+    appSummary :: Lude.Maybe AppSummary,
+    -- | The server groups included in the application.
     serverGroups :: Lude.Maybe [ServerGroup],
+    -- | The tags associated with the application.
     tags :: Lude.Maybe [Tag],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
 --
 -- * 'appSummary' - A summary description of the application.
--- * 'responseStatus' - The response status code.
 -- * 'serverGroups' - The server groups included in the application.
 -- * 'tags' - The tags associated with the application.
+-- * 'responseStatus' - The response status code.
 mkCreateAppResponse ::
   -- | 'responseStatus'
   Lude.Int ->

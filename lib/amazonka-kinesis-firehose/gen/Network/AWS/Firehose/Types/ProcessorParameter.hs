@@ -17,8 +17,8 @@ module Network.AWS.Firehose.Types.ProcessorParameter
     mkProcessorParameter,
 
     -- * Lenses
-    ppParameterName,
     ppParameterValue,
+    ppParameterName,
   )
 where
 
@@ -30,41 +30,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkProcessorParameter' smart constructor.
 data ProcessorParameter = ProcessorParameter'
-  { parameterName ::
-      ProcessorParameterName,
-    parameterValue :: Lude.Text
+  { -- | The parameter value.
+    parameterValue :: Lude.Text,
+    -- | The name of the parameter.
+    parameterName :: ProcessorParameterName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProcessorParameter' with the minimum fields required to make a request.
 --
--- * 'parameterName' - The name of the parameter.
 -- * 'parameterValue' - The parameter value.
+-- * 'parameterName' - The name of the parameter.
 mkProcessorParameter ::
-  -- | 'parameterName'
-  ProcessorParameterName ->
   -- | 'parameterValue'
   Lude.Text ->
+  -- | 'parameterName'
+  ProcessorParameterName ->
   ProcessorParameter
-mkProcessorParameter pParameterName_ pParameterValue_ =
+mkProcessorParameter pParameterValue_ pParameterName_ =
   ProcessorParameter'
-    { parameterName = pParameterName_,
-      parameterValue = pParameterValue_
+    { parameterValue = pParameterValue_,
+      parameterName = pParameterName_
     }
-
--- | The name of the parameter.
---
--- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppParameterName :: Lens.Lens' ProcessorParameter ProcessorParameterName
-ppParameterName = Lens.lens (parameterName :: ProcessorParameter -> ProcessorParameterName) (\s a -> s {parameterName = a} :: ProcessorParameter)
-{-# DEPRECATED ppParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
 -- | The parameter value.
 --
@@ -73,20 +61,27 @@ ppParameterValue :: Lens.Lens' ProcessorParameter Lude.Text
 ppParameterValue = Lens.lens (parameterValue :: ProcessorParameter -> Lude.Text) (\s a -> s {parameterValue = a} :: ProcessorParameter)
 {-# DEPRECATED ppParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
+-- | The name of the parameter.
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppParameterName :: Lens.Lens' ProcessorParameter ProcessorParameterName
+ppParameterName = Lens.lens (parameterName :: ProcessorParameter -> ProcessorParameterName) (\s a -> s {parameterName = a} :: ProcessorParameter)
+{-# DEPRECATED ppParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
+
 instance Lude.FromJSON ProcessorParameter where
   parseJSON =
     Lude.withObject
       "ProcessorParameter"
       ( \x ->
           ProcessorParameter'
-            Lude.<$> (x Lude..: "ParameterName") Lude.<*> (x Lude..: "ParameterValue")
+            Lude.<$> (x Lude..: "ParameterValue") Lude.<*> (x Lude..: "ParameterName")
       )
 
 instance Lude.ToJSON ProcessorParameter where
   toJSON ProcessorParameter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ParameterName" Lude..= parameterName),
-            Lude.Just ("ParameterValue" Lude..= parameterValue)
+          [ Lude.Just ("ParameterValue" Lude..= parameterValue),
+            Lude.Just ("ParameterName" Lude..= parameterName)
           ]
       )

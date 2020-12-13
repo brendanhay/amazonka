@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,9 +21,9 @@ module Network.AWS.CognitoIdentityProvider.AdminSetUserMFAPreference
 
     -- ** Request lenses
     asumpSMSMFASettings,
+    asumpUserPoolId,
     asumpSoftwareTokenMFASettings,
     asumpUsername,
-    asumpUserPoolId,
 
     -- * Destructuring the response
     AdminSetUserMFAPreferenceResponse (..),
@@ -41,12 +42,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAdminSetUserMFAPreference' smart constructor.
 data AdminSetUserMFAPreference = AdminSetUserMFAPreference'
-  { sMSMFASettings ::
-      Lude.Maybe SMSMFASettingsType,
-    softwareTokenMFASettings ::
-      Lude.Maybe SoftwareTokenMFASettingsType,
-    username :: Lude.Sensitive Lude.Text,
-    userPoolId :: Lude.Text
+  { -- | The SMS text message MFA settings.
+    sMSMFASettings :: Lude.Maybe SMSMFASettingsType,
+    -- | The user pool ID.
+    userPoolId :: Lude.Text,
+    -- | The time-based one-time password software token MFA settings.
+    softwareTokenMFASettings :: Lude.Maybe SoftwareTokenMFASettingsType,
+    -- | The user pool username or alias.
+    username :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -54,21 +57,21 @@ data AdminSetUserMFAPreference = AdminSetUserMFAPreference'
 -- | Creates a value of 'AdminSetUserMFAPreference' with the minimum fields required to make a request.
 --
 -- * 'sMSMFASettings' - The SMS text message MFA settings.
--- * 'softwareTokenMFASettings' - The time-based one-time password software token MFA settings.
 -- * 'userPoolId' - The user pool ID.
+-- * 'softwareTokenMFASettings' - The time-based one-time password software token MFA settings.
 -- * 'username' - The user pool username or alias.
 mkAdminSetUserMFAPreference ::
-  -- | 'username'
-  Lude.Sensitive Lude.Text ->
   -- | 'userPoolId'
   Lude.Text ->
+  -- | 'username'
+  Lude.Sensitive Lude.Text ->
   AdminSetUserMFAPreference
-mkAdminSetUserMFAPreference pUsername_ pUserPoolId_ =
+mkAdminSetUserMFAPreference pUserPoolId_ pUsername_ =
   AdminSetUserMFAPreference'
     { sMSMFASettings = Lude.Nothing,
+      userPoolId = pUserPoolId_,
       softwareTokenMFASettings = Lude.Nothing,
-      username = pUsername_,
-      userPoolId = pUserPoolId_
+      username = pUsername_
     }
 
 -- | The SMS text message MFA settings.
@@ -77,6 +80,13 @@ mkAdminSetUserMFAPreference pUsername_ pUserPoolId_ =
 asumpSMSMFASettings :: Lens.Lens' AdminSetUserMFAPreference (Lude.Maybe SMSMFASettingsType)
 asumpSMSMFASettings = Lens.lens (sMSMFASettings :: AdminSetUserMFAPreference -> Lude.Maybe SMSMFASettingsType) (\s a -> s {sMSMFASettings = a} :: AdminSetUserMFAPreference)
 {-# DEPRECATED asumpSMSMFASettings "Use generic-lens or generic-optics with 'sMSMFASettings' instead." #-}
+
+-- | The user pool ID.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asumpUserPoolId :: Lens.Lens' AdminSetUserMFAPreference Lude.Text
+asumpUserPoolId = Lens.lens (userPoolId :: AdminSetUserMFAPreference -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminSetUserMFAPreference)
+{-# DEPRECATED asumpUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The time-based one-time password software token MFA settings.
 --
@@ -91,13 +101,6 @@ asumpSoftwareTokenMFASettings = Lens.lens (softwareTokenMFASettings :: AdminSetU
 asumpUsername :: Lens.Lens' AdminSetUserMFAPreference (Lude.Sensitive Lude.Text)
 asumpUsername = Lens.lens (username :: AdminSetUserMFAPreference -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminSetUserMFAPreference)
 {-# DEPRECATED asumpUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
--- | The user pool ID.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asumpUserPoolId :: Lens.Lens' AdminSetUserMFAPreference Lude.Text
-asumpUserPoolId = Lens.lens (userPoolId :: AdminSetUserMFAPreference -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminSetUserMFAPreference)
-{-# DEPRECATED asumpUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 instance Lude.AWSRequest AdminSetUserMFAPreference where
   type
@@ -129,10 +132,10 @@ instance Lude.ToJSON AdminSetUserMFAPreference where
     Lude.object
       ( Lude.catMaybes
           [ ("SMSMfaSettings" Lude..=) Lude.<$> sMSMFASettings,
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
             ("SoftwareTokenMfaSettings" Lude..=)
               Lude.<$> softwareTokenMFASettings,
-            Lude.Just ("Username" Lude..= username),
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
+            Lude.Just ("Username" Lude..= username)
           ]
       )
 
@@ -144,16 +147,10 @@ instance Lude.ToQuery AdminSetUserMFAPreference where
 
 -- | /See:/ 'mkAdminSetUserMFAPreferenceResponse' smart constructor.
 newtype AdminSetUserMFAPreferenceResponse = AdminSetUserMFAPreferenceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminSetUserMFAPreferenceResponse' with the minimum fields required to make a request.

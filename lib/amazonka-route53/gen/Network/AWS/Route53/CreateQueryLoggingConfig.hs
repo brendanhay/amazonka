@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -101,9 +102,9 @@ module Network.AWS.Route53.CreateQueryLoggingConfig
     mkCreateQueryLoggingConfigResponse,
 
     -- ** Response lenses
-    cqlcrsResponseStatus,
-    cqlcrsQueryLoggingConfig,
     cqlcrsLocation,
+    cqlcrsQueryLoggingConfig,
+    cqlcrsResponseStatus,
   )
 where
 
@@ -115,26 +116,24 @@ import Network.AWS.Route53.Types
 
 -- | /See:/ 'mkCreateQueryLoggingConfig' smart constructor.
 data CreateQueryLoggingConfig = CreateQueryLoggingConfig'
-  { hostedZoneId ::
-      ResourceId,
+  { -- | The ID of the hosted zone that you want to log queries for. You can log queries only for public hosted zones.
+    hostedZoneId :: ResourceId,
+    -- | The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53 to send query logs to. This is the format of the ARN:
+    --
+    -- arn:aws:logs:/region/ :/account-id/ :log-group:/log_group_name/
+    -- To get the ARN for a log group, you can use the CloudWatch console, the <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html DescribeLogGroups> API action, the <https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups> command, or the applicable command in one of the AWS SDKs.
     cloudWatchLogsLogGroupARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateQueryLoggingConfig' with the minimum fields required to make a request.
 --
+-- * 'hostedZoneId' - The ID of the hosted zone that you want to log queries for. You can log queries only for public hosted zones.
 -- * 'cloudWatchLogsLogGroupARN' - The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53 to send query logs to. This is the format of the ARN:
 --
 -- arn:aws:logs:/region/ :/account-id/ :log-group:/log_group_name/
 -- To get the ARN for a log group, you can use the CloudWatch console, the <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html DescribeLogGroups> API action, the <https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html describe-log-groups> command, or the applicable command in one of the AWS SDKs.
--- * 'hostedZoneId' - The ID of the hosted zone that you want to log queries for. You can log queries only for public hosted zones.
 mkCreateQueryLoggingConfig ::
   -- | 'hostedZoneId'
   ResourceId ->
@@ -173,9 +172,9 @@ instance Lude.AWSRequest CreateQueryLoggingConfig where
     Res.receiveXML
       ( \s h x ->
           CreateQueryLoggingConfigResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Lude.<$> (h Lude..# "Location")
             Lude.<*> (x Lude..@ "QueryLoggingConfig")
-            Lude.<*> (h Lude..# "Location")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToElement CreateQueryLoggingConfig where
@@ -201,19 +200,14 @@ instance Lude.ToXML CreateQueryLoggingConfig where
 
 -- | /See:/ 'mkCreateQueryLoggingConfigResponse' smart constructor.
 data CreateQueryLoggingConfigResponse = CreateQueryLoggingConfigResponse'
-  { responseStatus ::
-      Lude.Int,
-    queryLoggingConfig ::
-      QueryLoggingConfig,
-    location :: Lude.Text
+  { -- | The unique URL representing the new query logging configuration.
+    location :: Lude.Text,
+    -- | A complex type that contains the ID for a query logging configuration, the ID of the hosted zone that you want to log queries for, and the ARN for the log group that you want Amazon Route 53 to send query logs to.
+    queryLoggingConfig :: QueryLoggingConfig,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateQueryLoggingConfigResponse' with the minimum fields required to make a request.
@@ -222,30 +216,29 @@ data CreateQueryLoggingConfigResponse = CreateQueryLoggingConfigResponse'
 -- * 'queryLoggingConfig' - A complex type that contains the ID for a query logging configuration, the ID of the hosted zone that you want to log queries for, and the ARN for the log group that you want Amazon Route 53 to send query logs to.
 -- * 'responseStatus' - The response status code.
 mkCreateQueryLoggingConfigResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  -- | 'queryLoggingConfig'
-  QueryLoggingConfig ->
   -- | 'location'
   Lude.Text ->
+  -- | 'queryLoggingConfig'
+  QueryLoggingConfig ->
+  -- | 'responseStatus'
+  Lude.Int ->
   CreateQueryLoggingConfigResponse
 mkCreateQueryLoggingConfigResponse
-  pResponseStatus_
+  pLocation_
   pQueryLoggingConfig_
-  pLocation_ =
+  pResponseStatus_ =
     CreateQueryLoggingConfigResponse'
-      { responseStatus =
-          pResponseStatus_,
+      { location = pLocation_,
         queryLoggingConfig = pQueryLoggingConfig_,
-        location = pLocation_
+        responseStatus = pResponseStatus_
       }
 
--- | The response status code.
+-- | The unique URL representing the new query logging configuration.
 --
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cqlcrsResponseStatus :: Lens.Lens' CreateQueryLoggingConfigResponse Lude.Int
-cqlcrsResponseStatus = Lens.lens (responseStatus :: CreateQueryLoggingConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateQueryLoggingConfigResponse)
-{-# DEPRECATED cqlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqlcrsLocation :: Lens.Lens' CreateQueryLoggingConfigResponse Lude.Text
+cqlcrsLocation = Lens.lens (location :: CreateQueryLoggingConfigResponse -> Lude.Text) (\s a -> s {location = a} :: CreateQueryLoggingConfigResponse)
+{-# DEPRECATED cqlcrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | A complex type that contains the ID for a query logging configuration, the ID of the hosted zone that you want to log queries for, and the ARN for the log group that you want Amazon Route 53 to send query logs to.
 --
@@ -254,9 +247,9 @@ cqlcrsQueryLoggingConfig :: Lens.Lens' CreateQueryLoggingConfigResponse QueryLog
 cqlcrsQueryLoggingConfig = Lens.lens (queryLoggingConfig :: CreateQueryLoggingConfigResponse -> QueryLoggingConfig) (\s a -> s {queryLoggingConfig = a} :: CreateQueryLoggingConfigResponse)
 {-# DEPRECATED cqlcrsQueryLoggingConfig "Use generic-lens or generic-optics with 'queryLoggingConfig' instead." #-}
 
--- | The unique URL representing the new query logging configuration.
+-- | The response status code.
 --
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cqlcrsLocation :: Lens.Lens' CreateQueryLoggingConfigResponse Lude.Text
-cqlcrsLocation = Lens.lens (location :: CreateQueryLoggingConfigResponse -> Lude.Text) (\s a -> s {location = a} :: CreateQueryLoggingConfigResponse)
-{-# DEPRECATED cqlcrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cqlcrsResponseStatus :: Lens.Lens' CreateQueryLoggingConfigResponse Lude.Int
+cqlcrsResponseStatus = Lens.lens (responseStatus :: CreateQueryLoggingConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateQueryLoggingConfigResponse)
+{-# DEPRECATED cqlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

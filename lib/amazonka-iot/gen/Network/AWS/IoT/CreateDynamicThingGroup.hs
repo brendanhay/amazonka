@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,11 +21,11 @@ module Network.AWS.IoT.CreateDynamicThingGroup
 
     -- ** Request lenses
     cdtgQueryVersion,
+    cdtgThingGroupName,
+    cdtgQueryString,
     cdtgThingGroupProperties,
     cdtgIndexName,
     cdtgTags,
-    cdtgThingGroupName,
-    cdtgQueryString,
 
     -- * Destructuring the response
     CreateDynamicThingGroupResponse (..),
@@ -49,34 +50,34 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDynamicThingGroup' smart constructor.
 data CreateDynamicThingGroup = CreateDynamicThingGroup'
-  { queryVersion ::
-      Lude.Maybe Lude.Text,
-    thingGroupProperties ::
-      Lude.Maybe ThingGroupProperties,
-    indexName :: Lude.Maybe Lude.Text,
-    tags :: Lude.Maybe [Tag],
+  { -- | The dynamic thing group query version.
+    queryVersion :: Lude.Maybe Lude.Text,
+    -- | The dynamic thing group name to create.
     thingGroupName :: Lude.Text,
-    queryString :: Lude.Text
+    -- | The dynamic thing group search query string.
+    --
+    -- See <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query Syntax> for information about query string syntax.
+    queryString :: Lude.Text,
+    -- | The dynamic thing group properties.
+    thingGroupProperties :: Lude.Maybe ThingGroupProperties,
+    -- | The dynamic thing group index name.
+    indexName :: Lude.Maybe Lude.Text,
+    -- | Metadata which can be used to manage the dynamic thing group.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDynamicThingGroup' with the minimum fields required to make a request.
 --
--- * 'indexName' - The dynamic thing group index name.
+-- * 'queryVersion' - The dynamic thing group query version.
+-- * 'thingGroupName' - The dynamic thing group name to create.
 -- * 'queryString' - The dynamic thing group search query string.
 --
 -- See <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query Syntax> for information about query string syntax.
--- * 'queryVersion' - The dynamic thing group query version.
--- * 'tags' - Metadata which can be used to manage the dynamic thing group.
--- * 'thingGroupName' - The dynamic thing group name to create.
 -- * 'thingGroupProperties' - The dynamic thing group properties.
+-- * 'indexName' - The dynamic thing group index name.
+-- * 'tags' - Metadata which can be used to manage the dynamic thing group.
 mkCreateDynamicThingGroup ::
   -- | 'thingGroupName'
   Lude.Text ->
@@ -86,11 +87,11 @@ mkCreateDynamicThingGroup ::
 mkCreateDynamicThingGroup pThingGroupName_ pQueryString_ =
   CreateDynamicThingGroup'
     { queryVersion = Lude.Nothing,
+      thingGroupName = pThingGroupName_,
+      queryString = pQueryString_,
       thingGroupProperties = Lude.Nothing,
       indexName = Lude.Nothing,
-      tags = Lude.Nothing,
-      thingGroupName = pThingGroupName_,
-      queryString = pQueryString_
+      tags = Lude.Nothing
     }
 
 -- | The dynamic thing group query version.
@@ -99,6 +100,22 @@ mkCreateDynamicThingGroup pThingGroupName_ pQueryString_ =
 cdtgQueryVersion :: Lens.Lens' CreateDynamicThingGroup (Lude.Maybe Lude.Text)
 cdtgQueryVersion = Lens.lens (queryVersion :: CreateDynamicThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {queryVersion = a} :: CreateDynamicThingGroup)
 {-# DEPRECATED cdtgQueryVersion "Use generic-lens or generic-optics with 'queryVersion' instead." #-}
+
+-- | The dynamic thing group name to create.
+--
+-- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgThingGroupName :: Lens.Lens' CreateDynamicThingGroup Lude.Text
+cdtgThingGroupName = Lens.lens (thingGroupName :: CreateDynamicThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: CreateDynamicThingGroup)
+{-# DEPRECATED cdtgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
+
+-- | The dynamic thing group search query string.
+--
+-- See <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query Syntax> for information about query string syntax.
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdtgQueryString :: Lens.Lens' CreateDynamicThingGroup Lude.Text
+cdtgQueryString = Lens.lens (queryString :: CreateDynamicThingGroup -> Lude.Text) (\s a -> s {queryString = a} :: CreateDynamicThingGroup)
+{-# DEPRECATED cdtgQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
 -- | The dynamic thing group properties.
 --
@@ -120,22 +137,6 @@ cdtgIndexName = Lens.lens (indexName :: CreateDynamicThingGroup -> Lude.Maybe Lu
 cdtgTags :: Lens.Lens' CreateDynamicThingGroup (Lude.Maybe [Tag])
 cdtgTags = Lens.lens (tags :: CreateDynamicThingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDynamicThingGroup)
 {-# DEPRECATED cdtgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The dynamic thing group name to create.
---
--- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgThingGroupName :: Lens.Lens' CreateDynamicThingGroup Lude.Text
-cdtgThingGroupName = Lens.lens (thingGroupName :: CreateDynamicThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: CreateDynamicThingGroup)
-{-# DEPRECATED cdtgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
-
--- | The dynamic thing group search query string.
---
--- See <https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html Query Syntax> for information about query string syntax.
---
--- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdtgQueryString :: Lens.Lens' CreateDynamicThingGroup Lude.Text
-cdtgQueryString = Lens.lens (queryString :: CreateDynamicThingGroup -> Lude.Text) (\s a -> s {queryString = a} :: CreateDynamicThingGroup)
-{-# DEPRECATED cdtgQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
 instance Lude.AWSRequest CreateDynamicThingGroup where
   type Rs CreateDynamicThingGroup = CreateDynamicThingGroupResponse
@@ -161,10 +162,10 @@ instance Lude.ToJSON CreateDynamicThingGroup where
     Lude.object
       ( Lude.catMaybes
           [ ("queryVersion" Lude..=) Lude.<$> queryVersion,
+            Lude.Just ("queryString" Lude..= queryString),
             ("thingGroupProperties" Lude..=) Lude.<$> thingGroupProperties,
             ("indexName" Lude..=) Lude.<$> indexName,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("queryString" Lude..= queryString)
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -177,38 +178,33 @@ instance Lude.ToQuery CreateDynamicThingGroup where
 
 -- | /See:/ 'mkCreateDynamicThingGroupResponse' smart constructor.
 data CreateDynamicThingGroupResponse = CreateDynamicThingGroupResponse'
-  { queryVersion ::
-      Lude.Maybe Lude.Text,
-    thingGroupARN ::
-      Lude.Maybe Lude.Text,
-    thingGroupId ::
-      Lude.Maybe Lude.Text,
-    thingGroupName ::
-      Lude.Maybe Lude.Text,
-    queryString ::
-      Lude.Maybe Lude.Text,
-    indexName ::
-      Lude.Maybe Lude.Text,
+  { -- | The dynamic thing group query version.
+    queryVersion :: Lude.Maybe Lude.Text,
+    -- | The dynamic thing group ARN.
+    thingGroupARN :: Lude.Maybe Lude.Text,
+    -- | The dynamic thing group ID.
+    thingGroupId :: Lude.Maybe Lude.Text,
+    -- | The dynamic thing group name.
+    thingGroupName :: Lude.Maybe Lude.Text,
+    -- | The dynamic thing group search query string.
+    queryString :: Lude.Maybe Lude.Text,
+    -- | The dynamic thing group index name.
+    indexName :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDynamicThingGroupResponse' with the minimum fields required to make a request.
 --
--- * 'indexName' - The dynamic thing group index name.
--- * 'queryString' - The dynamic thing group search query string.
 -- * 'queryVersion' - The dynamic thing group query version.
--- * 'responseStatus' - The response status code.
 -- * 'thingGroupARN' - The dynamic thing group ARN.
 -- * 'thingGroupId' - The dynamic thing group ID.
 -- * 'thingGroupName' - The dynamic thing group name.
+-- * 'queryString' - The dynamic thing group search query string.
+-- * 'indexName' - The dynamic thing group index name.
+-- * 'responseStatus' - The response status code.
 mkCreateDynamicThingGroupResponse ::
   -- | 'responseStatus'
   Lude.Int ->

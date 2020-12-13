@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.LoadBalancerTLSCertificateDomainStatus
   ( LoadBalancerTLSCertificateDomainStatus
       ( LoadBalancerTLSCertificateDomainStatus',
-        LBTCDSFailed,
         LBTCDSPendingValidation,
+        LBTCDSFailed,
         LBTCDSSuccess
       ),
   )
@@ -46,18 +46,18 @@ newtype LoadBalancerTLSCertificateDomainStatus = LoadBalancerTLSCertificateDomai
       Lude.ToHeader
     )
 
-pattern LBTCDSFailed :: LoadBalancerTLSCertificateDomainStatus
-pattern LBTCDSFailed = LoadBalancerTLSCertificateDomainStatus' "FAILED"
-
 pattern LBTCDSPendingValidation :: LoadBalancerTLSCertificateDomainStatus
 pattern LBTCDSPendingValidation = LoadBalancerTLSCertificateDomainStatus' "PENDING_VALIDATION"
+
+pattern LBTCDSFailed :: LoadBalancerTLSCertificateDomainStatus
+pattern LBTCDSFailed = LoadBalancerTLSCertificateDomainStatus' "FAILED"
 
 pattern LBTCDSSuccess :: LoadBalancerTLSCertificateDomainStatus
 pattern LBTCDSSuccess = LoadBalancerTLSCertificateDomainStatus' "SUCCESS"
 
 {-# COMPLETE
-  LBTCDSFailed,
   LBTCDSPendingValidation,
+  LBTCDSFailed,
   LBTCDSSuccess,
   LoadBalancerTLSCertificateDomainStatus'
   #-}

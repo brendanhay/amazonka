@@ -33,30 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPortfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN assigned to the portfolio.
+    arn :: Lude.Maybe Lude.Text,
+    -- | The UTC time stamp of the creation time.
     createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The portfolio identifier.
     id :: Lude.Maybe Lude.Text,
+    -- | The name to use for display purposes.
     displayName :: Lude.Maybe Lude.Text,
+    -- | The description of the portfolio.
     description :: Lude.Maybe Lude.Text,
+    -- | The name of the portfolio provider.
     providerName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PortfolioDetail' with the minimum fields required to make a request.
 --
 -- * 'arn' - The ARN assigned to the portfolio.
 -- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'description' - The description of the portfolio.
--- * 'displayName' - The name to use for display purposes.
 -- * 'id' - The portfolio identifier.
+-- * 'displayName' - The name to use for display purposes.
+-- * 'description' - The description of the portfolio.
 -- * 'providerName' - The name of the portfolio provider.
 mkPortfolioDetail ::
   PortfolioDetail

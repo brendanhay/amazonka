@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,19 +44,15 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetRelationalDatabaseMasterUserPassword' smart constructor.
 data GetRelationalDatabaseMasterUserPassword = GetRelationalDatabaseMasterUserPassword'
-  { passwordVersion ::
-      Lude.Maybe
-        RelationalDatabasePasswordVersion,
-    relationalDatabaseName ::
-      Lude.Text
+  { -- | The password version to return.
+    --
+    -- Specifying @CURRENT@ or @PREVIOUS@ returns the current or previous passwords respectively. Specifying @PENDING@ returns the newest version of the password that will rotate to @CURRENT@ . After the @PENDING@ password rotates to @CURRENT@ , the @PENDING@ password is no longer available.
+    -- Default: @CURRENT@
+    passwordVersion :: Lude.Maybe RelationalDatabasePasswordVersion,
+    -- | The name of your database for which to get the master user password.
+    relationalDatabaseName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseMasterUserPassword' with the minimum fields required to make a request.
@@ -138,32 +135,20 @@ instance Lude.ToQuery GetRelationalDatabaseMasterUserPassword where
 
 -- | /See:/ 'mkGetRelationalDatabaseMasterUserPasswordResponse' smart constructor.
 data GetRelationalDatabaseMasterUserPasswordResponse = GetRelationalDatabaseMasterUserPasswordResponse'
-  { masterUserPassword ::
-      Lude.Maybe
-        ( Lude.Sensitive
-            Lude.Text
-        ),
-    createdAt ::
-      Lude.Maybe
-        Lude.Timestamp,
-    responseStatus ::
-      Lude.Int
+  { -- | The master user password for the @password version@ specified.
+    masterUserPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | The timestamp when the specified version of the master user password was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetRelationalDatabaseMasterUserPasswordResponse' with the minimum fields required to make a request.
 --
--- * 'createdAt' - The timestamp when the specified version of the master user password was created.
 -- * 'masterUserPassword' - The master user password for the @password version@ specified.
+-- * 'createdAt' - The timestamp when the specified version of the master user password was created.
 -- * 'responseStatus' - The response status code.
 mkGetRelationalDatabaseMasterUserPasswordResponse ::
   -- | 'responseStatus'

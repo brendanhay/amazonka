@@ -17,12 +17,12 @@ module Network.AWS.EC2.Types.VolumeAttachment
     mkVolumeAttachment,
 
     -- * Lenses
-    volInstanceId,
-    volDeleteOnTermination,
-    volState,
-    volDevice,
-    volVolumeId,
-    volAttachTime,
+    vafInstanceId,
+    vafDeleteOnTermination,
+    vafState,
+    vafDevice,
+    vafVolumeId,
+    vafAttachTime,
   )
 where
 
@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVolumeAttachment' smart constructor.
 data VolumeAttachment = VolumeAttachment'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the EBS volume is deleted on instance termination.
     deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The attachment state of the volume.
     state :: Lude.Maybe VolumeAttachmentState,
+    -- | The device name.
     device :: Lude.Maybe Lude.Text,
+    -- | The ID of the volume.
     volumeId :: Lude.Maybe Lude.Text,
+    -- | The time stamp when the attachment initiated.
     attachTime :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'VolumeAttachment' with the minimum fields required to make a request.
 --
--- * 'attachTime' - The time stamp when the attachment initiated.
--- * 'deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination.
--- * 'device' - The device name.
 -- * 'instanceId' - The ID of the instance.
+-- * 'deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination.
 -- * 'state' - The attachment state of the volume.
+-- * 'device' - The device name.
 -- * 'volumeId' - The ID of the volume.
+-- * 'attachTime' - The time stamp when the attachment initiated.
 mkVolumeAttachment ::
   VolumeAttachment
 mkVolumeAttachment =
@@ -74,44 +73,44 @@ mkVolumeAttachment =
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-volInstanceId :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Text)
-volInstanceId = Lens.lens (instanceId :: VolumeAttachment -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: VolumeAttachment)
-{-# DEPRECATED volInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+vafInstanceId :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Text)
+vafInstanceId = Lens.lens (instanceId :: VolumeAttachment -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: VolumeAttachment)
+{-# DEPRECATED vafInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Indicates whether the EBS volume is deleted on instance termination.
 --
 -- /Note:/ Consider using 'deleteOnTermination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-volDeleteOnTermination :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Bool)
-volDeleteOnTermination = Lens.lens (deleteOnTermination :: VolumeAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: VolumeAttachment)
-{-# DEPRECATED volDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
+vafDeleteOnTermination :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Bool)
+vafDeleteOnTermination = Lens.lens (deleteOnTermination :: VolumeAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {deleteOnTermination = a} :: VolumeAttachment)
+{-# DEPRECATED vafDeleteOnTermination "Use generic-lens or generic-optics with 'deleteOnTermination' instead." #-}
 
 -- | The attachment state of the volume.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-volState :: Lens.Lens' VolumeAttachment (Lude.Maybe VolumeAttachmentState)
-volState = Lens.lens (state :: VolumeAttachment -> Lude.Maybe VolumeAttachmentState) (\s a -> s {state = a} :: VolumeAttachment)
-{-# DEPRECATED volState "Use generic-lens or generic-optics with 'state' instead." #-}
+vafState :: Lens.Lens' VolumeAttachment (Lude.Maybe VolumeAttachmentState)
+vafState = Lens.lens (state :: VolumeAttachment -> Lude.Maybe VolumeAttachmentState) (\s a -> s {state = a} :: VolumeAttachment)
+{-# DEPRECATED vafState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The device name.
 --
 -- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-volDevice :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Text)
-volDevice = Lens.lens (device :: VolumeAttachment -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: VolumeAttachment)
-{-# DEPRECATED volDevice "Use generic-lens or generic-optics with 'device' instead." #-}
+vafDevice :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Text)
+vafDevice = Lens.lens (device :: VolumeAttachment -> Lude.Maybe Lude.Text) (\s a -> s {device = a} :: VolumeAttachment)
+{-# DEPRECATED vafDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | The ID of the volume.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-volVolumeId :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Text)
-volVolumeId = Lens.lens (volumeId :: VolumeAttachment -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: VolumeAttachment)
-{-# DEPRECATED volVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+vafVolumeId :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.Text)
+vafVolumeId = Lens.lens (volumeId :: VolumeAttachment -> Lude.Maybe Lude.Text) (\s a -> s {volumeId = a} :: VolumeAttachment)
+{-# DEPRECATED vafVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | The time stamp when the attachment initiated.
 --
 -- /Note:/ Consider using 'attachTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-volAttachTime :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.DateTime)
-volAttachTime = Lens.lens (attachTime :: VolumeAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {attachTime = a} :: VolumeAttachment)
-{-# DEPRECATED volAttachTime "Use generic-lens or generic-optics with 'attachTime' instead." #-}
+vafAttachTime :: Lens.Lens' VolumeAttachment (Lude.Maybe Lude.DateTime)
+vafAttachTime = Lens.lens (attachTime :: VolumeAttachment -> Lude.Maybe Lude.DateTime) (\s a -> s {attachTime = a} :: VolumeAttachment)
+{-# DEPRECATED vafAttachTime "Use generic-lens or generic-optics with 'attachTime' instead." #-}
 
 instance Lude.FromXML VolumeAttachment where
   parseXML x =

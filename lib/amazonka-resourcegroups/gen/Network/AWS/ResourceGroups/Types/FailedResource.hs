@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFailedResource' smart constructor.
 data FailedResource = FailedResource'
-  { resourceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The ARN of the resource that failed to be added or removed.
+    resourceARN :: Lude.Maybe Lude.Text,
+    -- | The error code associated with the failure.
     errorCode :: Lude.Maybe Lude.Text,
+    -- | The error message text associated with the failure.
     errorMessage :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FailedResource' with the minimum fields required to make a request.
 --
+-- * 'resourceARN' - The ARN of the resource that failed to be added or removed.
 -- * 'errorCode' - The error code associated with the failure.
 -- * 'errorMessage' - The error message text associated with the failure.
--- * 'resourceARN' - The ARN of the resource that failed to be added or removed.
 mkFailedResource ::
   FailedResource
 mkFailedResource =

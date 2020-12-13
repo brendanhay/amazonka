@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.Glue.DeleteSchemaVersions
     mkDeleteSchemaVersions,
 
     -- ** Request lenses
-    dsvSchemaId,
     dsvVersions,
+    dsvSchemaId,
 
     -- * Destructuring the response
     DeleteSchemaVersionsResponse (..),
@@ -44,22 +45,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSchemaVersions' smart constructor.
 data DeleteSchemaVersions = DeleteSchemaVersions'
-  { schemaId ::
-      SchemaId,
-    versions :: Lude.Text
+  { -- | A version range may be supplied which may be of the format:
+    --
+    --
+    --     * a single version number, 5
+    --
+    --
+    --     * a range, 5-8 : deletes versions 5, 6, 7, 8
+    versions :: Lude.Text,
+    -- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+    schemaId :: SchemaId
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchemaVersions' with the minimum fields required to make a request.
 --
--- * 'schemaId' - This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
 -- * 'versions' - A version range may be supplied which may be of the format:
 --
 --
@@ -67,24 +68,20 @@ data DeleteSchemaVersions = DeleteSchemaVersions'
 --
 --
 --     * a range, 5-8 : deletes versions 5, 6, 7, 8
+--
+--
+-- * 'schemaId' - This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
 mkDeleteSchemaVersions ::
-  -- | 'schemaId'
-  SchemaId ->
   -- | 'versions'
   Lude.Text ->
+  -- | 'schemaId'
+  SchemaId ->
   DeleteSchemaVersions
-mkDeleteSchemaVersions pSchemaId_ pVersions_ =
+mkDeleteSchemaVersions pVersions_ pSchemaId_ =
   DeleteSchemaVersions'
-    { schemaId = pSchemaId_,
-      versions = pVersions_
+    { versions = pVersions_,
+      schemaId = pSchemaId_
     }
-
--- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsvSchemaId :: Lens.Lens' DeleteSchemaVersions SchemaId
-dsvSchemaId = Lens.lens (schemaId :: DeleteSchemaVersions -> SchemaId) (\s a -> s {schemaId = a} :: DeleteSchemaVersions)
-{-# DEPRECATED dsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 -- | A version range may be supplied which may be of the format:
 --
@@ -100,6 +97,13 @@ dsvSchemaId = Lens.lens (schemaId :: DeleteSchemaVersions -> SchemaId) (\s a -> 
 dsvVersions :: Lens.Lens' DeleteSchemaVersions Lude.Text
 dsvVersions = Lens.lens (versions :: DeleteSchemaVersions -> Lude.Text) (\s a -> s {versions = a} :: DeleteSchemaVersions)
 {-# DEPRECATED dsvVersions "Use generic-lens or generic-optics with 'versions' instead." #-}
+
+-- | This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'schemaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsvSchemaId :: Lens.Lens' DeleteSchemaVersions SchemaId
+dsvSchemaId = Lens.lens (schemaId :: DeleteSchemaVersions -> SchemaId) (\s a -> s {schemaId = a} :: DeleteSchemaVersions)
+{-# DEPRECATED dsvSchemaId "Use generic-lens or generic-optics with 'schemaId' instead." #-}
 
 instance Lude.AWSRequest DeleteSchemaVersions where
   type Rs DeleteSchemaVersions = DeleteSchemaVersionsResponse
@@ -127,8 +131,8 @@ instance Lude.ToJSON DeleteSchemaVersions where
   toJSON DeleteSchemaVersions' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("SchemaId" Lude..= schemaId),
-            Lude.Just ("Versions" Lude..= versions)
+          [ Lude.Just ("Versions" Lude..= versions),
+            Lude.Just ("SchemaId" Lude..= schemaId)
           ]
       )
 
@@ -140,24 +144,18 @@ instance Lude.ToQuery DeleteSchemaVersions where
 
 -- | /See:/ 'mkDeleteSchemaVersionsResponse' smart constructor.
 data DeleteSchemaVersionsResponse = DeleteSchemaVersionsResponse'
-  { schemaVersionErrors ::
-      Lude.Maybe
-        [SchemaVersionErrorItem],
+  { -- | A list of @SchemaVersionErrorItem@ objects, each containing an error and schema version.
+    schemaVersionErrors :: Lude.Maybe [SchemaVersionErrorItem],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSchemaVersionsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'schemaVersionErrors' - A list of @SchemaVersionErrorItem@ objects, each containing an error and schema version.
+-- * 'responseStatus' - The response status code.
 mkDeleteSchemaVersionsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

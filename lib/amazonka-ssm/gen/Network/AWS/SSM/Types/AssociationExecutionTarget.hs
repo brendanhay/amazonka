@@ -37,41 +37,39 @@ import Network.AWS.SSM.Types.OutputSource
 --
 -- /See:/ 'mkAssociationExecutionTarget' smart constructor.
 data AssociationExecutionTarget = AssociationExecutionTarget'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    detailedStatus ::
-      Lude.Maybe Lude.Text,
+  { -- | The association ID.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | Detailed information about the execution status.
+    detailedStatus :: Lude.Maybe Lude.Text,
+    -- | The association execution status.
     status :: Lude.Maybe Lude.Text,
+    -- | The execution ID.
     executionId :: Lude.Maybe Lude.Text,
+    -- | The resource ID, for example, the instance ID where the association ran.
     resourceId :: Lude.Maybe Lude.Text,
+    -- | The resource type, for example, instance.
     resourceType :: Lude.Maybe Lude.Text,
-    outputSource ::
-      Lude.Maybe OutputSource,
-    lastExecutionDate ::
-      Lude.Maybe Lude.Timestamp,
-    associationVersion ::
-      Lude.Maybe Lude.Text
+    -- | The location where the association details are saved.
+    outputSource :: Lude.Maybe OutputSource,
+    -- | The date of the last execution.
+    lastExecutionDate :: Lude.Maybe Lude.Timestamp,
+    -- | The association version.
+    associationVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociationExecutionTarget' with the minimum fields required to make a request.
 --
 -- * 'associationId' - The association ID.
--- * 'associationVersion' - The association version.
 -- * 'detailedStatus' - Detailed information about the execution status.
+-- * 'status' - The association execution status.
 -- * 'executionId' - The execution ID.
--- * 'lastExecutionDate' - The date of the last execution.
--- * 'outputSource' - The location where the association details are saved.
 -- * 'resourceId' - The resource ID, for example, the instance ID where the association ran.
 -- * 'resourceType' - The resource type, for example, instance.
--- * 'status' - The association execution status.
+-- * 'outputSource' - The location where the association details are saved.
+-- * 'lastExecutionDate' - The date of the last execution.
+-- * 'associationVersion' - The association version.
 mkAssociationExecutionTarget ::
   AssociationExecutionTarget
 mkAssociationExecutionTarget =

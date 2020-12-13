@@ -38,35 +38,46 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaDescription' smart constructor.
 data ReplicaDescription = ReplicaDescription'
-  { replicaStatus ::
-      Lude.Maybe ReplicaStatus,
+  { -- | The current state of the replica:
+    --
+    --
+    --     * @CREATING@ - The replica is being created.
+    --
+    --
+    --     * @UPDATING@ - The replica is being updated.
+    --
+    --
+    --     * @DELETING@ - The replica is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The replica is ready for use.
+    --
+    --
+    --     * @REGION_DISABLED@ - The replica is inaccessible because the AWS Region has been disabled.
+    --
+    --
+    --     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to encrypt the table is inaccessible.
+    replicaStatus :: Lude.Maybe ReplicaStatus,
+    -- | The name of the Region.
     regionName :: Lude.Maybe Lude.Text,
+    -- | Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.
     replicaStatusPercentProgress :: Lude.Maybe Lude.Text,
+    -- | Detailed information about the replica status.
     replicaStatusDescription :: Lude.Maybe Lude.Text,
-    replicaInaccessibleDateTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the @ReplicaStatus@ property.
+    replicaInaccessibleDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.
     kmsMasterKeyId :: Lude.Maybe Lude.Text,
-    provisionedThroughputOverride ::
-      Lude.Maybe ProvisionedThroughputOverride,
-    globalSecondaryIndexes ::
-      Lude.Maybe [ReplicaGlobalSecondaryIndexDescription]
+    -- | Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.
+    provisionedThroughputOverride :: Lude.Maybe ProvisionedThroughputOverride,
+    -- | Replica-specific global secondary index settings.
+    globalSecondaryIndexes :: Lude.Maybe [ReplicaGlobalSecondaryIndexDescription]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaDescription' with the minimum fields required to make a request.
 --
--- * 'globalSecondaryIndexes' - Replica-specific global secondary index settings.
--- * 'kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.
--- * 'provisionedThroughputOverride' - Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.
--- * 'regionName' - The name of the Region.
--- * 'replicaInaccessibleDateTime' - The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the @ReplicaStatus@ property.
 -- * 'replicaStatus' - The current state of the replica:
 --
 --
@@ -88,8 +99,13 @@ data ReplicaDescription = ReplicaDescription'
 --     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS @ - The AWS KMS key used to encrypt the table is inaccessible.
 --
 --
--- * 'replicaStatusDescription' - Detailed information about the replica status.
+-- * 'regionName' - The name of the Region.
 -- * 'replicaStatusPercentProgress' - Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.
+-- * 'replicaStatusDescription' - Detailed information about the replica status.
+-- * 'replicaInaccessibleDateTime' - The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the @ReplicaStatus@ property.
+-- * 'kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.
+-- * 'provisionedThroughputOverride' - Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.
+-- * 'globalSecondaryIndexes' - Replica-specific global secondary index settings.
 mkReplicaDescription ::
   ReplicaDescription
 mkReplicaDescription =

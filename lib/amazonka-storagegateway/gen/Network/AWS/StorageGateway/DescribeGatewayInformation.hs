@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -58,21 +59,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDescribeGatewayInformation' smart constructor.
 newtype DescribeGatewayInformation = DescribeGatewayInformation'
-  { gatewayARN ::
-      Lude.Text
+  { gatewayARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGatewayInformation' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 mkDescribeGatewayInformation ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -145,79 +139,72 @@ instance Lude.ToQuery DescribeGatewayInformation where
 --
 -- /See:/ 'mkDescribeGatewayInformationResponse' smart constructor.
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
-  { gatewayState ::
-      Lude.Maybe Lude.Text,
-    ec2InstanceRegion ::
-      Lude.Maybe Lude.Text,
-    gatewayARN ::
-      Lude.Maybe Lude.Text,
-    gatewayNetworkInterfaces ::
-      Lude.Maybe
-        [NetworkInterface],
-    ec2InstanceId ::
-      Lude.Maybe Lude.Text,
-    nextUpdateAvailabilityDate ::
-      Lude.Maybe Lude.Text,
-    endpointType ::
-      Lude.Maybe Lude.Text,
-    deprecationDate ::
-      Lude.Maybe Lude.Text,
-    lastSoftwareUpdate ::
-      Lude.Maybe Lude.Text,
-    gatewayName ::
-      Lude.Maybe Lude.Text,
-    gatewayId ::
-      Lude.Maybe Lude.Text,
-    hostEnvironment ::
-      Lude.Maybe
-        HostEnvironment,
-    gatewayType ::
-      Lude.Maybe Lude.Text,
-    gatewayTimezone ::
-      Lude.Maybe Lude.Text,
-    softwareUpdatesEndDate ::
-      Lude.Maybe Lude.Text,
-    cloudWatchLogGroupARN ::
-      Lude.Maybe Lude.Text,
-    vpcEndpoint ::
-      Lude.Maybe Lude.Text,
-    tags ::
-      Lude.Maybe [Tag],
-    responseStatus ::
-      Lude.Int
+  { -- | A value that indicates the operating state of the gateway.
+    gatewayState :: Lude.Maybe Lude.Text,
+    -- | The AWS Region where the Amazon EC2 instance is located.
+    ec2InstanceRegion :: Lude.Maybe Lude.Text,
+    gatewayARN :: Lude.Maybe Lude.Text,
+    -- | A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
+    gatewayNetworkInterfaces :: Lude.Maybe [NetworkInterface],
+    -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
+    ec2InstanceId :: Lude.Maybe Lude.Text,
+    -- | The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
+    nextUpdateAvailabilityDate :: Lude.Maybe Lude.Text,
+    -- | The type of endpoint for your gateway.
+    --
+    -- Valid Values: @STANDARD@ | @FIPS@
+    endpointType :: Lude.Maybe Lude.Text,
+    -- | Date after which this gateway will not receive software updates for new features and bug fixes.
+    deprecationDate :: Lude.Maybe Lude.Text,
+    -- | The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
+    lastSoftwareUpdate :: Lude.Maybe Lude.Text,
+    -- | The name you configured for your gateway.
+    gatewayName :: Lude.Maybe Lude.Text,
+    -- | The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
+    gatewayId :: Lude.Maybe Lude.Text,
+    -- | The type of hypervisor environment used by the host.
+    hostEnvironment :: Lude.Maybe HostEnvironment,
+    -- | The type of the gateway.
+    gatewayType :: Lude.Maybe Lude.Text,
+    -- | A value that indicates the time zone configured for the gateway.
+    gatewayTimezone :: Lude.Maybe Lude.Text,
+    -- | Date after which this gateway will not receive software updates for new features.
+    softwareUpdatesEndDate :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor events in the gateway.
+    cloudWatchLogGroupARN :: Lude.Maybe Lude.Text,
+    -- | The configuration settings for the virtual private cloud (VPC) endpoint for your gateway.
+    vpcEndpoint :: Lude.Maybe Lude.Text,
+    -- | A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
+    tags :: Lude.Maybe [Tag],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeGatewayInformationResponse' with the minimum fields required to make a request.
 --
--- * 'cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor events in the gateway.
--- * 'deprecationDate' - Date after which this gateway will not receive software updates for new features and bug fixes.
--- * 'ec2InstanceId' - The ID of the Amazon EC2 instance that was used to launch the gateway.
+-- * 'gatewayState' - A value that indicates the operating state of the gateway.
 -- * 'ec2InstanceRegion' - The AWS Region where the Amazon EC2 instance is located.
+-- * 'gatewayARN' -
+-- * 'gatewayNetworkInterfaces' - A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
+-- * 'ec2InstanceId' - The ID of the Amazon EC2 instance that was used to launch the gateway.
+-- * 'nextUpdateAvailabilityDate' - The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
 -- * 'endpointType' - The type of endpoint for your gateway.
 --
 -- Valid Values: @STANDARD@ | @FIPS@
--- * 'gatewayARN' - Undocumented field.
--- * 'gatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
--- * 'gatewayName' - The name you configured for your gateway.
--- * 'gatewayNetworkInterfaces' - A 'NetworkInterface' array that contains descriptions of the gateway network interfaces.
--- * 'gatewayState' - A value that indicates the operating state of the gateway.
--- * 'gatewayTimezone' - A value that indicates the time zone configured for the gateway.
--- * 'gatewayType' - The type of the gateway.
--- * 'hostEnvironment' - The type of hypervisor environment used by the host.
+-- * 'deprecationDate' - Date after which this gateway will not receive software updates for new features and bug fixes.
 -- * 'lastSoftwareUpdate' - The date on which the last software update was applied to the gateway. If the gateway has never been updated, this field does not return a value in the response.
--- * 'nextUpdateAvailabilityDate' - The date on which an update to the gateway is available. This date is in the time zone of the gateway. If the gateway is not available for an update this field is not returned in the response.
--- * 'responseStatus' - The response status code.
+-- * 'gatewayName' - The name you configured for your gateway.
+-- * 'gatewayId' - The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.
+-- * 'hostEnvironment' - The type of hypervisor environment used by the host.
+-- * 'gatewayType' - The type of the gateway.
+-- * 'gatewayTimezone' - A value that indicates the time zone configured for the gateway.
 -- * 'softwareUpdatesEndDate' - Date after which this gateway will not receive software updates for new features.
--- * 'tags' - A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
+-- * 'cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to monitor events in the gateway.
 -- * 'vpcEndpoint' - The configuration settings for the virtual private cloud (VPC) endpoint for your gateway.
+-- * 'tags' - A list of up to 50 tags assigned to the gateway, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the @ListTagsForResource@ API operation.
+-- * 'responseStatus' - The response status code.
 mkDescribeGatewayInformationResponse ::
   -- | 'responseStatus'
   Lude.Int ->

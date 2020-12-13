@@ -19,17 +19,17 @@ module Network.AWS.Pinpoint.Types.ImportJobResponse
     -- * Lenses
     ijCompletedPieces,
     ijFailedPieces,
+    ijDefinition,
     ijTotalProcessed,
     ijFailures,
     ijTotalPieces,
-    ijCompletionDate,
-    ijTotalFailures,
-    ijJobStatus,
+    ijApplicationId,
+    ijId,
     ijCreationDate,
     ijType,
-    ijDefinition,
-    ijId,
-    ijApplicationId,
+    ijCompletionDate,
+    ijJobStatus,
+    ijTotalFailures,
   )
 where
 
@@ -42,80 +42,86 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkImportJobResponse' smart constructor.
 data ImportJobResponse = ImportJobResponse'
-  { completedPieces ::
-      Lude.Maybe Lude.Int,
+  { -- | The number of pieces that were processed successfully (completed) by the import job, as of the time of the request.
+    completedPieces :: Lude.Maybe Lude.Int,
+    -- | The number of pieces that weren't processed successfully (failed) by the import job, as of the time of the request.
     failedPieces :: Lude.Maybe Lude.Int,
-    totalProcessed :: Lude.Maybe Lude.Int,
-    failures :: Lude.Maybe [Lude.Text],
-    totalPieces :: Lude.Maybe Lude.Int,
-    completionDate :: Lude.Maybe Lude.Text,
-    totalFailures :: Lude.Maybe Lude.Int,
-    jobStatus :: JobStatus,
-    creationDate :: Lude.Text,
-    type' :: Lude.Text,
+    -- | The resource settings that apply to the import job.
     definition :: ImportJobResource,
+    -- | The total number of endpoint definitions that were processed by the import job.
+    totalProcessed :: Lude.Maybe Lude.Int,
+    -- | An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the import job, if any.
+    failures :: Lude.Maybe [Lude.Text],
+    -- | The total number of pieces that must be processed to complete the import job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the import job.
+    totalPieces :: Lude.Maybe Lude.Int,
+    -- | The unique identifier for the application that's associated with the import job.
+    applicationId :: Lude.Text,
+    -- | The unique identifier for the import job.
     id :: Lude.Text,
-    applicationId :: Lude.Text
+    -- | The date, in ISO 8601 format, when the import job was created.
+    creationDate :: Lude.Text,
+    -- | The job type. This value is IMPORT for import jobs.
+    type' :: Lude.Text,
+    -- | The date, in ISO 8601 format, when the import job was completed.
+    completionDate :: Lude.Maybe Lude.Text,
+    -- | The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.
+    jobStatus :: JobStatus,
+    -- | The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.
+    totalFailures :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ImportJobResponse' with the minimum fields required to make a request.
 --
--- * 'applicationId' - The unique identifier for the application that's associated with the import job.
 -- * 'completedPieces' - The number of pieces that were processed successfully (completed) by the import job, as of the time of the request.
--- * 'completionDate' - The date, in ISO 8601 format, when the import job was completed.
--- * 'creationDate' - The date, in ISO 8601 format, when the import job was created.
--- * 'definition' - The resource settings that apply to the import job.
 -- * 'failedPieces' - The number of pieces that weren't processed successfully (failed) by the import job, as of the time of the request.
+-- * 'definition' - The resource settings that apply to the import job.
+-- * 'totalProcessed' - The total number of endpoint definitions that were processed by the import job.
 -- * 'failures' - An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the import job, if any.
+-- * 'totalPieces' - The total number of pieces that must be processed to complete the import job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the import job.
+-- * 'applicationId' - The unique identifier for the application that's associated with the import job.
 -- * 'id' - The unique identifier for the import job.
+-- * 'creationDate' - The date, in ISO 8601 format, when the import job was created.
+-- * 'type'' - The job type. This value is IMPORT for import jobs.
+-- * 'completionDate' - The date, in ISO 8601 format, when the import job was completed.
 -- * 'jobStatus' - The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.
 -- * 'totalFailures' - The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.
--- * 'totalPieces' - The total number of pieces that must be processed to complete the import job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the import job.
--- * 'totalProcessed' - The total number of endpoint definitions that were processed by the import job.
--- * 'type'' - The job type. This value is IMPORT for import jobs.
 mkImportJobResponse ::
-  -- | 'jobStatus'
-  JobStatus ->
+  -- | 'definition'
+  ImportJobResource ->
+  -- | 'applicationId'
+  Lude.Text ->
+  -- | 'id'
+  Lude.Text ->
   -- | 'creationDate'
   Lude.Text ->
   -- | 'type''
   Lude.Text ->
-  -- | 'definition'
-  ImportJobResource ->
-  -- | 'id'
-  Lude.Text ->
-  -- | 'applicationId'
-  Lude.Text ->
+  -- | 'jobStatus'
+  JobStatus ->
   ImportJobResponse
 mkImportJobResponse
-  pJobStatus_
+  pDefinition_
+  pApplicationId_
+  pId_
   pCreationDate_
   pType_
-  pDefinition_
-  pId_
-  pApplicationId_ =
+  pJobStatus_ =
     ImportJobResponse'
       { completedPieces = Lude.Nothing,
         failedPieces = Lude.Nothing,
+        definition = pDefinition_,
         totalProcessed = Lude.Nothing,
         failures = Lude.Nothing,
         totalPieces = Lude.Nothing,
-        completionDate = Lude.Nothing,
-        totalFailures = Lude.Nothing,
-        jobStatus = pJobStatus_,
+        applicationId = pApplicationId_,
+        id = pId_,
         creationDate = pCreationDate_,
         type' = pType_,
-        definition = pDefinition_,
-        id = pId_,
-        applicationId = pApplicationId_
+        completionDate = Lude.Nothing,
+        jobStatus = pJobStatus_,
+        totalFailures = Lude.Nothing
       }
 
 -- | The number of pieces that were processed successfully (completed) by the import job, as of the time of the request.
@@ -131,6 +137,13 @@ ijCompletedPieces = Lens.lens (completedPieces :: ImportJobResponse -> Lude.Mayb
 ijFailedPieces :: Lens.Lens' ImportJobResponse (Lude.Maybe Lude.Int)
 ijFailedPieces = Lens.lens (failedPieces :: ImportJobResponse -> Lude.Maybe Lude.Int) (\s a -> s {failedPieces = a} :: ImportJobResponse)
 {-# DEPRECATED ijFailedPieces "Use generic-lens or generic-optics with 'failedPieces' instead." #-}
+
+-- | The resource settings that apply to the import job.
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijDefinition :: Lens.Lens' ImportJobResponse ImportJobResource
+ijDefinition = Lens.lens (definition :: ImportJobResponse -> ImportJobResource) (\s a -> s {definition = a} :: ImportJobResponse)
+{-# DEPRECATED ijDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The total number of endpoint definitions that were processed by the import job.
 --
@@ -153,26 +166,19 @@ ijTotalPieces :: Lens.Lens' ImportJobResponse (Lude.Maybe Lude.Int)
 ijTotalPieces = Lens.lens (totalPieces :: ImportJobResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalPieces = a} :: ImportJobResponse)
 {-# DEPRECATED ijTotalPieces "Use generic-lens or generic-optics with 'totalPieces' instead." #-}
 
--- | The date, in ISO 8601 format, when the import job was completed.
+-- | The unique identifier for the application that's associated with the import job.
 --
--- /Note:/ Consider using 'completionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijCompletionDate :: Lens.Lens' ImportJobResponse (Lude.Maybe Lude.Text)
-ijCompletionDate = Lens.lens (completionDate :: ImportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {completionDate = a} :: ImportJobResponse)
-{-# DEPRECATED ijCompletionDate "Use generic-lens or generic-optics with 'completionDate' instead." #-}
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijApplicationId :: Lens.Lens' ImportJobResponse Lude.Text
+ijApplicationId = Lens.lens (applicationId :: ImportJobResponse -> Lude.Text) (\s a -> s {applicationId = a} :: ImportJobResponse)
+{-# DEPRECATED ijApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
--- | The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.
+-- | The unique identifier for the import job.
 --
--- /Note:/ Consider using 'totalFailures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijTotalFailures :: Lens.Lens' ImportJobResponse (Lude.Maybe Lude.Int)
-ijTotalFailures = Lens.lens (totalFailures :: ImportJobResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalFailures = a} :: ImportJobResponse)
-{-# DEPRECATED ijTotalFailures "Use generic-lens or generic-optics with 'totalFailures' instead." #-}
-
--- | The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.
---
--- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijJobStatus :: Lens.Lens' ImportJobResponse JobStatus
-ijJobStatus = Lens.lens (jobStatus :: ImportJobResponse -> JobStatus) (\s a -> s {jobStatus = a} :: ImportJobResponse)
-{-# DEPRECATED ijJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijId :: Lens.Lens' ImportJobResponse Lude.Text
+ijId = Lens.lens (id :: ImportJobResponse -> Lude.Text) (\s a -> s {id = a} :: ImportJobResponse)
+{-# DEPRECATED ijId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date, in ISO 8601 format, when the import job was created.
 --
@@ -188,26 +194,26 @@ ijType :: Lens.Lens' ImportJobResponse Lude.Text
 ijType = Lens.lens (type' :: ImportJobResponse -> Lude.Text) (\s a -> s {type' = a} :: ImportJobResponse)
 {-# DEPRECATED ijType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The resource settings that apply to the import job.
+-- | The date, in ISO 8601 format, when the import job was completed.
 --
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijDefinition :: Lens.Lens' ImportJobResponse ImportJobResource
-ijDefinition = Lens.lens (definition :: ImportJobResponse -> ImportJobResource) (\s a -> s {definition = a} :: ImportJobResponse)
-{-# DEPRECATED ijDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+-- /Note:/ Consider using 'completionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijCompletionDate :: Lens.Lens' ImportJobResponse (Lude.Maybe Lude.Text)
+ijCompletionDate = Lens.lens (completionDate :: ImportJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {completionDate = a} :: ImportJobResponse)
+{-# DEPRECATED ijCompletionDate "Use generic-lens or generic-optics with 'completionDate' instead." #-}
 
--- | The unique identifier for the import job.
+-- | The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.
 --
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijId :: Lens.Lens' ImportJobResponse Lude.Text
-ijId = Lens.lens (id :: ImportJobResponse -> Lude.Text) (\s a -> s {id = a} :: ImportJobResponse)
-{-# DEPRECATED ijId "Use generic-lens or generic-optics with 'id' instead." #-}
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijJobStatus :: Lens.Lens' ImportJobResponse JobStatus
+ijJobStatus = Lens.lens (jobStatus :: ImportJobResponse -> JobStatus) (\s a -> s {jobStatus = a} :: ImportJobResponse)
+{-# DEPRECATED ijJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
--- | The unique identifier for the application that's associated with the import job.
+-- | The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.
 --
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ijApplicationId :: Lens.Lens' ImportJobResponse Lude.Text
-ijApplicationId = Lens.lens (applicationId :: ImportJobResponse -> Lude.Text) (\s a -> s {applicationId = a} :: ImportJobResponse)
-{-# DEPRECATED ijApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+-- /Note:/ Consider using 'totalFailures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ijTotalFailures :: Lens.Lens' ImportJobResponse (Lude.Maybe Lude.Int)
+ijTotalFailures = Lens.lens (totalFailures :: ImportJobResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalFailures = a} :: ImportJobResponse)
+{-# DEPRECATED ijTotalFailures "Use generic-lens or generic-optics with 'totalFailures' instead." #-}
 
 instance Lude.FromJSON ImportJobResponse where
   parseJSON =
@@ -217,15 +223,15 @@ instance Lude.FromJSON ImportJobResponse where
           ImportJobResponse'
             Lude.<$> (x Lude..:? "CompletedPieces")
             Lude.<*> (x Lude..:? "FailedPieces")
+            Lude.<*> (x Lude..: "Definition")
             Lude.<*> (x Lude..:? "TotalProcessed")
             Lude.<*> (x Lude..:? "Failures" Lude..!= Lude.mempty)
             Lude.<*> (x Lude..:? "TotalPieces")
-            Lude.<*> (x Lude..:? "CompletionDate")
-            Lude.<*> (x Lude..:? "TotalFailures")
-            Lude.<*> (x Lude..: "JobStatus")
+            Lude.<*> (x Lude..: "ApplicationId")
+            Lude.<*> (x Lude..: "Id")
             Lude.<*> (x Lude..: "CreationDate")
             Lude.<*> (x Lude..: "Type")
-            Lude.<*> (x Lude..: "Definition")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..: "ApplicationId")
+            Lude.<*> (x Lude..:? "CompletionDate")
+            Lude.<*> (x Lude..: "JobStatus")
+            Lude.<*> (x Lude..:? "TotalFailures")
       )

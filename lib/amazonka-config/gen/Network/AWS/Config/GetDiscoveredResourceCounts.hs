@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -66,25 +67,22 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetDiscoveredResourceCounts' smart constructor.
 data GetDiscoveredResourceCounts = GetDiscoveredResourceCounts'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of 'ResourceCount' objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
     limit :: Lude.Maybe Lude.Natural,
-    resourceTypes ::
-      Lude.Maybe [Lude.Text]
+    -- | The comma-separated list that specifies the resource types that you want AWS Config to return (for example, @"AWS::EC2::Instance"@ , @"AWS::IAM::User"@ ).
+    --
+    -- If a value for @resourceTypes@ is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.
+    resourceTypes :: Lude.Maybe [Lude.Text]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiscoveredResourceCounts' with the minimum fields required to make a request.
 --
--- * 'limit' - The maximum number of 'ResourceCount' objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 -- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- * 'limit' - The maximum number of 'ResourceCount' objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 -- * 'resourceTypes' - The comma-separated list that specifies the resource types that you want AWS Config to return (for example, @"AWS::EC2::Instance"@ , @"AWS::IAM::User"@ ).
 --
 -- If a value for @resourceTypes@ is not specified, AWS Config returns all resource types that AWS Config is recording in the region for your account.
@@ -166,32 +164,30 @@ instance Lude.ToQuery GetDiscoveredResourceCounts where
 
 -- | /See:/ 'mkGetDiscoveredResourceCountsResponse' smart constructor.
 data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
-  { totalDiscoveredResources ::
-      Lude.Maybe
-        Lude.Integer,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    resourceCounts ::
-      Lude.Maybe
-        [ResourceCount],
-    responseStatus ::
-      Lude.Int
+  { -- | The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types.
+    --
+    -- __Example__
+    --
+    --     * AWS Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.
+    --
+    --
+    --     * You make a call to the @GetDiscoveredResourceCounts@ action and specify the resource type, @"AWS::EC2::Instances"@ , in the request.
+    --
+    --
+    --     * AWS Config returns 25 for @totalDiscoveredResources@ .
+    totalDiscoveredResources :: Lude.Maybe Lude.Integer,
+    -- | The string that you use in a subsequent request to get the next page of results in a paginated response.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The list of @ResourceCount@ objects. Each object is listed in descending order by the number of resources.
+    resourceCounts :: Lude.Maybe [ResourceCount],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetDiscoveredResourceCountsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
--- * 'resourceCounts' - The list of @ResourceCount@ objects. Each object is listed in descending order by the number of resources.
--- * 'responseStatus' - The response status code.
 -- * 'totalDiscoveredResources' - The total number of resources that AWS Config is recording in the region for your account. If you specify resource types in the request, AWS Config returns only the total number of resources for those resource types.
 --
 -- __Example__
@@ -203,6 +199,11 @@ data GetDiscoveredResourceCountsResponse = GetDiscoveredResourceCountsResponse'
 --
 --
 --     * AWS Config returns 25 for @totalDiscoveredResources@ .
+--
+--
+-- * 'nextToken' - The string that you use in a subsequent request to get the next page of results in a paginated response.
+-- * 'resourceCounts' - The list of @ResourceCount@ objects. Each object is listed in descending order by the number of resources.
+-- * 'responseStatus' - The response status code.
 mkGetDiscoveredResourceCountsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

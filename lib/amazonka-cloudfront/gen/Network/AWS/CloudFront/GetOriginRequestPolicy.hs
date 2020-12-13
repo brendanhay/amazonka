@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,16 +50,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetOriginRequestPolicy' smart constructor.
 newtype GetOriginRequestPolicy = GetOriginRequestPolicy'
-  { id ::
-      Lude.Text
+  { -- | The unique identifier for the origin request policy. If the origin request policy is attached to a distribution’s cache behavior, you can get the policy’s identifier using @ListDistributions@ or @GetDistribution@ . If the origin request policy is not attached to a cache behavior, you can get the identifier using @ListOriginRequestPolicies@ .
+    id :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOriginRequestPolicy' with the minimum fields required to make a request.
@@ -101,20 +96,14 @@ instance Lude.ToQuery GetOriginRequestPolicy where
 
 -- | /See:/ 'mkGetOriginRequestPolicyResponse' smart constructor.
 data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
-  { eTag ::
-      Lude.Maybe Lude.Text,
-    originRequestPolicy ::
-      Lude.Maybe
-        OriginRequestPolicy,
+  { -- | The current version of the origin request policy.
+    eTag :: Lude.Maybe Lude.Text,
+    -- | The origin request policy.
+    originRequestPolicy :: Lude.Maybe OriginRequestPolicy,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetOriginRequestPolicyResponse' with the minimum fields required to make a request.

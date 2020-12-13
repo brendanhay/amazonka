@@ -42,21 +42,11 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCompleteWorkflowExecutionDecisionAttributes' smart constructor.
 newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes'
-  { result ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The result of the workflow execution. The form of the result is implementation defined.
+    result :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CompleteWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
 --

@@ -33,32 +33,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBuildArtifacts' smart constructor.
 data BuildArtifacts = BuildArtifacts'
-  { location ::
-      Lude.Maybe Lude.Text,
+  { -- | Information about the location of the build artifacts.
+    location :: Lude.Maybe Lude.Text,
+    -- | The MD5 hash of the build artifact.
+    --
+    -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
     md5sum :: Lude.Maybe Lude.Text,
+    -- | Information that tells you if encryption for build artifacts is disabled.
     encryptionDisabled :: Lude.Maybe Lude.Bool,
+    -- | If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
     overrideArtifactName :: Lude.Maybe Lude.Bool,
+    -- | An identifier for this artifact definition.
     artifactIdentifier :: Lude.Maybe Lude.Text,
+    -- | The SHA-256 hash of the build artifact.
+    --
+    -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
     sha256sum :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BuildArtifacts' with the minimum fields required to make a request.
 --
--- * 'artifactIdentifier' - An identifier for this artifact definition.
--- * 'encryptionDisabled' - Information that tells you if encryption for build artifacts is disabled.
 -- * 'location' - Information about the location of the build artifacts.
 -- * 'md5sum' - The MD5 hash of the build artifact.
 --
 -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.
+-- * 'encryptionDisabled' - Information that tells you if encryption for build artifacts is disabled.
 -- * 'overrideArtifactName' - If this flag is set, a name specified in the buildspec file overrides the artifact name. The name specified in a buildspec file is calculated at build time and uses the Shell Command Language. For example, you can append a date and time to your artifact name so that it is always unique.
+-- * 'artifactIdentifier' - An identifier for this artifact definition.
 -- * 'sha256sum' - The SHA-256 hash of the build artifact.
 --
 -- You can use this hash along with a checksum tool to confirm file integrity and authenticity.

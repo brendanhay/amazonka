@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.EC2.DeleteVPCEndpointConnectionNotifications
     mkDeleteVPCEndpointConnectionNotifications,
 
     -- ** Request lenses
-    dvecnDryRun,
-    dvecnConnectionNotificationIds,
+    dvpcecnConnectionNotificationIds,
+    dvpcecnDryRun,
 
     -- * Destructuring the response
     DeleteVPCEndpointConnectionNotificationsResponse (..),
     mkDeleteVPCEndpointConnectionNotificationsResponse,
 
     -- ** Response lenses
-    dvecnrsUnsuccessful,
-    dvecnrsResponseStatus,
+    dvpcecnrsUnsuccessful,
+    dvpcecnrsResponseStatus,
   )
 where
 
@@ -40,19 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteVPCEndpointConnectionNotifications' smart constructor.
 data DeleteVPCEndpointConnectionNotifications = DeleteVPCEndpointConnectionNotifications'
-  { dryRun ::
-      Lude.Maybe
-        Lude.Bool,
-    connectionNotificationIds ::
-      [Lude.Text]
+  { -- | One or more notification IDs.
+    connectionNotificationIds :: [Lude.Text],
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpointConnectionNotifications' with the minimum fields required to make a request.
@@ -63,23 +57,24 @@ mkDeleteVPCEndpointConnectionNotifications ::
   DeleteVPCEndpointConnectionNotifications
 mkDeleteVPCEndpointConnectionNotifications =
   DeleteVPCEndpointConnectionNotifications'
-    { dryRun = Lude.Nothing,
-      connectionNotificationIds = Lude.mempty
+    { connectionNotificationIds =
+        Lude.mempty,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvecnDryRun :: Lens.Lens' DeleteVPCEndpointConnectionNotifications (Lude.Maybe Lude.Bool)
-dvecnDryRun = Lens.lens (dryRun :: DeleteVPCEndpointConnectionNotifications -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpointConnectionNotifications)
-{-# DEPRECATED dvecnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more notification IDs.
 --
 -- /Note:/ Consider using 'connectionNotificationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvecnConnectionNotificationIds :: Lens.Lens' DeleteVPCEndpointConnectionNotifications [Lude.Text]
-dvecnConnectionNotificationIds = Lens.lens (connectionNotificationIds :: DeleteVPCEndpointConnectionNotifications -> [Lude.Text]) (\s a -> s {connectionNotificationIds = a} :: DeleteVPCEndpointConnectionNotifications)
-{-# DEPRECATED dvecnConnectionNotificationIds "Use generic-lens or generic-optics with 'connectionNotificationIds' instead." #-}
+dvpcecnConnectionNotificationIds :: Lens.Lens' DeleteVPCEndpointConnectionNotifications [Lude.Text]
+dvpcecnConnectionNotificationIds = Lens.lens (connectionNotificationIds :: DeleteVPCEndpointConnectionNotifications -> [Lude.Text]) (\s a -> s {connectionNotificationIds = a} :: DeleteVPCEndpointConnectionNotifications)
+{-# DEPRECATED dvpcecnConnectionNotificationIds "Use generic-lens or generic-optics with 'connectionNotificationIds' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvpcecnDryRun :: Lens.Lens' DeleteVPCEndpointConnectionNotifications (Lude.Maybe Lude.Bool)
+dvpcecnDryRun = Lens.lens (dryRun :: DeleteVPCEndpointConnectionNotifications -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVPCEndpointConnectionNotifications)
+{-# DEPRECATED dvpcecnDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteVPCEndpointConnectionNotifications where
   type
@@ -108,36 +103,26 @@ instance Lude.ToQuery DeleteVPCEndpointConnectionNotifications where
       [ "Action"
           Lude.=: ("DeleteVpcEndpointConnectionNotifications" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         Lude.toQueryList
           "ConnectionNotificationId"
-          connectionNotificationIds
+          connectionNotificationIds,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteVPCEndpointConnectionNotificationsResponse' smart constructor.
 data DeleteVPCEndpointConnectionNotificationsResponse = DeleteVPCEndpointConnectionNotificationsResponse'
-  { unsuccessful ::
-      Lude.Maybe
-        [UnsuccessfulItem],
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the notifications that could not be deleted successfully.
+    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteVPCEndpointConnectionNotificationsResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'unsuccessful' - Information about the notifications that could not be deleted successfully.
+-- * 'responseStatus' - The response status code.
 mkDeleteVPCEndpointConnectionNotificationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -152,13 +137,13 @@ mkDeleteVPCEndpointConnectionNotificationsResponse pResponseStatus_ =
 -- | Information about the notifications that could not be deleted successfully.
 --
 -- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvecnrsUnsuccessful :: Lens.Lens' DeleteVPCEndpointConnectionNotificationsResponse (Lude.Maybe [UnsuccessfulItem])
-dvecnrsUnsuccessful = Lens.lens (unsuccessful :: DeleteVPCEndpointConnectionNotificationsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: DeleteVPCEndpointConnectionNotificationsResponse)
-{-# DEPRECATED dvecnrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
+dvpcecnrsUnsuccessful :: Lens.Lens' DeleteVPCEndpointConnectionNotificationsResponse (Lude.Maybe [UnsuccessfulItem])
+dvpcecnrsUnsuccessful = Lens.lens (unsuccessful :: DeleteVPCEndpointConnectionNotificationsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: DeleteVPCEndpointConnectionNotificationsResponse)
+{-# DEPRECATED dvpcecnrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvecnrsResponseStatus :: Lens.Lens' DeleteVPCEndpointConnectionNotificationsResponse Lude.Int
-dvecnrsResponseStatus = Lens.lens (responseStatus :: DeleteVPCEndpointConnectionNotificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCEndpointConnectionNotificationsResponse)
-{-# DEPRECATED dvecnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvpcecnrsResponseStatus :: Lens.Lens' DeleteVPCEndpointConnectionNotificationsResponse Lude.Int
+dvpcecnrsResponseStatus = Lens.lens (responseStatus :: DeleteVPCEndpointConnectionNotificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCEndpointConnectionNotificationsResponse)
+{-# DEPRECATED dvpcecnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

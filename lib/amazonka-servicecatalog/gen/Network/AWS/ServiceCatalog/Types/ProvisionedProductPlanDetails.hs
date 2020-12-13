@@ -46,63 +46,57 @@ import Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter
 --
 -- /See:/ 'mkProvisionedProductPlanDetails' smart constructor.
 data ProvisionedProductPlanDetails = ProvisionedProductPlanDetails'
-  { status ::
-      Lude.Maybe
-        ProvisionedProductPlanStatus,
-    provisionProductId ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactId ::
-      Lude.Maybe Lude.Text,
-    provisionProductName ::
-      Lude.Maybe Lude.Text,
-    createdTime ::
-      Lude.Maybe Lude.Timestamp,
-    notificationARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | The status.
+    status :: Lude.Maybe ProvisionedProductPlanStatus,
+    -- | The product identifier.
+    provisionProductId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | The user-friendly name of the provisioned product.
+    provisionProductName :: Lude.Maybe Lude.Text,
+    -- | The UTC time stamp of the creation time.
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
+    notificationARNs :: Lude.Maybe [Lude.Text],
+    -- | The plan identifier.
     planId :: Lude.Maybe Lude.Text,
-    planName ::
-      Lude.Maybe Lude.Text,
-    statusMessage ::
-      Lude.Maybe Lude.Text,
-    updatedTime ::
-      Lude.Maybe Lude.Timestamp,
+    -- | The name of the plan.
+    planName :: Lude.Maybe Lude.Text,
+    -- | The status message.
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | The time when the plan was last updated.
+    updatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
     pathId :: Lude.Maybe Lude.Text,
-    provisioningParameters ::
-      Lude.Maybe
-        [UpdateProvisioningParameter],
-    planType ::
-      Lude.Maybe
-        ProvisionedProductPlanType,
-    productId ::
-      Lude.Maybe Lude.Text,
+    -- | Parameters specified by the administrator that are required for provisioning the product.
+    provisioningParameters :: Lude.Maybe [UpdateProvisioningParameter],
+    -- | The plan type.
+    planType :: Lude.Maybe ProvisionedProductPlanType,
+    -- | The product identifier.
+    productId :: Lude.Maybe Lude.Text,
+    -- | One or more tags.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedProductPlanDetails' with the minimum fields required to make a request.
 --
+-- * 'status' - The status.
+-- * 'provisionProductId' - The product identifier.
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'provisionProductName' - The user-friendly name of the provisioned product.
 -- * 'createdTime' - The UTC time stamp of the creation time.
 -- * 'notificationARNs' - Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
--- * 'pathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
 -- * 'planId' - The plan identifier.
 -- * 'planName' - The name of the plan.
+-- * 'statusMessage' - The status message.
+-- * 'updatedTime' - The time when the plan was last updated.
+-- * 'pathId' - The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use 'ListLaunchPaths' .
+-- * 'provisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
 -- * 'planType' - The plan type.
 -- * 'productId' - The product identifier.
--- * 'provisionProductId' - The product identifier.
--- * 'provisionProductName' - The user-friendly name of the provisioned product.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'provisioningParameters' - Parameters specified by the administrator that are required for provisioning the product.
--- * 'status' - The status.
--- * 'statusMessage' - The status message.
 -- * 'tags' - One or more tags.
--- * 'updatedTime' - The time when the plan was last updated.
 mkProvisionedProductPlanDetails ::
   ProvisionedProductPlanDetails
 mkProvisionedProductPlanDetails =

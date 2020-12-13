@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.EC2.DeleteTransitGatewayRouteTable
     mkDeleteTransitGatewayRouteTable,
 
     -- ** Request lenses
-    dtgrtDryRun,
     dtgrtTransitGatewayRouteTableId,
+    dtgrtDryRun,
 
     -- * Destructuring the response
     DeleteTransitGatewayRouteTableResponse (..),
     mkDeleteTransitGatewayRouteTableResponse,
 
     -- ** Response lenses
-    dtgrtrsTransitGatewayRouteTable,
-    dtgrtrsResponseStatus,
+    drsTransitGatewayRouteTable,
+    drsResponseStatus,
   )
 where
 
@@ -40,40 +41,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteTransitGatewayRouteTable' smart constructor.
 data DeleteTransitGatewayRouteTable = DeleteTransitGatewayRouteTable'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    transitGatewayRouteTableId ::
-      Lude.Text
+  { -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayRouteTable' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteTransitGatewayRouteTable ::
   -- | 'transitGatewayRouteTableId'
   Lude.Text ->
   DeleteTransitGatewayRouteTable
 mkDeleteTransitGatewayRouteTable pTransitGatewayRouteTableId_ =
   DeleteTransitGatewayRouteTable'
-    { dryRun = Lude.Nothing,
-      transitGatewayRouteTableId = pTransitGatewayRouteTableId_
+    { transitGatewayRouteTableId =
+        pTransitGatewayRouteTableId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrtDryRun :: Lens.Lens' DeleteTransitGatewayRouteTable (Lude.Maybe Lude.Bool)
-dtgrtDryRun = Lens.lens (dryRun :: DeleteTransitGatewayRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayRouteTable)
-{-# DEPRECATED dtgrtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the transit gateway route table.
 --
@@ -81,6 +70,13 @@ dtgrtDryRun = Lens.lens (dryRun :: DeleteTransitGatewayRouteTable -> Lude.Maybe 
 dtgrtTransitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayRouteTable Lude.Text
 dtgrtTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: DeleteTransitGatewayRouteTable -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: DeleteTransitGatewayRouteTable)
 {-# DEPRECATED dtgrtTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgrtDryRun :: Lens.Lens' DeleteTransitGatewayRouteTable (Lude.Maybe Lude.Bool)
+dtgrtDryRun = Lens.lens (dryRun :: DeleteTransitGatewayRouteTable -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayRouteTable)
+{-# DEPRECATED dtgrtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteTransitGatewayRouteTable where
   type
@@ -107,31 +103,24 @@ instance Lude.ToQuery DeleteTransitGatewayRouteTable where
       [ "Action"
           Lude.=: ("DeleteTransitGatewayRouteTable" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId
+        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteTransitGatewayRouteTableResponse' smart constructor.
 data DeleteTransitGatewayRouteTableResponse = DeleteTransitGatewayRouteTableResponse'
-  { transitGatewayRouteTable ::
-      Lude.Maybe
-        TransitGatewayRouteTable,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the deleted transit gateway route table.
+    transitGatewayRouteTable :: Lude.Maybe TransitGatewayRouteTable,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteTransitGatewayRouteTableResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'transitGatewayRouteTable' - Information about the deleted transit gateway route table.
+-- * 'responseStatus' - The response status code.
 mkDeleteTransitGatewayRouteTableResponse ::
   -- | 'responseStatus'
   Lude.Int ->
@@ -146,13 +135,13 @@ mkDeleteTransitGatewayRouteTableResponse pResponseStatus_ =
 -- | Information about the deleted transit gateway route table.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrtrsTransitGatewayRouteTable :: Lens.Lens' DeleteTransitGatewayRouteTableResponse (Lude.Maybe TransitGatewayRouteTable)
-dtgrtrsTransitGatewayRouteTable = Lens.lens (transitGatewayRouteTable :: DeleteTransitGatewayRouteTableResponse -> Lude.Maybe TransitGatewayRouteTable) (\s a -> s {transitGatewayRouteTable = a} :: DeleteTransitGatewayRouteTableResponse)
-{-# DEPRECATED dtgrtrsTransitGatewayRouteTable "Use generic-lens or generic-optics with 'transitGatewayRouteTable' instead." #-}
+drsTransitGatewayRouteTable :: Lens.Lens' DeleteTransitGatewayRouteTableResponse (Lude.Maybe TransitGatewayRouteTable)
+drsTransitGatewayRouteTable = Lens.lens (transitGatewayRouteTable :: DeleteTransitGatewayRouteTableResponse -> Lude.Maybe TransitGatewayRouteTable) (\s a -> s {transitGatewayRouteTable = a} :: DeleteTransitGatewayRouteTableResponse)
+{-# DEPRECATED drsTransitGatewayRouteTable "Use generic-lens or generic-optics with 'transitGatewayRouteTable' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgrtrsResponseStatus :: Lens.Lens' DeleteTransitGatewayRouteTableResponse Lude.Int
-dtgrtrsResponseStatus = Lens.lens (responseStatus :: DeleteTransitGatewayRouteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTransitGatewayRouteTableResponse)
-{-# DEPRECATED dtgrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteTransitGatewayRouteTableResponse Lude.Int
+drsResponseStatus = Lens.lens (responseStatus :: DeleteTransitGatewayRouteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTransitGatewayRouteTableResponse)
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

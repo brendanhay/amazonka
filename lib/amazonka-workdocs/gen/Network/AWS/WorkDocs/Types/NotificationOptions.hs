@@ -29,8 +29,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotificationOptions' smart constructor.
 data NotificationOptions = NotificationOptions'
-  { emailMessage ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | Text value to be included in the email body.
+    emailMessage :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | Boolean value to indicate an email notification should be sent to the receipients.
     sendEmail :: Lude.Maybe Lude.Bool
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

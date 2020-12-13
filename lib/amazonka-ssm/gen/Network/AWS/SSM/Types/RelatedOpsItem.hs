@@ -27,14 +27,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | An OpsItems that shares something in common with the current OpsItem. For example, related OpsItems can include OpsItems with similar error messages, impacted resources, or statuses for the impacted resource.
 --
 -- /See:/ 'mkRelatedOpsItem' smart constructor.
-newtype RelatedOpsItem = RelatedOpsItem' {opsItemId :: Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype RelatedOpsItem = RelatedOpsItem'
+  { -- | The ID of an OpsItem related to the current OpsItem.
+    opsItemId :: Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelatedOpsItem' with the minimum fields required to make a request.

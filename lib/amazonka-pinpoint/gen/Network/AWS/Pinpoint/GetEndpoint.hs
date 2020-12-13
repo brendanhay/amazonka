@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Pinpoint.GetEndpoint
     mkGetEndpointResponse,
 
     -- ** Response lenses
-    gersResponseStatus,
     gersEndpointResponse,
+    gersResponseStatus,
   )
 where
 
@@ -40,16 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetEndpoint' smart constructor.
 data GetEndpoint = GetEndpoint'
-  { applicationId :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text,
+    -- | The unique identifier for the endpoint.
     endpointId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEndpoint' with the minimum fields required to make a request.
@@ -89,7 +86,7 @@ instance Lude.AWSRequest GetEndpoint where
     Res.receiveJSON
       ( \s h x ->
           GetEndpointResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetEndpoint where
@@ -115,41 +112,28 @@ instance Lude.ToQuery GetEndpoint where
 
 -- | /See:/ 'mkGetEndpointResponse' smart constructor.
 data GetEndpointResponse = GetEndpointResponse'
-  { responseStatus ::
-      Lude.Int,
-    endpointResponse :: EndpointResponse
+  { endpointResponse :: EndpointResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetEndpointResponse' with the minimum fields required to make a request.
 --
--- * 'endpointResponse' - Undocumented field.
+-- * 'endpointResponse' -
 -- * 'responseStatus' - The response status code.
 mkGetEndpointResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'endpointResponse'
   EndpointResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   GetEndpointResponse
-mkGetEndpointResponse pResponseStatus_ pEndpointResponse_ =
+mkGetEndpointResponse pEndpointResponse_ pResponseStatus_ =
   GetEndpointResponse'
-    { responseStatus = pResponseStatus_,
-      endpointResponse = pEndpointResponse_
+    { endpointResponse = pEndpointResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersResponseStatus :: Lens.Lens' GetEndpointResponse Lude.Int
-gersResponseStatus = Lens.lens (responseStatus :: GetEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEndpointResponse)
-{-# DEPRECATED gersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -157,3 +141,10 @@ gersResponseStatus = Lens.lens (responseStatus :: GetEndpointResponse -> Lude.In
 gersEndpointResponse :: Lens.Lens' GetEndpointResponse EndpointResponse
 gersEndpointResponse = Lens.lens (endpointResponse :: GetEndpointResponse -> EndpointResponse) (\s a -> s {endpointResponse = a} :: GetEndpointResponse)
 {-# DEPRECATED gersEndpointResponse "Use generic-lens or generic-optics with 'endpointResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gersResponseStatus :: Lens.Lens' GetEndpointResponse Lude.Int
+gersResponseStatus = Lens.lens (responseStatus :: GetEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEndpointResponse)
+{-# DEPRECATED gersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

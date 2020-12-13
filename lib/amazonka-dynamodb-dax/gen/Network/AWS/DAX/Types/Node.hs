@@ -34,30 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNode' smart constructor.
 data Node = Node'
-  { nodeStatus :: Lude.Maybe Lude.Text,
+  { -- | The current status of the node. For example: @available@ .
+    nodeStatus :: Lude.Maybe Lude.Text,
+    -- | The status of the parameter group associated with this node. For example, @in-sync@ .
     parameterGroupStatus :: Lude.Maybe Lude.Text,
+    -- | The Availability Zone (AZ) in which the node has been deployed.
     availabilityZone :: Lude.Maybe Lude.Text,
+    -- | A system-generated identifier for the node.
     nodeId :: Lude.Maybe Lude.Text,
+    -- | The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
     endpoint :: Lude.Maybe Endpoint,
+    -- | The date and time (in UNIX epoch format) when the node was launched.
     nodeCreateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Node' with the minimum fields required to make a request.
 --
--- * 'availabilityZone' - The Availability Zone (AZ) in which the node has been deployed.
--- * 'endpoint' - The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
--- * 'nodeCreateTime' - The date and time (in UNIX epoch format) when the node was launched.
--- * 'nodeId' - A system-generated identifier for the node.
 -- * 'nodeStatus' - The current status of the node. For example: @available@ .
 -- * 'parameterGroupStatus' - The status of the parameter group associated with this node. For example, @in-sync@ .
+-- * 'availabilityZone' - The Availability Zone (AZ) in which the node has been deployed.
+-- * 'nodeId' - A system-generated identifier for the node.
+-- * 'endpoint' - The endpoint for the node, consisting of a DNS name and a port number. Client applications can connect directly to a node endpoint, if desired (as an alternative to allowing DAX client software to intelligently route requests and responses to nodes in the DAX cluster.
+-- * 'nodeCreateTime' - The date and time (in UNIX epoch format) when the node was launched.
 mkNode ::
   Node
 mkNode =

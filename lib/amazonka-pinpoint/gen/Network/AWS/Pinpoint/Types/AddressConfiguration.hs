@@ -34,34 +34,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAddressConfiguration' smart constructor.
 data AddressConfiguration = AddressConfiguration'
-  { substitutions ::
-      Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
+    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+    -- | The message title to use instead of the default message title. This value overrides the default message title.
     titleOverride :: Lude.Maybe Lude.Text,
-    context ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.
+    --
+    -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
+    context :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
     rawContent :: Lude.Maybe Lude.Text,
+    -- | The message body to use instead of the default message body. This value overrides the default message body.
     bodyOverride :: Lude.Maybe Lude.Text,
+    -- | The channel to use when sending the message.
     channelType :: Lude.Maybe ChannelType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddressConfiguration' with the minimum fields required to make a request.
 --
--- * 'bodyOverride' - The message body to use instead of the default message body. This value overrides the default message body.
--- * 'channelType' - The channel to use when sending the message.
+-- * 'substitutions' - A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
+-- * 'titleOverride' - The message title to use instead of the default message title. This value overrides the default message title.
 -- * 'context' - An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.
 --
 -- For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.
 -- * 'rawContent' - The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.
--- * 'substitutions' - A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.
--- * 'titleOverride' - The message title to use instead of the default message title. This value overrides the default message title.
+-- * 'bodyOverride' - The message body to use instead of the default message body. This value overrides the default message body.
+-- * 'channelType' - The channel to use when sending the message.
 mkAddressConfiguration ::
   AddressConfiguration
 mkAddressConfiguration =

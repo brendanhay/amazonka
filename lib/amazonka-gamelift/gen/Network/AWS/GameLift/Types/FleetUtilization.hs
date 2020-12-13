@@ -52,29 +52,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetUtilization' smart constructor.
 data FleetUtilization = FleetUtilization'
-  { activeGameSessionCount ::
-      Lude.Maybe Lude.Natural,
+  { -- | Number of active game sessions currently being hosted on all instances in the fleet.
+    activeGameSessionCount :: Lude.Maybe Lude.Natural,
+    -- | The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
     maximumPlayerSessionCount :: Lude.Maybe Lude.Natural,
+    -- | Number of active player sessions currently being hosted on all instances in the fleet.
     currentPlayerSessionCount :: Lude.Maybe Lude.Natural,
+    -- | A unique identifier for a fleet.
     fleetId :: Lude.Maybe Lude.Text,
+    -- | Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
     activeServerProcessCount :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetUtilization' with the minimum fields required to make a request.
 --
 -- * 'activeGameSessionCount' - Number of active game sessions currently being hosted on all instances in the fleet.
--- * 'activeServerProcessCount' - Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
+-- * 'maximumPlayerSessionCount' - The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
 -- * 'currentPlayerSessionCount' - Number of active player sessions currently being hosted on all instances in the fleet.
 -- * 'fleetId' - A unique identifier for a fleet.
--- * 'maximumPlayerSessionCount' - The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
+-- * 'activeServerProcessCount' - Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
 mkFleetUtilization ::
   FleetUtilization
 mkFleetUtilization =

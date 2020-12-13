@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
     mkAssociateTagOptionWithResource,
 
     -- ** Request lenses
-    atowrResourceId,
     atowrTagOptionId,
+    atowrResourceId,
 
     -- * Destructuring the response
     AssociateTagOptionWithResourceResponse (..),
@@ -39,41 +40,29 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkAssociateTagOptionWithResource' smart constructor.
 data AssociateTagOptionWithResource = AssociateTagOptionWithResource'
-  { resourceId ::
-      Lude.Text,
-    tagOptionId :: Lude.Text
+  { -- | The TagOption identifier.
+    tagOptionId :: Lude.Text,
+    -- | The resource identifier.
+    resourceId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTagOptionWithResource' with the minimum fields required to make a request.
 --
--- * 'resourceId' - The resource identifier.
 -- * 'tagOptionId' - The TagOption identifier.
+-- * 'resourceId' - The resource identifier.
 mkAssociateTagOptionWithResource ::
-  -- | 'resourceId'
-  Lude.Text ->
   -- | 'tagOptionId'
   Lude.Text ->
+  -- | 'resourceId'
+  Lude.Text ->
   AssociateTagOptionWithResource
-mkAssociateTagOptionWithResource pResourceId_ pTagOptionId_ =
+mkAssociateTagOptionWithResource pTagOptionId_ pResourceId_ =
   AssociateTagOptionWithResource'
-    { resourceId = pResourceId_,
-      tagOptionId = pTagOptionId_
+    { tagOptionId = pTagOptionId_,
+      resourceId = pResourceId_
     }
-
--- | The resource identifier.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atowrResourceId :: Lens.Lens' AssociateTagOptionWithResource Lude.Text
-atowrResourceId = Lens.lens (resourceId :: AssociateTagOptionWithResource -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateTagOptionWithResource)
-{-# DEPRECATED atowrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The TagOption identifier.
 --
@@ -81,6 +70,13 @@ atowrResourceId = Lens.lens (resourceId :: AssociateTagOptionWithResource -> Lud
 atowrTagOptionId :: Lens.Lens' AssociateTagOptionWithResource Lude.Text
 atowrTagOptionId = Lens.lens (tagOptionId :: AssociateTagOptionWithResource -> Lude.Text) (\s a -> s {tagOptionId = a} :: AssociateTagOptionWithResource)
 {-# DEPRECATED atowrTagOptionId "Use generic-lens or generic-optics with 'tagOptionId' instead." #-}
+
+-- | The resource identifier.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atowrResourceId :: Lens.Lens' AssociateTagOptionWithResource Lude.Text
+atowrResourceId = Lens.lens (resourceId :: AssociateTagOptionWithResource -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateTagOptionWithResource)
+{-# DEPRECATED atowrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 instance Lude.AWSRequest AssociateTagOptionWithResource where
   type
@@ -111,8 +107,8 @@ instance Lude.ToJSON AssociateTagOptionWithResource where
   toJSON AssociateTagOptionWithResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("TagOptionId" Lude..= tagOptionId)
+          [ Lude.Just ("TagOptionId" Lude..= tagOptionId),
+            Lude.Just ("ResourceId" Lude..= resourceId)
           ]
       )
 
@@ -124,16 +120,10 @@ instance Lude.ToQuery AssociateTagOptionWithResource where
 
 -- | /See:/ 'mkAssociateTagOptionWithResourceResponse' smart constructor.
 newtype AssociateTagOptionWithResourceResponse = AssociateTagOptionWithResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssociateTagOptionWithResourceResponse' with the minimum fields required to make a request.

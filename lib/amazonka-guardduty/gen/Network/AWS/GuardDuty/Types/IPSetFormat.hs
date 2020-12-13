@@ -13,12 +13,12 @@
 module Network.AWS.GuardDuty.Types.IPSetFormat
   ( IPSetFormat
       ( IPSetFormat',
-        AlienVault,
-        FireEye,
-        OtxCSV,
-        ProofPoint,
-        Stix,
-        Txt
+        ISFTxt,
+        ISFStix,
+        ISFOtxCSV,
+        ISFAlienVault,
+        ISFProofPoint,
+        ISFFireEye
       ),
   )
 where
@@ -49,30 +49,30 @@ newtype IPSetFormat = IPSetFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern AlienVault :: IPSetFormat
-pattern AlienVault = IPSetFormat' "ALIEN_VAULT"
+pattern ISFTxt :: IPSetFormat
+pattern ISFTxt = IPSetFormat' "TXT"
 
-pattern FireEye :: IPSetFormat
-pattern FireEye = IPSetFormat' "FIRE_EYE"
+pattern ISFStix :: IPSetFormat
+pattern ISFStix = IPSetFormat' "STIX"
 
-pattern OtxCSV :: IPSetFormat
-pattern OtxCSV = IPSetFormat' "OTX_CSV"
+pattern ISFOtxCSV :: IPSetFormat
+pattern ISFOtxCSV = IPSetFormat' "OTX_CSV"
 
-pattern ProofPoint :: IPSetFormat
-pattern ProofPoint = IPSetFormat' "PROOF_POINT"
+pattern ISFAlienVault :: IPSetFormat
+pattern ISFAlienVault = IPSetFormat' "ALIEN_VAULT"
 
-pattern Stix :: IPSetFormat
-pattern Stix = IPSetFormat' "STIX"
+pattern ISFProofPoint :: IPSetFormat
+pattern ISFProofPoint = IPSetFormat' "PROOF_POINT"
 
-pattern Txt :: IPSetFormat
-pattern Txt = IPSetFormat' "TXT"
+pattern ISFFireEye :: IPSetFormat
+pattern ISFFireEye = IPSetFormat' "FIRE_EYE"
 
 {-# COMPLETE
-  AlienVault,
-  FireEye,
-  OtxCSV,
-  ProofPoint,
-  Stix,
-  Txt,
+  ISFTxt,
+  ISFStix,
+  ISFOtxCSV,
+  ISFAlienVault,
+  ISFProofPoint,
+  ISFFireEye,
   IPSetFormat'
   #-}

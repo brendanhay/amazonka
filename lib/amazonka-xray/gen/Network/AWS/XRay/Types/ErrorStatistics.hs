@@ -30,18 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkErrorStatistics' smart constructor.
 data ErrorStatistics = ErrorStatistics'
-  { otherCount ::
-      Lude.Maybe Lude.Integer,
+  { -- | The number of requests that failed with untracked 4xx Client Error status codes.
+    otherCount :: Lude.Maybe Lude.Integer,
+    -- | The number of requests that failed with a 419 throttling status code.
     throttleCount :: Lude.Maybe Lude.Integer,
+    -- | The total number of requests that failed with a 4xx Client Error status code.
     totalCount :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ErrorStatistics' with the minimum fields required to make a request.

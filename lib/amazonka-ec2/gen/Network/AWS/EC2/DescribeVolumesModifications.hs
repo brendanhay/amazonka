@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -50,26 +51,55 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeVolumesModifications' smart constructor.
 data DescribeVolumesModifications = DescribeVolumesModifications'
-  { filters ::
-      Lude.Maybe [Filter],
-    volumeIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | The filters.
+    --
+    --
+    --     * @modification-state@ - The current modification state (modifying | optimizing | completed | failed).
+    --
+    --
+    --     * @original-iops@ - The original IOPS rate of the volume.
+    --
+    --
+    --     * @original-size@ - The original size of the volume, in GiB.
+    --
+    --
+    --     * @original-volume-type@ - The original volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).
+    --
+    --
+    --     * @originalMultiAttachEnabled@ - Indicates whether Multi-Attach support was enabled (true | false).
+    --
+    --
+    --     * @start-time@ - The modification start time.
+    --
+    --
+    --     * @target-iops@ - The target IOPS rate of the volume.
+    --
+    --
+    --     * @target-size@ - The target size of the volume, in GiB.
+    --
+    --
+    --     * @target-volume-type@ - The target volume type of the volume (standard | io1 | io2 | gp2 | sc1 | st1).
+    --
+    --
+    --     * @targetMultiAttachEnabled@ - Indicates whether Multi-Attach support is to be enabled (true | false).
+    --
+    --
+    --     * @volume-id@ - The ID of the volume.
+    filters :: Lude.Maybe [Filter],
+    -- | The IDs of the volumes.
+    volumeIds :: Lude.Maybe [Lude.Text],
+    -- | The @nextToken@ value returned by a previous paginated request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool,
+    -- | The maximum number of results (up to a limit of 500) to be returned in a paginated request.
     maxResults :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumesModifications' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'filters' - The filters.
 --
 --
@@ -106,9 +136,10 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
 --     * @volume-id@ - The ID of the volume.
 --
 --
--- * 'maxResults' - The maximum number of results (up to a limit of 500) to be returned in a paginated request.
--- * 'nextToken' - The @nextToken@ value returned by a previous paginated request.
 -- * 'volumeIds' - The IDs of the volumes.
+-- * 'nextToken' - The @nextToken@ value returned by a previous paginated request.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- * 'maxResults' - The maximum number of results (up to a limit of 500) to be returned in a paginated request.
 mkDescribeVolumesModifications ::
   DescribeVolumesModifications
 mkDescribeVolumesModifications =
@@ -236,29 +267,21 @@ instance Lude.ToQuery DescribeVolumesModifications where
 
 -- | /See:/ 'mkDescribeVolumesModificationsResponse' smart constructor.
 data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse'
-  { volumesModifications ::
-      Lude.Maybe
-        [VolumeModification],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about the volume modifications.
+    volumesModifications :: Lude.Maybe [VolumeModification],
+    -- | Token for pagination, null if there are no more results
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeVolumesModificationsResponse' with the minimum fields required to make a request.
 --
+-- * 'volumesModifications' - Information about the volume modifications.
 -- * 'nextToken' - Token for pagination, null if there are no more results
 -- * 'responseStatus' - The response status code.
--- * 'volumesModifications' - Information about the volume modifications.
 mkDescribeVolumesModificationsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

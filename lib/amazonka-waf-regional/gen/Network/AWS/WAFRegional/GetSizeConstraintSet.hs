@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'mkGetSizeConstraintSet' smart constructor.
 newtype GetSizeConstraintSet = GetSizeConstraintSet'
-  { sizeConstraintSetId ::
-      Lude.Text
+  { -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
+    sizeConstraintSetId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSizeConstraintSet' with the minimum fields required to make a request.
@@ -110,22 +105,25 @@ instance Lude.ToQuery GetSizeConstraintSet where
 
 -- | /See:/ 'mkGetSizeConstraintSetResponse' smart constructor.
 data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
-  { sizeConstraintSet ::
-      Lude.Maybe SizeConstraintSet,
+  { -- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
+    --
+    --
+    --     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@
+    --
+    --
+    --     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@
+    --
+    --
+    --     * 'FieldToMatch' : Contains @Data@ and @Type@
+    sizeConstraintSet :: Lude.Maybe SizeConstraintSet,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetSizeConstraintSetResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'sizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
 --
 --
@@ -136,6 +134,9 @@ data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
 --
 --
 --     * 'FieldToMatch' : Contains @Data@ and @Type@
+--
+--
+-- * 'responseStatus' - The response status code.
 mkGetSizeConstraintSetResponse ::
   -- | 'responseStatus'
   Lude.Int ->

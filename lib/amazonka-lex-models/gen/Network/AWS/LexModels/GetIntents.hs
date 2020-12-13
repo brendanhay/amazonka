@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -54,24 +55,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetIntents' smart constructor.
 data GetIntents = GetIntents'
-  { nameContains :: Lude.Maybe Lude.Text,
+  { -- | Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+    nameContains :: Lude.Maybe Lude.Text,
+    -- | A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of intents to return in the response. The default is 10.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntents' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of intents to return in the response. The default is 10.
 -- * 'nameContains' - Substring to match in intent names. An intent will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 -- * 'nextToken' - A pagination token that fetches the next page of intents. If the response to this API call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of intents, specify the pagination token in the next request.
+-- * 'maxResults' - The maximum number of intents to return in the response. The default is 10.
 mkGetIntents ::
   GetIntents
 mkGetIntents =
@@ -145,18 +143,14 @@ instance Lude.ToQuery GetIntents where
 
 -- | /See:/ 'mkGetIntentsResponse' smart constructor.
 data GetIntentsResponse = GetIntentsResponse'
-  { intents ::
-      Lude.Maybe [IntentMetadata],
+  { -- | An array of @Intent@ objects. For more information, see 'PutBot' .
+    intents :: Lude.Maybe [IntentMetadata],
+    -- | If the response is truncated, the response includes a pagination token that you can specify in your next request to fetch the next page of intents.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIntentsResponse' with the minimum fields required to make a request.

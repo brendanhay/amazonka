@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.EC2.DeleteFpgaImage
     mkDeleteFpgaImage,
 
     -- ** Request lenses
-    dfiDryRun,
     dfiFpgaImageId,
+    dfiDryRun,
 
     -- * Destructuring the response
     DeleteFpgaImageResponse (..),
@@ -40,39 +41,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteFpgaImage' smart constructor.
 data DeleteFpgaImage = DeleteFpgaImage'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
-    fpgaImageId :: Lude.Text
+  { -- | The ID of the AFI.
+    fpgaImageId :: Lude.Text,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFpgaImage' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'fpgaImageId' - The ID of the AFI.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkDeleteFpgaImage ::
   -- | 'fpgaImageId'
   Lude.Text ->
   DeleteFpgaImage
 mkDeleteFpgaImage pFpgaImageId_ =
   DeleteFpgaImage'
-    { dryRun = Lude.Nothing,
-      fpgaImageId = pFpgaImageId_
+    { fpgaImageId = pFpgaImageId_,
+      dryRun = Lude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiDryRun :: Lens.Lens' DeleteFpgaImage (Lude.Maybe Lude.Bool)
-dfiDryRun = Lens.lens (dryRun :: DeleteFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFpgaImage)
-{-# DEPRECATED dfiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the AFI.
 --
@@ -80,6 +69,13 @@ dfiDryRun = Lens.lens (dryRun :: DeleteFpgaImage -> Lude.Maybe Lude.Bool) (\s a 
 dfiFpgaImageId :: Lens.Lens' DeleteFpgaImage Lude.Text
 dfiFpgaImageId = Lens.lens (fpgaImageId :: DeleteFpgaImage -> Lude.Text) (\s a -> s {fpgaImageId = a} :: DeleteFpgaImage)
 {-# DEPRECATED dfiFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfiDryRun :: Lens.Lens' DeleteFpgaImage (Lude.Maybe Lude.Bool)
+dfiDryRun = Lens.lens (dryRun :: DeleteFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFpgaImage)
+{-# DEPRECATED dfiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest DeleteFpgaImage where
   type Rs DeleteFpgaImage = DeleteFpgaImageResponse
@@ -102,29 +98,24 @@ instance Lude.ToQuery DeleteFpgaImage where
     Lude.mconcat
       [ "Action" Lude.=: ("DeleteFpgaImage" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
-        "FpgaImageId" Lude.=: fpgaImageId
+        "FpgaImageId" Lude.=: fpgaImageId,
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | /See:/ 'mkDeleteFpgaImageResponse' smart constructor.
 data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
-  { return ::
-      Lude.Maybe Lude.Bool,
+  { -- | Is @true@ if the request succeeds, and an error otherwise.
+    return :: Lude.Maybe Lude.Bool,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteFpgaImageResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
+-- * 'responseStatus' - The response status code.
 mkDeleteFpgaImageResponse ::
   -- | 'responseStatus'
   Lude.Int ->

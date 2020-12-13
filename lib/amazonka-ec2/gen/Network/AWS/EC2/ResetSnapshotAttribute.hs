@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     mkResetSnapshotAttribute,
 
     -- ** Request lenses
-    rsaDryRun,
     rsaAttribute,
+    rsaDryRun,
     rsaSnapshotId,
 
     -- * Destructuring the response
@@ -39,18 +40,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkResetSnapshotAttribute' smart constructor.
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The attribute to reset. Currently, only the attribute for permission to create volumes can be reset.
     attribute :: SnapshotAttributeName,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The ID of the snapshot.
     snapshotId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetSnapshotAttribute' with the minimum fields required to make a request.
@@ -66,17 +63,10 @@ mkResetSnapshotAttribute ::
   ResetSnapshotAttribute
 mkResetSnapshotAttribute pAttribute_ pSnapshotId_ =
   ResetSnapshotAttribute'
-    { dryRun = Lude.Nothing,
-      attribute = pAttribute_,
+    { attribute = pAttribute_,
+      dryRun = Lude.Nothing,
       snapshotId = pSnapshotId_
     }
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsaDryRun :: Lens.Lens' ResetSnapshotAttribute (Lude.Maybe Lude.Bool)
-rsaDryRun = Lens.lens (dryRun :: ResetSnapshotAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetSnapshotAttribute)
-{-# DEPRECATED rsaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The attribute to reset. Currently, only the attribute for permission to create volumes can be reset.
 --
@@ -84,6 +74,13 @@ rsaDryRun = Lens.lens (dryRun :: ResetSnapshotAttribute -> Lude.Maybe Lude.Bool)
 rsaAttribute :: Lens.Lens' ResetSnapshotAttribute SnapshotAttributeName
 rsaAttribute = Lens.lens (attribute :: ResetSnapshotAttribute -> SnapshotAttributeName) (\s a -> s {attribute = a} :: ResetSnapshotAttribute)
 {-# DEPRECATED rsaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsaDryRun :: Lens.Lens' ResetSnapshotAttribute (Lude.Maybe Lude.Bool)
+rsaDryRun = Lens.lens (dryRun :: ResetSnapshotAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ResetSnapshotAttribute)
+{-# DEPRECATED rsaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the snapshot.
 --
@@ -108,20 +105,14 @@ instance Lude.ToQuery ResetSnapshotAttribute where
     Lude.mconcat
       [ "Action" Lude.=: ("ResetSnapshotAttribute" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
         "Attribute" Lude.=: attribute,
+        "DryRun" Lude.=: dryRun,
         "SnapshotId" Lude.=: snapshotId
       ]
 
 -- | /See:/ 'mkResetSnapshotAttributeResponse' smart constructor.
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetSnapshotAttributeResponse' with the minimum fields required to make a request.

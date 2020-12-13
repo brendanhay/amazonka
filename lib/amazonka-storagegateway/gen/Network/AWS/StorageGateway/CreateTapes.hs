@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.StorageGateway.CreateTapes
     mkCreateTapes,
 
     -- ** Request lenses
+    ctTapeBarcodePrefix,
     ctKMSKey,
+    ctClientToken,
+    ctGatewayARN,
+    ctTapeSizeInBytes,
     ctKMSEncrypted,
     ctPoolId,
     ctWorm,
-    ctTags,
-    ctGatewayARN,
-    ctTapeSizeInBytes,
-    ctClientToken,
     ctNumTapesToCreate,
-    ctTapeBarcodePrefix,
+    ctTags,
 
     -- * Destructuring the response
     CreateTapesResponse (..),
@@ -50,72 +51,87 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkCreateTapes' smart constructor.
 data CreateTapes = CreateTapes'
-  { kmsKey :: Lude.Maybe Lude.Text,
-    kmsEncrypted :: Lude.Maybe Lude.Bool,
-    poolId :: Lude.Maybe Lude.Text,
-    worm :: Lude.Maybe Lude.Bool,
-    tags :: Lude.Maybe [Tag],
-    gatewayARN :: Lude.Text,
-    tapeSizeInBytes :: Lude.Integer,
+  { -- | A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
+    tapeBarcodePrefix :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
+    kmsKey :: Lude.Maybe Lude.Text,
+    -- | A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
     clientToken :: Lude.Text,
+    -- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
+    gatewayARN :: Lude.Text,
+    -- | The size, in bytes, of the virtual tapes that you want to create.
+    tapeSizeInBytes :: Lude.Integer,
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    --
+    -- Valid Values: @true@ | @false@
+    kmsEncrypted :: Lude.Maybe Lude.Bool,
+    -- | The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+    --
+    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
+    poolId :: Lude.Maybe Lude.Text,
+    -- | Set to @TRUE@ if the tape you are creating is to be configured as a write-once-read-many (WORM) tape.
+    worm :: Lude.Maybe Lude.Bool,
+    -- | The number of virtual tapes that you want to create.
     numTapesToCreate :: Lude.Natural,
-    tapeBarcodePrefix :: Lude.Text
+    -- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value pair.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTapes' with the minimum fields required to make a request.
 --
+-- * 'tapeBarcodePrefix' - A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
+-- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
 -- * 'clientToken' - A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
 -- * 'gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
+-- * 'tapeSizeInBytes' - The size, in bytes, of the virtual tapes that you want to create.
 -- * 'kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
--- * 'kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
--- * 'numTapesToCreate' - The number of virtual tapes that you want to create.
 -- * 'poolId' - The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
--- * 'tags' - A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value pair.
--- * 'tapeBarcodePrefix' - A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
--- * 'tapeSizeInBytes' - The size, in bytes, of the virtual tapes that you want to create.
 -- * 'worm' - Set to @TRUE@ if the tape you are creating is to be configured as a write-once-read-many (WORM) tape.
+-- * 'numTapesToCreate' - The number of virtual tapes that you want to create.
+-- * 'tags' - A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value pair.
 mkCreateTapes ::
+  -- | 'tapeBarcodePrefix'
+  Lude.Text ->
+  -- | 'clientToken'
+  Lude.Text ->
   -- | 'gatewayARN'
   Lude.Text ->
   -- | 'tapeSizeInBytes'
   Lude.Integer ->
-  -- | 'clientToken'
-  Lude.Text ->
   -- | 'numTapesToCreate'
   Lude.Natural ->
-  -- | 'tapeBarcodePrefix'
-  Lude.Text ->
   CreateTapes
 mkCreateTapes
+  pTapeBarcodePrefix_
+  pClientToken_
   pGatewayARN_
   pTapeSizeInBytes_
-  pClientToken_
-  pNumTapesToCreate_
-  pTapeBarcodePrefix_ =
+  pNumTapesToCreate_ =
     CreateTapes'
-      { kmsKey = Lude.Nothing,
+      { tapeBarcodePrefix = pTapeBarcodePrefix_,
+        kmsKey = Lude.Nothing,
+        clientToken = pClientToken_,
+        gatewayARN = pGatewayARN_,
+        tapeSizeInBytes = pTapeSizeInBytes_,
         kmsEncrypted = Lude.Nothing,
         poolId = Lude.Nothing,
         worm = Lude.Nothing,
-        tags = Lude.Nothing,
-        gatewayARN = pGatewayARN_,
-        tapeSizeInBytes = pTapeSizeInBytes_,
-        clientToken = pClientToken_,
         numTapesToCreate = pNumTapesToCreate_,
-        tapeBarcodePrefix = pTapeBarcodePrefix_
+        tags = Lude.Nothing
       }
+
+-- | A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
+--
+-- /Note:/ Consider using 'tapeBarcodePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTapeBarcodePrefix :: Lens.Lens' CreateTapes Lude.Text
+ctTapeBarcodePrefix = Lens.lens (tapeBarcodePrefix :: CreateTapes -> Lude.Text) (\s a -> s {tapeBarcodePrefix = a} :: CreateTapes)
+{-# DEPRECATED ctTapeBarcodePrefix "Use generic-lens or generic-optics with 'tapeBarcodePrefix' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when @KMSEncrypted@ is @true@ . Optional.
 --
@@ -123,6 +139,27 @@ mkCreateTapes
 ctKMSKey :: Lens.Lens' CreateTapes (Lude.Maybe Lude.Text)
 ctKMSKey = Lens.lens (kmsKey :: CreateTapes -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: CreateTapes)
 {-# DEPRECATED ctKMSKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
+
+-- | A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctClientToken :: Lens.Lens' CreateTapes Lude.Text
+ctClientToken = Lens.lens (clientToken :: CreateTapes -> Lude.Text) (\s a -> s {clientToken = a} :: CreateTapes)
+{-# DEPRECATED ctClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctGatewayARN :: Lens.Lens' CreateTapes Lude.Text
+ctGatewayARN = Lens.lens (gatewayARN :: CreateTapes -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateTapes)
+{-# DEPRECATED ctGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+
+-- | The size, in bytes, of the virtual tapes that you want to create.
+--
+-- /Note:/ Consider using 'tapeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTapeSizeInBytes :: Lens.Lens' CreateTapes Lude.Integer
+ctTapeSizeInBytes = Lens.lens (tapeSizeInBytes :: CreateTapes -> Lude.Integer) (\s a -> s {tapeSizeInBytes = a} :: CreateTapes)
+{-# DEPRECATED ctTapeSizeInBytes "Use generic-lens or generic-optics with 'tapeSizeInBytes' instead." #-}
 
 -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
@@ -149,34 +186,6 @@ ctWorm :: Lens.Lens' CreateTapes (Lude.Maybe Lude.Bool)
 ctWorm = Lens.lens (worm :: CreateTapes -> Lude.Maybe Lude.Bool) (\s a -> s {worm = a} :: CreateTapes)
 {-# DEPRECATED ctWorm "Use generic-lens or generic-optics with 'worm' instead." #-}
 
--- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value pair.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTapes (Lude.Maybe [Tag])
-ctTags = Lens.lens (tags :: CreateTapes -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTapes)
-{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The unique Amazon Resource Name (ARN) that represents the gateway to associate the virtual tapes with. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctGatewayARN :: Lens.Lens' CreateTapes Lude.Text
-ctGatewayARN = Lens.lens (gatewayARN :: CreateTapes -> Lude.Text) (\s a -> s {gatewayARN = a} :: CreateTapes)
-{-# DEPRECATED ctGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | The size, in bytes, of the virtual tapes that you want to create.
---
--- /Note:/ Consider using 'tapeSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTapeSizeInBytes :: Lens.Lens' CreateTapes Lude.Integer
-ctTapeSizeInBytes = Lens.lens (tapeSizeInBytes :: CreateTapes -> Lude.Integer) (\s a -> s {tapeSizeInBytes = a} :: CreateTapes)
-{-# DEPRECATED ctTapeSizeInBytes "Use generic-lens or generic-optics with 'tapeSizeInBytes' instead." #-}
-
--- | A unique identifier that you use to retry a request. If you retry a request, use the same @ClientToken@ you specified in the initial request.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctClientToken :: Lens.Lens' CreateTapes Lude.Text
-ctClientToken = Lens.lens (clientToken :: CreateTapes -> Lude.Text) (\s a -> s {clientToken = a} :: CreateTapes)
-{-# DEPRECATED ctClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
 -- | The number of virtual tapes that you want to create.
 --
 -- /Note:/ Consider using 'numTapesToCreate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -184,12 +193,12 @@ ctNumTapesToCreate :: Lens.Lens' CreateTapes Lude.Natural
 ctNumTapesToCreate = Lens.lens (numTapesToCreate :: CreateTapes -> Lude.Natural) (\s a -> s {numTapesToCreate = a} :: CreateTapes)
 {-# DEPRECATED ctNumTapesToCreate "Use generic-lens or generic-optics with 'numTapesToCreate' instead." #-}
 
--- | A prefix that you append to the barcode of the virtual tape you are creating. This prefix makes the barcode unique.
+-- | A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value pair.
 --
--- /Note:/ Consider using 'tapeBarcodePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTapeBarcodePrefix :: Lens.Lens' CreateTapes Lude.Text
-ctTapeBarcodePrefix = Lens.lens (tapeBarcodePrefix :: CreateTapes -> Lude.Text) (\s a -> s {tapeBarcodePrefix = a} :: CreateTapes)
-{-# DEPRECATED ctTapeBarcodePrefix "Use generic-lens or generic-optics with 'tapeBarcodePrefix' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctTags :: Lens.Lens' CreateTapes (Lude.Maybe [Tag])
+ctTags = Lens.lens (tags :: CreateTapes -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTapes)
+{-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateTapes where
   type Rs CreateTapes = CreateTapesResponse
@@ -217,16 +226,16 @@ instance Lude.ToJSON CreateTapes where
   toJSON CreateTapes' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("KMSKey" Lude..=) Lude.<$> kmsKey,
+          [ Lude.Just ("TapeBarcodePrefix" Lude..= tapeBarcodePrefix),
+            ("KMSKey" Lude..=) Lude.<$> kmsKey,
+            Lude.Just ("ClientToken" Lude..= clientToken),
+            Lude.Just ("GatewayARN" Lude..= gatewayARN),
+            Lude.Just ("TapeSizeInBytes" Lude..= tapeSizeInBytes),
             ("KMSEncrypted" Lude..=) Lude.<$> kmsEncrypted,
             ("PoolId" Lude..=) Lude.<$> poolId,
             ("Worm" Lude..=) Lude.<$> worm,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("TapeSizeInBytes" Lude..= tapeSizeInBytes),
-            Lude.Just ("ClientToken" Lude..= clientToken),
             Lude.Just ("NumTapesToCreate" Lude..= numTapesToCreate),
-            Lude.Just ("TapeBarcodePrefix" Lude..= tapeBarcodePrefix)
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -240,23 +249,18 @@ instance Lude.ToQuery CreateTapes where
 --
 -- /See:/ 'mkCreateTapesResponse' smart constructor.
 data CreateTapesResponse = CreateTapesResponse'
-  { tapeARNs ::
-      Lude.Maybe [Lude.Text],
+  { -- | A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created.
+    tapeARNs :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTapesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'tapeARNs' - A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created.
+-- * 'responseStatus' - The response status code.
 mkCreateTapesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

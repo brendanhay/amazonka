@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -40,24 +41,17 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkUpdateBandwidthRateLimitSchedule' smart constructor.
 data UpdateBandwidthRateLimitSchedule = UpdateBandwidthRateLimitSchedule'
-  { gatewayARN ::
-      Lude.Text,
-    bandwidthRateLimitIntervals ::
-      [BandwidthRateLimitInterval]
+  { gatewayARN :: Lude.Text,
+    -- | An array containing bandwidth rate limit schedule intervals for a gateway. When no bandwidth rate limit intervals have been scheduled, the array is empty.
+    bandwidthRateLimitIntervals :: [BandwidthRateLimitInterval]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBandwidthRateLimitSchedule' with the minimum fields required to make a request.
 --
+-- * 'gatewayARN' -
 -- * 'bandwidthRateLimitIntervals' - An array containing bandwidth rate limit schedule intervals for a gateway. When no bandwidth rate limit intervals have been scheduled, the array is empty.
--- * 'gatewayARN' - Undocumented field.
 mkUpdateBandwidthRateLimitSchedule ::
   -- | 'gatewayARN'
   Lude.Text ->
@@ -127,24 +121,16 @@ instance Lude.ToQuery UpdateBandwidthRateLimitSchedule where
 
 -- | /See:/ 'mkUpdateBandwidthRateLimitScheduleResponse' smart constructor.
 data UpdateBandwidthRateLimitScheduleResponse = UpdateBandwidthRateLimitScheduleResponse'
-  { gatewayARN ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { gatewayARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateBandwidthRateLimitScheduleResponse' with the minimum fields required to make a request.
 --
--- * 'gatewayARN' - Undocumented field.
+-- * 'gatewayARN' -
 -- * 'responseStatus' - The response status code.
 mkUpdateBandwidthRateLimitScheduleResponse ::
   -- | 'responseStatus'

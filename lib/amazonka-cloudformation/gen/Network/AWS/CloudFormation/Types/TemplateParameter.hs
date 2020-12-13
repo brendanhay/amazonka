@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTemplateParameter' smart constructor.
 data TemplateParameter = TemplateParameter'
-  { parameterKey ::
-      Lude.Maybe Lude.Text,
+  { -- | The name associated with the parameter.
+    parameterKey :: Lude.Maybe Lude.Text,
+    -- | The default value associated with the parameter.
     defaultValue :: Lude.Maybe Lude.Text,
+    -- | Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
     noEcho :: Lude.Maybe Lude.Bool,
+    -- | User defined description associated with the parameter.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TemplateParameter' with the minimum fields required to make a request.
 --
--- * 'defaultValue' - The default value associated with the parameter.
--- * 'description' - User defined description associated with the parameter.
--- * 'noEcho' - Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
 -- * 'parameterKey' - The name associated with the parameter.
+-- * 'defaultValue' - The default value associated with the parameter.
+-- * 'noEcho' - Flag indicating whether the parameter should be displayed as plain text in logs and UIs.
+-- * 'description' - User defined description associated with the parameter.
 mkTemplateParameter ::
   TemplateParameter
 mkTemplateParameter =

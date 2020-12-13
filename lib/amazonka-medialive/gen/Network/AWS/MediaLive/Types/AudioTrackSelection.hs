@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAudioTrackSelection' smart constructor.
 newtype AudioTrackSelection = AudioTrackSelection'
-  { tracks ::
-      [AudioTrack]
+  { -- | Selects one or more unique audio tracks from within a source.
+    tracks :: [AudioTrack]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AudioTrackSelection' with the minimum fields required to make a request.

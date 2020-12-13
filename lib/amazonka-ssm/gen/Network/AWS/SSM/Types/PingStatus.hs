@@ -13,9 +13,9 @@
 module Network.AWS.SSM.Types.PingStatus
   ( PingStatus
       ( PingStatus',
+        Online,
         ConnectionLost,
-        Inactive,
-        Online
+        Inactive
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype PingStatus = PingStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Online :: PingStatus
+pattern Online = PingStatus' "Online"
+
 pattern ConnectionLost :: PingStatus
 pattern ConnectionLost = PingStatus' "ConnectionLost"
 
 pattern Inactive :: PingStatus
 pattern Inactive = PingStatus' "Inactive"
 
-pattern Online :: PingStatus
-pattern Online = PingStatus' "Online"
-
 {-# COMPLETE
+  Online,
   ConnectionLost,
   Inactive,
-  Online,
   PingStatus'
   #-}

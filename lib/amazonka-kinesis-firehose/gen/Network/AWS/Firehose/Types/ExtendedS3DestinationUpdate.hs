@@ -47,52 +47,48 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExtendedS3DestinationUpdate' smart constructor.
 data ExtendedS3DestinationUpdate = ExtendedS3DestinationUpdate'
-  { s3BackupMode ::
-      Lude.Maybe S3BackupMode,
+  { -- | You can update a delivery stream to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
+    s3BackupMode :: Lude.Maybe S3BackupMode,
+    -- | The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
     prefix :: Lude.Maybe Lude.Text,
-    cloudWatchLoggingOptions ::
-      Lude.Maybe CloudWatchLoggingOptions,
-    errorOutputPrefix ::
-      Lude.Maybe Lude.Text,
-    s3BackupUpdate ::
-      Lude.Maybe S3DestinationUpdate,
-    encryptionConfiguration ::
-      Lude.Maybe EncryptionConfiguration,
-    compressionFormat ::
-      Lude.Maybe CompressionFormat,
-    bufferingHints ::
-      Lude.Maybe BufferingHints,
-    dataFormatConversionConfiguration ::
-      Lude.Maybe
-        DataFormatConversionConfiguration,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
+    -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+    errorOutputPrefix :: Lude.Maybe Lude.Text,
+    -- | The Amazon S3 destination for backup.
+    s3BackupUpdate :: Lude.Maybe S3DestinationUpdate,
+    -- | The encryption configuration. If no value is specified, the default is no encryption.
+    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
+    -- | The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+    compressionFormat :: Lude.Maybe CompressionFormat,
+    -- | The buffering option.
+    bufferingHints :: Lude.Maybe BufferingHints,
+    -- | The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
+    dataFormatConversionConfiguration :: Lude.Maybe DataFormatConversionConfiguration,
+    -- | The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
     bucketARN :: Lude.Maybe Lude.Text,
-    processingConfiguration ::
-      Lude.Maybe ProcessingConfiguration,
+    -- | The data processing configuration.
+    processingConfiguration :: Lude.Maybe ProcessingConfiguration,
+    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExtendedS3DestinationUpdate' with the minimum fields required to make a request.
 --
--- * 'bucketARN' - The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 'bufferingHints' - The buffering option.
--- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
--- * 'compressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
--- * 'dataFormatConversionConfiguration' - The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
--- * 'encryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
--- * 'errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+-- * 's3BackupMode' - You can update a delivery stream to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 -- * 'prefix' - The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+-- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
+-- * 'errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects> .
+-- * 's3BackupUpdate' - The Amazon S3 destination for backup.
+-- * 'encryptionConfiguration' - The encryption configuration. If no value is specified, the default is no encryption.
+-- * 'compressionFormat' - The compression format. If no value is specified, the default is @UNCOMPRESSED@ .
+-- * 'bufferingHints' - The buffering option.
+-- * 'dataFormatConversionConfiguration' - The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
+-- * 'bucketARN' - The ARN of the S3 bucket. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 -- * 'processingConfiguration' - The data processing configuration.
 -- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
--- * 's3BackupMode' - You can update a delivery stream to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
--- * 's3BackupUpdate' - The Amazon S3 destination for backup.
 mkExtendedS3DestinationUpdate ::
   ExtendedS3DestinationUpdate
 mkExtendedS3DestinationUpdate =

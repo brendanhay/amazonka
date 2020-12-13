@@ -13,9 +13,9 @@
 module Network.AWS.Lightsail.Types.ForwardValues
   ( ForwardValues
       ( ForwardValues',
-        FVAll,
+        FVNone,
         FVAllowList,
-        FVNone
+        FVAll
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ForwardValues = ForwardValues' Lude.Text
       Lude.ToHeader
     )
 
-pattern FVAll :: ForwardValues
-pattern FVAll = ForwardValues' "all"
+pattern FVNone :: ForwardValues
+pattern FVNone = ForwardValues' "none"
 
 pattern FVAllowList :: ForwardValues
 pattern FVAllowList = ForwardValues' "allow-list"
 
-pattern FVNone :: ForwardValues
-pattern FVNone = ForwardValues' "none"
+pattern FVAll :: ForwardValues
+pattern FVAll = ForwardValues' "all"
 
 {-# COMPLETE
-  FVAll,
-  FVAllowList,
   FVNone,
+  FVAllowList,
+  FVAll,
   ForwardValues'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
     mkDescribeIdentityProvider,
 
     -- ** Request lenses
-    dipUserPoolId,
-    dipProviderName,
+    dipfUserPoolId,
+    dipfProviderName,
 
     -- * Destructuring the response
     DescribeIdentityProviderResponse (..),
     mkDescribeIdentityProviderResponse,
 
     -- ** Response lenses
-    diprsResponseStatus,
     diprsIdentityProvider,
+    diprsResponseStatus,
   )
 where
 
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeIdentityProvider' smart constructor.
 data DescribeIdentityProvider = DescribeIdentityProvider'
-  { userPoolId ::
-      Lude.Text,
+  { -- | The user pool ID.
+    userPoolId :: Lude.Text,
+    -- | The identity provider name.
     providerName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityProvider' with the minimum fields required to make a request.
 --
--- * 'providerName' - The identity provider name.
 -- * 'userPoolId' - The user pool ID.
+-- * 'providerName' - The identity provider name.
 mkDescribeIdentityProvider ::
   -- | 'userPoolId'
   Lude.Text ->
@@ -72,16 +68,16 @@ mkDescribeIdentityProvider pUserPoolId_ pProviderName_ =
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipUserPoolId :: Lens.Lens' DescribeIdentityProvider Lude.Text
-dipUserPoolId = Lens.lens (userPoolId :: DescribeIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeIdentityProvider)
-{-# DEPRECATED dipUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+dipfUserPoolId :: Lens.Lens' DescribeIdentityProvider Lude.Text
+dipfUserPoolId = Lens.lens (userPoolId :: DescribeIdentityProvider -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeIdentityProvider)
+{-# DEPRECATED dipfUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identity provider name.
 --
 -- /Note:/ Consider using 'providerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipProviderName :: Lens.Lens' DescribeIdentityProvider Lude.Text
-dipProviderName = Lens.lens (providerName :: DescribeIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: DescribeIdentityProvider)
-{-# DEPRECATED dipProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
+dipfProviderName :: Lens.Lens' DescribeIdentityProvider Lude.Text
+dipfProviderName = Lens.lens (providerName :: DescribeIdentityProvider -> Lude.Text) (\s a -> s {providerName = a} :: DescribeIdentityProvider)
+{-# DEPRECATED dipfProviderName "Use generic-lens or generic-optics with 'providerName' instead." #-}
 
 instance Lude.AWSRequest DescribeIdentityProvider where
   type Rs DescribeIdentityProvider = DescribeIdentityProviderResponse
@@ -90,8 +86,8 @@ instance Lude.AWSRequest DescribeIdentityProvider where
     Res.receiveJSON
       ( \s h x ->
           DescribeIdentityProviderResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..:> "IdentityProvider")
+            Lude.<$> (x Lude..:> "IdentityProvider")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeIdentityProvider where
@@ -124,18 +120,12 @@ instance Lude.ToQuery DescribeIdentityProvider where
 
 -- | /See:/ 'mkDescribeIdentityProviderResponse' smart constructor.
 data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
-  { responseStatus ::
-      Lude.Int,
-    identityProvider ::
-      IdentityProviderType
+  { -- | The identity provider that was deleted.
+    identityProvider :: IdentityProviderType,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeIdentityProviderResponse' with the minimum fields required to make a request.
@@ -143,26 +133,19 @@ data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
 -- * 'identityProvider' - The identity provider that was deleted.
 -- * 'responseStatus' - The response status code.
 mkDescribeIdentityProviderResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'identityProvider'
   IdentityProviderType ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeIdentityProviderResponse
 mkDescribeIdentityProviderResponse
-  pResponseStatus_
-  pIdentityProvider_ =
+  pIdentityProvider_
+  pResponseStatus_ =
     DescribeIdentityProviderResponse'
-      { responseStatus =
-          pResponseStatus_,
-        identityProvider = pIdentityProvider_
+      { identityProvider =
+          pIdentityProvider_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diprsResponseStatus :: Lens.Lens' DescribeIdentityProviderResponse Lude.Int
-diprsResponseStatus = Lens.lens (responseStatus :: DescribeIdentityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIdentityProviderResponse)
-{-# DEPRECATED diprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | The identity provider that was deleted.
 --
@@ -170,3 +153,10 @@ diprsResponseStatus = Lens.lens (responseStatus :: DescribeIdentityProviderRespo
 diprsIdentityProvider :: Lens.Lens' DescribeIdentityProviderResponse IdentityProviderType
 diprsIdentityProvider = Lens.lens (identityProvider :: DescribeIdentityProviderResponse -> IdentityProviderType) (\s a -> s {identityProvider = a} :: DescribeIdentityProviderResponse)
 {-# DEPRECATED diprsIdentityProvider "Use generic-lens or generic-optics with 'identityProvider' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diprsResponseStatus :: Lens.Lens' DescribeIdentityProviderResponse Lude.Int
+diprsResponseStatus = Lens.lens (responseStatus :: DescribeIdentityProviderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIdentityProviderResponse)
+{-# DEPRECATED diprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

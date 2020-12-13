@@ -32,25 +32,21 @@ import Network.AWS.Rekognition.Types.FaceDetail
 --
 -- /See:/ 'mkPersonDetail' smart constructor.
 data PersonDetail = PersonDetail'
-  { boundingBox ::
-      Lude.Maybe BoundingBox,
+  { -- | Bounding box around the detected person.
+    boundingBox :: Lude.Maybe BoundingBox,
+    -- | Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.
     index :: Lude.Maybe Lude.Integer,
+    -- | Face details for the detected person.
     face :: Lude.Maybe FaceDetail
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PersonDetail' with the minimum fields required to make a request.
 --
 -- * 'boundingBox' - Bounding box around the detected person.
--- * 'face' - Face details for the detected person.
 -- * 'index' - Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.
+-- * 'face' - Face details for the detected person.
 mkPersonDetail ::
   PersonDetail
 mkPersonDetail =

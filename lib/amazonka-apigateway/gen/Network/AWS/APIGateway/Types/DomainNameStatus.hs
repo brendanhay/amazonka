@@ -14,8 +14,8 @@ module Network.AWS.APIGateway.Types.DomainNameStatus
   ( DomainNameStatus
       ( DomainNameStatus',
         DNSAvailable,
-        DNSPending,
-        DNSUpdating
+        DNSUpdating,
+        DNSPending
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype DomainNameStatus = DomainNameStatus' Lude.Text
 pattern DNSAvailable :: DomainNameStatus
 pattern DNSAvailable = DomainNameStatus' "AVAILABLE"
 
-pattern DNSPending :: DomainNameStatus
-pattern DNSPending = DomainNameStatus' "PENDING"
-
 pattern DNSUpdating :: DomainNameStatus
 pattern DNSUpdating = DomainNameStatus' "UPDATING"
 
+pattern DNSPending :: DomainNameStatus
+pattern DNSPending = DomainNameStatus' "PENDING"
+
 {-# COMPLETE
   DNSAvailable,
-  DNSPending,
   DNSUpdating,
+  DNSPending,
   DomainNameStatus'
   #-}

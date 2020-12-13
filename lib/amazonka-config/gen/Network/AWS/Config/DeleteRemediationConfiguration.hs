@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Config.DeleteRemediationConfiguration
     mkDeleteRemediationConfiguration,
 
     -- ** Request lenses
-    delResourceType,
-    delConfigRuleName,
+    drcfResourceType,
+    drcfConfigRuleName,
 
     -- * Destructuring the response
     DeleteRemediationConfigurationResponse (..),
@@ -39,23 +40,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRemediationConfiguration' smart constructor.
 data DeleteRemediationConfiguration = DeleteRemediationConfiguration'
-  { resourceType ::
-      Lude.Maybe Lude.Text,
+  { -- | The type of a resource.
+    resourceType :: Lude.Maybe Lude.Text,
+    -- | The name of the AWS Config rule for which you want to delete remediation configuration.
     configRuleName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRemediationConfiguration' with the minimum fields required to make a request.
 --
--- * 'configRuleName' - The name of the AWS Config rule for which you want to delete remediation configuration.
 -- * 'resourceType' - The type of a resource.
+-- * 'configRuleName' - The name of the AWS Config rule for which you want to delete remediation configuration.
 mkDeleteRemediationConfiguration ::
   -- | 'configRuleName'
   Lude.Text ->
@@ -69,16 +65,16 @@ mkDeleteRemediationConfiguration pConfigRuleName_ =
 -- | The type of a resource.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delResourceType :: Lens.Lens' DeleteRemediationConfiguration (Lude.Maybe Lude.Text)
-delResourceType = Lens.lens (resourceType :: DeleteRemediationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: DeleteRemediationConfiguration)
-{-# DEPRECATED delResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+drcfResourceType :: Lens.Lens' DeleteRemediationConfiguration (Lude.Maybe Lude.Text)
+drcfResourceType = Lens.lens (resourceType :: DeleteRemediationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: DeleteRemediationConfiguration)
+{-# DEPRECATED drcfResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The name of the AWS Config rule for which you want to delete remediation configuration.
 --
 -- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-delConfigRuleName :: Lens.Lens' DeleteRemediationConfiguration Lude.Text
-delConfigRuleName = Lens.lens (configRuleName :: DeleteRemediationConfiguration -> Lude.Text) (\s a -> s {configRuleName = a} :: DeleteRemediationConfiguration)
-{-# DEPRECATED delConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
+drcfConfigRuleName :: Lens.Lens' DeleteRemediationConfiguration Lude.Text
+drcfConfigRuleName = Lens.lens (configRuleName :: DeleteRemediationConfiguration -> Lude.Text) (\s a -> s {configRuleName = a} :: DeleteRemediationConfiguration)
+{-# DEPRECATED drcfConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
 instance Lude.AWSRequest DeleteRemediationConfiguration where
   type
@@ -122,16 +118,10 @@ instance Lude.ToQuery DeleteRemediationConfiguration where
 
 -- | /See:/ 'mkDeleteRemediationConfigurationResponse' smart constructor.
 newtype DeleteRemediationConfigurationResponse = DeleteRemediationConfigurationResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRemediationConfigurationResponse' with the minimum fields required to make a request.

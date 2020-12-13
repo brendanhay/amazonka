@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCreateTemplateMessageBody' smart constructor.
 data CreateTemplateMessageBody = CreateTemplateMessageBody'
-  { requestId ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique identifier for the request to create the message template.
+    requestId :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the message template that was created.
     arn :: Lude.Maybe Lude.Text,
+    -- | The message that's returned from the API for the request to create the message template.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTemplateMessageBody' with the minimum fields required to make a request.
 --
+-- * 'requestId' - The unique identifier for the request to create the message template.
 -- * 'arn' - The Amazon Resource Name (ARN) of the message template that was created.
 -- * 'message' - The message that's returned from the API for the request to create the message template.
--- * 'requestId' - The unique identifier for the request to create the message template.
 mkCreateTemplateMessageBody ::
   CreateTemplateMessageBody
 mkCreateTemplateMessageBody =

@@ -13,8 +13,8 @@
 module Network.AWS.AppStream.Types.ImageBuilderStateChangeReasonCode
   ( ImageBuilderStateChangeReasonCode
       ( ImageBuilderStateChangeReasonCode',
-        ImageUnavailable,
-        InternalError
+        IBSCRCInternalError,
+        IBSCRCImageUnavailable
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ImageBuilderStateChangeReasonCode = ImageBuilderStateChangeReasonCode' L
       Lude.ToHeader
     )
 
-pattern ImageUnavailable :: ImageBuilderStateChangeReasonCode
-pattern ImageUnavailable = ImageBuilderStateChangeReasonCode' "IMAGE_UNAVAILABLE"
+pattern IBSCRCInternalError :: ImageBuilderStateChangeReasonCode
+pattern IBSCRCInternalError = ImageBuilderStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern InternalError :: ImageBuilderStateChangeReasonCode
-pattern InternalError = ImageBuilderStateChangeReasonCode' "INTERNAL_ERROR"
+pattern IBSCRCImageUnavailable :: ImageBuilderStateChangeReasonCode
+pattern IBSCRCImageUnavailable = ImageBuilderStateChangeReasonCode' "IMAGE_UNAVAILABLE"
 
 {-# COMPLETE
-  ImageUnavailable,
-  InternalError,
+  IBSCRCInternalError,
+  IBSCRCImageUnavailable,
   ImageBuilderStateChangeReasonCode'
   #-}

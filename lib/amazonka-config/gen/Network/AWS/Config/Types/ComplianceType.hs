@@ -14,9 +14,9 @@ module Network.AWS.Config.Types.ComplianceType
   ( ComplianceType
       ( ComplianceType',
         Compliant,
-        InsufficientData,
         NonCompliant,
-        NotApplicable
+        NotApplicable,
+        InsufficientData
       ),
   )
 where
@@ -50,19 +50,19 @@ newtype ComplianceType = ComplianceType' Lude.Text
 pattern Compliant :: ComplianceType
 pattern Compliant = ComplianceType' "COMPLIANT"
 
-pattern InsufficientData :: ComplianceType
-pattern InsufficientData = ComplianceType' "INSUFFICIENT_DATA"
-
 pattern NonCompliant :: ComplianceType
 pattern NonCompliant = ComplianceType' "NON_COMPLIANT"
 
 pattern NotApplicable :: ComplianceType
 pattern NotApplicable = ComplianceType' "NOT_APPLICABLE"
 
+pattern InsufficientData :: ComplianceType
+pattern InsufficientData = ComplianceType' "INSUFFICIENT_DATA"
+
 {-# COMPLETE
   Compliant,
-  InsufficientData,
   NonCompliant,
   NotApplicable,
+  InsufficientData,
   ComplianceType'
   #-}

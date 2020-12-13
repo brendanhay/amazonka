@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputWhitelistRule' smart constructor.
 newtype InputWhitelistRule = InputWhitelistRule'
-  { cidr ::
-      Lude.Maybe Lude.Text
+  { -- | The IPv4 CIDR that's whitelisted.
+    cidr :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputWhitelistRule' with the minimum fields required to make a request.

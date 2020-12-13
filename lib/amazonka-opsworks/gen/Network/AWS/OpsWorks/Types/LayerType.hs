@@ -14,17 +14,17 @@ module Network.AWS.OpsWorks.Types.LayerType
   ( LayerType
       ( LayerType',
         AWSFlowRuby,
-        Custom,
-        DBMaster,
         EcsCluster,
         JavaApp,
         LB,
-        Memcached,
-        MonitoringMaster,
-        NodejsApp,
+        Web,
         PHPApp,
         RailsApp,
-        Web
+        NodejsApp,
+        Memcached,
+        DBMaster,
+        MonitoringMaster,
+        Custom
       ),
   )
 where
@@ -58,12 +58,6 @@ newtype LayerType = LayerType' Lude.Text
 pattern AWSFlowRuby :: LayerType
 pattern AWSFlowRuby = LayerType' "aws-flow-ruby"
 
-pattern Custom :: LayerType
-pattern Custom = LayerType' "custom"
-
-pattern DBMaster :: LayerType
-pattern DBMaster = LayerType' "db-master"
-
 pattern EcsCluster :: LayerType
 pattern EcsCluster = LayerType' "ecs-cluster"
 
@@ -73,14 +67,8 @@ pattern JavaApp = LayerType' "java-app"
 pattern LB :: LayerType
 pattern LB = LayerType' "lb"
 
-pattern Memcached :: LayerType
-pattern Memcached = LayerType' "memcached"
-
-pattern MonitoringMaster :: LayerType
-pattern MonitoringMaster = LayerType' "monitoring-master"
-
-pattern NodejsApp :: LayerType
-pattern NodejsApp = LayerType' "nodejs-app"
+pattern Web :: LayerType
+pattern Web = LayerType' "web"
 
 pattern PHPApp :: LayerType
 pattern PHPApp = LayerType' "php-app"
@@ -88,21 +76,33 @@ pattern PHPApp = LayerType' "php-app"
 pattern RailsApp :: LayerType
 pattern RailsApp = LayerType' "rails-app"
 
-pattern Web :: LayerType
-pattern Web = LayerType' "web"
+pattern NodejsApp :: LayerType
+pattern NodejsApp = LayerType' "nodejs-app"
+
+pattern Memcached :: LayerType
+pattern Memcached = LayerType' "memcached"
+
+pattern DBMaster :: LayerType
+pattern DBMaster = LayerType' "db-master"
+
+pattern MonitoringMaster :: LayerType
+pattern MonitoringMaster = LayerType' "monitoring-master"
+
+pattern Custom :: LayerType
+pattern Custom = LayerType' "custom"
 
 {-# COMPLETE
   AWSFlowRuby,
-  Custom,
-  DBMaster,
   EcsCluster,
   JavaApp,
   LB,
-  Memcached,
-  MonitoringMaster,
-  NodejsApp,
+  Web,
   PHPApp,
   RailsApp,
-  Web,
+  NodejsApp,
+  Memcached,
+  DBMaster,
+  MonitoringMaster,
+  Custom,
   LayerType'
   #-}

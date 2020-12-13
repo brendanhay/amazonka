@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListMemberAccounts' smart constructor.
 data ListMemberAccounts = ListMemberAccounts'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | If you specify a value for @MaxResults@ and you have more account IDs than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of IDs. For the second and subsequent @ListMemberAccountsRequest@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of member account IDs.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of member account IDs.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMemberAccounts' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of member account IDs.
 -- * 'nextToken' - If you specify a value for @MaxResults@ and you have more account IDs than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of IDs. For the second and subsequent @ListMemberAccountsRequest@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of member account IDs.
+-- * 'maxResults' - Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of member account IDs.
 mkListMemberAccounts ::
   ListMemberAccounts
 mkListMemberAccounts =
@@ -134,25 +130,20 @@ instance Lude.ToQuery ListMemberAccounts where
 
 -- | /See:/ 'mkListMemberAccountsResponse' smart constructor.
 data ListMemberAccountsResponse = ListMemberAccountsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    memberAccounts ::
-      Lude.Maybe [Lude.Text],
+  { -- | If you have more member account IDs than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more IDs, submit another @ListMemberAccounts@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | An array of account IDs.
+    memberAccounts :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListMemberAccountsResponse' with the minimum fields required to make a request.
 --
--- * 'memberAccounts' - An array of account IDs.
 -- * 'nextToken' - If you have more member account IDs than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more IDs, submit another @ListMemberAccounts@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+-- * 'memberAccounts' - An array of account IDs.
 -- * 'responseStatus' - The response status code.
 mkListMemberAccountsResponse ::
   -- | 'responseStatus'

@@ -15,10 +15,10 @@ module Network.AWS.SSM.Types.SessionFilterKey
       ( SessionFilterKey',
         SFKInvokedAfter,
         SFKInvokedBefore,
+        SFKTarget,
         SFKOwner,
-        SFKSessionId,
         SFKStatus,
-        SFKTarget
+        SFKSessionId
       ),
   )
 where
@@ -55,24 +55,24 @@ pattern SFKInvokedAfter = SessionFilterKey' "InvokedAfter"
 pattern SFKInvokedBefore :: SessionFilterKey
 pattern SFKInvokedBefore = SessionFilterKey' "InvokedBefore"
 
+pattern SFKTarget :: SessionFilterKey
+pattern SFKTarget = SessionFilterKey' "Target"
+
 pattern SFKOwner :: SessionFilterKey
 pattern SFKOwner = SessionFilterKey' "Owner"
-
-pattern SFKSessionId :: SessionFilterKey
-pattern SFKSessionId = SessionFilterKey' "SessionId"
 
 pattern SFKStatus :: SessionFilterKey
 pattern SFKStatus = SessionFilterKey' "Status"
 
-pattern SFKTarget :: SessionFilterKey
-pattern SFKTarget = SessionFilterKey' "Target"
+pattern SFKSessionId :: SessionFilterKey
+pattern SFKSessionId = SessionFilterKey' "SessionId"
 
 {-# COMPLETE
   SFKInvokedAfter,
   SFKInvokedBefore,
-  SFKOwner,
-  SFKSessionId,
-  SFKStatus,
   SFKTarget,
+  SFKOwner,
+  SFKStatus,
+  SFKSessionId,
   SessionFilterKey'
   #-}

@@ -13,10 +13,10 @@
 module Network.AWS.ElasticSearch.Types.LogType
   ( LogType
       ( LogType',
-        AuditLogs,
-        EsApplicationLogs,
         IndexSlowLogs,
-        SearchSlowLogs
+        SearchSlowLogs,
+        EsApplicationLogs,
+        AuditLogs
       ),
   )
 where
@@ -56,22 +56,22 @@ newtype LogType = LogType' Lude.Text
       Lude.ToHeader
     )
 
-pattern AuditLogs :: LogType
-pattern AuditLogs = LogType' "AUDIT_LOGS"
-
-pattern EsApplicationLogs :: LogType
-pattern EsApplicationLogs = LogType' "ES_APPLICATION_LOGS"
-
 pattern IndexSlowLogs :: LogType
 pattern IndexSlowLogs = LogType' "INDEX_SLOW_LOGS"
 
 pattern SearchSlowLogs :: LogType
 pattern SearchSlowLogs = LogType' "SEARCH_SLOW_LOGS"
 
+pattern EsApplicationLogs :: LogType
+pattern EsApplicationLogs = LogType' "ES_APPLICATION_LOGS"
+
+pattern AuditLogs :: LogType
+pattern AuditLogs = LogType' "AUDIT_LOGS"
+
 {-# COMPLETE
-  AuditLogs,
-  EsApplicationLogs,
   IndexSlowLogs,
   SearchSlowLogs,
+  EsApplicationLogs,
+  AuditLogs,
   LogType'
   #-}

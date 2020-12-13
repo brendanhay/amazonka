@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,27 +42,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateClassifier' smart constructor.
 data CreateClassifier = CreateClassifier'
-  { grokClassifier ::
-      Lude.Maybe CreateGrokClassifierRequest,
+  { -- | A @GrokClassifier@ object specifying the classifier to create.
+    grokClassifier :: Lude.Maybe CreateGrokClassifierRequest,
+    -- | An @XMLClassifier@ object specifying the classifier to create.
     xmlClassifier :: Lude.Maybe CreateXMLClassifierRequest,
+    -- | A @CsvClassifier@ object specifying the classifier to create.
     csvClassifier :: Lude.Maybe CreateCSVClassifierRequest,
+    -- | A @JsonClassifier@ object specifying the classifier to create.
     jsonClassifier :: Lude.Maybe CreateJSONClassifierRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClassifier' with the minimum fields required to make a request.
 --
--- * 'csvClassifier' - A @CsvClassifier@ object specifying the classifier to create.
 -- * 'grokClassifier' - A @GrokClassifier@ object specifying the classifier to create.
--- * 'jsonClassifier' - A @JsonClassifier@ object specifying the classifier to create.
 -- * 'xmlClassifier' - An @XMLClassifier@ object specifying the classifier to create.
+-- * 'csvClassifier' - A @CsvClassifier@ object specifying the classifier to create.
+-- * 'jsonClassifier' - A @JsonClassifier@ object specifying the classifier to create.
 mkCreateClassifier ::
   CreateClassifier
 mkCreateClassifier =
@@ -139,16 +137,10 @@ instance Lude.ToQuery CreateClassifier where
 
 -- | /See:/ 'mkCreateClassifierResponse' smart constructor.
 newtype CreateClassifierResponse = CreateClassifierResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateClassifierResponse' with the minimum fields required to make a request.

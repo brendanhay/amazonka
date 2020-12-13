@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExportedEnvironmentVariable' smart constructor.
 data ExportedEnvironmentVariable = ExportedEnvironmentVariable'
-  { value ::
-      Lude.Maybe Lude.Text,
+  { -- | The value assigned to this exported environment variable.
+    value :: Lude.Maybe Lude.Text,
+    -- | The name of this exported environment variable.
     name :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ExportedEnvironmentVariable' with the minimum fields required to make a request.
 --
--- * 'name' - The name of this exported environment variable.
 -- * 'value' - The value assigned to this exported environment variable.
+-- * 'name' - The name of this exported environment variable.
 mkExportedEnvironmentVariable ::
   ExportedEnvironmentVariable
 mkExportedEnvironmentVariable =

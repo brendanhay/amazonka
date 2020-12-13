@@ -17,8 +17,8 @@ module Network.AWS.CloudFront.Types.QueryArgProfiles
     mkQueryArgProfiles,
 
     -- * Lenses
-    qapItems,
     qapQuantity,
+    qapItems,
   )
 where
 
@@ -30,36 +30,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQueryArgProfiles' smart constructor.
 data QueryArgProfiles = QueryArgProfiles'
-  { items ::
-      Lude.Maybe [QueryArgProfile],
-    quantity :: Lude.Int
+  { -- | Number of profiles for query argument-profile mapping for field-level encryption.
+    quantity :: Lude.Int,
+    -- | Number of items for query argument-profile mapping for field-level encryption.
+    items :: Lude.Maybe [QueryArgProfile]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QueryArgProfiles' with the minimum fields required to make a request.
 --
--- * 'items' - Number of items for query argument-profile mapping for field-level encryption.
 -- * 'quantity' - Number of profiles for query argument-profile mapping for field-level encryption.
+-- * 'items' - Number of items for query argument-profile mapping for field-level encryption.
 mkQueryArgProfiles ::
   -- | 'quantity'
   Lude.Int ->
   QueryArgProfiles
 mkQueryArgProfiles pQuantity_ =
-  QueryArgProfiles' {items = Lude.Nothing, quantity = pQuantity_}
-
--- | Number of items for query argument-profile mapping for field-level encryption.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qapItems :: Lens.Lens' QueryArgProfiles (Lude.Maybe [QueryArgProfile])
-qapItems = Lens.lens (items :: QueryArgProfiles -> Lude.Maybe [QueryArgProfile]) (\s a -> s {items = a} :: QueryArgProfiles)
-{-# DEPRECATED qapItems "Use generic-lens or generic-optics with 'items' instead." #-}
+  QueryArgProfiles' {quantity = pQuantity_, items = Lude.Nothing}
 
 -- | Number of profiles for query argument-profile mapping for field-level encryption.
 --
@@ -68,18 +56,25 @@ qapQuantity :: Lens.Lens' QueryArgProfiles Lude.Int
 qapQuantity = Lens.lens (quantity :: QueryArgProfiles -> Lude.Int) (\s a -> s {quantity = a} :: QueryArgProfiles)
 {-# DEPRECATED qapQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
+-- | Number of items for query argument-profile mapping for field-level encryption.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qapItems :: Lens.Lens' QueryArgProfiles (Lude.Maybe [QueryArgProfile])
+qapItems = Lens.lens (items :: QueryArgProfiles -> Lude.Maybe [QueryArgProfile]) (\s a -> s {items = a} :: QueryArgProfiles)
+{-# DEPRECATED qapItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
 instance Lude.FromXML QueryArgProfiles where
   parseXML x =
     QueryArgProfiles'
-      Lude.<$> ( x Lude..@? "Items" Lude..!@ Lude.mempty
+      Lude.<$> (x Lude..@ "Quantity")
+      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
                    Lude.>>= Lude.may (Lude.parseXMLList "QueryArgProfile")
                )
-      Lude.<*> (x Lude..@ "Quantity")
 
 instance Lude.ToXML QueryArgProfiles where
   toXML QueryArgProfiles' {..} =
     Lude.mconcat
-      [ "Items"
-          Lude.@= Lude.toXML (Lude.toXMLList "QueryArgProfile" Lude.<$> items),
-        "Quantity" Lude.@= quantity
+      [ "Quantity" Lude.@= quantity,
+        "Items"
+          Lude.@= Lude.toXML (Lude.toXMLList "QueryArgProfile" Lude.<$> items)
       ]

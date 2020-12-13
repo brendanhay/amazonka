@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.CognitoIdentityProvider.AdminUpdateAuthEventFeedback
     mkAdminUpdateAuthEventFeedback,
 
     -- ** Request lenses
+    auaefFeedbackValue,
     auaefUserPoolId,
     auaefUsername,
     auaefEventId,
-    auaefFeedbackValue,
 
     -- * Destructuring the response
     AdminUpdateAuthEventFeedbackResponse (..),
@@ -41,44 +42,52 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAdminUpdateAuthEventFeedback' smart constructor.
 data AdminUpdateAuthEventFeedback = AdminUpdateAuthEventFeedback'
-  { userPoolId ::
-      Lude.Text,
-    username ::
-      Lude.Sensitive Lude.Text,
-    eventId :: Lude.Text,
-    feedbackValue ::
-      FeedbackValueType
+  { -- | The authentication event feedback value.
+    feedbackValue :: FeedbackValueType,
+    -- | The user pool ID.
+    userPoolId :: Lude.Text,
+    -- | The user pool username.
+    username :: Lude.Sensitive Lude.Text,
+    -- | The authentication event ID.
+    eventId :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminUpdateAuthEventFeedback' with the minimum fields required to make a request.
 --
--- * 'eventId' - The authentication event ID.
 -- * 'feedbackValue' - The authentication event feedback value.
 -- * 'userPoolId' - The user pool ID.
 -- * 'username' - The user pool username.
+-- * 'eventId' - The authentication event ID.
 mkAdminUpdateAuthEventFeedback ::
+  -- | 'feedbackValue'
+  FeedbackValueType ->
   -- | 'userPoolId'
   Lude.Text ->
   -- | 'username'
   Lude.Sensitive Lude.Text ->
   -- | 'eventId'
   Lude.Text ->
-  -- | 'feedbackValue'
-  FeedbackValueType ->
   AdminUpdateAuthEventFeedback
 mkAdminUpdateAuthEventFeedback
+  pFeedbackValue_
   pUserPoolId_
   pUsername_
-  pEventId_
-  pFeedbackValue_ =
+  pEventId_ =
     AdminUpdateAuthEventFeedback'
-      { userPoolId = pUserPoolId_,
+      { feedbackValue = pFeedbackValue_,
+        userPoolId = pUserPoolId_,
         username = pUsername_,
-        eventId = pEventId_,
-        feedbackValue = pFeedbackValue_
+        eventId = pEventId_
       }
+
+-- | The authentication event feedback value.
+--
+-- /Note:/ Consider using 'feedbackValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+auaefFeedbackValue :: Lens.Lens' AdminUpdateAuthEventFeedback FeedbackValueType
+auaefFeedbackValue = Lens.lens (feedbackValue :: AdminUpdateAuthEventFeedback -> FeedbackValueType) (\s a -> s {feedbackValue = a} :: AdminUpdateAuthEventFeedback)
+{-# DEPRECATED auaefFeedbackValue "Use generic-lens or generic-optics with 'feedbackValue' instead." #-}
 
 -- | The user pool ID.
 --
@@ -100,13 +109,6 @@ auaefUsername = Lens.lens (username :: AdminUpdateAuthEventFeedback -> Lude.Sens
 auaefEventId :: Lens.Lens' AdminUpdateAuthEventFeedback Lude.Text
 auaefEventId = Lens.lens (eventId :: AdminUpdateAuthEventFeedback -> Lude.Text) (\s a -> s {eventId = a} :: AdminUpdateAuthEventFeedback)
 {-# DEPRECATED auaefEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
-
--- | The authentication event feedback value.
---
--- /Note:/ Consider using 'feedbackValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-auaefFeedbackValue :: Lens.Lens' AdminUpdateAuthEventFeedback FeedbackValueType
-auaefFeedbackValue = Lens.lens (feedbackValue :: AdminUpdateAuthEventFeedback -> FeedbackValueType) (\s a -> s {feedbackValue = a} :: AdminUpdateAuthEventFeedback)
-{-# DEPRECATED auaefFeedbackValue "Use generic-lens or generic-optics with 'feedbackValue' instead." #-}
 
 instance Lude.AWSRequest AdminUpdateAuthEventFeedback where
   type
@@ -137,10 +139,10 @@ instance Lude.ToJSON AdminUpdateAuthEventFeedback where
   toJSON AdminUpdateAuthEventFeedback' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
+          [ Lude.Just ("FeedbackValue" Lude..= feedbackValue),
+            Lude.Just ("UserPoolId" Lude..= userPoolId),
             Lude.Just ("Username" Lude..= username),
-            Lude.Just ("EventId" Lude..= eventId),
-            Lude.Just ("FeedbackValue" Lude..= feedbackValue)
+            Lude.Just ("EventId" Lude..= eventId)
           ]
       )
 
@@ -152,16 +154,10 @@ instance Lude.ToQuery AdminUpdateAuthEventFeedback where
 
 -- | /See:/ 'mkAdminUpdateAuthEventFeedbackResponse' smart constructor.
 newtype AdminUpdateAuthEventFeedbackResponse = AdminUpdateAuthEventFeedbackResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AdminUpdateAuthEventFeedbackResponse' with the minimum fields required to make a request.

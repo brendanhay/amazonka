@@ -13,15 +13,15 @@
 module Network.AWS.SWF.Types.ContinueAsNewWorkflowExecutionFailedCause
   ( ContinueAsNewWorkflowExecutionFailedCause
       ( ContinueAsNewWorkflowExecutionFailedCause',
-        CANWEFCContinueAsNewWorkflowExecutionRateExceeded,
-        CANWEFCDefaultChildPolicyUndefined,
-        CANWEFCDefaultExecutionStartToCloseTimeoutUndefined,
-        CANWEFCDefaultTaskListUndefined,
-        CANWEFCDefaultTaskStartToCloseTimeoutUndefined,
-        CANWEFCOperationNotPermitted,
         CANWEFCUnhandledDecision,
         CANWEFCWorkflowTypeDeprecated,
-        CANWEFCWorkflowTypeDoesNotExist
+        CANWEFCWorkflowTypeDoesNotExist,
+        CANWEFCDefaultExecutionStartToCloseTimeoutUndefined,
+        CANWEFCDefaultTaskStartToCloseTimeoutUndefined,
+        CANWEFCDefaultTaskListUndefined,
+        CANWEFCDefaultChildPolicyUndefined,
+        CANWEFCContinueAsNewWorkflowExecutionRateExceeded,
+        CANWEFCOperationNotPermitted
       ),
   )
 where
@@ -52,24 +52,6 @@ newtype ContinueAsNewWorkflowExecutionFailedCause = ContinueAsNewWorkflowExecuti
       Lude.ToHeader
     )
 
-pattern CANWEFCContinueAsNewWorkflowExecutionRateExceeded :: ContinueAsNewWorkflowExecutionFailedCause
-pattern CANWEFCContinueAsNewWorkflowExecutionRateExceeded = ContinueAsNewWorkflowExecutionFailedCause' "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
-
-pattern CANWEFCDefaultChildPolicyUndefined :: ContinueAsNewWorkflowExecutionFailedCause
-pattern CANWEFCDefaultChildPolicyUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_CHILD_POLICY_UNDEFINED"
-
-pattern CANWEFCDefaultExecutionStartToCloseTimeoutUndefined :: ContinueAsNewWorkflowExecutionFailedCause
-pattern CANWEFCDefaultExecutionStartToCloseTimeoutUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-
-pattern CANWEFCDefaultTaskListUndefined :: ContinueAsNewWorkflowExecutionFailedCause
-pattern CANWEFCDefaultTaskListUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_TASK_LIST_UNDEFINED"
-
-pattern CANWEFCDefaultTaskStartToCloseTimeoutUndefined :: ContinueAsNewWorkflowExecutionFailedCause
-pattern CANWEFCDefaultTaskStartToCloseTimeoutUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
-
-pattern CANWEFCOperationNotPermitted :: ContinueAsNewWorkflowExecutionFailedCause
-pattern CANWEFCOperationNotPermitted = ContinueAsNewWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
-
 pattern CANWEFCUnhandledDecision :: ContinueAsNewWorkflowExecutionFailedCause
 pattern CANWEFCUnhandledDecision = ContinueAsNewWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
@@ -79,15 +61,33 @@ pattern CANWEFCWorkflowTypeDeprecated = ContinueAsNewWorkflowExecutionFailedCaus
 pattern CANWEFCWorkflowTypeDoesNotExist :: ContinueAsNewWorkflowExecutionFailedCause
 pattern CANWEFCWorkflowTypeDoesNotExist = ContinueAsNewWorkflowExecutionFailedCause' "WORKFLOW_TYPE_DOES_NOT_EXIST"
 
+pattern CANWEFCDefaultExecutionStartToCloseTimeoutUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultExecutionStartToCloseTimeoutUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+
+pattern CANWEFCDefaultTaskStartToCloseTimeoutUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultTaskStartToCloseTimeoutUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+
+pattern CANWEFCDefaultTaskListUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultTaskListUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_TASK_LIST_UNDEFINED"
+
+pattern CANWEFCDefaultChildPolicyUndefined :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCDefaultChildPolicyUndefined = ContinueAsNewWorkflowExecutionFailedCause' "DEFAULT_CHILD_POLICY_UNDEFINED"
+
+pattern CANWEFCContinueAsNewWorkflowExecutionRateExceeded :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCContinueAsNewWorkflowExecutionRateExceeded = ContinueAsNewWorkflowExecutionFailedCause' "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+
+pattern CANWEFCOperationNotPermitted :: ContinueAsNewWorkflowExecutionFailedCause
+pattern CANWEFCOperationNotPermitted = ContinueAsNewWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+
 {-# COMPLETE
-  CANWEFCContinueAsNewWorkflowExecutionRateExceeded,
-  CANWEFCDefaultChildPolicyUndefined,
-  CANWEFCDefaultExecutionStartToCloseTimeoutUndefined,
-  CANWEFCDefaultTaskListUndefined,
-  CANWEFCDefaultTaskStartToCloseTimeoutUndefined,
-  CANWEFCOperationNotPermitted,
   CANWEFCUnhandledDecision,
   CANWEFCWorkflowTypeDeprecated,
   CANWEFCWorkflowTypeDoesNotExist,
+  CANWEFCDefaultExecutionStartToCloseTimeoutUndefined,
+  CANWEFCDefaultTaskStartToCloseTimeoutUndefined,
+  CANWEFCDefaultTaskListUndefined,
+  CANWEFCDefaultChildPolicyUndefined,
+  CANWEFCContinueAsNewWorkflowExecutionRateExceeded,
+  CANWEFCOperationNotPermitted,
   ContinueAsNewWorkflowExecutionFailedCause'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,24 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | If you specify this parameter, when the result of a @ListStreams@ operation is truncated, the call returns the @NextToken@ in the response. To get another batch of streams, provide this token in your next request.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition.
     streamNameCondition :: Lude.Maybe StreamNameCondition,
+    -- | The maximum number of streams to return in the response. The default is 10,000.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of streams to return in the response. The default is 10,000.
 -- * 'nextToken' - If you specify this parameter, when the result of a @ListStreams@ operation is truncated, the call returns the @NextToken@ in the response. To get another batch of streams, provide this token in your next request.
 -- * 'streamNameCondition' - Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition.
+-- * 'maxResults' - The maximum number of streams to return in the response. The default is 10,000.
 mkListStreams ::
   ListStreams
 mkListStreams =
@@ -135,25 +133,21 @@ instance Lude.ToQuery ListStreams where
 
 -- | /See:/ 'mkListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { streamInfoList ::
-      Lude.Maybe [StreamInfo],
+  { -- | An array of @StreamInfo@ objects.
+    streamInfoList :: Lude.Maybe [StreamInfo],
+    -- | If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
 --
+-- * 'streamInfoList' - An array of @StreamInfo@ objects.
 -- * 'nextToken' - If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
 -- * 'responseStatus' - The response status code.
--- * 'streamInfoList' - An array of @StreamInfo@ objects.
 mkListStreamsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

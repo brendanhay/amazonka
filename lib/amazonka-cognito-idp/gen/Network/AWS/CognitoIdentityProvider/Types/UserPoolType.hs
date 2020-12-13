@@ -74,70 +74,107 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUserPoolType' smart constructor.
 data UserPoolType = UserPoolType'
-  { status :: Lude.Maybe StatusType,
+  { -- | The status of a user pool.
+    status :: Lude.Maybe StatusType,
+    -- | The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
     userPoolTags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | The reason why the email configuration cannot send the messages to your users.
     emailConfigurationFailure :: Lude.Maybe Lude.Text,
+    -- | The date the user pool was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    verificationMessageTemplate ::
-      Lude.Maybe VerificationMessageTemplateType,
+    -- | The template for verification messages.
+    verificationMessageTemplate :: Lude.Maybe VerificationMessageTemplateType,
+    -- | A number estimating the size of the user pool.
     estimatedNumberOfUsers :: Lude.Maybe Lude.Int,
+    -- | The Amazon Resource Name (ARN) for the user pool.
     arn :: Lude.Maybe Lude.Text,
+    -- | Holds the domain prefix if the user pool has a domain associated with it.
     domain :: Lude.Maybe Lude.Text,
+    -- | A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: @auth.example.com@ .
+    --
+    -- For more information about adding a custom domain to your user pool, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI> .
     customDomain :: Lude.Maybe Lude.Text,
+    -- | The contents of the email verification message.
     emailVerificationMessage :: Lude.Maybe Lude.Text,
+    -- | The contents of the SMS authentication message.
     smsAuthenticationMessage :: Lude.Maybe Lude.Text,
+    -- | The user pool add-ons.
     userPoolAddOns :: Lude.Maybe UserPoolAddOnsType,
-    schemaAttributes ::
-      Lude.Maybe (Lude.NonEmpty SchemaAttributeType),
+    -- | A container with the schema attributes of a user pool.
+    schemaAttributes :: Lude.Maybe (Lude.NonEmpty SchemaAttributeType),
+    -- | The subject of the email verification message.
     emailVerificationSubject :: Lude.Maybe Lude.Text,
+    -- | Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
     usernameAttributes :: Lude.Maybe [UsernameAttributeType],
+    -- | Specifies the attributes that are aliased in a user pool.
     aliasAttributes :: Lude.Maybe [AliasAttributeType],
+    -- | Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
     accountRecoverySetting :: Lude.Maybe AccountRecoverySettingType,
+    -- | The email configuration.
     emailConfiguration :: Lude.Maybe EmailConfigurationType,
+    -- | The contents of the SMS verification message.
     smsVerificationMessage :: Lude.Maybe Lude.Text,
+    -- | The name of the user pool.
     name :: Lude.Maybe Lude.Text,
+    -- | Can be one of the following values:
+    --
+    --
+    --     * @OFF@ - MFA tokens are not required and cannot be specified during user registration.
+    --
+    --
+    --     * @ON@ - MFA tokens are required for all user registrations. You can only specify required when you are initially creating a user pool.
+    --
+    --
+    --     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
     mfaConfiguration :: Lude.Maybe UserPoolMFAType,
+    -- | The ID of the user pool.
     id :: Lude.Maybe Lude.Text,
+    -- | The reason why the SMS configuration cannot send the messages to your users.
     smsConfigurationFailure :: Lude.Maybe Lude.Text,
+    -- | The date the user pool was created.
     creationDate :: Lude.Maybe Lude.Timestamp,
+    -- | The AWS Lambda triggers associated with the user pool.
     lambdaConfig :: Lude.Maybe LambdaConfigType,
+    -- | The SMS configuration.
     smsConfiguration :: Lude.Maybe SmsConfigurationType,
+    -- | The configuration for @AdminCreateUser@ requests.
     adminCreateUserConfig :: Lude.Maybe AdminCreateUserConfigType,
+    -- | The device configuration.
     deviceConfiguration :: Lude.Maybe DeviceConfigurationType,
+    -- | Specifies the attributes that are auto-verified in a user pool.
     autoVerifiedAttributes :: Lude.Maybe [VerifiedAttributeType],
+    -- | The policies associated with the user pool.
     policies :: Lude.Maybe UserPoolPolicyType,
+    -- | You can choose to enable case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
     usernameConfiguration :: Lude.Maybe UsernameConfigurationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UserPoolType' with the minimum fields required to make a request.
 --
--- * 'accountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
--- * 'adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
--- * 'aliasAttributes' - Specifies the attributes that are aliased in a user pool.
+-- * 'status' - The status of a user pool.
+-- * 'userPoolTags' - The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
+-- * 'emailConfigurationFailure' - The reason why the email configuration cannot send the messages to your users.
+-- * 'lastModifiedDate' - The date the user pool was last modified.
+-- * 'verificationMessageTemplate' - The template for verification messages.
+-- * 'estimatedNumberOfUsers' - A number estimating the size of the user pool.
 -- * 'arn' - The Amazon Resource Name (ARN) for the user pool.
--- * 'autoVerifiedAttributes' - Specifies the attributes that are auto-verified in a user pool.
--- * 'creationDate' - The date the user pool was created.
+-- * 'domain' - Holds the domain prefix if the user pool has a domain associated with it.
 -- * 'customDomain' - A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: @auth.example.com@ .
 --
 -- For more information about adding a custom domain to your user pool, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI> .
--- * 'deviceConfiguration' - The device configuration.
--- * 'domain' - Holds the domain prefix if the user pool has a domain associated with it.
--- * 'emailConfiguration' - The email configuration.
--- * 'emailConfigurationFailure' - The reason why the email configuration cannot send the messages to your users.
 -- * 'emailVerificationMessage' - The contents of the email verification message.
+-- * 'smsAuthenticationMessage' - The contents of the SMS authentication message.
+-- * 'userPoolAddOns' - The user pool add-ons.
+-- * 'schemaAttributes' - A container with the schema attributes of a user pool.
 -- * 'emailVerificationSubject' - The subject of the email verification message.
--- * 'estimatedNumberOfUsers' - A number estimating the size of the user pool.
--- * 'id' - The ID of the user pool.
--- * 'lambdaConfig' - The AWS Lambda triggers associated with the user pool.
--- * 'lastModifiedDate' - The date the user pool was last modified.
+-- * 'usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
+-- * 'aliasAttributes' - Specifies the attributes that are aliased in a user pool.
+-- * 'accountRecoverySetting' - Use this setting to define which verified available method a user can use to recover their password when they call @ForgotPassword@ . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+-- * 'emailConfiguration' - The email configuration.
+-- * 'smsVerificationMessage' - The contents of the SMS verification message.
+-- * 'name' - The name of the user pool.
 -- * 'mfaConfiguration' - Can be one of the following values:
 --
 --
@@ -150,19 +187,16 @@ data UserPoolType = UserPoolType'
 --     * @OPTIONAL@ - Users have the option when registering to create an MFA token.
 --
 --
--- * 'name' - The name of the user pool.
--- * 'policies' - The policies associated with the user pool.
--- * 'schemaAttributes' - A container with the schema attributes of a user pool.
--- * 'smsAuthenticationMessage' - The contents of the SMS authentication message.
--- * 'smsConfiguration' - The SMS configuration.
+-- * 'id' - The ID of the user pool.
 -- * 'smsConfigurationFailure' - The reason why the SMS configuration cannot send the messages to your users.
--- * 'smsVerificationMessage' - The contents of the SMS verification message.
--- * 'status' - The status of a user pool.
--- * 'userPoolAddOns' - The user pool add-ons.
--- * 'userPoolTags' - The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.
--- * 'usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as usernames when a user signs up.
+-- * 'creationDate' - The date the user pool was created.
+-- * 'lambdaConfig' - The AWS Lambda triggers associated with the user pool.
+-- * 'smsConfiguration' - The SMS configuration.
+-- * 'adminCreateUserConfig' - The configuration for @AdminCreateUser@ requests.
+-- * 'deviceConfiguration' - The device configuration.
+-- * 'autoVerifiedAttributes' - Specifies the attributes that are auto-verified in a user pool.
+-- * 'policies' - The policies associated with the user pool.
 -- * 'usernameConfiguration' - You can choose to enable case sensitivity on the username input for the selected sign-in option. For example, when this is set to @False@ , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType> .
--- * 'verificationMessageTemplate' - The template for verification messages.
 mkUserPoolType ::
   UserPoolType
 mkUserPoolType =

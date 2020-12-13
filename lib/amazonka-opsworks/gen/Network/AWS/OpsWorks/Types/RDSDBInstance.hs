@@ -36,37 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRDSDBInstance' smart constructor.
 data RDSDBInstance = RDSDBInstance'
-  { rdsDBInstanceARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The instance's ARN.
+    rdsDBInstanceARN :: Lude.Maybe Lude.Text,
+    -- | The master user name.
     dbUser :: Lude.Maybe Lude.Text,
+    -- | Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
     missingOnRDS :: Lude.Maybe Lude.Bool,
+    -- | The instance's database engine.
     engine :: Lude.Maybe Lude.Text,
+    -- | The instance's address.
     address :: Lude.Maybe Lude.Text,
+    -- | The DB instance identifier.
     dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    -- | The instance's AWS region.
     region :: Lude.Maybe Lude.Text,
+    -- | The ID of the stack with which the instance is registered.
     stackId :: Lude.Maybe Lude.Text,
+    -- | AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
     dbPassword :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RDSDBInstance' with the minimum fields required to make a request.
 --
+-- * 'rdsDBInstanceARN' - The instance's ARN.
+-- * 'dbUser' - The master user name.
+-- * 'missingOnRDS' - Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
+-- * 'engine' - The instance's database engine.
 -- * 'address' - The instance's address.
 -- * 'dbInstanceIdentifier' - The DB instance identifier.
--- * 'dbPassword' - AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
--- * 'dbUser' - The master user name.
--- * 'engine' - The instance's database engine.
--- * 'missingOnRDS' - Set to @true@ if AWS OpsWorks Stacks is unable to discover the Amazon RDS instance. AWS OpsWorks Stacks attempts to discover the instance only once. If this value is set to @true@ , you must deregister the instance, and then register it again.
--- * 'rdsDBInstanceARN' - The instance's ARN.
 -- * 'region' - The instance's AWS region.
 -- * 'stackId' - The ID of the stack with which the instance is registered.
+-- * 'dbPassword' - AWS OpsWorks Stacks returns @*****FILTERED*****@ instead of the actual value.
 mkRDSDBInstance ::
   RDSDBInstance
 mkRDSDBInstance =

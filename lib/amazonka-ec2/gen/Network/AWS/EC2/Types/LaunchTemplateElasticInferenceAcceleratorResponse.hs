@@ -29,24 +29,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLaunchTemplateElasticInferenceAcceleratorResponse' smart constructor.
 data LaunchTemplateElasticInferenceAcceleratorResponse = LaunchTemplateElasticInferenceAcceleratorResponse'
-  { count ::
-      Lude.Maybe
-        Lude.Int,
-    type' ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The number of elastic inference accelerators to attach to the instance.
+    --
+    -- Default: 1
+    count :: Lude.Maybe Lude.Int,
+    -- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LaunchTemplateElasticInferenceAcceleratorResponse' with the minimum fields required to make a request.
 --

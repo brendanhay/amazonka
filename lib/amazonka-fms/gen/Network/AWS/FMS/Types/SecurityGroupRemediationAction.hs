@@ -33,32 +33,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSecurityGroupRemediationAction' smart constructor.
 data SecurityGroupRemediationAction = SecurityGroupRemediationAction'
-  { isDefaultAction ::
-      Lude.Maybe Lude.Bool,
-    remediationResult ::
-      Lude.Maybe
-        SecurityGroupRuleDescription,
-    description ::
-      Lude.Maybe Lude.Text,
-    remediationActionType ::
-      Lude.Maybe
-        RemediationActionType
+  { -- | Indicates if the current action is the default action.
+    isDefaultAction :: Lude.Maybe Lude.Bool,
+    -- | The final state of the rule specified in the @ViolationTarget@ after it is remediated.
+    remediationResult :: Lude.Maybe SecurityGroupRuleDescription,
+    -- | Brief description of the action that will be performed.
+    description :: Lude.Maybe Lude.Text,
+    -- | The remediation action that will be performed.
+    remediationActionType :: Lude.Maybe RemediationActionType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecurityGroupRemediationAction' with the minimum fields required to make a request.
 --
--- * 'description' - Brief description of the action that will be performed.
 -- * 'isDefaultAction' - Indicates if the current action is the default action.
--- * 'remediationActionType' - The remediation action that will be performed.
 -- * 'remediationResult' - The final state of the rule specified in the @ViolationTarget@ after it is remediated.
+-- * 'description' - Brief description of the action that will be performed.
+-- * 'remediationActionType' - The remediation action that will be performed.
 mkSecurityGroupRemediationAction ::
   SecurityGroupRemediationAction
 mkSecurityGroupRemediationAction =

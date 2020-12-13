@@ -17,8 +17,8 @@ module Network.AWS.EC2.Types.LoadPermissionModifications
     mkLoadPermissionModifications,
 
     -- * Lenses
-    lpmRemove,
-    lpmAdd,
+    lRemove,
+    lAdd,
   )
 where
 
@@ -30,24 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadPermissionModifications' smart constructor.
 data LoadPermissionModifications = LoadPermissionModifications'
-  { remove ::
-      Lude.Maybe [LoadPermissionRequest],
-    add ::
-      Lude.Maybe [LoadPermissionRequest]
+  { -- | The load permissions to remove.
+    remove :: Lude.Maybe [LoadPermissionRequest],
+    -- | The load permissions to add.
+    add :: Lude.Maybe [LoadPermissionRequest]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadPermissionModifications' with the minimum fields required to make a request.
 --
--- * 'add' - The load permissions to add.
 -- * 'remove' - The load permissions to remove.
+-- * 'add' - The load permissions to add.
 mkLoadPermissionModifications ::
   LoadPermissionModifications
 mkLoadPermissionModifications =
@@ -59,16 +53,16 @@ mkLoadPermissionModifications =
 -- | The load permissions to remove.
 --
 -- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpmRemove :: Lens.Lens' LoadPermissionModifications (Lude.Maybe [LoadPermissionRequest])
-lpmRemove = Lens.lens (remove :: LoadPermissionModifications -> Lude.Maybe [LoadPermissionRequest]) (\s a -> s {remove = a} :: LoadPermissionModifications)
-{-# DEPRECATED lpmRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
+lRemove :: Lens.Lens' LoadPermissionModifications (Lude.Maybe [LoadPermissionRequest])
+lRemove = Lens.lens (remove :: LoadPermissionModifications -> Lude.Maybe [LoadPermissionRequest]) (\s a -> s {remove = a} :: LoadPermissionModifications)
+{-# DEPRECATED lRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
 
 -- | The load permissions to add.
 --
 -- /Note:/ Consider using 'add' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpmAdd :: Lens.Lens' LoadPermissionModifications (Lude.Maybe [LoadPermissionRequest])
-lpmAdd = Lens.lens (add :: LoadPermissionModifications -> Lude.Maybe [LoadPermissionRequest]) (\s a -> s {add = a} :: LoadPermissionModifications)
-{-# DEPRECATED lpmAdd "Use generic-lens or generic-optics with 'add' instead." #-}
+lAdd :: Lens.Lens' LoadPermissionModifications (Lude.Maybe [LoadPermissionRequest])
+lAdd = Lens.lens (add :: LoadPermissionModifications -> Lude.Maybe [LoadPermissionRequest]) (\s a -> s {add = a} :: LoadPermissionModifications)
+{-# DEPRECATED lAdd "Use generic-lens or generic-optics with 'add' instead." #-}
 
 instance Lude.ToQuery LoadPermissionModifications where
   toQuery LoadPermissionModifications' {..} =

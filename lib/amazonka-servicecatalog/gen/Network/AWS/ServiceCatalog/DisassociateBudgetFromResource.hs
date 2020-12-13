@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.ServiceCatalog.DisassociateBudgetFromResource
     mkDisassociateBudgetFromResource,
 
     -- ** Request lenses
-    dbfrBudgetName,
     dbfrResourceId,
+    dbfrBudgetName,
 
     -- * Destructuring the response
     DisassociateBudgetFromResourceResponse (..),
@@ -39,41 +40,29 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkDisassociateBudgetFromResource' smart constructor.
 data DisassociateBudgetFromResource = DisassociateBudgetFromResource'
-  { budgetName ::
-      Lude.Text,
-    resourceId :: Lude.Text
+  { -- | The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
+    resourceId :: Lude.Text,
+    -- | The name of the budget you want to disassociate.
+    budgetName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateBudgetFromResource' with the minimum fields required to make a request.
 --
--- * 'budgetName' - The name of the budget you want to disassociate.
 -- * 'resourceId' - The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
+-- * 'budgetName' - The name of the budget you want to disassociate.
 mkDisassociateBudgetFromResource ::
-  -- | 'budgetName'
-  Lude.Text ->
   -- | 'resourceId'
   Lude.Text ->
+  -- | 'budgetName'
+  Lude.Text ->
   DisassociateBudgetFromResource
-mkDisassociateBudgetFromResource pBudgetName_ pResourceId_ =
+mkDisassociateBudgetFromResource pResourceId_ pBudgetName_ =
   DisassociateBudgetFromResource'
-    { budgetName = pBudgetName_,
-      resourceId = pResourceId_
+    { resourceId = pResourceId_,
+      budgetName = pBudgetName_
     }
-
--- | The name of the budget you want to disassociate.
---
--- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbfrBudgetName :: Lens.Lens' DisassociateBudgetFromResource Lude.Text
-dbfrBudgetName = Lens.lens (budgetName :: DisassociateBudgetFromResource -> Lude.Text) (\s a -> s {budgetName = a} :: DisassociateBudgetFromResource)
-{-# DEPRECATED dbfrBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 -- | The resource identifier you want to disassociate from. Either a portfolio-id or a product-id.
 --
@@ -81,6 +70,13 @@ dbfrBudgetName = Lens.lens (budgetName :: DisassociateBudgetFromResource -> Lude
 dbfrResourceId :: Lens.Lens' DisassociateBudgetFromResource Lude.Text
 dbfrResourceId = Lens.lens (resourceId :: DisassociateBudgetFromResource -> Lude.Text) (\s a -> s {resourceId = a} :: DisassociateBudgetFromResource)
 {-# DEPRECATED dbfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The name of the budget you want to disassociate.
+--
+-- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbfrBudgetName :: Lens.Lens' DisassociateBudgetFromResource Lude.Text
+dbfrBudgetName = Lens.lens (budgetName :: DisassociateBudgetFromResource -> Lude.Text) (\s a -> s {budgetName = a} :: DisassociateBudgetFromResource)
+{-# DEPRECATED dbfrBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
 instance Lude.AWSRequest DisassociateBudgetFromResource where
   type
@@ -111,8 +107,8 @@ instance Lude.ToJSON DisassociateBudgetFromResource where
   toJSON DisassociateBudgetFromResource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("ResourceId" Lude..= resourceId)
+          [ Lude.Just ("ResourceId" Lude..= resourceId),
+            Lude.Just ("BudgetName" Lude..= budgetName)
           ]
       )
 
@@ -124,16 +120,10 @@ instance Lude.ToQuery DisassociateBudgetFromResource where
 
 -- | /See:/ 'mkDisassociateBudgetFromResourceResponse' smart constructor.
 newtype DisassociateBudgetFromResourceResponse = DisassociateBudgetFromResourceResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DisassociateBudgetFromResourceResponse' with the minimum fields required to make a request.

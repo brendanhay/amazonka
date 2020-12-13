@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInferenceAcceleratorInfo' smart constructor.
 newtype InferenceAcceleratorInfo = InferenceAcceleratorInfo'
-  { accelerators ::
-      Lude.Maybe [InferenceDeviceInfo]
+  { -- | Describes the Inference accelerators for the instance type.
+    accelerators :: Lude.Maybe [InferenceDeviceInfo]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InferenceAcceleratorInfo' with the minimum fields required to make a request.

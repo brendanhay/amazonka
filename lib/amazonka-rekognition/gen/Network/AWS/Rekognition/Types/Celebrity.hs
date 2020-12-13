@@ -33,29 +33,27 @@ import Network.AWS.Rekognition.Types.ComparedFace
 --
 -- /See:/ 'mkCelebrity' smart constructor.
 data Celebrity = Celebrity'
-  { matchConfidence ::
-      Lude.Maybe Lude.Double,
+  { -- | The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
+    matchConfidence :: Lude.Maybe Lude.Double,
+    -- | An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
     urls :: Lude.Maybe [Lude.Text],
+    -- | The name of the celebrity.
     name :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the celebrity.
     id :: Lude.Maybe Lude.Text,
+    -- | Provides information about the celebrity's face, such as its location on the image.
     face :: Lude.Maybe ComparedFace
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Celebrity' with the minimum fields required to make a request.
 --
--- * 'face' - Provides information about the celebrity's face, such as its location on the image.
--- * 'id' - A unique identifier for the celebrity.
 -- * 'matchConfidence' - The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
--- * 'name' - The name of the celebrity.
 -- * 'urls' - An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.
+-- * 'name' - The name of the celebrity.
+-- * 'id' - A unique identifier for the celebrity.
+-- * 'face' - Provides information about the celebrity's face, such as its location on the image.
 mkCelebrity ::
   Celebrity
 mkCelebrity =

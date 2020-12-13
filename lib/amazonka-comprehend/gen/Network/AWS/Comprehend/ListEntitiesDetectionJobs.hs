@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.Comprehend.ListEntitiesDetectionJobs
     mkListEntitiesDetectionJobs,
 
     -- ** Request lenses
-    ledjNextToken,
-    ledjFilter,
-    ledjMaxResults,
+    lNextToken,
+    lFilter,
+    lMaxResults,
 
     -- * Destructuring the response
     ListEntitiesDetectionJobsResponse (..),
@@ -45,26 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListEntitiesDetectionJobs' smart constructor.
 data ListEntitiesDetectionJobs = ListEntitiesDetectionJobs'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    filter ::
-      Lude.Maybe EntitiesDetectionJobFilter,
+  { -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
+    filter :: Lude.Maybe EntitiesDetectionJobFilter,
+    -- | The maximum number of results to return in each page. The default is 100.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEntitiesDetectionJobs' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - Identifies the next page of results to return.
 -- * 'filter' - Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
 -- * 'maxResults' - The maximum number of results to return in each page. The default is 100.
--- * 'nextToken' - Identifies the next page of results to return.
 mkListEntitiesDetectionJobs ::
   ListEntitiesDetectionJobs
 mkListEntitiesDetectionJobs =
@@ -77,23 +73,23 @@ mkListEntitiesDetectionJobs =
 -- | Identifies the next page of results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ledjNextToken :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe Lude.Text)
-ledjNextToken = Lens.lens (nextToken :: ListEntitiesDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEntitiesDetectionJobs)
-{-# DEPRECATED ledjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lNextToken :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe Lude.Text)
+lNextToken = Lens.lens (nextToken :: ListEntitiesDetectionJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEntitiesDetectionJobs)
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ledjFilter :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe EntitiesDetectionJobFilter)
-ledjFilter = Lens.lens (filter :: ListEntitiesDetectionJobs -> Lude.Maybe EntitiesDetectionJobFilter) (\s a -> s {filter = a} :: ListEntitiesDetectionJobs)
-{-# DEPRECATED ledjFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+lFilter :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe EntitiesDetectionJobFilter)
+lFilter = Lens.lens (filter :: ListEntitiesDetectionJobs -> Lude.Maybe EntitiesDetectionJobFilter) (\s a -> s {filter = a} :: ListEntitiesDetectionJobs)
+{-# DEPRECATED lFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
 -- | The maximum number of results to return in each page. The default is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ledjMaxResults :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe Lude.Natural)
-ledjMaxResults = Lens.lens (maxResults :: ListEntitiesDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEntitiesDetectionJobs)
-{-# DEPRECATED ledjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lMaxResults :: Lens.Lens' ListEntitiesDetectionJobs (Lude.Maybe Lude.Natural)
+lMaxResults = Lens.lens (maxResults :: ListEntitiesDetectionJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListEntitiesDetectionJobs)
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager ListEntitiesDetectionJobs where
   page rq rs
@@ -103,7 +99,7 @@ instance Page.AWSPager ListEntitiesDetectionJobs where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& ledjNextToken Lens..~ rs Lens.^. ledjrsNextToken
+          Lude.& lNextToken Lens..~ rs Lens.^. ledjrsNextToken
 
 instance Lude.AWSRequest ListEntitiesDetectionJobs where
   type
@@ -152,21 +148,14 @@ instance Lude.ToQuery ListEntitiesDetectionJobs where
 
 -- | /See:/ 'mkListEntitiesDetectionJobsResponse' smart constructor.
 data ListEntitiesDetectionJobsResponse = ListEntitiesDetectionJobsResponse'
-  { entitiesDetectionJobPropertiesList ::
-      Lude.Maybe
-        [EntitiesDetectionJobProperties],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A list containing the properties of each job that is returned.
+    entitiesDetectionJobPropertiesList :: Lude.Maybe [EntitiesDetectionJobProperties],
+    -- | Identifies the next page of results to return.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListEntitiesDetectionJobsResponse' with the minimum fields required to make a request.

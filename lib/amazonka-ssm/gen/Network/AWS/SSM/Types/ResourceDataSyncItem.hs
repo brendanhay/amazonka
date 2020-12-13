@@ -40,43 +40,42 @@ import Network.AWS.SSM.Types.ResourceDataSyncSourceWithState
 --
 -- /See:/ 'mkResourceDataSyncItem' smart constructor.
 data ResourceDataSyncItem = ResourceDataSyncItem'
-  { syncType ::
-      Lude.Maybe Lude.Text,
-    syncSource ::
-      Lude.Maybe ResourceDataSyncSourceWithState,
+  { -- | The type of resource data sync. If @SyncType@ is @SyncToDestination@ , then the resource data sync synchronizes data to an S3 bucket. If the @SyncType@ is @SyncFromSource@ then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions.
+    syncType :: Lude.Maybe Lude.Text,
+    -- | Information about the source where the data was synchronized.
+    syncSource :: Lude.Maybe ResourceDataSyncSourceWithState,
+    -- | The status message details reported by the last sync.
     lastSyncStatusMessage :: Lude.Maybe Lude.Text,
+    -- | The date and time the configuration was created (UTC).
     syncCreatedTime :: Lude.Maybe Lude.Timestamp,
+    -- | The last time the configuration attempted to sync (UTC).
     lastSyncTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the Resource Data Sync.
     syncName :: Lude.Maybe Lude.Text,
-    lastStatus ::
-      Lude.Maybe LastResourceDataSyncStatus,
+    -- | The status reported by the last sync.
+    lastStatus :: Lude.Maybe LastResourceDataSyncStatus,
+    -- | The date and time the resource data sync was changed.
     syncLastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    s3Destination ::
-      Lude.Maybe ResourceDataSyncS3Destination,
-    lastSuccessfulSyncTime ::
-      Lude.Maybe Lude.Timestamp
+    -- | Configuration information for the target S3 bucket.
+    s3Destination :: Lude.Maybe ResourceDataSyncS3Destination,
+    -- | The last time the sync operations returned a status of @SUCCESSFUL@ (UTC).
+    lastSuccessfulSyncTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceDataSyncItem' with the minimum fields required to make a request.
 --
--- * 'lastStatus' - The status reported by the last sync.
--- * 'lastSuccessfulSyncTime' - The last time the sync operations returned a status of @SUCCESSFUL@ (UTC).
--- * 'lastSyncStatusMessage' - The status message details reported by the last sync.
--- * 'lastSyncTime' - The last time the configuration attempted to sync (UTC).
--- * 's3Destination' - Configuration information for the target S3 bucket.
--- * 'syncCreatedTime' - The date and time the configuration was created (UTC).
--- * 'syncLastModifiedTime' - The date and time the resource data sync was changed.
--- * 'syncName' - The name of the Resource Data Sync.
--- * 'syncSource' - Information about the source where the data was synchronized.
 -- * 'syncType' - The type of resource data sync. If @SyncType@ is @SyncToDestination@ , then the resource data sync synchronizes data to an S3 bucket. If the @SyncType@ is @SyncFromSource@ then the resource data sync synchronizes data from AWS Organizations or from multiple AWS Regions.
+-- * 'syncSource' - Information about the source where the data was synchronized.
+-- * 'lastSyncStatusMessage' - The status message details reported by the last sync.
+-- * 'syncCreatedTime' - The date and time the configuration was created (UTC).
+-- * 'lastSyncTime' - The last time the configuration attempted to sync (UTC).
+-- * 'syncName' - The name of the Resource Data Sync.
+-- * 'lastStatus' - The status reported by the last sync.
+-- * 'syncLastModifiedTime' - The date and time the resource data sync was changed.
+-- * 's3Destination' - Configuration information for the target S3 bucket.
+-- * 'lastSuccessfulSyncTime' - The last time the sync operations returned a status of @SUCCESSFUL@ (UTC).
 mkResourceDataSyncItem ::
   ResourceDataSyncItem
 mkResourceDataSyncItem =

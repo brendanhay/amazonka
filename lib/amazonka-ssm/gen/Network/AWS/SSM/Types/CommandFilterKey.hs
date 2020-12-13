@@ -13,11 +13,11 @@
 module Network.AWS.SSM.Types.CommandFilterKey
   ( CommandFilterKey
       ( CommandFilterKey',
-        CommandDocumentName,
-        CommandExecutionStage,
         CommandInvokedAfter,
         CommandInvokedBefore,
-        CommandStatus
+        CommandStatus,
+        CommandExecutionStage,
+        CommandDocumentName
       ),
   )
 where
@@ -48,12 +48,6 @@ newtype CommandFilterKey = CommandFilterKey' Lude.Text
       Lude.ToHeader
     )
 
-pattern CommandDocumentName :: CommandFilterKey
-pattern CommandDocumentName = CommandFilterKey' "DocumentName"
-
-pattern CommandExecutionStage :: CommandFilterKey
-pattern CommandExecutionStage = CommandFilterKey' "ExecutionStage"
-
 pattern CommandInvokedAfter :: CommandFilterKey
 pattern CommandInvokedAfter = CommandFilterKey' "InvokedAfter"
 
@@ -63,11 +57,17 @@ pattern CommandInvokedBefore = CommandFilterKey' "InvokedBefore"
 pattern CommandStatus :: CommandFilterKey
 pattern CommandStatus = CommandFilterKey' "Status"
 
+pattern CommandExecutionStage :: CommandFilterKey
+pattern CommandExecutionStage = CommandFilterKey' "ExecutionStage"
+
+pattern CommandDocumentName :: CommandFilterKey
+pattern CommandDocumentName = CommandFilterKey' "DocumentName"
+
 {-# COMPLETE
-  CommandDocumentName,
-  CommandExecutionStage,
   CommandInvokedAfter,
   CommandInvokedBefore,
   CommandStatus,
+  CommandExecutionStage,
+  CommandDocumentName,
   CommandFilterKey'
   #-}

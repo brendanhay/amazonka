@@ -13,9 +13,9 @@
 module Network.AWS.EC2.Types.DiskImageFormat
   ( DiskImageFormat
       ( DiskImageFormat',
+        VMDK,
         Raw,
-        VHD,
-        VMDK
+        VHD
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype DiskImageFormat = DiskImageFormat' Lude.Text
       Lude.ToHeader
     )
 
+pattern VMDK :: DiskImageFormat
+pattern VMDK = DiskImageFormat' "VMDK"
+
 pattern Raw :: DiskImageFormat
 pattern Raw = DiskImageFormat' "RAW"
 
 pattern VHD :: DiskImageFormat
 pattern VHD = DiskImageFormat' "VHD"
 
-pattern VMDK :: DiskImageFormat
-pattern VMDK = DiskImageFormat' "VMDK"
-
 {-# COMPLETE
+  VMDK,
   Raw,
   VHD,
-  VMDK,
   DiskImageFormat'
   #-}

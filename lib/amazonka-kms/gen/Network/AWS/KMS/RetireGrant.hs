@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,21 +50,26 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRetireGrant' smart constructor.
 data RetireGrant = RetireGrant'
-  { keyId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the CMK associated with the grant.
+    --
+    -- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+    keyId :: Lude.Maybe Lude.Text,
+    -- | Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.
+    --
+    --
+    --     * Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123
     grantId :: Lude.Maybe Lude.Text,
+    -- | Token that identifies the grant to be retired.
     grantToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetireGrant' with the minimum fields required to make a request.
 --
+-- * 'keyId' - The Amazon Resource Name (ARN) of the CMK associated with the grant.
+--
+-- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 -- * 'grantId' - Unique identifier of the grant to retire. The grant ID is returned in the response to a @CreateGrant@ operation.
 --
 --
@@ -71,9 +77,6 @@ data RetireGrant = RetireGrant'
 --
 --
 -- * 'grantToken' - Token that identifies the grant to be retired.
--- * 'keyId' - The Amazon Resource Name (ARN) of the CMK associated with the grant.
---
--- For example: @arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab@
 mkRetireGrant ::
   RetireGrant
 mkRetireGrant =
@@ -145,13 +148,7 @@ instance Lude.ToQuery RetireGrant where
 
 -- | /See:/ 'mkRetireGrantResponse' smart constructor.
 data RetireGrantResponse = RetireGrantResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RetireGrantResponse' with the minimum fields required to make a request.

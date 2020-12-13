@@ -39,43 +39,47 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSamplingRuleUpdate' smart constructor.
 data SamplingRuleUpdate = SamplingRuleUpdate'
-  { hTTPMethod ::
-      Lude.Maybe Lude.Text,
+  { -- | Matches the HTTP method of a request.
+    hTTPMethod :: Lude.Maybe Lude.Text,
+    -- | The priority of the sampling rule.
     priority :: Lude.Maybe Lude.Int,
+    -- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
     ruleName :: Lude.Maybe Lude.Text,
+    -- | A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
     reservoirSize :: Lude.Maybe Lude.Int,
+    -- | The percentage of matching requests to instrument, after the reservoir is exhausted.
     fixedRate :: Lude.Maybe Lude.Double,
+    -- | Matches the ARN of the AWS resource on which the service runs.
     resourceARN :: Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Matches attributes derived from the request.
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    -- | Matches the @name@ that the service uses to identify itself in segments.
     serviceName :: Lude.Maybe Lude.Text,
+    -- | Matches the @origin@ that the service uses to identify its type in segments.
     serviceType :: Lude.Maybe Lude.Text,
+    -- | Matches the hostname from a request URL.
     host :: Lude.Maybe Lude.Text,
+    -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
     ruleARN :: Lude.Maybe Lude.Text,
+    -- | Matches the path from a request URL.
     urlPath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SamplingRuleUpdate' with the minimum fields required to make a request.
 --
--- * 'attributes' - Matches attributes derived from the request.
--- * 'fixedRate' - The percentage of matching requests to instrument, after the reservoir is exhausted.
 -- * 'hTTPMethod' - Matches the HTTP method of a request.
--- * 'host' - Matches the hostname from a request URL.
 -- * 'priority' - The priority of the sampling rule.
--- * 'reservoirSize' - A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
--- * 'resourceARN' - Matches the ARN of the AWS resource on which the service runs.
--- * 'ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
 -- * 'ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+-- * 'reservoirSize' - A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+-- * 'fixedRate' - The percentage of matching requests to instrument, after the reservoir is exhausted.
+-- * 'resourceARN' - Matches the ARN of the AWS resource on which the service runs.
+-- * 'attributes' - Matches attributes derived from the request.
 -- * 'serviceName' - Matches the @name@ that the service uses to identify itself in segments.
 -- * 'serviceType' - Matches the @origin@ that the service uses to identify its type in segments.
+-- * 'host' - Matches the hostname from a request URL.
+-- * 'ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
 -- * 'urlPath' - Matches the path from a request URL.
 mkSamplingRuleUpdate ::
   SamplingRuleUpdate

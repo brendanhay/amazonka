@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchGetLinkAttributesResponse' smart constructor.
 newtype BatchGetLinkAttributesResponse = BatchGetLinkAttributesResponse'
-  { attributes ::
-      Lude.Maybe
-        [AttributeKeyAndValue]
+  { -- | The attributes that are associated with the typed link.
+    attributes :: Lude.Maybe [AttributeKeyAndValue]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchGetLinkAttributesResponse' with the minimum fields required to make a request.

@@ -33,28 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEventTopic' smart constructor.
 data EventTopic = EventTopic'
-  { status :: Lude.Maybe TopicStatus,
+  { -- | The topic registration status.
+    status :: Lude.Maybe TopicStatus,
+    -- | The Directory ID of an AWS Directory Service directory that will publish status messages to an SNS topic.
     directoryId :: Lude.Maybe Lude.Text,
+    -- | The name of an AWS SNS topic the receives status messages from the directory.
     topicName :: Lude.Maybe Lude.Text,
+    -- | The SNS topic ARN (Amazon Resource Name).
     topicARN :: Lude.Maybe Lude.Text,
+    -- | The date and time of when you associated your directory with the SNS topic.
     createdDateTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EventTopic' with the minimum fields required to make a request.
 --
--- * 'createdDateTime' - The date and time of when you associated your directory with the SNS topic.
--- * 'directoryId' - The Directory ID of an AWS Directory Service directory that will publish status messages to an SNS topic.
 -- * 'status' - The topic registration status.
--- * 'topicARN' - The SNS topic ARN (Amazon Resource Name).
+-- * 'directoryId' - The Directory ID of an AWS Directory Service directory that will publish status messages to an SNS topic.
 -- * 'topicName' - The name of an AWS SNS topic the receives status messages from the directory.
+-- * 'topicARN' - The SNS topic ARN (Amazon Resource Name).
+-- * 'createdDateTime' - The date and time of when you associated your directory with the SNS topic.
 mkEventTopic ::
   EventTopic
 mkEventTopic =

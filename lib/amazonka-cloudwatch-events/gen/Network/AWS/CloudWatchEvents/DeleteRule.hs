@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,9 +24,9 @@ module Network.AWS.CloudWatchEvents.DeleteRule
     mkDeleteRule,
 
     -- ** Request lenses
-    drForce,
-    drEventBusName,
-    drName,
+    drgForce,
+    drgEventBusName,
+    drgName,
 
     -- * Destructuring the response
     DeleteRuleResponse (..),
@@ -41,23 +42,20 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
-  { force :: Lude.Maybe Lude.Bool,
+  { -- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
+    force :: Lude.Maybe Lude.Bool,
+    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
     eventBusName :: Lude.Maybe Lude.Text,
+    -- | The name of the rule.
     name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRule' with the minimum fields required to make a request.
 --
--- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 -- * 'force' - If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
+-- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 -- * 'name' - The name of the rule.
 mkDeleteRule ::
   -- | 'name'
@@ -73,23 +71,23 @@ mkDeleteRule pName_ =
 -- | If this is a managed rule, created by an AWS service on your behalf, you must specify @Force@ as @True@ to delete the rule. This parameter is ignored for rules that are not managed rules. You can check whether a rule is a managed rule by using @DescribeRule@ or @ListRules@ and checking the @ManagedBy@ field of the response.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drForce :: Lens.Lens' DeleteRule (Lude.Maybe Lude.Bool)
-drForce = Lens.lens (force :: DeleteRule -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteRule)
-{-# DEPRECATED drForce "Use generic-lens or generic-optics with 'force' instead." #-}
+drgForce :: Lens.Lens' DeleteRule (Lude.Maybe Lude.Bool)
+drgForce = Lens.lens (force :: DeleteRule -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteRule)
+{-# DEPRECATED drgForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 --
 -- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drEventBusName :: Lens.Lens' DeleteRule (Lude.Maybe Lude.Text)
-drEventBusName = Lens.lens (eventBusName :: DeleteRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DeleteRule)
-{-# DEPRECATED drEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
+drgEventBusName :: Lens.Lens' DeleteRule (Lude.Maybe Lude.Text)
+drgEventBusName = Lens.lens (eventBusName :: DeleteRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: DeleteRule)
+{-# DEPRECATED drgEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drName :: Lens.Lens' DeleteRule Lude.Text
-drName = Lens.lens (name :: DeleteRule -> Lude.Text) (\s a -> s {name = a} :: DeleteRule)
-{-# DEPRECATED drName "Use generic-lens or generic-optics with 'name' instead." #-}
+drgName :: Lens.Lens' DeleteRule Lude.Text
+drgName = Lens.lens (name :: DeleteRule -> Lude.Text) (\s a -> s {name = a} :: DeleteRule)
+{-# DEPRECATED drgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest DeleteRule where
   type Rs DeleteRule = DeleteRuleResponse
@@ -125,13 +123,7 @@ instance Lude.ToQuery DeleteRule where
 
 -- | /See:/ 'mkDeleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteRuleResponse' with the minimum fields required to make a request.

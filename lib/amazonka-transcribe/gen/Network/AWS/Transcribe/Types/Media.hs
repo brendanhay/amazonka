@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Lude
 -- | Describes the input media file in a transcription request.
 --
 -- /See:/ 'mkMedia' smart constructor.
-newtype Media = Media' {mediaFileURI :: Lude.Maybe Lude.Text}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype Media = Media'
+  { -- | The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:
+    --
+    -- For example:
+    -- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+    mediaFileURI :: Lude.Maybe Lude.Text
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Media' with the minimum fields required to make a request.

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,11 +22,11 @@ module Network.AWS.Glue.GetTables
     mkGetTables,
 
     -- ** Request lenses
-    gtsCatalogId,
-    gtsNextToken,
-    gtsExpression,
-    gtsMaxResults,
-    gtsDatabaseName,
+    gtCatalogId,
+    gtNextToken,
+    gtExpression,
+    gtDatabaseName,
+    gtMaxResults,
 
     -- * Destructuring the response
     GetTablesResponse (..),
@@ -47,28 +48,27 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetTables' smart constructor.
 data GetTables = GetTables'
-  { catalogId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
+    catalogId :: Lude.Maybe Lude.Text,
+    -- | A continuation token, included if this is a continuation call.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | A regular expression pattern. If present, only those tables whose names match the pattern are returned.
     expression :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural,
-    databaseName :: Lude.Text
+    -- | The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.
+    databaseName :: Lude.Text,
+    -- | The maximum number of tables to return in a single response.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTables' with the minimum fields required to make a request.
 --
 -- * 'catalogId' - The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
--- * 'databaseName' - The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.
--- * 'expression' - A regular expression pattern. If present, only those tables whose names match the pattern are returned.
--- * 'maxResults' - The maximum number of tables to return in a single response.
 -- * 'nextToken' - A continuation token, included if this is a continuation call.
+-- * 'expression' - A regular expression pattern. If present, only those tables whose names match the pattern are returned.
+-- * 'databaseName' - The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.
+-- * 'maxResults' - The maximum number of tables to return in a single response.
 mkGetTables ::
   -- | 'databaseName'
   Lude.Text ->
@@ -78,44 +78,44 @@ mkGetTables pDatabaseName_ =
     { catalogId = Lude.Nothing,
       nextToken = Lude.Nothing,
       expression = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      databaseName = pDatabaseName_
+      databaseName = pDatabaseName_,
+      maxResults = Lude.Nothing
     }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsCatalogId :: Lens.Lens' GetTables (Lude.Maybe Lude.Text)
-gtsCatalogId = Lens.lens (catalogId :: GetTables -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTables)
-{-# DEPRECATED gtsCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+gtCatalogId :: Lens.Lens' GetTables (Lude.Maybe Lude.Text)
+gtCatalogId = Lens.lens (catalogId :: GetTables -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetTables)
+{-# DEPRECATED gtCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A continuation token, included if this is a continuation call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsNextToken :: Lens.Lens' GetTables (Lude.Maybe Lude.Text)
-gtsNextToken = Lens.lens (nextToken :: GetTables -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTables)
-{-# DEPRECATED gtsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gtNextToken :: Lens.Lens' GetTables (Lude.Maybe Lude.Text)
+gtNextToken = Lens.lens (nextToken :: GetTables -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetTables)
+{-# DEPRECATED gtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A regular expression pattern. If present, only those tables whose names match the pattern are returned.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsExpression :: Lens.Lens' GetTables (Lude.Maybe Lude.Text)
-gtsExpression = Lens.lens (expression :: GetTables -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: GetTables)
-{-# DEPRECATED gtsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
-
--- | The maximum number of tables to return in a single response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsMaxResults :: Lens.Lens' GetTables (Lude.Maybe Lude.Natural)
-gtsMaxResults = Lens.lens (maxResults :: GetTables -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTables)
-{-# DEPRECATED gtsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+gtExpression :: Lens.Lens' GetTables (Lude.Maybe Lude.Text)
+gtExpression = Lens.lens (expression :: GetTables -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: GetTables)
+{-# DEPRECATED gtExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | The database in the catalog whose tables to list. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsDatabaseName :: Lens.Lens' GetTables Lude.Text
-gtsDatabaseName = Lens.lens (databaseName :: GetTables -> Lude.Text) (\s a -> s {databaseName = a} :: GetTables)
-{-# DEPRECATED gtsDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+gtDatabaseName :: Lens.Lens' GetTables Lude.Text
+gtDatabaseName = Lens.lens (databaseName :: GetTables -> Lude.Text) (\s a -> s {databaseName = a} :: GetTables)
+{-# DEPRECATED gtDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+
+-- | The maximum number of tables to return in a single response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtMaxResults :: Lens.Lens' GetTables (Lude.Maybe Lude.Natural)
+gtMaxResults = Lens.lens (maxResults :: GetTables -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetTables)
+{-# DEPRECATED gtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 instance Page.AWSPager GetTables where
   page rq rs
@@ -124,7 +124,7 @@ instance Page.AWSPager GetTables where
     | Lude.otherwise =
       Lude.Just Lude.$
         rq
-          Lude.& gtsNextToken Lens..~ rs Lens.^. gtsrsNextToken
+          Lude.& gtNextToken Lens..~ rs Lens.^. gtsrsNextToken
 
 instance Lude.AWSRequest GetTables where
   type Rs GetTables = GetTablesResponse
@@ -155,8 +155,8 @@ instance Lude.ToJSON GetTables where
           [ ("CatalogId" Lude..=) Lude.<$> catalogId,
             ("NextToken" Lude..=) Lude.<$> nextToken,
             ("Expression" Lude..=) Lude.<$> expression,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("DatabaseName" Lude..= databaseName)
+            Lude.Just ("DatabaseName" Lude..= databaseName),
+            ("MaxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -168,25 +168,21 @@ instance Lude.ToQuery GetTables where
 
 -- | /See:/ 'mkGetTablesResponse' smart constructor.
 data GetTablesResponse = GetTablesResponse'
-  { tableList ::
-      Lude.Maybe [Table],
+  { -- | A list of the requested @Table@ objects.
+    tableList :: Lude.Maybe [Table],
+    -- | A continuation token, present if the current list segment is not the last.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTablesResponse' with the minimum fields required to make a request.
 --
+-- * 'tableList' - A list of the requested @Table@ objects.
 -- * 'nextToken' - A continuation token, present if the current list segment is not the last.
 -- * 'responseStatus' - The response status code.
--- * 'tableList' - A list of the requested @Table@ objects.
 mkGetTablesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

@@ -44,38 +44,70 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInterconnect' smart constructor.
 data Interconnect = Interconnect'
-  { lagId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the LAG.
+    lagId :: Lude.Maybe Lude.Text,
+    -- | The ID of the interconnect.
     interconnectId :: Lude.Maybe Lude.Text,
+    -- | The location of the connection.
     location :: Lude.Maybe Lude.Text,
+    -- | The name of the interconnect.
     interconnectName :: Lude.Maybe Lude.Text,
+    -- | The Direct Connect endpoint on which the physical connection terminates.
     awsDevice :: Lude.Maybe Lude.Text,
+    -- | Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
     hasLogicalRedundancy :: Lude.Maybe HasLogicalRedundancy,
+    -- | The time of the most recent call to 'DescribeLoa' for this connection.
     loaIssueTime :: Lude.Maybe Lude.Timestamp,
+    -- | The bandwidth of the connection.
     bandwidth :: Lude.Maybe Lude.Text,
+    -- | Indicates whether jumbo frames (9001 MTU) are supported.
     jumboFrameCapable :: Lude.Maybe Lude.Bool,
+    -- | The state of the interconnect. The following are the possible values:
+    --
+    --
+    --     * @requested@ : The initial state of an interconnect. The interconnect stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
+    --
+    --
+    --     * @pending@ : The interconnect is approved, and is being initialized.
+    --
+    --
+    --     * @available@ : The network link is up, and the interconnect is ready for use.
+    --
+    --
+    --     * @down@ : The network link is down.
+    --
+    --
+    --     * @deleting@ : The interconnect is being deleted.
+    --
+    --
+    --     * @deleted@ : The interconnect is deleted.
+    --
+    --
+    --     * @unknown@ : The state of the interconnect is not available.
     interconnectState :: Lude.Maybe InterconnectState,
+    -- | The AWS Region where the connection is located.
     region :: Lude.Maybe Lude.Text,
+    -- | The name of the service provider associated with the interconnect.
     providerName :: Lude.Maybe Lude.Text,
+    -- | The Direct Connect endpoint on which the physical connection terminates.
     awsDeviceV2 :: Lude.Maybe Lude.Text,
+    -- | The tags associated with the interconnect.
     tags :: Lude.Maybe (Lude.NonEmpty Tag)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Interconnect' with the minimum fields required to make a request.
 --
--- * 'awsDevice' - The Direct Connect endpoint on which the physical connection terminates.
--- * 'awsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
--- * 'bandwidth' - The bandwidth of the connection.
--- * 'hasLogicalRedundancy' - Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
+-- * 'lagId' - The ID of the LAG.
 -- * 'interconnectId' - The ID of the interconnect.
+-- * 'location' - The location of the connection.
 -- * 'interconnectName' - The name of the interconnect.
+-- * 'awsDevice' - The Direct Connect endpoint on which the physical connection terminates.
+-- * 'hasLogicalRedundancy' - Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).
+-- * 'loaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
+-- * 'bandwidth' - The bandwidth of the connection.
+-- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
 -- * 'interconnectState' - The state of the interconnect. The following are the possible values:
 --
 --
@@ -100,12 +132,9 @@ data Interconnect = Interconnect'
 --     * @unknown@ : The state of the interconnect is not available.
 --
 --
--- * 'jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
--- * 'lagId' - The ID of the LAG.
--- * 'loaIssueTime' - The time of the most recent call to 'DescribeLoa' for this connection.
--- * 'location' - The location of the connection.
--- * 'providerName' - The name of the service provider associated with the interconnect.
 -- * 'region' - The AWS Region where the connection is located.
+-- * 'providerName' - The name of the service provider associated with the interconnect.
+-- * 'awsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
 -- * 'tags' - The tags associated with the interconnect.
 mkInterconnect ::
   Interconnect

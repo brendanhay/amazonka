@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIotSiteWiseAction' smart constructor.
 data IotSiteWiseAction = IotSiteWiseAction'
-  { putAssetPropertyValueEntries ::
-      Lude.NonEmpty PutAssetPropertyValueEntry,
+  { -- | A list of asset property value entries.
+    putAssetPropertyValueEntries :: Lude.NonEmpty PutAssetPropertyValueEntry,
+    -- | The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoTSiteWise. (@"Action": "iotsitewise:BatchPutAssetPropertyValue"@ ). The trust policy can restrict access to specific asset hierarchy paths.
     roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IotSiteWiseAction' with the minimum fields required to make a request.

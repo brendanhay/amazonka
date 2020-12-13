@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -44,23 +45,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListSubscriptionDefinitions' smart constructor.
 data ListSubscriptionDefinitions = ListSubscriptionDefinitions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to be returned per request.
     maxResults :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionDefinitions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to be returned per request.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'maxResults' - The maximum number of results to be returned per request.
 mkListSubscriptionDefinitions ::
   ListSubscriptionDefinitions
 mkListSubscriptionDefinitions =
@@ -125,28 +121,20 @@ instance Lude.ToQuery ListSubscriptionDefinitions where
 
 -- | /See:/ 'mkListSubscriptionDefinitionsResponse' smart constructor.
 data ListSubscriptionDefinitionsResponse = ListSubscriptionDefinitionsResponse'
-  { nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    definitions ::
-      Lude.Maybe
-        [DefinitionInformation],
-    responseStatus ::
-      Lude.Int
+  { -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | Information about a definition.
+    definitions :: Lude.Maybe [DefinitionInformation],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListSubscriptionDefinitionsResponse' with the minimum fields required to make a request.
 --
--- * 'definitions' - Information about a definition.
 -- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- * 'definitions' - Information about a definition.
 -- * 'responseStatus' - The response status code.
 mkListSubscriptionDefinitionsResponse ::
   -- | 'responseStatus'

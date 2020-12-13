@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.SnapshotAttributeName
   ( SnapshotAttributeName
       ( SnapshotAttributeName',
-        SANCreateVolumePermission,
-        SANProductCodes
+        SANProductCodes,
+        SANCreateVolumePermission
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype SnapshotAttributeName = SnapshotAttributeName' Lude.Text
       Lude.ToHeader
     )
 
-pattern SANCreateVolumePermission :: SnapshotAttributeName
-pattern SANCreateVolumePermission = SnapshotAttributeName' "createVolumePermission"
-
 pattern SANProductCodes :: SnapshotAttributeName
 pattern SANProductCodes = SnapshotAttributeName' "productCodes"
 
+pattern SANCreateVolumePermission :: SnapshotAttributeName
+pattern SANCreateVolumePermission = SnapshotAttributeName' "createVolumePermission"
+
 {-# COMPLETE
-  SANCreateVolumePermission,
   SANProductCodes,
+  SANCreateVolumePermission,
   SnapshotAttributeName'
   #-}

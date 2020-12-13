@@ -99,36 +99,38 @@ module Network.AWS.ServerlessApplicationRepository
     -- ** ApplicationDependencySummary
     ApplicationDependencySummary (..),
     mkApplicationDependencySummary,
-    adsApplicationId,
     adsSemanticVersion,
+    adsApplicationId,
 
     -- ** ApplicationPolicyStatement
     ApplicationPolicyStatement (..),
     mkApplicationPolicyStatement,
+    apsActions,
+    apsPrincipals,
     apsStatementId,
     apsPrincipalOrgIds,
-    apsPrincipals,
-    apsActions,
 
     -- ** ApplicationSummary
     ApplicationSummary (..),
     mkApplicationSummary,
     asCreationTime,
     asHomePageURL,
-    asLabels,
-    asSpdxLicenseId,
-    asDescription,
-    asAuthor,
     asApplicationId,
     asName,
+    asAuthor,
+    asLabels,
+    asDescription,
+    asSpdxLicenseId,
 
     -- ** ParameterDefinition
     ParameterDefinition (..),
     mkParameterDefinition,
     pdMaxValue,
+    pdReferencedByResources,
     pdMaxLength,
     pdConstraintDescription,
     pdMinLength,
+    pdName,
     pdDefaultValue,
     pdAllowedPattern,
     pdNoEcho,
@@ -136,8 +138,6 @@ module Network.AWS.ServerlessApplicationRepository
     pdAllowedValues,
     pdDescription,
     pdMinValue,
-    pdReferencedByResources,
-    pdName,
 
     -- ** ParameterValue
     ParameterValue (..),
@@ -154,8 +154,8 @@ module Network.AWS.ServerlessApplicationRepository
     -- ** RollbackTrigger
     RollbackTrigger (..),
     mkRollbackTrigger,
-    rtType,
     rtARN,
+    rtType,
 
     -- ** Tag
     Tag (..),
@@ -166,23 +166,23 @@ module Network.AWS.ServerlessApplicationRepository
     -- ** Version
     Version (..),
     mkVersion,
-    vSourceCodeURL,
-    vSourceCodeArchiveURL,
-    vTemplateURL,
-    vParameterDefinitions,
-    vResourcesSupported,
     vCreationTime,
+    vResourcesSupported,
     vRequiredCapabilities,
-    vApplicationId,
+    vParameterDefinitions,
     vSemanticVersion,
+    vSourceCodeURL,
+    vApplicationId,
+    vTemplateURL,
+    vSourceCodeArchiveURL,
 
     -- ** VersionSummary
     VersionSummary (..),
     mkVersionSummary,
-    vsSourceCodeURL,
     vsCreationTime,
-    vsApplicationId,
     vsSemanticVersion,
+    vsSourceCodeURL,
+    vsApplicationId,
 
     -- * Serialization types
     Lude.Base64 (..),

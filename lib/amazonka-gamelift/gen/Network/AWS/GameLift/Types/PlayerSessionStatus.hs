@@ -13,10 +13,10 @@
 module Network.AWS.GameLift.Types.PlayerSessionStatus
   ( PlayerSessionStatus
       ( PlayerSessionStatus',
-        PSSActive,
-        PSSCompleted,
-        PSSReserved,
-        PSSTimedout
+        Reserved,
+        Active,
+        Completed,
+        Timedout
       ),
   )
 where
@@ -47,22 +47,22 @@ newtype PlayerSessionStatus = PlayerSessionStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern PSSActive :: PlayerSessionStatus
-pattern PSSActive = PlayerSessionStatus' "ACTIVE"
+pattern Reserved :: PlayerSessionStatus
+pattern Reserved = PlayerSessionStatus' "RESERVED"
 
-pattern PSSCompleted :: PlayerSessionStatus
-pattern PSSCompleted = PlayerSessionStatus' "COMPLETED"
+pattern Active :: PlayerSessionStatus
+pattern Active = PlayerSessionStatus' "ACTIVE"
 
-pattern PSSReserved :: PlayerSessionStatus
-pattern PSSReserved = PlayerSessionStatus' "RESERVED"
+pattern Completed :: PlayerSessionStatus
+pattern Completed = PlayerSessionStatus' "COMPLETED"
 
-pattern PSSTimedout :: PlayerSessionStatus
-pattern PSSTimedout = PlayerSessionStatus' "TIMEDOUT"
+pattern Timedout :: PlayerSessionStatus
+pattern Timedout = PlayerSessionStatus' "TIMEDOUT"
 
 {-# COMPLETE
-  PSSActive,
-  PSSCompleted,
-  PSSReserved,
-  PSSTimedout,
+  Reserved,
+  Active,
+  Completed,
+  Timedout,
   PlayerSessionStatus'
   #-}

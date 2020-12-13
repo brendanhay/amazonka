@@ -32,18 +32,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkArchiveCreationOutput' smart constructor.
 data ArchiveCreationOutput = ArchiveCreationOutput'
-  { archiveId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the archive. This value is also included as part of the location.
+    archiveId :: Lude.Maybe Lude.Text,
+    -- | The checksum of the archive computed by Amazon S3 Glacier.
     checksum :: Lude.Maybe Lude.Text,
+    -- | The relative URI path of the newly added archive resource.
     location :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ArchiveCreationOutput' with the minimum fields required to make a request.

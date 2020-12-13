@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRelationalDatabaseEvent' smart constructor.
 data RelationalDatabaseEvent = RelationalDatabaseEvent'
-  { createdAt ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp when the database event was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The category that the database event belongs to.
     eventCategories :: Lude.Maybe [Lude.Text],
+    -- | The database that the database event relates to.
     resource :: Lude.Maybe Lude.Text,
+    -- | The message of the database event.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RelationalDatabaseEvent' with the minimum fields required to make a request.
 --
 -- * 'createdAt' - The timestamp when the database event was created.
 -- * 'eventCategories' - The category that the database event belongs to.
--- * 'message' - The message of the database event.
 -- * 'resource' - The database that the database event relates to.
+-- * 'message' - The message of the database event.
 mkRelationalDatabaseEvent ::
   RelationalDatabaseEvent
 mkRelationalDatabaseEvent =

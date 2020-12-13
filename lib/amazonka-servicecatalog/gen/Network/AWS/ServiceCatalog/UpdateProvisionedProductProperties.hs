@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +20,10 @@ module Network.AWS.ServiceCatalog.UpdateProvisionedProductProperties
     mkUpdateProvisionedProductProperties,
 
     -- ** Request lenses
+    upppIdempotencyToken,
+    upppProvisionedProductProperties,
     upppAcceptLanguage,
     upppProvisionedProductId,
-    upppProvisionedProductProperties,
-    upppIdempotencyToken,
 
     -- * Destructuring the response
     UpdateProvisionedProductPropertiesResponse (..),
@@ -45,28 +46,41 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'mkUpdateProvisionedProductProperties' smart constructor.
 data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
-  { acceptLanguage ::
-      Lude.Maybe Lude.Text,
-    provisionedProductId ::
-      Lude.Text,
-    provisionedProductProperties ::
-      Lude.HashMap
-        PropertyKey
-        (Lude.Text),
-    idempotencyToken ::
-      Lude.Text
+  { -- | The idempotency token that uniquely identifies the provisioning product update request.
+    idempotencyToken :: Lude.Text,
+    -- | A map that contains the provisioned product properties to be updated.
+    --
+    -- The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.
+    -- The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.
+    -- The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ .
+    -- If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
+    provisionedProductProperties :: Lude.HashMap PropertyKey (Lude.Text),
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioned product.
+    provisionedProductId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisionedProductProperties' with the minimum fields required to make a request.
 --
+-- * 'idempotencyToken' - The idempotency token that uniquely identifies the provisioning product update request.
+-- * 'provisionedProductProperties' - A map that contains the provisioned product properties to be updated.
+--
+-- The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.
+-- The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.
+-- The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ .
+-- If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
 -- * 'acceptLanguage' - The language code.
 --
 --
@@ -79,30 +93,42 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
 --     * @zh@ - Chinese
 --
 --
--- * 'idempotencyToken' - The idempotency token that uniquely identifies the provisioning product update request.
 -- * 'provisionedProductId' - The identifier of the provisioned product.
--- * 'provisionedProductProperties' - A map that contains the provisioned product properties to be updated.
+mkUpdateProvisionedProductProperties ::
+  -- | 'idempotencyToken'
+  Lude.Text ->
+  -- | 'provisionedProductId'
+  Lude.Text ->
+  UpdateProvisionedProductProperties
+mkUpdateProvisionedProductProperties
+  pIdempotencyToken_
+  pProvisionedProductId_ =
+    UpdateProvisionedProductProperties'
+      { idempotencyToken =
+          pIdempotencyToken_,
+        provisionedProductProperties = Lude.mempty,
+        acceptLanguage = Lude.Nothing,
+        provisionedProductId = pProvisionedProductId_
+      }
+
+-- | The idempotency token that uniquely identifies the provisioning product update request.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upppIdempotencyToken :: Lens.Lens' UpdateProvisionedProductProperties Lude.Text
+upppIdempotencyToken = Lens.lens (idempotencyToken :: UpdateProvisionedProductProperties -> Lude.Text) (\s a -> s {idempotencyToken = a} :: UpdateProvisionedProductProperties)
+{-# DEPRECATED upppIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
+
+-- | A map that contains the provisioned product properties to be updated.
 --
 -- The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.
 -- The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.
 -- The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ .
 -- If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
-mkUpdateProvisionedProductProperties ::
-  -- | 'provisionedProductId'
-  Lude.Text ->
-  -- | 'idempotencyToken'
-  Lude.Text ->
-  UpdateProvisionedProductProperties
-mkUpdateProvisionedProductProperties
-  pProvisionedProductId_
-  pIdempotencyToken_ =
-    UpdateProvisionedProductProperties'
-      { acceptLanguage =
-          Lude.Nothing,
-        provisionedProductId = pProvisionedProductId_,
-        provisionedProductProperties = Lude.mempty,
-        idempotencyToken = pIdempotencyToken_
-      }
+--
+-- /Note:/ Consider using 'provisionedProductProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upppProvisionedProductProperties :: Lens.Lens' UpdateProvisionedProductProperties (Lude.HashMap PropertyKey (Lude.Text))
+upppProvisionedProductProperties = Lens.lens (provisionedProductProperties :: UpdateProvisionedProductProperties -> Lude.HashMap PropertyKey (Lude.Text)) (\s a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductProperties)
+{-# DEPRECATED upppProvisionedProductProperties "Use generic-lens or generic-optics with 'provisionedProductProperties' instead." #-}
 
 -- | The language code.
 --
@@ -128,25 +154,6 @@ upppAcceptLanguage = Lens.lens (acceptLanguage :: UpdateProvisionedProductProper
 upppProvisionedProductId :: Lens.Lens' UpdateProvisionedProductProperties Lude.Text
 upppProvisionedProductId = Lens.lens (provisionedProductId :: UpdateProvisionedProductProperties -> Lude.Text) (\s a -> s {provisionedProductId = a} :: UpdateProvisionedProductProperties)
 {-# DEPRECATED upppProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
-
--- | A map that contains the provisioned product properties to be updated.
---
--- The @LAUNCH_ROLE@ key accepts role ARNs. This key allows an administrator to call @UpdateProvisionedProductProperties@ to update the launch role that is associated with a provisioned product. This role is used when an end user calls a provisioning operation such as @UpdateProvisionedProduct@ , @TerminateProvisionedProduct@ , or @ExecuteProvisionedProductServiceAction@ . Only a role ARN is valid. A user ARN is invalid.
--- The @OWNER@ key accepts user ARNs and role ARNs. The owner is the user that has permission to see, update, terminate, and execute service actions in the provisioned product.
--- The administrator can change the owner of a provisioned product to another IAM user within the same account. Both end user owners and administrators can see ownership history of the provisioned product using the @ListRecordHistory@ API. The new owner can describe all past records for the provisioned product using the @DescribeRecord@ API. The previous owner can no longer use @DescribeRecord@ , but can still see the product's history from when he was an owner using @ListRecordHistory@ .
--- If a provisioned product ownership is assigned to an end user, they can see and perform any action through the API or Service Catalog console such as update, terminate, and execute service actions. If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through API or the Service Catalog console on that provisioned product.
---
--- /Note:/ Consider using 'provisionedProductProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upppProvisionedProductProperties :: Lens.Lens' UpdateProvisionedProductProperties (Lude.HashMap PropertyKey (Lude.Text))
-upppProvisionedProductProperties = Lens.lens (provisionedProductProperties :: UpdateProvisionedProductProperties -> Lude.HashMap PropertyKey (Lude.Text)) (\s a -> s {provisionedProductProperties = a} :: UpdateProvisionedProductProperties)
-{-# DEPRECATED upppProvisionedProductProperties "Use generic-lens or generic-optics with 'provisionedProductProperties' instead." #-}
-
--- | The idempotency token that uniquely identifies the provisioning product update request.
---
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upppIdempotencyToken :: Lens.Lens' UpdateProvisionedProductProperties Lude.Text
-upppIdempotencyToken = Lens.lens (idempotencyToken :: UpdateProvisionedProductProperties -> Lude.Text) (\s a -> s {idempotencyToken = a} :: UpdateProvisionedProductProperties)
-{-# DEPRECATED upppIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 instance Lude.AWSRequest UpdateProvisionedProductProperties where
   type
@@ -181,13 +188,13 @@ instance Lude.ToJSON UpdateProvisionedProductProperties where
   toJSON UpdateProvisionedProductProperties' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("ProvisionedProductId" Lude..= provisionedProductId),
+          [ Lude.Just ("IdempotencyToken" Lude..= idempotencyToken),
             Lude.Just
               ( "ProvisionedProductProperties"
                   Lude..= provisionedProductProperties
               ),
-            Lude.Just ("IdempotencyToken" Lude..= idempotencyToken)
+            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
+            Lude.Just ("ProvisionedProductId" Lude..= provisionedProductId)
           ]
       )
 
@@ -199,40 +206,27 @@ instance Lude.ToQuery UpdateProvisionedProductProperties where
 
 -- | /See:/ 'mkUpdateProvisionedProductPropertiesResponse' smart constructor.
 data UpdateProvisionedProductPropertiesResponse = UpdateProvisionedProductPropertiesResponse'
-  { status ::
-      Lude.Maybe
-        RecordStatus,
-    provisionedProductProperties ::
-      Lude.Maybe
-        ( Lude.HashMap
-            PropertyKey
-            (Lude.Text)
-        ),
-    recordId ::
-      Lude.Maybe
-        Lude.Text,
-    provisionedProductId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The status of the request.
+    status :: Lude.Maybe RecordStatus,
+    -- | A map that contains the properties updated.
+    provisionedProductProperties :: Lude.Maybe (Lude.HashMap PropertyKey (Lude.Text)),
+    -- | The identifier of the record.
+    recordId :: Lude.Maybe Lude.Text,
+    -- | The provisioned product identifier.
+    provisionedProductId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateProvisionedProductPropertiesResponse' with the minimum fields required to make a request.
 --
--- * 'provisionedProductId' - The provisioned product identifier.
+-- * 'status' - The status of the request.
 -- * 'provisionedProductProperties' - A map that contains the properties updated.
 -- * 'recordId' - The identifier of the record.
+-- * 'provisionedProductId' - The provisioned product identifier.
 -- * 'responseStatus' - The response status code.
--- * 'status' - The status of the request.
 mkUpdateProvisionedProductPropertiesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

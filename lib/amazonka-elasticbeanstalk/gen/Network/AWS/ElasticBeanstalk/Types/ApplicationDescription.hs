@@ -36,37 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkApplicationDescription' smart constructor.
 data ApplicationDescription = ApplicationDescription'
-  { applicationARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the application.
+    applicationARN :: Lude.Maybe Lude.Text,
+    -- | The names of the versions for this application.
     versions :: Lude.Maybe [Lude.Text],
+    -- | The date when the application was last modified.
     dateUpdated :: Lude.Maybe Lude.DateTime,
+    -- | The date when the application was created.
     dateCreated :: Lude.Maybe Lude.DateTime,
+    -- | The name of the application.
     applicationName :: Lude.Maybe Lude.Text,
-    configurationTemplates ::
-      Lude.Maybe [Lude.Text],
-    resourceLifecycleConfig ::
-      Lude.Maybe ApplicationResourceLifecycleConfig,
+    -- | The names of the configuration templates associated with this application.
+    configurationTemplates :: Lude.Maybe [Lude.Text],
+    -- | The lifecycle settings for the application.
+    resourceLifecycleConfig :: Lude.Maybe ApplicationResourceLifecycleConfig,
+    -- | User-defined description of the application.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ApplicationDescription' with the minimum fields required to make a request.
 --
 -- * 'applicationARN' - The Amazon Resource Name (ARN) of the application.
+-- * 'versions' - The names of the versions for this application.
+-- * 'dateUpdated' - The date when the application was last modified.
+-- * 'dateCreated' - The date when the application was created.
 -- * 'applicationName' - The name of the application.
 -- * 'configurationTemplates' - The names of the configuration templates associated with this application.
--- * 'dateCreated' - The date when the application was created.
--- * 'dateUpdated' - The date when the application was last modified.
--- * 'description' - User-defined description of the application.
 -- * 'resourceLifecycleConfig' - The lifecycle settings for the application.
--- * 'versions' - The names of the versions for this application.
+-- * 'description' - User-defined description of the application.
 mkApplicationDescription ::
   ApplicationDescription
 mkApplicationDescription =

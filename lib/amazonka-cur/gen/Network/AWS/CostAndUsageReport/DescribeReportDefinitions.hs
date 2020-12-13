@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,23 +47,16 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeReportDefinitions' smart constructor.
 data DescribeReportDefinitions = DescribeReportDefinitions'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { nextToken :: Lude.Maybe Lude.Text,
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReportDefinitions' with the minimum fields required to make a request.
 --
--- * 'maxResults' - Undocumented field.
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
+-- * 'maxResults' -
 mkDescribeReportDefinitions ::
   DescribeReportDefinitions
 mkDescribeReportDefinitions =
@@ -140,26 +134,18 @@ instance Lude.ToQuery DescribeReportDefinitions where
 --
 -- /See:/ 'mkDescribeReportDefinitionsResponse' smart constructor.
 data DescribeReportDefinitionsResponse = DescribeReportDefinitionsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    reportDefinitions ::
-      Lude.Maybe
-        [ReportDefinition],
-    responseStatus ::
-      Lude.Int
+  { nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of AWS Cost and Usage reports owned by the account.
+    reportDefinitions :: Lude.Maybe [ReportDefinition],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeReportDefinitionsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - Undocumented field.
+-- * 'nextToken' -
 -- * 'reportDefinitions' - A list of AWS Cost and Usage reports owned by the account.
 -- * 'responseStatus' - The response status code.
 mkDescribeReportDefinitionsResponse ::

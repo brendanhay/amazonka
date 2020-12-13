@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.AccessPoliciesStatus
     mkAccessPoliciesStatus,
 
     -- * Lenses
-    apsOptions,
     apsStatus,
+    apsOptions,
   )
 where
 
@@ -30,38 +30,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessPoliciesStatus' smart constructor.
 data AccessPoliciesStatus = AccessPoliciesStatus'
-  { options ::
-      Lude.Text,
-    status :: OptionStatus
+  { status :: OptionStatus,
+    options :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AccessPoliciesStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Undocumented field.
--- * 'status' - Undocumented field.
+-- * 'status' -
+-- * 'options' -
 mkAccessPoliciesStatus ::
-  -- | 'options'
-  Lude.Text ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  Lude.Text ->
   AccessPoliciesStatus
-mkAccessPoliciesStatus pOptions_ pStatus_ =
-  AccessPoliciesStatus' {options = pOptions_, status = pStatus_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsOptions :: Lens.Lens' AccessPoliciesStatus Lude.Text
-apsOptions = Lens.lens (options :: AccessPoliciesStatus -> Lude.Text) (\s a -> s {options = a} :: AccessPoliciesStatus)
-{-# DEPRECATED apsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkAccessPoliciesStatus pStatus_ pOptions_ =
+  AccessPoliciesStatus' {status = pStatus_, options = pOptions_}
 
 -- | Undocumented field.
 --
@@ -70,7 +56,14 @@ apsStatus :: Lens.Lens' AccessPoliciesStatus OptionStatus
 apsStatus = Lens.lens (status :: AccessPoliciesStatus -> OptionStatus) (\s a -> s {status = a} :: AccessPoliciesStatus)
 {-# DEPRECATED apsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apsOptions :: Lens.Lens' AccessPoliciesStatus Lude.Text
+apsOptions = Lens.lens (options :: AccessPoliciesStatus -> Lude.Text) (\s a -> s {options = a} :: AccessPoliciesStatus)
+{-# DEPRECATED apsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromXML AccessPoliciesStatus where
   parseXML x =
     AccessPoliciesStatus'
-      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")

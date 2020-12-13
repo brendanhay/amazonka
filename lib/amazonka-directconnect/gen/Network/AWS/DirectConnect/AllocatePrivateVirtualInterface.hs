@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     mkAllocatePrivateVirtualInterface,
 
     -- ** Request lenses
+    apviNewPrivateVirtualInterfaceAllocation,
     apviConnectionId,
     apviOwnerAccount,
-    apviNewPrivateVirtualInterfaceAllocation,
 
     -- * Destructuring the response
     VirtualInterface (..),
@@ -65,44 +66,46 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAllocatePrivateVirtualInterface' smart constructor.
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
-  { connectionId ::
-      Lude.Text,
-    ownerAccount :: Lude.Text,
-    newPrivateVirtualInterfaceAllocation ::
-      NewPrivateVirtualInterfaceAllocation
+  { -- | Information about the private virtual interface.
+    newPrivateVirtualInterfaceAllocation :: NewPrivateVirtualInterfaceAllocation,
+    -- | The ID of the connection on which the private virtual interface is provisioned.
+    connectionId :: Lude.Text,
+    -- | The ID of the AWS account that owns the virtual private interface.
+    ownerAccount :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AllocatePrivateVirtualInterface' with the minimum fields required to make a request.
 --
--- * 'connectionId' - The ID of the connection on which the private virtual interface is provisioned.
 -- * 'newPrivateVirtualInterfaceAllocation' - Information about the private virtual interface.
+-- * 'connectionId' - The ID of the connection on which the private virtual interface is provisioned.
 -- * 'ownerAccount' - The ID of the AWS account that owns the virtual private interface.
 mkAllocatePrivateVirtualInterface ::
+  -- | 'newPrivateVirtualInterfaceAllocation'
+  NewPrivateVirtualInterfaceAllocation ->
   -- | 'connectionId'
   Lude.Text ->
   -- | 'ownerAccount'
   Lude.Text ->
-  -- | 'newPrivateVirtualInterfaceAllocation'
-  NewPrivateVirtualInterfaceAllocation ->
   AllocatePrivateVirtualInterface
 mkAllocatePrivateVirtualInterface
+  pNewPrivateVirtualInterfaceAllocation_
   pConnectionId_
-  pOwnerAccount_
-  pNewPrivateVirtualInterfaceAllocation_ =
+  pOwnerAccount_ =
     AllocatePrivateVirtualInterface'
-      { connectionId = pConnectionId_,
-        ownerAccount = pOwnerAccount_,
-        newPrivateVirtualInterfaceAllocation =
-          pNewPrivateVirtualInterfaceAllocation_
+      { newPrivateVirtualInterfaceAllocation =
+          pNewPrivateVirtualInterfaceAllocation_,
+        connectionId = pConnectionId_,
+        ownerAccount = pOwnerAccount_
       }
+
+-- | Information about the private virtual interface.
+--
+-- /Note:/ Consider using 'newPrivateVirtualInterfaceAllocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apviNewPrivateVirtualInterfaceAllocation :: Lens.Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
+apviNewPrivateVirtualInterfaceAllocation = Lens.lens (newPrivateVirtualInterfaceAllocation :: AllocatePrivateVirtualInterface -> NewPrivateVirtualInterfaceAllocation) (\s a -> s {newPrivateVirtualInterfaceAllocation = a} :: AllocatePrivateVirtualInterface)
+{-# DEPRECATED apviNewPrivateVirtualInterfaceAllocation "Use generic-lens or generic-optics with 'newPrivateVirtualInterfaceAllocation' instead." #-}
 
 -- | The ID of the connection on which the private virtual interface is provisioned.
 --
@@ -117,13 +120,6 @@ apviConnectionId = Lens.lens (connectionId :: AllocatePrivateVirtualInterface ->
 apviOwnerAccount :: Lens.Lens' AllocatePrivateVirtualInterface Lude.Text
 apviOwnerAccount = Lens.lens (ownerAccount :: AllocatePrivateVirtualInterface -> Lude.Text) (\s a -> s {ownerAccount = a} :: AllocatePrivateVirtualInterface)
 {-# DEPRECATED apviOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
-
--- | Information about the private virtual interface.
---
--- /Note:/ Consider using 'newPrivateVirtualInterfaceAllocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apviNewPrivateVirtualInterfaceAllocation :: Lens.Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
-apviNewPrivateVirtualInterfaceAllocation = Lens.lens (newPrivateVirtualInterfaceAllocation :: AllocatePrivateVirtualInterface -> NewPrivateVirtualInterfaceAllocation) (\s a -> s {newPrivateVirtualInterfaceAllocation = a} :: AllocatePrivateVirtualInterface)
-{-# DEPRECATED apviNewPrivateVirtualInterfaceAllocation "Use generic-lens or generic-optics with 'newPrivateVirtualInterfaceAllocation' instead." #-}
 
 instance Lude.AWSRequest AllocatePrivateVirtualInterface where
   type Rs AllocatePrivateVirtualInterface = VirtualInterface
@@ -147,12 +143,12 @@ instance Lude.ToJSON AllocatePrivateVirtualInterface where
   toJSON AllocatePrivateVirtualInterface' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just ("ownerAccount" Lude..= ownerAccount),
-            Lude.Just
+          [ Lude.Just
               ( "newPrivateVirtualInterfaceAllocation"
                   Lude..= newPrivateVirtualInterfaceAllocation
-              )
+              ),
+            Lude.Just ("connectionId" Lude..= connectionId),
+            Lude.Just ("ownerAccount" Lude..= ownerAccount)
           ]
       )
 

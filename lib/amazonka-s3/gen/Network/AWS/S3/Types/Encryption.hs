@@ -17,9 +17,9 @@ module Network.AWS.S3.Types.Encryption
     mkEncryption,
 
     -- * Lenses
+    eEncryptionType,
     eKMSKeyId,
     eKMSContext,
-    eEncryptionType,
   )
 where
 
@@ -32,10 +32,12 @@ import Network.AWS.S3.Types.ServerSideEncryption
 --
 -- /See:/ 'mkEncryption' smart constructor.
 data Encryption = Encryption'
-  { kmsKeyId ::
-      Lude.Maybe (Lude.Sensitive Lude.Text),
-    kmsContext :: Lude.Maybe Lude.Text,
-    encryptionType :: ServerSideEncryption
+  { -- | The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, aws:kms).
+    encryptionType :: ServerSideEncryption,
+    -- | If the encryption type is @aws:kms@ , this optional value specifies the ID of the symmetric customer managed AWS KMS CMK to use for encryption of job results. Amazon S3 only supports symmetric CMKs. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys> in the /AWS Key Management Service Developer Guide/ .
+    kmsKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    -- | If the encryption type is @aws:kms@ , this optional value can be used to specify the encryption context for the restore results.
+    kmsContext :: Lude.Maybe Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -43,18 +45,25 @@ data Encryption = Encryption'
 -- | Creates a value of 'Encryption' with the minimum fields required to make a request.
 --
 -- * 'encryptionType' - The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, aws:kms).
--- * 'kmsContext' - If the encryption type is @aws:kms@ , this optional value can be used to specify the encryption context for the restore results.
 -- * 'kmsKeyId' - If the encryption type is @aws:kms@ , this optional value specifies the ID of the symmetric customer managed AWS KMS CMK to use for encryption of job results. Amazon S3 only supports symmetric CMKs. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys> in the /AWS Key Management Service Developer Guide/ .
+-- * 'kmsContext' - If the encryption type is @aws:kms@ , this optional value can be used to specify the encryption context for the restore results.
 mkEncryption ::
   -- | 'encryptionType'
   ServerSideEncryption ->
   Encryption
 mkEncryption pEncryptionType_ =
   Encryption'
-    { kmsKeyId = Lude.Nothing,
-      kmsContext = Lude.Nothing,
-      encryptionType = pEncryptionType_
+    { encryptionType = pEncryptionType_,
+      kmsKeyId = Lude.Nothing,
+      kmsContext = Lude.Nothing
     }
+
+-- | The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, aws:kms).
+--
+-- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eEncryptionType :: Lens.Lens' Encryption ServerSideEncryption
+eEncryptionType = Lens.lens (encryptionType :: Encryption -> ServerSideEncryption) (\s a -> s {encryptionType = a} :: Encryption)
+{-# DEPRECATED eEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
 -- | If the encryption type is @aws:kms@ , this optional value specifies the ID of the symmetric customer managed AWS KMS CMK to use for encryption of job results. Amazon S3 only supports symmetric CMKs. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -70,17 +79,10 @@ eKMSContext :: Lens.Lens' Encryption (Lude.Maybe Lude.Text)
 eKMSContext = Lens.lens (kmsContext :: Encryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsContext = a} :: Encryption)
 {-# DEPRECATED eKMSContext "Use generic-lens or generic-optics with 'kmsContext' instead." #-}
 
--- | The server-side encryption algorithm used when storing job results in Amazon S3 (for example, AES256, aws:kms).
---
--- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eEncryptionType :: Lens.Lens' Encryption ServerSideEncryption
-eEncryptionType = Lens.lens (encryptionType :: Encryption -> ServerSideEncryption) (\s a -> s {encryptionType = a} :: Encryption)
-{-# DEPRECATED eEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
-
 instance Lude.ToXML Encryption where
   toXML Encryption' {..} =
     Lude.mconcat
-      [ "KMSKeyId" Lude.@= kmsKeyId,
-        "KMSContext" Lude.@= kmsContext,
-        "EncryptionType" Lude.@= encryptionType
+      [ "EncryptionType" Lude.@= encryptionType,
+        "KMSKeyId" Lude.@= kmsKeyId,
+        "KMSContext" Lude.@= kmsContext
       ]

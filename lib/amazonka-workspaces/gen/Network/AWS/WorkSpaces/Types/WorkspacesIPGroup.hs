@@ -32,27 +32,24 @@ import Network.AWS.WorkSpaces.Types.IPRuleItem
 --
 -- /See:/ 'mkWorkspacesIPGroup' smart constructor.
 data WorkspacesIPGroup = WorkspacesIPGroup'
-  { groupDesc ::
-      Lude.Maybe Lude.Text,
+  { -- | The description of the group.
+    groupDesc :: Lude.Maybe Lude.Text,
+    -- | The rules.
     userRules :: Lude.Maybe [IPRuleItem],
+    -- | The identifier of the group.
     groupId :: Lude.Maybe Lude.Text,
+    -- | The name of the group.
     groupName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WorkspacesIPGroup' with the minimum fields required to make a request.
 --
 -- * 'groupDesc' - The description of the group.
+-- * 'userRules' - The rules.
 -- * 'groupId' - The identifier of the group.
 -- * 'groupName' - The name of the group.
--- * 'userRules' - The rules.
 mkWorkspacesIPGroup ::
   WorkspacesIPGroup
 mkWorkspacesIPGroup =

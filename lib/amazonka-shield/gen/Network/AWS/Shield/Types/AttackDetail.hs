@@ -39,34 +39,36 @@ import Network.AWS.Shield.Types.SummarizedCounter
 --
 -- /See:/ 'mkAttackDetail' smart constructor.
 data AttackDetail = AttackDetail'
-  { attackId :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier (ID) of the attack.
+    attackId :: Lude.Maybe Lude.Text,
+    -- | The time the attack started, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
     startTime :: Lude.Maybe Lude.Timestamp,
+    -- | If applicable, additional detail about the resource being attacked, for example, IP address or URL.
     subResources :: Lude.Maybe [SubResourceSummary],
+    -- | List of mitigation actions taken for the attack.
     mitigations :: Lude.Maybe [Mitigation],
+    -- | The array of 'AttackProperty' objects.
     attackProperties :: Lude.Maybe [AttackProperty],
+    -- | List of counters that describe the attack for the specified time period.
     attackCounters :: Lude.Maybe [SummarizedCounter],
+    -- | The ARN (Amazon Resource Name) of the resource that was attacked.
     resourceARN :: Lude.Maybe Lude.Text,
+    -- | The time the attack ended, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
     endTime :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttackDetail' with the minimum fields required to make a request.
 --
--- * 'attackCounters' - List of counters that describe the attack for the specified time period.
 -- * 'attackId' - The unique identifier (ID) of the attack.
--- * 'attackProperties' - The array of 'AttackProperty' objects.
--- * 'endTime' - The time the attack ended, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
--- * 'mitigations' - List of mitigation actions taken for the attack.
--- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource that was attacked.
 -- * 'startTime' - The time the attack started, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
 -- * 'subResources' - If applicable, additional detail about the resource being attacked, for example, IP address or URL.
+-- * 'mitigations' - List of mitigation actions taken for the attack.
+-- * 'attackProperties' - The array of 'AttackProperty' objects.
+-- * 'attackCounters' - List of counters that describe the attack for the specified time period.
+-- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource that was attacked.
+-- * 'endTime' - The time the attack ended, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
 mkAttackDetail ::
   AttackDetail
 mkAttackDetail =

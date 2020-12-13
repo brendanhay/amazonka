@@ -36,34 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTopicRule' smart constructor.
 data TopicRule = TopicRule'
-  { createdAt :: Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the rule was created.
+    createdAt :: Lude.Maybe Lude.Timestamp,
+    -- | The actions associated with the rule.
     actions :: Lude.Maybe [Action],
+    -- | The version of the SQL rules engine to use when evaluating the rule.
     awsIotSqlVersion :: Lude.Maybe Lude.Text,
+    -- | The action to perform when an error occurs.
     errorAction :: Lude.Maybe Action,
+    -- | Specifies whether the rule is disabled.
     ruleDisabled :: Lude.Maybe Lude.Bool,
+    -- | The name of the rule.
     ruleName :: Lude.Maybe Lude.Text,
+    -- | The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
     sql :: Lude.Maybe Lude.Text,
+    -- | The description of the rule.
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TopicRule' with the minimum fields required to make a request.
 --
+-- * 'createdAt' - The date and time the rule was created.
 -- * 'actions' - The actions associated with the rule.
 -- * 'awsIotSqlVersion' - The version of the SQL rules engine to use when evaluating the rule.
--- * 'createdAt' - The date and time the rule was created.
--- * 'description' - The description of the rule.
 -- * 'errorAction' - The action to perform when an error occurs.
 -- * 'ruleDisabled' - Specifies whether the rule is disabled.
 -- * 'ruleName' - The name of the rule.
 -- * 'sql' - The SQL statement used to query the topic. When using a SQL query with multiple lines, be sure to escape the newline characters.
+-- * 'description' - The description of the rule.
 mkTopicRule ::
   TopicRule
 mkTopicRule =

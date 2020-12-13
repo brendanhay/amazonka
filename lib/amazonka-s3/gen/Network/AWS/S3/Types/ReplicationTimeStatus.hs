@@ -13,8 +13,8 @@
 module Network.AWS.S3.Types.ReplicationTimeStatus
   ( ReplicationTimeStatus
       ( ReplicationTimeStatus',
-        RTSDisabled,
-        RTSEnabled
+        RTSEnabled,
+        RTSDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ReplicationTimeStatus = ReplicationTimeStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern RTSDisabled :: ReplicationTimeStatus
-pattern RTSDisabled = ReplicationTimeStatus' "Disabled"
-
 pattern RTSEnabled :: ReplicationTimeStatus
 pattern RTSEnabled = ReplicationTimeStatus' "Enabled"
 
+pattern RTSDisabled :: ReplicationTimeStatus
+pattern RTSDisabled = ReplicationTimeStatus' "Disabled"
+
 {-# COMPLETE
-  RTSDisabled,
   RTSEnabled,
+  RTSDisabled,
   ReplicationTimeStatus'
   #-}

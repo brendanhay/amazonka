@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeContinuousExports' smart constructor.
 data DescribeContinuousExports = DescribeContinuousExports'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | The token from the previous call to @DescribeExportTasks@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The unique IDs assigned to the exports.
     exportIds :: Lude.Maybe [Lude.Text],
+    -- | A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContinuousExports' with the minimum fields required to make a request.
 --
+-- * 'nextToken' - The token from the previous call to @DescribeExportTasks@ .
 -- * 'exportIds' - The unique IDs assigned to the exports.
 -- * 'maxResults' - A number between 1 and 100 specifying the maximum number of continuous export descriptions returned.
--- * 'nextToken' - The token from the previous call to @DescribeExportTasks@ .
 mkDescribeContinuousExports ::
   DescribeContinuousExports
 mkDescribeContinuousExports =
@@ -148,27 +145,20 @@ instance Lude.ToQuery DescribeContinuousExports where
 
 -- | /See:/ 'mkDescribeContinuousExportsResponse' smart constructor.
 data DescribeContinuousExportsResponse = DescribeContinuousExportsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    descriptions ::
-      Lude.Maybe
-        [ContinuousExportDescription],
-    responseStatus ::
-      Lude.Int
+  { -- | The token from the previous call to @DescribeExportTasks@ .
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | A list of continuous export descriptions.
+    descriptions :: Lude.Maybe [ContinuousExportDescription],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeContinuousExportsResponse' with the minimum fields required to make a request.
 --
--- * 'descriptions' - A list of continuous export descriptions.
 -- * 'nextToken' - The token from the previous call to @DescribeExportTasks@ .
+-- * 'descriptions' - A list of continuous export descriptions.
 -- * 'responseStatus' - The response status code.
 mkDescribeContinuousExportsResponse ::
   -- | 'responseStatus'

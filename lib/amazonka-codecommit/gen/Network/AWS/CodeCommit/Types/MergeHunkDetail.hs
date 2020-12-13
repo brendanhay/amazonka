@@ -30,25 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMergeHunkDetail' smart constructor.
 data MergeHunkDetail = MergeHunkDetail'
-  { startLine ::
-      Lude.Maybe Lude.Int,
+  { -- | The start position of the hunk in the merge result.
+    startLine :: Lude.Maybe Lude.Int,
+    -- | The end position of the hunk in the merge result.
     endLine :: Lude.Maybe Lude.Int,
+    -- | The base-64 encoded content of the hunk merged region that might contain a conflict.
     hunkContent :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MergeHunkDetail' with the minimum fields required to make a request.
 --
+-- * 'startLine' - The start position of the hunk in the merge result.
 -- * 'endLine' - The end position of the hunk in the merge result.
 -- * 'hunkContent' - The base-64 encoded content of the hunk merged region that might contain a conflict.
--- * 'startLine' - The start position of the hunk in the merge result.
 mkMergeHunkDetail ::
   MergeHunkDetail
 mkMergeHunkDetail =

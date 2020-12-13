@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.RDS.ResetDBParameterGroup
 
     -- ** Request lenses
     rdpgResetAllParameters,
-    rdpgParameters,
     rdpgDBParameterGroupName,
+    rdpgParameters,
 
     -- * Destructuring the response
     DBParameterGroupNameMessage (..),
@@ -42,22 +43,32 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkResetDBParameterGroup' smart constructor.
 data ResetDBParameterGroup = ResetDBParameterGroup'
-  { resetAllParameters ::
-      Lude.Maybe Lude.Bool,
-    parameters :: Lude.Maybe [Parameter],
-    dbParameterGroupName :: Lude.Text
+  { -- | A value that indicates whether to reset all parameters in the DB parameter group to default values. By default, all parameters in the DB parameter group are reset to default values.
+    resetAllParameters :: Lude.Maybe Lude.Bool,
+    -- | The name of the DB parameter group.
+    --
+    -- Constraints:
+    --
+    --     * Must match the name of an existing @DBParameterGroup@ .
+    dbParameterGroupName :: Lude.Text,
+    -- | To reset the entire DB parameter group, specify the @DBParameterGroup@ name and @ResetAllParameters@ parameters. To reset specific parameters, provide a list of the following: @ParameterName@ and @ApplyMethod@ . A maximum of 20 parameters can be modified in a single request.
+    --
+    -- __MySQL__
+    -- Valid Values (for Apply method): @immediate@ | @pending-reboot@
+    -- You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots.
+    -- __MariaDB__
+    -- Valid Values (for Apply method): @immediate@ | @pending-reboot@
+    -- You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots.
+    -- __Oracle__
+    -- Valid Values (for Apply method): @pending-reboot@
+    parameters :: Lude.Maybe [Parameter]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDBParameterGroup' with the minimum fields required to make a request.
 --
+-- * 'resetAllParameters' - A value that indicates whether to reset all parameters in the DB parameter group to default values. By default, all parameters in the DB parameter group are reset to default values.
 -- * 'dbParameterGroupName' - The name of the DB parameter group.
 --
 -- Constraints:
@@ -75,7 +86,6 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
 -- You can use the immediate value with dynamic parameters only. You can use the @pending-reboot@ value for both dynamic and static parameters, and changes are applied when DB instance reboots.
 -- __Oracle__
 -- Valid Values (for Apply method): @pending-reboot@
--- * 'resetAllParameters' - A value that indicates whether to reset all parameters in the DB parameter group to default values. By default, all parameters in the DB parameter group are reset to default values.
 mkResetDBParameterGroup ::
   -- | 'dbParameterGroupName'
   Lude.Text ->
@@ -83,8 +93,8 @@ mkResetDBParameterGroup ::
 mkResetDBParameterGroup pDBParameterGroupName_ =
   ResetDBParameterGroup'
     { resetAllParameters = Lude.Nothing,
-      parameters = Lude.Nothing,
-      dbParameterGroupName = pDBParameterGroupName_
+      dbParameterGroupName = pDBParameterGroupName_,
+      parameters = Lude.Nothing
     }
 
 -- | A value that indicates whether to reset all parameters in the DB parameter group to default values. By default, all parameters in the DB parameter group are reset to default values.
@@ -93,6 +103,19 @@ mkResetDBParameterGroup pDBParameterGroupName_ =
 rdpgResetAllParameters :: Lens.Lens' ResetDBParameterGroup (Lude.Maybe Lude.Bool)
 rdpgResetAllParameters = Lens.lens (resetAllParameters :: ResetDBParameterGroup -> Lude.Maybe Lude.Bool) (\s a -> s {resetAllParameters = a} :: ResetDBParameterGroup)
 {-# DEPRECATED rdpgResetAllParameters "Use generic-lens or generic-optics with 'resetAllParameters' instead." #-}
+
+-- | The name of the DB parameter group.
+--
+-- Constraints:
+--
+--     * Must match the name of an existing @DBParameterGroup@ .
+--
+--
+--
+-- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpgDBParameterGroupName :: Lens.Lens' ResetDBParameterGroup Lude.Text
+rdpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: ResetDBParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupName = a} :: ResetDBParameterGroup)
+{-# DEPRECATED rdpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
 -- | To reset the entire DB parameter group, specify the @DBParameterGroup@ name and @ResetAllParameters@ parameters. To reset specific parameters, provide a list of the following: @ParameterName@ and @ApplyMethod@ . A maximum of 20 parameters can be modified in a single request.
 --
@@ -109,19 +132,6 @@ rdpgResetAllParameters = Lens.lens (resetAllParameters :: ResetDBParameterGroup 
 rdpgParameters :: Lens.Lens' ResetDBParameterGroup (Lude.Maybe [Parameter])
 rdpgParameters = Lens.lens (parameters :: ResetDBParameterGroup -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: ResetDBParameterGroup)
 {-# DEPRECATED rdpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | The name of the DB parameter group.
---
--- Constraints:
---
---     * Must match the name of an existing @DBParameterGroup@ .
---
---
---
--- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpgDBParameterGroupName :: Lens.Lens' ResetDBParameterGroup Lude.Text
-rdpgDBParameterGroupName = Lens.lens (dbParameterGroupName :: ResetDBParameterGroup -> Lude.Text) (\s a -> s {dbParameterGroupName = a} :: ResetDBParameterGroup)
-{-# DEPRECATED rdpgDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
 
 instance Lude.AWSRequest ResetDBParameterGroup where
   type Rs ResetDBParameterGroup = DBParameterGroupNameMessage
@@ -143,7 +153,7 @@ instance Lude.ToQuery ResetDBParameterGroup where
       [ "Action" Lude.=: ("ResetDBParameterGroup" :: Lude.ByteString),
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "ResetAllParameters" Lude.=: resetAllParameters,
+        "DBParameterGroupName" Lude.=: dbParameterGroupName,
         "Parameters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Parameter" Lude.<$> parameters),
-        "DBParameterGroupName" Lude.=: dbParameterGroupName
+          Lude.=: Lude.toQuery (Lude.toQueryList "Parameter" Lude.<$> parameters)
       ]

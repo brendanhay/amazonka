@@ -13,11 +13,11 @@
 module Network.AWS.SWF.Types.CloseStatus
   ( CloseStatus
       ( CloseStatus',
-        Canceled,
         Completed,
-        ContinuedAsNew,
         Failed,
+        Canceled,
         Terminated,
+        ContinuedAsNew,
         TimedOut
       ),
   )
@@ -49,30 +49,30 @@ newtype CloseStatus = CloseStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Canceled :: CloseStatus
-pattern Canceled = CloseStatus' "CANCELED"
-
 pattern Completed :: CloseStatus
 pattern Completed = CloseStatus' "COMPLETED"
-
-pattern ContinuedAsNew :: CloseStatus
-pattern ContinuedAsNew = CloseStatus' "CONTINUED_AS_NEW"
 
 pattern Failed :: CloseStatus
 pattern Failed = CloseStatus' "FAILED"
 
+pattern Canceled :: CloseStatus
+pattern Canceled = CloseStatus' "CANCELED"
+
 pattern Terminated :: CloseStatus
 pattern Terminated = CloseStatus' "TERMINATED"
+
+pattern ContinuedAsNew :: CloseStatus
+pattern ContinuedAsNew = CloseStatus' "CONTINUED_AS_NEW"
 
 pattern TimedOut :: CloseStatus
 pattern TimedOut = CloseStatus' "TIMED_OUT"
 
 {-# COMPLETE
-  Canceled,
   Completed,
-  ContinuedAsNew,
   Failed,
+  Canceled,
   Terminated,
+  ContinuedAsNew,
   TimedOut,
   CloseStatus'
   #-}

@@ -48,88 +48,90 @@ import Network.AWS.ServiceCatalog.Types.Tag
 --
 -- /See:/ 'mkProvisionedProductAttribute' smart constructor.
 data ProvisionedProductAttribute = ProvisionedProductAttribute'
-  { idempotencyToken ::
-      Lude.Maybe Lude.Text,
-    status ::
-      Lude.Maybe ProvisionedProductStatus,
+  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Lude.Maybe Lude.Text,
+    -- | The current status of the provisioned product.
+    --
+    --
+    --     * @AVAILABLE@ - Stable state, ready to perform any operation. The most recent operation succeeded and completed.
+    --
+    --
+    --     * @UNDER_CHANGE@ - Transitive state. Operations performed might not have valid results. Wait for an @AVAILABLE@ status before performing operations.
+    --
+    --
+    --     * @TAINTED@ - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.
+    --
+    --
+    --     * @ERROR@ - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.
+    --
+    --
+    --     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
+    status :: Lude.Maybe ProvisionedProductStatus,
+    -- | The name of the product.
     productName :: Lude.Maybe Lude.Text,
-    lastSuccessfulProvisioningRecordId ::
-      Lude.Maybe Lude.Text,
-    provisioningArtifactId ::
-      Lude.Maybe Lude.Text,
+    -- | The record identifier of the last successful request performed on this provisioned product of the following types:
+    --
+    --
+    --     * ProvisionedProduct
+    --
+    --
+    --     * UpdateProvisionedProduct
+    --
+    --
+    --     * ExecuteProvisionedProductPlan
+    --
+    --
+    --     * TerminateProvisionedProduct
+    lastSuccessfulProvisioningRecordId :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioning artifact.
+    provisioningArtifactId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the provisioned product.
     arn :: Lude.Maybe Lude.Text,
-    createdTime ::
-      Lude.Maybe Lude.Timestamp,
-    provisioningArtifactName ::
-      Lude.Maybe Lude.Text,
+    -- | The UTC time stamp of the creation time.
+    createdTime :: Lude.Maybe Lude.Timestamp,
+    -- | The name of the provisioning artifact.
+    provisioningArtifactName :: Lude.Maybe Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM user.
     userARN :: Lude.Maybe Lude.Text,
-    statusMessage ::
-      Lude.Maybe Lude.Text,
+    -- | The current status message of the provisioned product.
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | The user-friendly name of the provisioned product.
     name :: Lude.Maybe Lude.Text,
-    lastRecordId ::
-      Lude.Maybe Lude.Text,
-    userARNSession ::
-      Lude.Maybe Lude.Text,
+    -- | The record identifier of the last request performed on this provisioned product.
+    lastRecordId :: Lude.Maybe Lude.Text,
+    -- | The ARN of the IAM user in the session. This ARN might contain a session ID.
+    userARNSession :: Lude.Maybe Lude.Text,
+    -- | The identifier of the provisioned product.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
     type' :: Lude.Maybe Lude.Text,
+    -- | The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
     physicalId :: Lude.Maybe Lude.Text,
-    lastProvisioningRecordId ::
-      Lude.Maybe Lude.Text,
+    -- | The record identifier of the last request performed on this provisioned product of the following types:
+    --
+    --
+    --     * ProvisionedProduct
+    --
+    --
+    --     * UpdateProvisionedProduct
+    --
+    --
+    --     * ExecuteProvisionedProductPlan
+    --
+    --
+    --     * TerminateProvisionedProduct
+    lastProvisioningRecordId :: Lude.Maybe Lude.Text,
+    -- | The product identifier.
     productId :: Lude.Maybe Lude.Text,
+    -- | One or more tags.
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ProvisionedProductAttribute' with the minimum fields required to make a request.
 --
--- * 'arn' - The ARN of the provisioned product.
--- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'id' - The identifier of the provisioned product.
 -- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
--- * 'lastProvisioningRecordId' - The record identifier of the last request performed on this provisioned product of the following types:
---
---
---     * ProvisionedProduct
---
---
---     * UpdateProvisionedProduct
---
---
---     * ExecuteProvisionedProductPlan
---
---
---     * TerminateProvisionedProduct
---
---
--- * 'lastRecordId' - The record identifier of the last request performed on this provisioned product.
--- * 'lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this provisioned product of the following types:
---
---
---     * ProvisionedProduct
---
---
---     * UpdateProvisionedProduct
---
---
---     * ExecuteProvisionedProductPlan
---
---
---     * TerminateProvisionedProduct
---
---
--- * 'name' - The user-friendly name of the provisioned product.
--- * 'physicalId' - The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
--- * 'productId' - The product identifier.
--- * 'productName' - The name of the product.
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
--- * 'provisioningArtifactName' - The name of the provisioning artifact.
 -- * 'status' - The current status of the provisioned product.
 --
 --
@@ -148,11 +150,51 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 --     * @PLAN_IN_PROGRESS@ - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an @AVAILABLE@ status before performing operations.
 --
 --
--- * 'statusMessage' - The current status message of the provisioned product.
--- * 'tags' - One or more tags.
--- * 'type'' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
+-- * 'productName' - The name of the product.
+-- * 'lastSuccessfulProvisioningRecordId' - The record identifier of the last successful request performed on this provisioned product of the following types:
+--
+--
+--     * ProvisionedProduct
+--
+--
+--     * UpdateProvisionedProduct
+--
+--
+--     * ExecuteProvisionedProductPlan
+--
+--
+--     * TerminateProvisionedProduct
+--
+--
+-- * 'provisioningArtifactId' - The identifier of the provisioning artifact.
+-- * 'arn' - The ARN of the provisioned product.
+-- * 'createdTime' - The UTC time stamp of the creation time.
+-- * 'provisioningArtifactName' - The name of the provisioning artifact.
 -- * 'userARN' - The Amazon Resource Name (ARN) of the IAM user.
+-- * 'statusMessage' - The current status message of the provisioned product.
+-- * 'name' - The user-friendly name of the provisioned product.
+-- * 'lastRecordId' - The record identifier of the last request performed on this provisioned product.
 -- * 'userARNSession' - The ARN of the IAM user in the session. This ARN might contain a session ID.
+-- * 'id' - The identifier of the provisioned product.
+-- * 'type'' - The type of provisioned product. The supported values are @CFN_STACK@ and @CFN_STACKSET@ .
+-- * 'physicalId' - The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.
+-- * 'lastProvisioningRecordId' - The record identifier of the last request performed on this provisioned product of the following types:
+--
+--
+--     * ProvisionedProduct
+--
+--
+--     * UpdateProvisionedProduct
+--
+--
+--     * ExecuteProvisionedProductPlan
+--
+--
+--     * TerminateProvisionedProduct
+--
+--
+-- * 'productId' - The product identifier.
+-- * 'tags' - One or more tags.
 mkProvisionedProductAttribute ::
   ProvisionedProductAttribute
 mkProvisionedProductAttribute =

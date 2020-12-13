@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -46,17 +47,12 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteMultiplexProgram' smart constructor.
 data DeleteMultiplexProgram = DeleteMultiplexProgram'
-  { multiplexId ::
-      Lude.Text,
+  { -- | The ID of the multiplex that the program belongs to.
+    multiplexId :: Lude.Text,
+    -- | The multiplex program name.
     programName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMultiplexProgram' with the minimum fields required to make a request.
@@ -129,37 +125,29 @@ instance Lude.ToQuery DeleteMultiplexProgram where
 --
 -- /See:/ 'mkDeleteMultiplexProgramResponse' smart constructor.
 data DeleteMultiplexProgramResponse = DeleteMultiplexProgramResponse'
-  { packetIdentifiersMap ::
-      Lude.Maybe
-        MultiplexProgramPacketIdentifiersMap,
-    pipelineDetails ::
-      Lude.Maybe
-        [MultiplexProgramPipelineDetail],
-    programName ::
-      Lude.Maybe Lude.Text,
-    channelId ::
-      Lude.Maybe Lude.Text,
-    multiplexProgramSettings ::
-      Lude.Maybe
-        MultiplexProgramSettings,
+  { -- | The packet identifier map for this multiplex program.
+    packetIdentifiersMap :: Lude.Maybe MultiplexProgramPacketIdentifiersMap,
+    -- | Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
+    pipelineDetails :: Lude.Maybe [MultiplexProgramPipelineDetail],
+    -- | The name of the multiplex program.
+    programName :: Lude.Maybe Lude.Text,
+    -- | The MediaLive channel associated with the program.
+    channelId :: Lude.Maybe Lude.Text,
+    -- | The settings for this multiplex program.
+    multiplexProgramSettings :: Lude.Maybe MultiplexProgramSettings,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteMultiplexProgramResponse' with the minimum fields required to make a request.
 --
--- * 'channelId' - The MediaLive channel associated with the program.
--- * 'multiplexProgramSettings' - The settings for this multiplex program.
 -- * 'packetIdentifiersMap' - The packet identifier map for this multiplex program.
 -- * 'pipelineDetails' - Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
 -- * 'programName' - The name of the multiplex program.
+-- * 'channelId' - The MediaLive channel associated with the program.
+-- * 'multiplexProgramSettings' - The settings for this multiplex program.
 -- * 'responseStatus' - The response status code.
 mkDeleteMultiplexProgramResponse ::
   -- | 'responseStatus'

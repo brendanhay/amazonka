@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkHlsIngest' smart constructor.
 newtype HlsIngest = HlsIngest'
-  { ingestEndpoints ::
-      Lude.Maybe [IngestEndpoint]
+  { -- | A list of endpoints to which the source stream should be sent.
+    ingestEndpoints :: Lude.Maybe [IngestEndpoint]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'HlsIngest' with the minimum fields required to make a request.

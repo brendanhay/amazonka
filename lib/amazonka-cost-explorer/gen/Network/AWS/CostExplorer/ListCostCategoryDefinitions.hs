@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,26 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListCostCategoryDefinitions' smart constructor.
 data ListCostCategoryDefinitions = ListCostCategoryDefinitions'
-  { effectiveOn ::
-      Lude.Maybe Lude.Text,
+  { -- | The date when the Cost Category was effective.
+    effectiveOn :: Lude.Maybe Lude.Text,
+    -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
     nextToken :: Lude.Maybe Lude.Text,
-    maxResults ::
-      Lude.Maybe Lude.Natural
+    -- | The number of entries a paginated response contains.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCostCategoryDefinitions' with the minimum fields required to make a request.
 --
 -- * 'effectiveOn' - The date when the Cost Category was effective.
--- * 'maxResults' - The number of entries a paginated response contains.
 -- * 'nextToken' - The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+-- * 'maxResults' - The number of entries a paginated response contains.
 mkListCostCategoryDefinitions ::
   ListCostCategoryDefinitions
 mkListCostCategoryDefinitions =
@@ -137,22 +133,14 @@ instance Lude.ToQuery ListCostCategoryDefinitions where
 
 -- | /See:/ 'mkListCostCategoryDefinitionsResponse' smart constructor.
 data ListCostCategoryDefinitionsResponse = ListCostCategoryDefinitionsResponse'
-  { costCategoryReferences ::
-      Lude.Maybe
-        [CostCategoryReference],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A reference to a Cost Category containing enough information to identify the Cost Category.
+    costCategoryReferences :: Lude.Maybe [CostCategoryReference],
+    -- | The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListCostCategoryDefinitionsResponse' with the minimum fields required to make a request.

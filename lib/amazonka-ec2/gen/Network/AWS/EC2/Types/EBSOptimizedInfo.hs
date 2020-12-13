@@ -33,31 +33,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEBSOptimizedInfo' smart constructor.
 data EBSOptimizedInfo = EBSOptimizedInfo'
-  { maximumIOPS ::
-      Lude.Maybe Lude.Int,
+  { -- | The maximum input/output storage operations per second for an EBS-optimized instance type.
+    maximumIOPS :: Lude.Maybe Lude.Int,
+    -- | The baseline input/output storage operations per seconds for an EBS-optimized instance type.
     baselineIOPS :: Lude.Maybe Lude.Int,
+    -- | The maximum throughput performance for an EBS-optimized instance type, in MB/s.
     maximumThroughputInMBps :: Lude.Maybe Lude.Double,
+    -- | The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
     maximumBandwidthInMbps :: Lude.Maybe Lude.Int,
+    -- | The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
     baselineBandwidthInMbps :: Lude.Maybe Lude.Int,
+    -- | The baseline throughput performance for an EBS-optimized instance type, in MB/s.
     baselineThroughputInMBps :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'EBSOptimizedInfo' with the minimum fields required to make a request.
 --
--- * 'baselineBandwidthInMbps' - The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
--- * 'baselineIOPS' - The baseline input/output storage operations per seconds for an EBS-optimized instance type.
--- * 'baselineThroughputInMBps' - The baseline throughput performance for an EBS-optimized instance type, in MB/s.
--- * 'maximumBandwidthInMbps' - The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
 -- * 'maximumIOPS' - The maximum input/output storage operations per second for an EBS-optimized instance type.
+-- * 'baselineIOPS' - The baseline input/output storage operations per seconds for an EBS-optimized instance type.
 -- * 'maximumThroughputInMBps' - The maximum throughput performance for an EBS-optimized instance type, in MB/s.
+-- * 'maximumBandwidthInMbps' - The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.
+-- * 'baselineBandwidthInMbps' - The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.
+-- * 'baselineThroughputInMBps' - The baseline throughput performance for an EBS-optimized instance type, in MB/s.
 mkEBSOptimizedInfo ::
   EBSOptimizedInfo
 mkEBSOptimizedInfo =

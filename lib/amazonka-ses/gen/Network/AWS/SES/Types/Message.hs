@@ -30,20 +30,19 @@ import Network.AWS.SES.Types.Content
 -- | Represents the message to be sent, composed of a subject and a body.
 --
 -- /See:/ 'mkMessage' smart constructor.
-data Message = Message' {subject :: Content, body :: Body}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+data Message = Message'
+  { -- | The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+    subject :: Content,
+    -- | The message body.
+    body :: Body
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
--- * 'body' - The message body.
 -- * 'subject' - The subject of the message: A short summary of the content, which will appear in the recipient's inbox.
+-- * 'body' - The message body.
 mkMessage ::
   -- | 'subject'
   Content ->

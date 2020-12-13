@@ -34,33 +34,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceStatusEvent' smart constructor.
 data InstanceStatusEvent = InstanceStatusEvent'
-  { notBefore ::
-      Lude.Maybe Lude.DateTime,
+  { -- | The earliest scheduled start time for the event.
+    notBefore :: Lude.Maybe Lude.DateTime,
+    -- | The event code.
     code :: Lude.Maybe EventCode,
+    -- | The ID of the event.
     instanceEventId :: Lude.Maybe Lude.Text,
+    -- | A description of the event.
+    --
+    -- After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
     description :: Lude.Maybe Lude.Text,
+    -- | The deadline for starting the event.
     notBeforeDeadline :: Lude.Maybe Lude.DateTime,
+    -- | The latest scheduled end time for the event.
     notAfter :: Lude.Maybe Lude.DateTime
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceStatusEvent' with the minimum fields required to make a request.
 --
+-- * 'notBefore' - The earliest scheduled start time for the event.
 -- * 'code' - The event code.
+-- * 'instanceEventId' - The ID of the event.
 -- * 'description' - A description of the event.
 --
 -- After a scheduled event is completed, it can still be described for up to a week. If the event has been completed, this description starts with the following text: [Completed].
--- * 'instanceEventId' - The ID of the event.
--- * 'notAfter' - The latest scheduled end time for the event.
--- * 'notBefore' - The earliest scheduled start time for the event.
 -- * 'notBeforeDeadline' - The deadline for starting the event.
+-- * 'notAfter' - The latest scheduled end time for the event.
 mkInstanceStatusEvent ::
   InstanceStatusEvent
 mkInstanceStatusEvent =

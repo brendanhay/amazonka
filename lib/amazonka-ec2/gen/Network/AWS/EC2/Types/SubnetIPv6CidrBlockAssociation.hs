@@ -31,21 +31,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnetIPv6CidrBlockAssociation' smart constructor.
 data SubnetIPv6CidrBlockAssociation = SubnetIPv6CidrBlockAssociation'
-  { associationId ::
-      Lude.Maybe Lude.Text,
-    ipv6CidrBlock ::
-      Lude.Maybe Lude.Text,
-    ipv6CidrBlockState ::
-      Lude.Maybe
-        SubnetCidrBlockState
+  { -- | The association ID for the CIDR block.
+    associationId :: Lude.Maybe Lude.Text,
+    -- | The IPv6 CIDR block.
+    ipv6CidrBlock :: Lude.Maybe Lude.Text,
+    -- | Information about the state of the CIDR block.
+    ipv6CidrBlockState :: Lude.Maybe SubnetCidrBlockState
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetIPv6CidrBlockAssociation' with the minimum fields required to make a request.

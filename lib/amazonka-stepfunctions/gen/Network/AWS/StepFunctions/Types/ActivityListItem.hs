@@ -30,23 +30,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkActivityListItem' smart constructor.
 data ActivityListItem = ActivityListItem'
-  { activityARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that identifies the activity.
+    activityARN :: Lude.Text,
+    -- | The name of the activity.
+    --
+    -- A name must /not/ contain:
+    --
+    --     * white space
+    --
+    --
+    --     * brackets @< > { } [ ]@
+    --
+    --
+    --     * wildcard characters @? *@
+    --
+    --
+    --     * special characters @" # % \ ^ | ~ ` $ & , ; : /@
+    --
+    --
+    --     * control characters (@U+0000-001F@ , @U+007F-009F@ )
+    --
+    --
+    -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
     name :: Lude.Text,
+    -- | The date the activity is created.
     creationDate :: Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ActivityListItem' with the minimum fields required to make a request.
 --
 -- * 'activityARN' - The Amazon Resource Name (ARN) that identifies the activity.
--- * 'creationDate' - The date the activity is created.
 -- * 'name' - The name of the activity.
 --
 -- A name must /not/ contain:
@@ -67,6 +82,7 @@ data ActivityListItem = ActivityListItem'
 --
 --
 -- To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
+-- * 'creationDate' - The date the activity is created.
 mkActivityListItem ::
   -- | 'activityARN'
   Lude.Text ->

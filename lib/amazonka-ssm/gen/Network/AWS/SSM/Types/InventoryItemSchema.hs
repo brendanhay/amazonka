@@ -17,10 +17,10 @@ module Network.AWS.SSM.Types.InventoryItemSchema
     mkInventoryItemSchema,
 
     -- * Lenses
-    iisVersion,
-    iisDisplayName,
     iisTypeName,
     iisAttributes,
+    iisVersion,
+    iisDisplayName,
   )
 where
 
@@ -32,27 +32,24 @@ import Network.AWS.SSM.Types.InventoryItemAttribute
 --
 -- /See:/ 'mkInventoryItemSchema' smart constructor.
 data InventoryItemSchema = InventoryItemSchema'
-  { version ::
-      Lude.Maybe Lude.Text,
-    displayName :: Lude.Maybe Lude.Text,
+  { -- | The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
     typeName :: Lude.Text,
-    attributes :: Lude.NonEmpty InventoryItemAttribute
+    -- | The schema attributes for inventory. This contains data type and attribute name.
+    attributes :: Lude.NonEmpty InventoryItemAttribute,
+    -- | The schema version for the inventory item.
+    version :: Lude.Maybe Lude.Text,
+    -- | The alias name of the inventory type. The alias name is used for display purposes.
+    displayName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InventoryItemSchema' with the minimum fields required to make a request.
 --
--- * 'attributes' - The schema attributes for inventory. This contains data type and attribute name.
--- * 'displayName' - The alias name of the inventory type. The alias name is used for display purposes.
 -- * 'typeName' - The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
+-- * 'attributes' - The schema attributes for inventory. This contains data type and attribute name.
 -- * 'version' - The schema version for the inventory item.
+-- * 'displayName' - The alias name of the inventory type. The alias name is used for display purposes.
 mkInventoryItemSchema ::
   -- | 'typeName'
   Lude.Text ->
@@ -61,25 +58,11 @@ mkInventoryItemSchema ::
   InventoryItemSchema
 mkInventoryItemSchema pTypeName_ pAttributes_ =
   InventoryItemSchema'
-    { version = Lude.Nothing,
-      displayName = Lude.Nothing,
-      typeName = pTypeName_,
-      attributes = pAttributes_
+    { typeName = pTypeName_,
+      attributes = pAttributes_,
+      version = Lude.Nothing,
+      displayName = Lude.Nothing
     }
-
--- | The schema version for the inventory item.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iisVersion :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
-iisVersion = Lens.lens (version :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: InventoryItemSchema)
-{-# DEPRECATED iisVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The alias name of the inventory type. The alias name is used for display purposes.
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iisDisplayName :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
-iisDisplayName = Lens.lens (displayName :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: InventoryItemSchema)
-{-# DEPRECATED iisDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The name of the inventory type. Default inventory item type names start with AWS. Custom inventory type names will start with Custom. Default inventory item types include the following: AWS:AWSComponent, AWS:Application, AWS:InstanceInformation, AWS:Network, and AWS:WindowsUpdate.
 --
@@ -95,14 +78,28 @@ iisAttributes :: Lens.Lens' InventoryItemSchema (Lude.NonEmpty InventoryItemAttr
 iisAttributes = Lens.lens (attributes :: InventoryItemSchema -> Lude.NonEmpty InventoryItemAttribute) (\s a -> s {attributes = a} :: InventoryItemSchema)
 {-# DEPRECATED iisAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
+-- | The schema version for the inventory item.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisVersion :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
+iisVersion = Lens.lens (version :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: InventoryItemSchema)
+{-# DEPRECATED iisVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The alias name of the inventory type. The alias name is used for display purposes.
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iisDisplayName :: Lens.Lens' InventoryItemSchema (Lude.Maybe Lude.Text)
+iisDisplayName = Lens.lens (displayName :: InventoryItemSchema -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: InventoryItemSchema)
+{-# DEPRECATED iisDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+
 instance Lude.FromJSON InventoryItemSchema where
   parseJSON =
     Lude.withObject
       "InventoryItemSchema"
       ( \x ->
           InventoryItemSchema'
-            Lude.<$> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "DisplayName")
-            Lude.<*> (x Lude..: "TypeName")
+            Lude.<$> (x Lude..: "TypeName")
             Lude.<*> (x Lude..: "Attributes")
+            Lude.<*> (x Lude..:? "Version")
+            Lude.<*> (x Lude..:? "DisplayName")
       )

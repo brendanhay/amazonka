@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -67,14 +68,14 @@ module Network.AWS.GameLift.StartGameSessionPlacement
     mkStartGameSessionPlacement,
 
     -- ** Request lenses
+    sgspPlacementId,
     sgspGameProperties,
     sgspGameSessionName,
+    sgspMaximumPlayerSessionCount,
     sgspPlayerLatencies,
     sgspGameSessionData,
     sgspDesiredPlayerSessions,
-    sgspPlacementId,
     sgspGameSessionQueueName,
-    sgspMaximumPlayerSessionCount,
 
     -- * Destructuring the response
     StartGameSessionPlacementResponse (..),
@@ -96,60 +97,65 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkStartGameSessionPlacement' smart constructor.
 data StartGameSessionPlacement = StartGameSessionPlacement'
-  { gameProperties ::
-      Lude.Maybe [GameProperty],
-    gameSessionName :: Lude.Maybe Lude.Text,
-    playerLatencies ::
-      Lude.Maybe [PlayerLatency],
-    gameSessionData :: Lude.Maybe Lude.Text,
-    desiredPlayerSessions ::
-      Lude.Maybe [DesiredPlayerSession],
+  { -- | A unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all Regions and cannot be reused unless you are resubmitting a canceled or timed-out placement request.
     placementId :: Lude.Text,
-    gameSessionQueueName :: Lude.Text,
-    maximumPlayerSessionCount ::
-      Lude.Natural
+    -- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+    gameProperties :: Lude.Maybe [GameProperty],
+    -- | A descriptive label that is associated with a game session. Session names do not need to be unique.
+    gameSessionName :: Lude.Maybe Lude.Text,
+    -- | The maximum number of players that can be connected simultaneously to the game session.
+    maximumPlayerSessionCount :: Lude.Natural,
+    -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. This information is used to try to place the new game session where it can offer the best possible gameplay experience for the players.
+    playerLatencies :: Lude.Maybe [PlayerLatency],
+    -- | Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+    gameSessionData :: Lude.Maybe Lude.Text,
+    -- | Set of information on each player to create a player session for.
+    desiredPlayerSessions :: Lude.Maybe [DesiredPlayerSession],
+    -- | Name of the queue to use to place the new game session. You can use either the queue name or ARN value.
+    gameSessionQueueName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartGameSessionPlacement' with the minimum fields required to make a request.
 --
--- * 'desiredPlayerSessions' - Set of information on each player to create a player session for.
--- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
--- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
--- * 'gameSessionName' - A descriptive label that is associated with a game session. Session names do not need to be unique.
--- * 'gameSessionQueueName' - Name of the queue to use to place the new game session. You can use either the queue name or ARN value.
--- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
 -- * 'placementId' - A unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all Regions and cannot be reused unless you are resubmitting a canceled or timed-out placement request.
+-- * 'gameProperties' - Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'gameSessionName' - A descriptive label that is associated with a game session. Session names do not need to be unique.
+-- * 'maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to the game session.
 -- * 'playerLatencies' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. This information is used to try to place the new game session where it can offer the best possible gameplay experience for the players.
+-- * 'gameSessionData' - Set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
+-- * 'desiredPlayerSessions' - Set of information on each player to create a player session for.
+-- * 'gameSessionQueueName' - Name of the queue to use to place the new game session. You can use either the queue name or ARN value.
 mkStartGameSessionPlacement ::
   -- | 'placementId'
   Lude.Text ->
-  -- | 'gameSessionQueueName'
-  Lude.Text ->
   -- | 'maximumPlayerSessionCount'
   Lude.Natural ->
+  -- | 'gameSessionQueueName'
+  Lude.Text ->
   StartGameSessionPlacement
 mkStartGameSessionPlacement
   pPlacementId_
-  pGameSessionQueueName_
-  pMaximumPlayerSessionCount_ =
+  pMaximumPlayerSessionCount_
+  pGameSessionQueueName_ =
     StartGameSessionPlacement'
-      { gameProperties = Lude.Nothing,
+      { placementId = pPlacementId_,
+        gameProperties = Lude.Nothing,
         gameSessionName = Lude.Nothing,
+        maximumPlayerSessionCount = pMaximumPlayerSessionCount_,
         playerLatencies = Lude.Nothing,
         gameSessionData = Lude.Nothing,
         desiredPlayerSessions = Lude.Nothing,
-        placementId = pPlacementId_,
-        gameSessionQueueName = pGameSessionQueueName_,
-        maximumPlayerSessionCount = pMaximumPlayerSessionCount_
+        gameSessionQueueName = pGameSessionQueueName_
       }
+
+-- | A unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all Regions and cannot be reused unless you are resubmitting a canceled or timed-out placement request.
+--
+-- /Note:/ Consider using 'placementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgspPlacementId :: Lens.Lens' StartGameSessionPlacement Lude.Text
+sgspPlacementId = Lens.lens (placementId :: StartGameSessionPlacement -> Lude.Text) (\s a -> s {placementId = a} :: StartGameSessionPlacement)
+{-# DEPRECATED sgspPlacementId "Use generic-lens or generic-optics with 'placementId' instead." #-}
 
 -- | Set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process in the 'GameSession' object with a request to start a new game session (see <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session> ).
 --
@@ -164,6 +170,13 @@ sgspGameProperties = Lens.lens (gameProperties :: StartGameSessionPlacement -> L
 sgspGameSessionName :: Lens.Lens' StartGameSessionPlacement (Lude.Maybe Lude.Text)
 sgspGameSessionName = Lens.lens (gameSessionName :: StartGameSessionPlacement -> Lude.Maybe Lude.Text) (\s a -> s {gameSessionName = a} :: StartGameSessionPlacement)
 {-# DEPRECATED sgspGameSessionName "Use generic-lens or generic-optics with 'gameSessionName' instead." #-}
+
+-- | The maximum number of players that can be connected simultaneously to the game session.
+--
+-- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgspMaximumPlayerSessionCount :: Lens.Lens' StartGameSessionPlacement Lude.Natural
+sgspMaximumPlayerSessionCount = Lens.lens (maximumPlayerSessionCount :: StartGameSessionPlacement -> Lude.Natural) (\s a -> s {maximumPlayerSessionCount = a} :: StartGameSessionPlacement)
+{-# DEPRECATED sgspMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
 
 -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. This information is used to try to place the new game session where it can offer the best possible gameplay experience for the players.
 --
@@ -186,26 +199,12 @@ sgspDesiredPlayerSessions :: Lens.Lens' StartGameSessionPlacement (Lude.Maybe [D
 sgspDesiredPlayerSessions = Lens.lens (desiredPlayerSessions :: StartGameSessionPlacement -> Lude.Maybe [DesiredPlayerSession]) (\s a -> s {desiredPlayerSessions = a} :: StartGameSessionPlacement)
 {-# DEPRECATED sgspDesiredPlayerSessions "Use generic-lens or generic-optics with 'desiredPlayerSessions' instead." #-}
 
--- | A unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all Regions and cannot be reused unless you are resubmitting a canceled or timed-out placement request.
---
--- /Note:/ Consider using 'placementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgspPlacementId :: Lens.Lens' StartGameSessionPlacement Lude.Text
-sgspPlacementId = Lens.lens (placementId :: StartGameSessionPlacement -> Lude.Text) (\s a -> s {placementId = a} :: StartGameSessionPlacement)
-{-# DEPRECATED sgspPlacementId "Use generic-lens or generic-optics with 'placementId' instead." #-}
-
 -- | Name of the queue to use to place the new game session. You can use either the queue name or ARN value.
 --
 -- /Note:/ Consider using 'gameSessionQueueName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sgspGameSessionQueueName :: Lens.Lens' StartGameSessionPlacement Lude.Text
 sgspGameSessionQueueName = Lens.lens (gameSessionQueueName :: StartGameSessionPlacement -> Lude.Text) (\s a -> s {gameSessionQueueName = a} :: StartGameSessionPlacement)
 {-# DEPRECATED sgspGameSessionQueueName "Use generic-lens or generic-optics with 'gameSessionQueueName' instead." #-}
-
--- | The maximum number of players that can be connected simultaneously to the game session.
---
--- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgspMaximumPlayerSessionCount :: Lens.Lens' StartGameSessionPlacement Lude.Natural
-sgspMaximumPlayerSessionCount = Lens.lens (maximumPlayerSessionCount :: StartGameSessionPlacement -> Lude.Natural) (\s a -> s {maximumPlayerSessionCount = a} :: StartGameSessionPlacement)
-{-# DEPRECATED sgspMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
 
 instance Lude.AWSRequest StartGameSessionPlacement where
   type
@@ -235,15 +234,15 @@ instance Lude.ToJSON StartGameSessionPlacement where
   toJSON StartGameSessionPlacement' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("GameProperties" Lude..=) Lude.<$> gameProperties,
+          [ Lude.Just ("PlacementId" Lude..= placementId),
+            ("GameProperties" Lude..=) Lude.<$> gameProperties,
             ("GameSessionName" Lude..=) Lude.<$> gameSessionName,
+            Lude.Just
+              ("MaximumPlayerSessionCount" Lude..= maximumPlayerSessionCount),
             ("PlayerLatencies" Lude..=) Lude.<$> playerLatencies,
             ("GameSessionData" Lude..=) Lude.<$> gameSessionData,
             ("DesiredPlayerSessions" Lude..=) Lude.<$> desiredPlayerSessions,
-            Lude.Just ("PlacementId" Lude..= placementId),
-            Lude.Just ("GameSessionQueueName" Lude..= gameSessionQueueName),
-            Lude.Just
-              ("MaximumPlayerSessionCount" Lude..= maximumPlayerSessionCount)
+            Lude.Just ("GameSessionQueueName" Lude..= gameSessionQueueName)
           ]
       )
 
@@ -257,19 +256,12 @@ instance Lude.ToQuery StartGameSessionPlacement where
 --
 -- /See:/ 'mkStartGameSessionPlacementResponse' smart constructor.
 data StartGameSessionPlacementResponse = StartGameSessionPlacementResponse'
-  { gameSessionPlacement ::
-      Lude.Maybe
-        GameSessionPlacement,
-    responseStatus ::
-      Lude.Int
+  { -- | Object that describes the newly created game session placement. This object includes all the information provided in the request, as well as start/end time stamps and placement status.
+    gameSessionPlacement :: Lude.Maybe GameSessionPlacement,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StartGameSessionPlacementResponse' with the minimum fields required to make a request.

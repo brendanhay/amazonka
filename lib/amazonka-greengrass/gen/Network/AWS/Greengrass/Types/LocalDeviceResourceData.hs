@@ -30,17 +30,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalDeviceResourceData' smart constructor.
 data LocalDeviceResourceData = LocalDeviceResourceData'
-  { groupOwnerSetting ::
-      Lude.Maybe GroupOwnerSetting,
+  { -- | Group/owner related settings for local resources.
+    groupOwnerSetting :: Lude.Maybe GroupOwnerSetting,
+    -- | The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
     sourcePath :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalDeviceResourceData' with the minimum fields required to make a request.

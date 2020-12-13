@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,27 +49,24 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { createdAfter ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The creation date and time beginning value filter for listing clusters.
+    createdAfter :: Lude.Maybe Lude.Timestamp,
+    -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Lude.Maybe Lude.Text,
+    -- | The cluster state filters to apply when listing clusters.
     clusterStates :: Lude.Maybe [ClusterState],
+    -- | The creation date and time end value filter for listing clusters.
     createdBefore :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
 --
--- * 'clusterStates' - The cluster state filters to apply when listing clusters.
 -- * 'createdAfter' - The creation date and time beginning value filter for listing clusters.
--- * 'createdBefore' - The creation date and time end value filter for listing clusters.
 -- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- * 'clusterStates' - The cluster state filters to apply when listing clusters.
+-- * 'createdBefore' - The creation date and time end value filter for listing clusters.
 mkListClusters ::
   ListClusters
 mkListClusters =
@@ -158,24 +156,20 @@ instance Lude.ToQuery ListClusters where
 --
 -- /See:/ 'mkListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
-  { marker ::
-      Lude.Maybe Lude.Text,
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Lude.Maybe Lude.Text,
+    -- | The list of clusters for the account based on the given filters.
     clusters :: Lude.Maybe [ClusterSummary],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
 --
--- * 'clusters' - The list of clusters for the account based on the given filters.
 -- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- * 'clusters' - The list of clusters for the account based on the given filters.
 -- * 'responseStatus' - The response status code.
 mkListClustersResponse ::
   -- | 'responseStatus'

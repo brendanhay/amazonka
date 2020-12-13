@@ -75,8 +75,8 @@ module Network.AWS.Route53AutoNaming.Types
     -- * DNSRecord
     DNSRecord (..),
     mkDNSRecord,
-    drType,
     drTTL,
+    drType,
 
     -- * HTTPInstanceSummary
     HTTPInstanceSummary (..),
@@ -133,9 +133,9 @@ module Network.AWS.Route53AutoNaming.Types
     -- * NamespaceFilter
     NamespaceFilter (..),
     mkNamespaceFilter,
-    nfCondition,
-    nfName,
     nfValues,
+    nfName,
+    nfCondition,
 
     -- * NamespaceProperties
     NamespaceProperties (..),
@@ -170,9 +170,9 @@ module Network.AWS.Route53AutoNaming.Types
     -- * OperationFilter
     OperationFilter (..),
     mkOperationFilter,
-    ofCondition,
-    ofName,
     ofValues,
+    ofName,
+    ofCondition,
 
     -- * OperationSummary
     OperationSummary (..),
@@ -190,9 +190,9 @@ module Network.AWS.Route53AutoNaming.Types
     -- * ServiceFilter
     ServiceFilter (..),
     mkServiceFilter,
-    sfCondition,
-    sfName,
     sfValues,
+    sfName,
+    sfCondition,
 
     -- * ServiceInfo
     ServiceInfo (..),
@@ -225,8 +225,8 @@ module Network.AWS.Route53AutoNaming.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

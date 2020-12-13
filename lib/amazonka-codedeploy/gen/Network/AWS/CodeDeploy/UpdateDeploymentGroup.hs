@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,17 +26,17 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     udgOnPremisesTagSet,
     udgNewDeploymentGroupName,
     udgEc2TagFilters,
+    udgCurrentDeploymentGroupName,
     udgEcsServices,
     udgBlueGreenDeploymentConfiguration,
     udgLoadBalancerInfo,
     udgOnPremisesInstanceTagFilters,
+    udgApplicationName,
     udgAlarmConfiguration,
     udgTriggerConfigurations,
     udgAutoScalingGroups,
     udgDeploymentStyle,
     udgAutoRollbackConfiguration,
-    udgApplicationName,
-    udgCurrentDeploymentGroupName,
 
     -- * Destructuring the response
     UpdateDeploymentGroupResponse (..),
@@ -57,67 +58,72 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkUpdateDeploymentGroup' smart constructor.
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
-  { serviceRoleARN ::
-      Lude.Maybe Lude.Text,
+  { -- | A replacement ARN for the service role, if you want to change it.
+    serviceRoleARN :: Lude.Maybe Lude.Text,
+    -- | Information about groups of tags applied to on-premises instances. The deployment group includes only EC2 instances identified by all the tag groups.
     ec2TagSet :: Lude.Maybe EC2TagSet,
+    -- | The replacement deployment configuration name to use, if you want to change it.
     deploymentConfigName :: Lude.Maybe Lude.Text,
+    -- | Information about an on-premises instance tag set. The deployment group includes only on-premises instances identified by all the tag groups.
     onPremisesTagSet :: Lude.Maybe OnPremisesTagSet,
+    -- | The new name of the deployment group, if you want to change it.
     newDeploymentGroupName :: Lude.Maybe Lude.Text,
+    -- | The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
     ec2TagFilters :: Lude.Maybe [EC2TagFilter],
+    -- | The current name of the deployment group.
+    currentDeploymentGroupName :: Lude.Text,
+    -- | The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
     ecsServices :: Lude.Maybe [ECSService],
-    blueGreenDeploymentConfiguration ::
-      Lude.Maybe BlueGreenDeploymentConfiguration,
+    -- | Information about blue/green deployment options for a deployment group.
+    blueGreenDeploymentConfiguration :: Lude.Maybe BlueGreenDeploymentConfiguration,
+    -- | Information about the load balancer used in a deployment.
     loadBalancerInfo :: Lude.Maybe LoadBalancerInfo,
-    onPremisesInstanceTagFilters ::
-      Lude.Maybe [TagFilter],
-    alarmConfiguration ::
-      Lude.Maybe AlarmConfiguration,
-    triggerConfigurations ::
-      Lude.Maybe [TriggerConfig],
-    autoScalingGroups :: Lude.Maybe [Lude.Text],
-    deploymentStyle :: Lude.Maybe DeploymentStyle,
-    autoRollbackConfiguration ::
-      Lude.Maybe AutoRollbackConfiguration,
+    -- | The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
+    onPremisesInstanceTagFilters :: Lude.Maybe [TagFilter],
+    -- | The application name that corresponds to the deployment group to update.
     applicationName :: Lude.Text,
-    currentDeploymentGroupName :: Lude.Text
+    -- | Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
+    alarmConfiguration :: Lude.Maybe AlarmConfiguration,
+    -- | Information about triggers to change when the deployment group is updated. For examples, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Edit a Trigger in a CodeDeploy Deployment Group> in the /AWS CodeDeploy User Guide/ .
+    triggerConfigurations :: Lude.Maybe [TriggerConfig],
+    -- | The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
+    autoScalingGroups :: Lude.Maybe [Lude.Text],
+    -- | Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+    deploymentStyle :: Lude.Maybe DeploymentStyle,
+    -- | Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
+    autoRollbackConfiguration :: Lude.Maybe AutoRollbackConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeploymentGroup' with the minimum fields required to make a request.
 --
--- * 'alarmConfiguration' - Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
--- * 'applicationName' - The application name that corresponds to the deployment group to update.
--- * 'autoRollbackConfiguration' - Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
--- * 'autoScalingGroups' - The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
--- * 'blueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
--- * 'currentDeploymentGroupName' - The current name of the deployment group.
--- * 'deploymentConfigName' - The replacement deployment configuration name to use, if you want to change it.
--- * 'deploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
--- * 'ec2TagFilters' - The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
--- * 'ec2TagSet' - Information about groups of tags applied to on-premises instances. The deployment group includes only EC2 instances identified by all the tag groups.
--- * 'ecsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
--- * 'loadBalancerInfo' - Information about the load balancer used in a deployment.
--- * 'newDeploymentGroupName' - The new name of the deployment group, if you want to change it.
--- * 'onPremisesInstanceTagFilters' - The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
--- * 'onPremisesTagSet' - Information about an on-premises instance tag set. The deployment group includes only on-premises instances identified by all the tag groups.
 -- * 'serviceRoleARN' - A replacement ARN for the service role, if you want to change it.
+-- * 'ec2TagSet' - Information about groups of tags applied to on-premises instances. The deployment group includes only EC2 instances identified by all the tag groups.
+-- * 'deploymentConfigName' - The replacement deployment configuration name to use, if you want to change it.
+-- * 'onPremisesTagSet' - Information about an on-premises instance tag set. The deployment group includes only on-premises instances identified by all the tag groups.
+-- * 'newDeploymentGroupName' - The new name of the deployment group, if you want to change it.
+-- * 'ec2TagFilters' - The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
+-- * 'currentDeploymentGroupName' - The current name of the deployment group.
+-- * 'ecsServices' - The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
+-- * 'blueGreenDeploymentConfiguration' - Information about blue/green deployment options for a deployment group.
+-- * 'loadBalancerInfo' - Information about the load balancer used in a deployment.
+-- * 'onPremisesInstanceTagFilters' - The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names.
+-- * 'applicationName' - The application name that corresponds to the deployment group to update.
+-- * 'alarmConfiguration' - Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
 -- * 'triggerConfigurations' - Information about triggers to change when the deployment group is updated. For examples, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html Edit a Trigger in a CodeDeploy Deployment Group> in the /AWS CodeDeploy User Guide/ .
+-- * 'autoScalingGroups' - The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names.
+-- * 'deploymentStyle' - Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+-- * 'autoRollbackConfiguration' - Information for an automatic rollback configuration that is added or changed when a deployment group is updated.
 mkUpdateDeploymentGroup ::
-  -- | 'applicationName'
-  Lude.Text ->
   -- | 'currentDeploymentGroupName'
+  Lude.Text ->
+  -- | 'applicationName'
   Lude.Text ->
   UpdateDeploymentGroup
 mkUpdateDeploymentGroup
-  pApplicationName_
-  pCurrentDeploymentGroupName_ =
+  pCurrentDeploymentGroupName_
+  pApplicationName_ =
     UpdateDeploymentGroup'
       { serviceRoleARN = Lude.Nothing,
         ec2TagSet = Lude.Nothing,
@@ -125,17 +131,17 @@ mkUpdateDeploymentGroup
         onPremisesTagSet = Lude.Nothing,
         newDeploymentGroupName = Lude.Nothing,
         ec2TagFilters = Lude.Nothing,
+        currentDeploymentGroupName = pCurrentDeploymentGroupName_,
         ecsServices = Lude.Nothing,
         blueGreenDeploymentConfiguration = Lude.Nothing,
         loadBalancerInfo = Lude.Nothing,
         onPremisesInstanceTagFilters = Lude.Nothing,
+        applicationName = pApplicationName_,
         alarmConfiguration = Lude.Nothing,
         triggerConfigurations = Lude.Nothing,
         autoScalingGroups = Lude.Nothing,
         deploymentStyle = Lude.Nothing,
-        autoRollbackConfiguration = Lude.Nothing,
-        applicationName = pApplicationName_,
-        currentDeploymentGroupName = pCurrentDeploymentGroupName_
+        autoRollbackConfiguration = Lude.Nothing
       }
 
 -- | A replacement ARN for the service role, if you want to change it.
@@ -180,6 +186,13 @@ udgEc2TagFilters :: Lens.Lens' UpdateDeploymentGroup (Lude.Maybe [EC2TagFilter])
 udgEc2TagFilters = Lens.lens (ec2TagFilters :: UpdateDeploymentGroup -> Lude.Maybe [EC2TagFilter]) (\s a -> s {ec2TagFilters = a} :: UpdateDeploymentGroup)
 {-# DEPRECATED udgEc2TagFilters "Use generic-lens or generic-optics with 'ec2TagFilters' instead." #-}
 
+-- | The current name of the deployment group.
+--
+-- /Note:/ Consider using 'currentDeploymentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udgCurrentDeploymentGroupName :: Lens.Lens' UpdateDeploymentGroup Lude.Text
+udgCurrentDeploymentGroupName = Lens.lens (currentDeploymentGroupName :: UpdateDeploymentGroup -> Lude.Text) (\s a -> s {currentDeploymentGroupName = a} :: UpdateDeploymentGroup)
+{-# DEPRECATED udgCurrentDeploymentGroupName "Use generic-lens or generic-optics with 'currentDeploymentGroupName' instead." #-}
+
 -- | The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format @<clustername>:<servicename>@ .
 --
 -- /Note:/ Consider using 'ecsServices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -207,6 +220,13 @@ udgLoadBalancerInfo = Lens.lens (loadBalancerInfo :: UpdateDeploymentGroup -> Lu
 udgOnPremisesInstanceTagFilters :: Lens.Lens' UpdateDeploymentGroup (Lude.Maybe [TagFilter])
 udgOnPremisesInstanceTagFilters = Lens.lens (onPremisesInstanceTagFilters :: UpdateDeploymentGroup -> Lude.Maybe [TagFilter]) (\s a -> s {onPremisesInstanceTagFilters = a} :: UpdateDeploymentGroup)
 {-# DEPRECATED udgOnPremisesInstanceTagFilters "Use generic-lens or generic-optics with 'onPremisesInstanceTagFilters' instead." #-}
+
+-- | The application name that corresponds to the deployment group to update.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udgApplicationName :: Lens.Lens' UpdateDeploymentGroup Lude.Text
+udgApplicationName = Lens.lens (applicationName :: UpdateDeploymentGroup -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateDeploymentGroup)
+{-# DEPRECATED udgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | Information to add or change about Amazon CloudWatch alarms when the deployment group is updated.
 --
@@ -243,20 +263,6 @@ udgAutoRollbackConfiguration :: Lens.Lens' UpdateDeploymentGroup (Lude.Maybe Aut
 udgAutoRollbackConfiguration = Lens.lens (autoRollbackConfiguration :: UpdateDeploymentGroup -> Lude.Maybe AutoRollbackConfiguration) (\s a -> s {autoRollbackConfiguration = a} :: UpdateDeploymentGroup)
 {-# DEPRECATED udgAutoRollbackConfiguration "Use generic-lens or generic-optics with 'autoRollbackConfiguration' instead." #-}
 
--- | The application name that corresponds to the deployment group to update.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udgApplicationName :: Lens.Lens' UpdateDeploymentGroup Lude.Text
-udgApplicationName = Lens.lens (applicationName :: UpdateDeploymentGroup -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateDeploymentGroup)
-{-# DEPRECATED udgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
-
--- | The current name of the deployment group.
---
--- /Note:/ Consider using 'currentDeploymentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udgCurrentDeploymentGroupName :: Lens.Lens' UpdateDeploymentGroup Lude.Text
-udgCurrentDeploymentGroupName = Lens.lens (currentDeploymentGroupName :: UpdateDeploymentGroup -> Lude.Text) (\s a -> s {currentDeploymentGroupName = a} :: UpdateDeploymentGroup)
-{-# DEPRECATED udgCurrentDeploymentGroupName "Use generic-lens or generic-optics with 'currentDeploymentGroupName' instead." #-}
-
 instance Lude.AWSRequest UpdateDeploymentGroup where
   type Rs UpdateDeploymentGroup = UpdateDeploymentGroupResponse
   request = Req.postJSON codeDeployService
@@ -289,21 +295,21 @@ instance Lude.ToJSON UpdateDeploymentGroup where
             ("onPremisesTagSet" Lude..=) Lude.<$> onPremisesTagSet,
             ("newDeploymentGroupName" Lude..=) Lude.<$> newDeploymentGroupName,
             ("ec2TagFilters" Lude..=) Lude.<$> ec2TagFilters,
+            Lude.Just
+              ("currentDeploymentGroupName" Lude..= currentDeploymentGroupName),
             ("ecsServices" Lude..=) Lude.<$> ecsServices,
             ("blueGreenDeploymentConfiguration" Lude..=)
               Lude.<$> blueGreenDeploymentConfiguration,
             ("loadBalancerInfo" Lude..=) Lude.<$> loadBalancerInfo,
             ("onPremisesInstanceTagFilters" Lude..=)
               Lude.<$> onPremisesInstanceTagFilters,
+            Lude.Just ("applicationName" Lude..= applicationName),
             ("alarmConfiguration" Lude..=) Lude.<$> alarmConfiguration,
             ("triggerConfigurations" Lude..=) Lude.<$> triggerConfigurations,
             ("autoScalingGroups" Lude..=) Lude.<$> autoScalingGroups,
             ("deploymentStyle" Lude..=) Lude.<$> deploymentStyle,
             ("autoRollbackConfiguration" Lude..=)
-              Lude.<$> autoRollbackConfiguration,
-            Lude.Just ("applicationName" Lude..= applicationName),
-            Lude.Just
-              ("currentDeploymentGroupName" Lude..= currentDeploymentGroupName)
+              Lude.<$> autoRollbackConfiguration
           ]
       )
 
@@ -317,17 +323,12 @@ instance Lude.ToQuery UpdateDeploymentGroup where
 --
 -- /See:/ 'mkUpdateDeploymentGroupResponse' smart constructor.
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
-  { hooksNotCleanedUp ::
-      Lude.Maybe [AutoScalingGroup],
+  { -- | If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the AWS account. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the AWS account.
+    hooksNotCleanedUp :: Lude.Maybe [AutoScalingGroup],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateDeploymentGroupResponse' with the minimum fields required to make a request.

@@ -29,23 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLocalPortDetails' smart constructor.
 data LocalPortDetails = LocalPortDetails'
-  { portName ::
-      Lude.Maybe Lude.Text,
+  { -- | The port name of the local connection.
+    portName :: Lude.Maybe Lude.Text,
+    -- | The port number of the local connection.
     port :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LocalPortDetails' with the minimum fields required to make a request.
 --
--- * 'port' - The port number of the local connection.
 -- * 'portName' - The port name of the local connection.
+-- * 'port' - The port number of the local connection.
 mkLocalPortDetails ::
   LocalPortDetails
 mkLocalPortDetails =

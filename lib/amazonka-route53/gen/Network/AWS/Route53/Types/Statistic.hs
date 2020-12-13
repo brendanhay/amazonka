@@ -14,10 +14,10 @@ module Network.AWS.Route53.Types.Statistic
   ( Statistic
       ( Statistic',
         Average,
-        Maximum,
-        Minimum,
+        Sum,
         SampleCount,
-        Sum
+        Maximum,
+        Minimum
       ),
   )
 where
@@ -52,23 +52,23 @@ newtype Statistic = Statistic' Lude.Text
 pattern Average :: Statistic
 pattern Average = Statistic' "Average"
 
+pattern Sum :: Statistic
+pattern Sum = Statistic' "Sum"
+
+pattern SampleCount :: Statistic
+pattern SampleCount = Statistic' "SampleCount"
+
 pattern Maximum :: Statistic
 pattern Maximum = Statistic' "Maximum"
 
 pattern Minimum :: Statistic
 pattern Minimum = Statistic' "Minimum"
 
-pattern SampleCount :: Statistic
-pattern SampleCount = Statistic' "SampleCount"
-
-pattern Sum :: Statistic
-pattern Sum = Statistic' "Sum"
-
 {-# COMPLETE
   Average,
+  Sum,
+  SampleCount,
   Maximum,
   Minimum,
-  SampleCount,
-  Sum,
   Statistic'
   #-}

@@ -13,8 +13,8 @@
 module Network.AWS.MechanicalTurk.Types.ReviewableHITStatus
   ( ReviewableHITStatus
       ( ReviewableHITStatus',
-        Reviewable,
-        Reviewing
+        RHITSReviewable,
+        RHITSReviewing
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ReviewableHITStatus = ReviewableHITStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern Reviewable :: ReviewableHITStatus
-pattern Reviewable = ReviewableHITStatus' "Reviewable"
+pattern RHITSReviewable :: ReviewableHITStatus
+pattern RHITSReviewable = ReviewableHITStatus' "Reviewable"
 
-pattern Reviewing :: ReviewableHITStatus
-pattern Reviewing = ReviewableHITStatus' "Reviewing"
+pattern RHITSReviewing :: ReviewableHITStatus
+pattern RHITSReviewing = ReviewableHITStatus' "Reviewing"
 
 {-# COMPLETE
-  Reviewable,
-  Reviewing,
+  RHITSReviewable,
+  RHITSReviewing,
   ReviewableHITStatus'
   #-}

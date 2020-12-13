@@ -17,10 +17,10 @@ module Network.AWS.DynamoDB.Types.ReplicaSettingsUpdate
     mkReplicaSettingsUpdate,
 
     -- * Lenses
+    rsuRegionName,
     rsuReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
     rsuReplicaProvisionedReadCapacityUnits,
     rsuReplicaGlobalSecondaryIndexSettingsUpdate,
-    rsuRegionName,
   )
 where
 
@@ -33,44 +33,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkReplicaSettingsUpdate' smart constructor.
 data ReplicaSettingsUpdate = ReplicaSettingsUpdate'
-  { replicaProvisionedReadCapacityAutoScalingSettingsUpdate ::
-      Lude.Maybe AutoScalingSettingsUpdate,
-    replicaProvisionedReadCapacityUnits ::
-      Lude.Maybe Lude.Natural,
-    replicaGlobalSecondaryIndexSettingsUpdate ::
-      Lude.Maybe
-        ( Lude.NonEmpty
-            ReplicaGlobalSecondaryIndexSettingsUpdate
-        ),
-    regionName :: Lude.Text
+  { -- | The Region of the replica to be added.
+    regionName :: Lude.Text,
+    -- | Auto scaling settings for managing a global table replica's read capacity units.
+    replicaProvisionedReadCapacityAutoScalingSettingsUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+    -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+    replicaProvisionedReadCapacityUnits :: Lude.Maybe Lude.Natural,
+    -- | Represents the settings of a global secondary index for a global table that will be modified.
+    replicaGlobalSecondaryIndexSettingsUpdate :: Lude.Maybe (Lude.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate)
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ReplicaSettingsUpdate' with the minimum fields required to make a request.
 --
 -- * 'regionName' - The Region of the replica to be added.
--- * 'replicaGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table that will be modified.
 -- * 'replicaProvisionedReadCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global table replica's read capacity units.
 -- * 'replicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ . For more information, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements> in the /Amazon DynamoDB Developer Guide/ .
+-- * 'replicaGlobalSecondaryIndexSettingsUpdate' - Represents the settings of a global secondary index for a global table that will be modified.
 mkReplicaSettingsUpdate ::
   -- | 'regionName'
   Lude.Text ->
   ReplicaSettingsUpdate
 mkReplicaSettingsUpdate pRegionName_ =
   ReplicaSettingsUpdate'
-    { replicaProvisionedReadCapacityAutoScalingSettingsUpdate =
+    { regionName = pRegionName_,
+      replicaProvisionedReadCapacityAutoScalingSettingsUpdate =
         Lude.Nothing,
       replicaProvisionedReadCapacityUnits = Lude.Nothing,
-      replicaGlobalSecondaryIndexSettingsUpdate = Lude.Nothing,
-      regionName = pRegionName_
+      replicaGlobalSecondaryIndexSettingsUpdate = Lude.Nothing
     }
+
+-- | The Region of the replica to be added.
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsuRegionName :: Lens.Lens' ReplicaSettingsUpdate Lude.Text
+rsuRegionName = Lens.lens (regionName :: ReplicaSettingsUpdate -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaSettingsUpdate)
+{-# DEPRECATED rsuRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | Auto scaling settings for managing a global table replica's read capacity units.
 --
@@ -93,25 +92,16 @@ rsuReplicaGlobalSecondaryIndexSettingsUpdate :: Lens.Lens' ReplicaSettingsUpdate
 rsuReplicaGlobalSecondaryIndexSettingsUpdate = Lens.lens (replicaGlobalSecondaryIndexSettingsUpdate :: ReplicaSettingsUpdate -> Lude.Maybe (Lude.NonEmpty ReplicaGlobalSecondaryIndexSettingsUpdate)) (\s a -> s {replicaGlobalSecondaryIndexSettingsUpdate = a} :: ReplicaSettingsUpdate)
 {-# DEPRECATED rsuReplicaGlobalSecondaryIndexSettingsUpdate "Use generic-lens or generic-optics with 'replicaGlobalSecondaryIndexSettingsUpdate' instead." #-}
 
--- | The Region of the replica to be added.
---
--- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsuRegionName :: Lens.Lens' ReplicaSettingsUpdate Lude.Text
-rsuRegionName = Lens.lens (regionName :: ReplicaSettingsUpdate -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaSettingsUpdate)
-{-# DEPRECATED rsuRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
-
 instance Lude.ToJSON ReplicaSettingsUpdate where
   toJSON ReplicaSettingsUpdate' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ( "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate"
-                Lude..=
-            )
+          [ Lude.Just ("RegionName" Lude..= regionName),
+            ("ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" Lude..=)
               Lude.<$> replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
             ("ReplicaProvisionedReadCapacityUnits" Lude..=)
               Lude.<$> replicaProvisionedReadCapacityUnits,
             ("ReplicaGlobalSecondaryIndexSettingsUpdate" Lude..=)
-              Lude.<$> replicaGlobalSecondaryIndexSettingsUpdate,
-            Lude.Just ("RegionName" Lude..= regionName)
+              Lude.<$> replicaGlobalSecondaryIndexSettingsUpdate
           ]
       )

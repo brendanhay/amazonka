@@ -35,30 +35,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTransitGatewayRoute' smart constructor.
 data TransitGatewayRoute = TransitGatewayRoute'
-  { state ::
-      Lude.Maybe TransitGatewayRouteState,
+  { -- | The state of the route.
+    state :: Lude.Maybe TransitGatewayRouteState,
+    -- | The ID of the prefix list used for destination matches.
     prefixListId :: Lude.Maybe Lude.Text,
-    transitGatewayAttachments ::
-      Lude.Maybe [TransitGatewayRouteAttachment],
+    -- | The attachments.
+    transitGatewayAttachments :: Lude.Maybe [TransitGatewayRouteAttachment],
+    -- | The route type.
     type' :: Lude.Maybe TransitGatewayRouteType,
+    -- | The CIDR block used for destination matches.
     destinationCidrBlock :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TransitGatewayRoute' with the minimum fields required to make a request.
 --
--- * 'destinationCidrBlock' - The CIDR block used for destination matches.
--- * 'prefixListId' - The ID of the prefix list used for destination matches.
 -- * 'state' - The state of the route.
+-- * 'prefixListId' - The ID of the prefix list used for destination matches.
 -- * 'transitGatewayAttachments' - The attachments.
 -- * 'type'' - The route type.
+-- * 'destinationCidrBlock' - The CIDR block used for destination matches.
 mkTransitGatewayRoute ::
   TransitGatewayRoute
 mkTransitGatewayRoute =

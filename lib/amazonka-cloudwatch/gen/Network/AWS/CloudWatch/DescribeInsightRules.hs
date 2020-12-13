@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -29,9 +30,9 @@ module Network.AWS.CloudWatch.DescribeInsightRules
     mkDescribeInsightRulesResponse,
 
     -- ** Response lenses
-    drsNextToken,
-    drsInsightRules,
-    drsResponseStatus,
+    dirfrsNextToken,
+    dirfrsInsightRules,
+    dirfrsResponseStatus,
   )
 where
 
@@ -43,23 +44,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeInsightRules' smart constructor.
 data DescribeInsightRules = DescribeInsightRules'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
+  { -- | Include this value, if it was returned by the previous operation, to get the next set of rules.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInsightRules' with the minimum fields required to make a request.
 --
--- * 'maxResults' - The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.
 -- * 'nextToken' - Include this value, if it was returned by the previous operation, to get the next set of rules.
+-- * 'maxResults' - The maximum number of results to return in one operation. If you omit this parameter, the default of 500 is used.
 mkDescribeInsightRules ::
   DescribeInsightRules
 mkDescribeInsightRules =
@@ -114,25 +110,20 @@ instance Lude.ToQuery DescribeInsightRules where
 
 -- | /See:/ 'mkDescribeInsightRulesResponse' smart constructor.
 data DescribeInsightRulesResponse = DescribeInsightRulesResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    insightRules ::
-      Lude.Maybe [InsightRule],
+  { -- | If this parameter is present, it is a token that marks the start of the next batch of returned results.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The rules returned by the operation.
+    insightRules :: Lude.Maybe [InsightRule],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeInsightRulesResponse' with the minimum fields required to make a request.
 --
--- * 'insightRules' - The rules returned by the operation.
 -- * 'nextToken' - If this parameter is present, it is a token that marks the start of the next batch of returned results.
+-- * 'insightRules' - The rules returned by the operation.
 -- * 'responseStatus' - The response status code.
 mkDescribeInsightRulesResponse ::
   -- | 'responseStatus'
@@ -148,20 +139,20 @@ mkDescribeInsightRulesResponse pResponseStatus_ =
 -- | If this parameter is present, it is a token that marks the start of the next batch of returned results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsNextToken :: Lens.Lens' DescribeInsightRulesResponse (Lude.Maybe Lude.Text)
-drsNextToken = Lens.lens (nextToken :: DescribeInsightRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInsightRulesResponse)
-{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dirfrsNextToken :: Lens.Lens' DescribeInsightRulesResponse (Lude.Maybe Lude.Text)
+dirfrsNextToken = Lens.lens (nextToken :: DescribeInsightRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInsightRulesResponse)
+{-# DEPRECATED dirfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The rules returned by the operation.
 --
 -- /Note:/ Consider using 'insightRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsInsightRules :: Lens.Lens' DescribeInsightRulesResponse (Lude.Maybe [InsightRule])
-drsInsightRules = Lens.lens (insightRules :: DescribeInsightRulesResponse -> Lude.Maybe [InsightRule]) (\s a -> s {insightRules = a} :: DescribeInsightRulesResponse)
-{-# DEPRECATED drsInsightRules "Use generic-lens or generic-optics with 'insightRules' instead." #-}
+dirfrsInsightRules :: Lens.Lens' DescribeInsightRulesResponse (Lude.Maybe [InsightRule])
+dirfrsInsightRules = Lens.lens (insightRules :: DescribeInsightRulesResponse -> Lude.Maybe [InsightRule]) (\s a -> s {insightRules = a} :: DescribeInsightRulesResponse)
+{-# DEPRECATED dirfrsInsightRules "Use generic-lens or generic-optics with 'insightRules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeInsightRulesResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInsightRulesResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirfrsResponseStatus :: Lens.Lens' DescribeInsightRulesResponse Lude.Int
+dirfrsResponseStatus = Lens.lens (responseStatus :: DescribeInsightRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInsightRulesResponse)
+{-# DEPRECATED dirfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

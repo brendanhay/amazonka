@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -43,24 +44,17 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkUpdateConfigurationSetTrackingOptions' smart constructor.
 data UpdateConfigurationSetTrackingOptions = UpdateConfigurationSetTrackingOptions'
-  { configurationSetName ::
-      Lude.Text,
-    trackingOptions ::
-      TrackingOptions
+  { -- | The name of the configuration set for which you want to update the custom tracking domain.
+    configurationSetName :: Lude.Text,
+    trackingOptions :: TrackingOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfigurationSetTrackingOptions' with the minimum fields required to make a request.
 --
 -- * 'configurationSetName' - The name of the configuration set for which you want to update the custom tracking domain.
--- * 'trackingOptions' - Undocumented field.
+-- * 'trackingOptions' -
 mkUpdateConfigurationSetTrackingOptions ::
   -- | 'configurationSetName'
   Lude.Text ->
@@ -123,20 +117,11 @@ instance Lude.ToQuery UpdateConfigurationSetTrackingOptions where
 --
 -- /See:/ 'mkUpdateConfigurationSetTrackingOptionsResponse' smart constructor.
 newtype UpdateConfigurationSetTrackingOptionsResponse = UpdateConfigurationSetTrackingOptionsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateConfigurationSetTrackingOptionsResponse' with the minimum fields required to make a request.
 --

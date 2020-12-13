@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,8 +24,8 @@ module Network.AWS.EC2.DeleteSnapshot
     mkDeleteSnapshot,
 
     -- ** Request lenses
-    deleDryRun,
-    deleSnapshotId,
+    dshDryRun,
+    dshSnapshotId,
 
     -- * Destructuring the response
     DeleteSnapshotResponse (..),
@@ -40,17 +41,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDeleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool,
+    -- | The ID of the EBS snapshot.
     snapshotId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
@@ -67,16 +63,16 @@ mkDeleteSnapshot pSnapshotId_ =
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deleDryRun :: Lens.Lens' DeleteSnapshot (Lude.Maybe Lude.Bool)
-deleDryRun = Lens.lens (dryRun :: DeleteSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSnapshot)
-{-# DEPRECATED deleDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dshDryRun :: Lens.Lens' DeleteSnapshot (Lude.Maybe Lude.Bool)
+dshDryRun = Lens.lens (dryRun :: DeleteSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteSnapshot)
+{-# DEPRECATED dshDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the EBS snapshot.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deleSnapshotId :: Lens.Lens' DeleteSnapshot Lude.Text
-deleSnapshotId = Lens.lens (snapshotId :: DeleteSnapshot -> Lude.Text) (\s a -> s {snapshotId = a} :: DeleteSnapshot)
-{-# DEPRECATED deleSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+dshSnapshotId :: Lens.Lens' DeleteSnapshot Lude.Text
+dshSnapshotId = Lens.lens (snapshotId :: DeleteSnapshot -> Lude.Text) (\s a -> s {snapshotId = a} :: DeleteSnapshot)
+{-# DEPRECATED dshSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
 
 instance Lude.AWSRequest DeleteSnapshot where
   type Rs DeleteSnapshot = DeleteSnapshotResponse
@@ -100,13 +96,7 @@ instance Lude.ToQuery DeleteSnapshot where
 
 -- | /See:/ 'mkDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.

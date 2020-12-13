@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,17 +23,17 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
 
     -- ** Request lenses
     dedpFilters,
+    dedpDBParameterGroupFamily,
     dedpMarker,
     dedpMaxRecords,
-    dedpDBParameterGroupFamily,
 
     -- * Destructuring the response
     DescribeEngineDefaultParametersResponse (..),
     mkDescribeEngineDefaultParametersResponse,
 
     -- ** Response lenses
-    dedprsResponseStatus,
     dedprsEngineDefaults,
+    dedprsResponseStatus,
   )
 where
 
@@ -47,28 +48,25 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDescribeEngineDefaultParameters' smart constructor.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-  { filters ::
-      Lude.Maybe [Filter],
-    marker ::
-      Lude.Maybe Lude.Text,
-    maxRecords ::
-      Lude.Maybe Lude.Int,
-    dbParameterGroupFamily ::
-      Lude.Text
+  { -- | This parameter isn't currently supported.
+    filters :: Lude.Maybe [Filter],
+    -- | The name of the DB parameter group family.
+    dbParameterGroupFamily :: Lude.Text,
+    -- | An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Lude.Maybe Lude.Text,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+    --
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEngineDefaultParameters' with the minimum fields required to make a request.
 --
--- * 'dbParameterGroupFamily' - The name of the DB parameter group family.
 -- * 'filters' - This parameter isn't currently supported.
+-- * 'dbParameterGroupFamily' - The name of the DB parameter group family.
 -- * 'marker' - An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 -- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
@@ -81,9 +79,9 @@ mkDescribeEngineDefaultParameters ::
 mkDescribeEngineDefaultParameters pDBParameterGroupFamily_ =
   DescribeEngineDefaultParameters'
     { filters = Lude.Nothing,
+      dbParameterGroupFamily = pDBParameterGroupFamily_,
       marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      dbParameterGroupFamily = pDBParameterGroupFamily_
+      maxRecords = Lude.Nothing
     }
 
 -- | This parameter isn't currently supported.
@@ -92,6 +90,13 @@ mkDescribeEngineDefaultParameters pDBParameterGroupFamily_ =
 dedpFilters :: Lens.Lens' DescribeEngineDefaultParameters (Lude.Maybe [Filter])
 dedpFilters = Lens.lens (filters :: DescribeEngineDefaultParameters -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeEngineDefaultParameters)
 {-# DEPRECATED dedpFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The name of the DB parameter group family.
+--
+-- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedpDBParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultParameters Lude.Text
+dedpDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: DescribeEngineDefaultParameters -> Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: DescribeEngineDefaultParameters)
+{-# DEPRECATED dedpDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeEngineDefaultParameters@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
@@ -109,13 +114,6 @@ dedpMarker = Lens.lens (marker :: DescribeEngineDefaultParameters -> Lude.Maybe 
 dedpMaxRecords :: Lens.Lens' DescribeEngineDefaultParameters (Lude.Maybe Lude.Int)
 dedpMaxRecords = Lens.lens (maxRecords :: DescribeEngineDefaultParameters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEngineDefaultParameters)
 {-# DEPRECATED dedpMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | The name of the DB parameter group family.
---
--- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedpDBParameterGroupFamily :: Lens.Lens' DescribeEngineDefaultParameters Lude.Text
-dedpDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: DescribeEngineDefaultParameters -> Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: DescribeEngineDefaultParameters)
-{-# DEPRECATED dedpDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
 
 instance Page.AWSPager DescribeEngineDefaultParameters where
   page rq rs
@@ -143,8 +141,8 @@ instance Lude.AWSRequest DescribeEngineDefaultParameters where
       "DescribeEngineDefaultParametersResult"
       ( \s h x ->
           DescribeEngineDefaultParametersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..@ "EngineDefaults")
+            Lude.<$> (x Lude..@ "EngineDefaults")
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders DescribeEngineDefaultParameters where
@@ -161,52 +159,38 @@ instance Lude.ToQuery DescribeEngineDefaultParameters where
         "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
         "Filters"
           Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
+        "DBParameterGroupFamily" Lude.=: dbParameterGroupFamily,
         "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "DBParameterGroupFamily" Lude.=: dbParameterGroupFamily
+        "MaxRecords" Lude.=: maxRecords
       ]
 
 -- | /See:/ 'mkDescribeEngineDefaultParametersResponse' smart constructor.
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-  { responseStatus ::
-      Lude.Int,
-    engineDefaults ::
-      EngineDefaults
+  { engineDefaults :: EngineDefaults,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeEngineDefaultParametersResponse' with the minimum fields required to make a request.
 --
--- * 'engineDefaults' - Undocumented field.
+-- * 'engineDefaults' -
 -- * 'responseStatus' - The response status code.
 mkDescribeEngineDefaultParametersResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'engineDefaults'
   EngineDefaults ->
+  -- | 'responseStatus'
+  Lude.Int ->
   DescribeEngineDefaultParametersResponse
 mkDescribeEngineDefaultParametersResponse
-  pResponseStatus_
-  pEngineDefaults_ =
+  pEngineDefaults_
+  pResponseStatus_ =
     DescribeEngineDefaultParametersResponse'
-      { responseStatus =
-          pResponseStatus_,
-        engineDefaults = pEngineDefaults_
+      { engineDefaults =
+          pEngineDefaults_,
+        responseStatus = pResponseStatus_
       }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedprsResponseStatus :: Lens.Lens' DescribeEngineDefaultParametersResponse Lude.Int
-dedprsResponseStatus = Lens.lens (responseStatus :: DescribeEngineDefaultParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEngineDefaultParametersResponse)
-{-# DEPRECATED dedprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -214,3 +198,10 @@ dedprsResponseStatus = Lens.lens (responseStatus :: DescribeEngineDefaultParamet
 dedprsEngineDefaults :: Lens.Lens' DescribeEngineDefaultParametersResponse EngineDefaults
 dedprsEngineDefaults = Lens.lens (engineDefaults :: DescribeEngineDefaultParametersResponse -> EngineDefaults) (\s a -> s {engineDefaults = a} :: DescribeEngineDefaultParametersResponse)
 {-# DEPRECATED dedprsEngineDefaults "Use generic-lens or generic-optics with 'engineDefaults' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedprsResponseStatus :: Lens.Lens' DescribeEngineDefaultParametersResponse Lude.Int
+dedprsResponseStatus = Lens.lens (responseStatus :: DescribeEngineDefaultParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEngineDefaultParametersResponse)
+{-# DEPRECATED dedprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

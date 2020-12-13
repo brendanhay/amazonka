@@ -13,11 +13,11 @@
 module Network.AWS.Athena.Types.QueryExecutionState
   ( QueryExecutionState
       ( QueryExecutionState',
-        Cancelled,
-        Failed,
         Queued,
         Running,
-        Succeeded
+        Succeeded,
+        Failed,
+        Cancelled
       ),
   )
 where
@@ -48,12 +48,6 @@ newtype QueryExecutionState = QueryExecutionState' Lude.Text
       Lude.ToHeader
     )
 
-pattern Cancelled :: QueryExecutionState
-pattern Cancelled = QueryExecutionState' "CANCELLED"
-
-pattern Failed :: QueryExecutionState
-pattern Failed = QueryExecutionState' "FAILED"
-
 pattern Queued :: QueryExecutionState
 pattern Queued = QueryExecutionState' "QUEUED"
 
@@ -63,11 +57,17 @@ pattern Running = QueryExecutionState' "RUNNING"
 pattern Succeeded :: QueryExecutionState
 pattern Succeeded = QueryExecutionState' "SUCCEEDED"
 
+pattern Failed :: QueryExecutionState
+pattern Failed = QueryExecutionState' "FAILED"
+
+pattern Cancelled :: QueryExecutionState
+pattern Cancelled = QueryExecutionState' "CANCELLED"
+
 {-# COMPLETE
-  Cancelled,
-  Failed,
   Queued,
   Running,
   Succeeded,
+  Failed,
+  Cancelled,
   QueryExecutionState'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,9 +20,9 @@ module Network.AWS.Connect.UpdateUserPhoneConfig
     mkUpdateUserPhoneConfig,
 
     -- ** Request lenses
-    uupcPhoneConfig,
-    uupcUserId,
     uupcInstanceId,
+    uupcUserId,
+    uupcPhoneConfig,
 
     -- * Destructuring the response
     UpdateUserPhoneConfigResponse (..),
@@ -37,46 +38,42 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateUserPhoneConfig' smart constructor.
 data UpdateUserPhoneConfig = UpdateUserPhoneConfig'
-  { phoneConfig ::
-      UserPhoneConfig,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Lude.Text,
+    -- | The identifier of the user account.
     userId :: Lude.Text,
-    instanceId :: Lude.Text
+    -- | Information about phone configuration settings for the user.
+    phoneConfig :: UserPhoneConfig
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserPhoneConfig' with the minimum fields required to make a request.
 --
 -- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'phoneConfig' - Information about phone configuration settings for the user.
 -- * 'userId' - The identifier of the user account.
+-- * 'phoneConfig' - Information about phone configuration settings for the user.
 mkUpdateUserPhoneConfig ::
-  -- | 'phoneConfig'
-  UserPhoneConfig ->
-  -- | 'userId'
-  Lude.Text ->
   -- | 'instanceId'
   Lude.Text ->
+  -- | 'userId'
+  Lude.Text ->
+  -- | 'phoneConfig'
+  UserPhoneConfig ->
   UpdateUserPhoneConfig
-mkUpdateUserPhoneConfig pPhoneConfig_ pUserId_ pInstanceId_ =
+mkUpdateUserPhoneConfig pInstanceId_ pUserId_ pPhoneConfig_ =
   UpdateUserPhoneConfig'
-    { phoneConfig = pPhoneConfig_,
+    { instanceId = pInstanceId_,
       userId = pUserId_,
-      instanceId = pInstanceId_
+      phoneConfig = pPhoneConfig_
     }
 
--- | Information about phone configuration settings for the user.
+-- | The identifier of the Amazon Connect instance.
 --
--- /Note:/ Consider using 'phoneConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupcPhoneConfig :: Lens.Lens' UpdateUserPhoneConfig UserPhoneConfig
-uupcPhoneConfig = Lens.lens (phoneConfig :: UpdateUserPhoneConfig -> UserPhoneConfig) (\s a -> s {phoneConfig = a} :: UpdateUserPhoneConfig)
-{-# DEPRECATED uupcPhoneConfig "Use generic-lens or generic-optics with 'phoneConfig' instead." #-}
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupcInstanceId :: Lens.Lens' UpdateUserPhoneConfig Lude.Text
+uupcInstanceId = Lens.lens (instanceId :: UpdateUserPhoneConfig -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserPhoneConfig)
+{-# DEPRECATED uupcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the user account.
 --
@@ -85,12 +82,12 @@ uupcUserId :: Lens.Lens' UpdateUserPhoneConfig Lude.Text
 uupcUserId = Lens.lens (userId :: UpdateUserPhoneConfig -> Lude.Text) (\s a -> s {userId = a} :: UpdateUserPhoneConfig)
 {-# DEPRECATED uupcUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
--- | The identifier of the Amazon Connect instance.
+-- | Information about phone configuration settings for the user.
 --
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupcInstanceId :: Lens.Lens' UpdateUserPhoneConfig Lude.Text
-uupcInstanceId = Lens.lens (instanceId :: UpdateUserPhoneConfig -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserPhoneConfig)
-{-# DEPRECATED uupcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+-- /Note:/ Consider using 'phoneConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupcPhoneConfig :: Lens.Lens' UpdateUserPhoneConfig UserPhoneConfig
+uupcPhoneConfig = Lens.lens (phoneConfig :: UpdateUserPhoneConfig -> UserPhoneConfig) (\s a -> s {phoneConfig = a} :: UpdateUserPhoneConfig)
+{-# DEPRECATED uupcPhoneConfig "Use generic-lens or generic-optics with 'phoneConfig' instead." #-}
 
 instance Lude.AWSRequest UpdateUserPhoneConfig where
   type Rs UpdateUserPhoneConfig = UpdateUserPhoneConfigResponse
@@ -126,13 +123,7 @@ instance Lude.ToQuery UpdateUserPhoneConfig where
 
 -- | /See:/ 'mkUpdateUserPhoneConfigResponse' smart constructor.
 data UpdateUserPhoneConfigResponse = UpdateUserPhoneConfigResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateUserPhoneConfigResponse' with the minimum fields required to make a request.

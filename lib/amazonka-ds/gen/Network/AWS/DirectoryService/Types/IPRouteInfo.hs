@@ -34,31 +34,30 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIPRouteInfo' smart constructor.
 data IPRouteInfo = IPRouteInfo'
-  { directoryId ::
-      Lude.Maybe Lude.Text,
+  { -- | Identifier (ID) of the directory associated with the IP addresses.
+    directoryId :: Lude.Maybe Lude.Text,
+    -- | The reason for the IpRouteStatusMsg.
     ipRouteStatusReason :: Lude.Maybe Lude.Text,
+    -- | The date and time the address block was added to the directory.
     addedDateTime :: Lude.Maybe Lude.Timestamp,
+    -- | IP address block in the 'IpRoute' .
     cidrIP :: Lude.Maybe Lude.Text,
+    -- | The status of the IP address block.
     ipRouteStatusMsg :: Lude.Maybe IPRouteStatusMsg,
+    -- | Description of the 'IpRouteInfo' .
     description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IPRouteInfo' with the minimum fields required to make a request.
 --
+-- * 'directoryId' - Identifier (ID) of the directory associated with the IP addresses.
+-- * 'ipRouteStatusReason' - The reason for the IpRouteStatusMsg.
 -- * 'addedDateTime' - The date and time the address block was added to the directory.
 -- * 'cidrIP' - IP address block in the 'IpRoute' .
--- * 'description' - Description of the 'IpRouteInfo' .
--- * 'directoryId' - Identifier (ID) of the directory associated with the IP addresses.
 -- * 'ipRouteStatusMsg' - The status of the IP address block.
--- * 'ipRouteStatusReason' - The reason for the IpRouteStatusMsg.
+-- * 'description' - Description of the 'IpRouteInfo' .
 mkIPRouteInfo ::
   IPRouteInfo
 mkIPRouteInfo =

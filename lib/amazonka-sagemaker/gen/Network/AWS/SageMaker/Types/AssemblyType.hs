@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.AssemblyType
   ( AssemblyType
       ( AssemblyType',
-        ATLine,
-        ATNone
+        ATNone,
+        ATLine
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AssemblyType = AssemblyType' Lude.Text
       Lude.ToHeader
     )
 
-pattern ATLine :: AssemblyType
-pattern ATLine = AssemblyType' "Line"
-
 pattern ATNone :: AssemblyType
 pattern ATNone = AssemblyType' "None"
 
+pattern ATLine :: AssemblyType
+pattern ATLine = AssemblyType' "Line"
+
 {-# COMPLETE
-  ATLine,
   ATNone,
+  ATLine,
   AssemblyType'
   #-}

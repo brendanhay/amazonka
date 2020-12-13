@@ -31,26 +31,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFleetLaunchTemplateConfigRequest' smart constructor.
 data FleetLaunchTemplateConfigRequest = FleetLaunchTemplateConfigRequest'
-  { overrides ::
-      Lude.Maybe
-        [FleetLaunchTemplateOverridesRequest],
-    launchTemplateSpecification ::
-      Lude.Maybe
-        FleetLaunchTemplateSpecificationRequest
+  { -- | Any parameters that you specify override the same parameters in the launch template.
+    overrides :: Lude.Maybe [FleetLaunchTemplateOverridesRequest],
+    -- | The launch template to use. You must specify either the launch template ID or launch template name in the request.
+    launchTemplateSpecification :: Lude.Maybe FleetLaunchTemplateSpecificationRequest
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'FleetLaunchTemplateConfigRequest' with the minimum fields required to make a request.
 --
--- * 'launchTemplateSpecification' - The launch template to use. You must specify either the launch template ID or launch template name in the request.
 -- * 'overrides' - Any parameters that you specify override the same parameters in the launch template.
+-- * 'launchTemplateSpecification' - The launch template to use. You must specify either the launch template ID or launch template name in the request.
 mkFleetLaunchTemplateConfigRequest ::
   FleetLaunchTemplateConfigRequest
 mkFleetLaunchTemplateConfigRequest =

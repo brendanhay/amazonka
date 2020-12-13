@@ -13,8 +13,8 @@
 module Network.AWS.SSM.Types.PlatformType
   ( PlatformType
       ( PlatformType',
-        PTLinux,
-        PTWindows
+        Windows,
+        Linux
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PlatformType = PlatformType' Lude.Text
       Lude.ToHeader
     )
 
-pattern PTLinux :: PlatformType
-pattern PTLinux = PlatformType' "Linux"
+pattern Windows :: PlatformType
+pattern Windows = PlatformType' "Windows"
 
-pattern PTWindows :: PlatformType
-pattern PTWindows = PlatformType' "Windows"
+pattern Linux :: PlatformType
+pattern Linux = PlatformType' "Linux"
 
 {-# COMPLETE
-  PTLinux,
-  PTWindows,
+  Windows,
+  Linux,
   PlatformType'
   #-}

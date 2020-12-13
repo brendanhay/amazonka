@@ -29,21 +29,14 @@ import qualified Network.AWS.Prelude as Lude
 
 -- | /See:/ 'mkKinesisStreamingDestinationOutput' smart constructor.
 data KinesisStreamingDestinationOutput = KinesisStreamingDestinationOutput'
-  { destinationStatus ::
-      Lude.Maybe
-        DestinationStatus,
-    streamARN ::
-      Lude.Maybe Lude.Text,
-    tableName ::
-      Lude.Maybe Lude.Text
+  { -- | The current status of the replication.
+    destinationStatus :: Lude.Maybe DestinationStatus,
+    -- | The ARN for the specific Kinesis data stream.
+    streamARN :: Lude.Maybe Lude.Text,
+    -- | The name of the table being modified.
+    tableName :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'KinesisStreamingDestinationOutput' with the minimum fields required to make a request.

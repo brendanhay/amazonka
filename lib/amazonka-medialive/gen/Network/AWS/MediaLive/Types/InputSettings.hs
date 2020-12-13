@@ -46,46 +46,56 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInputSettings' smart constructor.
 data InputSettings = InputSettings'
-  { videoSelector ::
-      Lude.Maybe VideoSelector,
+  { -- | Informs which video elementary stream to decode for input types that have multiple available.
+    videoSelector :: Lude.Maybe VideoSelector,
+    -- | Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages.
+    --
+    -- - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
+    -- - IGNORE: Never extract any ancillary data from SMPTE-2038.
     smpte2038DataPreference :: Lude.Maybe Smpte2038DataPreference,
+    -- | Input settings.
     networkInputSettings :: Lude.Maybe NetworkInputSettings,
+    -- | Used to select the audio stream to decode for inputs that have multiple available.
     audioSelectors :: Lude.Maybe [AudioSelector],
+    -- | Enable or disable the deblock filter when filtering.
     deblockFilter :: Lude.Maybe InputDeblockFilter,
+    -- | Enable or disable the denoise filter when filtering.
     denoiseFilter :: Lude.Maybe InputDenoiseFilter,
+    -- | Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
     filterStrength :: Lude.Maybe Lude.Natural,
+    -- | Used to select the caption input to use for inputs that have multiple available.
     captionSelectors :: Lude.Maybe [CaptionSelector],
+    -- | Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default.
+    --
+    -- 1) auto - filtering will be applied depending on input type/quality
+    -- 2) disabled - no filtering will be applied to the input
+    -- 3) forced - filtering will be applied regardless of input type
     inputFilter :: Lude.Maybe InputFilter,
+    -- | Loop input if it is a file. This allows a file input to be streamed indefinitely.
     sourceEndBehavior :: Lude.Maybe InputSourceEndBehavior
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InputSettings' with the minimum fields required to make a request.
 --
+-- * 'videoSelector' - Informs which video elementary stream to decode for input types that have multiple available.
+-- * 'smpte2038DataPreference' - Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages.
+--
+-- - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
+-- - IGNORE: Never extract any ancillary data from SMPTE-2038.
+-- * 'networkInputSettings' - Input settings.
 -- * 'audioSelectors' - Used to select the audio stream to decode for inputs that have multiple available.
--- * 'captionSelectors' - Used to select the caption input to use for inputs that have multiple available.
 -- * 'deblockFilter' - Enable or disable the deblock filter when filtering.
 -- * 'denoiseFilter' - Enable or disable the denoise filter when filtering.
 -- * 'filterStrength' - Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+-- * 'captionSelectors' - Used to select the caption input to use for inputs that have multiple available.
 -- * 'inputFilter' - Turns on the filter for this input. MPEG-2 inputs have the deblocking filter enabled by default.
 --
 -- 1) auto - filtering will be applied depending on input type/quality
 -- 2) disabled - no filtering will be applied to the input
 -- 3) forced - filtering will be applied regardless of input type
--- * 'networkInputSettings' - Input settings.
--- * 'smpte2038DataPreference' - Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in this input. Applicable data types are captions, timecode, AFD, and SCTE-104 messages.
---
--- - PREFER: Extract from SMPTE-2038 if present in this input, otherwise extract from another source (if any).
--- - IGNORE: Never extract any ancillary data from SMPTE-2038.
 -- * 'sourceEndBehavior' - Loop input if it is a file. This allows a file input to be streamed indefinitely.
--- * 'videoSelector' - Informs which video elementary stream to decode for input types that have multiple available.
 mkInputSettings ::
   InputSettings
 mkInputSettings =

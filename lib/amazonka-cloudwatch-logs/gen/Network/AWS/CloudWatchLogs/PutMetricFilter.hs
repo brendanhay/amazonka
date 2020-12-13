@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,8 +22,8 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     mkPutMetricFilter,
 
     -- ** Request lenses
-    pmfLogGroupName,
     pmfFilterName,
+    pmfLogGroupName,
     pmfFilterPattern,
     pmfMetricTransformations,
 
@@ -40,30 +41,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutMetricFilter' smart constructor.
 data PutMetricFilter = PutMetricFilter'
-  { logGroupName :: Lude.Text,
+  { -- | A name for the metric filter.
     filterName :: Lude.Text,
+    -- | The name of the log group.
+    logGroupName :: Lude.Text,
+    -- | A filter pattern for extracting metric data out of ingested log events.
     filterPattern :: Lude.Text,
+    -- | A collection of information that defines how metric data gets emitted.
     metricTransformations :: Lude.NonEmpty MetricTransformation
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricFilter' with the minimum fields required to make a request.
 --
 -- * 'filterName' - A name for the metric filter.
--- * 'filterPattern' - A filter pattern for extracting metric data out of ingested log events.
 -- * 'logGroupName' - The name of the log group.
+-- * 'filterPattern' - A filter pattern for extracting metric data out of ingested log events.
 -- * 'metricTransformations' - A collection of information that defines how metric data gets emitted.
 mkPutMetricFilter ::
-  -- | 'logGroupName'
-  Lude.Text ->
   -- | 'filterName'
+  Lude.Text ->
+  -- | 'logGroupName'
   Lude.Text ->
   -- | 'filterPattern'
   Lude.Text ->
@@ -71,23 +70,16 @@ mkPutMetricFilter ::
   Lude.NonEmpty MetricTransformation ->
   PutMetricFilter
 mkPutMetricFilter
-  pLogGroupName_
   pFilterName_
+  pLogGroupName_
   pFilterPattern_
   pMetricTransformations_ =
     PutMetricFilter'
-      { logGroupName = pLogGroupName_,
-        filterName = pFilterName_,
+      { filterName = pFilterName_,
+        logGroupName = pLogGroupName_,
         filterPattern = pFilterPattern_,
         metricTransformations = pMetricTransformations_
       }
-
--- | The name of the log group.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmfLogGroupName :: Lens.Lens' PutMetricFilter Lude.Text
-pmfLogGroupName = Lens.lens (logGroupName :: PutMetricFilter -> Lude.Text) (\s a -> s {logGroupName = a} :: PutMetricFilter)
-{-# DEPRECATED pmfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | A name for the metric filter.
 --
@@ -95,6 +87,13 @@ pmfLogGroupName = Lens.lens (logGroupName :: PutMetricFilter -> Lude.Text) (\s a
 pmfFilterName :: Lens.Lens' PutMetricFilter Lude.Text
 pmfFilterName = Lens.lens (filterName :: PutMetricFilter -> Lude.Text) (\s a -> s {filterName = a} :: PutMetricFilter)
 {-# DEPRECATED pmfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+
+-- | The name of the log group.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmfLogGroupName :: Lens.Lens' PutMetricFilter Lude.Text
+pmfLogGroupName = Lens.lens (logGroupName :: PutMetricFilter -> Lude.Text) (\s a -> s {logGroupName = a} :: PutMetricFilter)
+{-# DEPRECATED pmfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | A filter pattern for extracting metric data out of ingested log events.
 --
@@ -130,8 +129,8 @@ instance Lude.ToJSON PutMetricFilter where
   toJSON PutMetricFilter' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("logGroupName" Lude..= logGroupName),
-            Lude.Just ("filterName" Lude..= filterName),
+          [ Lude.Just ("filterName" Lude..= filterName),
+            Lude.Just ("logGroupName" Lude..= logGroupName),
             Lude.Just ("filterPattern" Lude..= filterPattern),
             Lude.Just ("metricTransformations" Lude..= metricTransformations)
           ]
@@ -145,13 +144,7 @@ instance Lude.ToQuery PutMetricFilter where
 
 -- | /See:/ 'mkPutMetricFilterResponse' smart constructor.
 data PutMetricFilterResponse = PutMetricFilterResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutMetricFilterResponse' with the minimum fields required to make a request.

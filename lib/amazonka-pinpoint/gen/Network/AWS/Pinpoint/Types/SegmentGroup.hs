@@ -35,29 +35,28 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSegmentGroup' smart constructor.
 data SegmentGroup = SegmentGroup'
-  { sourceSegments ::
-      Lude.Maybe [SegmentReference],
+  { -- | The base segment to build the segment on. A base segment, also referred to as a /source segment/ , defines the initial population of endpoints for a segment. When you add dimensions to a segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify.
+    --
+    -- You can specify more than one dimensional segment or only one imported segment. If you specify an imported segment, the Amazon Pinpoint console displays a segment size estimate that indicates the size of the imported segment without any filters applied to it.
+    sourceSegments :: Lude.Maybe [SegmentReference],
+    -- | Specifies how to handle multiple base segments for the segment. For example, if you specify three base segments for the segment, whether the resulting segment is based on all, any, or none of the base segments.
     sourceType :: Lude.Maybe SourceType,
+    -- | Specifies how to handle multiple dimensions for the segment. For example, if you specify three dimensions for the segment, whether the resulting segment includes endpoints that match all, any, or none of the dimensions.
     type' :: Lude.Maybe Type,
+    -- | An array that defines the dimensions for the segment.
     dimensions :: Lude.Maybe [SegmentDimensions]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SegmentGroup' with the minimum fields required to make a request.
 --
--- * 'dimensions' - An array that defines the dimensions for the segment.
 -- * 'sourceSegments' - The base segment to build the segment on. A base segment, also referred to as a /source segment/ , defines the initial population of endpoints for a segment. When you add dimensions to a segment, Amazon Pinpoint filters the base segment by using the dimensions that you specify.
 --
 -- You can specify more than one dimensional segment or only one imported segment. If you specify an imported segment, the Amazon Pinpoint console displays a segment size estimate that indicates the size of the imported segment without any filters applied to it.
 -- * 'sourceType' - Specifies how to handle multiple base segments for the segment. For example, if you specify three base segments for the segment, whether the resulting segment is based on all, any, or none of the base segments.
 -- * 'type'' - Specifies how to handle multiple dimensions for the segment. For example, if you specify three dimensions for the segment, whether the resulting segment includes endpoints that match all, any, or none of the dimensions.
+-- * 'dimensions' - An array that defines the dimensions for the segment.
 mkSegmentGroup ::
   SegmentGroup
 mkSegmentGroup =

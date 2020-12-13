@@ -29,22 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBeard' smart constructor.
 data Beard = Beard'
-  { value :: Lude.Maybe Lude.Bool,
+  { -- | Boolean value that indicates whether the face has beard or not.
+    value :: Lude.Maybe Lude.Bool,
+    -- | Level of confidence in the determination.
     confidence :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Beard' with the minimum fields required to make a request.
 --
--- * 'confidence' - Level of confidence in the determination.
 -- * 'value' - Boolean value that indicates whether the face has beard or not.
+-- * 'confidence' - Level of confidence in the determination.
 mkBeard ::
   Beard
 mkBeard = Beard' {value = Lude.Nothing, confidence = Lude.Nothing}

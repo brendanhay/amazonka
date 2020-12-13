@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,37 +49,29 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkDescribeMaintenanceWindowSchedule' smart constructor.
 data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
-  { resourceType ::
-      Lude.Maybe
-        MaintenanceWindowResourceType,
-    filters ::
-      Lude.Maybe
-        [PatchOrchestratorFilter],
-    nextToken ::
-      Lude.Maybe Lude.Text,
-    targets ::
-      Lude.Maybe [Target],
-    maxResults ::
-      Lude.Maybe Lude.Natural,
-    windowId ::
-      Lude.Maybe Lude.Text
+  { -- | The type of resource you want to retrieve information about. For example, "INSTANCE".
+    resourceType :: Lude.Maybe MaintenanceWindowResourceType,
+    -- | Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.
+    filters :: Lude.Maybe [PatchOrchestratorFilter],
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The instance ID or key/value pair to retrieve information about.
+    targets :: Lude.Maybe [Target],
+    -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+    maxResults :: Lude.Maybe Lude.Natural,
+    -- | The ID of the maintenance window to retrieve information about.
+    windowId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowSchedule' with the minimum fields required to make a request.
 --
--- * 'filters' - Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'resourceType' - The type of resource you want to retrieve information about. For example, "INSTANCE".
+-- * 'filters' - Filters used to limit the range of results. For example, you can limit maintenance window executions to only those scheduled before or after a certain date and time.
+-- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
 -- * 'targets' - The instance ID or key/value pair to retrieve information about.
+-- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 -- * 'windowId' - The ID of the maintenance window to retrieve information about.
 mkDescribeMaintenanceWindowSchedule ::
   DescribeMaintenanceWindowSchedule
@@ -190,29 +183,21 @@ instance Lude.ToQuery DescribeMaintenanceWindowSchedule where
 
 -- | /See:/ 'mkDescribeMaintenanceWindowScheduleResponse' smart constructor.
 data DescribeMaintenanceWindowScheduleResponse = DescribeMaintenanceWindowScheduleResponse'
-  { scheduledWindowExecutions ::
-      Lude.Maybe
-        [ScheduledWindowExecution],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | Information about maintenance window executions scheduled for the specified time range.
+    scheduledWindowExecutions :: Lude.Maybe [ScheduledWindowExecution],
+    -- | The token for the next set of items to return. (You use this token in the next call.)
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeMaintenanceWindowScheduleResponse' with the minimum fields required to make a request.
 --
+-- * 'scheduledWindowExecutions' - Information about maintenance window executions scheduled for the specified time range.
 -- * 'nextToken' - The token for the next set of items to return. (You use this token in the next call.)
 -- * 'responseStatus' - The response status code.
--- * 'scheduledWindowExecutions' - Information about maintenance window executions scheduled for the specified time range.
 mkDescribeMaintenanceWindowScheduleResponse ::
   -- | 'responseStatus'
   Lude.Int ->

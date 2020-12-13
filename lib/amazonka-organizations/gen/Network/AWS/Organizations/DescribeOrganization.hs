@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeOrganization' smart constructor.
 data DescribeOrganization = DescribeOrganization'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeOrganization' with the minimum fields required to make a request.
@@ -86,8 +81,11 @@ instance Lude.ToQuery DescribeOrganization where
 
 -- | /See:/ 'mkDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
-  { organization ::
-      Lude.Maybe Organization,
+  { -- | A structure that contains information about the organization.
+    --
+    -- /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
+    organization :: Lude.Maybe Organization,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)

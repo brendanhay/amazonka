@@ -33,41 +33,27 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLoadBalancerTLSCertificateDomainValidationRecord' smart constructor.
 data LoadBalancerTLSCertificateDomainValidationRecord = LoadBalancerTLSCertificateDomainValidationRecord'
-  { value ::
-      Lude.Maybe
-        Lude.Text,
-    domainName ::
-      Lude.Maybe
-        Lude.Text,
-    name ::
-      Lude.Maybe
-        Lude.Text,
-    validationStatus ::
-      Lude.Maybe
-        LoadBalancerTLSCertificateDomainStatus,
-    type' ::
-      Lude.Maybe
-        Lude.Text
+  { -- | The value for that type.
+    value :: Lude.Maybe Lude.Text,
+    -- | The domain name against which your SSL/TLS certificate was validated.
+    domainName :: Lude.Maybe Lude.Text,
+    -- | A fully qualified domain name in the certificate. For example, @example.com@ .
+    name :: Lude.Maybe Lude.Text,
+    -- | The validation status. Valid values are listed below.
+    validationStatus :: Lude.Maybe LoadBalancerTLSCertificateDomainStatus,
+    -- | The type of validation record. For example, @CNAME@ for domain validation.
+    type' :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LoadBalancerTLSCertificateDomainValidationRecord' with the minimum fields required to make a request.
 --
+-- * 'value' - The value for that type.
 -- * 'domainName' - The domain name against which your SSL/TLS certificate was validated.
 -- * 'name' - A fully qualified domain name in the certificate. For example, @example.com@ .
--- * 'type'' - The type of validation record. For example, @CNAME@ for domain validation.
 -- * 'validationStatus' - The validation status. Valid values are listed below.
--- * 'value' - The value for that type.
+-- * 'type'' - The type of validation record. For example, @CNAME@ for domain validation.
 mkLoadBalancerTLSCertificateDomainValidationRecord ::
   LoadBalancerTLSCertificateDomainValidationRecord
 mkLoadBalancerTLSCertificateDomainValidationRecord =

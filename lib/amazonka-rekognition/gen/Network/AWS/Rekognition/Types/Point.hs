@@ -31,16 +31,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPoint' smart constructor.
 data Point = Point'
-  { x :: Lude.Maybe Lude.Double,
+  { -- | The value of the X coordinate for a point on a @Polygon@ .
+    x :: Lude.Maybe Lude.Double,
+    -- | The value of the Y coordinate for a point on a @Polygon@ .
     y :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Point' with the minimum fields required to make a request.

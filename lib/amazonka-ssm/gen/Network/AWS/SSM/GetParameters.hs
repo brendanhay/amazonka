@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,9 +28,9 @@ module Network.AWS.SSM.GetParameters
     mkGetParametersResponse,
 
     -- ** Response lenses
-    grsParameters,
-    grsInvalidParameters,
-    grsResponseStatus,
+    gprsParameters,
+    gprsInvalidParameters,
+    gprsResponseStatus,
   )
 where
 
@@ -41,23 +42,18 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'mkGetParameters' smart constructor.
 data GetParameters = GetParameters'
-  { withDecryption ::
-      Lude.Maybe Lude.Bool,
+  { -- | Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+    withDecryption :: Lude.Maybe Lude.Bool,
+    -- | Names of the parameters for which you want to query information.
     names :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParameters' with the minimum fields required to make a request.
 --
--- * 'names' - Names of the parameters for which you want to query information.
 -- * 'withDecryption' - Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+-- * 'names' - Names of the parameters for which you want to query information.
 mkGetParameters ::
   -- | 'names'
   Lude.NonEmpty Lude.Text ->
@@ -119,24 +115,20 @@ instance Lude.ToQuery GetParameters where
 
 -- | /See:/ 'mkGetParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
-  { parameters ::
-      Lude.Maybe [Parameter],
+  { -- | A list of details for a parameter.
+    parameters :: Lude.Maybe [Parameter],
+    -- | A list of parameters that are not formatted correctly or do not run during an execution.
     invalidParameters :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetParametersResponse' with the minimum fields required to make a request.
 --
--- * 'invalidParameters' - A list of parameters that are not formatted correctly or do not run during an execution.
 -- * 'parameters' - A list of details for a parameter.
+-- * 'invalidParameters' - A list of parameters that are not formatted correctly or do not run during an execution.
 -- * 'responseStatus' - The response status code.
 mkGetParametersResponse ::
   -- | 'responseStatus'
@@ -152,20 +144,20 @@ mkGetParametersResponse pResponseStatus_ =
 -- | A list of details for a parameter.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsParameters :: Lens.Lens' GetParametersResponse (Lude.Maybe [Parameter])
-grsParameters = Lens.lens (parameters :: GetParametersResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: GetParametersResponse)
-{-# DEPRECATED grsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+gprsParameters :: Lens.Lens' GetParametersResponse (Lude.Maybe [Parameter])
+gprsParameters = Lens.lens (parameters :: GetParametersResponse -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: GetParametersResponse)
+{-# DEPRECATED gprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | A list of parameters that are not formatted correctly or do not run during an execution.
 --
 -- /Note:/ Consider using 'invalidParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsInvalidParameters :: Lens.Lens' GetParametersResponse (Lude.Maybe [Lude.Text])
-grsInvalidParameters = Lens.lens (invalidParameters :: GetParametersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {invalidParameters = a} :: GetParametersResponse)
-{-# DEPRECATED grsInvalidParameters "Use generic-lens or generic-optics with 'invalidParameters' instead." #-}
+gprsInvalidParameters :: Lens.Lens' GetParametersResponse (Lude.Maybe [Lude.Text])
+gprsInvalidParameters = Lens.lens (invalidParameters :: GetParametersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {invalidParameters = a} :: GetParametersResponse)
+{-# DEPRECATED gprsInvalidParameters "Use generic-lens or generic-optics with 'invalidParameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetParametersResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParametersResponse)
-{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprsResponseStatus :: Lens.Lens' GetParametersResponse Lude.Int
+gprsResponseStatus = Lens.lens (responseStatus :: GetParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParametersResponse)
+{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

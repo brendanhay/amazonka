@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOidcMemberDefinition' smart constructor.
 newtype OidcMemberDefinition = OidcMemberDefinition'
-  { groups ::
-      Lude.NonEmpty Lude.Text
+  { -- | A list of comma seperated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+    groups :: Lude.NonEmpty Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OidcMemberDefinition' with the minimum fields required to make a request.

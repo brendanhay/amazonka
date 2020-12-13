@@ -29,17 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCertificateOptions' smart constructor.
 newtype CertificateOptions = CertificateOptions'
-  { certificateTransparencyLoggingPreference ::
-      Lude.Maybe
-        CertificateTransparencyLoggingPreference
+  { -- | You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
+    certificateTransparencyLoggingPreference :: Lude.Maybe CertificateTransparencyLoggingPreference
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CertificateOptions' with the minimum fields required to make a request.

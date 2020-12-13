@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,16 +23,16 @@ module Network.AWS.SES.GetIdentityPolicies
     mkGetIdentityPolicies,
 
     -- ** Request lenses
-    gipIdentity,
     gipPolicyNames,
+    gipIdentity,
 
     -- * Destructuring the response
     GetIdentityPoliciesResponse (..),
     mkGetIdentityPoliciesResponse,
 
     -- ** Response lenses
-    giprsResponseStatus,
     giprsPolicies,
+    giprsResponseStatus,
   )
 where
 
@@ -45,34 +46,38 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkGetIdentityPolicies' smart constructor.
 data GetIdentityPolicies = GetIdentityPolicies'
-  { identity ::
-      Lude.Text,
-    policyNames :: [Lude.Text]
+  { -- | A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
+    policyNames :: [Lude.Text],
+    -- | The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+    --
+    -- To successfully call this API, you must own the identity.
+    identity :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPolicies' with the minimum fields required to make a request.
 --
+-- * 'policyNames' - A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
 -- * 'identity' - The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
 -- To successfully call this API, you must own the identity.
--- * 'policyNames' - A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
 mkGetIdentityPolicies ::
   -- | 'identity'
   Lude.Text ->
   GetIdentityPolicies
 mkGetIdentityPolicies pIdentity_ =
   GetIdentityPolicies'
-    { identity = pIdentity_,
-      policyNames = Lude.mempty
+    { policyNames = Lude.mempty,
+      identity = pIdentity_
     }
+
+-- | A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gipPolicyNames :: Lens.Lens' GetIdentityPolicies [Lude.Text]
+gipPolicyNames = Lens.lens (policyNames :: GetIdentityPolicies -> [Lude.Text]) (\s a -> s {policyNames = a} :: GetIdentityPolicies)
+{-# DEPRECATED gipPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
@@ -83,13 +88,6 @@ gipIdentity :: Lens.Lens' GetIdentityPolicies Lude.Text
 gipIdentity = Lens.lens (identity :: GetIdentityPolicies -> Lude.Text) (\s a -> s {identity = a} :: GetIdentityPolicies)
 {-# DEPRECATED gipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
--- | A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use @ListIdentityPolicies@ .
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gipPolicyNames :: Lens.Lens' GetIdentityPolicies [Lude.Text]
-gipPolicyNames = Lens.lens (policyNames :: GetIdentityPolicies -> [Lude.Text]) (\s a -> s {policyNames = a} :: GetIdentityPolicies)
-{-# DEPRECATED gipPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
-
 instance Lude.AWSRequest GetIdentityPolicies where
   type Rs GetIdentityPolicies = GetIdentityPoliciesResponse
   request = Req.postQuery sesService
@@ -98,10 +96,10 @@ instance Lude.AWSRequest GetIdentityPolicies where
       "GetIdentityPoliciesResult"
       ( \s h x ->
           GetIdentityPoliciesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> ( x Lude..@? "Policies" Lude..!@ Lude.mempty
+            Lude.<$> ( x Lude..@? "Policies" Lude..!@ Lude.mempty
                          Lude.>>= Lude.parseXMLMap "entry" "key" "value"
                      )
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders GetIdentityPolicies where
@@ -115,26 +113,20 @@ instance Lude.ToQuery GetIdentityPolicies where
     Lude.mconcat
       [ "Action" Lude.=: ("GetIdentityPolicies" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Identity" Lude.=: identity,
-        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames
+        "PolicyNames" Lude.=: Lude.toQueryList "member" policyNames,
+        "Identity" Lude.=: identity
       ]
 
 -- | Represents the requested sending authorization policies.
 --
 -- /See:/ 'mkGetIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
-  { responseStatus ::
-      Lude.Int,
-    policies ::
-      Lude.HashMap Lude.Text (Lude.Text)
+  { -- | A map of policy names to policies.
+    policies :: Lude.HashMap Lude.Text (Lude.Text),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetIdentityPoliciesResponse' with the minimum fields required to make a request.
@@ -147,16 +139,9 @@ mkGetIdentityPoliciesResponse ::
   GetIdentityPoliciesResponse
 mkGetIdentityPoliciesResponse pResponseStatus_ =
   GetIdentityPoliciesResponse'
-    { responseStatus = pResponseStatus_,
-      policies = Lude.mempty
+    { policies = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giprsResponseStatus :: Lens.Lens' GetIdentityPoliciesResponse Lude.Int
-giprsResponseStatus = Lens.lens (responseStatus :: GetIdentityPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityPoliciesResponse)
-{-# DEPRECATED giprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | A map of policy names to policies.
 --
@@ -164,3 +149,10 @@ giprsResponseStatus = Lens.lens (responseStatus :: GetIdentityPoliciesResponse -
 giprsPolicies :: Lens.Lens' GetIdentityPoliciesResponse (Lude.HashMap Lude.Text (Lude.Text))
 giprsPolicies = Lens.lens (policies :: GetIdentityPoliciesResponse -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {policies = a} :: GetIdentityPoliciesResponse)
 {-# DEPRECATED giprsPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giprsResponseStatus :: Lens.Lens' GetIdentityPoliciesResponse Lude.Int
+giprsResponseStatus = Lens.lens (responseStatus :: GetIdentityPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdentityPoliciesResponse)
+{-# DEPRECATED giprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

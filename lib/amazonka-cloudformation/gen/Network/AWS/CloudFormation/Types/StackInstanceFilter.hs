@@ -30,23 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStackInstanceFilter' smart constructor.
 data StackInstanceFilter = StackInstanceFilter'
-  { values ::
-      Lude.Maybe Lude.Text,
+  { -- | The status to filter by.
+    values :: Lude.Maybe Lude.Text,
+    -- | The type of filter to apply.
     name :: Lude.Maybe StackInstanceFilterName
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'StackInstanceFilter' with the minimum fields required to make a request.
 --
--- * 'name' - The type of filter to apply.
 -- * 'values' - The status to filter by.
+-- * 'name' - The type of filter to apply.
 mkStackInstanceFilter ::
   StackInstanceFilter
 mkStackInstanceFilter =

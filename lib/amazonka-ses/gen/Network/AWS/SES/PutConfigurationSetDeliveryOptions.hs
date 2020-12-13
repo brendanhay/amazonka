@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.SES.PutConfigurationSetDeliveryOptions
     mkPutConfigurationSetDeliveryOptions,
 
     -- ** Request lenses
-    pcsdoDeliveryOptions,
     pcsdoConfigurationSetName,
+    pcsdoDeliveryOptions,
 
     -- * Destructuring the response
     PutConfigurationSetDeliveryOptionsResponse (..),
@@ -41,19 +42,12 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'mkPutConfigurationSetDeliveryOptions' smart constructor.
 data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
-  { deliveryOptions ::
-      Lude.Maybe
-        DeliveryOptions,
-    configurationSetName ::
-      Lude.Text
+  { -- | The name of the configuration set that you want to specify the delivery options for.
+    configurationSetName :: Lude.Text,
+    -- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+    deliveryOptions :: Lude.Maybe DeliveryOptions
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigurationSetDeliveryOptions' with the minimum fields required to make a request.
@@ -66,17 +60,10 @@ mkPutConfigurationSetDeliveryOptions ::
   PutConfigurationSetDeliveryOptions
 mkPutConfigurationSetDeliveryOptions pConfigurationSetName_ =
   PutConfigurationSetDeliveryOptions'
-    { deliveryOptions =
-        Lude.Nothing,
-      configurationSetName = pConfigurationSetName_
+    { configurationSetName =
+        pConfigurationSetName_,
+      deliveryOptions = Lude.Nothing
     }
-
--- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
---
--- /Note:/ Consider using 'deliveryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcsdoDeliveryOptions :: Lens.Lens' PutConfigurationSetDeliveryOptions (Lude.Maybe DeliveryOptions)
-pcsdoDeliveryOptions = Lens.lens (deliveryOptions :: PutConfigurationSetDeliveryOptions -> Lude.Maybe DeliveryOptions) (\s a -> s {deliveryOptions = a} :: PutConfigurationSetDeliveryOptions)
-{-# DEPRECATED pcsdoDeliveryOptions "Use generic-lens or generic-optics with 'deliveryOptions' instead." #-}
 
 -- | The name of the configuration set that you want to specify the delivery options for.
 --
@@ -84,6 +71,13 @@ pcsdoDeliveryOptions = Lens.lens (deliveryOptions :: PutConfigurationSetDelivery
 pcsdoConfigurationSetName :: Lens.Lens' PutConfigurationSetDeliveryOptions Lude.Text
 pcsdoConfigurationSetName = Lens.lens (configurationSetName :: PutConfigurationSetDeliveryOptions -> Lude.Text) (\s a -> s {configurationSetName = a} :: PutConfigurationSetDeliveryOptions)
 {-# DEPRECATED pcsdoConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
+
+-- | Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+--
+-- /Note:/ Consider using 'deliveryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcsdoDeliveryOptions :: Lens.Lens' PutConfigurationSetDeliveryOptions (Lude.Maybe DeliveryOptions)
+pcsdoDeliveryOptions = Lens.lens (deliveryOptions :: PutConfigurationSetDeliveryOptions -> Lude.Maybe DeliveryOptions) (\s a -> s {deliveryOptions = a} :: PutConfigurationSetDeliveryOptions)
+{-# DEPRECATED pcsdoDeliveryOptions "Use generic-lens or generic-optics with 'deliveryOptions' instead." #-}
 
 instance Lude.AWSRequest PutConfigurationSetDeliveryOptions where
   type
@@ -110,24 +104,18 @@ instance Lude.ToQuery PutConfigurationSetDeliveryOptions where
       [ "Action"
           Lude.=: ("PutConfigurationSetDeliveryOptions" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "DeliveryOptions" Lude.=: deliveryOptions,
-        "ConfigurationSetName" Lude.=: configurationSetName
+        "ConfigurationSetName" Lude.=: configurationSetName,
+        "DeliveryOptions" Lude.=: deliveryOptions
       ]
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the request fails.
 --
 -- /See:/ 'mkPutConfigurationSetDeliveryOptionsResponse' smart constructor.
 newtype PutConfigurationSetDeliveryOptionsResponse = PutConfigurationSetDeliveryOptionsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutConfigurationSetDeliveryOptionsResponse' with the minimum fields required to make a request.

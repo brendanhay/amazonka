@@ -36,35 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkServiceSoftwareOptions' smart constructor.
 data ServiceSoftwareOptions = ServiceSoftwareOptions'
-  { automatedUpdateDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+    automatedUpdateDate :: Lude.Maybe Lude.Timestamp,
+    -- | The current service software version that is present on the domain.
     currentVersion :: Lude.Maybe Lude.Text,
+    -- | @True@ if a service software is never automatically updated. @False@ if a service software is automatically updated after @AutomatedUpdateDate@ .
     optionalDeployment :: Lude.Maybe Lude.Bool,
+    -- | The status of your service software update. This field can take the following values: @ELIGIBLE@ , @PENDING_UPDATE@ , @IN_PROGRESS@ , @COMPLETED@ , and @NOT_ELIGIBLE@ .
     updateStatus :: Lude.Maybe DeploymentStatus,
+    -- | @True@ if you are able to cancel your service software version update. @False@ if you are not able to cancel your service software version.
     cancellable :: Lude.Maybe Lude.Bool,
+    -- | @True@ if you are able to update you service software version. @False@ if you are not able to update your service software version.
     updateAvailable :: Lude.Maybe Lude.Bool,
+    -- | The description of the @UpdateStatus@ .
     description :: Lude.Maybe Lude.Text,
+    -- | The new service software version if one is available.
     newVersion :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ServiceSoftwareOptions' with the minimum fields required to make a request.
 --
 -- * 'automatedUpdateDate' - Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
--- * 'cancellable' - @True@ if you are able to cancel your service software version update. @False@ if you are not able to cancel your service software version.
 -- * 'currentVersion' - The current service software version that is present on the domain.
+-- * 'optionalDeployment' - @True@ if a service software is never automatically updated. @False@ if a service software is automatically updated after @AutomatedUpdateDate@ .
+-- * 'updateStatus' - The status of your service software update. This field can take the following values: @ELIGIBLE@ , @PENDING_UPDATE@ , @IN_PROGRESS@ , @COMPLETED@ , and @NOT_ELIGIBLE@ .
+-- * 'cancellable' - @True@ if you are able to cancel your service software version update. @False@ if you are not able to cancel your service software version.
+-- * 'updateAvailable' - @True@ if you are able to update you service software version. @False@ if you are not able to update your service software version.
 -- * 'description' - The description of the @UpdateStatus@ .
 -- * 'newVersion' - The new service software version if one is available.
--- * 'optionalDeployment' - @True@ if a service software is never automatically updated. @False@ if a service software is automatically updated after @AutomatedUpdateDate@ .
--- * 'updateAvailable' - @True@ if you are able to update you service software version. @False@ if you are not able to update your service software version.
--- * 'updateStatus' - The status of your service software update. This field can take the following values: @ELIGIBLE@ , @PENDING_UPDATE@ , @IN_PROGRESS@ , @COMPLETED@ , and @NOT_ELIGIBLE@ .
 mkServiceSoftwareOptions ::
   ServiceSoftwareOptions
 mkServiceSoftwareOptions =

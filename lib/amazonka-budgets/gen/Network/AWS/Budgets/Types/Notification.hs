@@ -18,10 +18,10 @@ module Network.AWS.Budgets.Types.Notification
 
     -- * Lenses
     nThresholdType,
-    nNotificationState,
-    nNotificationType,
     nComparisonOperator,
     nThreshold,
+    nNotificationState,
+    nNotificationType,
   )
 where
 
@@ -52,44 +52,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNotification' smart constructor.
 data Notification = Notification'
-  { thresholdType ::
-      Lude.Maybe ThresholdType,
-    notificationState :: Lude.Maybe NotificationState,
-    notificationType :: NotificationType,
+  { -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@ thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For @PERCENTAGE@ thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS notifies you when you go over 160 dollars.
+    thresholdType :: Lude.Maybe ThresholdType,
+    -- | The comparison that is used for this notification.
     comparisonOperator :: ComparisonOperator,
-    threshold :: Lude.Double
+    -- | The threshold that is associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
+    threshold :: Lude.Double,
+    -- | Whether this notification is in alarm. If a budget notification is in the @ALARM@ state, you have passed the set threshold for the budget.
+    notificationState :: Lude.Maybe NotificationState,
+    -- | Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you're forecasted to spend (@FORECASTED@ ).
+    notificationType :: NotificationType
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Notification' with the minimum fields required to make a request.
 --
+-- * 'thresholdType' - The type of threshold for a notification. For @ABSOLUTE_VALUE@ thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For @PERCENTAGE@ thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS notifies you when you go over 160 dollars.
 -- * 'comparisonOperator' - The comparison that is used for this notification.
+-- * 'threshold' - The threshold that is associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
 -- * 'notificationState' - Whether this notification is in alarm. If a budget notification is in the @ALARM@ state, you have passed the set threshold for the budget.
 -- * 'notificationType' - Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you're forecasted to spend (@FORECASTED@ ).
--- * 'threshold' - The threshold that is associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.
--- * 'thresholdType' - The type of threshold for a notification. For @ABSOLUTE_VALUE@ thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For @PERCENTAGE@ thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS notifies you when you go over 160 dollars.
 mkNotification ::
-  -- | 'notificationType'
-  NotificationType ->
   -- | 'comparisonOperator'
   ComparisonOperator ->
   -- | 'threshold'
   Lude.Double ->
+  -- | 'notificationType'
+  NotificationType ->
   Notification
-mkNotification pNotificationType_ pComparisonOperator_ pThreshold_ =
+mkNotification pComparisonOperator_ pThreshold_ pNotificationType_ =
   Notification'
     { thresholdType = Lude.Nothing,
-      notificationState = Lude.Nothing,
-      notificationType = pNotificationType_,
       comparisonOperator = pComparisonOperator_,
-      threshold = pThreshold_
+      threshold = pThreshold_,
+      notificationState = Lude.Nothing,
+      notificationType = pNotificationType_
     }
 
 -- | The type of threshold for a notification. For @ABSOLUTE_VALUE@ thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For @PERCENTAGE@ thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a @PERCENTAGE@ threshold of 80%, AWS notifies you when you go over 160 dollars.
@@ -98,20 +96,6 @@ mkNotification pNotificationType_ pComparisonOperator_ pThreshold_ =
 nThresholdType :: Lens.Lens' Notification (Lude.Maybe ThresholdType)
 nThresholdType = Lens.lens (thresholdType :: Notification -> Lude.Maybe ThresholdType) (\s a -> s {thresholdType = a} :: Notification)
 {-# DEPRECATED nThresholdType "Use generic-lens or generic-optics with 'thresholdType' instead." #-}
-
--- | Whether this notification is in alarm. If a budget notification is in the @ALARM@ state, you have passed the set threshold for the budget.
---
--- /Note:/ Consider using 'notificationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nNotificationState :: Lens.Lens' Notification (Lude.Maybe NotificationState)
-nNotificationState = Lens.lens (notificationState :: Notification -> Lude.Maybe NotificationState) (\s a -> s {notificationState = a} :: Notification)
-{-# DEPRECATED nNotificationState "Use generic-lens or generic-optics with 'notificationState' instead." #-}
-
--- | Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you're forecasted to spend (@FORECASTED@ ).
---
--- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nNotificationType :: Lens.Lens' Notification NotificationType
-nNotificationType = Lens.lens (notificationType :: Notification -> NotificationType) (\s a -> s {notificationType = a} :: Notification)
-{-# DEPRECATED nNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
 
 -- | The comparison that is used for this notification.
 --
@@ -127,6 +111,20 @@ nThreshold :: Lens.Lens' Notification Lude.Double
 nThreshold = Lens.lens (threshold :: Notification -> Lude.Double) (\s a -> s {threshold = a} :: Notification)
 {-# DEPRECATED nThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
+-- | Whether this notification is in alarm. If a budget notification is in the @ALARM@ state, you have passed the set threshold for the budget.
+--
+-- /Note:/ Consider using 'notificationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nNotificationState :: Lens.Lens' Notification (Lude.Maybe NotificationState)
+nNotificationState = Lens.lens (notificationState :: Notification -> Lude.Maybe NotificationState) (\s a -> s {notificationState = a} :: Notification)
+{-# DEPRECATED nNotificationState "Use generic-lens or generic-optics with 'notificationState' instead." #-}
+
+-- | Whether the notification is for how much you have spent (@ACTUAL@ ) or for how much you're forecasted to spend (@FORECASTED@ ).
+--
+-- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nNotificationType :: Lens.Lens' Notification NotificationType
+nNotificationType = Lens.lens (notificationType :: Notification -> NotificationType) (\s a -> s {notificationType = a} :: Notification)
+{-# DEPRECATED nNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
+
 instance Lude.FromJSON Notification where
   parseJSON =
     Lude.withObject
@@ -134,10 +132,10 @@ instance Lude.FromJSON Notification where
       ( \x ->
           Notification'
             Lude.<$> (x Lude..:? "ThresholdType")
-            Lude.<*> (x Lude..:? "NotificationState")
-            Lude.<*> (x Lude..: "NotificationType")
             Lude.<*> (x Lude..: "ComparisonOperator")
             Lude.<*> (x Lude..: "Threshold")
+            Lude.<*> (x Lude..:? "NotificationState")
+            Lude.<*> (x Lude..: "NotificationType")
       )
 
 instance Lude.ToJSON Notification where
@@ -145,9 +143,9 @@ instance Lude.ToJSON Notification where
     Lude.object
       ( Lude.catMaybes
           [ ("ThresholdType" Lude..=) Lude.<$> thresholdType,
-            ("NotificationState" Lude..=) Lude.<$> notificationState,
-            Lude.Just ("NotificationType" Lude..= notificationType),
             Lude.Just ("ComparisonOperator" Lude..= comparisonOperator),
-            Lude.Just ("Threshold" Lude..= threshold)
+            Lude.Just ("Threshold" Lude..= threshold),
+            ("NotificationState" Lude..=) Lude.<$> notificationState,
+            Lude.Just ("NotificationType" Lude..= notificationType)
           ]
       )

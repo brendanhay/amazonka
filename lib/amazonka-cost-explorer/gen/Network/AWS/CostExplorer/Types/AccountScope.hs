@@ -13,8 +13,8 @@
 module Network.AWS.CostExplorer.Types.AccountScope
   ( AccountScope
       ( AccountScope',
-        Linked,
-        Payer
+        Payer,
+        Linked
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype AccountScope = AccountScope' Lude.Text
       Lude.ToHeader
     )
 
-pattern Linked :: AccountScope
-pattern Linked = AccountScope' "LINKED"
-
 pattern Payer :: AccountScope
 pattern Payer = AccountScope' "PAYER"
 
+pattern Linked :: AccountScope
+pattern Linked = AccountScope' "LINKED"
+
 {-# COMPLETE
-  Linked,
   Payer,
+  Linked,
   AccountScope'
   #-}

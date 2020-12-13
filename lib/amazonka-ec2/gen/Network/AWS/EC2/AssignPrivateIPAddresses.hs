@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.EC2.AssignPrivateIPAddresses
 
     -- ** Request lenses
     apiaPrivateIPAddresses,
+    apiaNetworkInterfaceId,
     apiaAllowReassignment,
     apiaSecondaryPrivateIPAddressCount,
-    apiaNetworkInterfaceId,
 
     -- * Destructuring the response
     AssignPrivateIPAddressesResponse (..),
@@ -50,29 +51,27 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAssignPrivateIPAddresses' smart constructor.
 data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
-  { privateIPAddresses ::
-      Lude.Maybe [Lude.Text],
+  { -- | One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.
+    --
+    -- If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
+    privateIPAddresses :: Lude.Maybe [Lude.Text],
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Text,
+    -- | Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.
     allowReassignment :: Lude.Maybe Lude.Bool,
-    secondaryPrivateIPAddressCount ::
-      Lude.Maybe Lude.Int,
-    networkInterfaceId :: Lude.Text
+    -- | The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.
+    secondaryPrivateIPAddressCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignPrivateIPAddresses' with the minimum fields required to make a request.
 --
--- * 'allowReassignment' - Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.
--- * 'networkInterfaceId' - The ID of the network interface.
 -- * 'privateIPAddresses' - One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.
 --
 -- If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.
+-- * 'networkInterfaceId' - The ID of the network interface.
+-- * 'allowReassignment' - Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.
 -- * 'secondaryPrivateIPAddressCount' - The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.
 mkAssignPrivateIPAddresses ::
   -- | 'networkInterfaceId'
@@ -81,9 +80,9 @@ mkAssignPrivateIPAddresses ::
 mkAssignPrivateIPAddresses pNetworkInterfaceId_ =
   AssignPrivateIPAddresses'
     { privateIPAddresses = Lude.Nothing,
+      networkInterfaceId = pNetworkInterfaceId_,
       allowReassignment = Lude.Nothing,
-      secondaryPrivateIPAddressCount = Lude.Nothing,
-      networkInterfaceId = pNetworkInterfaceId_
+      secondaryPrivateIPAddressCount = Lude.Nothing
     }
 
 -- | One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.
@@ -94,6 +93,13 @@ mkAssignPrivateIPAddresses pNetworkInterfaceId_ =
 apiaPrivateIPAddresses :: Lens.Lens' AssignPrivateIPAddresses (Lude.Maybe [Lude.Text])
 apiaPrivateIPAddresses = Lens.lens (privateIPAddresses :: AssignPrivateIPAddresses -> Lude.Maybe [Lude.Text]) (\s a -> s {privateIPAddresses = a} :: AssignPrivateIPAddresses)
 {-# DEPRECATED apiaPrivateIPAddresses "Use generic-lens or generic-optics with 'privateIPAddresses' instead." #-}
+
+-- | The ID of the network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apiaNetworkInterfaceId :: Lens.Lens' AssignPrivateIPAddresses Lude.Text
+apiaNetworkInterfaceId = Lens.lens (networkInterfaceId :: AssignPrivateIPAddresses -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: AssignPrivateIPAddresses)
+{-# DEPRECATED apiaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 -- | Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.
 --
@@ -108,13 +114,6 @@ apiaAllowReassignment = Lens.lens (allowReassignment :: AssignPrivateIPAddresses
 apiaSecondaryPrivateIPAddressCount :: Lens.Lens' AssignPrivateIPAddresses (Lude.Maybe Lude.Int)
 apiaSecondaryPrivateIPAddressCount = Lens.lens (secondaryPrivateIPAddressCount :: AssignPrivateIPAddresses -> Lude.Maybe Lude.Int) (\s a -> s {secondaryPrivateIPAddressCount = a} :: AssignPrivateIPAddresses)
 {-# DEPRECATED apiaSecondaryPrivateIPAddressCount "Use generic-lens or generic-optics with 'secondaryPrivateIPAddressCount' instead." #-}
-
--- | The ID of the network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apiaNetworkInterfaceId :: Lens.Lens' AssignPrivateIPAddresses Lude.Text
-apiaNetworkInterfaceId = Lens.lens (networkInterfaceId :: AssignPrivateIPAddresses -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: AssignPrivateIPAddresses)
-{-# DEPRECATED apiaNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
 
 instance Lude.AWSRequest AssignPrivateIPAddresses where
   type Rs AssignPrivateIPAddresses = AssignPrivateIPAddressesResponse
@@ -143,29 +142,22 @@ instance Lude.ToQuery AssignPrivateIPAddresses where
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
         Lude.toQuery
           (Lude.toQueryList "PrivateIpAddress" Lude.<$> privateIPAddresses),
+        "NetworkInterfaceId" Lude.=: networkInterfaceId,
         "AllowReassignment" Lude.=: allowReassignment,
         "SecondaryPrivateIpAddressCount"
-          Lude.=: secondaryPrivateIPAddressCount,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId
+          Lude.=: secondaryPrivateIPAddressCount
       ]
 
 -- | /See:/ 'mkAssignPrivateIPAddressesResponse' smart constructor.
 data AssignPrivateIPAddressesResponse = AssignPrivateIPAddressesResponse'
-  { assignedPrivateIPAddresses ::
-      Lude.Maybe
-        [AssignedPrivateIPAddress],
-    networkInterfaceId ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The private IP addresses assigned to the network interface.
+    assignedPrivateIPAddresses :: Lude.Maybe [AssignedPrivateIPAddress],
+    -- | The ID of the network interface.
+    networkInterfaceId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AssignPrivateIPAddressesResponse' with the minimum fields required to make a request.

@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceIPv6Address' smart constructor.
 newtype InstanceIPv6Address = InstanceIPv6Address'
-  { ipv6Address ::
-      Lude.Maybe Lude.Text
+  { -- | The IPv6 address.
+    ipv6Address :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'InstanceIPv6Address' with the minimum fields required to make a request.

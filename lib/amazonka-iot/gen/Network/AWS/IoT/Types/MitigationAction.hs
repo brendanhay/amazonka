@@ -32,26 +32,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMitigationAction' smart constructor.
 data MitigationAction = MitigationAction'
-  { actionParams ::
-      Lude.Maybe MitigationActionParams,
+  { -- | The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
+    actionParams :: Lude.Maybe MitigationActionParams,
+    -- | A user-friendly name for the mitigation action.
     name :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the mitigation action.
     id :: Lude.Maybe Lude.Text,
+    -- | The IAM role ARN used to apply this mitigation action.
     roleARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'MitigationAction' with the minimum fields required to make a request.
 --
 -- * 'actionParams' - The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
--- * 'id' - A unique identifier for the mitigation action.
 -- * 'name' - A user-friendly name for the mitigation action.
+-- * 'id' - A unique identifier for the mitigation action.
 -- * 'roleARN' - The IAM role ARN used to apply this mitigation action.
 mkMitigationAction ::
   MitigationAction

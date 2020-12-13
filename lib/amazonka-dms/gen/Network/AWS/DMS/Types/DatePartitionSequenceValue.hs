@@ -13,11 +13,11 @@
 module Network.AWS.DMS.Types.DatePartitionSequenceValue
   ( DatePartitionSequenceValue
       ( DatePartitionSequenceValue',
-        Ddmmyyyy,
-        Mmyyyydd,
-        Yyyymm,
         Yyyymmdd,
-        Yyyymmddhh
+        Yyyymmddhh,
+        Yyyymm,
+        Mmyyyydd,
+        Ddmmyyyy
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype DatePartitionSequenceValue = DatePartitionSequenceValue' Lude.Text
       Lude.ToHeader
     )
 
-pattern Ddmmyyyy :: DatePartitionSequenceValue
-pattern Ddmmyyyy = DatePartitionSequenceValue' "DDMMYYYY"
-
-pattern Mmyyyydd :: DatePartitionSequenceValue
-pattern Mmyyyydd = DatePartitionSequenceValue' "MMYYYYDD"
-
-pattern Yyyymm :: DatePartitionSequenceValue
-pattern Yyyymm = DatePartitionSequenceValue' "YYYYMM"
-
 pattern Yyyymmdd :: DatePartitionSequenceValue
 pattern Yyyymmdd = DatePartitionSequenceValue' "YYYYMMDD"
 
 pattern Yyyymmddhh :: DatePartitionSequenceValue
 pattern Yyyymmddhh = DatePartitionSequenceValue' "YYYYMMDDHH"
 
+pattern Yyyymm :: DatePartitionSequenceValue
+pattern Yyyymm = DatePartitionSequenceValue' "YYYYMM"
+
+pattern Mmyyyydd :: DatePartitionSequenceValue
+pattern Mmyyyydd = DatePartitionSequenceValue' "MMYYYYDD"
+
+pattern Ddmmyyyy :: DatePartitionSequenceValue
+pattern Ddmmyyyy = DatePartitionSequenceValue' "DDMMYYYY"
+
 {-# COMPLETE
-  Ddmmyyyy,
-  Mmyyyydd,
-  Yyyymm,
   Yyyymmdd,
   Yyyymmddhh,
+  Yyyymm,
+  Mmyyyydd,
+  Ddmmyyyy,
   DatePartitionSequenceValue'
   #-}

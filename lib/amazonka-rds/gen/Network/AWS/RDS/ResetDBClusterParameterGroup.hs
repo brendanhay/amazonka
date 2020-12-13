@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,27 +46,21 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkResetDBClusterParameterGroup' smart constructor.
 data ResetDBClusterParameterGroup = ResetDBClusterParameterGroup'
-  { resetAllParameters ::
-      Lude.Maybe Lude.Bool,
-    parameters ::
-      Lude.Maybe [Parameter],
-    dbClusterParameterGroupName ::
-      Lude.Text
+  { -- | A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
+    resetAllParameters :: Lude.Maybe Lude.Bool,
+    -- | A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is enabled.
+    parameters :: Lude.Maybe [Parameter],
+    -- | The name of the DB cluster parameter group to reset.
+    dbClusterParameterGroupName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResetDBClusterParameterGroup' with the minimum fields required to make a request.
 --
--- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group to reset.
--- * 'parameters' - A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is enabled.
 -- * 'resetAllParameters' - A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
+-- * 'parameters' - A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is enabled.
+-- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group to reset.
 mkResetDBClusterParameterGroup ::
   -- | 'dbClusterParameterGroupName'
   Lude.Text ->

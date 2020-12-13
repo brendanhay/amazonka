@@ -30,23 +30,18 @@ import Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
 --
 -- /See:/ 'mkRollbackConfiguration' smart constructor.
 data RollbackConfiguration = RollbackConfiguration'
-  { rollbackTriggers ::
-      Lude.Maybe [RollbackTrigger],
+  { -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
+    rollbackTriggers :: Lude.Maybe [RollbackTrigger],
+    -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
     monitoringTimeInMinutes :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RollbackConfiguration' with the minimum fields required to make a request.
 --
--- * 'monitoringTimeInMinutes' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
 -- * 'rollbackTriggers' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
+-- * 'monitoringTimeInMinutes' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackConfiguration RollbackConfiguration> / Data Type.
 mkRollbackConfiguration ::
   RollbackConfiguration
 mkRollbackConfiguration =

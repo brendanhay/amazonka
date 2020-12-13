@@ -28,16 +28,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSubnetOutpost' smart constructor.
 newtype SubnetOutpost = SubnetOutpost'
-  { subnetOutpostARN ::
-      Lude.Maybe Lude.Text
+  { -- | The outpost ARN of the subnet.
+    subnetOutpostARN :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SubnetOutpost' with the minimum fields required to make a request.

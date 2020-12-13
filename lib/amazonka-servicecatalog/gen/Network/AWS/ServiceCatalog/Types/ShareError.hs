@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkShareError' smart constructor.
 data ShareError = ShareError'
-  { accounts :: Lude.Maybe [Lude.Text],
+  { -- | List of accounts impacted by the error.
+    accounts :: Lude.Maybe [Lude.Text],
+    -- | Error type that happened when processing the operation.
     error :: Lude.Maybe Lude.Text,
+    -- | Information about the error.
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ShareError' with the minimum fields required to make a request.

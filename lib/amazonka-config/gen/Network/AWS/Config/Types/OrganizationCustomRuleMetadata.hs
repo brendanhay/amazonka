@@ -19,13 +19,13 @@ module Network.AWS.Config.Types.OrganizationCustomRuleMetadata
     -- * Lenses
     ocrmInputParameters,
     ocrmResourceIdScope,
+    ocrmLambdaFunctionARN,
     ocrmTagValueScope,
     ocrmMaximumExecutionFrequency,
+    ocrmOrganizationConfigRuleTriggerTypes,
     ocrmTagKeyScope,
     ocrmResourceTypesScope,
     ocrmDescription,
-    ocrmLambdaFunctionARN,
-    ocrmOrganizationConfigRuleTriggerTypes,
   )
 where
 
@@ -38,40 +38,43 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrganizationCustomRuleMetadata' smart constructor.
 data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
-  { inputParameters ::
-      Lude.Maybe Lude.Text,
-    resourceIdScope ::
-      Lude.Maybe Lude.Text,
-    tagValueScope ::
-      Lude.Maybe Lude.Text,
-    maximumExecutionFrequency ::
-      Lude.Maybe
-        MaximumExecutionFrequency,
-    tagKeyScope ::
-      Lude.Maybe Lude.Text,
-    resourceTypesScope ::
-      Lude.Maybe [Lude.Text],
-    description ::
-      Lude.Maybe Lude.Text,
-    lambdaFunctionARN ::
-      Lude.Text,
-    organizationConfigRuleTriggerTypes ::
-      [OrganizationConfigRuleTriggerType]
+  { -- | A string, in JSON format, that is passed to organization config rule Lambda function.
+    inputParameters :: Lude.Maybe Lude.Text,
+    -- | The ID of the AWS resource that was evaluated.
+    resourceIdScope :: Lude.Maybe Lude.Text,
+    -- | The lambda function ARN.
+    lambdaFunctionARN :: Lude.Text,
+    -- | The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+    tagValueScope :: Lude.Maybe Lude.Text,
+    -- | The maximum frequency with which AWS Config runs evaluations for a rule. Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
+    maximumExecutionFrequency :: Lude.Maybe MaximumExecutionFrequency,
+    -- | The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+    --
+    --
+    --     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+    --
+    --
+    --     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+    --
+    --
+    --     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .
+    organizationConfigRuleTriggerTypes :: [OrganizationConfigRuleTriggerType],
+    -- | One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
+    tagKeyScope :: Lude.Maybe Lude.Text,
+    -- | The type of the AWS resource that was evaluated.
+    resourceTypesScope :: Lude.Maybe [Lude.Text],
+    -- | The description that you provide for organization config rule.
+    description :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'OrganizationCustomRuleMetadata' with the minimum fields required to make a request.
 --
--- * 'description' - The description that you provide for organization config rule.
 -- * 'inputParameters' - A string, in JSON format, that is passed to organization config rule Lambda function.
+-- * 'resourceIdScope' - The ID of the AWS resource that was evaluated.
 -- * 'lambdaFunctionARN' - The lambda function ARN.
+-- * 'tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
 -- * 'maximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule. Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see 'ConfigSnapshotDeliveryProperties' .
 -- * 'organizationConfigRuleTriggerTypes' - The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
 --
@@ -85,10 +88,9 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
 --     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .
 --
 --
--- * 'resourceIdScope' - The ID of the AWS resource that was evaluated.
--- * 'resourceTypesScope' - The type of the AWS resource that was evaluated.
 -- * 'tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
--- * 'tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
+-- * 'resourceTypesScope' - The type of the AWS resource that was evaluated.
+-- * 'description' - The description that you provide for organization config rule.
 mkOrganizationCustomRuleMetadata ::
   -- | 'lambdaFunctionARN'
   Lude.Text ->
@@ -97,13 +99,13 @@ mkOrganizationCustomRuleMetadata pLambdaFunctionARN_ =
   OrganizationCustomRuleMetadata'
     { inputParameters = Lude.Nothing,
       resourceIdScope = Lude.Nothing,
+      lambdaFunctionARN = pLambdaFunctionARN_,
       tagValueScope = Lude.Nothing,
       maximumExecutionFrequency = Lude.Nothing,
+      organizationConfigRuleTriggerTypes = Lude.mempty,
       tagKeyScope = Lude.Nothing,
       resourceTypesScope = Lude.Nothing,
-      description = Lude.Nothing,
-      lambdaFunctionARN = pLambdaFunctionARN_,
-      organizationConfigRuleTriggerTypes = Lude.mempty
+      description = Lude.Nothing
     }
 
 -- | A string, in JSON format, that is passed to organization config rule Lambda function.
@@ -120,6 +122,13 @@ ocrmResourceIdScope :: Lens.Lens' OrganizationCustomRuleMetadata (Lude.Maybe Lud
 ocrmResourceIdScope = Lens.lens (resourceIdScope :: OrganizationCustomRuleMetadata -> Lude.Maybe Lude.Text) (\s a -> s {resourceIdScope = a} :: OrganizationCustomRuleMetadata)
 {-# DEPRECATED ocrmResourceIdScope "Use generic-lens or generic-optics with 'resourceIdScope' instead." #-}
 
+-- | The lambda function ARN.
+--
+-- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocrmLambdaFunctionARN :: Lens.Lens' OrganizationCustomRuleMetadata Lude.Text
+ocrmLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: OrganizationCustomRuleMetadata -> Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: OrganizationCustomRuleMetadata)
+{-# DEPRECATED ocrmLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
+
 -- | The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).
 --
 -- /Note:/ Consider using 'tagValueScope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -133,6 +142,24 @@ ocrmTagValueScope = Lens.lens (tagValueScope :: OrganizationCustomRuleMetadata -
 ocrmMaximumExecutionFrequency :: Lens.Lens' OrganizationCustomRuleMetadata (Lude.Maybe MaximumExecutionFrequency)
 ocrmMaximumExecutionFrequency = Lens.lens (maximumExecutionFrequency :: OrganizationCustomRuleMetadata -> Lude.Maybe MaximumExecutionFrequency) (\s a -> s {maximumExecutionFrequency = a} :: OrganizationCustomRuleMetadata)
 {-# DEPRECATED ocrmMaximumExecutionFrequency "Use generic-lens or generic-optics with 'maximumExecutionFrequency' instead." #-}
+
+-- | The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+--
+--
+--     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+--
+--
+--     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+--
+--
+--     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .
+--
+--
+--
+-- /Note:/ Consider using 'organizationConfigRuleTriggerTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocrmOrganizationConfigRuleTriggerTypes :: Lens.Lens' OrganizationCustomRuleMetadata [OrganizationConfigRuleTriggerType]
+ocrmOrganizationConfigRuleTriggerTypes = Lens.lens (organizationConfigRuleTriggerTypes :: OrganizationCustomRuleMetadata -> [OrganizationConfigRuleTriggerType]) (\s a -> s {organizationConfigRuleTriggerTypes = a} :: OrganizationCustomRuleMetadata)
+{-# DEPRECATED ocrmOrganizationConfigRuleTriggerTypes "Use generic-lens or generic-optics with 'organizationConfigRuleTriggerTypes' instead." #-}
 
 -- | One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.
 --
@@ -155,31 +182,6 @@ ocrmDescription :: Lens.Lens' OrganizationCustomRuleMetadata (Lude.Maybe Lude.Te
 ocrmDescription = Lens.lens (description :: OrganizationCustomRuleMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: OrganizationCustomRuleMetadata)
 {-# DEPRECATED ocrmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The lambda function ARN.
---
--- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrmLambdaFunctionARN :: Lens.Lens' OrganizationCustomRuleMetadata Lude.Text
-ocrmLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: OrganizationCustomRuleMetadata -> Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: OrganizationCustomRuleMetadata)
-{-# DEPRECATED ocrmLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
-
--- | The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
---
---
---     * @ConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
---
---
---     * @OversizedConfigurationItemChangeNotification@ - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
---
---
---     * @ScheduledNotification@ - Triggers a periodic evaluation at the frequency specified for @MaximumExecutionFrequency@ .
---
---
---
--- /Note:/ Consider using 'organizationConfigRuleTriggerTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrmOrganizationConfigRuleTriggerTypes :: Lens.Lens' OrganizationCustomRuleMetadata [OrganizationConfigRuleTriggerType]
-ocrmOrganizationConfigRuleTriggerTypes = Lens.lens (organizationConfigRuleTriggerTypes :: OrganizationCustomRuleMetadata -> [OrganizationConfigRuleTriggerType]) (\s a -> s {organizationConfigRuleTriggerTypes = a} :: OrganizationCustomRuleMetadata)
-{-# DEPRECATED ocrmOrganizationConfigRuleTriggerTypes "Use generic-lens or generic-optics with 'organizationConfigRuleTriggerTypes' instead." #-}
-
 instance Lude.FromJSON OrganizationCustomRuleMetadata where
   parseJSON =
     Lude.withObject
@@ -188,15 +190,15 @@ instance Lude.FromJSON OrganizationCustomRuleMetadata where
           OrganizationCustomRuleMetadata'
             Lude.<$> (x Lude..:? "InputParameters")
             Lude.<*> (x Lude..:? "ResourceIdScope")
+            Lude.<*> (x Lude..: "LambdaFunctionArn")
             Lude.<*> (x Lude..:? "TagValueScope")
             Lude.<*> (x Lude..:? "MaximumExecutionFrequency")
-            Lude.<*> (x Lude..:? "TagKeyScope")
-            Lude.<*> (x Lude..:? "ResourceTypesScope" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..: "LambdaFunctionArn")
             Lude.<*> ( x Lude..:? "OrganizationConfigRuleTriggerTypes"
                          Lude..!= Lude.mempty
                      )
+            Lude.<*> (x Lude..:? "TagKeyScope")
+            Lude.<*> (x Lude..:? "ResourceTypesScope" Lude..!= Lude.mempty)
+            Lude.<*> (x Lude..:? "Description")
       )
 
 instance Lude.ToJSON OrganizationCustomRuleMetadata where
@@ -205,16 +207,16 @@ instance Lude.ToJSON OrganizationCustomRuleMetadata where
       ( Lude.catMaybes
           [ ("InputParameters" Lude..=) Lude.<$> inputParameters,
             ("ResourceIdScope" Lude..=) Lude.<$> resourceIdScope,
+            Lude.Just ("LambdaFunctionArn" Lude..= lambdaFunctionARN),
             ("TagValueScope" Lude..=) Lude.<$> tagValueScope,
             ("MaximumExecutionFrequency" Lude..=)
               Lude.<$> maximumExecutionFrequency,
-            ("TagKeyScope" Lude..=) Lude.<$> tagKeyScope,
-            ("ResourceTypesScope" Lude..=) Lude.<$> resourceTypesScope,
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("LambdaFunctionArn" Lude..= lambdaFunctionARN),
             Lude.Just
               ( "OrganizationConfigRuleTriggerTypes"
                   Lude..= organizationConfigRuleTriggerTypes
-              )
+              ),
+            ("TagKeyScope" Lude..=) Lude.<$> tagKeyScope,
+            ("ResourceTypesScope" Lude..=) Lude.<$> resourceTypesScope,
+            ("Description" Lude..=) Lude.<$> description
           ]
       )

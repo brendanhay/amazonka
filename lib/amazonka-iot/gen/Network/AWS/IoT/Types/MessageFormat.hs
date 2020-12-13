@@ -13,8 +13,8 @@
 module Network.AWS.IoT.Types.MessageFormat
   ( MessageFormat
       ( MessageFormat',
-        JSON,
-        Raw
+        Raw,
+        JSON
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype MessageFormat = MessageFormat' Lude.Text
       Lude.ToHeader
     )
 
-pattern JSON :: MessageFormat
-pattern JSON = MessageFormat' "JSON"
-
 pattern Raw :: MessageFormat
 pattern Raw = MessageFormat' "RAW"
 
+pattern JSON :: MessageFormat
+pattern JSON = MessageFormat' "JSON"
+
 {-# COMPLETE
-  JSON,
   Raw,
+  JSON,
   MessageFormat'
   #-}

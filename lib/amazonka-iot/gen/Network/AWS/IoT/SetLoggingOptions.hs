@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,16 +40,10 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkSetLoggingOptions' smart constructor.
 newtype SetLoggingOptions = SetLoggingOptions'
-  { loggingOptionsPayload ::
-      LoggingOptionsPayload
+  { -- | The logging options payload.
+    loggingOptionsPayload :: LoggingOptionsPayload
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoggingOptions' with the minimum fields required to make a request.
@@ -96,13 +91,7 @@ instance Lude.ToQuery SetLoggingOptions where
 
 -- | /See:/ 'mkSetLoggingOptionsResponse' smart constructor.
 data SetLoggingOptionsResponse = SetLoggingOptionsResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetLoggingOptionsResponse' with the minimum fields required to make a request.

@@ -62,16 +62,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetConfiguration' smart constructor.
 newtype TargetConfiguration = TargetConfiguration'
-  { targetValue ::
-      Lude.Double
+  { -- | Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+    targetValue :: Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TargetConfiguration' with the minimum fields required to make a request.

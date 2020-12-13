@@ -13,23 +13,23 @@
 module Network.AWS.CertificateManager.Types.FailureReason
   ( FailureReason
       ( FailureReason',
-        AdditionalVerificationRequired,
-        CaaError,
-        DomainNotAllowed,
-        DomainValidationDenied,
-        InvalidPublicDomain,
         NoAvailableContacts,
-        Other,
-        PcaAccessDenied,
+        AdditionalVerificationRequired,
+        DomainNotAllowed,
+        InvalidPublicDomain,
+        DomainValidationDenied,
+        CaaError,
+        PcaLimitExceeded,
         PcaInvalidARN,
+        PcaInvalidState,
+        PcaRequestFailed,
+        PcaNameConstraintsValidation,
+        PcaResourceNotFound,
         PcaInvalidArgs,
         PcaInvalidDuration,
-        PcaInvalidState,
-        PcaLimitExceeded,
-        PcaNameConstraintsValidation,
-        PcaRequestFailed,
-        PcaResourceNotFound,
-        SlrNotFound
+        PcaAccessDenied,
+        SlrNotFound,
+        Other
       ),
   )
 where
@@ -60,32 +60,41 @@ newtype FailureReason = FailureReason' Lude.Text
       Lude.ToHeader
     )
 
+pattern NoAvailableContacts :: FailureReason
+pattern NoAvailableContacts = FailureReason' "NO_AVAILABLE_CONTACTS"
+
 pattern AdditionalVerificationRequired :: FailureReason
 pattern AdditionalVerificationRequired = FailureReason' "ADDITIONAL_VERIFICATION_REQUIRED"
-
-pattern CaaError :: FailureReason
-pattern CaaError = FailureReason' "CAA_ERROR"
 
 pattern DomainNotAllowed :: FailureReason
 pattern DomainNotAllowed = FailureReason' "DOMAIN_NOT_ALLOWED"
 
-pattern DomainValidationDenied :: FailureReason
-pattern DomainValidationDenied = FailureReason' "DOMAIN_VALIDATION_DENIED"
-
 pattern InvalidPublicDomain :: FailureReason
 pattern InvalidPublicDomain = FailureReason' "INVALID_PUBLIC_DOMAIN"
 
-pattern NoAvailableContacts :: FailureReason
-pattern NoAvailableContacts = FailureReason' "NO_AVAILABLE_CONTACTS"
+pattern DomainValidationDenied :: FailureReason
+pattern DomainValidationDenied = FailureReason' "DOMAIN_VALIDATION_DENIED"
 
-pattern Other :: FailureReason
-pattern Other = FailureReason' "OTHER"
+pattern CaaError :: FailureReason
+pattern CaaError = FailureReason' "CAA_ERROR"
 
-pattern PcaAccessDenied :: FailureReason
-pattern PcaAccessDenied = FailureReason' "PCA_ACCESS_DENIED"
+pattern PcaLimitExceeded :: FailureReason
+pattern PcaLimitExceeded = FailureReason' "PCA_LIMIT_EXCEEDED"
 
 pattern PcaInvalidARN :: FailureReason
 pattern PcaInvalidARN = FailureReason' "PCA_INVALID_ARN"
+
+pattern PcaInvalidState :: FailureReason
+pattern PcaInvalidState = FailureReason' "PCA_INVALID_STATE"
+
+pattern PcaRequestFailed :: FailureReason
+pattern PcaRequestFailed = FailureReason' "PCA_REQUEST_FAILED"
+
+pattern PcaNameConstraintsValidation :: FailureReason
+pattern PcaNameConstraintsValidation = FailureReason' "PCA_NAME_CONSTRAINTS_VALIDATION"
+
+pattern PcaResourceNotFound :: FailureReason
+pattern PcaResourceNotFound = FailureReason' "PCA_RESOURCE_NOT_FOUND"
 
 pattern PcaInvalidArgs :: FailureReason
 pattern PcaInvalidArgs = FailureReason' "PCA_INVALID_ARGS"
@@ -93,41 +102,32 @@ pattern PcaInvalidArgs = FailureReason' "PCA_INVALID_ARGS"
 pattern PcaInvalidDuration :: FailureReason
 pattern PcaInvalidDuration = FailureReason' "PCA_INVALID_DURATION"
 
-pattern PcaInvalidState :: FailureReason
-pattern PcaInvalidState = FailureReason' "PCA_INVALID_STATE"
-
-pattern PcaLimitExceeded :: FailureReason
-pattern PcaLimitExceeded = FailureReason' "PCA_LIMIT_EXCEEDED"
-
-pattern PcaNameConstraintsValidation :: FailureReason
-pattern PcaNameConstraintsValidation = FailureReason' "PCA_NAME_CONSTRAINTS_VALIDATION"
-
-pattern PcaRequestFailed :: FailureReason
-pattern PcaRequestFailed = FailureReason' "PCA_REQUEST_FAILED"
-
-pattern PcaResourceNotFound :: FailureReason
-pattern PcaResourceNotFound = FailureReason' "PCA_RESOURCE_NOT_FOUND"
+pattern PcaAccessDenied :: FailureReason
+pattern PcaAccessDenied = FailureReason' "PCA_ACCESS_DENIED"
 
 pattern SlrNotFound :: FailureReason
 pattern SlrNotFound = FailureReason' "SLR_NOT_FOUND"
 
+pattern Other :: FailureReason
+pattern Other = FailureReason' "OTHER"
+
 {-# COMPLETE
-  AdditionalVerificationRequired,
-  CaaError,
-  DomainNotAllowed,
-  DomainValidationDenied,
-  InvalidPublicDomain,
   NoAvailableContacts,
-  Other,
-  PcaAccessDenied,
+  AdditionalVerificationRequired,
+  DomainNotAllowed,
+  InvalidPublicDomain,
+  DomainValidationDenied,
+  CaaError,
+  PcaLimitExceeded,
   PcaInvalidARN,
+  PcaInvalidState,
+  PcaRequestFailed,
+  PcaNameConstraintsValidation,
+  PcaResourceNotFound,
   PcaInvalidArgs,
   PcaInvalidDuration,
-  PcaInvalidState,
-  PcaLimitExceeded,
-  PcaNameConstraintsValidation,
-  PcaRequestFailed,
-  PcaResourceNotFound,
+  PcaAccessDenied,
   SlrNotFound,
+  Other,
   FailureReason'
   #-}

@@ -54,103 +54,132 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRemoteAccessSession' smart constructor.
 data RemoteAccessSession = RemoteAccessSession'
-  { billingMethod ::
-      Lude.Maybe BillingMethod,
+  { -- | The billing method of the remote access session. Possible values include @METERED@ or @UNMETERED@ . For more information about metered devices, see <https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology> .
+    billingMethod :: Lude.Maybe BillingMethod,
+    -- | Unique identifier of your client for the remote access session. Only returned if remote debugging is enabled for the remote access session.
+    --
+    -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
     clientId :: Lude.Maybe Lude.Text,
+    -- | Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session.
+    --
+    -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
     deviceUdid :: Lude.Maybe Lude.Text,
+    -- | When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
+    --
+    -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
     skipAppResign :: Lude.Maybe Lude.Bool,
+    -- | The ARN of the instance.
     instanceARN :: Lude.Maybe Lude.Text,
+    -- | The status of the remote access session. Can be any of the following:
+    --
+    --
+    --     * PENDING.
+    --
+    --
+    --     * PENDING_CONCURRENCY.
+    --
+    --
+    --     * PENDING_DEVICE.
+    --
+    --
+    --     * PROCESSING.
+    --
+    --
+    --     * SCHEDULING.
+    --
+    --
+    --     * PREPARING.
+    --
+    --
+    --     * RUNNING.
+    --
+    --
+    --     * COMPLETED.
+    --
+    --
+    --     * STOPPING.
     status :: Lude.Maybe ExecutionStatus,
+    -- | This flag is set to @true@ if remote recording is enabled for the remote access session.
     remoteRecordEnabled :: Lude.Maybe Lude.Bool,
+    -- | The Amazon Resource Name (ARN) of the remote access session.
     arn :: Lude.Maybe Lude.Text,
+    -- | The ARN for the app to be recorded in the remote access session.
     remoteRecordAppARN :: Lude.Maybe Lude.Text,
+    -- | The date and time the remote access session was created.
     created :: Lude.Maybe Lude.Timestamp,
+    -- | The device (phone or tablet) used in the remote access session.
     device :: Lude.Maybe Device,
+    -- | The date and time the remote access session was stopped.
     stopped :: Lude.Maybe Lude.Timestamp,
+    -- | The result of the remote access session. Can be any of the following:
+    --
+    --
+    --     * PENDING.
+    --
+    --
+    --     * PASSED.
+    --
+    --
+    --     * WARNED.
+    --
+    --
+    --     * FAILED.
+    --
+    --
+    --     * SKIPPED.
+    --
+    --
+    --     * ERRORED.
+    --
+    --
+    --     * STOPPED.
     result :: Lude.Maybe ExecutionResult,
+    -- | The name of the remote access session.
     name :: Lude.Maybe Lude.Text,
+    -- | The number of minutes a device is used in a remote access session (including setup and teardown minutes).
     deviceMinutes :: Lude.Maybe DeviceMinutes,
+    -- | This flag is set to @true@ if remote debugging is enabled for the remote access session.
+    --
+    -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
     remoteDebugEnabled :: Lude.Maybe Lude.Bool,
+    -- | The endpoint for the remote access sesssion.
     endpoint :: Lude.Maybe Lude.Text,
+    -- | A message about the remote access session.
     message :: Lude.Maybe Lude.Text,
+    -- | IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session.
+    --
+    -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
     hostAddress :: Lude.Maybe Lude.Text,
+    -- | The interaction mode of the remote access session. Valid values are:
+    --
+    --
+    --     * INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You cannot run XCUITest framework-based tests in this mode.
+    --
+    --
+    --     * NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This mode has the fastest test execution speed. You can run XCUITest framework-based tests in this mode.
+    --
+    --
+    --     * VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest framework-based tests and watch the screen in this mode.
     interactionMode :: Lude.Maybe InteractionMode,
+    -- | The date and time the remote access session was started.
     started :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RemoteAccessSession' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the remote access session.
 -- * 'billingMethod' - The billing method of the remote access session. Possible values include @METERED@ or @UNMETERED@ . For more information about metered devices, see <https://docs.aws.amazon.com/devicefarm/latest/developerguide/welcome.html#welcome-terminology AWS Device Farm terminology> .
 -- * 'clientId' - Unique identifier of your client for the remote access session. Only returned if remote debugging is enabled for the remote access session.
 --
 -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
--- * 'created' - The date and time the remote access session was created.
--- * 'device' - The device (phone or tablet) used in the remote access session.
--- * 'deviceMinutes' - The number of minutes a device is used in a remote access session (including setup and teardown minutes).
 -- * 'deviceUdid' - Unique device identifier for the remote device. Only returned if remote debugging is enabled for the remote access session.
 --
 -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
--- * 'endpoint' - The endpoint for the remote access sesssion.
--- * 'hostAddress' - IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session.
---
--- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
--- * 'instanceARN' - The ARN of the instance.
--- * 'interactionMode' - The interaction mode of the remote access session. Valid values are:
---
---
---     * INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You cannot run XCUITest framework-based tests in this mode.
---
---
---     * NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This mode has the fastest test execution speed. You can run XCUITest framework-based tests in this mode.
---
---
---     * VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest framework-based tests and watch the screen in this mode.
---
---
--- * 'message' - A message about the remote access session.
--- * 'name' - The name of the remote access session.
--- * 'remoteDebugEnabled' - This flag is set to @true@ if remote debugging is enabled for the remote access session.
---
--- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
--- * 'remoteRecordAppARN' - The ARN for the app to be recorded in the remote access session.
--- * 'remoteRecordEnabled' - This flag is set to @true@ if remote recording is enabled for the remote access session.
--- * 'result' - The result of the remote access session. Can be any of the following:
---
---
---     * PENDING.
---
---
---     * PASSED.
---
---
---     * WARNED.
---
---
---     * FAILED.
---
---
---     * SKIPPED.
---
---
---     * ERRORED.
---
---
---     * STOPPED.
---
---
 -- * 'skipAppResign' - When set to @true@ , for private devices, Device Farm does not sign your app again. For public devices, Device Farm always signs your apps again.
 --
 -- For more information about how Device Farm re-signs your apps, see <https://aws.amazon.com/device-farm/faq/ Do you modify my app?> in the /AWS Device Farm FAQs/ .
--- * 'started' - The date and time the remote access session was started.
+-- * 'instanceARN' - The ARN of the instance.
 -- * 'status' - The status of the remote access session. Can be any of the following:
 --
 --
@@ -181,7 +210,59 @@ data RemoteAccessSession = RemoteAccessSession'
 --     * STOPPING.
 --
 --
+-- * 'remoteRecordEnabled' - This flag is set to @true@ if remote recording is enabled for the remote access session.
+-- * 'arn' - The Amazon Resource Name (ARN) of the remote access session.
+-- * 'remoteRecordAppARN' - The ARN for the app to be recorded in the remote access session.
+-- * 'created' - The date and time the remote access session was created.
+-- * 'device' - The device (phone or tablet) used in the remote access session.
 -- * 'stopped' - The date and time the remote access session was stopped.
+-- * 'result' - The result of the remote access session. Can be any of the following:
+--
+--
+--     * PENDING.
+--
+--
+--     * PASSED.
+--
+--
+--     * WARNED.
+--
+--
+--     * FAILED.
+--
+--
+--     * SKIPPED.
+--
+--
+--     * ERRORED.
+--
+--
+--     * STOPPED.
+--
+--
+-- * 'name' - The name of the remote access session.
+-- * 'deviceMinutes' - The number of minutes a device is used in a remote access session (including setup and teardown minutes).
+-- * 'remoteDebugEnabled' - This flag is set to @true@ if remote debugging is enabled for the remote access session.
+--
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- * 'endpoint' - The endpoint for the remote access sesssion.
+-- * 'message' - A message about the remote access session.
+-- * 'hostAddress' - IP address of the EC2 host where you need to connect to remotely debug devices. Only returned if remote debugging is enabled for the remote access session.
+--
+-- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
+-- * 'interactionMode' - The interaction mode of the remote access session. Valid values are:
+--
+--
+--     * INTERACTIVE: You can interact with the iOS device by viewing, touching, and rotating the screen. You cannot run XCUITest framework-based tests in this mode.
+--
+--
+--     * NO_VIDEO: You are connected to the device, but cannot interact with it or view the screen. This mode has the fastest test execution speed. You can run XCUITest framework-based tests in this mode.
+--
+--
+--     * VIDEO_ONLY: You can view the screen, but cannot touch or rotate it. You can run XCUITest framework-based tests and watch the screen in this mode.
+--
+--
+-- * 'started' - The date and time the remote access session was started.
 mkRemoteAccessSession ::
   RemoteAccessSession
 mkRemoteAccessSession =

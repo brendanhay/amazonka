@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.AppSync.GetType
     mkGetType,
 
     -- ** Request lenses
-    gtApiId,
     gtTypeName,
+    gtApiId,
     gtFormat,
 
     -- * Destructuring the response
@@ -41,45 +42,35 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetType' smart constructor.
 data GetType = GetType'
-  { apiId :: Lude.Text,
+  { -- | The type name.
     typeName :: Lude.Text,
+    -- | The API ID.
+    apiId :: Lude.Text,
+    -- | The type format: SDL or JSON.
     format :: TypeDefinitionFormat
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetType' with the minimum fields required to make a request.
 --
+-- * 'typeName' - The type name.
 -- * 'apiId' - The API ID.
 -- * 'format' - The type format: SDL or JSON.
--- * 'typeName' - The type name.
 mkGetType ::
-  -- | 'apiId'
-  Lude.Text ->
   -- | 'typeName'
+  Lude.Text ->
+  -- | 'apiId'
   Lude.Text ->
   -- | 'format'
   TypeDefinitionFormat ->
   GetType
-mkGetType pApiId_ pTypeName_ pFormat_ =
+mkGetType pTypeName_ pApiId_ pFormat_ =
   GetType'
-    { apiId = pApiId_,
-      typeName = pTypeName_,
+    { typeName = pTypeName_,
+      apiId = pApiId_,
       format = pFormat_
     }
-
--- | The API ID.
---
--- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtApiId :: Lens.Lens' GetType Lude.Text
-gtApiId = Lens.lens (apiId :: GetType -> Lude.Text) (\s a -> s {apiId = a} :: GetType)
-{-# DEPRECATED gtApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The type name.
 --
@@ -87,6 +78,13 @@ gtApiId = Lens.lens (apiId :: GetType -> Lude.Text) (\s a -> s {apiId = a} :: Ge
 gtTypeName :: Lens.Lens' GetType Lude.Text
 gtTypeName = Lens.lens (typeName :: GetType -> Lude.Text) (\s a -> s {typeName = a} :: GetType)
 {-# DEPRECATED gtTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | The API ID.
+--
+-- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtApiId :: Lens.Lens' GetType Lude.Text
+gtApiId = Lens.lens (apiId :: GetType -> Lude.Text) (\s a -> s {apiId = a} :: GetType)
+{-# DEPRECATED gtApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The type format: SDL or JSON.
 --
@@ -124,22 +122,18 @@ instance Lude.ToQuery GetType where
 
 -- | /See:/ 'mkGetTypeResponse' smart constructor.
 data GetTypeResponse = GetTypeResponse'
-  { type' :: Lude.Maybe Type,
+  { -- | The @Type@ object.
+    type' :: Lude.Maybe Type,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetTypeResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'type'' - The @Type@ object.
+-- * 'responseStatus' - The response status code.
 mkGetTypeResponse ::
   -- | 'responseStatus'
   Lude.Int ->

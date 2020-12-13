@@ -114,8 +114,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * Audio
     Audio (..),
     mkAudio,
-    aLocale,
     aLocation,
+    aLocale,
 
     -- * BusinessReport
     BusinessReport (..),
@@ -207,15 +207,15 @@ module Network.AWS.AlexaBusiness.Types
     -- * CreateEndOfMeetingReminder
     CreateEndOfMeetingReminder (..),
     mkCreateEndOfMeetingReminder,
+    ceomrEnabled,
     ceomrReminderAtMinutes,
     ceomrReminderType,
-    ceomrEnabled,
 
     -- * CreateInstantBooking
     CreateInstantBooking (..),
     mkCreateInstantBooking,
-    cibDurationInMinutes,
     cibEnabled,
+    cibDurationInMinutes,
 
     -- * CreateMeetingRoomConfiguration
     CreateMeetingRoomConfiguration (..),
@@ -228,8 +228,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * CreateRequireCheckIn
     CreateRequireCheckIn (..),
     mkCreateRequireCheckIn,
-    crciReleaseAfterMinutes,
     crciEnabled,
+    crciReleaseAfterMinutes,
 
     -- * DeveloperInfo
     DeveloperInfo (..),
@@ -307,8 +307,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * Filter
     Filter (..),
     mkFilter,
-    fKey,
     fValues,
+    fKey,
 
     -- * Gateway
     Gateway (..),
@@ -345,8 +345,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * IPDialIn
     IPDialIn (..),
     mkIPDialIn,
-    idiEndpoint,
     idiCommsProtocol,
+    idiEndpoint,
 
     -- * InstantBooking
     InstantBooking (..),
@@ -395,16 +395,16 @@ module Network.AWS.AlexaBusiness.Types
     -- * PSTNDialIn
     PSTNDialIn (..),
     mkPSTNDialIn,
-    pstndiCountryCode,
-    pstndiPhoneNumber,
     pstndiOneClickIdDelay,
     pstndiOneClickPinDelay,
+    pstndiPhoneNumber,
+    pstndiCountryCode,
 
     -- * PhoneNumber
     PhoneNumber (..),
     mkPhoneNumber,
-    pnNumber,
     pnType,
+    pnNumber,
 
     -- * Profile
     Profile (..),
@@ -465,8 +465,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * RoomSkillParameter
     RoomSkillParameter (..),
     mkRoomSkillParameter,
-    rspParameterKey,
     rspParameterValue,
+    rspParameterKey,
 
     -- * SipAddress
     SipAddress (..),
@@ -532,20 +532,20 @@ module Network.AWS.AlexaBusiness.Types
     -- * Sort
     Sort (..),
     mkSort,
-    sKey,
-    sValue,
+    sfValue,
+    sfKey,
 
     -- * Ssml
     Ssml (..),
     mkSsml,
-    ssmLocale,
-    ssmValue,
+    sLocale,
+    sValue,
 
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
 
     -- * TextMessage
     TextMessage (..),

@@ -29,28 +29,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDimensionValuesWithAttributes' smart constructor.
 data DimensionValuesWithAttributes = DimensionValuesWithAttributes'
-  { value ::
-      Lude.Maybe Lude.Text,
-    attributes ::
-      Lude.Maybe
-        ( Lude.HashMap
-            Lude.Text
-            (Lude.Text)
-        )
+  { -- | The value of a dimension with a specific attribute.
+    value :: Lude.Maybe Lude.Text,
+    -- | The attribute that applies to a specific @Dimension@ .
+    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DimensionValuesWithAttributes' with the minimum fields required to make a request.
 --
--- * 'attributes' - The attribute that applies to a specific @Dimension@ .
 -- * 'value' - The value of a dimension with a specific attribute.
+-- * 'attributes' - The attribute that applies to a specific @Dimension@ .
 mkDimensionValuesWithAttributes ::
   DimensionValuesWithAttributes
 mkDimensionValuesWithAttributes =

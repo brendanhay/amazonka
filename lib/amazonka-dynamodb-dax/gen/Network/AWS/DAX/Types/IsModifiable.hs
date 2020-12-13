@@ -13,9 +13,9 @@
 module Network.AWS.DAX.Types.IsModifiable
   ( IsModifiable
       ( IsModifiable',
-        Conditional,
+        True,
         False,
-        True
+        Conditional
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype IsModifiable = IsModifiable' Lude.Text
       Lude.ToHeader
     )
 
-pattern Conditional :: IsModifiable
-pattern Conditional = IsModifiable' "CONDITIONAL"
+pattern True :: IsModifiable
+pattern True = IsModifiable' "TRUE"
 
 pattern False :: IsModifiable
 pattern False = IsModifiable' "FALSE"
 
-pattern True :: IsModifiable
-pattern True = IsModifiable' "TRUE"
+pattern Conditional :: IsModifiable
+pattern Conditional = IsModifiable' "CONDITIONAL"
 
 {-# COMPLETE
-  Conditional,
-  False,
   True,
+  False,
+  Conditional,
   IsModifiable'
   #-}

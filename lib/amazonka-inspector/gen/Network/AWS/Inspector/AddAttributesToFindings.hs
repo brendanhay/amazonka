@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -27,8 +28,8 @@ module Network.AWS.Inspector.AddAttributesToFindings
     mkAddAttributesToFindingsResponse,
 
     -- ** Response lenses
-    aatfrsResponseStatus,
     aatfrsFailedItems,
+    aatfrsResponseStatus,
   )
 where
 
@@ -40,23 +41,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkAddAttributesToFindings' smart constructor.
 data AddAttributesToFindings = AddAttributesToFindings'
-  { findingARNs ::
-      Lude.NonEmpty Lude.Text,
+  { -- | The ARNs that specify the findings that you want to assign attributes to.
+    findingARNs :: Lude.NonEmpty Lude.Text,
+    -- | The array of attributes that you want to assign to specified findings.
     attributes :: [Attribute]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttributesToFindings' with the minimum fields required to make a request.
 --
--- * 'attributes' - The array of attributes that you want to assign to specified findings.
 -- * 'findingARNs' - The ARNs that specify the findings that you want to assign attributes to.
+-- * 'attributes' - The array of attributes that you want to assign to specified findings.
 mkAddAttributesToFindings ::
   -- | 'findingARNs'
   Lude.NonEmpty Lude.Text ->
@@ -88,8 +84,8 @@ instance Lude.AWSRequest AddAttributesToFindings where
     Res.receiveJSON
       ( \s h x ->
           AddAttributesToFindingsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
+            Lude.<$> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
+            Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders AddAttributesToFindings where
@@ -120,20 +116,12 @@ instance Lude.ToQuery AddAttributesToFindings where
 
 -- | /See:/ 'mkAddAttributesToFindingsResponse' smart constructor.
 data AddAttributesToFindingsResponse = AddAttributesToFindingsResponse'
-  { responseStatus ::
-      Lude.Int,
-    failedItems ::
-      Lude.HashMap
-        Lude.Text
-        (FailedItemDetails)
+  { -- | Attribute details that cannot be described. An error code is provided for each failed item.
+    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AddAttributesToFindingsResponse' with the minimum fields required to make a request.
@@ -146,17 +134,9 @@ mkAddAttributesToFindingsResponse ::
   AddAttributesToFindingsResponse
 mkAddAttributesToFindingsResponse pResponseStatus_ =
   AddAttributesToFindingsResponse'
-    { responseStatus =
-        pResponseStatus_,
-      failedItems = Lude.mempty
+    { failedItems = Lude.mempty,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aatfrsResponseStatus :: Lens.Lens' AddAttributesToFindingsResponse Lude.Int
-aatfrsResponseStatus = Lens.lens (responseStatus :: AddAttributesToFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddAttributesToFindingsResponse)
-{-# DEPRECATED aatfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Attribute details that cannot be described. An error code is provided for each failed item.
 --
@@ -164,3 +144,10 @@ aatfrsResponseStatus = Lens.lens (responseStatus :: AddAttributesToFindingsRespo
 aatfrsFailedItems :: Lens.Lens' AddAttributesToFindingsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
 aatfrsFailedItems = Lens.lens (failedItems :: AddAttributesToFindingsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: AddAttributesToFindingsResponse)
 {-# DEPRECATED aatfrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aatfrsResponseStatus :: Lens.Lens' AddAttributesToFindingsResponse Lude.Int
+aatfrsResponseStatus = Lens.lens (responseStatus :: AddAttributesToFindingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddAttributesToFindingsResponse)
+{-# DEPRECATED aatfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

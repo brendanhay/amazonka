@@ -30,17 +30,14 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkUSD' smart constructor.
 data USD = USD'
-  { cents :: Lude.Maybe Lude.Natural,
+  { -- | The fractional portion, in cents, of the amount.
+    cents :: Lude.Maybe Lude.Natural,
+    -- | The whole number of dollars in the amount.
     dollars :: Lude.Maybe Lude.Natural,
+    -- | Fractions of a cent, in tenths.
     tenthFractionsOfACent :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'USD' with the minimum fields required to make a request.

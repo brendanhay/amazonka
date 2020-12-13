@@ -94,9 +94,9 @@ module Network.AWS.Config.Types
     -- * AccountAggregationSource
     AccountAggregationSource (..),
     mkAccountAggregationSource,
+    aasAccountIds,
     aasAWSRegions,
     aasAllAWSRegions,
-    aasAccountIds,
 
     -- * AggregateComplianceByConfigRule
     AggregateComplianceByConfigRule (..),
@@ -126,11 +126,11 @@ module Network.AWS.Config.Types
     -- * AggregateResourceIdentifier
     AggregateResourceIdentifier (..),
     mkAggregateResourceIdentifier,
-    ariResourceName,
-    ariSourceAccountId,
-    ariSourceRegion,
     ariResourceId,
     ariResourceType,
+    ariSourceRegion,
+    ariResourceName,
+    ariSourceAccountId,
 
     -- * AggregatedSourceStatus
     AggregatedSourceStatus (..),
@@ -226,10 +226,10 @@ module Network.AWS.Config.Types
     crMaximumExecutionFrequency,
     crConfigRuleId,
     crScope,
+    crSource,
     crConfigRuleState,
     crDescription,
     crConfigRuleARN,
-    crSource,
 
     -- * ConfigRuleComplianceFilters
     ConfigRuleComplianceFilters (..),
@@ -342,13 +342,13 @@ module Network.AWS.Config.Types
     ConformancePackDetail (..),
     mkConformancePackDetail,
     cpdDeliveryS3Bucket,
+    cpdConformancePackName,
     cpdDeliveryS3KeyPrefix,
     cpdCreatedBy,
     cpdLastUpdateRequestedTime,
-    cpdConformancePackInputParameters,
-    cpdConformancePackName,
-    cpdConformancePackARN,
     cpdConformancePackId,
+    cpdConformancePackInputParameters,
+    cpdConformancePackARN,
 
     -- * ConformancePackEvaluationFilters
     ConformancePackEvaluationFilters (..),
@@ -361,17 +361,17 @@ module Network.AWS.Config.Types
     -- * ConformancePackEvaluationResult
     ConformancePackEvaluationResult (..),
     mkConformancePackEvaluationResult,
-    cperAnnotation,
-    cperComplianceType,
     cperEvaluationResultIdentifier,
+    cperAnnotation,
     cperConfigRuleInvokedTime,
     cperResultRecordedTime,
+    cperComplianceType,
 
     -- * ConformancePackInputParameter
     ConformancePackInputParameter (..),
     mkConformancePackInputParameter,
-    cpipParameterName,
     cpipParameterValue,
+    cpipParameterName,
 
     -- * ConformancePackRuleCompliance
     ConformancePackRuleCompliance (..),
@@ -383,13 +383,13 @@ module Network.AWS.Config.Types
     ConformancePackStatusDetail (..),
     mkConformancePackStatusDetail,
     cpsdConformancePackStatusReason,
+    cpsdStackARN,
     cpsdLastUpdateCompletedTime,
     cpsdConformancePackName,
-    cpsdConformancePackId,
-    cpsdConformancePackARN,
-    cpsdConformancePackState,
-    cpsdStackARN,
     cpsdLastUpdateRequestedTime,
+    cpsdConformancePackId,
+    cpsdConformancePackState,
+    cpsdConformancePackARN,
 
     -- * DeliveryChannel
     DeliveryChannel (..),
@@ -414,8 +414,8 @@ module Network.AWS.Config.Types
     eAnnotation,
     eComplianceResourceType,
     eComplianceResourceId,
-    eComplianceType,
     eOrderingTimestamp,
+    eComplianceType,
 
     -- * EvaluationResult
     EvaluationResult (..),
@@ -477,12 +477,12 @@ module Network.AWS.Config.Types
     -- * MemberAccountStatus
     MemberAccountStatus (..),
     mkMemberAccountStatus,
+    masMemberAccountRuleStatus,
+    masConfigRuleName,
+    masAccountId,
     masErrorCode,
     masErrorMessage,
     masLastUpdateTime,
-    masAccountId,
-    masConfigRuleName,
-    masMemberAccountRuleStatus,
 
     -- * OrganizationAggregationSource
     OrganizationAggregationSource (..),
@@ -495,63 +495,63 @@ module Network.AWS.Config.Types
     OrganizationConfigRule (..),
     mkOrganizationConfigRule,
     ocrOrganizationManagedRuleMetadata,
+    ocrOrganizationConfigRuleARN,
+    ocrOrganizationConfigRuleName,
     ocrExcludedAccounts,
     ocrOrganizationCustomRuleMetadata,
     ocrLastUpdateTime,
-    ocrOrganizationConfigRuleName,
-    ocrOrganizationConfigRuleARN,
 
     -- * OrganizationConfigRuleStatus
     OrganizationConfigRuleStatus (..),
     mkOrganizationConfigRuleStatus,
+    ocrsOrganizationRuleStatus,
     ocrsErrorCode,
+    ocrsOrganizationConfigRuleName,
     ocrsErrorMessage,
     ocrsLastUpdateTime,
-    ocrsOrganizationConfigRuleName,
-    ocrsOrganizationRuleStatus,
 
     -- * OrganizationConformancePack
     OrganizationConformancePack (..),
     mkOrganizationConformancePack,
+    ocpOrganizationConformancePackARN,
     ocpDeliveryS3Bucket,
+    ocpOrganizationConformancePackName,
     ocpDeliveryS3KeyPrefix,
     ocpConformancePackInputParameters,
     ocpExcludedAccounts,
-    ocpOrganizationConformancePackName,
-    ocpOrganizationConformancePackARN,
     ocpLastUpdateTime,
 
     -- * OrganizationConformancePackDetailedStatus
     OrganizationConformancePackDetailedStatus (..),
     mkOrganizationConformancePackDetailedStatus,
+    ocpdsStatus,
+    ocpdsConformancePackName,
+    ocpdsAccountId,
     ocpdsErrorCode,
     ocpdsErrorMessage,
     ocpdsLastUpdateTime,
-    ocpdsAccountId,
-    ocpdsConformancePackName,
-    ocpdsStatus,
 
     -- * OrganizationConformancePackStatus
     OrganizationConformancePackStatus (..),
     mkOrganizationConformancePackStatus,
+    ocpsStatus,
+    ocpsOrganizationConformancePackName,
     ocpsErrorCode,
     ocpsErrorMessage,
     ocpsLastUpdateTime,
-    ocpsOrganizationConformancePackName,
-    ocpsStatus,
 
     -- * OrganizationCustomRuleMetadata
     OrganizationCustomRuleMetadata (..),
     mkOrganizationCustomRuleMetadata,
     ocrmInputParameters,
     ocrmResourceIdScope,
+    ocrmLambdaFunctionARN,
     ocrmTagValueScope,
     ocrmMaximumExecutionFrequency,
+    ocrmOrganizationConfigRuleTriggerTypes,
     ocrmTagKeyScope,
     ocrmResourceTypesScope,
     ocrmDescription,
-    ocrmLambdaFunctionARN,
-    ocrmOrganizationConfigRuleTriggerTypes,
 
     -- * OrganizationManagedRuleMetadata
     OrganizationManagedRuleMetadata (..),
@@ -561,9 +561,9 @@ module Network.AWS.Config.Types
     omrmTagValueScope,
     omrmMaximumExecutionFrequency,
     omrmTagKeyScope,
+    omrmRuleIdentifier,
     omrmResourceTypesScope,
     omrmDescription,
-    omrmRuleIdentifier,
 
     -- * OrganizationResourceDetailedStatusFilters
     OrganizationResourceDetailedStatusFilters (..),
@@ -600,27 +600,27 @@ module Network.AWS.Config.Types
     -- * RemediationConfiguration
     RemediationConfiguration (..),
     mkRemediationConfiguration,
+    rcTargetId,
     rcResourceType,
     rcARN,
     rcAutomatic,
+    rcConfigRuleName,
     rcCreatedByService,
     rcRetryAttemptSeconds,
     rcExecutionControls,
+    rcTargetType,
     rcParameters,
     rcMaximumAutomaticAttempts,
     rcTargetVersion,
-    rcConfigRuleName,
-    rcTargetType,
-    rcTargetId,
 
     -- * RemediationException
     RemediationException (..),
     mkRemediationException,
+    reResourceId,
+    reResourceType,
+    reConfigRuleName,
     reMessage,
     reExpirationTime,
-    reConfigRuleName,
-    reResourceType,
-    reResourceId,
 
     -- * RemediationExceptionResourceKey
     RemediationExceptionResourceKey (..),
@@ -655,8 +655,8 @@ module Network.AWS.Config.Types
     -- * ResourceCount
     ResourceCount (..),
     mkResourceCount,
-    resResourceType,
-    resCount,
+    rcgResourceType,
+    rcgCount,
 
     -- * ResourceCountFilters
     ResourceCountFilters (..),
@@ -684,8 +684,8 @@ module Network.AWS.Config.Types
     -- * ResourceKey
     ResourceKey (..),
     mkResourceKey,
-    rkResourceType,
     rkResourceId,
+    rkResourceType,
 
     -- * ResourceValue
     ResourceValue (..),
@@ -709,9 +709,9 @@ module Network.AWS.Config.Types
     -- * Source
     Source (..),
     mkSource,
-    sSourceDetails,
-    sOwner,
     sSourceIdentifier,
+    sOwner,
+    sSourceDetails,
 
     -- * SourceDetail
     SourceDetail (..),

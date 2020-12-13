@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.CodePipeline.DeleteCustomActionType
 
     -- ** Request lenses
     dcatCategory,
-    dcatProvider,
     dcatVersion,
+    dcatProvider,
 
     -- * Destructuring the response
     DeleteCustomActionTypeResponse (..),
@@ -41,38 +42,34 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteCustomActionType' smart constructor.
 data DeleteCustomActionType = DeleteCustomActionType'
-  { category ::
-      ActionCategory,
-    provider :: Lude.Text,
-    version :: Lude.Text
+  { -- | The category of the custom action that you want to delete, such as source or deploy.
+    category :: ActionCategory,
+    -- | The version of the custom action to delete.
+    version :: Lude.Text,
+    -- | The provider of the service used in the custom action, such as AWS CodeDeploy.
+    provider :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCustomActionType' with the minimum fields required to make a request.
 --
 -- * 'category' - The category of the custom action that you want to delete, such as source or deploy.
--- * 'provider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
 -- * 'version' - The version of the custom action to delete.
+-- * 'provider' - The provider of the service used in the custom action, such as AWS CodeDeploy.
 mkDeleteCustomActionType ::
   -- | 'category'
   ActionCategory ->
-  -- | 'provider'
-  Lude.Text ->
   -- | 'version'
   Lude.Text ->
+  -- | 'provider'
+  Lude.Text ->
   DeleteCustomActionType
-mkDeleteCustomActionType pCategory_ pProvider_ pVersion_ =
+mkDeleteCustomActionType pCategory_ pVersion_ pProvider_ =
   DeleteCustomActionType'
     { category = pCategory_,
-      provider = pProvider_,
-      version = pVersion_
+      version = pVersion_,
+      provider = pProvider_
     }
 
 -- | The category of the custom action that you want to delete, such as source or deploy.
@@ -82,19 +79,19 @@ dcatCategory :: Lens.Lens' DeleteCustomActionType ActionCategory
 dcatCategory = Lens.lens (category :: DeleteCustomActionType -> ActionCategory) (\s a -> s {category = a} :: DeleteCustomActionType)
 {-# DEPRECATED dcatCategory "Use generic-lens or generic-optics with 'category' instead." #-}
 
--- | The provider of the service used in the custom action, such as AWS CodeDeploy.
---
--- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcatProvider :: Lens.Lens' DeleteCustomActionType Lude.Text
-dcatProvider = Lens.lens (provider :: DeleteCustomActionType -> Lude.Text) (\s a -> s {provider = a} :: DeleteCustomActionType)
-{-# DEPRECATED dcatProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
-
 -- | The version of the custom action to delete.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dcatVersion :: Lens.Lens' DeleteCustomActionType Lude.Text
 dcatVersion = Lens.lens (version :: DeleteCustomActionType -> Lude.Text) (\s a -> s {version = a} :: DeleteCustomActionType)
 {-# DEPRECATED dcatVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The provider of the service used in the custom action, such as AWS CodeDeploy.
+--
+-- /Note:/ Consider using 'provider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcatProvider :: Lens.Lens' DeleteCustomActionType Lude.Text
+dcatProvider = Lens.lens (provider :: DeleteCustomActionType -> Lude.Text) (\s a -> s {provider = a} :: DeleteCustomActionType)
+{-# DEPRECATED dcatProvider "Use generic-lens or generic-optics with 'provider' instead." #-}
 
 instance Lude.AWSRequest DeleteCustomActionType where
   type Rs DeleteCustomActionType = DeleteCustomActionTypeResponse
@@ -119,8 +116,8 @@ instance Lude.ToJSON DeleteCustomActionType where
     Lude.object
       ( Lude.catMaybes
           [ Lude.Just ("category" Lude..= category),
-            Lude.Just ("provider" Lude..= provider),
-            Lude.Just ("version" Lude..= version)
+            Lude.Just ("version" Lude..= version),
+            Lude.Just ("provider" Lude..= provider)
           ]
       )
 
@@ -132,13 +129,7 @@ instance Lude.ToQuery DeleteCustomActionType where
 
 -- | /See:/ 'mkDeleteCustomActionTypeResponse' smart constructor.
 data DeleteCustomActionTypeResponse = DeleteCustomActionTypeResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DeleteCustomActionTypeResponse' with the minimum fields required to make a request.

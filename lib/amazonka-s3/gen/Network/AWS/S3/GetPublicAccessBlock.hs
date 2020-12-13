@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -34,8 +35,8 @@ module Network.AWS.S3.GetPublicAccessBlock
     mkGetPublicAccessBlock,
 
     -- ** Request lenses
-    gpabExpectedBucketOwner,
     gpabBucket,
+    gpabExpectedBucketOwner,
 
     -- * Destructuring the response
     GetPublicAccessBlockResponse (..),
@@ -55,17 +56,12 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'mkGetPublicAccessBlock' smart constructor.
 data GetPublicAccessBlock = GetPublicAccessBlock'
-  { expectedBucketOwner ::
-      Lude.Maybe Lude.Text,
-    bucket :: BucketName
+  { -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to retrieve.
+    bucket :: BucketName,
+    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+    expectedBucketOwner :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicAccessBlock' with the minimum fields required to make a request.
@@ -78,16 +74,9 @@ mkGetPublicAccessBlock ::
   GetPublicAccessBlock
 mkGetPublicAccessBlock pBucket_ =
   GetPublicAccessBlock'
-    { expectedBucketOwner = Lude.Nothing,
-      bucket = pBucket_
+    { bucket = pBucket_,
+      expectedBucketOwner = Lude.Nothing
     }
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpabExpectedBucketOwner :: Lens.Lens' GetPublicAccessBlock (Lude.Maybe Lude.Text)
-gpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetPublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetPublicAccessBlock)
-{-# DEPRECATED gpabExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to retrieve.
 --
@@ -95,6 +84,13 @@ gpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetPublicAccessBlock
 gpabBucket :: Lens.Lens' GetPublicAccessBlock BucketName
 gpabBucket = Lens.lens (bucket :: GetPublicAccessBlock -> BucketName) (\s a -> s {bucket = a} :: GetPublicAccessBlock)
 {-# DEPRECATED gpabBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpabExpectedBucketOwner :: Lens.Lens' GetPublicAccessBlock (Lude.Maybe Lude.Text)
+gpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetPublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetPublicAccessBlock)
+{-# DEPRECATED gpabExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 instance Lude.AWSRequest GetPublicAccessBlock where
   type Rs GetPublicAccessBlock = GetPublicAccessBlockResponse
@@ -120,18 +116,12 @@ instance Lude.ToQuery GetPublicAccessBlock where
 
 -- | /See:/ 'mkGetPublicAccessBlockResponse' smart constructor.
 data GetPublicAccessBlockResponse = GetPublicAccessBlockResponse'
-  { publicAccessBlockConfiguration ::
-      Lude.Maybe
-        PublicAccessBlockConfiguration,
+  { -- | The @PublicAccessBlock@ configuration currently in effect for this Amazon S3 bucket.
+    publicAccessBlockConfiguration :: Lude.Maybe PublicAccessBlockConfiguration,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetPublicAccessBlockResponse' with the minimum fields required to make a request.

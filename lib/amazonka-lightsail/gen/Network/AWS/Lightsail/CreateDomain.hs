@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,16 +22,16 @@ module Network.AWS.Lightsail.CreateDomain
     mkCreateDomain,
 
     -- ** Request lenses
-    creTags,
-    creDomainName,
+    cDomainName,
+    cTags,
 
     -- * Destructuring the response
     CreateDomainResponse (..),
     mkCreateDomainResponse,
 
     -- ** Response lenses
-    cdrsOperation,
-    cdrsResponseStatus,
+    crsOperation,
+    crsResponseStatus,
   )
 where
 
@@ -42,16 +43,14 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { tags :: Lude.Maybe [Tag],
-    domainName :: Lude.Text
+  { -- | The domain name to manage (e.g., @example.com@ ).
+    domainName :: Lude.Text,
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it's created.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
@@ -65,23 +64,23 @@ mkCreateDomain ::
   Lude.Text ->
   CreateDomain
 mkCreateDomain pDomainName_ =
-  CreateDomain' {tags = Lude.Nothing, domainName = pDomainName_}
+  CreateDomain' {domainName = pDomainName_, tags = Lude.Nothing}
+
+-- | The domain name to manage (e.g., @example.com@ ).
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDomainName :: Lens.Lens' CreateDomain Lude.Text
+cDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
+{-# DEPRECATED cDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it's created.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creTags :: Lens.Lens' CreateDomain (Lude.Maybe [Tag])
-creTags = Lens.lens (tags :: CreateDomain -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDomain)
-{-# DEPRECATED creTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | The domain name to manage (e.g., @example.com@ ).
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-creDomainName :: Lens.Lens' CreateDomain Lude.Text
-creDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
-{-# DEPRECATED creDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+cTags :: Lens.Lens' CreateDomain (Lude.Maybe [Tag])
+cTags = Lens.lens (tags :: CreateDomain -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDomain)
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateDomain where
   type Rs CreateDomain = CreateDomainResponse
@@ -108,8 +107,8 @@ instance Lude.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("domainName" Lude..= domainName)
+          [ Lude.Just ("domainName" Lude..= domainName),
+            ("tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -121,17 +120,12 @@ instance Lude.ToQuery CreateDomain where
 
 -- | /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { operation ::
-      Lude.Maybe Operation,
+  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+    operation :: Lude.Maybe Operation,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
@@ -151,13 +145,13 @@ mkCreateDomainResponse pResponseStatus_ =
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsOperation :: Lens.Lens' CreateDomainResponse (Lude.Maybe Operation)
-cdrsOperation = Lens.lens (operation :: CreateDomainResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CreateDomainResponse)
-{-# DEPRECATED cdrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+crsOperation :: Lens.Lens' CreateDomainResponse (Lude.Maybe Operation)
+crsOperation = Lens.lens (operation :: CreateDomainResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CreateDomainResponse)
+{-# DEPRECATED crsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' CreateDomainResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: CreateDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crsResponseStatus :: Lens.Lens' CreateDomainResponse Lude.Int
+crsResponseStatus = Lens.lens (responseStatus :: CreateDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainResponse)
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

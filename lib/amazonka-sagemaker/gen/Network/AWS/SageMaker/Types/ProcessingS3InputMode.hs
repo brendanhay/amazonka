@@ -13,8 +13,8 @@
 module Network.AWS.SageMaker.Types.ProcessingS3InputMode
   ( ProcessingS3InputMode
       ( ProcessingS3InputMode',
-        PSIMFile,
-        PSIMPipe
+        Pipe,
+        File
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype ProcessingS3InputMode = ProcessingS3InputMode' Lude.Text
       Lude.ToHeader
     )
 
-pattern PSIMFile :: ProcessingS3InputMode
-pattern PSIMFile = ProcessingS3InputMode' "File"
+pattern Pipe :: ProcessingS3InputMode
+pattern Pipe = ProcessingS3InputMode' "Pipe"
 
-pattern PSIMPipe :: ProcessingS3InputMode
-pattern PSIMPipe = ProcessingS3InputMode' "Pipe"
+pattern File :: ProcessingS3InputMode
+pattern File = ProcessingS3InputMode' "File"
 
 {-# COMPLETE
-  PSIMFile,
-  PSIMPipe,
+  Pipe,
+  File,
   ProcessingS3InputMode'
   #-}

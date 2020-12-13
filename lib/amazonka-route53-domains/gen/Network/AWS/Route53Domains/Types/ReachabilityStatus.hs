@@ -13,9 +13,9 @@
 module Network.AWS.Route53Domains.Types.ReachabilityStatus
   ( ReachabilityStatus
       ( ReachabilityStatus',
+        Pending,
         Done,
-        Expired,
-        Pending
+        Expired
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype ReachabilityStatus = ReachabilityStatus' Lude.Text
       Lude.ToHeader
     )
 
+pattern Pending :: ReachabilityStatus
+pattern Pending = ReachabilityStatus' "PENDING"
+
 pattern Done :: ReachabilityStatus
 pattern Done = ReachabilityStatus' "DONE"
 
 pattern Expired :: ReachabilityStatus
 pattern Expired = ReachabilityStatus' "EXPIRED"
 
-pattern Pending :: ReachabilityStatus
-pattern Pending = ReachabilityStatus' "PENDING"
-
 {-# COMPLETE
+  Pending,
   Done,
   Expired,
-  Pending,
   ReachabilityStatus'
   #-}

@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,25 +46,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListOriginEndpoints' smart constructor.
 data ListOriginEndpoints = ListOriginEndpoints'
-  { channelId ::
-      Lude.Maybe Lude.Text,
+  { -- | When specified, the request will return only OriginEndpoints associated with the given Channel ID.
+    channelId :: Lude.Maybe Lude.Text,
+    -- | A token used to resume pagination from the end of a previous request.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The upper bound on the number of records to return.
     maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOriginEndpoints' with the minimum fields required to make a request.
 --
 -- * 'channelId' - When specified, the request will return only OriginEndpoints associated with the given Channel ID.
--- * 'maxResults' - The upper bound on the number of records to return.
 -- * 'nextToken' - A token used to resume pagination from the end of a previous request.
+-- * 'maxResults' - The upper bound on the number of records to return.
 mkListOriginEndpoints ::
   ListOriginEndpoints
 mkListOriginEndpoints =
@@ -137,24 +134,20 @@ instance Lude.ToQuery ListOriginEndpoints where
 
 -- | /See:/ 'mkListOriginEndpointsResponse' smart constructor.
 data ListOriginEndpointsResponse = ListOriginEndpointsResponse'
-  { originEndpoints ::
-      Lude.Maybe [OriginEndpoint],
+  { -- | A list of OriginEndpoint records.
+    originEndpoints :: Lude.Maybe [OriginEndpoint],
+    -- | A token that can be used to resume pagination from the end of the collection.
     nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListOriginEndpointsResponse' with the minimum fields required to make a request.
 --
--- * 'nextToken' - A token that can be used to resume pagination from the end of the collection.
 -- * 'originEndpoints' - A list of OriginEndpoint records.
+-- * 'nextToken' - A token that can be used to resume pagination from the end of the collection.
 -- * 'responseStatus' - The response status code.
 mkListOriginEndpointsResponse ::
   -- | 'responseStatus'

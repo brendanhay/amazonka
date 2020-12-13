@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.ImscStylePassthrough
   ( ImscStylePassthrough
       ( ImscStylePassthrough',
-        ISPDisabled,
-        ISPEnabled
+        ISPEnabled,
+        ISPDisabled
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype ImscStylePassthrough = ImscStylePassthrough' Lude.Text
       Lude.ToHeader
     )
 
-pattern ISPDisabled :: ImscStylePassthrough
-pattern ISPDisabled = ImscStylePassthrough' "DISABLED"
-
 pattern ISPEnabled :: ImscStylePassthrough
 pattern ISPEnabled = ImscStylePassthrough' "ENABLED"
 
+pattern ISPDisabled :: ImscStylePassthrough
+pattern ISPDisabled = ImscStylePassthrough' "DISABLED"
+
 {-# COMPLETE
-  ISPDisabled,
   ISPEnabled,
+  ISPDisabled,
   ImscStylePassthrough'
   #-}

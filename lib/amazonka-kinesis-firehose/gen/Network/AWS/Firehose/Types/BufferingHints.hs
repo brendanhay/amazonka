@@ -29,25 +29,22 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBufferingHints' smart constructor.
 data BufferingHints = BufferingHints'
-  { sizeInMBs ::
-      Lude.Maybe Lude.Natural,
+  { -- | Buffer incoming data to the specified size, in MiBs, before delivering it to the destination. The default value is 5. This parameter is optional but if you specify a value for it, you must also specify a value for @IntervalInSeconds@ , and vice versa.
+    --
+    -- We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MiB/sec, the value should be 10 MiB or higher.
+    sizeInMBs :: Lude.Maybe Lude.Natural,
+    -- | Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300. This parameter is optional but if you specify a value for it, you must also specify a value for @SizeInMBs@ , and vice versa.
     intervalInSeconds :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BufferingHints' with the minimum fields required to make a request.
 --
--- * 'intervalInSeconds' - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300. This parameter is optional but if you specify a value for it, you must also specify a value for @SizeInMBs@ , and vice versa.
 -- * 'sizeInMBs' - Buffer incoming data to the specified size, in MiBs, before delivering it to the destination. The default value is 5. This parameter is optional but if you specify a value for it, you must also specify a value for @IntervalInSeconds@ , and vice versa.
 --
 -- We recommend setting this parameter to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MiB/sec, the value should be 10 MiB or higher.
+-- * 'intervalInSeconds' - Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300. This parameter is optional but if you specify a value for it, you must also specify a value for @SizeInMBs@ , and vice versa.
 mkBufferingHints ::
   BufferingHints
 mkBufferingHints =

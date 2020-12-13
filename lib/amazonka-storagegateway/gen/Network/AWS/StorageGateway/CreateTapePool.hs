@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.StorageGateway.CreateTapePool
     -- ** Request lenses
     ctpRetentionLockType,
     ctpRetentionLockTimeInDays,
-    ctpTags,
     ctpPoolName,
     ctpStorageClass,
+    ctpTags,
 
     -- * Destructuring the response
     CreateTapePoolResponse (..),
@@ -43,27 +44,25 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'mkCreateTapePool' smart constructor.
 data CreateTapePool = CreateTapePool'
-  { retentionLockType ::
-      Lude.Maybe RetentionLockType,
+  { -- | Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
+    retentionLockType :: Lude.Maybe RetentionLockType,
+    -- | Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
     retentionLockTimeInDays :: Lude.Maybe Lude.Natural,
-    tags :: Lude.Maybe [Tag],
+    -- | The name of the new custom tape pool.
     poolName :: Lude.Text,
-    storageClass :: TapeStorageClass
+    -- | The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
+    storageClass :: TapeStorageClass,
+    -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.
+    tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTapePool' with the minimum fields required to make a request.
 --
--- * 'poolName' - The name of the new custom tape pool.
--- * 'retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
 -- * 'retentionLockType' - Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
+-- * 'retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
+-- * 'poolName' - The name of the new custom tape pool.
 -- * 'storageClass' - The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 -- * 'tags' - A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.
 mkCreateTapePool ::
@@ -76,9 +75,9 @@ mkCreateTapePool pPoolName_ pStorageClass_ =
   CreateTapePool'
     { retentionLockType = Lude.Nothing,
       retentionLockTimeInDays = Lude.Nothing,
-      tags = Lude.Nothing,
       poolName = pPoolName_,
-      storageClass = pStorageClass_
+      storageClass = pStorageClass_,
+      tags = Lude.Nothing
     }
 
 -- | Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
@@ -95,13 +94,6 @@ ctpRetentionLockTimeInDays :: Lens.Lens' CreateTapePool (Lude.Maybe Lude.Natural
 ctpRetentionLockTimeInDays = Lens.lens (retentionLockTimeInDays :: CreateTapePool -> Lude.Maybe Lude.Natural) (\s a -> s {retentionLockTimeInDays = a} :: CreateTapePool)
 {-# DEPRECATED ctpRetentionLockTimeInDays "Use generic-lens or generic-optics with 'retentionLockTimeInDays' instead." #-}
 
--- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpTags :: Lens.Lens' CreateTapePool (Lude.Maybe [Tag])
-ctpTags = Lens.lens (tags :: CreateTapePool -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTapePool)
-{-# DEPRECATED ctpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
 -- | The name of the new custom tape pool.
 --
 -- /Note:/ Consider using 'poolName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -115,6 +107,13 @@ ctpPoolName = Lens.lens (poolName :: CreateTapePool -> Lude.Text) (\s a -> s {po
 ctpStorageClass :: Lens.Lens' CreateTapePool TapeStorageClass
 ctpStorageClass = Lens.lens (storageClass :: CreateTapePool -> TapeStorageClass) (\s a -> s {storageClass = a} :: CreateTapePool)
 {-# DEPRECATED ctpStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+
+-- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpTags :: Lens.Lens' CreateTapePool (Lude.Maybe [Tag])
+ctpTags = Lens.lens (tags :: CreateTapePool -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTapePool)
+{-# DEPRECATED ctpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 instance Lude.AWSRequest CreateTapePool where
   type Rs CreateTapePool = CreateTapePoolResponse
@@ -144,9 +143,9 @@ instance Lude.ToJSON CreateTapePool where
           [ ("RetentionLockType" Lude..=) Lude.<$> retentionLockType,
             ("RetentionLockTimeInDays" Lude..=)
               Lude.<$> retentionLockTimeInDays,
-            ("Tags" Lude..=) Lude.<$> tags,
             Lude.Just ("PoolName" Lude..= poolName),
-            Lude.Just ("StorageClass" Lude..= storageClass)
+            Lude.Just ("StorageClass" Lude..= storageClass),
+            ("Tags" Lude..=) Lude.<$> tags
           ]
       )
 
@@ -158,17 +157,12 @@ instance Lude.ToQuery CreateTapePool where
 
 -- | /See:/ 'mkCreateTapePoolResponse' smart constructor.
 data CreateTapePoolResponse = CreateTapePoolResponse'
-  { poolARN ::
-      Lude.Maybe Lude.Text,
+  { -- | The unique Amazon Resource Name (ARN) that represents the custom tape pool. Use the 'ListTapePools' operation to return a list of tape pools for your account and AWS Region.
+    poolARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateTapePoolResponse' with the minimum fields required to make a request.

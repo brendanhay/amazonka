@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,8 +20,8 @@ module Network.AWS.Comprehend.DetectSyntax
     mkDetectSyntax,
 
     -- ** Request lenses
-    detText,
-    detLanguageCode,
+    dsLanguageCode,
+    dsText,
 
     -- * Destructuring the response
     DetectSyntaxResponse (..),
@@ -40,8 +41,10 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDetectSyntax' smart constructor.
 data DetectSyntax = DetectSyntax'
-  { text :: Lude.Sensitive Lude.Text,
-    languageCode :: SyntaxLanguageCode
+  { -- | The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
+    languageCode :: SyntaxLanguageCode,
+    -- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
+    text :: Lude.Sensitive Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
@@ -51,27 +54,27 @@ data DetectSyntax = DetectSyntax'
 -- * 'languageCode' - The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
 -- * 'text' - A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
 mkDetectSyntax ::
-  -- | 'text'
-  Lude.Sensitive Lude.Text ->
   -- | 'languageCode'
   SyntaxLanguageCode ->
+  -- | 'text'
+  Lude.Sensitive Lude.Text ->
   DetectSyntax
-mkDetectSyntax pText_ pLanguageCode_ =
-  DetectSyntax' {text = pText_, languageCode = pLanguageCode_}
-
--- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
---
--- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detText :: Lens.Lens' DetectSyntax (Lude.Sensitive Lude.Text)
-detText = Lens.lens (text :: DetectSyntax -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectSyntax)
-{-# DEPRECATED detText "Use generic-lens or generic-optics with 'text' instead." #-}
+mkDetectSyntax pLanguageCode_ pText_ =
+  DetectSyntax' {languageCode = pLanguageCode_, text = pText_}
 
 -- | The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detLanguageCode :: Lens.Lens' DetectSyntax SyntaxLanguageCode
-detLanguageCode = Lens.lens (languageCode :: DetectSyntax -> SyntaxLanguageCode) (\s a -> s {languageCode = a} :: DetectSyntax)
-{-# DEPRECATED detLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+dsLanguageCode :: Lens.Lens' DetectSyntax SyntaxLanguageCode
+dsLanguageCode = Lens.lens (languageCode :: DetectSyntax -> SyntaxLanguageCode) (\s a -> s {languageCode = a} :: DetectSyntax)
+{-# DEPRECATED dsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsText :: Lens.Lens' DetectSyntax (Lude.Sensitive Lude.Text)
+dsText = Lens.lens (text :: DetectSyntax -> Lude.Sensitive Lude.Text) (\s a -> s {text = a} :: DetectSyntax)
+{-# DEPRECATED dsText "Use generic-lens or generic-optics with 'text' instead." #-}
 
 instance Lude.AWSRequest DetectSyntax where
   type Rs DetectSyntax = DetectSyntaxResponse
@@ -99,8 +102,8 @@ instance Lude.ToJSON DetectSyntax where
   toJSON DetectSyntax' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Text" Lude..= text),
-            Lude.Just ("LanguageCode" Lude..= languageCode)
+          [ Lude.Just ("LanguageCode" Lude..= languageCode),
+            Lude.Just ("Text" Lude..= text)
           ]
       )
 
@@ -112,23 +115,18 @@ instance Lude.ToQuery DetectSyntax where
 
 -- | /See:/ 'mkDetectSyntaxResponse' smart constructor.
 data DetectSyntaxResponse = DetectSyntaxResponse'
-  { syntaxTokens ::
-      Lude.Maybe [SyntaxToken],
+  { -- | A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see 'how-syntax' .
+    syntaxTokens :: Lude.Maybe [SyntaxToken],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DetectSyntaxResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'syntaxTokens' - A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see 'how-syntax' .
+-- * 'responseStatus' - The response status code.
 mkDetectSyntaxResponse ::
   -- | 'responseStatus'
   Lude.Int ->

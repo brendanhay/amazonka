@@ -13,8 +13,8 @@
 module Network.AWS.EC2.Types.EBSEncryptionSupport
   ( EBSEncryptionSupport
       ( EBSEncryptionSupport',
-        Supported,
-        Unsupported
+        Unsupported,
+        Supported
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype EBSEncryptionSupport = EBSEncryptionSupport' Lude.Text
       Lude.ToHeader
     )
 
-pattern Supported :: EBSEncryptionSupport
-pattern Supported = EBSEncryptionSupport' "supported"
-
 pattern Unsupported :: EBSEncryptionSupport
 pattern Unsupported = EBSEncryptionSupport' "unsupported"
 
+pattern Supported :: EBSEncryptionSupport
+pattern Supported = EBSEncryptionSupport' "supported"
+
 {-# COMPLETE
-  Supported,
   Unsupported,
+  Supported,
   EBSEncryptionSupport'
   #-}

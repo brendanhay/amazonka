@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -41,23 +42,18 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRegisterCertificateWithoutCA' smart constructor.
 data RegisterCertificateWithoutCA = RegisterCertificateWithoutCA'
-  { status ::
-      Lude.Maybe CertificateStatus,
+  { -- | The status of the register certificate request.
+    status :: Lude.Maybe CertificateStatus,
+    -- | The certificate data, in PEM format.
     certificatePem :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCertificateWithoutCA' with the minimum fields required to make a request.
 --
--- * 'certificatePem' - The certificate data, in PEM format.
 -- * 'status' - The status of the register certificate request.
+-- * 'certificatePem' - The certificate data, in PEM format.
 mkRegisterCertificateWithoutCA ::
   -- | 'certificatePem'
   Lude.Text ->
@@ -116,22 +112,14 @@ instance Lude.ToQuery RegisterCertificateWithoutCA where
 
 -- | /See:/ 'mkRegisterCertificateWithoutCAResponse' smart constructor.
 data RegisterCertificateWithoutCAResponse = RegisterCertificateWithoutCAResponse'
-  { certificateARN ::
-      Lude.Maybe
-        Lude.Text,
-    certificateId ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The Amazon Resource Name (ARN) of the registered certificate.
+    certificateARN :: Lude.Maybe Lude.Text,
+    -- | The ID of the registered certificate. (The last part of the certificate ARN contains the certificate ID.
+    certificateId :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RegisterCertificateWithoutCAResponse' with the minimum fields required to make a request.

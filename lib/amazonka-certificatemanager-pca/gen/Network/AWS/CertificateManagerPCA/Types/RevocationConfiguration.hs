@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRevocationConfiguration' smart constructor.
 newtype RevocationConfiguration = RevocationConfiguration'
-  { crlConfiguration ::
-      Lude.Maybe CrlConfiguration
+  { -- | Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
+    crlConfiguration :: Lude.Maybe CrlConfiguration
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RevocationConfiguration' with the minimum fields required to make a request.

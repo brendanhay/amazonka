@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -42,26 +43,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreateAdditionalAssignmentsForHIT' smart constructor.
 data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
-  { uniqueRequestToken ::
-      Lude.Maybe Lude.Text,
+  { -- | A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
+    uniqueRequestToken :: Lude.Maybe Lude.Text,
+    -- | The ID of the HIT to extend.
     hITId :: Lude.Text,
-    numberOfAdditionalAssignments ::
-      Lude.Int
+    -- | The number of additional assignments to request for this HIT.
+    numberOfAdditionalAssignments :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAdditionalAssignmentsForHIT' with the minimum fields required to make a request.
 --
+-- * 'uniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
 -- * 'hITId' - The ID of the HIT to extend.
 -- * 'numberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.
--- * 'uniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
 mkCreateAdditionalAssignmentsForHIT ::
   -- | 'hITId'
   Lude.Text ->
@@ -146,16 +142,10 @@ instance Lude.ToQuery CreateAdditionalAssignmentsForHIT where
 
 -- | /See:/ 'mkCreateAdditionalAssignmentsForHITResponse' smart constructor.
 newtype CreateAdditionalAssignmentsForHITResponse = CreateAdditionalAssignmentsForHITResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreateAdditionalAssignmentsForHITResponse' with the minimum fields required to make a request.

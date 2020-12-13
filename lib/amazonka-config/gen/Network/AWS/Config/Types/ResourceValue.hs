@@ -28,14 +28,11 @@ import qualified Network.AWS.Prelude as Lude
 -- | The dynamic value of the resource.
 --
 -- /See:/ 'mkResourceValue' smart constructor.
-newtype ResourceValue = ResourceValue' {value :: ResourceValueType}
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+newtype ResourceValue = ResourceValue'
+  { -- | The value is a resource ID.
+    value :: ResourceValueType
+  }
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ResourceValue' with the minimum fields required to make a request.

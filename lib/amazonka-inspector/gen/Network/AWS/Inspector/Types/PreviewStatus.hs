@@ -13,8 +13,8 @@
 module Network.AWS.Inspector.Types.PreviewStatus
   ( PreviewStatus
       ( PreviewStatus',
-        PSCompleted,
-        PSWorkInProgress
+        PSWorkInProgress,
+        PSCompleted
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PreviewStatus = PreviewStatus' Lude.Text
       Lude.ToHeader
     )
 
-pattern PSCompleted :: PreviewStatus
-pattern PSCompleted = PreviewStatus' "COMPLETED"
-
 pattern PSWorkInProgress :: PreviewStatus
 pattern PSWorkInProgress = PreviewStatus' "WORK_IN_PROGRESS"
 
+pattern PSCompleted :: PreviewStatus
+pattern PSCompleted = PreviewStatus' "COMPLETED"
+
 {-# COMPLETE
-  PSCompleted,
   PSWorkInProgress,
+  PSCompleted,
   PreviewStatus'
   #-}

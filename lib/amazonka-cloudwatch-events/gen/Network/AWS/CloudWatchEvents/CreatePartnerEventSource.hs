@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,8 +27,8 @@ module Network.AWS.CloudWatchEvents.CreatePartnerEventSource
     mkCreatePartnerEventSource,
 
     -- ** Request lenses
-    cpesName,
     cpesAccount,
+    cpesName,
 
     -- * Destructuring the response
     CreatePartnerEventSourceResponse (..),
@@ -47,17 +48,12 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkCreatePartnerEventSource' smart constructor.
 data CreatePartnerEventSource = CreatePartnerEventSource'
-  { name ::
-      Lude.Text,
-    account :: Lude.Text
+  { -- | The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
+    account :: Lude.Text,
+    -- | The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
+    name :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartnerEventSource' with the minimum fields required to make a request.
@@ -65,20 +61,13 @@ data CreatePartnerEventSource = CreatePartnerEventSource'
 -- * 'account' - The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
 -- * 'name' - The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
 mkCreatePartnerEventSource ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'account'
   Lude.Text ->
+  -- | 'name'
+  Lude.Text ->
   CreatePartnerEventSource
-mkCreatePartnerEventSource pName_ pAccount_ =
-  CreatePartnerEventSource' {name = pName_, account = pAccount_}
-
--- | The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpesName :: Lens.Lens' CreatePartnerEventSource Lude.Text
-cpesName = Lens.lens (name :: CreatePartnerEventSource -> Lude.Text) (\s a -> s {name = a} :: CreatePartnerEventSource)
-{-# DEPRECATED cpesName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkCreatePartnerEventSource pAccount_ pName_ =
+  CreatePartnerEventSource' {account = pAccount_, name = pName_}
 
 -- | The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
 --
@@ -86,6 +75,13 @@ cpesName = Lens.lens (name :: CreatePartnerEventSource -> Lude.Text) (\s a -> s 
 cpesAccount :: Lens.Lens' CreatePartnerEventSource Lude.Text
 cpesAccount = Lens.lens (account :: CreatePartnerEventSource -> Lude.Text) (\s a -> s {account = a} :: CreatePartnerEventSource)
 {-# DEPRECATED cpesAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+
+-- | The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpesName :: Lens.Lens' CreatePartnerEventSource Lude.Text
+cpesName = Lens.lens (name :: CreatePartnerEventSource -> Lude.Text) (\s a -> s {name = a} :: CreatePartnerEventSource)
+{-# DEPRECATED cpesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 instance Lude.AWSRequest CreatePartnerEventSource where
   type Rs CreatePartnerEventSource = CreatePartnerEventSourceResponse
@@ -113,8 +109,8 @@ instance Lude.ToJSON CreatePartnerEventSource where
   toJSON CreatePartnerEventSource' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Account" Lude..= account)
+          [ Lude.Just ("Account" Lude..= account),
+            Lude.Just ("Name" Lude..= name)
           ]
       )
 
@@ -126,18 +122,12 @@ instance Lude.ToQuery CreatePartnerEventSource where
 
 -- | /See:/ 'mkCreatePartnerEventSourceResponse' smart constructor.
 data CreatePartnerEventSourceResponse = CreatePartnerEventSourceResponse'
-  { eventSourceARN ::
-      Lude.Maybe Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | The ARN of the partner event source.
+    eventSourceARN :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CreatePartnerEventSourceResponse' with the minimum fields required to make a request.

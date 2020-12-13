@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,16 +20,16 @@ module Network.AWS.Pinpoint.PutEvents
     mkPutEvents,
 
     -- ** Request lenses
-    peApplicationId,
     peEventsRequest,
+    peApplicationId,
 
     -- * Destructuring the response
     PutEventsResponse (..),
     mkPutEventsResponse,
 
     -- ** Response lenses
-    persResponseStatus,
     persEventsResponse,
+    persResponseStatus,
   )
 where
 
@@ -40,40 +41,28 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkPutEvents' smart constructor.
 data PutEvents = PutEvents'
-  { applicationId :: Lude.Text,
-    eventsRequest :: EventsRequest
+  { eventsRequest :: EventsRequest,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEvents' with the minimum fields required to make a request.
 --
+-- * 'eventsRequest' -
 -- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'eventsRequest' - Undocumented field.
 mkPutEvents ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'eventsRequest'
   EventsRequest ->
+  -- | 'applicationId'
+  Lude.Text ->
   PutEvents
-mkPutEvents pApplicationId_ pEventsRequest_ =
+mkPutEvents pEventsRequest_ pApplicationId_ =
   PutEvents'
-    { applicationId = pApplicationId_,
-      eventsRequest = pEventsRequest_
+    { eventsRequest = pEventsRequest_,
+      applicationId = pApplicationId_
     }
-
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peApplicationId :: Lens.Lens' PutEvents Lude.Text
-peApplicationId = Lens.lens (applicationId :: PutEvents -> Lude.Text) (\s a -> s {applicationId = a} :: PutEvents)
-{-# DEPRECATED peApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | Undocumented field.
 --
@@ -82,6 +71,13 @@ peEventsRequest :: Lens.Lens' PutEvents EventsRequest
 peEventsRequest = Lens.lens (eventsRequest :: PutEvents -> EventsRequest) (\s a -> s {eventsRequest = a} :: PutEvents)
 {-# DEPRECATED peEventsRequest "Use generic-lens or generic-optics with 'eventsRequest' instead." #-}
 
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+peApplicationId :: Lens.Lens' PutEvents Lude.Text
+peApplicationId = Lens.lens (applicationId :: PutEvents -> Lude.Text) (\s a -> s {applicationId = a} :: PutEvents)
+{-# DEPRECATED peApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
 instance Lude.AWSRequest PutEvents where
   type Rs PutEvents = PutEventsResponse
   request = Req.postJSON pinpointService
@@ -89,7 +85,7 @@ instance Lude.AWSRequest PutEvents where
     Res.receiveJSON
       ( \s h x ->
           PutEventsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s)) Lude.<*> (Lude.eitherParseJSON x)
+            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
       )
 
 instance Lude.ToHeaders PutEvents where
@@ -117,41 +113,28 @@ instance Lude.ToQuery PutEvents where
 
 -- | /See:/ 'mkPutEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
-  { responseStatus ::
-      Lude.Int,
-    eventsResponse :: EventsResponse
+  { eventsResponse :: EventsResponse,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'PutEventsResponse' with the minimum fields required to make a request.
 --
--- * 'eventsResponse' - Undocumented field.
+-- * 'eventsResponse' -
 -- * 'responseStatus' - The response status code.
 mkPutEventsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
   -- | 'eventsResponse'
   EventsResponse ->
+  -- | 'responseStatus'
+  Lude.Int ->
   PutEventsResponse
-mkPutEventsResponse pResponseStatus_ pEventsResponse_ =
+mkPutEventsResponse pEventsResponse_ pResponseStatus_ =
   PutEventsResponse'
-    { responseStatus = pResponseStatus_,
-      eventsResponse = pEventsResponse_
+    { eventsResponse = pEventsResponse_,
+      responseStatus = pResponseStatus_
     }
-
--- | The response status code.
---
--- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-persResponseStatus :: Lens.Lens' PutEventsResponse Lude.Int
-persResponseStatus = Lens.lens (responseStatus :: PutEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEventsResponse)
-{-# DEPRECATED persResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
 
 -- | Undocumented field.
 --
@@ -159,3 +142,10 @@ persResponseStatus = Lens.lens (responseStatus :: PutEventsResponse -> Lude.Int)
 persEventsResponse :: Lens.Lens' PutEventsResponse EventsResponse
 persEventsResponse = Lens.lens (eventsResponse :: PutEventsResponse -> EventsResponse) (\s a -> s {eventsResponse = a} :: PutEventsResponse)
 {-# DEPRECATED persEventsResponse "Use generic-lens or generic-optics with 'eventsResponse' instead." #-}
+
+-- | The response status code.
+--
+-- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+persResponseStatus :: Lens.Lens' PutEventsResponse Lude.Int
+persResponseStatus = Lens.lens (responseStatus :: PutEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEventsResponse)
+{-# DEPRECATED persResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

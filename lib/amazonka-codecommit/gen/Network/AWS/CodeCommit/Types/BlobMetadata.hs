@@ -30,22 +30,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBlobMetadata' smart constructor.
 data BlobMetadata = BlobMetadata'
-  { path :: Lude.Maybe Lude.Text,
+  { -- | The path to the blob and associated file name, if any.
+    path :: Lude.Maybe Lude.Text,
+    -- | The file mode permissions of the blob. File mode permission codes include:
+    --
+    --
+    --     * @100644@ indicates read/write
+    --
+    --
+    --     * @100755@ indicates read/write/execute
+    --
+    --
+    --     * @160000@ indicates a submodule
+    --
+    --
+    --     * @120000@ indicates a symlink
     mode :: Lude.Maybe Lude.Text,
+    -- | The full ID of the blob.
     blobId :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BlobMetadata' with the minimum fields required to make a request.
 --
--- * 'blobId' - The full ID of the blob.
+-- * 'path' - The path to the blob and associated file name, if any.
 -- * 'mode' - The file mode permissions of the blob. File mode permission codes include:
 --
 --
@@ -61,7 +70,7 @@ data BlobMetadata = BlobMetadata'
 --     * @120000@ indicates a symlink
 --
 --
--- * 'path' - The path to the blob and associated file name, if any.
+-- * 'blobId' - The full ID of the blob.
 mkBlobMetadata ::
   BlobMetadata
 mkBlobMetadata =

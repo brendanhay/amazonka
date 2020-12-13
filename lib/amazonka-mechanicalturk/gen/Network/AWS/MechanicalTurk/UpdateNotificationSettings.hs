@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,8 +21,8 @@ module Network.AWS.MechanicalTurk.UpdateNotificationSettings
 
     -- ** Request lenses
     unsNotification,
-    unsActive,
     unsHITTypeId,
+    unsActive,
 
     -- * Destructuring the response
     UpdateNotificationSettingsResponse (..),
@@ -40,25 +41,21 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkUpdateNotificationSettings' smart constructor.
 data UpdateNotificationSettings = UpdateNotificationSettings'
-  { notification ::
-      Lude.Maybe NotificationSpecification,
-    active :: Lude.Maybe Lude.Bool,
-    hITTypeId :: Lude.Text
+  { -- | The notification specification for the HIT type.
+    notification :: Lude.Maybe NotificationSpecification,
+    -- | The ID of the HIT type whose notification specification is being updated.
+    hITTypeId :: Lude.Text,
+    -- | Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
+    active :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotificationSettings' with the minimum fields required to make a request.
 --
--- * 'active' - Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
--- * 'hITTypeId' - The ID of the HIT type whose notification specification is being updated.
 -- * 'notification' - The notification specification for the HIT type.
+-- * 'hITTypeId' - The ID of the HIT type whose notification specification is being updated.
+-- * 'active' - Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
 mkUpdateNotificationSettings ::
   -- | 'hITTypeId'
   Lude.Text ->
@@ -66,8 +63,8 @@ mkUpdateNotificationSettings ::
 mkUpdateNotificationSettings pHITTypeId_ =
   UpdateNotificationSettings'
     { notification = Lude.Nothing,
-      active = Lude.Nothing,
-      hITTypeId = pHITTypeId_
+      hITTypeId = pHITTypeId_,
+      active = Lude.Nothing
     }
 
 -- | The notification specification for the HIT type.
@@ -77,19 +74,19 @@ unsNotification :: Lens.Lens' UpdateNotificationSettings (Lude.Maybe Notificatio
 unsNotification = Lens.lens (notification :: UpdateNotificationSettings -> Lude.Maybe NotificationSpecification) (\s a -> s {notification = a} :: UpdateNotificationSettings)
 {-# DEPRECATED unsNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
--- | Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
---
--- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-unsActive :: Lens.Lens' UpdateNotificationSettings (Lude.Maybe Lude.Bool)
-unsActive = Lens.lens (active :: UpdateNotificationSettings -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: UpdateNotificationSettings)
-{-# DEPRECATED unsActive "Use generic-lens or generic-optics with 'active' instead." #-}
-
 -- | The ID of the HIT type whose notification specification is being updated.
 --
 -- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 unsHITTypeId :: Lens.Lens' UpdateNotificationSettings Lude.Text
 unsHITTypeId = Lens.lens (hITTypeId :: UpdateNotificationSettings -> Lude.Text) (\s a -> s {hITTypeId = a} :: UpdateNotificationSettings)
 {-# DEPRECATED unsHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
+
+-- | Specifies whether notifications are sent for HITs of this HIT type, according to the notification specification. You must specify either the Notification parameter or the Active parameter for the call to UpdateNotificationSettings to succeed.
+--
+-- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+unsActive :: Lens.Lens' UpdateNotificationSettings (Lude.Maybe Lude.Bool)
+unsActive = Lens.lens (active :: UpdateNotificationSettings -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: UpdateNotificationSettings)
+{-# DEPRECATED unsActive "Use generic-lens or generic-optics with 'active' instead." #-}
 
 instance Lude.AWSRequest UpdateNotificationSettings where
   type
@@ -121,8 +118,8 @@ instance Lude.ToJSON UpdateNotificationSettings where
     Lude.object
       ( Lude.catMaybes
           [ ("Notification" Lude..=) Lude.<$> notification,
-            ("Active" Lude..=) Lude.<$> active,
-            Lude.Just ("HITTypeId" Lude..= hITTypeId)
+            Lude.Just ("HITTypeId" Lude..= hITTypeId),
+            ("Active" Lude..=) Lude.<$> active
           ]
       )
 
@@ -134,16 +131,10 @@ instance Lude.ToQuery UpdateNotificationSettings where
 
 -- | /See:/ 'mkUpdateNotificationSettingsResponse' smart constructor.
 newtype UpdateNotificationSettingsResponse = UpdateNotificationSettingsResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'UpdateNotificationSettingsResponse' with the minimum fields required to make a request.

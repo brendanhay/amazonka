@@ -13,9 +13,9 @@
 module Network.AWS.AppSync.Types.FieldLogLevel
   ( FieldLogLevel
       ( FieldLogLevel',
-        FLLAll,
-        FLLError,
-        FLLNone
+        None,
+        Error,
+        All
       ),
   )
 where
@@ -46,18 +46,18 @@ newtype FieldLogLevel = FieldLogLevel' Lude.Text
       Lude.ToHeader
     )
 
-pattern FLLAll :: FieldLogLevel
-pattern FLLAll = FieldLogLevel' "ALL"
+pattern None :: FieldLogLevel
+pattern None = FieldLogLevel' "NONE"
 
-pattern FLLError :: FieldLogLevel
-pattern FLLError = FieldLogLevel' "ERROR"
+pattern Error :: FieldLogLevel
+pattern Error = FieldLogLevel' "ERROR"
 
-pattern FLLNone :: FieldLogLevel
-pattern FLLNone = FieldLogLevel' "NONE"
+pattern All :: FieldLogLevel
+pattern All = FieldLogLevel' "ALL"
 
 {-# COMPLETE
-  FLLAll,
-  FLLError,
-  FLLNone,
+  None,
+  Error,
+  All,
   FieldLogLevel'
   #-}

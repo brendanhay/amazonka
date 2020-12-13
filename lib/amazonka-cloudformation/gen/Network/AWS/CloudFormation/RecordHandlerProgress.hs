@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,12 +23,12 @@ module Network.AWS.CloudFormation.RecordHandlerProgress
 
     -- ** Request lenses
     rhpResourceModel,
+    rhpBearerToken,
+    rhpOperationStatus,
     rhpStatusMessage,
     rhpErrorCode,
     rhpCurrentOperationStatus,
     rhpClientRequestToken,
-    rhpBearerToken,
-    rhpOperationStatus,
 
     -- * Destructuring the response
     RecordHandlerProgressResponse (..),
@@ -46,34 +47,33 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkRecordHandlerProgress' smart constructor.
 data RecordHandlerProgress = RecordHandlerProgress'
-  { resourceModel ::
-      Lude.Maybe Lude.Text,
-    statusMessage :: Lude.Maybe Lude.Text,
-    errorCode :: Lude.Maybe HandlerErrorCode,
-    currentOperationStatus ::
-      Lude.Maybe OperationStatus,
-    clientRequestToken :: Lude.Maybe Lude.Text,
+  { -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+    resourceModel :: Lude.Maybe Lude.Text,
+    -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
     bearerToken :: Lude.Text,
-    operationStatus :: OperationStatus
+    -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+    operationStatus :: OperationStatus,
+    -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+    statusMessage :: Lude.Maybe Lude.Text,
+    -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+    errorCode :: Lude.Maybe HandlerErrorCode,
+    -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+    currentOperationStatus :: Lude.Maybe OperationStatus,
+    -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+    clientRequestToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordHandlerProgress' with the minimum fields required to make a request.
 --
--- * 'bearerToken' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
--- * 'clientRequestToken' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
--- * 'currentOperationStatus' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
--- * 'errorCode' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
--- * 'operationStatus' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
 -- * 'resourceModel' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+-- * 'bearerToken' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+-- * 'operationStatus' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
 -- * 'statusMessage' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+-- * 'errorCode' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+-- * 'currentOperationStatus' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+-- * 'clientRequestToken' - Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
 mkRecordHandlerProgress ::
   -- | 'bearerToken'
   Lude.Text ->
@@ -83,12 +83,12 @@ mkRecordHandlerProgress ::
 mkRecordHandlerProgress pBearerToken_ pOperationStatus_ =
   RecordHandlerProgress'
     { resourceModel = Lude.Nothing,
+      bearerToken = pBearerToken_,
+      operationStatus = pOperationStatus_,
       statusMessage = Lude.Nothing,
       errorCode = Lude.Nothing,
       currentOperationStatus = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
-      bearerToken = pBearerToken_,
-      operationStatus = pOperationStatus_
+      clientRequestToken = Lude.Nothing
     }
 
 -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
@@ -97,6 +97,20 @@ mkRecordHandlerProgress pBearerToken_ pOperationStatus_ =
 rhpResourceModel :: Lens.Lens' RecordHandlerProgress (Lude.Maybe Lude.Text)
 rhpResourceModel = Lens.lens (resourceModel :: RecordHandlerProgress -> Lude.Maybe Lude.Text) (\s a -> s {resourceModel = a} :: RecordHandlerProgress)
 {-# DEPRECATED rhpResourceModel "Use generic-lens or generic-optics with 'resourceModel' instead." #-}
+
+-- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+--
+-- /Note:/ Consider using 'bearerToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rhpBearerToken :: Lens.Lens' RecordHandlerProgress Lude.Text
+rhpBearerToken = Lens.lens (bearerToken :: RecordHandlerProgress -> Lude.Text) (\s a -> s {bearerToken = a} :: RecordHandlerProgress)
+{-# DEPRECATED rhpBearerToken "Use generic-lens or generic-optics with 'bearerToken' instead." #-}
+
+-- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
+--
+-- /Note:/ Consider using 'operationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rhpOperationStatus :: Lens.Lens' RecordHandlerProgress OperationStatus
+rhpOperationStatus = Lens.lens (operationStatus :: RecordHandlerProgress -> OperationStatus) (\s a -> s {operationStatus = a} :: RecordHandlerProgress)
+{-# DEPRECATED rhpOperationStatus "Use generic-lens or generic-optics with 'operationStatus' instead." #-}
 
 -- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
 --
@@ -126,20 +140,6 @@ rhpClientRequestToken :: Lens.Lens' RecordHandlerProgress (Lude.Maybe Lude.Text)
 rhpClientRequestToken = Lens.lens (clientRequestToken :: RecordHandlerProgress -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: RecordHandlerProgress)
 {-# DEPRECATED rhpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
--- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
---
--- /Note:/ Consider using 'bearerToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rhpBearerToken :: Lens.Lens' RecordHandlerProgress Lude.Text
-rhpBearerToken = Lens.lens (bearerToken :: RecordHandlerProgress -> Lude.Text) (\s a -> s {bearerToken = a} :: RecordHandlerProgress)
-{-# DEPRECATED rhpBearerToken "Use generic-lens or generic-optics with 'bearerToken' instead." #-}
-
--- | Reserved for use by the <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html CloudFormation CLI> .
---
--- /Note:/ Consider using 'operationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rhpOperationStatus :: Lens.Lens' RecordHandlerProgress OperationStatus
-rhpOperationStatus = Lens.lens (operationStatus :: RecordHandlerProgress -> OperationStatus) (\s a -> s {operationStatus = a} :: RecordHandlerProgress)
-{-# DEPRECATED rhpOperationStatus "Use generic-lens or generic-optics with 'operationStatus' instead." #-}
-
 instance Lude.AWSRequest RecordHandlerProgress where
   type Rs RecordHandlerProgress = RecordHandlerProgressResponse
   request = Req.postQuery cloudFormationService
@@ -163,26 +163,20 @@ instance Lude.ToQuery RecordHandlerProgress where
       [ "Action" Lude.=: ("RecordHandlerProgress" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
         "ResourceModel" Lude.=: resourceModel,
+        "BearerToken" Lude.=: bearerToken,
+        "OperationStatus" Lude.=: operationStatus,
         "StatusMessage" Lude.=: statusMessage,
         "ErrorCode" Lude.=: errorCode,
         "CurrentOperationStatus" Lude.=: currentOperationStatus,
-        "ClientRequestToken" Lude.=: clientRequestToken,
-        "BearerToken" Lude.=: bearerToken,
-        "OperationStatus" Lude.=: operationStatus
+        "ClientRequestToken" Lude.=: clientRequestToken
       ]
 
 -- | /See:/ 'mkRecordHandlerProgressResponse' smart constructor.
 newtype RecordHandlerProgressResponse = RecordHandlerProgressResponse'
-  { responseStatus ::
-      Lude.Int
+  { -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RecordHandlerProgressResponse' with the minimum fields required to make a request.

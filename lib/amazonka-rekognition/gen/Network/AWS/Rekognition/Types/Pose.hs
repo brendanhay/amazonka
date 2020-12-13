@@ -30,24 +30,21 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPose' smart constructor.
 data Pose = Pose'
-  { yaw :: Lude.Maybe Lude.Double,
+  { -- | Value representing the face rotation on the yaw axis.
+    yaw :: Lude.Maybe Lude.Double,
+    -- | Value representing the face rotation on the roll axis.
     roll :: Lude.Maybe Lude.Double,
+    -- | Value representing the face rotation on the pitch axis.
     pitch :: Lude.Maybe Lude.Double
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Pose' with the minimum fields required to make a request.
 --
--- * 'pitch' - Value representing the face rotation on the pitch axis.
--- * 'roll' - Value representing the face rotation on the roll axis.
 -- * 'yaw' - Value representing the face rotation on the yaw axis.
+-- * 'roll' - Value representing the face rotation on the roll axis.
+-- * 'pitch' - Value representing the face rotation on the pitch axis.
 mkPose ::
   Pose
 mkPose =

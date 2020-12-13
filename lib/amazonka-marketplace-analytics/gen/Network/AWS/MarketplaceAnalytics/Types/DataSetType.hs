@@ -13,29 +13,29 @@
 module Network.AWS.MarketplaceAnalytics.Types.DataSetType
   ( DataSetType
       ( DataSetType',
-        CustomerProfileByGeography,
-        CustomerProfileByIndustry,
-        CustomerProfileByRevenue,
-        CustomerSubscriberAnnualSubscriptions,
         CustomerSubscriberHourlyMonthlySubscriptions,
-        DailyBusinessCanceledProductSubscribers,
+        CustomerSubscriberAnnualSubscriptions,
+        DailyBusinessUsageByInstanceType,
         DailyBusinessFees,
         DailyBusinessFreeTrialConversions,
         DailyBusinessNewInstances,
         DailyBusinessNewProductSubscribers,
-        DailyBusinessUsageByInstanceType,
-        DisbursedAmountByAgeOfDisbursedFunds,
-        DisbursedAmountByAgeOfPastDueFunds,
-        DisbursedAmountByAgeOfUncollectedFunds,
-        DisbursedAmountByCustomerGeo,
-        DisbursedAmountByInstanceHours,
-        DisbursedAmountByProduct,
-        DisbursedAmountByProductWithUncollectedFunds,
-        DisbursedAmountByUncollectedFundsBreakdown,
-        MonthlyRevenueAnnualSubscriptions,
+        DailyBusinessCanceledProductSubscribers,
         MonthlyRevenueBillingAndRevenueData,
+        MonthlyRevenueAnnualSubscriptions,
         MonthlyRevenueFieldDemonstrationUsage,
         MonthlyRevenueFlexiblePaymentSchedule,
+        DisbursedAmountByProduct,
+        DisbursedAmountByProductWithUncollectedFunds,
+        DisbursedAmountByInstanceHours,
+        DisbursedAmountByCustomerGeo,
+        DisbursedAmountByAgeOfUncollectedFunds,
+        DisbursedAmountByAgeOfDisbursedFunds,
+        DisbursedAmountByAgeOfPastDueFunds,
+        DisbursedAmountByUncollectedFundsBreakdown,
+        CustomerProfileByIndustry,
+        CustomerProfileByRevenue,
+        CustomerProfileByGeography,
         SalesCompensationBilledRevenue,
         UsSalesAndUseTaxRecords
       ),
@@ -68,23 +68,14 @@ newtype DataSetType = DataSetType' Lude.Text
       Lude.ToHeader
     )
 
-pattern CustomerProfileByGeography :: DataSetType
-pattern CustomerProfileByGeography = DataSetType' "customer_profile_by_geography"
-
-pattern CustomerProfileByIndustry :: DataSetType
-pattern CustomerProfileByIndustry = DataSetType' "customer_profile_by_industry"
-
-pattern CustomerProfileByRevenue :: DataSetType
-pattern CustomerProfileByRevenue = DataSetType' "customer_profile_by_revenue"
+pattern CustomerSubscriberHourlyMonthlySubscriptions :: DataSetType
+pattern CustomerSubscriberHourlyMonthlySubscriptions = DataSetType' "customer_subscriber_hourly_monthly_subscriptions"
 
 pattern CustomerSubscriberAnnualSubscriptions :: DataSetType
 pattern CustomerSubscriberAnnualSubscriptions = DataSetType' "customer_subscriber_annual_subscriptions"
 
-pattern CustomerSubscriberHourlyMonthlySubscriptions :: DataSetType
-pattern CustomerSubscriberHourlyMonthlySubscriptions = DataSetType' "customer_subscriber_hourly_monthly_subscriptions"
-
-pattern DailyBusinessCanceledProductSubscribers :: DataSetType
-pattern DailyBusinessCanceledProductSubscribers = DataSetType' "daily_business_canceled_product_subscribers"
+pattern DailyBusinessUsageByInstanceType :: DataSetType
+pattern DailyBusinessUsageByInstanceType = DataSetType' "daily_business_usage_by_instance_type"
 
 pattern DailyBusinessFees :: DataSetType
 pattern DailyBusinessFees = DataSetType' "daily_business_fees"
@@ -98,23 +89,20 @@ pattern DailyBusinessNewInstances = DataSetType' "daily_business_new_instances"
 pattern DailyBusinessNewProductSubscribers :: DataSetType
 pattern DailyBusinessNewProductSubscribers = DataSetType' "daily_business_new_product_subscribers"
 
-pattern DailyBusinessUsageByInstanceType :: DataSetType
-pattern DailyBusinessUsageByInstanceType = DataSetType' "daily_business_usage_by_instance_type"
+pattern DailyBusinessCanceledProductSubscribers :: DataSetType
+pattern DailyBusinessCanceledProductSubscribers = DataSetType' "daily_business_canceled_product_subscribers"
 
-pattern DisbursedAmountByAgeOfDisbursedFunds :: DataSetType
-pattern DisbursedAmountByAgeOfDisbursedFunds = DataSetType' "disbursed_amount_by_age_of_disbursed_funds"
+pattern MonthlyRevenueBillingAndRevenueData :: DataSetType
+pattern MonthlyRevenueBillingAndRevenueData = DataSetType' "monthly_revenue_billing_and_revenue_data"
 
-pattern DisbursedAmountByAgeOfPastDueFunds :: DataSetType
-pattern DisbursedAmountByAgeOfPastDueFunds = DataSetType' "disbursed_amount_by_age_of_past_due_funds"
+pattern MonthlyRevenueAnnualSubscriptions :: DataSetType
+pattern MonthlyRevenueAnnualSubscriptions = DataSetType' "monthly_revenue_annual_subscriptions"
 
-pattern DisbursedAmountByAgeOfUncollectedFunds :: DataSetType
-pattern DisbursedAmountByAgeOfUncollectedFunds = DataSetType' "disbursed_amount_by_age_of_uncollected_funds"
+pattern MonthlyRevenueFieldDemonstrationUsage :: DataSetType
+pattern MonthlyRevenueFieldDemonstrationUsage = DataSetType' "monthly_revenue_field_demonstration_usage"
 
-pattern DisbursedAmountByCustomerGeo :: DataSetType
-pattern DisbursedAmountByCustomerGeo = DataSetType' "disbursed_amount_by_customer_geo"
-
-pattern DisbursedAmountByInstanceHours :: DataSetType
-pattern DisbursedAmountByInstanceHours = DataSetType' "disbursed_amount_by_instance_hours"
+pattern MonthlyRevenueFlexiblePaymentSchedule :: DataSetType
+pattern MonthlyRevenueFlexiblePaymentSchedule = DataSetType' "monthly_revenue_flexible_payment_schedule"
 
 pattern DisbursedAmountByProduct :: DataSetType
 pattern DisbursedAmountByProduct = DataSetType' "disbursed_amount_by_product"
@@ -122,20 +110,32 @@ pattern DisbursedAmountByProduct = DataSetType' "disbursed_amount_by_product"
 pattern DisbursedAmountByProductWithUncollectedFunds :: DataSetType
 pattern DisbursedAmountByProductWithUncollectedFunds = DataSetType' "disbursed_amount_by_product_with_uncollected_funds"
 
+pattern DisbursedAmountByInstanceHours :: DataSetType
+pattern DisbursedAmountByInstanceHours = DataSetType' "disbursed_amount_by_instance_hours"
+
+pattern DisbursedAmountByCustomerGeo :: DataSetType
+pattern DisbursedAmountByCustomerGeo = DataSetType' "disbursed_amount_by_customer_geo"
+
+pattern DisbursedAmountByAgeOfUncollectedFunds :: DataSetType
+pattern DisbursedAmountByAgeOfUncollectedFunds = DataSetType' "disbursed_amount_by_age_of_uncollected_funds"
+
+pattern DisbursedAmountByAgeOfDisbursedFunds :: DataSetType
+pattern DisbursedAmountByAgeOfDisbursedFunds = DataSetType' "disbursed_amount_by_age_of_disbursed_funds"
+
+pattern DisbursedAmountByAgeOfPastDueFunds :: DataSetType
+pattern DisbursedAmountByAgeOfPastDueFunds = DataSetType' "disbursed_amount_by_age_of_past_due_funds"
+
 pattern DisbursedAmountByUncollectedFundsBreakdown :: DataSetType
 pattern DisbursedAmountByUncollectedFundsBreakdown = DataSetType' "disbursed_amount_by_uncollected_funds_breakdown"
 
-pattern MonthlyRevenueAnnualSubscriptions :: DataSetType
-pattern MonthlyRevenueAnnualSubscriptions = DataSetType' "monthly_revenue_annual_subscriptions"
+pattern CustomerProfileByIndustry :: DataSetType
+pattern CustomerProfileByIndustry = DataSetType' "customer_profile_by_industry"
 
-pattern MonthlyRevenueBillingAndRevenueData :: DataSetType
-pattern MonthlyRevenueBillingAndRevenueData = DataSetType' "monthly_revenue_billing_and_revenue_data"
+pattern CustomerProfileByRevenue :: DataSetType
+pattern CustomerProfileByRevenue = DataSetType' "customer_profile_by_revenue"
 
-pattern MonthlyRevenueFieldDemonstrationUsage :: DataSetType
-pattern MonthlyRevenueFieldDemonstrationUsage = DataSetType' "monthly_revenue_field_demonstration_usage"
-
-pattern MonthlyRevenueFlexiblePaymentSchedule :: DataSetType
-pattern MonthlyRevenueFlexiblePaymentSchedule = DataSetType' "monthly_revenue_flexible_payment_schedule"
+pattern CustomerProfileByGeography :: DataSetType
+pattern CustomerProfileByGeography = DataSetType' "customer_profile_by_geography"
 
 pattern SalesCompensationBilledRevenue :: DataSetType
 pattern SalesCompensationBilledRevenue = DataSetType' "sales_compensation_billed_revenue"
@@ -144,29 +144,29 @@ pattern UsSalesAndUseTaxRecords :: DataSetType
 pattern UsSalesAndUseTaxRecords = DataSetType' "us_sales_and_use_tax_records"
 
 {-# COMPLETE
-  CustomerProfileByGeography,
-  CustomerProfileByIndustry,
-  CustomerProfileByRevenue,
-  CustomerSubscriberAnnualSubscriptions,
   CustomerSubscriberHourlyMonthlySubscriptions,
-  DailyBusinessCanceledProductSubscribers,
+  CustomerSubscriberAnnualSubscriptions,
+  DailyBusinessUsageByInstanceType,
   DailyBusinessFees,
   DailyBusinessFreeTrialConversions,
   DailyBusinessNewInstances,
   DailyBusinessNewProductSubscribers,
-  DailyBusinessUsageByInstanceType,
-  DisbursedAmountByAgeOfDisbursedFunds,
-  DisbursedAmountByAgeOfPastDueFunds,
-  DisbursedAmountByAgeOfUncollectedFunds,
-  DisbursedAmountByCustomerGeo,
-  DisbursedAmountByInstanceHours,
-  DisbursedAmountByProduct,
-  DisbursedAmountByProductWithUncollectedFunds,
-  DisbursedAmountByUncollectedFundsBreakdown,
-  MonthlyRevenueAnnualSubscriptions,
+  DailyBusinessCanceledProductSubscribers,
   MonthlyRevenueBillingAndRevenueData,
+  MonthlyRevenueAnnualSubscriptions,
   MonthlyRevenueFieldDemonstrationUsage,
   MonthlyRevenueFlexiblePaymentSchedule,
+  DisbursedAmountByProduct,
+  DisbursedAmountByProductWithUncollectedFunds,
+  DisbursedAmountByInstanceHours,
+  DisbursedAmountByCustomerGeo,
+  DisbursedAmountByAgeOfUncollectedFunds,
+  DisbursedAmountByAgeOfDisbursedFunds,
+  DisbursedAmountByAgeOfPastDueFunds,
+  DisbursedAmountByUncollectedFundsBreakdown,
+  CustomerProfileByIndustry,
+  CustomerProfileByRevenue,
+  CustomerProfileByGeography,
   SalesCompensationBilledRevenue,
   UsSalesAndUseTaxRecords,
   DataSetType'

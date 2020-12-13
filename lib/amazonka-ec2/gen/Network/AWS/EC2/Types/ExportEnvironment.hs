@@ -14,8 +14,8 @@ module Network.AWS.EC2.Types.ExportEnvironment
   ( ExportEnvironment
       ( ExportEnvironment',
         Citrix,
-        Microsoft,
-        VMware
+        VMware,
+        Microsoft
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype ExportEnvironment = ExportEnvironment' Lude.Text
 pattern Citrix :: ExportEnvironment
 pattern Citrix = ExportEnvironment' "citrix"
 
-pattern Microsoft :: ExportEnvironment
-pattern Microsoft = ExportEnvironment' "microsoft"
-
 pattern VMware :: ExportEnvironment
 pattern VMware = ExportEnvironment' "vmware"
 
+pattern Microsoft :: ExportEnvironment
+pattern Microsoft = ExportEnvironment' "microsoft"
+
 {-# COMPLETE
   Citrix,
-  Microsoft,
   VMware,
+  Microsoft,
   ExportEnvironment'
   #-}

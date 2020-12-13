@@ -44,52 +44,60 @@ import Network.AWS.SecretsManager.Types.Tag
 --
 -- /See:/ 'mkSecretListEntry' smart constructor.
 data SecretListEntry = SecretListEntry'
-  { lastChangedDate ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The last date and time that this secret was modified in any way.
+    lastChangedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The Amazon Resource Name (ARN) of the secret.
+    --
+    -- For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
     arn :: Lude.Maybe Lude.Text,
-    secretVersionsToStages ::
-      Lude.Maybe
-        (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text)),
+    -- | A list of all of the currently assigned @SecretVersionStage@ staging labels and the @SecretVersionId@ attached to each one. Staging labels are used to keep track of the different versions during the rotation process.
+    secretVersionsToStages :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text)),
+    -- | A structure that defines the rotation configuration for the secret.
     rotationRules :: Lude.Maybe RotationRulesType,
+    -- | The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the @RecoveryWindowInDays@ parameter of the 'DeleteSecret' operation.
     deletedDate :: Lude.Maybe Lude.Timestamp,
+    -- | Indicates whether automatic, scheduled rotation is enabled for this secret.
     rotationEnabled :: Lude.Maybe Lude.Bool,
+    -- | The date and time when a secret was created.
     createdDate :: Lude.Maybe Lude.Timestamp,
+    -- | The ARN or alias of the AWS KMS customer master key (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK, the key named @awssecretsmanager@ , for this account.
     kmsKeyId :: Lude.Maybe Lude.Text,
+    -- | The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy. For example, @/prod/databases/dbserver1@ could represent the secret for a server named @dbserver1@ in the folder @databases@ in the folder @prod@ .
     name :: Lude.Maybe Lude.Text,
+    -- | Returns the name of the service that created the secret.
     owningService :: Lude.Maybe Lude.Text,
+    -- | The last date and time that the rotation process for this secret was invoked.
     lastRotatedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
     lastAccessedDate :: Lude.Maybe Lude.Timestamp,
+    -- | The user-provided description of the secret.
     description :: Lude.Maybe Lude.Text,
+    -- | The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to 'RotateSecret' .
     rotationLambdaARN :: Lude.Maybe Lude.Text,
+    -- | The list of user-defined tags associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
     tags :: Lude.Maybe [Tag]
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SecretListEntry' with the minimum fields required to make a request.
 --
+-- * 'lastChangedDate' - The last date and time that this secret was modified in any way.
 -- * 'arn' - The Amazon Resource Name (ARN) of the secret.
 --
 -- For more information about ARNs in Secrets Manager, see <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources> in the /AWS Secrets Manager User Guide/ .
--- * 'createdDate' - The date and time when a secret was created.
+-- * 'secretVersionsToStages' - A list of all of the currently assigned @SecretVersionStage@ staging labels and the @SecretVersionId@ attached to each one. Staging labels are used to keep track of the different versions during the rotation process.
+-- * 'rotationRules' - A structure that defines the rotation configuration for the secret.
 -- * 'deletedDate' - The date and time the deletion of the secret occurred. Not present on active secrets. The secret can be recovered until the number of days in the recovery window has passed, as specified in the @RecoveryWindowInDays@ parameter of the 'DeleteSecret' operation.
--- * 'description' - The user-provided description of the secret.
+-- * 'rotationEnabled' - Indicates whether automatic, scheduled rotation is enabled for this secret.
+-- * 'createdDate' - The date and time when a secret was created.
 -- * 'kmsKeyId' - The ARN or alias of the AWS KMS customer master key (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in each version of the secret. If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the default KMS CMK, the key named @awssecretsmanager@ , for this account.
--- * 'lastAccessedDate' - The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
--- * 'lastChangedDate' - The last date and time that this secret was modified in any way.
--- * 'lastRotatedDate' - The last date and time that the rotation process for this secret was invoked.
 -- * 'name' - The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy. For example, @/prod/databases/dbserver1@ could represent the secret for a server named @dbserver1@ in the folder @databases@ in the folder @prod@ .
 -- * 'owningService' - Returns the name of the service that created the secret.
--- * 'rotationEnabled' - Indicates whether automatic, scheduled rotation is enabled for this secret.
+-- * 'lastRotatedDate' - The last date and time that the rotation process for this secret was invoked.
+-- * 'lastAccessedDate' - The last date that this secret was accessed. This value is truncated to midnight of the date and therefore shows only the date, not the time.
+-- * 'description' - The user-provided description of the secret.
 -- * 'rotationLambdaARN' - The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the secret either automatically per the schedule or manually by a call to 'RotateSecret' .
--- * 'rotationRules' - A structure that defines the rotation configuration for the secret.
--- * 'secretVersionsToStages' - A list of all of the currently assigned @SecretVersionStage@ staging labels and the @SecretVersionId@ attached to each one. Staging labels are used to keep track of the different versions during the rotation process.
 -- * 'tags' - The list of user-defined tags associated with the secret. To add tags to a secret, use 'TagResource' . To remove tags, use 'UntagResource' .
 mkSecretListEntry ::
   SecretListEntry

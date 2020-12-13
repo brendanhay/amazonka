@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,9 +22,9 @@ module Network.AWS.EC2.AttachVPNGateway
     mkAttachVPNGateway,
 
     -- ** Request lenses
-    avgDryRun,
-    avgVPCId,
     avgVPNGatewayId,
+    avgVPCId,
+    avgDryRun,
 
     -- * Destructuring the response
     AttachVPNGatewayResponse (..),
@@ -45,44 +46,40 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAttachVPNGateway' smart constructor.
 data AttachVPNGateway = AttachVPNGateway'
-  { dryRun ::
-      Lude.Maybe Lude.Bool,
+  { -- | The ID of the virtual private gateway.
+    vpnGatewayId :: Lude.Text,
+    -- | The ID of the VPC.
     vpcId :: Lude.Text,
-    vpnGatewayId :: Lude.Text
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachVPNGateway' with the minimum fields required to make a request.
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'vpcId' - The ID of the VPC.
 -- * 'vpnGatewayId' - The ID of the virtual private gateway.
+-- * 'vpcId' - The ID of the VPC.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkAttachVPNGateway ::
-  -- | 'vpcId'
-  Lude.Text ->
   -- | 'vpnGatewayId'
   Lude.Text ->
+  -- | 'vpcId'
+  Lude.Text ->
   AttachVPNGateway
-mkAttachVPNGateway pVPCId_ pVPNGatewayId_ =
+mkAttachVPNGateway pVPNGatewayId_ pVPCId_ =
   AttachVPNGateway'
-    { dryRun = Lude.Nothing,
+    { vpnGatewayId = pVPNGatewayId_,
       vpcId = pVPCId_,
-      vpnGatewayId = pVPNGatewayId_
+      dryRun = Lude.Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The ID of the virtual private gateway.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avgDryRun :: Lens.Lens' AttachVPNGateway (Lude.Maybe Lude.Bool)
-avgDryRun = Lens.lens (dryRun :: AttachVPNGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachVPNGateway)
-{-# DEPRECATED avgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'vpnGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avgVPNGatewayId :: Lens.Lens' AttachVPNGateway Lude.Text
+avgVPNGatewayId = Lens.lens (vpnGatewayId :: AttachVPNGateway -> Lude.Text) (\s a -> s {vpnGatewayId = a} :: AttachVPNGateway)
+{-# DEPRECATED avgVPNGatewayId "Use generic-lens or generic-optics with 'vpnGatewayId' instead." #-}
 
 -- | The ID of the VPC.
 --
@@ -91,12 +88,12 @@ avgVPCId :: Lens.Lens' AttachVPNGateway Lude.Text
 avgVPCId = Lens.lens (vpcId :: AttachVPNGateway -> Lude.Text) (\s a -> s {vpcId = a} :: AttachVPNGateway)
 {-# DEPRECATED avgVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
--- | The ID of the virtual private gateway.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'vpnGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avgVPNGatewayId :: Lens.Lens' AttachVPNGateway Lude.Text
-avgVPNGatewayId = Lens.lens (vpnGatewayId :: AttachVPNGateway -> Lude.Text) (\s a -> s {vpnGatewayId = a} :: AttachVPNGateway)
-{-# DEPRECATED avgVPNGatewayId "Use generic-lens or generic-optics with 'vpnGatewayId' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avgDryRun :: Lens.Lens' AttachVPNGateway (Lude.Maybe Lude.Bool)
+avgDryRun = Lens.lens (dryRun :: AttachVPNGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachVPNGateway)
+{-# DEPRECATED avgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest AttachVPNGateway where
   type Rs AttachVPNGateway = AttachVPNGatewayResponse
@@ -119,32 +116,27 @@ instance Lude.ToQuery AttachVPNGateway where
     Lude.mconcat
       [ "Action" Lude.=: ("AttachVpnGateway" :: Lude.ByteString),
         "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "DryRun" Lude.=: dryRun,
+        "VpnGatewayId" Lude.=: vpnGatewayId,
         "VpcId" Lude.=: vpcId,
-        "VpnGatewayId" Lude.=: vpnGatewayId
+        "DryRun" Lude.=: dryRun
       ]
 
 -- | Contains the output of AttachVpnGateway.
 --
 -- /See:/ 'mkAttachVPNGatewayResponse' smart constructor.
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
-  { vpcAttachment ::
-      Lude.Maybe VPCAttachment,
+  { -- | Information about the attachment.
+    vpcAttachment :: Lude.Maybe VPCAttachment,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AttachVPNGatewayResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'vpcAttachment' - Information about the attachment.
+-- * 'responseStatus' - The response status code.
 mkAttachVPNGatewayResponse ::
   -- | 'responseStatus'
   Lude.Int ->

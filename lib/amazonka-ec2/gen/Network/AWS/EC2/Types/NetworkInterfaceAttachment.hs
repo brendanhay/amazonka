@@ -36,39 +36,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkNetworkInterfaceAttachment' smart constructor.
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
-  { instanceId ::
-      Lude.Maybe Lude.Text,
+  { -- | The ID of the instance.
+    instanceId :: Lude.Maybe Lude.Text,
+    -- | The attachment state.
     status :: Lude.Maybe AttachmentStatus,
-    deleteOnTermination ::
-      Lude.Maybe Lude.Bool,
+    -- | Indicates whether the network interface is deleted when the instance is terminated.
+    deleteOnTermination :: Lude.Maybe Lude.Bool,
+    -- | The ID of the network interface attachment.
     attachmentId :: Lude.Maybe Lude.Text,
-    networkCardIndex ::
-      Lude.Maybe Lude.Int,
-    instanceOwnerId ::
-      Lude.Maybe Lude.Text,
-    attachTime ::
-      Lude.Maybe Lude.DateTime,
+    -- | The index of the network card.
+    networkCardIndex :: Lude.Maybe Lude.Int,
+    -- | The AWS account ID of the owner of the instance.
+    instanceOwnerId :: Lude.Maybe Lude.Text,
+    -- | The timestamp indicating when the attachment initiated.
+    attachTime :: Lude.Maybe Lude.DateTime,
+    -- | The device index of the network interface attachment on the instance.
     deviceIndex :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'NetworkInterfaceAttachment' with the minimum fields required to make a request.
 --
--- * 'attachTime' - The timestamp indicating when the attachment initiated.
--- * 'attachmentId' - The ID of the network interface attachment.
--- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
--- * 'deviceIndex' - The device index of the network interface attachment on the instance.
 -- * 'instanceId' - The ID of the instance.
--- * 'instanceOwnerId' - The AWS account ID of the owner of the instance.
--- * 'networkCardIndex' - The index of the network card.
 -- * 'status' - The attachment state.
+-- * 'deleteOnTermination' - Indicates whether the network interface is deleted when the instance is terminated.
+-- * 'attachmentId' - The ID of the network interface attachment.
+-- * 'networkCardIndex' - The index of the network card.
+-- * 'instanceOwnerId' - The AWS account ID of the owner of the instance.
+-- * 'attachTime' - The timestamp indicating when the attachment initiated.
+-- * 'deviceIndex' - The device index of the network interface attachment on the instance.
 mkNetworkInterfaceAttachment ::
   NetworkInterfaceAttachment
 mkNetworkInterfaceAttachment =

@@ -14,8 +14,8 @@ module Network.AWS.Organizations.Types.HandshakePartyType
   ( HandshakePartyType
       ( HandshakePartyType',
         HPTAccount,
-        HPTEmail,
-        HPTOrganization
+        HPTOrganization,
+        HPTEmail
       ),
   )
 where
@@ -49,15 +49,15 @@ newtype HandshakePartyType = HandshakePartyType' Lude.Text
 pattern HPTAccount :: HandshakePartyType
 pattern HPTAccount = HandshakePartyType' "ACCOUNT"
 
-pattern HPTEmail :: HandshakePartyType
-pattern HPTEmail = HandshakePartyType' "EMAIL"
-
 pattern HPTOrganization :: HandshakePartyType
 pattern HPTOrganization = HandshakePartyType' "ORGANIZATION"
 
+pattern HPTEmail :: HandshakePartyType
+pattern HPTEmail = HandshakePartyType' "EMAIL"
+
 {-# COMPLETE
   HPTAccount,
-  HPTEmail,
   HPTOrganization,
+  HPTEmail,
   HandshakePartyType'
   #-}

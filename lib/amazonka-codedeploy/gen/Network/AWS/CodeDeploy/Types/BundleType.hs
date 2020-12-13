@@ -13,11 +13,11 @@
 module Network.AWS.CodeDeploy.Types.BundleType
   ( BundleType
       ( BundleType',
-        JSON,
         TAR,
         TGZ,
+        Zip,
         Yaml,
-        Zip
+        JSON
       ),
   )
 where
@@ -48,26 +48,26 @@ newtype BundleType = BundleType' Lude.Text
       Lude.ToHeader
     )
 
-pattern JSON :: BundleType
-pattern JSON = BundleType' "JSON"
-
 pattern TAR :: BundleType
 pattern TAR = BundleType' "tar"
 
 pattern TGZ :: BundleType
 pattern TGZ = BundleType' "tgz"
 
-pattern Yaml :: BundleType
-pattern Yaml = BundleType' "YAML"
-
 pattern Zip :: BundleType
 pattern Zip = BundleType' "zip"
 
+pattern Yaml :: BundleType
+pattern Yaml = BundleType' "YAML"
+
+pattern JSON :: BundleType
+pattern JSON = BundleType' "JSON"
+
 {-# COMPLETE
-  JSON,
   TAR,
   TGZ,
-  Yaml,
   Zip,
+  Yaml,
+  JSON,
   BundleType'
   #-}

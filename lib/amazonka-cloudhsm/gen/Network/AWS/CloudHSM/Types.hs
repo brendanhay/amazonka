@@ -28,8 +28,8 @@ module Network.AWS.CloudHSM.Types
     -- * Tag
     Tag (..),
     mkTag,
-    tKey,
     tValue,
+    tKey,
   )
 where
 

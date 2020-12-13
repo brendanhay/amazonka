@@ -13,8 +13,8 @@
 module Network.AWS.Lightsail.Types.PortAccessType
   ( PortAccessType
       ( PortAccessType',
-        Private,
-        Public
+        Public,
+        Private
       ),
   )
 where
@@ -45,14 +45,14 @@ newtype PortAccessType = PortAccessType' Lude.Text
       Lude.ToHeader
     )
 
-pattern Private :: PortAccessType
-pattern Private = PortAccessType' "Private"
-
 pattern Public :: PortAccessType
 pattern Public = PortAccessType' "Public"
 
+pattern Private :: PortAccessType
+pattern Private = PortAccessType' "Private"
+
 {-# COMPLETE
-  Private,
   Public,
+  Private,
   PortAccessType'
   #-}

@@ -33,12 +33,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkVirtualMFADevice' smart constructor.
 data VirtualMFADevice = VirtualMFADevice'
-  { qRCodePNG ::
-      Lude.Maybe (Lude.Sensitive Lude.Base64),
-    base32StringSeed ::
-      Lude.Maybe (Lude.Sensitive Lude.Base64),
+  { -- | A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded.
+    qRCodePNG :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded.
+    base32StringSeed :: Lude.Maybe (Lude.Sensitive Lude.Base64),
+    -- | The IAM user associated with this virtual MFA device.
     user :: Lude.Maybe User,
+    -- | The date and time on which the virtual MFA device was enabled.
     enableDate :: Lude.Maybe Lude.DateTime,
+    -- | The serial number associated with @VirtualMFADevice@ .
     serialNumber :: Lude.Text
   }
   deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
@@ -46,19 +49,11 @@ data VirtualMFADevice = VirtualMFADevice'
 
 -- | Creates a value of 'VirtualMFADevice' with the minimum fields required to make a request.
 --
--- * 'base32StringSeed' - The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded. --
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'enableDate' - The date and time on which the virtual MFA device was enabled.
--- * 'qRCodePNG' - A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded. --
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
--- * 'serialNumber' - The serial number associated with @VirtualMFADevice@ .
+-- * 'qRCodePNG' - A QR code PNG image that encodes @otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String@ where @> virtualMFADeviceName@ is one of the create call arguments. @AccountName@ is the user name if set (otherwise, the account ID otherwise), and @Base32String@ is the seed in base32 format. The @Base32String@ value is base64-encoded.
+-- * 'base32StringSeed' - The base32 seed defined as specified in <https://tools.ietf.org/html/rfc3548.txt RFC3548> . The @Base32StringSeed@ is base64-encoded.
 -- * 'user' - The IAM user associated with this virtual MFA device.
+-- * 'enableDate' - The date and time on which the virtual MFA device was enabled.
+-- * 'serialNumber' - The serial number associated with @VirtualMFADevice@ .
 mkVirtualMFADevice ::
   -- | 'serialNumber'
   Lude.Text ->

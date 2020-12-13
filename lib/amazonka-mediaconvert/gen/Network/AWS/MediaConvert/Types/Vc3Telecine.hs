@@ -13,8 +13,8 @@
 module Network.AWS.MediaConvert.Types.Vc3Telecine
   ( Vc3Telecine
       ( Vc3Telecine',
-        VTHard,
-        VTNone
+        VTNone,
+        VTHard
       ),
   )
 where
@@ -46,14 +46,14 @@ newtype Vc3Telecine = Vc3Telecine' Lude.Text
       Lude.ToHeader
     )
 
-pattern VTHard :: Vc3Telecine
-pattern VTHard = Vc3Telecine' "HARD"
-
 pattern VTNone :: Vc3Telecine
 pattern VTNone = Vc3Telecine' "NONE"
 
+pattern VTHard :: Vc3Telecine
+pattern VTHard = Vc3Telecine' "HARD"
+
 {-# COMPLETE
-  VTHard,
   VTNone,
+  VTHard,
   Vc3Telecine'
   #-}

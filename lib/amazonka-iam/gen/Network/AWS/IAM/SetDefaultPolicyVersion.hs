@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,8 +23,8 @@ module Network.AWS.IAM.SetDefaultPolicyVersion
     mkSetDefaultPolicyVersion,
 
     -- ** Request lenses
-    sdpvPolicyARN,
     sdpvVersionId,
+    sdpvPolicyARN,
 
     -- * Destructuring the response
     SetDefaultPolicyVersionResponse (..),
@@ -39,47 +40,37 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkSetDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-  { policyARN ::
-      Lude.Text,
-    versionId :: Lude.Text
+  { -- | The version of the policy to set as the default (operative) version.
+    --
+    -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+    versionId :: Lude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    policyARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
 --
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 -- * 'versionId' - The version of the policy to set as the default (operative) version.
 --
 -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
-mkSetDefaultPolicyVersion ::
-  -- | 'policyARN'
-  Lude.Text ->
-  -- | 'versionId'
-  Lude.Text ->
-  SetDefaultPolicyVersion
-mkSetDefaultPolicyVersion pPolicyARN_ pVersionId_ =
-  SetDefaultPolicyVersion'
-    { policyARN = pPolicyARN_,
-      versionId = pVersionId_
-    }
-
--- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
+-- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpvPolicyARN :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
-sdpvPolicyARN = Lens.lens (policyARN :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {policyARN = a} :: SetDefaultPolicyVersion)
-{-# DEPRECATED sdpvPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+mkSetDefaultPolicyVersion ::
+  -- | 'versionId'
+  Lude.Text ->
+  -- | 'policyARN'
+  Lude.Text ->
+  SetDefaultPolicyVersion
+mkSetDefaultPolicyVersion pVersionId_ pPolicyARN_ =
+  SetDefaultPolicyVersion'
+    { versionId = pVersionId_,
+      policyARN = pPolicyARN_
+    }
 
 -- | The version of the policy to set as the default (operative) version.
 --
@@ -89,6 +80,15 @@ sdpvPolicyARN = Lens.lens (policyARN :: SetDefaultPolicyVersion -> Lude.Text) (\
 sdpvVersionId :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
 sdpvVersionId = Lens.lens (versionId :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {versionId = a} :: SetDefaultPolicyVersion)
 {-# DEPRECATED sdpvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdpvPolicyARN :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
+sdpvPolicyARN = Lens.lens (policyARN :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {policyARN = a} :: SetDefaultPolicyVersion)
+{-# DEPRECATED sdpvPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
 
 instance Lude.AWSRequest SetDefaultPolicyVersion where
   type Rs SetDefaultPolicyVersion = SetDefaultPolicyVersionResponse
@@ -106,19 +106,13 @@ instance Lude.ToQuery SetDefaultPolicyVersion where
     Lude.mconcat
       [ "Action" Lude.=: ("SetDefaultPolicyVersion" :: Lude.ByteString),
         "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyArn" Lude.=: policyARN,
-        "VersionId" Lude.=: versionId
+        "VersionId" Lude.=: versionId,
+        "PolicyArn" Lude.=: policyARN
       ]
 
 -- | /See:/ 'mkSetDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.

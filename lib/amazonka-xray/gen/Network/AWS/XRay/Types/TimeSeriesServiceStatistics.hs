@@ -36,32 +36,24 @@ import Network.AWS.XRay.Types.ServiceStatistics
 --
 -- /See:/ 'mkTimeSeriesServiceStatistics' smart constructor.
 data TimeSeriesServiceStatistics = TimeSeriesServiceStatistics'
-  { serviceSummaryStatistics ::
-      Lude.Maybe ServiceStatistics,
-    responseTimeHistogram ::
-      Lude.Maybe [HistogramEntry],
-    edgeSummaryStatistics ::
-      Lude.Maybe EdgeStatistics,
-    serviceForecastStatistics ::
-      Lude.Maybe ForecastStatistics,
-    timestamp ::
-      Lude.Maybe Lude.Timestamp
+  { serviceSummaryStatistics :: Lude.Maybe ServiceStatistics,
+    -- | The response time histogram for the selected entities.
+    responseTimeHistogram :: Lude.Maybe [HistogramEntry],
+    edgeSummaryStatistics :: Lude.Maybe EdgeStatistics,
+    -- | The forecasted high and low fault count values.
+    serviceForecastStatistics :: Lude.Maybe ForecastStatistics,
+    -- | Timestamp of the window for which statistics are aggregated.
+    timestamp :: Lude.Maybe Lude.Timestamp
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'TimeSeriesServiceStatistics' with the minimum fields required to make a request.
 --
--- * 'edgeSummaryStatistics' - Undocumented field.
+-- * 'serviceSummaryStatistics' -
 -- * 'responseTimeHistogram' - The response time histogram for the selected entities.
+-- * 'edgeSummaryStatistics' -
 -- * 'serviceForecastStatistics' - The forecasted high and low fault count values.
--- * 'serviceSummaryStatistics' - Undocumented field.
 -- * 'timestamp' - Timestamp of the window for which statistics are aggregated.
 mkTimeSeriesServiceStatistics ::
   TimeSeriesServiceStatistics

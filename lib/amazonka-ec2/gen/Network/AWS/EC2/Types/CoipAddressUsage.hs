@@ -31,27 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCoipAddressUsage' smart constructor.
 data CoipAddressUsage = CoipAddressUsage'
-  { allocationId ::
-      Lude.Maybe Lude.Text,
+  { -- | The allocation ID of the address.
+    allocationId :: Lude.Maybe Lude.Text,
+    -- | The AWS account ID.
     awsAccountId :: Lude.Maybe Lude.Text,
+    -- | The customer-owned IP address.
     coIP :: Lude.Maybe Lude.Text,
+    -- | The AWS service.
     awsService :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CoipAddressUsage' with the minimum fields required to make a request.
 --
 -- * 'allocationId' - The allocation ID of the address.
 -- * 'awsAccountId' - The AWS account ID.
--- * 'awsService' - The AWS service.
 -- * 'coIP' - The customer-owned IP address.
+-- * 'awsService' - The AWS service.
 mkCoipAddressUsage ::
   CoipAddressUsage
 mkCoipAddressUsage =

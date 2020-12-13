@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,19 +22,19 @@ module Network.AWS.EC2.RequestSpotInstances
     mkRequestSpotInstances,
 
     -- ** Request lenses
-    rsisBlockDurationMinutes,
-    rsisClientToken,
-    rsisInstanceCount,
-    rsisInstanceInterruptionBehavior,
-    rsisSpotPrice,
-    rsisLaunchSpecification,
-    rsisAvailabilityZoneGroup,
-    rsisTagSpecifications,
-    rsisValidUntil,
-    rsisLaunchGroup,
-    rsisType,
-    rsisValidFrom,
-    rsisDryRun,
+    rsiBlockDurationMinutes,
+    rsiClientToken,
+    rsiInstanceCount,
+    rsiInstanceInterruptionBehavior,
+    rsiSpotPrice,
+    rsiLaunchSpecification,
+    rsiAvailabilityZoneGroup,
+    rsiTagSpecifications,
+    rsiValidUntil,
+    rsiLaunchGroup,
+    rsiType,
+    rsiValidFrom,
+    rsiDryRun,
 
     -- * Destructuring the response
     RequestSpotInstancesResponse (..),
@@ -55,63 +56,78 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkRequestSpotInstances' smart constructor.
 data RequestSpotInstances = RequestSpotInstances'
-  { blockDurationMinutes ::
-      Lude.Maybe Lude.Int,
+  { -- | The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
+    --
+    -- The duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
+    -- You can't specify an Availability Zone group or a launch group if you specify a duration.
+    -- New accounts or accounts with no previous billing history with AWS are not eligible for Spot Instances with a defined duration (also known as Spot blocks).
+    blockDurationMinutes :: Lude.Maybe Lude.Int,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon EC2 User Guide for Linux Instances/ .
     clientToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of Spot Instances to launch.
+    --
+    -- Default: 1
     instanceCount :: Lude.Maybe Lude.Int,
-    instanceInterruptionBehavior ::
-      Lude.Maybe InstanceInterruptionBehavior,
+    -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
+    instanceInterruptionBehavior :: Lude.Maybe InstanceInterruptionBehavior,
+    -- | The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
     spotPrice :: Lude.Maybe Lude.Text,
-    launchSpecification ::
-      Lude.Maybe RequestSpotLaunchSpecification,
+    -- | The launch specification.
+    launchSpecification :: Lude.Maybe RequestSpotLaunchSpecification,
+    -- | The user-specified name for a logical grouping of requests.
+    --
+    -- When you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active.
+    -- If there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group.
+    -- Default: Instances are launched in any available Availability Zone.
     availabilityZoneGroup :: Lude.Maybe Lude.Text,
-    tagSpecifications ::
-      Lude.Maybe [TagSpecification],
+    -- | The key-value pair for tagging the Spot Instance request on creation. The value for @ResourceType@ must be @spot-instances-request@ , otherwise the Spot Instance request fails. To tag the Spot Instance request after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
+    tagSpecifications :: Lude.Maybe [TagSpecification],
+    -- | The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    --
+    --
+    --     * For a persistent request, the request remains active until the @ValidUntil@ date and time is reached. Otherwise, the request remains active until you cancel it.
+    --
+    --
+    --     * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @ValidUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
     validUntil :: Lude.Maybe Lude.DateTime,
+    -- | The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
+    --
+    -- Default: Instances are launched and terminated individually
     launchGroup :: Lude.Maybe Lude.Text,
+    -- | The Spot Instance request type.
+    --
+    -- Default: @one-time@
     type' :: Lude.Maybe SpotInstanceType,
+    -- | The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.
+    --
+    -- The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.
     validFrom :: Lude.Maybe Lude.DateTime,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
     dryRun :: Lude.Maybe Lude.Bool
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestSpotInstances' with the minimum fields required to make a request.
 --
--- * 'availabilityZoneGroup' - The user-specified name for a logical grouping of requests.
---
--- When you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active.
--- If there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group.
--- Default: Instances are launched in any available Availability Zone.
 -- * 'blockDurationMinutes' - The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
 --
 -- The duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.
 -- You can't specify an Availability Zone group or a launch group if you specify a duration.
 -- New accounts or accounts with no previous billing history with AWS are not eligible for Spot Instances with a defined duration (also known as Spot blocks).
 -- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon EC2 User Guide for Linux Instances/ .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 -- * 'instanceCount' - The maximum number of Spot Instances to launch.
 --
 -- Default: 1
 -- * 'instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is @terminate@ .
--- * 'launchGroup' - The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
---
--- Default: Instances are launched and terminated individually
--- * 'launchSpecification' - The launch specification.
 -- * 'spotPrice' - The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
+-- * 'launchSpecification' - The launch specification.
+-- * 'availabilityZoneGroup' - The user-specified name for a logical grouping of requests.
+--
+-- When you specify an Availability Zone group in a Spot Instance request, all Spot Instances in the request are launched in the same Availability Zone. Instance proximity is maintained with this parameter, but the choice of Availability Zone is not. The group applies only to requests for Spot Instances of the same instance type. Any additional Spot Instance requests that are specified with the same Availability Zone group name are launched in that same Availability Zone, as long as at least one instance from the group is still active.
+-- If there is no active instance running in the Availability Zone group that you specify for a new Spot Instance request (all instances are terminated, the request is expired, or the maximum price you specified falls below current Spot price), then Amazon EC2 launches the instance in any Availability Zone where the constraint can be met. Consequently, the subsequent set of Spot Instances could be placed in a different zone from the original request, even if you specified the same Availability Zone group.
+-- Default: Instances are launched in any available Availability Zone.
 -- * 'tagSpecifications' - The key-value pair for tagging the Spot Instance request on creation. The value for @ResourceType@ must be @spot-instances-request@ , otherwise the Spot Instance request fails. To tag the Spot Instance request after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
--- * 'type'' - The Spot Instance request type.
---
--- Default: @one-time@
--- * 'validFrom' - The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.
---
--- The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.
 -- * 'validUntil' - The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 --
@@ -119,6 +135,18 @@ data RequestSpotInstances = RequestSpotInstances'
 --
 --
 --     * For a one-time request, the request remains active until all instances launch, the request is canceled, or the @ValidUntil@ date and time is reached. By default, the request is valid for 7 days from the date the request was created.
+--
+--
+-- * 'launchGroup' - The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
+--
+-- Default: Instances are launched and terminated individually
+-- * 'type'' - The Spot Instance request type.
+--
+-- Default: @one-time@
+-- * 'validFrom' - The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.
+--
+-- The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.
+-- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 mkRequestSpotInstances ::
   RequestSpotInstances
 mkRequestSpotInstances =
@@ -145,46 +173,46 @@ mkRequestSpotInstances =
 -- New accounts or accounts with no previous billing history with AWS are not eligible for Spot Instances with a defined duration (also known as Spot blocks).
 --
 -- /Note:/ Consider using 'blockDurationMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisBlockDurationMinutes :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Int)
-rsisBlockDurationMinutes = Lens.lens (blockDurationMinutes :: RequestSpotInstances -> Lude.Maybe Lude.Int) (\s a -> s {blockDurationMinutes = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisBlockDurationMinutes "Use generic-lens or generic-optics with 'blockDurationMinutes' instead." #-}
+rsiBlockDurationMinutes :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Int)
+rsiBlockDurationMinutes = Lens.lens (blockDurationMinutes :: RequestSpotInstances -> Lude.Maybe Lude.Int) (\s a -> s {blockDurationMinutes = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiBlockDurationMinutes "Use generic-lens or generic-optics with 'blockDurationMinutes' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon EC2 User Guide for Linux Instances/ .
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisClientToken :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
-rsisClientToken = Lens.lens (clientToken :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+rsiClientToken :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
+rsiClientToken = Lens.lens (clientToken :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The maximum number of Spot Instances to launch.
 --
 -- Default: 1
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisInstanceCount :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Int)
-rsisInstanceCount = Lens.lens (instanceCount :: RequestSpotInstances -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
+rsiInstanceCount :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Int)
+rsiInstanceCount = Lens.lens (instanceCount :: RequestSpotInstances -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The behavior when a Spot Instance is interrupted. The default is @terminate@ .
 --
 -- /Note:/ Consider using 'instanceInterruptionBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisInstanceInterruptionBehavior :: Lens.Lens' RequestSpotInstances (Lude.Maybe InstanceInterruptionBehavior)
-rsisInstanceInterruptionBehavior = Lens.lens (instanceInterruptionBehavior :: RequestSpotInstances -> Lude.Maybe InstanceInterruptionBehavior) (\s a -> s {instanceInterruptionBehavior = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisInstanceInterruptionBehavior "Use generic-lens or generic-optics with 'instanceInterruptionBehavior' instead." #-}
+rsiInstanceInterruptionBehavior :: Lens.Lens' RequestSpotInstances (Lude.Maybe InstanceInterruptionBehavior)
+rsiInstanceInterruptionBehavior = Lens.lens (instanceInterruptionBehavior :: RequestSpotInstances -> Lude.Maybe InstanceInterruptionBehavior) (\s a -> s {instanceInterruptionBehavior = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiInstanceInterruptionBehavior "Use generic-lens or generic-optics with 'instanceInterruptionBehavior' instead." #-}
 
 -- | The maximum price per hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.
 --
 -- /Note:/ Consider using 'spotPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisSpotPrice :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
-rsisSpotPrice = Lens.lens (spotPrice :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
+rsiSpotPrice :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
+rsiSpotPrice = Lens.lens (spotPrice :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {spotPrice = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiSpotPrice "Use generic-lens or generic-optics with 'spotPrice' instead." #-}
 
 -- | The launch specification.
 --
 -- /Note:/ Consider using 'launchSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisLaunchSpecification :: Lens.Lens' RequestSpotInstances (Lude.Maybe RequestSpotLaunchSpecification)
-rsisLaunchSpecification = Lens.lens (launchSpecification :: RequestSpotInstances -> Lude.Maybe RequestSpotLaunchSpecification) (\s a -> s {launchSpecification = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisLaunchSpecification "Use generic-lens or generic-optics with 'launchSpecification' instead." #-}
+rsiLaunchSpecification :: Lens.Lens' RequestSpotInstances (Lude.Maybe RequestSpotLaunchSpecification)
+rsiLaunchSpecification = Lens.lens (launchSpecification :: RequestSpotInstances -> Lude.Maybe RequestSpotLaunchSpecification) (\s a -> s {launchSpecification = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiLaunchSpecification "Use generic-lens or generic-optics with 'launchSpecification' instead." #-}
 
 -- | The user-specified name for a logical grouping of requests.
 --
@@ -193,16 +221,16 @@ rsisLaunchSpecification = Lens.lens (launchSpecification :: RequestSpotInstances
 -- Default: Instances are launched in any available Availability Zone.
 --
 -- /Note:/ Consider using 'availabilityZoneGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisAvailabilityZoneGroup :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
-rsisAvailabilityZoneGroup = Lens.lens (availabilityZoneGroup :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneGroup = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisAvailabilityZoneGroup "Use generic-lens or generic-optics with 'availabilityZoneGroup' instead." #-}
+rsiAvailabilityZoneGroup :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
+rsiAvailabilityZoneGroup = Lens.lens (availabilityZoneGroup :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneGroup = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiAvailabilityZoneGroup "Use generic-lens or generic-optics with 'availabilityZoneGroup' instead." #-}
 
 -- | The key-value pair for tagging the Spot Instance request on creation. The value for @ResourceType@ must be @spot-instances-request@ , otherwise the Spot Instance request fails. To tag the Spot Instance request after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisTagSpecifications :: Lens.Lens' RequestSpotInstances (Lude.Maybe [TagSpecification])
-rsisTagSpecifications = Lens.lens (tagSpecifications :: RequestSpotInstances -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+rsiTagSpecifications :: Lens.Lens' RequestSpotInstances (Lude.Maybe [TagSpecification])
+rsiTagSpecifications = Lens.lens (tagSpecifications :: RequestSpotInstances -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The end date of the request, in UTC format (/YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
@@ -215,43 +243,43 @@ rsisTagSpecifications = Lens.lens (tagSpecifications :: RequestSpotInstances -> 
 --
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisValidUntil :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.DateTime)
-rsisValidUntil = Lens.lens (validUntil :: RequestSpotInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
+rsiValidUntil :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.DateTime)
+rsiValidUntil = Lens.lens (validUntil :: RequestSpotInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
 -- | The instance launch group. Launch groups are Spot Instances that launch together and terminate together.
 --
 -- Default: Instances are launched and terminated individually
 --
 -- /Note:/ Consider using 'launchGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisLaunchGroup :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
-rsisLaunchGroup = Lens.lens (launchGroup :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {launchGroup = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisLaunchGroup "Use generic-lens or generic-optics with 'launchGroup' instead." #-}
+rsiLaunchGroup :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Text)
+rsiLaunchGroup = Lens.lens (launchGroup :: RequestSpotInstances -> Lude.Maybe Lude.Text) (\s a -> s {launchGroup = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiLaunchGroup "Use generic-lens or generic-optics with 'launchGroup' instead." #-}
 
 -- | The Spot Instance request type.
 --
 -- Default: @one-time@
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisType :: Lens.Lens' RequestSpotInstances (Lude.Maybe SpotInstanceType)
-rsisType = Lens.lens (type' :: RequestSpotInstances -> Lude.Maybe SpotInstanceType) (\s a -> s {type' = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisType "Use generic-lens or generic-optics with 'type'' instead." #-}
+rsiType :: Lens.Lens' RequestSpotInstances (Lude.Maybe SpotInstanceType)
+rsiType = Lens.lens (type' :: RequestSpotInstances -> Lude.Maybe SpotInstanceType) (\s a -> s {type' = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.
 --
 -- The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.
 --
 -- /Note:/ Consider using 'validFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisValidFrom :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.DateTime)
-rsisValidFrom = Lens.lens (validFrom :: RequestSpotInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
+rsiValidFrom :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.DateTime)
+rsiValidFrom = Lens.lens (validFrom :: RequestSpotInstances -> Lude.Maybe Lude.DateTime) (\s a -> s {validFrom = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiValidFrom "Use generic-lens or generic-optics with 'validFrom' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisDryRun :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Bool)
-rsisDryRun = Lens.lens (dryRun :: RequestSpotInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RequestSpotInstances)
-{-# DEPRECATED rsisDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+rsiDryRun :: Lens.Lens' RequestSpotInstances (Lude.Maybe Lude.Bool)
+rsiDryRun = Lens.lens (dryRun :: RequestSpotInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RequestSpotInstances)
+{-# DEPRECATED rsiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 instance Lude.AWSRequest RequestSpotInstances where
   type Rs RequestSpotInstances = RequestSpotInstancesResponse
@@ -298,23 +326,18 @@ instance Lude.ToQuery RequestSpotInstances where
 --
 -- /See:/ 'mkRequestSpotInstancesResponse' smart constructor.
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
-  { spotInstanceRequests ::
-      Lude.Maybe [SpotInstanceRequest],
+  { -- | One or more Spot Instance requests.
+    spotInstanceRequests :: Lude.Maybe [SpotInstanceRequest],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'RequestSpotInstancesResponse' with the minimum fields required to make a request.
 --
--- * 'responseStatus' - The response status code.
 -- * 'spotInstanceRequests' - One or more Spot Instance requests.
+-- * 'responseStatus' - The response status code.
 mkRequestSpotInstancesResponse ::
   -- | 'responseStatus'
   Lude.Int ->

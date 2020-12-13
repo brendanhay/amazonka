@@ -42,35 +42,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkContactMethod' smart constructor.
 data ContactMethod = ContactMethod'
-  { status ::
-      Lude.Maybe ContactMethodStatus,
+  { -- | The current status of the contact method.
+    --
+    -- A contact method has the following possible status:
+    --
+    --     * @PendingVerification@ - The contact method has not yet been verified, and the verification has not yet expired.
+    --
+    --
+    --     * @Valid@ - The contact method has been verified.
+    --
+    --
+    --     * @InValid@ - An attempt was made to verify the contact method, but the verification has expired.
+    status :: Lude.Maybe ContactMethodStatus,
+    -- | The Lightsail resource type (e.g., @ContactMethod@ ).
     resourceType :: Lude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the contact method.
     arn :: Lude.Maybe Lude.Text,
+    -- | The timestamp when the contact method was created.
     createdAt :: Lude.Maybe Lude.Timestamp,
     location :: Lude.Maybe ResourceLocation,
+    -- | The protocol of the contact method, such as email or SMS (text messaging).
     protocol :: Lude.Maybe ContactProtocol,
+    -- | The name of the contact method.
     name :: Lude.Maybe Lude.Text,
+    -- | The support code. Include this code in your email to support when you have questions about your Lightsail contact method. This code enables our support team to look up your Lightsail information more easily.
     supportCode :: Lude.Maybe Lude.Text,
+    -- | The destination of the contact method, such as an email address or a mobile phone number.
     contactEndpoint :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ContactMethod' with the minimum fields required to make a request.
 --
--- * 'arn' - The Amazon Resource Name (ARN) of the contact method.
--- * 'contactEndpoint' - The destination of the contact method, such as an email address or a mobile phone number.
--- * 'createdAt' - The timestamp when the contact method was created.
--- * 'location' - Undocumented field.
--- * 'name' - The name of the contact method.
--- * 'protocol' - The protocol of the contact method, such as email or SMS (text messaging).
--- * 'resourceType' - The Lightsail resource type (e.g., @ContactMethod@ ).
 -- * 'status' - The current status of the contact method.
 --
 -- A contact method has the following possible status:
@@ -84,7 +88,14 @@ data ContactMethod = ContactMethod'
 --     * @InValid@ - An attempt was made to verify the contact method, but the verification has expired.
 --
 --
+-- * 'resourceType' - The Lightsail resource type (e.g., @ContactMethod@ ).
+-- * 'arn' - The Amazon Resource Name (ARN) of the contact method.
+-- * 'createdAt' - The timestamp when the contact method was created.
+-- * 'location' -
+-- * 'protocol' - The protocol of the contact method, such as email or SMS (text messaging).
+-- * 'name' - The name of the contact method.
 -- * 'supportCode' - The support code. Include this code in your email to support when you have questions about your Lightsail contact method. This code enables our support team to look up your Lightsail information more easily.
+-- * 'contactEndpoint' - The destination of the contact method, such as an email address or a mobile phone number.
 mkContactMethod ::
   ContactMethod
 mkContactMethod =

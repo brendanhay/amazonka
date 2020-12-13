@@ -14,8 +14,8 @@ module Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm
   ( Vp9FramerateConversionAlgorithm
       ( Vp9FramerateConversionAlgorithm',
         VFCADuplicateDrop,
-        VFCAFrameformer,
-        VFCAInterpolate
+        VFCAInterpolate,
+        VFCAFrameformer
       ),
   )
 where
@@ -50,15 +50,15 @@ newtype Vp9FramerateConversionAlgorithm = Vp9FramerateConversionAlgorithm' Lude.
 pattern VFCADuplicateDrop :: Vp9FramerateConversionAlgorithm
 pattern VFCADuplicateDrop = Vp9FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern VFCAFrameformer :: Vp9FramerateConversionAlgorithm
-pattern VFCAFrameformer = Vp9FramerateConversionAlgorithm' "FRAMEFORMER"
-
 pattern VFCAInterpolate :: Vp9FramerateConversionAlgorithm
 pattern VFCAInterpolate = Vp9FramerateConversionAlgorithm' "INTERPOLATE"
 
+pattern VFCAFrameformer :: Vp9FramerateConversionAlgorithm
+pattern VFCAFrameformer = Vp9FramerateConversionAlgorithm' "FRAMEFORMER"
+
 {-# COMPLETE
   VFCADuplicateDrop,
-  VFCAFrameformer,
   VFCAInterpolate,
+  VFCAFrameformer,
   Vp9FramerateConversionAlgorithm'
   #-}

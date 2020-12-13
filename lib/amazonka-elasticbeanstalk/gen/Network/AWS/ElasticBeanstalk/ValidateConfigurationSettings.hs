@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,9 +23,9 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 
     -- ** Request lenses
     vcsTemplateName,
+    vcsOptionSettings,
     vcsEnvironmentName,
     vcsApplicationName,
-    vcsOptionSettings,
 
     -- * Destructuring the response
     ValidateConfigurationSettingsResponse (..),
@@ -46,33 +47,32 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkValidateConfigurationSettings' smart constructor.
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-  { templateName ::
-      Lude.Maybe Lude.Text,
-    environmentName ::
-      Lude.Maybe Lude.Text,
-    applicationName :: Lude.Text,
-    optionSettings ::
-      [ConfigurationOptionSetting]
+  { -- | The name of the configuration template to validate the settings against.
+    --
+    -- Condition: You cannot specify both this and an environment name.
+    templateName :: Lude.Maybe Lude.Text,
+    -- | A list of the options and desired values to evaluate.
+    optionSettings :: [ConfigurationOptionSetting],
+    -- | The name of the environment to validate the settings against.
+    --
+    -- Condition: You cannot specify both this and a configuration template name.
+    environmentName :: Lude.Maybe Lude.Text,
+    -- | The name of the application that the configuration template or environment belongs to.
+    applicationName :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateConfigurationSettings' with the minimum fields required to make a request.
 --
--- * 'applicationName' - The name of the application that the configuration template or environment belongs to.
--- * 'environmentName' - The name of the environment to validate the settings against.
---
--- Condition: You cannot specify both this and a configuration template name.
--- * 'optionSettings' - A list of the options and desired values to evaluate.
 -- * 'templateName' - The name of the configuration template to validate the settings against.
 --
 -- Condition: You cannot specify both this and an environment name.
+-- * 'optionSettings' - A list of the options and desired values to evaluate.
+-- * 'environmentName' - The name of the environment to validate the settings against.
+--
+-- Condition: You cannot specify both this and a configuration template name.
+-- * 'applicationName' - The name of the application that the configuration template or environment belongs to.
 mkValidateConfigurationSettings ::
   -- | 'applicationName'
   Lude.Text ->
@@ -80,9 +80,9 @@ mkValidateConfigurationSettings ::
 mkValidateConfigurationSettings pApplicationName_ =
   ValidateConfigurationSettings'
     { templateName = Lude.Nothing,
+      optionSettings = Lude.mempty,
       environmentName = Lude.Nothing,
-      applicationName = pApplicationName_,
-      optionSettings = Lude.mempty
+      applicationName = pApplicationName_
     }
 
 -- | The name of the configuration template to validate the settings against.
@@ -93,6 +93,13 @@ mkValidateConfigurationSettings pApplicationName_ =
 vcsTemplateName :: Lens.Lens' ValidateConfigurationSettings (Lude.Maybe Lude.Text)
 vcsTemplateName = Lens.lens (templateName :: ValidateConfigurationSettings -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: ValidateConfigurationSettings)
 {-# DEPRECATED vcsTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+-- | A list of the options and desired values to evaluate.
+--
+-- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcsOptionSettings :: Lens.Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
+vcsOptionSettings = Lens.lens (optionSettings :: ValidateConfigurationSettings -> [ConfigurationOptionSetting]) (\s a -> s {optionSettings = a} :: ValidateConfigurationSettings)
+{-# DEPRECATED vcsOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
 -- | The name of the environment to validate the settings against.
 --
@@ -109,13 +116,6 @@ vcsEnvironmentName = Lens.lens (environmentName :: ValidateConfigurationSettings
 vcsApplicationName :: Lens.Lens' ValidateConfigurationSettings Lude.Text
 vcsApplicationName = Lens.lens (applicationName :: ValidateConfigurationSettings -> Lude.Text) (\s a -> s {applicationName = a} :: ValidateConfigurationSettings)
 {-# DEPRECATED vcsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
-
--- | A list of the options and desired values to evaluate.
---
--- /Note:/ Consider using 'optionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcsOptionSettings :: Lens.Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-vcsOptionSettings = Lens.lens (optionSettings :: ValidateConfigurationSettings -> [ConfigurationOptionSetting]) (\s a -> s {optionSettings = a} :: ValidateConfigurationSettings)
-{-# DEPRECATED vcsOptionSettings "Use generic-lens or generic-optics with 'optionSettings' instead." #-}
 
 instance Lude.AWSRequest ValidateConfigurationSettings where
   type
@@ -146,28 +146,21 @@ instance Lude.ToQuery ValidateConfigurationSettings where
           Lude.=: ("ValidateConfigurationSettings" :: Lude.ByteString),
         "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
         "TemplateName" Lude.=: templateName,
+        "OptionSettings" Lude.=: Lude.toQueryList "member" optionSettings,
         "EnvironmentName" Lude.=: environmentName,
-        "ApplicationName" Lude.=: applicationName,
-        "OptionSettings" Lude.=: Lude.toQueryList "member" optionSettings
+        "ApplicationName" Lude.=: applicationName
       ]
 
 -- | Provides a list of validation messages.
 --
 -- /See:/ 'mkValidateConfigurationSettingsResponse' smart constructor.
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
-  { messages ::
-      Lude.Maybe
-        [ValidationMessage],
-    responseStatus ::
-      Lude.Int
+  { -- | A list of 'ValidationMessage' .
+    messages :: Lude.Maybe [ValidationMessage],
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ValidateConfigurationSettingsResponse' with the minimum fields required to make a request.

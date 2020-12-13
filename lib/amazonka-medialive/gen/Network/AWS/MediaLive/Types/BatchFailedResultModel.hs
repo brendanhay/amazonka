@@ -31,26 +31,23 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchFailedResultModel' smart constructor.
 data BatchFailedResultModel = BatchFailedResultModel'
-  { arn ::
-      Lude.Maybe Lude.Text,
+  { -- | ARN of the resource
+    arn :: Lude.Maybe Lude.Text,
+    -- | ID of the resource
     id :: Lude.Maybe Lude.Text,
+    -- | Error code for the failed operation
     code :: Lude.Maybe Lude.Text,
+    -- | Error message for the failed operation
     message :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BatchFailedResultModel' with the minimum fields required to make a request.
 --
 -- * 'arn' - ARN of the resource
--- * 'code' - Error code for the failed operation
 -- * 'id' - ID of the resource
+-- * 'code' - Error code for the failed operation
 -- * 'message' - Error message for the failed operation
 mkBatchFailedResultModel ::
   BatchFailedResultModel

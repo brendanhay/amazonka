@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -45,26 +46,25 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkListDeploymentTargets' smart constructor.
 data ListDeploymentTargets = ListDeploymentTargets'
-  { deploymentId ::
-      Lude.Maybe Lude.Text,
-    targetFilters ::
-      Lude.Maybe
-        (Lude.HashMap TargetFilterName ([Lude.Text])),
+  { -- | The unique ID of a deployment.
+    deploymentId :: Lude.Maybe Lude.Text,
+    -- | A key used to filter the returned targets. The two valid values are:
+    --
+    --
+    --     * @TargetStatus@ - A @TargetStatus@ filter string can be @Failed@ , @InProgress@ , @Pending@ , @Ready@ , @Skipped@ , @Succeeded@ , or @Unknown@ .
+    --
+    --
+    --     * @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be @Blue@ or @Green@ .
+    targetFilters :: Lude.Maybe (Lude.HashMap TargetFilterName ([Lude.Text])),
+    -- | A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
     nextToken :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentTargets' with the minimum fields required to make a request.
 --
 -- * 'deploymentId' - The unique ID of a deployment.
--- * 'nextToken' - A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
 -- * 'targetFilters' - A key used to filter the returned targets. The two valid values are:
 --
 --
@@ -72,6 +72,9 @@ data ListDeploymentTargets = ListDeploymentTargets'
 --
 --
 --     * @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be @Blue@ or @Green@ .
+--
+--
+-- * 'nextToken' - A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
 mkListDeploymentTargets ::
   ListDeploymentTargets
 mkListDeploymentTargets =
@@ -160,26 +163,21 @@ instance Lude.ToQuery ListDeploymentTargets where
 
 -- | /See:/ 'mkListDeploymentTargetsResponse' smart constructor.
 data ListDeploymentTargetsResponse = ListDeploymentTargetsResponse'
-  { nextToken ::
-      Lude.Maybe Lude.Text,
-    targetIds ::
-      Lude.Maybe [Lude.Text],
+  { -- | If a large amount of information is returned, a token identifier is also returned. It can be used in a subsequent @ListDeploymentTargets@ call to return the next set of deployment targets in the list.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The unique IDs of deployment targets.
+    targetIds :: Lude.Maybe [Lude.Text],
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'ListDeploymentTargetsResponse' with the minimum fields required to make a request.
 --
 -- * 'nextToken' - If a large amount of information is returned, a token identifier is also returned. It can be used in a subsequent @ListDeploymentTargets@ call to return the next set of deployment targets in the list.
--- * 'responseStatus' - The response status code.
 -- * 'targetIds' - The unique IDs of deployment targets.
+-- * 'responseStatus' - The response status code.
 mkListDeploymentTargetsResponse ::
   -- | 'responseStatus'
   Lude.Int ->

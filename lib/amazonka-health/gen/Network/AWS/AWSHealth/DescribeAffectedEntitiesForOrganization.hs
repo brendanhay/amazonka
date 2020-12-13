@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -25,9 +26,9 @@ module Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization
 
     -- ** Request lenses
     daefoLocale,
+    daefoOrganizationEntityFilters,
     daefoNextToken,
     daefoMaxResults,
-    daefoOrganizationEntityFilters,
 
     -- * Destructuring the response
     DescribeAffectedEntitiesForOrganizationResponse (..),
@@ -50,34 +51,24 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkDescribeAffectedEntitiesForOrganization' smart constructor.
 data DescribeAffectedEntitiesForOrganization = DescribeAffectedEntitiesForOrganization'
-  { locale ::
-      Lude.Maybe
-        Lude.Text,
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    maxResults ::
-      Lude.Maybe
-        Lude.Natural,
-    organizationEntityFilters ::
-      Lude.NonEmpty
-        EventAccountFilter
+  { -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Lude.Maybe Lude.Text,
+    -- | A JSON set of elements including the @awsAccountId@ and the @eventArn@ .
+    organizationEntityFilters :: Lude.NonEmpty EventAccountFilter,
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The maximum number of items to return in one batch, between 10 and 100, inclusive.
+    maxResults :: Lude.Maybe Lude.Natural
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAffectedEntitiesForOrganization' with the minimum fields required to make a request.
 --
 -- * 'locale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
--- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
--- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 -- * 'organizationEntityFilters' - A JSON set of elements including the @awsAccountId@ and the @eventArn@ .
+-- * 'nextToken' - If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+-- * 'maxResults' - The maximum number of items to return in one batch, between 10 and 100, inclusive.
 mkDescribeAffectedEntitiesForOrganization ::
   -- | 'organizationEntityFilters'
   Lude.NonEmpty EventAccountFilter ->
@@ -86,10 +77,10 @@ mkDescribeAffectedEntitiesForOrganization
   pOrganizationEntityFilters_ =
     DescribeAffectedEntitiesForOrganization'
       { locale = Lude.Nothing,
-        nextToken = Lude.Nothing,
-        maxResults = Lude.Nothing,
         organizationEntityFilters =
-          pOrganizationEntityFilters_
+          pOrganizationEntityFilters_,
+        nextToken = Lude.Nothing,
+        maxResults = Lude.Nothing
       }
 
 -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
@@ -98,6 +89,13 @@ mkDescribeAffectedEntitiesForOrganization
 daefoLocale :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Lude.Maybe Lude.Text)
 daefoLocale = Lens.lens (locale :: DescribeAffectedEntitiesForOrganization -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: DescribeAffectedEntitiesForOrganization)
 {-# DEPRECATED daefoLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
+-- | A JSON set of elements including the @awsAccountId@ and the @eventArn@ .
+--
+-- /Note:/ Consider using 'organizationEntityFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daefoOrganizationEntityFilters :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Lude.NonEmpty EventAccountFilter)
+daefoOrganizationEntityFilters = Lens.lens (organizationEntityFilters :: DescribeAffectedEntitiesForOrganization -> Lude.NonEmpty EventAccountFilter) (\s a -> s {organizationEntityFilters = a} :: DescribeAffectedEntitiesForOrganization)
+{-# DEPRECATED daefoOrganizationEntityFilters "Use generic-lens or generic-optics with 'organizationEntityFilters' instead." #-}
 
 -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
 --
@@ -112,13 +110,6 @@ daefoNextToken = Lens.lens (nextToken :: DescribeAffectedEntitiesForOrganization
 daefoMaxResults :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Lude.Maybe Lude.Natural)
 daefoMaxResults = Lens.lens (maxResults :: DescribeAffectedEntitiesForOrganization -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAffectedEntitiesForOrganization)
 {-# DEPRECATED daefoMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | A JSON set of elements including the @awsAccountId@ and the @eventArn@ .
---
--- /Note:/ Consider using 'organizationEntityFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daefoOrganizationEntityFilters :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Lude.NonEmpty EventAccountFilter)
-daefoOrganizationEntityFilters = Lens.lens (organizationEntityFilters :: DescribeAffectedEntitiesForOrganization -> Lude.NonEmpty EventAccountFilter) (\s a -> s {organizationEntityFilters = a} :: DescribeAffectedEntitiesForOrganization)
-{-# DEPRECATED daefoOrganizationEntityFilters "Use generic-lens or generic-optics with 'organizationEntityFilters' instead." #-}
 
 instance Page.AWSPager DescribeAffectedEntitiesForOrganization where
   page rq rs
@@ -162,10 +153,10 @@ instance Lude.ToJSON DescribeAffectedEntitiesForOrganization where
     Lude.object
       ( Lude.catMaybes
           [ ("locale" Lude..=) Lude.<$> locale,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults,
             Lude.Just
-              ("organizationEntityFilters" Lude..= organizationEntityFilters)
+              ("organizationEntityFilters" Lude..= organizationEntityFilters),
+            ("nextToken" Lude..=) Lude.<$> nextToken,
+            ("maxResults" Lude..=) Lude.<$> maxResults
           ]
       )
 
@@ -177,29 +168,17 @@ instance Lude.ToQuery DescribeAffectedEntitiesForOrganization where
 
 -- | /See:/ 'mkDescribeAffectedEntitiesForOrganizationResponse' smart constructor.
 data DescribeAffectedEntitiesForOrganizationResponse = DescribeAffectedEntitiesForOrganizationResponse'
-  { entities ::
-      Lude.Maybe
-        [AffectedEntity],
-    failedSet ::
-      Lude.Maybe
-        [OrganizationAffectedEntitiesErrorItem],
-    nextToken ::
-      Lude.Maybe
-        Lude.Text,
-    responseStatus ::
-      Lude.Int
+  { -- | A JSON set of elements including the @awsAccountId@ and its @entityArn@ , @entityValue@ and its @entityArn@ , @lastUpdatedTime@ , and @statusCode@ .
+    entities :: Lude.Maybe [AffectedEntity],
+    -- | A JSON set of elements of the failed response, including the @awsAccountId@ , @errorMessage@ , @errorName@ , and @eventArn@ .
+    failedSet :: Lude.Maybe [OrganizationAffectedEntitiesErrorItem],
+    -- | If the results of a search are large, only a portion of the results are returned, and a @nextToken@ pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.
+    nextToken :: Lude.Maybe Lude.Text,
+    -- | The response status code.
+    responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
-  deriving anyclass
-    ( Lude.Hashable,
-      Lude.NFData
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
+  deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'DescribeAffectedEntitiesForOrganizationResponse' with the minimum fields required to make a request.
 --

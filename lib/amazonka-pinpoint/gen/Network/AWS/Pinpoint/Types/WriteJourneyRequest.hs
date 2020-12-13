@@ -24,11 +24,11 @@ module Network.AWS.Pinpoint.Types.WriteJourneyRequest
     wjrActivities,
     wjrLimits,
     wjrQuietTime,
+    wjrName,
     wjrStartActivity,
     wjrCreationDate,
     wjrStartCondition,
     wjrRefreshFrequency,
-    wjrName,
   )
 where
 
@@ -45,38 +45,72 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkWriteJourneyRequest' smart constructor.
 data WriteJourneyRequest = WriteJourneyRequest'
-  { state ::
-      Lude.Maybe State,
+  { -- | The status of the journey. Valid values are:
+    --
+    --
+    --     * DRAFT - Saves the journey and doesn't publish it.
+    --
+    --
+    --     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
+    --
+    --
+    -- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
+    state :: Lude.Maybe State,
+    -- | The date, in ISO 8601 format, when the journey was last modified.
     lastModifiedDate :: Lude.Maybe Lude.Text,
+    -- | The schedule settings for the journey.
     schedule :: Lude.Maybe JourneySchedule,
+    -- | Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.
     localTime :: Lude.Maybe Lude.Bool,
-    activities ::
-      Lude.Maybe (Lude.HashMap Lude.Text (Activity)),
+    -- | A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.
+    activities :: Lude.Maybe (Lude.HashMap Lude.Text (Activity)),
+    -- | The messaging and entry limits for the journey.
     limits :: Lude.Maybe JourneyLimits,
+    -- | The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:
+    --
+    --
+    --     * The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.
+    --
+    --
+    --     * The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.
+    --
+    --
+    --     * The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.
+    --
+    --
+    -- If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.
     quietTime :: Lude.Maybe QuietTime,
+    -- | The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
+    name :: Lude.Text,
+    -- | The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
     startActivity :: Lude.Maybe Lude.Text,
+    -- | The date, in ISO 8601 format, when the journey was created.
     creationDate :: Lude.Maybe Lude.Text,
+    -- | The segment that defines which users are participants in the journey.
     startCondition :: Lude.Maybe StartCondition,
-    refreshFrequency :: Lude.Maybe Lude.Text,
-    name :: Lude.Text
+    -- | The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.
+    refreshFrequency :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'WriteJourneyRequest' with the minimum fields required to make a request.
 --
--- * 'activities' - A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.
--- * 'creationDate' - The date, in ISO 8601 format, when the journey was created.
+-- * 'state' - The status of the journey. Valid values are:
+--
+--
+--     * DRAFT - Saves the journey and doesn't publish it.
+--
+--
+--     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
+--
+--
+-- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
 -- * 'lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
--- * 'limits' - The messaging and entry limits for the journey.
+-- * 'schedule' - The schedule settings for the journey.
 -- * 'localTime' - Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.
--- * 'name' - The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
+-- * 'activities' - A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.
+-- * 'limits' - The messaging and entry limits for the journey.
 -- * 'quietTime' - The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:
 --
 --
@@ -90,20 +124,11 @@ data WriteJourneyRequest = WriteJourneyRequest'
 --
 --
 -- If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.
--- * 'refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.
--- * 'schedule' - The schedule settings for the journey.
+-- * 'name' - The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
 -- * 'startActivity' - The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
+-- * 'creationDate' - The date, in ISO 8601 format, when the journey was created.
 -- * 'startCondition' - The segment that defines which users are participants in the journey.
--- * 'state' - The status of the journey. Valid values are:
---
---
---     * DRAFT - Saves the journey and doesn't publish it.
---
---
---     * ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.
---
---
--- The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link>Journey State resource.
+-- * 'refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.
 mkWriteJourneyRequest ::
   -- | 'name'
   Lude.Text ->
@@ -117,11 +142,11 @@ mkWriteJourneyRequest pName_ =
       activities = Lude.Nothing,
       limits = Lude.Nothing,
       quietTime = Lude.Nothing,
+      name = pName_,
       startActivity = Lude.Nothing,
       creationDate = Lude.Nothing,
       startCondition = Lude.Nothing,
-      refreshFrequency = Lude.Nothing,
-      name = pName_
+      refreshFrequency = Lude.Nothing
     }
 
 -- | The status of the journey. Valid values are:
@@ -194,6 +219,13 @@ wjrQuietTime :: Lens.Lens' WriteJourneyRequest (Lude.Maybe QuietTime)
 wjrQuietTime = Lens.lens (quietTime :: WriteJourneyRequest -> Lude.Maybe QuietTime) (\s a -> s {quietTime = a} :: WriteJourneyRequest)
 {-# DEPRECATED wjrQuietTime "Use generic-lens or generic-optics with 'quietTime' instead." #-}
 
+-- | The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wjrName :: Lens.Lens' WriteJourneyRequest Lude.Text
+wjrName = Lens.lens (name :: WriteJourneyRequest -> Lude.Text) (\s a -> s {name = a} :: WriteJourneyRequest)
+{-# DEPRECATED wjrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
 -- | The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.
 --
 -- /Note:/ Consider using 'startActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -222,13 +254,6 @@ wjrRefreshFrequency :: Lens.Lens' WriteJourneyRequest (Lude.Maybe Lude.Text)
 wjrRefreshFrequency = Lens.lens (refreshFrequency :: WriteJourneyRequest -> Lude.Maybe Lude.Text) (\s a -> s {refreshFrequency = a} :: WriteJourneyRequest)
 {-# DEPRECATED wjrRefreshFrequency "Use generic-lens or generic-optics with 'refreshFrequency' instead." #-}
 
--- | The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wjrName :: Lens.Lens' WriteJourneyRequest Lude.Text
-wjrName = Lens.lens (name :: WriteJourneyRequest -> Lude.Text) (\s a -> s {name = a} :: WriteJourneyRequest)
-{-# DEPRECATED wjrName "Use generic-lens or generic-optics with 'name' instead." #-}
-
 instance Lude.ToJSON WriteJourneyRequest where
   toJSON WriteJourneyRequest' {..} =
     Lude.object
@@ -240,10 +265,10 @@ instance Lude.ToJSON WriteJourneyRequest where
             ("Activities" Lude..=) Lude.<$> activities,
             ("Limits" Lude..=) Lude.<$> limits,
             ("QuietTime" Lude..=) Lude.<$> quietTime,
+            Lude.Just ("Name" Lude..= name),
             ("StartActivity" Lude..=) Lude.<$> startActivity,
             ("CreationDate" Lude..=) Lude.<$> creationDate,
             ("StartCondition" Lude..=) Lude.<$> startCondition,
-            ("RefreshFrequency" Lude..=) Lude.<$> refreshFrequency,
-            Lude.Just ("Name" Lude..= name)
+            ("RefreshFrequency" Lude..=) Lude.<$> refreshFrequency
           ]
       )

@@ -29,18 +29,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAWSEC2NetworkInterfaceViolation' smart constructor.
 data AWSEC2NetworkInterfaceViolation = AWSEC2NetworkInterfaceViolation'
-  { violatingSecurityGroups ::
-      Lude.Maybe [Lude.Text],
-    violationTarget ::
-      Lude.Maybe Lude.Text
+  { -- | List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy.
+    violatingSecurityGroups :: Lude.Maybe [Lude.Text],
+    -- | The resource ID of the network interface.
+    violationTarget :: Lude.Maybe Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'AWSEC2NetworkInterfaceViolation' with the minimum fields required to make a request.

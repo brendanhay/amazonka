@@ -41,46 +41,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkQualificationType' smart constructor.
 data QualificationType = QualificationType'
-  { creationTime ::
-      Lude.Maybe Lude.Timestamp,
+  { -- | The date and time the Qualification type was created.
+    creationTime :: Lude.Maybe Lude.Timestamp,
+    -- | The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification.
     testDurationInSeconds :: Lude.Maybe Lude.Integer,
-    qualificationTypeStatus ::
-      Lude.Maybe QualificationTypeStatus,
+    -- | The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive.
+    qualificationTypeStatus :: Lude.Maybe QualificationTypeStatus,
+    -- | The answers to the Qualification test specified in the Test parameter.
     answerKey :: Lude.Maybe Lude.Text,
+    -- | The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true.
     test :: Lude.Maybe Lude.Text,
+    -- | A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation.
     qualificationTypeId :: Lude.Maybe Lude.Text,
+    -- | The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search.
     name :: Lude.Maybe Lude.Text,
+    -- | One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search.
     keywords :: Lude.Maybe Lude.Text,
+    -- | Specifies that requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Valid values are True | False.
     autoGranted :: Lude.Maybe Lude.Bool,
+    -- | The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default.
     autoGrantedValue :: Lude.Maybe Lude.Int,
+    -- | A long description for the Qualification type.
     description :: Lude.Maybe Lude.Text,
+    -- | Specifies whether the Qualification type is one that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test. This value is False for Qualifications assigned automatically by the system. Valid values are True | False.
     isRequestable :: Lude.Maybe Lude.Bool,
+    -- | The amount of time, in seconds, Workers must wait after taking the Qualification test before they can take it again. Workers can take a Qualification test multiple times if they were not granted the Qualification from a previous attempt, or if the test offers a gradient score and they want a better score. If not specified, retries are disabled and Workers can request a Qualification only once.
     retryDelayInSeconds :: Lude.Maybe Lude.Integer
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'QualificationType' with the minimum fields required to make a request.
 --
+-- * 'creationTime' - The date and time the Qualification type was created.
+-- * 'testDurationInSeconds' - The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification.
+-- * 'qualificationTypeStatus' - The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive.
 -- * 'answerKey' - The answers to the Qualification test specified in the Test parameter.
+-- * 'test' - The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true.
+-- * 'qualificationTypeId' - A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation.
+-- * 'name' - The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search.
+-- * 'keywords' - One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search.
 -- * 'autoGranted' - Specifies that requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test. Valid values are True | False.
 -- * 'autoGrantedValue' - The Qualification integer value to use for automatically granted Qualifications, if AutoGranted is true. This is 1 by default.
--- * 'creationTime' - The date and time the Qualification type was created.
 -- * 'description' - A long description for the Qualification type.
 -- * 'isRequestable' - Specifies whether the Qualification type is one that a user can request through the Amazon Mechanical Turk web site, such as by taking a Qualification test. This value is False for Qualifications assigned automatically by the system. Valid values are True | False.
--- * 'keywords' - One or more words or phrases that describe theQualification type, separated by commas. The Keywords make the type easier to find using a search.
--- * 'name' - The name of the Qualification type. The type name is used to identify the type, and to find the type using a Qualification type search.
--- * 'qualificationTypeId' - A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation.
--- * 'qualificationTypeStatus' - The status of the Qualification type. A Qualification type's status determines if users can apply to receive a Qualification of this type, and if HITs can be created with requirements based on this type. Valid values are Active | Inactive.
 -- * 'retryDelayInSeconds' - The amount of time, in seconds, Workers must wait after taking the Qualification test before they can take it again. Workers can take a Qualification test multiple times if they were not granted the Qualification from a previous attempt, or if the test offers a gradient score and they want a better score. If not specified, retries are disabled and Workers can request a Qualification only once.
--- * 'test' - The questions for a Qualification test associated with this Qualification type that a user can take to obtain a Qualification of this type. This parameter must be specified if AnswerKey is present. A Qualification type cannot have both a specified Test parameter and an AutoGranted value of true.
--- * 'testDurationInSeconds' - The amount of time, in seconds, given to a Worker to complete the Qualification test, beginning from the time the Worker requests the Qualification.
 mkQualificationType ::
   QualificationType
 mkQualificationType =

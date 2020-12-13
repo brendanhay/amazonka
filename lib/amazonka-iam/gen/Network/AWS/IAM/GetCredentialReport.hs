@@ -1,5 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -38,13 +39,7 @@ import qualified Network.AWS.Response as Res
 
 -- | /See:/ 'mkGetCredentialReport' smart constructor.
 data GetCredentialReport = GetCredentialReport'
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCredentialReport' with the minimum fields required to make a request.
@@ -85,30 +80,21 @@ instance Lude.ToQuery GetCredentialReport where
 --
 -- /See:/ 'mkGetCredentialReportResponse' smart constructor.
 data GetCredentialReportResponse = GetCredentialReportResponse'
-  { content ::
-      Lude.Maybe Lude.Base64,
-    generatedTime ::
-      Lude.Maybe Lude.DateTime,
-    reportFormat ::
-      Lude.Maybe ReportFormatType,
+  { -- | Contains the credential report. The report is Base64-encoded.
+    content :: Lude.Maybe Lude.Base64,
+    -- | The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
+    generatedTime :: Lude.Maybe Lude.DateTime,
+    -- | The format (MIME type) of the credential report.
+    reportFormat :: Lude.Maybe ReportFormatType,
+    -- | The response status code.
     responseStatus :: Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'GetCredentialReportResponse' with the minimum fields required to make a request.
 --
--- * 'content' - Contains the credential report. The report is Base64-encoded.--
--- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
--- The underlying isomorphism will encode to Base64 representation during
--- serialisation, and decode from Base64 representation during deserialisation.
--- This 'Lens' accepts and returns only raw unencoded data.
+-- * 'content' - Contains the credential report. The report is Base64-encoded.
 -- * 'generatedTime' - The date and time when the credential report was created, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> .
 -- * 'reportFormat' - The format (MIME type) of the credential report.
 -- * 'responseStatus' - The response status code.

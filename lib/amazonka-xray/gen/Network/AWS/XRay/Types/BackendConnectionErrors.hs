@@ -33,31 +33,29 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBackendConnectionErrors' smart constructor.
 data BackendConnectionErrors = BackendConnectionErrors'
-  { otherCount ::
-      Lude.Maybe Lude.Int,
+  { -- |
+    otherCount :: Lude.Maybe Lude.Int,
+    -- |
     timeoutCount :: Lude.Maybe Lude.Int,
+    -- |
     hTTPCode5XXCount :: Lude.Maybe Lude.Int,
-    connectionRefusedCount ::
-      Lude.Maybe Lude.Int,
+    -- |
+    connectionRefusedCount :: Lude.Maybe Lude.Int,
+    -- |
     hTTPCode4XXCount :: Lude.Maybe Lude.Int,
+    -- |
     unknownHostCount :: Lude.Maybe Lude.Int
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'BackendConnectionErrors' with the minimum fields required to make a request.
 --
--- * 'connectionRefusedCount' -
--- * 'hTTPCode4XXCount' -
--- * 'hTTPCode5XXCount' -
 -- * 'otherCount' -
 -- * 'timeoutCount' -
+-- * 'hTTPCode5XXCount' -
+-- * 'connectionRefusedCount' -
+-- * 'hTTPCode4XXCount' -
 -- * 'unknownHostCount' -
 mkBackendConnectionErrors ::
   BackendConnectionErrors

@@ -17,10 +17,10 @@ module Network.AWS.IoT.Types.CloudwatchAlarmAction
     mkCloudwatchAlarmAction,
 
     -- * Lenses
-    caaRoleARN,
     caaAlarmName,
-    caaStateReason,
     caaStateValue,
+    caaStateReason,
+    caaRoleARN,
   )
 where
 
@@ -31,55 +31,45 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCloudwatchAlarmAction' smart constructor.
 data CloudwatchAlarmAction = CloudwatchAlarmAction'
-  { roleARN ::
-      Lude.Text,
+  { -- | The CloudWatch alarm name.
     alarmName :: Lude.Text,
+    -- | The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+    stateValue :: Lude.Text,
+    -- | The reason for the alarm change.
     stateReason :: Lude.Text,
-    stateValue :: Lude.Text
+    -- | The IAM role that allows access to the CloudWatch alarm.
+    roleARN :: Lude.Text
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'CloudwatchAlarmAction' with the minimum fields required to make a request.
 --
 -- * 'alarmName' - The CloudWatch alarm name.
--- * 'roleARN' - The IAM role that allows access to the CloudWatch alarm.
--- * 'stateReason' - The reason for the alarm change.
 -- * 'stateValue' - The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+-- * 'stateReason' - The reason for the alarm change.
+-- * 'roleARN' - The IAM role that allows access to the CloudWatch alarm.
 mkCloudwatchAlarmAction ::
-  -- | 'roleARN'
-  Lude.Text ->
   -- | 'alarmName'
-  Lude.Text ->
-  -- | 'stateReason'
   Lude.Text ->
   -- | 'stateValue'
   Lude.Text ->
+  -- | 'stateReason'
+  Lude.Text ->
+  -- | 'roleARN'
+  Lude.Text ->
   CloudwatchAlarmAction
 mkCloudwatchAlarmAction
-  pRoleARN_
   pAlarmName_
+  pStateValue_
   pStateReason_
-  pStateValue_ =
+  pRoleARN_ =
     CloudwatchAlarmAction'
-      { roleARN = pRoleARN_,
-        alarmName = pAlarmName_,
+      { alarmName = pAlarmName_,
+        stateValue = pStateValue_,
         stateReason = pStateReason_,
-        stateValue = pStateValue_
+        roleARN = pRoleARN_
       }
-
--- | The IAM role that allows access to the CloudWatch alarm.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caaRoleARN :: Lens.Lens' CloudwatchAlarmAction Lude.Text
-caaRoleARN = Lens.lens (roleARN :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {roleARN = a} :: CloudwatchAlarmAction)
-{-# DEPRECATED caaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The CloudWatch alarm name.
 --
@@ -88,13 +78,6 @@ caaAlarmName :: Lens.Lens' CloudwatchAlarmAction Lude.Text
 caaAlarmName = Lens.lens (alarmName :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {alarmName = a} :: CloudwatchAlarmAction)
 {-# DEPRECATED caaAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
--- | The reason for the alarm change.
---
--- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caaStateReason :: Lens.Lens' CloudwatchAlarmAction Lude.Text
-caaStateReason = Lens.lens (stateReason :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {stateReason = a} :: CloudwatchAlarmAction)
-{-# DEPRECATED caaStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
-
 -- | The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
 --
 -- /Note:/ Consider using 'stateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
@@ -102,25 +85,39 @@ caaStateValue :: Lens.Lens' CloudwatchAlarmAction Lude.Text
 caaStateValue = Lens.lens (stateValue :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {stateValue = a} :: CloudwatchAlarmAction)
 {-# DEPRECATED caaStateValue "Use generic-lens or generic-optics with 'stateValue' instead." #-}
 
+-- | The reason for the alarm change.
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caaStateReason :: Lens.Lens' CloudwatchAlarmAction Lude.Text
+caaStateReason = Lens.lens (stateReason :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {stateReason = a} :: CloudwatchAlarmAction)
+{-# DEPRECATED caaStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
+
+-- | The IAM role that allows access to the CloudWatch alarm.
+--
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caaRoleARN :: Lens.Lens' CloudwatchAlarmAction Lude.Text
+caaRoleARN = Lens.lens (roleARN :: CloudwatchAlarmAction -> Lude.Text) (\s a -> s {roleARN = a} :: CloudwatchAlarmAction)
+{-# DEPRECATED caaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+
 instance Lude.FromJSON CloudwatchAlarmAction where
   parseJSON =
     Lude.withObject
       "CloudwatchAlarmAction"
       ( \x ->
           CloudwatchAlarmAction'
-            Lude.<$> (x Lude..: "roleArn")
-            Lude.<*> (x Lude..: "alarmName")
-            Lude.<*> (x Lude..: "stateReason")
+            Lude.<$> (x Lude..: "alarmName")
             Lude.<*> (x Lude..: "stateValue")
+            Lude.<*> (x Lude..: "stateReason")
+            Lude.<*> (x Lude..: "roleArn")
       )
 
 instance Lude.ToJSON CloudwatchAlarmAction where
   toJSON CloudwatchAlarmAction' {..} =
     Lude.object
       ( Lude.catMaybes
-          [ Lude.Just ("roleArn" Lude..= roleARN),
-            Lude.Just ("alarmName" Lude..= alarmName),
+          [ Lude.Just ("alarmName" Lude..= alarmName),
+            Lude.Just ("stateValue" Lude..= stateValue),
             Lude.Just ("stateReason" Lude..= stateReason),
-            Lude.Just ("stateValue" Lude..= stateValue)
+            Lude.Just ("roleArn" Lude..= roleARN)
           ]
       )

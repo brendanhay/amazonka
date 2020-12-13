@@ -30,22 +30,18 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkOrigins' smart constructor.
 data Origins = Origins'
-  { quantity :: Lude.Int,
+  { -- | The number of origins for this distribution.
+    quantity :: Lude.Int,
+    -- | A list of origins.
     items :: Lude.NonEmpty Origin
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Origins' with the minimum fields required to make a request.
 --
--- * 'items' - A list of origins.
 -- * 'quantity' - The number of origins for this distribution.
+-- * 'items' - A list of origins.
 mkOrigins ::
   -- | 'quantity'
   Lude.Int ->

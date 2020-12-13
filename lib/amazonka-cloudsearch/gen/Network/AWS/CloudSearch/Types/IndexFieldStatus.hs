@@ -17,8 +17,8 @@ module Network.AWS.CloudSearch.Types.IndexFieldStatus
     mkIndexFieldStatus,
 
     -- * Lenses
-    ifsOptions,
     ifsStatus,
+    ifsOptions,
   )
 where
 
@@ -31,37 +31,24 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkIndexFieldStatus' smart constructor.
 data IndexFieldStatus = IndexFieldStatus'
-  { options :: IndexField,
-    status :: OptionStatus
+  { status :: OptionStatus,
+    options :: IndexField
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'IndexFieldStatus' with the minimum fields required to make a request.
 --
--- * 'options' - Undocumented field.
--- * 'status' - Undocumented field.
+-- * 'status' -
+-- * 'options' -
 mkIndexFieldStatus ::
-  -- | 'options'
-  IndexField ->
   -- | 'status'
   OptionStatus ->
+  -- | 'options'
+  IndexField ->
   IndexFieldStatus
-mkIndexFieldStatus pOptions_ pStatus_ =
-  IndexFieldStatus' {options = pOptions_, status = pStatus_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifsOptions :: Lens.Lens' IndexFieldStatus IndexField
-ifsOptions = Lens.lens (options :: IndexFieldStatus -> IndexField) (\s a -> s {options = a} :: IndexFieldStatus)
-{-# DEPRECATED ifsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+mkIndexFieldStatus pStatus_ pOptions_ =
+  IndexFieldStatus' {status = pStatus_, options = pOptions_}
 
 -- | Undocumented field.
 --
@@ -70,7 +57,14 @@ ifsStatus :: Lens.Lens' IndexFieldStatus OptionStatus
 ifsStatus = Lens.lens (status :: IndexFieldStatus -> OptionStatus) (\s a -> s {status = a} :: IndexFieldStatus)
 {-# DEPRECATED ifsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifsOptions :: Lens.Lens' IndexFieldStatus IndexField
+ifsOptions = Lens.lens (options :: IndexFieldStatus -> IndexField) (\s a -> s {options = a} :: IndexFieldStatus)
+{-# DEPRECATED ifsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
 instance Lude.FromXML IndexFieldStatus where
   parseXML x =
     IndexFieldStatus'
-      Lude.<$> (x Lude..@ "Options") Lude.<*> (x Lude..@ "Status")
+      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")

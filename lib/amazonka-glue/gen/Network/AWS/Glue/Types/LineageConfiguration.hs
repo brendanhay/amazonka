@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLineageConfiguration' smart constructor.
 newtype LineageConfiguration = LineageConfiguration'
-  { crawlerLineageSettings ::
-      Lude.Maybe CrawlerLineageSettings
+  { -- | Specifies whether data lineage is enabled for the crawler. Valid values are:
+    --
+    --
+    --     * ENABLE: enables data lineage for the crawler
+    --
+    --
+    --     * DISABLE: disables data lineage for the crawler
+    crawlerLineageSettings :: Lude.Maybe CrawlerLineageSettings
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving newtype (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'LineageConfiguration' with the minimum fields required to make a request.

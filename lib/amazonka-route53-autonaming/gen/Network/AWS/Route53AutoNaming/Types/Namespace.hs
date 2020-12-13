@@ -38,35 +38,45 @@ import Network.AWS.Route53AutoNaming.Types.NamespaceType
 --
 -- /See:/ 'mkNamespace' smart constructor.
 data Namespace = Namespace'
-  { arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
+    arn :: Lude.Maybe Lude.Text,
+    -- | A unique string that identifies the request and that allows failed requests to be retried without the risk of executing an operation twice.
     creatorRequestId :: Lude.Maybe Lude.Text,
+    -- | The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
     createDate :: Lude.Maybe Lude.Timestamp,
+    -- | The number of services that are associated with the namespace.
     serviceCount :: Lude.Maybe Lude.Int,
+    -- | The name of the namespace, such as @example.com@ .
     name :: Lude.Maybe Lude.Text,
+    -- | The ID of a namespace.
     id :: Lude.Maybe Lude.Text,
+    -- | The type of the namespace. The methods for discovering instances depends on the value that you specify:
+    --
+    --
+    --     * @HTTP@ : Instances can be discovered only programmatically, using the AWS Cloud Map @DiscoverInstances@ API.
+    --
+    --
+    --     * @DNS_PUBLIC@ : Instances can be discovered using public DNS queries and using the @DiscoverInstances@ API.
+    --
+    --
+    --     * @DNS_PRIVATE@ : Instances can be discovered using DNS queries in VPCs and using the @DiscoverInstances@ API.
     type' :: Lude.Maybe NamespaceType,
+    -- | The description that you specify for the namespace when you create it.
     description :: Lude.Maybe Lude.Text,
+    -- | A complex type that contains information that's specific to the type of the namespace.
     properties :: Lude.Maybe NamespaceProperties
   }
-  deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
-    )
+  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
   deriving anyclass (Lude.Hashable, Lude.NFData)
 
 -- | Creates a value of 'Namespace' with the minimum fields required to make a request.
 --
 -- * 'arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the namespace when you create it.
--- * 'createDate' - The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 -- * 'creatorRequestId' - A unique string that identifies the request and that allows failed requests to be retried without the risk of executing an operation twice.
--- * 'description' - The description that you specify for the namespace when you create it.
--- * 'id' - The ID of a namespace.
--- * 'name' - The name of the namespace, such as @example.com@ .
--- * 'properties' - A complex type that contains information that's specific to the type of the namespace.
+-- * 'createDate' - The date that the namespace was created, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 -- * 'serviceCount' - The number of services that are associated with the namespace.
+-- * 'name' - The name of the namespace, such as @example.com@ .
+-- * 'id' - The ID of a namespace.
 -- * 'type'' - The type of the namespace. The methods for discovering instances depends on the value that you specify:
 --
 --
@@ -77,6 +87,10 @@ data Namespace = Namespace'
 --
 --
 --     * @DNS_PRIVATE@ : Instances can be discovered using DNS queries in VPCs and using the @DiscoverInstances@ API.
+--
+--
+-- * 'description' - The description that you specify for the namespace when you create it.
+-- * 'properties' - A complex type that contains information that's specific to the type of the namespace.
 mkNamespace ::
   Namespace
 mkNamespace =
